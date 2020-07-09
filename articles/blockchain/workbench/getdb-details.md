@@ -2,14 +2,14 @@
 title: Uzyskiwanie szczegółów bazy danych usługi Azure Blockchain Workbench
 description: Dowiedz się, jak uzyskać informacje dotyczące bazy danych i serwera bazy danych Azure łańcucha bloków Workbench w wersji zapoznawczej.
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: 2b3190a9d042be8ead1ff3d5ef48d4a2a19e8963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 898360d8e22803e17ff4da7d3b63f5595cad47ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324690"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254654"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Pobieranie informacji o bazie danych usługi Azure Blockchain Workbench
 
@@ -31,7 +31,7 @@ Aby połączyć się z bazą danych:
 1. Zaloguj się do Azure Portal przy użyciu konta z uprawnieniami **właściciela** dla zasobów usługi Azure łańcucha bloków Workbench.
 2. W lewym okienku nawigacji wybierz pozycję **Grupy zasobów**.
 3. Wybierz nazwę grupy zasobów dla danego wdrożenia usługi Blockchain Workbench.
-4. Wybierz **Typ**, aby posortować listę zasobów, a następnie wybierz **program SQL Server**. Posortowana lista na następnym zrzucie ekranu pokazuje dwie bazy danych SQL, „master” i drugą, która używa ciągu „lhgn” jako **prefiksu zasobów**.
+4. Wybierz **Typ**, aby posortować listę zasobów, a następnie wybierz **program SQL Server**. Posortowana lista w następnym ekranu przechwytywania pokazuje dwie bazy danych, "Master" i jeden, który używa "lhgn" jako **prefiksu zasobu**.
 
    ![Posortowana lista zasobów usługi Blockchain Workbench](./media/getdb-details/sorted-workbench-resource-list.png)
 

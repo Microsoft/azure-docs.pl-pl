@@ -7,17 +7,17 @@ author: adamabmsft
 manager: mtillman
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ec9a4daad139a4930174ba9e3445e1cda1f8c54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764047"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych platformy Azure
 
@@ -125,7 +125,7 @@ Zadeklaruj wymagane metadane szablonu i parametry w górnej części szablonu JS
 Po skonfigurowaniu szablonu należy wdrożyć go przy użyciu dowolnej z następujących metod:
 
 * [Interfejsy API REST](/rest/api/resources/deployments)
-* [Narzędzia](../azure-resource-manager/resource-group-template-deploy.md)
+* [Program PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [Strona wdrożenia szablonu Azure Portal](https://portal.azure.com/#create/Microsoft.Template)
 
@@ -387,7 +387,7 @@ Ten przykład pokazuje, czego można się spodziewać w tym artykule. Instrukcje
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Reprezentacja szablonu naszego przykładowego pulpitu nawigacyjnego
 
-Wersja szablonu pulpitu nawigacyjnego została zdefiniowana trzy parametry o nazwie `virtualMachineName`, `virtualMachineResourceGroup`, i `dashboardName`.  Parametry pozwalają wskazać ten pulpit nawigacyjny na innej maszynie wirtualnej platformy Azure przy każdym wdrożeniu. Ten pulpit nawigacyjny może być programowo skonfigurowany i wdrażany w taki sposób, aby wskazywał dowolną maszynę wirtualną platformy Azure. Aby przetestować tę funkcję, Skopiuj poniższy szablon i wklej go na [stronie wdrożenia szablonu Azure Portal](https://portal.azure.com/#create/Microsoft.Template).
+Wersja szablonu pulpitu nawigacyjnego została zdefiniowana trzy parametry o nazwie `virtualMachineName` , `virtualMachineResourceGroup` , i `dashboardName` .  Parametry pozwalają wskazać ten pulpit nawigacyjny na innej maszynie wirtualnej platformy Azure przy każdym wdrożeniu. Ten pulpit nawigacyjny może być programowo skonfigurowany i wdrażany w taki sposób, aby wskazywał dowolną maszynę wirtualną platformy Azure. Aby przetestować tę funkcję, Skopiuj poniższy szablon i wklej go na [stronie wdrożenia szablonu Azure Portal](https://portal.azure.com/#create/Microsoft.Template).
 
 W tym przykładzie jest wdrażany pulpit nawigacyjny, ale język szablonu umożliwia wdrożenie wielu zasobów i nawiązuje się do nich jeden lub więcej pulpitów nawigacyjnych.
 

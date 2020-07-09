@@ -13,27 +13,27 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ad3c9d702384b8a32a9d4f0c8aebe44de4bb526e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80337176"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209576"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsze Rejestracja i wdrożenie na platformie Azure urządzeń HSM z ich podstawowymi składnikami sieciowymi. Na koniec konfiguracja urządzeń HSM w przygotowaniu do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia HSM sieci firmy Thales Luna są takie same na platformie Azure, jak w przypadku zakupu bezpośrednio od firmy Thales, fakt, że jest to zasób na platformie Azure, tworzy pewne unikatowe uwagi. Te zagadnienia i wszelkie wynikłe rozwiązania dotyczące rozwiązywania problemów oraz najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest używana, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej bezpośrednio do firmy Microsoft lub firmy Thales. 
 
 > [!NOTE]
-> Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM, należy je zaktualizować przy użyciu wszelkich odpowiednich poprawek. Konkretna wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, który rozwiązuje problem z zawieszaniem się ponownego uruchomienia.
+> Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM, należy je zaktualizować przy użyciu wszelkich odpowiednich poprawek. Konkretna wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, który rozwiązuje problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania.
 
 ## <a name="hsm-registration"></a>Rejestracja modułu HSM
 
-Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu listy dozwolonych HSMrequest@microsoft.comza pośrednictwem poczty e-mail. 
+Dedykowany moduł HSM nie jest dostępny do użycia w miarę dostarczania zasobów sprzętowych w chmurze, a tym samym jest cennym zasobem, który wymaga ochrony. W związku z tym korzystamy z procesu listy dozwolonych za pośrednictwem poczty e-mail HSMrequest@microsoft.com . 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Uzyskiwanie dostępu do dedykowanego modułu HSM
 
-Jeśli uważasz, że dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu HSMrequest@microsoft.com kluczy, Wyślij wiadomość e-mail do żądania dostępu. Utwórz konspekt aplikacji, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
+Jeśli uważasz, że dedykowany moduł HSM będzie pasował do wymagań dotyczących magazynu kluczy, Wyślij wiadomość e-mail HSMrequest@microsoft.com do żądania dostępu. Utwórz konspekt aplikacji, regiony, które chcesz sprzętowych modułów zabezpieczeń i ilość szukanych sprzętowych modułów zabezpieczeń. Jeśli pracujesz z przedstawicielem firmy Microsoft, takim jak dyrektor ds. kont lub architektem rozwiązań w chmurze, na przykład Dołącz je do każdego żądania.
 
 ## <a name="hsm-provisioning"></a>Inicjowanie obsługi modułu HSM
 
@@ -63,7 +63,7 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 ```
 
 ### <a name="deployment-failure-based-on-quota"></a>Niepowodzenie wdrożenia na podstawie limitu przydziału
-Wdrożenia mogą zakończyć się niepowodzeniem w przypadku przekroczenia 2 sprzętowych modułów zabezpieczeń na sygnaturę i 4 sprzętowych modułów zabezpieczeń na region. Aby uniknąć tej sytuacji, upewnij się, że usunięto zasoby z wcześniej zakończonych niepowodzeniem wdrożeń przed ponownym wdrożeniem. Zapoznaj się z poniższym elementem "Jak mogę See sprzętowych modułów zabezpieczeń", aby sprawdzić zasoby. Jeśli uważasz, że musisz przekroczyć ten limit przydziału, który jest przede wszystkim w ramach zabezpieczeń, HSMrequest@microsoft.com Wyślij wiadomość e-mail ze szczegółowymi informacjami.
+Wdrożenia mogą zakończyć się niepowodzeniem w przypadku przekroczenia 2 sprzętowych modułów zabezpieczeń na sygnaturę i 4 sprzętowych modułów zabezpieczeń na region. Aby uniknąć tej sytuacji, upewnij się, że usunięto zasoby z wcześniej zakończonych niepowodzeniem wdrożeń przed ponownym wdrożeniem. Zapoznaj się z poniższym elementem "Jak mogę See sprzętowych modułów zabezpieczeń", aby sprawdzić zasoby. Jeśli uważasz, że musisz przekroczyć ten limit przydziału, który jest przede wszystkim w ramach zabezpieczeń, Wyślij wiadomość e-mail HSMrequest@microsoft.com ze szczegółowymi informacjami.
 
 ### <a name="deployment-failure-based-on-capacity"></a>Niepowodzenie wdrażania na podstawie pojemności
 Gdy określona sygnatura lub region jest zapełniony, oznacza to, że prawie wszystkie bezpłatne sprzętowych modułów zabezpieczeń są obsługiwane, co może prowadzić do niepowodzeń wdrażania. Każda sygnatura ma 11 sprzętowych modułów zabezpieczeń dostępnych dla klientów, co oznacza 22 dla regionu. W każdej sygnaturze znajdują się również 3 zapasy i 1 urządzenie testowe. Jeśli uważasz, że osiągnięto limit, Wyślij wiadomość e-mail HSMrequest@microsoft.com w celu uzyskania informacji na temat wypełniania określonych sygnatur.
@@ -105,7 +105,7 @@ Dostarczenie nieprawidłowych poświadczeń do sprzętowych modułów zabezpiecz
 | MODUŁ HSM | 3 |  Moduł HSM jest zerowy (wszystkie tożsamości obiektów HSM i wszystkie partycje zostaną usunięte)  |  Moduł HSM musi zostać ponownie zainicjowany. Zawartość można przywrócić z kopii zapasowych. | 
 | Podziel na partycje | 10 |  Partycja ma wartość zero. |  Partycja musi zostać zainicjowana ponownie. Zawartość można przywrócić z kopii zapasowej. |  
 | Inspekcja | 10 | Blokad | Odblokowane automatycznie po 10 minutach. |  
-| Oficer kryptograficzny | 10 (można je zmniejszyć) | Jeśli zasady HSM 15: Enable, tak aby Resetowanie numeru PIN partycji zostało ustawione na 1 (włączone), role CO i CU są zablokowane.<br>Jeśli zasady HSM 15: Enable, tak aby Resetowanie numeru PIN partycji zostało ustawione na 0 (wyłączone), role CO i CU są trwale zablokowane i zawartość partycji nie jest już dostępna. Jest to ustawienie domyślne. | Rola CO należy odblokować, a poświadczenia są resetowane przez partycję, a `role resetpw -name co`więc przy użyciu polecenia.<br>Partycja musi być zainicjowana ponownie i materiał klucza przywrócony z urządzenia kopii zapasowej. |  
+| Oficer kryptograficzny | 10 (można je zmniejszyć) | Jeśli zasady HSM 15: Enable, tak aby Resetowanie numeru PIN partycji zostało ustawione na 1 (włączone), role CO i CU są zablokowane.<br>Jeśli zasady HSM 15: Enable, tak aby Resetowanie numeru PIN partycji zostało ustawione na 0 (wyłączone), role CO i CU są trwale zablokowane i zawartość partycji nie jest już dostępna. Jest to ustawienie domyślne. | Rola CO należy odblokować, a poświadczenia są resetowane przez partycję, a więc przy użyciu polecenia `role resetpw -name co` .<br>Partycja musi być zainicjowana ponownie i materiał klucza przywrócony z urządzenia kopii zapasowej. |  
 
 ## <a name="hsm-configuration"></a>Konfiguracja modułu HSM 
 
@@ -120,7 +120,7 @@ Należy zachować ostrożność podczas konfigurowania sieci w module HSM.  Modu
 
 ### <a name="hsm-device-reboot"></a>Ponowne uruchomienie urządzenia HSM
 
-Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może się zawiesić. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w plikach firmy Thales Luna Network HSM 7,2 dla zalecanej poprawki, aby rozwiązać problem z ponownym uruchomieniem systemu (Uwaga: konieczne będzie zarejestrowanie się w portalu pomocy technicznej firmy Thales do pobrania).
+Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może przestać odpowiadać. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w programie firmy Thales Luna Network HSM 7,2 pobieranie dla zalecanej poprawki, aby rozwiązać problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania (Uwaga: należy zarejestrować się w portalu pomocy technicznej firmy Thales do pobrania).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS certyfikaty poza synchronizacją
 Klient może utracić połączenie z modułem HSM, gdy certyfikat wygaśnie lub został nadpisany przez aktualizacje konfiguracji. Konfiguracja klienta wymiany certyfikatów powinna być stosowana ponownie z każdym modułem HSM.

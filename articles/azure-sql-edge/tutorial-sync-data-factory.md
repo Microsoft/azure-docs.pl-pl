@@ -2,19 +2,19 @@
 title: Synchronizuj dane z usługi Azure SQL Edge (wersja zapoznawcza) za pomocą Azure Data Factory
 description: Informacje o synchronizowaniu danych między usługą Azure SQL Edge (wersja zapoznawcza) i magazynem obiektów blob platformy Azure
 keywords: SQL Edge, synchronizacja danych z programu SQL Edge, Fabryka danych programu SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 1238505a10214c315bd5f2ceb428cf097b3ef5c6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599661"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255436"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Samouczek: Synchronizowanie danych z programu SQL Edge z usługą Azure Blob Storage za pomocą Azure Data Factory
 
@@ -25,10 +25,10 @@ W tym samouczku użyjesz Azure Data Factory do przyrostowej synchronizacji danyc
 Jeśli baza danych lub tabela nie została jeszcze utworzona w ramach wdrożenia usługi Azure SQL Edge, użyj jednej z następujących metod, aby ją utworzyć:
 
 * Użyj [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) lub [Azure Data Studio](/sql/azure-data-studio/download/) , aby nawiązać połączenie z usługą SQL Edge. Uruchom skrypt SQL, aby utworzyć bazę danych i tabelę.
-* Tworzenie bazy danych SQL i tabeli przy użyciu narzędzia [sqlcmd](/sql/tools/sqlcmd-utility/) przez bezpośrednie łączenie się z modułem programu SQL Edge. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z aparatem bazy danych przy użyciu narzędzia sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
-* Użyj programu sqlpackage. exe, aby wdrożyć plik pakietu DAC do kontenera programu SQL Edge. Proces ten można zautomatyzować, określając identyfikator URI pliku sqlpackage jako część konfiguracji żądanych właściwości modułu. Można również bezpośrednio użyć narzędzia klienta sqlpackage. exe do wdrożenia pakietu DAC do programu SQL Edge.
+* Tworzenie bazy danych i tabeli przy użyciu narzędzia [sqlcmd](/sql/tools/sqlcmd-utility/) przez bezpośrednie łączenie się z modułem programu SQL Edge. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z aparatem bazy danych przy użyciu narzędzia sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Użyj SQLPackage.exe, aby wdrożyć plik pakietu DAC do kontenera programu SQL Edge. Proces ten można zautomatyzować, określając identyfikator URI pliku sqlpackage jako część konfiguracji żądanych właściwości modułu. Można również bezpośrednio użyć narzędzia klienta SqlPackage.exe, aby wdrożyć pakiet DAC do programu SQL Edge.
 
-    Aby uzyskać informacje na temat pobierania pliku sqlpackage. exe, zobacz [Pobierz i zainstaluj pakiet sqlpackage](/sql/tools/sqlpackage-download/). Poniżej przedstawiono kilka przykładowych poleceń dla elementu sqlpackage. exe. Aby uzyskać więcej informacji, zobacz dokumentację programu sqlpackage. exe.
+    Aby uzyskać informacje na temat pobierania SqlPackage.exe, zobacz [pobieranie i Instalowanie elementu sqlpackage](/sql/tools/sqlpackage-download/). Poniżej przedstawiono kilka przykładowych poleceń dla SqlPackage.exe. Aby uzyskać więcej informacji, zobacz dokumentację SqlPackage.exe.
 
     **Tworzenie pakietu DAC**
 
@@ -198,7 +198,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
     |Nazwa|Typ|Wartość|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
-    |TableName|String|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
+    |TableName|Ciąg|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
 
 33. Aby sprawdzić poprawność ustawień potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **raport weryfikacji potoku** , wybierz opcję **>>** .
 

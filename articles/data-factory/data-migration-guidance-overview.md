@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4408546c892299e5bbbc22b00a4b334c36eda616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416430"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure
@@ -52,7 +52,7 @@ Istnieją trzy kluczowe zagadnienia związane z podejściem do migracji w trybie
 
 Załóżmy na przykład, że planujesz użyć Azure Data Factory, aby ukończyć migrację danych w ciągu dwóch tygodni ( *okna migracji*). Zwróć uwagę na różowe/niebieskie linie wycinania w poniższej tabeli. Najniższa różowa komórka dla każdej podanej kolumny pokazuje rozmiar danych/parowanie przepustowości sieci, których okno migracji jest najbliższe, ale nie mniej niż dwa tygodnie. (Każdy parowanie rozmiaru/przepustowości w niebieskiej komórce ma okno migracji online o więcej niż dwa tygodnie). 
 
-![w trybie online i](media/data-migration-guidance-overview/online-offline.png) w trybie offline ta tabela ułatwia określenie, czy można dopasować zamierzone okno migracji za pośrednictwem migracji w trybie online (Azure Data Factory) na podstawie rozmiaru danych i dostępnej przepustowości sieci. Jeśli okno migracji online ma więcej niż dwa tygodnie, należy użyć migracji w trybie offline.
+![w trybie online i w trybie offline ](media/data-migration-guidance-overview/online-offline.png) Ta tabela ułatwia określenie, czy można dopasować zamierzone okno migracji za pośrednictwem migracji w trybie online (Azure Data Factory) na podstawie rozmiaru danych i dostępnej przepustowości sieci. Jeśli okno migracji online ma więcej niż dwa tygodnie, należy użyć migracji w trybie offline.
 
 > [!NOTE]
 > Korzystając z migracji w trybie online, można osiągnąć zarówno dane historyczne ładowania, jak i przyrostowe źródła danych za pomocą jednego narzędzia.  Dzięki tej metodzie dane można synchronizować między istniejącym magazynem a nowym magazynem podczas całego okna migracji. Oznacza to, że można ponownie skompilować logikę ETL w nowym sklepie przy użyciu odświeżonych danych.

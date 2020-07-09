@@ -10,14 +10,14 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: c9304f4a958360d01d404d9b510feb5659e5436d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746745"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983309"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Zmiana metody i ustawień weryfikacji dwuskładnikowej
 
@@ -88,7 +88,7 @@ Możesz dodać nowe numery telefonów lub zaktualizować istniejące numery na s
 
 1. Na stronie **jak chcesz odpowiedzieć?** w sekcji **dodatkowa Weryfikacja zabezpieczeń** Zaktualizuj informacje o numerze telefonu dla **telefonu uwierzytelniania** (podstawowego urządzenia przenośnego) i **telefonu biurowego**.
 
-1. Zaznacz pole wyboru obok opcji **alternatywny numer telefonu uwierzytelniania** , a następnie wpisz dodatkową liczbę telefonów, w której można odbierać wiadomości tekstowe lub połączenia telefoniczne, jeśli nie możesz uzyskać dostępu do urządzenia podstawowego.
+1. Zaznacz pole obok opcji **numer telefonu uwierzytelniania alternatywnego** , a następnie wpisz dodatkowy numer telefonu, w którym można odbierać połączenia telefoniczne, jeśli nie możesz uzyskać dostępu do urządzenia podstawowego.
 
 1. Wybierz pozycję **Zapisz**.
 

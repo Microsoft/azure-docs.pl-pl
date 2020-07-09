@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83841349ec7563231653cd063791e19ae2af4857
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71056817"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130679"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Rozwiązywanie problemów z łącznością między maszynami wirtualnymi platformy Azure
 
@@ -81,11 +81,15 @@ Możesz użyć jednej z następujących metod, aby sprawdzić, czy aplikacja lub
 
 **Maszyna wirtualna z systemem Windows**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Maszyna wirtualna z systemem Linux**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Uruchom polecenie **Telnet** na maszynie wirtualnej, aby przetestować port. Jeśli test zakończy się niepowodzeniem, aplikacja lub usługa nie jest skonfigurowana do nasłuchiwania na tym porcie.
 

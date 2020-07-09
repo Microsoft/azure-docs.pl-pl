@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0cbe91de889b787d6f417afbe74720b40c3026e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657140"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833387"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
@@ -38,7 +38,8 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
 2.1 | Greenwich. RELEASE
-2,2 | Hoxton. RELEASE
+2.2 | Hoxton. RELEASE
+2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
 
@@ -91,7 +92,31 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależnośc
         </dependencies>
     </dependencyManagement>
 ```
+### <a name="dependencies-for-spring-boot-version-23"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,3
 
+W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujące zależności do pliku pliku pom aplikacji.
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
 ## <a name="azure-spring-cloud-client-dependency"></a>Zależność klienta chmury ze sprężyną Azure
 
 Usługa Azure wiosny Cloud hostuje i zarządza składnikami chmury Wiosnowej. Składniki obejmują rejestr usługi w chmurze ze sprężyną i wiosną serwerów konfiguracji chmury. Uwzględnij w zależnościach bibliotekę kliencką chmury platformy Azure, aby umożliwić komunikację z wystąpieniem usługi w chmurze ze sprężyną Azure.
@@ -101,9 +126,10 @@ W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla a
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja chmury wiosennej platformy Azure
 ---|---|---
 2.1 | Greenwich. RELEASE | 2.1
-2,2 | Hoxton. RELEASE | 2,2
+2.2 | Hoxton. RELEASE | 2.2
+2.3 | Hoxton.SR5 | 2.3
 
-Uwzględnij jedną z następujących zależności w pliku pliku pom. XML. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.
+Uwzględnij jedną z następujących zależności w pliku pom.xml. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.
 
 ### <a name="dependency-for-azure-spring-cloud-version-21"></a>Zależność dla chmury wiosennej platformy Azure w wersji 2,1
 
@@ -113,7 +139,7 @@ W przypadku rozruchu sprężynowego w wersji 2,1 Dodaj następujący zależnoś�
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.1</version>
+        <version>2.1.2</version>
 </dependency>
 ```
 
@@ -125,7 +151,17 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujący zależnoś�
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.0</version>
+        <version>2.2.1</version>
+</dependency>
+```
+
+W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujący zależność do pliku pliku pom aplikacji.
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.3.0</version>
 </dependency>
 ```
 
@@ -135,7 +171,7 @@ Aby włączyć funkcje wbudowane w chmurze Azure wiosennej z rejestru usługi do
 
 ### <a name="service-registry"></a>Rejestr usługi
 
-Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy uwzględnić `spring-cloud-starter-netflix-eureka-client` zależność w pliku pliku pom. XML, jak pokazano poniżej:
+Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy uwzględnić `spring-cloud-starter-netflix-eureka-client` zależność w pliku pom.xml, jak pokazano poniżej:
 
 ```xml
     <dependency>
@@ -174,7 +210,7 @@ public class GatewayApplication {
 
 ### <a name="distributed-configuration"></a>Konfiguracja rozproszona
 
-Aby włączyć konfigurację rozproszoną, `spring-cloud-config-client` w sekcji zależności pliku pliku pom. XML Uwzględnij następującą zależność:
+Aby włączyć konfigurację rozproszoną, `spring-cloud-config-client` w sekcji zależności pliku pom.xml Uwzględnij następującą zależność:
 
 ```xml
 <dependency>
@@ -188,7 +224,7 @@ Aby włączyć konfigurację rozproszoną, `spring-cloud-config-client` w sekcji
 
 ### <a name="metrics"></a>Metryki
 
-Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pliku pliku pom. XML, jak pokazano poniżej:
+Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pliku pom.xml, jak pokazano poniżej:
 
 ```xml
 <dependency>
@@ -199,9 +235,12 @@ Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pl
 
  Metryki są okresowo ściągane z punktów końcowych JMX. Możesz wizualizować metryki przy użyciu Azure Portal.
 
+ > [!WARNING]
+ > Określ `spring.jmx.enabled=true` we właściwości konfiguracji. W przeciwnym razie metryki nie można wizualizować w Azure Portal.
+
 ### <a name="distributed-tracing"></a>Śledzenie rozproszone
 
-Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pliku pom. XML:
+Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pom.xml:
 
 ```xml
 <dependency>

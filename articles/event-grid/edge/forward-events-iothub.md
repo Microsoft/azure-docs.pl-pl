@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844704"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Samouczek: Przekazywanie zdarzeń do IoTHub
@@ -40,7 +39,7 @@ Aby można było ukończyć ten samouczek, potrzebne są:
 
 Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. Temat odnosi się do punktu końcowego, w którym wydawcy mogą wysyłać zdarzenia do programu.
 
-1. Utwórz plik topic4. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz topic4.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
    ```json
     {
@@ -84,7 +83,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz plik subscription4. JSON z poniższą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz subscription4.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
    ```json
     {
@@ -100,7 +99,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
    ```
 
    >[!NOTE]
-   > `endpointType` Określa, że subskrybent jest `edgeHub`. `outputName` Określa dane wyjściowe, na których moduł Event Grid będzie kierować zdarzenia, które pasują do tej subskrypcji do edgeHub. Na przykład zdarzenia, które pasują do powyższej subskrypcji, `/messages/modules/eventgridmodule/outputs/sampleSub4`będą zapisywane w.
+   > `endpointType`Określa, że subskrybent jest `edgeHub` . `outputName`Określa dane wyjściowe, na których moduł Event Grid będzie kierować zdarzenia, które pasują do tej subskrypcji do edgeHub. Na przykład zdarzenia, które pasują do powyższej subskrypcji, będą zapisywane w `/messages/modules/eventgridmodule/outputs/sampleSub4` .
 2. Uruchom następujące polecenie, aby utworzyć subskrypcję. Należy zwrócić kod stanu HTTP 200 OK.
 
     ```sh
@@ -147,7 +146,7 @@ Zaktualizuj trasę centrum brzegowego, aby przesłać dalej zdarzenia subskrypcj
   "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
   ```
 
-  Na przykład:
+  Na przykład
 
   ```json
   {
@@ -168,7 +167,7 @@ Zapoznaj się z [samouczkiem dotyczącym routingu IoT Hub](../../iot-hub/tutoria
 
 ## <a name="publish-an-event"></a>Publikowanie zdarzenia
 
-1. Utwórz plik event4. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz event4.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         [

@@ -6,15 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fe98e04c37172dc6b91c86fab8200022ed860d4f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170107"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445444"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -30,35 +29,23 @@ Aby uzyskać więcej informacji i dowiedzieć się, jak zarejestrować się w ce
 
 ## <a name="install-the-preview-module"></a>Instalowanie modułu podglądu
 
-Aby skonfigurować przywracanie do punktu w czasie platformy Azure za pomocą programu PowerShell, najpierw Zainstaluj wersję [1.14.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) modułu programu PowerShell AZ. Storage. Wykonaj następujące kroki, aby zainstalować moduł w wersji zapoznawczej:
+Aby skonfigurować przywracanie do punktu w czasie platformy Azure przy użyciu programu PowerShell, najpierw zainstaluj moduł AZ. Storage Preview w wersji 1.14.1-Preview lub nowszej. Zalecane jest korzystanie z najnowszej wersji zapoznawczej, ale w wersji 1.14.1 — wersja zapoznawcza i nowsza. Usuń wszystkie inne wersje modułu AZ. Storage.
 
-1. Odinstaluj wszystkie poprzednie instalacje Azure PowerShell z systemu Windows za pomocą ustawienia **aplikacje & funkcje** w obszarze **Ustawienia**.
+Następujące polecenie instaluje AZ. Storage [2.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) module:
 
-1. Upewnij się, że masz zainstalowaną najnowszą wersję programu PowerShellGet. Otwórz okno programu Windows PowerShell i uruchom następujące polecenie, aby zainstalować najnowszą wersję:
+```powershell
+Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
+```
 
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-1. Zamknij i ponownie otwórz okno programu PowerShell po zainstalowaniu PowerShellGet.
-
-1. Zainstaluj najnowszą wersję Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Zainstaluj moduł AZ. Storage Preview:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.14.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
+Powyższe polecenie wymaga zainstalowania wersji 2.2.4.1 lub nowszej z PowerShellGet. Aby określić, która wersja została załadowana:
+```powershell
+Get-Module PowerShellGet
+```
 Aby uzyskać więcej informacji o instalowaniu Azure PowerShell, zobacz [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Włącz i skonfiguruj przywracanie do punktu w czasie
 
-Przed włączeniem i skonfigurowaniem przywracania do punktu w czasie Włącz jego wymagania wstępne: usuwanie nietrwałe, Źródło zmian i przechowywanie wersji obiektów BLOB. Aby uzyskać więcej informacji na temat włączania każdej z tych funkcji, zobacz następujące artykuły:
+Przed włączeniem i skonfigurowaniem przywracania do punktu w czasie należy włączyć jego wymagania wstępne dla konta magazynu: usuwanie nietrwałe, Źródło zmian i przechowywanie wersji obiektów BLOB. Aby uzyskać więcej informacji na temat włączania każdej z tych funkcji, zobacz następujące artykuły:
 
 - [Włącz usuwanie nietrwałe dla obiektów BLOB](soft-delete-enable.md)
 - [Włączanie i wyłączanie kanału informacyjnego zmiany](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
@@ -99,7 +86,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Wykonaj operację przywracania
 
-Aby zainicjować operację przywracania, wywołaj polecenie Restore-AzStorageBlobRange, określając punkt przywracania jako wartość **daty i godziny** UTC. Można określić zakresy lexicographical obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie obiekty blob we wszystkich kontenerach na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical. Wykonanie operacji przywracania może potrwać kilka minut.
+Aby zainicjować operację przywracania, wywołaj polecenie **Restore-AzStorageBlobRange** , określając punkt przywracania jako wartość **daty i godziny** UTC. Można określić zakresy lexicographical obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie obiekty blob we wszystkich kontenerach na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical. Do przywracania nie są uwzględniane stronicowe obiekty blob i dołączane obiekty blob. Wykonanie operacji przywracania może potrwać kilka minut.
 
 Należy pamiętać o następujących regułach podczas określania zakresu obiektów BLOB do przywrócenia:
 
@@ -115,7 +102,7 @@ Należy pamiętać o następujących regułach podczas określania zakresu obiek
 
 ### <a name="restore-all-containers-in-the-account"></a>Przywróć wszystkie kontenery na koncie
 
-Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu, wywołaj polecenie Restore-AzStorageBlobRange, pomijając `-BlobRestoreRange` parametr. Poniższy przykład przywraca kontenery na koncie magazynu do ich stanu 12 godzin przed chwilą:
+Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu, wywołaj polecenie **Restore-AzStorageBlobRange** , pomijając `-BlobRestoreRange` parametr. Poniższy przykład przywraca kontenery na koncie magazynu do ich stanu 12 godzin przed chwilą:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -126,7 +113,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-a-single-range-of-block-blobs"></a>Przywracanie pojedynczego zakresu blokowych obiektów BLOB
 
-Aby przywrócić zakres obiektów blob, wywołaj polecenie Restore-AzStorageBlobRange i określ zakres lexicographical kontenerów i nazw obiektów BLOB dla `-BlobRestoreRange` parametru. Początek zakresu jest w włącznie, a koniec zakresu jest na wyłączność.
+Aby przywrócić zakres obiektów blob, wywołaj polecenie **Restore-AzStorageBlobRange** i określ zakres lexicographical kontenerów i nazw obiektów BLOB dla `-BlobRestoreRange` parametru. Początek zakresu jest w włącznie, a koniec zakresu jest na wyłączność.
 
 Na przykład, aby przywrócić obiekty blob w pojedynczym kontenerze o nazwie *Sample-Container*, można określić zakres, który rozpoczyna się od *przykładowego kontenera* i kończyć się *próbką-container1*. Nie ma wymagań dotyczących kontenerów o nazwie w zakresach początkowych i końcowych do istniejących. Ponieważ koniec zakresu ma charakter wyłączny, nawet jeśli konto magazynu zawiera kontener o nazwie *Sample-container1*, przywrócony zostanie tylko kontener o nazwie *Sample-Container* :
 
@@ -140,7 +127,7 @@ Aby określić podzestaw obiektów BLOB w kontenerze do przywrócenia, użyj uko
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
 ```
 
-Następnie podaj zakres do polecenia Restore-AzStorageBlobRange. Określ punkt przywracania, podając wartość **daty i godziny** UTC dla `-TimeToRestore` parametru. Poniższy przykład przywraca obiekty blob w określonym zakresie do ich stanu 3 dni przed obecną chwilą:
+Następnie podaj zakres do polecenia **Restore-AzStorageBlobRange** . Określ punkt przywracania, podając wartość **daty i godziny** UTC dla `-TimeToRestore` parametru. Poniższy przykład przywraca obiekty blob w określonym zakresie do ich stanu 3 dni przed obecną chwilą:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -155,7 +142,9 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 Aby przywrócić wiele zakresów blokowych obiektów blob, określ tablicę zakresów dla `-BlobRestoreRange` parametru. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów. W poniższym przykładzie określono dwa zakresy, aby przywrócić kompletną zawartość *container1* i *container4*:
 
 ```powershell
+# Specify a range that includes the complete contents of container1.
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2
+# Specify a range that includes the complete contents of container4.
 $range2 = New-AzStorageBlobRangeToRestore -StartRange container4 -EndRange container5
 
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
@@ -163,6 +152,31 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddMinutes(-30) `
     -BlobRestoreRange @($range1, $range2)
 ```
+
+### <a name="restore-block-blobs-asynchronously"></a>Asynchroniczne przywracanie blokowych obiektów BLOB
+
+Aby uruchomić operację przywracania asynchronicznie, Dodaj `-AsJob` parametr do wywołania **Restore-AzStorageBlobRange** i Zapisz wynik wywołania w zmiennej. Polecenie **Restore-AzStorageBlobRange** zwraca obiekt typu **AzureLongRunningJob**. Możesz sprawdzić Właściwość **State** tego obiektu, aby określić, czy operacja przywracania została ukończona. Wartość właściwości **State** może być **uruchomiona** lub **zakończona**.
+
+Poniższy przykład pokazuje, jak wywołać operację przywracania asynchronicznie:
+
+```powershell
+$job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddMinutes(-5) `
+    -AsJob
+
+# Check the state of the job.
+$job.State
+```
+
+Aby poczekać na zakończenie operacji przywracania po jej uruchomieniu, wywołaj polecenie [wait-Job](/powershell/module/microsoft.powershell.core/wait-job) , jak pokazano w następującym przykładzie:
+
+```powershell
+$job | Wait-Job
+```
+
+## <a name="known-issues"></a>Znane problemy
+- Przywracanie nie powiedzie się dla podzestawu przywracania, w którym znajdują się dołączane obiekty blob. Na razie nie należy wykonywać operacji przywracania, jeśli w ramach konta znajdują się w niej obiekty blob.
 
 ## <a name="next-steps"></a>Następne kroki
 

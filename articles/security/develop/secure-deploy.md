@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68934885"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Wdrażanie bezpiecznych aplikacji na platformie Azure
@@ -25,10 +24,10 @@ W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, któ
 
 Następujące fazy SDL zostały omówione w tym artykule:
 
-- Release
+- Wydanie
 - Odpowiedź
 
-## <a name="release"></a>Release
+## <a name="release"></a>Wydanie
 Fokus fazy wydania jest gotowy do projektu dla wydania publicznego.
 Obejmuje to planowanie sposobów efektywnego wykonywania zadań obsługi po wydaniu i rozwiązywania luk w zabezpieczeniach, które mogą wystąpić później.
 

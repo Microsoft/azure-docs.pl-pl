@@ -7,19 +7,20 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 1c3a73cba6a2ece0c9c7459b3515f053a648d683
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 75e20a4fb91b73bc353d347f0b34f9be8f7a8a58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81408608"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709950"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Metryki translatora adresów sieciowych na platformie Azure Virtual Network
 
@@ -35,7 +36,7 @@ Zasoby bramy translatora adresów sieciowych w usłudze Azure Virtual Network za
 
 Zasoby bramy NAT zapewniają następujące wielowymiarowe metryki w Azure Monitor:
 
-| Metryka | Opis | Zalecana agregacja | Wymiary |
+| Metric | Opis | Zalecana agregacja | Wymiary |
 |---|---|---|---|
 | Bajty | Przetworzone bajty przychodzące i wychodzące | Suma | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |
 | SPI | Pakiety przetworzone do ruchu przychodzącego i wychodzącego | Suma | Kierunek (w; Out), protokół (6 TCP; 17 UDP) |

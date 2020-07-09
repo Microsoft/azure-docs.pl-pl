@@ -1,23 +1,14 @@
 ---
 title: Odczytywanie danych z platformy Azure Event Hubs przechwycone z aplikacji w języku Python (Najnowsza wersja)
 description: W tym artykule opisano sposób pisania kodu w języku Python w celu przechwytywania danych wysyłanych do centrum zdarzeń i odczytywania przechwyconych danych zdarzeń z konta usługi Azure Storage.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/30/2020
-ms.author: spelluru
-ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159339"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315297"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Przechwytywanie danych Event Hubs w usłudze Azure Storage i odczytywanie ich przy użyciu języka Python (Azure-eventhub w wersji 5)
 
@@ -89,7 +80,7 @@ W tej sekcji utworzysz skrypt języka Python, który wysyła zdarzenia 200 (10 u
     producer.close()
     ```
 4. Zastąp następujące wartości w skryptach:  
-    * Zamień `EVENT HUBS NAMESPACE CONNECTION STRING` na parametry połączenia dla przestrzeni nazw Event Hubs.  
+    * Zamień na `EVENT HUBS NAMESPACE CONNECTION STRING` Parametry połączenia dla przestrzeni nazw Event Hubs.  
     * Zamień `EVENT HUB NAME` na nazwę centrum zdarzeń.  
 5. Uruchom skrypt, aby wysłać zdarzenia do centrum zdarzeń.  
 6. W Azure Portal można sprawdzić, czy centrum zdarzeń odebrało komunikaty. Przejdź do widoku **komunikaty** w sekcji **metryki** . Odśwież stronę, aby zaktualizować wykres. Wyświetlanie komunikatów przez stronę może potrwać kilka sekund. 
@@ -157,7 +148,7 @@ W tym przykładzie przechwycone dane są przechowywane w usłudze Azure Blob Sto
     
     startProcessing()    
     ```
-3. Zamień `AZURE STORAGE CONNECTION STRING` na parametry połączenia dla konta usługi Azure Storage. Nazwa kontenera utworzonego w tym przewodniku szybki start to *przechwytywanie*. Jeśli użyto innej nazwy kontenera, Zastąp *przechwycenie* nazwą kontenera na koncie magazynu. 
+3. Zamień na `AZURE STORAGE CONNECTION STRING` Parametry połączenia dla konta usługi Azure Storage. Nazwa kontenera utworzonego w tym przewodniku szybki start to *przechwytywanie*. Jeśli użyto innej nazwy kontenera, Zastąp *przechwycenie* nazwą kontenera na koncie magazynu. 
 
 ## <a name="run-the-scripts"></a>Uruchamianie skryptów
 1. Otwórz wiersz polecenia z językiem Python w swojej ścieżce, a następnie uruchom następujące polecenia, aby zainstalować wstępnie wymagane pakiety języka Python:

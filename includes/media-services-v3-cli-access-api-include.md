@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -9,17 +9,17 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461235"
 ---
 ### <a name="access-the-media-services-api"></a>Uzyskiwanie dostępu do interfejsu API usługi Media Services
 
 Aby nawiązać połączenie z interfejsami API usługi Azure Media Services, musisz użyć uwierzytelniania związanego z nazwą główną usługi Azure AD. Poniższe polecenie powoduje utworzenie aplikacji usługi Azure AD i dołączenie nazwy głównej usługi do konta. Skonfiguruj aplikację przy użyciu zwróconych wartości.
 
-Przed uruchomieniem skryptu należy zastąpić nazwy `amsaccount` i `amsResourceGroup` , które zostały wybrane podczas tworzenia tych zasobów. `amsaccount` to nazwa konta usługi Azure Media Services, do którego zostanie dołączona nazwa główna usługi.
+Przed uruchomieniem skryptu należy zastąpić `amsaccount` nazwy i, `amsResourceGroup` które zostały wybrane podczas tworzenia tych zasobów. `amsaccount` to nazwa konta usługi Azure Media Services, do którego zostanie dołączona nazwa główna usługi.
 
 Jeśli masz dostęp do wielu subskrypcji, najpierw ustaw aktywną subskrypcję na subskrypcję, w której utworzono konto Media Services.
 

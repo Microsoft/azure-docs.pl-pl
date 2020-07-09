@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945413"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
@@ -179,6 +179,10 @@ Skoroszyty są zapisywane w grupie zasobów w sekcji **Moje raporty** lub w sekc
 Po zapisaniu skoroszytu niestandardowego przejdź do galerii skoroszytów, aby go otworzyć.
 
 ![Pasek poleceń z wyróżnioną galerią](./media/cosmosdb-insights-overview/gallery.png)
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule dotyczącym szczegółowych informacji o [rozwiązywaniu problemów](troubleshoot-workbooks.md)opartych na skoroszycie.
 
 ## <a name="next-steps"></a>Następne kroki
 

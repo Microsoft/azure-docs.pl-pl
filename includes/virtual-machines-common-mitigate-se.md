@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73935884"
 ---
 **Ostatnia aktualizacja dokumentu**: 12 listopada 2019 10:00 am.
@@ -101,17 +101,17 @@ Windows OS support for MDS mitigation is enabled: True
 Windows OS support for TAA mitigation is enabled: True
 ```
 
-Jeśli dane wyjściowe są `MDS mitigation is enabled: False`widoczne, [skontaktuj się z pomocą techniczną platformy Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) , aby uzyskać dostępne opcje zaradcze.
+Jeśli dane wyjściowe są widoczne `MDS mitigation is enabled: False` , [skontaktuj się z pomocą techniczną platformy Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) , aby uzyskać dostępne opcje zaradcze.
 
 
 
-**Krok 3**. Aby włączyć obsługę systemu operacyjnego jądra (Kvas) i system operacyjny wtrysku docelowej gałęzi (BTI), postępuj zgodnie z instrukcjami w [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) , aby włączyć ochronę `Session Manager` przy użyciu kluczy rejestru. Wymagany jest ponowny rozruch.
+**Krok 3**. Aby włączyć obsługę systemu operacyjnego jądra (Kvas) i system operacyjny wtrysku docelowej gałęzi (BTI), postępuj zgodnie z instrukcjami w [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) , aby włączyć ochronę przy użyciu `Session Manager` kluczy rejestru. Wymagany jest ponowny rozruch.
 
 
 **Krok 4**. w przypadku wdrożeń korzystających z [wirtualizacji zagnieżdżonej](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (tylko D3 i E3): te instrukcje są stosowane w ramach maszyny wirtualnej, która jest używana jako host funkcji Hyper-V.
 
-1.  Postępuj zgodnie z instrukcjami w [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) , aby włączyć ochronę `MinVmVersionForCpuBasedMitigations` przy użyciu kluczy rejestru.
-2.  Ustaw typ `Core` harmonogramu funkcji hypervisor, postępując zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+1.  Postępuj zgodnie z instrukcjami w [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) , aby włączyć ochronę przy użyciu `MinVmVersionForCpuBasedMitigations` kluczy rejestru.
+2.  Ustaw typ harmonogramu funkcji hypervisor, `Core` postępując zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
@@ -119,11 +119,11 @@ Jeśli dane wyjściowe są `MDS mitigation is enabled: False`widoczne, [skontakt
 <a name="linux"></a>Włączenie zestawu dodatkowych funkcji zabezpieczeń w programie wymaga pełnej Aktualności systemu operacyjnego. Niektóre środki zaradcze zostaną domyślnie włączone. W poniższej sekcji opisano funkcje, które są domyślnie wyłączone i/lub oparte na obsłudze sprzętu (włączenia mikrokodu). Włączenie tych funkcji może spowodować wpływ na wydajność. Dodatkowe instrukcje zawiera dokumentacja dostawcy systemu operacyjnego
 
 
-**Krok 1. wyłączenie funkcji wielowątkowości na maszynie wirtualnej** — klienci z uruchomionym niezaufanym kodem na maszynie wirtualnej z funkcją Hyper-Threading będą musieli wyłączyć funkcję Hyper-Threading lub przenieść ją na maszynę wirtualną, która nie jest wielowątkowa.  Odwołuje się do [tego dokumentu](https://docs.microsoft.com/azure/virtual-machines/linux/acu) , aby uzyskać listę rozmiarów maszyn wirtualnych z funkcją Hyper-Threading (stosunek vCPU do rdzeń to 2:1). Aby sprawdzić, czy uruchomiono maszynę wirtualną z funkcją Hyper-threaded `lscpu` , uruchom polecenie na maszynie wirtualnej z systemem Linux. 
+**Krok 1. wyłączenie funkcji wielowątkowości na maszynie wirtualnej** — klienci z uruchomionym niezaufanym kodem na maszynie wirtualnej z funkcją Hyper-Threading będą musieli wyłączyć funkcję Hyper-Threading lub przenieść ją na maszynę wirtualną, która nie jest wielowątkowa.  Odwołuje się do [tego dokumentu](https://docs.microsoft.com/azure/virtual-machines/linux/acu) , aby uzyskać listę rozmiarów maszyn wirtualnych z funkcją Hyper-Threading (stosunek vCPU do rdzeń to 2:1). Aby sprawdzić, czy uruchomiono maszynę wirtualną z funkcją Hyper-threaded, uruchom `lscpu` polecenie na maszynie wirtualnej z systemem Linux. 
 
-Jeśli `Thread(s) per core = 2`funkcja Hyper-Threading została włączona. 
+Jeśli `Thread(s) per core = 2` Funkcja Hyper-Threading została włączona. 
 
-Jeśli `Thread(s) per core = 1`funkcja Hyper-Threading została wyłączona. 
+Jeśli `Thread(s) per core = 1` Funkcja Hyper-Threading została wyłączona. 
 
  
 Przykładowe dane wyjściowe dla maszyny wirtualnej z włączonym wielowątkowością: 

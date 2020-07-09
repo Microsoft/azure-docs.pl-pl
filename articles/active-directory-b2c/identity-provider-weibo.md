@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e99b5717cdcc32d8fd138d1edf5fe1bd3283c70e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08aa7e4af6dc5d5e5bff470bc4c5d023e25b3014
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387885"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi Weibo za pomocą Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78187903"
 
 ## <a name="create-a-weibo-application"></a>Tworzenie aplikacji Weibo
 
-Aby użyć konta Weibo jako dostawcy tożsamości w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w swojej dzierżawie, która go reprezentuje. Jeśli nie masz jeszcze konta Weibo, możesz zarejestrować się w [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us)usłudze.
+Aby użyć konta Weibo jako dostawcy tożsamości w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w swojej dzierżawie, która go reprezentuje. Jeśli nie masz jeszcze konta Weibo, możesz zarejestrować się w usłudze [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Zaloguj się do [portalu deweloperów Weibo](https://open.weibo.com/) przy użyciu poświadczeń konta Weibo.
 1. Po zalogowaniu wybierz swoją nazwę wyświetlaną w prawym górnym rogu.
@@ -44,7 +44,7 @@ Aby użyć konta Weibo jako dostawcy tożsamości w Azure Active Directory B2C (
 1. Wybierz pozycję**保存以上信息**(Zapisz).
 1. Wybierz pozycję**高级信息**(informacje zaawansowane).
 1. Wybierz pozycję**编辑**(Edytuj) obok pola dla protokołu OAuth 2.0**授权设置**(adres URL przekierowania).
-1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w przypadku protokołu OAuth 2.0**授权设置**(adres URL przekierowania). Na przykład jeśli nazwa dzierżawy to contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w przypadku protokołu OAuth 2.0**授权设置**(adres URL przekierowania). Na przykład jeśli nazwa dzierżawy to contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
 1. Wybierz pozycję**提交**(Prześlij).
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Konfigurowanie konta Weibo jako dostawcy tożsamości

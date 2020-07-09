@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258241"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611734"
 ---
 # <a name="service-fabric-terminology-overview"></a>Przegląd terminologii Service Fabric
 
@@ -21,7 +21,7 @@ Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca 
 
 **Klaster**: połączony z siecią zestaw maszyn wirtualnych lub fizycznych, w których są wdrażane i zarządzane mikrousługi.  Klastry mogą obejmować nawet tysiące maszyn.
 
-**Węzeł**: maszyna lub maszyna wirtualna, która jest częścią klastra, nazywa się *węzłem*. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak właściwości umieszczania. Każda maszyna lub maszyna wirtualna ma uruchomioną funkcję autostartu `FabricHost.exe`systemu Windows, która jest uruchamiana po rozruchu, a następnie uruchamia `Fabric.exe` dwa `FabricGateway.exe`pliki wykonywalne: i. Te dwa pliki wykonywalne składają się na węzeł. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień `Fabric.exe` i. `FabricGateway.exe`
+**Węzeł**: maszyna lub maszyna wirtualna, która jest częścią klastra, nazywa się *węzłem*. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak właściwości umieszczania. Każda maszyna lub maszyna wirtualna ma uruchomioną funkcję autostartu systemu Windows, `FabricHost.exe` która jest uruchamiana po rozruchu, a następnie uruchamia dwa pliki wykonywalne: `Fabric.exe` i `FabricGateway.exe` . Te dwa pliki wykonywalne składają się na węzeł. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień `Fabric.exe` i `FabricGateway.exe` .
 
 ## <a name="application-and-service-concepts"></a>Pojęcia dotyczące aplikacji i usług
 
@@ -58,11 +58,11 @@ Wszystkie pakiety kodu zdefiniowane jako część zasobu aplikacji są wdrażane
 
 Aby uzyskać więcej informacji, przeczytaj artykuł dotyczący [modelu aplikacji](service-fabric-application-model.md) .
 
-**Pakiet aplikacji**: Katalog dysku zawierający `ApplicationManifest.xml` plik typu aplikacji. Odwołuje się do pakietów usługi dla każdego typu usługi tworzących typ aplikacji. Pliki w katalogu pakietu aplikacji są kopiowane do magazynu obrazów klastra Service Fabric. Na przykład pakiet aplikacji typu aplikacja poczty e-mail może zawierać odwołania do pakietu usługi kolejki, pakietu usługi frontonu i pakietu usługi Database.
+**Pakiet aplikacji**: Katalog dysku zawierający plik typu aplikacji `ApplicationManifest.xml` . Odwołuje się do pakietów usługi dla każdego typu usługi tworzących typ aplikacji. Pliki w katalogu pakietu aplikacji są kopiowane do magazynu obrazów klastra Service Fabric. Na przykład pakiet aplikacji typu aplikacja poczty e-mail może zawierać odwołania do pakietu usługi kolejki, pakietu usługi frontonu i pakietu usługi Database.
 
-**Nazwana aplikacja**: po skopiowaniu pakietu aplikacji do magazynu obrazów Utwórz wystąpienie aplikacji w klastrze. Wystąpienie jest tworzone podczas określania typu aplikacji pakietu aplikacji przy użyciu jego nazwy lub wersji. Każde wystąpienie typu aplikacji ma przypisaną nazwę URI (Uniform Resource Identifier), która wygląda następująco: `"fabric:/MyNamedApp"`. W ramach klastra można utworzyć wiele nazwanych aplikacji z jednego typu aplikacji. Można również tworzyć nazwane aplikacje z różnych typów aplikacji. Każda nazwana aplikacja jest zarządzana i niezależnie od wersji.
+**Nazwana aplikacja**: po skopiowaniu pakietu aplikacji do magazynu obrazów Utwórz wystąpienie aplikacji w klastrze. Wystąpienie jest tworzone podczas określania typu aplikacji pakietu aplikacji przy użyciu jego nazwy lub wersji. Każde wystąpienie typu aplikacji ma przypisaną nazwę URI (Uniform Resource Identifier), która wygląda następująco: `"fabric:/MyNamedApp"` . W ramach klastra można utworzyć wiele nazwanych aplikacji z jednego typu aplikacji. Można również tworzyć nazwane aplikacje z różnych typów aplikacji. Każda nazwana aplikacja jest zarządzana i niezależnie od wersji.
 
-**Typ usługi**: nazwa/wersja przypisana do pakietów kodu usługi, pakietów danych i pakietów konfiguracyjnych. Typ usługi jest zdefiniowany w `ServiceManifest.xml` pliku i osadzony w katalogu pakietu usługi. Do katalogu pakietu usługi odwołuje się `ApplicationManifest.xml` plik pakietu aplikacji. W klastrze po utworzeniu nazwanej aplikacji można utworzyć nazwę usługi na podstawie jednego z typów usług typu aplikacji. `ServiceManifest.xml` Plik typu usługi zawiera opis usługi.
+**Typ usługi**: nazwa/wersja przypisana do pakietów kodu usługi, pakietów danych i pakietów konfiguracyjnych. Typ usługi jest zdefiniowany w `ServiceManifest.xml` pliku i osadzony w katalogu pakietu usługi. Do katalogu pakietu usługi odwołuje się plik pakietu aplikacji `ApplicationManifest.xml` . W klastrze po utworzeniu nazwanej aplikacji można utworzyć nazwę usługi na podstawie jednego z typów usług typu aplikacji. Plik typu usługi `ServiceManifest.xml` zawiera opis usługi.
 
 Aby uzyskać więcej informacji, przeczytaj artykuł dotyczący [modelu aplikacji](service-fabric-application-model.md) .
 
@@ -75,18 +75,18 @@ Istnieją dwa typy usług:
 
 **Ponowna konfiguracja** dotyczy procesu zmiany w zestawie replik usługi. Zobacz [ponowna konfiguracja](service-fabric-concepts-reconfiguration.md).
 
-**Pakiet usługi**: Katalog dysku zawierający `ServiceManifest.xml` plik typu usługi. Ten plik odwołuje się do kodu, danych statycznych i pakietów konfiguracyjnych dla typu usługi. Pliki w katalogu pakietu usługi są przywoływane przez `ApplicationManifest.xml` plik typu aplikacji. Na przykład pakiet usługi może odwoływać się do kodu, danych statycznych i pakietów konfiguracyjnych tworzących usługę bazy danych.
+**Pakiet usługi**: Katalog dysku zawierający plik typu usługi `ServiceManifest.xml` . Ten plik odwołuje się do kodu, danych statycznych i pakietów konfiguracyjnych dla typu usługi. Pliki w katalogu pakietu usługi są przywoływane przez plik typu aplikacji `ApplicationManifest.xml` . Na przykład pakiet usługi może odwoływać się do kodu, danych statycznych i pakietów konfiguracyjnych tworzących usługę bazy danych.
 
-**Nazwana usługa**: po utworzeniu nazwanej aplikacji można utworzyć wystąpienie jednego z jego typów usług w ramach klastra. Typ usługi należy określić przy użyciu jego nazwy lub wersji. Każde wystąpienie typu usługi ma przypisaną nazwę identyfikatora URI w zakresie identyfikatora URI aplikacji. Jeśli na przykład utworzysz nazwę usługi "Moja baza danych" w nazwie "MyNamedApp", identyfikator URI wygląda następująco: `"fabric:/MyNamedApp/MyDatabase"`. W ramach nazwanej aplikacji można utworzyć kilka nazwanych usług. Każda nazwana usługa może mieć własny schemat partycji oraz liczbę wystąpień lub replik.
+**Nazwana usługa**: po utworzeniu nazwanej aplikacji można utworzyć wystąpienie jednego z jego typów usług w ramach klastra. Typ usługi należy określić przy użyciu jego nazwy lub wersji. Każde wystąpienie typu usługi ma przypisaną nazwę identyfikatora URI w zakresie identyfikatora URI aplikacji. Jeśli na przykład utworzysz nazwę usługi "Moja baza danych" w nazwie "MyNamedApp", identyfikator URI wygląda następująco: `"fabric:/MyNamedApp/MyDatabase"` . W ramach nazwanej aplikacji można utworzyć kilka nazwanych usług. Każda nazwana usługa może mieć własny schemat partycji oraz liczbę wystąpień lub replik.
 
-**Pakiet kodu**: Katalog dysku zawierający pliki wykonywalne typu usługi, zazwyczaj pliki exe/dll. Pliki w katalogu pakietu kodu są przywoływane przez `ServiceManifest.xml` plik typu usługi. Podczas tworzenia nazwanej usługi pakiet kodu jest kopiowany do węzła lub węzłów wybranych do uruchomienia nazwanej usługi. Następnie uruchamiany jest kod. Istnieją dwa typy plików wykonywalnych pakietu kodu:
+**Pakiet kodu**: Katalog dysku zawierający pliki wykonywalne typu usługi, zazwyczaj pliki exe/dll. Pliki w katalogu pakietu kodu są przywoływane przez plik typu usługi `ServiceManifest.xml` . Podczas tworzenia nazwanej usługi pakiet kodu jest kopiowany do węzła lub węzłów wybranych do uruchomienia nazwanej usługi. Następnie uruchamiany jest kod. Istnieją dwa typy plików wykonywalnych pakietu kodu:
 
 * **Pliki wykonywalne gościa**: pliki wykonywalne uruchomione jako — są w systemie operacyjnym hosta (Windows lub Linux). Te pliki wykonywalne nie łączą się ani nie odwołują do żadnych plików środowiska uruchomieniowego Service Fabric i w związku z tym nie używają Service Fabric modeli programowania. Te pliki wykonywalne nie mogą używać niektórych funkcji Service Fabric, takich jak usługa nazewnictwa dla odnajdywania punktów końcowych. Pliki wykonywalne gościa nie mogą raportować metryk obciążenia, które są specyficzne dla każdego wystąpienia usługi.
 * Pliki **wykonywalne hosta usługi**: pliki wykonywalne, które używają Service Fabric modeli programowania przez łączenie się z plikami środowiska uruchomieniowego Service Fabric, włączając funkcje Service Fabric. Na przykład nazwane wystąpienie usługi może zarejestrować punkty końcowe z Usługa nazewnictwa Service Fabric, a także zgłaszać metryki obciążenia.
 
-**Pakiet danych**: Katalog dysku, który zawiera pliki danych statycznych, tylko do odczytu typu usługi, zazwyczaj pliki zdjęć, dźwięku i wideo. Pliki w katalogu pakietu danych są przywoływane przez `ServiceManifest.xml` plik typu usługi. Podczas tworzenia nazwanej usługi pakiet danych jest kopiowany do węzła lub węzłów wybranych do uruchomienia nazwanej usługi. Kod zaczyna działać i teraz może uzyskiwać dostęp do plików danych.
+**Pakiet danych**: Katalog dysku, który zawiera pliki danych statycznych, tylko do odczytu typu usługi, zazwyczaj pliki zdjęć, dźwięku i wideo. Pliki w katalogu pakietu danych są przywoływane przez plik typu usługi `ServiceManifest.xml` . Podczas tworzenia nazwanej usługi pakiet danych jest kopiowany do węzła lub węzłów wybranych do uruchomienia nazwanej usługi. Kod zaczyna działać i teraz może uzyskiwać dostęp do plików danych.
 
-**Pakiet konfiguracyjny**: Katalog dysku, który zawiera statyczne pliki konfiguracji typu usługi, które są zwykle plikami tekstowymi. Pliki w katalogu pakietu konfiguracyjnego są przywoływane przez `ServiceManifest.xml` plik typu usługi. Podczas tworzenia nazwanej usługi pliki w pakiecie konfiguracyjnym są kopiowane do co najmniej jednego węzła wybranego do uruchomienia nazwanej usługi. Następnie kod rozpocznie pracę i teraz może uzyskiwać dostęp do plików konfiguracji.
+**Pakiet konfiguracyjny**: Katalog dysku, który zawiera statyczne pliki konfiguracji typu usługi, które są zwykle plikami tekstowymi. Pliki w katalogu pakietu konfiguracyjnego są przywoływane przez plik typu usługi `ServiceManifest.xml` . Podczas tworzenia nazwanej usługi pliki w pakiecie konfiguracyjnym są kopiowane do co najmniej jednego węzła wybranego do uruchomienia nazwanej usługi. Następnie kod rozpocznie pracę i teraz może uzyskiwać dostęp do plików konfiguracji.
 
 **Kontenery**: domyślnie Service Fabric wdraża i uaktywnia usługi jako procesy. Service Fabric może również wdrażać usługi w obrazach kontenera. Kontenery są technologią wirtualizacji, która dzieli podstawowy system operacyjny na podstawie aplikacji. Aplikacja i jej środowisko uruchomieniowe, zależności i biblioteki systemowe działają wewnątrz kontenera. Kontener ma pełny, prywatny dostęp do własnego widoku izolowanego konstrukcji systemu operacyjnego kontenera. Service Fabric obsługuje kontenery systemu Windows Server i kontenerów platformy Docker w systemie Linux. Aby uzyskać więcej informacji, Przeczytaj [Service Fabric i kontenery](service-fabric-containers-overview.md).
 
@@ -116,7 +116,7 @@ Zapoznaj się z artykułem [wdrażanie aplikacji](service-fabric-deploy-remove-a
 
 **Usługa Menedżer naprawy**: jest to opcjonalna usługa systemowa, która umożliwia wykonywanie akcji naprawczych w klastrze w taki sposób, który jest bezpieczny, automatyzuje i przejrzysty. Menedżer naprawy jest używany w programie:
 
-   - Przeprowadzanie napraw na platformie Azure w przypadku klastrów usługi Azure Service Fabric [Silver i Gold trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) .
+   - Przeprowadzanie napraw na platformie Azure w przypadku klastrów usługi Azure Service Fabric [Silver i Gold trwałości](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) .
    - Wykonywanie akcji naprawy dla [aplikacji aranżacji patch](service-fabric-patch-orchestration-application.md)
 
 ## <a name="deployment-and-application-models"></a>Modele wdrożenia i aplikacji
@@ -141,7 +141,7 @@ Możesz również uruchomić istniejące aplikacje na Service Fabric:
 
 **Kontenery**: Service Fabric obsługuje wdrażanie kontenerów platformy Docker w kontenerach systemu Linux i Windows Server w systemie windows Server 2016 oraz obsługę trybu izolacji funkcji Hyper-V. W [modelu aplikacji](service-fabric-application-model.md)Service Fabric kontener reprezentuje hosta aplikacji, w którym umieszczane są wiele replik usługi. Service Fabric może uruchamiać dowolne kontenery, a scenariusz jest podobny do scenariusza plików wykonywalnych gościa, w którym jest spakowana istniejąca aplikacja w kontenerze. Ponadto można również [uruchamiać usługi Service Fabric w kontenerach](service-fabric-services-inside-containers.md) .
 
-**Pliki wykonywalne gościa**: możesz uruchomić dowolny typ kodu, taki jak Node. js, Python, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa, które są traktowane jako usługi bezstanowe. Zalety uruchamiania pliku wykonywalnego gościa w klastrze Service Fabric obejmują wysoką dostępność, monitorowanie kondycji, zarządzanie cyklem życia aplikacji, wysoką gęstość i możliwość odnajdywania.
+**Pliki wykonywalne gościa**: możesz uruchomić dowolny typ kodu, taki jak Node.js, Python, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa, które są traktowane jako usługi bezstanowe. Zalety uruchamiania pliku wykonywalnego gościa w klastrze Service Fabric obejmują wysoką dostępność, monitorowanie kondycji, zarządzanie cyklem życia aplikacji, wysoką gęstość i możliwość odnajdywania.
 
 Aby uzyskać więcej informacji, zapoznaj się z artykułem [Wybieranie modelu programowania dla usługi](service-fabric-choose-framework.md) .
 

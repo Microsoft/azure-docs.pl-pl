@@ -3,12 +3,11 @@ title: Plany odzyskiwania w programie Azure Site Recovery — informacje
 description: Zapoznaj się z planami odzyskiwania w Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d191781cacc37242dd1be31d6cb87ef196e5e7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343918"
 ---
 # <a name="about-recovery-plans"></a>Informacje o planach odzyskiwania
 
@@ -17,7 +16,7 @@ Ten artykuł zawiera Omówienie planów odzyskiwania w programie [Azure Site Rec
 Plan odzyskiwania służy do zbierania maszyn w grupach odzyskiwania w celu przełączenia w tryb failover. Plan odzyskiwania ułatwia zdefiniowanie systematycznego procesu odzyskiwania przez utworzenie małych niezależnych jednostek, które można przełączyć do trybu failover. Jednostka zazwyczaj reprezentuje aplikację w Twoim środowisku.
 
 - Plan odzyskiwania definiuje sposób przełączenia maszyn w tryb failover oraz kolejność, w jakiej zostały one uruchomione po przejściu w tryb pracy awaryjnej.
-- Plany odzyskiwania są używane do przełączania do trybu failover na platformie Azure, ale nie mogą być używane do powrotu po awarii z platformy Azure.
+- Plany odzyskiwania mogą być używane zarówno do przełączania do trybu failover, jak i powrotu po awarii z platformy Azure.
 - Do jednego planu odzyskiwania można dodać do 100 chronionych wystąpień.
 - Możesz dostosować plan, dodając do niego kolejność, instrukcje i zadania.
 - Po zdefiniowaniu planu można uruchomić na nim tryb failover.

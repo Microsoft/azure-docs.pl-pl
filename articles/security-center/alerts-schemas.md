@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 19ca17f66f6818ed4c3ef532e2030cc03f0e73ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85126216"
 ---
 # <a name="security-alerts-schemas"></a>Schematy alertów zabezpieczeń
 
@@ -150,7 +150,7 @@ Zdarzenia alertów zabezpieczeń można wyświetlić w dzienniku aktywności prz
 |**kategorii**|Pola wartości i localizedValue są stałe-"Security"|
 |**eventTimestamp**|Sygnatura czasowa UTC dla momentu wygenerowania alertu|
 |**#c1**|W pełni kwalifikowany identyfikator alertu|
-|**poziomie**|Stała, "informacyjna"|
+|**poziom**|Stała, "informacyjna"|
 |**operationId**|Zobacz identyfikator korelacji|
 |**operationName**|Wartością pola jest stała — "Microsoft. Security/Locations/Alerts/Activate/Action", a zlokalizowana wartość będzie "Activate Alert" (może być możliwe zlokalizowanie wartości nominalnej dla użytkownika)|
 |**resourceGroupName**|Będzie zawierać nazwę grupy zasobów|
@@ -171,7 +171,7 @@ Zdarzenia alertów zabezpieczeń można wyświetlić w dzienniku aktywności prz
 
 ### <a name="ms-graph-api"></a>[interfejs API programu Graph MS](#tab/schema-graphapi)
 
-Microsoft Graph to brama do danych i analizy w Microsoft 365. Zapewnia jednolity model programowania, którego można użyć w celu uzyskania dostępu do ogromnej ilości danych w pakietach Office 365, Windows 10 i Enterprise Mobility + Security. Skorzystaj z bogactwa danych w Microsoft Graph, aby tworzyć aplikacje dla organizacji i klientów, którzy współpracują z milionami użytkowników.
+Microsoft Graph to brama do danych i analizy w Microsoft 365. Zapewnia jednolity model programowania, którego można użyć w celu uzyskania dostępu do ogromnej ilości danych w Microsoft 365, Windows 10 i Enterprise Mobility + Security. Skorzystaj z bogactwa danych w Microsoft Graph, aby tworzyć aplikacje dla organizacji i klientów, którzy współpracują z milionami użytkowników.
 
 Schemat i reprezentację JSON alertów zabezpieczeń wysyłanych do programu MS Graph są dostępne w [dokumentacji Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 

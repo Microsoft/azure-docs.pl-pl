@@ -10,10 +10,9 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp
 ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733392"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Rozpoczynanie pracy z modułem IoT Hub Identity and module (.NET)
@@ -58,7 +57,7 @@ Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witry
 
    ![Szczegóły modułu w witrynie Azure Portal](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. W programie Visual Studio Dodaj nowy projekt do rozwiązania, wybierając pozycję **plik** > **Nowy** > **projekt**. W obszarze Utwórz nowy projekt wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz pozycję **dalej**.
+1. W programie Visual Studio Dodaj nowy projekt do rozwiązania, wybierając pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze Utwórz nowy projekt wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz pozycję **dalej**.
 
 1. Nadaj projektowi nazwę *UpdateModuleTwinReportedProperties*. W obszarze **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Upewnij się, że program .NET Framework jest w wersji 4.6.1 lub nowszej.
 
@@ -66,7 +65,7 @@ Przed rozpoczęciem Pobierz parametry połączenia modułu. Zaloguj się w witry
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć projekt.
 
-1. W programie Visual Studio Otwórz pozycję **Narzędzia** > **Menedżer** > pakietów NuGet**Zarządzanie pakietami NuGet dla rozwiązania**. Wybierz kartę **Przeglądaj**.
+1. W programie Visual Studio Otwórz pozycję **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **Zarządzanie pakietami NuGet dla rozwiązania**. Wybierz kartę **Przeglądaj**.
 
 1. Wyszukaj i wybierz pozycję **Microsoft. Azure. Devices. Client**, a następnie wybierz pozycję **Zainstaluj**.
 

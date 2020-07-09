@@ -8,18 +8,18 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0631bc0e3e83564b2d77d4f67b418780d933215e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747766"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212908"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Application Gateway
 
 Zapora aplikacji sieci Web platformy Azure (WAF) na platformie Azure Application Gateway zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach. Aplikacje sieci Web są coraz bardziej przeznaczone dla złośliwych ataków wykorzystujących często znane luki w zabezpieczeniach. Iniekcja kodu SQL i skryptów między lokacjami są między Najczęściej spotykanymi atakami.
 
-WAF na Application Gateway opiera się na [podstawowym zestawie reguł (KSR)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1, 3,0 lub 2.2.9 z projektu Open Web Application Security (OWASP). WAF automatycznie aktualizuje, aby uwzględnić ochronę przed nowymi lukami w zabezpieczeniach, bez konieczności dodatkowej konfiguracji. 
+WAF na Application Gateway opiera się na [podstawowym zestawie reguł (KSR)](https://owasp.org/www-project-modsecurity-core-rule-set/) 3,1, 3,0 lub 2.2.9 z projektu Open Web Application Security (OWASP). WAF automatycznie aktualizuje, aby uwzględnić ochronę przed nowymi lukami w zabezpieczeniach, bez konieczności dodatkowej konfiguracji. 
 
 Wszystkie funkcje WAF wymienione poniżej istnieją w zasadach WAF. Można utworzyć wiele zasad i można je skojarzyć z Application Gateway, do poszczególnych odbiorników lub regułami routingu opartymi na ścieżce na Application Gateway. W ten sposób można mieć osobne zasady dla każdej witryny za Application Gateway w razie potrzeby. Aby uzyskać więcej informacji na temat zasad WAFymi, zobacz [Tworzenie zasad WAF](create-waf-policy-ag.md).
 
@@ -36,7 +36,7 @@ Ulepszenia zabezpieczeń Application Gateway obejmują zarządzanie zasadami pro
 
 W tej sekcji opisano podstawowe korzyści, które WAF na Application Gateway.
 
-### <a name="protection"></a>Protection
+### <a name="protection"></a>Ochrona
 
 * Ochrona aplikacji sieci Web przed lukami w zabezpieczeniach i atakami w sieci Web bez konieczności modyfikowania kodu zaplecza.
 
@@ -126,7 +126,7 @@ W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmi
 |Ważność  |Wartość  |
 |---------|---------|
 |Krytyczne     |5|
-|Błąd        |4|
+|Error        |4|
 |Ostrzeżenie      |3|
 |Wzory       |2|
 

@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519910"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do usługi Twitter
@@ -26,7 +26,7 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w usłudze T
 
 1. Zaloguj się do [Azure Portal] i przejdź do swojej aplikacji. Skopiuj **adres URL**. Zostanie ona użyta do skonfigurowania aplikacji usługi Twitter.
 1. Przejdź do witryny sieci Web [deweloperów usługi Twitter] i zaloguj się przy użyciu poświadczeń konta w usłudze Twitter, a następnie wybierz pozycję **Utwórz aplikację**.
-1. Wprowadź **nazwę aplikacji** i **Opis aplikacji** dla nowej aplikacji. Wklej **adres URL** aplikacji do pola **adres URL witryny sieci Web** . W sekcji **adresy URL wywołania zwrotnego** wprowadź adres URL protokołu HTTPS aplikacji App Service i dołącz ścieżkę `/.auth/login/twitter/callback`. Na przykład `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Wprowadź **nazwę aplikacji** i **Opis aplikacji** dla nowej aplikacji. Wklej **adres URL** aplikacji do pola **adres URL witryny sieci Web** . W sekcji **adresy URL wywołania zwrotnego** wprowadź adres URL protokołu HTTPS aplikacji App Service i dołącz ścieżkę `/.auth/login/twitter/callback` . Na przykład `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
 1. W dolnej części strony wpisz co najmniej 100 znaków w polu **powiedz nam, jak będzie używana ta aplikacja**, a następnie wybierz pozycję **Utwórz**. Kliknij przycisk **Utwórz** ponownie w oknie podręcznym. Zostaną wyświetlone szczegóły aplikacji.
 1. Wybierz kartę **klucze i tokeny dostępu** .
 
@@ -40,9 +40,9 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w usłudze T
 ## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji usługi Twitter do aplikacji
 
 1. Przejdź do aplikacji w [Azure Portal].
-1. Wybierz pozycję **Ustawienia** > **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
+1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
 1. Wybierz pozycję **Twitter**.
-1. Wklej wartości `API key` i `API secret key` , które zostały uzyskane wcześniej.
+1. Wklej `API key` `API secret key` wartości i, które zostały uzyskane wcześniej.
 1. Wybierz przycisk **OK**.
 
    ![Zrzut ekranu ustawień usługi Twitter aplikacji mobilnych][1]

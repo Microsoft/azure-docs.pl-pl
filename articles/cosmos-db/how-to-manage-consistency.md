@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie spójnością w Azure Cosmos DB
 description: Informacje o konfigurowaniu poziomów spójności i zarządzaniu nimi w Azure Cosmos DB przy użyciu Azure Portal, zestawu .NET SDK, zestawu Java SDK i różnych zestawów SDK
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/24/2020
-ms.author: mjbrown
-ms.openlocfilehash: 28266471fb1e440a45e412ee889e0706cfc2ce49
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.topic: how-to
+ms.date: 06/10/2020
+ms.author: anfeldma
+ms.openlocfilehash: e6f63807eeea32a7cce7e028dab5e16114bf9643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82870092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261566"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
 
@@ -27,7 +27,7 @@ W tym artykule wyjaśniono, jak zarządzać poziomami spójności w usłudze Azu
 
 Aby wyświetlić lub zmodyfikować domyślny poziom spójności, zaloguj się do witryny Azure Portal. Znajdź konto usługi Azure Cosmos i Otwórz domyślne okienko **spójności** . Wybierz odpowiedni poziom spójności jako nowe ustawienie domyślne, a następnie wybierz pozycję **Zapisz**. Azure Portal udostępnia również wizualizację różnych poziomów spójności przy użyciu notatek muzycznych. 
 
-![Menu spójności w witrynie Azure Portal](./media/how-to-manage-consistency/consistency-settings.png)
+:::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menu spójności w witrynie Azure Portal":::
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/cli)
 
@@ -41,7 +41,7 @@ az cosmosdb create --name $accountName --resource-group $resourceGroupName --def
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Utwórz konto Cosmos z spójnością sesji, a następnie zaktualizuj domyślną spójność.
 
@@ -92,9 +92,27 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-### <a name="java-sdk"></a><a id="override-default-consistency-java"></a>Zestaw SDK Java
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
 
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/javaasync)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
+
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a>Zestawy SDK Java v2
+
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -108,7 +126,9 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/javasync)
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
+
+Synchronizuj zestaw Java v2 SDK (Maven com. Microsoft. Azure:: Azure-DocumentDB)
 
 ```java
 // Override consistency at the client level
@@ -173,9 +193,27 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a name="java-sdk"></a><a id="utilize-session-tokens-java"></a>Zestaw SDK Java
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
 
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/javaasync)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
+
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySessionSync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Zestawy SDK Java v2
+
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -197,7 +235,9 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/javasync)
+# <a name="sync"></a>[Synchronizacja](#tab/api-sync)
+
+Synchronizuj zestaw Java v2 SDK (Maven com. Microsoft. Azure:: Azure-DocumentDB)
 
 ```java
 // Get session token from response
@@ -240,7 +280,7 @@ item = client.ReadItem(doc_link, options)
 
 Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku można zaoferować nieaktualność w odniesieniu do historii wersji i czasu. Metryka [**probabilistically ograniczona (PBS)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieodświeżoności i pokazuje ją jako metrykę. Aby wyświetlić metrykę usługi PBS, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz okienko **metryki** i wybierz kartę **spójność** . Spójrz na wykres o nazwie **prawdopodobieństwo silnie spójnych odczytów w oparciu o obciążenie (zobacz PBS)**.
 
-![Wykres PBS w witrynie Azure Portal](./media/how-to-manage-consistency/pbs-metric.png)
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Wykres PBS w witrynie Azure Portal":::
 
 ## <a name="next-steps"></a>Następne kroki
 

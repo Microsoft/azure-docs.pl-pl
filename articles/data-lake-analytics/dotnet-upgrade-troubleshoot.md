@@ -10,10 +10,9 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
 ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79213584"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics jest uaktualniana do .NET Framework v 4.7.2
@@ -65,19 +64,19 @@ Najbardziej typowe niezgodności z poprzednimi wersjami, które mogą identyfiko
   - Sugerowana akcja: Upewnij się, że TaskFactory. wywołaniach metody FromAsync zwraca wartość PRAWDA prawidłowo
 
 - Obiekt DataObject. GetData teraz pobiera dane jako UTF-8
-  - W przypadku aplikacji przeznaczonych dla .NET Framework 4 lub uruchomionych w .NET Framework 4.5.1 lub wcześniejszych wersjach element DataObject. GetData pobiera dane sformatowane w formacie HTML jako ciąg ASCII. W związku z tym znaki inne niż ASCII (znaki, których kody ASCII są większe niż 0x7F) są reprezentowane przez dwa losowe znaki. #N # #N # dla aplikacji przeznaczonych dla .NET Framework 4,5 lub nowszych i wykonywanych w .NET Framework `DataObject.GetData` 4.5.2, pobiera dane sformatowane w formacie HTML jako UTF-8, co oznacza, że znaki większe niż 0x7F są poprawne.
+  - W przypadku aplikacji przeznaczonych dla .NET Framework 4 lub uruchomionych w .NET Framework 4.5.1 lub wcześniejszych wersjach element DataObject. GetData pobiera dane sformatowane w formacie HTML jako ciąg ASCII. W związku z tym znaki inne niż ASCII (znaki, których kody ASCII są większe niż 0x7F) są reprezentowane przez dwa losowe znaki. #N # #N # dla aplikacji przeznaczonych dla .NET Framework 4,5 lub nowszych i wykonywanych w .NET Framework 4.5.2, `DataObject.GetData` Pobiera dane sformatowane w formacie HTML jako UTF-8, co oznacza, że znaki większe niż 0x7F są poprawne.
   - Biblioteki, których dotyczy problem: GLO
   - Sugerowana akcja: Upewnij się, że pobrane dane są w żądanym formacie
 
 - Element XmlWriter zwraca dla nieprawidłowych par surogatów
-  - W przypadku aplikacji, które są przeznaczone dla .NET Framework 4.5.2 lub poprzednich wersji, zapisanie nieprawidłowej pary dwuskładnikowej przy użyciu obsługi rezerwy wyjątku nie zawsze zgłasza wyjątek. W przypadku aplikacji przeznaczonych dla .NET Framework 4,6 Próba zapisania nieprawidłowej pary dwuskładnikowej zgłasza `ArgumentException`.
-  - Biblioteki, których dotyczy problem: System. XML, system. XML. ReaderWriter
+  - W przypadku aplikacji, które są przeznaczone dla .NET Framework 4.5.2 lub poprzednich wersji, zapisanie nieprawidłowej pary dwuskładnikowej przy użyciu obsługi rezerwy wyjątku nie zawsze zgłasza wyjątek. W przypadku aplikacji przeznaczonych dla .NET Framework 4,6 Próba zapisania nieprawidłowej pary dwuskładnikowej zgłasza `ArgumentException` .
+  - Biblioteki, których dotyczy problem: System.Xml, System.Xml. ReaderWriter
   - Sugerowana akcja: Upewnij się, że nie zapisujesz nieprawidłowej pary dwuskładnikowej, która spowoduje wyjątek argumentu
 
 - HtmlTextWriter nie renderuje `<br/>` poprawnie elementu
-  - Począwszy od .NET Framework 4,6, `HtmlTextWriter.RenderBeginTag()` wywołanie i `HtmlTextWriter.RenderEndTag()` z `<BR />` elementem spowoduje poprawne wstawienie tylko jednego `<BR />` (zamiast dwóch)
+  - Począwszy od .NET Framework 4,6, wywołanie `HtmlTextWriter.RenderBeginTag()` i `HtmlTextWriter.RenderEndTag()` z `<BR />` elementem spowoduje poprawne wstawienie tylko jednego `<BR />` (zamiast dwóch)
   - Biblioteki, których dotyczy problem: System. Web
-  - Sugerowana akcja: Upewnij się, że wstawiasz `<BR />` ilość oczekiwaną przez użytkownika, więc w zadaniu produkcyjnym nie jest widoczne żadne przypadkowe zachowanie
+  - Sugerowana akcja: Upewnij się, że wstawiasz ilość `<BR />` oczekiwaną przez użytkownika, więc w zadaniu produkcyjnym nie jest widoczne żadne przypadkowe zachowanie
 
 - Wywołanie CreateDefaultAuthorizationContext z pustym argumentem zostało zmienione
   - Implementacja AuthorizationContext zwrócona przez wywołanie elementu `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` z argumentem authorizationPolicies o wartości null zmieniła swoją implementację w .NET Framework 4,6.
@@ -85,7 +84,7 @@ Najbardziej typowe niezgodności z poprzednimi wersjami, które mogą identyfiko
   - Sugerowana akcja: Upewnij się, że obsługujesz nowe oczekiwane zachowanie w przypadku, gdy zasady autoryzacji mają wartość null
   
 - RSACng teraz prawidłowo ładuje klucze RSA o niestandardowym rozmiarze klucza
-  - W wersjach .NET Framework wcześniejszych niż 4.6.2 klienci z niestandardowymi rozmiarami kluczy dla certyfikatów RSA nie mogą uzyskać dostępu do tych kluczy za `GetRSAPublicKey()` pomocą `GetRSAPrivateKey()` metod rozszerzenia i. Komunikat `CryptographicException` o błędzie "żądany rozmiar klucza nie jest obsługiwany" jest generowany. W .NET Framework 4.6.2 ten problem został rozwiązany. Podobnie `RSA.ImportParameters()` i `RSACng.ImportParameters()` teraz pracujesz z niestandardowymi rozmiarami kluczy bez `CryptographicException`wyrzucania.
+  - W wersjach .NET Framework wcześniejszych niż 4.6.2 klienci z niestandardowymi rozmiarami kluczy dla certyfikatów RSA nie mogą uzyskać dostępu do tych kluczy za `GetRSAPublicKey()` pomocą `GetRSAPrivateKey()` metod rozszerzenia i. `CryptographicException`Komunikat o błędzie "żądany rozmiar klucza nie jest obsługiwany" jest generowany. W .NET Framework 4.6.2 ten problem został rozwiązany. Podobnie `RSA.ImportParameters()` i `RSACng.ImportParameters()` teraz pracujesz z niestandardowymi rozmiarami kluczy bez wyrzucania `CryptographicException` .
   - Biblioteki, których dotyczy problem: mscorlib, system. Core
   - Sugerowana akcja: Upewnij się, że klucze RSA działają zgodnie z oczekiwaniami
 
@@ -95,11 +94,11 @@ Najbardziej typowe niezgodności z poprzednimi wersjami, które mogą identyfiko
   - Sugerowana akcja:
 
 - Wywołania konstruktorów identyfikator oświadczenia
-  - Począwszy od .NET Framework 4.6.2 istnieje zmiana sposobu, w jaki `T:System.Security.Claims.ClaimsIdentity` konstruktory z `T:System.Security.Principal.IIdentity` parametrem ustawiają `P:System.Security.Claims.ClaimsIdentify.Actor` właściwość. Jeśli `T:System.Security.Principal.IIdentity` argument `T:System.Security.Claims.ClaimsIdentity` jest obiekt i `P:System.Security.Claims.ClaimsIdentify.Actor` Właściwość tego `T:System.Security.Claims.ClaimsIdentity` obiektu nie `null`jest, `P:System.Security.Claims.ClaimsIdentify.Actor` właściwość jest dołączona przy użyciu `M:System.Security.Claims.ClaimsIdentity.Clone` metody. W Framework 4.6.1 i starszych wersji `P:System.Security.Claims.ClaimsIdentify.Actor` właściwość jest dołączana jako istniejące odwołanie. Ze względu na tę zmianę, rozpoczynając od .NET Framework 4.6.2, `P:System.Security.Claims.ClaimsIdentify.Actor` właściwość nowego `T:System.Security.Claims.ClaimsIdentity` obiektu nie jest równa `P:System.Security.Claims.ClaimsIdentify.Actor` właściwości `T:System.Security.Principal.IIdentity` argumentu konstruktora. W .NET Framework 4.6.1 i starszych wersji jest równa.
+  - Począwszy od .NET Framework 4.6.2 istnieje zmiana sposobu, w jaki `T:System.Security.Claims.ClaimsIdentity` konstruktory z `T:System.Security.Principal.IIdentity` parametrem ustawiają `P:System.Security.Claims.ClaimsIdentify.Actor` Właściwość. Jeśli `T:System.Security.Principal.IIdentity` argument jest `T:System.Security.Claims.ClaimsIdentity` obiekt i `P:System.Security.Claims.ClaimsIdentify.Actor` Właściwość tego `T:System.Security.Claims.ClaimsIdentity` obiektu nie jest `null` , `P:System.Security.Claims.ClaimsIdentify.Actor` Właściwość jest dołączona przy użyciu `M:System.Security.Claims.ClaimsIdentity.Clone` metody. W Framework 4.6.1 i starszych wersji `P:System.Security.Claims.ClaimsIdentify.Actor` Właściwość jest dołączana jako istniejące odwołanie. Ze względu na tę zmianę, rozpoczynając od .NET Framework 4.6.2, `P:System.Security.Claims.ClaimsIdentify.Actor` Właściwość nowego `T:System.Security.Claims.ClaimsIdentity` obiektu nie jest równa `P:System.Security.Claims.ClaimsIdentify.Actor` właściwości `T:System.Security.Principal.IIdentity` argumentu konstruktora. W .NET Framework 4.6.1 i starszych wersji jest równa.
   - Biblioteki, których dotyczy problem: mscorlib
   - Sugerowana akcja: Upewnij się, że identyfikator oświadczenia działa zgodnie z oczekiwaniami w nowym środowisku uruchomieniowym
 
 - Serializacja znaków sterujących za pomocą Klasa DataContractJsonSerializer jest teraz zgodna z ECMAScript V6 i V8
   - W programie .NET Framework 4.6.2 i starszych wersjach Klasa DataContractJsonSerializer nie serializować niektórych specjalnych znaków kontroli, takich jak \b, \f i \t, w sposób zgodny z standardami ECMAScript V6 i V8. Począwszy od .NET Framework 4,7, serializacja tych znaków kontrolnych jest zgodna z ECMAScript V6 i V8.
-  - Biblioteki, których dotyczy problem: System. Runtime. Serialization. JSON
+  - Biblioteki, których dotyczy problem: System.Runtime.Serialization.Jswłączone
   - Sugerowana akcja: Zapewnij takie samo zachowanie przy użyciu Klasa DataContractJsonSerializer

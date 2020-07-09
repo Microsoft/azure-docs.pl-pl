@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8cc085fd27004928babd7df305a4452d1b068f6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85079445"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Przykład: Dodawanie synonimów dla usługi Azure Wyszukiwanie poznawcze w języku C #
 
@@ -36,9 +35,9 @@ Możesz utworzyć wiele map synonimów, opublikować je jako zasób obejmujący 
 
 Wymagania samouczka obejmują poniższe elementy:
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
+* [Program Visual Studio](https://www.visualstudio.com/downloads/)
 * [Usługa Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md)
-* [Biblioteka Microsoft.Azure.Search .NET](https://aka.ms/search-sdk)
+* [Biblioteka Microsoft.Azure.Search .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 * [Jak korzystać z usługi Azure Wyszukiwanie poznawcze z poziomu aplikacji platformy .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Omówienie
@@ -128,7 +127,7 @@ Włączenie synonimów to dwuetapowy proces. Najpierw definiujemy i przekazujemy
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
    ```
-   Mapa synonimów musi być zgodna z formatem `solr` w standardzie open source. Ten format jest objaśniony w [synonimach na platformie Azure wyszukiwanie poznawcze](search-synonyms.md) w `Apache Solr synonym format`sekcji.
+   Mapa synonimów musi być zgodna z formatem `solr` w standardzie open source. Ten format jest objaśniony w [synonimach na platformie Azure wyszukiwanie poznawcze](search-synonyms.md) w sekcji `Apache Solr synonym format` .
 
 2. Skonfiguruj pola z możliwością wyszukiwania, aby używać mapy synonimów w definicji indeksu. W `EnableSynonymsInHotelsIndex` włączamy synonimy w dwóch polach, `category` i `tags`, ustawiając właściwość `synonymMaps` na nazwę nowo przekazanej mapy synonimów.
    ```csharp
@@ -167,7 +166,7 @@ Dodanie synonimów całkowicie zmienia funkcję wyszukiwania. W tym przykładzie
 ## <a name="sample-application-source-code"></a>Kod źródłowy przykładowej aplikacji
 Możesz znaleźć pełny kod źródłowy przykładowej aplikacji używanej w tym poradniku w portalu [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Najszybszym sposobem oczyszczenia po przykładzie jest usunięcie grupy zasobów zawierającej usługę Wyszukiwanie poznawcze platformy Azure. Możesz teraz usunąć tę grupę zasobów, aby trwale usunąć całą jej zawartość. Nazwa grupy zasobów w portalu znajduje się na stronie Przegląd usługi Azure Wyszukiwanie poznawcze.
 

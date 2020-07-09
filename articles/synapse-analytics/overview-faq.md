@@ -1,22 +1,22 @@
 ---
-title: Często zadawane pytania — Azure Synapse Analytics
-description: Często zadawane pytania dotyczące usługi Azure Synapse Analytics
+title: Często zadawane pytania — Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
+description: Często zadawane pytania dotyczące usługi Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118387"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85807880"
 ---
-# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) — często zadawane pytania
+# <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Analiza usługi Azure Synapse (obszary robocze — wersja zapoznawcza) — często zadawane pytania
 
 W tym przewodniku znajdziesz najczęściej zadawane pytania dotyczące analizy Synapse.
 
@@ -48,6 +48,10 @@ Odp.: usługa Azure Synapse oferuje następujące możliwości:
 Odp.: usługa Azure Synapse Analytics to ewolucja Azure SQL Data Warehouse na platformie analitycznej, która obejmuje pulę SQL jako rozwiązanie magazynu danych. Ta platforma łączy eksplorację, pozyskiwanie, przekształcenie, przygotowanie i obsługę warstwy analitycznej.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>P: Jak mogę zmienić nazwy opublikowanego artefaktu (zestawu danych, notesu, skryptu SQL itd.) w usłudze Azure Synapse?
+
+Odp.: Aby zmienić nazwę opublikowanego pliku artefaktu, należy najpierw sklonować plik i zmienić nazwę nowego pliku na preferowany. Należy ręcznie zaktualizować wszystkie odwołania artefaktu do nowej nazwy pliku i usunąć stary.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>P: co to jest dobry przypadek użycia dla puli SQL Synapse
 

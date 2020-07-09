@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687537"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
@@ -46,7 +45,7 @@ W poniższej tabeli wymieniono niektóre różnice między implementacją lokaln
 > 
 > |  | **Implementacja lokalna** | **Implementacja platformy Azure** |
 > | --- | --- | --- |
-> | **Networking** |LAN/WAN  |SDN (sieć zdefiniowana przez oprogramowanie)|
+> | **Sieć** |LAN/WAN  |SDN (sieć zdefiniowana przez oprogramowanie)|
 > | **Grupa zabezpieczeń** |Narzędzia ograniczeń adresów IP/portów |[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](https://azure.microsoft.com/blog/network-security-groups) |
 > | **Odporności** |MTBF (średni czas między niepowodzeńmi) |MTTR (średni czas odzyskiwania)|
 > | **Planowana konserwacja** |Poprawki/uaktualnienia|[Zestawy dostępności](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (poprawki/uaktualnienia zarządzane przez platformę Azure) |

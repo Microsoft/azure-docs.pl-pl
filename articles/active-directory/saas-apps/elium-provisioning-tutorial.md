@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058493"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Elium na potrzeby automatycznego aprowizacji użytkowników
@@ -55,7 +54,7 @@ Podczas przypisywania użytkownika do Elium należy wybrać prawidłową rolę s
 
 Przed skonfigurowaniem usługi Elium na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć opcję System na potrzeby aprowizacji międzydomenowego zarządzania tożsamościami (standard scim) na Elium. Wykonaj następujące kroki:
 
-1. Zaloguj się do Elium i przejdź do pozycji **Moje** > **Ustawienia**profilu.
+1. Zaloguj się do Elium i przejdź do pozycji **Moje**  >  **Ustawienia**profilu.
 
     ![Element menu Ustawienia w Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -112,7 +111,7 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w 
 
     ![Ustawienie automatyczne dla trybu aprowizacji](common/provisioning-automatic.png)
 
-1. W sekcji **poświadczenia administratora** wpisz ** \<tenantURL\>/scim/v2** w polu **adres URL dzierżawy** . ( **TenantURL** jest wartością pobieraną wcześniej z konsoli administracyjnej Elium). W polu **token tajny** wpisz również wartość **token Elium Secret** . Na koniec wybierz pozycję **Testuj połączenie** , aby sprawdzić, czy usługa Azure AD może nawiązać połączenie z usługą Elium. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Elium ma uprawnienia administratora, a następnie spróbuj ponownie.
+1. W sekcji **poświadczenia administratora** wpisz ** \<tenantURL\> /scim/v2** w polu **adres URL dzierżawy** . ( **TenantURL** jest wartością pobieraną wcześniej z konsoli administracyjnej Elium). W polu **token tajny** wpisz również wartość **token Elium Secret** . Na koniec wybierz pozycję **Testuj połączenie** , aby sprawdzić, czy usługa Azure AD może nawiązać połączenie z usługą Elium. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Elium ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Pola adresu URL dzierżawy i klucza tajnego w poświadczeniach administratora](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -120,7 +119,7 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w 
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Elium**.
 
@@ -148,7 +147,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i g
 
 Użyj **bieżącej sekcji stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji. Raport dotyczący działań aprowizacji opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w systemie Elium. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

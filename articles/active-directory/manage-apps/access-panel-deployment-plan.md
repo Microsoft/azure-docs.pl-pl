@@ -2,25 +2,25 @@
 title: Planowanie wdrożenia panelu dostępu Azure Active Directory
 description: Wskazówki dotyczące wdrażania panelu dostępu Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555318"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planowanie wdrożenia panelu dostępu Azure Active Directory
 
@@ -63,7 +63,7 @@ Panel dostępu jest bezpłatny i nie wymaga licencji do użycia na poziomie pods
 
 * [Członkostwo oparte na grupach](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Samoobsługowe resetowanie hasła](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Samoobsługowe resetowanie haseł](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Ochrona tożsamości w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
@@ -83,8 +83,8 @@ W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożeni
 
 | Obszar| Opis |
 | - | - |
-| Dostęp| Portal panelu dostępu jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
-|Dostęp | Portal panelu dostępu jest dostępny z urządzeń firmowych spoza sieci firmowej. |
+| Access| Portal panelu dostępu jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
+|Access | Portal panelu dostępu jest dostępny z urządzeń firmowych spoza sieci firmowej. |
 | Inspekcja| Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni. |
 | Nadzór| Cykl życia przypisań użytkowników do aplikacji i grup połączonych z usługą Azure AD jest zdefiniowany i monitorowany. |
 | Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pośrednictwem przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |
@@ -105,7 +105,7 @@ Funkcje panelu dostępu można włączyć stopniowo. Zalecamy wykonanie następu
    * Integracja z Microsoft Office 365
 
 1. Odnajdywanie aplikacji samoobsługowych
-   * Samoobsługowe resetowanie hasła
+   * Samoobsługowe resetowanie haseł
    * Ustawienia Multi-Factor Authentication
    * Zarządzanie urządzeniami
    * Warunki użytkowania
@@ -122,7 +122,7 @@ Od mojej aplikacji wprowadzono użytkowników do portalu jako typowe miejsce na 
 
 Poniższa tabela zawiera kilka ważnych konfiguracji panelu dostępu i typowych wartości, których można użyć:
 
-| Konfiguracja| Typowe wartości |
+| Konfigurowanie| Typowe wartości |
 | - | - |
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
@@ -215,7 +215,7 @@ Przeglądarka chroniona przy użyciu zasad usługi Intune (Microsoft Edge lub In
 
 ## <a name="plan-your-my-apps-deployment"></a>Planowanie wdrożenia aplikacji Moje aplikacje
 
-Podstawa panelu dostępu to aplikacja do uruchamiania aplikacji, do których użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/). Strony Moje aplikacje umożliwiają użytkownikom pojedyncze miejsce na rozpoczęcie pracy i dostęp do niezbędnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
+Podstawa panelu dostępu to aplikacja do uruchamiania aplikacji, do których użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Strony Moje aplikacje umożliwiają użytkownikom pojedyncze miejsce na rozpoczęcie pracy i dostęp do niezbędnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
 
 ![Zrzut ekranu przedstawiający panel aplikacje](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -261,7 +261,7 @@ Aby zaplanować członkostwo w grupach samoobsługi, ustal, czy zezwolisz wszyst
 
 Usługa Azure AD udostępnia [raporty, które oferują szczegółowe informacje techniczne i biznesowe](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Pracuj z właścicielami aplikacji firmowych i technicznych, aby założyć własność tych raportów i regularnie je wykorzystać. W poniższej tabeli przedstawiono kilka przykładów typowych scenariuszy raportowania.
 
-|   | Zarządzanie ryzykiem| Zwiększ produktywność| Zarządzanie i zgodność |
+| Przykład | Zarządzanie ryzykiem| Zwiększ produktywność| Zarządzanie i zgodność |
 |  - |- | - | - |
 | Typy raportów|  Uprawnienia i użycie aplikacji| Działanie aprowizacji konta| Sprawdź, kto uzyskuje dostęp do aplikacji |
 | Potencjalni akcje| Inspekcja dostępu; Odwołaj uprawnienia| Koryguj wszelkie błędy aprowizacji| Odwołaj dostęp |

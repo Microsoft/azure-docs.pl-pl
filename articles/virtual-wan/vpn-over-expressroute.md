@@ -4,15 +4,15 @@ description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Virtual 
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: b1e6305d142530ab19849f61f12a122d0c6434aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749599"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Szyfrowanie ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN
 
@@ -231,7 +231,7 @@ Utwórz połączenie, aby monitorować komunikację między maszyną wirtualną 
 
 ## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Wyczyść zasoby
 
-Jeśli te zasoby nie są już potrzebne, możesz usunąć grupę zasobów i wszystkie znajdujące się w niej zasoby, używając polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Uruchom następujące polecenie programu PowerShell i Zastąp `myResourceGroup` ciąg nazwą grupy zasobów:
+Jeśli te zasoby nie są już potrzebne, możesz usunąć grupę zasobów i wszystkie znajdujące się w niej zasoby, używając polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Uruchom następujące polecenie programu PowerShell i Zastąp ciąg `myResourceGroup` nazwą grupy zasobów:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

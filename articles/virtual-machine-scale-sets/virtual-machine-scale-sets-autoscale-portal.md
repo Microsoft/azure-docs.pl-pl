@@ -10,10 +10,9 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124945"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatyczne skalowanie zestawu skalowania maszyn wirtualnych w Azure Portal
@@ -41,12 +40,12 @@ Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpie
 
     Określ następujące ustawienia reguły:
     
-    | Parametr              | Wyjaśnienie                                                                                                         | Wartość          |
+    | Parametr              | Objaśnienie                                                                                                         | Wartość          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregacja czasu*     | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
     | *Nazwa metryki*          | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
     | *Statystyka ziarna czasu* | Definiuje sposób agregowania zebranych metryk w poszczególnych ziarnach w celu analizy.                             | Średnia        |
-    | *Zakład*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
+    | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 70             |
     | *Czas trwania*             | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 10 minut     |
     | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, a następnie przez zwiększenie                        | Zwiększ wartość procentową o |
@@ -68,9 +67,9 @@ Wieczorami lub w weekendy zapotrzebowanie aplikacji może być mniejsze. Jeśli 
 
     Użyj tego samego podejścia jak w przypadku poprzedniej reguły. Dostosuj następujące ustawienia reguły:
     
-    | Parametr              | Wyjaśnienie                                                                                                          | Wartość          |
+    | Parametr              | Objaśnienie                                                                                                          | Wartość          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Zakład*             | Operator używany do porównywania danych metryki z wartością progową.                                                      | Mniejsze niż   |
+    | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                      | Mniejsze niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 30             |
     | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, a następnie przez zwiększenie                         | Zmniejsz procent według |
     | *Liczba wystąpień*       | Wartość procentowa liczby wystąpień maszyn wirtualnych, która powinna zostać zmieniona po wyzwoleniu reguły.                                             | 20             |
@@ -83,7 +82,7 @@ Profil skalowania automatycznego musi definiować minimalną, maksymalną i domy
 
 1. Ustaw następujące limity wystąpień:
 
-    | Minimalne | Maksimum | Domyślny|
+    | Minimalne | Maksimum | Domyślne|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 

@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje dotyczące sposobu wdrażania Appli
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: b46c9f8b0cad74f3a4e9be8903270a60993c01f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807158"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Jak zainstalować Application Gateway kontroler transferu danych przychodzących (AGIC) przy użyciu nowego Application Gateway
 
@@ -38,7 +38,7 @@ Alternatywnie można uruchomić Cloud Shell z Azure Portal przy użyciu następu
 
 ## <a name="create-an-identity"></a>Tworzenie tożsamości
 
-Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)Azure Active Directory (AAD). Zapisz wartości `appId`, `password`i `objectId` — zostaną one użyte w poniższych krokach.
+Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)Azure Active Directory (AAD). Zapisz `appId` `password` wartości, i `objectId` — zostaną one użyte w poniższych krokach.
 
 1. Utwórz nazwę główną usługi AD ([Przeczytaj więcej na temat RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)):
     ```azurecli
@@ -46,14 +46,14 @@ Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](https://docs.mi
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```
-    Wartości `appId` i `password` z danych wyjściowych JSON będą używane w następujących krokach
+    `appId`Wartości i `password` z danych wyjściowych JSON będą używane w następujących krokach
 
 
 1. Użyj `appId` z danych wyjściowych poprzedniego polecenia, aby uzyskać `objectId` nową nazwę główną usługi:
     ```azurecli
     objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
     ```
-    Dane wyjściowe tego polecenia to `objectId`, które będą używane w szablonie Azure Resource Manager poniżej
+    Dane wyjściowe tego polecenia to `objectId` , które będą używane w szablonie Azure Resource Manager poniżej
 
 1. Utwórz plik parametrów, który zostanie użyty w późniejszym wdrożeniu szablonu Azure Resource Manager.
     ```bash
@@ -66,7 +66,7 @@ Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](https://docs.mi
     }
     EOF
     ```
-    Aby wdrożyć klaster z obsługą **RBAC** , należy `aksEnabledRBAC` ustawić pole na`true`
+    Aby wdrożyć klaster z obsługą **RBAC** , należy ustawić `aksEnableRBAC` pole na`true`
 
 ## <a name="deploy-components"></a>Wdróż składniki
 Ten krok spowoduje dodanie do subskrypcji następujących składników:
@@ -82,7 +82,7 @@ Ten krok spowoduje dodanie do subskrypcji następujących składników:
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
     ```
 
-1. Wdróż szablon Azure Resource Manager za pomocą `az cli`polecenia. Może to potrwać do 5 minut.
+1. Wdróż szablon Azure Resource Manager za pomocą polecenia `az cli` . Może to potrwać do 5 minut.
     ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"
@@ -99,7 +99,7 @@ Ten krok spowoduje dodanie do subskrypcji następujących składników:
             --parameters parameters.json
     ```
 
-1. Po zakończeniu wdrożenia Pobierz dane wyjściowe wdrożenia do pliku o nazwie `deployment-outputs.json`.
+1. Po zakończeniu wdrożenia Pobierz dane wyjściowe wdrożenia do pliku o nazwie `deployment-outputs.json` .
     ```azurecli
     az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
@@ -124,7 +124,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
   Azure Active Directory pod tożsamością zapewnia dostęp oparty na tokenach do [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
   [Tożsamość usługi AAD pod](https://github.com/Azure/aad-pod-identity) zostanie dodana do klastra Kubernetes następujące składniki:
-   * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`,`AzureIdentityBinding`
+   * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` ,`AzureIdentityBinding`
    * Składnik [zarządzanego kontrolera tożsamości (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
    * Składnik [tożsamości zarządzanej przez węzeł (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
@@ -146,7 +146,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
 ### <a name="install-helm"></a>Zainstaluj Helm
 [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) to Menedżer pakietów dla Kubernetes. Użyjemy go do zainstalowania `application-gateway-kubernetes-ingress` pakietu:
 
-1. Zainstaluj [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) i uruchom następujące kroki, aby `application-gateway-kubernetes-ingress` dodać pakiet Helm:
+1. Zainstaluj [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) i uruchom następujące kroki, aby dodać `application-gateway-kubernetes-ingress` pakiet Helm:
 
     - *Włączono kontrolę RBAC* Klaster AKS
 
@@ -170,7 +170,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
 
 ### <a name="install-ingress-controller-helm-chart"></a>Instalowanie wykresu Helm kontrolera danych wejściowych
 
-1. Użyj utworzonego `deployment-outputs.json` powyżej pliku i Utwórz następujące zmienne.
+1. Użyj `deployment-outputs.json` utworzonego powyżej pliku i Utwórz następujące zmienne.
     ```bash
     applicationGatewayName=$(jq -r ".applicationGatewayName.value" deployment-outputs.json)
     resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
@@ -237,7 +237,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
         apiServerAddress: <aks-api-server-address>
     ```
 
-1. Edytuj nowo pobrane Helm-config. YAML i wypełnij sekcje `appgw` i. `armAuth`
+1. Edytuj nowo pobrane Helm-config. YAML i wypełnij sekcje `appgw` i `armAuth` .
     ```bash
     sed -i "s|<subscriptionId>|${subscriptionId}|g" helm-config.yaml
     sed -i "s|<resourceGroupName>|${resourceGroupName}|g" helm-config.yaml
@@ -254,16 +254,16 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
      - `appgw.subscriptionId`: Identyfikator subskrypcji platformy Azure, w którym znajduje się Application Gateway. Przykład: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Nazwa grupy zasobów platformy Azure, w której utworzono Application Gateway. Przykład: `app-gw-resource-group`
      - `appgw.name`: Nazwa Application Gateway. Przykład: `applicationgatewayd0f0`
-     - `appgw.shared`: Ta flaga logiczna powinna być domyślną wartością `false`. Ustaw, `true` aby była potrzebna [Application Gateway udostępnione](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+     - `appgw.shared`: Ta flaga logiczna powinna być domyślną wartością `false` . Ustaw, aby `true` była potrzebna [Application Gateway udostępnione](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
      - `kubernetes.watchNamespace`: Określ przestrzeń nazw, która AGIC powinna być obserwowana. Może to być jedna wartość ciągu lub rozdzielona przecinkami lista przestrzeni nazw.
     - `armAuth.type`: może być `aadPodIdentity` lub`servicePrincipal`
     - `armAuth.identityResourceID`: Identyfikator zasobu tożsamości zarządzanej platformy Azure
     - `armAuth.identityClientId`: Identyfikator klienta tożsamości. Aby uzyskać więcej informacji na temat tożsamości, zobacz poniżej.
-    - `armAuth.secretJSON`: Jest to konieczne tylko wtedy, gdy wybrano typ wpisu `armAuth.type` tajnego jednostki usługi `servicePrincipal`(gdy ustawiono wartość) 
+    - `armAuth.secretJSON`: Jest to konieczne tylko wtedy, gdy wybrano typ wpisu tajnego jednostki usługi (gdy ustawiono `armAuth.type` wartość `servicePrincipal` ) 
 
 
    > [!NOTE]
-   > I są wartościami, które zostały utworzone podczas kroków [wdrażania składników](ingress-controller-install-new.md#deploy-components) i mogą zostać uzyskane ponownie przy użyciu następującego polecenia: `identityClientID` `identityResourceID`
+   > `identityResourceID`I `identityClientID` są wartościami, które zostały utworzone podczas kroków [wdrażania składników](ingress-controller-install-new.md#deploy-components) i mogą zostać uzyskane ponownie przy użyciu następującego polecenia:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```

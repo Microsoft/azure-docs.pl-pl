@@ -11,10 +11,10 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
 ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432062"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Kody błędów interfejsu API REST Azure Key Vault
@@ -55,11 +55,11 @@ Nagłówek "Autoryzacja" jest tokenem dostępu, który jest wymagany w przypadku
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Z tokenem nie jest skojarzony prawidłowy zasób. 
 
-Podczas żądania tokenu dostępu z punktu końcowego usługi Azure OAUTH parametr o nazwie "Resource" jest obowiązkowy. Wartość jest ważna dla dostawcy tokenów, ponieważ zakresy tokenów dla zamierzonego użycia. Zasób dla **wszystkich** tokenów mających dostęp do Key Vault to *https\/:/Vault.keyvault.NET* (bez końcowego ukośnika).
+Podczas żądania tokenu dostępu z punktu końcowego usługi Azure OAUTH parametr o nazwie "Resource" jest obowiązkowy. Wartość jest ważna dla dostawcy tokenów, ponieważ zakresy tokenów dla zamierzonego użycia. Zasób dla **wszystkich** tokenów mających dostęp do Key Vault to *https: \/ /Vault.keyvault.NET* (bez końcowego ukośnika).
 
 ### <a name="the-token-is-expired"></a>Token wygasł
 
-Tokeny są kodowane algorytmem Base64, a wartości można zdekodować w witrynach [http://jwt.calebb.net](http://jwt.calebb.net)sieci Web, takich jak. Poniżej przedstawiono zdekodowane tokeny:
+Tokeny są kodowane algorytmem Base64, a wartości można zdekodować w witrynach sieci Web, takich jak [http://jwt.calebb.net](http://jwt.calebb.net) . Poniżej przedstawiono zdekodowane tokeny:
 
 ```
     {
@@ -89,7 +89,7 @@ Tokeny są kodowane algorytmem Base64, a wartości można zdekodować w witrynac
 
 W tym tokenie możemy zobaczyć wiele ważnych części:
 
-- AUD (odbiorcy): zasób tokenu. Zwróć uwagę, że <https://vault.azure.net>jest to. Ten token nie będzie działał w przypadku wszystkich zasobów, które nie pasują jawnie do tej wartości, takiej jak Graph.
+- AUD (odbiorcy): zasób tokenu. Zwróć uwagę, że jest to <https://vault.azure.net> . Ten token nie będzie działał w przypadku wszystkich zasobów, które nie pasują jawnie do tej wartości, takiej jak Graph.
 - IAT (wystawiony na): liczba taktów od momentu rozpoczęcia epoki podczas wystawiania tokenu.
 - NBF (nie wcześniej): liczba taktów od momentu rozpoczęcia epoki, gdy ten token będzie prawidłowy.
 - EXP (Wygaśnięcie): liczba taktów od momentu rozpoczęcia epoki po wygaśnięciu tego tokenu.
@@ -100,7 +100,7 @@ Należy pamiętać, że wszystkie wartości są prawidłowo identyfikowane w tok
 
 ### <a name="troubleshooting-401"></a>Rozwiązywanie problemów 401
 
-401s należy zbadać od momentu wygenerowania tokenu przed wysłaniem żądania do magazynu kluczy. Zazwyczaj kod jest używany do żądania tokenu. Po odebraniu tokenu zostanie on przekazany do żądania Key Vault. Jeśli kod jest uruchomiony lokalnie, można użyć programu Fiddler do przechwycenia żądania/odpowiedzi do `https://login.microsoftonline.com`. Żądanie wygląda następująco:
+401s należy zbadać od momentu wygenerowania tokenu przed wysłaniem żądania do magazynu kluczy. Zazwyczaj kod jest używany do żądania tokenu. Po odebraniu tokenu zostanie on przekazany do żądania Key Vault. Jeśli kod jest uruchomiony lokalnie, można użyć programu Fiddler do przechwycenia żądania/odpowiedzi do `https://login.microsoftonline.com` . Żądanie wygląda następująco:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1

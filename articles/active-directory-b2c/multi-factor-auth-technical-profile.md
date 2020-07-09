@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c9ed0e329b498112feafaf21c34e85ea436cbb77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385947"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny usługi Azure MFA w zasadach niestandardowych Azure AD B2C
 
@@ -32,9 +32,9 @@ Ten profil techniczny:
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary`. Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C:
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C:
 
 ```
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 Poniższy przykład przedstawia profil techniczny usługi Azure MFA:
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
     <DisplayName>Send Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -57,7 +57,7 @@ Pierwszy tryb tego profilu technicznego polega na wygenerowaniu kodu i wysłaniu
 
 Element **InputClaims** zawiera listę oświadczeń do wysłania do usługi Azure MFA. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną w profilu technicznym usługi MFA.
 
-| ClaimReferenceId | Wymagany | Opis |
+| ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | userPrincipalName | Tak | Identyfikator użytkownika, który jest właścicielem numeru telefonu. |
 | phoneNumber | Tak | Numer telefonu, na który ma zostać wysłany kod SMS. |
@@ -74,7 +74,7 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 
 ### <a name="metadata"></a>Metadane
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Operacja | Tak | Musi być **OneWaySMS**.  |
 
@@ -82,7 +82,7 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 
 Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych podczas wysyłania błędu SMS. Metadane należy skonfigurować w profilu technicznym z [własnym potwierdzeniem](self-asserted-technical-profile.md) . Komunikaty o błędach można [lokalizować](localization-string-ids.md#azure-mfa-error-messages).
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | UserMessageIfCouldntSendSms | Nie | Komunikat o błędzie użytkownika, jeśli podany numer telefonu nie akceptuje wiadomości SMS. |
 | UserMessageIfInvalidFormat | Nie | Komunikat o błędzie użytkownika, jeśli podany numer telefonu nie jest prawidłowym numerem telefonu. |
@@ -93,7 +93,7 @@ Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wy
 
 Poniższy przykład przedstawia profil techniczny usługi Azure MFA, który jest używany do wysyłania kodu za pośrednictwem wiadomości SMS.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
   <DisplayName>Send Sms</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -119,7 +119,7 @@ Drugi tryb tego profilu technicznego polega na sprawdzeniu kodu. Dla tego trybu 
 
 Element **InputClaims** zawiera listę oświadczeń do wysłania do usługi Azure MFA. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną w profilu technicznym usługi MFA.
 
-| ClaimReferenceId | Wymagany | Opis |
+| ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Tak | Ten sam numer telefonu, który został wcześniej użyty do wysłania kodu. Służy również do lokalizowania sesji weryfikacyjnej telefonu. |
 | verificationCode  | Tak | Kod weryfikacyjny dostarczony przez użytkownika do zweryfikowania |
@@ -134,7 +134,7 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 
 ### <a name="metadata"></a>Metadane
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Operacja | Tak | Musi być **zweryfikowana** |
 
@@ -142,7 +142,7 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 
 Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych podczas sprawdzania kodu. Metadane należy skonfigurować w profilu technicznym z [własnym potwierdzeniem](self-asserted-technical-profile.md) . Komunikaty o błędach można [lokalizować](localization-string-ids.md#azure-mfa-error-messages).
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | UserMessageIfMaxAllowedCodeRetryReached| Nie | Komunikat o błędzie użytkownika, jeśli użytkownik próbuje wykonać kod weryfikacyjny zbyt wiele razy. |
 | UserMessageIfServerError | Nie | Komunikat o błędzie użytkownika, jeśli serwer napotkał błąd wewnętrzny. |
@@ -153,7 +153,7 @@ Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wy
 
 W poniższym przykładzie przedstawiono profil techniczny usługi Azure MFA służący do sprawdzania kodu.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">
     <DisplayName>Verify Sms</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

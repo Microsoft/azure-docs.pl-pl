@@ -7,10 +7,9 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75351712"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Samouczek: informacje na temat uaktualniania aplikacji Service Fabric przy użyciu programu Visual Studio
@@ -45,27 +44,27 @@ W tym artykule przedstawiono sposób uaktualniania mikrousługi w aplikacji. W t
 
 Podczas tworzenia aplikacji siatki Service Fabric, program Visual Studio dodaje plik **Parameters. YAML** dla każdego środowiska wdrażania (w chmurze i lokalnej). W tych plikach można definiować parametry i ich wartości, do których można się odwoływać z plików siatki *. YAML, takich jak Service. YAML lub Network. YAML.  Program Visual Studio udostępnia pewne zmienne, takie jak ilość procesora, która może być używana przez usługę.
 
-Zaktualizujemy `WebFrontEnd_cpu` parametr, aby zaktualizować zasoby procesora CPU do `1.5` programu w oczekiwany sposób, że usługa **webfrontonu** będzie bardziej intensywnie używana.
+Zaktualizujemy parametr, `WebFrontEnd_cpu` Aby zaktualizować zasoby procesora CPU do `1.5` programu w oczekiwany sposób, że usługa **webfrontonu** będzie bardziej intensywnie używana.
 
-1. W projekcie **todolistapp** w obszarze **środowiska** > w**chmurze**Otwórz plik **Parameters. YAML** . `WebFrontEnd_cpu`Zmodyfikuj wartość na `1.5`. Nazwa parametru jest poprzedzona nazwą `WebFrontEnd_` usługi jako najlepszym rozwiązaniem w odróżnieniu od parametrów o tej samej nazwie, która ma zastosowanie do różnych usług.
+1. W projekcie **todolistapp** w obszarze **środowiska**w  >  **chmurze**Otwórz plik **Parameters. YAML** . Zmodyfikuj `WebFrontEnd_cpu` wartość na `1.5` . Nazwa parametru jest poprzedzona nazwą usługi `WebFrontEnd_` jako najlepszym rozwiązaniem w odróżnieniu od parametrów o tej samej nazwie, która ma zastosowanie do różnych usług.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Otwórz plik **YAML usługi** **webfrontonu** w obszarze**zasoby usługi** **webfrontonu** > .
+2. Otwórz plik **YAML usługi** **webfrontonu** w obszarze zasoby usługi **webfrontonu**  >  **Service Resources**.
 
-    Należy zauważyć, że `resources:` sekcja w `cpu:` jest ustawiona na `"[parameters('WebFrontEnd_cpu')]"`. Jeśli projekt jest kompilowany dla chmury, wartość `'WebFrontEnd_cpu` zostanie pobrana ze **środowisk** > pliku**parameters.yaml** `1.5`Parameters. YAML w**chmurze** > . Jeśli projekt jest kompilowany do uruchamiania lokalnego, wartość zostanie pobrana ze **środowisk** > **Local** > **Parameters. 0,5 YAML** .
+    Należy zauważyć, że `resources:` sekcja w `cpu:` jest ustawiona na `"[parameters('WebFrontEnd_cpu')]"` . Jeśli projekt jest kompilowany dla chmury, wartość `'WebFrontEnd_cpu` zostanie pobrana ze **środowisk**  >  **Cloud**  >  pliku**Parameters. YAML** w chmurze `1.5` . Jeśli projekt jest kompilowany do uruchamiania lokalnego, wartość zostanie pobrana ze **środowisk**  >  **Local**  >  **Parameters. 0,5 YAML** .
 
 > [!Tip]
 > Domyślnie plik parametrów, który jest elementem równorzędnym pliku profile. YAML, będzie używany do dostarczania wartości dla tego pliku profile. YAML.
 > Na przykład środowiska > > w chmurze. YAML udostępnia wartości parametrów dla środowisk > Cloud > profile. YAML.
 >
-> Można to zastąpić, dodając następujący plik do pliku profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` na przykład lub `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”``parametersFilePath=”..\CommonParameters.yaml”`
+> Można to zastąpić, dodając następujący plik do pliku profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` na przykład `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` lub`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modyfikowanie modelu
 
-Aby wprowadzić zmianę kodu, Dodaj `Category` właściwość do `ToDoItem` klasy w `ToDoItem.cs` pliku.
+Aby wprowadzić zmianę kodu, Dodaj `Category` Właściwość do `ToDoItem` klasy w `ToDoItem.cs` pliku.
 
 ```csharp
 public class ToDoItem
@@ -93,7 +92,7 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="modify-the-service"></a>Modyfikowanie usługi
 
-`WebFrontEnd` Projekt jest aplikacją ASP.NET Core ze stroną sieci Web, która pokazuje elementy listy do wykonania. W `WebFrontEnd` projekcie Otwórz `Index.cshtml` i Dodaj następujące dwa wiersze, które zostały wskazane poniżej, aby wyświetlić kategorię zadania:
+`WebFrontEnd`Projekt jest aplikacją ASP.NET Core ze stroną sieci Web, która pokazuje elementy listy do wykonania. W `WebFrontEnd` projekcie Otwórz `Index.cshtml` i Dodaj następujące dwa wiersze, które zostały wskazane poniżej, aby wyświetlić kategorię zadania:
 
 ```HTML
 <div>
@@ -127,7 +126,7 @@ Bez względu na to, czy przeprowadzasz uaktualnienie kodu, czy też uaktualniasz
 
 Następnie zobaczysz okno dialogowe **Publikowanie aplikacji usługi Service Fabric**.
 
-Użyj listy rozwijanej **profil docelowy** , aby wybrać plik profile. YAML, który ma być używany dla tego wdrożenia. Aktualizujemy aplikację w chmurze, dlatego wybieramy `WebFrontEnd_cpu` wartość **Cloud. YAML** na liście rozwijanej, która będzie używać wartości 1,0 zdefiniowanej w tym pliku.
+Użyj listy rozwijanej **profil docelowy** , aby wybrać plik profile. YAML, który ma być używany dla tego wdrożenia. Aktualizujemy aplikację w chmurze, dlatego wybieramy wartość **Cloud. YAML** na liście rozwijanej, która będzie używać `WebFrontEnd_cpu` wartości 1,0 zdefiniowanej w tym pliku.
 
 ![Okno dialogowe publikowania usługi Service Fabric Mesh w programie Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Moje drzwi platformy Azure | Microsoft Docs
-description: Ten artykuł zawiera omówienie usługi Azure Front Door. Sprawdź, czy jest to właściwy wybór dla ruchu użytkowników z równoważeniem obciążenia dla aplikacji.
+title: Azure Front Door
+description: Ten artykuł zawiera listę różnych warunków dopasowania dostępnych w aparacie reguł dla drzwi platformy Azure.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 77c0d68f507e09b315c912d1d91fdf9cf63db6fa
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515531"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321987"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Warunki dopasowania aparatu do usługi Azure Front drzwiczk
 
-W [aparacie reguł AFD](front-door-rules-engine.md) reguła składa się z zero lub więcej warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w aparacie reguł AFD. 
+W [aparacie reguł AFD](front-door-rules-engine.md) reguła składa się z zero lub więcej warunków dopasowania i akcji. Ten artykuł zawiera szczegółowe opisy warunków dopasowania, których można użyć w aparacie reguł AFD.
 
-Pierwszą częścią reguły jest warunek dopasowania lub zestaw warunków zgodności. Reguła może składać się z maksymalnie 10 warunków dopasowywania. Warunek dopasowania służy do identyfikowania określonych typów żądań, dla których wykonywane są określone akcje. Jeśli używasz wielu warunków dopasowywania, warunki dopasowania są pogrupowane przy użyciu i logiki. Dla wszystkich warunków dopasowania, które obsługują wiele wartości (zanotowanych poniżej jako "rozdzielone spacjami"), przyjęto operator "OR". 
+Pierwszą częścią reguły jest warunek dopasowania lub zestaw warunków zgodności. Reguła może składać się z maksymalnie 10 warunków dopasowywania. Warunek dopasowania służy do identyfikowania określonych typów żądań, dla których wykonywane są określone akcje. Jeśli używasz wielu warunków dopasowywania, warunki dopasowania są pogrupowane przy użyciu i logiki. Dla wszystkich warunków dopasowania, które obsługują wiele wartości (zanotowanych poniżej jako "rozdzielone spacjami"), przyjęto operator "OR".
 
 Można na przykład użyć warunku dopasowywania do:
 
@@ -51,7 +51,7 @@ Identyfikuje żądania na podstawie argumentów zdefiniowanych dla metody POST R
 
 Nazwa argumentu | Operator | Wartość argumentu | Przekształcanie wielkości liter
 --------------|----------|----------------|---------------
-String | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 
 ## <a name="query-string"></a>Ciąg zapytania
 
@@ -104,7 +104,7 @@ Identyfikuje żądania, które używają określonego nagłówka w żądaniu.
 
 Nazwa nagłówka | Operator | Wartość nagłówka | Przekształcanie wielkości liter
 ------------|----------|--------------|---------------
-String | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
+Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Małe litery, wielkie litery, przycinanie, usuwanie białych znaków, kodowanie URL, dekodowanie adresu URL
 
 ## <a name="request-method"></a>Metoda żądania
 
@@ -142,7 +142,7 @@ Operator | Adres URL żądania | Przekształcanie wielkości liter
 
 #### <a name="key-information"></a>Informacje o kluczu
 
-- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: *https://www.\<yourdomain\>.com*.
+- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: * https://www . \<yourdomain\> . Model com*.
 
 ## <a name="request-file-extension"></a>Rozszerzenie pliku żądania
 

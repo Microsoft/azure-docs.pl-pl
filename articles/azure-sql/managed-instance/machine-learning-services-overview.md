@@ -2,7 +2,7 @@
 title: Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)
 description: Ten artykuł zawiera omówienie lub Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
@@ -11,20 +11,19 @@ author: garyericson
 ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
-ms.date: 05/27/2020
-ms.openlocfilehash: fb74cc3aba3ad37e36a4d7cbe726bde4cb088e90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045102"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708743"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL (wersja zapoznawcza)
 
 Machine Learning Services to funkcja wystąpienia zarządzanego usługi Azure SQL (wersja zapoznawcza) zapewniająca Uczenie maszynowe w bazie danych, obsługujące skrypty Python i R. Ta funkcja obejmuje pakiety Microsoft Python i języka R dla wysokiej wydajności analizy predykcyjnej i uczenia maszynowego. Dane relacyjne mogą być używane w skryptach za pomocą procedur składowanych, skryptu T-SQL zawierającego instrukcje języka Python lub języka R lub kodu Python lub R zawierającego język T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning Services to funkcja wystąpienia zarządzanego usługi Azure SQL, które jest obecnie dostępne w publicznej wersji zapoznawczej.
+> Usługi Machine Learning Services to funkcja usługi Azure SQL Managed Instance, która jest obecnie dostępna w publicznej wersji zapoznawczej.
 > Ta funkcja w wersji zapoznawczej jest początkowo dostępna w ograniczonej liczbie regionów w Stanach Zjednoczonych, Europie Azja i Australii z dodatkowymi regionami dodawanymi później.
 >
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
@@ -52,14 +51,15 @@ Podstawowe dystrybucje języków Python i R są zawarte w Machine Learning Servi
 
 Ta ograniczona publiczna wersja zapoznawcza podlega [postanowieniom dotyczącym wersji zapoznawczej platformy Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptujesz te warunki, możesz poprosić o rejestrację, tworząc bilet pomocy technicznej platformy Azure pod adresem [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . W obszarze "typ problemu" Wybierz "techniczne" dla "usługa" Wybierz "SQL Database wystąpienie zarządzane" i "typ problemu" Wybierz pozycję "inne". W żądaniu Sprawdź, czy chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej Machine Learning dla wystąpienia zarządzanego SQL z następującymi szczegółami: Nazwa serwera logicznego, region i Identyfikator subskrypcji.
+Jeśli interesuje Cię dołączenie do programu w wersji zapoznawczej i akceptujesz te warunki, możesz poprosić o rejestrację, tworząc bilet pomocy technicznej platformy Azure pod adresem [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . W obszarze "typ problemu" Wybierz "techniczne" dla "usługa" Wybierz "SQL Database wystąpienie zarządzane" i "typ problemu" Wybierz pozycję "inne". Poinformuj nas, że chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej usługi Machine Learning dla usługi SQL Managed Instance i podaj następujące informacje: nazwa serwera logicznego, region i identyfikator subskrypcji.
 
-Po zarejestrowaniu się w programie firma Microsoft przeprowadzi Cię do publicznej wersji zapoznawczej i umożliwi Machine Learning Services istniejącej lub nowej bazy danych.
+Gdy zarejestrujesz się w programie, firma Microsoft dołączy Cię do publicznej wersji zapoznawczej i włączy usługi Machine Learning Services dla Twojej istniejącej lub nowej bazy danych.
 
-Machine Learning Services w wystąpieniu zarządzanym SQL nie jest zalecane w przypadku obciążeń produkcyjnych w publicznej wersji zapoznawczej.
+W czasie korzystania z publicznej wersji zapoznawczej nie zaleca się używania usług Machine Learning Services w usłudze SQL Managed Instance na potrzeby obciążeń produkcyjnych.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się [z kluczowymi różnicami w Machine Learning Services SQL Server](machine-learning-services-differences.md).
 - Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
 - Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- Aby uzyskać więcej informacji na temat uczenia maszynowego na innych platformach SQL, zobacz [dokumentację usługi SQL Machine Learning](https://docs.microsoft.com/sql/machine-learning/).

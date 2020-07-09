@@ -3,15 +3,14 @@ title: Użyj pamięci podręcznej platformy Azure HPC i Azure NetApp Files
 description: Jak korzystać z pamięci podręcznej platformy Azure HPC w celu ulepszania dostępu do danych przechowywanych przy użyciu Azure NetApp Files
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 374f3106ec42233cd5309c2773b05e3c96bbf98e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194962"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515499"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Używanie pamięci podręcznej platformy Azure HPC z Azure NetApp Files
 
@@ -80,7 +79,7 @@ Adresy IP można również znaleźć w interfejsie wiersza polecenia platformy A
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 
-Eksport nazw w systemie Azure NetApp Files ma jeden składnik ścieżki. Nie należy próbować utworzyć docelowego magazynu dla eksportu ``/`` głównego w Azure NetApp Files, ponieważ ten eksport nie zapewnia dostępu do pliku.
+Eksport nazw w systemie Azure NetApp Files ma jeden składnik ścieżki. Nie należy próbować utworzyć docelowego magazynu dla eksportu głównego ``/`` w Azure NetApp Files, ponieważ ten eksport nie zapewnia dostępu do pliku.
 
 Nie ma specjalnych ograniczeń ścieżek wirtualnych przestrzeni nazw dla tych obiektów docelowych magazynu.
 

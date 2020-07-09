@@ -8,22 +8,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 63097ac520f1d49098054d64ceae614036f59df3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807808"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Przypisywanie etykiet czułości do grup pakietu Office 365 w Azure Active Directory (wersja zapoznawcza)
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory"></a>Przypisywanie etykiet czułości do grup pakietu Office 365 w Azure Active Directory
 
-Azure Active Directory (Azure AD) obsługuje stosowanie etykiet liter opublikowanych przez [Centrum zgodności Microsoft 365](https://sip.protection.office.com/homepage) do grup usługi Office 365. Etykiety czułości dotyczą grup różnych usług, takich jak Outlook, Microsoft Teams i SharePoint. Ta funkcja jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji o obsłudze aplikacji pakietu Office 365, zobacz temat [Obsługa etykiet o czułości przez pakiet office 365](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) obsługuje stosowanie etykiet liter opublikowanych przez [Centrum zgodności Microsoft 365](https://sip.protection.office.com/homepage) do grup usługi Office 365. Etykiety czułości dotyczą grup różnych usług, takich jak Outlook, Microsoft Teams i SharePoint. Ta funkcja jest obecnie ogólnie dostępna. Aby uzyskać więcej informacji o obsłudze aplikacji pakietu Office 365, zobacz temat [Obsługa etykiet o czułości przez pakiet office 365](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Aby skonfigurować tę funkcję, musi mieć co najmniej jedną aktywną licencję Azure Active Directory — wersja Premium P1 w organizacji usługi Azure AD.
@@ -68,7 +68,7 @@ Aby zastosować opublikowane etykiety do grup, należy najpierw włączyć tę f
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Gotowe. Włączono funkcję i można zastosować opublikowane etykiety do grup.
+To wszystko. Włączono funkcję i można zastosować opublikowane etykiety do grup.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Przypisywanie etykiety do nowej grupy w Azure Portal
 
@@ -104,7 +104,7 @@ Zostanie utworzona grupa, a następnie zostaną automatycznie wymuszone ustawien
 
 ## <a name="using-classic-azure-ad-classifications"></a>Używanie klasycznych klasyfikacji usługi Azure AD
 
-Po włączeniu tej funkcji klasyfikacje "klasyczny" dla grup będą widoczne tylko dla istniejących grup i lokacji i należy używać ich w przypadku nowych grup tylko w przypadku tworzenia grup w aplikacjach, które nie obsługują etykiet czułości. Administrator może później przekonwertować je na etykiety czułe w razie potrzeby. Klasyfikacje klasyczne są starymi klasyfikacjami skonfigurowanymi przez definiowanie wartości dla `ClassificationList` ustawienia w programie Azure AD PowerShell. Gdy ta funkcja jest włączona, te klasyfikacje nie zostaną zastosowane do grup.
+Po włączeniu tej funkcji klasyfikacje "klasyczny" dla grup będą widoczne tylko dla istniejących grup i lokacji i należy używać ich w przypadku nowych grup tylko w przypadku tworzenia grup w aplikacjach, które nie obsługują etykiet czułości. Administrator może później przekonwertować je na etykiety czułe w razie potrzeby. Klasyfikacje klasyczne są starymi klasyfikacjami skonfigurowanymi przez definiowanie wartości dla `ClassificationList` Ustawienia w programie Azure AD PowerShell. Gdy ta funkcja jest włączona, te klasyfikacje nie zostaną zastosowane do grup.
 
 ## <a name="troubleshooting-issues"></a>Rozwiązywanie problemów
 

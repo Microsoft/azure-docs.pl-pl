@@ -1,18 +1,14 @@
 ---
 title: Azure Maps jako źródło Event Grid
 description: Opisuje właściwości i schemat udostępnione dla zdarzeń Azure Maps z Azure Event Grid
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 8aa29d003483536ef33a32616af1553e1bbe8204
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393418"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106692"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps jako źródło Event Grid
 
@@ -110,8 +106,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia geofencingu. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Dane zdarzenia geofencingu. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -121,15 +117,15 @@ Obiekt danych ma następujące właściwości:
 | -------- | ---- | ----------- |
 | apiCategory | ciąg | Kategoria interfejsu API zdarzenia. |
 | apiName | ciąg | Nazwa interfejsu API zdarzenia. |
-| issues | obiekt | Wyświetla listę problemów napotkanych podczas przetwarzania. W przypadku zwrócenia jakichkolwiek problemów nie będzie żadnych geometrie zwracanych z odpowiedzią. |
-| responseCode | numer | Kod odpowiedzi HTTP |
-| geometrie | obiekt | Wyświetla listę ograniczników geometrie, które zawierają położenie współrzędnych lub nakładają się na searchBuffer wokół pozycji. |
+| issues | object | Wyświetla listę problemów napotkanych podczas przetwarzania. W przypadku zwrócenia jakichkolwiek problemów nie będzie żadnych geometrie zwracanych z odpowiedzią. |
+| responseCode | liczba | Kod odpowiedzi HTTP |
+| geometrie | object | Wyświetla listę ograniczników geometrie, które zawierają położenie współrzędnych lub nakładają się na searchBuffer wokół pozycji. |
 
 Obiekt Error jest zwracany, gdy w interfejsie API Maps wystąpi błąd. Obiekt Error ma następujące właściwości:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| error | ErrorDetails |Ten obiekt jest zwracany w przypadku wystąpienia błędu w interfejsie API Maps  |
+| Błąd | ErrorDetails |Ten obiekt jest zwracany w przypadku wystąpienia błędu w interfejsie API Maps  |
 
 Obiekt ErrorDetails jest zwracany, gdy w interfejsie API Maps wystąpi błąd. ErrorDetails lub obiekt ma następujące właściwości:
 
@@ -152,8 +148,8 @@ Obiekt geometrie wyświetla listę identyfikatorów geometrii, które wygasły w
 | Identyfikator | ciąg | Identyfikator urządzenia. |
 | odległość | ciąg | <p>Odległość od współrzędnej do najbliższej krawędzi geoogrodzenia. Pozytywna oznacza, że Współrzędna znajduje się poza ogrodzeniem. Jeśli Współrzędna znajduje się poza ogrodzeniem, ale więcej niż wartość searchBuffer z najbliższej granicy geoogrodzenia, wartość to 999. Wartość ujemna oznacza, że Współrzędna jest wewnątrz ogrodzenia. Jeśli Współrzędna znajduje się wewnątrz wielokąta, ale więcej niż wartość searchBuffer z najbliższego obramowania geoogrodzenia, wartość to-999. Wartość 999 oznacza, że istnieje doskonały stopień pewności, że Współrzędna jest poza ogrodzeniem geograficznym. Wartość-999 oznacza, że istnieje doskonały stopień pewności, że Współrzędna jest również w obrębie geofencingu.<p> |
 | geometryid |ciąg | Unikatowy identyfikator identyfikuje geometrię geoogrodzenia. |
-| nearestlat | numer | Szerokość geograficzna najbliższego punktu geometrii. |
-| nearestlon | numer | Długość geograficzna najbliższego punktu geometrii. |
+| nearestlat | liczba | Szerokość geograficzna najbliższego punktu geometrii. |
+| nearestlon | liczba | Długość geograficzna najbliższego punktu geometrii. |
 | udId | ciąg | Unikatowy identyfikator zwrócony przez usługę przekazywania przez użytkownika podczas przekazywania geoogrodzenia. Nie zostanie uwzględniony w interfejsie API po geoogrodzeniu. |
 
 Obiekt danych ma następujące właściwości:

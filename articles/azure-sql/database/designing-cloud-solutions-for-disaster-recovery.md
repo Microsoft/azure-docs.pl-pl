@@ -12,12 +12,11 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: e2414873db06ada4d0a260e007998ef2ba2f2cf9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84344649"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Projektowanie usług dostępnych globalnie przy użyciu Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +44,7 @@ Na poniższym diagramie przedstawiono tę konfigurację przed awarią:
 
 ![Scenariusz 1. Konfiguracja przed awarią.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
-Po awarii w regionie podstawowym SQL Database wykryje, że podstawowa baza danych nie jest dostępna i wyzwala tryb failover w regionie pomocniczym na podstawie parametrów zasad automatycznych trybu failover (1). W zależności od umowy SLA aplikacji można skonfigurować okres prolongaty, który kontroluje czas między wykryciem przestoju i pracą w trybie failover. Istnieje możliwość, że Traffic Manager inicjuje przejście w tryb failover punktu końcowego, zanim Grupa trybu failover wyzwoli tryb failover bazy danych. W takim przypadku aplikacja sieci Web nie może natychmiast ponownie nawiązać połączenia z bazą danych. Jednak ponowne połączenia będą automatycznie kończyć się powodzeniem zaraz po zakończeniu pracy w trybie failover bazy danych. Po przywróceniu i ponownym przełączeniu regionu zakończonego niepowodzeniem stary podstawowy automatycznie ponownie nawiąże połączenie jako nowe pomocnicze. Poniższy diagram ilustruje konfigurację po przejściu do trybu failover.
+Po awarii w regionie podstawowym SQL Database wykryje, że podstawowa baza danych nie jest dostępna i wyzwala tryb failover w regionie pomocniczym na podstawie parametrów zasad automatycznych trybu failover (1). W zależności od umowy SLA aplikacji można skonfigurować okres prolongaty, który kontroluje czas między wykryciem przestoju i pracą w trybie failover. Istnieje możliwość, że usługa Azure Traffic Manager inicjuje przejście w tryb failover punktu końcowego przed rozpoczęciem pracy w trybie failover bazy danych przez grupę trybu failover. W takim przypadku aplikacja sieci Web nie może natychmiast ponownie nawiązać połączenia z bazą danych. Jednak ponowne połączenia będą automatycznie kończyć się powodzeniem zaraz po zakończeniu pracy w trybie failover bazy danych. Po przywróceniu i ponownym przełączeniu regionu zakończonego niepowodzeniem stary podstawowy automatycznie ponownie nawiąże połączenie jako nowe pomocnicze. Poniższy diagram ilustruje konfigurację po przejściu do trybu failover.
 
 > [!NOTE]
 > Wszystkie transakcje przekazane po przejściu do trybu failover zostaną utracone podczas ponownego nawiązywania połączenia. Po zakończeniu pracy w trybie failover aplikacja w regionie B będzie mogła ponownie nawiązać połączenie i ponownie przetworzyć żądania użytkownika. Zarówno aplikacja sieci Web, jak i podstawowa baza danych znajdują się teraz w regionie B i pozostają w tym samym miejscu.
@@ -111,7 +110,7 @@ W tym scenariuszu aplikacja ma następujące cechy:
 * Dostęp do zapisu do danych powinien być obsługiwany w tej samej lokalizacji geograficznej dla większości użytkowników
 * Opóźnienie odczytu ma kluczowe znaczenie dla środowiska użytkownika końcowego
 
-Aby spełnić te wymagania, należy zazagwarantować, że urządzenie użytkownika **zawsze** łączy się z aplikacją wdrożoną w tej samej lokalizacji geograficznej w przypadku operacji tylko do odczytu, takich jak przeglądanie danych, analiza itp. W związku z tym operacje OLTP są przetwarzane w tym samym obszarze geograficznym **większości czasu**. Na przykład w czasie trwania operacji OLTP w trakcie dnia są przetwarzane w tej samej lokalizacji geograficznej, ale w godzinach, w których mogą być przetwarzane w innej lokalizacji geograficznej. Jeśli działanie użytkownika końcowego przede wszystkim odbywa się w godzinach pracy, można zagwarantować optymalną wydajność większości użytkowników w większości czasu. Na poniższym diagramie przedstawiono tę topologię.
+Aby spełnić te wymagania, należy zazagwarantować, że urządzenie użytkownika **zawsze** łączy się z aplikacją wdrożoną w tej samej lokalizacji geograficznej w przypadku operacji tylko do odczytu, takich jak przeglądanie danych, analiza itp. Podczas gdy operacje OLTP są przetwarzane w tym samym obszarze geograficznym **większości czasu**. Na przykład w czasie trwania operacji OLTP w trakcie dnia są przetwarzane w tej samej lokalizacji geograficznej, ale w godzinach, w których mogą być przetwarzane w innej lokalizacji geograficznej. Jeśli działanie użytkownika końcowego przede wszystkim odbywa się w godzinach pracy, można zagwarantować optymalną wydajność większości użytkowników w większości czasu. Na poniższym diagramie przedstawiono tę topologię.
 
 Zasoby aplikacji należy wdrożyć w każdej lokalizacji geograficznej, w której masz duże zapotrzebowanie na użycie. Na przykład jeśli aplikacja jest aktywnie używana w Stany Zjednoczone, Unii Europejskiej i Południowej Azja Wschodnia, aplikacja powinna zostać wdrożona we wszystkich tych lokalizacje geograficzneach. Podstawowa baza danych powinna zostać przełączona dynamicznie z jednej lokalizacji geograficznej na następną na końcu godzin pracy. Ta metoda jest wywoływana "po". Obciążenie OLTP zawsze nawiązuje połączenie z bazą danych za pośrednictwem trybu failover odbiornika do odczytu i zapisu ** &lt; — Grupa-name &gt; . Database.Windows.NET** (1). Obciążenie tylko do odczytu nawiązuje połączenie z lokalną bazą danych bezpośrednio przy użyciu bazy danych serwera punktu końcowego ** &lt; serwera — name &gt; . Database.Windows.NET** (2). Traffic Manager jest skonfigurowany przy użyciu [metody routingu wydajności](../../traffic-manager/traffic-manager-configure-performance-routing-method.md). Gwarantuje to, że urządzenie użytkownika końcowego jest połączone z usługą sieci Web w najbliższym regionie. Traffic Manager powinna być skonfigurowana z włączonym monitorowaniem punktu końcowego dla każdego punktu końcowego usługi sieci Web (3).
 

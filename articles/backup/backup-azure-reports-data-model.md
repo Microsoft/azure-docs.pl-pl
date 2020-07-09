@@ -3,12 +3,11 @@ title: Model danych dla zdarzeń diagnostyki Azure Backup
 description: Ten model danych znajduje się w odniesieniu do trybu specyficznego dla zasobu, który wysyła zdarzenia diagnostyczne do Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 0713db1cee9d6737ce69cb108f3cb8f81d1eb2ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: af1e4159ff2794f8d4dd11480eb7f1789e034c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183572"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484504"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup
 
@@ -124,7 +123,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z zadaniami.
 | AdhocOrScheduledJob            | Tekst          | Pole, aby określić, czy zadanie jest w trybie ad hoc, czy zaplanowane           |
 | BackupItemUniqueId             | Tekst          | Unikatowy identyfikator używany do identyfikowania elementu kopii zapasowej powiązanego z jednostką magazynu |
 | BackupManagementServerUniqueId | Tekst          | Unikatowy identyfikator używany do identyfikowania serwera zarządzania kopiami zapasowymi powiązanego z jednostką magazynową |
-| BackupManagementType           | Tekst          | Typ dostawcy służący do wykonywania kopii zapasowej, na przykład IaaSVM, FileFolder, do którego należy ten alert |
+| BackupManagementType           | Tekst          | Typ dostawcy służący do wykonywania kopii zapasowej, na przykład IaaSVM, FileFolder, do którego należy to zadanie |
 | DataTransferredInMB            | Liczba        | Dane transferowane w MB dla tego zadania                          |
 | JobDurationInSecs              | Liczba        | Łączny czas trwania zadania w sekundach                                |
 | JobFailureCode                 | Tekst          | Ciąg kodu błędu z powodu niepowodzenia zadania    |
@@ -133,14 +132,14 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z zadaniami.
 | JobStartDateTime               | DateTime      | Data i godzina uruchomienia zadania                       |
 | JobStatus                      | Tekst          | Stan ukończonego zadania, na przykład ukończone, zakończone niepowodzeniem   |
 | JobUniqueId                    | Tekst          | Unikatowy identyfikator identyfikujący zadanie                                |
-| ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego serwera skojarzony z alertem |
+| ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego serwera skojarzonego z zadaniem |
 | RecoveryJobDestination         | Tekst          | Miejsce docelowe zadania odzyskiwania, w którym dane są odzyskiwane   |
 | RecoveryJobRPDateTime          | DateTime      | Data, godzina utworzenia odzyskiwanego punktu odzyskiwania |
 | RecoveryJobLocation            | Tekst          | Lokalizacja, w której zapisano odzyskiwany punkt odzyskiwania |
 | RecoveryLocationType           | Tekst          | Typ lokalizacji odzyskiwania                                |
 | SchemaVersion                  | Tekst          | Bieżąca wersja schematu, na przykład **v2**            |
-| Stan                          | Tekst          | Bieżący stan obiektu alertu, na przykład aktywny, usunięty |
-| VaultUniqueId                  | Tekst          | Unikatowy identyfikator chronionego magazynu skojarzonego z alertem |
+| Stan                          | Tekst          | Bieżący stan obiektu zadania, na przykład aktywny, usunięty |
+| VaultUniqueId                  | Tekst          | Unikatowy identyfikator chronionego magazynu skojarzonego z zadaniem |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
 ## <a name="addonazurebackuppolicy"></a>AddonAzureBackupPolicy
@@ -162,7 +161,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | DiffBackupDaysOfTheWeek         | Tekst           | Dni tygodnia różnicowych kopii zapasowych dla bazy danych SQL w usłudze Kopia zapasowa maszyny wirtualnej platformy Azure |
 | DiffBackupFormat                | Tekst           | Format różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure   |
 | DiffBackupRetentionDuration     | Liczba dziesiętna | Czas przechowywania różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |
-| DiffBackupTime                  | Time           | Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure     |
+| DiffBackupTime                  | Godzina           | Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure     |
 | LogBackupFrequency              | Liczba dziesiętna | Częstotliwość tworzenia kopii zapasowych dzienników dla bazy danych SQL                            |
 | LogBackupRetentionDuration      | Liczba dziesiętna | Czas przechowywania kopii zapasowych dziennika dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |
 | MonthlyRetentionDaysOfTheMonth  | Tekst           | Tygodnie miesiąca w przypadku skonfigurowania miesięcznego przechowywania.  Na przykład, First, Last itd. |
@@ -205,7 +204,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 | BackupManagementServerUniqueId | Tekst          | Pole, aby jednoznacznie identyfikować serwer zarządzania kopiami zapasowymi, za pomocą którego jest chroniony element kopii zapasowej, w razie potrzeby |
 | BackupManagementType           | Tekst          | Typ dostawcy dla serwera wykonującego zadanie tworzenia kopii zapasowej. Na przykład IaaSVM, FileFolder |
 | PreferredWorkloadOnVolume      | Tekst          | Obciążenie, dla którego ten wolumin jest preferowanym magazynem      |
-| ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego serwera skojarzony z alertem |
+| ProtectedContainerUniqueId     | Tekst          | Unikatowy identyfikator chronionego kontenera skojarzonego z elementem kopii zapasowej |
 | SchemaVersion                  | Tekst          | Wersja schematu. Na przykład **v2**                   |
 | Stan                          | Tekst          | Stan obiektu elementu kopii zapasowej. Na przykład aktywne, usunięte |
 | StorageAllocatedInMBs          | Liczba        | Rozmiar magazynu przydzielonego przez odpowiedni element kopii zapasowej w odpowiednim magazynie typu dysk |

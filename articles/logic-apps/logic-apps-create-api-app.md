@@ -7,10 +7,9 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
 ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834496"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Tworzenie niestandardowych interfejsów API, które można wywołać z Azure Logic Apps
@@ -21,7 +20,7 @@ Chociaż Azure Logic Apps oferuje [setki łączników](../connectors/apis-list.m
 * Pomóż klientom używać usługi do zarządzania zadaniami profesjonalnymi lub osobistymi.
 * Rozwiń zasięg, wykrywalność i użycie dla swojej usługi.
 
-W istocie łączniki to interfejsy API sieci Web, które używają protokołu REST dla interfejsów podłączanych, [format metadanych struktury Swagger](https://swagger.io/specification/) dla dokumentacji i kod JSON w formacie wymiany danych. Ponieważ łączniki są interfejsami API REST, które komunikują się za pośrednictwem punktów końcowych HTTP, można użyć dowolnego języka, takiego jak .NET, Java, Python lub Node. js, do kompilowania łączników. Możesz również hostować swoje interfejsy API na [Azure App Service](../app-service/overview.md)— oferta platformy jako usługi (PaaS), która zapewnia jeden z najlepszych, najłatwiejszych i najbardziej skalowalnych sposobów obsługi interfejsu API. 
+W istocie łączniki to interfejsy API sieci Web, które używają protokołu REST dla interfejsów podłączanych, [format metadanych struktury Swagger](https://swagger.io/specification/) dla dokumentacji i kod JSON w formacie wymiany danych. Ponieważ łączniki są interfejsami API REST, które komunikują się za pośrednictwem punktów końcowych HTTP, można użyć dowolnego języka, takiego jak .NET, Java, Python lub Node.js, do tworzenia łączników. Możesz również hostować swoje interfejsy API na [Azure App Service](../app-service/overview.md)— oferta platformy jako usługi (PaaS), która zapewnia jeden z najlepszych, najłatwiejszych i najbardziej skalowalnych sposobów obsługi interfejsu API. 
 
 Aby niestandardowe interfejsy API działały z usługą Logic Apps, interfejs API może dostarczyć [*Akcje*](./logic-apps-overview.md#logic-app-concepts) wykonujące określone zadania w przepływach pracy aplikacji logiki. Interfejs API może również działać jako [*wyzwalacz*](./logic-apps-overview.md#logic-app-concepts) , który uruchamia przepływ pracy aplikacji logiki, gdy nowe dane lub zdarzenie spełniają określony warunek. W tym temacie opisano typowe wzorce, które można wykonać, aby utworzyć akcje i Wyzwalacze w interfejsie API w oparciu o zachowanie, które ma być używane przez interfejs API.
 
@@ -41,7 +40,7 @@ Interfejsy API można hostować w [Azure App Service](../app-service/overview.md
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Jak niestandardowe interfejsy API różnią się od łączników niestandardowych?
 
-Niestandardowe interfejsy API i [Łączniki niestandardowe](../logic-apps/custom-connector-overview.md) to interfejsy API sieci Web, które używają protokołu REST dla interfejsów podłączanych, [format metadanych struktury Swagger](https://swagger.io/specification/) dla dokumentacji i kod JSON w formacie wymiany danych. Ponieważ te interfejsy API i łączniki są interfejsami API REST, które komunikują się za pośrednictwem punktów końcowych HTTP, można użyć dowolnego języka, takiego jak .NET, Java, Python lub Node. js, do tworzenia niestandardowych interfejsów API i łączników.
+Niestandardowe interfejsy API i [Łączniki niestandardowe](../logic-apps/custom-connector-overview.md) to interfejsy API sieci Web, które używają protokołu REST dla interfejsów podłączanych, [format metadanych struktury Swagger](https://swagger.io/specification/) dla dokumentacji i kod JSON w formacie wymiany danych. Ponieważ te interfejsy API i łączniki są interfejsami API REST, które komunikują się za pośrednictwem punktów końcowych HTTP, można użyć dowolnego języka, takiego jak .NET, Java, Python lub Node.js, do tworzenia niestandardowych interfejsów API i łączników.
 
 Niestandardowe interfejsy API umożliwiają wywoływanie interfejsów API, które nie są łącznikami i zapewniają punkty końcowe, które można wywoływać za pomocą protokołu HTTP + Swagger, platformy Azure API Management lub App Services. Łączniki niestandardowe działają podobnie jak niestandardowe interfejsy API, ale mają również następujące atrybuty:
 
@@ -53,7 +52,7 @@ Można również wyznaczyć zarejestrowane łączniki do certyfikacji firmy Micr
 
 Aby uzyskać więcej informacji na temat łączników niestandardowych, zobacz. 
 
-* [Omówienie łączników niestandardowych](../logic-apps/custom-connector-overview.md)
+* [Przegląd łączników niestandardowych](../logic-apps/custom-connector-overview.md)
 * [Tworzenie łączników niestandardowych z interfejsów API sieci Web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
 * [Rejestrowanie łączników niestandardowych w Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
 
@@ -174,7 +173,7 @@ Na przykład aby okresowo sprawdzać usługę pod kątem nowych plików, można 
 | Czy żądanie zawiera `triggerState` ? | Odpowiedź interfejsu API | 
 | -------------------------------- | -------------| 
 | Nie | Zwróć stan HTTP `202 ACCEPTED` `location` i nagłówek z `triggerState` ustawionym na bieżącą godzinę, a `retry-after` interwał na 15 sekund. | 
-| Yes | Sprawdź, czy usługa zawiera pliki dodane po stronie `DateTime` for `triggerState` . | 
+| Tak | Sprawdź, czy usługa zawiera pliki dodane po stronie `DateTime` for `triggerState` . | 
 ||| 
 
 | Liczba znalezionych plików | Odpowiedź interfejsu API | 

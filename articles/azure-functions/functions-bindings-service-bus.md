@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 44e4114b328701d5de363e91f5562f1daad351c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277416"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111205"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus powiązania Azure Functions
 
@@ -24,7 +24,7 @@ Azure Functions integruje się z [Azure Service Bus](https://azure.microsoft.com
 
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
 
-### <a name="functions-2x-and-higher"></a>Funkcje 2. x i nowsze
+### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 
 Praca z wyzwalaczem i powiązaniami wymaga odwołania do odpowiedniego pakietu. Pakiet NuGet jest używany dla bibliotek klas .NET, podczas gdy pakiet rozszerzeń jest używany dla wszystkich innych typów aplikacji.
 

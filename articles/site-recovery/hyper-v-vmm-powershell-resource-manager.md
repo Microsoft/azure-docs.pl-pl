@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7a2d21dcd8c9474bdf068d7940e497333f35115
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77048616"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130214"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V w lokacji dodatkowej przy użyciu programu PowerShell (Menedżer zasobów)
 
@@ -23,9 +23,9 @@ W tym artykule przedstawiono sposób automatyzacji czynności związanych z repl
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Zapoznaj się ze [składnikami i architekturą scenariusza](hyper-v-vmm-architecture.md).
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](site-recovery-support-matrix-to-sec-site.md) wszystkich składników.
-- Upewnij się, że serwery Virtual Machine Manager i hosty funkcji Hyper-V są zgodne z wymaganiami dotyczącymi [obsługi](site-recovery-support-matrix-to-sec-site.md).
-- Sprawdź, czy maszyny wirtualne, które chcesz replikować, są zgodne z [obsługą zreplikowanej maszyny](site-recovery-support-matrix-to-sec-site.md).
+- Zapoznaj się z [wymaganiami dotyczącymi obsługi](./vmware-physical-secondary-support-matrix.md) wszystkich składników.
+- Upewnij się, że serwery Virtual Machine Manager i hosty funkcji Hyper-V są zgodne z wymaganiami dotyczącymi [obsługi](./vmware-physical-secondary-support-matrix.md).
+- Sprawdź, czy maszyny wirtualne, które chcesz replikować, są zgodne z [obsługą zreplikowanej maszyny](./vmware-physical-secondary-support-matrix.md).
 
 ## <a name="prepare-for-network-mapping"></a>Przygotowanie do mapowania sieci
 
@@ -37,10 +37,10 @@ W tym artykule przedstawiono sposób automatyzacji czynności związanych z repl
 
 Przygotuj Virtual Machine Manager w następujący sposób:
 
-- Upewnij się, że w źródłowym i docelowym serwerze Virtual Machine Manager znajdują się [Virtual Machine Manager sieci logicznych](https://docs.microsoft.com/system-center/vmm/network-logical) :
+- Upewnij się, że w źródłowym i docelowym serwerze Virtual Machine Manager znajdują się [Virtual Machine Manager sieci logicznych](/system-center/vmm/network-logical) :
   - Sieć logiczna na serwerze źródłowym powinna być skojarzona z chmurą źródłową, w której znajdują się hosty funkcji Hyper-V.
   - Sieć logiczna na serwerze docelowym powinna być skojarzona z chmurą docelową.
-- Upewnij się, że masz [sieci VMNetwork](https://docs.microsoft.com/system-center/vmm/network-virtual) na źródłowym i docelowym serwerze Virtual Machine Manager. Sieci maszyn wirtualnych powinny być połączone z siecią logiczną w każdej lokalizacji.
+- Upewnij się, że masz [sieci VMNetwork](/system-center/vmm/network-virtual) na źródłowym i docelowym serwerze Virtual Machine Manager. Sieci maszyn wirtualnych powinny być połączone z siecią logiczną w każdej lokalizacji.
 - Połącz maszyny wirtualne na źródłowych hostach funkcji Hyper-V ze źródłową siecią maszyny wirtualnej.
 
 ## <a name="prepare-for-powershell"></a>Przygotowanie do programu PowerShell
@@ -210,7 +210,7 @@ Aby sprawdzić zakończenie operacji, wykonaj kroki opisane w sekcji [monitorowa
 
 ##  <a name="configure-network-mapping"></a>Konfiguracja mapowania sieci
 
-1. Użyj tego polecenia, aby pobrać serwery dla bieżącego magazynu. Polecenie przechowuje Site Recovery serwerów w zmiennej `$Servers` tablicowej.
+1. Użyj tego polecenia, aby pobrać serwery dla bieżącego magazynu. Polecenie przechowuje Site Recovery serwerów w `$Servers` zmiennej tablicowej.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
@@ -227,7 +227,7 @@ Aby sprawdzić zakończenie operacji, wykonaj kroki opisane w sekcji [monitorowa
    > [!NOTE]
    > Źródłowy serwer Virtual Machine Manager może być pierwszy lub drugi z nich w macierzy serwerowej. Sprawdź nazwy serwerów Virtual Machine Manager i odpowiednio Pobierz sieci.
 
-1. To polecenie cmdlet tworzy mapowanie między siecią podstawową i siecią odzyskiwania. Określa sieć podstawową jako pierwszy element `$PrimaryNetworks`. Określa sieć odzyskiwania jako pierwszy element `$RecoveryNetworks`.
+1. To polecenie cmdlet tworzy mapowanie między siecią podstawową i siecią odzyskiwania. Określa sieć podstawową jako pierwszy element `$PrimaryNetworks` . Określa sieć odzyskiwania jako pierwszy element `$RecoveryNetworks` .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -259,9 +259,9 @@ Po poprawnym skonfigurowaniu serwerów, chmur i sieci należy włączyć ochron�
 > Jeśli chcesz przeprowadzić replikację do CMK dysków zarządzanych na platformie Azure, wykonaj następujące czynności za pomocą polecenia AZ PowerShell 3.3.0 i nowszego:
 >
 > 1. Włącz tryb failover na dyskach zarządzanych przez zaktualizowanie właściwości maszyny wirtualnej
-> 1. Użyj polecenia `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet, aby pobrać identyfikator dysku dla każdego dysku chronionego elementu
+> 1. Użyj `Get-AzRecoveryServicesAsrReplicationProtectedItem` polecenia cmdlet, aby pobrać identyfikator dysku dla każdego dysku chronionego elementu
 > 1. Utwórz obiekt słownika przy użyciu `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` polecenia cmdlet, aby zawierać mapowanie identyfikatora dysku na zestaw szyfrowania dysków. Te zestawy szyfrowania dysków są wstępnie utworzone przez użytkownika w regionie docelowym.
-> 1. Zaktualizuj właściwości maszyny wirtualnej za `Set-AzRecoveryServicesAsrReplicationProtectedItem` pomocą polecenia cmdlet, przechodząc do obiektu dictionary w parametrze **DiskIdToDiskEncryptionSetMap** .
+> 1. Zaktualizuj właściwości maszyny wirtualnej za pomocą `Set-AzRecoveryServicesAsrReplicationProtectedItem` polecenia cmdlet, przechodząc do obiektu dictionary w parametrze **DiskIdToDiskEncryptionSetMap** .
 
 ## <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
 

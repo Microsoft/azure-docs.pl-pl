@@ -2,31 +2,30 @@
 title: Pomiń usuwanie użytkowników spoza zakresu
 description: Dowiedz się, jak zastąpić domyślne zachowanie anulowania aprowizacji użytkowników poza zakresem.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789909"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Pomiń usuwanie kont użytkowników, które wykraczają poza zakres
 
-Domyślnie aparat aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jednak w przypadku niektórych scenariuszy, takich jak Workday do użytkownika usługi AD, Inicjowanie obsługi ruchu przychodzącego może nie być oczekiwane i może zaistnieć potrzeba zastąpienia tego zachowania domyślnego.  
+Domyślnie aparat aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jednak w przypadku niektórych scenariuszy, takich jak Workday do użytkownika w ramach przychodzącej aprowizacji użytkowników usługi AD, to zachowanie może nie być oczekiwane i może chcieć zastąpić to zachowanie domyślne.  
 
-W tym przewodniku opisano, jak za pomocą interfejsu API Microsoft Graph i Eksploratora interfejsu API Microsoft Graph ustawić flagę ***SkipOutOfScopeDeletions*** , która steruje przetwarzaniem kont, które wykraczają poza zakres. 
-* Jeśli wartość ***SkipOutOfScopeDeletions*** jest równa 0 (FAŁSZ), konta, które wykraczają poza zakres, zostaną wyłączone w miejscu docelowym
-* Jeśli wartość ***SkipOutOfScopeDeletions*** jest równa 1 (true), konta, które wykraczają poza zakres, nie będą wyłączone w celu wybrania tej flagi na poziomie *aplikacji aprowizacji* i można skonfigurować przy użyciu interfejs API programu Graph. 
+W tym artykule opisano, jak za pomocą interfejsu API Microsoft Graph i Eksploratora interfejsu API Microsoft Graph ustawić flagę ***SkipOutOfScopeDeletions*** , która steruje przetwarzaniem kont, które wykraczają poza zakres. 
+* Jeśli wartość ***SkipOutOfScopeDeletions*** jest równa 0 (false), konta, które wykraczają poza zakres, zostaną wyłączone w miejscu docelowym.
+* Jeśli wartość ***SkipOutOfScopeDeletions*** jest równa 1 (true), konta, które wykraczają poza zakres, nie będą wyłączone w miejscu docelowym. Ta flaga jest ustawiana na poziomie *aplikacji aprowizacji* i można ją skonfigurować przy użyciu interfejs API programu Graph. 
 
-Ponieważ ta konfiguracja jest szeroko używana wraz z *produktem Workday do Active Directory aplikacji do aprowizacji użytkowników* , poniższe kroki obejmują zrzuty ekranu aplikacji Workday. Można go również używać ze **wszystkimi innymi aplikacjami** , takimi jak usługi (usługi ServiceNow, Salesforce, Dropbox itp.).
+Ponieważ ta konfiguracja jest szeroko używana wraz z dniem *roboczym Active Directory aplikacji aprowizacji użytkowników* , następujące kroki obejmują zrzuty ekranu aplikacji Workday. Jednak konfiguracja może być również używana ze *wszystkimi innymi aplikacjami*, takimi jak usługi ServiceNow, Salesforce i Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Krok 1. Pobieranie inicjowania obsługi App Service Identyfikator podmiotu zabezpieczeń (identyfikator obiektu)
 

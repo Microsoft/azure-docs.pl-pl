@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
-ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75897964"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135735"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikowanie maszyn z włączonymi dyskami zarządzanymi przez klienta (CMK)
 
 W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z włączonymi kluczami zarządzanymi przez klienta (CMK) z jednego regionu świadczenia usługi Azure do innego.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 Aby włączyć replikację dla maszyn wirtualnych z dyskami zarządzanymi przy użyciu usługi CMK, należy utworzyć zestawy szyfrowania dysków w regionie docelowym dla subskrypcji docelowej.
 
 ## <a name="enable-replication"></a>Włączanie replikacji
@@ -33,14 +33,14 @@ W tym przykładzie głównym regionem świadczenia usługi Azure jest Azja Wscho
     - **Subskrypcja źródłowa**: subskrypcja, do której należą źródłowe maszyny wirtualne. Może to być dowolna subskrypcja, która znajduje się w tej samej dzierżawie Azure Active Directory, co magazyn usługi Recovery Services.
     - **Grupa zasobów**: Grupa zasobów, do której należą źródłowe maszyny wirtualne. W następnym kroku zostaną wyświetlone wszystkie maszyny wirtualne w wybranej grupie zasobów do ochrony.
 
-3. W obszarze **Virtual Machines** > **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
+3. W obszarze **Virtual Machines**  >  **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę wirtualną, którą chcesz zreplikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz przycisk **OK**.
 
 4. W obszarze **Ustawienia**można skonfigurować następujące ustawienia lokacji docelowej.
 
     - **Lokalizacja docelowa**: lokalizacja, w której będą replikowane dane źródłowej maszyny wirtualnej. Site Recovery zawiera listę odpowiednich regionów docelowych na podstawie lokalizacji wybranej maszyny. Zalecamy używanie tej samej lokalizacji co lokalizacja magazynu Recovery Services.
     - **Subskrypcja docelowa**: subskrypcja docelowa używana na potrzeby odzyskiwania po awarii. Domyślnie subskrypcja docelowa jest taka sama jak w przypadku subskrypcji źródłowej.
     - **Docelowa Grupa zasobów**: Grupa zasobów, do której należą wszystkie zreplikowane maszyny wirtualne. Domyślnie Site Recovery tworzy nową grupę zasobów w regionie docelowym. Nazwa pobiera `asr` sufiks. Jeśli grupa zasobów już istnieje, która została utworzona przez Azure Site Recovery, zostanie ponownie użyta. Możesz również wybrać opcję dostosowywania, jak pokazano w poniższej sekcji. Lokalizacją docelowej grupy zasobów może być dowolny region świadczenia usługi Azure, z wyjątkiem regionu, w którym są hostowane źródłowe maszyny wirtualne.
-    - **Docelowa sieć wirtualna**: domyślnie Site Recovery tworzy nową sieć wirtualną w regionie docelowym. Nazwa pobiera `asr` sufiks. Jest on mapowany do sieci źródłowej i używany do ochrony w przyszłości. [Dowiedz się więcej](site-recovery-network-mapping-azure-to-azure.md) na temat mapowania sieci.
+    - **Docelowa sieć wirtualna**: domyślnie Site Recovery tworzy nową sieć wirtualną w regionie docelowym. Nazwa pobiera `asr` sufiks. Jest on mapowany do sieci źródłowej i używany do ochrony w przyszłości. [Dowiedz się więcej](./azure-to-azure-network-mapping.md) na temat mapowania sieci.
     - **Docelowe konta magazynu (jeśli źródłowa maszyna wirtualna nie używa dysków zarządzanych)**: domyślnie Site Recovery tworzy nowe docelowe konto magazynu, naśladując konfigurację magazynu ŹRÓDŁOWEJ maszyny wirtualnej. Jeśli konto magazynu już istnieje, jest ponownie używane.
     - **Dyski zarządzane repliki (jeśli źródłowa maszyna wirtualna korzysta z dysków zarządzanych)**: Site Recovery tworzy nowe dyski zarządzane repliki w regionie docelowym, aby dublować dyski zarządzane ŹRÓDŁOWEJ maszyny wirtualnej tego samego typu magazynu (w warstwie Standardowa lub Premium) jako dyski zarządzane ŹRÓDŁOWEJ maszyny wirtualnej.
     - **Konta magazynu pamięci podręcznej**: Site Recovery potrzebuje dodatkowego konta magazynu o nazwie *Magazyn pamięci podręcznej* w regionie źródłowym. Wszystkie zmiany na źródłowych maszynach wirtualnych są śledzone i wysyłane do konta magazynu pamięci podręcznej. Są one następnie replikowane do lokalizacji docelowej.
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 
 3. Wybierz pozycję **Dostosuj** obok pozycji "ustawienia szyfrowania magazynu", aby wybrać docelowy algorytm DES dla każdego włączonego klucza zarządzanego przez klienta (CMK). W czasie zaznaczania zobaczysz również, który docelowy Magazyn kluczy jest skojarzony z algorytmem DES.
 
-4. Wybierz pozycję **Utwórz zasób** > docelowy**Włącz replikację**.
+4. Wybierz pozycję **Utwórz zasób docelowy**  >  **Włącz replikację**.
 5. Po włączeniu maszyn wirtualnych na potrzeby replikacji można sprawdzić stan kondycji maszyn wirtualnych w obszarze **zreplikowane elementy**.
 
 ![Włącz replikację dla maszyny z włączonymi dyskami CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
@@ -81,4 +81,3 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 * Dodano nowy dysk z włączonym CMK do zreplikowanego elementu. Jak można replikować ten dysk z Azure Site Recovery?
 
     Dodanie nowego dysku z obsługą CMK do istniejącego zreplikowanego elementu nie jest obsługiwane. Wyłącz replikację i ponownie Włącz replikację dla maszyny wirtualnej.
-

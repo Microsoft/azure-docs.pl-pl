@@ -8,17 +8,16 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 2170a4d5f66cf6d1f699ae943f2a80b1b8127e39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cc09cec1e6df9ec671fa98ae35562a639dce4cd8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707620"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Skojarz publiczny adres IP z maszyną wirtualną
 
@@ -64,7 +63,7 @@ Aby skojarzyć publiczny adres IP z maszyną wirtualną, możesz użyć [Azure P
 
 Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** za pomocą poleceń interfejsu wiersza polecenia, które obserwują. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 
-1. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy `az login`Azure za pomocą.
+1. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy Azure za pomocą `az login` .
 2. Publiczny adres IP jest skojarzony z konfiguracją IP interfejsu sieciowego dołączonego do maszyny wirtualnej. Za pomocą polecenia [AZ Network nic-IP-config Update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) Skojarz publiczny adres IP z konfiguracją adresów IP. Poniższy przykład kojarzy istniejący publiczny adres IP o nazwie *myVMPublicIP* z konfiguracją IP o nazwie *ipconfigmyVM* istniejącego interfejsu sieciowego o nazwie *myVMVMNic* , który istnieje w grupie zasobów o nazwie Moja *resourceName*.
   
    ```azurecli-interactive
@@ -119,7 +118,7 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
 
 Zainstaluj program [PowerShell](/powershell/azure/install-az-ps)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Program PowerShell jest wstępnie zainstalowany i skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** w kolejnych poleceniach programu PowerShell. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 
-1. Jeśli używasz programu PowerShell lokalnie, zaloguj się do platformy `Connect-AzAccount`Azure za pomocą polecenia.
+1. Jeśli używasz programu PowerShell lokalnie, zaloguj się do platformy Azure za pomocą polecenia `Connect-AzAccount` .
 2. Publiczny adres IP jest skojarzony z konfiguracją IP interfejsu sieciowego dołączonego do maszyny wirtualnej. Użyj poleceń [Get-AzVirtualNetwork](/powershell/module/Az.Network/Get-AzVirtualNetwork) i [Get-AzVirtualNetworkSubnetConfig](/powershell/module/Az.Network/Get-AzVirtualNetworkSubnetConfig) , aby uzyskać sieć wirtualną i podsieć, w której znajduje się interfejs sieciowy. Następnie użyj polecenia [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) , aby pobrać interfejs sieciowy i polecenie [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) , aby uzyskać istniejący publiczny adres IP. Następnie użyj polecenia [Set-AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/Set-AzNetworkInterfaceIpConfig) , aby skojarzyć publiczny adres IP z konfiguracją IP i poleceniem [Set-AzNetworkInterface](/powershell/module/Az.Network/Set-AzNetworkInterface) w celu zapisania nowej konfiguracji adresu IP w interfejsie sieciowym.
 
    Poniższy przykład kojarzy istniejący publiczny adres IP o nazwie *myVMPublicIP* z konfiguracją protokołu IP o nazwie *ipconfigmyVM* istniejącego interfejsu sieciowego o nazwie *myVMVMNic* , który istnieje w podsieci o nazwie *myVMSubnet* w sieci wirtualnej o nazwie *myVMVNet*. Wszystkie zasoby znajdują się w grupie zasobów *o nazwie moja grupa zasobów.*

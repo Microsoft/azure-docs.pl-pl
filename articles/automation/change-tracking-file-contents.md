@@ -3,14 +3,13 @@ title: Zarządzanie Change Tracking i spisem w Azure Automation
 description: W tym artykule opisano sposób używania Change Tracking i spisu do śledzenia zmian oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 07/03/2018
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2738605680a7035e4e2da95b0f53b4d5e227304b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781195"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -143,7 +142,7 @@ Możesz wykonywać różne wyszukiwania względem dzienników Azure Monitor pod 
 
 |Zapytanie  |Opis  |
 |---------|---------|
-|`ConfigurationData`<br>&#124;`where ConfigDataType == "Microsoft services" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Pokazuje najnowsze rekordy spisu dla usług firmy Microsoft, które zostały ustawione na wartość automatycznie, ale zostały zgłoszone jako zatrzymane. Wyniki są ograniczone do najnowszego rekordu dla określonej nazwy oprogramowania i komputera.    |
+|`ConfigurationData`<br>&#124;`where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Pokazuje najnowsze rekordy spisu dla usług firmy Microsoft, które zostały ustawione na wartość automatycznie, ale zostały zgłoszone jako zatrzymane. Wyniki są ograniczone do najnowszego rekordu dla określonej nazwy oprogramowania i komputera.    |
 |`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Pokazuje zmiany rekordów dla usuniętego oprogramowania.|
 
 ## <a name="create-alerts-on-changes"></a>Tworzenie alertów dotyczących zmian

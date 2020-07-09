@@ -2,21 +2,20 @@
 title: 'Azure AD Connect agenta aprowizacji: historia wersji | Microsoft Docs'
 description: W tym artykule wymieniono wszystkie wersje agenta aprowizacji Azure AD Connect i opisano nowe funkcje oraz naprawione problemy
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.date: 02/26/2020
 ms.subservice: app-provisioning
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 9a756d276b194aa8d1acb0297a7b4909a8082a84
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 9e05d1a85f17800ddf4d77e4e4acba6396a8da47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781569"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Azure AD Connect agenta aprowizacji: historia wersji
 

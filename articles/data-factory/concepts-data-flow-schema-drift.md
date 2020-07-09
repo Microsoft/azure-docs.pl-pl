@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606110"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886628"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dryf schematu w mapowaniu przepływu danych
 
@@ -37,7 +37,7 @@ To wideo zawiera wprowadzenie do niektórych złożonych rozwiązań, które mo�
 
 ## <a name="schema-drift-in-source"></a>Dryf schematu w źródle
 
-Kolumny przesyłane do przepływu danych z definicji źródłowej są zdefiniowane jako "przedzielone", gdy nie są obecne w projekcji źródłowej. Projekcję źródła można wyświetlić na karcie projekcja w transformacji źródłowej. Po wybraniu zestawu danych dla źródła, ADF automatycznie przeniesie schemat z zestawu danych i utworzy projekt z tej definicji schematu zestawu danych.
+Kolumny przesyłane do przepływu danych z definicji źródłowej są zdefiniowane jako "przedzielone", gdy nie są obecne w projekcji źródłowej. Projekcję źródła można wyświetlić na karcie projekcja w transformacji źródłowej. Po wybraniu zestawu danych dla źródła ADF automatycznie przejdzie schemat z zestawu danych i utworzysz projekcję z tej definicji schematu zestawu danych.
 
 W transformacji źródłowej, dryfowanie schematu jest zdefiniowane jako odczytane kolumny, które nie są zdefiniowane w schemacie zestawu danych. Aby włączyć dryfowanie schematu, zaznacz pole wyboru **Zezwalaj na dryfowanie schematu** w transformacji źródłowej.
 
@@ -59,7 +59,7 @@ Jeśli funkcja dryfowania schematu jest włączona, upewnij się, że suwak **au
 
 Gdy przepływ danych ma przelany kolumny, możesz uzyskać do nich dostęp przy użyciu następujących metod:
 
-* Użyj wyrażeń `byPosition` i `byName` , aby jawnie odwoływać się do kolumny według nazwy lub numeru pozycji.
+* Użyj `byPosition` wyrażeń i, `byName` Aby jawnie odwoływać się do kolumny według nazwy lub numeru pozycji.
 * Dodaj wzorzec kolumny w kolumnie pochodnej lub transformację agregacji, aby dopasować ją do dowolnej kombinacji nazwy, strumienia, pozycji lub typu
 * Dodaj mapowanie oparte na regułach w transformację SELECT lub ujścia, aby dopasować kolumny przeznaczone do aliasów kolumn za pośrednictwem wzorca
 

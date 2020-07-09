@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833259"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Korzystanie z dostawcy zasobów usługi Azure Storage w celu uzyskania dostępu do zasobów zarządzania
 
@@ -36,7 +36,7 @@ Każda subskrypcja platformy Azure ma skojarzoną Azure Active Directory, która
 
 Po przypisaniu roli RBAC do podmiotu zabezpieczeń należy również wskazać zakres, w którym obowiązują uprawnienia przyznane przez rolę. W przypadku operacji zarządzania można przypisać rolę na poziomie subskrypcji, grupy zasobów lub konta magazynu. Rolę RBAC można przypisać do podmiotu zabezpieczeń za pomocą [Azure Portal](https://portal.azure.com/), [narzędzi interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [programu PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsu API REST dostawcy zasobów usługi Azure Storage](/rest/api/storagerp).
 
-Aby uzyskać więcej informacji na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure?](../../role-based-access-control/overview.md) i [klasycznych ról administratora subskrypcji, ról RBAC platformy Azure i ról administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) i role [administratora subskrypcji klasycznej, role RBAC platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Wbudowane role dla operacji zarządzania
 
@@ -77,5 +77,5 @@ Aby uzyskać więcej informacji na temat modeli wdrażania platformy Azure, zoba
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przegląd Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-- [Co to jest kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure?](../../role-based-access-control/overview.md)
+- [Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Elementy docelowe skalowalności dla dostawcy zasobów usługi Azure Storage](scalability-targets-resource-provider.md)

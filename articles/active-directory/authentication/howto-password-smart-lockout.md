@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652577"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart lockout (Inteligentna blokada w usłudze Azure Active Directory)
@@ -56,7 +55,7 @@ Aby sprawdzić lokalne zasady blokady konta Active Directory, należy wykonać n
 
 1. Otwórz narzędzie do zarządzania zasady grupy.
 2. Edytuj zasady grupy zawierające zasady blokady konta w organizacji, na przykład **domyślne zasady domeny**.
-3. Przejdź do **ustawień konfiguracja** > **komputera zasady** > **Ustawienia** > systemu Windows ustawienia**zabezpieczeń** > konta**zasady** > kont**zasad blokady**.
+3. Przejdź do ustawień **Konfiguracja komputera**  >  **zasady**  >  **Ustawienia systemu Windows**ustawienia  >  **zabezpieczeń**konta  >  **zasady kont**  >  **zasad blokady**.
 4. Sprawdź **próg blokady konta** i **Zresetuj licznik blokady konta po** wartościach.
 
 ![Modyfikowanie zasad blokady lokalnych kont Active Directory](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
@@ -68,7 +67,7 @@ W zależności od wymagań organizacyjnych może być konieczne dostosowanie war
 Aby sprawdzić lub zmodyfikować wartości blokady inteligentnej dla organizacji, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wyszukaj i wybierz pozycję *Azure Active Directory*. Wybierz pozycję**metody** > uwierzytelniania **zabezpieczeń** > **Ochrona hasłem**.
+1. Wyszukaj i wybierz pozycję *Azure Active Directory*. Wybierz **Security**pozycję  >  **metody uwierzytelniania**zabezpieczeń  >  **Ochrona hasłem**.
 1. Ustaw **próg blokady**w zależności od liczby nieudanych logowań dozwolonych na koncie przed pierwszym zablokowaniem. Wartość domyślna to 10.
 1. Ustaw **czas trwania blokady (w sekundach**) na długość w sekundach każdej blokady. Wartość domyślna to 60 sekund (jedna minuta).
 

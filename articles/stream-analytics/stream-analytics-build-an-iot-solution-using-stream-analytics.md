@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426447"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044587"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Tworzenie rozwiązania IoT przy użyciu Stream Analytics
 
@@ -113,7 +113,7 @@ Do ukończenia tego rozwiązania potrzebna jest subskrypcja Microsoft Azure. Je�
 Upewnij się, że wykonaj kroki opisane w sekcji "Wyczyść konto platformy Azure" na końcu tego artykułu, aby można było korzystać z środków na korzystanie z platformy Azure.
 
 ## <a name="deploy-the-sample"></a>Wdróż przykład
-Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem z kilkoma kliknięciami. Definicja rozwiązania jest hostowana w repozytorium GitHub pod [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)adresem.
+Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem z kilkoma kliknięciami. Definicja rozwiązania jest hostowana w repozytorium GitHub pod adresem [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp) .
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Wdróż szablon TollApp w Azure Portal
 1. Aby wdrożyć środowisko TollApp na platformie Azure, użyj tego linku do [wdrożenia szablonu TollApp platformy Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -122,7 +122,7 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 
 3. Wybierz subskrypcję, w ramach której są naliczane opłaty za różne zasoby.
 
-4. Określ nową grupę zasobów z unikatową nazwą, na przykład `MyTollBooth`.
+4. Określ nową grupę zasobów z unikatową nazwą, na przykład `MyTollBooth` .
 
 5. Wybierz lokalizację platformy Azure.
 
@@ -168,7 +168,7 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 3. Przeanalizuj dane wejściowe zadania przykładowego TollApp. Tylko dane wejściowe EntryStream są używane w bieżącym zapytaniu.
    - **EntryStream** input to połączenie centrum zdarzeń, które kolejkuje dane, które są przedstawiane za każdym razem, gdy samochód przejdzie do Tollbooth na autostradie. Aplikacja sieci Web, która jest częścią przykładu, tworzy zdarzenia, a dane są umieszczane w kolejce w tym centrum zdarzeń. Należy zauważyć, że dane wejściowe są wysyłane w klauzuli FROM zapytania przesyłania strumieniowego.
    - **ExitStream** input to połączenie centrum zdarzeń, które kolejkuje dane, które są przedstawiane za każdym razem, gdy samochód opuszcza Tollbooth na autostradie. To dane wejściowe przesyłania strumieniowego są używane w późniejszych odmianach składni zapytania.
-   - Dane wejściowe **rejestracji** to połączenie usługi Azure Blob Storage wskazujące statyczny plik Registration. JSON używany do wyszukiwania w razie potrzeby. To dane wejściowe referencyjne są używane w późniejszych odmianach składni zapytania.
+   - Dane wejściowe **rejestracji** to połączenie usługi Azure Blob Storage wskazujące statyczny registration.jsw pliku, używany do wyszukiwania w razie potrzeby. To dane wejściowe referencyjne są używane w późniejszych odmianach składni zapytania.
 
 4. Obejrzyj dane wyjściowe zadania przykładowego TollApp.
    - **Cosmos DB** Output to kontener bazy danych Cosmos, który odbiera zdarzenia wyjściowego ujścia. Należy zauważyć, że te dane wyjściowe są używane w klauzuli INTO zapytania przesyłania strumieniowego.
@@ -185,11 +185,11 @@ Wykonaj następujące kroki, aby uruchomić zadanie przesyłania strumieniowego:
 ## <a name="review-the-cosmosdb-output-data"></a>Przeglądanie danych wyjściowych CosmosDB
 1. Znajdź grupę zasobów zawierającą zasoby TollApp.
 
-2. Wybierz konto Azure Cosmos DB z nazwą wzorzec **tollapp\<\>losowo-Cosmos**.
+2. Wybierz konto Azure Cosmos DB z wzorcem nazwy **tollapp \<random\> -Cosmos**.
 
 3. Wybierz **Eksplorator danych** nagłówek, aby otworzyć stronę Eksplorator danych.
 
-4. Rozwiń dokumenty **tollAppDatabase** > **tollAppCollection** > **Documents**.
+4. Rozwiń dokumenty **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
 
 5. Na liście identyfikatorów kilka dokumentów jest pokazywanych po udostępnieniu danych wyjściowych.
 

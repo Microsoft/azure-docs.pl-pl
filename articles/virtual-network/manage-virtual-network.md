@@ -7,17 +7,16 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 643f326952f72f952aa946079e56f1fb56373c9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710035"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Tworzenie, zmienianie i usuwanie sieci wirtualnej
 
@@ -30,14 +29,14 @@ Dowiedz się, jak utworzyć i usunąć sieć wirtualną oraz zmienić ustawienia
 Przed wykonaniem kroków opisanych w sekcji tego artykułu wykonaj następujące zadania:
 
 - Jeśli nie masz jeszcze konta platformy Azure, Utwórz [konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free).
-- Jeśli używasz portalu, Otwórz https://portal.azure.comprogram i zaloguj się przy użyciu konta platformy Azure.
+- Jeśli używasz portalu, Otwórz https://portal.azure.com program i zaloguj się przy użyciu konta platformy Azure.
 - W przypadku wykonywania zadań w tym artykule przy użyciu poleceń programu PowerShell uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
-- W przypadku korzystania z poleceń interfejsu wiersza polecenia (CLI) platformy Azure w celu wykonania zadań w tym artykule Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić `az login` polecenie, aby utworzyć połączenie z platformą Azure.
+- W przypadku korzystania z poleceń interfejsu wiersza polecenia (CLI) platformy Azure w celu wykonania zadań w tym artykule Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić polecenie `az login` , aby utworzyć połączenie z platformą Azure.
 - Konto, do którego należy się zalogować lub połączyć się z platformą Azure za pomocą programu, musi być przypisane do roli [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) lub do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , do której przypisano odpowiednie akcje wymienione w obszarze [uprawnienia](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-1. **Networking** > Wybierz pozycję **+ Utwórz zasób** > **Sieć wirtualna sieci**.
+1. Wybierz pozycję **+ Utwórz zasób**  >  **Networking**  >  **Sieć wirtualna sieci**.
 2. Wprowadź lub wybierz wartości dla następujących ustawień, a następnie wybierz pozycję **Utwórz**:
    - **Nazwa**: nazwa musi być unikatowa w wybranej [grupie zasobów](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) , w której ma zostać utworzona sieć wirtualna. Nie można zmienić nazwy po utworzeniu sieci wirtualnej. W miarę upływu czasu można utworzyć wiele sieci wirtualnych. Aby uzyskać sugestie dotyczące nazewnictwa, zobacz [konwencje nazewnictwa](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Postępując zgodnie z konwencją nazewnictwa, można ułatwić zarządzanie wieloma sieciami wirtualnymi.
    - **Przestrzeń adresowa**: przestrzeń adresowa dla sieci wirtualnej składa się z co najmniej jednego nienakładających się zakresów adresów, które są określone w notacji CIDR. Zdefiniowany zakres adresów może być publiczny lub prywatny (RFC 1918). Niezależnie od tego, czy zakres adresów został zdefiniowany jako publiczny, czy prywatny, zakres adresów jest dostępny tylko w ramach sieci wirtualnej, z połączonych sieci wirtualnych oraz z dowolnych sieci lokalnych, które zostały podłączone do sieci wirtualnej. Nie można dodać następujących zakresów adresów:
@@ -139,7 +138,7 @@ Wszystkie maszyny wirtualne, które są połączone z siecią wirtualną, są za
 3. W obszarze **Ustawienia**wybierz pozycję **serwery DNS**.
 4. Wybierz jedną z następujących opcji:
    - **Domyślne (udostępniane przez platformę Azure)**: wszystkie nazwy zasobów i prywatne adresy IP są automatycznie rejestrowane na serwerach Azure DNS. Można rozwiązać nazwy między dowolnymi zasobami połączonymi z tą samą siecią wirtualną. Nie można użyć tej opcji do rozpoznawania nazw w sieciach wirtualnych. Aby rozwiązać nazwy w sieciach wirtualnych, należy użyć niestandardowego serwera DNS.
-   - **Niestandardowo**: można dodać jeden lub więcej serwerów, do limitu platformy Azure dla sieci wirtualnej. Aby dowiedzieć się więcej na temat limitów serwera DNS, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Istnieją następujące opcje:
+   - **Niestandardowo**: można dodać jeden lub więcej serwerów, do limitu platformy Azure dla sieci wirtualnej. Aby dowiedzieć się więcej na temat limitów serwera DNS, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Możesz wybrać następujące opcje:
    - **Dodaj adres**: dodaje serwer do listy serwerów DNS sieci wirtualnej. Ta opcja powoduje także zarejestrowanie serwera DNS na platformie Azure. Jeśli serwer DNS został już zarejestrowany na platformie Azure, możesz wybrać ten serwer DNS z listy.
    - **Usuń adres**: obok serwera, który chcesz usunąć, wybierz pozycję **...**, a następnie **Usuń**. Usunięcie serwera spowoduje usunięcie serwera tylko z tej listy sieci wirtualnych. Serwer DNS pozostaje zarejestrowany na platformie Azure dla innych sieci wirtualnych do użycia.
    - **Zmienianie kolejności adresów serwera DNS**: ważne jest, aby sprawdzić, czy serwery DNS są w odpowiedniej kolejności w danym środowisku. Listy serwerów DNS są używane w kolejności, w jakiej zostały określone. Nie działają one jako Konfiguracja działania okrężnego. Jeśli na liście można osiągnąć pierwszy serwer DNS, klient korzysta z tego serwera DNS, niezależnie od tego, czy serwer DNS działa prawidłowo. Usuń wszystkie wymienione serwery DNS, a następnie dodaj je ponownie w podanej kolejności.

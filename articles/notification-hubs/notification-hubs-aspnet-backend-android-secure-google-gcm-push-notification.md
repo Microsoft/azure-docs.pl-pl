@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212187"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Wysyłanie zabezpieczonych powiadomień wypychanych za pomocą usługi Azure Notification Hubs
@@ -71,7 +71,7 @@ Teraz zmodyfikuj przepływ *logowania* w celu zapisania wartości nagłówka uwi
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
-2. W `MainActivity` klasie należy zaktualizować `getAuthorizationHeader()` metodę tak, aby zawierała następujący kod:
+2. W `MainActivity` klasie należy zaktualizować metodę tak, `getAuthorizationHeader()` aby zawierała następujący kod:
 
     ```java
     private String getAuthorizationHeader() throws UnsupportedEncodingException {
@@ -94,7 +94,7 @@ Teraz zmodyfikuj przepływ *logowania* w celu zapisania wartości nagłówka uwi
 
 Teraz zmień procedurę obsługi, która jest wywoływana po odebraniu powiadomienia.
 
-1. W `MyHandler` klasie Zmień `OnReceive()` metodę, aby zawierała:
+1. W `MyHandler` klasie Zmień metodę, `OnReceive()` aby zawierała:
 
     ```java
     public void onReceive(Context context, Bundle bundle) {

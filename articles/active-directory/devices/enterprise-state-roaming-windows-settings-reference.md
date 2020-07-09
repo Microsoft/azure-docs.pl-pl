@@ -4,19 +4,18 @@ description: Ustawienia, które będą miały dostęp do roamingu lub tworzenia 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: troubleshooting
+ms.topic: reference
 ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252971"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Informacje dotyczące ustawień roamingu w systemie Windows 10
 
@@ -26,12 +25,12 @@ Poniżej znajduje się lista ustawień, które mają być przenoszone lub tworzo
 
 W poniższej tabeli znajduje się podsumowanie informacji o urządzeniach i typach kont obsługiwanych przez środowisko synchronizacji, wykonywania kopii zapasowych i przywracania w systemie Windows 10.
 
-| Typ konta i operacja | Komputery | Komórkowy |
+| Typ konta i operacja | Klasyczna | Aplikacje mobilne |
 | --- | --- | --- |
-| Azure Active Directory: synchronizacja |Tak |Nie |
+| Azure Active Directory: synchronizacja |Yes |Nie |
 | Azure Active Directory: kopia zapasowa/przywracanie |Nie |Nie |
 | Konto Microsoft: synchronizacja |Tak |Tak |
-| Konto Microsoft: kopia zapasowa/przywracanie |Nie |Tak |
+| Konto Microsoft: kopia zapasowa/przywracanie |Nie |Yes |
 
 ## <a name="what-is-backup"></a>Co to jest kopia zapasowa?
 
@@ -69,9 +68,9 @@ W poniższej tabeli inne wpisy w kolumnie grupa ustawień odnoszą się do ustaw
 Wpisy wewnętrzne w kolumnie grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko w ramach samej aplikacji lub wyłączając synchronizację dla całego urządzenia za pomocą ustawień zarządzania urządzeniami przenośnymi (MDM) lub zasady grupy.
 Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należeć do grupy.
 
-| Ustawienia | Komputery | Komórkowy | Grupa |
+| Ustawienia | Klasyczna | Aplikacje mobilne | Grupa |
 | --- | --- | --- | --- |
-| **Konta**: obraz konta |synchronizacja |X |motyw |
+| **Konta**: obraz konta |synchronizacja |X |Motyw |
 | **Konta**: inne ustawienia konta |X |X | |
 | **Advanced Mobile szerokopasmowa**: Nazwa sieci udostępniania połączenia internetowego (umożliwia Autowykrywanie mobilnych hotspotów Wi-Fi za pośrednictwem połączenia Bluetooth) |X |X |Hasła |
 | **Dane aplikacji**: poszczególne aplikacje mogą synchronizować dane |Synchronizuj kopię zapasową |Synchronizuj kopię zapasową |internal |
@@ -91,9 +90,9 @@ Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należe�
 | **Data, godzina i region**: Data długa |synchronizacja |X |language |
 | **Data, godzina i region**: godzina krótka |synchronizacja |X |language |
 | **Data, godzina i region**: godzina długa |synchronizacja |X |language |
-| **Personalizacja pulpitu**: kompozycja pulpitu (tło, systemowy kolor, domyślne dźwięki systemowe, wygaszacz ekranu) |synchronizacja |X |motyw |
-| **Personalizacja pulpitu**: tapeta pokazu slajdów |synchronizacja |X |motyw |
-| **Personalizacja pulpitu**: ustawienia paska zadań (pozycja, Autoukrywanie itp.) |synchronizacja |X |motyw |
+| **Personalizacja pulpitu**: kompozycja pulpitu (tło, systemowy kolor, domyślne dźwięki systemowe, wygaszacz ekranu) |synchronizacja |X |Motyw |
+| **Personalizacja pulpitu**: tapeta pokazu slajdów |synchronizacja |X |Motyw |
+| **Personalizacja pulpitu**: ustawienia paska zadań (pozycja, Autoukrywanie itp.) |synchronizacja |X |Motyw |
 | **Personalizacja pulpitu**: układ ekranu startowego |X |kopia zapasowa | |
 | **Urządzenia**: udostępnione drukarki, z którymi nawiązano połączenie |X |X |inne |
 | **Przeglądarka Microsoft Edge**: odczytywanie listy |synchronizacja |synchronizacja |internal |
@@ -167,7 +166,7 @@ Ustawienia, które nie są przekazywane ani synchronizowane, nie będą należe�
 | **Łatwość dostępu**: Ustawianie grubości miganego kursora |synchronizacja |X |Łatwość dostępu |
 | **Łatwość dostępu**: Usuń obrazy tła (domyślnie wyłączone) |synchronizacja |X |Łatwość dostępu |
 | **Włącz i uśpienie**: wszystkie ustawienia |X |X | |
-| **Personalizacja ekranu startowego**: kolor akcentu (tylko telefon) |X |synchronizacja |motyw |
+| **Personalizacja ekranu startowego**: kolor akcentu (tylko telefon) |X |synchronizacja |Motyw |
 | **Wpisywanie**: słownik ortograficzny |synchronizacja |kopia zapasowa |Język |
 | **Wpisywanie**: Autokorekta błędnie napisanego wyrazu |synchronizacja |kopia zapasowa |Język |
 | **Wpisywanie**: wyróżnianie błędnie napisanych wyrazów |synchronizacja |kopia zapasowa |Język |

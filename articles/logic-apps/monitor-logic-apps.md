@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82732006"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitoruj stan przebiegu, przejrzyj historię wyzwalacza i skonfiguruj alerty dla Azure Logic Apps
@@ -24,13 +24,13 @@ Aby monitorować zdarzenia w czasie rzeczywistym i bogatsze debugowanie, skonfig
 
 <a name="review-runs-history"></a>
 
-## <a name="review-runs-history"></a>Przejrzyj historię uruchomień
+## <a name="review-runs-history"></a>Przejrzyj historię uruchamiania
 
 Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, aparat Logic Apps tworzy i uruchamia oddzielne wystąpienie przepływu pracy dla każdego elementu lub zdarzenia. Domyślnie każde wystąpienie przepływu pracy jest uruchamiane równolegle, aby nie czekać na uruchomienie przepływu pracy. Możesz sprawdzić, co się stało w trakcie tego uruchomienia, w tym o stanie dla każdego kroku w przepływie pracy oraz dane wejściowe i wyjściowe dla każdego kroku.
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-   Aby znaleźć aplikację logiki, w głównym polu wyszukiwania platformy Azure wprowadź `logic apps`wartość, a następnie wybierz pozycję **Logic Apps**.
+   Aby znaleźć aplikację logiki, w głównym polu wyszukiwania platformy Azure wprowadź wartość `logic apps` , a następnie wybierz pozycję **Logic Apps**.
 
    ![Znajdź i wybierz usługę "Logic Apps"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -90,13 +90,13 @@ Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, apara
 
 <a name="review-trigger-history"></a>
 
-## <a name="review-trigger-history"></a>Przejrzyj historię wyzwalacza
+## <a name="review-trigger-history"></a>Przejrzyj historię wyzwalaczy
 
 Każdy przebieg aplikacji logiki rozpoczyna się od wyzwalacza. Historia wyzwalacza zawiera wszystkie próby uruchomienia przez aplikację logiki oraz informacje o danych wejściowych i wyjściowych dla każdej próby wyzwalacza.
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-   Aby znaleźć aplikację logiki, w głównym polu wyszukiwania platformy Azure wprowadź `logic apps`wartość, a następnie wybierz pozycję **Logic Apps**.
+   Aby znaleźć aplikację logiki, w głównym polu wyszukiwania platformy Azure wprowadź wartość `logic apps` , a następnie wybierz pozycję **Logic Apps**.
 
    ![Znajdź i wybierz usługę "Logic Apps"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -140,7 +140,7 @@ Każdy przebieg aplikacji logiki rozpoczyna się od wyzwalacza. Historia wyzwala
 
 Aby otrzymywać alerty w oparciu o konkretne metryki lub przekroczenia progów dla aplikacji logiki, skonfiguruj [alerty w Azure monitor](../azure-monitor/platform/alerts-overview.md). Dowiedz się więcej o [metrykach na platformie Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Aby skonfigurować alerty bez używania [Azure monitor](../log-analytics/log-analytics-overview.md), wykonaj następujące kroki.
 
-1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **alerty** > **Nowa reguła alertu**.
+1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **alerty**  >  **Nowa reguła alertu**.
 
    ![Dodawanie alertu dla aplikacji logiki](./media/monitor-logic-apps/add-new-alert-rule.png)
 
@@ -162,7 +162,7 @@ Aby otrzymywać alerty w oparciu o konkretne metryki lub przekroczenia progów d
 
    1. W obszarze **typ agregacji**wybierz pozycję **Liczba**.
 
-   1. Dla **wartości progowej**wprowadź `1`wartość.
+   1. Dla **wartości progowej wprowadź wartość** `1` .
 
    1. W obszarze **Podgląd warunku**upewnij się, że Twój warunek jest prawidłowy.
 

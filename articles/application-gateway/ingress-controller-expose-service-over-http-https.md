@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje dotyczące sposobu uwidaczniania us
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85850360"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Uwidacznianie usługi AKS za pośrednictwem protokołu HTTP lub HTTPS przy użyciu Application Gateway 
 
@@ -20,19 +20,19 @@ Te samouczki ułatwiają zilustrowanie użycia [zasobów Kubernetes](https://kub
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zainstalowano `ingress-azure` wykres Helm.
+- Zainstalowano `ingress-azure` Wykres Helm.
   - [**Wdrożenie Greenfield**](ingress-controller-install-new.md): Jeśli zaczynasz od podstaw, zapoznaj się z tymi instrukcjami dotyczącymi instalacji, które opisują kroki wdrażania klastra AKS z Application Gateway i zainstalowania w klastrze AKS kontrolera usługi Application.
   - [**Wdrożenie brownfield**](ingress-controller-install-existing.md): Jeśli masz istniejący klaster AKS i Application Gateway, zapoznaj się z tymi instrukcjami, aby zainstalować w klastrze AKS kontroler danych wejściowych bramy aplikacji.
 - Jeśli chcesz używać protokołu HTTPS w tej aplikacji, będzie potrzebny certyfikat x509 i jego klucz prywatny.
 
 ## <a name="deploy-guestbook-application"></a>Wdróż `guestbook` aplikację
 
-Aplikacja księgi Gościa to kanoniczna aplikacja Kubernetes, która składa się z frontonu interfejsu użytkownika sieci Web, zaplecza i bazy danych Redis. Domyślnie program `guestbook` uwidacznia swoją aplikację za pomocą usługi o nazwie `frontend` na porcie. `80` Bez Kubernetes zasobów przychodzących usługa nie jest dostępna spoza klastra AKS. W celu uzyskania dostępu do aplikacji za pośrednictwem protokołów HTTP i HTTPS będziemy korzystać z aplikacji i skonfigurować zasoby transferu danych przychodzących.
+Aplikacja księgi Gościa to kanoniczna aplikacja Kubernetes, która składa się z frontonu interfejsu użytkownika sieci Web, zaplecza i bazy danych Redis. Domyślnie program `guestbook` uwidacznia swoją aplikację za pomocą usługi o nazwie `frontend` na porcie `80` . Bez Kubernetes zasobów przychodzących usługa nie jest dostępna spoza klastra AKS. W celu uzyskania dostępu do aplikacji za pośrednictwem protokołów HTTP i HTTPS będziemy korzystać z aplikacji i skonfigurować zasoby transferu danych przychodzących.
 
 Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć aplikację Księgi Gości.
 
 1. Pobierz `guestbook-all-in-one.yaml` z tego [miejsca](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml)
-1. Wdróż `guestbook-all-in-one.yaml` w klastrze AKS, uruchamiając
+1. Wdróż `guestbook-all-in-one.yaml` w KLASTRZE AKS, uruchamiając
 
   ```bash
   kubectl apply -f guestbook-all-in-one.yaml
@@ -62,7 +62,7 @@ spec:
 
 Ten ruch przychodzący spowoduje udostępnienie `frontend` usługi `guestbook-all-in-one` wdrożenia jako domyślnego zaplecza Application Gateway.
 
-Zapisz powyżej zasób transferu danych przychodzących jako `ing-guestbook.yaml`.
+Zapisz powyżej zasób transferu danych przychodzących jako `ing-guestbook.yaml` .
 
 1. Wdróż `ing-guestbook.yaml` przez uruchomienie:
 
@@ -107,7 +107,7 @@ Bez określenia nazwy hosta usługa księgi gościa będzie dostępna na wszystk
     ```
 
     > [!NOTE] 
-    > Zastąp `<guestbook-secret-name>` wartość w powyższym przychodzącym zasobem przy użyciu nazwy klucza tajnego. Zapisz powyżej zasób transferu danych przychodzących w nazwie `ing-guestbook-tls.yaml`pliku.
+    > Zastąp wartość `<guestbook-secret-name>` w powyższym przychodzącym zasobem przy użyciu nazwy klucza tajnego. Zapisz powyżej zasób transferu danych przychodzących w nazwie pliku `ing-guestbook-tls.yaml` .
 
 1. Wdrożenie w usłudze YAML
 
@@ -156,28 +156,28 @@ Określając nazwę hosta, usługa księgi gościa będzie dostępna tylko na ok
 
 1. Sprawdź dziennik transferu danych przychodzących na potrzeby stanu wdrożenia.
 
-Teraz `guestbook` aplikacja będzie dostępna zarówno dla protokołu HTTP, jak i https na określonym hoście (`<guestbook.contoso.com>` w tym przykładzie).
+Teraz `guestbook` aplikacja będzie dostępna zarówno dla protokołu HTTP, jak i https na określonym hoście ( `<guestbook.contoso.com>` w tym przykładzie).
 
 ## <a name="integrate-with-other-services"></a>Integracja z innymi usługami
 
 Poniższe usługi wejściowe umożliwią dodanie dodatkowych ścieżek do tego ruchu przychodzącego i przekierowanie tych ścieżek do innych usług:
 
-    ```yaml
-    apiVersion: extensions/v1beta1
-    kind: Ingress
-    metadata:
-      name: guestbook
-      annotations:
-        kubernetes.io/ingress.class: azure/application-gateway
-    spec:
-      rules:
-      - http:
-          paths:
-          - path: </other/*>
-            backend:
-              serviceName: <other-service>
-              servicePort: 80
-          - backend:
-              serviceName: frontend
-              servicePort: 80
-    ```
+```yaml
+apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: guestbook
+    annotations:
+      kubernetes.io/ingress.class: azure/application-gateway
+  spec:
+    rules:
+    - http:
+        paths:
+        - path: </other/*>
+          backend:
+            serviceName: <other-service>
+            servicePort: 80
+        - backend:
+            serviceName: frontend
+            servicePort: 80
+```

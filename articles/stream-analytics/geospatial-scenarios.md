@@ -4,14 +4,14 @@ description: W tym artykule opisano, jak używać Azure Stream Analytics do geoo
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 5a3aa3786469c3df37b53cb82bdd396871689297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443639"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045267"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scenariusze wieloogrodzeniowe i agregacji geoprzestrzennej z Azure Stream Analytics
 
@@ -29,7 +29,7 @@ Dane referencyjne używane w tym przykładzie zawierają informacje o geoogrodze
 
 ### <a name="define-geofences-in-reference-data"></a>Definiowanie geoogrodzenia w danych referencyjnych
 
-Geoogrodzenia można zdefiniować przy użyciu obiektu GEOJSON. W przypadku zadań ze zgodnością w wersji 1,2 i wyższych, geoogrodzenia można również zdefiniować za pomocą dobrze znanego tekstu `NVARCHAR(MAX)`(WKT) jako. WKT jest standardem Open Geospatial Consortium (OGC), który jest używany do reprezentowania danych przestrzennych w formacie tekstowym.
+Geoogrodzenia można zdefiniować przy użyciu obiektu GEOJSON. W przypadku zadań ze zgodnością w wersji 1,2 i wyższych, geoogrodzenia można również zdefiniować za pomocą dobrze znanego tekstu (WKT) jako `NVARCHAR(MAX)` . WKT jest standardem Open Geospatial Consortium (OGC), który jest używany do reprezentowania danych przestrzennych w formacie tekstowym.
 
 Wbudowane funkcje geograficzne mogą używać zdefiniowanych geoogrodzenia, aby dowiedzieć się, czy element znajduje się na lub z określonego wielokąta geograficznego.
 
@@ -43,7 +43,7 @@ Poniższa tabela zawiera przykładowe dane referencyjne geoogrodzenia, które mo
 
 ### <a name="generate-alerts-with-geofence"></a>Generowanie alertów z geoogrodzeniem
 
-Urządzenia mogą emitować ich identyfikatory i lokalizacje co minutę za pomocą strumienia o `DeviceStreamInput`nazwie. Poniższa tabela zawiera strumień danych wejściowych.
+Urządzenia mogą emitować ich identyfikatory i lokalizacje co minutę za pomocą strumienia o nazwie `DeviceStreamInput` . Poniższa tabela zawiera strumień danych wejściowych.
 
 |Identyfikator|Położenie geopozycji|
 |--------|-----------|

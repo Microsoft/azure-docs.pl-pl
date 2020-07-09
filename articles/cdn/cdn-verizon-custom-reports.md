@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
-ms.openlocfilehash: 737803f5b7fcddb07787afbb48354b4ca922e9ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888709"
 ---
 # <a name="custom-reports-from-verizon"></a>Raporty niestandardowe z usługi Verizon
 
@@ -75,7 +75,7 @@ Dane można wyeksportować w formacie programu Excel, klikając symbol programu 
 | 4xx                       | Wskazuje łączną liczbę żądań lub danych transferowanych (MB) dla krawędzi CNAME, która powoduje 4xx kod stanu HTTP (na przykład 400 Nieprawidłowe żądanie, 403 zabronione lub 404 nie został znaleziony). |
 | 5xx                       | Wskazuje łączną liczbę żądań lub danych transferowanych (MB) dla krawędzi CNAME, która powoduje 5xx kod stanu HTTP (na przykład 500 wewnętrzny błąd serwera lub 502 niewłaściwa brama). |
 | Procent trafień w pamięci podręcznej               | Wskazuje procent żądań buforowanych, które zostały obsłużone bezpośrednio z pamięci podręcznej do obiektu żądającego. |
-| Trafienia pamięci podręcznej                | Wskazuje łączną liczbę żądań lub danych transferowanych (MB) dla krawędzi CNAME, która powoduje trafienie pamięci podręcznej (na przykład TCP_EXPIRED_HIT, TCP_HIT lub TCP_PARTIAL_HIT). Trafień pamięci podręcznej występuje, gdy zostanie znaleziona buforowana wersja żądanej zawartości. |
+| Trafienia w pamięci podręcznej                | Wskazuje łączną liczbę żądań lub danych transferowanych (MB) dla krawędzi CNAME, która powoduje trafienie pamięci podręcznej (na przykład TCP_EXPIRED_HIT, TCP_HIT lub TCP_PARTIAL_HIT). Trafień pamięci podręcznej występuje, gdy zostanie znaleziona buforowana wersja żądanej zawartości. |
 | Transferowane dane (MB)     | Wskazuje łączną ilość danych transferowanych (MB) z serwerów brzegowych do klientów HTTP (przeglądarki sieci Web) dla krawędzi CNAME. Ilość transferowanych danych jest obliczana przez dodanie nagłówków odpowiedzi HTTP do treści odpowiedzi. W związku z tym ilość danych transferowanych dla każdego elementu zawartości jest większa niż jego rzeczywisty rozmiar pliku. |
 | Opis               | Identyfikuje krawędź CNAME dla nazwy hosta |
 | Trafienia                      | Wskazuje łączną liczbę żądań do granicy CNAME |
@@ -87,6 +87,6 @@ Dane można wyeksportować w formacie programu Excel, klikając symbol programu 
 | Brak pamięci podręcznej               | Wskazuje łączną liczbę żądań lub danych przesłanych (MB) dla krawędzi CNAME, która powoduje niebuforowany kod stanu pamięci podręcznej.  |
 
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 Raporty można generować tylko w ciągu ostatnich 18 miesięcy.
 

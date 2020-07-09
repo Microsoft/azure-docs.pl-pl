@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435640"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086538"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autoryzowanie użytkowników na potrzeby widoków Apache Ambari
 
@@ -28,7 +28,7 @@ Jeśli jeszcze tego nie zrobiono, postępuj zgodnie z [tymi instrukcjami](./doma
 
 ## <a name="access-the-ambari-management-page"></a>Dostęp do strony zarządzania Ambari
 
-Aby przejść do **strony Ambari Management** w [interfejsie użytkownika sieci Web Apache Ambari](hdinsight-hadoop-manage-ambari.md), przejdź `https://CLUSTERNAME.azurehdinsight.net`do. Wprowadź nazwę użytkownika i hasło administratora klastra zdefiniowane podczas tworzenia klastra. Następnie na pulpicie nawigacyjnym Ambari wybierz pozycję **Zarządzaj Ambari** pod menu **administrator** :
+Aby przejść do **strony Ambari Management** w [interfejsie użytkownika sieci Web Apache Ambari](hdinsight-hadoop-manage-ambari.md), przejdź do `https://CLUSTERNAME.azurehdinsight.net` . Wprowadź nazwę użytkownika i hasło administratora klastra zdefiniowane podczas tworzenia klastra. Następnie na pulpicie nawigacyjnym Ambari wybierz pozycję **Zarządzaj Ambari** pod menu **administrator** :
 
 ![Zarządzanie pulpitem nawigacyjnym Apache Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -46,7 +46,7 @@ Aby przejść do **strony Ambari Management** w [interfejsie użytkownika sieci 
 
 ### <a name="add-users-through-powershell"></a>Dodawanie użytkowników za poorednictwem programu PowerShell
 
-Edytuj zmienne poniżej, zastępując `CLUSTERNAME`wartości, `NEWUSER`i `PASSWORD` z odpowiednimi wartościami.
+Edytuj zmienne poniżej, zastępując `CLUSTERNAME` wartości, `NEWUSER` i `PASSWORD` z odpowiednimi wartościami.
 
 ```powershell
 # Set-ExecutionPolicy Unrestricted
@@ -135,7 +135,7 @@ Write-Output $zookeeperHosts
 
 ### <a name="add-users-through-curl"></a>Dodawanie użytkowników przez zwinięcie
 
-Edytuj zmienne `CLUSTERNAME`poniżej, zastępując wartości, `ADMINPASSWORD` `NEWUSER`, i `USERPASSWORD` z odpowiednimi wartościami. Skrypt został zaprojektowany do wykonywania z bash. W wierszu polecenia systemu Windows wymagane są niewielkie modyfikacje.
+Edytuj zmienne poniżej, zastępując `CLUSTERNAME` wartości, `ADMINPASSWORD` , `NEWUSER` i `USERPASSWORD` z odpowiednimi wartościami. Skrypt został zaprojektowany do wykonywania z bash. W wierszu polecenia systemu Windows wymagane są niewielkie modyfikacje.
 
 ```bash
 export clusterName="CLUSTERNAME"
@@ -179,9 +179,9 @@ Ambari zawiera wystąpienia widoku dla [Apache Hive](https://hive.apache.org/) i
 
 3. Przewiń w dół strony widoku. W sekcji *uprawnienia* dostępne są dwie opcje przyznania użytkownikom domeny ich uprawnienia do widoku:
 
-**Udziel uprawnień tym** ![użytkownikom uprawnienia do udzielania użytkownikom](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
+**Udziel uprawnień tym użytkownikom** ![ Udziel uprawnień tym użytkownikom](./media/hdinsight-authorize-users-to-ambari/hdi-add-user-to-view.png)
 
-**Udziel uprawnień tym grupom** ![uprawnienia do tych grup](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
+**Udziel uprawnień tym grupom** ![ Udziel uprawnień tym grupom](./media/hdinsight-authorize-users-to-ambari/add-group-to-view-permission.png)
 
 1. Aby dodać użytkownika, wybierz przycisk **Dodaj użytkownika** .
 

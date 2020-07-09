@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d2dba0f657b418267db90c07014dc8996ed12a10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80059921"
 ---
 Po utworzeniu certyfikatu głównego z podpisem własnym wyeksportuj plik CER klucza publicznego certyfikatu głównego (nie klucz prywatny). Później przekażesz ten plik do platformy Azure. Poniższe kroki ułatwiają wyeksportowanie pliku CER dla certyfikatu głównego z podpisem własnym:
@@ -31,7 +31,7 @@ Po utworzeniu certyfikatu głównego z podpisem własnym wyeksportuj plik CER kl
    ![Base-64 — zakodowana](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
 5. W polu **plik do wyeksportowania** **Przejdź** do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **dalej**.
 
-   ![Browse](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
+   ![Przeglądaj](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat.
 
    ![Zakończ](./media/vpn-gateway-certificates-export-public-key-include/finish.png)

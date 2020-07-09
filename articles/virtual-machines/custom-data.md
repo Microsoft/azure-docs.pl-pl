@@ -7,18 +7,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759138"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678362"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dane niestandardowe i Usługa Cloud-init w usłudze Azure Virtual Machines
 
-## <a name="what-is-custom-data"></a>Co to są dane niestandardowe?
-
-Klienci często pytają, jak mogą wstrzyknąć skrypt lub inne metadane do maszyny wirtualnej Microsoft Azure w czasie udostępniania.  W innych chmurach pojęcie to jest często określane jako dane użytkownika.  W Microsoft Azure mamy podobną funkcję o nazwie dane niestandardowe. 
+Może być konieczne wstrzyknięcie skryptu lub innych metadanych do Microsoft Azure maszyny wirtualnej w czasie aprowizacji.  W innych chmurach pojęcie to jest często określane jako dane użytkownika.  W Microsoft Azure mamy podobną funkcję o nazwie dane niestandardowe. 
 
 Dane niestandardowe są dostępne tylko dla maszyny wirtualnej podczas pierwszej konfiguracji rozruchu/początkowej, nazywamy to "Inicjowanie obsługi". Inicjowanie obsługi jest procesem, w którym maszyny wirtualne tworzą parametry (na przykład nazwa hosta, nazwa użytkownika, hasło, certyfikaty, dane niestandardowe, klucze itp.), są dostępne dla maszyny wirtualnej, a agent inicjowania obsługi administracyjnej przetwarza je, takie jak [Agent systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) i usługa [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 
@@ -65,12 +62,12 @@ Agenci aprowizacji zainstalowani na maszynach wirtualnych współdziałają z pl
 Dane niestandardowe są umieszczane w *%SYSTEMDRIVE%\AzureData\CustomData.bin* jako plik binarny, ale nie są przetwarzane. Jeśli chcesz przetworzyć ten plik, musisz utworzyć obraz niestandardowy i napisać kod, aby przetworzyć CustomData. bin.
 
 ### <a name="linux"></a>Linux  
-W systemie operacyjnym Linux dane niestandardowe są przesyłane do maszyny wirtualnej za pośrednictwem pliku OVF-ENV. XML, który jest kopiowany do katalogu */var/lib/waagent* podczas aprowizacji.  Nowsze wersje agenta Microsoft Azure Linux również skopiują dane zakodowane algorytmem Base64 do */var/lib/waagent/CustomData* i wygodę.
+W systemie operacyjnym Linux dane niestandardowe są przesyłane do maszyny wirtualnej za pośrednictwem pliku ovf-env.xml, który jest kopiowany do katalogu */var/lib/waagent* podczas aprowizacji.  Nowsze wersje agenta Microsoft Azure Linux również skopiują dane zakodowane algorytmem Base64 do */var/lib/waagent/CustomData* i wygodę.
 
 Obecnie platforma Azure obsługuje dwóch agentów aprowizacji:
 * Agent systemu Linux — domyślnie Agent nie będzie przetwarzać danych niestandardowych, należy utworzyć niestandardowy obraz z włączonym. Odpowiednie ustawienia, zgodnie z [dokumentacją](https://github.com/Azure/WALinuxAgent#configuration) :
     * Inicjowanie obsługi administracyjnej. DecodeCustomData
-    * Inicjowanie obsługi administracyjnej. ExecuteCustomData
+    * Provisioning.ExecuteCustomData
 
 Po włączeniu danych niestandardowych i wykonaniu skryptu zostanie opóźnione raportowanie maszyn wirtualnych, które jest gotowe lub że inicjowanie obsługi zakończyło się powodzeniem do momentu zakończenia skryptu. Jeśli skrypt przekracza łączny czas udostępniania maszyny wirtualnej wynoszący 40 minut, Tworzenie maszyny wirtualnej zakończy się niepowodzeniem. Uwaga Jeśli wykonanie skryptu lub błędy podczas wykonywania nie powiedzie się, nie jest uznawany za krytyczny błąd aprowizacji, należy utworzyć ścieżkę powiadomienia, aby poinformować użytkownika o stanie ukończenia skryptu.
 
@@ -84,7 +81,7 @@ Aby rozwiązać problem z wykonywaniem danych niestandardowych, zapoznaj się z 
 
 ## <a name="faq"></a>Często zadawane pytania
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Czy mogę zaktualizować dane niestandardowe po utworzeniu maszyny wirtualnej?
-W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem interfejsu API REST (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
+W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem [interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
 * Istniejące wystąpienia w VMSS nie otrzymają zaktualizowanych danych niestandardowych tylko do momentu ich odłączenia.
 * Istniejące wystąpienia w uaktualnianym VMSS nie będą otrzymywać zaktualizowanych danych niestandardowych.
 * Nowe wystąpienia otrzymają nowe dane niestandardowe.

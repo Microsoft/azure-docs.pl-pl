@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759187"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628377"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania (wersja zapoznawcza) dla klasyfikacji obrazów wieloklasowych 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
 
 1. Wybierz pozycję **+ Dodaj projekt**.
 
-    ![Tworzenie projektu](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Tworzenie projektu":::
 
 ### <a name="project-details"></a>Szczegóły projektu
 
@@ -109,6 +109,12 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
     1. Wybierz okrąg obok nazwy zestawu danych na liście, na przykład **obrazy dla samouczka**.
 
 1. Wybierz pozycję **dalej** , aby kontynuować tworzenie projektu.
+
+### <a name="incremental-refresh"></a>Odświeżanie przyrostowe
+
+Jeśli planujesz dodać nowe obrazy do zestawu danych, odświeżanie przyrostowe będzie odszukać te nowe obrazy i dodać je do projektu.  Po włączeniu tej funkcji projekt będzie okresowo sprawdzać, czy są nowe obrazy.  Nie dodasz nowych obrazów do magazynu danych dla tego samouczka, więc nie zaznaczaj tej funkcji.
+
+Wybierz przycisk **Dalej**, aby kontynuować.
 
 ### <a name="label-classes"></a>Klasy etykiet
 
@@ -196,7 +202,7 @@ Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#
 
 1. Po pomyślnym wyeksportowaniu etykiet wybierz pozycję **zestawy danych** po lewej stronie, aby wyświetlić wyniki.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]

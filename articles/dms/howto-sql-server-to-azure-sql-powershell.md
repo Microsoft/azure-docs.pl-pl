@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell: Migruj SQL Server do SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak przeprowadzić migrację z SQL Server lokalnych do Azure SQL Database przy użyciu Azure PowerShell z Azure Database Migration Service.
+description: Dowiedz się, jak przeprowadzić migrację bazy danych z SQL Server do Azure SQL Database przy użyciu Azure PowerShell z Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 323d6b006d3e790a7517e90f34241976904b3ba3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253413"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrowanie SQL Server lokalnie do Azure SQL Database przy użyciu Azure PowerShell
+# <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrowanie bazy danych SQL Server do Azure SQL Database przy użyciu Azure PowerShell
 
-W tym artykule przeprowadzisz migrację bazy danych **Adventureworks2012** do lokalnego wystąpienia SQL Server 2016 lub nowszego do Azure SQL Database przy użyciu Microsoft Azure PowerShell. Bazy danych można migrować z wystąpienia SQL Server lokalnego do Azure SQL Database przy użyciu `Az.DataMigration` modułu w Microsoft Azure PowerShell.
+W tym artykule przeprowadzisz migrację bazy danych **Adventureworks2012** do lokalnego wystąpienia SQL Server 2016 lub nowszego do Azure SQL Database przy użyciu Microsoft Azure PowerShell. Bazy danych można migrować z wystąpienia SQL Server do Azure SQL Database przy użyciu `Az.DataMigration` modułu w Microsoft Azure PowerShell.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]
@@ -38,7 +38,7 @@ Aby wykonać te kroki, potrzebne są:
 * [SQL Server 2016 lub nowszy](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja)
 * Aby włączyć protokół TCP/IP, który jest domyślnie wyłączony z instalacją SQL Server Express. Włącz protokół TCP/IP, wykonując czynności opisane w artykule [Włączanie lub wyłączanie protokołu sieciowego serwera](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * Aby skonfigurować [zaporę systemu Windows na potrzeby dostępu do aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Wystąpienie usługi Azure SQL Database. Można utworzyć wystąpienie Azure SQL Database, postępując zgodnie ze szczegółowymi informacjami w artykule [Tworzenie bazy danych Azure SQL Database w Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* Wystąpienie usługi Azure SQL Database. Można utworzyć wystąpienie Azure SQL Database, postępując zgodnie ze szczegółowymi informacjami w artykule [Tworzenie bazy danych w Azure SQL Database w Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 lub nowszy.
 * W celu utworzenia Microsoft Azure Virtual Network przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia Azure Database Migration Service z połączeniem lokacja-lokacja z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * Ukończenie oceny lokalnej bazy danych i migracji schematu przy użyciu Data Migration Assistant zgodnie z opisem w artykule [wykonywanie oceny migracji SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
@@ -96,7 +96,7 @@ Po utworzeniu wystąpienia Azure Database Migration Service Utwórz projekt migr
 Obiekt informacji o połączeniu z bazą danych można utworzyć przy użyciu `New-AzDmsConnInfo` polecenia cmdlet. To polecenie cmdlet oczekuje następujących parametrów:
 
 * *Serwertype*. Typ żądanego połączenia z bazą danych, na przykład SQL, Oracle lub MySQL. Użyj programu SQL dla SQL Server i usługi Azure SQL.
-* *Źródło danych*. Nazwa lub adres IP wystąpienia SQL Server lub bazy danych Azure SQL Database.
+* *Źródło danych*. Nazwa lub adres IP wystąpienia SQL Server lub Azure SQL Database.
 * *AuthType*. Typ uwierzytelniania dla połączenia, który może mieć wartość sqlauthentication lub WindowsAuthentication.
 * Parametr *TrustServerCertificate* ustawia wartość wskazującą, czy kanał jest szyfrowany podczas pomijania przechodzenia łańcucha certyfikatów w celu zweryfikowania zaufania. Wartość może być równa true lub false.
 

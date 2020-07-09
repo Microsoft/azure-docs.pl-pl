@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77111771"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Korzystanie z tożsamości zarządzanej przez platformę Azure w zadaniach ACR 
@@ -52,7 +51,7 @@ Jeśli planujesz używać tylko tożsamości przypisanej do systemu, Pomiń ten 
 
 Podczas tworzenia zadania ACR opcjonalnie należy włączyć tożsamość przypisaną przez użytkownika, tożsamość przypisaną do systemu lub obie te funkcje. Na przykład, należy przekazać `--assign-identity` parametr, gdy uruchamiasz polecenie [AZ ACR Task Create][az-acr-task-create] w interfejsie wiersza polecenia platformy Azure.
 
-Aby włączyć tożsamość przypisaną do systemu, należy `--assign-identity` przekazać bez wartości lub `assign-identity [system]`. Poniższe przykładowe polecenie tworzy zadanie systemu Linux na podstawie publicznego repozytorium GitHub, które kompiluje `hello-world` obraz i umożliwia tożsamość zarządzaną przypisaną przez system:
+Aby włączyć tożsamość przypisaną do systemu, należy przekazać `--assign-identity` bez wartości lub `assign-identity [system]` . Poniższe przykładowe polecenie tworzy zadanie systemu Linux na podstawie publicznego repozytorium GitHub, które kompiluje `hello-world` obraz i umożliwia tożsamość zarządzaną przypisaną przez system:
 
 ```azurecli
 az acr task create \
@@ -64,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-Aby włączyć tożsamość przypisaną przez użytkownika, należy `--assign-identity` przekazać wartość *identyfikatora zasobu* tożsamości. Poniższe przykładowe polecenie tworzy zadanie systemu Linux na podstawie publicznego repozytorium GitHub, które kompiluje `hello-world` obraz i umożliwia tożsamość zarządzaną przez użytkownika:
+Aby włączyć tożsamość przypisaną przez użytkownika, należy przekazać `--assign-identity` wartość *identyfikatora zasobu* tożsamości. Poniższe przykładowe polecenie tworzy zadanie systemu Linux na podstawie publicznego repozytorium GitHub, które kompiluje `hello-world` obraz i umożliwia tożsamość zarządzaną przez użytkownika:
 
 ```azurecli
 az acr task create \
@@ -84,7 +83,7 @@ Identyfikator zasobu tożsamości można uzyskać, uruchamiając polecenie [AZ I
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure
 
-W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady:
+W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady obejmują:
 
 * Przypisywanie tożsamości zarządzanej roli za pomocą ściągania, wypychania i ściągania lub innych uprawnień do rejestru kontenerów docelowych na platformie Azure. Pełną listę ról rejestru można znaleźć w temacie [Azure Container Registry role i uprawnienia](container-registry-roles.md). 
 * Przypisanie tożsamości zarządzanej roli do odczytu wpisów tajnych w magazynie kluczy platformy Azure.
@@ -105,7 +104,7 @@ az role assignment create \
 
 Jeśli zadanie wymaga poświadczeń do ściągania lub wypychania obrazów do innego niestandardowego rejestru lub do uzyskiwania dostępu do innych zasobów, Dodaj poświadczenia do zadania. Uruchom polecenie [AZ ACR Task Credential Add][az-acr-task-credential-add] , aby dodać poświadczenia, i przekaż `--use-identity` parametr, aby wskazać, że tożsamość może uzyskać dostęp do poświadczeń. 
 
-Na przykład aby dodać poświadczenia dla tożsamości przypisanej do systemu w celu uwierzytelnienia w usłudze Azure Container Registry *targetregistry*, `use-identity [system]`Przekaż:
+Na przykład aby dodać poświadczenia dla tożsamości przypisanej do systemu w celu uwierzytelnienia w usłudze Azure Container Registry *targetregistry*, Przekaż `use-identity [system]` :
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +114,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Aby dodać poświadczenia dla tożsamości przypisanej do użytkownika w celu uwierzytelnienia za *targetregistry*pomocą rejestru targetregistry `use-identity` , przekaż wartość *identyfikatora klienta* tożsamości. Przykład:
+Aby dodać poświadczenia dla tożsamości przypisanej do użytkownika w celu uwierzytelnienia za pomocą rejestru *targetregistry*, Przekaż `use-identity` wartość *identyfikatora klienta* tożsamości. Przykład:
 
 ```azurecli
 az acr task credential add \
@@ -125,7 +124,7 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-Identyfikator klienta tożsamości można uzyskać, uruchamiając polecenie [AZ Identity show][az-identity-show] . Identyfikator klienta jest identyfikatorem GUID formularza `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+Identyfikator klienta tożsamości można uzyskać, uruchamiając polecenie [AZ Identity show][az-identity-show] . Identyfikator klienta jest identyfikatorem GUID formularza `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` .
 
 ### <a name="5-run-the-task"></a>5. Uruchom zadanie
 

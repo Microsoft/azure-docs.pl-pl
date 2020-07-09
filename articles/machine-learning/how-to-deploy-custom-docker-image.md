@@ -5,17 +5,18 @@ description: Dowiedz się, jak używać niestandardowego obrazu podstawowego pla
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/16/2020
-ms.openlocfilehash: a237beb72e35a236e353c58db520a8d611fdfdcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617999"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976765"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -69,7 +70,7 @@ Informacje w tej sekcji założono, że używasz Azure Container Registry do prz
 
     Aby uzyskać informacje na temat używania nazw głównych usługi z Azure Container Registry, zobacz [Azure Container Registry Authentication z](/azure/container-registry/container-registry-auth-service-principal)jednostkami usługi.
 
-* Informacje o Azure Container Registry i obrazie: Podaj nazwę obrazu dla każdego, kto musi go używać. Na przykład obraz o nazwie `myimage`przechowywane w rejestrze o nazwie `myregistry`jest przywoływany w `myregistry.azurecr.io/myimage` przypadku użycia obrazu do wdrożenia modelu
+* Informacje o Azure Container Registry i obrazie: Podaj nazwę obrazu dla każdego, kto musi go używać. Na przykład obraz o nazwie `myimage` przechowywane w rejestrze o nazwie `myregistry` jest przywoływany w `myregistry.azurecr.io/myimage` przypadku użycia obrazu do wdrożenia modelu
 
 * Wymagania dotyczące obrazów: Azure Machine Learning obsługuje tylko obrazy platformy Docker, które udostępniają następujące oprogramowanie:
 
@@ -112,13 +113,13 @@ Jeśli modele zostały już przeszkolone lub wdrożone przy użyciu Azure Machin
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
-    `<registry_name>` Wartość to nazwa Azure Container Registry obszaru roboczego.
+    `<registry_name>`Wartość to nazwa Azure Container Registry obszaru roboczego.
 
 ### <a name="build-a-custom-base-image"></a>Tworzenie niestandardowego obrazu podstawowego
 
 Kroki opisane w tej sekcji przedstawiają Tworzenie niestandardowego obrazu platformy Docker w Azure Container Registry.
 
-1. Utwórz nowy plik tekstowy o nazwie `Dockerfile`i użyj następującego tekstu jako zawartości:
+1. Utwórz nowy plik tekstowy o nazwie `Dockerfile` i użyj następującego tekstu jako zawartości:
 
     ```text
     FROM ubuntu:16.04
@@ -145,7 +146,7 @@ Kroki opisane w tej sekcji przedstawiają Tworzenie niestandardowego obrazu plat
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
     ```
 
-2. Z poziomu powłoki lub wiersza polecenia Użyj następujących poleceń, aby uwierzytelnić się w Azure Container Registry. `<registry_name>` Zastąp ciąg nazwą rejestru kontenera, w którym ma być przechowywany obraz:
+2. Z poziomu powłoki lub wiersza polecenia Użyj następujących poleceń, aby uwierzytelnić się w Azure Container Registry. Zastąp ciąg `<registry_name>` nazwą rejestru kontenera, w którym ma być przechowywany obraz:
 
     ```azurecli-interactive
     az acr login --name <registry_name>
@@ -174,10 +175,10 @@ Aby uzyskać więcej informacji na temat przekazywania istniejących obrazów do
 
 Aby użyć obrazu niestandardowego, potrzebne są następujące informacje:
 
-* __Nazwa obrazu__. Na przykład `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` jest ścieżką do podstawowego obrazu platformy Docker dostarczonego przez firmę Microsoft.
+* __Nazwa obrazu__. Na przykład `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` jest ścieżką do podstawowego obrazu platformy Docker dostarczonego przez firmę Microsoft.
 
     > [!IMPORTANT]
-    > W przypadku obrazów niestandardowych, które zostały utworzone, pamiętaj o uwzględnieniu wszelkich tagów, które były używane w obrazie. Na przykład, jeśli obraz został utworzony przy użyciu określonego tagu, takiego jak `:v1`. Jeśli nie korzystasz z określonego tagu podczas tworzenia obrazu, znacznik `:latest` został zastosowany.
+    > W przypadku obrazów niestandardowych, które zostały utworzone, pamiętaj o uwzględnieniu wszelkich tagów, które były używane w obrazie. Na przykład, jeśli obraz został utworzony przy użyciu określonego tagu, takiego jak `:v1` . Jeśli nie korzystasz z określonego tagu podczas tworzenia obrazu, znacznik `:latest` został zastosowany.
 
 * Jeśli obraz znajduje się w __repozytorium prywatnym__, potrzebne są następujące informacje:
 
@@ -196,23 +197,15 @@ Firma Microsoft udostępnia kilka obrazów platformy Docker w publicznie dostęp
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Zawiera środowisko uruchomieniowe ONNX dla procesora CPU inferencing |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Zawiera środowisko uruchomieniowe ONNX i CUDA dla procesora GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Zawiera środowisko uruchomieniowe ONNX i TensorRT dla procesora GPU |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Zawiera środowisko uruchomieniowe ONNX i OpenVINO<sup> </sup> dla projektu akceleratora Intel Vision na podstawie Movidius<sup>TM</sup> MyriadX VPUs |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Zawiera środowisko uruchomieniowe ONNX i OpenVINO<sup> </sup> dla urządzeń USB Intel Movidius<sup>TM</sup> |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Zawiera środowisko uruchomieniowe ONNX i OpenVINO dla <sup></sup> projektu akceleratora Intel Vision na podstawie Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Zawiera środowisko uruchomieniowe ONNX i OpenVINO dla <sup></sup> urządzeń USB Intel Movidius<sup>TM</sup> |
 
 Aby uzyskać więcej informacji na temat obrazów podstawowych środowiska uruchomieniowego ONNX, zobacz [sekcję ONNX Runtime pliku dockerfile](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) w repozytorium GitHub.
 
 > [!TIP]
 > Ponieważ te obrazy są publicznie dostępne, nie trzeba podawać adresu, nazwy użytkownika ani hasła podczas ich używania.
 
-Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Containers](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__Jeśli model jest szkolony na Azure Machine Learning obliczeń__przy użyciu __wersji 1.0.22 lub nowszej__ Azure Machine Learning SDK, obraz jest tworzony podczas uczenia. Aby odnaleźć nazwę tego obrazu, użyj `run.properties["AzureML.DerivedImageName"]`. Poniższy przykład ilustruje sposób użycia tego obrazu:
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+Aby uzyskać więcej informacji, zobacz repozytorium [kontenerów Azure Machine Learning](https://github.com/Azure/AzureML-Containers) w witrynie GitHub.
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Korzystanie z obrazu z zestawem SDK Azure Machine Learning
 
@@ -227,10 +220,10 @@ from azureml.core.environment import Environment
 myenv = Environment(name="myenv")
 # Enable Docker and reference an image
 myenv.docker.enabled = True
-myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest"
 ```
 
-Aby użyć obrazu z __prywatnego rejestru kontenerów__ , który nie znajduje się w obszarze roboczym, musisz `docker.base_image_registry` użyć, aby określić adres repozytorium oraz nazwę użytkownika i hasło:
+Aby użyć obrazu z __prywatnego rejestru kontenerów__ , który nie znajduje się w obszarze roboczym, musisz użyć, `docker.base_image_registry` Aby określić adres repozytorium oraz nazwę użytkownika i hasło:
 
 ```python
 # Set the container registry information
@@ -288,7 +281,7 @@ Przed wdrożeniem modelu przy użyciu interfejsu wiersza polecenia Machine Learn
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

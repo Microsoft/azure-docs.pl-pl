@@ -41,7 +41,7 @@
       href: ./concepts/managed-applications.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Dołączanie klienta do zarządzania zasobami delegowanymi na platformie Azure
+    - name: Dołączanie klienta do usługi Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publikowanie ofert usługi zarządzanej w witrynie Azure Marketplace
@@ -69,6 +69,8 @@
         - name: 'Wdrażanie zasad, które można skorygować'
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Integracja z usługą Azure Sentinel
+      href: ./how-to/manage-sentinel-workspaces.md
     - name: Akcje klienta
       items:
         - name: Wyświetlanie dostawców usług i zarządzanie nimi
@@ -80,23 +82,23 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: 'https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest'
+      href: /cli/azure/managedservices?view=azure-cli-latest
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services'
+      href: /powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
     - name: Zestaw Azure SDK dla platformy .NET
-      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+      href: /dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
     - name: Zestaw Azure SDK dla platformy .NET (NuGet)
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
     - name: Zestaw Azure SDK dla środowiska Python
-      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+      href: /python/api/azure-mgmt-managedservices
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+      href: /rest/api/managedservices/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
 - name: Zasoby
   items:
     - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Lighthouse
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-lighthouse.html'
+      href: /answers/topics/azure-lighthouse.html
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kalkulator cen

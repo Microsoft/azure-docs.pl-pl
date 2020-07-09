@@ -1,18 +1,18 @@
 ---
 title: Identyfikator URI sygnatury dostępu współdzielonego dla obrazów maszyn wirtualnych — Azure Marketplace
 description: Wygeneruj identyfikator URI sygnatury dostępu współdzielonego (SAS) dla wirtualnych dysków twardych (VHD) w witrynie Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/09/2020
+author: anbene
 ms.author: mingshen
-ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 04/09/2020
+ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725877"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121728"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
@@ -124,6 +124,6 @@ Przejrzyj każdy utworzony identyfikator URI SYGNATURy dostępu współdzieloneg
 
 ## <a name="next-step"></a>Następny krok
 
-Jeśli masz problemy z tworzeniem identyfikatora URI sygnatury dostępu współdzielonego, zobacz [typowe problemy dotyczące adresów URL SAS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues). W przeciwnym razie Zapisz identyfikatory URI sygnatury dostępu współdzielonego w bezpiecznej lokalizacji do późniejszego użycia. Będzie ona potrzebna do opublikowania oferty maszyny wirtualnej w centrum partnerskim.
+Jeśli masz problemy z tworzeniem identyfikatora URI sygnatury dostępu współdzielonego, zobacz [typowe problemy dotyczące adresów URL SAS](common-sas-uri-issues.md). W przeciwnym razie Zapisz identyfikatory URI sygnatury dostępu współdzielonego w bezpiecznej lokalizacji do późniejszego użycia. Będzie ona potrzebna do opublikowania oferty maszyny wirtualnej w centrum partnerskim.
 
-* [Tworzenie oferty maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)
+* [Tworzenie oferty maszyny wirtualnej platformy Azure](azure-vm-create-offer.md)

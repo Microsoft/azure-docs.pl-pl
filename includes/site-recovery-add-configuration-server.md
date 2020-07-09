@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -10,10 +10,9 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182945"
 ---
 1. Uruchom plik instalacyjny ujednoliconego instalatora.
@@ -52,4 +51,4 @@ ms.locfileid: "67182945"
 
     ![Podsumowanie](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia** > **serwery** w magazynie.
+Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia**  >  **serwery** w magazynie.

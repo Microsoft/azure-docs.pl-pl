@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82614592"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Azure NetApp Files wzorców wydajności dla systemu Linux
@@ -47,31 +47,31 @@ Ten wykres ilustruje spadek w 10% w czasie od odczytu czystego do czystego zapis
 
 ## <a name="linux-scale-up"></a>Skalowanie w systemie Linux  
 
-Jądro Linux 5,3 umożliwia skalowanie w poziomie pojedynczego klienta dla systemu plików`nconnect`NFS. Na wykresach w tej sekcji przedstawiono wyniki testów sprawdzania poprawności dla opcji instalacji po stronie klienta z NFSv3. Ta funkcja jest dostępna w systemie SUSE (Zaczynając od SLES12SP4) i Ubuntu (począwszy od wersji 19,10). Jest to podobne w koncepcji zarówno dla wielokanałowego protokołu SMB, jak i dla systemu plików NFS Oracle Direct.
+Jądro Linux 5,3 umożliwia skalowanie w poziomie pojedynczego klienta dla systemu plików NFS `nconnect` . Na wykresach w tej sekcji przedstawiono wyniki testów sprawdzania poprawności dla opcji instalacji po stronie klienta z NFSv3. Ta funkcja jest dostępna w systemie SUSE (Zaczynając od SLES12SP4) i Ubuntu (począwszy od wersji 19,10). Jest to podobne w koncepcji zarówno dla wielokanałowego protokołu SMB, jak i dla systemu plików NFS Oracle Direct.
 
-Wykresy porównują zalety programu `nconnect` z niepołączonym woluminem zainstalowanym. Na wykresach FIO wygenerowało obciążenie z jednego wystąpienia D32s_v3 w regionie US-west2 platformy Azure.
+Wykresy porównują zalety programu z `nconnect` niepołączonym woluminem zainstalowanym. Na wykresach FIO wygenerowało obciążenie z jednego wystąpienia D32s_v3 w regionie US-west2 platformy Azure.
 
 ### <a name="linux-read-throughput"></a>Przepływność odczytu systemu Linux  
 
-Poniższe wykresy pokazują sekwencyjne odczyty ~ 3 500 MiB/s odczytuje z `nconnect`, około 2.3 x niebędących`nconnect`.
+Poniższe wykresy pokazują sekwencyjne odczyty ~ 3 500 MiB/s odczytuje z `nconnect` , około 2.3 x niebędących `nconnect` .
 
 ![Przepływność odczytu systemu Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### <a name="linux-write-throughput"></a>Przepływność zapisu systemu Linux  
 
-Poniższe wykresy pokazują sekwencyjne zapisy. Wskazują one, `nconnect` że nie ma zauważalnej korzyści dla sekwencyjnego zapisu. 1 500 MiB/s ma przybliżony górny limit woluminu zapisu sekwencyjnego i limit wychodzący wystąpienia D32s_v3.
+Poniższe wykresy pokazują sekwencyjne zapisy. Wskazują one, że `nconnect` nie ma zauważalnej korzyści dla sekwencyjnego zapisu. 1 500 MiB/s ma przybliżony górny limit woluminu zapisu sekwencyjnego i limit wychodzący wystąpienia D32s_v3.
 
 ![Przepływność zapisu systemu Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
 ### <a name="linux-read-iops"></a>Operacje we/wy odczytu dla systemu Linux  
 
-Poniższe wykresy przedstawiają losowe odczyty ~ 200 000 operacji we `nconnect`/wy odczytu z, około`nconnect`3.
+Poniższe wykresy przedstawiają losowe odczyty ~ 200 000 operacji we/wy odczytu z `nconnect` , około 3 `nconnect` .
 
 ![Operacje we/wy odczytu dla systemu Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>Operacje we/wy zapisu w systemie Linux  
 
-Poniższe wykresy przedstawiają losowe zapisy ~ 135 000 liczby IOPS zapisu `nconnect`z, w przybliżeniu trzykrotnie 3`nconnect`.
+Poniższe wykresy przedstawiają losowe zapisy ~ 135 000 liczby IOPS zapisu z `nconnect` , w przybliżeniu trzykrotnie 3 `nconnect` .
 
 ![Operacje we/wy zapisu w systemie Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

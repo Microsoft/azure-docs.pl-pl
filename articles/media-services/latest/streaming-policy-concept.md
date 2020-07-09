@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582757"
 ---
 # <a name="streaming-policies"></a>Zasady przesyłania strumieniowego
@@ -48,7 +48,7 @@ Jeśli masz specjalne wymagania (na przykład jeśli chcesz określić różne p
 
 ## <a name="get-a-streaming-policy-definition"></a>Pobierz definicję zasad przesyłania strumieniowego  
 
-Jeśli chcesz zobaczyć definicję zasad przesyłania strumieniowego, użyj [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) i określ nazwę zasad. Przykład:
+Jeśli chcesz zobaczyć definicję zasad przesyłania strumieniowego, użyj [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) i określ nazwę zasad. Na przykład:
 
 ### <a name="rest"></a>REST
 

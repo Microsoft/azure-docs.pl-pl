@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: cd955f97a2f26543f799d95b7dc0b1de235333c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705206"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrowanie manifestów przy użyciu Pakowarki dynamicznej
 
@@ -36,13 +35,13 @@ Ta możliwość określania różnych filtrów w strumieniu zapewnia zaawansowan
 
 ## <a name="overview-of-manifests"></a>Omówienie manifestów
 
-Azure Media Services obsługuje protokoły HLS, KRESKi MPEG i Smooth Streaming. W ramach tworzenia [pakietów dynamicznych](dynamic-packaging-overview.md)manifesty klienta przesyłania strumieniowego (HLS Master list odtwarzania, opis prezentacji nośników kreskowych [MPD] i Smooth Streaming) są dynamicznie generowane na podstawie selektora formatu w adresie URL. Aby uzyskać więcej informacji, zobacz Protokoły dostarczania w [typowym przepływie pracy na żądanie](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services obsługuje protokoły HLS, KRESKi MPEG i Smooth Streaming. W ramach tworzenia [pakietów dynamicznych](dynamic-packaging-overview.md)manifesty klienta przesyłania strumieniowego (HLS Master list odtwarzania, opis prezentacji nośników kreskowych [MPD] i Smooth Streaming) są dynamicznie generowane na podstawie selektora formatu w adresie URL. Aby uzyskać więcej informacji, zobacz Protokoły dostarczania w [typowym przepływie pracy na żądanie](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### <a name="get-and-examine-manifest-files"></a>Pobieranie i sprawdzanie plików manifestu
 
 Należy określić listę warunków właściwości śledzenia filtru na podstawie ścieżek strumienia (na żywo lub wideo na żądanie [VOD]), które należy uwzględnić w dynamicznie tworzonym manifeście. Aby pobrać i przejrzeć właściwości ścieżek, należy najpierw załadować manifest Smooth Streaming.
 
-[Pliki przekazywania, kodowania i przesyłania strumieniowego z użyciem samouczka platformy .NET](stream-files-tutorial-with-api.md#get-streaming-urls) pokazują, jak utworzyć adresy URL przesyłania strumieniowego przy użyciu platformy .NET. Po uruchomieniu aplikacji jeden z adresów URL wskazuje manifest Smooth Streaming: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Skopiuj i wklej adres URL na pasku adresu przeglądarki. Plik zostanie pobrany. Można go otworzyć w dowolnym edytorze tekstu.
+[Pliki przekazywania, kodowania i przesyłania strumieniowego z użyciem samouczka platformy .NET](stream-files-tutorial-with-api.md#get-streaming-urls) pokazują, jak utworzyć adresy URL przesyłania strumieniowego przy użyciu platformy .NET. Po uruchomieniu aplikacji jeden z adresów URL wskazuje manifest Smooth Streaming: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest` .<br/> Skopiuj i wklej adres URL na pasku adresu przeglądarki. Plik zostanie pobrany. Można go otworzyć w dowolnym edytorze tekstu.
 
 Aby zapoznać się z przykładem REST, zobacz [przekazywanie, kodowanie i przesyłanie strumieniowe plików](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
@@ -56,7 +55,7 @@ Za pomocą [strony demonstracyjnej Azure Media Player](https://aka.ms/azuremedia
 
 Można zastosować filtry do protokołów ABR przesyłania strumieniowego: HLS, MPEG-KRESKa i Smooth Streaming. W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
-|Protocol (Protokół)|Przykład|
+|Protokół|Przykład|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -137,7 +136,7 @@ Aby połączyć filtry, należy ustawić nazwy filtrów na adres URL manifestu/l
 
 Aby uzyskać więcej informacji, zobacz [ten wpis w blogu](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
-## <a name="considerations-and-limitations"></a>Istotne kwestie i ograniczenia
+## <a name="considerations-and-limitations"></a>Istotne zagadnienia i ograniczenia
 
 - Wartości dla **forceEndTimestamp**, **presentationWindowDuration**i **liveBackoffDuration** nie należy ustawiać dla filtru VOD. Są one używane tylko w scenariuszach filtrowania na żywo.
 - Manifest dynamiczny działa w granicach grupę GOP (klatek kluczowych), dlatego przycinanie ma dokładność grupę GOP.
@@ -146,7 +145,7 @@ Aby uzyskać więcej informacji, zobacz [ten wpis w blogu](https://azure.microso
 - Klienci muszą ręcznie pobrać manifest i przeanalizować dokładną sygnaturę czasową rozpoczęcia i skalę czasu.
 
     - Aby określić właściwości ścieżek w elemencie zawartości, [Pobierz i sprawdź plik manifestu](#get-and-examine-manifest-files).
-    - Formuła do ustawiania właściwości sygnatury czasowej filtru zasobów: <br/>startTimestamp = &lt;czas rozpoczęcia&gt; +  &lt;w manifeście oczekiwany czas rozpoczęcia filtru w sekundach&gt; * Skala czasu
+    - Formuła do ustawiania właściwości sygnatury czasowej filtru zasobów: <br/>startTimestamp = &lt; czas rozpoczęcia w manifeście &gt;  +   &lt; oczekiwany czas rozpoczęcia filtru w sekundach &gt; * Skala czasu
 
 ## <a name="next-steps"></a>Następne kroki
 

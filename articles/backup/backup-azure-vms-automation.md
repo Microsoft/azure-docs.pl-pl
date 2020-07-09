@@ -3,12 +3,11 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 44cffa58ea72a8a83edfaee94c616d6689e77e8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4b869b24392fa597f752992fb65de46785117618
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187923"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234713"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -489,7 +488,7 @@ Podaj dodatkowy parametr **TargetResourceGroupName** , aby określić RG, do kt�
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID
 ```
 
-Plik **VMConfig. JSON** zostanie przywrócony do konta magazynu, a dyski zarządzane zostaną przywrócone do określonego elementu docelowego RG.
+**VMConfig.JS** pliku zostanie przywrócony do konta magazynu, a dyski zarządzane zostaną przywrócone do określonego elementu docelowego RG.
 
 Dane wyjściowe są podobne do poniższego przykładu:
 

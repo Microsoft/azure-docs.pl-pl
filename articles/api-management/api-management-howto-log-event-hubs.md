@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871260"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak rejestrować zdarzenia w usłudze Azure Event Hubs na platformie Azure API Management
@@ -45,8 +44,8 @@ Po skonfigurowaniu rejestratora w API Management można skonfigurować zasady lo
 5. W górnej części ekranu wybierz kartę projektowanie.
 6. W oknie przetwarzanie przychodzące lub wychodzące kliknij trójkąt (obok ołówka).
 7. Wybierz Edytor kodu. Aby uzyskać więcej informacji, zobacz [jak ustawić lub edytować zasady](set-edit-policies.md).
-8. Umieść kursor w sekcji `inbound` lub `outbound` zasad.
-9. W oknie po prawej stronie wybierz pozycję dziennik **zasad** > zaawansowanych w**centrum EventHub**. Spowoduje to wstawienie `log-to-eventhub` szablonu instrukcji zasad.
+8. Umieść kursor w `inbound` `outbound` sekcji lub zasad.
+9. W oknie po prawej stronie wybierz pozycję dziennik **zasad zaawansowanych**w  >  **centrum EventHub**. Spowoduje to wstawienie `log-to-eventhub` szablonu instrukcji zasad.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">
@@ -61,7 +60,7 @@ Po skonfigurowaniu rejestratora w API Management można skonfigurować zasady lo
     }
 </log-to-eventhub>
 ```
-Zamień `logger-id` na wartość użytą `{loggerId}` w adresie URL żądania, aby utworzyć rejestrator w poprzednim kroku.
+Zamień na `logger-id` wartość użytą `{loggerId}` w adresie URL żądania, aby utworzyć rejestrator w poprzednim kroku.
 
 Możesz użyć dowolnego wyrażenia, które zwraca ciąg jako wartość `log-to-eventhub` elementu. W tym przykładzie jest rejestrowany ciąg w formacie JSON zawierający datę i godzinę, nazwę usługi, identyfikator żądania, adres IP żądania i nazwę operacji.
 

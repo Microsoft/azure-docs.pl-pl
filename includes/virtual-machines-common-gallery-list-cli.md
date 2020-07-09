@@ -9,10 +9,10 @@ ms.date: 01/28/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0e8972b1b2bfaac12baee1ea823429749ed70461
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82792755"
 ---
 ## <a name="list-information"></a>Informacje o liście

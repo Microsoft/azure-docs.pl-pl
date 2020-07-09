@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82133793"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Wprowadzenie do podstawowych usług Azure Storage
@@ -23,7 +23,7 @@ Platforma Azure Storage to rozwiązanie magazynu w chmurze firmy Microsoft dla n
 - **Zapewnienia.** Wszystkie dane zapisywane na koncie usługi Azure Storage są szyfrowane przez usługę. Usługa Azure Storage zapewnia precyzyjną kontrolę tego, kto ma dostęp do danych.
 - **Strategia.** Usługa Azure Storage została zaprojektowana jako wysoce skalowalne rozwiązanie spełniające potrzeby związane z magazynowaniem danych i wydajnością współczesnych aplikacji.
 - **Zarządzanych.** Platforma Azure obsługuje konserwację sprzętu, aktualizacje i problemy krytyczne.
-- **Dostępność.** Dane w usłudze Azure Storage są dostępne z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Firma Microsoft udostępnia biblioteki klienckie usługi Azure Storage w różnych językach, takich jak .NET, Java, Node. js, Python, PHP, Ruby, go i inne, a także interfejs API REST. Usługa Azure Storage obsługuje skrypty programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Witryna Azure Portal oraz Eksplorator usługi Azure Storage oferują proste rozwiązania wizualne do pracy z danymi.  
+- **Dostępność.** Dane w usłudze Azure Storage są dostępne z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Firma Microsoft udostępnia biblioteki klienckie usługi Azure Storage w różnych językach, w tym .NET, Java, Node.js, Python, PHP, Ruby, go i innych, a także interfejs API REST. Usługa Azure Storage obsługuje skrypty programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Witryna Azure Portal oraz Eksplorator usługi Azure Storage oferują proste rozwiązania wizualne do pracy z danymi.  
 
 ## <a name="core-storage-services"></a>Podstawowe usługi magazynu
 
@@ -41,7 +41,7 @@ Dostęp do każdej usługi uzyskuje się za pośrednictwem konta magazynu. Aby r
 
 Poniższa tabela zawiera porównanie plików, obiektów blob, dysków, kolejek i tabel oraz przykładowe scenariusze dla każdego z nich.
 
-| Funkcja | Opis | Kiedy stosować |
+| Cecha | Opis | Kiedy stosować |
 |--------------|-------------|-------------|
 | **Azure Files** |Oferuje w pełni zarządzane udziały plików w chmurze, do których można uzyskać dostęp z dowolnego miejsca za pośrednictwem protokołu SMB (Industry Standard Server Message Block).<br><br>Udziały plików platformy Azure można instalować z lokalnych wdrożeń systemu Windows, Linux i macOS. | Chcesz "podnieść i przenieść" aplikację do chmury, która korzysta już z natywnych interfejsów API systemu plików do udostępniania danych między nimi a innymi aplikacjami uruchomionymi na platformie Azure.<br/><br/>Chcesz zastąpić lub uzupełnić lokalne serwery plików lub urządzenia NAS.<br><br> Chcesz przechowywać narzędzia do tworzenia i debugowania, które muszą być dostępne z wielu maszyn wirtualnych. |
 | **Obiekty blob platformy Azure** | Umożliwia przechowywanie danych bez struktury i uzyskiwanie do nich dostępu w dużej skali w blokowych obiektach Blob.<br/><br/>Program obsługuje również [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie. | Chcesz, aby aplikacja obsługiwała scenariusze przesyłania strumieniowego i dostępu losowego.<br/><br/>Chcesz mieć możliwość dostępu do danych aplikacji z dowolnego miejsca.<br/><br/>Chcesz utworzyć przedsiębiorstwo Data Lake na platformie Azure i przeprowadzić analizę danych Big Data. |
@@ -137,7 +137,7 @@ Aby mieć pewność, że dane są trwałe, usługa Azure Storage przechowuje wie
 
 Jest dostępnych kilka opcji umożliwiających przenoszenie danych do usługi Azure Storage lub poza nią. Wybór opcji zależy od rozmiaru zestawu danych i przepustowości sieci. Aby uzyskać więcej informacji, zobacz [Wybieranie rozwiązania platformy Azure do transferu danych](storage-choose-data-transfer-solution.md).
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Przy podejmowaniu decyzji o sposobie przechowywania danych i uzyskiwania do nich dostępu należy również wziąć pod uwagę koszty związane z nimi. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -150,7 +150,7 @@ Możesz uzyskać dostęp do zasobów na koncie magazynu za pomocą dowolnego ję
 - [Usługa Azure Storage — interfejs API REST](https://docs.microsoft.com/rest/api/storageservices/)
 - [Biblioteka klienta usługi Azure Storage dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Biblioteka klienta usługi Azure Storage dla środowiska Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteka klienta usługi Azure Storage dla środowiska Node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Biblioteka klienta usługi Azure Storage dla Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Biblioteka klienta usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteka klienta usługi Azure Storage dla języka PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteka klienta usługi Azure Storage dla języka Ruby](https://github.com/Azure/azure-storage-ruby)

@@ -2,22 +2,21 @@
 title: Środowiska użytkownika końcowego dla aplikacji — Azure Active Directory
 description: Azure Active Directory (Azure AD) oferuje kilka dostosowywalnych metod wdrażania aplikacji dla użytkowników końcowych w organizacji.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c2ec85af2c954c2189f0df1b407a2c40967f096
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266626"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763401"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Środowisko użytkownika końcowego dla aplikacji w Azure Active Directory
 
@@ -44,7 +43,7 @@ Aby uzyskać więcej informacji na temat panelu dostępu usługi Azure AD, zobac
 
 ## <a name="office-365-application-launcher"></a>Uruchamianie aplikacji pakietu Office 365
 
-W przypadku organizacji z wdrożonym pakietem Office 365 aplikacje przypisane do użytkowników za pomocą usługi Azure AD będą również widoczne w portalu [https://portal.office.com/myapps](https://portal.office.com/myapps)pakietu Office 365 pod adresem. Dzięki temu użytkownicy w organizacji mogą korzystać z aplikacji bez konieczności korzystania z drugiego portalu i są zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z pakietu Office 365.
+W przypadku organizacji z wdrożonym pakietem Office 365 aplikacje przypisane do użytkowników za pomocą usługi Azure AD będą również widoczne w portalu pakietu Office 365 pod adresem [https://portal.office.com/myapps](https://portal.office.com/myapps) . Dzięki temu użytkownicy w organizacji mogą korzystać z aplikacji bez konieczności korzystania z drugiego portalu i są zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z pakietu Office 365.
 
 ![Zrzut ekranu przedstawia Portal pakietu Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
@@ -60,7 +59,7 @@ Większość aplikacji federacyjnych, które obsługują protokół SAML 2,0, WS
 
 Usługa Azure AD obsługuje także bezpośrednie łącza do poszczególnych aplikacji, które obsługują Logowanie jednokrotne oparte na hasłach, połączone Logowanie jednokrotne i dowolną formę federacyjnego logowania jednokrotnego.
 
-Te linki są specjalnie spreparowanymi adresami URL, które wysyłają użytkownika przez proces logowania do usługi Azure AD dla określonej aplikacji bez konieczności uruchamiania ich przez użytkownika z poziomu panelu dostępu usługi Azure AD lub pakietu Office 365. Te **adresy URL dostępu użytkowników** można znaleźć w obszarze właściwości dostępnych aplikacji dla przedsiębiorstw. W Azure Portal wybierz pozycję **Azure Active Directory** > **aplikacje dla przedsiębiorstw**. Wybierz aplikację, a następnie wybierz pozycję **Właściwości**.
+Te linki są specjalnie spreparowanymi adresami URL, które wysyłają użytkownika przez proces logowania do usługi Azure AD dla określonej aplikacji bez konieczności uruchamiania ich przez użytkownika z poziomu panelu dostępu usługi Azure AD lub pakietu Office 365. Te **adresy URL dostępu użytkowników** można znaleźć w obszarze właściwości dostępnych aplikacji dla przedsiębiorstw. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz aplikację, a następnie wybierz pozycję **Właściwości**.
 
 ![Przykład adresu URL dostępu użytkownika we właściwościach usługi Twitter](media/end-user-experiences/direct-sign-on-link.png)
 

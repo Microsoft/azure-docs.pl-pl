@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273620"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055260"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -52,7 +52,7 @@ Recovery Services magazyny mają następujące funkcje:
 
 Azure Backup udostępnia różnych agentów kopii zapasowych, w zależności od tego, jakiego typu maszyny jest tworzona kopia zapasowa:
 
-**Agent** | **Szczegóły**
+**Odczynnik** | **Szczegóły**
 --- | ---
 **Agent MARS** | <ul><li>Działa na pojedynczych lokalnych maszynach z systemem Windows Server, aby utworzyć kopię zapasową plików, folderów i stanu systemu.</li> <li>Działa na maszynach wirtualnych platformy Azure, aby utworzyć kopię zapasową plików, folderów i stanu systemu.</li> <li>Działa na serwerach DPM/serwera usługi MAB, aby utworzyć kopię zapasową lokalnego dysku magazynu programu DPM/serwera usługi MAB na platformie Azure.</li></ul>
 **Rozszerzenie maszyny wirtualnej platformy Azure** | Działa na maszynach wirtualnych platformy Azure w celu tworzenia kopii zapasowych w magazynie.
@@ -61,7 +61,7 @@ Azure Backup udostępnia różnych agentów kopii zapasowych, w zależności od 
 
 W poniższej tabeli objaśniono różne typy kopii zapasowych i używane:
 
-**Typ kopii zapasowej** | **Szczegóły** | **Wykorzystywani**
+**Typ kopii zapasowej** | **Szczegóły** | **Użycie**
 --- | --- | ---
 **Pełne** | Pełna kopia zapasowa zawiera całe źródło danych. Zwiększa przepustowość sieci niż różnicowe lub przyrostowe kopie zapasowe. | Używany do początkowej kopii zapasowej.
 **Różnicy** |  Różnicowa kopia zapasowa przechowuje bloki, które uległy zmianie od początkowej pełnej kopii zapasowej. Program używa mniejszej ilości sieci i magazynu i nie zachowuje nadmiarowych kopii niezmienionych danych.<br/><br/> Niewydajne, ponieważ bloki danych, które nie są zmieniane między nowszymi kopiami zapasowymi, są transferowane i przechowywane. | Nieużywane przez Azure Backup.
@@ -71,7 +71,7 @@ W poniższej tabeli objaśniono różne typy kopii zapasowych i używane:
 
 W poniższej tabeli objaśniono różne typy kopii zapasowych używanych dla SQL Server baz danych i częstotliwości ich używania:
 
-**Typ kopii zapasowej** | **Szczegóły** | **Wykorzystywani**
+**Typ kopii zapasowej** | **Szczegóły** | **Użycie**
 --- | --- | ---
 **Pełna kopia zapasowa** | pełna kopia zapasowa bazy danych powoduje utworzenie kopii zapasowej całej bazy danych. Zawiera wszystkie dane z konkretnej bazy danych lub zestawu grup plików lub plików. Pełna kopia zapasowa zawiera również wystarczającą liczbę dzienników do odzyskania tych danych. | Można wyzwalać maksymalnie jedną pełną kopię zapasową dziennie.<br/><br/> Można utworzyć pełną kopię zapasową w ciągu dziennym lub tygodniowym.
 **Różnicowa kopia zapasowa** | Różnicowa kopia zapasowa jest oparta na najnowszej, poprzedniej kopii zapasowej danych pełnych.<br/><br/> Przechwytuje tylko te dane, które zostały zmienione od czasu pełnej kopii zapasowej. |  Można wyzwalać maksymalnie jedną różnicową kopię zapasową dziennie.<br/><br/> Nie można skonfigurować pełnej kopii zapasowej i różnicowej kopii zapasowej w tym samym dniu.
@@ -105,9 +105,7 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
 ## <a name="backup-policy-essentials"></a>Podstawy zasad tworzenia kopii zapasowych
 
 - Tworzone są zasady tworzenia kopii zapasowych na magazyn.
-- Zasady tworzenia kopii zapasowych można utworzyć dla tworzenia kopii zapasowych następujących obciążeń
-  - Maszyna wirtualna platformy Azure
-  - SQL na maszynie wirtualnej platformy Azure
+- Zasady tworzenia kopii zapasowych można utworzyć dla kopii zapasowych następujących obciążeń: maszyny wirtualne platformy Azure, SQL na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure i udziały plików platformy Azure. Zasady tworzenia kopii zapasowych plików i folderów przy użyciu agenta MARS są określone w konsoli MARS.
   - Udział plików platformy Azure
 - Zasady mogą być przypisane do wielu zasobów. Zasady kopii zapasowych maszyny wirtualnej platformy Azure mogą służyć do ochrony wielu maszyn wirtualnych platformy Azure.
 - Zasady składają się z dwóch składników
@@ -115,9 +113,12 @@ Tworzenie kopii zapasowej deduplikowanych dysków | | | ![Częściowo][yellow]<b
   - Przechowywanie: czas przechowywania poszczególnych kopii zapasowych.
 - Harmonogram może być definiowany jako "dzienny" lub "tygodniowy" w określonym punkcie czasu.
 - Przechowywanie można zdefiniować dla punktów kopii zapasowych "dziennych", "cotygodniowych", "Monthly", "rocznie".
-- "tydzień" odnosi się do kopii zapasowej w określonym dniu tygodnia, "miesięcznie" oznacza, że kopia zapasowa w określonym dniu miesiąca i "corocznie" odnosi się do kopii zapasowej w określonym dniu roku.
-- Przechowywanie "miesięcznie", "rocznie" punktów kopii zapasowych jest określane jako "LongTermRetention".
-- Po utworzeniu magazynu tworzone są również zasady tworzenia kopii zapasowych maszyny wirtualnej platformy Azure o nazwie "DefaultPolicy" i mogą służyć do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure.
+  - "tydzień" oznacza kopię zapasową w określonym dniu tygodnia
+  - "miesięcznie" oznacza kopię zapasową w określonym dniu miesiąca
+  - "rocznie" oznacza kopię zapasową w określonym dniu roku
+- Przechowywanie punktów kopii zapasowych "miesięcznie", "rocznie" jest określane jako długoterminowe przechowywanie (LTR)
+- Po utworzeniu magazynu tworzony jest również "DefaultPolicy" i może służyć do tworzenia kopii zapasowych zasobów.
+- Wszelkie zmiany wprowadzone w okresie przechowywania zasad tworzenia kopii zapasowych będą stosowane z mocą wstecz do wszystkich starszych punktów odzyskiwania od nowych.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architektura: Wbudowana kopia zapasowa maszyny wirtualnej platformy Azure
 

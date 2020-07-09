@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
 ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869672"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Diagnostyka Azure rozszerzenie dla maszyn wirtualnych z systemem Windows
@@ -55,7 +54,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
 
-`Set-AzVMDiagnosticsExtension` Polecenia można użyć do dodania rozszerzenia Diagnostyka Azure do istniejącej maszyny wirtualnej. [Aby włączyć Diagnostyka Azure w maszynie wirtualnej z systemem Windows, zobacz również korzystanie z programu PowerShell](ps-extensions-diagnostics.md).
+`Set-AzVMDiagnosticsExtension`Polecenia można użyć do dodania rozszerzenia Diagnostyka Azure do istniejącej maszyny wirtualnej. [Aby włączyć Diagnostyka Azure w maszynie wirtualnej z systemem Windows, zobacz również korzystanie z programu PowerShell](ps-extensions-diagnostics.md).
 
  
 

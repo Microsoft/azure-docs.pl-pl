@@ -10,10 +10,9 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022218"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
@@ -249,7 +248,7 @@ done
 ```
  
 > [!NOTE]
-> Plik *filename. txt* będzie miał bezwzględną ścieżkę plików w kontenerach obiektów BLOB.
+> Plik *filenames.txt* będzie zawierać ścieżkę bezwzględną plików w kontenerach obiektów BLOB.
  
 ### <a name="are-there-any-ranger-plugins-for-storage"></a>Czy istnieją jakieś wtyczki Ranger dla magazynu?
 

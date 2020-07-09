@@ -4,16 +4,16 @@ description: Jak dostosować właściwości protokołu RDP dla pulpitu wirtualne
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc89b0f6ed745b3de829c0fff145adc79c5af642
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: bfcd6927d4a2e5e0b5314b4fb2aa26c6dc46b8f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615554"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362564"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów
 
@@ -36,7 +36,7 @@ Domyślnie publikowane pliki RDP zawierają następujące właściwości:
 
 |Właściwości RDP | Komputery stacjonarne | Aplikacje usługi RemoteApp |
 |---|---| --- |
-| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Brak |
+| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Nie dotyczy |
 | Przekierowania dysków włączone | Dyski, schowek, drukarki, porty COM, urządzenia USB i karty inteligentne| Dyski, schowek i drukarki |
 | Tryb zdalny audio | Odtwórz lokalnie | Odtwórz lokalnie |
 
@@ -50,7 +50,8 @@ Aby dodać lub edytować pojedynczą niestandardową Właściwość RDP, uruchom
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
 
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/singlecustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Dodawanie lub Edytowanie wielu niestandardowych właściwości RDP
 
@@ -61,7 +62,8 @@ $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/multiplecustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>Zresetuj wszystkie niestandardowe właściwości RDP
 
@@ -71,7 +73,8 @@ Możesz zresetować pojedyncze niestandardowe właściwości protokołu RDP do w
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/resetcustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

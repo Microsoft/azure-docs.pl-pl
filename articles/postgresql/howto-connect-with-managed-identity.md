@@ -4,14 +4,14 @@ description: Informacje na temat sposobu nawiązywania połączenia i uwierzytel
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 01a27a9c98c1c429cdc381ba0c1e9ef4186c9e7a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664725"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102297"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Połącz się z tożsamością zarządzaną, aby Azure Database for PostgreSQL
 

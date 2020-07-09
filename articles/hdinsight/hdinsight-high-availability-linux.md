@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21ecf33291924097f076aa28088eb4eac652ce67
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849665"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Dostępność i niezawodność klastrów Apache Hadoop w usłudze HDInsight
 
@@ -109,7 +109,7 @@ Aby sprawdzić stan usług uruchomionych w węzłach głównych, użyj interfejs
 
 ### <a name="ambari-web-ui"></a>Interfejs użytkownika sieci Web Ambari
 
-Interfejs użytkownika sieci Web Ambari jest wyświetlany `https://CLUSTERNAME.azurehdinsight.net`pod adresem. Zastąp wartość **ClusterName** nazwą klastra. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia użytkownika HTTP dla klastra. Domyślną nazwą użytkownika HTTP jest **administrator** , a hasło to hasło wprowadzone podczas tworzenia klastra.
+Interfejs użytkownika sieci Web Ambari jest wyświetlany pod adresem `https://CLUSTERNAME.azurehdinsight.net` . Zastąp wartość **ClusterName** nazwą klastra. Jeśli zostanie wyświetlony monit, wprowadź poświadczenia użytkownika HTTP dla klastra. Domyślną nazwą użytkownika HTTP jest **administrator** , a hasło to hasło wprowadzone podczas tworzenia klastra.
 
 Po nadejściu na stronie Ambari zainstalowane usługi są wyświetlane po lewej stronie.
 
@@ -129,7 +129,7 @@ Następujące alerty ułatwiają monitorowanie dostępności klastra:
 | Serwer Spark2 Thrift                     | Ten alert na poziomie hosta jest wyzwalany, jeśli nie można ustalić serwera Spark2 Thrift.                                                                                                |
 | Proces serwera historii                   | Ten alert na poziomie hosta jest wyzwalany, jeśli proces serwera historii nie może zostać ustanowiony i nasłuchuje w sieci.                                                                |
 | Interfejs użytkownika sieci Web serwera historii                    | Ten alert na poziomie hosta jest wyzwalany, jeśli interfejs użytkownika sieci Web serwera historii jest nieosiągalny.                                                                                                              |
-| `ResourceManager`Interfejs użytkownika sieci Web                   | Ten alert na poziomie hosta jest wyzwalany, `ResourceManager` Jeśli interfejs użytkownika sieci Web jest nieosiągalny.                                                                                                             |
+| `ResourceManager`Interfejs użytkownika sieci Web                   | Ten alert na poziomie hosta jest wyzwalany, jeśli `ResourceManager` interfejs użytkownika sieci Web jest nieosiągalny.                                                                                                             |
 | Podsumowanie kondycji węzła nodemanager               | Ten alert na poziomie usługi jest wyzwalany w przypadku wystąpienia złej kondycji NodeManagers                                                                                                                    |
 | Interfejs użytkownika sieci Web osi czasu aplikacji                      | Ten alert na poziomie hosta jest wyzwalany, jeśli interfejs użytkownika sieci Web serwera osi czasu aplikacji jest nieosiągalny.                                                                                                         |
 | Podsumowanie kondycji węzła datanode                  | Ten alert na poziomie usługi jest wyzwalany, jeśli istnieją węzły datanodes o złej kondycji                                                                                                                       |
@@ -139,7 +139,7 @@ Następujące alerty ułatwiają monitorowanie dostępności klastra:
 | Stan serwera Oozie                      | Ten alert na poziomie hosta jest wyzwalany, jeśli nie można ustalić serwera Oozie i odpowiadać na żądania klientów.                                                                      |
 | Proces magazynu metadanych Hive                   | Ten alert na poziomie hosta jest wyzwalany, jeśli proces magazynu metadanych Hive nie może zostać określony jako nasłuchuje w sieci.                                                                 |
 | Proces serwera hiveserver2                      | Ten alert na poziomie hosta jest wyzwalany, jeśli nie można ustalić HiveServer i odpowiadać na żądania klientów.                                                                        |
-| Stan serwera WebHCat                    | Ten alert na poziomie hosta jest wyzwalany, `templeton` Jeśli stan serwera nie jest w dobrej kondycji.                                                                                                            |
+| Stan serwera WebHCat                    | Ten alert na poziomie hosta jest wyzwalany, jeśli `templeton` stan serwera nie jest w dobrej kondycji.                                                                                                            |
 | Dostępne serwery dozorcy      | Ten alert jest wyzwalany, jeśli liczba serwerów dozorcy w klastrze jest większa niż skonfigurowany próg krytyczny. Agreguje wyniki testów procesu dozorcy.     |
 | Serwer Spark2 usługi Livy                       | Ten alert na poziomie hosta jest wyzwalany, jeśli nie można ustalić serwera Livy2.                                                                                                        |
 | Serwer historii Spark2                    | Ten alert na poziomie hosta jest wyzwalany, jeśli nie można ustalić serwera historii Spark2.                                                                                               |
@@ -245,10 +245,12 @@ Podobnie jak w przypadku korzystania z klienta SSH, podczas nawiązywania połą
 
 Po nawiązaniu połączenia zostanie wyświetlony `sftp>` monit. Z tego monitu można zmienić katalogi, przekazać i pobrać pliki. Na przykład następujące polecenia powodują zmianę katalogów do katalogu **/var/log/Hadoop/HDFS** , a następnie pobranie wszystkich plików w katalogu.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
-Aby uzyskać listę dostępnych poleceń, wpisz `help` w `sftp>` wierszu polecenia.
+Aby uzyskać listę dostępnych poleceń, wpisz `help` w wierszu polecenia `sftp>` .
 
 > [!NOTE]  
 > Istnieją również interfejsy graficzne, które umożliwiają wizualizację systemu plików w przypadku połączenia przy użyciu protokołu SFTP. Na przykład [MobaXTerm](https://mobaxterm.mobatek.net/) umożliwia przeglądanie systemu plików przy użyciu interfejsu podobnego do Eksploratora Windows.
@@ -272,9 +274,9 @@ Podczas tworzenia klastra można określić rozmiar węzłów. Poniższe informa
 
     ![Obraz Kreatora tworzenia klastra z wybranym rozmiarem węzła](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-* **Interfejs wiersza polecenia platformy Azure**: [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) w przypadku korzystania z poleceń można ustawić rozmiar węzłów głowy, procesu roboczego i dozorcy przy użyciu parametrów `--headnode-size`, `--workernode-size`i. `--zookeepernode-size`
+* **Interfejs wiersza polecenia platformy Azure**: w przypadku korzystania z [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) poleceń można ustawić rozmiar węzłów głowy, procesu roboczego i dozorcy przy użyciu `--headnode-size` `--workernode-size` parametrów, i `--zookeepernode-size` .
 
-* **Azure PowerShell**: w przypadku korzystania z polecenia cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) można ustawić rozmiar węzłów główna, proces roboczy i dozorcy przy użyciu parametrów `-HeadNodeSize`, `-WorkerNodeSize`i. `-ZookeeperNodeSize`
+* **Azure PowerShell**: w przypadku korzystania z polecenia cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) można ustawić rozmiar węzłów główna, proces roboczy i dozorcy przy użyciu `-HeadNodeSize` `-WorkerNodeSize` parametrów, i `-ZookeeperNodeSize` .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: b2394c580b871105fee84d63c478c3c490b56a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5733a4e3825ee89527d73cc81990f41f50373ba8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191927"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084770"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalowanie notesu Jupyter na komputerze i nawiązywanie połączenia z usługą Apache Spark w usłudze HDInsight
 
@@ -57,7 +57,7 @@ Pobierz [Instalatora Anaconda](https://www.anaconda.com/download/) na platformę
 
 ## <a name="install-pyspark-and-spark-kernels"></a>Instalowanie PySpark i jądra platformy Spark
 
-1. Określ, `sparkmagic` gdzie jest zainstalowana, wprowadzając następujące polecenie:
+1. Określ `sparkmagic` , gdzie jest zainstalowana, wprowadzając następujące polecenie:
 
     ```cmd
     pip show sparkmagic
@@ -90,7 +90,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
     python
     ```
 
-2. Informacje o konfiguracji Jupyter są zwykle przechowywane w katalogu macierzystym użytkowników. Wprowadź następujące polecenie, aby zidentyfikować katalog macierzysty, i Utwórz folder o nazwie ** \.sparkmagic**.  Pełna ścieżka zostanie wypełniona.
+2. Informacje o konfiguracji Jupyter są zwykle przechowywane w katalogu macierzystym użytkowników. Wprowadź następujące polecenie, aby zidentyfikować katalog macierzysty, i Utwórz folder o nazwie ** \. sparkmagic**.  Pełna ścieżka zostanie wypełniona.
 
     ```python
     import os
@@ -100,7 +100,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
     exit()
     ```
 
-3. W folderze `.sparkmagic`Utwórz plik o nazwie **config. JSON** i Dodaj do niego Poniższy fragment kodu JSON.  
+3. W folderze `.sparkmagic` Utwórz plik o nazwie **config.jsna** i Dodaj do niego Poniższy fragment kodu JSON.  
 
     ```json
     {
@@ -130,15 +130,15 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
 
     |Wartość szablonu | Nowa wartość |
     |---|---|
-    |UŻ|Logowanie klastra, wartość domyślna `admin`to.|
+    |UŻ|Logowanie klastra, wartość domyślna to `admin` .|
     |CLUSTERDNSNAME|Nazwa klastra|
-    |{BASE64ENCODEDPASSWORD}|Zakodowane w formacie base64 hasło do rzeczywistego hasła.  Hasło Base64 można wygenerować pod adresem [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/).|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|Kontynuuj, jeśli `sparkmagic 0.12.7` jest używany (klastry v 3.5 i 3.6).  W przypadku `sparkmagic 0.2.3` używania (klastrów v 3.4) Zastąp `"should_heartbeat": true`ciąg opcją.|
+    |{BASE64ENCODEDPASSWORD}|Zakodowane w formacie base64 hasło do rzeczywistego hasła.  Hasło Base64 można wygenerować pod adresem [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/) .|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|Kontynuuj, jeśli jest używany `sparkmagic 0.12.7` (klastry v 3.5 i 3.6).  W przypadku używania `sparkmagic 0.2.3` (klastrów v 3.4) Zastąp ciąg opcją `"should_heartbeat": true` .|
 
-    W przykładowym pliku [config. JSON](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)można zobaczyć pełny przykładowy plik.
+    Możesz zobaczyć pełny przykładowy plik w [przykładowym config.jsna](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
    > [!TIP]  
-   > Pulsy są wysyłane w celu zapewnienia braku przecieku sesji. Gdy komputer przejdzie w tryb uśpienia lub jest wyłączony, puls nie zostanie wysłany, co spowodowało wyczyszczenie sesji. W przypadku klastrów w wersji 3.4, jeśli chcesz wyłączyć to zachowanie, można ustawić konfigurację `livy.server.interactive.heartbeat.timeout` usługi Livy `0` z poziomu interfejsu użytkownika Ambari. Jeśli w przypadku klastrów 3.5 nie zostanie ustawiona Powyższa konfiguracja 3,5, sesja nie zostanie usunięta.
+   > Pulsy są wysyłane w celu zapewnienia braku przecieku sesji. Gdy komputer przejdzie w tryb uśpienia lub jest wyłączony, puls nie zostanie wysłany, co spowodowało wyczyszczenie sesji. W przypadku klastrów w wersji 3.4, jeśli chcesz wyłączyć to zachowanie, można ustawić konfigurację usługi Livy `livy.server.interactive.heartbeat.timeout` `0` z poziomu interfejsu użytkownika Ambari. Jeśli w przypadku klastrów 3.5 nie zostanie ustawiona Powyższa konfiguracja 3,5, sesja nie zostanie usunięta.
 
 5. Uruchom Jupyter. Użyj następującego polecenia w wierszu polecenia.
 
@@ -153,7 +153,7 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
     ![Dostępne jądra w notesie Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jądra w notesie Jupyter")
 
     > [!IMPORTANT]  
-    > Po wybraniu pozycji **Nowy** Przejrzyj powłokę pod kątem błędów.  Jeśli zobaczysz błąd `TypeError: __init__() got an unexpected keyword argument 'io_loop'` , może wystąpić znany problem z niektórymi wersjami programu Tornado.  Jeśli tak, Zatrzymaj jądro, a następnie Obniż poziom instalacji Tornado przy użyciu następującego polecenia `pip install tornado==4.5.3`:.
+    > Po wybraniu pozycji **Nowy** Przejrzyj powłokę pod kątem błędów.  Jeśli zobaczysz błąd, `TypeError: __init__() got an unexpected keyword argument 'io_loop'` może wystąpić znany problem z niektórymi wersjami programu Tornado.  Jeśli tak, Zatrzymaj jądro, a następnie Obniż poziom instalacji Tornado przy użyciu następującego polecenia: `pip install tornado==4.5.3` .
 
     b. Uruchom Poniższy fragment kodu.
 
@@ -164,13 +164,13 @@ W tej sekcji skonfigurujesz program Spark, który został wcześniej zainstalowa
 
     Jeśli można pomyślnie pobrać dane wyjściowe, zostanie przetestowane połączenie z klastrem usługi HDInsight.
 
-    Jeśli chcesz zaktualizować konfigurację notesu w celu nawiązania połączenia z innym klastrem, zaktualizuj plik config. JSON przy użyciu nowego zestawu wartości, jak pokazano w kroku 3 powyżej.
+    Jeśli chcesz zaktualizować konfigurację notesu w celu nawiązania połączenia z innym klastrem, zaktualizuj config.jsprzy użyciu nowego zestawu wartości, jak pokazano w kroku 3 powyżej.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Dlaczego należy zainstalować program Jupyter na komputerze?
 
 Przyczyny instalacji usługi Jupyter na komputerze, a następnie połączenia jej z klastrem Apache Spark w usłudze HDInsight:
 
-* Zapewnia możliwość lokalnego tworzenia notesów, testowania aplikacji w uruchomionym klastrze, a następnie przekazywania notesów do klastra. Aby przekazać notesy do klastra, można przekazać je za pomocą notesu Jupyter z systemem lub w klastrze lub zapisać je w `/HdiNotebooks` folderze na koncie magazynu skojarzonym z klastrem. Aby uzyskać więcej informacji o tym, jak notesy są przechowywane w klastrze, zobacz [gdzie są przechowywane notesy Jupyter](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* Zapewnia możliwość lokalnego tworzenia notesów, testowania aplikacji w uruchomionym klastrze, a następnie przekazywania notesów do klastra. Aby przekazać notesy do klastra, można przekazać je za pomocą notesu Jupyter z systemem lub w klastrze lub zapisać je `/HdiNotebooks` w folderze na koncie magazynu skojarzonym z klastrem. Aby uzyskać więcej informacji o tym, jak notesy są przechowywane w klastrze, zobacz [gdzie są przechowywane notesy Jupyter](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
 * Dostępne lokalnie notesy umożliwiają łączenie się z różnymi klastrami platformy Spark na podstawie wymagań aplikacji.
 * Za pomocą usługi GitHub można zaimplementować system kontroli źródła i mieć kontrolę wersji dla notesów. Możesz również mieć środowisko współpracy, w którym wielu użytkowników może pracować z tym samym notesem.
 * Można korzystać z notesów lokalnie bez potrzeby klastra. Do testowania notesów jest potrzebny tylko klaster, a nie ręczne zarządzanie notesami lub środowiskiem programistycznym.

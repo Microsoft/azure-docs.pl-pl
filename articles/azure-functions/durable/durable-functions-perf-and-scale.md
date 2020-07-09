@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762126"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalowanie w usłudze Durable Functions (Azure Functions)
 
@@ -28,7 +28,7 @@ Gdy wystąpienie aranżacji musi działać, odpowiednie wiersze tabeli historii 
 
 Tabela **wystąpień** jest inną tabelą usługi Azure Storage, która zawiera Stany wszystkich wystąpień aranżacji i jednostek w ramach centrum zadań. Po utworzeniu wystąpienia nowe wiersze są dodawane do tej tabeli. Klucz partycji tej tabeli jest IDENTYFIKATORem wystąpienia aranżacji lub kluczem jednostki, a klucz wiersza to stała stała. Istnieje jeden wiersz dla aranżacji lub wystąpienia jednostki.
 
-Ta tabela służy do zaspokojenia żądań zapytań wystąpienia z `GetStatusAsync` interfejsów API (.NET `getStatus` ) i (JavaScript), a także do [zapytania o stan Query API](durable-functions-http-api.md#get-instance-status). Jest on stale spójny z zawartością tabeli **historii** wymienionej wcześniej. Użycie oddzielnej tabeli usługi Azure Storage w celu wydajnej realizacji operacji zapytania o wystąpienie w ten sposób wpływa na [wzorzec Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Ta tabela służy do zaspokojenia żądań zapytań wystąpienia z `GetStatusAsync` interfejsów API (.NET) i `getStatus` (JavaScript), a także do [zapytania o stan Query API](durable-functions-http-api.md#get-instance-status). Jest on stale spójny z zawartością tabeli **historii** wymienionej wcześniej. Użycie oddzielnej tabeli usługi Azure Storage w celu wydajnej realizacji operacji zapytania o wystąpienie w ten sposób wpływa na [wzorzec Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Wyzwalacze wewnętrznej kolejki
 
@@ -48,14 +48,21 @@ Kolejki sterujące zawierają różne typy komunikatów cyklu życia aranżacji.
 
 Rozszerzenie zadania trwałego implementuje losowy wykładniczy algorytm wycofywania, aby zmniejszyć wpływ sondowania w kolejce na koszty transakcji magazynu. Po znalezieniu komunikatu środowisko uruchomieniowe natychmiast sprawdza inny komunikat; gdy nie zostanie znaleziony żaden komunikat, czeka przez pewien czas przed ponowieniem próby. Po kolejnych nieudanych próbach uzyskania komunikatu w kolejce czas oczekiwania będzie się zwiększać do momentu osiągnięcia maksymalnego czasu oczekiwania, którego wartość domyślna to 30 sekund.
 
-Maksymalne opóźnienie sondowania można skonfigurować za pomocą `maxQueuePollingInterval` właściwości w [pliku host. JSON](../functions-host-json.md#durabletask). Ustawienie tej właściwości na wyższą wartość może skutkować większymi opóźnieniami przetwarzania komunikatów. Wyższe opóźnienia byłyby oczekiwane tylko po okresach braku aktywności. Ustawienie tej właściwości na niższą wartość może skutkować wyższym kosztem magazynowania spowodowanym zwiększonymi transakcjami magazynu.
+Maksymalne opóźnienie sondowania można skonfigurować za pomocą `maxQueuePollingInterval` właściwości w [host.jsna pliku](../functions-host-json.md#durabletask). Ustawienie tej właściwości na wyższą wartość może skutkować większymi opóźnieniami przetwarzania komunikatów. Wyższe opóźnienia byłyby oczekiwane tylko po okresach braku aktywności. Ustawienie tej właściwości na niższą wartość może skutkować wyższym kosztem magazynowania spowodowanym zwiększonymi transakcjami magazynu.
 
 > [!NOTE]
 > Po uruchomieniu w planach użycia Azure Functions i Premium [kontroler Azure Functions skalowania](../functions-scale.md#how-the-consumption-and-premium-plans-work) będzie sondował każdą kolejkę formantów i elementów roboczych co 10 sekund. Ta dodatkowa sonda jest konieczna do określenia, kiedy należy aktywować wystąpienia aplikacji funkcji i podejmować decyzje dotyczące skalowania. W czasie pisania ten 10-sekundowy interwał jest stały i nie można go skonfigurować.
 
+### <a name="orchestration-start-delays"></a>Opóźnienia rozpoczęcia aranżacji
+Wystąpienia aranżacji są uruchamiane przez umieszczenie `ExecutionStarted` komunikatu w jednej z kolejek sterowania centrum zadań. W pewnych warunkach mogą wystąpić opóźnienia Wielosekundowe między rozpoczęciem planowania i uruchomieniem jego działania. W tym przedziale czasu wystąpienie aranżacji pozostanie w `Pending` stanie. Istnieją dwie potencjalne przyczyny tego opóźnienia:
+
+1. **Zaległe kolejki kontroli**: Jeśli kolejka kontroli dla tego wystąpienia zawiera dużą liczbę komunikatów, może upłynąć trochę czasu, zanim `ExecutionStarted` komunikat zostanie odebrany i przetworzony przez środowisko uruchomieniowe. Zaległości komunikatów mogą wystąpić, gdy aranżacje przetwarzają wiele zdarzeń współbieżnie. Zdarzenia, które przechodzą do kolejki sterującej, obejmują zdarzenia uruchamiania aranżacji, uzupełniania działań, trwałe czasomierze, zakończenie i zdarzenia zewnętrzne. Jeśli to opóźnienie występuje w normalnych warunkach, należy rozważyć utworzenie nowego centrum zadań o większej liczbie partycji. Skonfigurowanie kolejnych partycji spowoduje, że środowisko uruchomieniowe utworzy więcej kolejek kontroli na potrzeby dystrybucji obciążenia.
+
+2. **Wycofaj opóźnienia sondowania**: Inną częstą przyczyną opóźnień aranżacji jest [poprzednio opisana w ten sposób zachowanie sondowania dla kolejek kontroli](#queue-polling). To opóźnienie jest jednak oczekiwane tylko wtedy, gdy aplikacja jest skalowana do dwóch lub więcej wystąpień. Jeśli istnieje tylko jedno wystąpienie aplikacji lub jeśli wystąpienie aplikacji, które uruchamia aranżację, jest również tym samym wystąpieniem, które sonduje docelową kolejkę kontroli, nie będzie opóźnienia sondowania kolejki. Opóźnienia sondowania można zmniejszyć przez aktualizację **host.jsw** ustawieniach, jak opisano wcześniej.
+
 ## <a name="storage-account-selection"></a>Wybór konta magazynu
 
-Kolejki, tabele i obiekty blob używane przez Durable Functions są tworzone w skonfigurowanym koncie usługi Azure Storage. Konto, które ma być używane, można określić `durableTask/storageProvider/connectionStringName` przy użyciu ustawienia `durableTask/azureStorageConnectionStringName` (lub ustawienia w Durable Functions 1. x) w pliku **host. JSON** .
+Kolejki, tabele i obiekty blob używane przez Durable Functions są tworzone w skonfigurowanym koncie usługi Azure Storage. Konto, które ma być używane, można określić przy użyciu `durableTask/storageProvider/connectionStringName` Ustawienia (lub `durableTask/azureStorageConnectionStringName` ustawienia w Durable Functions 1. x) w **host.js** pliku.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
@@ -83,11 +90,11 @@ Kolejki, tabele i obiekty blob używane przez Durable Functions są tworzone w s
 }
 ```
 
-Jeśli nie zostanie określony, zostanie `AzureWebJobsStorage` użyte domyślne konto magazynu. W przypadku obciążeń z uwzględnieniem wydajności zaleca się jednak skonfigurowanie konta magazynu innego niż domyślne. Durable Functions korzysta z usługi Azure Storage silniej i użycie dedykowanego konta magazynu izoluje Durable Functions użycie magazynu z użytku wewnętrznego przez hosta Azure Functions.
+Jeśli nie zostanie określony, `AzureWebJobsStorage` zostanie użyte domyślne konto magazynu. W przypadku obciążeń z uwzględnieniem wydajności zaleca się jednak skonfigurowanie konta magazynu innego niż domyślne. Durable Functions korzysta z usługi Azure Storage silniej i użycie dedykowanego konta magazynu izoluje Durable Functions użycie magazynu z użytku wewnętrznego przez hosta Azure Functions.
 
 ## <a name="orchestrator-scale-out"></a>Skalowanie w poziomie programu Orchestrator
 
-Funkcje działania są bezstanowe i skalowane automatycznie przez dodanie maszyn wirtualnych. Funkcje i jednostki programu Orchestrator, z drugiej strony, są *podzielone na partycje* w jednej lub kilku kolejkach sterowania. Liczba kolejek sterujących jest zdefiniowana w pliku **host. JSON** . Poniższy przykład fragmentu pliku host. JSON ustawia `durableTask/storageProvider/partitionCount` Właściwość (lub `durableTask/partitionCount` w Durable Functions 1. x) na `3`.
+Funkcje działania są bezstanowe i skalowane automatycznie przez dodanie maszyn wirtualnych. Funkcje i jednostki programu Orchestrator, z drugiej strony, są *podzielone na partycje* w jednej lub kilku kolejkach sterowania. Liczba kolejek sterujących jest definiowana w **host.js** pliku. Poniższy przykład host.jsna fragmencie kodu ustawia `durableTask/storageProvider/partitionCount` Właściwość (lub `durableTask/partitionCount` w Durable Functions 1. x) na `3` .
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
@@ -150,7 +157,7 @@ Funkcje jednostki są również wykonywane w jednym wątku, a operacje są przet
 
 Azure Functions obsługuje wykonywanie wielu funkcji jednocześnie w ramach jednego wystąpienia aplikacji. Takie współbieżne wykonywanie pozwala zwiększyć równoległość i zminimalizować liczbę "zimnego startu", które będą miały w czasie typową aplikację. Jednak wysoka współbieżność może wyczerpać zasoby systemowe dla maszyn wirtualnych, takie jak połączenia sieciowe lub dostępna pamięć. W zależności od potrzeb aplikacji funkcji może być konieczne ograniczenie współbieżności poszczególnych wystąpień, aby uniknąć możliwości uruchamiania pamięci w sytuacjach wymagających dużego obciążenia.
 
-W pliku **host. JSON** można skonfigurować limity współbieżności działań, usług Orchestrator i jednostek. Odpowiednie ustawienia `durableTask/maxConcurrentActivityFunctions` dotyczą funkcji działania oraz `durableTask/maxConcurrentOrchestratorFunctions` dla programów Orchestrator i Entity.
+Limity współbieżności działań, Orchestrator i Entity można skonfigurować w **host.js** pliku. Odpowiednie ustawienia dotyczą `durableTask/maxConcurrentActivityFunctions` funkcji działania oraz dla programów `durableTask/maxConcurrentOrchestratorFunctions` Orchestrator i Entity.
 
 ### <a name="functions-20"></a>Funkcje 2,0
 
@@ -185,7 +192,7 @@ W poprzednim przykładzie maksymalnie 10 funkcje programu Orchestrator lub jedno
 
 Sesje rozszerzone to ustawienie, które zachowuje aranżacje i jednostki w pamięci nawet po zakończeniu przetwarzania komunikatów. Typowym efektem włączenia sesji rozszerzonych jest zredukowanie operacji we/wy na konto usługi Azure Storage i ogólna lepsza przepływność.
 
-Sesje rozszerzone można włączyć przez ustawienie `durableTask/extendedSessionsEnabled` `true` w pliku **host. JSON** . To `durableTask/extendedSessionIdleTimeoutInSeconds` ustawienie może służyć do kontrolowania, jak długo bezczynna sesja będzie utrzymywana w pamięci:
+Sesje rozszerzone można włączyć przez ustawienie `durableTask/extendedSessionsEnabled` `true` w **host.js** pliku. To `durableTask/extendedSessionIdleTimeoutInSeconds` ustawienie może służyć do kontrolowania, jak długo bezczynna sesja będzie utrzymywana w pamięci:
 
 **Funkcje 2,0**
 ```json
@@ -214,13 +221,13 @@ Istnieją dwa potencjalne downsides tego ustawienia, które należy wziąć pod 
 1. Istnieje ogólny wzrost użycia pamięci aplikacji funkcji.
 2. W przypadku wielu współbieżnych, krótkoterminowych wykonań lub funkcji jednostek może istnieć ogólny spadek przepływności.
 
-Przykładowo, jeśli `durableTask/extendedSessionIdleTimeoutInSeconds` jest ustawiona na 30 sekund, a następnie odcinek usługi Orchestrator lub Entity Functions, który jest wykonywany w mniej niż 1 sekund, nadal zajmuje pamięć przez 30 sekund. Liczy się również w stosunku `durableTask/maxConcurrentOrchestratorFunctions` do wspomnianego wcześniej przydziału, co potencjalnie uniemożliwia uruchomienie innych funkcji programu Orchestrator lub Entity.
+Przykładowo, jeśli `durableTask/extendedSessionIdleTimeoutInSeconds` jest ustawiona na 30 sekund, a następnie odcinek usługi Orchestrator lub Entity Functions, który jest wykonywany w mniej niż 1 sekund, nadal zajmuje pamięć przez 30 sekund. Liczy się również w stosunku do `durableTask/maxConcurrentOrchestratorFunctions` wspomnianego wcześniej przydziału, co potencjalnie uniemożliwia uruchomienie innych funkcji programu Orchestrator lub Entity.
 
 W następnych sekcjach opisano określone skutki rozszerzonych sesji w programie Orchestrator i w ramach funkcji Entity.
 
 ### <a name="orchestrator-function-replay"></a>Powtarzanie funkcji programu Orchestrator
 
-Jak wspomniano wcześniej, funkcje programu Orchestrator są odtwarzane przy użyciu zawartości tabeli **historii** . Domyślnie kod funkcji programu Orchestrator jest odtwarzany za każdym razem, gdy partia komunikatów jest usuwana z kolejki sterującej. Nawet w przypadku korzystania z wentylatorów i wzorca wentylatorów, które oczekują na ukończenie wszystkich zadań (na przykład przy użyciu `Task.WhenAll` programu w środowisku .NET lub `context.df.Task.all` w języku JavaScript), zostaną odtworzone dane, które wystąpiły po przetworzeniu partii odpowiedzi zadań w czasie. Po włączeniu rozszerzonych sesji wystąpienia funkcji programu Orchestrator są przechowywane w pamięci, a nowe komunikaty mogą być przetwarzane bez powtarzania pełnej historii.
+Jak wspomniano wcześniej, funkcje programu Orchestrator są odtwarzane przy użyciu zawartości tabeli **historii** . Domyślnie kod funkcji programu Orchestrator jest odtwarzany za każdym razem, gdy partia komunikatów jest usuwana z kolejki sterującej. Nawet w przypadku korzystania z wentylatorów i wzorca wentylatorów, które oczekują na ukończenie wszystkich zadań (na przykład przy użyciu programu `Task.WhenAll` w środowisku .NET lub `context.df.Task.all` w języku JavaScript), zostaną odtworzone dane, które wystąpiły po przetworzeniu partii odpowiedzi zadań w czasie. Po włączeniu rozszerzonych sesji wystąpienia funkcji programu Orchestrator są przechowywane w pamięci, a nowe komunikaty mogą być przetwarzane bez powtarzania pełnej historii.
 
 Zwiększenie wydajności rozszerzonych sesji jest najczęściej zauważalne w następujących sytuacjach:
 

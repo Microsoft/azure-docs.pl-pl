@@ -7,14 +7,14 @@ author: matt1883
 ms.author: mahi
 ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: a197ef645b4b3ba2cb656e93778d6546462f431a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "66156431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121337"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -59,7 +59,7 @@ Connect-AzAccount -SubscriptionName $subname
 
 ## <a name="saving-authentication-context"></a>Zapisywanie kontekstu uwierzytelniania
 
-`Connect-AzAccount` Polecenie cmdlet zawsze poprosi o poświadczenia. Można uniknąć wyświetlania monitu przy użyciu następujących poleceń cmdlet:
+`Connect-AzAccount`Polecenie cmdlet zawsze poprosi o poświadczenia. Można uniknąć wyświetlania monitu przy użyciu następujących poleceń cmdlet:
 
 ```powershell
 # Save login session information
@@ -122,7 +122,7 @@ Test-AdlAnalyticsAccount -Name $adla
 Azure Data Lake Analytics obecnie obsługuje następujące źródła danych:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Usługa Azure Storage](../storage/common/storage-introduction.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
 Każde konto Data Lake Analytics ma domyślne konto Data Lake Store. Domyślne konto Data Lake Store służy do przechowywania metadanych zadań i dzienników inspekcji zadań. 
 
@@ -133,7 +133,7 @@ $adla_acct = Get-AdlAnalyticsAccount -Name $adla
 $dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
 ```
 
-Domyślne konto Data Lake Store można znaleźć, filtrując listę źródeł danych według `IsDefault` właściwości:
+Domyślne konto Data Lake Store można znaleźć, filtrując listę źródeł danych według `IsDefault` Właściwości:
 
 ```powershell
 Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
@@ -240,12 +240,12 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 
 ### <a name="list-jobs-by-job-result"></a>Wyświetl listę zadań według wyniku zadania
 
-Użyj parametru `-Result` , aby wykryć, czy zakończone zadania zostały ukończone pomyślnie. Ma następujące wartości:
+Użyj `-Result` parametru, aby wykryć, czy zakończone zadania zostały ukończone pomyślnie. Ma następujące wartości:
 
 * Anulowano
 * Niepowodzenie
 * Brak
-* Powodzenie
+* Sukces
 
 ``` powershell
 # List Successful jobs.
@@ -257,7 +257,7 @@ Get-AdlJob -Account $adla -State Ended -Result Failed
 
 ### <a name="list-jobs-by-job-submitter"></a>Wyświetl listę zadań według osoby przesyłającej zadanie
 
-`-Submitter` Parametr pomaga określić, kto przesłał zadanie.
+`-Submitter`Parametr pomaga określić, kto przesłał zadanie.
 
 ```powershell
 Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
@@ -265,7 +265,7 @@ Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 
 ### <a name="list-jobs-by-submission-time"></a>Wyświetl listę zadań według czasu przesłania
 
-`-SubmittedAfter` Jest przydatny do filtrowania do zakresu czasu.
+`-SubmittedAfter`Jest przydatny do filtrowania do zakresu czasu.
 
 
 ```powershell
@@ -307,14 +307,14 @@ Używanie Azure PowerShell do analizowania historii zadań, które zostały uruc
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Wyświetlanie listy potoków zadań i cykli
 
-Użyj polecenia `Get-AdlJobPipeline` cmdlet, aby wyświetlić informacje o potoku wcześniej przesłane zadania.
+Użyj `Get-AdlJobPipeline` polecenia cmdlet, aby wyświetlić informacje o potoku wcześniej przesłane zadania.
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
-Użyj polecenia `Get-AdlJobRecurrence` cmdlet, aby wyświetlić informacje o cyklu dla wcześniej przesłanych zadań.
+Użyj `Get-AdlJobRecurrence` polecenia cmdlet, aby wyświetlić informacje o cyklu dla wcześniej przesłanych zadań.
 
 ```powershell
 $recurrences = Get-AdlJobRecurrence -Account $adla
@@ -327,7 +327,7 @@ $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>
 
 ### <a name="list-existing-compute-policies"></a>Wyświetlanie listy istniejących zasad obliczeniowych
 
-`Get-AdlAnalyticsComputePolicy` Polecenie cmdlet pobiera informacje o zasadach obliczeniowych dla konta Data Lake Analytics.
+`Get-AdlAnalyticsComputePolicy`Polecenie cmdlet pobiera informacje o zasadach obliczeniowych dla konta Data Lake Analytics.
 
 ```powershell
 $policies = Get-AdlAnalyticsComputePolicy -Account $adla
@@ -335,7 +335,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 
 ### <a name="create-a-compute-policy"></a>Tworzenie zasad obliczeniowych
 
-`New-AdlAnalyticsComputePolicy` Polecenie cmdlet tworzy nowe zasady obliczeń dla konta Data Lake Analytics. Ten przykład ustawia maksymalną wartość dla określonego użytkownika na 50, a minimalny priorytet zadania na 250.
+`New-AdlAnalyticsComputePolicy`Polecenie cmdlet tworzy nowe zasady obliczeń dla konta Data Lake Analytics. Ten przykład ustawia maksymalną wartość dla określonego użytkownika na 50, a minimalny priorytet zadania na 250.
 
 ```powershell
 $userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
@@ -557,5 +557,5 @@ Możesz również użyć szablonu grupy zasobów platformy Azure, korzystając z
 
 ## <a name="next-steps"></a>Następne kroki
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* Wprowadzenie do Data Lake Analytics przy użyciu [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [interfejsu wiersza polecenia platformy Azure](data-lake-analytics-get-started-cli.md)
-* Zarządzanie Azure Data Lake Analytics przy użyciu[interfejsu wiersza polecenia](data-lake-analytics-manage-use-cli.md) [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  
+* Wprowadzenie do Data Lake Analytics przy użyciu [Azure Portal](data-lake-analytics-get-started-portal.md)  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [interfejsu wiersza polecenia platformy Azure](data-lake-analytics-get-started-cli.md)
+* Zarządzanie Azure Data Lake Analytics przy [Azure portal](data-lake-analytics-manage-use-portal.md)użyciu  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [interfejsu wiersza polecenia](data-lake-analytics-manage-use-cli.md) Azure Portal Azure PowerShell 

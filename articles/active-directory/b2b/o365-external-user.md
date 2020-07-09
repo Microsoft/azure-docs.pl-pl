@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/24/2017
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367448"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Udostępnianie zewnętrzne pakietu Office 365 i Azure Active Directory współpracy B2B
+# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Udostępnianie zewnętrzne pakietu Office 365 i usługa Azure Active Directory (Azure AD) Współpraca B2B
 
-Udostępnianie zewnętrzne w pakiecie Office 365 (OneDrive, SharePoint Online, ujednolicone grupy itp.) i Azure Active Directory (Azure AD) Współpraca B2B jest technicznie takie samo. Wszystkie zewnętrzne udostępnianie (z wyjątkiem usługi OneDrive/SharePoint Online), w tym Goście w grupach Office 365, korzysta już z interfejsów API zaproszeń współpracy B2B usługi Azure AD do udostępniania.
+Zarówno w przypadku współpracy B2B usługi Azure AD, jak i pakietu Office 365 w ramach udostępniania zewnętrznego (OneDrive, SharePoint Online, ujednoliconych grup itp.) użytkownicy zewnętrzni są uwierzytelniani przy użyciu usługi Azure AD B2B.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Jak usługa Azure AD B2B różni się od udostępniania zewnętrznego w usłudze SharePoint Online?
 

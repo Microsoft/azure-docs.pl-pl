@@ -1,6 +1,6 @@
 ---
 title: Planowanie zadań przy użyciu usługi Azure IoT Hub (węzeł) | Microsoft Docs
-description: Jak zaplanować zadanie IoT Hub platformy Azure w celu wywołania metody bezpośredniej na wielu urządzeniach. Za pomocą zestawów SDK usługi Azure IoT dla środowiska Node. js można zaimplementować aplikacje symulowanych urządzeń i aplikację usługi, aby uruchomić zadanie.
+description: Jak zaplanować zadanie IoT Hub platformy Azure w celu wywołania metody bezpośredniej na wielu urządzeniach. Korzystając z zestawów SDK usługi Azure IoT dla Node.js, można zaimplementować aplikacje symulowanych urządzeń i aplikację usługi w celu uruchomienia zadania.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt
 ms.openlocfilehash: d7f9ce37ad85d39388eea90af263f59ce312a6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732264"
 ---
-# <a name="schedule-and-broadcast-jobs-nodejs"></a>Planowanie i emitowanie zadań (Node. js)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>Planowanie i emitowanie zadań (Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -39,19 +38,19 @@ Dowiedz się więcej o każdej z tych funkcji w następujących artykułach:
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Utwórz aplikację symulowanego urządzenia w języku Node. js, która ma metodę bezpośrednią, która umożliwia **lockDoor**, która może być wywoływana przez zaplecze rozwiązania.
+* Utwórz aplikację symulowanego urządzenia Node.js, która ma metodę bezpośrednią, która umożliwia **lockDoor**, który może być wywoływany przez zaplecze rozwiązania.
 
-* Tworzenie aplikacji konsolowej środowiska Node. js, która wywołuje metodę **lockDoor** Direct w aplikacji symulowanego urządzenia przy użyciu zadania i aktualizuje odpowiednie właściwości przy użyciu zadania urządzenia.
+* Utwórz aplikację konsolową Node.js, która wywołuje metodę **lockDoor** Direct w aplikacji symulowanego urządzenia przy użyciu zadania i aktualizuje odpowiednie właściwości przy użyciu zadania urządzenia.
 
-Na końcu tego samouczka masz dwie aplikacje Node. js:
+Na końcu tego samouczka będziesz mieć dwie Node.js aplikacje:
 
-* **simDevice. js**, który łączy się z Centrum IoT z tożsamością urządzenia i odbiera metodę Direct **lockDoor** .
+* **simDevice.js**, która łączy się z Centrum IoT Hub przy użyciu tożsamości urządzenia i odbiera metodę **lockDoor** Direct.
 
-* **scheduleJobService. js**, który wywołuje metodę bezpośrednią w aplikacji symulowanego urządzenia i aktualizuje odpowiednie właściwości sznurka urządzenia przy użyciu zadania.
+* **scheduleJobService.js**, która wywołuje metodę bezpośrednią w aplikacji symulowanego urządzenia i aktualizuje odpowiednie właściwości sznurka urządzenia przy użyciu zadania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Node. js w wersji 10.0. x lub nowszej. [Przygotuj środowisko programistyczne](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) , w którym opisano sposób instalowania środowiska Node. js na potrzeby tego samouczka w systemie Windows lub Linux.
+* Node.js w wersji 10.0. x lub nowszej. [Przygotowanie środowiska programistycznego](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
 
 * Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut).
 
@@ -67,9 +66,9 @@ Na końcu tego samouczka masz dwie aplikacje Node. js:
 
 ## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
 
-W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która reaguje na bezpośrednią metodę wywoływaną przez chmurę, która wyzwala symulowaną metodę **lockDoor** .
+W tej sekcji utworzysz aplikację konsolową Node.js, która reaguje na bezpośrednią metodę wywoływaną przez chmurę, która wyzwala symulowaną metodę **lockDoor** .
 
-1. Utwórz nowy pusty folder o nazwie **simDevice**.  W folderze **simDevice** Utwórz plik Package. JSON przy użyciu następującego polecenia z poziomu wiersza polecenia.  Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy pusty folder o nazwie **simDevice**.  W folderze **simDevice** Utwórz package.jsw pliku przy użyciu następującego polecenia z poziomu wiersza polecenia.  Zaakceptuj wszystkie ustawienia domyślne:
 
    ```console
    npm init
@@ -81,9 +80,9 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która reaguj
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
-3. Za pomocą edytora tekstów Utwórz nowy plik **simDevice. js** w folderze **simDevice** .
+3. Za pomocą edytora tekstów Utwórz nowy plik **simDevice.js** w folderze **simDevice** .
 
-4. Dodaj następujące instrukcje "Wymagaj" na początku pliku **simDevice. js** :
+4. Dodaj następujące instrukcje "Wymagaj" na początku pliku **simDevice.js** :
 
     ```javascript
     'use strict';
@@ -130,7 +129,7 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która reaguj
    });
    ```
 
-8. Zapisz i zamknij plik **simDevice. js** .
+8. Zapisz i zamknij plik **simDevice.js** .
 
 > [!NOTE]
 > Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wykładniczy wycofywania), zgodnie z opisem w artykule, [obsłudze błędów przejściowych](/azure/architecture/best-practices/transient-faults).
@@ -144,9 +143,9 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która reaguj
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Planowanie zadań związanych z wywoływaniem metody bezpośredniej i aktualizowaniem właściwości sznurka urządzenia
 
-W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która inicjuje zdalne **lockDoor** na urządzeniu przy użyciu metody Direct i aktualizuje właściwości sznurka urządzenia.
+W tej sekcji utworzysz aplikację konsolową Node.js, która inicjuje zdalne **lockDoor** na urządzeniu przy użyciu metody Direct i aktualizuje właściwości sznurka urządzenia.
 
-1. Utwórz nowy pusty folder o nazwie **scheduleJobService**.  W folderze **scheduleJobService** Utwórz plik Package. JSON przy użyciu następującego polecenia z poziomu wiersza polecenia.  Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy pusty folder o nazwie **scheduleJobService**.  W folderze **scheduleJobService** Utwórz package.jsw pliku przy użyciu następującego polecenia z poziomu wiersza polecenia.  Zaakceptuj wszystkie ustawienia domyślne:
 
     ```console
     npm init
@@ -158,9 +157,9 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która inicju
     npm install azure-iothub uuid --save
     ```
 
-3. Za pomocą edytora tekstów Utwórz nowy plik **scheduleJobService. js** w folderze **scheduleJobService** .
+3. Za pomocą edytora tekstów Utwórz nowy plik **scheduleJobService.js** w folderze **scheduleJobService** .
 
-4. Dodaj następujące instrukcje "Wymagaj" na początku pliku **scheduleJobService. js** :
+4. Dodaj następujące instrukcje "Wymagaj" na początku pliku **scheduleJobService.js** :
 
     ```javascript
     'use strict';
@@ -266,7 +265,7 @@ W tej sekcji utworzysz aplikację konsolową środowiska Node. js, która inicju
     });
     ```
 
-9. Zapisz i zamknij plik **scheduleJobService. js** .
+9. Zapisz i zamknij plik **scheduleJobService.js** .
 
 ## <a name="run-the-applications"></a>Uruchamianie aplikacji
 

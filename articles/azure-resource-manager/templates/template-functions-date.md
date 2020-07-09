@@ -2,13 +2,13 @@
 title: Funkcje szablonu — Data
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z datami.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192301"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86058048"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
 
@@ -29,7 +29,7 @@ Dodaje czas trwania do wartości podstawowej. Oczekiwano formatu ISO 8601.
 |:--- |:--- |:--- |:--- |
 | base | Tak | ciąg | Wartość daty i godziny dla dodania. Użyj [formatu znacznika czasu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | czas trwania | Tak | ciąg | Wartość czasu, która ma zostać dodana do bazy. Może być wartością ujemną. Użyj [formatu czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Nie | ciąg | Format danych wyjściowych dla wyniku daty i godziny. Jeśli nie zostanie podany, zostanie użyty format wartości podstawowej. Użyj [standardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format | Nie | ciąg | Format danych wyjściowych dla wyniku daty i godziny. Jeśli nie zostanie podany, zostanie użyty format wartości podstawowej. Użyj [standardowych ciągów formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -72,7 +72,7 @@ Poniższy przykładowy szablon pokazuje różne sposoby dodawania wartości czas
 }
 ```
 
-Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-07 14:53:14Z`, dane wyjściowe są następujące:
+Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-07 14:53:14Z` , dane wyjściowe są następujące:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -144,13 +144,13 @@ Zwraca bieżącą wartość daty/godziny w określonym formacie. Jeśli format n
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| format |Nie |ciąg |Zakodowana wartość identyfikatora URI w celu przekonwertowania na ciąg. Użyj [standardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Nie |ciąg |Zakodowana wartość identyfikatora URI w celu przekonwertowania na ciąg. Użyj [standardowych ciągów formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Uwagi
 
 Tej funkcji można użyć tylko w wyrażeniu dla wartości domyślnej parametru. Użycie tej funkcji w dowolnym miejscu w szablonie powoduje zwrócenie błędu. Funkcja nie jest dozwolona w innych częściach szablonu, ponieważ zwraca inną wartość za każdym razem, gdy jest wywoływana. Wdrożenie tego samego szablonu z tymi samymi parametrami nie da niezawodnego wygenerowania tych samych wyników.
 
-Jeśli zostanie użyta [opcja ponownego wdrożenia wcześniejszego pomyślnego wdrożenia](rollback-on-error.md), a wcześniejsze wdrożenie zawiera parametr, który używa UtcNow, parametr nie zostanie ponownie oceniony. Zamiast tego wartość parametru z wcześniejszego wdrożenia zostanie automatycznie ponownie użyta w ramach wdrożenia wycofywania.
+W przypadku użycia [opcji Wycofaj przy błędzie](rollback-on-error.md) do wcześniejszego pomyślnego wdrożenia, a wcześniejsze wdrożenie zawiera parametr, który używa UtcNow, parametr nie jest ponownie obliczany. Zamiast tego wartość parametru z wcześniejszego wdrożenia zostanie automatycznie ponownie użyta w ramach wdrożenia wycofywania.
 
 Należy zachować ostrożność wdrażania szablonu, który opiera się na funkcji utcNow dla wartości domyślnej. Po ponownym wdrożeniu i niepodaniu wartości parametru funkcja jest ponownie Szacowana. Jeśli chcesz zaktualizować istniejący zasób zamiast tworzyć nowe, przekaż wartość parametru z wcześniejszego wdrożenia.
 
@@ -164,7 +164,7 @@ Poniższy przykładowy szablon pokazuje różne formaty wartości daty i godziny
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435611"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086725"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizowanie danych usługi Twitter przy użyciu Apache Hive i Apache Hadoop w usłudze HDInsight
 
@@ -28,7 +28,7 @@ Serwis Twitter umożliwia pobieranie danych dla każdego tweetu jako dokumentu J
 
 ### <a name="create-a-twitter-application"></a>Tworzenie aplikacji usługi Twitter
 
-1. W przeglądarce internetowej Zaloguj się do [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Wybierz link **Utwórz konto teraz** , jeśli nie masz konta w usłudze Twitter.
+1. W przeglądarce internetowej Zaloguj się do [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Wybierz link **Utwórz konto teraz** , jeśli nie masz konta w usłudze Twitter.
 
 2. Wybierz pozycję **Utwórz nową aplikację**.
 
@@ -54,7 +54,7 @@ Serwis Twitter umożliwia pobieranie danych dla każdego tweetu jako dokumentu J
 
 ### <a name="download-tweets"></a>Pobierz tweety
 
-Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuje je w pliku o nazwie **tweety. txt**.
+Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuje je w pliku o nazwie **tweets.txt**.
 
 > [!NOTE]  
 > Poniższe kroki są wykonywane w klastrze usługi HDInsight, ponieważ język Python jest już zainstalowany.
@@ -84,7 +84,7 @@ Poniższy kod języka Python pobiera 10 000 tweetów z serwisu Twitter i zapisuj
    nano gettweets.py
    ```
 
-1. Edytuj Poniższy kod, `Your consumer secret`zastępując, `Your consumer key`, `Your access token`i `Your access token secret` z odpowiednimi informacjami z aplikacji usługi Twitter. Następnie wklej edytowany kod jako zawartość pliku **gettweets.py** .
+1. Edytuj Poniższy kod, zastępując `Your consumer secret` , `Your consumer key` , `Your access token` i `Your access token secret` z odpowiednimi informacjami z aplikacji usługi Twitter. Następnie wklej edytowany kod jako zawartość pliku **gettweets.py** .
 
    ```python
    #!/usr/bin/python

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 19824e978af78e85f9e8c790517bd66b1f6c0113
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85481735"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -55,7 +55,14 @@ Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących
 * Plik konfiguracji sieci (netcfg-tylko klasyczny sieci wirtualnych). Zapoznaj się z artykułem [Konfigurowanie sieci wirtualnej przy użyciu pliku konfiguracji sieciowej](virtual-networks-using-network-configuration-file.md) .
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Jakie zakresy adresów mogę użyć w mojej sieci wirtualnych?
-Dowolny zakres adresów IP zdefiniowany w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918). Na przykład 10.0.0.0/16. Nie można dodać następujących zakresów adresów:
+Zalecamy używanie zakresów adresów wyliczonych w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918), które zostały odłożone przez grupę IETF dla prywatnych przestrzeni adresowych bez obsługi routingu:
+* 10.0.0.0-10.255.255.255 (10/8 prefiks)
+* 172.16.0.0-172.31.255.255 (prefiks 172.16/12)
+* 192.168.0.0-192.168.255.255 (prefiks 192.168/16)
+
+Inne przestrzenie adresowe mogą współdziałać, ale mogą mieć niepożądane skutki uboczne.
+
+Ponadto nie można dodać następujących zakresów adresów:
 * 224.0.0.0/4 (multiemisja)
 * 255.255.255.255/32 (emisja)
 * 127.0.0.0/8 (sprzężenie zwrotne)
@@ -131,7 +138,7 @@ Tak. W ustawieniach sieci wirtualnej można określić adresy IP serwerów DNS. 
 Odwołania do [limitów platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Czy mogę zmodyfikować moje serwery DNS po utworzeniu sieci?
-Tak. W dowolnym momencie możesz zmienić listę serwerów DNS dla sieci wirtualnej. W przypadku zmiany listy serwerów DNS należy wykonać odnowienie dzierżawy DHCP na wszystkich maszynach wirtualnych, których dotyczy ta sieć wirtualna, aby nowe ustawienia DNS zaczęły obowiązywać. W przypadku maszyn wirtualnych z systemem operacyjnym Windows można to zrobić `ipconfig /renew` , wpisując je bezpośrednio na maszynie wirtualnej. W przypadku innych typów systemów operacyjnych zapoznaj się z dokumentacją dotyczącą odnawiania dzierżawy DHCP dla określonego typu systemu operacyjnego. 
+Tak. W dowolnym momencie możesz zmienić listę serwerów DNS dla sieci wirtualnej. W przypadku zmiany listy serwerów DNS należy wykonać odnowienie dzierżawy DHCP na wszystkich maszynach wirtualnych, których dotyczy ta sieć wirtualna, aby nowe ustawienia DNS zaczęły obowiązywać. W przypadku maszyn wirtualnych z systemem operacyjnym Windows można to zrobić, wpisując je `ipconfig /renew` bezpośrednio na maszynie wirtualnej. W przypadku innych typów systemów operacyjnych zapoznaj się z dokumentacją dotyczącą odnawiania dzierżawy DHCP dla określonego typu systemu operacyjnego. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>Co to jest usługa DNS udostępniona przez platformę Azure i czy działa ona z usługą sieci wirtualnych?
 System DNS udostępniany przez platformę Azure to wielodostępna usługa DNS oferowana przez firmę Microsoft. Platforma Azure rejestruje wszystkie maszyny wirtualne i wystąpienia roli usługi w chmurze w tej usłudze. Ta usługa zapewnia rozpoznawanie nazw według nazwy hosta dla maszyn wirtualnych i wystąpień ról zawartych w tej samej usłudze w chmurze oraz według nazwy FQDN dla maszyn wirtualnych i wystąpień roli w tej samej sieci wirtualnej. Aby dowiedzieć się więcej na temat usługi DNS, zobacz [rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról Cloud Services](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -184,7 +191,7 @@ Tak. Wszystkie maszyny wirtualne i wystąpienia roli Cloud Services wdrożone w 
 ## <a name="azure-services-that-connect-to-vnets"></a>Usługi platformy Azure, które łączą się z usługą sieci wirtualnych
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Czy można używać Azure App Service Web Apps z siecią wirtualną?
-Tak. Web Apps można wdrożyć wewnątrz sieci wirtualnej przy użyciu środowiska ASE (App Service Environment), połączyć zaplecze aplikacji z usługą sieci wirtualnych z integracją sieci wirtualnej i zablokować ruch przychodzący do aplikacji za pomocą punktów końcowych usługi. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Tak. Web Apps można wdrożyć wewnątrz sieci wirtualnej przy użyciu środowiska ASE (App Service Environment), połączyć zaplecze aplikacji z usługą sieci wirtualnych z integracją sieci wirtualnej i zablokować ruch przychodzący do aplikacji za pomocą punktów końcowych usługi. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [App Service funkcje sieciowe](../app-service/networking-features.md)
 * [Tworzenie Web Apps w App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -245,7 +252,7 @@ Jeśli dwie sieci wirtualne w dwóch różnych regionach są połączone za pomo
 Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obciążenia, co oznacza, że nie można uzyskać dostępu do nich za pośrednictwem adresu IP frontonu Load Balancer w ramach globalnej komunikacji równorzędnej sieci wirtualnej. Można jednak użyć globalnej komunikacji równorzędnej sieci wirtualnej, aby uzyskać dostęp do zasobów bezpośrednio za pomocą prywatnych adresów IP, jeśli jest to dozwolone. 
 - Maszyny wirtualne za podstawowymi usługami równoważenia obciążenia
 - Zestawy skalowania maszyn wirtualnych z podstawowymi usługami równoważenia obciążenia 
-- Pamięć podręczna Redis 
+- Redis Cache 
 - Jednostka SKU Application Gateway (v1)
 - Service Fabric
 - SQL — MI

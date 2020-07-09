@@ -3,25 +3,25 @@ title: Problemy z logowaniem do aplikacji firmy Microsoft | Microsoft Docs
 description: Rozwiązywanie typowych problemów występujących podczas logowania się do aplikacji firmy Microsoft korzystających z usługi Azure AD (np. Office 365)
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67108297"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759287"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemy z logowaniem do aplikacji firmy Microsoft
 
@@ -512,19 +512,19 @@ Dostęp do aplikacji można zablokować, ponieważ nie nastąpiła odpowiednia o
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Wykonywanie operacji zgody na poziomie administratora dla dowolnej aplikacji
 
--   W przypadku **aplikacji utworzonych przy użyciu modelu aplikacji V1**można wymusić zgodę na poziom tego administratora, dodając "**? monit =\_zgoda administratora**" na końcu adresu URL logowania aplikacji.
+-   W przypadku **aplikacji utworzonych przy użyciu modelu aplikacji V1**można wymusić zgodę na poziom tego administratora, dodając "**? monit = \_ zgoda administratora**" na końcu adresu URL logowania aplikacji.
 
 -   Dla **każdej aplikacji opracowanej przy użyciu modelu aplikacji w wersji 2**można wymusić tę zgodę na poziomie administratora, postępując zgodnie z instrukcjami w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Wykonaj zgodę na poziomie administratora dla aplikacji z jedną dzierżawą
 
--   W **przypadku aplikacji z jedną dzierżawą** , które żądają uprawnień (takich jak te, które są opracowywane lub są używane w organizacji), można wykonać operacji **zgody na poziomie administratora** w imieniu wszystkich użytkowników, logując się jako Administrator globalny i klikając przycisk **Udziel uprawnień** w górnej części **rejestru aplikacji&gt; — wszystkie aplikacje&gt; — Wybierz okienko uprawnienia&gt; wymagane dla aplikacji** .
+-   W przypadku **aplikacji z jedną dzierżawą** , które żądają uprawnień (takich jak te, które są opracowywane lub są używane w organizacji), można wykonać operacji **zgody na poziomie administratora** w imieniu wszystkich użytkowników, logując się jako Administrator globalny i klikając przycisk **Udziel uprawnień** w górnej części **rejestru aplikacji — &gt; wszystkie aplikacje — &gt; Wybierz okienko &gt; uprawnienia wymagane dla aplikacji** .
 
 -   Dla **każdej aplikacji opracowanej przy użyciu modelu aplikacji w wersji 1 lub 2**można wymusić zgodę na dostęp na poziomie administratora, postępując zgodnie z instrukcjami w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Wykonywanie zgody na poziomie administratora dla aplikacji z wieloma dzierżawcami
 
--   W przypadku **aplikacji wielodostępnych** , które żądają uprawnień (takich jak aplikacja innej firmy lub firma Microsoft, opracowuje), można wykonać operację **wyrażania zgody na poziomie administratora** . Zaloguj się jako Administrator globalny i kliknij przycisk **Udziel uprawnień** w obszarze **aplikacje dla&gt; przedsiębiorstw — wszystkie aplikacje —&gt; Wybierz okienko&gt; uprawnienia aplikacji** (dostępne wkrótce).
+-   W przypadku **aplikacji wielodostępnych** , które żądają uprawnień (takich jak aplikacja innej firmy lub firma Microsoft, opracowuje), można wykonać operację **wyrażania zgody na poziomie administratora** . Zaloguj się jako Administrator globalny i kliknij przycisk **Udziel uprawnień** w obszarze **aplikacje dla przedsiębiorstw — &gt; wszystkie aplikacje — Wybierz okienko &gt; &gt; uprawnienia aplikacji** (dostępne wkrótce).
 
 -   Możesz również wymusić tę zgodę na poziomie administratora, postępując zgodnie z instrukcjami podanymi w sekcji **żądanie uprawnień z administratora katalogu** w [punkcie końcowym zgody administratora](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

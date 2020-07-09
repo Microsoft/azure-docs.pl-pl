@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: właściwości pola w definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład użycia właściwości pola w definicji zasad.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: e65767dd9cbe7b2192c21f779643289e5a7fc45e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172863"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565723"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Wzorzec Azure Policy: właściwości pola
 
@@ -20,14 +20,14 @@ Ta definicja zasad umożliwia zdefiniowanie dozwolonych regionów spełniającyc
 
 :::code language="json" source="~/policy-templates/patterns/pattern-fields.json":::
 
-### <a name="explanation"></a>Wyjaśnienie
+### <a name="explanation"></a>Objaśnienie
 
 :::code language="json" source="~/policy-templates/patterns/pattern-fields.json" range="18-36" highlight="3,7,11":::
 
 Operator **pola** jest używany trzy razy w obrębie [operatora logicznego](../concepts/definition-structure.md#logical-operators) **allOf**.
 
-- Pierwsze użycie oblicza `location` właściwość z warunkiem **NotIn** do parametru **listOfAllowedLocations** . **notIn** działa, ponieważ oczekuje _tablicy_ , a parametr jest _tablicą_. `location` Jeśli utworzony lub zaktualizowany zasób nie znajduje się na liście zatwierdzonych, ten element ma wartość true.
-- Drugie użycie również oblicza `location` właściwość, ale używa warunku **notEquals** , aby sprawdzić, czy zasób jest _globalny_. `location` Jeśli utworzony lub zaktualizowany zasób nie jest _globalny_, ten element ma wartość true.
+- Pierwsze użycie oblicza `location` Właściwość z warunkiem **notIn** do parametru **listOfAllowedLocations** . **notIn** działa, ponieważ oczekuje _tablicy_ , a parametr jest _tablicą_. Jeśli `location` utworzony lub zaktualizowany zasób nie znajduje się na liście zatwierdzonych, ten element ma wartość true.
+- Drugie użycie również oblicza `location` Właściwość, ale używa warunku **notEquals** , aby sprawdzić, czy zasób jest _globalny_. Jeśli `location` utworzony lub zaktualizowany zasób nie jest _globalny_, ten element ma wartość true.
 - Ostatnie użycie szacuje `type` Właściwość i używa warunku **notEquals** do sprawdzenia, czy typ zasobu nie jest _Microsoft. usługi azureactivedirectory/b2cDirectories_. Jeśli nie, ten element ma wartość true.
 
 Jeśli wszystkie trzy instrukcje warunku w operatorze logicznym **allOf** oceńą wartość true, tworzenie lub aktualizowanie zasobów jest blokowane przez Azure Policy.

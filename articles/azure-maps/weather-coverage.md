@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ac4df0b63d48e590bfdfc49f1c8b5607b4651cd5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80333582"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310193"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps pokrycie pogodowe
 
@@ -28,7 +27,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 |*       |Obejmuje Pogoda na trasie, bieżące warunki, prognozę godzinową, prognozę kwartalną i dzienne interfejsy API prognozowania |
 
 
-## <a name="americas"></a>Ameryki
+## <a name="americas"></a>Ameryka Północna i Południowa
 
 | Kraj/region              |  Kafelki satelitarne | Prognoza minutowa, kafelki radarowe | Różnych | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
@@ -84,9 +83,9 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Sint Maarten                             | ✓ |   |  ✓| 
 | Wyspy Georgia Południowa i Sandwich Południowy | ✓ |   |  ✓| 
 | Surinam                                 | ✓ |   |  ✓| 
-| Trynidad i Tobago                      | ✓ |   |  ✓| 
+| Trinidad i Tobago                      | ✓ |   |  ✓| 
 | Wyspy Turks i Caicos                 | ✓ |   |  ✓| 
-| Odległe wyspy Stanów Zjednoczonych                    | ✓ |   |  ✓| 
+| Stany Zjednoczone — Dalekie Wyspy Mniejsze                    | ✓ |   |  ✓| 
 | Wyspy Dziewicze Stanów Zjednoczonych                      | ✓ |   |  ✓| 
 | Stany Zjednoczone                            | ✓ | ✓ |  ✓| 
 | Urugwaj                                  | ✓ |   |  ✓| 
@@ -139,7 +138,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Mali                        | ✓               |                              |        ✓| 
 | Mauretania                  | ✓               |                              |        ✓| 
 | Mauritius                   | ✓               |                              |        ✓| 
-| Majotta                     | ✓               |                              |        ✓| 
+| Wyspa Majotta                     | ✓               |                              |        ✓| 
 | Maroko                     | ✓               |                              |        ✓| 
 | Mozambik                  | ✓               |                              |        ✓| 
 | Namibia                     | ✓               |                              |        ✓| 
@@ -166,7 +165,6 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Tunezja                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | Zjednoczone Emiraty Arabskie        | ✓               |                              |        ✓| 
-| Sahara Zachodnia              | ✓               |                              |        ✓| 
 | Jemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 
@@ -271,7 +269,7 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Włochy                  | ✓ |   |  ✓|
 | Wyspa Man            | ✓ |   |  ✓| 
 | Jersey                 | ✓ |   |  ✓| 
-| Kosowie                 | ✓ |   |  ✓| 
+| Kosowo                 | ✓ |   |  ✓| 
 | Łotwa                 | ✓ |   |  ✓| 
 | Liechtenstein          | ✓ | ✓ |  ✓| 
 | Litwa              | ✓ |   |  ✓| 
@@ -298,5 +296,5 @@ Poniższa tabela zawiera informacje o rodzaju informacji o pogodzie, które moż
 | Szwajcaria            | ✓ | ✓ |  ✓| 
 | Turcja                 | ✓ |   |  ✓| 
 | Ukraina                | ✓ |   |  ✓| 
-| Wielka Brytania         | ✓ | ✓ |  ✓| 
+| Zjednoczone Królestwo         | ✓ | ✓ |  ✓| 
 | Watykan           | ✓ |   |  ✓| 

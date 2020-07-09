@@ -5,19 +5,19 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-ms.service: security-center
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: eec07a01edc6b126bb7cd3a814912ea5c5b14195
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84769877"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Łączenie danych od dostawców analizy zagrożeń
 
@@ -70,7 +70,7 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
 
 2. [Skonfiguruj uprawnienia interfejsu API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) dla zarejestrowanej aplikacji: dodaj uprawnienie Microsoft Graph aplikacji **ThreatIndicators. ReadWrite. OwnedBy** do zarejestrowanej aplikacji.
 
-3. Skontaktuj się z administratorem dzierżawy Azure Active Directory, aby przyznać administratorowi zgodę na zarejestrowana aplikacja w organizacji. W Azure Portal: **Azure Active Directory** > **rejestracje aplikacji** > **\<_nazwę_>** > aplikacji**uprawnienia**** \<> _tenant name_** interfejsu API Przyznaj zgody administratora na nazwę dzierżawcy. > 
+3. Skontaktuj się z administratorem dzierżawy Azure Active Directory, aby przyznać administratorowi zgodę na zarejestrowana aplikacja w organizacji. W Azure Portal: **Azure Active Directory**  >  **rejestracje aplikacji**  >  **\<_app name_>**  >  **Wyświetl uprawnienia dla interfejsu API**  >  **Udziel zgody administratora \<_tenant name_> na **.
 
 4. Skonfiguruj produkt lub aplikację TIP, która korzysta Microsoft Graph z bezpośredniej integracji z interfejsem API tiIndicators zabezpieczeń w celu wysyłania wskaźników do wskaźnika platformy Azure, określając następujące kwestie:
     
@@ -80,11 +80,11 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
     
     c. Dla akcji Określ alert.
 
-5. W Azure Portal przejdź do > **łączników danych** **wskaźnikowych platformy Azure**, a następnie wybierz łącznik **platformy analizy zagrożeń (wersja zapoznawcza)** .
+5. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **platformy analizy zagrożeń (wersja zapoznawcza)** .
 
 6. Wybierz **Otwórz stronę łącznika**, a następnie **Połącz się**.
 
-7. Aby wyświetlić wskaźniki zagrożeń zaimportowane do usługi Azure wskaźnikowej, przejdź do **platformy Azure — dzienniki** > i**SecurityInsights**, a następnie rozwiń węzeł **ThreatIntelligenceIndicator**.
+7. Aby wyświetlić wskaźniki zagrożeń zaimportowane do usługi Azure wskaźnikowej, przejdź do **platformy Azure — dzienniki**  >  i**SecurityInsights**, a następnie rozwiń węzeł **ThreatIntelligenceIndicator**.
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Łączenie z serwerem TAXII platformy Azure
 
@@ -96,7 +96,7 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
 
 ## <a name="instructions"></a>Instrukcje
 
-1. W Azure Portal przejdź do > **łączników danych** **wskaźnikowych platformy Azure**, a następnie wybierz łącznik **analizy zagrożeń — TAXII (wersja zapoznawcza)** .
+1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **analizy zagrożeń — TAXII (wersja zapoznawcza)** .
 
 2. Wybierz pozycję **Otwórz stronę łącznika**.
 
@@ -106,7 +106,7 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
 
 5. Jeśli masz dodatkowe serwery z TAXII 2,0: Powtórz kroki 3 i 4.
 
-6. Aby wyświetlić wskaźniki zagrożeń zaimportowane do usługi Azure wskaźnikowej, przejdź do **platformy Azure — dzienniki** > i**SecurityInsights**, a następnie rozwiń węzeł **ThreatIntelligenceIndicator**.
+6. Aby wyświetlić wskaźniki zagrożeń zaimportowane do usługi Azure wskaźnikowej, przejdź do **platformy Azure — dzienniki**  >  i**SecurityInsights**, a następnie rozwiń węzeł **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Następne kroki
 

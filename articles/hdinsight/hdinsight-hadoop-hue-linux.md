@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ef30672e250e598688d1b81fd33fe0a995e78c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835482"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087728"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie odcienia w klastrach usługi HDInsight Hadoop
 
@@ -72,7 +72,9 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
     Spowoduje to zwrócenie nazwy podobnej do następującej:
 
-        myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```output
+    myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    ```
 
     Jest to nazwa hosta głównego węzła głównego, w którym znajduje się witryna internetowa odcienia.
 
@@ -107,7 +109,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 > [!NOTE]  
 > W przeglądarce plików odcienia można wyświetlić tylko zawartość domyślnego kontenera skojarzonego z klastrem usługi HDInsight. Wszystkie dodatkowe konta magazynu/kontenery, które mogą być skojarzone z klastrem, nie będą dostępne przy użyciu przeglądarki plików. Jednak dodatkowe kontenery skojarzone z klastrem będą zawsze dostępne dla zadań Hive. Na przykład, jeśli wprowadzisz polecenie `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` w edytorze Hive, zobaczysz również zawartość dodatkowych kontenerów. W tym poleceniu **newcontainer** nie jest domyślnym kontenerem skojarzonym z klastrem.
 
-## <a name="important-considerations"></a>Ważne zagadnienia
+## <a name="important-considerations"></a>Istotne zagadnienia
 
 1. Skrypt służący do instalowania odcienia instaluje go tylko w podstawowym węzła głównego klastra.
 
@@ -115,7 +117,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
 1. Odcień nie rozpoznaje Apache Tez zadań, które są bieżącym ustawieniem domyślnym dla programu Hive. Jeśli chcesz użyć MapReduce jako aparatu wykonywania programu Hive, zaktualizuj skrypt tak, aby używał następującego polecenia w skrypcie:
 
-         set hive.execution.engine=mr;
+   `set hive.execution.engine=mr;`
 
 1. W przypadku klastrów systemu Linux możesz mieć scenariusz, w którym usługi działają w podstawowym węzła głównego, podczas gdy Menedżer zasobów może być uruchomiona na serwerze pomocniczym. Taki scenariusz może spowodować błędy (pokazane poniżej) podczas korzystania z odcienia, aby wyświetlić szczegóły uruchamiania zadań w klastrze. Można jednak wyświetlić szczegóły zadania, gdy zadanie zostało zakończone.
 

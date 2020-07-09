@@ -4,15 +4,15 @@ description: Ten artykuł zawiera instrukcje dotyczące skalowania jednostek AKS
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239449"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125467"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Automatyczne skalowanie AKSów przy użyciu metryk Application Gateway (beta)
 
@@ -27,7 +27,7 @@ Będziemy używać następujących dwóch składników:
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurowanie karty metryki usługi Azure Kubernetes
 
-1. Najpierw utworzymy nazwę główną usługi Azure AAD i przypiszesz `Monitoring Reader` im dostęp do grupy zasobów Application Gateway. 
+1. Najpierw utworzymy nazwę główną usługi Azure AAD i przypiszesz im `Monitoring Reader` dostęp do grupy zasobów Application Gateway. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -39,7 +39,7 @@ Będziemy używać następujących dwóch składników:
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \
@@ -47,7 +47,7 @@ Będziemy używać następujących dwóch składników:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Utworzymy `ExternalMetric` zasób o nazwie `appgw-request-count-metric`. Ten zasób nakazuje karcie metryki udostępnienie `AvgRequestCountPerHealthyHost` metryki `myApplicationGateway` dla zasobu `myResourceGroup` w grupie zasobów. Możesz użyć pola, `filter` aby wskazać określoną pulę zaplecza i ustawienie protokołu HTTP zaplecza w Application Gateway.
+1. Utworzymy `ExternalMetric` zasób o nazwie `appgw-request-count-metric` . Ten zasób nakazuje karcie metryki udostępnienie `AvgRequestCountPerHealthyHost` metryki dla `myApplicationGateway` zasobu w `myResourceGroup` grupie zasobów. Możesz użyć pola, `filter` Aby wskazać określoną pulę zaplecza i ustawienie protokołu HTTP zaplecza w Application Gateway.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -92,9 +92,9 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Używanie nowej metryki do skalowania w górę wdrożenia
 
-Gdy będziemy mogli uwidocznić `appgw-request-count-metric` serwer metryk, jesteśmy gotowi [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) do skalowania wdrożenia docelowego.
+Gdy będziemy mogli uwidocznić `appgw-request-count-metric` serwer metryk, jesteśmy gotowi do [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) skalowania wdrożenia docelowego.
 
-W poniższym przykładzie zostanie wykorzystamy przykładowe wdrożenie `aspnet`. Skalowanie w górę skaluje `appgw-request-count-metric` się w górę, gdy > 200 w wysokości `10` do maksymalnej liczby zasobników.
+W poniższym przykładzie zostanie wykorzystamy przykładowe wdrożenie `aspnet` . Skalowanie w górę skaluje się w górę, gdy `appgw-request-count-metric` > 200 w wysokości do maksymalnej liczby `10` zasobników.
 
 Zastąp docelową nazwę wdrożenia i zastosuj następującą konfigurację automatycznego skalowania:
 ```yaml

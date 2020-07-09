@@ -5,15 +5,14 @@ description: Przewodnik po komunikacji równorzędnej z punktem wymiany
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: bb761afa6d8953b441b6c9541c43b73031719494
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec83778d034cfc512582eddf79995412dad405c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75775175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710732"
 ---
 # <a name="exchange-peering-walkthrough"></a>Przewodnik po komunikacji równorzędnej z punktem wymiany
 

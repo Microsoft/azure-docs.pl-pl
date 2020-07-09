@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 095f3396c483f4b8f80ab6c31ee369f2082f560c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a5af58c645720f0643e9245dc106248e36f2658f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998117"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237682"
 ---
 W tym samouczku Szybki start opisano sposób uzyskiwania odpowiedzi z bazy wiedzy przy użyciu narzędzia Postman.
 
@@ -108,7 +108,7 @@ W poprzednim przewodniku szybki start metadane zostały dodane do dwóch par QnA
 ## <a name="use-debug-query-property"></a>Użyj właściwości zapytania debugowania
 
 > [!NOTE]
->Nie zaleca się używania poreperty debugowania dla żadnej zależności. Ta właściwość została dodana, aby ułatwić zespołowi produktu Rozwiązywanie problemów.
+>Nie zaleca się używania właściwości Debug dla żadnej zależności. Ta właściwość została dodana, aby ułatwić zespołowi produktu Rozwiązywanie problemów.
 
 Informacje debugowania pomagają zrozumieć, w jaki sposób została określona zwrócona odpowiedź. Chociaż jest to przydatne, nie jest to konieczne. Aby wygenerować odpowiedź z informacjami o debugowaniu, Dodaj `debug` Właściwość:
 

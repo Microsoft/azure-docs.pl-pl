@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: bb112e0b2d1c64e65ecaf6749a25707d8632c0cb
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60947806"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134961"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Usługa Azure Traffic Manager z usługą Azure Site Recovery
 
@@ -30,7 +30,7 @@ W pierwszym scenariuszu należy wziąć pod uwagę **firmę A** , która ma cał
 **Firma a** ma uruchomione aplikacje z publicznymi punktami końcowymi i chce bezproblemowo przekierować ruch do platformy Azure w ramach zdarzenia awarii. [Priorytetowa](../traffic-manager/traffic-manager-configure-priority-routing-method.md) Metoda routingu ruchu w usłudze Azure Traffic Manager umożliwia firmie A łatwe wdrażanie tego wzorca trybu failover.
 
 Konfiguracja jest następująca:
-- **Firma A** tworzy [profil Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- **Firma A** tworzy [profil Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Korzystając z metody routingu **priorytetowego** , **firma A** tworzy dwa punkty końcowe — **podstawowe** dla lokalnego i **trybu failover** dla platformy Azure. **Podstawowym** przypisano priorytet 1, a **tryb failover** ma przypisany priorytet 2.
 - Ponieważ **podstawowy** punkt końcowy jest hostowany poza platformą Azure, punkt końcowy jest tworzony jako [zewnętrzny](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) punkt końcowy.
 - W przypadku Azure Site Recovery witryna Azure nie ma żadnych maszyn wirtualnych ani aplikacji działających przed przełączeniem w tryb failover. W związku z tym punkt końcowy **trybu failover** jest również tworzony jako **zewnętrzny** punkt końcowy.
@@ -65,7 +65,7 @@ Na potrzeby tego przykładu należy wziąć pod uwagę **firmę C** , która ma 
 **Firma C** uruchamia aplikacje z publicznymi punktami końcowymi i chce bezproblemowo przekierować ruch do innego regionu platformy Azure w przypadku awarii. [Priorytetowa](../traffic-manager/traffic-manager-configure-priority-routing-method.md) Metoda routingu ruchu umożliwia **firmie C** łatwe wdrażanie tego wzorca trybu failover.
 
 Konfiguracja jest następująca:
-- **Firma C** tworzy [profil Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- **Firma C** tworzy [profil Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Korzystając z metody routingu **priorytetowego** , **firma C** tworzy dwa punkty końcowe — **podstawowe** dla regionu źródłowego (Azure Azja Wschodnia) i **trybu failover** dla regionu odzyskiwania (Azja Południowo-Wschodnia dla platformy Azure). **Podstawowym** przypisano priorytet 1, a **tryb failover** ma przypisany priorytet 2.
 - Ponieważ **podstawowy** punkt końcowy jest hostowany na platformie Azure, punkt końcowy może być punktem końcowym [platformy Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) .
 - W przypadku Azure Site Recovery witryna odzyskiwania systemu Azure nie ma żadnych maszyn wirtualnych ani aplikacji działających przed przełączeniem w tryb failover. W związku z tym punkt końcowy **trybu failover** można utworzyć jako [zewnętrzny](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) punkt końcowy.

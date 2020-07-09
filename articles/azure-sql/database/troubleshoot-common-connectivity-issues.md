@@ -9,18 +9,18 @@ ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 34c790ee77c05e9e8c5a57a23e153bd9898c1cff
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045557"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078973"
 ---
-# <a name="troubleshooting-transient-connection-errors"></a>Rozwiązywanie problemów z błędami połączeń przejściowych
+# <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
+
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 W tym artykule opisano, jak zapobiegać, rozwiązywać problemy, diagnozować i ograniczać błędy połączeń oraz błędy przejściowe, które napotyka aplikacja kliencka, gdy współdziała z Azure SQL Database, wystąpieniem zarządzanym Azure SQL i analizą usługi Azure Synapse. Dowiedz się, jak skonfigurować logikę ponowień, skompilować parametry połączenia i dostosować inne ustawienia połączenia.
@@ -29,7 +29,7 @@ W tym artykule opisano, jak zapobiegać, rozwiązywać problemy, diagnozować i 
 
 ## <a name="transient-errors-transient-faults"></a>Błędy przejściowe (awarie przejściowe)
 
-Błąd przejściowy, nazywany także błędem przejściowym, ma zasadniczą przyczynę, która wkrótce wyeliminuje siebie. Sporadyczne wystąpienie błędów przejściowych polega na tym, że system Azure szybko przenosi zasoby sprzętowe w celu lepszego zrównoważenia obciążenia różnych obciążeń. Większość tych zdarzeń ponownej konfiguracji kończy się za mniej niż 60 sekund. Podczas tego przedziału czasu ponownej konfiguracji mogą wystąpić problemy z łącznością SQL Database. Aplikacje łączące się z SQL Database powinny zostać skompilowane, aby oczekiwać na te błędy przejściowe. Aby je obsłużyć, należy wdrożyć logikę ponowień w kodzie, zamiast dopełniać je do użytkowników jako błędy aplikacji.
+Błąd przejściowy, nazywany także błędem przejściowym, ma zasadniczą przyczynę, która wkrótce wyeliminuje siebie. Sporadyczne wystąpienie błędów przejściowych polega na tym, że system Azure szybko przenosi zasoby sprzętowe w celu lepszego zrównoważenia obciążenia różnych obciążeń. Większość tych zdarzeń ponownej konfiguracji kończy się za mniej niż 60 sekund. Podczas tego przedziału czasu ponownej konfiguracji mogą wystąpić problemy z połączeniem z bazą danych w SQL Database. Aplikacje, które łączą się z bazą danych, powinny zostać skompilowane, aby oczekiwać na te błędy przejściowe. Aby je obsłużyć, należy wdrożyć logikę ponowień w kodzie, zamiast dopełniać je do użytkowników jako błędy aplikacji.
 
 Jeśli program kliencki używa ADO.NET, program jest powiadamiany o błędzie przejściowym przez throw **SqlException**.
 
@@ -37,13 +37,13 @@ Jeśli program kliencki używa ADO.NET, program jest powiadamiany o błędzie pr
 
 ### <a name="connection-vs-command"></a>Połączenie a polecenie
 
-Spróbuj ponownie nawiązać połączenie z programem SQL Server, w zależności od następujących:
+Ponów SQL Database i połączenie wystąpienia zarządzanego SQL lub Ustanów je ponownie, w zależności od następujących:
 
 - **Wystąpił błąd przejściowy podczas próby połączenia**
 
 Po upływie kilku sekund spróbuj ponownie nawiązać połączenie.
 
-- **Wystąpił błąd przejściowy podczas wykonywania polecenia zapytania SQL**
+- **Wystąpił błąd przejściowy podczas wykonywania zapytania dotyczącego wystąpienia zarządzanego SQL Database i SQL**
 
 Nie należy natychmiast ponownie wykonywać polecenia. Zamiast tego po opóźnieniu nawiązać połączenie. Następnie ponów próbę wykonania tego polecenia.
 
@@ -51,15 +51,15 @@ Nie należy natychmiast ponownie wykonywać polecenia. Zamiast tego po opóźnie
 
 ## <a name="retry-logic-for-transient-errors"></a>Logika ponawiania próby dla błędów przejściowych
 
-Programy klienckie, które sporadycznie napotykają błąd przejściowy, są bardziej niezawodne, gdy zawierają logikę ponowień. Gdy program komunikuje się z SQL Database za pomocą oprogramowania pośredniczącego innej firmy, należy polecić dostawcę, czy oprogramowanie pośredniczące zawiera logikę ponawiania prób w przypadku błędów przejściowych.
+Programy klienckie, które sporadycznie napotykają błąd przejściowy, są bardziej niezawodne, gdy zawierają logikę ponowień. Gdy program komunikuje się z bazą danych programu w SQL Database za pomocą oprogramowania pośredniczącego innej firmy, należy polecić dostawcę, czy oprogramowanie pośredniczące zawiera logikę ponawiania prób w przypadku błędów przejściowych.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
 ### <a name="principles-for-retry"></a>Zasady ponawiania prób
 
 - Jeśli błąd jest przejściowy, spróbuj ponownie otworzyć połączenie.
-- Nie należy bezpośrednio ponawiać `SELECT` instrukcji SQL, która nie powiodła się z powodu błędu przejściowego. Zamiast tego Ustanów nowe połączenie, a następnie ponów próbę `SELECT` .
-- Jeśli instrukcja SQL `UPDATE` kończy się niepowodzeniem z błędem przejściowym, przed ponowieniem aktualizacji Ustanów nowe połączenie. Logika ponawiania musi mieć pewność, że cała transakcja bazy danych została zakończona lub cała transakcja jest wycofywana.
+- Nie należy bezpośrednio ponawiać próby SQL Database lub instrukcji wystąpienia zarządzanego SQL `SELECT` , które zakończyły się niepowodzeniem z powodu błędu przejściowego. Zamiast tego Ustanów nowe połączenie, a następnie ponów próbę `SELECT` .
+- Gdy SQL Database lub instrukcja wystąpienia zarządzanego SQL `UPDATE` kończy się niepowodzeniem z błędem przejściowym, przed ponowieniem aktualizacji Ustanów nowe połączenie. Logika ponawiania musi mieć pewność, że cała transakcja bazy danych została zakończona lub cała transakcja jest wycofywana.
 
 ### <a name="other-considerations-for-retry"></a>Inne zagadnienia dotyczące ponawiania prób
 
@@ -78,8 +78,8 @@ Warto również ustawić maksymalną liczbę ponownych prób przed zakończeniem
 
 Przykłady kodu z logiką ponowień są dostępne pod adresem:
 
-- [Nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą środowiska ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą języka PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Odłączanie się do usługi Azure SQL za pomocą ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Odłączanie się do usługi Azure SQL przy użyciu języka PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -105,7 +105,7 @@ Aby ten test był praktyczny, Odłącz komputer od sieci przed uruchomieniem pro
 - Wstrzymaj dalsze wykonywanie przy użyciu metody **Console. ReadLine** lub okna dialogowego z przyciskiem OK. Użytkownik naciśnie klawisz Enter po podłączeniu komputera do sieci.
 - Spróbuj ponownie nawiązać połączenie, oczekiwanie na powodzenie.
 
-#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Przetestuj błąd podczas nawiązywania połączenia w nazwie bazy danych
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>Przetestuj, wprowadzając błąd podczas nawiązywania połączenia nazwy użytkownika
 
 Program może przeznaczenie nazwy użytkownika przed rozpoczęciem pierwszej próby połączenia. Błąd to:
 
@@ -126,7 +126,7 @@ Aby ten test był praktyczny, program rozpoznaje parametr środowiska uruchomien
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry .NET SqlConnection dla ponowienia połączenia
 
-Jeśli program kliencki nawiązuje połączenie z SQL Database przy użyciu klasy .NET Framework **System. Data. SqlClient. SqlConnection**, użyj programu .NET 4.6.1 lub nowszego (lub platformy .NET Core), aby można było użyć funkcji ponawiania połączenia. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Tę stronę sieci Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+Jeśli program kliencki nawiązuje połączenie z bazą danych w SQL Database przy użyciu klasy .NET Framework **System. Data. SqlClient. SqlConnection**, użyj programu .NET 4.6.1 lub nowszego (lub platformy .NET Core), aby można było używać funkcji ponawiania połączeń. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Tę stronę sieci Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -149,7 +149,7 @@ Na przykład, jeśli liczba jest równa 3, a interwał jest równy 10 sekund, pr
 Parametry **ConnectRetryCount** i **ConnectRetryInterval** pozwalają obiektowi **SQLConnect** ponowić operację łączenia bez podania lub bothering programu, takiego jak zwracanie kontroli do programu. Ponawianie prób może wystąpić w następujących sytuacjach:
 
 - wywołanie metody mySqlConnection. Open
-- wywołanie metody mySqlConnection. Execute
+- mySqlConnection.Exewywołanie metody urocze
 
 Istnieje element subtlety. Jeśli wystąpi błąd przejściowy podczas wykonywania *zapytania* , obiekt **SqlConnection** nie spróbuje wykonać operacji Connect. Nie powoduje to ponowienia próby wykonania zapytania. Jednak element **SqlConnection** bardzo szybko sprawdza połączenie przed wysłaniem zapytania do wykonania. Jeśli szybkie sprawdzenie wykryje problem z połączeniem, program **SQLConnect** próbuje wykonać operację łączenia. Jeśli ponowna próba powiodła się, zapytanie jest wysyłane do wykonania.
 
@@ -159,13 +159,13 @@ Załóżmy, że Twoja aplikacja ma niestandardową logikę ponowień. Może pono
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-sql-database"></a>Połączenia z SQL Database
+## <a name="connections-to-your-database-in-sql-database"></a>Połączenia z bazą danych w SQL Database
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Połączenie: parametry połączenia
 
-Parametry połączenia, które są niezbędne do nawiązania połączenia z SQL Database są nieco inne niż ciąg używany do nawiązywania połączenia z SQL Server. Parametry połączenia dla bazy danych można skopiować z [Azure Portal](https://portal.azure.com/).
+Parametry połączenia, które są niezbędne do nawiązania połączenia z bazą danych, różnią się nieco od ciągu używanego do łączenia się z SQL Server. Parametry połączenia dla bazy danych można skopiować z [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -179,7 +179,7 @@ Jeśli zapomnisz skonfigurować adres IP, program zakończy się niepowodzeniem 
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień zapory na SQL Database](firewall-configure.md).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień zapory w SQL Database](firewall-configure.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
 ### <a name="connection-ports"></a>Połączenie: porty
@@ -193,7 +193,7 @@ Na przykład, gdy program kliencki jest hostowany na komputerze z systemem Windo
 
 Jeśli program kliencki jest hostowany na maszynie wirtualnej platformy Azure, Odczytaj [porty powyżej 1433 dla ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md).
 
-Aby uzyskać ogólne informacje dotyczące konfiguracji portów i adresów IP Azure SQL Database, zobacz [Azure SQL Database firewall](firewall-configure.md).
+Aby uzyskać ogólne informacje na temat konfiguracji portów i adresów IP w bazie danych, zobacz [Azure SQL Database zapory](firewall-configure.md).
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
@@ -222,11 +222,11 @@ Jeśli używasz ADO.NET 4,0 lub starszej wersji, zalecamy przeprowadzenie uaktua
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostyka: testowanie, czy narzędzia mogą się łączyć
 
-Jeśli program nie może nawiązać połączenia z SQL Database, jedną z opcji diagnostycznych jest próba nawiązania połączenia z programem narzędziowym. W idealnym przypadku narzędzie nawiązuje połączenie za pomocą tej samej biblioteki, która jest używana przez program.
+Jeśli program nie może nawiązać połączenia z bazą danych w SQL Database, jedną z opcji diagnostycznych jest próba nawiązania połączenia z programem narzędziowym. W idealnym przypadku narzędzie nawiązuje połączenie za pomocą tej samej biblioteki, która jest używana przez program.
 
 Na dowolnym komputerze z systemem Windows można wypróbować następujące narzędzia:
 
-- SQL Server Management Studio (SSMS. exe), który nawiązuje połączenie za pomocą ADO.NET
+- SQL Server Management Studio (ssms.exe), które nawiązuje połączenie za pomocą ADO.NET
 - `sqlcmd.exe`, które nawiązuje połączenie za pomocą [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Po nawiązaniu połączenia z programem Sprawdź, czy jest działa krótkie zapytanie SELECT języka SQL.
@@ -242,7 +242,7 @@ W systemie Linux pomocne mogą być następujące narzędzia:
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: Zmień przykładową wartość na adres IP.
 
-W systemie Windows narzędzie [Portqry. exe](https://www.microsoft.com/download/details.aspx?id=17148) może być przydatne. Oto przykładowe wykonanie, które zbadał sytuację portu w SQL Database i zostało uruchomione na komputerze przenośnym:
+W systemie Windows narzędzie [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) może być przydatne. Oto przykładowe wykonanie, które zbadał sytuację portu w bazie danych w SQL Database i uruchomiono na komputerze przenośnym:
 
 ```cmd
 [C:\Users\johndoe\]
@@ -326,7 +326,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Biblioteka Enterprise — 6
 
-Biblioteka Enterprise Library 6 (EntLib60) to struktura klas platformy .NET, która ułatwia wdrażanie niezawodnych klientów usług w chmurze, z których jedna jest usługą SQL Database. Aby znaleźć tematy przeznaczone dla każdego obszaru, w którym EntLib60 może pomóc, zobacz [Biblioteka Enterprise 6-kwiecień 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+Biblioteka Enterprise Library 6 (EntLib60) to struktura klas platformy .NET, która ułatwia wdrażanie niezawodnych klientów usług w chmurze, z których jeden jest SQL Database. Aby znaleźć tematy przeznaczone dla każdego obszaru, w którym EntLib60 może pomóc, zobacz [Biblioteka Enterprise 6-kwiecień 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
 Logika ponowień do obsługi błędów przejściowych to jeden obszar, w którym EntLib60 może pomóc. Aby uzyskać więcej informacji, zobacz [4-Perseverance, klucz tajny wszystkich Triumphs: Użyj bloku aplikacji do obsługi błędów przejściowych](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
@@ -356,7 +356,7 @@ W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHand
 Poniżej znajdują się linki do informacji na temat EntLib60:
 
 - Pobieranie bezpłatnej książki: [przewodnik dewelopera do biblioteki Enterprise firmy Microsoft, wersja 2](https://www.microsoft.com/download/details.aspx?id=41145).
-- Najlepsze rozwiązania: [wskazówki dotyczące ponawiania prób ogólnych](/architecture/best-practices/transient-faults) zawierają doskonałe Omówienie logiki ponawiania.
+- Najlepsze rozwiązania: [wskazówki dotyczące ponawiania prób ogólnych](/azure/architecture/best-practices/transient-faults) zawierają doskonałe Omówienie logiki ponawiania.
 - Pobieranie plików NuGet: [Biblioteka przedsiębiorstwa — przejściowa obsługa błędów — blok aplikacji 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>

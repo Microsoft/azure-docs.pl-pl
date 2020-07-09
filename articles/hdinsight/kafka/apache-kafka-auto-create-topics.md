@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 88dc3e4d761f9b4df63dfa07a24298398f7b0187
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 829f91452725615af4d444426e25ffad62d6ab6d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231275"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087508"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Jak skonfigurować Apache Kafka w usłudze HDInsight w celu automatycznego tworzenia tematów
 
@@ -29,7 +29,7 @@ Aby włączyć automatyczne tworzenie tematów w istniejącym klastrze za pomoc�
 
     ![Obraz portalu z wybranym pulpitem nawigacyjnym klastra](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-    Po wyświetleniu monitu Uwierzytelnij się przy użyciu poświadczeń logowania (administratora) dla klastra. Zamiast tego można nawiązać połączenie z usługą Amabri `https://CLUSTERNAME.azurehdinsight.net/` bezpośrednio `CLUSTERNAME` z lokalizacji, w której jest nazwą klastra Kafka.
+    Po wyświetleniu monitu Uwierzytelnij się przy użyciu poświadczeń logowania (administratora) dla klastra. Zamiast tego można nawiązać połączenie z usługą Amabri bezpośrednio z lokalizacji, w `https://CLUSTERNAME.azurehdinsight.net/` której `CLUSTERNAME` jest nazwą klastra Kafka.
 
 1. Wybierz usługę Kafka z listy znajdującej się po lewej stronie.
 
@@ -39,13 +39,13 @@ Aby włączyć automatyczne tworzenie tematów w istniejącym klastrze za pomoc�
 
     ![Karta konfiguracje usługi Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-1. W polu Filtr wprowadź wartość `auto.create`.
+1. W polu Filtr wprowadź wartość `auto.create` .
 
     ![Pole filtru wyszukiwania Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     To ustawienie filtruje listę właściwości i wyświetla `auto.create.topics.enable` ustawienie.
 
-1. Zmień wartość `auto.create.topics.enable` na `true`, a następnie wybierz pozycję **Zapisz**. Dodaj notatkę, a następnie wybierz pozycję **Zapisz** ponownie.
+1. Zmień wartość `auto.create.topics.enable` na `true` , a następnie wybierz pozycję **Zapisz**. Dodaj notatkę, a następnie wybierz pozycję **Zapisz** ponownie.
 
     ![Obraz przedstawiający wpis Auto. Create. temats. Enable](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
@@ -58,7 +58,7 @@ Aby włączyć automatyczne tworzenie tematów w istniejącym klastrze za pomoc�
 
 ## <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 
-Podczas tworzenia klastra Kafka przy użyciu szablonu Azure Resource Manager można bezpośrednio ustawić `auto.create.topics.enable` przez dodanie go w. `kafka-broker` Poniższy fragment kodu JSON pokazuje, jak ustawić tę wartość na `true`:
+Podczas tworzenia klastra Kafka przy użyciu szablonu Azure Resource Manager można bezpośrednio ustawić `auto.create.topics.enable` przez dodanie go w `kafka-broker` . Poniższy fragment kodu JSON pokazuje, jak ustawić tę wartość na `true` :
 
 ```json
 "clusterDefinition": {

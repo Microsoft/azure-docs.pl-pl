@@ -8,21 +8,20 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: a7827349166ce55b1604f949f1d78a1ddce7c5e0
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116025"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214506"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak wyświetlać i zrozumieć wykresy i metryki dla każdego z zautomatyzowanych przebiegów uczenia maszynowego. 
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 + [Metryki, wykresy i krzywe dla modeli klasyfikacji](#classification)
 + [Metryki, wykresy i wykresy dla modeli regresji](#regression)
 + [Interpretacja modelu i ważność funkcji](#explain-model)
@@ -265,6 +264,9 @@ Dobry model zazwyczaj ma krzywą dzwonka lub błędy wokół zera.
 ## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Interpretacja modelu i ważność funkcji
 Zautomatyzowana ML udostępnia pulpit nawigacyjny do tłumaczenia maszynowego dla przebiegów.
 Aby uzyskać więcej informacji na temat włączania funkcji interpretacji, zobacz [instrukcje](how-to-machine-learning-interpretability-automl.md) włączania interpretacji w zautomatyzowanych eksperymentach ml.
+
+> [!NOTE]
+> Model ForecastTCN nie jest obecnie obsługiwany przez klienta wyjaśnień. Ten model nie zwróci pulpitu nawigacyjnego wyjaśnienie, jeśli jest zwracany jako najlepszy model i nie obsługuje uruchomionych wyjaśnień na żądanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

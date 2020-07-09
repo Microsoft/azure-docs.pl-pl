@@ -8,10 +8,9 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79284917"
 ---
 # <a name="use-ip-filters"></a>Korzystanie z filtrów adresów IP
@@ -48,7 +47,7 @@ Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP**Wypełnij pola.
 
 ![Po wybraniu opcji Dodaj regułę filtrowania adresów IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7- `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` bitowe Plus.
+* Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7-bitowe Plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` .
 
 * Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 z 192.168.100.0 do 192.168.103.255.
 
@@ -135,8 +134,8 @@ Zaktualizuj atrybuty reguły filtrowania adresów IP szablonu na podstawie wymag
 
 | Atrybut                | Opis |
 | ------------------------ | ----------- |
-| **FilterName**           | Podaj nazwę dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Tylko znaki alfanumeryczne ASCII 7-bitowe plus {"-", ":", "/", "\',". "," + ","% "," _ "," # "," * ","? ","! "akceptowane są wartości" (",") ",", "," = "," @ ","; "i" "". |
-| **Akcja**               | Akceptowane wartości są **akceptowane** lub **odrzucane** jako akcja dla reguły filtru IP. |
+| **FilterName**           | Podaj nazwę dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Tylko znaki alfanumeryczne ASCII 7-bitowe plus {"-", ":", "/", " \' ,". "," + ","% "," _ "," # "," * ","? ","! "akceptowane są wartości" (",") ",", "," = "," @ ","; "i" "". |
+| **Akcja**               | Akceptowane wartości są **akceptowane**   lub **odrzucane**   jako akcja dla reguły filtru IP. |
 | **ipMask**               | Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 z 192.168.100.0 do 192.168.103.255. |
 
 

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/20/2020
-  ms.openlocfilehash: b28cae1fd59e863c04d744a5c17108f1bd942a4d
-  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+  ms.date: 06/29/2020
+  ms.openlocfilehash: c066c3a7cc5b8208a61962ce4f51f7eef4be192b
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84119353"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85549933"
 landingContent:
 - title: Informacje o usłudze Azure Policy
   linkLists:
@@ -39,11 +39,11 @@ landingContent:
     links:
     - text: Przypisywanie zasad (portal)
       url: ./assign-policy-portal.md
-    - text: Przypisywanie zasad (PowerShell)
-      url: ./assign-policy-powershell.md
     - text: Przypisywanie zasad (interfejs wiersza polecenia platformy Azure)
       url: ./assign-policy-azurecli.md
-    - text: Przypisywanie zasad (szablon)
+    - text: Przypisywanie zasad (Azure PowerShell)
+      url: ./assign-policy-powershell.md
+    - text: Przypisywanie zasad (szablon usługi ARM)
       url: ./assign-policy-template.md
   - linkListType: tutorial
     links:
@@ -73,6 +73,8 @@ landingContent:
       url: ./how-to/author-policies-for-arrays.md
   - linkListType: concept
     links:
+    - text: Zgodność z przepisami
+      url: ./concepts/regulatory-compliance.md
     - text: Zasady dla platformy Kubernetes
       url: ./concepts/policy-for-kubernetes.md
     - text: Zasady dla maszyn wirtualnych
@@ -92,7 +94,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Policy
-      url: /answers/topics/azure-policy.html.html
+      url: /answers/topics/azure-policy.html
     - text: Kanał w witrynie YouTube dotyczący ładu Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Zażądaj funkcji produktu
@@ -127,9 +129,9 @@ landingContent:
       url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - text: Zestaw Azure SDK dla platformy .NET (definicje zasad)
       url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-    - text: Zestaw Azure SDK dla platformy Node (zasady)
+    - text: Zestaw Azure SDK dla języka JavaScript (zasady)
       url: /javascript/api/@azure/arm-policy
-    - text: Zestaw Azure SDK dla platformy Node (szczegółowe dane zasad)
+    - text: Zestaw Azure SDK dla języka JavaScript (analiza zasad)
       url: /javascript/api/@azure/arm-policyinsights
     - text: Zestaw Azure SDK dla środowiska Python (zasady)
       url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy

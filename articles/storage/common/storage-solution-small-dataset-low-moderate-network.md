@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60397281"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504308"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transfer małych zestawów danych w przypadku niskiej lub umiarkowanej przepustowości sieci
  
@@ -49,14 +49,14 @@ W tym scenariuszu zalecane są następujące opcje:
 
 Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
-| Funkcja | Eksplorator usługi Azure Storage | Azure Portal | Narzędzie AzCopy<br>Azure PowerShell<br>Interfejs wiersza polecenia platformy Azure | Interfejsy API REST usługi Azure Storage lub zestawy SDK |
+| Cecha | Eksplorator usługi Azure Storage | Azure Portal | AzCopy<br>Azure PowerShell<br>Interfejs wiersza polecenia platformy Azure | Interfejsy API REST usługi Azure Storage lub zestawy SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Dostępność | Pobieranie i instalowanie <br>Autonomiczne narzędzie | Narzędzia eksploracji oparte na sieci Web w Azure Portal | Narzędzie wiersza polecenia |Interfejsy programowalne w językach .NET, Java, Python, JavaScript, C++, go, Ruby i PHP |
-| Interfejs graficzny | Tak | Tak | Nie | Nie |
+| Interfejs graficzny | Tak | Yes | Nie | Nie |
 | Obsługiwane platformy | Windows, Mac, Linux | Oparte na sieci Web |Windows, Mac, Linux |Wszystkie platformy |
-| Dozwolone operacje magazynu obiektów BLOB<br>dla obiektów blob i folderów | Upload<br>Pliki do pobrania<br>Zarządzanie | Upload<br>Pliki do pobrania<br>Zarządzanie |Upload<br>Pliki do pobrania<br>Zarządzanie | Tak, dostosowywalne |
-| Dozwolony Data Lake magazyn Gen1<br>operacje dotyczące plików i folderów | Upload<br>Pliki do pobrania<br>Zarządzanie | Nie |Upload<br>Pliki do pobrania<br>Zarządzanie                   | Nie |
-| Dozwolone operacje magazynowania plików<br>dla plików i katalogów | Upload<br>Pliki do pobrania<br>Zarządzanie | Upload<br>Pliki do pobrania<br>Zarządzanie   |Upload<br>Pliki do pobrania<br>Zarządzanie | Tak, dostosowywalne |
+| Dozwolone operacje magazynu obiektów BLOB<br>dla obiektów blob i folderów | Upload<br>Pobierz<br>Zarządzanie | Upload<br>Pobierz<br>Zarządzanie |Upload<br>Pobierz<br>Zarządzanie | Tak, dostosowywalne |
+| Dozwolony Data Lake magazyn Gen1<br>operacje dotyczące plików i folderów | Upload<br>Pobierz<br>Zarządzanie | Nie |Upload<br>Pobierz<br>Zarządzanie                   | Nie |
+| Dozwolone operacje magazynowania plików<br>dla plików i katalogów | Upload<br>Pobierz<br>Zarządzanie | Upload<br>Pobierz<br>Zarządzanie   |Upload<br>Pobierz<br>Zarządzanie | Tak, dostosowywalne |
 | Dozwolone operacje magazynu tabel<br>dla tabel |Zarządzanie | Nie |Obsługa tabel w programie AzCopy wersji 7 |Tak, dostosowywalne|
 | Dozwolony magazyn kolejek | Zarządzanie | Nie  |Nie | Tak, można dostosowywać|
 

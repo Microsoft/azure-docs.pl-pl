@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4517a600acaf581ad240d634e89bba3984f835db
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978182"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087337"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurowanie zewnętrznego odbiornika dla grup dostępności na maszynach wirtualnych platformy Azure SQL Server
 > [!div class="op_single_selector"]
@@ -62,22 +62,26 @@ Należy utworzyć punkt końcowy o zrównoważonym obciążeniu dla każdej masz
 5. Uruchom **Azure PowerShell**. Zostanie otwarta nowa sesja programu PowerShell z załadowanymi modułami administracyjnymi platformy Azure.
 6. Uruchom **Get-AzurePublishSettingsFile**. To polecenie cmdlet kieruje użytkownika do przeglądarki w celu pobrania pliku ustawień publikowania do katalogu lokalnego. Może zostać wyświetlony monit o podanie poświadczeń logowania do subskrypcji platformy Azure.
 7. Uruchom polecenie **Import-AzurePublishSettingsFile** ze ścieżką pobranego pliku ustawień publikowania:
-   
-        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
+    ```powershell
+    Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+    ```
+
     Po zaimportowaniu pliku ustawień publikowania możesz zarządzać subskrypcją platformy Azure w sesji programu PowerShell.
     
 1. Skopiuj poniższy skrypt programu PowerShell do edytora tekstu i ustaw wartości zmiennych, aby odpowiadały Twojemu środowisku (wartości domyślne zostały podane dla niektórych parametrów). Należy pamiętać, że jeśli grupa dostępności obejmuje regiony platformy Azure, należy uruchomić skrypt jeden raz w każdym centrum danych dla usługi w chmurze i węzłów, które znajdują się w tym centrum danych.
+
+    ```powershell
+    # Define variables
+    $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+    $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
    
-        # Define variables
-        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-   
-        # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
-        ForEach ($node in $AGNodes)
-        {
-            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
-        }
+    # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
+    ForEach ($node in $AGNodes)
+    {
+        Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+    }
+    ```
 
 2. Po ustawieniu zmiennych skopiuj skrypt z edytora tekstów do sesji Azure PowerShell, aby go uruchomić. Jeśli monit nadal zawiera >>, wpisz wprowadź ponownie, aby upewnić się, że skrypt zacznie działać.
 
@@ -98,18 +102,21 @@ Utwórz odbiornik grupy dostępności w dwóch krokach. Najpierw utwórz zasób 
 1. W przypadku zewnętrznego równoważenia obciążenia należy uzyskać publiczny wirtualny adres IP usługi w chmurze zawierającej repliki. Zaloguj się do witryny Azure Portal. Przejdź do usługi w chmurze zawierającej maszynę wirtualną grupy dostępności. Otwórz widok **pulpitu nawigacyjnego** .
 2. Zwróć uwagę na adres wyświetlany w obszarze **publiczny wirtualny adres IP (VIP)**. Jeśli rozwiązanie obejmuje sieci wirtualnych, Powtórz ten krok dla każdej usługi w chmurze zawierającej maszynę wirtualną, która obsługuje replikę.
 3. Na jednej z maszyn wirtualnych Skopiuj poniższy skrypt programu PowerShell do edytora tekstu i Ustaw zmienne na zanotowane wcześniej wartości.
+
+    ```powershell
+    # Define variables
+    $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
    
-        # Define variables
-        $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
+    Import-Module FailoverClusters
    
-        Import-Module FailoverClusters
+    # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
    
-        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
-   
-        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-        # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
+    # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+    ```
+
 4. Po ustawieniu zmiennych Otwórz okno programu Windows PowerShell z podwyższonym poziomem uprawnień, a następnie skopiuj skrypt z edytora tekstów i wklej go do sesji Azure PowerShell, aby go uruchomić. Jeśli monit nadal zawiera >>, wpisz wprowadź ponownie, aby upewnić się, że skrypt zacznie działać.
 5. Powtórz tę czynność dla każdej maszyny wirtualnej. Ten skrypt konfiguruje zasób adresu IP przy użyciu adresu IP usługi w chmurze i ustawia inne parametry, takie jak port sondy. Gdy zasób adresu IP jest przełączany w tryb online, może odpowiedzieć na sondowanie na porcie sondy z punktu końcowego ze zrównoważonym obciążeniem utworzonego wcześniej w tym samouczku.
 
@@ -125,7 +132,9 @@ Utwórz odbiornik grupy dostępności w dwóch krokach. Najpierw utwórz zasób 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testowanie odbiornika grupy dostępności (za pośrednictwem Internetu)
 Aby uzyskać dostęp do odbiornika spoza sieci wirtualnej, należy użyć zewnętrznego/publicznego równoważenia obciążenia (opisanego w tym temacie), a nie ILB, który jest dostępny tylko w ramach tej samej sieci wirtualnej. W parametrach połączenia należy określić nazwę usługi w chmurze. Na przykład jeśli masz usługę w chmurze o nazwie *mycloudservice*, instrukcja sqlcmd będzie następująca:
 
-    sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```console
+sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+```
 
 W przeciwieństwie do poprzedniego przykładu należy użyć uwierzytelniania SQL, ponieważ obiekt wywołujący nie może używać uwierzytelniania systemu Windows przez Internet. Aby uzyskać więcej informacji, zobacz [zawsze włączone grupy dostępności na maszynie wirtualnej platformy Azure: scenariusze łączności klienta](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). W przypadku korzystania z uwierzytelniania SQL upewnij się, że utworzono tę samą nazwę logowania w obu replikach. Aby uzyskać więcej informacji na temat rozwiązywania problemów z logowaniem przy użyciu grup dostępności, zobacz [Jak mapować nazwy logowania lub używać zawartego użytkownika bazy danych SQL Database do łączenia się z innymi replikami i mapować do baz danych dostępności](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 

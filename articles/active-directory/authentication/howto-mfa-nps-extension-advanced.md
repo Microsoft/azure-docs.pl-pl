@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653785"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Zaawansowane opcje konfiguracji rozszerzenia serwera NPS dla uwierzytelniania wieloskładnikowego
@@ -42,7 +41,7 @@ Aby rozwiązać problemy z alternatywnymi identyfikatorami logowania, należy u�
 
 Jeśli potrzebujesz monitorować dostępność serwera, na przykład jeśli usługi równoważenia obciążenia weryfikują, które serwery działają przed wysłaniem obciążeń, nie chcesz, aby te testy były blokowane przez żądania weryfikacji. Zamiast tego należy utworzyć listę adresów IP, które są używane przez konta usług, i wyłączyć Multi-Factor Authentication wymagania dla tej listy.
 
-Aby skonfigurować listę dozwolonych adresów IP, przejdź `HKLM\SOFTWARE\Microsoft\AzureMfa` do i skonfiguruj następującą wartość rejestru:
+Aby skonfigurować listę dozwolonych adresów IP, przejdź do `HKLM\SOFTWARE\Microsoft\AzureMfa` i skonfiguruj następującą wartość rejestru:
 
 | Nazwa | Typ | Wartość domyślna | Opis |
 | ---- | ---- | ------------- | ----------- |
@@ -51,7 +50,7 @@ Aby skonfigurować listę dozwolonych adresów IP, przejdź `HKLM\SOFTWARE\Micro
 > [!NOTE]
 > Ten klucz rejestru nie jest tworzony domyślnie przez Instalatora i w dzienniku AuthZOptCh pojawia się błąd, gdy usługa zostanie ponownie uruchomiona. Ten błąd może zostać zignorowany, ale jeśli ten klucz rejestru zostanie utworzony i pozostawiony pusty, jeśli nie jest wymagany, komunikat o błędzie nie zostanie zwrócony.
 
-Gdy żądanie pochodzi z adresu IP, który istnieje w `IP_WHITELIST`, weryfikacja dwuetapowa jest pomijana. Lista adresów IP jest porównywana z adresem IP podanym w atrybucie *ratNASIPAddress* żądania RADIUS. Jeśli żądanie usługi RADIUS występuje bez atrybutu ratNASIPAddress, rejestrowane jest następujące ostrzeżenie: "P_WHITE_LIST_WARNING:: IP dozwolonych jest ignorowane jako źródłowy adres IP w żądaniu usługi RADIUS w atrybucie NasIpAddress".
+Gdy żądanie pochodzi z adresu IP, który istnieje w `IP_WHITELIST` , weryfikacja dwuetapowa jest pomijana. Lista adresów IP jest porównywana z adresem IP podanym w atrybucie *ratNASIPAddress* żądania RADIUS. Jeśli żądanie usługi RADIUS występuje bez atrybutu ratNASIPAddress, rejestrowane jest następujące ostrzeżenie: "P_WHITE_LIST_WARNING:: IP dozwolonych jest ignorowane jako źródłowy adres IP w żądaniu usługi RADIUS w atrybucie NasIpAddress".
 
 ## <a name="next-steps"></a>Następne kroki
 

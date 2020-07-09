@@ -11,10 +11,9 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758246"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Podłączanie Rigado kaskadowego urządzenia bramy 500 do aplikacji IoT Central platformy Azure
@@ -41,9 +40,9 @@ W celu dołączenia urządzenia bramy kaskadowej 500 do wystąpienia aplikacji p
 
 Aby dodać kaskadowy szablon urządzenia 500: 
 
-1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**: ![Utwórz nowy szablon urządzenia](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**: ![ Utwórz nowy szablon urządzenia](./media/howto-connect-rigado-cascade-500/device-template-new.png)
 1. Na stronie można ***utworzyć szablon niestandardowy*** lub ***użyć wstępnie skonfigurowanego szablonu urządzenia***
-1. Wybierz szablon urządzenia C500 z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej: ![wybierz szablon urządzenia C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
+1. Wybierz szablon urządzenia C500 z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej: ![ Wybierz szablon urządzenia C500](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
 1. Wybierz pozycję ***Dalej: Dostosuj*** , aby przejść do następnego kroku. 
 1. Na następnym ekranie wybierz pozycję ***Utwórz*** , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
 
@@ -54,8 +53,8 @@ Teraz musisz pobrać **Identyfikator zakresu** i **klucz podstawowy** aplikacji 
 1. W lewym okienku przejdź do obszarze **Administracja** , a następnie kliknij pozycję **połączenie z urządzeniem**. 
 2. Zanotuj **Identyfikator zakresu** dla aplikacji IoT Central.
 ![Identyfikator zakresu aplikacji](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
-3. Teraz kliknij przycisk **Wyświetl klucze** i zanotuj klucz podstawowy **klucza**
-![podstawowego](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
+3. Teraz kliknij przycisk **Wyświetl klucze** i zanotuj klucz **Primary key** 
+ ![ podstawowy klucza podstawowego](./media/howto-connect-rigado-cascade-500/primary-key-sas.png)  
 
 ## <a name="contact-rigado-to-connect-the-gateway"></a>Skontaktuj się z Rigado, aby połączyć bramę 
 

@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996421"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Podłącz komputery z systemem Windows do Azure Monitor
@@ -60,9 +59,9 @@ Aby skonfigurować użycie protokołu [TLS 1,2](https://docs.microsoft.com/windo
 
 Skonfiguruj .NET Framework 4,6 lub nowszy, aby obsługiwać szyfrowanie Secure, tak jak domyślnie jest ono wyłączone. [Silne Kryptografia](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) korzysta z bezpieczniejszych protokołów sieciowych, takich jak TLS 1,2, i blokuje protokoły, które nie są bezpieczne. 
 
-1. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
+1. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319**.  
 2. Utwórz wartość DWORD **schusestrongcrypto we** w tym podkluczu o wartości **1**.  
-3. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \software\wow6432node\microsoft\\. NETFramework\v4.0.30319**.  
+3. Zlokalizuj następujący podklucz rejestru: **HKEY_LOCAL_MACHINE \software\wow6432node\microsoft \\ . NETFramework\v4.0.30319**.  
 4. Utwórz wartość DWORD **schusestrongcrypto we** w tym podkluczu o wartości **1**. 
 5. Aby ustawienia zaczęły obowiązywać, należy ponownie uruchomić system. 
 
@@ -103,7 +102,7 @@ W poniższej tabeli przedstawiono określone parametry obsługiwane przez Instal
 |OPINSIGHTS_PROXY_USERNAME               | Nazwa użytkownika, aby uzyskać dostęp do uwierzytelnionego serwera proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Hasło dostępu do uwierzytelnionego serwera proxy |
 
-1. Do wyodrębnienia plików instalacyjnych agenta z wiersza polecenia z podwyższonym `MMASetup-<platform>.exe /c` poziomem uprawnień i pojawi się monit o ścieżkę, do której mają zostać wyodrębnione pliki.  Alternatywnie możesz określić ścieżkę, przekazując argumenty `MMASetup-<platform>.exe /c /t:<Full Path>`.  
+1. Do wyodrębnienia plików instalacyjnych agenta z wiersza polecenia z podwyższonym poziomem uprawnień `MMASetup-<platform>.exe /c` i pojawi się monit o ścieżkę, do której mają zostać wyodrębnione pliki.  Alternatywnie możesz określić ścieżkę, przekazując argumenty `MMASetup-<platform>.exe /c /t:<Full Path>` .  
 2. Aby zainstalować agenta w trybie dyskretnym i skonfigurować go do raportowania do obszaru roboczego w chmurze komercyjnej platformy Azure, z folderu wyodrębnione pliki instalacyjne do wpisania: 
    
      ```dos
@@ -131,13 +130,13 @@ W poniższym przykładzie jest instalowany Agent 64-bitowy identyfikowany przez 
 >[!NOTE]
 >Ta procedura i przykład skryptu nie obsługują uaktualniania agenta już wdrożonego na komputerze z systemem Windows.
 
-32-bitowe i 64-bitowe wersje pakietu agenta mają różne kody produktów i wydane nowe wersje mają również unikatową wartość.  Kod produktu jest identyfikatorem GUID, który jest identyfikatorem podmiotu zabezpieczeń aplikacji lub produktu i jest reprezentowany przez właściwość Instalator Windows **ProductCode** .  `ProductId` Wartość w skrypcie **MMAgent. ps1** musi odpowiadać kodowi produktu z pakietu Instalatora agenta 32-bitowego lub 64-bitowego.
+32-bitowe i 64-bitowe wersje pakietu agenta mają różne kody produktów i wydane nowe wersje mają również unikatową wartość.  Kod produktu jest identyfikatorem GUID, który jest identyfikatorem podmiotu zabezpieczeń aplikacji lub produktu i jest reprezentowany przez właściwość Instalator Windows **ProductCode** .  `ProductId`Wartość w skrypcie **MMAgent.ps1** musi pasować do kodu produktu z pakietu Instalatora agenta 32-bitowego lub 64-bitowego.
 
-Aby bezpośrednio pobrać kod produktu z pakietu instalacji agenta, można użyć programu Orca. exe ze [składników Windows SDK, aby Instalator Windows deweloperów](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) , którzy są składnikiem zestawu Windows Software Development Kit lub przy użyciu programu PowerShell, po [przykładowym skrypcie](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) zapisanym przez firmę Microsoft (MVP).  W obu przypadkach najpierw należy wyodrębnić plik **pliku MOMAgent. msi** z pakietu instalacyjnego MMASetup.  Jest to pokazane wcześniej w pierwszym kroku w sekcji [Instalowanie agenta przy użyciu wiersza polecenia](#install-the-agent-using-the-command-line).  
+Aby bezpośrednio pobrać kod produktu z pakietu instalacji agenta, można użyć Orca.exe ze [składników Windows SDK dla Instalator Windows deweloperów](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) , którzy są składnikiem zestawu Windows Software Development Kit lub przy użyciu programu PowerShell, po [przykładowym skrypcie](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) zapisanym przez firmę Microsoft (MVP).  W obu przypadkach najpierw należy wyodrębnić plik **MOMagent.msi** z pakietu instalacyjnego MMASetup.  Jest to pokazane wcześniej w pierwszym kroku w sekcji [Instalowanie agenta przy użyciu wiersza polecenia](#install-the-agent-using-the-command-line).  
 
-1. Zaimportuj moduł xPSDesiredStateConfiguration DSC [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) z do Azure Automation.  
+1. Zaimportuj moduł xPSDesiredStateConfiguration DSC z [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) do Azure Automation.  
 2.    Utwórz Azure Automation zasobów zmiennych dla *OPSINSIGHTS_WS_ID* i *OPSINSIGHTS_WS_KEY*. Ustaw *OPSINSIGHTS_WS_ID* na identyfikator obszaru roboczego log Analytics i ustaw *OPSINSIGHTS_WS_KEY* klucz podstawowy obszaru roboczego.
-3.    Skopiuj skrypt i Zapisz go jako MMAgent. ps1.
+3.    Skopiuj skrypt i Zapisz go jako MMAgent.ps1.
 
 ```powershell
 Configuration MMAgent
@@ -176,7 +175,7 @@ Configuration MMAgent
 ```
 
 4. Zaktualizuj `ProductId` wartość w skrypcie o kod produktu wyodrębniony z najnowszej wersji pakietu instalacji agenta przy użyciu zalecanych wcześniej metod. 
-5. [Zaimportuj skrypt konfiguracyjny MMAgent. ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) do konta usługi Automation. 
+5. [Zaimportuj skrypt konfiguracji MMAgent.ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) na konto usługi Automation. 
 6. [Przypisz komputer lub węzeł systemu Windows](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) do konfiguracji. W ciągu 15 minut węzeł sprawdza swoją konfigurację, a agent jest wypychany do węzła.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Sprawdź łączność z agentem Log Analytics

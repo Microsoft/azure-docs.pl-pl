@@ -4,15 +4,15 @@ description: Dowiedz się, jak zarządzać połączeniami prywatnego punktu koń
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75452959"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737499"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Zarządzanie połączeniem z prywatnym punktem końcowym
 Łącze prywatne platformy Azure działa w modelu przepływu wywołań zatwierdzania, w którym odbiorca usługi linku prywatnego może zażądać połączenia z dostawcą usług w celu korzystania z usługi. Dostawca usług może następnie zdecydować, czy zezwolić konsumentowi na nawiązanie połączenia. Link prywatny platformy Azure umożliwia dostawcom usług Zarządzanie połączeniem prywatnego punktu końcowego w swoich zasobach. Ten artykuł zawiera instrukcje dotyczące zarządzania połączeniami prywatnego punktu końcowego.
@@ -31,7 +31,7 @@ W poniższej tabeli przedstawiono różne akcje dostawcy usług oraz Stany poł�
 |Brak    |    Oczekiwanie     |    Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny.       |
 |Zatwierdzenie    |  Approved (Zatwierdzono)       |  Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia.     |
 |Reject     | Odrzucone        | Połączenie zostało odrzucone przez właściciela zasobu link prywatny.        |
-|Remove    |  Odłączony       | Połączenie zostało usunięte przez właściciela zasobu linku prywatnego, prywatny punkt końcowy zmieni się na format i powinien zostać usunięty w celu oczyszczenia.        |
+|Usuń    |  Odłączony       | Połączenie zostało usunięte przez właściciela zasobu linku prywatnego, prywatny punkt końcowy zmieni się na format i powinien zostać usunięty w celu oczyszczenia.        |
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Zarządzanie połączeniami z prywatnym punktem końcowym w zasobach usługi Azure PaaS
@@ -51,14 +51,14 @@ Azure PowerShell i interfejs wiersza polecenia platformy Azure są preferowanymi
   
 Aby zarządzać połączeniami prywatnych punktów końcowych, użyj następujących poleceń programu PowerShell.  
 #### <a name="get-private-link-connection-states"></a>Pobierz Stany połączeń linków prywatnych 
-Użyj polecenia `Get-AzPrivateLinkService` cmdlet, aby uzyskać połączenia prywatnych punktów końcowych i ich Stanów.  
+Użyj `Get-AzPrivateLinkService` polecenia cmdlet, aby uzyskać połączenia prywatnych punktów końcowych i ich Stanów.  
 ```azurepowershell
 Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourceGroup 
  ```
  
 #### <a name="approve-a-private-endpoint-connection"></a>Zatwierdź połączenie prywatnego punktu końcowego 
  
-Użyj polecenia `Approve-AzPrivateEndpointConnection` cmdlet, aby zatwierdzić połączenie prywatnego punktu końcowego. 
+Użyj `Approve-AzPrivateEndpointConnection` polecenia cmdlet, aby zatwierdzić połączenie prywatnego punktu końcowego. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
@@ -66,13 +66,13 @@ Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceG
  
 #### <a name="deny-private-endpoint-connection"></a>Odmowa połączenia prywatnego punktu końcowego 
  
-Użyj polecenia `Deny-AzPrivateEndpointConnection` cmdlet, aby odrzucić połączenie prywatnego punktu końcowego. 
+Użyj `Deny-AzPrivateEndpointConnection` polecenia cmdlet, aby odrzucić połączenie prywatnego punktu końcowego. 
 ```azurepowershell
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
 #### <a name="remove-private-endpoint-connection"></a>Usuń połączenie prywatnego punktu końcowego 
  
-Użyj polecenia `Remove-AzPrivateEndpointConnection` cmdlet, aby usunąć połączenie prywatnego punktu końcowego. 
+Użyj `Remove-AzPrivateEndpointConnection` polecenia cmdlet, aby usunąć połączenie prywatnego punktu końcowego. 
 ```azurepowershell
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```

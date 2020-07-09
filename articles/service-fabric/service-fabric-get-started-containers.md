@@ -3,12 +3,12 @@ title: Tworzenie aplikacji kontenera Service Fabric platformy Azure
 description: Utwórz pierwszą aplikację kontenera systemu Windows w usłudze Azure Service Fabric. Tworzenie obrazu platformy Docker za pomocą aplikacji w języku Python, wypchnięcie obrazu do rejestru kontenerów, a następnie skompilowanie i wdrożenie kontenera na platformie Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560664"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows
 
@@ -142,12 +142,12 @@ Po uruchomieniu kontenera znajdź jego adres IP, dzięki czemu będzie można po
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Jeśli to polecenie nie zwróci żadnej wartości, uruchom następujące polecenie i sprawdź, czy element **NetworkSettings**->**Networks** dla adresu IP:
+Jeśli to polecenie nie zwróci żadnej wartości, uruchom następujące polecenie i sprawdź, czy element **NetworkSettings** -> **Networks** dla adresu IP:
 ```
 docker inspect my-web-site
 ```
 
-Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując na zwrócony adres IP, na przykład "http:\//172.31.194.61". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
+Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując na zwrócony adres IP, na przykład "http: \/ /172.31.194.61". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 Aby zatrzymać kontener, uruchom polecenie:
 
@@ -189,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Tworzenie konteneryzowanej usługi w programie Visual Studio
 Zestaw SDK oraz narzędzia usługi Service Fabric udostępniają szablon usługi ułatwiający utworzenie konteneryzowanej aplikacji.
 
-1. Uruchom program Visual Studio. Wybierz pozycję **plik** > **Nowy** > **projekt**.
+1. Uruchom program Visual Studio. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 2. Wybierz pozycję **Aplikacja usługi Service Fabric**, nadaj jej nazwę „MyFirstContainer” i kliknij przycisk **OK**.
 3. Z listy **szablonów usług** wybierz pozycję **Kontener**.
 4. W polu **Nazwa obrazu** wprowadź „myregistry.azurecr.io/samples/helloworldapp”. Jest to obraz wypchnięty do repozytorium kontenerów.
@@ -496,7 +496,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Konfigurowanie interwału czasu wymuszania przerwania działania kontenera
 
-Możesz skonfigurować interwał czasu środowiska uruchomieniowego, po upływie którego kontener ma zostać usunięty po rozpoczęciu usuwania usługi (lub przenoszenia do innego węzła). Skonfigurowanie interwału czasu powoduje wysłanie polecenia `docker stop <time in seconds>` do kontenera.  Aby uzyskać więcej informacji, zobacz [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Interwał czasu oczekiwania jest określony w sekcji `Hosting`. `Hosting` Sekcję można dodać podczas tworzenia klastra lub później w ramach uaktualnienia konfiguracji. W poniższym fragmencie manifestu klastra pokazano, jak ustawić interwał oczekiwania:
+Możesz skonfigurować interwał czasu środowiska uruchomieniowego, po upływie którego kontener ma zostać usunięty po rozpoczęciu usuwania usługi (lub przenoszenia do innego węzła). Skonfigurowanie interwału czasu powoduje wysłanie polecenia `docker stop <time in seconds>` do kontenera.  Aby uzyskać więcej informacji, zobacz [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Interwał czasu oczekiwania jest określony w sekcji `Hosting`. `Hosting`Sekcję można dodać podczas tworzenia klastra lub później w ramach uaktualnienia konfiguracji. W poniższym fragmencie manifestu klastra pokazano, jak ustawić interwał oczekiwania:
 
 ```json
 "fabricSettings": [

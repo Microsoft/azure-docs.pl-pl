@@ -1,26 +1,27 @@
 ---
-title: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
+title: Połącz się prywatnie z aplikacją internetową platformy Azure przy użyciu prywatnego punktu końcowego
 description: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846957"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054580"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
 > [!Note]
 > Po odświeżeniu wersji zapoznawczej wydano funkcję ochrony danych eksfiltracji.
-> Wersja zapoznawcza jest dostępna w regionach Wschodnie stany USA i zachodnie stany USA 2 dla wszystkich PremiumV2 systemów Windows i Web Apps Linux oraz funkcji elastycznych w warstwie Premium. 
+>
+> Wersja zapoznawcza jest dostępna we wszystkich regionach publicznych dla PremiumV2 Windows i Linux Web Apps i elastycznych funkcji Premium. 
 
 Możesz użyć prywatnego punktu końcowego dla aplikacji sieci Web platformy Azure, aby umożliwić klientom znajdującym się w sieci prywatnej bezpieczny dostęp do aplikacji za pośrednictwem prywatnego linku. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej platformy Azure. Ruch sieciowy między klientem w sieci prywatnej a aplikacją sieci Web przechodzi przez sieć wirtualną oraz prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
@@ -44,7 +45,7 @@ Podsieć, w której jest podłączony prywatny punkt końcowy, może zawierać i
 Możesz również wdrożyć prywatny punkt końcowy w innym regionie niż aplikacja internetowa. 
 
 > [!Note]
->Funkcja integracji sieci wirtualnej nie może używać tej samej podsieci niż prywatny punkt końcowy. jest to ograniczenie funkcji integracji sieci wirtualnej.
+>Funkcja integracji sieci wirtualnej nie może używać tej samej podsieci co prywatny punkt końcowy. jest to ograniczenie funkcji integracji sieci wirtualnej.
 
 Z perspektywy zabezpieczeń:
 
@@ -56,7 +57,7 @@ Z perspektywy zabezpieczeń:
 - Po włączeniu prywatnego punktu końcowego w aplikacji sieci Web konfiguracja [ograniczeń dostępu][accessrestrictions] aplikacji sieci Web nie jest szacowana.
 - Możesz wyeliminować ryzyko związane z eksfiltracji danych z sieci wirtualnej, usuwając wszystkie reguły sieciowej grupy zabezpieczeń, w których miejsce docelowe jest znacznikiem internetowym lub usług platformy Azure. Po wdrożeniu prywatnego punktu końcowego dla aplikacji sieci Web można uzyskać dostęp tylko do tej konkretnej aplikacji sieci Web za pomocą prywatnego punktu końcowego. Jeśli masz inną aplikację sieci Web, musisz wdrożyć inny dedykowany prywatny punkt końcowy dla tej innej aplikacji sieci Web.
 
-W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródła klienta. Jest to implementowane przy użyciu protokołu serwera proxy TCP, przekazując Właściwość IP klienta do aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie informacji o połączeniu przy użyciu protokołu TCP proxy v2][tcpproxy].
+W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródła klienta. Ta funkcja jest implementowana przy użyciu protokołu proxy TCP, przekazując Właściwość IP klienta do aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie informacji o połączeniu przy użyciu protokołu TCP proxy v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -64,12 +65,50 @@ W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródł
 
 ## <a name="dns"></a>DNS
 
-Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, nie zmieniamy wpisu DNS w trakcie okresu zapoznawczego. Musisz samodzielnie zarządzać wpisem DNS na prywatnym serwerze DNS lub Azure DNS strefie prywatnej.
+W przypadku korzystania z prywatnego punktu końcowego dla aplikacji internetowej żądany adres URL musi być zgodny z nazwą aplikacji sieci Web. Domyślnie mywebappname.azurewebsites.net.
+
+Domyślnie, bez prywatnego punktu końcowego, publiczna nazwa aplikacji sieci Web jest nazwą kanoniczną klastra.
+Na przykład rozpoznawanie nazw będzie:
+
+|Nazwa |Typ |Wartość |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
+
+
+Podczas wdrażania prywatnego punktu końcowego aktualizujemy wpis DNS w taki sposób, aby wskazywał nazwę kanoniczną mywebapp.privatelink.azurewebsites.net.
+Na przykład rozpoznawanie nazw będzie:
+
+|Nazwa |Typ |Wartość |Dyskusji |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154|< — ten publiczny adres IP nie jest prywatnym punktem końcowym, zostanie wyświetlony błąd 403|
+
+Należy skonfigurować prywatny serwer DNS lub Azure DNS strefę prywatną, w przypadku testów można zmodyfikować wpis hosta maszyny testowej.
+Należy utworzyć strefę DNS: **privatelink.azurewebsites.NET**. Zarejestruj rekord aplikacji sieci Web przy użyciu rekordu a i prywatnego adresu IP punktu końcowego.
+Na przykład rozpoznawanie nazw będzie:
+
+|Nazwa |Typ |Wartość |Dyskusji |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< — zarządzanie tym wpisem w systemie DNS w celu wskazywania prywatnego adresu IP punktu końcowego|
+
+Po tej konfiguracji DNS można skontaktować się z Twoją aplikacją internetową, korzystając z nazwy domyślnej mywebappname.azurewebsites.net.
+
+
 Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. W trakcie korzystania z wersji zapoznawczej Nazwa niestandardowa musi być zweryfikowana, podobnie jak nazwa niestandardowa, przy użyciu publicznego rozpoznawania DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
 
-Jeśli musisz na przykład użyć konsoli programu kudu lub interfejsu API REST (wdrożenie z obsługą platformy Azure DevOps), musisz utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+W przypadku konsoli usługi kudu lub interfejsu API REST (na przykład wdrożenia z użyciem platformy Azure DevOps dla agentów) należy utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
+
+| Nazwa | Typ | Wartość |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+
+
 
 ## <a name="pricing"></a>Cennik
 
@@ -77,7 +116,7 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 ## <a name="limitations"></a>Ograniczenia
 
-Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć dostęp do prywatnego punktu końcowego, aby wykonać funkcję z portalu sieci Web systemu Azure. 
+Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć możliwość nawiązania połączenia z prywatnym punktem końcowym w celu wykonania funkcji w portalu internetowym platformy Azure. 
 
 W trakcie okresu zapoznawczego tylko miejsce produkcyjne jest widoczne za prywatnym punktem końcowym, a inne gniazda muszą być osiągalne przez publiczny punkt końcowy.
 
@@ -85,8 +124,9 @@ Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu, zobacz [jak połączyć się prywatnie z aplikacją sieci Web][howtoguide]
-
+- Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu, zobacz [jak połączyć się prywatnie z aplikacją sieci Web za pomocą portalu][howtoguide1]
+- Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [jak połączyć się prywatnie z aplikacją internetową przy użyciu interfejsu wiersza polecenia platformy Azure][howtoguide2]
+- Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web przy użyciu programu PowerShell, zobacz [jak połączyć się prywatnie z aplikacją sieci Web za pomocą programu PowerShell][howtoguide3]
 
 
 
@@ -100,4 +140,6 @@ Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint

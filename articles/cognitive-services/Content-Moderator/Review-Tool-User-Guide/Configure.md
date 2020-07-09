@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220128"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689847"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurowanie narzędzia do przeglądu
 
@@ -25,7 +25,7 @@ ms.locfileid: "79220128"
 
 ## <a name="manage-team-and-subteams"></a>Zarządzanie zespołem i podzespołów
 
-Karta **zespół** umożliwia zarządzanie zespołami i&mdash;grupami podzespołów użytkowników, którzy mogą otrzymywać powiadomienia o rozpoczęciu niektórych [recenzji ludzkich](../review-api.md#reviews) . Możesz mieć tylko jeden zespół (tworzony podczas tworzenia konta za pomocą narzędzia do przeglądu), ale można utworzyć wiele podzespołów. Administrator zespołu może zapraszać członków, ustawiać ich uprawnienia i przypisywać je do różnych zespołów.
+Karta **zespół** umożliwia zarządzanie zespołami i &mdash; grupami podzespołów użytkowników, którzy mogą otrzymywać powiadomienia o rozpoczęciu niektórych [recenzji ludzkich](../review-api.md#reviews) . Możesz mieć tylko jeden zespół (tworzony podczas tworzenia konta za pomocą narzędzia do przeglądu), ale można utworzyć wiele podzespołów. Administrator zespołu może zapraszać członków, ustawiać ich uprawnienia i przypisywać je do różnych zespołów.
 
 ![Przegląd ustawień zespołu narzędzi](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Jeśli jesteś członkiem więcej niż jednego podzespołu, możesz przełącza�
 
 ## <a name="tags"></a>Tagi
 
-Na **karcie Tagi** można zdefiniować niestandardowe znaczniki moderowania oprócz dwóch&mdash;domyślnych tagów moderowania**isdorosły** (**a**) i **isracy** (**r**). Gdy tworzysz tag niestandardowy, będzie on dostępny w przeglądach obok znaczników domyślnych. Możesz zmienić, które Tagi będą widoczne w przeglądach, przełączając ich ustawienia widoczności.
+Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania oprócz dwóch domyślnych tagów moderowania &mdash; **isdorosły** (**a**) i **isracy** (**r**). Gdy tworzysz tag niestandardowy, będzie on dostępny w przeglądach obok znaczników domyślnych. Możesz zmienić, które Tagi będą widoczne w przeglądach, przełączając ich ustawienia widoczności.
 
 ![Widok tagów, w tym pola wyboru "jest widoczne"](images/tags-4-disable.png)
 
@@ -105,7 +105,7 @@ Aby dodać łącznik (i udostępnić go do użycia w [przepływach pracy](../rev
 
 ![Ustawienia Content Moderator łączników](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Przepływy pracy
+## <a name="workflows"></a>Przepływy
 
 Karta **przepływy pracy** umożliwia zarządzanie [przepływami pracy](../review-api.md#workflows). Przepływy pracy są filtrami opartymi na chmurze dla zawartości i pracują z łącznikami, aby sortować zawartość na różne sposoby i podejmować odpowiednie działania. Tutaj możesz definiować, edytować i testować przepływy pracy. Zobacz [Definiowanie i używanie przepływów pracy,](Workflows.md) Aby uzyskać wskazówki dotyczące sposobu wykonania tej czynności.
 

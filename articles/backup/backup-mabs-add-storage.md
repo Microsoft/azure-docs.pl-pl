@@ -4,10 +4,9 @@ description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W ty
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172378"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
@@ -36,7 +35,7 @@ Serwer kopii zapasowej w wersji 2 lub nowszej akceptuje woluminy magazynu. Po do
 
 Użycie serwera zapasowego w wersji 2 lub nowszej z woluminami jako magazyn dyskowy może ułatwić zachowanie kontroli nad magazynem. Wolumin może być pojedynczym dyskiem. Jeśli jednak chcesz w przyszłości zwiększyć magazyn, Utwórz wolumin poza dyskiem utworzonym przy użyciu funkcji miejsca do magazynowania. Może to pomóc w rozwinięciu woluminu dla magazynu kopii zapasowych. Ta sekcja zawiera najlepsze rozwiązania dotyczące tworzenia woluminów przy użyciu tej konfiguracji.
 
-1. W Menedżer serwera wybierz > pozycję **usługi plików i magazynowania****woluminy** > **Pule magazynów**. W obszarze **dyski fizyczne**wybierz pozycję **Nowa pula magazynu**.
+1. W Menedżer serwera wybierz pozycję **usługi plików i magazynowania**  >  **woluminy**  >  **Pule magazynów**. W obszarze **dyski fizyczne**wybierz pozycję **Nowa pula magazynu**.
 
     ![Utwórz nową pulę magazynów](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -119,7 +118,7 @@ Jeśli chcesz używać starszej wersji magazynu z serwerem kopii zapasowych, mo�
 
 Aby dodać magazyn dyskowy:
 
-1. W Konsola administratora wybierz pozycję **Zarządzanie** > **Disk Storage** > **Dodaj**.
+1. W Konsola administratora wybierz pozycję **Zarządzanie**  >  **Disk Storage**  >  **Dodaj**.
 
     ![Okno dialogowe Dodawanie Disk Storage](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

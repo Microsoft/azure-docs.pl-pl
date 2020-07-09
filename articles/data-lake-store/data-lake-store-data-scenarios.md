@@ -10,12 +10,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: a8f9b66bf9a301888f2371fb1c58a4845c2232b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193671"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Używanie Azure Data Lake Storage Gen1 do wymagań dotyczących danych Big Data
 
@@ -40,7 +39,7 @@ Reprezentuje to mniejsze zestawy danych, które są używane do prototypowania a
 
 | Źródło danych | Pozyskiwanie przy użyciu |
 | --- | --- |
-| Komputer lokalny |<ul> <li>[Witryna Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Korzystanie z narzędzi Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Komputer lokalny |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Korzystanie z narzędzi Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Narzędzie AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Pomocą distcp uruchomione w klastrze usługi HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dane przesyłane strumieniowo
@@ -78,7 +77,7 @@ Większość typów klastrów usługi HDInsight (Hadoop, HBase, burza) obsługuj
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dane przechowywane w lokalnych lub IaaSych klastrach Hadoop
 Duże ilości danych mogą być przechowywane w istniejących klastrach usługi Hadoop lokalnie na maszynach przy użyciu systemu plików HDFS. Klastry Hadoop mogą znajdować się w lokalnym wdrożeniu lub znajdować się w klastrze IaaS na platformie Azure. Mogą istnieć wymagania, aby skopiować takie dane do Azure Data Lake Storage Gen1 na potrzeby jednego podejścia lub w sposób cykliczny. Istnieją różne opcje, których można użyć w celu osiągnięcia tego celu. Poniżej znajduje się lista alternatyw i skojarzonych z nimi zalet.
 
-| Podejście | Szczegóły | Zalety | Zagadnienia do rozważenia |
+| Podejście | Szczegóły | Zalety | Istotne zagadnienia |
 | --- | --- | --- | --- |
 | Użyj Azure Data Factory (ADF), aby skopiować dane bezpośrednio z klastrów usługi Hadoop do Azure Data Lake Storage Gen1 |[ADF jako źródło danych obsługuje system plików HDFS](../data-factory/connector-hdfs.md) |System ADF oferuje wbudowaną obsługę systemu plików HDFS oraz kompleksowe zarządzanie i monitorowanie w pierwszej klasie |Wymaga wdrożenia bramy Zarządzanie danymi w środowisku lokalnym lub w klastrze IaaS |
 | Eksportuj dane z usługi Hadoop jako pliki. Następnie skopiuj pliki do Azure Data Lake Storage Gen1 przy użyciu odpowiedniego mechanizmu. |Można kopiować pliki do Azure Data Lake Storage Gen1 przy użyciu: <ul><li>[Azure PowerShell dla systemu operacyjnego Windows](data-lake-store-get-started-powershell.md)</li><li>[Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)</li><li>Aplikacja niestandardowa korzystająca z dowolnego zestawu Data Lake Storage Gen1 SDK</li></ul> |Szybkie rozpoczynanie pracy. Można dostosować operacje przekazywania |Wieloetapowy proces, który obejmuje wiele technologii. Zarządzanie i monitorowanie zwiększy się w miarę upływu czasu, uwzględniając dostosowany charakter narzędzi |
@@ -108,7 +107,7 @@ Możesz zapoznać się z poniższymi przykładami.
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Pobieranie danych z Data Lake Storage Gen1
 Może być również konieczne pobranie lub przeniesienie danych z Azure Data Lake Storage Gen1 w scenariuszach takich jak:
 
-* Przenieś dane do innych repozytoriów do interfejsu z istniejącymi potokami przetwarzania danych. Na przykład możesz chcieć przenieść dane z Data Lake Storage Gen1 do Azure SQL Database lub SQL Server lokalnych.
+* Przenieś dane do innych repozytoriów do interfejsu z istniejącymi potokami przetwarzania danych. Na przykład możesz chcieć przenieść dane z Data Lake Storage Gen1 do Azure SQL Database lub SQL Server.
 * Pobieranie danych na komputer lokalny na potrzeby przetwarzania w środowiskach IDE podczas budowania prototypów aplikacji.
 
 ![Dane wyjściowe z Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/egress-data.png "Dane wyjściowe z Data Lake Storage Gen1")

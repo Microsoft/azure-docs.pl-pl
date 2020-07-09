@@ -8,17 +8,16 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65150733"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514059"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrowanie danych z serii StorSimple 5000-7000 do Azure File Sync
 
@@ -74,7 +73,7 @@ Wykonaj następujące kroki, aby zmigrować udział plików systemu Windows skon
     - [Wdróż usługę synchronizacji magazynu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
     - [Zarejestruj system Windows Server z usługą synchronizacji magazynu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
     - [Utwórz grupę synchronizacji i punkt końcowy w chmurze](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Należy wykonać grupy synchronizacji dla każdego udziału plików systemu Windows, który należy zmigrować z hosta.
-    - [Utwórz punkt końcowy serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Określ ścieżkę jako ścieżkę woluminu StorSimple zawierającego dane udziału plików. Na przykład jeśli wolumin StorSimple ma wartość Drive `J`, a Twoje dane znajdują się w `J:/<myafsshare>`, Dodaj tę ścieżkę jako punkt końcowy serwera. Pozostaw **warstwy** jako **wyłączone**.
+    - [Utwórz punkt końcowy serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Określ ścieżkę jako ścieżkę woluminu StorSimple zawierającego dane udziału plików. Na przykład jeśli wolumin StorSimple ma wartość Drive `J` , a Twoje dane znajdują się w `J:/<myafsshare>` , Dodaj tę ścieżkę jako punkt końcowy serwera. Pozostaw **warstwy** jako **wyłączone**.
 2.  Poczekaj na zakończenie synchronizacji serwera plików. Upewnij się, że dla każdego serwera w danej grupie synchronizacji:
     - Sygnatury czasowe ostatniej próby synchronizacji zarówno do przekazywania, jak i pobierania są ostatnie.
     - Stan jest zielony w przypadku przekazywania i pobierania.

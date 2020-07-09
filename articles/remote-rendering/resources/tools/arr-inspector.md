@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680078"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Narzędzie do inspekcji ArrInspector
@@ -20,20 +19,20 @@ ArrInspector to narzędzie oparte na sieci Web służące do sprawdzania uruchom
 
 ## <a name="connecting-to-the-arrinspector"></a>Łączenie z ArrInspector
 
-Po uzyskaniu nazwy hosta (kończącej `mixedreality.azure.com`) serwera z ARR, Połącz się za pomocą [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Ta funkcja tworzy `StartArrInspector.html` na urządzeniu, na którym działa aplikacja. Aby uruchomić ArrInspector, otwórz ten plik za pomocą przeglądarki (Edge, Firefox lub Chrome) na komputerze. Plik jest prawidłowy tylko przez 24 godziny.
+Po uzyskaniu nazwy hosta (kończącej `mixedreality.azure.com` ) serwera z ARR, Połącz się za pomocą [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Ta funkcja tworzy `StartArrInspector.html` na urządzeniu, na którym działa aplikacja. Aby uruchomić ArrInspector, otwórz ten plik za pomocą przeglądarki (Edge, Firefox lub Chrome) na komputerze. Plik jest prawidłowy tylko przez 24 godziny.
 
-Jeśli aplikacja, która wywołuje `ConnectToArrInspectorAsync` program, jest już URUCHOMIONA na komputerze:
+Jeśli aplikacja, która wywołuje program, `ConnectToArrInspectorAsync` jest już uruchomiona na komputerze:
 
 * Jeśli używasz integracji aparatu Unity, może ona zostać automatycznie uruchomiona.
-* W przeciwnym razie plik zostanie znaleziony w *\\folderach użytkowników LocalAppData\\[your_app]\\AC\\temp*.
+* W przeciwnym razie plik zostanie znaleziony w *folderach użytkowników \\ LocalAppData \\ [your_app] \\ AC \\ temp*.
 
 Jeśli aplikacja działa na serwerze HoloLens:
 
 1. Dostęp do urządzenia HoloLens przy użyciu [portalu urządzeń z systemem Windows](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
 1. Przejdź do *Eksploratora systemu > plików*.
-1. Przejdź do *\\folderów użytkowników LocalAppData\\[your_app]\\AC\\temp*.
-1. Zapisz *StartArrInspector. html* na komputerze.
-1. Otwórz *plik StartArrInspector. html* , aby załadować ArrInspector sesji.
+1. Przejdź do *folderów użytkowników \\ LocalAppData \\ [your_app] \\ AC \\ temp*.
+1. Zapisz *StartArrInspector.html* na komputerze.
+1. Otwórz *StartArrInspector.html* , aby załadować ArrInspector sesji.
 
 ## <a name="the-performance-panel"></a>Panel wydajności
 
@@ -57,14 +56,14 @@ Zakres pionowy jest domyślnie obliczany na podstawie aktualnie wyświetlanych w
 
 Panel dziennik przedstawia listę komunikatów dziennika generowanych po stronie serwera. W przypadku połączenia będą wyświetlane do 200 poprzednich komunikatów dziennika i będą drukowane w miarę ich występowania.
 
-Listę można filtrować na podstawie typu `[Error/Warning/Info/Debug]` dziennika za pomocą przycisków znajdujących się u góry.
+Listę można filtrować na podstawie typu dziennika `[Error/Warning/Info/Debug]` za pomocą przycisków znajdujących się u góry.
 ![Przyciski filtru dziennika](./media/log-filter.png)
 
 ## <a name="the-timing-data-capture-panel"></a>Panel przechwytywania danych chronometrażu
 
 ![Przechwytywanie danych chronometrażu](./media/timing-data-capture.png)
 
-Ten panel służy do przechwytywania informacji o chronometrażu z serwera i pobierania go. Plik używa [formatu JSON śledzenia Chrome](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Aby sprawdzić dane, Otwórz program Chrome w adresie `Chrome://tracing` URL, a następnie przeciągnij i upuść pobrany plik na stronę. Dane chronometrażu są stale zbierane w buforze pierścieniowym o ustalonym rozmiarze. Po zapisaniu przechwycenie obejmuje tylko informacje o przeszłości, co oznacza kilka sekund.
+Ten panel służy do przechwytywania informacji o chronometrażu z serwera i pobierania go. Plik używa [formatu JSON śledzenia Chrome](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Aby sprawdzić dane, Otwórz program Chrome w adresie URL, `Chrome://tracing` a następnie przeciągnij i upuść pobrany plik na stronę. Dane chronometrażu są stale zbierane w buforze pierścieniowym o ustalonym rozmiarze. Po zapisaniu przechwycenie obejmuje tylko informacje o przeszłości, co oznacza kilka sekund.
 
 ## <a name="the-scene-inspection-panel"></a>Panel Inspekcja sceny
 
@@ -113,7 +112,7 @@ Po ponownym włączeniu aktualizacji na żywo wszystkie panele zostaną zresetow
 
 Domyślnie narzędzie nawiązuje połączenie z serwerem ARR, który działa na tym samym hoście obsługującym ArrInspector. Można jednak skonfigurować go do inspekcji innego serwera, przy założeniu, że jest uruchomione wystąpienie ARR z otwartym portem narzędzia.
 
-Aby to zrobić, uzyskaj dostęp do menu głównego po lewej stronie paska nagłówka i wybierz pozycję *Konfiguracja hosta*. Kliknij pozycję **Dodaj nowy host**, a następnie wprowadź nazwę i nazwa hosta. Dla *nazwy hosta* Używaj tylko nazwy hosta kończącej się `.mixedreality.azure.com`na `http://` , nie dołączaj ani portu.
+Aby to zrobić, uzyskaj dostęp do menu głównego po lewej stronie paska nagłówka i wybierz pozycję *Konfiguracja hosta*. Kliknij pozycję **Dodaj nowy host**, a następnie wprowadź nazwę i nazwa hosta. Dla *nazwy hosta* Używaj tylko nazwy hosta kończącej się na `.mixedreality.azure.com` , nie dołączaj `http://` ani portu.
 
 ![Konfiguracja hosta](./media/host-configuration.png)
 

@@ -12,21 +12,20 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01decb99a9eb24ae60250f83f1f961b4c1690bc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652844"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Zaawansowane scenariusze z serwerem usługi Azure MFA i rozwiązaniami sieci VPN innych firm
 
-Usługa Azure Serwer Multi-Factor Authentication (serwer usługi Azure MFA) umożliwia bezproblemowe łączenie się z różnymi rozwiązaniami sieci VPN innych firm. Ten artykuł koncentruje się&reg; na urządzeniu sieci VPN Cisco ASA, urządzeniu sieci VPN protokołu SSL Citrix i sieci Juniper Networks bezpieczny dostęp/puls Secure Connect Secure SSL. Utworzyliśmy przewodniki konfiguracyjne, aby rozwiązać te trzy typowe urządzenia. Serwer usługi Azure MFA można również zintegrować z większością innych systemów, które używają usługi RADIUS, LDAP, IIS lub uwierzytelniania opartego na oświadczeniach do AD FS. Więcej szczegółów można znaleźć w [konfiguracjach serwera usługi Azure MFA](howto-mfaserver-deploy.md#next-steps).
+Usługa Azure Serwer Multi-Factor Authentication (serwer usługi Azure MFA) umożliwia bezproblemowe łączenie się z różnymi rozwiązaniami sieci VPN innych firm. Ten artykuł koncentruje się na &reg; urządzeniu sieci VPN Cisco ASA, urządzeniu sieci VPN protokołu SSL Citrix i sieci Juniper Networks bezpieczny dostęp/puls Secure Connect Secure SSL. Utworzyliśmy przewodniki konfiguracyjne, aby rozwiązać te trzy typowe urządzenia. Serwer usługi Azure MFA można również zintegrować z większością innych systemów, które używają usługi RADIUS, LDAP, IIS lub uwierzytelniania opartego na oświadczeniach do AD FS. Więcej szczegółów można znaleźć w [konfiguracjach serwera usługi Azure MFA](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
 > Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Urządzenie sieci VPN Cisco ASA i serwer usługi Azure MFA
-Serwer usługi Azure MFA integruje się z&reg; urządzeniem sieci VPN Cisco ASA w celu zapewnienia dodatkowych zabezpieczeń&reg; na potrzeby logowania do sieci VPN Cisco AnyConnect i dostępu do portalu.  Można użyć protokołu LDAP lub RADIUS.  Wybierz jedną z poniższych opcji, aby pobrać szczegółowe przewodniki dotyczące konfiguracji krok po kroku.
+Serwer usługi Azure MFA integruje się z &reg; urządzeniem sieci VPN Cisco ASA w celu zapewnienia dodatkowych zabezpieczeń na potrzeby &reg; logowania do sieci VPN Cisco AnyConnect i dostępu do portalu.  Można użyć protokołu LDAP lub RADIUS.  Wybierz jedną z poniższych opcji, aby pobrać szczegółowe przewodniki dotyczące konfiguracji krok po kroku.
 
 | Przewodnik konfiguracji | Opis |
 | --- | --- |

@@ -10,16 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725554"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628054"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
-Podczas testowania dokładności rozpoznawania mowy firmy Microsoft lub uczenia modeli niestandardowych będziesz potrzebować danych audio i tekstowych. Na tej stronie omówiono typy danych, sposób ich używania i zarządzania nimi.
+Podczas testowania dokładności rozpoznawania mowy firmy Microsoft lub uczenia modeli niestandardowych będziesz potrzebować danych audio i tekstowych. Na tej stronie omówiono typy danych, których potrzebuje niestandardowy model mowy.
+
+## <a name="data-diversity"></a>Różnorodność danych
+
+Tekst i dźwięk używany do testowania i uczenia modelu niestandardowego muszą zawierać przykłady z różnorodnych głośników i scenariuszy, które są potrzebne do rozpoznania modelu.
+Te czynniki należy wziąć pod uwagę podczas zbierania danych dotyczących niestandardowego testowania i szkolenia modelu:
+
+* Dane audio i mowy muszą obejmować rodzaje wyrażeń werbalnych, które użytkownicy będą wprowadzać podczas współpracy z modelem. Na przykład model, który podnosi i obniża wymagania dotyczące temperatury w przypadku oświadczeń, osoby mogą zażądać takich zmian.
+* Dane muszą obejmować wszystkie wariancje mowy, które Twój model będzie musiał rozpoznać. Wiele czynników może zmieniać mowę, w tym akcenty, dialekty, mieszanie języka, wiek, płeć, gęstość głosu, poziom obciążeniowy i godzinę.
+* Należy uwzględnić przykłady z różnych środowisk (wewnętrznych, na zewnątrz, szumów drogowych), w których będzie używany model.
+* Audio należy zebrać przy użyciu urządzeń sprzętowych, które będą używane przez system produkcyjny. Jeśli model wymaga zidentyfikowania mowy zarejestrowanej na urządzeniach nagrywających o różnej jakości, dane audio podane do uczenia modelu muszą również przedstawiać te różnorodne scenariusze.
+* Później możesz dodać do modelu więcej danych, ale Weź pod uwagę, że zestaw danych powinien być zróżnicowany i reprezentatywny dla projektu.
+* Uwzględnienie danych, które *nie* są zawarte w niestandardowych wymaganiach dotyczących rozpoznawania modelu, może być nieszkodliwe dla jakości rozpoznawania, dlatego nie należy uwzględniać danych, które nie muszą być transkrypcja przez model.
+
+Model przeszkolony na podzbiorze scenariuszy może działać tylko w tych scenariuszach. Starannie wybieraj dane, które reprezentują pełen zakres scenariuszy, które są potrzebne do rozpoznania modelu niestandardowego.
+
+> [!TIP]
+> Zacznij od małych zestawów przykładowych danych, które są zgodne z językiem i dźwiękiem, który zostanie napotkany przez model.
+> Na przykład Zanotuj mały, ale reprezentatywny przykład audio na tym samym sprzęcie i w tym samym środowisku akustycznym, w którym model znajdzie się w scenariuszach produkcyjnych.
+> Małe zbiory danych reprezentatywne dane mogą uwidaczniać problemy, zanim zainwestowano w gromadzenie znacznie większych zestawów danych do szkoleń.
 
 ## <a name="data-types"></a>Typy danych
 
@@ -27,7 +46,7 @@ Ta tabela zawiera listę akceptowanych typów danych, gdy należy użyć poszcze
 
 | Typ danych | Używany do testowania | Zalecana ilość | Używany do szkolenia | Zalecana ilość |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Nie dotyczy |
+| [Audio](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Brak |
 | [Zapisy audio + oznakowane przez człowieka](#audio--human-labeled-transcript-data-for-testingtraining) | Tak<br>Służy do obliczania dokładności | 0,5 – 5 godzin audio | Tak | 1 – 1000 godzin audio |
 | [Powiązany tekst](#related-text-data-for-training) | Nie | Nie dotyczy | Tak | 1-200 MB powiązanego tekstu |
 
@@ -100,7 +119,7 @@ Pliki audio mogą mieć cisz na początku i na końcu nagrywania. Jeśli to moż
 
 Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana jest znaczna ilość danych w celu usprawnienia rozpoznawania. Ogólnie rzecz biorąc, zaleca się dostarczenie transkrypcji słów-by-Word dla około 10 do 1 000 godzin. Transkrypcje dla wszystkich plików WAV powinny znajdować się w jednym pliku tekstowym (zwykły tekst). Każdy wiersz pliku z transkrypcją powinien zawierać nazwę jednego z plików dźwiękowych, a następnie odpowiednią transkrypcję. Nazwę pliku i transkrypcję należy rozdzielać przy użyciu tabulatora (\t).
 
-  Na przykład:
+  Przykład:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place

@@ -3,17 +3,17 @@ title: Projektowanie tabel Azure Cosmos DB na potrzeby skalowania i wydajności
 description: 'Przewodnik dotyczący projektowania usługi Azure Table Storage: skalowalne i wydajne tabele w Azure Cosmos DB i Azure Table Storage'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651920"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027796"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Przewodnik projektowy tabeli usługi Azure Table Storage: skalowalne i wydajne tabele
 
@@ -52,7 +52,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Nie</td>
@@ -72,7 +72,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Cze</td>
@@ -109,7 +109,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Krzysztof</td>
@@ -146,7 +146,7 @@ Aby uzyskać więcej informacji na temat celów skalowalności dla kont usługi 
 ### <a name="capacity-considerations"></a>Zagadnienia dotyczące pojemności
 Poniższa tabela zawiera kilka najważniejszych wartości, które należy znać podczas projektowania rozwiązania magazynu tabel:  
 
-| Łączna pojemność konta usługi Azure Storage | 500 TB |
+| Łączna pojemność konta usługi Azure Storage | 500 TB |
 | --- | --- |
 | Liczba tabel na koncie usługi Azure Storage |Ograniczone tylko pojemności konta magazynu. |
 | Liczba partycji w tabeli |Ograniczone tylko pojemności konta magazynu. |
@@ -196,10 +196,10 @@ W poniższych przykładach założono, że magazyn tabel przechowuje jednostki p
 | Nazwa kolumny | Typ danych |
 | --- | --- |
 | `PartitionKey`(Nazwa działu) |String |
-| `RowKey`(Identyfikator pracownika) |String |
-| `FirstName` |String |
-| `LastName` |String |
-| `Age` |Liczba całkowita |
+| `RowKey`(Identyfikator pracownika) |String (ciąg) |
+| `FirstName` |String (ciąg) |
+| `LastName` |String (ciąg) |
+| `Age` |Integer |
 | `EmailAddress` |String |
 
 Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapytań usługi Table Storage. Składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -312,7 +312,7 @@ Relacja jeden do wielu między obiektami domeny biznesowej występuje często: n
 
 Rozważmy przykład dużej firmy wielonarodowej z dziesiątki tysięcy działów i jednostek pracowników. Każdy dział ma wielu pracowników, a każdy pracownik jest skojarzony z jednym określonym działem. Jednym z rozwiązań jest przechowywanie oddzielnych jednostek działu i pracowników, takich jak następujące:  
 
-![Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika][1]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE01.png" alt-text="Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika":::
 
 Ten przykład pokazuje niejawną relację "jeden do wielu" między typami, na podstawie `PartitionKey` wartości. Każdy dział może mieć wielu pracowników.  
 
@@ -320,7 +320,7 @@ Ten przykład pokazuje również jednostkę działu i powiązane jednostki praco
 
 Alternatywnym podejściem jest denormalizowanie danych i przechowywanie tylko jednostek pracowników z nieznormalizowanymi danymi działu, jak pokazano w poniższym przykładzie. W tym konkretnym scenariuszu podejście nieznormalizowane może nie być najlepszym rozwiązaniem, jeśli istnieje wymóg, aby można było zmienić szczegóły menedżera działu. W tym celu należy zaktualizować każdego pracownika w dziale.  
 
-![Ilustracja jednostki Employee][2]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Ilustracja jednostki Employee":::
 
 Aby uzyskać więcej informacji, zobacz [wzorzec denormalizacji](#denormalization-pattern) w dalszej części tego przewodnika.  
 
@@ -397,18 +397,18 @@ Na przykład jeśli masz małe tabele zawierające dane, które nie zmieniają s
 ### <a name="inheritance-relationships"></a>Relacje dziedziczenia
 Jeśli aplikacja kliencka korzysta z zestawu klas, które stanowią część relacji dziedziczenia reprezentującej jednostki biznesowe, można łatwo utrzymać te jednostki w magazynie tabel. Na przykład w aplikacji klienckiej można określić następujący zestaw klas, gdzie `Person` jest klasą abstrakcyjną.
 
-![Diagram relacji dziedziczenia][3]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE03.png" alt-text="Diagram relacji dziedziczenia":::
 
 Można utrzymywać wystąpienia dwóch konkretnych klas w usłudze Table Storage przy użyciu pojedynczej `Person` tabeli. Użyj jednostek, które wyglądają następująco:  
 
-![Ilustracja przedstawiająca jednostkę klienta i jednostkę pracownika][4]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE04.png" alt-text="Ilustracja przedstawiająca jednostkę klienta i jednostkę pracownika":::
 
 Aby uzyskać więcej informacji na temat pracy z wieloma typami jednostek w tej samej tabeli w kodzie klienta, zobacz [Praca z typami jednostek heterogenicznych](#work-with-heterogeneous-entity-types) w dalszej części tego przewodnika. Zawiera przykłady sposobu rozpoznawania typu jednostki w kodzie klienta.  
 
 ## <a name="table-design-patterns"></a>Wzorce projektowe tabel
 W poprzednich sekcjach zawarto informacje na temat optymalizowania projektu tabeli na potrzeby pobierania danych jednostki przy użyciu zapytań oraz wstawiania, aktualizowania i usuwania danych jednostki. W tej sekcji opisano niektóre wzorce, które są odpowiednie do użytku z usługą Table Storage. Ponadto zobaczysz, jak można praktycznie rozwiązać niektóre problemy i wady, które zostały wcześniej zgłoszone w tym przewodniku. Poniższy diagram podsumowuje relacje między różnymi wzorcami:  
 
-![Diagram wzorców projektu tabeli][5]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagram wzorców projektu tabeli":::
 
 Mapa wzorca wyróżnia pewne relacje między wzorcami (Blue) i antywzorców (pomarańczowy), które są opisane w tym przewodniku. Istnieją oczywiście wiele innych wzorców, które warto wziąć pod uwagę. Na przykład jeden z kluczowych scenariuszy dotyczących usługi Table Storage polega na użyciu [wzorca widoku materiałowego](https://msdn.microsoft.com/library/azure/dn589782.aspx) ze wzorca [segregowania odpowiedzialności z poleceniami](https://msdn.microsoft.com/library/azure/jj554200.aspx) .  
 
@@ -418,14 +418,14 @@ Przechowywanie wielu kopii każdej jednostki przy użyciu różnych `RowKey` war
 #### <a name="context-and-problem"></a>Kontekst i problem
 Magazyn tabel automatycznie indeksuje jednostki przy użyciu `PartitionKey` `RowKey` wartości i. Dzięki temu aplikacja kliencka może efektywnie pobrać jednostkę przy użyciu tych wartości. Na przykład korzystając z poniższej struktury tabeli, aplikacja kliencka może użyć zapytania Point do pobrania indywidualnej jednostki pracownika przy użyciu nazwy działu i identyfikatora pracownika ( `PartitionKey` i `RowKey` wartości). Klient może również pobrać jednostki posortowane według identyfikatora pracownika w poszczególnych działach.
 
-![Ilustracja jednostki Employee][6]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Ilustracja jednostki Employee":::
 
 Jeśli chcesz również znaleźć jednostkę pracownika na podstawie wartości innej właściwości, takiej jak adres e-mail, musisz użyć mniej wydajnego skanowania partycji, aby znaleźć dopasowanie. Wynika to z faktu, że magazyn tabel nie udostępnia indeksów pomocniczych. Ponadto nie ma możliwości zażądania listy pracowników posortowanych w innej kolejności niż `RowKey` kolejność.  
 
 #### <a name="solution"></a>Rozwiązanie
 Aby obejść brak indeksów pomocniczych, można przechowywać wiele kopii poszczególnych jednostek, z których każda ma inną `RowKey` wartość. Jeśli przechowujesz jednostkę z następującymi strukturami, możesz efektywnie pobrać jednostki pracowników na podstawie adresu e-mail lub identyfikatora pracownika. Wartości prefiksów dla `RowKey` , `empid_` i `email_` umożliwiają wykonywanie zapytań dotyczących jednego pracownika lub zakresu pracowników przy użyciu zakresu adresów e-mail lub identyfikatorów pracowników.  
 
-![Ilustracja przedstawiająca jednostkę pracownika z różnymi wartościami RowKey][7]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE07.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z różnymi wartościami RowKey":::
 
 Poniższe dwa kryteria filtrowania (jeden wyszukiwany według identyfikatora pracownika) i jeden przeszukiwany przez adres e-mail) określają kwerendy punktowe:  
 
@@ -449,7 +449,7 @@ Podczas podejmowania decyzji o sposobie wdrożenia tego wzorca należy rozważy�
 * Uzupełnienie wartości liczbowych w `RowKey` (na przykład identyfikator pracownika 000223) umożliwia poprawne sortowanie i filtrowanie w oparciu o górną i dolną granicę.  
 * Nie musisz koniecznie duplikować wszystkich właściwości obiektu. Na przykład jeśli zapytania wyszukujące jednostki przy użyciu adresu e-mail w `RowKey` nigdy nie potrzebują wieku pracownika, te jednostki mogą mieć następującą strukturę:
 
-  ![Ilustracja jednostki Employee][8]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE08.png" alt-text="Ilustracja jednostki Employee":::
 
 * Zazwyczaj lepiej jest przechowywać duplikaty danych i upewnić się, że można pobrać wszystkie potrzebne dane za pomocą pojedynczego zapytania, niż używać jednego zapytania do lokalizowania jednostki i drugiej, aby wyszukać wymagane dane.  
 
@@ -476,7 +476,7 @@ Przechowywanie wielu kopii każdej jednostki przy użyciu różnych `RowKey` war
 #### <a name="context-and-problem"></a>Kontekst i problem
 Magazyn tabel automatycznie indeksuje jednostki przy użyciu `PartitionKey` `RowKey` wartości i. Dzięki temu aplikacja kliencka może efektywnie pobrać jednostkę przy użyciu tych wartości. Na przykład korzystając z poniższej struktury tabeli, aplikacja kliencka może użyć zapytania Point do pobrania indywidualnej jednostki pracownika przy użyciu nazwy działu i identyfikatora pracownika ( `PartitionKey` i `RowKey` wartości). Klient może również pobrać jednostki posortowane według identyfikatora pracownika w poszczególnych działach.  
 
-![Ilustracja jednostki Employee][9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika":::[9]
 
 Jeśli chcesz również znaleźć jednostkę pracownika na podstawie wartości innej właściwości, takiej jak adres e-mail, musisz użyć mniej wydajnego skanowania partycji, aby znaleźć dopasowanie. Wynika to z faktu, że magazyn tabel nie udostępnia indeksów pomocniczych. Ponadto nie ma możliwości zażądania listy pracowników posortowanych w innej kolejności niż `RowKey` kolejność.  
 
@@ -485,7 +485,7 @@ Przewidujesz dużą liczbę transakcji w odniesieniu do tych jednostek i chcesz 
 #### <a name="solution"></a>Rozwiązanie
 Aby obejść brak indeksów pomocniczych, można przechowywać wiele kopii każdej jednostki, przy czym każda kopia używa różnych `PartitionKey` `RowKey` wartości. Jeśli przechowujesz jednostkę z następującymi strukturami, możesz efektywnie pobrać jednostki pracowników na podstawie adresu e-mail lub identyfikatora pracownika. Wartości prefiksów dla `PartitionKey` , `empid_` i `email_` umożliwiają identyfikowanie indeksu, który ma być używany w zapytaniu.  
 
-![Ilustracja przedstawiająca jednostkę pracownika z indeksem podstawowym i jednostką pracownika z indeksem pomocniczym][10]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE10.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z indeksem podstawowym i jednostką pracownika z indeksem pomocniczym":::
 
 Poniższe dwa kryteria filtrowania (jeden wyszukiwany według identyfikatora pracownika) i jeden przeszukiwany przez adres e-mail) określają kwerendy punktowe:  
 
@@ -508,7 +508,8 @@ Podczas podejmowania decyzji o sposobie wdrożenia tego wzorca należy rozważy�
 * Uzupełnienie wartości liczbowych w `RowKey` (na przykład identyfikator pracownika 000223) umożliwia poprawne sortowanie i filtrowanie w oparciu o górną i dolną granicę.  
 * Nie musisz koniecznie duplikować wszystkich właściwości obiektu. Na przykład jeśli zapytania wyszukujące jednostki przy użyciu adresu e-mail w `RowKey` nigdy nie potrzebują wieku pracownika, te jednostki mogą mieć następującą strukturę:
   
-  ![Ilustracja przedstawiająca jednostkę pracownika z dodatkowym indeksem][11]
+  :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE11.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z dodatkowym indeksem":::
+
 * Zazwyczaj lepiej jest przechowywać zduplikowane dane i upewnić się, że można pobrać wszystkie potrzebne dane za pomocą pojedynczego zapytania, niż używać jednego zapytania do lokalizowania jednostki przy użyciu pomocniczego indeksu i innego do wyszukiwania wymaganych danych w indeksie podstawowym.  
 
 #### <a name="when-to-use-this-pattern"></a>Kiedy używać tego wzorca
@@ -547,7 +548,7 @@ Aby zilustrować to podejście, Załóżmy, że istnieje wymóg, aby móc archiw
 
 Nie można jednak wykonać tych dwóch operacji za pomocą EGT. Aby uniknąć ryzyka, że błąd powoduje, że jednostka pojawia się w obu tabelach lub żadnej z nich, operacja archiwizowania musi być ostatecznie spójna. Poniższy diagram sekwencji przedstawia kroki tej operacji.  
 
-![Diagram rozwiązania na potrzeby spójności ostatecznej][12]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagram rozwiązania na potrzeby spójności ostatecznej":::
 
 Klient inicjuje operację archiwizowania, umieszczając komunikat w kolejce platformy Azure (w tym przykładzie, aby zarchiwizować pracownika #456). Rola procesu roboczego sonduje kolejkę pod kątem nowych komunikatów; gdy go znajdzie, odczytuje komunikat i pozostawia ukrytą kopię w kolejce. Następnie rola proces roboczy pobiera kopię jednostki z **bieżącej** tabeli, wstawia kopię w tabeli **archiwum** , a następnie usuwa oryginalną z **bieżącej** tabeli. Na koniec w przypadku braku błędów z poprzednich kroków rola proces roboczy usuwa ukryty komunikat z kolejki.  
 
@@ -587,7 +588,7 @@ Zachowaj jednostki indeksu, aby włączyć wydajne wyszukiwania zwracające list
 #### <a name="context-and-problem"></a>Kontekst i problem
 Magazyn tabel automatycznie indeksuje jednostki przy użyciu `PartitionKey` `RowKey` wartości i. Dzięki temu aplikacja kliencka może efektywnie pobrać jednostkę przy użyciu zapytania punktowego. Na przykład przy użyciu poniższej struktury tabeli aplikacja kliencka może efektywnie pobrać poszczególne jednostki pracownika przy użyciu nazwy działu i identyfikatora pracownika ( `PartitionKey` i `RowKey` ).  
 
-![Ilustracja jednostki Employee][13]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Ilustracja jednostki Employee":::
 
 Jeśli chcesz również mieć możliwość pobrania listy jednostek pracowników na podstawie wartości innej nieunikatowej właściwości, takiej jak nazwisko, należy użyć mniej wydajnego skanowania partycji. To skanowanie wyszukuje dopasowania, zamiast używać indeksu, aby wyszukiwać je bezpośrednio. Wynika to z faktu, że magazyn tabel nie udostępnia indeksów pomocniczych.  
 
@@ -606,7 +607,7 @@ Opcja 2. Tworzenie jednostek indeksu w tej samej partycji
 
 Użyj obiektów index, które przechowują następujące dane:  
 
-![Ilustracja przedstawiająca jednostkę pracownika z ciągiem zawierającym listę identyfikatorów pracowników o tej samej nazwie][14]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE14.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z ciągiem zawierającym listę identyfikatorów pracowników o tej samej nazwie":::
 
 `EmployeeIDs`Właściwość zawiera listę identyfikatorów pracowników dla pracowników, których nazwisko jest przechowywane w `RowKey` .  
 
@@ -628,9 +629,9 @@ Opcja 3: tworzenie jednostek indeksu w oddzielnej partycji lub tabeli
 
 W przypadku tej opcji Użyj jednostek indeksu, które przechowują następujące dane:  
 
-![Ilustracja przedstawiająca jednostkę pracownika z ciągiem zawierającym listę identyfikatorów pracowników o tej samej nazwie][15]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z ciągiem zawierającym listę identyfikatorów pracowników o tej samej nazwie":::
 
-`EmployeeIDs`Właściwość zawiera listę identyfikatorów pracowników dla pracowników, których nazwisko jest przechowywane w `RowKey` .  
+`EmployeeIDs`Właściwość zawiera listę identyfikatorów pracowników dla pracowników, których nazwisko jest przechowywane w `RowKey` i `PartitionKey` .  
 
 Nie można użyć EGTs do zachowania spójności, ponieważ jednostki indeksu znajdują się w oddzielnej partycji od jednostek pracowników. Upewnij się, że jednostki indeksu są ostatecznie spójne z jednostkami pracowników.  
 
@@ -660,12 +661,12 @@ Połącz powiązane dane razem w pojedynczej jednostce, aby umożliwić pobieran
 #### <a name="context-and-problem"></a>Kontekst i problem
 W relacyjnej bazie danych zazwyczaj normalizuje dane w celu usunięcia duplikatów, które występuje, gdy zapytania pobierają dane z wielu tabel. Jeśli normalizuje dane w tabelach platformy Azure, musisz wykonać wiele rund z klienta do serwera, aby pobrać powiązane dane. Na przykład w przypadku poniższej struktury tabeli potrzebne są dwie rundy, aby pobrać szczegóły dotyczące działu. Jedna podróż pobiera jednostkę działu, która zawiera identyfikator Menedżera, a druga — w przypadku pobierania szczegółów kierownika w jednostce pracownika.  
 
-![Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika][16]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika":::
 
 #### <a name="solution"></a>Rozwiązanie
-Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Na przykład:  
+Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Przykład:  
 
-![Ilustracja nieznormalizowanej i połączonej jednostki działu][17]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Ilustracja nieznormalizowanej i połączonej jednostki działu":::
 
 W przypadku jednostek działu przechowywanych z tymi właściwościami można teraz pobrać wszystkie wymagane szczegóły dotyczące działu przy użyciu zapytania punktowego.  
 
@@ -693,18 +694,18 @@ W relacyjnej bazie danych można używać sprzężeń w zapytaniach, aby zwróci
 
 Załóżmy, że przechowujesz jednostki pracowników w usłudze Table Storage, korzystając z następującej struktury:  
 
-![Ilustracja jednostki Employee][18]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Ilustracja jednostki Employee":::
 
 Należy również przechowywać dane historyczne dotyczące przeglądów i wydajności dla każdego roku, dla których pracownik pracował w organizacji, i musi mieć dostęp do tych informacji przez rok. Jedną z opcji jest utworzenie innej tabeli, która przechowuje jednostki o następującej strukturze:  
 
-![Ilustracja przedstawiająca jednostkę przeglądu pracownika][19]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE19.png" alt-text="Ilustracja przedstawiająca jednostkę przeglądu pracownika":::
 
 Korzystając z tego podejścia, możesz zdecydować się na zduplikowanie niektórych informacji (takich jak imię i nazwisko) w nowej jednostce, aby umożliwić pobieranie danych za pomocą pojedynczego żądania. Nie można jednak zachować silnej spójności, ponieważ nie można użyć EGT do aktualizowania dwóch jednostek.  
 
 #### <a name="solution"></a>Rozwiązanie
 Zapisz nowy typ jednostki w oryginalnej tabeli przy użyciu jednostek o następującej strukturze:  
 
-![Ilustracja przedstawiająca jednostkę pracownika z kluczem złożonym][20]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE20.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z kluczem złożonym":::
 
 Zwróć uwagę `RowKey` , jak teraz jest kluczem złożonym, składającym się z identyfikatora pracownika i roku danych przeglądu. Pozwala to na pobieranie wydajności pracownika i przeglądanie danych za pomocą pojedynczego żądania dla jednej jednostki.  
 
@@ -776,7 +777,7 @@ Wiele aplikacji usuwa stare dane, które nie muszą już być dostępne dla apli
 
 Jednym z możliwych wzorów jest użycie daty i godziny żądania logowania w `RowKey` :  
 
-![Ilustracja przedstawiająca jednostkę próby zalogowania][21]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE21.png" alt-text="Ilustracja przedstawiająca jednostkę próby zalogowania":::
 
 To podejście pozwala uniknąć hotspotów partycji, ponieważ aplikacja może wstawiać i usuwać jednostki logowania dla każdego użytkownika w oddzielnej partycji. Jednak takie podejście może być kosztowne i czasochłonne, jeśli masz dużą liczbę jednostek. Najpierw należy przeprowadzić skanowanie tabeli, aby zidentyfikować wszystkie jednostki do usunięcia, a następnie usunąć każdą starą jednostkę. Można zmniejszyć liczbę operacji okrężnych do serwera wymaganego do usunięcia starych jednostek przez przetwarzanie wsadowe wielu żądań Delete do EGTs.  
 
@@ -806,14 +807,14 @@ Przechowuj kompletne serie danych w jednej jednostce, aby zminimalizować liczb�
 #### <a name="context-and-problem"></a>Kontekst i problem
 Typowy scenariusz polega na tym, że aplikacja przechowuje serię danych, które zazwyczaj muszą zostać pobrane jednocześnie. Na przykład aplikacja może rejestrować liczbę wiadomości BŁYSKAWICZNych wysyłanych przez każdego pracownika co godzinę, a następnie użyć tych informacji do wykreślania liczby komunikatów wysyłanych przez każdego użytkownika w ciągu ostatnich 24 godzin. Jednym z projektów może być przechowywanie 24 jednostek dla każdego pracownika:  
 
-![Ilustracja przedstawiająca jednostkę statystyk komunikatów][22]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE22.png" alt-text="Ilustracja przedstawiająca jednostkę statystyk komunikatów":::
 
 Dzięki temu projektowi można łatwo zlokalizować i zaktualizować jednostkę do aktualizacji dla każdego pracownika, gdy aplikacja musi zaktualizować wartość liczby komunikatów. Aby jednak pobrać informacje w celu wykreślenia wykresu aktywności przez poprzednie 24 godziny, należy pobrać 24 jednostki.  
 
 #### <a name="solution"></a>Rozwiązanie
 Użyj następującego projektu z osobną właściwością do przechowywania liczby komunikatów dla każdej godziny:  
 
-![Ilustracja przedstawiająca jednostkę statystyki komunikatu z właściwościami rozdzielonymi][23]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE23.png" alt-text="Ilustracja przedstawiająca jednostkę statystyki komunikatu z właściwościami rozdzielonymi":::
 
 W tym projekcie możesz użyć operacji scalania, aby zaktualizować liczbę komunikatów dla pracownika przez określoną godzinę. Teraz można pobrać wszystkie informacje potrzebne do wykreślenia wykresu przy użyciu żądania dla pojedynczej jednostki.  
 
@@ -842,7 +843,7 @@ Pojedyncza jednostka może mieć nie więcej niż 252 właściwości (z wyłącz
 #### <a name="solution"></a>Rozwiązanie
 Za pomocą usługi Table Storage można przechowywać wiele jednostek do reprezentowania pojedynczego dużego obiektu biznesowego, który ma więcej niż 252 właściwości. Na przykład jeśli chcesz przechowywać liczbę wiadomości BŁYSKAWICZNych wysyłanych przez każdego pracownika przez ostatnie 365 dni, możesz użyć następującego projektu, który używa dwóch jednostek z różnymi schematami:  
 
-![Ilustracja przedstawiająca jednostkę statystyki komunikatu z Rowkey 01 i jednostką statystyki komunikatu z Rowkey 02][24]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE24.png" alt-text="Ilustracja przedstawiająca jednostkę statystyki komunikatu z Rowkey 01 i jednostką statystyki komunikatu z Rowkey 02":::
 
 Jeśli musisz wprowadzić zmianę, która wymaga aktualizacji obu jednostek, aby zachować ich synchronizację ze sobą, możesz użyć EGT. W przeciwnym razie można użyć pojedynczej operacji scalania, aby zaktualizować liczbę komunikatów w określonym dniu. Aby pobrać wszystkie dane dla danego pracownika, należy pobrać obie jednostki. Można to zrobić z dwoma wydajnymi żądaniami, które używają zarówno `PartitionKey` wartości, jak i `RowKey` .  
 
@@ -869,7 +870,7 @@ Pojedyncza jednostka nie może przechowywać więcej niż 1 MB danych. Jeśli je
 #### <a name="solution"></a>Rozwiązanie
 Jeśli rozmiar jednostki przekracza 1 MB, ponieważ co najmniej jedna z właściwości zawiera dużą ilość danych, można przechowywać dane w magazynie obiektów blob, a następnie przechowywać adres obiektu BLOB we właściwości w jednostce. Na przykład można przechowywać zdjęcie pracownika w usłudze BLOB Storage i przechowywać link do zdjęcia we `Photo` właściwości jednostki pracownika:  
 
-![Ilustracja przedstawiająca jednostkę pracownika z ciągiem dla zdjęć wskazujących na obiekt BLOB Storage][25]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE25.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z ciągiem dla zdjęć wskazujących na obiekt BLOB Storage":::
 
 #### <a name="issues-and-considerations"></a>Problemy i kwestie do rozważenia
 Podczas podejmowania decyzji o sposobie wdrożenia tego wzorca należy rozważyć następujące punkty:  
@@ -894,12 +895,12 @@ W przypadku dużej ilości operacji wstawiania zwiększaj skalowalność poprzez
 #### <a name="context-and-problem"></a>Kontekst i problem
 Oczekiwanie na lub dołączenie jednostek do przechowywanych jednostek zwykle powoduje, że aplikacja dodaje nowe jednostki do pierwszej lub ostatniej partycji sekwencji partycji. W takim przypadku wszystkie operacje wstawiania w dowolnym konkretnym czasie są realizowane w tej samej partycji, tworząc punkt aktywny. Zapobiega to korzystaniu z funkcji równoważenia obciążenia w usłudze Table Storage w wielu węzłach, co może spowodować, że aplikacja osiągnie elementy docelowe skalowalności dla partycji. Rozważmy na przykład przypadek aplikacji, która rejestruje dostęp do sieci i zasobów przez pracowników. Struktura jednostki, taka jak następujące, może spowodować, że partycja bieżąca godziny staje się hotspotem, jeśli ilość transakcji osiągnie miejsce docelowe skalowalności dla pojedynczej partycji:  
 
-![Ilustracja jednostki Employee][26]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Ilustracja jednostki Employee":::
 
 #### <a name="solution"></a>Rozwiązanie
 Następująca alternatywna Struktura jednostek pozwala uniknąć hotspotu na określonej partycji, ponieważ aplikacja rejestruje zdarzenia:  
 
-![Ilustracja przedstawiająca jednostkę pracownika z RowKey złożonym rok, miesiąc, dzień, godzinę i identyfikator zdarzenia][27]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE27.png" alt-text="Ilustracja przedstawiająca jednostkę pracownika z RowKey złożonym rok, miesiąc, dzień, godzinę i identyfikator zdarzenia":::
 
 Zwróć uwagę na to, jak `PartitionKey` i `RowKey` są kluczami złożonymi. Program `PartitionKey` używa zarówno identyfikatora działu, jak i pracownika do dystrybuowania rejestrowania między wieloma partycjami.  
 
@@ -925,13 +926,13 @@ Zazwyczaj należy używać magazynu obiektów BLOB zamiast magazynu tabel do prz
 #### <a name="context-and-problem"></a>Kontekst i problem
 Typowy przypadek użycia dla danych dziennika polega na pobraniu wybranych wpisów dziennika dla określonego zakresu dat/godzin. Na przykład, chcesz znaleźć wszystkie komunikaty o błędach i krytyczne, które są rejestrowane przez aplikację między 15:04 a 15:06 w określonym dniu. Nie chcesz używać daty i godziny komunikatu dziennika, aby określić partycję, do której zapisywane są jednostki dziennika. Powoduje to, że w danym momencie wszystkie jednostki dziennika będą współużytkować tę samą `PartitionKey` wartość (zobacz prefiks [/dołączanie antywzorców](#prepend-append-anti-pattern)). Na przykład poniższy schemat jednostki dla komunikatu dziennika prowadzi do aktywnej partycji, ponieważ aplikacja zapisuje wszystkie komunikaty dziennika do partycji dla bieżącej daty i godziny:  
 
-![Ilustracja przedstawiająca obiekt komunikatu dziennika][28]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Ilustracja przedstawiająca obiekt komunikatu dziennika":::
 
 W tym przykładzie `RowKey` obejmuje datę i godzinę komunikatu dziennika, aby upewnić się, że komunikaty dziennika są sortowane w kolejności daty/godziny. `RowKey`Zawiera również Identyfikator komunikatu, w przypadku którego wiele komunikatów dziennika ma taką samą datę i godzinę.  
 
 Inna metoda polega na tym, że `PartitionKey` aplikacja będzie zapisywać komunikaty w różnych partycjach. Na przykład, jeśli źródło komunikatu dziennika zapewnia sposób dystrybucji komunikatów w wielu partycjach, można użyć następującego schematu jednostki:  
 
-![Ilustracja przedstawiająca obiekt komunikatu dziennika][29]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE29.png" alt-text="Ilustracja przedstawiająca obiekt komunikatu dziennika":::
 
 Jednak problem z tym schematem polega na tym, że pobranie wszystkich komunikatów dziennika dla określonego przedziału czasu wymaga przeszukania każdej partycji w tabeli.
 
@@ -1139,7 +1140,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1159,7 +1160,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1196,7 +1197,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1232,7 +1233,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1254,7 +1255,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1295,7 +1296,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -1528,35 +1529,4 @@ W tym przykładzie asynchronicznym można zobaczyć następujące zmiany w wersj
 * Zamiast wywoływania `Execute` metody w celu zaktualizowania jednostki metoda wywołuje teraz metodę `ExecuteAsync` . Metoda używa `await` modyfikatora do pobierania wyników asynchronicznie.  
 
 Aplikacja kliencka może wywoływać wiele metod asynchronicznych, takich jak ta, i każde wywołanie metody jest uruchamiane w osobnym wątku.  
-
-
-[1]: ./media/storage-table-design-guide/storage-table-design-IMAGE01.png
-[2]: ./media/storage-table-design-guide/storage-table-design-IMAGE02.png
-[3]: ./media/storage-table-design-guide/storage-table-design-IMAGE03.png
-[4]: ./media/storage-table-design-guide/storage-table-design-IMAGE04.png
-[5]: ./media/storage-table-design-guide/storage-table-design-IMAGE05.png
-[6]: ./media/storage-table-design-guide/storage-table-design-IMAGE06.png
-[7]: ./media/storage-table-design-guide/storage-table-design-IMAGE07.png
-[8]: ./media/storage-table-design-guide/storage-table-design-IMAGE08.png
-[9]: ./media/storage-table-design-guide/storage-table-design-IMAGE09.png
-[10]: ./media/storage-table-design-guide/storage-table-design-IMAGE10.png
-[11]: ./media/storage-table-design-guide/storage-table-design-IMAGE11.png
-[12]: ./media/storage-table-design-guide/storage-table-design-IMAGE12.png
-[13]: ./media/storage-table-design-guide/storage-table-design-IMAGE13.png
-[14]: ./media/storage-table-design-guide/storage-table-design-IMAGE14.png
-[15]: ./media/storage-table-design-guide/storage-table-design-IMAGE15.png
-[16]: ./media/storage-table-design-guide/storage-table-design-IMAGE16.png
-[17]: ./media/storage-table-design-guide/storage-table-design-IMAGE17.png
-[18]: ./media/storage-table-design-guide/storage-table-design-IMAGE18.png
-[19]: ./media/storage-table-design-guide/storage-table-design-IMAGE19.png
-[20]: ./media/storage-table-design-guide/storage-table-design-IMAGE20.png
-[21]: ./media/storage-table-design-guide/storage-table-design-IMAGE21.png
-[22]: ./media/storage-table-design-guide/storage-table-design-IMAGE22.png
-[23]: ./media/storage-table-design-guide/storage-table-design-IMAGE23.png
-[24]: ./media/storage-table-design-guide/storage-table-design-IMAGE24.png
-[25]: ./media/storage-table-design-guide/storage-table-design-IMAGE25.png
-[26]: ./media/storage-table-design-guide/storage-table-design-IMAGE26.png
-[27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
-[28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
-[29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 

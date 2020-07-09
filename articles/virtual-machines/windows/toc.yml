@@ -13,6 +13,9 @@
       href: quick-create-powershell.md
     - name: Tworzenie maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
       href: quick-create-cli.md
+    - name: Tworzenie maszyny wirtualnej — szablon usługi Resource Manager
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Samouczki
   items:
     - name: 1 — Tworzenie maszyny wirtualnej/zarządzanie nią
@@ -189,6 +192,10 @@
               href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Dav4 i Dasv4
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie Ddv4 i Ddsv4
+              href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie Dv4 i Dsv4
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Optymalizacja pod kątem obliczeń
           items:
             - name: Omówienie
@@ -206,6 +213,10 @@
               href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie Eav4 i Easv4
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie Edv4 i Edsv4
+              href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Serie Ev4 i Esv4
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Seria M
               href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Seria Mv2
@@ -270,6 +281,8 @@
         - name: Maszyny wirtualne typu spot
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: Maszyny wirtualne platformy Azure bez dysku tymczasowego
+          href: ../azure-vms-no-temp-disk.md
         - name: Poprzednie generacje
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
@@ -338,9 +351,9 @@
     - name: Tworzenie i przywracanie kopii zapasowych
       href: backup-recovery.md
     - name: Struktura wdrażania chmury
-      href: 'https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'
     - name: Centrum architektury
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/'
+      href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Przykład infrastruktury
       href: infrastructure-example.md
 - name: Przewodniki z instrukcjami
@@ -364,7 +377,7 @@
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Kody błędów
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Korzystanie z języka C#'
+        - name: Korzystanie z języka C#
           href: csharp.md
         - name: Korzystanie z wyspecjalizowanego dysku
           items:
@@ -372,7 +385,7 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Korzystanie z szablonu usługi Resource Manager z językiem C#'
+        - name: Korzystanie z szablonu usługi Resource Manager z językiem C#
           href: csharp-template.md
           displayName: Azure Resource Manager
         - name: Tworzenie maszyny wirtualnej przy użyciu programu Chef
@@ -449,6 +462,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Tworzenie maszyny wirtualnej
                   items:
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Uogólniony
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aktualizowanie zasobów obrazów
@@ -478,6 +493,8 @@
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interfejs wiersza polecenia platformy Azure
               href: image-builder.md
+            - name: Korzystanie z programu Azure PowerShell
+              href: image-builder-powershell.md
             - name: Tworzenie dla galerii obrazów
               href: image-builder-gallery.md
             - name: Aktualizowanie istniejącego obrazu
@@ -654,7 +671,7 @@
             - name: Omówienie agentów
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Często zadawane pytania
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents
             - name: Rozszerzenie Diagnostyki Azure
               items:
                 - name: Omówienie
@@ -664,7 +681,7 @@
                       items:
                         - name: Maszyna wirtualna
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                        - name: Zestaw skalowania maszyn wirtualnych
+                        - name: Zestaw skalowania
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Wysyłanie do usługi Event Hubs
                       href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -727,7 +744,7 @@
             - name: Ogólna dostępność — często zadawane pytania
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Często zadawane pytania
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
             - name: Włączanie monitorowania
               items:
                 - name: Omówienie włączania monitorowania
@@ -838,6 +855,8 @@
           href: incremental-snapshots.md
         - name: Migracja i konwersja
           items:
+            - name: Konwertowanie na szyfrowanie po stronie serwera
+              href: disks-ade-sse-conversion-powershell.md
             - name: Konwertowanie dysku między warstwami Standardowa i Premium
               href: convert-disk-storage.md
             - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery
@@ -854,8 +873,10 @@
               href: disks-enable-ultra-ssd.md
             - name: Test porównawczy dysku
               href: disks-benchmarks.md
-        - name: Znajdowanie niedołączonych dysków
+        - name: Znajdowanie niedołączonych dysków — PowerShell
           href: find-unattached-disks.md
+        - name: Znajdowanie niedołączonych dysków — portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Często zadawane pytania dotyczące dysków
           href: faq-for-disks.md
     - name: Zarządzanie siecią

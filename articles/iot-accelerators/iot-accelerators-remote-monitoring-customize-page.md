@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187266"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie strony niestandardowej do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
@@ -51,11 +51,11 @@ Aby dodać stronę do interfejsu użytkownika sieci Web, należy dodać pliki ź
 
 Aby rozpocząć pracę, folder **src/Przewodnik/składniki/strony/od basicpage** zawiera cztery pliki, które definiują prostą stronę:
 
-**Od basicpage. Container. js**
+**basicPage.container.js**
 
 [!code-javascript[Page container source](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.container.js?name=container "Page container source")]
 
-**Od basicpage. js**
+**basicPage.js**
 
 [!code-javascript[Basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.js?name=page "Basic page")]
 
@@ -63,7 +63,7 @@ Aby rozpocząć pracę, folder **src/Przewodnik/składniki/strony/od basicpage**
 
 [!code-javascript[Page styling](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.scss?name=styles "Page styling")]
 
-**Od basicpage. test. js**
+**basicPage.test.js**
 
 [!code-javascript[Test code for basic page](~/remote-monitoring-webui/src/walkthrough/components/pages/basicPage/basicPage.test.js?name=test "Test code for basic page")]
 
@@ -73,7 +73,7 @@ Utwórz nowy folder **src/Components/Pages/example** i skopiuj do niego cztery p
 
 Aby dodać nową stronę do interfejsu użytkownika sieci Web, wprowadź następujące zmiany w istniejących plikach:
 
-1. Dodaj kontener nowej strony do pliku **src/Components/Pages/index. js** :
+1. Dodaj kontener nowej strony do pliku **src/Components/Pages/index.js** :
 
     ```js
     export * from './example/basicPage.container';
@@ -81,7 +81,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, wprowadź następ
 
 1. Obowiązkowe  Dodaj ikonę SVG dla nowej strony. Aby uzyskać więcej informacji, zobacz [WebUI/src/Utilities/Readme. MD](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/utilities/README.md). Możesz użyć istniejącego pliku SVG.
 
-1. Dodaj nazwę strony do pliku tłumaczenia, **Public/Locals/pl/Translation. JSON**. Interfejs użytkownika sieci Web używa [i18next](https://www.i18next.com/) na potrzeby funkcji wielojęzycznych.
+1. Dodaj nazwę strony do pliku tłumaczenia, **Public/Locals/pl/translations.json**. Interfejs użytkownika sieci Web używa [i18next](https://www.i18next.com/) na potrzeby funkcji wielojęzycznych.
 
     ```json
     "tabs": {
@@ -89,7 +89,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, wprowadź następ
     },
     ```
 
-1. Otwórz plik **src/Components/App. js** , który definiuje stronę aplikacji najwyższego poziomu. Dodaj nową stronę do listy importów:
+1. Otwórz plik **src/Components/app.js** , który definiuje stronę aplikacji najwyższego poziomu. Dodaj nową stronę do listy importów:
 
     ```javascript
     // Page Components
@@ -99,7 +99,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, wprowadź następ
     } from './pages';
     ```
 
-1. W tym samym pliku Dodaj nową stronę do `pagesConfig` tablicy. Ustaw `to` adres dla trasy, odwołując się do ikony SVG i wcześniej dodanych tłumaczeń i `component` Ustaw dla kontenera strony:
+1. W tym samym pliku Dodaj nową stronę do `pagesConfig` tablicy. Ustaw `to` adres dla trasy, odwołując się do ikony SVG i wcześniej dodanych tłumaczeń i ustaw `component` dla kontenera strony:
 
     ```js
     const pagesConfig = [
@@ -115,7 +115,7 @@ Aby dodać nową stronę do interfejsu użytkownika sieci Web, wprowadź następ
     ];
     ```
 
-1. Dodaj nową `crumbsConfig` tablicę struktury nawigacyjnej do tablicy:
+1. Dodaj nową tablicę struktury nawigacyjnej do `crumbsConfig` tablicy:
 
     ```js
     const crumbsConfig = [
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard`.
+Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard` .
 
 Bez łączenia lokalnego wystąpienia interfejsu użytkownika sieci Web ze wdrożonym wystąpieniem akceleratora rozwiązania zobaczysz błędy na pulpicie nawigacyjnym. Te błędy nie wpływają na zdolność do testowania nowej strony.
 
@@ -154,7 +154,7 @@ Opcjonalnie możesz połączyć lokalną kopię interfejsu użytkownika sieci We
 
 1. Wdróż **podstawowe** wystąpienie akceleratora rozwiązania przy użyciu interfejsu wiersza polecenia **komputerów** . Zanotuj nazwę wdrożenia i poświadczenia podane dla maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [wdrażanie przy użyciu interfejsu wiersza polecenia](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Użyj Azure Portal lub [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby włączyć dostęp SSH do maszyny wirtualnej, która hostuje mikrousługi w rozwiązaniu. Przykład:
+1. Użyj Azure Portal lub [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby włączyć dostęp SSH do maszyny wirtualnej, która hostuje mikrousługi w rozwiązaniu. Na przykład:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -162,7 +162,7 @@ Opcjonalnie możesz połączyć lokalną kopię interfejsu użytkownika sieci We
 
     Dostęp SSH należy włączyć tylko podczas testowania i programowania. W przypadku włączenia protokołu SSH należy [go ponownie wyłączyć najszybciej, jak to możliwe](../security/fundamentals/network-best-practices.md).
 
-1. Użyj Azure Portal lub [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby znaleźć nazwę i publiczny adres IP maszyny wirtualnej. Przykład:
+1. Użyj Azure Portal lub [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , aby znaleźć nazwę i publiczny adres IP maszyny wirtualnej. Na przykład:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

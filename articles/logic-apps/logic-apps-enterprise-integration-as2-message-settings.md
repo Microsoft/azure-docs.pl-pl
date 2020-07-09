@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74793025"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Dokumentacja dla ustawień komunikatu AS2 w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
@@ -25,7 +24,7 @@ Ta dokumentacja zawiera opis właściwości, które można ustawić w celu okre�
 
 ![Wybieranie opcji "Odbierz ustawienia"](./media/logic-apps-enterprise-integration-as2-message-settings/receive-settings.png)
 
-| Właściwość | Wymagany | Opis |
+| Właściwość | Wymagane | Opis |
 |----------|----------|-------------|
 | **Zastąp właściwości komunikatu** | Nie | Przesłania właściwości przychodzących komunikatów przy użyciu ustawień właściwości. |
 | **Komunikat powinien być podpisany** | Nie | Określa, czy wszystkie wiadomości przychodzące muszą być podpisane cyfrowo. Jeśli wymagasz podpisywania, z listy **certyfikat** wybierz istniejący certyfikat publiczny partnera gościa, aby sprawdzić poprawność podpisu w komunikatach. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
@@ -44,12 +43,12 @@ Ta dokumentacja zawiera opis właściwości, które można ustawić w celu okre�
 
 ![Wybierz pozycję "Ustawienia wysyłania".](./media/logic-apps-enterprise-integration-as2-message-settings/send-settings.png)
 
-| Właściwość | Wymagany | Opis |
+| Właściwość | Wymagane | Opis |
 |----------|----------|-------------|
 | **Włącz podpisywanie komunikatów** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być podpisane cyfrowo. Jeśli wymagane jest podpisywanie, wybierz następujące wartości: <p>— Z listy **algorytm podpisywania** wybierz algorytm, który ma być używany do podpisywania wiadomości. <br>— Z listy **certyfikat** wybierz istniejący certyfikat prywatny partnera hosta do podpisywania wiadomości. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Włącz szyfrowanie komunikatów** | Nie | Określa, czy wszystkie wiadomości wychodzące muszą być szyfrowane. Jeśli wymagane jest szyfrowanie, należy wybrać następujące wartości: <p>— Z listy **algorytm szyfrowania** wybierz algorytm certyfikatu publicznego partnera gościa, który ma być używany do szyfrowania wiadomości. <br>— Z listy **certyfikat** wybierz istniejący certyfikat prywatny partnera gościa na potrzeby szyfrowania wiadomości wychodzących. Jeśli nie masz certyfikatu, Dowiedz się więcej o [dodawaniu certyfikatów](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Włącz kompresję komunikatów** | Nie | Określa, czy wszystkie komunikaty wychodzące muszą być kompresowane. |
-| **Unfold nagłówki HTTP** | Nie | Umieszcza nagłówek HTTP `content-type` w pojedynczym wierszu. |
+| **Unfold nagłówki HTTP** | Nie | Umieszcza nagłówek HTTP w `content-type` pojedynczym wierszu. |
 | **Nazwa pliku transmisji w nagłówku MIME** | Nie | Określa, czy nazwa pliku ma zostać dołączona do nagłówka MIME. |
 | **POWIADOMIENIA MDN żądania** | Nie | Określa, czy otrzymywać powiadomienia o dyspozycjach komunikatów (MDNs) dla wszystkich wychodzących komunikatów. |
 | **POWIADOMIENIA MDN podpisanego żądania** | Nie | Określa, czy mają być odbierane podpisane usługi MDNs dla wszystkich wychodzących wiadomości. Jeśli wymagasz podpisywania, z listy **algorytm mikrofonu** wybierz algorytm, który ma być używany do podpisywania komunikatów. |

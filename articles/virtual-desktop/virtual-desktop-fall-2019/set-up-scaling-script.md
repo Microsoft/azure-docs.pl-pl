@@ -4,16 +4,16 @@ description: Jak automatycznie skalować hosty sesji pulpitu wirtualnego systemu
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362547"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
@@ -33,14 +33,14 @@ Raporty o problemach narzędzia do skalowania są obecnie obsługiwane w usłudz
 Narzędzie skalowania udostępnia opcję automatyzacji o niskich kosztach dla klientów, którzy chcą zoptymalizować koszty maszyn wirtualnych hosta sesji.
 
 Możesz użyć narzędzia skalowania, aby:
- 
+
 - Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych w oparciu o szczytową i nieszczytową godzinę biznesową.
 - Skalowanie maszyn wirtualnych na podstawie liczby sesji na rdzeń procesora CPU.
 - Skalowanie maszyn wirtualnych poza godzinami szczytu, pozostawiając minimalną liczbę maszyn wirtualnych hosta sesji z systemem.
 
 Narzędzie do skalowania używa Azure Automation kombinacji elementów Runbook programu PowerShell, webhook i Azure Logic Apps do działania. Po uruchomieniu narzędzia Azure Logic Apps wywoła element webhook w celu uruchomienia Azure Automation elementu Runbook. Następnie element Runbook utworzy zadanie.
 
-W czasie szczytowego użycia zadanie sprawdza bieżącą liczbę sesji i pojemność maszyny wirtualnej aktualnie działającego hosta sesji dla każdej puli hostów. Te informacje służą do obliczenia, czy uruchomione maszyny wirtualne hosta sesji mogą obsługiwać istniejące sesje na podstawie parametru *SessionThresholdPerCPU* zdefiniowanego dla pliku **createazurelogicapp. ps1** . Jeśli maszyny wirtualne hosta sesji nie mogą obsługiwać istniejących sesji, zadanie uruchamia dodatkowe maszyny wirtualne hosta sesji w puli hostów.
+W czasie szczytowego użycia zadanie sprawdza bieżącą liczbę sesji i pojemność maszyny wirtualnej aktualnie działającego hosta sesji dla każdej puli hostów. Te informacje służą do obliczenia, czy uruchomione maszyny wirtualne hosta sesji mogą obsługiwać istniejące sesje na podstawie parametru *SessionThresholdPerCPU* zdefiniowanego dla pliku **createazurelogicapp.ps1** . Jeśli maszyny wirtualne hosta sesji nie mogą obsługiwać istniejących sesji, zadanie uruchamia dodatkowe maszyny wirtualne hosta sesji w puli hostów.
 
 >[!NOTE]
 >*SessionThresholdPerCPU* nie ogranicza liczby sesji na maszynie wirtualnej. Ten parametr określa tylko, kiedy należy uruchomić nowe maszyny wirtualne w celu równoważenia obciążenia połączeń. Aby ograniczyć liczbę sesji, należy postępować zgodnie z instrukcjami [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) , aby odpowiednio skonfigurować parametr *MaxSessionLimit* .
@@ -67,7 +67,7 @@ Przed rozpoczęciem konfigurowania narzędzia do skalowania upewnij się, że ma
 - Maszyny wirtualne puli hostów sesji skonfigurowane i zarejestrowane w usłudze pulpitu wirtualnego systemu Windows
 - Użytkownik z [dostępem współautora](../../role-based-access-control/role-assignments-portal.md) w ramach subskrypcji platformy Azure
 
-Komputer używany do wdrożenia narzędzia musi mieć następujące: 
+Komputer używany do wdrożenia narzędzia musi mieć następujące:
 
 - Windows PowerShell 5,1 lub nowszy
 - Moduł Microsoft AZ PowerShell
@@ -106,7 +106,8 @@ Najpierw musisz mieć konto Azure Automation, aby uruchomić element Runbook pro
 
 6. Po skonfigurowaniu konta Azure Automation Zaloguj się do subskrypcji platformy Azure i sprawdź, czy konto Azure Automation i odpowiedni element Runbook pojawiły się w określonej grupie zasobów, jak pokazano na poniższej ilustracji:
 
-![Obraz strony Przegląd platformy Azure przedstawiający nowo utworzone konto usługi Automation i element Runbook.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz strony Przegląd platformy Azure przedstawiający nowo utworzone konto usługi Automation i element Runbook.](../media/automation-account.png)
 
   Aby sprawdzić, czy element webhook jest w tym miejscu, wybierz nazwę elementu Runbook. Następnie przejdź do sekcji zasobów elementu Runbook i wybierz pozycję elementy **webhook**.
 
@@ -162,7 +163,7 @@ Na koniec należy utworzyć aplikację logiki platformy Azure i skonfigurować h
      Login-AzAccount
      ```
 
-3. Uruchom następujące polecenie cmdlet, aby pobrać plik skryptu createazurelogicapp. ps1 na komputerze lokalnym.
+3. Uruchom następujące polecenie cmdlet, aby pobrać plik skryptu createazurelogicapp.ps1 na komputerze lokalnym.
 
      ```powershell
      Set-Location -Path "c:\temp"
@@ -180,21 +181,21 @@ Na koniec należy utworzyć aplikację logiki platformy Azure i skonfigurować h
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +205,12 @@ Na koniec należy utworzyć aplikację logiki platformy Azure i skonfigurować h
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -236,11 +237,13 @@ Na koniec należy utworzyć aplikację logiki platformy Azure i skonfigurować h
 
      Po uruchomieniu skryptu aplikacja logiki powinna pojawić się w grupie zasobów, jak pokazano na poniższej ilustracji.
 
-     ![Obraz strony przegląd dla przykładowej aplikacji logiki platformy Azure.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Obraz strony przegląd dla przykładowej aplikacji logiki platformy Azure.](../media/logic-app.png)
 
 Aby wprowadzić zmiany do harmonogramu wykonywania, takie jak zmiana interwału cyklu lub strefy czasowej, przejdź do harmonogramu automatycznego skalowania i wybierz pozycję **Edytuj** , aby przejść do projektanta Logic Apps.
 
-![Obraz projektanta Logic Apps. Menu cykl i element webhook umożliwiające użytkownikowi edytowanie czasów cyklu i pliku elementu webhook.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz projektanta Logic Apps. Menu cykl i element webhook umożliwiające użytkownikowi edytowanie czasów cyklu i pliku elementu webhook.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Zarządzaj narzędziem do skalowania
 
@@ -252,7 +255,8 @@ Można wyświetlić podsumowanie stanu wszystkich zadań elementu Runbook lub wy
 
 Po prawej stronie wybranego konta usługi Automation w obszarze "statystyki zadania" można wyświetlić listę podsumowań wszystkich zadań elementu Runbook. Otwarcie strony **zadania** po lewej stronie okna powoduje wyświetlenie bieżących stanów zadań, godzin rozpoczęcia i czasu zakończenia.
 
-![Zrzut ekranu przedstawiający stronę stanu zadania.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający stronę stanu zadania.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Wyświetlanie dzienników i narzędzi do skalowania danych wyjściowych
 
@@ -260,5 +264,6 @@ Możesz wyświetlić dzienniki operacji skalowania w poziomie i skalowania przez
 
 Przejdź do elementu Runbook (nazwa domyślna to WVDAutoScaleRunbook) w grupie zasobów hostującym konto Azure Automation i wybierz pozycję **Przegląd**. Na stronie Przegląd wybierz zadanie w obszarze ostatnie zadania, aby wyświetlić dane wyjściowe narzędzia do skalowania, jak pokazano na poniższej ilustracji.
 
-![Obraz okna dane wyjściowe narzędzia do skalowania.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz okna dane wyjściowe narzędzia do skalowania.](../media/tool-output.png)
 

@@ -7,10 +7,9 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656235"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Zwiększ bezpieczeństwo wywołań niestandardowych interfejsów API z Azure Logic Apps
@@ -51,9 +50,9 @@ Aplikacja logiki używa tej tożsamości aplikacji usługi Azure AD do uwierzyte
 2. Upewnij się, że jesteś w tym samym katalogu, co aplikacja sieci Web lub aplikacja interfejsu API.
 
    > [!TIP]
-   > Aby przełączyć katalogi, wybierz swój profil i wybierz inny katalog. Lub wybierz opcję **Overview** > **katalog przełączników**przegląd.
+   > Aby przełączyć katalogi, wybierz swój profil i wybierz inny katalog. Lub wybierz opcję **Overview**  >  **katalog przełączników**przegląd.
 
-3. W menu katalog w obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji** > **rejestracja nowej aplikacji**.
+3. W menu katalog w obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**  >  **rejestracja nowej aplikacji**.
 
    > [!TIP]
    > Domyślnie lista rejestracji aplikacji zawiera wszystkie rejestracje aplikacji w Twoim katalogu. Aby wyświetlić tylko rejestracje aplikacji, obok pola wyszukiwania wybierz pozycję **Moje aplikacje**. 
@@ -152,7 +151,7 @@ Teraz musisz znaleźć identyfikator klienta i identyfikator dzierżawy dla toż
 
 Nadal musisz utworzyć tożsamość aplikacji usługi Azure AD dla aplikacji sieci Web lub aplikacji interfejsu API, która różni się od tożsamości aplikacji dla aplikacji logiki. Aby utworzyć tożsamość aplikacji, wykonaj czynności opisane w części 2 dla Azure Portal. 
 
-Możesz również wykonać czynności opisane w części 1, ale upewnij się, że korzystasz z aplikacji sieci Web lub rzeczywistej `https://{URL}` aplikacji interfejsu API dla **adresu URL logowania** i **identyfikatora aplikacji**. Z tych kroków należy zapisać identyfikator klienta i identyfikator dzierżawy do użycia w szablonie wdrożenia aplikacji, a także dla części 3.
+Możesz również wykonać czynności opisane w części 1, ale upewnij się, że korzystasz z aplikacji sieci Web lub rzeczywistej aplikacji interfejsu API `https://{URL}` dla **adresu URL logowania** i **identyfikatora aplikacji**. Z tych kroków należy zapisać identyfikator klienta i identyfikator dzierżawy do użycia w szablonie wdrożenia aplikacji, a także dla części 3.
 
 > [!NOTE]
 > Podczas tworzenia tożsamości aplikacji usługi Azure AD dla aplikacji sieci Web lub aplikacji interfejsu API należy użyć Azure Portal, a nie programu PowerShell. Program PowerShell polecenia cmdlet nie konfiguruje wymaganych uprawnień do podpisywania użytkowników w witrynie sieci Web.
@@ -197,13 +196,13 @@ Otwórz definicję aplikacji logiki w widoku Kod, przejdź do definicji akcji **
 }
 ```
 
-| Właściwość | Wymagany | Opis | 
+| Właściwość | Wymagane | Opis | 
 | -------- | -------- | ----------- | 
 | dzierżaw | Tak | Identyfikator GUID dzierżawy usługi Azure AD | 
 | publiczn | Tak | Identyfikator GUID zasobu docelowego, do którego chcesz uzyskać dostęp, czyli identyfikator klienta z tożsamości aplikacji dla aplikacji sieci Web lub aplikacji interfejsu API | 
 | clientId | Tak | Identyfikator GUID klienta żądającego dostępu, który jest IDENTYFIKATORem klienta z tożsamości aplikacji dla aplikacji logiki | 
 | wpis tajny | Tak | Klucz lub hasło tożsamości aplikacji dla klienta żądającego tokenu dostępu | 
-| type | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest `ActiveDirectoryOAuth`równa. | 
+| typ | Tak | Typ uwierzytelniania. W przypadku uwierzytelniania ActiveDirectoryOAuth wartość jest równa `ActiveDirectoryOAuth` . | 
 |||| 
 
 Przykład:
@@ -248,9 +247,9 @@ W sekcji **autoryzacja** uwzględnij następujące właściwości:
 } 
 ```
 
-| Właściwość | Wymagany | Opis |
+| Właściwość | Wymagane | Opis |
 | -------- | -------- | ----------- |
-| `type` | Tak | Typ uwierzytelniania. W przypadku certyfikatów klienta protokołu TLS/SSL wartość musi być `ClientCertificate`równa. |
+| `type` | Tak | Typ uwierzytelniania. W przypadku certyfikatów klienta protokołu TLS/SSL wartość musi być równa `ClientCertificate` . |
 | `password` | Nie | Hasło do uzyskiwania dostępu do certyfikatu klienta (plik PFX) |
 | `pfx` | Tak | Zakodowana w formacie base64 zawartość certyfikatu klienta (plik PFX) |
 ||||
@@ -271,9 +270,9 @@ W sekcji **autoryzacja** uwzględnij następujące właściwości:
 }
 ```
 
-| Właściwość | Wymagany | Opis | 
+| Właściwość | Wymagane | Opis | 
 | -------- | -------- | ----------- | 
-| type | Tak | Typ uwierzytelniania, którego chcesz użyć. W przypadku uwierzytelniania podstawowego należy wykonać wartość `Basic`. | 
+| typ | Tak | Typ uwierzytelniania, którego chcesz użyć. W przypadku uwierzytelniania podstawowego należy wykonać wartość `Basic` . | 
 | nazwa użytkownika | Tak | Nazwa użytkownika, która ma być używana do uwierzytelniania | 
 | hasło | Tak | Hasło, które ma być używane do uwierzytelniania | 
 |||| 

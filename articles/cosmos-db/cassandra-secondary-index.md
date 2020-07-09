@@ -8,10 +8,9 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80758029"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indeksowanie pomocnicze w Azure Cosmos DB interfejs API Cassandra
@@ -51,7 +50,7 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-Jeśli spróbujesz wykonać następującą instrukcję, wystąpi błąd z prośbą o użycie `ALLOW FILTERING`: 
+Jeśli spróbujesz wykonać następującą instrukcję, wystąpi błąd z prośbą o użycie `ALLOW FILTERING` : 
 
 ```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
@@ -62,10 +61,10 @@ Chociaż interfejs API Cassandra obsługuje filtrowanie, jak wspomniano w poprze
 ```shell
 CREATE INDEX ON sampleks.t1 (lastname);
 ```
-Po utworzeniu indeksu w polu "LastName" można teraz ponownie uruchomić poprzednią kwerendę. W przypadku interfejs API Cassandra w Azure Cosmos DB nie trzeba podawać nazwy indeksu. Używany jest domyślny indeks z `tablename_columnname_idx` formatowaniem. Na przykład ` t1_lastname_idx` jest nazwą indeksu poprzedniej tabeli.
+Po utworzeniu indeksu w polu "LastName" można teraz ponownie uruchomić poprzednią kwerendę. W przypadku interfejs API Cassandra w Azure Cosmos DB nie trzeba podawać nazwy indeksu. Używany jest domyślny indeks z formatowaniem `tablename_columnname_idx` . Na przykład ` t1_lastname_idx` jest nazwą indeksu poprzedniej tabeli.
 
 ## <a name="dropping-the-index"></a>Usuwanie indeksu 
-Musisz wiedzieć, czym jest nazwa indeksu, aby usunąć indeks. Uruchom polecenie `desc schema` , aby uzyskać opis tabeli. Dane wyjściowe tego polecenia zawierają nazwę indeksu w formacie `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`. Następnie można użyć nazwy indeksu, aby porzucić indeks, jak pokazano w następującym przykładzie:
+Musisz wiedzieć, czym jest nazwa indeksu, aby usunąć indeks. Uruchom `desc schema` polecenie, aby uzyskać opis tabeli. Dane wyjściowe tego polecenia zawierają nazwę indeksu w formacie `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)` . Następnie można użyć nazwy indeksu, aby porzucić indeks, jak pokazano w następującym przykładzie:
 
 ```shell
 drop index sampleks.t1_lastname_idx;

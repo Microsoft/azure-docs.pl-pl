@@ -4,21 +4,21 @@ description: Ten artykuł zawiera szczegółowe informacje techniczne dotyczące
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a46a69476a2ad6550bc7b3a533fd09565d461db3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872132"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955917"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globalna dystrybucja danych z Azure Cosmos DBą pod okapem
 
 Azure Cosmos DB to fundamentowa usługa na platformie Azure, więc jest wdrażana we wszystkich regionach świadczenia usługi Azure na całym świecie, w tym w publicznych, suwerennych departamentach obrony i instytucji rządowych. W centrum danych firma Microsoft wdraża Azure Cosmos DB na dużych sygnaturach maszyn i zarządza nimi przy użyciu dedykowanego magazynu lokalnego. W centrum danych Azure Cosmos DB jest wdrażana w wielu klastrach, a każdy z nich może uruchamiać wiele generacji sprzętu. Maszyny w klastrze są zwykle rozproszone w domenach błędów 10-20 w celu zapewnienia wysokiej dostępności w regionie. Na poniższej ilustracji przedstawiono topologię globalnego systemu dystrybucji Cosmos DB:
 
-![Topologia systemu](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="Topologia systemu" border="false":::
 
 **Globalna dystrybucja w Azure Cosmos DB to gotowe:** W dowolnym momencie za pomocą kilku kliknięć lub programowo przy użyciu jednego wywołania interfejsu API można dodawać lub usuwać regiony geograficzne skojarzone z bazą danych Cosmos. Baza danych Cosmos, z kolei, składa się z zestawu kontenerów Cosmos. W Cosmos DB kontenery pełnią rolę logicznej dystrybucji i skalowalności. Kolekcje, tabele i tworzone przez siebie wykresy są (wewnętrznie) tylko Cosmos kontenery. Kontenery są całkowicie schemat-niezależny od i zapewniają zakres zapytania. Dane w kontenerze Cosmos są automatycznie indeksowane podczas pozyskiwania. Automatyczne indeksowanie umożliwia użytkownikom wykonywanie zapytań dotyczących danych bez problemów z zarządzaniem schematem lub indeksem, szczególnie w przypadku konfiguracji rozproszonej globalnie.  
 
@@ -30,7 +30,7 @@ Gdy aplikacja używająca Cosmos DB elastycznie skaluje przepływność na konte
 
 Jak pokazano na poniższej ilustracji, dane w kontenerze są dystrybuowane w dwóch wymiarach — w regionie i w różnych regionach, na całym świecie:  
 
-![partycje fizyczne](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="partycje fizyczne" border="false":::
 
 Partycja fizyczna jest implementowana przez grupę replik nazywaną *zestawem replik*. Każdy komputer obsługuje setki replik odpowiadających różnym partycjom fizycznym w ramach ustalonego zestawu procesów, jak pokazano na powyższym obrazie. Repliki odpowiadające partycjom fizycznym są dynamicznie umieszczane i ładowane na maszynach w klastrze i w centrach danych w danym regionie.  
 
@@ -52,7 +52,7 @@ Partycja fizyczna jest przeznaczona do użycia przez samodzielną i dynamiczną 
 
 Grupa partycji fizycznych, jedna ze wszystkich skonfigurowanych za pomocą regionów bazy danych Cosmos, składa się z tego samego zestawu kluczy replikowanych we wszystkich skonfigurowanych regionach. Ta wyższa wartość pierwotna koordynacji jest nazywana rozłożoną w sposób dynamiczny rozłożeniem *partycji fizycznych* , która zarządza danym zestawem kluczy. Chociaż dana partycja fizyczna (zestaw replik) jest objęta zakresem klastra, zestaw partycji może obejmować klastry, centra danych i regiony geograficzne, jak pokazano na poniższej ilustracji:  
 
-![Zestawy partycji](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Zestawy partycji" border="false":::
 
 Można traktować zestaw partycji jako geograficznie rozproszony "zestaw" Super Replica ", który składa się z wielu replik i ma ten sam zestaw kluczy. Podobnie jak w przypadku zestawu replik, członkostwo w zestawie partycji jest również dynamiczne — zmienia się w zależności od niejawnych operacji zarządzania partycjami fizycznymi w celu dodania/usunięcia nowych partycji do/z danego zestawu partycji (na przykład w przypadku skalowania przepływności w kontenerze, dodania/usunięcia regionu do bazy danych Cosmos lub w przypadku wystąpienia błędów). Ze względu na to, że każda partycja (zestawu partycji) zarządza członkostwem w zestawie partycji w ramach własnego zestawu replik, członkostwo jest w pełni zdecentralizowane i wysoce dostępne. Podczas ponownej konfiguracji zestawu partycji zostaje także ustanowiona topologia nakładki między partycjami fizycznymi. Topologia jest dynamicznie wybierana na podstawie poziomu spójności, odległości geograficznej i dostępnej przepustowości sieci między źródłową i docelową partycją fizyczną.  
 

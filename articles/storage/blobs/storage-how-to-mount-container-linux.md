@@ -4,16 +4,15 @@ description: Instalowanie kontenera usługi Azure Blob Storage z opcją Odmów w
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: a0a03df59bc6ecffcb4f0a701616297f2da78fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465477"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse
 
@@ -43,7 +42,7 @@ Przykładowo w dystrybucji Enterprise Linux 6:
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-Analogicznie Zmień adres URL na `.../rhel/7/...` tak, aby wskazywał dystrybucję Enterprise Linux 7.
+Analogicznie Zmień adres URL na tak, aby `.../rhel/7/...` wskazywał dystrybucję Enterprise Linux 7.
 
 Inny przykład na Ubuntu 14,04:
 ```bash
@@ -52,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Analogicznie, Zmień adres URL `.../ubuntu/16.04/...` na `.../ubuntu/18.04/...` lub, aby odwołać się do innej wersji Ubuntu.
+Analogicznie, Zmień adres URL na `.../ubuntu/16.04/...` lub, `.../ubuntu/18.04/...` Aby odwołać się do innej wersji Ubuntu.
 
 ### <a name="install-blobfuse"></a>Zainstaluj blobfuse
 
@@ -98,7 +97,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName` Jest to prefiks dla konta magazynu — a nie pełny adres URL.
+`accountName`Jest to prefiks dla konta magazynu — a nie pełny adres URL.
 
 Utwórz ten plik przy użyciu:
 
@@ -132,7 +131,7 @@ Aby zainstalować blobfuse, uruchom następujące polecenie u użytkownika. To p
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Teraz masz dostęp do blokowych obiektów BLOB za pomocą zwykłych interfejsów API systemu plików. Użytkownik instalujący katalog jest jedyną osobą, która ma do niej dostęp, domyślnie, która zabezpiecza dostęp. Aby zezwolić na dostęp wszystkim użytkownikom, można zainstalować za pomocą opcji ```-o allow_other```. 
+Teraz masz dostęp do blokowych obiektów BLOB za pomocą zwykłych interfejsów API systemu plików. Użytkownik instalujący katalog jest jedyną osobą, która ma do niej dostęp, domyślnie, która zabezpiecza dostęp. Aby zezwolić na dostęp wszystkim użytkownikom, można zainstalować za pomocą opcji ```-o allow_other``` . 
 
 ```bash
 cd ~/mycontainer

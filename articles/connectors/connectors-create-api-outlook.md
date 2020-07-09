@@ -8,15 +8,14 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75707190"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kalendarzami i kontaktami w programie Outlook.com przy użyciu Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Outlook.com](/connectors/outlook/)można tworzyć zautomatyzowane zadania i przepływy pracy, które @outlook.com zarządzają kontami lub @hotmail.com przez tworzenie aplikacji logiki. Na przykład można zautomatyzować następujące zadania:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Outlook.com](/connectors/outlook/)można tworzyć zautomatyzowane zadania i przepływy pracy, które zarządzają @outlook.com @hotmail.com kontami lub przez tworzenie aplikacji logiki. Na przykład można zautomatyzować następujące zadania:
 
 * Pobieranie, wysyłanie i odpowiadanie na wiadomości e-mail.
 * Planowanie spotkań w kalendarzu.
@@ -25,7 +24,7 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznik
 Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykład po nadejściu nowej wiadomości e-mail, po zaktualizowaniu elementu kalendarza lub gdy zdarzenie występuje w usłudze różnicowej. Możesz użyć akcji, które reagują na zdarzenie wyzwalacza, na przykład Wyślij wiadomość e-mail lub Utwórz nowe wydarzenie w kalendarzu.
 
 > [!NOTE]
-> Aby zautomatyzować zadania dla konta służbowego firmy Microsoft, @fabrikam.onmicrosoft.comtakie jak, użyj [łącznika programu Outlook pakietu Office 365](../connectors/connectors-create-api-office365-outlook.md).
+> Aby zautomatyzować zadania dla konta służbowego firmy Microsoft, takie jak @fabrikam.onmicrosoft.com , użyj [łącznika programu Outlook pakietu Office 365](../connectors/connectors-create-api-office365-outlook.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,7 +60,7 @@ Aby odpowiedzieć na wyzwalacz, Dodaj kolejną akcję. Można na przykład doda�
 
 1. Aby dodać akcję jako ostatni krok w przepływie pracy, wybierz pozycję **nowy krok**. 
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź ciąg "outlook.com" jako filtr. Na potrzeby tego przykładu wybierz opcję **Wyślij wiadomość e-mail**. 
 

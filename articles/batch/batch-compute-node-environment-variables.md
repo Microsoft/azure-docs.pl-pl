@@ -3,22 +3,22 @@ title: Zmienne środowiskowe środowiska uruchomieniowego zadania
 description: Wskazówki dotyczące zmiennych środowiskowych środowiska uruchomieniowego zadań i informacje dotyczące analizy Azure Batch.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745333"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960915"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Zmienne środowiskowe środowiska uruchomieniowego Azure Batch
 
 [Usługa Azure Batch](https://azure.microsoft.com/services/batch/) ustawia następujące zmienne środowiskowe w węzłach obliczeniowych. Można odwoływać się do tych zmiennych środowiskowych w wierszach poleceń zadań, a w programach i skryptach uruchamianych przez wiersze polecenia.
 
-Aby uzyskać więcej informacji o używaniu zmiennych środowiskowych w usłudze Batch, zobacz [Ustawienia środowiska dla zadań](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
+Aby uzyskać więcej informacji o używaniu zmiennych środowiskowych w usłudze Batch, zobacz [Ustawienia środowiska dla zadań](./jobs-and-tasks.md#environment-settings-for-tasks).
 
 ## <a name="environment-variable-visibility"></a>Widoczność zmiennej środowiskowej
 
-Te zmienne środowiskowe są widoczne tylko w kontekście **użytkownika zadania**, konta użytkownika w węźle, w którym wykonywane jest zadanie. Będą one *niewidoczne*, jeśli [zdalnie połączysz się](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) z węzłem obliczeniowym, za pomocą protokołu RDP lub SSH i wyświetlisz listę zmiennych środowiskowych. Dzieje się tak dlatego, że konto użytkownika, używane na potrzeby połączenia zdalnego jest inne niż konto używane przez zadanie podrzędne.
+Te zmienne środowiskowe są widoczne tylko w kontekście **użytkownika zadania**, konta użytkownika w węźle, w którym wykonywane jest zadanie. Będą one *niewidoczne*, jeśli [zdalnie połączysz się](./error-handling.md#connect-to-compute-nodes) z węzłem obliczeniowym, za pomocą protokołu RDP lub SSH i wyświetlisz listę zmiennych środowiskowych. Dzieje się tak dlatego, że konto użytkownika, używane na potrzeby połączenia zdalnego jest inne niż konto używane przez zadanie podrzędne.
 
 Aby uzyskać bieżącą wartość zmiennej środowiskowej, uruchom `cmd.exe` polecenie w węźle obliczeniowym systemu Windows lub `/bin/sh` węźle z systemem Linux:
 
@@ -40,8 +40,8 @@ Wiersze poleceń wykonywane przez zadania w węzłach obliczeniowych nie są uru
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nazwa konta wsadowego, do którego należy zadanie.                  | Wszystkie zadania.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | Adres URL konta wsadowego. | Wszystkie zadania. | `https://myaccount.westus.batch.azure.com` |
-| AZ_BATCH_APP_PACKAGE            | Prefiks wszystkich zmiennych środowiskowych pakietu aplikacji. Na przykład jeśli aplikacja "FOO" w wersji "1" jest zainstalowana w puli, zmienna środowiskowa jest AZ_BATCH_APP_PACKAGE_FOO_1 (w systemie Linux) lub AZ_BATCH_APP_PACKAGE_FOO # 1 (w systemie Windows). AZ_BATCH_APP_PACKAGE_FOO_1 wskazuje lokalizację, do której pakiet został pobrany (folder). W przypadku używania domyślnej wersji pakietu aplikacji należy użyć zmiennej środowiskowej AZ_BATCH_APP_PACKAGE bez numerów wersji. Jeśli w systemie Linux, a nazwa pakietu aplikacji to "Agent-Linux-x64", a wersja to "1.1.46.0", Nazwa środowiska jest w rzeczywistości: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0, przy użyciu podkreślenia i małymi literami. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/azure/batch/batch-application-packages#execute-the-installed-applications). | Dowolne zadanie ze skojarzonym pakietem aplikacji. Dostępne również dla wszystkich zadań, jeśli węzeł ma pakiety aplikacji. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) lub AZ_BATCH_APP_PACKAGE_FOO # 1 (Windows) |
-| AZ_BATCH_AUTHENTICATION_TOKEN   | Token uwierzytelniania, który udziela dostępu do ograniczonego zestawu operacji usługi Batch. Ta zmienna środowiskowa jest obecna tylko wtedy, gdy [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) są ustawiane podczas [dodawania zadania](/rest/api/batchservice/task/add#request-body). Wartość tokenu jest używana w interfejsie API usługi Batch jako poświadczenia do tworzenia klienta usługi Batch, takiego jak [BatchClient. Open () .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Wszystkie zadania. | Token dostępu OAuth2 |
+| AZ_BATCH_APP_PACKAGE            | Prefiks wszystkich zmiennych środowiskowych pakietu aplikacji. Na przykład jeśli aplikacja "FOO" w wersji "1" jest zainstalowana w puli, zmienna środowiskowa jest AZ_BATCH_APP_PACKAGE_FOO_1 (w systemie Linux) lub AZ_BATCH_APP_PACKAGE_FOO # 1 (w systemie Windows). AZ_BATCH_APP_PACKAGE_FOO_1 wskazuje lokalizację, do której pakiet został pobrany (folder). W przypadku używania domyślnej wersji pakietu aplikacji należy użyć zmiennej środowiskowej AZ_BATCH_APP_PACKAGE bez numerów wersji. Jeśli w systemie Linux, a nazwa pakietu aplikacji to "Agent-Linux-x64", a wersja to "1.1.46.0", Nazwa środowiska jest w rzeczywistości: AZ_BATCH_APP_PACKAGE_agent_linux_x64_1_1_46_0, przy użyciu podkreślenia i małymi literami. Więcej informacji można znaleźć [tutaj](./batch-application-packages.md#execute-the-installed-applications). | Dowolne zadanie ze skojarzonym pakietem aplikacji. Dostępne również dla wszystkich zadań, jeśli węzeł ma pakiety aplikacji. | AZ_BATCH_APP_PACKAGE_FOO_1 (Linux) lub AZ_BATCH_APP_PACKAGE_FOO # 1 (Windows) |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | Token uwierzytelniania, który udziela dostępu do ograniczonego zestawu operacji usługi Batch. Ta zmienna środowiskowa jest obecna tylko wtedy, gdy [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) są ustawiane podczas [dodawania zadania](/rest/api/batchservice/task/add#request-body). Wartość tokenu jest używana w interfejsie API usługi Batch jako poświadczenia do tworzenia klienta usługi Batch, takiego jak [BatchClient. Open () .NET API](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Wszystkie zadania. | Token dostępu OAuth2 |
 | AZ_BATCH_CERTIFICATES_DIR       | Katalog w [katalogu roboczym zadania][files_dirs] , w którym certyfikaty są przechowywane dla węzłów obliczeniowych systemu Linux. Ta zmienna środowiskowa nie ma zastosowania do węzłów obliczeniowych systemu Windows.                                                  | Wszystkie zadania.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Lista węzłów, które są przydzielono do [zadania o wiele wystąpień][multi_instance] w formacie `nodeIP,nodeIP` . | Podstawowe i podrzędne podzadania. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Określa, czy bieżący węzeł jest węzłem głównym zadania o [wielu wystąpieniach][multi_instance]. Możliwe wartości to `true` i `false` .| Podstawowe i podrzędne podzadania. | `true` |
@@ -63,7 +63,7 @@ Wiersze poleceń wykonywane przez zadania w węzłach obliczeniowych nie są uru
 | AZ_BATCH_TASK_WORKING_DIR       | Pełna ścieżka [katalogu roboczego zadania][files_dirs] w węźle. Aktualnie uruchomione zadanie ma dostęp do odczytu/zapisu do tego katalogu. | Wszystkie zadania. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Lista węzłów i liczba rdzeni na węzeł, które są przydzieleni do zadania o [wielu wystąpieniach][multi_instance]. Węzły i rdzenie są wymienione w formacie`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, gdzie po liczbie węzłów następuje jeden lub więcej adresów IP węzła i liczba rdzeni dla każdej z nich. |  Podstawowe i podrzędne podzadania. |`2 10.0.0.4 1 10.0.0.5 1` |
 
-[files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
-[multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
-[coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
-[app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+[files_dirs]: ./files-and-directories.md
+[multi_instance]: ./batch-mpi.md
+[coord_cmd]: ./batch-mpi.md#coordination-command
+[app_cmd]: ./batch-mpi.md#application-command

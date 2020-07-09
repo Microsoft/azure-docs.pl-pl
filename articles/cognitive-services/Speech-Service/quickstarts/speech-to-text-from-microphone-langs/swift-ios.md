@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: 31f5339c70d52019400ca5f1fe873de4790a3bd6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 95c69aad24ff10b49bdc09411553e6ed43bfdccd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75380528"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391438"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Szybki Start: Rozpoznawanie mowy w usłudze SWIFT w systemie iOS przy użyciu zestawu Speech SDK
 
@@ -40,7 +40,7 @@ Zestaw SDK mowy Cognitive Services dla systemu iOS jest dystrybuowany jako pakie
 
 ## <a name="create-an-xcode-project"></a>Tworzenie projektu Xcode
 
-Rozpocznij Xcode i Rozpocznij nowy projekt, wybierając pozycję **plik** > **Nowy** > **projekt**.
+Rozpocznij Xcode i Rozpocznij nowy projekt, wybierając pozycję **plik**  >  **Nowy**  >  **projekt**.
 W oknie dialogowym Wybieranie szablonu wybierz szablon aplikacji z **pojedynczym widokiem systemu iOS** .
 
 W poniższych oknach dialogowych wybierz następujące opcje.
@@ -66,7 +66,7 @@ W poniższych oknach dialogowych wybierz następujące opcje.
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/from-microphone/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 
-1. Dodaj ścieżkę `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` względną do nagłówka mostkowania do ustawień projektu SWIFT dla elementu docelowego HelloWorld w polu **nagłówka mostkowania "cel-C"** .
+1. Dodaj ścieżkę względną `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` do nagłówka mostkowania do ustawień projektu SWIFT dla elementu docelowego HelloWorld w polu **nagłówka mostkowania "cel-C"** .
 
    ![Właściwości nagłówka](~/articles/cognitive-services/Speech-Service/media/sdk/qs-swift-ios-bridging-header.png)
 
@@ -76,8 +76,8 @@ W poniższych oknach dialogowych wybierz następujące opcje.
 1. Zastąp zawartość automatycznie generowanego `ViewController.swift` pliku następującym kodem:
 
    [!code-swift[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/from-microphone/helloworld/helloworld/ViewController.swift#code)]
-1. W `ViewController.swift`programie Zamień ciąg `YourSubscriptionKey` na klucz subskrypcji.
-1. Zamień ciąg `YourServiceRegion` na [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
+1. W programie `ViewController.swift` Zamień ciąg na `YourSubscriptionKey` klucz subskrypcji.
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Zainstaluj zestaw SDK jako CocoaPod
 
@@ -85,14 +85,14 @@ W poniższych oknach dialogowych wybierz następujące opcje.
 1. Przejdź do katalogu aplikacji przykładowej, czyli HelloWorld. Umieść plik tekstowy o nazwie *plik podfile* i następującej zawartości w tym katalogu:
 
    [!code-ruby[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/swift/ios/from-microphone/helloworld/Podfile)]
-1. Przejdź do katalogu HelloWorld w terminalu i uruchom polecenie `pod install`. To polecenie generuje obszar `helloworld.xcworkspace` roboczy Xcode, który zawiera zarówno przykładową aplikację, jak i zestaw mowy SDK jako zależność. Ten obszar roboczy jest używany w poniższych krokach.
+1. Przejdź do katalogu HelloWorld w terminalu i uruchom polecenie `pod install` . To polecenie generuje `helloworld.xcworkspace` obszar roboczy Xcode, który zawiera zarówno przykładową aplikację, jak i zestaw mowy SDK jako zależność. Ten obszar roboczy jest używany w poniższych krokach.
 
 ## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
 1. Otwórz obszar roboczy `helloworld.xcworkspace` w Xcode.
-1. Aby wyświetlić dane wyjściowe debugowania, wybierz opcję **Wyświetl** > **obszar** > debugowania**Aktywuj konsolę**.
-1. Wybierz symulator systemu iOS lub urządzenie z systemem iOS podłączone do komputera deweloperskiego jako miejsce docelowe aplikacji z listy w menu**miejsce docelowe** **produktu** > .
-1. Kompiluj i uruchamiaj przykładowy kod w symulatorze systemu iOS, **wybierając pozycję** > **Uruchom** jako z menu. Możesz również wybrać przycisk **Odtwórz** .
+1. Aby wyświetlić dane wyjściowe debugowania, wybierz opcję **Wyświetl**  >  **obszar debugowania**  >  **Aktywuj konsolę**.
+1. Wybierz symulator systemu iOS lub urządzenie z systemem iOS podłączone do komputera deweloperskiego jako miejsce docelowe aplikacji z listy w **Product**  >  menu**miejsce docelowe** produktu.
+1. Kompiluj i uruchamiaj przykładowy kod w symulatorze systemu iOS, **wybierając pozycję**  >  **Uruchom** jako z menu. Możesz również wybrać przycisk **Odtwórz** .
 1. Po wybraniu przycisku **Rozpoznaj** w aplikacji i wpisaniu kilku wyrazów powinien zostać wyświetlony tekst wymawiany w dolnej części ekranu.
 
 ## <a name="next-steps"></a>Następne kroki

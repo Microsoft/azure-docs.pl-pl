@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712228"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorowanie i Diagnostyka dla Service Fabric platformy Azure
 
@@ -41,7 +40,7 @@ Service Fabric zapewnia kompleksowy zestaw zdarzeń z pola. Do tych [zdarzeń Se
 
 ![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
 
-Dostarczona Diagnostyka ma postać kompleksowego zestawu zdarzeń z pola. Te [zdarzenia Service Fabric](service-fabric-diagnostics-events.md) ilustrują akcje wykonywane przez platformę w różnych jednostkach, takich jak węzły, aplikacje, usługi, partycje itd. W poprzednim scenariuszu, jeśli węzeł został przeszedł w dół, platforma wyemituje `NodeDown` zdarzenie, a użytkownik może otrzymywać powiadomienia natychmiast za pomocą wybranego przez siebie narzędzia do monitorowania. Inne typowe przykłady obejmują `ApplicationUpgradeRollbackStarted` lub `PartitionReconfigured` podczas pracy w trybie failover. **Te same zdarzenia są dostępne zarówno w klastrach systemu Windows, jak i Linux.**
+Dostarczona Diagnostyka ma postać kompleksowego zestawu zdarzeń z pola. Te [zdarzenia Service Fabric](service-fabric-diagnostics-events.md) ilustrują akcje wykonywane przez platformę w różnych jednostkach, takich jak węzły, aplikacje, usługi, partycje itd. W poprzednim scenariuszu, jeśli węzeł został przeszedł w dół, platforma wyemituje zdarzenie, `NodeDown` a użytkownik może otrzymywać powiadomienia natychmiast za pomocą wybranego przez siebie narzędzia do monitorowania. Inne typowe przykłady obejmują `ApplicationUpgradeRollbackStarted` lub `PartitionReconfigured` podczas pracy w trybie failover. **Te same zdarzenia są dostępne zarówno w klastrach systemu Windows, jak i Linux.**
 
 Zdarzenia są wysyłane za pomocą standardowych kanałów w systemach Windows i Linux i mogą być odczytywane przez dowolne narzędzie monitorujące, które je obsługuje. Azure Monitor rozwiązanie to Azure Monitor dzienników. Możesz dowiedzieć się więcej na temat [integracji dzienników Azure monitor](service-fabric-diagnostics-event-analysis-oms.md) , która zawiera niestandardowy, operacyjny pulpit nawigacyjny dla klastra oraz kilka przykładowych zapytań, z których można tworzyć alerty. Dodatkowe koncepcje dotyczące monitorowania klastra są dostępne w [przypadku zdarzeń na poziomie platformy i generowania dzienników](service-fabric-diagnostics-event-generation-infra.md).
 

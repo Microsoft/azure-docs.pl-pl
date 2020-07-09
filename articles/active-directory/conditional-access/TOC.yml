@@ -8,8 +8,6 @@
   items:
     - name: Wymaganie akceptacji warunków użytkowania
       href: require-tou.md
-    - name: Blokowanie dostępu po wykryciu ryzykownej sesji
-      href: app-sign-in-risk.md
 - name: Samouczki
   items:
     - name: Wymaganie usługi Azure Multi-Factor Authentication
@@ -68,8 +66,10 @@
           href: howto-conditional-access-policy-azure-management.md
         - name: Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Dostęp warunkowy oparty na ryzyku
+        - name: Dostęp warunkowy oparty na ryzyku logowania
           href: howto-conditional-access-policy-risk.md
+        - name: Dostęp warunkowy oparty na ryzyku użytkownika
+          href: howto-conditional-access-policy-risk-user.md
         - name: Zabezpieczanie rejestracji informacji zabezpieczających
           href: howto-conditional-access-policy-registration.md
         - name: Blokowanie dostępu według lokalizacji

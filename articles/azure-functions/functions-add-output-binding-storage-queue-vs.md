@@ -4,12 +4,12 @@ description: Dowiedz się, jak dodać powiązanie danych wyjściowych, aby poł�
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74849211"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235372"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Łączenie funkcji z usługą Azure Storage przy użyciu programu Visual Studio
 
@@ -17,13 +17,13 @@ ms.locfileid: "74849211"
 
 W tym artykule pokazano, jak za pomocą programu Visual Studio połączyć funkcję utworzoną w [poprzednim artykule szybki start] z usługą Azure Storage. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce usługi Azure queue storage. 
 
-Większość powiązań wymaga przechowywanych parametrów połączenia używanych przez funkcje do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić sobie korzystanie z konta magazynu utworzonego za pomocą aplikacji funkcji programu. Połączenie z tym kontem jest już przechowywane w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.  
+Większość powiązań wymaga przechowywanych parametrów połączenia używanych przez funkcje do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić sobie korzystanie z konta magazynu utworzonego za pomocą aplikacji funkcji programu. Połączenie z tym kontem jest już przechowywane w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem tego artykułu należy: 
 
- - Ukończ [część 1 przewodnika Szybki Start dotyczącego programu Visual Studio](./functions-create-first-function-vs-code.md). 
+ - Ukończ [część 1 przewodnika Szybki Start dotyczącego programu Visual Studio](./functions-create-your-first-function-visual-studio.md). 
 
 - Zaloguj się do subskrypcji platformy Azure z poziomu programu Visual Studio.
 
@@ -39,13 +39,13 @@ W [poprzednim artykule szybki start](functions-create-first-function-vs-code.md)
 
 1. W obszarze **AzureWebJobsStorage**skopiuj wartość ciągu **zdalnego** do **lokalnego**, a następnie wybierz przycisk **OK**. 
 
-Powiązanie magazynu, które używa `AzureWebJobsStorage` ustawienia dla połączenia, może teraz połączyć się z magazynem kolejki podczas lokalnego uruchamiania.
+Powiązanie magazynu, które używa `AzureWebJobsStorage` Ustawienia dla połączenia, może teraz połączyć się z magazynem kolejki podczas lokalnego uruchamiania.
 
 ## <a name="register-binding-extensions"></a>Rejestrowanie rozszerzeń do wiązania
 
 Ze względu na to, że jest używane powiązanie danych wyjściowych magazynu kolejek, przed uruchomieniem projektu należy zainstalować rozszerzenie powiązania magazynu. Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania są implementowane jako pakiety rozszerzeń. 
 
-1. W menu **Narzędzia** wybierz kolejno pozycje >  **Menedżer pakietów NuGet****konsola Menedżera pakietów**. 
+1. W menu **Narzędzia** wybierz kolejno pozycje **Menedżer pakietów NuGet**  >  **konsola Menedżera pakietów**. 
 
 1. W konsoli programu uruchom następujące polecenie [instalacji pakietu](/nuget/tools/ps-ref-install-package) , aby zainstalować rozszerzenia magazynu:
 
@@ -69,13 +69,13 @@ Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do n
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-Nowa kolejka o `outqueue` nazwie zostanie utworzona na koncie magazynu przez środowisko uruchomieniowe funkcji, gdy zostanie użyte powiązanie danych wyjściowych. Użyjesz Eksploratora chmury do sprawdzenia, czy kolejka została utworzona wraz z nową wiadomością.
+Nowa kolejka o nazwie `outqueue` zostanie utworzona na koncie magazynu przez środowisko uruchomieniowe funkcji, gdy zostanie użyte powiązanie danych wyjściowych. Użyjesz Eksploratora chmury do sprawdzenia, czy kolejka została utworzona wraz z nową wiadomością.
 
 ## <a name="examine-the-output-queue"></a>Sprawdzanie kolejki wyjściowej
 
 1. W programie Visual Studio z menu **Widok** wybierz opcję **Eksplorator chmury**.
 
-1. W **Eksploratorze chmury**rozwiń swoje konta subskrypcji i **magazynu**platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź ustawienie parametrów `AzureWebJobsStorage` połączenia w pliku *Local. Settings. JSON* .  
+1. W **Eksploratorze chmury**rozwiń swoje konta subskrypcji i **magazynu**platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź `AzureWebJobsStorage` ustawienie parametrów połączenia w pliku *Local. Settings. JSON* .  
 
 1. Rozwiń węzeł **kolejki** , a następnie kliknij dwukrotnie kolejkę o nazwie **dequeueing** , aby wyświetlić zawartość kolejki w programie Visual Studio. 
 
@@ -91,7 +91,7 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**, a następnie wybierz polecenie **Publikuj** , aby ponownie opublikować projekt na platformie Azure.
 
-1. Po zakończeniu wdrażania możesz użyć przeglądarki, aby przetestować ponownie wdrożoną funkcję. Tak jak wcześniej, dołącz ciąg `&name=<yourname>` zapytania do adresu URL.
+1. Po zakończeniu wdrażania możesz użyć przeglądarki, aby przetestować ponownie wdrożoną funkcję. Tak jak wcześniej, dołącz ciąg zapytania `&name=<yourname>` do adresu URL.
 
 1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 

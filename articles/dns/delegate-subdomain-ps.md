@@ -4,15 +4,14 @@ description: Za pomocą tej ścieżki szkoleniowej Rozpocznij delegowanie poddom
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
-ms.openlocfilehash: 7e019afaae98422b8d5a3c8fa7a5f79e26c6a149
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9b37d313aa5d8c2255b4e3be69831dfcb50238ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937708"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712551"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegowanie poddomeny Azure DNS przy użyciu Azure PowerShell
 

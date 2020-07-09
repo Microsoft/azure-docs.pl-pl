@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390367"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -220,7 +220,7 @@ Program ACR obsługuje [role niestandardowe](container-registry-roles.md) , któ
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Lub Przypisz rolę do zasady usługi identyfikowanej za pomocą identyfikatora aplikacji:
+  Lub Przypisz rolę do jednostki usługi identyfikowanej za pomocą jej identyfikatora aplikacji:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -269,6 +269,7 @@ Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) do
 - [Dlaczego w Azure Portal nie są wystawiane wszystkie repozytoria lub Tagi?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Dlaczego Azure Portal nie można pobrać repozytoriów lub tagów?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Dlaczego moje żądanie ściągnięcia lub wypychania zakończy się niepowodzeniem z niedozwoloną operacją?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Format repozytorium jest nieprawidłowy lub nieobsługiwany](#repository-format-is-invalid-or-unsupported)
 - [Jak mogę zbierać ślady http w systemie Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Sprawdzanie kondycji za pomocą`az acr check-health`
@@ -313,7 +314,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -426,7 +427,7 @@ Jeśli używasz przeglądarki Microsoft Edge/IE, możesz zobaczyć maksymalnie 1
 Przeglądarka może nie być w stanie wysłać żądania pobrania repozytoriów lub tagów na serwer. Mogą istnieć różne przyczyny, takie jak:
 
 * Brak łączności sieciowej
-* Firewall
+* Zapora
 * Bloki usługi AD
 * Błędy DNS
 
@@ -438,6 +439,13 @@ Poniżej przedstawiono kilka scenariuszy, w których operacje mogą być niedozw
 * Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](https://aka.ms/acr/skus) za pomocą polecenia [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) lub Azure Portal.
 * Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) .
 * Niektóre operacje są niedozwolone, jeśli obraz jest objęty kwarantanną. Dowiedz się więcej o [kwarantannie](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Rejestr mógł osiągnąć [Limit magazynu](container-registry-skus.md#service-tier-features-and-limits).
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>Format repozytorium jest nieprawidłowy lub nieobsługiwany
+
+Jeśli zostanie wyświetlony błąd, taki jak "nieobsługiwany format repozytorium", "nieprawidłowy format" lub "żądane dane nie istnieją" podczas określania nazwy repozytorium w operacjach repozytorium, Sprawdź pisownię i wielkość liter. Prawidłowe nazwy repozytoriów mogą zawierać tylko małe znaki alfanumeryczne, kropki, łączniki, podkreślenia i ukośniki. 
+
+Aby zapoznać się z pełnymi regułami nazewnictwa repozytorium, zobacz artykuł [Specyfikacja dystrybucji z inicjatywy Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Jak mogę zbierać ślady http w systemie Windows?
 

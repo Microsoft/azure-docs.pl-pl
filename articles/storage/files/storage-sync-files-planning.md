@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552188"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -69,7 +69,7 @@ Azure File Sync jest obsługiwana w następujących wersjach systemu Windows Ser
 |---------|----------------|------------------------------|
 | Windows Server 2019 | Centrum danych, standard i IoT | Pełne i podstawowe |
 | Windows Server 2016 | Serwer Datacenter, standard i Storage | Pełne i podstawowe |
-| Windows Server 2012 R2 | Serwer Datacenter, standard i Storage | Pełne i podstawowe |
+| Windows Server 2012 z dodatkiem R2 | Serwer Datacenter, standard i Storage | Pełne i podstawowe |
 
 Przyszłe wersje systemu Windows Server zostaną dodane po ich wydaniu.
 
@@ -130,13 +130,14 @@ Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
  
 Aby przetestować tylko wymagania systemowe:
 ```powershell
-Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamespaceChecks
 ```
  
 Aby wyświetlić wyniki w formacie CSV:
 ```powershell
 $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
+    C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Zgodność systemu plików
@@ -163,7 +164,7 @@ W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu pli
 | Plik/folder | Uwaga |
 |-|-|
 | pagefile.sys | Plik specyficzny dla systemu |
-| Plik Desktop. ini | Plik specyficzny dla systemu |
+| Desktop.ini | Plik specyficzny dla systemu |
 | kciuki. DB | Plik tymczasowy dla miniatur |
 | ehThumbs. DB | Plik tymczasowy dla miniatur multimediów |
 | ~$\*.\* | Plik tymczasowy pakietu Office |
@@ -191,7 +192,7 @@ Zwróć uwagę, że oszczędności woluminu dotyczą tylko serwera programu; Two
 > [!Note]  
 > Aby zapewnić obsługę deduplikacji danych na woluminach z włączoną obsługą warstw w chmurze w systemie Windows Server 2019, należy zainstalować usługę Windows Update [KB4520062](https://support.microsoft.com/help/4520062) , a wymagany jest Agent Azure File Sync w wersji 9.0.0.0 lub nowszej.
 
-**Windows Server 2012 R2**  
+**Windows Server 2012 z dodatkiem R2**  
 Azure File Sync nie obsługuje deduplikacji danych i warstw w chmurze na tym samym woluminie w systemie Windows Server 2012 R2. Jeśli Deduplikacja danych jest włączona w woluminie, Obsługa warstw w chmurze musi być wyłączona. 
 
 **Uwagi**
@@ -254,9 +255,7 @@ Zgodnie z zasadami organizacji lub unikatowymi wymaganiami prawnymi może być w
 - Skonfiguruj Azure File Sync do obsługi serwera proxy w Twoim środowisku.
 - Ogranicz aktywność sieci z Azure File Sync.
 
-Aby dowiedzieć się więcej o konfigurowaniu funkcji sieciowych Azure File Sync, zobacz:
-- [Ustawienia serwera proxy i zapory usługi Azure File Sync](storage-sync-files-firewall-and-proxy.md)
-- [Zapewnienie Azure File Sync jest dobrym sąsiadem w centrum danych](storage-sync-files-server-registration.md)
+Aby dowiedzieć się więcej na temat Azure File Sync i sieci, zobacz [zagadnienia dotyczące sieci Azure File Sync](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Szyfrowanie
 Korzystając z Azure File Sync, istnieją trzy różne warstwy szyfrowania, które należy wziąć pod uwagę: szyfrowanie magazynu systemu Windows Server, szyfrowanie podczas przesyłania między agentem Azure File Sync i platformą Azure oraz szyfrowanie danych w udziale plików platformy Azure. 
@@ -358,7 +357,7 @@ Jeśli masz istniejący serwer plików systemu Windows, Azure File Sync mogą by
 
 Można również użyć urządzenie Data Box do migracji danych do wdrożenia Azure File Sync. W większości przypadków, gdy klienci chcą korzystać z urządzenie Data Box do pozyskiwania danych, to zrobią to, ponieważ ich zdaniem zwiększy szybkość wdrożenia lub będzie pomocna w scenariuszach z ograniczoną przepustowością. W związku z tym, że użycie urządzenie Data Box do pozyskiwania danych we wdrożeniu Azure File Sync spowoduje zmniejszenie wykorzystania przepustowości, prawdopodobnie będzie szybsze w przypadku większości scenariuszy w celu przeprowadzenia przekazywania danych online za pomocą jednej z metod opisanych powyżej. Aby dowiedzieć się więcej o tym, jak używać urządzenie Data Box do pozyskiwania danych do wdrożenia Azure File Sync, zobacz [Migrowanie danych do Azure File Sync z Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Typowym błędom podejmowanym przez klientów podczas migrowania danych do nowego wdrożenia Azure File Sync jest skopiowanie danych bezpośrednio do udziału plików platformy Azure, a nie na serwerach plików systemu Windows. Mimo że Azure File Sync zidentyfikuje wszystkie nowe pliki w udziale plików platformy Azure, a następnie zsynchronizuje je z udziałami plików systemu Windows, jest to zwykle znacznie wolniejsze niż ładowanie danych za pomocą serwera plików systemu Windows. Wiele narzędzi do kopiowania platformy Azure, takich jak AzCopy, ma dodatkowe minusem, które nie kopiują wszystkich ważnych metadanych pliku, takich jak sygnatury czasowe i listy kontroli dostępu.
+Typowym błędom podejmowanym przez klientów podczas migrowania danych do nowego wdrożenia Azure File Sync jest skopiowanie danych bezpośrednio do udziału plików platformy Azure, a nie na serwerach plików systemu Windows. Mimo że Azure File Sync zidentyfikuje wszystkie nowe pliki w udziale plików platformy Azure, a następnie zsynchronizuje je z udziałami plików systemu Windows, jest to zwykle znacznie wolniejsze niż ładowanie danych za pomocą serwera plików systemu Windows. W przypadku korzystania z narzędzi do kopiowania platformy Azure, takich jak AzCopy, ważne jest, aby użyć najnowszej wersji. Zapoznaj się z [tabelą narzędzia kopiowania plików](storage-files-migration-overview.md#file-copy-tools) , aby zapoznać się z omówieniem narzędzi do kopiowania na platformie Azure w celu zagwarantowania, że można skopiować wszystkie ważne metadane pliku, takie jak sygnatury czasowe i listy ACL.
 
 ## <a name="antivirus"></a>Oprogramowanie antywirusowe
 Ponieważ oprogramowanie antywirusowe działa przez skanowanie plików pod kątem znanego złośliwego kodu, produkt antywirusowy może powodować odwoływanie się do plików warstwowych. W wersji 4,0 i większej od agenta Azure File Sync pliki warstwowe mają ustawiony atrybut Secure Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Firma Microsoft zaleca zapoznanie się z dostawcą oprogramowania, aby dowiedzieć się, jak skonfigurować swoje rozwiązanie, aby pominąć odczytywanie plików z tym zestawem atrybutów (wiele do nich jest automatycznie). 
@@ -377,7 +376,7 @@ Jeśli używasz lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapa
 > Przywracanie bez systemu operacyjnego (BMR) może spowodować nieoczekiwane wyniki i nie jest obecnie obsługiwane.
 
 > [!Note]  
-> W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak to zrobić](storage-files-deployment-guide.md).
+> W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak](storage-files-deployment-guide.md).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

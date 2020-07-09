@@ -1,25 +1,14 @@
 ---
 title: Uwidocznij Premium usługę WCF REST klientom przy użyciu Azure Relay
 description: W tym samouczku opisano, jak uwidocznić lokalną usługę WCF REST na zewnętrznym kliencie przy użyciu usługi Azure WCF Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 551c8e662669737d9d074a69cb03d6060ab87ad5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204670"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322702"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Samouczek: Uwidacznianie lokalnej usługi WCF REST na zewnętrznym kliencie przy użyciu usługi Azure WCF Relay
 
@@ -68,7 +57,7 @@ Kontrakt usługi określa operacje obsługiwane przez usługę. Operacje to meto
 1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
 1. Nadaj projektowi nazwę *EchoService* i wybierz pozycję **Utwórz**.
 
-   ![Tworzenie aplikacji konsolowej][2]
+   ![tworzenie aplikacji konsoli][2]
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet**. W **Menedżerze pakietów NuGet**wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj**i zaakceptuj warunki użytkowania.
 
@@ -86,7 +75,7 @@ Kontrakt usługi określa operacje obsługiwane przez usługę. Operacje to meto
 1. Zmień nazwę przestrzeni nazw z domyślnej nazwy `EchoService` na `Microsoft.ServiceBus.Samples`.
 
    > [!IMPORTANT]
-   > W tym samouczku jest używana przestrzeń nazw języka C#, `Microsoft.ServiceBus.Samples` która jest przestrzenią nazw typu zarządzanego na podstawie kontraktu, który jest używany w pliku konfiguracji w sekcji [Konfigurowanie klienta WCF](#configure-the-wcf-client) . Podczas kompilowania tego przykładu można określić dowolną przestrzeń nazw. Jednak samouczek nie będzie działał, chyba że zmodyfikujesz odpowiednio przestrzenie nazw kontraktu i usługi w pliku konfiguracji aplikacji. Przestrzeń nazw określona w pliku *App. config* musi być taka sama jak przestrzeń nazw określona w plikach języka C#.
+   > W tym samouczku jest używana przestrzeń nazw języka C#, `Microsoft.ServiceBus.Samples` która jest przestrzenią nazw typu zarządzanego na podstawie kontraktu, który jest używany w pliku konfiguracji w sekcji [Konfigurowanie klienta WCF](#configure-the-wcf-client) . Podczas kompilowania tego przykładu można określić dowolną przestrzeń nazw. Jednak samouczek nie będzie działał, chyba że zmodyfikujesz odpowiednio przestrzenie nazw kontraktu i usługi w pliku konfiguracji aplikacji. Przestrzeń nazw określona w pliku *App.config* musi być taka sama jak przestrzeń nazw określona w plikach języka C#.
    >
 
 1. Bezpośrednio po `Microsoft.ServiceBus.Samples` deklaracji przestrzeni nazw, ale w przestrzeni nazw, Zdefiniuj nowy interfejs o nazwie `IEchoContract` i Zastosuj `ServiceContractAttribute` atrybut do interfejsu z wartością przestrzeni nazw `https://samples.microsoft.com/ServiceModel/Relay/` . Wklej następujący kod po deklaracji przestrzeni nazw:
@@ -153,7 +142,7 @@ Teraz, gdy interfejs został utworzony, możesz go zaimplementować.
 
 ## <a name="implement-the-wcf-contract"></a>Implementowanie kontraktu WCF
 
-Tworzenie usługi Azure Relay wymaga, aby najpierw utworzyć kontrakt przy użyciu interfejsu. Aby uzyskać więcej informacji na temat tworzenia interfejsu, zobacz poprzednią sekcję. Kolejna procedura implementuje interfejs. To zadanie obejmuje utworzenie klasy o nazwie `EchoService` implementującej interfejs zdefiniowany przez użytkownika `IEchoContract` . Po zaimplementowaniu interfejsu należy skonfigurować interfejs przy użyciu pliku konfiguracji *App. config* . Plik konfiguracji zawiera niezbędne informacje dotyczące aplikacji. Te informacje obejmują nazwę usługi, nazwę kontraktu i typ protokołu, który jest używany do komunikacji z usługą przekaźnika. Kod używany do wykonywania tych zadań podano w przykładzie, który następuje po procedurze. Aby uzyskać bardziej ogólną dyskusję na temat implementowania kontraktu usługi, zobacz [implementowanie kontraktów usług](/dotnet/framework/wcf/implementing-service-contracts).
+Tworzenie usługi Azure Relay wymaga, aby najpierw utworzyć kontrakt przy użyciu interfejsu. Aby uzyskać więcej informacji na temat tworzenia interfejsu, zobacz poprzednią sekcję. Kolejna procedura implementuje interfejs. To zadanie obejmuje utworzenie klasy o nazwie `EchoService` implementującej interfejs zdefiniowany przez użytkownika `IEchoContract` . Po zaimplementowaniu interfejsu należy skonfigurować interfejs przy użyciu pliku konfiguracji *App.config* . Plik konfiguracji zawiera niezbędne informacje dotyczące aplikacji. Te informacje obejmują nazwę usługi, nazwę kontraktu i typ protokołu, który jest używany do komunikacji z usługą przekaźnika. Kod używany do wykonywania tych zadań podano w przykładzie, który następuje po procedurze. Aby uzyskać bardziej ogólną dyskusję na temat implementowania kontraktu usługi, zobacz [implementowanie kontraktów usług](/dotnet/framework/wcf/implementing-service-contracts).
 
 1. Utwórz nową klasę o nazwie `EchoService` bezpośrednio po definicji interfejsu `IEchoContract`. Klasa `EchoService` implementuje interfejs `IEchoContract`.
 
@@ -190,7 +179,7 @@ Tworzenie usługi Azure Relay wymaga, aby najpierw utworzyć kontrakt przy użyc
 
 Plik konfiguracji jest podobny do pliku konfiguracji WCF. Zawiera nazwę usługi, punkt końcowy i powiązanie. Punkt końcowy jest lokalizacją Azure Relay udostępnia klientom i hostom komunikację ze sobą. Powiązanie jest typem protokołu, który jest używany do komunikacji. Główną różnicą jest to, że ten skonfigurowany punkt końcowy usługi odwołuje się do powiązania [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) , które nie jest częścią .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) jest jednym ze powiązań zdefiniowanych przez usługę.
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie plik **App. config** , aby otworzyć go w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań**kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
 1. W elemencie `<appSettings>` zastąp symbole zastępcze nazwą przestrzeni nazw usługi i kluczem sygnatury dostępu współdzielonego skopiowanym we wcześniejszym kroku.
 1. W tagach `<system.serviceModel>` dodaj element `<services>`. W pojedynczym pliku konfiguracji można zdefiniować wiele aplikacji przekaźnika. W tym samouczku zdefiniowano jednak tylko jedną.
 
@@ -239,7 +228,7 @@ Poniższy kod przedstawia implementację kontraktu usługi.
     }
 ```
 
-Poniższy kod przedstawia podstawowy format pliku *App. config* skojarzonego z hostem usługi.
+Poniższy kod przedstawia podstawowy format pliku *App.config* skojarzonego z hostem usługi.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -329,7 +318,7 @@ W tym samouczku użyto identyfikatora URI `sb://putServiceNamespaceHere.windows.
 
     Ten krok informuje usługę przekaźnikową, że aplikacja może zostać znaleziona publicznie przez sprawdzenie źródła danych Atom dla projektu. W przypadku ustawienia `DiscoveryType` opcji `private` Klient może nadal uzyskać dostęp do usługi. Jednak usługa nie będzie wyświetlana podczas wyszukiwania w `Relay` przestrzeni nazw. Zamiast tego klient musiałby wcześniej znać ścieżkę punktu końcowego.
 
-1. Zastosuj poświadczenia usługi do punktów końcowych usługi zdefiniowanych w pliku *App. config* :
+1. Zastosuj poświadczenia usługi do punktów końcowych usługi zdefiniowanych w pliku *App.config* :
 
     ```csharp
     foreach (ServiceEndpoint endpoint in host.Description.Endpoints)
@@ -445,7 +434,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>Tworzenie klienta platformy WCF dla kontraktu usługi
 
-Następnym zadaniem jest utworzenie aplikacji klienckiej i zdefiniowanie kontraktu usługi, który zostanie wdrożony później. Te kroki przypominają kroki używane do tworzenia usługi: Definiowanie kontraktu, edytowanie pliku *App. config* przy użyciu poświadczeń w celu nawiązania połączenia z usługą przekazywania itd. Kod używany do wykonywania tych zadań podano w przykładzie zamieszczonym po procedurze.
+Następnym zadaniem jest utworzenie aplikacji klienckiej i zdefiniowanie kontraktu usługi, który zostanie wdrożony później. Te kroki przypominają kroki używane do tworzenia usługi: Definiowanie kontraktu, edytowanie pliku *App.config* przy użyciu poświadczeń w celu nawiązania połączenia z usługą przekazywania itd. Kod używany do wykonywania tych zadań podano w przykładzie zamieszczonym po procedurze.
 
 1. Utwórz nowy projekt w bieżącym rozwiązaniu programu Visual Studio dla klienta:
 
@@ -516,9 +505,9 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>Konfigurowanie klienta platformy WCF
 
-W tym kroku utworzysz plik *App. config* dla podstawowej aplikacji klienckiej, która uzyskuje dostęp do usługi utworzonej wcześniej w tym samouczku. Ten plik *App. config* definiuje kontrakt, powiązanie i nazwę punktu końcowego. Kod używany do wykonywania tych zadań podano w przykładzie zamieszczonym po procedurze.
+W tym kroku utworzysz plik *App.config* dla podstawowej aplikacji klienckiej, która uzyskuje dostęp do usługi utworzonej wcześniej w tym samouczku. Ten plik *App.config* definiuje kontrakt, powiązanie i nazwę punktu końcowego. Kod używany do wykonywania tych zadań podano w przykładzie zamieszczonym po procedurze.
 
-1. W **Eksplorator rozwiązań**w projekcie **EchoClient** kliknij dwukrotnie plik **App. config** , aby otworzyć go w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań**w projekcie **EchoClient** kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
 1. W elemencie `<appSettings>` zastąp symbole zastępcze nazwą przestrzeni nazw usługi i kluczem sygnatury dostępu współdzielonego skopiowanym we wcześniejszym kroku.
 1. W `system.serviceModel` elemencie Dodaj `<client>` element.
 
@@ -546,9 +535,9 @@ W tym kroku utworzysz plik *App. config* dla podstawowej aplikacji klienckiej, k
 
 1. Wybierz pozycję **plik**  >  **Zapisz wszystko**.
 
-### <a name="example-of-the-appconfig-file"></a>Przykład pliku App. config
+### <a name="example-of-the-appconfig-file"></a>Przykład pliku App.config
 
-Poniższy kod przedstawia plik *App. config* dla klienta echo.
+Poniższy kod przedstawia plik *App.config* dla klienta echo.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -613,7 +602,7 @@ Jednak jedna z głównych różnic polega na tym, że aplikacja kliencka korzyst
     sasCredential.TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", sasKey);
     ```
 
-1. Utwórz fabrykę kanałów ładującą konfigurację opisaną w pliku *App. config* .
+1. Utwórz fabrykę kanałów ładującą konfigurację opisaną w pliku *App.config* .
 
     ```csharp
     ChannelFactory<IEchoChannel> channelFactory = new ChannelFactory<IEchoChannel>("RelayEndpoint", new EndpointAddress(serviceUri));

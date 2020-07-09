@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68335930"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Współdziałanie z funkcjami łączności zaplecza platformy Azure: szczegóły konfiguracji testu
@@ -29,14 +29,14 @@ Na poniższej ilustracji przedstawiono szczegóły dotyczące komunikacji równo
 
 Na poniższej ilustracji przedstawiono szczegółowe informacje o komunikacji równorzędnej sieci wirtualnej centrum. Jeśli chcesz, aby Sieć wirtualna z koncentratorem mogła korzystać z bram centrum, wybierz opcję **Zezwalaj na tranzyt bramy**.
 
-[![dwóch]][2]
+[![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Łączność między sieciami wirtualnymi przy użyciu połączenia VPN typu lokacja-lokacja
 
 Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między węzłem i sieci wirtualnych rozgałęzienia przy użyciu bram sieci VPN w usłudze Azure VPN Gateway. Domyślnie bramy sieci VPN i bramy usługi Azure ExpressRoute używają wartości prywatnego numeru systemu autonomicznego (ASN) **65515**. Wartość ASN można zmienić w VPN Gateway. W konfiguracji testowej wartość ASN bramy sieci VPN gałęzi VNet jest zmieniana na **65516** , aby umożliwić obsługę routingu eBGP między węzłem a gałęzią sieci wirtualnych.
 
 
-[![r.3]][3]
+[![3]][3]
 
 
 ## <a name="on-premises-location-1-connectivity-by-using-expressroute-and-a-site-to-site-vpn"></a>Lokalna Lokalizacja 1 łączność przy użyciu ExpressRoute i sieci VPN typu lokacja-lokacja
@@ -45,7 +45,7 @@ Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między węzłem i sieci
 
 Na poniższej ilustracji przedstawiono konfigurację obwodu usługi Azure region 1 ExpressRoute w kierunku lokalizacji lokalnej 1 routera brzegowej klienta (CE):
 
-[![czwart]][4]
+[![4]][4]
 
 Na poniższej ilustracji przedstawiono konfigurację połączenia między obwodem ExpressRoute 1 i siecią wirtualną koncentratora:
 
@@ -160,7 +160,7 @@ Na poniższej ilustracji przedstawiono konfigurację połączenia między drugim
 
 ExpressRoute 1 nawiązuje połączenie z siecią wirtualną sieci wirtualnej i lokalizacji lokalnej 1 ze zdalną siecią wirtualną w innym regionie świadczenia usługi Azure:
 
-[![0,8]][8]
+[![8]][8]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute i połączenie sieci VPN typu lokacja-lokacja wspólnie
 

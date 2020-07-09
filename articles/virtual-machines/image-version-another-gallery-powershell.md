@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82796930"
 ---
 # <a name="copy-an-image-from-another-gallery"></a>Kopiowanie obrazu z innej galerii
@@ -39,7 +39,7 @@ Będziesz potrzebować informacji z definicji obrazu źródłowego, aby można b
 
 Wyświetl informacje o istniejących galeriach, definicjach obrazów i wersjach obrazów przy użyciu polecenia cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) .
 
-Wyniki są w formacie `gallery\image definition\image version`.
+Wyniki są w formacie `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource `
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-Jeśli masz wszystkie potrzebne informacje, możesz uzyskać identyfikator wersji obrazu źródłowego przy użyciu polecenia [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). W tym przykładzie pobieramy `1.0.0` wersję obrazu `myImageDefinition` definicji w galerii `myGallery` źródła w grupie `myResourceGroup` zasobów.
+Jeśli masz wszystkie potrzebne informacje, możesz uzyskać identyfikator wersji obrazu źródłowego przy użyciu polecenia [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). W tym przykładzie pobieramy `1.0.0` wersję obrazu `myImageDefinition` definicji w `myGallery` galerii źródła w `myResourceGroup` grupie zasobów.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -147,7 +147,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać, więc utworzyliśmy zadanie, aby można było śledzić postęp. Aby wyświetlić postęp zadania, wpisz `$job.State`polecenie.
+Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać, więc utworzyliśmy zadanie, aby można było śledzić postęp. Aby wyświetlić postęp zadania, wpisz polecenie `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -156,7 +156,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS`lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
 >
 
 

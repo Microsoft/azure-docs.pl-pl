@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d95b45b9be0893282a532bae9ec0278c3a141686
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184359"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385930"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
@@ -36,15 +36,25 @@ Istnieją dwa tryby komunikacji, których można używać podczas pracy z interf
 
 * **Interaktywnie** — odpowiednie dla zadań wykonywanych jednorazowo należy użyć konta administratora w dzierżawie B2C do wykonywania zadań zarządzania. Ten tryb wymaga od administratora zalogowania się przy użyciu poświadczeń przed wywołaniem interfejsu API Microsoft Graph.
 
-* **Zautomatyzowane** — w przypadku zaplanowanych lub ciągle wykonywanych zadań ta metoda korzysta z konta usługi skonfigurowanego z uprawnieniami wymaganymi do wykonywania zadań zarządzania. Tworzysz "konto usługi" w Azure AD B2C przez zarejestrowanie aplikacji, której aplikacje i skrypty używają do uwierzytelniania przy użyciu *identyfikatora aplikacji (klienta)* i przyznania poświadczeń klienta OAuth 2,0. W takim przypadku aplikacja działa jako sama do wywołania interfejsu API Microsoft Graph, a nie użytkownika administratora, tak jak w opisanej wcześniej metodzie interaktywnej.
+* **Zautomatyzowane** — w przypadku zaplanowanych lub ciągle wykonywanych zadań ta metoda korzysta z konta usługi skonfigurowanego z uprawnieniami wymaganymi do wykonywania zadań zarządzania. Tworzysz "konto usługi" w Azure AD B2C przez zarejestrowanie aplikacji, której aplikacje i skrypty używają do uwierzytelniania przy użyciu *identyfikatora aplikacji (klienta)* i przyznania **poświadczeń klienta OAuth 2,0** . W takim przypadku aplikacja działa jako sama do wywołania interfejsu API Microsoft Graph, a nie użytkownika administratora, tak jak w opisanej wcześniej metodzie interaktywnej.
 
 Scenariusz interakcji **automatycznej** można włączyć przez utworzenie rejestracji aplikacji pokazanej w poniższych sekcjach.
+
+Mimo że przesyłanie poświadczeń klienta OAuth 2,0 nie jest obecnie obsługiwane bezpośrednio przez usługę uwierzytelniania Azure AD B2C, można skonfigurować przepływ poświadczeń klienta przy użyciu usługi Azure AD i punktu końcowego Microsoft Identity platform/token dla aplikacji w dzierżawie Azure AD B2C. Dzierżawa Azure AD B2C udostępnia pewne funkcje z dzierżawami przedsiębiorstwa usługi Azure AD.
 
 ## <a name="register-management-application"></a>Zarejestruj aplikację zarządzania
 
 Zanim skrypty i aplikacje będą mogły korzystać z [interfejsu API Microsoft Graph][ms-graph-api] w celu zarządzania zasobami Azure AD B2C, należy utworzyć rejestrację aplikacji w dzierżawie Azure AD B2C, która przyznaje wymagane uprawnienia interfejsu API.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji. Na przykład *managementapp1*.
+1. Wybierz **konta tylko w tym katalogu organizacji**.
+1. W obszarze **uprawnienia**wyczyść pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
+1. Wybierz pozycję **Zarejestruj**.
+1. Zanotuj **Identyfikator aplikacji (klienta)** , który pojawia się na stronie przeglądu aplikacji. Ta wartość jest używana w późniejszym kroku.
 
 ### <a name="grant-api-access"></a>Udzielanie dostępu do interfejsu API
 
@@ -73,9 +83,10 @@ Jeśli aplikacja lub skrypt musi usunąć użytkowników lub zaktualizować swoj
 1. Wybierz pozycję **Dodaj**. Pełne propagowanie uprawnień może potrwać kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
+Teraz, po zarejestrowaniu aplikacji zarządzania i przyznaniu jej wymaganych uprawnień, Twoje aplikacje i usługi (na przykład Azure Pipelines) mogą używać swoich poświadczeń i uprawnień do współdziałania z interfejsem API Microsoft Graph. 
 
-Teraz, po zarejestrowaniu aplikacji zarządzania i przyznaniu jej wymaganych uprawnień, Twoje aplikacje i usługi (na przykład Azure Pipelines) mogą używać swoich poświadczeń i uprawnień do współdziałania z interfejsem API Microsoft Graph.
-
+* [Uzyskiwanie tokenu dostępu z usługi Azure AD](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
+* [Użyj tokenu dostępu do wywołania Microsoft Graph](https://docs.microsoft.com/graph/auth-v2-service#4-get-an-access-token)
 * [B2C operacje obsługiwane przez Microsoft Graph](microsoft-graph-operations.md)
 * [Zarządzanie kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph](manage-user-accounts-graph-api.md)
 * [Pobieranie dzienników inspekcji za pomocą interfejsu API raportowania usługi Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)

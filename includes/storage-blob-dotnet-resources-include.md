@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8ca4b1ce6e0470476e9f16ed338b8707d3faf90f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79129574"
 ---
 ## <a name="resources-for-development-with-net"></a>Zasoby na potrzeby programowania przy użyciu platformy .NET
@@ -36,4 +36,4 @@ Poniższe linki zapewniają przydatne zasoby dla deweloperów korzystających z 
 ### <a name="net-tools"></a>Narzędzia platformy .NET
 
 - [.NET](https://dotnet.microsoft.com/download/)
-- [Visual Studio](https://visualstudio.microsoft.com/)
+- [Program Visual Studio](https://visualstudio.microsoft.com/)

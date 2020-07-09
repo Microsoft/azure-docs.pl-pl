@@ -4,15 +4,15 @@ description: Na tej stronie opisano, jak można korzystać z usługi Azure Expre
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/22/2020
 ms.author: ajitbhu
-ms.openlocfilehash: 2fe990fd9c5922dd2e059dbb212cd8bb1cd3726e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18b30380ede0c95c7d039749a4d47f65e5824058
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80336649"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738077"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Tworzenie łączności hybrydowej do obsługi użytkowników zdalnych za pomocą usługi Azure ExpressRoute
 

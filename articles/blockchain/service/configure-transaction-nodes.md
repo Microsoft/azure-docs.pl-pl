@@ -2,14 +2,13 @@
 title: Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
 description: Jak skonfigurować węzły transakcji usługi Azure łańcucha bloków
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212568"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
 
@@ -40,7 +39,7 @@ Aby dodać węzeł transakcji:
     | Nazwa | Nazwa węzła transakcji. Nazwa służy do tworzenia adresu DNS dla punktu końcowego węzła transakcji. Na przykład `newnode-myblockchainmember.blockchain.azure.com`. Nazwy węzła nie można zmienić po jego utworzeniu. |
     | Hasło | Ustaw silne hasło. Użyj hasła, aby uzyskać dostęp do punktu końcowego węzła transakcji z uwierzytelnianiem podstawowym.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     Inicjowanie obsługi nowego węzła transakcji trwa około 10 minut. Dodatkowe węzły transakcji wiążą się z kosztami. Aby uzyskać więcej informacji o kosztach, zobacz [Cennik platformy Azure](https://aka.ms/ABSPricing).
 
@@ -71,7 +70,7 @@ Aby udzielić kontroli dostępu usługi Azure AD do punktu końcowego:
     |---------|-------------|
     | Rola | Wybierz **właściciela**, **współautora**lub **czytelnika**.
     | Przypisz dostęp do | Wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**.
-    | Wybierz | Wyszukaj użytkownika, grupę lub jednostkę usługi, którą chcesz dodać.
+    | Wybierz pozycję | Wyszukaj użytkownika, grupę lub jednostkę usługi, którą chcesz dodać.
 
 1. Wybierz pozycję **Zapisz** , aby dodać przypisanie roli.
 
@@ -89,7 +88,7 @@ Możesz wyświetlić szczegóły podstawowego punktu końcowego uwierzytelniania
 
 Nazwa użytkownika jest nazwą węzła i nie można jej zmienić.
 
-Aby użyć adresu URL, \<Zastąp\> hasło hasłem ustawionym podczas aprowizacji węzła. Hasło można zaktualizować, wybierając pozycję **Resetuj hasło**.
+Aby użyć adresu URL, Zastąp ciąg \<password\> hasłem ustawionym podczas aprowizacji węzła. Hasło można zaktualizować, wybierając pozycję **Resetuj hasło**.
 
 ### <a name="access-keys"></a>Klawisze dostępu
 

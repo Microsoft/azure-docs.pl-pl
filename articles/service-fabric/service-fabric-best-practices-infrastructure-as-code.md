@@ -6,21 +6,20 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75551832"
 ---
 # <a name="infrastructure-as-code"></a>Infrastruktura jako kod
 
 W scenariuszu produkcyjnym Utwórz klastry usługi Azure Service Fabric przy użyciu szablonów Menedżer zasobów. Szablony Menedżer zasobów zapewniają większą kontrolę nad właściwościami zasobów i zapewniają spójny model zasobów.
 
-Przykładowe szablony Menedżer zasobów są dostępne dla systemów Windows i Linux w [przykładach platformy Azure w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Te szablony mogą służyć jako punkt początkowy dla szablonu klastra. Pobierz `azuredeploy.json` i `azuredeploy.parameters.json` edytuj je w celu spełnienia wymagań niestandardowych.
+Przykładowe szablony Menedżer zasobów są dostępne dla systemów Windows i Linux w [przykładach platformy Azure w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Te szablony mogą służyć jako punkt początkowy dla szablonu klastra. Pobierz `azuredeploy.json` i `azuredeploy.parameters.json` Edytuj je w celu spełnienia wymagań niestandardowych.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Aby wdrożyć pobrane `azuredeploy.json` powyżej `azuredeploy.parameters.json` szablony i, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
+Aby wdrożyć `azuredeploy.json` `azuredeploy.parameters.json` pobrane powyżej szablony i, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"

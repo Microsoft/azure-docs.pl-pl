@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 06/19/2020
 ms.author: banders
-ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 925a69f1f3a408e50cb9dc1d03cb5c1cf673ef41
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791157"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102688"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
-W tym artykule przedstawiono procedurę wysokiego poziomu służącą do przenoszenia subskrypcji platformy Azure między partnerami będącymi dostawcami rozwiązań w chmurze (CSP) a ich klientami.
+W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platformy Azure między partnerami będącymi dostawcami rozwiązań w chmurze (CSP) a ich klientami.
 
-## <a name="transfer-ea-subscriptions"></a>Przenoszenie subskrypcji EA
+## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Przenoszenie subskrypcji EA do partnera CSP
 
 Rozliczający się bezpośrednio partnerzy będący dostawcami usług w chmurze, którzy są certyfikowani jako dostawcy [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp), mogą zażądać przeniesienia subskrypcji platformy Azure dla swoich klientów, którzy mają bezpośrednią umowę Enterprise Agreement (EA). Transfery subskrypcji są dozwolone tylko dla klientów, którzy zaakceptowali Umowę z Klientem Microsoft (MCA) i zakupili plan platformy Azure.
 
@@ -44,7 +44,7 @@ Aby przenieść wszelkie inne subskrypcje platformy Azure do partnera będącego
     > [!IMPORTANT]
     >  - Przenoszenie zasobów platformy Azure między subskrypcjami może skutkować przestojem usługi w zależności od zasobów w ramach subskrypcji.
 
-## <a name="all-subscription-transfers-from-a-csp-partner"></a>Przenoszenie wszystkich subskrypcji od partnera będącego dostawcą usług w chmurze
+## <a name="transfer-csp-subscription-to-other-offer"></a>Przenoszenie subskrypcji dostawcy CSP do innej oferty
 
 Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usług w chmurze do dowolnej innej oferty platformy Azure, subskrybent musi przenieść zasoby między źródłowymi subskrypcjami partnera CSP a subskrypcjami docelowymi.
 
@@ -67,4 +67,4 @@ Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usłu
 
 ## <a name="next-steps"></a>Następne kroki
 - [Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft](mpa-request-ownership.md).
-- Przeczytaj o tym, jak [zarządzać kontami i subskrypcjami przy użyciu rozliczeń platformy Azure](index.yml).
+- Przeczytaj o tym, jak [zarządzać kontami i subskrypcjami przy użyciu rozliczeń platformy Azure](../index.yml).

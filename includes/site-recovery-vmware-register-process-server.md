@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67534700"
 ---
 1. Nawiąż Podłączanie pulpitu zdalnego z maszyną z uruchomionym serwerem przetwarzania. 
-2. Uruchom cspsconfigtool. exe, aby uruchomić narzędzie konfiguracji serwera przetwarzania Azure Site Recovery.
+2. Uruchom cspsconfigtool.exe, aby uruchomić narzędzie konfiguracji serwera przetwarzania Azure Site Recovery.
     - Narzędzie jest uruchamiane automatycznie przy pierwszym zalogowaniu się do serwera przetwarzania.
     - Jeśli plik nie zostanie otwarty automatycznie, kliknij jego skrót na pulpicie.
 
 3. W polu Nazwa **FQDN lub adres IP serwera konfiguracji**Określ nazwę lub serwer konfiguracji, za pomocą którego ma zostać zarejestrowany serwer przetwarzania.
 4. Upewnij się, że w polu **port serwera konfiguracji**określono 443. Jest to port, na którym serwer konfiguracji nasłuchuje żądań.
 5. W polu **hasło połączenia**określ hasło określone podczas konfigurowania serwera konfiguracji. Aby znaleźć hasło:
-    -  Na serwerze konfiguracji przejdź do folderu instalacji Site Recovery **\home\svssystems\bin\**:
+    -  Na serwerze konfiguracji przejdź do folderu instalacji Site Recovery **\home\svssystems\bin \* *:
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     ```

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476676"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurowanie i Konfigurowanie zwrotnego serwera proxy na platformie Azure Service Fabric
@@ -154,7 +154,7 @@ Po utworzeniu szablonu Menedżer zasobów można włączyć zwrotny serwer proxy
 
 ## <a name="enable-reverse-proxy-on-standalone-clusters"></a>Włącz zwrotny serwer proxy w klastrach autonomicznych
 
-W przypadku klastrów autonomicznych należy włączyć zwrotny serwer proxy w pliku ClusterConfig. JSON. Można włączyć zwrotny serwer proxy podczas tworzenia klastra lub uaktualnić konfigurację dla istniejącego klastra. Aby dowiedzieć się więcej o ustawieniach dostępnych w plikach ClusterConfig. JSON, zobacz [autonomiczne ustawienia klastra](./service-fabric-cluster-manifest.md).
+W przypadku klastrów autonomicznych należy włączyć zwrotny serwer proxy w ClusterConfig.jspliku. Można włączyć zwrotny serwer proxy podczas tworzenia klastra lub uaktualnić konfigurację dla istniejącego klastra. Aby dowiedzieć się więcej o ustawieniach dostępnych w ClusterConfig.jsna plikach, zobacz [autonomiczne ustawienia klastra](./service-fabric-cluster-manifest.md).
 
 Poniższe kroki pokazują ustawienia umożliwiające włączenie zwrotnego serwera proxy oraz, opcjonalnie, aby zabezpieczyć zwrotny serwer proxy za pomocą certyfikatu X. 509. 
 
@@ -221,7 +221,7 @@ Poniższe kroki pokazują ustawienia umożliwiające włączenie zwrotnego serwe
 
    Aby dowiedzieć się więcej na temat konfigurowania i zarządzania certyfikatami dla klastra autonomicznego, a także bardziej szczegółowych informacji na temat konfigurowania certyfikatów używanych do zabezpieczenia zwrotnego serwera proxy, zobacz [zabezpieczenia oparte na certyfikatach x509](./service-fabric-windows-cluster-x509-security.md).
 
-Po zmodyfikowaniu pliku ClusterConfig. JSON w celu włączenia zwrotnego serwera proxy postępuj zgodnie z instrukcjami w temacie [Uaktualnij konfigurację klastra](service-fabric-cluster-config-upgrade-windows-server.md) , aby wypchnąć zmiany w klastrze.
+Po zmodyfikowaniu ClusterConfig.jsw pliku, aby włączyć zwrotny serwer proxy, postępuj zgodnie z instrukcjami w temacie [Uaktualnij konfigurację klastra](service-fabric-cluster-config-upgrade-windows-server.md) , aby wypchnąć zmiany do klastra.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Uwidaczniaj zwrotny serwer proxy na porcie publicznym za pomocą Azure Load Balancer
@@ -300,7 +300,7 @@ Poniższy kod JSON odwołuje się do tego samego szablonu, który jest używany 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Dostosowywanie zachowania zwrotnego serwera proxy przy użyciu ustawień sieci szkieletowej
 
-Można dostosować zachowanie zwrotnego serwera proxy za pomocą ustawień sieci szkieletowej w szablonie Menedżer zasobów dla klastrów hostowanych na platformie Azure lub w pliku ClusterConfig. JSON dla klastrów autonomicznych. Ustawienia kontrolujące zachowanie zwrotnego serwera proxy znajdują się w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) w sekcji **fabricSettings** w sekcji **Właściwości** klastra. 
+Można dostosować zachowanie zwrotnego serwera proxy za pomocą ustawień sieci szkieletowej w szablonie Menedżer zasobów dla klastrów hostowanych na platformie Azure lub w pliku ClusterConfig.jsw przypadku klastrów autonomicznych. Ustawienia kontrolujące zachowanie zwrotnego serwera proxy znajdują się w sekcji [**elementu applicationgateway/http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) w sekcji **fabricSettings** w sekcji **Właściwości** klastra. 
 
 Na przykład można ustawić wartość **DefaultHttpRequestTimeout** , aby ustawić limit czasu żądań na zwrotny serwer proxy do 180 sekund, jak w poniższym kodzie JSON:
 

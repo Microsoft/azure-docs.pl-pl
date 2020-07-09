@@ -7,24 +7,24 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85297073"
 ---
-# <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure static Web Apps Preview
+# <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure Static Web Apps (wersja zapoznawcza)
 
 Usługa Azure static Web Apps usprawnia proces uwierzytelniania, zarządzając uwierzytelnianiem przy użyciu następujących dostawców:
 
-- Azure Active Directory
+- Usługa Azure Active Directory
 - GitHub
 - Facebook
 - Google<sup>1</sup>
 - Twitter
 
-[Zaproszenia](#invitations) specyficzne dla dostawcy kojarzą użytkowników z rolami, a autoryzowani użytkownicy uzyskują dostęp do [tras](routes.md) zgodnie z regułami zdefiniowanymi w pliku _Routes. JSON_ .
+[Zaproszenia](#invitations) specyficzne dla dostawcy kojarzą użytkowników z rolami, a autoryzowani użytkownicy uzyskują dostęp do [tras](routes.md) według reguł zdefiniowanych w _routes.js_ pliku.
 
 Wszyscy dostawcy uwierzytelniania są domyślnie włączeni. Aby ograniczyć dostawcę uwierzytelniania, [Zablokuj dostęp](#block-an-authorization-provider) za pomocą niestandardowej reguły trasy.
 
@@ -37,13 +37,13 @@ Każdy użytkownik, który uzyskuje dostęp do statycznej aplikacji sieci Web, n
 - **anonimowe**: Wszyscy użytkownicy automatycznie należą do roli _anonimowej_ .
 - **uwierzytelniono**: Wszyscy zalogowani użytkownicy należą do roli _uwierzytelnionej_ .
 
-Poza wbudowanymi rolami można tworzyć nowe role, przypisywać je do użytkowników za pośrednictwem zaproszeń i odwoływać się do nich w pliku _Routes. JSON_ .
+Poza wbudowanymi rolami można tworzyć nowe role, przypisywać je do użytkowników za pośrednictwem zaproszeń i odwoływać się do nich w _routes.js_ pliku.
 
 ## <a name="role-management"></a>Zarządzanie rolami
 
 ### <a name="add-a-user-to-a-role"></a>Dodawanie użytkownika do roli
 
-Aby dodać użytkowników do witryny sieci Web, można generować zaproszenia, które umożliwiają kojarzenie użytkowników z określonymi rolami. Role są definiowane i obsługiwane w pliku _Routes. JSON_ .
+Aby dodać użytkowników do witryny sieci Web, można generować zaproszenia, które umożliwiają kojarzenie użytkowników z określonymi rolami. Role są definiowane i obsługiwane w _routes.js_ pliku.
 
 <a name="invitations" id="invitations"></a>
 
@@ -55,7 +55,7 @@ Zaproszenia są specyficzne dla poszczególnych dostawców autoryzacji, dlatego 
 
 | Dostawca autoryzacji | Uwidacznia użytkownikowi  |
 | ---------------------- | ----------------- |
-| Azure Active Directory | Adres e-mail     |
+| Usługa Azure Active Directory | Adres e-mail     |
 | Facebook               | Adres e-mail     |
 | GitHub                 | nazwa użytkownika          |
 | Google<sup>1</sup>     | Adres e-mail     |
@@ -131,7 +131,7 @@ Skorzystaj z poniższej tabeli, aby znaleźć trasę logowania specyficzną dla 
 
 | Dostawca autoryzacji | Trasa logowania             |
 | ---------------------- | ----------------------- |
-| Azure Active Directory | `/.auth/login/aad`      |
+| Usługa Azure Active Directory | `/.auth/login/aad`      |
 | Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
 | Google<sup>1</sup>     | `/.auth/login/google`   |
@@ -192,6 +192,10 @@ Aby zablokować dostawcę, można utworzyć [reguły trasy](routes.md) zwracają
   "statusCode": "404"
 }
 ```
+
+## <a name="restrictions"></a>Ograniczenia
+
+Zapoznaj się z [artykułem](quotas.md) dotyczącym przydziału ogólnych ograniczeń i ograniczeń.
 
 ## <a name="next-steps"></a>Następne kroki
 

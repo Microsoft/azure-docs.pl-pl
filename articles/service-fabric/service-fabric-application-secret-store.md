@@ -4,10 +4,9 @@ description: W tym artykule opisano sposób korzystania z magazynu centralnych w
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83197762"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Magazyn centralnych wpisów tajnych na platformie Azure Service Fabric 
@@ -73,7 +72,7 @@ Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -U
 
 Wykonaj następujące kroki, aby użyć wpisu tajnego w aplikacji Service Fabric.
 
-1. Dodaj sekcję w pliku **Settings. XML** z następującym fragmentem kodu. Zwróć uwagę, że wartość jest w formacie { `secretname:version` }.
+1. Dodaj sekcję w pliku **settings.xml** z następującym fragmentem kodu. Zwróć uwagę, że wartość jest w formacie { `secretname:version` }.
 
    ```xml
      <Section Name="testsecrets">
@@ -81,7 +80,7 @@ Wykonaj następujące kroki, aby użyć wpisu tajnego w aplikacji Service Fabric
      </Section>
    ```
 
-1. Zaimportuj sekcję w **ApplicationManifest. XML**.
+1. Zaimportuj sekcję w **ApplicationManifest.xml**.
    ```xml
      <ServiceManifestImport>
        <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
@@ -99,7 +98,7 @@ Wykonaj następujące kroki, aby użyć wpisu tajnego w aplikacji Service Fabric
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
 1. Zainstaluj wpisy tajne w kontenerze. Jedyną zmianą wymaganą do udostępnienia wpisów tajnych wewnątrz kontenera jest `specify` punkt instalacji w programie `<ConfigPackage>` .
-Poniższy fragment kodu jest zmodyfikowany **ApplicationManifest. XML**.  
+Poniższy fragment kodu jest modyfikowany **ApplicationManifest.xml**.  
 
    ```xml
    <ServiceManifestImport>
@@ -117,7 +116,7 @@ Poniższy fragment kodu jest zmodyfikowany **ApplicationManifest. XML**.
    ```
    Wpisy tajne są dostępne w punkcie instalacji wewnątrz kontenera.
 
-1. Wpis tajny można powiązać ze zmienną środowiskową procesu, określając `Type='SecretsStoreRef` . Poniższy fragment kodu stanowi przykład powiązania `supersecret` wersji ze `ver1` zmienną środowiskową `MySuperSecret` w **pliku servicemanifest. XML**.
+1. Wpis tajny można powiązać ze zmienną środowiskową procesu, określając `Type='SecretsStoreRef` . Poniższy fragment kodu stanowi przykład powiązania `supersecret` wersji ze `ver1` zmienną środowiskową `MySuperSecret` w **ServiceManifest.xml**.
 
    ```xml
    <EnvironmentVariables>

@@ -5,12 +5,11 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8c471687579dfe30b913197c6f080a450f5f3449
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82107448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782521"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Opcje pomocy technicznej renderowania zdalnego platformy Azure
 
@@ -24,7 +23,7 @@ Aby otworzyć bilet pomocy technicznej w ramach Azure Portal na potrzeby rendero
 
     ![Azure Portal pomoc i obsługa techniczna](media/portal-help.png)
 
-1. Wybierz pozycję **nowe żądanie obsługi**.
+1. Wybierz pozycję **Nowe żądanie obsługi**.
 
     ![Azure Portal nowe żądanie obsługi](media/portal-new-request.png)
 
@@ -52,6 +51,11 @@ W dolnej części każdego artykułu z dokumentacji można otworzyć problem z u
 ## <a name="provide-product-feedback"></a>Przekazywanie opinii dotyczących produktów
 
 Aby przekazać opinię, Podziel się pomysłem lub sugestią dotyczącą zdalnego renderowania na platformie Azure lub zagłosuj na pomysły przesłane przez inne osoby, odwiedź [forum z opiniami dotyczącymi zdalnego renderowania na platformie Azure](https://feedback.azure.com/forums/928696-azure-remote-rendering).
+
+
+## <a name="microsoft-qa"></a>Microsoft Q&A
+
+Aby uzyskać szybkie i niezawodne odpowiedzi na pytania dotyczące produktów technicznych od inżynierów firmy Microsoft, platformy Azure najbardziej cennych specjalistów (MVP) lub naszej społeczności eksperckiej, skontaktuj się z nami w [firmie Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), preferowaną lokalizację docelową platformy Azure na potrzeby wsparcia dla społeczności.
 
 ## <a name="next-steps"></a>Następne kroki
 

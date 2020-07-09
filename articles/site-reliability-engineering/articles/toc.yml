@@ -3,5 +3,7 @@
 - name: Często zadawane pytania
   expanded: true
   items:
+    - name: Inżynieria niezawodności lokacji oraz kodowanie
+      href: code.md
     - name: Inżynieria niezawodności lokacji i metodyka DevOps
       href: devops.md

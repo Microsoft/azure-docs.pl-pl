@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77185907"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migracja zasad dostępu warunkowego do klasycznej zasady
@@ -33,7 +32,7 @@ W tym artykule wyjaśniono, co należy wiedzieć, aby przeprowadzić migrację i
 
 ## <a name="classic-policies"></a>Zasady klasyczne
 
-W [Azure Portal](https://portal.azure.com)zasady dostępu warunkowego można znaleźć w obszarze **Azure Active Directory** > **zabezpieczenia** > **dostęp warunkowy**. Twoja organizacja może również mieć starsze zasady dostępu warunkowego, które nie zostały utworzone przy użyciu tej strony. Te zasady są znane jako *zasady klasyczne*. Klasyczne zasady są zasadami dostępu warunkowego, które zostały utworzone w programie:
+W [Azure Portal](https://portal.azure.com)zasady dostępu warunkowego można znaleźć w obszarze **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**. Twoja organizacja może również mieć starsze zasady dostępu warunkowego, które nie zostały utworzone przy użyciu tej strony. Te zasady są znane jako *zasady klasyczne*. Klasyczne zasady są zasadami dostępu warunkowego, które zostały utworzone w programie:
 
 - Klasyczny portal Azure
 - Klasyczny portal usługi Intune

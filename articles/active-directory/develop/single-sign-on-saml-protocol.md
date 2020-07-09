@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771676"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076950"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protokół SAML logowania jednokrotnego
 
@@ -46,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | ID | Wymagane | Usługa Azure AD używa tego atrybutu do wypełniania `InResponseTo` atrybutu zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest prawidłowym identyfikatorem. |
 | Wersja | Wymagane | Dla tego parametru należy ustawić wartość **2,0**. |
@@ -86,6 +86,8 @@ Jeśli `NameIDPolicy` jest podany, można uwzględnić jego opcjonalny `Format` 
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Ta wartość zezwala Azure Active Directory na wybranie formatu żądania. Azure Active Directory wystawia NameID jako identyfikator parowania.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory wystawia rolę NameID jako generowaną losowo wartość unikatową dla bieżącej operacji logowania jednokrotnego. Oznacza to, że wartość jest tymczasowa i nie można jej użyć do zidentyfikowania użytkownika uwierzytelniającego.
 
+Jeśli `SPNameQualifier` jest określony, usługa Azure AD będzie zawierać takie samo `SPNameQualifier` w odpowiedzi.
+
 Usługa Azure AD ignoruje `AllowCreate` atrybut.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
@@ -97,7 +99,7 @@ Usługa Azure AD ignoruje `AllowCreate` atrybut.
 Jeśli jest podany, nie dołączaj `ProxyCount` atrybutu `IDPListOption` lub `RequesterID` elementu, ponieważ nie są one obsługiwane.
 
 ### <a name="signature"></a>Podpis
-Nie dołączaj `Signature` elementu do `AuthnRequest` elementów. Usługa Azure AD nie sprawdza poprawności podpisanych żądań uwierzytelniania. Weryfikacja żądającego jest zapewniana przez nie tylko odpowiadanie na zarejestrowane adresy URL usługi konsumenckej potwierdzenia.
+`Signature`Element w `AuthnRequest` elementach jest opcjonalny. Jeśli istnieje podpis, usługa Azure AD nie sprawdza poprawności podpisanych żądań uwierzytelniania. Weryfikacja żądającego jest zapewniana przez nie tylko odpowiadanie na zarejestrowane adresy URL usługi konsumenckej potwierdzenia.
 
 ### <a name="subject"></a>Podmiot
 Nie dołączaj `Subject` elementu. Usługa Azure AD nie obsługuje określania tematu dla żądania i zwróci błąd, jeśli został podany.
@@ -157,7 +159,7 @@ Po pomyślnym zakończeniu logowania usługa Azure AD ogłasza odpowiedź do us�
 
 ### <a name="issuer"></a>Wystawca
 
-Usługa Azure AD ustawia `Issuer` element, na który `https://sts.windows.net/<TenantIDGUID>/` \< TENANTIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
+Usługa Azure AD ustawia `Issuer` element, `https://sts.windows.net/<TenantIDGUID>/` który \<TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
 
 Na przykład odpowiedź z elementem Issuer może wyglądać jak w następującym przykładzie:
 
@@ -192,7 +194,7 @@ Oprócz `ID` `IssueInstant` `Version` elementów i usługa Azure AD ustawia nast
 
 #### <a name="issuer"></a>Wystawca
 
-Jest to ustawienie `https://sts.windows.net/<TenantIDGUID>/` , gdzie \< TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
+Jest to wartość `https://sts.windows.net/<TenantIDGUID>/` Where \<TenantIDGUID> , która jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

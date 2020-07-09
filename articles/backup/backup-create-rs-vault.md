@@ -1,68 +1,33 @@
 ---
-title: Tworzenie magazynów Recovery Services
-description: W tym artykule dowiesz się, jak utworzyć magazyny Recovery Services, w których są przechowywane kopie zapasowe i punkty odzyskiwania.
-ms.reviewer: sogup
+title: Tworzenie i konfigurowanie magazynów Recovery Services
+description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny Recovery Services, w których są przechowywane kopie zapasowe i punkty odzyskiwania.
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 65f7265dccc5fe28d3503e72bdd6e49123871594
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744939"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970534"
 ---
-# <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
+# <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
-Magazyn Recovery Services jest jednostką, która przechowuje kopie zapasowe i punkty odzyskiwania utworzone w czasie. Magazyn Recovery Services zawiera również zasady tworzenia kopii zapasowych, które są skojarzone z chronionymi maszynami wirtualnymi.
-
-Aby utworzyć magazyn Usług odzyskiwania:
-
-1. Zaloguj się do subskrypcji w witrynie [Azure Portal](https://portal.azure.com/).
-
-2. W menu po lewej stronie wybierz pozycję **Wszystkie usługi**.
-
-    ![Wybieranie pozycji Wszystkie usługi](./media/backup-create-rs-vault/click-all-services.png)
-
-3. W oknie dialogowym **Wszystkie usługi** wprowadź frazę **Recovery Services**. Lista filtrów zasobów zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **magazyny Recovery Services**.
-
-    ![Wprowadzanie i wybieranie pozycji Magazyny usługi Recovery Services](./media/backup-create-rs-vault/all-services.png)
-
-    Zostanie wyświetlona lista magazynów usługi Recovery Services w ramach subskrypcji.
-
-4. Na pulpicie nawigacyjnym **Recovery Services magazynów** wybierz pozycję **Dodaj**.
-
-    ![Dodawanie magazynu Recovery Services](./media/backup-create-rs-vault/add-button-create-vault.png)
-
-    Zostanie otwarte okno dialogowe **magazyn Recovery Services** . Podaj wartości dla **nazwy**, **subskrypcji**, **grupy zasobów**i **lokalizacji**.
-
-    ![Konfigurowanie magazynu Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-
-   - **Nazwa**: wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikatowa dla subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i zawierać tylko litery, cyfry i łączniki.
-   - **Subskrypcja**: wybierz subskrypcję do użycia. Jeśli jesteś członkiem tylko jednej subskrypcji, zobaczysz tę nazwę. Jeśli nie masz pewności, której subskrypcji użyć, Użyj domyślnej (sugerowanej) subskrypcji. Istnieje wiele opcji, które są dostępne tylko wtedy, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure.
-   - **Grupa zasobów**: Użyj istniejącej grupy zasobów lub Utwórz nową. Aby wyświetlić listę dostępnych grup zasobów w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę. Aby uzyskać pełne informacje na temat grup zasobów, zobacz [Azure Resource Manager przegląd](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Lokalizacja**: Wybierz region geograficzny magazynu. Aby utworzyć magazyn do ochrony maszyn wirtualnych, magazyn **musi** znajdować się w tym samym regionie co maszyny wirtualne.
-
-      > [!IMPORTANT]
-      > Jeśli nie masz pewności co do lokalizacji maszyny wirtualnej, Zamknij okno dialogowe. Przejdź do listy maszyn wirtualnych w portalu. Jeśli masz maszyny wirtualne w kilku regionach, Utwórz magazyn Recovery Services w każdym regionie. Utwórz magazyn w pierwszej lokalizacji, zanim utworzysz magazyn dla innej lokalizacji. Nie ma potrzeby określania kont magazynu do przechowywania danych kopii zapasowej. Magazyn Recovery Services i usługa Azure Backup obsługują automatycznie.
-      >
-      >
-
-5. Gdy wszystko będzie gotowe do utworzenia magazynu Recovery Services, wybierz pozycję **Utwórz**.
-
-    ![Tworzenie magazynu Recovery Services](./media/backup-create-rs-vault/click-create-button.png)
-
-    Utworzenie magazynu Recovery Services może chwilę potrwać. Monitoruj powiadomienia o stanie w obszarze **powiadomień** w prawym górnym rogu portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów Recovery Services. Jeśli Twój magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
-
-     ![Odświeżanie listy magazynów kopii zapasowych](./media/backup-create-rs-vault/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="set-storage-redundancy"></a>Ustawianie nadmiarowości magazynu
 
 Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić sposób replikowania magazynu.
 
-1. W bloku **Magazyny usług Recovery Services** kliknij nowy magazyn. W sekcji **Ustawienia** kliknij pozycję **Właściwości**.
-2. W obszarze **Właściwości**, w obszarze **Konfiguracja kopii zapasowej**, kliknij przycisk **Aktualizuj**.
+> [!NOTE]
+> Przed skonfigurowaniem kopii zapasowych w magazynie należy zmienić **Typ replikacji magazynu** (lokalnie nadmiarowy lub geograficznie nadmiarowy) dla magazynu usługi Recovery Services. Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona.
+>
+>- Jeśli nie skonfigurowano jeszcze kopii zapasowej, [wykonaj następujące kroki](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) , aby przejrzeć i zmodyfikować ustawienia.
+>- Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z GRS do LRS, [zapoznaj się z tymi obejściami](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-3. Wybierz typ replikacji magazynu i kliknij przycisk **Zapisz**.
+1. W bloku **Magazyny usług Recovery Services** kliknij nowy magazyn. W sekcji **Ustawienia** kliknij pozycję **Właściwości**.
+1. W obszarze **Właściwości**, w obszarze **Konfiguracja kopii zapasowej**, kliknij przycisk **Aktualizuj**.
+
+1. Wybierz typ replikacji magazynu i kliknij przycisk **Zapisz**.
 
      ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -70,8 +35,8 @@ Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić s
    - Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure.
    - Dowiedz się więcej o nadmiarowości [geograficznym](../storage/common/storage-redundancy-grs.md) i [lokalnym](../storage/common/storage-redundancy-lrs.md) .
 
-> [!NOTE]
-> Przed skonfigurowaniem kopii zapasowych w magazynie należy zmienić **Typ replikacji magazynu** (lokalnie nadmiarowy lub geograficznie nadmiarowy) dla magazynu usługi Recovery Services. Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona i nie można zmienić **typu replikacji magazynu**.
+>[!NOTE]
+>Ustawienia replikacji magazynu dla magazynu nie są odpowiednie dla kopii zapasowej udziału plików platformy Azure, ponieważ bieżące rozwiązanie jest oparte na migawce i nie przeniesiono danych do magazynu. Migawki są przechowywane na tym samym koncie magazynu co kopia zapasowa udziału plików.
 
 ## <a name="set-cross-region-restore"></a>Ustaw przywracanie między regionami
 
@@ -90,11 +55,9 @@ W przypadku tego procesu istnieją wpływ na ceny, w jakim znajduje się na pozi
 >- Zapoznaj się z [matrycą pomocy technicznej](backup-support-matrix.md#cross-region-restore) , aby zapoznać się z listą obsługiwanych typów i regionów zarządzanych.
 >- Funkcja przywracania między regionami (CRR) jest teraz wyświetlana we wszystkich publicznych regionach platformy Azure.
 >- CRR to funkcja wyboru poziomu magazynu dla dowolnego magazynu GRS (domyślnie wyłączona).
->- Użyj następującego polecenia, aby dołączyć subskrypcję dla tej funkcji:<br>
->  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- W przypadku dołączenia do tej funkcji podczas publicznej ograniczonej wersji zapoznawczej wiadomość e-mail z zatwierdzeniem recenzji będzie zawierać szczegóły dotyczące zasad dotyczących cen.
 >- Po przypisaniu elementów kopii zapasowych w regionach pomocniczych może upłynąć do 48 godzin.
 >- Obecnie CRR jest obsługiwana tylko dla typu zarządzania kopiami zapasowymi — ARM Azure VM (klasyczna maszyna wirtualna platformy Azure nie będzie obsługiwana).  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.
+>- Nie można obecnie przywrócić operacji przywracania między regionami do GRS lub LRS po zainicjowaniu ochrony po raz pierwszy.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurowanie przywracania między regionami
 
@@ -119,9 +82,56 @@ Dowiedz się, jak [monitorować zadania przywracania regionu pomocniczego](backu
 
 Zdecydowanie zalecamy przejrzenie ustawień domyślnych dla **typu replikacji magazynu** i **ustawień zabezpieczeń** przed skonfigurowaniem kopii zapasowych w magazynie.
 
-- Domyślnie **Typ replikacji magazynu** jest ustawiony jako **Geograficznie nadmiarowy**. Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona. Wykonaj następujące [kroki](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) , aby przejrzeć i zmodyfikować ustawienia.
+- **Typ replikacji magazynu** jest domyślnie ustawiony na **Geograficznie nadmiarowy** (GRS). Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona.
+  - Jeśli nie skonfigurowano jeszcze kopii zapasowej, [wykonaj następujące kroki](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) , aby przejrzeć i zmodyfikować ustawienia.
+  - Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z GRS do LRS, [zapoznaj się z tymi obejściami](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-- Funkcja **usuwania nietrwałego** jest **włączana** domyślnie dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem. Wykonaj następujące [kroki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) , aby przejrzeć i zmodyfikować ustawienia.
+- Funkcja **usuwania nietrwałego** jest **włączana** domyślnie dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem. [Wykonaj następujące kroki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) , aby przejrzeć i zmodyfikować ustawienia.
+
+### <a name="how-to-change-from-grs-to-lrs-after-configuring-backup"></a>Jak zmienić z GRS na LRS po skonfigurowaniu kopii zapasowej
+
+Przed podjęciem decyzji o przejściu z GRS na magazyn lokalnie nadmiarowy (LRS) zapoznaj się z różnicami między niższym kosztem i wyższą trwałością danych, które pasują do Twojego scenariusza. Jeśli musisz przejść z GRS do LRS, będziesz mieć dwie możliwości. Są one zależne od wymagań firmy, aby zachować dane kopii zapasowej:
+
+- [Nie trzeba zachować poprzedniej kopii zapasowej danych](#dont-need-to-preserve-previous-backed-up-data)
+- [Należy zachować poprzednie dane kopii zapasowej](#must-preserve-previous-backed-up-data)
+
+#### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Nie trzeba zachować poprzedniej kopii zapasowej danych
+
+Aby chronić obciążenia w nowym magazynie LRS, należy usunąć bieżącą ochronę i dane w magazynie GRS i ponownie skonfigurować kopie zapasowe.
+
+>[!WARNING]
+>Następująca operacja jest destrukcyjne i nie można jej cofnąć. Wszystkie dane kopii zapasowej i elementy kopii zapasowej skojarzone z chronionym serwerem zostaną trwale usunięte. Zachowaj przy tym ostrożność.
+
+Zatrzymaj i Usuń bieżącą ochronę magazynu GRS:
+
+1. Wyłącz usuwanie nietrwałe we właściwościach magazynu GRS. Wykonaj następujące [kroki](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) , aby wyłączyć usuwanie nietrwałe.
+
+1. Zatrzymaj ochronę i usuń kopie zapasowe z istniejącego magazynu GRS. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **elementy kopii zapasowej**. Elementy wymienione w tym miejscu, które muszą zostać przeniesione do magazynu LRS, muszą zostać usunięte wraz z danymi kopii zapasowych. Zobacz jak [usunąć chronione elementy w chmurze](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) i [usunąć chronione elementy lokalnie](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+1. Jeśli planujesz przenoszenie programu AFS (udziały plików platformy Azure), serwerów SQL lub serwerów SAP HANA, należy również je wyrejestrować. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa**. Zobacz jak [wyrejestrować serwer SQL](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [wyrejestrować konto magazynu skojarzone z udziałami plików platformy Azure](manage-afs-backup.md#unregister-a-storage-account)i [wyrejestrować wystąpienie SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+1. Po usunięciu z magazynu GRS, kontynuuj konfigurowanie kopii zapasowych dla obciążenia w nowym magazynie LRS.
+
+#### <a name="must-preserve-previous-backed-up-data"></a>Należy zachować poprzednie dane kopii zapasowej
+
+Jeśli potrzebujesz zachować bieżące chronione dane w magazynie GRS i kontynuować ochronę w nowym magazynie LRS, dostępne są ograniczone opcje dla niektórych obciążeń:
+
+- W przypadku usługi MARS można [zatrzymać ochronę z zachowaniem zachowanych danych](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) i zarejestrować agenta w nowym magazynie LRS.
+
+  - Usługa Azure Backup będzie nadal utrzymywać wszystkie istniejące punkty odzyskiwania magazynu GRS.
+  - Musisz zanieść opłaty za przechowywanie punktów odzyskiwania w magazynie GRS.
+  - Będzie można przywrócić dane z kopii zapasowej tylko dla niewygasłych punktów odzyskiwania w magazynie GRS.
+  - Należy utworzyć nową początkową replikę danych w magazynie LRS.
+
+- W przypadku maszyny wirtualnej platformy Azure można [zatrzymać ochronę z zachowaniem Zachowaj dane](backup-azure-manage-vms.md#stop-protecting-a-vm) dla maszyny wirtualnej w magazynie GRS, przenieść maszynę wirtualną do innej grupy zasobów, a następnie chronić maszynę wirtualną w magazynie LRS. Zapoznaj się ze [wskazówkami i ograniczeniami](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) dotyczącymi przeniesienia maszyny wirtualnej do innej grupy zasobów.
+
+  Maszyna wirtualna może być chroniona tylko w jednym magazynie naraz. Jednak maszyna wirtualna w nowej grupie zasobów może być chroniona w magazynie LRS, ponieważ jest traktowana jako inna maszyna wirtualna.
+
+  - Usługa Azure Backup zachowa te punkty odzyskiwania, których kopia zapasowa została utworzona w magazynie GRS.
+  - Musisz zanieść opłaty za przechowywanie punktów odzyskiwania w magazynie GRS (zobacz [cennik Azure Backup](azure-backup-pricing.md) , aby uzyskać szczegółowe informacje).
+  - W razie potrzeby będzie można przywrócić maszynę wirtualną z magazynu GRS.
+  - Pierwsza kopia zapasowa w magazynie LRS maszyny wirtualnej w nowym zasobie będzie repliką początkową.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

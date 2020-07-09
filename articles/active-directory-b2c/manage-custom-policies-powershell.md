@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387681"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu Azure PowerShell
 

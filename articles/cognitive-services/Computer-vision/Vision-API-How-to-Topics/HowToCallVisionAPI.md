@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d2ef4af8af8ad9545277202f0aa7842ac05ea67
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72177064"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957906"
 ---
 # <a name="call-the-computer-vision-api"></a>Wywoływanie interfejsu API przetwarzania obrazów
 
@@ -25,14 +25,6 @@ W tym artykule przedstawiono sposób wywoływania interfejs API przetwarzania ob
 - Pobieranie tagów, opisu i kategorii
 - Pobieranie informacji specyficznych dla domeny lub "osobistości"
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-- Adres URL obrazu lub ścieżka do przechowywanego lokalnie obrazu
-- Obsługiwane metody wejściowe: plik binarny RAW obrazu w postaci aplikacji/strumienia oktetowego lub adresu URL obrazu
-- Obsługiwane formaty plików obrazów: JPEG, PNG, GIF i BMP
-- Rozmiar pliku obrazu: 4 MB lub mniej
-- Wymiary obrazu: 50 &times; 50 pikseli lub więcej
-  
 W przykładach w tym artykule przedstawiono następujące funkcje:
 
 * Analizowanie obrazu w celu zwrócenia tablicy tagów i opisu
@@ -42,14 +34,22 @@ Funkcje te oferują następujące opcje:
 
 - **Opcja 1**: Analiza z zakresem — analizowanie tylko określonego modelu
 - **Opcja 2**: rozszerzona analiza — analizowanie w celu zapewnienia dodatkowych informacji przy użyciu [taksonomii 86-kategorii](../Category-Taxonomy.md)
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* Adres URL obrazu lub ścieżka do przechowywanego lokalnie obrazu
+* Obsługiwane metody wejściowe: plik binarny RAW obrazu w postaci aplikacji/strumienia oktetowego lub adresu URL obrazu
+* Obsługiwane formaty plików obrazów: JPEG, PNG, GIF i BMP
+* Rozmiar pliku obrazu: 4 MB lub mniej
+* Wymiary obrazu: 50 &times; 50 pikseli lub więcej
   
 ## <a name="authorize-the-api-call"></a>Autoryzowanie wywołania interfejsu API
 
 Każde wywołanie do interfejsu API przetwarzania obrazów wymaga klucza subskrypcji. Ten klucz musi być przesłany przez parametr ciągu zapytania lub określony w nagłówku żądania.
-
-Aby uzyskać bezpłatny klucz wersji próbnej, wykonaj jedną z następujących czynności:
-* Przejdź do strony [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) . 
-* Przejdź do strony [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów.
 
 Klucz subskrypcji można przekazać, wykonując jedną z następujących czynności:
 
@@ -180,12 +180,12 @@ Przykład:
 Pole | Typ | Zawartość
 ------|------|------|
 Tagi  | `object` | Obiekt najwyższego poziomu dla tablicy tagów.
-tags[].Name | `string`  | Słowo kluczowe ze klasyfikatora tagów.
-tags[].Score    | `number`  | Wynik pewności z zakresu od 0 do 1.
-description  | `object` | Obiekt najwyższego poziomu opisu.
+tags[].Name | `string`    | Słowo kluczowe ze klasyfikatora tagów.
+tags[].Score    | `number`    | Wynik pewności z zakresu od 0 do 1.
+description     | `object`    | Obiekt najwyższego poziomu opisu.
 description.tags[] |    `string`    | Lista tagów.  W przypadku niewystarczającego zaufania do tworzenia podpisów Tagi mogą być jedynymi informacjami dostępnymi dla obiektu wywołującego.
-description.captions[].text | `string`  | Fraza opisująca obraz.
-description.captions[].confidence   | `number`  | Wynik pewności dla frazy.
+description.captions[].text    | `string`    | Fraza opisująca obraz.
+description.captions[].confidence    | `number`    | Wynik pewności dla frazy.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Pobieranie i poznawanie danych wyjściowych w formacie JSON dla modeli specyficznych dla domeny
 
@@ -239,12 +239,12 @@ W przypadku modeli specyficznych dla domeny przy użyciu opcji 2 (rozszerzona an
 
 Pole kategorie jest listą co najmniej jednej [kategorii 86](../Category-Taxonomy.md) w oryginalnej taksonomii. Kategorie kończące się znakiem podkreślenia są zgodne z tą kategorią i jej elementami podrzędnymi (na przykład "people_" lub "people_group" dla modelu osobistości).
 
-Pole   | Typ  | Zawartość
+Pole    | Typ    | Zawartość
 ------|------|------|
-categories | `object`   | Obiekt najwyższego poziomu.
-categories[].name    | `string` | Nazwa z listy Taksonomia kategorii 86.
-categories[].score  | `number`  | Wynik pewności z zakresu od 0 do 1.
-categories[].detail  | `object?`      | Obowiązkowe Obiekt szczegółowy.
+categories | `object`    | Obiekt najwyższego poziomu.
+categories[].name     | `string`    | Nazwa z listy Taksonomia kategorii 86.
+categories[].score    | `number`    | Wynik pewności z zakresu od 0 do 1.
+categories[].detail     | `object?`      | Obowiązkowe Obiekt szczegółowy.
 
 Jeśli wiele kategorii jest zgodnych (na przykład klasyfikator kategorii 86 — zwraca ocenę dla obu "people_" i "people_young," gdy model = osobistości), szczegóły są dołączane do najbardziej ogólnego dopasowania poziomu ("people_" w tym przykładzie).
 
@@ -254,4 +254,4 @@ Te błędy są takie same jak w przypadku programu Vision. Analizuj, przy użyci
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby korzystać z interfejsu API REST, przejdź do [dokumentacji dotyczącej interfejsu API przetwarzania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44).
+Aby korzystać z interfejsu API REST, przejdź do [dokumentacji dotyczącej interfejsu API przetwarzania obrazów](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b).

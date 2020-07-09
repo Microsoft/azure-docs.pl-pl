@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje na temat udostępniania serwerowi W
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68d4ff7e4617136e4c58ce672f34de56e46f0229
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207791"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Uwidacznianie serwera WebSocket Application Gateway
 
@@ -78,7 +78,7 @@ spec:
 Uwzględniając, że wszystkie wymagania wstępne są spełnione i masz Application Gateway kontrolowane przez ruch przychodzący Kubernetes w AKS, wdrożenie powyżej spowoduje, że serwer WebSockets będzie narażony na port 80 Application Gateway publicznego adresu IP i `ws.contoso.com` domeny.
 
 Następujące polecenie zwinięcie spowoduje przetestowanie wdrożenia serwera WebSocket:
-```sh
+```shell
 curl -i -N -H "Connection: Upgrade" \
         -H "Upgrade: websocket" \
         -H "Origin: http://localhost" \
@@ -91,7 +91,7 @@ curl -i -N -H "Connection: Upgrade" \
 ## <a name="websocket-health-probes"></a>Sondy kondycji protokołu WebSocket
 
 Jeśli w danym wdrożeniu nie zdefiniowano jawnie sond kondycji, Application Gateway podejmie próbę pobrania HTTP w punkcie końcowym serwera WebSocket.
-W zależności od implementacji serwera (w[tym miejscu](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) mogą być wymagane określone nagłówki protokołu WebSocket (`Sec-Websocket-Version` na przykład).
-Ponieważ Application Gateway nie dodaje nagłówków protokołu WebSocket, najprawdopodobniej odpowiedź sondy kondycji Application Gateway z serwera WebSocket `400 Bad Request`.
-W efekcie Application Gateway oznacza to, że Twoje wartości są oznaczone jako w złej kondycji, co w `502 Bad Gateway` efekcie będzie powodować dla odbiorców serwera WebSocket.
-Aby tego uniknąć, może być konieczne dodanie procedury obsługi HTTP GET na potrzeby kontroli kondycji na serwerze (`/health` na przykład zwracające wartość `200 OK`).
+W zależności od implementacji serwera (w[tym miejscu](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) mogą być wymagane określone nagłówki protokołu WebSocket ( `Sec-Websocket-Version` na przykład).
+Ponieważ Application Gateway nie dodaje nagłówków protokołu WebSocket, najprawdopodobniej odpowiedź sondy kondycji Application Gateway z serwera WebSocket `400 Bad Request` .
+W efekcie Application Gateway oznacza to, że Twoje wartości są oznaczone jako w złej kondycji, co w efekcie będzie powodować `502 Bad Gateway` dla odbiorców serwera WebSocket.
+Aby tego uniknąć, może być konieczne dodanie procedury obsługi HTTP GET na potrzeby kontroli kondycji na serwerze ( `/health` na przykład zwracające wartość `200 OK` ).

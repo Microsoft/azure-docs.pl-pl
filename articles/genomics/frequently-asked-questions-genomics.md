@@ -10,10 +10,9 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76986040"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: typowe pytania
@@ -22,10 +21,10 @@ W tym artykule wymieniono najważniejsze zapytania, które mogą być powiązane
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Jak mogę uruchomić przepływy pracy GATK4 na Microsoft Genomics?
-W pliku config. txt usługi Microsoft Genomics Określ process_name do `gatk4`. Pamiętaj, że opłaty są naliczane według zwykłych stawek za rozliczanie.
+W pliku config.txt usługi Microsoft Genomics Określ process_name `gatk4` . Pamiętaj, że opłaty są naliczane według zwykłych stawek za rozliczanie.
 
 ## <a name="how-do-i-enable-output-compression"></a>Jak mogę włączyć kompresji wyjściowej?
-Można skompresować dane wyjściowe VCF lub gvcf za pomocą opcjonalnego argumentu kompresji danych wyjściowych. Jest to równoznaczne z `-bgzip` uruchomieniem `-tabix` , a następnie na danych wyjściowych VCF lub `.gz` gvcf, do produkcji ( `.tbi` bgzip Output) i (Tabix Output). `bgzip`kompresuje plik VCF lub gvcf i `tabix` tworzy indeks dla skompresowanego pliku. Argument jest wartością logiczną, która jest domyślnie ustawiona `false` dla danych wyjściowych VCF i `true` domyślnie dla danych wyjściowych gcvf. Aby użyć w wierszu polecenia, `-bz` Określ lub `--bgzip-output` AS `true` (Run bgzip and Tabix) lub. `false` Aby użyć tego argumentu w pliku config. txt, Dodaj `bgzip_output: true` plik lub `bgzip_output: false` do pliku.
+Można skompresować dane wyjściowe VCF lub gvcf za pomocą opcjonalnego argumentu kompresji danych wyjściowych. Jest to równoznaczne z uruchomieniem `-bgzip` , a następnie `-tabix` na danych wyjściowych VCF lub gvcf, do produkcji `.gz` (bgzip Output) i `.tbi` (Tabix Output). `bgzip`kompresuje plik VCF lub gvcf i `tabix` tworzy indeks dla skompresowanego pliku. Argument jest wartością logiczną, która jest `false` domyślnie ustawiona dla danych wyjściowych VCF i `true` Domyślnie dla danych wyjściowych gcvf. Aby użyć w wierszu polecenia, określ `-bz` lub `--bgzip-output` AS `true` (Run bgzip and Tabix) lub `false` . Aby użyć tego argumentu w pliku config.txt, Dodaj `bgzip_output: true` plik lub `bgzip_output: false` do pliku.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Co to jest umowa SLA dla Microsoft Genomics?
 Gwarantujemy, że przez 99,9% czasu usługa Microsoft Genomics będzie dostępna do odbierania żądań interfejsu API przepływu pracy. Aby uzyskać więcej informacji, zobacz [Umowa SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
@@ -35,22 +34,22 @@ Microsoft Genomics weksle na podstawie liczby przetworzonych gigabaz na przepły
 
 
 ## <a name="where-can-i-find-a-list-of-all-possible-commands-and-arguments-for-the-msgen-client"></a>Gdzie mogę znaleźć listę wszystkich możliwych poleceń i argumentów dla `msgen` klienta?
-Pełną listę dostępnych poleceń i argumentów można uzyskać, uruchamiając `msgen help`polecenie. Jeśli nie podano żadnych dalszych argumentów, zostanie wyświetlona lista dostępnych sekcji pomocy, po jednej dla `submit`każdego `list`z `cancel`,, `status`i. Aby uzyskać pomoc dotyczącą określonego polecenia, wpisz `msgen help command`; na przykład `msgen help submit` wyświetla listę wszystkich opcji przesyłania.
+Pełną listę dostępnych poleceń i argumentów można uzyskać, uruchamiając polecenie `msgen help` . Jeśli nie podano żadnych dalszych argumentów, zostanie wyświetlona lista dostępnych sekcji pomocy, po jednej dla każdego z `submit` ,, `list` `cancel` i `status` . Aby uzyskać pomoc dotyczącą określonego polecenia, wpisz polecenie, `msgen help command` na przykład `msgen help submit` wyświetla listę wszystkich opcji przesyłania.
 
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Jakie są najczęściej używane polecenia `msgen` klienta programu?
 Najczęściej używane polecenia są argumentami dla `msgen` klienta: 
 
  |**Polecenie**          |  **Opis pola** |
  |:--------------------|:-------------         |
- |`list`               |Zwraca listę przesłanych zadań. Dla argumentów, zobacz `msgen help list`.  |
- |`submit`             |Przesyła żądanie przepływu pracy do usługi. Dla argumentów, zobacz `msgen help submit`.|
- |`status`             |Zwraca stan przepływu pracy określonego przez `--workflow-id`. Zobacz też `msgen help status`. |
- |`cancel`             |Wysyła żądanie anulowania przetwarzania przepływu pracy określonego przez `--workflow-id`. Zobacz też `msgen help cancel`. |
+ |`list`               |Zwraca listę przesłanych zadań. Dla argumentów, zobacz `msgen help list` .  |
+ |`submit`             |Przesyła żądanie przepływu pracy do usługi. Dla argumentów, zobacz `msgen help submit` .|
+ |`status`             |Zwraca stan przepływu pracy określonego przez `--workflow-id` . Zobacz też `msgen help status`. |
+ |`cancel`             |Wysyła żądanie anulowania przetwarzania przepływu pracy określonego przez `--workflow-id` . Zobacz też `msgen help cancel`. |
 
-## <a name="where-do-i-get-the-value-for---api-url-base"></a>Gdzie można uzyskać wartość `--api-url-base`?
+## <a name="where-do-i-get-the-value-for---api-url-base"></a>Gdzie można uzyskać wartość `--api-url-base` ?
 Przejdź do Azure Portal i Otwórz stronę konta genomika. W obszarze nagłówek **zarządzania** wybierz pozycję **klucze dostępu**. W tym miejscu znajduje się adres URL interfejsu API i klucze dostępu.
 
-## <a name="where-do-i-get-the-value-for---access-key"></a>Gdzie można uzyskać wartość `--access-key`?
+## <a name="where-do-i-get-the-value-for---access-key"></a>Gdzie można uzyskać wartość `--access-key` ?
 Przejdź do Azure Portal i Otwórz stronę konta genomika. W obszarze nagłówek **zarządzania** wybierz pozycję **klucze dostępu**. W tym miejscu znajduje się adres URL interfejsu API i klucze dostępu.
 
 ## <a name="why-do-i-need-two-access-keys"></a>Dlaczego są potrzebne dwa klucze dostępu?
@@ -88,5 +87,5 @@ msgen rozumie pliki konfiguracyjne w następującym formacie:
 
 Aby rozpocząć pracę z usługą Microsoft Genomics, Skorzystaj z następujących zasobów:
 - Zacznij od uruchomienia pierwszego przepływu pracy za pomocą usługi Microsoft Genomics. [uruchamianie przepływu pracy za pośrednictwem usługi Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
-- Prześlij własne dane do przetwarzania przez usługę Microsoft Genomics: [sparowany FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | z[wieloma FASTQ lub BAM](quickstart-input-multiple.md) 
+- Prześlij własne dane do przetwarzania przez usługę Microsoft Genomics: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)z  |  [wieloma FASTQ lub BAM](quickstart-input-multiple.md) 
 

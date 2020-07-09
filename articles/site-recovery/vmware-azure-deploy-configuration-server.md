@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257383"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132158"
 ---
 # <a name="deploy-a-configuration-server"></a>Wdrażanie serwera konfiguracji
 
@@ -38,22 +38,22 @@ Użytkownik musi mieć jeden z następujących uprawnień ustawionych w Azure Ac
 
 1. Użytkownik musi mieć rolę dewelopera aplikacji, aby utworzyć aplikację.
     - Aby sprawdzić, zaloguj się do Azure Portal.</br>
-    - Przejdź do **Azure Active Directory** > **ról i administratorów**.</br>
-    - Sprawdź, czy rola dewelopera aplikacji jest przypisana do użytkownika. W przeciwnym razie należy użyć użytkownika z tym uprawnieniem lub skontaktować się z [administratorem, aby włączyć uprawnienie](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Przejdź do **Azure Active Directory**  >  **ról i administratorów**.</br>
+    - Sprawdź, czy rola dewelopera aplikacji jest przypisana do użytkownika. W przeciwnym razie należy użyć użytkownika z tym uprawnieniem lub skontaktować się z [administratorem, aby włączyć uprawnienie](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Jeśli nie można przypisać roli dewelopera aplikacji, upewnij się, że flaga **Użytkownicy mogą rejestrować aplikacje** **, tak aby** użytkownik mógł utworzyć tożsamość. Aby włączyć te uprawnienia:
     - Zaloguj się do witryny Azure Portal.
-    - Przejdź do pozycji **Azure Active Directory** > **Ustawienia użytkownika**.
+    - Przejdź do pozycji **Azure Active Directory**  >  **Ustawienia użytkownika**.
     - W **App registrations**obszarze rejestracje aplikacji **Użytkownicy mogą rejestrować aplikacje**, a następnie wybrać opcję **tak**.
 
       ![AD_application_permission platformy Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory Federation Services *nie jest obsługiwana*. Użyj konta zarządzanego za pomocą [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Active Directory Federation Services *nie jest obsługiwana*. Użyj konta zarządzanego za pomocą [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Pobieranie szablonu
 
-1. W magazynie przejdź do pozycji **Przygotowanie infrastruktury** > **Źródło**.
+1. W magazynie przejdź do pozycji **Przygotowanie infrastruktury**  >  **Źródło**.
 2. W obszarze **Przygotowywanie źródła** wybierz pozycję **+Serwer konfiguracji**.
 3. W obszarze **Dodawanie serwera** sprawdź, czy w sekcji **Typ serwera** jest widoczna pozycja **Serwer konfiguracji dla oprogramowania VMware**.
 4. Pobierz szablon komórki jajowe dla serwera konfiguracji.
@@ -78,7 +78,7 @@ Użytkownik musi mieć jeden z następujących uprawnień ustawionych w Azure Ac
 7. Na pozostałych stronach kreatora zaakceptuj ustawienia domyślne.
 8. Na stronie **Ready to complete** (Gotowe do ukończenia):
 
-    * Aby skonfigurować maszynę wirtualną przy użyciu ustawień domyślnych, wybierz pozycję **Włącz po** > **zakończeniu**wdrożenia.
+    * Aby skonfigurować maszynę wirtualną przy użyciu ustawień domyślnych, wybierz pozycję **Włącz po**  >  **zakończeniu**wdrożenia.
     * Aby dodać dodatkowy interfejs sieciowy, wyczyść pole wyboru **Włącz po wdrożeniu**, a następnie wybierz pozycję **Zakończ**. Domyślnie szablon serwera konfiguracji jest wdrażany z jedną kartą sieciową. Kolejne karty sieciowe można dodać po wdrożeniu.
 
 > [!IMPORTANT]
@@ -94,7 +94,7 @@ Jeśli chcesz dodać dodatkową kartę sieciową do serwera konfiguracji, Dodaj 
 1. Kliknij prawym przyciskiem myszy maszynę wirtualną na liście w kliencie vSphere, a następnie wybierz pozycję **Edytuj ustawienia**.
 2. Na stronie **Hardware** (Sprzęt) wybierz pozycje **Add** > **Ethernet Adapter** (Dodaj, Karta Ethernet). Następnie wybierz pozycję **Dalej**.
 3. Wybierz typ karty i sieć.
-4. Aby połączyć wirtualną kartę sieciową po włączeniu maszyny wirtualnej, wybierz pozycję **Połącz przy zasilaniu**. Następnie wybierz pozycję **dalej** > **Zakończ** > **.**
+4. Aby połączyć wirtualną kartę sieciową po włączeniu maszyny wirtualnej, wybierz pozycję **Połącz przy zasilaniu**. Następnie wybierz pozycję **dalej**  >  **Zakończ**  >  **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Rejestrowanie serwera konfiguracji przy użyciu usług Azure Site Recovery Services
 
@@ -129,10 +129,10 @@ Jeśli chcesz dodać dodatkową kartę sieciową do serwera konfiguracji, Dodaj 
 
 5. Przed kontynuowaniem **Sprawdź poprawność konfiguracji urządzenia**. wymagania wstępne są weryfikowane.
 6. Na stronie **Konfigurowanie serwera vCenter Server/VSphere ESXi**wprowadź nazwę FQDN lub adres IP serwera vCenter lub hosta vSphere, na którym znajdują się maszyny wirtualne, które chcesz replikować. Wprowadź port, na którym nasłuchuje serwer. Wprowadź przyjazną nazwę, która ma być używana dla serwera VMware w magazynie.
-7. Wprowadź poświadczenia, za pomocą których serwer konfiguracji będzie łączył się z serwerem VMware. Przy użyciu tych poświadczeń usługa Site Recovery automatycznie odnajduje maszyny wirtualne VMware dostępne do replikacji. Wybierz pozycję **Dodaj** > **Kontynuuj**. Podane tutaj poświadczenia zostały zapisane lokalnie.
+7. Wprowadź poświadczenia, za pomocą których serwer konfiguracji będzie łączył się z serwerem VMware. Przy użyciu tych poświadczeń usługa Site Recovery automatycznie odnajduje maszyny wirtualne VMware dostępne do replikacji. Wybierz pozycję **Dodaj**  >  **Kontynuuj**. Podane tutaj poświadczenia zostały zapisane lokalnie.
 8. W obszarze **Skonfiguruj poświadczenia maszyny wirtualnej**wprowadź nazwę użytkownika i hasło maszyn wirtualnych, aby automatycznie zainstalować usługę mobilności podczas replikacji. W przypadku maszyn z **systemem Windows** konto musi mieć uprawnienia administratora lokalnego na maszynach, które mają być replikowane. W przypadku systemu **Linux**Podaj szczegóły konta głównego.
 9. Aby ukończyć rejestrację, wybierz pozycję **Zakończ konfigurację**.
-10. Po zakończeniu rejestracji Otwórz Azure Portal i sprawdź, czy serwer konfiguracji i serwer VMware znajdują się na liście **Recovery Services magazynie** > **Zarządzaj** > **Site Recovery Infrastructure** > **serwerami konfiguracji**infrastruktury Site Recovery.
+10. Po zakończeniu rejestracji Otwórz Azure Portal i sprawdź, czy serwer konfiguracji i serwer VMware znajdują się na liście **Recovery Services magazynie**  >  **Zarządzaj**  >  **Site Recovery Infrastructure**  >  **serwerami konfiguracji**infrastruktury Site Recovery.
 
 ## <a name="upgrade-the-configuration-server"></a>Uaktualnij serwer konfiguracji
 
@@ -175,7 +175,7 @@ Zapoznaj się z naszym [artykułem rozwiązywania problemów](vmware-azure-troub
     Nie. Nie zmieniaj hasła serwera konfiguracji. Zmiana hasła przerywa replikację chronionych maszyn i prowadzi do krytycznego stanu kondycji.
 * Gdzie można pobrać klucze rejestracji magazynu?
 
-    W **obszarze magazyn Recovery Services**wybierz **pozycję Zarządzaj** > **Site Recovery** > **konfiguracjami serwerów**infrastruktury. W obszarze **serwery**wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
+    W obszarze **Magazyn Recovery Services**wybierz pozycję **Zarządzaj**  >  **Site Recovery**  >  **konfiguracjami serwerów**infrastruktury. W obszarze **serwery**wybierz pozycję **Pobierz klucz rejestracji** , aby pobrać plik poświadczeń magazynu.
 * Czy można sklonować istniejący serwer konfiguracji i używać go do organizowania replikacji?
 
     Nie. Użycie sklonowanego składnika serwera konfiguracji nie jest obsługiwane. Klonowanie serwera przetwarzania skalowalnego w poziomie jest również nieobsługiwanym scenariuszem. Klonowanie składników Site Recovery ma wpływ na trwającą replikację.

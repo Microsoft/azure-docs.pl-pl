@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084519"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Przenoszenie maszyny wirtualnej z systemem Windows z Amazon Web Services (AWS) na maszynę wirtualną platformy Azure
@@ -40,7 +40,7 @@ Można przekazać zarówno uogólnione, jak i wyspecjalizowane dyski VHD na plat
 
 Wyeksportuj wystąpienie EC2 do dysku VHD w zasobniku usługi Amazon S3. Wykonaj kroki opisane w artykule dotyczącym usługi Amazon, [eksportując wystąpienie jako maszynę wirtualną przy użyciu importowania/eksportowania maszyny wirtualnej](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) i uruchom polecenie [Create-instance-Export-Task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) , aby wyeksportować wystąpienie EC2 do pliku VHD. 
 
-Wyeksportowany plik VHD zostanie zapisany w określonym zasobniku Amazon S3. Poniżej znajduje się podstawowa składnia eksportowania wirtualnego dysku twardego, po prostu Zastąp tekst zastępczy w \<nawiasach> informacjami.
+Wyeksportowany plik VHD zostanie zapisany w określonym zasobniku Amazon S3. Poniżej znajduje się podstawowa składnia eksportowania wirtualnego dysku twardego, po prostu Zastąp tekst symbolu zastępczego \<brackets> informacjami.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

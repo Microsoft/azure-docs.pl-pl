@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477684"
 ---
 # <a name="convert-to-csv-module"></a>Konwertuj na moduł CSV
@@ -50,7 +49,7 @@ Wybierz kartę dane **wyjściowe** w prawym panelu **Konwertuj do formatu CSV**,
 
 + **Zarejestruj zestaw danych**: wybierz ikonę i Zapisz plik CSV z powrotem w obszarze roboczym Azure ml jako oddzielny zestaw danych. Zestaw danych można znaleźć jako moduł w drzewie modułów w sekcji **moje zbiory** danych.
 
- + **Wyświetl dane wyjściowe**: wybierz ikonę oka i postępuj zgodnie z instrukcjami w celu przejrzenia folderu **Results_dataset** i pobrania pliku Data. csv.
+ + **Wyświetl dane wyjściowe**: wybierz ikonę oka i postępuj zgodnie z instrukcjami, aby przejrzeć folder **Results_dataset** i pobrać plik data.csv.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,10 +4,9 @@ description: Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą 
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537597"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights dla usług Azure Cloud Services
@@ -70,7 +69,7 @@ Aby wysłać dane telemetryczne do odpowiednich zasobów, można skonfigurować 
 
 Jeśli postanowisz utworzyć oddzielny zasób dla każdej roli i być może jest to osobny zestaw dla każdej konfiguracji kompilacji, najłatwiej ją utworzyć w portalu Application Insights. W przypadku tworzenia zasobów o dużej ilości można [zautomatyzować proces](../../azure-monitor/app/powershell.md).
 
-1. W [Azure Portal][portal]wybierz pozycję **nowe** > **usługi** > dla deweloperów**Application Insights**.  
+1. W [Azure Portal][portal]wybierz pozycję **nowe**  >  **usługi dla deweloperów**  >  **Application Insights**.  
 
     ![Okienko Application Insights](./media/cloudservices/01-new.png)
 
@@ -82,7 +81,7 @@ Każdy zasób jest identyfikowany przez klucz Instrumentacji. Ten klucz może by
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurowanie diagnostyki platformy Azure dla każdej roli
 Ustaw tę opcję, aby monitorować aplikację za pomocą usługi Application Insights. W przypadku ról sieci Web Ta opcja zapewnia monitorowanie wydajności, alerty, diagnostykę i analizę użycia. W przypadku innych ról można wyszukiwać i monitorować Diagnostyka Azure, takie jak ponowne uruchamianie, liczniki wydajności i wywołania do System. Diagnostics. Trace. 
 
-1. W programie Visual Studio Eksplorator rozwiązań w obszarze  >  **Roles** ** \<role>YourCloudService **Otwórz właściwości każdej roli.
+1. W programie Visual Studio Eksplorator rozwiązań w obszarze **\<YourCloudService>**  >  **role**Otwórz właściwości każdej roli.
 
 1. W obszarze **Konfiguracja**zaznacz pole wyboru **Wyślij dane diagnostyczne do Application Insights** , a następnie wybierz utworzony wcześniej zasób Application Insights.
 
@@ -90,7 +89,7 @@ Jeśli zamierzasz używać osobnego zasobu usługi Application Insights dla każ
 
 ![Konfigurowanie Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Ma to wpływ na wstawianie kluczy Instrumentacji Application Insights do plików o nazwie *ServiceConfiguration.\* cscfg*. Oto [przykładowy kod](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Ma to wpływ na wstawianie kluczy Instrumentacji Application Insights do plików o nazwie *ServiceConfiguration. \* cscfg*. Oto [przykładowy kod](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Jeśli chcesz zmienić poziom informacji diagnostycznych wysyłanych do Application Insights, możesz to zrobić, [edytując pliki *. cscfg* bezpośrednio](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
@@ -124,7 +123,7 @@ W programie Visual Studio skonfiguruj zestaw SDK usługi Application Insights dl
     * [Rola procesu roboczego](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [Dla stron sieci Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Ustaw plik *ApplicationInsights. config* , który ma być zawsze kopiowany do katalogu wyjściowego.
+1. Ustaw plik *ApplicationInsights.config* , który ma być zawsze kopiowany do katalogu wyjściowego.
 
    W pliku *. config* zostanie wyświetlony komunikat z prośbą o umieszczenie w niej klucza Instrumentacji. Jednak w przypadku aplikacji w chmurze lepiej jest ustawić ją z pliku *. cscfg* . Takie podejście zapewnia, że rola jest prawidłowo identyfikowana w portalu.
 
@@ -132,7 +131,7 @@ W programie Visual Studio skonfiguruj zestaw SDK usługi Application Insights dl
 
 Ten krok jest wymagany tylko wtedy, gdy chcesz przechwytywać pełne zapytania SQL na .NET Framework. 
 
-1. W `\*.csdef` oknie Dodawanie [zadania uruchamiania](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) dla każdej roli podobnej do 
+1. W oknie `\*.csdef` Dodawanie [zadania uruchamiania](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) dla każdej roli podobnej do 
 
     ```xml
     <Startup>
@@ -147,7 +146,7 @@ Ten krok jest wymagany tylko wtedy, gdy chcesz przechwytywać pełne zapytania S
     </Startup>
     ```
     
-2. Pobierz [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) i [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), umieść je w `AppInsightsAgent` folderze w każdym projekcie roli. Upewnij się, że skopiujesz je do katalogu wyjściowego za pomocą właściwości pliku programu Visual Studio lub skryptów kompilacji.
+2. Pobierz [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) i [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), umieść je w `AppInsightsAgent` folderze w każdym projekcie roli. Upewnij się, że skopiujesz je do katalogu wyjściowego za pomocą właściwości pliku programu Visual Studio lub skryptów kompilacji.
 
 3. Na wszystkich rolach procesów roboczych Dodaj zmienne środowiskowe: 
 
@@ -233,7 +232,7 @@ Następujące liczniki są również zbierane dla ról sieci Web:
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
 * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
-Możesz określić dodatkowe niestandardowe lub inne liczniki wydajności systemu Windows, edytując *plik ApplicationInsights. config* [, jak pokazano w tym przykładzie](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+Możesz określić dodatkowe niestandardowe lub inne liczniki wydajności systemu Windows, edytując *ApplicationInsights.config* [jak pokazano w tym przykładzie](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Liczniki wydajności](./media/cloudservices/002-servers.png)
 
@@ -246,7 +245,7 @@ Oto kroki tej procedury:
 
 * Ustaw identyfikator korelacji na CallContext [, jak pokazano w tym przykładzie](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). W takim przypadku używany jest identyfikator żądania jako identyfikator korelacji.
 * Dodaj niestandardową implementację TelemetryInitializer, aby ustawić Operation.Id na identyfikator korelacji, który został wcześniej ustawiony. Aby zapoznać się z przykładem, zobacz [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
-* Dodaj inicjator niestandardowej telemetrii. Można to zrobić w pliku *ApplicationInsights. config* lub w kodzie [, jak pokazano w tym przykładzie](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
+* Dodaj inicjator niestandardowej telemetrii. Można to zrobić w pliku *ApplicationInsights.config* lub w kodzie [, jak pokazano w tym przykładzie](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetria klienta
 Aby uzyskać dane telemetryczne oparte na przeglądarce, takie jak liczba wyświetleń stron, czasy ładowania stron lub wyjątki skryptów, a także aby napisać niestandardową telemetrię w skryptach stron, zobacz [Dodawanie zestawu SDK języka JavaScript do stron sieci Web][client].
@@ -267,7 +266,7 @@ Jeśli masz klienta aplikacji mobilnej, użyj pakietu [App Center](../../azure-m
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Wyjątek "nie znaleziono metody" w działaniu w usługach Azure Cloud Services
 Czy to kompilacja dla .NET 4.6? Platforma .NET 4,6 nie jest automatycznie obsługiwana w rolach usług Azure Cloud Services. [Zainstaluj program .net 4,6 na każdej roli](../../cloud-services/cloud-services-dotnet-install-dotnet.md) przed uruchomieniem aplikacji.
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
 ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982143"
 ---
 # <a name="programmatically-manage-workbooks"></a>Programowe Zarządzanie skoroszytami
@@ -86,7 +85,7 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
 
 ### <a name="parameters"></a>Parametry
 
-|Parametry                |Wyjaśnienie                                                                                             |
+|Parametry                |Objaśnienie                                                                                             |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------|
 | `name`                   | Nazwa zasobu szablonu skoroszytu w Azure Resource Manager.                                  |
 |`type`                    | Zawsze Microsoft. Insights/workbooktemplates                                                            |
@@ -190,7 +189,7 @@ Ten szablon pokazuje, jak wdrożyć prosty skoroszyt wyświetlający "Hello worl
 
 ### <a name="template-parameters"></a>Parametry szablonu
 
-| Parametr | Wyjaśnienie |
+| Parametr | Objaśnienie |
 | :------------- |:-------------|
 | `workbookDisplayName` | Przyjazna nazwa skoroszytu, który jest używany w galerii lub zapisanej liście. Musi być unikatowa w zakresie grupy zasobów i źródła |
 | `workbookType` | Galeria, w której będzie pokazywany skoroszyt. Obsługiwane wartości to skoroszyt, `tsg` , Azure monitor itd. |

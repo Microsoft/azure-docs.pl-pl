@@ -11,10 +11,9 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82996325"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
@@ -104,8 +103,8 @@ W niektórych przypadkach należy skonfigurować przebiegi szkoleniowe, aby ogra
 
 Oto kilka opcji, których dysponujesz:
 * Zdefiniuj parametr wywoływany `max_run_duration_seconds` w RunConfiguration, aby kontrolować maksymalny czas trwania uruchomienia w ramach wybranego obliczenia (lokalnie lub w chmurze).
-* W przypadku [dostrajania parametrów](how-to-tune-hyperparameters.md#early-termination)należy zdefiniować zasady wczesnego zakończenia na podstawie zasad Banditymi, średniego zatrzymywania zasad lub zasad wyboru obcinania. Aby dodatkowo kontrolować odchylenia parametrów, użyj parametrów takich jak `max_total_runs` lub. `max_duration_minutes`
-* Aby [zautomatyzować automatyczne Uczenie maszynowe](how-to-configure-auto-train.md#exit), ustaw podobne zasady `enable_early_stopping` kończenia przy użyciu flagi. Należy również użyć właściwości, `iteration_timeout_minutes` takich `experiment_timeout_minutes` jak i, aby kontrolować maksymalny czas trwania przebiegu lub dla całego eksperymentu.
+* W przypadku [dostrajania parametrów](how-to-tune-hyperparameters.md#early-termination)należy zdefiniować zasady wczesnego zakończenia na podstawie zasad Banditymi, średniego zatrzymywania zasad lub zasad wyboru obcinania. Aby dodatkowo kontrolować odchylenia parametrów, użyj parametrów takich jak `max_total_runs` lub `max_duration_minutes` .
+* Aby [zautomatyzować automatyczne Uczenie maszynowe](how-to-configure-auto-train.md#exit), ustaw podobne zasady kończenia przy użyciu `enable_early_stopping` flagi. Należy również użyć właściwości, takich jak `iteration_timeout_minutes` i, `experiment_timeout_minutes` Aby kontrolować maksymalny czas trwania przebiegu lub dla całego eksperymentu.
 
 ## <a name="use-low-priority-vms"></a>Używanie maszyn wirtualnych o niskim priorytecie
 
@@ -125,7 +124,7 @@ Ustaw priorytet maszyny wirtualnej w dowolny z następujących sposobów:
                                                                max_nodes=4)
     ```
 
-* Korzystając z interfejsu wiersza polecenia, `vm-priority`należy ustawić:
+* Korzystając z interfejsu wiersza polecenia, należy ustawić `vm-priority` :
 
     ```azurecli-interactive
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
@@ -142,7 +141,7 @@ Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. W przypadk
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 * [Zarządzanie i zwiększanie przydziałów zasobów](how-to-manage-quotas.md)
 * [Zarządzanie kosztami przy użyciu [analizy kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 * [Azure Machine Learning obliczeń](how-to-set-up-training-targets.md#amlcompute).

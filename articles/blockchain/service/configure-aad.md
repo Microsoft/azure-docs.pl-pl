@@ -2,14 +2,14 @@
 title: Konfigurowanie dostępu Azure Active Directory — usługa Azure łańcucha bloków
 description: Jak skonfigurować usługę Azure łańcucha bloków z dostępem Azure Active Directory
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74455842"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208777"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Jak skonfigurować Azure Active Directory dostępu do usługi Azure łańcucha bloków Service
 
@@ -63,7 +63,7 @@ Postępuj zgodnie z sekcją szybkiego startu w **pliku Readme** , aby skompilowa
 
 ### <a name="connect-using-an-azure-ad-user-account"></a>Nawiązywanie połączenia przy użyciu konta użytkownika usługi Azure AD
 
-1. Uruchom następujące polecenie, aby uwierzytelnić się przy użyciu konta użytkownika usługi Azure AD. \<Zastąp\> MyAADDirectory domeną usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
+1. Uruchom następujące polecenie, aby uwierzytelnić się przy użyciu konta użytkownika usługi Azure AD. Zamień \<myAADDirectory\> na domenę usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azur
 
 W przypadku urządzenia przenośnego lub przeglądarki opartej na tekście, w której nie można wyświetlić okna podręcznego uwierzytelniania usługi Azure AD, usługa Azure AD generuje jednorazowy kod dostępu. Możesz skopiować kod dostępu i kontynuować uwierzytelnianie usługi Azure AD w innym środowisku.
 
-Aby wygenerować kod dostępu, Zastąp **aadauthcode** z **aaddevice**. \<Zastąp\> MyAADDirectory domeną usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
+Aby wygenerować kod dostępu, Zastąp **aadauthcode** z **aaddevice**. Zamień \<myAADDirectory\> na domenę usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>

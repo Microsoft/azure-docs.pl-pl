@@ -7,14 +7,14 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872705"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083999"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego
 
@@ -57,16 +57,16 @@ W portalu pole punkt końcowy zgodny z centrum zdarzeń zawiera pełne parametry
 | Nazwa hosta | abcd1234namespace.servicebus.windows.net |
 | Przestrzeń nazw | abcd1234namespace |
 
-Następnie można użyć dowolnych zasad dostępu współdzielonego z uprawnieniami **Serviceconnect** , aby nawiązać połączenie z określonym centrum zdarzeń.
+Następnie możesz wybrać wszystkie zasady dostępu współdzielonego z listy rozwijanej, jak pokazano na poniższym zrzucie ekranu. Pokazuje tylko zasady, które mają uprawnienia **serviceconnect** do nawiązywania połączenia z określonym centrum zdarzeń.
 
 Zestawy SDK, których można użyć do nawiązania połączenia z wbudowanym punktem końcowym zgodnym z centrum zdarzeń, który IoT Hub uwidacznia:
 
 | Język | SDK | Przykład |
 | -------- | --- | ------ |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Szybki start](quickstart-send-telemetry-dotnet.md) |
- Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Szybki start](quickstart-send-telemetry-java.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Szybki start](quickstart-send-telemetry-dotnet.md) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Szybki start](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Szybki start](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
+| Python | https://pypi.org/project/azure-eventhub/ | [Szybki start](quickstart-send-telemetry-python.md) |
 
 Integracji produktów, których można używać z wbudowanym punktem końcowym zgodnym z centrum zdarzeń, który IoT Hub uwidacznia:
 

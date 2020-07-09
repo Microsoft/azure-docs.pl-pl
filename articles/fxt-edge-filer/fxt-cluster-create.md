@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239210"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693077"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Samouczek: Tworzenie klastra usługi Azure FXT Edge
 
@@ -103,17 +103,17 @@ Aby sprawdzić połączenie sieciowe, upewnij się, że diody LED łącza sieci 
 
 Gdy węzeł zostanie uruchomiony, zażąda adresu IP. Jeśli jest połączony z serwerem DHCP, akceptuje adres IP podany przez protokół DHCP. (Ten adres IP jest tymczasowy. Zmiana zostanie zmieniona podczas tworzenia klastra.
 
-Jeśli nie jest on połączony z serwerem DHCP lub nie otrzymuje odpowiedzi, węzeł użyje oprogramowania Bonjour do ustawienia samodzielnego adresu IP w postaci 169,254. \*. \*. Należy jednak ustawić tymczasowy statyczny adres IP na jednym z kart sieciowych tego węzła przed użyciem go do utworzenia klastra. Instrukcje są zawarte w tym starszym dokumencie; Skontaktuj się z działem pomocy technicznej firmy Microsoft, aby uzyskać zaktualizowane informacje: [dodatek A: ustawienie statycznego adresu IP w WĘŹLE FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+Jeśli nie jest on połączony z serwerem DHCP lub nie otrzymuje odpowiedzi, węzeł użyje oprogramowania Bonjour do ustawienia samodzielnego adresu IP w formie 169,254. \* . \* . Należy jednak ustawić tymczasowy statyczny adres IP na jednym z kart sieciowych tego węzła przed użyciem go do utworzenia klastra. Instrukcje są zawarte w tym starszym dokumencie; Skontaktuj się z działem pomocy technicznej firmy Microsoft, aby uzyskać zaktualizowane informacje: [dodatek A: ustawienie statycznego adresu IP w WĘŹLE FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
 ### <a name="find-the-ip-address"></a>Znajdowanie adresu IP
 
 Połącz się z węzłem pliku usługi Azure FXT Edge, aby znaleźć jego adres IP. Można użyć kabla szeregowego, bezpośredniego połączenia z portami USB i VGA lub nawiązywać połączenia za pośrednictwem przełącznika KVM. (Aby uzyskać szczegółowe informacje o połączeniu z portami, zobacz [Ustawianie haseł początkowych](fxt-node-password.md)).
 
-Po nawiązaniu połączenia Zaloguj się przy użyciu nazwy `root` użytkownika i hasła ustawionego podczas uruchamiania węzła po raz pierwszy.  
+Po nawiązaniu połączenia Zaloguj się przy użyciu nazwy użytkownika `root` i hasła ustawionego podczas uruchamiania węzła po raz pierwszy.  
 
 Po zalogowaniu się należy określić adres IP węzła.
 
-Użyj polecenia `ifconfig` , aby wyświetlić adresy przypisane do tego systemu.
+Użyj polecenia, `ifconfig` Aby wyświetlić adresy przypisane do tego systemu.
 
 Na przykład polecenie `ifconfig | grep -B5 inet` wyszukuje porty z adresami internetowymi i zawiera pięć wierszy kontekstu do wyświetlania identyfikatora portu.
 
@@ -167,16 +167,16 @@ W górnej części Wypełnij podstawowe informacje dotyczące nowego klastra.
   * Może zawierać litery, cyfry oraz znaki kreski (-) i podkreślenia (_) 
   * Nie może zawierać innych znaków interpunkcyjnych ani specjalnych
   
-  Tę nazwę można zmienić później na stronie Konfiguracja **Cluster** > **ogólnej** konfiguracji klastra. (Aby uzyskać więcej informacji na temat ustawień klastra, Przeczytaj [Przewodnik konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), który nie jest częścią tego zestawu dokumentacji).
+  Tę nazwę można zmienić później na **Cluster**  >  stronie Konfiguracja**ogólnej** konfiguracji klastra. (Aby uzyskać więcej informacji na temat ustawień klastra, Przeczytaj [Przewodnik konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), który nie jest częścią tego zestawu dokumentacji).
 
   > [!NOTE] 
   > Nazwa klastra służy do identyfikowania informacji o systemie przekazanych do obsługi monitorowania lub rozwiązywania problemów, dlatego warto uwzględnić nazwę firmy.
 
-* **Hasło administratora** — Ustaw hasło dla domyślnego użytkownika administracyjnego `admin`.
+* **Hasło administratora** — Ustaw hasło dla domyślnego użytkownika administracyjnego `admin` .
   
-  Należy skonfigurować indywidualne konta użytkowników dla każdej osoby, która administruje klastrem, ale nie można usunąć użytkownika `admin`. Zaloguj się tak `admin` , jakby trzeba utworzyć dodatkowych użytkowników.
+  Należy skonfigurować indywidualne konta użytkowników dla każdej osoby, która administruje klastrem, ale nie można usunąć użytkownika `admin` . Zaloguj się tak, jakby `admin` trzeba utworzyć dodatkowych użytkowników.
  
-  Hasło `admin` można zmienić na stronie ustawienia**użytkowników** **administracyjnych** > w panelu sterowania klastra. Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją **użytkowników** w [podręczniku konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
+  Hasło można zmienić na `admin` **Administration**  >  stronie ustawienia**użytkowników** administracyjnych w panelu sterowania klastra. Aby uzyskać szczegółowe informacje, zapoznaj się z dokumentacją **użytkowników** w [podręczniku konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
@@ -204,7 +204,7 @@ Ustawienia w sekcji **Zarządzanie** dotyczą sieci, która zapewnia administrat
 
 * **IP zarządzania** — Określ adres IP, który będzie używany w celu uzyskania dostępu do panelu sterowania klastra. Ten adres zostanie przejęty przez węzeł podstawowy klastra, ale jest automatycznie przenoszony do węzła w dobrej kondycji, jeśli oryginalny węzeł podstawowy stanie się niedostępny.
 
-  W większości klastrów używany jest tylko jeden adres IP zarządzania. Jeśli potrzebujesz więcej niż jednego, możesz je dodać po utworzeniu klastra przy użyciu strony ustawień**sieci administracyjnej** **klastra** > . Więcej informacji można znaleźć w [przewodniku po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
+  W większości klastrów używany jest tylko jeden adres IP zarządzania. Jeśli potrzebujesz więcej niż jednego, możesz je dodać po utworzeniu klastra przy użyciu **Cluster**  >  strony ustawień**sieci administracyjnej** klastra. Więcej informacji można znaleźć w [przewodniku po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
 
 * **Maska** sieci — umożliwia określenie maski sieciowej do zarządzania.
 
@@ -212,7 +212,7 @@ Ustawienia w sekcji **Zarządzanie** dotyczą sieci, która zapewnia administrat
 
 * **Tag sieci VLAN (opcjonalnie)** — Jeśli klaster używa tagów sieci VLAN, określ tag dla sieci zarządzania.
 
-  Dodatkowe ustawienia sieci VLAN są konfigurowane na stronie ustawień **klastra** > **sieci VLAN** . Aby dowiedzieć się więcej, zapoznaj się z tematem [Praca z sieciami VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) i [klastrem > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) w przewodniku konfiguracji klastra.
+  Dodatkowe ustawienia sieci VLAN są konfigurowane na **Cluster**  >  stronie ustawień klastra**sieci VLAN** . Aby dowiedzieć się więcej, zapoznaj się z tematem [Praca z sieciami VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) i [klastrem > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) w przewodniku konfiguracji klastra.
 
 * **Jednostka MTU** — w razie potrzeby Dostosuj maksymalną jednostkę transmisji (MTU) dla sieci zarządzania klastrami.
 
@@ -226,7 +226,7 @@ Ustawienia sieci klastra mają zastosowanie do ruchu między węzłami klastra i
 
 * **Pierwszy adres IP** i **ostatni adres IP** — wprowadź adresy IP definiujące zakres, który ma być używany na potrzeby komunikacji z klastrem wewnętrznym. Używane tutaj adresy IP muszą być ciągłe i nieprzypisane przez protokół DHCP.
 
-  Po utworzeniu klastra można dodać więcej adresów IP. Użyj strony ustawień**sieci klastra** **klastrów (**[Dokumentacja przewodnika po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)). > 
+  Po utworzeniu klastra można dodać więcej adresów IP. Użyj **Cluster**  >  strony ustawień**sieci klastra** klastrów ([Dokumentacja przewodnika po konfiguracji klastra](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
 
   Wartość w polu **Liczba adresów IP w zakresie** jest obliczana i wyświetlana automatycznie.
 
@@ -282,7 +282,7 @@ Po utworzeniu klastra należy dostosować jego konfigurację do sieci i przepły
 
 Użyj interfejsu sieci Web panelu sterowania, aby skonfigurować nowy klaster. Postępuj zgodnie z linkiem na ekranie stanu tworzenia klastra lub przejdź do adresu IP zarządzania ustawionego w klastrze.
 
-Zaloguj się do interfejsu sieci Web przy użyciu nazwy `admin` użytkownika i hasła ustawionego podczas tworzenia klastra.
+Zaloguj się do interfejsu sieci Web przy użyciu nazwy użytkownika `admin` i hasła ustawionego podczas tworzenia klastra.
 
 ![Przeglądarka sieci Web przedstawiająca pola logowania w panelu sterowania](media/fxt-cluster-create/admin-login.png)
 
@@ -371,7 +371,7 @@ Klaster plików usługi Azure FXT Edge może automatycznie przekazywać dane dot
 
 Wykonaj następujące kroki, aby skonfigurować obsługę przekazywania.
 
-1. Przejdź do strony ustawienia**obsługi** **klastra** > . Zaakceptuj zasady ochrony prywatności. 
+1. Przejdź do **Cluster**  >  strony ustawienia**obsługi** klastra. Zaakceptuj zasady ochrony prywatności. 
 
    ![Zrzut ekranu przedstawiający panel sterowania i wyskakujące okienko z przyciskiem Potwierdź, aby zaakceptować zasady ochrony prywatności](media/fxt-cluster-create/fxt-privacy-policy.png)
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b946a360ced05500a4ef89cda7c623d8ae16658e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77444578"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563579"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Jakie są opcje architektury Menedżera zapory platformy Azure?
 
@@ -37,14 +37,15 @@ W poniższej tabeli porównano te dwie opcje architektury i można ułatwić dec
 |**Łączność Premium**     |VPN Gateway do 10 GB/s i 30 połączeń S2S; ExpressRoute|Bardziej skalowalne VPN Gateway do 20 GB/s i połączeń S2S 1000 Express Route|
 |**Zautomatyzowana łączność gałęzi przy użyciu SDWAN**      |Nieobsługiwane|Obsługiwane|
 |**Centra na region**     |Wiele sieci wirtualnych na region|Pojedynczy koncentrator wirtualny na region. Wiele centrów z wieloma wirtualnymi sieciami WAN|
-|**Zapora systemu Azure — wiele publicznych adresów IP**      |Dostarczone przez klienta|Generowane automatycznie. Do udostępnienia w wersji ogólnie dostępnej.|
-|**Strefy dostępności zapory platformy Azure**     |Obsługiwane|Niedostępne w wersji zapoznawczej. Do udostępnienia w wersji ogólnie dostępnej|
-|**Zaawansowane zabezpieczenia internetowe z zabezpieczeniami innych firm jako partnerzy usługi**     |Klient i zarządzana łączność z siecią VPN z usługą partnerski wybór|Automatyczne za pomocą przepływu zaufanych partnerów zabezpieczeń i środowiska zarządzania partnerami|
+|**Zapora systemu Azure — wiele publicznych adresów IP**      |Dostarczone przez klienta|Generowany automatycznie|
+|**Strefy dostępności zapory platformy Azure**     |Obsługiwane|Jeszcze niedostępne|
+|**Zaawansowane zabezpieczenia internetowe z zabezpieczeniami innych firm jako partnerzy usługi**     |Klient i zarządzana łączność z siecią VPN z usługą partnerski wybór|Zautomatyzowane za pomocą przepływu dostawcy partnera zabezpieczeń i środowiska zarządzania partnerami|
 |**Scentralizowane zarządzanie trasami umożliwiające kierowanie ruchu do centrum**     |Trasa zdefiniowana przez użytkownika zarządzana przez klienta|Obsługiwane przy użyciu protokołu BGP|
+|**Obsługa wielu dostawców zabezpieczeń**|Obsługiwane przez ręczne konfigurowanie wymuszonego tunelowania dla zapór innych firm|Automatyczna obsługa dwóch dostawców zabezpieczeń: Zapora platformy Azure na potrzeby filtrowania ruchu prywatnego i innej firmy na potrzeby filtrowania internetowego|
 |**Zapora aplikacji internetowej w usłudze Application Gateway** |Obsługiwane w Virtual Network|Obecnie obsługiwane w sieci szprychy|
 |**Sieciowe urządzenie wirtualne**|Obsługiwane w Virtual Network|Obecnie obsługiwane w sieci szprychy|
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przegląd [wdrożenia usługi Azure firewall Manager w wersji zapoznawczej](deployment-overview.md)
+- Przegląd [wdrożenia Menedżera zapory platformy Azure](deployment-overview.md)
 - Poznaj [bezpieczne centra wirtualne](secured-virtual-hub.md).

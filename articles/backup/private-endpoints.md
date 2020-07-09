@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007858"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124259"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -21,9 +21,11 @@ Ten artykuł pomoże Ci zrozumieć proces tworzenia prywatnych punktów końcowy
 - Prywatne punkty końcowe można utworzyć tylko dla nowych magazynów Recovery Services (nie ma żadnych elementów zarejestrowanych w magazynie). Należy utworzyć prywatne punkty końcowe przed podjęciem próby ochrony wszystkich elementów w magazynie.
 - Jedna sieć wirtualna może zawierać prywatne punkty końcowe dla wielu magazynów Recovery Services. Ponadto jeden magazyn Recovery Services może mieć prywatne punkty końcowe dla niego w wielu sieciach wirtualnych. Jednak Maksymalna liczba prywatnych punktów końcowych, które można utworzyć dla magazynu, wynosi 12.
 - Po utworzeniu prywatnego punktu końcowego dla magazynu magazyn zostanie zablokowany. Nie będzie on dostępny (w przypadku tworzenia kopii zapasowych i przywracania) z sieci poza tymi, które zawierają prywatny punkt końcowy dla magazynu. Jeśli wszystkie prywatne punkty końcowe dla magazynu zostaną usunięte, magazyn będzie dostępny ze wszystkich sieci.
+- Połączenie prywatnego punktu końcowego dla kopii zapasowej używa łącznie 11 prywatnych adresów IP w podsieci. Ta liczba może być większa (do 15) dla niektórych regionów świadczenia usługi Azure. Zalecamy, aby przy próbie utworzenia prywatnych punktów końcowych dla kopii zapasowej była dostępna wystarczająca liczba prywatnych adresów IP.
 - Magazyn Recovery Services jest używany przez program (oba) Azure Backup i Azure Site Recovery w tym artykule omówiono użycie prywatnych punktów końcowych tylko dla Azure Backup.
 - Azure Active Directory nie obsługuje obecnie prywatnych punktów końcowych. Aby adresy IP i nazwy FQDN wymagane do Azure Active Directory pracy w regionie muszą mieć dozwolony dostęp wychodzący z zabezpieczonej sieci podczas wykonywania kopii zapasowej baz danych na maszynach wirtualnych platformy Azure i kopii zapasowej przy użyciu agenta MARS. Możesz również użyć tagów sieciowej grupy zabezpieczeń i tagów zapory platformy Azure, aby umożliwić dostęp do usługi Azure AD, zgodnie z wymaganiami.
 - Sieci wirtualne z zasadami sieci nie są obsługiwane dla prywatnych punktów końcowych. Przed kontynuowaniem należy wyłączyć zasady sieci.
+- Należy ponownie zarejestrować dostawcę zasobów Recovery Services z subskrypcją, jeśli został on zarejestrowany przed 1 2020 maja. Aby ponownie zarejestrować dostawcę, przejdź do subskrypcji w Azure Portal, przejdź do pozycji **dostawca zasobów** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **Microsoft. RecoveryServices** , a następnie kliknij pozycję **zarejestruj ponownie**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Zalecane i obsługiwane scenariusze
 
@@ -40,9 +42,6 @@ W tej sekcji omówiono kroki związane z tworzeniem i używaniem prywatnych punk
 
 >[!IMPORTANT]
 > Zdecydowanie zaleca się wykonanie kroków opisanych w tej samej sekwencji, jak wspomniano w tym dokumencie. Niewykonanie tej czynności może spowodować, że magazyn jest renderowany niezgodny z prywatnymi punktami końcowymi i wymaga ponownego uruchomienia procesu z nowym magazynem.
-
->[!NOTE]
-> Niektóre elementy środowiska Azure Portal mogą nie być obecnie dostępne. Zapoznaj się z alternatywnymi środowiskami w taki sposób, aby uzyskać pełną dostępność w Twoim regionie.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -110,7 +109,7 @@ Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, mo
 
 Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) dla kodów regionów.
 
-W przypadku konwencji nazewnictwa adresów URL w Georegiony narodowym:
+W przypadku konwencji nazewnictwa adresów URL w regionach narodowych:
 
 - [Chiny](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Niemcy](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -344,7 +343,7 @@ Aby utworzyć role z wymaganymi uprawnieniami, można użyć jednej z następuj�
 
 Utwórz następujące pliki JSON i użyj polecenia programu PowerShell na końcu sekcji, aby utworzyć role:
 
-PrivateEndpointContributorRoleDef. JSON
+PrivateEndpointContributorRoleDef.jsna
 
 ```json
 {
@@ -362,7 +361,7 @@ PrivateEndpointContributorRoleDef. JSON
 }
 ```
 
-NetworkInterfaceReaderRoleDef. JSON
+NetworkInterfaceReaderRoleDef.jsna
 
 ```json
 {
@@ -380,7 +379,7 @@ NetworkInterfaceReaderRoleDef. JSON
 }
 ```
 
-PrivateEndpointSubnetContributorRoleDef. JSON
+PrivateEndpointSubnetContributorRoleDef.jsna
 
 ```json
 {

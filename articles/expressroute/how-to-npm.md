@@ -4,15 +4,15 @@ description: Skonfiguruj monitorowanie sieci oparte na chmurze (NPM) dla obwodó
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74076588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738383"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie rozszerzenia Network Performance Monitor d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Można:
+Dostępne możliwości:
 
 * Monitorowanie strat i opóźnień w różnych sieci wirtualnych i Ustawianie alertów
 

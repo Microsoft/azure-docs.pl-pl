@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966677"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736676"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
 
@@ -62,7 +62,7 @@ Za pomocą Azure Security Center Standard można:
 
 Aby dowiedzieć się więcej, zobacz Dołączanie [subskrypcji platformy Azure do usługi Security Center Standard](../security-center/security-center-get-started.md).
 
-### <a name="improve-your-secure-score"></a>Popraw swój Bezpieczny wynik
+### <a name="improve-your-secure-score"></a>Poprawianie wskaźnika bezpieczeństwa
 
 Metoda Secure Score zawiera zalecenia i najlepsze rozwiązanie w zakresie poprawy ogólnego bezpieczeństwa. Zalecenia te mają na celu ułatwienie wyboru, które najważniejsze są najważniejsze, a opcje szybkiej naprawy ułatwiają szybkie rozwiązywanie potencjalnych luk w zabezpieczeniach. Te zalecenia również są aktualizowane w miarę upływu czasu, dzięki czemu można uzyskać aktualną obsługę bezpieczeństwa środowiska. Aby dowiedzieć się więcej, zobacz [ulepszanie bezpiecznego oceny w Azure Security Center](../security-center/security-center-secure-score.md).
 

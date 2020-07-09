@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388939"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integruj wymianę oświadczeń interfejsu API REST w zasadach niestandardowych Azure AD B2C
 
@@ -32,6 +32,9 @@ Za pomocą Azure AD B2C można dodać własną logikę biznesową do podróży u
 - **Uruchom niestandardową logikę biznesową**. Możesz wysyłać powiadomienia wypychane, aktualizować korporacyjne bazy danych, uruchamiać proces migracji użytkowników, zarządzać uprawnieniami, bazami danych inspekcji i wykonywać inne przepływy pracy.
 
 ![Diagram wymiany oświadczeń usługi RESTful Service](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> Jeśli usługa RESTful jest powolna lub nie ma odpowiedzi na Azure AD B2C, limit czasu wynosi 30 sekund, a liczba ponownych prób wynosi 2 razy (oznacza to, że w sumie są 3 próby). Nie można obecnie konfigurować ustawień limitu czasu i liczby ponownych prób.
 
 ## <a name="calling-a-restful-service"></a>Wywoływanie usługi RESTful
 
@@ -128,7 +131,7 @@ Oświadczenia wyjściowe powinny wyglądać następująco:
 </OutputClaims>
 ```
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Należy chronić punkt końcowy interfejsu API REST, aby tylko uwierzytelnieni klienci mogli z nią komunikować. Interfejs API REST musi używać punktu końcowego HTTPS. Ustaw metadane Uwierzytelnianiatype na jedną z następujących metod uwierzytelniania:
 
@@ -142,7 +145,7 @@ Interfejs API REST może być oparty na dowolnej platformie i zapisany w dowolny
 ## <a name="localize-the-rest-api"></a>Lokalizowanie interfejsu API REST
 W profilu technicznym RESTful może być konieczne wysłanie języka/ustawień regionalnych bieżącej sesji i w razie potrzeby podniesienia zlokalizowanego komunikatu o błędzie. Za pomocą programu [rozpoznawania oświadczeń](claim-resolver-overview.md)można wysłać oświadczenie kontekstowe, takie jak język użytkownika. Poniższy przykład przedstawia profil techniczny RESTful pokazujący ten scenariusz.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -162,7 +165,7 @@ W profilu technicznym RESTful może być konieczne wysłanie języka/ustawień r
 
 ## <a name="handling-error-messages"></a>Obsługa komunikatów o błędach
 
-Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak "nie znaleziono użytkownika w systemie CRM". Jeśli wystąpi błąd, interfejs API REST powinien zwrócić komunikat o błędzie HTTP 409 (kod stanu odpowiedzi konfliktu). Aby uzyskać więcej informacji, zobacz [profil techniczny RESTful](restful-technical-profile.md#returning-error-message).
+Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak "nie znaleziono użytkownika w systemie CRM". Jeśli wystąpi błąd, interfejs API REST powinien zwrócić komunikat o błędzie HTTP 409 (kod stanu odpowiedzi konfliktu). Aby uzyskać więcej informacji, zobacz [profil techniczny RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Można to osiągnąć tylko przez wywołanie profilu technicznego interfejsu API REST z poziomu profilu technicznego weryfikacji. Dzięki temu użytkownik może skorygować dane na stronie i ponownie uruchomić weryfikację przy przesyłaniu strony.
 

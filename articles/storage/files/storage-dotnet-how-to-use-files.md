@@ -4,16 +4,15 @@ description: Dowiedz się, jak opracować aplikacje platformy .NET i usługi kor
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515372"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET
 
@@ -34,7 +33,7 @@ Aby dowiedzieć się więcej na temat Azure Files, zobacz [co to jest Azure File
 
 ## <a name="understanding-the-net-apis"></a>Opis interfejsów API platformy .NET
 
-Usługa Azure Files oferuje dwa obszerne podejścia do aplikacji klienckich: blok komunikatów serwera (SMB) i interfejs REST. W programie .NET interfejsy `System.IO` API `WindowsAzure.Storage` i są abstrakcyjne.
+Usługa Azure Files oferuje dwa obszerne podejścia do aplikacji klienckich: blok komunikatów serwera (SMB) i interfejs REST. W programie .NET `System.IO` `WindowsAzure.Storage` interfejsy API i są abstrakcyjne.
 
 Interfejs API | Kiedy stosować | Uwagi
 ----|-------------|------
@@ -49,7 +48,7 @@ W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. 
 1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C#, a następnie wybierz pozycję **dalej**.
 1. W obszarze **Konfigurowanie nowego projektu**wprowadź nazwę aplikacji, a następnie wybierz pozycję **Utwórz**.
 
-Wszystkie przykłady kodu w tym samouczku można dodać do `Main()` metody `Program.cs` pliku aplikacji konsolowej.
+Wszystkie przykłady kodu w tym samouczku można dodać do `Main()` metody pliku aplikacji konsolowej `Program.cs` .
 
 Biblioteka klienta usługi Azure Storage może być używana w dowolnym typie aplikacji .NET. Te typy obejmują usługę w chmurze lub aplikację sieci Web platformy Azure oraz aplikacje dla komputerów stacjonarnych i mobilnych. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
@@ -80,11 +79,11 @@ Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 
    * **Microsoft. Azure. Storage. Common**
    * **Microsoft. Azure. Storage. File**
-   * **Microsoft. Azure. ConfigurationManager**
+   * **Microsoft.Azure.ConfigurationManager**
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Zapisz poświadczenia konta magazynu w pliku App. config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Zapisz poświadczenia konta magazynu w pliku App.config
 
-Następnie Zapisz poświadczenia w `App.config` pliku projektu. W **Eksplorator rozwiązań**kliknij dwukrotnie plik `App.config` i zmodyfikuj go tak, aby był podobny do poniższego przykładu. Zastąp `myaccount` ciąg nazwą konta magazynu i `mykey` kluczem konta magazynu.
+Następnie Zapisz poświadczenia w `App.config` pliku projektu. W **Eksplorator rozwiązań**kliknij dwukrotnie `App.config` plik i zmodyfikuj go tak, aby był podobny do poniższego przykładu. Zastąp ciąg `myaccount` nazwą konta magazynu i `mykey` kluczem konta magazynu.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -435,7 +434,7 @@ using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Chociaż obiekty blob platformy Azure, tabele platformy Azure i kolejki platformy Azure `ServiceProperties` używają typu współużytkowanego w `Microsoft.Azure.Storage.Shared.Protocol` przestrzeni nazw, Azure Files używa własnego `FileServiceProperties` typu, typu `Microsoft.Azure.Storage.File.Protocol` w przestrzeni nazw. Należy jednak odwoływać się do obu przestrzeni nazw w kodzie, aby można było skompilować Poniższy kod.
+Chociaż obiekty blob platformy Azure, tabele platformy Azure i kolejki platformy Azure używają typu współużytkowanego `ServiceProperties` w `Microsoft.Azure.Storage.Shared.Protocol` przestrzeni nazw, Azure Files używa własnego typu, `FileServiceProperties` typu w `Microsoft.Azure.Storage.File.Protocol` przestrzeni nazw. Należy jednak odwoływać się do obu przestrzeni nazw w kodzie, aby można było skompilować Poniższy kod.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.

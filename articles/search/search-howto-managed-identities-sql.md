@@ -1,7 +1,7 @@
 ---
-title: Skonfiguruj połączenie z bazą danych Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+title: Skonfiguruj połączenie do Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak skonfigurować połączenie indeksatora z bazą danych Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+description: Dowiedz się, jak skonfigurować połączenie indeksatora do Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -9,22 +9,23 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 87389651707a3bdcc18ae7eb03b88681b5303c4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559930"
 ---
-# <a name="set-up-an-indexer-connection-to-an-azure-sql-database-using-a-managed-identity-preview"></a>Konfigurowanie połączenia indeksatora z bazą danych Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Skonfiguruj połączenie indeksatora, aby Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
 > [!IMPORTANT] 
 > Obsługa konfigurowania połączenia ze źródłem danych przy użyciu tożsamości zarządzanej jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych.
 > Możesz zażądać dostępu do wersji zapoznawczej, wypełniając [ten formularz](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-Na tej stronie opisano sposób konfigurowania połączenia indeksatora z bazą danych Azure SQL Database przy użyciu tożsamości zarządzanej zamiast podawania poświadczeń w parametrach połączenia obiektu źródła danych.
+Na tej stronie opisano sposób konfigurowania połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej zamiast podawania poświadczeń w parametrach połączenia obiektu źródła danych.
 
 Aby dowiedzieć się więcej o tej funkcji, zalecamy zapoznanie się z tym, co to jest indeksator i jak skonfigurować indeksator dla źródła danych. Więcej informacji można znaleźć w następujących linkach:
+
 * [Omówienie indeksatora](search-indexer-overview.md)
 * [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -39,7 +40,7 @@ Gdy jest włączona tożsamość zarządzana przypisana przez system, platforma 
 Po wybraniu pozycji **Zapisz** zostanie wyświetlony identyfikator obiektu przypisany do usługi wyszukiwania.
 
 ![Identyfikator obiektu](./media/search-managed-identities/system-assigned-identity-object-id.png "Identyfikator obiektu")
- 
+
 ### <a name="2---provision-azure-active-directory-admin-for-sql-server"></a>2 — Inicjowanie obsługi administracyjnej Azure Active Directory administratora SQL Server
 
 Podczas łączenia się z bazą danych w następnym kroku należy nawiązać połączenie z kontem usługi Azure Active Directory (Azure AD), które ma dostęp administratora do bazy danych, aby umożliwić usłudze wyszukiwania uprawnienie dostępu do bazy danych.
@@ -102,7 +103,7 @@ Podczas indeksowania z bazy danych SQL źródło danych musi mieć następujące
 * **Nazwa** jest unikatową nazwą źródła danych w ramach usługi wyszukiwania.
 * **Typ** to`azuresql`
 * **uwierzytelniające**
-    * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana zarządzana tożsamość. Tutaj utworzysz katalog początkowy lub nazwę bazy danych oraz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji bazy danych Azure SQL Database, grupę zasobów bazy danych SQL i nazwę bazy danych SQL. 
+    * Podczas uwierzytelniania przy użyciu tożsamości zarządzanej format **poświadczeń** różni się od czasu, gdy nie jest używana zarządzana tożsamość. Tutaj utworzysz katalog początkowy lub nazwę bazy danych oraz identyfikator zasobu, który nie ma klucza konta ani hasła. ResourceId musi zawierać identyfikator subskrypcji Azure SQL Database, grupę zasobów SQL Database i nazwę bazy danych SQL. 
     * Format parametrów połączenia tożsamości zarządzanej:
         * *Katalog początkowy | Baza danych =**Nazwa bazy**danych; ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.SQL/Servers/**swoją nazwę SQL Server**/; Limit czasu połączenia =**Długość limitu czasu połączenia**;*
 * **kontener** określa nazwę tabeli lub widoku, który ma być indeksowany.
@@ -110,7 +111,7 @@ Podczas indeksowania z bazy danych SQL źródło danych musi mieć następujące
 Przykład sposobu tworzenia obiektu źródła danych SQL Azure przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -131,7 +132,7 @@ Indeks określa pola w dokumencie, atrybuty i inne konstrukcje, które kształtu
 Oto jak utworzyć indeks z polem z możliwością wyszukiwania `booktitle` :   
 
 ```
-POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -155,7 +156,7 @@ Po utworzeniu indeksu i źródła danych można przystąpić do tworzenia indeks
 Przykładowa definicja indeksatora dla indeksatora usługi Azure SQL:
 
 ```
-POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -177,7 +178,7 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 
 Jeśli zostanie wyświetlony komunikat o błędzie, gdy indeksator podejmie próbę nawiązania połączenia ze źródłem danych, że klient nie może uzyskać dostępu do serwera, zapoznaj się z [typowymi błędami indeksatora](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Dowiedz się więcej o usłudze Azure SQL indeksator:
 * [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
 ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982653"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Zmień transformację wierszy w mapowaniu przepływu danych
@@ -29,12 +28,12 @@ Przekształcenia ALTER Row będą działać tylko dla bazy danych lub ujścia Co
 
 ## <a name="specify-a-default-row-policy"></a>Określanie domyślnych zasad wiersza
 
-Tworzenie przekształcenia ALTER Row i Określanie zasad wiersza z warunkiem `true()`. Każdy wiersz, który nie jest zgodny z żadnym z wcześniej zdefiniowanych wyrażeń, zostanie oznaczony dla określonych zasad wiersza. Domyślnie każdy wiersz, który nie jest zgodny z żadnym wyrażeniem warunkowym, `Insert`będzie oznaczony jako.
+Tworzenie przekształcenia ALTER Row i Określanie zasad wiersza z warunkiem `true()` . Każdy wiersz, który nie jest zgodny z żadnym z wcześniej zdefiniowanych wyrażeń, zostanie oznaczony dla określonych zasad wiersza. Domyślnie każdy wiersz, który nie jest zgodny z żadnym wyrażeniem warunkowym, będzie oznaczony jako `Insert` .
 
 ![Zmień zasady wiersza](media/data-flow/alter-row4.png "Zmień zasady wiersza")
 
 > [!NOTE]
-> Aby oznaczyć wszystkie wiersze z jedną zasadą, można utworzyć warunek dla tych zasad i określić warunek jako `true()`.
+> Aby oznaczyć wszystkie wiersze z jedną zasadą, można utworzyć warunek dla tych zasad i określić warunek jako `true()` .
 
 ## <a name="view-policies-in-data-preview"></a>Wyświetl zasady w podglądzie danych
 
@@ -67,7 +66,7 @@ Poniżej przedstawiono sposoby rozwiązania tego problemu:
 
 1. Przejdź do ustawień transformacji ujścia i ustaw pozycję "Pomiń zapisywanie kolumn klucza". Spowoduje to wyświetlenie podajnika APD w celu zapisania kolumny, która została wybrana jako wartość klucza mapowania.
 
-2. Jeśli kolumna klucza nie jest kolumną, która powoduje problem z kolumnami tożsamości, można użyć opcji wstępnego przetwarzania przekształceń ujścia: ```SET IDENTITY_INSERT tbl_content ON```. Następnie wyłącz go przy użyciu właściwości SQL po przetworzeniu: ```SET IDENTITY_INSERT tbl_content OFF```.
+2. Jeśli kolumna klucza nie jest kolumną, która powoduje problem z kolumnami tożsamości, można użyć opcji wstępnego przetwarzania przekształceń ujścia: ```SET IDENTITY_INSERT tbl_content ON``` . Następnie wyłącz go przy użyciu właściwości SQL po przetworzeniu: ```SET IDENTITY_INSERT tbl_content OFF``` .
 
 3. Dla obu rodzajów tożsamości i kolumny rozkładu można zmienić logikę z upsert na użycie oddzielnego warunku aktualizacji i oddzielny warunek wstawiania przy użyciu transformacji podziału warunkowego. W ten sposób można ustawić mapowanie dla ścieżki aktualizacji, aby zignorować mapowanie kolumny klucza.
 
@@ -87,7 +86,7 @@ Poniżej przedstawiono sposoby rozwiązania tego problemu:
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład jest przekształceniem ALTER Row o `CleanData` nazwie, który pobiera strumień `SpecifyUpsertConditions` przychodzący i tworzy trzy warunki ALTER Row. W poprzedniej transformacji kolumna o nazwie `alterRowCondition` jest obliczana, która określa, czy wiersz został wstawiony, zaktualizowany lub usunięty z bazy danych. Jeśli wartość w kolumnie ma wartość ciągu zgodną z regułą ALTER Row, przypisywana jest ta zasada.
+Poniższy przykład jest przekształceniem ALTER Row o nazwie `CleanData` , który pobiera strumień przychodzący `SpecifyUpsertConditions` i tworzy trzy warunki ALTER Row. W poprzedniej transformacji kolumna o nazwie `alterRowCondition` jest obliczana, która określa, czy wiersz został wstawiony, zaktualizowany lub usunięty z bazy danych. Jeśli wartość w kolumnie ma wartość ciągu zgodną z regułą ALTER Row, przypisywana jest ta zasada.
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 

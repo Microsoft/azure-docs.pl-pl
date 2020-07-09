@@ -8,25 +8,25 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: c7e164420b02be35069103ac06238d56449eb7ef
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996733"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118886"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Node. js](sql-api-nodejs-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 W tym samouczku pokazano, jak przy użyciu usługi Azure Cosmos DB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji ASP.NET MVC hostowanej na platformie Azure. W tym samouczku użyto zestawu .NET SDK v3. Na poniższej ilustracji przedstawiono stronę sieci Web, która zostanie utworzona za pomocą przykładu w tym artykule:
 
-![Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+:::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 Jeśli nie masz czasu na pracę z tym samouczkiem, możesz pobrać kompletny przykładowy projekt z witryny [GitHub][GitHub].
 
@@ -46,7 +46,7 @@ W tym samouczku opisano następujące czynności:
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące zasoby:
 
-* Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -70,7 +70,7 @@ W następnej sekcji utworzysz nową aplikację ASP.NET Core MVC.
 
 1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz **ASP.NET Core aplikacji sieci Web** dla języka C#. Wybierz przycisk **Dalej**, aby kontynuować.
 
-   ![Utwórz nowy projekt aplikacji sieci Web ASP.NET Core](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Utwórz nowy projekt aplikacji sieci Web ASP.NET Core":::
 
 1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt do *zrobienia* i wybierz pozycję **Utwórz**.
 
@@ -78,7 +78,7 @@ W następnej sekcji utworzysz nową aplikację ASP.NET Core MVC.
 
    Program Visual Studio tworzy pustą aplikację MVC.
 
-1. Wybierz kolejno opcje **Debuguj** > **Rozpocznij debugowanie** lub F5, aby uruchomić aplikację ASP.NET lokalnie.
+1. Wybierz kolejno opcje **Debuguj**  >  **Rozpocznij debugowanie** lub F5, aby uruchomić aplikację ASP.NET lokalnie.
 
 ## <a name="step-3-add-azure-cosmos-db-nuget-package-to-the-project"></a><a name="add-nuget-packages"></a>Krok 3. Dodawanie pakietu NuGet usługi Azure Cosmos DB do projektu
 
@@ -88,11 +88,11 @@ Teraz, gdy mamy najwięcej ASP.NET Core kodu platformy MVC dla tego rozwiązania
 
 1. W **Menedżerze pakietów NuGet**Wyszukaj i wybierz pozycję **Microsoft. Azure. Cosmos**. Wybierz pozycję **Zainstaluj**.
 
-   ![Zainstaluj pakiet NuGet](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Zainstaluj pakiet NuGet":::
 
    Program Visual Studio pobiera i instaluje pakiet Azure Cosmos DB wraz z jego zależnościami.
 
-   Do zainstalowania pakietu NuGet można także użyć **konsoli Menedżera pakietów** . W tym celu wybierz kolejno pozycje **Narzędzia** > Menedżer**pakietów** > NuGet**konsola Menedżera pakietów**. W wierszu polecenia wpisz następujące polecenie:
+   Do zainstalowania pakietu NuGet można także użyć **konsoli Menedżera pakietów** . W tym celu wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**. W wierszu polecenia wpisz następujące polecenie:
 
    ```ps
    Install-Package Microsoft.Azure.Cosmos
@@ -104,7 +104,7 @@ Teraz Dodajmy modele, widoki i kontrolery do tej aplikacji MVC.
 
 ### <a name="add-a-model"></a><a name="add-a-model"></a>Dodawanie modelu
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj** > **klasę**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
 
 1. W obszarze **Dodaj nowy element**nadaj nowej klasie nazwę *Item.cs* i wybierz pozycję **Dodaj**.
 
@@ -112,7 +112,7 @@ Teraz Dodajmy modele, widoki i kontrolery do tej aplikacji MVC.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
-Azure Cosmos DB używa formatu JSON do przenoszenia i przechowywania danych. Można użyć atrybutu, `JsonProperty` aby kontrolować sposób serializacji kodu JSON i deserializacji obiektów. `Item` Klasa demonstruje `JsonProperty` atrybut. Ten kod steruje formatem nazwy właściwości, która znajduje się w formacie JSON. Zmienia również nazwę właściwości `Completed`platformy .NET.
+Azure Cosmos DB używa formatu JSON do przenoszenia i przechowywania danych. Można użyć atrybutu, `JsonProperty` Aby kontrolować sposób serializacji kodu JSON i deserializacji obiektów. `Item`Klasa demonstruje `JsonProperty` atrybut. Ten kod steruje formatem nazwy właściwości, która znajduje się w formacie JSON. Zmienia również nazwę właściwości platformy .NET `Completed` .
 
 ### <a name="add-views"></a><a name="add-views"></a>Dodawanie widoków
 
@@ -124,9 +124,9 @@ Następnie Utwórzmy następujące trzy widoki.
 
 #### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Dodawanie widoku elementu listy
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **widoki** i wybierz polecenie **Dodaj** > **Nowy folder**. Nadaj nazwę *elementowi*folderu.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **widoki** i wybierz polecenie **Dodaj**  >  **Nowy folder**. Nadaj nazwę *elementowi*folderu.
 
-1. Kliknij prawym przyciskiem myszy folder pusty **element** , a następnie wybierz polecenie **Dodaj** > **Widok**.
+1. Kliknij prawym przyciskiem myszy folder pusty **element** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
 
 1. W obszarze **Dodaj widok MVC**podaj następujące wartości:
 
@@ -135,7 +135,7 @@ Następnie Utwórzmy następujące trzy widoki.
    * W obszarze **Klasa modelu**wybierz pozycję **element (do zrobienia. Modele)**.
    * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
 
-   ![Zrzut ekranu przedstawiający okno dialogowe Dodawanie widoku MVC](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Dodawanie widoku MVC":::
 
 1. Po dodaniu tych wartości wybierz przycisk **Dodaj**. Program Visual Studio utworzy nowy widok szablonu.
 
@@ -145,7 +145,7 @@ Po zakończeniu program Visual Studio otworzy plik *cshtml* , który tworzy. Mo�
 
 Podobnie jak w przypadku widoku umożliwiającego wyświetlanie elementów utwórz widok, który pozwala tworzyć elementy. W tym celu wykonaj następujące kroki:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj** > **Widok**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
 
 1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
 
@@ -159,7 +159,7 @@ Podobnie jak w przypadku widoku umożliwiającego wyświetlanie elementów utwó
 
 Na koniec wykonaj następujące kroki, aby dodać widok umożliwiający edycję elementu:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj** > **Widok**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
 
 1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
 
@@ -173,17 +173,17 @@ Po wykonaniu tych kroków zamknij wszystkie dokumenty *cshtml* w programie Visua
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Zadeklaruj i zainicjuj usługi
 
-Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połączenia i użycie Azure Cosmos DB. W tym samouczku będziemy hermetyzować tę logikę do klasy o nazwie `CosmosDBService` i interfejsu o nazwie `ICosmosDBService`. Ta usługa wykonuje operacje CRUD. Wykonuje również operacje odczytu źródła danych, takie jak wyświetlanie niekompletnych elementów, tworzenie, edytowanie i usuwanie elementów.
+Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połączenia i użycie Azure Cosmos DB. W tym samouczku będziemy hermetyzować tę logikę do klasy o nazwie `CosmosDBService` i interfejsu o nazwie `ICosmosDBService` . Ta usługa wykonuje operacje CRUD. Wykonuje również operacje odczytu źródła danych, takie jak wyświetlanie niekompletnych elementów, tworzenie, edytowanie i usuwanie elementów.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **Nowy folder**. Nazwij *usługi*folderów.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **Nowy folder**. Nazwij *usługi*folderów.
 
-1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj** > **klasę**. Nadaj nowej klasie nazwę *CosmosDBService* i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *CosmosDBService* i wybierz pozycję **Dodaj**.
 
 1. Zastąp zawartość *CosmosDBService.cs* następującym kodem:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj** > **klasę**. Nadaj nowej klasie nazwę *ICosmosDBService* i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *ICosmosDBService* i wybierz pozycję **Dodaj**.
 
 1. Dodaj następujący kod do klasy *ICosmosDBService* :
 
@@ -211,17 +211,17 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
    ```
 
 
-1. Zdefiniuj konfigurację w pliku *appSettings. JSON* projektu, jak pokazano w poniższym fragmencie kodu:
+1. Zdefiniuj konfigurację w *appsettings.jsprojektu na* pliku, jak pokazano w poniższym fragmencie kodu:
 
    :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
 
 ### <a name="add-a-controller"></a><a name="add-a-controller"></a>Dodawanie kontrolera
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **controllers** , a następnie wybierz pozycję **Dodaj** > **kontroler**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **controllers** , a następnie wybierz pozycję **Dodaj**  >  **kontroler**.
 
 1. W obszarze **Dodawanie szkieletu**wybierz pozycję **kontroler MVC — puste** i wybierz pozycję **Dodaj**.
 
-   ![Wybierz kontroler MVC — pusty w obszarze Dodawanie szkieletu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Wybierz kontroler MVC — pusty w obszarze Dodawanie szkieletu":::
 
 1. Nazwij nowy kontroler *ItemController*.
 
@@ -239,7 +239,7 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Naciśnij klawisz F5 w programie Visual Studio, aby skompilować aplikację w trybie debugowania. Powinno to spowodować skompilowanie aplikacji i uruchomienie przeglądarki z wyświetloną stroną z pustą siatką, którą widzieliśmy wcześniej:
 
-   ![Zrzut ekranu przedstawiający aplikację sieci Web z listą rzeczy do zrobienia utworzoną przez ten samouczek](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web z listą rzeczy do zrobienia utworzoną przez ten samouczek":::
    
    Jeśli aplikacja zostanie otwarta na stronie głównej, Dołącz `/Item` do adresu URL.
 
@@ -247,11 +247,11 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
-    ![Zrzut ekranu przedstawiający widok indeksu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający widok indeksu":::
   
 1. Wybierz pozycję **Edytuj** obok **elementu** na liście. Aplikacja otwiera widok **edycji** , w którym można zaktualizować każdą właściwość obiektu, łącznie z flagą **ukończoną** . Jeśli wybierzesz pozycję **ukończono** i wybierzesz pozycję **Zapisz**, aplikacja wyświetli **element** jako wykonany na liście.
 
-   ![Zrzut ekranu przedstawiający widok indeksu z zaznaczonym polem ukończono](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Zrzut ekranu przedstawiający widok indeksu z zaznaczonym polem ukończono":::
 
 1. Sprawdź stan danych w usłudze Azure Cosmos DB przy użyciu [Eksploratora Cosmos](https://cosmos.azure.com) lub Eksplorator danych emulatora Azure Cosmos DB.
 
@@ -271,7 +271,7 @@ Teraz, gdy kompletna aplikacja działa poprawnie z usługą Azure Cosmos DB, wdr
 
 1. Znajdź swój profil, a następnie wybierz przycisk **OK**. Następnie wyszukaj wymaganą usługę Azure App Service i wybierz przycisk **OK**.
 
-   ![Okno dialogowe usługi App Service w programie Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Okno dialogowe usługi App Service w programie Visual Studio":::
 
 Innym rozwiązaniem jest utworzenie nowego profilu:
 
@@ -283,7 +283,7 @@ Innym rozwiązaniem jest utworzenie nowego profilu:
 
 1. W **App Service**wprowadź nazwę aplikacji sieci Web i odpowiednią subskrypcję, grupę zasobów i plan hostingu, a następnie wybierz pozycję **Utwórz**.
 
-   ![Okno dialogowe Tworzenie usługi App Service w programie Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Okno dialogowe Tworzenie usługi App Service w programie Visual Studio":::
 
 W ciągu kilku sekund program Visual Studio opublikuje aplikację sieci Web i uruchomi przeglądarkę, w której można zobaczyć swój projekt uruchomiony na platformie Azure.
 

@@ -2,17 +2,15 @@
 title: Wersja zapoznawcza — Dodawanie puli węzłów dodatkowych do klastra usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak dodać pulę węzłów dodatkowych do klastra usługi Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: zarhoads
-ms.openlocfilehash: 466ad7c88547b6676ba0ae263b74d14059322f1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77622039"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374614"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Wersja zapoznawcza — Dodawanie puli węzłów dodatkowych do klastra usługi Azure Kubernetes Service (AKS)
 
@@ -28,7 +26,7 @@ W tym artykule założono podstawową wiedzę na temat koncepcji Kubernetes i Az
 
 Ta funkcja jest obecnie w wersji zapoznawczej.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -43,9 +41,6 @@ Podczas tworzenia klastra w celu używania puli węzłów dodatkowych, ten klast
 ### <a name="register-spotpoolpreview-preview-feature"></a>Rejestrowanie funkcji spotpoolpreview w wersji zapoznawczej
 
 Aby utworzyć klaster AKS, który używa puli węzłów dodatkowych, należy włączyć flagę funkcji *spotpoolpreview* w subskrypcji. Ta funkcja udostępnia najnowszy zestaw rozszerzeń usługi podczas konfigurowania klastra.
-
-> [!CAUTION]
-> Po zarejestrowaniu funkcji w ramach subskrypcji nie można obecnie wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej można użyć wartości domyślnych dla wszystkich klastrów AKS utworzonych w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Korzystaj z oddzielnej subskrypcji, aby testować funkcje w wersji zapoznawczej i zbierać opinie.
 
 Zarejestruj flagę funkcji *spotpoolpreview* za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 

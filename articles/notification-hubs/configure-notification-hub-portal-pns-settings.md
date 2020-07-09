@@ -4,20 +4,19 @@ description: Dowiedz się, jak skonfigurować usługę Azure Notification Hubs w
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: dbradish-microsoft
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 06/22/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 78afb124ee1d1ab9b212197fb7a7140f88de9940
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af792ccfe8e00c26abc6aab2e4a96d7ef9ff5122
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80349509"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252053"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Szybki Start: Konfigurowanie powiadomień wypychanych w centrum powiadomień
 
@@ -49,7 +48,7 @@ Aby skonfigurować Apple Push Notification Service (APNS):
 
      ![Zrzut ekranu przedstawiający konfigurację tokenu usługi APNS w Azure Portal](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
-Aby uzyskać więcej informacji, zobacz [wypychanie powiadomień do systemu iOS przy użyciu usługi Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+Aby uzyskać więcej informacji, zobacz [wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md).
 
 ## <a name="google-firebase-cloud-messaging-fcm"></a>Google Firebase Cloud Messaging (FCM)
 
@@ -132,7 +131,7 @@ Aby skonfigurować usługę powiadomień wypychanych firmy Microsoft (usługi MP
 1. Na Azure Portal na stronie **centrum powiadomień** wybierz pozycję **Windows Phone (usługi MPNS)** z menu po lewej stronie.
 1. Włącz nieuwierzytelnione lub uwierzytelnione powiadomienia wypychane:
 
-   a. Aby włączyć nieuwierzytelnione**powiadomienia wypychane**, zaznacz opcję **Włącz nieuwierzytelnione wypychanie** > .
+   a. Aby włączyć nieuwierzytelnione powiadomienia wypychane, zaznacz opcję **Włącz nieuwierzytelnione wypychanie**  >  **Save**.
 
       ![Zrzut ekranu pokazujący sposób włączania nieuwierzytelnionych powiadomień wypychanych](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
@@ -166,8 +165,8 @@ W tym przewodniku szybki start przedstawiono sposób konfigurowania ustawień sy
 
 Aby dowiedzieć się więcej o sposobie wypychania powiadomień do różnych platform, zobacz następujące samouczki:
 
--[Powiadomienia wypychane do urządzeń z systemem iOS przy użyciu powiadomień wypychanych Notification Hubs i APN](notification-hubs-ios-apple-push-notification-apns-get-started.md)
--[do urządzeń z systemem Android za pomocą powiadomień Push Notification Hubs i Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
--do[aplikacji platformy UWP uruchomionej w](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
--ramach powiadomień wypychanych urządzeń z systemem Windows[do aplikacji Windows Phone 8 przy użyciu usługi MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
--[powiadomień wypychanych przy użyciu Notification Hubs i powiadomienia wypychane w chmurze Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
+* [Wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md)
+* [Wysyłanie powiadomień do urządzeń z systemem Android przy użyciu usług Notification Hubs i Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
+* [Wysyłanie powiadomień do aplikacji platformy UWP działającej na urządzeniu z systemem Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+* [Wysyłanie powiadomień do aplikacji Windows Phone 8 przy użyciu usługi MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
+* [Wysyłaj powiadomienia przy użyciu Notification Hubs i powiadomienia wypychane w chmurze Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)

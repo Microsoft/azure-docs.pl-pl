@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832050"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050199"
 ---
 ### <a name="record-names"></a>Nazwy rekordów
 
-W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. *W pełni kwalifikowana* nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa *względna*. Na przykład względna nazwa `www` rekordu w strefie `contoso.com` daje w pełni kwalifikowaną nazwę `www.contoso.com`rekordu.
+W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. *W pełni kwalifikowana* nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa *względna*. Na przykład względna nazwa rekordu `www` w strefie daje w `contoso.com` pełni kwalifikowaną nazwę rekordu `www.contoso.com` .
 
-Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy DNS. Na przykład w strefie `contoso.com`DNS rekord wierzchołka ma również w pełni kwalifikowaną nazwę `contoso.com` (jest to czasami nazywane domeną bez pozostałej). *naked*  Zgodnie z Konwencją nazwa względna\@"" jest używana do reprezentowania rekordów wierzchołków.
+Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy DNS. Na przykład w strefie DNS `contoso.com` rekord wierzchołka ma również w pełni kwalifikowaną nazwę `contoso.com` (jest to czasami nazywane domeną bez pozostałej). *naked*  Zgodnie z Konwencją nazwa względna " \@ " jest używana do reprezentowania rekordów wierzchołków.
 
 ### <a name="record-types"></a>Typy rekordów
 
@@ -27,8 +27,10 @@ Azure DNS obsługuje wszystkie popularne typy rekordów DNS: A, AAAA, CAA, CNAME
 
 Czasami trzeba utworzyć więcej niż jeden rekord DNS określonego typu o danej nazwie. Na przykład załóżmy, że witryna sieci Web „www.contoso.com” jest hostowana pod dwoma różnymi adresami IP. Witryna sieci Web wymaga dwóch różnych rekordów A, po jednym dla każdego adresu IP. Oto przykład zestawu rekordów:
 
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
+```dns
+www.contoso.com.        3600    IN    A    134.170.185.46
+www.contoso.com.        3600    IN    A    134.170.188.221
+```
 
 System DNS platformy Azure zarządza wszystkimi rekordami DNS za pomocą *zestawów rekordów*. Zestaw rekordów (określany także jako zestaw rekordów *zasobów*) jest kolekcją rekordów DNS w strefie, które mają taką samą nazwę i są tego samego typu. Większość zestawów rekordów zawiera jeden rekord. Sytuacje taka jak powyższa, w których zestaw rekordów zawiera więcej niż jeden rekord, również mają często miejsce.
 

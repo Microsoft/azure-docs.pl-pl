@@ -1,5 +1,5 @@
 ---
-title: Debuguj zestawu umiejętności wzbogacenia AI (wersja zapoznawcza)
+title: Pojęcia dotyczące debugowania sesji (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
 description: Sesje debugowania, do których dostęp odbywa się za pomocą Azure Portal, udostępnia środowisko IDE podobne do, w którym można identyfikować i naprawiać błędy, weryfikować zmiany i wypchnąć zmiany do umiejętności w potoku wzbogacania AI. Sesje debugowania są w wersji zapoznawczej.
 manager: nitinme
@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664067"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560380"
 ---
-# <a name="debug-sessions"></a>Sesje debugowania
+# <a name="debug-sessions-in-azure-cognitive-search"></a>Debugowanie sesji na platformie Azure Wyszukiwanie poznawcze
 
 Sesje debugowania to edytor wizualny, który współpracuje z istniejącym zestawu umiejętności w Azure Portal. W ramach sesji debugowania można identyfikować i rozwiązywać błędy, sprawdzać poprawność zmian i wypchnąć zmiany do zestawu umiejętności produkcyjnego w potoku wzbogacenia AI.
 
 > [!Important]
-> Obsługa sesji debugowania dla usługi Azure Wyszukiwanie poznawcze jest dostępna [na żądanie](https://aka.ms/DebugSessions) jako wersja zapoznawcza ograniczonego dostępu. Funkcje w wersji zapoznawczej są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sesje debugowania to funkcja w wersji zapoznawczej, która jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Po uzyskaniu dostępu do wersji zapoznawczej będziesz mieć możliwość dostępu do sesji debugowania i używania ich w ramach usługi przy użyciu Azure Portal.
 
 ## <a name="using-debug-sessions"></a>Korzystanie z sesji debugowania
 
@@ -86,6 +85,10 @@ Okienko **ulepszona struktura danych** pokazuje wzbogacenia dokumentu za pomocą
 ## <a name="errorswarnings"></a>Błędy/ostrzeżenia
 
 W tym oknie są wyświetlane wszystkie błędy i ostrzeżenia, które zestawu umiejętności produkuje, gdy jest wykonywane względem dokumentu w sesji debugowania.
+
+## <a name="limitations"></a>Ograniczenia
+
+Debuguj sesisons pracy ze wszystkimi ogólnie dostępnymi źródłami danych AMD w większości źródeł danych. Interfejs API MongoDB (wersja zapoznawcza) i interfejs API Cassandra (wersja zapoznawcza) Cosmos DB nie są obecnie obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

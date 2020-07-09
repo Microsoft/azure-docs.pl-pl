@@ -11,12 +11,13 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
-ms.openlocfilehash: f9e37439cd32fea3a12e06a108ae6929782afbc8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 84d998226bad8a015f3cc319e6e0fddaab9c37c5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149375"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610930"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>Szybki Start: korzystanie z biblioteki klienta programu Front
 

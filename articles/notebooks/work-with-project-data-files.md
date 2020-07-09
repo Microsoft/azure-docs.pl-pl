@@ -3,18 +3,18 @@ title: Importowanie i eksportowanie danych przy użyciu projektów z podglądem 
 description: Dowiedz się, jak przenieść dane do projektu Azure Notebooks w wersji zapoznawczej ze źródeł zewnętrznych oraz jak eksportować dane z projektu.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646980"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85834118"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Pracuj z plikami danych w projektach Azure Notebooks w wersji zapoznawczej
 
-Dane to Lifeblood wielu notesów Jupyter, szczególnie dla notesów używanych do analizy danych. Za pomocą Azure Notebooks można łatwo importować z różnych źródeł do projektu, a następnie używać tych danych z notesów. Notesy mogą również generować dane przechowywane w projekcie, które następnie można pobrać do użytku w innym miejscu.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Dane to Lifeblood wielu notesów Jupyter, szczególnie dla notesów używanych do analizy danych. Za pomocą Azure Notebooks można łatwo importować z różnych źródeł do projektu, a następnie używać tych danych z notesów. Notesy mogą również generować dane przechowywane w projekcie, które następnie można pobrać do użytku w innym miejscu.
 
 Menu **dane** w działającym notesie udostępnia również polecenia **przekazywania** i **pobierania** , które pracują z plikami w projekcie, a także plikami tymczasowymi bieżącej sesji notesu.
 
@@ -26,7 +26,7 @@ Pozostała część tego artykułu zawiera szczegółowe informacje o operacjach
 
 ## <a name="import-data"></a>Importowanie danych
 
-Pliki można przenieść do projektu z pulpitu nawigacyjnego projektu lub w działającym notesie przy użyciu menu **dane** lub polecenia, takiego jak `curl`.
+Pliki można przenieść do projektu z pulpitu nawigacyjnego projektu lub w działającym notesie przy użyciu menu **dane** lub polecenia, takiego jak `curl` .
 
 ### <a name="import-files-from-the-project-dashboard"></a>Importowanie plików z pulpitu nawigacyjnego projektu
 
@@ -46,7 +46,7 @@ Pliki można przenieść do projektu z pulpitu nawigacyjnego projektu lub w dzia
 
 ### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Importowanie plików z menu plik w notesie
 
-1. W działającym notesie wybierz polecenie **File** > **Przekaż** plik:
+1. W działającym notesie wybierz polecenie **File**  >  **Przekaż** plik:
 
     ![Polecenie menu przekazywania plików w notesie](media/file-menu-upload.png)
 
@@ -54,9 +54,9 @@ Pliki można przenieść do projektu z pulpitu nawigacyjnego projektu lub w dzia
 
 1. W wyświetlonym oknie podręcznym **Stan przekazywania** wybierz **folder docelowy** z listy rozwijanej:
 
-    - Folder sesji (*~/* ): przekazuje pliki do bieżącej sesji notesu, ale nie tworzy plików w projekcie. Folder sesji jest równorzędny do folderu projektu, ale nie jest utrwalany po zakończeniu sesji. Aby uzyskać dostęp do plików sesji w kodzie, należy prefiksować nazwy plików ze ścieżką względną *. /*.
+    - Folder sesji ( *~/* ): przekazuje pliki do bieżącej sesji notesu, ale nie tworzy plików w projekcie. Folder sesji jest równorzędny do folderu projektu, ale nie jest utrwalany po zakończeniu sesji. Aby uzyskać dostęp do plików sesji w kodzie, należy prefiksować nazwy plików ze ścieżką względną *. /*.
 
-        Korzystanie z folderu sesji jest przydatne w przypadku eksperymentowania i pozwala uniknąć powstawania projektu przy użyciu plików, które mogą lub nie muszą być długoterminowe. Można również przekazać pliki do folderu sesji, które mają identyczne nazwy, do plików w projekcie bez powodowania konfliktów i bez konieczności zmiany nazwy plików. Załóżmy na przykład, że masz już jedną wersję pliku *Data. csv* w projekcie, ale chcesz eksperymentować z inną wersją pliku *Data. csv*. Przekazując plik do folderu sesji, można uruchomić Notes przy użyciu danych w przekazanym pliku (odwołując się do niego w kodzie za pomocą *.. /Data.csv*), a nie dane w pliku projektu.
+        Korzystanie z folderu sesji jest przydatne w przypadku eksperymentowania i pozwala uniknąć powstawania projektu przy użyciu plików, które mogą lub nie muszą być długoterminowe. Można również przekazać pliki do folderu sesji, które mają identyczne nazwy, do plików w projekcie bez powodowania konfliktów i bez konieczności zmiany nazwy plików. Załóżmy na przykład, że masz już jedną wersję *data.csv* w projekcie, ale chcesz eksperymentować z inną wersją *data.csv*. Przekazując plik do folderu sesji, można uruchomić Notes przy użyciu danych w przekazanym pliku (odwołując się do niego w kodzie za pomocą *.. /data.csv*), a nie dane w pliku projektu.
 
     - Folder projektu (*/Project*): przekazuje pliki do projektu, w którym można uzyskać do nich dostęp przy użyciu względnych nazw ścieżek w kodzie. Przekazywanie pliku do tego folderu jest takie samo jak przekazywanie pliku na pulpicie nawigacyjnym projektu. Plik jest zapisywany w projekcie i jest dostępny w późniejszych sesjach.
 
@@ -76,13 +76,13 @@ curl https://raw.githubusercontent.com/petroleum101/figures/db46e7f48b8aab67a0df
 wget https://raw.githubusercontent.com/petroleum101/figures/db46e7f48b8aab67a0dfe31696f6071fb7a84f1e/oil_price/oil_price.csv -o oil_price.csv
 ```
 
-W przypadku korzystania z komórki kodu języka Python w notesie należy wykonać prefiks `!`poleceń z poleceniem.
+W przypadku korzystania z komórki kodu języka Python w notesie należy wykonać prefiks poleceń z poleceniem `!` .
 
-Folder projektu jest folderem domyślnym, więc określenie docelowej nazwy pliku, takiej jak *oil_price. csv* tworzy plik w projekcie. Aby utworzyć plik sesji, poprzedź nazwę prefiksem *... /* AS w *... /oil_price. csv*.
+Folder projektu jest folderem domyślnym, więc określenie docelowej nazwy pliku, np. *oil_price.csv* tworzy plik w projekcie. Aby utworzyć plik sesji, poprzedź nazwę prefiksem *... /* AS w *... /oil_price.csv*.
 
 ### <a name="create-files-in-code"></a>Tworzenie plików w kodzie
 
-W przypadku korzystania z kodu, który tworzy plik, taki jak `write_csv` funkcja Pandas, nazwy ścieżek są zawsze względne w stosunku do folderu projektu. Za pomocą *.. /* tworzy plik sesji, który zostaje odrzucony, gdy Notes zostanie zatrzymany i zamknięty.
+W przypadku korzystania z kodu, który tworzy plik, taki jak `write_csv` Funkcja Pandas, nazwy ścieżek są zawsze względne w stosunku do folderu projektu. Za pomocą *.. /* tworzy plik sesji, który zostaje odrzucony, gdy Notes zostanie zatrzymany i zamknięty.
 
 ## <a name="export-files"></a>Eksportuj pliki
 
@@ -100,7 +100,7 @@ Możesz również wybrać plik i użyć polecenia **Pobierz** (skrót klawiaturo
 
 ## <a name="export-files-from-the-data-menu-in-a-notebook"></a>Eksportowanie plików z menu dane w notesie
 
-1. Wybierz polecenie menu**Pobierz** **plik** > :
+1. Wybierz **File**  >  polecenie menu**Pobierz** plik:
 
     ![Polecenie menu pobierania danych w notesie](media/file-menu-download.png)
 

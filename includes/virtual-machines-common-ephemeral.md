@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78155503"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112069"
 ---
 Dyski tymczasowe systemu operacyjnego są tworzone na lokalnym magazynie maszyny wirtualnej i nie zostały zapisane w zdalnym magazynie platformy Azure. Tymczasowe dyski systemu operacyjnego działają dobrze w przypadku obciążeń bezstanowych, w przypadku których aplikacje są odporne na pojedyncze awarie maszyn wirtualnych, ale mają większe wpływ na czas wdrażania maszyny wirtualnej lub odtwarzanie obrazów poszczególnych wystąpień maszyn wirtualnych. Dzięki tymczasowemu dyskowi systemu operacyjnego uzyskujesz mniejsze opóźnienie odczytu/zapisu na dysku systemu operacyjnego i szybsze odtwarzanie maszyn wirtualnych. 
  
@@ -33,7 +33,7 @@ Kluczowe różnice między dyskami trwałymi i stałymi systemu operacyjnego:
 |                             | Trwały dysk systemu operacyjnego                          | Efemeryczny dysk systemu operacyjnego                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Limit rozmiaru dysku systemu operacyjnego      | 2 TiB                                                                                        | Rozmiar pamięci podręcznej dla rozmiaru maszyny wirtualnej lub 2TiB, w zależności od tego, który jest mniejszy. Dla **rozmiaru pamięci podręcznej w GIB**, zobacz [ds](../articles/virtual-machines/linux/sizes-general.md), [es](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md)i [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| Obsługiwane rozmiary maszyn wirtualnych          | Wszystkie                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| Obsługiwane rozmiary maszyn wirtualnych          | Wszystko                                                                                          | DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | Obsługa typu dysku           | Zarządzany i niezarządzany dysk systemu operacyjnego                                                                | Tylko zarządzany dysk systemu operacyjnego                                                               |
 | Obsługa regionów              | Wszystkie regiony                                                                                  | Wszystkie regiony                              |
 | Trwałość danych            | Dane dysku systemu operacyjnego zapisane na dysku systemu operacyjnego są przechowywane w usłudze Azure Storage                                  | Dane zapisane na dysku systemu operacyjnego są przechowywane w lokalnym magazynie maszyn wirtualnych i nie są utrwalane w usłudze Azure Storage. |
@@ -44,19 +44,22 @@ Kluczowe różnice między dyskami trwałymi i stałymi systemu operacyjnego:
 
 ## <a name="size-requirements"></a>Wymagania dotyczące rozmiaru
 
-Możesz wdrożyć maszyny wirtualne i obrazy wystąpień o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. Na przykład standardowe obrazy systemu Windows Server z portalu Marketplace dotyczą 127 GiB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej, która ma pamięć podręczną o rozmiarze większym niż 127 GiB. W tym przypadku [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) ma rozmiar pamięci podręcznej wynoszącej 86 GIB, która nie jest wystarczająco duża. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172 GiB, która jest wystarczająco duża. W takim przypadku Standard_DS3_v2 jest najmniejszy rozmiar w serii DSv2, którego można używać z tym obrazem. Podstawowe obrazy systemu Linux w obrazach z witryny Marketplace i Windows Server, które są `[smallsize]` ujęte w wyniku przetargu na około 30 Gib i mogą korzystać z większości dostępnych rozmiarów maszyn wirtualnych.
+Możesz wdrożyć maszyny wirtualne i obrazy wystąpień o rozmiarze do rozmiaru pamięci podręcznej maszyny wirtualnej. Na przykład standardowe obrazy systemu Windows Server z portalu Marketplace dotyczą 127 GiB, co oznacza, że potrzebujesz rozmiaru maszyny wirtualnej, która ma pamięć podręczną o rozmiarze większym niż 127 GiB. W tym przypadku [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) ma rozmiar pamięci podręcznej wynoszącej 86 GIB, która nie jest wystarczająco duża. Standard_DS3_v2 ma rozmiar pamięci podręcznej 172 GiB, która jest wystarczająco duża. W takim przypadku Standard_DS3_v2 jest najmniejszy rozmiar w serii DSv2, którego można używać z tym obrazem. Podstawowe obrazy systemu Linux w obrazach z witryny Marketplace i Windows Server, które są ujęte w wyniku `[smallsize]` przetargu na około 30 Gib i mogą korzystać z większości dostępnych rozmiarów maszyn wirtualnych.
 
 Dyski tymczasowe wymagają również, aby rozmiar maszyny wirtualnej obsługiwał usługę Premium Storage. Rozmiary zwykle (ale nie zawsze) mają `s` nazwę, taką jak DSv2 i EsV3. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych platformy Azure](../articles/virtual-machines/linux/sizes.md) , aby uzyskać szczegółowe informacje o tym, które rozmiary obsługują usługę Premium Storage.
 
+## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Wersja zapoznawcza — dyski z systemem operacyjnym mogą być teraz przechowywane na dyskach tymczasowych
+Tymczasowe dyski systemu operacyjnego mogą teraz być przechowywane na dysku tymczasowym/zasobów maszyny wirtualnej oprócz pamięci podręcznej maszyny wirtualnej. W związku z tym teraz można używać tymczasowych dysków systemu operacyjnego z maszyną wirtualną, która nie ma pamięci podręcznej lub ma niewystarczającą pamięć podręczną, ale ma dysk temp/Resource do przechowywania tymczasowego dysku systemu operacyjnego, takiego jak Dav3, Dav4, Eav4 i Eav3. Jeśli maszyna wirtualna ma wystarczającą ilość pamięci podręcznej i tymczasową, można teraz określić miejsce przechowywania tymczasowego dysku systemu operacyjnego przy użyciu nowej właściwości o nazwie [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Ta funkcja jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby rozpocząć, [Zażądaj dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+
 ## <a name="powershell"></a>PowerShell
 
-Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej programu PowerShell, należy użyć polecenia [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) w konfiguracji maszyny wirtualnej. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly`.     
+Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej programu PowerShell, należy użyć polecenia [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) w konfiguracji maszyny wirtualnej. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly` .     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-W przypadku wdrożeń zestawu skalowania należy użyć polecenia cmdlet [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) w konfiguracji. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly`.
+W przypadku wdrożeń zestawu skalowania należy użyć polecenia cmdlet [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) w konfiguracji. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly` .
 
 
 ```powershell
@@ -65,7 +68,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>Interfejs wiersza polecenia
 
-Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej z interfejsem wiersza polecenia `--ephemeral-os-disk` , należy ustawić parametr w [AZ VM Create](/cli/azure/vm#az-vm-create) to `true` `--os-disk-caching` i `ReadOnly`parametr na.
+Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej z interfejsem wiersza polecenia, należy ustawić `--ephemeral-os-disk` parametr w [AZ VM Create](/cli/azure/vm#az-vm-create) to `true` i `--os-disk-caching` parametr na `ReadOnly` .
 
 ```azurecli-interactive
 az vm create \
@@ -78,7 +81,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-`--ephemeral-os-disk true` Dla zestawów skalowania Użyj tego samego parametru dla [AZ-VMSS-Create](/cli/azure/vmss#az-vmss-create) i ustaw `--os-disk-caching` parametr na. `ReadOnly`
+Dla zestawów skalowania Użyj tego samego `--ephemeral-os-disk true` parametru dla [AZ-VMSS-Create](/cli/azure/vmss#az-vmss-create) i ustaw `--os-disk-caching` parametr na `ReadOnly` .
 
 ## <a name="portal"></a>Portal   
 
@@ -93,7 +96,7 @@ Zestawy skalowania można również tworzyć przy użyciu tymczasowych dysków s
 ![Zrzut ekranu przedstawiający przycisk radiowy służący do wybierania użycia dysku z systemem operacyjnym w ramach zestawu skalowania](./media/virtual-machines-common-ephemeral/scale-set.png)
 
 ## <a name="scale-set-template-deployment"></a>Wdrożenie szablonu zestawu skalowania  
-Proces tworzenia zestawu skalowania, który używa tymczasowych dysków systemu operacyjnego, to dodanie `diffDiskSettings` właściwości do typu `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` zasobu w szablonie. Ponadto zasady buforowania muszą być ustawione `ReadOnly` na dysk tymczasowe systemu operacyjnego. 
+Proces tworzenia zestawu skalowania, który używa tymczasowych dysków systemu operacyjnego, to dodanie `diffDiskSettings` właściwości do `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` typu zasobu w szablonie. Ponadto zasady buforowania muszą być ustawione na dysk tymczasowe `ReadOnly` systemu operacyjnego. 
 
 
 ```json
@@ -137,7 +140,7 @@ Proces tworzenia zestawu skalowania, który używa tymczasowych dysków systemu 
 ```
 
 ## <a name="vm-template-deployment"></a>Wdrożenie szablonu maszyny wirtualnej 
-Możesz wdrożyć maszynę wirtualną z dyskiem systemu operacyjnego z systemem operacyjnym przy użyciu szablonu. Proces tworzenia maszyny wirtualnej korzystającej z dysków tymczasowych systemów operacyjnych polega na dodaniu `diffDiskSettings` właściwości do typu zasobu Microsoft. COMPUTE/virtualMachines w szablonie. Ponadto zasady buforowania muszą być ustawione `ReadOnly` na dysk tymczasowe systemu operacyjnego. 
+Możesz wdrożyć maszynę wirtualną z dyskiem systemu operacyjnego z systemem operacyjnym przy użyciu szablonu. Proces tworzenia maszyny wirtualnej korzystającej z dysków tymczasowych systemów operacyjnych polega na dodaniu `diffDiskSettings` właściwości do typu zasobu Microsoft. COMPUTE/virtualMachines w szablonie. Ponadto zasady buforowania muszą być ustawione na dysk tymczasowe `ReadOnly` systemu operacyjnego. 
 
 ```json
 { 
@@ -198,7 +201,24 @@ Odp.: tak, można dołączyć zarządzany dysk danych do maszyny wirtualnej korz
 
 **P: czy wszystkie rozmiary maszyn wirtualnych będą obsługiwane w przypadku tymczasowych dysków systemu operacyjnego?**
 
-Odp.: nie, obsługiwane są wszystkie Premium Storage rozmiary maszyn wirtualnych (DS, ES, FS, GS i M) z wyjątkiem serii B, N-Series i serii H.  
+Odp.: nie, obsługiwane są większość Premium Storage rozmiary maszyn wirtualnych (DS, ES, FS, GS, M itp.). Aby dowiedzieć się, czy określony rozmiar maszyny wirtualnej obsługuje dyski tymczasowe systemu operacyjnego, możesz:
+
+Wywoływanie `Get-AzComputeResourceSku` polecenia cmdlet programu PowerShell
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **P: czy dysk z systemem operacyjnym może zostać zastosowany do istniejących maszyn wirtualnych i zestawów skalowania?**
 

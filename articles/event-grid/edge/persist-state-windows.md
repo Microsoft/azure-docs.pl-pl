@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77086630"
 ---
 # <a name="persist-state-in-windows"></a>Stan utrwalania w systemie Windows
@@ -37,7 +36,7 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
     ```
 
-    Na przykład:
+    Na przykład
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
@@ -48,7 +47,7 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
     ```
 
-    Na przykład:
+    Na przykład
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
@@ -73,13 +72,13 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     1. Uruchom Eksploratora plików.
     1. Przejdź do folderu wskazywanego przez **mountpoint**.
     1. Kliknij prawym przyciskiem myszy, a następnie wybierz polecenie **Właściwości**.
-    1. Wybierz pozycję **zabezpieczenia**.
+    1. Wybierz opcję **Zabezpieczenia**.
     1. W obszarze * nazwy grup lub użytkowników wybierz pozycję **Edytuj**.
-    1. Wybierz pozycję **Dodaj**, `Users`wprowadź, wybierz pozycję **Sprawdź nazwy**, a następnie wybierz pozycję **OK**.
+    1. Wybierz pozycję **Dodaj**, wprowadź `Users` , wybierz pozycję **Sprawdź nazwy**, a następnie wybierz pozycję **OK**.
     1. W obszarze *uprawnienia dla użytkowników*wybierz pozycję **Modyfikuj**, a następnie wybierz pozycję **OK**.
 1. Użyj **powiązań** , aby zainstalować ten wolumin i ponownie wdrożyć moduł Event Grid z Azure Portal
 
-   Na przykład:
+   Na przykład
 
     ```json
         {
@@ -112,10 +111,10 @@ Ten artykuł zawiera kroki niezbędne do wdrożenia modułu Event Grid z trwało
     ```
 
    >[!IMPORTANT]
-   >Nie zmieniaj drugiej części wartości powiązania. Wskazuje on konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Windows musi to być **C:\\App\\metadataDb**.
+   >Nie zmieniaj drugiej części wartości powiązania. Wskazuje on konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Windows musi to być **C: \\ App \\ metadataDb**.
 
 
-    Na przykład:
+    Na przykład
 
     ```json
     {
@@ -158,7 +157,7 @@ Zamiast instalować wolumin, można utworzyć katalog w systemie hosta i zainsta
    mkdir <your-directory-name-here>
    ```
 
-   Na przykład:
+   Na przykład
 
    ```sh
    mkdir C:\myhostdir
@@ -176,9 +175,9 @@ Zamiast instalować wolumin, można utworzyć katalog w systemie hosta i zainsta
     ```
 
     >[!IMPORTANT]
-    >Nie zmieniaj drugiej części wartości powiązania. Wskazuje on konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Windows musi to być **C:\\App\\metadataDb**.
+    >Nie zmieniaj drugiej części wartości powiązania. Wskazuje on konkretną lokalizację w module. W przypadku modułu Event Grid w systemie Windows musi to być **C: \\ App \\ metadataDb**.
 
-    Na przykład:
+    Na przykład
 
     ```json
     {
@@ -220,7 +219,7 @@ Ważne kwestie dotyczące utrwalania zdarzeń:
 * Trwałość zdarzenia jest konfigurowana w subskrypcji zdarzeń podczas tworzenia i nie można jej modyfikować po utworzeniu subskrypcji zdarzeń. Aby przełączać trwałość zdarzeń, należy usunąć i ponownie utworzyć subskrypcję zdarzeń.
 * Utrwalanie zdarzeń jest niemal zawsze wolniejsze niż w przypadku operacji w pamięci, jednak różnica między szybkością zależy od charakterystyki dysku. Kompromis między szybkością i niezawodnością jest nieodłączny dla wszystkich systemów obsługi komunikatów, ale tylko w dużej skali.
 
-Aby włączyć trwałość zdarzeń w subskrypcji zdarzeń, ustaw `persistencePolicy` opcję na `true`:
+Aby włączyć trwałość zdarzeń w subskrypcji zdarzeń, ustaw opcję `persistencePolicy` na `true` :
 
  ```json
         {

@@ -3,12 +3,12 @@ title: Konfigurowanie środowiska projektowego w systemie Linux
 description: Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lokalny klaster projektowy w systemie Linux. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 000d615d779ed14eb1698cf297075480a07c71ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854795"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Instalowanie środowiska uruchomieniowego usługi Service Fabric i zestawu SDK w
 
 Na potrzeby tworzenia aplikacji obsługiwane są poniższe wersje systemu operacyjnego.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16,04 ( `Xenial Xerus` ), 18,04 ( `Bionic Beaver` )
 
     Upewnij się, że pakiet `apt-transport-https` został zainstalowany.
          
@@ -60,46 +60,40 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
 ### <a name="ubuntu"></a>Ubuntu
 
 1. Otwórz terminal.
-2. Dodaj repozytorium usługi Service Fabric do listy źródeł.
+
+2. Dodaj `dotnet` repozytorium do listy źródeł odpowiadającej dystrybucji.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Dodaj repozytorium `dotnet` do listy źródeł.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Dodaj nowy klucz Gnu Privacy Guard (GnuPG lub GPG) do swojego pęku kluczy APT.
+3. Dodaj nowy klucz programu MS Open Tech Privacy Guard (GnuPG lub GPG) do pęku kluczy APT.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Dodaj oficjalny klucz GPG platformy Docker do pęku kluczy APT.
+4. Dodaj oficjalny klucz GPG platformy Docker do pęku kluczy APT.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Skonfiguruj repozytorium platformy Docker.
+5. Skonfiguruj repozytorium platformy Docker.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Dodaj klucz JDK Azul do pęku kluczy APT i skonfiguruj jego repozytorium.
+6. Dodaj klucz JDK Azul do pęku kluczy APT i skonfiguruj jego repozytorium.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Odśwież listę pakietów na podstawie nowo dodanych repozytoriów.
+7. Odśwież listę pakietów na podstawie nowo dodanych repozytoriów.
 
     ```bash
     sudo apt-get update
@@ -179,7 +173,7 @@ Uruchom klaster lokalny po zakończeniu instalacji.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Otwórz przeglądarkę internetową i przejdź do **Service Fabric Explorer** (`http://localhost:19080/Explorer`). Po uruchomieniu klastra zostanie wyświetlony pulpit nawigacyjny narzędzia Service Fabric Explorer. Może upłynąć kilka minut, zanim klaster zostanie całkowicie skonfigurowany. Jeśli przeglądarka nie może otworzyć adresu URL lub narzędzie Service Fabric Explorer nie wyświetla informacji o gotowości systemu, zaczekaj kilka minut i spróbuj ponownie.
+2. Otwórz przeglądarkę internetową i przejdź do **Service Fabric Explorer** ( `http://localhost:19080/Explorer` ). Po uruchomieniu klastra zostanie wyświetlony pulpit nawigacyjny narzędzia Service Fabric Explorer. Może upłynąć kilka minut, zanim klaster zostanie całkowicie skonfigurowany. Jeśli przeglądarka nie może otworzyć adresu URL lub narzędzie Service Fabric Explorer nie wyświetla informacji o gotowości systemu, zaczekaj kilka minut i spróbuj ponownie.
 
     ![Narzędzie Service Fabric Explorer w systemie Linux][sfx-linux]
 
@@ -261,11 +255,11 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 > 
 > W systemie Ubuntu zaleca się instalowanie bezpośrednio z witryny środowiska Eclipse, a nie za pomocą instalatora pakietu (`apt` lub `apt-get`). Gwarantuje to uzyskanie najnowszej wersji środowiska Eclipse. Można zainstalować środowisko Eclipse IDE for Java Developers lub Java EE Developers.
 
-1. W środowisku Eclipse upewnij się, że masz zainstalowaną wersję Eclipse Neon lub nowszą oraz zestaw Buildship 2.2.1 lub nowszy. Sprawdź wersje zainstalowanych składników, wybierając **Pomoc** > dotyczącą**przezaćmienia** > **szczegóły instalacji**. Zestaw Buildship można zaktualizować zgodnie z instrukcjami podanymi w artykule [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczka Eclipse dla narzędzia Gradle).
+1. W środowisku Eclipse upewnij się, że masz zainstalowaną wersję Eclipse Neon lub nowszą oraz zestaw Buildship 2.2.1 lub nowszy. Sprawdź wersje zainstalowanych składników, wybierając **Pomoc**dotyczącą  >  **przezaćmienia**  >  **szczegóły instalacji**. Zestaw Buildship można zaktualizować zgodnie z instrukcjami podanymi w artykule [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczka Eclipse dla narzędzia Gradle).
 
-2. Aby zainstalować wtyczkę Service Fabric, wybierz pozycję **Pomoc** > **Instalowanie nowego oprogramowania**.
+2. Aby zainstalować wtyczkę Service Fabric, wybierz pozycję **Pomoc**  >  **Instalowanie nowego oprogramowania**.
 
-3. W polu **Pracuj z** wprowadź wartość **https:\//DL.Microsoft.com/Eclipse**.
+3. W polu **Pracuj z** wprowadź wartość **https: \/ /DL.Microsoft.com/Eclipse**.
 
 4. Wybierz pozycję **Dodaj**.
 
@@ -275,7 +269,7 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 
 6. Wykonaj kroki instalacji. Następnie zaakceptuj umowę licencyjną użytkownika oprogramowania.
 
-Jeśli wtyczka usługi Service Fabric Eclipse jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Zapoznaj się z tematem Wybieranie **pomocy** > **dotyczącej** > przeszukania**szczegółów instalacji**. Następnie wyszukaj Service Fabric na liście zainstalowanych wtyczek. Wybierz pozycję **Aktualizuj** , jeśli jest dostępna nowsza wersja.
+Jeśli wtyczka usługi Service Fabric Eclipse jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Zapoznaj się z tematem Wybieranie **pomocy**  >  **dotyczącej**przeszukania  >  **szczegółów instalacji**. Następnie wyszukaj Service Fabric na liście zainstalowanych wtyczek. Wybierz pozycję **Aktualizuj** , jeśli jest dostępna nowsza wersja.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse](service-fabric-get-started-eclipse.md).
 

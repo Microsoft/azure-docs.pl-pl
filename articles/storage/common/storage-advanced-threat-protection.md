@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 07/07/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: ozgun
+ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127528"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118424"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage
 
@@ -23,28 +23,19 @@ Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodat
 
 Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą [Azure Security Center](https://azure.microsoft.com/services/security-center/)i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń.
 
-Usługa pozyskuje dzienniki zasobów żądań odczytu, zapisu i usuwania do Blob Storage na potrzeby wykrywania zagrożeń. Aby zbadać alerty z zaawansowanej ochrony przed zagrożeniami, można wyświetlić powiązane działanie magazynu za pomocą rejestrowania analityka magazynu. Aby uzyskać więcej informacji, zobacz **Konfigurowanie rejestrowania** w obszarze [Monitorowanie konta magazynu w Azure Portal](storage-monitor-storage-account.md#configure-logging).
+Usługa pobiera dzienniki zasobów żądań odczytu, zapisu i usuwania do usługi BLOB Storage oraz do Azure Files (wersja zapoznawcza) na potrzeby wykrywania zagrożeń. Aby zbadać alerty z zaawansowanej ochrony przed zagrożeniami, można wyświetlić powiązane działanie magazynu za pomocą rejestrowania analityka magazynu. Aby uzyskać więcej informacji, zobacz **Konfigurowanie rejestrowania** w obszarze [Monitorowanie konta magazynu w Azure Portal](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Dostępność
 
-Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/). Typy kont obsługujące zaawansowaną ochronę przed zagrożeniami obejmują konta ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i magazynu obiektów BLOB. Zaawansowana ochrona przed zagrożeniami jest dostępna we wszystkich chmurach publicznych i w chmurach dla instytucji rządowych USA, ale nie w regionach w chmurze dla instytucji rządowych.
+Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna dla magazynu obiektów blob, Azure Files (wersja zapoznawcza) i Azure Data Lake Storage Gen2 (wersja zapoznawcza). Typy kont obsługujące zaawansowaną ochronę przed zagrożeniami obejmują konta ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i magazynu obiektów BLOB. Zaawansowana ochrona przed zagrożeniami jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie w regionach w chmurze lub Azure Government.
+
+Konta z hierarchicznymi przestrzeniami nazw, w których włączono obsługę Data Lake Storage transakcji przy użyciu zarówno interfejsów API usługi Azure Blob Storage, jak i interfejsów API Data Lake Storage. Udziały plików platformy Azure obsługują transakcje za pośrednictwem protokołu SMB.
 
 Aby uzyskać szczegółowe informacje o cenach, w tym bezpłatną 30-dniową wersję próbną, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
-
 
 ## <a name="set-up-advanced-threat-protection"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami
 
 Można skonfigurować zaawansowaną ochronę przed zagrożeniami na kilka sposobów, które opisano w poniższych sekcjach.
-
-### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-1. Uruchom [Azure Portal](https://portal.azure.com/).
-1. Przejdź do konta usługi Azure Storage. W obszarze **Ustawienia**wybierz pozycję **Zabezpieczenia zaawansowane**.
-1. Wybierz link **Ustawienia** na stronie Konfiguracja zabezpieczeń zaawansowanych.
-1. Ustaw **Zaawansowane zabezpieczenia** **na włączone**.
-1. Kliknij przycisk **Zapisz** , aby zapisać nowe lub zaktualizowane zasady.
-
-    ![Włączanie zaawansowanej ochrony przed zagrożeniami w usłudze Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
@@ -60,7 +51,17 @@ Gdy subskrybujesz warstwę Standardowa w Azure Security Center, zaawansowana och
 1. W sekcji **Wybieranie warstwy cenowej według typu zasobu** w wierszu **konta magazynu** kliknij pozycję **włączone** lub **wyłączone**.
 
     ![Włącz ATP w Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. Uruchom [Azure Portal](https://portal.azure.com/).
+1. Przejdź do konta usługi Azure Storage. W obszarze **Ustawienia**wybierz pozycję **Zabezpieczenia zaawansowane**.
+1. Wybierz link **Ustawienia** na stronie Konfiguracja zabezpieczeń zaawansowanych.
+1. Ustaw **Zaawansowane zabezpieczenia** **na włączone**.
+1. Kliknij przycisk **Zapisz** , aby zapisać nowe lub zaktualizowane zasady.
+
+    ![Włączanie zaawansowanej ochrony przed zagrożeniami w usłudze Azure Storage](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="template"></a>[Szablon](#tab/template)
 
@@ -84,14 +85,14 @@ Użyj Azure Policy, aby włączyć zaawansowaną ochronę przed zagrożeniami na
 
     ![Strona definicji zasad](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[INTERFEJS API REST](#tab/rest-api)
+### <a name="rest-api"></a>[Interfejs API REST](#tab/rest-api)
 
 Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać ustawienie zaawansowanej ochrony przed zagrożeniami dla określonego konta magazynu.
 
 * [Zaawansowana ochrona przed zagrożeniami — tworzenie](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Zaawansowana ochrona przed zagrożeniami — Pobierz](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj następujących poleceń cmdlet programu PowerShell:
 

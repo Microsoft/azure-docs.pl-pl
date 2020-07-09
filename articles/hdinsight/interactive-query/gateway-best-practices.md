@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80586979"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Głębokie szczegółowe i najlepsze praktyki dotyczące bramy dla Apache Hive w usłudze Azure HDInsight
@@ -30,9 +30,9 @@ Poniższy diagram zawiera przybliżoną ilustrację sposobu, w jaki brama zapewn
 
 Przed umieszczeniem bramy przed klastrami usługi HDInsight jest zapewnienie interfejsu do odnajdowania usług i uwierzytelniania użytkowników. Mechanizmy uwierzytelniania udostępniane przez bramę są szczególnie przydatne w przypadku klastrów obsługujących ESP.
 
-W przypadku odnajdywania usług korzystanie z bramy polega na tym, że każdy składnik w klastrze jest dostępny jako inny punkt końcowy w ramach witryny sieci `clustername.azurehdinsight.net/hive2`Web bramy (), a nie wiele `host:port` par.
+W przypadku odnajdywania usług korzystanie z bramy polega na tym, że każdy składnik w klastrze jest dostępny jako inny punkt końcowy w ramach witryny sieci Web bramy ( `clustername.azurehdinsight.net/hive2` ), a nie wiele `host:port` par.
 
-W przypadku uwierzytelniania Brama zezwala użytkownikom na uwierzytelnianie za pomocą pary `username:password` poświadczeń. W przypadku klastrów obsługujących ESP to poświadczenie będzie nazwą użytkownika domeny i hasłem. Uwierzytelnianie klastrów usługi HDInsight za pośrednictwem bramy nie wymaga, aby klient uzyskał bilet protokołu Kerberos. Ponieważ Brama akceptuje `username:password` poświadczenia i uzyskuje bilet protokołu Kerberos użytkownika w imieniu użytkownika, można nawiązać bezpieczne połączenia z bramą z dowolnego hosta klienta, w tym klientów przyłączonych do różnych domen AA-DDS niż klaster (ESP).
+W przypadku uwierzytelniania Brama zezwala użytkownikom na uwierzytelnianie za pomocą `username:password` pary poświadczeń. W przypadku klastrów obsługujących ESP to poświadczenie będzie nazwą użytkownika domeny i hasłem. Uwierzytelnianie klastrów usługi HDInsight za pośrednictwem bramy nie wymaga, aby klient uzyskał bilet protokołu Kerberos. Ponieważ Brama akceptuje `username:password` poświadczenia i uzyskuje bilet protokołu Kerberos użytkownika w imieniu użytkownika, można nawiązać bezpieczne połączenia z bramą z dowolnego hosta klienta, w tym klientów przyłączonych do różnych domen AA-DDS niż klaster (ESP).
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -54,7 +54,7 @@ W klastrach z włączonym pakietem zabezpieczeń przedsiębiorstwa wystarczając
 
 Istnieje wiele miejsc, aby ograniczyć i zrozumieć problemy z wydajnością, które zostały spełnione w ramach powyższego zachowania. Użyj poniższej listy kontrolnej, gdy wystąpi spadek wydajności zapytania w ramach bramy usługi HDInsight:
 
-* Użyj klauzuli **Limit** podczas wykonywania dużych zapytań **SELECT** . Klauzula **Limit** zmniejsza łączną liczbę wierszy raportowanych do hosta klienta. Klauzula **Limit** wpływa tylko na generowanie wyników i nie zmienia planu zapytania. Aby zastosować klauzulę **limitu** do planu zapytania, użyj konfiguracji `hive.limit.optimize.enable`. **Limit** może być połączony z przesunięciem przy użyciu argumentu w postaci **limitu x, y**.
+* Użyj klauzuli **Limit** podczas wykonywania dużych zapytań **SELECT** . Klauzula **Limit** zmniejsza łączną liczbę wierszy raportowanych do hosta klienta. Klauzula **Limit** wpływa tylko na generowanie wyników i nie zmienia planu zapytania. Aby zastosować klauzulę **limitu** do planu zapytania, użyj konfiguracji `hive.limit.optimize.enable` . **Limit** może być połączony z przesunięciem przy użyciu argumentu w postaci **limitu x, y**.
 
 * Nazwij interesujące Cię kolumny podczas uruchamiania **wybranych** zapytań zamiast używać **opcji Select \* **. Wybranie mniejszej liczby kolumn spowoduje zmniejszenie ilości odczytanych danych.
 
@@ -66,17 +66,17 @@ Istnieje wiele miejsc, aby ograniczyć i zrozumieć problemy z wydajnością, kt
 
 * Jeśli używasz zewnętrznego magazynu metadanych Hive, sprawdź, czy nie osiągnął limitu liczby jednostek DTU usługi Azure SQL DB dla magazynu metadanych Hive. Jeśli wartość DTU zbliża się do limitu, należy zwiększyć rozmiar bazy danych.
 
-* Upewnij się, że wszystkie narzędzia innych firm, takie jak PBI lub Tableau, używają stronicowania do wyświetlania tabel lub baz danych. Zapoznaj się z partnerami pomocy technicznej, aby uzyskać pomoc dotyczącą dzielenia na strony. Głównym narzędziem używanym do stronicowania jest parametr `fetchSize` JDBC. Niewielki rozmiar pobierania może spowodować obniżenie wydajności bramy, ale rozmiar pobieranych za duży może spowodować przekroczenie limitu czasu bramy. Dostrajanie rozmiaru pobierania musi być wykonywane na podstawie obciążenia.
+* Upewnij się, że wszystkie narzędzia innych firm, takie jak PBI lub Tableau, używają stronicowania do wyświetlania tabel lub baz danych. Zapoznaj się z partnerami pomocy technicznej, aby uzyskać pomoc dotyczącą dzielenia na strony. Głównym narzędziem używanym do stronicowania jest `fetchSize` parametr JDBC. Niewielki rozmiar pobierania może spowodować obniżenie wydajności bramy, ale rozmiar pobieranych za duży może spowodować przekroczenie limitu czasu bramy. Dostrajanie rozmiaru pobierania musi być wykonywane na podstawie obciążenia.
 
 * Jeśli potok danych obejmuje odczytywanie dużej ilości danych z magazynu bazowego klastra usługi HDInsight, należy rozważyć użycie narzędzia bezpośrednio powiązanego z magazynem platformy Azure, takiego jak Azure Data Factory
 
 * Rozważ użycie Apache Hive LLAP podczas uruchamiania interakcyjnych obciążeń, ponieważ LLAP może zapewnić płynny komfort szybkiego zwracania wyników zapytania
 
-* Rozważ zwiększenie liczby wątków dostępnych dla usługi magazynu metadanych Hive przy użyciu `hive.server2.thrift.max.worker.threads`programu. To ustawienie jest szczególnie przydatne, gdy duża liczba równoczesnych użytkowników przesyła zapytania do klastra
+* Rozważ zwiększenie liczby wątków dostępnych dla usługi magazynu metadanych Hive przy użyciu programu `hive.server2.thrift.max.worker.threads` . To ustawienie jest szczególnie przydatne, gdy duża liczba równoczesnych użytkowników przesyła zapytania do klastra
 
 * Zmniejsz liczbę ponownych prób używanych do uzyskania dostępu do bramy z dowolnego narzędzia zewnętrznego. W przypadku użycia wielu ponownych prób należy rozważyć zastosowanie zasad ponawiania wycofywania
 
-* Rozważ włączenie gałęzi kompresji przy użyciu konfiguracji `hive.exec.compress.output` i `hive.exec.compress.intermediate`.
+* Rozważ włączenie gałęzi kompresji przy użyciu konfiguracji `hive.exec.compress.output` i `hive.exec.compress.intermediate` .
 
 ## <a name="next-steps"></a>Następne kroki
 

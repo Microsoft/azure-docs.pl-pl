@@ -1,25 +1,14 @@
 ---
 title: 'Samouczek: samouczek REST przy użyciu Azure Relay'
 description: 'Samouczek: Tworzenie aplikacji hosta Azure Relay, która uwidacznia Interfejs REST.'
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/05/2019
-ms.author: spelluru
-ms.openlocfilehash: a9c2837315bde2684cbcefa5a603268a450bfba9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0d42bd664be0881ee0c1f036231acc67e49b6f8a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204700"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316629"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Samouczek: samouczek REST platformy Azure WCF Relay
 
@@ -71,7 +60,7 @@ Główną różnicą między kontraktem programu WCF a kontraktem w stylu REST j
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **ImageListener** , a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **windowsazure. ServiceBus**. Wybierz pozycję **Zainstaluj**i zaakceptuj warunki użytkowania.
 
-    Ten krok powoduje dodanie odwołań do Service Bus i *System. ServiceModel. dll*. Ten pakiet automatycznie dodaje odwołania do bibliotek Service Bus i programu WCF `System.ServiceModel` .
+    Ten krok powoduje dodanie odwołań do Service Bus i *System.ServiceModel.dll*. Ten pakiet automatycznie dodaje odwołania do bibliotek Service Bus i programu WCF `System.ServiceModel` .
 
 1. Jawnie Dodaj odwołanie do `System.ServiceModel.Web.dll` projektu. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **odwołania** w folderze projektu, a następnie wybierz polecenie **Dodaj odwołanie**.
 1. W obszarze **Dodaj odwołanie**wybierz pozycję **Struktura** i wprowadź *System. ServiceModel. Web* in **Search**. Zaznacz pole wyboru **System.ServiceModel.Web** i kliknij przycisk **OK**.
@@ -179,7 +168,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementowanie kontraktu usługi WCF opartego na protokole REST
 
-Aby utworzyć usługę WCF Relay w stylu REST, należy najpierw utworzyć kontrakt przy użyciu interfejsu. Następnym krokiem jest zaimplementowanie interfejsu. Ta procedura obejmuje utworzenie klasy o nazwie `ImageService` implementującej interfejs zdefiniowany przez użytkownika `IImageContract` . Po wdrożeniu kontraktu należy skonfigurować interfejs przy użyciu pliku *App. config* . Plik konfiguracji zawiera niezbędne informacje dotyczące aplikacji. Te informacje obejmują nazwę usługi, nazwę kontraktu i typ protokołu, który jest używany do komunikacji z usługą przekaźnika. Kod używany do wykonywania tych zadań pojawia się w przykładzie poniżej procedury.
+Aby utworzyć usługę WCF Relay w stylu REST, należy najpierw utworzyć kontrakt przy użyciu interfejsu. Następnym krokiem jest zaimplementowanie interfejsu. Ta procedura obejmuje utworzenie klasy o nazwie `ImageService` implementującej interfejs zdefiniowany przez użytkownika `IImageContract` . Po wdrożeniu kontraktu należy skonfigurować interfejs przy użyciu pliku *App.config* . Plik konfiguracji zawiera niezbędne informacje dotyczące aplikacji. Te informacje obejmują nazwę usługi, nazwę kontraktu i typ protokołu, który jest używany do komunikacji z usługą przekaźnika. Kod używany do wykonywania tych zadań pojawia się w przykładzie poniżej procedury.
 
 Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją kontraktu w stylu REST i kontraktem WCF Relay.
 
@@ -212,11 +201,11 @@ Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją 
    1. Następnie wybierz pozycję **istniejący element**.
    1. Użyj opcji **Dodaj istniejący element** , aby przejść do odpowiedniej jpg, a następnie wybierz pozycję **Dodaj**. Podczas dodawania pliku wybierz pozycję **wszystkie pliki** z listy rozwijanej obok pozycji **Nazwa pliku**.
 
-   W pozostałej części tego samouczka założono, że nazwa obrazu to *Image. jpg*. Jeśli masz inny plik, musisz zmienić jego nazwę lub zmienić swój kod, aby zrekompensować.
+   W pozostałej części tego samouczka założono, że nazwa obrazu jest *image.jpg*. Jeśli masz inny plik, musisz zmienić jego nazwę lub zmienić swój kod, aby zrekompensować.
 
 1. Aby upewnić się, że uruchomiona usługa może znaleźć plik obrazu, w **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy plik obrazu, a następnie wybierz polecenie **Właściwości**. W obszarze **Właściwości**ustaw opcję **Kopiuj do katalogu wyjściowego** na wartość **Kopiuj, jeśli nowszy**.
 
-1. Korzystając z procedury w programie, [można utworzyć kontrakt z interfejsem](#to-create-a-contract-with-an-interface) , aby dodać odwołanie do zestawu *System. Drawing. dll* do projektu.
+1. Użyj procedury w programie, [Aby utworzyć kontrakt z interfejsem](#to-create-a-contract-with-an-interface) , aby dodać odwołanie do zestawu *System.Drawing.dll* do projektu.
 
 1. Dodaj następujące skojarzone `using` instrukcje:
 
@@ -264,9 +253,9 @@ Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją 
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Aby zdefiniować konfigurację uruchamiania usługi sieci Web w usłudze Service Bus
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie plik **App. config** , aby otworzyć go w edytorze programu Visual Studio.
+1. W **Eksplorator rozwiązań**kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio.
 
-    Plik *App. config* zawiera nazwę usługi, punkt końcowy i powiązanie. Punkt końcowy jest lokalizacją Azure Relay udostępnia klientom i hostom komunikację ze sobą. Powiązanie jest typem protokołu, który jest używany do komunikacji. Główną różnicą jest to, że skonfigurowany punkt końcowy usługi odwołuje się do powiązania [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) .
+    Plik *App.config* zawiera nazwę usługi, punkt końcowy i powiązanie. Punkt końcowy jest lokalizacją Azure Relay udostępnia klientom i hostom komunikację ze sobą. Powiązanie jest typem protokołu, który jest używany do komunikacji. Główną różnicą jest to, że skonfigurowany punkt końcowy usługi odwołuje się do powiązania [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) .
 
 1. Element XML `<system.serviceModel>` jest elementem usługi WCF definiującym co najmniej jedną usługę. W tym miejscu służy do definiowania nazwy usługi i punktu końcowego. W dolnej części `<system.serviceModel>` elementu, ale nadal w `<system.serviceModel>` , Dodaj `<bindings>` element, który ma następującą zawartość:
 
@@ -325,7 +314,7 @@ Zgodnie z poprzednimi krokami istnieje niewiele różnic między implementacją 
     </behaviors>
     ```
 
-1. W *pliku App. config*w `<appSettings>` elemencie Zastąp całą wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
+1. W *App.config*w `<appSettings>` elemencie Zastąp całą wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
 
     ```xml
     <appSettings>
@@ -401,7 +390,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-W poniższym przykładzie przedstawiono plik *App. config* skojarzony z usługą.
+Poniższy przykład przedstawia plik *App.config* skojarzony z usługą.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -552,7 +541,7 @@ Host usługi jest obiektem usługi WCF tworzącym wystąpienie aplikacji hosta. 
 
 ### <a name="example-of-the-service-contract-and-implementation"></a>Przykład kontraktu i implementacji usługi
 
-Poniższy przykład zawiera kontrakt usługi i implementację z poprzednich kroków samouczka i hostuje usługę w aplikacji konsolowej. Skompiluj następujący kod do pliku wykonywalnego o nazwie *ImageListener. exe*.
+Poniższy przykład zawiera kontrakt usługi i implementację z poprzednich kroków samouczka i hostuje usługę w aplikacji konsolowej. Skompiluj następujący kod do pliku wykonywalnego o nazwie *ImageListener.exe*.
 
 ```csharp
 using System;

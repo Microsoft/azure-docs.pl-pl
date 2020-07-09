@@ -15,6 +15,8 @@
           href: quickstart-create-server-database-azure-cli.md
         - name: Tworzenie bazy danych — polecenie up interfejsu wiersza polecenia platformy Azure
           href: quickstart-create-server-up-azure-cli.md
+        - name: Tworzenie bazy danych — program Azure PowerShell
+          href: quickstart-create-postgresql-server-database-using-azure-powershell.md
         - name: Tworzenie bazy danych — szablon usługi Resource Manager
           href: quickstart-create-postgresql-server-database-using-arm-template.md
           displayName: deploy azure resource manager template
@@ -48,6 +50,8 @@
               href: tutorial-design-database-using-azure-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: tutorial-design-database-using-azure-cli.md
+            - name: Azure PowerShell
+              href: tutorial-design-database-using-powershell.md
         - name: 2 — Projektowanie aplikacji internetowej — Python
           href: ../app-service/containers/tutorial-python-postgresql-app.md
           maintainContext: true
@@ -108,6 +112,8 @@
               href: concepts-data-access-and-security-private-link.md
             - name: Szyfrowanie danych
               href: concepts-data-encryption-postgresql.md
+            - name: Podwójne szyfrowanie infrastruktury
+              href: concepts-infrastructure-double-encryption.md
             - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
         - name: Ciągłość działalności biznesowej
@@ -157,6 +163,10 @@
               href: concepts-read-replicas.md
             - name: Dekodowanie logiczne
               href: concepts-logical.md
+        - name: Przenoszenie między regionami
+          items:
+            - name: Azure Portal
+              href: howto-move-regions-portal.md
     - name: Hiperskala (Citus)
       items:
         - name: Węzły
@@ -189,6 +199,8 @@
           items:
             - name: Opcje konfiguracji
               href: concepts-hyperscale-configuration-options.md
+            - name: Opłacanie wydajności rezerwowej z góry
+              href: concepts-hyperscale-reserved-pricing.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Pojedynczy serwer
@@ -227,6 +239,8 @@
               href: howto-restore-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restore-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restore-server-powershell.md
         - name: Migrowanie bazy danych
           items:
             - name: Zrzucanie i przywracanie
@@ -235,18 +249,26 @@
               href: howto-migrate-using-export-and-import.md
             - name: Migracja z minimalnym przestojem
               href: howto-migrate-online.md
+        - name: Łączenie aplikacji
+          items:
+            - name: Konfigurowanie protokołu TLS
+              href: howto-tls-configurations.md
         - name: Konfigurowanie parametrów serwera
           items:
             - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-parameters-using-cli.md
+            - name: Azure PowerShell
+              href: howto-configure-server-parameters-using-powershell.md
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
             - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-auto-grow-storage-cli.md
+            - name: Azure PowerShell
+              href: howto-auto-grow-storage-powershell.md
         - name: Dzienniki dostępu
           items:
             - name: Azure Portal
@@ -285,14 +307,20 @@
               href: howto-data-encryption-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-data-encryption-cli.md
-            - name: Weryfikowanie szyfrowania danych
+            - name: Walidacja szyfrowania danych
               href: howto-data-encryption-validation.md
+        - name: Podwójne szyfrowanie infrastruktury
+          items:
+            - name: Konfigurowanie podwójnego szyfrowania infrastruktury
+              href: howto-double-encryption.md
         - name: Ponowne uruchamianie serwera
           items:
             - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restart-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restart-server-powershell.md
         - name: Odmowa dostępu do sieci publicznej
           items:
             - name: Azure Portal
@@ -303,6 +331,8 @@
               href: howto-read-replicas-portal.md
             - name: 'Zarządzanie replikami do odczytu (interfejs wiersza polecenia platformy Azure, interfejs API REST)'
               href: howto-read-replicas-cli.md
+            - name: Zarządzanie replikami do odczytu w programie Azure PowerShell
+              href: howto-read-replicas-powershell.md
     - name: Hiperskala (Citus)
       items:
         - name: Tworzenie użytkowników

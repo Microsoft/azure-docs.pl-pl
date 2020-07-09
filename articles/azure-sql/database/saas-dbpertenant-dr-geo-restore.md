@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 70d21170bfc172f30b01c2af093bc82a54c80dd3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84043128"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Używanie przywracania geograficznego do odzyskiwania wielodostępnej aplikacji SaaS z kopii zapasowych bazy danych
@@ -108,7 +107,7 @@ W tym zadaniu zostanie rozpoczęty proces synchronizacji konfiguracji serwerów,
 
 1. W ISE programu PowerShell Otwórz plik. ..\Learning Modules\UserConfig.psm1. Zastąp `<resourcegroup>` `<user>` wartości i w wierszach 10 i 11 wartością używaną podczas wdrażania aplikacji. Zapisz plik.
 
-2. W ISE programu PowerShell Otwórz skrypt ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1).
+2. W ISE programu PowerShell Otwórz skrypt. ..\Learning Modules\Business i Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 awarii.
 
     W tym samouczku uruchomiono poszczególne scenariusze w tym skrypcie programu PowerShell, co spowoduje, że ten plik zostanie otwarty.
 
@@ -172,7 +171,7 @@ Proces odzyskiwania wykonuje następujące czynności:
 
 Załóżmy, że wystąpi awaria w regionie, w którym aplikacja jest wdrożona, i uruchomienie skryptu odzyskiwania:
 
-1. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1) Ustaw następującą wartość:
+1. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business (ciągłość i Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 awarii) Ustaw następującą wartość:
 
     $DemoScenario = 2: Odzyskaj aplikację do regionu odzyskiwania przez przywrócenie z geograficznie nadmiarowych kopii zapasowych.
 
@@ -207,7 +206,7 @@ Gdy punkt końcowy aplikacji jest wyłączony w Traffic Manager, aplikacja jest 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Inicjowanie obsługi administracyjnej nowej dzierżawy w regionie odzyskiwania
 Nawet przed przywróceniem baz danych dzierżaw można udostępnić nowe dzierżawy w regionie odzyskiwania. Nowe bazy danych dzierżawy inicjowane w regionie odzyskiwania są wycofywane z odzyskanymi bazami danych w późniejszym czasie.   
 
-1. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1) Ustaw następującą właściwość:
+1. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business i Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 awarii Ustaw następującą właściwość:
 
     $DemoScenario = 3: Inicjowanie obsługi nowej dzierżawy w regionie odzyskiwania.
 
@@ -260,7 +259,7 @@ W tym zadaniu aktualizujesz jedną z przywróconych baz danych dzierżawy. Proce
 
 1. W przeglądarce Znajdź listę zdarzeń dla korytarza z firmy Contoso, przewiń zdarzenia i zwróć uwagę na ostatnie zdarzenie, poważnie Strauss.
 
-2. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1) Ustaw następującą wartość:
+2. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business (ciągłość i Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 awarii) Ustaw następującą wartość:
 
     $DemoScenario = 4: usuwanie zdarzenia z dzierżawy w regionie odzyskiwania.
 
@@ -318,7 +317,7 @@ Wyobraź sobie, że przestój zostanie rozwiązany i uruchomisz skrypt repatriac
 
 Po wykonaniu samouczka skrypt natychmiast ponownie aktywuje klubu z firmy Fabrikam Jazz i Dogwood Dojo w oryginalnym regionie, ponieważ nie są zmieniane. Następnie nowy dzierżawca, dzierżawa Hawthorn i contoso wspólnie z korytarzem, ponieważ został zmodyfikowany. Skrypt również wycofywanie wykazuje, który został zaktualizowany po zainicjowaniu obsługi administracyjnej Hawthorn.
   
-1. W programie PowerShell ISE, w skrypcie. ..\Learning Modules\Business i po awarii, sprawdź, czy proces synchronizacji katalogu jest nadal uruchomiony w jego wystąpieniu programu PowerShell. W razie potrzeby uruchom ją ponownie przez ustawienie:
+1. W ISE programu PowerShell w skrypcie. ..\Learning Modules\Business i Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 awarii Sprawdź, czy proces synchronizacji katalogu jest nadal uruchomiony w jego wystąpieniu programu PowerShell. W razie potrzeby uruchom ją ponownie przez ustawienie:
 
     $DemoScenario = 1: Rozpocznij synchronizowanie informacji o konfiguracji serwera dzierżawy, puli i bazy danych z wykazem.
 
@@ -350,7 +349,7 @@ Po zakończeniu procesu wycofywania można bezpiecznie usunąć zasoby w regioni
 
 Proces przywracania tworzy wszystkie zasoby odzyskiwania w grupie zasobów odzyskiwania. Proces oczyszczania usuwa tę grupę zasobów i usuwa wszystkie odwołania do zasobów z wykazu. 
 
-1. W programie PowerShell ISE w skrypcie. ..\Learning Modules\Business (ciągłość i awaria Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1) Ustaw:
+1. W programie PowerShell ISE w skrypcie. ..\Learning Modules\Business (ciągłość i Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 awarii) Ustaw:
     
     $DemoScenario = 6: usuwanie przestarzałych zasobów z regionu odzyskiwania.
 

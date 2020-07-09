@@ -8,17 +8,16 @@ manager: dcscontentpm
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f8c35604af9780fb4299bbd7bfd87c3d93ac537
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459155"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702843"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Przeglądanie i modyfikowanie nazw hostów
 Aby zezwolić wystąpieniu roli na odwoływanie się według nazwy hosta, należy ustawić wartość nazwy hosta w pliku konfiguracji usługi dla każdej roli. Można to zrobić, dodając żądaną nazwę hosta do atrybutu **vmName** elementu **role** . Wartość atrybutu **vmName** jest używana jako podstawa dla nazwy hosta każdego wystąpienia roli. Na przykład jeśli **vmName** jest *rolą webrole* i istnieją trzy wystąpienia tej roli, nazwy hostów wystąpień będą *webrole0*, *webrole1*i *webrole2*. Nie trzeba określać nazwy hosta dla maszyn wirtualnych w pliku konfiguracji, ponieważ nazwa hosta maszyny wirtualnej jest wypełniana na podstawie nazwy maszyny wirtualnej. Aby uzyskać więcej informacji na temat konfigurowania usługi Microsoft Azure, zobacz [Schemat konfiguracji usługi platformy Azure (plik cscfg).](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -41,7 +40,7 @@ W przypadku klienta REST wykonaj następujące instrukcje:
 
 1. Upewnij się, że masz certyfikat klienta, aby nawiązać połączenie z Azure Portal. Aby uzyskać certyfikat klienta, wykonaj kroki przedstawione w sekcji [jak pobrać i zaimportować ustawienia publikowania oraz informacje o subskrypcji](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Ustaw wpis nagłówka o nazwie x-MS-Version o wartości 2013-11-01.
-3. Wyślij żądanie w następującym formacie:\/https:/Management.Core.Windows.NET/\<subscrition-ID\>/Services/hostedservices/\<Service-Name\>? embed-detail = true
+3. Wyślij żądanie w następującym formacie: https: \/ /Management.Core.Windows.NET/ \<subscrition-id\> /Services/hostedservices/ \<service-name\> ? embed-detail = true
 4. Wyszukaj element **hostname** dla każdego elementu **RoleInstance** .
 
 > [!WARNING]

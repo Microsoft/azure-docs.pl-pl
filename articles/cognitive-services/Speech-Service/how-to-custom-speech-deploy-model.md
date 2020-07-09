@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402193"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130419"
 ---
 # <a name="deploy-a-custom-model"></a>Wdrażanie modelu niestandardowego
 
@@ -39,12 +39,14 @@ Po wdrożeniu punktu końcowego nazwa punktu końcowego jest wyświetlana jako l
 ## <a name="view-logging-data"></a>Wyświetlanie danych rejestrowania
 
 Dane rejestrowania są dostępne do pobrania w obszarze **punkt końcowy > szczegóły**.
+> [!NOTE]
+>Dane rejestrowania są dostępne przez 30 dni w magazynie firmy Microsoft i zostaną później usunięte. W przypadku, gdy konto magazynu należące do klienta jest połączone z subskrypcją usług poznawczej, dane rejestrowania nie zostaną automatycznie usunięte.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak używać modelu niestandardowego w [tym miejscu](how-to-specify-source-language.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)

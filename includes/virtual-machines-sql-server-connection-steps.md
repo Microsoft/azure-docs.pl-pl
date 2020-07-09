@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d679767f1a4be3ecdcf1811662c72dbbe2df33a0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84014790"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Otwieranie portów TCP w zaporze systemu Windows dla domyślnego wystąpienia aparatu bazy danych
@@ -67,7 +67,7 @@ Aparat bazy danych programu SQL Server nie może korzystać z uwierzytelniania s
 5. W oknie dialogowym programu SQL Server Management Studio kliknij przycisk **OK**, aby potwierdzić konieczność ponownego uruchomienia programu SQL Server.
 6. W Eksploratorze obiektów kliknij prawym przyciskiem myszy swój serwer, a następnie kliknij pozycję **Uruchom ponownie**. (Jeśli program SQL Server Agent jest uruchomiony, również należy go ponownie uruchomić).
    
-    ![Ponowne uruchamianie](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Uruchom ponownie](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. W oknie dialogowym programu SQL Server Management Studio kliknij przycisk **Tak**, aby potwierdzić zgodę na ponowne uruchomienie programu SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Tworzenie identyfikatora logowania do uwierzytelniania w programie SQL Server

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76719997"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026053"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Przykładowe dane w tabelach usługi Azure HDInsight Hive
 W tym artykule opisano sposób podłączania przykładowych danych przechowywanych w tabelach Hive usługi Azure HDInsight przy użyciu zapytań programu Hive w celu zmniejszenia ich do rozmiaru w celu łatwiejszego zarządzania analizą. Obejmuje trzy popularne metody próbkowania:
@@ -38,66 +38,71 @@ Jednorodne Próbkowanie losowe oznacza, że każdy wiersz w zestawie danych ma r
 
 Oto przykładowe zapytanie:
 
-    SET sampleRate=<sample rate, 0-1>;
+```python
+SET sampleRate=<sample rate, 0-1>;
+select
+    field1, field2, …, fieldN
+from
+    (
     select
-        field1, field2, …, fieldN
-    from
-        (
-        select
-            field1, field2, …, fieldN, rand() as samplekey
-        from <hive table name>
-        )a
-    where samplekey<='${hiveconf:sampleRate}'
+        field1, field2, …, fieldN, rand() as samplekey
+    from <hive table name>
+    )a
+where samplekey<='${hiveconf:sampleRate}'
+```
 
-W tym `<sample rate, 0-1>` miejscu określa proporcje rekordów, które użytkownicy chcą próbkować.
+W tym miejscu `<sample rate, 0-1>` określa proporcje rekordów, które użytkownicy chcą próbkować.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a>Losowe próbkowanie według grup
 Podczas próbkowania kategorii dane można uwzględnić lub wykluczyć wszystkie wystąpienia dla pewnej wartości zmiennej kategorii. Ten rodzaj próbkowania jest nazywany "próbkowanie przez grupę". Na przykład jeśli masz zmienną kategorii "*State*", która ma wartości, takich jak NY, ma, CA, NJ i PA, chcesz, aby rekordy z każdego stanu były razem, niezależnie od tego, czy są one próbkowane.
 
 Oto przykładowe zapytanie zawierające próbki według grupy:
 
-    SET sampleRate=<sample rate, 0-1>;
+```python
+SET sampleRate=<sample rate, 0-1>;
+select
+    b.field1, b.field2, …, b.catfield, …, b.fieldN
+from
+    (
     select
-        b.field1, b.field2, …, b.catfield, …, b.fieldN
+        field1, field2, …, catfield, …, fieldN
+    from <table name>
+    )b
+join
+    (
+    select
+        catfield
     from
         (
         select
-            field1, field2, …, catfield, …, fieldN
+            catfield, rand() as samplekey
         from <table name>
-        )b
-    join
-        (
-        select
-            catfield
-        from
-            (
-            select
-                catfield, rand() as samplekey
-            from <table name>
-            group by catfield
-            )a
-        where samplekey<='${hiveconf:sampleRate}'
-        )c
-    on b.catfield=c.catfield
+        group by catfield
+        )a
+    where samplekey<='${hiveconf:sampleRate}'
+    )c
+on b.catfield=c.catfield
+```
 
 ## <a name="stratified-sampling"></a><a name="stratified"></a>Próbkowanie Stratified
 Próbkowanie losowe jest stratified w odniesieniu do zmiennej kategorii, gdy uzyskane próbki zawierają wartości kategorii, które są obecne w tym samym współczynniku, co w populacji nadrzędnej. Korzystając z tego samego przykładu, Załóżmy, że dane mają następujące obserwacje według stanów: NJ ma 100 obserwacji, NY ma 60 uwagi, a WA ma 300 obserwacje. Jeśli określisz częstotliwość próbkowania stratified do 0,5, uzyskana próbka powinna mieć około 50, 30 i 150 obserwacje odpowiednio wartości NJ, NY i WA.
 
 Oto przykładowe zapytanie:
 
-    SET sampleRate=<sample rate, 0-1>;
+```hiveql
+SET sampleRate=<sample rate, 0-1>;
+select
+    field1, field2, field3, ..., fieldN, state
+from
+    (
     select
-        field1, field2, field3, ..., fieldN, state
-    from
-        (
-        select
-            field1, field2, field3, ..., fieldN, state,
-            count(*) over (partition by state) as state_cnt,
-              rank() over (partition by state order by rand()) as state_rank
-          from <table name>
-        ) a
-    where state_rank <= state_cnt*'${hiveconf:sampleRate}'
-
+        field1, field2, field3, ..., fieldN, state,
+        count(*) over (partition by state) as state_cnt,
+          rank() over (partition by state order by rand()) as state_rank
+      from <table name>
+    ) a
+where state_rank <= state_cnt*'${hiveconf:sampleRate}'
+```
 
 Aby uzyskać informacje na temat bardziej zaawansowanych metod próbkowania, które są dostępne w usłudze Hive, zobacz [LanguageManual próbkowanie](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

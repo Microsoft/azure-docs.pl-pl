@@ -1,6 +1,6 @@
 ---
-title: Licencjonowanie&reg; zestawu portów programu Microsoft Smooth Streaming Client
-description: Dowiedz się więcej na temat licencjonowania&reg; zestawu portów Microsoft Smooth Streaming clienting Kit.
+title: Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client
+description: Dowiedz się więcej na temat licencjonowania &reg; zestawu portów Microsoft Smooth Streaming clienting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677172"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie&reg; zestawu portów programu Microsoft Smooth Streaming Client 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client 
 ## <a name="overview"></a>Omówienie
 Microsoft Smooth Streaming Clienting Kit (**SSPK** for Short) to Smooth Streaming implementacja klienta, która została zoptymalizowana pod kątem pomocy producentom urządzeń osadzonych, operatorom telewizji kablowej i mobilnemu, dostawcom usług zawartości, producentom słuchawek, niezależnym dostawcom oprogramowania i dostawcom rozwiązań tworzenie produktów i usług na potrzeby przesyłania strumieniowego zawartości w formacie Smooth Streaming. SSPK to oparta na urządzeniach i niezależna od platformy implementacja klienta Smooth Streaming, którą można przenieść na dowolne urządzenie i platformę. 
 
@@ -71,11 +70,11 @@ Końcowy produkt klienta Smooth Streaming jest oferowany w ramach modelu honorar
 * Brak honorarium dla pierwszych 10 000 implementacji urządzeń w każdym roku 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedura licencjonowania i dostęp SSPK
-Wyślij [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) wiadomość e-mail do wszystkich zapytań licencjonowania.
+Wyślij wiadomość e-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) do wszystkich zapytań licencjonowania.
 
 Portal dystrybucji SSPK jest dostępny dla zarejestrowanych licencji tymczasowych.
 
-Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)programu.
+Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do programu [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com) .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licencje na umowę o produkcie pośrednim klienta firmy Microsoft Smooth Streaming
 
@@ -113,56 +112,46 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do [
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Ostateczne licencje umowy licencyjnej programu Microsoft Smooth Streaming Client
 * Zaawansowane skojarzenia zabezpieczeń Digital Broadcast
 * Kablosuz Iletism Sanayive dis Ticaret A.S.
-* Technologie Albis Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONIK SIECI SAN. ZAPISZ KÓŁKO I KRZYŻYK. A. Ş
-* Emisja brytyjskiej przestrzeni powietrznej
-* CastPal Technology Inc., Shenzhen
+* Arcelik A. S
 * Branżowe elektronika, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar zakup firmy
-* Enseo, Inc.
-* Ograniczone filmy FilmFlex
+* TECHNOLOGIA EXPRESS SZCZĘŚCIA LIMITED
 * Fluendo sa
 * FUNAI ELEKTRYCZNY CO., LTD
-* Gibson innowacje ograniczone
-* Haier informacje S. R. L
-* HANDAN BroadInfoCom co., Ltd.
 * Hisense International co., Ltd. 
-* Homecast co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation Limited
+* Hongkong Konka Ltd
+* InnoLux Corporation
+* Technologie Innopia, Inc
 * Kaonmedia co., Ltd.
 * KDDI Corporation
+* Fame elektroniki z ograniczeniami
+* MIRC elektroniki
 * Nintendo co., Ltd.
-* Pomarańczowy SA
-* Saffron cyfrowo
-* Sagemcom szerokopasmowe SAS
+* ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
+* Firma Panasonic
+* Qingdao Haier OPTRONICS co., Ltd.
+* Shenzhen ATEKO, co., Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co., Ltd.
-* Shenzhena elektronika CO., LTD
 * Shenzhen Jiuzhou, co., Ltd
+* Shenzhen KTC Technology Co., Ltd. 
+* Shenzhena technologia Maxmadea co., Ltd
+* Shenzhen MTC co., Ltd
 * Shenzhen Skyworth — Technologia cyfrowa co., Ltd
 * Sichuan Changhong, co., Ltd.
 * Skardin przemysł Corp.
 * Fernsehen & GmbH Deutschland
-* SmarDTV sa
+* SMARDTV GLOBALNE SAS
 * SoftAtHome
 * Firma Sony Corporation
 * Technologie dostarczania Technicolor, SAS
-* Tongfang Global Ltd.
 * Najlepsze inwestycje Victory, Ltd.
-* Produkty firmy Toshiba o stylu życia w & Services Corporation
-* Uniwersalne Media Corporation/Slovakia/s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
+* UMC Polska Sp. z. o.o.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

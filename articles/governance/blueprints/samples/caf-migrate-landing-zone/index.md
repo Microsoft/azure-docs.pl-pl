@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii strefy docelowej migracji w przewodniku C
 description: Omówienie i architektura strategii Cloud Adoption Framework (CAF) dla strefy docelowej usługi Azure Migration z przykładem.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45479fd6fa3a49d2639e587d3dba2aaaf567d0b1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459869"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044825"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Omówienie przykładowej strategii strefy docelowej w przewodniku Microsoft Cloud Adoption Framework dla migracji na platformę Azure
 
@@ -28,7 +28,7 @@ To środowisko składa się z kilku usług platformy Azure, które udostępniaj�
 - Usługa [Log Analytics](../../../../azure-monitor/overview.md) jest wdrażana, aby upewnić się, że wszystkie akcje i usługi są rejestrowane w centralnej lokalizacji od chwili uruchomienia migracji
 - Wdrożenie usługi [Azure Security Center](../../../../security-center/security-center-intro.md) (wersja standardowa) zapewnia ochronę przed zagrożeniami dla zmigrowanych obciążeń.
 - Wdrożenie usługi [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) dostarcza izolowaną sieć i podsieci dla Twojej maszyny wirtualnej.
-- Wdrożenie [projektu usługi Azure Migrate](../../../..//migrate/migrate-overview.md) umożliwia odnajdywanie i ocenianie. Dodajemy narzędzia do oceny serwera, migracji serwera, oceny bazy danych i migracji bazy danych.  
+- Wdrożenie [projektu usługi Azure Migrate](../../../../migrate/migrate-services-overview.md) umożliwia odnajdywanie i ocenianie. Dodajemy narzędzia do oceny serwera, migracji serwera, oceny bazy danych i migracji bazy danych.  
 
 
 Wszystkie te elementy są zgodne ze sprawdzonymi rozwiązaniami opublikowanymi na stronie [Centrum architektury platformy Azure — architektury referencyjne](/azure/architecture/reference-architectures/).

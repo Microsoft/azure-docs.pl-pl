@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042120"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Raportowanie krzyżowe przy użyciu zapytań rozproszonych
@@ -59,7 +58,7 @@ Wingtip bilety SaaS wielodostępnych skryptów bazy danych i kodu źródłowego 
 
 Aby uruchamiać zapytania dla bardziej interesującego zestawu danych, Utwórz dane sprzedaży biletów, uruchamiając Generator biletów.
 
-1. W *ISE programu PowerShell*Otwórz pozycję... \\ Learning modules \\ Operational Analytics \\ AdHoc raportowanie \\ *demo-AdhocReporting. ps1* i Ustaw następującą wartość:
+1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły uczenia \\ analizy \\ ad hoc \\ *Demo-AdhocReporting.ps1* skrypt i Ustaw następującą wartość:
    * **$DemoScenario** = 1, **bilety zakupu dla zdarzeń we wszystkich miejsc**.
 2. Naciśnij klawisz **F5** , aby uruchomić skrypt i wygenerować sprzedaż biletów. Po uruchomieniu skryptu wykonaj kroki opisane w tym samouczku. W sekcji *Uruchom zapytania rozproszone ad hoc* są wysyłane zapytania o dane biletów, więc poczekaj na ukończenie generatora biletów.
 
@@ -104,7 +103,7 @@ Skrypt dowolnego z widoków innych *miejsc* , aby zobaczyć, jak dodają *VenueI
 
 W tym ćwiczeniu zostanie wdrożona baza danych _adhocreporting_ . Jest to główna baza danych zawierająca Schemat używany do wykonywania zapytań we wszystkich bazach danych dzierżaw. Baza danych jest wdrażana na istniejącym serwerze wykazu, który jest serwerem używanym dla wszystkich baz danych związanych z zarządzaniem w przykładowej aplikacji.
 
-1. w programie *POWERSHELL ISE*Otwórz... \\ Learning modules \\ Operational Analytics \\ AdHoc Reporting \\ *demo-AdhocReporting. ps1*. 
+1. w programie *POWERSHELL ISE*Otwórz... \\ Moduły uczenia usługi \\ Operational Analytics \\ AdHoc \\ *Demo-AdhocReporting.ps1*. 
 
 1. Ustaw **$DemoScenario = 2**, _Wdróż bazę danych raportowania ad hoc_.
 
@@ -191,4 +190,4 @@ Wypróbuj teraz [samouczek analizy dzierżawy](saas-tenancy-tenant-analytics.md)
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * Dodatkowe [samouczki, które kompilują się w oparciu o Wingtip bilety bazy danych SaaS na aplikację dzierżawców](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Elastyczne zapytanie](elastic-query-overview.md)
+* [Zapytanie elastyczne](elastic-query-overview.md)

@@ -7,10 +7,9 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637517"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Łączenie komputerów z systemem Linux z Azure Monitor
@@ -46,10 +45,10 @@ Docker-cimprov | 1.0.0 | Dostawca platformy Docker dla usługi OMI. Instalowane 
 Po zainstalowaniu agenta Log Analytics dla pakietów systemu Linux stosowane są następujące dodatkowe zmiany konfiguracji całego systemu. Te artefakty są usuwane po odinstalowaniu pakietu omsagent.
 
 * Utworzono użytkownika bez uprawnień o nazwie: `omsagent` . Demon zostanie uruchomiony w ramach tego poświadczenia. 
-* Plik *dołączany* sudo jest tworzony `/etc/sudoers.d/omsagent`w. `omsagent` Pozwala to na ponowne uruchomienie dziennika systemowego i demonów omsagent. Jeśli sudo dyrektywy *include* nie są obsługiwane w zainstalowanej wersji programu sudo, te wpisy będą zapisywane w `/etc/sudoers`.
+* Plik *dołączany* sudo jest tworzony w `/etc/sudoers.d/omsagent` . `omsagent`Pozwala to na ponowne uruchomienie dziennika systemowego i demonów omsagent. Jeśli sudo dyrektywy *include* nie są obsługiwane w zainstalowanej wersji programu sudo, te wpisy będą zapisywane w `/etc/sudoers` .
 * Konfiguracja dziennika systemowego zostanie zmodyfikowana w celu przekierowania podzbioru zdarzeń do agenta. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zbierania danych dziennika](data-sources-syslog.md)systemowego.
 
-Na monitorowanym komputerze z systemem Linux Agent jest wyświetlany jako `omsagent`. `omsconfig`jest agentem konfiguracji agenta Log Analytics dla systemu Linux, który szuka nowej konfiguracji po stronie portalu co 5 minut. Nowa i zaktualizowana konfiguracja jest stosowana do plików konfiguracji agenta znajdujących się `/etc/opt/microsoft/omsagent/conf/omsagent.conf`w lokalizacji.
+Na monitorowanym komputerze z systemem Linux Agent jest wyświetlany jako `omsagent` . `omsconfig`jest agentem konfiguracji agenta Log Analytics dla systemu Linux, który szuka nowej konfiguracji po stronie portalu co 5 minut. Nowa i zaktualizowana konfiguracja jest stosowana do plików konfiguracji agenta znajdujących się w lokalizacji `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
 
 ## <a name="obtain-workspace-id-and-key"></a>Uzyskiwanie identyfikatora i klucza obszaru roboczego
 
@@ -78,16 +77,16 @@ Agent Log Analytics dla systemu Linux jest dostępny w ramach samodzielnego wyod
 
 1. [Pobierz](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) i przenieś odpowiedni zbiór (x64 lub x86) do maszyny wirtualnej z systemem Linux lub komputera fizycznego przy użyciu protokołu SCP/SFTP.
 
-2. Zainstaluj pakiet przy użyciu `--install` argumentu. Aby dołączyć do obszaru roboczego Log Analytics podczas instalacji, podaj wcześniej `-w <WorkspaceID>` skopiowane `-s <workspaceKey>` parametry i.
+2. Zainstaluj pakiet przy użyciu `--install` argumentu. Aby dołączyć do obszaru roboczego Log Analytics podczas instalacji, podaj `-w <WorkspaceID>` `-s <workspaceKey>` wcześniej skopiowane parametry i.
 
     >[!NOTE]
-    >Musisz użyć `--upgrade` argumentu, jeśli są zainstalowane jakiekolwiek zależne pakiety, takie jak OMI, SCX, omsconfig lub ich starsze wersje, tak jak w przypadku, gdy program system Center Operations Manager Agent dla systemu Linux jest już zainstalowany. 
+    >Musisz użyć `--upgrade` argumentu, jeśli są zainstalowane jakiekolwiek zależne pakiety, takie jak OMI, SCX, omsconfig lub ich starsze wersje, tak jak w przypadku, gdy program System Center Operations Manager Agent dla systemu Linux jest już zainstalowany. 
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
     ```
 
-3. Aby skonfigurować agenta systemu Linux do instalacji i nawiązywania połączenia z obszarem roboczym Log Analytics za pomocą bramy Log Analytics, uruchom następujące polecenie, podając parametry proxy, identyfikator obszaru roboczego i klucz obszaru roboczego. Tę konfigurację można określić w wierszu polecenia, dołączając `-p [protocol://][user:password@]proxyhost[:port]`. Właściwość *ProxyHost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera bramy log Analytics.  
+3. Aby skonfigurować agenta systemu Linux do instalacji i nawiązywania połączenia z obszarem roboczym Log Analytics za pomocą bramy Log Analytics, uruchom następujące polecenie, podając parametry proxy, identyfikator obszaru roboczego i klucz obszaru roboczego. Tę konfigurację można określić w wierszu polecenia, dołączając `-p [protocol://][user:password@]proxyhost[:port]` . Właściwość *ProxyHost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera bramy log Analytics.  
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -121,7 +120,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 Poniższe kroki umożliwiają skonfigurowanie instalatora agenta dla Log Analytics na platformie Azure i w chmurze Azure Government przy użyciu skryptu otoki dla komputerów z systemem Linux, które mogą komunikować się bezpośrednio lub za pośrednictwem serwera proxy w celu pobrania agenta hostowanego w witrynie GitHub i zainstalowania agenta.  
 
-Jeśli komputer z systemem Linux musi komunikować się za pomocą serwera proxy w celu Log Analytics, tę konfigurację można określić w wierszu polecenia, włączając `-p [protocol://][user:password@]proxyhost[:port]`w to polecenie. Właściwość *protokołu* akceptuje `http` lub `https`, a właściwość *ProxyHost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy. 
+Jeśli komputer z systemem Linux musi komunikować się za pomocą serwera proxy w celu Log Analytics, tę konfigurację można określić w wierszu polecenia, włączając w to polecenie `-p [protocol://][user:password@]proxyhost[:port]` . Właściwość *protokołu* akceptuje `http` lub `https` , a właściwość *ProxyHost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy. 
 
 Na przykład: `https://proxy01.contoso.com:30443`
 
@@ -133,7 +132,7 @@ Jeśli w obu przypadkach wymagane jest uwierzytelnianie, należy określić nazw
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Następujące polecenie zawiera parametr proxy `-p` i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
+    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -145,7 +144,7 @@ Jeśli w obu przypadkach wymagane jest uwierzytelnianie, należy określić nazw
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Następujące polecenie zawiera parametr proxy `-p` i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
+    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us

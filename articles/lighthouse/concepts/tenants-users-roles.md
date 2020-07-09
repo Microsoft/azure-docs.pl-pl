@@ -1,37 +1,37 @@
 ---
 title: Dzierżawy, role i użytkownicy w scenariuszach usługi Azure Lighthouse
 description: Zapoznaj się z pojęciami Azure Active Directory dzierżawców, użytkowników i ról, a także, jak mogą one być używane w scenariuszach usługi Azure Lighthouse.
-ms.date: 04/03/2020
+ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7ed5af18efbb0f5b97dcab20093cc45e8bed1d03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bcfd1603469ba27971fffa8e7c46f0f696bb6a2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144913"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105391"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Dzierżawy, role i użytkownicy w scenariuszach usługi Azure Lighthouse
 
-Przed dołączeniem klientów do funkcji [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md)ważne jest, aby zrozumieć, jak działają dzierżawy, użytkownicy i role Azure Active Directory (Azure AD), a także jak mogą one być używane w scenariuszach usługi Azure Lighthouse.
+Przed dołączeniem klientów do [usługi Azure Lighthouse](../overview.md)należy zrozumieć, jak działają dzierżawy, użytkownicy i role Azure Active Directory (Azure AD), a także jak mogą one być używane w scenariuszach usługi Azure Lighthouse.
 
-*Dzierżawca* jest dedykowanym i zaufanym wystąpieniem usługi Azure AD. Zazwyczaj każda dzierżawa reprezentuje jedną organizację. Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia logiczne projekcję zasobów z jednej dzierżawy do innej dzierżawy. Dzięki temu użytkownicy w dzierżawie zarządzającej (na przykład należącej do dostawcy usługi) mogą uzyskiwać dostęp do delegowanych zasobów w dzierżawie klienta lub umożliwiają [przedsiębiorstwom z wieloma dzierżawcami scentralizowanych operacji zarządzania](enterprise.md).
+*Dzierżawca* jest dedykowanym i zaufanym wystąpieniem usługi Azure AD. Zazwyczaj każda dzierżawa reprezentuje jedną organizację. [Zarządzanie zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md) umożliwia logiczne projekcję zasobów z jednej dzierżawy do innej dzierżawy. Dzięki temu użytkownicy w dzierżawie zarządzającej (na przykład należącej do dostawcy usługi) mogą uzyskiwać dostęp do delegowanych zasobów w dzierżawie klienta lub umożliwiają [przedsiębiorstwom z wieloma dzierżawcami scentralizowanych operacji zarządzania](enterprise.md).
 
 Aby można było zrealizować tę logiczną projekcję, należy *dołączyć* subskrypcję (lub co najmniej jedną grupę zasobów w ramach subskrypcji) w dzierżawie klienta w celu zarządzania zasobami delegowanymi przez platformę Azure. Ten proces dołączania można przeprowadzić [za pomocą szablonów Azure Resource Manager](../how-to/onboard-customer.md) lub przez [opublikowanie publicznej lub prywatnej oferty w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 Niezależnie od wybranej metody dołączania należy zdefiniować *autoryzacje*. Każda autoryzacja określa konto użytkownika w dzierżawie zarządzającej, które będzie miało dostęp do zasobów delegowanych, i wbudowaną rolę, która ustawia uprawnienia dla każdego z tych użytkowników dla tych zasobów.
 
-## <a name="role-support-for-azure-delegated-resource-management"></a>Obsługa ról dla delegowanego zarządzania zasobami platformy Azure
+## <a name="role-support-for-azure-lighthouse"></a>Obsługa ról w usłudze Azure Lighthouse
 
 Podczas definiowania autoryzacji każde konto użytkownika musi mieć przypisaną jedną z [wbudowanych ról kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/built-in-roles.md). Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
 
-Wszystkie [wbudowane role](../../role-based-access-control/built-in-roles.md) są obecnie obsługiwane przez delegowane zarządzanie zasobami platformy Azure z następującymi wyjątkami:
+Wszystkie [wbudowane role](../../role-based-access-control/built-in-roles.md) są obecnie obsługiwane przez usługę Azure Lighthouse z następującymi wyjątkami:
 
 - Rola [właściciela](../../role-based-access-control/built-in-roles.md#owner) nie jest obsługiwana.
 - Wszystkie wbudowane role z uprawnieniami [Dataactions](../../role-based-access-control/role-definitions.md#dataactions) nie są obsługiwane.
 - Wbudowana rola [administratora dostępu użytkowników](../../role-based-access-control/built-in-roles.md#user-access-administrator) jest obsługiwana, ale tylko w ograniczonym celu [przypisywania ról do tożsamości zarządzanej w dzierżawie klienta](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Ta rola nie ma żadnych innych uprawnień zwykle przyznanych przez tę rolę. W przypadku zdefiniowania użytkownika z tą rolą należy również określić wbudowane role, które ten użytkownik może przypisać do zarządzanych tożsamości.
 
 > [!NOTE]
-> Po dodaniu nowej wbudowanej roli do platformy Azure można ją przypisać podczas dołączania [klienta przy użyciu szablonów Azure Resource Manager](../how-to/onboard-customer.md). Po [opublikowaniu oferty usługi zarządzanej](../how-to/publish-managed-services-offers.md)można uzyskać dostęp do nowo dodanej roli w Portal Cloud partner.
+> Po dodaniu nowej odpowiedniej wbudowanej roli do platformy Azure można ją przypisać podczas dołączania [klienta przy użyciu szablonów Azure Resource Manager](../how-to/onboard-customer.md). Po [opublikowaniu oferty usługi zarządzanej](../how-to/publish-managed-services-offers.md)można uzyskać dostęp do nowo dodanej roli w Portal Cloud partner.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Najlepsze rozwiązania dotyczące definiowania użytkowników i ról
 
@@ -47,5 +47,5 @@ Podczas tworzenia autoryzacji zalecamy następujące najlepsze rozwiązania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej [na temat zalecanych rozwiązań w zakresie zabezpieczeń dla usługi Azure delegowane zarządzanie zasobami](recommended-security-practices.md)
-- Dołączanie klientów do zarządzania zasobami delegowanymi przez platformę Azure za [pomocą szablonów Azure Resource Manager](../how-to/onboard-customer.md) lub [opublikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- Dowiedz się więcej o [zalecanych rozwiązaniach dotyczących zabezpieczeń dla usługi Azure Lighthouse](recommended-security-practices.md).
+- Dołączanie klientów do usługi Azure Lighthouse za [pomocą szablonów Azure Resource Manager](../how-to/onboard-customer.md) lub [opublikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../how-to/publish-managed-services-offers.md).

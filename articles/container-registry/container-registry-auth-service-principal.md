@@ -4,15 +4,14 @@ description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera pr
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74455408"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Uwierzytelnianie Azure Container Registry przy użyciu jednostek usługi
 
-Aby zapewnić obraz `docker push` kontenera i dostęp do rejestru kontenerów, `pull` można użyć jednostki usługi Azure Active Directory (Azure AD). Za pomocą nazwy głównej usługi można zapewnić dostęp do "bezobsługowego" usług i aplikacji.
+Aby zapewnić obraz kontenera `docker push` i `pull` dostęp do rejestru kontenerów, można użyć jednostki usługi Azure Active Directory (Azure AD). Za pomocą nazwy głównej usługi można zapewnić dostęp do "bezobsługowego" usług i aplikacji.
 
 ## <a name="what-is-a-service-principal"></a>Co to jest jednostka usługi?
 
@@ -24,7 +23,7 @@ W kontekście Azure Container Registry można utworzyć jednostkę usługi Azure
 
 Za pomocą nazwy głównej usługi Azure AD można zapewnić dostęp z zakresu do prywatnego rejestru kontenerów. Utwórz różne jednostki usługi dla każdej aplikacji lub usług, z których każdy może mieć dostosowane prawa dostępu do rejestru. Ponadto, ponieważ możesz uniknąć udostępniania poświadczeń między usługami i aplikacjami, możesz obrócić poświadczenia lub odwołać dostęp tylko do nazwy głównej usługi (i w związku z tym aplikacji).
 
-Na przykład skonfiguruj aplikację sieci Web tak, aby korzystała z jednostki usługi, która udostępnia `pull` ją tylko z dostępem do obrazu, podczas gdy system kompilacji używa jednostki usługi, która `push` udostępnia `pull` ją jednocześnie i dostęp. Jeśli rozwój aplikacji zmienia się, możesz obrócić jej poświadczenia głównej usługi bez wpływu na system kompilacji.
+Na przykład skonfiguruj aplikację sieci Web tak, aby korzystała z jednostki usługi, która udostępnia ją `pull` tylko z dostępem do obrazu, podczas gdy system kompilacji używa jednostki usługi, która udostępnia ją jednocześnie `push` i `pull` dostęp. Jeśli rozwój aplikacji zmienia się, możesz obrócić jej poświadczenia głównej usługi bez wpływu na system kompilacji.
 
 ## <a name="when-to-use-a-service-principal"></a>Kiedy używać nazwy głównej usługi
 
@@ -52,7 +51,7 @@ Gdy masz nazwę główną usługi, której udzielono dostępu do rejestru konten
 * **Nazwa użytkownika** — identyfikator aplikacji głównej usługi (NAZYWANY także *identyfikatorem klienta*)
 * **Hasło** — hasło główne usługi (nazywane także *kluczem tajnym klienta*)
 
-Każda wartość jest identyfikatorem GUID formularza `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Każda wartość jest identyfikatorem GUID formularza `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
 
 > [!TIP]
 > Możesz ponownie wygenerować hasło jednostki usługi, uruchamiając polecenie [AZ AD Sp Reset-Credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) .
@@ -66,7 +65,7 @@ Na przykład Użyj poświadczeń w celu ściągnięcia obrazu z rejestru kontene
 
 ### <a name="use-with-docker-login"></a>Użyj z logowaniem Docker
 
-Można uruchomić `docker login` za pomocą nazwy głównej usługi. W poniższym przykładzie identyfikator aplikacji głównej usługi jest przekazaniem w zmiennej `$SP_APP_ID`środowiskowej i hasłem w zmiennej. `$SP_PASSWD` Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi zarządzania poświadczeniami platformy Docker, zobacz informacje dotyczące polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+Można uruchomić `docker login` za pomocą nazwy głównej usługi. W poniższym przykładzie identyfikator aplikacji głównej usługi jest przekazaniem w zmiennej środowiskowej `$SP_APP_ID` i hasłem w zmiennej `$SP_PASSWD` . Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi zarządzania poświadczeniami platformy Docker, zobacz informacje dotyczące polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials

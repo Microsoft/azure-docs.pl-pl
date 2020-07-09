@@ -5,17 +5,17 @@ description: Dowiedz się, jak uzyskać wyjaśnienia dotyczące sposobu, w jaki 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 32b33eed6b4dba303993f4c16fbd2ad42b3902f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983639"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560203"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji na temat obsługiwanych technik interpretacji i 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generuj wartość ważności funkcji na komputerze osobistym 
 Poniższy przykład pokazuje, jak używać pakietu interpretera na komputerze osobistym bez kontaktowania się z usługami platformy Azure.
 
-1. Zainstaluj `azureml-interpret` pakiety `azureml-contrib-interpret` i.
+1. Zainstaluj `azureml-interpret` `azureml-contrib-interpret` pakiety i.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
@@ -71,8 +71,8 @@ Poniższy przykład pokazuje, jak używać pakietu interpretera na komputerze os
    * Aby zainicjować obiekt objaśniający, Przekaż model i niektóre dane szkoleniowe do konstruktora programu wyjaśniającego.
    * Aby ułatwić wyjaśnienie i wizualizacje więcej informacji, możesz wybrać opcję przekazywania nazw funkcji i nazw klas wyjściowych w przypadku klasyfikacji.
 
-   Poniższe bloki kodu pokazują, jak utworzyć wystąpienie obiektu wyjaśniającego z `TabularExplainer`, `MimicExplainer`i `PFIExplainer` lokalnie.
-   * `TabularExplainer`wywołuje jeden z trzech objaśnień kształtu poniżej (`TreeExplainer`, `DeepExplainer`, lub `KernelExplainer`).
+   Poniższe bloki kodu pokazują, jak utworzyć wystąpienie obiektu wyjaśniającego z `TabularExplainer` , `MimicExplainer` i `PFIExplainer` lokalnie.
+   * `TabularExplainer`wywołuje jeden z trzech objaśnień kształtu poniżej ( `TreeExplainer` , `DeepExplainer` , lub `KernelExplainer` ).
    * `TabularExplainer`automatycznie wybiera najbardziej odpowiedni dla przypadku użycia, ale można wywoływać każdego z trzech podstawowych objaśnień bezpośrednio.
 
     ```python
@@ -159,11 +159,11 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ### <a name="raw-feature-transformations"></a>Nieprzetworzone przekształcenia funkcji
 
-Możesz zdecydować się na uzyskanie wyjaśnień pod względem nieprzetworzonych, nieprzekształconych funkcji zamiast wbudowanych funkcji. W przypadku tej opcji przeszedł potok transformacji funkcji do programu wyjaśniającego w `train_explain.py`. W przeciwnym razie wyjaśnienie zawiera wyjaśnienia dotyczące funkcji.
+Możesz zdecydować się na uzyskanie wyjaśnień pod względem nieprzetworzonych, nieprzekształconych funkcji zamiast wbudowanych funkcji. W przypadku tej opcji przeszedł potok transformacji funkcji do programu wyjaśniającego w `train_explain.py` . W przeciwnym razie wyjaśnienie zawiera wyjaśnienia dotyczące funkcji.
 
 Format obsługiwanych transformacji jest taki sam, jak opisano w [skryptu sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Ogólnie rzecz biorąc, wszystkie przekształcenia są obsługiwane tak długo, jak działają w pojedynczej kolumnie, dzięki czemu są one jasne.
 
-Zapoznaj się z wyjaśnieniem funkcji nieprzetworzonych, używając `sklearn.compose.ColumnTransformer` lub z listą dopasowanych krotek transformatora. Poniższy przykład używa `sklearn.compose.ColumnTransformer`.
+Zapoznaj się z wyjaśnieniem funkcji nieprzetworzonych, używając `sklearn.compose.ColumnTransformer` lub z listą dopasowanych krotek transformatora. Poniższy przykład używa `sklearn.compose.ColumnTransformer` .
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -233,12 +233,12 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="generate-feature-importance-values-via-remote-runs"></a>Generuj wartości ważności funkcji za pośrednictwem zdalnych przebiegów
 
-Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` aby włączyć funkcję interpretowania modeli dla zdalnego uruchomienia. Jest on koncepcyjnie podobny do procesu lokalnego, z tą różnicą, że:
+Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby włączyć funkcję interpretowania modeli dla zdalnego uruchomienia. Jest on koncepcyjnie podobny do procesu lokalnego, z tą różnicą, że:
 
 * Użyj `ExplanationClient` w zdalnym przebiegu do przekazania kontekstu interpretacji.
 * Pobierz kontekst później w środowisku lokalnym.
 
-1. Zainstaluj `azureml-interpret` pakiety `azureml-contrib-interpret` i.
+1. Zainstaluj `azureml-interpret` `azureml-contrib-interpret` pakiety i.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
@@ -379,7 +379,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji w programie Azure Mac
 
 Można wdrożyć wyjaśnienie wraz z oryginalnym modelem i użyć go w czasie wnioskowania, aby zapewnić wartości znaczenia poszczególnych funkcji (w przypadku lokalnego wyjaśnienia) dla nowych nowych punktach. Oferujemy także jaśniejsze oceny oceniania wagi w celu zwiększenia wydajności interpretacji w czasie wnioskowania. Proces wdrażania bardziej jaśniejszej oceny oceniania jest podobny do wdrożenia modelu i obejmuje następujące kroki:
 
-1. Utwórz obiekt wyjaśnień. Można na przykład użyć `TabularExplainer`:
+1. Utwórz obiekt wyjaśnień. Można na przykład użyć `TabularExplainer` :
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -564,7 +564,7 @@ Można wdrożyć wyjaśnienie wraz z oryginalnym modelem i użyć go w czasie wn
 
 1. Wyczyść.
 
-   Aby usunąć wdrożoną usługę sieci Web, `service.delete()`Użyj programu.
+   Aby usunąć wdrożoną usługę sieci Web, użyj programu `service.delete()` .
 
 ## <a name="next-steps"></a>Następne kroki
 

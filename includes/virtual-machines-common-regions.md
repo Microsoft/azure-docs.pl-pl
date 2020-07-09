@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76021281"
 ---
 Ważne jest, aby zrozumieć, jak i gdzie maszyny wirtualne działają na platformie Azure, a także poznać opcje maksymalizowania wydajności, dostępności i nadmiarowości. Ten artykuł zawiera omówienie funkcji dostępności i nadmiarowości platformy Azure.
@@ -42,7 +42,7 @@ Każdy region platformy Azure jest powiązany z innym regionem w obrębie tego s
 
 Przykłady par regionów:
 
-| Podstawowy | Pomocniczy |
+| Podstawowe | Pomocniczy |
 |:--- |:--- |
 | Zachodnie stany USA |Wschodnie stany USA |
 | Europa Północna |Europa Zachodnia |
@@ -74,8 +74,8 @@ W poniższej tabeli przedstawiono krótkie podsumowanie różnic między typami 
 
 | Strategia replikacji | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Dane są replikowane między wieloma obiektami. |Nie |Tak |Tak |Tak |
-| Dane mogą być odczytywane z lokalizacji pomocniczej i z lokalizacji podstawowej. |Nie |Nie |Nie |Tak |
+| Dane są replikowane między wieloma obiektami. |Nie |Yes |Tak |Tak |
+| Dane mogą być odczytywane z lokalizacji pomocniczej i z lokalizacji podstawowej. |Nie |Nie |Nie |Yes |
 | Liczba kopii danych obsługiwanych w osobnych węzłach. |3 |3 |6 |6 |
 
 Aby uzyskać więcej informacji, zobacz [opcje replikacji magazynu Azure Storage tutaj](../articles/storage/common/storage-redundancy.md). Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).

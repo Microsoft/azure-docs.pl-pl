@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do zestawu SDK Azure CDN dla środowiska Node. js | Microsoft Docs
-description: Dowiedz się, jak pisać aplikacje Node. js w celu zarządzania Azure CDN.
+title: Rozpocznij pracę z zestawem SDK Azure CDN dla Node.js | Microsoft Docs
+description: Dowiedz się, jak pisać Node.js aplikacje w celu zarządzania Azure CDN.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c83323ff7b951892b96d49f3173c022592aac331
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594117"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920176"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Rozpoczynanie pracy z wdrażaniem usługi Azure CDN
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.locfileid: "67594117"
 > 
 > 
 
-Za pomocą [zestawu SDK Azure CDN dla środowiska Node. js](https://www.npmjs.com/package/azure-arm-cdn) można zautomatyzować tworzenie profilów i punktów końcowych usługi CDN oraz zarządzanie nimi.  Ten samouczek przeprowadzi Cię przez proces tworzenia prostej aplikacji konsolowej Node. js, która pokazuje kilka dostępnych operacji.  Ten samouczek nie jest przeznaczony do opisywania szczegółów wszystkich aspektów zestawu Azure CDN SDK dla środowiska Node. js.
+Możesz użyć [zestawu SDK Azure CDN](https://www.npmjs.com/package/azure-arm-cdn) , aby Node.jsdo automatyzowania tworzenia profilów i punktów końcowych usługi CDN oraz zarządzania nimi.  Ten samouczek przeprowadzi Cię przez proces tworzenia prostej aplikacji konsolowej Node.js, która pokazuje kilka dostępnych operacji.  Ten samouczek nie ma na celu szczegółowego opisania wszystkich aspektów zestawu Node.js SDK Azure CDN.
 
-Aby ukończyć ten samouczek, należy mieć zainstalowany i skonfigurowany program [Node. js](https://www.nodejs.org) **4. x. x** lub nowszy.  Możesz użyć dowolnego edytora tekstu, aby utworzyć aplikację Node. js.  Aby napisać ten samouczek, używam [Visual Studio Code](https://code.visualstudio.com).  
+Aby ukończyć ten samouczek, należy mieć zainstalowany i skonfigurowany [Node.js](https://www.nodejs.org) **4. x. x** lub nowszy.  Możesz użyć dowolnego edytora tekstu, aby utworzyć aplikację Node.js.  Aby napisać ten samouczek, używam [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > [Ukończony projekt z tego samouczka](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) jest dostępny do pobrania w witrynie MSDN.
@@ -42,20 +42,24 @@ Aby ukończyć ten samouczek, należy mieć zainstalowany i skonfigurowany progr
 ## <a name="create-your-project-and-add-npm-dependencies"></a>Tworzenie projektu i Dodawanie zależności NPM
 Po utworzeniu grupy zasobów dla naszych profilów usługi CDN i udostępnieniu naszej aplikacji usługi Azure AD uprawnienia do zarządzania profilami i punktami końcowymi sieci CDN w tej grupie możemy rozpocząć tworzenie aplikacji.
 
-Utwórz folder do przechowywania aplikacji.  Z konsoli programu z narzędziami Node. js w bieżącej ścieżce Ustaw bieżącą lokalizację na ten nowy folder i zainicjuj projekt, wykonując następujące polecenie:
+Utwórz folder do przechowywania aplikacji.  Z poziomu konsoli programu z narzędziami Node.js w bieżącej ścieżce Ustaw bieżącą lokalizację na ten nowy folder i zainicjuj projekt, wykonując następujące polecenie:
 
-    npm init
+```console
+npm init
+```
 
-Zostanie wyświetlona seria pytań umożliwiających zainicjowanie projektu.  W przypadku **punktu wejścia**ten samouczek używa *aplikacji App. js*.  W poniższym przykładzie można zobaczyć inne opcje.
+Zostanie wyświetlona seria pytań umożliwiających zainicjowanie projektu.  W przypadku **punktu wejścia**ten samouczek używa *app.js*.  W poniższym przykładzie można zobaczyć inne opcje.
 
 ![NPM dane wyjściowe init](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-Nasz projekt jest teraz zainicjowany przy użyciu pliku *Packages. JSON* .  Nasz projekt będzie używać niektórych bibliotek platformy Azure zawartych w pakietach NPM.  Będziemy używać środowiska uruchomieniowego klienta platformy Azure dla języka Node. js (MS-REST-Azure) i Azure CDNej biblioteki klienta dla środowiska Node. js (Azure-ARM-CD).  Dodajmy je do projektu jako zależności.
+Nasz projekt jest teraz zainicjowany przy użyciu *packages.js* pliku.  Nasz projekt będzie używać niektórych bibliotek platformy Azure zawartych w pakietach NPM.  Użyjemy środowiska uruchomieniowego klienta platformy Azure dla Node.js (MS-REST-Azure) i biblioteki klienta Azure CDN dla Node.js (Azure-ARM-CD).  Dodajmy je do projektu jako zależności.
 
-    npm install --save ms-rest-azure
-    npm install --save azure-arm-cdn
+```console
+npm install --save ms-rest-azure
+npm install --save azure-arm-cdn
+```
 
-Po zakończeniu instalacji pakietów plik *Package. JSON* powinien wyglądać podobnie do tego przykładu (numery wersji mogą się różnić):
+Po zakończeniu instalacji pakietów *package.jsw* pliku powinien wyglądać podobnie do tego przykładu (numery wersji mogą się różnić):
 
 ``` json
 {
@@ -75,10 +79,10 @@ Po zakończeniu instalacji pakietów plik *Package. JSON* powinien wyglądać po
 }
 ```
 
-Na koniec za pomocą edytora tekstów Utwórz pusty plik tekstowy i Zapisz go w folderze głównym naszego folderu projektu jako *App. js*.  Teraz wszystko jest gotowe do rozpoczęcia pisania kodu.
+Na koniec za pomocą edytora tekstów Utwórz pusty plik tekstowy i Zapisz go w folderze głównym naszego folderu projektu jako *app.js*.  Teraz wszystko jest gotowe do rozpoczęcia pisania kodu.
 
 ## <a name="requires-constants-authentication-and-structure"></a>Wymaga, stałe, uwierzytelniania i struktury
-W przypadku *aplikacji App. js* otwartej w naszym edytorze Przyjrzyjmy się podstawowej strukturze naszego programu.
+Dzięki *app.js* otwartym w naszym edytorze Przyjrzyjmy się podstawowej strukturze naszego programu.
 
 1. Dodaj "wymagane" dla naszych pakietów NPM w górnej części z następującymi:
    
@@ -86,7 +90,7 @@ W przypadku *aplikacji App. js* otwartej w naszym edytorze Przyjrzyjmy się pods
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym ** &lt;nawiasy&gt;kątowe**, z własnymi wartościami, zgodnie z potrzebami.
+2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym ** &lt; nawiasy &gt; kątowe**, z własnymi wartościami, zgodnie z potrzebami.
    
     ``` javascript
     //Tenant app constants
@@ -119,8 +123,8 @@ W przypadku *aplikacji App. js* otwartej w naszym edytorze Przyjrzyjmy się pods
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Pamiętaj, aby zastąpić elementy w ** &lt;nawiasach&gt; kątowych** odpowiednimi informacjami.  W `<redirect URI>`przypadku programu Użyj identyfikatora URI przekierowania wprowadzonego podczas rejestrowania aplikacji w usłudze Azure AD.
-4. Nasze aplikacje konsolowe środowiska Node. js będą przyjmować kilka parametrów wiersza polecenia.  Sprawdźmy, czy przekazano co najmniej jeden parametr.
+    Pamiętaj, aby zastąpić elementy w ** &lt; nawiasach &gt; kątowych** odpowiednimi informacjami.  W przypadku programu `<redirect URI>` Użyj identyfikatora URI przekierowania wprowadzonego podczas rejestrowania aplikacji w usłudze Azure AD.
+4. Nasza aplikacja konsolowa Node.js będzie podejmować kilka parametrów wiersza polecenia.  Sprawdźmy, czy przekazano co najmniej jeden parametr.
    
    ```javascript
    //Collect command-line parameters
@@ -337,10 +341,10 @@ function cdnDelete() {
 ```
 
 ## <a name="running-the-program"></a>Uruchamianie programu
-Teraz można uruchomić nasz program Node. js przy użyciu naszego ulubionego debugera lub konsoli programu.
+Teraz można wykonywać nasze Node.js programu przy użyciu naszego ulubionego debugera lub konsoli programu.
 
 > [!TIP]
-> Jeśli używasz Visual Studio Code jako debugera, musisz skonfigurować środowisko, aby przekazać je do parametrów wiersza polecenia.  Visual Studio Code robi to w pliku **Launch. JSON** .  Wyszukaj właściwość o nazwie **args** i Dodaj tablicę wartości ciągów parametrów, tak aby wyglądała podobnie do: `"args": ["list", "profiles"]`.
+> Jeśli używasz Visual Studio Code jako debugera, musisz skonfigurować środowisko, aby przekazać je do parametrów wiersza polecenia.  Visual Studio Code robi to w **launch.js** pliku.  Wyszukaj właściwość o nazwie **args** i Dodaj tablicę wartości ciągów parametrów, tak aby wyglądała podobnie do: `"args": ["list", "profiles"]` .
 > 
 > 
 
@@ -363,9 +367,9 @@ Na koniec usuńmy profil.
 ## <a name="next-steps"></a>Następne kroki
 Aby wyświetlić ukończony projekt z tego przewodnika, [Pobierz przykład](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Aby zobaczyć odwołanie do zestawu SDK Azure CDN dla środowiska Node. js, Wyświetl [odwołanie](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Aby wyświetlić odwołanie do zestawu SDK Azure CDN dla Node.js, Wyświetl [odwołanie](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Aby znaleźć dodatkową dokumentację dotyczącą zestawu Azure SDK dla środowiska Node. js, zobacz [pełne odwołanie](https://azure.github.io/azure-sdk-for-node/).
+Aby znaleźć dodatkową dokumentację dotyczącą usługi Azure SDK dla Node.js, Wyświetl [pełne odwołanie](https://azure.github.io/azure-sdk-for-node/).
 
 Zarządzanie zasobami usługi CDN przy użyciu [programu PowerShell](cdn-manage-powershell.md).
 

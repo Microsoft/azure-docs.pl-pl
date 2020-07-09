@@ -6,12 +6,11 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656611"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449519"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 
@@ -87,13 +86,17 @@ Tak, Skalowanie automatyczne jest obsługiwane w przypadku udostępnionych baz d
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Jaka jest liczba dozwolonych kontenerów na udostępnioną bazę danych przepływności, gdy funkcja automatycznego skalowania jest włączona?
 Azure Cosmos DB wymusza maksymalnie 25 kontenerów w udostępnionej bazie danych przepływności, która ma zastosowanie do baz danych ze skalowaniem automatycznym lub standardowym (ręcznym) przepływności. 
 
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>Jaki jest wpływ automatycznego skalowania na poziom spójności bazy danych?
+Nie ma to wpływu na poziom spójności w bazie danych.
+Zobacz artykuł [poziomy spójności](consistency-levels.md) , aby uzyskać więcej informacji na temat dostępnych poziomów spójności.
+
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Jaki jest limit magazynowania skojarzony z każdą maksymalną opcją RU/s?  
 Limit magazynowania w GB dla każdej maksymalnej wartości RU/s to: Max RU/s bazy danych lub kontenera/100. Na przykład jeśli maksymalna wartość RU/s wynosi 20 000 RU/s, zasób może obsługiwać 200 GB miejsca w magazynie. Zapoznaj się z artykułem [limity skalowania automatycznego](provision-throughput-autoscale.md#autoscale-limits) dla dostępnych maksymalnych opcji ru/s i magazynu. 
 
 ### <a name="what-happens-if-i-exceed-the-storage-limit-associated-with-my-max-throughput"></a>Co się stanie w przypadku przekroczenia limitu magazynu związanego z moją maksymalną przepływność?
 W przypadku przekroczenia limitu magazynowania związanego z maksymalną przepływność bazy danych lub kontenera Azure Cosmos DB automatycznie zwiększy maksymalną przepływność do następnych najwyższych wartości RU/s, które będą obsługiwać ten poziom magazynu.
 
-Jeśli na przykład zaczniesz od maksimum RU/s z 50 000 RU/s (skale się między 5000 50 000 RU/s), możesz przechowywać do 500 GB danych. W przypadku przekroczenia 500 GB — np. magazyn wynosi teraz 600 GB, nowe maksymalne wartości RU/s będą 60 000 RU/s (skaluje się między 6000-60 000 RU/s).
+Jeśli na przykład zaczniesz od maksimum RU/s z 50 000 RU/s (skale się między 5000 50 000 RU/s), możesz przechowywać do 500 GB danych. Jeśli przekroczysz 500 GB (np. miejsce do magazynowania będzie wynosić 600 GB), nową maksymalną wartością RU/s będzie 60 000 RU/s (skalowanie w zakresie 6000 – 60 000 RU/s).
 
 ### <a name="can-i-change-the-max-rus-on-the-database-or-container"></a>Czy mogę zmienić maksymalną wartość RU/s dla bazy danych lub kontenera? 
 Tak. Zapoznaj się z tym [artykułem](how-to-provision-autoscale-throughput.md) dotyczącym zmiany maksymalnego ru/s. W przypadku zmiany maksymalnego RU/s, w zależności od żądanej wartości może to być operacja asynchroniczna, która może zająć trochę czasu (może być do 4-6 godzin, w zależności od wybranego obiektu RU/s)
@@ -132,9 +135,9 @@ Jeśli całkowity zużyty RU/s przekracza maksymalną wartość RU/s bazy danych
 > Zestawy SDK klienta Azure Cosmos DB i narzędzia importu danych (Azure Data Factory, biblioteka modułu wykonawczego zbiorczego) automatycznie ponawiają próbę 429s, więc sporadyczne 429s są bardzo precyzyjne. Trwała duża liczba 429s może wskazywać konieczność zwiększenia maksymalnego RU/s lub zapoznania się z strategią partycjonowania dla [partycji gorąca](#autoscale-rate-limiting).
 
 ### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Czy wciąż można zobaczyć 429s (ograniczanie przepustowości/ograniczanie szybkości), gdy automatyczne skalowanie jest włączone? 
-Tak. Można zobaczyć 429s w dwóch scenariuszach. Po pierwsze, gdy całkowity zużyty RU/s przekroczy maksymalną wartość RU/s bazy danych lub kontenera, usługa będzie odpowiednio ograniczać żądania. 
+Tak. Kody 429 mogą pojawiać się w dwóch scenariuszach. Po pierwsze, gdy całkowity zużyty RU/s przekroczy maksymalną wartość RU/s bazy danych lub kontenera, usługa będzie odpowiednio ograniczać żądania. 
 
-Druga, jeśli istnieje partycja gorąca, czyli wartość klucza logicznej partycji, która ma nieproporcjonalnie wyższą liczbę żądań w porównaniu do innych wartości kluczy partycji, istnieje możliwość przekroczenia przez podstawową partycję RU/s budżetu. Najlepszym rozwiązaniem, aby uniknąć używania partycji, należy [wybrać dobry klucz partycji](partitioning-overview.md#choose-partitionkey) , który powoduje równomierne rozłożenie magazynu i przepływność. 
+Druga, jeśli istnieje partycja gorąca, czyli wartość klucza logicznej partycji, która ma nieproporcjonalnie wyższą liczbę żądań w porównaniu do innych wartości kluczy partycji, istnieje możliwość przekroczenia przez podstawową partycję RU/s budżetu. Najlepszym rozwiązaniem, aby uniknąć gorących partycji, jest [wybranie właściwego klucza partycji](partitioning-overview.md#choose-partitionkey), który zapewni równomierny rozkład magazynowania i przepływności. 
 
 Jeśli na przykład zostanie wybrana opcja 20 000 RU/s i ma 200 GB miejsca w magazynie, z czterema partycjami fizycznymi, każda partycja fizyczna może być automatycznie skalowana do 5000 RU/s. Jeśli w konkretnym kluczu partycji logicznej znajduje się partycja gorąca, zobaczysz 429s, gdy bazowa partycja fizyczna, w której znajduje się ta wartość, przekracza 5000 RU/s, czyli przekracza 100% znormalizowane użycie.
 

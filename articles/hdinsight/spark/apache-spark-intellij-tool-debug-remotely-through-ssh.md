@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: c032e900cd2f58581517b08905d5b0660ed8bbda
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 219b7c0586542ae371776d904d0206d52569ccd6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857816"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081829"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Debugowanie Apache Spark aplikacji w klastrze usługi HDInsight z Azure Toolkit for IntelliJ za pośrednictwem protokołu SSH
 
@@ -23,9 +23,9 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
 * Klaster Apache Spark w usłudze HDInsight. Zobacz [Tworzenie klastra Apache Spark](../spark/apache-spark-jupyter-spark-sql-use-portal.md).
 
-* Użytkownicy systemu Windows: podczas korzystania z lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje, ponieważ w systemie Windows brakuje pliku WinUtils. exe.
+* Użytkownicy systemu Windows: podczas korzystania z lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje z powodu braku WinUtils.exe w systemie Windows.
 
-    Aby rozwiązać ten problem, Pobierz program [Winutils. exe](https://github.com/steveloughran/winutils) do lokalizacji takiej jak **C:\WinUtils\bin**. Następnie Dodaj zmienną środowiskową **HADOOP_HOME**i ustaw wartość zmiennej na **C:\WinUtils**.
+    Aby rozwiązać ten problem, Pobierz [Winutils.exe](https://github.com/steveloughran/winutils) do lokalizacji takiej jak **C:\WinUtils\bin**. Następnie Dodaj zmienną środowiskową **HADOOP_HOME**i ustaw wartość zmiennej na **C:\WinUtils**.
 
 * [Pomysł IntelliJ](https://www.jetbrains.com/idea/download/#section=windows) (wersja Community jest bezpłatna).
 
@@ -50,13 +50,13 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
      ![IntelliJ Utwórz nowy projekt Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 1. W następnym oknie **Nowy projekt** podaj następujące informacje:
 
     |Właściwość |Opis |
     |---|---|
-    |Project name (Nazwa projektu)|Wprowadź nazwę. W tym instruktażu `myApp`opisano użycie.|
+    |Project name (Nazwa projektu)|Wprowadź nazwę. W tym instruktażu opisano użycie `myApp` .|
     |Lokalizacja projektu|Wprowadź żądaną lokalizację do zapisania projektu.|
     |Zestaw SDK projektu|Jeśli to pole jest puste, wybierz pozycję **Nowy...** i przejdź do JDK.|
     |Wersja platformy Spark|Kreator tworzenia integruje poprawną wersję dla zestawów Spark SDK i Scala SDK. Jeśli wersja klastra Spark jest starsza niż 2.0, wybierz wartość **Spark 1.x**. W przeciwnym razie wybierz pozycję **Spark 2. x.**. W tym przykładzie używana jest wersja **Spark 2.3.0 (Scala 2.11.8)**.|
@@ -65,13 +65,13 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
 1. Wybierz pozycję **Zakończ**. Udostępnienie projektu może potrwać kilka minut. Obejrzyj w prawym dolnym rogu, aby postępować.
 
-1. Rozwiń projekt i przejdź do**przykładu** **src** > **Main** > **Scala** > . Kliknij dwukrotnie **SparkCore_WasbIOTest**.
+1. Rozwiń projekt i przejdź do **src**  >  **main**  >  **scala**  >  **przykładu**src Main Scala. Kliknij dwukrotnie **SparkCore_WasbIOTest**.
 
 ## <a name="perform-local-run"></a>Wykonaj przebieg lokalny
 
 1. W skrypcie **SparkCore_WasbIOTest** kliknij prawym przyciskiem myszy Edytor skryptów, a następnie wybierz opcję **Uruchom "SparkCore_WasbIOTest"** , aby wykonać przebieg lokalny.
 
-1. Po zakończeniu lokalnego uruchomienia można zobaczyć plik wyjściowy Zapisz w bieżącym**__domyślnym__** **danych** > Eksploratora projektu.
+1. Po zakończeniu lokalnego uruchomienia można zobaczyć plik wyjściowy Zapisz w bieżącym domyślnym **danych**Eksploratora projektu  >  **__default__**.
 
     ![Wynik lokalnego uruchomienia projektu IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
@@ -80,10 +80,10 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
     ![IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
     - [Zmienne środowiskowe](#prerequisites): Jeśli ustawisz już zmienną środowiskową system **HADOOP_HOME** na **C:\WinUtils**, może ona automatycznie wykryć, że nie trzeba ręcznie dodawać.
-    - [WinUtils. exe — lokalizacja](#prerequisites): Jeśli nie została ustawiona zmienna środowiskowa systemowa, można znaleźć lokalizację, klikając jej przycisk.
+    - [WinUtils.exe lokalizacja](#prerequisites): Jeśli nie ustawisz zmiennej środowiskowej systemowej, możesz znaleźć tę lokalizację, klikając jej przycisk.
     - Po prostu wybierz jedną z dwóch opcji i nie są one potrzebne w systemach MacOS i Linux.
 
-1. Konfigurację można również ustawić ręcznie przed wykonaniem operacji lokalnego uruchamiania i debugowania lokalnego. Na poprzednim zrzucie ekranu wybierz znak plus (**+**). Następnie wybierz opcję **Apache Spark w usłudze HDInsight** . Wprowadź informacje w polu **Nazwa**, **Nazwa klasy głównej** do zapisania, a następnie kliknij przycisk Uruchom lokalnie.
+1. Konfigurację można również ustawić ręcznie przed wykonaniem operacji lokalnego uruchamiania i debugowania lokalnego. Na poprzednim zrzucie ekranu wybierz znak plus ( **+** ). Następnie wybierz opcję **Apache Spark w usłudze HDInsight** . Wprowadź informacje w polu **Nazwa**, **Nazwa klasy głównej** do zapisania, a następnie kliknij przycisk Uruchom lokalnie.
 
 ## <a name="perform-local-debugging"></a>Wykonaj debugowanie lokalne
 
@@ -93,9 +93,9 @@ Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi
 
 ## <a name="perform-remote-run"></a>Wykonaj przebieg zdalny
 
-1. Przejdź do opcji **Uruchom** > **Edytowanie konfiguracji..**.. Z tego menu można utworzyć lub edytować konfiguracje zdalnego debugowania.
+1. Przejdź do opcji **Uruchom**  >  **Edytowanie konfiguracji..**.. Z tego menu można utworzyć lub edytować konfiguracje zdalnego debugowania.
 
-1. W oknie dialogowym **konfiguracje uruchamiania/debugowania** wybierz znak plus (**+**). Następnie wybierz opcję **Apache Spark w usłudze HDInsight** .
+1. W oknie dialogowym **konfiguracje uruchamiania/debugowania** wybierz znak plus ( **+** ). Następnie wybierz opcję **Apache Spark w usłudze HDInsight** .
 
    ![IntelliJ Dodaj nową konfigurację](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 

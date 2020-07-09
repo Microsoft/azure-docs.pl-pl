@@ -5,17 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 2eaa2202ac6c2f0fac0f53c6eeb2f5d08c764f1e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413352"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid powiązanie danych wyjściowych dla Azure Functions
 
-Użyj powiązania danych wyjściowych Event Grid do zapisywania zdarzeń w temacie niestandardowym. Musisz mieć prawidłowy [klucz dostępu dla tematu niestandardowego](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Użyj powiązania danych wyjściowych Event Grid do zapisywania zdarzeń w temacie niestandardowym. Musisz mieć prawidłowy [klucz dostępu dla tematu niestandardowego](../event-grid/security-authenticate-publishing-clients.md).
 
 Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-event-grid.md).
 
@@ -27,7 +26,7 @@ Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zoba
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która zapisuje komunikat do Event Grid niestandardowego tematu przy użyciu metody zwracanej wartości jako dane wyjściowe:
 
@@ -59,7 +58,7 @@ public static async Task Run(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia dane wyjściowe powiązania Event Grid w pliku *Function. JSON* .
+Poniższy przykład pokazuje Event Grid dane wyjściowe powiązania w *function.js* pliku.
 
 ```json
 {
@@ -102,7 +101,7 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład przedstawia dane wyjściowe powiązania Event Grid w pliku *Function. JSON* .
+Poniższy przykład pokazuje Event Grid dane wyjściowe powiązania w *function.js* pliku.
 
 ```json
 {
@@ -162,9 +161,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład pokazuje powiązanie wyzwalacza w pliku *Function. JSON* i [funkcji języka Python](functions-reference-python.md) , która używa powiązania. Następnie wysyła w zdarzeniu do niestandardowego tematu Event Grid, zgodnie z opisem w `topicEndpointUri` .
+Poniższy przykład pokazuje powiązanie wyzwalacza w *function.jsw* pliku i [funkcji języka Python](functions-reference-python.md) , która używa powiązania. Następnie wysyła w zdarzeniu do tematu niestandardowego, zgodnie z opisem w `topicEndpointUri` .
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -187,7 +186,7 @@ Oto dane powiązania w pliku *Function. JSON* :
 }
 ```
 
-Oto przykład języka Python do wysłania zdarzenia do niestandardowego tematu Event Grid przez ustawienie `EventGridOutputEvent` :
+Oto przykład języka Python do wysłania zdarzenia do tematu niestandardowego przez ustawienie `EventGridOutputEvent` :
 
 ```python
 import logging
@@ -218,7 +217,7 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 W przypadku [bibliotek klas języka C#](functions-dotnet-class-library.md)należy użyć atrybutu [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
 
@@ -253,11 +252,11 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `EventGrid` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `EventGrid` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiona na wartość "eventGrid". |
 |**wskazywa** | nie dotyczy | Musi być ustawiona na wartość "out". Ten parametr jest ustawiany automatycznie podczas tworzenia powiązania w Azure Portal. |
@@ -272,17 +271,17 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 
 ## <a name="usage"></a>Użycie
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out EventGridEvent paramName` . Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub zamiast `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out EventGridEvent paramName` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *Function. JSON*. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub zamiast `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
+Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out EventGridEvent paramName` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *function.jsna*. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub zamiast `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dostęp do zdarzenia wyjściowego przy użyciu metody `context.bindings.<name>` Where `<name>` jest wartością określoną we `name` właściwości *Function. JSON*.
+Dostęp do zdarzenia wyjściowego przy użyciu metody `context.bindings.<name>` Where `<name>` jest wartością określoną we `name` właściwości *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie potencjalnymi klientami w programie Marketo — Microsoft Commercial Marketplace
 description: Dowiedz się, jak zarządzać potencjalnymi klientami z Microsoft AppSource i Azure Marketplace przy użyciu systemu programu Marketo.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849185"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120266"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Korzystanie z programu Marketo do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -86,7 +86,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele adresów e-mail, rozdzielając je średnikami.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
    Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz pozycję **Weryfikuj**. Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

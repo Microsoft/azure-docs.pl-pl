@@ -15,10 +15,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
 ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80295441"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Używanie uwierzytelniania usługi Azure AD do uzyskiwania dostępu do interfejsu API usługi Media Services za pomocą architektury REST
@@ -49,7 +49,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) .
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Utwórz konto Azure Media Services przy użyciu Azure Portal](media-services-portal-create-account.md).
 - Zapoznaj się z artykułem [Omówienie uzyskiwania dostępu do interfejsu API Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md) .
 - Zainstaluj klienta REST programu [post](https://www.getpostman.com/) na potrzeby wykonywania interfejsów API REST przedstawionych w tym artykule. 
@@ -64,7 +64,7 @@ Aby uzyskać dostęp do interfejsu API Media Services, należy zebrać następuj
 
 |Ustawienie|Przykład|Opis|
 |---|-------|-----|
-|Azure Active Directory domeny dzierżawy|microsoft.onmicrosoft.com|Usługa Azure AD jako punkt końcowy usługi bezpiecznego tokenu (STS) jest tworzona przy użyciu następującego formatu <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>:. Usługa Azure AD wystawia token JWT w celu uzyskania dostępu do zasobów (tokenu dostępu).|
+|Azure Active Directory domeny dzierżawy|microsoft.onmicrosoft.com|Usługa Azure AD jako punkt końcowy usługi bezpiecznego tokenu (STS) jest tworzona przy użyciu następującego formatu: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> . Usługa Azure AD wystawia token JWT w celu uzyskania dostępu do zasobów (tokenu dostępu).|
 |Punkt końcowy interfejsu API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Jest to punkt końcowy, w którym wykonywane są wszystkie wywołania interfejsu API REST w aplikacji Media Services.|
 |Identyfikator klienta (Identyfikator aplikacji)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Identyfikator aplikacji usługi Azure AD (klienta). Do uzyskania tokenu dostępu wymagany jest identyfikator klienta. |
 |Klucz tajny klienta|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Klucze aplikacji usługi Azure AD (klucz tajny klienta). Wpis tajny klienta jest wymagany do pobrania tokenu dostępu.|
@@ -115,7 +115,7 @@ Aby uzyskać informacje, wykonaj następujące kroki:
 
    ![Dostęp za pomocą interfejsu API](./media/connect-with-rest/connect-with-rest03.png)
 
-Możesz dodać wartości parametrów połączenia usługi AD do pliku Web. config lub App. config w celu późniejszego użycia w kodzie.
+Możesz dodać wartości parametrów połączenia usługi AD do pliku web.config lub app.config do późniejszego użycia w kodzie.
 
 > [!IMPORTANT]
 > **Klucz klienta** jest ważnym kluczem tajnym i powinien być prawidłowo zabezpieczony w magazynie kluczy lub zaszyfrowany w środowisku produkcyjnym.

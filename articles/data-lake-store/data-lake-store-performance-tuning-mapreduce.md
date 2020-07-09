@@ -3,15 +3,15 @@ title: Azure Data Lake Storage Gen1 dostrajania wydajności — MapReduce
 description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Storage Gen1 MapReduce
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: a645049665bc1d51efa94a879b9d2e4e5529282f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27dadb7ef5b93f5d6b674116ca8bba1d6e2597fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510918"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla MapReduce w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -36,7 +36,7 @@ W przypadku uruchamiania zadań MapReduce poniżej przedstawiono najważniejsze 
 
 ### <a name="mapreducemapmemory--mapreducereducememory"></a>MapReduce. map. Memory/MapReduce. Zmniejsz ilość pamięci
 
-Dostosuj tę liczbę na podstawie ilości pamięci wymaganej do wykonania zadania map i/lub Zmniejsz. Wartości domyślne parametrów `mapreduce.map.memory` i `mapreduce.reduce.memory` w Ambari można wyświetlić za pomocą konfiguracji przędzy. W Ambari przejdź do PRZĘDZy i **Wyświetl kartę konfiguracje** . Zostanie wyświetlona pamięć PRZĘDZy.
+Dostosuj tę liczbę na podstawie ilości pamięci wymaganej do wykonania zadania map i/lub Zmniejsz. Wartości domyślne parametrów `mapreduce.map.memory` i w Ambari można wyświetlić `mapreduce.reduce.memory` za pomocą konfiguracji przędzy. W Ambari przejdź do PRZĘDZy i **Wyświetl kartę konfiguracje** . Zostanie wyświetlona pamięć PRZĘDZy.
 
 ### <a name="mapreducejobmaps--mapreducejobreduces"></a>MapReduce. job. Maps/MapReduce. job. Zmniejsz
 
@@ -110,7 +110,7 @@ Aby sprawdzić, czy masz ograniczone ograniczenia, należy włączyć rejestrowa
 
 2. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
 
-3. W przypadku uzyskania ograniczenia przepustowości w pliku dziennika PRZĘDZenia zostanie wyświetlony kod błędu HTTP 429. Plik dziennika PRZĘDZy znajduje się w&lt;/tmp/&gt;użytkownika/Yarn.log
+3. W przypadku uzyskania ograniczenia przepustowości w pliku dziennika PRZĘDZenia zostanie wyświetlony kod błędu HTTP 429. Plik dziennika PRZĘDZy znajduje się w/tmp/ &lt; użytkownika &gt; /Yarn.log
 
 ## <a name="examples-to-run"></a>Przykłady do uruchomienia
 

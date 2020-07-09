@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79527813"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorowanie wydajności Azure Database for MariaDB przy użyciu magazynu zapytań
@@ -87,7 +87,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Konstruktora** | **Opis** | **Domyślny** | **Zakresu** |
+| **Parametr** | **Opis** | **Domyślne** | **Zakresu** |
 |---|---|---|---|
 | query_store_capture_mode | Włącz/Wyłącz funkcję magazynu zapytań na podstawie wartości. Uwaga: Jeśli performance_schema jest wyłączona, włączenie query_store_capture_mode spowoduje włączenie performance_schema i podzestawu narzędzi schematu wydajności wymaganych dla tej funkcji. | ALL | BRAK, WSZYSTKIE |
 | query_store_capture_interval | Interwał przechwytywania magazynu zapytań (w minutach). Umożliwia określenie interwału, w którym metryki zapytania są agregowane | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Konstruktora** | **Opis** | **Domyślny** | **Zakresu** |
+| **Parametr** | **Opis** | **Domyślne** | **Zakresu** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Umożliwia włączenie/wyłączenie statystyk oczekiwania. | DAWAJ | BRAK, WSZYSTKIE |
 | query_store_wait_sampling_frequency | Zmienia częstotliwość próbkowania oczekiwania w sekundach. od 5 do 300 sekund. | 30 | 5-300 |
@@ -172,9 +172,9 @@ Ten widok zwraca dane zdarzeń oczekiwania w magazynie zapytań. Istnieje jeden 
 ## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 
 - Jeśli serwer MariaDB ma parametr `default_transaction_read_only` na, magazyn zapytań nie może przechwycić danych.
-- Funkcja magazynu zapytań może zostać przerwana, jeśli napotka długie zapytania Unicode (\>= 6000 bajtów).
+- Funkcja magazynu zapytań może zostać przerwana, jeśli napotka długie zapytania Unicode ( \> = 6000 bajtów).
 - Okres przechowywania statystyk oczekiwania wynosi 24 godziny.
-- Statystyki oczekiwania wykorzystują przykładowe przechwycenie zdarzenia. Częstotliwość można zmodyfikować przy użyciu parametru `query_store_wait_sampling_frequency`.
+- Statystyki oczekiwania wykorzystują przykładowe przechwycenie zdarzenia. Częstotliwość można zmodyfikować przy użyciu parametru `query_store_wait_sampling_frequency` .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,20 +4,20 @@ description: Dowiedz się, jak skonfigurować link prywatny dla Azure Database f
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 72dcf95c8ae8d8da34532fa96e3bf0371f5112fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370920"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102467"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu i zarządzanie nim
 
 Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych.  W tym artykule dowiesz się, jak za pomocą Azure Portal utworzyć maszynę wirtualną w usłudze Azure Virtual Network i Azure Database for PostgreSQL pojedynczym serwerze przy użyciu prywatnego punktu końcowego platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL jeden serwer obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.
@@ -32,7 +32,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć do hostowania maszyny wirtual
 ### <a name="create-the-virtual-network"></a>Tworzenie sieci wirtualnej
 W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować maszynę wirtualną, która jest używana do uzyskiwania dostępu do prywatnego zasobu linku.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **Networking** > Sieć**sieci wirtualnej**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej**.
 2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
@@ -49,7 +49,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
 
 ### <a name="create-virtual-machine"></a>Utwórz maszynę wirtualną
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **maszyny wirtualnej**.
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej**.
 
 2. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
 
@@ -95,11 +95,15 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
 
 1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
+> [!NOTE]
+> W niektórych przypadkach Azure Database for PostgreSQL i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
+> - Upewnij się, że w subskrypcji jest zarejestrowany dostawca zasobów **Microsoft. DBforPostgreSQL** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
+
 ## <a name="create-an-azure-database-for-postgresql-single-server"></a>Tworzenie Azure Database for PostgreSQL pojedynczego serwera
 
 W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure. 
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz** > **bazę danych** > zasobów**Azure Database for PostgreSQL**.
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz**  >  **bazę danych**zasobów  >  **Azure Database for PostgreSQL**.
 
 1. W obszarze **Opcja wdrażania Azure Database for PostgreSQL**wybierz pozycję **pojedynczy serwer** i podaj następujące informacje:
 
@@ -117,7 +121,7 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
  
-7. Wybierz przycisk **OK**. 
+7. Kliknij przycisk **OK**. 
 8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
@@ -126,7 +130,7 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
 
 W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końcowy. 
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób** > **Sieć** > **prywatny link**.
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link**.
 2. W **centrum linków prywatnych — Omówienie**opcji **tworzenia połączenia prywatnego z usługą**wybierz pozycję **Rozpocznij**.
 
     ![Omówienie linku prywatnego](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
@@ -162,9 +166,12 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
     | Sieć wirtualna| Wybierz pozycję *MyVirtualNetwork*. |
     | Podsieć | Wybierz pozycję Moja *podsieć*. |
     |**PRYWATNA INTEGRACJA Z USŁUGĄ DNS**||
-    |Integracja z prywatną strefą DNS |Wybierz pozycję **tak**. |
+    |Integracja z prywatną strefą DNS |Wybierz pozycję **Tak**. |
     |Strefa Prywatna strefa DNS |SELECT *(New) privatelink. Postgres. Database. Azure. com* |
     |||
+
+    > [!Note] 
+    > Użyj wstępnie zdefiniowanej prywatnej strefy DNS dla usługi lub podaj nazwę preferowanego strefy DNS. Aby uzyskać szczegółowe informacje, zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md) .
 
 1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
@@ -192,9 +199,9 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
     1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
         > [!NOTE]
-        > Może być konieczne wybranie **pozycji więcej opcji** > **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
+        > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -204,7 +211,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 1. W Pulpit zdalny *myVM*Otwórz program PowerShell.
 
-2. Wprowadź `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
+2. Wprowadź  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com` . 
 
     Zostanie wyświetlony komunikat podobny do tego:
     ```azurepowershell
@@ -223,12 +230,12 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
     | ------- | ----- |
     | Typ serwera| Wybierz pozycję **PostgreSQL**.|
     | Nazwa serwera| Wybierz *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
-    | Nazwa użytkownika | Wprowadź nazwę użytkownika username@servername , która jest dostępna podczas tworzenia serwera PostgreSQL. |
+    | Nazwa użytkownika | Wprowadź nazwę użytkownika, username@servername która jest dostępna podczas tworzenia serwera PostgreSQL. |
     |Hasło |Wprowadź hasło podane podczas tworzenia serwera PostgreSQL. |
     |Protokół SSL|Wybierz pozycję **wymagane**.|
     ||
 
-5. Wybierz przycisk Połącz.
+5. Wybierz pozycję Połącz.
 
 6. Przeglądaj bazy danych z menu po lewej stronie.
 
@@ -236,13 +243,16 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 8. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy skończysz korzystać z prywatnego punktu końcowego, serwera PostgreSQL i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 
-1. Wprowadź w polu **wyszukiwania** w górnej części portalu *i wybierz pozycję*  *moja zasobów z*wyników wyszukiwania.
+1. Wprowadź *myResourceGroup*   w polu **wyszukiwania** w górnej części portalu i wybierz pozycję Moja zasobów *myResourceGroup*   z wyników wyszukiwania.
 2. Wybierz pozycję **Usuń grupę zasobów**.
 3. Wprowadź wartość webresourcename **, aby wpisać nazwę grupy zasobów** , a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym instruktażu utworzono MASZYNę wirtualną w sieci wirtualnej, na serwerze Azure Database for PostgreSQL-pojedynczym i prywatnym punkcie końcowym dostępu prywatnego. Nawiązano połączenie z jedną maszyną wirtualną z Internetu i bezpiecznie komunikuje się z serwerem PostgreSQL za pomocą linku prywatnego. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz [co to jest prywatny punkt końcowy platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -4,12 +4,11 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597658"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248281"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -31,9 +30,9 @@ Nowy model do natychmiastowego przywracania zapewnia następujące udoskonalenia
 Obecnie zadanie tworzenia kopii zapasowej składa się z dwóch faz:
 
 1. Tworzenie migawki maszyny wirtualnej.
-2. Przenoszenie migawki maszyny wirtualnej do magazynu usługi Azure Recovery Services.
+2. Przesyłanie migawki maszyny wirtualnej do magazynu usługi Azure Recovery Services.
 
-Punkt odzyskiwania jest uznawany za tworzony dopiero po zakończeniu faz 1 i 2. W ramach tego uaktualnienia punkt odzyskiwania jest tworzony zaraz po zakończeniu migawki, a ten punkt odzyskiwania typu migawki może służyć do wykonywania przywracania przy użyciu tego samego przepływu przywracania. Ten punkt odzyskiwania można zidentyfikować w Azure Portal przy użyciu "migawek" jako typu punktu odzyskiwania, a po przeniesieniu migawki do magazynu typ punktu odzyskiwania zmieni się na "migawka i magazyn".
+Punkt odzyskiwania uznaje się za utworzony dopiero po zakończeniu fazy 1 i fazy 2. W ramach tego uaktualnienia punkt odzyskiwania jest tworzony zaraz po zakończeniu tworzenia migawki i ten punkt odzyskiwania typu migawka może służyć do wykonywania przywracania przy użyciu tego samego przepływu przywracania. Ten punkt odzyskiwania można zidentyfikować w Azure Portal przy użyciu "migawek" jako typu punktu odzyskiwania, a po przeniesieniu migawki do magazynu typ punktu odzyskiwania zmieni się na "migawka i magazyn".
 
 ![Zadanie tworzenia kopii zapasowej w stosie kopii zapasowych maszyny wirtualnej Menedżer zasobów model wdrażania — magazyn i magazynu](./media/backup-azure-vms/instant-rp-flow.png)
 
@@ -48,7 +47,7 @@ Domyślnie migawki są przechowywane przez dwa dni. Ta funkcja umożliwia przywr
 * Po przeprowadzeniu uaktualnienia do natychmiastowego przywrócenia nie można wrócić.
 
 >[!NOTE]
->Po tym uaktualnieniu natychmiastowego przywracania, czas przechowywania migawki dla wszystkich klientów (**w przypadku nowych i istniejących**) zostanie ustawiony na wartość domyślną dwa dni. Można jednak ustawić czas trwania zgodnie z wymaganiami do dowolnej wartości z zakresu od 1 do 5 dni.
+>Po tym uaktualnieniu natychmiastowego przywracania, czas przechowywania migawki dla wszystkich klientów (**w przypadku nowych i istniejących**) zostanie ustawiony na wartość domyślną dwa dni. Można jednak ustawić czas trwania zgodnie z wymaganiami dotyczącymi dowolnej wartości z zakresu od 1 do 5 dni.
 
 ## <a name="cost-impact"></a>Wpływ na koszty
 

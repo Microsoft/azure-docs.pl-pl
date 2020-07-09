@@ -15,10 +15,9 @@ ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74896076"
 ---
 # <a name="creating-filters-with-cli"></a>Tworzenie filtrów za pomocą interfejsu wiersza polecenia 
@@ -104,7 +103,7 @@ Zobacz też [przykłady JSON dla filtrów](https://docs.microsoft.com/rest/api/m
 
 Można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. [Pakowarka dynamiczna (punkt końcowy przesyłania strumieniowego)](dynamic-packaging-overview.md) stosuje tę listę filtrów razem z tymi, które są określone przez klienta w adresie URL. Ta kombinacja generuje [manifest dynamiczny](filters-dynamic-manifest-overview.md), który jest oparty na filtrach w adresach URL i filtrach określonych w lokalizatorze przesyłania strumieniowego. Zalecamy użycie tej funkcji, jeśli chcesz zastosować filtry, ale nie chcesz ujawniać nazw filtrów w adresie URL.
 
-Poniższy kod interfejsu wiersza polecenia pokazuje, jak utworzyć lokalizator przesyłania strumieniowego `filters`i określić. Jest to opcjonalna właściwość, która pobiera listę nazw filtrów zasobów i/lub nazwy filtrów kont rozdzielonych spacjami.
+Poniższy kod interfejsu wiersza polecenia pokazuje, jak utworzyć lokalizator przesyłania strumieniowego i określić `filters` . Jest to opcjonalna właściwość, która pobiera listę nazw filtrów zasobów i/lub nazwy filtrów kont rozdzielonych spacjami.
 
 ```azurecli
 az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
@@ -120,7 +119,7 @@ Po zdefiniowaniu filtrów klienci mogą używać ich w adresie URL przesyłania 
 
 W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
-|Protocol (Protokół)|Przykład|
+|Protokół|Przykład|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

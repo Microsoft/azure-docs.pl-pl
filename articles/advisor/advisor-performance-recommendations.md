@@ -1,139 +1,162 @@
 ---
-title: Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
-description: Użyj klasyfikatora, aby zoptymalizować wydajność wdrożeń platformy Azure.
+title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advisor
+description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 45fb1f8844067cb34b415c3897db3b1233ab5c7a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787944"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124490"
 ---
-# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
+# <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
-Azure Advisor zalecenia dotyczące wydajności pomagają zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy. Zalecenia dotyczące wydajności można uzyskać od klasyfikatora na karcie **wydajność** na pulpicie nawigacyjnym usługi Advisor.
+Zalecenia dotyczące wydajności w Azure Advisor mogą pomóc zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy. Zalecenia dotyczące wydajności można uzyskać od klasyfikatora na karcie **wydajność** na pulpicie nawigacyjnym usługi Advisor.
 
-## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Skracanie czasu usługi DNS na żywo w profilu Traffic Manager, aby szybciej pracować w trybie failover z prawidłowymi punktami końcowymi
+## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>Skrócenie czasu wygaśnięcia systemu DNS w profilu Traffic Manager w celu szybszego przełączenia w tryb failover pod kątem prawidłowych punktów końcowych
 
-[Ustawienia czasu wygaśnięcia (TTL)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) w profilu Traffic Manager umożliwiają określenie, jak szybko przełączać punkty końcowe, jeśli dany punkt końcowy przestanie odpowiadać na zapytania. Zmniejszenie wartości czasu wygaśnięcia oznacza, że klienci będą kierowani do szybszego działania punktów końcowych.
+Możesz użyć [ustawień czasu wygaśnięcia (TTL)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-performance-considerations) w profilu usługi Azure Traffic Manager, aby określić, jak szybko przełączyć punkty końcowe, jeśli dany punkt końcowy przestanie odpowiadać na zapytania. W przypadku zmniejszenia wartości czasu wygaśnięcia klienci będą kierowani do szybszego działania punktów końcowych.
 
-Azure Advisor identyfikuje profile Traffic Manager o dłuższym czasie TTL skonfigurowanym i zaleca skonfigurowanie czasu wygaśnięcia na 20 sekund lub 60 sekund w zależności od tego, czy profil jest skonfigurowany do [szybkie przejście w tryb failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
+Azure Advisor identyfikuje Traffic Manager profile, dla których skonfigurowano dłuższy czas TTL. Zaleca się skonfigurowanie czasu wygaśnięcia na 20 sekund lub 60 sekund, w zależności od tego, czy profil jest skonfigurowany do [szybkie przejście w tryb failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-with-sql-db-advisor"></a>Zwiększanie wydajności bazy danych przy użyciu funkcji SQL DB Advisor
+## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Poprawianie wydajności bazy danych za pomocą SQL Database Advisor
 
-Usługa Advisor zapewnia spójny, skonsolidowany widok zaleceń dotyczących wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności bazy danych SQL Azure.SQL Database Advisor ocenia wydajność baz danych SQL Azure, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
+Azure Advisor zapewnia spójny, skonsolidowany widok zaleceń dla wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności baz danych.SQL Database Advisor ocenia wydajność baz danych, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
 
 > [!NOTE]
-> Aby uzyskać zalecenia, baza danych musi mieć co tydzień użytkowania i w tym tygodniu musi mieć pewne spójne działanie. SQL Database Advisor można łatwo zoptymalizować dla spójnych wzorców zapytań niż w przypadku losowych obciążeń aktywności.
+> Zanim będzie można uzyskać zalecenia, baza danych musi być używana przez około tydzień, a w tym tygodniu musi być spójne działanie. SQL Database Advisor można łatwo zoptymalizować dla spójnych wzorców zapytań niż w przypadku losowych obciążeń aktywności.
 
-Aby uzyskać więcej informacji na temat SQL Database Advisor, zobacz [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+Aby uzyskać więcej informacji, zobacz [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Uaktualnij bibliotekę klienta usługi Storage do najnowszej wersji, aby uzyskać większą niezawodność i wydajność
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Uaktualnij bibliotekę klienta usługi Storage do najnowszej wersji, aby uzyskać lepszą niezawodność i wydajność
 
-Najnowsza wersja biblioteki klienta usługi Storage i zestawu SDK zawiera poprawki do problemów raportowanych przez klientów i proaktywnie identyfikowanych w naszym procesie pytań i odpowiedzi. Najnowsza wersja zawiera również optymalizację niezawodności i wydajności, a także nowe funkcje, które mogą ulepszyć ogólne środowisko pracy z usługą Azure Storage. Doradca zawiera zalecenia i kroki umożliwiające uaktualnienie do najnowszej wersji zestawu SDK, jeśli używasz starej wersji. Zalecenia dotyczą języków obsługiwanych w języku C++ i .NET.
+Najnowsza wersja zestawu SDK biblioteki klienta usługi Storage zawiera poprawki do problemów raportowanych przez klientów i aktywnie identyfikowanych przez nasz proces pytań i odpowiedzi. Najnowsza wersja zapewnia również optymalizację niezawodności i wydajności wraz z nowymi funkcjami, które mogą ulepszyć ogólne środowisko korzystania z usługi Azure Storage. Doradca zawiera zalecenia i kroki wymagane do uaktualnienia do najnowszej wersji zestawu SDK, jeśli używana jest nieodświeżona wersja. Zalecenia dotyczą obsługiwanych języków: C++ i .NET.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Zwiększ wydajność i niezawodność App Service
 
-Azure Advisor integruje zalecenia dotyczące najlepszych rozwiązań w zakresie ulepszania App Services środowiska i wykrywania odpowiednich możliwości platformy. Przykłady App Services zalecenia:
-* Wykrywanie wystąpień, w których zasoby pamięci lub procesora są wyczerpane przez środowisko uruchomieniowe aplikacji z opcjami ograniczenia.
-* Wykrywanie wystąpień, gdzie kolokacja zasobów, takich jak aplikacje sieci Web i bazy danych, może zwiększyć wydajność i obniżyć koszty.
+Azure Advisor integruje zalecenia dotyczące ulepszania środowiska App Service i wykrywania odpowiednich możliwości platformy. Przykłady App Service zalecenia:
+* Wykrywanie wystąpień, w których zasoby pamięci lub procesora są wyczerpane przez środowiska uruchomieniowe aplikacji, z opcjami ograniczenia.
+* Wykrywanie wystąpień, gdzie Lokalizowanie zasobów, takich jak aplikacje sieci Web i bazy danych, może zwiększyć wydajność i obniżyć koszty.
 
-Aby uzyskać więcej informacji na temat App Services zaleceń, zobacz [najlepsze rozwiązania dotyczące Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
+Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
-## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Użyj Managed Disks, aby zapobiec ograniczaniu wydajności dysku we/wy
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Używanie dysków zarządzanych do zapobiegania ograniczaniu wydajności dysków we/wy
 
-Program Advisor zidentyfikuje maszyny wirtualne należące do konta magazynu, które osiąga swój obiekt docelowy skalowalności. Ten stan sprawia, że te maszyny wirtualne są podatne na ograniczenie we/wy. Program Advisor zaleca użycie Managed Disks, aby zapobiec obniżeniu wydajności.
+Klasyfikator identyfikuje maszyny wirtualne należące do konta magazynu, które osiągnęło swój obiekt docelowy skalowalności. Ten stan sprawia, że te maszyny wirtualne są podatne na ograniczenie we/wy. Program Advisor zaleca użycie dysków zarządzanych, aby zapobiec obniżeniu wydajności.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Zwiększenie wydajności i niezawodności dysków maszyny wirtualnej za pomocą Premium Storage
 
-Usługa Advisor identyfikuje maszyny wirtualne z dyskami standardowymi, które mają dużą liczbę transakcji na koncie magazynu i zaleca uaktualnianie do dysków w warstwie Premium. 
+Program Advisor identyfikuje maszyny wirtualne z dyskami standardowymi, które mają dużą liczbę transakcji na koncie magazynu. Zalecamy uaktualnienie do dysków w warstwie Premium. 
 
-Usługa Azure Premium Storage zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają duże obciążenia we/wy. Dyski maszyn wirtualnych korzystające z kont magazynu w warstwie Premium przechowują dane na dyskach półprzewodnikowych (dysków SSD). W celu uzyskania najlepszej wydajności aplikacji zalecamy przeprowadzenie migracji wszystkich dysków maszyn wirtualnych wymagających dużej liczby operacji we/wy na sekundę w warstwie Premium.
+Usługa Azure Premium Storage zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają duże obciążenia we/wy. Dyski maszyny wirtualnej korzystające z kont Premium Storage przechowują dane na dyskach półprzewodnikowych (dysków SSD). Aby uzyskać najlepszą wydajność aplikacji, zalecamy Migrowanie wszystkich dysków maszyn wirtualnych wymagających dużej liczby operacji we/wy Premium Storage.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Usuń pochylenie danych z tabeli w usłudze SQL Data Warehouse, aby zwiększyć wydajność zapytań
+## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Usuń pochylenie danych w tabelach SQL Data Warehouse, aby zwiększyć wydajność zapytań
 
-Pochylenie danych może spowodować niepotrzebne przemieszczenie danych lub wąskie gardła zasobów podczas uruchamiania obciążenia. Program Advisor wykryje pochylenie danych dystrybucji większe niż 15% i zaleca ponowne rozproszenie danych i ponowne odwiedzenie wybranych opcji klucza dystrybucji tabeli. Aby dowiedzieć się więcej na temat identyfikowania i usuwania pochylenia, zobacz [Rozwiązywanie problemów](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Pochylenie danych może spowodować niepotrzebne przemieszczenie danych lub wąskie gardła zasobów podczas uruchamiania obciążenia. Program Advisor wykrywa pochylenie danych dystrybucji większe niż 15%. Zalecamy ponowną dystrybucję danych i ponowne odwiedzenie wybranych kluczy dystrybucji tabeli. Aby dowiedzieć się więcej na temat identyfikowania i usuwania pochylenia, zobacz [Rozwiązywanie problemów](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Utwórz lub zaktualizuj nieaktualne statystyki tabeli w tabeli magazynu danych SQL, aby zwiększyć wydajność zapytań
+## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Utwórz lub zaktualizuj nieaktualne statystyki tabeli w tabelach SQL Data Warehouse, aby zwiększyć wydajność zapytań
 
-Klasyfikator identyfikuje tabele, które nie mają aktualnych [statystyk tabeli](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) i zaleca Tworzenie lub aktualizowanie statystyk tabeli. Optymalizator zapytań w usłudze SQL Data Warehouse korzysta z aktualnych wartości statycznych, aby oszacować Kardynalność lub liczbę wierszy w wyniku zapytania, dzięki czemu optymalizator zapytań może utworzyć plan zapytania o wysokiej jakości w celu uzyskania najszybszej wydajności.
+Program Advisor identyfikuje tabele, które nie mają aktualnych [statystyk tabeli](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) i zaleca Tworzenie lub aktualizowanie statystyk. Optymalizator zapytań w Azure SQL Data Warehouse używa aktualnych statystyk, aby oszacować Kardynalność lub liczbę wierszy w wynikach zapytania. Te oszacowania umożliwiają Optymalizatorowi zapytań utworzenie planu zapytania w celu zapewnienia najszybszej wydajności.
+
+## <a name="improve-mysql-connection-management"></a>Ulepszanie zarządzania połączeniami z serwerem MySQL
+
+Analiza klasyfikatora może wskazywać, że aplikacja łącząca się z serwerem MySQL może nie zarządzać połączeniami efektywnie. Ten stan może prowadzić do niepotrzebnego zużycia zasobów i całkowitego opóźnienia aplikacji. Aby usprawnić zarządzanie połączeniami, zalecamy zmniejszenie liczby połączeń krótkoterminowych i wyeliminowanie niepotrzebnych połączeń bezczynnych. Te ulepszenia można wprowadzić, konfigurując pulę połączeń po stronie serwera, na przykład ProxySQL.
+
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skalowanie w górę w celu zoptymalizowania użycia pamięci podręcznej w tabelach SQL Data Warehouse, aby zwiększyć wydajność zapytań
 
-Azure Advisor wykrywa, czy SQL Data Warehouse ma dużą wartość procentową wykorzystania pamięci podręcznej oraz niską wartość procentową trafienia. Ten stan wskazuje duże wykluczenia pamięci podręcznej, co może mieć wpływ na wydajność SQL Data Warehouse. W usłudze Advisor zawarto skalowanie w górę SQL Data Warehouse, aby zapewnić przydzielenie wystarczającej pojemności pamięci podręcznej dla obciążenia.
+Azure Advisor wykrywa, czy tabele SQL Data Warehouse mają dużą wartość procentową użycia pamięci podręcznej oraz niską wartość procentową trafień. Ten stan wskazuje duże wykluczenia pamięci podręcznej, co może wpłynąć na wydajność wystąpienia SQL Data Warehouse. Doradca zaleca skalowanie w górę wystąpienia SQL Data Warehouse, aby zapewnić przydzielenie wystarczającej pojemności pamięci podręcznej dla obciążenia.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Konwertowanie tabel SQL Data Warehouse na zreplikowane tabele w celu zwiększenia wydajności zapytań
 
-Klasyfikator identyfikuje tabele, które nie są zreplikowane, ale byłyby korzystne dzięki konwersji i sugestii konwersji tych tabel. Zalecenia są oparte na rozmiarze zreplikowanej tabeli, liczbie kolumn, typie dystrybucji tabeli i liczbie partycji tabeli SQL Data Warehouse. Dodatkowe algorytmy heurystyczne mogą być podane w zaleceniach dotyczących kontekstu. Aby dowiedzieć się więcej na temat sposobu ustalenia tego zalecenia, zobacz [SQL Data Warehouse zalecenia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Klasyfikator identyfikuje tabele, które nie są zreplikowane, ale byłyby korzystne dla konwersji. Sugeruje to przekonwertowanie tych tabel. Zalecenia są oparte na:
+- Rozmiar zreplikowanej tabeli. 
+- Liczba kolumn 
+- Typ dystrybucji tabeli. 
+- Liczba partycji w tabeli SQL Data Warehouse. 
 
-## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Przeprowadź migrację konta magazynu do Azure Resource Manager, aby uzyskać wszystkie najnowsze funkcje platformy Azure
+Dodatkowe algorytmy heurystyczne mogą być podane w zaleceniach dotyczących kontekstu. Aby dowiedzieć się więcej na temat sposobu ustalenia tego zalecenia, zobacz [SQL Data Warehouse zalecenia](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
-Migruj model wdrażania konta magazynu do Azure Resource Manager (Menedżer zasobów), aby skorzystać z wdrożeń szablonów, dodatkowych opcji zabezpieczeń i możliwości uaktualnienia do konta GPv2 w celu użycia najnowszych funkcji usługi Azure Storage. Program Advisor zidentyfikuje wszystkie autonomiczne konta magazynu korzystające z klasycznego modelu wdrażania i zaleca migrację do modelu wdrażania Menedżer zasobów.
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migrowanie konta magazynu w celu Azure Resource Manager w celu uzyskania najnowszych funkcji platformy Azure
+
+Migruj model wdrażania konta magazynu, aby Azure Resource Manager w celu skorzystania z zalet:
+- Wdrożenia szablonów.
+- Dodatkowe opcje zabezpieczeń.
+- Możliwość uaktualnienia do konta GPv2, dzięki czemu można korzystać z najnowszych funkcji usługi Azure Storage. 
+
+Doradca identyfikuje wszystkie autonomiczne konta magazynu, które korzystają z klasycznego modelu wdrażania, i zaleca Migrowanie do modelu wdrażania Menedżer zasobów.
 
 > [!NOTE]
 > Alerty klasyczne w Azure Monitor zostały wycofane w sierpniu 2019. Zalecamy uaktualnienie klasycznego konta magazynu w celu użycia Menedżer zasobów, aby zachować funkcje alertów na nowej platformie. Aby uzyskać więcej informacji, zobacz [klasyczne alerty](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)dotyczące wycofywania.
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Zaprojektuj konta magazynu, aby zapobiec osiągnięciu maksymalnego limitu subskrypcji
+## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Zaprojektuj konta magazynu, aby zapobiec osiągnięciu maksymalnego limitu subskrypcji
 
-Region świadczenia usługi Azure może obsłużyć maksymalnie 250 kont magazynu na subskrypcję. Po osiągnięciu limitu nie będzie można utworzyć więcej kont magazynu w ramach tej kombinacji regionu/subskrypcji. Doradca sprawdzi Twoje subskrypcje i zalecenia dotyczące powierzchni, aby zaprojektować mniejszą liczbę kont magazynu dla dowolnego miejsca, które zbliżają się do maksymalnego limitu.
+Region świadczenia usługi Azure obsługuje maksymalnie 250 kont magazynu na subskrypcję. Po osiągnięciu tego limitu nie będzie można tworzyć kont magazynu w ramach tej kombinacji regionu/subskrypcji. Doradca sprawdza subskrypcje i oferuje zalecenia dotyczące projektowania w poszukiwaniu mniejszej liczby kont magazynu dla każdej subskrypcji/regionu, która jest bliska osiągnięcia maksymalnego limitu.
 
-## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej w celu uzyskania P2Sego użycia
+## <a name="consider-increasing-the-size-of-your-vpn-gateway-sku-to-address-high-p2s-use"></a>Rozważ zwiększenie rozmiaru jednostki SKU VPN Gateway, aby rozwiązać P2S użycie
 
-Każda jednostka SKU bramy może obsługiwać tylko określoną liczbę współbieżnych połączeń P2S. Jeśli liczba połączeń zbliża się do limitu bramy, to dodatkowe próby połączenia mogą zakończyć się niepowodzeniem. Zwiększenie rozmiaru bramy umożliwi obsługę większej liczby współbieżnych użytkowników P2S. Doradca zawiera rekomendacje i kroki, które należy wykonać, aby to zrobić.
+Każda jednostka SKU platformy Azure VPN Gateway może obsługiwać tylko określoną liczbę współbieżnych połączeń P2S. Jeśli liczba połączeń zbliża się do limitu bramy, kolejne próby połączenia mogą zakończyć się niepowodzeniem. Jeśli zwiększy się rozmiar bramy, będzie można obsługiwać bardziej współbieżnych użytkowników P2S. Doradca zawiera zalecenia i instrukcje zwiększania rozmiaru bramy.
 
-## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej w celu rozwiązania wysokiego procesora CPU
+## <a name="consider-increasing-the-size-of-your-vpn-gateway-sku-to-address-high-cpu"></a>Rozważ zwiększenie rozmiaru jednostki SKU VPN Gateway, aby rozwiązać wysoki poziom procesora
 
-W przypadku dużego obciążenia ruchem bramy sieci VPN może porzucić pakiety ze względu na wysoki procesor CPU. Należy rozważyć uaktualnienie VPN Gateway jednostki SKU, ponieważ sieć VPN była stale uruchomiona w systemie. Zwiększenie rozmiaru bramy sieci VPN zapewni, że połączenia nie zostaną usunięte ze względu na wysoki procesor CPU. Zalecenie provdes doradcy, aby rozwiązać ten problem. 
+W przypadku dużego obciążenia ruchem bramy sieci VPN może porzucać pakiety z powodu dużego procesora CPU. Rozważ uaktualnienie VPN Gateway jednostki SKU. Zwiększenie rozmiaru bramy sieci VPN zapewnia, że połączenia nie będą porzucane z powodu dużego procesora. Usługa Advisor oferuje zalecenia dotyczące aktywnego rozwiązania tego problemu. 
 
-## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Zwiększenie rozmiaru partii podczas ładowania w celu zmaksymalizowania przepływności ładowania, kompresji danych i wydajności zapytań
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Zwiększanie rozmiaru partii podczas ładowania w celu zmaksymalizowania przepływności ładowania, kompresji danych i wydajności wykonywania zapytań
 
-Klasyfikator może wykryć, że można zwiększyć wydajność ładowania i przepływność przez zwiększenie rozmiaru partii podczas ładowania do bazy danych. Można rozważyć użycie instrukcji COPY. Jeśli nie można użyć instrukcji COPY, rozważ zwiększenie rozmiaru partii podczas korzystania z narzędzi do ładowania, takich jak interfejs API SQLBulkCopy lub BCP-Dobra reguła kciuka to rozmiar wsadu między 100 000 do 1M wierszy. Spowoduje to zwiększenie przepływności obciążenia, kompresji danych i wydajności zapytań.
+Doradca wykrywa, czy można zwiększyć wydajność ładowania i przepływność przez zwiększenie rozmiaru partii podczas ładowania do bazy danych. Można rozważyć użycie instrukcji COPY. Jeśli nie można użyć instrukcji COPY, należy rozważyć zwiększenie rozmiaru partii podczas korzystania z narzędzi do ładowania, takich jak interfejs API SQLBulkCopy lub BCP. Dobrą ogólną regułą jest użycie rozmiaru partii z przedziału od 100 000 do 1 000 000 wierszy. Zwiększenie rozmiaru partii spowoduje zwiększenie przepływności ładowania, kompresji danych i wydajności zapytań.
 
-## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Lokalizowanie konta magazynu w tym samym regionie w celu zminimalizowania opóźnień podczas ładowania
+## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>Lokalizowanie konta magazynu w tym samym regionie w celu zminimalizowania opóźnień podczas ładowania
 
-Klasyfikator może wykryć, że ładujesz z regionu innego niż Pula SQL. Należy rozważyć ładowanie z konta magazynu znajdującego się w tym samym regionie co Pula SQL, aby zminimalizować opóźnienie podczas ładowania danych. Pomoże to zminimalizować opóźnienia i zwiększyć wydajność ładowania.
+Doradca wykrywa, czy ładujesz z regionu innego niż Pula SQL. Rozważ załadowanie z konta magazynu znajdującego się w tym samym regionie co Pula SQL, aby zminimalizować opóźnienie podczas ładowania danych. Ta zmiana pomoże zminimalizować opóźnienia i zwiększyć wydajność ładowania.
 
-## <a name="unsupported-kubernetes-version-is-detected"></a>Wykryto nieobsługiwaną wersję Kubernetes
+## <a name="use-a-supported-kubernetes-version"></a>Użyj obsługiwanej wersji Kubernetes
 
-Klasyfikator może wykryć, czy wykryto nieobsługiwaną wersję Kubernetes. Zalecenie pomoże zapewnić, że klaster Kubernetes będzie działać z obsługiwaną wersją.
+Klasyfikator wykrywa nieobsługiwane wersje programu Kubernetes.
 
-## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optymalizacja wydajności serwerów Azure MySQL, Azure PostgreSQL i Azure MariaDB 
+## <a name="optimize-the-performance-of-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers"></a>Optymalizowanie wydajności serwerów Azure Database for MySQL, Azure Database for PostgreSQL i Azure Database for MariaDB
 
-### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Popraw wykorzystanie procesora CPU serwerów Azure MySQL, Azure PostgreSQL i Azure MariaDB z wąskimi gardłami procesora CPU
-Bardzo wysokie wykorzystanie procesora CPU w dłuższym okresie może spowodować niską wydajność zapytań dla obciążenia. Zwiększenie rozmiaru procesora pomoże zoptymalizować środowisko uruchomieniowe zapytań bazy danych i poprawić ogólną wydajność. Azure Advisor zidentyfikuje serwery o dużym wykorzystaniu procesora CPU, które prawdopodobnie obsługują ograniczone obciążenia procesora CPU, i zaleca skalowanie obliczeń.
+### <a name="fix-the-cpu-pressure-of-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-with-cpu-bottlenecks"></a>Naprawianie Azure Database for MySQL, Azure Database for PostgreSQL i serwerów Azure Database for MariaDB z wąskimi gardłami procesora CPU
+Wysokie wykorzystanie procesora CPU w dłuższym okresie może spowodować powolne działanie zapytań dla obciążenia. Zwiększenie rozmiaru procesora pomoże zoptymalizować środowisko uruchomieniowe zapytań bazy danych i poprawić ogólną wydajność. Klasyfikator identyfikuje serwery o wysokim poziomie użycia procesora CPU, które mogą uruchamiać obciążenia z ograniczeniami procesora i zalecać skalowanie obliczeń.
 
-### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Ogranicz ograniczenia pamięci na serwerach Azure MySQL, Azure PostgreSQL i Azure MariaDB lub przejdź do jednostki SKU zoptymalizowanej pod kątem pamięci
-Współczynnik trafień w pamięci podręcznej może spowodować wolniejszą wydajność zapytań i większe liczby operacji we/wy na sekundę. Może to być spowodowane nieprawidłowym planem zapytania lub uruchomieniem intensywnego obciążenia pamięci. Rozwiązanie planu zapytania lub [zwiększenie ilości pamięci](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) serwera bazy danych Azure Database for PostgreSQL, serwera bazy danych Azure MySQL lub serwera usługi Azure MariaDB pomoże zoptymalizować wykonywanie obciążenia bazy danych. Azure Advisor identyfikuje serwery, których dotyczy ten wysoki poziom zmian puli buforów i zaleca ustalenie planu zapytania, przechodzenie do wyższej jednostki SKU z większą ilością pamięci lub zwiększenie rozmiaru magazynu w celu uzyskania większej liczby operacji we/wy na sekundę.
+### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Ogranicz ograniczenia pamięci na serwerach Azure Database for MySQL, Azure Database for PostgreSQL i Azure Database for MariaDB lub przejdź do jednostki SKU zoptymalizowanej pod kątem pamięci
+Współczynnik trafień w pamięci podręcznej może spowodować wolniejszą wydajność zapytań i większe liczby operacji we/wy na sekundę. Ten stan może być spowodowany przez zły plan zapytania lub obciążenie czasochłonne w pamięci. Ustalenie planu zapytania lub [zwiększenie ilości pamięci](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) Azure Database for PostgreSQL, Azure Database for MySQL lub Azure Database for MariaDB Server pomoże zoptymalizować wykonywanie obciążenia bazy danych. Azure Advisor identyfikuje serwery, na które mają wpływ te duże zmiany puli buforów. Zalecane jest wykonanie jednej z następujących akcji: 
+- Popraw plan zapytania
+- Przejdź do jednostki SKU, która ma więcej pamięci 
+- Zwiększ rozmiar magazynu, aby uzyskać więcej operacji we/wy na sekundę.
 
-### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Korzystanie z repliki usługi Azure MySQL lub Azure PostgreSQL do odczytu w celu skalowania odczytów dla intensywnie korzystających z odczytu obciążeń
-Azure Advisor wykorzystuje algorytmy heurystyczne oparte na obciążeniu, takie jak stosunek odczytów do zapisu na serwerze w ciągu ostatnich siedmiu dni w celu zidentyfikowania obciążeń intensywnie korzystających z odczytu. Zasób usługi Azure Database for PostgreSQL lub zasób usługi Azure Database for MySQL z bardzo wysokim współczynnikiem odczytu/zapisu może spowodować, że rywalizacja procesora i/lub pamięci prowadzi do spowolnienia wydajności zapytań. Dodanie [repliki](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ułatwi skalowanie odczytów do serwera repliki, uniemożliwiając procesor i/lub ograniczenia pamięci na serwerze podstawowym. Program Advisor zidentyfikuje serwery z takimi dużymi obciążeniami wymagającymi odczytu i zaleca się dodanie [repliki](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) odczytu w celu odciążenia niektórych obciążeń odczytu.
+### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Użyj Azure Database for MySQL lub Azure Database for PostgreSQL odczytu repliki, aby skalować w poziomie odczyty dla obciążeń intensywnie korzystających z odczytu
+Doradca korzysta z algorytmów heurystycznych opartych na obciążeniu, takich jak stosunek odczytów w ciągu ostatnich siedmiu dni, aby identyfikować obciążenia intensywnie korzystające z odczytu. Zasób Azure Database for PostgreSQL lub Azure Database for MySQL o wysokim współczynniku odczytu/zapisu może spowodować rywalizację o procesor lub pamięć i prowadzić do powolnej wydajności zapytań. Dodanie [repliki](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ułatwia skalowanie odczytów do serwera repliki i zapobiega ograniczeń procesora CPU lub pamięci na serwerze podstawowym. Klasyfikator identyfikuje serwery z obciążeniami intensywnie korzystających z odczytu i zaleca się dodanie [repliki odczytu](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)   w celu odciążenia niektórych obciążeń odczytu.
 
 
-### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skaluj platformę Azure MySQL, Azure PostgreSQL lub Azure MariaDB Server do wyższej jednostki SKU, aby zapobiec ograniczeniom połączeń
-Każde nowe połączenie z serwerem bazy danych zajmuje trochę pamięci. Obniżenie wydajności serwera bazy danych, jeśli połączenia z serwerem kończą się niepowodzeniem z powodu [górnego limitu](https://docs.microsoft.com/azure/postgresql/concepts-limits) w pamięci. Azure Advisor będzie identyfikować serwery z wieloma błędami połączeń i zalecać uaktualnienie limitów połączeń serwera w celu zapewnienia większej ilości pamięci dla serwera przez skalowanie obliczeniowe lub użycie zoptymalizowanych pod kątem pamięci jednostek SKU, które mają więcej obliczeń na rdzeń.
+### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skalowanie serwera Azure Database for MySQL, Azure Database for PostgreSQL lub Azure Database for MariaDB do wyższej jednostki SKU w celu uniknięcia ograniczeń połączenia
+Każde nowe połączenie z serwerem bazy danych zajmuje pamięć. Obniżenie wydajności serwera bazy danych, jeśli połączenia z serwerem kończą się niepowodzeniem z powodu [górnego limitu](https://docs.microsoft.com/azure/postgresql/concepts-limits) w pamięci. Azure Advisor identyfikuje serwery z wieloma niepowodzeńmi połączeń. Zalecamy uaktualnienie limitów połączeń serwera w celu zapewnienia większej ilości pamięci dla serwera, wykonując jedną z następujących czynności:
+- Skalowanie zasobów obliczeniowych w górę. 
+- Użyj zoptymalizowanych pod kątem pamięci jednostek SKU, które mają więcej obliczeń na rdzeń.
 
 ## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Skalowanie pamięci podręcznej do innego rozmiaru lub jednostki SKU w celu zwiększenia wydajności pamięci podręcznej i aplikacji
 
-Wystąpienia pamięci podręcznej działają najlepiej, gdy nie są uruchamiane w dużej ilości pamięci, dużym obciążeniu serwera lub dużej przepustowości sieci, co może spowodować, że nie odpowiada, utracie danych lub stanie się niedostępne. Program Advisor zidentyfikuje wystąpienia pamięci podręcznej w tych warunkach i zaleca zastosowanie najlepszych rozwiązań w celu ograniczenia wykorzystania pamięci, obciążenia serwera lub przepustowości sieci lub skalowania do innego rozmiaru lub jednostki SKU o większej pojemności.
+Wystąpienia pamięci podręcznej działają najlepiej, gdy nie są uruchamiane w ramach dużej ilości pamięci, dużego obciążenia serwera lub dużej przepustowości sieci. Te warunki mogą spowodować, że nie odpowiadają, utracie danych lub staną się niedostępne. Usługi Advisor identyfikują wystąpienia pamięci podręcznej w tych warunkach. Zalecane jest wykonanie jednej z następujących akcji:
+- Zastosuj najlepsze rozwiązania, aby zmniejszyć wykorzystanie pamięci, obciążenie serwera lub przepustowość sieci.
+- Skalowanie do innego rozmiaru lub jednostki SKU o większej pojemności.
 
 ## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Dodawanie regionów z ruchem do konta Azure Cosmos DB
 
-Program Advisor wykrywa konta Azure Cosmos DB, które mają ruch z regionu, który nie jest aktualnie skonfigurowany i zalecamy dodanie tego regionu. Pozwoli to zwiększyć opóźnienia żądań pochodzących z tego regionu i zapewni dostępność w przypadku awarii regionu. [Dowiedz się więcej o globalnej dystrybucji danych za pomocą Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+Program Advisor wykrywa konta Azure Cosmos DB, które mają ruch z regionu, który nie jest aktualnie skonfigurowany. Zalecamy dodanie tego regionu. Poprawia to opóźnienia dla żądań pochodzących z tego regionu i zapewnia dostępność w przypadku awarii regionu. [Dowiedz się więcej o globalnej dystrybucji danych za pomocą Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
 
-## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Konfigurowanie zasad indeksowania Azure Cosmos DB przy użyciu ścieżek uwzględnionych w klientach lub wykluczonych
+## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Konfigurowanie zasad indeksowania Azure Cosmos DB przy użyciu niestandardowych ścieżek uwzględnionych lub wykluczonych
 
-Azure Advisor będzie identyfikować kontenery Cosmos DB, które używają domyślnych zasad indeksowania, ale mogą korzystać z niestandardowych zasad indeksowania opartych na wzorcu obciążenia. Domyślna zasada indeksowania indeksuje wszystkie właściwości, ale przy użyciu niestandardowych zasad indeksowania z jawnymi dołączonymi lub wykluczonymi ścieżkami używanymi w filtrach zapytań można zmniejszyć jednostek ru i magazyny używane do indeksowania. [Dowiedz się więcej o modyfikowaniu zasad indeksu](https://aka.ms/cosmosdb/modify-index-policy)
+Doradca identyfikuje Azure Cosmos DB kontenery, które używają domyślnych zasad indeksowania, ale mogą korzystać z niestandardowych zasad indeksowania. To oznaczenie jest oparte na wzorcu obciążenia. Domyślne zasady indeksowania indeksów wszystkie właściwości. Niestandardowe zasady indeksowania z jawnymi dołączonymi lub wykluczonymi ścieżkami używanymi w filtrach zapytań mogą zmniejszyć liczbę jednostek ru i miejsce do magazynowania używane do indeksowania. [Dowiedz się więcej o modyfikowaniu zasad indeksu.](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Konfigurowanie rozmiaru strony zapytania usługi Azure Cosmos DB (MaxItemCount) na wartość -1 
+## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ustaw rozmiar strony zapytania Azure Cosmos DB (MaxItemCount) na-1 
 
-Azure Advisor zidentyfikuje Azure Cosmos DB kontenery używające rozmiaru strony zapytania 100 i zaleca użycie rozmiaru strony-1 w celu przyspieszenia skanowania. [Dowiedz się więcej o maksymalnej liczbie elementów](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identyfikuje kontenery Azure Cosmos DB używające rozmiaru strony zapytania 100. Zalecane jest użycie rozmiaru strony-1 w celu przyspieszenia skanowania. [Dowiedz się więcej o MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  Na pulpicie nawigacyjnym usługi Advisor kliknij kartę **wydajność** .
+2.  Na pulpicie nawigacyjnym usługi Advisor wybierz kartę **wydajność** .
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -141,7 +164,8 @@ Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 
 * [Wprowadzenie do usługi Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
-* [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
-* [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
+* [Zalecenia usługi Advisor dotyczące kosztów](advisor-cost-recommendations.md)
+* [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
+* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)

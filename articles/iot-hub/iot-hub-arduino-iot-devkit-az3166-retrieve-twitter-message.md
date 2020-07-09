@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60779839"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560978"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Wstrząsanie i wstrząsanie tweetu — pobieranie komunikatu usługi Twitter za pomocą Azure Functions
 
@@ -52,11 +52,11 @@ Zacznij od otwarcia folderu projektu.
 Rozwiń sekcję **przykłady Arduino** po lewej stronie, przejdź do **przykładów zestawu deweloperskiego AZ3166 > AzureIoT**, a następnie wybierz pozycję **ShakeShake**. Zostanie otwarte nowe okno VS Code, w którym zostanie wyświetlony folder projektu. Jeśli nie widzisz sekcji zestawu DEWELOPERSKIEGO AZ3166, upewnij się, że urządzenie jest prawidłowo połączone i ponownie uruchom Visual Studio Code.  
 ![mini-Solution — przykłady](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Możesz również otworzyć przykładowy projekt z palety poleceń. Kliknij `Ctrl+Shift+P` przycisk (macOS `Cmd+Shift+P`:), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
+Możesz również otworzyć przykładowy projekt z palety poleceń. Kliknij przycisk `Ctrl+Shift+P` (macOS: `Cmd+Shift+P` ), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
 
 ## <a name="provision-azure-services"></a>Udostępnianie usług platformy Azure
 
-W oknie rozwiązanie Uruchom zadanie za pomocą `Ctrl+P` (macOS: `Cmd+P`), wprowadzając `task cloud-provision`polecenie.
+W oknie rozwiązanie Uruchom zadanie za pomocą `Ctrl+P` (macOS:), `Cmd+P` wprowadzając polecenie `task cloud-provision` .
 
 W terminalu VS Code interaktywny wiersz polecenia przeprowadzi Cię przez proces aprowizacji wymaganych usług platformy Azure:
 
@@ -77,7 +77,7 @@ Zastąp ciąg `iot` w nawiasach klamrowych z preferowanym elementem hasztagów. 
 
 ## <a name="deploy-azure-functions"></a>Wdrażanie usługi Azure Functions
 
-Użyj `Ctrl+P` (macOS: `Cmd+P`) do uruchomienia `task cloud-deploy` , aby rozpocząć wdrażanie kodu Azure Functions:
+Użyj `Ctrl+P` (macOS: `Cmd+P` ) do uruchomienia `task cloud-deploy` , aby rozpocząć wdrażanie kodu Azure Functions:
 
 ![Chmura — wdrażanie](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-deploy.png)
 
@@ -90,7 +90,7 @@ Następnie Skompiluj i przekaż kod urządzenia.
 
 ### <a name="windows"></a>Windows
 
-1. Użyj `Ctrl+P` do uruchomienia `task device-upload`.
+1. Użyj `Ctrl+P` do uruchomienia `task device-upload` .
 
 2. Na terminalu zostanie wyświetlony komunikat z prośbą o wprowadzenie do trybu konfiguracji. W tym celu:
 
@@ -171,7 +171,7 @@ W celach testowych Ten przykładowy projekt używa wstępnie skonfigurowanego to
 
    ![Azure — funkcja](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
-5. Zaktualizuj kod dla `run.csx` usługi **Functions > shakeshake-CS** własnym tokenem:
+5. Zaktualizuj kod dla `run.csx` usługi **functions > shakeshake-CS** własnym tokenem:
 
    ```csharp
    string authHeader = "Bearer " + "[your own token]";
@@ -185,7 +185,7 @@ W celach testowych Ten przykładowy projekt używa wstępnie skonfigurowanego to
 
 Jak rozwiązywać problemy lub przekazać Opinie. 
 
-### <a name="problems"></a>Dotyczące
+### <a name="problems"></a>Problemy
 
 Jeden problem zobaczysz, czy ekran nie wyświetla "No tweetów", podczas gdy każdy krok został pomyślnie uruchomiony. Ten stan zwykle odbywa się przy pierwszym wdrożeniu i uruchomieniu przykładu, ponieważ aplikacja funkcji wymaga dowolnego miejsca od kilku sekund do największej minuty na zimne uruchomienie aplikacji. 
 
@@ -196,8 +196,6 @@ Lub, gdy uruchamiasz kod, istnieje kilka Blips, które powodują ponowne uruchom
 2. W [Azure Portal](https://portal.azure.com/)Znajdź utworzoną aplikację Azure Functions i uruchom ją ponownie:
 
    ![Azure — ponowne uruchamianie funkcji](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
-
-### <a name="feedback"></a>Opinia
 
 Jeśli występują inne problemy, zapoznaj się z tematem [często zadawanych pytań dotyczących usługi IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) lub skontaktuj się z nami przy użyciu następujących kanałów:
 

@@ -5,10 +5,9 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83815999"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Użyj Azure Batch szablonów interfejsu wiersza polecenia i transferu plików
@@ -133,7 +132,7 @@ Poniżej przedstawiono przykładowy szablon, który tworzy pulę maszyn wirtualn
 }
 ```
 
-Jeśli plik szablonu ma nazwę _Pool-narzędzia FFmpeg. JSON_, a następnie Wywołaj szablon w następujący sposób:
+Jeśli plik szablonu ma nazwę _pool-ffmpeg.json_, następnie Wywołaj szablon w następujący sposób:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -152,7 +151,7 @@ Interfejs wiersza polecenia poprosi o podanie wartości `poolId` parametrów i `
 }
 ```
 
-Jeśli plik JSON parametrów miał nazwę *Pool-Parameters. JSON*, a następnie Wywołaj szablon w następujący sposób:
+Jeśli plik JSON parametrów miał nazwę *pool-parameters.json*, następnie Wywołaj szablon w następujący sposób:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
@@ -242,7 +241,7 @@ Poniżej przedstawiono przykładowy szablon, który tworzy zadanie do transkodow
 }
 ```
 
-Jeśli plik szablonu miał nazwę _Job-narzędzia FFmpeg. JSON_, a następnie Wywołaj szablon w następujący sposób:
+Jeśli plik szablonu ma nazwę _job-ffmpeg.json_, następnie Wywołaj szablon w następujący sposób:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json

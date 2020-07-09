@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: 13a2a0bcc362a13b0c42650509d356f613527cfc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061327"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367380"
 ---
 # <a name="secure-access-to-application-data"></a>Bezpieczny dostęp do danych aplikacji
 
@@ -39,16 +39,29 @@ Aby ukończyć ten samouczek, konieczne jest ukończenie poprzedniego samouczka 
 
 W tej części serii samouczków do uzyskania dostępu do miniatur zostaną użyte tokeny SAS. W tym kroku ustawisz wartość `off` w konfiguracji publicznego dostępu do kontenera *thumbnails*.
 
-```azurecli-interactive 
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
     --account-key $blobStorageAccountKey \
     --name thumbnails \
+    --public-access off
+```
+
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
+
+az storage container set-permission `
+    --account-name $blobStorageAccount `
+    --account-key $blobStorageAccountKey `
+    --name thumbnails `
     --public-access off
 ```
 
@@ -60,11 +73,19 @@ W tym przykładzie repozytorium kodu źródłowego korzysta z gałęzi `sasToken
 
 W poniższym poleceniu wartość `<web-app>` to nazwa aplikacji internetowej.
 
-```azurecli-interactive 
+```bash
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
     --resource-group myResourceGroup --branch sasTokens --manual-integration \
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
+```powershell
+az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
+
+az webapp deployment source config --name <web_app> `
+    --resource-group myResourceGroup --branch sasTokens --manual-integration `
     --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
@@ -133,13 +154,15 @@ W poprzednim zadaniu użyto następujących klas, właściwości i metod:
 |[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
 |[BlobItem](/dotnet/api/azure.storage.blobs.models.blobitem) | [Nazwa](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Zapytanie](/dotnet/api/system.uribuilder.query) |  |
-|[Staw](/dotnet/api/system.collections.generic.list-1) | | [Dodaj](/dotnet/api/system.collections.generic.list-1.add) |
+|[Lista](/dotnet/api/system.collections.generic.list-1) | | [Dodaj](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Szyfrowanie po stronie serwera
+## <a name="azure-storage-encryption"></a>Szyfrowanie w usłudze Azure Storage
 
-[Szyfrowanie usługi Azure Storage (SSE)](../common/storage-service-encryption.md) pomaga chronić dane. Usługa SSE szyfruje dane magazynowane, obsługując szyfrowanie, odszyfrowywanie i zarządzanie kluczami. Wszystkie dane są szyfrowane za pomocą 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych.
+[Szyfrowanie usługi Azure Storage](../common/storage-service-encryption.md) pomaga chronić dane i zabezpieczać je, szyfrując dane przechowywane i obsługując szyfrowanie i odszyfrowywanie. Wszystkie dane są szyfrowane za pomocą 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych.
 
-Usługa SSE automatycznie szyfruje dane we wszystkich warstwach wydajności (Standardowa i Premium), wszystkich modelach wdrażania (model usługi Azure Resource Manager i model klasyczny) oraz wszystkich usługach Azure Storage (Blob, Queue, Table i File). 
+Możesz wybrać opcję posiadania przez firmę Microsoft zarządzania kluczami szyfrowania lub można przenieść własne klucze z kluczami zarządzanymi przez klienta za pomocą Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../common/encryption-customer-managed-keys.md).
+
+Szyfrowanie usługi Azure Storage automatycznie szyfruje dane we wszystkich warstwach wydajności (standard i Premium), wszystkich modelach wdrażania (Azure Resource Manager i klasyczny) oraz wszystkich usługach Azure Storage (obiektów blob, kolejek, tabel i plików).
 
 ## <a name="enable-https-only"></a>Włączanie używania tylko protokołu HTTPS
 

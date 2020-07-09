@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623575"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323026"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -70,7 +70,7 @@ SaaS to oprogramowanie, które jest centralnie hostowane i zarządzane. Zwykle b
 
 Microsoft Office 365 to dobry przykład oferty SaaS. Subskrybenci zwracają miesięczną lub roczną opłatę za subskrypcję i otrzymują program Microsoft Exchange, Microsoft OneDrive i resztę pakietu Microsoft Office jako usługi. Subskrybenci zawsze uzyskują najnowszą wersję, a serwer Exchange jest zarządzany przez Ciebie. W porównaniu do instalowania i uaktualniania pakietu Office co roku jest to tańsze i wymaga mniejszego nakładu pracy.
 
-## <a name="azure-services"></a>Usługi Azure
+## <a name="azure-services"></a>Usługi platformy Azure
 
 Platforma Azure oferuje wiele usług w chmurze obliczeniowej. Te usługi obejmują:
 
@@ -156,7 +156,7 @@ Grupa zasobów platformy Azure to kontener, który zawiera powiązane zasoby dla
 
 Szablon Azure Resource Manager to plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablony Menedżer zasobów zostały omówione bardziej szczegółowo w dalszej części tego przewodnika.
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 Oprócz tworzenia i usuwania zasobów oraz zarządzania nimi przy użyciu Azure Portal można zautomatyzować te działania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -186,7 +186,7 @@ Aby móc korzystać z usług platformy Azure, musisz mieć subskrypcję. Dostęp
 
 **Bezpłatne konta**: link do rejestracji w celu uzyskania bezpłatnego konta znajduje się w [witrynie sieci Web platformy Azure](https://azure.microsoft.com/). Dzięki temu możesz uzyskać środki na korzystanie z 30 dni, aby wypróbować dowolną kombinację zasobów na platformie Azure. W przypadku przekroczenia kwoty środków Twoje konto zostanie zawieszone. Na koniec okresu próbnego usługi zostały zlikwidowane i nie będą już działać. W dowolnym momencie możesz przeprowadzić uaktualnienie do subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem.
 
-**Subskrypcje MSDN**: Jeśli masz subskrypcję MSDN, w każdym miesiącu otrzymasz określoną kwotę na środki na korzystanie z platformy Azure. Jeśli na przykład masz Microsoft Visual Studio Enterprise z subskrypcją MSDN, otrzymasz 150 miesięcznie \$na środki na korzystanie z platformy Azure.
+**Subskrypcje MSDN**: Jeśli masz subskrypcję MSDN, w każdym miesiącu otrzymasz określoną kwotę na środki na korzystanie z platformy Azure. Jeśli na przykład masz Microsoft Visual Studio Enterprise z subskrypcją MSDN, otrzymasz \$ 150 miesięcznie na środki na korzystanie z platformy Azure.
 
 W przypadku przekroczenia kwoty środków usługa zostanie wyłączona do momentu rozpoczęcia następnego miesiąca. Możesz wyłączyć limit wydatków i dodać kartę kredytową, która będzie używana w dodatkowych kosztach. Niektóre z tych kosztów są wliczane do kont MSDN. Na przykład opłata jest naliczana dla maszyn wirtualnych z systemem Windows Server i nie ma dodatkowej opłaty za serwery firmy Microsoft, takie jak Microsoft SQL Server. Dzięki temu konta MSDN idealnie nadają się do tworzenia i testowania scenariuszy.
 
@@ -226,7 +226,7 @@ Cennik dla każdej usługi platformy Azure jest różny. Wiele usług platformy 
 
 Azure Resource Manager to mechanizm wdrażania, zarządzania i organizacji dla zasobów platformy Azure. Za pomocą Menedżer zasobów można umieścić wiele pojedynczych zasobów w grupie zasobów.
 
-Menedżer zasobów obejmuje również możliwości wdrażania umożliwiające dostosowywalne wdrażanie i konfigurację powiązanych zasobów. Na przykład za pomocą Menedżer zasobów można wdrożyć aplikację, która składa się z wielu maszyn wirtualnych, modułu równoważenia obciążenia i bazy danych SQL jako pojedynczej jednostki. Te wdrożenia są opracowywane przy użyciu szablonu Menedżer zasobów.
+Menedżer zasobów obejmuje również możliwości wdrażania umożliwiające dostosowywalne wdrażanie i konfigurację powiązanych zasobów. Na przykład za pomocą Menedżer zasobów można wdrożyć aplikację, która składa się z wielu maszyn wirtualnych, modułu równoważenia obciążenia i bazy danych w Azure SQL Database jako pojedynczej jednostki. Te wdrożenia są opracowywane przy użyciu szablonu Menedżer zasobów.
 
 Usługa Resource Manager zapewnia kilka korzyści:
 
@@ -467,7 +467,7 @@ Istnieje kilka opcji wdrażania sieci wirtualnej.
 
 - [Portal](../..//virtual-network/quick-create-portal.md)
 
-- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Program PowerShell](../../virtual-network/quick-create-powershell.md)
 
 - [Interfejs wiersza polecenia](../../virtual-network/quick-create-cli.md)
 

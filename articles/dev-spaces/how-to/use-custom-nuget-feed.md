@@ -9,10 +9,9 @@ description: Użyj niestandardowego źródła danych NuGet, aby uzyskać dostęp
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 manager: gwallace
 ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74325726"
 ---
 # <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Użyj niestandardowego źródła danych NuGet z Azure Dev Spaces
@@ -21,7 +20,7 @@ ms.locfileid: "74325726"
 
 ## <a name="set-up-a-nuget-feed"></a>Skonfiguruj źródło danych NuGet
 
-Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dla zależności w `*.csproj` pliku w `PackageReference` węźle. Przykład:
+Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dla zależności w pliku w `*.csproj` `PackageReference` węźle. Przykład:
 
 ```xml
 <ItemGroup>
@@ -31,7 +30,7 @@ Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/
 </ItemGroup>
 ```
 
-Utwórz plik [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) w folderze projektu i ustaw sekcje `packageSources` i `packageSourceCredentials` dla źródła danych NuGet. `packageSources` Sekcja zawiera adres URL źródła danych, który musi być dostępny z klastra AKS. `packageSourceCredentials` Są to poświadczenia do uzyskiwania dostępu do źródła danych. Przykład:
+Utwórz plik [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) w folderze projektu i ustaw `packageSources` `packageSourceCredentials` sekcje i dla źródła danych NuGet. `packageSources`Sekcja zawiera adres URL źródła danych, który musi być dostępny z klastra AKS. `packageSourceCredentials`Są to poświadczenia do uzyskiwania dostępu do źródła danych. Przykład:
 
 ```xml
 <packageSources>
@@ -46,14 +45,14 @@ Utwórz plik [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-co
 </packageSourceCredentials>
 ```
 
-Zaktualizuj wieloetapowe dockerfile, `NuGet.Config` aby skopiować plik do obrazu. Przykład:
+Zaktualizuj wieloetapowe dockerfile, aby skopiować `NuGet.Config` plik do obrazu. Przykład:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> W systemie Windows `NuGet.Config`, `Nuget.Config`,, `nuget.config` i wszystkie działają jako prawidłowe nazwy plików. W systemie Linux jest `NuGet.Config` tylko prawidłową nazwą pliku dla tego pliku. Ponieważ Azure Dev Spaces używa platform Docker i Linux, ten plik musi mieć `NuGet.Config`nazwę. Nazwę można naprawić ręcznie lub przez uruchomienie `dotnet restore --configfile nuget.config`.
+> W systemie Windows, `NuGet.Config` ,, `Nuget.Config` i `nuget.config` wszystkie działają jako prawidłowe nazwy plików. W systemie Linux `NuGet.Config` jest tylko prawidłową nazwą pliku dla tego pliku. Ponieważ Azure Dev Spaces używa platform Docker i Linux, ten plik musi mieć nazwę `NuGet.Config` . Nazwę można naprawić ręcznie lub przez uruchomienie `dotnet restore --configfile nuget.config` .
 
 
 Jeśli używasz usługi git, nie musisz mieć poświadczeń dla źródła danych NuGet w kontroli wersji. Dodaj `NuGet.Config` do `.gitignore` projektu, tak aby `NuGet.Config` plik nie został dodany do kontroli wersji. Azure Dev Spaces będzie potrzebował tego pliku podczas procesu kompilowania obrazu kontenera, ale domyślnie uwzględnia reguły zdefiniowane w `.gitignore` i `.dockerignore` podczas synchronizacji. Aby zmienić ustawienie domyślne i Zezwalaj Azure Dev Spaces na synchronizowanie `NuGet.Config` pliku, zaktualizuj `azds.yaml` plik:

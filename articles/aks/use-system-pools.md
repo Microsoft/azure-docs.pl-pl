@@ -3,17 +3,17 @@ title: Korzystanie z pul węzłów systemu w usłudze Azure Kubernetes Service (
 description: Dowiedz się, jak tworzyć pule węzłów systemu i zarządzać nimi w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/28/2020
-ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.date: 06/18/2020
+ms.author: mlearned
+ms.openlocfilehash: 9b6270f81e7af8bd508d29510698e6cf9a5a2010
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052656"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
-W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pogrupowane w *Pule węzłów*. Pule węzłów zawierają bazowe maszyny wirtualne, na których działają aplikacje. Pule węzłów systemowych i pule węzłów użytkowników są dwoma różnymi trybami puli węzłów dla klastrów AKS. Pule węzłów systemu stanowią podstawowy cel hostingu krytycznych podstaw systemu, takich jak CoreDNS i tunnelfront. Pule węzłów użytkowników stanowią podstawowy cel hostingu podstaw aplikacji. Jednak w ramach klastra AKS można zaplanować pulę aplikacji w puli węzłów systemu. Każdy klaster AKS musi zawierać co najmniej jedną pulę węzłów systemu z co najmniej jednym węzłem. 
+W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pogrupowane w *Pule węzłów*. Pule węzłów zawierają bazowe maszyny wirtualne, na których działają aplikacje. Pule węzłów systemowych i pule węzłów użytkowników są dwoma różnymi trybami puli węzłów dla klastrów AKS. Pule węzłów systemu stanowią podstawowy cel hostingu krytycznych podstaw systemu, takich jak CoreDNS i tunnelfront. Pule węzłów użytkowników stanowią podstawowy cel hostingu podstaw aplikacji. Jednak w ramach klastra AKS można zaplanować pulę aplikacji w puli węzłów systemu. Każdy klaster AKS musi zawierać co najmniej jedną pulę węzłów systemu z co najmniej jednym węzłem.
 
 > [!Important]
 > W przypadku uruchamiania jednej puli węzłów systemu dla klastra AKS w środowisku produkcyjnym zaleca się użycie co najmniej trzech węzłów dla puli węzłów.
@@ -29,7 +29,7 @@ Podczas tworzenia klastrów AKS obsługujących pule węzłów systemu i zarząd
 * Zobacz [limity przydziałów, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * Klaster AKS musi być skompilowany przy użyciu zestawów skalowania maszyn wirtualnych jako typ maszyny wirtualnej.
 * Nazwa puli węzłów może zawierać tylko małe znaki alfanumeryczne i musi zaczynać się małą literą. W przypadku pul węzłów systemu Linux długość musi należeć do zakresu od 1 do 12 znaków. W przypadku pul węzłów systemu Windows długość musi należeć do zakresu od 1 do 6 znaków.
-* Aby ustawić tryb puli węzłów, należy użyć interfejsu API w wersji 2020-03-01 lub nowszej.
+* Aby ustawić tryb puli węzłów, należy użyć interfejsu API w wersji 2020-03-01 lub nowszej. Klastry utworzone w wersji interfejsu API starszej niż 2020-03-01 zawierają tylko pule węzłów użytkownika, ale można je migrować, aby zawierały pule węzłów systemowych, wykonując następujące [kroki w trybie puli aktualizacji](#update-existing-cluster-system-and-user-node-pools).
 * Tryb puli węzłów jest wymaganą właściwością i musi być jawnie ustawiony podczas korzystania z szablonów ARM lub bezpośrednich wywołań interfejsu API.
 
 ## <a name="system-and-user-node-pools"></a>Pule węzłów systemu i użytkownika
@@ -115,7 +115,10 @@ Tryb typu **system** jest zdefiniowany dla pul węzłów systemowych, a tryb typ
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Aktualizowanie pul węzłów systemu i użytkownika
+## <a name="update-existing-cluster-system-and-user-node-pools"></a>Aktualizowanie istniejącego systemu klastra i pul węzłów użytkownika
+
+> [!NOTE]
+> Aby ustawić tryb puli węzłów systemu, należy użyć interfejsu API w wersji 2020-03-01 lub nowszej. Klastry utworzone w wersji interfejsu API starszej niż 2020-03-01 zawierają tylko pule węzłów użytkownika. Aby otrzymywać funkcje puli węzłów systemu i korzyści ze starszych klastrów, zaktualizuj tryb istniejących pul węzłów za pomocą poniższych poleceń w najnowszej wersji interfejsu wiersza polecenia platformy Azure.
 
 Można zmienić tryby dla pul węzłów systemu i użytkownika. Pulę węzłów systemowych można zmienić na pulę użytkowników tylko wtedy, gdy inna Pula węzłów systemu już istnieje w klastrze AKS.
 

@@ -15,11 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703999"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Eksportowanie grup zasobów zawierających rozszerzenia maszyn wirtualnych
 
@@ -78,7 +77,7 @@ Po wyeksportowaniu grupy zasobów tworzony jest jeden parametr szablonu, aby pod
 
 Ponieważ każde chronione ustawienie ma zestaw wymaganych właściwości, należy zebrać listę tych właściwości. Każdy parametr konfiguracji ustawień chronionych można znaleźć w [schemacie Azure Resource Manager w witrynie GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Ten schemat zawiera tylko zestawy parametrów dla rozszerzeń wymienionych w sekcji przegląd tego dokumentu. 
 
-W repozytorium schematów Wyszukaj odpowiednie rozszerzenie, w tym przykładzie `IaaSDiagnostics`. Po zlokalizowaniu `protectedSettings` obiektu rozszerzeń Zanotuj każdy parametr. W przykładzie `IaasDiagnostic` rozszerzenia wymagane są `storageAccountName`parametry, `storageAccountKey`i. `storageAccountEndPoint`
+W repozytorium schematów Wyszukaj odpowiednie rozszerzenie, w tym przykładzie `IaaSDiagnostics` . Po `protectedSettings` zlokalizowaniu obiektu rozszerzeń Zanotuj każdy parametr. W przykładzie `IaasDiagnostic` rozszerzenia wymagane są parametry `storageAccountName` , `storageAccountKey` i `storageAccountEndPoint` .
 
 ```json
 "protectedSettings": {
@@ -148,9 +147,9 @@ Końcowy zasób rozszerzenia wygląda podobnie do następującego przykładu JSO
 }
 ```
 
-W przypadku używania parametrów szablonu do podania wartości właściwości należy je utworzyć. Podczas tworzenia parametrów szablonu dla wartości ustawień chronionych upewnij się, że używasz typu `SecureString` parametru, aby zabezpieczyć wartości poufne. Aby uzyskać więcej informacji na temat używania parametrów, zobacz [Tworzenie szablonów Azure Resource Manager](../../resource-group-authoring-templates.md).
+W przypadku używania parametrów szablonu do podania wartości właściwości należy je utworzyć. Podczas tworzenia parametrów szablonu dla wartości ustawień chronionych upewnij się, że używasz `SecureString` typu parametru, aby zabezpieczyć wartości poufne. Aby uzyskać więcej informacji na temat używania parametrów, zobacz [Tworzenie szablonów Azure Resource Manager](../../resource-group-authoring-templates.md).
 
-W przykładzie `IaasDiagnostic` rozszerzenia następujące parametry zostałyby utworzone w sekcji parametry szablonu Menedżer zasobów.
+W przykładzie `IaasDiagnostic` rozszerzenia następujące parametry zostałyby utworzone w sekcji Parametry szablonu Menedżer zasobów.
 
 ```json
 "storageAccountName": {

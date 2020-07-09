@@ -5,11 +5,10 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701153"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Instrukcje: debugowanie kontenerów systemu Windows na platformie Azure Service Fabric przy użyciu programu Visual Studio 2019
 
@@ -27,7 +26,7 @@ Program Visual Studio 2019 umożliwia debugowanie aplikacji .NET w kontenerach j
 
 1. Aby zapewnić obsługę rozpoznawania nazw DNS między kontenerami, należy skonfigurować lokalny klaster programistyczny przy użyciu nazwy maszyny. Te kroki są również niezbędne, jeśli chcesz adresować usługi za pomocą zwrotnego serwera proxy.
    1. Otwórz program PowerShell jako administrator
-   2. Przejdź do folderu konfiguracji klastra zestawu SDK, zazwyczaj `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+   2. Przejdź do folderu konfiguracji klastra zestawu SDK, zazwyczaj `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` .
    3. Uruchamianie skryptu`DevClusterSetup.ps1`
 
       ``` PowerShell
@@ -35,7 +34,7 @@ Program Visual Studio 2019 umożliwia debugowanie aplikacji .NET w kontenerach j
       ```
 
       > [!NOTE]
-      > Aby skonfigurować klaster z `-CreateOneNodeCluster` jednym węzłem, można użyć programu. Domyślnie zostanie utworzony lokalny klaster z pięcioma węzłami.
+      > `-CreateOneNodeCluster`Aby skonfigurować klaster z jednym węzłem, można użyć programu. Domyślnie zostanie utworzony lokalny klaster z pięcioma węzłami.
       >
 
       Aby dowiedzieć się więcej na temat usługi DNS w Service Fabric, zobacz [Usługa DNS na platformie Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Aby dowiedzieć się więcej o używaniu Service Fabric zwrotnego serwera proxy z usług uruchomionych w kontenerze, zobacz [odwracanie specjalnej obsługi serwera proxy dla usług uruchomionych w](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)kontenerach.

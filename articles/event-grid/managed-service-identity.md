@@ -1,21 +1,17 @@
 ---
 title: Dostarczanie zdarzeń przy użyciu tożsamości usługi zarządzanej
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej w temacie Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: spelluru
-ms.openlocfilehash: a13b9339c55d4d70c19ce737e81f34106dd3d6f6
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 07/07/2020
+ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168000"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119195"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
-W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematu Azure Event Grid lub domeny. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
+W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
 
 Poniżej przedstawiono kroki, które są szczegółowo omówione w tym artykule:
 1. Utwórz temat lub domenę z tożsamością przypisaną do systemu lub zaktualizuj istniejący temat lub domenę, aby włączyć tożsamość. 
@@ -44,13 +40,18 @@ Podobnie można użyć `az eventgrid domain create` polecenia, aby utworzyć dom
 W poprzedniej sekcji przedstawiono sposób włączania tożsamości zarządzanej przez system podczas tworzenia tematu lub domeny. W tej sekcji dowiesz się, jak włączyć tożsamość zarządzaną przez system dla istniejącego tematu lub domeny. 
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+Poniższa procedura pokazuje, jak włączyć tożsamość zarządzaną przez system dla tematu. Kroki umożliwiające włączenie tożsamości dla domeny są podobne. 
+
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-2. Wyszukaj **Tematy usługi Event Grid** na pasku wyszukiwania.
+2. Wyszukaj **Tematy usługi Event Grid** na pasku wyszukiwania u góry.
 3. Wybierz **temat** , dla którego chcesz włączyć zarządzaną tożsamość. 
 4. Przejdź do karty **tożsamość** . 
-5. Włącz przełącznik, aby włączyć tożsamość. 
+5. Włącz **przełącznik, aby** włączyć tożsamość. 
+1. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienie. 
 
-Aby włączyć tożsamość dla domeny Event Grid, można użyć podobnych kroków.
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Strona tożsamości tematu"::: 
+
+Możesz użyć podobnych kroków, aby włączyć tożsamość dla domeny usługi Event Grid.
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 Użyj `az eventgrid topic update` polecenia z `--identity` ustawioną opcją `systemassigned` , aby włączyć tożsamość przypisaną przez system dla istniejącego tematu. Jeśli chcesz wyłączyć tożsamość, określ `noidentity` jako wartość. 
@@ -65,7 +66,7 @@ Polecenie aktualizowania istniejącej domeny jest podobne ( `az eventgrid domain
 ## <a name="supported-destinations-and-rbac-roles"></a>Obsługiwane miejsca docelowe i role RBAC
 Po włączeniu tożsamości dla tematu lub domeny w usłudze Event Grid platforma Azure automatycznie tworzy tożsamość w Azure Active Directory. Dodaj tę tożsamość do odpowiednich ról kontroli dostępu opartej na rolach (RBAC), aby temat lub domena mogły przesyłać zdarzenia do obsługiwanych miejsc docelowych. Na przykład Dodaj tożsamość do roli **nadawca danych usługi azure Event Hubs** dla przestrzeni nazw usługi Azure Event Hubs, aby temat usługi Event Grid mógł przesyłać zdarzenia do centrów zdarzeń w tej przestrzeni nazw. 
 
-Obecnie Azure Event Grid obsługuje tematy lub domeny skonfigurowane przy użyciu tożsamości zarządzanej przypisanej przez system do przesyłania zdarzeń do następujących miejsc docelowych. Ta tabela zawiera również role, w których powinna znajdować się tożsamość, aby temat mógł przesłać dalej zdarzenia.
+Obecnie usługa Azure Event Grid obsługuje tematy lub domeny skonfigurowane przy użyciu tożsamości zarządzanej przypisanej przez system do przesyłania zdarzeń do następujących miejsc docelowych. Ta tabela zawiera również role, w których powinna znajdować się tożsamość, aby temat mógł przesłać dalej zdarzenia.
 
 | Element docelowy | Rola RBAC | 
 | ----------- | --------- | 
@@ -93,7 +94,7 @@ Poniższy przykład dodaje tożsamość zarządzaną dla tematu usługi Event Gr
 Kroki są podobne do dodawania tożsamości do innych ról wymienionych w tabeli. 
 
 ### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
-W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli RBAC przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów usługi Event Grid. Polecenia dla domen Event Grid są podobne. 
+W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli RBAC przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów usługi Event Grid. Polecenia dla domen usługi Event Grid są podobne. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Pobierz identyfikator podmiotu zabezpieczeń dla tożsamości systemu tematu 
 Najpierw Pobierz identyfikator podmiotu zabezpieczeń tożsamości zarządzanej przez system i przypisz tożsamość do odpowiednich ról.

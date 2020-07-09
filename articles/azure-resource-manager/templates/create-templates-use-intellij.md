@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć pierwszy szablon Azure Resource Manager
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153356"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057453"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
 
@@ -33,13 +33,13 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart Templates (Szablony szybkiego startu platformy Azure)](https://azure.microsoft.com/resources/templates/). Szablony szybkiego startu platformy Azure to repozytorium szablonów usługi ARM. Szablon używany w tym artykule nazywa się [Tworzenie konta magazynu w warstwie Standardowa](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Definiuje zasób konta usługi Azure Storage.
 
-1. Kliknij prawym przyciskiem myszy i [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) Zapisz [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) i na komputerze lokalnym.
+1. Kliknij prawym przyciskiem myszy i Zapisz [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) i [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) na komputerze lokalnym.
 
 1. Jeśli zestaw narzędzi platformy Azure został poprawnie zainstalowany i zalogowany, powinien zostać wyświetlony Eksplorator Azure na pasku bocznym POMYSŁu IntelliJ. Kliknij prawym przyciskiem myszy pozycję **Zarządzanie zasobami** i wybierz pozycję **Utwórz wdrożenie**.
 
     ![Szablon Menedżer zasobów kliknij prawym przyciskiem myszy, aby utworzyć wdrożenie](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Skonfiguruj **nazwę wdrożenia**, **subskrypcję**, **grupę zasobów**i **region**. Tutaj wdrażamy szablon w nowej grupie `testRG`zasobów. Następnie wybierz pozycję ścieżka dla **szablonu zasobu** jak `azuredeploy.json` i **Parametry** `azuredeploy.parameters.json` zasobu podczas pobierania.
+1. Skonfiguruj **nazwę wdrożenia**, **subskrypcję**, **grupę zasobów**i **region**. Tutaj wdrażamy szablon w nowej grupie zasobów `testRG` . Następnie wybierz pozycję ścieżka dla **szablonu zasobu** jak `azuredeploy.json` i **parametry zasobu** podczas `azuredeploy.parameters.json` pobierania.
 
     ![Szablon Menedżer zasobów wybierz pliki do utworzenia wdrożenia](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
@@ -49,7 +49,7 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
 ## <a name="browse-an-existing-deployment"></a>Przeglądanie istniejącego wdrożenia
 
-1. Po zakończeniu wdrożenia zostanie wyświetlona nowa grupa `testRG` zasobów i nowe wdrożenie. Kliknij prawym przyciskiem myszy wdrożenie i zobaczysz listę możliwych akcji. Teraz wybierz pozycję **Pokaż właściwości**.
+1. Po zakończeniu wdrożenia zostanie wyświetlona nowa grupa zasobów `testRG` i nowe wdrożenie. Kliknij prawym przyciskiem myszy wdrożenie i zobaczysz listę możliwych akcji. Teraz wybierz pozycję **Pokaż właściwości**.
 
     ![Wdrożenie Menedżer zasobówego przeglądania szablonów](./media/create-templates-use-intellij/resource-manager-deployment-browse.png)
 
@@ -63,13 +63,13 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
     ![Edytowanie wdrożenia szablonu Menedżer zasobów](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
-1. Można edytować te dwa pliki na tej stronie i wdrażać zmiany na platformie Azure. W tym miejscu zmodyfikujemy wartość **storageAccountType** w plikach parametrów, od `Standard_LRS` do `Standard_GRS`. Następnie kliknij pozycję **Aktualizuj wdrożenie** u dołu i Potwierdź aktualizację.
+1. Można edytować te dwa pliki na tej stronie i wdrażać zmiany na platformie Azure. W tym miejscu zmodyfikujemy wartość **storageAccountType** w plikach parametrów, od `Standard_LRS` do `Standard_GRS` . Następnie kliknij pozycję **Aktualizuj wdrożenie** u dołu i Potwierdź aktualizację.
 
     ![Edytowanie wdrożenia szablonu Menedżer zasobów](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
-1. Po zakończeniu wdrażania aktualizacji można sprawdzić, czy w portalu została zmieniona wartość utworzone konto magazynu `Standard_GRS`.
+1. Po zakończeniu wdrażania aktualizacji można sprawdzić, czy w portalu została zmieniona wartość utworzone konto magazynu `Standard_GRS` .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Można to zrobić za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. W Eksploratorze Azure z POMYSŁu IntelliJ kliknij prawym przyciskiem myszy utworzoną **grupę zasobów** i wybierz pozycję Usuń.
 
@@ -86,4 +86,4 @@ Głównym celem tego artykułu jest użycie IntelliJ pomysł do wdrożenia istni
 > [Samouczki dla początkujących](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Odwiedź stronę Java w centrum deweloperów Azure](https://docs.microsoft.com/azure/java)
+> [Odwiedź stronę Java w centrum deweloperów Azure](/azure/java)

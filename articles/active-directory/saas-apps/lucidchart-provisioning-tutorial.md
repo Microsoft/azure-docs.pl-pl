@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0c7c1f5f633554a88b74694ed2aeafcd30c13a89
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0aea258ac52e078c48255b39145193272aa65b25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690604"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367975"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Lucidchart na potrzeby automatycznego aprowizacji użytkowników
 
@@ -162,8 +162,9 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 ## <a name="change-log"></a>Dziennik zmian
 
 * 04/30/2020 — dodano obsługę atrybutu rozszerzenia przedsiębiorstwa i atrybutu niestandardowego "Edytuj" dla użytkowników.
+* 06/15/2020 — jest włączone usuwanie nietrwałego użytkownika (obsługujący atrybut [aktywny](https://tools.ietf.org/html/rfc7643) ).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

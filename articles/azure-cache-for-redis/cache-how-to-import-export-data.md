@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278092"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85857001"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importowanie i eksportowanie danych w pamięci podręcznej platformy Azure dla Redis
 Import/Export to pamięć podręczna platformy Azure do Redis operacji zarządzania danymi, która umożliwia importowanie danych do usługi Azure cache dla Redis lub eksportowanie danych z pamięci podręcznej platformy Azure dla Redis przez zaimportowanie i eksportowanie pamięci podręcznej platformy Azure dla migawki bazy danych Redis Database (RDB) z pamięci podręcznej Premium do obiektu BLOB na koncie usługi Azure Storage.
@@ -28,7 +28,7 @@ Ten artykuł zawiera Przewodnik dotyczący importowania i eksportowania danych z
 >
 >
 
-## <a name="import"></a>Import
+## <a name="import"></a>Importuj
 Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego serwera Redis działającego w dowolnej chmurze lub środowisku, w tym Redis działających w systemie Linux, Windows lub dowolnym dostawcy chmury, takim jak Amazon Web Services i inne. Importowanie danych to prosty sposób tworzenia pamięci podręcznej z wstępnie wypełnionymi danymi. Podczas procesu importowania usługa Azure cache for Redis ładuje pliki RDB z usługi Azure Storage do pamięci, a następnie wstawia klucze do pamięci podręcznej.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego se
    >
    >
 
-    ![Import](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    ![Importuj](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
     Możesz monitorować postęp operacji importowania, wykonując powiadomienia z Azure Portal lub wyświetlając zdarzenia w [dzienniku inspekcji](../azure-resource-manager/management/view-activity-logs.md).
 
@@ -124,10 +124,10 @@ Pamięć podręczna systemu Azure dla usługi Redis obsługuje import RDB w wers
 Tak, i można importować/eksportować między klastrowaną pamięcią podręczną i nieklastrowaną pamięcią podręczną. Ponieważ klaster Redis [obsługuje tylko bazę danych 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), żadne dane z baz danych innych niż 0 nie są importowane. W przypadku zaimportowania klastrowanych danych pamięci podręcznej klucze są rozpowszechniane między fragmentów klastra.
 
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>W jaki sposób Usługa Import/Export współpracuje z niestandardowymi bazami danych?
-Niektóre warstwy cenowe mają różne [limity baz danych](cache-configure.md#databases), dlatego podczas importowania należy wziąć pod uwagę, jeśli skonfigurowano wartość niestandardową dla `databases` ustawienia podczas tworzenia pamięci podręcznej.
+Niektóre warstwy cenowe mają różne [limity baz danych](cache-configure.md#databases), dlatego podczas importowania należy wziąć pod uwagę, jeśli skonfigurowano wartość niestandardową dla `databases` Ustawienia podczas tworzenia pamięci podręcznej.
 
 * Podczas importowania do warstwy cenowej z niższym `databases` limitem niż warstwa, z której zostało wyeksportowane:
-  * Jeśli używasz domyślnej liczby `databases`, która jest 16 dla wszystkich warstw cenowych, żadne dane nie zostaną utracone.
+  * Jeśli używasz domyślnej liczby `databases` , która jest 16 dla wszystkich warstw cenowych, żadne dane nie zostaną utracone.
   * Jeśli używasz niestandardowej liczby `databases` , która znajduje się w granicach dla warstwy, do której importujesz, żadne dane nie zostaną utracone.
   * Jeśli wyeksportowane dane zawierały dane w bazie danych, które przekraczają limity nowej warstwy, nie są importowane dane z tych wyższych baz danych.
 
@@ -142,7 +142,9 @@ Tak, aby uzyskać instrukcje dotyczące programu PowerShell, zobacz [Importowani
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>Podczas operacji importu/eksportu otrzymałem błąd limitu czasu. Co to oznacza?
 Jeśli pozostaniesz w bloku **Importuj** dane lub **Eksportuj dane** dłużej niż 15 minut przed zainicjowaniem operacji, wystąpi błąd z komunikatem o błędzie podobnym do poniższego przykładu:
 
-    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```output
+The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+```
 
 Aby rozwiązać ten problem, zainicjuj operację importowania lub eksportowania przed upływem 15 minut.
 

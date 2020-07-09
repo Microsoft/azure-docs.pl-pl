@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82690285"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
@@ -29,7 +29,7 @@ Jedną z poświadczeń, których może używać aplikacja do uwierzytelniania, j
 ## <a name="assertion-format"></a>Format potwierdzenia
 Platforma tożsamości firmy Microsoft w celu obliczenia potwierdzenia można użyć jednej z wielu bibliotek [tokenów sieci Web JSON](https://jwt.ms/) w wybranym języku. Informacje przekazane przez token są następujące:
 
-### <a name="header"></a>Nagłówek
+### <a name="header"></a>Header
 
 | Parametr |  Dyskusji |
 | --- | --- |
@@ -46,7 +46,7 @@ Platforma tożsamości firmy Microsoft w celu obliczenia potwierdzenia można u�
 | `iss` | Wystawca: powinien być client_id (Identyfikator aplikacji usługi klienta). |
 | `jti` | GUID: Identyfikator JWT |
 | `nbf` | Nie przed: Data, przed upływem którego nie można użyć tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu wystawienia tokenu. |
-| `sub` | Podmiot: jako dla `iss`, powinien być CLIENT_ID (Identyfikator aplikacji usługi klienta) |
+| `sub` | Podmiot: jako dla `iss` , powinien być client_id (Identyfikator aplikacji usługi klienta) |
 
 ### <a name="signature"></a>Podpis
 
@@ -104,7 +104,7 @@ Mając certyfikat, należy obliczyć:
 - `$base64Thumbprint`, czyli kodowanie Base64 skrótu certyfikatu
 - `$base64Value`, czyli kodowanie Base64 danych pierwotnych certyfikatu
 
-Należy również podać identyfikator GUID, aby zidentyfikować klucz w manifeście aplikacji (`$keyId`).
+Należy również podać identyfikator GUID, aby zidentyfikować klucz w manifeście aplikacji ( `$keyId` ).
 
 W usłudze Azure App Registration dla aplikacji klienckiej:
 1. Wybierz pozycję **manifest** , aby otworzyć manifest aplikacji.
@@ -123,11 +123,11 @@ W usłudze Azure App Registration dla aplikacji klienckiej:
    ```
 3. Zapisz zmiany w manifeście aplikacji, a następnie Przekaż manifest do platformy tożsamości firmy Microsoft.
 
-   `keyCredentials` Właściwość jest wielowartościowa, więc można przekazać wiele certyfikatów do rozbudowanego zarządzania kluczami.
+   `keyCredentials`Właściwość jest wielowartościowa, więc można przekazać wiele certyfikatów do rozbudowanego zarządzania kluczami.
 
 ## <a name="code-sample"></a>Przykład kodu
 
 > [!NOTE]
-> Należy obliczyć nagłówek X5T, konwertując go na podstawowy ciąg 64 przy użyciu skrótu certyfikatu. Kod, który ma być wykonywany w języku `System.Convert.ToBase64String(cert.GetCertHash());`C#, to.
+> Należy obliczyć nagłówek X5T, konwertując go na podstawowy ciąg 64 przy użyciu skrótu certyfikatu. Kod, który ma być wykonywany w języku C#, to `System.Convert.ToBase64String(cert.GetCertHash());` .
 
-Przykład kodu [Aplikacja konsolowa demona .NET Core przy użyciu platformy tożsamości firmy Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) pokazuje, jak aplikacja korzysta z własnych poświadczeń do uwierzytelniania. Przedstawiono w `New-SelfSignedCertificate` nim również, jak [utworzyć certyfikat z](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) podpisem własnym za pomocą polecenia programu PowerShell. Możesz również wykorzystać [Skrypty tworzenia aplikacji](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) do tworzenia certyfikatów, obliczania odcisku palca i tak dalej.
+Przykład kodu [Aplikacja konsolowa demona .NET Core przy użyciu platformy tożsamości firmy Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) pokazuje, jak aplikacja korzysta z własnych poświadczeń do uwierzytelniania. Przedstawiono w nim również, jak [utworzyć certyfikat z](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) podpisem własnym za pomocą `New-SelfSignedCertificate` polecenia programu PowerShell. Możesz również wykorzystać [Skrypty tworzenia aplikacji](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) do tworzenia certyfikatów, obliczania odcisku palca i tak dalej.

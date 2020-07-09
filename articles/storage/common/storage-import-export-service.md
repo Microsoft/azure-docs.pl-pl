@@ -4,16 +4,15 @@ description: Dowiedz się, jak tworzyć zadania importu i eksportu w Azure Porta
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512435"
 ---
 # <a name="what-is-azure-importexport-service"></a>Co to jest usługa Azure Import/Export?
 
@@ -135,9 +134,9 @@ Dane na dysku są szyfrowane przy użyciu algorytmu AES 256-bit szyfrowanie dysk
 
 W przypadku zadań importowania dyski są szyfrowane na dwa sposoby.  
 
-* Określ opcję w przypadku korzystania z pliku *DataSet. csv* przy uruchamianiu narzędzia WAImportExport podczas przygotowywania dysku.
+* Określ opcję przy użyciu pliku *dataset.csv* podczas uruchamiania narzędzia WAImportExport podczas przygotowywania dysku.
 
-* Ręcznie Włącz szyfrowanie funkcji BitLocker na dysku. Określ klucz szyfrowania w pliku *driveset. csv* , gdy uruchamiasz wiersz polecenia narzędzia WAImportExport podczas przygotowywania dysku. Klucz szyfrowania BitLocker można dodatkowo chronić przy użyciu zewnętrznej ochrony klucza (znanej również jako klucz zarządzany przez firmę Microsoft) lub klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz jak [używać klucza zarządzanego przez klienta do ochrony klucza funkcji BitLocker](storage-import-export-encryption-key-portal.md).
+* Ręcznie Włącz szyfrowanie funkcji BitLocker na dysku. Określ klucz szyfrowania w *driveset.csv* w przypadku uruchamiania wiersza polecenia narzędzia WAImportExport podczas przygotowywania dysku. Klucz szyfrowania BitLocker można dodatkowo chronić przy użyciu zewnętrznej ochrony klucza (znanej również jako klucz zarządzany przez firmę Microsoft) lub klucza zarządzanego przez klienta. Aby uzyskać więcej informacji, zobacz jak [używać klucza zarządzanego przez klienta do ochrony klucza funkcji BitLocker](storage-import-export-encryption-key-portal.md).
 
 W przypadku zadań eksportu po skopiowaniu danych na dyski Usługa szyfruje dysk przy użyciu funkcji BitLocker przed wysłaniem jej z powrotem do użytkownika. Klucz szyfrowania jest dostarczany przez Azure Portal. Dysk należy odblokować przy użyciu narzędzia WAImporExport przy użyciu klucza.
 

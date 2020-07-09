@@ -11,20 +11,28 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: b0f01f5f044fd096704683fe67d2068e4ab4c3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982173"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji Azure Media Services v3
 
->Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` tego adresu URL: do czytnika źródła danych RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` do czytnika źródła danych RSS.
 
 W tym artykule omówiono najnowsze aktualizacje dokumentacji programu Media Services v3.
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="june-2020"></a>Czerwiec 2020 r.
+
+* Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Szczegółowe informacje znajdują się w dokumentacji [dotyczącej analizy filmów wideo na żywo w IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* Nowe Przewodniki Szybki Start:
+
+    * [Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu](manage-assets-quickstart.md)
+    * [Szyfrowanie zawartości przy użyciu portalu](encrypt-content-quickstart.md)
+
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 * Azure Media Player dokumenty zostały zmigrowane do [dokumentacji platformy Azure](../azure-media-player/azure-media-player-overview.md).
 * Dodano obsługę [przesyłania strumieniowego na żywo za pomocą programu Open Broadcast Studio (obs)](live-events-obs-quickstart.md) . Przedstawiono sposób tworzenia Media Services strumienia na żywo przy użyciu Azure Portal i OBS.

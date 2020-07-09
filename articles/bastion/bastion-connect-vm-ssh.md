@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak nawiązać połączenie z maszyną
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 381f45a51002188c72174cff83c26b829912a0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98f1f3d02d8433dd88fed844a587a961ea9f8c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744293"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Nawiązywanie połączenia przy użyciu protokołu SSH z maszyną wirtualną z systemem Linux przy użyciu usługi Azure bastionu
 
@@ -23,7 +23,7 @@ Za pomocą usługi Azure bastionu można nawiązać połączenie z maszyną wirt
 * Klucz prywatny ręcznie wprowadzony przez użytkownika
 * Plik zawierający informacje o kluczu prywatnym
 
-Klucz prywatny SSH musi mieć format zaczynający się od `"-----BEGIN RSA PRIVATE KEY-----"` i kończąc na. `"-----END RSA PRIVATE KEY-----"`
+Klucz prywatny SSH musi mieć format zaczynający się od `"-----BEGIN RSA PRIVATE KEY-----"` i kończąc na `"-----END RSA PRIVATE KEY-----"` .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

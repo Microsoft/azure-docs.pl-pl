@@ -6,8 +6,6 @@ documentationcenter: android
 keywords: powiadomienia wypychane, powiadomienie wypychane, powiadomienia wypychane w systemie android
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -18,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7e442d85303485ca8800d4bcb31a9afde06d0e69
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595022"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249243"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
 
@@ -160,14 +158,14 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
 
 ### <a name="adding-code"></a>Dodawanie kodu
 
-1. W widoku projektu rozwiń węzeł **App** > **src** > **Main** > **Java**. Kliknij prawym przyciskiem folder pakietu w węźle **java**, kliknij pozycję **New** (Nowy), a następnie kliknij pozycję **Java Class** (Klasa Java). Dodaj nową klasę o nazwie `NotificationSettings`.
+1. W widoku projektu rozwiń węzeł **App**  >  **src**  >  **Main**  >  **Java**. Kliknij prawym przyciskiem folder pakietu w węźle **java**, kliknij pozycję **New** (Nowy), a następnie kliknij pozycję **Java Class** (Klasa Java). Dodaj nową klasę o nazwie `NotificationSettings`.
 
     ![Android Studio – nowa klasa Java][6]
 
     Zaktualizuj trzy symbole zastępcze w poniższym kodzie dla klasy `NotificationSettings`:
 
    * `SenderId`: Numer projektu uzyskany wcześniej w [konsoli Google Cloud Console](https://cloud.google.com/console).
-   * `HubListenConnectionString`: Parametry `DefaultListenAccessSignature` połączenia dla centrum. Możesz skopiować te parametry połączenia, klikając pozycję **Zasady dostępu** na stronie **Ustawienia** centrum w witrynie [Azure Portal].
+   * `HubListenConnectionString`: `DefaultListenAccessSignature` Parametry połączenia dla centrum. Możesz skopiować te parametry połączenia, klikając pozycję **Zasady dostępu** na stronie **Ustawienia** centrum w witrynie [Azure Portal].
    * `HubName`: Użyj nazwy centrum powiadomień, która jest wyświetlana na stronie Centrum w [Azure Portal].
 
      `NotificationSettings` — kod:
@@ -449,7 +447,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
         }
     }
     ```
-14. W Android Studio na pasku menu kliknij kolejno pozycje **Kompiluj** > Kompiluj**ponownie projekt** , aby upewnić się, że w kodzie nie występują żadne błędy.
+14. W Android Studio na pasku menu kliknij kolejno pozycje **Kompiluj**Kompiluj  >  **ponownie projekt** , aby upewnić się, że w kodzie nie występują żadne błędy.
 
 ## <a name="testing-your-app"></a>Testowanie aplikacji
 
@@ -483,13 +481,13 @@ Możesz przetestować odbieranie powiadomień push w aplikacji, wysyłając je w
 
 Aby przetestować powiadomienia wypychane w emulatorze, upewnij się, że obraz emulatora obsługuje poziom interfejsu API Google wybrany dla aplikacji. Jeśli obraz nie obsługuje natywnych interfejsów API Google, wystąpi wyjątek **SERVICE\_NOT\_AVAILABLE** (usługa niedostępna).
 
-Ponadto upewnij się, że dodano konto Google do działającego emulatora w obszarze **Ustawienia** > **konta**. W przeciwnym razie próby rejestracji w usłudze GCM mogą spowodować wystąpienie wyjątku **AUTHENTICATION\_FAILED** (uwierzytelnianie nie powiodło się).
+Ponadto upewnij się, że dodano konto Google do działającego emulatora w obszarze **Ustawienia**  >  **konta**. W przeciwnym razie próby rejestracji w usłudze GCM mogą spowodować wystąpienie wyjątku **AUTHENTICATION\_FAILED** (uwierzytelnianie nie powiodło się).
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych bezpośrednio z poziomu aplikacji
 
 Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych przypadkach warto wysyłać powiadomienia bezpośrednio z aplikacji klienta. W tej sekcji wyjaśniono sposób wysyłania powiadomień z klienta przy użyciu [interfejsu API REST usługi Azure Notification Hubs](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. W widoku projektu Android Studio rozwiń węzeł **App** > **src** > **Main** > **res** > **layout**. Otwórz plik układu `activity_main.xml` i kliknij kartę **Text** (Tekst), aby zaktualizować zawartość tekstową pliku. Zaktualizuj go przy użyciu poniższego kodu, który dodaje nowe kontrolki `Button` i `EditText` służące do wysyłania komunikatów powiadomień wypychanych do centrum powiadomień. Dodaj ten kod w dolnej części bezpośrednio przed elementem `</RelativeLayout>`.
+1. W widoku projektu Android Studio rozwiń węzeł **App**  >  **src**  >  **Main**  >  **res**  >  **layout**. Otwórz plik układu `activity_main.xml` i kliknij kartę **Text** (Tekst), aby zaktualizować zawartość tekstową pliku. Zaktualizuj go przy użyciu poniższego kodu, który dodaje nowe kontrolki `Button` i `EditText` służące do wysyłania komunikatów powiadomień wypychanych do centrum powiadomień. Dodaj ten kod w dolnej części bezpośrednio przed elementem `</RelativeLayout>`.
 
     ```xml
     <Button
@@ -510,7 +508,7 @@ Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych 
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
-2. W widoku projektu Android Studio rozwiń węzeł **App** > **src** > **Main** > **res** > **Values**. Otwórz plik `strings.xml` i dodaj wartości ciągu, do których odwołują się nowe kontrolki `Button` i `EditText`. Dodaj poniższe wiersze w dolnej części pliku, bezpośrednio przed elementem `</resources>`.
+2. W widoku projektu Android Studio rozwiń węzeł **App**  >  **src**  >  **Main**  >  **res**  >  **Values**. Otwórz plik `strings.xml` i dodaj wartości ciągu, do których odwołują się nowe kontrolki `Button` i `EditText`. Dodaj poniższe wiersze w dolnej części pliku, bezpośrednio przed elementem `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>
@@ -746,4 +744,4 @@ W tym samouczku wysłano wyemitowane powiadomienia do wszystkich urządzeń z sy
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

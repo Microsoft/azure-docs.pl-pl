@@ -4,10 +4,9 @@ description: Utwórz punkt końcowy SSL lub TLS dla grupy kontenerów działają
 ms.topic: article
 ms.date: 02/14/2020
 ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80984610"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Włączanie punktu końcowego TLS w kontenerze przyczepki
@@ -46,19 +45,19 @@ Uruchom następujące polecenie, aby utworzyć certyfikat z podpisem własnym (p
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-Powinny teraz być widoczne trzy pliki w katalogu: żądanie certyfikatu (`ssl.csr`), klucz prywatny (`ssl.key`) i certyfikat z podpisem własnym (`ssl.crt`). Używasz `ssl.key` i `ssl.crt` w dalszych krokach.
+Powinny teraz być widoczne trzy pliki w katalogu: żądanie certyfikatu ( `ssl.csr` ), klucz prywatny ( `ssl.key` ) i certyfikat z podpisem własnym ( `ssl.crt` ). Używasz `ssl.key` i `ssl.crt` w dalszych krokach.
 
 ## <a name="configure-nginx-to-use-tls"></a>Konfigurowanie Nginx do korzystania z protokołu TLS
 
 ### <a name="create-nginx-configuration-file"></a>Utwórz plik konfiguracji Nginx
 
-W tej sekcji utworzysz plik konfiguracyjny Nginx do korzystania z protokołu TLS. Zacznij od skopiowania następującego tekstu do nowego pliku o nazwie `nginx.conf`. W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
+W tej sekcji utworzysz plik konfiguracyjny Nginx do korzystania z protokołu TLS. Zacznij od skopiowania następującego tekstu do nowego pliku o nazwie `nginx.conf` . W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
 
 ```console
 code nginx.conf
 ```
 
-Upewnij `location`się, że ustawiono `proxy_pass` prawidłowy port dla aplikacji. W tym przykładzie ustawimy port 80 dla `aci-helloworld` kontenera.
+`location`Upewnij się, że ustawiono `proxy_pass` prawidłowy port dla aplikacji. W tym przykładzie ustawimy port 80 dla `aci-helloworld` kontenera.
 
 ```console
 # nginx Configuration File
@@ -138,13 +137,13 @@ Teraz Wdróż grupę kontenerów, określając konfiguracje kontenerów w [pliku
 
 ### <a name="create-yaml-file"></a>Utwórz plik YAML
 
-Skopiuj następujący YAML do nowego pliku o nazwie `deploy-aci.yaml`. W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
+Skopiuj następujący YAML do nowego pliku o nazwie `deploy-aci.yaml` . W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
 
 ```console
 code deploy-aci.yaml
 ```
 
-Wprowadź zawartość plików zakodowanych algorytmem Base64, gdzie wskazano `secret`w. Na przykład każdy `cat` plik kodowany algorytmem Base64, aby wyświetlić jego zawartość. Podczas wdrażania te pliki są dodawane do [woluminu tajnego](container-instances-volume-secret.md) w grupie kontenerów. W tym przykładzie wolumin tajny jest instalowany w kontenerze Nginx.
+Wprowadź zawartość plików zakodowanych algorytmem Base64, gdzie wskazano w `secret` . Na przykład `cat` każdy plik kodowany algorytmem Base64, aby wyświetlić jego zawartość. Podczas wdrażania te pliki są dodawane do [woluminu tajnego](container-instances-volume-secret.md) w grupie kontenerów. W tym przykładzie wolumin tajny jest instalowany w kontenerze Nginx.
 
 ```YAML
 api-version: 2018-10-01
@@ -223,7 +222,7 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-tls-connection"></a>Weryfikowanie połączenia TLS
 
-Użyj przeglądarki, aby przejść do publicznego adresu IP grupy kontenerów. Adres IP przedstawiony w tym przykładzie to `52.157.22.76`, więc adres URL to. **https://52.157.22.76** Aby wyświetlić uruchomioną aplikację, należy użyć protokołu HTTPS z powodu konfiguracji serwera Nginx. Próba nawiązania połączenia za pośrednictwem protokołu HTTP kończy się niepowodzeniem.
+Użyj przeglądarki, aby przejść do publicznego adresu IP grupy kontenerów. Adres IP przedstawiony w tym przykładzie to `52.157.22.76` , więc adres URL to **https://52.157.22.76** . Aby wyświetlić uruchomioną aplikację, należy użyć protokołu HTTPS z powodu konfiguracji serwera Nginx. Próba nawiązania połączenia za pośrednictwem protokołu HTTP kończy się niepowodzeniem.
 
 ![Zrzut ekranu przedstawiający aplikację uruchomioną w wystąpieniu kontenera platformy Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
@@ -241,5 +240,5 @@ W tym artykule jest używany Nginx w przyczepie, można użyć innego dostawcy T
 Jeśli grupa kontenerów jest wdrażana w [sieci wirtualnej platformy Azure](container-instances-vnet.md), można rozważyć inne opcje, aby włączyć punkt końcowy protokołu TLS dla wystąpienia kontenera zaplecza, w tym:
 
 * [serwery proxy usługi Azure Functions](../azure-functions/functions-proxies.md)
-* [Azure API Management](../api-management/api-management-key-concepts.md)
+* [Usługa Azure API Management](../api-management/api-management-key-concepts.md)
 * [Application Gateway platformy Azure](../application-gateway/overview.md) — Zobacz przykładowy [szablon wdrożenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

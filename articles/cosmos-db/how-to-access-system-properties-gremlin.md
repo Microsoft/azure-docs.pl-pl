@@ -3,20 +3,20 @@ title: Uzyskiwanie dostępu do właściwości dokumentu systemowego za pomocą g
 description: Dowiedz się, jak odczytywać i zapisywać Cosmos DB właściwości dokumentu systemu za pośrednictwem interfejsu API Gremlin
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 4ed7e67ae0ef027b260d0e0f0407e4e05ed5a8f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898302"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390350"
 ---
 # <a name="system-document-properties"></a>Właściwości dokumentu systemowego
 
-Azure Cosmos DB zawiera [Właściwości systemu](https://docs.microsoft.com/rest/api/cosmos-db/databases) , takie ```_ts```jak ```_self```, ```_attachments```, ```_rid```, i ```_etag``` na wszystkich dokumentach. Ponadto aparat Gremlin dodaje właściwości ```inVPartition``` i ```outVPartition``` dla krawędzi. Domyślnie te właściwości są dostępne do przechodzenia. Można jednak uwzględnić określone właściwości lub wszystkie z nich podczas przechodzenia Gremlin.
+Azure Cosmos DB zawiera [Właściwości systemu](/rest/api/cosmos-db/databases) , takie jak ```_ts``` , ```_self``` ,, ```_attachments``` ```_rid``` i ```_etag``` na wszystkich dokumentach. Ponadto aparat Gremlin dodaje właściwości ```inVPartition``` i ```outVPartition``` dla krawędzi. Domyślnie te właściwości są dostępne do przechodzenia. Można jednak uwzględnić określone właściwości lub wszystkie z nich podczas przechodzenia Gremlin.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
@@ -32,7 +32,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## <a name="time-to-live-ttl"></a>Czas wygaśnięcia (TTL)
 
-Jeśli dla kolekcji włączono opcję wygaśnięcia dokumentu, a ```ttl``` dokumenty mają dla nich ustawioną właściwość, ta właściwość będzie dostępna w przechodzeniu Gremlin jako zwykła Właściwość wierzchołka lub krawędzi. ```ProjectionStrategy```nie jest konieczne, aby włączyć ekspozycję właściwości czasu wygaśnięcia.
+Jeśli dla kolekcji włączono opcję wygaśnięcia dokumentu, a dokumenty mają ```ttl``` dla nich ustawioną właściwość, ta właściwość będzie dostępna w przechodzeniu Gremlin jako zwykła Właściwość wierzchołka lub krawędzi. ```ProjectionStrategy```nie jest konieczne, aby włączyć ekspozycję właściwości czasu wygaśnięcia.
 
 Wierzchołek utworzony za pomocą poniższej operacji przechodzenia zostanie automatycznie usunięty za **123 sekundy**.
 

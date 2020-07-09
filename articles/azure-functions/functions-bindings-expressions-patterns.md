@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277650"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261073"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Wzorce wyrażeń powiązań Azure Functions
 
-Jedną z najbardziej zaawansowanych funkcji [wyzwalaczy i powiązań](./functions-triggers-bindings.md) jest *wyrażenie wiążące*. W pliku *Function. JSON* oraz w parametrach i kodzie funkcji można użyć wyrażeń, które rozwiązują wartości z różnych źródeł.
+Jedną z najbardziej zaawansowanych funkcji [wyzwalaczy i powiązań](./functions-triggers-bindings.md) jest *wyrażenie wiążące*. W *function.jsna* pliku i w parametrach i kodzie funkcji można używać wyrażeń, które rozwiązują wartości z różnych źródeł.
 
-Większość wyrażeń identyfikuje się przez umieszczenie ich w nawiasach klamrowych. Na przykład, w funkcji wyzwalacza kolejki, `{queueTrigger}` jest rozpoznawana jako tekst komunikatu w kolejce. Jeśli `path` właściwość dla powiązania danych wyjściowych obiektu BLOB `container/{queueTrigger}` ma wartość, a funkcja jest wyzwalana przez `HelloWorld`komunikat w kolejce, `HelloWorld` tworzony jest obiekt BLOB o nazwie.
+Większość wyrażeń identyfikuje się przez umieszczenie ich w nawiasach klamrowych. Na przykład, w funkcji wyzwalacza kolejki, jest `{queueTrigger}` rozpoznawana jako tekst komunikatu w kolejce. Jeśli `path` Właściwość dla powiązania danych wyjściowych obiektu BLOB ma wartość, `container/{queueTrigger}` a funkcja jest wyzwalana przez komunikat w kolejce `HelloWorld` , tworzony jest obiekt BLOB o nazwie `HelloWorld` .
 
 Typy wyrażeń powiązania
 
@@ -29,17 +29,18 @@ Typy wyrażeń powiązania
 
 ## <a name="binding-expressions---app-settings"></a>Wyrażenia powiązań — ustawienia aplikacji
 
-Najlepszym rozwiązaniem jest zarządzanie kluczami tajnymi i ciągami połączeń przy użyciu ustawień aplikacji, a nie plików konfiguracji. Pozwala to ograniczyć dostęp do tych kluczy tajnych i umożliwia bezpieczne przechowywanie plików, takich jak *Function. JSON* , w repozytoriach kontroli źródła publicznego.
+Najlepszym rozwiązaniem jest zarządzanie kluczami tajnymi i ciągami połączeń przy użyciu ustawień aplikacji, a nie plików konfiguracji. Pozwala to ograniczyć dostęp do tych kluczy tajnych i umożliwia bezpieczne przechowywanie plików, takich jak *function.jsna* publicznych repozytoriach kontroli źródła.
 
 Ustawienia aplikacji są również przydatne, gdy chcesz zmienić konfigurację w oparciu o środowisko. Na przykład w środowisku testowym może być konieczne monitorowanie innej kolejki lub kontenera magazynu obiektów BLOB.
 
-Wyrażenia powiązań ustawień aplikacji są identyfikowane inaczej od innych wyrażeń powiązania: są one opakowane w znaki procentowe, a nie nawiasy klamrowe. Na przykład jeśli ścieżka powiązania danych wyjściowych obiektu `%Environment%/newblob.txt` BLOB jest `Environment` i wartość ustawienia aplikacji `Development`to, obiekt BLOB zostanie utworzony w `Development` kontenerze.
+Wyrażenia powiązań ustawień aplikacji są identyfikowane inaczej od innych wyrażeń powiązania: są one opakowane w znaki procentowe, a nie nawiasy klamrowe. Na przykład jeśli ścieżka powiązania danych wyjściowych obiektu BLOB jest `%Environment%/newblob.txt` i `Environment` wartość ustawienia aplikacji to `Development` , obiekt BLOB zostanie utworzony w `Development` kontenerze.
 
-Gdy funkcja działa lokalnie, wartości ustawień aplikacji pochodzą z pliku *Local. Settings. JSON* .
+Gdy funkcja działa lokalnie, wartości ustawień aplikacji pochodzą z *local.settings.js* pliku.
 
-Należy zauważyć, `connection` że właściwość wyzwalacze i powiązania jest szczególnym przypadkiem i automatycznie rozpoznaje wartości jako ustawienia aplikacji, bez znaków procentu. 
+> [!NOTE]
+> `connection`Właściwość wyzwalaczy i powiązań jest szczególnym przypadkiem i automatycznie rozpoznaje wartości jako ustawienia aplikacji bez znaków procentu. 
 
-Poniższy przykład to wyzwalacz usługi Azure Queue Storage, który używa ustawienia `%input-queue-name%` aplikacji do zdefiniowania kolejki do wyzwalania.
+Poniższy przykład to wyzwalacz usługi Azure Queue Storage, który używa ustawienia aplikacji `%input-queue-name%` do zdefiniowania kolejki do wyzwalania.
 
 ```json
 {
@@ -69,9 +70,9 @@ public static void Run(
 
 ## <a name="trigger-file-name"></a>Nazwa pliku wyzwalacza
 
-Wyzwalacz `path` dla obiektu BLOB może być wzorcem, który umożliwia odwoływanie się do nazwy obiektu BLOB wyzwalającego w innych powiązaniach i kodzie funkcji. Wzorzec może również obejmować kryteria filtrowania, które określają, które obiekty blob mogą wyzwalać wywołanie funkcji.
+`path`Wyzwalacz dla obiektu BLOB może być wzorcem, który umożliwia odwoływanie się do nazwy obiektu BLOB wyzwalającego w innych powiązaniach i kodzie funkcji. Wzorzec może również obejmować kryteria filtrowania, które określają, które obiekty blob mogą wyzwalać wywołanie funkcji.
 
-Na przykład w poniższym powiązaniu wyzwalacza obiektu BLOB `path` wzorzec jest `sample-images/{filename}`, który tworzy wyrażenie powiązania o nazwie: `filename`
+Na przykład w poniższym powiązaniu wyzwalacza obiektu BLOB `path` wzorzec jest `sample-images/{filename}` , który tworzy wyrażenie powiązania o nazwie `filename` :
 
 ```json
 {
@@ -115,7 +116,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-Ta sama możliwość używania wyrażeń i wzorców powiązań ma zastosowanie do atrybutów w bibliotekach klas. W poniższym przykładzie parametry konstruktora atrybutów są te same `path` wartości, jak w przypadku poprzedniej *funkcji. Przykłady JSON* : 
+Ta sama możliwość używania wyrażeń i wzorców powiązań ma zastosowanie do atrybutów w bibliotekach klas. W poniższym przykładzie parametry konstruktora atrybutów są te same `path` wartości jak w poprzednim *function.jsna* przykład: 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -159,7 +160,7 @@ Na przykład wyzwalacz usługi Azure queue storage obsługuje następujące wła
 * NextVisibleTime
 * PopReceipt
 
-Te wartości metadanych są dostępne we właściwościach pliku *Function. JSON* . Załóżmy na przykład, że używasz wyzwalacza kolejki, a komunikat kolejki zawiera nazwę obiektu BLOB, który ma zostać odczytany. W pliku *Function. JSON* można użyć `queueTrigger` właściwości Metadata we właściwości obiektu BLOB `path` , jak pokazano w następującym przykładzie:
+Te wartości metadanych są dostępne w *function.jsna* właściwościach pliku. Załóżmy na przykład, że używasz wyzwalacza kolejki, a komunikat kolejki zawiera nazwę obiektu BLOB, który ma zostać odczytany. W *function.js* pliku można użyć `queueTrigger` Właściwości Metadata we właściwości obiektu BLOB `path` , jak pokazano w następującym przykładzie:
 
 ```json
   "bindings": [
@@ -185,7 +186,7 @@ Szczegóły właściwości metadanych każdego wyzwalacza są opisane w odpowied
 
 Gdy ładunek wyzwalacza to JSON, można odwołać się do jego właściwości w konfiguracji dla innych powiązań w tej samej funkcji i w kodzie funkcji.
 
-W poniższym przykładzie przedstawiono plik *Function. JSON* dla funkcji webhook, która otrzymuje nazwę obiektu BLOB w formacie JSON: `{"BlobName":"HelloWorld.txt"}`. Powiązanie danych wejściowych obiektu BLOB odczytuje obiekt BLOB, a powiązanie danych wyjściowych HTTP zwraca zawartość obiektu BLOB w odpowiedzi HTTP. Zwróć uwagę, że powiązanie danych wejściowych obiektu BLOB Pobiera nazwę obiektu BLOB, odwołując się bezpośrednio do `BlobName` właściwości (`"path": "strings/{BlobName}"`)
+Poniższy przykład pokazuje *function.jsw* pliku dla funkcji webhook, która otrzymuje nazwę obiektu BLOB w formacie JSON: `{"BlobName":"HelloWorld.txt"}` . Powiązanie danych wejściowych obiektu BLOB odczytuje obiekt BLOB, a powiązanie danych wyjściowych HTTP zwraca zawartość obiektu BLOB w odpowiedzi HTTP. Zwróć uwagę, że powiązanie danych wejściowych obiektu BLOB Pobiera nazwę obiektu BLOB, odwołując się bezpośrednio do `BlobName` właściwości ( `"path": "strings/{BlobName}"` )
 
 ```json
 {
@@ -268,7 +269,7 @@ Jeśli niektóre właściwości w ładunku JSON są obiektami z właściwościam
 }
 ```
 
-Można odwołać się bezpośrednio `FileName` do `BlobName.FileName`programu. W tym formacie JSON `path` właściwość w poprzednim przykładzie będzie wyglądać następująco:
+Można odwołać się bezpośrednio do programu `FileName` `BlobName.FileName` . W tym formacie JSON `path` Właściwość w poprzednim przykładzie będzie wyglądać następująco:
 
 ```json
 "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
@@ -290,7 +291,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Tworzenie identyfikatorów GUID
 
-Wyrażenie `{rand-guid}` powiązania tworzy identyfikator GUID. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *50710cb5-84b9-4d87-9d83-a03d6976a682. txt*.
+`{rand-guid}`Wyrażenie powiązania tworzy identyfikator GUID. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
 
 ```json
 {
@@ -303,7 +304,7 @@ Wyrażenie `{rand-guid}` powiązania tworzy identyfikator GUID. Następująca ś
 
 ## <a name="current-time"></a>Bieżący czas
 
-Wyrażenie `DateTime` powiązania jest rozpoznawane `DateTime.UtcNow`jako. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie *2018 r-02-16T17-59 -55z. txt*.
+Wyrażenie powiązania jest `DateTime` rozpoznawane jako `DateTime.UtcNow` . Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *2018-02-16T17-59-55Z.txt*.
 
 ```json
 {
@@ -315,7 +316,7 @@ Wyrażenie `DateTime` powiązania jest rozpoznawane `DateTime.UtcNow`jako. Nast�
 ```
 ## <a name="binding-at-runtime"></a>Powiązanie w czasie wykonywania
 
-W języku C# i innych językach .NET można użyć wzorca powiązania bezwzględnego, w przeciwieństwie do deklaratywnych powiązań w *funkcji Function. JSON* i atrybutów. Bezwzględne powiązanie jest przydatne, gdy parametry powiązania muszą być obliczane w czasie wykonywania, a nie w czasie projektowania. Aby dowiedzieć się więcej, zobacz [informacje dotyczące deweloperów w języku c#](functions-dotnet-class-library.md#binding-at-runtime) lub [informacje dotyczące deweloperów skryptów języka c#](functions-reference-csharp.md#binding-at-runtime).
+W języku C# i innych językach .NET można użyć wzorca powiązania bezwzględnego, w przeciwieństwie do deklaratywnych powiązań w *function.jsna* i atrybutów. Bezwzględne powiązanie jest przydatne, gdy parametry powiązania muszą być obliczane w czasie wykonywania, a nie w czasie projektowania. Aby dowiedzieć się więcej, zobacz [informacje dotyczące deweloperów w języku c#](functions-dotnet-class-library.md#binding-at-runtime) lub [informacje dotyczące deweloperów skryptów języka c#](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

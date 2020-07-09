@@ -8,10 +8,9 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606282"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Mapowanie transformacji przepływu danych — omówienie
@@ -38,6 +37,6 @@ Poniżej znajduje się lista transformacji, które są obecnie obsługiwane w ma
 | [Sortowanie](data-flow-sort.md) | Modyfikator wiersza | Sortuj wiersze przychodzące w bieżącym strumieniu danych |
 | [Element źródłowy](data-flow-source.md) | - | Źródło danych dla przepływu danych |
 | [Klucz zastępczy](data-flow-surrogate-key.md) | Modyfikator schematu | Dodaj przyrostową wartość klucza niezwiązanej z firmą |
-| [Unii](data-flow-union.md) | Wiele danych wejściowych/wyjściowych | Łączenie wielu strumieni danych w pionie |
+| [Unia](data-flow-union.md) | Wiele danych wejściowych/wyjściowych | Łączenie wielu strumieni danych w pionie |
 | [Anulowanie przestawiania](data-flow-unpivot.md) | Modyfikator schematu | Przestawianie kolumn na wartości wierszy |
 | [Okno](data-flow-window.md) | Modyfikator schematu |  Zdefiniuj agregacje kolumn w strumieniach danych. |

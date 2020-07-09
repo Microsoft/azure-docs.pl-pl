@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
 ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499840"
 ---
 # <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
@@ -32,7 +31,7 @@ Zalecamy korzystanie z programu GPv2, dzięki czemu można korzystać z najnowsz
 > [!NOTE]
 > Tylko Warstwa dostępu gorąca jest obsługiwana w przypadku Azure Media Services, chociaż inne warstwy dostępu mogą służyć do obniżenia kosztów magazynowania zawartości, która nie jest aktywnie używana.
 
-Istnieją różne jednostki SKU, które można wybrać dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. Jednak podczas wybierania jednostki SKU do produkcji należy rozważyć `--sku Standard_RAGRS`, która zapewnia replikację geograficzną w celu zapewnienia ciągłości działania.
+Istnieją różne jednostki SKU, które można wybrać dla konta magazynu. Aby uzyskać więcej informacji, zobacz temat [Konta magazynu](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Jeśli chcesz poeksperymentować z kontami magazynu, użyj parametru `--sku Standard_LRS`. Jednak podczas wybierania jednostki SKU do produkcji należy rozważyć `--sku Standard_RAGRS` , która zapewnia replikację geograficzną w celu zapewnienia ciągłości działania.
 
 ## <a name="assets-in-a-storage-account"></a>Zasoby na koncie magazynu
 

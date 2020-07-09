@@ -4,15 +4,14 @@ description: Procedura anonsowania tras niestandardowych na klientach punkt-loka
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3588755e2aab1c84d443e917eca8c7fca280b49a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987584"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anonsowanie tras niestandardowych dla klientów sieci VPN P2S
 
@@ -22,7 +21,7 @@ Możesz chcieć anonsować trasy niestandardowe wszystkim klientom sieci VPN typ
 
 ## <a name="to-advertise-custom-routes"></a>Aby anonsować trasy niestandardowe
 
-Aby anonsować trasy niestandardowe, użyj `Set-AzVirtualNetworkGateway cmdlet`. Poniższy przykład pokazuje, jak anonsować adres IP dla [tabel kont magazynu contoso](https://contoso.table.core.windows.net).
+Aby anonsować trasy niestandardowe, użyj `Set-AzVirtualNetworkGateway cmdlet` . Poniższy przykład pokazuje, jak anonsować adres IP dla [tabel kont magazynu contoso](https://contoso.table.core.windows.net).
 
 1. Wyślij polecenie ping do *contoso.Table.Core.Windows.NET* i Zanotuj adres IP. Przykład:
 

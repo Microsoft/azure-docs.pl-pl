@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76024743"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenariusze aplikacji Service Fabric
@@ -55,15 +54,15 @@ Tworzenie aplikacji za pomocą ról procesów roboczych platformy Azure Cloud Se
 
 Usługi stanowe w Service Fabric zapewniają wysoką dostępność dla wszystkich typów aplikacji, a nie tylko baz danych i innych magazynów danych. Jest to naturalne postępy. Aplikacje zostały już przeniesione z używania czystych relacyjnych baz danych w celu zapewnienia wysokiej dostępności do baz danych NoSQL. Teraz aplikacje mogą mieć swój stan "gorąca" i zarządzane przez nie dane w celu uzyskania dodatkowych korzyści z wydajności bez utraty niezawodności, spójności i dostępności.
 
-Podczas kompilowania aplikacji, które składają się z mikrousług, zazwyczaj istnieje kombinacja bezstanowych aplikacji sieci Web (takich jak ASP.NET i Node. js) wywołujących bezstanowe i stanowe usługi warstwy środkowej. Wszystkie aplikacje i usługi są wdrażane w tym samym klastrze Service Fabric za pomocą poleceń wdrażania Service Fabric. Każda z tych usług jest niezależna w odniesieniu do skalowalności, niezawodności i użycia zasobów. Ta niezależność zwiększa elastyczność i elastyczność w zakresie programowania i zarządzania cyklem życia.
+Podczas kompilowania aplikacji, które składają się z mikrousług, zazwyczaj istnieje kombinacja bezstanowych aplikacji sieci Web (takich jak ASP.NET i Node.js) wywoływanych na bezstanowe i stanowe usługi warstwy środkowej. Wszystkie aplikacje i usługi są wdrażane w tym samym klastrze Service Fabric za pomocą poleceń wdrażania Service Fabric. Każda z tych usług jest niezależna w odniesieniu do skalowalności, niezawodności i użycia zasobów. Ta niezależność zwiększa elastyczność i elastyczność w zakresie programowania i zarządzania cyklem życia.
 
 Mikrousługi stanowe upraszczają projekty aplikacji, ponieważ usuwają potrzebę dodatkowych kolejek i pamięci podręcznych, które tradycyjnie nie są wymagane do rozwiązania wymagań dotyczących dostępności i opóźnień w przypadku aplikacji czystych bezstanowych. Ze względu na to, że usługi stanowe mają wysoką dostępność i małe opóźnienia, w aplikacji można zarządzać mniej więcej.
 
 Poniższe diagramy ilustrują różnice między projektowaniem aplikacji, która jest bezstanowa i jednego ze stanowych. Dzięki wykorzystaniu modeli programowania [Reliable Services](service-fabric-reliable-services-introduction.md) i [Reliable Actors](service-fabric-reliable-actors-introduction.md) , usługi stanowe zmniejszają złożoność aplikacji przy jednoczesnym osiągnięciu dużej przepływności i małych opóźnień.
 
-Oto przykładowa aplikacja korzystająca z usług bezstanowych: ![aplikacja, która korzysta z usług bezstanowych][Image1]
+Oto przykładowa aplikacja korzystająca z usług bezstanowych: ![ aplikacja, która korzysta z usług bezstanowych][Image1]
 
-Oto przykładowa aplikacja korzystająca z usług stanowych ![: aplikacja, która korzysta z usług stanowych][Image2]
+Oto przykładowa aplikacja korzystająca z usług stanowych: ![ aplikacja, która korzysta z usług stanowych][Image2]
 
 ## <a name="next-steps"></a>Następne kroki
 

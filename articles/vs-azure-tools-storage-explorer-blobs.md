@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
 ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244396"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298127"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage
 
@@ -188,7 +188,7 @@ Poniższe kroki ilustrują sposób zarządzania obiektami BLOB (i folderami) w k
         ![Opcje przekazywania plików][16]
      3. Określ typ **typu obiektu BLOB**. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. Opcjonalnie określ folder docelowy, do którego zostaną przekazane wybrane pliki. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
-     5. Wybierz pozycję **Przekaż**.
+     5. Wybierz przycisk **Przekaż**.
    * **Przekazywanie folderu do kontenera obiektów BLOB**
 
      1. Na pasku narzędzi okienka głównego wybierz pozycję **Przekaż**, a następnie **Przekaż folder** z menu rozwijanego.
@@ -199,7 +199,7 @@ Poniższe kroki ilustrują sposób zarządzania obiektami BLOB (i folderami) w k
         ![Opcje przekazywania folderów][18]
      3. Określ typ **typu obiektu BLOB**. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) .
      4. Opcjonalnie określ folder docelowy, do którego zawartość wybranego folderu zostanie przekazana. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
-     5. Wybierz pozycję **Przekaż**.
+     5. Wybierz przycisk **Przekaż**.
    * **Pobieranie obiektu BLOB do komputera lokalnego**
 
      1. Wybierz obiekt BLOB, który chcesz pobrać.

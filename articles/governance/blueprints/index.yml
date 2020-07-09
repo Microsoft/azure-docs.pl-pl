@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Blueprints
-summary: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Resource Manager, kontrole dostępu oparte na rolach i zasady.
+summary: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Azure Resource Manager, kontrole dostępu oparte na rolach i zasady.
 metadata:
   title: Dokumentacja usługi Azure Blueprints
-  description: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Resource Manager, kontrole dostępu oparte na rolach i zasady.
+  description: Uprość wdrożenia, umieszczając w jednej definicji strategii artefakty takie jak szablony usługi Azure Resource Manager, kontrole dostępu oparte na rolach i zasady.
   ms.service: blueprints
   ms.topic: landing-page
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/01/2019
-  ms.openlocfilehash: d80b82b9e8e41e9bfdc7b9ac180ccc8916481acb
-  ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-  ms.translationtype: HT
+  ms.date: 06/29/2020
+  ms.openlocfilehash: 04c99d2428bd3c92187ce9383f51d38a9729d22a
+  ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+  ms.translationtype: 
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84116108"
+  ms.lasthandoff: 07/06/2020
+  ms.locfileid: "85969383"
 landingContent:
 - title: Informacje o usłudze Azure Blueprints
   linkLists:
@@ -37,9 +37,11 @@ landingContent:
     links:
     - text: Tworzenie nowej strategii (portal)
       url: ./create-blueprint-portal.md
-    - text: Tworzenie nowej strategii (PowerShell)
+    - text: Tworzenie nowej strategii (interfejs wiersza polecenia platformy Azure)
+      url: ./create-blueprint-azurecli.md
+    - text: Tworzenie strategii — Azure PowerShell
       url: ./create-blueprint-powershell.md
-    - text: Tworzenie nowej strategii (interfejs API REST)
+    - text: Tworzenie nowej strategii (REST)
       url: ./create-blueprint-rest-api.md
   - linkListType: tutorial
     links:
@@ -82,7 +84,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Blueprints
-      url: /answers/topics/azure-blueprints.html.html
+      url: /answers/topics/azure-blueprints.html
     - text: Kanał w witrynie YouTube dotyczący ładu Azure
       url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
     - text: Zażądaj funkcji produktu
@@ -97,9 +99,11 @@ landingContent:
       url: ./reference/blueprint-functions.md
     - text: Moduł programu PowerShell (PSGallery)
       url: https://www.powershellgallery.com/packages/Az.Blueprint
+    - text: Interfejs wiersza polecenia platformy Azure
+      url: /cli/azure/ext/blueprint/blueprint
     - text: Azure PowerShell
       url: /powershell/module/az.blueprint/#blueprint
-    - text: Interfejs API REST
-      url: /rest/api/blueprints/
-    - text: .NET
+    - text: Zestaw Azure SDK dla platformy .NET
       url: /dotnet/api/overview/azure/blueprints/management
+    - text: REST
+      url: /rest/api/blueprints/

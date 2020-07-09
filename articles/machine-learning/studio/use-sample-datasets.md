@@ -5,17 +5,17 @@ description: Opisy zestawów danych używanych w przykładowych modelach zawarty
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 9bdf1cd8832d311a71276fa18d407a5b4dd98d24
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85321833"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Korzystanie z przykładowych zestawów danych w Azure Machine Learning Studio (klasyczny)
 
@@ -142,7 +142,7 @@ Etykiety z wyzwania KDD 2009 (<a href="http://www.sigkdd.org/site/2009/files/ora
 <tr>
   <td>Udostępniony zestaw danych programu CRM</td>
   <td>
-Te dane pochodzą z wyzwania KDD 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train. Data. zip</a>).
+Te dane pochodzą z wyzwania KDD 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 Zestaw danych zawiera klientów 50 000 z niemieckiej firmy telekomunikacyjnej pomarańczowa. Każdy klient ma 230 funkcje anonimowe, 190, które są liczbowe i 40 są kategorii. Funkcje są bardzo rozrzedzone.
   </td>
@@ -303,7 +303,7 @@ Klasy stalowe są zgodne z zestawem Standard zdefiniowanym przez SAE i inne orga
 <p></p>
 <b>Powiązane badania:</b> Szterling, D. & Buntine, W. (NA). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
 <p></p>
-Przydatny Przewodnik dotyczący gatunków stali można znaleźć tutaj:<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
+Przydatny Przewodnik dotyczący gatunków stali można znaleźć tutaj:<a href="https://www.steamforum.com/pictures/Outokumpu-steel-grades-properties-global-standards.pdf">https://www.steamforum.com/pictures/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -359,48 +359,48 @@ Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc li
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">plik direct_marketing. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td>
 Zestaw danych zawiera dane klienta i informacje o ich odpowiedzi na bezpośrednią kampanię korespondencyjną. Każdy wiersz reprezentuje klienta. Zestaw danych zawiera dziewięć funkcji dotyczących elementów demograficznych użytkownika i przeszłe zachowanie oraz trzy kolumny etykiet (odwiedzin, konwersji i wydatków).  Odwiedzanie jest kolumną binarną, która wskazuje, że klient odwiedził po kampanii marketingowej. Konwersja wskazuje, że klient kupił coś. Wydatki to kwota, która została pobrana.  Zestaw danych został udostępniony przez Jan Hillstrom na potrzeby analizy poczty E-Mail MineThatData i wyzwania wyszukiwania danych.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">plik lyrl2004_tokens_test. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td>
 Przykłady testów w zestawie danych Aktualności RCV1-v2 firmy Reuters. Zestaw danych zawiera 781K artykuły z wiadomościami oraz ich identyfikatory (pierwsza kolumna zestawu danych). Każdy artykuł ma tokeny, stopworded i odszukane. Zestaw danych został udostępniony przez David. D. Lewis przedstawiają.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">plik lyrl2004_tokens_train. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td>
 Przykłady szkoleń w zestawie danych RCV1-v2 Reuters News. Zestaw danych zawiera 23K artykuły z wiadomościami oraz ich identyfikatory (pierwsza kolumna zestawu danych). Każdy artykuł ma tokeny, stopworded i odszukane. Zestaw danych został udostępniony przez David. D. Lewis przedstawiają.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">plik network_intrusion_detection. csv</a><br></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Zestaw danych z KDD 1999 wiedzy dotyczącej narzędzi do odnajdywania i wyszukiwania danych (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99. html</a>).
+Zestaw danych z KDD 1999 wiedzy narzędzia do odnajdywania i wyszukiwania danych (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
-Zestaw danych został pobrany i zapisany w usłudze Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection. csv</a>) i zawiera zestawy danych do szkolenia i testowania. Zestaw danych szkoleniowych zawiera około 126K wierszy i 43 kolumn, łącznie z etykietami. Trzy kolumny są częścią informacji o etykiecie, a 40 kolumn, składających się z funkcji liczbowych i ciągów/kategorii, są dostępne do uczenia modelu. Dane testowe mają około 22.5 K testów z tymi samymi kolumnami 43, co w danych szkoleniowych.
+Zestaw danych został pobrany i zapisany w usłudze Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) i obejmuje szkolenia i testy zestawów danych. Zestaw danych szkoleniowych zawiera około 126K wierszy i 43 kolumn, łącznie z etykietami. Trzy kolumny są częścią informacji o etykiecie, a 40 kolumn, składających się z funkcji liczbowych i ciągów/kategorii, są dostępne do uczenia modelu. Dane testowe mają około 22.5 K testów z tymi samymi kolumnami 43, co w danych szkoleniowych.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2. temats. qrels. csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Przypisania tematu dotyczące artykułów z wiadomościami w zestawie danych RCV1-v2 Reuters News. Artykuł z wiadomościami można przypisać do kilku tematów. Każdy wiersz jest w formacie " &lt; tematu o nazwie &gt; &lt; dokumentu &gt; 1". Zestaw danych zawiera 2,6 M przypisań tematu. Zestaw danych został udostępniony przez David. D. Lewis przedstawiają.
   </td>
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Te dane pochodzą z wyzwania testowego oceny wydajności KDD filiżanki 2010 (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">Ocena wydajności ucznia</a>). Używane dane to Algebra_2008_2009 zestawu szkoleniowego (Sygnatura, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebry I 2008-2009. Zestaw danych wyzwania z KDD 2010 filiżanki — wyzwanie dla wyszukiwania danych edukacyjnych. Znajdź go przy <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">pobieraniu. jsp</a>.
+Te dane pochodzą z wyzwania testowego oceny wydajności KDD filiżanki 2010 (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">Ocena wydajności ucznia</a>). Używane dane to Algebra_2008_2009 zestawu szkoleniowego (Sygnatura, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebry I 2008-2009. Zestaw danych wyzwania z KDD 2010 filiżanki — wyzwanie dla wyszukiwania danych edukacyjnych. Znajdź ją na <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
-Zestaw danych został pobrany i zapisany w usłudze Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance. txt</a>) i zawiera pliki dziennika z systemu tworzenia uczniów. Podane funkcje obejmują identyfikator problemu i jego Krótki opis, identyfikator ucznia, sygnaturę czasową oraz liczbę prób dokonanych przez studenta przed rozpuszczeniem problemu w odpowiedni sposób. Oryginalny zestaw danych ma 8,9 M rekordów; Ten zestaw danych został przepróbkowany do pierwszych 100 000 wierszy. Zestaw danych ma 23 kolumny oddzielane tabulatorami różnych typów: numeryczne, kategorii i timestamp.
+Zestaw danych został pobrany i zapisany w usłudze Azure Blob Storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) i zawiera pliki dziennika z systemu tworzenia uczniów. Podane funkcje obejmują identyfikator problemu i jego Krótki opis, identyfikator ucznia, sygnaturę czasową oraz liczbę prób dokonanych przez studenta przed rozpuszczeniem problemu w odpowiedni sposób. Oryginalny zestaw danych ma 8,9 M rekordów; Ten zestaw danych został przepróbkowany do pierwszych 100 000 wierszy. Zestaw danych ma 23 kolumny oddzielane tabulatorami różnych typów: numeryczne, kategorii i timestamp.
   </td>
 </tr>
 

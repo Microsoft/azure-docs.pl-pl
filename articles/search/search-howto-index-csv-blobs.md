@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bf600890bfed570e712a159005b8ef5267298cc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 580c6294856145530e354b6e5cced955dbaa9f9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565564"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie CSV przy użyciu trybu analizowania delimitedText i indeksatorów obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -24,13 +24,13 @@ Domyślnie [indeksator usługi Azure wyszukiwanie poznawcze BLOB](search-howto-i
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-W tym artykule dowiesz się, jak analizować obiekty blob w formacie CSV za pomocą indeksatora usługi Azure Wyszukiwanie poznawcze BLOB `delimitedText` , ustawiając tryb analizy. 
+W tym artykule dowiesz się, jak analizować obiekty blob w formacie CSV za pomocą indeksatora usługi Azure Wyszukiwanie poznawcze BLOB, ustawiając `delimitedText` tryb analizy. 
 
 > [!NOTE]
 > Postępuj zgodnie z zaleceniami dotyczącymi konfiguracji indeksatora w [indeksie jeden-do-wielu](search-howto-index-one-to-many-blobs.md) , aby wyprowadzić wiele dokumentów wyszukiwania z jednego obiektu blob platformy Azure.
 
 ## <a name="setting-up-csv-indexing"></a>Konfigurowanie indeksowania woluminów CSV
-Aby indeksować obiekty blob w formacie CSV, Utwórz lub zaktualizuj definicję indeksatora przy użyciu trybu `delimitedText` analizowania w żądaniu [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer) :
+Aby indeksować obiekty blob w formacie CSV, Utwórz lub zaktualizuj definicję indeksatora przy użyciu `delimitedText` trybu analizowania w żądaniu [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer) :
 
     {
       "name" : "my-csv-indexer",
@@ -43,7 +43,7 @@ Jeśli obiekty blob nie zawierają początkowego wiersza nagłówka, nagłówki 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Można dostosować znak ogranicznika przy użyciu ustawienia `delimitedTextDelimiter` konfiguracji. Przykład:
+Można dostosować znak ogranicznika przy użyciu `delimitedTextDelimiter` Ustawienia konfiguracji. Przykład:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
@@ -60,7 +60,7 @@ Wszystkie te przykłady są kompletne.
 
 DataSource 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -73,7 +73,7 @@ DataSource
 
 Indeksatora
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 

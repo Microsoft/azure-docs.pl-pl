@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69a700c9bcaa018bcfc1b1e6e01e166ef2d43bf
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 252c033c1a9d4d45c3d48256e65ae9ad10a93c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680235"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360065"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Skonfiguruj uprawnienia konta łącznika AD DS 
 
@@ -32,7 +32,7 @@ W przypadku instalacji programu Azure AD Connect Express automatycznie generowan
 ### <a name="permissions-summary"></a>Podsumowanie uprawnień 
 Poniższa tabela zawiera podsumowanie uprawnień wymaganych w przypadku obiektów usługi AD: 
 
-| Cechy | Uprawnienia |
+| Cecha | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do odczytu i zapisu do atrybutu MS-DS-ConsistencyGuid udokumentowanego w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |
@@ -48,7 +48,7 @@ Moduł ADSyncConfig wymaga [Narzędzia administracji zdalnej serwera (RSAT) dla 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
 ```
-![Konfiguracja](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
+![Konfigurowanie](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
 >Możesz również skopiować plik **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.PSM1** do kontrolera domeny, który ma już narzędzia RSAT dla AD DS zainstalowane i korzystać z tego modułu programu PowerShell.
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 To polecenie cmdlet ustawi następujące uprawnienia: 
  
 
-|Typ |Nazwa |Dostęp |Dotyczy:| 
+|Typ |Nazwa |Access |Dotyczy:| 
 |-----|-----|-----|-----|
 |Zezwalaj |Konto łącznika AD DS |Odczyt wszystkich właściwości |Obiekty podrzędne urządzenia| 
 |Zezwalaj |Konto łącznika AD DS|Odczyt wszystkich właściwości |Podrzędne obiekty InetOrgPerson| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 To polecenie cmdlet ustawi następujące uprawnienia: 
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj|Konto łącznika AD DS|Właściwość odczytu/zapisu|Obiekty podrzędne użytkownika|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 To polecenie cmdlet ustawi następujące uprawnienia: 
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj |Konto łącznika AD DS |Replikowanie zmian w katalogu |Tylko ten obiekt (katalog główny domeny)| 
 |Zezwalaj |Konto łącznika AD DS |Wszystkie zmiany katalogu replikowanego |Tylko ten obiekt (katalog główny domeny)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 To polecenie cmdlet ustawi następujące uprawnienia: 
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj |Konto łącznika AD DS |Resetowanie hasła |Obiekty podrzędne użytkownika| 
 |Zezwalaj |Konto łącznika AD DS |Zapisz Właściwość lockoutTime |Obiekty podrzędne użytkownika| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 To polecenie cmdlet ustawi następujące uprawnienia: 
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj |Konto łącznika AD DS |Ogólny Odczyt/zapis |Wszystkie atrybuty grupy typów obiektów i podobiektów| 
 |Zezwalaj |Konto łącznika AD DS |Tworzenie/usuwanie obiektu podrzędnego |Wszystkie atrybuty grupy typów obiektów i podobiektów| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 To polecenie cmdlet ustawi następujące uprawnienia:  
  
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj |Konto łącznika AD DS |Odczyt/zapis wszystkich właściwości |Obiekty podrzędne użytkownika| 
 |Zezwalaj |Konto łącznika AD DS |Odczyt/zapis wszystkich właściwości |Podrzędne obiekty InetOrgPerson| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 To polecenie cmdlet ustawi następujące uprawnienia: 
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj |Konto łącznika AD DS |Odczyt wszystkich właściwości |Podrzędne obiekty PublicFolder| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 To polecenie cmdlet ustawi następujące uprawnienia: 
 
-|Typ |Nazwa |Dostęp |Dotyczy:|
+|Typ |Nazwa |Access |Dotyczy:|
 |-----|-----|-----|-----| 
 |Zezwalaj |SYSTEM |Pełna kontrola |Ten obiekt 
 |Zezwalaj |Enterprise Admins |Pełna kontrola |Ten obiekt 

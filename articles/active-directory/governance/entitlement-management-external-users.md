@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0f68ca9520c1715463212da80aaabed48f8269
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128698"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338218"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
@@ -103,13 +103,13 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 
 - Upewnij się, że ustawienia na poziomie witryny umożliwiają dostęp gościa (takie same opcje jak wcześniej wymienione). Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego dla witryny](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
 
-### <a name="review-your-office-365-group-sharing-settings"></a>Przejrzyj ustawienia udostępniania grupy w pakiecie Office 365
+### <a name="review-your-microsoft-365-group-sharing-settings"></a>Przejrzyj ustawienia udostępniania grupy Microsoft 365
 
-- Jeśli chcesz uwzględnić grupy pakietu Office 365 w pakietach dostępu dla użytkowników zewnętrznych, upewnij się, że dla opcji Zezwalaj **użytkownikom na dodawanie nowych Gości do organizacji** jest ustawiona wartość **Zezwalaj na dostęp** gościa. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa do grup usługi Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Jeśli chcesz uwzględnić grupy Microsoft 365 w pakietach dostępu dla użytkowników zewnętrznych, upewnij się, że dla opcji Zezwalaj **użytkownikom na dodawanie nowych Gości do organizacji** jest ustawiona wartość **Zezwalaj na dostęp** gościa. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa do grup Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Jeśli chcesz, aby użytkownicy zewnętrzni mieli dostęp do witryny usługi SharePoint Online i zasobów skojarzonych z grupą pakietu Office 365, upewnij się, że włączasz udostępnianie zewnętrzne w usłudze SharePoint Online. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Jeśli chcesz, aby użytkownicy zewnętrzni mieli dostęp do witryny usługi SharePoint Online i zasobów skojarzonych z grupą Microsoft 365, upewnij się, że włączasz udostępnianie zewnętrzne w usłudze SharePoint Online. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Aby uzyskać informacje na temat sposobu ustawiania zasad gościa dla grup pakietu Office 365 na poziomie katalogu w programie PowerShell, zobacz [przykład: Konfigurowanie zasad gościa dla grup na poziomie katalogu](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Aby uzyskać informacje na temat sposobu ustawiania zasad gościa dla grup Microsoft 365 na poziomie katalogu w programie PowerShell, zobacz [przykład: Konfigurowanie zasad gościa dla grup na poziomie katalogu](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Przejrzyj ustawienia udostępniania zespołów
 
@@ -143,7 +143,7 @@ Możesz wybrać, co się stanie, gdy użytkownik zewnętrzny, który został zap
 
 1. Jeśli chcesz usunąć konto użytkownika-gościa w tym katalogu, możesz ustawić liczbę dni, po której ma zostać usunięta. Jeśli chcesz usunąć konto użytkownika-gościa, gdy tylko utracisz swoje ostatnie przypisanie do wszystkich pakietów dostępu, ustaw **liczbę dni przed usunięciem użytkownika zewnętrznego z tego katalogu** do **0**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

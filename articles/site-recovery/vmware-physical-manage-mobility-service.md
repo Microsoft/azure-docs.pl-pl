@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79256967"
 ---
 # <a name="manage-the-mobility-agent"></a>Zarządzanie agentem mobilności 
@@ -66,7 +65,7 @@ Po wdrożeniu Site Recovery, w celu włączenia instalacji wypychanej usługi mo
 
 Odinstaluj z interfejsu użytkownika lub z wiersza polecenia.
 
-- **Z poziomu interfejsu użytkownika**: w panelu sterowania maszyny wybierz pozycję **programy**. Wybierz pozycję **Microsoft Azure Site Recovery usługi mobilności/Odinstaluj główny serwer** > **Uninstall**docelowy.
+- **Z poziomu interfejsu użytkownika**: w panelu sterowania maszyny wybierz pozycję **programy**. Wybierz pozycję **Microsoft Azure Site Recovery usługi mobilności/Odinstaluj główny serwer docelowy**  >  **Uninstall**.
 - W **wierszu polecenia**: Otwórz okno wiersza polecenia jako administrator na komputerze. Uruchom następujące polecenie: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"

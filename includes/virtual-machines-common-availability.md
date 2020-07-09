@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f707ccaaf150f4dbd799ca56bf823968a6889a4b
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76749004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856560"
 ---
 Ten artykuł zawiera omówienie funkcji dostępności maszyn wirtualnych platformy Azure.
 
@@ -48,17 +48,6 @@ To podejście zapewnia, że zawsze działa co najmniej jedno wystąpienie aplika
 ## <a name="virtual-machines-scale-sets"></a>Virtual Machines zestawy skalowania 
 
 Zestawy skalowania maszyn wirtualnych platformy Azure umożliwiają tworzenie i Zarządzanie grupą maszyn wirtualnych o zrównoważonym obciążeniu. Liczba wystąpień maszyn wirtualnych może automatycznie zwiększać lub zmniejszać się w reakcji na zapotrzebowanie lub zdefiniowany harmonogram. Zestawy skalowania zapewniają wysoką dostępność aplikacji i umożliwiają centralne zarządzanie, Konfigurowanie i aktualizowanie wielu maszyn wirtualnych. Zalecamy, aby co najmniej dwie maszyny wirtualne zostały utworzone w ramach zestawu skalowania, aby zapewnić wysoką dostępność aplikacji i spełnić warunki [umowy SLA na 99,95%](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Nie ma kosztu dla samego zestawu skalowania, płacisz tylko za każde utworzone wystąpienie maszyny wirtualnej. Jeśli jedna maszyna wirtualna korzysta z [usługi Azure Premium dysków SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), umowa SLA platformy Azure ma zastosowanie do nieplanowanych zdarzeń konserwacji. Maszyny wirtualne w zestawie skalowania można wdrożyć w wielu domenach aktualizacji i domenach błędów w celu zmaksymalizowania dostępności i odporności na awarie z powodu przestoju centrum danych oraz planowanych lub nieplanowanych zdarzeń konserwacji. Maszyny wirtualne w zestawie skalowania można również wdrożyć w pojedynczej strefie dostępności lub w regionalnie. Opcje wdrożenia strefy dostępności mogą się różnić w zależności od trybu aranżacji.
-
-### <a name="preview-orchestration-mode-preview"></a>Wersja zapoznawcza: tryb aranżacji — wersja zapoznawcza
-Zestawy skalowania maszyn wirtualnych umożliwiają określenie trybu aranżacji.  Za pomocą trybu aranżacji zestawu skalowania maszyn wirtualnych (wersja zapoznawcza) można teraz wybrać, czy zestaw skalowania ma organizować maszyny wirtualne, które są tworzone jawnie poza modelem konfiguracji zestawu skalowania, lub wystąpieniami maszyn wirtualnych utworzonymi niejawnie na podstawie modelu konfiguracji. Wybierz tryb aranżacji, który model aranżacji maszyny wirtualnej pozwala grupować jawnie zdefiniowane Virtual Machines razem w regionie lub w strefie dostępności. Maszyny wirtualne wdrożone w strefie dostępności zapewniają izolację strefową do maszyn wirtualnych, są one powiązane ze granicą strefy dostępności i nie są objęte żadnymi błędami, które mogą wystąpić w innych strefach dostępności w regionie. 
-
-|   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
-|----|----|----|
-| Model konfiguracji maszyny wirtualnej| Brak. VirtualMachineProfile jest niezdefiniowany w modelu zestawu skalowania. | Wymagany. VirtualMachineProfile jest wypełniany w modelu zestawu skalowania. |
-| Dodawanie nowej maszyny wirtualnej do zestawu skalowania| Maszyny wirtualne są jawnie dodawane do zestawu skalowania podczas tworzenia maszyny wirtualnej. | Maszyny wirtualne są niejawnie tworzone i dodawane do zestawu skalowania na podstawie modelu konfiguracji maszyny wirtualnej, liczby wystąpień i reguł skalowania automatycznego. |
-| Strefy dostępności| Obsługuje wdrożenie regionalne lub maszyny wirtualne w jednej strefie dostępności| Obsługuje wdrożenie regionalne lub wiele Strefy dostępności; Może definiować strategię równoważenia strefy |
-| Domeny błędów| Można zdefiniować liczbę domen błędów. 2 lub 3 w oparciu o obsługę regionalną i 5 dla strefy dostępności. Domena błędów przypisanej maszyny wirtualnej będzie trwała z cyklem życia maszyny wirtualnej, w tym cofnięciem alokacji i ponownym uruchomieniu. | Można zdefiniować 1, 2 lub 3 domeny błędów dla wdrożeń nienależących do stref i 5 dla wdrożeń stref dostępności. Przypisana domena błędów maszyny wirtualnej nie utrzymuje cyklu życia maszyny wirtualnej, a maszyny wirtualne są przypisane do domeny błędów w czasie przydziału. |
-| Domeny aktualizacji| Nie dotyczy. Domeny aktualizacji są automatycznie mapowane na domeny błędów| Nie dotyczy. Domeny aktualizacji są automatycznie mapowane na domeny błędów |
 
 **Domeny błędów i domeny aktualizacji**
 

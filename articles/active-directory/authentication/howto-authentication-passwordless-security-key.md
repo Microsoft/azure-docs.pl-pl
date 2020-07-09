@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550412"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
 
@@ -24,10 +24,8 @@ W przypadku przedsiębiorstw korzystających dzisiaj z haseł i mających udost�
 
 Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego na kluczu zabezpieczeń. Na końcu tego artykułu będzie można zalogować się do aplikacji sieci Web za pomocą konta usługi Azure AD przy użyciu klucza zabezpieczeń FIDO2.
 
-|     |
-| --- |
-| Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure|
-|     |
+> [!NOTE]
+> Klucze zabezpieczeń FIDO2 są publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz temat [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Wymagania
 
@@ -53,7 +51,7 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 ### <a name="enable-fido2-security-key-method"></a>Włącz metodę klucza zabezpieczeń FIDO2
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory** > **Security** > **metodami** > uwierzytelniania zabezpieczeń**Metoda uwierzytelniania (wersja zapoznawcza)**.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **metodami**uwierzytelniania zabezpieczeń  >  **Metoda uwierzytelniania (wersja zapoznawcza)**.
 1. W obszarze **klucz zabezpieczeń metody FIDO2**wybierz następujące opcje:
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy

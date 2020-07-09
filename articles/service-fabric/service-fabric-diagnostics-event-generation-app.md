@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75464721"
 ---
 # <a name="application-logging"></a>Rejestrowanie aplikacji
@@ -26,7 +25,7 @@ Application Insights ma rozbudowaną integrację z Service Fabricem. Użytkownic
 
 ## <a name="eventsource"></a>EventSource
 
-W przypadku tworzenia rozwiązania Service Fabric na podstawie szablonu w programie Visual Studio generowana jest Klasa pochodna elementu**ServiceEventSource** **EventSource**lub **ActorEventSource**). Tworzony jest szablon, w którym można dodawać zdarzenia dla aplikacji lub usługi. Nazwa **EventSource** elementu EventSource **musi** być unikatowa i powinna być zmieniona z domyślnego ciągu&lt;&gt;-&lt;szablonu&gt;. Posiadanie wielu definicji elementu **EventSource** , które używają tej samej nazwy, powoduje problem w czasie wykonywania. Każde zdefiniowane zdarzenie musi mieć unikatowy identyfikator. Jeśli identyfikator nie jest unikatowy, wystąpi błąd w czasie wykonywania. Niektóre organizacje często przypisują zakresy wartości dla identyfikatorów, aby uniknąć konfliktów między oddzielnymi zespołami programistycznymi. Aby uzyskać więcej informacji, zobacz [blog Vance](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) lub [dokumentację MSDN](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
+W przypadku tworzenia rozwiązania Service Fabric na podstawie szablonu w programie Visual Studio generowana jest Klasa pochodna elementu**ServiceEventSource** **EventSource**lub **ActorEventSource**). Tworzony jest szablon, w którym można dodawać zdarzenia dla aplikacji lub usługi. Nazwa **EventSource** elementu EventSource **musi** być unikatowa i powinna być zmieniona z domyślnego ciągu szablonu &lt; &gt; - &lt; &gt; . Posiadanie wielu definicji elementu **EventSource** , które używają tej samej nazwy, powoduje problem w czasie wykonywania. Każde zdefiniowane zdarzenie musi mieć unikatowy identyfikator. Jeśli identyfikator nie jest unikatowy, wystąpi błąd w czasie wykonywania. Niektóre organizacje często przypisują zakresy wartości dla identyfikatorów, aby uniknąć konfliktów między oddzielnymi zespołami programistycznymi. Aby uzyskać więcej informacji, zobacz [blog Vance](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) lub [dokumentację MSDN](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
 
 ## <a name="aspnet-core-logging"></a>Rejestrowanie ASP.NET Core
 

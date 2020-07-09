@@ -5,16 +5,16 @@ description: Planowanie potoków Azure Machine Learning przy użyciu zestawu Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 3fede6bf194d0dd6b18118df7a44b7ccd0224a25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84552175"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planowanie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning dla języka Python
 
@@ -54,9 +54,9 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>Tworzenie harmonogramu
 
-Aby uruchomić potok cyklicznie, należy utworzyć harmonogram. A `Schedule` powoduje skojarzenie potoku, eksperymentu i wyzwalacza. Wyzwalacz może być obiektem`ScheduleRecurrence` opisującym oczekiwania między uruchomieniami lub ścieżką magazynu danych, która określa katalog, w którym mają być monitorowane zmiany. W obu przypadkach potrzebny będzie identyfikator potoku i nazwa eksperymentu, w którym ma zostać utworzony harmonogram.
+Aby uruchomić potok cyklicznie, należy utworzyć harmonogram. A powoduje `Schedule` skojarzenie potoku, eksperymentu i wyzwalacza. Wyzwalacz może być obiektem `ScheduleRecurrence` opisującym oczekiwania między uruchomieniami lub ścieżką magazynu danych, która określa katalog, w którym mają być monitorowane zmiany. W obu przypadkach potrzebny będzie identyfikator potoku i nazwa eksperymentu, w którym ma zostać utworzony harmonogram.
 
-W górnej części pliku języka Python zaimportuj klasy `Schedule` i `ScheduleRecurrence` :
+W górnej części pliku języka Python zaimportuj `Schedule` klasy i `ScheduleRecurrence` :
 
 ```python
 
@@ -65,9 +65,9 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Tworzenie harmonogramu opartego na czasie
 
-`ScheduleRecurrence` Konstruktor ma wymagany `frequency` argument, który musi być jednym z następujących ciągów: "minute", "Hour", "Day", "Week" lub "Month". Wymaga również argumentu Integer `interval` określającego, `frequency` ile jednostek powinna upłynąć między harmonogramem. Opcjonalne argumenty umożliwiają bardziej szczegółowe określenie czasu rozpoczęcia, zgodnie z opisem w dokumentacji [zestawu SDK ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+`ScheduleRecurrence`Konstruktor ma wymagany `frequency` argument, który musi być jednym z następujących ciągów: "minute", "Hour", "Day", "Week" lub "Month". Wymaga również `interval` argumentu Integer określającego, ile `frequency` jednostek powinna upłynąć między harmonogramem. Opcjonalne argumenty umożliwiają bardziej szczegółowe określenie czasu rozpoczęcia, zgodnie z opisem w dokumentacji [zestawu SDK ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
 
-`Schedule` Utwórz uruchamianie co 15 minut:
+Utwórz `Schedule` Uruchamianie co 15 minut:
 
 ```python
 recurrence = ScheduleRecurrence(frequency="Minute", interval=15)
@@ -82,9 +82,9 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Potoki wyzwalane przez zmiany plików mogą być bardziej wydajne niż harmonogramy oparte na czasie. Na przykład możesz chcieć wykonać krok przetwarzania wstępnego, gdy plik zostanie zmieniony lub gdy nowy plik zostanie dodany do katalogu danych. Możesz monitorować wszelkie zmiany w magazynie danych lub zmiany w określonym katalogu w magazynie danych. W przypadku monitorowania określonego katalogu zmiany w podkatalogach tego katalogu _nie_ będą powodowały uruchomienia.
 
-Aby utworzyć plik — reaktywny `Schedule`, należy ustawić `datastore` parametr w wywołaniu metody [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, należy ustawić `path_on_datastore` argument.
+Aby utworzyć plik — reaktywny `Schedule` , należy ustawić `datastore` parametr w wywołaniu metody [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, należy ustawić `path_on_datastore` argument.
 
-`polling_interval` Argument pozwala określić, w minutach, częstotliwość sprawdzania zmian w magazynie danych.
+`polling_interval`Argument pozwala określić, w minutach, częstotliwość sprawdzania zmian w magazynie danych.
 
 Jeśli potok został skonstruowany przy użyciu [ścieżki datapath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), można ustawić tę zmienną na nazwę zmienionego pliku przez ustawienie `data_path_parameter_name` argumentu.
 
@@ -97,7 +97,7 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Opcjonalne argumenty podczas tworzenia harmonogramu
 
-Oprócz argumentów omówionych wcześniej, można ustawić `status` argument na `"Disabled"` , aby utworzyć nieaktywny harmonogram. Na `continue_on_step_failure` koniec umożliwia przekazanie wartości logicznej, która zastąpi domyślne zachowanie potoku.
+Oprócz argumentów omówionych wcześniej, można ustawić `status` argument na, aby `"Disabled"` utworzyć nieaktywny harmonogram. Na koniec `continue_on_step_failure` umożliwia przekazanie wartości logicznej, która zastąpi domyślne zachowanie potoku.
 
 ### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Użyj Azure Logic Apps, aby uzyskać bardziej złożone przepływy pracy
 
@@ -128,7 +128,7 @@ for s in ss:
     print(s)
 ```
 
-`schedule_id` Gdy chcesz wyłączyć, uruchom polecenie:
+Gdy chcesz `schedule_id` wyłączyć, uruchom polecenie:
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -139,7 +139,7 @@ def stop_by_schedule_id(ws, schedule_id):
 stop_by_schedule_id(ws, schedule_id)
 ```
 
-Po ponownym uruchomieniu `Schedule.list(ws)` należy uzyskać pustą listę.
+Po ponownym uruchomieniu należy `Schedule.list(ws)` uzyskać pustą listę.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70860320"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Korzystanie z okna Azure Cloud Shell
@@ -84,7 +83,7 @@ Kliknij i przeciągnij górną krawędź paska narzędzi w górę lub w dół, a
 Przewiń myszą lub płytkę dotykową, aby przenieść tekst terminalu.
 
 ## <a name="exit-command"></a>Exit — polecenie
-Przerwanie działania `exit` aktywnej sesji. To zachowanie jest domyślnie wykonywane po 20 minutach bez interakcji.
+`exit`Przerwanie działania aktywnej sesji. To zachowanie jest domyślnie wykonywane po 20 minutach bez interakcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

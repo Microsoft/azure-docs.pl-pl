@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: fc0af331dc6cb604847be9173c836e0b46ca40ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851381"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Omówienie usługi Azure Storage w usłudze HDInsight
 
@@ -31,11 +31,11 @@ Na poniższym diagramie przedstawiono abstrakcyjny widok architektury usługi HD
 
 Usługa HDInsight zapewnia dostęp do rozproszonego systemu plików, który jest lokalnie dołączony do węzłów obliczeniowych. Dostęp do tego systemu plików można uzyskać przy użyciu w pełni kwalifikowanego identyfikatora URI, na przykład:
 
-    hdfs://<namenodehost>/<path>
+`hdfs://<namenodehost>/<path>`
 
 Za pomocą usługi HDInsight możesz również uzyskiwać dostęp do danych w usłudze Azure Storage. Składnia jest następująca:
 
-    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
+`wasb://<containername>@<accountname>.blob.core.windows.net/<path>`
 
 W przypadku korzystania z konta usługi Azure Storage z klastrami HDInsight należy wziąć pod uwagę następujące zasady:
 
@@ -48,11 +48,11 @@ W przypadku korzystania z konta usługi Azure Storage z klastrami HDInsight nale
 
 * **Prywatne kontenery na kontach magazynu, które nie są połączone z klastrem:** Nie można uzyskać dostępu do obiektów BLOB w kontenerach, chyba że zostanie zdefiniowane konto magazynu podczas przesyłania zadań WebHCat.
 
-Konta magazynu definiowane w procesie tworzenia oraz ich klucze są przechowywane w pliku %HADOOP_HOME%/conf/core-site.xml w węzłach klastra. Domyślnie Usługa HDInsight używa kont magazynu zdefiniowanych w pliku pliku Core-site. XML. To ustawienie można zmodyfikować za pomocą usługi [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
+Konta magazynu definiowane w procesie tworzenia oraz ich klucze są przechowywane w pliku %HADOOP_HOME%/conf/core-site.xml w węzłach klastra. Domyślnie Usługa HDInsight używa kont magazynu zdefiniowanych w pliku core-site.xml. To ustawienie można zmodyfikować za pomocą usługi [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 
 Wiele zadań WebHCat, w tym Apache Hive. I MapReduce, Apache Hadoop streaming i Apache świni, zawierają opis kont magazynu i metadanych. (Ten aspekt jest obecnie prawdziwy dla trzody chlewnej z kontami magazynu, ale nie dla metadanych). Aby uzyskać więcej informacji, zobacz [Korzystanie z klastra usługi HDInsight z alternatywnymi kontami magazynu i magazynami](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Obiekty blob mogą być używane z danymi ze strukturą i bez niej. Kontenery obiektów BLOB przechowują dane jako pary klucz/wartość i nie mają hierarchii katalogów. Jednak nazwa klucza może zawierać znak ukośnika (/), aby pojawił się tak, jakby plik był przechowywany w strukturze katalogów. Na przykład klucz obiektu BLOB może być `input/log1.txt`. Nie istnieje `input` rzeczywisty katalog, ale z powodu znaku ukośnika w nazwie klucza, klucz wygląda jak ścieżka do pliku.
+Obiekty blob mogą być używane z danymi ze strukturą i bez niej. Kontenery obiektów BLOB przechowują dane jako pary klucz/wartość i nie mają hierarchii katalogów. Jednak nazwa klucza może zawierać znak ukośnika (/), aby pojawił się tak, jakby plik był przechowywany w strukturze katalogów. Na przykład klucz obiektu BLOB może być `input/log1.txt` . Nie `input` istnieje rzeczywisty katalog, ale z powodu znaku ukośnika w nazwie klucza, klucz wygląda jak ścieżka do pliku.
 
 ## <a name="benefits-of-azure-storage"></a>Korzyści z usługi Azure Storage
 
@@ -73,7 +73,7 @@ W przypadku przechowywania danych w usłudze Azure Storage zamiast systemu plik�
 Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, które nie powinny być przechowywane w usłudze Azure Storage. W takim przypadku można wybrać przechowywanie danych w lokalnym systemie plików HDFS. Usługa HDInsight używa systemu plików DFS dla kilku wyników pośrednich w zadaniach Hive i innych procesach.
 
 > [!NOTE]  
-> Większość poleceń systemu plików HDFS (na `ls`przykład `copyFromLocal`, i `mkdir`) działają zgodnie z oczekiwaniami w usłudze Azure Storage. Tylko polecenia specyficzne dla natywnej implementacji systemu plików HDFS (zwanej systemem DFS), takie jak `fschk` i `dfsadmin`, pokazują inne zachowanie w usłudze Azure Storage.
+> Większość poleceń systemu plików HDFS (na przykład, `ls` `copyFromLocal` i `mkdir` ) działają zgodnie z oczekiwaniami w usłudze Azure Storage. Tylko polecenia specyficzne dla natywnej implementacji systemu plików HDFS (zwanej systemem DFS), takie jak `fschk` i `dfsadmin` , pokazują inne zachowanie w usłudze Azure Storage.
 
 ## <a name="next-steps"></a>Następne kroki
 

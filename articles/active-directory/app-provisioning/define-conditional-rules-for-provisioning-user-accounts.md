@@ -2,20 +2,19 @@
 title: Inicjowanie obsługi aplikacji przy użyciu filtrów określania zakresu | Microsoft Docs
 description: Dowiedz się, jak używać filtrów zakresu, aby uniemożliwić obsługę administracyjną obiektów w aplikacjach obsługujących automatyczne Inicjowanie obsługi administracyjnej użytkowników, jeśli obiekt nie spełnia wymagań firmy.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 06/08/2020
+ms.author: kenwith
+ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781960"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inicjowanie obsługi aplikacji opartej na atrybutach przy użyciu filtrów zakresu
 Celem tego artykułu jest wyjaśnienie, jak używać filtrów zakresu do definiowania reguł opartych na atrybutach, które określają, którzy użytkownicy są obsługiwani do aplikacji.
@@ -29,7 +28,7 @@ Filtry zakresu mogą być używane inaczej w zależności od typu łącznika apr
 * **Inicjowanie obsługi ruchu wychodzącego z usługi Azure AD do aplikacji SaaS**. Gdy usługa Azure AD jest systemem źródłowym, [przydziały użytkowników i grup](../manage-apps/assign-user-or-group-access-portal.md) są najczęściej używanymi metodami określania, którzy użytkownicy znajdują się w zakresie aprowizacji. Te przypisania są również używane do włączania logowania jednokrotnego i zapewnienia pojedynczej metody zarządzania dostępem i aprowizacji. Filtry zakresu mogą być używane opcjonalnie, oprócz przypisań lub zamiast nich, do filtrowania użytkowników na podstawie wartości atrybutów.
 
     >[!TIP]
-    > Można wyłączyć obsługę administracyjną na podstawie przypisań dla aplikacji przedsiębiorstwa przez zmianę ustawień w menu [zakres](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) w obszarze Ustawienia aprowizacji, aby **zsynchronizować wszystkich użytkowników i grupy**. Użycie tej opcji oraz filtrów określania zakresu atrybutów zapewnia większą wydajność niż przy użyciu przypisań opartych na grupach.  
+    > Można wyłączyć obsługę administracyjną na podstawie przypisań dla aplikacji przedsiębiorstwa przez zmianę ustawień w menu [zakres](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) w obszarze Ustawienia aprowizacji, aby **zsynchronizować wszystkich użytkowników i grupy**. 
 
 * **Inicjowanie obsługi ruchu przychodzącego z aplikacji HCM do usługi Azure AD i Active Directory**. Gdy [aplikacja HCM, taka jak Workday](../saas-apps/workday-tutorial.md) , jest systemem źródłowym, filtry zakresu są podstawową metodą określania, którzy użytkownicy powinni być obsługiwani z aplikacji HCM do Active Directory lub Azure AD.
 
@@ -60,7 +59,7 @@ Zgodnie z tym filtrem określania zakresu użytkownicy muszą spełniać następ
 Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego łącznika aprowizacji użytkowników usługi Azure AD. W poniższej procedurze przyjęto założenie, że skonfigurowano automatyczną obsługę administracyjną dla [jednej z obsługiwanych aplikacji](../saas-apps/tutorial-list.md) i dodano do niej filtr określania zakresu.
 
 ### <a name="create-a-scoping-filter"></a>Tworzenie filtru określania zakresu
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** .
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje** .
 
 2. Wybierz aplikację, dla której skonfigurowano automatyczną obsługę administracyjną: na przykład "usługi ServiceNow".
 
@@ -86,7 +85,7 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
 
    f. **nie ma wartości null**. Klauzula zwraca wartość "true", jeśli oceniony atrybut nie jest pusty.
 
-   g. **dopasowanie wyrażenia regularnego**. Klauzula zwraca wartość "true", jeśli oceniony atrybut pasuje do wzorca wyrażenia regularnego. Na przykład: ([1-9] [0-9]) dopasowuje dowolną liczbę z zakresu od 10 do 99.
+   przykład **dopasowanie wyrażenia regularnego**. Klauzula zwraca wartość "true", jeśli oceniony atrybut pasuje do wzorca wyrażenia regularnego. Na przykład: ([1-9] [0-9]) dopasowuje dowolną liczbę z zakresu od 10 do 99.
 
    h. **nie pasuje do wyrażenia regularnego**. Klauzula zwraca wartość "true", jeśli oceniony atrybut nie jest zgodny ze wzorcem wyrażenia regularnego.
    
@@ -118,7 +117,7 @@ Filtry zakresu są konfigurowane jako część mapowań atrybutów dla każdego 
 ## <a name="common-scoping-filters"></a>Typowe filtry zakresu
 | Atrybut docelowy| Operator | Wartość | Opis|
 |----|----|----|----|
-|userPrincipalName|DOPASOWANIE WYRAŻENIA REGULARNEGO|.\*@domain.com |Wszyscy użytkownicy z userPrincipal, którzy mają domenę @domain.com , będą w zakresie aprowizacji|
+|userPrincipalName|DOPASOWANIE WYRAŻENIA REGULARNEGO|.\*@domain.com |Wszyscy użytkownicy z userPrincipal, którzy mają domenę, @domain.com będą w zakresie aprowizacji|
 |userPrincipalName|NIE PASUJE DO WYRAŻENIA REGULARNEGO|.\*@domain.com|Wszyscy użytkownicy z userPrincipalą z domeną @domain.com będą poza zakresem aprowizacji|
 |działu,|UBIEGŁ|transakcje|Wszyscy użytkownicy z działu sprzedaży znajdują się w zakresie aprowizacji|
 |workerID|DOPASOWANIE WYRAŻENIA REGULARNEGO|(1 [0-9] [0-9] [0-9] [0-9] [0-9] [0-9])| Wszyscy pracownicy z workerIDsem od 1000000 do 2000000 są w zakresie aprowizacji.|

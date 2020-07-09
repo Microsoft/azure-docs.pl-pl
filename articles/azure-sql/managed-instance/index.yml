@@ -1,0 +1,123 @@
+### YamlMime:Landing
+title: Dokumentacja wystąpienia zarządzanego Azure SQL
+summary: Znajdź dokumentację dotyczącą wystąpienia zarządzanego Azure SQL, czyli wystąpienia zarządzanego na platformie Azure opartego na najnowszej stabilnej wersji programu Microsoft SQL Server.
+metadata:
+  title: Dokumentacja wystąpienia zarządzanego Azure SQL
+  description: Znajdź dokumentację dotyczącą wystąpienia zarządzanego Azure SQL, czyli wystąpienia zarządzanego na platformie Azure opartego na najnowszej stabilnej wersji programu Microsoft SQL Server.
+  services: sql-database
+  ms.service: sql-managed-instance
+  ms.subservice: operations
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 05/27/2020
+  ms.openlocfilehash: 358c6e85b7a2d6e54b72bb94c00e86f330decd19
+  ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 06/11/2020
+  ms.locfileid: "84708777"
+landingContent:
+- title: Wystąpienie zarządzane Azure SQL
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie wystąpienia zarządzanego SQL
+      url: instance-create-quickstart.md
+  - linkListType: concept
+    links:
+    - text: Co nowego?
+      url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Co to jest wystąpienie zarządzane SQL?
+      url: sql-managed-instance-paas-overview.md
+    - text: Opcje zakupu
+      url: ../database/purchasing-models.md
+    - text: Warstwy usług
+      url: ../database/service-tiers-general-purpose-business-critical.md
+    - text: Replikacja transakcyjna
+      url: replication-transactional-overview.md
+    - text: Migrowanie z programu SQL Server
+      url: migrate-to-instance-from-sql-server.md
+    - text: Różnice w języku T-SQL w porównaniu z programem SQL Server
+      url: transact-sql-tsql-differences-sql-server.md
+- title: Zaawansowane zabezpieczenia
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Możliwości zabezpieczeń
+      url: ../database/security-overview.md
+    - text: Najlepsze rozwiązania dotyczące zabezpieczeń
+      url: ../database/security-best-practice.md
+    - text: Identyfikatory logowania, konta użytkowników, role i uprawnienia
+      url: ../database/logins-create-manage.md
+    - text: Usługa Azure Active Directory
+      url: ../database/authentication-aad-overview.md
+    - text: Inspekcja
+      url: auditing-configure.md
+    - text: Transparent Data Encryption (TDE)
+      url: ../database/transparent-data-encryption-tde-overview.md
+    - text: Dynamiczne maskowanie danych
+      url: ../database/dynamic-data-masking-overview.md
+    - text: Publiczne punkty końcowe
+      url: public-endpoint-overview.md
+- title: Dokumentacja
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Zasoby edukacyjne dotyczące rozwiązań SQL
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Przykłady interfejsu wiersza polecenia platformy Azure
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Przykłady programu PowerShell
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Przykłady szablonów ARM
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SQL Server Management Studio (SSMS)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: Przewodnik migracji
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL (T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Interfejs wiersza polecenia platformy Azure
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: Interfejs API REST
+      url: https://docs.microsoft.com/rest/api/sql/
+- title: Ciągłość działalności biznesowej
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ciągłość działalności biznesowej
+      url: ../database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: Wysoka dostępność
+      url: ../database/high-availability-sla.md
+    - text: Grupy automatycznego trybu failover
+      url: ../database/auto-failover-group-overview.md
+    - text: Automatyczne kopie zapasowe
+      url: ../database/automated-backups-overview.md
+    - text: Odzyskiwanie danych z kopii zapasowej
+      url: ../database/recovery-using-backups.md
+    - text: Długoterminowe przechowywanie kopii zapasowych
+      url: ../database/long-term-retention-overview.md
+- title: Pule wystąpień
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Co to jest pula wystąpień?
+      url: instance-pools-overview.md
+    - text: Konfigurowanie
+      url: instance-pools-configure.md

@@ -3,12 +3,12 @@ title: Partycjonowanie Service Fabric usług
 description: Opisuje sposób partycjonowania Service Fabric usługi stanowe. Partycje umożliwiają przechowywanie danych na maszynach lokalnych, dzięki czemu można skalować dane i obliczenia jednocześnie.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115161"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045420"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric reliable services (Partycjonowanie usług Reliable Services w ramach usługi Service Fabric)
 Ten artykuł zawiera wprowadzenie do podstawowych pojęć dotyczących partycjonowania Service Fabric niezawodnych usług Azure. Kod źródłowy używany w artykule jest również dostępny w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -21,11 +21,11 @@ W przypadku usług bezstanowych możesz zastanowić się, że partycja jest jedn
 
 ![Usługa bezstanowa](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-W rzeczywistości istnieją dwa typy rozwiązań usługi bezstanowej. Pierwszym z nich jest usługa, która zachowuje swój stan zewnętrznie, na przykład w bazie danych Azure SQL Database (np. w witrynie sieci Web, która przechowuje informacje o sesji i dane). Druga z nich to usługi wyłącznie obliczeniowe (takie jak Kalkulator lub miniatury obrazów), które nie zarządzają stanem trwałym.
+W rzeczywistości istnieją dwa typy rozwiązań usługi bezstanowej. Pierwszym z nich jest usługa, która zachowuje swój stan zewnętrznie, na przykład w bazie danych w Azure SQL Database (np. w witrynie sieci Web, w której przechowywane są informacje o sesji i dane). Druga z nich to usługi wyłącznie obliczeniowe (takie jak Kalkulator lub miniatury obrazów), które nie zarządzają stanem trwałym.
 
 W obu przypadkach partycjonowanie usługi bezstanowej jest bardzo rzadkim scenariuszem — skalowalność i dostępność są zwykle osiągane przez dodanie większej liczby wystąpień. Jedyną sytuacją, w której należy rozważyć użycie wielu partycji dla wystąpień usługi bezstanowej, jest to, że należy spełnić specjalne żądania routingu.
 
-Na przykład rozważmy przypadek, w którym użytkownicy z identyfikatorami w określonym zakresie powinni być obsługiwani tylko przez określone wystąpienie usługi. Innym przykładem sytuacji, w której można podzielić na partycje usługę bezstanową, jest to, że jest to w pełni partycjonowane zaplecze (np. baza danych SQL podzielonej na fragmenty) i chcesz kontrolować, które wystąpienie usługi powinno zapisywać w bazie danych fragmentu--lub wykonywać inne zadania przygotowawcze w ramach usługi bezstanowej, które wymagają tych samych informacji partycjonowania, co jest używane w zapleczu. Te typy scenariuszy można również rozwiązać na różne sposoby i niekoniecznie wymagać partycjonowania usługi.
+Na przykład rozważmy przypadek, w którym użytkownicy z identyfikatorami w określonym zakresie powinni być obsługiwani tylko przez określone wystąpienie usługi. Innym przykładem sytuacji, w której można podzielić na partycje usługę bezstanową, jest to, że istnieje naprawdę podzielona na partycje zaplecze (np. baza danych podzielonej na fragmenty w SQL Database) i chcesz określić, które wystąpienie usługi ma zapisywać w bazie danych fragmentu, lub wykonać inne czynności przygotowawcze w ramach usługi bezstanowej, które wymagają tych samych informacji partycjonowania, co jest używane w zapleczu. Te typy scenariuszy można również rozwiązać na różne sposoby i niekoniecznie wymagać partycjonowania usługi.
 
 Pozostała część tego instruktażu koncentruje się na usługach stanowych.
 
@@ -115,17 +115,17 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
 > 
 > 
 
-1. Otwórz program **Visual Studio** > **plik** > **Nowy** > **projekt**.
+1. Otwórz program **Visual Studio**  >  **plik**  >  **Nowy**  >  **projekt**.
 2. W oknie dialogowym **Nowy projekt** wybierz aplikację Service Fabric.
 3. Wywoływanie projektu "AlphabetPartitions".
 4. W oknie dialogowym **Tworzenie usługi** wybierz pozycję Usługa **stanowa** i Wywołaj ją "alfabet. Processing".
-5. Ustaw liczbę partycji. Otwórz plik ApplicationManifest. xml znajdujący się w folderze ApplicationPackageRoot projektu AlphabetPartitions i zaktualizuj parametr Processing_PartitionCount do 26, jak pokazano poniżej.
+5. Ustaw liczbę partycji. Otwórz plik Applicationmanifest.xml znajdujący się w folderze ApplicationPackageRoot projektu AlphabetPartitions i zaktualizuj parametr Processing_PartitionCount do 26, jak pokazano poniżej.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    Należy również zaktualizować właściwości LowKey i HighKey elementu klasy statefulservice w pliku ApplicationManifest. XML, jak pokazano poniżej.
+    Należy również zaktualizować właściwości LowKey i HighKey elementu klasy statefulservice w ApplicationManifest.xml, jak pokazano poniżej.
    
     ```xml
     <Service Name="Processing">
@@ -134,7 +134,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
       </StatefulService>
     </Service>
     ```
-6. Aby można było uzyskać dostęp do usługi, Otwórz punkt końcowy na porcie przez dodanie elementu punktu końcowego servicemanifest. XML (znajdującego się w folderze PackageRoot) dla usługi alfabetu. Processing, jak pokazano poniżej:
+6. Aby można było uzyskać dostęp do usługi, Otwórz punkt końcowy na porcie przez dodanie elementu punktu końcowego ServiceManifest.xml (znajdującego się w folderze PackageRoot) usługi alfabetu. Processing, jak pokazano poniżej:
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
@@ -147,7 +147,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
    > W tym przykładzie przyjęto założenie, że używasz prostego HttpCommunicationListener. Aby uzyskać więcej informacji na temat niezawodnej komunikacji z usługą, zobacz [model komunikacji niezawodnej usługi](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Zalecany wzorzec dla adresu URL, na którym nasłuchuje replika, to następujący `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`format:.
+8. Zalecany wzorzec dla adresu URL, na którym nasłuchuje replika, to następujący format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}` .
     Dlatego chcesz skonfigurować odbiornik komunikacji do nasłuchiwania na prawidłowych punktach końcowych i z tym wzorcem.
    
     Wiele replik tej usługi może być hostowanych na tym samym komputerze, więc ten adres musi być unikatowy dla repliki. To dlatego, że identyfikator partycji i identyfikator repliki są w adresie URL. Odbiornika HttpListener może nasłuchiwać wielu adresów na tym samym porcie, o ile prefiks adresu URL jest unikatowy.
@@ -224,14 +224,14 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
     }
     ```
    
-    `ProcessInternalRequest`odczytuje wartości parametru ciągu zapytania używanego do wywołania partycji i wywołań `AddUserAsync` , aby dodać LastName do niezawodnego słownika. `dictionary`
+    `ProcessInternalRequest`odczytuje wartości parametru ciągu zapytania używanego do wywołania partycji i wywołań, `AddUserAsync` Aby dodać LastName do niezawodnego słownika `dictionary` .
 10. Dodajmy do projektu usługę bezstanową, aby zobaczyć, jak można wywołać określoną partycję.
     
     Ta usługa służy jako prosty interfejs sieci Web, który akceptuje nazwisko jako parametr ciągu zapytania, określa klucz partycji i wysyła go do alfabetu. przetwarzanie usługi do przetworzenia.
 11. W oknie dialogowym **Tworzenie usługi** wybierz pozycję Usługa **bezstanowa** i Wywołaj ją "alfabet. Web", jak pokazano poniżej.
     
     ![Zrzut ekranu usługi bezstanowej](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-12. Zaktualizuj informacje o punkcie końcowym w pliku servicemanifest. XML usługi alfabet. WebApi, aby otworzyć port, jak pokazano poniżej.
+12. Zaktualizuj informacje o punkcie końcowym w ServiceManifest.xml usługi alfabet. WebApi, aby otworzyć port, jak pokazano poniżej.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
@@ -252,7 +252,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-14. Teraz musisz zaimplementować logikę przetwarzania. HttpCommunicationListener wywołuje `ProcessInputRequest` się, gdy żądanie się znajduje. Dodajmy Poniższy kod.
+14. Teraz musisz zaimplementować logikę przetwarzania. HttpCommunicationListener wywołuje się, `ProcessInputRequest` gdy żądanie się znajduje. Dodajmy Poniższy kod.
     
     ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -298,7 +298,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
     }
     ```
     
-    Przejdźmy do niego krok po kroku. Kod odczytuje pierwszą literę parametru `lastname` ciągu zapytania do znaku. Następnie określa klucz partycji dla tego listu, odejmując wartość szesnastkową `A` od wartości szesnastkowej z ostatniej litery "imiona".
+    Przejdźmy do niego krok po kroku. Kod odczytuje pierwszą literę parametru ciągu zapytania `lastname` do znaku. Następnie określa klucz partycji dla tego listu, odejmując wartość szesnastkową `A` od wartości szesnastkowej z ostatniej litery "imiona".
     
     ```csharp
     string lastname = context.Request.QueryString["lastname"];
@@ -307,13 +307,13 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
     ```
     
     Należy pamiętać, że w tym przykładzie używamy 26 partycji z jednym kluczem partycji na partycję.
-    Następnie uzyskujemy partycję `partition` usługi dla tego klucza przy użyciu `ResolveAsync` metody dla `servicePartitionResolver` obiektu. `servicePartitionResolver`jest zdefiniowane jako
+    Następnie uzyskujemy partycję usługi `partition` dla tego klucza przy użyciu `ResolveAsync` metody dla `servicePartitionResolver` obiektu. `servicePartitionResolver`jest zdefiniowane jako
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    `ResolveAsync` Metoda przyjmuje identyfikator URI usługi, klucz partycji i token anulowania jako parametry. Identyfikator URI usługi dla usługi przetwarzania to `fabric:/AlphabetPartitions/Processing`. Następnie uzyskujemy punkt końcowy partycji.
+    `ResolveAsync`Metoda przyjmuje identyfikator URI usługi, klucz partycji i token anulowania jako parametry. Identyfikator URI usługi dla usługi przetwarzania to `fabric:/AlphabetPartitions/Processing` . Następnie uzyskujemy punkt końcowy partycji.
     
     ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
@@ -343,7 +343,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
 16. Po zakończeniu wdrażania możesz sprawdzić, czy usługa i wszystkie jej partycje w Service Fabric Explorer.
     
     ![Zrzut ekranu Service Fabric Explorer](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. W przeglądarce można przetestować logikę partycjonowania, wprowadzając `http://localhost:8081/?lastname=somename`polecenie. Zobaczysz, że wszystkie nazwiska zaczynające się od tej samej litery są przechowywane w tej samej partycji.
+17. W przeglądarce można przetestować logikę partycjonowania, wprowadzając polecenie `http://localhost:8081/?lastname=somename` . Zobaczysz, że wszystkie nazwiska zaczynające się od tej samej litery są przechowywane w tej samej partycji.
     
     ![Zrzut ekranu przeglądarki](./media/service-fabric-concepts-partitioning/samplerunning.png)
 

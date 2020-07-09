@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
-ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bef655c4dd30147733b28252199a7d8b58df42f8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435750"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085994"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Uruchamianie przykładów MapReduce zawartych w usłudze HDInsight
 
@@ -29,7 +29,7 @@ Dowiedz się, jak uruchamiać przykłady MapReduce dołączone do Apache Hadoop 
 
 ## <a name="the-mapreduce-examples"></a>Przykłady MapReduce
 
-Przykłady znajdują się w klastrze usługi HDInsight pod `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`adresem. Kod źródłowy tych przykładów znajduje się w klastrze usługi HDInsight pod adresem `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+Przykłady znajdują się w klastrze usługi HDInsight pod adresem `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar` . Kod źródłowy tych przykładów znajduje się w klastrze usługi HDInsight pod adresem `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples` .
 
 Następujące przykłady są zawarte w tym archiwum:
 
@@ -94,10 +94,10 @@ Następujące przykłady są zawarte w tym archiwum:
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
     ```
 
-    Dane wejściowe dla tego zadania są odczytywane z `/example/data/gutenberg/davinci.txt`. Dane wyjściowe tego przykładu są przechowywane `/example/data/davinciwordcount`w. Obie ścieżki znajdują się w domyślnym magazynie dla klastra, a nie w lokalnym systemie plików.
+    Dane wejściowe dla tego zadania są odczytywane z `/example/data/gutenberg/davinci.txt` . Dane wyjściowe tego przykładu są przechowywane w `/example/data/davinciwordcount` . Obie ścieżki znajdują się w domyślnym magazynie dla klastra, a nie w lokalnym systemie plików.
 
    > [!NOTE]  
-   > Jak wskazano w pomocy dla przykładu WORDCOUNT, można również określić wiele plików wejściowych. Załóżmy na przykład `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` , że liczba wyrazów w obu DaVinci. txt i Ulysses. txt.
+   > Jak wskazano w pomocy dla przykładu WORDCOUNT, można również określić wiele plików wejściowych. Na przykład `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` Liczba wyrazów w obu davinci.txt i ulysses.txt.
 
 5. Po zakończeniu zadania użyj następującego polecenia, aby wyświetlić dane wyjściowe:
 
@@ -122,7 +122,7 @@ Następujące przykłady są zawarte w tym archiwum:
 * Każda kolumna może zawierać liczbę lub `?` (która wskazuje pustą komórkę)
 * Komórki są rozdzielone spacjami
 
-Istnieje pewien sposób konstruowania Sudoku układanki; nie można powtórzyć liczby w kolumnie lub wierszu. Istnieje przykład w klastrze usługi HDInsight, który jest prawidłowo skonstruowany. Znajduje się on pod `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` adresem i zawiera następujący tekst:
+Istnieje pewien sposób konstruowania Sudoku układanki; nie można powtórzyć liczby w kolumnie lub wierszu. Istnieje przykład w klastrze usługi HDInsight, który jest prawidłowo skonstruowany. Znajduje się on pod adresem `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` i zawiera następujący tekst:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -184,13 +184,13 @@ Ten przykład używa trzech zestawów programów MapReduce:
 
 Wykonaj następujące kroki, aby wygenerować dane, sortować, a następnie sprawdzić poprawność danych wyjściowych:
 
-1. Wygeneruj 10 GB danych, które są przechowywane w domyślnym magazynie klastra usługi HDInsight w lokalizacji `/example/data/10GB-sort-input`:
+1. Wygeneruj 10 GB danych, które są przechowywane w domyślnym magazynie klastra usługi HDInsight w lokalizacji `/example/data/10GB-sort-input` :
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    Wskazuje `-Dmapred.map.tasks` , ile zadań mapy ma używać dla tego zadania. Ostatnie dwa parametry instruują zadanie, aby utworzyć 10 GB danych i przechowywać ją w lokalizacji `/example/data/10GB-sort-input`.
+    `-Dmapred.map.tasks`Wskazuje, ile zadań mapy ma używać dla tego zadania. Ostatnie dwa parametry instruują zadanie, aby utworzyć 10 GB danych i przechowywać ją w lokalizacji `/example/data/10GB-sort-input` .
 
 2. Użyj następującego polecenia, aby posortować dane:
 
@@ -198,7 +198,7 @@ Wykonaj następujące kroki, aby wygenerować dane, sortować, a następnie spra
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
     ```
 
-    Zawiera `-Dmapred.reduce.tasks` informacje o tym, jak wiele zmniejszy zadania do użycia w ramach zadania. Ostatnie dwa parametry są tylko lokalizacjami wejściowymi i wyjściowymi danych.
+    Zawiera informacje o tym, `-Dmapred.reduce.tasks` jak wiele zmniejszy zadania do użycia w ramach zadania. Ostatnie dwa parametry są tylko lokalizacjami wejściowymi i wyjściowymi danych.
 
 3. Aby sprawdzić dane wygenerowane przez sortowanie, wykonaj następujące czynności:
 

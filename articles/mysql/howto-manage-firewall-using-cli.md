@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 11aa4a80deba4df14c239e69910ea38bac1b9c55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42245a8e1c8ce726b925fccade3c62637abb4f12
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063517"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118668"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Tworzenie reguł zapory Azure Database for MySQL i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do serwera Azure Database for MySQL z określonego adresu IP lub zakresu adresów IP. Korzystając z wygodnych poleceń interfejsu wiersza polecenia platformy Azure, można tworzyć, aktualizować, usuwać i wyświetlać reguły zapory w celu zarządzania serwerem. Aby zapoznać się z omówieniem zapór Azure Database for MySQL, zobacz [reguły zapory Azure Database for MySQL Server](./concepts-firewall-rules.md).
@@ -42,7 +42,7 @@ Bezpiecznie łącz interfejs wiersza polecenia platformy Azure z kontem platform
     ```
    To polecenie wyprowadza kod do użycia w następnym kroku.
 
-2. Użyj przeglądarki sieci Web, aby otworzyć stronę [https://aka.ms/devicelogin](https://aka.ms/devicelogin), a następnie wprowadź kod.
+2. Użyj przeglądarki sieci Web, aby otworzyć stronę [https://aka.ms/devicelogin](https://aka.ms/devicelogin) , a następnie wprowadź kod.
 
 3. W wierszu polecenia Zaloguj się przy użyciu poświadczeń platformy Azure.
 

@@ -4,17 +4,16 @@ titleSuffix: Azure Storage
 description: Zamapuj domenę niestandardową na Blob Storage lub punkt końcowy w sieci Web na koncie usługi Azure Storage.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465545"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage
 
@@ -23,9 +22,9 @@ Domenę niestandardową można zamapować na punkt końcowy usługi BLOB Service
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> To mapowanie działa tylko dla poddomen (na przykład: `www.contoso.com`). Jeśli chcesz, aby punkt końcowy sieci Web był dostępny w domenie głównej (na przykład: `contoso.com`), musisz użyć Azure CDN. Aby uzyskać wskazówki, zobacz sekcję [Mapowanie domeny niestandardowej z włączonym protokołem HTTPS](#enable-https) w tym artykule. Ponieważ przechodzenie do tej sekcji tego artykułu, aby włączyć domenę główną domeny niestandardowej, krok w tej sekcji do włączenia protokołu HTTPS jest opcjonalny. 
+> To mapowanie działa tylko dla poddomen (na przykład: `www.contoso.com` ). Jeśli chcesz, aby punkt końcowy sieci Web był dostępny w domenie głównej (na przykład: `contoso.com` ), musisz użyć Azure CDN. Aby uzyskać wskazówki, zobacz sekcję [Mapowanie domeny niestandardowej z włączonym protokołem HTTPS](#enable-https) w tym artykule. Ponieważ przechodzenie do tej sekcji tego artykułu, aby włączyć domenę główną domeny niestandardowej, krok w tej sekcji do włączenia protokołu HTTPS jest opcjonalny. 
 
-<a id="enable-http" />
+<a id="enable-http"></a>
 
 ## <a name="map-a-custom-domain-with-only-http-enabled"></a>Mapuj domenę niestandardową z włączonym protokołem HTTP
 
@@ -33,7 +32,7 @@ Takie podejście jest łatwiejsze, ale umożliwia dostęp tylko do protokołu HT
 
 Aby włączyć dostęp za pośrednictwem protokołu HTTPS, zobacz sekcję [Mapowanie domeny niestandardowej z włączonym protokołem HTTPS](#enable-https) w tym artykule. 
 
-<a id="map-a-domain" />
+<a id="map-a-domain"></a>
 
 ### <a name="map-a-custom-domain"></a>Mapowanie domeny niestandardowej
 
@@ -50,7 +49,7 @@ Jeśli nie chcesz, aby dana domena była chwilowo niedostępna dla użytkownikó
 
 : heavy_check_mark: Krok 4: testowanie domeny niestandardowej.
 
-<a id="endpoint" />
+<a id="endpoint"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Krok 1. Pobieranie nazwy hosta punktu końcowego magazynu 
 
@@ -71,7 +70,7 @@ Nazwa hosta to adres URL punktu końcowego magazynu bez identyfikatora protokoł
   
    Ustaw tę wartość na później.
 
-<a id="create-cname-record" />
+<a id="create-cname-record"></a>
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Krok 2. Tworzenie rekordu nazwy kanonicznej (CNAME) z dostawcą domeny
 
@@ -87,11 +86,11 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
 3. Utwórz rekord CNAME. W ramach tego rekordu podaj następujące elementy: 
 
-   - Alias domeny podrzędnej, taki `www` jak `photos`lub. Poddomena jest wymagana, domeny główne nie są obsługiwane. 
+   - Alias domeny podrzędnej, taki jak `www` lub `photos` . Poddomena jest wymagana, domeny główne nie są obsługiwane. 
       
    - Nazwa hosta uzyskana w sekcji [pobieranie nazwy hosta punktu końcowego magazynu](#endpoint) we wcześniejszej części tego artykułu. 
 
-<a id="register" />
+<a id="register"></a>
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Krok 3. Rejestrowanie domeny niestandardowej na platformie Azure
 
@@ -105,7 +104,7 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
 3. W polu tekstowym **nazwa domeny** wprowadź nazwę domeny niestandardowej, w tym poddomenę.  
    
-   Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com`. Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com`.
+   Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com` . Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com` .
 
 4. Aby zarejestrować domenę niestandardową, wybierz przycisk **Zapisz** .
 
@@ -117,7 +116,7 @@ Aby upewnić się, że domena niestandardowa została zamapowana na punkt końco
 
 Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI:`http://photos.contoso.com/myforms/applicationform.htm`
 
-<a id="zero-down-time" />
+<a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Mapowanie domeny niestandardowej o zero przestoju
 
@@ -136,7 +135,7 @@ Jeśli domena obsługuje obecnie aplikację z umową dotyczącą poziomu usług 
 
 : heavy_check_mark: Krok 5: testowanie domeny niestandardowej.
 
-<a id="endpoint-2" />
+<a id="endpoint-2"></a>
 
 #### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>Krok 1. Pobieranie nazwy hosta punktu końcowego magazynu 
 
@@ -171,9 +170,9 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest 
 
 3. Utwórz rekord CNAME. W ramach tego rekordu podaj następujące elementy: 
 
-   - Alias domeny podrzędnej, taki `www` jak `photos`lub. Poddomena jest wymagana, domeny główne nie są obsługiwane.
+   - Alias domeny podrzędnej, taki jak `www` lub `photos` . Poddomena jest wymagana, domeny główne nie są obsługiwane.
 
-     `asverify` Dodaj poddomenę do aliasu. Na przykład: `asverify.www` lub `asverify.photos`.
+     Dodaj `asverify` poddomenę do aliasu. Na przykład: `asverify.www` lub `asverify.photos` .
        
    - Nazwa hosta uzyskana w sekcji [pobieranie nazwy hosta punktu końcowego magazynu](#endpoint) we wcześniejszej części tego artykułu. 
 
@@ -197,7 +196,7 @@ Po wstępnym zarejestrowaniu domeny niestandardowej na platformie Azure zezwolis
 
 3. W polu tekstowym **nazwa domeny** wprowadź nazwę domeny niestandardowej, w tym poddomenę.  
    
-   Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com`. Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com`.
+   Na przykład jeśli Twoja domena to *contoso.com* , a alias domeny podrzędnej to *www*, wprowadź `www.contoso.com` . Jeśli poddomeną są *Zdjęcia*, wprowadź `photos.contoso.com` .
 
 4. Zaznacz pole wyboru **Użyj pośredniego sprawdzania poprawności rekordu CNAME** .
 
@@ -219,7 +218,7 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta.
 
 3. Utwórz rekord CNAME. W ramach tego rekordu podaj następujące elementy: 
 
-   - Alias domeny podrzędnej, taki `www` jak `photos`lub. Poddomena jest wymagana, domeny główne nie są obsługiwane.
+   - Alias domeny podrzędnej, taki jak `www` lub `photos` . Poddomena jest wymagana, domeny główne nie są obsługiwane.
       
    - Nazwa hosta uzyskana w sekcji [pobieranie nazwy hosta punktu końcowego magazynu](#endpoint-2) we wcześniejszej części tego artykułu. 
 
@@ -250,7 +249,7 @@ Po pomyślnym usunięciu domeny niestandardowej zobaczysz powiadomienie portalu,
 
 #### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI polecenie, a następnie określ pusty ciąg`""`() dla `--custom-domain` wartości argumentu.
+Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI polecenie, a następnie określ pusty ciąg ( `""` ) dla `--custom-domain` wartości argumentu.
 
 * Format polecenia:
 
@@ -270,11 +269,11 @@ Aby usunąć niestandardową rejestrację domeny, użyj polecenia [AZ Storage ac
       --custom-domain ""
   ```
 
-#### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+#### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Aby usunąć niestandardową rejestrację domeny, należy użyć polecenia cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) programu PowerShell, a następnie określić`""`pusty ciąg ( `-CustomDomainName` ) dla wartości argumentu.
+Aby usunąć niestandardową rejestrację domeny, należy użyć polecenia cmdlet [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) programu PowerShell, a następnie określić pusty ciąg ( `""` ) dla `-CustomDomainName` wartości argumentu.
 
 * Format polecenia:
 
@@ -295,7 +294,7 @@ Aby usunąć niestandardową rejestrację domeny, należy użyć polecenia cmdle
   ```
 ---
 
-<a id="enable-https" />
+<a id="enable-https"></a>
 
 ## <a name="map-a-custom-domain-with-https-enabled"></a>Mapuj domenę niestandardową z włączonym protokołem HTTPS
 

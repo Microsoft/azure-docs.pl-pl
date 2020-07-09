@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263867"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Jak używać Notification Hubs języka Java
@@ -53,7 +52,7 @@ Do kompilacji:
 
     mvn package
 
-## <a name="code"></a>Code
+## <a name="code"></a>Kod
 
 ### <a name="notification-hub-cruds"></a>CRUDs centrum powiadomień
 
@@ -188,7 +187,7 @@ Interfejs API instalacji to alternatywny mechanizm zarządzania rejestracją. Za
 
 Instalacja zawiera wszystko, czego potrzebujesz: kanał wypychania (token urządzenia), Tagi, szablony, kafelki pomocnicze (dla WNS i APN). Nie musisz wywoływać usługi, aby uzyskać już identyfikator GUID lub dowolny inny identyfikator, przechowuj go na urządzeniu i wysyłaj do zaplecza przy użyciu kanału push (token urządzenia).
 
-W zapleczu należy wykonać tylko jedno wywołanie do `CreateOrUpdateInstallation`; jest on w pełni idempotentne, więc możesz ponowić próbę w razie potrzeby.
+W zapleczu należy wykonać tylko jedno wywołanie, które jest w `CreateOrUpdateInstallation` pełni idempotentne, więc możesz ponowić próbę, jeśli będzie to konieczne.
 
 Przykład dotyczący usługi Amazon Kindle Fire:
 
@@ -221,7 +220,7 @@ Usuń instalację:
     hub.deleteInstallation(installation.getInstallationId());
     ```
 
-`CreateOrUpdate`, `Patch`, i `Delete` są ostatecznie spójne z `Get`. Żądana operacja właśnie przechodzi do kolejki systemowej w trakcie wywołania i jest wykonywana w tle. Pobieranie nie jest przeznaczone do głównego scenariusza środowiska uruchomieniowego, ale tylko w celu debugowania i rozwiązywania problemów, jest ściśle ograniczone przez usługę.
+`CreateOrUpdate`, `Patch` , i `Delete` są ostatecznie spójne z `Get` . Żądana operacja właśnie przechodzi do kolejki systemowej w trakcie wywołania i jest wykonywana w tle. Pobieranie nie jest przeznaczone do głównego scenariusza środowiska uruchomieniowego, ale tylko w celu debugowania i rozwiązywania problemów, jest ściśle ograniczone przez usługę.
 
 Wysyłanie przepływu dla instalacji jest takie samo jak w przypadku rejestracji. Aby określić docelowe powiadomienie do określonej instalacji — po prostu Użyj tagu "Identyfikator InstallationID: {żądana-ID}". W tym przypadku kod jest następujący:
 
@@ -294,7 +293,7 @@ Może być konieczne wykonanie operacji zbiorczej w odniesieniu do rejestracji. 
 
 **Identyfikator URI z podpisem SAS:**
 
- Ten adres URL to adres URL pliku obiektu BLOB lub kontenera obiektów blob oraz zestaw parametrów, takich jak uprawnienia i czas wygaśnięcia, oraz sygnatura wszystkich tych elementów przy użyciu klucza SAS konta. Zestaw SDK Java usługi Azure Storage oferuje bogate możliwości, w tym tworzenie tych identyfikatorów URI. Jako alternatywę zapoznaj się z klasą `ImportExportE2E` testową (z lokalizacji GitHub), która ma podstawową i kompaktową implementację algorytmu podpisywania.
+ Ten adres URL to adres URL pliku obiektu BLOB lub kontenera obiektów blob oraz zestaw parametrów, takich jak uprawnienia i czas wygaśnięcia, oraz sygnatura wszystkich tych elementów przy użyciu klucza SAS konta. Zestaw SDK Java usługi Azure Storage oferuje bogate możliwości, w tym tworzenie tych identyfikatorów URI. Jako alternatywę zapoznaj się z `ImportExportE2E` klasą testową (z lokalizacji GitHub), która ma podstawową i kompaktową implementację algorytmu podpisywania.
 
 ### <a name="send-notifications"></a>Wysyłanie powiadomień
 

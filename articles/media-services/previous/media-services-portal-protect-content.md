@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74978206"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurowanie zasad ochrony zawartości przy użyciu Azure Portal
@@ -38,7 +37,7 @@ Aby użyć portalu do skonfigurowania globalnej ochrony zawartości przy użyciu
 
 1. W [portalu](https://portal.azure.com/)wybierz konto Media Services.
 
-1. Wybierz pozycję **Ustawienia** > **Ochrona zawartości**.
+1. Wybierz pozycję **Ustawienia**  >  **Ochrona zawartości**.
 
     ![Ochrona zawartości](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -76,7 +75,7 @@ Szablon licencji Widevine służy do ustawiania funkcjonalności włączonej na 
 ### <a name="basic"></a>Podstawowy
 Po wybraniu opcji **podstawowa**szablon zostanie utworzony ze wszystkimi wartościami domyślnymi.
 
-### <a name="advanced"></a>Zaawansowane
+### <a name="advanced"></a>Zaawansowany
 Aby uzyskać więcej informacji na temat szablonu praw Widevine, zobacz [Omówienie szablonu licencji Widevine](media-services-widevine-license-template-overview.md).
 
 ![Zaawansowana ochrona zawartości](./media/media-services-portal-content-protection/media-services-content-protection005.png)
@@ -90,7 +89,7 @@ Aby włączyć szyfrowanie FairPlay, wybierz pozycję **Konfiguracja FairPlay**.
 Aby skorzystać z szyfrowania dynamicznego, zakodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Wybierz element zawartości, który chcesz zaszyfrować
-Aby wyświetlić wszystkie zasoby, wybierz pozycję **Ustawienia** > **zasoby**.
+Aby wyświetlić wszystkie zasoby, wybierz pozycję **Ustawienia**  >  **zasoby**.
 
 ![Opcja zasobów](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -131,6 +130,6 @@ Szyfrowanie klucza Wyczyść AES jest włączone dla wszystkich protokołów prz
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

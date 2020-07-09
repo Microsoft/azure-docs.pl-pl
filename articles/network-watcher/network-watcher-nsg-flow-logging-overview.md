@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e59a985f59da1b6a40a6b583d5e2a490611a702c
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189807"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043856"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -51,14 +51,20 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 - Dzienniki są zbierane za pomocą platformy Azure i nie mają wpływu na zasoby klientów ani wydajność sieci.
 - Dzienniki są zapisywane w formacie JSON i pokazują przepływy wychodzące i przychodzące dla każdej reguły sieciowej grupy zabezpieczeń.
 - Każdy rekord dziennika zawiera interfejs sieciowy (karta sieciowa), do którego odnosi się ten przepływ, do 5 informacji o spójnej kolekcji, & decyzja o ruchu (tylko wersja 2). Szczegółowe informacje znajdują się w poniższym _formacie dziennika_ .
-- Dzienniki przepływu mają funkcję przechowywania, która umożliwia automatyczne usuwanie dzienników do roku po ich utworzeniu. **Uwaga**: przechowywanie jest dostępne tylko w przypadku korzystania z [kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
+- Dzienniki przepływu mają funkcję przechowywania, która umożliwia automatyczne usuwanie dzienników do roku po ich utworzeniu. 
 
-**Kluczowe pojęcia**
+> [!NOTE]
+> Przechowywanie jest dostępne tylko w przypadku korzystania z [kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
+
+**Podstawowe pojęcia**
 
 - Sieci zdefiniowane w oprogramowaniu są zorganizowane wokół sieci wirtualnych (sieci wirtualnych) i podsieci. Zabezpieczeniami tych sieci wirtualnych i podsieci można zarządzać przy użyciu sieciowej grupy zabezpieczeń.
 - Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) zawiera listę _reguł zabezpieczeń_ , które zezwalają na ruch sieciowy w zasobach, do których jest podłączony. Sieciowych grup zabezpieczeń można kojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi lub interfejsami sieciowymi (NIC) podłączonymi do maszyn wirtualnych (Menedżer zasobów). Aby uzyskać więcej informacji, zobacz [Omówienie grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 - Wszystkie przepływy ruchu w sieci są oceniane przy użyciu reguł w odpowiednich sieciowej grupy zabezpieczeń.
 - Wynikiem tych ocen są dzienniki przepływu sieciowej grupy zabezpieczeń. Dzienniki przepływów są zbierane za pomocą platformy Azure i nie wymagają żadnej zmiany w zasobach klienta.
+- Uwaga: reguły są dwa typy — kończąc & niekończące, z których każdy ma inne zachowanie rejestrowania.
+- - Reguły odmowy sieciowej grupy zabezpieczeń są przerywane. SIECIOWEJ grupy zabezpieczeń odmowy ruchu spowoduje zarejestrowanie go w dziennikach przepływów, a przetwarzanie w tym przypadku zostanie zatrzymane po jakimkolwiek sieciowej grupy zabezpieczeń odmówiono ruchu. 
+- - Reguły zezwalania sieciowej grupy zabezpieczeń są niekończące się, co oznacza, że nawet jeśli jeden sieciowej grupy zabezpieczeń ją umożliwia, przetwarzanie będzie kontynuowane do następnego sieciowej grupy zabezpieczeń. Ostatnie sieciowej grupy zabezpieczeń zezwalające na ruch rejestruje ruch do dzienników przepływów.
 - Dzienniki przepływu sieciowej grupy zabezpieczeń są zapisywane na kontach magazynu z lokalizacji, w której można uzyskać do nich dostęp.
 - Dzienniki przepływu można eksportować, przetwarzać, analizować i wizualizować przy użyciu narzędzi takich jak TA, Splunk, Grafana, Stealthwatch itd.
 
@@ -67,7 +73,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 Dzienniki przepływów obejmują następujące właściwości:
 
 * **czas,** w którym zdarzenie zostało zarejestrowane
-* **systemId** — identyfikator zasobu grupy zabezpieczeń sieci.
+* **systemId** — identyfikator systemu grupy zabezpieczeń sieci.
 * **Kategoria** — Kategoria zdarzenia. Kategoria jest zawsze **NetworkSecurityGroupFlowEvent**
 * **ResourceID** — identyfikator zasobu sieciowej grupy zabezpieczeń
 * **OperationName** — zawsze NetworkSecurityGroupFlowEvents
@@ -104,7 +110,7 @@ Stan przepływu _B_ jest rejestrowany po zainicjowaniu przepływu. Stan przepły
 Poniższy tekst jest przykładem dziennika przepływu. Jak widać, istnieje wiele rekordów, które są zgodne z listą właściwości opisaną w poprzedniej sekcji.
 
 > [!NOTE]
-> Wartości we właściwości **flowTuples* są rozdzielaną przecinkami listą.
+> Wartości we właściwości *flowTuples* są rozdzielaną przecinkami listą.
  
 **Przykład formatu dziennika przepływu sieciowej grupy zabezpieczeń w wersji 1**
 ```json
@@ -304,7 +310,7 @@ W przypadku Stanów kontynuacja _C_ i End _E_ , liczba bajtów i pakietów to li
 Użyj poniższego linku poniżej, aby zapoznać się z przewodnikami dotyczącymi włączania dzienników przepływów.
 
 - [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
-- [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
+- [Program PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
 - [Azure Resource Manager](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
@@ -351,9 +357,9 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Koszty rejestrowania**w usłudze Flow: w przypadku rejestrowania przepływu sieciowej grupy zabezpieczeń są naliczane opłaty za ilość generowanych dzienników. Duże natężenie ruchu może skutkować dużym woluminem dziennika przepływu i powiązanymi kosztami. Cennik dziennika przepływu sieciowej grupy zabezpieczeń nie obejmuje podstawowych kosztów magazynu. Korzystanie z funkcji zasad przechowywania z rejestrowaniem przepływu sieciowej grupy zabezpieczeń oznacza, że są to różne koszty magazynowania przez dłuższy czas. Jeśli nie jest wymagana funkcja zasad przechowywania, zalecamy ustawienie wartości 0. Aby uzyskać więcej informacji, zobacz [cennik Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) i [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) , aby uzyskać dodatkowe informacje.
 
-**Przepływy przychodzące zarejestrowane z Internetu adresów IP na maszynach wirtualnych bez publicznych**adresach IP: maszyny wirtualne, które nie mają publicznego adresu do sieci, są przypisane za pośrednictwem publicznego adresu IP SKOJARZONEGO z kartą sieciową jako publiczny adres IPv4 na poziomie wystąpienia lub które są częścią puli zaplecza usługi równoważenia obciążenia, użyj [domyślnego](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) , a także adresu IP przypisanego przez platformę Azure. W związku z tym mogą pojawić się wpisy dziennika przepływu dla przepływów z internetowych adresów IP, jeśli przepływ jest przeznaczony do portu w zakresie portów przypisanych do tego elementu. Mimo że platforma Azure nie zezwala na te przepływy na maszynę wirtualną, próba zostanie zarejestrowana i zostanie wyświetlona Network Watcher w dzienniku przepływu sieciowej grupy zabezpieczeń przez zaprojektowanie. Zalecamy, aby niepożądane przychodzące ruch internetowy został jawnie zablokowany przy użyciu sieciowej grupy zabezpieczeń.
+**Niepoprawna liczba bajtów i pakietów dla przepływów przychodzących**: [sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)](https://docs.microsoft.com/azure/virtual-network/security-overview) są implementowane jako [zapory stanowe](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Jednak ze względu na ograniczenia platformy reguły kontrolujące przepływy przychodzące są implementowane w sposób bezstanowy. Ze względu na to, że liczba bajtów i liczby pakietów nie są rejestrowane dla tych przepływów. W związku z tym liczba bajtów i pakietów raportowanych w dziennikach przepływu sieciowej grupy zabezpieczeń (i Analiza ruchu) może różnić się od liczby rzeczywistej. Ponadto przepływy przychodzące są teraz niekończące. To ograniczenie jest planowane do ustalenia do grudnia 2020. 
 
-**Niepoprawna liczba bajtów i pakietów dla przepływów bezstanowych**: [grupy zabezpieczeń sieci (sieciowych grup zabezpieczeń)](https://docs.microsoft.com/azure/virtual-network/security-overview) są implementowane jako [Zapora stanowa](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Jednak wiele reguł domyślnych/wewnętrznych kontrolujących przepływ ruchu jest implementowane w sposób bezstanowy. Ze względu na ograniczenia platformy liczby bajtów i pakietów nie są rejestrowane dla bezstanowych przepływów (to oznacza, że ruch przechodzi przez reguły bezstanowe), są rejestrowane tylko dla przepływów stanowych. W związku z tym liczba bajtów i pakietów raportowanych w dziennikach przepływu sieciowej grupy zabezpieczeń (i Analiza ruchu) może różnić się od rzeczywistych przepływów. To ograniczenie jest planowane do ustalenia w czerwcu 2020.
+**Przepływy przychodzące zarejestrowane z Internetu adresów IP na maszynach wirtualnych bez publicznych**adresach IP: maszyny wirtualne, które nie mają publicznego adresu do sieci, są przypisane za pośrednictwem publicznego adresu IP SKOJARZONEGO z kartą sieciową jako publiczny adres IPv4 na poziomie wystąpienia lub które są częścią puli zaplecza usługi równoważenia obciążenia, użyj [domyślnego](../load-balancer/load-balancer-outbound-connections.md) , a także adresu IP przypisanego przez platformę Azure. W związku z tym mogą pojawić się wpisy dziennika przepływu dla przepływów z internetowych adresów IP, jeśli przepływ jest przeznaczony do portu w zakresie portów przypisanych do tego elementu. Mimo że platforma Azure nie zezwala na te przepływy na maszynę wirtualną, próba zostanie zarejestrowana i zostanie wyświetlona Network Watcher w dzienniku przepływu sieciowej grupy zabezpieczeń przez zaprojektowanie. Zalecamy, aby niepożądane przychodzące ruch internetowy został jawnie zablokowany przy użyciu sieciowej grupy zabezpieczeń.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -413,7 +419,7 @@ Dzienniki przepływu sieciowej grupy zabezpieczeń są zgodne z punktami końcow
 
 **Jaka jest różnica między dziennikami przepływów w wersjach 1 & 2?**
 
-Dzienniki przepływów w wersji 2 wprowadzają koncepcję _stanu przepływu_ & przechowuje informacje o transmitowanych bajtach i pakietach. [Przeczytaj więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
+Dzienniki przepływów w wersji 2 wprowadzają koncepcję _stanu przepływu_ & przechowuje informacje o transmitowanych bajtach i pakietach. [Dowiedz się więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 
 ## <a name="pricing"></a>Cennik
 

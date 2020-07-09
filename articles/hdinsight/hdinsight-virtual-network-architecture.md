@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81390221"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architektura sieci wirtualnej usługi Azure HDInsight
@@ -36,7 +36,7 @@ Klastry usługi Azure HDInsight mają różne typy maszyn wirtualnych lub węzł
 
 Użyj w pełni kwalifikowanych nazw domen (FQDN) podczas adresowania węzłów w klastrze. Możesz uzyskać nazwy FQDN dla różnych typów węzłów w klastrze przy użyciu [interfejsu API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Te nazwy FQDN będą mieć postać `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+Te nazwy FQDN będą mieć postać `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net` .
 
 Wartość `<node-type-prefix>` będzie *HN* dla węzłów głównych, *WN* dla węzłów procesu roboczego i *Zn* dla węzłów dozorcy.
 
@@ -71,16 +71,16 @@ Następujące zasoby sieciowe są tworzone automatycznie w ramach sieci wirtualn
 
 Dostęp do klastra usługi HDInsight można uzyskać na trzy sposoby:
 
-- Punkt końcowy HTTPS poza siecią wirtualną w `CLUSTERNAME.azurehdinsight.net`.
-- Punkt końcowy SSH służący do bezpośredniego łączenia się z `CLUSTERNAME-ssh.azurehdinsight.net`usługą węzła głównego pod adresem.
-- Punkt końcowy HTTPS w sieci `CLUSTERNAME-int.azurehdinsight.net`wirtualnej. Zwróć uwagę na`-int`"" w tym adresie URL. Ten punkt końcowy zostanie rozpoznany jako prywatny adres IP w tej sieci wirtualnej i nie będzie dostępny z publicznego Internetu.
+- Punkt końcowy HTTPS poza siecią wirtualną w `CLUSTERNAME.azurehdinsight.net` .
+- Punkt końcowy SSH służący do bezpośredniego łączenia się z usługą węzła głównego pod adresem `CLUSTERNAME-ssh.azurehdinsight.net` .
+- Punkt końcowy HTTPS w sieci wirtualnej `CLUSTERNAME-int.azurehdinsight.net` . Zwróć uwagę na " `-int` " w tym adresie URL. Ten punkt końcowy zostanie rozpoznany jako prywatny adres IP w tej sieci wirtualnej i nie będzie dostępny z publicznego Internetu.
 
 Te trzy punkty końcowe są przypisane do modułu równoważenia obciążenia.
 
 Publiczne adresy IP są również dostarczane do dwóch punktów końcowych, które zezwalają na połączenie spoza sieci wirtualnej.
 
-1. Jeden publiczny adres IP jest przypisywany do modułu równoważenia obciążenia dla w pełni kwalifikowanej nazwy domeny (FQDN) do użycia podczas nawiązywania połączenia z klastrem z Internetu `CLUSTERNAME.azurehdinsight.net`.
-1. Drugi publiczny adres IP jest używany jako nazwa `CLUSTERNAME-ssh.azurehdinsight.net`domeny tylko SSH.
+1. Jeden publiczny adres IP jest przypisywany do modułu równoważenia obciążenia dla w pełni kwalifikowanej nazwy domeny (FQDN) do użycia podczas nawiązywania połączenia z klastrem z Internetu `CLUSTERNAME.azurehdinsight.net` .
+1. Drugi publiczny adres IP jest używany jako nazwa domeny tylko SSH `CLUSTERNAME-ssh.azurehdinsight.net` .
 
 ## <a name="next-steps"></a>Następne kroki
 

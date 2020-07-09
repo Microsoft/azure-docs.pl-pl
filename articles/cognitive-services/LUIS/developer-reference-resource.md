@@ -3,12 +3,12 @@ title: Zasoby dla deweloperów — Language Understanding
 description: Zestawy SDK, interfejsy API REST, interfejs wiersza polecenia ułatwiają tworzenie aplikacji Language Understanding (LUIS) w języku programowania. Zarządzaj zasobami platformy Azure i przewidywaniami LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: c712a81e5b786ac980a0c48d358fef4caf2e7597
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 27212f30c90abb20e7ded2eee01365c7b023f851
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758065"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610794"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Zasoby deweloperskie zestawu SDK, REST i interfejsu wiersza polecenia dla Language Understanding (LUIS)
 
@@ -73,6 +73,10 @@ W poniższej tabeli objaśniono parametry, które są oznaczone nawiasami klamro
 |`version`|10-znakowa Nazwa wersji|
 |`slot`| `production` lub `staging`|
 
+### <a name="rest-query-string-parameters"></a>Parametry ciągu zapytania REST
+
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
+
 ## <a name="app-schema"></a>Schemat aplikacji
 
 [Schemat aplikacji](app-schema-definition.md) jest importowany i eksportowany w `.json` `.lu` formacie lub.
@@ -88,7 +92,7 @@ W poniższej tabeli objaśniono parametry, które są oznaczone nawiasami klamro
 |Python|[Tworzenie i prognozowanie](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Tworzenie](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Tworzenie](sdk-authoring.md?pivots=programming-language-python)<br>[Prognoza przy użyciu REST](luis-get-started-get-intent-from-rest.md)
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontenery
 
 Language Understanding (LUIS) udostępnia [kontener](luis-container-howto.md) do udostępniania lokalnych i zawartych w nim wersji aplikacji.
 

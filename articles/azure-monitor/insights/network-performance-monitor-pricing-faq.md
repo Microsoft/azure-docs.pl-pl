@@ -7,10 +7,9 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654396"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Zmiany cen dla Network Performance Monitor platformy Azure
@@ -109,7 +108,7 @@ Połączenie jest testem osiągalności do jednego punktu końcowego (URL lub us
 
 Zapoznaj się z sekcją [monitorowanie połączeń](https://azure.microsoft.com/pricing/details/network-watcher/) , aby uzyskać koszt monitorowania punktu końcowego przez cały miesiąc. Opłaty za dane są dostępne na [stronie cennika](https://azure.microsoft.com/pricing/details/log-analytics/) log Analytics w sekcji pozyskiwanie danych.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 [Log Analytics — często zadawane pytania](https://azure.microsoft.com/pricing/details/log-analytics/): sekcja często zadawanych pytań zawiera informacje o cenach za węzeł warstwy Bezpłatna i innych.
 

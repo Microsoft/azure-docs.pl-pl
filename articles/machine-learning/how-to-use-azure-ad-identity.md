@@ -8,18 +8,17 @@ ms.author: trbye
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: f997aef59e91bed325b84af855a84f43cd639d83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 660cb14bd081dffbf3e9fb5f02b7690212915355
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122846"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807489"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Używanie tożsamości usługi Azure AD z usługą sieci Web Machine Learning w usłudze Azure Kubernetes Service
 
-W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Active Directory (AAD) do wdrożonego modelu uczenia maszynowego w usłudze Azure Kubernetes. Projekt [tożsamości usługi AAD pod](https://github.com/Azure/aad-pod-identity) jest umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze przy użyciu [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i Kubernetes podstawowych. Dzięki temu usługa sieci Web może bezpiecznie uzyskiwać dostęp do zasobów platformy Azure bez konieczności osadzania poświadczeń ani zarządzania tokenami `score.py` bezpośrednio w skrypcie. W tym artykule opisano kroki umożliwiające utworzenie i zainstalowanie tożsamości platformy Azure w klastrze usługi Azure Kubernetes i przypisanie tożsamości do wdrożonej usługi sieci Web.
+W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Active Directory (AAD) do wdrożonego modelu uczenia maszynowego w usłudze Azure Kubernetes. Projekt [tożsamości usługi AAD pod](https://github.com/Azure/aad-pod-identity) jest umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze przy użyciu [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i Kubernetes podstawowych. Dzięki temu usługa sieci Web może bezpiecznie uzyskiwać dostęp do zasobów platformy Azure bez konieczności osadzania poświadczeń ani zarządzania tokenami bezpośrednio w `score.py` skrypcie. W tym artykule opisano kroki umożliwiające utworzenie i zainstalowanie tożsamości platformy Azure w klastrze usługi Azure Kubernetes i przypisanie tożsamości do wdrożonej usługi sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,7 +93,7 @@ spec:
   Selector: <label value to match>
 ```
 
-Edytuj wdrożenie, aby dodać etykietę selektora tożsamości platformy Azure. Przejdź do poniższej sekcji w `/spec/template/metadata/labels`temacie. Powinny być widoczne wartości, takie `isazuremlapp: “true”`jak. Dodaj etykietę usługi AAD-pod-Identity, jak pokazano poniżej.
+Edytuj wdrożenie, aby dodać etykietę selektora tożsamości platformy Azure. Przejdź do poniższej sekcji w temacie `/spec/template/metadata/labels` . Powinny być widoczne wartości, takie jak `isazuremlapp: “true”` . Dodaj etykietę usługi AAD-pod-Identity, jak pokazano poniżej.
 
 ```azurecli-interactive
     kubectl edit deployment/<name of deployment> -n azureml-<name of workspace>
@@ -105,7 +104,7 @@ spec:
   template:
     metadata:
       labels:
-      - aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
+       aadpodidbinding: "<value of Selector in AzureIdentityBinding>"
       ...
 ```
 
@@ -129,7 +128,7 @@ Usługi sieci Web dla tego wdrożenia mogą teraz uzyskiwać dostęp do zasobów
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Używanie tożsamości platformy Azure z usługą sieci Web Machine Learning
 
-Wdróż model w klastrze AKS. `score.py` Skrypt może zawierać operacje wskazujące zasoby platformy Azure, do których ma dostęp Twoja tożsamość platformy Azure. Upewnij się, że zainstalowano wymagane zależności biblioteki klienta dla zasobu, do którego próbujesz uzyskać dostęp. Poniżej przedstawiono kilka przykładów użycia tożsamości platformy Azure do uzyskiwania dostępu do różnych zasobów platformy Azure z usługi.
+Wdróż model w klastrze AKS. `score.py`Skrypt może zawierać operacje wskazujące zasoby platformy Azure, do których ma dostęp Twoja tożsamość platformy Azure. Upewnij się, że zainstalowano wymagane zależności biblioteki klienta dla zasobu, do którego próbujesz uzyskać dostęp. Poniżej przedstawiono kilka przykładów użycia tożsamości platformy Azure do uzyskiwania dostępu do różnych zasobów platformy Azure z usługi.
 
 ### <a name="access-key-vault-from-your-web-service"></a>Dostęp do Key Vault z usługi sieci Web
 

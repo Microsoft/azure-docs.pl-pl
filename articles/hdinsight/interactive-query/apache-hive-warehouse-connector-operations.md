@@ -5,14 +5,14 @@ author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 999c58871ed811d91fd96d158ea6f65db6c718f3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: ed3dbe4cb5b9d8b50c028a68feeded170130bfb8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085841"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operacje Apache Spark obsługiwane przez łącznik magazynu Hive w usłudze Azure HDInsight
 
@@ -142,6 +142,6 @@ Użyj **klawiszy CTRL + C** , aby zatrzymać netcat na drugiej sesji SSH. Użyj 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Integracja obsługiwane z usługami Apache Spark i Apache Hive](./apache-hive-warehouse-connector.md)
+* [Integracja biblioteki HWC z platformą Apache Spark i programem Apache Hive](./apache-hive-warehouse-connector.md)
 * [Używanie zapytań interakcyjnych w usłudze HDInsight](./apache-interactive-query-get-started.md)
-* [Integracja obsługiwane z usługą Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [Integracja biblioteki HWC z rozwiązaniem Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)

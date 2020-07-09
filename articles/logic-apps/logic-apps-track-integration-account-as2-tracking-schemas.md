@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76906961"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Tworzenie schematów śledzenia komunikatów AS2 w Azure Logic Apps
@@ -59,7 +58,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | as2To | Tak | String | Nazwa odbiorcy komunikatu AS2 z nagłówków wiadomości AS2 |
 | as2From | Tak | String | Nazwa nadawcy wiadomości AS2 z nagłówków wiadomości AS2 |
 | umowaname | Nie | String | Nazwa umowy AS2, do której komunikaty są rozpoznawane |
-| kierunek | Tak | String | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | String | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | Identyfikatora | Nie | String | Identyfikator komunikatu AS2 z nagłówków wiadomości AS2 |
 | rozmieśćtype | Nie | String | Wartość typu dyspozycji powiadomienia o dyspozycji komunikatu (powiadomienia MDN) |
 | fileName | Nie | String | Nazwa pliku z nagłówka komunikatu AS2 |
@@ -72,7 +71,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | outgoingHeaders | Nie | Słownik JToken | Szczegóły wychodzącego nagłówka komunikatu AS2 |
 | isNrrEnabled | Tak | Boolean | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
 | isMdnExpected | Tak | Boolean | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
-| mdnType | Tak | Wyliczenie | Dozwolone wartości: `NotConfigured`, `Sync`, i`Async` |
+| mdnType | Tak | Wyliczenie | Dozwolone wartości: `NotConfigured` , `Sync` , i`Async` |
 |||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Schemat śledzenia powiadomienia MDN AS2
@@ -112,15 +111,15 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | as2To | Tak | String | Nazwa partnera, który odbiera komunikat AS2 |
 | as2From | Tak | String | Nazwa partnera, który wysyła wiadomość AS2 |
 | umowaname | Nie | String | Nazwa umowy AS2, do której komunikaty są rozpoznawane |
-| kierunek | Tak | String | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | String | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | Identyfikatora | Nie | String | Identyfikator komunikatu AS2 |
 | originalMessageId | Nie | String | Identyfikator oryginalnego komunikatu AS2 |
 | rozmieśćtype | Nie | String | Wartość typu dyspozycji powiadomienia MDN |
 | isMessageFailed | Tak | Boolean | Czy komunikat AS2 nie powiódł się |
 | isMessageSigned | Tak | Boolean | Czy wiadomość AS2 została podpisana |
 | isNrrEnabled | Tak | Boolean | Czy użyć wartości domyślnej, jeśli wartość nie jest znana |
-| Stanu | Tak | Wyliczenie | Dozwolone wartości: `Accepted`, `Rejected`, i`AcceptedWithErrors` |
-| micVerificationStatus | Tak | Wyliczenie | Dozwolone wartości:`NotApplicable`, `Succeeded`, i`Failed` |
+| Stanu | Tak | Wyliczenie | Dozwolone wartości: `Accepted` , `Rejected` , i`AcceptedWithErrors` |
+| micVerificationStatus | Tak | Wyliczenie | Dozwolone wartości: `NotApplicable` , `Succeeded` , i`Failed` |
 | correlationMessageId | Nie | String | Identyfikator korelacji, który jest IDENTYFIKATORem oryginalnej wiadomości, dla której skonfigurowano powiadomienia MDN |
 | incomingHeaders | Nie | Słownik JToken | Szczegóły nagłówka komunikatu przychodzącego |
 | outgoingHeaders | Nie | Słownik JToken | Szczegóły nagłówka wiadomości wychodzącej |

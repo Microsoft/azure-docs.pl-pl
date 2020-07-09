@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b7566260786b6fcfa639f244e2eff0cc8304ed9e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086049"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205799"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Szybki Start: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
@@ -26,8 +26,8 @@ Po zakończeniu będziesz mieć grupę zasobów platformy Azure składającą si
 
   Jeśli zainstalowano już program Visual Studio 2019:
 
-  - Zainstaluj najnowsze aktualizacje programu Visual Studio, wybierając pozycję **Pomoc** > **Sprawdź dostępność aktualizacji**.
-  - Dodaj obciążenie, wybierając kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje**.
+  - Zainstaluj najnowsze aktualizacje programu Visual Studio, wybierając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
+  - Dodaj obciążenie, wybierając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
 
 
 ## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
@@ -42,11 +42,11 @@ Utwórz ASP.NET Core aplikację sieci Web w programie Visual Studio, wykonując 
 
    ![Konfigurowanie projektu aplikacji sieci Web](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. Możesz wdrożyć dowolny typ ASP.NET Core aplikacji sieci Web na platformie Azure, ale w tym przewodniku Szybki Start wybierz szablon **aplikacja sieci Web** . Upewnij się, że **uwierzytelnianie** jest ustawione na wartość **bez uwierzytelniania**i że żadna inna opcja nie jest zaznaczona. Następnie wybierz przycisk **Create** (Utwórz).
+1. Możesz wdrożyć dowolny typ ASP.NET Core aplikacji sieci Web na platformie Azure, ale w tym przewodniku Szybki Start wybierz szablon **aplikacja sieci Web** . Upewnij się, że **uwierzytelnianie** jest ustawione na wartość **bez uwierzytelniania**i że żadna inna opcja nie jest zaznaczona. Następnie wybierz pozycję **Utwórz**.
 
    ![Tworzenie nowej aplikacji sieci Web ASP.NET Core](./media/app-service-web-get-started-dotnet/create-aspnet-core-web-app.png) 
    
-1. Z menu programu Visual Studio wybierz pozycję **Debuguj** > **Uruchom bez debugowania** , aby uruchomić aplikację sieci Web lokalnie.
+1. Z menu programu Visual Studio wybierz pozycję **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić aplikację sieci Web lokalnie.
 
    ![Aplikacja internetowa uruchomiona lokalnie](./media/app-service-web-get-started-dotnet/web-app-running-locally.png)
 
@@ -67,7 +67,7 @@ Wykonaj następujące kroki, aby utworzyć App Service i opublikować aplikację
 
    ![Wybieranie miejsca docelowego publikacji](./media/app-service-web-get-started-dotnet/pick-publish-target-vs2019.png)
 
-1. W oknie dialogowym **App Service: Utwórz nowe** wprowadź globalnie unikatową **nazwę** aplikacji, akceptując nazwę domyślną lub wprowadzając nową nazwę. Prawidłowe znaki to: `a-z`, `A-Z`, `0-9`i `-`. Ta **Nazwa** jest używana jako prefiks adresu URL dla aplikacji sieci Web w formacie `http://<app_name>.azurewebsites.net`.
+1. W oknie dialogowym **App Service: Utwórz nowe** wprowadź globalnie unikatową **nazwę** aplikacji, akceptując nazwę domyślną lub wprowadzając nową nazwę. Prawidłowe znaki to: `a-z` , `A-Z` , `0-9` i `-` . Ta **Nazwa** jest używana jako prefiks adresu URL dla aplikacji sieci Web w formacie `http://<app_name>.azurewebsites.net` .
 
 1. W obszarze **subskrypcja**Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
 
@@ -105,11 +105,11 @@ Wykonaj następujące kroki, aby utworzyć App Service i opublikować aplikację
 
 Wykonaj następujące kroki, aby zaktualizować i ponownie wdrożyć aplikację internetową:
 
-1. W **Eksplorator rozwiązań**w projekcie Otwórz **stronę** > **index. cshtml**.
+1. W **Eksplorator rozwiązań**w projekcie Otwórz **stronę**  >  **index. cshtml**.
 
 1. Zastąp cały `<div>` tag następującym kodem:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
@@ -150,3 +150,6 @@ Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć aplikacj�
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core with SQL Database (Platforma ASP.NET Core z usługą SQL Database)](app-service-web-tutorial-dotnetcore-sqldb.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie aplikacji ASP.NET Core](configure-language-dotnetcore.md)

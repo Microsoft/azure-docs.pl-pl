@@ -2,14 +2,14 @@
 title: Szybki Start — tworzenie rejestru — interfejs wiersza polecenia platformy Azure
 description: Szybka nauka tworzenia rejestru prywatnego platformy Docker przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 06/12/2020
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 888daa53b719151b4362597c7a300e82fe26860e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31e917fa306330ca579266e21560d7d42c7f2bc7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682757"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752459"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -38,7 +38,8 @@ W tym przewodniku Szybki start utworzysz rejestr *Podstawowy*, który jest zopty
 Utwórz wystąpienie usługi ACR za pomocą polecenia [az acr create][az-acr-create]. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie użyto nazwy *myContainerRegistry007*. Zaktualizuj ją do unikatowej wartości.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 Po utworzeniu rejestru dane wyjściowe będą podobne do następujących:
@@ -64,14 +65,14 @@ Po utworzeniu rejestru dane wyjściowe będą podobne do następujących:
 }
 ```
 
-Zanotuj wartość `loginServer` w danych wyjściowych, która jest w pełni kwalifikowaną nazwą rejestru (wszystkie małe litery). W dalszej części tego przewodnika Szybki start wartość `<acrName>` jest używana jako symbol zastępczy nazwy rejestru kontenerów.
+Zanotuj wartość `loginServer` w danych wyjściowych, która jest w pełni kwalifikowaną nazwą rejestru (wszystkie małe litery). W pozostałej części tego przewodnika Szybki Start `<registry-name>` jest symbol zastępczy nazwy rejestru kontenerów i `<login-server>` jest symbolem zastępczym nazwy serwera logowania rejestru.
 
 ## <a name="log-in-to-registry"></a>Logowanie do rejestru
 
 Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do rejestru. Aby to zrobić, użyj polecenia [az acr login][az-acr-login].
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 Po ukończeniu polecenie zwraca komunikat `Login Succeeded`.
@@ -83,7 +84,7 @@ Po ukończeniu polecenie zwraca komunikat `Login Succeeded`.
 Poniższy przykład wyświetla listę repozytoriów w Twoim rejestrze:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Dane wyjściowe:
@@ -97,7 +98,7 @@ hello-world
 Poniższy przykład zawiera listę tagów w repozytorium **Hello-World** .
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Dane wyjściowe:
@@ -123,7 +124,10 @@ az group delete --name myResourceGroup
 W tym przewodniku Szybki start utworzono usługę Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure, wypchnięto obraz kontenera do rejestru oraz ściągnięto i uruchomiono obraz z rejestru. Przejdź do samouczków usługi Azure Container Registry, aby dowiedzieć się więcej o tej usłudze.
 
 > [!div class="nextstepaction"]
-> [Samouczki dotyczące usługi Azure Container Registry][container-registry-tutorial-quick-task]
+> [Samouczki dotyczące usługi Azure Container Registry][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Samouczki zadań Azure Container Registry][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -143,3 +147,4 @@ W tym przewodniku Szybki start utworzono usługę Azure Container Registry za po
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

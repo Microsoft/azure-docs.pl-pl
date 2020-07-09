@@ -2,19 +2,18 @@
 title: Co to jest Azure SQL Edge (wersja zapoznawcza)?
 description: Informacje o usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: Wprowadzenie do usługi SQL Edge, co to jest SQL Edge, Omówienie programu SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.openlocfilehash: 1c70950426b2f34d94bd66d2287550e19253874c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84233161"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Co to jest Azure SQL Edge (wersja zapoznawcza)?
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82117573"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Jak modelować relacyjne dane SQL na potrzeby importowania i indeksowania na platformie Azure Wyszukiwanie poznawcze
@@ -84,7 +84,7 @@ Rozwiązaniem jest przechwycenie szczegółów pokoju jako zagnieżdżonego plik
     GO
     ```
 
-2. Utwórz widok składający się ze wszystkich pól w tabeli nadrzędnej`SELECT * from dbo.Hotels$`() z dodaniem nowego pola *pokojów* , które zawiera dane wyjściowe zapytania zagnieżdżonego. Klauzula **for JSON dla Autotekstu** w `SELECT * from dbo.Rooms$` strukturach danych wyjściowych w formacie JSON. 
+2. Utwórz widok składający się ze wszystkich pól w tabeli nadrzędnej ( `SELECT * from dbo.Hotels$` ) z dodaniem nowego pola *pokojów* , które zawiera dane wyjściowe zapytania zagnieżdżonego. Klauzula **for JSON dla Autotekstu** w `SELECT * from dbo.Rooms$` strukturach danych wyjściowych w formacie JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -100,7 +100,7 @@ Rozwiązaniem jest przechwycenie szczegółów pokoju jako zagnieżdżonego plik
 
    ![Widok HotelRooms](media/index-sql-relational-data/hotelsrooms-view.png "Widok HoteRooms")
 
-1. Uruchom `SELECT * FROM dbo.HotelRooms` , aby pobrać zestaw wierszy. To zapytanie zwraca 50 wierszy, jeden na Hotel, ze skojarzonymi informacjami o pokoju jako kolekcją JSON. 
+1. Uruchom, `SELECT * FROM dbo.HotelRooms` Aby pobrać zestaw wierszy. To zapytanie zwraca 50 wierszy, jeden na Hotel, ze skojarzonymi informacjami o pokoju jako kolekcją JSON. 
 
    ![Zestaw wierszy z widoku HotelRooms](media/index-sql-relational-data/hotelrooms-rowset.png "Zestaw wierszy z widoku HotelRooms")
 

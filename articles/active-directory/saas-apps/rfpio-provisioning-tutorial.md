@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 6ae423305b39c1335b5db1cd893d5f817be1929b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060868"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RFPIO na potrzeby automatycznego aprowizacji użytkowników
@@ -64,7 +63,7 @@ Przed skonfigurowaniem usługi RFPIO na potrzeby automatycznego inicjowania obs�
     
     ![Administrator RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Przejdź do**Standard scim** > **zabezpieczeń** >  **zarządzania użytkownikami**.
+3.  Przejdź do Standard scim zabezpieczeń **zarządzania użytkownikami**  >  **SECURITY**  >  **SCIM**.
 
     ![RFPIO Dodaj Standard scim](media/rfpio-provisioning-tutorial/scim.png)
 
@@ -123,7 +122,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` **adres URL dzierżawy**. Przykładowa wartość to `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Wprowadź wartość **tokenu interfejsu API Standard scim** pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą RFPIO. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi RFPIO ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` **adres URL dzierżawy**. Przykładowa wartość to `https://Azure-test1.rfpio.com/rfpserver/scim/v2` . Wprowadź wartość **tokenu interfejsu API Standard scim** pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą RFPIO. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi RFPIO ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -131,7 +130,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do RFPIO**.
 
@@ -163,7 +162,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * Usługa RFPIO nie obsługuje obecnie aprowizacji grup.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

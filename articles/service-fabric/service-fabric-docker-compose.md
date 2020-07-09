@@ -4,11 +4,10 @@ description: Usługa Azure Service Fabric akceptuje format Docker Compose, aby u
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691292"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Obsługa wdrażania Docker Compose w usłudze Azure Service Fabric (wersja zapoznawcza)
 
@@ -24,7 +23,7 @@ Aby użyć tej wersji zapoznawczej, należy utworzyć klaster z wersją 5,7 lub 
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Wdróż plik Docker Compose na Service Fabric
 
-Następujące polecenia tworzą aplikację Service Fabric (o nazwie `fabric:/TestContainerApp`), którą można monitorować i zarządzać nią jak każda inna aplikacja Service Fabric. Można użyć określonej nazwy aplikacji na potrzeby zapytań dotyczących kondycji.
+Następujące polecenia tworzą aplikację Service Fabric (o nazwie `fabric:/TestContainerApp` ), którą można monitorować i zarządzać nią jak każda inna aplikacja Service Fabric. Można użyć określonej nazwy aplikacji na potrzeby zapytań dotyczących kondycji.
 Service Fabric rozpoznaje wartość "Deploymentname" jako identyfikator wdrożenia redagowania.
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell

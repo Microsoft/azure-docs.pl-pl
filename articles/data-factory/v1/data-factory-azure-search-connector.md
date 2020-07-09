@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194915"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Wypychanie danych do indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -47,7 +46,7 @@ Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj nast
 2. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania.
 3. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe.
 
-Gdy używasz Kreatora, definicje JSON dla tych Data Factory jednostek (połączone usługi, zestawy danych i potok) są automatycznie tworzone. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API .NET), należy zdefiniować te Data Factory jednostki przy użyciu formatu JSON.  Aby uzyskać przykład z definicjami JSON dla Data Factory jednostek, które są używane do kopiowania danych do indeksu wyszukiwania, zobacz [przykład JSON: kopiowanie danych z SQL Server lokalnych do sekcji indeksu wyszukiwanie poznawcze platformy Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) w tym artykule.
+Gdy używasz Kreatora, definicje JSON dla tych Data Factory jednostek (połączone usługi, zestawy danych i potok) są automatycznie tworzone. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API .NET), należy zdefiniować te Data Factory jednostki przy użyciu formatu JSON.  Aby uzyskać przykład z definicjami JSON dla Data Factory jednostek, które są używane do kopiowania danych do indeksu wyszukiwania, zobacz [przykład JSON: kopiowanie danych z SQL Server do sekcji indeksu wyszukiwanie poznawcze platformy Azure](#json-example-copy-data-from-sql-server-to-azure-cognitive-search-index) w tym artykule.
 
 Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSON, które są używane do definiowania jednostek Data Factory specyficznych dla indeksu wyszukiwania:
 
@@ -55,9 +54,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 
 Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla połączonej usługi Wyszukiwanie poznawcze platformy Azure.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
-| type | Właściwość Type musi mieć wartość: **AzureSearch**. | Tak |
+| typ | Właściwość Type musi mieć wartość: **AzureSearch**. | Tak |
 | url | Adres URL usługi wyszukiwania. | Tak |
 | key | Klucz administratora dla usługi wyszukiwania. | Tak |
 
@@ -65,9 +64,9 @@ Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla poł�
 
 Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak struktura, dostępność i zasady JSON zestawu danych, są podobne dla wszystkich typów zestawów danych. Sekcja **typeProperties** jest inna dla każdego typu zestawu danych. Sekcja typeProperties zestawu danych typu **AzureSearchIndex** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
-| type | Właściwość Type musi być ustawiona na wartość **AzureSearchIndex**.| Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **AzureSearchIndex**.| Tak |
 | indexName | Nazwa indeksu wyszukiwania. Data Factory nie tworzy indeksu. Indeks musi istnieć na platformie Azure Wyszukiwanie poznawcze. | Tak |
 
 
@@ -76,7 +75,7 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 W przypadku działania kopiowania, gdy ujścia ma typ **AzureSearchIndexSink**, w sekcji typeProperties są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Określa, czy należy scalić lub zamienić, gdy dokument już istnieje w indeksie. Zobacz [Właściwość WriteBehavior](#writebehavior-property).| Scal (domyślnie)<br/>Upload| Nie |
 | WriteBatchSize | Przekazuje dane do indeksu wyszukiwania, gdy rozmiar buforu osiągnie writeBatchSize. Aby uzyskać szczegółowe informacje, zobacz [Właściwość WriteBatchSize](#writebatchsize-property) . | od 1 do 1 000. Wartość domyślna to 1000. | Nie |
@@ -105,10 +104,10 @@ W poniższej tabeli określono, czy typ danych Wyszukiwanie poznawcze platformy 
 | Double | Tak |
 | Boolean | Tak |
 | DataTimeOffset | Tak |
-| Tablica ciągów | Nie |
-| GeographyPoint względem | Nie |
+| Tablica ciągów | N |
+| GeographyPoint względem | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index"></a>Przykład JSON: kopiowanie danych z SQL Server lokalnych do usługi Azure Wyszukiwanie poznawcze index
+## <a name="json-example-copy-data-from-sql-server-to-azure-cognitive-search-index"></a>Przykład JSON: kopiowanie danych z SQL Server do usługi Azure Wyszukiwanie poznawcze index
 
 Poniższy przykład pokazuje:
 
@@ -118,7 +117,7 @@ Poniższy przykład pokazuje:
 4. Wyjściowy [zestaw danych](data-factory-create-datasets.md) typu [AzureSearchIndex](#dataset-properties).
 4. [Potok](data-factory-create-pipelines.md) z działaniem kopiowania, który używa elementu [sqlsource](data-factory-sqlserver-connector.md#copy-activity-properties) i [AzureSearchIndexSink](#copy-activity-properties).
 
-Przykład kopiuje dane szeregów czasowych z lokalnej bazy danych SQL Server do wyszukiwania indeksów co godzinę. Właściwości JSON używane w tym przykładzie są opisane w sekcjach poniżej przykładów.
+Przykład kopiuje dane szeregów czasowych z bazy danych SQL Server, aby wyszukiwać indeks co godzinę. Właściwości JSON używane w tym przykładzie są opisane w sekcjach poniżej przykładów.
 
 Pierwszym krokiem jest skonfigurowanie bramy zarządzania danymi na maszynie lokalnej. Instrukcje dotyczą [przemieszczania danych między lokalizacjami lokalnymi i artykułami w chmurze](data-factory-move-data-between-onprem-and-cloud.md) .
 
@@ -255,7 +254,7 @@ Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z
 }
 ```
 
-W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszukiwanie poznawcze `executionLocation` właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmianę potrzebną w ramach działania `typeProperties` kopiowania jako przykładu. Sprawdź opcję [Kopiuj dane między magazynami danych w chmurze](data-factory-data-movement-activities.md#global) , aby poznać obsługiwane wartości i więcej szczegółów.
+W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszukiwanie poznawcze `executionLocation` Właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmianę potrzebną w ramach działania kopiowania `typeProperties` jako przykładu. Sprawdź opcję [Kopiuj dane między magazynami danych w chmurze](data-factory-data-movement-activities.md#global) , aby poznać obsługiwane wartości i więcej szczegółów.
 
 ```JSON
 "typeProperties": {
@@ -271,7 +270,7 @@ W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszu
 
 
 ## <a name="copy-from-a-cloud-source"></a>Kopiowanie ze źródła w chmurze
-W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszukiwanie poznawcze `executionLocation` właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmianę potrzebną w ramach działania `typeProperties` kopiowania jako przykładu. Sprawdź opcję [Kopiuj dane między magazynami danych w chmurze](data-factory-data-movement-activities.md#global) , aby poznać obsługiwane wartości i więcej szczegółów.
+W przypadku kopiowania danych z magazynu danych w chmurze do usługi Azure Wyszukiwanie poznawcze `executionLocation` Właściwość jest wymagana. Poniższy fragment kodu JSON pokazuje zmianę potrzebną w ramach działania kopiowania `typeProperties` jako przykładu. Sprawdź opcję [Kopiuj dane między magazynami danych w chmurze](data-factory-data-movement-activities.md#global) , aby poznać obsługiwane wartości i więcej szczegółów.
 
 ```JSON
 "typeProperties": {

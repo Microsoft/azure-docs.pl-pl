@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81454683"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych platformy Azure — w spoczynku
@@ -241,7 +241,7 @@ Usługi Microsoft Azure Each obsługują co najmniej jedno szyfrowanie w modelac
 
 Każdy klient korzystający z funkcji infrastruktury jako usługi (IaaS) platformy Azure może uzyskać szyfrowanie w spoczynku dla maszyn wirtualnych IaaS i dysków za pośrednictwem Azure Disk Encryption. Więcej informacji na temat usługi Azure Disk Encryption można znaleźć w [dokumentacji Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
 
-#### <a name="azure-storage"></a>Usługa Azure Storage
+#### <a name="azure-storage"></a>Azure Storage
 
 Wszystkie usługi Azure Storage (BLOB Storage, queue storage, Table Storage i Azure Files) obsługują szyfrowanie po stronie serwera. Niektóre usługi obsługują dodatkowo klucze zarządzane przez klienta i szyfrowanie po stronie klienta. 
 
@@ -261,7 +261,7 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 |                                  |                    | **Model szyfrowania i zarządzanie kluczami** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Po stronie serwera przy użyciu klucza zarządzanego przez usługę**     | **Po stronie serwera przy użyciu klucza zarządzanego przez klienta**             | **Po stronie klienta przy użyciu klucza zarządzanego przez klienta**      |
-| **AI i Machine Learning**      |                    |                    |                    |
+| **Sztuczna inteligencja i uczenie maszynowe**      |                    |                    |                    |
 | Azure Cognitive Search           | Tak                | Tak                | -                  |
 | Azure Cognitive Services         | Tak                | Tak                | -                  |
 | Azure Machine Learning           | Tak                | Tak                | -                  |
@@ -272,48 +272,48 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 | Personalizacja                     | Tak                | Tak                | -                  |
 | QnA Maker                        | Tak                | Tak                | -                  |
 | Usługi mowy                  | Tak                | Tak                | -                  |
-| Tekst usługi Translator                  | Tak                | Tak                | -                  |
+| Tłumaczenie tekstu w usłudze Translator                  | Tak                | Tak                | -                  |
 | Power BI                         | Tak                | Wersja zapoznawcza, RSA 2048-bit | -                  |
 | **Analiza**                    |                    |                    |                    |
-| Usługa Azure Stream Analytics           | Tak                | NIE DOTYCZY\*            | -                  |
+| Usługa Azure Stream Analytics           | Tak                | Nie dotyczy\*            | -                  |
 | Event Hubs                       | Tak                | Tak, wszystkie długości RSA. | -                  |
 | Funkcje                        | Tak                | Tak, wszystkie długości RSA. | -                  |
 | Azure Analysis Services          | Tak                | -                  | -                  |
 | Azure Data Catalog               | Tak                | -                  | -                  |
-| Azure HDInsight                  | Tak                | Wszystkie                | -                  |
-| Azure Monitor Application Insights | Tak                | Tak                | -                  |
-| Azure Monitor Log Analytics      | Tak                | Tak                | -                  |
-| Azure Data Explorer              | Tak                | Tak                | -                  |
-| Azure Data Factory               | Tak                | Tak                | -                  |
+| Azure HDInsight                  | Tak                | Wszystko                | -                  |
+| Azure Monitor Application Insights | Tak                | Yes                | -                  |
+| Azure Monitor Log Analytics      | Tak                | Yes                | -                  |
+| Azure Data Explorer              | Tak                | Yes                | -                  |
+| Azure Data Factory               | Tak                | Yes                | -                  |
 | Azure Data Lake Store            | Tak                | Tak, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Tak                | Tak                | -                  |
-| Container Instances              | Tak                | Tak                | -                  |
-| Container Registry               | Tak                | Tak                | -                  |
-| **Wystąpienia obliczeniowe**                      |                    |                    |                    |
-| Maszyny wirtualne                 | Tak                | Tak, RSA 2048-bit  | -                  |
+| Azure Kubernetes Service         | Tak                | Yes                | -                  |
+| Container Instances              | Tak                | Yes                | -                  |
+| Container Registry               | Tak                | Yes                | -                  |
+| **Obliczanie**                      |                    |                    |                    |
+| Virtual Machines                 | Tak                | Tak, RSA 2048-bit  | -                  |
 | Zestaw skalowania maszyn wirtualnych        | Tak                | Tak, RSA 2048-bit  | -                  |
 | SAP HANA                         | Tak                | Tak, RSA 2048-bit  | -                  |
 | App Service                      | Tak                | Opcję\*\*            | -                  |
-| Automatyzacja                       | Tak                | Opcję\*\*            | -                  |
+| Automation                       | Tak                | Opcję\*\*            | -                  |
 | Azure Functions                  | Tak                | Opcję\*\*            | -                  |
 | Azure Portal                     | Tak                | Opcję\*\*            | -                  |
-| Logic Apps                       | Tak                | Tak                | -                  |
+| Logic Apps                       | Tak                | Yes                | -                  |
 | Azure Managed Applications       | Tak                | Opcję\*\*            | -                  |
-| Service Bus                      | Tak                | Tak                | -                  |
-| Site Recovery                    | Tak                | Tak                | -                  |
+| Service Bus                      | Tak                | Yes                | -                  |
+| Site Recovery                    | Tak                | Yes                | -                  |
 | **Bazy danych**                    |                    |                    |                    |
 | Program SQL Server w usłudze Virtual Machines   | Tak                | Tak, RSA 2048-bit  | Tak                |
 | Azure SQL Database               | Tak                | Tak, RSA 2048-bit  | Tak                |
 | Azure SQL Database MariaDB   | Tak                | -                  | -                  |
-| Azure SQL Database dla programu MySQL     | Tak                | Tak                | -                  |
-| Azure SQL Database PostgreSQL | Tak               | Tak                | -                  |
+| Azure SQL Database dla programu MySQL     | Tak                | Yes                | -                  |
+| Azure SQL Database PostgreSQL | Tak               | Yes                | -                  |
 | Azure Synapse Analytics          | Tak                | Tak, RSA 2048-bit  | -                  |
 | SQL Server Stretch Database      | Tak                | Tak, RSA 2048-bit  | Tak                |
-| Table Storage                    | Tak                | Tak                | Tak                |
-| Azure Cosmos DB                  | Tak                | Tak                | -                  |
+| Table Storage                    | Tak                | Yes                | Yes                |
+| Azure Cosmos DB                  | Tak                | Yes                | -                  |
 | Azure Databricks                 | Tak                | Tak                | -                  |
-| Azure Database Migration Service | Tak                | NIE DOTYCZY\*              | -                  |
+| Azure Database Migration Service | Tak                | Nie dotyczy\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Usługa Azure DevOps Services            | Tak                | -                  | Tak                |
 | Azure Repos                      | Tak                | -                  | Tak                |
@@ -325,9 +325,9 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 | Event Grid                       | Tak                | -                  | -                  |
 | API Management                   | Tak                | -                  | -                  |
 | **Usługi IoT**                 |                    |                    |                    |
-| Usługa IoT Hub                          | Tak                | Tak                | Tak                |
+| IoT Hub                          | Tak                | Tak                | Tak                |
 | IoT Hub Device Provisioning      | Tak                | Tak                | -                  |
-| **Zarządzanie i ład**    |                    |                    |                    |
+| **Zarządzanie + ład**    |                    |                    |                    |
 | Azure Site Recovery              | Tak                | -                  | -                  |
 | Azure Migrate                    | Tak                | Tak                | -                  |
 | **Media**                        |                    |                    |                    |
@@ -346,10 +346,10 @@ Szyfrowanie po stronie klienta Azure SQL Database danych jest obsługiwane za po
 | Usługa File Sync                        | Tak                | Tak, RSA 2048-bit  | -                  |
 | Queue Storage                    | Tak                | Tak                | Tak                |
 | Avere vFXT                       | Tak                | -                  | -                  |
-| Azure Cache for Redis            | Tak                | NIE DOTYCZY\*              | -                  |
+| Azure Cache for Redis            | Tak                | Nie dotyczy\*              | -                  |
 | Azure NetApp Files               | Tak                | Tak                | -                  |
 | Archive Storage                  | Tak                | Tak, RSA 2048-bit  | -                  |
-| Magazyn StorSimple                       | Tak                | Tak, RSA 2048-bit  | Tak                |
+| StorSimple                       | Tak                | Tak, RSA 2048-bit  | Tak                |
 | Azure Backup                     | Tak                | Tak                | Tak                |
 | Data Box                         | Tak                | -                  | Tak                |
 | Data Box Edge                    | Tak                | Tak                | -                  |

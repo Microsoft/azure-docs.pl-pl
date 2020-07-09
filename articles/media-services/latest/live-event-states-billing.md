@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: juliako
 ms.openlocfilehash: e4eee3b9f3f97bf7cd7a7b61425ec5c9a3a198ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76543079"
 ---
 # <a name="live-event-states-and-billing"></a>Stany wydarzeń na żywo i rozliczenia
@@ -39,7 +38,7 @@ Wydarzenie na żywo może być w jednym z następujących stanów.
 |**Uruchamianie**| Trwa Rozpoczynanie zdarzenia na żywo i alokowanie zasobów. W tym stanie nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie. Jeśli wystąpi błąd, zdarzenie na żywo powróci do stanu zatrzymania.|
 |**Uruchomiono**| Zasoby zdarzeń na żywo zostały przydzieloną, Wygenerowano adresy URL pozyskiwania i podglądu oraz można odbierać strumienie na żywo. W tym momencie rozliczenia są aktywne. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia.|
 |**Zatrzymywanie**| Zdarzenie na żywo jest przerywane, a zasoby są zwalniane. W tym stanie przejściowym nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie.|
-|**Usunąć**| Trwa usuwanie zdarzenia na żywo. W tym stanie przejściowym nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie.|
+|**Usuwanie**| Trwa usuwanie zdarzenia na żywo. W tym stanie przejściowym nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie.|
 
 Możesz włączyć transkrypcje na żywo podczas tworzenia wydarzenia na żywo. Jeśli to zrobisz, za każdym razem, gdy zdarzenie na żywo będzie w stanie **uruchomienia** , zostanie naliczona stawka za dynamiczne transkrypcje. Należy pamiętać, że opłaty są naliczane nawet wtedy, gdy nie przepływają przez wydarzenie na żywo.
 

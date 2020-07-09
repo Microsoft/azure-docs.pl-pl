@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266873"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081574"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Rozwiązywanie problemów z określonymi komunikatami o błędach protokołu RDP dla maszyny wirtualnej z systemem Windows na platformie Azure
 W przypadku korzystania z Pulpit zdalny połączenia z maszyną wirtualną z systemem Windows na platformie Azure może zostać wyświetlony konkretny komunikat o błędzie. W tym artykule opisano niektóre typowe komunikaty o błędach, a także kroki rozwiązywania problemów. Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną przy użyciu protokołu RDP, ale nie napotkasz określonego komunikatu o błędzie, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md).
@@ -40,7 +40,9 @@ Przyczyna: okres prolongaty licencjonowania 120 dla roli serwera Pulpit zdalny w
 
 Aby obejść ten sposób, Zapisz lokalną kopię pliku RDP z portalu i Uruchom to polecenie w wierszu polecenia programu PowerShell, aby nawiązać połączenie. Ten krok powoduje wyłączenie licencjonowania tylko dla tego połączenia:
 
-        mstsc <File name>.RDP /admin
+```powershell
+mstsc <File name>.RDP /admin
+```
 
 Jeśli nie potrzebujesz więcej niż dwóch jednoczesnych połączeń Pulpit zdalny z maszyną wirtualną, możesz użyć Menedżer serwera, aby usunąć rolę serwera Pulpit zdalny.
 
@@ -55,9 +57,11 @@ Możliwe rozwiązania:
 
 * Jeśli korzystasz z intranetu organizacji, upewnij się, że komputer ma dostęp do serwera proxy i może wysłać do niego ruch HTTPS.
 * Jeśli używasz lokalnie przechowywanego pliku RDP, spróbuj użyć takiego, który jest generowany przez portal. Ten krok zapewnia, że masz poprawną nazwę DNS maszyny wirtualnej lub usługę w chmurze i Port punktu końcowego maszyny wirtualnej. Oto przykładowy plik RDP wygenerowany przez portal:
-  
-        full address:s:tailspin-azdatatier.cloudapp.net:55919
-        prompt for credentials:i:1
+
+    ```output
+    full address:s:tailspin-azdatatier.cloudapp.net:55919
+    prompt for credentials:i:1
+    ```
 
 Część adresu tego pliku RDP ma:
 
@@ -69,7 +73,7 @@ Część adresu tego pliku RDP ma:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Wystąpił błąd uwierzytelniania. Nie można skontaktować się z urzędem zabezpieczeń lokalnych.
 Przyczyna: docelowa maszyna wirtualna nie może zlokalizować urzędu zabezpieczeń w części nazwy użytkownika poświadczeń.
 
-Jeśli nazwa użytkownika ma postać *SecurityAuthority*\\*username* (przykład: CORP\User1.), część *SecurityAuthority* to nazwa komputera maszyny wirtualnej (dla urzędu zabezpieczeń lokalnych) lub nazwa domeny Active Directory.
+Jeśli nazwa użytkownika ma postać *SecurityAuthority* \\ *username* (przykład: CORP\User1.), część *SecurityAuthority* to nazwa komputera maszyny wirtualnej (dla urzędu zabezpieczeń lokalnych) lub nazwa domeny Active Directory.
 
 Możliwe rozwiązania:
 
@@ -84,8 +88,8 @@ Przyczyna: docelowa maszyna wirtualna nie może zweryfikować nazwy konta i has�
 
 Komputer z systemem Windows może sprawdzać poprawność poświadczeń konta lokalnego lub konta domeny.
 
-* W przypadku kont lokalnych użyj składni *ComputerName*\\*nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
-* W przypadku kont domeny użyj składni *nazwa_domeny*\\*nazwy użytkownika* (przykład: CONTOSO\peterodman).
+* W przypadku kont lokalnych użyj składni *ComputerName* \\ *nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
+* W przypadku kont domeny użyj składni *nazwa_domeny* \\ *nazwy użytkownika* (przykład: CONTOSO\peterodman).
 
 Jeśli Twoja maszyna wirtualna została podwyższona do kontrolera domeny w nowym lesie Active Directory, konto administratora lokalnego, które zostało zalogowane, jest konwertowane na równoważne konto z tym samym hasłem w nowym lesie i domenie. Konto lokalne jest następnie usuwane.
 

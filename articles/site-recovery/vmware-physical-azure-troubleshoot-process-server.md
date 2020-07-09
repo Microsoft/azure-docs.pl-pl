@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131991"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
 
@@ -96,7 +96,7 @@ Jeśli nie ma pulsu z serwera przetwarzania (kod błędu 806), wykonaj następuj
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Krok 4. Weryfikowanie synchronizacji czasu na maszynie źródłowej
 
-Upewnij się, że data/godzina systemowa replikowanej maszyny jest zsynchronizowana. [Dowiedz się więcej](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Upewnij się, że data/godzina systemowa replikowanej maszyny jest zsynchronizowana. [Dowiedz się więcej](/windows-server/networking/windows-time-service/accurate-time)
 
 ## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Krok 5. sprawdzenie oprogramowania antywirusowego na maszynie źródłowej
 
@@ -105,7 +105,7 @@ Upewnij się, że żadne oprogramowanie antywirusowe na replikowanej maszynie ni
 ## <a name="step-6-check-connectivity-from-source-machine"></a>Krok 6. Sprawdzanie łączności z poziomu maszyny źródłowej
 
 
-1. Jeśli zachodzi taka potrzeba, zainstaluj [klienta programu Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) na maszynie źródłowej. Nie używaj polecenia ping.
+1. Jeśli zachodzi taka potrzeba, zainstaluj [klienta programu Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) na maszynie źródłowej. Nie używaj polecenia ping.
 2. Na maszynie źródłowej Wyślij polecenie ping do serwera przetwarzania w porcie HTTPS za pomocą programu Telnet. Domyślnie 9443 jest portem HTTPS dla ruchu związanego z replikacją.
 
     `telnet <process server IP address> <port>`
@@ -113,7 +113,7 @@ Upewnij się, że żadne oprogramowanie antywirusowe na replikowanej maszynie ni
 3. Sprawdź, czy połączenie zostało nawiązane pomyślnie.
 
 
-**Łączność** | **Szczegóły** | **Akcja**
+**Połączenia** | **Szczegóły** | **Akcja**
 --- | --- | ---
 **Wybran** | Program Telnet wyświetla pusty ekran, a serwer przetwarzania jest osiągalny. | Nie są wymagane żadne dalsze działania.
 **Niepomyślnych** | Nie można nawiązać połączenia | Upewnij się, że na serwerze przetwarzania jest dozwolony port 9443 dla ruchu przychodzącego. Na przykład jeśli masz sieć obwodową lub podsieć z osłoną. Sprawdź połączenie ponownie.
@@ -168,18 +168,18 @@ Sprawdź, czy serwer przetwarzania aktywnie wypychanie danych do platformy Azure
 
   1. Na serwerze przetwarzania Otwórz Menedżera zadań (naciśnij klawisze CTRL + SHIFT + ESC).
   2. Wybierz kartę **wydajność** > **Otwórz Monitor zasobów**.
-  3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywnością sieci**Sprawdź, czy program pliku cbengine. exe aktywnie wysyła dużą ilość danych.
+  3. Na stronie **Monitor zasobów** wybierz kartę **Sieć** . W obszarze **procesy z aktywność sieci**Sprawdź, czy cbengine.exe aktywnie wysyła dużą ilość danych.
 
        ![Woluminy w ramach procesów z aktywnością sieciową](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
-  Jeśli pliku cbengine. exe nie wysyła dużej ilości danych, wykonaj kroki opisane w poniższych sekcjach.
+  Jeśli cbengine.exe nie wysyła dużej ilości danych, wykonaj kroki opisane w poniższych sekcjach.
 
 ## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Krok 9. sprawdzenie połączenia serwera przetwarzania z usługą Azure Blob Storage
 
-1. W Monitor zasobów wybierz pozycję **pliku cbengine. exe**.
+1. W Monitor zasobów wybierz pozycję **cbengine.exe**.
 2. W obszarze **połączenia protokołu TCP**Sprawdź, czy istnieje łączność z serwerem przetwarzania do usługi Azure Storage.
 
-  ![Łączność między pliku cbengine. exe i adresem URL usługi Azure Blob Storage](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Łączność między cbengine.exe i adresem URL usługi Azure Blob Storage](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Sprawdź usługi
 
@@ -246,7 +246,7 @@ Zwiększ przepustowość między serwerem przetwarzania i platformą Azure, a na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. 
+Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

@@ -6,10 +6,9 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80877902"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS)
@@ -35,7 +34,7 @@ W poniższej tabeli przedstawiono dostępne typy magazynów i ich możliwości:
 | Przypadek użycia | Wtyczka woluminu | Odczyt/zapis jednokrotny | Tylko do odczytu | Odczyt/zapis wielu | Obsługa kontenerów systemu Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Konfiguracja udostępniona       | Azure Files   | Tak | Tak | Tak | Tak |
-| Dane aplikacji ze strukturą        | Azure Disks   | Tak | Nie  | Nie  | Tak |
+| Dane aplikacji ze strukturą        | Azure Disks   | Yes | Nie  | Nie  | Yes |
 | Dane bez struktury, operacje systemu plików | [BlobFuse][blobfuse] | Tak | Tak | Tak | Nie |
 
 Dwa podstawowe typy magazynów udostępnione dla woluminów w AKS są obsługiwane przez dyski lub Azure Files platformy Azure. Aby zwiększyć bezpieczeństwo, oba typy magazynów używają domyślnie usługi Azure szyfrowanie usługi Storage (SSE), która szyfruje dane przechowywane w spoczynku. Dysków nie można obecnie zaszyfrować przy użyciu Azure Disk Encryption na poziomie węzła AKS.

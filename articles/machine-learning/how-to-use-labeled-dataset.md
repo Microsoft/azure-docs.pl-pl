@@ -5,16 +5,17 @@ description: Dowiedz się, jak eksportować etykiety danych z Azure Machine Lear
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: conceptual
+ms.subservice: core
+ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 657b1dbb169d80a3e5563dd1a4fa52eac2278aae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655766"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025730"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Tworzenie i eksplorowanie zestawu danych Azure Machine Learning przy użyciu etykiet
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Tworzenie i eksplorowanie zestawu danych Azure Machine Learning za pomocą etykiet (wersja zapoznawcza)
 
 W tym artykule dowiesz się, jak eksportować etykiety danych z Azure Machine Learning projektu etykietowania danych i ładować je do popularnych formatów, takich jak Pandas Dataframe na potrzeby eksploracji danych lub zestawu danych Torchvision na potrzeby transformacji obrazu. 
 

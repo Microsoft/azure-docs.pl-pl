@@ -2,25 +2,25 @@
 title: Zrozumienie i rozwiązywanie problemów dotyczących platformy Azure serwer proxy aplikacji usługi Azure AD CORS
 description: Zawiera informacje o funkcji CORS w usłudze Azure serwer proxy aplikacji usługi Azure AD i sposobach identyfikowania i rozwiązywania problemów z mechanizmem CORS.
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: celested
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72025785"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84759933"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Zrozumienie i rozwiązywanie problemów serwer proxy aplikacji usługi Azure Active Directory CORS
 
-[Współużytkowanie zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/) może czasami stwarzać wyzwania dla aplikacji i interfejsów API publikowanych za pomocą serwer proxy aplikacji usługi Azure Active Directory. W tym artykule omówiono zagadnienia i rozwiązania CORS serwer proxy aplikacji usługi Azure AD platformy Azure.
+[Współużytkowanie zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/)   Czasami mogą wystąpić wyzwania dla aplikacji i interfejsów API publikowanych za pomocą serwer proxy aplikacji usługi Azure Active Directory. W tym artykule omówiono zagadnienia i rozwiązania CORS serwer proxy aplikacji usługi Azure AD platformy Azure.
 
 Zabezpieczenia przeglądarki zazwyczaj uniemożliwiają stronom sieci Web wykonywanie żądań AJAX do innej domeny. To ograniczenie jest nazywane *zasadami tego samego źródła*i uniemożliwia złośliwym lokacjom odczytywanie poufnych danych z innej lokacji. Czasami jednak może być konieczne, aby inne Lokacje wywoływały internetowy interfejs API. CORS to W3C standard, który umożliwia serwerowi złagodzenie zasad tego samego źródła i Zezwalanie na niektóre żądania między źródłami podczas odrzucania innych.
 
@@ -28,15 +28,15 @@ Zabezpieczenia przeglądarki zazwyczaj uniemożliwiają stronom sieci Web wykony
 
 Dwa adresy URL mają te same źródła, jeśli mają identyczne schematy, hosty i porty ([RFC 6454](https://tools.ietf.org/html/rfc6454)), takie jak:
 
--   http:\//contoso.com/foo.html
--   http:\//contoso.com/bar.html
+-   http: \/ /contoso.com/foo.html
+-   http: \/ /contoso.com/bar.html
 
 Następujące adresy URL mają różne źródła niż poprzednie dwa:
 
--   http:\//contoso.NET — inna domena
--   http:\//contoso.com:9000/foo.html — inny port
--   https:\//contoso.com/foo.html — inny schemat
--   http:\//www.contoso.com/foo.html — inna poddomena
+-   http: \/ /contoso.NET — inna domena
+-   http: \/ /contoso.com:9000/foo.html — inny port
+-   https: \/ /contoso.com/foo.html — inny schemat
+-   http: \/ /www.contoso.com/foo.html — inna poddomena
 
 Zasady tego samego źródła uniemożliwiają aplikacjom uzyskiwanie dostępu do zasobów z innych źródeł, chyba że korzystają z prawidłowych nagłówków kontroli dostępu. Jeśli nagłówki CORS są nieobecne lub nieprawidłowe, żądania między źródłami kończą się niepowodzeniem. 
 
@@ -46,7 +46,7 @@ Problemy CORS można zidentyfikować za pomocą narzędzi debugowania przegląda
 1. Naciśnij klawisz **F12** , aby wyświetlić konsolę debugowania.
 1. Spróbuj odtworzyć transakcję i przejrzyj komunikat konsoli. Naruszenie mechanizmu CORS powoduje błąd konsoli dotyczącej źródła.
 
-Na poniższym zrzucie ekranu, wybierając przycisk **Wypróbuj ten** komunikat o błędzie, że nie znaleziono protokołu HTTPS\/:/Corswebclient-contoso.msappproxy.NET w nagłówku Access-Control-Allow-Origin.
+Na poniższym zrzucie ekranu, wybierając przycisk **Wypróbuj ten** komunikat o błędzie, że nie znaleziono protokołu https: \/ /corswebclient-contoso.msappproxy.NET w nagłówku Access-Control-Allow-Origin.
 
 ![Problem CORS](./media/application-proxy-understand-cors-issues/image3.png)
 
@@ -82,8 +82,8 @@ Zamiast tego należy ustawić **wewnętrzny adres URL** w celu opublikowania kat
 
 W efekcie adresy URL aplikacji skutecznie rozwiązują problem z CORS:
 
-- https:\//corswebclient-contoso.msappproxy.NET/CORSWebService
-- https:\//corswebclient-contoso.msappproxy.NET/CORSWebClient
+- https: \/ /corswebclient-contoso.msappproxy.NET/CORSWebService
+- https: \/ /corswebclient-contoso.msappproxy.NET/CORSWebClient
 
 ### <a name="option-3-update-http-headers"></a>Opcja 3: aktualizowanie nagłówków HTTP
 
@@ -101,7 +101,7 @@ Content-Type: text/zwykły; charset = utf-8 \
 Wygasa:-1 \
 Zróżnicuj: Accept-Encoding \
 Serwer: Microsoft-IIS/8,5 Microsoft-pliku HTTPAPI/2.0 \
-**Access-Control-Allow-Origin: https\://corswebclient-contoso.msappproxy.NET**\
+**Access-Control-Allow-Origin: https \: //corswebclient-contoso.msappproxy.NET**\
 X-AspNet-Version: 4.0.30319 \
 X-zasilany przez: ASP.NET \
 Długość zawartości: 17

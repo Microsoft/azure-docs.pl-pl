@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826285"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130128"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Dodawanie skryptu programu VMM do planu odzyskiwania
 
 W tym artykule opisano sposób tworzenia skryptu System Center Virtual Machine Manager (VMM) i dodawania go do planu odzyskiwania w programie [Azure Site Recovery](site-recovery-overview.md).
 
-Zamieszczaj wszelkie komentarze lub pytania w dolnej części tego artykułu lub na [stronie pytania firmy Microsoft dotyczącej&na platformie Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+Zamieszczaj wszelkie komentarze lub pytania w dolnej części tego artykułu lub na [stronie pytania firmy Microsoft dotyczącej&na platformie Azure Recovery Services](/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +38,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
     `Import-Module -Name virtualmachinemanager`
 
-    Aby uzyskać więcej informacji, zobacz [wprowadzenie do programu Windows PowerShell i programu VMM](https://technet.microsoft.com/library/hh875013.aspx).
+    Aby uzyskać więcej informacji, zobacz [wprowadzenie do programu Windows PowerShell i programu VMM](/previous-versions/system-center/system-center-2012-R2/hh875013(v=sc.12)).
 * Upewnij się, że w wdrożeniu programu VMM istnieje co najmniej jeden serwer biblioteki. Domyślnie ścieżka udziału biblioteki serwera programu VMM znajduje się lokalnie na serwerze programu VMM. Nazwa folderu to MSCVMMLibrary.
 
   Jeśli ścieżka udziału biblioteki jest zdalna (lub jeśli jest lokalna, ale nie została udostępniona przez MSCVMMLibrary), skonfiguruj udział w następujący sposób, używając \\ libserver2. contoso. com\share\ jako przykładu:
@@ -51,7 +51,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
      a. Otwórz **64-bitową konsolę programu Windows PowerShell** jako administrator.
      
-     b. Wprowadź **obejście Set-executionpolicy**. Aby uzyskać więcej informacji, zobacz [Korzystanie z polecenia cmdlet Set-executionpolicy](https://technet.microsoft.com/library/ee176961.aspx).
+     b. Wprowadź **obejście Set-executionpolicy**. Aby uzyskać więcej informacji, zobacz [Korzystanie z polecenia cmdlet Set-executionpolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Ustaw **obejście Set-executionpolicy** tylko w konsoli programu PowerShell 64-bitowej. Jeśli ustawisz ją na 32-bitową konsolę programu PowerShell, skrypty nie są uruchamiane.
@@ -60,9 +60,9 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
 Jeśli masz lokację źródłową programu VMM, możesz utworzyć skrypt na serwerze programu VMM. Następnie Dołącz skrypt do planu odzyskiwania.
 
-1. W udziale biblioteki Utwórz nowy folder. Na przykład \< Nazwa serwera VMM> \msscvmmlibrary\rpscripts. Umieść folder na źródłowym i docelowym serwerze programu VMM.
+1. W udziale biblioteki Utwórz nowy folder. Na przykład \<VMM server name> \MSSCVMMLibrary\RPScripts. Umieść folder na źródłowym i docelowym serwerze programu VMM.
 1. Utwórz skrypt. Na przykład Nazwij skrypt RPScript. Sprawdź, czy skrypt działa zgodnie z oczekiwaniami.
-1. Umieść skrypt w \< nazwie serwera programu vmm> folderze \msscvmmlibrary na źródłowym i docelowym serwerze programu VMM.
+1. Umieść skrypt w \<VMM server name> folderze \MSSCVMMLibrary na źródłowym i docelowym serwerze programu VMM.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Dodawanie skryptu do planu odzyskiwania
 
@@ -71,7 +71,7 @@ Po dodaniu maszyn wirtualnych lub grup replikacji do planu odzyskiwania i utworz
 1. Otwórz plan odzyskiwania.
 1. Z listy **krok** wybierz element. Następnie wybierz opcję **skrypt** lub **czynność ręczna**.
 1. Określ, czy dodać skrypt lub akcję przed lub po wybranym elemencie. Aby przenieść pozycję skryptu w górę lub w dół, wybierz przyciski **Przenieś w górę** i **Przenieś w dół** .
-1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**. W polu **ścieżka skryptu**wprowadź ścieżkę względną do udziału. Na przykład wprowadź **\RPScripts\RPScript.ps1**.
+1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**. W polu **ścieżka skryptu**wprowadź ścieżkę względną do udziału. Na przykład wprowadź **\RPScripts\RPScript.PS1**.
 1. W przypadku dodawania elementu Runbook Azure Automation Określ konto usługi Automation, w którym znajduje się element Runbook. Następnie wybierz skrypt elementu Runbook platformy Azure, którego chcesz użyć.
 1. Aby upewnić się, że skrypt działa zgodnie z oczekiwaniami, wykonaj test pracy w trybie failover w ramach planu odzyskiwania.
 

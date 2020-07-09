@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063649"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Przewodnik wdrażania funkcji Azure Active Directory
@@ -41,7 +40,7 @@ Dodatkowe informacje na temat licencjonowania można znaleźć na następującyc
 
 W tej fazie Administratorzy mogą włączyć podstawowe funkcje zabezpieczeń, aby zapewnić bezpieczniejsze i łatwe korzystanie z programu Foundation w usłudze Azure AD przed zaimportowaniem lub utworzeniem normalnych kont użytkowników. Ta faza podstawowa gwarantuje, że jest to bardziej bezpieczny stan od początku i że użytkownicy końcowi muszą tylko wprowadzać nowe koncepcje.
 
-| Zadanie | Szczegół | Wymagana licencja |
+| Zadanie | Szczegóły | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | [Wyznacz więcej niż jednego administratora globalnego](../users-groups-roles/directory-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. | Usługa Azure AD — warstwa Bezpłatna |
 | [W miarę możliwości używaj nieglobalnych ról administracyjnych](../users-groups-roles/directory-assign-admin-roles.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. | Usługa Azure AD — warstwa Bezpłatna |
@@ -62,7 +61,7 @@ W tej fazie Administratorzy mogą włączyć podstawowe funkcje zabezpieczeń, a
 
 Następnie dodamy do podstawy ustalonej w fazie 1 przez zaimportowanie naszych użytkowników i włączenie synchronizacji, zaplanowanie dostępu gościa i przygotowanie do obsługi dodatkowych funkcji.
 
-| Zadanie | Szczegół | Wymagana licencja |
+| Zadanie | Szczegóły | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | [Instalowanie programu Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Przygotuj się do synchronizacji użytkowników z istniejącego katalogu lokalnego do chmury. | Usługa Azure AD — warstwa Bezpłatna |
 | [Implementowanie synchronizacji skrótów haseł](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Zsynchronizuj skróty haseł, aby umożliwić Replikowanie zmian haseł, wykrywanie i korygowanie nieprawidłowych haseł oraz zgłaszanie nieujawnionych poświadczeń. | Usługa Azure AD — warstwa Bezpłatna |
@@ -78,7 +77,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez zaimportowanie naszych u
 
 W miarę dalszego kompilowania w poprzednich fazach zidentyfikujemy aplikacje kandydujące do migracji i integracji z usługą Azure AD oraz ukończą konfigurację tych aplikacji.
 
-| Zadanie | Szczegół | Wymagana licencja |
+| Zadanie | Szczegóły | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | Zidentyfikuj swoje aplikacje | Zidentyfikuj aplikacje używane w organizacji: lokalne, SaaS aplikacje w chmurze i inne aplikacje biznesowe. Ustal, czy te aplikacje mogą być zarządzane za pomocą usługi Azure AD. | Nie jest wymagana żadna licencja |
 | [Integruj obsługiwane aplikacje SaaS w galerii](../manage-apps/add-application-portal.md) | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji. Niektóre aplikacje używane przez organizację są prawdopodobnie dostępne w galerii bezpośrednio z Azure Portal. | Usługa Azure AD — warstwa Bezpłatna |
@@ -88,7 +87,7 @@ W miarę dalszego kompilowania w poprzednich fazach zidentyfikujemy aplikacje ka
 
 Faza 4 widzi administratorów egzekwowania najniższych zasad uprawnień do administrowania, wykonywania pierwszej oceny dostępu i włączania automatyzacji typowych zadań związanych z cyklem życia użytkownika.
 
-| Zadanie | Szczegół | Wymagana licencja |
+| Zadanie | Szczegóły | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | [Wymuś korzystanie z Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Usuń role administracyjne z kont użytkowników z normalnym dniem. Po pomyślnym sprawdzeniu uwierzytelniania wieloskładnikowego Użytkownicy administracyjni mogą korzystać z ich roli, zapewniając uzasadnienie biznesowe lub żądając zatwierdzenia od wyznaczenia osób zatwierdzających. | Usługa Azure AD — warstwa Premium P2 |
 | [Dokończ przegląd dostępu dla ról katalogu usługi Azure AD w usłudze PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Pracuj z zespołami ds. zabezpieczeń i liderów, aby utworzyć zasady przeglądu dostępu w celu sprawdzenia dostępu administracyjnego na podstawie zasad organizacji. | Usługa Azure AD — warstwa Premium P2 |
@@ -100,6 +99,6 @@ Faza 4 widzi administratorów egzekwowania najniższych zasad uprawnień do admi
 
 [Informacje o licencjonowaniu i cenniku usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Konfiguracje obsługi tożsamości i uzyskiwania dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+[Konfiguracje tożsamości i dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 [Wspólne zalecane zasady dostępu do tożsamości i urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)

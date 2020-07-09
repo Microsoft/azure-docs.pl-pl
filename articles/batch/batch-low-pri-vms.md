@@ -5,12 +5,11 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.openlocfilehash: 48350a684844ca0e1624826afeca8e0b9ab36f3b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780194"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959997"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Używanie maszyn wirtualnych o niskim priorytecie z usługą Batch
 
@@ -23,11 +22,11 @@ Użycie maszyn wirtualnych o niskim priorytecie polega na tym, że te maszyny wi
 Maszyny wirtualne o niskim priorytecie są oferowane w znacznie obniżonej cenie w porównaniu z dedykowanymi maszynami wirtualnymi. Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
-> Na maszynach wirtualnych z [pojedynczym wystąpieniem](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) i w [zestawach skalowania maszyn](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)wirtualnych są teraz dostępne [maszyny wirtualne](https://azure.microsoft.com/pricing/spot/) . Maszyny wirtualne są rozwojem maszyn wirtualnych o niskim priorytecie, ale różnią się w zależności od cen, a opcjonalna maksymalna cena może być ustawiana podczas alokowania dodatkowych maszyn wirtualnych.
+> Na maszynach wirtualnych z [pojedynczym wystąpieniem](../virtual-machines/linux/spot-vms.md) i w [zestawach skalowania maszyn](../virtual-machine-scale-sets/use-spot.md)wirtualnych są teraz dostępne [maszyny wirtualne](https://azure.microsoft.com/pricing/spot/) . Maszyny wirtualne są rozwojem maszyn wirtualnych o niskim priorytecie, ale różnią się w zależności od cen, a opcjonalna maksymalna cena może być ustawiana podczas alokowania dodatkowych maszyn wirtualnych.
 >
-> Pule Azure Batch rozpoczną obsługę maszyn wirtualnych w ciągu kilku miesięcy, które są ogólnie dostępne, z nowymi wersjami [interfejsów API i narzędzi wsadowych](https://docs.microsoft.com/azure/batch/batch-apis-tools). Po udostępnieniu obsługi maszyn wirtualnych o niskim priorytecie zostaną zaniechane — będą one nadal obsługiwane przy użyciu bieżących interfejsów API i wersji narzędzi przez co najmniej 12 miesięcy, aby zapewnić wystarczającą ilość czasu na przeprowadzenia migracji do maszyn wirtualnych. 
+> Pule Azure Batch rozpoczną obsługę maszyn wirtualnych w ciągu kilku miesięcy, które są ogólnie dostępne, z nowymi wersjami [interfejsów API i narzędzi wsadowych](./batch-apis-tools.md). Po udostępnieniu obsługi maszyn wirtualnych o niskim priorytecie zostaną zaniechane — będą one nadal obsługiwane przy użyciu bieżących interfejsów API i wersji narzędzi przez co najmniej 12 miesięcy, aby zapewnić wystarczającą ilość czasu na przeprowadzenia migracji do maszyn wirtualnych. 
 >
-> Maszyny wirtualne na miejscu nie będą obsługiwane dla pul [konfiguracji usługi w chmurze](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Aby można było korzystać z maszyn wirtualnych, pule usług w chmurze muszą zostać zmigrowane do pul [konfiguracji maszyny wirtualnej](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+> Maszyny wirtualne na miejscu nie będą obsługiwane dla pul [konfiguracji usługi w chmurze](/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Aby można było korzystać z maszyn wirtualnych, pule usług w chmurze muszą zostać zmigrowane do pul [konfiguracji maszyny wirtualnej](/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
 
 ## <a name="use-cases-for-low-priority-vms"></a>Przypadki użycia dla maszyn wirtualnych o niskim priorytecie
 
@@ -144,7 +143,7 @@ Formuła automatycznego skalowania puli obsługuje maszyny wirtualne o niskim pr
 -   Możesz uzyskać wartość zmiennej zdefiniowanej przez usługę **$PreemptedNodeCount**. 
     Ta zmienna zwraca liczbę węzłów w stanie przeniesiona i pozwala na skalowanie w górę lub w dół liczby dedykowanych węzłów, w zależności od liczby niedostępnych węzłów, które są niedostępne.
 
-## <a name="jobs-and-tasks"></a>Zadania i zadania
+## <a name="jobs-and-tasks"></a>Zadania
 
 Zadania i zadania wymagają niewielkiej konfiguracji dla węzłów o niskim priorytecie; Jedyna pomoc techniczna jest następująca:
 

@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
 ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83680690"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metryki platformy Azure Monitor eksportowane za pośrednictwem ustawień diagnostycznych
@@ -44,7 +43,7 @@ Tabela zawiera następujące kolumny.
 - Eksportować za pomocą ustawień diagnostycznych? 
 - Wpływ na wartość NULL/0 
 - ResourceType 
-- Metric 
+- Metryka 
 - MetricDisplayName
 - Jednostka 
 - Agregacja
@@ -54,7 +53,7 @@ Tabela zawiera następujące kolumny.
 > Poniższa tabela może mieć poziomy pasek przewijania u dołu. Jeśli uważasz, że brakuje informacji, sprawdź, czy pasek przewijania jest widoczny w lewo.  
 
 
-| Eksportować za pomocą ustawień diagnostycznych?  | Już emituje wartości NULL |  ResourceType  |  Metric  |  MetricDisplayName  |  Jednostka  |  Agregacja | 
+| Eksportować za pomocą ustawień diagnostycznych?  | Już emituje wartości NULL |  ResourceType  |  Metryka  |  MetricDisplayName  |  Jednostka  |  Agregacja | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | Tak * * * *  | Nie |  Microsoft. AnalysisServices/serwery  |  CleanerCurrentPrice  |  Pamięć: bieżąca cena oczyszczarki  |  Liczba  |  Średnia | 
 | Tak * * * *  | Nie |  Microsoft. AnalysisServices/serwery  |  CleanerMemoryNonshrinkable  |  Pamięć: pamięć oczyszczarki niemożliwa do zmniejszenia  |  Bajty  |  Średnia | 
@@ -72,7 +71,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  mashup_engine_qpu_metric  |  M QPU aparatu  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  mashup_engine_virtual_bytes_metric  |  Liczba bajtów wirtualnych aparatu M  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  memory_metric  |  Memory (Pamięć)  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  memory_thrashing_metric  |  Przeładowywanie pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  memory_thrashing_metric  |  Przeładowywanie pamięci  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  MemoryLimitHard  |  Pamięć: sztywny limit pamięci  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  MemoryLimitHigh  |  Pamięć: limit pamięci jest wysoki  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  MemoryLimitLow  |  Pamięć: limit pamięci — niski  |  Bajty  |  Średnia | 
@@ -89,7 +88,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  QueryPoolBusyThreads  |  Wątki zajęte w puli zapytań  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  QueryPoolIdleThreads  |  Wątki: bezczynne wątki puli zapytań  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  QueryPoolJobQueueLength  |  Wątki: Długość kolejki zadań puli zapytań  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  Limit przydziału  |  Pamięć: limit przydziału  |  Bajty  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  limit przydziału  |  Pamięć: limit przydziału  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  QuotaBlocked  |  Pamięć: zablokowany limit przydziału  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  RowsConvertedPerSec  |  Przetwarzanie: przekonwertowane wiersze na sekundę  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  RowsReadPerSec  |  Przetwarzanie: odczytane wiersze na sekundę  |  CountPerSecond  |  Średnia | 
@@ -104,7 +103,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  VertiPaqPaged  |  Pamięć: stronicowana na stronie VertiPaq  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AnalysisServices/serwery  |  virtual_bytes_metric  |  Bajty wirtualne  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  BackendDuration  |  Czas trwania żądań wewnętrznej bazy danych  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.ApiManagement/service  |  Pojemność  |  Pojemność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.ApiManagement/service  |  Pojemność  |  Pojemność  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  Czas trwania  |  Całkowity czas trwania żądań bramy  |  )  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  EventHubDroppedEvents  |  Opuszczone zdarzenia EventHub  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  EventHubRejectedEvents  |  Odrzucone zdarzenia EventHub  |  Liczba  |  Łącznie | 
@@ -120,7 +119,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  Żądania successfulrequests  |  Pomyślne żądania bramy (przestarzałe)  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  TotalRequests  |  Łączna liczba żądań bramy (przestarzałe)  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft.ApiManagement/service  |  UnauthorizedRequests  |  Nieautoryzowane żądania bramy (przestarzałe)  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  AppCpuUsagePercentage  |  Procent użycia procesora aplikacji  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  AppCpuUsagePercentage  |  Procent użycia procesora aplikacji  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  AppMemoryCommitted  |  Przypisana pamięć aplikacji  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  AppMemoryMax  |  Maksymalna ilość pamięci aplikacji  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  AppMemoryUsed  |  Użyta pamięć aplikacji  |  Bajty  |  Średnia | 
@@ -129,7 +128,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  MaxOldGenMemoryPoolBytes  |  Maksymalna dostępna wartość starego rozmiaru danych generacji  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  OldGenMemoryPoolBytes  |  Stary rozmiar danych generacji  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  OldGenPromotedBytes  |  Podwyższ poziom do starego rozmiaru danych generacji  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  SystemCpuUsagePercentage  |  Procent użycia procesora systemu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  SystemCpuUsagePercentage  |  Procent użycia procesora systemu  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  TomcatErrorCount  |  Błąd globalny Tomcat  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  TomcatReceivedBytes  |  Całkowita liczba odebranych bajtów Tomcat  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. AppPlatform/Sprężyna  |  TomcatRequestMaxTime  |  Maksymalny czas żądania Tomcat  |  )  |  Maksimum | 
@@ -147,61 +146,61 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Automation/automationAccounts  |  TotalJob  |  Łączna liczba zadań  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Automation/automationAccounts  |  TotalUpdateDeploymentMachineRuns  |  Łączna liczba przebiegów wdrażania aktualizacji maszyny  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Automation/automationAccounts  |  TotalUpdateDeploymentRuns  |  Łączna liczba przebiegów wdrażania aktualizacji  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  CoreCount  |  Liczba dedykowanych rdzeni  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  CreatingNodeCount  |  Tworzenie liczby węzłów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  IdleNodeCount  |  Liczba węzłów bezczynności  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobDeleteCompleteEvent  |  Zdarzenia ukończenia usuwania zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobDeleteStartEvent  |  Zdarzenia rozpoczęcia usuwania zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobDisableCompleteEvent  |  Zdarzenia ukończenia wyłączania zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobDisableStartEvent  |  Wyłącz zdarzenia uruchamiania dla zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobStartEvent  |  Zdarzenia uruchamiania zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobTerminateCompleteEvent  |  Zdarzenia ukończenia kończenia zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  JobTerminateStartEvent  |  Zdarzenia rozpoczęcia zakończenia zadania  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  LeavingPoolNodeCount  |  Opuszczanie liczby węzłów puli  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  LowPriorityCoreCount  |  LowPriority rdzeń  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  OfflineNodeCount  |  Liczba węzłów w trybie offline  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  PoolCreateEvent  |  Zdarzenia tworzenia puli  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  PoolDeleteCompleteEvent  |  Zdarzenia ukończenia usuwania puli  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  PoolDeleteStartEvent  |  Zdarzenia uruchamiania usuwania puli  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  PoolResizeCompleteEvent  |  Zdarzenia ukończenia zmiany rozmiaru puli  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  PoolResizeStartEvent  |  Zdarzenia rozpoczęcia zmiany rozmiaru puli  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  PreemptedNodeCount  |  Liczba przeniesiona węzłów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  RebootingNodeCount  |  Ponowny rozruch liczby węzłów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  ReimagingNodeCount  |  Liczba węzłów regraficznych  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  RunningNodeCount  |  Liczba uruchomionych węzłów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  StartingNodeCount  |  Początkowa liczba węzłów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  StartTaskFailedNodeCount  |  Uruchamianie zadania nie powiodło się liczba węzłów  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  TaskCompleteEvent  |  Zdarzenia ukończenia zadania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  TaskFailEvent  |  Zdarzenia błędów zadań  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batch/batchAccounts  |  TaskStartEvent  |  Zdarzenia uruchamiania zadania  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  TotalLowPriorityNodeCount  |  Liczba węzłów o niskim priorytecie  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  TotalNodeCount  |  Liczba dedykowanych węzłów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  UnusableNodeCount  |  Liczba węzłów, których nie można użyć  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Batch/batchAccounts  |  WaitingForStartTaskNodeCount  |  Oczekiwanie na liczbę węzłów zadania uruchamiania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Aktywne rdzenie  |  Aktywne rdzenie  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Aktywne węzły  |  Aktywne węzły  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Rdzenie bezczynne  |  Rdzenie bezczynne  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Węzły bezczynne  |  Węzły bezczynne  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Ukończono zadanie  |  Ukończono zadanie  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Przesłane zadanie  |  Przesłane zadanie  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Opuszczanie rdzeni  |  Opuszczanie rdzeni  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Opuszczanie węzłów  |  Opuszczanie węzłów  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Występujące rdzenie  |  Występujące rdzenie  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Zastępujące węzły  |  Zastępujące węzły  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Procent wykorzystania przydziałów  |  Procent wykorzystania przydziałów  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Łączna liczba rdzeni  |  Łączna liczba rdzeni  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Łączna liczba węzłów  |  Łączna liczba węzłów  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Rdzenie, których nie można używać  |  Rdzenie, których nie można używać  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Batchai Job/obszary robocze  |  Węzły niezdatne do użytku  |  Węzły niezdatne do użytku  |  Liczba  |  Średnia | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  CoreCount  |  Liczba dedykowanych rdzeni  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  CreatingNodeCount  |  Tworzenie liczby węzłów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  IdleNodeCount  |  Liczba węzłów bezczynności  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobDeleteCompleteEvent  |  Zdarzenia ukończenia usuwania zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobDeleteStartEvent  |  Zdarzenia rozpoczęcia usuwania zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobDisableCompleteEvent  |  Zdarzenia ukończenia wyłączania zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobDisableStartEvent  |  Wyłącz zdarzenia uruchamiania dla zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobStartEvent  |  Zdarzenia uruchamiania zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobTerminateCompleteEvent  |  Zdarzenia ukończenia kończenia zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  JobTerminateStartEvent  |  Zdarzenia rozpoczęcia zakończenia zadania  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  LeavingPoolNodeCount  |  Opuszczanie liczby węzłów puli  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  LowPriorityCoreCount  |  LowPriority rdzeń  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  OfflineNodeCount  |  Liczba węzłów w trybie offline  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  PoolCreateEvent  |  Zdarzenia tworzenia puli  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  PoolDeleteCompleteEvent  |  Zdarzenia ukończenia usuwania puli  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  PoolDeleteStartEvent  |  Zdarzenia uruchamiania usuwania puli  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  PoolResizeCompleteEvent  |  Zdarzenia ukończenia zmiany rozmiaru puli  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  PoolResizeStartEvent  |  Zdarzenia rozpoczęcia zmiany rozmiaru puli  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  PreemptedNodeCount  |  Liczba przeniesiona węzłów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  RebootingNodeCount  |  Ponowny rozruch liczby węzłów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  ReimagingNodeCount  |  Liczba węzłów regraficznych  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  RunningNodeCount  |  Liczba uruchomionych węzłów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  StartingNodeCount  |  Początkowa liczba węzłów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  StartTaskFailedNodeCount  |  Uruchamianie zadania nie powiodło się liczba węzłów  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  TaskCompleteEvent  |  Zdarzenia ukończenia zadania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  TaskFailEvent  |  Zdarzenia błędów zadań  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.Batch/batchAccounts  |  TaskStartEvent  |  Zdarzenia uruchamiania zadania  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  TotalLowPriorityNodeCount  |  Liczba węzłów o niskim priorytecie  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  TotalNodeCount  |  Liczba dedykowanych węzłów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  UnusableNodeCount  |  Liczba węzłów, których nie można użyć  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.Batch/batchAccounts  |  WaitingForStartTaskNodeCount  |  Oczekiwanie na liczbę węzłów zadania uruchamiania  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Aktywne rdzenie  |  Aktywne rdzenie  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Aktywne węzły  |  Aktywne węzły  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Rdzenie bezczynne  |  Rdzenie bezczynne  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Węzły bezczynne  |  Węzły bezczynne  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Ukończono zadanie  |  Ukończono zadanie  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Przesłane zadanie  |  Przesłane zadanie  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Opuszczanie rdzeni  |  Opuszczanie rdzeni  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Opuszczanie węzłów  |  Opuszczanie węzłów  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Występujące rdzenie  |  Występujące rdzenie  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Zastępujące węzły  |  Zastępujące węzły  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Procent wykorzystania przydziałów  |  Procent wykorzystania przydziałów  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Łączna liczba rdzeni  |  Łączna liczba rdzeni  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Łączna liczba węzłów  |  Łączna liczba węzłów  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Rdzenie, których nie można używać  |  Rdzenie, których nie można używać  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.BatchAI/obszary robocze  |  Węzły niezdatne do użytku  |  Węzły niezdatne do użytku  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  ConnectionAccepted  |  Zaakceptowane połączenia  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  ConnectionActive  |  Aktywne połączenia  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  ConnectionHandled  |  Obsłużone połączenia  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  CpuUsagePercentageInDouble  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  CpuUsagePercentageInDouble  |  Procent użycia procesora CPU  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  IOReadBytes  |  Bajty odczytu we/wy  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  IOWriteBytes  |  Bajty zapisu we/wy  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  MemoryLimit  |  Limit pamięci  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  MemoryUsage  |  Użycie pamięci  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  MemoryUsagePercentageInDouble  |  Procent użycia pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  MemoryUsagePercentageInDouble  |  Procent użycia pamięci  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  PendingTransactions  |  Oczekujące transakcje  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  ProcessedBlocks  |  Przetworzone bloki  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  ProcessedTransactions  |  Przetworzone transakcje  |  Liczba  |  Łącznie | 
@@ -309,28 +308,28 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  operationsPerSecond7  |  Operacje na sekundę (fragmentu 7)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  operationsPerSecond8  |  Operacje na sekundę (fragmentu 8)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  operationsPerSecond9  |  Operacje na sekundę (fragmentu 9)  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime  |  Procesor CPU  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime0  |  Procesor CPU (fragmentu 0)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime1  |  Procesor CPU (fragmentu 1)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime2  |  Procesor CPU (fragmentu 2)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime3  |  Procesor CPU (fragmentu 3)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime4  |  Procesor CPU (fragmentu 4)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime5  |  Procesor CPU (fragmentu 5)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime6  |  Procesor CPU (fragmentu 6)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime7  |  Procesor CPU (fragmentu 7)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime8  |  Procesor CPU (fragmentu 8)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime9  |  Procesor CPU (fragmentu 9)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad  |  Obciążenie serwera  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad0  |  Ładowanie serwera (fragmentu 0)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad1  |  Ładowanie serwera (fragmentu 1)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad2  |  Ładowanie serwera (fragmentu 2)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad3  |  Ładowanie serwera (fragmentu 3)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad4  |  Ładowanie serwera (fragmentu 4)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad5  |  Ładowanie serwera (fragmentu 5)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad6  |  Ładowanie serwera (fragmentu 6)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad7  |  Ładowanie serwera (fragmentu 7)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad8  |  Ładowanie serwera (fragmentu 8)  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad9  |  Ładowanie serwera (fragmentu 9)  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime  |  Procesor CPU  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime0  |  Procesor CPU (fragmentu 0)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime1  |  Procesor CPU (fragmentu 1)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime2  |  Procesor CPU (fragmentu 2)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime3  |  Procesor CPU (fragmentu 3)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime4  |  Procesor CPU (fragmentu 4)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime5  |  Procesor CPU (fragmentu 5)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime6  |  Procesor CPU (fragmentu 6)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime7  |  Procesor CPU (fragmentu 7)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime8  |  Procesor CPU (fragmentu 8)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  percentProcessorTime9  |  Procesor CPU (fragmentu 9)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad  |  Obciążenie serwera  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad0  |  Ładowanie serwera (fragmentu 0)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad1  |  Ładowanie serwera (fragmentu 1)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad2  |  Ładowanie serwera (fragmentu 2)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad3  |  Ładowanie serwera (fragmentu 3)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad4  |  Ładowanie serwera (fragmentu 4)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad5  |  Ładowanie serwera (fragmentu 5)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad6  |  Ładowanie serwera (fragmentu 6)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad7  |  Ładowanie serwera (fragmentu 7)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad8  |  Ładowanie serwera (fragmentu 8)  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  serverLoad9  |  Ładowanie serwera (fragmentu 9)  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  SetCommands  |  Zestawy  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  setcommands0  |  Zestawy (fragmentu 0)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  setcommands1  |  Zestawy (fragmentu 1)  |  Liczba  |  Łącznie | 
@@ -375,7 +374,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory7  |  Używana pamięć (fragmentu 7)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory8  |  Używana pamięć (fragmentu 8)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory9  |  Używana pamięć (fragmentu 9)  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemorypercentage  |  Procentowe użycie pamięci  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemorypercentage  |  Procentowe użycie pamięci  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemoryRss  |  Używana pamięć RSS  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemoryRss0  |  Używana pamięć RSS (fragmentu 0)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemoryRss1  |  Używana pamięć RSS (fragmentu 1)  |  Bajty  |  Maksimum | 
@@ -393,22 +392,22 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. ClassicCompute/domainNames/gniazda/role  |  Operacje zapisu na dysku/s  |  Operacje zapisu na dysku/s  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicCompute/domainNames/gniazda/role  |  Sieć — wejście  |  Sieć — wejście  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicCompute/domainNames/gniazda/role  |  Sieć — wyjście  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. ClassicCompute/domainNames/gniazda/role  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicCompute/domainNames/gniazda/role  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Bajty odczytu dysku/s  |  Odczyt dysku  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Operacje odczytu z dysku/s  |  Operacje odczytu z dysku/s  |  CountPerSecond  |  Średnia | 
 | Nie  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Bajty zapisu dysku/s  |  Zapis na dysku  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Operacje zapisu na dysku/s  |  Operacje zapisu na dysku/s  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Sieć — wejście  |  Sieć — wejście  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Sieć — wyjście  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicCompute/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts  |  UsedCapacity  |  Używana pojemność  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  BlobCapacity  |  Pojemność obiektu BLOB  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  BlobCount  |  Liczba obiektów BLOB  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  ContainerCount  |  Liczba kontenerów obiektów BLOB  |  Liczba  |  Średnia | 
@@ -418,7 +417,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/blobServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  FileCapacity  |  Pojemność plików  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  FileCount  |  Liczba plików  |  Liczba  |  Średnia | 
@@ -430,7 +429,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/fileServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  QueueCapacity  |  Pojemność kolejki  |  Bajty  |  Średnia | 
@@ -439,7 +438,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/queueServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. ClassicStorage/storageAccounts/tableServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
@@ -496,11 +495,11 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Operacje odczytu na dysk/s  |  Operacje odczytu z dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Bajty zapisu na dysku/s  |  Bajty zapisu na dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Operacje zapisu na dysku/s  |  Operacje zapisu na dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Wykorzystane środki CPU  |  Wykorzystane środki CPU  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Pozostałe kredyty procesora CPU  |  Pozostałe kredyty procesora CPU  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Głębokość kolejki dysku danych  |  Głębokość kolejki dysku danych (wersja zapoznawcza)  |  Liczba  |  Średnia | 
@@ -535,11 +534,11 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Operacje odczytu na dysk/s  |  Operacje odczytu z dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Bajty zapisu na dysku/s  |  Bajty zapisu na dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Operacje zapisu na dysku/s  |  Operacje zapisu na dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft.Compute/virtualMachineScaleSets  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Wykorzystane środki CPU  |  Wykorzystane środki CPU  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Pozostałe kredyty procesora CPU  |  Pozostałe kredyty procesora CPU  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Głębokość kolejki dysku danych  |  Głębokość kolejki dysku danych (wersja zapoznawcza)  |  Liczba  |  Średnia | 
@@ -574,11 +573,11 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Operacje odczytu na dysk/s  |  Operacje odczytu z dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Bajty zapisu na dysku/s  |  Bajty zapisu na dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Operacje zapisu na dysku/s  |  Operacje zapisu na dysku danych/s (przestarzałe)  |  CountPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium  |  Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium  |  Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines  |  Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium  |  Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  CpuUsage  |  Użycie procesora  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  MemoryUsage  |  Użycie pamięci  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. ContainerInstance/containerGroups  |  NetworkBytesReceivedPerSecond  |  Bajty odebrane przez sieć na sekundę  |  Bajty  |  Średnia | 
@@ -600,8 +599,8 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudReadThroughputPerShare  |  Przepływność pobierania w chmurze (udział)  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudUploadThroughput  |  Przepływność przekazywania w chmurze  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudUploadThroughputPerShare  |  Przepływność przekazywania w chmurze (udział)  |  BytesPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  HyperVMemoryUtilization  |  Obliczenia brzegowe — użycie pamięci  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  HyperVVirtualProcessorUtilization  |  Obliczenia brzegowe — procentowy procesor CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  HyperVMemoryUtilization  |  Obliczenia brzegowe — użycie pamięci  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  HyperVVirtualProcessorUtilization  |  Obliczenia brzegowe — procentowy procesor CPU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  NICReadThroughput  |  Przepływność odczytu (Sieć)  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  NICWriteThroughput  |  Przepływność zapisu (Sieć)  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  Łączna pojemność  |  Całkowita pojemność  |  Bajty  |  Średnia | 
@@ -613,7 +612,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  FactorySizeInGbUnits  |  Łączny rozmiar fabryki (jednostka GB)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  IntegrationRuntimeAvailableMemory  |  Dostępna pamięć środowiska Integration Runtime  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  IntegrationRuntimeAverageTaskPickupDelay  |  Czas trwania kolejki Integration Runtime  |  Sekundy  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  IntegrationRuntimeCpuPercentage  |  Użycie procesora Integration Runtime  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  IntegrationRuntimeCpuPercentage  |  Użycie procesora Integration Runtime  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  IntegrationRuntimeQueueLength  |  Długość kolejki środowiska Integration Runtime  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  MaxAllowedFactorySizeInGbUnits  |  Maksymalny dozwolony rozmiar fabryki (jednostka GB)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. DataFactory/fabryki  |  MaxAllowedResourceCount  |  Maksymalna dozwolona liczba jednostek  |  Liczba  |  Maksimum | 
@@ -638,56 +637,56 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  active_connections  |  Aktywne połączenia  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  backup_storage_used  |  Używany magazyn kopii zapasowych  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  connections_failed  |  Połączenia zakończone niepowodzeniem  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  io_consumption_percent  |  Procent operacji we/wy  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  memory_percent  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  io_consumption_percent  |  Procent operacji we/wy  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  memory_percent  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  network_bytes_egress  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  network_bytes_ingress  |  Sieć — wejście  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  seconds_behind_master  |  Opóźnienie replikacji w sekundach  |  Liczba  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  serverlog_storage_limit  |  Limit magazynowania dziennika serwera  |  Bajty  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  serverlog_storage_percent  |  Procent magazynu dzienników serwera  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  serverlog_storage_percent  |  Procent magazynu dzienników serwera  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  serverlog_storage_usage  |  Używany magazyn dzienników serwera  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  storage_limit  |  Limit magazynu  |  Bajty  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  storage_percent  |  Procent magazynu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  storage_percent  |  Procent magazynu  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMariaDB/serwery  |  storage_used  |  Używany magazyn  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  active_connections  |  Aktywne połączenia  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  backup_storage_used  |  Używany magazyn kopii zapasowych  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  connections_failed  |  Połączenia zakończone niepowodzeniem  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  io_consumption_percent  |  Procent operacji we/wy  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  memory_percent  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  io_consumption_percent  |  Procent operacji we/wy  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  memory_percent  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  network_bytes_egress  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  network_bytes_ingress  |  Sieć — wejście  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  seconds_behind_master  |  Opóźnienie replikacji w sekundach  |  Liczba  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  serverlog_storage_limit  |  Limit magazynowania dziennika serwera  |  Bajty  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  serverlog_storage_percent  |  Procent magazynu dzienników serwera  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  serverlog_storage_percent  |  Procent magazynu dzienników serwera  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  serverlog_storage_usage  |  Używany magazyn dzienników serwera  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  storage_limit  |  Limit magazynu  |  Bajty  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  storage_percent  |  Procent magazynu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  storage_percent  |  Procent magazynu  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. DBforMySQL/serwery  |  storage_used  |  Używany magazyn  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  active_connections  |  Aktywne połączenia  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  backup_storage_used  |  Używany magazyn kopii zapasowych  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  connections_failed  |  Połączenia zakończone niepowodzeniem  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  io_consumption_percent  |  Procent operacji we/wy  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  memory_percent  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  io_consumption_percent  |  Procent operacji we/wy  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  memory_percent  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  network_bytes_egress  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  network_bytes_ingress  |  Sieć — wejście  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  pg_replica_log_delay_in_bytes  |  Maksymalne opóźnienie między replikami  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  pg_replica_log_delay_in_seconds  |  Zwłoka repliki  |  Sekundy  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  serverlog_storage_limit  |  Limit magazynowania dziennika serwera  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  serverlog_storage_percent  |  Procent magazynu dzienników serwera  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  serverlog_storage_percent  |  Procent magazynu dzienników serwera  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  serverlog_storage_usage  |  Używany magazyn dzienników serwera  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  storage_limit  |  Limit magazynu  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  storage_percent  |  Procent magazynu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  storage_percent  |  Procent magazynu  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serwery  |  storage_used  |  Używany magazyn  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  active_connections  |  Aktywne połączenia  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  Wejścia  |  Liczba operacji we/wy na sekundę  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  memory_percent  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  memory_percent  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  network_bytes_egress  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  network_bytes_ingress  |  Sieć — wejście  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  storage_percent  |  Procent magazynu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  storage_percent  |  Procent magazynu  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. DBforPostgreSQL/serversv2  |  storage_used  |  Używany magazyn  |  Bajty  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Devices/konto  |  digitaltwins. Telemetry. nodes  |  Symbol zastępczy telemetrii cyfrowego węzła bliźniaczych reprezentacji  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Devices/IotHubs  |  C2D. Commands. wyjście. Abandon. Success  |  Porzucone komunikaty C2D  |  Liczba  |  Łącznie | 
@@ -758,28 +757,28 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. Devices/provisioningServices  |  AttestationAttempts  |  Próby zaświadczania  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Devices/provisioningServices  |  DeviceAssignments  |  Przypisane urządzenia  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Devices/provisioningServices  |  RegistrationAttempts  |  Próby rejestracji  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  AvailableStorage  |  Dostępny magazyn  |  Bajty  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  CassandraConnectionClosures  |  Zamknięcia połączeń Cassandra  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  CassandraRequestCharges  |  Opłaty za żądania Cassandra  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  CassandraRequests  |  Żądania Cassandra  |  Liczba  |  Liczba | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  Datausage  |  Użycie danych  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  DeleteVirtualNetwork  |  DeleteVirtualNetwork  |  Liczba  |  Liczba | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  DocumentCount  |  Liczba dokumentów  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  DocumentQuota  |  Przydział dokumentu  |  Bajty  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  IndexUsage  |  Użycie indeksu  |  Bajty  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  MetadataRequests  |  Żądania metadanych  |  Liczba  |  Liczba | 
-| **Tak**  | **Tak** |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequestCharge  |  Opłata żądania Mongo  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequests  |  Żądania Mongo  |  Liczba  |  Liczba | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequestsCount  |  Częstotliwość żądania Mongo  |  CountPerSecond  |  Średnia | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequestsDelete  |  Mongo — wskaźnik żądania usunięcia  |  CountPerSecond  |  Średnia | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequestsInsert  |  Liczba żądań wstawienia Mongo  |  CountPerSecond  |  Średnia | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequestsQuery  |  Częstotliwość żądań zapytań Mongo  |  CountPerSecond  |  Średnia | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  MongoRequestsUpdate  |  Częstotliwość żądań aktualizacji Mongo  |  CountPerSecond  |  Średnia | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  ProvisionedThroughput  |  Aprowizowana przepływność  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  ReplicationLatency  |  Opóźnienie replikacji poziomie P99  |  )  |  Średnia | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  Dostępność  |  Dostępność usługi  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. DocumentDB/databaseAccounts  |  TotalRequests  |  Łączna liczba żądań  |  Liczba  |  Liczba | 
-| **Tak**  | **Tak** |  Microsoft. DocumentDB/databaseAccounts  |  TotalRequestUnits  |  Łączna liczba jednostek żądania  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  AvailableStorage  |  Dostępny magazyn  |  Bajty  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  CassandraConnectionClosures  |  Zamknięcia połączeń Cassandra  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  CassandraRequestCharges  |  Opłaty za żądania Cassandra  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  CassandraRequests  |  Żądania Cassandra  |  Liczba  |  Liczba | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  Datausage  |  Użycie danych  |  Bajty  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  DeleteVirtualNetwork  |  DeleteVirtualNetwork  |  Liczba  |  Liczba | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  DocumentCount  |  Liczba dokumentów  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  DocumentQuota  |  Przydział dokumentu  |  Bajty  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  IndexUsage  |  Użycie indeksu  |  Bajty  |  Łącznie | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  MetadataRequests  |  Żądania metadanych  |  Liczba  |  Liczba | 
+| **Tak**  | **Tak** |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestCharge  |  Opłata żądania Mongo  |  Liczba  |  Łącznie | 
+| **Tak**  | **Tak** |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequests  |  Żądania Mongo  |  Liczba  |  Liczba | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsCount  |  Częstotliwość żądania Mongo  |  CountPerSecond  |  Średnia | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsDelete  |  Mongo — wskaźnik żądania usunięcia  |  CountPerSecond  |  Średnia | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsInsert  |  Liczba żądań wstawienia Mongo  |  CountPerSecond  |  Średnia | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsQuery  |  Częstotliwość żądań zapytań Mongo  |  CountPerSecond  |  Średnia | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsUpdate  |  Częstotliwość żądań aktualizacji Mongo  |  CountPerSecond  |  Średnia | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  ProvisionedThroughput  |  Aprowizowana przepływność  |  Liczba  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  ReplicationLatency  |  Opóźnienie replikacji poziomie P99  |  )  |  Średnia | 
+| Nie  | Nie |  Microsoft.DocumentDB/databaseAccounts  |  Dostępność  |  Dostępność usługi  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequests  |  Łączna liczba żądań  |  Liczba  |  Liczba | 
+| **Tak**  | **Tak** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequestUnits  |  Łączna liczba jednostek żądania  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EnterpriseKnowledgeGraph/usługi  |  FailureCount  |  Liczba niepowodzeń  |  Liczba  |  Liczba | 
 | Nie  | Nie |  Microsoft. EnterpriseKnowledgeGraph/usługi  |  SuccessCount  |  Liczba powodzeń  |  Liczba  |  Liczba | 
 | Nie  | Nie |  Microsoft. EnterpriseKnowledgeGraph/usługi  |  SuccessLatency  |  Opóźnienie sukcesu  |  )  |  Średnia | 
@@ -807,14 +806,14 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. EventGrid/tematy  |  PublishSuccessCount  |  Zdarzenia opublikowane  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventGrid/tematy  |  PublishSuccessLatencyInMs  |  Czas oczekiwania na pomyślne publikowanie  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventGrid/tematy  |  UnmatchedEventCount  |  Niedopasowane zdarzenia  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/klastry  |  Połączeń ActiveConnections  |  Połączeń ActiveConnections  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. EventHub/klastry  |  AvailableMemory  |  Dostępna pamięć  |  Wartość procentowa  |  Maksimum | 
+| Nie  | Nie |  Microsoft. EventHub/klastry  |  Aktywne połączenia  |  Aktywne połączenia  |  Liczba  |  Średnia | 
+| Nie  | Nie |  Microsoft. EventHub/klastry  |  AvailableMemory  |  Dostępna pamięć  |  Procent  |  Maksimum | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  CaptureBacklog  |  Zaległości przechwytywania.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  CapturedBytes  |  Przechwycone bajty.  |  Bajty  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  CapturedMessages  |  Przechwycone komunikaty.  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/klastry  |  Połączenia connectionsclosed  |  Połączenia zamknięte.  |  Liczba  |  Średnia | 
+| Nie  | Nie |  Microsoft. EventHub/klastry  |  Połączenia connectionsclosed  |  Zamknięte połączenia.  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  Połączenia connectionsopened  |  Otwarte połączenia.  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. EventHub/klastry  |  Procesor CPU  |  Procesor CPU  |  Wartość procentowa  |  Maksimum | 
+| Nie  | Nie |  Microsoft. EventHub/klastry  |  Procesor CPU  |  Procesor CPU  |  Procent  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/klastry  |  Bajty incomingbytes  |  Bajty przychodzące.  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/klastry  |  Komunikaty incomingmessages  |  Komunikaty przychodzące  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/klastry  |  Żądania incomingrequests  |  Żądania przychodzące  |  Liczba  |  Łącznie | 
@@ -822,14 +821,14 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. EventHub/klastry  |  Komunikaty outgoingmessages  |  Komunikaty wychodzące  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  Błędy quotaexceedederrors  |  Błędy przekroczenia limitu przydziału.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  Błędy servererrors  |  Błędy serwera.  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/klastry  |  Żądania successfulrequests  |  Żądania zakończone powodzeniem  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/klastry  |  ThrottledRequests  |  Żądania z ograniczeniami.  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. EventHub/klastry  |  Żądania successfulrequests  |  Żądania pomyślne  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. EventHub/klastry  |  ThrottledRequests  |  Żądania ograniczone.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/klastry  |  Błędy usererrors  |  Błędy użytkownika.  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Połączeń ActiveConnections  |  Połączeń ActiveConnections  |  Liczba  |  Średnia | 
+| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Aktywne połączenia  |  Aktywne połączenia  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  CaptureBacklog  |  Zaległości przechwytywania.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  CapturedBytes  |  Przechwycone bajty.  |  Bajty  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  CapturedMessages  |  Przechwycone komunikaty.  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Połączenia connectionsclosed  |  Połączenia zamknięte.  |  Liczba  |  Średnia | 
+| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Połączenia connectionsclosed  |  Zamknięte połączenia.  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Połączenia connectionsopened  |  Otwarte połączenia.  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/przestrzenie nazw  |  EHABL  |  Archiwum komunikatów zaległości (przestarzałe)  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/przestrzenie nazw  |  EHAMBS  |  Przepływność komunikatów archiwalnych (przestarzałe)  |  Bajty  |  Łącznie | 
@@ -854,10 +853,10 @@ Tabela zawiera następujące kolumny.
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Błędy quotaexceedederrors  |  Błędy przekroczenia limitu przydziału.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Błędy servererrors  |  Błędy serwera.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Rozmiar  |  Rozmiar  |  Bajty  |  Średnia | 
-| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Żądania successfulrequests  |  Żądania zakończone powodzeniem  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Żądania successfulrequests  |  Żądania pomyślne  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/przestrzenie nazw  |  SUCCREQ  |  Żądania zakończone powodzeniem (przestarzałe)  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. EventHub/przestrzenie nazw  |  SVRBSY  |  Błędy zajęte przez serwer (przestarzałe)  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  ThrottledRequests  |  Żądania z ograniczeniami.  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  ThrottledRequests  |  Żądania ograniczone.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. EventHub/przestrzenie nazw  |  Błędy usererrors  |  Błędy użytkownika.  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. HDInsight/Klastry  |  CategorizedGatewayRequests  |  Skategoryzowane żądania bramy  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. HDInsight/Klastry  |  GatewayRequests  |  Żądania bramy  |  Liczba  |  Łącznie | 
@@ -867,7 +866,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Insights/AutoscaleSettings  |  ObservedCapacity  |  Zaobserwowana pojemność  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Insights/AutoscaleSettings  |  ObservedMetricValue  |  Obserwowana wartość metryki  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Insights/AutoscaleSettings  |  ScaleActionsInitiated  |  Zainicjowane akcje skalowania  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Insights/składniki  |  availabilityResults/availabilityPercentage  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Insights/składniki  |  availabilityResults/availabilityPercentage  |  Dostępność  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. Insights/składniki  |  availabilityResults/liczba  |  Testy dostępności  |  Liczba  |  Liczba | 
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  availabilityResults/czas trwania  |  Czas trwania testu dostępności  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  browserTimings/networkDuration  |  Czas połączenia sieciowego ładowania strony  |  )  |  Średnia | 
@@ -885,9 +884,9 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  pageViews/czas trwania  |  Czas ładowania widoku strony  |  )  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Insights/składniki  |  Liczniki wydajności/exceptionsPerSecond  |  Częstotliwość wyjątków  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/memoryAvailableBytes  |  Dostępna pamięć  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/processCpuPercentage  |  Procesor CPU procesu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/processCpuPercentage  |  Procesor CPU procesu  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/processIOBytesPerSecond  |  Szybkość operacji we/wy procesu  |  BytesPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/processorCpuPercentage  |  Czas procesora  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/processorCpuPercentage  |  Czas procesora  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/processPrivateBytes  |  Prywatne bajty procesu  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Insights/składniki  |  Liczniki wydajności/requestExecutionTime  |  Czas wykonywania żądania HTTP  |  )  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Insights/składniki  |  Liczniki wydajności/requestsInQueue  |  Żądania HTTP w kolejce aplikacji  |  Liczba  |  Średnia | 
@@ -900,17 +899,17 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft./magazyny kluczy  |  ServiceApiHit  |  Całkowita liczba trafień interfejsu API usługi  |  Liczba  |  Liczba | 
 | **Tak**  | Nie |  Microsoft./magazyny kluczy  |  ServiceApiLatency  |  Ogólne opóźnienie interfejsu API usługi  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft./magazyny kluczy  |  ServiceApiResult  |  Łączna liczba wyników interfejsu API usługi  |  Liczba  |  Liczba | 
-| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  CacheUtilization  |  Użycie pamięci podręcznej  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  CacheUtilization  |  Użycie pamięci podręcznej  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  ContinuousExportMaxLatenessMinutes  |  Maksymalna liczba minut opóźnienia eksportu  |  Liczba  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  ContinuousExportNumOfRecordsExported  |  Eksport ciągły — liczba eksportowanych rekordów  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  ContinuousExportPendingCount  |  Liczba oczekujących eksportu ciągłego  |  Liczba  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  ContinuousExportResult  |  Wynik eksportu ciągłego  |  Liczba  |  Liczba | 
-| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  Procesor CPU  |  Procesor CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  Procesor CPU  |  Procesor CPU  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  EventsProcessedForEventHubs  |  Zdarzenia przetwarzane (dla centrów zdarzeń/IoT)  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  ExportUtilization  |  Użycie eksportu  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  ExportUtilization  |  Wykorzystanie eksportu  |  Procent  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  IngestionLatencyInSeconds  |  Opóźnienie pozyskiwania (w sekundach)  |  Sekundy  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  IngestionResult  |  Wynik pozyskiwania  |  Liczba  |  Liczba | 
-| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  IngestionUtilization  |  Wykorzystanie pozyskiwania  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  IngestionUtilization  |  Wykorzystanie pozyskiwania  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  IngestionVolumeInMB  |  Wolumin pozyskiwania (w MB)  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  Utrzymywani  |  Utrzymywanie aktywności  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Kusto/klastry  |  QueryDuration  |  Czas trwania zapytania  |  )  |  Średnia | 
@@ -926,11 +925,11 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionsSucceeded  |  Akcje zakończone powodzeniem   |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  ActionSuccessLatency  |  Opóźnienie sukcesu akcji   |  Sekundy  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionThrottledEvents  |  Zdarzenia ograniczające akcję  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentConnectorMemoryUsage  |  Użycie pamięci przez łącznik dla środowisko usługi integracji  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentConnectorProcessorUsage  |  Użycie procesora przez łącznik dla środowisko usługi integracji  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentWorkflowMemoryUsage  |  Użycie pamięci przez przepływ pracy dla środowisko usługi integracji  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentWorkflowProcessorUsage  |  Użycie procesora przepływu pracy dla środowisko usługi integracji  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. Logic/integrationServiceEnvironments  |  RunFailurePercentage  |  Procent niepowodzeń przebiegu  |  Wartość procentowa  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentConnectorMemoryUsage  |  Użycie pamięci przez łącznik dla środowisko usługi integracji  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentConnectorProcessorUsage  |  Użycie procesora przez łącznik dla środowisko usługi integracji  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentWorkflowMemoryUsage  |  Użycie pamięci przez przepływ pracy dla środowisko usługi integracji  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentWorkflowProcessorUsage  |  Użycie procesora przepływu pracy dla środowisko usługi integracji  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Logic/integrationServiceEnvironments  |  RunFailurePercentage  |  Procent niepowodzeń przebiegu  |  Procent  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Logic/integrationServiceEnvironments  |  RunLatency  |  Opóźnienie uruchamiania  |  Sekundy  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsCancelled  |  Przebiegi anulowane  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsCompleted  |  Przebiegi zakończone  |  Liczba  |  Łącznie | 
@@ -966,7 +965,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  BillingUsageStandardConnector  |  Użycie rozliczeń dla wykonywania łączników standardowych  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  BillingUsageStorageConsumption  |  Użycie rozliczeń dla wykonań zużycia magazynu  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  BillingUsageStorageConsumption  |  Użycie rozliczeń dla wykonań zużycia magazynu  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  RunFailurePercentage  |  Procent niepowodzeń przebiegu  |  Wartość procentowa  |  Łącznie | 
+| **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  RunFailurePercentage  |  Procent niepowodzeń przebiegu  |  Procent  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Logic/przepływy pracy  |  RunLatency  |  Opóźnienie uruchamiania  |  Sekundy  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  RunsCancelled  |  Przebiegi anulowane  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Logic/przepływy pracy  |  RunsCompleted  |  Przebiegi zakończone  |  Liczba  |  Łącznie | 
@@ -1008,17 +1007,17 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. MachineLearningServices/obszary robocze  |  Łączna liczba węzłów  |  Łączna liczba węzłów  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. MachineLearningServices/obszary robocze  |  Rdzenie, których nie można używać  |  Rdzenie, których nie można używać  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. MachineLearningServices/obszary robocze  |  Węzły niezdatne do użytku  |  Węzły niezdatne do użytku  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Maps/konta  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Maps/konta  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. Maps/konta  |  Użycie  |  Użycie  |  Liczba  |  Liczba | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetCount  |  Liczba zasobów  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetQuota  |  Przydział zasobów  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetQuotaUsedPercentage  |  Procent użycia przydziału zasobów  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetQuotaUsedPercentage  |  Procent użycia przydziału zasobów  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  ContentKeyPolicyCount  |  Liczba zasad dotyczących kluczy zawartości  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  ContentKeyPolicyQuota  |  Przydział zasad dotyczących kluczy zawartości  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Media/MediaServices  |  ContentKeyPolicyQuotaUsedPercentage  |  Procent użycia przydziału zasad klucza zawartości  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Media/MediaServices  |  ContentKeyPolicyQuotaUsedPercentage  |  Procent użycia przydziału zasad klucza zawartości  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  StreamingPolicyCount  |  Liczba zasad przesyłania strumieniowego  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  StreamingPolicyQuota  |  Limit przydziału zasad przesyłania strumieniowego  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Media/MediaServices  |  StreamingPolicyQuotaUsedPercentage  |  Procent użycia limitu przydziału zasad przesyłania strumieniowego  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Media/MediaServices  |  StreamingPolicyQuotaUsedPercentage  |  Procent użycia limitu przydziału zasad przesyłania strumieniowego  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices/streamingEndpoints  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices/streamingEndpoints  |  Żądania  |  Żądania  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices/streamingEndpoints  |  SuccessE2ELatency  |  Pomyślne zakończenie oczekiwania  |  )  |  Średnia | 
@@ -1027,11 +1026,11 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  MaxOldGenMemoryPoolBytes  |  Maksymalna dostępna wartość starego rozmiaru danych generacji  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  OldGenMemoryPoolBytes  |  Stary rozmiar danych generacji  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  OldGenPromotedBytes  |  Podwyższ poziom do starego rozmiaru danych generacji  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  ServiceCpuUsagePercentage  |  Procent użycia procesora usługi  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  ServiceCpuUsagePercentage  |  Procent użycia procesora usługi  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  ServiceMemoryCommitted  |  Przypisano pamięć usługi  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  ServiceMemoryMax  |  Maksymalna ilość pamięci usługi  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  ServiceMemoryUsed  |  Użyta pamięć usługi  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  SystemCpuUsagePercentage  |  Procent użycia procesora systemu  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  SystemCpuUsagePercentage  |  Procent użycia procesora systemu  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  TomcatErrorCount  |  Błąd globalny Tomcat  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  TomcatReceivedBytes  |  Całkowita liczba odebranych bajtów Tomcat  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Microservices4Spring/appClusters  |  TomcatRequestMaxTime  |  Maksymalny czas żądania Tomcat  |  )  |  Maksimum | 
@@ -1078,16 +1077,16 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Network/applicationGateways  |  UnhealthyHostCount  |  Liczba hostów w złej kondycji  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  ApplicationRuleHit  |  Liczba trafień reguł aplikacji  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  Przetwarzanie dataprocessed  |  Przetworzone dane  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  FirewallHealth  |  Stan kondycji zapory  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  FirewallHealth  |  Stan kondycji zapory  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  NetworkRuleHit  |  Liczba trafień reguł sieci  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  SNATPortUtilization  |  Wykorzystanie portów przez przytranslatora adresów sieciowych  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/azurefirewalls  |  SNATPortUtilization  |  Wykorzystanie portów przez przytranslatora adresów sieciowych  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/Connections  |  BitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/Connections  |  BitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/dnszones  |  QueryVolume  |  Wolumin zapytania  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. Network/dnszones  |  RecordSetCapacityUtilization  |  Wykorzystanie pojemności zestawu rekordów  |  Wartość procentowa  |  Maksimum | 
+| Nie  | Nie |  Microsoft. Network/dnszones  |  RecordSetCapacityUtilization  |  Wykorzystanie pojemności zestawu rekordów  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. Network/dnszones  |  RecordSetCount  |  Liczba zestawów rekordów  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. Network/expressRouteCircuits  |  ArpAvailability  |  Dostępność protokołu ARP  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Network/expressRouteCircuits  |  BgpAvailability  |  Dostępność protokołu BGP  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/expressRouteCircuits  |  ArpAvailability  |  Dostępność protokołu ARP  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/expressRouteCircuits  |  BgpAvailability  |  Dostępność protokołu BGP  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. Network/expressRouteCircuits  |  BitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Średnia | 
 | Nie  | Nie |  Microsoft. Network/expressRouteCircuits  |  BitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Średnia | 
 | Nie  | Nie |  Microsoft. Network/expressRouteCircuits  |  GlobalReachBitsInPerSecond  |  GlobalReachBitsInPerSecond  |  CountPerSecond  |  Średnia | 
@@ -1104,7 +1103,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Network/expressRoutePorts  |  PortBitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/expressRoutePorts  |  RxLightLevel  |  RxLightLevel  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/expressRoutePorts  |  TxLightLevel  |  TxLightLevel  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. Network/usługi frontdoor  |  BackendHealthPercentage  |  Procent kondycji zaplecza  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Network/usługi frontdoor  |  BackendHealthPercentage  |  Procent kondycji zaplecza  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Network/usługi frontdoor  |  BackendRequestCount  |  Liczba żądań wewnętrznej bazy danych  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Network/usługi frontdoor  |  BackendRequestLatency  |  Opóźnienie żądania wewnętrznej bazy danych  |  )  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Network/usługi frontdoor  |  BillableResponseSize  |  Rozmiar odpowiedzi do rozliczenia  |  Bajty  |  Łącznie | 
@@ -1126,8 +1125,8 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Network/networkInterfaces  |  PacketsReceivedRate  |  Odebrane pakiety  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/networkInterfaces  |  PacketsSentRate  |  Wysłane pakiety  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/networkWatchers/connectionMonitors  |  AverageRoundtripMs  |  Średni czas błądzenia (MS)  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Network/networkWatchers/connectionMonitors  |  ChecksFailedPercent  |  Sprawdza procent niepowodzenia (wersja zapoznawcza)  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Network/networkWatchers/connectionMonitors  |  ProbesFailedPercent  |  % Sond nie powiodło się  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/networkWatchers/connectionMonitors  |  ChecksFailedPercent  |  Sprawdza procent niepowodzenia (wersja zapoznawcza)  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/networkWatchers/connectionMonitors  |  ProbesFailedPercent  |  % Sond nie powiodło się  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/networkWatchers/connectionMonitors  |  RoundTripTimeMs  |  Czas błądzenia (MS) (wersja zapoznawcza)  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/adresów publicipaddress  |  ByteCount  |  Liczba bajtów  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/adresów publicipaddress  |  BytesDroppedDDoS  |  Bajty przychodzące opuszczone DDoS  |  BytesPerSecond  |  Maksimum | 
@@ -1159,16 +1158,16 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. Network/trafficManagerProfiles  |  QpsByEndpoint  |  Zwrócone zapytania według punktu końcowego  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  AverageBandwidth  |  Przepustowość S2S bramy  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  P2SBandwidth  |  Przepustowość P2S bramy  |  BytesPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  P2SConnectionCount  |  Liczba połączeń P2S  |  Liczba  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  P2SConnectionCount  |  Liczba połączeń typu P2S  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelAverageBandwidth  |  Przepustowość tunelu  |  BytesPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelEgressBytes  |  Bajty wychodzące tunelu  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelEgressPacketDropTSMismatch  |  Porzucanie pakietów wychodzących przez tunelowanie  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelEgressPackets  |  Pakiety wychodzące tuneli  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelIngressBytes  |  Bajty transferu danych wejściowych tunelu  |  Bajty  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelIngressPacketDropTSMismatch  |  Wyrzucanie niezgodności pakietów przez tunelowanie  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelEgressBytes  |  Liczba bajtów ruchu wychodzącego dla tunelu  |  Bajty  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelEgressPacketDropTSMismatch  |  Porzucone pakiety ruchu wychodzącego tunelu z powodu niezgodności TS  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelEgressPackets  |  Liczba pakietów ruchu wychodzącego dla tunelu  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelIngressBytes  |  Liczba bajtów ruchu przychodzącego dla tunelu  |  Bajty  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelIngressPacketDropTSMismatch  |  Porzucone pakiety ruchu przychodzącego tunelu z powodu niezgodności TS  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/virtualNetworkGateways  |  TunnelIngressPackets  |  Pakiety przychodzące tunelu  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Network/virtualNetworks  |  PingMeshAverageRoundtripMs  |  Czas błądzenia dla poleceń ping dla maszyny wirtualnej  |  )  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Network/virtualNetworks  |  PingMeshProbesFailedPercent  |  Nieudane polecenia ping do maszyny wirtualnej  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Network/virtualNetworks  |  PingMeshProbesFailedPercent  |  Nieudane polecenia ping do maszyny wirtualnej  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. NotificationHubs/przestrzenie nazw/NotificationHubs  |  przychodzące  |  Komunikaty przychodzące  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. NotificationHubs/przestrzenie nazw/NotificationHubs  |  przychodzące. ALL. failedrequests  |  Wszystkie przychodzące żądania zakończone niepowodzeniem  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. NotificationHubs/przestrzenie nazw/NotificationHubs  |  przychodzące. ALL. Requests  |  Wszystkie żądania przychodzące  |  Liczba  |  Łącznie | 
@@ -1299,15 +1298,15 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Pamięć Average_Used pamięci (MB)  |  Używana pamięć (MB)  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Average_Users  |  Użytkownicy  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Average_Virtual pamięci współdzielonej  |  Wirtualna pamięć udostępniona  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Zdarzenie  |  Zdarzenie  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Wydarzenie  |  Wydarzenie  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. OperationalInsights/obszary robocze  |  Puls  |  Puls  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Aktualizowanie  |  Aktualizowanie  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Aktualizacja  |  Aktualizacja  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_metric  |  Memory (Pamięć)  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_thrashing_metric  |  Migotanie pamięci (zbiory danych)  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_thrashing_metric  |  Migotanie pamięci (zbiory danych)  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  qpu_high_utilization_metric  |  Wysokie wykorzystanie jednostek QPU  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  QueryDuration  |  Czas trwania zapytania (zestawy danych)  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  QueryPoolJobQueueLength  |  Długość kolejki zadań puli zapytań (zbiory danych)  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. Relay/przestrzenie nazw  |  Połączeń ActiveConnections  |  Połączeń ActiveConnections  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. Relay/przestrzenie nazw  |  Aktywne połączenia  |  Aktywne połączenia  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. Relay/przestrzenie nazw  |  ActiveListeners  |  ActiveListeners  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Relay/przestrzenie nazw  |  BytesTransferred  |  BytesTransferred  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. Relay/przestrzenie nazw  |  ListenerConnections — błąd clienterror  |  ListenerConnections — błąd clienterror  |  Liczba  |  Łącznie | 
@@ -1322,34 +1321,34 @@ Tabela zawiera następujące kolumny.
 | Nie  | Nie |  Microsoft. Relay/przestrzenie nazw  |  SenderDisconnects  |  SenderDisconnects  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Search/searchServices  |  SearchLatency  |  Opóźnienie wyszukiwania  |  Sekundy  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Search/searchServices  |  SearchQueriesPerSecond  |  Zapytania wyszukiwania na sekundę  |  CountPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Search/searchServices  |  ThrottledSearchQueriesPercentage  |  Procent zapytań wyszukiwania z ograniczeniami  |  Wartość procentowa  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Połączeń ActiveConnections  |  Połączeń ActiveConnections  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. Search/searchServices  |  ThrottledSearchQueriesPercentage  |  Procent zapytań wyszukiwania z ograniczeniami  |  Procent  |  Średnia | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Aktywne połączenia  |  Aktywne połączenia  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  ActiveMessages  |  Liczba aktywnych komunikatów w kolejce/temacie.  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Połączenia connectionsclosed  |  Połączenia zamknięte.  |  Liczba  |  Średnia | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Połączenia connectionsclosed  |  Zamknięte połączenia.  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Połączenia connectionsopened  |  Otwarte połączenia.  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  CPUXNS  |  PROCESOR (przestarzałe)  |  Wartość procentowa  |  Maksimum | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  CPUXNS  |  PROCESOR (przestarzałe)  |  Procent  |  Maksimum | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  DeadletteredMessages  |  Liczba utraconych wiadomości w kolejce/temacie.  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. ServiceBus/przestrzenie nazw  |  Komunikaty incomingmessages  |  Komunikaty przychodzące  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. ServiceBus/przestrzenie nazw  |  Żądania incomingrequests  |  Żądania przychodzące  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Komunikaty  |  Liczba komunikatów w kolejce/temacie.  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  NamespaceCpuUsage  |  Procesor CPU  |  Wartość procentowa  |  Maksimum | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  NamespaceMemoryUsage  |  Użycie pamięci  |  Wartość procentowa  |  Maksimum | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  NamespaceCpuUsage  |  Procesor CPU  |  Procent  |  Maksimum | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  NamespaceMemoryUsage  |  Użycie pamięci  |  Procent  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. ServiceBus/przestrzenie nazw  |  Komunikaty outgoingmessages  |  Komunikaty wychodzące  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  ScheduledMessages  |  Liczba zaplanowanych komunikatów w kolejce/temacie.  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Błędy servererrors  |  Błędy serwera.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Rozmiar  |  Rozmiar  |  Bajty  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Żądania successfulrequests  |  Żądania zakończone powodzeniem  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  ThrottledRequests  |  Żądania z ograniczeniami.  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Żądania successfulrequests  |  Żądania pomyślne  |  Liczba  |  Łącznie | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  ThrottledRequests  |  Żądania ograniczone.  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  Błędy usererrors  |  Błędy użytkownika.  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  WSXNS  |  Użycie pamięci (przestarzałe)  |  Wartość procentowa  |  Maksimum | 
+| Nie  | Nie |  Microsoft. ServiceBus/przestrzenie nazw  |  WSXNS  |  Użycie pamięci (przestarzałe)  |  Procent  |  Maksimum | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  ActualCpu  |  ActualCpu  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  ActualMemory  |  ActualMemory  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  AllocatedCpu  |  AllocatedCpu  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  AllocatedMemory  |  AllocatedMemory  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  ApplicationStatus  |  ApplicationStatus  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  ContainerStatus  |  ContainerStatus  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  CpuUtilization  |  CpuUtilization  |  Wartość procentowa  |  Średnia | 
-| Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  MemoryUtilization  |  MemoryUtilization  |  Wartość procentowa  |  Średnia | 
+| Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  CpuUtilization  |  CpuUtilization  |  Procent  |  Średnia | 
+| Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  MemoryUtilization  |  MemoryUtilization  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  RestartCount  |  RestartCount  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  ServiceReplicaStatus  |  ServiceReplicaStatus  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. ServiceFabricMesh/aplikacje  |  Stan servicestatus  |  Stan servicestatus  |  Liczba  |  Średnia | 
@@ -1357,89 +1356,89 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  InboundTraffic  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  MessageCount  |  Liczba komunikatów  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  OutboundTraffic  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  SystemErrors  |  Błędy systemu  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  Błędy usererrors  |  Błędy użytkownika  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. SQL/managedInstances  |  avg_cpu_percent  |  Średni procent procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  SystemErrors  |  Błędy systemu  |  Procent  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SignalRService/sygnalizujący  |  Błędy usererrors  |  Błędy użytkownika  |  Procent  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SQL/managedInstances  |  avg_cpu_percent  |  Średni procent procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/managedInstances  |  io_bytes_read  |  Odczytane bajty we/wy  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/managedInstances  |  io_bytes_written  |  Bajty we/wy zapisywane  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/managedInstances  |  io_requests  |  Liczba żądań we/wy  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/managedInstances  |  reserved_storage_mb  |  Zarezerwowane miejsce w magazynie  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/managedInstances  |  storage_space_used_mb  |  Używane miejsce do magazynowania  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/managedInstances  |  virtual_core_count  |  Liczba rdzeni wirtualnych  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery  |  database_dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Wartość procentowa  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery  |  database_dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. SQL/serwery  |  database_storage_used  |  Używane miejsce na dane  |  Bajty  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery  |  dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery  |  dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery  |  dtu_used  |  Używane jednostki DTU  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery  |  storage_used  |  Używane miejsce na dane  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  allocated_data_storage  |  Przydzielono miejsce na danych  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  app_cpu_billed  |  Rozliczane użycie procesora przez aplikację  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  app_cpu_percent  |  Procent użycia procesora CPU aplikacji  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  app_memory_percent  |  Procent pamięci aplikacji  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  app_cpu_percent  |  Procent użycia procesora CPU aplikacji  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  app_memory_percent  |  Procent pamięci aplikacji  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  blocked_by_firewall  |  Zablokowane przez zaporę  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  cache_hit_percent  |  Procent trafień w pamięci podręcznej  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  cache_used_percent  |  Procent użycia pamięci podręcznej  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  cache_hit_percent  |  Procent trafień w pamięci podręcznej  |  Procent  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  cache_used_percent  |  Procent użycia pamięci podręcznej  |  Procent  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  connection_failed  |  Połączenia zakończone niepowodzeniem  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  connection_successful  |  Udane połączenia  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  cpu_limit  |  Limit CPU  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  cpu_used  |  Użycie procesora CPU  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  stanu  |  Zakleszczenia  |  Liczba  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  dtu_limit  |  Limit jednostek DTU  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  dtu_used  |  Używane jednostki DTU  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  dwu_consumption_percent  |  JEDNOSTEK dwu procent  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  dwu_consumption_percent  |  JEDNOSTEK dwu procent  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  dwu_limit  |  Limit jednostek dwu  |  Liczba  |  Maksimum | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  dwu_used  |  JEDNOSTEK dwu używane  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  local_tempdb_usage_percent  |  Procent lokalnej bazy danych tempdb  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  log_write_percent  |  Procent operacji we/wy dziennika  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  memory_usage_percent  |  Procent pamięci  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  physical_data_read_percent  |  Procent użycia operacji we/wy na danych  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  sessions_percent  |  Procent sesji  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  local_tempdb_usage_percent  |  Procent lokalnej bazy danych tempdb  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  log_write_percent  |  Procent operacji we/wy dziennika  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  memory_usage_percent  |  Procent pamięci  |  Procent  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  physical_data_read_percent  |  Procent użycia operacji we/wy na danych  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  sessions_percent  |  Procent sesji  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  magazyn  |  Używane miejsce na dane  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  storage_percent  |  Procent użytego miejsca na danych  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  storage_percent  |  Procent użytego miejsca na danych  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  tempdb_data_size  |  Rozmiar pliku danych tempdb kilobajtów  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  tempdb_log_size  |  Rozmiar pliku dziennika bazy danych tempdb kilobajtów  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  tempdb_log_used_percent  |  Użyto dziennika% tempdb  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  workers_percent  |  Procent pracowników  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  xtp_storage_percent  |  Procent magazynu OLTP w pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/bazy danych  |  tempdb_log_used_percent  |  Użyto dziennika% tempdb  |  Procent  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  workers_percent  |  Procent pracowników  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/bazy danych  |  xtp_storage_percent  |  Procent magazynu OLTP w pamięci  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  allocated_data_storage  |  Przydzielono miejsce na danych  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  allocated_data_storage_percent  |  Procent przydzielonych przestrzeni danych  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  allocated_data_storage_percent  |  Procent przydzielonych przestrzeni danych  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  cpu_limit  |  Limit CPU  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  cpu_used  |  Użycie procesora CPU  |  Liczba  |  Średnia | 
 | Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_allocated_data_storage  |  Przydzielono miejsce na danych  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_cpu_limit  |  Limit CPU  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_cpu_percent  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_cpu_percent  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_cpu_used  |  Użycie procesora CPU  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Wartość procentowa  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_eDTU_used  |  użyta wartość eDTU  |  Liczba  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_log_write_percent  |  Procent operacji we/wy dziennika  |  Wartość procentowa  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_physical_data_read_percent  |  Procent użycia operacji we/wy na danych  |  Wartość procentowa  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_sessions_percent  |  Procent sesji  |  Wartość procentowa  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_log_write_percent  |  Procent operacji we/wy dziennika  |  Procent  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_physical_data_read_percent  |  Procent użycia operacji we/wy na danych  |  Procent  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_sessions_percent  |  Procent sesji  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_storage_used  |  Używane miejsce na dane  |  Bajty  |  Średnia | 
-| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_workers_percent  |  Procent pracowników  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Wartość procentowa  |  Średnia | 
+| Nie  | Nie |  Microsoft. SQL/serwery/elasticPools  |  database_workers_percent  |  Procent pracowników  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  dtu_consumption_percent  |  Procent użycia jednostek DTU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  eDTU_limit  |  limit liczby jednostek eDTU  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  eDTU_used  |  użyta wartość eDTU  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  log_write_percent  |  Procent operacji we/wy dziennika  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  physical_data_read_percent  |  Procent użycia operacji we/wy na danych  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  sessions_percent  |  Procent sesji  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  log_write_percent  |  Procent operacji we/wy dziennika  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  physical_data_read_percent  |  Procent użycia operacji we/wy na danych  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  sessions_percent  |  Procent sesji  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  storage_limit  |  Maksymalny rozmiar danych  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  storage_percent  |  Procent użytego miejsca na danych  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  storage_percent  |  Procent użytego miejsca na danych  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  storage_used  |  Używane miejsce na dane  |  Bajty  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  tempdb_data_size  |  Rozmiar pliku danych tempdb kilobajtów  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  tempdb_log_size  |  Rozmiar pliku dziennika bazy danych tempdb kilobajtów  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  tempdb_log_used_percent  |  Użyto dziennika% tempdb  |  Wartość procentowa  |  Maksimum | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  workers_percent  |  Procent pracowników  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  xtp_storage_percent  |  Procent magazynu OLTP w pamięci  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. SQL/serwery/elasticPools  |  tempdb_log_used_percent  |  Użyto dziennika% tempdb  |  Procent  |  Maksimum | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  workers_percent  |  Procent pracowników  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. SQL/serwery/elasticPools  |  xtp_storage_percent  |  Procent magazynu OLTP w pamięci  |  Procent  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. Storage/storageAccounts  |  UsedCapacity  |  Używana pojemność  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | Nie  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  BlobCapacity  |  Pojemność obiektu BLOB  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  BlobCount  |  Liczba obiektów BLOB  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  ContainerCount  |  Liczba kontenerów obiektów BLOB  |  Liczba  |  Średnia | 
@@ -1449,7 +1448,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/blobServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | Nie  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  FileCapacity  |  Pojemność plików  |  Bajty  |  Średnia | 
 | Nie  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  FileCount  |  Liczba plików  |  Liczba  |  Średnia | 
@@ -1461,7 +1460,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/fileServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  QueueCapacity  |  Pojemność kolejki  |  Bajty  |  Średnia | 
@@ -1470,7 +1469,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  SuccessServerLatency  |  Opóźnienie serwera dla powodzenia  |  )  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/queueServices  |  Transakcje  |  Transakcje  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Dostępność  |  Dostępność  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Ruch wychodzący  |  Ruch wychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  Ruch przychodzący  |  Ruch przychodzący  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. Storage/storageAccounts/tableServices  |  SuccessE2ELatency  |  Opóźnienie E2E dla powodzenia  |  )  |  Średnia | 
@@ -1534,7 +1533,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  LateInputEvents  |  Opóźnione zdarzenia wejściowe  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  OutputEvents  |  Zdarzenia wyjściowe  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  OutputWatermarkDelaySeconds  |  Opóźnienie znaku wodnego  |  Sekundy  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  ResourceUtilization  |  Użycie SU%  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. StreamAnalytics/streamingjobs  |  ResourceUtilization  |  Użycie SU%  |  Procent  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  Bajty odczytu dysku  |  Bajty odczytu dysku  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  Operacje odczytu z dysku/s  |  Operacje odczytu z dysku/s  |  CountPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  Bajty zapisu dysku  |  Bajty zapisu dysku  |  Bajty  |  Łącznie | 
@@ -1552,13 +1551,13 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  Sieć — wyjście  |  Sieć — wyjście  |  Bajty  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  NetworkInBytesPerSecond  |  Sieć w bajtach/s  |  BytesPerSecond  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  NetworkOutBytesPerSecond  |  Bajty wychodzące z sieci/s  |  BytesPerSecond  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  Procentowe użycie procesora CPU  |  Procentowe użycie procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. VMwareCloudSimple/virtualMachines  |  PercentageCpuReady  |  Procent gotowych do użycia procesora  |  )  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  ActiveRequests  |  Aktywne żądania  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  AverageResponseTime  |  Średni czas odpowiedzi  |  Sekundy  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  BytesReceived  |  Dane w  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  BytesSent  |  Dane wychodzące  |  Bajty  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  CpuPercentage  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  CpuPercentage  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  DiskQueueLength  |  Długość kolejki dysku  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  Http101  |  Http 101  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  Http2xx  |  Http 2xx  |  Liczba  |  Łącznie | 
@@ -1572,21 +1571,21 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  HttpQueueLength  |  Długość kolejki http  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  LargeAppServicePlanInstances  |  Duże App Service planowanie procesów roboczych  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  MediumAppServicePlanInstances  |  Średni App Service pracowników planu  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  MemoryPercentage  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  MemoryPercentage  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  Żądania  |  Żądania  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  SmallAppServicePlanInstances  |  Niewielka App Service planowanie procesów roboczych  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/multiRolePools  |  TotalFrontEnds  |  Łączne frontony  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  CpuPercentage  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  MemoryPercentage  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  CpuPercentage  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  MemoryPercentage  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  WorkersAvailable  |  Dostępni pracownicy  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  Łączna  |  Łączna liczba procesów roboczych  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/hostingEnvironments/workerPools  |  WorkersUsed  |  Używani pracownicy  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  BytesReceived  |  Dane w  |  Bajty  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  BytesSent  |  Dane wychodzące  |  Bajty  |  Łącznie | 
-| **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  CpuPercentage  |  Procent użycia procesora CPU  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  CpuPercentage  |  Procent użycia procesora CPU  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  DiskQueueLength  |  Długość kolejki dysku  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  HttpQueueLength  |  Długość kolejki http  |  Liczba  |  Średnia | 
-| **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  MemoryPercentage  |  Procent pamięci  |  Wartość procentowa  |  Średnia | 
+| **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  MemoryPercentage  |  Procent pamięci  |  Procent  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  TcpCloseWait  |  Oczekiwanie na zamknięcie protokołu TCP  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  TcpClosing  |  Zamykanie protokołu TCP  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. Web/dopuszczalna  |  TcpEstablished  |  Nawiązano ruch TCP  |  Liczba  |  Średnia | 

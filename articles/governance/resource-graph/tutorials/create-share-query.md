@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: zarządzanie zapytaniami w Azure Portal'
 description: W tym samouczku utworzysz zapytanie grafu zasobów i udostępnisz nowe zapytanie innym osobom w Azure Portal.
-ms.date: 05/20/2020
+ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148025"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970590"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy wykresu zasobów platformy Azure w Azure Portal
 
-Eksplorator usługi Azure Resource Graph umożliwia zapisywanie zapytań grafu zasobów bezpośrednio w Azure Portal. Istnieją dwa typy zapytań: _Private_ i _Shared_. Zapytanie prywatne zostanie zapisane w ustawieniach Azure Portal. Zapytanie udostępnione jest zasobem Menedżer zasobów, którym można zarządzać za pomocą kontroli dostępu opartej na rolach (RBAC) i chronionych przy użyciu blokad zasobów. Oba typy zapytań są szyfrowane w stanie spoczynku.
+Eksplorator usługi Azure Resource Graph umożliwia zapisywanie zapytań grafu zasobów bezpośrednio w Azure Portal. Istnieją dwa typy zapytań: _Private_ i _Shared_. Zapytanie prywatne zostanie zapisane w ustawieniach Azure Portal. Zapytanie udostępnione jest zasobem Azure Resource Manager, którym można zarządzać za pomocą kontroli dostępu opartej na rolach (RBAC) i chronionych przy użyciu blokad zasobów. Oba typy zapytań są szyfrowane w stanie spoczynku.
 
 Zapisując zapytania w Azure Portal, można zaoszczędzić czas, w którym można szukać ulubionych lub często używanych zapytań. Po udostępnieniu zapytań można ułatwić zespołowi zrealizowanie celów spójności i wydajności poprzez powtarzanie.
 
@@ -45,7 +45,6 @@ Zapytania prywatne są dostępne i widoczne tylko dla konta, które je tworzy. P
    Wybierz pozycję **Uruchom zapytanie** , aby wyświetlić wyniki zapytania w dolnym okienku.
 
    Aby uzyskać więcej informacji na temat tego zapytania, zobacz [przykłady — liczba maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-os).
-
 
 1. Wybierz **pozycję Zapisz** lub **Zapisz jako**, **Wprowadź liczbę maszyn wirtualnych według systemu operacyjnego** jako nazwę, pozostaw jako **kwerendę prywatną**, a następnie wybierz pozycję **Zapisz** w dolnej części okienka **Zapisz zapytanie** . Tytuł karty zostanie zmieniony z **zapytania 1** na **liczbę maszyn wirtualnych według systemu operacyjnego**.
 
@@ -80,8 +79,7 @@ Aby utworzyć nowe zapytanie udostępnione, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Zapisz** lub **Zapisz jako**.
 
-   
-   ![Zapisz nowe zapytanie przy użyciu przycisku Zapisz](../media/create-share-query/save-shared-query-buttons.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-buttons.png" alt-text="Zapisz nowe zapytanie przy użyciu przycisku Zapisz" border="false":::
 
 1. W okienku **Zapisz zapytanie** wprowadź wartość w polu **Liczba maszyn wirtualnych według systemu operacyjnego** .
 
@@ -91,7 +89,7 @@ Aby utworzyć nowe zapytanie udostępnione, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Zapisz** w dolnej części okienka **Zapisz zapytanie** . Tytuł karty zostanie zmieniony z **zapytania 1** na **liczbę maszyn wirtualnych według systemu operacyjnego**. Przy pierwszym użyciu grupy zasobów **zapytania z wykresem zasobów** czas zapisywania trwa dłużej niż oczekiwano, gdy grupa zasobów zostanie utworzona.
    
-   ![Zapisz nowe zapytanie jako zapytanie udostępnione](../media/create-share-query/save-shared-query-window.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Zapisz nowe zapytanie jako zapytanie udostępnione" border="false":::
 
    > [!NOTE] 
    > Możesz wyczyścić pole wyboru **Publikuj do zasobów-Graph-** querys, jeśli chcesz podać nazwę istniejącej grupy zasobów, w której ma zostać zapisane zapytanie udostępnione. Użycie domyślnej nazwy grupy zasobów dla zapytań sprawia, że zapytania udostępnione są łatwiejsze do odnajdywania. Umożliwia również dokładniejsze przeznaczenie tej grupy zasobów. Można jednak wybrać istniejącą grupę zasobów ze względów bezpieczeństwa na podstawie istniejących uprawnień.
@@ -100,7 +98,7 @@ Aby utworzyć nowe zapytanie udostępnione, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Otwórz zapytanie**. Sprawdź, czy typ jest ustawiony na **zapytanie udostępnione** i czy kombinacja **subskrypcji** i **grupy zasobów** jest zgodna z miejscem, w którym zapisano zapytanie. Liczba zapisanych **maszyn wirtualnych według elementu systemu operacyjnego** zostanie teraz wyświetlona na liście **Nazwa zapytania** . Wybierz łącze tytuł zapisanego zapytania, aby załadować je do nowej karty zawierającej nazwę tego zapytania. Jako zapytanie udostępnione wyświetla ikonę na karcie obok tytułu, oznaczając ją jako udostępnioną.
 
-   ![Pokaż udostępnione zapytanie z ikoną](../media/create-share-query/show-saved-shared-query.png)
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Pokaż udostępnione zapytanie z ikoną" border="false":::
 
    > [!NOTE] 
    > Gdy zapisane zapytanie jest otwarte, a karta wyświetla jego nazwę, przycisk **Zapisz** aktualizuje go przy użyciu wszelkich wprowadzonych zmian. Aby utworzyć nowe zapisane zapytanie, wybierz pozycję **Zapisz jako** i postępuj zgodnie z tym, jeśli zapisano zupełnie nowe zapytanie.
@@ -136,6 +134,10 @@ Resources
 | where type == "microsoft.resourcegraph/queries"
 | project name, properties.timeModified, properties.query
 ```
+
+## <a name="run-a-shared-query"></a>Uruchom udostępnione zapytanie
+
+Zapytanie udostępnione grafu zasobów można uruchomić z `{{shared-query-uri}}` składnią (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [Składnia zapytania udostępnionego](../concepts/query-language.md#shared-query-syntax).
 
 ## <a name="delete-a-shared-query"></a>Usuń udostępnione zapytanie
 

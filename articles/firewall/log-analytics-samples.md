@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: victorh
 ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76705995"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Przykłady analizy dzienników zapory platformy Azure
@@ -30,7 +29,7 @@ Wykonaj następujące kroki, aby dodać widok do obszaru roboczego Log Analytics
 2. Otwórz **projektanta widoków** poniżej **ogólnego**.
 3. Kliknij pozycję **Importuj**.
 4. Przeglądaj i wybierz pobrany wcześniej plik **AzureFirewall. omsview** .
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 Oto jak widok wyszukuje dane dziennika reguły aplikacji:
 

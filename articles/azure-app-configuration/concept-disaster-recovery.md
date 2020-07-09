@@ -7,10 +7,9 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523768"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Odporność i odzyskiwanie po awarii
@@ -60,7 +59,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ```
 ---
 
-Zwróć uwagę `optional` na parametr przekazywany do `AddAzureAppConfiguration` funkcji. Gdy ta wartość `true`jest ustawiona na, ten parametr zapobiega niepowodzeniu działania aplikacji w przypadku, gdy funkcja nie może załadować danych konfiguracyjnych.
+Zwróć uwagę na `optional` parametr przekazywany do `AddAzureAppConfiguration` funkcji. Gdy ta wartość `true` jest ustawiona na, ten parametr zapobiega niepowodzeniu działania aplikacji w przypadku, gdy funkcja nie może załadować danych konfiguracyjnych.
 
 ## <a name="synchronization-between-configuration-stores"></a>Synchronizacja między magazynami konfiguracji
 
@@ -68,7 +67,7 @@ Ważne jest, aby wszystkie dane z geograficznie nadmiarowych magazynów miały t
 
 W Azure Portal można wypchnąć zmianę do innego magazynu konfiguracji, wykonując następujące kroki.
 
-1. Przejdź do karty **Importuj/Eksportuj** , a następnie wybierz **pozycję Eksportuj** > **element docelowy** > **konfiguracji** > aplikacji**Wybierz zasób**.
+1. Przejdź do karty **Importuj/Eksportuj** , a następnie wybierz pozycję **Eksportuj**  >  **App Configuration**  >  **element docelowy**konfiguracji aplikacji  >  **Wybierz zasób**.
 
 1. W nowym bloku, który zostanie otwarty, określ subskrypcję, grupę zasobów i nazwę zasobu magazynu pomocniczego, a następnie wybierz pozycję **Zastosuj**.
 

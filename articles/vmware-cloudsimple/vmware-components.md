@@ -10,11 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279509"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84702826"
 ---
 # <a name="private-cloud-vmware-components"></a>Składniki VMware chmury prywatnej
 
@@ -34,7 +33,7 @@ Stos VMware chmury prywatnej jest wdrażany z użyciem następującej wersji opr
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | Program vCenter Standard |
 | Sieci vSAN | 6.7 | Enterprise |
-| Centrum danych NSX | 2.4.1 | Zaawansowane |
+| Centrum danych NSX | 2.4.1 | Zaawansowany |
 
 ## <a name="esxi"></a>ESXi
 
@@ -48,7 +47,7 @@ Program vCenter Server Appliance (VCSA) zapewnia funkcje uwierzytelniania, zarz�
 
 ### <a name="vcenter-single-sign-on"></a>Logowanie jednokrotne vCenter
 
-Osadzony kontroler usług platformy VCSA jest skojarzony z **domeną logowania**jednokrotnego.  Nazwa domeny to **cloudsimple. Local**.  Tworzony jest domyślny **CloudOwner@cloudsimple.com** użytkownik mający dostęp do programu vCenter.  Możesz dodać [źródła tożsamości](set-vcenter-identity.md)lokalnego/usługi Azure Active Directory dla serwera vCenter.
+Osadzony kontroler usług platformy VCSA jest skojarzony z **domeną logowania**jednokrotnego.  Nazwa domeny to **cloudsimple. Local**.  Tworzony jest domyślny użytkownik mający **CloudOwner@cloudsimple.com** dostęp do programu vCenter.  Możesz dodać [źródła tożsamości](set-vcenter-identity.md)lokalnego/usługi Azure Active Directory dla serwera vCenter.
 
 ## <a name="vsan-storage"></a>Magazyn sieci vSAN
 
@@ -82,7 +81,7 @@ NSX Data Center zapewnia wirtualizację sieci, mikrosegmenty i możliwości zabe
 
 ## <a name="vsphere-cluster"></a>klaster vSphere
 
-Hosty ESXi są skonfigurowane jako klaster, aby zapewnić wysoką dostępność chmury prywatnej.  Podczas tworzenia chmury prywatnej składniki zarządzania programu vSphere są wdrażane w pierwszym klastrze.  Pula zasobów jest tworzona dla składników zarządzania, a wszystkie maszyny wirtualne zarządzania są wdrażane w tej puli zasobów. Nie można usunąć pierwszego klastra, aby zmniejszyć chmurę prywatną.  klaster vSphere zapewnia wysoką dostępność maszyn wirtualnych korzystających z **VSPHERE ha**.  Niepowodzenia do tolerowania są zależne od liczby dostępnych węzłów w klastrze.  Można użyć formuły ```Number of nodes = 2N+1``` , gdzie ```N``` jest liczbą niepowodzeń, które mają być tolerowane.
+Hosty ESXi są skonfigurowane jako klaster, aby zapewnić wysoką dostępność chmury prywatnej.  Podczas tworzenia chmury prywatnej składniki zarządzania programu vSphere są wdrażane w pierwszym klastrze.  Pula zasobów jest tworzona dla składników zarządzania, a wszystkie maszyny wirtualne zarządzania są wdrażane w tej puli zasobów. Nie można usunąć pierwszego klastra, aby zmniejszyć chmurę prywatną.  klaster vSphere zapewnia wysoką dostępność maszyn wirtualnych korzystających z **VSPHERE ha**.  Niepowodzenia do tolerowania są zależne od liczby dostępnych węzłów w klastrze.  Można użyć formuły, ```Number of nodes = 2N+1``` gdzie ```N``` jest liczbą niepowodzeń, które mają być tolerowane.
 
 ### <a name="vsphere-cluster-limits"></a>limity klastrów vSphere
 

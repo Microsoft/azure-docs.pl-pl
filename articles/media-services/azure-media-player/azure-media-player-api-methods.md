@@ -7,10 +7,9 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727270"
 ---
 # <a name="api"></a>Interfejs API #
@@ -19,7 +18,7 @@ Interfejs API Azure Media Player umożliwia korzystanie z filmu wideo za pomocą
 
 ## <a name="referencing-the-player"></a>Odwoływanie się do odtwarzacza ##
 
-Aby korzystać z funkcji interfejsu API, wymagany jest dostęp do obiektu odtwarzacza. Na szczęście. Wystarczy upewnić się, że tag wideo ma identyfikator. Przykładowy kod osadzania ma identyfikator `vid1`. Jeśli masz wiele filmów wideo na jednej stronie, upewnij się, że każdy tag wideo ma unikatowy identyfikator.
+Aby korzystać z funkcji interfejsu API, wymagany jest dostęp do obiektu odtwarzacza. Na szczęście. Wystarczy upewnić się, że tag wideo ma identyfikator. Przykładowy kod osadzania ma identyfikator `vid1` . Jeśli masz wiele filmów wideo na jednej stronie, upewnij się, że każdy tag wideo ma unikatowy identyfikator.
 
 `var myPlayer = amp('vid1');`
 

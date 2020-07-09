@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261571"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Słowa kluczowe w Azure Cosmos DB
@@ -19,7 +18,7 @@ W tym artykule opisano słowa kluczowe, które mogą być używane w zapytaniach
 
 ## <a name="between"></a>BETWEEN
 
-Możesz użyć słowa kluczowego, `BETWEEN` aby ekspresowe zapytania względem zakresów ciągu lub wartości liczbowych. Na przykład następujące zapytanie zwraca wszystkie elementy, w których Klasa pierwszego elementu podrzędnego to 1-5 włącznie.
+Możesz użyć `BETWEEN` słowa kluczowego, aby ekspresowe zapytania względem zakresów ciągu lub wartości liczbowych. Na przykład następujące zapytanie zwraca wszystkie elementy, w których Klasa pierwszego elementu podrzędnego to 1-5 włącznie.
 
 ```sql
     SELECT *
@@ -34,14 +33,14 @@ Można również użyć `BETWEEN` słowa kluczowego w `SELECT` klauzuli, jak w p
     FROM Families.children[0] c
 ```
 
-W przypadku interfejsu SQL API, w przeciwieństwie do ANSI SQL, można wyznaczać zapytania zakresowe względem właściwości typów mieszanych. Na przykład `grade` może być liczbą jak `5` w niektórych elementach i ciągiem podobnym `grade4` do innych. W takich przypadkach, podobnie jak w języku JavaScript, porównanie między dwoma różnymi typami powoduje `Undefined`, że element jest pomijany.
+W przypadku interfejsu SQL API, w przeciwieństwie do ANSI SQL, można wyznaczać zapytania zakresowe względem właściwości typów mieszanych. Na przykład `grade` może być liczbą jak `5` w niektórych elementach i ciągiem podobnym do `grade4` innych. W takich przypadkach, podobnie jak w języku JavaScript, porównanie między dwoma różnymi typami powoduje `Undefined` , że element jest pomijany.
 
 > [!TIP]
-> Aby przyspieszyć wykonywanie zapytań, Utwórz zasady indeksowania, które używają typu indeksu zakresu względem wszystkich właściwości liczbowych lub ścieżek, które `BETWEEN` są filtrowane w klauzuli.
+> Aby przyspieszyć wykonywanie zapytań, Utwórz zasady indeksowania, które używają typu indeksu zakresu względem wszystkich właściwości liczbowych lub ścieżek, które są `BETWEEN` filtrowane w klauzuli.
 
 ## <a name="distinct"></a>DISTINCT
 
-`DISTINCT` Słowo kluczowe eliminuje duplikaty w projekcji zapytania.
+`DISTINCT`Słowo kluczowe eliminuje duplikaty w projekcji zapytania.
 
 W tym przykładzie wartości projektów zapytania dla każdej nazwiska:
 
@@ -103,7 +102,7 @@ Wyniki są następujące:
 ]
 ```
 
-Zapytania z zagregowaną funkcją systemową i podzapytaniem `DISTINCT` z nie są obsługiwane. Na przykład następujące zapytanie nie jest obsługiwane:
+Zapytania z zagregowaną funkcją systemową i podzapytaniem z `DISTINCT` nie są obsługiwane. Na przykład następujące zapytanie nie jest obsługiwane:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -111,7 +110,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Użyj słowa kluczowego IN, aby sprawdzić, czy określona wartość pasuje do dowolnej wartości na liście. Na przykład następujące zapytanie zwraca wszystkie elementy rodziny, w `id` których jest `WakefieldFamily` lub. `AndersenFamily`
+Użyj słowa kluczowego IN, aby sprawdzić, czy określona wartość pasuje do dowolnej wartości na liście. Na przykład następujące zapytanie zwraca wszystkie elementy rodziny, w których `id` jest `WakefieldFamily` lub `AndersenFamily` .
 
 ```sql
     SELECT *
@@ -129,11 +128,11 @@ Poniższy przykład zwraca wszystkie elementy, w których stan jest dowolną z o
 
 Interfejs API SQL zapewnia obsługę [iteracji w tablicach JSON](sql-query-object-array.md#Iteration), a nowa konstrukcja dodana za pośrednictwem słowa kluczowego in w źródle from.
 
-Jeśli w `IN` filtrze zostanie uwzględniony klucz partycji, zapytanie zostanie automatycznie przefiltrowane na odpowiednie partycje.
+Jeśli w filtrze zostanie uwzględniony klucz partycji `IN` , zapytanie zostanie automatycznie przefiltrowane na odpowiednie partycje.
 
 ## <a name="top"></a>TOP
 
-Słowo kluczowe TOP zwraca pierwszą `N` liczbę wyników zapytania w niezdefiniowanej kolejności. Najlepszym rozwiązaniem jest użycie `ORDER BY` klauzuli TOP z klauzulą w celu ograniczenia wyników do pierwszej `N` liczby uporządkowanych wartości. Połączenie tych dwóch klauzul jest jedynym sposobem przewidywania, które wiersze mają największe wpływ.
+Słowo kluczowe TOP zwraca pierwszą `N` liczbę wyników zapytania w niezdefiniowanej kolejności. Najlepszym rozwiązaniem jest użycie klauzuli TOP z `ORDER BY` klauzulą w celu ograniczenia wyników do pierwszej `N` liczby uporządkowanych wartości. Połączenie tych dwóch klauzul jest jedynym sposobem przewidywania, które wiersze mają największe wpływ.
 
 Możesz użyć TOP z wartością stałą, jak w poniższym przykładzie, lub z wartością zmiennej przy użyciu zapytań parametrycznych.
 
@@ -166,6 +165,6 @@ Wyniki są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie](sql-query-getting-started.md)
+- [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [Sprzężenia](sql-query-join.md)
-- [Podzapytania](sql-query-subquery.md)
+- [Zapytania podrzędne](sql-query-subquery.md)

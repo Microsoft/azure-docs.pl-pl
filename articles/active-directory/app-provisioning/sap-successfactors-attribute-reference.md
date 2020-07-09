@@ -2,21 +2,20 @@
 title: Odwołanie do atrybutu SAP SuccessFactors
 description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: reference
 ms.workload: identity
 ms.date: 12/06/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781552"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Odwołanie do atrybutu SAP SuccessFactors
 
@@ -92,26 +91,26 @@ W poniższej tabeli przechwycono listę atrybutów SuccessFactors obsługiwanych
 | 55 | EmpJob                                 | pozycja                     | Odczyt           |
 | 65 | EmpJob                                 | customString13               | Odczyt           |
 | 56 | EmpJob                                 | managerId                    | Odczyt           |
-| 57 | EmpJob\.BusinessUnit                   | businessUnit                 | Odczyt           |
-| 58 | EmpJob\.BusinessUnit                   | businessUnitId               | Odczyt           |
-| 59 | Firma\.EmpJob                        | company                      | Odczyt           |
-| 60 | Firma\.EmpJob                        | companyId                    | Odczyt           |
-| 61 | EmpJob\.firmy\.CountryOfRegistration | twoCharCountryCode           | Odczyt           |
-| 62 | EmpJob\.CostCenter                     | costCenter                   | Odczyt           |
-| 63 | EmpJob\.CostCenter                     | costCenterId                 | Odczyt           |
-| 64 | EmpJob\.CostCenter                     | costCenterDescription        | Odczyt           |
-| 65 | Dział\.EmpJob                     | działu,                   | Odczyt           |
-| 66 | Dział\.EmpJob                     | departmentId                 | Odczyt           |
-| 67 | EmpJob\.                       | przegrod                     | Odczyt           |
-| 68 | EmpJob\.                       | divisionId                   | Odczyt           |
-| 69 | EmpJob\.JobCode                        | jobCode                      | Odczyt           |
-| 70 | EmpJob\.JobCode                        | jobCodeId                    | Odczyt           |
-| 71 | Lokalizacja\.EmpJob                       | Lokalizacja                 | Odczyt           |
-| 72 | Lokalizacja\.EmpJob                       | officeLocationAddress        | Odczyt           |
-| 73 | Lokalizacja\.EmpJob                       | officeLocationCity           | Odczyt           |
-| 74 | Lokalizacja\.EmpJob                       | officeLocationCustomString4  | Odczyt           |
-| 75 | Lokalizacja\.EmpJob                       | officeLocationZipCode        | Odczyt           |
-| 76 | EmpJob\.PayGrade                       | payGrade                     | Odczyt           |
+| 57 | EmpJob \. BusinessUnit                   | businessUnit                 | Odczyt           |
+| 58 | EmpJob \. BusinessUnit                   | businessUnitId               | Odczyt           |
+| 59 | \.Firma EmpJob                        | company                      | Odczyt           |
+| 60 | \.Firma EmpJob                        | companyId                    | Odczyt           |
+| 61 | EmpJob \. firmy \. CountryOfRegistration | twoCharCountryCode           | Odczyt           |
+| 62 | EmpJob \. CostCenter                     | costCenter                   | Odczyt           |
+| 63 | EmpJob \. CostCenter                     | costCenterId                 | Odczyt           |
+| 64 | EmpJob \. CostCenter                     | costCenterDescription        | Odczyt           |
+| 65 | \.Dział EmpJob                     | działu,                   | Odczyt           |
+| 66 | \.Dział EmpJob                     | departmentId                 | Odczyt           |
+| 67 | EmpJob \.                       | przegrod                     | Odczyt           |
+| 68 | EmpJob \.                       | divisionId                   | Odczyt           |
+| 69 | EmpJob \. JobCode                        | jobCode                      | Odczyt           |
+| 70 | EmpJob \. JobCode                        | jobCodeId                    | Odczyt           |
+| 71 | \.Lokalizacja EmpJob                       | Lokalizacja                 | Odczyt           |
+| 72 | \.Lokalizacja EmpJob                       | officeLocationAddress        | Odczyt           |
+| 73 | \.Lokalizacja EmpJob                       | officeLocationCity           | Odczyt           |
+| 74 | \.Lokalizacja EmpJob                       | officeLocationCustomString4  | Odczyt           |
+| 75 | \.Lokalizacja EmpJob                       | officeLocationZipCode        | Odczyt           |
+| 76 | EmpJob \. PayGrade                       | payGrade                     | Odczyt           |
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Odczyt           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Odczyt           |
 
@@ -128,16 +127,16 @@ Poniższa tabela zawiera domyślne mapowanie atrybutów między SuccessFactorsmi
 | 5  | PerPersonal                            | lastName                 | sn                                      | Nie dotyczy                                                                                           |
 | 6  | Użytkownik                                   | addressLine1             | streetAddress                           | Nie dotyczy                                                                                           |
 | 7  | Użytkownik                                   | city                     | l                                       | Nie dotyczy                                                                                           |
-| 8  | Użytkownik                                   | country                  | współzarządzania                                      | Nie dotyczy                                                                                           |
+| 8  | Użytkownik                                   | country                  | co                                      | Nie dotyczy                                                                                           |
 | 9  | Użytkownik                                   | state                    | st                                      | Nie dotyczy                                                                                           |
 | 10 | Użytkownik                                   | nazwa użytkownika                 | samAccountName                          | Nie dotyczy                                                                                           |
 | 11 | Użytkownik                                   | Kod pocztowy                  | Pocztowy                              | Nie dotyczy                                                                                           |
 | 12 | PerEmail                               | emailAddress             | mail (poczta)                                    | Nie dotyczy                                                                                           |
-| 13 | EmpJob                                 | Stanowiska                 | title                                   | Nie dotyczy                                                                                           |
+| 13 | EmpJob                                 | Stanowiska                 | tytuł                                   | Nie dotyczy                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | Nie dotyczy                                                                                           |
-| 15 | EmpJob\.firmy\.CountryOfRegistration | twoCharCountryCode       | c                                       | Nie dotyczy                                                                                           |
-| 16 | Dział\.EmpJob                     | działu,               | działu,                              | Nie dotyczy                                                                                           |
-| 17 | EmpJob\.                       | przegrod                 | company                                 | Nie dotyczy                                                                                           |
-| 18 | Lokalizacja\.EmpJob                       | officeLocationAddress    | streetAddress                           | Nie dotyczy                                                                                           |
-| 19 | Lokalizacja\.EmpJob                       | officeLocationZipCode    | Pocztowy                              | Nie dotyczy                                                                                           |
+| 15 | EmpJob \. firmy \. CountryOfRegistration | twoCharCountryCode       | c                                       | Nie dotyczy                                                                                           |
+| 16 | \.Dział EmpJob                     | działu,               | działu,                              | Nie dotyczy                                                                                           |
+| 17 | EmpJob \.                       | przegrod                 | company                                 | Nie dotyczy                                                                                           |
+| 18 | \.Lokalizacja EmpJob                       | officeLocationAddress    | streetAddress                           | Nie dotyczy                                                                                           |
+| 19 | \.Lokalizacja EmpJob                       | officeLocationZipCode    | Pocztowy                              | Nie dotyczy                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | Jeśli activeEmploymentsCount = 0, wyłącz account\.                                           |

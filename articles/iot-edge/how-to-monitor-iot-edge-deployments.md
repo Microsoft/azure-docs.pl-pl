@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84220290"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorowanie wdrożeń IoT Edge
 
@@ -101,4 +100,4 @@ Aby wprowadzić zmiany do wdrożenia, zobacz [Modyfikowanie wdrożenia](how-to-d
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [komunikować się z usługą EdgeAgent przy użyciu wbudowanych metod bezpośrednich](how-to-edgeagent-direct-method.md).
+Dowiedz się, jak [monitorować bliźniaczych reprezentacji](how-to-monitor-module-twins.md)modułów, a przede wszystkim agentów IoT Edge i IoT Edge centrum środowiska uruchomieniowego w celu zapewnienia łączności i kondycji wdrożeń IoT Edge.

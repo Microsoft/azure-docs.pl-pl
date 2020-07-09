@@ -13,10 +13,9 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281238"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Przenoszenie danych z PostgreSQL za pomocą Azure Data Factory
@@ -70,9 +69,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla PostgreSQL połączonej usługi.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **OnPremisesPostgreSql** |Tak |
+| typ |Właściwość Type musi mieć wartość: **OnPremisesPostgreSql** |Tak |
 | serwer |Nazwa serwera PostgreSQL. |Tak |
 | database |Nazwa bazy danych PostgreSQL. |Tak |
 | schematy |Nazwa schematu w bazie danych programu. Nazwa schematu jest uwzględniana wielkość liter. |Nie |
@@ -86,7 +85,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja typeProperties jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja typeProperties dla zestawu danych typu **relacyjnego** (który zawiera zestaw danych PostgreSQL) ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | tableName |Nazwa tabeli w wystąpieniu bazy danych PostgreSQL, do której odwołuje się połączona usługa. W tabeli TableName jest rozróżniana wielkość liter. |Nie (Jeśli **kwerenda** **RelationalSource** jest określona) |
 
@@ -97,7 +96,7 @@ Natomiast właściwości dostępne w sekcji typeProperties działania różnią 
 
 Jeśli źródło jest typu **RelationalSource** (co obejmuje PostgreSQL), w sekcji typeProperties dostępne są następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
@@ -339,7 +338,7 @@ Podczas przesuwania danych do PostgreSQL następujące mapowania są używane z 
 | pg_lsn | |Int64 |
 | moment | |Byte [], ciąg |
 | tworząc | |Byte [], ciąg |
-| liczba rzeczywista |float4 |Single |
+| liczba rzeczywista |float4 |Pojedyncze |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | Kolejną |serial4 |Int32 |

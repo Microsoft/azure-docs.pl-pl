@@ -5,18 +5,17 @@ description: Dowiedz się, jak włączyć protokół HTTPS w celu zabezpieczenia
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a58b0120feaba907c62bc646f4f85d9185227fed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287343"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84432856"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +53,7 @@ Istnieją niewielkie różnice w przypadku zabezpieczania serwerów docelowych w
 
 ## <a name="get-a-domain-name"></a>Pobierz nazwę domeny
 
-Jeśli nie masz jeszcze nazwy domeny, Kup ją w *rejestratorze nazw domen*. Proces i cena różnią się między Rejestratorami. Rejestrator udostępnia narzędzia do zarządzania nazwą domeny. Te narzędzia służą do mapowania w pełni kwalifikowanej nazwy domeny (FQDN) (takiej jak\.www contoso.com) na adres IP, który hostuje usługę sieci Web.
+Jeśli nie masz jeszcze nazwy domeny, Kup ją w *rejestratorze nazw domen*. Proces i cena różnią się między Rejestratorami. Rejestrator udostępnia narzędzia do zarządzania nazwą domeny. Te narzędzia służą do mapowania w pełni kwalifikowanej nazwy domeny (FQDN) (takiej jak www \. contoso.com) na adres IP, który hostuje usługę sieci Web.
 
 ## <a name="get-a-tlsssl-certificate"></a>Uzyskiwanie certyfikatu TLS/SSL
 
@@ -63,7 +62,7 @@ Istnieje wiele sposobów uzyskiwania certyfikatu TLS/SSL (certyfikat cyfrowy). N
 * **Certyfikat**. Certyfikat musi zawierać pełny łańcuch certyfikatów i musi być "zakodowany przez PEM".
 * **Klucz**. Klucz musi być również zakodowany przez PEM.
 
-Żądając certyfikatu, należy podać nazwę FQDN adresu, który ma być używany przez usługę sieci Web (na przykład www\.contoso.com). Adres, który jest umieszczony w certyfikacie i adres używany przez klientów, jest porównywany w celu zweryfikowania tożsamości usługi sieci Web. Jeśli te adresy nie są zgodne, klient otrzymuje komunikat o błędzie.
+Żądając certyfikatu, należy podać nazwę FQDN adresu, który ma być używany przez usługę sieci Web (na przykład www \. contoso.com). Adres, który jest umieszczony w certyfikacie i adres używany przez klientów, jest porównywany w celu zweryfikowania tożsamości usługi sieci Web. Jeśli te adresy nie są zgodne, klient otrzymuje komunikat o błędzie.
 
 > [!TIP]
 > Jeśli urząd certyfikacji nie może dostarczyć certyfikatu i klucza jako plików zakodowanych przez PEM, można użyć narzędzia, takiego jak [OpenSSL](https://www.openssl.org/) , aby zmienić format.
@@ -87,7 +86,7 @@ Podczas wdrażania programu do AKS można utworzyć nowy klaster AKS lub dołąc
 
 Metoda **enable_ssl** może korzystać z certyfikatu dostarczonego przez firmę Microsoft lub zakupionego certyfikatu.
 
-  * Korzystając z certyfikatu firmy Microsoft, należy użyć parametru *leaf_domain_label* . Ten parametr generuje nazwę DNS usługi. Na przykład wartość "contoso" tworzy nazwę domeny "contoso\<szóste-Zn-characters>. \<azureregion>. cloudapp.Azure.com ", gdzie \<azureregion> to region, w którym znajduje się usługa. Opcjonalnie można użyć parametru *overwrite_existing_domain* , aby zastąpić istniejące *leaf_domain_label*.
+  * Korzystając z certyfikatu firmy Microsoft, należy użyć parametru *leaf_domain_label* . Ten parametr generuje nazwę DNS usługi. Na przykład wartość "contoso" tworzy nazwę domeny "contoso \<six-random-characters> . \<azureregion> . cloudapp.azure.com ", gdzie \<azureregion> jest regionem zawierającym usługę. Opcjonalnie można użyć parametru *overwrite_existing_domain* , aby zastąpić istniejące *leaf_domain_label*.
 
     Aby wdrożyć (lub ponownie wdrożyć) usługę z włączonym protokołem TLS, należy ustawić parametr *ssl_enabled* na wartość "true" wszędzie tam, gdzie ma to zastosowanie. Dla parametru *ssl_certificate* ustaw wartość pliku *certyfikatu* . Ustaw *ssl_key* na wartość pliku *klucza* .
 
@@ -172,6 +171,10 @@ Certyfikaty protokołu TLS/SSL wygasną i należy je odnowić. Zwykle odbywa si�
 
 Jeśli certyfikat został pierwotnie wygenerowany przez firmę Microsoft (w przypadku korzystania z *leaf_domain_label* do tworzenia usługi), użyj jednego z poniższych przykładów, aby zaktualizować certyfikat:
 
+> [!IMPORTANT]
+> * Jeśli istniejący certyfikat jest nadal ważny, użyj `renew=True` (SDK) lub `--ssl-renew` (CLI), aby wymusić jego odnowienie. Na przykład jeśli istniejący certyfikat jest nadal ważny przez 10 dni i nie jest używany `renew=True` , certyfikat może nie zostać odnowiony.
+> * Po pierwotnym wdrożeniu usługi `leaf_domain_label` jest używana do tworzenia nazw DNS przy użyciu wzorca `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net` . Aby zachować istniejącą nazwę (włącznie z wygenerowanymi 6 cyfr), użyj oryginalnej `leaf_domain_label` wartości. Nie uwzględniaj 6 cyfr, które zostały wygenerowane.
+
 **Korzystanie z zestawu SDK**
 
 ```python
@@ -183,7 +186,7 @@ from azureml.core.compute.aks import SslConfiguration
 aks_target = AksCompute(ws, clustername)
 
 # Update the existing certificate by referencing the leaf domain label
-ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True, renew=True)
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
@@ -191,7 +194,7 @@ aks_target.update(update_config)
 **Korzystanie z interfejsu wiersza polecenia**
 
 ```azurecli
-az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True --ssl-renew
 ```
 
 Aby uzyskać więcej informacji, zobacz następujące dokumenty referencyjne:
@@ -241,7 +244,7 @@ Aby uzyskać więcej informacji, zobacz następujące dokumenty referencyjne:
 
 ## <a name="disable-tls"></a>Wyłącz protokół TLS
 
-Aby wyłączyć protokół TLS dla modelu wdrożonego w usłudze Azure Kubernetes, Utwórz `SslConfiguration` za `status="Disabled"`pomocą usługi, a następnie wykonaj aktualizację:
+Aby wyłączyć protokół TLS dla modelu wdrożonego w usłudze Azure Kubernetes, Utwórz `SslConfiguration` za pomocą usługi `status="Disabled"` , a następnie wykonaj aktualizację:
 
 ```python
 from azureml.core.compute import AksCompute

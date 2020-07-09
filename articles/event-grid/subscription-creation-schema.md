@@ -1,18 +1,14 @@
 ---
 title: Schemat subskrypcji Azure Event Grid
 description: W tym artykule opisano właściwości subskrybowania zdarzenia z Azure Event Grid. Event Grid schemat subskrypcji.
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/23/2020
-ms.author: babanisa
-ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720762"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119076"
 ---
 # <a name="event-grid-subscription-schema"></a>Schemat subskrypcji Event Grid
 
@@ -22,7 +18,7 @@ Aby utworzyć subskrypcję Event Grid, Wyślij żądanie do operacji tworzenia s
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Aby na przykład utworzyć subskrypcję zdarzeń dla konta magazynu o nazwie `examplestorage` w grupie zasobów o nazwie `examplegroup`, użyj następującego formatu:
+Aby na przykład utworzyć subskrypcję zdarzeń dla konta magazynu o nazwie `examplestorage` w grupie zasobów o nazwie `examplegroup` , użyj następującego formatu:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -34,8 +30,8 @@ Nazwa subskrypcji zdarzeń musi mieć 3-64 znaków i może zawierać tylko znaki
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| destination | obiekt | Obiekt definiujący punkt końcowy. |
-| filtr | obiekt | Opcjonalne pole do filtrowania typów zdarzeń. |
+| destination | object | Obiekt definiujący punkt końcowy. |
+| filtr | object | Opcjonalne pole do filtrowania typów zdarzeń. |
 
 ### <a name="destination-object"></a>obiekt docelowy
 

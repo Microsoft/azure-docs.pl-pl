@@ -60,20 +60,36 @@
           href: ./samples/pattern-group-with-initiative.md
         - name: Wdrażanie zasobów
           href: ./samples/pattern-deploy-resources.md
+    - name: Wbudowane mechanizmy zgodności z przepisami
+      items:
+        - name: Test porównawczy zabezpieczeń platformy Azure
+          href: ./samples/azure-security-benchmark.md
+        - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+          href: ./samples/cis-azure-1-1-0.md
+        - name: NIST SP 800-53 R4
+          href: ./samples/nist-sp-800-53-r4.md
+        - name: NIST SP 800-171 R2
+          href: ./samples/nist-sp-800-171-r2.md
 - name: Pojęcia
   items:
-    - name: Struktura definicji zasad platformy Azure
+    - name: Struktura definicji
       displayName: 'parameters, location, rule, alias, initiatives'
       href: ./concepts/definition-structure.md
-    - name: Interpretacja efektów działania zasad
+    - name: Zrozumienie efektów
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
-    - name: Struktura przypisań usługi Azure Policy
+    - name: Struktura inicjatywy
+      displayName: 'parameters, groups, domains, policies'
+      href: ./concepts/initiative-definition-structure.md
+    - name: Struktura przypisania
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
     - name: Ocena wpływu nowych zasad
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Zgodność z przepisami
+      displayName: 'standards, domains, controls'
+      href: ./concepts/regulatory-compliance.md
     - name: Projektowanie przepływów pracy typu zasady jako kod
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
@@ -83,6 +99,10 @@
     - name: Przeprowadzanie inspekcji maszyn wirtualnych przy użyciu konfiguracji gościa
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Rozszerzenie usługi Azure Policy dla programu VS Code
@@ -94,12 +114,17 @@
     - name: Tworzenie zasad dla właściwości tablicy
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
-    - name: Tworzenie zasad konfiguracji gościa w systemie Windows
-      displayName: 'powershell, dsc, chef, windows'
-      href: ./how-to/guest-configuration-create.md
-    - name: Tworzenie zasad konfiguracji gościa w systemie Linux
-      displayName: 'powershell, dsc, chef, linux'
-      href: ./how-to/guest-configuration-create-linux.md
+    - name: Konfiguracja gościa
+      items:
+        - name: Tworzenie zasad konfiguracji gościa w systemie Windows
+          displayName: 'powershell, dsc, chef, windows'
+          href: ./how-to/guest-configuration-create.md
+        - name: Tworzenie zasad konfiguracji gościa w systemie Linux
+          displayName: 'powershell, dsc, chef, linux'
+          href: ./how-to/guest-configuration-create-linux.md
+        - name: Tworzenie zasad konfiguracji gościa na podstawie zasad grupy
+          displayName: 'powershell, dsc, grouppolicy, windows'
+          href: ./how-to/guest-configuration-create-group-policy.md
     - name: Uzyskiwanie danych zgodności
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md
@@ -113,7 +138,7 @@
       items:
         - name: Integrowanie usługi Key Vault z usługą Azure Policy
           displayName: 'key vault, certificate, key'
-          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
     - name: Integracja z usługą Azure Lighthouse
       items:
         - name: Wdrażanie zasad w dużej skali
@@ -124,9 +149,14 @@
           href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Integracja z usługą Azure Monitor
       items:
+        - name: Wdrażanie usługi Azure Monitor na dużą skalę
+          displayName: 'monitor, diagnostic settings, dependency agent'
+          href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Włączanie usługi Azure Monitor dla maszyn wirtualnych (wersja zapoznawcza)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Rozwiązywanie problemów
+  href: ./troubleshoot/general.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -134,9 +164,9 @@
     - name: Azure PowerShell
       items:
         - name: Zasady
-          href: '/powershell/module/az.resources/#policies'
+          href: /powershell/module/az.resources/#policies
         - name: Szczegółowe informacje o zasadach
-          href: '/powershell/module/az.policyinsights#policy_insights'
+          href: /powershell/module/az.policyinsights#policy_insights
         - name: Konfiguracja gościa
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Zestaw Azure SDK dla platformy .NET
@@ -151,7 +181,7 @@
           href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
         - name: Definicje zasad
           href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
-    - name: Zestaw Azure SDK dla platformy Node
+    - name: Zestaw Azure SDK dla języka JavaScript
       items:
         - name: Zasady
           href: /javascript/api/@azure/arm-policy
@@ -198,7 +228,7 @@
     - name: GitHub — repozytorium Community-Policy
       href: 'https://github.com/Azure/Community-Policy'
     - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Policy
-      href: /answers/topics/azure-policy.html.html
+      href: /answers/topics/azure-policy.html
     - name: Kanał dotyczący nadzoru w usłudze YouTube
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Konfiguracja gościa — filmy

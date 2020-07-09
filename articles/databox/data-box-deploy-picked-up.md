@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 03fe40cea5891e87f42f0d6a50eedee80a68f25e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: efcc5e8f629c8b6ccc903478473b54989c0e9fd6
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200537"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959491"
 ---
 ::: zone target="docs"
 
@@ -46,7 +46,7 @@ Ten samouczek zawiera informacje na następujące tematy:
 Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
 
 - Ukończenie tematu [Samouczek: kopiowanie danych na urządzenie Azure Data Box i ich weryfikacja](data-box-deploy-copy-data.md). 
-- Zadania kopiowania zostały wykonane. Przygotowanie do wysłania nie będzie działać, jeśli zadania kopiowania są w toku.
+- Zadania kopiowania są ukończone, a na stronie **Połącz i skopiuj** nie ma żadnych błędów. Nie można uruchomić przygotowania do wysłania, jeśli zadania kopiowania są w toku lub występują błędy na stronie **Połącz i skopiuj**.
 
 ## <a name="prepare-to-ship"></a>Przygotowanie do wysłania
 

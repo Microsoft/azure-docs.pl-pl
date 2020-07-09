@@ -3,21 +3,20 @@ title: Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy
 titleSuffix: Azure
 description: Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy użyciu portalu
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
-ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.topic: how-to
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710851"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy użyciu portalu
 
-Przed przesłaniem żądania komunikacji równorzędnej należy najpierw skojarzyć numer ASN z subskrypcją platformy Azure, wykonując poniższe kroki.
+Przed przesłaniem żądania komunikacji równorzędnej jako usługodawca internetowy lub internetowy Dostawca usługi Exchange należy najpierw skojarzyć numer ASN z subskrypcją platformy Azure, wykonując poniższe kroki.
 
 Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu programu [PowerShell](howto-subscription-association-powershell.md).
 
@@ -55,8 +54,7 @@ Zarejestruj się w celu uzyskania dostawcy zasobów komunikacji równorzędnej w
     > ![Zakończono rejestrację](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Utwórz PeerAsn
-Jako usługodawca internetowy lub internetowy Dostawca usługi Exchange można utworzyć nowy zasób PeerAsn do kojarzenia numeru systemu autonomicznego z subskrypcją platformy Azure. Możesz skojarzyć wiele numerów ASN z subskrypcją, przechodząc do [strony Skojarz stronę PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) dla każdego numeru WPW, który należy skojarzyć.
-
+Jako usługodawca internetowy lub internetowy dostawca programu Exchange można utworzyć nowy zasób PeerAsn na potrzeby kojarzenia numeru systemu autonomicznego (ASN) z subskrypcją platformy Azure na [stronie kojarzenie równorzędnej strony ASN](https://go.microsoft.com/fwlink/?linkid=2129592) . Można skojarzyć wiele numerów WPW z subskrypcją, tworząc **PeerAsn** dla każdego numeru ASN, który należy skojarzyć.
 
 1. Na stronie **Skojarz element równorzędny ASN** , w obszarze **podstawowe** karty, wypełnij pola, jak pokazano poniżej.
 

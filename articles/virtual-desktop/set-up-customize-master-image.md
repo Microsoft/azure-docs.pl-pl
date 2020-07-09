@@ -4,16 +4,16 @@ description: Przygotowywanie, dostosowywanie i przekazywanie obrazu wzorca pulpi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832529"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
@@ -37,11 +37,13 @@ Aby utworzyć maszynę wirtualną za pomocą skopiowanego wirtualnego dysku twar
 
 2. Na stronie Określanie generacji wybierz opcję **generacja 1**.
 
-    ![Zrzut ekranu przedstawiający stronę Określanie generacji. Zaznaczona jest opcja "generacja 1".](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę Określanie generacji. Zaznaczona jest opcja "generacja 1".](media/a41174fd41302a181e46385e1e701975.png)
 
 3. W obszarze Typ punktu kontrolnego Wyłącz punkty kontrolne, usuwając zaznaczenie pola wyboru.
 
-    ![Zrzut ekranu przedstawiający sekcję typ punktu kontrolnego na stronie punktów kontrolnych.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający sekcję typ punktu kontrolnego na stronie punktów kontrolnych.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 Aby wyłączyć punkty kontrolne, można również uruchomić następujące polecenie cmdlet w programie PowerShell.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Jeśli utworzysz maszynę wirtualną na podstawie istniejącego wirtualnego dysku twardego, domyślnie zostanie utworzony dysk dynamiczny. Można go zmienić na dysk stały, wybierając pozycję **Edytuj dysk...** , jak pokazano na poniższej ilustracji. Aby uzyskać bardziej szczegółowe instrukcje, zobacz [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Zrzut ekranu przedstawiający opcję Edytuj dysk.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający opcję Edytuj dysk.](media/35772414b5a0f81f06f54065561d1414.png)
 
 Możesz również uruchomić następujące polecenie cmdlet programu PowerShell, aby zmienić dysk na dysk stały.
 
@@ -63,9 +66,9 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 ## <a name="software-preparation-and-installation"></a>Przygotowanie oprogramowania i instalacja
 
-W tej sekcji opisano sposób przygotowania i instalacji usługi FSLogix oraz usługi Windows Defender oraz niektórych podstawowych opcji konfiguracji aplikacji i rejestru obrazu. 
+W tej sekcji opisano sposób przygotowania i instalacji usługi FSLogix oraz usługi Windows Defender oraz niektórych podstawowych opcji konfiguracji aplikacji i rejestru obrazu.
 
-Jeśli instalujesz pakiet Office 365 ProPlus i usługę OneDrive na maszynie wirtualnej, przejdź do pozycji [Zainstaluj pakiet Office na głównym obrazie wirtualnego dysku twardego](install-office-on-wvd-master-image.md) i postępuj zgodnie z instrukcjami, aby zainstalować aplikacje. Po zakończeniu Wróć do tego artykułu.
+Jeśli instalujesz Microsoft 365 aplikacje dla przedsiębiorstw i usługi OneDrive na maszynie wirtualnej, przejdź do pozycji [Zainstaluj pakiet Office na głównym obrazie wirtualnego dysku twardego](install-office-on-wvd-master-image.md) i postępuj zgodnie z instrukcjami, aby zainstalować aplikacje. Po zakończeniu Wróć do tego artykułu.
 
 Jeśli użytkownicy muszą uzyskać dostęp do określonych aplikacji biznesowych, zalecamy ich zainstalowanie po zakończeniu instrukcji tej sekcji.
 
@@ -87,7 +90,7 @@ Aby dowiedzieć się więcej o tym, jak skonfigurować usługę Windows Defender
 
 Aby wyłączyć aktualizacje automatyczne za pośrednictwem zasady grupy lokalnego:
 
-1. Otwórz **Edytor lokalnych zasad grupy\\Szablony administracyjne\\składników\\systemu Windows Windows Update**.
+1. Otwórz **Edytor lokalnych zasad grupy \\ Szablony administracyjne \\ składników systemu Windows \\ Windows Update**.
 2. Kliknij prawym przyciskiem myszy pozycję **Skonfiguruj automatyczną aktualizację** i ustaw ją na wartość **wyłączone**.
 
 Aby wyłączyć aktualizacje automatyczne, można również uruchomić następujące polecenie w wierszu polecenia.
@@ -113,7 +116,7 @@ Aby przekierować strefy czasowe:
 1. Na serwerze Active Directory Otwórz **Konsola zarządzania zasadami grupy**.
 2. Rozwiń domenę i zasady grupy obiekty.
 3. Kliknij prawym przyciskiem myszy **obiekt zasady grupy** , który został utworzony dla ustawień zasad grupy, a następnie wybierz polecenie **Edytuj**.
-4. W **Edytor zarządzania zasadami grupy**przejdź do węzła**zasady** >  **konfiguracji** > ,**Szablony administracyjne** > **składniki** > systemu Windows**usługi pulpitu zdalnego** > **pulpit zdalny Sesja hosta** > sesji**i przekierowania zasobów**.
+4. W **Edytor zarządzania zasadami grupy**przejdź do węzła zasady **konfiguracji**,  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny Sesja hosta sesji**  >  **i przekierowania zasobów**.
 5. Włącz ustawienie **Zezwalaj na przekierowywanie strefy czasowej** .
 
 Możesz również uruchomić to polecenie na głównym obrazie, aby przekierować strefy czasowe:
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 W przypadku hosta sesji usług pulpitu wirtualnego z systemem Windows 10 Enterprise lub Windows 10 Enterprise zalecamy wyłączenie wykrywania magazynu. Czujnik magazynu można wyłączyć w menu Ustawienia w obszarze **Magazyn**, jak pokazano na poniższym zrzucie ekranu:
 
-![Zrzut ekranu przedstawiający menu magazyn w obszarze Ustawienia. Opcja "czujnik magazynu" jest wyłączona.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający menu magazyn w obszarze Ustawienia. Opcja "czujnik magazynu" jest wyłączona.](media/storagesense.png)
 
 Możesz również zmienić to ustawienie za pomocą rejestru, uruchamiając następujące polecenie:
 
@@ -136,7 +140,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Uwzględnij dodatkową obsługę języka
 
-Ten artykuł nie obejmuje konfigurowania języka i obsługi regionalnej. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Ten artykuł nie obejmuje konfigurowania języka i obsługi regionalnej. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Dodawanie języków do obrazów systemu Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Funkcje na żądanie](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -183,21 +187,24 @@ Po przygotowaniu obrazu do przekazania upewnij się, że maszyna wirtualna pozos
 
 Ta sekcja ma zastosowanie tylko wtedy, gdy obraz wzorcowy został utworzony lokalnie.
 
-Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do konta usługi Azure Storage. Jeśli nie masz jeszcze konta usługi Azure Storage, postępuj zgodnie z instrukcjami w [tym artykule](/azure/javascript/tutorial-vscode-static-website-node-03) , aby go utworzyć.
+Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do konta usługi Azure Storage. Jeśli nie masz jeszcze konta usługi Azure Storage, postępuj zgodnie z instrukcjami w [tym artykule](/azure/developer/javascript/tutorial-vscode-static-website-node-03) , aby go utworzyć.
 
 1. Przekonwertuj obraz maszyny wirtualnej (VHD) na stały, jeśli jeszcze tego nie zrobiono. Jeśli nie przekonwertujesz obrazu na naprawione, nie można pomyślnie utworzyć obrazu.
 
 2. Przekaż wirtualny dysk twardy do kontenera obiektów BLOB na koncie magazynu. Możesz szybko przekazać za pomocą [narzędzia Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/). Aby dowiedzieć się więcej o narzędziu Eksplorator usługi Storage, zobacz [ten artykuł](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![Zrzut ekranu przedstawiający okno wyszukiwania narzędzia Eksplorator usługi Microsoft Azure Storage. Pole wyboru "Przekaż pliki VHD lub VHDX jako stronicowe obiekty blob (zalecane)" jest zaznaczone.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający okno wyszukiwania narzędzia Eksplorator usługi Microsoft Azure Storage. Pole wyboru "Przekaż pliki VHD lub VHDX jako stronicowe obiekty blob (zalecane)" jest zaznaczone.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Następnie przejdź do Azure Portal w przeglądarce i wyszukaj ciąg "images" (obrazy). Wyszukiwanie powinno prowadzić do strony **Tworzenie obrazu** , jak pokazano na poniższym zrzucie ekranu:
 
-    ![Zrzut ekranu przedstawiający stronę Tworzenie obrazu Azure Portal uzupełniony o przykładowe wartości obrazu.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę Tworzenie obrazu Azure Portal uzupełniony o przykładowe wartości obrazu.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Po utworzeniu obrazu powinno zostać wyświetlone powiadomienie podobne do poniższego zrzutu ekranu:
 
-    ![Zrzut ekranu przedstawiający powiadomienie "pomyślnie utworzono obraz".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający powiadomienie "pomyślnie utworzono obraz".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,15 +3,15 @@ title: Dostrajanie wydajności Azure Data Lake Storage Gen1 — PowerShell
 description: Wskazówki dotyczące poprawy wydajności podczas korzystania z Azure PowerShell z Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504699"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące korzystania z programu PowerShell z Azure Data Lake Storage Gen1
 
@@ -21,7 +21,7 @@ W tym artykule opisano właściwości, które można dostosować w celu uzyskani
 
 ## <a name="performance-related-properties"></a>Właściwości związane z wydajnością
 
-| Właściwość            | Domyślny | Opis |
+| Właściwość            | Domyślne | Opis |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Ten parametr umożliwia wybór liczby wątków równoległych na potrzeby przekazywania lub pobierania każdego pliku. Ta liczba reprezentuje maksymalną liczbę wątków, które mogą być przydzieloną dla każdego pliku, ale możesz uzyskać mniejszą liczbę wątków w zależności od danego scenariusza (na przykład w przypadku przekazywania pliku o wartości 1 KB uzyskasz jeden wątek nawet w przypadku podawania 20 wątków).  |
 | ConcurrentFileCount | 10      | Ten parametr jest przeznaczony konkretnie na potrzeby przekazywania lub pobierania folderów. Określa liczbę współbieżnych plików, które można przekazać lub pobrać. Ta liczba reprezentuje maksymalną liczbę współbieżnych plików, które można przekazać lub pobrać jednocześnie, ale możesz uzyskać mniejszą współbieżność w zależności od scenariusza (na przykład w przypadku przekazywania dwóch plików są odbierane dwa współbieżne pliki, nawet jeśli zostanie wyświetlony monit o 15). |
@@ -86,7 +86,7 @@ Ze względu na zakres rozmiarów plików, z jakimi można pracować, może być 
 
 Te ustawienia można jeszcze bardziej dostosować, zwiększając lub zmniejszając wartość parametru **PerFileThreadCount** zależnie od rozkładu rozmiarów plików.
 
-### <a name="limitation"></a>Ograniczenia
+### <a name="limitation"></a>Ograniczenie
 
 * **Liczba plików jest mniejsza niż wartość parametru ConcurrentFileCount**: jeśli liczba przekazywanych plików jest mniejsza niż obliczona wartość parametru **ConcurrentFileCount**, należy zmniejszyć wartość parametru **ConcurrentFileCount** tak, aby była równa liczbie plików. Przy użyciu pozostałych wątków można zwiększyć wartość parametru **PerFileThreadCount**.
 

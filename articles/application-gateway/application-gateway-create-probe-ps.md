@@ -5,15 +5,15 @@ description: Dowiedz się, jak utworzyć niestandardową sondę dla Application 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a244cd17ecf1f6165936d86791f9b2e320666c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807168"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Utwórz niestandardową sondę dla Application Gateway platformy Azure przy użyciu programu PowerShell dla Azure Resource Manager
 
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Tworzenie publicznego adresu IP dla konfiguracji frontonu
 
-Utwórz zasób publicznego adresu IP **publicIP01** w grupie zasobów **appgw-RG** dla regionu zachodnie stany USA. Ten przykład używa publicznego adresu IP dla adresu IP frontonu bramy aplikacji.  Usługa Application Gateway wymaga, aby publiczny adres IP miał dynamicznie utworzoną nazwę DNS, `-DomainNameLabel` dlatego nie można go określić podczas tworzenia publicznego adresu IP.
+Utwórz zasób publicznego adresu IP **publicIP01** w grupie zasobów **appgw-RG** dla regionu zachodnie stany USA. Ten przykład używa publicznego adresu IP dla adresu IP frontonu bramy aplikacji.  Usługa Application Gateway wymaga, aby publiczny adres IP miał dynamicznie utworzoną nazwę DNS, dlatego `-DomainNameLabel` nie można go określić podczas tworzenia publicznego adresu IP.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic

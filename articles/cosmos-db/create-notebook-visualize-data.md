@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743591"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961102"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
 
@@ -30,7 +30,7 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
 1. Przejdź do karty **notesy** , wybierz pozycję `…` dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes**. Wybierz język **Python 3** jako domyślne jądro.
 
-   ![Tworzenie nowego notesu](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Tworzenie nowego notesu":::
 
 1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
 
@@ -49,7 +49,7 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
    Aby uruchomić komórkę, zaznacz `Shift + Enter` lub zaznacz komórkę i wybierz opcję **Uruchom aktywną komórkę** na pasku nawigacyjnym Eksploratora danych.
 
-   ![Uruchamianie aktywnej komórki](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Uruchamianie aktywnej komórki":::
 
    Baza danych i kontener są tworzone na bieżącym koncie usługi Azure Cosmos. Obsługa kontenera ma 400 RU/s. Po utworzeniu bazy danych i kontenera zostaną wyświetlone następujące dane wyjściowe. 
 
@@ -60,7 +60,7 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
    Możesz również odświeżyć kartę **dane** i wyświetlić nowo utworzone zasoby:
 
-   ![Odśwież kartę dane, aby zobaczyć nowy kontener](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Odśwież kartę dane, aby zobaczyć nowy kontener":::
 
 1. Następnie zaimportujesz przykładowe dane sprzedaży detalicznej do kontenera usługi Azure Cosmos. Oto format elementu z danych detalicznych:
 
@@ -135,7 +135,7 @@ W nowej komórce notesu uruchom następujący kod, aby odczytać pierwsze 10 ele
 df_cosmos.head(10)
 ```
 
-![Uruchom zapytanie, aby uzyskać 10 pierwszych elementów](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Uruchom zapytanie, aby uzyskać 10 pierwszych elementów":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Uruchamianie zapytań i analizowanie danych
 
@@ -148,7 +148,7 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    display(df_revenue.head(5))
    ```
 
-   ![Łączny wynik przychodu sprzedaży](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Łączny wynik przychodu sprzedaży":::
 
 * **Query2:** Aby uzyskać listę pięciu pierwszych zakupionych elementów, Otwórz nową komórkę notesu i uruchom następujący kod:
 
@@ -159,7 +159,7 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Pięć najważniejszych zakupionych elementów](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Pięć najważniejszych zakupionych elementów":::
 
 ## <a name="visualize-your-data"></a>Wizualizacja danych  
 
@@ -235,7 +235,7 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
 
    Dane wyjściowe wyświetlają mapę świata z różnymi kolorami. Kolor ciemniejszy jaśniejszy reprezentuje kraje/regiony z najwyższym przychodem do najniższego przychodu.
 
-   ![Wizualizacja mapy przychodu krajów/regionów](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Wizualizacja mapy przychodu krajów/regionów":::
 
 1. Przyjrzyjmy się innemu przypadku wizualizacji danych. Kontener WebsiteData zawiera rekord użytkowników, którzy przeglądali element, dodani do swojego koszyka i kupili ten element. Przyjrzyjmy się współczynnikowi konwersji zakupionych elementów. Uruchom następujący kod w nowej komórce, aby wizualizować szybkość konwersji dla każdego elementu:
 
@@ -286,7 +286,7 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    show(p)
    ```
 
-   ![Wizualizacja kursu konwersji](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Wizualizacja kursu konwersji":::
 
 ## <a name="next-steps"></a>Następne kroki
 

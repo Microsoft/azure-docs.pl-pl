@@ -11,12 +11,11 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 0a013d702b48864a182180fa6fe382973bff2cd0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043947"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84188240"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Rozwiązywanie problemów z funkcją SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,7 +122,7 @@ Aby rozwiązać problemy z agentem klienta, zobacz [Rozwiązywanie problemów z 
 
 - [Nie można usunąć grupy synchronizacji](#setup-delete)
 
-- [Nie można wyrejestrować lokalnej bazy danych SQL Server](#setup-unreg)
+- [Nie można wyrejestrować bazy danych SQL Server](#setup-unreg)
 
 - [Nie mam wystarczających uprawnień do uruchamiania usług systemowych](#setup-perms)
 
@@ -166,11 +165,11 @@ Próba usunięcia grupy synchronizacji nie powiedzie się. Niektóre z następuj
 
 - **Rozwiązanie**. Poczekaj, aż zakończy się proces aprowizacji lub synchronizacji, a następnie ponów próbę usunięcia grupy synchronizacji.
 
-### <a name="i-cant-unregister-an-on-premises-sql-server-database"></a><a name="setup-unreg"></a>Nie można wyrejestrować lokalnej bazy danych SQL Server
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>Nie można wyrejestrować bazy danych SQL Server
 
 - **Przyczyna**. Najprawdopodobniej próbujesz wyrejestrować bazę danych, która została już usunięta.
 
-- **Rozwiązanie**. Aby wyrejestrować lokalną bazę danych SQL Server, wybierz bazę danych, a następnie wybierz pozycję **Wymuś usunięcie**.
+- **Rozwiązanie**. Aby wyrejestrować bazę danych SQL Server, wybierz bazę danych, a następnie wybierz pozycję **Wymuszaj usuwanie**.
 
   Jeśli ta operacja nie spowoduje usunięcia bazy danych z grupy synchronizacji:
 
@@ -181,7 +180,7 @@ Próba usunięcia grupy synchronizacji nie powiedzie się. Niektóre z następuj
     d. Kliknij prawym przyciskiem myszy usługę **SQL Data Sync** .  
     e. Jeśli usługa jest uruchomiona, Zatrzymaj ją.  
     f. Kliknij prawym przyciskiem myszy usługę, a następnie wybierz polecenie **Uruchom**.  
-    g. Sprawdź, czy baza danych jest nadal zarejestrowana. Jeśli nie jest już zarejestrowany, oznacza to, że wszystko jest gotowe. W przeciwnym razie przejdź do następnego kroku.
+    przykład Sprawdź, czy baza danych jest nadal zarejestrowana. Jeśli nie jest już zarejestrowany, oznacza to, że wszystko jest gotowe. W przeciwnym razie przejdź do następnego kroku.
   1. Otwórz aplikację agent klienta (SqlAzureDataSyncAgent).
   1. Wybierz pozycję **Edytuj poświadczenia**, a następnie wprowadź poświadczenia dla bazy danych.
   1. Kontynuuj wyrejestrowywanie.
@@ -244,7 +243,7 @@ Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz:
 
 -   Przegląd — [Synchronizacja danych między wieloma bazami danych w chmurze i lokalnymi przy użyciu SQL Data Sync na platformie Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Konfigurowanie synchronizacji danych
-    - W portalu — [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md) (Samouczek: konfigurowanie usługi SQL Data Sync w celu synchronizowania danych między usługą Azure SQL Database i lokalnym programem SQL Server)
+    - W portalu — [Samouczek: skonfiguruj SQL Data Sync, aby synchronizować dane między Azure SQL Database i SQL Server](sql-data-sync-sql-server-configure.md)
     - Z programem PowerShell
         -  [Synchronizowanie wielu baz danych w Azure SQL Database przy użyciu programu PowerShell](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Używanie programu PowerShell do synchronizowania bazy danych w Azure SQL Database i bazy danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: b86429c90f436007116a45c6dbab443d6cc889e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919796"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Użyj Azure Policy, aby ograniczyć instalację rozszerzeń na maszynach wirtualnych z systemem Windows
 
@@ -88,7 +88,6 @@ Skopiuj i wklej następujący plik JSON do pliku.
         "type": "Array",
         "metadata": {
             "description": "The list of extensions that will be denied.",
-            "strongType": "type",
             "displayName": "Denied extension"
         }
     }

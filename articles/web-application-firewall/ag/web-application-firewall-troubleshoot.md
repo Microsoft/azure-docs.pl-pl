@@ -8,10 +8,9 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82983078"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Azure Application Gateway
@@ -28,7 +27,7 @@ W dziennikach WAF są wyświetlane wszystkie żądania, które są dopasowane lu
 
 Załóżmy na przykład, że masz legalny ruch zawierający ciąg *1 = 1* , który chcesz przekazać przez WAF. Jeśli spróbujesz ponowić żądanie, WAF blokuje ruch, który zawiera *1 = 1* ciąg w dowolnym parametrze lub polu. Jest to ciąg często skojarzony z atakiem iniekcji SQL. Możesz przejrzeć dzienniki i sprawdzić sygnaturę czasową żądania oraz reguły, które zostały zablokowane/dopasowane.
 
-W poniższym przykładzie można zobaczyć, że w tym samym żądaniu wyzwalane są cztery reguły (przy użyciu pola TransactionId). Pierwszy z nich jest zgodny ze względu na to, że użytkownik użył adresu URL liczbowego/IP dla żądania, co zwiększa wynik anomalii o trzy, ponieważ jest to ostrzeżenie. Kolejną zgodną regułą jest 942130, która jest tą, której szukasz. W `details.data` polu można zobaczyć *1 = 1* . Spowoduje to dalsze zwiększenie wyników anomalii o trzy ponownie, ponieważ jest to ostrzeżenie. Ogólnie rzecz biorąc, Każda reguła, która ma **dopasowaną** akcję, zwiększa wynik anomalii, a w tym momencie wynik anomalii będzie 6. Aby uzyskać więcej informacji, zobacz [tryb oceniania anomalii](ag-overview.md#anomaly-scoring-mode).
+W poniższym przykładzie można zobaczyć, że w tym samym żądaniu wyzwalane są cztery reguły (przy użyciu pola TransactionId). Pierwszy z nich jest zgodny ze względu na to, że użytkownik użył adresu URL liczbowego/IP dla żądania, co zwiększa wynik anomalii o trzy, ponieważ jest to ostrzeżenie. Kolejną zgodną regułą jest 942130, która jest tą, której szukasz. W polu można zobaczyć *1 = 1* `details.data` . Spowoduje to dalsze zwiększenie wyników anomalii o trzy ponownie, ponieważ jest to ostrzeżenie. Ogólnie rzecz biorąc, Każda reguła, która ma **dopasowaną** akcję, zwiększa wynik anomalii, a w tym momencie wynik anomalii będzie 6. Aby uzyskać więcej informacji, zobacz [tryb oceniania anomalii](ag-overview.md#anomaly-scoring-mode).
 
 Ostatnie dwa wpisy dziennika pokazują, że żądanie zostało zablokowane, ponieważ wynik anomalii był wystarczająco duży. Te wpisy mają inną akcję niż pozostałe dwa. Pokazują one, że rzeczywiście *zablokowały* żądanie. Te reguły są obowiązkowe i nie można ich wyłączyć. Nie należy traktować ich jako reguł, ale jest to infrastruktura podstawowa WAF wewnętrznych.
 
@@ -182,7 +181,7 @@ Jest to pole, które można wykluczyć. Aby dowiedzieć się więcej na temat li
 
 Możesz również sprawdzić dzienniki zapory, aby uzyskać informacje, które należy dodać do listy wykluczeń. Aby włączyć rejestrowanie, zobacz temat [kondycja zaplecza, dzienniki zasobów i metryki dla Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
-Sprawdź dziennik zapory i Wyświetl plik PT1H. JSON dla godziny, w której wystąpiło żądanie, które chcesz sprawdzić.
+Sprawdź dziennik zapory i Wyświetl PT1H.jsw pliku przez godzinę, o której wystąpiło żądanie, które chcesz sprawdzić.
 
 W tym przykładzie można zobaczyć, że masz cztery reguły z tym samym TransactionID i że wszystkie wystąpiły w tym samym czasie:
 
@@ -301,7 +300,7 @@ Programu Fiddler to przydatne narzędzie ponownie, aby znaleźć nazwy nagłówk
 
 ![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
 
-Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest zaszukiwanie w narzędziach deweloperskich programu Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy > **sprawdzić** -> **Narzędzia deweloperskie**i wybrać kartę **Sieć** . Załaduj stronę sieci Web, a następnie kliknij żądanie, które chcesz sprawdzić.
+Innym sposobem wyświetlania nagłówków żądań i odpowiedzi jest zaszukiwanie w narzędziach deweloperskich programu Chrome. Możesz nacisnąć klawisz F12 lub kliknąć prawym przyciskiem myszy > **sprawdzić**  ->  **Narzędzia deweloperskie**i wybrać kartę **Sieć** . Załaduj stronę sieci Web, a następnie kliknij żądanie, które chcesz sprawdzić.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

@@ -4,12 +4,12 @@ description: Monitoruj aplikacje sieci Web pod kątem dostępności, wydajności
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: d3d1d8aafaea8dcb9e67b842acfbd493e02e4854
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774035"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086249"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights aplikacji konsolowych .NET
 
@@ -18,7 +18,7 @@ ms.locfileid: "83774035"
 Potrzebna jest subskrypcja z [Microsoft Azure](https://azure.com). Zaloguj się przy użyciu konto Microsoft, który może być używany w przypadku systemu Windows, usługi Xbox Live lub innych usług firmy Microsoft w chmurze. Twój zespół może mieć subskrypcję organizacyjną na platformie Azure: poproszenie właściciela o dodanie Cię do niego przy użyciu konto Microsoft.
 
 > [!NOTE]
-> Istnieje nowy Application Insights SDK o nazwie [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , który może służyć do włączania Application Insights dla każdej aplikacji konsolowej. Zalecane jest korzystanie z tego pakietu i powiązanych instrukcji w [tym miejscu](../../azure-monitor/app/worker-service.md). Ten pakiet jest przeznaczony dla tego pakietu [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) i dlatego może być używany w środowisku .NET Core 2,0 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
+> *Zdecydowanie zaleca* się korzystanie z pakietu [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) i powiązanych instrukcji z tego [miejsca](../../azure-monitor/app/worker-service.md) w przypadku wszystkich aplikacji konsolowych. Ten pakiet jest przeznaczony dla tego pakietu [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) i dlatego może być używany w środowisku .NET Core 2,1 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -44,7 +44,7 @@ telemetryClient.TrackTrace("Hello World!");
 Możesz inicjować i konfigurować Application Insights z kodu lub przy użyciu `ApplicationInsights.config` pliku. Upewnij się, że inicjalizacja odbywa się tak wcześnie, jak to możliwe. 
 
 > [!NOTE]
-> Instrukcje odwołujące się do **ApplicationInsights. config** mają zastosowanie tylko do aplikacji, które są przeznaczone dla .NET Framework i nie mają zastosowania do aplikacji .NET Core.
+> Instrukcje odwołujące się do **ApplicationInsights.config** mają zastosowanie tylko do aplikacji, które są przeznaczone dla .NET Framework i nie mają zastosowania do aplikacji .NET Core.
 
 ### <a name="using-config-file"></a>Korzystanie z pliku konfiguracji
 
@@ -131,7 +131,7 @@ Jeśli utworzono konfigurację z zwykłym `TelemetryConfiguration()` konstruktor
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* Możesz również zainstalować i zainicjować moduł zbierający licznik wydajności, jak opisano [tutaj](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Możesz również zainstalować i zainicjować moduł zbierający licznik wydajności, jak opisano [tutaj](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Pełny przykład

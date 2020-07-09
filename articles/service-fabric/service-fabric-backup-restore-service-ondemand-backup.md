@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458425"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Tworzenie kopii zapasowych na żądanie na platformie Azure Service Fabric
 
 Można utworzyć kopię zapasową danych niezawodnych usług stanowych i Reliable Actors, aby rozwiązać awarie lub sytuacje utraty danych.
 
-Usługa Azure Service Fabric ma funkcje do [regularnego tworzenia kopii](service-fabric-backuprestoreservice-quickstart-azurecluster.md) zapasowych danych i tworzenia kopii zapasowych danych. Tworzenie kopii zapasowych na żądanie jest przydatne, ponieważ chroni przed/_uszkodzeniem danych_ _utraty danych_z powodu planowanych zmian w podstawowej usłudze lub jego środowisku.
+Usługa Azure Service Fabric ma funkcje do [regularnego tworzenia kopii](service-fabric-backuprestoreservice-quickstart-azurecluster.md) zapasowych danych i tworzenia kopii zapasowych danych. Tworzenie kopii zapasowych na żądanie jest przydatne, ponieważ chroni _data loss_przed / _uszkodzeniem danych_ utraty danych z powodu planowanych zmian w podstawowej usłudze lub jego środowisku.
 
 Funkcje tworzenia kopii zapasowych na żądanie są przydatne do przechwytywania stanu usług przed ręcznym wyzwalaniem operacji środowiska usługi lub usługi. Jeśli na przykład wprowadzisz zmiany w plikach binarnych usługi podczas uaktualniania lub obniżania poziomu usługi. W takim przypadku kopia zapasowa na żądanie może pomóc w ochronie danych przed uszkodzeniem przez błędy kodu aplikacji.
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -27,7 +26,7 @@ Funkcje tworzenia kopii zapasowych na żądanie są przydatne do przechwytywania
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Upewnij się, że klaster jest połączony przy `Connect-SFCluster` użyciu polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
+- Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 
 ```powershell
 
@@ -56,7 +55,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Użyj interfejsu API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) , aby skonfigurować wyzwalanie dla kopii zapasowej na żądanie dla identyfikatora `974bd92a-b395-4631-8a7f-53bd4ae9cf22`partycji.
+Użyj interfejsu API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) , aby skonfigurować wyzwalanie dla kopii zapasowej na żądanie dla identyfikatora partycji `974bd92a-b395-4631-8a7f-53bd4ae9cf22` .
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -81,7 +80,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Użyj interfejsu API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) , aby skonfigurować wyzwalanie dla kopii zapasowej na żądanie dla identyfikatora `974bd92a-b395-4631-8a7f-53bd4ae9cf22`partycji. Uwzględnij następujące informacje dotyczące usługi Azure Storage:
+Użyj interfejsu API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) , aby skonfigurować wyzwalanie dla kopii zapasowej na żądanie dla identyfikatora partycji `974bd92a-b395-4631-8a7f-53bd4ae9cf22` . Uwzględnij następujące informacje dotyczące usługi Azure Storage:
 
 ```powershell
 $StorageInfo = @{

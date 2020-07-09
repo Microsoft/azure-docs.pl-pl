@@ -4,23 +4,23 @@ description: Jak rozszerzyć istniejącą pulę hostów na nowe hosty sesji na p
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85209355"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
 >[!IMPORTANT]
 >Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 >
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W miarę zwiększania użycia w puli hostów może być konieczne rozszerzenie istniejącej puli hostów na nowe hosty sesji w celu obsługi nowego obciążenia.
@@ -44,25 +44,25 @@ Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymag
 
 Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows**.
 
 3. W menu po lewej stronie ekranu wybierz pozycję **Pule hostów**, a następnie wybierz nazwę puli hostów, do której chcesz dodać maszyny wirtualne.
 
-4. Z menu po lewej stronie ekranu wybierz pozycję **maszyny wirtualne** .
+4. Wybierz pozycję **hosty sesji** z menu po lewej stronie ekranu.
 
 5. Wybierz pozycję **+ Dodaj** , aby rozpocząć tworzenie puli hostów.
 
 6. Zignoruj kartę podstawowe, a następnie wybierz kartę **Szczegóły maszyny wirtualnej** . W tym miejscu można wyświetlić i edytować szczegóły maszyny wirtualnej, która ma zostać dodana do puli hostów.
 
 7. Wybierz grupę zasobów, w której chcesz utworzyć maszyny wirtualne, a następnie wybierz region. Możesz wybrać bieżący region, który jest używany, lub nowy region.
-   
+
 8. Wprowadź liczbę hostów sesji, które chcesz dodać do puli hostów, do **liczby maszyn wirtualnych**. Na przykład jeśli rozszerzasz pulę hostów o pięć hostów, wprowadź **5**.
-   
+
     >[!NOTE]
     >Nie można edytować rozmiaru ani obrazu maszyn wirtualnych, ponieważ ważne jest, aby upewnić się, że wszystkie maszyny wirtualne w puli hostów mają ten sam rozmiar.
-    
+
 9. W polu **Informacje o sieci wirtualnej**wybierz sieć wirtualną i podsieć, do której chcesz dołączyć maszyny wirtualne. Możesz wybrać tę samą sieć wirtualną, której aktualnie używają istniejące maszyny, lub wybrać inną, która jest bardziej odpowiednia dla regionu wybranego w kroku 7.
 
 10. W przypadku **konta administratora**wprowadź Active Directory nazwę użytkownika domeny i hasło skojarzone z wybraną siecią wirtualną. Te poświadczenia będą używane do przyłączania maszyn wirtualnych do sieci wirtualnej.
@@ -70,9 +70,9 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
       >[!NOTE]
       >Upewnij się, że nazwy administratorów są zgodne z informacjami podanym w tym miejscu. I że na koncie nie włączono uwierzytelniania wieloskładnikowego.
 
-11. Wybierz kartę **tag** , jeśli masz jakieś znaczniki, które chcesz zgrupować z maszynami wirtualnymi. W przeciwnym razie Pomiń tę kartę. 
+11. Wybierz kartę **tag** , jeśli masz jakieś znaczniki, które chcesz zgrupować z maszynami wirtualnymi. W przeciwnym razie Pomiń tę kartę.
 
-12. Wybierz kartę **Recenzja + tworzenie** . Przejrzyj wybrane opcje, a jeśli wszystko wygląda dobrze, wybierz pozycję **Utwórz**. 
+12. Wybierz kartę **Recenzja + tworzenie** . Przejrzyj wybrane opcje, a jeśli wszystko wygląda dobrze, wybierz pozycję **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

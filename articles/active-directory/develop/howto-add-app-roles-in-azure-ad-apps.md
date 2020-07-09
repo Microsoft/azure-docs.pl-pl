@@ -1,24 +1,24 @@
 ---
 title: Dodaj role aplikacji i uzyskaj je z tokenu | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak dodawać role aplikacji w aplikacji zarejestrowanej w Azure Active Directory, przypisywać użytkownikom i grupom te role i `roles` odbierać je w ramach roszczeń w tokenie.
+description: Dowiedz się, jak dodawać role aplikacji w aplikacji zarejestrowanej w Azure Active Directory, przypisywać użytkownikom i grupom te role i odbierać je w ramach `roles` roszczeń w tokenie.
 services: active-directory
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aedf5d710b82185cb634fcd92e6981a2c358ad52
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477893"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -45,16 +45,16 @@ Te role aplikacji są zdefiniowane w [Azure Portal](https://portal.azure.com) w 
      > [!NOTE]
      > Każda definicja roli aplikacji w tym manifeście musi mieć inny prawidłowy identyfikator GUID w kontekście manifestu `id` właściwości.
      >
-     > `value` Właściwość każdej definicji roli aplikacji powinna dokładnie pasować do ciągów, które są używane w kodzie w aplikacji. `value` Właściwość nie może zawierać spacji. Jeśli tak się stanie, podczas zapisywania manifestu zostanie wyświetlony komunikat o błędzie.
+     > `value`Właściwość każdej definicji roli aplikacji powinna dokładnie pasować do ciągów, które są używane w kodzie w aplikacji. `value`Właściwość nie może zawierać spacji. Jeśli tak się stanie, podczas zapisywania manifestu zostanie wyświetlony komunikat o błędzie.
 
 1. Zapisz manifest.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje `appRoles` , że można przypisać do `users`.
+Poniższy przykład pokazuje `appRoles` , że można przypisać do `users` .
 
 > [!NOTE]
->`id` Musi być UNIKATOWYm identyfikatorem GUID.
+>`id`Musi być unikatowym identyfikatorem GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -74,9 +74,9 @@ Poniższy przykład pokazuje `appRoles` , że można przypisać do `users`.
 ```
 
 > [!NOTE]
->`displayName` Nie może zawierać spacji.
+>`displayName`Nie może zawierać spacji.
 
-Można zdefiniować role aplikacji, które mają `users`być `applications`docelowe, lub obie. Gdy jest to `applications`możliwe, role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **wymagane uprawnienia** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application`.
+Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **wymagane uprawnienia** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -124,6 +124,6 @@ Po dodaniu ról aplikacji w aplikacji można przypisać użytkowników i grupy d
 - [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczenia ról do aplikacji sieci Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Używanie grup zabezpieczeń i ról aplikacji w aplikacjach (wideo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, teraz z oświadczeniami grupy i rolami aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Manifest aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Tokeny dostępu usługi AAD](access-tokens.md)
 - [AAD`id_tokens`](id-tokens.md)

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652309"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft. Common. PasswordBox — element interfejsu użytkownika
@@ -52,7 +51,7 @@ Kontrolka, która może służyć do udostępniania i potwierdzania hasła.
 ## <a name="remarks"></a>Uwagi
 
 - Ten element nie obsługuje `defaultValue` właściwości.
-- Aby uzyskać szczegółowe informacje `constraints`dotyczące implementacji programu, zobacz [Microsoft. Common. TextBox](microsoft-common-textbox.md).
+- Aby uzyskać szczegółowe informacje dotyczące implementacji programu `constraints` , zobacz [Microsoft. Common. TextBox](microsoft-common-textbox.md).
 - Jeśli `options.hideConfirmation` jest ustawiona na **wartość true**, drugie pole tekstowe potwierdzające hasło użytkownika jest ukryte. Wartość domyślna to **fałsz**.
 
 ## <a name="next-steps"></a>Następne kroki

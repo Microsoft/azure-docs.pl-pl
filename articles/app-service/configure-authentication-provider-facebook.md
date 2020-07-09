@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519956"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania w serwisie Facebook
@@ -27,7 +27,7 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w serwisie F
 1. Przejdź do witryny internetowej [deweloperów serwisu Facebook] i zaloguj się przy użyciu poświadczeń konta w serwisie Facebook.
 
    Jeśli nie masz konta w serwisie Facebook for Developers, wybierz pozycję **Rozpocznij pracę** i postępuj zgodnie z instrukcjami rejestracji.
-1. Wybierz pozycję **Moje aplikacje** > **Dodaj nową aplikację**.
+1. Wybierz pozycję **Moje aplikacje**  >  **Dodaj nową aplikację**.
 1. W polu **Nazwa wyświetlana** :
    1. Wpisz unikatową nazwę aplikacji.
    1. Podaj **kontaktowy adres e-mail**.
@@ -35,11 +35,11 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w serwisie F
    1. Ukończ sprawdzanie zabezpieczeń.
 
    Zostanie otwarty pulpit nawigacyjny dewelopera dla nowej aplikacji w serwisie Facebook.
-1. Wybierz **pozycję pulpit nawigacyjny** > **Logowanie** > do usługi Facebook**Konfiguracja** > **sieci Web**.
+1. Wybierz pozycję **pulpit nawigacyjny**logowanie do usługi  >  **Facebook**  >  **Konfiguracja**  >  **sieci Web**.
 1. W lewym okienku nawigacji w obszarze **Logowanie do serwisu Facebook**wybierz pozycję **Ustawienia**.
-1. W polu **prawidłowe identyfikatory URI przekierowania OAuth** wprowadź `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`wartość. Pamiętaj, aby `<app-name>` zamienić na nazwę aplikacji Azure App Service.
+1. W polu **prawidłowe identyfikatory URI przekierowania OAuth** wprowadź wartość `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` . Pamiętaj, aby zamienić na `<app-name>` nazwę aplikacji Azure App Service.
 1. Wybierz pozycję **Zapisz zmiany**.
-1. W lewym okienku wybierz pozycję **Ustawienia** > **podstawowe**. 
+1. W lewym okienku wybierz pozycję **Ustawienia**  >  **podstawowe**. 
 1. W polu **klucz tajny aplikacji** wybierz pozycję **Pokaż**. Skopiuj wartości **identyfikatora aplikacji** i **klucza tajnego aplikacji**. Są one używane później do konfigurowania aplikacji App Service na platformie Azure.
 
    > [!IMPORTANT]
@@ -48,12 +48,12 @@ Aby wykonać procedurę opisaną w tym artykule, musisz mieć konto w serwisie F
 
 1. Konto w serwisie Facebook użyte do zarejestrowania aplikacji jest administratorem aplikacji. W tym momencie tylko Administratorzy mogą logować się do tej aplikacji.
 
-   Aby uwierzytelnić inne konta w serwisie Facebook, wybierz pozycję **Przegląd aplikacji** i Włącz opcję **uczyń \<swoją nazwę aplikacji> publiczną** , aby umożliwić publicznie dostęp do aplikacji za pomocą uwierzytelniania w serwisie Facebook.
+   Aby uwierzytelnić inne konta w usłudze Facebook, wybierz pozycję **Przegląd aplikacji** i Włącz opcję **Udostępnij \<your-app-name> publicznie** , aby umożliwić dostęp do aplikacji za pomocą uwierzytelniania w serwisie Facebook.
 
 ## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji w serwisie Facebook do aplikacji
 
 1. Zaloguj się do [Azure Portal] i przejdź do aplikacji App Service.
-1. Wybierz pozycję **Ustawienia** > **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
+1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
 1. Wybierz pozycję **Facebook**, a następnie wklej wartości w polu Identyfikator aplikacji i klucz tajny aplikacji, które zostały uzyskane wcześniej. Włącz wszystkie zakresy wymagane przez aplikację.
 1. Wybierz przycisk **OK**.
 

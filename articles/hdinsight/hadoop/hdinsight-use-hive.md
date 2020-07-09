@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076032"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Co to jest Apache Hive i HiveQL w usłudze Azure HDInsight?
 
@@ -66,13 +66,13 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Program Hive obsługuje również niestandardowe **serializatory/deserializatory (elementu SERDE)** na potrzeby złożonych lub nieregularnej struktury danych. Aby uzyskać więcej informacji, zobacz artykuł [jak korzystać z NIESTANDARDOWEGO JSON elementu SERDE with HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) .
 
-Aby uzyskać więcej informacji na temat formatów plików obsługiwanych przez program Hive, zobacz [Podręcznikhttps://cwiki.apache.org/confluence/display/Hive/LanguageManual) języka (](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Aby uzyskać więcej informacji na temat formatów plików obsługiwanych przez program Hive, zobacz [Podręcznik https://cwiki.apache.org/confluence/display/Hive/LanguageManual) języka (](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Wewnętrzne tabele programu Hive a tabele zewnętrzne
 
 Istnieją dwa typy tabel, które można utworzyć przy użyciu programu Hive:
 
-* __Wewnętrzne__: dane są przechowywane w magazynie danych programu Hive. Magazyn `/hive/warehouse/` danych znajduje się w domyślnym magazynie klastra.
+* __Wewnętrzne__: dane są przechowywane w magazynie danych programu Hive. Magazyn danych znajduje się w `/hive/warehouse/` domyślnym magazynie klastra.
 
     Użyj tabel wewnętrznych, gdy są spełnione jeden z następujących warunków:
 
@@ -106,7 +106,7 @@ Gałąź Hive można również rozszerzyć za poorednictwem **funkcji zdefiniowa
 
 ## <a name="example-data"></a>Przykładowe dane
 
-Gałąź Hive w usłudze HDInsight jest wstępnie załadowana z wewnętrzną `hivesampletable`tabelą o nazwie. Usługa HDInsight udostępnia również przykładowe zestawy danych, które mogą być używane z programem Hive. Te zestawy danych są przechowywane w `/example/data` katalogach `/HdiSamples` i. Te katalogi istnieją w domyślnym magazynie klastra.
+Gałąź Hive w usłudze HDInsight jest wstępnie załadowana z wewnętrzną tabelą o nazwie `hivesampletable` . Usługa HDInsight udostępnia również przykładowe zestawy danych, które mogą być używane z programem Hive. Te zestawy danych są przechowywane w `/example/data` `/HdiSamples` katalogach i. Te katalogi istnieją w domyślnym magazynie klastra.
 
 ## <a name="example-hive-query"></a>Przykładowe zapytanie Hive
 

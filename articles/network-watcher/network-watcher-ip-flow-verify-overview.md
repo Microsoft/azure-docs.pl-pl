@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2017
 ms.author: damendo
 ms.openlocfilehash: 69aca5e0901a0da8aa98fe310ac220898bf650b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76845010"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Wprowadzenie do weryfikacji przepływu IP na platformie Azure Network Watcher

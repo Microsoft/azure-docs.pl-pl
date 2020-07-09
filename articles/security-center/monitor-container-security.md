@@ -6,30 +6,18 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801380"
 ---
-# <a name="monitoring-the-security-of-your-containers"></a>Monitorowanie zabezpieczeń kontenerów
+# <a name="monitor-the-security-of-your-containers"></a>Monitorowanie zabezpieczeń kontenerów
 
 Na tej stronie wyjaśniono, jak korzystać z funkcji zabezpieczeń kontenerów opisanych w artykule dotyczącym [zabezpieczeń kontenera](container-security.md) w naszej sekcji pojęcia.
 
-Azure Security Center obejmuje następujące trzy aspekty zabezpieczeń kontenera:
-
-- **Zarządzanie lukami w zabezpieczeniach** — Jeśli korzystasz ze standardowej warstwy cenowej Security Center (zobacz [Cennik](/azure/security-center/security-center-pricing)), możesz skanować Azure Container Registry oparte na architekturze ARM przy każdym wypchnięciu nowego obrazu. Skaner (obsługiwany przez Qualys) przedstawia wyniki jako zalecenia dotyczące Security Center.
-    Aby uzyskać szczegółowe instrukcje, zobacz [skanowanie rejestrów kontenerów pod kątem luk w zabezpieczeniach](#scanning-your-arm-based-container-registries-for-vulnerabilities) poniżej.
-
-- **Ograniczanie funkcjonalności hostów platformy Docker kontenerów** — Security Center umożliwia znalezienie niezarządzanych kontenerów hostowanych na maszynach wirtualnych z systemem Linux lub na innych maszynach systemu Linux, na których działa system Docker, i ciągle porównuje konfiguracje kontenerów z testem porównawczym platformy Docker dla zabezpieczeń Internetu (CIS). Security Center alertów, jeśli kontenery nie spełniają żadnej z formantów. Ciągłe monitorowanie zagrożeń bezpieczeństwa spowodowanych nieprawidłowymi konfiguracjami jest kluczowym składnikiem dowolnego programu zabezpieczającego. 
-    Aby uzyskać szczegółowe instrukcje, zobacz artykuł dotyczący [zabezpieczania kontenerów platformy Docker](#hardening-your-containers-docker-hosts) poniżej.
-
-- **Zabezpieczanie klastrów usługi Azure Kubernetes Service** — Security Center zawiera zalecenia dotyczące znajdowania luk w zabezpieczeniach konfiguracji klastrów usługi Azure Kubernetes. Aby uzyskać szczegółowe informacje na temat konkretnych zaleceń, które mogą pojawić się, zobacz [zalecenia dotyczące usługi Kubernetes](recommendations-reference.md#recs-containers).
-
-- **Ochrona środowiska uruchomieniowego** — Jeśli korzystasz ze standardowej warstwy cenowej Security Center, uzyskasz ochronę przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Security Center generuje alerty o podejrzanych działaniach na poziomie klastra hosta i AKS. Aby uzyskać szczegółowe informacje na temat odpowiednich alertów zabezpieczeń, które mogą się pojawić, zobacz sekcję alerty dotyczące klastrów i [alertów dotyczących poziomu](alerts-reference.md#alerts-containerhost) [usług Azure Kubernetes](alerts-reference.md#alerts-akscluster) w tabeli referencyjnej alertów.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Skanowanie rejestrów kontenerów opartych na usłudze ARM pod kątem luk w zabezpieczeniach 
 
@@ -37,7 +25,7 @@ Azure Security Center obejmuje następujące trzy aspekty zabezpieczeń kontener
 
     1. Upewnij się, że korzystasz z warstwy cenowej standardowa Azure Security Center.
 
-    1. Na stronie **ustawienia & cen** Włącz opcjonalny pakiet rejestrów kontenerów dla subskrypcji: ![Włączanie pakietu rejestrów kontenerów](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. Na stronie **ustawienia & cen** Włącz opcjonalny pakiet rejestrów kontenerów dla subskrypcji: ![ Włączanie pakietu rejestrów kontenerów](media/monitor-container-security/enabling-container-registries-bundle.png)
 
         Security Center jest teraz gotowa do skanowania obrazów, które są przekazywane do rejestru. 
 

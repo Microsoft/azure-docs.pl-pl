@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: jgao
-ms.openlocfilehash: b3c4110c8761b3e8daf324d65ac7fa1dcbcdf61f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be55138a2aa6dc0552c7556438ffd43705687c87
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023501"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055053"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Zapewnianie konfiguracji po wdrożeniu przy użyciu rozszerzeń
 
@@ -20,13 +20,13 @@ Rozszerzenia szablonów to małe aplikacje, które zapewniają konfigurację po 
 
 Istniejące rozszerzenia to:
 
-- [Microsoft. COMPUTE/virtualMachines/rozszerzenia](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
-- [Microsoft. COMPUTE virtualMachineScaleSets/rozszerzenia](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
-- [Klastry/rozszerzenia usługi HDInsight firmy Microsoft](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
-- [Microsoft. SQL Servers/Databases/Extensions](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
-- [Microsoft. Web/Sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
+- [Microsoft. COMPUTE/virtualMachines/rozszerzenia](/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
+- [Microsoft. COMPUTE virtualMachineScaleSets/rozszerzenia](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
+- [Klastry/rozszerzenia usługi HDInsight firmy Microsoft](/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
+- [Microsoft. SQL Servers/Databases/Extensions](/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
+- [Microsoft. Web/Sites/siteextensions](/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
 
-Aby dowiedzieć się, jakie rozszerzenia są dostępne, przejdź do [odwołania do szablonu](https://docs.microsoft.com/azure/templates/). W polu **Filtruj według tytułu**wprowadź **rozszerzenie**.
+Aby dowiedzieć się, jakie rozszerzenia są dostępne, przejdź do [odwołania do szablonu](/azure/templates/). W polu **Filtruj według tytułu**wprowadź **rozszerzenie**.
 
 Aby dowiedzieć się, jak korzystać z tych rozszerzeń, zobacz:
 

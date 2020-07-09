@@ -8,12 +8,11 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 9afbade408d6f95fcd3a61aa1ba65bc09c7a875b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067228"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629562"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
 
@@ -35,7 +34,7 @@ Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kon
 
     ![Typ konta uaktualnienia](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,7 +59,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Określanie warstwy dostępu dla danych obiektów BLOB
 
-Konta ogólnego przeznaczenia w wersji 2 obsługują wszystkie usługi Azure Storage i obiekty danych, ale warstwy dostępu są dostępne tylko w przypadku blokowych obiektów BLOB w magazynie obiektów BLOB. W przypadku uaktualniania do konta magazynu ogólnego przeznaczenia w wersji 2 można określić domyślną warstwę dostępu do konta gorąca lub chłodna, która wskazuje warstwę domyślną dane obiektów BLOB zostaną przekazane, tak jakby nie określono indywidualnego parametru warstwy dostępu do obiektów BLOB.
+Konta ogólnego przeznaczenia w wersji 2 obsługują wszystkie usługi Azure Storage i obiekty danych, ale warstwy dostępu są dostępne tylko w celu blokowania obiektów BLOB w magazynie obiektów BLOB. W przypadku uaktualniania do konta magazynu ogólnego przeznaczenia w wersji 2 można określić domyślną warstwę dostępu do konta gorąca lub chłodna, która wskazuje warstwę domyślną dane obiektów BLOB zostaną przekazane, tak jakby nie określono indywidualnego parametru warstwy dostępu do obiektów BLOB.
 
 Warstwy dostępu do obiektów BLOB umożliwiają wybranie najbardziej ekonomicznego magazynu w oparciu o przewidywane wzorce użycia. Blokowe obiekty blob mogą być przechowywane w warstwach gorąca, chłodna lub archiwalna. Aby uzyskać więcej informacji na temat warstw dostępu, zobacz [Azure Blob Storage: warstwy magazynowania gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md).
 
@@ -73,7 +72,7 @@ W obu przypadkach pierwszy priorytet ma na celu oszacowanie kosztów przechowywa
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-Uaktualnianie konta magazynu w wersji 1 do konta ogólnego przeznaczenia w wersji 2 jest bezpłatne. W trakcie procesu uaktualniania można określić żądaną warstwę konta. Jeśli podczas uaktualniania nie zostanie określona warstwa konta, będzie ona `Hot`domyślną warstwą konta uaktualnionego konta. Jednak zmiana warstwy dostępu do magazynu po uaktualnieniu może spowodować wprowadzenie zmian w rachunku, aby podczas uaktualniania zaleca się określenie nowej warstwy konta.
+Uaktualnianie konta magazynu w wersji 1 do konta ogólnego przeznaczenia w wersji 2 jest bezpłatne. W trakcie procesu uaktualniania można określić żądaną warstwę konta. Jeśli podczas uaktualniania nie zostanie określona warstwa konta, będzie ona domyślną warstwą konta uaktualnionego konta `Hot` . Jednak zmiana warstwy dostępu do magazynu po uaktualnieniu może spowodować wprowadzenie zmian w rachunku, aby podczas uaktualniania zaleca się określenie nowej warstwy konta.
 
 Wszystkie konta magazynu używają modelu cenowego dla magazynu obiektów blob opartego na warstwie każdego obiektu blob. W przypadku korzystania z konta magazynu mają zastosowanie następujące zagadnienia dotyczące rozliczeń:
 

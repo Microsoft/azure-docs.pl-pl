@@ -4,12 +4,11 @@ description: Dowiedz się, jak szablony projektów programu Visual Studio mogą 
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.openlocfilehash: c4cdc3fa7b3238a83d55113c5f7dc551d637c8e2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779514"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959776"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Korzystanie z szablonów projektów programu Visual Studio do szybkiego uruchamiania rozwiązań wsadowych
 
@@ -90,7 +89,7 @@ Podczas tworzenia projektu przy użyciu szablonu Menedżera zadań generuje on t
 
 Oczywiście można dodać dodatkowe pliki wymagane do obsługi kodu rozdzielacza zadania, w zależności od złożoności logiki podziału zadania.
 
-Szablon generuje również standardowe pliki projektu .NET, takie jak plik. csproj, App. config, Packages. config itd.
+Szablon generuje również standardowe pliki projektu .NET, takie jak plik. csproj, app.config, packages.config itd.
 
 W pozostałej części tej sekcji opisano różne pliki i ich struktury kodu oraz wyjaśniono, co robi każda klasa.
 
@@ -186,7 +185,7 @@ Zadanie Menedżera zadań zaimplementowane przy użyciu szablonu Menedżera zada
 
 W przypadku niepowodzenia zadania Menedżera zadań niektóre zadania mogły być nadal dodawane do usługi przed wystąpieniem błędu. Te zadania będą wykonywane w zwykły sposób. Zobacz "Niepowodzenie rozdzielacza zadania" powyżej, aby poznać dyskusję o tej ścieżce kodu.
 
-Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout. txt i stderr. txt. Aby uzyskać więcej informacji, zobacz [Obsługa błędów](error-handling.md).
+Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout.txt i stderr.txt. Aby uzyskać więcej informacji, zobacz [Obsługa błędów](error-handling.md).
 
 ### <a name="client-considerations"></a>Uwagi dotyczące klienta
 W tej sekcji opisano niektóre wymagania dotyczące implementacji klienta podczas wywoływania Menedżera zadań w oparciu o ten szablon. Zobacz [, jak przekazać parametry i zmienne środowiskowe z kodu klienta,](#pass-environment-settings) Aby uzyskać szczegółowe informacje na temat przekazywania parametrów i ustawień środowiska.
@@ -259,7 +258,7 @@ Podczas tworzenia projektu przy użyciu szablonu procesora zadań generuje on tr
 
 Oczywiście można dodać dodatkowe pliki wymagane do obsługi kodu procesora zadań, w zależności od złożoności logiki podziału zadania.
 
-Szablon generuje również standardowe pliki projektu .NET, takie jak plik. csproj, App. config, Packages. config itd.
+Szablon generuje również standardowe pliki projektu .NET, takie jak plik. csproj, app.config, packages.config itd.
 
 W pozostałej części tej sekcji opisano różne pliki i ich struktury kodu oraz wyjaśniono, co robi każda klasa.
 
@@ -367,7 +366,7 @@ Zadanie procesora zadań, które jest implementowane za pomocą szablonu proceso
 > 
 > 
 
-Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout. txt i stderr. txt. Aby uzyskać więcej informacji, zobacz Obsługa błędów w dokumentacji usługi Batch.
+Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout.txt i stderr.txt. Aby uzyskać więcej informacji, zobacz Obsługa błędów w dokumentacji usługi Batch.
 
 ### <a name="client-considerations"></a>Uwagi dotyczące klienta
 **Poświadczenia magazynu**
@@ -397,12 +396,12 @@ Klient może przekazać informacje do zadania Menedżera zadań w postaci ustawi
 * Adres URL konta wsadowego
 * Klucz konta w usłudze Batch
 
-Usługa Batch ma prosty mechanizm przekazywania ustawień środowiska do zadania Menedżera zadań przy użyciu `EnvironmentSettings` właściwości w [Microsoft. Azure. Batch. JobManagerTask][net_jobmanagertask].
+Usługa Batch ma prosty mechanizm przekazywania ustawień środowiska do zadania Menedżera zadań przy użyciu `EnvironmentSettings` właściwości w [Microsoft.Azure.Batch. JobManagerTask][net_jobmanagertask].
 
 Na przykład aby uzyskać `BatchClient` wystąpienie dla konta usługi Batch, można przekazać jako zmienne środowiskowe z kodu klienta poświadczenia adresu URL i klucza współdzielonego dla konta usługi Batch. Analogicznie, aby uzyskać dostęp do konta magazynu połączonego z kontem wsadowym, można przekazać nazwę konta magazynu i klucz konta magazynu jako zmienne środowiskowe.
 
 ### <a name="pass-parameters-to-the-job-manager-template"></a>Przekazywanie parametrów do szablonu Menedżera zadań
-W wielu przypadkach przydatne jest przekazywanie parametrów poszczególnych zadań do zadania Menedżera zadań w celu kontrolowania procesu dzielenia zadania lub konfigurowania zadań dla tego zadania. Można to zrobić, przekazując plik JSON o nazwie Parameters. JSON jako plik zasobów zadania Menedżera zadań. Parametry mogą następnie być dostępne w `JobSplitter._parameters` polu szablonu Menedżera zadań.
+W wielu przypadkach przydatne jest przekazywanie parametrów poszczególnych zadań do zadania Menedżera zadań w celu kontrolowania procesu dzielenia zadania lub konfigurowania zadań dla tego zadania. Można to zrobić, przekazując plik JSON o nazwie parameters.jsjako plik zasobów zadania Menedżera zadań. Parametry mogą następnie być dostępne w `JobSplitter._parameters` polu szablonu Menedżera zadań.
 
 > [!NOTE]
 > Wbudowana procedura obsługi parametrów obsługuje tylko słowniki ciągów do ciągu. Jeśli chcesz przekazać złożone wartości JSON jako wartości parametrów, musisz przekazać je jako ciągi i przeanalizować je w rozdzielaczu zadania lub zmodyfikować `Configuration.GetJobParameters` metodę struktury.
@@ -412,10 +411,10 @@ W wielu przypadkach przydatne jest przekazywanie parametrów poszczególnych zad
 ### <a name="pass-parameters-to-the-task-processor-template"></a>Przekazywanie parametrów do szablonu procesora zadań
 Parametry można także przekazać do poszczególnych zadań wdrożonych przy użyciu szablonu procesora zadań. Podobnie jak w przypadku szablonu Menedżera zadań szablon procesora zadań szuka pliku zasobów o nazwie
 
-Parameters. JSON i jeśli został znaleziony, ładuje go jako słownik parametrów. Istnieje kilka opcji przekazywania parametrów do zadań procesora zadań:
+parameters.jsw, i jeśli okaże się, że załaduje go jako słownik parametrów. Istnieje kilka opcji przekazywania parametrów do zadań procesora zadań:
 
-* Ponownie Użyj kodu JSON parametrów zadania. Jest to dobre rozwiązanie, jeśli jedyne parametry są zależne od zadania (na przykład wysokość i szerokość renderowania). Aby to zrobić, podczas tworzenia CloudTask w rozdzielaczu zadań Dodaj odwołanie do obiektu plik zasobu Parameters. JSON z zadania Menedżera zadań ResourceFiles ( `JobSplitter._jobManagerTask.ResourceFiles` ) do kolekcji ResourceFiles CloudTask.
-* Generuj i przekazuj specyficzne dla zadania parametry. JSON jako część wykonywania zadania rozdzielacza i odwołują się do tego obiektu BLOB w kolekcji plików zasobów zadania. Jest to konieczne, jeśli różne zadania mają różne parametry. Przykładem może być scenariusz renderowania 3W, w którym indeks ramki jest przenoszona do zadania jako parametr.
+* Ponownie Użyj kodu JSON parametrów zadania. Jest to dobre rozwiązanie, jeśli jedyne parametry są zależne od zadania (na przykład wysokość i szerokość renderowania). W tym celu podczas tworzenia CloudTask w rozdzielaczu zadań Dodaj odwołanie do parameters.jsobiektu zasobu z zadania Menedżera zadań ResourceFiles ( `JobSplitter._jobManagerTask.ResourceFiles` ) do kolekcji ResourceFiles CloudTask.
+* Generuj i przekazuj parameters.jsspecyficzne dla zadania w dokumencie jako część wykonywania zadania rozdzielacza i odwołuje się do tego obiektu BLOB w kolekcji plików zasobów zadania. Jest to konieczne, jeśli różne zadania mają różne parametry. Przykładem może być scenariusz renderowania 3W, w którym indeks ramki jest przenoszona do zadania jako parametr.
 
 > [!NOTE]
 > Wbudowana procedura obsługi parametrów obsługuje tylko słowniki ciągów do ciągu. Jeśli chcesz przekazać złożone wartości JSON jako wartości parametrów, musisz przekazać je jako ciągi i przeanalizować je w procesorze zadań lub zmodyfikować `Configuration.GetTaskParameters` metodę struktury.
@@ -427,13 +426,13 @@ Parameters. JSON i jeśli został znaleziony, ładuje go jako słownik parametr�
 Innym przydatnym narzędziem do tworzenia rozwiązań wsadowych jest [Azure Batch Konwencji plików][nuget_package]. Ta biblioteka klas .NET (obecnie dostępna w wersji zapoznawczej) w aplikacjach wsadowych platformy .NET umożliwia łatwe przechowywanie i pobieranie danych wyjściowych zadań do i z usługi Azure Storage. [Utrwalaj Azure Batch zadanie i dane wyjściowe zadania](batch-task-output.md) zawierają pełną dyskusję biblioteki i jej użycia.
 
 
-[net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
+[net_jobmanagertask]: /dotnet/api/microsoft.azure.batch.jobmanagertask
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
-[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
+[process_exitcode]: /dotnet/api/system.diagnostics.process.exitcode
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
-[vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
+[vs_find_use_ext]: /visualstudio/ide/finding-and-using-visual-studio-extensions
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png

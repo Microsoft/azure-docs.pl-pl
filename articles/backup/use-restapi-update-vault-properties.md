@@ -4,12 +4,11 @@ description: W tym artykule dowiesz się, jak zaktualizować konfigurację magaz
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248230"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aktualizowanie konfiguracji magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -21,7 +20,7 @@ Usuwanie kopii zapasowych chronionego elementu jest istotną operacją, która m
 
 Ale istnieją scenariusze, w których ta możliwość nie jest wymagana. Nie można usunąć magazynu usługi Azure Recovery Services, jeśli w nim znajdują się elementy kopii zapasowej, nawet nietrwałe usunięte. Może to stanowić problem, jeśli magazyn musi być natychmiast usunięty. Na przykład: operacje wdrażania często czyści utworzone zasoby w tym samym przepływie pracy. Wdrożenie może utworzyć magazyn, skonfigurować kopie zapasowe dla elementu, wykonać przywracanie testowe, a następnie wykonać operację usuwania elementów kopii zapasowych i magazynu. Jeśli usunięcie magazynu nie powiedzie się, całe wdrożenie może się nie powieść. Wyłączenie usuwania nietrwałego jest jedynym sposobem na zagwarantowanie natychmiastowego usunięcia.
 
-W związku z tym klient musi uważnie wybrać, czy wyłączyć usuwanie nietrwałe dla określonego magazynu, w zależności od tego scenariusza. Aby uzyskać więcej informacji, zobacz [artykuł usuwanie nietrwałe](backup-azure-security-feature-cloud.md).
+W zależności od scenariusza należy uważnie wybierać, czy wyłączyć usuwanie nietrwałe dla określonego magazynu. Aby uzyskać więcej informacji, zobacz [artykuł usuwanie nietrwałe](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Pobieranie stanu nietrwałego usuwania przy użyciu interfejsu API REST
 
@@ -71,7 +70,7 @@ Aby zaktualizować stan nietrwałego usuwania magazynu usługi Recovery Services
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-Identyfikator URI poprawki ma `{subscriptionId}`wartość `{vaultName}`, `{vaultresourceGroupName}` , parametr. W tym przykładzie `{vaultName}` jest to "testVault" i `{vaultresourceGroupName}` ma wartość "testVaultRG". Jeśli zamienimy identyfikator URI o powyższe wartości, identyfikator URI będzie wyglądać następująco.
+Identyfikator URI poprawki ma wartość `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parametr. W tym przykładzie `{vaultName}` jest to "testVault" i `{vaultresourceGroupName}` ma wartość "testVaultRG". Jeśli zamienimy identyfikator URI o powyższe wartości, identyfikator URI będzie wyglądać następująco.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13

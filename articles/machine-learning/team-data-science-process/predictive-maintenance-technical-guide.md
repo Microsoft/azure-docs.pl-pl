@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682715"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Przewodnik techniczny dotyczący szablonu rozwiązania do konserwacji predykcyjnej w programie Aerospace
@@ -83,7 +82,7 @@ Centrum zdarzeń platformy Azure jest ogólne; dane można opublikować w centru
 
 Ten dokument nie zawiera opisu sposobu pozyskiwania danych, ale można łatwo wysyłać zdarzenia lub dane do centrum zdarzeń platformy Azure przy użyciu interfejsów API centrum zdarzeń.
 
-### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Usługa Azure Stream Analytics
 Użyj zasobu Azure Stream Analytics, aby zapewnić analizę niemal w czasie rzeczywistym przez odczyt z strumieni danych i wyprowadzanie danych do dowolnej liczby źródeł.
 
 W przypadku szablonu rozwiązania do konserwacji predykcyjnej dla programu Aerospace Azure Stream Analytics zapytanie składa się z czterech podzapytań, które zużywają zdarzenia z usługi centrum zdarzeń platformy Azure, z wynikami do czterech różnych lokalizacji. Te dane wyjściowe składają się z trzech Power BI zestawów danych i jednej lokalizacji magazynu platformy Azure.
@@ -196,7 +195,7 @@ Poniższe kroki przeprowadzą Cię przez proces łączenia pliku pbix z SQL Data
      > [!NOTE]
      > Jeśli zostanie wyświetlony komunikat ostrzegawczy, kliknij pozycję **Edytuj poświadczenia** i upewnij się, że poświadczenia bazy danych są takie same jak te opisane w kroku 1.
      <br/>
-     ![Planowanie odświeżania](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
+     ![Zaplanuj odświeżanie](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
      <br/>
    * Rozwiń sekcję **Zaplanuj odświeżanie** . Włącz opcję "Zachowaj aktualność danych".
      <br/>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71057998"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985810"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Rozwiązywanie problemów z ogólnym błędem protokołu RDP na maszynie wirtualnej platformy Azure
 
@@ -60,13 +60,13 @@ Odbiornik RDP jest nieprawidłowo skonfigurowany.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjnego](../windows/snapshot-copy-managed-disk.md)i [Dołącz dysk systemu operacyjnego do ratowniczej maszyny wirtualnej](troubleshoot-recovery-disks-portal-windows.md), a następnie postępuj zgodnie z instrukcjami.
+Przed wykonaniem tych kroków należy wykonać migawkę dysku systemu operacyjnego, którego dotyczy dana maszyna wirtualna, jako kopii zapasowej. Aby rozwiązać ten problem, należy użyć kontrolki serial lub naprawić maszynę wirtualną w trybie offline.
 
 ### <a name="serial-console"></a>Konsola szeregowa
 
 #### <a name="step-1-open-cmd-instance-in-serial-console"></a>Krok 1. Otwieranie wystąpienia CMD w Konsola szeregowa
 
-1. Uzyskaj dostęp do [konsoli szeregowej](serial-console-windows.md) , wybierając pozycję **Obsługa & Rozwiązywanie problemów** > **konsola szeregowa (wersja zapoznawcza)**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
+1. Uzyskaj dostęp do [konsoli szeregowej](serial-console-windows.md) , wybierając pozycję **Obsługa & Rozwiązywanie problemów**  >  **konsola szeregowa (wersja zapoznawcza)**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
 
 2. Utwórz nowy kanał dla wystąpienia CMD. Wpisz **polecenie cmd** , aby uruchomić kanał, aby uzyskać nazwę kanału.
 
@@ -78,29 +78,37 @@ Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjneg
 
 #### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Krok 2. sprawdzenie wartości kluczy rejestru RDP:
 
-1. Sprawdź, czy protokół RDP jest wyłączony przez zasady.
+1. Sprawdź, czy protokół RDP jest wyłączony przez zasady grupy.
 
-      ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
+    ```
+    REM Get the group policy 
+    reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
+    ```
+    Jeśli zasady grupy określają, że protokół RDP jest wyłączony (wartość fDenyTSConnections jest 0x1), uruchom następujące polecenie, aby włączyć usługę TermService. Jeśli klucz rejestru nie zostanie znaleziony, nie ma żadnych zasad grupy skonfigurowanych do wyłączania protokołu RDP. Możesz przejść do następnego kroku.
 
-      REM Get the domain policy if any
-      reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
-      ```
+    ```
+    REM update the fDenyTSConnections value to enable TermService service
+    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+    ```
+    > [!NOTE]
+    > Ten krok umożliwia tymczasowe włączenie usługi TermService. Zmiana zostanie zresetowana po odświeżeniu ustawień zasad grupy. Aby rozwiązać ten problem, należy sprawdzić, czy Usługa TermService została wyłączona przez lokalne zasady grupy lub zasady grupy domeny, a następnie odpowiednio zaktualizować ustawienia zasad.
+    
+2. Sprawdź bieżącą konfigurację połączenia zdalnego.
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+    ```
+    Jeśli polecenie zwraca 0x1, maszyna wirtualna nie zezwala na połączenie zdalne. Następnie Zezwalaj na zdalne łączenie przy użyciu następującego polecenia:
+     ```
+     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+     ```
+    
+1. Sprawdź bieżącą konfigurację serwera terminali.
 
-      - Jeśli zasady domeny istnieją, Instalator zasad lokalnych zostanie nadpisany.
-      - Jeśli zasady domeny określają, że protokół RDP jest wyłączony (1), zaktualizuj zasady usługi AD na kontrolerze domeny.
-      - Jeśli zasady domeny określają, że protokół RDP jest włączony (0), aktualizacja nie jest wymagana.
-      - Jeśli zasady domeny nie istnieją i lokalne Stany zasad, że protokół RDP jest wyłączony (1), Włącz protokół RDP przy użyciu następującego polecenia: 
-      
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
-
-2. Sprawdź bieżącą konfigurację serwera terminali.
-
-      ```
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
-      ```
+    ```
+    REM Get the local remote connection setting
+    reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
+    ```
 
       Jeśli polecenie zwróci wartość 0, serwer terminali jest wyłączony. Następnie Włącz serwer terminali w następujący sposób:
 
@@ -157,9 +165,9 @@ Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjneg
 
 7. Uruchom ponownie maszynę wirtualną.
 
-8. Wyjdź z wystąpienia CMD, wpisując `exit`polecenie, a następnie naciskając dwa razy klawisz **Enter** .
+8. Wyjdź z wystąpienia CMD `exit` , wpisując polecenie, a następnie naciskając dwa razy klawisz **Enter** .
 
-9. Uruchom ponownie maszynę wirtualną `restart`, wpisując polecenie, a następnie nawiąż połączenie z maszyną wirtualną.
+9. Uruchom ponownie maszynę wirtualną `restart` , wpisując polecenie, a następnie nawiąż połączenie z maszyną wirtualną.
 
 Jeśli problem nadal występuje, przejdź do kroku 2.
 

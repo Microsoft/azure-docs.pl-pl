@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cdbe0630060c9155187e1f62aba3d7a40ceae98
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610476"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -21,32 +21,17 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące chmury wi
 
 ### <a name="why-azure-spring-cloud"></a>Dlaczego chmura sprężynowa platformy Azure?
 
-Chmura Wiosnowa platformy Azure udostępnia platformę jako usługę (PaaS) dla deweloperów chmury z chmurą. Chmura sprężynowa platformy Azure zarządza infrastrukturą aplikacji, dzięki czemu możesz skupić się na kodzie aplikacji i logice biznesowej. Podstawowe funkcje wbudowane w chmurę Azure wiosną obejmują: Eureka, config Server, serwer rejestru usług, przestawianie usług kompilacji, tworzenie niebieskich i zielonych wdrożeń. Ta usługa umożliwia również deweloperom powiązanie aplikacji z innymi usługami platformy Azure, takimi jak Azure Cosmos DB, Azure Database for MySQL i pamięć podręczna Azure dla Redis.
+Chmura Wiosnowa platformy Azure udostępnia platformę jako usługę (PaaS) dla deweloperów chmury z chmurą. Chmura sprężynowa platformy Azure zarządza infrastrukturą aplikacji, dzięki czemu możesz skupić się na kodzie aplikacji i logice biznesowej. Podstawowe funkcje wbudowane w chmurę Azure wiosną obejmują: Eureka, config Server, serwer rejestru usług, przestawianie usług kompilacji, tworzenie niebiesko-zielone wdrożenie i inne. Ta usługa umożliwia również deweloperom powiązanie aplikacji z innymi usługami platformy Azure, takimi jak Azure Cosmos DB, Azure Database for MySQL i pamięć podręczna Azure dla Redis.
 
 Chmura sprężynowa platformy Azure rozszerza środowisko diagnostyki aplikacji dla deweloperów i operatorów przez integrację Azure Monitor, Application Insights i Log Analytics.
 
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Jakie plany usług są oferowane przez chmurę Azure ze sprężyną?
-
-Chmura Wiosenna Azure oferuje jeden plan usługi w okresie zapoznawczym.  Wdrożenie z chmurą wiosenną zawiera 16 rdzeni vCPU i 32 gigabajtów (GB) pamięci.  Górna granica każdego wystąpienia mikrousług w ramach wdrożenia wynosi 4 vCPU rdzeni z 8 GB pamięci.
-
-Zasób | Kwota
-------- | -------
-Wystąpienia aplikacji na wiosnę | 20
-Łączna liczba wystąpień aplikacji na usługę Azure sprężynowego wystąpienia usługi w chmurze | 500
-Wystąpienia usługi w chmurze ze sprężyną na platformie Azure na region na subskrypcję | 10
-Trwałe woluminy | 10 x 50 GBytes
-
-\*_Aby podnieść limit, Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/faq/)._
-
-Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/).
-
 ### <a name="how-secure-is-azure-spring-cloud"></a>Jak bezpieczny jest chmura Wiosenna platformy Azure?
 
-Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów dla klientów korzystających z platformy Azure i usługi Azure wiosny Cloud. System Azure pomaga upewnić się, że tylko klienci mają dostęp do danych, dzienników lub konfiguracji aplikacji, bezpiecznie szyfrując wszystkie te dane. Wszystkie wystąpienia usługi w chmurze Azure wiosennej są odizolowane od siebie nawzajem.
+Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów dla klientów korzystających z platformy Azure i usługi Azure wiosny Cloud. System Azure pomaga upewnić się, że tylko klienci mają dostęp do danych, dzienników lub konfiguracji aplikacji, bezpiecznie szyfrując wszystkie te dane. 
 
-Chmura sprężynowa platformy Azure zapewnia pełną obsługę protokołów TLS/SSL i zarządzania certyfikatami.
-
-Krytyczne poprawki zabezpieczeń dla środowisk uruchomieniowych w chmurze OpenJDK i wiosny są stosowane do chmury wiosennej platformy Azure najszybciej, jak to możliwe.
+* Wystąpienia usługi w chmurze Azure wiosny są od siebie odizolowane.
+* Chmura sprężynowa platformy Azure zapewnia pełną obsługę protokołów TLS/SSL i zarządzania certyfikatami.
+* Krytyczne poprawki zabezpieczeń dla środowisk uruchomieniowych w chmurze OpenJDK i wiosny są stosowane do chmury wiosennej platformy Azure najszybciej, jak to możliwe.
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>W jakich regionach jest dostępna chmura Wiosenna platformy Azure?
 
@@ -57,9 +42,12 @@ Wschodnie stany USA, zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-
 W wersji zapoznawczej chmura sprężynowa platformy Azure ma następujące znane ograniczenia:
 
 * `spring.application.name`zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
-* `server.port`nie jest dozwolone w pliku konfiguracji z repozytorium git. Dodanie go do pliku konfiguracji prawdopodobnie spowoduje niedostępność aplikacji z innych aplikacji lub Internetu.
+* `server.port`wartość domyślna to Ports 80/443. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie ona zastąpiona do 80/443.
 * Szablony Azure Portal i Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazywać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
-* Aby dowiedzieć się więcej o ograniczeniach przydziałów, zobacz [jakie plany usługi są oferowane w chmurze Azure wiosennej?](#what-service-plans-does-azure-spring-cloud-offer).
+
+### <a name="what-pricing-tiers-are-available"></a>Jakie warstwy cenowe są dostępne? 
+Z którego z nich korzystać i jakie są limity w ramach każdej warstwy?
+* Chmura Wiosnowa platformy Azure oferuje dwie warstwy cenowe: podstawowa i standardowa. Warstwa Podstawowa jest przeznaczona do tworzenia i testowania oraz do wypróbowania chmury wiosennej platformy Azure. Warstwa standardowa jest zoptymalizowana pod kątem uruchamiania ruchu produkcyjnego ogólnego przeznaczenia. Zobacz [szczegóły cennika usługi Azure wiosny Cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) dla limitów i porównania poziomu funkcji.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Jak mogę przekazać Opinie i zgłosić problemy?
 
@@ -73,7 +61,7 @@ Aby szybko rozpocząć pracę z chmurą wiosenną platformy Azure, postępuj zgo
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Jakie środowisko uruchomieniowe języka Java obsługuje chmurę Azure?
 
-Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11.
+Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11. Zobacz [środowisko uruchomieniowe Java i wersje systemu operacyjnego](#java-runtime-and-os-versions)
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Gdzie mogę wyświetlić sprężynowe dzienniki i metryki aplikacji w chmurze?
 
@@ -87,7 +75,10 @@ Tak. Aby uzyskać więcej informacji, zobacz [Samouczek: używanie rozproszonego
 
 ### <a name="what-resource-types-does-service-binding-support"></a>Jakie typy zasobów obsługuje usługa powiązania usługi?
 
-Obecnie są obsługiwane trzy usługi: Azure Cosmos DB, Azure Database for MySQL i pamięć podręczna platformy Azure dla Redis.
+Obecnie są obsługiwane trzy usługi:
+* Azure Cosmos DB
+* Azure Database for MySQL
+* Pamięć podręczna platformy Azure dla Redis.
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Czy mogę wyświetlać, dodawać i przenosić woluminy trwałe z wewnątrz aplikacji?
 
@@ -95,7 +86,52 @@ Tak.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Czy po usunięciu/przeniesieniu wystąpienia usługi w chmurze Azure wiosny czy zasoby rozszerzeń będą również usuwane lub przenoszone?
 
-Jest to zależne od logiki dostawców zasobów, do których należą zasoby rozszerzenia. Zasoby rozszerzenia `Microsoft.AppPlatform` wystąpienia nie należą do tej samej przestrzeni nazw, więc zachowania różnią się w zależności od różnych dostawców zasobów. Na przykład operacja usuwania/przenoszenia nie zostanie przeniesiona do zasobów **ustawień diagnostycznych** . Jeśli nowe wystąpienie chmury Azure wiosny jest obsługiwane przy użyciu tego samego identyfikatora zasobu, który został usunięty, lub jeśli poprzednie wystąpienie chmury sieci platformy Azure zostanie przeniesione z powrotem, poprzednie zasoby **ustawień diagnostycznych** kontynuują jego rozszerzanie.
+Jest to zależne od logiki dostawców zasobów, którzy są właścicielami zasobów rozszerzenia. Zasoby rozszerzenia `Microsoft.AppPlatform` wystąpienia nie należą do tej samej przestrzeni nazw, więc zachowanie zależy od dostawcy zasobów. Na przykład operacja usuwania/przenoszenia nie zostanie przeniesiona do zasobów **ustawień diagnostycznych** . Jeśli nowe wystąpienie chmury Azure wiosny jest obsługiwane przy użyciu tego samego identyfikatora zasobu, który został usunięty, lub jeśli poprzednie wystąpienie chmury sieci platformy Azure zostanie przeniesione z powrotem, poprzednie zasoby **ustawień diagnostycznych** kontynuują jego rozszerzanie.
+
+## <a name="java-runtime-and-os-versions"></a>Środowisko uruchomieniowe Java i wersje systemu operacyjnego
+
+### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Które wersje środowiska uruchomieniowego Java są obsługiwane w chmurze Azure wiosennej?
+
+Chmura sprężynowa platformy Azure obsługuje wersje języka Java LTS z najnowszymi kompilacjami, obecnie 2020 czerwca, Java 8 kompilacja 252 i Java 11 Build 7. Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+
+### <a name="who-built-these-java-runtimes"></a>Kto utworzył te środowiska uruchomieniowe Java?
+
+Systemy Azul. Kompilacje zestawu JDK Azul Zulu for Azure-Enterprise Edition to bezpłatne, wieloplatformowe i gotowe do zastosowań produkcyjnych dystrybucje zestawu OpenJDK dla platformy Azure i usługi Azure Stack, wspierane przez firmy Microsoft i Azul Systems. Zawierają one wszystkie składniki do kompilowania i uruchamiania aplikacji Java SE.
+
+### <a name="how-often-will-java-runtimes-get-updated"></a>Jak często są aktualizowane środowiska uruchomieniowe języka Java?
+
+Wersje LTS i MTS JDK zawierają kwartalne aktualizacje zabezpieczeń, poprawki błędów i krytyczne aktualizacje poza pasmem oraz poprawki, które są wymagane. Ta obsługa obejmuje wersje załączane do języka Java 7 i 8 aktualizacji zabezpieczeń oraz poprawki błędów raportowane w nowszych wersjach środowiska Java, takich jak Java 11.
+
+### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Jak długo będą obsługiwane wersje LTS języka Java 8 i Java 11?
+
+Zobacz [obsługę długoterminową języka Java dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+
+* Środowisko Java 8 LTS będzie obsługiwane do grudnia 2030.
+* Środowisko Java 11 LTS będzie obsługiwane do września 2027.
+
+### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Jak mogę pobrać obsługiwane środowisko uruchomieniowe języka Java na potrzeby lokalnego tworzenia oprogramowania?
+
+Zobacz [Install the JDK for Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+
+### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Jakie są zasady wycofywania dla starszych środowisk uruchomieniowych języka Java?
+
+Publiczne powiadomienie zostanie wysłane przez 12 miesięcy, zanim zostanie wycofana jakakolwiek stara wersja środowiska uruchomieniowego. Przeprowadzenie migracji do nowszej wersji będzie możliwe przez 12 miesięcy.
+
+* Administratorzy subskrypcji otrzymają wiadomość e-mail z powiadomieniem, gdy zostanie wycofana wersja języka Java.
+* Informacje o wycofaniu zostaną opublikowane w dokumentacji.
+
+### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Jak mogę uzyskać pomoc techniczną dotyczącą problemów na poziomie środowiska uruchomieniowego Java?
+
+Możesz otworzyć bilet pomocy technicznej w ramach pomocy technicznej platformy Azure.  Zobacz [, jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+### <a name="what-is-the-operation-system-to-run-my-apps"></a>Co to jest system operacyjny, aby uruchomić moje aplikacje?
+
+Używana jest Najnowsza wersja programu Ubuntu LTS, a obecnie [Ubuntu 20,04 LTS (system fossa)](https://releases.ubuntu.com/focal/) to domyślny system operacyjny.
+
+### <a name="how-often-will-os-security-patches-be-applied"></a>Jak często będą stosowane poprawki zabezpieczeń systemu operacyjnego?
+
+Poprawki zabezpieczeń dotyczące chmury z użyciem usługi Azure wiosennej zostaną przeprowadzone do produkcji co miesiąc.
+Krytyczne poprawki zabezpieczeń (ocena w wersji CVE >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
 
 ## <a name="deployment"></a>Wdrożenie
 

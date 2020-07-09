@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386219"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -25,8 +25,8 @@ Użyj Azure Monitor, aby kierować dzienniki logowania i [inspekcji](view-audit-
 Zdarzenia dziennika można kierować do:
 
 * Konto usługi Azure [Storage](../storage/blobs/storage-blobs-introduction.md).
-* [Centrum zdarzeń](../event-hubs/event-hubs-about.md) platformy Azure (i integracja z wystąpieniami logiki Splunk i Sumo).
 * [Obszar roboczy log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (do analizowania danych, tworzenia pulpitów nawigacyjnych i alertów dotyczących określonych zdarzeń).
+* [Centrum zdarzeń](../event-hubs/event-hubs-about.md) platformy Azure (i integracja z wystąpieniami logiki Splunk i Sumo).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -72,7 +72,7 @@ Aby ułatwić zarządzanie, zalecamy korzystanie z *grup* użytkowników usługi
 
 ### <a name="create-an-azure-resource-manager-template"></a>Tworzenie szablonu Azure Resource Manager
 
-Aby dołączyć dzierżawę usługi Azure AD ( **klienta**), utwórz [szablon Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) na potrzeby oferty, korzystając z poniższych informacji. Wartości `mspOfferName` i `mspOfferDescription` są widoczne podczas wyświetlania szczegółów oferty na [stronie dostawcy usług](../lighthouse/how-to/view-manage-service-providers.md) Azure Portal.
+Aby dołączyć dzierżawę usługi Azure AD ( **klienta**), utwórz [szablon Azure Resource Manager](../lighthouse/how-to/onboard-customer.md) na potrzeby oferty, korzystając z poniższych informacji. `mspOfferName`Wartości i `mspOfferDescription` są widoczne podczas wyświetlania szczegółów oferty na [stronie dostawcy usług](../lighthouse/how-to/view-manage-service-providers.md) Azure Portal.
 
 | Pole   | Definicja |
 |---------|------------|
@@ -84,12 +84,12 @@ Aby dołączyć dzierżawę usługi Azure AD ( **klienta**), utwórz [szablon Az
 
 Pobierz Azure Resource Manager szablonu i plików parametrów:
 
-- [rgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Następnie zaktualizuj plik parametrów przy użyciu zarejestrowanych wcześniej wartości. Poniższy fragment kodu JSON przedstawia przykład pliku parametrów szablonu Azure Resource Manager. W `authorizations.value.roleDefinitionId`przypadku programu należy użyć [wbudowanej wartości roli](../role-based-access-control/built-in-roles.md) współautor. *Contributor role* `b24988ac-6180-42a0-ab88-20f7382dd24c`
+Następnie zaktualizuj plik parametrów przy użyciu zarejestrowanych wcześniej wartości. Poniższy fragment kodu JSON przedstawia przykład pliku parametrów szablonu Azure Resource Manager. W przypadku programu `authorizations.value.roleDefinitionId` należy użyć [wbudowanej wartości roli](../role-based-access-control/built-in-roles.md) *współautor* `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -123,7 +123,7 @@ Następnie zaktualizuj plik parametrów przy użyciu zarejestrowanych wcześniej
 
 Po zaktualizowaniu pliku parametrów Wdróż szablon Azure Resource Manager w dzierżawie platformy Azure jako wdrożenie na poziomie subskrypcji. Ponieważ jest to wdrożenie na poziomie subskrypcji, nie można go zainicjować w Azure Portal. Program można wdrożyć przy użyciu modułu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Poniżej przedstawiono metodę Azure PowerShell.
 
-Zaloguj się do katalogu zawierającego swoją subskrypcję za pomocą polecenia [Connect-AzAccount](/powershell/azure/authenticate-azureps). Użyj flagi `-tenant` , aby wymusić uwierzytelnienie w poprawnym katalogu.
+Zaloguj się do katalogu zawierającego swoją subskrypcję za pomocą polecenia [Connect-AzAccount](/powershell/azure/authenticate-azureps). Użyj `-tenant` flagi, aby wymusić uwierzytelnienie w poprawnym katalogu.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
@@ -141,7 +141,7 @@ Następnie przejdź do subskrypcji, którą chcesz umieścić w projekcie w dzie
 Select-AzSubscription <subscription ID>
 ```
 
-Na koniec Wdróż pobrane i zaktualizowane wcześniej pliki szablonu Azure Resource Manager i parametrów. Zastąp `Location`odpowiednio `TemplateFile`wartości, `TemplateParameterFile` i.
+Na koniec Wdróż pobrane i zaktualizowane wcześniej pliki szablonu Azure Resource Manager i parametrów. Zastąp `Location` `TemplateFile` `TemplateParameterFile` odpowiednio wartości, i.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -193,7 +193,7 @@ Parameters              :
 
 Po wdrożeniu szablonu może upłynąć kilka minut, zanim będzie można wykonać projekcję zasobu. Może być konieczne odczekanie kilku minut (zazwyczaj nie więcej niż pięć) przed przejściem do następnej sekcji, aby wybrać subskrypcję.
 
-## <a name="select-your-subscription"></a>Wybierz swoją subskrypcję
+## <a name="select-your-subscription"></a>Wybieranie subskrypcji
 
 Po wdrożeniu szablonu i poczekaj kilka minut na ukończenie projekcji zasobów Skojarz swoją subskrypcję z katalogiem Azure AD B2C, wykonując poniższe kroki.
 

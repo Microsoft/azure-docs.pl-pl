@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 5577a9847ff405397c553028a6dfdf2df80d03fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371836"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210375"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning vs Machine Learning Studio (klasyczny)
 
@@ -29,7 +29,7 @@ W poniższej tabeli zestawiono niektóre kluczowe różnice między Azure Machin
 
 | | Usługa Machine Learning Studio (klasyczna) | Azure Machine Learning |
 |---| --- | --- |
-| Przeciąganie i upuszczanie interfejsu | Obsługiwane | Obsługiwane — [projektant Azure Machine Learning (wersja zapoznawcza)](concept-designer.md) | 
+| Przeciąganie i upuszczanie interfejsu | Obsługiwane | Obsługiwane — [projektant Azure Machine Learning (wersja zapoznawcza)](concept-designer.md) <br/>(Wymaga obszaru roboczego przedsiębiorstwa) | 
 | Experiment | Skalowalne (limit danych szkolenia 10 GB) | Skalowanie za pomocą elementu docelowego obliczeń |
 | Szkoleniowe cele obliczeniowe | Własnościowy obiekt docelowy obliczeń, tylko obsługa procesora CPU | Szeroki zakres dostosowywalnych [obiektów docelowych obliczeń szkoleniowych](concept-compute-target.md#train). Obejmuje obsługę procesora GPU i procesorów | 
 | Cele obliczeń wdrożenia | Własny format usługi sieci Web, niedostosowywalny | Szeroka gama [elementów docelowych obliczeniowych wdrożenia](concept-compute-target.md#deploy). Obejmuje obsługę procesora GPU i procesorów |

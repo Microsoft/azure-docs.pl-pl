@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 5e6a0586bc750f8972586920c15dbb297295aa20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48a5c192051d8e715deb7e354827ff4cd4152bcd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371277"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077885"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Tworzenie aplikacji usługi HDInsight platformy .NET z uwierzytelnianiem nieinterakcyjnym
 
@@ -21,9 +21,9 @@ Uruchom aplikację usługi HDInsight Microsoft .NET Azure w ramach własnej toż
 
 W aplikacji nieinteraktywnej platformy .NET potrzebne są:
 
-* Identyfikator dzierżawy subskrypcji platformy Azure (nazywany również *identyfikatorem katalogu*). Zobacz [Pobieranie identyfikatora dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* Identyfikator klienta aplikacji Azure Active Directory (Azure AD). Zobacz [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) i [Pobieranie identyfikatora aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-* Klucz tajny aplikacji usługi Azure AD. Zobacz [Pobieranie klucza uwierzytelniania aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Identyfikator dzierżawy subskrypcji platformy Azure (nazywany również *identyfikatorem katalogu*). Zobacz [Pobieranie identyfikatora dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* Identyfikator klienta aplikacji Azure Active Directory (Azure AD). Zobacz [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) i [Pobieranie identyfikatora aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+* Klucz tajny aplikacji usługi Azure AD. Zobacz [Pobieranie klucza uwierzytelniania aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,9 +47,9 @@ Przypisywanie [roli](../role-based-access-control/built-in-roles.md)do aplikacji
 1. Utwórz aplikację konsolową języka C#.
 2. Dodaj następujące pakiety [NuGet](https://www.nuget.org/) :
 
-        Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
+    * `Install-Package Microsoft.Azure.Common.Authentication -Pre`
+    * `Install-Package Microsoft.Azure.Management.HDInsight -Pre`
+    * `Install-Package Microsoft.Azure.Management.Resources -Pre`
 
 3. Uruchom następujący kod:
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 1e48573c2b73c10f10f665b5b91759d54d79acdd
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 021999e1757993eea4bbfe3aec0bd68049a37e42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737669"
 ---
-# <a name="data-processing-optimization"></a>Optymalizacja przetwarzania danych
+# <a name="data-processing-optimization-for-apache-spark"></a>Optymalizacja przetwarzania danych dla Apache Spark
 
 W tym artykule omówiono sposób optymalizowania konfiguracji klastra Apache Spark w celu uzyskania najlepszej wydajności w usłudze Azure HDInsight.
 
@@ -47,7 +47,7 @@ Kolejność sprzężeń, szczególnie w bardziej złożonych zapytaniach. Zaczni
 
 Aby zarządzać równoległością sprzężeń kartezjańskiego, można dodać zagnieżdżone struktury, okna i prawdopodobnie pominąć jeden lub więcej kroków w zadaniu platformy Spark.
 
-## <a name="optimize-job-execution"></a>Optymalizuj wykonywanie zadania
+## <a name="optimize-job-execution"></a>Optymalizowanie wykonywania zadań
 
 * Pamięć podręczna w razie potrzeby, na przykład w przypadku używania danych dwa razy, należy ją buforować.
 * Emituj zmienne do wszystkich wykonawców. Zmienne są serializowane tylko raz, co powoduje szybsze wyszukiwanie.

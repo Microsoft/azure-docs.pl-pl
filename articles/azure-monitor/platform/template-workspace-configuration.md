@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768116"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Zarządzanie obszarem roboczym Log Analytics przy użyciu szablonów Azure Resource Manager
@@ -40,7 +39,7 @@ W poniższej tabeli wymieniono wersje interfejsu API dla zasobów używanych w t
 | Zasób | Typ zasobu | Wersja interfejsu API |
 |:---|:---|:---|
 | Workspace   | obszary robocze    | 2017-03-15 — wersja zapoznawcza |
-| Wyszukaj      | savedSearches | 2015-03-20 |
+| Wyszukiwanie      | savedSearches | 2015-03-20 |
 | Źródło danych | źródła danych   | 2015-11-01 — wersja zapoznawcza |
 | Rozwiązanie    | rozwiązania     | 2015-11-01 — wersja zapoznawcza |
 
@@ -51,7 +50,7 @@ Poniższy przykład tworzy obszar roboczy przy użyciu szablonu z komputera loka
 > [!WARNING]
 > Poniższy szablon służy do tworzenia obszaru roboczego Log Analytics i konfigurowania zbierania danych. Może to spowodować zmianę ustawień rozliczeń. Zapoznaj się [z dziennikami Azure monitor zarządzanie użyciem i kosztami](manage-cost-storage.md) , aby zrozumieć rozliczenia danych zebranych w log Analytics obszarze roboczym przed zastosowaniem ich w środowisku platformy Azure.
 
-W przypadku rezerwacji pojemności należy określić wybraną rezerwację pojemności do pozyskiwania danych, określając jednostkę `CapacityReservation` SKU i wartość w GB dla właściwości `capacityReservationLevel`. Poniższa lista zawiera szczegółowe informacje o obsługiwanych wartościach i zachowaniach podczas ich konfigurowania.
+W przypadku rezerwacji pojemności należy określić wybraną rezerwację pojemności do pozyskiwania danych, określając jednostkę SKU `CapacityReservation` i wartość w GB dla właściwości `capacityReservationLevel` . Poniższa lista zawiera szczegółowe informacje o obsługiwanych wartościach i zachowaniach podczas ich konfigurowania.
 
 - Po ustawieniu limitu rezerwacji nie można zmienić innej jednostki SKU w ciągu 31 dni.
 
@@ -155,7 +154,7 @@ W przypadku rezerwacji pojemności należy określić wybraną rezerwację pojem
 
 2. Edytuj szablon w celu spełnienia wymagań. Rozważ utworzenie [pliku parametrów Menedżer zasobów](../../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych. Zapoznaj się z tematem dokumentacja [szablonu Microsoft. OperationalInsights/Workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) , aby dowiedzieć się, jakie właściwości i wartości są obsługiwane. 
 
-3. Zapisz ten plik jako **deploylaworkspacetemplate. JSON** w folderze lokalnym.
+3. Zapisz ten plik jako **deploylaworkspacetemplate.jsw** folderze lokalnym.
 
 4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Za pomocą programu PowerShell lub wiersza polecenia można utworzyć obszar roboczy, określając nazwę i lokalizację obszaru roboczego w ramach polecenia. Nazwa obszaru roboczego musi być globalnie unikatowa w ramach wszystkich subskrypcji platformy Azure.
 

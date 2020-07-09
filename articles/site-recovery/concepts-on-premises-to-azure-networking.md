@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770496"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Nawiązywanie połączenia z maszynami wirtualnymi platformy Azure po przejściu w tryb failover z lokalnego 
 
@@ -96,7 +95,7 @@ Przechowywanie adresów IP wymaga wykonania następujących czynności:
 
 ### <a name="failover-example"></a>Przykład pracy awaryjnej
 
-Spójrzmy na przykład.
+Przyjrzyjmy się przykładowi.
 
 - Fikcyjny Bank Woodgrove firmy hostuje swoje aplikacje biznesowe w środowisku lokalnym, które obsługują swoje aplikacje mobilne na platformie Azure.
 - Łączą się z lokalnymi z platformą Azure za pośrednictwem sieci VPN typu lokacja-lokacja. 
@@ -149,11 +148,21 @@ Przed przejściem w tryb failover Określ ustawienia sieci i adres IP dla docelo
 
 ## <a name="get-new-ip-addresses"></a>Pobierz nowe adresy IP
 
-W tym scenariuszu maszyna wirtualna platformy Azure otrzymuje nowy adres IP po przejściu do trybu failover. Aktualizacja DNS służąca do aktualizowania rekordów dla maszyn z systemem failover w celu wskazywania adresu IP maszyny wirtualnej platformy Azure.
+W tym scenariuszu maszyna wirtualna platformy Azure otrzymuje nowy adres IP po przejściu do trybu failover. Aby skonfigurować nowy adres IP dla maszyny wirtualnej utworzonej po przejściu w tryb failover, można odwołać się do następujących kroków:
 
+1. Przejdź do **pozycji zreplikowane elementy**.
+2. Wybierz żądaną maszynę wirtualną platformy Azure.
+3. Wybierz pozycję **obliczenia i sieć** , a następnie wybierz pozycję **Edytuj**.
 
+     ![Dostosowywanie konfiguracji sieci trybu failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+
+4. Aby zaktualizować ustawienia sieci trybu failover, wybierz opcję **Edytuj** dla karty sieciowej, którą chcesz skonfigurować. Na następnej stronie, która zostanie otwarta, podaj odpowiedni, wstępnie utworzony adres IP w lokalizacji testowej pracy w trybie failover i w trybie failover.
+
+    ![Edytowanie konfiguracji karty sieciowej](media/azure-to-azure-customize-networking/nic-drilldown.png)
+
+5. Wybierz przycisk **OK**.
+
+Site Recovery będzie teraz przestrzegać tych ustawień i upewnić się, że maszyna wirtualna w trybie failover jest połączona z wybranym zasobem przy użyciu odpowiedniego adresu IP, jeśli jest dostępna w docelowym zakresie adresów IP. W tym scenariuszu nie ma potrzeby przełączania do trybu failover całej podsieci. Aktualizacja systemu DNS będzie wymagana do zaktualizowania rekordów dla maszyny przełączonej w tryb failover, aby wskazywała na nowy adres IP maszyny wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 [Dowiedz się więcej na temat](site-recovery-active-directory.md) replikowania lokalnych Active Directory i DNS na platformę Azure.
-
-

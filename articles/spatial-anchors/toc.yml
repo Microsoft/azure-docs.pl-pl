@@ -72,13 +72,13 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: W języku C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady dla usługi Azure Spatial Anchors (GitHub)
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Pojęcia
   items:
-    - name: Uwierzytelnianie
+    - name: Authentication
       href: concepts/authentication.md
     - name: Relacje kotwic
       href: concepts/anchor-relationships-way-finding.md
@@ -100,6 +100,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
     - name: SDK dla języka C++/WinRT (HoloLens)
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/mixed-reality/spatial-anchors-account
 - name: Zasoby
   items:
     - name: Informacje o wersji

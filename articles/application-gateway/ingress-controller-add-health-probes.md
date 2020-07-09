@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje na temat dodawania sond kondycji (g
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 8c8b8b0090877db7abc8fae0e44f928e8b10dcf5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795593"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808006"
 ---
 # <a name="add-health-probes-to-your-service"></a>Dodawanie sond kondycji do usługi
 Domyślnie kontroler transferu danych w ramach udostępniania protokołu HTTP GET dla uwidocznionych zasobników.
@@ -47,15 +47,15 @@ spec:
 
 Dokumentacja interfejsu API Kubernetes:
 * [Sondy kontenera](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [Akcja narzędzia HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+* [Akcja narzędzia HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`i `livenessProbe` są obsługiwane w przypadku skonfigurowania programu `httpGet`.
+> * `readinessProbe`i `livenessProbe` są obsługiwane w przypadku skonfigurowania programu `httpGet` .
 > * Sondowanie na porcie innym niż ten uwidoczniony w obszarze pod nie jest obecnie obsługiwane.
-> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` nie są obsługiwane.
+> * `HttpHeaders`, `InitialDelaySeconds` , `SuccessThreshold` nie są obsługiwane.
 
 ##  <a name="without-readinessprobe-or-livenessprobe"></a>Bez `readinessProbe` ani`livenessProbe`
-Jeśli powyższe sondy nie zostaną podane, kontroler transferu danych przychodzących przyjmuje założenie, że usługa jest `Path` dostępna dla `backend-path-prefix` adnotacji lub `path` określonego w `ingress` definicji usługi.
+Jeśli powyższe sondy nie zostaną podane, kontroler transferu danych przychodzących przyjmuje założenie, że usługa jest dostępna `Path` dla `backend-path-prefix` adnotacji lub `path` określonego w `ingress` definicji usługi.
 
 ## <a name="default-values-for-health-probe"></a>Wartości domyślne sondy kondycji
 Dla każdej właściwości, która nie może zostać wywnioskowana przez sondę gotowości/na żywo, ustawiane są wartości domyślne.

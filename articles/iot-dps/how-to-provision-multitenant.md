@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75434751"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Jak zapewnić obsługę wielodostępności 
@@ -304,7 +303,7 @@ Przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żąda
 
     ![Wyodrębnianie informacji o punkcie końcowym usługi Device Provisioning Service z bloku portalu](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. Otwórz **~/Azure-IoT-SDK-c/Provisioning\_Client/Samples/\_Prov\_dev\_Client Sample/\_Prov\_dla\_klienta deweloperskiego Sample. c** do edycji na obu maszynach wirtualnych.
+1. Otwórz **~/Azure-IoT-SDK-c/Provisioning \_ Client/Samples/Prov dev Client Sample \_ \_ \_ /Prov dla \_ klienta deweloperskiego \_ \_ Sample. c** do edycji na obu maszynach wirtualnych.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -316,7 +315,7 @@ Przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żąda
     static const char* id_scope = "0ne00002193";
     ```
 
-1. Znajdź definicję funkcji `main()` w tym samym pliku. Upewnij się, `hsm_type` że zmienna jest ustawiona `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` na tak, jak pokazano poniżej, aby dopasować metodę zaświadczania grupy rejestracji. 
+1. Znajdź definicję funkcji `main()` w tym samym pliku. Upewnij się, że `hsm_type` zmienna jest ustawiona na `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` tak, jak pokazano poniżej, aby dopasować metodę zaświadczania grupy rejestracji. 
 
     Zapisz zmiany w plikach na obu maszynach wirtualnych.
 
@@ -327,7 +326,7 @@ Przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żąda
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-1. Na obu maszynach wirtualnych Znajdź `prov_dev_set_symmetric_key_info()` wywołanie w **Prov\_dev\_Client\_Sample. c** , które jest oznaczone jako komentarz.
+1. Na obu maszynach wirtualnych Znajdź wywołanie `prov_dev_set_symmetric_key_info()` w **Prov \_ dev \_ Client \_ Sample. c** , które jest oznaczone jako komentarz.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -357,7 +356,7 @@ Przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żąda
     cmake --build . --target prov_dev_client_sample --config Debug
     ```
 
-1. Po pomyślnym zakończeniu kompilacji Uruchom **polecenie\_Prov\_dev\_Client Sample. exe** na obu maszynach wirtualnych, aby symulować urządzenie dzierżawy z każdego regionu. Należy zauważyć, że każde urządzenie jest przydzielono do centrum IoT dzierżawców najbliżej regionów symulowanego urządzenia.
+1. Po pomyślnym zakończeniu kompilacji Uruchom **Prov \_ dev \_ Client \_sample.exe** na obu maszynach wirtualnych w celu symulowania urządzenia dzierżawy z każdego regionu. Należy zauważyć, że każde urządzenie jest przydzielono do centrum IoT dzierżawców najbliżej regionów symulowanego urządzenia.
 
     Uruchom symulację:
     ```bash
@@ -398,7 +397,7 @@ Przykładowy kod symuluje sekwencję rozruchu urządzenia, która wysyła żąda
 
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z zasobami utworzonymi w tym artykule, możesz je pozostawić. Jeśli nie planujesz kontynuowania korzystania z zasobu, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w tym artykule, aby uniknąć niepotrzebnych opłat.
 

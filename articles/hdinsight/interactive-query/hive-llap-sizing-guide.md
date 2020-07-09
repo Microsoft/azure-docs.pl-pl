@@ -8,10 +8,9 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: a9b86f09ade0d437436779ef3e4a17fcdede2cf0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664963"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Przewodnik dotyczący zmiany wielkości klastra interakcyjnych zapytań usługi Azure HDInsight (Hive LLAP)
@@ -39,7 +38,7 @@ W tym dokumencie opisano rozmiar klastra interakcyjnych zapytań usługi HDInsig
 | tez. am. Resource. Memory. MB | 4096 (MB) | Ilość pamięci w MB, która ma być używana przez tez AppMaster |
 | Hive. serwer2. tez. Sessions. per. default. Queue | <number_of_worker_nodes> |Liczba sesji dla każdej kolejki o nazwie w elemencie Hive. serwer2. tez. default. Queues. Ta liczba odpowiada liczbie koordynatorów zapytań (tez AMs) |
 | Hive. tez. Container. size | 4096 (MB) | Określony rozmiar kontenera tez w MB |
-| Hive. llap. Demon. num. wykonawcy | 12 | Liczba modułów wykonujących na demona LLAP | 
+| hive.llap.daemon.num.executors | 12 | Liczba modułów wykonujących na demona LLAP | 
 | Hive. llap. IO. wątków. size | 12 | Rozmiar puli wątków dla programów wykonujących |
 | Hive. llap. Demon. przędz. Container. MB | 77824 (MB) | Całkowita ilość pamięci używana przez pojedyncze demoy LLAP (pamięć na demon)
 | Hive. llap. IO. Memory. size | 235520 (MB) | Rozmiar pamięci podręcznej w MB na LLAP demona dysku SSD jest włączony |
@@ -119,9 +118,9 @@ W przypadku węzła roboczego D14 v2 HDI 4,0 — Zalecana wartość to (80 GB �
 (W przypadku HDI 3,6 Zalecana wartość to **74 GB** , ponieważ należy zarezerwować dodatkowe ~ 2 GB dla suwaka am).  
 
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. Określanie liczby programów wykonujących na demona LLAP**  
-Konfiguracja: ***Hive. llap. Demon. num. wykonawcy***, ***Hive. llap. IO. Hive. size***
+Konfiguracja: ***hive.llap.daemon.num.executors***, ***Hive. llap. IO. wątków. size***
 
-***Hive. llap. Demon. num. wykonawcy***:   
+***Cutorshive.llap.daemon.num.exe***:   
 Ta konfiguracja określa liczbę modułów wykonujących, które mogą wykonywać równolegle zadania równoległe na demona LLAP. Ta wartość zależy od liczby rdzeni wirtualnych, ilości pamięci podawanej na wykonawcę i ilości całkowitej dostępnej pamięci dla demona LLAP. Zazwyczaj ta wartość powinna być możliwie najbliżej liczby rdzeni wirtualnych.
 Na maszynach wirtualnych z systemem D14 v2 jest 16 rdzeni wirtualnych. Jednak nie wszystkie rdzeni wirtualnych można wykonać, ponieważ inne usługi, takie jak Nodemanager, datanode, monitor metryk itd., wymagają również części dostępnych rdzeni wirtualnych. 
 

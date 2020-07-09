@@ -5,14 +5,14 @@ ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0db5482a48819074fc0552417aa79dbc2e5cf66
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71309947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120181"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Use Job Browser and Job View for Azure Data Lake Analytics (Korzystanie z przeglądarki zadań i widoku zadań dla usługi Azure Data Lake Analytics)
 Usługi Azure Data Lake Analytics archiwizują przesłane zadania w magazynie zapytań. W tym artykule dowiesz się, jak używać przeglądarki zadań i widoku zadań w Azure Data Lake Tools for Visual Studio, aby znaleźć historyczne informacje o zadaniu. 
@@ -160,7 +160,7 @@ Szczegóły zadania przedstawia szczegółowe informacje o zadaniu, w tym o skry
     Skrypt U-SQL zadania jest przechowywany w magazynie zapytań. Możesz wyświetlić oryginalny skrypt U-SQL i ponownie przesłać go, jeśli jest to konieczne.
 * Zasoby
   
-    Dane wyjściowe kompilacji zadania przechowywane w magazynie zapytań można znaleźć za pomocą zasobów. Na przykład można znaleźć "algebry. xml", który jest używany do wyświetlania grafu zadania, zarejestrowanych zestawów itd.
+    Dane wyjściowe kompilacji zadania przechowywane w magazynie zapytań można znaleźć za pomocą zasobów. Na przykład można znaleźć "algebra.xml", który jest używany do wyświetlania grafu zadania, zarejestrowanych zestawów itd.
 * Widok wykonywania wierzchołka
   
     Pokazuje szczegóły wykonania wierzchołków. Profil zadania archiwizuje każdy dziennik wykonywania wierzchołków, taki jak całkowita ilość danych odczytywanych/zapisywana, środowisko uruchomieniowe, stan itp. Za pomocą tego widoku możesz uzyskać więcej szczegółowych informacji na temat sposobu uruchomienia zadania. Aby uzyskać więcej informacji, zobacz [Korzystanie z widoku wykonywania wierzchołka w Data Lake narzędzia dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

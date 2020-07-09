@@ -1,37 +1,37 @@
 ---
 title: Łączenie z programem Excel
-description: Dowiedz się, jak połączyć program Microsoft Excel z Azure SQL Database. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
+description: Dowiedz się, jak połączyć program Microsoft Excel z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: joseidz
-ms.author: craigg
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/12/2019
-ms.openlocfilehash: 08bf78e6cc548ed717d6bc57946067a16ec13e2b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267515"
 ---
-# <a name="connect-excel-to-azure-sql-database-and-create-a-report"></a>Łączenie programu Excel z Azure SQL Database i Tworzenie raportu
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Łączenie programu Excel z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL i Tworzenie raportu
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Połącz program Excel, aby Azure SQL Database i zaimportować dane oraz utworzyć tabele i wykresy na podstawie wartości w bazie danych. W tym samouczku skonfigurujesz połączenie między programem Excel i tabelą bazy danych, zapiszesz plik przechowujący dane oraz informacje o połączeniu dla programu Excel, a następnie utworzysz wykres przestawny z wartościami bazy danych.
+Program Excel można połączyć z bazą danych, a następnie zaimportować dane oraz utworzyć tabele i wykresy na podstawie wartości w bazie danych. W tym samouczku skonfigurujesz połączenie między programem Excel i tabelą bazy danych, zapiszesz plik przechowujący dane oraz informacje o połączeniu dla programu Excel, a następnie utworzysz wykres przestawny z wartościami bazy danych.
 
-Aby rozpocząć, musisz mieć SQL Database. Jeśli go nie masz, zobacz [tworzenie Azure SQL Database](single-database-create-quickstart.md) i [Tworzenie zapory IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md) , aby uzyskać SQL Database z przykładowymi danymi, które można uruchomić w ciągu kilku minut.
+Przed rozpoczęciem należy utworzyć bazę danych. Jeśli go nie masz, zobacz [Tworzenie bazy danych w Azure SQL Database](single-database-create-quickstart.md) i [Tworzenie zapory IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md) , aby uzyskać bazę danych z przykładowymi danymi, które można uruchomić w ciągu kilku minut.
 
 W tym artykule zaimportujesz przykładowe dane do programu Excel z tego artykułu, ale możesz wykonać podobne kroki z własnymi danymi.
 
 Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano program [Microsoft Excel 2016](https://products.office.com/).
 
-## <a name="connect-excel-to-a-sql-database-and-load-data"></a>Łączenie programu Excel z SQL Database i ładowanie danych
+## <a name="connect-excel-and-load-data"></a>Łączenie programu Excel i ładowanie danych
 
-1. Aby połączyć program Excel z SQL Database, Otwórz program Excel, a następnie utwórz nowy skoroszyt lub Otwórz istniejący skoroszyt programu Excel.
+1. Aby połączyć program Excel z bazą danych w SQL Database, Otwórz program Excel, a następnie utwórz nowy skoroszyt lub Otwórz istniejący skoroszyt programu Excel.
 2. Na pasku menu w górnej części strony wybierz kartę **dane** , wybierz pozycję **Pobierz dane**, wybierz pozycję z platformy Azure, a następnie wybierz pozycję **z Azure SQL Database**.
 
    ![Wybierz źródło danych: Połącz program Excel z SQL Database.](./media/connect-excel/excel_data_source.png)
@@ -53,7 +53,7 @@ Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano pr
 
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importowanie danych do programu Excel i tworzenie wykresu przestawnego
 
-Po nawiązaniu połączenia masz kilka różnych opcji dotyczących ładowania danych. Na przykład poniższe kroki tworzą wykres przestawny na podstawie danych znalezionych w SQL Database.
+Po nawiązaniu połączenia masz kilka różnych opcji dotyczących ładowania danych. Na przykład poniższe kroki tworzą wykres przestawny na podstawie danych znalezionych w bazie danych w SQL Database.
 
 1. Wykonaj kroki opisane w poprzedniej sekcji, ale tym razem zamiast wybierania **obciążenia**, wybierz pozycję **Załaduj do na** liście rozwijanej **ładowania** .
 2. Następnie wybierz sposób wyświetlania tych danych w skoroszycie. Wybrano **Wykres przestawny**. Można również utworzyć **Nowy arkusz** lub wybrać opcję **Dodaj te dane do modelu danych**. Więcej informacji o modelach danych można znaleźć w temacie [Tworzenie modelu danych w programie Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B).
@@ -79,10 +79,10 @@ Aby trwale zapisać szczegóły połączenia, można utworzyć plik odc i wybra�
 
       ![Nowe połączenie — okno dialogowe](./media/connect-excel/new-connection.png)
 
-2. W **Kreatorze połączenia danych**wpisz nazwę serwera i poświadczenia SQL Database. Wybierz opcję **Dalej**.
+2. W **Kreatorze połączenia danych**wpisz nazwę serwera i poświadczenia SQL Database. Wybierz pozycję **Dalej**.
    1. Wybierz z listy rozwijanej bazę danych zawierającą dane.
    2. Wybierz tabelę lub widok, który Cię interesuje. Wybrano vGetAllCategories.
-   3. Wybierz opcję **Dalej**.
+   3. Wybierz pozycję **Dalej**.
 
       ![Kreator połączenia danych](./media/connect-excel/data-connection-wizard.png)
 
@@ -100,6 +100,6 @@ Aby trwale zapisać szczegóły połączenia, można utworzyć plik odc i wybra�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby wykonywać zaawansowane zapytania i analizy, zobacz temat [Connect to SQL Database with SQL Server Management Studio](connect-query-ssms.md) (Nawiązywanie połączenia z usługą SQL Database za pomocą programu SQL Server Management Studio).
+* Dowiedz się [, jak nawiązywać połączenia i wykonywać zapytania przy użyciu SQL Server Management Studio](connect-query-ssms.md) na potrzeby zaawansowanego wykonywania zapytań i analizy.
 * Dowiedz się, jakie zalety mają [pule elastyczne](elastic-pool-overview.md).
-* Dowiedz się, jak [utworzyć aplikację internetową, która łączy się z bazą danych SQL Database zaplecza](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
+* Dowiedz się [, jak utworzyć aplikację sieci Web, która łączy się z Azure SQL Database na zapleczu](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

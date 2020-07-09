@@ -1,71 +1,71 @@
 ---
-title: Korzystanie z maszyn wirtualnych do nauki o danych platformy Azure
-description: Dowiedz się, jak połączyć się z maszyną wirtualną do nauki o danych platformy Azure (DSVM), aby rozszerzyć moc obliczeniową dostępną do usługi Azure Notebooks Preview.
+title: Korzystanie z usługi Azure Data Science Virtual Machines
+description: Dowiedz się, jak nawiązać połączenie z usługą Azure Data Science Virtual Machine (DSVM), aby zwiększyć moc obliczeniową dostępną dla Azure Notebooks wersji zapoznawczej.
 author: getroyer
 manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: b4da63b7b2a6da4316215b85a09ca7420745251c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898399"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830314"
 ---
-# <a name="use-azure-data-science-virtual-machines"></a>Korzystanie z maszyn wirtualnych do nauki o danych platformy Azure
-
-Domyślnie projekty są uruchamiane w warstwie **Wolne obliczenia,** która jest ograniczona do 4 GB pamięci i 1 GB danych, aby zapobiec nadużyciom. Można pominąć te ograniczenia przy użyciu innej maszyny wirtualnej, które zostały aprowidzone w ramach subskrypcji platformy Azure. W tym celu najlepszym wyborem jest maszyna wirtualna do nauki o danych platformy Azure (DSVM) przy użyciu obrazu **maszyny wirtualnej do nauki o danych dla systemu Linux (Ubuntu).** Taki dsvm jest wstępnie skonfigurowany ze wszystkim, czego potrzebujesz dla notesów platformy Azure i pojawia się automatycznie na liście rozwijanej **Uruchom** w notesach platformy Azure.
-
-> [!Note]
-> Notesy platformy Azure jest obsługiwany tylko na dsvms utworzone za pomocą obrazu Ubuntu systemu Linux. Notesy nie są obsługiwane w obrazach systemu Windows 2012, Windows 2016 ani Linux CentOS.
+# <a name="use-azure-data-science-virtual-machines"></a>Korzystanie z usługi Azure Data Science Virtual Machines
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
+Domyślnie projekty są uruchamiane w **bezpłatnej warstwie obliczeniowej** , co jest ograniczone do 4 GB pamięci i 1 GB danych, aby zapobiec nadużyciu. Te ograniczenia można ominąć przy użyciu innej maszyny wirtualnej, która została zainicjowana w ramach subskrypcji platformy Azure. W tym celu najlepszym wyborem jest Data Science Virtual Machine platformy Azure (DSVM) przy użyciu obrazu **Data Science Virtual Machine for Linux (Ubuntu)** . Taki DSVM jest wstępnie skonfigurowany z wszystko, czego potrzebujesz do Azure Notebooks i pojawia się automatycznie na liście rozwijanej **uruchamiania** w Azure Notebooks.
+
+> [!Note]
+> Azure Notebooks jest obsługiwana tylko na DSVMs utworzonych przy użyciu obrazu Ubuntu w systemie Linux. Notesy nie są obsługiwane w obrazach CentOS systemu Windows 2012, Windows 2016 lub Linux.
+
 ## <a name="create-a-dsvm-instance"></a>Tworzenie wystąpienia DSVM
 
-Aby utworzyć nowe wystąpienie DSVM, postępuj zgodnie z instrukcjami [dotyczącymi Tworzenie maszyny wirtualnej do nauki o danych Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Aby uzyskać więcej informacji, w tym szczegóły dotyczące cen, zobacz [Maszyny wirtualne do nauki o danych](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Aby utworzyć nowe wystąpienie DSVM, postępuj zgodnie z instrukcjami dotyczącymi [tworzenia Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Aby uzyskać więcej informacji, w tym informacje o cenach, zobacz [Virtual Machines analizy danych](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
-## <a name="connect-to-the-dsvm"></a>Łączenie się z dsvm
+## <a name="connect-to-the-dsvm"></a>Połącz z DSVM
 
-Po utworzeniu dsvm, wybierz listę rozwijaną **Uruchom** na pulpicie nawigacyjnym projektu notesów platformy Azure i wybierz odpowiednie wystąpienie DSVM. Lista rozwijana pokazuje wystąpienia DSVM, jeśli spełnione są następujące warunki:
+Po utworzeniu DSVM wybierz listę rozwijaną **uruchamiania** na pulpicie nawigacyjnym projektu Azure Notebooks i wybierz odpowiednie wystąpienie DSVM. Lista rozwijana zawiera wystąpienia DSVM, jeśli są spełnione następujące warunki:
 
-- Zalogujesz się do notesów platformy Azure przy użyciu konta korzystającego z usługi Azure Active Directory (AAD), takiego jak konto firmowe.
+- Zalogowano się do Azure Notebooks przy użyciu konta korzystającego z usługi Azure Active Directory (AAD), np. konta firmowego.
 - Twoje konto jest połączone z subskrypcją platformy Azure.
-- Masz co najmniej jedną maszynę wirtualną w tej subskrypcji, z co najmniej dostępem czytnika, który używa obrazu maszyny wirtualnej nauki o danych dla systemu Linux (Ubuntu).You have one in a more virtual machines in that subscription, with at least Reader access, that uses the Data Science Virtual Machine for Linux (Ubuntu) image.)
+- W tej subskrypcji masz co najmniej jedną maszynę wirtualną z dostępem do czytnika, która używa obrazu Data Science Virtual Machine dla systemu Linux (Ubuntu).
 
-![Wystąpienia maszyny wirtualnej nauki o danych na liście rozwijanej na pulpicie nawigacyjnym projektu](media/project-compute-tier-dsvm.png)
+![Wystąpienia Data Science Virtual Machine na liście rozwijanej na pulpicie nawigacyjnym projektu](media/project-compute-tier-dsvm.png)
 
-Po wybraniu wystąpienia DSVM notesy platformy Azure może monitować o poświadczenia określonego komputera używane podczas tworzenia maszyny wirtualnej.
+Po wybraniu wystąpienia DSVM, Azure Notebooks może monitować o podanie określonych poświadczeń komputera używanych podczas tworzenia maszyny wirtualnej.
 
 > [!Important]
-> Nazwa użytkownika musi być małe litery, aby używać go z JupyterHub.
+> Nazwa użytkownika musi być mała, aby można jej było używać z JupyterHub.
 
-Jeśli którykolwiek z warunków nie są spełnione, nadal można połączyć się z DSVM. Na liście rozwijanej wybierz opcję **Bezpośrednie obliczanie,** która monituje o nazwę (do wyświetlenia na liście), adres IP maszyny Wirtualnej i port (zazwyczaj 8000, domyślny port, do którego nasłuchuje JupyterHub) i poświadczenia maszyny Wirtualnej:
+Jeśli którykolwiek z warunków nie zostanie spełniony, nadal możesz połączyć się z DSVM. Z listy rozwijanej wybierz opcję przetwarzanie **bezpośrednie** , która wyświetla komunikat o nazwie (do wyświetlenia na liście), adres IP i port maszyny wirtualnej (zazwyczaj 8000, domyślny port, do którego nasłuchuje JupyterHub) i poświadczenia maszyny wirtualnej:
 
-![Monitowanie o zbieranie informacji o serwerze dla opcji Obliczenia bezpośrednie](media/project-compute-tier-direct.png)
+![Monituj o zbieranie informacji o serwerze dla opcji przetwarzania bezpośredniego](media/project-compute-tier-direct.png)
 
-Te wartości można uzyskać ze strony DSVM w witrynie Azure portal.
+Te wartości są uzyskiwane ze strony DSVM w Azure Portal.
 
-## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Uzyskiwanie dostępu do plików notesów platformy Azure z systemu DSVM
+## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Uzyskiwanie dostępu do plików Azure Notebooks z DSVM
 
-Dostęp do systemu plików jest obsługiwany dla dsvm w wersji 19.06.15 lub nowszej. Aby sprawdzić wersję, najpierw połącz się ze urządzeniem DSVM `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` za pośrednictwem protokołu SSH, a następnie uruchom następujące polecenie: (należy użyć dokładnego adresu IP pokazanego tutaj). Numer wersji jest wyświetlany na wyjściu dla "version".
+Dostęp do systemu plików jest obsługiwany w DSVM wersjach 19.06.15 lub nowszych. Aby sprawdzić wersję, najpierw Połącz się z usługą DSVM za pośrednictwem protokołu SSH, a następnie uruchom następujące polecenie: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (należy użyć dokładnego adresu IP podanego w tym miejscu). Numer wersji jest pokazywany w danych wyjściowych dla "wersja".
 
-Aby zachować parzystość ścieżek plików w warstwie **Wolne obliczenia,** można otworzyć tylko jeden projekt naraz na dsvm. Aby otworzyć nowy projekt, należy najpierw zamknąć otwarty projekt.
+Aby zachować zgodność ścieżek plików z bezpłatną warstwą **obliczeniową** , można otworzyć tylko jeden projekt na raz w DSVM. Aby otworzyć nowy projekt, należy najpierw zamknąć otwarty projekt.
 
-Gdy projekt jest uruchamiany na maszynie wirtualnej, pliki są instalowane w katalogu głównym serwera Jupyter (katalog pokazany w usłudze JupyterHub), zastępując domyślne pliki notesów platformy Azure. Po zamknięciu maszyny Wirtualnej przy użyciu przycisku **Zamykanie** w interfejsie użytkownika notesu notesy przywracają pliki domyślne.
+Gdy projekt jest uruchamiany na maszynie wirtualnej, pliki są instalowane w katalogu głównym serwera Jupyter (katalog przedstawiony w JupyterHub), zastępując domyślne pliki Azure Notebooks. Po wyłączeniu maszyny wirtualnej za pomocą przycisku **zamykania** w interfejsie użytkownika notesu Azure Notebooks przywraca domyślne pliki.
 
-![Przycisk Zamykanie w notesach platformy Azure](media/shutdown.png)
+![Przycisk zamykania w Azure Notebooks](media/shutdown.png)
 
 ## <a name="create-new-dsvm-users"></a>Tworzenie nowych użytkowników DSVM
 
-Jeśli wielu użytkowników współużytkuje dsvm, można uniknąć blokowania siebie nawzajem, tworząc i używając użytkownika DSVM dla każdego użytkownika notesu:
+Jeśli wielu użytkowników współużytkuje DSVM, można uniknąć zablokowania siebie przez utworzenie i użycie użytkownika DSVM dla każdego użytkownika notesu:
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do maszyny wirtualnej.
-1. W obszarze **Obsługa + rozwiązywanie problemów** na lewym marginesie wybierz pozycję **Resetuj hasło**.
-1. Wprowadź nową **nazwę użytkownika**. Nazwa użytkownika musi być małe litery, aby używać go z JupyterHub. Wprowadź hasło. Następnie wybierz pozycję **Aktualizuj**. (Nie ma to wpływu na istniejące nazwy użytkowników).
-1. Powtórz poprzedni krok dla wszystkich dodatkowych użytkowników.
+1. Na [Azure Portal](https://portal.azure.com)przejdź do maszyny wirtualnej.
+1. W obszarze **Pomoc techniczna i rozwiązywanie problemów** na lewym marginesie wybierz pozycję **Resetuj hasło**.
+1. Wprowadź nową **nazwę użytkownika**. Nazwa użytkownika musi być mała, aby można jej było używać z JupyterHub. Wprowadź hasło. Następnie wybierz pozycję **Aktualizuj**. (Nie dotyczy to istniejących nazw użytkowników).
+1. Powtórz poprzedni krok dla każdego dodatkowego użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o maszynach wirtualnych DSVM [na temat wprowadzenie do maszyn wirtualnych do nauki o danych platformy Azure.](/azure/machine-learning/data-science-virtual-machine/overview)
+Dowiedz się więcej o DSVMs na temat [wprowadzenia do analizy danych na platformie Azure Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).

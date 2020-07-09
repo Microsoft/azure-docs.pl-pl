@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
 ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81410854"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>SIECIOWEJ grupy zabezpieczeń Tagi usług dla usługi Azure HDInsight
@@ -30,7 +30,7 @@ Dostępne są dwie opcje używania tagów usługi w sieciowych grupach zabezpiec
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Użyj jednego globalnego tagu usługi HDInsight
 
-Najprostszym sposobem rozpoczęcia korzystania z tagów usług w klastrze usługi HDInsight jest dodanie tagu `HDInsight` globalnego do reguły sieciowej grupy zabezpieczeń.
+Najprostszym sposobem rozpoczęcia korzystania z tagów usług w klastrze usługi HDInsight jest dodanie tagu globalnego `HDInsight` do reguły sieciowej grupy zabezpieczeń.
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz grupę zabezpieczeń sieci.
 
@@ -74,7 +74,7 @@ Jeśli klaster znajduje się w regionie wymienionym w tej tabeli, wystarczy doda
 | Francja | Francja Środkowa| HDInsight. FranceCentral |
 | Zjednoczone Królestwo | Południowe Zjednoczone Królestwo | HDInsight. UKSouth |
 | Azure Government | USDoD środkowe | HDInsight. USDoDCentral |
-| &nbsp; | USGov Texas | HDInsight. USGovTexas |
+| &nbsp; | USGov Teksas | HDInsight. USGovTexas |
 | &nbsp; | UsDoD wschód | HDInsight. USDoDEast |
 | &nbsp; | USGov Arizona | HDInsight. USGovArizona |
 
@@ -86,7 +86,7 @@ Pozostałe regiony są podzielone na grupy w oparciu o używane przez nie Tagi u
 
 #### <a name="group-1"></a>Grupa 1
 
-Jeśli klaster jest tworzony w jednym z regionów w poniższej tabeli, Zezwól na Tagi `HDInsight.WestUS` usługi i. `HDInsight.EastUS` Ponadto znajduje się na nim tag usługi regionalnej. Regiony w tej sekcji wymagają trzech tagów usługi.
+Jeśli klaster jest tworzony w jednym z regionów w poniższej tabeli, Zezwól na Tagi usługi `HDInsight.WestUS` i `HDInsight.EastUS` . Ponadto znajduje się na nim tag usługi regionalnej. Regiony w tej sekcji wymagają trzech tagów usługi.
 
 Na przykład jeśli klaster jest tworzony w `East US 2` regionie, należy dodać następujące znaczniki usługi do sieciowej grupy zabezpieczeń:
 
@@ -111,15 +111,15 @@ Na przykład jeśli klaster jest tworzony w `East US 2` regionie, należy dodać
 
 #### <a name="group-2"></a>Grupa 2
 
-Klastry w regionach *Chiny Północne* i *Chiny Wschodnie* muszą zezwalać na dwa Tagi usługi: `HDInsight.ChinaNorth` i `HDInsight.ChinaEast`.
+Klastry w regionach *Chiny Północne* i *Chiny Wschodnie* muszą zezwalać na dwa Tagi usługi: `HDInsight.ChinaNorth` i `HDInsight.ChinaEast` .
 
 #### <a name="group-3"></a>Grupa 3
 
-Klastry w regionach *US gov Iowa* i *US gov Wirginia* muszą zezwalać na dwa Tagi usługi: `HDInsight.USGovIowa` i `HDInsight.USGovVirginia`.
+Klastry w regionach *US gov Iowa* i *US gov Wirginia* muszą zezwalać na dwa Tagi usługi: `HDInsight.USGovIowa` i `HDInsight.USGovVirginia` .
 
 #### <a name="group-4"></a>Grupa 4
 
-Klastry w regionach *Niemiec środkowe* i *Niemcy północ* muszą zezwalać na dwie znaczniki usługi: `HDInsight.GermanyCentral` i `HDInsight.GermanyNortheast`.
+Klastry w regionach *Niemiec środkowe* i *Niemcy północ* muszą zezwalać na dwie znaczniki usługi: `HDInsight.GermanyCentral` i `HDInsight.GermanyNortheast` .
 
 ## <a name="next-steps"></a>Następne kroki
 

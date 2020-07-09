@@ -1,21 +1,21 @@
 ---
-title: Jak wdrażać modele w wystąpieniach obliczeniowych
+title: Wdrażanie modeli w wystąpieniach obliczeniowych
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak wdrażać modele Azure Machine Learning jako usługę sieci Web przy użyciu wystąpień obliczeniowych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f2872becd5fb23c71fabb63fb4eafe27c00a637
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756577"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106972"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Wdrażanie modelu w celu Azure Machine Learning wystąpień obliczeniowych
 
@@ -39,19 +39,19 @@ Przykładowy Notes, który pokazuje lokalne wdrożenia, jest uwzględniony w wys
 
 1. W programie [Azure Machine Learning Studio](https://ml.azure.com)wybierz Azure Machine Learning wystąpienia obliczeniowe.
 
-1. `samples-*` Otwórz podkatalog, a następnie otwórz `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Po otwarciu Uruchom Notes.
+1. Otwórz `samples-*` podkatalog, a następnie otwórz `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Po otwarciu Uruchom Notes.
 
     ![Zrzut ekranu przedstawiający uruchomioną usługę lokalną w notesie](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Notes wyświetla adres URL i port, na którym uruchomiono usługę. Na przykład `https://localhost:6789`. Możesz również uruchomić komórkę zawierającą `print('Local service port: {}'.format(local_service.port))` , aby wyświetlić port.
+1. Notes wyświetla adres URL i port, na którym uruchomiono usługę. Na przykład `https://localhost:6789`. Możesz również uruchomić komórkę zawierającą, `print('Local service port: {}'.format(local_service.port))` Aby wyświetlić port.
 
     ![Zrzut ekranu z uruchomionym portem usługi lokalnej](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
 1. Aby przetestować usługę z wystąpienia obliczeniowego, użyj `https://localhost:<local_service.port>` adresu URL. Aby przetestować klienta zdalnego, uzyskaj publiczny adres URL usługi uruchomionej w wystąpieniu obliczeniowym. Publiczny adres URL można określić przy użyciu następującej formuły: 
-    * Maszyna wirtualna notesu: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
-    * Wystąpienie obliczeniowe `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`:. 
+    * Maszyna wirtualna notesu: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
+    * Wystąpienie obliczeniowe: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
-    Na przykład: 
+    Na przykład 
     * Maszyna wirtualna notesu:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
     * Wystąpienie obliczeniowe:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
 

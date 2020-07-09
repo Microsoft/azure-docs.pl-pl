@@ -6,16 +6,15 @@ keywords: Ulubione, Portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: d6b580accb02efb6a44c0c245af583d2e3850409
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310819"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764132"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Dodawanie, usuwanie i zmiana rozmieszczenia ulubionych
 
@@ -23,7 +22,7 @@ Dodaj lub Usuń elementy z listy **ulubionych** , aby szybko przejść do najcz�
 
 ## <a name="add-a-favorite"></a>Dodawanie ulubionych
 
-Elementy znajdujące się na liście **ulubionych** są wybierane ze **wszystkich usług**. Umieść wskaźnik myszy nad nazwą usługi, aby wyświetlić informacje i zasoby związane z usługą. Ikona wypełnionej gwiazdki ![wypełnionej ikoną](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) gwiazdki obok nazwy usługi wskazuje, że element pojawia się na liście **Ulubione** . Wybierz ikonę gwiazdki, aby dodać usługę do listy **ulubionych** .
+Elementy znajdujące się na liście **ulubionych** są wybierane ze **wszystkich usług**. Umieść wskaźnik myszy nad nazwą usługi, aby wyświetlić informacje i zasoby związane z usługą. Ikona wypełnionej gwiazdki ![ wypełnionej ikoną gwiazdki ](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) obok nazwy usługi wskazuje, że element pojawia się na liście **Ulubione** . Wybierz ikonę gwiazdki, aby dodać usługę do listy **ulubionych** .
 
 ### <a name="add-cost-management--billing-to-favorites"></a>Dodawanie Cost Management i rozliczeń do ulubionych
 

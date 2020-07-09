@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890469"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Strumienie urządzeń IoT Hub (wersja zapoznawcza)
@@ -22,7 +21,7 @@ ms.locfileid: "73890469"
 
 Przy użyciu strumieni urządzeń IoT Hub urządzenia pozostają bezpieczne i będą musiały otwierać wychodzące połączenia TCP do punktu końcowego przesyłania strumieniowego usługi IoT Hub przez port 443. Po ustanowieniu strumienia aplikacje po stronie usług i po stronie urządzenia będą miały dostęp programistyczny do obiektu klienta WebSocket w celu wysyłania i odbierania nieprzetworzonych bajtów do siebie. Gwarancje niezawodności i porządkowania zapewniane przez ten tunel są z użyciem protokołu TCP.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 IoT Hub strumienie urządzeń zapewniają następujące korzyści:
 
@@ -82,7 +81,7 @@ Zarówno urządzenie, jak i po stronie usługi strumienia urządzenia musi mieć
 
 !["Punkty końcowe strumienia urządzenia"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-Alternatywnie informacje o punktach końcowych można pobrać przy użyciu interfejsu wiersza polecenia platformy Azure w sekcji Właściwości centrum `property.hostname` , `property.deviceStreams` w tym w oddziałach i kluczach.
+Alternatywnie informacje o punktach końcowych można pobrać przy użyciu interfejsu wiersza polecenia platformy Azure w sekcji Właściwości centrum, w tym w oddziałach `property.hostname` i `property.deviceStreams` kluczach.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>
@@ -106,7 +105,7 @@ Dane wyjściowe to obiekt JSON wszystkich punktów końcowych, do których może
 
 Jak wspomniano na początku tego artykułu, urządzenie tworzy połączenie wychodzące do IoT Hub punktu końcowego przesyłania strumieniowego podczas procesu inicjowania strumieni urządzeń. Zapory na urządzeniu lub jego sieci muszą zezwalać na łączność wychodzącą z bramą przesyłania strumieniowego przez port 443 (należy zauważyć, że komunikacja odbywa się za pośrednictwem połączenia protokołu WebSocket zaszyfrowanego przy użyciu protokołu TLS).
 
-Nazwę hosta punktu końcowego przesyłania strumieniowego urządzeń można znaleźć w portalu usługi Azure IoT Hub na karcie Przegląd. !["punkty końcowe strumienia urządzenia"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+Nazwę hosta punktu końcowego przesyłania strumieniowego urządzeń można znaleźć w portalu usługi Azure IoT Hub na karcie ![ Omówienie. Punkty końcowe strumienia urządzenia "](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 Możesz również znaleźć te informacje za pomocą interfejsu wiersza polecenia platformy Azure:
 
@@ -132,7 +131,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować Azure Monitor d
 
     !["Włączanie dzienników strumieni urządzeń"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
 
-3. Teraz możesz uzyskiwać dostęp do dzienników strumieni urządzeń na karcie *dzienniki* w portalu IoT Hub. Dzienniki aktywności strumienia urządzeń będą widoczne w `AzureDiagnostics` tabeli i mają. `Category=DeviceStreams`
+3. Teraz możesz uzyskiwać dostęp do dzienników strumieni urządzeń na karcie *dzienniki* w portalu IoT Hub. Dzienniki aktywności strumienia urządzeń będą widoczne w `AzureDiagnostics` tabeli i mają `Category=DeviceStreams` .
 
    Jak pokazano poniżej, tożsamość urządzenia docelowego i wynik operacji są również dostępne w dziennikach.
 
@@ -168,7 +167,7 @@ Oto przykłady ECHA:
 
 * [Program usług i usług w języku C#](quickstart-device-streams-echo-csharp.md)
 
-* [Program usługi Node. js](quickstart-device-streams-echo-nodejs.md)
+* [ProgramNode.js Service](quickstart-device-streams-echo-nodejs.md)
 
 * [Program urządzenia C](quickstart-device-streams-echo-c.md)
 
@@ -204,7 +203,7 @@ Skorzystaj z poniższych linków, aby uzyskać instrukcje dotyczące sposobu uru
 
 * [Program usług i usług w języku C#](quickstart-device-streams-proxy-csharp.md)
 
-* [Program usługi Node. js](quickstart-device-streams-proxy-nodejs.md)
+* [ProgramNode.js Service](quickstart-device-streams-proxy-nodejs.md)
 
 * [Program urządzenia C](quickstart-device-streams-proxy-c.md)
 

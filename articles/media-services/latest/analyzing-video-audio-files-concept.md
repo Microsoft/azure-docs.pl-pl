@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708964"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizowanie plików wideo i audio przy użyciu Azure Media Services
 
@@ -61,15 +60,15 @@ Ustawienie wstępne pozwala wyodrębnić wiele szczegółowych informacji audio 
 * **Moderowanie zawartości wizualnej**: część filmów wideo oflagowanych jako osoba dorosła lub erotycznej.
 * **Adnotacja**: Wynik dodawania adnotacji do filmów wideo opartych na wstępnie zdefiniowanym modelu obiektów
 
-## <a name="insightsjson-elements"></a>Insights. JSON — elementy
+## <a name="insightsjson-elements"></a>insights.jselementów
 
-Dane wyjściowe obejmują plik JSON (Insights. JSON) ze wszystkimi szczegółowymi informacjami znalezionymi w pliku wideo lub dźwiękiem. KOD JSON może zawierać następujące elementy:
+Dane wyjściowe obejmują plik JSON (insights.json) ze wszystkimi szczegółowymi informacjami znalezionymi w pliku wideo lub dźwiękiem. KOD JSON może zawierać następujące elementy:
 
 ### <a name="transcript"></a>zapisy
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator wiersza.|
+|identyfikator|Identyfikator wiersza.|
 |tekst|Samego transkrypcji.|
 |language|Język transkrypcji. Przeznaczone do obsługi transkrypcji, w których każdy wiersz może mieć inny język.|
 |Liczba|Lista przedziałów czasu, w których pojawił się ten wiersz. Jeśli wystąpienie jest transkrypcją, będzie miało tylko 1 wystąpienie.|
@@ -107,7 +106,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator wiersza OCR.|
+|identyfikator|Identyfikator wiersza OCR.|
 |tekst|Tekst OCR.|
 |ufność|Wiarygodność rozpoznawania.|
 |language|Język OCR.|
@@ -150,7 +149,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator kroju.|
+|identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0", zidentyfikowanego osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
 |description|Opis osobistości. |
@@ -158,7 +157,7 @@ Przykład:
 |knownPersonId|Wewnętrzny identyfikator (jeśli jest znaną osobą).|
 |referenceId|Identyfikator Bing (jeśli jest to osobistości Bing).|
 |referenceType|Obecnie tylko Bing.|
-|title|Tytuł (jeśli jest to osobistości — na przykład "dyrektor naczelny firmy Microsoft").|
+|tytuł|Tytuł (jeśli jest to osobistości — na przykład "dyrektor naczelny firmy Microsoft").|
 |imageUrl|Adres URL obrazu, jeśli jest to osobistości.|
 |Liczba|Wystąpienia, w których pojawiła się Strona w danym przedziale czasu. Każde wystąpienie ma również thumbnailsId. |
 
@@ -195,7 +194,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator zrzutu.|
+|identyfikator|Identyfikator zrzutu.|
 |Ramki kluczowe|Lista kluczowych klatek w ramach zrzutu (każdy ma identyfikator i listę zakresów czasu wystąpienia). Wystąpienia klatek kluczowych mają pole thumbnailId z IDENTYFIKATORem miniatury klatki kluczowej.|
 |Liczba|Lista zakresów czasu tego zrzutu (zrzuty mają tylko 1 wystąpienie).|
 
@@ -265,7 +264,7 @@ Mową są agregowane według pola sentimentType (pozytywna/neutralna/ujemna). Na
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator tonacji.|
+|identyfikator|Identyfikator tonacji.|
 |averageScore |Średnia wszystkich ocen wszystkich wystąpień tego typu tonacji — wartość dodatnia/neutralna/ujemna|
 |Liczba|Lista przedziałów czasu, w których wystąpiła ta tonacji.|
 |sentimentType |Typem może być "dodatnia", "neutralna" lub "ujemna".|
@@ -300,7 +299,7 @@ Mową są agregowane według pola sentimentType (pozytywna/neutralna/ujemna). Na
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator etykiety.|
+|identyfikator|Identyfikator etykiety.|
 |name|Nazwa etykiety (na przykład "Computer", "TV").|
 |language|Nazwa etykiety językowej (po translacji). BCP-47|
 |Liczba|Lista przedziałów czasu, w których pojawiła się Ta etykieta (etykieta może być wyświetlana wiele razy). Każde wystąpienie ma pole zaufania. |
@@ -358,7 +357,7 @@ Mową są agregowane według pola sentimentType (pozytywna/neutralna/ujemna). Na
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator słowa kluczowego.|
+|identyfikator|Identyfikator słowa kluczowego.|
 |tekst|Tekst słowa kluczowego.|
 |ufność|Wiarygodność rozpoznawania słowa kluczowego.|
 |language|Język słowa kluczowego (w przypadku tłumaczenia).|
@@ -409,7 +408,7 @@ Filmy wideo, które mają zawierać zawartość dla dorosłych lub erotycznej, m
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator moderowania zawartości wizualnej.|
+|identyfikator|Identyfikator moderowania zawartości wizualnej.|
 |adultScore|Wynik dla dorosłych (z usługi Content moderator).|
 |racyScore|Wynik erotycznej (z moderowaniem zawartości).|
 |Liczba|Lista przedziałów czasu, w których pojawiło się to moderowanie zawartości wizualnej.|

@@ -4,10 +4,9 @@ description: Rozszerzone monitorowanie wydajności aplikacji w witrynie Java za 
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537529"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>zebrane: metryki wydajności systemu Linux w Application Insights
@@ -29,8 +28,8 @@ Na komputerach z systemem Linux:
 
 1. Zainstaluj [zebraną](https://collectd.org/) wersję 5.4.0 lub nowszą.
 2. Pobierz [wtyczkę Application Insights zebranych modułów zapisujących](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Zanotuj numer wersji.
-3. Skopiuj wtyczkę JAR do `/usr/share/collectd/java`programu.
-4. Edytuj `/etc/collectd/collectd.conf`:
+3. Skopiuj wtyczkę JAR do programu `/usr/share/collectd/java` .
+4. Edytuj `/etc/collectd/collectd.conf` :
    * Upewnij się, że [Wtyczka Java](https://collectd.org/wiki/index.php/Plugin:Java) jest włączona.
    * Zaktualizuj JVMArg dla elementu Java. Class. Path, aby dołączyć następujący plik JAR. Zaktualizuj numer wersji, aby dopasować go do pobranego:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
@@ -92,12 +91,12 @@ Domyślnie wtyczka Application Insights wysyła wszystkie dane zbierane przez ws
 Aby wykluczyć dane z określonych wtyczek lub źródeł danych:
 
 * Edytuj plik konfiguracji. 
-* W `<Plugin ApplicationInsightsWriter>`programie Dodaj wiersze dyrektywy w następujący sposób:
+* W programie `<Plugin ApplicationInsightsWriter>` Dodaj wiersze dyrektywy w następujący sposób:
 
 | Dyrektywę | Efekt |
 | --- | --- |
 | `Exclude disk` |Wyklucz wszystkie dane zebrane przez `disk` wtyczkę |
-| `Exclude disk:read,write` |Wyklucz źródła o `read` nazwach `write` i `disk` z wtyczki. |
+| `Exclude disk:read,write` |Wyklucz źródła o nazwach `read` i `write` z `disk` wtyczki. |
 
 Oddzielne dyrektywy z wierszem nowego wiersza.
 
@@ -106,7 +105,7 @@ Oddzielne dyrektywy z wierszem nowego wiersza.
 
 * Otwórz [Wyszukiwanie][diagnostic] , aby sprawdzić, czy zdarzenia RAW dotarły do Ciebie. Czasami pojawiają się one dłużej w Eksploratorze metryk.
 * Może być konieczne [ustawienie wyjątków zapory dla danych wychodzących](../../azure-monitor/app/ip-addresses.md)
-* Włącz śledzenie w dodatku Application Insights. Dodaj następujący wiersz `<Plugin ApplicationInsightsWriter>`:
+* Włącz śledzenie w dodatku Application Insights. Dodaj następujący wiersz `<Plugin ApplicationInsightsWriter>` :
   * `SDKLogger true`
 * Otwórz Terminal i Rozpocznij zbieranie w trybie pełnym, aby wyświetlić wszystkie problemy, które zgłasza:
   * `sudo collectd -f`

@@ -2,14 +2,14 @@
 title: Używanie łącznika Ethereum łańcucha bloków z usługą Azure Logic Apps platformy Azure łańcucha bloków
 description: Użyj łącznika łańcucha bloków Ethereum z Azure Logic Apps, aby wyzwolić funkcje kontraktu inteligentnego i odpowiedzieć na zdarzenia inteligentne kontraktu.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200736"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Używanie łącznika Ethereum łańcucha bloków z Azure Logic Apps
 
@@ -114,7 +114,7 @@ Na przykład następujące kroki generują aplikację logiki mikrousług opartą
     Pliki konfiguracji i kodu aplikacji logiki są generowane w katalogu **generatedLogicApp** .
 
 1. Wyświetl katalog **generatedLogicApp/HelloBlockchain** . Istnieje plik JSON aplikacji logiki dla każdej funkcji, zdarzenia i właściwości kontraktu inteligentnego.
-1. Otwórz **generatedLogicApp/HelloBlockchain/Service/Property. Plik RequestMessage. logicapp. JSON** i skopiuj zawartość.
+1. Otwórz plik **generatedLogicApp/HelloBlockchain/Service/property.RequestMessage.logicapp.jsw** pliku i skopiuj jego zawartość.
 
     ![Plik JSON z kodem do skopiowania](./media/ethereum-logic-app/requestmessage.png)
 
@@ -132,7 +132,7 @@ Na przykład następujące kroki generują aplikację logiki mikrousług opartą
 
     ![Logic Apps okienku projektanta z adresem URL POST protokołu HTTP](./media/ethereum-logic-app/post-url.png)
 
-1. Użyj Zwinięciea, aby utworzyć żądanie HTTP POST. Zastąp tekst * \<zastępczy adres URL\> http post adresem* URL z poprzedniego kroku.
+1. Użyj Zwinięciea, aby utworzyć żądanie HTTP POST. Zamień tekst zastępczy na *\<HTTP POST URL\>* adres URL z poprzedniego kroku.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
@@ -181,7 +181,7 @@ Adres punktu końcowego RPC usługi Azure łańcucha bloków Service jest wymaga
 
     ![Strona węzłów transakcji z wyborem (domyślny węzeł)](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. Wybierz pozycję **Parametry** > połączenia**klucze dostępu**.
+1. Wybierz pozycję **Parametry połączenia**  >  **klucze dostępu**.
 1. Skopiuj adres punktu końcowego z **protokołu HTTPS (dostęp do klucza 1)** lub **https (dostęp do klucza 2)**.
 
     ![Azure Portal z kluczami dostępu do parametrów połączenia](./media/ethereum-logic-app/connection-string.png)
@@ -261,7 +261,7 @@ Jeśli używasz zestawu Development Kit lub Truffle do skompilowania swojego int
 
 **Aby użyć kompilatora do wypełniania:**
 
-Użyj polecenia `solc --bin <smart contract>.sol` , aby wygenerować kod bajtowy kontraktu.
+Użyj polecenia, `solc --bin <smart contract>.sol` Aby wygenerować kod bajtowy kontraktu.
 
 ## <a name="get-the-contract-address"></a>Pobierz adres kontraktu
 

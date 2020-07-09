@@ -4,15 +4,14 @@ description: Klasyczny model wdrażania, który został zastąpiony przez model 
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: afdb8b2b677321239f240e74d49711195ac186c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76835635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763911"
 ---
 # <a name="classic-deployment-model"></a>Klasyczny model wdrażania
 
@@ -34,7 +33,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
    ![Wybierz pozycję Pomoc i obsługa techniczna w Azure Portal](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-1. Wybierz pozycję **nowe żądanie obsługi**.
+1. Wybierz pozycję **Nowe żądanie obsługi**.
 
    ![Utwórz nowe żądanie obsługi w Azure Portal](./media/resource-manager-core-quotas-request/new-support-request.png)
 

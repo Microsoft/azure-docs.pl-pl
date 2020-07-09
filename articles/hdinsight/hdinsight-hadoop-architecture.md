@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77162212"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architektura platformy Apache Hadoop w usłudze HDInsight
@@ -66,7 +65,7 @@ Aby cofnąć usunięcie pliku z konta magazynu, zobacz:
 
 ## <a name="trash-purging"></a>Przeczyszczanie kosza
 
-Właściwość `fs.trash.interval` w ramach **HDFS** > **zaawansowanej lokalizacji systemu** plików HDFS powinna pozostać w wartości `0` domyślnej, ponieważ nie należy przechowywać żadnych danych w systemie lokalnym. Ta wartość nie ma wpływu na konta magazynu zdalnego (WASB, ADLS GEN1, ABFS)
+`fs.trash.interval`Właściwość w ramach **HDFS**  >  **zaawansowanej lokalizacji systemu** plików HDFS powinna pozostać w wartości domyślnej, `0` ponieważ nie należy przechowywać żadnych danych w systemie lokalnym. Ta wartość nie ma wpływu na konta magazynu zdalnego (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,18 +1,19 @@
 ---
 title: Scheduled Events dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: Zaplanuj zdarzenia za pomocą usługi Azure Metadata Service dla maszyn wirtualnych z systemem Linux.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
-ms.author: mimckitt
-ms.openlocfilehash: 7c33f29ab00605f68d41358b79284bf49188fece
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 06/01/2020
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715872"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262110"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events dla maszyn wirtualnych z systemem Linux
 
@@ -52,15 +53,20 @@ Zaplanowane zdarzenia są dostarczane do:
 
 - Autonomiczna Virtual Machines.
 - Wszystkie maszyny wirtualne w usłudze w chmurze.
-- Wszystkie maszyny wirtualne w ramach zestawu dostępności/strefy dostępności. 
+- Wszystkie maszyny wirtualne w zestawie dostępności.
+- Wszystkie maszyny wirtualne w strefie dostępności. 
 - Wszystkie maszyny wirtualne w grupie umieszczania zestawu skalowania. 
+
+> [!NOTE]
+> W przypadku maszyn wirtualnych w strefie dostępności zaplanowane zdarzenia przechodzą do pojedynczych maszyn wirtualnych w strefie.
+> Na przykład jeśli masz 100 maszyn wirtualnych w zestawie dostępności i istnieje aktualizacja dla jednego z nich, zaplanowane zdarzenie zostanie przełączone do wszystkich 100, a jeśli w strefie istnieje możliwość 100 pojedynczej maszyny wirtualnej, zdarzenie będzie miało wpływ tylko na maszynę wirtualną, na której jest to możliwe.
 
 W związku z tym należy zaznaczyć `Resources` pole w zdarzeniu, aby ustalić, które maszyny wirtualne mają to oddziaływać.
 
 ### <a name="endpoint-discovery"></a>Odnajdywanie punktów końcowych
 W przypadku maszyn wirtualnych z obsługą sieci wirtualnej Metadata Service jest dostępny z statycznego adresu IP nonroutable `169.254.169.254` . Pełny punkt końcowy dla najnowszej wersji Scheduled Events to: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyślne przypadki usług Cloud Services i klasycznych maszyn wirtualnych są wymagane do odnajdywania adresu IP do użycia. Aby dowiedzieć się, jak [odnaleźć punkt końcowy hosta](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), zobacz ten przykład.
 
@@ -69,6 +75,8 @@ Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersj
 
 | Wersja | Typ wydania | Regiony | Informacje o wersji | 
 | - | - | - | - | 
+| 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
+| 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
 | 2019-01-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
 | 2017-11-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
 | 2017-08-01 | Ogólna dostępność | Wszystko | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
@@ -98,7 +106,7 @@ Możesz wykonywać zapytania o zaplanowane zdarzenia, wykonując następujące w
 
 #### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
 Odpowiedź zawiera tablicę zaplanowanych zdarzeń. Pusta tablica oznacza, że obecnie nie są zaplanowane żadne zdarzenia.
@@ -113,7 +121,9 @@ W przypadku zaplanowanych zdarzeń odpowiedź zawiera tablicę zdarzeń.
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},       
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -128,6 +138,8 @@ W przypadku zaplanowanych zdarzeń odpowiedź zawiera tablicę zdarzeń.
 | Zasoby| Lista zasobów, których dotyczy to zdarzenie. Lista powinna zawierać maszyny z co najwyżej jednej [domeny aktualizacji](manage-availability.md), ale może nie zawierać wszystkich maszyn w ud. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie jest zaplanowane do uruchomienia po upływie czasu określonego we `NotBefore` właściwości.<li>`Started`: To zdarzenie zostało uruchomione.</ul> Nie `Completed` podano żadnego lub podobnego stanu. Zdarzenie nie jest już zwracane po zakończeniu zdarzenia.
 | Nie wcześniej niż| Czas, po którym to zdarzenie może zostać uruchomione. <br><br> Przykład: <br><ul><li> PN, 19 wrz 2016 18:29:47 GMT  |
+| Opis | Opis tego zdarzenia. <br><br> Przykład: <br><ul><li> Serwer hosta jest w trakcie konserwacji. |
+| EventSource | Inicjator zdarzenia. <br><br> Przykład: <br><ul><li> `Platform`: To zdarzenie jest inicjowane przez użyciu funkcji platfrom. <li>`User`: To zdarzenie jest inicjowane przez użytkownika. |
 
 ### <a name="event-scheduling"></a>Planowanie zdarzeń
 Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w oparciu o typ zdarzenia. Ten czas jest uwzględniany we właściwości zdarzenia `NotBefore` . 
@@ -197,9 +209,14 @@ def handle_scheduled_events(data):
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ", "_")
+    description = evt['Description']
+    eventSource = evt['EventSource']
         if this_host in resources:
             print("+ Scheduled Event. This host " + this_host +
-                " is scheduled for " + eventtype + " not before " + notbefore)
+                " is scheduled for " + eventtype + 
+        " by " + eventSource + 
+        " with description " + description +
+        " not before " + notbefore)
             # Add logic for handling events here
 
 

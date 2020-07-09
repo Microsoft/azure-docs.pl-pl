@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670291"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Pisanie zaawansowanych zapytań w Azure Monitor
@@ -94,7 +93,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-Konstrukcje DataTable są również bardzo przydatne podczas tworzenia tabeli odnośników. Na przykład, aby mapować dane tabeli, takie jak identyfikatory zdarzeń z tabeli _SecurityEvent_ , do typów zdarzeń wymienionych w innym miejscu, Utwórz tabelę odnośników z typami zdarzeń `datatable` przy użyciu i Dołącz do tego elementu DataTable z danymi _SecurityEvent_ :
+Konstrukcje DataTable są również bardzo przydatne podczas tworzenia tabeli odnośników. Na przykład, aby mapować dane tabeli, takie jak identyfikatory zdarzeń z tabeli _SecurityEvent_ , do typów zdarzeń wymienionych w innym miejscu, Utwórz tabelę odnośników z typami zdarzeń przy użyciu `datatable` i Dołącz do tego elementu DataTable z danymi _SecurityEvent_ :
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)

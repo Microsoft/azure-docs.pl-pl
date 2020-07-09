@@ -1,21 +1,14 @@
 ---
 title: Azure Media Services jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń Media Services z Azure Event Grid
-services: media-services
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: spelluru
-ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81394334"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105935"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services jako źródło Event Grid
 
@@ -47,7 +40,7 @@ Zadanie może zawierać wiele danych wyjściowych zadania (jeśli przekształcen
 
 Każde **zadanie** ma być na wyższym poziomie niż **JobOutput**, dzięki czemu zdarzenia wyjściowe zadania są wywoływane w ramach odpowiedniego zadania. 
 
-Komunikaty o błędach `JobFinished`w `JobCanceled`programie `JobError` ,, wyprowadza zagregowane wyniki dla każdego wyjścia zadania — po zakończeniu wszystkich z nich. W związku z tym zdarzenia wyjściowe zadania są wyzwalane po zakończeniu każdego zadania. Na przykład, jeśli masz dane wyjściowe kodowania, a następnie dane wyjściowe analizy wideo, otrzymasz dwa zdarzenia wyzwalane jako zdarzenia wyjściowe zadania przed wystąpieniem ostatecznego zdarzenia JobFinished z zagregowanymi danymi.
+Komunikaty o błędach w programie, `JobFinished` `JobCanceled` , `JobError` wyprowadza zagregowane wyniki dla każdego wyjścia zadania — po zakończeniu wszystkich z nich. W związku z tym zdarzenia wyjściowe zadania są wyzwalane po zakończeniu każdego zadania. Na przykład, jeśli masz dane wyjściowe kodowania, a następnie dane wyjściowe analizy wideo, otrzymasz dwa zdarzenia wyzwalane jako zdarzenia wyjściowe zadania przed wystąpieniem ostatecznego zdarzenia JobFinished z zagregowanymi danymi.
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
@@ -658,8 +651,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Temat | ciąg | Ścieżka zasobu dla Media Services kanału w ramach konta Media Services. Łączenie tematu i tematu zapewnia identyfikator zasobu dla zadania. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Media Services dane zdarzenia. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Media Services dane zdarzenia. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -667,7 +660,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 [Rejestrowanie zdarzeń zmiany stanu zadania](../media-services/latest/job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

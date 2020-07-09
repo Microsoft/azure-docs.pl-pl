@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530265"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Powiązanie danych wejściowych usługi sygnalizującego dla Azure Functions
@@ -22,7 +21,7 @@ Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zoba
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która uzyskuje informacje o połączeniu sygnalizujące przy użyciu powiązania wejściowego i zwraca je za pośrednictwem protokołu HTTP.
 
@@ -38,11 +37,11 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia powiązanie danych wejściowych informacji o połączeniu sygnalizujące w pliku *Function. JSON* i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania do zwrócenia informacji o połączeniu.
+Poniższy przykład przedstawia powiązanie danych wejściowych informacji o połączeniu sygnalizujące w *function.jsw* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania do zwrócenia informacji o połączeniu.
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -68,11 +67,11 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład przedstawia powiązanie danych wejściowych informacji o połączeniu sygnalizującego w pliku *Function. JSON* i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania do zwrócenia informacji o połączeniu.
+Poniższy przykład przedstawia powiązanie danych wejściowych informacji o połączeniu sygnalizującego w *function.jsw* pliku i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania do zwrócenia informacji o połączeniu.
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -94,11 +93,11 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład przedstawia powiązanie danych wejściowych informacji o połączeniu sygnalizującego w pliku *Function. JSON* i funkcji języka [Python](functions-reference-python.md) , która używa powiązania do zwrócenia informacji o połączeniu.
+Poniższy przykład przedstawia powiązanie danych wejściowych informacji o połączeniu sygnalizujące w *function.jsw* pliku i funkcji języka [Python](functions-reference-python.md) , która używa powiązania do zwrócenia informacji o połączeniu.
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -147,11 +146,11 @@ public SignalRConnectionInfo negotiate(
 
 Jeśli funkcja jest wyzwalana przez uwierzytelnionego klienta, można dodać do wygenerowanego tokenu identyfikator użytkownika. Uwierzytelnianie w aplikacji funkcji można łatwo dodać przy użyciu [uwierzytelniania App Service](../app-service/overview-authentication-authorization.md).
 
-App Service Authentication ustawia nagłówki HTTP o `x-ms-client-principal-id` nazwach i `x-ms-client-principal-name` , które zawierają odpowiednio Identyfikator podmiotu zabezpieczeń klienta uwierzytelnionego i nazwę.
+App Service Authentication ustawia nagłówki HTTP o nazwach `x-ms-client-principal-id` i, `x-ms-client-principal-name` które zawierają odpowiednio Identyfikator podmiotu zabezpieczeń klienta uwierzytelnionego i nazwę.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Można ustawić `UserId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub. `{headers.x-ms-client-principal-name}`
+Można ustawić `UserId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub `{headers.x-ms-client-principal-name}` .
 
 ```cs
 [FunctionName("negotiate")]
@@ -168,9 +167,9 @@ public static SignalRConnectionInfo Negotiate(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub. `{headers.x-ms-client-principal-name}`
+Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub `{headers.x-ms-client-principal-name}` .
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -199,9 +198,9 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub. `{headers.x-ms-client-principal-name}`
+Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub `{headers.x-ms-client-principal-name}` .
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -226,9 +225,9 @@ module.exports = async function (context, req, connectionInfo) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub. `{headers.x-ms-client-principal-name}`
+Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub `{headers.x-ms-client-principal-name}` .
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -258,7 +257,7 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub. `{headers.x-ms-client-principal-name}`
+Można ustawić `userId` właściwość powiązania na wartość z dowolnego nagłówka przy użyciu [wyrażenia powiązania](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` lub `{headers.x-ms-client-principal-name}` .
 
 ```java
 @FunctionName("negotiate")

@@ -9,18 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: d926a9f686f0f4c39203b8a217a7c608cfad926e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52d33e7292ebe7b27eede2b89aa605780f826392
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737618"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorowanie łączności sieciowej z monitorem połączeń (wersja zapoznawcza)
 
@@ -402,9 +402,9 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
    
        Możesz przejść do szczegółów z poziomu subskrypcji na inne poziomy w hierarchii:
 
-      **Subscription** > **Grupy** > **Subnets****VNETs** > **VMs with agents** zasobów subskrypcji sieci wirtualnych podsieci maszyn wirtualnych z agentami > 
+      **Subskrypcja**  >  **Grupy zasobów**  >  **Sieci wirtualnych**  >  **Podsieci**  >  **Maszyny wirtualne z agentami**
 
-      Możesz również zmienić wartość pola **Grupuj według** , aby uruchomić drzewo z dowolnego innego poziomu. Na przykład Jeśli grupujesz według sieci wirtualnej, zobaczysz maszyny wirtualne, które mają agentów w hierarchii **sieci wirtualnych** > **podsieci** > **maszyn wirtualnych z agentami**.
+      Możesz również zmienić wartość pola **Grupuj według** , aby uruchomić drzewo z dowolnego innego poziomu. Na przykład Jeśli grupujesz według sieci wirtualnej, zobaczysz maszyny wirtualne, które mają agentów w hierarchii **sieci wirtualnych**  >  **podsieci**  >  **maszyn wirtualnych z agentami**.
 
       ![Zrzut ekranu przedstawiający monitor połączeń z panelem Dodawanie źródeł i kartą Azure Agents](./media/connection-monitor-2-preview/add-azure-sources.png)
 
@@ -444,7 +444,7 @@ W Azure Portal, aby utworzyć grupę testową w monitorze połączeń, należy o
 
     * **Nazwa** — Nazwij konfigurację testu.
     * **Protokół** — wybierz TCP, ICMP lub http. Aby zmienić protokół HTTP na HTTPS, wybierz pozycję **http** jako protokół i wybierz pozycję **443** jako port.
-        * **Utwórz konfigurację testu sieci** — to pole wyboru jest wyświetlane tylko w przypadku wybrania opcji **http** w polu **Protokół** . Zaznacz to pole, aby utworzyć inną konfigurację testu, która używa tych samych źródeł i miejsc docelowych, które zostały określone w innym miejscu konfiguracji. Nowo utworzona konfiguracja testu ma nazwę `<the name of your test configuration>_networkTestConfig`.
+        * **Utwórz konfigurację testu sieci** — to pole wyboru jest wyświetlane tylko w przypadku wybrania opcji **http** w polu **Protokół** . Zaznacz to pole, aby utworzyć inną konfigurację testu, która używa tych samych źródeł i miejsc docelowych, które zostały określone w innym miejscu konfiguracji. Nowo utworzona konfiguracja testu ma nazwę `<the name of your test configuration>_networkTestConfig` .
         * **Wyłącz traceroute** — to pole dotyczy grup testów, których protokół to TCP lub ICMP. Zaznacz to pole, aby zatrzymać odnajdywanie topologii i RTT przeskoków przez przeskok.
     * **Port docelowy** — możesz dostosować to pole przy użyciu dowolnie wybranego portu docelowego.
     * **Częstotliwość testów** — to pole służy do wybierania, jak często źródła będą wysyłać polecenia ping do miejsc docelowych w określonym protokole i porcie. Możesz wybrać 30 sekund, 1 minutę, 5 minut, 15 minut lub 30 minut. Źródła przetestują łączność do miejsc docelowych na podstawie wybranej wartości.  Jeśli na przykład wybierzesz 30 sekund, źródła będą sprawdzać łączność z miejscem docelowym co najmniej raz w okresie 30 sekund.
@@ -573,7 +573,7 @@ Aby wyświetlić trendy w RTT i procent nieudanych testów dla monitora połącz
 
 1. Zmień przedział czasu, aby wyświetlić więcej danych.
 1. Zmień widok, aby wyświetlić źródła, miejsca docelowe lub konfiguracje testowe. 
-1. Wybierz źródło na podstawie testów zakończonych niepowodzeniem i zbadaj pięć pierwszych testów zakończonych niepowodzeniem. Na przykład wybierz **Widok według** > **źródeł** i **Widok według** > **miejsc docelowych** , aby zbadać odpowiednie testy w monitorze połączeń.
+1. Wybierz źródło na podstawie testów zakończonych niepowodzeniem i zbadaj pięć pierwszych testów zakończonych niepowodzeniem. Na przykład wybierz **Widok według**  >  **źródeł** i **Widok według**  >  **miejsc docelowych** , aby zbadać odpowiednie testy w monitorze połączeń.
 
    ![Zrzut ekranu przedstawiający metryki wydajności dla pięciu pierwszych testów zakończonych niepowodzeniem](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
@@ -618,10 +618,10 @@ Korzystając z metryk, ustaw typ zasobu jako Microsoft. Network/networkWatchers/
 
 | Metryka | Nazwa wyświetlana | Jednostka | Typ agregacji | Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Sond nie powiodło się | Procentowe | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
+| ProbesFailedPercent | % Sond nie powiodło się | Procent | Średnia | Procent sond monitorowania łączności nie powiódł się. | Brak wymiarów |
 | AverageRoundtripMs | Średni czas błądzenia (MS) | ) | Średnia | Średni czas RTT sieci dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym. |             Brak wymiarów |
-| ChecksFailedPercent (wersja zapoznawcza) | % Sprawdzenia nie powiodło się (wersja zapoznawcza) | Procentowe | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protocol (Protokół) <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (wersja zapoznawcza) | Czas błądzenia (MS) (wersja zapoznawcza) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protocol (Protokół) <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ChecksFailedPercent (wersja zapoznawcza) | % Sprawdzenia nie powiodło się (wersja zapoznawcza) | Procent | Średnia | Procent testów zakończonych niepowodzeniem dla testu. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (wersja zapoznawcza) | Czas błądzenia (MS) (wersja zapoznawcza) | ) | Średnia | Czas RTT dla czeków wysyłanych między źródłem a miejscem docelowym. Ta wartość nie jest średnia. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Identyfikator sourceresourceid <br>SourceType <br>Protokół <br>DestinationAddress <br>Obiekt docelowy <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-alerts-in-azure-monitor"></a>Alerty metryk w Azure Monitor
 

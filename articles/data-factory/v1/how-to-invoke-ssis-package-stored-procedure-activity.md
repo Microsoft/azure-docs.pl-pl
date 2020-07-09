@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 225414760507bb023d0a514290420fc7cb59b950
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322118"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołaj pakiet SSIS za pomocą działania procedury składowanej w Azure Data Factory
 W tym artykule opisano sposób wywoływania pakietu SSIS z potoku Azure Data Factory przy użyciu działania procedury składowanej. 
@@ -82,9 +82,9 @@ Pamiętaj o następujących kwestiach:
 * Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli **współautora** lub **właściciela** albo **administratorem** subskrypcji platformy Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Tworzenie połączonej usługi Azure SQL Database
-Utwórz połączoną usługę w celu połączenia bazy danych Azure SQL Database, która hostuje katalog SSIS w fabryce danych. Data Factory używa informacji w tej połączonej usłudze, aby nawiązać połączenie z bazą danych SSISDB i wykonać procedurę przechowywaną w celu uruchomienia pakietu usług SSIS. 
+Utwórz połączoną usługę, aby połączyć bazę danych w Azure SQL Database, która hostuje katalog SSIS w fabryce danych. Data Factory używa informacji w tej połączonej usłudze, aby nawiązać połączenie z bazą danych SSISDB i wykonać procedurę przechowywaną w celu uruchomienia pakietu usług SSIS. 
 
-1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService. JSON** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService.js** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
 
     > [!IMPORTANT]
     > &lt; &gt; &lt; &gt; @ &lt; &gt; Przed zapisaniem pliku Zastąp wartości ServerName, username ServerName i &lt; Password &gt; wartościami Twoich Azure SQL Database.
@@ -110,7 +110,7 @@ Utwórz połączoną usługę w celu połączenia bazy danych Azure SQL Database
 ### <a name="create-an-output-dataset"></a>Tworzenie wyjściowego zestawu danych
 Ten wyjściowy zestaw danych jest fikcyjnym zestawem danych, który jest dyskiem z harmonogramem potoku. Należy zauważyć, że częstotliwość jest ustawiona na wartość Godzina, a interwał jest ustawiony na 1. W związku z tym potok jest uruchamiany raz na godzinę w czasie rozpoczęcia i zakończenia potoku. 
 
-1. Utwórz plik OutputDataset. JSON o następującej zawartości: 
+1. Utwórz OutputDataset.jsw pliku o następującej zawartości: 
     
     ```json
     {
@@ -135,7 +135,7 @@ Ten wyjściowy zestaw danych jest fikcyjnym zestawem danych, który jest dyskiem
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Tworzenie potoku za pomocą działania procedury składowanej 
 W tym kroku utworzysz potok z działaniem procedury składowanej. Działanie wywołuje sp_executesql procedury składowanej w celu uruchomienia pakietu usług SSIS. 
 
-1. W folderze **C:\ADF\RunSSISPackage** Utwórz plik JSON o nazwie Moje **potok. JSON** o następującej zawartości:
+1. Utwórz plik JSON o nazwie **MyPipeline.js** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości:
 
     > [!IMPORTANT]
     > &lt; &gt; Przed zapisaniem pliku Zastąp wartość Nazwa folderu, &lt; Nazwa projektu &gt; , &lt; Nazwa pakietu &gt; z nazwami folderu, projektu i pakietu w wykazie usług SSIS.

@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8f5b21189007d2b15c2ff31b778144d9a672318
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74185450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856482"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji Azure Functions
 
@@ -41,14 +41,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
-1. Otwórz *Function1.cs*. `static` Oprócz `Configuration`właściwości Dodaj `static` nową właściwość `ConfigurationRefresher` , aby zachować pojedyncze wystąpienie `IConfigurationRefresher` , które będzie używane do sygnalizowania aktualizacji konfiguracji podczas wywoływania funkcji w późniejszym czasie.
+1. Otwórz *Function1.cs*. Oprócz `static` właściwości `Configuration` Dodaj nową `static` Właściwość, `ConfigurationRefresher` Aby zachować pojedyncze wystąpienie `IConfigurationRefresher` , które będzie używane do sygnalizowania aktualizacji konfiguracji podczas wywoływania funkcji w późniejszym czasie.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
     private static IConfigurationRefresher ConfigurationRefresher { set; get; }
     ```
 
-2. Zaktualizuj konstruktora i Użyj `ConfigureRefresh` metody, aby określić ustawienie do odświeżenia z magazynu konfiguracji aplikacji. Wystąpienie `IConfigurationRefresher` jest pobierane za pomocą `GetRefresher` metody. Opcjonalnie można także zmienić wartość ustawienia czas wygaśnięcia pamięci podręcznej konfiguracji na 1 minutę z domyślnego 30 sekund.
+2. Zaktualizuj konstruktora i użyj metody, `ConfigureRefresh` Aby określić ustawienie do odświeżenia z magazynu konfiguracji aplikacji. Wystąpienie `IConfigurationRefresher` jest pobierane za pomocą `GetRefresher` metody. Opcjonalnie można także zmienić wartość ustawienia czas wygaśnięcia pamięci podręcznej konfiguracji na 1 minutę z domyślnego 30 sekund.
 
     ```csharp
     static Function1()
@@ -67,7 +67,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     }
     ```
 
-3. Zaktualizuj `Run` metodę i sygnał, aby odświeżyć konfigurację przy użyciu `Refresh` metody na początku wywołania funkcji. Nie będzie to możliwe, jeśli przedział czasu wygaśnięcia pamięci podręcznej nie zostanie osiągnięty. Usuń `await` operator, jeśli wolisz odświeżać konfigurację bez blokowania.
+3. Zaktualizuj `Run` metodę i sygnał, aby odświeżyć konfigurację przy użyciu `TryRefreshAsync` metody na początku wywołania funkcji. Nie będzie to możliwe, jeśli przedział czasu wygaśnięcia pamięci podręcznej nie zostanie osiągnięty. Usuń `await` operator, jeśli wolisz odświeżać konfigurację bez blokowania.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -75,7 +75,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
@@ -90,15 +90,21 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. Jeśli używasz wiersza polecenia systemu Windows, uruchom następujące polecenie i ponownie uruchom wiersz polecenia, aby zezwolić na wprowadzenie zmiany:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Jeśli używasz programu Windows PowerShell, uruchom następujące polecenie:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     Jeśli używasz macOS lub Linux, uruchom następujące polecenie:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. Aby przetestować funkcję, naciśnij klawisz F5. Jeśli zostanie wyświetlony monit, zaakceptuj żądanie z programu Visual Studio, aby pobrać i zainstalować narzędzia **Azure Functions Core (CLI)** . Może być również konieczne włączenie wyjątku zapory, aby narzędzia mogły obsługiwać żądania HTTP.
 
@@ -124,7 +130,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przykładowy kod używany w tym samouczku można pobrać z [repozytorium GitHub konfiguracji aplikacji](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

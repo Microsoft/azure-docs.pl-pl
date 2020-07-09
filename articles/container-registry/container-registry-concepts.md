@@ -2,13 +2,13 @@
 title: Informacje o repozytoriach & obrazów
 description: Wprowadzenie do kluczowych pojęć związanych z rejestrami kontenerów platformy Azure, repozytoriami i obrazami kontenerów.
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85390452"
 ---
 # <a name="about-registries-repositories-and-images"></a>Rejestry, repozytoria i obrazy — informacje
 
@@ -24,13 +24,11 @@ Oprócz obrazów kontenerów platformy Docker Azure Container Registry obsługuj
 
 Adres artefaktu w rejestrze kontenerów platformy Azure obejmuje następujące elementy. 
 
-`[loginUrl]/[namespace]/[artifact:][tag]`
+`[loginUrl]/[repository:][tag]`
 
 * **LoginUrl** — w pełni kwalifikowana nazwa hosta rejestru. Host rejestru w usłudze Azure Container Registry *ma format azurecr.IO*(wszystkie małe litery). Należy określić loginUrl podczas korzystania z platformy Docker lub innych narzędzi klienckich do ściągania i wypychania artefaktów do usługi Azure Container Registry. 
-* rozdzielana przecinkami **przestrzeń nazw** — logiczne grupowanie powiązanych obrazów lub artefaktów — na przykład dla grupy roboczej lub aplikacji
-* **artefakt** — Nazwa repozytorium dla określonego obrazu lub artefaktu
-* **tag** — określona wersja obrazu lub artefaktu przechowywanego w repozytorium
-
+* **repozytorium** — nazwa logicznej grupy składającej się z co najmniej jednego powiązanego obrazu lub artefaktów — na przykład obrazy aplikacji lub podstawowego systemu operacyjnego. Może zawierać ścieżkę *przestrzeni nazw* . 
+* **tag** -identyfikator określonej wersji obrazu lub artefaktu przechowywanego w repozytorium.
 
 Na przykład Pełna nazwa obrazu w rejestrze kontenerów platformy Azure może wyglądać następująco:
 
@@ -40,20 +38,24 @@ Więcej informacji o tych elementach można znaleźć w poniższych sekcjach.
 
 ## <a name="repository-name"></a>Nazwa repozytorium
 
-Rejestry kontenerów zarządzają *repozytoriami*, kolekcjami obrazów kontenerów lub innymi artefaktami o tej samej nazwie, ale różne Tagi. Na przykład następujące trzy obrazy znajdują się w repozytorium "ACR-HelloWorld":
+*Repozytorium* jest kolekcją obrazów kontenerów lub innych artefaktów o tej samej nazwie, ale różne Tagi. Na przykład następujące trzy obrazy znajdują się w repozytorium "ACR-HelloWorld":
 
 
 - *ACR-HelloWorld: Najnowsze*
 - *ACR — HelloWorld: V1*
 - *ACR — HelloWorld: V2*
 
-Nazwy repozytoriów mogą również zawierać [przestrzenie nazw](container-registry-best-practices.md#repository-namespaces). Przestrzenie nazw umożliwiają grupowanie obrazów przy użyciu nazw repozytoriów, które są rozdzielane ukośnikami, na przykład:
+Nazwy repozytoriów mogą również zawierać [przestrzenie nazw](container-registry-best-practices.md#repository-namespaces). Przestrzenie nazw umożliwiają identyfikowanie powiązanych repozytoriów i własności artefaktów w organizacji przy użyciu nazw rozdzielanych ukośnikami. Jednak rejestr zarządza wszystkimi repozytoriami niezależnie, a nie jako hierarchią. Przykłady:
 
 - *Marketing/campaign10 — 18/sieć Web: V2*
 - *Marketing/campaign10 — 18/API: v3*
 - *Marketing/campaign10-18/email-Sender: V2*
 - *produkt — zwraca/przesyła do sieci Web: 20180604*
 - *Product-Returns/Legacy-Integrator: 20180715*
+
+Nazwy repozytoriów mogą zawierać tylko małe znaki alfanumeryczne, kropki, łączniki, podkreślenia i ukośniki. 
+
+Aby zapoznać się z pełnymi regułami nazewnictwa repozytorium, zobacz artykuł [Specyfikacja dystrybucji z inicjatywy Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ## <a name="image"></a>Obraz
 
@@ -63,9 +65,11 @@ Obraz kontenera lub inny artefakt w rejestrze jest skojarzony z co najmniej jedn
 
 *Tag* obrazu lub innego artefaktu określa jego wersję. Pojedynczym artefaktem w repozytorium może być przypisany jeden lub wiele tagów i może być również "nieoznakowany". Oznacza to, że można usunąć wszystkie Tagi z obrazu, podczas gdy dane obrazu (jego warstwy) pozostają w rejestrze.
 
-Repozytorium (lub repozytorium i przestrzeń nazw) oraz tag definiują nazwę obrazu. Można wypchnąć i ściągnąć obraz, określając jego nazwę w operacji wypychania lub ściągania.
+Repozytorium (lub repozytorium i przestrzeń nazw) oraz tag definiują nazwę obrazu. Można wypchnąć i ściągnąć obraz, określając jego nazwę w operacji wypychania lub ściągania. Tag `latest` jest używany domyślnie, jeśli nie podano go w poleceniach platformy Docker.
 
 Sposób oznaczania obrazów kontenerów jest kierowany przez scenariusze w celu ich opracowania lub wdrożenia. Na przykład, stałe Tagi są zalecane do obsługi obrazów podstawowych i unikatowych tagów służących do wdrażania obrazów. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące tagowania i przechowywania wersji obrazów kontenerów](container-registry-image-tag-version.md).
+
+Aby zapoznać się z regułami nazewnictwa tagów, zobacz [dokumentację platformy Docker](https://docs.docker.com/engine/reference/commandline/tag/).
 
 ### <a name="layer"></a>Warstwa
 

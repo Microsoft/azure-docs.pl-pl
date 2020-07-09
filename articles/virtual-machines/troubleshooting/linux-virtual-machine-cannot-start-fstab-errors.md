@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: f68221666f370f87af7539d9302aaa3ed472d5e8
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883145"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135261"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyny wirtualnej systemu Linux z powodu błędów fstab
 
@@ -192,16 +192,16 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 
 2. Po zainstalowaniu dysku systemowego jako dysku danych na maszynie wirtualnej odzyskiwania należy wykonać kopię zapasową pliku fstab przed wprowadzeniem zmian, a następnie wykonać kolejne kroki, aby poprawić plik fstab.
 
-3.    Poszukaj błędu wskazującego, że dysk nie został zainstalowany. W poniższym przykładzie System próbował dołączyć dysk, który nie był już obecny:
+3. Poszukaj błędu wskazującego, że dysk nie został zainstalowany. W poniższym przykładzie System próbował dołączyć dysk, który nie był już obecny:
 
-    ```
-    [DEPEND] Dependency failed for /datadisk1.
-    [DEPEND] Dependency failed for Local File Systems.
-    [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
-    [DEPEND] Dependency failed for Migrate local... structure to the new structure.
-    Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
-    Give root password for maintenance (or type Control-D to continue):
-    ```
+   ```output
+   [DEPEND] Dependency failed for /datadisk1.
+   [DEPEND] Dependency failed for Local File Systems.
+   [DEPEND] Dependency failed for Relabel all filesystems, if necessary.
+   [DEPEND] Dependency failed for Migrate local... structure to the new structure.
+   Welcome to emergency mode! After logging in, type "journalctl -xb" to view system logs, "systemctl reboot" to reboot, "systemctl default" or ^D to try again to boot into default mode.
+   Give root password for maintenance (or type Control-D to continue):
+   ```
 
 4. Połącz się z maszyną wirtualną przy użyciu hasła głównego (maszyn wirtualnych opartych na Red Hat).
 

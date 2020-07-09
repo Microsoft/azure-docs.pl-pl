@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201526"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
@@ -23,7 +22,7 @@ ms.locfileid: "83201526"
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
-W tym samouczku dowiesz się, jak wizualizować dane z czujników w czasie rzeczywistym, które są odbierane przez Centrum IoT, za pomocą aplikacji sieci Web Node. js działającej na komputerze lokalnym. Po lokalnym uruchomieniu aplikacji sieci Web możesz opcjonalnie wykonać kroki, aby hostować aplikację sieci Web w Azure App Service. Jeśli chcesz próbować wizualizować dane w centrum IoT przy użyciu Power BI, zobacz [używanie Power BI do wizualizacji danych z czujników w czasie rzeczywistym z usługi Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+W tym samouczku dowiesz się, jak wizualizować dane z czujników w czasie rzeczywistym, które są odbierane przez Centrum IoT, za pomocą aplikacji internetowej node.js działającej na komputerze lokalnym. Po lokalnym uruchomieniu aplikacji sieci Web możesz opcjonalnie wykonać kroki, aby hostować aplikację sieci Web w Azure App Service. Jeśli chcesz próbować wizualizować dane w centrum IoT przy użyciu Power BI, zobacz [używanie Power BI do wizualizacji danych z czujników w czasie rzeczywistym z usługi Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## <a name="what-you-do"></a>Co robisz
 
@@ -37,7 +36,7 @@ W tym samouczku dowiesz się, jak wizualizować dane z czujników w czasie rzecz
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-* Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi przy użyciu środowiska Node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
+* Ukończ samouczek [gry online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) lub jedno z samouczków dotyczących urządzeń; na przykład [Raspberry Pi z node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Obejmują one następujące wymagania:
 
   * Aktywna subskrypcja platformy Azure
   * Centrum IoT w ramach Twojej subskrypcji
@@ -100,17 +99,17 @@ W katalogu Web-Apps-Node-IoT-Hub-Data-wizualizacji Otwórz aplikację sieci Web 
 
 Poświęć chwilę na przeanalizowanie następujących plików:
 
-* **Server. js** to skrypt po stronie usługi, który inicjuje gniazdo sieci Web i klasę otoki centrum zdarzeń. Zapewnia wywołanie zwrotne klasy otoki centrum zdarzeń używanej przez klasę do emisji komunikatów przychodzących do gniazda sieci Web.
+* **Server.js** to skrypt po stronie usługi, który inicjuje gniazdo sieci Web i klasę otoki centrum zdarzeń. Zapewnia wywołanie zwrotne klasy otoki centrum zdarzeń używanej przez klasę do emisji komunikatów przychodzących do gniazda sieci Web.
 
-* **Event-Hub-Reader. js** to skrypt po stronie usługi, który nawiązuje połączenie z wbudowanym punktem końcowym Centrum IoT Hub przy użyciu określonych parametrów połączenia i grupy odbiorców. Wyodrębnia identyfikator DeviceId i EnqueuedTimeUtc z metadanych w wiadomościach przychodzących, a następnie przekazuje komunikat przy użyciu metody wywołania zwrotnego zarejestrowanej przez serwer Server. js.
+* **Event-hub-reader.js** to skrypt po stronie usługi, który nawiązuje połączenie z wbudowanym punktem końcowym Centrum IoT Hub przy użyciu określonych parametrów połączenia i grupy odbiorców. Wyodrębnia identyfikator DeviceId i EnqueuedTimeUtc z metadanych w wiadomościach przychodzących, a następnie przekazuje komunikat przy użyciu metody wywołania zwrotnego zarejestrowanej przez server.js.
 
-* **Chart-Device-Data. js** to skrypt po stronie klienta, który nasłuchuje w gnieździe sieci Web, śledzi każdy identyfikator urządzenia i zapisuje ostatnie 50 punktów danych przychodzących dla każdego urządzenia. Następnie wiąże wybrane dane urządzenia z obiektem wykresu.
+* **Chart-device-data.js** to skrypt po stronie klienta, który nasłuchuje w gnieździe sieci Web, śledzi każdy identyfikator urządzenia i zapisuje ostatnie 50 punktów danych przychodzących dla każdego z urządzeń. Następnie wiąże wybrane dane urządzenia z obiektem wykresu.
 
-* **Index. html** obsługuje układ interfejsu użytkownika strony sieci Web i odwołuje się do niezbędnych skryptów dla logiki po stronie klienta.
+* **Index.html** obsługuje układ interfejsu użytkownika strony sieci Web i odwołuje się do niezbędnych skryptów dla logiki po stronie klienta.
 
 ## <a name="configure-environment-variables-for-the-web-app"></a>Konfigurowanie zmiennych środowiskowych dla aplikacji sieci Web
 
-Aby można było odczytywać dane z usługi IoT Hub, aplikacja sieci Web wymaga parametrów połączenia z Centrum IoT Hub oraz nazwy grupy odbiorców, którą powinien odczytać. Pobiera te ciągi ze środowiska przetwarzania w następujących wierszach w programie Server. js:
+Aby można było odczytywać dane z usługi IoT Hub, aplikacja sieci Web wymaga parametrów połączenia z Centrum IoT Hub oraz nazwy grupy odbiorców, którą powinien odczytać. Pobiera te ciągi ze środowiska przetwarzania w następujących wierszach w server.js:
 
 ```javascript
 const iotHubConnectionString = process.env.IotHubConnectionString;
@@ -165,7 +164,7 @@ W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i w
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Teraz Zainicjuj obsługę aplikacji sieci Web w planie App Service. `--deployment-local-git`Parametr umożliwia przekazywanie i wdrażanie kodu aplikacji sieci Web z repozytorium Git na komputerze lokalnym. Nazwa aplikacji sieci Web musi być globalnie unikatowa i może zawierać wielkie i małe litery, cyfry i łączniki. Upewnij się, że dla parametru określono węzeł w wersji 10,6 lub nowszej `--runtime` , w zależności od używanej wersji środowiska uruchomieniowego Node. js. Możesz użyć polecenia, `az webapp list-runtimes` Aby uzyskać listę obsługiwanych środowisk uruchomieniowych.
+2. Teraz Zainicjuj obsługę aplikacji sieci Web w planie App Service. `--deployment-local-git`Parametr umożliwia przekazywanie i wdrażanie kodu aplikacji sieci Web z repozytorium Git na komputerze lokalnym. Nazwa aplikacji sieci Web musi być globalnie unikatowa i może zawierać wielkie i małe litery, cyfry i łączniki. Upewnij się, że dla parametru określono wersję Node 10,6 lub nowszą `--runtime` , w zależności od używanej wersji środowiska uruchomieniowego Node.js. Możesz użyć polecenia, `az webapp list-runtimes` Aby uzyskać listę obsługiwanych środowisk uruchomieniowych.
 
    ```azurecli-interactive
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
@@ -198,7 +197,7 @@ W tej sekcji można zainicjować obsługę aplikacji sieci Web w App Service i w
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Dodaj element zdalny do klonu, który odwołuje się do repozytorium git dla aplikacji sieci Web w App Service. W przypadku \< adresu URL klonowania git \> Użyj adresu URL zwróconego w poprzednim kroku. Uruchom następujące polecenie w oknie wiersza polecenia.
+7. Dodaj element zdalny do klonu, który odwołuje się do repozytorium git dla aplikacji sieci Web w App Service. W przypadku programu \<Git clone URL\> należy użyć adresu URL zwróconego w poprzednim kroku. Uruchom następujące polecenie w oknie wiersza polecenia.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -239,13 +238,13 @@ Jeśli występują problemy z tym przykładem, spróbuj wykonać kroki opisane w
 
 * W przeglądarce Otwórz narzędzia deweloperskie (w wielu przeglądarkach zostanie otwarty klawisz F12) i Znajdź konsolę programu. Wyszukaj wszelkie ostrzeżenia lub błędy w tym miejscu.
 
-* Można debugować skrypt po stronie klienta w/js/Chat-Device-Data.js.
+* Skrypt po stronie klienta można debugować w/js/chat-device-data.js.
 
 ### <a name="local-website-issues"></a>Problemy z lokalną witryną sieci Web
 
 * Obejrzyj dane wyjściowe w oknie, w którym uruchomiono węzeł dla danych wyjściowych konsoli.
 
-* Debugowanie kodu serwera, w tym programu Server. js i/scripts/Event-Hub-Reader.js.
+* Debuguj kod serwera, w tym server.js i event-hub-reader.js/scripts/.
 
 ### <a name="azure-app-service-issues"></a>Problemy Azure App Service
 

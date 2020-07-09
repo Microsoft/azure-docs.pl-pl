@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 15a9b1cdbe46baca85959d3e9e5124f706027ec5
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 716e46b25b2f51ef7f6217de1ba75a5316e9e1ae
+  ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77667129"
+  ms.lasthandoff: 06/06/2020
+  ms.locfileid: "84462876"
 landingContent:
 - title: Informacje o usłudze Azure Monitor
   linkLists:
@@ -23,8 +23,6 @@ landingContent:
       url: overview.md
     - text: Co to są dzienniki usługi Azure Monitor/usługa Log Analytics?
       url: platform/data-platform-logs.md
-    - text: Strona centrum zawartości dzienników usługi Azure Monitor/usługi Log Analytics
-      url: azure-monitor-log-hub.md
     - text: Co to jest usługa Application Insights?
       url: app/app-insights-overview.md
     - text: Strona centrum zawartości usługi Application Insights

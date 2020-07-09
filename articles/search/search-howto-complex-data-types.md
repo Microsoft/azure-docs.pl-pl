@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fe61cf2a53b8e128a6cb58465cbb4785faa89d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562049"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Jak modelować złożone typy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -27,13 +27,13 @@ Platforma Azure Wyszukiwanie poznawcze natywnie obsługuje złożone typy i kole
 Aby rozpocząć, zalecamy użycie [zestawu danych hoteli](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), który można załadować w kreatorze **importowania danych** w Azure Portal. Kreator wykrywa złożone typy w źródle i sugeruje schemat indeksu na podstawie wykrytych struktur.
 
 > [!Note]
-> Obsługa typów złożonych jest ogólnie dostępna w `api-version=2019-05-06`. 
+> Obsługa typów złożonych jest ogólnie dostępna, począwszy od systemu `api-version=2019-05-06` . 
 >
 > Jeśli Twoje rozwiązanie wyszukiwania jest oparte na starszych obejść spłaszczonych zestawów danych w kolekcji, należy zmienić indeks tak, aby zawierał złożone typy jako obsługiwane w najnowszej wersji interfejsu API. Aby uzyskać więcej informacji na temat uaktualniania wersji interfejsu API, zobacz [uaktualnianie do najnowszej wersji interfejsu API REST](search-api-migration.md) lub [uaktualnianie do najnowszej wersji zestawu SDK platformy .NET](search-dotnet-sdk-migration-version-9.md).
 
 ## <a name="example-of-a-complex-structure"></a>Przykład struktury złożonej
 
-Poniższy dokument JSON składa się z pól prostych i złożonych. Złożone pola, takie jak `Address` i `Rooms`, mają pola podrzędne. `Address`zawiera jeden zestaw wartości dla tych podpól, ponieważ jest to pojedynczy obiekt w dokumencie. W przeciwieństwie `Rooms` , ma wiele zestawów wartości dla swoich pól podrzędnych, jeden dla każdego obiektu w kolekcji.
+Poniższy dokument JSON składa się z pól prostych i złożonych. Złożone pola, takie jak `Address` i `Rooms` , mają pola podrzędne. `Address`zawiera jeden zestaw wartości dla tych podpól, ponieważ jest to pojedynczy obiekt w dokumencie. W przeciwieństwie, `Rooms` ma wiele zestawów wartości dla swoich pól podrzędnych, jeden dla każdego obiektu w kolekcji.
 
 ```json
 {
@@ -103,7 +103,7 @@ Zwróć uwagę, że w ramach typu złożonego każde pole podrzędne ma typ i mo
 
 ### <a name="data-updates"></a>Aktualizacje danych
 
-Aktualizowanie istniejących dokumentów w indeksie z `upload` akcją działa tak samo jak w przypadku złożonych i prostych pól — wszystkie pola są zastępowane. Jednak `merge` (lub `mergeOrUpload` w przypadku zastosowania do istniejącego dokumentu) nie działa tak samo dla wszystkich pól. W przeciwnym `merge` razie program nie obsługuje scalania elementów w obrębie kolekcji. To ograniczenie istnieje dla kolekcji typów pierwotnych i złożonych kolekcji. Aby zaktualizować kolekcję, należy pobrać pełną wartość kolekcji, wprowadzić zmiany, a następnie dołączyć nową kolekcję do żądania interfejsu API indeksu.
+Aktualizowanie istniejących dokumentów w indeksie z `upload` akcją działa tak samo jak w przypadku złożonych i prostych pól — wszystkie pola są zastępowane. Jednak `merge` (lub `mergeOrUpload` w przypadku zastosowania do istniejącego dokumentu) nie działa tak samo dla wszystkich pól. W przeciwnym razie program `merge` nie obsługuje scalania elementów w obrębie kolekcji. To ograniczenie istnieje dla kolekcji typów pierwotnych i złożonych kolekcji. Aby zaktualizować kolekcję, należy pobrać pełną wartość kolekcji, wprowadzić zmiany, a następnie dołączyć nową kolekcję do żądania interfejsu API indeksu.
 
 ## <a name="searching-complex-fields"></a>Wyszukiwanie pól złożonych
 
@@ -117,11 +117,11 @@ Zapytania takie jak takie nie są *skorelowane* dla wyszukiwania pełnotekstoweg
 
 ## <a name="selecting-complex-fields"></a>Wybieranie pól złożonych
 
-Ten `$select` parametr służy do wybierania pól, które są zwracane w wynikach wyszukiwania. Aby użyć tego parametru do zaznaczania określonych pól podrzędnych pola złożonego, należy uwzględnić pole nadrzędne i podpole oddzielone ukośnikiem (`/`).
+Ten `$select` parametr służy do wybierania pól, które są zwracane w wynikach wyszukiwania. Aby użyć tego parametru do zaznaczania określonych pól podrzędnych pola złożonego, należy uwzględnić pole nadrzędne i podpole oddzielone ukośnikiem ( `/` ).
 
     $select=HotelName, Address/City, Rooms/BaseRate
 
-Jeśli chcesz, aby były one widoczne w wynikach wyszukiwania, pola muszą być oznaczone jako możliwe do pobierania w indeksie. W `$select` instrukcji nie można używać tylko pól oznaczonych jako możliwe do pobierania.
+Jeśli chcesz, aby były one widoczne w wynikach wyszukiwania, pola muszą być oznaczone jako możliwe do pobierania w indeksie. W instrukcji nie można używać tylko pól oznaczonych jako możliwe do pobierania `$select` .
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtrowanie, zestaw reguł i sortowanie pól złożonych
 
@@ -129,15 +129,15 @@ Tej samej [składni ścieżki OData](query-odata-filter-orderby-syntax.md) używ
 
 ### <a name="faceting-sub-fields"></a>Podpola aspektów
 
-Każde podpole może być oznaczone jako element wyglądu, chyba że jest typu `Edm.GeographyPoint` lub. `Collection(Edm.GeographyPoint)`
+Każde podpole może być oznaczone jako element wyglądu, chyba że jest typu `Edm.GeographyPoint` lub `Collection(Edm.GeographyPoint)` .
 
-Liczby dokumentów zwracane w wynikach aspektu są obliczane dla dokumentu nadrzędnego (Hotel), a nie do dokumentów podrzędnych w złożonej kolekcji (pokoje). Załóżmy na przykład, że Hotel ma 20 pokojów typu "Suite". Po podanym parametrze `facet=Rooms/Type`aspektu liczba aspektów będzie jedną dla hotelu, a nie 20 dla pokojów.
+Liczby dokumentów zwracane w wynikach aspektu są obliczane dla dokumentu nadrzędnego (Hotel), a nie do dokumentów podrzędnych w złożonej kolekcji (pokoje). Załóżmy na przykład, że Hotel ma 20 pokojów typu "Suite". Po podanym parametrze aspektu `facet=Rooms/Type` Liczba aspektów będzie jedną dla hotelu, a nie 20 dla pokojów.
 
 ### <a name="sorting-complex-fields"></a>Sortowanie pól złożonych
 
 Operacje sortowania dotyczą dokumentów (Hotele), a nie dokumentów podrzędnych (pokojów). Gdy istnieje kolekcja typu złożonego, taka jak pokoje, ważne jest, aby pamiętać, że nie można sortować w pokojach. W rzeczywistości nie można sortować według żadnej kolekcji.
 
-Operacje sortowania działają, gdy pola mają jedną wartość na dokument, niezależnie od tego, czy pole jest polem prostym, czy też podpolem w typie złożonym. Na przykład `Address/City` można użyć sortowania, ponieważ istnieje tylko jeden adres na Hotel, więc `$orderby=Address/City` sortuje Hotele według miejscowości.
+Operacje sortowania działają, gdy pola mają jedną wartość na dokument, niezależnie od tego, czy pole jest polem prostym, czy też podpolem w typie złożonym. Na przykład `Address/City` można użyć sortowania, ponieważ istnieje tylko jeden adres na Hotel, więc `$orderby=Address/City` Sortuje Hotele według miejscowości.
 
 ### <a name="filtering-on-complex-fields"></a>Filtrowanie w polach złożonych
 
@@ -145,11 +145,11 @@ Można odwoływać się do podpól złożonego pola w wyrażeniu filtru. Po pros
 
     $filter=Address/Country eq 'Canada'
 
-Aby odfiltrować w polu kolekcji złożonej, można użyć **wyrażenia lambda** z [ `any` operatorami i `all` ](search-query-odata-collection-operators.md). W takim przypadku **zmienna zakresu** wyrażenia lambda jest obiektem z podpolami. Można odwołać się do tych podpól ze standardową składnią ścieżki OData. Na przykład następujący filtr zwróci wszystkie hotele z co najmniej jedną usługą Deluxe i wszystkie pokoje nieprzeznaczone do palenia:
+Aby odfiltrować w polu kolekcji złożonej, można użyć **wyrażenia lambda** z [ `any` `all` operatorami i](search-query-odata-collection-operators.md). W takim przypadku **zmienna zakresu** wyrażenia lambda jest obiektem z podpolami. Można odwołać się do tych podpól ze standardową składnią ścieżki OData. Na przykład następujący filtr zwróci wszystkie hotele z co najmniej jedną usługą Deluxe i wszystkie pokoje nieprzeznaczone do palenia:
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Podobnie jak w przypadku pól prostych najwyższego poziomu, proste podpola złożonych pól można dołączać tylko do filtrów, jeśli **filterable** mają atrybut z możliwością `true` filtrowania ustawioną na wartość w definicji indeksu. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API tworzenia indeksu](/rest/api/searchservice/create-index).
+Podobnie jak w przypadku pól prostych najwyższego poziomu, proste podpola złożonych pól można dołączać tylko do filtrów, jeśli mają atrybut z możliwością **filtrowania** ustawioną na wartość `true` w definicji indeksu. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API tworzenia indeksu](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Następne kroki
 

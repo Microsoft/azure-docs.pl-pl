@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 65513b3cd5813d7d127ca9cbabdcd038f11beee9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042869"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Konfigurowanie i używanie dzienników Azure Monitor z wielodostępnym Azure SQL Database aplikacji SaaS
@@ -48,7 +47,7 @@ Obszary robocze OMS są teraz nazywane obszarami roboczymi usługi Log Analytics
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Tworzenie danych diagnostycznych wydajności przez symulowanie obciążenia dla dzierżawców 
 
-1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb-Master \\ Learning module \\ monitoring Performance and Management \\ demo-PerformanceMonitoringAndManagement. ps1*. Pozostaw ten skrypt otwarty, ponieważ w tym samouczku możesz chcieć uruchomić kilka scenariuszy generowania obciążenia.
+1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb — główne \\ moduły uczenia \\ wydajności i zarządzania \\Demo-PerformanceMonitoringAndManagement.ps1*. Pozostaw ten skrypt otwarty, ponieważ w tym samouczku możesz chcieć uruchomić kilka scenariuszy generowania obciążenia.
 1. Jeśli jeszcze tego nie zrobiono, Zainicjuj obsługę partii dzierżawców, aby zapewnić bardziej interesujący kontekst monitorowania. Ten proces trwa kilka minut.
 
    a. Ustaw **$DemoScenario = 1**, _Zainicjuj obsługę partii dzierżawców_.
@@ -69,7 +68,7 @@ Wingtip bilety SaaS wielodostępne skrypty bazy danych i kod źródłowy aplikac
 
 Azure Monitor jest oddzielną usługą, która musi być skonfigurowana. Azure Monitor dzienników zbiera dane dziennika, telemetrię i metryki w obszarze roboczym Log Analytics. Podobnie jak w przypadku innych zasobów na platformie Azure, należy utworzyć obszar roboczy Log Analytics. Nie trzeba tworzyć obszaru roboczego w tej samej grupie zasobów co monitorowane aplikacje. Zdarza się to często najczęściej. W przypadku aplikacji biletów Wingtip Użyj pojedynczej grupy zasobów, aby upewnić się, że obszar roboczy został usunięty z aplikacją.
 
-1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb-Master \\ Learning module \\ Performance Monitoring i Management \\ log Analytics \\ demo-LogAnalytics. ps1*.
+1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb — główne \\ moduły uczenia dotyczące \\ monitorowania wydajności i zarządzania \\ \\Demo-LogAnalytics.ps1log Analytics *.
 1. Aby uruchomić skrypt, naciśnij klawisz F5.
 
 Teraz możesz otworzyć dzienniki Azure Monitor w Azure Portal. Zebranie danych telemetrycznych w obszarze roboczym Log Analytics i udostępnienie jej jako widocznej może potrwać kilka minut. Im dłużej opuścisz system zbierania danych diagnostycznych, tym bardziej interesujące jest środowisko. 

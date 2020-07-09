@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/11/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 905554d1763bdd3c5990a43c5c8d98f336e1c442
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171212"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807590"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicjowanie trybu failover konta magazynu
 
@@ -44,16 +44,16 @@ Aby uzyskać więcej informacji o nadmiarowości usługi Azure Storage, zobacz [
 Aby zainicjować tryb failover konta z Azure Portal, wykonaj następujące kroki:
 
 1. Przejdź do swojego konta magazynu.
-2. W obszarze **Ustawienia**wybierz pozycję **replikacja geograficzna**. Na poniższej ilustracji przedstawiono stan replikacji geograficznej i trybu failover dla konta magazynu.
+1. W obszarze **Ustawienia**wybierz pozycję **replikacja geograficzna**. Na poniższej ilustracji przedstawiono stan replikacji geograficznej i trybu failover dla konta magazynu.
 
-    ![Zrzut ekranu przedstawiający replikację geograficzną i stan trybu failover](media/storage-initiate-account-failover/portal-failover-prepare.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Zrzut ekranu przedstawiający replikację geograficzną i stan trybu failover":::
 
-3. Sprawdź, czy konto magazynu jest skonfigurowane pod kątem magazynu geograficznie nadmiarowego (GRS) lub magazynu geograficznie nadmiarowego do odczytu (RA-GRS). Jeśli tak nie jest, wybierz pozycję **Konfiguracja** w obszarze **Ustawienia** , aby zaktualizować konto tak, aby było geograficznie nadmiarowe.
-4. Właściwość **czas ostatniej synchronizacji** wskazuje, jak daleko pomocnicza jest poza podstawową. **Czas ostatniej synchronizacji** to oszacowanie zakresu utraty danych, który będzie dostępny po zakończeniu pracy w trybie failover. Aby uzyskać więcej informacji na temat sprawdzania właściwości **czas ostatniej synchronizacji** , zobacz [Sprawdzanie właściwości ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md).
-5. Wybierz pozycję **Przygotuj do przejścia w tryb failover**.
-6. Przejrzyj okno dialogowe potwierdzenia. Gdy wszystko będzie gotowe, wprowadź **wartość tak** , aby potwierdzić i zainicjować tryb failover.
+1. Sprawdź, czy konto magazynu jest skonfigurowane pod kątem magazynu geograficznie nadmiarowego (GRS) lub magazynu geograficznie nadmiarowego do odczytu (RA-GRS). Jeśli tak nie jest, wybierz pozycję **Konfiguracja** w obszarze **Ustawienia** , aby zaktualizować konto tak, aby było geograficznie nadmiarowe.
+1. Właściwość **czas ostatniej synchronizacji** wskazuje, jak daleko pomocnicza jest poza podstawową. **Czas ostatniej synchronizacji** to oszacowanie zakresu utraty danych, który będzie dostępny po zakończeniu pracy w trybie failover. Aby uzyskać więcej informacji na temat sprawdzania właściwości **czas ostatniej synchronizacji** , zobacz [Sprawdzanie właściwości ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md).
+1. Wybierz pozycję **Przygotuj do przejścia w tryb failover**.
+1. Przejrzyj okno dialogowe potwierdzenia. Gdy wszystko będzie gotowe, wprowadź **wartość tak** , aby potwierdzić i zainicjować tryb failover.
 
-    ![Zrzut ekranu przedstawiający okno dialogowe potwierdzenia dla konta w trybie failover](media/storage-initiate-account-failover/portal-failover-confirm.png)
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe potwierdzenia dla konta w trybie failover":::
 
 ## <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -94,7 +94,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 Aby zainicjować tryb failover na koncie przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj następujące polecenia:
 
-```azurecli
+```azurecli-interactive
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```

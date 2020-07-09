@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 486b89e5c93de7444758638ad36743ff2f0bcb37
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720983"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026342"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Dostęp do zestawów danych z językiem Python za pomocą biblioteki klienta Python usługi Azure Machine Learning
 Wersja zapoznawcza Microsoft Azure Machine Learning Biblioteka kliencka języka Python umożliwia bezpieczny dostęp do Azure Machine Learning zestawów danych ze środowiska lokalnego języka Python oraz umożliwia tworzenie zestawów danych i zarządzanie nimi w obszarze roboczym.
@@ -38,23 +38,28 @@ Ma zależność od następujących pakietów:
 
 * żądań
 * Python — dateutil
-* Pandas
+* pandas
 
-Zalecamy używanie dystrybucji języka Python, takiej jak [Anaconda](http://continuum.io/downloads#all) lub [koroner](https://store.enthought.com/downloads/), która jest dostarczana z zainstalowanymi w języku Python, IPython i trzema wymienionymi powyżej pakietami. Chociaż IPython nie jest ściśle wymagane, jest to doskonałe środowisko do interaktywnego manipulowania danymi i wizualizacji danych.
+Zalecamy używanie dystrybucji języka Python, takiej jak [Anaconda](https://www.anaconda.com/) lub [koroner](https://store.enthought.com/downloads/), która jest dostarczana z zainstalowanymi w języku Python, IPython i trzema wymienionymi powyżej pakietami. Chociaż IPython nie jest ściśle wymagane, jest to doskonałe środowisko do interaktywnego manipulowania danymi i wizualizacji danych.
 
 ### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Jak zainstalować bibliotekę kliencką Azure Machine Learning Python
 Zainstaluj bibliotekę kliencką Azure Machine Learning Python, aby wykonać zadania opisane w tym temacie. Ta biblioteka jest dostępna w [indeksie pakietu języka Python](https://pypi.python.org/pypi/azureml). Aby zainstalować ją w środowisku języka Python, uruchom następujące polecenie w lokalnym środowisku języka Python:
 
-    pip install azureml
+```console
+pip install azureml
+```
 
 Alternatywnie możesz pobrać i zainstalować ze źródeł w serwisie [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
-    python setup.py install
+```console
+python setup.py install
+```
 
 Jeśli na komputerze jest zainstalowany program git, możesz zainstalować go bezpośrednio z repozytorium git przy użyciu narzędzia PIP:
 
-    pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
-
+```console
+pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
+```
 
 ## <a name="use-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Używanie fragmentów kodu do uzyskiwania dostępu do zestawów danych
 Biblioteka klienta języka Python zapewnia programistyczny dostęp do istniejących zestawów danych z eksperymentów, które zostały uruchomione.
@@ -110,7 +115,7 @@ Obsługiwane są następujące formaty (stałe dla tych formatów są w `azureml
 
 Możesz określić format, ustawiając kursor nad węzłem wyjściowym modułu. Jest wyświetlana wraz z nazwą węzła w etykietce narzędzia.
 
-Niektóre moduły, takie jak moduł [Split][split] , są wyprowadzane do formatu o nazwie `Dataset`, który nie jest obsługiwany przez bibliotekę kliencką języka Python.
+Niektóre moduły, takie jak moduł [Split][split] , są wyprowadzane do formatu o nazwie `Dataset` , który nie jest obsługiwany przez bibliotekę kliencką języka Python.
 
 ![Format zestawu danych][dataset-format]
 
@@ -143,100 +148,121 @@ W poniższych krokach przedstawiono przykład tworzenia eksperymentu, uruchamian
 ### <a name="workspace"></a>Workspace
 Obszar roboczy jest punktem wejścia dla biblioteki klienta języka Python. Podaj `Workspace` klasę z identyfikatorem obszaru roboczego i tokenem autoryzacji, aby utworzyć wystąpienie:
 
-    ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
-                   authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
-
+```python
+ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
+               authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
+```
 
 ### <a name="enumerate-datasets"></a>Wyliczanie zestawów danych
 Aby wyliczyć wszystkie zestawy danych w danym obszarze roboczym:
 
-    for ds in ws.datasets:
-        print(ds.name)
+```python
+for ds in ws.datasets:
+    print(ds.name)
+```
 
 Aby wyliczyć tylko zestawy danych utworzone przez użytkownika:
 
-    for ds in ws.user_datasets:
-        print(ds.name)
+```python
+for ds in ws.user_datasets:
+    print(ds.name)
+```
 
 Aby wyliczyć tylko przykładowe zestawy danych:
 
-    for ds in ws.example_datasets:
-        print(ds.name)
+```python
+for ds in ws.example_datasets:
+    print(ds.name)
+```
 
 Dostęp do zestawu danych można uzyskać przy użyciu nazwy (w przypadku uwzględniania wielkości liter):
 
-    ds = ws.datasets['my dataset name']
+```python
+ds = ws.datasets['my dataset name']
+```
 
 Lub dostęp do niego można uzyskać za pomocą indeksu:
 
-    ds = ws.datasets[0]
-
+```python
+ds = ws.datasets[0]
+```
 
 ### <a name="metadata"></a>Metadane
 Zestawy danych zawierają metadane, a także zawartość. (Pośrednie zestawy danych są wyjątkiem od tej reguły i nie mają żadnych metadanych).
 
 Niektóre wartości metadanych są przypisywane przez użytkownika podczas tworzenia:
 
-    print(ds.name)
-    print(ds.description)
-    print(ds.family_id)
-    print(ds.data_type_id)
+* `print(ds.name)`
+* `print(ds.description)`
+* `print(ds.family_id)`
+* `print(ds.data_type_id)`
 
 Inne są wartościami przypisanymi przez usługę Azure ML:
 
-    print(ds.id)
-    print(ds.created_date)
-    print(ds.size)
+* `print(ds.id)`
+* `print(ds.created_date)`
+* `print(ds.size)`
 
-Zapoznaj `SourceDataset` się z klasą, aby uzyskać więcej informacji na temat dostępnych metadanych.
+Zapoznaj się z `SourceDataset` klasą, aby uzyskać więcej informacji na temat dostępnych metadanych.
 
 ### <a name="read-contents"></a>Odczytaj zawartość
 Fragmenty kodu udostępniane przez Machine Learning Studio (klasyczne) automatycznie pobierają i deserializacjiją zestaw danych do obiektu Pandas Dataframe. Jest to realizowane za pomocą `to_dataframe` metody:
 
-    frame = ds.to_dataframe()
+```python
+frame = ds.to_dataframe()
+```
 
 Jeśli wolisz pobrać pierwotne dane i wykonać deserializacji samodzielnie, to jest opcja. Obecnie jest to jedyna opcja dla formatów takich jak "ARFF", które nie mogą deserializować biblioteki klienta języka Python.
 
 Aby odczytać zawartość jako tekst:
 
-    text_data = ds.read_as_text()
+```python
+text_data = ds.read_as_text()
+```
 
 Aby odczytać zawartość jako plik binarny:
 
-    binary_data = ds.read_as_binary()
+```python
+binary_data = ds.read_as_binary()
+```
 
 Możesz również po prostu otworzyć strumień do zawartości:
 
-    with ds.open() as file:
-        binary_data_chunk = file.read(1000)
-
+```python
+with ds.open() as file:
+    binary_data_chunk = file.read(1000)
+```
 
 ### <a name="create-a-new-dataset"></a>Utwórz nowy zestaw danych
 Biblioteka klienta języka Python umożliwia przekazywanie zestawów danych z programu w języku Python. Te zestawy danych są następnie dostępne do użycia w Twoim obszarze roboczym.
 
 Jeśli masz dane w Pandas Dataframe, użyj następującego kodu:
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets.add_from_dataframe(
-        dataframe=frame,
-        data_type_id=DataTypeIds.GenericCSV,
-        name='my new dataset',
-        description='my description'
-    )
+dataset = ws.datasets.add_from_dataframe(
+    dataframe=frame,
+    data_type_id=DataTypeIds.GenericCSV,
+    name='my new dataset',
+    description='my description'
+)
+```
 
 Jeśli dane są już serializowane, można użyć:
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets.add_from_raw_data(
-        raw_data=raw_data,
-        data_type_id=DataTypeIds.GenericCSV,
-        name='my new dataset',
-        description='my description'
-    )
+dataset = ws.datasets.add_from_raw_data(
+    raw_data=raw_data,
+    data_type_id=DataTypeIds.GenericCSV,
+    name='my new dataset',
+    description='my description'
+)
+```
 
-Biblioteka klienta języka Python jest w stanie serializować pandasą ramkę danych do następujących formatów (stałe dla nich znajdują się `azureml.DataTypeIds` w klasie):
+Biblioteka klienta języka Python jest w stanie serializować pandasą ramkę danych do następujących formatów (stałe dla nich znajdują się w `azureml.DataTypeIds` klasie):
 
 * PlainText
 * GenericCSV
@@ -249,70 +275,80 @@ Jeśli próbujesz przekazać nowy zestaw danych o nazwie zgodnej z istniejącym 
 
 Aby zaktualizować istniejący zestaw danych, należy najpierw pobrać odwołanie do istniejącego zestawu danych:
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
-Następnie użyj `update_from_dataframe` , aby serializować i zastąpić zawartość zestawu danych na platformie Azure:
+Następnie użyj, `update_from_dataframe` Aby serializować i zastąpić zawartość zestawu danych na platformie Azure:
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(frame2)
+dataset.update_from_dataframe(frame2)
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 Jeśli chcesz serializować dane w innym formacie, określ wartość parametru opcjonalnego `data_type_id` .
 
-    from azureml import DataTypeIds
+```python
+from azureml import DataTypeIds
 
-    dataset = ws.datasets['existing dataset']
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        data_type_id=DataTypeIds.GenericTSV,
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    data_type_id=DataTypeIds.GenericTSV,
+)
 
-    print(dataset.data_type_id) # 'GenericTSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to jan 2015'
+print(dataset.data_type_id) # 'GenericTSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to jan 2015'
+```
 
 Opcjonalnie można ustawić nowy opis, określając wartość `description` parametru.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        description='data up to feb 2015',
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    description='data up to feb 2015',
+)
 
-    print(dataset.data_type_id) # 'GenericCSV'
-    print(dataset.name)         # 'existing dataset'
-    print(dataset.description)  # 'data up to feb 2015'
+print(dataset.data_type_id) # 'GenericCSV'
+print(dataset.name)         # 'existing dataset'
+print(dataset.description)  # 'data up to feb 2015'
+```
 
 Opcjonalnie można ustawić nową nazwę, określając wartość `name` parametru. Od teraz pobierasz zestaw danych tylko przy użyciu nowej nazwy. Poniższy kod aktualizuje dane, nazwę i opis.
 
-    dataset = ws.datasets['existing dataset']
+```python
+dataset = ws.datasets['existing dataset']
 
-    dataset.update_from_dataframe(
-        dataframe=frame2,
-        name='existing dataset v2',
-        description='data up to feb 2015',
-    )
+dataset.update_from_dataframe(
+    dataframe=frame2,
+    name='existing dataset v2',
+    description='data up to feb 2015',
+)
 
-    print(dataset.data_type_id)                    # 'GenericCSV'
-    print(dataset.name)                            # 'existing dataset v2'
-    print(dataset.description)                     # 'data up to feb 2015'
+print(dataset.data_type_id)                    # 'GenericCSV'
+print(dataset.name)                            # 'existing dataset v2'
+print(dataset.description)                     # 'data up to feb 2015'
 
-    print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
-    print(ws.datasets['existing dataset'].name)    # IndexError
+print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
+print(ws.datasets['existing dataset'].name)    # IndexError
+```
 
-`data_type_id`Parametry `name` i `description` są opcjonalne i domyślne dla ich poprzedniej wartości. `dataframe` Parametr jest zawsze wymagany.
+`data_type_id` `name` `description` Parametry i są opcjonalne i domyślne dla ich poprzedniej wartości. `dataframe`Parametr jest zawsze wymagany.
 
-Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update_from_dataframe`. Jeśli przeszedł po prostu `raw_data` `dataframe`, zamiast, działa w podobny sposób.
+Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update_from_dataframe` . Jeśli przeszedł po prostu `raw_data` , zamiast `dataframe` , działa w podobny sposób.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

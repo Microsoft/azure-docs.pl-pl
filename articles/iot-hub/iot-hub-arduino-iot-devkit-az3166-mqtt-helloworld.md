@@ -11,10 +11,9 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733488"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Wysyłanie komunikatów do serwera MQTT
@@ -49,11 +48,11 @@ Zakończ [przewodnik wprowadzenie](https://docs.microsoft.com/azure/iot-hub/iot-
 Rozwiń sekcję **przykłady Arduino** lewej strony, przejdź do **przykładów dla zestawu DEWELOPERSKIEGO AZ3166 > MQTT**, a następnie wybierz pozycję **MQTTClient**. Zostanie otwarte nowe okno VS Code z folderem projektu.
 
 > [!NOTE]
-> Możesz również otworzyć przykład z palety poleceń. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
+> Możesz również otworzyć przykład z palety poleceń. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P` ), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Kompiluj i przekaż szkic Arduino do DevKit
 
-Wpisz `Ctrl+P` (macOS: `Cmd+P`), aby `task device-upload`uruchomić. Po zakończeniu przekazywania DevKit ponownie uruchamia i uruchamia szkic.
+Wpisz `Ctrl+P` (macOS: `Cmd+P` ), aby uruchomić `task device-upload` . Po zakończeniu przekazywania DevKit ponownie uruchamia i uruchamia szkic.
 
 ![przekazywanie urządzenia](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
@@ -64,11 +63,11 @@ Wpisz `Ctrl+P` (macOS: `Cmd+P`), aby `task device-upload`uruchomić. Po zakończ
 
 W VS Code wykonaj następującą procedurę, aby otworzyć i skonfigurować Monitor seryjny:
 
-1. Kliknij `COM[X]` słowo na pasku stanu, aby ustawić prawidłowy port COM za pomocą `STMicroelectronics`polecenia: ![Set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Kliknij `COM[X]` słowo na pasku stanu, aby ustawić prawidłowy port COM za pomocą polecenia `STMicroelectronics` : ![ Set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Kliknij ikonę zasilania na pasku stanu, aby otworzyć Monitor szeregowy: ![Serial-Monitor](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Kliknij ikonę zasilania na pasku stanu, aby otworzyć Monitor szeregowy: ![ Serial-Monitor](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. Na pasku stanu kliknij liczbę reprezentującą szybkość transmisji i ustaw ją na `115200`: ![Set-bodów-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. Na pasku stanu kliknij liczbę reprezentującą szybkość transmisji i ustaw ją na `115200` : ![ Set-bodów-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 W monitorze seryjnym są wyświetlane wszystkie komunikaty wysyłane przez przykładowy szkic. Szkic łączy DevKit z siecią Wi-Fi. Po pomyślnym nawiązaniu połączenia Wi-Fi szkic wyśle wiadomość do brokera usługi MQTT. Następnie przykład wielokrotnie wysyła dwa komunikaty "iot.eclipse.org" przy użyciu ustawień QoS 0 i QoS 1.
 

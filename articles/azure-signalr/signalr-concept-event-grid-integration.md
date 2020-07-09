@@ -9,10 +9,9 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74158196"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagowanie na zdarzenia usługi Azure SignalR Service
@@ -63,5 +62,5 @@ Aby uzyskać więcej informacji, zobacz [schemat zdarzeń usługi sygnalizujące
 Dowiedz się więcej o Event Grid i przekaż zdarzenia usługi Azure Signal Service:
 
 > [!div class="nextstepaction"]
-> [Wypróbuj Event Grid integrację z usługą Azure Signal Service](./signalr-howto-event-grid-integration.md)
-> [o Event Grid](../event-grid/overview.md)
+> [Wypróbuj Event Grid integrację z usługą Azure Signal Service](./signalr-howto-event-grid-integration.md) 
+>  [Informacje o Event Grid](../event-grid/overview.md)

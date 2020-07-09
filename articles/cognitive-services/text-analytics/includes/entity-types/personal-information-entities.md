@@ -8,15 +8,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140945"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108508"
 ---
 > [!NOTE]
-> Aby wykryć `PHI` , użyj `domain=phi` parametru i wersji modelu `2020-04-01` lub nowszej.
+> Aby wykryć `PHI` (chronione informacje o kondycji), użyj `domain=phi` parametru i wersji modelu `2020-04-01` lub nowszej.
 >
 > Na przykład: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
@@ -40,8 +40,8 @@ Następujące kategorie jednostek są zwracane podczas wysyłania żądań do `/
 | DateTime | Data | Daty kalendarzowe. | `2019-10-01` | Zwracany także przez `domain=phi` . |
 | Liczba | Nie dotyczy | Liczby i ilości liczbowe. | `2019-10-01` |  |
 | Liczba | Wiek | Ważności. | `2019-10-01` | | |
-| Międzynarodowa Klasyfikacja Chorób (ICD-10-CM) | Nie dotyczy | Jednostki odnoszące się do międzynarodowej klasyfikacji chorób, dziewiątej poprawki.   | `2020-04-01` | Zwracany także przez `domain=phi` . |
-| Międzynarodowa Klasyfikacja Chorób (ICD-10-CM) | Nie dotyczy | Jednostki odnoszące się do międzynarodowej klasyfikacji chorób, dziesiątej poprawki.    | `2020-04-01` | Zwracany także przez `domain=phi` . |
+| Międzynarodowa Klasyfikacja Chorób (ICD-9-CM) | Nie dotyczy | Jednostki odnoszące się do międzynarodowej klasyfikacji chorób, dziewiątej poprawki.   | `2020-04-01` | |
+| Międzynarodowa Klasyfikacja Chorób (ICD-10-CM) | Nie dotyczy | Jednostki odnoszące się do międzynarodowej klasyfikacji chorób, dziesiątej poprawki.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informacje o platformie Azure
 
@@ -51,7 +51,7 @@ Ta kategoria jednostki obejmuje identyfikowalne informacje dotyczące platformy 
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Klucz uwierzytelniania usługi Azure DocumentDB             | Klucz autoryzacji dla serwera usługi Azure DocumentDB.                           |
 | Parametry połączenia z usługą Azure IAAS Database i parametry połączenia usługi Azure SQL | Parametry połączenia dla bazy danych infrastruktury platformy Azure jako usługi (IaaS) i parametry połączenia SQL. |
-| Parametry połączenia usługi Azure SQL           | Parametry połączenia dla bazy danych SQL Azure.                                |
+| Parametry połączenia usługi Azure SQL           | Parametry połączenia dla bazy danych w Azure SQL Database.                                |
 | Parametry połączenia usługi Azure IoT           | Parametry połączenia dla Internetu rzeczy (IoT) platformy Azure.                        |
 | Hasło ustawienia publikowania platformy Azure        | Hasło dla ustawień publikowania platformy Azure.                                        |
 | Azure Redis Cache parametry połączenia   | Parametry połączenia dla pamięci podręcznej platformy Azure dla Redis.                             |

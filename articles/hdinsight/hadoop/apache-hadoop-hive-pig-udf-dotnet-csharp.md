@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db49a3660d3f1aab6a8a9945751fed9461a6b8fd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74949393"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086045"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Korzystanie z funkcji zdefiniowanych przez użytkownika w języku C# przy użyciu Apache Hive i Apache chlewnej na Apache Hadoop w usłudze HDInsight
 
@@ -38,13 +38,13 @@ Zarówno Hive, jak i świnie mogą przekazywać dane do aplikacji zewnętrznych 
 
 ## <a name="net-on-hdinsight"></a>Platforma .NET w usłudze HDInsight
 
-Klastry *HDInsight oparte na systemie Linux* używają systemu [https://mono-project.com) mono (](https://mono-project.com) do uruchamiania aplikacji .NET. W usłudze HDInsight w wersji 3,6 jest dołączony system mono w wersji.
+Klastry *HDInsight oparte na systemie Linux* używają systemu [ https://mono-project.com) mono (](https://mono-project.com) do uruchamiania aplikacji .NET. W usłudze HDInsight w wersji 3,6 jest dołączony system mono w wersji.
 
 Aby uzyskać więcej informacji na temat zgodności z programem mono z wersjami .NET Framework, zobacz Zgodność z usługą [mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 Aby uzyskać więcej informacji na temat wersji .NET Framework i narzędzia mono dołączonego do wersji usługi HDInsight, zobacz [wersje składników usługi HDInsight](../hdinsight-component-versioning.md).
 
-## <a name="create-the-c-projects"></a>Tworzenie projektów C\#
+## <a name="create-the-c-projects"></a>Tworzenie projektów C \#
 
 W poniższych sekcjach opisano sposób tworzenia projektu w języku C# w programie Visual Studio dla Apache Hive UDF i UDF świni Apache.
 
@@ -111,7 +111,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
     }
     ```
 
-6. Na pasku menu wybierz kolejno opcje **Kompiluj** > kompilacje**rozwiązanie** , aby skompilować projekt.
+6. Na pasku menu wybierz kolejno opcje **Kompiluj**kompilacje  >  **rozwiązanie** , aby skompilować projekt.
 
 7. Zamknij rozwiązanie.
 
@@ -158,9 +158,9 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
     }
     ```
 
-    Ten kod analizuje wiersze wysyłane z świni i ponownie formatuje linie, które zaczynają się `java.lang.Exception`od.
+    Ten kod analizuje wiersze wysyłane z świni i ponownie formatuje linie, które zaczynają się od `java.lang.Exception` .
 
-6. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować projekt.
+6. Na pasku menu wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować projekt.
 
 7. Pozostaw otwarte rozwiązanie.
 
@@ -168,7 +168,7 @@ Aby utworzyć projekt C# dla Apache Hive UDF:
 
 Następnie należy przekazać aplikacje Hive i UDF do magazynu w klastrze usługi HDInsight.
 
-1. W programie Visual Studio przejdź do **widoku** > **Eksplorator serwera**.
+1. W programie Visual Studio przejdź do **widoku**  >  **Eksplorator serwera**.
 
 1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure**i Ukończ proces logowania.
 
@@ -186,17 +186,17 @@ Następnie należy przekazać aplikacje Hive i UDF do magazynu w klastrze usług
 
         ![Ikona przekazywania do usługi HDInsight dla nowego projektu](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
-        W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku**wybierz pozycję **Przeglądaj**. W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* projektu *HiveCSharp* , a następnie wybierz plik *HiveCSharp. exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
+        W oknie dialogowym **Przekaż nowy plik** w obszarze **Nazwa pliku**wybierz pozycję **Przeglądaj**. W oknie dialogowym **przekazywanie obiektu BLOB** przejdź do folderu *bin\Debug* projektu *HiveCSharp* , a następnie wybierz plik *HiveCSharp.exe* . Na koniec wybierz pozycję **Otwórz** , a następnie kliknij **przycisk OK** , aby ukończyć przekazywanie.
 
-    * Jeśli używasz **Azure Data Lake Storage**, kliknij prawym przyciskiem myszy pusty obszar na liście plików, a następnie wybierz polecenie **Przekaż**. Na koniec wybierz plik *HiveCSharp. exe* i wybierz pozycję **Otwórz**.
+    * Jeśli używasz **Azure Data Lake Storage**, kliknij prawym przyciskiem myszy pusty obszar na liście plików, a następnie wybierz polecenie **Przekaż**. Na koniec wybierz plik *HiveCSharp.exe* i wybierz pozycję **Otwórz**.
 
-    Po zakończeniu przekazywania programu *HiveCSharp. exe* Powtórz proces przekazywania dla pliku *PigUDF. exe* .
+    Po zakończeniu przekazywania *HiveCSharp.exe* Powtórz proces przesyłania pliku *PigUDF.exe* .
 
 ## <a name="run-an-apache-hive-query"></a>Uruchamianie zapytania Apache Hive
 
 Teraz można uruchomić zapytanie programu Hive korzystające z aplikacji w formacie UDF.
 
-1. W programie Visual Studio przejdź do **widoku** > **Eksplorator serwera**.
+1. W programie Visual Studio przejdź do **widoku**  >  **Eksplorator serwera**.
 
 2. Rozwiń węzeł **Azure**, a następnie rozwiń węzeł **HDInsight**.
 
@@ -222,7 +222,7 @@ Teraz można uruchomić zapytanie programu Hive korzystające z aplikacji w form
     > [!IMPORTANT]
     > Usuń komentarz z `add file` instrukcji, która jest zgodna z typem domyślnego magazynu używanego w klastrze.
 
-    To zapytanie wybiera pola `clientid`, `devicemake`, i `devicemodel` z `hivesampletable`, a następnie przekazuje pola do aplikacji *HiveCSharp. exe* . Zapytanie oczekuje, że aplikacja zwróci trzy pola, które są przechowywane jako `clientid`, `phoneLabel`i. `phoneHash` Zapytanie oczekuje również znalezienia *HiveCSharp. exe* w katalogu głównym domyślnego kontenera magazynu.
+    To zapytanie wybiera `clientid` pola, `devicemake` , i `devicemodel` z `hivesampletable` , a następnie przekazuje pola do aplikacji *HiveCSharp.exe* . Zapytanie oczekuje, że aplikacja zwróci trzy pola, które są przechowywane jako `clientid` , `phoneLabel` i `phoneHash` . Zapytanie oczekuje również na znalezienie *HiveCSharp.exe* w katalogu głównym domyślnego kontenera magazynu.
 
 5. Zmień wartość domyślną **interaktywny** na **Batch**, a następnie wybierz pozycję **Prześlij** , aby przesłać zadanie do klastra usługi HDInsight. Zostanie otwarte okno **podsumowania zadania Hive** .
 
@@ -232,7 +232,7 @@ Teraz można uruchomić zapytanie programu Hive korzystające z aplikacji w form
 
 Możesz również uruchomić zadanie Świniowe korzystające z aplikacji do UDF.
 
-1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. (Na przykład uruchom polecenie `ssh sshuser@<clustername>-ssh.azurehdinsight.net`). Aby uzyskać więcej informacji, zobacz Korzystanie z protokołu [SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. (Na przykład uruchom polecenie `ssh sshuser@<clustername>-ssh.azurehdinsight.net` ). Aby uzyskać więcej informacji, zobacz Korzystanie z protokołu [SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Użyj następującego polecenia, aby uruchomić wiersz polecenia świni:
 
@@ -240,7 +240,7 @@ Możesz również uruchomić zadanie Świniowe korzystające z aplikacji do UDF.
     pig
     ```
 
-    Zostanie `grunt>` wyświetlony monit.
+    `grunt>`Zostanie wyświetlony monit.
 
 3. Wprowadź następujące, aby uruchomić zadanie trzody chlewnej używające aplikacji .NET Framework:
 
@@ -252,10 +252,10 @@ Możesz również uruchomić zadanie Świniowe korzystające z aplikacji do UDF.
     DUMP DETAILS;
     ```
 
-    `DEFINE` Instrukcja tworzy alias `streamer` dla aplikacji *PigUDF. exe* i `CACHE` ładuje ją z magazynu domyślnego dla klastra. Później `streamer` jest używany z `STREAM` operatorem do przetwarzania pojedynczych wierszy zawartych w `LOG` i zwracają dane jako serie kolumn.
+    `DEFINE`Instrukcja tworzy alias `streamer` dla aplikacji *PigUDF.exe* i `CACHE` ładuje ją z magazynu domyślnego dla klastra. Później `streamer` jest używany z `STREAM` operatorem do przetwarzania pojedynczych wierszy zawartych w `LOG` i zwracają dane jako serie kolumn.
 
     > [!NOTE]
-    > Nazwa aplikacji, która jest używana na potrzeby przesyłania strumieniowego, musi być \` otoczona znakiem (odwróconym), gdy jest on aliasem, i przez znak "(pojedynczego `SHIP`cudzysłowu), gdy jest używany z.
+    > Nazwa aplikacji, która jest używana na potrzeby przesyłania strumieniowego, musi być otoczona \` znakiem (odwróconym), gdy jest on aliasem, i przez znak "(pojedynczego cudzysłowu), gdy jest używany z `SHIP` .
 
 4. Po wprowadzeniu ostatniego wiersza zadanie powinno zostać uruchomione. Zwraca dane wyjściowe podobne do następującego tekstu:
 

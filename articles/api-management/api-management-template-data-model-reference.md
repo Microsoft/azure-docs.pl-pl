@@ -14,11 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84690035"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Dokumentacja modelu danych szablonu API Management platformy Azure
 W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów używanych w modelach danych dla szablonów portalu dla deweloperów w usłudze Azure API Management.  
@@ -46,8 +45,8 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 -   [Menu operacje](#Menu)  
 -   [Element menu operacji](#MenuItem)  
 -   [Stronicowanie](#Paging)  
--   [Konstruktora](#Parameter)  
--   [Product (Produkt)](#Product)  
+-   [Parametr](#Parameter)  
+-   [Product](#Product)  
 -   [Dostawca](#Provider)  
 -   [Reprezentowana](#Representation)  
 -   [Subskrypcja](#Subscription)  
@@ -57,7 +56,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 -   [Rejestracja użytkownika](#UserSignUp)  
   
 ##  <a name="api"></a><a name="API"></a>INTERFEJSU API  
- `API` Jednostka ma następujące właściwości:  
+ `API`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -66,12 +65,12 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`description`|ciąg|Opis interfejsu API. Nie może być pusty. Może zawierać Tagi formatowania HTML. Maksymalna długość to 1000 znaków.|  
 |`serviceUrl`|ciąg|Bezwzględny adres URL usługi wewnętrznej bazy danych implementującej ten interfejs API.|  
 |`path`|ciąg|Względny adres URL, który jednoznacznie identyfikuje ten interfejs API i wszystkie jego ścieżki zasobów w ramach wystąpienia usługi API Management. Jest dołączany do podstawowego adresu URL punktu końcowego interfejsu API określonego podczas tworzenia wystąpienia usługi, aby utworzyć publiczny adres URL dla tego interfejsu API.|  
-|`protocols`|tablica liczb|Opisuje protokoły, w których można wywołać operacje w tym interfejsie API. Dozwolone wartości to `1 - http` i `2 - https`i.|  
+|`protocols`|tablica liczb|Opisuje protokoły, w których można wywołać operacje w tym interfejsie API. Dozwolone wartości to `1 - http` i i `2 - https` .|  
 |`authenticationSettings`|[Ustawienia uwierzytelniania serwera autoryzacji](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Kolekcja ustawień uwierzytelniania uwzględnionych w tym interfejsie API.|  
-|`subscriptionKeyParameterNames`|obiekt|Opcjonalna właściwość, która może służyć do określania nazw niestandardowych dla parametrów zapytania i/lub nagłówka zawierających klucz subskrypcji. Gdy ta właściwość jest obecna, musi zawierać co najmniej jedną z dwóch następujących właściwości.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|`subscriptionKeyParameterNames`|object|Opcjonalna właściwość, która może służyć do określania nazw niestandardowych dla parametrów zapytania i/lub nagłówka zawierających klucz subskrypcji. Gdy ta właściwość jest obecna, musi zawierać co najmniej jedną z dwóch następujących właściwości.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="api-summary"></a><a name="APISummary"></a>Podsumowanie interfejsu API  
- `API summary` Jednostka ma następujące właściwości:  
+ `API summary`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -80,7 +79,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`description`|ciąg|Opis interfejsu API. Nie może być pusty. Może zawierać Tagi formatowania HTML. Maksymalna długość to 1000 znaków.|  
   
 ##  <a name="application"></a><a name="Application"></a>Aplikacja  
- `application` Jednostka ma następujące właściwości:  
+ `application`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -90,15 +89,15 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`Url`|Identyfikator URI|Identyfikator URI aplikacji.|  
 |`Version`|ciąg|Informacje o wersji aplikacji.|  
 |`Requirements`|ciąg|Opis wymagań aplikacji.|  
-|`State`|numer|Bieżący stan aplikacji.<br /><br /> -0-zarejestrowano<br /><br /> -1-przesłane<br /><br /> -2 — Opublikowano<br /><br /> -3 — odrzucono<br /><br /> -4 — nieopublikowany|  
+|`State`|liczba|Bieżący stan aplikacji.<br /><br /> -0-zarejestrowano<br /><br /> -1-przesłane<br /><br /> -2 — Opublikowano<br /><br /> -3 — odrzucono<br /><br /> -4 — nieopublikowany|  
 |`RegistrationDate`|DateTime|Data i godzina zarejestrowania aplikacji.|  
-|`CategoryId`|numer|Kategoria aplikacji (Finanse, rozrywka itp.)|  
+|`CategoryId`|liczba|Kategoria aplikacji (Finanse, rozrywka itp.)|  
 |`DeveloperId`|ciąg|Unikatowy identyfikator dewelopera, który przesłał aplikację.|  
 |`Attachments`|Kolekcja jednostek [załączników](#Attachment) .|Wszystkie załączniki dla aplikacji, takie jak zrzuty ekranu lub ikony.|  
 |`Icon`|[Załącznik](#Attachment)|Ikona dla aplikacji.|  
   
 ##  <a name="attachment"></a><a name="Attachment"></a>Umieszczenie  
- `attachment` Jednostka ma następujące właściwości:  
+ `attachment`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -113,7 +112,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |--------------|----------|-----------------|  
 |`title`|ciąg|Nazwa operacji.|  
 |`snippet`|ciąg|Ta właściwość jest przestarzała i nie powinna być używana.|  
-|`brush`|ciąg|Który szablon kolorowania składni kodu ma być używany podczas wyświetlania przykładu kodu. Dozwolone wartości to `plain`, `php`, `java` `xml` `objc` `python`,,,, i `csharp` `ruby`|  
+|`brush`|ciąg|Który szablon kolorowania składni kodu ma być używany podczas wyświetlania przykładu kodu. Dozwolone wartości to,,,,,, `plain` `php` `java` `xml` `objc` `python` `ruby` i `csharp` .|  
 |`template`|ciąg|Nazwa tego szablonu przykładowego kodu.|  
 |`body`|ciąg|Symbol zastępczy fragmentu kodu.|  
 |`method`|ciąg|Metoda HTTP operacji.|  
@@ -125,17 +124,17 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`parameters`|Kolekcja jednostek [parametrów](#Parameter) .|Parametry, które są zdefiniowane dla tej operacji.|  
   
 ##  <a name="comment"></a><a name="Comment"></a>Komentować  
- `API` Jednostka ma następujące właściwości:  
+ `API`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|`Id`|numer|Identyfikator komentarza.|  
+|`Id`|liczba|Identyfikator komentarza.|  
 |`CommentText`|ciąg|Treść komentarza. Może zawierać kod HTML.|  
 |`DeveloperCompany`|ciąg|Nazwa firmy dewelopera.|  
 |`PostedOn`|DateTime|Data i godzina opublikowania komentarza.|  
   
 ##  <a name="issue"></a><a name="Issue"></a>Wykonaj  
- `issue` Jednostka ma następujące właściwości.  
+ `issue`Jednostka ma następujące właściwości.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -151,7 +150,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`Services`|Kolekcja jednostek [interfejsu API](#API) .|Interfejsy API subskrybowane przez użytkownika, który zgłosił problem.|  
   
 ##  <a name="filtering"></a><a name="Filtering"></a>Identyfikatorów  
- `filtering` Jednostka ma następujące właściwości:  
+ `filtering`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -159,7 +158,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`Placeholder`|ciąg|Tekst, który ma być wyświetlany w polu wyszukiwania, gdy nie określono terminu wyszukiwania.|  
   
 ##  <a name="header"></a><a name="Header"></a>Nagłówki  
- W `parameter` tej sekcji opisano reprezentację.  
+ W tej sekcji opisano `parameter` reprezentację.  
   
 |Właściwość|Typ|Opis|  
 |--------------|-----------------|----------|  
@@ -172,7 +171,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`readOnly`|wartość logiczna|Czy nagłówek jest tylko do odczytu.|  
   
 ##  <a name="http-request"></a><a name="HTTPRequest"></a>Żądanie HTTP  
- W `request` tej sekcji opisano reprezentację.  
+ W tej sekcji opisano `request` reprezentację.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -182,7 +181,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`representations`|Tablica [reprezentacji](#Representation)|Kolekcja reprezentacji żądań operacji.|  
   
 ##  <a name="http-response"></a><a name="HTTPResponse"></a>Odpowiedź HTTP  
- W `response` tej sekcji opisano reprezentację.  
+ W tej sekcji opisano `response` reprezentację.  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -191,14 +190,14 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`representations`|Tablica [reprezentacji](#Representation)|Kolekcja reprezentacji odpowiedzi operacji.|  
   
 ##  <a name="operation"></a><a name="Operation"></a>Operacje  
- `operation` Jednostka ma następujące właściwości:  
+ `operation`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|`id`|ciąg|Identyfikator zasobu. Unikatowa identyfikacja operacji w ramach bieżącego wystąpienia usługi API Management. Wartość jest prawidłowym względnym adresem URL w formacie, `apis/{aid}/operations/{id}` gdzie `{aid}` jest identyfikatorem interfejsu API `{id}` i jest identyfikatorem operacji. Ta właściwość jest tylko do odczytu.|  
+|`id`|ciąg|Identyfikator zasobu. Unikatowa identyfikacja operacji w ramach bieżącego wystąpienia usługi API Management. Wartość jest prawidłowym względnym adresem URL w formacie, `apis/{aid}/operations/{id}` gdzie `{aid}` jest identyfikatorem interfejsu API i `{id}` jest identyfikatorem operacji. Ta właściwość jest tylko do odczytu.|  
 |`name`|ciąg|Nazwa operacji. Nie może być pusty. Maksymalna długość to 100 znaków.|  
 |`description`|ciąg|Opis operacji. Nie może być pusty. Może zawierać Tagi formatowania HTML. Maksymalna długość to 1000 znaków.|  
-|`scheme`|ciąg|Opisuje protokoły, w których można wywołać operacje w tym interfejsie API. Dozwolone wartości to `http`, `https`, lub `http` i `https`.|  
+|`scheme`|ciąg|Opisuje protokoły, w których można wywołać operacje w tym interfejsie API. Dozwolone wartości to `http` , `https` , lub `http` i `https` .|  
 |`uriTemplate`|ciąg|Szablon względnego adresu URL identyfikujący zasób docelowy dla tej operacji. Może zawierać parametry. Przykład: `customers/{cid}/orders/{oid}/?date={date}`|  
 |`host`|ciąg|Adres URL bramy API Management, który hostuje interfejs API.|  
 |`httpMethod`|ciąg|Metoda HTTP operacji.|  
@@ -206,7 +205,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`responses`|Tablica [odpowiedzi HTTP](#HTTPResponse)|Tablica obiektów [odpowiedzi HTTP](#HTTPResponse) operacji.|  
   
 ##  <a name="operation-menu"></a><a name="Menu"></a>Menu operacje  
- `operation menu` Jednostka ma następujące właściwości:  
+ `operation menu`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -216,7 +215,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`MenuItems`|Kolekcja jednostek [elementów menu operacji](#MenuItem) .|Operacje dla bieżącego interfejsu API.|  
   
 ##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Element menu operacji  
- `operation menu item` Jednostka ma następujące właściwości:  
+ `operation menu item`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -225,18 +224,18 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`HttpMethod`|ciąg|Metoda http operacji.|  
   
 ##  <a name="paging"></a><a name="Paging"></a>Stronicowania  
- `paging` Jednostka ma następujące właściwości:  
+ `paging`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|`Page`|numer|Numer bieżącej strony.|  
-|`PageSize`|numer|Maksymalna liczba wyników do wyświetlenia na jednej stronie.|  
-|`TotalItemCount`|numer|Liczba elementów do wyświetlenia.|  
+|`Page`|liczba|Numer bieżącej strony.|  
+|`PageSize`|liczba|Maksymalna liczba wyników do wyświetlenia na jednej stronie.|  
+|`TotalItemCount`|liczba|Liczba elementów do wyświetlenia.|  
 |`ShowAll`|wartość logiczna|Czy wszystkie wyniki mają być pożądane na jednej stronie.|  
-|`PageCount`|numer|Liczba stron wyników.|  
+|`PageCount`|liczba|Liczba stron wyników.|  
   
 ##  <a name="parameter"></a><a name="Parameter"></a>Konstruktora  
- W `parameter` tej sekcji opisano reprezentację.  
+ W tej sekcji opisano `parameter` reprezentację.  
   
 |Właściwość|Typ|Opis|  
 |--------------|-----------------|----------|  
@@ -245,11 +244,11 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`value`|ciąg|Wartość parametru.|  
 |`options`|tablica ciągów|Wartości zdefiniowane dla wartości parametrów zapytania.|  
 |`required`|wartość logiczna|Określa, czy parametr jest wymagany, czy nie.|  
-|`kind`|numer|Określa, czy ten parametr jest parametrem ścieżki (1), czy parametrem QueryString (2).|  
+|`kind`|liczba|Określa, czy ten parametr jest parametrem ścieżki (1), czy parametrem QueryString (2).|  
 |`typeName`|ciąg|Typ parametru.|  
   
 ##  <a name="product"></a><a name="Product"></a>Iloczyn  
- `product` Jednostka ma następujące właściwości:  
+ `product`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -257,12 +256,12 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`Title`|ciąg|Nazwa produktu. Nie może być pusty. Maksymalna długość to 100 znaków.|  
 |`Description`|ciąg|Opis produktu. Nie może być pusty. Może zawierać Tagi formatowania HTML. Maksymalna długość to 1000 znaków.|  
 |`Terms`|ciąg|Warunki użytkowania produktu. Deweloperzy próbujący subskrybować produkt będą przedstawiani i zobowiązani do zaakceptowania tych warunków przed ukończeniem procesu subskrypcji.|  
-|`ProductState`|numer|Określa, czy produkt jest publikowany, czy nie. Opublikowane produkty są odnajdywane przez deweloperów w portalu dla deweloperów. Nieopublikowane produkty są widoczne tylko dla administratorów.<br /><br /> Dopuszczalne wartości dla stanu produktu to:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|`ProductState`|liczba|Określa, czy produkt jest publikowany, czy nie. Opublikowane produkty są odnajdywane przez deweloperów w portalu dla deweloperów. Nieopublikowane produkty są widoczne tylko dla administratorów.<br /><br /> Dopuszczalne wartości dla stanu produktu to:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |`AllowMultipleSubscriptions`|wartość logiczna|Określa, czy użytkownik może jednocześnie korzystać z wielu subskrypcji tego produktu.|  
-|`MultipleSubscriptionsCount`|numer|Maksymalna liczba subskrypcji tego produktu, które może mieć użytkownik, w tym samym czasie.|  
+|`MultipleSubscriptionsCount`|liczba|Maksymalna liczba subskrypcji tego produktu, które może mieć użytkownik, w tym samym czasie.|  
   
 ##  <a name="provider"></a><a name="Provider"></a>Dostawcy  
- `provider` Jednostka ma następujące właściwości:  
+ `provider`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -271,15 +270,15 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`Caption`|ciąg|Nazwa wyświetlana dostawcy.|  
   
 ##  <a name="representation"></a><a name="Representation"></a>Reprezentowana  
- W tej sekcji opisano `representation`a.  
+ W tej sekcji opisano a `representation` .  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|`contentType`|ciąg|Określa zarejestrowany lub niestandardowy typ zawartości dla tej reprezentacji, na przykład `application/xml`.|  
+|`contentType`|ciąg|Określa zarejestrowany lub niestandardowy typ zawartości dla tej reprezentacji, na przykład `application/xml` .|  
 |`sample`|ciąg|Przykład reprezentacji.|  
   
 ##  <a name="subscription"></a><a name="Subscription"></a>Ramach  
- `subscription` Jednostka ma następujące właściwości:  
+ `subscription`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -290,12 +289,12 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`ProductDetailsUrl`|ciąg|Względny adres URL do szczegółowych informacji o produkcie.|  
 |`state`|ciąg|Stan subskrypcji. Możliwe stany to:<br /><br /> - `0 - suspended`— subskrypcja została zablokowana i subskrybent nie może wywołać żadnych interfejsów API produktu.<br /><br /> - `1 - active`— subskrypcja jest aktywna.<br /><br /> - `2 - expired`— subskrypcja osiągnęła swoją datę wygaśnięcia i została zdezaktywowana.<br /><br /> - `3 - submitted`— żądanie subskrypcji zostało wykonane przez dewelopera, ale jeszcze nie zostało zatwierdzone lub odrzucone.<br /><br /> - `4 - rejected`— żądanie subskrypcji zostało odrzucone przez administratora.<br /><br /> - `5 - cancelled`— subskrypcja została anulowana przez dewelopera lub administratora.|  
 |`DisplayName`|ciąg|Nazwa wyświetlana subskrypcji.|  
-|`CreatedDate`|Data i godzina|Data utworzenia subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
+|`CreatedDate`|Data i godzina|Data utworzenia subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z` .|  
 |`CanBeCancelled`|wartość logiczna|Czy subskrypcja może zostać anulowana przez bieżącego użytkownika.|  
 |`IsAwaitingApproval`|wartość logiczna|Czy subskrypcja oczekuje na zatwierdzenie.|  
-|`StartDate`|Data i godzina|Data rozpoczęcia subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
-|`ExpirationDate`|Data i godzina|Data wygaśnięcia subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
-|`NotificationDate`|Data i godzina|Data powiadomienia dla subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z`.|  
+|`StartDate`|Data i godzina|Data rozpoczęcia subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z` .|  
+|`ExpirationDate`|Data i godzina|Data wygaśnięcia subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z` .|  
+|`NotificationDate`|Data i godzina|Data powiadomienia dla subskrypcji w formacie ISO 8601: `2014-06-24T16:25:00Z` .|  
 |`primaryKey`|ciąg|Klucz subskrypcji podstawowej. Maksymalna długość to 256 znaków.|  
 |`secondaryKey`|ciąg|Pomocniczy klucz subskrypcji. Maksymalna długość to 256 znaków.|  
 |`CanBeRenewed`|wartość logiczna|Czy subskrypcja może zostać odnowiona przez bieżącego użytkownika.|  
@@ -305,7 +304,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`RenewUrl`|ciąg|Względny adres URL do odnowienia subskrypcji.|  
   
 ##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Podsumowanie subskrypcji  
- `subscription summary` Jednostka ma następujące właściwości:  
+ `subscription summary`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -313,7 +312,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`DisplayName`|ciąg|Nazwa wyświetlana subskrypcji|  
   
 ##  <a name="user-account-info"></a><a name="UserAccountInfo"></a>Informacje o koncie użytkownika  
- `user account info` Jednostka ma następujące właściwości:  
+ `user account info`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -326,7 +325,7 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`IsBasicAccount`|wartość logiczna|Prawda, jeśli to konto zostało zarejestrowane przy użyciu poczty e-mail i hasła; wartość false, jeśli konto zostało zarejestrowane przy użyciu dostawcy.|  
   
 ##  <a name="user-sign-in"></a><a name="UseSignIn"></a>Logowanie użytkownika  
- `user sign in` Jednostka ma następujące właściwości:  
+ `user sign in`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
@@ -344,15 +343,15 @@ W tym temacie opisano reprezentacje jednostek i typów dla typowych elementów u
 |`UserRegistrationTermsEnabled`|wartość logiczna|Czy warunki są włączone.|  
   
 ##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Rejestracja użytkownika  
- `user sign up` Jednostka ma następujące właściwości:  
+ `user sign up`Jednostka ma następujące właściwości:  
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|wartość logiczna|Wartość używana przez formant rejestracji w celu zarejestrowania [się](api-management-page-controls.md#sign-up).|  
 |`Password`|ciąg|Hasło konta użytkownika.|  
-|`PasswordVerdictLevel`|numer|Wartość używana przez formant rejestracji w celu zarejestrowania [się](api-management-page-controls.md#sign-up).|  
+|`PasswordVerdictLevel`|liczba|Wartość używana przez formant rejestracji w celu zarejestrowania [się](api-management-page-controls.md#sign-up).|  
 |`UserRegistrationTerms`|ciąg|Warunki, które użytkownik musi wyrazić zgodę przed zalogowaniem się.|  
-|`UserRegistrationTermsOptions`|numer|Wartość używana przez formant rejestracji w celu zarejestrowania [się](api-management-page-controls.md#sign-up).|  
+|`UserRegistrationTermsOptions`|liczba|Wartość używana przez formant rejestracji w celu zarejestrowania [się](api-management-page-controls.md#sign-up).|  
 |`ConsentAccepted`|wartość logiczna|Wartość używana przez formant rejestracji w celu zarejestrowania [się](api-management-page-controls.md#sign-up).|  
 |`Email`|ciąg|Adres e-mail. Nie może być pusta i musi być unikatowa w obrębie wystąpienia usługi. Maksymalna długość to 254 znaków.|  
 |`FirstName`|ciąg|Imię. Nie może być pusty. Maksymalna długość to 100 znaków.|  

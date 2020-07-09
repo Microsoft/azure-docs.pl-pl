@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Używanie interfejsów API REST do kopiowania do magazynu obiektów BLOB'
+title: 'Samouczek: kopiowanie do magazynu obiektów BLOB za pośrednictwem interfejsów API REST'
 titleSuffix: Azure Data Box
 description: Dowiedz się, jak skopiować dane do magazynu obiektów blob usługi Azure Data Box za pośrednictwem interfejsów API REST
 services: databox
@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 7642c009a5bcd1d00efb432975fff5a65c7ba340
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80297197"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960688"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Samouczek: kopiowanie danych do Azure Data Box magazynu obiektów BLOB za pośrednictwem interfejsów API REST  
+# <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Samouczek: Używanie interfejsów API REST do kopiowania danych do Azure Data Box magazynu obiektów BLOB  
 
 W tym samouczku opisano procedury łączenia się z magazynem obiektów blob usługi Azure Data Box za pośrednictwem protokołu *HTTP* lub *HTTPS* przy użyciu interfejsów API REST. Opisano także czynności, które należy wykonać po nawiązaniu połączenia w celu skopiowania danych do magazynu obiektów blob usługi Data Box i przygotowania urządzenia Data Box do wysyłki.
 
@@ -32,21 +32,20 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Ukończono [Samouczek: konfigurowanie Azure Data Box](data-box-deploy-set-up.md).
+1. Ukończono [Samouczek: konfigurowanie usługi Azure Data Box](data-box-deploy-set-up.md).
 2. Urządzenie Data Box zostało do Ciebie dostarczone, a stan zamówienia w portalu to **Dostarczono**.
 3. Znasz [wymagania systemowe magazynu obiektów blob usługi Data Box](data-box-system-requirements-rest.md) oraz obsługiwane wersje interfejsów API, zestawów SDK i narzędzi.
 4. Masz dostęp do komputera-hosta zawierającego dane, które mają zostać skopiowane do usługi Data Box. Na komputerze hosta wymagane jest:
-    - Uruchom [obsługiwany system operacyjny](data-box-system-requirements.md).
-    - Połączenie z siecią o dużej szybkości. Zdecydowanie zaleca się posiadanie co najmniej jednego połączenia 10 GbE. Jeśli połączenie 10 GbE nie jest dostępne, można użyć połączenia danych 1 GbE, ale będzie miało to wpływ na szybkość kopiowania.
+    * Korzystanie z [obsługiwanego systemu operacyjnego](data-box-system-requirements.md).
+    * Połączenie z siecią o dużej szybkości. Zdecydowanie zaleca się posiadanie co najmniej jednego połączenia 10 GbE. Jeśli połączenie 10 GbE nie jest dostępne, można użyć połączenia danych 1 GbE, ale będzie miało to wpływ na szybkość kopiowania.
 5. [Pobierz narzędzie AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) na komputer hosta. Użyjesz narzędzia AzCopy do skopiowania danych z komputera hosta do magazynu obiektów blob usługi Azure Data Box.
-
 
 ## <a name="connect-via-http-or-https"></a>Nawiązywanie połączenia za pośrednictwem protokołu HTTP lub https
 
 Możesz nawiązać połączenie z magazynem obiektów blob usługi Data Box za pośrednictwem protokołu *HTTP* lub *HTTPS*.
 
-- *Https* to bezpieczny i zalecany sposób nawiązywania połączenia z usługą urządzenie Data Box BLOB Storage.
-- Protokół *HTTP* jest używany, gdy połączenie jest nawiązywane za pośrednictwem zaufanych sieci.
+* *Https* to bezpieczny i zalecany sposób nawiązywania połączenia z usługą urządzenie Data Box BLOB Storage.
+* Protokół *HTTP* jest używany, gdy połączenie jest nawiązywane za pośrednictwem zaufanych sieci.
 
 Procedura łączenia się z usługą urządzenie Data Box BLOB Storage za pośrednictwem *protokołu HTTP* lub *https*.
 
@@ -54,8 +53,8 @@ Procedura łączenia się z usługą urządzenie Data Box BLOB Storage za pośre
 
 Aby nawiązać połączenie z interfejsami API REST magazynu obiektów blob usługi Data Box za pośrednictwem protokołu *HTTP*, należy wykonać następujące czynności:
 
-- Dodawanie adresu IP urządzenia i punktu końcowego usługi obiektów blob do hosta zdalnego
-- Konfigurowanie oprogramowania innych firm i weryfikowanie połączenia
+* Dodawanie adresu IP urządzenia i punktu końcowego usługi obiektów blob do hosta zdalnego
+* Konfigurowanie oprogramowania innych firm i weryfikowanie połączenia
 
 Wszystkie wymienione kroki zostały opisane poniżej.
 
@@ -63,7 +62,7 @@ Wszystkie wymienione kroki zostały opisane poniżej.
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-### <a name="configure-partner-software-and-verify-connection"></a>Konfigurowanie oprogramowania partnerów i weryfikowanie połączenia
+### <a name="verify-connection-and-configure-partner-software"></a>Weryfikowanie połączenia i Konfigurowanie oprogramowania partnerskiego
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -73,10 +72,10 @@ Wszystkie wymienione kroki zostały opisane poniżej.
 
 Aby nawiązać połączenie z interfejsami API REST usługi Azure Blob Storage za pośrednictwem protokołu HTTPS, należy wykonać następujące czynności:
 
-- Pobieranie certyfikatu z witryny Azure Portal
-- Zaimportuj certyfikat na kliencie lub hoście zdalnym
-- Dodawanie adresu IP urządzenia i punktu końcowego usługi BLOB do klienta lub hosta zdalnego
-- Konfigurowanie oprogramowania innych firm i weryfikowanie połączenia
+* Pobieranie certyfikatu z witryny Azure Portal
+* Zaimportuj certyfikat na kliencie lub hoście zdalnym
+* Dodawanie adresu IP urządzenia i punktu końcowego usługi BLOB do klienta lub hosta zdalnego
+* Konfigurowanie oprogramowania innych firm i weryfikowanie połączenia
 
 Wszystkie wymienione kroki zostały opisane poniżej.
 
@@ -86,11 +85,11 @@ Pobierz certyfikat z witryny Azure Portal.
 
 1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do zamówienia na urządzenie Data Box, a następnie wybierz pozycję **Ogólne > Szczegóły urządzenia**.
-3. W obszarze **Poświadczenia urządzenia** przejdź do sekcji **Dostęp za pomocą interfejsu API**. Kliknij pozycję **Pobierz**. Ta akcja spowoduje pobranie ** \<nazwy zamówienia>** pliku certyfikatu CER. **Zapisz** ten plik. Ten certyfikat zainstalujesz na komputerze klienta lub hosta, którego będziesz używać do nawiązania połączenia z urządzeniem.
+3. W obszarze **Poświadczenia urządzenia** przejdź do sekcji **Dostęp za pomocą interfejsu API**. Kliknij pozycję **Pobierz**. Ta akcja powoduje pobranie pliku certyfikatu ** \<your order name> CER** . **Zapisz** ten plik. Ten certyfikat zainstalujesz na komputerze klienta lub hosta, którego będziesz używać do nawiązania połączenia z urządzeniem.
 
     ![Pobieranie certyfikatu z witryny Azure Portal](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
- 
-### <a name="import-certificate"></a>Importowanie certyfikatu 
+
+### <a name="import-certificate"></a>Importowanie certyfikatu
 
 Dostęp do urządzenie Data Box usługi BLOB Storage za pośrednictwem protokołu HTTPS wymaga certyfikatu TLS/SSL dla urządzenia. Sposób, w jaki ten certyfikat jest dostępny dla aplikacji klienckiej, różni się od aplikacji do aplikacji i między systemami operacyjnymi i dystrybucjami. Niektóre aplikacje mogą uzyskać dostęp do certyfikatu po jego zaimportowaniu do magazynu certyfikatów systemu, podczas gdy inne aplikacje nie korzystają z tego mechanizmu.
 
@@ -109,16 +108,16 @@ Wykonaj następujące kroki, aby zaimportować `.cer` plik do magazynu główneg
 
 #### <a name="use-windows-server-ui"></a>Użyj interfejsu użytkownika systemu Windows Server
 
-1.   Kliknij `.cer` plik prawym przyciskiem myszy, a następnie wybierz pozycję **Zainstaluj certyfikat**. Ta akcja powoduje uruchomienie Kreatora importowania certyfikatów.
-2.   W polu **Lokalizacja magazynu** wybierz pozycję **Maszyna lokalna**, a następnie kliknij przycisk **Dalej**.
+1. Kliknij plik prawym przyciskiem myszy `.cer` , a następnie wybierz pozycję **Zainstaluj certyfikat**. Ta akcja powoduje uruchomienie Kreatora importowania certyfikatów.
+2. W polu **Lokalizacja magazynu** wybierz pozycję **Maszyna lokalna**, a następnie kliknij przycisk **Dalej**.
 
     ![Importowanie certyfikatu przy użyciu programu PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.   Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie kliknij przycisk **Przeglądaj**. Przejdź do głównego magazynu hosta zdalnego, a następnie kliknij przycisk **Dalej**.
+3. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie kliknij przycisk **Przeglądaj**. Przejdź do głównego magazynu hosta zdalnego, a następnie kliknij przycisk **Dalej**.
 
     ![Importowanie certyfikatu przy użyciu programu PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.   Kliknij przycisk **Zakończ**. Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
+4. Kliknij przycisk **Zakończ**. Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
 
     ![Importowanie certyfikatu przy użyciu programu PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -128,13 +127,13 @@ Metoda importowania certyfikatu zależy od dystrybucji.
 
 Kilka, takich jak Ubuntu i Debian, można użyć `update-ca-certificates` polecenia.  
 
-- Zmień nazwę pliku certyfikatu zakodowanego algorytmem Base64, `.crt` aby miał rozszerzenie i skopiować je `/usr/local/share/ca-certificates directory`do programu.
-- Uruchom polecenie `update-ca-certificates`.
+* Zmień nazwę pliku certyfikatu zakodowanego algorytmem Base64, aby miał `.crt` rozszerzenie i skopiować je do programu `/usr/local/share/ca-certificates directory` .
+* Uruchom polecenie `update-ca-certificates`.
 
 Najnowsze wersje RHEL, Fedora i CentOS używają `update-ca-trust` polecenia.
 
-- Skopiuj plik certyfikatu do `/etc/pki/ca-trust/source/anchors` katalogu.
-- Uruchom polecenie `update-ca-trust`.
+* Skopiuj plik certyfikatu do `/etc/pki/ca-trust/source/anchors` katalogu.
+* Uruchom polecenie `update-ca-trust`.
 
 Szczegóły można znaleźć w dokumentacji dotyczącej dystrybucji.
 
@@ -144,7 +143,7 @@ Wykonaj te same kroki, aby [dodać adres IP urządzenia i punkt końcowy usługi
 
 ### <a name="configure-partner-software-and-verify-connection"></a>Konfigurowanie oprogramowania partnerów i weryfikowanie połączenia
 
-Postępuj zgodnie z instrukcjami, aby [skonfigurować oprogramowanie partnerskie używane podczas nawiązywania połączenia za pośrednictwem *protokołu HTTP*](#configure-partner-software-and-verify-connection). Jedyną różnicą jest to, że należy pozostawić pole *Użyj protokołu HTTP* niezaznaczone.
+Postępuj zgodnie z instrukcjami, aby [skonfigurować oprogramowanie partnerskie używane podczas nawiązywania połączenia za pośrednictwem *protokołu HTTP*](#verify-connection-and-configure-partner-software). Jedyną różnicą jest to, że należy pozostawić pole *Użyj protokołu HTTP* niezaznaczone.
 
 ## <a name="copy-data-to-data-box"></a>Kopiowanie danych na urządzenie Data Box
 
@@ -152,15 +151,17 @@ Po nawiązaniu połączenia z magazynem obiektów blob usługi Data Box następn
 
 * Podczas kopiowania danych upewnij się, że rozmiar danych jest zgodny z ograniczeniami rozmiaru opisanymi w temacie [Azure storage and Data Box limits](data-box-limits.md) (Ograniczenia usług Azure Storage i urządzenia Data Box).
 * Jeśli dane przekazywane przy użyciu urządzenia Data Box będą jednocześnie przekazywane przez inne aplikacje, poza urządzeniem Data Box, skutkiem może być niepowodzenie zadania przekazywania oraz uszkodzenie danych.
-* Upewnij się, że przechowujesz kopię danych źródłowych do momentu potwierdzenia, że urządzenie Data Box przeniósł dane do usługi Azure Storage.
+
+> [!IMPORTANT]
+> Pamiętaj, aby zachować kopię danych źródłowych do czasu potwierdzenia, że usługa Data Box przeniosła Twoje dane do usługi Azure Storage.
 
 W tym samouczku użyjesz narzędzia AzCopy do skopiowania danych do magazynu obiektów blob usługi Data Box. Możesz również skopiować dane za pomocą Eksploratora usługi Azure Storage (jeśli wolisz użyć narzędzia z graficznym interfejsem użytkownika) lub oprogramowania partnera.
 
 Procedura kopiowania obejmuje następujące czynności:
 
-- Tworzenie kontenera
-- Przekazywanie zawartości folderu do magazynu obiektów blob usługi Data Box
-- Przekazywanie zmodyfikowanych plików do magazynu obiektów blob usługi Data Box
+* Tworzenie kontenera
+* Przekazywanie zawartości folderu do magazynu obiektów blob usługi Data Box
+* Przekazywanie zmodyfikowanych plików do magazynu obiektów blob usługi Data Box
 
 Wszystkie wymienione kroki zostały szczegółowo opisane poniżej.
 
@@ -185,16 +186,19 @@ Użyj narzędzia AzCopy, aby przekazać wszystkie pliki w folderze do magazynu o
 
 #### <a name="linux"></a>Linux
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-        --dest-key <key> \
-        --recursive
+```azcopy
+azcopy \
+    --source /mnt/myfolder \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+    --dest-key <key> \
+    --recursive
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
-
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
+```
 
 Zastąp wartość `<key>` własnym kluczem konta. Aby znaleźć klucz konta, w witrynie Azure Portal przejdź do swojego konta magazynu. Przejdź do pozycji **Ustawienia > Klucze dostępu**, a następnie zaznacz klucz i wklej go do polecenia narzędzia AzCopy.
 
@@ -209,16 +213,21 @@ Użyj narzędzia AzCopy do przekazania plików na podstawie daty ich ostatniej m
 Jeśli chcesz skopiować tylko zasoby źródłowe, które nie istnieją w miejscu docelowym, określ zarówno parametry `--exclude-older` i `--exclude-newer` (system Linux) lub `/XO` i `/XN` (system Windows) w poleceniu narzędzia AzCopy. Narzędzie AzCopy przekazuje tylko zaktualizowane dane na podstawie ich sygnatury czasowej.
 
 #### <a name="linux"></a>Linux
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+
+```azcopy
+azcopy \
+--source /mnt/myfolder \
+--destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
+--dest-key <key> \
+--recursive \
+--exclude-older
+```
 
 #### <a name="windows"></a>Windows
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```azcopy
+AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+```
 
 Jeśli wystąpią błędy podczas operacji łączenia lub kopiowania, zobacz [Rozwiązywanie problemów z usługą urządzenie Data Box BLOB Storage](data-box-troubleshoot-rest.md).
 
@@ -229,10 +238,10 @@ Następnym krokiem jest przygotowanie urządzenia do wysłania.
 W tym samouczku przedstawiono zagadnienia dotyczące usługi Azure Data Box, takie jak:
 
 > [!div class="checklist"]
+>
 > * Wymagania wstępne
 > * Łączenie się z magazynem obiektów blob usługi Data Box za pośrednictwem protokołu *HTTP* lub *HTTPS*
 > * Kopiowanie danych na urządzenie Data Box
-
 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak odesłać urządzenie Data Box do firmy Microsoft.
 

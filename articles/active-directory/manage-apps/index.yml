@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentacja zarządzania aplikacjami
-summary: Usługa Azure Active Directory zapewnia bezpieczny i bezproblemowy dostęp do aplikacji lokalnych i działających w chmurze. Do tego zwalnia z konieczności zarządzania hasłami. Wystarczy, że użytkownicy zalogują się raz, i mogą uzyskiwać dostęp do usługi Office 365 oraz tysięcy innych aplikacji. Z naszych przewodników Szybki start, samouczków i wskazówek dowiesz się, jak wdrażać aplikacje i zarządzać nimi.
+summary: Usługa Azure Active Directory zapewnia bezpieczny i bezproblemowy dostęp do aplikacji lokalnych i działających w chmurze. Do tego zwalnia z konieczności zarządzania hasłami. Wystarczy, że użytkownicy zalogują się raz, i mogą uzyskiwać dostęp do platformy Microsoft 365 oraz tysięcy innych aplikacji. Z naszych przewodników Szybki start, samouczków i wskazówek dowiesz się, jak wdrażać aplikacje i zarządzać nimi.
 metadata:
   title: Dokumentacja zarządzania aplikacjami
-  description: Usługa Azure Active Directory zapewnia bezpieczny i bezproblemowy dostęp do aplikacji lokalnych i działających w chmurze. Do tego zwalnia z konieczności zarządzania hasłami. Wystarczy, że użytkownicy zalogują się raz, i mogą uzyskiwać dostęp do usługi Office 365 oraz tysięcy innych aplikacji. Z naszych przewodników Szybki start, samouczków i wskazówek dowiesz się, jak wdrażać aplikacje i zarządzać nimi.
+  description: Usługa Azure Active Directory zapewnia bezpieczny i bezproblemowy dostęp do aplikacji lokalnych i działających w chmurze. Do tego zwalnia z konieczności zarządzania hasłami. Wystarczy, że użytkownicy zalogują się raz, i mogą uzyskiwać dostęp do platformy Microsoft 365 oraz tysięcy innych aplikacji. Z naszych przewodników Szybki start, samouczków i wskazówek dowiesz się, jak wdrażać aplikacje i zarządzać nimi.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77063476"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85339194"
 landingContent:
 - title: Informacje o zarządzaniu aplikacjami
   linkLists:

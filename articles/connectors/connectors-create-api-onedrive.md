@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
 ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75378436"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Dostęp do plików w łączniku usługi OneDrive i zarządzanie nimi za pomocą Azure Logic Apps
@@ -38,7 +37,7 @@ Zanim aplikacja logiki będzie mogła uzyskać dostęp do dowolnej usługi, nale
 
 Wyzwalacz to zdarzenie, którego można użyć do uruchomienia przepływu pracy zdefiniowanego w aplikacji logiki. Wyzwala "sondowanie" usługi z interwałem i częstotliwością. [Dowiedz się więcej o wyzwalaczach](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. W Projektancie aplikacji logiki wpisz `onedrive` polecenie, aby uzyskać listę wyzwalaczy:  
+1. W Projektancie aplikacji logiki wpisz polecenie, `onedrive` Aby uzyskać listę wyzwalaczy:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +65,7 @@ Akcja jest operacją wykonywaną przez przepływ pracy zdefiniowany w aplikacji 
 
 2. Wybierz pozycję **Dodaj akcję**.
 
-3. W polu wyszukiwania wpisz `onedrive` , aby wyświetlić listę wszystkich dostępnych akcji.
+3. W polu wyszukiwania wpisz, `onedrive` Aby wyświetlić listę wszystkich dostępnych akcji.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

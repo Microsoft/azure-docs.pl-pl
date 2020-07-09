@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: dc0482fbcbb1c9d1618ec18e1f48b03f686a6573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6beaee98e78e79c48270801f5696e4e487b0a2c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74892586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84883717"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Zarządzanie zasadami buforowania Azure CDN w programie Azure Media Services
 Azure Media Services zapewnia oparty na protokole HTTP adaptacyjne przesyłanie strumieniowe i pobieranie progresywne. Przesyłanie strumieniowe oparte na protokole HTTP jest wysoce skalowalne dzięki zaletom buforowania w warstwach serwera proxy i sieci CDN, a także buforowania po stronie klienta. Punkty końcowe przesyłania strumieniowego zapewniają ogólne możliwości przesyłania strumieniowego, a także konfigurację dla nagłówków pamięci podręcznej HTTP. Punkty końcowe przesyłania strumieniowego ustawiają pamięć podręczną HTTP: max-age i Expiress. Więcej informacji o nagłówkach pamięci podręcznej HTTP można uzyskać z [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

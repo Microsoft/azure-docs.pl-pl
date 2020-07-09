@@ -3,7 +3,7 @@ title: Monitorowanie wydajności przy użyciu widoków DMV
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Informacje o wykrywaniu i diagnozowaniu typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania w celu monitorowania Microsoft Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
-ms.openlocfilehash: 757b11c7fd6eaeac1ef0d6d3bb8cea9be2af983c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047146"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987241"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorowanie wydajności Microsoft Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL przy użyciu dynamicznych widoków zarządzania
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -43,7 +43,7 @@ GRANT VIEW DATABASE STATE TO database_user;
 
 W wystąpieniu zarządzanym usługi Azure SQL wykonywanie zapytania dotyczącego dynamicznego widoku zarządzania wymaga uprawnień do **wyświetlania stanu serwera** . Aby uzyskać więcej informacji, zobacz [dynamiczne zarządzanie dynamicznymi widokami](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
 
-W przypadku wystąpienia lokalnego SQL Server i w wystąpieniu zarządzanym usługi Azure SQL dynamiczne widoki zarządzania zwracają informacje o stanie serwera. W Azure SQL Database zwracają informacje dotyczące tylko bieżącej logicznej bazy danych.
+W wystąpieniu SQL Server i w wystąpieniu zarządzanym Azure SQL, dynamiczne widoki zarządzania zwracają informacje o stanie serwera. W Azure SQL Database zwracają informacje dotyczące tylko bieżącej logicznej bazy danych.
 
 Ten artykuł zawiera kolekcję zapytań DMV, które można wykonać za pomocą SQL Server Management Studio lub Azure Data Studio w celu wykrycia następujących typów problemów z wydajnością zapytań:
 
@@ -364,7 +364,7 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Wysoce czasochłonne instrukcje tożsamości
+### <a name="identify-high-memory-consuming-statements"></a>Identyfikowanie wysoko czasochłonnych instrukcji związanych z pamięcią
 
 Użyj następującego zapytania, aby zidentyfikować następujące instrukcje zużywające pamięć:
 
@@ -673,7 +673,7 @@ SELECT COUNT(*) AS [Concurrent_Requests]
 FROM sys.dm_exec_requests R;
 ```
 
-Aby analizować obciążenie lokalnej bazy danych SQL Server, zmodyfikuj to zapytanie w celu odfiltrowania konkretnej bazy danych, którą chcesz analizować. Na przykład jeśli masz lokalną bazę danych o nazwie Moja baza danych, zapytanie Transact-SQL zwraca liczbę równoczesnych żądań w tej bazie danych:
+Aby przeanalizować obciążenie SQL Server bazy danych, zmodyfikuj to zapytanie w celu odfiltrowania konkretnej bazy danych, którą chcesz analizować. Na przykład jeśli masz lokalną bazę danych o nazwie Moja baza danych, zapytanie Transact-SQL zwraca liczbę równoczesnych żądań w tej bazie danych:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
@@ -702,7 +702,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections
 ```
 
-W przypadku analizowania obciążenia SQL Server lokalnego należy zmodyfikować zapytanie, aby skoncentrować się na określonej bazie danych. To zapytanie pomaga określić możliwe potrzeby sesji dla bazy danych, Jeśli rozważasz przechodzenie na platformę Azure.
+W przypadku analizowania obciążenia SQL Server należy zmodyfikować zapytanie, aby skoncentrować się na określonej bazie danych. To zapytanie pomaga określić możliwe potrzeby sesji dla bazy danych, Jeśli rozważasz przechodzenie na platformę Azure.
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wprowadzenie do Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL](sql-database-paas-overview.md)

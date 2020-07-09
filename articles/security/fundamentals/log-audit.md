@@ -16,13 +16,12 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750790"
 ---
-# <a name="azure-security-logging-and-auditing"></a>Rejestrowanie i Inspekcja zabezpieczeń platformy Azure
+# <a name="azure-security-logging-and-auditing"></a>Rejestrowanie i inspekcja zabezpieczeń na platformie Azure
 
 System Azure oferuje szeroką gamę konfigurowalnych opcji inspekcji zabezpieczeń i rejestrowania, które ułatwiają identyfikację luk w zabezpieczeniach i mechanizmach zabezpieczeń. W tym artykule omówiono generowanie, zbieranie i analizowanie dzienników zabezpieczeń z usług hostowanych na platformie Azure.
 
@@ -46,7 +45,7 @@ Dzienniki platformy Azure są podzielone na następujące typy:
 
 Poniższa tabela zawiera listę najważniejszych typów dzienników dostępnych na platformie Azure:
 
-| Kategoria dziennika | Typ dziennika | Sposób użycia | Integracja |
+| Kategoria dziennika | Typ dziennika | Użycie | Integracja |
 | ------------ | -------- | ------ | ----------- |
 |[Dzienniki aktywności](../../azure-monitor/platform/platform-logs-overview.md)|Zdarzenia płaszczyzny kontroli dla zasobów Azure Resource Manager|  Zapewnia wgląd w operacje wykonywane względem zasobów w ramach subskrypcji.|    Interfejs API REST, [Azure monitor](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Dzienniki zasobów platformy Azure](../../azure-monitor/platform/platform-logs-overview.md)|Częste dane dotyczące operacji Azure Resource Manager zasobów w subskrypcji|   Zapewnia wgląd w operacje wykonywane przez sam zasób.| Azure Monitor|

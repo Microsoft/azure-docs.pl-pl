@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Dodawanie bazy danych do grupy autotrybu failover'
-description: Azure PowerShell przykładowy skrypt, aby utworzyć Azure SQL Database, dodać go do grupy autotrybu failover i przetestować tryb failover.
+description: Użyj przykładowego skryptu Azure PowerShell, aby utworzyć bazę danych w Azure SQL Database, Dodaj ją do grupy Autotryb failover i przetestuj tryb failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,18 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 0283c31cee4f2bc1bc3b4cd2f78f816286017e3d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6750d7bf4d5593807a35c38fe92b568d1bc06bd7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053381"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197004"
 ---
-# <a name="use-powershell-to-add-an-azure-sql-database-to-a-failover-group"></a>Dodawanie Azure SQL Database do grupy trybu failover przy użyciu programu PowerShell
+# <a name="use-powershell-to-add-a-database-to-a-failover-group"></a>Dodawanie bazy danych do grupy trybu failover przy użyciu programu PowerShell
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell tworzy pojedynczą bazę danych, tworzy grupę trybu failover, dodaje do niej bazę danych i testuje tryb failover.
+Ten przykładowy skrypt programu PowerShell tworzy pojedynczą bazę danych w Azure SQL Database, tworzy grupę trybu failover, dodaje do niej bazę danych i testuje tryb failover.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -31,7 +32,7 @@ Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie,
 
 ## <a name="sample-scripts"></a>Przykładowe skrypty
 
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add a database to a failover group")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
@@ -60,6 +61,6 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat Azure PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/overview).
 
 Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../powershell-script-content-guide.md).

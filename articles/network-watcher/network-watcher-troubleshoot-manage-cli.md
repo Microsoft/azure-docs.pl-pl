@@ -7,25 +7,25 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: dc0aa8e6099a7ec017aead2fe0f16e9712e17936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2f9ba27410195b187ad7c8ae39c04a66da4c234
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840727"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738706"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Rozwiązywanie problemów z bramą Virtual Network i połączeniami przy użyciu interfejsu wiersza polecenia Azure Network Watcher Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
-> - [Narzędzia](network-watcher-troubleshoot-manage-powershell.md)
+> - [Program PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-troubleshoot-manage-cli.md)
-> - [INTERFEJS API REST](network-watcher-troubleshoot-manage-rest.md)
+> - [Interfejs API REST](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher udostępnia wiele funkcji, które odnoszą się do poznania zasobów sieciowych na platformie Azure. Jedną z tych możliwości jest rozwiązywanie problemów z zasobami. Rozwiązywanie problemów z zasobami można wywołać za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia lub API REST. Gdy jest wywoływana, Network Watcher sprawdza kondycję Virtual Network bramy lub połączenia i zwraca swoje wyniki.
 
@@ -79,7 +79,7 @@ Rozwiązywanie problemów z zasobami zwraca dane dotyczące kondycji zasobu, a t
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Uruchom Network Watcher Rozwiązywanie problemów z zasobami
 
-Rozwiązywanie problemów z zasobami `az network watcher troubleshooting` przy użyciu polecenia cmdlet. Przekazujemy polecenie cmdlet do grupy zasobów, nazwy Network Watcher, identyfikatora połączenia, identyfikatora konta magazynu oraz ścieżki do obiektu BLOB, w którym mają być przechowywane wyniki rozwiązywania problemów.
+Rozwiązywanie problemów z zasobami przy użyciu `az network watcher troubleshooting` polecenia cmdlet. Przekazujemy polecenie cmdlet do grupy zasobów, nazwy Network Watcher, identyfikatora połączenia, identyfikatora konta magazynu oraz ścieżki do obiektu BLOB, w którym mają być przechowywane wyniki rozwiązywania problemów.
 
 ```azurecli
 az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}

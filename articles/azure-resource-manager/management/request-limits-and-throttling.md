@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80239361"
 ---
 # <a name="throttling-resource-manager-requests"></a>Ograniczanie przepływności żądań usługi Resource Manager
@@ -30,8 +30,8 @@ Domyślne limity ograniczania na godzinę przedstawiono w poniższej tabeli.
 | Subskrypcja | odczytywan | 12000 |
 | Subskrypcja | kaskad | 15000 |
 | Subskrypcja | powoduje | 1200 |
-| Dzierżawa | odczytywan | 12000 |
-| Dzierżawa | powoduje | 1200 |
+| Dzierżawca | odczytywan | 12000 |
+| Dzierżawca | powoduje | 1200 |
 
 Limity te dotyczą podmiotu zabezpieczeń (użytkownika lub aplikacji) zgłaszającego te żądania i identyfikatora subskrypcji lub identyfikatora dzierżawy. Jeśli Twoje żądania pochodzą od więcej niż jednego podmiotu zabezpieczeń, limit w ramach subskrypcji lub dzierżawy jest większy niż 12 000 i 1200 na godzinę.
 
@@ -43,7 +43,7 @@ Dostawcy zasobów stosują swoje własne limity ograniczania. Ponieważ Menedże
 
 W tej sekcji omówiono limity ograniczania liczby używanych powszechnie dostawców zasobów.
 
-### <a name="storage-throttling"></a>Ograniczanie magazynu
+### <a name="storage-throttling"></a>Ograniczanie przepustowości magazynu
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 9ce69e3c783ad8d2fb42be4c358cd1c292bbe026
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015373"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255232"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
@@ -49,7 +49,7 @@ Aplikację można uruchomić lokalnie bez subskrypcji platformy Azure, ale będz
 
 Instrukcje dotyczące samouczka współpracują z dowolnym z następujących produktów:
 
-* Program Visual Studio 2013
+* Visual Studio 2013
 * Visual Studio 2015
 * Visual Studio 2017
 * Visual Studio 2019
@@ -104,9 +104,9 @@ W poniższej sekcji skonfigurujesz rozwiązanie do użycia zasobów w chmurze Az
 Aby uruchomić aplikację w chmurze, należy wykonać następujące kroki:
 
 * Utworzenie usługi w chmurze platformy Azure.
-* Utworzenie bazy danych Azure SQL Database.
+* Utwórz bazę danych w Azure SQL Database.
 * Utworzenie konta magazynu platformy Azure.
-* Skonfigurowanie rozwiązania do używania bazy danych Azure SQL Database po uruchomieniu na platformie Azure.
+* Skonfiguruj rozwiązanie do korzystania z bazy danych, gdy zostanie ona uruchomiona na platformie Azure.
 * Skonfigurowanie rozwiązania do używania konta magazynu Azure po uruchomieniu na platformie Azure.
 * Wdrożenie projektu do usługi w chmurze platformy Azure.
 
@@ -124,13 +124,13 @@ Usługa w chmurze Azure to środowisko uruchamiania aplikacji.
 5. Wybierz region, w którym chcesz wdrożyć aplikację.
 
     To pole określa centrum danych, w którym będzie hostowana usługa w chmurze. W przypadku aplikacji produkcyjnej warto wybrać region znajdujący się najbliżej klientów. Na potrzeby tego samouczka wybierz region znajdujący się najbliżej Ciebie.
-5. Kliknij przycisk **Utwórz**.
+5. Kliknij pozycję **Utwórz**.
 
     Na poniższej ilustracji usługa w chmurze jest tworzona przy użyciu adresu URL CSvccontosoads.cloudapp.net.
 
     ![Nowa usługa w chmurze](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Tworzenie bazy danych Azure SQL Database
+### <a name="create-a-database-in-azure-sql-database"></a>Tworzenie bazy danych w Azure SQL Database
 Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 
 1. W witrynie [Azure Portal](https://portal.azure.com) kliknij pozycję **Utwórz zasób > Bazy danych > SQL Database**.
@@ -153,7 +153,7 @@ Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 9. Kliknij przycisk **Wybierz** dla nowego serwera.
 
     ![Nowy serwer](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Kliknij przycisk **Utwórz**.
+10. Kliknij pozycję **Utwórz**.
 
 ### <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 Konto magazynu platformy Azure udostępnia zasoby służące do przechowywania danych kolejek i obiektów blob w chmurze.
@@ -176,14 +176,15 @@ W rzeczywistych aplikacjach przeważnie tworzy się oddzielne konta dla danych a
     Jeśli usługa w chmurze i konto magazynu są obsługiwane w różnych centrach danych (różnych regionach), zwiększy się opóźnienie i będą naliczane opłaty dotyczące przepustowości poza centrum danych. Przepustowość w centrum danych jest bezpłatna.
 
     Grupy koligacji Azure udostępniają mechanizm umożliwiający minimalizowanie odległości między zasobami w centrum danych, a przez to redukowanie opóźnienia. Ten samouczek nie korzysta z grup koligacji. Aby uzyskać więcej informacji, zobacz temat [Jak utworzyć grupę koligacji w Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Kliknij przycisk **Utwórz**.
+7. Kliknij pozycję **Utwórz**.
 
     ![Nowe konto usługi Storage](./media/cloud-services-dotnet-get-started/newstorage.png)
 
     Na ilustracji przedstawiono utworzone konto magazynu z adresem URL `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurowanie rozwiązania do używania bazy danych Azure SQL Database po uruchomieniu na platformie Azure
-Zarówno projekt sieci Web, jak i projekt roli Proces roboczy ma własne parametry połączenia bazy danych. Każdy z nich musi wskazywać na bazę danych Azure SQL Database, gdy aplikacja zostanie uruchomiona na platformie Azure.
+### <a name="configure-the-solution-to-use-your-database-in-azure-sql-database-when-it-runs-in-azure"></a>Skonfiguruj rozwiązanie do korzystania z bazy danych w Azure SQL Database, gdy zostanie ona uruchomiona na platformie Azure
+
+Każdy projekt sieci Web i projekt roli proces roboczy ma własne parametry połączenia z bazą danych, a każdy z nich musi wskazać bazę danych w Azure SQL Database, gdy aplikacja działa na platformie Azure.
 
 Dla roli Sieć Web będziesz używać [przekształcenia pliku Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations), a dla roli Proces roboczy — ustawienia środowiska usługi w chmurze.
 
@@ -530,7 +531,7 @@ Plik *Views\Home\Index.cshtml* umożliwia wyświetlanie linków kategorii na str
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb — AdController.cs
 W pliku *AdController.cs* konstruktor wywołuje metodę `InitializeStorage` w celu utworzenia obiektów biblioteki klienta usługi Azure Storage, które będą dostarczać interfejs API do pracy z kolejkami i obiektami blob.
 
-Następnie kod pobiera odwołanie do kontenera obiektów blob *obrazów*, jak było to widać wcześniej w pliku *Global.asax.cs*. W tym czasie ustawiane są domyślne [zasady ponawiania](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) odpowiednie dla aplikacji internetowej. Domyślne zasady ponawiania wykładniczego wycofywania mogą powodować zawieszanie aplikacji internetowej na czas dłuższy niż minuta w przypadku kolejnych prób i wystąpienia błędu przejściowego. Zasady ponawiania określone w tym miejscu powodują oczekiwanie przez trzy sekundy po każdej próbie. Maksymalna liczba prób to trzy.
+Następnie kod pobiera odwołanie do kontenera obiektów blob *obrazów*, jak było to widać wcześniej w pliku *Global.asax.cs*. W tym czasie ustawiane są domyślne [zasady ponawiania](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) odpowiednie dla aplikacji internetowej. Domyślnie wykładnicze zasady ponawiania wycofywania mogą spowodować, że aplikacja sieci Web przestanie odpowiadać przez dłużej niż minutę przy powtórzonych próbach w przypadku błędu przejściowego. Zasady ponawiania określone w tym miejscu powodują oczekiwanie przez trzy sekundy po każdej próbie. Maksymalna liczba prób to trzy.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -774,8 +775,5 @@ Więcej informacji zawierają następujące zasoby:
 
 * [Azure Cloud Services, część 1: wprowadzenie](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Jak zarządzać usługami Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Usługa Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Jak wybrać dostawcę usług w chmurze](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80067697"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedury składowane zarządzania Azure Database for MySQL
@@ -41,7 +41,7 @@ Poniższe procedury składowane są dostępne w Azure Database for MySQL zarząd
 |-----|-----|-----|-----|
 |*MySQL. az_kill*|processlist_id|Nie dotyczy|Równoważne [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Nastąpi przerwanie połączenia skojarzonego z podanym processlist_id po zakończeniu wszelkich instrukcji wykonywanych przez połączenie.|
 |*MySQL. az_kill_query*|processlist_id|Nie dotyczy|Równoważne [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) polecenie. Zakończy instrukcję, że połączenie jest aktualnie wykonywane. Opuszcza połączenie.|
-|*MySQL. az_load_timezone*|Nie dotyczy|Nie dotyczy|Ładuje tabele strefy czasowej, `time_zone` aby zezwolić na ustawienie wartości nazwanych (np. "USA/Pacyfik").|
+|*MySQL. az_load_timezone*|Nie dotyczy|Nie dotyczy|Ładuje tabele strefy czasowej, aby zezwolić na `time_zone` ustawienie wartości nazwanych (np. "USA/Pacyfik").|
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak skonfigurować [replikacja typu Data-in](howto-data-in-replication.md)

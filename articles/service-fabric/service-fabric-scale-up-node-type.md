@@ -3,22 +3,19 @@ title: Skalowanie w górę typu węzła Service Fabric platformy Azure
 description: Dowiedz się, jak skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610697"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez zwiększenie zasobów maszyny wirtualnej. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować typ węzła klastra w pionie (zmienić zasoby węzłów) lub uaktualnić system operacyjny maszyn wirtualnych typu węzła.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
 
 > [!WARNING]
-> Nie rozpoczynaj zmiany podstawowej jednostki SKU maszyny wirtualnej NodeType, jeśli kondycja klastra jest zła. Jeśli kondycja klastra jest zła, w przypadku próby zmiany jednostki SKU maszyny wirtualnej będzie można jeszcze bardziej zawęzić ten klaster.
+> Nie należy podejmować próby przeprowadzenia skalowania w górę podstawowego typu węzła, jeśli stan klastra jest niepoprawny, co spowoduje dalsze niestabilne działanie klastra.
 >
-> Zalecamy, aby nie zmieniać jednostki SKU maszyny wirtualnej zestawu skalowania/typu węzła, chyba że jest on uruchomiony w wersji [Silver lub nowszej](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Zmiana rozmiaru jednostki SKU maszyny wirtualnej jest operacją infrastruktury służącej do wypróbowania danych. Bez możliwości opóźniania lub monitorowania tej zmiany możliwe jest, że operacja może spowodować utratę danych dla usług stanowych lub spowodować inne nieprzewidziane problemy z działaniem, nawet w przypadku obciążeń bezstanowych. Oznacza to, że typ węzła podstawowego, w którym działa usługi systemowej usługi Service Fabric, lub dowolny typ węzła, który uruchamia aplikację stanową.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,7 +68,7 @@ $parameterFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.parameters.json"
 > [!NOTE]
 > Upewnij się, że `certOutputFolder` Lokalizacja istnieje na komputerze lokalnym przed uruchomieniem polecenia, aby wdrożyć nowy klaster Service Fabric.
 
-Następnie otwórz plik *Deploy-2NodeTypes-2ScaleSets. Parameters. JSON* i Dostosuj wartości dla i, `clusterName` `dnsName` aby odpowiadały wartościom dynamicznym ustawionym w programie PowerShell, i Zapisz zmiany.
+Następnie otwórz *Deploy-2NodeTypes-2ScaleSets.parameters.jsw* pliku i Dostosuj wartości dla i, `clusterName` `dnsName` aby odpowiadały wartościom dynamicznym ustawionym w programie PowerShell, i Zapisz zmiany.
 
 Następnie wdróż klaster testowy Service Fabric:
 
@@ -159,6 +156,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrowanie węzłów do nowego zestawu skalowania
 
 Teraz można rozpocząć wyłączanie węzłów oryginalnego zestawu skalowania. Po wyłączeniu tych węzłów usługi systemowe i węzły inicjatora są migrowane do maszyn wirtualnych nowego zestawu skalowania, ponieważ są również oznaczone jako podstawowy typ węzła.
+
+W przypadku skalowania w górę typów węzłów innych niż podstawowe w tym kroku należy zmodyfikować ograniczenie umieszczania usługi w celu uwzględnienia nowego typu węzła i zestawu skalowania maszyn wirtualnych, a następnie zmniejszyć liczbę wystąpień starego zestawu skalowania maszyn wirtualnych do zera, jeden węzeł w danym momencie (w celu zapewnienia, że usunięcie węzła nie ma wpływu na niezawodność klastra).
 
 ```powershell
 # Disable the nodes in the original scale set.

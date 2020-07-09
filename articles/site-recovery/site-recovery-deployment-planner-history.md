@@ -6,18 +6,31 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: feb4f6a24653aca8da825af90341c8016255e8b6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72433414"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133808"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historia wersji Planista wdrażania usługi Azure Site Recovery
 
 W tym artykule przedstawiono historię wszystkich wersji Planista wdrażania usługi Azure Site Recovery wraz z poprawkami, znanymi ograniczeniami w każdej i ich datach wydania.
+
+## <a name="version-252"></a>Wersja 2,52
+
+**Data wydania: 4 czerwca 2020**
+
+**Prefix**
+
+- Dodano obsługę programu vCenter 7,0
+- Dodano obsługę następujących systemów operacyjnych:
+
+    - SUSE Linux Enterprise 15 (ze wszystkimi wersjami pomocniczymi)
+    - Red Hat Enterprise Linux 8 (ze wszystkimi wersjami pomocniczymi)
+
 
 ## <a name="version-251"></a>Wersja 2,51
 
@@ -44,7 +57,7 @@ W tym artykule przedstawiono historię wszystkich wersji Planista wdrażania us�
 
 - Ulepszona zgodność systemu operacyjnego, w przypadku obsługi błędów na podstawie lokalizacji.
 - Dodano maszyny wirtualne z maksymalnie 20 MB/s szybkości zmian danych (zmiany) do listy kontrolnej zgodności.
-- Ulepszone komunikaty o błędach
+- Ulepszono komunikaty o błędach
 - Dodano obsługę programu vCenter 6,7.
 - Dodano obsługę stacji roboczej z systemem Windows Server 2019 i Red Hat Enterprise Linux (RHEL).
 
@@ -109,7 +122,7 @@ W tym artykule przedstawiono historię wszystkich wersji Planista wdrażania us�
 
 **Znane ograniczenia:**
 
-- W przypadku odzyskiwania po awarii funkcji Hyper-V do platformy Azure maszyna wirtualna o nazwie zawierającej `"`znaki `[`takie `]`jak: ``` ` ``` `,`,,, i nie jest obsługiwana. Jeśli profilowana, generowanie raportu zakończy się niepowodzeniem lub będzie mieć niepoprawny wynik.
+- W przypadku odzyskiwania po awarii funkcji Hyper-V do platformy Azure maszyna wirtualna o nazwie zawierającej znaki takie jak: `,` , `"` ,, `[` `]` i ``` ` ``` nie jest obsługiwana. Jeśli profilowana, generowanie raportu zakończy się niepowodzeniem lub będzie mieć niepoprawny wynik.
 - W przypadku odzyskiwania po awarii programu VMware do platformy Azure maszyna wirtualna o nazwie zawierającej przecinek nie jest obsługiwana. Po profilowaniu generowanie raportu kończy się niepowodzeniem lub będzie miało niepoprawny wynik.
 
 ## <a name="version-131"></a>Wersja 1.3.1
@@ -156,7 +169,7 @@ Dowiedz się więcej na temat [obsługi dużych dysków w usłudze Azure Site Re
 
 **Znane ograniczenia:**
 
-- Obsługuje tylko scenariusze odzyskiwania po awarii programu VMware do platformy Azure. W przypadku scenariuszy odzyskiwania po awarii funkcji Hyper-V na platformie Azure Użyj [Narzędzia planisty wydajności funkcji Hyper-v](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+- Obsługuje tylko scenariusze odzyskiwania po awarii programu VMware do platformy Azure. W przypadku scenariuszy odzyskiwania po awarii funkcji Hyper-V na platformie Azure Użyj [Narzędzia planisty wydajności funkcji Hyper-v](./hyper-v-deployment-planner-overview.md).
 - Nie obsługuje operacji getprzepływności dla rządów USA i Chin Microsoft Azure regionów.
 - Narzędzie cann't profiluje maszyny wirtualne, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o tej samej nazwie lub adresie IP na różnych hostach ESXi.
 W tej wersji narzędzie pomija profilowanie w przypadku zduplikowanych nazw lub adresów IP w parametrze VMListFile. Obejście polega na profilowaniu maszyn wirtualnych przy użyciu hosta ESXi zamiast serwera vCenter. Upewnij się, że uruchomiono jedno wystąpienie dla każdego hosta ESXi.

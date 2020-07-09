@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629385"
 ---
 # <a name="service-updates-in-site-recovery"></a>Aktualizacje usługi w Site Recovery
 
@@ -48,7 +47,7 @@ Site Recovery powiadamia o wygasłych składnikach (lub bliskich wygaśnięcia) 
 
 Powiadomienia e-mail są wysyłane w następujący sposób.
 
-**Pierwszym** | **Częstotliwość**
+**Godzina** | **Częstotliwość**
 --- | ---
 60 dni przed wygaśnięciem składnika | Raz w tygodniu
 Następne 53 dni | Raz w tygodniu
@@ -90,14 +89,13 @@ W tym scenariuszu zdecydowanie zalecamy [włączenie aktualizacji automatycznych
 - Podczas procesu włączania replikacji.
 - Ustawiając ustawienia aktualizacji rozszerzenia w magazynie.
 
-Jeśli chcesz ręcznie zarządzać aktualizacjami, wykonaj następujące czynności:
+Jeśli chcesz ręcznie zarządzać aktualizacjami, możesz wybrać jedną z następujących opcji:
 
-1. W magazynie > **zreplikowane elementy**kliknij to powiadomienie w górnej części ekranu: 
+1. Gdy dostępna jest nowa aktualizacja agenta, Site Recovery udostępnia powiadomienie w magazynie w górnej części strony. W magazynie > **zreplikowane elementy**kliknij to powiadomienie w górnej części ekranu: 
     
-    **Dostępna jest nowa aktualizacja agenta Site Recovery replikacji. Kliknij, aby zainstalować >**
+    **Dostępna jest nowa aktualizacja agenta Site Recovery replikacji. Kliknij, aby zainstalować >** <br/><br/>Wybierz Maszyny wirtualne, dla których chcesz zastosować aktualizację, a następnie kliknij przycisk **OK**.
 
-4. Wybierz Maszyny wirtualne, dla których chcesz zastosować aktualizację, a następnie kliknij przycisk **OK**.
-
+2. Na stronie Przegląd odzyskiwania po awarii maszyny wirtualnej znajdziesz pole "stan agenta", które będzie miało wpływ na "uaktualnienie krytyczne", jeśli Agent wygaśnie. Kliknij go i postępuj zgodnie z instrukcjami, aby ręcznie uaktualnić maszynę wirtualną.
 
 ## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Odzyskiwanie maszyn wirtualnych VMware/serwerów fizycznych na platformę Azure
 

@@ -1,0 +1,115 @@
+---
+title: Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości przy użyciu portalu Azure
+description: W tym przewodniku szybki start przedstawiono sposób użycia portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości za pomocą Azure Media Services.
+ms.topic: quickstart
+ms.date: 06/08/2020
+ms.openlocfilehash: b023a4ed68aa7cfa41661e986dcd4ad6819b810d
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84988944"
+---
+# <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
+
+W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywania, kodowania i przesyłania strumieniowego zawartości przy użyciu Azure Media Services.
+
+> [!NOTE]
+> Upewnij się, że zawarto przegląd: [ograniczenia Azure Portal dla Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+  
+## <a name="overview"></a>Omówienie
+
+* Aby rozpocząć zarządzanie, szyfrowanie, kodowanie, analizowanie i przesyłanie strumieniowe zawartości multimedialnej na platformie Azure, musisz utworzyć konto Media Services i przesłać plik multimediów cyfrowych o wysokiej jakości do **elementu zawartości**. 
+    
+    > [!NOTE]
+    > Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj**ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.
+
+    Zapoznaj się z następującymi tematami: 
+
+  * [Przekazywanie do chmury i magazynowanie w niej](storage-account-concept.md)
+  * [Koncepcja zasobów](assets-concept.md)
+  * [Zarządzanie zasobami](manage-asset-concept.md)
+* Po przekazaniu pliku multimediów cyfrowych o wysokiej jakości do zasobu (dane wejściowe) można go przetworzyć (zakodować lub analizować). Przetworzona zawartość znajduje się w innym elemencie zawartości (wyjściowym). 
+    * [Zakodowanie](encoding-concept.md) przekazanego pliku do formatów, które mogą być odtwarzane w różnych przeglądarkach i urządzeniach.
+    * [Analizowanie](analyzing-video-audio-files-concept.md) przekazanego pliku. 
+
+        Obecnie w przypadku korzystania z Azure Portal można wykonać następujące czynności: generowanie plików napisów TTML i WebVTT. Pliki w tych formatach mogą służyć do udostępniania plików audio i wideo osobom niepełnosprawnym. Możesz również wyodrębnić słowa kluczowe z zawartości.
+
+        Aby uzyskać bogate środowisko umożliwiające wyodrębnienie szczegółowych informacji z plików wideo i audio, Użyj ustawień wstępnych Media Services v3 (zgodnie z opisem w [samouczku: analizowanie wideo przy użyciu Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Jeśli potrzebujesz bardziej szczegółowych informacji, użyj [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) bezpośrednio.    
+* Po przetworzeniu zawartości możesz dostarczyć zawartość multimedialną do graczy klienckich. Aby umożliwić odtwarzanie filmów wideo w danych wyjściowych, należy utworzyć **lokalizator przesyłania strumieniowego**. Podczas tworzenia **lokalizatora przesyłania strumieniowego**należy określić **zasady przesyłania strumieniowego**. **Zasady przesyłania strumieniowego** umożliwiają definiowanie protokołów przesyłania strumieniowego i opcji szyfrowania (jeśli istnieją) dla **lokalizatorów przesyłania strumieniowego**.
+    
+    Ponownego
+
+    * [Lokalizatory przesyłania strumieniowego](streaming-locators-concept.md)
+    * [Zasady przesyłania strumieniowego](streaming-policy-concept.md)
+    * [Tworzenie pakietów i dostarczanie](dynamic-packaging-overview.md)
+    * [Filtry](filters-concept.md)
+* Zawartość można chronić, szyfrując ją przy użyciu Advanced Encryption Standard (AES-128) lub/i jednego z trzech głównych systemów DRM: Microsoft PlayReady, Google Widevine i Apple FairPlay. [Zawartość zaszyfrowana za pomocą Azure Portal](encrypt-content-quickstart.md) szybki start przedstawia sposób konfigurowania ochrony zawartości.
+        
+## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[Tworzenie konta usługi Media Services](create-account-howto.md#use-the-azure-portal)
+
+## <a name="upload"></a>Upload
+
+1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/).
+1. Znajdź i kliknij konto Media Services.
+1. Wybierz pozycję **zasoby (nowe)**.
+1. Naciśnij przycisk **Przekaż** w górnej części okna. 
+1. Przeciągnij i upuść lub przejdź do pliku określona, który chcesz przekazać.
+
+Po przejściu do okna elementy zawartości zobaczysz, że do listy dodano nowy element zawartości:
+
+![Upload](./media/manage-assets-quickstart/upload.png)
+
+## <a name="encode"></a>Kodowanie
+
+1. Wybierz pozycję **zasoby (nowe)**.
+1. Wybierz nowy element zawartości (dodany w ostatnim kroku).
+1. Kliknij pozycję **Koduj** w górnej części okna.
+
+    Naciśnięcie tego przycisku uruchamia zadanie kodowania. Po pomyślnym zakończeniu zostanie wygenerowany element wyjściowy, który zawiera zakodowaną zawartość.
+
+Jeśli przejdziesz do okna elementów zawartości, zobaczysz, że zasób wyjściowy został dodany do listy:
+
+![Kodowanie](./media/manage-assets-quickstart/encode.png)
+
+## <a name="monitor-the-job-progress"></a>Monitoruj postęp zadania
+
+Aby wyświetlić stan zadania, przejdź do **zadania**. Zadanie zazwyczaj przechodzi przez następujące stany: zaplanowane, kolejkowane, przetwarzane, zakończone (stan końcowy). Jeśli zadanie napotka błąd, może być w stanie Error (Błąd).
+
+![Stan](./media/manage-assets-quickstart/job-status.png)
+
+## <a name="publish-and-stream"></a>Publikuj i przesyłaj strumieniowo
+
+Aby opublikować element zawartości, musisz teraz dodać lokalizator przesyłania strumieniowego do Twojego elementu zawartości.
+
+### <a name="streaming-locator"></a>Lokalizator przesyłania strumieniowego 
+
+1. W sekcji **lokalizator przesyłania strumieniowego** naciśnij pozycję **+ Dodaj lokalizator przesyłania strumieniowego**.
+    Spowoduje to opublikowanie elementu zawartości i wygenerowanie adresów URL przesyłania strumieniowego.
+
+    > [!NOTE]
+    > Aby można było zaszyfrować strumień, należy utworzyć zasady klucza zawartości i ustawić je w lokalizatorze przesyłania strumieniowego. Aby uzyskać szczegółowe informacje, zobacz [szyfrowanie zawartości przy użyciu Azure Portal](encrypt-content-quickstart.md).
+1. W oknie **Dodawanie lokalizatora przesyłania strumieniowego** wybierz jedną ze wstępnie zdefiniowanych zasad przesyłania strumieniowego. Aby uzyskać szczegółowe informacje, zobacz [zasady przesyłania strumieniowego](streaming-policy-concept.md)
+
+    ![Lokalizator przesyłania strumieniowego](./media/manage-assets-quickstart/streaming-locator.png)
+
+Po opublikowaniu elementu zawartości można przesłać do niego strumień bezpośrednio w portalu. 
+
+![Graj.](./media/manage-assets-quickstart/publish.png)
+
+Lub skopiuj adres URL przesyłania strumieniowego i użyj go w odtwarzaczu klienta.
+
+> [!NOTE]
+> Upewnij się, że [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) jest uruchomiony. Podczas pierwszego tworzenia konta usługi multimediów tworzony jest domyślny punkt końcowy przesyłania strumieniowego, który jest w stanie zatrzymania, dlatego należy go uruchomić, aby można było przesyłać strumieniowo zawartość.<br/>Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
+
+## <a name="cleanup-resources"></a>Oczyszczanie zasobów
+
+Jeśli zamierzasz wypróbować inne Przewodniki Szybki Start, należy zamieścić do utworzonych zasobów. W przeciwnym razie przejdź do obszaru Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, i Usuń wszystkie zasoby.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Szyfrowanie zawartości przy użyciu portalu](encrypt-content-quickstart.md)

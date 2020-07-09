@@ -7,15 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75364955"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>wyrażenie obszaru roboczego () w zapytaniu dziennika Azure Monitor
 
-`workspace` Wyrażenie jest używane w zapytaniu Azure monitor, aby pobrać dane z określonego obszaru roboczego w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do uwzględniania danych dziennika w kwerendzie Application Insights i wykonywania zapytań dotyczących danych w wielu obszarach roboczych w zapytaniu dziennika.
+`workspace`Wyrażenie jest używane w zapytaniu Azure monitor, aby pobrać dane z określonego obszaru roboczego w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do uwzględniania danych dziennika w kwerendzie Application Insights i wykonywania zapytań dotyczących danych w wielu obszarach roboczych w zapytaniu dziennika.
 
 
 ## <a name="syntax"></a>Składnia
@@ -37,7 +36,7 @@ ms.locfileid: "75364955"
 ## <a name="notes"></a>Uwagi
 
 * Musisz mieć dostęp do odczytu do obszaru roboczego.
-* Wyrażenie `app` pokrewne umożliwia wykonywanie zapytań w aplikacjach Application Insights.
+* Wyrażenie pokrewne `app` umożliwia wykonywanie zapytań w aplikacjach Application Insights.
 
 ## <a name="examples"></a>Przykłady
 

@@ -7,15 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77665703"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>wyrażenie Resource () w zapytaniu dziennika Azure Monitor
 
-`resource` Wyrażenie jest używane w kwerendzie Azure monitor [należącej do zakresu](scope.md#query-scope) , aby można było pobrać dane z innych zasobów. 
+`resource`Wyrażenie jest używane w kwerendzie Azure monitor [należącej do zakresu](scope.md#query-scope) , aby można było pobrać dane z innych zasobów. 
 
 
 ## <a name="syntax"></a>Składnia

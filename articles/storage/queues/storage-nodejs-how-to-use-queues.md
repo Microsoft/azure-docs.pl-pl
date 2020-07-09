@@ -1,38 +1,41 @@
 ---
-title: Korzystanie z usługi Azure queue storage z poziomu środowiska Node. js — Azure Storage
-description: Dowiedz się, jak używać usługa kolejki platformy Azure do tworzenia i usuwania kolejek oraz wstawiania, pobierania i usuwania komunikatów. Przykłady zapisywane w języku Node. js.
+title: Korzystanie z usługi Azure queue storage z usługi Node.js — Azure Storage
+description: Dowiedz się, jak używać usługa kolejki platformy Azure do tworzenia i usuwania kolejek oraz wstawiania, pobierania i usuwania komunikatów. Przykłady zapisywane w Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060932"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808803"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Tworzenie i usuwanie kolejek za pomocą usługi kolejek platformy Azure z poziomu środowiska Node. js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Tworzenie i usuwanie kolejek z Node.js za pomocą usługi Azure Queue Service
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usługa kolejki Microsoft Azure. Przykłady są zapisywane przy użyciu interfejsu API środowiska Node. js. Omówione scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **usuwanie** komunikatów w kolejce, a także **Tworzenie i usuwanie kolejek**.
+W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usługa kolejki Microsoft Azure. Przykłady są zapisywane przy użyciu interfejsu API Node.js. Omówione scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **usuwanie** komunikatów w kolejce, a także **Tworzenie i usuwanie kolejek**.
+
+> [!IMPORTANT]
+> Ten artykuł odnosi się do starszej wersji biblioteki klienta usługi Azure Storage dla języka JavaScript. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Biblioteka kliencka usługi Azure queue storage dla języka JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji w języku Node. js
-Utwórz pustą aplikację Node. js. Aby uzyskać instrukcje dotyczące tworzenia aplikacji node. js, zobacz [Tworzenie aplikacji sieci Web Node. js w Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Kompilowanie i wdrażanie aplikacji node. js w usłudze w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu Windows PowerShell lub [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji Node.js
+Utwórz pustą aplikację Node.js. Aby uzyskać instrukcje dotyczące tworzenia aplikacji Node.js, zobacz [Tworzenie aplikacji internetowej Node.js w Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Kompilowanie i wdrażanie aplikacji Node.js w usłudze w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu Windows PowerShell lub [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji w celu uzyskania dostępu do magazynu
-Aby można było korzystać z usługi Azure Storage, wymagany jest zestaw SDK usługi Azure Storage dla środowiska Node. js, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST usługi Storage.
+Aby można było korzystać z usługi Azure Storage, wymagany jest zestaw SDK usługi Azure Storage dla Node.js, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST magazynu.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Korzystanie z programu Node Package Manager (NPM) w celu uzyskania pakietu
 1. Użyj interfejsu wiersza polecenia, takiego jak program **PowerShell** (Windows), **Terminal** (Mac,) lub **bash** (UNIX), przejdź do folderu, w którym została utworzona Przykładowa aplikacja.
@@ -51,17 +54,17 @@ Aby można było korzystać z usługi Azure Storage, wymagany jest zestaw SDK us
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. Można ręcznie uruchomić **ls** polecenie, aby sprawdzić, czy folder **modułów\_węzła** został utworzony. Wewnątrz tego folderu znajduje się pakiet **azure-storage** zawierający biblioteki wymagane do uzyskiwania dostępu do magazynu.
+3. Można ręcznie uruchomić **ls** polecenie, aby sprawdzić, czy folder ** \_ modułów węzła** został utworzony. Wewnątrz tego folderu znajduje się pakiet **azure-storage** zawierający biblioteki wymagane do uzyskiwania dostępu do magazynu.
 
 ### <a name="import-the-package"></a>Importowanie pakietu
-Za pomocą Notatnika lub innego edytora tekstów Dodaj następujący tekst do pliku **Server. js** aplikacji, w której zamierzasz używać magazynu:
+Za pomocą Notatnika lub innego edytora tekstów Dodaj następujący tekst do pliku **server.js** aplikacji, w której zamierzasz używać magazynu:
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Konfigurowanie połączenia usługi Azure Storage
-Moduł Azure odczyta zmienne środowiskowe konta usługi AZURE\_Storage\_i klucza dostępu\_do\_\_usługi Azure Storage albo parametry\_połączenia\_\_usługi Azure Storage, aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie podczas wywoływania **createQueueService**.
+Moduł Azure odczyta zmienne środowiskowe konta usługi AZURE \_ Storage \_ i \_ \_ klucza dostępu do usługi Azure Storage \_ albo \_ Parametry połączenia usługi Azure Storage, \_ \_ Aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie podczas wywoływania **createQueueService**.
 
 ## <a name="how-to-create-a-queue"></a>Instrukcje: Tworzenie kolejki
 Poniższy kod tworzy obiekt **QueueService** , który umożliwia współpracę z kolejkami.
@@ -126,7 +129,7 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 });
 ```
 
-`result` Zawiera komunikat.
+`result`Zawiera komunikat.
 
 > [!NOTE]
 > Przy użyciu **peekMessages** , gdy nie ma żadnych komunikatów w kolejce nie zwróci błędu, ale nie zostaną zwrócone żadne komunikaty.
@@ -227,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-Jeśli nie można zwrócić wszystkich kolejek `result.continuationToken` , można użyć jako pierwszego parametru **listQueuesSegmented** lub drugiego parametru **listQueuesSegmentedWithPrefix** , aby uzyskać więcej wyników.
+Jeśli nie można zwrócić wszystkich kolejek, `result.continuationToken` można użyć jako pierwszego parametru **listQueuesSegmented** lub drugiego parametru **listQueuesSegmentedWithPrefix** , aby uzyskać więcej wyników.
 
 ## <a name="how-to-delete-a-queue"></a>Instrukcje: usuwanie kolejki
 Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę **deleteQueue** w obiekcie Queue.

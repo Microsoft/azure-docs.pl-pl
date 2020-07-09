@@ -3,15 +3,15 @@ title: Avere vFXT — wymagania wstępne — Azure
 description: Wymagania wstępne dotyczące programu avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252547"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505345"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Przygotowanie do utworzenia systemu Avere vFXT
 
@@ -49,7 +49,7 @@ Sprawdź, czy masz wystarczający przydział dla następujących składników pl
 >
 > Upewnij się, że przydział jest włączony dla regionu, w którym zamierzasz uruchomić przepływ pracy.
 
-|Składnik platformy Azure|Limit przydziału|
+|Składnik platformy Azure|limit przydziału|
 |----------|-----------|
 |Maszyny wirtualne|3 lub więcej E32s_v3 (jeden na węzeł klastra) |
 |Magazyn SSD w warstwie Premium|200 GB na system operacyjny i od 1 TB do 4 TB miejsca obszaru pamięci podręcznej na węzeł |
@@ -68,7 +68,7 @@ Ten krok należy wykonać tylko raz dla każdej subskrypcji.
 
 Aby zaakceptować z góry warunki oprogramowania:
 
-1. Otwórz powłokę chmury w Azure Portal lub przechodząc do <https://shell.azure.com>witryny. Zaloguj się przy użyciu identyfikatora subskrypcji.
+1. Otwórz powłokę chmury w Azure Portal lub przechodząc do witryny <https://shell.azure.com> . Zaloguj się przy użyciu identyfikatora subskrypcji.
 
    ```azurecli
     az login
@@ -98,7 +98,7 @@ Utwórz punkt końcowy usługi magazynu na podstawie Azure Portal.
 1. Wybierz sieć wirtualną dla klastra.
 1. Kliknij pozycję **punkty końcowe usługi** w menu po lewej stronie.
 1. Kliknij przycisk **Dodaj** w górnej części ekranu.
-1. Wybierz usługę ``Microsoft.Storage``.
+1. Wybierz usługę ``Microsoft.Storage`` .
 1. Wybierz podsieć klastra.
 1. Kliknij przycisk **Dodaj**w dolnej części.
 

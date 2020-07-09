@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania farb i środowiska Node. js'
+title: 'Szybki Start: Rozpoznawanie cyfrowego pisma odręcznego za pomocą interfejsu API REST rozpoznawania atramentu i Node.js'
 titleSuffix: Azure Cognitive Services
 description: Użyj interfejsu API rozpoznawania pisma odręcznego, aby rozpocząć rozpoznawanie cyfrowych pociągnięć atramentu w tym przewodniku Szybki Start.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: a37f2b7044fcba04ca18093aa73563961e9e35de
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: aa16f0cca5e60608518ff914a89a48fa8b8899c5
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448145"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85980019"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania farb i języka JavaScript
 
@@ -75,11 +75,11 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 ## <a name="load-the-example-json-data"></a>Ładowanie przykładowych danych JSON
 
-1. W `<script>` tagu Utwórz zmienną dla sampleJson. Następnie Utwórz funkcję języka JavaScript o `openFile()` nazwie otwierającej Eksploratora plików, aby można było wybrać plik JSON. Gdy `Recognize ink` przycisk zostanie kliknięty, wywoła tę funkcję i rozpocznie odczytywanie pliku.
-2. Użyj `onload()` funkcji `FileReader` obiektu, aby przetworzyć plik asynchronicznie. 
+1. W `<script>` tagu Utwórz zmienną dla sampleJson. Następnie Utwórz funkcję języka JavaScript o nazwie `openFile()` otwierającej Eksploratora plików, aby można było wybrać plik JSON. Gdy `Recognize ink` przycisk zostanie kliknięty, wywoła tę funkcję i rozpocznie odczytywanie pliku.
+2. Użyj `FileReader` funkcji obiektu, `onload()` Aby przetworzyć plik asynchronicznie. 
     1. Zastąp `\n` wszystkie `\r` znaki lub w pliku pustym ciągiem. 
     2. Użyj `JSON.parse()` do przekonwertowania tekstu na prawidłowy kod JSON
-    3. Zaktualizuj pole `request` tekstowe w aplikacji. Służy `JSON.stringify()` do formatowania ciągu JSON. 
+    3. Zaktualizuj `request` pole tekstowe w aplikacji. Służy `JSON.stringify()` do formatowania ciągu JSON. 
     
     ```javascript
     var sampleJson = "";
@@ -98,7 +98,7 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 ## <a name="send-a-request-to-the-ink-recognizer-api"></a>Wyślij żądanie do interfejsu API rozpoznawania pisma odręcznego
 
-1. W `<script>` tagu Utwórz funkcję o nazwie `recognizeInk()`. Ta funkcja spowoduje późniejsze wywołanie interfejsu API i zaktualizowanie strony z odpowiedzią. Dodaj kod z następujących kroków w tej funkcji. 
+1. W `<script>` tagu Utwórz funkcję o nazwie `recognizeInk()` . Ta funkcja spowoduje późniejsze wywołanie interfejsu API i zaktualizowanie strony z odpowiedzią. Dodaj kod z następujących kroków w tej funkcji. 
         
     ```javascript
     function recognizeInk() {
@@ -133,7 +133,7 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
         }
         ```
 
-    4. Utwórz funkcję dla `onreadystatechange` właściwości obiektu żądania. Gdy stan gotowości obiektu żądania ulegnie zmianie, zostaną zastosowane powyższe funkcje Return i Error.
+    4. Utwórz funkcję dla właściwości obiektu żądania `onreadystatechange` . Gdy stan gotowości obiektu żądania ulegnie zmianie, zostaną zastosowane powyższe funkcje Return i Error.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -147,7 +147,7 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
         };
         ```
     
-    5. Wyślij żądanie interfejsu API. Dodaj klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i ustaw wartość na `content-type``application/json`
+    5. Wyślij żądanie interfejsu API. Dodaj klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i ustaw wartość `content-type` na`application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

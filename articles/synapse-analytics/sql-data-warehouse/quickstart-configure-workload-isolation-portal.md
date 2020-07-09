@@ -6,21 +6,21 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 70ac4942c397e8ca5db2d1b5041d0d9d43ae7222
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82794056"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213044"
 ---
 # <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Szybki Start: Konfigurowanie Synapse izolacji puli SQL przy użyciu grupy obciążeń w Azure Portal
 
-W tym przewodniku szybki start skonfigurujesz [izolację obciążenia](sql-data-warehouse-workload-isolation.md) , tworząc grupę obciążeń na potrzeby rezerwowania zasobów.  Na potrzeby tego samouczka utworzymy grupę obciążeń na potrzeby ładowania danych `DataLoads`. Grupa obciążeń zarezerwuje 20% zasobów systemowych.  Dzięki obciążeniu o 20% w przypadku ładowania danych są one gwarantowane, dzięki czemu mogą trafiać do umowy SLA.  Po utworzeniu grupy obciążeń [Utwórz klasyfikator obciążeń](quickstart-create-a-workload-classifier-portal.md) , aby przypisać zapytania do tej grupy obciążeń.
+W tym przewodniku szybki start skonfigurujesz [izolację obciążenia](sql-data-warehouse-workload-isolation.md) , tworząc grupę obciążeń na potrzeby rezerwowania zasobów.  Na potrzeby tego samouczka utworzymy grupę obciążeń na potrzeby ładowania danych `DataLoads` . Grupa obciążeń zarezerwuje 20% zasobów systemowych.  Dzięki obciążeniu o 20% w przypadku ładowania danych są one gwarantowane, dzięki czemu mogą trafiać do umowy SLA.  Po utworzeniu grupy obciążeń [Utwórz klasyfikator obciążeń](quickstart-create-a-workload-classifier-portal.md) , aby przypisać zapytania do tej grupy obciążeń.
 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
@@ -28,7 +28,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 > [!NOTE]
 > Utworzenie wystąpienia puli SQL w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -53,10 +53,10 @@ Aby utworzyć grupę obciążeń z izolacją 20%:
     ![Kliknij pozycję niestandardowe](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
 6.  Wprowadź `DataLoads` dla **grupy obciążenia**.
-7.  Wprowadź `20` wartość w obszarze **min. resources%**.
-8.  Wprowadź `5` wartość w obszarze **min. resources% na żądanie**.
+7.  Wprowadź wartość `20` w obszarze **min. resources%**.
+8.  Wprowadź wartość `5` w obszarze **min. resources% na żądanie**.
 9.  Wprowadź `100` dla **zasobów Cap%**.
-10.   Kliknij przycisk **Zapisz**.
+10.   Kliknij pozycję **Zapisz**.
 
    ![Klikanie pozycji Zapisz.](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
@@ -64,10 +64,10 @@ Podczas tworzenia grupy obciążeń pojawia się powiadomienie w portalu.  Zasob
 
    ![Kliknij przycisk Final](./media/quickstart-configure-workload-isolation-portal/display-wg.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby usunąć grupę `DataLoads` obciążeń utworzoną w tym samouczku:
-1. **`...`** Kliknij z prawej strony grupy `DataLoads` obciążenia.
+Aby usunąć `DataLoads` grupę obciążeń utworzoną w tym samouczku:
+1. Kliknij z **`...`** prawej strony `DataLoads` grupy obciążenia.
 2. Kliknij pozycję **Usuń grupę obciążeń**.
 3. Kliknij przycisk **tak** po wyświetleniu monitu, aby potwierdzić usunięcie grupy obciążeń.
 4. Kliknij pozycję **Zapisz**.
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby wyczyścić zasoby.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję Magazyn danych.
 
-    ![Oczyszczanie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, zobaczysz przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
 
@@ -97,7 +97,7 @@ Wykonaj następujące kroki, aby wyczyścić zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby użyć grupy `DataLoads` obciążenia, należy utworzyć [klasyfikator obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w celu kierowania żądań do grupy obciążeń.  Przejdź do samouczka [Tworzenie klasyfikatora obciążeń](quickstart-create-a-workload-classifier-portal.md) , aby utworzyć klasyfikator obciążeń dla `DataLoads`.
+Aby użyć `DataLoads` grupy obciążenia, należy utworzyć [klasyfikator obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w celu kierowania żądań do grupy obciążeń.  Przejdź do samouczka [Tworzenie klasyfikatora obciążeń](quickstart-create-a-workload-classifier-portal.md) , aby utworzyć klasyfikator obciążeń dla `DataLoads` .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby uzyskać szczegółowe informacje na temat monitorowania obciążeń związanych z zarządzaniem obciążeniem, zobacz artykuł How to [manage and monitoringing Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md) .

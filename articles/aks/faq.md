@@ -3,12 +3,11 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300930"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -75,11 +74,13 @@ Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 * Określ inną subskrypcję dla grupy zasobów węzła.
 * Zmień nazwę grupy zasobów węzła po utworzeniu klastra.
 * Określ nazwy zarządzanych zasobów w grupie zasobów węzła.
-* Modyfikuj lub Usuń Tagi zarządzanych zasobów w grupie zasobów węzła. (Zobacz dodatkowe informacje w następnej sekcji).
+* Modyfikuj lub Usuń Tagi zarządzane przez platformę Azure w ramach grupy zasobów węzła. (Zobacz dodatkowe informacje w następnej sekcji).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Czy mogę modyfikować Tagi i inne właściwości zasobów AKS w grupie zasobów węzła?
 
-W przypadku modyfikowania lub usuwania tagów utworzonych przez platformę Azure i innych właściwości zasobów w grupie zasobów węzła można uzyskać nieoczekiwane wyniki, takie jak skalowanie i uaktualnianie błędów. AKS umożliwia tworzenie i modyfikowanie tagów niestandardowych. Możesz chcieć utworzyć lub zmodyfikować niestandardowe znaczniki, na przykład, aby przypisać jednostkę biznesową lub centrum kosztów. Przez zmodyfikowanie zasobów w grupie zasobów węzła w klastrze AKS należy przerwać cel poziomu usługi (SLO). Aby uzyskać więcej informacji, zobacz [czy AKS oferuje umowę dotyczącą poziomu usług?](#does-aks-offer-a-service-level-agreement)
+W przypadku modyfikowania lub usuwania tagów utworzonych przez platformę Azure i innych właściwości zasobów w grupie zasobów węzła można uzyskać nieoczekiwane wyniki, takie jak skalowanie i uaktualnianie błędów. AKS umożliwia tworzenie i modyfikowanie tagów niestandardowych utworzonych przez użytkowników końcowych. Możesz chcieć utworzyć lub zmodyfikować niestandardowe znaczniki, na przykład, aby przypisać jednostkę biznesową lub centrum kosztów. Można to osiągnąć, tworząc zasady platformy Azure z zakresem w zarządzanej grupie zasobów.
+
+Jednak modyfikowanie wszelkich **tagów utworzonych przez platformę Azure** w zasobach w ramach grupy zasobów węzła w klastrze AKS jest nieobsługiwaną akcją, która przerywa cel poziomu usługi (SLO). Aby uzyskać więcej informacji, zobacz [czy AKS oferuje umowę dotyczącą poziomu usług?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Jakie kontrolery Kubernetes Admission są obsługiwane przez AKS? Czy można dodać lub usunąć kontrolery do przyjmowania?
 

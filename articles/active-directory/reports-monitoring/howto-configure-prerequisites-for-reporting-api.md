@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608266"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Wymagania wstępne dotyczące uzyskiwania dostępu do interfejsu API raportowania Azure Active Directory
 
@@ -81,11 +81,11 @@ Aby skonfigurować katalog do uzyskiwania dostępu do interfejsu API raportowani
 
     ![Rejestrowanie aplikacji](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-    a. W polu tekstowym **Nazwa** wpisz `Reporting API application`.
+    a. W polu tekstowym **Nazwa** wpisz `Reporting API application` .
 
     b. W polu **Typ obsługiwanych kont**wybierz opcję **konta tylko w tej organizacji**.
 
-    c. W polu tekstowym **adres URL przekierowania** wybierz pozycję `https://localhost` **Sieć Web** wpisz.
+    c. W polu tekstowym **adres URL przekierowania** wybierz pozycję **Sieć Web** wpisz `https://localhost` .
 
     d. Wybierz pozycję **Zarejestruj**. 
 
@@ -184,11 +184,11 @@ Te wartości są potrzebne podczas konfigurowania wywołań do interfejsu API ra
 
 5. Na stronie **Dodawanie wpisu tajnego klienta** Dodaj następujące polecenie:
 
-    a. W polu tekstowym **Opis** wpisz `Reporting API`.
+    a. W polu tekstowym **Opis** wpisz `Reporting API` .
 
     b. Zgodnie z **wygaśnięciem**wybierz pozycję **za 2 lata**.
 
-    c. Kliknij przycisk **Zapisz**.
+    c. Kliknij pozycję **Zapisz**.
 
     d. Skopiuj wartość klucza.
 

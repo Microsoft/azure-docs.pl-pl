@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 0415c0e7ee1432521c3cc2026feff5fc2a41d77e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3400d82a6aa184daabfa2ebbe6b775b8e4c1562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681144"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565469"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Konfigurowanie usługi Remote Rendering dla środowiska Unity
 
@@ -18,7 +18,7 @@ Aby włączyć zdalne renderowanie na platformie Azure (ARR) w środowisku Unity
 
 ## <a name="startup-and-shutdown"></a>Uruchamianie i zamykanie
 
-Aby zainicjować renderowanie zdalne, `RemoteManagerUnity`Użyj. Ta klasa wywołuje ogólne `RemoteManager` , ale już implementuje szczegółowe dane specyficzne dla aparatu Unity. Na przykład środowisko Unity używa określonego układu współrzędnych. Podczas wywoływania `RemoteManagerUnity.Initialize`odpowiednia Konwencja zostanie skonfigurowana. Wywołanie wymaga również podania aparatu Unity, który ma być używany do wyświetlania zdalnie renderowanej zawartości.
+Aby zainicjować renderowanie zdalne, użyj `RemoteManagerUnity` . Ta klasa wywołuje ogólne, `RemoteManager` ale już implementuje szczegółowe dane specyficzne dla aparatu Unity. Na przykład środowisko Unity używa określonego układu współrzędnych. Podczas wywoływania `RemoteManagerUnity.Initialize` odpowiednia Konwencja zostanie skonfigurowana. Wywołanie wymaga również podania aparatu Unity, który ma być używany do wyświetlania zdalnie renderowanej zawartości.
 
 ```cs
 // initialize Azure Remote Rendering for use in Unity:
@@ -27,9 +27,9 @@ RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
 RemoteManagerUnity.InitializeManager(clientInit);
 ```
 
-Aby zamknąć zdalne renderowanie, wywołaj `RemoteManagerStatic.ShutdownRemoteRendering()`polecenie.
+Aby zamknąć zdalne renderowanie, wywołaj polecenie `RemoteManagerStatic.ShutdownRemoteRendering()` .
 
-`AzureSession` Po utworzeniu i wybraniu jako podstawowej sesji renderowania należy zarejestrować ją w `RemoteManagerUnity`:
+Po `AzureSession` utworzeniu i wybraniu jako podstawowej sesji renderowania należy zarejestrować ją w `RemoteManagerUnity` :
 
 ```cs
 RemoteManagerUnity.CurrentSession = ...
@@ -70,13 +70,13 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 ### <a name="arrserviceunity"></a>ARRServiceUnity
 
-`ARRServiceUnity`jest opcjonalnym składnikiem do usprawniania instalacji i zarządzania sesją. Zawiera opcje automatycznego zatrzymania sesji, gdy aplikacja jest zamykana lub tryb odtwarzania zostanie zakończony w edytorze, a także automatycznie odnawia dzierżawę sesji w razie potrzeby. W pamięci podręcznej dane takie jak właściwości sesji (patrz `LastProperties` jego zmienna) i ujawniają zdarzenia dotyczące zmian stanu sesji i błędów sesji.
+`ARRServiceUnity`jest opcjonalnym składnikiem do usprawniania instalacji i zarządzania sesją. Zawiera opcje automatycznego zatrzymania sesji, gdy aplikacja jest zamykana lub tryb odtwarzania zostanie zakończony w edytorze, a także automatycznie odnawia dzierżawę sesji w razie potrzeby. W pamięci podręcznej dane takie jak właściwości sesji (patrz jego `LastProperties` zmienna) i ujawniają zdarzenia dotyczące zmian stanu sesji i błędów sesji.
 
 Nie może istnieć więcej niż jedno wystąpienie `ARRServiceUnity` naraz. Jest to przeznaczone do szybszego uruchamiania przez implementację niektórych typowych funkcji. W przypadku większej aplikacji może być zalecane Samodzielne wykonywanie tych czynności.
 
-Aby zapoznać się z przykładem sposobu konfigurowania i `ARRServiceUnity` używania, zobacz [Samouczek: Konfigurowanie projektu Unity od podstaw](../../tutorials/unity/project-setup.md).
+Aby zapoznać się z przykładem sposobu konfigurowania i używania, `ARRServiceUnity` Zobacz [Samouczek: wyświetlanie zdalnie renderowane modele](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Instalowanie pakietu usługi Remote Rendering dla środowiska Unity](install-remote-rendering-unity-package.md)
-* [Samouczek: Konfigurowanie projektu Unity od podstaw](../../tutorials/unity/project-setup.md)
+* [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../../tutorials/unity/view-remote-models/view-remote-models.md)

@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 8bf887b8d86131e0b358056fc1744a8d144be3fc
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584096"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117036"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for PostgreSQL-Citus
 
@@ -39,7 +39,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 3. Wybierz pozycję **Nowa reguła alertu** (ikona +).
 
-4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wprowadź wymagane informacje:
+4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wypełnij wymagane informacje:
 
    ![Formularz dodawania alertu metryki](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
 

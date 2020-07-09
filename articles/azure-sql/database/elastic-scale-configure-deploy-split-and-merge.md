@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045648"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Wdrażanie usługi Split-Merge do przenoszenia danych między bazami danych podzielonej na fragmenty
@@ -27,7 +26,7 @@ Narzędzie Split-Merge służy do przenoszenia danych między bazami danych podz
 
 1. Pobierz najnowszą wersję pakietu NuGet z narzędzia [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
-1. Otwórz wiersz polecenia i przejdź do katalogu, do którego został pobrany plik NuGet. exe. Pobieranie obejmuje polecenia programu PowerShell.
+1. Otwórz wiersz polecenia i przejdź do katalogu, do którego został pobrany nuget.exe. Pobieranie obejmuje polecenia programu PowerShell.
 
 1. Pobierz najnowszy pakiet Split-Merge do bieżącego katalogu przy użyciu poniższego polecenia:
 
@@ -176,9 +175,9 @@ Wdrożenie i środowisko można sprawdzić, uruchamiając dołączone przykłado
 
 Uwzględnione pliki skryptów:
 
-1. *SetupSampleSplitMergeEnvironment. ps1* — konfiguruje warstwę danych testowych dla operacji Split/Merge (zobacz tabelę poniżej, aby uzyskać szczegółowy opis)
-2. *ExecuteSampleSplitMerge. ps1* — wykonuje operacje testowe w warstwie danych testowych (patrz tabela poniżej w celu uzyskania szczegółowego opisu)
-3. *Getmappings. ps1* — przykładowy skrypt na najwyższego poziomu, który drukuje bieżący stan mapowań fragmentu.
+1. *SetupSampleSplitMergeEnvironment.ps1* — konfiguruje warstwę danych testowych dla operacji Split/Merge (zobacz tabelę poniżej, aby uzyskać szczegółowy opis)
+2. *ExecuteSampleSplitMerge.ps1* — wykonuje operacje testowe w warstwie danych testowych (patrz tabela poniżej w celu uzyskania szczegółowego opisu)
+3. Przykładowy skrypt *GetMappings.ps1* -najwyższego poziomu, który drukuje bieżący stan mapowań fragmentu.
 4. *ShardManagement. PSM1* — skrypt pomocniczy, który otacza interfejs API ShardManagement
 5. *SqlDatabaseHelpers. PSM1* — skrypt pomocnika służący do tworzenia baz danych i zarządzania nimi w SQL Database
 
@@ -188,7 +187,7 @@ Uwzględnione pliki skryptów:
        <th>Kroki</th>
      </tr>
      <tr>
-       <th rowspan="5">SetupSampleSplitMergeEnvironment. ps1</th>
+       <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
        <td>1. Tworzy bazę danych Menedżera map fragmentu</td>
      </tr>
      <tr>
@@ -210,7 +209,7 @@ Uwzględnione pliki skryptów:
        <th>Kroki</th>
      </tr>
    <tr>
-       <th rowspan="4">ExecuteSampleSplitMerge. ps1 </th>
+       <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
        <td>1. Wysyła żądanie Split do frontonu sieci Web usługi Split-Merge, który dzieli dane z pierwszego fragmentuu na drugi fragmentu.</td>
      </tr>
      <tr>
@@ -231,13 +230,13 @@ Uwzględnione pliki skryptów:
 2. Utwórz serwer (lub wybierz istniejący serwer), w którym zostanie utworzony Menedżer map fragmentu i fragmentów.
 
    > [!NOTE]
-   > Skrypt *SetupSampleSplitMergeEnvironment. ps1* tworzy domyślnie wszystkie te bazy danych na tym samym serwerze, aby zachować prosty skrypt. Nie jest to ograniczenie usługi Split-Merge.
+   > Skrypt *SetupSampleSplitMergeEnvironment.ps1* tworzy wszystkie te bazy danych na tym samym serwerze Domyślnie, aby zachować prosty skrypt. Nie jest to ograniczenie usługi Split-Merge.
 
    Aby usługa Split-Merge mogła przenosić dane i aktualizować mapę fragmentu, konieczne będzie logowanie za pomocą uwierzytelniania SQL z dostępem do odczytu/zapisu do baz danych. Ponieważ usługa Split-Merge działa w chmurze, obecnie nie obsługuje uwierzytelniania zintegrowanego.
 
    Upewnij się, że serwer jest skonfigurowany tak, aby zezwalał na dostęp z adresu IP komputera, na którym działają te skrypty. To ustawienie można znaleźć w obszarze serwer SQL/zapory oraz sieci wirtualne/adresy IP klientów.
 
-3. Wykonaj skrypt *SetupSampleSplitMergeEnvironment. ps1* , aby utworzyć przykładowe środowisko.
+3. Wykonaj skrypt *SetupSampleSplitMergeEnvironment.ps1* , aby utworzyć przykładowe środowisko.
 
    Uruchomienie tego skryptu spowoduje wyczyszczenie wszelkich istniejących struktur danych zarządzania mapy fragmentu w bazie danych Menedżera mapy fragmentu i fragmentów. Może być przydatne ponowne uruchomienie skryptu, jeśli chcesz ponownie zainicjować mapę fragmentu lub fragmentów.
 
@@ -248,14 +247,14 @@ Uwzględnione pliki skryptów:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-4. Wykonaj skrypt getmappings. ps1, aby wyświetlić mapowania, które aktualnie istnieją w przykładowym środowisku.
+4. Wykonaj skrypt Getmappings.ps1, aby wyświetlić mapowania, które aktualnie istnieją w przykładowym środowisku.
 
    ```cmd
    .\GetMappings.ps1
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Wykonaj skrypt *ExecuteSampleSplitMerge. ps1* , aby wykonać operację Split (przeniesienie połowy danych z pierwszego fragmentu do drugiego fragmentu), a następnie operację scalania (przeniesienie danych z powrotem na pierwsze fragmentu). W przypadku skonfigurowania protokołu TLS i pozostawienia wyłączonego punktu końcowego http upewnij się, że zamiast tego używasz punktu końcowego https://.
+5. Wykonaj skrypt *ExecuteSampleSplitMerge.ps1* , aby wykonać operację Split (przeniesienie połowy danych z pierwszego fragmentu do drugiego fragmentu), a następnie operację scalania (przeniesienie danych z powrotem na pierwsze fragmentu). W przypadku skonfigurowania protokołu TLS i pozostawienia wyłączonego punktu końcowego http upewnij się, że zamiast tego używasz punktu końcowego https://.
 
     Przykładowy wiersz polecenia:
 
@@ -324,7 +323,7 @@ Aby wykonać operację Split-Merge, należy zadeklarować tabele podzielonej na 
 4. Pobierz odwołanie do obiektu **ShardMapManager** i Wywołaj **GetSchemaInfoCollection**.
 5. Dodaj **SchemaInfo** do **SchemaInfoCollection**, podając nazwę mapy fragmentu.
 
-Przykład tego elementu można zobaczyć w skrypcie SetupSampleSplitMergeEnvironment. ps1.
+Przykład tego elementu można zobaczyć w skrypcie SetupSampleSplitMergeEnvironment.ps1.
 
 Usługa Split-Merge nie tworzy docelowej bazy danych (lub schematu dla dowolnych tabel w bazie danych). Muszą być wstępnie utworzone przed wysłaniem żądania do usługi.
 

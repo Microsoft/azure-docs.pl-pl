@@ -5,14 +5,14 @@ ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
 ms.openlocfilehash: 5deba9d8968f71ef1b21517e74e6af4c39aa9271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76279633"
 ---
 > [!WARNING]
-> Po włączeniu diagnostyki dla istniejącej roli wszystkie rozszerzenia, które zostały już ustawione, są wyłączone podczas wdrażania pakietu. Należą do nich:
+> Po włączeniu diagnostyki dla istniejącej roli wszystkie rozszerzenia, które zostały już ustawione, są wyłączone podczas wdrażania pakietu. Są to moduły:
 >
 > * Diagnostyka Microsoft Monitoring Agent
 > * Microsoft Azure monitorowanie zabezpieczeń

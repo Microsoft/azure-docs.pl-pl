@@ -1,7 +1,7 @@
 ---
 title: Omówienie dokumentacji analizy kodu zabezpieczeń firmy Microsoft
 description: Ten artykuł zawiera Omówienie rozszerzenia Microsoft Security code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42ea5c6863e769f6d2664b3bcd48d15f00b6b5e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74851472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361323"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Informacje o analizie kodu zabezpieczeń firmy Microsoft
 
@@ -65,15 +65,11 @@ Zadanie kompilacji skanera chroniącego przed złośliwym oprogramowaniem jest t
 
 ### <a name="binskim"></a>BinSkim
 
-BinSkim jest przenośnym skanerem plików wykonywalnych (PE), który weryfikuje ustawienia kompilatora, ustawienia konsolidatora i inne cechy charakterystyczne dla bezpieczeństwa plików binarnych. To zadanie kompilacji udostępnia otokę wiersza polecenia wokół aplikacji konsolowej binskim. exe. BinSkim to narzędzie Open Source. Aby uzyskać więcej informacji, zobacz [BinSkim w witrynie GitHub](https://github.com/Microsoft/binskim).
+BinSkim jest przenośnym skanerem plików wykonywalnych (PE), który weryfikuje ustawienia kompilatora, ustawienia konsolidatora i inne cechy charakterystyczne dla bezpieczeństwa plików binarnych. To zadanie kompilacji udostępnia otokę wiersza polecenia wokół binskim.exe aplikacji konsolowej. BinSkim to narzędzie Open Source. Aby uzyskać więcej informacji, zobacz [BinSkim w witrynie GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Skaner poświadczeń
 
 Hasła i inne wpisy tajne przechowywane w kodzie źródłowym są istotnym problemem. Skaner poświadczeń jest zastrzeżonym narzędziem do analizy statycznej, które pomaga w rozwiązaniu tego problemu. Narzędzie wykrywa poświadczenia, wpisy tajne, certyfikaty i inną poufną zawartość w kodzie źródłowym i w danych wyjściowych kompilacji.
-
-### <a name="microsoft-security-risk-detection"></a>Wykrywanie zagrożeń zabezpieczeń firmy Microsoft
-
-Wykrywanie zagrożeń zabezpieczeń firmy Microsoft (MSRD) to usługa oparta na chmurze służąca do testowania rozmytego. Identyfikuje ona luki w zabezpieczeniach w oprogramowaniu. Ta usługa wymaga oddzielnej subskrypcji i aktywacji. Aby uzyskać więcej informacji, zobacz [Centrum deweloperów MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analizatory Roslyn
 

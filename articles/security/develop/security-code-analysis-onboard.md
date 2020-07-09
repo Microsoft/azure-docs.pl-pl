@@ -12,14 +12,14 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362061"
 ---
-# <a name="onboarding-and-installing"></a>Dołączanie i Instalowanie
+# <a name="onboarding-and-installing"></a>Dołączanie i instalowanie
 
 Wymagania wstępne dotyczące analizy kodu zabezpieczeń firmy Microsoft:
 
@@ -50,6 +50,7 @@ Jeśli spełniasz powyższe wymagania, skontaktuj się z partnerem z poniższej 
 
 - Strefy — szczegóły kontaktu:cloudsupport@zones.com
 - Wortell — szczegóły kontaktu:info@wortell.nl
+- Logiczne — szczegóły kontaktu:Matthew.Curtis@us.logicalis.com 
 
 ### <a name="become-a-partner"></a>Zostań partnerem
 
@@ -57,7 +58,7 @@ Zespół ds. analizy kodu zabezpieczeń firmy Microsoft chce dołączać partner
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalowanie rozszerzenia Microsoft Security code Analysis
 
-1. Po udostępnieniu rozszerzenia organizacji usługi Azure DevOps przejdź do strony organizacji usługi Azure DevOps. Przykładowy adres URL dla takiej strony to `https://dev.azure.com/contoso`.
+1. Po udostępnieniu rozszerzenia organizacji usługi Azure DevOps przejdź do strony organizacji usługi Azure DevOps. Przykładowy adres URL dla takiej strony to `https://dev.azure.com/contoso` .
 1. Wybierz ikonę torba do zakupów w prawym górnym rogu obok nazwy, a następnie wybierz pozycję **Zarządzaj rozszerzeniami**.
 1. Wybierz pozycję **udostępnione**.
 1. Wybierz rozszerzenie Microsoft Security code Analysis, a następnie wybierz **Zainstaluj**.
@@ -72,7 +73,7 @@ Po zainstalowaniu rozszerzenia zadania tworzenia bezpiecznego opracowywania są 
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Dodawanie określonych zadań kompilacji do potoku usługi Azure DevOps
 
 1. W organizacji usługi Azure DevOps Otwórz projekt zespołowy.
-1. Wybierz**kompilacje** **potoki** > .
+1. Wybierz **Pipelines**  >  **kompilacje**potoki.
 1. Wybierz potok, do którego chcesz dodać zadania kompilacji rozszerzenia:
    - Nowy potok: wybierz pozycję **Nowy** i postępuj zgodnie z szczegółowymi krokami, aby utworzyć nowy potok.
    - Edytuj potok: wybierz istniejący potok, a następnie wybierz pozycję **Edytuj** , aby rozpocząć edytowanie potoku.

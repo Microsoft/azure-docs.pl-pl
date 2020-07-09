@@ -3,15 +3,15 @@ title: Rozwiązywanie problemów z pamięcią podręczną magazynu systemu Azure
 description: Porady umożliwiające uniknięcie i rozwiązywanie błędów konfiguracji oraz innych problemów, które mogą spowodować niepowodzenie podczas tworzenia miejsca docelowego magazynu NFS
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186621"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515449"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Rozwiązywanie problemów z konfiguracją serwera NAS i miejscem docelowym magazynu NFS
 
@@ -32,7 +32,7 @@ Porty różnią się w przypadku systemów magazynowania od różnych dostawców
 
 Ogólnie rzecz biorąc pamięć podręczna musi mieć dostęp do tych portów:
 
-| Protocol (Protokół) | Port  | Usługa  |
+| Protokół | Port  | Usługa  |
 |----------|-------|----------|
 | TCP/UDP  | 111   | rpcbind  |
 | TCP/UDP  | 2049  | NFS      |
@@ -58,7 +58,7 @@ Pamięć podręczna Azure HPC wymaga dostępu do eksportów systemu magazynu w c
 
 Różne systemy magazynu używają różnych metod do włączenia tego dostępu:
 
-* Serwery z systemem Linux ``no_root_squash`` są zazwyczaj dodawane do wyeksportowanej ścieżki w programie ``/etc/exports``.
+* Serwery z systemem Linux ``no_root_squash`` są zazwyczaj dodawane do wyeksportowanej ścieżki w programie ``/etc/exports`` .
 * Systemy NetApp i EMC zazwyczaj kontrolują dostęp z regułami eksportu, które są powiązane z określonymi adresami IP lub sieciami.
 
 W przypadku używania reguł eksportu należy pamiętać, że pamięć podręczna może używać wielu różnych adresów IP z podsieci pamięci podręcznej. Zezwalaj na dostęp z pełnego zakresu możliwych adresów IP podsieci.
@@ -79,17 +79,17 @@ Na przykład system może pokazać trzy eksporty podobne do następujących:
 * ``/ifs/accounting``
 * ``/ifs/accounting/payroll``
 
-Eksport ``/ifs/accounting/payroll`` jest elementem ``/ifs/accounting``podrzędnym i ``/ifs/accounting`` jest samym elementem podrzędnym. ``/ifs``
+Eksport ``/ifs/accounting/payroll`` jest elementem podrzędnym ``/ifs/accounting`` i ``/ifs/accounting`` jest samym elementem podrzędnym ``/ifs`` .
 
-W przypadku dodania ``payroll`` eksportu jako miejsca docelowego magazynu pamięci podręcznej HPC pamięć podręczna jest ``/ifs/`` instalowana i uzyskuje dostęp do katalogu listy płac. Aby uzyskać dostęp do ``/ifs`` ``/ifs/accounting/payroll`` eksportu, pamięć podręczna Azure HPC musi mieć dostęp do katalogu głównego.
+W przypadku dodania ``payroll`` eksportu jako miejsca docelowego magazynu pamięci podręcznej HPC pamięć podręczna jest instalowana ``/ifs/`` i uzyskuje dostęp do katalogu listy płac. Aby uzyskać dostęp do eksportu, pamięć podręczna Azure HPC musi mieć dostęp do katalogu głównego ``/ifs`` ``/ifs/accounting/payroll`` .
 
 Ten wymóg jest związany ze sposobem, w jaki pamięć podręczna indeksuje pliki i unika kolizji plików, przy użyciu uchwytów plików udostępnianych przez system magazynu.
 
-System NAS z hierarchicznymi eksportami może dać różne dojścia do plików dla tego samego pliku, jeśli plik jest pobierany z różnych eksportów. Na przykład klient może zainstalować ``/ifs/accounting`` plik ``payroll/2011.txt``i uzyskać do niego dostęp. Inny klient instaluje ``/ifs/accounting/payroll`` i uzyskuje dostęp do pliku ``2011.txt``. W zależności od sposobu przypisywania dojść do plików przez system magazynu te dwa komputery klienckie mogą otrzymać ten sam plik z różnymi dojściami do plików (jeden dla ``<mount2>/payroll/2011.txt`` i jeden dla ``<mount3>/2011.txt``).
+System NAS z hierarchicznymi eksportami może dać różne dojścia do plików dla tego samego pliku, jeśli plik jest pobierany z różnych eksportów. Na przykład klient może zainstalować ``/ifs/accounting`` plik i uzyskać do niego dostęp ``payroll/2011.txt`` . Inny klient instaluje ``/ifs/accounting/payroll`` i uzyskuje dostęp do pliku ``2011.txt`` . W zależności od sposobu przypisywania dojść do plików przez system magazynu te dwa komputery klienckie mogą otrzymać ten sam plik z różnymi dojściami do plików (jeden dla ``<mount2>/payroll/2011.txt`` i jeden dla ``<mount3>/2011.txt`` ).
 
 System magazynu zaplecza przechowuje wewnętrzne aliasy dojść do plików, ale pamięć podręczna platformy Azure HPC nie może określić, które uchwyty plików w jego indeksie odwołują się do tego samego elementu. Dlatego istnieje możliwość, że pamięć podręczna może mieć różne zapisy w pamięci podręcznej dla tego samego pliku i zastosować zmiany niepoprawnie, ponieważ nie wie, że są one tego samego pliku.
 
-Aby uniknąć tej potencjalnej kolizji plików w przypadku plików w wielu eksportach, pamięć podręczna Azure HPC automatycznie instaluje skrócony dostępny eksport``/ifs`` w ścieżce (w przykładzie) i używa dojścia do pliku podawanego przez ten eksport. Jeśli wielokrotne eksporty używają tej samej ścieżki podstawowej, pamięć podręczna Azure HPC potrzebuje dostępu głównego do tej ścieżki.
+Aby uniknąć tej potencjalnej kolizji plików w przypadku plików w wielu eksportach, pamięć podręczna Azure HPC automatycznie instaluje skrócony dostępny eksport w ścieżce ( ``/ifs`` w przykładzie) i używa dojścia do pliku podawanego przez ten eksport. Jeśli wielokrotne eksporty używają tej samej ścieżki podstawowej, pamięć podręczna Azure HPC potrzebuje dostępu głównego do tej ścieżki.
 
 ## <a name="enable-export-listing"></a>Włącz listę eksportu
 <!-- link in prereqs article -->

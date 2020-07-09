@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fef9059700e2bd94029c40bb819870a7174e0812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74930114"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086844"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania Azure Data Factory
 > [!NOTE]
@@ -69,10 +69,12 @@ W ścieżce folderu można używać zmiennych do kopiowania danych z folderu okr
 
 Załóżmy, że masz foldery wejściowe w następującym formacie:
 
-    2016/03/01/01
-    2016/03/01/02
-    2016/03/01/03
-    ...
+```text
+2016/03/01/01
+2016/03/01/02
+2016/03/01/03
+...
+```
 
 Kliknij przycisk **Przeglądaj** dla **pliku lub folderu**, przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz**. Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zastąp **2016** ciąg 2016 **{Year}**, **03** przez **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53cfb983579c8a02ed6c1d80ff4821efa5950298
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856896"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informacje o algorytmach & module dla projektanta Azure Machine Learning (wersja zapoznawcza)
 
@@ -34,8 +34,8 @@ Aby uzyskać pomoc dotyczącą wybierania algorytmów, zobacz
 
 | Funkcja | Opis | Moduł |
 | --- |--- | --- |
-| Dane wejściowe i wyjściowe | Przenieś dane ze źródeł w chmurze do potoku. Zapisuj wyniki lub dane pośrednie w usłudze Azure Storage, w bazie danych SQL lub Hive, podczas uruchamiania potoku lub korzystaj z magazynu w chmurze, aby wymieniać dane między potokami.  | [Ręczne wprowadzanie danych](enter-data-manually.md) <br/> [Eksportuj dane](export-data.md) <br/> [Importuj dane](import-data.md) |
-| Przekształcanie danych | Operacje na danych, które są unikatowe dla uczenia maszynowego, takie jak normalizowanie lub pakowania danych, Zmniejszanie liczby wymiarów i konwertowanie danych między różnymi formatami plików.| [Dodawanie kolumn](add-columns.md) <br/> [Dodawanie wierszy](add-rows.md) <br/> [Stosowanie operacji matematycznej](apply-math-operation.md) <br/> [Stosowanie przekształcenia SQL](apply-sql-transformation.md) <br/> [Czyszczenie brakujących danych](clean-missing-data.md) <br/> [Obcinanie wartości](clip-values.md) <br/> [Konwertowanie na plik CSV](convert-to-csv.md) <br/> [Konwertowanie na zestaw danych](convert-to-dataset.md) <br/> [Konwertowanie na wartości wskaźnika](convert-to-indicator-values.md) <br/> [Edytowanie metadanych](edit-metadata.md) <br/> [Grupowanie danych w pojemnikach](group-data-into-bins.md) <br/> [Łączenie danych](join-data.md) <br/> [Normalizowanie danych](normalize-data.md) <br/> [Partycjonowanie i próbkowanie](partition-and-sample.md)  <br/> [Usuwanie zduplikowanych wierszy](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Wybieranie przekształcenia kolumn](select-columns-transform.md) <br/> [Wybieranie kolumn w zestawie danych](select-columns-in-dataset.md) <br/> [Dzielenie danych](split-data.md) |
+| Dane wejściowe i wyjściowe | Przenieś dane ze źródeł w chmurze do potoku. Zapisuj wyniki lub dane pośrednie w usłudze Azure Storage, SQL Database lub Hive, a następnie uruchamiaj potok lub korzystaj z magazynu w chmurze, aby wymieniać dane między potokami.  | [Ręczne wprowadzanie danych](enter-data-manually.md) <br/> [Eksportowanie danych](export-data.md) <br/> [Importowanie danych](import-data.md) |
+| Przekształcanie danych | Operacje na danych, które są unikatowe dla uczenia maszynowego, takie jak normalizowanie lub pakowania danych, Zmniejszanie liczby wymiarów i konwertowanie danych między różnymi formatami plików.| [Dodawanie kolumn](add-columns.md) <br/> [Dodawanie wierszy](add-rows.md) <br/> [Stosowanie operacji matematycznej](apply-math-operation.md) <br/> [Stosowanie przekształcenia SQL](apply-sql-transformation.md) <br/> [Czyszczenie brakujących danych](clean-missing-data.md) <br/> [Obcinanie wartości](clip-values.md) <br/> [Konwertowanie na plik CSV](convert-to-csv.md) <br/> [Konwertowanie na zestaw danych](convert-to-dataset.md) <br/> [Konwertowanie na wartości wskaźnika](convert-to-indicator-values.md) <br/> [Edytowanie metadanych](edit-metadata.md) <br/> [Grupowanie danych w pojemniki](group-data-into-bins.md) <br/> [Łączenie danych](join-data.md) <br/> [Normalizowanie danych](normalize-data.md) <br/> [Partycjonowanie i próbkowanie](partition-and-sample.md)  <br/> [Usuwanie zduplikowanych wierszy](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Wybieranie przekształcenia kolumn](select-columns-transform.md) <br/> [Wybieranie kolumn w zestawie danych](select-columns-in-dataset.md) <br/> [Dzielenie danych](split-data.md) |
 | Wybór funkcji | Wybierz podzestaw odpowiednich, przydatnych funkcji do użycia podczas tworzenia modelu analitycznego. | [Wybór funkcji oparty na filtrze](filter-based-feature-selection.md) <br/> [Ważność funkcji permutacji](permutation-feature-importance.md) |
 | Funkcje statystyczne | Zapewniają szeroką gamę metod statystycznych związanych z nauką danych. | [Podsumowywanie danych](summarize-data.md)|
 
@@ -51,12 +51,13 @@ Aby uzyskać pomoc dotyczącą wybierania algorytmów, zobacz
 
 | Funkcja | Opis | Moduł |
 | --- |--- | --- |
-| Uczenie modelu | Uruchom dane za pomocą algorytmu. |  [Trenowanie modelu klastrowania](train-clustering-model.md) <br/> [Trenowanie modelu](train-model.md)  <br/> [Dostrajanie hiperparametrów modelu](tune-model-hyperparameters.md) |
-| Ocenianie i ocenianie modelu | Zmierz dokładność nauczonego modelu. | [Stosowanie przekształcenia](apply-transformation.md) <br/> [Przypisywanie danych do klastrów](assign-data-to-clusters.md) <br/> [Krzyżowa weryfikacja modelu](cross-validate-model.md) <br/> [Ocena modelu](evaluate-model.md) <br/> [Klasyfikacja modelu](score-model.md) |
+| Uczenie modelu | Uruchom dane za pomocą algorytmu. |  [Trenowanie modelu klastrowania](train-clustering-model.md) <br/> [Trenowanie modelu](train-model.md) <br/> [Trenowanie modelu Pytorch](train-pytorch-model.md) <br/> [Dostrajanie hiperparametrów modelu](tune-model-hyperparameters.md) |
+| Ocenianie i ocenianie modelu | Zmierz dokładność nauczonego modelu. | [Stosowanie przekształcenia](apply-transformation.md) <br/> [Przypisywanie danych do klastrów](assign-data-to-clusters.md) <br/> [Krzyżowa weryfikacja modelu](cross-validate-model.md) <br/> [Ocena modelu](evaluate-model.md) <br/> [Ocenianie modelu obrazów](score-image-model.md) <br/> [Klasyfikacja modelu](score-model.md) |
 | Język Python | Napisz kod i Osadź go w module, aby zintegrować Język Python z potokiem. | [Tworzenie modelu języka Python](create-python-model.md) <br/> [Wykonywanie skryptu w języku Python](execute-python-script.md) |
 | Język R | Napisz kod i Osadź go w module, aby zintegrować język R z potokiem. | [Wykonywanie skryptu języka R](execute-r-script.md) |
-| Analiza tekstu | Udostępniaj wyspecjalizowane narzędzia obliczeniowe służące do pracy z tekstem ze strukturą i bez struktury. |  [Konwertuj słowo na wektor](convert-word-to-vector.md) <br/> [Wyodrębnianie cech n-gramów z tekstu](extract-n-gram-features-from-text.md) <br/> [Tworzenie skrótów funkcji](feature-hashing.md) <br/> [Wstępne przetwarzanie tekstu](preprocess-text.md) <br/> [Alokacja ukrytej zmiennej Dirichleta](latent-dirichlet-allocation.md) |
-| Zalecenie | Kompiluj modele rekomendacji. | [Ocena modułu poleceń](evaluate-recommender.md) <br/> [Wynik modułu poleceń SVD](score-svd-recommender.md) <br/> [Trenowanie modułu poleceń SVD](train-SVD-recommender.md) |
+| Analiza tekstu | Udostępniaj wyspecjalizowane narzędzia obliczeniowe służące do pracy z tekstem ze strukturą i bez struktury. |  [Konwertowanie słów na wektory](convert-word-to-vector.md) <br/> [Wyodrębnianie cech n-gramów z tekstu](extract-n-gram-features-from-text.md) <br/> [Tworzenie skrótów funkcji](feature-hashing.md) <br/> [Wstępne przetwarzanie tekstu](preprocess-text.md) <br/> [Alokacja ukrytej zmiennej Dirichleta](latent-dirichlet-allocation.md) <br/> [Ocenianie modelu Vowpal Wabbit](score-vowpal-wabbit-model.md) <br/> [Trenowanie modelu Vowpal Wabbit](train-vowpal-wabbit-model.md)|
+| Przetwarzanie obrazów | Przetwarzanie wstępne danych obrazu i moduły powiązane z rozpoznawaniem obrazu. |  [Stosowanie transformacji obrazów](apply-image-transformation.md) <br/> [Konwertowanie na katalog obrazów](convert-to-image-directory.md) <br/> [Inicjowanie transformacji obrazów](init-image-transformation.md) <br/> [Dzielenie katalogu obrazów](split-image-directory.md) <br/> [Model DenseNet](densenet.md) <br/> [Model ResNet](resnet.md) |
+| Zalecenie | Kompiluj modele rekomendacji. | [Ocena modułu poleceń](evaluate-recommender.md) <br/> [Wynik modułu poleceń SVD](score-svd-recommender.md) <br/> [Wyniki modułu poleceń Wide and Deep](score-wide-and-deep-recommender.md)<br/> [Trenowanie modułu poleceń SVD](train-SVD-recommender.md) <br/> [Trenowanie modułu poleceń Wide and Deep](train-wide-and-deep-recommender.md)|
 | Wykrywanie anomalii | Tworzenie modeli wykrywania anomalii. | [Wykrywanie anomalii oparte na analizie głównych składowych](pca-based-anomaly-detection.md) <br/> [Trenowanie modelu wykrywania anomalii](train-anomaly-detection-model.md) |
 
 

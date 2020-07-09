@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460651"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices (Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple)
@@ -84,7 +84,7 @@ Całkowite wymagane miejsce w warstwie lokalnej to: 240 GB + 120 GB + 330 GB = 6
 Po drugie potrzebujemy co najmniej tak dużej ilości miejsca w warstwie lokalnej jako największej rezerwacji pojedynczej. Ta dodatkowa kwota jest używana w przypadku konieczności przywrócenia z migawki w chmurze. W tym przykładzie największe rezerwacja lokalna to 330 GB (w tym rezerwacja dla systemu plików), dlatego należy dodać ją do 690 GB: 690 GB + 330 GB = 1020 GB.
 Jeśli wykonasz kolejne dodatkowe operacje przywracania, zawsze można zwolnić miejsce z poprzedniej operacji przywrócenia.
 
-Trzecia potrzeba 15% całkowitego miejsca lokalnego do przechowywania lokalnych migawek, dzięki czemu dostępna będzie tylko 85%. W tym przykładzie będzie to około 1020 GB = 0,85&ast;miejsca na dysku z danymi, które zainicjowano. W związku z tym dysk danych z zainicjowaną obsługą&ast;będzie (1020 (1/0.85)) = 1200 GB = 1,20 tb ~ 1,25 TB (zaokrąglanie do najbliższego kwartyl)
+Trzecia potrzeba 15% całkowitego miejsca lokalnego do przechowywania lokalnych migawek, dzięki czemu dostępna będzie tylko 85%. W tym przykładzie będzie to około 1020 GB = 0,85 miejsca na &ast; dysku z danymi, które zainicjowano. W związku z tym dysk danych z zainicjowaną obsługą będzie (1020 &ast; (1/0.85)) = 1200 GB = 1,20 TB ~ 1,25 TB (zaokrąglanie do najbliższego kwartyl)
 
 W nieoczekiwanym wzroście i nowym przywracaniu należy udostępnić dysk lokalny o pojemności około 1,25 – 1,5 TB.
 
@@ -107,7 +107,7 @@ W oparciu o 12% zarezerwowane miejsce lokalne dla woluminów warstwowych/udział
 
 Minimalna przestrzeń lokalna wymagana do przywracania to 330 GB.
 
-15% całkowitego dysku służy do przechowywania migawek, aby była dostępna tylko 0,85. Oznacza to, że rozmiar dysku to (&ast;900 (1/0.85)) = 1,06 TB ~ 1,25 TB (zaokrąglanie do najbliższego kwartyl)
+15% całkowitego dysku służy do przechowywania migawek, aby była dostępna tylko 0,85. Oznacza to, że rozmiar dysku to (900 &ast; (1/0.85)) = 1,06 TB ~ 1,25 TB (zaokrąglanie do najbliższego kwartyl)
 
 W przypadku nieoczekiwanego wzrostu można zainicjować obsługę dysku lokalnego 1,25-1,5 TB.
 
@@ -121,7 +121,7 @@ W związku z tym zalecamy:
 * Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory.
 * Upewnij się, że żadne obiekty zasad grupy (GPO) nie są stosowane do macierzy wirtualnej. Można zablokować dziedziczenie, aby upewnić się, że Macierz wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych obiektów zasad grupy z elementu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [bloku Blokowanie dziedziczenia](https://technet.microsoft.com/library/cc731076.aspx).
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 Konfiguracja sieci dla macierzy wirtualnej odbywa się za pomocą lokalnego interfejsu użytkownika sieci Web. Interfejs sieci wirtualnej jest włączany za pomocą funkcji hypervisor, w której zainicjowano obsługę macierzy wirtualnej. Na stronie [Ustawienia sieci](storsimple-virtual-array-deploy3-fs-setup.md) można skonfigurować adres IP, podsieć i bramę interfejsu sieci wirtualnej.  Można również skonfigurować podstawowy i pomocniczy serwer DNS, ustawienia czasu oraz opcjonalne ustawienia serwera proxy dla urządzenia. Większość konfiguracji sieci to jednorazowa konfiguracja. Przed wdrożeniem macierzy wirtualnej zapoznaj się z [wymaganiami dotyczącymi sieci StorSimple](storsimple-ova-system-requirements.md#networking-requirements) .
 
 Podczas wdrażania macierzy wirtualnej zalecamy przestrzeganie następujących najlepszych rozwiązań:

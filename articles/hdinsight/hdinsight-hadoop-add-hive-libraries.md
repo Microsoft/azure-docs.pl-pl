@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
-ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471027"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082237"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Dodawanie niestandardowych bibliotek Apache Hive podczas tworzenia klastra usługi HDInsight
 
@@ -23,7 +23,7 @@ Dowiedz się, jak wstępnie ładować biblioteki [Apache Hive](https://hive.apac
 
 Podczas tworzenia klastra można użyć akcji skryptu, aby zmodyfikować węzły klastra w miarę ich tworzenia. Skrypt w tym dokumencie przyjmuje jeden parametr, który jest lokalizacją bibliotek. Ta lokalizacja musi znajdować się na koncie usługi Azure Storage, a biblioteki muszą być przechowywane jako pliki jar.
 
-Podczas tworzenia klastra skrypt wylicza pliki, kopiuje je do `/usr/lib/customhivelibs/` katalogu w węzłach głównych i procesów roboczych, a następnie dodaje je do `hive.aux.jars.path` właściwości w `core-site.xml` pliku. W klastrach opartych na systemie Linux `hive-env.sh` plik zostanie również zaktualizowany przy użyciu lokalizacji plików.
+Podczas tworzenia klastra skrypt wylicza pliki, kopiuje je do `/usr/lib/customhivelibs/` katalogu w węzłach głównych i procesów roboczych, a następnie dodaje je do `hive.aux.jars.path` właściwości w `core-site.xml` pliku. W klastrach opartych na systemie Linux plik zostanie również zaktualizowany `hive-env.sh` przy użyciu lokalizacji plików.
 
 Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w przypadku korzystania z klienta programu Hive dla **WebHCat**i **serwera hiveserver2**.
 
@@ -41,7 +41,7 @@ Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w prz
 
 * Podczas tworzenia konta magazynu zawierającego bibliotekę plików jar **należy** połączyć z klastrem usługi HDInsight. Musi to być domyślne konto magazynu lub konto dodane za pomocą __ustawień konta magazynu__.
 
-* Ścieżka WASB do kontenera musi być określona jako parametr akcji skryptu. Na przykład, jeśli Jars są przechowywane w kontenerze o nazwie **libs** na koncie magazynu o nazwie Moja **Magazyn**, parametr będzie `wasbs://libs@mystorage.blob.core.windows.net/`.
+* Ścieżka WASB do kontenera musi być określona jako parametr akcji skryptu. Na przykład, jeśli Jars są przechowywane w kontenerze o nazwie **libs** na koncie magazynu o nazwie Moja **Magazyn**, parametr będzie `wasbs://libs@mystorage.blob.core.windows.net/` .
 
   > [!NOTE]  
   > W tym dokumencie przyjęto założenie, że utworzono już konto magazynu, kontener obiektów blob i przekazano do niego pliki.
@@ -65,7 +65,7 @@ Użycie akcji skryptu w tym artykule sprawia, że biblioteki są dostępne w prz
     |Parametry|Wprowadź adres WASB do kontenera i konta magazynu, które zawiera Jars. Na przykład `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
-    > W przypadku Apache Spark 2,1 Użyj tego identyfikatora URI skryptu bash `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`:.
+    > W przypadku Apache Spark 2,1 Użyj tego identyfikatora URI skryptu bash: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh` .
 
 1. Kontynuuj Inicjowanie obsługi klastra zgodnie z opisem w temacie [Inicjowanie obsługi klastrów usługi HDInsight w systemie Linux](hdinsight-hadoop-provision-linux-clusters.md).
 

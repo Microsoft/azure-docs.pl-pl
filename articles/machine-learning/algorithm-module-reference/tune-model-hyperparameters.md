@@ -8,13 +8,12 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064158"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983415"
 ---
 # <a name="tune-model-hyperparameters"></a>Dostrajanie hiperparametrów modelu
 
@@ -43,33 +42,35 @@ W tej sekcji opisano, jak wykonać podstawowe odwzorowanie parametrów, które p
 
 2.  Połącz niepociąg model z lewej strony wejściowej. 
 
+    > [!NOTE] 
+    > **Dostrojenie parametrów modelu** może być nawiązywane tylko z wbudowanymi modułami algorytmu uczenia maszynowego i nie może obsługiwać dostosowanego modelu wbudowanego w **Tworzenie modelu języka Python**.
 
 
-4.  Dodaj zestaw danych, który ma być używany na potrzeby szkolenia, i połącz go z środkowym wejściem parametrów strojenia modelu.  
+3.  Dodaj zestaw danych, który ma być używany na potrzeby szkolenia, i połącz go z środkowym wejściem parametrów strojenia modelu.  
 
     Opcjonalnie, jeśli masz oznakowany zestaw danych, możesz połączyć go z najbardziej przyłączonym portem wejściowym (**opcjonalny zestaw danych walidacji**). Pozwala to mierzyć dokładność podczas uczenia i dostrajania.
 
-5.  W prawym panelu strojenia parametrów modelu wybierz wartość dla **trybu odchylenia parametru**. Ta opcja określa, jak są wybierane parametry.
+4.  W prawym panelu strojenia parametrów modelu wybierz wartość dla **trybu odchylenia parametru**. Ta opcja określa, jak są wybierane parametry.
 
     - **Cała siatka**: w przypadku wybrania tej opcji moduł jest pętlą względem siatki wstępnie zdefiniowanej przez system, aby wypróbować różne kombinacje i zidentyfikować najlepszą naukę. Ta opcja jest przydatna, gdy nie wiesz, jakie są ustawienia najlepszych parametrów, i chcesz wypróbować wszystkie możliwe kombinacje wartości.
 
     - **Losowe wyczyszczenie**: po wybraniu tej opcji moduł będzie losowo wybierać wartości parametrów w zakresie zdefiniowanym przez system. Należy określić maksymalną liczbę uruchomień wykonywanych przez moduł. Ta opcja jest przydatna, gdy chcesz zwiększyć wydajność modelu przy użyciu wybranych przez siebie metryk, ale nadal zachowuj zasoby obliczeniowe.    
 
-6.  Dla **kolumny etykieta**Otwórz selektor kolumny, aby wybrać jedną kolumnę etykiety.
+5.  Dla **kolumny etykieta**Otwórz selektor kolumny, aby wybrać jedną kolumnę etykiety.
 
-7.  Wybierz liczbę uruchomień:
+6.  Wybierz liczbę uruchomień:
 
-    1. **Maksymalna liczba przebiegów na losowym wyczyszczeniu: w**przypadku wybrania losowego wycierania można określić, ile razy model ma być szkolony, używając losowej kombinacji wartości parametrów.
+    - **Maksymalna liczba przebiegów na losowym wyczyszczeniu: w**przypadku wybrania losowego wycierania można określić, ile razy model ma być szkolony, używając losowej kombinacji wartości parametrów.
 
-8.  W celu **określania rankingu**wybierz pojedynczą metrykę, która ma być używana do klasyfikowania modeli.
+7.  W celu **określania rankingu**wybierz pojedynczą metrykę, która ma być używana do klasyfikowania modeli.
 
     Po uruchomieniu odchylenia parametrów moduł oblicza wszystkie odpowiednie metryki dla typu modelu i zwraca je w raporcie **wyniki odchylenia** . Moduł używa oddzielnych metryk dla modeli regresji i klasyfikacji.
 
     Wybrana Metryka określa jednak, w jaki sposób modele są klasyfikowane. Tylko górny model, uporządkowany według wybranej metryki, jest wyprowadzany jako model przeszkolony do użycia na potrzeby oceniania.
 
-9.  W przypadku **losowego inicjatora**wprowadź liczbę, która ma być używana do uruchamiania odchylenia parametrów. 
+8.  W przypadku **losowego inicjatora**wprowadź liczbę, która ma być używana do uruchamiania odchylenia parametrów. 
 
-10. Prześlij potok.
+9. Prześlij potok.
 
 ## <a name="results-of-hyperparameter-tuning"></a>Wyniki strojenia parametru
 

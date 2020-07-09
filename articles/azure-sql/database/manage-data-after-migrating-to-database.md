@@ -1,7 +1,7 @@
 ---
 title: Zarządzaj po migracji
 titleSuffix: Azure SQL Database
-description: Dowiedz się, jak zarządzać pojedynczą i pulą baz danych po migracji do Azure SQL Database.
+description: Dowiedz się, jak zarządzać pojedynczymi bazami danych w puli i po migracji do Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,16 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fd7900eb9de55b29cc06ed338514e5a46d160f11
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249282"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Przechodzenie od tradycyjnego samodzielnego środowiska z własnym zarządzaniem do środowiska PaaSu może wydawać się nieco przeciążeniem. Jako deweloper aplikacji lub DBA o to, aby poznać podstawowe możliwości platformy, które pomogą Ci zapewnić dostępność aplikacji, jej wykonywanie, bezpieczną i odporność — zawsze. Ten artykuł ma na celu dokładne wykonanie. W artykule zwięzłe organizowanie zasobów i przedstawiono wskazówki dotyczące najlepszego korzystania z kluczowych możliwości SQL Database z pojedynczymi i w puli bazach danych w celu zapewnienia wydajnego działania aplikacji i osiągnięcia optymalnych wyników w chmurze. Typowymi odbiorcami tego artykułu będą:
+Przechodzenie od tradycyjnego samodzielnego środowiska z własnym zarządzaniem do środowiska PaaSu może wydawać się nieco przeciążeniem. Jako deweloper aplikacji lub DBA o to, aby poznać podstawowe możliwości platformy, które pomogą Ci zapewnić dostępność aplikacji, jej wykonywanie, bezpieczną i odporność — zawsze. Ten artykuł ma na celu dokładne wykonanie. W artykule zwięzłe organizowanie zasobów i przedstawiono wskazówki dotyczące najlepszego korzystania z kluczowych możliwości Azure SQL Database z pojedynczymi i w puli bazach danych w celu zapewnienia wydajnego działania aplikacji i osiągnięcia optymalnych wyników w chmurze. Typowymi odbiorcami tego artykułu będą:
 
 - Ocenia migrację swoich aplikacji do Azure SQL Database — modernizacja aplikacji.
 - Są w trakcie migrowania swoich aplikacji — Scenariusz migracji w toku.
@@ -30,7 +29,7 @@ Przechodzenie od tradycyjnego samodzielnego środowiska z własnym zarządzaniem
 
 W tym artykule omówiono niektóre podstawowe cechy Azure SQL Database jako platformę, z której można łatwo korzystać podczas pracy z pojedynczymi bazami danych i bazami danych w puli w pulach elastycznym. Są one następujące:
 
-- Monitorowanie bazy danych przy użyciu Azure Portal
+- Monitorowanie baz danych za pomocą witryny Azure Portal
 - Ciągłość biznesowa i odzyskiwanie po awarii (BCDR)
 - Zabezpieczenia i zgodność
 - Inteligentne monitorowanie i konserwacja bazy danych
@@ -66,7 +65,7 @@ Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest t
 |Warstwa usług|Okres przechowywania w dniach|
 |---|:---:|
 |Podstawowy|7|
-|Standardowa|35|
+|Standardowa (Standard)|35|
 |Premium|35|
 |||
 
@@ -82,7 +81,7 @@ Jeśli grupa autotrybu failover nie zostanie skonfigurowana, aplikacja musi akty
 
 ### <a name="how-does-my-disaster-recovery-plan-change-from-on-premises-to-sql-database"></a>Jak zmienia się plan odzyskiwania po awarii z lokalnego na SQL Database
 
-Na przykład tradycyjna konfiguracja SQL Server lokalnego wymagała aktywnego zarządzania dostępnością przy użyciu funkcji, takich jak klaster trybu failover, dublowanie bazy danych, replikacja transakcji lub wysyłanie dzienników oraz zarządzanie kopiami zapasowymi w celu zapewnienia ciągłości działalności biznesowej. Dzięki SQL Database platforma zarządza tymi elementami, dzięki czemu możesz skupić się na tworzeniu i optymalizowaniu aplikacji bazy danych i nie martw się o zarządzanie awarią. Można skonfigurować plany odzyskiwania i tworzenia kopii zapasowych oraz pracę z kilkoma kliknięciami Azure Portal (lub kilkoma poleceniami przy użyciu interfejsów API programu PowerShell).
+Podsumowując, konfiguracja SQL Server wymaga, aby aktywnie zarządzać dostępnością przy użyciu funkcji, takich jak klaster trybu failover, dublowanie bazy danych, replikacja transakcji lub wysyłanie dzienników oraz zarządzanie kopiami zapasowymi w celu zapewnienia ciągłości działalności biznesowej. Dzięki SQL Database platforma zarządza tymi elementami, dzięki czemu możesz skupić się na tworzeniu i optymalizowaniu aplikacji bazy danych i nie martw się o zarządzanie awarią. Można skonfigurować plany odzyskiwania i tworzenia kopii zapasowych oraz pracę z kilkoma kliknięciami Azure Portal (lub kilkoma poleceniami przy użyciu interfejsów API programu PowerShell).
 
 Aby dowiedzieć się więcej na temat odzyskiwania po awarii, zobacz: [Azure SQL Database odzyskiwania po awarii 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
@@ -90,7 +89,7 @@ Aby dowiedzieć się więcej na temat odzyskiwania po awarii, zobacz: [Azure SQL
 
 SQL Database bardzo poważnie zapewnia bezpieczeństwo i ochronę prywatności. Zabezpieczenia w ramach SQL Database są dostępne na poziomie bazy danych i na poziomie platformy i są najlepiej zrozumiałe w przypadku kategoryzowania do kilku warstw. Dla każdej warstwy można kontrolować i zapewniać optymalne zabezpieczenia aplikacji. Są to następujące warstwy:
 
-- Uwierzytelnianie & tożsamości ([uwierzytelnianie SQL i Azure Active Directory [AAD]](logins-create-manage.md)).
+- Uwierzytelnianie & tożsamości ([uwierzytelnianie SQL i Azure Active Directory [Azure AD] uwierzytelnianie](logins-create-manage.md)).
 - Monitorowanie aktywności ([Inspekcja](../../azure-sql/database/auditing-overview.md) i [wykrywanie zagrożeń](threat-detection-configure.md)).
 - Ochrona rzeczywistych danych ([transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) i [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Kontrolowanie dostępu do danych poufnych i uprzywilejowanych ([zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security) i [Dynamiczne maskowanie danych](/sql/relational-databases/security/dynamic-data-masking)).
@@ -104,13 +103,13 @@ Istnieją dwie metody uwierzytelniania oferowane w SQL Database:
 - [Uwierzytelnianie Azure Active Directory](authentication-aad-overview.md)
 - [Uwierzytelnianie SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active Directory (AD) to scentralizowana usługa zarządzania tożsamościami i dostępem. Dzięki temu możesz bardzo łatwo zapewnić dostęp logowania jednokrotnego do wszystkich pracowników w organizacji. Oznacza to, że poświadczenia są współużytkowane przez wszystkie usługi platformy Azure w celu łatwiejszego uwierzytelniania. Obsługa usługi [MFA (uwierzytelnianie wieloskładnikowe)](authentication-mfa-ssms-overview.md) w usłudze AAD jest obsługiwana za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) , a usługi AAD można zintegrować z systemem Windows Server Active Directory. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i SQL Data Warehouse do oferowania usługi uwierzytelniania wieloskładnikowego i kont użytkowników Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
+Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active Directory (Azure AD) to scentralizowana usługa zarządzania tożsamościami i dostępem. Dzięki temu możesz bardzo łatwo zapewnić dostęp logowania jednokrotnego do wszystkich pracowników w organizacji. Oznacza to, że poświadczenia są współużytkowane przez wszystkie usługi platformy Azure w celu łatwiejszego uwierzytelniania. Usługa Azure AD obsługuje [platformę azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i SQL Data Warehouse do oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
 
 |**Jeśli ty...**|**SQL Database/SQL Data Warehouse**|
 |---|---|
-|Preferuj, aby nie używać Azure Active Directory (AD) na platformie Azure|Użyj [uwierzytelniania SQL](security-overview.md)|
+|Preferuj, aby nie używać Azure Active Directory (Azure AD) na platformie Azure|Użyj [uwierzytelniania SQL](security-overview.md)|
 |Używanie usługi AD na SQL Server lokalnie|[Sfederować usługi AD z usługą Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md)i korzystaj z uwierzytelniania usługi Azure AD. Dzięki temu można korzystać z logowania jednokrotnego.|
-|Należy wymusić uwierzytelnianie wieloskładnikowe (MFA)|Wymagaj uwierzytelniania wieloskładnikowego jako zasady za pomocą [dostępu warunkowego firmy Microsoft](conditional-access-configure.md)i używania [usługi Azure AD Universal Authentication z obsługą uwierzytelniania wieloskładnikowego](authentication-mfa-ssms-overview.md).|
+|Należy wymusić Multi-Factor Authentication|Wymagaj Multi-Factor Authentication jako zasady za pomocą [dostępu warunkowego firmy Microsoft](conditional-access-configure.md)i Użyj [uwierzytelniania uniwersalnego usługi Azure AD z obsługą Multi-Factor Authentication](authentication-mfa-ssms-overview.md).|
 |Posiadanie kont Gościa z kont Microsoft (live.com, outlook.com) lub innych domen (gmail.com)|Użyj [uwierzytelniania uniwersalnego usługi Azure AD](authentication-mfa-ssms-overview.md) w usłudze SQL Database/magazyn danych, która korzysta z [funkcji współpracy B2B usługi Azure AD](../../active-directory/b2b/what-is-b2b.md).|
 |Są zalogowane do systemu Windows przy użyciu poświadczeń usługi Azure AD z domeny federacyjnej|Użyj [uwierzytelniania zintegrowanego usługi Azure AD](authentication-aad-configure.md).|
 |Są zalogowane w systemie Windows przy użyciu poświadczeń z domeny niefederacyjnego z platformą Azure|Użyj [uwierzytelniania zintegrowanego usługi Azure AD](authentication-aad-configure.md).|
@@ -125,7 +124,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Firewall
+#### <a name="firewall"></a>Zapora
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 
@@ -133,7 +132,7 @@ Reguły zapory można tworzyć na poziomie serwera lub na poziomie bazy danych. 
 
 #### <a name="service-endpoints"></a>Punkty końcowe usługi
 
-Domyślnie baza danych SQL jest skonfigurowana do "Zezwalaj na dostęp usług platformy Azure do serwera", co oznacza, że każda maszyna wirtualna na platformie Azure może próbować nawiązać połączenie z bazą danych. Te próby będą nadal musiały zostać uwierzytelnione. Jeśli jednak nie chcesz, aby baza danych była dostępna przez żadne adresy IP platformy Azure, możesz wyłączyć opcję "Zezwalaj na dostęp do serwera usług platformy Azure". Ponadto możesz skonfigurować [punkty końcowe usługi sieci wirtualnej](vnet-service-endpoint-rule-overview.md).
+Domyślnie baza danych jest skonfigurowana do "Zezwalaj usługom platformy Azure na dostęp do serwera", co oznacza, że każda maszyna wirtualna na platformie Azure może próbować nawiązać połączenie z bazą danych. Te próby będą nadal musiały zostać uwierzytelnione. Jeśli jednak nie chcesz, aby baza danych była dostępna przez żadne adresy IP platformy Azure, możesz wyłączyć opcję "Zezwalaj na dostęp do serwera usług platformy Azure". Ponadto możesz skonfigurować [punkty końcowe usługi sieci wirtualnej](vnet-service-endpoint-rule-overview.md).
 
 Punkty końcowe usługi (SE) umożliwiają uwidocznienie krytycznych zasobów platformy Azure tylko do własnej prywatnej sieci wirtualnej na platformie Azure. Dzięki temu można zasadniczo wyeliminować publiczny dostęp do Twoich zasobów. Ruch między siecią wirtualną do platformy Azure pozostaje w sieci szkieletowej platformy Azure. Bez wymuszania routingu pakietów wymuszonego tunelowania. Twoja sieć wirtualna wymusza ruch internetowy do organizacji i ruch usługi platformy Azure, aby przejść do tej samej trasy. Za pomocą punktów końcowych usługi można zoptymalizować ten sposób, ponieważ pakiety są przesyłane bezpośrednio z sieci wirtualnej do usługi w sieci szkieletowej platformy Azure.
 
@@ -211,17 +210,17 @@ Na poniższym diagramie przedstawiono opcje magazynu kluczy dla kluczy głównyc
 
 ### <a name="how-can-i-optimize-and-secure-the-traffic-between-my-organization-and-sql-database"></a>Jak mogę zoptymalizować i zabezpieczyć ruch między moją organizacją a SQL Database
 
-Ruch sieciowy między organizacją a SQL Database będzie ogólnie kierowany przez sieć publiczną. Jeśli jednak zdecydujesz się zoptymalizować tę ścieżkę i zwiększyć jej bezpieczeństwo, możesz poszukać w usłudze Express Route. Usługa Express Route zasadniczo umożliwia rozbudowanie sieci firmowej na platformę Azure za pośrednictwem połączenia prywatnego. Dzięki temu nie możesz przejść przez publiczny Internet. Uzyskuje się również wyższe zabezpieczenia, niezawodność i optymalizację routingu, które tłumaczą się na mniejsze opóźnienia sieci i znacznie szybciej niż zwykle w przypadku korzystania z publicznej sieci Internet. Jeśli planujesz transfer znaczących fragmentów danych między organizacją i platformą Azure, korzystanie z usługi Express Route może przynieść korzyści z kosztów. Możesz wybrać spośród trzech różnych modeli łączności dla połączenia z organizacji do platformy Azure:
+Ruch sieciowy między organizacją a SQL Database będzie ogólnie kierowany przez sieć publiczną. Jeśli jednak zdecydujesz się zoptymalizować tę ścieżkę i zwiększyć jej bezpieczeństwo, możesz przyjrzeć się do usługi Azure ExpressRoute. ExpressRoute pozwala na przełączenie sieci firmowej na platformę Azure za pośrednictwem połączenia prywatnego. Dzięki temu nie możesz przejść przez publiczny Internet. Uzyskuje się również wyższe zabezpieczenia, niezawodność i optymalizację routingu, które tłumaczą się na mniejsze opóźnienia sieci i znacznie szybciej niż zwykle w przypadku korzystania z publicznej sieci Internet. Jeśli planujesz transfer znaczących fragmentów danych między organizacją i platformą Azure, korzystanie z usługi ExpressRoute może przynieść oszczędności kosztów. Możesz wybrać spośród trzech różnych modeli łączności dla połączenia z organizacji do platformy Azure:
 
 - [Współpraca między lokacjami w chmurze](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Dowolny z](../../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Dowolny z dowolnym](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Punkt-punkt](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-W przypadku usługi Express Route można także naliczać na maksymalnie 2 – limit przydziałów przepustowości, bez dodatkowych opłat. Istnieje również możliwość skonfigurowania łączności między regionami przy użyciu usługi Express Route. Aby wyświetlić listę dostawców połączeń usługi ER, zobacz: usługi [Express Route Partners i lokalizacje komunikacji równorzędnej](../../expressroute/expressroute-locations.md). W poniższych artykułach szczegółowo opisano trasę Express:
+ExpressRoute umożliwia również przekroczenie limitu liczby przydziałów przepustowości, która nie ma dodatkowej opłaty. Istnieje również możliwość skonfigurowania łączności między regionami przy użyciu ExpressRoute. Aby wyświetlić listę dostawców połączeń ExpressRoute, zobacz: [partnerzy ExpressRoute i lokalizacje komunikacji równorzędnej](../../expressroute/expressroute-locations.md). W poniższych artykułach szczegółowo opisano trasę Express:
 
 - [Wprowadzenie do trasy Express](../../expressroute/expressroute-introduction.md)
 - [Wymagania wstępne](../../expressroute/expressroute-prerequisites.md)
-- [Przepływy pracy](../../expressroute/expressroute-workflows.md)
+- [Przepływy](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Jest SQL Database zgodne z wymaganiami prawnymi i w jaki sposób pomaga w zakresie zgodności z moją organizacją
 
@@ -237,7 +236,7 @@ Po przeprowadzeniu migracji bazy danych do SQL Database chcesz monitorować swoj
 
 ### <a name="performance-monitoring-and-optimization"></a>Monitorowanie i Optymalizacja wydajności
 
-Dzięki szczegółowej analizie wydajności zapytań można uzyskać dopasowane zalecenia dotyczące obciążenia bazy danych, dzięki czemu aplikacje mogą działać na optymalnym poziomie — zawsze. Można go również skonfigurować tak, aby te zalecenia były stosowane automatycznie i nie trzeba bother wykonywania zadań konserwacyjnych. Za pomocą Index Advisor można automatycznie zaimplementować zalecenia dotyczące indeksów na podstawie obciążenia — jest to tzw. Automatyczne dostrajanie. Zalecenia są rozwijane w miarę zmian obciążenia aplikacji, aby zapewnić najbardziej odpowiednie sugestie. Można również ręcznie przejrzeć te zalecenia i zastosować je według własnego uznania.  
+Dzięki szczegółowej analizie wydajności zapytań można uzyskać dopasowane zalecenia dotyczące obciążenia bazy danych, dzięki czemu aplikacje mogą działać na optymalnym poziomie — zawsze. Można go również skonfigurować tak, aby te zalecenia były stosowane automatycznie i nie trzeba bother wykonywania zadań konserwacyjnych. Za pomocą SQL Database Advisor można automatycznie zaimplementować zalecenia dotyczące indeksów na podstawie obciążenia — jest to tzw. Automatyczne dostrajanie. Zalecenia są rozwijane w miarę zmian obciążenia aplikacji, aby zapewnić najbardziej odpowiednie sugestie. Można również ręcznie przejrzeć te zalecenia i zastosować je według własnego uznania.  
 
 ### <a name="security-optimization"></a>Optymalizacja zabezpieczeń
 
@@ -281,11 +280,11 @@ Można wykonać zapytanie dotyczące widoku dynamicznego zarządzania [sys. dm_d
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (wersja zapoznawcza) w dziennikach Azure Monitor
 
-[Azure monitor Logs](../../azure-monitor/insights/azure-sql.md) pozwala zbierać i wizualizować kluczowe metryki wydajności Azure SQL Database, obsługujące do 150 000 baz danych sql i 5 000 pul elastycznych SQL dla każdego obszaru roboczego. Można jej używać do monitorowania i odbierania powiadomień. Można monitorować metryki SQL Database i elastycznych pul w wielu subskrypcjach platformy Azure i elastycznych pulach i mogą służyć do identyfikowania problemów w każdej warstwie stosu aplikacji.
+[Azure monitor Logs](../../azure-monitor/insights/azure-sql.md) pozwala zbierać i wizualizować kluczowe metryki wydajności Azure SQL Database, obsługujące do 150 000 baz danych i 5 000 pul elastycznych SQL na obszar roboczy. Można jej używać do monitorowania i odbierania powiadomień. Można monitorować metryki SQL Database i elastycznych pul w wielu subskrypcjach platformy Azure i elastycznych pulach i mogą służyć do identyfikowania problemów w każdej warstwie stosu aplikacji.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Mi obserwowanie problemy z wydajnością: w jaki sposób metodologia rozwiązywania problemów SQL Database różni się od SQL Server
 
-Główna część technik rozwiązywania problemów, która powinna być używana do diagnozowania problemów z wydajnością zapytań i bazy danych, pozostaje taka sama. Gdy wszystkie te same aparaty bazy danych SQL mają uprawnienia do chmury. Jednak platforma Azure SQL Database została wbudowana w "inteligencję". Może ułatwić rozwiązywanie problemów i diagnozowanie problemów z wydajnością. Może również wykonywać niektóre z tych działań naprawczych w Twoim imieniu, a w niektórych przypadkach automatycznie naprawiać je.
+Główna część technik rozwiązywania problemów, która powinna być używana do diagnozowania problemów z wydajnością zapytań i bazy danych, pozostaje taka sama. Gdy wszystkie te same aparaty bazy danych mają uprawnienia do chmury. Jednak platforma Azure SQL Database została wbudowana w "inteligencję". Może ułatwić rozwiązywanie problemów i diagnozowanie problemów z wydajnością. Może również wykonywać niektóre z tych działań naprawczych w Twoim imieniu, a w niektórych przypadkach automatycznie naprawiać je.
 
 Twoje podejście do rozwiązywania problemów z wydajnością może znacząco korzystać z funkcji inteligentnych, takich jak [szczegółowe informacje o wydajności zapytań (QPI)](query-performance-insight-use.md) i [Database Advisor](database-advisor-implement-performance-recommendations.md) w połączeniu z tym, że różnica w metodologii różni się w tym aspekcie — nie trzeba już ręcznie wykonywać ręcznych informacji, które mogą pomóc w rozwiązaniu problemu. Platforma działa dla Ciebie. Przykładem jest QPI. Za pomocą QPI można przechodzić do szczegółów na poziomie zapytania i przeglądać trendy historyczne i dowiedzieć się, jak dokładnie kwerenda uległa pogorszeniu. Database Advisor zawiera zalecenia dotyczące zagadnień, które mogą pomóc w ulepszaniu ogólnej wydajności, podobnie jak w przypadku brakujących indeksów, upuszczania indeksów, parametryzacja zapytań itp.
 
@@ -302,7 +301,7 @@ SQL Database oferuje różne warstwy usług w warstwach Podstawowa, standardowa 
 |**Warstwa usług**|**Typowe scenariusze przypadków użycia**|
 |---|---|
 |**Podstawowe**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
-|**Standardowa**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
+|**Standardowa (Standard)**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
 |**Premium**|Aplikacje z dużą liczbą równoczesnych użytkowników, dużym procesorem CPU/pamięci i wysokimi wymaganiami we/wy. Duże współbieżność, Wysoka przepływność i wrażliwe na opóźnienia aplikacje mogą korzystać z poziomu Premium. |
 |||
 
@@ -330,8 +329,8 @@ SQL Database używa niektórych inteligentnych technik, które umożliwiają obs
 
 Możesz to osiągnąć na kilka sposobów:
 
-- **[Synchronizacja danych](sql-data-sync-data-sql-server-sql-database.md)** — ta funkcja ułatwia synchronizowanie danych dwukierunkowych między wieloma lokalnymi bazami danych SQL Server i SQL Database. Aby zsynchronizować z lokalnymi bazami danych SQL Server, należy zainstalować i skonfigurować agenta synchronizacji na komputerze lokalnym i otworzyć wychodzący port TCP 1433.
-- **[Replikacja transakcji](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** — z replikacją transakcji można synchronizować dane ze swojej firmy w celu Azure SQL Database z lokalnym wydawcą i Azure SQL Databaseem subskrybenta. Na razie tylko ta konfiguracja jest obsługiwana. Aby uzyskać więcej informacji na temat sposobu migrowania danych z lokalnego do platformy Azure SQL z minimalnym czasem przestoju, zobacz: [Korzystanie z replikacji transakcji](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication) .
+- **[Synchronizacja danych](sql-data-sync-data-sql-server-sql-database.md)** — ta funkcja ułatwia synchronizowanie danych dwukierunkowych między wieloma bazami danych SQL Server i SQL Database. Aby przeprowadzić synchronizację z bazami danych SQL Server, należy zainstalować i skonfigurować agenta synchronizacji na komputerze lokalnym lub maszynie wirtualnej i otworzyć wychodzący port TCP 1433.
+- **[Replikacja transakcji](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** — z replikacją transakcji można synchronizować dane z bazy danych SQL Server, aby Azure SQL Database z wystąpieniem SQL Server wydawcą i Azure SQL Databaseem subskrybenta. Na razie tylko ta konfiguracja jest obsługiwana. Aby uzyskać więcej informacji na temat migrowania danych z bazy danych SQL Server do usługi Azure SQL z minimalnym czasem przestoju, zobacz: [Korzystanie z replikacji transakcji](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication) .
 
 ## <a name="next-steps"></a>Następne kroki
 

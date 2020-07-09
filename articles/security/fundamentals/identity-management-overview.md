@@ -17,10 +17,9 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77565897"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
@@ -38,7 +37,7 @@ Celem tego artykułu jest przedstawienie omówienia podstawowych funkcji zabezpi
 
 Artykuł koncentruje się na następujących podstawowych możliwościach usługi Azure Identity Management:
 
-* Rejestracja jednokrotna
+* Logowanie jednokrotne
 * Zwrotny serwer proxy
 * Multi-Factor Authentication
 * Kontrola dostępu oparta na rolach (RBAC)
@@ -46,11 +45,11 @@ Artykuł koncentruje się na następujących podstawowych możliwościach usług
 * Zarządzanie tożsamościami i dostępem klientów
 * Rejestracja urządzenia
 * Privileged Identity Management
-* Ochrona tożsamości
+* Identity Protection
 * Hybrydowe zarządzanie tożsamościami/Azure AD Connect
 * Przeglądy dostępu w usłudze Azure AD
 
-## <a name="single-sign-on"></a>Rejestracja jednokrotna
+## <a name="single-sign-on"></a>Logowanie jednokrotne
 
 Logowanie jednokrotne oznacza, że można uzyskać dostęp do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz uzyskać dostęp do wszystkich aplikacji, których potrzebujesz, bez konieczności uwierzytelniania (na przykład wpisz hasło).
 
@@ -158,7 +157,7 @@ Więcej informacji:
 * [Co to jest usługa Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Przypisywanie ról w katalogu usługi Azure AD w usłudze PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Ochrona tożsamości
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection to usługa zabezpieczeń, która zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach, które mają wpływ na tożsamości w organizacji. Funkcja ochrony tożsamości korzysta z istniejących funkcji wykrywania anomalii usługi Azure AD, które są dostępne za pomocą raportów anomalii związanych z usługą Azure AD. W ramach programu Identity Protection wprowadzono również nowe typy wykrywania ryzyka, które mogą wykrywać anomalie w czasie rzeczywistym.
 

@@ -8,21 +8,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927908"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
-Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metody zbierania niestandardowych metryk, `TrackMetric()`i. `GetMetric()` Kluczową różnicą między tymi dwoma metodami jest agregacja lokalna. `TrackMetric()`Brak agregacji wstępnej podczas `GetMetric()` agregacji wstępnej. Zalecanym podejściem jest użycie agregacji, dlatego `TrackMetric()` nie jest już preferowaną metodą zbierania metryk niestandardowych. W tym artykule przedstawiono sposób użycia metody GetMetric () i niektóre racjonalne uzasadnienie jego działania.
+Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metody zbierania niestandardowych metryk, `TrackMetric()` i `GetMetric()` . Kluczową różnicą między tymi dwoma metodami jest agregacja lokalna. `TrackMetric()`Brak agregacji wstępnej podczas `GetMetric()` agregacji wstępnej. Zalecanym podejściem jest użycie agregacji, dlatego `TrackMetric()` nie jest już preferowaną metodą zbierania metryk niestandardowych. W tym artykule przedstawiono sposób użycia metody GetMetric () i niektóre racjonalne uzasadnienie jego działania.
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric a GetMetric
 
-`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ `TrackMetric(item)` każdy przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W `TrackMetric()`przeciwieństwie `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
+`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ każdy `TrackMetric(item)` przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W przeciwieństwie `TrackMetric()` `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
 
-W Application Insights metryki niestandardowe zebrane za `TrackMetric()` pośrednictwem i `GetMetric()` nie podlegają [pobieraniu próbek](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
+W Application Insights metryki niestandardowe zebrane za pośrednictwem `TrackMetric()` i `GetMetric()` nie podlegają [pobieraniu próbek](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
 
 Jeśli chcesz śledzić trendy w metryce co sekundę, lub nawet bardziej szczegółowy interwał, może to skutkować:
 
@@ -30,12 +29,12 @@ Jeśli chcesz śledzić trendy w metryce co sekundę, lub nawet bardziej szczeg�
 - Zwiększony koszt ruchu sieciowego/wydajności. (W niektórych scenariuszach może to być kosztem wydajności pieniężnej i aplikacji).
 - Ryzyko związane z ograniczaniem pozyskiwania. (Usługa Azure Monitor odrzuca punkty danych ("dławienia"), gdy aplikacja wysyła bardzo wysoką liczbę telemetrii w krótkim czasie.
 
-Ograniczanie przepustowości ma szczególne znaczenie w takich przypadkach, jak próbkowanie, ograniczanie przepustowości może prowadzić do nieodebranych alertów, ponieważ Warunek wyzwalający alert może wystąpić lokalnie, a następnie zostać porzucony w punkcie końcowym pozyskiwania z powodu zbyt dużej ilości danych. Dlatego nie zalecamy używania `TrackMetric()` programów .NET i .NET Core, chyba że zaimplementowano własną logikę agregacji lokalnej. Jeśli próbujesz śledzić każde wystąpienie zdarzenia występujące w danym okresie, może się okazać, że [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) jest to lepsza dopasowanie. Należy pamiętać, że w przeciwieństwie do metryk niestandardowych, zdarzenia niestandardowe podlegają próbkowaniu. Oczywiście można nadal używać `TrackMetric()` nawet bez konieczności pisania własnej wstępnej agregacji, ale jeśli tak, należy pamiętać o pułapek.
+Ograniczanie przepustowości ma szczególne znaczenie w takich przypadkach, jak próbkowanie, ograniczanie przepustowości może prowadzić do nieodebranych alertów, ponieważ Warunek wyzwalający alert może wystąpić lokalnie, a następnie zostać porzucony w punkcie końcowym pozyskiwania z powodu zbyt dużej ilości danych. Dlatego nie zalecamy używania programów .NET i .NET Core, `TrackMetric()` chyba że zaimplementowano własną logikę agregacji lokalnej. Jeśli próbujesz śledzić każde wystąpienie zdarzenia występujące w danym okresie, może się okazać, że [`TrackEvent()`](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics#trackevent) jest to lepsza dopasowanie. Należy pamiętać, że w przeciwieństwie do metryk niestandardowych, zdarzenia niestandardowe podlegają próbkowaniu. Oczywiście można nadal używać `TrackMetric()` nawet bez konieczności pisania własnej wstępnej agregacji, ale jeśli tak, należy pamiętać o pułapek.
 
 Podsumowując `GetMetric()` jest zalecanym podejściem, ponieważ wykonuje wstępne agregacja, gromadzi wartości ze wszystkich wywołań śledzenia () i wysyła podsumowanie/agregację co minutę. Może to znacznie zmniejszyć koszty i obciążenie wydajności, wysyłając mniejszą liczbę punktów danych, zachowując jednocześnie wszystkie istotne informacje.
 
 > [!NOTE]
-> Tylko zestawy SDK .NET i .NET Core mają metodę GetMetric (). Jeśli używasz języka Java, możesz użyć [metryk Micrometer](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) lub `TrackMetric()`. Dla języka Python można użyć [OpenCensus.](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) destandards do wysyłania metryk niestandardowych. W przypadku języków JavaScript i Node. js nadal można `TrackMetric()`korzystać z programu, ale należy pamiętać o zastrzeżeniach, które zostały opisane w poprzedniej sekcji.
+> Tylko zestawy SDK .NET i .NET Core mają metodę GetMetric (). Jeśli używasz języka Java, możesz użyć [metryk Micrometer](https://docs.microsoft.com/azure/azure-monitor/app/micrometer-java) lub `TrackMetric()` . Dla języka Python można użyć [OpenCensus.](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#metrics) destandards do wysyłania metryk niestandardowych. W przypadku języka JavaScript i Node.js nadal można korzystać z programu `TrackMetric()` , ale należy pamiętać o zastrzeżeniach, które zostały opisane w poprzedniej sekcji.
 
 ## <a name="getting-started-with-getmetric"></a>Wprowadzenie do GetMetric
 
@@ -109,7 +108,7 @@ Jeśli sprawdzimy nasz zasób Application Insights w środowisku dzienników (an
 ![Widok zapytania Log Analytics](./media/get-metric/log-analytics.png)
 
 > [!NOTE]
-> Nieprzetworzony element telemetrii nie zawierał jawnej sumy właściwości/pola po pobraniu dla Ciebie nowej wartości. W tym przypadku zarówno Właściwość `value` , `valueSum` jak i reprezentuje to samo.
+> Nieprzetworzony element telemetrii nie zawierał jawnej sumy właściwości/pola po pobraniu dla Ciebie nowej wartości. W tym przypadku zarówno `value` Właściwość, jak i `valueSum` reprezentuje to samo.
 
 Dostęp do danych telemetrycznych metryk niestandardowych można uzyskać również w sekcji [_metryki_](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) portalu. Zarówno jako [Metryka oparta na dzienniku, jak i niestandardowa](pre-aggregated-metrics-log-metrics.md). (Poniższy zrzut ekranu przedstawia przykład opartego na dzienniku). ![Widok Eksploratora metryk](./media/get-metric/metrics-explorer.png)
 
@@ -140,7 +139,7 @@ Na przykład w tym przypadku przykład przeprowadzi wyszukiwanie dla dojścia dl
 
 ```
 
-Oprócz buforowania uchwytu metryki, powyższy przykład również został obniżony `Task.Delay` do 50 milisekund, aby pętla była wykonywana częściej, co skutkuje `TrackValue()` 772 wywołań.
+Oprócz buforowania uchwytu metryki, powyższy przykład również został obniżony `Task.Delay` do 50 milisekund, aby pętla była wykonywana częściej, co skutkuje 772 `TrackValue()` wywołań.
 
 ## <a name="multi-dimensional-metrics"></a>Metryki wielowymiarowe
 
@@ -190,7 +189,7 @@ Domyślnie metryki wielowymiarowe w środowisku Eksploratora metryk nie są wł�
 
 ### <a name="enable-multi-dimensional-metrics"></a>Włącz metryki wielowymiarowe
 
-Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty** > **. metryki** > niestandardowe**umożliwiają powiadamianie o niestandardowych wymiarach** > metryk.**OK** Więcej informacji na ten temat można znaleźć [tutaj](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty**.  >  **metryki niestandardowe**  >  **umożliwiają powiadamianie o niestandardowych wymiarach metryk**  >  **OK**. Więcej informacji na ten temat można znaleźć [tutaj](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 Po dokonaniu zmiany i wysłaniu nowej wielowymiarowej telemetrii będziesz mieć możliwość **zastosowania dzielenia**.
 
@@ -205,7 +204,7 @@ I Wyświetl agregacje metryk dla każdego wymiaru _FormFactor_ :
 
 ### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Jak używać MetricIdentifier, gdy istnieje więcej niż trzy wymiary
 
-Obecnie 10 wymiarów jest obsługiwanych, ale więcej niż trzy wymiary wymagają użycia `MetricIdentifier`:
+Obecnie 10 wymiarów jest obsługiwanych, ale więcej niż trzy wymiary wymagają użycia `MetricIdentifier` :
 
 ```csharp
 // Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
@@ -221,9 +220,9 @@ Aby zmienić konfigurację metryk, należy to zrobić w miejscu, w którym zosta
 
 ### <a name="special-dimension-names"></a>Specjalne nazwy wymiarów
 
-Metryki nie używają kontekstu telemetrii `TelemetryClient` używanego do uzyskiwania dostępu do nich, ale specjalne nazwy wymiarów dostępne jako `MetricDimensionNames` stałe w klasie to najlepsze obejście tego ograniczenia.
+Metryki nie używają kontekstu telemetrii `TelemetryClient` używanego do uzyskiwania dostępu do nich, ale specjalne nazwy wymiarów dostępne jako stałe w `MetricDimensionNames` klasie to najlepsze obejście tego ograniczenia.
 
-Agregacje metryk wysyłane przez Poniższy "rozmiar żądania operacji specjalnej" — Metryka **nie** będzie miała `Context.Operation.Name` ustawionej wartości "operacja specjalna". Natomiast `TrackMetric()` wszystkie inne TrackXXX () zostaną prawidłowo `OperationName` ustawione na "operacja specjalna".
+Agregacje metryk wysyłane przez Poniższy "rozmiar żądania operacji specjalnej" — Metryka **nie** będzie miała `Context.Operation.Name` ustawionej wartości "operacja specjalna". Natomiast `TrackMetric()` wszystkie inne TrackXXX () zostaną `OperationName` prawidłowo ustawione na "operacja specjalna".
 
 ``` csharp
         //...
@@ -248,9 +247,9 @@ Agregacje metryk wysyłane przez Poniższy "rozmiar żądania operacji specjalne
         }
 ```
 
-W takiej sytuacji należy użyć specjalnych nazw wymiaru wymienionych w `MetricDimensionNames` klasie, aby określić `TelemetryContext` wartości.
+W takiej sytuacji należy użyć specjalnych nazw wymiaru wymienionych w klasie, `MetricDimensionNames` Aby określić `TelemetryContext` wartości.
 
-Na przykład, gdy agregacja metryki wynikająca z następnej instrukcji jest wysyłana do punktu końcowego Application Insights `Context.Operation.Name` w chmurze, jego pole danych zostanie ustawione na "operacja specjalna":
+Na przykład, gdy agregacja metryki wynikająca z następnej instrukcji jest wysyłana do punktu końcowego Application Insights w chmurze, jego `Context.Operation.Name` pole danych zostanie ustawione na "operacja specjalna":
 
 ```csharp
 _telemetryClient.GetMetric("Request Size", MetricDimensionNames.TelemetryContext.Operation.Name).TrackValue(requestSize, "Special Operation");
@@ -266,9 +265,9 @@ _telemetryClient.GetMetric("Request Size", "Operation Name", MetricDimensionName
 
  Aby zapobiec przypadkowemu użyciu zasobów przez podsystem telemetrii, można kontrolować maksymalną liczbę serii danych na metrykę. Domyślne limity nie przekraczają 1000 całkowitej ilości danych na metrykę i nie więcej niż 100 różne wartości na wymiar.
 
- W kontekście wymiaru i szeregów czasowych, których używamy `Metric.TrackValue(..)` , aby upewnić się, że limity są spełnione. Jeśli limity zostały już osiągnięte, `Metric.TrackValue(..)` program zwróci wartość "false", która nie będzie śledzona. W przeciwnym razie zwróci wartość "true". Jest to przydatne, jeśli dane dla metryk pochodzą z danych wejściowych użytkownika.
+ W kontekście wymiaru i szeregów czasowych, których używamy, `Metric.TrackValue(..)` Aby upewnić się, że limity są spełnione. Jeśli limity zostały już osiągnięte, `Metric.TrackValue(..)` program zwróci wartość "false", która nie będzie śledzona. W przeciwnym razie zwróci wartość "true". Jest to przydatne, jeśli dane dla metryk pochodzą z danych wejściowych użytkownika.
 
-`MetricConfiguration` Konstruktor przyjmuje pewne opcje zarządzania różnymi seriami w ramach odpowiedniej metryki i obiektu klasy implementującej `IMetricSeriesConfiguration` , który określa zachowanie agregacji dla poszczególnych serii metryk:
+`MetricConfiguration`Konstruktor przyjmuje pewne opcje zarządzania różnymi seriami w ramach odpowiedniej metryki i obiektu klasy implementującej `IMetricSeriesConfiguration` , który określa zachowanie agregacji dla poszczególnych serii metryk:
 
 ``` csharp
 var metConfig = new MetricConfiguration(seriesCountLimit: 100, valuesPerDimensionLimit:2,
@@ -285,7 +284,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`to maksymalna liczba szeregów czasowych danych, które może zawierać Metryka. Po osiągnięciu tego limitu wywołania do `TrackValue()`.
+* `seriesCountLimit`to maksymalna liczba szeregów czasowych danych, które może zawierać Metryka. Po osiągnięciu tego limitu wywołania do `TrackValue()` .
 * `valuesPerDimensionLimit`ogranicza liczbę unikatowych wartości na wymiar w podobny sposób.
 * `restrictToUInt32Values`Określa, czy mają być śledzone tylko nieujemne wartości całkowite.
 

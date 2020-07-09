@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77370687"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie PureCloud przez Genesys w celu automatycznego aprowizacji użytkowników
@@ -90,7 +89,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź odpowiednio adres URL interfejsu API usługi PureCloud według Genesys i token OAuth w polach **adres URL dzierżawy** i **token klucza tajnego** . Adres URL interfejsu API będzie miał strukturę `{{API Url}}/api/v2/scim/v2`"przy użyciu adresu URL interfejsu API dla regionu PureCloud z [Centrum deweloperów PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z PureCloud przez Genesys. Jeśli połączenie nie powiedzie się, upewnij się, że konto PureCloud przez Genesys ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź odpowiednio adres URL interfejsu API usługi PureCloud według Genesys i token OAuth w polach **adres URL dzierżawy** i **token klucza tajnego** . Adres URL interfejsu API będzie miał strukturę " `{{API Url}}/api/v2/scim/v2` przy użyciu adresu URL interfejsu API dla regionu PureCloud z [Centrum deweloperów PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z PureCloud przez Genesys. Jeśli połączenie nie powiedzie się, upewnij się, że konto PureCloud przez Genesys ma uprawnienia administratora i spróbuj ponownie.
 
     ![aprowizacji](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
@@ -110,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
      |aktywne|Boolean|
      |displayName|String|
      |wiadomości e-mail [Type EQ "Work"]. Value|String|
-     |title|String|
+     |tytuł|String|
      |numer telefonu [typ EQ "Mobile"]. Value|String|
      |numer telefonu [typ EQ "Work"]. wartość|String|
      |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
@@ -149,7 +148,7 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 * Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 * Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

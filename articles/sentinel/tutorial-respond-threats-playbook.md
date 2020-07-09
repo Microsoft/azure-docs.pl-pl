@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: uruchamianie element PlayBook na platformie Azure — wskaźnik'
-description: 'Samouczek: w tym artykule opisano sposób uruchamiania element PlayBook na platformie Azure.'
+description: Skorzystaj z tego samouczka, aby ułatwić korzystanie z usługi Security elementy PlayBook w wskaźniku kontrolnym platformy Azure, aby ustawiać automatyczne reagowanie na zagrożenia związane z zabezpieczeniami.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5bc6ca30b9dff3686b16fe5237f815f16f849e9e
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77585088"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85558480"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Samouczek: Konfigurowanie zautomatyzowanych odpowiedzi na zagrożenia na platformie Azure — wskaźnik
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 843cd74c85c619dbbd2b11a32fccf75d030b5613
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855943"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
@@ -70,7 +70,7 @@ Aby wybrać obszar roboczy utworzony przez Security Center:
 1. W obszarze **Domyślna konfiguracja obszaru roboczego**wybierz pozycję Użyj obszarów roboczych utworzonych przez Centrum zabezpieczeń.
    ![Wybierz warstwę cenową][10] 
 
-1. Kliknij przycisk **Zapisz**.<br>
+1. Kliknij pozycję **Zapisz**.<br>
     Security Center tworzy nową grupę zasobów i domyślny obszar roboczy w tej geolokalizacji i łączy agenta z tym obszarem roboczym. Konwencja nazewnictwa obszaru roboczego i grupy zasobów to:<br>
    **Obszar roboczy: DefaultWorkspace-[Identyfikator subskrypcji]-[geograficzna] <br> Grupa zasobów: DefaultResourceGroup-[Geo]**
 
@@ -199,7 +199,7 @@ Jeśli skonfigurowany obszar roboczy jest obszarem roboczym użytkownika (nie Se
 <br>
 W przypadku maszyn z systemem Linux Agent multihostingu nie jest jeszcze obsługiwany — w związku z tym jeśli zostanie wykryta istniejąca instalacja agenta, automatyczne Inicjowanie obsługi nie zostanie wykonane i konfiguracja maszyny nie zostanie zmieniona.
 <br>
-W przypadku istniejących maszyn w ramach subskrypcji do Security Center przed 2019-03-17, gdy zostanie wykryty istniejący Agent, rozszerzenie agenta Log Analytics nie zostanie zainstalowane i nie będzie to miało takiego oddziaływania. W przypadku tych maszyn Zobacz zalecenia dotyczące rozwiązywania problemów z kondycją agenta monitorowania na swoich komputerach, aby rozwiązać problemy z instalacją agenta na tych komputerach.
+W przypadku istniejących maszyn w ramach subskrypcji do Security Center przed 17 marca 2019, gdy zostanie wykryty istniejący Agent, rozszerzenie agenta Log Analytics nie zostanie zainstalowane i nie wpłynie to na komputer. W przypadku tych maszyn Zobacz zalecenia dotyczące rozwiązywania problemów z kondycją agenta monitorowania na swoich komputerach, aby rozwiązać problemy z instalacją agenta na tych komputerach.
 
   
 - Agent System Center Operations Manager jest zainstalowany na maszynie<br>
@@ -237,58 +237,44 @@ Istnieje kilka sposobów ręcznego instalowania agenta Log Analytics. W przypadk
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Wdrożenie rozszerzenia maszyny wirtualnej pakietu Operations Management Suite 
 
 Można ręcznie zainstalować agenta Log Analytics, aby Security Center mógł zbierać dane dotyczące zabezpieczeń z maszyn wirtualnych i udostępniać zalecenia i alerty.
-1. Wybierz pozycję autozastrzeganie — wyłączone.
-2. Utwórz obszar roboczy i ustaw warstwę cenową dla obszaru roboczego, w którym ma zostać ustawiony Agent Log Analytics:
 
-   a.  W menu głównym Security Center wybierz pozycję **zasady zabezpieczeń**.
-     
-   b.  Wybierz obszar roboczy, w którym ma zostać połączony Agent. Upewnij się, że obszar roboczy znajduje się w tej samej subskrypcji, której używasz w Security Center i że masz uprawnienia do odczytu/zapisu w obszarze roboczym.
-       ![Wybór obszaru roboczego][8]
-3. Ustaw warstwę cenową.
-   ![Wybierz warstwę cenową][9] 
-   >[!NOTE]
-   >Jeśli w obszarze roboczym jest już włączone rozwiązanie **Security** lub **SecurityCenterFree** , Cennik zostanie ustawiony automatycznie. 
+1. Wyłącz funkcję autoaprowizacji.
+
+1. Opcjonalnie możesz utworzyć obszar roboczy.
+
+1. Ustaw obszar roboczy, w którym jest instalowany Agent Log Analytics, do warstwy cenowej standardowa:
+
+    1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+
+    1. Ustaw obszar roboczy, w którym jest instalowany Agent. Upewnij się, że obszar roboczy znajduje się w tej samej subskrypcji, której używasz w Security Center i że masz uprawnienia do odczytu/zapisu w obszarze roboczym.
+
+    1. Ustaw warstwę cenową standardowa i wybierz pozycję **Zapisz**.
+
+        ![Ustawianie obszaru roboczego do warstwy cenowej standardowa](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+
+       >[!NOTE]
+       >Jeśli w obszarze roboczym jest już włączone rozwiązanie **Security** lub **SecurityCenterFree** , Cennik zostanie ustawiony automatycznie. 
    > 
 
-4. Jeśli chcesz wdrożyć agentów na nowych maszynach wirtualnych przy użyciu szablonu Menedżer zasobów, zainstaluj rozszerzenie maszyny wirtualnej pakietu OMS:
+1. Jeśli chcesz wdrożyć agentów na nowych maszynach wirtualnych przy użyciu szablonu Menedżer zasobów, Zainstaluj agenta Log Analytics:
 
-   a.  [Zainstaluj rozszerzenie maszyny wirtualnej pakietu OMS dla systemu Windows](../virtual-machines/extensions/oms-windows.md)
+   a.  [Zainstaluj agenta Log Analytics dla systemu Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Instalowanie rozszerzenia maszyny wirtualnej pakietu OMS dla systemu Linux](../virtual-machines/extensions/oms-linux.md)
-5. Aby wdrożyć rozszerzenia na istniejących maszynach wirtualnych, postępuj zgodnie z instrukcjami w [temacie zbieranie danych o platformie Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Zainstaluj agenta Log Analytics dla systemu Linux](../virtual-machines/extensions/oms-linux.md)
+
+1. Aby wdrożyć rozszerzenia na istniejących maszynach wirtualnych, postępuj zgodnie z instrukcjami w [temacie zbieranie danych o platformie Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]
    > Sekcja **zbiera dane zdarzeń i wydajności,** które są opcjonalne.
    >
-6. Aby wdrożyć rozszerzenie przy użyciu programu PowerShell, użyj następującego przykładu programu PowerShell:
-   
-   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-   
-   1. Przejdź do **log Analytics** i kliknij pozycję **Ustawienia zaawansowane**.
-    
-      ![Ustawianie usługi log Analytics][11]
 
-   2. Skopiuj wartości z **Identyfikator obszaru roboczego** i **klucza podstawowego**.
-  
-      ![Kopiuj wartości][12]
+1. Aby wdrożyć rozszerzenie przy użyciu programu PowerShell, Skorzystaj z instrukcji z dokumentacji dotyczącej maszyn wirtualnych:
 
-   3. Wypełnij konfigurację publiczną i prywatną konfigurację przy użyciu następujących wartości:
-     
-           $PublicConf = @{
-               "workspaceId"= "<WorkspaceID value>"
-           }
- 
-           $PrivateConf = @{
-               "workspaceKey"= "<Primary key value>"
-           }
+    - [Dla maszyn z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
 
-      - Podczas instalacji na maszynie wirtualnej z systemem Windows:
-        
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
-    
-      - Podczas instalacji na maszynie wirtualnej z systemem Linux:
-        
-            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+    - [Dla maszyn z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+
+
 
 > [!NOTE]
 > Aby uzyskać instrukcje na temat sposobu dołączania Security Center przy użyciu programu PowerShell, zobacz Automatyzowanie dołączania [Azure Security Center przy użyciu programu PowerShell](security-center-powershell-onboarding.md).

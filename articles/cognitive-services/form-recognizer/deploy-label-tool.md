@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 27afbafcadb4c482e97e1d003706e7d2712e63c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117271"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212449"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -82,14 +82,14 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
    > [!div class="mx-imgBorder"]
    > ![Skonfiguruj platformę Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Gotowe. Następnie wybierz kolejno pozycje **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
+7. To wszystko. Następnie wybierz kolejno pozycje **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
 
 > [!NOTE]
 > Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę. 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Alternatywą dla korzystania z Azure Portal można utworzyć zasób przy użyciu interfejsu wiersza polecenia platformy Azure. Przed kontynuowaniem należy zainstalować [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Możesz pominąć ten krok, jeśli już pracujesz z interfejsem wiersza polecenia platformy Azure. 
+Alternatywą dla korzystania z Azure Portal można utworzyć zasób przy użyciu interfejsu wiersza polecenia platformy Azure. Przed kontynuowaniem należy zainstalować [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Możesz pominąć ten krok, jeśli już pracujesz z interfejsem wiersza polecenia platformy Azure. 
 
 Istnieje kilka rzeczy, które należy znać dla tego polecenia:
 

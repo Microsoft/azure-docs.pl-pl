@@ -7,19 +7,20 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for.
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80548384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549585"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
 
@@ -123,7 +124,7 @@ Można monitorować operacje NAT za pomocą wielowymiarowych metryk uwidoczniony
 Przy ogólnej dostępności ścieżka danych NAT jest dostępna co najmniej 99,9%.
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Brama translatora adresów sieciowych jest rozliczana przy użyciu dwóch oddzielnych liczników:
 
@@ -143,7 +144,7 @@ Virtual Network translator adresów sieciowych i zasób bramy NAT są dostępne 
 
 Translator adresów sieciowych jest obsługiwany za pomocą zwykłych kanałów pomocy technicznej.
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions"></a>Sugestie
 
 Chcemy wiedzieć, jak możemy ulepszyć usługę. Zaproponuj i zagłosuj na to, co będziemy kompilować dalej w usłudze [UserVoice dla translatora adresów sieciowych](https://aka.ms/natuservoice).
 

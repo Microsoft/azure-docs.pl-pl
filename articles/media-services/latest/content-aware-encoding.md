@@ -9,15 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772082"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234896"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 
@@ -55,9 +54,10 @@ Poniżej znajdują się wyniki dla innej kategorii zawartości źródłowej, w k
 
 Można tworzyć przekształcenia, które używają tego ustawienia wstępnego w następujący sposób. 
 
-> [!TIP]
-> Zobacz sekcję [następne kroki](#next-steps) , aby zapoznać się z samouczkami, które korzystają z danych wyjściowych przekształcenia. Element zawartości wyjściowej można dostarczyć z Media Services punktów końcowych przesyłania strumieniowego w protokołach, takich jak MPEG-myślnik i HLS (jak pokazano w samouczkach).
+Zobacz sekcję [następne kroki](#next-steps) , aby zapoznać się z samouczkami, które korzystają z danych wyjściowych przekształcenia. Element zawartości wyjściowej można dostarczyć z Media Services punktów końcowych przesyłania strumieniowego w protokołach, takich jak MPEG-myślnik i HLS (jak pokazano w samouczkach).
 
+> [!NOTE]
+> Upewnij się, że używasz ustawienia wstępnego **ContentAwareEncoding** , które nie jest ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -76,12 +76,12 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Opłaty za zadania kodowania `ContentAwareEncoding` przy użyciu ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
-
+> Opłaty za zadania kodowania przy użyciu `ContentAwareEncoding` ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
+  
 ## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3](stream-files-tutorial-with-api.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — REST](stream-files-tutorial-with-rest.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — interfejs wiersza polecenia](stream-files-cli-quickstart.md)
 * [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — .NET](stream-files-dotnet-quickstart.md)
-* [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node. js](stream-files-nodejs-quickstart.md)
+* [Samouczek: kodowanie pliku zdalnego na podstawie adresu URL i strumieniowego wideo — Node.js](stream-files-nodejs-quickstart.md)

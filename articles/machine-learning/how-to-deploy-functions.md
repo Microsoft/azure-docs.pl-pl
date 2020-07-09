@@ -5,17 +5,17 @@ description: Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: 104e0892e2ad6bc6a0b3212722781f9498eee219
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744998"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560406"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Wdróż model uczenia maszynowego w Azure Functions (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -108,7 +108,7 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
+Gdy `show_output=True` są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
 > Pakowanie dla funkcji obecnie obsługuje wyzwalacze HTTP, wyzwalacze obiektów blob i wyzwalacze usługi Service Bus. Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz [Azure Functions powiązania](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
@@ -118,7 +118,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
 
 ## <a name="deploy-image-as-a-web-app"></a>Wdrażanie obrazu jako aplikacji sieci Web
 
-1. Użyj poniższego polecenia, aby uzyskać poświadczenia logowania dla Azure Container Registry zawierającej obraz. Zamień `<myacr>` na wartość zwróconą wcześniej z `package.location`: 
+1. Użyj poniższego polecenia, aby uzyskać poświadczenia logowania dla Azure Container Registry zawierającej obraz. Zamień na `<myacr>` wartość zwróconą wcześniej z `package.location` : 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -151,12 +151,12 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    W tym przykładzie jest używana _podstawowa_ warstwa cenowa systemu`--sku B1`Linux ().
+    W tym przykładzie jest używana _podstawowa_ warstwa cenowa systemu Linux ( `--sku B1` ).
 
     > [!IMPORTANT]
     > Obrazy utworzone przez Azure Machine Learning używają systemu Linux, dlatego należy użyć `--is-linux` parametru.
 
-1. Utwórz konto magazynu, które ma być używane na potrzeby magazynu zadań sieci Web, i Pobierz jego parametry połączenia. Zamień `<webjobStorage>` na nazwę, której chcesz użyć.
+1. Utwórz konto magazynu, które ma być używane na potrzeby magazynu zadań sieci Web, i Pobierz jego parametry połączenia. Zamień na `<webjobStorage>` nazwę, której chcesz użyć.
 
     ```azurecli-interactive
     az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -165,7 +165,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Aby utworzyć aplikację funkcji, użyj następującego polecenia. Zamień `<app-name>` na nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej. Zamień `<webjobStorage>` na nazwę konta magazynu z poprzedniego kroku:
+1. Aby utworzyć aplikację funkcji, użyj następującego polecenia. Zamień na `<app-name>` nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej. Zamień `<webjobStorage>` na nazwę konta magazynu z poprzedniego kroku:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -174,7 +174,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     > [!IMPORTANT]
     > W tym momencie aplikacja funkcji została utworzona. Jednak ponieważ nie podano parametrów połączenia dla wyzwalacza obiektu BLOB lub poświadczeń do Azure Container Registry zawierającego obraz, aplikacja funkcji jest nieaktywna. W następnych krokach podano parametry połączenia oraz informacje o uwierzytelnianiu dla rejestru kontenerów. 
 
-1. Utwórz konto magazynu, które ma być używane dla magazynu wyzwalacza obiektów blob, i Pobierz jego parametry połączenia. Zamień `<triggerStorage>` na nazwę, której chcesz użyć.
+1. Utwórz konto magazynu, które ma być używane dla magazynu wyzwalacza obiektów blob, i Pobierz jego parametry połączenia. Zamień na `<triggerStorage>` nazwę, której chcesz użyć.
 
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -184,7 +184,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     ```
     Zarejestruj te parametry połączenia, aby udostępnić aplikację funkcji. Będziemy używać go później, gdy podasz`<triggerConnectionString>`
 
-1. Utwórz kontenery dla danych wejściowych i wyjściowych na koncie magazynu. Zamień `<triggerConnectionString>` na ciąg połączenia zwrócony wcześniej:
+1. Utwórz kontenery dla danych wejściowych i wyjściowych na koncie magazynu. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej:
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -193,19 +193,19 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Aby skojarzyć parametry połączenia wyzwalacza z aplikacją funkcji, użyj następującego polecenia. Zamień `<app-name>` na nazwę aplikacji funkcji. Zamień `<triggerConnectionString>` na ciąg połączenia zwrócony wcześniej:
+1. Aby skojarzyć parametry połączenia wyzwalacza z aplikacją funkcji, użyj następującego polecenia. Zamień `<app-name>` na nazwę aplikacji funkcji. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej:
 
     ```azurecli-interactive
     az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
     ```
-1. Musisz pobrać tag skojarzony z utworzonym kontenerem przy użyciu poniższego polecenia. Zamień `<username>` na nazwę użytkownika zwróconą wcześniej z rejestru kontenerów:
+1. Musisz pobrać tag skojarzony z utworzonym kontenerem przy użyciu poniższego polecenia. Zamień na `<username>` nazwę użytkownika zwróconą wcześniej z rejestru kontenerów:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    Zapisz zwracaną wartość, która `imagetag` zostanie użyta jako w następnym kroku.
+    Zapisz zwracaną wartość, która zostanie użyta jako `imagetag` w następnym kroku.
 
-1. Aby zapewnić aplikacji funkcji z poświadczeniami, które są potrzebne do uzyskania dostępu do rejestru kontenerów, użyj następującego polecenia. Zamień `<app-name>` na nazwę aplikacji funkcji. Zamień `<acrinstance>` i `<imagetag>` na wartości z polecenia AZ CLI Call w poprzednim kroku. Zamień `<username>` i `<password>` na pobrane wcześniej informacje logowania ACR:
+1. Aby zapewnić aplikacji funkcji z poświadczeniami, które są potrzebne do uzyskania dostępu do rejestru kontenerów, użyj następującego polecenia. Zamień `<app-name>` na nazwę aplikacji funkcji. Zamień `<acrinstance>` i `<imagetag>` na wartości z polecenia AZ CLI Call w poprzednim kroku. Zamień `<username>` i na `<password>` pobrane wcześniej informacje logowania ACR:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -260,7 +260,7 @@ Po załadowaniu obrazu i udostępnieniu aplikacji wykonaj następujące kroki, a
     > [!IMPORTANT]
     > Format danych zależy od tego, czego oczekuje score.py i model.
 
-2. Użyj poniższego polecenia, aby przekazać ten plik do kontenera wejściowego w utworzonym wcześniej obiekcie blob magazynu wyzwalacza. Zamień `<file>` na nazwę pliku zawierającego dane. Zamień `<triggerConnectionString>` na ciąg połączenia zwrócony wcześniej. W tym przykładzie `input` jest nazwą kontenera wejściowego utworzonego wcześniej. Jeśli użyto innej nazwy, Zastąp tę wartość:
+2. Użyj poniższego polecenia, aby przekazać ten plik do kontenera wejściowego w utworzonym wcześniej obiekcie blob magazynu wyzwalacza. Zamień `<file>` na nazwę pliku zawierającego dane. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej. W tym przykładzie `input` jest nazwą kontenera wejściowego utworzonego wcześniej. Jeśli użyto innej nazwy, Zastąp tę wartość:
 
     ```azurecli-interactive
     az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
@@ -275,15 +275,15 @@ Po załadowaniu obrazu i udostępnieniu aplikacji wykonaj następujące kroki, a
     }
     ```
 
-3. Aby wyświetlić dane wyjściowe wytwarzane przez funkcję, użyj następującego polecenia, aby wyświetlić listę generowanych plików wyjściowych. Zamień `<triggerConnectionString>` na ciąg połączenia zwrócony wcześniej. W tym przykładzie `output` jest nazwą kontenera wyjściowego utworzonego wcześniej. Jeśli użyto innej nazwy, Zastąp tę wartość::
+3. Aby wyświetlić dane wyjściowe wytwarzane przez funkcję, użyj następującego polecenia, aby wyświetlić listę generowanych plików wyjściowych. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej. W tym przykładzie `output` jest nazwą kontenera wyjściowego utworzonego wcześniej. Jeśli użyto innej nazwy, Zastąp tę wartość::
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
     ```
 
-    Dane wyjściowe tego polecenia są podobne do `sample_input_out.json`.
+    Dane wyjściowe tego polecenia są podobne do `sample_input_out.json` .
 
-4. Aby pobrać plik i sprawdzić zawartość, użyj następującego polecenia. Zamień `<file>` na nazwę pliku zwróconego przez poprzednie polecenie. Zamień `<triggerConnectionString>` na ciąg połączenia zwrócony wcześniej: 
+4. Aby pobrać plik i sprawdzić zawartość, użyj następującego polecenia. Zamień na `<file>` nazwę pliku zwróconego przez poprzednie polecenie. Zamień na `<triggerConnectionString>` ciąg połączenia zwrócony wcześniej: 
 
     ```azurecli-interactive
     az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>

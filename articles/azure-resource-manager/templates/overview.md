@@ -2,13 +2,13 @@
 title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager na potrzeby wdrażania zasobów.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086338"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119365"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -54,7 +54,7 @@ Jeśli próbujesz zdecydować się na korzystanie z szablonów usługi ARM i jed
 
 * **Kod możliwy do eksportu**: można uzyskać szablon dla istniejącej grupy zasobów, eksportując bieżący stan grupy zasobów lub wyświetlając szablon używany do określonego wdrożenia. Przeglądając [wyeksportowany szablon](export-template-portal.md), można poznać jego składnię.
 
-* **Narzędzia autorskie**: szablony można tworzyć za pomocą [Visual Studio Code](use-vs-code-to-create-template.md) i rozszerzenia narzędzia szablonu. Uzyskasz funkcję IntelliSense, wyróżnianie składni, pomoc w wierszu i wiele innych funkcji języka. Oprócz programu Visual Studio Code można również użyć [programu Visual Studio](create-visual-studio-deployment-project.md).
+* **Narzędzia autorskie**: szablony można tworzyć za pomocą [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) i rozszerzenia narzędzia szablonu. Uzyskasz funkcję IntelliSense, wyróżnianie składni, pomoc w wierszu i wiele innych funkcji języka. Oprócz programu Visual Studio Code można również użyć [programu Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Plik szablonu
 
@@ -129,3 +129,4 @@ Informacje dotyczące szablonów zagnieżdżonych można znaleźć w temacie [Us
 * Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu usługi ARM](template-tutorial-create-first-template.md).
 * Informacje o właściwościach w plikach szablonów można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
 * Aby dowiedzieć się więcej na temat eksportowania szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów ARM przy użyciu Azure Portal](quickstart-create-templates-use-the-portal.md).
+* Odpowiedzi na często zadawane pytania można znaleźć w sekcji [często zadawanych pytań dotyczących szablonów ARM](frequently-asked-questions.md).

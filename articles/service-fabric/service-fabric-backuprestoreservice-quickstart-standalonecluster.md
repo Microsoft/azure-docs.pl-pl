@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75526247"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Okresowe tworzenie kopii zapasowych i przywracanie w autonomicznej Service Fabric
@@ -55,7 +54,7 @@ Service Fabric udostępnia zestaw interfejsów API do osiągnięcia następując
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Upewnij się, że klaster jest połączony przy `Connect-SFCluster` użyciu polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
+* Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 
 ```powershell
 
@@ -77,7 +76,7 @@ Najpierw należy włączyć _usługę tworzenia kopii zapasowych i przywracania_
     }
     ```
 
-2. Teraz Włącz _usługę tworzenia kopii zapasowych i przywracania_ , dodając `addonFeatures` następującą `properties` sekcję w sekcji, jak pokazano w poniższym fragmencie kodu: 
+2. Teraz Włącz _usługę tworzenia kopii zapasowych i przywracania_ , dodając następującą `addonFeatures` sekcję w `properties` sekcji, jak pokazano w poniższym fragmencie kodu: 
 
     ```json
         "properties": {
@@ -106,20 +105,20 @@ Najpierw należy włączyć _usługę tworzenia kopii zapasowych i przywracania_
     }
     ```
 
-4. Po zaktualizowaniu pliku konfiguracji klastra przy użyciu powyższych zmian należy je zastosować i umożliwić ukończenie wdrożenia/uaktualnienia. Po zakończeniu _usługa tworzenia kopii zapasowych i przywracania_ jest uruchamiana w klastrze. Identyfikator URI tej usługi to `fabric:/System/BackupRestoreService` usługa, która może znajdować się w sekcji usługi systemowej w Eksploratorze Service Fabric. 
+4. Po zaktualizowaniu pliku konfiguracji klastra przy użyciu powyższych zmian należy je zastosować i umożliwić ukończenie wdrożenia/uaktualnienia. Po zakończeniu _usługa tworzenia kopii zapasowych i przywracania_ jest uruchamiana w klastrze. Identyfikator URI tej usługi to usługa `fabric:/System/BackupRestoreService` , która może znajdować się w sekcji usługi systemowej w eksploratorze Service Fabric. 
 
 
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Włączanie okresowej kopii zapasowej dla niezawodnej usługi stanowej i Reliable Actors
 Wykonajmy kroki, aby włączyć okresowe tworzenie kopii zapasowej dla niezawodnej usługi stanowej i Reliable Actors. W tych krokach przyjęto założenie
 - Klaster jest skonfigurowany przy użyciu _usługi tworzenia kopii zapasowych i przywracania_.
-- W klastrze wdrożono niezawodne usługi stanowe. Na potrzeby tego przewodnika Szybki Start identyfikator URI aplikacji jest `fabric:/SampleApp` i identyfikator URI niezawodnej usługi stanowej należącej do tej `fabric:/SampleApp/MyStatefulService`aplikacji. Ta usługa jest wdrażana z jedną partycją i IDENTYFIKATORem partycji `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
+- W klastrze wdrożono niezawodne usługi stanowe. Na potrzeby tego przewodnika Szybki Start identyfikator URI aplikacji jest `fabric:/SampleApp` i identyfikator URI niezawodnej usługi stanowej należącej do tej aplikacji `fabric:/SampleApp/MyStatefulService` . Ta usługa jest wdrażana z jedną partycją i IDENTYFIKATORem partycji `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7` .  
 
 ### <a name="create-backup-policy"></a>Tworzenie zasad kopii zapasowych
 
 Pierwszym krokiem jest utworzenie zasad tworzenia kopii zapasowych z opisem harmonogramu kopii zapasowych, docelowego magazynu dla danych kopii zapasowej, nazwy zasad i maksymalnych przyrostowych kopii zapasowych, które będą dozwolone przed wyzwalaniem pełnych zasad tworzenia kopii zapasowych i przechowywania kopii zapasowych 
 
-W przypadku magazynu kopii zapasowych Utwórz udział plików i nadaj ReadWrite dostęp do tego udziału plików dla wszystkich maszyn węzłów Service Fabric. W `StorageServer`tym przykładzie przyjęto założenie `BackupStore` , że udział o nazwie jest obecny.
+W przypadku magazynu kopii zapasowych Utwórz udział plików i nadaj ReadWrite dostęp do tego udziału plików dla wszystkich maszyn węzłów Service Fabric. W tym przykładzie przyjęto założenie, że udział o nazwie `BackupStore` jest obecny `StorageServer` .
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell przy użyciu modułu Microsoft. servicefabric. PowerShell. http
@@ -184,7 +183,7 @@ Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupP
 ```
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
-Wykonaj następujący skrypt programu PowerShell, aby wywołać wymagany interfejs API REST w celu skojarzenia zasad `BackupPolicy1` tworzenia kopii zapasowych o nazwie `SampleApp`utworzonej w powyższym kroku z aplikacją.
+Wykonaj następujący skrypt programu PowerShell, aby wywołać wymagany interfejs API REST w celu skojarzenia zasad tworzenia kopii zapasowych o nazwie `BackupPolicy1` utworzonej w powyższym kroku z aplikacją `SampleApp` .
 
 ```powershell
 $BackupPolicyReference = @{
@@ -225,7 +224,7 @@ Kopie zapasowe skojarzone ze wszystkimi partycjami należącymi do wiarygodnych 
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Wykonaj następujący skrypt programu PowerShell, aby wywołać interfejs API protokołu HTTP, aby wyliczyć kopie zapasowe `SampleApp` utworzone dla wszystkich partycji w aplikacji.
+Wykonaj następujący skrypt programu PowerShell, aby wywołać interfejs API protokołu HTTP, aby wyliczyć kopie zapasowe utworzone dla wszystkich partycji w `SampleApp` aplikacji.
 
 ```powershell
 $url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"

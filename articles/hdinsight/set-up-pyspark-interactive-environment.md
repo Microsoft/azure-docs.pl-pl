@@ -6,26 +6,26 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: seoapr2020
+ms.topic: how-to
+ms.custom: seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 47f774f7b848e34aa7dc219ee4b08fb083cbd813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea2bda905879f6bdc6cc515f43474ff570e881b4
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188212"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078888"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Skonfiguruj środowisko interaktywne PySpark dla Visual Studio Code
 
-Poniższe kroki pokazują, jak skonfigurować środowisko interaktywne PySpark w VS Code.
+Poniższe kroki pokazują, jak skonfigurować środowisko interaktywne PySpark w programu vscode. Ten krok dotyczy tylko użytkowników innych niż Windows.
 
 Używamy polecenia **Python/PIP** do kompilowania środowiska wirtualnego w ścieżce domowej. Jeśli chcesz użyć innej wersji, musisz ręcznie zmienić domyślną wersję polecenia **Python/PIP** . Więcej szczegółów można znaleźć w temacie [Update-alternatywy](https://linux.die.net/man/8/update-alternatives).
 
 1. Zainstaluj język [Python](https://www.python.org/downloads/) i narzędzie [PIP](https://pip.pypa.io/en/stable/installing/).
 
-   * Zainstaluj Język Python [https://www.python.org/downloads/](https://www.python.org/downloads/)z programu.
-   * Zainstaluj program PIP [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) from (jeśli nie jest zainstalowany w instalacji języka Python).
+   * Zainstaluj Język Python z programu [https://www.python.org/downloads/](https://www.python.org/downloads/) . 
+   * Zainstaluj program PIP from [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (jeśli nie jest zainstalowany w instalacji języka Python).
    * Sprawdź, czy środowisko Python i PIP zostały pomyślnie zainstalowane, używając następujących poleceń. (opcjonalnie)
 
         ![Sprawdzanie polecenia pip Version języka Python](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
@@ -41,7 +41,7 @@ Używamy polecenia **Python/PIP** do kompilowania środowiska wirtualnego w ści
 
 ## <a name="other-packages"></a>Inne pakiety
 
-Jeśli zostanie wyświetlony komunikat o błędzie, Zainstaluj wymagane pakiety, uruchamiając następujące polecenia:
+W systemie Linux, Jeśli zobaczysz poniższy komunikat o błędzie, Zainstaluj wymagane pakiety, uruchamiając poniższe dwa polecenia.
 
    ![Zainstaluj pakiet libkrb5 dla języka Python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
@@ -53,7 +53,7 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install python-dev
 ```
 
-Uruchom ponownie VS Code, a następnie wróć do edytora skryptów, w którym działa usługa **HDInsight: PySpark Interactive**.
+Uruchom ponownie program programu vscode, a następnie wróć do edytora programu vscode i uruchom polecenie **Spark: PySPark Interactive** .
 
 ## <a name="next-steps"></a>Następne kroki
 

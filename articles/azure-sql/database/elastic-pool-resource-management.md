@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 03/13/2019
-ms.openlocfilehash: 1db8eeecf411ae219474029e09cb866aaf0d5bbe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/29/2020
+ms.openlocfilehash: d35b4691bcf6e40edd57d4caeae00e18a8298925
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558889"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Zarządzanie zasobami w ramach gęstych pul elastycznych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,7 +60,7 @@ Azure SQL Database zawiera kilka metryk, które są istotne dla tego typu monito
 |`avg_log_write_percent`|Wykorzystanie przepływności dla operacji we/wy zapisu w dzienniku transakcji. Dostępne dla każdej bazy danych w puli, a także dla samej puli. Istnieją różne limity przepływności dziennika na poziomie bazy danych i na poziomie puli, dlatego zaleca się monitorowanie tej metryki na obu poziomach. Dostępne w widoku [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) w każdej bazie danych i w widoku [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) w `master` bazie danych programu. Ta Metryka jest również emitowana do Azure Monitor, gdzie ma [nazwę](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `log_write_percent` , i może być wyświetlana w Azure Portal. Gdy ta Metryka jest bliska 100%, wszystkie modyfikacje bazy danych (INSERT, UPDATE, DELETE, MERGE, SELECT... DO, BULK INSERT itd.) będzie wolniejsze.|Poniżej 90%. Można zaakceptować sporadyczne krótkie skoki do 100%.|
 |`oom_per_second`|Częstotliwość występowania błędów poza pamięcią (OOM) w puli elastycznej, która jest wskaźnikiem wykorzystania pamięci. Dostępne w widoku [sys. dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database?view=azuresqldb-current) . Zobacz [przykłady](#examples) przykładowego zapytania, aby obliczyć tę metrykę.|0|
 |`avg_storage_percent`|Użycie miejsca do magazynowania na poziomie puli elastycznej. Dostępne w widoku [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) w `master` bazie danych programu. Ta Metryka jest również emitowana do Azure Monitor, gdzie ma [nazwę](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `storage_percent` , i może być wyświetlana w Azure Portal.|Poniżej 80%. Może obejść 100% dla pul bez wzrostu danych.|
-|`tempdb_log_used_percent`|Użycie przestrzeni dziennika transakcji w `tempdb` bazie danych programu. Mimo że obiekty tymczasowe utworzone w jednej bazie danych nie są widoczne w innych bazach danych w tej samej puli elastycznej, `tempdb` to zasób udostępniony dla wszystkich baz danych w tej samej puli. Długotrwała lub bezczynna transakcja w ramach `tempdb` uruchomienia z jednej bazy danych w puli może zużywać znaczną część dziennika transakcji i spowodować błędy zapytań w innych bazach danych w tej samej puli. Dostępne w widoku [sys. dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) . Ta Metryka jest również emitowana do Azure Monitor i może być wyświetlana w Azure Portal. Zobacz [przykłady](#examples) przykładowego zapytania, aby zwrócić bieżącą wartość tej metryki.|Poniżej 50%. Dopuszcza się sporadycznie do 80%.|
+|`tempdb_log_used_percent`|Użycie przestrzeni dziennika transakcji w `tempdb` bazie danych programu. Mimo że obiekty tymczasowe utworzone w jednej bazie danych nie są widoczne w innych bazach danych w tej samej puli elastycznej, `tempdb` to zasób udostępniony dla wszystkich baz danych w tej samej puli. Długotrwała lub oddzielona transakcja w ramach `tempdb` uruchomienia z jednej bazy danych w puli może zużywać znaczną część dziennika transakcji i spowodować błędy zapytań w innych bazach danych w tej samej puli. Pochodzące z widoków [sys. dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) i [sys. database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) . Ta Metryka jest również emitowana do Azure Monitor i może być wyświetlana w Azure Portal. Zobacz [przykłady](#examples) przykładowego zapytania, aby zwrócić bieżącą wartość tej metryki.|Poniżej 50%. Dopuszcza się sporadycznie do 80%.|
 |||
 
 Oprócz tych metryk Azure SQL Database zapewnia widok, który zwraca rzeczywiste limity zarządzania zasobami, a także dodatkowe widoki, które zwracają statystyki wykorzystania zasobów na poziomie puli zasobów i na poziomie grupy obciążenia.
@@ -114,11 +114,17 @@ ORDER BY pool_id;
 
 ### <a name="monitoring-tempdb-log-space-utilization"></a>Monitorowanie `tempdb` wykorzystania miejsca w dzienniku
 
-To zapytanie zwraca bieżącą wartość `tempdb_log_used_percent` metryki. To zapytanie można wykonać w dowolnej bazie danych w puli elastycznej.
+To zapytanie zwraca bieżącą wartość `tempdb_log_used_percent` metryki, pokazując względne użycie `tempdb` dziennika transakcji względem jego maksymalnego dozwolonego rozmiaru. To zapytanie można wykonać w dowolnej bazie danych w puli elastycznej.
 
 ```sql
-SELECT used_log_space_in_percent AS tempdb_log_used_percent
-FROM tempdb.sys.dm_db_log_space_usage;
+SELECT (lsu.used_log_space_in_bytes / df.log_max_size_bytes) * 100 AS tempdb_log_space_used_percent
+FROM tempdb.sys.dm_db_log_space_usage AS lsu
+CROSS JOIN (
+           SELECT SUM(CAST(max_size AS bigint)) * 8 * 1024. AS log_max_size_bytes
+           FROM tempdb.sys.database_files
+           WHERE type_desc = N'LOG'
+           ) AS df
+;
 ```
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -9,21 +9,21 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 48907713082ebb1008ad963121671b36af7f2731
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74228180"
 ---
 W tej sekcji wyślesz najważniejsze wiadomości w formie oznaczonych tagami powiadomień szablonu z aplikacji konsoli .NET.
 
 1. W programie Visual Studio utwórz nową aplikację konsoli języka Visual C#:
-    1. Z menu wybierz pozycję **plik** > **Nowy** > **projekt**.
+    1. Z menu wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
     1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# na liście szablonów, a następnie wybierz pozycję **dalej**.
     1. wprowadź nazwę aplikacji.
     1. W polu **rozwiązanie**wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz** , aby utworzyć projekt.
 
-1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów** , a następnie w oknie konsoli Uruchom następujące polecenie:
+1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** , a następnie w oknie konsoli Uruchom następujące polecenie:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs

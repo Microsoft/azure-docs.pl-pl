@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4de0686dbca803b9008c1b56c512a90fcfe2b3c0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 82ef70677dd0ede4ddfdd0899747c18f335da5a7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077035"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Przenoszenie danych do programu SQL Server na maszynie wirtualnej platformy Azure
 
@@ -185,13 +185,13 @@ Różne metody mogą służyć do zbiorczego eksportowania danych z lokalnego SQ
 2. Utwórz bazę danych i tabelę na SQL Server maszynie wirtualnej na platformie Azure przy użyciu `create database` i `create table` dla schematu tabeli wyeksportowanego w kroku 1.
 3. Utwórz plik formatu do opisywania schematu tabeli eksportowanych/importowanych danych. Szczegóły pliku formatu opisano w temacie [Tworzenie pliku formatu (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
-    Formatuj generowanie plików podczas uruchamiania narzędzia BCP z maszyny SQL Server
+    Formatuj generowanie plików podczas uruchamiania narzędzia BCP z komputera SQL Server
 
-        bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
+    `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
     Sformatuj generowanie plików podczas zdalnego uruchamiania narzędzia BCP na SQL Server
 
-        bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
+    `bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n`
 4. Użyj dowolnej z metod opisanych w sekcji [przenoszenie danych ze źródła plików](#filesource_to_sqlonazurevm) , aby przenieść dane do SQL Server.
 
 ### <a name="sql-database-migration-wizard"></a><a name="sql-migration"></a>Kreator migracji SQL Database
@@ -203,7 +203,7 @@ Różne metody mogą służyć do zbiorczego eksportowania danych z lokalnego SQ
 SQL Server obsługuje:
 
 1. [Tworzenie kopii zapasowej i przywracanie bazy danych](https://msdn.microsoft.com/library/ms187048.aspx) (zarówno do pliku lokalnego, jak i do BACPAC eksportu do obiektów BLOB) oraz [aplikacji warstwy danych](https://msdn.microsoft.com/library/ee210546.aspx) (przy użyciu BACPAC).
-2. Możliwość bezpośredniego tworzenia SQL Server maszyn wirtualnych na platformie Azure przy użyciu skopiowanej bazy danych lub kopiowania do istniejącej bazy danych SQL Azure. Aby uzyskać więcej informacji, zobacz [Korzystanie z Kreatora kopiowania bazy danych](https://msdn.microsoft.com/library/ms188664.aspx).
+2. Możliwość bezpośredniego tworzenia SQL Server maszyn wirtualnych na platformie Azure przy użyciu skopiowanej bazy danych lub kopiowania do istniejącej bazy danych w programie SQL Database. Aby uzyskać więcej informacji, zobacz [Korzystanie z Kreatora kopiowania bazy danych](https://msdn.microsoft.com/library/ms188664.aspx).
 
 Poniżej przedstawiono zrzut ekranu przedstawiający opcje tworzenia kopii zapasowej/przywracania bazy danych z SQL Server Management Studio.
 

@@ -2,13 +2,13 @@
 title: Przenoszenie maszyn wirtualnych platformy Azure do nowej subskrypcji lub grupy zasobów
 description: Użyj Azure Resource Manager, aby przenieść maszyny wirtualne do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e5bd004b6619db9c9882b8e9e6005309317b8ca5
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 07/06/2020
+ms.openlocfilehash: c85ec175d802a29de7a8a87ee7a51c0916762a5a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744635"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044553"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Wskazówki dotyczące przenoszenia maszyn wirtualnych
 
@@ -25,6 +25,18 @@ Następujące scenariusze nie są jeszcze obsługiwane:
 * Nie można przenosić maszyn wirtualnych o niskim priorytecie i zestawów skalowania maszyn wirtualnych o niskim priorytecie między grupami zasobów lub subskrypcjami.
 * Maszyn wirtualnych w zestawie dostępności nie można przenieść pojedynczo.
 
+## <a name="azure-disk-encryption"></a>Szyfrowanie dysków Azure
+
+Nie można przenieść maszyny wirtualnej zintegrowanej z magazynem kluczy, aby zaimplementować [Azure Disk Encryption dla maszyn wirtualnych](../../../virtual-machines/linux/disk-encryption-overview.md) z systemem Linux lub [Azure Disk Encryption dla maszyn wirtualnych z systemem Windows](../../../virtual-machines/windows/disk-encryption-overview.md). Aby przenieść maszynę wirtualną, należy wyłączyć szyfrowanie.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
+
 ## <a name="virtual-machines-with-azure-backup"></a>Maszyny wirtualne z Azure Backup
 
 Aby przenieść maszyny wirtualne skonfigurowane z Azure Backup, należy usunąć z magazynu punkty przywracania.
@@ -37,9 +49,9 @@ Jeśli [usuwanie nietrwałe](../../../backup/backup-azure-security-feature-cloud
 2. Aby przenieść maszyny wirtualne skonfigurowane przy użyciu Azure Backup, wykonaj następujące czynności:
 
    1. Znajdź lokalizację maszyny wirtualnej.
-   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1`. Na przykład *AzureBackupRG_westus2_1*
+   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` . Na przykład *AzureBackupRG_westus2_1*
    3. W Azure Portal zaznacz opcję **Pokaż ukryte typy**.
-   4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec `AzureBackup_<name of your VM that you're trying to move>_###########`nazewnictwa.
+   4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
    6. Po zakończeniu operacji usuwania można przenieść maszynę wirtualną.
 

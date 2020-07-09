@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3bc1546566e5bb79a207899fab7418480e5cfab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117883"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratorów według zadania administratora w Azure Active Directory
 
@@ -38,7 +38,7 @@ Wyłączanie serwera proxy aplikacji | Administrator aplikacji |
 Pobierz usługę łącznika | Administrator aplikacji | 
 Odczytaj całą konfigurację | Administrator aplikacji | 
 
-## <a name="b2c"></a>B2C
+## <a name="external-identitiesb2c"></a>Tożsamości zewnętrzne/B2C
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
@@ -47,11 +47,11 @@ Tworzenie aplikacji B2C | Administrator globalny |
 Tworzenie aplikacji dla przedsiębiorstw | Administrator aplikacji w chmurze | Administrator aplikacji
 Tworzenie, odczytywanie, aktualizowanie i usuwanie zasad B2C | Administrator zasad B2C IEF | 
 Tworzenie, odczytywanie, aktualizowanie i usuwanie dostawców tożsamości | Administrator zewnętrznego dostawcy tożsamości | 
-Tworzenie, odczytywanie, aktualizowanie i usuwanie przepływów użytkownika resetowania haseł | Administrator przepływu użytkownika B2C | 
-Tworzenie, odczytywanie, aktualizowanie i usuwanie profilu edytowanie przepływów użytkowników | Administrator przepływu użytkownika B2C | 
-Tworzenie, odczytywanie, aktualizowanie i usuwanie przepływów użytkowników logowania | Administrator przepływu użytkownika B2C | 
-Tworzenie, odczytywanie, aktualizowanie i usuwanie przepływu użytkownika przy rejestrowaniu |Administrator przepływu użytkownika B2C | 
-Tworzenie, odczytywanie, aktualizowanie i usuwanie atrybutów użytkownika | B2C atrybutu przepływu użytkownika | 
+Tworzenie, odczytywanie, aktualizowanie i usuwanie przepływów użytkownika resetowania haseł | Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym | 
+Tworzenie, odczytywanie, aktualizowanie i usuwanie profilu edytowanie przepływów użytkowników | Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym | 
+Tworzenie, odczytywanie, aktualizowanie i usuwanie przepływów użytkowników logowania | Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym | 
+Tworzenie, odczytywanie, aktualizowanie i usuwanie przepływu użytkownika przy rejestrowaniu |Administrator przepływu użytkownika z IDENTYFIKATORem zewnętrznym | 
+Tworzenie, odczytywanie, aktualizowanie i usuwanie atrybutów użytkownika | Administrator atrybutów przepływu użytkownika zewnętrznego ID | 
 Tworzenie, odczytywanie, aktualizowanie i usuwanie użytkowników | Administrator użytkowników
 Odczytaj całą konfigurację | Czytnik globalny | 
 Odczytaj dzienniki inspekcji B2C | Czytnik globalny ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
@@ -73,6 +73,14 @@ Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 Konfigurowanie właściwości firmy | Administrator globalny | 
 
 ## <a name="connect"></a>Połącz
+
+Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
+---- | --------------------- | ----------------
+Przekazywanie uwierzytelniania | Administrator globalny  | 
+Odczytaj całą konfigurację | Czytnik globalny | Administrator globalny  |
+Bezproblemowe logowanie jednokrotne | Administrator globalny  | 
+
+## <a name="cloud-provisioning"></a>Inicjowanie obsługi chmury
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
@@ -109,7 +117,7 @@ Odczytaj całą konfigurację | Czytelnicy katalogów | Domyślna rola użytkown
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Utwórz wystąpienie Azure AD Domain Services | Administrator globalny | 
-Wykonaj wszystkie zadania Azure AD Domain Services | Grupa administratorów kontrolera domeny usługi Azure AD ([Zobacz dokumentację](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Wykonaj wszystkie zadania Azure AD Domain Services | Grupa administratorów kontrolera domeny usługi Azure AD ([Zobacz dokumentację](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Odczytaj całą konfigurację | Czytelnik w ramach subskrypcji platformy Azure zawierającej usługę AD DS | 
 
 ## <a name="devices"></a>Urządzenia
@@ -153,7 +161,7 @@ Dodawanie witryn usługi SharePoint Online do wykazu | Administrator globalny
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Przypisywanie licencji | Administrator użytkowników | 
-Tworzenie grupy: | Administrator użytkowników | 
+Tworzenie grupy: | Administrator grup | Administrator użytkowników
 Tworzenie, aktualizowanie i usuwanie przeglądu dostępu do grupy lub aplikacji | Administrator użytkowników | 
 Zarządzanie wygaśnięciem grupy | Administrator użytkowników | 
 Zarządzenie ustawieniami grup | Administrator grup | Administrator użytkowników | 
@@ -164,6 +172,7 @@ Odwołaj licencję | Administrator licencji | Administrator użytkowników
 Aktualizowanie członkostwa w grupie | Właściciel grupy ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrator użytkowników
 Aktualizowanie właścicieli grup | Właściciel grupy ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrator użytkowników
 Aktualizuj właściwości grupy | Właściciel grupy ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrator użytkowników
+Usuwanie grupy | Administrator grup | Administrator użytkowników
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -273,6 +282,8 @@ Odczytaj całą konfigurację | Domyślna rola użytkownika ([Zobacz dokumentacj
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Konfigurowanie metod uwierzytelniania | Administrator globalny | 
+Konfigurowanie ochrony hasłem | Administrator zabezpieczeń
+Konfigurowanie blokady inteligentnej | Administrator zabezpieczeń
 Odczytaj całą konfigurację | Czytnik globalny | 
 
 ## <a name="security---conditional-access"></a>Zabezpieczenia — dostęp warunkowy

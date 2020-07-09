@@ -4,12 +4,11 @@ description: Opisuje sposób wdrażania usługi w wielu regionach za pomocą us�
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 424cd79a6c63200e1f101cf178b1fd2c9083161e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76152531"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057929"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Włączanie bezpiecznych praktyk wdrażania przy użyciu usługi Azure Menedżer wdrażania (publiczna wersja zapoznawcza)
 
@@ -30,7 +29,7 @@ Szablon topologii jest wdrażany przed wdrożeniem szablonu wdrożenia.
 
 Dodatkowe zasoby:
 
-- [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Dokumentacja interfejsu API REST usługi Azure Menedżer wdrażania](/rest/api/deploymentmanager/).
 - [Samouczek: korzystanie z usługi Azure Menedżer wdrażania z szablonami Menedżer zasobów](./deployment-manager-tutorial.md).
 - [Samouczek: korzystanie z kontroli kondycji w usłudze Azure Menedżer wdrażania](./deployment-manager-tutorial-health-check.md).
 - [Przykład Menedżer wdrażania platformy Azure](https://github.com/Azure-Samples/adm-quickstart).
@@ -268,7 +267,7 @@ Tworzysz dwa pliki parametrów. Podczas wdrażania topologii usługi używany je
 
 ## <a name="containerroot-variable"></a>Zmienna containerRoot
 
-W przypadku wdrożeń z wersjami ścieżki do artefaktów zmieniają się wraz z każdą nową wersją. Przy pierwszym uruchomieniu wdrożenia może to być `https://<base-uri-blob-container>/binaries/1.0.0.0`ścieżka. Druga godzina może być `https://<base-uri-blob-container>/binaries/1.0.0.1`. Menedżer wdrażania upraszcza pobieranie prawidłowej ścieżki głównej dla bieżącego wdrożenia przy użyciu `$containerRoot` zmiennej. Ta wartość zmienia się w przypadku każdej wersji i nie jest znana przed wdrożeniem.
+W przypadku wdrożeń z wersjami ścieżki do artefaktów zmieniają się wraz z każdą nową wersją. Przy pierwszym uruchomieniu wdrożenia może to być ścieżka `https://<base-uri-blob-container>/binaries/1.0.0.0` . Druga godzina może być `https://<base-uri-blob-container>/binaries/1.0.0.1` . Menedżer wdrażania upraszcza pobieranie prawidłowej ścieżki głównej dla bieżącego wdrożenia przy użyciu `$containerRoot` zmiennej. Ta wartość zmienia się w przypadku każdej wersji i nie jest znana przed wdrożeniem.
 
 Użyj `$containerRoot` zmiennej w pliku parametrów dla szablonu do wdrożenia zasobów platformy Azure. W czasie wdrażania ta zmienna jest zastępowana rzeczywistymi wartościami z wdrożenia.
 
@@ -294,13 +293,13 @@ Na przykład podczas wprowadzania utworzysz Źródło artefaktu dla artefaktów 
 },
 ```
 
-Zwróć uwagę `artifactRoot` na `sasUri` właściwości i. Element główny artefaktu może być ustawiony na wartość taką `binaries/1.0.0.0`jak. Identyfikator URI sygnatury dostępu współdzielonego jest identyfikatorem URI dla kontenera magazynu z tokenem SAS na potrzeby programu Access. Menedżer wdrażania automatycznie konstruuje wartość `$containerRoot` zmiennej. Łączy te wartości w formacie `<container>/<artifactRoot>`.
+Zwróć uwagę `artifactRoot` na `sasUri` właściwości i. Element główny artefaktu może być ustawiony na wartość taką jak `binaries/1.0.0.0` . Identyfikator URI sygnatury dostępu współdzielonego jest identyfikatorem URI dla kontenera magazynu z tokenem SAS na potrzeby programu Access. Menedżer wdrażania automatycznie konstruuje wartość `$containerRoot` zmiennej. Łączy te wartości w formacie `<container>/<artifactRoot>` .
 
-Szablon i plik parametrów muszą znać poprawną ścieżkę do pobierania plików binarnych z wersjami. Na przykład, aby wdrożyć pliki dla aplikacji sieci Web, należy utworzyć następujący plik parametrów z zmienną $containerRoot. Musisz użyć dwóch ukośników odwrotnych (`\\`) dla ścieżki, ponieważ pierwszy jest znakiem ucieczki.
+Szablon i plik parametrów muszą znać poprawną ścieżkę do pobierania plików binarnych z wersjami. Na przykład, aby wdrożyć pliki dla aplikacji sieci Web, należy utworzyć następujący plik parametrów z zmienną $containerRoot. Musisz użyć dwóch ukośników odwrotnych ( `\\` ) dla ścieżki, ponieważ pierwszy jest znakiem ucieczki.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {

@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983571"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751761"
 ---
-# <a name="execute-r-script"></a>Wykonywanie skryptu języka R
+# <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
-W tym artykule opisano, jak używać modułu **skryptu języka r** do uruchamiania kodu języka r w potoku programu Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano, jak używać modułu skryptu języka R do uruchamiania kodu języka R w potoku programu Azure Machine Learning Designer (wersja zapoznawcza).
 
-Za pomocą języka R można wykonywać zadania, które nie są obecnie obsługiwane przez istniejące moduły, takie jak: 
+Za pomocą języka R można wykonywać zadania, które aktualnie nie obsługują istniejące moduły, na przykład: 
 - Tworzenie niestandardowych transformacji danych
 - Używanie własnych metryk do szacowania prognoz
 - Tworzenie modeli przy użyciu algorytmów, które nie są zaimplementowane jako moduły autonomiczne w projektancie
@@ -31,9 +31,9 @@ Program Azure Machine Learning Designer używa dystrybucji CRAN (kompleksowa sie
 
 ## <a name="supported-r-packages"></a>Obsługiwane pakiety języka R
 
-Środowisko języka R jest wstępnie instalowane z ponad 100 pakietów. Aby uzyskać pełną listę, zapoznaj się z sekcją [wstępnie zainstalowanych pakietów języka R](#pre-installed-r-packages).
+Środowisko języka R jest preinstalowane z ponad 100 pakietami. Aby uzyskać pełną listę, zapoznaj się z sekcją [preinstalowane pakiety języka R](#preinstalled-r-packages).
 
-Możesz również dodać następujący kod do dowolnego modułu **skryptu języka R** i zobaczyć zainstalowane pakiety.
+Aby wyświetlić zainstalowane pakiety, można również dodać do dowolnego modułu skryptu języka R następujący kod.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -43,23 +43,23 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 > [!NOTE]
-> Jeśli potok zawiera wiele modułów wykonywania skryptów języka R i potrzebujesz tych samych pakietów, które nie znajdują się na liście wstępnie zainstalowanych, zainstaluj pakiety w każdym module odpowiednio. 
+> Jeśli potok zawiera wiele modułów skryptu wykonywania języka R, które wymagają pakietów, które nie znajdują się na liście wstępnie zainstalowanych, zainstaluj pakiety w każdym module. 
 
 ## <a name="installing-r-packages"></a>Instalowanie pakietów języka R
-Aby zainstalować dodatkowe pakiety języka R, użyj `install.packages()` metody. Pakiety są instalowane dla każdego modułu **wykonywania skryptu języka r** i nie są współużytkowane przez inne moduły **wykonywania skryptów języka r** .
+Aby zainstalować dodatkowe pakiety języka R, użyj `install.packages()` metody. Pakiety są zainstalowane dla każdego modułu wykonywania skryptu języka R. Nie są one współużytkowane przez inne moduły wykonywania skryptów języka R.
 
 > [!NOTE]
-> Określ repozytorium CRAN podczas instalowania pakietów, takich jak`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+> Określ repozytorium CRAN podczas instalowania pakietów, takich jak `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
 Ten przykład pokazuje, jak zainstalować system ZOO:
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -76,21 +76,21 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-  > Sprawdź, czy pakiet już istnieje przed zainstalowaniem go, aby uniknąć powtarzania instalacji. Podobnie `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` jak w przypadku powyżej przykładowego kodu. Powtórzenie instalacji może spowodować przekroczenie limitu czasu żądania usługi sieci Web.     
+ > Przed zainstalowaniem pakietu Sprawdź, czy już istnieje, aby nie powtarzać instalacji. Instalacja powtarzania może spowodować przekroczenie limitu czasu żądań usługi sieci Web.     
 
-## <a name="upload-files"></a>Przekazywanie plików
-**Skrypt Execute języka r** obsługuje przekazywanie plików przy użyciu Azure Machine Learning języka r SDK.
+## <a name="uploading-files"></a>Przekazywanie plików
+Moduł wykonywania skryptu języka R obsługuje przekazywanie plików przy użyciu zestawu Azure Machine Learning R SDK.
 
-Poniższy przykład pokazuje, jak przekazać plik obrazu w **skrypcie Execute języka R**:
+Poniższy przykład pokazuje, jak przekazać plik obrazu w skrypcie Execute języka R:
 ```R
 
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -114,49 +114,44 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Po zakończeniu przebiegu potoku można wyświetlić podgląd obrazu w prawym panelu modułu
+Po zakończeniu przebiegu potoku można wyświetlić podgląd obrazu w prawym panelu modułu.
 
 > [!div class="mx-imgBorder"]
-> ![Przekazany — obraz](media/module/upload-image-in-r-script.png)
+> ![Podgląd przekazanego obrazu](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Jak skonfigurować skrypt wykonywania skryptu języka R
 
-Moduł **wykonywania skryptu języka R** zawiera przykładowy kod, którego można użyć jako punktu wyjścia. Aby skonfigurować moduł **wykonywania skryptu języka R** , podaj zestaw wejść i kod do wykonania.
+Moduł wykonywania skryptu języka R zawiera przykładowy kod, którego można użyć jako punktu wyjścia. Aby skonfigurować moduł wykonywania skryptu języka R, podaj zestaw wejść i kod do uruchomienia.
 
-![R-module](media/module/execute-r-script.png)
+![Diagram danych wejściowych dla modułu języka R](media/module/execute-r-script.png)
 
 Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ramkę z danymi języka R po załadowaniu tego modułu.
 
-1.  Dodaj moduł **wykonywania skryptu języka R** do potoku.
+1.  Dodaj moduł **wykonywania skryptu języka R** do potoku.  
 
-  
+1. Połącz wszystkie dane wejściowe wymagane przez skrypt. Wejścia są opcjonalne i mogą zawierać dane oraz dodatkowy kod R.
 
-1. Połącz wszystkie dane wejściowe, które są potrzebne przez skrypt. Wejścia są opcjonalne i mogą zawierać dane oraz dodatkowy kod R.
+    * **Pozycję DataSet1**: odwołanie do pierwszego danych wejściowych jako `dataframe1` . Wejściowy zestaw danych musi być sformatowany jako plik CSV, TSV lub ARFF. Można też połączyć zestaw danych Azure Machine Learning.
 
-    * **Pozycję DataSet1**: odwołanie do pierwszego danych wejściowych `dataframe1`jako. Wejściowy zestaw danych musi być sformatowany jako CSV, TSV, ARFF lub połączony z zestawem danych Azure Machine Learning.
+    * **Dataset2**: odwołuje się do drugiego danych wejściowych jako `dataframe2` . Ten zestaw danych musi być również sformatowany jako plik CSV, TSV lub ARFF lub jako zestaw danych Azure Machine Learning.
 
-    * **Dataset2**: odwołuje się do drugiego `dataframe2`danych wejściowych jako. Ten zestaw danych musi być również sformatowany jako plik CSV, TSV, ARFF lub jako zestaw danych Azure Machine Learning.
-
-    * **Pakiet skryptu**: trzecia wejściowa akceptuje pliki zip. Spakowany plik może zawierać wiele plików i wiele typów plików.
+    * **Pakiet skryptu**: trzecie wejście akceptuje pliki. zip. Plik spakowany może zawierać wiele plików i wiele typów plików.
 
 1. W polu tekstowym **skrypt języka r** wpisz lub wklej prawidłowy skrypt języka r.
 
     > [!NOTE]
-    > Należy zachować ostrożność podczas pisania skryptu i upewnić się, że nie występuje błąd składniowy, taki jak użycie niezadeklarowanych zmiennych lub zaimportowanych modułów lub funkcji. Należy również zwrócić szczególną uwagę na wstępnie zainstalowaną listę pakietów na końcu tego dokumentu. Aby użyć pakietów, które nie są wymienione na liście, należy je zainstalować w skrypcie, np.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > Należy zachować ostrożność podczas pisania skryptu. Upewnij się, że nie ma błędów składniowych, takich jak użycie niezadeklarowanych zmiennych lub nieimportowanych modułów lub funkcji. Zanotuj dodatkową uwagę na listę wstępnie zainstalowanych pakietów na końcu tego artykułu. Aby użyć pakietów, które nie znajdują się na liście, zainstaluj je w skrypcie. Może to być na przykład `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
     
-    > [!NOTE]
-    > Funkcje zależne od biblioteki X11, takie jak "View", nie są obsługiwane, ponieważ biblioteka X11 nie jest wstępnie zainstalowana.
-    
-    Aby ułatwić rozpoczęcie pracy, pole tekstowe **skryptu języka R** jest wstępnie wypełnione z przykładowym kodem, który można edytować lub zamienić.
+    Aby ułatwić rozpoczęcie pracy, w polu tekstowym **skryptu języka R** zostanie wstępnie wypełniony przykładowy kod, który można edytować lub zamienić.
     
     ```R
     # R version: 3.5.1
-    # The script MUST contain a function named azureml_main
+    # The script MUST contain a function named azureml_main,
     # which is the entry point for this module.
 
-    # Please note that functions dependant on X11 library
-    # such as "View" are not supported because X11 library
-    # is not pre-installed.
+    # Note that functions dependent on the X11 library,
+    # such as "View," are not supported because the X11 library
+    # is not preinstalled.
     
     # The entry point function MUST have two input arguments.
     # If the input port is not connected, the corresponding
@@ -166,7 +161,7 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
     azureml_main <- function(dataframe1, dataframe2){
     print("R script run.")
 
-    # If a zip file is connected to the third input port, it is
+    # If a .zip file is connected to the third input port, it's
     # unzipped under "./Script Bundle". This directory is added
     # to sys.path.
 
@@ -175,46 +170,44 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
     }
     ```
 
- * Skrypt musi zawierać funkcję o nazwie `azureml_main`, która jest punktem wejścia dla tego modułu.
+    Funkcja punktu wejścia musi mieć argumenty wejściowe `Param<dataframe1>` i `Param<dataframe2>` , nawet jeśli te argumenty nie są używane w funkcji.
 
- * Funkcja punktu wejścia musi mieć dwa argumenty wejściowe: `Param<dataframe1>` i `Param<dataframe2>`, nawet jeśli te dwa argumenty nie są używane w funkcji.
-
-   > [!NOTE]
-    > Dane przesłane do modułu **wykonywania skryptu języka R** są przywoływane `dataframe1` jako `dataframe2`i, które różnią się od programu Azure Machine Learning Designer (odwołują `dataset2`się do projektanta jako `dataset1`). Upewnij się, że dane wejściowe są poprawnie referneced w skrypcie.  
+    > [!NOTE]
+    > Dane przesłane do modułu wykonywania skryptu języka R są przywoływane jako `dataframe1` i `dataframe2` , które różnią się od programu Azure Machine Learning Designer (odwołują się do projektanta jako `dataset1` `dataset2` ). Upewnij się, że dane wejściowe są prawidłowo przywoływane w skrypcie.  
  
     > [!NOTE]
-    >  Istniejący kod R może potrzebować drobnych zmian do uruchomienia w potoku projektanta. Na przykład dane wejściowe, które podano w formacie CSV, powinny być jawnie konwertowane na zestaw danych, zanim będzie można używać go w kodzie. Typy danych i kolumn używane w języku R również różnią się w zależności od typu danych i kolumn używanych w projektancie.
+    > Istniejący kod języka R może wymagać drobnych zmian do uruchomienia w potoku projektanta. Na przykład dane wejściowe, które podano w formacie CSV, powinny być jawnie konwertowane na zestaw danych, zanim będzie można używać go w kodzie. Typy danych i kolumn używane w języku R również różnią się w zależności od typu danych i kolumn używanych w projektancie.
 
-1.  **Losowy inicjator**: wpisz wartość, która ma być używana w środowisku języka R jako wartość losowego inicjatora. Ten parametr jest odpowiednikiem wywołania `set.seed(value)` w kodzie R.  
+1.  W przypadku **losowego inicjatora**wprowadź wartość, która ma być używana w środowisku języka R jako wartość losowego inicjatora. Ten parametr jest odpowiednikiem wywołania `set.seed(value)` w kodzie R.  
 
 1. Prześlij potok.  
 
 ## <a name="results"></a>Wyniki
 
-Moduły **Execute skryptu języka R** mogą zwracać wiele danych wyjściowych, ale muszą one być podane jako ramki z danymi języka r. Ramki danych są automatycznie konwertowane na zestawy DataSet w projektancie w celu zapewnienia zgodności z innymi modułami.
+Moduły wykonywania skryptu języka R mogą zwracać wiele danych wyjściowych, ale muszą być one dostarczane jako ramki z danymi języka R. Ramki danych są automatycznie konwertowane na zestawy DataSet w projektancie w celu zapewnienia zgodności z innymi modułami.
 
 Standardowe komunikaty i błędy w języku R są zwracane do dziennika modułu.
 
-Jeśli chcesz wydrukować wyniki w skrypcie języka R, możesz znaleźć wyniki wydrukowane w **70_driver_log** na karcie dane **wyjściowe i dzienniki** na prawym panelu modułu.
+Jeśli chcesz wydrukować wyniki w skrypcie języka R, możesz znaleźć wyniki wydrukowane w **70_driver_log** na karcie dane **wyjściowe i dzienniki** w prawym panelu modułu.
 
 ## <a name="sample-scripts"></a>Przykładowe skrypty
 
-Istnieje wiele sposobów na rozbudowanie potoku za pomocą niestandardowego skryptu języka R.  Ta sekcja zawiera przykładowy kod dla typowych zadań.
+Istnieje wiele sposobów na rozbudowanie potoku przy użyciu niestandardowych skryptów języka R. Ta sekcja zawiera przykładowy kod dla typowych zadań.
 
 
-### <a name="add-r-script-as-an-input"></a>Dodaj skrypt języka R jako dane wejściowe
+### <a name="add-an-r-script-as-an-input"></a>Dodaj skrypt języka R jako dane wejściowe
 
-Moduł **wykonywania skryptu języka r** obsługuje dowolne pliki skryptów języka r jako dane wejściowe. W tym celu należy przekazać je do obszaru roboczego jako część pliku ZIP.
+Moduł wykonywania skryptu języka R obsługuje dowolne pliki skryptów języka R jako dane wejściowe. Aby ich używać, należy przekazać je do obszaru roboczego w ramach pliku zip.
 
-1. Aby przekazać plik ZIP zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy** danych, kliknij pozycję **Utwórz zestaw danych**, a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
+1. Aby przekazać plik. zip zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy danych** . Wybierz pozycję **Utwórz zestaw danych**, a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
 
-1. Sprawdź, czy spakowany plik jest dostępny na liście **Moje zestawy danych** w obszarze Kategorie **zestawy danych** w lewym drzewie modułu.
+1. Sprawdź, czy spakowany plik jest dostępny na liście **Moje zestawy danych** w kategorii **zestawy danych** w lewym drzewie modułu.
 
 1.  Połącz zestaw danych z portem wejściowym **pakietu skryptu** .
 
-1. Wszystkie pliki znajdujące się w pliku ZIP są dostępne podczas wykonywania potoku. 
+1. Wszystkie pliki w pliku zip są dostępne podczas wykonywania potoku. 
 
-    Jeśli plik pakietu skryptu zawierał strukturę katalogów, struktura jest zachowywana. Należy jednak zmienić kod, aby dołączyć do niego pakiet Directory **./Script** .
+    Jeśli plik pakietu skryptu zawierał strukturę katalogów, struktura jest zachowywana. Ale należy zmienić kod, aby dołączyć do niego **pakiet Directory./Script** .
 
 ### <a name="process-data"></a>Przetwarzanie danych
 
@@ -222,12 +215,12 @@ Poniższy przykład pokazuje, jak skalować i znormalizować dane wejściowe:
 
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -236,17 +229,17 @@ Poniższy przykład pokazuje, jak skalować i znormalizować dane wejściowe:
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
-  # If a zip file is connected to the third input port, it is
+  # If a .zip file is connected to the third input port, it's
   # unzipped under "./Script Bundle". This directory is added
   # to sys.path.
   series <- dataframe1$width
-  # find the maximum and minimum values of width column in dataframe1
+  # Find the maximum and minimum values of the width column in dataframe1
   max_v <- max(series)
   min_v <- min(series)
-  # calculate the scale and bias
+  # Calculate the scale and bias
   scale <- max_v - min_v
   bias <- min_v / dis
-  # apply min-max normalizing
+  # Apply min-max normalizing
   dataframe1$width <- dataframe1$width / scale - bias
   dataframe2$width <- dataframe2$width / scale - bias
   # Return datasets as a Named List
@@ -254,15 +247,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>Odczytaj plik ZIP jako dane wejściowe
+### <a name="read-a-zip-file-as-input"></a>Odczytaj plik. zip jako dane wejściowe
 
-Ten przykład pokazuje, jak używać zestawu danych w pliku ZIP jako dane wejściowe do modułu **wykonywania skryptu języka R** .
+Ten przykład pokazuje, jak używać zestawu danych w pliku zip jako dane wejściowe w module wykonywania skryptu języka R.
 
-1. Utwórz plik danych w formacie CSV, a następnie nadaj mu nazwę "plik. csv".
-1. Utwórz plik ZIP i Dodaj plik CSV do archiwum.
+1. Utwórz plik danych w formacie CSV, a następnie nadaj mu nazwę **mydatafile.csv**.
+1. Utwórz plik zip i Dodaj plik CSV do archiwum.
 1. Przekaż spakowany plik do obszaru roboczego Azure Machine Learning. 
 1. Połącz zestaw danych z danymi wejściowymi z **ScriptBundleem** **wykonywania modułu skryptu języka R** .
-1. Użycie poniższego kodu w celu odczytania danych CSV z pliku spakowanego.
+1. Użyj poniższego kodu, aby odczytać dane CSV z pliku spakowanego.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -292,9 +285,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="pass-r-objects-between-execute-r-script-modules"></a>Przekazywanie obiektów R między modułami wykonywania skryptu języka R
 
-Można przekazać obiekty R między wystąpieniami modułu **wykonywania skryptu języka r** przy użyciu wewnętrznego mechanizmu serializacji. W tym przykładzie przyjęto założenie, że chcesz przenieść obiekt `A` R o nazwie między dwa moduły **wykonywania skryptu języka r** .
+Można przekazać obiekty R między wystąpieniami modułu wykonywania skryptu języka R przy użyciu wewnętrznego mechanizmu serializacji. W tym przykładzie przyjęto założenie, że chcesz przenieść obiekt R o nazwie `A` między dwa moduły wykonywania skryptu języka r.
 
-1. Dodaj do potoku pierwszy moduł **skryptu wykonania R** , a następnie wpisz następujący kod w polu tekstowym **skryptu języka r** , aby utworzyć serializowany obiekt `A` jako kolumnę w tabeli danych wyjściowych modułu:  
+1. Dodaj moduł **uruchamiania pierwszego skryptu języka R** do potoku. Następnie wprowadź następujący kod w polu tekstowym **skryptu języka R** , aby utworzyć serializowany obiekt `A` jako kolumnę w tabeli danych wyjściowych modułu:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -308,7 +301,7 @@ Można przekazać obiekty R między wystąpieniami modułu **wykonywania skryptu
     }
     ```
 
-    Jawna konwersja na typ Integer jest wykonywana, ponieważ funkcja serializacji wyprowadza dane w formacie R `Raw` , co nie jest obsługiwane przez projektanta.
+    Jawna konwersja na typ Integer jest wykonywana, ponieważ funkcja serializacji wyprowadza dane w formacie R `Raw` , który nie jest obsługiwany przez projektanta.
 
 1. Dodaj drugie wystąpienie modułu **wykonywania skryptu języka R** i połącz je z portem wyjściowym poprzedniego modułu.
 
@@ -323,9 +316,9 @@ Można przekazać obiekty R między wystąpieniami modułu **wykonywania skryptu
     }
     ```
 
-## <a name="pre-installed-r-packages"></a>Wstępnie zainstalowane pakiety języka R
+## <a name="preinstalled-r-packages"></a>Wstępnie zainstalowane pakiety języka R
 
-Bieżąca lista wstępnie zainstalowanych pakietów języka R dostępnych do użycia:
+Obecnie dostępne są następujące wstępnie zainstalowane pakiety języka R:
 
 |              |            | 
 |--------------|------------| 
@@ -339,19 +332,19 @@ Bieżąca lista wstępnie zainstalowanych pakietów języka R dostępnych do uż
 | bindr        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1.0-6      | 
-| rozruch         | 1.3 — 22     | 
+| boot         | 1.3 — 22     | 
 | broom        | 0.5.2      | 
 | callr        | 3.2.0      | 
-| caret        | 6.0 — 84     | 
+| daszek        | 6.0 — 84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | class        | 7.3-15     | 
-| interfejs wiersza polecenia          | 1.1.0      | 
+| cli          | 1.1.0      | 
 | Program Cliper        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
 | codetools    | 0,2 – 16     | 
 | colorspace   | 1.4-1      | 
-|  — kompilator     | 3.5.1      | 
+| compiler     | 3.5.1      | 
 | crayon       | 1.3.4      | 
 | curl         | 3.3        | 
 | data.table   | 1.12.2     | 
@@ -397,7 +390,7 @@ Bieżąca lista wstępnie zainstalowanych pakietów języka R dostępnych do uż
 | magrittr     | 1.5        | 
 | markdown     | 1          | 
 | MASS         | 7.3 — 51.4   | 
-| Matrix       | 1.2 – 17     | 
+| Macierz       | 1.2 – 17     | 
 | methods      | 3.5.1      | 
 | mgcv         | 1.8 — 28     | 
 | mime         | 0.7        | 
@@ -457,7 +450,7 @@ Bieżąca lista wstępnie zainstalowanych pakietów języka R dostępnych do uż
 | tidyverse    | 1.2.1      | 
 | timeDate     | 3043.102   | 
 | tinytex      | 0.13       | 
-| narzędzia        | 3.5.1      | 
+| tools        | 3.5.1      | 
 | tseries      | 0.10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 

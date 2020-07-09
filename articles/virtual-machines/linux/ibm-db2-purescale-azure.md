@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78945054"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale na platformie Azure
@@ -73,13 +72,13 @@ W tej architekturze są uruchamiane warstwy aplikacji, magazynu i danych w usłu
 
 -   W programie DB2 CF są używane maszyny wirtualne zoptymalizowane pod kątem pamięci, takie jak seria E lub seria L.
 
--   Udostępniony klaster magazynu, który używa standardowych\_maszyn\_wirtualnych DS4 v2 z systemem Linux.
+-   Udostępniony klaster magazynu, który używa standardowych \_ \_ maszyn wirtualnych DS4 v2 z systemem Linux.
 
--   Serwera przesiadkowego zarządzania jest standardową\_maszyną\_wirtualną DS2 v2 z systemem Linux.  Alternatywą jest usługa Azure bastionu, która zapewnia bezpieczne środowisko RDP/SSH dla wszystkich maszyn wirtualnych w sieci wirtualnej.
+-   Serwera przesiadkowego zarządzania jest standardową \_ \_ maszyną wirtualną DS2 v2 z systemem Linux.  Alternatywą jest usługa Azure bastionu, która zapewnia bezpieczne środowisko RDP/SSH dla wszystkich maszyn wirtualnych w sieci wirtualnej.
 
--   Klient jest standardową\_maszyną\_wirtualną DS3 v2 z systemem Windows (używany do testowania).
+-   Klient jest standardową \_ \_ maszyną wirtualną DS3 v2 z systemem Windows (używany do testowania).
 
--   *Opcjonalne*. Serwer monitora. Jest to niezbędny tylko w przypadku niektórych wcześniejszych wersji programu DB2 pureScale. W tym przykładzie użyto standardowej\_maszyny\_wirtualnej DS3 v2 z systemem Linux (używanej w programie DB2 pureScale).
+-   *Opcjonalne*. Serwer monitora. Jest to niezbędny tylko w przypadku niektórych wcześniejszych wersji programu DB2 pureScale. W tym przykładzie użyto standardowej \_ \_ maszyny wirtualnej DS3 v2 z systemem Linux (używanej w programie DB2 pureScale).
 
 > [!NOTE]
 > Klaster DB2 pureScale wymaga co najmniej dwóch wystąpień bazy danych DB2. Wymaga również wystąpienia pamięci podręcznej i wystąpienia Menedżera blokad.

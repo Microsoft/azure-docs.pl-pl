@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e44e2e1eb37e808e60134a6fba5051552e84029
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389347"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definicje plików cookie dla Azure AD B2C
 
@@ -24,11 +24,11 @@ Poniższe sekcje zawierają informacje o plikach cookie używanych w programie A
 
 ## <a name="samesite"></a>SameSite
 
-Usługa Microsoft Azure AD B2C jest zgodna z konfiguracjami przeglądarki SameSite, w tym obsługą `SameSite=None` dla `Secure` atrybutu.
+Usługa Microsoft Azure AD B2C jest zgodna z konfiguracjami przeglądarki SameSite, w tym obsługą dla `SameSite=None` `Secure` atrybutu.
 
 Aby zapewnić ochronę dostępu do lokacji, przeglądarki sieci Web wprowadzają nowy model bezpieczny przez domyślny, który zakłada, że wszystkie pliki cookie powinny być chronione przed dostępem zewnętrznym, o ile nie określono inaczej. Przeglądarka Chrome jest pierwszą osobą implementującą tę zmianę, począwszy od programu [chrome 80 w lutym 2020](https://www.chromium.org/updates/same-site). Aby uzyskać więcej informacji na temat przygotowania do zmiany w programie Chrome, zobacz [Developers: Get Read for New SameSite = none; Bezpieczne ustawienia plików cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) w blogu chromu.
 
-Deweloperzy muszą używać nowego ustawienia `SameSite=None`plików cookie, aby wyznaczyć pliki cookie dla dostępu między lokacjami. Gdy `SameSite=None` atrybut jest obecny, należy użyć dodatkowego `Secure` atrybutu, aby można było uzyskać dostęp do plików cookie między lokacjami za pośrednictwem połączeń HTTPS. Weryfikuj i Testuj wszystkie aplikacje, w tym aplikacje, które używają Azure AD B2C.
+Deweloperzy muszą używać nowego ustawienia plików cookie, `SameSite=None` Aby wyznaczyć pliki cookie dla dostępu między lokacjami. Gdy `SameSite=None` atrybut jest obecny, `Secure` należy użyć dodatkowego atrybutu, aby można było uzyskać dostęp do plików cookie między lokacjami za pośrednictwem połączeń HTTPS. Weryfikuj i Testuj wszystkie aplikacje, w tym aplikacje, które używają Azure AD B2C.
 
 Aby uzyskać więcej informacji, zobacz:
 

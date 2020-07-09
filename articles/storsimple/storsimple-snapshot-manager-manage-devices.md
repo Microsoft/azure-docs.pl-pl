@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab9f34995cea0dee39fa002f0472298a31b9a48e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513982"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Używanie Snapshot Manager StorSimple do nawiązywania połączeń z urządzeniami StorSimple i zarządzania nimi
 ## <a name="overview"></a>Omówienie
@@ -166,7 +166,7 @@ Należy wprowadzić hasło w celu uwierzytelnienia urządzenia z systemem StorSi
 
 #### <a name="to-change-the-expired-password"></a>Aby zmienić wygasłe hasło
 1. W klasycznym portalu Azure Uruchom usługę StorSimple Manager.
-2. Kliknij pozycję **urządzenia** > **Skonfiguruj** dla urządzenia.
+2. Kliknij pozycję **urządzenia**  >  **Skonfiguruj** dla urządzenia.
 3. Przewiń w dół do sekcji StorSimple Snapshot Manager. Wprowadź hasło o długości 14-15 znaków. Upewnij się, że hasło zawiera kombinację wielkich, małych liter, cyfr i znaków specjalnych.
 4. Wprowadź ponownie hasło, aby je potwierdzić.
 5. Kliknij przycisk **Zapisz** w dolnej części strony.

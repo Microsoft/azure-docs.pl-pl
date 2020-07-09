@@ -1,0 +1,291 @@
+- name: Dokumentacja usługi DevTest Labs
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o usłudze DevTest Labs
+      href: devtest-lab-overview.md
+    - name: Usługi Azure DevTest Labs i Lab Services
+      href: lab-services-overview.md
+- name: Samouczki
+  items:
+    - name: Konfigurowanie laboratorium
+      items:
+        - name: Korzystanie z witryny Azure Portal
+          href: tutorial-create-custom-lab.md
+        - name: Używanie szablonu usługi Resource Manager
+          href: create-lab-windows-vm-template.md
+    - name: Dostęp do laboratorium
+      href: tutorial-use-custom-lab.md
+- name: Samples
+  items:
+    - name: Szablony usługi Resource Manager
+      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
+    - name: Azure PowerShell
+      href: samples-powershell.md
+      items:
+        - name: Dodawanie użytkownika zewnętrznego do laboratorium
+          href: scripts/add-external-user-to-lab.md
+        - name: Dodawanie obrazów z witryny Marketplace do laboratorium
+          href: scripts/add-marketplace-images-to-lab.md
+        - name: Tworzenie obrazu niestandardowego z wirtualnego dysku twardego
+          href: scripts/create-custom-image-from-vhd.md
+        - name: Tworzenie roli niestandardowej w laboratorium
+          href: scripts/create-custom-role-in-lab.md
+        - name: Ustawianie dozwolonych rozmiarów maszyn wirtualnych w laboratorium
+          href: scripts/set-allowed-vm-sizes-in-lab.md
+    - name: Azure PowerShell — moduł Az.DevTestLabs2
+      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: samples-cli.md
+      items:
+        - name: Tworzenie i weryfikowanie dostępności maszyny wirtualnej
+          href: scripts/create-verify-virtual-machine-in-lab-cli.md
+        - name: Uruchamianie maszyny wirtualnej
+          href: scripts/start-connect-virtual-machine-in-lab-cli.md
+        - name: Zatrzymywanie i usuwanie maszyny wirtualnej
+          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
+- name: Pojęcia
+  items:
+    - name: DevTest Labs — pojęcia
+      href: devtest-lab-concepts.md
+    - name: Najlepsze rozwiązania dotyczące rozproszonego i wspólnego tworzenia oprogramowania
+      href: best-practices-distributive-collaborative-development-environment.md
+    - name: Integracja z usługą Azure DevOps
+      href: devtest-lab-dev-ops.md
+    - name: Scenariusze
+      items:
+        - name: Popularne scenariusze stosowania usługi DevTest Labs
+          href: devtest-lab-guidance-get-started.md
+        - name: Korzystanie z laboratoriów na potrzeby deweloperów
+          href: devtest-lab-developer-lab.md
+        - name: Korzystanie z laboratoriów na potrzeby środowisk testowych
+          href: devtest-lab-test-env.md
+        - name: Korzystanie z laboratoriów na potrzeby szkolenia
+          href: devtest-lab-training-lab.md
+        - name: Scenariusze używania możliwych do przejęcia maszyn wirtualnych
+          href: devtest-lab-use-claim-capabilities.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Konfigurowanie laboratorium
+      items:
+        - name: Tworzenie laboratorium
+          href: devtest-lab-create-lab.md
+        - name: Tworzenie lub modyfikowanie laboratoriów przy użyciu szablonu usługi Resource Manager
+          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+        - name: Określanie grupy zasobów dla maszyn wirtualnych laboratorium
+          href: resource-group-control.md
+        - name: Dodawanie informacji o pomocy technicznej do laboratorium
+          href: devtest-lab-internal-support-message.md
+        - name: Ustawianie zasad i harmonogramów
+          href: devtest-lab-set-lab-policy.md
+        - name: Konfigurowanie laboratorium w celu użycia bramy pulpitu zdalnego
+          href: configure-lab-remote-desktop-gateway.md
+        - name: Publikowanie anonsu w laboratorium
+          href: devtest-lab-announcements.md
+        - name: Włączanie połączenia przeglądarki na maszynach wirtualnych
+          href: enable-browser-connection-lab-virtual-machines.md
+        - name: Konfigurowanie zarządzania kosztami
+          href: devtest-lab-configure-cost-management.md
+        - name: Ustawianie automatycznego uruchamiania maszyn wirtualnych laboratorium
+          href: devtest-lab-auto-startup-vm.md
+        - name: Skalowanie laboratorium
+          href: devtest-lab-scale-lab.md
+        - name: Włączanie tożsamości zarządzanych dla maszyn wirtualnych laboratorium
+          href: enable-managed-identities-lab-vms.md
+        - name: Zarządzanie bazami maszyn wirtualnych
+          items:
+            - name: Konfigurowanie obrazów z witryny Azure Marketplace
+              href: devtest-lab-configure-marketplace-images.md
+            - name: Włączanie obrazu licencjonowanego
+              href: devtest-lab-enable-licensed-images.md
+            - name: Konfigurowanie galerii obrazów udostępnionych
+              href: configure-shared-image-gallery.md
+        - name: Konfigurowanie tagów
+          href: devtest-lab-add-tag.md
+        - name: Konfigurowanie kontroli dostępu
+          items:
+            - name: Dodawanie właścicieli i użytkowników laboratorium
+              href: devtest-lab-add-devtest-user.md
+            - name: Dostosowywanie uprawnień za pomocą ról niestandardowych
+              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Automatyzacja dodawania użytkowników laboratorium
+              href: automate-add-lab-user.md
+        - name: Zarządzanie sieciami wirtualnymi
+          items:
+            - name: Konfigurowanie sieci wirtualnych
+              href: devtest-lab-configure-vnet.md
+            - name: Wybieranie opcji konfiguracji adresu IP
+              href: devtest-lab-shared-ip.md
+        - name: Usuwanie laboratorium lub maszyny wirtualnej w laboratorium
+          href: devtest-lab-delete-lab-vm.md
+        - name: Eksportowanie lub usuwanie danych osobowych
+          href: personal-data-delete-export.md
+    - name: Korzystanie z maszyn wirtualnych w laboratorium
+      items:
+        - name: Tworzenie maszyny wirtualnej — Azure Portal
+          href: devtest-lab-add-vm.md
+        - name: Tworzenie maszyny wirtualnej — Azure PowerShell
+          href: devtest-lab-vm-powershell.md
+        - name: Tworzenie maszyny wirtualnej — interfejs wiersza polecenia platformy Azure
+          href: devtest-lab-vmcli.md
+        - name: Tworzenie maszyny wirtualnej — szablon usługi Resource Manager
+          href: devtest-lab-use-resource-manager-template.md
+        - name: Tworzenie maszyny wirtualnej za pomocą obrazu z galerii obrazów udostępnionych
+          href: add-vm-use-shared-image.md
+        - name: Łączenie się z maszyną wirtualną za pomocą przeglądarki
+          href: connect-virtual-machine-through-browser.md
+        - name: Uruchamianie lub zatrzymywanie maszyn wirtualnych przy użyciu programu PowerShell lub interfejsu wiersza polecenia
+          href: use-command-line-start-stop-virtual-machines.md
+        - name: Ponowne uruchamianie maszyny wirtualnej
+          href: devtest-lab-restart-vm.md
+        - name: Zmienianie rozmiaru maszyny wirtualnej
+          href: devtest-lab-resize-vm.md
+        - name: Ponowne wdrażanie maszyny wirtualnej
+          href: devtest-lab-redeploy-vm.md
+        - name: Konfigurowanie automatycznego zamykania obliczeniowych maszyn wirtualnych i maszyn wirtualnych laboratorium
+          href: devtest-lab-auto-shutdown.md
+        - name: Tworzenie możliwych do przejęcia maszyn wirtualnych i zarządzanie nimi
+          href: devtest-lab-add-claimable-vm.md
+        - name: Konfigurowanie wpisów tajnych
+          href: devtest-lab-store-secrets-in-key-vault.md
+        - name: Dołączanie lub odłączanie dysków danych
+          href: devtest-lab-attach-detach-data-disk.md
+        - name: Uruchamianie maszyn wirtualnych za pomocą elementów runbook usługi Automation
+          href: start-machines-use-automation-runbooks.md
+        - name: Importowanie maszyn wirtualnych z innego laboratorium
+          href: import-virtual-machines-from-another-lab.md
+    - name: Korzystanie ze środowisk w laboratorium
+      items:
+        - name: Tworzenie środowiska
+          href: devtest-lab-create-environment-from-arm.md
+        - name: Korzystanie z usług typu PaaS (platforma jako usługa)
+          href: use-paas-services.md
+        - name: Środowiska publiczne
+          items:
+            - name: Konfigurowanie i używanie środowisk publicznych
+              href: devtest-lab-configure-use-public-environments.md
+            - name: Tworzenie środowiska z klastrem usługi Service Fabric
+              href: create-environment-service-fabric-cluster.md
+        - name: Łączenie środowiska z siecią wirtualną laboratorium
+          href: connect-environment-lab-virtual-network.md
+        - name: Konfigurowanie środowisk testowych przy użyciu szablonów zagnieżdżonych
+          href: deploy-nested-template-environments.md
+        - name: Używanie tożsamości zarządzanych przez platformę Azure do wdrażania środowisk
+          href: use-managed-identities-environments.md
+        - name: Alerty zabezpieczeń dla środowisk
+          href: environment-security-alerts.md
+    - name: Zarządzanie szablonami wielokrotnego użytku
+      items:
+        - name: Obrazy niestandardowe a formuły
+          href: devtest-lab-comparing-vm-base-image-types.md
+        - name: Zarządzanie szablonami środowiska
+          items:
+            - name: Dodawanie repozytorium Git dla artefaktów i szablonów
+              href: devtest-lab-add-artifact-repo.md
+        - name: Zarządzanie obrazami niestandardowymi
+          items:
+            - name: Tworzenie obrazu niestandardowego z poziomu maszyny wirtualnej
+              href: devtest-lab-create-custom-image-from-vm-using-portal.md
+            - name: Tworzenie obrazu niestandardowego z poziomu dysku VHD — Azure Portal
+              href: devtest-lab-create-template.md
+            - name: Tworzenie obrazu niestandardowego z poziomu dysku VHD — PowerShell
+              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+            - name: Przekazywanie pliku VHD za pomocą programu AzCopy
+              href: devtest-lab-upload-vhd-using-azcopy.md
+            - name: Przekazywanie pliku VHD za pomocą programu PowerShell
+              href: devtest-lab-upload-vhd-using-powershell.md
+            - name: Przekazywanie pliku VHD za pomocą Eksploratora magazynu
+              href: devtest-lab-upload-vhd-using-storage-explorer.md
+        - name: Zarządzanie formułami
+          href: devtest-lab-manage-formulas.md
+        - name: Tworzenie fabryki obrazów
+          href: image-factory-create.md
+          items:
+            - name: Uruchamianie fabryki obrazów z usługi Azure DevOps
+              href: image-factory-set-up-devops-lab.md
+            - name: Zapisywanie obrazów niestandardowych i ich dystrybucja do wielu laboratoriów
+              href: image-factory-save-distribute-custom-images.md
+            - name: Ustawianie zasad przechowywania i uruchamianie skryptów do czyszczenia
+              href: image-factory-set-retention-policy-cleanup.md
+    - name: Zarządzanie artefaktami
+      items:
+        - name: Dodawanie artefaktów do maszyny wirtualnej
+          href: add-artifact-vm.md
+        - name: Tworzenie niestandardowych artefaktów
+          href: devtest-lab-artifact-author.md
+        - name: Dodawanie repozytorium artefaktów do laboratorium
+          href: add-artifact-repository.md
+        - name: Określanie obowiązkowych artefaktów
+          href: devtest-lab-mandatory-artifacts.md
+        - name: Rozwiązywanie problemów ze stosowaniem artefaktów
+          href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Integrowanie z ciągłą integracją/ciągłym dostarczaniem
+      items:
+        - name: Integrowanie laboratoriów z potokiem ciągłej integracji/ciągłego wdrażania usługi Azure Pipelines
+          href: devtest-lab-integrate-ci-cd.md
+        - name: Integrowanie środowisk z potokiem ciągłej integracji/ciągłego wdrażania usługi Azure Pipelines
+          href: integrate-environments-devops-pipeline.md
+        - name: Używanie usługi DevTest Labs w potokach kompilacji i wydań usługi Azure Pipelines
+          href: use-devtest-labs-build-release-pipelines.md
+    - name: Rozszerzanie usługi DevTest Labs
+      items:
+        - name: Rozszerzanie usługi DevTest Labs za pomocą usługi Azure Functions
+          href: extend-devtest-labs-azure-functions.md
+    - name: Raportowanie użycia laboratoriów
+      href: report-usage-across-multiple-labs-subscriptions.md
+    - name: Laboratoria DevTest Lab w przedsiębiorstwie
+      items:
+        - name: Laboratoria DevTest Lab w skali przedsiębiorstwa
+          href: devtest-lab-guidance-prescriptive-adoption.md
+        - name: Architektura referencyjna
+          href: devtest-lab-reference-architecture.md
+        - name: Dostarczanie weryfikacji koncepcji
+          href: deliver-proof-concept.md
+        - name: Skalowanie w górę wdrożenia usługi DevTest Labs
+          href: devtest-lab-guidance-scale.md
+        - name: Orkiestracja implementacji usługi DevTest Labs
+          href: devtest-lab-guidance-orchestrate-implementation.md
+        - name: Nadzór nad infrastrukturą usługi DevTest Labs
+          items:
+            - name: Zasoby
+              href: devtest-lab-guidance-governance-resources.md
+            - name: Koszt i własność
+              href: devtest-lab-guidance-governance-cost-ownership.md
+            - name: Zasady i zgodność
+              href: devtest-lab-guidance-governance-policy-compliance.md
+            - name: Migrowanie i integracja aplikacji
+              href: devtest-lab-guidance-governance-application-migration-integration.md
+    - name: Testowanie aplikacji na platformie Azure
+      href: test-app-azure.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z tworzeniem maszyn wirtualnych i środowisk
+          href: troubleshoot-vm-environment-creation-failures.md
+        - name: Rozwiązywanie problemów z artefaktami
+          href: devtest-lab-troubleshoot-artifact-failure.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia
+      href: /cli/azure/lab
+    - name: PowerShell
+      href: /powershell/module/az.devtestlabs
+    - name: PowerShell — przykładowy moduł Az.DevTestLabs2
+      href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
+    - name: Interfejs API REST
+      href: 'https://docs.microsoft.com/rest/api/dtl/'
+    - name: Szablon usługi Resource Manager
+      href: /azure/templates/microsoft.devtestlab/allversions
+- name: Zasoby
+  items:
+    - name: Aktualizacje platformy Azure
+      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-devtestlabs.html'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'
+    - name: Filmy wideo
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
+    - name: Często zadawane pytania
+      href: devtest-lab-faq.md

@@ -1,19 +1,18 @@
 ---
 title: Filtry zabezpieczeń do przycinania wyników przy użyciu Active Directory
 titleSuffix: Azure Cognitive Search
-description: Kontrola dostępu do zawartości platformy Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości Azure Active Directory (AAD).
+description: Uprawnienia zabezpieczeń na poziomie dokumentu dla wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości Azure Active Directory (AAD).
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/04/2020
+ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080495"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników Wyszukiwanie poznawcze platformy Azure przy użyciu tożsamości Active Directory
 
@@ -28,7 +27,7 @@ W tym artykule opisano następujące zadania:
 > - Wygeneruj żądanie wyszukiwania z filtrem identyfikatorów grup
 > 
 > [!NOTE]
-> Przykładowe fragmenty kodu w tym artykule są zapisywane w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](https://aka.ms/search-dotnet-howto). 
+> Przykładowe fragmenty kodu w tym artykule są zapisywane w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,11 +41,11 @@ Aplikacja musi być również zarejestrowana w usłudze AAD, zgodnie z opisem w 
 
 Ten krok integruje aplikację z usługą AAD w celu zaakceptowania logowania użytkowników i kont grup. Jeśli nie jesteś administratorem usługi AAD w organizacji, może być konieczne [utworzenie nowej dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) w celu wykonania poniższych kroków.
 
-1.  >  Przejdź do [**portalu rejestracji aplikacji**](https://apps.dev.microsoft.com)**zbieżność aplikacji** > **Dodaj aplikację**.
+1. Przejdź do [**portalu rejestracji aplikacji**](https://apps.dev.microsoft.com)  >   **zbieżność aplikacji**  >  **Dodaj aplikację**.
 2. Wprowadź nazwę aplikacji, a następnie kliknij przycisk **Utwórz**. 
 3. Wybierz nowo zarejestrowanej aplikacji na stronie Moje aplikacje.
-4. Na stronie Rejestracja aplikacji > **platformy** > **Dodaj platformę**, wybierz pozycję **interfejs API sieci Web**.
-5. Na stronie Rejestracja aplikacji przejdź do pozycji > **Microsoft Graph uprawnienia** > **Dodaj**.
+4. Na stronie Rejestracja aplikacji > **platformy**  >  **Dodaj platformę**, wybierz pozycję **interfejs API sieci Web**.
+5. Na stronie Rejestracja aplikacji przejdź do pozycji > **Microsoft Graph uprawnienia**  >  **Dodaj**.
 6. W obszarze Wybierz uprawnienia Dodaj następujące delegowane uprawnienia, a następnie kliknij przycisk **OK**:
 
    + **Katalog. ReadWrite. All**

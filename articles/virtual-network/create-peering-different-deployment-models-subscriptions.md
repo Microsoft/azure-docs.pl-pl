@@ -7,18 +7,17 @@ documentationcenter: ''
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 6823514e284f75f0580578dcabaa1b1bdcbe2f59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239836"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85412502"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania i subskrypcje
 
@@ -34,7 +33,7 @@ Procedurę tworzenia komunikacji równorzędnej sieci wirtualnej różnią się 
 
 Nie można utworzyć komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. W tym samouczku są używane sieci wirtualne istniejące w tym samym regionie. Ten samouczek umożliwia równorzędne sieci wirtualne w tym samym regionie. Można także równorzędne sieci wirtualne w różnych [obsługiwanych regionach](virtual-network-manage-peering.md#cross-region). Zaleca się zapoznanie się z [wymaganiami i ograniczeniami komunikacji równorzędnej](virtual-network-manage-peering.md#requirements-and-constraints) przed równorzędnymi sieciami wirtualnymi.
 
-Podczas tworzenia komunikacji równorzędnej sieci wirtualnej między sieciami wirtualnymi, które istnieją w różnych subskrypcjach, subskrypcje muszą być skojarzone z tą samą dzierżawą Azure Active Directory. Jeśli nie masz jeszcze dzierżawy Azure Active Directory, możesz ją szybko [utworzyć](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Sieci wirtualne można łączyć w różnych subskrypcjach i różnych Azure Active Directory dzierżawców przy użyciu [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)platformy Azure.
+Podczas tworzenia komunikacji równorzędnej sieci wirtualnej między sieciami wirtualnymi, które istnieją w różnych subskrypcjach, subskrypcje mogą być skojarzone z tą samą dzierżawą Azure Active Directory. Jeśli nie masz jeszcze dzierżawy Azure Active Directory, możesz ją szybko [utworzyć](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant).
 
 Do utworzenia komunikacji równorzędnej sieci wirtualnej można użyć [Azure Portal](#portal), [interfejsu wiersza polecenia](#cli) platformy Azure lub [programu Azure PowerShell](#powershell) . Kliknij dowolne z poprzednich linków narzędzi, aby przejść bezpośrednio do procedury tworzenia komunikacji równorzędnej sieci wirtualnej przy użyciu wybranego przez siebie narzędzia.
 
@@ -57,7 +56,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 6. W wyświetlonym bloku **myVnetA-Access Control (IAM)** kliknij pozycję **+ Dodaj przypisanie roli**.
 7. W wyświetlonym bloku **Dodaj przypisanie roli** wybierz opcję **współautor sieci** w polu **rola** .
 8. W polu **Wybierz** wybierz pozycję UserB lub wpisz adres e-mail UserB, aby go wyszukać. Lista wyświetlanych użytkowników pochodzi z tego samego Azure Active Directory dzierżawy, co sieć wirtualna, dla której konfigurujesz komunikację równorzędną. Kliknij pozycję UserB, gdy pojawi się na liście.
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 10. Wyloguj się z portalu jako UserA, a następnie zaloguj się jako UserB.
 11. Kliknij pozycję **+ Nowy**, wpisz *sieć wirtualną* w polu **Wyszukaj w witrynie Marketplace** , a następnie w wynikach wyszukiwania kliknij pozycję **Sieć wirtualna** .
 12. W wyświetlonym bloku **Virtual Network** wybierz pozycję **klasyczny** w polu **Wybierz model wdrażania** , a następnie kliknij przycisk **Utwórz**.
@@ -95,7 +94,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>Tworzenie komunikacji równorzędnej — interfejs wiersza polecenia platformy Azure
 
-W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. UserA@azure.com Zastąp UserB@azure.com i we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB. Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polecenia platformy Azure i interfejsu wiersza polecenia platformy Azure. Kroki opisane w Azure Cloud Shell można wykonać, zaznaczając przycisk **Wypróbuj** w jednym z następujących kroków lub instalując [klasyczny interfejs wiersza polecenia](/cli/azure/install-classic-cli) i [interfejs wiersza](/cli/azure/install-azure-cli) polecenia i uruchamiając polecenie na komputerze lokalnym.
+W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB. Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polecenia platformy Azure i interfejsu wiersza polecenia platformy Azure. Kroki opisane w Azure Cloud Shell można wykonać, zaznaczając przycisk **Wypróbuj** w jednym z następujących kroków lub instalując [klasyczny interfejs wiersza polecenia](/cli/azure/install-classic-cli) i [interfejs wiersza](/cli/azure/install-azure-cli) polecenia i uruchamiając polecenie na komputerze lokalnym.
 
 1. Jeśli używasz Cloud Shell, przejdź do kroku 2, ponieważ Cloud Shell automatycznie loguje się do platformy Azure. Otwórz sesję polecenia i zaloguj się do platformy Azure przy użyciu `azure login` polecenia.
 2. Uruchom klasyczny interfejs wiersza polecenia w trybie zarządzania usługami, wprowadzając `azure config mode asm` polecenie.
@@ -106,7 +105,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
     ```
 
 4. Pozostałe kroki należy wykonać przy użyciu powłoki bash z interfejsem wiersza polecenia platformy Azure (nie z klasycznym interfejsem wiersza polecenia).
-5. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<SubscriptionB-Id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `az account show` polecenie. Wartość **identyfikatora** w danych wyjściowych to identyfikator subskrypcji. Skopiuj zmodyfikowany skrypt, wklej go w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter`.
+5. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<SubscriptionB-Id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `az account show` polecenie. Wartość **identyfikatora** w danych wyjściowych to identyfikator subskrypcji. Skopiuj zmodyfikowany skrypt, wklej go w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` .
 
     ```azurecli-interactive
     az role assignment create \
@@ -117,7 +116,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 
     Po utworzeniu sieci wirtualnej (klasycznej) w kroku 4 platforma Azure utworzyła sieć wirtualną w grupie zasobów *Sieć domyślna* .
 6. Rejestruj UserB z platformy Azure i zaloguj się jako UserA w interfejsie wiersza polecenia.
-7. Utwórz grupę zasobów i sieć wirtualną (Menedżer zasobów). Skopiuj następujący skrypt, wklej go w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter`.
+7. Utwórz grupę zasobów i sieć wirtualną (Menedżer zasobów). Skopiuj następujący skrypt, wklej go w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` .
 
     ```azurecli-interactive
     #!/bin/bash
@@ -151,7 +150,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
       --scope $vNetAId
     ```
 
-8. Utwórz komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<SubscriptionB-id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `az account show` polecenie. Wartość **identyfikatora** w danych wyjściowych to identyfikator subskrypcji. platforma Azure utworzyła sieć wirtualną (klasyczną) utworzoną w kroku 4 w grupie zasobów o nazwie *default-Networking*. Wklej zmodyfikowany skrypt w sesji interfejsu wiersza polecenia, a następnie naciśnij `Enter`klawisz.
+8. Utwórz komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<SubscriptionB-id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `az account show` polecenie. Wartość **identyfikatora** w danych wyjściowych to identyfikator subskrypcji. platforma Azure utworzyła sieć wirtualną (klasyczną) utworzoną w kroku 4 w grupie zasobów o nazwie *default-Networking*. Wklej zmodyfikowany skrypt w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` .
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -181,7 +180,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 
 ## <a name="create-peering---powershell"></a><a name="powershell"></a>Tworzenie komunikacji równorzędnej — PowerShell
 
-W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. UserA@azure.com Zastąp UserB@azure.com i we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB. 
+W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli używasz konta z uprawnieniami do obu subskrypcji, możesz użyć tego samego konta dla wszystkich kroków, pominąć procedurę rejestrowania z platformy Azure i usunąć wiersze skryptu, które tworzą przypisania roli użytkownika. Zastąp UserA@azure.com i UserB@azure.com we wszystkich następujących skryptach nazwami użytkowników, których używasz do usera i UserB. 
 
 1. Zainstaluj najnowszą wersję środowiska PowerShell [platformy Azure](https://www.powershellgallery.com/packages/Azure) i [AZ](https://www.powershellgallery.com/packages/Az) modules. Jeśli jesteś nowym użytkownikiem programu Azure PowerShell, zobacz temat [Azure PowerShell overview (Omówienie programu Azure PowerShell)](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Rozpocznij sesję programu PowerShell.
@@ -205,7 +204,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
     > Zaimportowanie zmienionego pliku konfiguracji sieci może spowodować zmianę istniejących sieci wirtualnych (klasycznych) w Twojej subskrypcji. Upewnij się, że dodano tylko poprzednią sieć wirtualną, ale nie wszystkie istniejące sieci wirtualne nie są zmieniane ani usuwane z subskrypcji. 
 
 5. Zaloguj się do subskrypcji usługi UserB jako UserB, aby użyć poleceń Menedżer zasobów, wprowadzając `Connect-AzAccount` polecenie.
-6. Przypisz uprawnienia UserA do sieci wirtualnej B. Skopiuj następujący skrypt do edytora tekstów na komputerze i Zastąp `<SubscriptionB-id>` ciąg identyfikatorem subskrypcji B. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Platforma Azure utworzyła sieć wirtualną (klasyczną) utworzoną w kroku 4 w grupie zasobów o nazwie *default-Networking*. Aby wykonać skrypt, skopiuj zmodyfikowany skrypt, wklej go w programie PowerShell, a następnie naciśnij klawisz `Enter`.
+6. Przypisz uprawnienia UserA do sieci wirtualnej B. Skopiuj następujący skrypt do edytora tekstów na komputerze i Zastąp ciąg `<SubscriptionB-id>` identyfikatorem subskrypcji B. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Platforma Azure utworzyła sieć wirtualną (klasyczną) utworzoną w kroku 4 w grupie zasobów o nazwie *default-Networking*. Aby wykonać skrypt, skopiuj zmodyfikowany skrypt, wklej go w programie PowerShell, a następnie naciśnij klawisz `Enter` .
 
     ```powershell
     New-AzRoleAssignment `
@@ -215,7 +214,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
     ```
 
 7. Wyloguj się z platformy Azure jako UserB i zaloguj się do subskrypcji UserA jako UserA, wprowadzając `Connect-AzAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#permissions).
-8. Utwórz sieć wirtualną (Menedżer zasobów), kopiując następujący skrypt, wklejając go w programie PowerShell, a następnie naciskając `Enter`:
+8. Utwórz sieć wirtualną (Menedżer zasobów), kopiując następujący skrypt, wklejając go w programie PowerShell, a następnie naciskając `Enter` :
 
     ```powershell
     # Variables for common values
@@ -235,7 +234,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
       -Location $location
     ```
 
-9. Przypisz uprawnienia UserB do myVnetA. Skopiuj następujący skrypt do edytora tekstu na komputerze i Zastąp `<SubscriptionA-Id>` ciąg identyfikatorem subskrypcji a. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Wklej zmodyfikowaną wersję skryptu w programie PowerShell, a następnie naciśnij `Enter` ją, aby wykonać operację.
+9. Przypisz uprawnienia UserB do myVnetA. Skopiuj następujący skrypt do edytora tekstu na komputerze i Zastąp ciąg `<SubscriptionA-Id>` identyfikatorem subskrypcji a. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Wklej zmodyfikowaną wersję skryptu w programie PowerShell, a następnie naciśnij `Enter` ją, aby wykonać operację.
 
     ```powershell
     New-AzRoleAssignment `
@@ -244,7 +243,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
 
-10. Skopiuj następujący skrypt do edytora tekstów na komputerze i Zastąp `<SubscriptionB-id>` ciąg identyfikatorem subskrypcji B. Aby myVnetA równorzędny do myVNetB, skopiuj zmodyfikowany skrypt, wklej go w programie PowerShell, a następnie naciśnij `Enter`klawisz.
+10. Skopiuj następujący skrypt do edytora tekstów na komputerze i Zastąp ciąg `<SubscriptionB-id>` identyfikatorem subskrypcji B. Aby myVnetA równorzędny do myVNetB, skopiuj zmodyfikowany skrypt, wklej go w programie PowerShell, a następnie naciśnij klawisz `Enter` .
 
     ```powershell
     Add-AzVirtualNetworkPeering `
@@ -253,7 +252,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-11. Aby wyświetlić stan komunikacji równorzędnej myVnetA, Skopiuj następujący skrypt, wklejając go do programu PowerShell i naciskając klawisz `Enter`.
+11. Aby wyświetlić stan komunikacji równorzędnej myVnetA, Skopiuj następujący skrypt, wklejając go do programu PowerShell i naciskając klawisz `Enter` .
 
     ```powershell
     Get-AzVirtualNetworkPeering `
@@ -297,7 +296,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    azure network vnet delete --vnet myVnetB --quiet
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>Narzędzia
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. W wierszu polecenia programu PowerShell wprowadź następujące polecenie, aby usunąć sieć wirtualną (Menedżer zasobów):
 

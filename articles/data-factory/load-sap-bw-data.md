@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415837"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081312"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +69,7 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
 
    3. Wybierz **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Zakończ**.
 
-   4. Zostanie utworzone nowe połączenie. Wybierz pozycję **Dalej**.
+   4. Zostanie utworzone nowe połączenie. Wybierz opcję **Dalej**.
 
 5. Na stronie **Wybierz miejscowe miejsca docelowe programu Open** Hub Przeglądaj lokalizacje dostępne w usłudze SAP BW. Wybierz OHD, z którego mają zostać skopiowane dane, a następnie wybierz przycisk **dalej**.
 
@@ -81,7 +81,7 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz pozycję **ut
 
    ![Konfigurowanie SAP BW Otwórz filtr centrum](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. Na stronie **docelowy magazyn danych** wybierz pozycję **+ Utwórz nowe połączenie** > **Azure Data Lake Storage Gen2** > **Kontynuuj**.
+7. Na stronie **docelowy magazyn danych** wybierz pozycję **+ Utwórz nowe połączenie**  >  **Azure Data Lake Storage Gen2**  >  **Kontynuuj**.
 
 8. Na stronie **Określanie połączenia Azure Data Lake Storage** wykonaj następujące kroki, aby utworzyć połączenie.
 
@@ -165,7 +165,7 @@ Na **stronie Wprowadzenie do usługi Data Factory wybierz** pozycję **Utwórz p
 
    - **HighWatermarkBlobDirectory**: Określ ścieżkę folderu w kontenerze do przechowywania wartości górnego limitu.
 
-   - **HighWatermarkBlobName**: Określ nazwę obiektu BLOB do przechowywania wartości górnego limitu, na przykład `requestIdCache.txt`. W usłudze BLOB Storage przejdź do odpowiedniej ścieżki HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, takich jak *Container/Path/requestIdCache. txt*. Utwórz obiekt BLOB z zawartością 0.
+   - **HighWatermarkBlobName**: Określ nazwę obiektu BLOB do przechowywania wartości górnego limitu, na przykład `requestIdCache.txt` . W usłudze BLOB Storage przejdź do odpowiedniej ścieżki HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, takich jak *Container/Path/requestIdCache.txt*. Utwórz obiekt BLOB z zawartością 0.
 
       ![Zawartość obiektu blob](media/load-sap-bw-data/blob.png)
 
@@ -194,7 +194,7 @@ Na **stronie Wprowadzenie do usługi Data Factory wybierz** pozycję **Utwórz p
 
       4. Wybierz pozycję **Zapisz**. Następnie skopiuj wartość **adresu URL post protokołu HTTP** do użycia w potoku Data Factory.
 
-4. Po podaniu parametrów potoku Data Factory wybierz pozycję **Debuguj** > **Zakończ** , aby wywołać przebieg, aby sprawdzić poprawność konfiguracji. Lub wybierz pozycję **Opublikuj** , aby opublikować wszystkie zmiany, a następnie wybierz pozycję **Dodaj wyzwalacz** , aby wykonać przebieg.
+4. Po podaniu parametrów potoku Data Factory wybierz pozycję **Debuguj**  >  **Zakończ** , aby wywołać przebieg, aby sprawdzić poprawność konfiguracji. Lub wybierz pozycję **Opublikuj** , aby opublikować wszystkie zmiany, a następnie wybierz pozycję **Dodaj wyzwalacz** , aby wykonać przebieg.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW otwieranie konfiguracji miejsca docelowego centrum
 
@@ -269,7 +269,7 @@ Po wykonaniu tej czynności wszystkie kolejne DTPs różnicowe i Data Factory wy
 
 Aby ustawić stan DTP Delta do **pobrania**, można użyć następującej opcji, aby ręcznie uruchomić różnicowe DTP:
 
-    *No Data Transfer; Delta Status in Source: Fetched*
+*Brak Transfer danych; Stan Delta w źródle: pobrane*
 
 ## <a name="next-steps"></a>Następne kroki
 

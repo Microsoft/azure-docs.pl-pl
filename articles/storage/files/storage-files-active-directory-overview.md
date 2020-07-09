@@ -5,19 +5,18 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 7d9f8ccb4273d1378c4826dea420c4edca2f8ac3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536588"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263367"
 ---
-# <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Omówienie usługi Azure Files uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
+# <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Aby dowiedzieć się, jak włączyć lokalne uwierzytelnianie Active Directory Domain Services dla udziałów plików platformy Azure (wersja zapoznawcza), zobacz [Włączanie uwierzytelniania lokalnego Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure](storage-files-identity-auth-active-directory-enable.md).
+Aby dowiedzieć się, jak włączyć lokalne uwierzytelnianie Active Directory Domain Services dla udziałów plików platformy Azure, zobacz [włączenie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure](storage-files-identity-auth-active-directory-enable.md).
 
 Aby dowiedzieć się, jak włączyć uwierzytelnianie AD DS Azure dla udziałów plików platformy Azure, zobacz [Włączanie uwierzytelniania Azure Active Directory Domain Services na Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
@@ -42,7 +41,7 @@ Warto zrozumieć niektóre kluczowe terminy związane z uwierzytelnianiem w usł
 
 - **Active Directory Domain Services lokalne (AD DS)**
 
-    Integracja Active Directory Domain Services lokalnych (AD DS) z programem Azure Files (wersja zapoznawcza) zapewnia metody przechowywania danych katalogowych podczas udostępniania ich użytkownikom i administratorom sieci. Zabezpieczenia są zintegrowane z AD DS za pomocą uwierzytelniania logowania i kontroli dostępu do obiektów w katalogu. Za pomocą pojedynczego logowania do sieci administratorzy mogą zarządzać danymi katalogowymi i organizacją w całej sieci, a autoryzowani użytkownicy sieci mogą uzyskiwać dostęp do zasobów w dowolnym miejscu w sieci. AD DS jest zazwyczaj akceptowana przez przedsiębiorstwa w środowiskach lokalnych, a poświadczenia AD DS są używane jako tożsamość kontroli dostępu. Aby uzyskać więcej informacji, zobacz [Active Directory Domain Services przegląd](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+    Integracja Active Directory Domain Services lokalnych (AD DS) z programem Azure Files udostępnia metody przechowywania danych katalogowych podczas udostępniania ich użytkownikom i administratorom sieci. Zabezpieczenia są zintegrowane z AD DS za pomocą uwierzytelniania logowania i kontroli dostępu do obiektów w katalogu. Za pomocą pojedynczego logowania do sieci administratorzy mogą zarządzać danymi katalogowymi i organizacją w całej sieci, a autoryzowani użytkownicy sieci mogą uzyskiwać dostęp do zasobów w dowolnym miejscu w sieci. AD DS jest zazwyczaj akceptowana przez przedsiębiorstwa w środowiskach lokalnych, a poświadczenia AD DS są używane jako tożsamość kontroli dostępu. Aby uzyskać więcej informacji, zobacz [Active Directory Domain Services przegląd](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Access Control oparte na rolach (RBAC) na platformie Azure**
 
@@ -54,11 +53,11 @@ Uwierzytelnianie oparte na tożsamości i pomoc techniczna dla list ACL systemu 
 
 ### <a name="replace-on-premises-file-servers"></a>Zastępowanie lokalnych serwerów plików
 
-Przestarzałe i zastępowane lokalne serwery plików są typowym problemem, który każde przedsiębiorstwo napotyka w trakcie jego modernizacji. Udziały plików platformy Azure z uwierzytelnianiem lokalnym AD DS (wersja zapoznawcza) są najlepszym rozwiązaniem w tym miejscu, gdy można migrować dane do Azure Files. Pełna migracja umożliwi skorzystanie z zalet wysokiej dostępności i skalowalności, jednocześnie minimalizując zmiany po stronie klienta. Zapewnia bezproblemowe środowisko migracji użytkownikom końcowym, dzięki czemu może nadal uzyskiwać dostęp do danych za pomocą tych samych poświadczeń przy użyciu istniejących maszyn przyłączonych do domeny.
+Przestarzałe i zastępowane lokalne serwery plików są typowym problemem, który każde przedsiębiorstwo napotyka w trakcie jego modernizacji. Udziały plików platformy Azure z lokalnym uwierzytelnianiem AD DS są najlepszym rozwiązaniem w tym miejscu, gdy można migrować dane do Azure Files. Pełna migracja umożliwi skorzystanie z zalet wysokiej dostępności i skalowalności, jednocześnie minimalizując zmiany po stronie klienta. Zapewnia bezproblemowe środowisko migracji użytkownikom końcowym, dzięki czemu może nadal uzyskiwać dostęp do danych za pomocą tych samych poświadczeń przy użyciu istniejących maszyn przyłączonych do domeny.
 
 ### <a name="lift-and-shift-applications-to-azure"></a>Podnieś i Przenieś aplikacje na platformę Azure
 
-Podczas podnoszenia i przesunięcia aplikacji do chmury chcesz zachować ten sam model uwierzytelniania dla danych. W miarę jak rozszerzono środowisko kontroli dostępu oparte na tożsamościach do udziałów plików platformy Azure, eliminuje konieczność zmiany aplikacji na nowoczesne metody uwierzytelniania i przyspieszanie wdrażania chmury. Udziały plików platformy Azure udostępniają opcję integracji z usługą Azure AD DS lub AD DS lokalnym (wersja zapoznawcza) na potrzeby uwierzytelniania. Jeśli plan ma być 100% w chmurze i minimalizuje wysiłki związane z zarządzaniem infrastrukturami w chmurze, platforma Azure AD DS będzie lepiej dopasowana jako w pełni zarządzana usługa domeny. Jeśli wymagana jest pełna zgodność z możliwościami AD DS, warto rozważyć rozszerzenie środowiska AD DS na chmurę przez samoobsługowe kontrolery domeny na maszynach wirtualnych. W obu przypadkach zapewniamy elastyczność wybierania usług domenowych, które odpowiadają potrzebom biznesowym.
+Podczas podnoszenia i przesunięcia aplikacji do chmury chcesz zachować ten sam model uwierzytelniania dla danych. W miarę jak rozszerzono środowisko kontroli dostępu oparte na tożsamościach do udziałów plików platformy Azure, eliminuje konieczność zmiany aplikacji na nowoczesne metody uwierzytelniania i przyspieszanie wdrażania chmury. Udziały plików platformy Azure udostępniają opcję integracji z usługą Azure AD DS lub AD DS lokalnym na potrzeby uwierzytelniania. Jeśli plan ma być 100% w chmurze i minimalizuje wysiłki związane z zarządzaniem infrastrukturami w chmurze, platforma Azure AD DS będzie lepiej dopasowana jako w pełni zarządzana usługa domeny. Jeśli wymagana jest pełna zgodność z możliwościami AD DS, warto rozważyć rozszerzenie środowiska AD DS na chmurę przez samoobsługowe kontrolery domeny na maszynach wirtualnych. W obu przypadkach zapewniamy elastyczność wybierania usług domenowych, które odpowiadają potrzebom biznesowym.
 
 ### <a name="backup-and-disaster-recovery-dr"></a>Kopia zapasowa i odzyskiwanie po awarii (DR)
 
@@ -66,17 +65,18 @@ Jeśli przechowujesz podstawowy magazyn plików lokalnie, udziały plików platf
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-Poniższa tabela zawiera podsumowanie obsługiwanych scenariuszy uwierzytelniania udziałów plików platformy Azure dla usługi Azure AD DS i lokalnych AD DS (wersja zapoznawcza). Zalecamy wybranie usługi domeny, która została przyjęta dla środowiska klienta na potrzeby integracji z Azure Files. Jeśli masz AD DS (wersja zapoznawcza), która jest już skonfigurowana lokalnie lub na platformie Azure, w której Twoje urządzenia są przyłączone do usługi AD, należy wybrać opcję korzystania z AD DS (wersja zapoznawcza) uwierzytelniania udziałów plików platformy Azure. Podobnie, jeśli już przyjęto usługę Azure AD DS (GA), należy ją użyć do uwierzytelniania udziałów plików platformy Azure.
+Poniższa tabela zawiera podsumowanie obsługiwanych scenariuszy uwierzytelniania udziałów plików platformy Azure dla usługi Azure AD DS i AD DS lokalnych. Zalecamy wybranie usługi domeny, która została przyjęta dla środowiska klienta na potrzeby integracji z Azure Files. Jeśli AD DS już skonfigurowano lokalnie lub na platformie Azure, w której urządzenia są przyłączone do usługi AD, należy skorzystać z AD DS uwierzytelniania udziałów plików platformy Azure. Podobnie, jeśli usługa Azure AD DS została już przyjęta, należy ją użyć do uwierzytelniania w udziałach plików platformy Azure.
 
 
-|Uwierzytelnianie za pomocą usługi Azure AD DS  | Uwierzytelnianie AD DS lokalnego (wersja zapoznawcza)  |
+|Uwierzytelnianie za pomocą usługi Azure AD DS  | Lokalne uwierzytelnianie AD DS  |
 |---------|---------|
-|Przyłączone do AD DS maszyny z systemem Windows mogą uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD za pośrednictwem protokołu SMB.     |Lokalne przyłączone do AD DS maszyny z systemem Windows mogą uzyskiwać dostęp do udziałów plików platformy Azure z lokalnymi poświadczeniami Active Directory, które są synchronizowane z usługą Azure AD za pośrednictwem protokołu SMB.         |
+|Przyłączone do AD DS maszyny z systemem Windows mogą uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD za pośrednictwem protokołu SMB.     |Lokalnie przyłączone do AD DS lub maszyny z systemem Windows przyłączone do platformy AD DS Azure mogą uzyskiwać dostęp do udziałów plików platformy Azure z lokalnymi poświadczeniami Active Directory, które są synchronizowane z usługą Azure AD za pośrednictwem protokołu SMB. Twój klient musi mieć linię wglądu w AD DS.        |
 
-### <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
+### <a name="restrictions"></a>Ograniczenia
 
 - Usługa Azure AD DS i lokalne uwierzytelnianie AD DS nie obsługują uwierzytelniania dla kont komputerów. Zamiast tego możesz rozważyć użycie konta logowania do usługi.
-- Uwierzytelnianie za pomocą usługi Azure AD DS nie obsługuje uwierzytelniania w przypadku urządzeń przyłączonych do usługi Azure AD.
+- W przypadku urządzeń przyłączonych do usługi Azure AD lub urządzeń zarejestrowanych w usłudze Azure AD nie jest obsługiwane uwierzytelnianie AD DS platformy Azure ani uwierzytelnianie lokalne AD DS.
+- Udziały plików platformy Azure obsługują tylko uwierzytelnianie oparte na tożsamościach dla jednej z następujących usług domeny: [Azure Active Directory Domain Services (AD DS platformy Azure)](#azure-ad-ds) lub [Active Directory Domain Services lokalnych (AD DS)](#ad-ds).
 
 ## <a name="advantages-of-identity-based-authentication"></a>Zalety uwierzytelniania opartego na tożsamościach
 Uwierzytelnianie oparte na tożsamościach dla Azure Files oferuje kilka korzyści z używania uwierzytelniania klucza współużytkowanego:
@@ -92,19 +92,37 @@ Uwierzytelnianie oparte na tożsamościach dla Azure Files oferuje kilka korzyś
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Udziały plików platformy Azure obsługują uwierzytelnianie Kerberos w celu integracji z usługą Azure AD DS lub AD DS lokalnym (wersja zapoznawcza). Aby można było włączyć uwierzytelnianie w udziałach plików platformy Azure, należy najpierw skonfigurować środowisko domeny. W przypadku uwierzytelniania za pomocą usługi Azure AD DS należy włączyć Azure AD Domain Services i dołączanie domeny do maszyn wirtualnych, z których planujesz uzyskać dostęp do danych plików. Przyłączona do domeny maszyna wirtualna musi znajdować się w tej samej sieci wirtualnej co AD DS platformy Azure. Podobnie w przypadku uwierzytelniania lokalnego AD DS (wersja zapoznawcza) musisz skonfigurować kontroler domeny i domenę dołączać do maszyn lub maszyn wirtualnych.
+Udziały plików platformy Azure wykorzystują protokół Kerberos do uwierzytelniania za pomocą lokalnych AD DS lub AD DS platformy Azure. Gdy tożsamość skojarzona z użytkownikiem lub aplikacją działającą na kliencie próbuje uzyskać dostęp do danych w udziałach plików platformy Azure, żądanie jest wysyłane do usługi domeny, AD DS lub Azure AD DS w celu uwierzytelnienia tożsamości. W przypadku pomyślnego uwierzytelnienia zwraca token Kerberos. Klient wysyła żądanie zawierające token Kerberos i udziały plików platformy Azure używają tego tokenu do autoryzowania żądania. Udziały plików platformy Azure odbierają tylko tokeny Kerberos, a nie dostęp do poświadczeń.
 
-Gdy tożsamość skojarzona z aplikacją działającą na maszynie wirtualnej próbuje uzyskać dostęp do danych w udziałach plików platformy Azure, żądanie jest wysyłane do usługi Azure AD DS w celu uwierzytelnienia tożsamości. W przypadku pomyślnego uwierzytelnienia usługa Azure AD DS zwraca token Kerberos. Aplikacja wysyła żądanie zawierające token Kerberos, a udziały plików platformy Azure używają tego tokenu do autoryzowania żądania. Udziały plików platformy Azure otrzymują tylko token i nie utrwalają poświadczeń usługi Azure AD DS. Lokalne uwierzytelnianie AD DS działa w podobny sposób, gdzie AD DS udostępnia token Kerberos.
+Aby można było włączyć uwierzytelnianie oparte na tożsamościach w udziałach plików platformy Azure, należy najpierw skonfigurować środowisko domeny.
 
-![Zrzut ekranu przedstawiający diagram uwierzytelniania usługi Azure AD za pośrednictwem protokołu SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
+### <a name="ad-ds"></a>AD DS
+
+W przypadku lokalnego uwierzytelniania AD DS należy skonfigurować kontrolery domeny usługi AD i domenę Przyłącz się do maszyn lub maszyn wirtualnych. Kontrolery domeny można hostować na maszynach wirtualnych platformy Azure lub lokalnie. W obu przypadkach klienci przyłączeni do domeny muszą mieć linię wglądu w usługę domenową, dlatego muszą znajdować się w sieci firmowej lub w sieci wirtualnej (VNET) usługi domeny.
+
+Na poniższym diagramie przedstawiono lokalne uwierzytelnianie AD DS do udziałów plików platformy Azure za pośrednictwem protokołu SMB. AD DS Premium musi być zsynchronizowany z usługą Azure AD przy użyciu funkcji Azure AD Connect Sync. Tylko użytkownicy hybrydowi, którzy istnieją zarówno w lokalnych AD DS, jak i w usłudze Azure AD, mogą być uwierzytelniani i autoryzowani dla dostępu do udziału plików platformy Azure. Wynika to z faktu, że uprawnienie na poziomie udziału jest skonfigurowane pod kątem tożsamości reprezentowanej w usłudze Azure AD, w której jest wymuszane uprawnienie poziomu katalogu/pliku przy użyciu tego w AD DS. Upewnij się, że uprawnienia są prawidłowo skonfigurowane dla tego samego hybrydowego użytkownika.
+
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="4b":::
+
+### <a name="azure-ad-ds"></a>AD DS platformy Azure
+
+W przypadku uwierzytelniania za pomocą usługi Azure AD DS należy włączyć Azure AD Domain Services i dołączanie domeny do maszyn wirtualnych, z których planujesz uzyskać dostęp do danych plików. Przyłączona do domeny maszyna wirtualna musi znajdować się w tej samej sieci wirtualnej co AD DS platformy Azure. 
+
+Poniższy diagram przedstawia przepływ pracy na potrzeby uwierzytelniania usługi Azure AD DS w udziałach plików platformy Azure za pośrednictwem protokołu SMB. Jest to podobny wzorzec do Premium AD DS uwierzytelniania w udziałach plików platformy Azure. Istnieją dwie istotne różnice:
+
+- Najpierw nie trzeba tworzyć tożsamości na platformie Azure AD DS, aby reprezentować konto magazynu. Jest to wykonywane przez proces włączania w tle.
+
+- Po drugie wszyscy użytkownicy znajdujący się w usłudze Azure AD mogą być uwierzytelniani i autoryzowani. Użytkownik może być tylko w chmurze lub hybrydowym. Synchronizacja z usługi Azure AD do platformy Azure AD DS jest zarządzana przez platformę bez konieczności konfigurowania użytkownika. Jednak klient musi być przyłączony do domeny w usłudze Azure AD DS, nie może być przyłączony lub zarejestrowany w usłudze Azure AD. 
+
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="4b":::
 
 ### <a name="enable-identity-based-authentication"></a>Włączanie uwierzytelniania opartego na tożsamościach
 
-Uwierzytelnianie oparte na tożsamościach można włączyć za pomocą usługi Azure AD DS lub lokalnego AD DS (wersja zapoznawcza) dla udziałów plików platformy Azure na nowych i istniejących kontach magazynu. Tylko jedna usługa domeny może być używana do uwierzytelniania dostępu do plików na koncie magazynu, które ma zastosowanie do wszystkich udziałów plików na koncie. Szczegółowe wskazówki dotyczące konfigurowania udziałów plików na potrzeby uwierzytelniania przy użyciu usługi Azure AD DS w naszym artykule [umożliwiają Azure Active Directory Domain Services uwierzytelnianie w Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) i wskazówki dotyczące AD DS lokalnych (wersja zapoznawcza) w naszym innym artykule. [włącz lokalne uwierzytelnianie Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure](storage-files-identity-auth-active-directory-enable.md).
+Uwierzytelnianie oparte na tożsamościach można włączyć za pomocą usługi Azure AD DS lub AD DS lokalnych dla udziałów plików platformy Azure na nowych i istniejących kontach magazynu. Tylko jedna usługa domeny może być używana do uwierzytelniania dostępu do plików na koncie magazynu, które ma zastosowanie do wszystkich udziałów plików na koncie. Szczegółowe wskazówki dotyczące konfigurowania udziałów plików na potrzeby uwierzytelniania przy użyciu usługi Azure AD DS w naszym artykule [umożliwiają Azure Active Directory Domain Services uwierzytelnianie w Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) i wskazówki dotyczące AD DS lokalnych w naszym innym artykule. [włącz lokalne uwierzytelnianie Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure](storage-files-identity-auth-active-directory-enable.md).
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Skonfiguruj uprawnienia na poziomie udziału dla Azure Files
 
-Po włączeniu uwierzytelniania usługi Azure AD DS lub lokalnego AD DS (wersja zapoznawcza) można używać wbudowanych ról RBAC lub konfigurować role niestandardowe dla tożsamości usługi Azure AD i przypisywać prawa dostępu do dowolnych udziałów plików na kontach magazynu. Przypisane uprawnienie umożliwia uzyskanie dostępu tylko do udziału, a nie w katalogu głównym. Nadal trzeba oddzielnie skonfigurować uprawnienia na poziomie katalogu lub pliku dla udziałów plików platformy Azure.
+Po włączeniu uwierzytelniania AD DS platformy Azure AD DS lub lokalnego można używać wbudowanych ról RBAC lub konfigurować role niestandardowe dla tożsamości usługi Azure AD i przypisywać prawa dostępu do dowolnych udziałów plików na kontach magazynu. Przypisane uprawnienie umożliwia uzyskanie dostępu tylko do udziału, a nie w katalogu głównym. Nadal trzeba oddzielnie skonfigurować uprawnienia na poziomie katalogu lub pliku dla udziałów plików platformy Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Konfigurowanie uprawnień na poziomie katalogu lub pliku dla Azure Files
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338278"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
@@ -109,7 +109,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 
         ![Logika alertu](./media/directory-emergency-access/alert-image2.png)
 
-    1. Wybierz pozycję **Done** (Gotowe). Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
+    1. Wybierz pozycję **Gotowe**. Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
 1. Wybierz grupę akcji użytkowników, którzy będą powiadamiani o alertach. Jeśli chcesz go utworzyć, zobacz [Tworzenie grupy akcji](#create-an-action-group).
 1. Aby dostosować powiadomienia e-mail wysyłane do członków grupy akcji, wybierz akcje w obszarze **Dostosuj akcje**.
 1. W obszarze **szczegóły alertu**Określ nazwę reguły alertu i Dodaj opcjonalny opis.
@@ -156,5 +156,5 @@ Te kroki należy wykonać w regularnych odstępach czasu i w przypadku kluczowyc
 - [Dodawanie użytkowników przy użyciu usługi Azure AD](../fundamentals/add-users-azure-active-directory.md) i [przypisywanie nowego użytkownika do roli administratora globalnego](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Utwórz konto w usłudze Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md), jeśli jeszcze nie masz konta
 - [Jak wymagać weryfikacji dwuetapowej dla użytkownika](../authentication/howto-mfa-userstates.md)
-- [Skonfiguruj dodatkowe zabezpieczenia dla administratorów globalnych w pakiecie office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), jeśli używasz pakietu Office 365
+- [Skonfiguruj dodatkowe zabezpieczenia dla administratorów globalnych w Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), jeśli używasz Microsoft 365
 - [Rozpocznij przegląd dostępu administratorów globalnych](../privileged-identity-management/pim-how-to-start-security-review.md) i [Przechodzenie do istniejących administratorów globalnych, aby uzyskać bardziej szczegółowe role](directory-assign-admin-roles.md) administratorów

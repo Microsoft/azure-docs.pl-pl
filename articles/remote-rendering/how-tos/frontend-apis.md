@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: 68d94a3bdf7914f762774686fa0b0fa0d0fd37cc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759068"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552702"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Uwierzytelnianie przy użyciu interfejsów API frontonu platformy Azure
 
@@ -31,8 +31,8 @@ public class AzureFrontendAccountInfo
 
     // Can use one of:
     // 1) ID and Key.
-    // 2) AuthenticationToken.
-    // 3) AccessToken.
+    // 2) ID and AuthenticationToken.
+    // 3) ID and AccessToken.
     public string AccountId = Guid.Empty.ToString();
     public string AccountKey = string.Empty;
     public string AuthenticationToken = string.Empty;

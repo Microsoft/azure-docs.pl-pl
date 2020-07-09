@@ -2,36 +2,55 @@
 title: Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Azure Kubernetes Service (AKS)
 services: container-service
-author: saudas
-manager: saudas
+author: mlearned
 ms.topic: article
-ms.date: 04/02/2020
-ms.author: saudas
-ms.openlocfilehash: 00ecc077ba55ab9f91fc58f8a47fcdf7440deea6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.author: mlearned
+ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112970"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610289"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
-Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dostawcy usług w chmurze Kubernetes) wymaga tożsamości do tworzenia dodatkowych zasobów, takich jak moduły równoważenia obciążenia i dyski zarządzane na platformie Azure, Ta tożsamość może być *tożsamością zarządzaną* lub jednostką *usługi*. W przypadku korzystania z jednostki [usługi](kubernetes-service-principal.md)należy podać jedną lub AKS w Twoim imieniu. Jeśli używasz tożsamości zarządzanej, zostanie ona utworzona automatycznie przez AKS. Klastry korzystające z jednostek usługi ostatecznie docierają do stanu, w którym należy przeprowadzić odnowienie jednostki usługi w celu zachowania działania klastra. Zarządzanie jednostkami usługi zwiększa złożoność, dlatego łatwiej jest używać zarządzanych tożsamości. Te same wymagania dotyczące uprawnień dotyczą zarówno jednostek głównych usługi, jak i zarządzanych tożsamości.
+Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dostawcy usług w chmurze Kubernetes) wymaga tożsamości do tworzenia dodatkowych zasobów, takich jak moduły równoważenia obciążenia i dyski zarządzane na platformie Azure. Ta tożsamość może być *tożsamością zarządzaną* lub jednostką *usługi*. W przypadku korzystania z jednostki [usługi](kubernetes-service-principal.md)należy podać jedną lub AKS w Twoim imieniu. Jeśli używasz tożsamości zarządzanej, zostanie ona utworzona automatycznie przez AKS. Klastry korzystające z jednostek usługi ostatecznie docierają do stanu, w którym należy przeprowadzić odnowienie jednostki usługi w celu zachowania działania klastra. Zarządzanie jednostkami usługi zwiększa złożoność, dlatego łatwiej jest używać zarządzanych tożsamości. Te same wymagania dotyczące uprawnień dotyczą zarówno jednostek głównych usługi, jak i zarządzanych tożsamości.
 
-*Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-
-AKS tworzy dwie zarządzane tożsamości:
-
-- **Tożsamość zarządzana przypisana przez system**: tożsamość wykorzystywana przez dostawcę chmury Kubernetes do tworzenia zasobów platformy Azure w imieniu użytkownika. Cykl życia tożsamości przypisanej do systemu jest powiązany z tym klastrem. Tożsamość jest usuwana po usunięciu klastra.
-- **Tożsamość zarządzana przypisana przez użytkownika**: tożsamość, która jest używana na potrzeby autoryzacji w klastrze. Na przykład tożsamość przypisana przez użytkownika służy do autoryzacji AKS do używania rejestrów kontenerów platformy Azure (rekordami ACR) lub do autoryzacji kubelet do uzyskiwania metadanych z platformy Azure.
-
-Dodatki również są uwierzytelniane przy użyciu tożsamości zarządzanej. Dla każdego dodatku zarządzana tożsamość jest tworzona przez AKS i obowiązuje w okresie istnienia dodatku. 
+*Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Rotacja poświadczeń dla mnie odbywa się automatycznie co 46 dni zgodnie z ustawieniami domyślnymi Azure Active Directory. AKS używa typów zarządzanych tożsamości przypisanych do systemu i przypisanych przez użytkownika. Te tożsamości są obecnie niezmienne. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Musisz mieć zainstalowany następujący zasób:
 
 - Interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej
+
+## <a name="limitations"></a>Ograniczenia
+
+* Korzystanie z własnych tożsamości zarządzanych nie jest obecnie obsługiwane.
+* Klastry AKS z tożsamościami zarządzanymi można włączać tylko podczas tworzenia klastra.
+* Istniejących klastrów AKS nie można zaktualizować ani uaktualnić, aby umożliwić zarządzanie tożsamościami.
+* W trakcie operacji **uaktualniania** klastra zarządzana tożsamość jest tymczasowo niedostępna.
+
+## <a name="summary-of-managed-identities"></a>Podsumowanie tożsamości zarządzanych
+
+AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
+
+| Tożsamość                       | Nazwa    | Przypadek użycia | Uprawnienia domyślne | Korzystanie z własnej tożsamości
+|----------------------------|-----------|----------|
+| Płaszczyzna sterowania | niewidoczne | Używane przez AKS do zarządzania zasobami sieciowymi, np. tworzenia modułu równoważenia obciążenia dla ruchu przychodzącego, publicznego adresu IP itp.| Rola współautora dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
+| Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | Rola czytnika dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
+| Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | azurepolicy (strażnik) | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | azurepolicy | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | Calico | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | Pulpit nawigacyjny | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
+| Dodatek | HTTPApplicationRouting | Zarządza wymaganymi zasobami sieciowymi | Rola czytnika dla grupy zasobów węzła, rola współautora dla strefy DNS | Nie
+| Dodatek | Brama aplikacji przychodzącej | Zarządza wymaganymi zasobami sieciowymi| Rola współautora dla grupy zasobów węzła | Nie
+| Dodatek | omsagent | Służy do wysyłania metryk AKS do Azure Monitor | Rola wydawcy metryk monitorowania | Nie
+| Dodatek | Węzeł wirtualny (ACIConnector) | Zarządza wymaganymi zasobami sieci dla Azure Container Instances (ACI) | Rola współautora dla grupy zasobów węzła | Nie
+
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Tworzenie klastra AKS z tożsamościami zarządzanymi
 
@@ -47,20 +66,35 @@ az group create --name myResourceGroup --location westus2
 Następnie utwórz klaster AKS:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
 Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera informacje o profilu głównej usługi:
 
 ```json
 "servicePrincipalProfile": {
-    "clientId": "msi",
-    "secret": null
+    "clientId": "msi"
   }
 ```
 
+Użyj następującego polecenia, aby zbadać identyfikator objectid tożsamości zarządzanej płaszczyzny kontroli:
+
+```azurecli-interactive
+az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+```
+
+Wynik powinien wyglądać następująco:
+
+```json
+{
+  "principalId": "<object_id>",   
+  "tenantId": "<tenant_id>",      
+  "type": "SystemAssigned"                                 
+}
+```
+
 > [!NOTE]
-> Aby utworzyć i korzystać z własnej sieci wirtualnej, statycznego adresu IP lub dołączonego dysku platformy Azure, na którym znajdują się zasoby spoza grupy zasobów MC_ *, należy użyć PrincipalIDa przypisanej tożsamości zarządzanej, aby wykonać przypisanie roli. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [delegowanie dostępu do innych zasobów platformy Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+> Aby utworzyć i korzystać z własnej sieci wirtualnej, statycznego adresu IP lub dołączonego dysku platformy Azure, na którym znajdują się zasoby poza grupą zasobów węzła roboczego, należy użyć PrincipalIDa przypisanej tożsamości zarządzanej przez system klastra w celu wykonania przypisania roli. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [delegowanie dostępu do innych zasobów platformy Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 >
 > Wypełnianie uprawnień do tożsamości zarządzanej przez dostawcę w chmurze platformy Azure może potrwać do 60 minut.
 
@@ -72,7 +106,8 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 
 Klaster zostanie utworzony w ciągu kilku minut. Następnie można wdrożyć obciążenia aplikacji w nowym klastrze i korzystać z nich w taki sam sposób, jak w przypadku klastrów AKS opartych na głównej usłudze.
 
-> [!IMPORTANT]
->
-> - Klastry AKS z tożsamościami zarządzanymi można włączać tylko podczas tworzenia klastra.
-> - Istniejących klastrów AKS nie można zaktualizować ani uaktualnić, aby umożliwić zarządzanie tożsamościami.
+## <a name="next-steps"></a>Następne kroki
+* Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] , aby utworzyć Klastry obsługujące tożsamość zarządzaną.
+
+<!-- LINKS - external -->
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/17/2020
 ms.author: aahi
-ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9f27deebe3a1fb21f4c7406bfd424196fb1072ec
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921917"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Samouczek: wizualizacja anomalii przy użyciu wykrywania partii i Power BI
 
@@ -32,8 +32,8 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 * [Subskrypcja platformy Azure](https://azure.microsoft.com/free/)
 * [Program Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), dostępny bezpłatnie.
 * Plik programu Excel (xlsx) zawierający punkty danych szeregów czasowych. Przykładowe dane dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Utwórz zasób analiza tekstu"  target="_blank">Utwórz zasób <span class="docon docon-navigate-external x-hidden-focus"></span> </a> analiza tekstu w Azure Portal, aby uzyskać klucz i punkt końcowy. 
-    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API analizy tekstu. Tę czynność należy wykonać w dalszej części przewodnika Szybki Start.
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" Utwórz zasób wykrywania anomalii "  target="_blank"> Utwórz zasób wykrywania anomalii <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. 
+    * Potrzebny będzie klucz i punkt końcowy z zasobu utworzonego w celu połączenia aplikacji z interfejsem API wykrywania anomalii. Tę czynność należy wykonać w dalszej części przewodnika Szybki Start.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -52,7 +52,7 @@ Po wyświetleniu okna dialogowego przejdź do folderu, w którym został pobrany
 
 ![Obraz ekranu "Nawigator" źródła danych w Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI spowoduje przekonwertowanie sygnatur czasowych w pierwszej kolumnie na typ `Date/Time` danych. Te sygnatury czasowe muszą być konwertowane na tekst, aby można było je wysyłać do interfejsu API wykrywania anomalii. Jeśli Edytor Power Query nie zostanie otwarty automatycznie, kliknij przycisk **Edytuj zapytania** na karcie Narzędzia główne. 
+Power BI spowoduje przekonwertowanie sygnatur czasowych w pierwszej kolumnie na `Date/Time` Typ danych. Te sygnatury czasowe muszą być konwertowane na tekst, aby można było je wysyłać do interfejsu API wykrywania anomalii. Jeśli Edytor Power Query nie zostanie otwarty automatycznie, kliknij przycisk **Edytuj zapytania** na karcie Narzędzia główne. 
 
 Kliknij Wstążkę **Przekształć** w edytorze Power Query. W grupie **dowolna kolumna** Otwórz **Typ danych:** menu rozwijane i wybierz pozycję **tekst**.
 
@@ -112,7 +112,7 @@ W Edytor zaawansowany Użyj poniższego fragmentu Power Query M, aby wyodrębni�
  in results
 ```
 
-Wywołaj zapytanie w arkuszu danych, wybierając `Sheet1` poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**. 
+Wywołaj zapytanie w arkuszu danych `Sheet1` , wybierając poniżej opcję **wprowadź parametr**, a następnie kliknij pozycję **Wywołaj**. 
 
 ![Obraz przycisku "Edytor zaawansowany"](../media/tutorials/invoke-function-screenshot.png)
 
@@ -143,10 +143,10 @@ Na ekranie głównym Power BI Zacznij korzystać z kwerend utworzonych powyżej,
 
 Dodaj następujące pola z **wywoływanej funkcji** do pola **wartości** wykresu. Użyj poniższego zrzutu ekranu, aby pomóc w tworzeniu wykresu.
 
-    * Wartość
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+* Wartość
+* UpperMargins
+* LowerMargins
+* ExpectedValues
 
 ![Obraz nowego ekranu szybkiej miary](../media/tutorials/chart-settings.png)
 
@@ -160,11 +160,11 @@ Po prawej stronie okna Power BI, poniżej okienka **pola** , kliknij prawym przy
 
 ![Obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure.png)
 
-Na wyświetlonym ekranie wybierz pozycję **przefiltrowana wartość** jako obliczenie. Ustaw **wartość bazową** na `Sum of Value`. Następnie przeciągnij `IsAnomaly` z pól **wywoływanej funkcji** , aby **przefiltrować**. Wybierz `True` z menu rozwijanego **Filtr** .
+Na wyświetlonym ekranie wybierz pozycję **przefiltrowana wartość** jako obliczenie. Ustaw **wartość bazową** na `Sum of Value` . Następnie przeciągnij `IsAnomaly` z pól **wywoływanej funkcji** , aby **przefiltrować**. Wybierz `True` z menu rozwijanego **Filtr** .
 
 ![Obraz nowego ekranu szybkiej miary](../media/tutorials/new-quick-measure-2.png)
 
-Po kliknięciu przycisku **OK**w dolnej części listy `Value for True` pól pojawi się pole. Kliknij go prawym przyciskiem myszy i zmień jego nazwę na **anomalie**. Dodaj go do **wartości**wykresu. Następnie wybierz narzędzie **Format** i ustaw typ osi X na **kategorii**.
+Po kliknięciu przycisku **OK** `Value for True` w dolnej części listy pól pojawi się pole. Kliknij go prawym przyciskiem myszy i zmień jego nazwę na **anomalie**. Dodaj go do **wartości**wykresu. Następnie wybierz narzędzie **Format** i ustaw typ osi X na **kategorii**.
 
 ![Obraz nowego ekranu szybkiej miary](../media/tutorials/format-x-axis.png)
 

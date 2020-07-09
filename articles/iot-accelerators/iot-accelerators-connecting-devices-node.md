@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie urządzeń do zdalnego monitorowania w programie Node. js — Azure | Microsoft Docs
-description: Opisuje sposób podłączenia urządzenia do akceleratora rozwiązania do monitorowania zdalnego przy użyciu aplikacji w języku Node. js.
+title: Udostępnianie urządzeń do zdalnego monitorowania w Node.js — Azure | Microsoft Docs
+description: Opisuje sposób podłączenia urządzenia do akceleratora rozwiązania do monitorowania zdalnego przy użyciu aplikacji, która jest zapisywana w Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,23 +10,22 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 76692c7d923e261d1e3beefa0e2ea76b94282a46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683987"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Łączenie urządzenia z akceleratorem rozwiązania do zdalnego monitorowania (Node. js)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Połącz urządzenie z akceleratorem rozwiązania do zdalnego monitorowania (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-W tym samouczku pokazano, jak podłączyć rzeczywiste urządzenie do akceleratora rozwiązania do monitorowania zdalnego. W tym samouczku jest używany program Node. js, który jest dobrym rozwiązaniem w przypadku środowisk z minimalnymi ograniczeniami zasobów.
+W tym samouczku pokazano, jak podłączyć rzeczywiste urządzenie do akceleratora rozwiązania do monitorowania zdalnego. W tym samouczku użyjesz Node.js, co jest dobrą opcją dla środowisk z minimalnymi ograniczeniami zasobów.
 
 Jeśli wolisz symulować urządzenie, zobacz [Tworzenie i testowanie nowego symulowanego urządzenia](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="create-a-nodejs-solution"></a>Tworzenie rozwiązania Node. js
+## <a name="create-a-nodejs-solution"></a>Tworzenie rozwiązania Node.js
 
-Upewnij się, że na komputerze deweloperskim jest zainstalowana wersja [Node. js](https://nodejs.org/) w wersji 4.0.0 lub nowszej. Aby sprawdzić wersję `node --version` programu, można uruchomić polecenie w wierszu polecenia.
+Upewnij się, że na komputerze deweloperskim jest zainstalowana [Node.js](https://nodejs.org/) wersja 4.0.0 lub nowsza. `node --version`Aby sprawdzić wersję programu, można uruchomić polecenie w wierszu polecenia.
 
 1. Utwórz folder o nazwie `remotemonitoring` na komputerze deweloperskim. Przejdź do tego folderu w środowisku wiersza polecenia.
 
@@ -37,9 +36,9 @@ Upewnij się, że na komputerze deweloperskim jest zainstalowana wersja [Node. j
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. W `remotemonitoring` folderze Utwórz plik o nazwie **remote_monitoring. js**. Otwórz ten plik w edytorze tekstu.
+1. W `remotemonitoring` folderze Utwórz plik o nazwie **remote_monitoring.js**. Otwórz ten plik w edytorze tekstu.
 
-1. W pliku **remote_monitoring. js** Dodaj następujące `require` instrukcje:
+1. W pliku **remote_monitoring.js** Dodaj następujące `require` instrukcje:
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -48,7 +47,7 @@ Upewnij się, że na komputerze deweloperskim jest zainstalowana wersja [Node. j
     var async = require('async');
     ```
 
-1. Dodaj następujące deklaracje zmiennych po instrukcji `require`. Zastąp wartość `{device connection string}` symbolu zastępczego wartością zanotowaną dla urządzenia obsługiwanego w rozwiązaniu do zdalnego monitorowania:
+1. Dodaj następujące deklaracje zmiennych po instrukcji `require`. Zastąp wartość symbolu zastępczego `{device connection string}` wartością zanotowaną dla urządzenia obsługiwanego w rozwiązaniu do zdalnego monitorowania:
 
     ```javascript
     var connectionString = '{device connection string}';
@@ -329,7 +328,7 @@ Upewnij się, że na komputerze deweloperskim jest zainstalowana wersja [Node. j
       });
       ```
 
-1. Zapisz zmiany w pliku **remote_monitoring. js** .
+1. Zapisz zmiany w pliku **remote_monitoring.js** .
 
 1. Aby uruchomić przykładową aplikację, uruchom następujące polecenie w wierszu polecenia:
 

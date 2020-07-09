@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583199"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024463"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -28,7 +28,7 @@ W ramach zasad dostępu warunkowego administrator może korzystać z kontroli do
 
 Zablokowanie uwzględnia wszelkie przypisania i uniemożliwia dostęp na podstawie konfiguracji zasad dostępu warunkowego.
 
-Block to zaawansowana kontrolka, która powinna być wielded z odpowiednią wiedzą. Aby przetestować przed włączeniem, Administratorzy powinni używać [trybu tylko do raportowania](concept-conditional-access-report-only.md) .
+Block to zaawansowana kontrolka, która powinna być wielded z odpowiednią wiedzą. Zasady z instrukcjami bloku mogą mieć niezamierzone efekty uboczne. Poprawne testowanie i walidacja są niezbędne przed włączeniem na dużą skalę. Administratorzy powinni korzystać z narzędzi, takich jak [tryb tylko raport dostęp warunkowy](concept-conditional-access-report-only.md) i [Narzędzie What If w przypadku dostępu warunkowego](what-if-tool.md) podczas wprowadzania zmian.
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
@@ -39,6 +39,7 @@ Administratorzy mogą zdecydować się na wymuszenie co najmniej jednej kontrolk
 - [Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md)
 - [Wymaganie zatwierdzonej aplikacji klienckiej](app-based-conditional-access.md)
 - [Wymaganie zasad ochrony aplikacji](app-protection-based-conditional-access.md)
+- [Wymagaj zmiany hasła](#require-password-change)
 
 Gdy administratorzy zdecydują się połączyć te opcje, mogą wybrać następujące metody:
 
@@ -62,6 +63,8 @@ Aby można było oznaczyć je jako zgodne, urządzenia muszą być zarejestrowan
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD
 
 Organizacje mogą zdecydować się na użycie tożsamości urządzenia jako części zasad dostępu warunkowego. Organizacje mogą wymagać, aby urządzenia były dołączone do hybrydowej usługi Azure AD przy użyciu tego pola wyboru. Aby uzyskać więcej informacji o tożsamościach urządzeń, zobacz artykuł [co to jest tożsamość urządzenia?](../devices/overview.md).
+
+W przypadku korzystania z [przepływu OAuth przy użyciu kodu urządzenia](../develop/v2-oauth2-device-code.md)nie jest obsługiwana kontrola Wymagaj zarządzanego urządzenia lub stanu urządzenia. Wynika to z faktu, że urządzenie wykonujące uwierzytelnianie nie może dostarczyć stanu urządzenia do urządzenia dostarczającego kod, a stan urządzenia w tokenie jest zablokowany na urządzeniu, na którym jest wykonywane uwierzytelnianie. Zamiast tego użyj kontrolki Wymagaj uwierzytelniania wieloskładnikowego.
 
 ### <a name="require-approved-client-app"></a>Wymaganie zatwierdzonej aplikacji klienckiej
 
@@ -132,6 +135,21 @@ To ustawienie dotyczy następujących aplikacji klienckich:
     - Aby zarejestrować urządzenie, wymagana jest aplikacja brokera. W systemie iOS aplikacja brokera jest Microsoft Authenticator i w systemie Android jest Intune — Portal firmy App.
 
 Zapoznaj się z artykułem [instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego](app-protection-based-conditional-access.md) na potrzeby przykładów konfiguracyjnych.
+
+### <a name="require-password-change"></a>Wymagaj zmiany hasła 
+
+W przypadku wykrycia ryzyka użytkownika przy użyciu warunków zasad ryzyka użytkownika Administratorzy mogą wybrać, czy użytkownik może bezpiecznie zmienić hasło przy użyciu funkcji samoobsługowego resetowania hasła w usłudze Azure AD. W przypadku wykrycia ryzyka użytkownika użytkownicy mogą przeprowadzić Samoobsługowe resetowanie haseł w celu samodzielnego korygowania hasła. spowoduje to zamknięcie zdarzenia ryzyka użytkownika w celu uniemożliwienia niepotrzebnego hałasu dla administratorów. 
+
+Gdy użytkownik zostanie poproszony o zmianę hasła, najpierw będzie wymagane do ukończenia uwierzytelniania wieloskładnikowego. Upewnij się, że wszyscy użytkownicy zostali zarejestrowani do uwierzytelniania wieloskładnikowego, więc są przygotowani w przypadku wykrycia ryzyka dla konta.  
+
+> [!WARNING]
+> Przed wyzwoleniem zasad ryzyka dla użytkowników należy wcześniej zarejestrować się do samoobsługowego resetowania hasła. 
+
+Podczas konfigurowania zasad przy użyciu kontrolki zmiany hasła istnieje ograniczenie kilku miejsc.  
+
+1. Zasady muszą być przypisane do usługi "wszystkie aplikacje w chmurze". Uniemożliwia to osobie atakującej korzystanie z innej aplikacji w celu zmiany hasła użytkownika i zresetowanie ryzyka związanego z kontem, wystarczy zalogować się do innej aplikacji. 
+1. Wymaganie zmiany hasła nie może być używane z innymi kontrolkami, takimi jak wymaganie zgodnego urządzenia.  
+1. Kontrolki zmiany hasła można używać tylko z warunkiem przypisania użytkownika i grupy, warunku przypisania aplikacji w chmurze (musi to być ustawienie wszystkie) i warunki ryzyka użytkownika. 
 
 ### <a name="terms-of-use"></a>Warunki użytkowania
 

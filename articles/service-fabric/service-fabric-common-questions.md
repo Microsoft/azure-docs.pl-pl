@@ -5,10 +5,9 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78254884"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Często zadawane pytania dotyczące usługi Service Fabric
@@ -64,7 +63,7 @@ Firma Microsoft wymaga, aby klaster produkcyjny miał co najmniej 5 węzłów z 
 2. Zawsze umieszczamy jedną replikę usługi na węzeł, więc rozmiar klastra to górny limit liczby replik, które może mieć usługa (w rzeczywistości partycja).
 3. Ponieważ uaktualnienie klastra spowoduje przełączenie co najmniej jednego węzła, chcemy buforować co najmniej jeden węzeł, dlatego chcemy, aby klaster produkcyjny miał co najmniej dwa węzły *oprócz* minimum dla systemu operacyjnego. Minimum od zera to rozmiar kworum usługi systemowej, jak wyjaśniono poniżej.  
 
-Chcemy, aby klaster był dostępny w przypadku równoczesnego uszkodzenia dwóch węzłów. Aby klaster Service Fabric był dostępny, usługi systemowe muszą być dostępne. Stanowe usługi systemowe, takie jak nazwa usługi i Menedżer trybu failover, które śledzą, jakie usługi zostały wdrożone w klastrze i gdzie są obecnie hostowane, zależą od silnej spójności. Ta silna spójność z kolei zależy od możliwości uzyskania *kworum* dla każdej danej aktualizacji stanu tych usług, gdzie kworum reprezentuje ścisłą większość replik (N/2 + 1) dla danej usługi. Z tego względu, jeśli chcemy odporny na równoczesną utratę dwóch węzłów (w ten sposób jednocześnie przełączać dwie repliki usługi systemowej), musimy mieć ClusterSize-QuorumSize >= 2, co wymusza, aby minimalny rozmiar wynosił pięć. Aby to sprawdzić, należy wziąć pod uwagę, że klaster ma N węzłów, a istnieją N replik usługi systemowej — jeden w każdym węźle. Rozmiar kworum usługi systemowej to (N/2 + 1). Powyższa nierówność wygląda jak N-(N/2 + 1) >= 2. Istnieją dwa przypadki, które należy wziąć pod uwagę: gdy N jest parzyste i gdy N jest nieparzysty. Jeśli N jest nawet, należy powiedzieć N =\*2 m, gdzie m >= 1, nierówność wygląda jak\*2 m-(\*2 m/2 + 1) >= 2 lub m >= 3. Minimalna wartość dla N to 6 i osiągnięta, gdy m = 3. Z drugiej strony, jeśli N jest nieparzysta, powiedz N =\*2 m + 1, gdzie m >= 1, nierówność wygląda następująco: 2\*m + 1-\*((2 m + 1)/2 + 1) >=\*2 lub 2 m + 1-(m + 1) >= 2 lub m >= 2. Minimalna wartość dla N to 5 i osiągnięta przy m = 2. W związku z tym między wszystkimi wartościami N, które spełniają nierówność ClusterSize-QuorumSize >= 2, minimalna wartość to 5.
+Chcemy, aby klaster był dostępny w przypadku równoczesnego uszkodzenia dwóch węzłów. Aby klaster Service Fabric był dostępny, usługi systemowe muszą być dostępne. Stanowe usługi systemowe, takie jak nazwa usługi i Menedżer trybu failover, które śledzą, jakie usługi zostały wdrożone w klastrze i gdzie są obecnie hostowane, zależą od silnej spójności. Ta silna spójność z kolei zależy od możliwości uzyskania *kworum* dla każdej danej aktualizacji stanu tych usług, gdzie kworum reprezentuje ścisłą większość replik (N/2 + 1) dla danej usługi. Z tego względu, jeśli chcemy odporny na równoczesną utratę dwóch węzłów (w ten sposób jednocześnie przełączać dwie repliki usługi systemowej), musimy mieć ClusterSize-QuorumSize >= 2, co wymusza, aby minimalny rozmiar wynosił pięć. Aby to sprawdzić, należy wziąć pod uwagę, że klaster ma N węzłów, a istnieją N replik usługi systemowej — jeden w każdym węźle. Rozmiar kworum usługi systemowej to (N/2 + 1). Powyższa nierówność wygląda jak N-(N/2 + 1) >= 2. Istnieją dwa przypadki, które należy wziąć pod uwagę: gdy N jest parzyste i gdy N jest nieparzysty. Jeśli N jest nawet, należy powiedzieć N = 2 \* m, gdzie m >= 1, nierówność wygląda jak 2 \* m-(2 \* m/2 + 1) >= 2 lub m >= 3. Minimalna wartość dla N to 6 i osiągnięta, gdy m = 3. Z drugiej strony, jeśli N jest nieparzysta, powiedz N = 2 \* m + 1, gdzie m >= 1, nierówność wygląda następująco: 2 \* m + 1-((2 \* m + 1)/2 + 1) >= 2 lub 2 \* m + 1-(m + 1) >= 2 lub m >= 2. Minimalna wartość dla N to 5 i osiągnięta przy m = 2. W związku z tym między wszystkimi wartościami N, które spełniają nierówność ClusterSize-QuorumSize >= 2, minimalna wartość to 5.
 
 Należy pamiętać, że w powyższym argumencie przyjęto, że każdy węzeł ma replikę usługi systemowej, w ten sposób rozmiar kworum jest obliczany na podstawie liczby węzłów w klastrze. Jednak przez zmianę *wartość targetreplicasetsize* rozmiar kworum może być mniejszy niż (N/2 + 1), co może dać wrażenie, że klaster jest mniejszy niż 5 węzłów i nadal ma 2 dodatkowe węzły powyżej rozmiaru kworum. Na przykład w klastrze z 4 węzłami, jeśli ustawimy wartość targetreplicasetsize na 3, rozmiar kworum oparty na wartość targetreplicasetsize to (3/2 + 1) lub 2, dlatego mamy ClusterSize-QuorumSize = 4-2 >= 2. Niemniej jednak firma Microsoft nie może zagwarantować, że usługa systemowa będzie znajdować się na poziomie kworum lub wyższym. w przypadku utraty obu par węzłów może się zdarzyć, że dwa węzły zostały przez nas utracone, a więc usługa systemowa przejdzie do utraty kworum (ma tylko jedną replikę) i stanie się niedostępna.
 
@@ -109,18 +108,18 @@ Nie. Maszyny wirtualne o niskim priorytecie nie są obsługiwane.
 
 | **Wykluczone procesy programu antywirusowego** |
 | --- |
-| Fabric. exe |
-| Elemencie fabrichost określono. exe |
-| Usługi fabricinstallerservice. exe |
-| FabricSetup. exe |
-| FabricDeployer. exe |
-| ImageBuilder. exe |
-| FabricGateway. exe |
-| Program fabricdca. exe |
-| FabricFAS. exe |
-| FabricUOS. exe |
-| FabricRM. exe |
-| FileStoreService. exe |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
  
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Jak moja aplikacja może uwierzytelniać się w magazynie kluczy, aby uzyskać wpisy tajne?
 Poniżej przedstawiono sposób, w jaki aplikacja uzyskuje poświadczenia do uwierzytelniania w magazynie kluczy:

@@ -7,23 +7,22 @@ author: damendo
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7a69610d1ac176354a9d7e388a12ccc7f064d848
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d72a981749af87e1b73625bdce2e0fd2d24fff0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84724926"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
-> - [Narzędzia](network-watcher-packet-capture-manage-powershell.md)
+> - [Program PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-packet-capture-manage-cli.md)
 > - [Interfejs API REST platformy Azure](network-watcher-packet-capture-manage-rest.md)
 
@@ -68,7 +67,7 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### <a name="step-2"></a>Krok 2
 
-Aby upewnić się, że Agent jest zainstalowany, `vm extension show` Uruchom polecenie i przekaż go do grupy zasobów i nazwy maszyny wirtualnej. Sprawdź listę wyników, aby upewnić się, że Agent jest zainstalowany.
+Aby upewnić się, że Agent jest zainstalowany, uruchom `vm extension show` polecenie i przekaż go do grupy zasobów i nazwy maszyny wirtualnej. Sprawdź listę wyników, aby upewnić się, że Agent jest zainstalowany.
 
 W przypadku maszyn wirtualnych z systemem Windows:
 

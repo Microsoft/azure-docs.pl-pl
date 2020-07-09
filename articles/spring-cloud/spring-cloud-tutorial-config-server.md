@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c8b2e92cd7e88dde434e42971d091db689bfbc9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76277526"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791303"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Samouczek: Konfigurowanie dla usługi wystąpienia serwera konfiguracji w chmurze wiosny
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób nawiązywania połączenia ze sprężynowym wyst�
 Konfiguracja chmury wiosennej zapewnia obsługę serwera i klienta na potrzeby konfiguracji zewnętrznej w systemie rozproszonym. W przypadku wystąpienia serwera konfiguracji istnieje centralne miejsce do zarządzania właściwościami zewnętrznymi aplikacji we wszystkich środowiskach. Aby uzyskać więcej informacji, zobacz [informacje dotyczące serwera konfiguracji chmury wiosennej](https://spring.io/projects/spring-cloud-config).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 * Została już zainicjowana i uruchomiona usługa w chmurze Azure wiosną. Aby skonfigurować i uruchomić usługę Azure wiosny w chmurze, zobacz [Szybki Start: uruchamianie aplikacji ze sprężyną Java za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md).
 
 ## <a name="restriction"></a>Ograniczenie
@@ -33,6 +33,7 @@ eureka.client.tls.keystore
 server.port
 spring.cloud.config.tls.keystore
 spring.application.name
+spring.jmx.enabled
 ```
 
 > [!CAUTION]
@@ -53,7 +54,7 @@ Wszystkie konfigurowalne właściwości, które są używane do konfigurowania p
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Funkcja                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git, który jest używany jako zaplecze serwera konfiguracji, rozpoczyna się od *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -68,15 +69,15 @@ Wszystkie konfigurowalne właściwości używane do konfigurowania prywatnego re
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość                   | Wymagany | Funkcja                                                      |
+| Właściwość                   | Wymagany | Cecha                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label`            | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
 | `search-paths`             | Nie     | Tablica ciągów służąca do przeszukiwania podkatalogów repozytorium git. |
 | `private-key`              | Nie     | Prywatny klucz SSH, aby uzyskać dostęp do repozytorium git, _wymagany_ , gdy identyfikator URI zaczyna się od *git@* lub *SSH://*. |
-| `host-key`                 | Nie     | Klucz hosta serwera repozytorium Git nie powinien zawierać prefiksu algorytmu, który został objęty przez `host-key-algorithm`. |
-| `host-key-algorithm`       | Nie     | Algorytm klucza hosta powinien mieć wartość *SSH-DSS*, *SSH-RSA*, *ECDSA-algorytmu SHA2-nistp256*, *ECDSA-algorytmu SHA2-nistp384*lub *ECDSA-algorytmu SHA2-nistp521*. *Wymagane* tylko wtedy `host-key` , gdy istnieje. |
-| `strict-host-key-checking` | Nie     | Wskazuje, czy uruchomienie wystąpienia serwera konfiguracji zakończy się niepowodzeniem podczas korzystania `host-key`z prywatnego. Powinna mieć *wartość true* (wartość domyślna) lub *Fałsz*. |
+| `host-key`                 | Nie     | Klucz hosta serwera repozytorium Git nie powinien zawierać prefiksu algorytmu, który został objęty przez `host-key-algorithm` . |
+| `host-key-algorithm`       | Nie     | Algorytm klucza hosta powinien mieć wartość *SSH-DSS*, *SSH-RSA*, *ECDSA-algorytmu SHA2-nistp256*, *ECDSA-algorytmu SHA2-nistp384*lub *ECDSA-algorytmu SHA2-nistp521*. *Wymagane* tylko wtedy, gdy `host-key` istnieje. |
+| `strict-host-key-checking` | Nie     | Wskazuje, czy uruchomienie wystąpienia serwera konfiguracji zakończy się niepowodzeniem podczas korzystania z prywatnego `host-key` . Powinna mieć *wartość true* (wartość domyślna) lub *Fałsz*. |
 
 -----
 
@@ -87,13 +88,13 @@ Poniżej wymieniono wszystkie konfigurowalne właściwości używane do konfigur
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Funkcja                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
 | `search-paths`  | Nie     | Tablica ciągów służąca do przeszukiwania podkatalogów repozytorium git. |
-| `username`      | Nie     | Nazwa użytkownika, która jest używana do uzyskiwania dostępu do serwera repozytorium git, _wymagana_ w przypadku obsługi `Http Basic Authentication`serwera repozytorium git. |
-| `password`      | Nie     | Hasło używane do uzyskiwania dostępu do serwera repozytorium git, _wymagane_ w przypadku obsługi `Http Basic Authentication`serwera repozytorium git. |
+| `username`      | Nie     | Nazwa użytkownika, która jest używana do uzyskiwania dostępu do serwera repozytorium git, _wymagana_ w przypadku obsługi serwera repozytorium git `Http Basic Authentication` . |
+| `password`      | Nie     | Hasło używane do uzyskiwania dostępu do serwera repozytorium git, _wymagane_ w przypadku obsługi serwera repozytorium git `Http Basic Authentication` . |
 
 > [!NOTE]
 > Wiele `Git` serwerów repozytorium obsługuje używanie tokenów zamiast haseł do uwierzytelniania podstawowego http. Niektóre repozytoria, takie jak GitHub, zezwalają na utrwalanie tokenów na czas nieokreślony. Jednak niektóre serwery repozytorium git, w tym Azure DevOps, wymuszanie wygaśnięcia tokenów w ciągu kilku godzin. Repozytoria, które powodują wygaśnięcie tokenów, nie powinny używać uwierzytelniania opartego na tokenach w chmurze Azure wiosennej.
@@ -105,7 +106,7 @@ Poniżej znajdują się wszystkie konfigurowalne właściwości używane do konf
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość                           | Wymagany         | Funkcja                                                      |
+| Właściwość                           | Wymagany         | Cecha                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Nie             | Mapa składająca się z ustawień repozytorium git o podaną nazwę. |
 | `repos."uri"`                      | Tak na`repos` | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
@@ -113,12 +114,12 @@ Poniżej znajdują się wszystkie konfigurowalne właściwości używane do konf
 | `repos."pattern"`                  | Nie             | Tablica ciągów używanych do dopasowania nazwy aplikacji. Dla każdego wzorca Użyj `{application}/{profile}` formatu z symbolami wieloznacznymi. |
 | `repos."default-label"`            | Nie             | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
 | `repos."search-paths`"             | Nie             | Tablica ciągów służąca do przeszukiwania podkatalogów repozytorium git. |
-| `repos."username"`                 | Nie             | Nazwa użytkownika, która jest używana do uzyskiwania dostępu do serwera repozytorium git, _wymagana_ w przypadku obsługi `Http Basic Authentication`serwera repozytorium git. |
-| `repos."password"`                 | Nie             | Hasło używane do uzyskiwania dostępu do serwera repozytorium git, _wymagane_ w przypadku obsługi `Http Basic Authentication`serwera repozytorium git. |
+| `repos."username"`                 | Nie             | Nazwa użytkownika, która jest używana do uzyskiwania dostępu do serwera repozytorium git, _wymagana_ w przypadku obsługi serwera repozytorium git `Http Basic Authentication` . |
+| `repos."password"`                 | Nie             | Hasło używane do uzyskiwania dostępu do serwera repozytorium git, _wymagane_ w przypadku obsługi serwera repozytorium git `Http Basic Authentication` . |
 | `repos."private-key"`              | Nie             | Klucz prywatny SSH do uzyskiwania dostępu do repozytorium git, _wymagany_ , gdy identyfikator URI rozpoczyna się od *git@* lub *SSH://*. |
-| `repos."host-key"`                 | Nie             | Klucz hosta serwera repozytorium Git nie powinien zawierać prefiksu algorytmu, który został objęty przez `host-key-algorithm`. |
-| `repos."host-key-algorithm"`       | Nie             | Algorytm klucza hosta powinien mieć wartość *SSH-DSS*, *SSH-RSA*, *ECDSA-algorytmu SHA2-nistp256*, *ECDSA-algorytmu SHA2-nistp384*lub *ECDSA-algorytmu SHA2-nistp521*. *Wymagane* tylko wtedy `host-key` , gdy istnieje. |
-| `repos."strict-host-key-checking"` | Nie             | Wskazuje, czy uruchomienie wystąpienia serwera konfiguracji zakończy się niepowodzeniem podczas korzystania `host-key`z prywatnego. Powinna mieć *wartość true* (wartość domyślna) lub *Fałsz*. |
+| `repos."host-key"`                 | Nie             | Klucz hosta serwera repozytorium Git nie powinien zawierać prefiksu algorytmu, który został objęty przez `host-key-algorithm` . |
+| `repos."host-key-algorithm"`       | Nie             | Algorytm klucza hosta powinien mieć wartość *SSH-DSS*, *SSH-RSA*, *ECDSA-algorytmu SHA2-nistp256*, *ECDSA-algorytmu SHA2-nistp384*lub *ECDSA-algorytmu SHA2-nistp521*. *Wymagane* tylko wtedy, gdy `host-key` istnieje. |
+| `repos."strict-host-key-checking"` | Nie             | Wskazuje, czy uruchomienie wystąpienia serwera konfiguracji zakończy się niepowodzeniem podczas korzystania z prywatnego `host-key` . Powinna mieć *wartość true* (wartość domyślna) lub *Fałsz*. |
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Dołącz repozytorium serwera konfiguracji do chmury Azure wiosny
 
@@ -173,7 +174,7 @@ spring:
 
 ```
 
-Wybierz przycisk **Importuj ustawienia** , a następnie wybierz plik YAML z katalogu projektu. Wybierz pozycję **Importuj**, a następnie `async` przejdź do okna z **powiadomieniami** . Po 1-2 minutach powinna być zgłaszana sukces.
+Wybierz przycisk **Importuj ustawienia** , a następnie wybierz plik YAML z katalogu projektu. Wybierz pozycję **Importuj**, a następnie przejdź do `async` okna z **powiadomieniami** . Po 1-2 minutach powinna być zgłaszana sukces.
 
 ![Okienko powiadomienia serwera konfiguracji](media/spring-cloud-tutorial-config-server/local-yml-success.png)
 

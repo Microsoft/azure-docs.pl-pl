@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
 ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76037999"
 ---
 Ten dokument zawiera instrukcje dotyczące różnic między dyskami zarządzanymi i niezarządzanymi przy użyciu szablonów Azure Resource Manager do obsługi maszyn wirtualnych. Przykłady ułatwiają aktualizowanie istniejących szablonów, które używają dysków niezarządzanych do dysków zarządzanych. Aby uzyskać informacje na temat programu, użyj szablonu [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) jako przewodnika. Możesz wyświetlić szablon przy użyciu dysków [zarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) i wcześniejszej wersji za pomocą [dysków niezarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) , jeśli chcesz je bezpośrednio porównać.
@@ -88,7 +88,7 @@ W ramach obiektu maszyny wirtualnej Dodaj zależność na koncie magazynu, aby u
 W przypadku usługi Azure Managed Disks dysk zostanie zasobem najwyższego poziomu i nie będzie już wymagał konta magazynu, które ma zostać utworzone przez użytkownika. Dyski zarządzane zostały najpierw ujawnione w `2016-04-30-preview` wersji interfejsu API, są dostępne we wszystkich kolejnych wersjach interfejsu API i są teraz domyślnym typem dysku. W poniższych sekcjach opisano ustawienia domyślne i szczegółowe informacje dotyczące sposobu dostosowywania dysków.
 
 > [!NOTE]
-> Zalecane jest korzystanie z wersji interfejsu API nowszej niż `2016-04-30-preview` w przypadku, gdy wystąpią istotne `2016-04-30-preview` zmiany `2017-03-30`między programami i.
+> Zalecane jest korzystanie z wersji interfejsu API nowszej niż w przypadku, `2016-04-30-preview` gdy wystąpią istotne zmiany między programami `2016-04-30-preview` i `2017-03-30` .
 >
 >
 
@@ -96,10 +96,10 @@ W przypadku usługi Azure Managed Disks dysk zostanie zasobem najwyższego pozio
 
 Aby utworzyć maszynę wirtualną z dyskami zarządzanymi, nie musisz już tworzyć zasobów konta magazynu. Odwołuje się do poniższego przykładu szablonu, istnieją pewne różnice między poprzednimi przykładami niezarządzanego dysku, które należy zauważyć:
 
-- `apiVersion` Jest to wersja, która obsługuje dyski zarządzane.
-- `osDisk``dataDisks` nie odwołują się już do określonego identyfikatora URI dla wirtualnego dysku twardego.
+- `apiVersion`Jest to wersja, która obsługuje dyski zarządzane.
+- `osDisk``dataDisks`nie odwołują się już do określonego identyfikatora URI dla wirtualnego dysku twardego.
 - Podczas wdrażania bez określania dodatkowych właściwości dysk będzie używał typu magazynu na podstawie rozmiaru maszyny wirtualnej. Na przykład jeśli używasz rozmiaru maszyny wirtualnej obsługującej usługę Premium Storage (rozmiary z "s" w nazwie, takiej jak Standard_D2s_v3), dyski Premium zostaną skonfigurowane domyślnie. Można to zmienić przy użyciu ustawienia SKU dysku, aby określić typ magazynu.
-- Jeśli nazwa dysku nie zostanie określona, pobiera format `<VMName>_OsDisk_1_<randomstring>` dla dysku systemu operacyjnego i dla każdego dysku z `<VMName>_disk<#>_<randomstring>` danymi.
+- Jeśli nazwa dysku nie zostanie określona, pobiera format `<VMName>_OsDisk_1_<randomstring>` dla dysku systemu operacyjnego i `<VMName>_disk<#>_<randomstring>` dla każdego dysku z danymi.
   - Jeśli maszyna wirtualna jest tworzona na podstawie obrazu niestandardowego, domyślne ustawienia typu konta magazynu i nazwy dysku są pobierane z właściwości dysku zdefiniowanych w zasobie obrazu niestandardowego. Można je przesłonić, określając wartości tych w szablonie.
 - Domyślnie usługa Azure Disk Encryption jest wyłączona.
 - Domyślnie buforowanie dysków jest odczytywane i zapisywane dla dysku systemu operacyjnego, a nie dla dysków danych.
@@ -164,7 +164,7 @@ Alternatywnie, aby określić konfigurację dysku w obiekcie maszyny wirtualnej,
 }
 ```
 
-W obrębie obiektu maszyny wirtualnej odwołuje się do obiektu dysku, który ma zostać dołączony. Określenie identyfikatora zasobu dysku zarządzanego utworzonego we `managedDisk` właściwości pozwala na zamocowanie dysku podczas tworzenia maszyny wirtualnej. `apiVersion` Dla zasobu maszyny wirtualnej jest ustawiana wartość `2017-03-30`. Zostanie dodany zależność od zasobu dysku, aby upewnić się, że został pomyślnie utworzony przed utworzeniem maszyny wirtualnej. 
+W obrębie obiektu maszyny wirtualnej odwołuje się do obiektu dysku, który ma zostać dołączony. Określenie identyfikatora zasobu dysku zarządzanego utworzonego we `managedDisk` Właściwości pozwala na zamocowanie dysku podczas tworzenia maszyny wirtualnej. `apiVersion`Dla zasobu maszyny wirtualnej jest ustawiana wartość `2017-03-30` . Zostanie dodany zależność od zasobu dysku, aby upewnić się, że został pomyślnie utworzony przed utworzeniem maszyny wirtualnej. 
 
 ```json
 {
@@ -209,7 +209,7 @@ W obrębie obiektu maszyny wirtualnej odwołuje się do obiektu dysku, który ma
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Tworzenie zarządzanych zestawów dostępności z maszynami wirtualnymi za pomocą usługi Managed disks
 
-Aby utworzyć zarządzane zestawy dostępności z maszynami wirtualnymi za pomocą usługi `sku` Managed disks, Dodaj obiekt do zasobu zestawu `name` dostępności i `Aligned`ustaw właściwość na. Ta właściwość zapewnia, że dyski dla każdej maszyny wirtualnej są wystarczająco odizolowane od siebie, aby uniknąć pojedynczych punktów awarii. Należy również pamiętać, `apiVersion` że dla zasobu zestawu dostępności jest ustawiona wartość `2018-10-01`.
+Aby utworzyć zarządzane zestawy dostępności z maszynami wirtualnymi za pomocą usługi Managed disks, Dodaj `sku` obiekt do zasobu zestawu dostępności i ustaw `name` Właściwość na `Aligned` . Ta właściwość zapewnia, że dyski dla każdej maszyny wirtualnej są wystarczająco odizolowane od siebie, aby uniknąć pojedynczych punktów awarii. Należy również pamiętać, że `apiVersion` dla zasobu zestawu dostępności jest ustawiona wartość `2018-10-01` .
 
 ```json
 {

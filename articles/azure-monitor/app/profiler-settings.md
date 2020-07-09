@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 52391ffc8eb6b6879e5fd90df26d9ccacbfacebb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188930"
 ---
 # <a name="configure-application-insights-profiler"></a>Konfigurowanie Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Zaktualizowany Agent profilera
-Funkcje wyzwalacza działają tylko w wersji 2,6 lub nowszej agenta profilera. W przypadku korzystania z Azure App Service Agent zostanie automatycznie zaktualizowany. Możesz sprawdzić, która wersja agenta jest uruchamiana, jeśli przejdziesz do adresu URL kudu witryny sieci Web i dodasz \DiagnosticServices na końcu tego elementu: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices`. Application Insights Profiler Zadania WebJob powinien być w wersji 2,6 lub nowszej. Aby wymusić uaktualnienie, należy ponownie uruchomić aplikację sieci Web. 
+Funkcje wyzwalacza działają tylko w wersji 2,6 lub nowszej agenta profilera. W przypadku korzystania z Azure App Service Agent zostanie automatycznie zaktualizowany. Możesz sprawdzić, która wersja agenta jest uruchamiana, jeśli przejdziesz do adresu URL kudu witryny sieci Web i dodasz \DiagnosticServices na końcu tego elementu: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Application Insights Profiler Zadania WebJob powinien być w wersji 2,6 lub nowszej. Aby wymusić uaktualnienie, należy ponownie uruchomić aplikację sieci Web. 
 
 Jeśli używasz profilera na maszynie wirtualnej lub w usłudze w chmurze, musisz mieć zainstalowane rozszerzenie systemu Windows Diagnostyka Azure (funkcji wad) w wersji 16.0.4 lub nowszej. Możesz sprawdzić wersję programu funkcji wad, logując się na maszynie wirtualnej i sprawdzając ten katalog: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Nazwa katalogu jest zainstalowaną wersją programu funkcji wad. Agent maszyny wirtualnej platformy Azure zaktualizuje funkcji wad automatycznie, gdy będą dostępne nowe wersje.
 
@@ -65,7 +65,7 @@ Nazwa aplikacji | Nazwa aplikacji, która została profilowana.
 Wystąpienie maszyny | Nazwa komputera, na którym uruchomiono agenta profilera.
 Znacznik czasu | Godzina przechwycenia profilu.
 Śledzenie | Liczba śladów, które zostały dołączone do poszczególnych żądań.
-Procent użycia procesora CPU | Procent użycia procesora CPU, który był używany podczas działania profilera.
+CPU % | Procent użycia procesora CPU, który był używany podczas działania profilera.
 Rozmiar | Procent pamięci używanej podczas działania profilera.
 
 ## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Używanie testów wydajności sieci Web do generowania ruchu do aplikacji
@@ -78,7 +78,7 @@ W następnych sekcjach przedstawiono sposób działania tego scenariusza:
 
 Jeśli aplikacja sieci Web ma już ruch przychodzący lub po prostu chcesz ręcznie generować ruch, Pomiń tę sekcję i przejdź do kroku 2.
 
-1. W portalu Application Insights wybierz pozycję **Konfiguruj** > **testowanie wydajności**. 
+1. W portalu Application Insights wybierz pozycję **Konfiguruj**  >  **testowanie wydajności**. 
 
 1. Aby rozpocząć nowy test wydajności, wybierz przycisk **Nowy** .
 

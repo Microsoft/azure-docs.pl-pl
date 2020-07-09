@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt
 ms.openlocfilehash: 3ea2f0eec12d756a898f1761f6b22fd034c1bc3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732454"
 ---
 # <a name="get-started-with-device-twins-java"></a>Rozpoczynanie pracy z usługą Device bliźniaczych reprezentacji (Java)
@@ -67,7 +66,7 @@ W tej sekcji utworzysz aplikację Java, która dodaje metadane lokalizacji jako 
 
 3. W wierszu polecenia przejdź do folderu **Dodawanie tagów-Query** .
 
-4. Za pomocą edytora tekstów Otwórz plik **pliku pom. XML** w folderze **Dodaj Tagi-Query** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu **IoT-Service-Client** w aplikacji w celu komunikowania się z Centrum IoT:
+4. Za pomocą edytora tekstów Otwórz plik **pom.xml** w folderze **Dodaj Tagi-Query** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu **IoT-Service-Client** w aplikacji w celu komunikowania się z Centrum IoT:
 
     ```xml
     <dependency>
@@ -114,7 +113,7 @@ W tej sekcji utworzysz aplikację Java, która dodaje metadane lokalizacji jako 
     import java.util.Set;
     ```
 
-9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{youriothubconnectionstring}` na parametry połączenia usługi IoT Hub skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
+9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień na `{youriothubconnectionstring}` Parametry połączenia usługi IoT Hub skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -150,7 +149,7 @@ W tej sekcji utworzysz aplikację Java, która dodaje metadane lokalizacji jako 
     }
     ```
 
-13. W celu zaktualizowania tagów sznurka **urządzenia i urządzeń** **roślinnych** w ramach `try` sznurka urządzenia Dodaj następujący kod do bloku:
+13. W celu zaktualizowania tagów sznurka **urządzenia i urządzeń** **roślinnych** w ramach sznurka urządzenia Dodaj następujący kod do `try` bloku:
 
     ```java
     // Get the device twin from IoT Hub
@@ -228,7 +227,7 @@ W tej sekcji utworzysz aplikację konsolową Java, która ustawia raportowaną w
 
 2. W wierszu polecenia przejdź do folderu **symulowane urządzenia** .
 
-3. Za pomocą edytora tekstów Otwórz plik **pliku pom. XML** w folderze **symulowanych urządzeń** i Dodaj następujące zależności do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu **IoT-Device-Client** w aplikacji w celu komunikowania się z Centrum IoT.
+3. Za pomocą edytora tekstów Otwórz plik **pom.xml** w folderze **symulowane urządzenia** i Dodaj następujące zależności do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu **IoT-Device-Client** w aplikacji w celu komunikowania się z Centrum IoT.
 
     ```xml
     <dependency>
@@ -284,7 +283,7 @@ W tej sekcji utworzysz aplikację konsolową Java, która ustawia raportowaną w
     import java.util.Scanner;
     ```
 
-9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{yourdeviceconnectionstring}` na parametry połączenia urządzenia, które zostały skopiowane podczas [rejestrowania nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).
+9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień na `{yourdeviceconnectionstring}` Parametry połączenia urządzenia, które zostały skopiowane podczas [rejestrowania nowego urządzenia w usłudze IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";

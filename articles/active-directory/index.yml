@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/19/2020
-  ms.openlocfilehash: 4e1b18e1037b37deba3e037f3e896bf1536f4fd7
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 05/29/2020
+  ms.openlocfilehash: 13e69e5f45244be79d06b0014d32e5c8192c777c
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591917"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86038076"
 highlightedContent:
   items:
   - title: Co to jest Azure AD?
@@ -42,15 +42,15 @@ conceptualContent:
   items:
   - title: Zarządzanie aplikacjami
     links:
-    - url: ./manage-apps/what-is-single-sign-on.md
-      itemType: concept
-      text: Co to jest logowanie jednokrotne?
-    - url: ./manage-apps/user-provisioning.md
-      itemType: tutorial
-      text: Automatyczna aprowizacja użytkowników
-    - url: ./manage-apps/application-proxy.md
-      itemType: concept
-      text: Serwer proxy aplikacji dla aplikacji lokalnych
+    - url: ./manage-apps/what-is-application-management.md
+      itemType: overview
+      text: Co to jest zarządzanie aplikacjami?
+    - url: ./manage-apps/view-applications-portal.md
+      itemType: quickstart
+      text: Wyświetlanie aplikacji korzystających z dzierżawy do zarządzania tożsamościami
+    - url: ./manage-apps/add-application-portal-setup-sso.md
+      itemType: quickstart
+      text: Konfigurowanie logowania jednokrotnego opartego na protokole SAML
     footerLink:
       url: ./manage-apps/index.yml
       text: Zobacz więcej
@@ -109,20 +109,6 @@ conceptualContent:
       text: Warunki bazujące na lokalizacji
     footerLink:
       url: ./conditional-access/index.yml
-      text: Zobacz więcej
-  - title: Deweloperzy
-    links:
-    - url: ./develop/v2-overview.md
-      itemType: overview
-      text: Informacje o platformie tożsamości firmy Microsoft
-    - url: ./develop/v2-oauth2-auth-code-flow.md
-      itemType: concept
-      text: Przydział przepływu kodu OAuth 2.0
-    - url: ./develop/quickstart-register-app.md
-      itemType: quickstart
-      text: Rejestrowanie aplikacji za pomocą platformy obsługi tożsamości firmy Microsoft
-    footerLink:
-      url: ./develop/index.yml
       text: Zobacz więcej
   - title: Zarządzanie urządzeniami
     links:
@@ -235,6 +221,20 @@ conceptualContent:
       text: Usługi obsługujące tożsamość zarządzaną
     footerLink:
       url: ./managed-identities-azure-resources/index.yml
+      text: Zobacz więcej
+  - title: Platforma tożsamości firmy Microsoft
+    links:
+    - url: ./develop/v2-overview.md
+      itemType: overview
+      text: Informacje o platformie tożsamości firmy Microsoft
+    - url: ./develop/v2-oauth2-auth-code-flow.md
+      itemType: concept
+      text: Przydział przepływu kodu OAuth 2.0
+    - url: ./develop/quickstart-register-app.md
+      itemType: quickstart
+      text: Rejestrowanie aplikacji za pomocą platformy obsługi tożsamości firmy Microsoft
+    footerLink:
+      url: ./develop/index.yml
       text: Zobacz więcej
   - title: Privileged Identity Management (PIM)
     links:

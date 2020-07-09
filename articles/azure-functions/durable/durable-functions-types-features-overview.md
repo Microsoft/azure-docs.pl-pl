@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84697711"
 ---
 # <a name="durable-functions-types-and-features"></a>Durable Functions — typy i funkcje
 
@@ -36,7 +35,7 @@ W przeciwieństwie do funkcji programu Orchestrator, funkcje działania nie są 
 > [!NOTE]
 > Ponieważ funkcje działania gwarantują tylko *jednokrotne* wykonanie, zalecamy, aby logika funkcji działania *idempotentne* się zawsze wtedy, gdy jest to możliwe.
 
-Użyj [wyzwalacza działania](durable-functions-bindings.md#activity-trigger) , aby zdefiniować funkcję działania. Funkcja .NET otrzymuje `DurableActivityContext` jako parametr. Można również powiązać wyzwalacz z dowolnym innym obiektem serializacji JSON, aby przekazać dane wejściowe do funkcji. W języku JavaScript można uzyskać dostęp do danych wejściowych za `<activity trigger binding name>` pośrednictwem właściwości [ `context.bindings` obiektu](../functions-reference-node.md#bindings). Do funkcji działania można przekazywać tylko jedną wartość. Aby przekazać wiele wartości, należy użyć krotek, tablic lub typów złożonych.
+Użyj [wyzwalacza działania](durable-functions-bindings.md#activity-trigger) , aby zdefiniować funkcję działania. Funkcja .NET otrzymuje `DurableActivityContext` jako parametr. Można również powiązać wyzwalacz z dowolnym innym obiektem serializacji JSON, aby przekazać dane wejściowe do funkcji. W języku JavaScript można uzyskać dostęp do danych wejściowych za pośrednictwem `<activity trigger binding name>` właściwości [ `context.bindings` obiektu](../functions-reference-node.md#bindings). Do funkcji działania można przekazywać tylko jedną wartość. Aby przekazać wiele wartości, należy użyć krotek, tablic lub typów złożonych.
 
 > [!NOTE]
 > Funkcję działania można wyzwolić tylko przy użyciu funkcji programu Orchestrator.

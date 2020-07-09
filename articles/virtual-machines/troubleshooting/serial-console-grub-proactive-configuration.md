@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262897"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309836"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Proaktywne zagwarantowanie, że masz dostęp do GRUB i sysrq mogą zaoszczędzić znaczną część czasu
 
@@ -76,7 +75,7 @@ Upewnienie się, że masz dostęp do konsoli szeregowej platformy Azure i GRUB o
 
 - Wymiana dysków — można zautomatyzować przy użyciu dowolnego z tych funkcji:
 
-   - [Skrypty odzyskiwania dla powłoki PowerShell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [Skrypty odzyskiwania programu PowerShell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [Skrypty odzyskiwania bash](https://github.com/sribs/azure-support-scripts)
 
 - Starsza Metoda
@@ -98,14 +97,14 @@ W tym artykule omówiono różne dystrybucje systemu Linux i konfiguracje dokume
 Klucz sysrq jest domyślnie włączony w przypadku niektórych nowszych dystrybucje systemu Linux, ale na innych, można go skonfigurować do akceptowania wartości tylko dla niektórych funkcji SysRq.
 W starszej wersji dystrybucje może być całkowicie wyłączony.
 
-Funkcja SysRq jest przydatna w przypadku ponownego uruchamiania awarii lub zawieszonej maszyny wirtualnej bezpośrednio z poziomu konsoli szeregowej platformy Azure, przydatnej także w celu uzyskania dostępu do menu GRUB, alternatywnie ponowne uruchomienie maszyny wirtualnej z innego okna portalu lub sesji SSH może porzucić bieżące połączenie z konsolą, co spowodowało wygaśnięcie limitów czasu GRUB, do których są używane do wyświetlania menu GRUB.
+Funkcja SysRq jest przydatna do ponownego uruchomienia maszyny wirtualnej, która uległa awarii lub nie odpowiada, bezpośrednio z poziomu konsoli szeregowej platformy Azure, przydatnej także w uzyskaniu dostępu do menu GRUB. Alternatywnie ponowne uruchomienie maszyny wirtualnej z innego okna portalu lub sesji SSH może porzucić bieżące połączenie z konsolą, co spowodowało wygaśnięcie limitów czasu GRUB, do których są używane do wyświetlania menu GRUB.
 Maszyna wirtualna musi być skonfigurowana do akceptowania wartości 1 dla parametru jądra, który włącza wszystkie funkcje sysrq lub 128, co umożliwia ponowne uruchomienie/wyłączenie
 
 
 [Włącz wideo sysrq](https://youtu.be/0doqFRrHz_Mc)
 
 
-Aby skonfigurować maszynę wirtualną do akceptowania ponownego uruchomienia za pomocą poleceń SysRq na Azure Portal, należy ustawić wartość 1 dla parametru jądra jądra. sysrq
+Aby skonfigurować maszynę wirtualną do akceptowania ponownego uruchomienia za pomocą poleceń SysRq na Azure Portal, należy ustawić wartość 1 dla parametru jądra kernel.sysRQ
 
 W przypadku tej konfiguracji w celu utrwalenia ponownego uruchomienia należy dodać wpis do pliku **sysctl. conf**
 
@@ -123,7 +122,7 @@ Za pomocą funkcji Azure Portal Operations-> Run > funkcja RunShellScript wymaga
 
 `sysctl -w kernel.sysrq=1 ; echo kernel.sysrq = 1 >> /etc/sysctl.conf`
 
-Jak pokazano poniżej: ![Enable sysrq2](./media/virtual-machines-serial-console/enabling-sysrq-2.png)
+Jak pokazano poniżej: ![ enable sysrq2](./media/virtual-machines-serial-console/enabling-sysrq-2.png)
 
 Po zakończeniu możesz spróbować uzyskać dostęp do **sysrq** i sprawdzić, czy jest możliwy ponowny rozruch.
 
@@ -173,7 +172,7 @@ GRUB_TIMEOUT_STYLE=countdown
 ```
 
 
-## <a name="ubuntu-1204"></a>Ubuntu 12\.04
+## <a name="ubuntu-1204"></a>Ubuntu 12 \. 04
 
 Ubuntu 12,04 zezwoli na dostęp do konsoli szeregowej, ale nie oferuje możliwości współdziałania. **Logowanie:** monit nie jest wyświetlany
 
@@ -236,7 +235,7 @@ Jeśli wszystko przebiegnie prawidłowo, zobaczysz te dodatkowe opcje, które mo
 
 ## <a name="red-hat-grub-configuration"></a>Konfiguracja GRUB Red Hat
 
-## <a name="red-hat-74-grub-configuration"></a>Konfiguracja\+ grub firmy\.Red Hat 7
+## <a name="red-hat-74-grub-configuration"></a>\.Konfiguracja grub firmy Red Hat 7 \+
 Domyślna konfiguracja/etc/default/Grub w tych wersjach jest odpowiednio skonfigurowana
 
 ```
@@ -256,7 +255,7 @@ Włącz klucz SysRq
 sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 >> /etc/sysctl.conf;sysctl -a | grep -i sysrq
 ```
 
-## <a name="red-hat-72-and-73-grub-configuration"></a>GRUB konfiguracja Red\.Hat 7 2\.i 7 3
+## <a name="red-hat-72-and-73-grub-configuration"></a>GRUB konfiguracja Red Hat 7 \. 2 i 7 \. 3
 Plik do zmodyfikowania to/etc/default/grub — konfiguracja domyślna wygląda podobnie do tego przykładu:
 
 ```
@@ -320,8 +319,8 @@ Możesz Alternatywnie skonfigurować GRUB i SysRq przy użyciu jednego wiersza w
 `cp /etc/default/grub /etc/default/grub.bak; sed -i 's/GRUB_TIMEOUT=1/GRUB_TIMEOUT=5/g' /etc/default/grub; sed -i 's/GRUB_TERMINAL_OUTPUT="console"/GRUB_TERMINAL="serial console"/g' /etc/default/grub; echo "GRUB_SERIAL_COMMAND=\"serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1\"" >> /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg;sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 /etc/sysctl.conf;sysctl -a | grep -i sysrq`
 
 
-## <a name="red-hat-6x-grub-configuration"></a>Konfiguracja GRUB w\.Red Hat 6 x
-Plik do zmodyfikowania to/boot/grub/grub.conf. Wartość `timeout` określi, jak długo GRUB jest pokazywany.
+## <a name="red-hat-6x-grub-configuration"></a>Konfiguracja GRUB w Red Hat 6 \. x
+Plik do zmodyfikowania to/boot/grub/grub.conf. Wartość określi, `timeout` jak długo GRUB jest pokazywany.
 
 ```
 #boot=/dev/vda

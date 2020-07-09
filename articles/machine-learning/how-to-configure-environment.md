@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: ab9a02efedb0e002ac13294429c06e39ea18019c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 0d8f6069193607d19e10c013f3d9cb1cf00a7de6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84816720"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Aby zainstalować środowisko zestawu SDK dla [komputera lokalnego](#local), [Ju
 
 Nie ma nic do zainstalowania lub skonfigurowania wystąpienia obliczeniowego.  Utwórz ją w dowolnym momencie w obszarze roboczym Azure Machine Learning. Podaj tylko nazwę i określ typ maszyny wirtualnej platformy Azure. Wypróbuj teraz ten [Samouczek: Konfigurowanie środowiska i obszaru roboczego](tutorial-1st-experiment-sdk-setup.md).
 
-Dowiedz się więcej o [wystąpieniach obliczeniowych](concept-compute-instance.md).
+Aby dowiedzieć się więcej o wystąpieniach obliczeniowych, w tym o sposobie instalowania pakietów, zobacz [wystąpienia obliczeniowe](concept-compute-instance.md).
 
 Aby zatrzymać naliczanie opłat za obliczenia, [Zatrzymaj wystąpienie obliczeniowe](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
@@ -136,7 +136,7 @@ Aby uzyskać więcej informacji, zobacz [Virtual Machines analizy danych](https:
 
 ## <a name="local-computer"></a><a id="local"></a>Komputer lokalny
 
-Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wirtualną), Utwórz środowisko Anaconda i Zainstaluj zestaw SDK. Oto przykład:
+Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wirtualną), Utwórz środowisko Anaconda i Zainstaluj zestaw SDK. Przykład:
 
 1. Pobierz i zainstaluj program [Anaconda](https://www.anaconda.com/distribution/#download-section) (wersja języka Python 3,7), jeśli jeszcze go nie masz.
 
@@ -345,7 +345,7 @@ Wypróbuj:
 
 ## <a name="create-a-workspace-configuration-file"></a><a id="workspace"></a>Utwórz plik konfiguracji obszaru roboczego
 
-Plik konfiguracji obszaru roboczego to plik JSON, który informuje zestaw SDK, jak komunikować się z obszarem roboczym Azure Machine Learning. Plik ma nazwę *config. JSON*i ma następujący format:
+Plik konfiguracji obszaru roboczego to plik JSON, który informuje zestaw SDK, jak komunikować się z obszarem roboczym Azure Machine Learning. Plik ma nazwę *config.jsna*i ma następujący format:
 
 ```json
 {
@@ -361,9 +361,9 @@ Aby użyć tego pliku z kodu, użyj `ws=Workspace.from_config()` . Ten kod ładu
 
 Plik konfiguracji można utworzyć na trzy sposoby:
 
-* **Użyj [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:, aby napisać plik *config. JSON* . Plik zawiera informacje o konfiguracji dla obszaru roboczego. *Plik config. JSON* można pobrać lub skopiować do innych środowisk programistycznych.
+* **Użyj [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:, aby napisać *config.jsna* pliku. Plik zawiera informacje o konfiguracji dla obszaru roboczego. *config.js* można pobrać lub skopiować do innych środowisk programistycznych.
 
-* **Pobierz plik**: w [Azure Portal](https://ms.portal.azure.com)wybierz opcję Pobierz plik **config. JSON** z sekcji **Przegląd** w obszarze roboczym.
+* **Pobierz plik**: w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
@@ -384,7 +384,7 @@ Plik konfiguracji można utworzyć na trzy sposoby:
         print('Workspace not found')
     ```
 
-    Ten kod zapisuje plik konfiguracyjny w pliku *.*
+    Ten kod zapisuje plik konfiguracyjny w pliku *.//config.js.*
 
 ## <a name="next-steps"></a>Następne kroki
 

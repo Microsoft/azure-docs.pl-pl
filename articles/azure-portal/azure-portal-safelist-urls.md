@@ -1,5 +1,5 @@
 ---
-title: Safelist adresy URL Azure Portal na zaporze lub serwerze proxy
+title: Dodawanie adresów URL witryny Azure Portal do listy bezpiecznych adresów w zaporze lub serwerze proxy
 description: Dodaj te adresy URL do obejścia serwera proxy, aby komunikować się z Azure Portalą i jej usługami
 services: azure-portal
 keywords: ''
@@ -9,14 +9,14 @@ ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67ccf6e2f113c0ec72cfcbccedf88017e452ec4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255053"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361663"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Safelist adresy URL Azure Portal na zaporze lub serwerze proxy
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Dodawanie adresów URL witryny Azure Portal do listy bezpiecznych adresów w zaporze lub serwerze proxy
 
 Lokalne urządzenia zabezpieczeń można skonfigurować w celu obejścia ograniczeń zabezpieczeń dla adresów URL Azure Portal. Ta konfiguracja może zwiększyć wydajność i łączność między siecią lokalną lub rozległą a chmurą platformy Azure.
 
@@ -53,6 +53,7 @@ Punkty końcowe URL Safelist dla Azure Portal są specyficzne dla chmury platfor
 #### <a name="us-government-cloud"></a>[Chmura dla instytucji rządowych USA](#tab/us-government-cloud)
 
 ```
+*.applicationinsights.us
 *.azure.us
 *.loganalytics.us
 *.microsoft.us

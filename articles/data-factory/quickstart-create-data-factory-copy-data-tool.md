@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 03/18/2020
-ms.openlocfilehash: e61bc750a06fb041e97def842e81fd62b614fcf6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/10/2020
+ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982160"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735199"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Szybki Start: Używanie narzędzia Kopiowanie danych do kopiowania danych
 
@@ -37,13 +37,13 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Przejdź do [Azure Portal](https://portal.azure.com). 
-1. Z menu Azure Portal wybierz pozycję **Utwórz** > **Analytics** > **Data Factory**analizy zasobów:
+1. Z menu Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
 
     ![Tworzenie nowej fabryki danych](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**. 
  
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład ** &lt;&gt;ADFTutorialDataFactory**) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład ** &lt; &gt; ADFTutorialDataFactory**) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/doc-common-process/name-not-available-error.png)
 1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
@@ -90,7 +90,7 @@ W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu witryny Az
 
 1. Na stronie **Wybieranie pliku lub folderu wejściowego** wykonaj następujące czynności:
 
-   a. Kliknij przycisk **Przeglądaj** , aby przejść do folderu **adftutorial/Input** , wybierz plik **EMP. txt** , a następnie kliknij przycisk **Wybierz**. 
+   a. Kliknij przycisk **Przeglądaj** , aby przejść do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie kliknij przycisk **Wybierz**. 
 
    d. Zaznacz pole wyboru **Kopiuj binarnie** , aby skopiować plik jako-is, a następnie wybierz przycisk **dalej**. 
 

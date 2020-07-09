@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85368258"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure
 
@@ -34,9 +34,9 @@ ms.locfileid: "83800179"
 
 Dostępne są dwie opcje konfigurowania klastra Pacemaker na platformie Azure. Można użyć Agenta ogrodzenia, który należy zwrócić uwagę na ponowne uruchomienie węzła zakończonego niepowodzeniem za pośrednictwem interfejsów API platformy Azure lub można użyć urządzenia SBD.
 
-Urządzenie SBD wymaga co najmniej jednej dodatkowej maszyny wirtualnej, która działa jako serwer docelowy iSCSI i udostępnia urządzenie SBD. Te serwery obiektów docelowych iSCSI można jednak udostępnić innym Klastrom Pacemaker. Zaletą korzystania z urządzenia SBD jest szybszy czas pracy awaryjnej i, jeśli używasz urządzeń SBD lokalnie, nie wymaga żadnych zmian dotyczących sposobu działania klastra Pacemaker. Do klastra Pacemaker można użyć maksymalnie trzech urządzeń SBD, aby umożliwić niedostępność urządzenia SBD, na przykład podczas stosowania poprawek systemu operacyjnego serwera obiektów docelowych iSCSI. Jeśli chcesz użyć więcej niż jednego urządzenia SBD na Pacemaker, upewnij się, że wdrożono wiele serwerów obiektów docelowych iSCSI i połączenie jednego SBD z każdego serwera obiektów docelowych iSCSI. Zalecamy użycie jednego urządzenia SBD lub trzy. Pacemaker nie będzie mógł automatycznie obsłużyć węzła klastra, jeśli skonfigurowano tylko dwa urządzenia SBD i jedna z nich jest niedostępna. Jeśli chcesz mieć możliwość ogrodzenia, gdy jeden serwer docelowy iSCSI nie działa, musisz użyć trzech urządzeń SBD i w związku z tym trzech serwerów obiektów docelowych iSCSI.
+Urządzenie SBD wymaga co najmniej jednej dodatkowej maszyny wirtualnej, która działa jako serwer docelowy iSCSI i udostępnia urządzenie SBD. Te serwery obiektów docelowych iSCSI można jednak udostępnić innym Klastrom Pacemaker. Zaletą korzystania z urządzenia SBD jest to, że jeśli już używasz urządzeń SBD w środowisku lokalnym, nie wymaga żadnych zmian w sposobie korzystania z klastra Pacemaker. Do klastra Pacemaker można użyć maksymalnie trzech urządzeń SBD, aby umożliwić niedostępność urządzenia SBD, na przykład podczas stosowania poprawek systemu operacyjnego serwera obiektów docelowych iSCSI. Jeśli chcesz użyć więcej niż jednego urządzenia SBD na Pacemaker, upewnij się, że wdrożono wiele serwerów obiektów docelowych iSCSI i połączenie jednego SBD z każdego serwera obiektów docelowych iSCSI. Zalecamy użycie jednego urządzenia SBD lub trzy. Pacemaker nie będzie mógł automatycznie obsłużyć węzła klastra, jeśli skonfigurowano tylko dwa urządzenia SBD i jedna z nich jest niedostępna. Jeśli chcesz mieć możliwość ogrodzenia, gdy jeden serwer docelowy iSCSI nie działa, musisz użyć trzech urządzeń SBD i w związku z tym trzy serwery obiektów docelowych iSCSI, co jest najbardziej odporną konfiguracją podczas korzystania z SBDs.
 
-Jeśli nie chcesz inwestować w jedną dodatkową maszynę wirtualną, możesz również użyć agenta usługi Azure ogrodzenia. Minusem polega na tym, że przełączenie w tryb failover może potrwać od 10 do 15 minut, jeśli zatrzymanie zasobu nie powiedzie się lub węzły klastra nie mogą komunikować się z sobą.
+Agent usługi Azure ogrodzenia nie wymaga wdrażania dodatkowych maszyn wirtualnych.   
 
 ![Pacemaker na SLES — Omówienie](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
@@ -413,32 +413,36 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** zainstaluj agentów ogrodzenia
+1. **[A]** Zainstaluj pakiet agentów ogrodzenia, jeśli używasz urządzenia STONITH na podstawie agenta usługi Azure ogrodzenia.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > W przypadku korzystania z systemu SUSE Linux Enterprise Server for SAP 15 należy pamiętać, że konieczne jest aktywowanie dodatkowego modułu i zainstalowanie dodatkowego składnika, który jest warunkiem wstępnym korzystania z agenta usługi Azure Ogrodzeni. Aby dowiedzieć się więcej na temat modułów i rozszerzeń SUSE, zapoznaj się z [objaśnieniem modułów i rozszerzeń](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Postępuj zgodnie z instrukcjami, aby zainstalować zestaw Azure Python SDK. 
+   > Zainstalowana wersja **ogranicznika** pakietu musi być co najmniej **4.4.0** , aby można było korzystać z szybszych czasów pracy w trybie failover przy użyciu agenta usługi Azure ogrodzenia, jeśli węzły klastra muszą być ogrodzone. Zalecamy zaktualizowanie pakietu, jeśli jest uruchomiona Starsza wersja.  
 
-   Poniższe instrukcje dotyczące sposobu instalowania zestawu Azure Python SDK dotyczą tylko systemu SUSE Enterprise Server for SAP **15**.  
 
-    - Jeśli używasz funkcji "Przenieś własną subskrypcję", postępuj zgodnie z tymi instrukcjami  
+1. **[A]** Instalacja zestawu Azure Python SDK 
+   - W systemie SLES 12 SP4 lub SLES 12 SP5
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+   </code></pre> 
 
-    <pre><code>
-    #Activate module PackageHub/15/x86_64
-    sudo SUSEConnect -p PackageHub/15/x86_64
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
-
-     - Jeśli używasz subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem, postępuj zgodnie z tymi instrukcjami  
-
-    <pre><code>#Activate module PackageHub/15/x86_64
-    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   - Na SLES 15 i nowszych 
+   <pre><code>
+    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+   </code></pre> 
+ 
+   >[!IMPORTANT]
+   >W zależności od wersji i typu obrazu może być konieczne aktywowanie rozszerzenia chmury publicznej dla wydania systemu operacyjnego, aby można było zainstalować zestaw Azure Python SDK.
+   >Rozszerzenie można sprawdzić, uruchamiając SUSEConnect---list-Extensions.  
+   >Aby osiągnąć krótszy czas pracy w trybie failover przy użyciu agenta usługi Azure ogrodzenia:
+   > - w systemie SLES 12 SP4 lub SLES 12 SP5 Zainstaluj wersję **4.6.2** lub nowszą pakietu Python — usługa Azure-zarządzanie-obliczenia  
+   > - w systemie SLES 15 Zainstaluj wersję **4.6.2** lub nowszą pakietu Python**3**— usługa Azure-zarządzania — obliczenia 
 
 1. **[A]** rozpoznawanie nazw hostów
 
@@ -457,7 +461,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    </code></pre>
 
 1. **[1]** Zainstaluj klaster
-
+- w przypadku używania urządzeń SBD do ogrodzenia
    <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
@@ -466,6 +470,19 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
    # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+   # Do you wish to configure an administration IP (y/n)? <b>n</b>
+   </code></pre>
+
+- Jeśli *nie używasz* urządzeń SBD dla ogrodzenia
+   <pre><code>sudo ha-cluster-init -u
+   
+   # ! NTP is not configured to start at system boot.
+   # Do you want to continue anyway (y/n)? <b>y</b>
+   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
+   # Do you wish to use SBD (y/n)? <b>n</b>
+   #WARNING: Not configuring SBD - STONITH will be disabled.
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
@@ -528,8 +545,27 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    <pre><code>sudo service corosync restart
    </code></pre>
 
+## <a name="default-pacemaker-configuration-for-sbd"></a>Domyślna konfiguracja Pacemaker dla SBD
+
+Konfiguracja w tej sekcji ma zastosowanie tylko w przypadku korzystania z SBD STONITH.  
+
+1. **[1]** Włącz korzystanie z urządzenia STONITH i ustaw opóźnienie ogranicznika
+
+<pre><code>sudo crm configure property stonith-timeout=144
+sudo crm configure property stonith-enabled=true
+
+# List the resources to find the name of the SBD device
+sudo crm resource list
+sudo crm resource stop stonith-sbd
+sudo crm configure delete <b>stonith-sbd</b>
+sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
+   params pcmk_delay_max="15" \
+   op monitor interval="15" timeout="15"
+</code></pre>
+
 ## <a name="create-azure-fence-agent-stonith-device"></a>Utwórz urządzenie STONITH agenta usługi Azure ogrodzenia
 
+Ta sekcja dokumentacji ma zastosowanie tylko w przypadku korzystania z programu STONITH na podstawie agenta usługi Azure Ogrodzeni.
 Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsoft Azure. Wykonaj następujące kroki, aby utworzyć nazwę główną usługi.
 
 1. Przejdź do strony <https://portal.azure.com>
@@ -543,7 +579,7 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 1. Wybierz pozycję Certyfikaty i wpisy tajne, a następnie kliknij pozycję Nowy wpis tajny klienta.
 1. Wprowadź opis nowego klucza, wybierz pozycję "nigdy nie wygasa" i kliknij przycisk Dodaj.
 1. Zapisz wartość. Służy jako **hasło** dla nazwy głównej usługi
-1. Wybierz pozycję Omówienie. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
+1. Wybierz pozycję Przegląd. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Utwórz rolę niestandardową dla agenta ogranicznika
 
@@ -553,22 +589,26 @@ Użyj następującej zawartości dla pliku wejściowego. Musisz dostosować zawa
 
 ```json
 {
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action" 
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -591,32 +631,23 @@ Powtórz powyższe kroki dla drugiego węzła klastra.
 
 Po edytowaniu uprawnień dla maszyn wirtualnych można skonfigurować urządzenia STONITH w klastrze.
 
-<pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+<pre><code>sudo crm configure property stonith-enabled=true
+crm configure property concurrent-fencing=true
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
-sudo crm configure property stonith-enabled=true
+
 </code></pre>
+
+> [!IMPORTANT]
+> Operacje monitorowania i ogrodzenia są deserializowane. W związku z tym, jeśli istnieje już uruchomiona operacja monitorowania i jednoczesne zdarzenie ogrodzenia, nie istnieje opóźnienie dla klastra w trybie failover z powodu już uruchomionej operacji monitorowania.
 
 > [!TIP]
 >Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
-
-## <a name="default-pacemaker-configuration-for-sbd"></a>Domyślna konfiguracja Pacemaker dla SBD
-
-1. **[1]** Włącz korzystanie z urządzenia STONITH i ustaw opóźnienie ogranicznika
-
-<pre><code>sudo crm configure property stonith-timeout=144
-sudo crm configure property stonith-enabled=true
-
-# List the resources to find the name of the SBD device
-sudo crm resource list
-sudo crm resource stop stonith-sbd
-sudo crm configure delete <b>stonith-sbd</b>
-sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
-   params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
-</code></pre>
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Konfiguracja Pacemaker dla zaplanowanych zdarzeń platformy Azure
 

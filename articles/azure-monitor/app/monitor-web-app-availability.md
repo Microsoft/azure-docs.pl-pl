@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670036"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
@@ -31,7 +30,7 @@ Istnieją trzy typy testów dostępności:
 
 Aby można było utworzyć test dostępności, należy najpierw utworzyć zasób Application Insights. Jeśli zasób został już utworzony, przejdź do następnej sekcji, aby [utworzyć test ping adresu URL](#create-a-url-ping-test).
 
-W Azure Portal wybierz pozycję **Utwórz zasób** > **Narzędzia deweloperskie** > **Application Insights** i [Utwórz zasób Application Insights](create-new-resource.md).
+W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperskie**  >  **Application Insights** i [Utwórz zasób Application Insights](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>Tworzenie testu ping adresu URL
 
@@ -43,7 +42,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="create-a-test"></a>Tworzenie testu
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 |**Adres URL** |  Adres URL może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.|
 |**Analizuj zależne żądania**| Testuje obrazy, skrypty, pliki stylów i inne pliki, które są częścią strony sieci Web w teście. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test kończy się niepowodzeniem, jeśli nie można pomyślnie pobrać któregokolwiek z tych zasobów w ramach limitu czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji skutkuje dokładniejszym sprawdzeniem. Test może zakończyć się niepowodzeniem, co może nie być zauważalne podczas ręcznego przeglądania witryny.
@@ -58,7 +57,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 | **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
 | **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
@@ -66,11 +65,11 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="alerts"></a>Alerty
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Wdrożenie klasyczne** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
-|**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w =  **lokalizacji alertów****-2 z co najmniej pięcioma lokalizacjami testów.**|
+|**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
+|**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
 ## <a name="see-your-availability-test-results"></a>Wyświetlanie wyników testów dostępności
 
@@ -118,7 +117,7 @@ Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dost�
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 * Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](../../azure-monitor/app/powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../../azure-monitor/platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.

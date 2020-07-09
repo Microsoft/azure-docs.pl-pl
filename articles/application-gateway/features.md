@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
 ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80810228"
 ---
 # <a name="azure-application-gateway-features"></a>Funkcje Application Gateway platformy Azure
@@ -26,7 +25,7 @@ Application Gateway obejmuje następujące funkcje:
 - [Skalowanie automatyczne](#autoscaling)
 - [Nadmiarowość stref](#zone-redundancy)
 - [Statyczny adres VIP](#static-vip)
-- [Zapora aplikacji internetowej](#web-application-firewall)
+- [Web Application Firewall](#web-application-firewall)
 - [Kontroler ruchu przychodzącego dla usługi AKS](#ingress-controller-for-aks)
 - [Routing oparty na adresach URL](#url-based-routing)
 - [Hostowanie wielu witryn](#multiple-site-hosting)
@@ -58,7 +57,7 @@ Application Gateway Standard_v2 może obejmować wiele Strefy dostępnościów, 
 
 Jednostka SKU Standard_v2 bramy aplikacji obsługuje wyłącznie statyczny typ adresu VIP. Dzięki temu wirtualne adresy IP skojarzone z bramą aplikacji nie zmieniają się nawet w okresie istnienia Application Gateway.
 
-## <a name="web-application-firewall"></a>Zapora aplikacji internetowej
+## <a name="web-application-firewall"></a>Web Application Firewall
 
 Zapora aplikacji sieci Web (WAF) to usługa, która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach. WAF opiera się na regułach z [OWASP (Open Web Application Security Project) podstawowych zestawów reguł](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (tylko WAF_v2), 3,0 i 2.2.9. 
 
@@ -153,7 +152,7 @@ Pełna lista limitów usługi Application Gateway znajduje się na stronie [ogra
 
 W poniższej tabeli przedstawiono średnią przepływność wydajności dla każdego wystąpienia usługi Application Gateway V1 z włączonym odciążeniem SSL:
 
-| Średni rozmiar odpowiedzi strony zaplecza | Small | Medium | Large |
+| Średni rozmiar odpowiedzi strony zaplecza | Mały | Średniaa | Duży |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mb/s |13 Mb/s |50 Mb/s |
 | 100 KB |35 Mb/s |100 Mb/s |200 Mb/s |

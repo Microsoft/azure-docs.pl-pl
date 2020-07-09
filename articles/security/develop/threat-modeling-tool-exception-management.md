@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650089"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Ramka zabezpieczeń: Zarządzanie wyjątkami | Środki zaradcze 
@@ -202,7 +201,7 @@ Zapoznaj się z linkami w sekcji References, aby uzyskać dodatkowe informacje o
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | [Okno dialogowe Edytowanie ustawień stron błędów ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Czynnooci** | <p>Gdy aplikacja ASP.NET kończy się niepowodzeniem i powoduje błąd wewnętrzny serwera HTTP/1. x 500 lub Konfiguracja funkcji (na przykład filtrowanie żądań) uniemożliwia wyświetlenie strony, zostanie wygenerowany komunikat o błędzie. Administratorzy mogą określić, czy aplikacja powinna wyświetlać przyjazny komunikat do klienta, szczegółowy komunikat o błędzie do klienta lub szczegółowy komunikat o błędzie tylko do hosta lokalnego. `<customErrors>`Tag w pliku Web. config ma trzy tryby:</p><ul><li>**W dniu:** Określa, że błędy niestandardowe są włączone. Jeśli żaden atrybut defaultRedirect nie zostanie określony, użytkownicy zobaczą błąd ogólny. Błędy niestandardowe są wyświetlane dla klientów zdalnych i do hosta lokalnego.</li><li>**Wyłączone:** Określa, że błędy niestandardowe są wyłączone. Szczegółowe błędy ASP.NET są widoczne dla klientów zdalnych i do hosta lokalnego</li><li>**RemoteOnly:** Określa, że błędy niestandardowe są wyświetlane tylko dla klientów zdalnych, a błędy ASP.NET są wyświetlane na hoście lokalnym. Jest to wartość domyślna</li></ul><p>Otwórz `web.config` plik dla aplikacji/lokacji i upewnij się, że tag ma albo `<customErrors mode="RemoteOnly" />` `<customErrors mode="On" />` zdefiniowane.</p>|
+| **Czynnooci** | <p>Gdy aplikacja ASP.NET kończy się niepowodzeniem i powoduje błąd wewnętrzny serwera HTTP/1. x 500 lub Konfiguracja funkcji (na przykład filtrowanie żądań) uniemożliwia wyświetlenie strony, zostanie wygenerowany komunikat o błędzie. Administratorzy mogą określić, czy aplikacja powinna wyświetlać przyjazny komunikat do klienta, szczegółowy komunikat o błędzie do klienta lub szczegółowy komunikat o błędzie tylko do hosta lokalnego. `<customErrors>`Tag w web.config ma trzy tryby:</p><ul><li>**W dniu:** Określa, że błędy niestandardowe są włączone. Jeśli żaden atrybut defaultRedirect nie zostanie określony, użytkownicy zobaczą błąd ogólny. Błędy niestandardowe są wyświetlane dla klientów zdalnych i do hosta lokalnego.</li><li>**Wyłączone:** Określa, że błędy niestandardowe są wyłączone. Szczegółowe błędy ASP.NET są widoczne dla klientów zdalnych i do hosta lokalnego</li><li>**RemoteOnly:** Określa, że błędy niestandardowe są wyświetlane tylko dla klientów zdalnych, a błędy ASP.NET są wyświetlane na hoście lokalnym. Jest to wartość domyślna</li></ul><p>Otwórz `web.config` plik dla aplikacji/lokacji i upewnij się, że tag ma albo `<customErrors mode="RemoteOnly" />` `<customErrors mode="On" />` zdefiniowane.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Ustaw metodę wdrażania na sprzedaż detaliczną w usługach IIS
 
@@ -213,7 +212,7 @@ Zapoznaj się z linkami w sekcji References, aby uzyskać dodatkowe informacje o
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | [Element wdrożenia (Schemat ustawień ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Czynnooci** | <p>`<deployment retail>`Przełącznik jest przeznaczony do użytku przez produkcyjne serwery usług IIS. Ten przełącznik służy do uruchamiania aplikacji z najlepszą możliwą wydajnością i minimalnymi wyciekami informacji o zabezpieczeniach przez wyłączenie możliwości tworzenia przez aplikację danych wyjściowych śledzenia na stronie, wyłączenie możliwości wyświetlania szczegółowych komunikatów o błędach dla użytkowników końcowych i wyłączenie przełącznika debugowania.</p><p>Często, przełączniki i opcje, które są skoncentrowane na deweloperach, takie jak śledzenie nieudanych żądań i debugowanie, są włączane podczas aktywnego programowania. Zaleca się, aby Metoda wdrożenia na dowolnym serwerze produkcyjnym była ustawiona na sprzedaż detaliczną. Otwórz plik Machine. config i upewnij się, że `<deployment retail="true" />` jest ustawiony na wartość true.</p>|
+| **Czynnooci** | <p>`<deployment retail>`Przełącznik jest przeznaczony do użytku przez produkcyjne serwery usług IIS. Ten przełącznik służy do uruchamiania aplikacji z najlepszą możliwą wydajnością i minimalnymi wyciekami informacji o zabezpieczeniach przez wyłączenie możliwości tworzenia przez aplikację danych wyjściowych śledzenia na stronie, wyłączenie możliwości wyświetlania szczegółowych komunikatów o błędach dla użytkowników końcowych i wyłączenie przełącznika debugowania.</p><p>Często, przełączniki i opcje, które są skoncentrowane na deweloperach, takie jak śledzenie nieudanych żądań i debugowanie, są włączane podczas aktywnego programowania. Zaleca się, aby Metoda wdrożenia na dowolnym serwerze produkcyjnym była ustawiona na sprzedaż detaliczną. Otwórz plik machine.config i upewnij się, że `<deployment retail="true" />` jest ustawiony na wartość true.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Wyjątki powinny być bezpiecznie bezpieczne
 

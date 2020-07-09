@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82591656"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Przegląd zapytań dzienników w Azure Monitor
@@ -76,7 +76,7 @@ Zobacz Rozpoczynanie [pracy z dziennikami zapytań w Azure monitor](get-started-
 
 
 ## <a name="what-is-log-analytics"></a>Co to jest usługa Log Analytics?
-Log Analytics to podstawowe narzędzie w Azure Portal do zapisywania zapytań dzienników i interaktywnego analizowania ich wyników. Nawet jeśli zapytanie dziennika jest używane w innym miejscu usługi Azure Monitor, zwykle jest ono pisane i testowane przy użyciu usługi Log Analytics.
+Usługa Log Analytics to podstawowe narzędzie w witrynie Azure Portal do pisania zapytań dzienników i interaktywnego analizowania ich wyników. Nawet jeśli zapytanie dziennika jest używane w innym miejscu usługi Azure Monitor, zwykle jest ono pisane i testowane przy użyciu usługi Log Analytics.
 
 Log Analytics można uruchomić z kilku miejsc w Azure Portal. Zakres danych dostępnych do Log Analytics jest określany na podstawie sposobu jego uruchomienia. Aby uzyskać więcej informacji, zobacz [zakres zapytań](scope.md) .
 

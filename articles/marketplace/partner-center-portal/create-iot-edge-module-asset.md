@@ -1,29 +1,29 @@
 ---
 title: Przygotowywanie zasobów technicznych modułu IoT Edge — Azure Marketplace
 description: Dowiedz się więcej o wymaganiach technicznych i konfiguracyjnych, jakie muszą spełnić zasoby techniczne modułu Internet rzeczy (IoT), zanim będzie można je opublikować w witrynie Azure Marketplace.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/03/2020
-ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 685ac2a383bcc0b85121112b9b5df4aa7650ab59
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856731"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101175"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Przygotuj zasoby techniczne modułu IoT Edge
 
 W tym artykule opisano wymagania, które muszą spełniać zasoby techniczne modułu brzegowego Internet rzeczy (IoT) przed opublikowaniem w witrynie Azure Marketplace.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Moduł IoT Edge jest kontenerem zgodnym z platformą Docker, który działa na urządzeniu IoT Edge.
 
-- Aby dowiedzieć się więcej na temat modułów IoT Edge, zobacz [Opis modułów Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
-- Aby rozpocząć pracę z rozwojem modułu IoT Edge, zobacz [Tworzenie własnych modułów IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
+- Aby dowiedzieć się więcej na temat modułów IoT Edge, zobacz [Opis modułów Azure IoT Edge](../../iot-edge/iot-edge-modules.md).
+- Aby rozpocząć pracę z rozwojem modułu IoT Edge, zobacz [Tworzenie własnych modułów IoT Edge](../../iot-edge/module-development.md).
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 
@@ -35,7 +35,7 @@ Moduł IoT Edge musi obsługiwać jedną z następujących opcji platformy:
 
 #### <a name="tier-1-platforms-supported-by-iot-edge"></a>Platformy warstwy 1 obsługiwane przez IoT Edge
 
-Moduł musi obsługiwać wszystkie platformy warstwy 1 obsługiwane przez IoT Edge (zgodnie z zarejestrowaniem w [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). Zalecamy użycie tej opcji, ponieważ oferuje ona lepszy komfort obsługi klienta. Zostaną zaprezentowane moduły spełniające te kryteria. Moduł korzystający z tej opcji platformy musi:
+Moduł musi obsługiwać wszystkie platformy warstwy 1 obsługiwane przez IoT Edge (zgodnie z zarejestrowaniem w [Azure IoT Edge support](../../iot-edge/support.md)). Zalecamy użycie tej opcji, ponieważ oferuje ona lepszy komfort obsługi klienta. Zostaną zaprezentowane moduły spełniające te kryteria. Moduł korzystający z tej opcji platformy musi:
 
 - Podaj najnowszy tag i tag wersji (na przykład 1.0.1), które są tagami manifestu skompilowanymi przy użyciu [narzędzia manifestu usługi GitHub](https://github.com/estesp/manifest-tool).
 
@@ -43,7 +43,7 @@ Moduł musi obsługiwać wszystkie platformy warstwy 1 obsługiwane przez IoT Ed
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Podzbiór platform warstwy 1 obsługiwanych przez IoT Edge
 
-Moduł musi obsługiwać podzestaw (co najmniej jeden) platform warstwy 1 obsługiwane przez IoT Edge (zgodnie z zarejestrowaniem w [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). Moduł korzystający z tej opcji platformy musi:
+Moduł musi obsługiwać podzestaw (co najmniej jeden) platform warstwy 1 obsługiwane przez IoT Edge (zgodnie z zarejestrowaniem w [Azure IoT Edge support](../../iot-edge/support.md)). Moduł korzystający z tej opcji platformy musi:
 
 - Podaj najnowszy tag i tag wersji (na przykład 1.0.1), które są tagami manifestu skompilowanymi przy użyciu [narzędzia manifestu](https://github.com/estesp/manifest-tool) GitHub, jeśli obsługiwana jest więcej niż jedna platforma. Tagi manifestu są opcjonalne tylko wtedy, gdy jedna platforma jest obsługiwana.
 - Skorzystaj z karty Lista ofert w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace) , aby dodać link w sekcji **przydatne linki** do co najmniej jednego urządzenia IoT Edge z [katalogu Azure IoT Edge certyfikowane urządzenia](https://catalog.azureiotsolutions.com/).
@@ -64,7 +64,7 @@ Skopiuj ten tekst HTML lub użyj odpowiednich funkcji tekstu sformatowanego w ok
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Moduł musi zawierać domyślne ustawienia konfiguracji, aby wdrożenie na urządzeniu IoT Edge było możliwie jak najszybciej. Te informacje można znaleźć na stronie **konfiguracja techniczna** planu w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace). Kontener może również zawierać zestaw SDK modułu IoT Edge, aby umożliwić komunikację z centrum brzegowym i IoT Hub.
 
@@ -139,8 +139,8 @@ Twoja oferta zostanie również zatwierdzona, jeśli ją zaktualizujesz, na przy
 
 ## <a name="host-module-in-azure-container-registry"></a>Moduł hosta w Azure Container Registry
 
-Aby przekazać moduł IoT Edge do portalu Azure Marketplace, najpierw musisz go hostować w [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). Moduł musi zawierać wszystkie Tagi, które mają zostać opublikowane, w tym Tagi obrazu, do których odwołuje się tag manifestu. Aby uzyskać więcej informacji, zobacz samouczek [Tworzenie usługi Azure Container Registry i wypychanie obrazu kontenera](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr).
+Aby przekazać moduł IoT Edge do portalu Azure Marketplace, najpierw musisz go hostować w [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR). Moduł musi zawierać wszystkie Tagi, które mają zostać opublikowane, w tym Tagi obrazu, do których odwołuje się tag manifestu. Aby uzyskać więcej informacji, zobacz samouczek [Tworzenie usługi Azure Container Registry i wypychanie obrazu kontenera](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie oferty modułu usługi IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
+- [Tworzenie oferty modułu usługi IoT Edge](azure-iot-edge-module-creation.md)

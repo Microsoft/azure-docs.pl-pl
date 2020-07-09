@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego SQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak przeprowadzić migrację z SQL Server lokalnie do wystąpienia zarządzanego Azure SQL Database przy użyciu Azure Database Migration Service.
+description: Dowiedz się, jak przeprowadzić migrację z SQL Server do wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -9,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 240e0a6469f16adee971492e70d88479c6a0bbd9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f20b9236631057449a337e4e161b7468f995e306
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020918"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085535"
 ---
-# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL Database w trybie offline za pomocą usługi DMS
+# <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie offline za pomocą usługi DMS
 
-Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia lokalnego SQL Server do [wystąpienia zarządzanego Azure SQL Database](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). Dodatkowe metody, które mogą wymagać ręcznej pracy, są dostępne w artykule [Migracja wystąpienia programu SQL Server do wystąpienia zarządzanego usługi Azure SQL Database](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
+Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia SQL Server do [wystąpienia zarządzanego Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). Aby uzyskać dodatkowe metody, które mogą wymagać ręcznego nakładu pracy, zapoznaj się z artykułem [SQL Server migracji wystąpień do wystąpienia zarządzanego SQL](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
 
-W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** z wystąpienia lokalnego SQL Server do wystąpienia zarządzanego SQL Database przy użyciu Azure Database Migration Service.
+W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** z wystąpienia lokalnego SQL Server do wystąpienia zarządzanego SQL przy użyciu Azure Database Migration Service.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -35,17 +35,17 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Pobieranie raportu migracji.
 
 > [!IMPORTANT]
-> W przypadku migracji w trybie offline z SQL Server do SQL Database wystąpienia zarządzanego Azure Database Migration Service można utworzyć pliki kopii zapasowej. Alternatywnie można podać najnowszą pełną kopię zapasową bazy danych w udziale sieciowym SMB, który będzie używany przez usługę do migrowania baz danych. Nie dołączaj wielu kopii zapasowych do jednego nośnika kopii zapasowej; Wykonaj każdą kopię zapasową w osobnym pliku kopii zapasowej. Należy pamiętać, że można również użyć skompresowanych kopii zapasowych, aby zmniejszyć prawdopodobieństwo wystąpienia potencjalnych problemów z migracją dużych kopii zapasowych.
+> W przypadku migracji w trybie offline z SQL Server do wystąpienia zarządzanego SQL Azure Database Migration Service można utworzyć pliki kopii zapasowej. Alternatywnie można podać najnowszą pełną kopię zapasową bazy danych w udziale sieciowym SMB, który będzie używany przez usługę do migrowania baz danych. Nie dołączaj wielu kopii zapasowych do jednego nośnika kopii zapasowej; Wykonaj każdą kopię zapasową w osobnym pliku kopii zapasowej. Należy pamiętać, że można również użyć skompresowanych kopii zapasowych, aby zmniejszyć prawdopodobieństwo wystąpienia potencjalnych problemów z migracją dużych kopii zapasowych.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-W tym artykule opisano migrację w trybie offline z SQL Server do wystąpienia zarządzanego SQL Database. Aby przeprowadzić migrację w trybie online, zobacz [migrowanie SQL Server do wystąpienia zarządzanego Azure SQL Database w trybie online za pomocą usługi DMS](tutorial-sql-server-managed-instance-online.md).
+W tym artykule opisano migrację w trybie offline z SQL Server do wystąpienia zarządzanego SQL. Aby przeprowadzić migrację w trybie online, zobacz [migrowanie SQL Server do wystąpienia zarządzanego SQL w trybie online za pomocą usługi DMS](tutorial-sql-server-managed-instance-online.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-- Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia łączność między lokacjami z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Informacje o topologii sieci dla Azure SQL Database migracji wystąpień zarządzanych przy użyciu Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](https://docs.microsoft.com/azure/virtual-network/), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
+- Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager, który zapewnia łączność między lokacjami z lokalnymi serwerami źródłowymi przy użyciu usługi [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [sieci VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Poznaj topologie sieci dla migracji wystąpienia zarządzanego SQL przy użyciu Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](https://docs.microsoft.com/azure/virtual-network/), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
 
     > [!NOTE]
     > Jeśli podczas konfigurowania sieci wirtualnej używasz usługi ExpressRoute z usługą Komunikacja równorzędna z firmą Microsoft, Dodaj następujące [punkty końcowe](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) do podsieci, w której zostanie zainicjowana usługa:
@@ -60,13 +60,13 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 - Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do SQL Server źródłowej, która domyślnie jest portem TCP 1433.
 - Jeśli używasz wielu nazwanych wystąpień SQL Server przy użyciu portów dynamicznych, możesz włączyć usługę SQL Browser i zezwolić na dostęp do portu UDP 1434 za pośrednictwem zapór, aby Azure Database Migration Service mógł nawiązać połączenie z nazwanym wystąpieniem na serwerze źródłowym.
 - Jeśli używasz urządzenia zapory przed źródłowymi bazami danych, może być konieczne dodanie reguł zapory, aby umożliwić Azure Database Migration Service dostęp do źródłowych baz danych na potrzeby migracji, a także plików za pośrednictwem portu SMB 445.
-- Utworzenie wystąpienia zarządzanego usługi Azure SQL Database — szczegółowe instrukcje znajdują się w artykule [Tworzenie wystąpienia zarządzanego usługi Azure SQL Database w witrynie Azure Portal](https://aka.ms/sqldbmi).
-- Upewnienie się, że dane logowania używane do połączenia źródłowego programu SQL Server i docelowego wystąpienia zarządzanego należą do roli administratora systemu serwera.
+- Utwórz wystąpienie zarządzane SQL, postępując zgodnie ze szczegółowymi informacjami w artykule [Tworzenie wystąpienia zarządzanego SQL w Azure Portal](https://aka.ms/sqldbmi).
+- Upewnij się, że nazwy logowania używane do połączenia z SQL Server źródłowym i docelowym wystąpieniem zarządzanym SQL są członkami roli serwera sysadmin.
 
     >[!NOTE]
     >Domyślnie Azure Database Migration Service obsługuje tylko Migrowanie nazw logowania SQL. Można jednak włączyć możliwość migracji nazw logowania systemu Windows przez:
     >
-    >- Upewnienie się, że obiekt docelowy SQL Database wystąpienia zarządzanego ma dostęp do odczytu usługi AAD, który można skonfigurować za pośrednictwem Azure Portal przez użytkownika z rolą **administratora firmy**lub **administratora globalnego**.
+    >- Upewnienie się, że docelowe wystąpienie zarządzane SQL ma dostęp do odczytu usługi AAD, który można skonfigurować za pośrednictwem Azure Portal przez użytkownika z rolą **administratora firmy**lub **administratora globalnego**.
     >- Konfigurowanie wystąpienia Azure Database Migration Service, aby umożliwić migrację logowania użytkownika/grupy systemu Windows, która jest konfigurowana za pośrednictwem Azure Portal na stronie Konfiguracja. Po włączeniu tego ustawienia należy ponownie uruchomić usługę, aby zmiany zaczęły obowiązywać.
     >
     > Po ponownym uruchomieniu usługi, logowania użytkownika/grupy systemu Windows są wyświetlane na liście nazw logowania dostępnych do migracji. W przypadku wszystkich migrowanych kont użytkowników/grup systemu Windows zostanie wyświetlony monit o podanie skojarzonej nazwy domeny. Konta użytkowników usługi (konto z nazwą domeny NT AUTHORITY) i wirtualne konta użytkowników (nazwa konta z usługą nazw domen NT) nie są obsługiwane.
@@ -74,8 +74,11 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 - Utwórz udział sieciowy, który Azure Database Migration Service może używać do tworzenia kopii zapasowej źródłowej bazy danych.
 - Upewnienie się, że konto usługi z uruchomionym źródłowym wystąpieniem programu SQL Server ma uprawnienia w utworzonym udziale sieciowym oraz że konto komputera serwera źródłowego ma uprawnienia odczytu i zapisu do tego samego udziału.
 - Zapisanie nazwy i hasła użytkownika systemu Windows, który ma uprawnienia do pełnej kontroli nad wcześniej utworzonym udziałem sieciowym. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania.
-- Utworzenie kontenera obiektów blob i pobranie jego identyfikatora URI sygnatury dostępu współdzielonego przez wykonanie czynności opisanych w artykule [Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Musisz wybrać wszystkie uprawnienia (odczyt, zapis, usuwanie, wyświetlanie listy) w oknie zasad podczas tworzenia identyfikatora URI sygnatury dostępu współdzielonego. Ten Szczegóły zawiera Azure Database Migration Service z dostępem do kontenera konta magazynu na potrzeby przekazywania plików kopii zapasowej używanych do migrowania baz danych do Azure SQL Database wystąpienia zarządzanego.
+- Utworzenie kontenera obiektów blob i pobranie jego identyfikatora URI sygnatury dostępu współdzielonego przez wykonanie czynności opisanych w artykule [Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Musisz wybrać wszystkie uprawnienia (odczyt, zapis, usuwanie, wyświetlanie listy) w oknie zasad podczas tworzenia identyfikatora URI sygnatury dostępu współdzielonego. Ten Szczegóły zawiera Azure Database Migration Service z dostępem do kontenera konta magazynu na potrzeby przekazywania plików kopii zapasowej używanych do migrowania baz danych do wystąpienia zarządzanego SQL.
 
+    > [!NOTE]
+    > Azure Database Migration Service nie obsługuje korzystania z tokenu sygnatury dostępu współdzielonego na poziomie konta podczas konfigurowania ustawień konta magazynu w kroku [Konfigurowanie ustawień migracji](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#configure-migration-settings) .
+    
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
 1. Zaloguj się w witrynie Azure Portal, wybierz pozycję **Wszystkie usługi**, a następnie wybierz pozycję **Subskrypcje**.
@@ -106,11 +109,11 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 5. Wybierz istniejącą sieć wirtualną lub utwórz ją.
 
-    Sieć wirtualna zapewnia Azure Database Migration Service z dostępem do SQL Server źródłowych i docelowym Azure SQL Database wystąpieniem zarządzanym.
+    Sieć wirtualna zapewnia Azure Database Migration Service z dostępem do SQL Server źródłowej i docelowym wystąpieniem zarządzanym SQL.
 
     Aby uzyskać więcej informacji na temat sposobu tworzenia sieci wirtualnej w Azure Portal, zobacz artykuł [Tworzenie sieci wirtualnej przy użyciu Azure Portal](https://aka.ms/DMSVnet).
 
-    Aby uzyskać dodatkowe informacje, zobacz artykuł [topologie sieci dla migracji wystąpienia zarządzanego usługi Azure SQL dB przy użyciu Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    Aby uzyskać dodatkowe informacje, zobacz artykuł [topologie sieci dla migracji wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Wybierz warstwę cenową.
 
@@ -132,7 +135,7 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
 
 3. Wybierz pozycję + **Nowy projekt migracji**.
 
-4. Na ekranie **Nowy projekt migracji** wpisz nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **SQL Server**, w polu tekstowym **Typ serwera docelowego** wybierz pozycję **Wystąpienie zarządzane usługi Azure SQL Database**, a następnie w polu **Wybierz typ działania** wybierz pozycję **Migracja danych w trybie offline**.
+4. Na ekranie **Nowy projekt migracji** Określ nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz opcję **SQL Server**, w polu tekstowym **Typ serwera docelowego** wybierz pozycję **wystąpienie zarządzane Azure SQL**, a następnie wybierz **Typ działań**wybierz pozycję **migracja danych w trybie offline**.
 
    ![Tworzenie projektu usługi DMS](media/tutorial-sql-server-to-managed-instance/dms-create-project2.png)
 
@@ -158,15 +161,15 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
    ![Wybieranie źródłowych baz danych](media/tutorial-sql-server-to-managed-instance/dms-source-database1.png)
 
     > [!IMPORTANT]
-    > Jeśli używasz usługi SQL Server Integration Services (SSIS), usługa DMS nie obsługuje obecnie migrowania bazy danych katalogu dla projektów/pakietów usługi SSIS (SSISDB) z programu SQL Server do wystąpienia zarządzanego usługi Azure SQL Database. Możesz jednak aprowizować usługę SSIS w usłudze Azure Data Factory (ADF) i ponownie wdrożyć projekty/pakiety usługi SSIS w docelowej bazie danych SSISDB hostowanej przez wystąpienie zarządzane usługi Azure SQL Database. Aby uzyskać więcej informacji na temat migracji pakietów SSIS, zobacz artykuł [Migrowanie pakietów usług SQL Server Integration Services na platformę Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+    > W przypadku korzystania z programu SQL Server Integration Services (SSIS) usługa DMS nie obsługuje obecnie migrowania bazy danych wykazu dla projektów SSIS/pakietów (SSISDB) z SQL Server do wystąpienia zarządzanego SQL. Można jednak zainicjować obsługę usług SSIS w Azure Data Factory (ADF) i ponownie wdrożyć projekty SSIS/pakiety w miejscu docelowym SSISDB hostowanym przez wystąpienie zarządzane SQL. Aby uzyskać więcej informacji na temat migracji pakietów SSIS, zobacz artykuł [Migrowanie pakietów usług SQL Server Integration Services na platformę Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 5. Wybierz pozycję **Zapisz**.
 
 ## <a name="specify-target-details"></a>Określanie szczegółów elementu docelowego
 
-1. Na ekranie **Szczegóły lokalizacji docelowej migracji** określ szczegóły połączenia dla lokalizacji docelowej, czyli dla aprowizowanego wcześniej wystąpienia zarządzanego usługi Azure SQL Database, do którego jest migrowana baza danych **AdventureWorks2012**.
+1. Na ekranie **szczegóły lokalizacji docelowej migracji** Określ szczegóły połączenia dla elementu docelowego, który jest wstępnie zainicjowanym wystąpieniem zarządzanym SQL, do którego jest migrowana baza danych **AdventureWorks2012** .
 
-    Jeśli jeszcze nie zainicjowano obsługi administracyjnej SQL Database wystąpienia zarządzanego, wybierz [link](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) , aby ułatwić obsługę administracyjną wystąpienia. Nadal możesz kontynuować tworzenie projektu, a następnie, gdy Azure SQL Database wystąpienie zarządzane jest gotowe, Wróć do tego konkretnego projektu, aby przeprowadzić migrację.
+    Jeśli nie zainicjowano jeszcze wystąpienia zarządzanego przez program SQL, wybierz [link](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) , aby ułatwić obsługę administracyjną wystąpienia. Nadal możesz kontynuować tworzenie projektu, a następnie, gdy wystąpienie zarządzane SQL jest gotowe, Wróć do tego określonego projektu w celu wykonania migracji.
 
     ![Wybieranie obiektu docelowego](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
@@ -201,8 +204,8 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
     |**Udział lokalizacji sieciowej** | Lokalny udział sieciowy SMB, który Azure Database Migration Service może pobrać kopie zapasowe źródłowej bazy danych do programu. Konto usługi uruchamiające źródłowe wystąpienie programu SQL Server musi mieć uprawnienia do zapisu w tym udziale sieciowym. Podaj nazwę FQDN lub adresy IP serwera w udziale sieciowym, na przykład „\\\nazwa_serwera.nazwa_domeny.com\folder_kopii_zapasowych” lub „\\\adres_IP\folder_kopii_zapasowych”.|
     |**Nazwa użytkownika** | Upewnij się, że użytkownik systemu Windows ma uprawnienia pełnej kontroli w udziale sieciowym, który podano powyżej. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania. W przypadku wybrania baz danych obsługujących szyfrowanie TDE użytkownik systemu Windows musi korzystać z wbudowanego konta administratora, a [kontrola konta użytkownika](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) musi być wyłączona, aby usługa Azure Database Migration Service mogła przekazywać i usuwać pliki certyfikatów. |
     |**Hasło** | Hasło użytkownika. |
-    |**Ustawienia konta magazynu** | Identyfikator URI sygnatury dostępu współdzielonego, który zapewnia Azure Database Migration Service z dostępem do kontenera konta magazynu, do którego usługa przekazuje pliki kopii zapasowej i służy do migrowania baz danych do Azure SQL Database wystąpienia zarządzanego. [Dowiedz się, jak uzyskać identyfikator URI sygnatury dostępu współdzielonego dla kontenera obiektów blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**Ustawienia szyfrowania TDE** | Jeśli migrujesz źródłowe bazy danych z włączonym Transparent Data Encryption (TDE), musisz mieć uprawnienia do zapisu w docelowym Azure SQL Database wystąpieniu zarządzanym.  Wybierz z menu rozwijanego subskrypcję, w której aprowizowano wystąpienie zarządzane usługi Azure SQL Database.  Wybierz docelowe **wystąpienie zarządzane usługi Azure SQL Database** z menu rozwijanego. |
+    |**Ustawienia konta magazynu** | Identyfikator URI sygnatury dostępu współdzielonego, który zapewnia Azure Database Migration Service z dostępem do kontenera konta magazynu, do którego usługa przekazuje pliki kopii zapasowej i służy do migrowania baz danych do wystąpienia zarządzanego SQL. [Dowiedz się, jak uzyskać identyfikator URI sygnatury dostępu współdzielonego dla kontenera obiektów blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Ten identyfikator URI sygnatury dostępu współdzielonego musi być dla kontenera obiektów blob, a nie dla konta magazynu.|
+    |**Ustawienia szyfrowania TDE** | W przypadku migrowania źródłowych baz danych z włączonym Transparent Data Encryption (TDE) należy mieć uprawnienia do zapisu w docelowym wystąpieniu zarządzanym SQL.  Wybierz subskrypcję, w ramach której obsługiwane jest wystąpienie zarządzane przez program SQL z menu rozwijanego.  Wybierz docelowe **wystąpienie zarządzane usługi Azure SQL Database** z menu rozwijanego. |
 
     ![Konfigurowanie ustawień migracji](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
@@ -238,10 +241,10 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
 
 2. Po zakończeniu migracji wybierz polecenie **Pobierz raport**, aby pobrać raport zawierający szczegółowe informacje o procesie migracji.
 
-3. Upewnij się, że docelowa baza danych znajduje się w docelowym środowisku wystąpienia zarządzanego usługi Azure SQL Database.
+3. Sprawdź, czy docelowa baza danych jest w docelowym środowisku wystąpienia zarządzanego SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Samouczek pokazujący, jak przeprowadzić migrację bazy danych do wystąpienia zarządzanego przy użyciu polecenia przywracania T-SQL, zobacz [przywracanie kopii zapasowej do wystąpienia zarządzanego przy użyciu polecenia Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Aby uzyskać informacje o wystąpieniu zarządzanym, zobacz [co to jest wystąpienie zarządzane](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- Aby uzyskać informacje na temat łączenia aplikacji z wystąpieniem zarządzanym, zobacz [łączenie aplikacji](../azure-sql/managed-instance/connect-application-instance.md).
+- Aby zapoznać się z samouczkiem, jak przeprowadzić migrację bazy danych do wystąpienia zarządzanego SQL przy użyciu polecenia przywracania T-SQL, zobacz [przywracanie kopii zapasowej do wystąpienia zarządzanego SQL przy użyciu polecenia Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- Aby uzyskać informacje o wystąpieniu zarządzanym SQL, zobacz [co to jest wystąpienie zarządzane SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Aby uzyskać informacje na temat łączenia aplikacji z wystąpieniem zarządzanym SQL, zobacz [łączenie aplikacji](../azure-sql/managed-instance/connect-application-instance.md).

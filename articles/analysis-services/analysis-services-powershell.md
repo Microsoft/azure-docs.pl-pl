@@ -8,10 +8,9 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: dfa9de94665c0ee98d0252be6de807f18e39b087
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83697974"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Zarządzanie usługami Azure Analysis Services przy użyciu programu PowerShell
@@ -59,7 +58,7 @@ Dokumentacja — [odwołanie do SqlServer](/powershell/module/sqlserver)
 
 ## <a name="related-information"></a>Informacje pokrewne
 
-* [Program PowerShell dla oprogramowania SQL Server](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
+* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
 * [Pobierz moduł SQL Server PowerShell](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Pobierz narzędzie SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [Moduł SqlServer w Galeria programu PowerShell](https://www.powershellgallery.com/packages/SqlServer)    

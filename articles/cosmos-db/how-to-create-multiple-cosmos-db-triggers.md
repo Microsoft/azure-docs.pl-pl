@@ -3,21 +3,21 @@ title: Utwórz wiele niezależnych wyzwalaczy Azure Functions dla Cosmos DB
 description: Dowiedz się, jak skonfigurować wiele niezależnych wyzwalaczy Azure Functions dla Cosmos DB do tworzenia architektur opartych na zdarzeniach.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77604942"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261600"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Utwórz wiele wyzwalaczy Azure Functions dla Cosmos DB
 
 W tym artykule opisano sposób konfigurowania wielu wyzwalaczy usługi Azure Functions dla usługi Cosmos DB tak, aby działały równolegle i niezależnie reagowały na zmiany.
 
-![Funkcje oparte na zdarzeniach bezserwerowych działające z wyzwalaczem Azure Functions na potrzeby Cosmos DB i udostępniania kontenera dzierżawy](./media/change-feed-functions/multi-trigger.png)
+:::image type="content" source="./media/change-feed-functions/multi-trigger.png" alt-text="Funkcje oparte na zdarzeniach bezserwerowych działające z wyzwalaczem Azure Functions na potrzeby Cosmos DB i udostępniania kontenera dzierżawy" border="false":::
 
 ## <a name="event-based-architecture-requirements"></a>Wymagania dotyczące architektury opartej na zdarzeniach
 
@@ -40,7 +40,7 @@ Celem tego artykułu jest przeprowadzenie drugiej opcji.
 
 Aby można było skonfigurować kontener udostępnione dzierżawy, jedyną dodatkową konfiguracją, którą należy wykonać w wyzwalaczach, jest dodanie `LeaseCollectionPrefix` [atrybutu](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) , jeśli używasz języka JavaScript lub `leaseCollectionPrefix` [atrybutu](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) , jeśli korzystasz z języka Java. Wartość atrybutu powinna być logicznym deskryptorem tego konkretnego wyzwalacza.
 
-Na przykład jeśli masz trzy wyzwalacze: jeden, który wysyła wiadomości e-mail, taki, który wykonuje agregację, aby utworzyć widok z materiałami i taki, który wysyła zmiany do innego magazynu, na potrzeby późniejszej analizy można `LeaseCollectionPrefix` przypisać "wiadomości e-mail" do pierwszej, "z materiałem" do drugiego, a "Analytics" na trzecią.
+Na przykład jeśli masz trzy wyzwalacze: jeden, który wysyła wiadomości e-mail, taki, który wykonuje agregację, aby utworzyć widok z materiałami i taki, który wysyła zmiany do innego magazynu, na potrzeby późniejszej analizy można przypisać `LeaseCollectionPrefix` "wiadomości e-mail" do pierwszej, "z materiałem" do drugiego, a "Analytics" na trzecią.
 
 Ważna część polega na tym, że wszystkie trzy wyzwalacze **mogą korzystać z tej samej konfiguracji kontenera dzierżaw** (konta, bazy danych i nazwy kontenera).
 

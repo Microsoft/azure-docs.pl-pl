@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74480576"
 ---
 # <a name="using-the-azure-function-return-value"></a>Korzystanie z wartości zwracanej przez funkcję platformy Azure
@@ -20,13 +19,13 @@ W językach, które mają wartość zwracaną, można powiązać [powiązanie da
 
 * W bibliotece klas języka C# zastosuj atrybut wynik powiązania do wartości zwracanej przez metodę.
 * W języku Java Zastosuj adnotację powiązania danych wyjściowych do metody Function.
-* W innych językach Ustaw `name` właściwość w *Function. JSON* na. `$return`
+* W innych językach Ustaw `name` Właściwość w *function.jsna* `$return` .
 
 Jeśli istnieje wiele powiązań wyjściowych, użyj wartości zwracanej tylko dla jednego z nich.
 
-W skrypcie języka C# i C# alternatywne sposoby wysyłania danych do powiązania wyjściowego to `out` parametry i [obiekty modułów zbierających](functions-reference-csharp.md#writing-multiple-output-values).
+W skrypcie języka C# i C# alternatywne sposoby wysyłania danych do powiązania wyjściowego to `out` Parametry i [obiekty modułów zbierających](functions-reference-csharp.md#writing-multiple-output-values).
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Oto kod języka C#, który używa wartości zwracanej dla powiązania danych wyjściowych, po którym następuje asynchroniczny przykład:
 
@@ -54,7 +53,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Oto powiązanie danych wyjściowych w pliku *Function. JSON* :
+Oto powiązanie danych wyjściowych w *function.js* pliku:
 
 ```json
 {
@@ -87,7 +86,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 
 # <a name="f"></a>[F#](#tab/fsharp)
 
-Oto powiązanie danych wyjściowych w pliku *Function. JSON* :
+Oto powiązanie danych wyjściowych w *function.js* pliku:
 
 ```json
 {
@@ -109,7 +108,7 @@ let Run(input: WorkItem, log: ILogger) =
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Oto powiązanie danych wyjściowych w pliku *Function. JSON* :
+Oto powiązanie danych wyjściowych w *function.js* pliku:
 
 ```json
 {
@@ -120,7 +119,7 @@ Oto powiązanie danych wyjściowych w pliku *Function. JSON* :
 }
 ```
 
-W języku JavaScript wartość zwracana jest w drugim parametrze dla `context.done`:
+W języku JavaScript wartość zwracana jest w drugim parametrze dla `context.done` :
 
 ```javascript
 module.exports = function (context, input) {
@@ -132,7 +131,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Oto powiązanie danych wyjściowych w pliku *Function. JSON* :
+Oto powiązanie danych wyjściowych w *function.js* pliku:
 
 ```json
 {

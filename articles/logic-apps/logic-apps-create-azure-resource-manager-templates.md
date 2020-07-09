@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317767"
 ---
-# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Tworzenie Azure Resource Manager szablonów w celu zautomatyzowania wdrożenia Azure Logic Apps
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Tworzenie szablonów usługi Azure Resource Manager w celu zautomatyzowania wdrożenia usługi Azure Logic Apps
 
 Aby ułatwić automatyzację tworzenia i wdrażania aplikacji logiki, w tym artykule opisano sposoby tworzenia [szablonu Azure Resource Manager](../azure-resource-manager/management/overview.md) dla aplikacji logiki. Aby zapoznać się z omówieniem struktury i składni szablonu zawierającego definicję przepływu pracy i inne zasoby niezbędne do wdrożenia, zobacz [Omówienie: Automatyzowanie wdrażania dla aplikacji logiki za pomocą szablonów Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -45,7 +45,7 @@ Pobierając aplikację logiki, uzyskasz szablon zawierający definicje aplikacji
 
 Szablony Menedżer zasobów można tworzyć za pomocą Azure PowerShell z [modułem LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Ten moduł open source najpierw szacuje aplikację logiki i wszystkie połączenia używane przez aplikację logiki. Następnie moduł generuje zasoby szablonu z wymaganymi parametrami dla wdrożenia.
 
-Załóżmy na przykład, że masz aplikację logiki, która odbiera komunikat z kolejki Azure Service Bus i przekazuje dane do bazy danych SQL Azure. Moduł zachowuje wszystkie logiky aranżacji i parameterizes parametry połączenia SQL i Service Bus, aby można było podać i zmienić te wartości w zależności od potrzeb wdrożenia.
+Załóżmy na przykład, że masz aplikację logiki, która odbiera komunikat z kolejki Azure Service Bus i przekazuje dane do Azure SQL Database. Moduł zachowuje wszystkie logiky aranżacji i parameterizes parametry połączenia SQL i Service Bus, aby można było podać i zmienić te wartości w zależności od potrzeb wdrożenia.
 
 W poniższych przykładach pokazano, jak tworzyć i wdrażać aplikacje logiki przy użyciu szablonów Azure Resource Manager, Azure Pipelines w usłudze Azure DevOps i Azure PowerShell:
 
@@ -104,7 +104,7 @@ W celu wyodrębnienia z odwołaniami Azure Key Vault (tylko statyczny) Uruchom n
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| Parametry | Wymagany | Opis |
+| Parametry | Wymagane | Opis |
 |------------|----------|-------------|
 | TemplateFile | Tak | Ścieżka pliku do pliku szablonu |
 | KeyVault | Nie | Wyliczenie opisujące sposób obsługi możliwych wartości magazynu kluczy. Wartość domyślna to `None`. |

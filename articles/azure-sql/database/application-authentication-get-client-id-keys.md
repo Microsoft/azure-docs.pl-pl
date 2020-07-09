@@ -11,17 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a0a4c0885552d7f8697a1f13b8750e084d8770a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 5aba4c690f91b515424eb866d387652ca9f40e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84344615"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Pobierz wymagane wartości w celu uwierzytelnienia aplikacji w celu uzyskania dostępu do Azure SQL Database z kodu
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Aby utworzyć SQL Database z kodu i zarządzać nim, musisz zarejestrować aplikację w domenie Azure Active Directory (AAD) w subskrypcji, w której zostały utworzone zasoby platformy Azure.
+Aby utworzyć Azure SQL Database z kodu i zarządzać nim, musisz zarejestrować aplikację w domenie Azure Active Directory (Azure AD) w subskrypcji, w której zostały utworzone zasoby platformy Azure.
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Tworzenie jednostki usługi w celu uzyskania dostępu do zasobów z aplikacji
 
@@ -100,7 +99,7 @@ Write-Output "_applicationSecret:" $secret
 
 * * *
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Tworzenie bazy danych w Azure SQL Database przy użyciu języka C #](design-first-database-csharp-tutorial.md)  
 [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu uwierzytelniania Azure Active Directory](authentication-aad-overview.md)

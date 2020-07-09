@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e06fcdbac097e85c039e34274c61cb51ee06bcd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80478321"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Tworzenie środowiska ASE przy użyciu szablonu Azure Resource Manager
@@ -27,7 +27,7 @@ ms.locfileid: "80478321"
 Podczas tworzenia środowiska ASE w Azure Portal można utworzyć sieć wirtualną w tym samym czasie lub wybrać istniejącą sieć wirtualną do wdrożenia. Podczas tworzenia środowiska ASE na podstawie szablonu należy zacząć od: 
 
 * Menedżer zasobów sieci wirtualnej.
-* Podsieć w tej sieci wirtualnej. Zalecamy używanie podsieci `/24` środowiska ASE z 256 adresami, aby sprostać przyszłym potrzebom wzrostu i skalowania. Po utworzeniu środowiska ASE nie można zmienić jego rozmiaru.
+* Podsieć w tej sieci wirtualnej. Zalecamy używanie podsieci środowiska ASE z `/24` 256 adresami, aby sprostać przyszłym potrzebom wzrostu i skalowania. Po utworzeniu środowiska ASE nie można zmienić jego rozmiaru.
 * Identyfikator zasobu z sieci wirtualnej. Te informacje można uzyskać z Azure Portal w obszarze właściwości sieci wirtualnej.
 * Subskrypcja, w ramach której ma zostać wdrożone.
 * Lokalizacja, w której ma zostać wdrożone.
@@ -38,19 +38,19 @@ Aby zautomatyzować tworzenie środowiska ASE:
 
 2. Po utworzeniu ILB ASE zostanie przekazany certyfikat TLS/SSL zgodny z domeną ILB ASE.
 
-3. Przekazany certyfikat TLS/SSL jest przypisywany do ILB ASE jako "domyślny" certyfikat TLS/SSL.  Ten certyfikat jest używany na potrzeby ruchu TLS/SSL do aplikacji w ILB ASE, gdy używają wspólnej domeny głównej przypisanej do środowiska ASE (na przykład `https://someapp.mycustomrootdomain.com`).
+3. Przekazany certyfikat TLS/SSL jest przypisywany do ILB ASE jako "domyślny" certyfikat TLS/SSL.  Ten certyfikat jest używany na potrzeby ruchu TLS/SSL do aplikacji w ILB ASE, gdy używają wspólnej domeny głównej przypisanej do środowiska ASE (na przykład `https://someapp.mycustomrootdomain.com` ).
 
 
 ## <a name="create-the-ase"></a>Tworzenie środowiska ASE
 Menedżer zasobów szablon, który tworzy środowisko ASE i skojarzony z nim plik parametrów, jest dostępny na [przykład][quickstartasev2create] w witrynie GitHub.
 
-Jeśli chcesz utworzyć ILB ASE, Użyj tych [przykładów][quickstartilbasecreate]szablonu Menedżer zasobów. Są one stosowane do tego przypadku użycia. Większość parametrów w pliku *azuredeploy. Parameters. JSON* jest wspólna dla tworzenia ILB środowisk ASE i zewnętrznego środowisk ASE. Poniższa lista wywołuje Parametry specjalne uwagi lub są unikatowe, gdy tworzysz ILB ASE:
+Jeśli chcesz utworzyć ILB ASE, Użyj tych [przykładów][quickstartilbasecreate]szablonu Menedżer zasobów. Są one stosowane do tego przypadku użycia. Większość parametrów w *azuredeploy.parameters.js* pliku są wspólne dla tworzenia ILB środowisk ASE i zewnętrznych środowisk ASE. Poniższa lista wywołuje Parametry specjalne uwagi lub są unikatowe, gdy tworzysz ILB ASE:
 
 * *internalLoadBalancingMode*: w większości przypadków należy ustawić tę wartość na 3, co oznacza, że zarówno ruch http/https na portach 80/443, jak i porty kontroli/kanału danych nasłuchune przez usługę FTP w środowisku ASE, będą powiązane z adresem wewnętrznym sieci wirtualnej przydzielonej przez ILB. Jeśli ta właściwość ma wartość 2, tylko porty powiązane z usługą FTP (zarówno kanały kontroli i danych) są powiązane z adresem ILB. Ruch HTTP/HTTPS pozostaje w publicznym wirtualnym adresie IP.
 * *dnsSuffix*: ten parametr definiuje domyślną domenę główną, która jest przypisana do środowiska ASE. W publicznej odmianie Azure App Service domyślną domeną główną dla wszystkich aplikacji sieci Web jest *azurewebsites.NET*. Ponieważ ILB ASE jest wewnętrzny dla sieci wirtualnej klienta, nie ma sensu używania domyślnej domeny głównej usługi publicznej. Zamiast tego, ILB ASE powinien mieć domyślną domenę główną, która ma Sense w przypadku użycia w wewnętrznej sieci wirtualnej firmy. Na przykład firma Contoso Corporation może używać domyślnej domeny głównej *Internal-contoso.com* dla aplikacji, które mają być rozpoznawalne i dostępne tylko w sieci wirtualnej firmy Contoso. 
-* *ipSslAddressCount*: ten parametr automatycznie przyjmuje wartość 0 w pliku *azuredeploy. JSON* , ponieważ środowisk ASE ILB ma tylko jeden adres ILB. Brak jawnych adresów IP-SSL dla ILB ASE. W związku z tym Pula adresów IP-SSL dla ILB ASE musi mieć wartość zero. W przeciwnym razie wystąpi błąd aprowizacji. 
+* *ipSslAddressCount*: ten parametr automatycznie przyjmuje wartość 0 w *azuredeploy.jsw* pliku, ponieważ ILB środowisk ASE ma tylko jeden adres ILB. Brak jawnych adresów IP-SSL dla ILB ASE. W związku z tym Pula adresów IP-SSL dla ILB ASE musi mieć wartość zero. W przeciwnym razie wystąpi błąd aprowizacji. 
 
-Po wypełnieniu pliku *azuredeploy. Parameters. JSON* Utwórz środowisko ASE przy użyciu fragmentu kodu programu PowerShell. Zmień ścieżki plików tak, aby były zgodne z lokalizacjami plików szablonu Menedżer zasobów na komputerze. Pamiętaj, aby podać własne wartości nazwy wdrożenia Menedżer zasobów i nazwy grupy zasobów:
+Po wprowadzeniu *azuredeploy.parameters.jsw* pliku Utwórz środowisko ASE przy użyciu fragmentu kodu programu PowerShell. Zmień ścieżki plików tak, aby były zgodne z lokalizacjami plików szablonu Menedżer zasobów na komputerze. Pamiętaj, aby podać własne wartości nazwy wdrożenia Menedżer zasobów i nazwy grupy zasobów:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -98,16 +98,16 @@ $fileContentEncoded | set-content ($fileName + ".b64")
 
 Po pomyślnym wygenerowaniu i przekonwertowaniu certyfikatu TLS/SSL na ciąg szyfrowany algorytmem Base64 Użyj przykładu Menedżer zasobów szablon [konfiguruje domyślny certyfikat SSL][quickstartconfiguressl] w serwisie GitHub. 
 
-Parametry w pliku *azuredeploy. Parameters. JSON* są wymienione tutaj:
+Parametry w *azuredeploy.parameters.jsw* pliku są wymienione tutaj:
 
 * *appServiceEnvironmentName*: Nazwa KONFIGUROWANEgo ILB środowiska ASE.
 * *existingAseLocation*: ciąg tekstowy zawierający region platformy Azure, w którym WDROŻONO ILB ASE.  Na przykład: "Południowo-środkowe stany USA".
 * *pfxBlobString*: zakodowany w based64 ciąg reprezentacji pliku PFX. Użyj podanego wcześniej fragmentu kodu i skopiuj ciąg zawarty w pliku "exportedcert. pfx. B64". Wklej ją jako wartość atrybutu *pfxBlobString* .
 * *hasło*: hasło użyte do zabezpieczenia pliku PFX.
 * *certificateThumbprint*: odcisk palca certyfikatu. Jeśli ta wartość zostanie pobrana z programu PowerShell (na przykład *$Certificate. Odcisk palca* ze starszego fragmentu kodu), można użyć wartości jako. Jeśli skopiujesz wartość z okna dialogowego certyfikat systemu Windows, pamiętaj, aby rozdzielić spacje. *CertificateThumbprint* powinna wyglądać podobnie do AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: przyjazny identyfikator ciągu używany do wybrania tożsamości certyfikatu. Nazwa jest używana jako część unikatowego identyfikatora Menedżer zasobów jednostki *Microsoft. Web/Certificates* , która reprezentuje certyfikat TLS/SSL. Nazwa *musi* kończyć się następującym sufiksem: \_yourASENameHere_InternalLoadBalancingASE. Azure Portal używa tego sufiksu jako wskaźnika, który służy do zabezpieczania środowiska ASE z włączoną obsługą ILB.
+* *certificateName*: przyjazny identyfikator ciągu używany do wybrania tożsamości certyfikatu. Nazwa jest używana jako część unikatowego identyfikatora Menedżer zasobów jednostki *Microsoft. Web/Certificates* , która reprezentuje certyfikat TLS/SSL. Nazwa *musi* kończyć się następującym sufiksem: \_ yourASENameHere_InternalLoadBalancingASE. Azure Portal używa tego sufiksu jako wskaźnika, który służy do zabezpieczania środowiska ASE z włączoną obsługą ILB.
 
-Poniżej przedstawiono skrócony przykład pliku *azuredeploy. Parameters. JSON* :
+Poniżej przedstawiono skrócony przykład *azuredeploy.parameters.jsw* programie:
 
 ```json
 {
@@ -136,7 +136,7 @@ Poniżej przedstawiono skrócony przykład pliku *azuredeploy. Parameters. JSON*
 }
 ```
 
-Po wypełnieniu pliku *azuredeploy. Parameters. JSON* Skonfiguruj domyślny certyfikat TLS/SSL przy użyciu fragmentu kodu programu PowerShell. Zmień ścieżki plików tak, aby pasowały do lokalizacji plików szablonów Menedżer zasobów znajdujących się na komputerze. Pamiętaj, aby podać własne wartości nazwy wdrożenia Menedżer zasobów i nazwy grupy zasobów:
+Po wprowadzeniu *azuredeploy.parameters.jsw* pliku Skonfiguruj domyślny certyfikat TLS/SSL przy użyciu fragmentu kodu programu PowerShell. Zmień ścieżki plików tak, aby pasowały do lokalizacji plików szablonów Menedżer zasobów znajdujących się na komputerze. Pamiętaj, aby podać własne wartości nazwy wdrożenia Menedżer zasobów i nazwy grupy zasobów:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"

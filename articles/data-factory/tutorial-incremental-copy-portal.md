@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: b1660c3a6d3bfe262493722c5aad0a08778b1964
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/10/2020
+ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119153"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082662"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do usługi Azure Blob Storage za pomocą Azure Portal
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z Azure SQL Database do magazynu obiektów blob platformy Azure przy użyciu Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem, który ładuje dane różnicowe z tabeli w bazie danych Azure SQL Database do magazynu Azure Blob Storage.
+W tym samouczku utworzysz fabrykę danych Azure przy użyciu potoku ładującego dane różnicowe z tabeli w Azure SQL Database do magazynu obiektów blob platformy Azure.
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -65,7 +65,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych w Azure SQL Database, zobacz temat [Tworzenie bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) , aby utworzyć procedurę.
 * **Usługa Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych ujścia. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych SQL
@@ -103,6 +103,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Tworzenie innej tabeli w bazie danych SQL do przechowywania wartości górnego limitu
+
 1. Uruchom następujące polecenie SQL względem bazy danych SQL, aby utworzyć tabelę o nazwie `watermarktable` w celu przechowywania wartości limitu:  
 
     ```sql
@@ -160,7 +161,7 @@ END
 
    Nazwa fabryki danych Azure musi być **globalnie unikatowa**. Jeśli pojawi się czerwony wykrzyknik z poniższym błędem, zmień nazwę fabryki danych (np. twojanazwaADFIncCopyTutorialDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
 
-       `Data factory name "ADFIncCopyTutorialDF" is not available`
+    *Nazwa fabryki danych "ADFIncCopyTutorialDF" jest niedostępna*
 4. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych.
 5. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
 
@@ -169,8 +170,8 @@ END
          
         Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
-7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-8. Kliknij przycisk **Utwórz**.      
+7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i tak dalej) i usługi obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą znajdować się w innych regionach.
+8. Kliknij pozycję **Utwórz**.      
 9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
@@ -182,7 +183,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 1. Na stronie **Wprowadzenie** interfejsu użytkownika usługi Data Factory kliknij kafelek **Utwórz potok**.
 
    ![Strona Wprowadzenie interfejsu użytkownika usługi Data Factory](./media/doc-common-process/get-started-page.png)    
-3. Na stronie **Ogólne** w oknie **Właściwości** dla potoku wpisz nazwę **IncrementalCopyPipeline**.
+3. W panelu Ogólne w obszarze **Właściwości**Określ **IncrementalCopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 4. Dodajmy pierwsze działanie wyszukiwania w celu pobrania starej wartości limitu. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Zmień nazwę działania na **LookupOldWaterMarkActivity**.
 
@@ -199,7 +200,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
     2. Wybierz serwer dla **nazwy serwera**.
     3. Wybierz **nazwę bazy danych** z listy rozwijanej.
     4. Wprowadź hasło do **nazwy użytkownika**  &  **Password**.
-    5. Aby przetestować połączenie z bazą danych Azure SQL Database, kliknij przycisk **Testuj połączenie**.
+    5. Aby przetestować połączenie z bazą danych SQL, kliknij przycisk **Test connection**.
     6. Kliknij przycisk **Zakończ**.
     7. Upewnij się, że wybrano **AzureSqlDatabaseLinkedService** dla **połączonej usługi**.
 
@@ -274,10 +275,10 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
-        | LastModifiedtime | Data/godzina | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String (ciąg) | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję >>.   
 
 28. Opublikuj jednostki (usługi połączone, zestawy danych i potoki) w usłudze Azure Data Factory, wybierając przycisk **Opublikuj wszystko**. Poczekaj, aż zostanie wyświetlony komunikat o pomyślnym opublikowaniu.
@@ -290,9 +291,9 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorowanie działania potoku
 
-1. Przejdź do karty **Monitorowanie** po lewej stronie. Widoczny będzie stan uruchomienia potoku, który został wyzwolony za pomocą wyzwalacza ręcznego. Kliknij przycisk **Odśwież**, aby odświeżyć listę.
+1. Przejdź do karty **Monitorowanie** po lewej stronie. Zobaczysz stan uruchomienia potoku wyzwalanego przez wyzwalacz ręczny. Możesz użyć linków w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły uruchamiania i ponownie uruchomić potok.
 
-2. Aby wyświetlić uruchomienia działań skojarzone z tym uruchomieniem potoku, kliknij pierwszy link (**Wyświetl uruchomienia działań**) w kolumnie **Akcje**. Do poprzedniego widoku można wrócić, klikając pozycję **Potoki** u góry. Kliknij przycisk **Odśwież**, aby odświeżyć listę.
+2. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybierz link w kolumnie **Nazwa potoku** . Aby uzyskać szczegółowe informacje o uruchomieniach działania, wybierz link **szczegóły** (ikona okularów) w kolumnie **Nazwa działania** . Zaznacz opcję **wszystkie uruchomienia potoków** u góry, aby wrócić do widoku uruchomienia potoków. Aby odświeżyć widok, wybierz pozycję **Odśwież**.
 
 
 ## <a name="review-the-results"></a>Sprawdzanie wyników
@@ -322,7 +323,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
 ## <a name="add-more-data-to-source"></a>Dodawanie większej ilości danych do źródła
 
-Wstaw nowe dane do bazy danych SQL (źródłowego magazynu danych źródłowych).
+Wstaw nowe dane do bazy danych (magazyn źródła danych).
 
 ```sql
 INSERT INTO data_source_table
@@ -332,7 +333,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-Zaktualizowane dane w bazie danych SQL są następujące:
+Zaktualizowane dane w bazie danych są następujące:
 
 ```
 PersonID | Name | LastModifytime
@@ -346,8 +347,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## <a name="trigger-another-pipeline-run"></a>Wyzwalanie kolejnego uruchomienia potoku
+
 1. Przejdź do karty **Edycja** . Kliknij potok w widoku drzewa, jeśli nie jest on otwarty w projektancie.
 
 2. Na pasku narzędzi kliknij pozycję **Dodaj wyzwalacz** , a następnie kliknij pozycję **Wyzwól teraz**.
@@ -355,9 +356,9 @@ PersonID | Name | LastModifytime
 
 ## <a name="monitor-the-second-pipeline-run"></a>Monitorowanie drugiego uruchomienia potoku
 
-1. Przejdź do karty **Monitorowanie** po lewej stronie. Widoczny będzie stan uruchomienia potoku, który został wyzwolony za pomocą wyzwalacza ręcznego. Kliknij przycisk **Odśwież**, aby odświeżyć listę.
+1. Przejdź do karty **Monitorowanie** po lewej stronie. Zobaczysz stan uruchomienia potoku wyzwalanego przez wyzwalacz ręczny. Możesz użyć linków w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły działania i ponownie uruchomić potok.
 
-2. Aby wyświetlić uruchomienia działań skojarzone z tym uruchomieniem potoku, kliknij pierwszy link (**Wyświetl uruchomienia działań**) w kolumnie **Akcje**. Do poprzedniego widoku można wrócić, klikając pozycję **Potoki** u góry. Kliknij przycisk **Odśwież**, aby odświeżyć listę.
+2. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybierz link w kolumnie **Nazwa potoku** . Aby uzyskać szczegółowe informacje o uruchomieniach działania, wybierz link **szczegóły** (ikona okularów) w kolumnie **Nazwa działania** . Zaznacz opcję **wszystkie uruchomienia potoków** u góry, aby wrócić do widoku uruchomienia potoków. Aby odświeżyć widok, wybierz pozycję **Odśwież**.
 
 
 ## <a name="verify-the-second-output"></a>Weryfikowanie drugiego zestawu danych wyjściowych
@@ -398,7 +399,7 @@ W ramach tego samouczka wykonano następujące procedury:
 > * Monitorowanie drugiego uruchomienia potoku
 > * Przegląd wyników drugiego uruchomienia
 
-W tym samouczku potok skopiował dane z jednej tabeli w bazie danych SQL do magazynu Blob Storage. Przejdź do poniższego samouczka, aby uzyskać informacje na temat kopiowania danych z wielu tabel w lokalnej bazie danych programu SQL Server do bazy danych SQL.
+W tym samouczku potok skopiował dane z pojedynczej tabeli w SQL Database do magazynu obiektów BLOB. Przejdź do następującego samouczka, aby dowiedzieć się, jak skopiować dane z wielu tabel w bazie danych SQL Server, aby SQL Database.
 
 > [!div class="nextstepaction"]
 >[Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

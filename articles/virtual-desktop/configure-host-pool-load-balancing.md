@@ -4,16 +4,16 @@ description: Jak skonfigurować metodę równoważenia obciążenia dla środowi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612439"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85204350"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurowanie metody równoważenia obciążenia usługi Windows Virtual Desktop
 
@@ -33,15 +33,15 @@ Pierwsze Równoważenie obciążenia jest konfiguracją domyślną dla nowych pu
 Aby skonfigurować pulę hostów do wykonywania równoważenia obciążenia w pierwszej kolejności bez dostosowywania limitu liczby sesji, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst'
 ```
 
-Aby upewnić się, że ustawiono metodę równoważenia obciążenia pierwszej szerokości, uruchom następujące polecenie cmdlet: 
+Aby upewnić się, że ustawiono metodę równoważenia obciążenia pierwszej szerokości, uruchom następujące polecenie cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType
 
-Name             : hostpoolname 
+Name             : hostpoolname
 LoadBalancerType : BreadthFirst
 ```
 
@@ -58,13 +58,13 @@ Usługa Równoważenie obciążenia po raz pierwszy dystrybuuje nowe sesje użyt
 Aby skonfigurować pulę hostów do wykonywania równoważenia obciążenia w pierwszej kolejności, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
 
 Aby upewnić się, że to ustawienie zostało zaktualizowane, uruchom następujące polecenie cmdlet:
 
 ```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
@@ -77,8 +77,8 @@ Można także skonfigurować równoważenie obciążenia za pomocą Azure Portal
 
 Aby skonfigurować równoważenie obciążenia:
 
-1. Zaloguj się do Azure Portal pod https://portal.azure.comadresem. 
-2. Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows** w obszarze usługi. 
+1. Zaloguj się do Azure Portal pod adresem https://portal.azure.com .
+2. Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows** w obszarze usługi.
 3. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **Pule hostów**.
 4. Wybierz nazwę puli hostów, którą chcesz edytować.
 5. Wybierz pozycję **Właściwości**.

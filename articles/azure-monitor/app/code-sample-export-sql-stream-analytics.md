@@ -3,15 +3,15 @@ title: Eksportowanie do bazy danych SQL z platformy Azure Application Insights |
 description: Ciągle Eksportuj dane Application Insights do bazy danych SQL przy użyciu Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536917"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087235"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Przewodnik: Eksportowanie do bazy danych SQL z Application Insights przy użyciu Stream Analytics
-W tym artykule przedstawiono sposób przenoszenia danych telemetrycznych z [usługi azure Application Insights][start] do bazy danych Azure SQL Database przy użyciu funkcji [eksportu ciągłego][export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+W tym artykule przedstawiono sposób przenoszenia danych telemetrycznych z [usługi Azure Application Insights][start] do Azure SQL Database za pomocą [eksportu ciągłego][export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Eksport ciągły przenosi dane telemetryczne do usługi Azure Storage w formacie JSON. Przeanalizuje obiekty JSON przy użyciu Azure Stream Analytics i utworzysz wiersze w tabeli bazy danych.
 
@@ -70,21 +70,21 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
    
     Zanotuj wspólną część nazwy ścieżki, która jest pochodną nazwy aplikacji i klucza Instrumentacji. 
 
-Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik może zawierać jedno lub więcej zdarzeń. Więc chcemy przeczytać dane zdarzenia i odfiltrować pola, które chcemy. Istnieją wszystkie rodzaje rzeczy, które możemy zrobić z danymi, ale naszym planem jest użycie Stream Analytics do przenoszenia danych do bazy danych SQL. Dzięki temu będzie można łatwo uruchamiać wiele interesujących zapytań.
+Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik może zawierać jedno lub więcej zdarzeń. Więc chcemy przeczytać dane zdarzenia i odfiltrować pola, które chcemy. Istnieją wszystkie rodzaje rzeczy, które możemy zrobić z danymi, ale naszym planem jest użycie Stream Analytics do przenoszenia danych do SQL Database. Dzięki temu będzie można łatwo uruchamiać wiele interesujących zapytań.
 
 ## <a name="create-an-azure-sql-database"></a>Tworzenie bazy danych Azure SQL Database
 Po ponownym uruchomieniu z subskrypcji w [Azure Portal][portal]Utwórz bazę danych (i nowy serwer, chyba że już nie masz takiego komputera), na którym chcesz napisać dane.
 
 ![Nowe, dane, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-Upewnij się, że serwer bazy danych zezwala na dostęp do usług platformy Azure:
+Upewnij się, że serwer zezwala na dostęp do usług platformy Azure:
 
 ![Przeglądanie, serwery, serwer, ustawienia, Zapora, zezwalanie na dostęp do platformy Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-db"></a>Tworzenie tabeli w usłudze Azure SQL DB
+## <a name="create-a-table-in-azure-sql-database"></a>Tworzenie tabeli w Azure SQL Database
 Nawiąż połączenie z bazą danych utworzoną w poprzedniej sekcji za pomocą preferowanego narzędzia do zarządzania. W tym instruktażu będziemy używać [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
-![](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
+![Łączenie z bazą danych Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
 Utwórz nowe zapytanie i wykonaj następujące polecenie T-SQL:
 
@@ -126,7 +126,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-![](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
+![Utwórz PageViewsTable](./media/code-sample-export-sql-stream-analytics/34-create-table.png)
 
 W tym przykładzie używamy danych z widoków strony. Aby zobaczyć inne dostępne dane, zbadaj dane wyjściowe JSON i zobacz [Eksportuj model danych](../../azure-monitor/app/export-data-model.md).
 
@@ -135,7 +135,7 @@ W [Azure Portal](https://portal.azure.com/)wybierz usługę Azure Stream Analyti
 
 ![Ustawienia usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/code-sample-export-sql-stream-analytics/SA002.png)
+![Nowe zadanie usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Po utworzeniu nowego zadania wybierz pozycję **Przejdź do zasobu**.
 
@@ -157,7 +157,9 @@ Teraz potrzebny jest podstawowy klucz dostępu z konta magazynu, który został 
 
 Wzorzec prefiksu ścieżki Określa, w jaki sposób Stream Analytics znajdować pliki wejściowe w magazynie. Należy ustawić tę wartość, aby odpowiadała, jak eksport ciągły przechowuje dane. Ustaw go następująco:
 
-    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```sql
+webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
+```
 
 W tym przykładzie:
 
@@ -220,7 +222,7 @@ Wybierz pozycję SQL jako dane wyjściowe.
 
 ![W usłudze Stream Analytics wybierz pozycję dane wyjściowe.](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-Określ bazę danych SQL.
+Określ bazę danych.
 
 ![Wprowadź szczegóły bazy danych](./media/code-sample-export-sql-stream-analytics/SA007.png)
 
@@ -235,9 +237,10 @@ Możesz wybrać, czy chcesz rozpocząć przetwarzanie danych od razu, czy zaczą
 
 Po kilku minutach Wróć do SQL Server Management Tools i obejrzyj dane przepływające w programie. Na przykład użyj zapytania w następujący sposób:
 
-    SELECT TOP 100 *
-    FROM [dbo].[PageViewsTable]
-
+```sql
+SELECT TOP 100 *
+FROM [dbo].[PageViewsTable]
+```
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 * [Eksportuj do Power BI przy użyciu Stream Analytics](../../azure-monitor/app/export-power-bi.md )

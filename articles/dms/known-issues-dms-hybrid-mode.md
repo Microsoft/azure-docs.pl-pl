@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196281"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Znane problemy/ograniczenia migracji przy użyciu trybu hybrydowego
 
@@ -24,7 +23,7 @@ W poniższych sekcjach opisano znane problemy i ograniczenia związane z używan
 
 ## <a name="installer-fails-to-authenticate"></a>Nie można uwierzytelnić Instalatora
 
-Po przekazaniu certyfikatu do AdApp istnieje opóźnienie do kilku minut, zanim będzie można uwierzytelnić się na platformie Azure. Instalator spróbuje ponowić próbę z pewnym opóźnieniem, ale możliwe jest, aby opóźnienie propagacji było dłuższe niż ponowienie i zobaczysz komunikat **FailedToGetAccessTokenException** . Jeśli certyfikat został przekazany do poprawnego AdApp i podano poprawny identyfikator AppId w pliku dmsSettings. JSON, spróbuj ponownie uruchomić polecenie instalacji.
+Po przekazaniu certyfikatu do AdApp istnieje opóźnienie do kilku minut, zanim będzie można uwierzytelnić się na platformie Azure. Instalator spróbuje ponowić próbę z pewnym opóźnieniem, ale możliwe jest, aby opóźnienie propagacji było dłuższe niż ponowienie i zobaczysz komunikat **FailedToGetAccessTokenException** . Jeśli certyfikat został przekazany do poprawnego AdApp i podano poprawny identyfikator AppId w dmsSettings.jsna, spróbuj ponownie uruchomić polecenie instalacji.
 
 ## <a name="service-offline-after-successful-installation"></a>Usługa "offline" po pomyślnej instalacji
 
@@ -55,7 +54,7 @@ Jeśli usługa jest wyświetlana w trybie offline po pomyślnym zakończeniu pro
 
 ## <a name="using-your-own-signed-certificate"></a>Korzystanie z własnego podpisanego certyfikatu
 
-Certyfikat wygenerowany przez akcję GenerateCert to certyfikat z podpisem własnym, który może nie być akceptowalny w oparciu o wewnętrzne zasady zabezpieczeń. Zamiast korzystać z tego certyfikatu, możesz podać własny certyfikat i podać odcisk palca w pliku dmsSettings. JSON. Ten certyfikat będzie musiał zostać przekazany do AdApp i zainstalowany na komputerze, na którym jest instalowany Azure Database Migration Service hybrydowy proces roboczy. Następnie zainstaluj ten certyfikat z kluczem prywatnym w magazynie certyfikatów komputera lokalnego.
+Certyfikat wygenerowany przez akcję GenerateCert to certyfikat z podpisem własnym, który może nie być akceptowalny w oparciu o wewnętrzne zasady zabezpieczeń. Zamiast korzystać z tego certyfikatu, możesz podać własny certyfikat i podać odcisk palca w dmsSettings.js. Ten certyfikat będzie musiał zostać przekazany do AdApp i zainstalowany na komputerze, na którym jest instalowany Azure Database Migration Service hybrydowy proces roboczy. Następnie zainstaluj ten certyfikat z kluczem prywatnym w magazynie certyfikatów komputera lokalnego.
 
 ## <a name="running-the-worker-service-as-a-low-privilege-account"></a>Uruchamianie usługi Worker jako konta z niskim poziomem uprawnień
 
@@ -93,10 +92,10 @@ Jeśli nie masz już dostępu do komputera roboczego, możesz wyrejestrować pro
 
 W poniższych sekcjach opisano problemy dotyczące scenariusza związane z używaniem Azure Database Migration Service trybu hybrydowego do przeprowadzenia migracji w trybie online.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Migracje online do Azure SQL Database wystąpienia zarządzanego
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Migracje online do wystąpienia zarządzanego Azure SQL
 
 **Wysokie użycie procesora**
 
-**Problem**: w przypadku migracji w trybie online do SQL Database wystąpienia zarządzanego, komputer, na którym działa hybrydowy proces roboczy, będzie napotykał duże użycie procesora CPU, jeśli istnieje zbyt wiele kopii zapasowych lub kopia zapasowa jest zbyt duża.
+**Problem**: w przypadku migracji w trybie online do wystąpienia zarządzanego SQL komputer, na którym działa hybrydowy proces roboczy, będzie napotykał duże użycie procesora, jeśli istnieje zbyt wiele kopii zapasowych lub kopia zapasowa jest zbyt duża.
 
 Środki **zaradcze**: Aby rozwiązać ten problem, należy użyć skompresowanych kopii zapasowych, podzielić migrację tak, aby korzystała z wielu udziałów, lub skalować komputer z uruchomionym hybrydowym procesem roboczym.

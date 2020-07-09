@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652513"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
@@ -72,9 +71,9 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cechy | Pierwsza generacja | Druga generacja |
+| Cecha | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
-| Wiódł             | PCAT         | UEFI |
+| Rozruch             | PCAT         | UEFI |
 | Kontrolery dysków | IDE          | SCSI |
 | Rozmiary maszyn wirtualnych         | Wszystkie rozmiary maszyn wirtualnych | Tylko maszyny wirtualne obsługujące usługę Premium Storage |
 
@@ -104,7 +103,7 @@ Poniżej przedstawiono procedurę tworzenia maszyny wirtualnej generacji 2 (Gen2
 1. Wybierz pozycję **Utwórz zasób**.
 1. Po lewej stronie kliknij pozycję **Zobacz wszystko** w witrynie Azure Marketplace.
 1. Wybierz obraz, który obsługuje Gen2.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Na karcie **Zaawansowane** w sekcji **generacja maszyny wirtualnej** wybierz opcję **generacji 2** .
 1. Na karcie **podstawowe** w obszarze **szczegóły wystąpienia**przejdź do pozycji **rozmiar** i Otwórz blok **Wybieranie rozmiaru maszyny wirtualnej** .
 1. Wybierz [obsługiwaną maszynę wirtualną generacji 2](#generation-2-vm-sizes).

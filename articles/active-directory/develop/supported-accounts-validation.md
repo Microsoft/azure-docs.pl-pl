@@ -11,15 +11,15 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128858"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Różnice dotyczące walidacji według obsługiwanych typów kont (signInAudience)
 
-Podczas rejestrowania aplikacji za pomocą platformy tożsamości firmy Microsoft dla deweloperów zostanie wyświetlony monit o wybranie typów kont obsługiwanych przez aplikację. W obiekcie aplikacji i manifeście ta właściwość ma wartość `signInAudience`.
+Podczas rejestrowania aplikacji za pomocą platformy tożsamości firmy Microsoft dla deweloperów zostanie wyświetlony monit o wybranie typów kont obsługiwanych przez aplikację. W obiekcie aplikacji i manifeście ta właściwość ma wartość `signInAudience` .
 
 Dostępne są następujące opcje:
 
@@ -35,13 +35,13 @@ Zapoznaj się z poniższą tabelą, aby poznać różnice między walidacją ró
 
 | Właściwość | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` i `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
-| Identyfikator URI identyfikatora aplikacji`identifierURIs`()  | Musi być unikatowa w dzierżawie <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs  | Musi ona być unikatowa w skali globalnej <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs | Musi ona być unikatowa w skali globalnej <br><br> schematy urn://nie są obsługiwane <br><br> Symbole wieloznaczne, fragmenty i ciągi zapytań nie są obsługiwane <br><br> Maksymalna długość 120 znaków <br><br> Maksymalnie 50 identifierURIs |
-| Certyfikaty (`keyCredentials`) | Symetryczny klucz podpisywania | Symetryczny klucz podpisywania | Szyfrowanie i asymetryczne klucze podpisywania | 
-| Wpisy tajne`passwordCredentials`klienta () | Bez limitu * | Bez limitu * | Jeśli liveSDK jest włączona: maksymalnie 2 wpisy tajne klienta | 
-| Identyfikatory URI przekierowania (`replyURLs`) | Aby uzyskać więcej informacji [, zobacz ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](reply-url.md) . | | | 
-| Uprawnienia interfejsu API`requiredResourceAccess`() | Bez limitu * | Bez limitu * | Dozwolone maksimum 30 uprawnień na zasób (np. Microsoft Graph) | 
-| Zakresy zdefiniowane przez ten interfejs API`oauth2Permissions`() | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów |  Maksymalna długość nazwy zakresu wynosząca 40 znaków <br><br> Zdefiniowano maksymalnie 100 zakresów | 
-| Autoryzowane aplikacje klienckie (`preautorizedApplications`) | Bez limitu * | Bez limitu * | Suma maksymalnie 500 <br><br> Zdefiniowano maksymalnie 100 aplikacji klienckich <br><br> Zdefiniowano maksymalnie 30 zakresów na klienta | 
+| Identyfikator URI identyfikatora aplikacji ( `identifierURIs` )  | Musi być unikatowa w dzierżawie <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs  | Musi ona być unikatowa w skali globalnej <br><br> Obsługiwane są schematy urn:// <br><br> Symbole wieloznaczne nie są obsługiwane <br><br> Obsługiwane są ciągi i fragmenty zapytań <br><br> Maksymalna długość 255 znaków <br><br> Brak limitu * na liczbie identifierURIs | Musi ona być unikatowa w skali globalnej <br><br> schematy urn://nie są obsługiwane <br><br> Symbole wieloznaczne, fragmenty i ciągi zapytań nie są obsługiwane <br><br> Maksymalna długość 120 znaków <br><br> Maksymalnie 50 identifierURIs |
+| Certyfikaty ( `keyCredentials` ) | Symetryczny klucz podpisywania | Symetryczny klucz podpisywania | Szyfrowanie i asymetryczne klucze podpisywania | 
+| Wpisy tajne klienta ( `passwordCredentials` ) | Bez limitu * | Bez limitu * | Jeśli liveSDK jest włączona: maksymalnie 2 wpisy tajne klienta | 
+| Identyfikatory URI przekierowania ( `replyURLs` ) | Aby uzyskać więcej informacji [, zobacz ograniczenia i ograniczenia adresów URL przekierowania URI/odpowiedzi](reply-url.md) . | | | 
+| Uprawnienia interfejsu API ( `requiredResourceAccess` ) | Bez limitu * | Bez limitu * | Dozwolone maksimum 30 uprawnień na zasób (np. Microsoft Graph) | 
+| Zakresy zdefiniowane przez ten interfejs API ( `oauth2Permissions` ) | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów | Maksymalna długość nazwy zakresu wynosząca 120 znaków <br><br> Brak limitu * na określonej liczbie zakresów |  Maksymalna długość nazwy zakresu wynosząca 40 znaków <br><br> Zdefiniowano maksymalnie 100 zakresów | 
+| Autoryzowane aplikacje klienckie ( `preautorizedApplications` ) | Bez limitu * | Bez limitu * | Suma maksymalnie 500 <br><br> Zdefiniowano maksymalnie 100 aplikacji klienckich <br><br> Zdefiniowano maksymalnie 30 zakresów na klienta | 
 | appRoles | Obsługiwane <br> Bez limitu * | Obsługiwane <br> Bez limitu * | Nieobsługiwane | 
 | Adres URL wylogowywania | http://localhostjest dozwolony <br><br> Maksymalna długość 255 znaków | http://localhostjest dozwolony <br><br> Maksymalna długość 255 znaków | <br><br> https://localhostjest dozwolony, http://localhost kończy się niepowodzeniem dla MSA <br><br> Maksymalna długość 255 znaków <br><br> Schemat HTTP jest niedozwolony <br><br> Symbole wieloznaczne nie są obsługiwane | 
 

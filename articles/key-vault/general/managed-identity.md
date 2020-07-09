@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81432127"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej
@@ -50,7 +50,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 
 1. Wybierz pozycję **zarządzana tożsamość**. 
 
-1. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij przycisk **Zapisz**. 
+1. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij pozycję **Zapisz**. 
 
     ![](../media/managed-identity-system-assigned.png)
 
@@ -77,7 +77,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 az functionapp identity assign --name myApp --resource-group myResourceGroup
 ```
 
-Zanotuj element `PrincipalId`, który będzie wymagany w następnej sekcji.
+Zanotuj element `PrincipalId` , który będzie wymagany w następnej sekcji.
 
 ```json
 {

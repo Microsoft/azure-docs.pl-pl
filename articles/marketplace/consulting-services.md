@@ -1,18 +1,16 @@
 ---
 title: Usługi doradcze w witrynie Microsoft Commercial Marketplace
 description: W tym artykule opisano kryteria kwalifikacji i wymagania dotyczące publikowania dla nowych ofert usługi konsultingowej w Microsoft AppSource i witrynie Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 06/08/2020
+ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799862"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103759"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -22,20 +20,11 @@ Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wyd
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Poniższa tabela zawiera podsumowanie następujących opcji:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Grupy odbiorców      |Informatycy i deweloperzy rozwiązań w chmurze|Użytkownicy biznesowi i przedsiębiorcy podejmujące decyzje biznesowe|
-|Istotność rozwiązania      |Aplikacje techniczne skompilowane lub utworzone na platformie Azure|Aplikacje biznesowe wykorzystujące lub rozszerzające usługę Dynamics 365, Power BI, Office 365, Azure (aplikacje gotowe do użycia lub dodatki)|
-|Opcje publikowania      |Kontakt ze mną, wersja próbna, usługa Transact lub usługi dla platformy Azure|Skontaktuj się z nami, wersją próbną lub usługami dla systemu Dynamics 365 i Power BI|
-|Środowisko pracy w produkcie      |Azure Portal|Dynamics 365, Office 365, aplikacje klienckie pakietu Office| 
-|Inne      |Publikowanie lokalne za pośrednictwem Azure Stack, usług konsultingowych dla platformy Azure, usług zarządzanych dla platformy Azure|Usługi doradcze dla systemu Dynamics 365 i Power BI|
-||
+Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma sklepami, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Oferty usług konsultingowych, które są oparte na Dynamics 365, zaawansowanych aplikacjach i Power BI mogą być wymienione w witrynie AppSource. Aby uzyskać więcej informacji, Pobierz [Microsoft AppSource usług doradczych dotyczących list](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) plików PDF.
 
-Usługi konsultingowe i oferty usług zarządzanych, które są oparte na Microsoft Azure mogą być wymienione w witrynie Azure Marketplace. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty usługi Azure Consulting Service](./partner-center-portal/create-consulting-service-offer.md) i [Publikowanie oferty usług zarządzanych w witrynie Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Usługi konsultingowe i oferty usług zarządzanych, które są oparte na Microsoft Azure mogą być wymienione w witrynie Azure Marketplace. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty usługi Azure Consulting Service](./partner-center-portal/create-consulting-service-offer.md) i [Publikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Usługi doradcze w witrynie Azure Marketplace powinny skupić się na ofertach dla odbiorców technicznych i wyróżnić rozwiązania techniczne i usługi platformy Azure.
@@ -79,21 +68,20 @@ Dodatkowe zasoby i pomoc techniczna:
 
 Aby uzyskać więcej informacji na temat kompetencji, przejdź do strony [Microsoft Partner Network kompetencji](https://partner.microsoft.com/membership/competencies) .
 
-Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dla następujących 21 krajów/regionów:
+Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dla następujących 20 krajów/regionów:
 
-|   |   |   |   |
+| Kraje  | (ciąg dalszy)   | (ciąg dalszy)  | (ciąg dalszy)  |
 |---------|----------|----------|----------|
 | Australia | Belgia | Kanada | Dania |
 | Finlandia  | Francja | Niemcy  | Indie   |
 | Włochy    | Japonia  |  Meksyk  |  Holandia  |
 |  Nowa Zelandia  |  Norwegia  |  Polska  | Republika Południowej Afryki |
-|  Hiszpania  | Szwecja  | Szwajcaria  |  Stany Zjednoczone  |
-| Zjednoczone Królestwo  |
+|  Szwecja  | Szwajcaria  |  Stany Zjednoczone  | Zjednoczone Królestwo  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Zarejestruj się w celu uzyskania usług doradczych na rynku komercyjnym
 
-Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotuj artefakty publikowania
 Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu. 
@@ -162,7 +150,7 @@ Gdy zespół przeglądający zawartość przegląda opisy ofert i oferuje podsum
 
 |Typ oferty  |Wymagane |Zalecane  |
 |---------|---------|---------|
-|**Stopnia**    |   Zapoznaj się z szczegółowym porządkiem ocen obejmujących wiele dni lub wielotygodniowe i ideach, których elementów dostarcza klient.      |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
+|**Ocena**    |   Zapoznaj się z szczegółowym porządkiem ocen obejmujących wiele dni lub wielotygodniowe i ideach, których elementów dostarcza klient.      |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
 |**Briefing**    |   Ideach, którego elementu dostarcza klient może oczekiwać. Należy pamiętać, że należy podać *krótkie* dane. Jeśli dostarczasz usługę wirtualną, wybierz inny typ oferty.    |  Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.       |
 |**Implementacja**    |  Zapoznaj się ze szczegółowym porządkiem obejmującym wiele dni lub wielotygodniowe implementacje oraz ideach zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatów zaangażowania.       |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
 |**Weryfikacja koncepcji**    |    Ideach zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatu zaangażowania.     | Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.        |

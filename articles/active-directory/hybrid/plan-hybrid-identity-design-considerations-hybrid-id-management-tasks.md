@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109382"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planowanie cyklu życia tożsamości hybrydowej
@@ -61,7 +61,7 @@ Podczas definiowania tych wymagań upewnij się, że udzielono odpowiedzi na co 
 ## <a name="synchronization-management"></a>Zarządzanie synchronizacją
 Jednym z celów programu Identity Manager jest możliwość przeniesienia wszystkich dostawców tożsamości i ich zsynchronizowania. Synchronizujesz dane na podstawie autorytatywnego dostawcy tożsamości. W scenariuszu tożsamości hybrydowej z zsynchronizowanym modelem zarządzania można zarządzać wszystkimi tożsamościami użytkowników i urządzeń na serwerze lokalnym oraz synchronizować konta i opcjonalnie hasła do chmury. Użytkownik wprowadza to samo hasło lokalnie, jak w chmurze, a przy logowaniu hasło jest weryfikowane przez rozwiązanie tożsamości. Ten model używa narzędzia do synchronizacji katalogów.
 
-![Synchronizacja](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) katalogu z odpowiednim projektem synchronizacja rozwiązania do obsługi tożsamości hybrydowej zapewnia, że odpowiedzi na następujące pytania:
+![Synchronizacja katalogu ](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) z odpowiednim projektem synchronizacja rozwiązania do obsługi tożsamości hybrydowej zapewnia, że odpowiedzi na następujące pytania:
 *    Jakie rozwiązania synchronizacji są dostępne dla rozwiązania tożsamości hybrydowej?
 *    Jakie są dostępne funkcje logowania jednokrotnego?
 *    Jakie są opcje federacji tożsamości między B2B i B2C?

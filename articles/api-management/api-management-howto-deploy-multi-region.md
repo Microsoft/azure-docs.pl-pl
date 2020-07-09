@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790483"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach świadczenia usługi Azure
@@ -61,7 +61,7 @@ Aby w pełni wykorzystać rozkład geograficzny systemu, należy wdrożyć usłu
 
     ![Edytor kodu interfejsu API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
 
-4. Użyj `set-backend` połączonych z zasadami warunkowymi `choose` , aby utworzyć odpowiednie zasady routingu w `<inbound> </inbound>` sekcji pliku.
+4. Użyj `set-backend` połączonych z zasadami warunkowymi, `choose` Aby utworzyć odpowiednie zasady routingu w `<inbound> </inbound>` sekcji pliku.
 
     Na przykład poniższy plik XML będzie działał w regionach zachodnie stany USA i Azja Wschodnia:
 
@@ -102,8 +102,8 @@ API Management kieruje żądania do _bramy_ regionalnej na podstawie [najmniejsz
 
 1. Utwórz własne [Traffic Manager platformy Azure](https://azure.microsoft.com/services/traffic-manager/).
 1. Jeśli używasz domeny niestandardowej, [Użyj jej z Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) zamiast usługi API Management.
-1. [Skonfiguruj API Management regionalne punkty końcowe w Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Regionalne punkty końcowe są zgodne ze wzorcem `https://<service-name>-<region>-01.regional.azure-api.net`adresu URL, `https://contoso-westus2-01.regional.azure-api.net`na przykład.
-1. [Skonfiguruj punkty końcowe API Management stanu regionalne w Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Punkty końcowe stanu regionalnego są zgodne ze wzorcem adresu `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`, na przykład.
+1. [Skonfiguruj API Management regionalne punkty końcowe w Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Regionalne punkty końcowe są zgodne ze wzorcem adresu URL `https://<service-name>-<region>-01.regional.azure-api.net` , na przykład `https://contoso-westus2-01.regional.azure-api.net` .
+1. [Skonfiguruj punkty końcowe API Management stanu regionalne w Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Punkty końcowe stanu regionalnego są zgodne ze wzorcem adresu URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` , na przykład `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
 1. Określ [metodę routingu](../traffic-manager/traffic-manager-routing-methods.md) Traffic Manager.
 
 [create an api management service instance]: get-started-create-service-instance.md

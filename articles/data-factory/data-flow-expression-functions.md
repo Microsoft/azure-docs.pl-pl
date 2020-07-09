@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9894bb2c6ead38b2770f572f7f5000c770d555e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267753"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Wyrażenia transformacji danych w mapowaniu przepływu danych
 
@@ -153,9 +153,7 @@ ___
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Pobiera wszystkie kolumny wyjściowe dla strumienia. Opcjonalną nazwę strumienia można przekazać jako drugi argument.   
 * ``columns()``
-* ````
 * ``columns('DeriveStream')``
-* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

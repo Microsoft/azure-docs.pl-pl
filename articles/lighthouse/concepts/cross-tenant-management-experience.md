@@ -3,16 +3,16 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402372"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135493"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
-Jako dostawca usług możesz użyć [delegowanego zarządzania zasobami platformy Azure](../concepts/azure-delegated-resource-management.md) do zarządzania zasobami platformy Azure dla wielu klientów z poziomu dzierżawy w [Azure Portal](https://portal.azure.com). Większość zadań i usług można wykonywać na delegowanych zasobach platformy Azure między zarządzanymi dzierżawcami. W tym artykule opisano niektóre z ulepszonych scenariuszy, w których zarządzanie zasobami delegowanymi przez platformę Azure może być skuteczne.
+Jako dostawca usług możesz użyć [usługi Azure Lighthouse](../overview.md) do zarządzania zasobami dla wielu klientów z poziomu dzierżawy w [Azure Portal](https://portal.azure.com). Wiele zadań i usług można wykonywać na delegowanych zasobach platformy Azure między zarządzanymi dzierżawcami przy użyciu funkcji [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!NOTE]
 > Zarządzanie zasobami delegowanymi przez platformę Azure może być również używane [w przedsiębiorstwie, które ma wiele dzierżawców usługi Azure AD](enterprise.md) , aby uprościć administrację między dzierżawcami.
@@ -23,9 +23,9 @@ Dzierżawa usługi Azure Active Directory (Azure AD) jest reprezentacją organiz
 
 Zazwyczaj w celu zarządzania zasobami platformy Azure dla klienta dostawcy usług będą musieli zalogować się do Azure Portal przy użyciu konta skojarzonego z dzierżawcą tego klienta, co wymaga od administratora dzierżawy klienta tworzenia kont użytkowników dla dostawcy usług i zarządzania nimi.
 
-W przypadku zarządzania zasobami delegowanymi przez platformę Azure proces dołączania określa użytkowników w dzierżawie dostawcy usług, którzy będą mogli uzyskiwać dostęp do subskrypcji, grup zasobów i zasobów w dzierżawie klienta oraz zarządzać nimi. Ci użytkownicy mogą następnie zalogować się do Azure Portal przy użyciu własnych poświadczeń. W ramach Azure Portal mogą zarządzać zasobami należącymi do wszystkich klientów, do których mają dostęp. Można to zrobić, odwiedzając stronę [moi klienci](../how-to/view-manage-customers.md) w Azure Portal lub pracując bezpośrednio w kontekście subskrypcji tego klienta w Azure Portal lub za pośrednictwem interfejsów API.
+W przypadku usługi Azure Lighthouse proces dołączania określa użytkowników w dzierżawie dostawcy usług, którzy będą mogli uzyskiwać dostęp do subskrypcji, grup zasobów i zasobów w dzierżawie klienta oraz zarządzać nimi. Ci użytkownicy mogą następnie zalogować się do Azure Portal przy użyciu własnych poświadczeń. W ramach Azure Portal mogą zarządzać zasobami należącymi do wszystkich klientów, do których mają dostęp. Można to zrobić, odwiedzając stronę [moi klienci](../how-to/view-manage-customers.md) w Azure Portal lub pracując bezpośrednio w kontekście subskrypcji tego klienta w Azure Portal lub za pośrednictwem interfejsów API.
 
-Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia większą elastyczność zarządzania zasobami dla wielu klientów bez konieczności logowania się do różnych kont w różnych dzierżawach. Na przykład dostawca usług może mieć dwóch klientów z różnymi zakresami obowiązków i poziomów dostępu. Korzystając z funkcji zarządzania zasobami delegowanymi przez platformę Azure, autoryzowani użytkownicy mogą zalogować się do dzierżawy dostawcy usług, aby uzyskać dostęp do tych zasobów.
+Usługa Azure Lighthouse zapewnia większą elastyczność zarządzania zasobami dla wielu klientów bez konieczności logowania się do różnych kont w różnych dzierżawach. Na przykład dostawca usług może mieć dwóch klientów z różnymi zakresami obowiązków i poziomów dostępu. Korzystając z usługi Azure Lighthouse, autoryzowani użytkownicy mogą zalogować się do dzierżawy dostawcy usług, aby uzyskać dostęp do tych zasobów.
 
 ![Zasoby klienta zarządzane za poorednictwem jednej dzierżawy dostawcy usług](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -33,22 +33,22 @@ Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia większą e
 
 Zadania zarządzania można wykonywać w odniesieniu do zasobów delegowanych bezpośrednio w portalu lub za pomocą interfejsów API i narzędzi do zarządzania (takich jak interfejs wiersza polecenia platformy Azure i Azure PowerShell). Wszystkie istniejące interfejsy API mogą być używane podczas pracy z delegowanymi zasobami, o ile funkcjonalność jest obsługiwana w przypadku zarządzania między dzierżawcami, a użytkownik ma odpowiednie uprawnienia.
 
-Azure PowerShell [polecenie cmdlet Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) pokazuje **tenantID** dla każdej subskrypcji, co pozwala na określenie, czy zwrócona subskrypcja należy do dzierżawy dostawcy usług, czy do zarządzanej dzierżawy klienta.
+Azure PowerShell [polecenie cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) pokazuje **tenantID** dla każdej subskrypcji, co pozwala na określenie, czy zwrócona subskrypcja należy do dzierżawy dostawcy usług, czy do zarządzanej dzierżawy klienta.
 
-Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) , wyświetla atrybuty **homeTenantId** i **managedByTenants** .
+Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) , wyświetla atrybuty **homeTenantId** i **managedByTenants** .
 
 > [!TIP]
 > Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
 
-Udostępniamy również interfejsy API, które są specyficzne dla wykonywania zadań zarządzania zasobami delegowanymi przez platformę Azure. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą **odwołania** .
+Udostępniamy również interfejsy API, które są specyficzne dla wykonywania zadań Lighthouse platformy Azure. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą **odwołania** .
 
 ## <a name="enhanced-services-and-scenarios"></a>Ulepszone usługi i scenariusze
 
-Większość zadań i usług można wykonać w odniesieniu do zasobów delegowanych między zarządzanymi dzierżawcami. Poniżej przedstawiono niektóre kluczowe scenariusze, w których zarządzanie wieloma dzierżawcami może być skuteczne.
+Większość zadań i usług można wykonać w odniesieniu do zasobów delegowanych między zarządzanymi dzierżawcami. Poniżej przedstawiono niektóre kluczowe scenariusze, w których zarządzanie między dzierżawcami może być szczególnie skuteczne.
 
 [Usługa Azure ARC dla serwerów (wersja zapoznawcza)](../../azure-arc/servers/overview.md):
 
-- [Łączenie maszyn z systemem Windows Server lub Linux poza platformą Azure](../../azure-arc/servers/quickstart-onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
+- [Łączenie maszyn z systemem Windows Server lub Linux poza platformą Azure](../../azure-arc/servers/onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
 - Zarządzanie połączonymi maszynami przy użyciu konstrukcji platformy Azure, takich jak Azure Policy i tagowanie
 
 [Azure Automation](../../automation/index.yml):
@@ -60,6 +60,10 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 - Tworzenie kopii zapasowych i przywracanie danych klienta w dzierżawach klientów
 - Użyj [Eksploratora kopii zapasowych](../../backup/monitor-azure-backup-with-backup-explorer.md) , aby ułatwić wyświetlanie informacji operacyjnych dotyczących elementów kopii zapasowej (w tym zasobów platformy Azure, które nie zostały jeszcze skonfigurowane do tworzenia kopii zapasowych) i informacji o monitorowaniu (zadania i alerty) dla delegowanych subskrypcji Eksplorator kopii zapasowych jest obecnie dostępny tylko dla danych maszyny wirtualnej platformy Azure.
 - Za pomocą [raportów kopii zapasowych](../../backup/configure-reports.md) w ramach delegowanych subskrypcji można śledzić trendy historyczne, analizować użycie magazynu kopii zapasowych oraz przeprowadzać inspekcję i przywracanie kopii zapasowych.
+
+[Azure Cost Management i rozliczanie](../../cost-management-billing/index.yml):
+
+- Od dzierżawy zarządzającej partnerzy programu CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów objętych planem platformy Azure. Koszt będzie oparty na stawkach detalicznych i dostępie do usługi Azure RBAC, który partner ma dla subskrypcji klienta.
 
 [Usługa Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
@@ -143,7 +147,6 @@ We wszystkich scenariuszach należy pamiętać o następujących bieżących ogr
 - Przypisania ról muszą używać [wbudowanych ról](../../role-based-access-control/built-in-roles.md)kontroli dostępu opartej na ROLACH (RBAC). Wszystkie wbudowane role są obecnie obsługiwane przez delegowane zarządzanie zasobami platformy Azure z wyjątkiem właściciela lub wszelkich wbudowanych ról z uprawnieniem [Dataactions](../../role-based-access-control/role-definitions.md#dataactions) . Rola Administrator dostępu użytkowników jest obsługiwana tylko w przypadku ograniczonego użycia w [przypisywaniu ról do zarządzanych tożsamości](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
 - W tej chwili można dołączać subskrypcje korzystające z Azure Databricks. Użytkownicy w dzierżawie zarządzającej nie mogą teraz uruchamiać Azure Databricks obszarów roboczych w delegowanej subskrypcji.
 - W trakcie dodawania subskrypcji i grup zasobów na potrzeby zarządzania zasobami delegowanymi przez platformę Azure, które mają blokadę zasobów, te blokady nie uniemożliwią wykonywania akcji przez użytkowników w dzierżawie zarządzającej. [Odmów przypisań](../../role-based-access-control/deny-assignments.md) , które chronią zasoby zarządzane przez system, takie jak te utworzone przez aplikacje zarządzane przez platformę Azure lub plany platformy Azure (przypisań odmowy przypisanych do systemu), uniemożliwiają użytkownikom z dzierżawy zarządzającej wykonywanie tych zasobów. Jednak w tej chwili użytkownicy w dzierżawie klienta nie mogą tworzyć własnych przypisań Odmów (przypisań Odmów przez użytkownika).
-- Użytkownicy w dzierżawie zarządzającej nie będą mieć dostępu do wyświetlania informacji dotyczących rozliczeń dla delegowanej subskrypcji klienta, nawet jeśli mają wbudowaną rolę, która zwykle zezwala na dostęp. Wynika to z faktu, że dostęp do informacji dotyczących rozliczeń wymaga dodatkowych kroków, które są obecnie obsługiwane tylko dla użytkowników w tej samej dzierżawie.
 
 ## <a name="next-steps"></a>Następne kroki
 

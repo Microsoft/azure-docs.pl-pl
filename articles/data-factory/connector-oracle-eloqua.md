@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 3ea9d7baf427e70df349c926a0b6b8b72ba82293
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416851"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Kopiowanie danych z programu Oracle Eloqua przy użyciu Azure Data Factory (wersja zapoznawcza)
@@ -47,11 +47,11 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Oracle Eloqua są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Eloqua** | Tak |
-| endpoint | Punkt końcowy serwera Eloqua. Usługa Eloqua obsługuje wiele centrów danych, aby określić punkt końcowy, https://login.eloqua.com zalogować się do niego przy użyciu poświadczeń, a następnie skopiować część **podstawowego adresu URL** z przekierowanego adresu URL ze wzorcem `xxx.xxx.eloqua.com`. | Tak |
-| nazwa użytkownika | Nazwa witryny i nazwa użytkownika konta Eloqua w postaci: `SiteName\Username` np.. `Eloqua\Alice`  | Tak |
+| typ | Właściwość Type musi mieć wartość: **Eloqua** | Tak |
+| endpoint | Punkt końcowy serwera Eloqua. Usługa Eloqua obsługuje wiele centrów danych, aby określić punkt końcowy, zalogować się do https://login.eloqua.com niego przy użyciu poświadczeń, a następnie skopiować część **podstawowego adresu URL** z przekierowanego adresu URL ze wzorcem `xxx.xxx.eloqua.com` . | Tak |
+| nazwa użytkownika | Nazwa witryny i nazwa użytkownika konta Eloqua w postaci: `SiteName\Username` np. `Eloqua\Alice` .  | Tak |
 | hasło | Hasło odpowiadające nazwie użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
@@ -82,12 +82,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Oracle Eloqua, ustaw właściwość Type zestawu danych na **EloquaObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **EloquaObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **EloquaObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -112,9 +112,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Oracle Eloqua, ustaw typ źródła w działaniu Copy na **EloquaSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **EloquaSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **EloquaSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Accounts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

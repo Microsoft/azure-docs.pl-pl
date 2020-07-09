@@ -11,18 +11,17 @@ Customer intent: I want to filter network traffic to virtual machines that perfo
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235074"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688301"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrowanie ruchu sieciowego za pomocą sieciowej grupy zabezpieczeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -33,7 +32,7 @@ Ruch sieciowy przychodzący do podsieci sieci wirtualnej i wychodzący z niej mo
 * Wdrażanie maszyn wirtualnych w podsieci
 * Testowanie filtrów ruchu
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -143,9 +142,9 @@ az network vnet subnet create \
 
 Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby umożliwić weryfikację filtrowania ruchu w kolejnym kroku. 
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy maszynę wirtualną, która będzie służyć jako serwer internetowy. `--asgs myAsgWebServers` Opcja powoduje, że platforma Azure tworzy interfejs sieciowy tworzony dla maszyny wirtualnej, która jest członkiem grupy zabezpieczeń aplikacji *myAsgWebServers* .
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy maszynę wirtualną, która będzie służyć jako serwer internetowy. `--asgs myAsgWebServers`Opcja powoduje, że platforma Azure tworzy interfejs sieciowy tworzony dla maszyny wirtualnej, która jest członkiem grupy zabezpieczeń aplikacji *myAsgWebServers* .
 
-Opcja `--nsg ""` jest określona, aby zapobiec utworzeniu przez platformę Azure domyślnej sieciowej grupy zabezpieczeń dla interfejsu sieciowego platformy Azure tworzonego podczas tworzenia maszyny wirtualnej. W celu uproszczenia tego artykułu jest używane hasło. Klucze są zwykle używane w wdrożeniach produkcyjnych. W przypadku korzystania z kluczy należy również skonfigurować przekazywanie agentów SSH dla pozostałych kroków. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją klienta SSH. Zastąp `<replace-with-your-password>` wartość w poniższym poleceniu, wybierając wybrane hasło.
+`--nsg ""`Opcja jest określona, aby zapobiec utworzeniu przez platformę Azure domyślnej sieciowej grupy zabezpieczeń dla interfejsu sieciowego platformy Azure tworzonego podczas tworzenia maszyny wirtualnej. W celu uproszczenia tego artykułu jest używane hasło. Klucze są zwykle używane w wdrożeniach produkcyjnych. W przypadku korzystania z kluczy należy również skonfigurować przekazywanie agentów SSH dla pozostałych kroków. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją klienta SSH. Zastąp wartość `<replace-with-your-password>` w poniższym poleceniu, wybierając wybrane hasło.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -196,7 +195,7 @@ W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu maszyny
 
 ## <a name="test-traffic-filters"></a>Testowanie filtrów ruchu
 
-Użyj poniższego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVmMgmt* . Zastąp * \<publicIpAddress>* publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP to *13.90.242.231*.
+Użyj poniższego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVmMgmt* . Zastąp *\<publicIpAddress>* wartość publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP to *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -230,9 +229,9 @@ Maszyna wirtualna *myVmWeb* jest dozwolona dla ruchu wychodzącego z Internetu w
 curl myVmWeb
 ```
 
-Wyloguj się z maszyny wirtualnej *myVmMgmt* . Aby upewnić się, że możesz uzyskać dostęp do serwera sieci Web *myVmWeb* spoza platformy `curl <publicIpAddress>` Azure, wprowadź swój własny komputer. Połączenie powiedzie się, ponieważ port 80 jest dozwolony dla ruchu przychodzącego z Internetu do grupy zabezpieczeń aplikacji *myAsgWebServers* , w której znajduje się interfejs sieciowy dołączony do maszyny wirtualnej *myVmWeb* .
+Wyloguj się z maszyny wirtualnej *myVmMgmt* . Aby upewnić się, że możesz uzyskać dostęp do serwera sieci Web *myVmWeb* spoza platformy Azure, wprowadź swój `curl <publicIpAddress>` własny komputer. Połączenie powiedzie się, ponieważ port 80 jest dozwolony dla ruchu przychodzącego z Internetu do grupy zabezpieczeń aplikacji *myAsgWebServers* , w której znajduje się interfejs sieciowy dołączony do maszyny wirtualnej *myVmWeb* .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 

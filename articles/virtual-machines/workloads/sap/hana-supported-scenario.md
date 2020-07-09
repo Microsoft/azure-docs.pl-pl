@@ -14,10 +14,9 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77617179"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Obsługiwane scenariusze dla dużych wystąpień HANA
@@ -67,10 +66,10 @@ Każdy serwer aprowizacji jest wstępnie skonfigurowany z zestawami interfejsów
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Węzeł-węzeł|
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | STONITH |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Węzeł-węzeł|
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | STONITH |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Węzeł-węzeł|
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | STONITH |
 
 Interfejs jest wybierany na podstawie topologii skonfigurowanej w jednostce. Na przykład interfejs "B" jest skonfigurowany do komunikacji między węzłami, co jest przydatne w przypadku skonfigurowania topologii skalowalnej w poziomie. Ten interfejs nie jest używany w przypadku pojedynczych węzłów i skalowalnych konfiguracji. Aby uzyskać więcej informacji na temat użycia interfejsu, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). 
 
@@ -100,7 +99,7 @@ W przypadku replikacji systemu HANA lub wdrożenia w poziomie platformy Hana kon
 Magazyn jest wstępnie skonfigurowany na podstawie wybranej topologii. Rozmiary woluminów i punkty instalacji różnią się w zależności od liczby serwerów, liczby jednostek SKU i skonfigurowanej topologii. Aby uzyskać więcej informacji, przejrzyj wymagane scenariusze (w dalszej części tego artykułu). Jeśli potrzebujesz więcej miejsca w magazynie, możesz kupić je w przyrostach o pojemności 1 TB.
 
 >[!NOTE]
->Identyfikator SID/usr/SAP/\<punktu instalacji> jest symbolicznym łączem do punktu instalacji/Hana/Shared.
+>/Usr/SAP/punktu instalacji \<SID> jest symbolicznym łączem do punktu instalacji/Hana/Shared.
 
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
@@ -139,10 +138,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -174,10 +173,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -214,10 +213,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -255,10 +254,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -310,10 +309,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Używane na potrzeby STONITH |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -356,10 +355,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Używane na potrzeby STONITH |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Używane na potrzeby STONITH |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -415,10 +414,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -456,10 +455,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -492,10 +491,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -531,10 +530,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient--HLI |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient--HLI |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -576,10 +575,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane na jednostkach HLI (podstawowa i DR):
@@ -617,10 +616,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -667,10 +666,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -712,10 +711,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Skonfigurowane, ale nie w użyciu |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Skonfigurowane, ale nie w użyciu |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:
@@ -763,10 +762,10 @@ Następujące interfejsy sieciowe są wstępnie skonfigurowane:
 | B | TYP I | eth2. Dzierżawca | eno3. Dzierżawca | Komunikacja między węzłami |
 | C | TYP I | eth1. Dzierżawca | eno2. Dzierżawca | Węzeł-Magazyn |
 | D | TYP I | eth4. Dzierżawca | eno4. Dzierżawca | Skonfigurowane, ale nie w użyciu |
-| A | TYP II | >\<sieci VLAN tenantNo | team0. Dzierżawca | Klient-do-HLI/HSR |
-| B | TYP II | tenantNo\<sieci VLAN + 2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
-| C | TYP II | tenantNo\<sieci VLAN + 1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
-| D | TYP II | tenantNo\<sieci VLAN + 3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
+| A | TYP II | określone\<tenantNo> | team0. Dzierżawca | Klient-do-HLI/HSR |
+| B | TYP II | określone\<tenantNo+2> | team0. Dzierżawca + 2 | Komunikacja między węzłami |
+| C | TYP II | określone\<tenantNo+1> | team0. Dzierżawca + 1 | Węzeł-Magazyn |
+| D | TYP II | określone\<tenantNo+3> | team0. Dzierżawca + 3 | Skonfigurowane, ale nie w użyciu |
 
 ### <a name="storage"></a>Magazyn
 Następujące punkty instalacji są wstępnie skonfigurowane:

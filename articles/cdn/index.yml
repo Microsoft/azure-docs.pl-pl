@@ -9,12 +9,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 02/24/2020
-  ms.openlocfilehash: e181f5cb94dc33765b6fceb81cc98832a3b800ce
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c3c9cd72a85744ac6b609b178ac4e7c2413b4080
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79479777"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85554312"
 landingContent:
 - title: Informacje o usłudze Azure CDN
   linkLists:
@@ -68,3 +68,13 @@ landingContent:
       url: cdn-verizon-custom-reports.md
     - text: Analizowanie statystyk użycia przy użyciu zaawansowanych raportów HTTP usługi Azure CDN
       url: cdn-advanced-http-reports.md
+- title: Verizon Premium
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Aparat reguł Verizon Premium
+      url: cdn-verizon-premium-rules-engine-reference.md
+    - text: Wyrażenia warunkowe aparatu reguł
+      url: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
+    - text: Funkcje aparatu reguł
+      url: cdn-verizon-premium-rules-engine-reference-features.md

@@ -4,12 +4,12 @@ description: Zawiera omówienie usługi Azure Site Recovery oraz podsumowanie sc
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: ee387682e935522b37a5b4f9f32e53712bfb9150
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067543"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135234"
 ---
 # <a name="about-site-recovery"></a>Informacje o usłudze Site Recovery
 
@@ -20,7 +20,7 @@ Jako organizacja należy wdrożyć strategię ciągłości działania i odzyskiw
 Recovery Services platformy Azure przyczynia się do strategii BCDR:
 
 - **Usługa Site Recovery**: usługa Site Recovery pomaga zapewnić ciągłość działalności biznesowej dzięki utrzymywaniu działania aplikacji biznesowych i obciążeń podczas awarii. Usługa Site Recovery replikuje obciążenia uruchomione na maszynach fizycznych i wirtualnych z lokacji podstawowej do lokacji dodatkowej. W przypadku awarii w lokacji głównej ma miejsce przełączenie w tryb failover do lokacji dodatkowej, z poziomu której możliwy jest dostęp do aplikacji. Po ponownym uruchomieniu lokacji głównej możliwy jest do niej powrót po awarii.
-- **Usługa kopii zapasowej**: Usługa [Azure Backup](/azure/backup/) umożliwia bezpieczne i odzyskiwalne dane.
+- **Usługa kopii zapasowej**: Usługa [Azure Backup](../backup/index.yml) umożliwia bezpieczne i odzyskiwalne dane.
 
 Usługa Site Recovery może zarządzać replikacją dla:
 

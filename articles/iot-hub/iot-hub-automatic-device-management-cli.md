@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82024969"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatyczne zarządzanie urządzeniami i modułami IoT przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -79,7 +78,7 @@ Oto podstawowa przykład zawartości docelowej dla automatycznej konfiguracji ur
 }
 ```
 
-Automatyczne konfiguracje modułów zachowują się bardzo podobnie, ale `moduleContent` zamiast `deviceContent`.
+Automatyczne konfiguracje modułów zachowują się bardzo podobnie, ale `moduleContent` zamiast `deviceContent` .
 
 ```json
 {
@@ -105,7 +104,7 @@ Oto przykłady zapytań metryk:
 }
 ```
 
-Zapytania dotyczące metryk dla modułów są również podobne do zapytań dotyczących urządzeń, ale wybierasz `moduleId` opcję `devices.modules`z. Przykład: 
+Zapytania dotyczące metryk dla modułów są również podobne do zapytań dotyczących urządzeń, ale wybierasz opcję `moduleId` z `devices.modules` . Przykład: 
 
 ```json
 {
@@ -128,7 +127,7 @@ Użyj następującego polecenia, aby utworzyć konfigurację:
      --metrics [metric queries]
 ```
 
-* --**config-ID** — nazwa konfiguracji, która zostanie utworzona w usłudze IoT Hub. Nadaj swojej konfiguracji unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych `& ^ [ ] { } \ | " < > /`znaków:.
+* --**config-ID** — nazwa konfiguracji, która zostanie utworzona w usłudze IoT Hub. Nadaj swojej konfiguracji unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` .
 
 * --**etykiety** — Dodaj etykiety, aby pomóc w śledzeniu konfiguracji. Etykiety to nazwy i pary wartości opisujące wdrożenie. Na przykład `HostPlatform, Linux` lub `Version, 3.0.1`
 
@@ -172,11 +171,11 @@ az iot hub configuration show-metric --config-id [configuration id] \
 
 * --**config-ID** — nazwa wdrożenia, która istnieje w usłudze IoT Hub.
 
-* --**Metric-ID** — Nazwa metryki, dla której chcesz zobaczyć listę identyfikatorów urządzeń lub identyfikatorów modułów, na przykład `appliedCount`.
+* --**Metric-ID** — Nazwa metryki, dla której chcesz zobaczyć listę identyfikatorów urządzeń lub identyfikatorów modułów, na przykład `appliedCount` .
 
-* --**Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]` .
 
-* --**Typ metryki** — typ metryki może `system` być `user`lub.  Metryki systemu `targetedCount` są `appliedCount`i. Wszystkie inne metryki są metrykami użytkownika.
+* --**Typ metryki** — typ metryki może być `system` lub `user` .  Metryki systemu są `targetedCount` i `appliedCount` . Wszystkie inne metryki są metrykami użytkownika.
 
 ## <a name="modify-a-configuration"></a>Modyfikowanie konfiguracji
 
@@ -199,7 +198,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**config-ID** — nazwa konfiguracji, która istnieje w usłudze IoT Hub.
 
-* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]` .
 
 * --**Ustaw** — zaktualizuj właściwość w konfiguracji. Można zaktualizować następujące właściwości:
 
@@ -222,7 +221,7 @@ az iot hub configuration delete --config-id [configuration id] \
 
 * --**config-ID** — nazwa konfiguracji, która istnieje w usłudze IoT Hub.
 
-* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* --**Hub-Name** -Name Centrum IoT, w którym istnieje konfiguracja. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]` .
 
 ## <a name="next-steps"></a>Następne kroki
 

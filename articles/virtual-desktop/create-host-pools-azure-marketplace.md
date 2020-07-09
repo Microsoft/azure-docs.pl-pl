@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7c22ad844f0a543cfbf2e007ab2bfc8f0fe22ef7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121052"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362938"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
 >[!IMPORTANT]
->Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Z Azure Portal nie można zarządzać wszystkimi artykułami tworzonymi za pomocą programu Windows opartą 2019 Desktop.
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Wszystkie obiekty utworzone za pomocą pulpitu wirtualnego systemu Windows 2019 nie mogą być zarządzane za pomocą Azure Portal.
 >
 > Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -41,7 +41,7 @@ Należy również znać następujące kwestie:
 - Miejsce źródłowe obrazu, którego chcesz użyć, to. Czy pochodzi ona z galerii platformy Azure lub jest obrazem niestandardowym?
 - Poświadczenia dołączania do domeny.
 
-Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje** , wybierz nazwę subskrypcji domenie niestandardowej, a następnie wybierz pozycję **dostawcy zasobów platformy Azure**.
+Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje**, wybierz nazwę subskrypcji, a następnie wybierz pozycję **dostawcy zasobów platformy Azure**.
 
 Podczas tworzenia puli hostów pulpitu wirtualnego systemu Windows przy użyciu szablonu Azure Resource Manager można utworzyć maszynę wirtualną z poziomu galerii platformy Azure, obrazu zarządzanego lub niezarządzanego obrazu. Aby dowiedzieć się więcej na temat tworzenia obrazów maszyn wirtualnych, zobacz [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) i [Tworzenie zarządzanego obrazu maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -67,20 +67,23 @@ Aby rozpocząć tworzenie nowej puli hostów:
    
    W obszarze geograficznym platformy Azure skojarzonym z wybranymi regionami są przechowywane metadane dla tej puli hostów i powiązanych z nią obiektów. Upewnij się, że wybierasz regiony wewnątrz obszaru geograficznego, w którym mają być przechowywane metadane usługi.
 
-     ![Zrzut ekranu przedstawiający Azure Portal wyświetlania pola Location z wybraną lokalizacją Wschodnie stany USA. Obok pola jest wyświetlany tekst "metadane będą przechowywane w regionie Wschodnie stany USA".](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający Azure Portal wyświetlania pola Location z wybraną lokalizacją Wschodnie stany USA. Obok pola jest wyświetlany tekst "metadane będą przechowywane w regionie Wschodnie stany USA".](media/portal-location-field.png)
 
 8. W obszarze Typ puli hostów wybierz, czy pula hostów ma być **osobista** , czy w **puli**.
 
     - W przypadku wybrania opcji **osobiste**wybierz opcję **automatycznie** lub **bezpośrednio** w polu Typ przypisania.
 
-      ![Zrzut ekranu przedstawiający menu rozwijane pole typu przypisania. Użytkownik wybrał automatyczne.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![Zrzut ekranu przedstawiający menu rozwijane pole typu przypisania. Użytkownik wybrał automatyczne.](media/assignment-type-field.png)
 
 9. W przypadku wybrania **puli**wprowadź następujące informacje:
 
      - W polu **limit liczby sesji**wprowadź maksymalną liczbę użytkowników, które mają być zrównoważone obciążenie, na jeden Host sesji.
      - W obszarze **algorytm równoważenia obciążenia**wybierz pozycję szerokość pierwszej lub głębokość — na podstawie wzorca użycia.
 
-       ![Zrzut ekranu pola Typ przypisania z wybranym "pulą w puli". Użytkownik kursoruje wskaźnik myszy nad szerokością w menu rozwijanym równoważenia obciążenia.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![Zrzut ekranu pola Typ przypisania z wybranym "pulą w puli". Użytkownik kursoruje wskaźnik myszy nad szerokością w menu rozwijanym równoważenia obciążenia.](media/pooled-assignment-type.png)
 
 10. Wybierz pozycję **Dalej: Szczegóły maszyny wirtualnej**.
 
@@ -111,17 +114,19 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     - W przypadku wybrania opcji **Galeria**wybierz z menu rozwijanego jeden z zalecanych obrazów:
 
-      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 + Office 365 ProPlus — Gen 1
+      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 + Microsoft 365 aplikacje dla przedsiębiorstw — Gen 1
       - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 — Gen 1
       - Windows Server 2019 Datacenter — Gen1
 
      Jeśli nie widzisz żądanego obrazu, wybierz opcję **Przeglądaj wszystkie obrazy i dyski**, które umożliwiają wybranie innego obrazu w galerii lub obrazu dostarczonego przez firmę Microsoft i innych wydawców.
 
-     ![Zrzut ekranu przedstawiający witrynę Marketplace z listą obrazów wyświetlanych od firmy Microsoft.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający witrynę Marketplace z listą obrazów wyświetlanych od firmy Microsoft.](media/marketplace-images.png)
 
      Możesz również przejść do **pozycji moje elementy** i wybrać obraz niestandardowy, który został już przekazany.
 
-     ![Zrzut ekranu przedstawiający kartę Moje elementy.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający kartę Moje elementy.](media/my-items.png)
 
     - W przypadku wybrania **obiektu BLOB Storage**możesz użyć własnej kompilacji obrazu za pomocą funkcji Hyper-V lub na maszynie wirtualnej platformy Azure. Wystarczy wprowadzić lokalizację obrazu w obiekcie blob magazynu jako identyfikator URI.
 
@@ -136,7 +141,8 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
     >[!NOTE]
     >W celu zapewnienia większego bezpieczeństwa zalecamy, aby nie otwierać publicznych portów przychodzących.
 
-    ![Zrzut ekranu strony grupy zabezpieczeń, w którym jest wyświetlana lista dostępnych portów w menu rozwijanym.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu strony grupy zabezpieczeń, w którym jest wyświetlana lista dostępnych portów w menu rozwijanym.](media/available-ports.png)
     
     W przypadku wybrania opcji **Zaawansowane**wybierz istniejącą grupę zabezpieczeń sieci, która została już skonfigurowana.
 
@@ -154,7 +160,7 @@ Proces instalacji puli hostów domyślnie tworzy grupę aplikacji klasycznych. A
 
 Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
 
-1. Wybierz pozycję **tak**.
+1. Wybierz pozycję **Tak**.
 
    Jeśli wybierzesz opcję **nie**, możesz zarejestrować grupę aplikacji później, ale zalecamy przeprowadzenie rejestracji obszaru roboczego, gdy tylko będzie to możliwe, aby Pula hostów działała prawidłowo.
 
@@ -169,7 +175,7 @@ Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
      >[!NOTE]
      >Proces przegląd + tworzenie weryfikacji nie sprawdza, czy hasło spełnia standardy zabezpieczeń lub czy architektura jest poprawna, dlatego należy sprawdzić ewentualne problemy z jednym z tych elementów. 
 
-5. Przejrzyj informacje o wdrożeniu, aby upewnić się, że wszystko wygląda poprawnie. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**. Spowoduje to uruchomienie procesu wdrażania, który tworzy następujące obiekty:
+5. Przejrzyj informacje o wdrożeniu, aby upewnić się, że wszystko wygląda poprawnie. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**. Spowoduje to uruchomienie procesu wdrażania, który tworzy następujące obiekty:
 
      - Twoja nowa pula hostów.
      - Grupa aplikacji klasycznych.

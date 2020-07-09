@@ -1,22 +1,22 @@
 ---
-title: 'Samouczek: łączenie programu SQL na żądanie (wersja zapoznawcza) w celu Power BI Desktop & tworzenia raportu'
-description: W tym samouczku dowiesz się, jak połączyć usługę SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
+title: 'Samouczek: Łączenie SQL na żądanie w celu Power BI Desktop & tworzenia raportu'
+description: W tym samouczku dowiesz się, jak połączyć SQL na żądanie w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2f4a1ab6dc2f5cb8576931ea5fc1da85f5597624
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745405"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213231"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Samouczek: używanie SQL na żądanie (wersja zapoznawcza) z Power BI Desktop & Tworzenie raportu
+# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Samouczek: korzystanie z SQL na żądanie z Power BI Desktop & Tworzenie raportu
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -29,10 +29,14 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka potrzebne jest następujące oprogramowanie:
+Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/) — jest to konieczne do wizualizacji danych i tworzenia raportu.
+- [Obszar roboczy usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) — wymagany do tworzenia bazy danych, zewnętrznego źródła danych i widoku.
+
+Opcjonalnie:
 
 - Narzędzie zapytania SQL, takie jak [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)lub [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Wartości dla następujących parametrów:
 
@@ -121,7 +125,7 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
     - Przykład dla usługi AAD 
   
-        ![Kliknij pozycję Zaloguj się.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Kliknij przycisk Zaloguj.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Przykład logowania SQL — wpisz nazwę użytkownika i hasło.
 

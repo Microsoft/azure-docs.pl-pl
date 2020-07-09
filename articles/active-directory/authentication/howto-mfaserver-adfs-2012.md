@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653365"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
@@ -84,8 +83,8 @@ Serwer usługi Multi-Factor Authentication jest teraz skonfigurowany jako dodatk
 Edytuj plik MultiFactorAuthenticationAdfsAdapter.config, wykonując następujące czynności:
 
 1. Dla węzła **UseWebServiceSdk** ustaw wartość **true**.  
-2. Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication. Na przykład: *https:\/\/contoso.com/\<certificateName>/multifactorauthwebservicesdk/pfwssdk.asmx*, gdzie * \<certificateName>* jest nazwą certyfikatu.  
-3. Edytuj skrypt Register-MultiFactorAuthenticationAdfsAdapter. ps1 przez dodanie `-ConfigurationFilePath &lt;path&gt;` do końca `Register-AdfsAuthenticationProvider` polecenia, gdzie * &lt;Path&gt; * to pełna ścieżka do pliku pliku MultiFactorAuthenticationAdfsAdapter. config.
+2. Dla węzła **WebServiceSdkUrl** ustaw adres URL zestawu SDK usługi sieci Web usługi Multi-Factor Authentication. Na przykład: *https: \/ \/ contoso.com/ \<certificatename> /MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, gdzie *\<certificatename>* to nazwa certyfikatu.  
+3. Edytuj skrypt Register-MultiFactorAuthenticationAdfsAdapter.ps1, dodając `-ConfigurationFilePath &lt;path&gt;` do końca `Register-AdfsAuthenticationProvider` polecenia, gdzie * &lt; &gt; Path* to pełna ścieżka do pliku MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Konfigurowanie zestawu SDK usługi sieci Web przy użyciu nazwy użytkownika i hasła
 

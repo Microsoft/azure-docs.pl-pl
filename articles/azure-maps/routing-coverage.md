@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e04f3d2f5ed575e9401c53faebd91b3bde004601
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123891"
 ---
 # <a name="azure-maps-routing-coverage"></a>Pokrycie routingu Azure Maps
@@ -23,7 +22,7 @@ Zapoznaj się z pokryciem [**geokodowania**](geocoding-coverage.md).
 Zapoznaj się z pokryciem [**ruchu**](traffic-coverage.md).  
 Zapoznaj się z pokryciem [**renderowania**](render-coverage.md).
 <br>  
-**Legendy**
+**Legenda**
 
 | Symbol             | Znaczenie                                |
 |--------------------|----------------------------------------|
@@ -80,7 +79,7 @@ Poniższa tabela zawiera informacje o pokryciu dotyczące Azure Maps routingu.
 | Zimbabwe                       |        ✓       |                       |             |
 
 
-## <a name="americas"></a>Ameryki
+## <a name="americas"></a>Ameryka Północna i Południowa
 
 | Kraj/region                 | Routing         | Routing z ruchem | Routing ciężarówki |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -166,7 +165,7 @@ Poniższa tabela zawiera informacje o pokryciu dotyczące Azure Maps routingu.
 | Bułgaria                       |        ✓       |         ✓            |     ✓      | 
 | Chorwacja                        |        ✓       |         ✓            |     ✓      |
 | Cypr                         |        ✓       |                      |             |
-| Czechy                 |        ✓       |         ✓            |     ✓      |
+| Republika Czeska                 |        ✓       |         ✓            |     ✓      |
 | Dania                        |        ✓       |         ✓            |     ✓      |
 | + Wyspy Owcze                 |        ✓       |                      |             |
 | Estonia                        |        ✓       |         ✓            |     ✓      |
@@ -214,7 +213,7 @@ Poniższa tabela zawiera informacje o pokryciu dotyczące Azure Maps routingu.
 | Szwajcaria                    |        ✓       |         ✓            |     ✓      | 
 | Turcja                         |        ✓       |         ✓            |     ✓      | 
 | Ukraina                        |        ✓       |         ✓            |             | 
-| Wielka Brytania                 |        ✓       |         ✓            |     ✓      | 
+| Zjednoczone Królestwo                 |        ✓       |         ✓            |     ✓      | 
 | + Anguilla                      |        ✓       |                      |             |
 | + Bermudy                       |        ✓       |                      |             |
 | + Brytyjskie Wyspy Dziewicze        |        ✓       |                      |             |

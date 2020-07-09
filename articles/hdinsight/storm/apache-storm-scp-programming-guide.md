@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77186860"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082458"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Przewodnik programowania SCP dla Apache Storm w usłudze Azure HDInsight
 
@@ -357,7 +357,7 @@ public void Abort();
     public T GetAttribute<T>(string key);
 ```
 
-Gdy **simplemode** ma wartość **true**, Metoda **commit** usuwa odpowiednie ZNode w dozorcy. W przeciwnym razie metoda usuwa bieżącą ZNode i dodaje nowy węzeł w ścieżce ZATWIERDZONEj\_.
+Gdy **simplemode** ma wartość **true**, Metoda **commit** usuwa odpowiednie ZNode w dozorcy. W przeciwnym razie metoda usuwa bieżącą ZNode i dodaje nowy węzeł w ścieżce ZATWIERDZONEj \_ .
 
 ### <a name="scpruntime"></a>SCPRuntime
 
@@ -557,7 +557,7 @@ Aby określić elementy Spout i pioruny języka Java, można użyć **punktu SCP
   :p 1)
 ```
 
-Oto `microsoft.scp.example.HybridTopology.Generator` nazwa klasy elementu Spout języka Java.
+Oto `microsoft.scp.example.HybridTopology.Generator` Nazwa klasy elementu Spout języka Java.
 
 ### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Określanie ścieżki klas Java w runSpec polecenia
 
@@ -567,7 +567,7 @@ Aby przesłać topologię zawierającą elementy Spout lub piorunów języka Jav
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 ```
 
-W tym `examples\HybridTopology\java\target\` miejscu jest folder zawierający plik JAR elementu Spout/piorun języka Java.
+W tym miejscu `examples\HybridTopology\java\target\` jest folder zawierający plik JAR elementu Spout/piorun języka Java.
 
 ### <a name="serialization-and-deserialization-between-java-and-c"></a>Serializacja i deserializacja między językami Java i C #
 
@@ -644,7 +644,7 @@ Określ metodę deserializacji strony Java w pliku specyfikacji.
 )
 ```
 
-W tym `"microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer"` miejscu jest nazwą deserializatora i `"microsoft.scp.example.HybridTopology.Person"` jest klasą docelową, do której są deserializowane dane.
+W tym miejscu `"microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer"` jest nazwą deserializatora i `"microsoft.scp.example.HybridTopology.Person"` jest klasą docelową, do której są deserializowane dane.
 
 Możesz również podłączyć własną implementację serializatora C# i deserializacji języka Java.
 
@@ -668,7 +668,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 ## <a name="scp-host-mode"></a>Tryb hosta SCP
 
-W tym trybie można skompilować kod jako bibliotekę DLL i użyć programu SCPHost. exe, który został dostarczony przez punkt połączenia usługi w celu przesłania topologii. Plik specyfikacji wygląda podobnie do tego kodu:
+W tym trybie można skompilować swój kod jako bibliotekę DLL i użyć SCPHost.exe, jak zostało to dostarczone przez punkt połączenia usługi, aby przesłać topologię. Plik specyfikacji wygląda podobnie do tego kodu:
 
 ```csharp
 (scp-spout
@@ -679,7 +679,7 @@ W tym trybie można skompilować kod jako bibliotekę DLL i użyć programu SCPH
   })
 ```
 
-`"plugin.name"` W tym miejscu określono jako `"SCPHost.exe"`, który jest dostarczany przez zestaw SDK punktu połączenia usługi. SCPHost. exe akceptuje trzy parametry w następującej kolejności:
+W tym miejscu `"plugin.name"` określono jako `"SCPHost.exe"` , który jest dostarczany przez zestaw SDK punktu połączenia usługi. SCPHost.exe akceptuje trzy parametry w następującej kolejności:
 
 1. Nazwa biblioteki DLL, która jest `"HelloWorld.dll"` w tym przykładzie.
 1. Nazwa klasy, która jest `"Scp.App.HelloWorld.Generator"` w tym przykładzie.
@@ -693,7 +693,7 @@ W obszarze Tryb hosta Skompiluj swój kod jako bibliotekę DLL dla wywołania pr
 
 Poniższy prosty przykład HelloWorld przedstawia smak SCP.NET. Używa ona topologii nietransakcyjnej z elementu Spout o nazwie **generatora** i dwóch piorunów o nazwie **rozdzielacza** i **licznika**. **Generator** elementu Spout losowo generuje zdania i emituje te zdania do **rozdzielacza**. Piorun **rozdzielacza** dzieli zdania na słowa i emituje te słowa do błyskawicy **licznika** . Piorun **używa** słownika do rejestrowania wystąpień każdego wyrazu.
 
-Ten przykład ma dwa pliki specyfikacji: HelloWorld. spec i HelloWorld\_EnableAck. spec. Kod w języku C# może dowiedzieć się, czy potwierdzenie jest włączone `pluginConf` , pobierając obiekt ze strony Java.
+Ten przykład ma dwa pliki specyfikacji: HelloWorld. spec i HelloWorld \_ EnableAck. spec. Kod w języku C# może dowiedzieć się, czy potwierdzenie jest włączone, pobierając `pluginConf` obiekt ze strony Java.
 
 ```csharp
 /* demo how to get pluginConf info */
@@ -728,7 +728,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-W poniższym przykładzie HelloWorldTx pokazano, jak wdrożyć topologię transakcyjną. Przykład ma jeden elementu Spout o nazwie **generatora**, obiekt wsadowy o nazwie **częściowa liczba**i obiekt zatwierdzający o nazwie **Count-sum**. Przykład zawiera również trzy istniejące pliki tekstowe: DataSource0. txt, DataSource1. txt i DataSource2. txt.
+W poniższym przykładzie HelloWorldTx pokazano, jak wdrożyć topologię transakcyjną. Przykład ma jeden elementu Spout o nazwie **generatora**, obiekt wsadowy o nazwie **częściowa liczba**i obiekt zatwierdzający o nazwie **Count-sum**. Przykład zawiera również trzy istniejące pliki tekstowe: DataSource0.txt, DataSource1.txt i DataSource2.txt.
 
 W poszczególnych transakcjach **Generator** elementu Spout losowo wybiera dwa pliki z istniejących trzech plików i emituje dwie nazwy plików **do błyskawicy** . Piorun **częściowej liczby** :
 
@@ -783,11 +783,11 @@ public void FinishBatch(Dictionary<string, Object> parms)
 
 ### <a name="hybridtopology"></a>HybridTopology
 
-Ta topologia zawiera elementu Spout Java i piorun języka C#. Używa domyślnej serializacji i deserializacji wdrożenia dostarczonej przez platformę SCP. Zobacz plik HybridTopology. spec w folderze przykłady\\HybridTopology, aby uzyskać szczegółowe informacje dotyczące pliku specyfikacji. Zobacz też SubmitTopology. bat, aby określić ścieżkę klasy Java.
+Ta topologia zawiera elementu Spout Java i piorun języka C#. Używa domyślnej serializacji i deserializacji wdrożenia dostarczonej przez platformę SCP. Zobacz plik HybridTopology. spec w \\ folderze przykłady HybridTopology, aby uzyskać szczegółowe informacje dotyczące pliku specyfikacji. Zobacz również SubmitTopology.bat, jak określić ścieżkę klasy Java.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 
-Ten przykład jest w istocie taki sam jak HelloWorld. Jedyną różnicą jest to, że kod jest kompilowany jako biblioteka DLL, a topologia jest przesyłana przy użyciu SCPHost. exe. Aby uzyskać bardziej szczegółowy opis, zobacz sekcję Tryb hosta punktu połączenia usługi.
+Ten przykład jest w istocie taki sam jak HelloWorld. Jedyną różnicą jest to, że kod jest kompilowany jako biblioteka DLL, a topologia jest przesyłana przy użyciu SCPHost.exe. Aby uzyskać bardziej szczegółowy opis, zobacz sekcję Tryb hosta punktu połączenia usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,16 +9,15 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 32749037ac0abe3c55878c3adaaeff48183ae685
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72793038"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080404"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Uaktualnianie do Azure Search .NET SDK w wersji 5
 
-W przypadku korzystania z wersji 4,0-Preview lub starszej [Azure Search .NET SDK](https://aka.ms/search-sdk)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 5.
+W przypadku korzystania z wersji 4,0 — wersja zapoznawcza lub starsza dla [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 5.
 
 Aby zapoznać się z bardziej ogólnym przewodnikiem dotyczącym zestawu SDK, łącznie z przykładami, zobacz [jak używać Azure Search z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
@@ -42,7 +41,7 @@ Wersja 5 zestawu SDK Azure Search .NET jest przeznaczona dla najnowszej ogólnie
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Kroki do uaktualnienia
-Najpierw zaktualizuj odwołanie do `Microsoft.Azure.Search` programu NuGet przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
+Najpierw zaktualizuj odwołanie do programu NuGet `Microsoft.Azure.Search` przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
 
 Po pobraniu przez program NuGet nowych pakietów i ich zależności, należy ponownie skompilować projekt. W zależności od tego, jak kod jest strukturalny, może zostać pomyślnie ponownie odbudowany. Jeśli tak, wszystko jest gotowe!
 
@@ -64,11 +63,11 @@ Po naprawieniu błędów kompilacji lub ostrzeżeń możesz wprowadzić zmiany w
 
 ### <a name="new-package-structure"></a>Nowa struktura pakietu
 
-Najbardziej znacząca zmiana w wersji 5 polega na tym, `Microsoft.Azure.Search` że zestaw i jego zawartość zostały podzielone na cztery oddzielne zestawy, które są teraz dystrybuowane jako cztery oddzielne pakiety NuGet:
+Najbardziej znacząca zmiana w wersji 5 polega na tym, że `Microsoft.Azure.Search` zestaw i jego zawartość zostały podzielone na cztery oddzielne zestawy, które są teraz dystrybuowane jako cztery oddzielne pakiety NuGet:
 
  - `Microsoft.Azure.Search`: Jest to Meta-pakiet, który zawiera wszystkie inne Azure Search pakiety jako zależności. Jeśli uaktualniasz starszą wersję zestawu SDK, po prostu uaktualnianie tego pakietu i jego ponowne kompilowanie powinno być wystarczające, aby zacząć korzystać z nowej wersji.
- - `Microsoft.Azure.Search.Data`: Użyj tego pakietu, jeśli tworzysz aplikację .NET przy użyciu Azure Search i chcesz tylko wysyłać zapytania lub aktualizować dokumenty w swoich indeksach. Jeśli konieczne jest również utworzenie lub zaktualizowanie indeksów, map synonimów lub innych zasobów na poziomie usług, zamiast tego `Microsoft.Azure.Search` należy użyć pakietu.
- - `Microsoft.Azure.Search.Service`: Użyj tego pakietu, jeśli tworzysz automatyzację w programie .NET, aby zarządzać indeksami Azure Search, mapami synonimów, indeksatorami, źródłami danych lub innymi zasobami na poziomie usług. Jeśli musisz tylko zbadać lub zaktualizować dokumenty w indeksach, Użyj zamiast niego `Microsoft.Azure.Search.Data` pakietu. Jeśli potrzebujesz wszystkich funkcji Azure Search, zamiast tego użyj `Microsoft.Azure.Search` pakietu.
+ - `Microsoft.Azure.Search.Data`: Użyj tego pakietu, jeśli tworzysz aplikację .NET przy użyciu Azure Search i chcesz tylko wysyłać zapytania lub aktualizować dokumenty w swoich indeksach. Jeśli konieczne jest również utworzenie lub zaktualizowanie indeksów, map synonimów lub innych zasobów na poziomie usług, `Microsoft.Azure.Search` zamiast tego należy użyć pakietu.
+ - `Microsoft.Azure.Search.Service`: Użyj tego pakietu, jeśli tworzysz automatyzację w programie .NET, aby zarządzać indeksami Azure Search, mapami synonimów, indeksatorami, źródłami danych lub innymi zasobami na poziomie usług. Jeśli musisz tylko zbadać lub zaktualizować dokumenty w indeksach, użyj `Microsoft.Azure.Search.Data` zamiast niego pakietu. Jeśli potrzebujesz wszystkich funkcji Azure Search, `Microsoft.Azure.Search` zamiast tego użyj pakietu.
  - `Microsoft.Azure.Search.Common`: Typy wspólne, które są używane przez Azure Search biblioteki platformy .NET. Nie należy używać tego pakietu bezpośrednio w aplikacji; Jest ona przeznaczona tylko do użycia jako zależność.
  
 Ta zmiana jest technicznie przerwana, ponieważ wiele typów zostało przeniesionych między zestawami. To dlatego, że ponowne kompilowanie aplikacji jest niezbędne w celu uaktualnienia do wersji 5 zestawu SDK.
@@ -77,7 +76,7 @@ Istnieje niewielka liczba innych zmian w wersji 5, które mogą wymagać zmiany 
 
 ### <a name="change-to-suggesters"></a>Przejdź do sugestii 
 
-`Suggester` Konstruktor nie ma już `enum` parametru dla `SuggesterSearchMode`. Ta Wyliczenie ma tylko jedną wartość i dlatego była nadmiarowa. Jeśli w wyniku tego wystąpią błędy kompilacji, wystarczy usunąć odwołania do `SuggesterSearchMode` parametru.
+`Suggester`Konstruktor nie ma już `enum` parametru dla `SuggesterSearchMode` . Ta Wyliczenie ma tylko jedną wartość i dlatego była nadmiarowa. Jeśli w wyniku tego wystąpią błędy kompilacji, wystarczy usunąć odwołania do `SuggesterSearchMode` parametru.
 
 ### <a name="removed-obsolete-members"></a>Usunięto przestarzałe składowe
 
@@ -88,7 +87,7 @@ Mogą pojawić się błędy kompilacji związane z metodami lub właściwościam
 
 ### <a name="removed-preview-features"></a>Usunięte funkcje w wersji zapoznawczej
 
-W przypadku uaktualniania z wersji 4,0 — wersja zapoznawcza do wersji 5 należy pamiętać, że obsługa tablic JSON i woluminów CSV dla indeksatorów obiektów BLOB została usunięta, ponieważ te funkcje są nadal w wersji zapoznawczej. W szczególnych przypadkach następujące metody `IndexingParametersExtensions` klasy zostały usunięte:
+W przypadku uaktualniania z wersji 4,0 — wersja zapoznawcza do wersji 5 należy pamiętać, że obsługa tablic JSON i woluminów CSV dla indeksatorów obiektów BLOB została usunięta, ponieważ te funkcje są nadal w wersji zapoznawczej. W szczególnych przypadkach następujące metody klasy zostały `IndexingParametersExtensions` usunięte:
 
 - `ParseJsonArrays`
 - `ParseDelimitedTextFiles`

@@ -7,29 +7,28 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603914"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
 Użyj logo organizacji i niestandardowych schematów kolorów, aby zapewnić spójny wygląd i działanie na stronach logowania Azure Active Directory (Azure AD). Strony logowania są wyświetlane, gdy użytkownicy logują się do aplikacji sieci Web w organizacji, takich jak Office 365, które korzystają z usługi Azure AD jako dostawcy tożsamości.
 
->[!Note]
+>[!NOTE]
 >Dodanie oznakowania niestandardowego wymaga użycia wersji Azure Active Directory — wersja Premium 1, Premium 2 lub Basic lub posiadania licencji pakietu Office 365. Aby uzyskać więcej informacji na temat licencjonowania i wydań, zobacz [Rejestrowanie się w usłudze Azure AD — wersja Premium](active-directory-get-started-premium.md).<br><br>Klienci w Chinach mogą używać wersji Premium i Podstawowa usługi Azure AD za pośrednictwem wystąpienia usługi Azure Active Directory dostępnego na całym świecie. Wersje Premium i Podstawowa usługi Azure AD nie są obecnie obsługiwane w usłudze platformy Azure świadczonej przez firmę 21Vianet w Chinach. Aby uzyskać więcej informacji, porozmawiaj z nami, korzystając z [forum usługi Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Dostosowywanie strony logowania do usługi Azure AD
-Możesz dostosować strony logowania usługi Azure AD, które są wyświetlane, gdy użytkownicy logują się do aplikacji specyficznych dla dzierżawy w organizacji, takich `https://outlook.com/contoso.com`jak lub podczas przekazywania zmiennej domeny, takiej jak `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
+Możesz dostosować strony logowania usługi Azure AD, które są wyświetlane, gdy użytkownicy logują się do aplikacji specyficznych dla dzierżawy w organizacji, takich jak `https://outlook.com/contoso.com` lub podczas przekazywania zmiennej domeny, takiej jak `https://passwordreset.microsoftonline.com/?whr=contoso.com` .
 
-Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownicy przejdą do witryn,\.takich jak Office.com www. Zamiast tego użytkownik musi się zalogować, aby pojawiło się niestandardowe oznakowanie. Po zalogowaniu się użytkownika znakowanie może potrwać 15 minut lub dłużej. 
+Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownicy przejdą do witryn, takich jak \. Office.com www. Zamiast tego użytkownik musi się zalogować, aby pojawiło się niestandardowe oznakowanie. Po zalogowaniu się użytkownika znakowanie może potrwać 15 minut lub dłużej. 
 
 > [!NOTE]
 > Wszystkie elementy znakowania są opcjonalne. Na przykład jeśli określisz logo transparentu bez obrazu tła, na stronie logowania zostanie wyświetlone logo z domyślnym obrazem tła z lokacji docelowej (na przykład Office 365).<br><br>Ponadto znakowanie strony logowania nie jest przenoszone na osobiste konta Microsoft. Jeśli użytkownicy lub Goście biznesowi zalogują się przy użyciu osobistego konto Microsoft, Strona logowania nie będzie odzwierciedlała znakowania organizacji.
@@ -43,7 +42,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
 3. Na stronie **Konfiguruj znakowanie firmowe** Podaj dowolne lub wszystkie z poniższych informacji.
 
-    >[!Important]
+    >[!IMPORTANT]
     >Wszystkie niestandardowe obrazy, które dodasz na tej stronie, mają rozmiar obrazu (w pikselach), rozmiar pliku (KB), ograniczenia. Ze względu na te ograniczenia najprawdopodobniej trzeba będzie użyć edytora zdjęć do utworzenia obrazów o odpowiednim rozmiarze.
 
     - **Ustawienia ogólne**
@@ -62,7 +61,17 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
         - **Wskazówka nazwy użytkownika.** Wpisz tekst wskazówki, który pojawia się dla użytkowników w przypadku zapomnienia ich nazwy użytkownika. Ten tekst musi być w formacie Unicode, bez linków lub kodu i nie może przekraczać 64 znaków. Jeśli Goście logują się do aplikacji, sugerujemy, aby nie dodawać tej wskazówki.
 
-        - **Tekst strony logowania.** Wpisz tekst wyświetlany w dolnej części strony logowania. Możesz użyć tego tekstu do przekazania dodatkowych informacji, takich jak numer telefonu do działu pomocy technicznej lub oświadczenia prawnego. Ten tekst musi być w formacie Unicode i nie może przekraczać 256 znaków.
+        - **Tekst i formatowanie strony logowania.** Wpisz tekst wyświetlany w dolnej części strony logowania. Możesz użyć tego tekstu do przekazania dodatkowych informacji, takich jak numer telefonu do działu pomocy technicznej lub oświadczenia prawnego. Ten tekst musi być w formacie Unicode i nie może przekraczać 1024 znaków.
+
+           Można dostosować wprowadzony tekst strony logowania. Aby rozpocząć nowy akapit, użyj klawisza ENTER dwa razy. Możesz również zmienić formatowanie tekstu tak, aby obejmowało pogrubienie, kursywę, podkreślenie lub kliknięcie. Aby dodać formatowanie do tekstu, użyj następującej składni: 
+
+          > Łącza```[text](link)``` 
+          
+          > Pogrubienie: ``` **text** ``` lub``` __text__ ``` 
+          
+          > Kursywa: ``` *text* ``` lub``` _text_ ``` 
+          
+          > Podkreślenie``` ++text++ ``` 
 
     - **Ustawienia zaawansowane**
             
@@ -77,8 +86,10 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
         - **Kwadratowy obraz logo, motyw ciemny.** Analogicznie jak powyżej. Ten obraz logo umieszcza symbol logo kwadratowego, gdy jest używany z ciemnym tłem, na przykład w przypadku ekranów przyłączonych do usługi Azure AD systemu Windows 10 podczas korzystania z funkcji OOBE (out-of-Box Experience).  Jeśli logo wygląda dobrze na białym, ciemnoniebieskim i czarnym tle, nie musisz dodawać tego obrazu. 
         
         - **Pokaż opcję, która ma pozostać zalogowana.** Możesz zezwolić użytkownikom na logowanie się do usługi Azure AD do momentu jawnego wylogowania. Jeśli wybierzesz opcję **nie**, ta opcja jest ukryta, a użytkownicy muszą logować się za każdym razem, gdy przeglądarka zostanie zamknięta i ponownie otwarta.
+
+            Aby dowiedzieć się więcej o konfigurowaniu i rozwiązywaniu problemów z opcją pozostawania zalogowania, zobacz [Konfigurowanie monitu "pozostanie zalogowanym?" dla kont usługi Azure AD](keep-me-signed-in.md)
         
-            >[!Note]
+            >[!NOTE]
             >Niektóre funkcje usługi SharePoint Online oraz pakietu Office 2010 zależą od tego, czy użytkownicy mogą wybrać opcję pozostania zalogowanym. Jeśli ta opcja zostanie ustawiona na **Nie**, użytkownicy mogą otrzymywać dodatkowe i nieoczekiwane monity o zalogowanie.
    
 
@@ -86,7 +97,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
     Jeśli ten proces spowoduje utworzenie pierwszej niestandardowej konfiguracji znakowania, zostanie ona domyślnie utworzona dla dzierżawy. Jeśli masz dodatkowe konfiguracje, będziesz mieć możliwość wybrania konfiguracji domyślnej.
     
-    >[!Important]
+    >[!IMPORTANT]
     >Aby dodać więcej konfiguracji znakowania firmowego do dzierżawy, należy wybrać pozycję **nowy język** na stronie **contoso-Company marking** . Spowoduje to otwarcie strony **Konfigurowanie znakowania firmowego** , na której można wykonać te same czynności jak powyżej.
 
 ## <a name="update-your-custom-branding"></a>Aktualizowanie marki niestandardowej
@@ -125,7 +136,7 @@ Nie można zmienić języka oryginalnej konfiguracji z poziomu języka domyślne
     ![Firma Contoso — Strona znakowania firmy z domyślną konfiguracją](media/customize-branding/company-branding-french-config.png)
 
 ## <a name="add-your-custom-branding-to-pages"></a>Dodawanie niestandardowej marki do stron
-Dodaj niestandardowe znakowanie do stron, `?whr=yourdomainname`modyfikując koniec adresu URL z tekstem. Ta modyfikacja działa na kilku stronach, w tym na stronie konfiguracji Multi-Factor Authentication (MFA), stronie Konfiguracja samoobsługowego resetowania hasła (SSPR) oraz na stronie logowania.
+Dodaj niestandardowe znakowanie do stron, modyfikując koniec adresu URL z tekstem `?whr=yourdomainname` . Ta modyfikacja działa na kilku stronach, w tym na stronie konfiguracji Multi-Factor Authentication (MFA), stronie Konfiguracja samoobsługowego resetowania hasła (SSPR) oraz na stronie logowania.
 
 **Przykłady:**
 
@@ -134,5 +145,3 @@ Dodaj niestandardowe znakowanie do stron, `?whr=yourdomainname`modyfikując koni
 
 **Oryginalny adres URL:**https://aka.ms/SSPR<br>
 **Niestandardowy adres URL:**`https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
- 

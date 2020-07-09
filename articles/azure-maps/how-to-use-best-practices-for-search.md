@@ -8,23 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742771"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84264370"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Najlepsze rozwiązania dotyczące Azure Maps Search Service
 
-Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) obejmuje interfejsy API oferujące różne możliwości. Na przykład interfejs API adresów wyszukiwania może znaleźć punkty orientacyjne (punkt POI) lub dane wokół określonej lokalizacji. 
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) obejmuje interfejsy API oferujące różne funkcje, które ułatwiają deweloperom wyszukiwanie adresów, miejsc, aukcji w biznesie według nazw lub kategorii oraz innych informacji geograficznych. Na przykład[interfejs API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) umożliwia użytkownikom wyszukiwanie adresów lub punktów orientacyjnych (punkt POI).
 
 W tym artykule wyjaśniono, jak stosować metody dźwiękowe podczas wywoływania danych z Azure Maps Search Service. Omawiane tematy:
 
-* Twórz zapytania w celu zwrócenia odpowiednich dopasowań.
-* Ogranicz wyniki wyszukiwania.
-* Poznaj różnice między typami wyników.
-* Przeczytaj strukturę wyszukiwania adresów — odpowiedź.
+* Twórz zapytania, aby zwracać odpowiednie dopasowania
+* Ogranicz wyniki wyszukiwania
+* Poznaj różnice między typami wyników
+* Przeczytaj strukturę wyszukiwania adresów — odpowiedź
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +32,7 @@ Aby wykonać wywołania do interfejsów API usługi Azure Maps, musisz mieć kon
 Aby uzyskać informacje o uwierzytelnianiu w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
 
 > [!TIP]
-> Aby wykonać zapytanie Search Service, można użyć [aplikacji Poster](https://www.getpostman.com/apps) do kompilowania wywołań REST. Możesz też użyć dowolnego preferowanego środowiska deweloperskiego interfejsu API.
+> Aby wykonać zapytanie Search Service, można użyć [aplikacji Poster](https://www.getpostman.com/apps) do kompilowania wywołań interfejsu API REST. Możesz też użyć dowolnego preferowanego środowiska deweloperskiego interfejsu API.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Najlepsze rozwiązania dotyczące adresów geokodowych
 
@@ -61,7 +60,7 @@ Aby uzyskać efekt geobias do odpowiedniego obszaru dla użytkownika, należy za
 
 #### <a name="fuzzy-search-parameters"></a>Parametry wyszukiwania rozmytego
 
-Zalecamy korzystanie z interfejsu API "Azure Maps [przeszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) ", gdy nie są znane dane wejściowe użytkownika dotyczące zapytania wyszukiwania. Interfejs API łączy punkt POI wyszukiwanie i geokodowanie do kanonicznego *wyszukiwania jednowierszowego*: 
+Zalecamy korzystanie z interfejsu API "Azure Maps [przeszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) ", gdy nie są znane dane wejściowe użytkownika dotyczące zapytania wyszukiwania. Na przykład dane wejściowe od użytkownika mogą być adresami lub typu punktu orientacyjnego (punkt POI), np. *zakupów*świątecznych. Interfejs API łączy punkt POI wyszukiwanie i geokodowanie do kanonicznego *wyszukiwania jednowierszowego*: 
 
 * `minFuzzyLevel`Parametry i `maxFuzzyLevel` pomagają zwracać odpowiednie dopasowania nawet wtedy, gdy parametry zapytania nie są dokładnie zgodne z informacjami, które użytkownik chce. Aby zmaksymalizować wydajność i zmniejszyć nietypowe wyniki, należy ustawić zapytania wyszukiwania na wartości domyślne `minFuzzyLevel=1` i `maxFuzzyLevel=2` . 
 
@@ -85,7 +84,7 @@ Zalecamy korzystanie z interfejsu API "Azure Maps [przeszukiwania rozmytego](htt
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Odwróć kod i filtr dla typu jednostki geografii
 
-W przypadku przeszukiwania odwrotnego kodu w [interfejsie API odwrotnego adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)usługa może zwracać wielokąty dla obszarów administracyjnych.Aby zawęzić wyszukiwanie do określonych typów jednostek geograficznych, Uwzględnij `entityType` parametr w żądaniach. 
+W przypadku przeszukiwania odwrotnego kodu w [interfejsie API odwrotnego adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)usługa może zwracać wielokąty dla obszarów administracyjnych. Na przykład Yoi może chcieć pobrać Wielokąt obszaru dla miasta.Aby zawęzić wyszukiwanie do określonych typów jednostek geograficznych, Uwzględnij `entityType` parametr w żądaniach. 
 
 Odpowiedź będąca wynikiem zawiera identyfikator geografii i typ jednostki, który został dopasowany. Jeśli podano więcej niż jedną jednostkę, punkt końcowy zwraca *najmniejszą dostępną jednostkę*. Możesz użyć zwróconego identyfikatora geometrii, aby uzyskać geometrię geografii za pomocą [usługi wyszukiwania wielokątów](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 

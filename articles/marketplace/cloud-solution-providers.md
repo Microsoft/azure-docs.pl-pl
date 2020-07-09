@@ -1,22 +1,22 @@
 ---
 title: Dostawca rozwiązań w chmurze — Microsoft Commercial Marketplace
 description: Dowiedz się, jak sprzedawać oferty za pośrednictwem kanału partnera programów Microsoft Cloud Provider (CSP) w portalu komercyjnym.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798145"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104439"
 ---
 # <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
 
-W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert za pomocą [komercyjnych witryn sieci Web w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)możesz również sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
+W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert za pomocą [komercyjnych witryn sieci Web w portalu Marketplace](comparing-appsource-azure-marketplace.md)możesz również sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
 
 Można skonfigurować nowe lub istniejące oferty dla dostępności w programie CSP, co pozwala partnerom CSP sprzedawać Twoje produkty i tworzyć powiązane rozwiązania dla klientów.
 
@@ -191,7 +191,7 @@ W przypadku wybrania w portal Cloud Partner kanału dostawcy CSP wydawcy muszą 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź witrynę [Azure Marketplace i Podręcznik wydawcy AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+Odwiedź witrynę [Azure Marketplace i Podręcznik wydawcy AppSource](marketplace-publishers-guide.md).
 
 Aby dowiedzieć się więcej na temat usług GTM Marketplace, zobacz temat [usługi "przejdź do rynku"](https://partner.microsoft.com/reach-customers/gtm).
 

@@ -2,7 +2,7 @@
 title: Monitorowanie wydajności bazy danych za pomocą Intelligent Insights
 description: Intelligent Insights w Azure SQL Database i wystąpienie zarządzane usługi Azure SQL używa wbudowanej analizy do ciągłego monitorowania użycia bazy danych za pomocą sztucznej analizy i wykrywania zdarzeń powodujących zakłócenia, które powodują niską wydajność.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 08904b3a5a1053d64e3b54582189da5d82f62dee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051927"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986508"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,10 +73,13 @@ Dostępne opcje Intelligent Insights są następujące:
 
 | Opcja Intelligent Insights | Obsługa Azure SQL Database | Obsługa wystąpień zarządzanych Azure SQL |
 | :----------------------------- | ----- | ----- |
-| **Skonfiguruj Intelligent Insights** — Skonfiguruj Intelligent Insights analizę dla baz danych. | Yes | Yes |
-| Usługi **Stream Insights do Azure SQL Analytics** — szczegółowe informacje o usłudze Stream Azure SQL Analytics. | Yes | Yes |
-| Usługi **Stream Insights do usługi Event Hub** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Yes | Yes |
-| **Usługa Stream Insights w usłudze Azure Storage** — szczegółowe informacje o usłudze Stream w usłudze Azure Storage w celu przeprowadzenia dalszej analizy i długoterminowej archiwizacji. | Yes | Yes |
+| **Skonfiguruj Intelligent Insights** — Skonfiguruj Intelligent Insights analizę dla baz danych. | Tak | Tak |
+| Usługi **Stream Insights do Azure SQL Analytics** — szczegółowe informacje o usłudze Stream Azure SQL Analytics. | Tak | Tak |
+| **Usługa Stream Insights w usłudze Azure Event Hubs** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Tak | Tak |
+| **Usługa Stream Insights w usłudze Azure Storage** — szczegółowe informacje o usłudze Stream w usłudze Azure Storage w celu przeprowadzenia dalszej analizy i długoterminowej archiwizacji. | Tak | Tak |
+
+> [!NOTE]
+> Usługa Intelligent Insights to funkcja w wersji zapoznawczej, która nie jest dostępna w następujących regionach: Europa Zachodnia, Europa Północna, zachodnie stany USA 1 i Wschodnie stany USA 1.
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurowanie eksportu dziennika Intelligent Insights
 
@@ -86,7 +89,7 @@ Dane wyjściowe Intelligent Insights mogą być przesyłane strumieniowo do jedn
 - Dane wyjściowe przesyłane strumieniowo do usługi Azure Event Hubs mogą służyć do tworzenia niestandardowych scenariuszy monitorowania i zgłaszania alertów
 - Dane wyjściowe przesyłane strumieniowo do usługi Azure Storage mogą służyć do tworzenia niestandardowych aplikacji, takich jak raportowanie niestandardowe, długoterminowe archiwizowanie danych i tak dalej.
 
-Integracja Azure SQL Analytics, centrum zdarzeń platformy Azure, usługi Azure Storage lub produktów innych firm do użycia jest wykonywana przez włączenie rejestrowania Intelligent Insights (Dziennik "SQLInsights") w bloku ustawień diagnostycznych bazy danych, a następnie skonfigurowanie danych dziennika Intelligent Insights do przesyłania strumieniowego do jednego z tych miejsc docelowych.
+Integracja Azure SQL Analytics, platformy Azure Event Hubs, usługi Azure Storage lub produktów innych firm w celu ich użycia odbywa się przy pierwszym włączeniu rejestrowania Intelligent Insights (Dziennik "SQLInsights") w bloku ustawień diagnostycznych bazy danych, a następnie skonfigurować dane dziennika Intelligent Insights do przesyłania strumieniowego do jednego z tych miejsc docelowych.
 
 Aby uzyskać więcej informacji na temat włączania rejestrowania Intelligent Insights i konfigurowania metryk i danych dzienników zasobów do przesyłania strumieniowego do produktu zużywanego, zobacz [metryki i rejestrowanie diagnostyki](metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -106,7 +109,7 @@ Poniższy przykład pokazuje Intelligent Insights oglądany przez Azure SQL Anal
 
 Aby użyć Intelligent Insights z Event Hubs, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do Event Hubs, zobacz [metryki i rejestrowanie diagnostyki](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) oraz [przesyłanie strumieniowe dzienników diagnostyki platformy Azure do Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
-Aby użyć Event Hubs do konfiguracji niestandardowego monitorowania i generowania alertów, zobacz [co zrobić z metrykami i dziennikami diagnostycznymi w Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
+Aby użyć Event Hubs do konfigurowania niestandardowego monitorowania i generowania alertów, zobacz [co zrobić z metrykami i dziennikami diagnostycznymi w Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
 ### <a name="set-up-with-azure-storage"></a>Konfigurowanie za pomocą usługi Azure Storage
 
@@ -133,7 +136,7 @@ Wszystkie metryki są brane pod uwagę w różnych relacjach za pomocą ogólnie
 
 - Szczegóły wykrytego problemu z wydajnością.
 - Wykryto analizę głównej przyczyny problemu.
-- Zalecenia dotyczące poprawy wydajności monitorowanej bazy danych SQL, o ile jest to możliwe.
+- Zalecenia dotyczące poprawy wydajności monitorowanej bazy danych, jeśli jest to możliwe.
 
 ## <a name="query-duration"></a>Czas trwania zapytania
 

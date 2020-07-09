@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653643"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509
@@ -18,7 +17,7 @@ W tym artykule opisano sposób zabezpieczania komunikacji między różnymi węz
 Aby uzyskać więcej informacji o zabezpieczeniach klastra, takich jak zabezpieczenia typu węzeł-węzeł, zabezpieczenia klienta do węzła i kontrola dostępu oparta na rolach, zobacz [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md).
 
 ## <a name="which-certificates-do-you-need"></a>Których certyfikatów potrzebujesz?
-Aby rozpocząć pracę z programem, [Pobierz pakiet Service Fabric dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) do jednego z węzłów w klastrze. W pobranym pakiecie znajdziesz plik ClusterConfig. x509. wielomachine. JSON. Otwórz plik i zapoznaj się z sekcją zabezpieczenia w sekcji Właściwości:
+Aby rozpocząć pracę z programem, [Pobierz pakiet Service Fabric dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) do jednego z węzłów w klastrze. W pobranym pakiecie znajdziesz ClusterConfig.X509.MultiMachine.jspliku. Otwórz plik i zapoznaj się z sekcją zabezpieczenia w sekcji Właściwości:
 
 ```JSON
 "security": {
@@ -265,7 +264,7 @@ W przypadku klastrów używanych do celów testowych można wybrać opcję użyc
 Dodatkowe pytania można znaleźć w tematach [często zadawanych pytań dotyczących certyfikatów](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Opcjonalne: Tworzenie certyfikatu z podpisem własnym
-Jednym ze sposobów utworzenia certyfikatu z podpisem własnym, który może być zabezpieczony prawidłowo, jest użycie skryptu CertSetup. ps1 w folderze Service Fabric SDK w katalogu C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edytuj ten plik, aby zmienić domyślną nazwę certyfikatu. (Poszukaj wartości CN = ServiceFabricDevClusterCert). Uruchom ten skrypt jako `.\CertSetup.ps1 -Install` .
+Jednym ze sposobów utworzenia certyfikatu z podpisem własnym, który może być zabezpieczony prawidłowo, jest użycie skryptu CertSetup.ps1 w folderze Service Fabric SDK w katalogu C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edytuj ten plik, aby zmienić domyślną nazwę certyfikatu. (Poszukaj wartości CN = ServiceFabricDevClusterCert). Uruchom ten skrypt jako `.\CertSetup.ps1 -Install` .
 
 Teraz Wyeksportuj certyfikat do pliku PFX z chronionym hasłem. Najpierw należy uzyskać odcisk palca certyfikatu. 
 1. Z menu **Start** Uruchom polecenie **Zarządzaj certyfikatami komputera**. 
@@ -344,13 +343,13 @@ Po przypisaniu certyfikatów można je zainstalować w węzłach klastra. W węz
 4. Powtórz poprzednie kroki dla każdego certyfikatu serwera. Można również użyć tych kroków, aby zainstalować certyfikaty klienta na maszynach, które mają zezwalać na dostęp do klastra.
 
 ## <a name="create-the-secure-cluster"></a>Tworzenie bezpiecznego klastra
-Po skonfigurowaniu sekcji Zabezpieczenia w pliku ClusterConfig. x509. wielomachine. JSON można przejoć do sekcji [Tworzenie klastra](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) , aby skonfigurować węzły i utworzyć klaster autonomiczny. Pamiętaj, aby podczas tworzenia klastra użyć pliku ClusterConfig. x509. wielomachine. JSON. Na przykład polecenie może wyglądać następująco:
+Po skonfigurowaniu sekcji Zabezpieczenia ClusterConfig.X509.MultiMachine.jsw pliku można przejoć do sekcji [Tworzenie klastra](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) , aby skonfigurować węzły i utworzyć klaster autonomiczny. Pamiętaj, aby podczas tworzenia klastra używać ClusterConfig.X509.MultiMachine.jspliku. Na przykład polecenie może wyglądać następująco:
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Na przykład:
+Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Przykład:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

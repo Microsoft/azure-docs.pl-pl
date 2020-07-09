@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72792892"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Jak utworzyć filtr aspektów w usłudze Azure Wyszukiwanie poznawcze 
@@ -36,24 +36,24 @@ Jesteś nowym w nawigacji aspektowej i chcesz uzyskać więcej szczegółów? Zo
 
 Zestawy reguł można obliczyć na podstawie pojedynczych pól wartości, a także kolekcji. Pola, które najlepiej działają w nawigacji aspektowej, mają niską Kardynalność: niewielką liczbę unikatowych wartości powtarzanych w całym dokumencie w korpus wyszukiwania (na przykład lista kolorów, krajów/regionów lub nazw marek). 
 
-Aspektowanie jest włączane w zależności od pola podczas tworzenia indeksu przez ustawienie `facetable` atrybutu na. `true` Należy również ustawić `filterable` atrybut na `true` dla takich pól, aby aplikacja wyszukiwania mogła filtrować te pola w oparciu o aspekty wybierane przez użytkownika końcowego. 
+Aspektowanie jest włączane w zależności od pola podczas tworzenia indeksu przez ustawienie `facetable` atrybutu na `true` . Należy również ustawić `filterable` atrybut na `true` dla takich pól, aby aplikacja wyszukiwania mogła filtrować te pola w oparciu o aspekty wybierane przez użytkownika końcowego. 
 
-Podczas tworzenia indeksu przy użyciu interfejsu API REST każdy [Typ pola](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , który może być używany w nawigacji aspektowej, jest domyślnie oznaczony `facetable` jako domyślny:
+Podczas tworzenia indeksu przy użyciu interfejsu API REST każdy [Typ pola](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , który może być używany w nawigacji aspektowej, jest domyślnie oznaczony jako `facetable` domyślny:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Typy pól liczbowych `Edm.Int32`: `Edm.Int64`,,`Edm.Double`
-+ Kolekcje powyższych typów (na przykład `Collection(Edm.String)` lub) `Collection(Edm.Double)`
++ Typy pól liczbowych: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ Kolekcje powyższych typów (na przykład `Collection(Edm.String)` lub `Collection(Edm.Double)` )
 
 Nie można używać `Edm.GeographyPoint` ani `Collection(Edm.GeographyPoint)` pól w nawigacji aspektowej. Zestawy reguł działają najlepiej dla pól o niskiej kardynalności. Ze względu na rozdzielczość geograficzną, rzadko jest, że wszystkie dwa zestawy współrzędnych będą równe w danym zestawie danych. W związku z tym aspekty nie są obsługiwane dla współrzędnych geograficznych. Do zestawu reguł według lokalizacji potrzebne jest pole miasto lub region.
 
 ## <a name="set-attributes"></a>Ustawianie atrybutów
 
-Atrybuty indeksu kontrolujące sposób użycia pola są dodawane do poszczególnych definicji pól w indeksie. W poniższym przykładzie pola o niskiej kardynalności, przydatne w przypadku aspektów, składają się z: `category` (Hotel, Motel, Hostel), `tags`i `rating`. Te pola mają jawnie `filterable` ustawione `facetable` atrybuty i w poniższym przykładzie dla celów ilustracyjnych. 
+Atrybuty indeksu kontrolujące sposób użycia pola są dodawane do poszczególnych definicji pól w indeksie. W poniższym przykładzie pola o niskiej kardynalności, przydatne w przypadku aspektów, składają się z: `category` (Hotel, Motel, Hostel), `tags` i `rating` . Te pola mają `filterable` `facetable` jawnie ustawione atrybuty i w poniższym przykładzie dla celów ilustracyjnych. 
 
 > [!Tip]
-> Najlepszym rozwiązaniem w przypadku optymalizacji wydajności i magazynu jest wyłączenie reguł dla pól, które nigdy nie powinny być używane jako zestaw reguł. W szczególności pola ciągów dla unikatowych wartości, takich jak identyfikator lub nazwa produktu, powinny mieć ustawioną wartość `"facetable": false` , aby zapobiec przypadkowemu (i nieskutecznym) użyciu w nawigacji aspektowej.
+> Najlepszym rozwiązaniem w przypadku optymalizacji wydajności i magazynu jest wyłączenie reguł dla pól, które nigdy nie powinny być używane jako zestaw reguł. W szczególności pola ciągów dla unikatowych wartości, takich jak identyfikator lub nazwa produktu, powinny mieć ustawioną wartość, aby `"facetable": false` zapobiec przypadkowemu (i nieskutecznym) użyciu w nawigacji aspektowej.
 
 
 ```json
@@ -77,7 +77,7 @@ Atrybuty indeksu kontrolujące sposób użycia pola są dodawane do poszczególn
 ```
 
 > [!Note]
-> Ta definicja indeksu jest kopiowana z [tworzenia indeksu wyszukiwanie poznawcze platformy Azure przy użyciu interfejsu API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Jest on identyczny z wyjątkiem powierzchownych różnic w definicjach pól. Atrybuty `filterable` i `facetable` są jawnie dodawane do `category`pól, `tags`, `parkingIncluded` `smokingAllowed`, i `rating` . `filterable` W przypadku korzystania z interfejsu API REST w ramach tych pól zostanie włączona wartość `facetable` domyślna. W przypadku korzystania z zestawu .NET SDK te atrybuty muszą być włączone jawnie.
+> Ta definicja indeksu jest kopiowana z [tworzenia indeksu wyszukiwanie poznawcze platformy Azure przy użyciu interfejsu API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Jest on identyczny z wyjątkiem powierzchownych różnic w definicjach pól. `filterable`Atrybuty i `facetable` są jawnie dodawane do `category` pól, `tags` , `parkingIncluded` , `smokingAllowed` i `rating` . W `filterable` `facetable` przypadku korzystania z interfejsu API REST w ramach tych pól zostanie włączona wartość domyślna. W przypadku korzystania z zestawu .NET SDK te atrybuty muszą być włączone jawnie.
 
 ## <a name="build-and-load-an-index"></a>Kompilowanie i ładowanie indeksu
 
@@ -98,7 +98,7 @@ var sp = new SearchParameters()
 
 ### <a name="return-filtered-results-on-click-events"></a>Zwracaj filtrowane wyniki dla zdarzeń kliknięcia
 
-Gdy użytkownik końcowy kliknie wartość aspektu, procedura obsługi dla zdarzenia kliknięcia powinna używać wyrażenia filtru, aby zrealizować intencję użytkownika. Uwzględniając zestaw `category` reguł, kliknięcie kategorii "Motel" jest implementowane za pomocą `$filter` wyrażenia, które wybiera przebudowy tego typu. Gdy użytkownik kliknie przycisk "Motel", aby wskazać, że tylko Motels powinien być pokazywany, następne zapytanie wysyłane przez `$filter=category eq 'motel'`aplikację zawiera.
+Gdy użytkownik końcowy kliknie wartość aspektu, procedura obsługi dla zdarzenia kliknięcia powinna używać wyrażenia filtru, aby zrealizować intencję użytkownika. Uwzględniając zestaw `category` reguł, kliknięcie kategorii "Motel" jest implementowane za pomocą `$filter` wyrażenia, które wybiera przebudowy tego typu. Gdy użytkownik kliknie przycisk "Motel", aby wskazać, że tylko Motels powinien być pokazywany, następne zapytanie wysyłane przez aplikację zawiera `$filter=category eq 'motel'` .
 
 Poniższy fragment kodu dodaje kategorię do filtru, jeśli użytkownik wybierze wartość z zestawu reguł.
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Jeśli użytkownik kliknie wartość aspektu dla pola kolekcji `tags`, np., na przykład wartość "Pool", aplikacja powinna używać następującej składni filtru:`$filter=tags/any(t: t eq 'pool')`
+Jeśli użytkownik kliknie wartość aspektu dla pola kolekcji `tags` , np., na przykład wartość "Pool", aplikacja powinna używać następującej składni filtru:`$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Porady i obejścia
 

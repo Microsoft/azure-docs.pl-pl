@@ -12,18 +12,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331721"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360099"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Zarządzania relacjami zaufania usługi AD FS dla usługi Azure AD za pomocą usługi Azure AD Connect
 
@@ -103,14 +103,14 @@ Azure AD Connect upewnij się, że relacja zaufania usługi Azure AD jest zawsze
 
 ## <a name="restore-issuance-transform-rules"></a>Przywróć reguły przekształcania wystawiania
 
-Azure AD Connect w wersji 1.1.873.0 lub nowszej wykonuje kopię zapasową ustawień zaufania usługi Azure AD po każdej aktualizacji ustawień zaufania usługi Azure AD. Dla ustawień zaufania usługi Azure AD utworzono kopię zapasową w lokalizacji **%ProgramData%\AADConnect\ADFS**. Nazwa&lt;pliku ma następujący format: AadTrust-date&gt;-&lt;Time&gt;. txt, na przykład-AadTrust-20180710-150216. txt
+Azure AD Connect w wersji 1.1.873.0 lub nowszej wykonuje kopię zapasową ustawień zaufania usługi Azure AD po każdej aktualizacji ustawień zaufania usługi Azure AD. Dla ustawień zaufania usługi Azure AD utworzono kopię zapasową w lokalizacji **%ProgramData%\AADConnect\ADFS**. Nazwa pliku ma następujący format: AadTrust- &lt; Date &gt; - &lt; Time &gt; . txt, na przykład AadTrust-20180710-150216.txt
 
 ![Zrzut ekranu przedstawiający przykład tworzenia kopii zapasowej zaufania usługi Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Reguły przekształcania wystawiania można przywrócić przy użyciu sugerowanych kroków poniżej.
 
 1. Otwórz interfejs użytkownika zarządzania AD FS w programie Menedżer serwera
-2. Otwórz właściwości zaufania usługi Azure AD, przechodząc do **AD FS &gt; jednostki uzależnionej &gt; zaufania Microsoft Office 365 tożsamość &gt; platformy Identity Edycja zasady wystawiania oświadczeń**
+2. Otwórz właściwości zaufania usługi Azure AD, przechodząc do **AD FS jednostki &gt; uzależnionej zaufania &gt; Microsoft Office 365 tożsamość platformy Identity &gt; Edycja zasady wystawiania oświadczeń**
 3. Kliknij pozycję **Dodaj regułę**
 4. W szablonie reguły oświadczeń wybierz pozycję Wyślij oświadczenia przy użyciu reguły niestandardowej, a następnie kliknij przycisk **dalej** .
 5. Skopiuj nazwę reguły dotyczącej roszczeń z pliku kopii zapasowej i wklej ją w polu **Nazwa reguły** dotyczącej roszczeń

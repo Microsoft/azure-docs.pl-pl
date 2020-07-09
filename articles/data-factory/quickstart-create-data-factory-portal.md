@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: c54d3187af1faee3a47a794dcf5b9b91733e5592
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683358"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655797"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki Start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika Azure Data Factory
 
@@ -42,8 +42,6 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Przejdź do [Azure Portal](https://portal.azure.com). 
 1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**.
-   
-   ![Menu wybierz pozycję Utwórz zasób z Azure Portal](./media/doc-common-process/create-a-resource.png)
 1. Wybierz pozycję **Analiza**, a następnie wybierz pozycję **Data Factory**. 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -80,8 +78,12 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 ## <a name="create-a-linked-service"></a>Tworzenie usługi połączonej
 W tej procedurze utworzysz połączoną usługę, aby połączyć konto usługi Azure Storage z fabryką danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa w środowisku uruchomieniowym do nawiązywania z nią połączenia.
 
-1. Wybierz pozycję **połączenia**, a następnie wybierz przycisk **Nowy** na pasku narzędzi (przycisk**połączenia** znajduje się u dołu lewej kolumny w obszarze **zasoby fabryki**). 
+1. Otwórz [kartę Zarządzanie](https://docs.microsoft.com/azure/data-factory/author-management-hub) w okienku po lewej stronie.
 
+1. Na stronie połączone usługi wybierz pozycję **+ Nowy** , aby utworzyć nową połączoną usługę.
+
+   ![Nowa połączona usługa](./media/doc-common-process/new-linked-service.png)
+   
 1. Na stronie **Nowa połączona usługa** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Dalej**. 
 
 1. Na stronie Nowa połączona usługa (Azure Blob Storage) wykonaj następujące czynności: 
@@ -123,7 +125,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     c. Kliknij przycisk **Przeglądaj** w polu **Ścieżka pliku**.
 
-    d. W oknie **Wybieranie pliku lub folderu** przejdź do folderu **Input** w kontenerze **adftutorial** , wybierz plik **EMP. txt** , a następnie wybierz **przycisk OK**.
+    d. W oknie **Wybieranie pliku lub folderu** przejdź do folderu **Input** w kontenerze **adftutorial** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
     
     e. Wybierz przycisk **OK**.   
 
@@ -143,12 +145,13 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
     f. Wybierz przycisk **OK**.   
 
     ![Ustawianie właściwości dla OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## <a name="create-a-pipeline"></a>Tworzenie potoku 
 Podczas tej procedury utworzysz potok i zweryfikujesz go za pomocą działania kopiowania, które korzysta z wejściowego i wyjściowego zestawu danych. Działanie kopiowania służy do kopiowania danych z pliku określonego w ustawieniach wejściowego zestawu danych do pliku określonego w ustawieniach wyjściowego zestawu danych. Jeśli wejściowy zestaw danych określa tylko folder (a nie nazwę pliku), działanie kopiowania kopiuje wszystkie pliki w folderze źródłowym do lokalizacji docelowej. 
 
 1. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **potok**. 
 
-1. Na karcie **Ogólne** określ wartość **CopyPipeline** w polu **Nazwa**. 
+1. W panelu Ogólne w obszarze **Właściwości**Określ **CopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 1. W przyborniku **Działania** rozwiń pozycję **Przenoszenie i przekształcanie**. Przeciągnij działanie **Kopiowanie danych** z przybornika **działania** na powierzchnię projektanta potoku. Możesz również wyszukać działania w przyborniku **Działania**. Wprowadź wartość **CopyFromBlobToBlob** w polu **Nazwa**.
    ![Tworzenie działania kopiowania danych](./media/quickstart-create-data-factory-portal/copy-activity.png)

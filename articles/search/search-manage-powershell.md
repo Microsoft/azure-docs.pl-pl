@@ -10,18 +10,17 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209300"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Zarządzanie usługą Wyszukiwanie poznawcze platformy Azure przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
-> * [Narzędzia](search-manage-powershell.md)
-> * [INTERFEJS API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Program PowerShell](search-manage-powershell.md)
+> * [Interfejs API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Polecenia cmdlet programu PowerShell i skrypty w systemie Windows, Linux lub [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) można uruchomić w celu utworzenia i skonfigurowania usługi Azure wyszukiwanie poznawcze. Moduł **AZ. Search** rozszerza [Azure PowerShell](https://docs.microsoft.com/powershell/) z pełną parzystością do [interfejsów API REST zarządzania wyszukiwaniem](https://docs.microsoft.com/rest/api/searchmanagement) i umożliwia wykonywanie następujących zadań:
@@ -80,7 +79,7 @@ Jeśli przechowujesz wiele subskrypcji platformy Azure, ustaw subskrypcję platf
 Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 ```
 
-Aby określić subskrypcję, uruchom następujące polecenie. W poniższym przykładzie nazwa subskrypcji to `ContosoSubscription`.
+Aby określić subskrypcję, uruchom następujące polecenie. W poniższym przykładzie nazwa subskrypcji to `ContosoSubscription` .
 
 ```azurepowershell-interactive
 Select-AzSubscription -SubscriptionName ContosoSubscription
@@ -193,11 +192,11 @@ Tags
 
 [**Nowy — AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) jest używany do przejęcia [kluczy interfejsu API](search-security-api-keys.md)administratora. Dwa klucze administratora są tworzone przy użyciu każdej usługi dla dostępu uwierzytelnionego. Klucze są wymagane dla każdego żądania. Oba klucze administratora są funkcjonalnie równoważne, dając pełny dostęp do zapisu do usługi wyszukiwania z możliwością pobierania dowolnych informacji lub tworzenia i usuwania dowolnych obiektów. Istnieją dwa klucze, aby można było użyć jednego z nich, zastępując pozostałe. 
 
-Możesz ponownie wygenerować tylko jeden raz, jako klucz `primary` lub. `secondary` W przypadku niezakłóconej usługi Pamiętaj, aby zaktualizować cały kod klienta, aby użyć klucza pomocniczego podczas wycofywania klucza podstawowego. Unikaj zmiany kluczy, gdy operacje są w locie.
+Możesz ponownie wygenerować tylko jeden raz, jako `primary` `secondary` klucz lub. W przypadku niezakłóconej usługi Pamiętaj, aby zaktualizować cały kod klienta, aby użyć klucza pomocniczego podczas wycofywania klucza podstawowego. Unikaj zmiany kluczy, gdy operacje są w locie.
 
 W zależności od tego, czy klucze zostaną ponownie wygenerowane bez aktualizowania kodu klienta, żądania przy użyciu starego klucza zakończą się niepowodzeniem. Ponowne wygenerowanie wszystkich nowych kluczy nie powoduje trwałego zablokowania Twojej usługi i nadal można uzyskać dostęp do usługi za pomocą portalu. Po ponownym wygenerowaniu kluczy podstawowych i pomocniczych można zaktualizować kod klienta, aby używał nowych kluczy, a operacje zostaną odpowiednio wznowione.
 
-Wartości kluczy interfejsu API są generowane przez usługę. Nie można podać klucza niestandardowego do użycia w usłudze Azure Wyszukiwanie poznawcze. Podobnie nie istnieje zdefiniowana przez użytkownika nazwa kluczy API-Keys. Odwołania do klucza są stałymi ciągami, `primary` albo `secondary`lub. 
+Wartości kluczy interfejsu API są generowane przez usługę. Nie można podać klucza niestandardowego do użycia w usłudze Azure Wyszukiwanie poznawcze. Podobnie nie istnieje zdefiniowana przez użytkownika nazwa kluczy API-Keys. Odwołania do klucza są stałymi ciągami, albo `primary` lub `secondary` . 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

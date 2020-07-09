@@ -1,24 +1,19 @@
 ---
 title: 'Szybki Start: korzystanie z Azure Service Bus tematów i subskrypcji w języku Python'
 description: W tym artykule opisano sposób tworzenia tematu Azure Service Bus, subskrypcji, wysyłania komunikatów do tematu i odbierania komunikatów z subskrypcji.
-services: service-bus-messaging
 documentationcenter: python
-author: axisc
-editor: spelluru
-ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 4745d675086f1b07bf7fccf17c14c76e4b18fba2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.custom: tracking-python
+ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478072"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341042"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Szybki Start: korzystanie z Service Bus tematów i subskrypcji w języku Python
 
@@ -45,7 +40,7 @@ Obiekt **ServiceBusService** umożliwia korzystanie z tematów i subskrypcji z t
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Dodaj następujący kod, aby utworzyć obiekt **ServiceBusService** . `<namespace>`Zastąp `<sharedaccesskeyname>`wartości, `<sharedaccesskeyvalue>` , i nazwą obszaru nazw Service Bus, nazwę klucza sygnatury dostępu współdzielonego (SAS) i wartość klucza podstawowego. Te wartości można znaleźć w obszarze **zasady dostępu współdzielonego** w przestrzeni nazw Service Bus w [Azure Portal][Azure portal].
+Dodaj następujący kod, aby utworzyć obiekt **ServiceBusService** . Zastąp `<namespace>` `<sharedaccesskeyname>` wartości,, i nazwą `<sharedaccesskeyvalue>` obszaru nazw Service Bus, nazwę klucza sygnatury dostępu współdzielonego (SAS) i wartość klucza podstawowego. Te wartości można znaleźć w obszarze **zasady dostępu współdzielonego** w przestrzeni nazw Service Bus w [Azure Portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
@@ -56,7 +51,7 @@ bus_service = ServiceBusService(
 
 ## <a name="create-a-topic"></a>Tworzenie tematu
 
-Poniższy kod używa `create_topic` metody do utworzenia tematu Service Bus o nazwie `mytopic`, z ustawieniami domyślnymi:
+Poniższy kod używa `create_topic` metody do utworzenia tematu Service Bus o nazwie `mytopic` , z ustawieniami domyślnymi:
 
 ```python
 bus_service.create_topic('mytopic')
@@ -88,7 +83,7 @@ Najbardziej elastycznym typem filtru jest **xmlfilter**, który używa podzestaw
 
 Ponieważ domyślny filtr **MatchAll** jest automatycznie stosowany do wszystkich nowych subskrypcji, należy usunąć go z subskrypcji, które mają być filtrowane, lub **MatchAll** przesłonić wszystkie inne określone filtry. Można usunąć regułę domyślną przy użyciu `delete_rule` metody obiektu **ServiceBusService** .
 
-Poniższy `mytopic` przykład tworzy subskrypcję o nazwie `HighMessages`z regułą **sqlfilter** o nazwie. `HighMessageFilter` `HighMessageFilter` Reguła wybiera tylko komunikaty o właściwości niestandardowej `messageposition` większej niż 3:
+Poniższy przykład tworzy subskrypcję `mytopic` o nazwie `HighMessages` z regułą **sqlfilter** o nazwie `HighMessageFilter` . `HighMessageFilter`Reguła wybiera tylko komunikaty o `messageposition` właściwości niestandardowej większej niż 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -101,7 +96,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Poniższy `mytopic` przykład tworzy subskrypcję o nazwie `LowMessages`z regułą **sqlfilter** o nazwie. `LowMessageFilter` `LowMessageFilter` Reguła wybiera tylko komunikaty o `messageposition` właściwości mniejszej lub równej 3:
+Poniższy przykład tworzy subskrypcję `mytopic` o nazwie `LowMessages` z regułą **sqlfilter** o nazwie `LowMessageFilter` . `LowMessageFilter`Reguła wybiera tylko komunikaty o `messageposition` Właściwości mniejszej lub równej 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -114,13 +109,13 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-W `AllMessages`przypadku `HighMessages`,, `LowMessages` i wszystkie w efekcie komunikaty wysyłane do `mytopic` są zawsze dostarczane do odbiorców `AllMessages` subskrypcji. Komunikaty są również selektywnie dostarczane do `HighMessages` subskrypcji `LowMessages` lub, w zależności od wartości `messageposition` właściwości komunikatu. 
+W przypadku `AllMessages` , `HighMessages` , i `LowMessages` wszystkie w efekcie komunikaty wysyłane do `mytopic` są zawsze dostarczane do odbiorców `AllMessages` subskrypcji. Komunikaty są również selektywnie dostarczane do `HighMessages` `LowMessages` subskrypcji lub, w zależności od `messageposition` wartości właściwości komunikatu. 
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
 
 Aplikacje używają `send_topic_message` metody obiektu **ServiceBusService** do wysyłania komunikatów do tematu Service Bus.
 
-Poniższy przykład wysyła pięć wiadomości testowych do `mytopic` tematu. Wartość właściwości `messageposition` niestandardowej zależy od iteracji pętli i określa, które subskrypcje odbierają wiadomości. 
+Poniższy przykład wysyła pięć wiadomości testowych do `mytopic` tematu. `messageposition`Wartość właściwości niestandardowej zależy od iteracji pętli i określa, które subskrypcje odbierają wiadomości. 
 
 ```python
 for i in range(5):
@@ -144,11 +139,11 @@ msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lo
 print(msg.body)
 ```
 
-Opcjonalny `peek_lock` parametr `receive_subscription_message` określa, czy Service Bus usuwa wiadomości z subskrypcji podczas ich odczytywania. Domyślnym trybem otrzymywania wiadomości jest *PeekLock*lub `peek_lock` ustawiona na **true**, który odczytuje (dokonuje wglądu) i blokuje komunikaty bez usuwania ich z subskrypcji. Każdy komunikat musi zostać jawnie ukończony, aby usunąć go z subskrypcji.
+Opcjonalny `peek_lock` parametr określa, `receive_subscription_message` czy Service Bus usuwa wiadomości z subskrypcji podczas ich odczytywania. Domyślnym trybem otrzymywania wiadomości jest *PeekLock*lub `peek_lock` ustawiona na **true**, który odczytuje (dokonuje wglądu) i blokuje komunikaty bez usuwania ich z subskrypcji. Każdy komunikat musi zostać jawnie ukończony, aby usunąć go z subskrypcji.
 
-Aby usunąć wiadomości z subskrypcji podczas ich odczytywania, można ustawić dla `peek_lock` parametru **wartość false**, tak jak w poprzednim przykładzie. Usuwanie komunikatów w ramach operacji odbierania jest najprostszym modelem i działa prawidłowo, jeśli aplikacja może tolerować brakujące komunikaty w przypadku wystąpienia błędu. Aby zrozumieć to zachowanie, Rozważmy scenariusz, w którym aplikacja wystawia żądanie odebrania, a następnie uległa awarii przed jego przetworzeniem. Jeśli wiadomość została usunięta podczas odbierania, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, nie dotarła do niej komunikat otrzymany przed awarią.
+Aby usunąć wiadomości z subskrypcji podczas ich odczytywania, można ustawić `peek_lock` dla parametru **wartość false**, tak jak w poprzednim przykładzie. Usuwanie komunikatów w ramach operacji odbierania jest najprostszym modelem i działa prawidłowo, jeśli aplikacja może tolerować brakujące komunikaty w przypadku wystąpienia błędu. Aby zrozumieć to zachowanie, Rozważmy scenariusz, w którym aplikacja wystawia żądanie odebrania, a następnie uległa awarii przed jego przetworzeniem. Jeśli wiadomość została usunięta podczas odbierania, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, nie dotarła do niej komunikat otrzymany przed awarią.
 
-Jeśli aplikacja nie może tolerować pominiętych komunikatów, odbieranie zostanie operacją dwuetapową. PeekLock wyszukuje następny komunikat do użycia, blokuje go, aby uniemożliwić innym konsumentom otrzymywanie go i zwraca do aplikacji. Po przetworzeniu lub przechowywaniu komunikatu aplikacja wykonuje drugi etap procesu odbierania przez wywołanie `complete` metody dla obiektu **Message** .  `complete` Metoda oznacza komunikat jako używany i usuwa go z subskrypcji.
+Jeśli aplikacja nie może tolerować pominiętych komunikatów, odbieranie zostanie operacją dwuetapową. PeekLock wyszukuje następny komunikat do użycia, blokuje go, aby uniemożliwić innym konsumentom otrzymywanie go i zwraca do aplikacji. Po przetworzeniu lub przechowywaniu komunikatu aplikacja wykonuje drugi etap procesu odbierania przez wywołanie `complete` metody dla obiektu **Message** .  `complete`Metoda oznacza komunikat jako używany i usuwa go z subskrypcji.
 
 Poniższy przykład ilustruje scenariusz blokady wglądu:
 
@@ -169,7 +164,7 @@ Jeśli aplikacja ulegnie awarii po przetworzeniu komunikatu, ale przed wywołani
 
 ## <a name="delete-topics-and-subscriptions"></a>Usuwanie tematów i subskrypcji
 
-Aby usunąć tematy i subskrypcje, użyj [Azure Portal][Azure portal] lub `delete_topic` metody. Poniższy kod usuwa temat o nazwie `mytopic`:
+Aby usunąć tematy i subskrypcje, użyj [Azure Portal][Azure portal] lub `delete_topic` metody. Poniższy kod usuwa temat o nazwie `mytopic` :
 
 ```python
 bus_service.delete_topic('mytopic')

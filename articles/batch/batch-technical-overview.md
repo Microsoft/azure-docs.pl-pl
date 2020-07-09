@@ -3,12 +3,12 @@ title: Azure Batch uruchamia duże zadania równoległe w chmurze
 description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779561"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965080"
 ---
 # <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
 
@@ -18,7 +18,7 @@ Deweloperzy mogą używać usługi Batch jako usługi platformy do tworzenia apl
 
 Za korzystanie z usługi Batch nie są naliczane dodatkowe opłaty. Płaci się wyłącznie za wykorzystane zasoby bazowe, takie jak maszyny wirtualne, magazyn i zasoby sieciowe.
 
-Aby uzyskać porównanie między usługą Batch i innymi opcjami rozwiązania HPC na platformie Azure, zobacz [wydajność obliczeń o wysokiej wydajności (HPC) na platformie Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Aby uzyskać porównanie między usługą Batch i innymi opcjami rozwiązania HPC na platformie Azure, zobacz [wydajność obliczeń o wysokiej wydajności (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Uruchamianie równoległych obciążeń
 Z usługą Batch działają dobrze obciążenia wewnętrznie równoległe (zwane również „zaskakująco równoległymi”). Obciążenia wewnętrznie równoległe to te, w przypadku których aplikacje mogą być uruchamiane równolegle i każde wystąpienie wykonuje część pracy. Aplikacje w trakcie wykonywania mogą uzyskiwać dostęp do niektórych wspólnych danych, ale nie komunikują się z innymi wystąpieniami aplikacji. Z tego względu obciążenia wewnętrznie równoległe mogą być uruchamiane na dużą skalę, zależną od ilości zasobów obliczeniowych dostępnych do jednoczesnego uruchamiania aplikacji.
@@ -34,7 +34,7 @@ Oto przykłady obciążeń wewnętrznie równoległych, które można uruchamia�
 * Pozyskiwanie i przetwarzanie danych oraz operacje ETL
 * Wykonywanie testów oprogramowania
 
-Usługi Batch można również używać do [uruchamiania ściśle sprzężonych obciążeń](batch-mpi.md). Są to obciążenia, w których uruchamiane aplikacje muszą komunikować się ze sobą, co jest przeciwieństwem uruchamiania niezależnego. Ściśle sprzężone aplikacje zwykle korzystają z interfejsu API o nazwie Message Passing Interface (MPI). Ściśle sprzężone obciążenia można uruchamiać w usłudze Batch za pomocą interfejsu [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) lub Intel MPI. Wydajność aplikacji można zwiększyć, używając specjalizowanych rozmiarów maszyn wirtualnych, przeznaczonych do obliczeń [HPC](../virtual-machines/linux/sizes-hpc.md) i [zoptymalizowanych pod kątem procesora GPU](../virtual-machines/linux/sizes-gpu.md).
+Usługi Batch można również używać do [uruchamiania ściśle sprzężonych obciążeń](batch-mpi.md). Są to obciążenia, w których uruchamiane aplikacje muszą komunikować się ze sobą, co jest przeciwieństwem uruchamiania niezależnego. Ściśle sprzężone aplikacje zwykle korzystają z interfejsu API o nazwie Message Passing Interface (MPI). Ściśle sprzężone obciążenia można uruchamiać w usłudze Batch za pomocą interfejsu [Microsoft MPI](/message-passing-interface/microsoft-mpi) lub Intel MPI. Wydajność aplikacji można zwiększyć, używając specjalizowanych rozmiarów maszyn wirtualnych, przeznaczonych do obliczeń [HPC](../virtual-machines/linux/sizes-hpc.md) i [zoptymalizowanych pod kątem procesora GPU](../virtual-machines/linux/sizes-gpu.md).
 
 Przykłady ściśle sprzężonych obciążeń:
 * Analiza elementów skończonych

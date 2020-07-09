@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c434ad6a724ba513caf7923916997600097b43f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187799"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387868"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Przekaż token dostępu za pomocą zasad niestandardowych do aplikacji w Azure Active Directory B2C
 
@@ -30,9 +30,9 @@ Azure AD B2C obsługuje przekazywanie tokenu dostępu dla dostawców tożsamośc
 
 ## <a name="add-the-claim-elements"></a>Dodaj elementy roszczeń
 
-1. Otwórz plik *TrustframeworkExtensions. XML* i Dodaj następujący element **ClaimType** z identyfikatorem `identityProviderAccessToken` do elementu **ClaimsSchema** :
+1. Otwórz plik *TrustframeworkExtensions.xml* i Dodaj następujący element **ClaimType** z identyfikatorem `identityProviderAccessToken` do elementu **ClaimsSchema** :
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="identityProviderAccessToken">
@@ -47,7 +47,7 @@ Azure AD B2C obsługuje przekazywanie tokenu dostępu dla dostawców tożsamośc
 
 2. Dodaj element **oświadczenie outputclaim** do elementu **profilu technicznym** dla każdego dostawcy tożsamości OAuth 2,0, dla którego chcesz uzyskać token dostępu. Poniższy przykład pokazuje element dodany do profilu technicznego Facebook:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Facebook</DisplayName>
       <TechnicalProfiles>
@@ -61,10 +61,10 @@ Azure AD B2C obsługuje przekazywanie tokenu dostępu dla dostawców tożsamośc
     </ClaimsProvider>
     ```
 
-3. Zapisz plik *TrustframeworkExtensions. XML* .
-4. Otwórz plik zasad jednostki uzależnionej, taki jak *SignUpOrSignIn. XML*, i Dodaj element **oświadczenie outputclaim** do **profilu technicznym**:
+3. Zapisz plik *TrustframeworkExtensions.xml* .
+4. Otwórz plik zasad jednostki uzależnionej, taki jak *SignUpOrSignIn.xml*, i Dodaj element **oświadczenie outputclaim** do **profilu technicznym**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
       <TechnicalProfile Id="PolicyProfile">
@@ -80,7 +80,7 @@ Azure AD B2C obsługuje przekazywanie tokenu dostępu dla dostawców tożsamośc
 
 ## <a name="test-your-policy"></a>Testowanie zasad
 
-Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token `https://jwt.ms` Azure AD B2C był w stanie przejrzeć oświadczenia w nim.
+Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token Azure AD B2C był w `https://jwt.ms` stanie przejrzeć oświadczenia w nim.
 
 ### <a name="upload-the-files"></a>Przekazywanie plików
 
@@ -89,14 +89,14 @@ Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token `htt
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Wybierz pozycję **platforma obsługi tożsamości**.
 5. Na stronie zasady niestandardowe kliknij pozycję **Przekaż zasady**.
-6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustframeworkExtensions. XML* .
-7. Wybierz pozycję **Przekaż**.
-8. Powtórz kroki od 5 do 7 dla pliku jednostki uzależnionej, np. *SignUpOrSignIn. XML*.
+6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustframeworkExtensions.xml* .
+7. Wybierz przycisk **Przekaż**.
+8. Powtórz kroki od 5 do 7 dla pliku jednostki uzależnionej, takie jak *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Uruchamianie zasad
 
 1. Otwórz zasady, które zostały zmienione. Na przykład *B2C_1A_signup_signin*.
-2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token w poniższym przykładzie, **adres URL odpowiedzi** powinien być widoczny `https://jwt.ms`.
+2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token w poniższym przykładzie, **adres URL odpowiedzi** powinien być widoczny `https://jwt.ms` .
 3. Wybierz pozycję **Uruchom teraz**.
 
     Powinieneś zobaczyć coś podobnego do poniższego przykładu:

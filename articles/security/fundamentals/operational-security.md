@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75749957"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
@@ -31,7 +30,7 @@ Wiemy, że zabezpieczenia to zadanie jedno w chmurze i jak ważne jest, aby znal
 Aby pomóc klientom w lepszym zrozumieniu macierzy kontroli zabezpieczeń wdrożonych w ramach Microsoft Azure z perspektywy klienta i firmy Microsoft, ten oficjalny dokument "zabezpieczenia operacyjne platformy Azure" jest zapisywana, która zapewnia kompleksowy wgląd w zabezpieczenia operacyjne dostępne w systemie Windows Azure.
 
 ### <a name="azure-platform"></a>Platforma Azure
-Azure to platforma usług w chmurze publicznej, która obsługuje szeroką gamę systemów operacyjnych, języków programowania, struktur, narzędzi, baz danych i urządzeń. Może uruchamiać kontenery systemu Linux z integracją platformy Docker; Twórz aplikacje w językach JavaScript, Python, .NET, PHP, Java i Node. js; Twórz zaplecza dla urządzeń z systemem iOS, Android i Windows. Usługa w chmurze platformy Azure obsługuje takie same technologie jak miliony deweloperów i specjalistów IT.
+Azure to platforma usług w chmurze publicznej, która obsługuje szeroką gamę systemów operacyjnych, języków programowania, struktur, narzędzi, baz danych i urządzeń. Może uruchamiać kontenery systemu Linux z integracją platformy Docker; Twórz aplikacje w językach JavaScript, Python, .NET, PHP, Java i Node.js; Twórz zaplecza dla urządzeń z systemem iOS, Android i Windows. Usługa w chmurze platformy Azure obsługuje takie same technologie jak miliony deweloperów i specjalistów IT.
 
 Podczas kompilowania lub migrowania zasobów IT do programu dostawca usług w chmurze publicznej korzysta z możliwości organizacji w zakresie ochrony Twoich aplikacji i danych za pomocą usług i kontroli, które zapewniają Zarządzanie zabezpieczeniami zasobów opartych na chmurze.
 
@@ -69,7 +68,7 @@ Podstawowe funkcje dzienników Azure Monitor są udostępniane przez zestaw usł
 | Usługa  | Opis|
 | :------------- | :-------------|
 | Dzienniki usługi Azure Monitor | Monitorowanie i analizowanie dostępności oraz wydajności różnych zasobów, łącznie z maszynami fizycznymi i wirtualnymi. |
-|Automatyzacja | Automatyzowanie procesów ręcznych oraz wymuszanie konfiguracji maszyn fizycznych i wirtualnych. |
+|Automation | Automatyzowanie procesów ręcznych oraz wymuszanie konfiguracji maszyn fizycznych i wirtualnych. |
 | Backup | Tworzenie kopii zapasowych i przywracanie kluczowych danych. |
 | Site Recovery | Zapewnianie wysokiej dostępności kluczowych aplikacji. |
 
@@ -273,7 +272,7 @@ Rejestrowane są następujące typy żądań uwierzytelnionych i anonimowych.
 |   Żądania dotyczące danych analityki |    Żądania GET zakończone niepowodzeniem z kodem błędu 304 (Nie zmodyfikowano) |
 | Żądania wykonywane przez analityka magazynu samego siebie, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [formacie dziennika analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) . | Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) oraz w [formacie dziennika analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Usługa Azure AD zawiera również pełen zestaw funkcji zarządzania tożsamościami, w tym uwierzytelnianie wieloskładnikowe, rejestrację urządzeń, Samoobsługowe zarządzanie hasłami, Samoobsługowe zarządzanie grupami, zarządzanie kontami uprzywilejowanymi, kontrola dostępu oparta na rolach, monitorowanie użycia aplikacji, zaawansowaną inspekcję oraz monitorowanie zabezpieczeń i alerty.
 

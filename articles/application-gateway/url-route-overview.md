@@ -7,12 +7,11 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1d393055b0ac62198bd5a7239b2b92b7aeff62e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987927"
 ---
 # <a name="url-path-based-routing-overview"></a>Routing oparty na ścieżkach URL — omówienie
 
@@ -24,7 +23,7 @@ W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domeny
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Żądania HTTP\://contoso.com/video/* są kierowane do puli videoserverpool, a protokół http\://contoso.com/images/* są kierowane do puli imageserverpool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
+Żądania HTTP \: //contoso.com/video/* są kierowane do puli videoserverpool, a protokół http \: //contoso.com/images/* są kierowane do puli imageserverpool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
 
 > [!IMPORTANT]
 > W przypadku jednostki SKU V1 reguły są przetwarzane w kolejności, w której są wyświetlane w portalu. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik. W przypadku jednostki SKU v2 dokładne dopasowania mają wyższy priorytet. Jednak zdecydowanie zaleca się skonfigurowanie odbiorników z obsługą kilku lokacji najpierw przed skonfigurowaniem odbiornika podstawowego. Zapewnia to skierowanie ruchu do odpowiedniego zaplecza.
@@ -75,7 +74,7 @@ W regułach ścieżki jest rozróżniana wielkość liter.
 |Wersja 1 — wzorzec ścieżki  |Czy jest obsługiwana?  |
 |---------|---------|
 |`/images/*`     |tak|
-|`/images*`     |nie|
+|`/images*`     |tak|
 |`/images/*.jpg`     |nie|
 |`/*.jpg`     |nie|
 |`/Repos/*/Comments/*`     |nie|

@@ -8,12 +8,11 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 6f543b3f5c2bb7d4949c431580771c4b0d965e4d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 4bcd8deef28f8e0123e6e2171b3ab24d6ac49292
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125490"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84635003"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Użyj kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box
 
@@ -103,7 +102,7 @@ Skonfigurowanie klucza zarządzanego przez klienta dla Azure Data Box jest opcjo
 
 Jeśli otrzymasz jakiekolwiek błędy związane z kluczem zarządzanym przez klienta, Skorzystaj z poniższej tabeli, aby rozwiązać problem.
 
-| Kod błędu| Komunikat o błędzie| Szczegóły|
+| Kod błędu| Szczegóły błędu| Odzyskiwaln?|
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| Nie można pobrać klucza dostępu, ponieważ klucz zarządzany przez klienta jest wyłączony.| Tak, włączając wersję klucza.|
 | SsemUserErrorEncryptionKeyExpired| Nie można pobrać klucza dostępu, ponieważ klucz zarządzany przez klienta wygasł.| Tak, włączając wersję klucza.|

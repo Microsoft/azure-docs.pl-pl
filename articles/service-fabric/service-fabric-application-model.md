@@ -3,12 +3,12 @@ title: Model aplikacji Service Fabric platformy Azure
 description: Jak modelować i opisywać aplikacje i usługi na platformie Azure Service Fabric przy użyciu plików manifestu aplikacji i usługi.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75551883"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963737"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelowanie aplikacji w Service Fabric
 Ten artykuł zawiera omówienie modelu aplikacji Service Fabric platformy Azure oraz sposób definiowania aplikacji i usługi za pośrednictwem plików manifestu.
@@ -20,9 +20,9 @@ Aplikacja jest kolekcją usług składowych, które wykonują określoną funkcj
 
 Typ aplikacji jest kategoryzacją aplikacji i składa się z pakietu typów usług. Typ usługi jest kategoryzacją usługi. Kategoryzacja może mieć różne ustawienia i konfiguracje, ale podstawowe funkcje pozostają takie same. Wystąpienia usługi są różnymi wariantami konfiguracji usług tego samego typu usługi.  
 
-Klasy (lub "typy") aplikacji i usług są opisane za poorednictwem plików XML (manifestów aplikacji i manifestów usługi).  Manifesty opisują aplikacje i usługi oraz szablony, dla których można utworzyć wystąpienie aplikacji z magazynu obrazów klastra.  Manifesty są szczegółowo omówione w [manifestach aplikacji i usług](service-fabric-application-and-service-manifests.md). Definicja schematu dla pliku servicemanifest. XML i ApplicationManifest. XML jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Schemat XML jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
+Klasy (lub "typy") aplikacji i usług są opisane za poorednictwem plików XML (manifestów aplikacji i manifestów usługi).  Manifesty opisują aplikacje i usługi oraz szablony, dla których można utworzyć wystąpienie aplikacji z magazynu obrazów klastra.  Manifesty są szczegółowo omówione w [manifestach aplikacji i usług](service-fabric-application-and-service-manifests.md). Definicja schematu dla ServiceManifest.xml i pliku ApplicationManifest.xml jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Schemat XML jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
-Kod dla różnych wystąpień aplikacji jest uruchamiany jako osobne procesy nawet w przypadku hostowania tego samego węzła Service Fabric. Ponadto cykl życia każdego wystąpienia aplikacji może być zarządzany (na przykład uaktualniony) niezależnie od siebie. Na poniższym diagramie przedstawiono, jak typy aplikacji składają się z typów usług, które z kolei składają się na kod, konfigurację i pakiety danych. Aby uprościć diagram, wyświetlane są tylko pakiety Code/config/Data `ServiceType4` dla programu, chociaż każdy typ usługi będzie zawierać niektóre lub wszystkie typy pakietów.
+Kod dla różnych wystąpień aplikacji działa jako osobne procesy nawet w przypadku hostowania tego samego węzła Service Fabric. Ponadto cykl życia każdego wystąpienia aplikacji może być zarządzany (na przykład uaktualniony) niezależnie od siebie. Na poniższym diagramie przedstawiono, jak typy aplikacji składają się z typów usług, które z kolei składają się na kod, konfigurację i pakiety danych. Aby uprościć diagram, wyświetlane są tylko pakiety Code/config/Data dla programu `ServiceType4` , chociaż każdy typ usługi będzie zawierać niektóre lub wszystkie typy pakietów.
 
 ![Service Fabric typów aplikacji i typów usług][cluster-imagestore-apptypes]
 
@@ -33,7 +33,7 @@ Na poniższym diagramie przedstawiono relację między aplikacjami i wystąpieni
 ![Partycje i repliki w ramach usługi][cluster-application-instances]
 
 > [!TIP]
-> Układ aplikacji w klastrze można wyświetlić za pomocą narzędzia Service Fabric Explorer dostępnego pod adresem http://&lt;yourclusteraddress&gt;: 19080/Explorer. Aby uzyskać więcej informacji, zobacz [wizualizowanie klastra przy użyciu Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Układ aplikacji w klastrze można wyświetlić za pomocą narzędzia Service Fabric Explorer dostępnego pod adresem http:// &lt; yourclusteraddress &gt; : 19080/Explorer. Aby uzyskać więcej informacji, zobacz [wizualizowanie klastra przy użyciu Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 > 
 > 
 

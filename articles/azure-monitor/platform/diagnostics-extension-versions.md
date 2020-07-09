@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
 ms.openlocfilehash: 4dd91363cdebf18e6303238816e8269065a6a317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672246"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Wersje i historia schematu konfiguracji rozszerzenia Diagnostyka Azure systemu Windows (funkcji wad)
@@ -48,7 +47,7 @@ Różne wersje usługi Azure Diagnostics używają różnych schematów konfigur
 Dodano obsługę ujścia Azure Monitor. Ten obiekt ujścia ma zastosowanie tylko do liczników wydajności. Umożliwia wysyłanie liczników wydajności zebranych w ramach maszyny wirtualnej, VMSS lub usługi w chmurze w celu Azure Monitor jako metryki niestandardowych. Azure Monitor sink obsługuje:
 * Pobieranie wszystkich liczników wydajności wysyłanych do Azure Monitor za pośrednictwem [interfejsów API metryk Azure monitor.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 * Alerty dotyczące wszystkich liczników wydajności wysyłanych do Azure Monitor za pomocą nowych [ujednoliconych alertów](../../azure-monitor/platform/alerts-overview.md) w programie Azure monitor
-* Sposób traktowania operatora wieloznacznego w licznikach wydajności jako wymiar "wystąpienie" w metryce. Na przykład jeśli zebrano licznik "dysk logiczny (\*)/DiskWrites/SEC", można filtrować i dzielić na wymiarze "wystąpienie", aby wykreślić lub alertować na dyskach zapisy/s dla każdego dysku logicznego (C:, D:, itp.)
+* Sposób traktowania operatora wieloznacznego w licznikach wydajności jako wymiar "wystąpienie" w metryce. Na przykład jeśli zebrano licznik "dysk logiczny ( \* )/DiskWrites/SEC", można filtrować i dzielić na wymiarze "wystąpienie", aby wykreślić lub alertować na dyskach zapisy/s dla każdego dysku logicznego (C:, D:, itp.)
 
 Zdefiniuj Azure Monitor jako nowy ujścia w konfiguracji rozszerzenia diagnostyki
 ```json
@@ -160,14 +159,14 @@ Dodano element ujścia oraz możliwość wysyłania danych diagnostycznych do [A
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Zestaw Azure SDK 2,6 i rozszerzenie diagnostyki 1,3
 W przypadku projektów usług w chmurze w programie Visual Studio wprowadzono następujące zmiany. (Te zmiany mają zastosowanie również do nowszych wersji zestawu Azure SDK).
 
-* Emulator lokalny obsługuje teraz diagnostykę. Ta zmiana oznacza, że można zbierać dane diagnostyczne i upewnić się, że aplikacja tworzy odpowiednie ślady podczas opracowywania i testowania w programie Visual Studio. Parametry `UseDevelopmentStorage=true` połączenia umożliwiają zbieranie danych diagnostycznych podczas korzystania z projektu usługi w chmurze w programie Visual Studio przy użyciu emulatora usługi Azure Storage. Wszystkie dane diagnostyczne są zbierane na koncie magazynu (Tworzenie magazynu).
+* Emulator lokalny obsługuje teraz diagnostykę. Ta zmiana oznacza, że można zbierać dane diagnostyczne i upewnić się, że aplikacja tworzy odpowiednie ślady podczas opracowywania i testowania w programie Visual Studio. Parametry połączenia `UseDevelopmentStorage=true` umożliwiają zbieranie danych diagnostycznych podczas korzystania z projektu usługi w chmurze w programie Visual Studio przy użyciu emulatora usługi Azure Storage. Wszystkie dane diagnostyczne są zbierane na koncie magazynu (Tworzenie magazynu).
 * Parametry połączenia konta magazynu diagnostyki (Microsoft. WindowsAzure. plugins. Diagnostics. ConnectionString) są zapisywane ponownie w pliku konfiguracji usługi (cscfg). W zestawie Azure SDK 2,5 konto magazynu diagnostyki zostało określone w pliku Diagnostics. wadcfgx.
 
 Istnieją pewne istotne różnice między sposobem, w jaki parametry połączenia działały w zestawie Azure SDK 2,4 i starszych oraz jak działa on w zestawie Azure SDK 2,6 lub nowszym.
 
 * W zestawie Azure SDK 2,4 i starszych parametry połączenia zostały użyte w czasie wykonywania przez wtyczkę diagnostyki w celu uzyskania informacji o koncie magazynu na potrzeby przesyłania dzienników diagnostycznych.
 * W zestawie Azure SDK 2,6 i nowszych program Visual Studio używa parametrów połączenia diagnostyki do konfigurowania rozszerzenia diagnostyki z odpowiednimi informacjami o koncie magazynu podczas publikowania. Parametry połączenia umożliwiają definiowanie różnych kont magazynu dla różnych konfiguracji usługi, których program Visual Studio będzie używać podczas publikowania. Jednak ponieważ wtyczka diagnostyki nie jest już dostępna (po zestawie Azure SDK 2,5), sam plik. cscfg nie może włączyć rozszerzenia diagnostyki. Należy włączyć rozszerzenie oddzielnie za pomocą narzędzi, takich jak Visual Studio lub PowerShell.
-* Aby uprościć proces konfigurowania rozszerzenia diagnostyki przy użyciu programu PowerShell, dane wyjściowe pakietu programu Visual Studio zawierają również plik XML konfiguracji publicznej dla rozszerzenia diagnostyki dla każdej roli. Program Visual Studio używa parametrów połączenia diagnostyki, aby wypełnić informacje o koncie magazynu obecne w konfiguracji publicznej. Pliki konfiguracji publicznej są tworzone w folderze rozszerzeń i zgodne ze wzorcem `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Wszystkie wdrożenia oparte na programie PowerShell mogą używać tego wzorca do mapowania każdej konfiguracji do roli.
+* Aby uprościć proces konfigurowania rozszerzenia diagnostyki przy użyciu programu PowerShell, dane wyjściowe pakietu programu Visual Studio zawierają również plik XML konfiguracji publicznej dla rozszerzenia diagnostyki dla każdej roli. Program Visual Studio używa parametrów połączenia diagnostyki, aby wypełnić informacje o koncie magazynu obecne w konfiguracji publicznej. Pliki konfiguracji publicznej są tworzone w folderze rozszerzeń i zgodne ze wzorcem `PaaSDiagnostics.<RoleName>.PubConfig.xml` . Wszystkie wdrożenia oparte na programie PowerShell mogą używać tego wzorca do mapowania każdej konfiguracji do roli.
 * Parametry połączenia w pliku cscfg są również używane przez Azure Portal do uzyskiwania dostępu do danych diagnostycznych, dzięki czemu mogą być wyświetlane na karcie **monitorowanie** . Parametry połączenia są konieczne, aby skonfigurować usługę do wyświetlania pełnych danych monitorowania w portalu.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrowanie projektów do zestawu Azure SDK 2,6 i nowszego
@@ -181,7 +180,7 @@ W przypadku migrowania z zestawu Azure SDK 2,5 do zestawu Azure SDK 2,6 lub nows
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Co to jest "Aktualizacja parametrów połączenia magazynu programistycznego"... " pole wyboru?
 Pole wyboru **aktualizacji parametrów połączenia magazynu deweloperskiego dla celów diagnostycznych i pamięci podręcznej przy użyciu poświadczeń konta magazynu Microsoft Azure podczas publikowania w usłudze Microsoft Azure** zapewnia wygodny sposób aktualizowania parametrów połączenia konta magazynu deweloperskiego za pomocą konta usługi Azure Storage określonego podczas publikowania.
 
-Załóżmy na przykład, że zaznaczysz to pole wyboru, a parametry połączenia diagnostyki określają `UseDevelopmentStorage=true`. Po opublikowaniu projektu na platformie Azure program Visual Studio automatycznie zaktualizuje parametry połączenia diagnostyki przy użyciu konta magazynu określonego w Kreatorze publikacji. Jeśli jednak prawdziwe konto magazynu zostało określone jako parametry połączenia diagnostyki, to konto jest używane zamiast tego.
+Załóżmy na przykład, że zaznaczysz to pole wyboru, a parametry połączenia diagnostyki określają `UseDevelopmentStorage=true` . Po opublikowaniu projektu na platformie Azure program Visual Studio automatycznie zaktualizuje parametry połączenia diagnostyki przy użyciu konta magazynu określonego w Kreatorze publikacji. Jeśli jednak prawdziwe konto magazynu zostało określone jako parametry połączenia diagnostyki, to konto jest używane zamiast tego.
 
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Różnice między funkcjami diagnostyki w zestawie Azure SDK 2,4 i starszymi oraz zestawem Azure SDK 2,5 lub nowszym
 Jeśli uaktualniasz projekt z zestawu Azure SDK 2,4 do zestawu Azure SDK 2,5 lub nowszego, należy wziąć pod uwagę następujące różnice dotyczące funkcjonalności diagnostyki.

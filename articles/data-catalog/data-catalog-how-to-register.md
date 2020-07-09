@@ -7,10 +7,9 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68736320"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Rejestrowanie źródeł danych w Azure Data Catalog
@@ -38,7 +37,7 @@ Po zarejestrowaniu źródła danych narzędzie do rejestracji wyodrębnia inform
 W przypadku wszystkich obiektów te metadane strukturalne obejmują lokalizację obiektu, dzięki czemu użytkownicy, którzy odnajdują dane mogą używać tych informacji do łączenia się z obiektem w wybranych narzędziach klienta. Inne metadane strukturalne obejmują nazwę i typ obiektu oraz nazwę atrybutu/kolumny i typ danych.
 
 ## <a name="descriptive-metadata"></a>Metadane opisowe
-Oprócz podstawowych metadanych strukturalnych, które zostały wyodrębnione ze źródła danych, narzędzie do rejestracji źródła danych wyodrębnia metadane opisowe. W przypadku SQL Server Analysis Services i SQL Server Reporting Services te metadane są pobierane z właściwości opisu udostępnianych przez te usługi. W przypadku SQL Server wartości podane przy użyciu rozszerzonej właściwości opisu MS\_Description są wyodrębniane. W przypadku Oracle Database Narzędzie rejestracji źródła danych wyodrębnia kolumnę Komentarze z widoku komentarze wszystkich\_kart.\_
+Oprócz podstawowych metadanych strukturalnych, które zostały wyodrębnione ze źródła danych, narzędzie do rejestracji źródła danych wyodrębnia metadane opisowe. W przypadku SQL Server Analysis Services i SQL Server Reporting Services te metadane są pobierane z właściwości opisu udostępnianych przez te usługi. W przypadku SQL Server wartości podane przy użyciu \_ rozszerzonej właściwości opisu MS Description są wyodrębniane. W przypadku Oracle Database Narzędzie rejestracji źródła danych wyodrębnia kolumnę Komentarze z \_ \_ widoku komentarze wszystkich kart.
 
 Oprócz metadanych opisowych, które zostały wyodrębnione ze źródła danych, użytkownicy mogą wprowadzać opisowe metadane za pomocą narzędzia rejestracji źródła danych. Użytkownicy mogą dodawać Tagi i identyfikować ekspertów dla zarejestrowanych obiektów. Wszystkie te metadane opisowe są kopiowane do usługi Data Catalog wraz z metadanymi strukturalnymi.
 

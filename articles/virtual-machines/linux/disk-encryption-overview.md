@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601279"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -64,7 +64,6 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | Canonical | Ubuntu 14.04.5</br>[Dzięki dostrojeniu jądra platformy Azure do wersji 4,15 lub nowszej](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Kanoniczny: UbuntuServer: 14.04.5-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | Canonical | Ubuntu 14.04.5</br>[Dzięki dostrojeniu jądra platformy Azure do wersji 4,15 lub nowszej](disk-encryption-troubleshooting.md) | 14.04.5 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 14.04.5-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | RedHat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RedHat | RHEL 7,7 | 7 — NIEPRZETWORZONY | RedHat: RHEL: 7 — wersja RAW: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,7 | 7 — LVM | RedHat: RHEL: 7-LVM: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7.5 | 7,5 | RedHat: RHEL: 7.5: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
@@ -94,7 +93,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 
 ## <a name="additional-vm-requirements"></a>Dodatkowe wymagania dotyczące maszyn wirtualnych
 
-Azure Disk Encryption wymaga obecności modułów dm-crypt i vfat w systemie. Usunięcie lub wyłączenie vfat z obrazu domyślnego uniemożliwi systemowi odczytywanie woluminu klucza i Uzyskiwanie klucza wymaganego do odblokowania dysków podczas kolejnych ponownych uruchomień. Kroki ograniczania systemu, które usuwają moduł vfat z systemu, nie są zgodne z Azure Disk Encryption. 
+Azure Disk Encryption wymaga obecności modułów dm-crypt i vfat w systemie. Usunięcie lub wyłączenie vfat z obrazu domyślnego uniemożliwi systemowi odczytywanie woluminu klucza i Uzyskiwanie klucza wymaganego do odblokowania dysków podczas kolejnych ponownych uruchomień. Czynności związane z ograniczaniem systemu, które usuwają moduł vfat z systemu lub wymuszają Rozszerzanie systemu operacyjnego mountpoints/folderów na dyskach danych, nie są zgodne z Azure Disk Encryption. 
 
 Przed włączeniem szyfrowania, dyski danych, które mają być szyfrowane, muszą być poprawnie wymienione w katalogu/etc/fstab. Użyj opcji "nofail" podczas tworzenia wpisów i wybierz trwałej nazwy urządzenia blokowego (ponieważ nazwy urządzeń w formacie "/dev/sdX" mogą nie być skojarzone z tym samym dyskiem w przypadku ponownych uruchomień, szczególnie po szyfrowaniu. Aby uzyskać więcej szczegółów dotyczących tego zachowania, zobacz: [Rozwiązywanie problemów z zmianami nazw urządzeń maszyn wirtualnych systemu Linux](troubleshoot-device-names-problems.md)).
 

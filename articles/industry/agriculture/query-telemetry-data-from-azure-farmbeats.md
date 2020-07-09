@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80349807"
 ---
 # <a name="query-ingested-telemetry-data"></a>Dane telemetryczne pozyskiwane z zapytań
@@ -42,7 +42,7 @@ Postępuj zgodnie z instrukcjami, aby wykonać zapytanie o dane telemetryczne cz
 > [!NOTE]
 > **Identyfikator** i **sensorModelId** zainteresowanego obiektu czujnika.
 
-2. Utwórz funkcję GET/{ID} w interfejsie API/SensorModel dla **sensorModelId** zgodnie z opisem w kroku 1. "Model czujnika" zawiera wszystkie metadane i szczegóły pozyskiwanej danych telemetrycznych z czujnika. Na przykład **pomiar czujnika** w obiekcie **modelu czujnika** zawiera szczegółowe informacje o tym, jakie miary są wysyłane przez czujnik i w jakich typach i jednostkach. Na przykład:
+2. Utwórz funkcję GET/{ID} w interfejsie API/SensorModel dla **sensorModelId** zgodnie z opisem w kroku 1. "Model czujnika" zawiera wszystkie metadane i szczegóły pozyskiwanej danych telemetrycznych z czujnika. Na przykład **pomiar czujnika** w obiekcie **modelu czujnika** zawiera szczegółowe informacje o tym, jakie miary są wysyłane przez czujnik i w jakich typach i jednostkach. Na przykład
 
   ```json
   {
@@ -115,7 +115,7 @@ Dane telemetryczne są odbierane w centrum EventHub, a następnie przetwarzane i
 
 Postępuj zgodnie z instrukcjami, aby wizualizować dane w ramach TSI:
 
-1. Przejdź do**grupy zasobów FarmBeats DataHub** w **witrynie Azure Portal** > , > Wybierz środowisko **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych**. Dodaj użytkownika z dostępem czytelnika lub współautorem.
+1. Przejdź do **Azure Portal**  >  **grupy zasobów FarmBeats DataHub** w witrynie Azure Portal, > Wybierz środowisko **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych**. Dodaj użytkownika z dostępem czytelnika lub współautorem.
 2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights**. Teraz będzie można wizualizować pozyskiwaną telemetrię.
 
 Oprócz przechowywania, wykonywania zapytań i wizualizacji danych telemetrycznych, TSI również umożliwia integrację z pulpitem nawigacyjnym Power BI. Aby uzyskać więcej informacji, zobacz [tutaj]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)

@@ -4,16 +4,16 @@ description: Skonfiguruj połączenia IPsec/IKE na platformie Azure za pośredni
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436812"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738162"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurowanie sieci VPN typu lokacja-lokacja za pośrednictwem komunikacji równorzędnej firmy Microsoft ExpressRoute
 
@@ -26,7 +26,7 @@ Ten artykuł pomaga skonfigurować bezpieczne szyfrowanie szyfrowane między sie
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-## <a name="architecture"></a><a name="architecture"></a>Będąc
+## <a name="architecture"></a><a name="architecture"></a>Architektura
 
 
   ![Przegląd łączności](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
@@ -91,7 +91,7 @@ Ten przykład używa polecenia Cisco IOS-XE. W tym przykładzie wystąpienie rou
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-Poniższe częściowe dane wyjściowe pokazują, że 68 prefiksy zostały odebrane od \*sąsiada. 243.229.34 z numerem ASN 12076 (MSEE):
+Poniższe częściowe dane wyjściowe pokazują, że 68 prefiksy zostały odebrane od sąsiada \* . 243.229.34 z numerem ASN 12076 (MSEE):
 
 ```
 ...

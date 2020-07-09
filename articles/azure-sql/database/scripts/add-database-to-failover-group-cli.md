@@ -1,6 +1,6 @@
 ---
 title: 'Interfejs wiersza polecenia platformy Azure: Dodawanie bazy danych do grupy trybu failover'
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do utworzenia Azure SQL Database, dodania go do grupy autotrybu failover i przetestowania trybu failover.
+description: Użyj przykładowego skryptu interfejsu wiersza polecenia platformy Azure, aby utworzyć bazę danych w Azure SQL Database, Dodaj ją do grupy Autotryb failover i przetestuj tryb failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,18 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: fcad936c6fe4b50e0e16b6a059e9565418b5bdad
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 09c98f626d9f32a2a6f9f3e31e0db0e4751adacb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053951"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196971"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-into-a-failover-group"></a>Dodawanie Azure SQL Database do grupy trybu failover przy użyciu interfejsu wiersza polecenia
+# <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Dodawanie bazy danych do grupy trybu failover przy użyciu interfejsu wiersza polecenia platformy Azure
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy Azure SQL Database, tworzy grupę trybu failover, dodaje do niej bazę danych i testuje tryb failover.
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy bazę danych w Azure SQL Database, tworzy grupę trybu failover, dodaje do niej bazę danych i testuje tryb failover.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 

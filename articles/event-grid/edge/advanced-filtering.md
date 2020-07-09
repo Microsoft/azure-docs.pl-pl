@@ -10,14 +10,14 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72992563"
 ---
 # <a name="advanced-filtering"></a>Filtrowanie zaawansowane
-Event Grid umożliwia określanie filtrów dla każdej właściwości w ładunku JSON. Te filtry są modelowane jako zbiór `AND` warunków, z każdym warunkiem zewnętrznym, które `OR` mają opcjonalne warunki wewnętrzne. Dla każdego `AND` warunku należy określić następujące wartości:
+Event Grid umożliwia określanie filtrów dla każdej właściwości w ładunku JSON. Te filtry są modelowane jako zbiór `AND` warunków, z każdym warunkiem zewnętrznym, które mają opcjonalne `OR` warunki wewnętrzne. Dla każdego `AND` warunku należy określić następujące wartości:
 
 * `OperatorType`-Typ porównania.
 * `Key`-Ścieżka JSON do właściwości, dla której ma zostać zastosowany filtr.
@@ -50,9 +50,9 @@ Event Grid nie obsługuje filtrowania na tablicy wartości dzisiaj. Jeśli zdarz
 
 ## <a name="and-or-not-semantics"></a>I-lub-nie-semantyka
 
-Zwróć uwagę, że w przykładowym kodzie JSON `AdvancedFilters` podanym wcześniej, jest tablicą. Każdy `AdvancedFilter` element tablicy należy traktować jako `AND` warunek.
+Zwróć uwagę, że w przykładowym kodzie JSON podanym wcześniej, `AdvancedFilters` jest tablicą. Każdy `AdvancedFilter` element tablicy należy traktować jako `AND` warunek.
 
-Dla operatorów, które obsługują wiele wartości (takich jak `NumberIn`, `NumberNotIn` `StringIn`, itp.), każda wartość jest traktowana jako `OR` warunek. Tak więc, `StringBeginsWith("a", "b", "c")` a będzie pasować do dowolnej wartości ciągu rozpoczynającej `a` się `b` od `c`znaku lub lub.
+Dla operatorów, które obsługują wiele wartości (takich jak `NumberIn` , `NumberNotIn` , `StringIn` itp.), każda wartość jest traktowana jako `OR` warunek. Tak więc, a `StringBeginsWith("a", "b", "c")` będzie pasować do dowolnej wartości ciągu rozpoczynającej się od znaku `a` lub `b` lub `c` .
 
 > [!CAUTION]
 > Operatory NOT `NumberNotIn` i `StringNotIn` zachowywać się jako warunki i dla każdej wartości w `Values` polu.
@@ -61,7 +61,7 @@ Dla operatorów, które obsługują wiele wartości (takich jak `NumberIn`, `Num
 
 ## <a name="floating-point-rounding-behavior"></a>Zachowanie zaokrąglania liczb zmiennoprzecinkowych
 
-Event Grid używa typu `decimal` .NET do obsługi wszystkich wartości liczbowych. Wartości liczbowe określone w pliku JSON subskrypcji zdarzeń nie podlegają działaniu zaokrąglenia liczb zmiennoprzecinkowych.
+Event Grid używa `decimal` typu .NET do obsługi wszystkich wartości liczbowych. Wartości liczbowe określone w pliku JSON subskrypcji zdarzeń nie podlegają działaniu zaokrąglenia liczb zmiennoprzecinkowych.
 
 ## <a name="case-sensitivity-of-string-filters"></a>Rozróżnianie wielkości liter w filtrach ciągów
 
@@ -69,7 +69,7 @@ Wszystkie porównania ciągów nie uwzględniają wielkości liter. Nie ma możl
 
 ## <a name="allowed-advanced-filter-keys"></a>Dozwolone zaawansowane klucze filtru
 
-`Key` Właściwość może być dobrze znaną właściwości najwyższego poziomu lub być ścieżką JSON z wieloma kropkami, gdzie każda kropka oznacza przechodzenie do zagnieżdżonego obiektu JSON.
+`Key`Właściwość może być dobrze znaną właściwości najwyższego poziomu lub być ścieżką JSON z wieloma kropkami, gdzie każda kropka oznacza przechodzenie do zagnieżdżonego obiektu JSON.
 
 Event Grid nie ma żadnych specjalnych znaczenia dla `$` znaku w kluczu, w przeciwieństwie do specyfikacji wykryto.
 
@@ -87,7 +87,7 @@ Dla zdarzeń w schemacie Event Grid:
 
 ### <a name="custom-event-schema"></a>Niestandardowy schemat zdarzeń
 
-W schemacie zdarzeń niestandardowych nie `Key` ma ograniczeń, ponieważ Event Grid nie wymusza żadnego schematu Envelope w ładunku.
+`Key`W schemacie zdarzeń niestandardowych nie ma ograniczeń, ponieważ Event Grid nie wymusza żadnego schematu Envelope w ładunku.
 
 ## <a name="numeric-single-value-filter-examples"></a>Przykłady filtrów liczbowych o pojedynczej wartości
 

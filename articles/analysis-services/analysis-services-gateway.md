@@ -8,10 +8,9 @@ ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76310156"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Łączenie z lokalnymi źródłami danych za pomocą lokalnej bramy danych
@@ -75,7 +74,7 @@ Poniżej znajdują się w pełni kwalifikowane nazwy domen używane przez bramę
 
 ### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Wymuszanie komunikacji HTTPS z usługą Azure Service Bus
 
-Można wymusić, aby brama mogła komunikować się z Azure Service Bus przy użyciu protokołu HTTPS zamiast bezpośredniego protokołu TCP. Jednak może to znacznie zmniejszyć wydajność. Można zmodyfikować plik *Microsoft. PowerBI. Datamove. Pipeline. GatewayCore. dll. config* , zmieniając wartość z `AutoDetect` na. `Https` Ten plik zazwyczaj znajduje się w *katalogu C:\Program Files\On-premises Data Gateway*.
+Można wymusić, aby brama mogła komunikować się z Azure Service Bus przy użyciu protokołu HTTPS zamiast bezpośredniego protokołu TCP. Jednak może to znacznie zmniejszyć wydajność. Plik *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* można zmodyfikować, zmieniając wartość z `AutoDetect` na `Https` . Ten plik zazwyczaj znajduje się w *katalogu C:\Program Files\On-premises Data Gateway*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">

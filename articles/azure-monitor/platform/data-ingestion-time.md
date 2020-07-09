@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666641"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Czas pozyskiwania danych dziennika w usłudze Azure Monitor
@@ -60,7 +59,7 @@ Zapoznaj się z dokumentacją każdego rozwiązania, aby określić jego często
 Po pobraniu rekordów dziennika do potoku Azure Monitor (zgodnie z definicją we właściwości [_TimeReceived](log-standard-properties.md#_timereceived) ) są one zapisywane w magazynie tymczasowym w celu zapewnienia izolacji dzierżawy i upewnienia się, że dane nie zostaną utracone. Ten proces zazwyczaj dodaje 5-15 sekund. Niektóre rozwiązania do zarządzania implementują algorytmy cięższe w celu agregowania danych i uzyskiwania szczegółowych informacji, jak dane przesyłane strumieniowo. Na przykład monitorowanie wydajności sieci agreguje dane przychodzące przez 3-minutowy interwały, co skutecznie dodaje 3 minuty opóźnienia. Innym procesem, który dodaje opóźnienie, jest proces obsługujący dzienniki niestandardowe. W niektórych przypadkach ten proces może dodawać kilka minut opóźnienia do dzienników zbieranych z plików przez agenta.
 
 ### <a name="new-custom-data-types-provisioning"></a>Nowe niestandardowe typy danych — Inicjowanie obsługi
-Po utworzeniu nowego typu danych niestandardowych z [dziennika niestandardowego](data-sources-custom-logs.md) lub [interfejsu API modułu zbierającego dane](data-collector-api.md)system tworzy dedykowany kontener magazynu. Jest to jednorazowe obciążenie, które występuje tylko w przypadku pierwszego wyglądu tego typu danych.
+Po utworzeniu nowego typu danych niestandardowych z [dziennika niestandardowego](data-sources-custom-logs.md) lub [interfejsu API modułu zbierającego dane](data-collector-api.md)system tworzy dedykowany kontener magazynu. Jest to jednorazowe obciążenie, które występuje tylko przy pierwszym pojawieniu się tego typu danych.
 
 ### <a name="surge-protection"></a>Ochrona przed przepięciem
 Najważniejszym priorytetem Azure Monitor jest upewnienie się, że żadne dane klienta nie zostaną utracone, dlatego system ma wbudowaną ochronę przed gwałtownym przepięciem danych. Obejmuje to bufory, aby zapewnić, że nawet pod obciążeniem ogromną system będzie działać. W przypadku normalnego obciążenia te kontrolki dodają mniej niż minutę, ale w ekstremalnych warunkach i błędach, które mogą zwiększyć znaczący czas, przy jednoczesnym zapewnieniu bezpieczeństwa danych.
@@ -79,7 +78,7 @@ Czas pozyskiwania może różnić się w zależności od różnych zasobów w r�
 |:---|:---|:---|
 | Rekord utworzony w źródle danych | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Jeśli źródło danych nie ustawi tej wartości, zostanie ona ustawiona na ten sam czas co _TimeReceived. |
 | Rekord otrzymany przez Azure Monitor punkt końcowy pozyskiwania | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Rekord przechowywany w obszarze roboczym i dostępny dla zapytań | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
+| Rekord przechowywany w obszarze roboczym i dostępny dla zapytań | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Opóźnienia w czasie przyjmowania
 Można mierzyć opóźnienie określonego rekordu, porównując wynik funkcji [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) z właściwością _TimeGenerated_ . Te dane mogą być używane z różnymi agregacjami, aby dowiedzieć się, jak działa opóźnienie pozyskiwania. Zapoznaj się z informacjami o percentylu czasu pozyskiwania, aby uzyskać szczegółowe informacje dotyczące dużej ilości danych. 
@@ -95,7 +94,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-Poprzednie sprawdzenia percentylu są przydatne do znajdowania ogólnych trendów w czasie oczekiwania. Aby zidentyfikować krótkoterminowe gwałtowne opóźnienia, użycie wartości Maximum (`max()`) może być bardziej efektywne.
+Poprzednie sprawdzenia percentylu są przydatne do znajdowania ogólnych trendów w czasie oczekiwania. Aby zidentyfikować krótkoterminowe gwałtowne opóźnienia, użycie wartości Maximum ( `max()` ) może być bardziej efektywne.
 
 Jeśli chcesz przejść do szczegółów czasu pozyskiwania dla określonego komputera w danym okresie, użyj następującego zapytania, które również wizualizuje dane z ostatniego dnia na wykresie: 
 

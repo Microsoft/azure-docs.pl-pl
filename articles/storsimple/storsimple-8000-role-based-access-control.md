@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66159123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514645"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Access Control oparte na rolach dla StorSimple
 
@@ -60,7 +59,7 @@ W poniższym przykładzie zaczynamy od wbudowanego **czytnika** ról, który umo
 
 4. Otwórz plik JSON w programie Visual Studio. Zobaczysz **, że**typowa rola RBAC zawiera trzy główne sekcje, **akcje, noactions**i **AssignableScopes**.
 
-    W sekcji **Akcja** zostaną wyświetlone wszystkie dozwolone operacje dla tej roli. Każda akcja jest przypisana z dostawcy zasobów. W przypadku administratora infrastruktury StorSimple Użyj dostawcy `Microsoft.StorSimple` zasobów.
+    W sekcji **Akcja** zostaną wyświetlone wszystkie dozwolone operacje dla tej roli. Każda akcja jest przypisana z dostawcy zasobów. W przypadku administratora infrastruktury StorSimple Użyj `Microsoft.StorSimple` dostawcy zasobów.
 
     Użyj programu PowerShell, aby wyświetlić wszystkich dostawców zasobów dostępnych i zarejestrowanych w ramach subskrypcji.
 

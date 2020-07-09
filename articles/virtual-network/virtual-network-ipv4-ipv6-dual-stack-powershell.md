@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 3cfe80962c11e37c79549a74d7e4b19cd08f4684
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f51794c28c68b41bb715dcc23ae775151b6d93d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84703081"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell"></a>Wdrażanie aplikacji podwójnego stosu IPv6 przy użyciu podstawowego Load Balancer — PowerShell
 
@@ -307,7 +306,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Określanie adresów IP punktów końcowych IPv4 i IPv6
-Pobierz wszystkie obiekty interfejsu sieciowego w grupie zasobów, aby podsumować adresy IP używane w tym wdrożeniu za `get-AzNetworkInterface`pomocą programu. Należy również uzyskać adresy punktów końcowych protokołu IPv4 i IPv6 Load Balancer przy użyciu `get-AzpublicIpAddress`programu.
+Pobierz wszystkie obiekty interfejsu sieciowego w grupie zasobów, aby podsumować adresy IP używane w tym wdrożeniu za pomocą programu `get-AzNetworkInterface` . Należy również uzyskać adresy punktów końcowych protokołu IPv4 i IPv6 Load Balancer przy użyciu programu `get-AzpublicIpAddress` .
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"
@@ -353,7 +352,7 @@ Sieć wirtualną o podwójnym stosie IPv6 można wyświetlić w Azure Portal w n
   ![Sieć wirtualna o podwójnym stosie IPv6 na platformie Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

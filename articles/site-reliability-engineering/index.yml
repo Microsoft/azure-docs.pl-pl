@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: 18857c11887ef6934485602d0fcb7aaf2220721e
-  ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-  ms.translationtype: HT
+  ms.openlocfilehash: e5c1ef5e84f0170927d7fcac65b594d44ed33b93
+  ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+  ms.translationtype: 
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82185085"
+  ms.lasthandoff: 07/01/2020
+  ms.locfileid: "85833438"
 highlightedContent:
   items:
   - title: 'Wprowadzenie do inżynierii niezawodności lokacji:  Co to jest inżynieria niezawodności lokacji? (1/3)'
@@ -43,11 +43,13 @@ productDirectory:
       text: Rozwiązania dotyczące wdrażania zapewniające większą niezawodność
     - url: https://myignite.techcommunity.microsoft.com/sessions/83001
       text: 'Przygotowanie do rozwoju: planowanie pojemności i skalowanie'
-  - title: Wprowadzenie do inżynierii niezawodności lokacji — kurs online
+  - title: Kursy online z zakresu inżynierii niezawodności lokacji
     imageSrc: ./media/index/learn.svg
     links:
     - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-      text: Poznaj podstawy inżynierii niezawodności lokacji w ramach bezpłatnego kursu online
+      text: Wprowadzenie do inżynierii niezawodności lokacji
+    - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
+      text: Zwiększanie niezawodności dzięki nowoczesnym rozwiązaniom dotyczącym operacji
   - title: Zasoby dotyczące inżynierii niezawodności lokacji
     imageSrc: ./media/index/reference.svg
     links:
@@ -55,6 +57,8 @@ productDirectory:
       text: Książki
     - url: resources/events.md
       text: Zdarzenia
+    - url: articles/code.md
+      text: 'CZĘSTO ZADAWANE PYTANIA: Inżynieria niezawodności lokacji oraz kodowanie'
     - url: articles/devops.md
       text: 'CZĘSTO ZADAWANE PYTANIA: Inżynieria niezawodności lokacji i metodyka DevOps'
     - url: resources/links.md

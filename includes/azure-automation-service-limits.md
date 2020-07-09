@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: automation
-author: georgewallace
+author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 12/13/2018
-ms.author: gwallace
+ms.date: 06/29/2020
+ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334598"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85570166"
 ---
 #### <a name="process-automation"></a>Automatyzacja procesów
 
@@ -22,7 +22,7 @@ ms.locfileid: "80334598"
 | Maksymalna liczba nowych zadań, które mogą być przesyłane co 30 sekund na konto Azure Automation (zadania niezaplanowane) |100 |Po osiągnięciu tego limitu kolejne żądania utworzenia zadania kończą się niepowodzeniem. Klient otrzymuje odpowiedź na błąd.|
 | Maksymalna liczba współbieżnych zadań uruchomionych w tym samym wystąpieniu czasu na konto usługi Automation (zadania niezaplanowane) |200 |Po osiągnięciu tego limitu kolejne żądania utworzenia zadania kończą się niepowodzeniem. Klient otrzymuje odpowiedź na błąd.|
 | Maksymalny rozmiar magazynu metadanych zadania dla 30-dniowego okresu kroczącego | 10 GB (około 4 000 000 zadań)|Po osiągnięciu tego limitu kolejne żądania utworzenia zadania kończą się niepowodzeniem. |
-| Maksymalny limit strumienia zadań|1 MB|Pojedynczy strumień nie może być większy niż 1 MB.|
+| Maksymalny limit strumienia zadań|1 MiB|Pojedynczy strumień nie może być większy niż 1 MB.|
 | Maksymalna liczba modułów, które mogą być importowane co 30 sekund na konto usługi Automation |5 ||
 | Maksymalny rozmiar modułu |100 MB ||
 | Czas wykonywania zadania, warstwa Bezpłatna |500 minut na subskrypcję na miesiąc kalendarzowy ||
@@ -33,9 +33,9 @@ ms.locfileid: "80334598"
 | Maksymalna liczba kont usługi Automation w ramach subskrypcji |Bez ograniczeń ||
 | Maksymalna liczba grup hybrydowych procesów roboczych na konto usługi Automation|4000||
 |Maksymalna liczba współbieżnych zadań, które można uruchomić w jednym hybrydowym procesie roboczym elementu Runbook|50 ||
-| Maksymalny rozmiar parametru zadania elementu Runbook   | 512 kilobitów||
+| Maksymalny rozmiar parametru zadania elementu Runbook   | 512 kilobajtów||
 | Maksymalna liczba parametrów elementu Runbook   | 50|W przypadku osiągnięcia limitu 50-parametru można przekazać kod JSON lub ciąg XML do parametru i przeanalizować go za pomocą elementu Runbook.|
-| Maksymalny rozmiar ładunku elementu webhook |  512 kilobitów|
+| Maksymalny rozmiar ładunku elementu webhook |  512 kilobajtów|
 | Maksymalna liczba dni przechowywania danych zadania|30 dni|
 | Maksymalny rozmiar stanu przepływu pracy programu PowerShell |5 MB| Dotyczy elementów Runbook przepływu pracy programu PowerShell podczas tworzenia punktów kontrolnych przepływu pracy.|
 

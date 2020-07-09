@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846944"
 ---
 # <a name="best-practices-for-autoscale"></a>Najlepsze rozwiązania dotyczące automatycznego skalowania
 Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -31,7 +31,7 @@ Użyj następujących najlepszych rozwiązań w przypadku korzystania z funkcji 
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Upewnij się, że wartości maksymalne i minimalne są różne, a między nimi jest odpowiedni margines
 
-Jeśli istnieje ustawienie o wartości minimum = 2, maksimum = 2, a bieżąca liczba wystąpień to 2, nie można wykonać akcji skalowania. Zachowaj odpowiedni margines między maksymalną i minimalną liczbą wystąpień, które są włącznie. Automatyczne skalowanie jest zawsze skalowane między tymi limitami.
+Jeśli ustawienie określa, że minimum i maksimum to 2, a bieżąca liczba wystąpień to 2, żadna akcja skalowania nie zostanie wykonana. Zachowaj odpowiedni odstęp między maksymalną i minimalną liczbą wystąpień. Liczby określone przez wartości minimum i maksimum są także dozwolone. Autoskalowanie odbywa się zawsze między tymi limitami.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Skalowanie ręczne jest resetowane przez wartości minimalne i maksymalne autoskalowania
 
@@ -48,8 +48,8 @@ Zalecamy staranne wybranie różnych progów skalowania w poziomie i skalowania 
 
 *Nie zalecamy* ustawień automatycznego skalowania, takich jak poniższe przykłady, z tymi samymi lub podobnymi wartościami progowymi dla warunków i w warunkach:
 
-* Zwiększ wystąpienia o 1 licznik, gdy liczba wątków >= 600
-* Zmniejsz wystąpienia o 1 licznik, gdy liczba wątków <= 600
+* Zwiększ liczbę wystąpień o 1, gdy liczba wątków >= 600
+* Zmniejsz liczbę wystąpień o 1, gdy liczba wątków <= 600
 
 Przyjrzyjmy się przykładowi, co może prowadzić do zachowania, które może wydawać się mylące. Weź pod uwagę poniższą sekwencję.
 

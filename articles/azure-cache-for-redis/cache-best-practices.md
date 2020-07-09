@@ -6,12 +6,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478612"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457307"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
 Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizować wydajność i ekonomiczne użycie wystąpienia usługi Azure cache for Redis.
@@ -38,6 +37,8 @@ Postępując zgodnie z najlepszymi rozwiązaniami, możesz pomóc zmaksymalizowa
  * **Unikaj kosztownych operacji** — niektóre operacje Redis, takie jak [klucze](https://redis.io/commands/keys) , są *bardzo* kosztowne i powinny być nieuniknione.  Aby uzyskać więcej informacji, zobacz Zagadnienia dotyczące [długotrwałych poleceń](cache-troubleshoot-server.md#long-running-commands)
 
  * **Korzystanie z szyfrowania TLS** — usługa Azure cache for Redis domyślnie wymaga komunikacji szyfrowanej przy użyciu protokołu TLS.  Protokoły TLS w wersji 1,0, 1,1 i 1,2 są obecnie obsługiwane.  Jednak protokoły TLS 1,0 i 1,1 znajdują się na ścieżce, aby wycofać całe branże, więc Użyj protokołu TLS 1,2, jeśli jest to możliwe.  Jeśli Biblioteka klienta lub narzędzie nie obsługuje protokołu TLS, można włączyć nieszyfrowane połączenia [za pomocą Azure Portal](cache-configure.md#access-ports) lub [interfejsów API zarządzania](https://docs.microsoft.com/rest/api/redis/redis/update).  W takich przypadkach, gdy połączenia szyfrowane nie są możliwe, będzie zalecane umieszczenie pamięci podręcznej i aplikacji klienckiej w sieci wirtualnej.  Aby uzyskać więcej informacji o portach używanych w scenariuszu pamięci podręcznej sieci wirtualnej, zapoznaj się z tą [tabelą](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ 
+ * **Limit czasu bezczynności** — usługa Azure Redis ma obecnie 10-minutowe przekroczenie limitu czasu bezczynności dla połączeń, więc wartość tego ustawienia powinna być mniejsza niż 10 minut.
  
 ## <a name="memory-management"></a>Zarządzanie pamięcią
 Istnieje kilka rzeczy związanych z użyciem pamięci w wystąpieniu serwera Redis, które warto wziąć pod uwagę.  Oto kilka z nich:
@@ -67,7 +68,7 @@ Niestety, nie ma żadnej prostej odpowiedzi.  Każda aplikacja musi zdecydować,
 Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użycie [funkcji ponownego uruchamiania](cache-administration.md#reboot). Ponowny rozruch pozwala zobaczyć, jak Blips połączeń wpływa na aplikację.
 
 ## <a name="performance-testing"></a>Testowanie wydajności
- * **Zacznij od korzystania `redis-benchmark.exe` ** z programu, aby uzyskać dostęp do możliwej przepływności/opóźnienia przed napisaniem własnych testów wydajności.  Dokumentację Redis-testową można [znaleźć tutaj](https://redis.io/topics/benchmarks).  Należy pamiętać, że Redis-testowe nie obsługuje protokołu TLS, dlatego należy [włączyć port bez protokołu TLS w portalu](cache-configure.md#access-ports) przed uruchomieniem testu.  [Zgodną z systemem Windows wersją programu Redis-Benchmark. exe można znaleźć tutaj](https://github.com/MSOpenTech/redis/releases)
+ * **Zacznij od użycia `redis-benchmark.exe` ** w celu uzyskania potencjalnej przepływności/opóźnienia przed napisaniem własnych testów wydajności.  Dokumentację Redis-testową można [znaleźć tutaj](https://redis.io/topics/benchmarks).  Należy pamiętać, że Redis-testowe nie obsługuje protokołu TLS, dlatego należy [włączyć port bez protokołu TLS w portalu](cache-configure.md#access-ports) przed uruchomieniem testu.  [Zgodną z systemem Windows wersję redis-benchmark.exe można znaleźć tutaj](https://github.com/MSOpenTech/redis/releases)
  * Maszyna wirtualna klienta użyta do testowania powinna znajdować się **w tym samym regionie** co wystąpienie pamięci podręcznej Redis.
  * **Zalecamy używanie serii maszyn wirtualnych Dv2** dla klienta, ponieważ mają one lepszy sprzęt i dają najlepsze wyniki.
  * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle obliczeń i przepustowości* jako przetestowanej pamięci podręcznej. 
@@ -81,10 +82,10 @@ Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użyc
  
 ### <a name="redis-benchmark-examples"></a>Redis — przykłady testów porównawczych
 **Konfiguracja przed testami**: Przygotuj wystąpienie pamięci podręcznej z danymi wymaganymi dla poleceń testowania opóźnienia i przepływności wymienionych poniżej.
-> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
 
 **W celu przetestowania opóźnienia**: Przetestuj żądania GET przy użyciu ładunku 1K.
-> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
 
 **Aby przetestować przepływność:** Potok żądania GET z ładunkiem.
-> Redis-Benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50

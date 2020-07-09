@@ -2,13 +2,13 @@
 title: Tworzenie pliku parametrów
 description: Utwórz plik parametrów do przekazywania wartości podczas wdrażania szablonu Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 06/19/2020
+ms.openlocfilehash: 7c03e161c7b3a18020de6a06d356720f5e4c31fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117509"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
 
@@ -182,12 +182,18 @@ W poniższym przykładzie przedstawiono formaty różnych typów parametrów.
 }
 ```
 
+## <a name="deploy-template-with-parameter-file"></a>Wdróż szablon z plikiem parametrów
+
+Zobacz:
+
+- [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-powershell.md#pass-parameter-values)
+- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](./deploy-cli.md#parameters)
+
 ## <a name="file-name"></a>Nazwa pliku
 
-Ogólną konwencją nazewnictwa pliku parametrów jest dodawanie **parametrów** do nazwy szablonu. Na przykład jeśli szablon ma nazwę **azuredeploy. JSON**, plik parametru ma nazwę **azuredeploy. Parameters. JSON**. Ta konwencja nazewnictwa ułatwia wyświetlanie połączenia między szablonem i parametrami.
+Ogólną konwencją nazewnictwa pliku parametrów jest dodawanie **parametrów** do nazwy szablonu. Na przykład jeśli szablon ma nazwę **azuredeploy.jsna**, plik parametrów ma nazwę **azuredeploy.parameters.jsna**. Ta konwencja nazewnictwa ułatwia wyświetlanie połączenia między szablonem i parametrami.
 
-Aby wdrożyć w różnych środowiskach, należy utworzyć więcej niż jeden plik parametrów. Podczas nadawania nazwy plikowi parametrów Dodaj sposób, aby zidentyfikować jego użycie. Na przykład użyj **azuredeploy. Parameters — dev. JSON** i **azuredeploy. Parameters-prod. JSON**
-
+Aby wdrożyć w różnych środowiskach, należy utworzyć więcej niż jeden plik parametrów. Podczas nadawania nazwy plikowi parametrów Dodaj sposób, aby zidentyfikować jego użycie. Na przykład użyj **azuredeploy.parameters-dev.jsna** i **azuredeploy.parameters-prod.jsna**
 
 ## <a name="parameter-precedence"></a>Pierwszeństwo parametrów
 
@@ -198,6 +204,7 @@ Można użyć zewnętrznego pliku parametrów, dostarczając identyfikator URI d
 ## <a name="parameter-name-conflicts"></a>Konflikty nazw parametrów
 
 Jeśli szablon zawiera parametr o takiej samej nazwie jak jeden z parametrów w poleceniu programu PowerShell, program PowerShell przedstawia parametr z szablonu przy użyciu przyrostka **FromTemplate**. Na przykład parametr o nazwie **ResourceGroupName** w szablonie powoduje konflikt z parametrem **ResourceGroupName** w poleceniu cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Zostanie wyświetlony monit o podanie wartości dla **ResourceGroupNameFromTemplate**. Można uniknąć tego nieporozumień przy użyciu nazw parametrów, które nie są używane dla poleceń wdrażania.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

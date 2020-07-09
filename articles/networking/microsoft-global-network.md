@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982806"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125825"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
 
@@ -38,7 +38,7 @@ Bez względu na to, czy jest nawiązywane połączenie z Warszawy do Tokio, czy 
 
 Na przykład, jeśli użytkownik w Londynie próbuje uzyskać dostęp do usługi w Tokio, ruch internetowy przechodzi przez firmę Microsoft do systemu, w którym znajduje się jedna z naszych brzegów w Londynie, przejdzie do sieci WAN, w której znajdują się ścieżki Trans-Saudyjska między Europą a Indie, a następnie do Japonii, gdzie usługa jest hostowana. Ruch odpowiedzi jest symetryczny. Jest to czasami nazywane [routingiem zimnej ziemniaka](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , co oznacza, że ruch w sieci firmy Microsoft jest dłuższy niż to możliwe.  
   
-Czy oznacza to, że to wszystko i cały ruch w przypadku korzystania z usług firmy Microsoft? Tak, cały ruch między centrami danych, w Microsoft Azure lub między usługami firmy Microsoft, takimi jak Virtual Machines, Office 365, XBox, SQL baz danych, Storage i Virtual Networks, jest kierowany w naszej sieci globalnej i nigdy nie przez publiczny Internet, aby zapewnić optymalną wydajność i integralność.  
+Czy oznacza to, że to wszystko i cały ruch w przypadku korzystania z usług firmy Microsoft? Tak, cały ruch między centrami danych, w Microsoft Azure lub między usługami firmy Microsoft, takimi jak Virtual Machines, Microsoft 365, XBox, SQL baz danych, Storage i Virtual Networks, jest kierowany w naszej sieci globalnej i nigdy nie przez publiczny Internet, aby zapewnić optymalną wydajność i spójność.  
  
 Duże inwestycje w pojemność i różnorodność w sieciach Metro, lądowych i podmorski mają kluczowe znaczenie dla nas, aby zachować spójny i wysoki poziom usług, jednocześnie dostarczając jednocześnie paliwo do najwyższej ilości naszych chmur i Usługi online. Najnowsze dodatki do naszej sieci globalnej to nasz kabel podmorski [Marea](https://www.submarinecablemap.com/#/submarine-cable/marea) , pierwszy otwarty system line (OLS) firmy Subsea, między Bilbao, Hiszpania i Wirginia sekwencje, WIRGINIA, USA, a także [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) między Nowym Jorku, USA i Dublin, Irlandia i [Nowy krzyżyk (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) między Tokio, Japonia i Warszawa, Oregon, USA. 
  

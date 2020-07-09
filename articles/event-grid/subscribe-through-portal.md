@@ -1,18 +1,14 @@
 ---
 title: Subskrypcje Azure Event Grid za poorednictwem portalu
 description: W tym artykule opisano sposób tworzenia Event Grid subskrypcji dla obsługiwanych źródeł, takich jak Azure Blob Storage, przy użyciu Azure Portal.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 2890f57e50e508f85579a2b1198de536fa9a9013
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393177"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119994"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Subskrybowanie zdarzeń za poorednictwem portalu
 

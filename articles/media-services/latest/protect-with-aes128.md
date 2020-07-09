@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974176"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Samouczek: szyfrowanie wideo przy użyciu algorytmu AES-128 i korzystanie z usługi dostarczania kluczy
@@ -30,7 +29,7 @@ Za pomocą Media Services można dostarczyć HTTP Live Streaming (HLS), MPEG-my�
 
 Każdy element zawartości można szyfrować przy użyciu wielu typów szyfrowania (AES-128, PlayReady, Widevine, FairPlay). Zobacz [Streaming protocols and encryption types (Protokoły i typy szyfrowania przesyłania strumieniowego)](content-protection-overview.md#streaming-protocols-and-encryption-types), aby sprawdzić, które rozwiązania warto łączyć. Sprawdź również, [jak chronić za pomocą technologii DRM](protect-with-drm.md).
 
-Dane wyjściowe z przykładu ten artykuł zawiera adres URL Azure Media Player, adres URL manifestu i token AES, które są konieczne do odtwarzania zawartości. Przykład ustawia okres ważności tokenu sieci Web JSON (JWT) na 1 godzinę. Możesz otworzyć przeglądarkę i wkleić otrzymany w ten adres URL, aby uruchomić stronę demonstracyjną Azure Media Player z adresem URL i tokenem wypełnionym dla Ciebie już w następującym formacie ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```:.
+Dane wyjściowe z przykładu ten artykuł zawiera adres URL Azure Media Player, adres URL manifestu i token AES, które są konieczne do odtwarzania zawartości. Przykład ustawia okres ważności tokenu sieci Web JSON (JWT) na 1 godzinę. Możesz otworzyć przeglądarkę i wkleić otrzymany w ten adres URL, aby uruchomić stronę demonstracyjną Azure Media Player z adresem URL i tokenem wypełnionym dla Ciebie już w następującym formacie: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}``` .
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
@@ -153,7 +152,7 @@ Ogólnie rzecz biorąc, należy wyczyścić wszystko z wyjątkiem obiektów, kt�
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie są już potrzebne żadne zasoby w grupie zasobów, w tym konto usługi Media Services i konta magazynu utworzone w ramach tego samouczka, usuń grupę zasobów utworzoną wcześniej.
 

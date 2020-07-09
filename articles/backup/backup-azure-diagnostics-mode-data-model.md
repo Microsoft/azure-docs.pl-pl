@@ -3,12 +3,12 @@ title: Model danych dzienników Azure Monitor
 description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Analytics szczegóły modelu danych Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83707993"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85854761"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
 
@@ -204,7 +204,7 @@ Ta tabela zawiera szczegółowe informacje dotyczące pól związanych z zasadam
 | YearlyRetentionDaysOfTheMonth_s |Tekst ||Daty w miesiącu wybrane do przechowywania rocznego |
 | SynchronisationFrequencyPerDay_s |Liczbowy całkowity |v2|Liczba przypadków synchronizacji kopii zapasowej plików dla programu SC DPM i serwera usługi MAB |
 | DiffBackupFormat_s |Tekst |v2|Format różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure |
-| DiffBackupTime_s |Time |v2|Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
+| DiffBackupTime_s |Godzina |v2|Czas różnicowych kopii zapasowych bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
 | DiffBackupRetentionDuration_s |Liczba dziesiętna |v2|Czas przechowywania różnicowych kopii zapasowych dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
 | LogBackupFrequency_s |Liczba dziesiętna |v2|Częstotliwość tworzenia kopii zapasowych dzienników dla bazy danych SQL|
 | LogBackupRetentionDuration_s |Liczba dziesiętna |v2|Czas przechowywania kopii zapasowych dziennika dla bazy danych SQL w kopii zapasowej maszyny wirtualnej platformy Azure|
@@ -466,6 +466,30 @@ Wcześniej dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny 
 Ze względu na zgodność z poprzednimi wersjami dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure są obecnie wysyłane do Diagnostyka Azure tabeli w schemacie V1 i v2 (z teraz schematem w wersji 1). Istnieje możliwość zidentyfikowania, które rekordy w Log Analytics znajdują się w schemacie V1 przez filtrowanie rekordów dla SchemaVersion_s = = "v1" w zapytaniach dziennika. 
 
 Zapoznaj się z trzecią kolumną "Description" w [modelu danych](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) opisanym powyżej, aby określić, które kolumny należą do schematu tylko w wersji 1.
+
+### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modyfikowanie zapytań do korzystania ze schematu v2
+Ponieważ schemat V1 znajduje się w ścieżce przestarzałej, zaleca się używanie tylko schematu v2 we wszystkich niestandardowych zapytaniach dotyczących Azure Backup danych diagnostycznych. Poniżej znajduje się przykład sposobu aktualizowania zapytań w celu usunięcia zależności od schematu V1:
+
+1. Ustal, czy zapytanie używa dowolnego pola, które ma zastosowanie tylko do schematu v1. Załóżmy, że masz zapytanie, aby wyświetlić listę wszystkich elementów kopii zapasowej i skojarzonych z nimi serwerów w następujący sposób:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+````
+
+Powyższe zapytanie używa pola ProtectedServerUniqueId_s, które ma zastosowanie tylko do schematu v1. W tym polu ProtectedContainerUniqueId_s znajduje się odpowiednik schematu w wersji 2 (patrz tabele powyżej). Pole BackupItemUniqueId_s ma zastosowanie nawet w schemacie 2, a to samo pole może być używane w tym zapytaniu.
+
+2. Zaktualizuj zapytanie, aby użyć nazw pól schematu w wersji 2. Zaleca się użycie filtru "Where SchemaVersion_s = =" v2 "" we wszystkich zapytaniach, tak aby tylko rekordy odpowiadające schematowi v2 były analizowane przez zapytanie:
+
+````Kusto
+AzureDiagnostics
+| where Category=="AzureBackupReport"
+| where OperationName=="BackupItemAssociation"
+| where SchemaVersion_s=="V2"
+| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
+````
 
 ## <a name="next-steps"></a>Następne kroki
 

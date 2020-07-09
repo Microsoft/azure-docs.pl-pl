@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142167"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413335"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
 > [!IMPORTANT]
-> Wersja 3. x interfejs API analizy tekstu jest obecnie niedostępna w następujących regionach: Indie Środkowe, Fairfax, Zjednoczone Emiraty Arabskie, Północna Republika Południowej Afryki, Chiny Północne 2, Chiny Wschodnie.
+> Wersja 3. x interfejs API analizy tekstu jest obecnie niedostępna w następujących regionach: Indie Środkowe, Zjednoczone Emiraty Arabskie, Chiny Północne 2, Chiny Wschodnie.
 
 
-#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
+#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment-analysis)
 
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
@@ -31,7 +31,7 @@ ms.locfileid: "84142167"
 | Chiński tradycyjny   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Duński               |     `da`      |     ✓      |            |                            |                    |
 | Niderlandzki                 |     `nl`      |     ✓      |            |                            |                    |
-| Polski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -51,13 +51,13 @@ ms.locfileid: "84142167"
 
 | Język              | Kod języka | Począwszy od wersji modelu v3: |              Uwagi |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
-| Polski               |     `en`      |              2020-04-01              |                    |
+| Angielski               |     `en`      |              2020-04-01              |                    |
 
 
 #### <a name="named-entity-recognition-ner"></a>[Rozpoznawanie jednostek nazwanych (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 obecnie obsługuje tylko język angielski. Jeśli wywołasz NER v3 z innym językiem, interfejs API zwróci wyniki z v 2.1, pod warunkiem, że język jest obsługiwany w wersji 2,1.
+> * NER v3 obecnie obsługuje tylko Języki w języku angielskim i hiszpańskim. Jeśli wywołasz NER v3 z innym językiem, interfejs API zwróci wyniki z v 2.1, pod warunkiem, że język jest obsługiwany w wersji 2,1.
 > * Wersja 2.1 zwraca tylko pełny zestaw dostępnych jednostek w języku angielskim, chińskim tradycyjnym, francuskim, niemieckim i hiszpańskim.  Jednostki "osoba", "lokalizacja" i "organizacja" są zwracane dla innych obsługiwanych języków.
 
 | Język               | Kod języka | obsługa techniczna v 2.1 | Obsługa wersji 3 | Począwszy od wersji modelu v3: |       Uwagi        |
@@ -68,7 +68,7 @@ ms.locfileid: "84142167"
 | Chiński tradycyjny   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Duński                |     `da`      |     ✓      |            |                                 |                    |
 | Niderlandzki                 |     `nl`      |     ✓      |            |                                 |                    |
-| Polski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
+| Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
 | Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
@@ -82,7 +82,7 @@ ms.locfileid: "84142167"
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt`również zaakceptowane |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Rosyjski              |     `ru`      |     ✓      |            |                                 |                    |
-| Hiszpański               |     `es`      |     ✓      |            |                                 |                    |
+| Hiszpański               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Szwedzki               |     `sv`      |     ✓      |            |                                 |                    |
 | Turecki               |     `tr`      |     ✓      |            |                                 |                    |
 
@@ -91,7 +91,7 @@ ms.locfileid: "84142167"
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |       Uwagi        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Niderlandzki                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Polski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -110,7 +110,7 @@ ms.locfileid: "84142167"
 
 | Język | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: | Uwagi |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
-| Polski  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Angielski  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Hiszpański  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
 
 #### <a name="language-detection"></a>[Wykrywanie języka](#tab/language-detection)
@@ -123,6 +123,6 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Czym jest interfejs API analizy tekstu?](overview.md)   

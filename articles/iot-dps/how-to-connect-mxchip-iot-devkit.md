@@ -9,10 +9,9 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74975656"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Zarejestrowanie zestawu deweloperskiego IoT DevKit przy użyciu usługi Azure IoT Hub Device Provisioning Service IoT Hub
@@ -63,7 +62,7 @@ Aby zapisać w DevKit:
 1. Kliknij `F1` , aby otworzyć paletę poleceń, wpisz i wybierz pozycję **Azure IoT Device Workbench: Konfigurowanie ustawień urządzenia... > config unikatowych parametrów urządzeń**.
   ![Konfiguruj](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
-1. Zanotuj wygenerowany ciąg. Będzie on potrzebny do wygenerowania certyfikatu X. 509. Następnie naciśnij `Enter`klawisz.
+1. Zanotuj wygenerowany ciąg. Będzie on potrzebny do wygenerowania certyfikatu X. 509. Następnie naciśnij klawisz `Enter` .
   ![Kopiuj do](media/how-to-connect-mxchip-iot-devkit/copy-uds.png)
 
 1. Potwierdź, że w witrynie STSAFE pomyślnie skonfigurowano alert.
@@ -85,21 +84,21 @@ W polu kod urządzenia należy określić [punkt końcowy aprowizacji urządzeń
 1. Wypełnij `registrationId` zmienną w kodzie. Dozwolone są tylko kombinacje alfanumeryczne, małe i łącznikowe z maksymalnie 128 znaków. Zanotowano również wartość.
   ![Identyfikator rejestracji](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
-1. Kliknij `F1`pozycję, wpisz i wybierz pozycję **Azure IoT Device Workbench: Przekaż kod urządzenia**. Rozpocznie Kompilowanie i przekazywanie kodu do DevKit.
+1. Kliknij pozycję `F1` , wpisz i wybierz pozycję **Azure IoT Device Workbench: Przekaż kod urządzenia**. Rozpocznie Kompilowanie i przekazywanie kodu do DevKit.
   ![Przekazywanie do urządzenia](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>Generuj certyfikat X. 509
 
 [Mechanizm zaświadczania](/azure/iot-dps/concepts-device#attestation-mechanism) używany przez ten przykład to certyfikat X. 509. Musisz użyć narzędzia do jego wygenerowania.
 
-1. W VS Code kliknij pozycję `F1`, wpisz i wybierz pozycję **Otwórz nowy terminal** , aby otworzyć okno terminalu.
+1. W VS Code kliknij pozycję `F1` , wpisz i wybierz pozycję **Otwórz nowy terminal** , aby otworzyć okno terminalu.
 
 1. Uruchom `dps_cert_gen.exe` w `tool` folderze.
 
-1. Określ skompilowaną lokalizację pliku binarnego `..\.build\DevKitDPS`jako. Następnie **Wklej, jak** i **Identyfikator rejestracji** . 
+1. Określ skompilowaną lokalizację pliku binarnego jako `..\.build\DevKitDPS` . Następnie **Wklej, jak** i **Identyfikator rejestracji** . 
   ![Generuj X. 509](media/how-to-connect-mxchip-iot-devkit/gen-x509.png)
 
-1. Certyfikat `.pem` X. 509 zostanie wygenerowany w tym samym folderze.
+1. `.pem`Certyfikat X. 509 zostanie wygenerowany w tym samym folderze.
   ![Plik X. 509](media/how-to-connect-mxchip-iot-devkit/pem-file.png)
 
 ## <a name="create-a-device-enrollment-entry"></a>Tworzenie wpisu rejestracji urządzenia
@@ -107,7 +106,7 @@ W polu kod urządzenia należy określić [punkt końcowy aprowizacji urządzeń
 1. W Azure Portal Otwórz usługę aprowizacji urządzeń, przejdź do sekcji Zarządzanie rejestracjami, a następnie kliknij pozycję **Dodaj rejestrację indywidualną**.
   ![Dodaj rejestrację indywidualną](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
-1. Aby przesłać wygenerowany plik, `.pem` kliknij ikonę pliku obok pozycji **plik PEM lub CER certyfikatu podstawowego.**
+1. Aby przesłać wygenerowany plik, kliknij ikonę pliku obok pozycji **plik PEM lub CER certyfikatu podstawowego.** `.pem`
   ![Przekaż PEM](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## <a name="verify-the-devkit-is-registered-with-azure-iot-hub"></a>Sprawdź, czy DevKit jest zarejestrowany w usłudze Azure IoT Hub

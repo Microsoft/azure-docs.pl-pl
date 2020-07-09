@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć niestandardową sondę dla Application 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807290"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Tworzenie niestandardowej sondy dla platformy Azure Application Gateway (klasyczny) przy użyciu programu PowerShell
 
@@ -136,32 +136,32 @@ Poniższy przykład pokazuje, jak użyć pliku konfiguracji w celu skonfigurowan
 > [!IMPORTANT]
 > W elemencie Http lub Https jest rozróżniana wielkość liter.
 
-Zostanie dodana nowa \<sonda\> elementu konfiguracji w celu skonfigurowania sond niestandardowych.
+Dodano nowy element konfiguracji \<Probe\> w celu skonfigurowania sond niestandardowych.
 
 Parametry konfiguracji są następujące:
 
 |Parametr|Opis|
 |---|---|
 |**Nazwa** |Nazwa odwołania dla sondy niestandardowej. |
-| **Protokol** | Używany protokół (możliwe wartości to HTTP lub HTTPS).|
-| **Host** i **ścieżka** | Pełna ścieżka URL, która jest wywoływana przez bramę aplikacji w celu określenia kondycji wystąpienia. Na przykład jeśli masz witrynę sieci Web http:\//contoso.com/, można skonfigurować niestandardową sondę dla "http:\//contoso.com/Path/custompath.htm", aby testy sondy miały Pomyślne odpowiedzi HTTP.|
+| **Protokół** | Używany protokół (możliwe wartości to HTTP lub HTTPS).|
+| **Host** i **ścieżka** | Pełna ścieżka URL, która jest wywoływana przez bramę aplikacji w celu określenia kondycji wystąpienia. Na przykład jeśli masz witrynę sieci Web http: \/ /contoso.com/, można skonfigurować niestandardową sondę dla "http: \/ /contoso.com/Path/custompath.htm", aby testy sondy miały POMYŚLNE odpowiedzi HTTP.|
 | **Dat** | Konfiguruje testy interwału sondowania w sekundach.|
 | **Limit czasu** | Określa limit czasu sondy dla sprawdzania odpowiedzi HTTP.|
 | **UnhealthyThreshold** | Liczba nieprawidłowych odpowiedzi HTTP wymaganych do oflagowania wystąpienia zaplecza jako *złej kondycji*.|
 
-Nazwa sondy jest przywoływana \<w\> konfiguracji BackendHttpSettings, aby przypisać pulę zaplecza, która używa niestandardowych ustawień sondowania.
+Nazwa sondy jest przywoływana w \<BackendHttpSettings\> konfiguracji, aby przypisać pulę zaplecza, która używa niestandardowych ustawień sondowania.
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Dodaj niestandardową sondę do istniejącej bramy aplikacji
 
 Zmiana bieżącej konfiguracji bramy aplikacji wymaga wykonania trzech kroków: pobrać bieżący plik konfiguracyjny XML, zmodyfikować w taki sposób, aby miał niestandardową sondę i skonfigurować bramę aplikacji przy użyciu nowych ustawień XML.
 
-1. Pobierz plik XML za pomocą polecenia `Get-AzureApplicationGatewayConfig`. To polecenie cmdlet eksportuje plik XML konfiguracji, aby mógł zostać zmodyfikowany w celu dodania ustawienia sondowania.
+1. Pobierz plik XML za pomocą polecenia `Get-AzureApplicationGatewayConfig` . To polecenie cmdlet eksportuje plik XML konfiguracji, aby mógł zostać zmodyfikowany w celu dodania ustawienia sondowania.
 
    ```powershell
    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
    ```
 
-1. Otwórz plik XML w edytorze tekstu. Dodaj `<probe>` sekcję po `<frontendport>`.
+1. Otwórz plik XML w edytorze tekstu. Dodaj `<probe>` sekcję po `<frontendport>` .
 
    ```xml
    <Probes>
@@ -192,7 +192,7 @@ Zmiana bieżącej konfiguracji bramy aplikacji wymaga wykonania trzech kroków: 
 
    Zapisz plik XML.
 
-1. Zaktualizuj konfigurację bramy aplikacji za pomocą nowego pliku XML przy użyciu polecenia `Set-AzureApplicationGatewayConfig`. To polecenie cmdlet aktualizuje bramę aplikacji przy użyciu nowej konfiguracji.
+1. Zaktualizuj konfigurację bramy aplikacji za pomocą nowego pliku XML przy użyciu polecenia `Set-AzureApplicationGatewayConfig` . To polecenie cmdlet aktualizuje bramę aplikacji przy użyciu nowej konfiguracji.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"

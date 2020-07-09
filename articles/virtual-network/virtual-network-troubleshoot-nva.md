@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 353ab1f15a6df8700a9abda22233dc052aa10095
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71056833"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130701"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemy z sieciowym urządzeniem wirtualnym na platformie Azure
 
@@ -103,11 +103,15 @@ Korzystanie z programu PowerShell
 
     W przypadku systemu Windows:
 
-        netstat -an
+    ```console
+   netstat -an
+    ```
 
     Dla systemu Linux:
 
-        netstat -an | grep -i listen
+    ```console
+   netstat -an | grep -i listen
+    ```
 2. Jeśli nie widzisz portu TCP, który jest używany przez oprogramowanie urządzenie WUS wymienione w wynikach, musisz skonfigurować aplikację na urządzenie WUS i maszynie wirtualnej, aby nasłuchiwać i odpowiadać na ruch, który dociera do tych portów. [Skontaktuj się z dostawcą urządzenie WUS, aby uzyskać pomoc w razie potrzeby](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>Sprawdź wydajność urządzenie WUS
@@ -127,7 +131,7 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
 
 1. Aby przechwycić jednoczesne śledzenie sieci, uruchom następujące polecenie:
 
-   **W przypadku systemu Windows**
+   **Dla systemu Windows**
 
    polecenie netsh Trace Rozpocznij przechwytywanie = Yes TraceFile = c:\ server_IP. etl scenariusz = NetConnection
 
@@ -135,8 +139,8 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
 
    sudo tcpdump-S0-i eth0-X-w vmtrace. Cap
 
-2. Użyj **PsPing** lub **Nmap** ze źródłowej maszyny wirtualnej na docelowej maszynie wirtualnej (na przykład `PsPing 10.0.0.4:80` : `Nmap -p 80 10.0.0.4`lub).
-3. Otwórz ślad sieci z docelowej maszyny wirtualnej przy użyciu [Monitor sieci](https://www.microsoft.com/download/details.aspx?id=4865) lub tcpdump. Zastosuj filtr wyświetlania dla adresu IP źródłowej maszyny wirtualnej, z której uruchomiono **PsPing** lub **Nmap** , na `IPv4.address==10.0.0.4 (Windows netmon)` przykład `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` lub (Linux).
+2. Użyj **PsPing** lub **Nmap** ze źródłowej maszyny wirtualnej na docelowej maszynie wirtualnej (na przykład: `PsPing 10.0.0.4:80` lub `Nmap -p 80 10.0.0.4` ).
+3. Otwórz ślad sieci z docelowej maszyny wirtualnej przy użyciu [Monitor sieci](https://www.microsoft.com/download/details.aspx?id=4865) lub tcpdump. Zastosuj filtr wyświetlania dla adresu IP źródłowej maszyny wirtualnej, z której uruchomiono **PsPing** lub **Nmap** , na przykład `IPv4.address==10.0.0.4 (Windows netmon)` lub `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analizowanie śladów
 

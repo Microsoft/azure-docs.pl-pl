@@ -4,10 +4,9 @@ description: Dowiedz się, jak zainstalować lub zaktualizować rozszerzenia Azu
 ms.topic: reference
 ms.date: 09/26/2018
 ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75768864"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Ręczne instalowanie lub aktualizowanie Azure Functions powiązań z poziomu portalu
@@ -22,9 +21,9 @@ Wykonaj następujące kroki, aby ręcznie zainstalować lub zaktualizować rozsz
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź aplikację funkcji i wybierz ją. Wybierz kartę **Przegląd** i wybierz pozycję **Zatrzymaj**.  Zatrzymanie blokowania plików przez aplikację funkcji, aby można było wprowadzać zmiany.
 
-1. Wybierz kartę **funkcje platformy** i w obszarze **Narzędzia deweloperskie** wybierz pozycję **Narzędzia zaawansowane (kudu)**. Punkt końcowy kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) jest otwarty w nowym oknie.
+1. Wybierz kartę **funkcje platformy** i w obszarze **Narzędzia deweloperskie** wybierz pozycję **Narzędzia zaawansowane (kudu)**. Punkt końcowy kudu ( `https://<APP_NAME>.scm.azurewebsites.net/` ) jest otwarty w nowym oknie.
 
-1. W oknie kudu wybierz polecenie **Debuguj konsolę** > **cmd**.  
+1. W oknie kudu wybierz polecenie **Debuguj konsolę**  >  **cmd**.  
 
 1. W oknie wiersza polecenia przejdź do `D:\home\site\wwwroot` i wybierz ikonę Usuń obok pozycji `bin` Usuń folder. Wybierz **przycisk OK** , aby potwierdzić usunięcie.
 
@@ -32,7 +31,7 @@ Wykonaj następujące kroki, aby ręcznie zainstalować lub zaktualizować rozsz
 
 1. Wprowadź wymagane Dodatki i aktualizacje elementów **PackageReference** w **elemencie Items**, a następnie wybierz pozycję **Zapisz**. Aktualną listę obsługiwanych wersji pakietu można znaleźć w temacie [jakie pakiety są potrzebne?](https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions#what-nuget-packages-do-i-need) artykuł wiki. Wszystkie trzy powiązania usługi Azure Storage wymagają pakietu Microsoft. Azure. WebJobs. Extensions. Storage.
 
-1. W `wwwroot` folderze Uruchom następujące polecenie, aby ponownie skompilować przywoływane zestawy w `bin` folderze.
+1. `wwwroot`W folderze Uruchom następujące polecenie, aby ponownie skompilować przywoływane zestawy w `bin` folderze.
 
     ```cmd
     dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget

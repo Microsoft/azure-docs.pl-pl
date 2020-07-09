@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80892397"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
@@ -39,9 +38,9 @@ Aby uzyskać identyfikator obszaru roboczego analizy dzienników i klucz podstaw
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
 1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane** .
-1. Wybierz **połączone źródła** > **serwery z systemem Windows** (lub **serwery z systemem Linux**— identyfikator i klucze są takie same dla obu)
+1. Wybierz **połączone źródła**  >  **serwery z systemem Windows** (lub **serwery z systemem Linux**— identyfikator i klucze są takie same dla obu)
 1. Zwróć uwagę na następujące elementy:
-   * **WORKSPACE ID** (IDENTYFIKATOR OBSZARU ROBOCZEGO)
+   * **IDENTYFIKATOR OBSZARU ROBOCZEGO**
    * **PRIMARY KEY** (KLUCZ PODSTAWOWY)
 
 ## <a name="create-container-group"></a>Tworzenie grupy kontenerów
@@ -92,7 +91,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Następnie wykonaj następujące polecenie, aby wdrożyć grupę kontenerów. Zamień `myResourceGroup` na grupę zasobów w ramach subskrypcji (lub najpierw utwórz grupę zasobów o nazwie "Grupa zasobów"):
+Następnie wykonaj następujące polecenie, aby wdrożyć grupę kontenerów. Zamień na `myResourceGroup` grupę zasobów w ramach subskrypcji (lub najpierw utwórz grupę zasobów o nazwie "Grupa zasobów"):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -130,7 +129,7 @@ Należy zobaczyć kilka wyników wyświetlanych przez zapytanie. Jeśli pierwsze
 
 Dzienniki usługi Azure Monitor obejmują rozszerzony [język zapytań][query_lang] do ściągania informacji nawet z tysięcy wierszy danych wyjściowych dziennika.
 
-Podstawowa struktura zapytania jest tabelą źródłową (w tym artykule lub `ContainerInstanceLog_CL` `ContainerEvent_CL`), po której następuje seria operatorów oddzielonych znakiem potoku (`|`). Można połączyć kilka operatorów, aby dostosować wyniki i wykonać funkcje zaawansowane.
+Podstawowa struktura zapytania jest tabelą źródłową (w tym artykule `ContainerInstanceLog_CL` lub `ContainerEvent_CL` ), po której następuje seria operatorów oddzielonych znakiem potoku ( `|` ). Można połączyć kilka operatorów, aby dostosować wyniki i wykonać funkcje zaawansowane.
 
 Aby wyświetlić przykładowe wyniki zapytania, wklej następujące zapytanie do pola tekstowego zapytania, a następnie wybierz przycisk **Run (Uruchom** ), aby wykonać zapytanie. To zapytanie wyświetla wszystkie wpisy dziennika, których pole „Message” zawiera słowo "warn":
 
@@ -153,7 +152,7 @@ ContainerInstanceLog_CL
 
 Aby uzyskać więcej informacji dotyczących wykonywania zapytań dla dzienników i konfigurowania alertów w dziennikach usługi Azure Monitor, zobacz:
 
-* [Understanding log searches in Azure Monitor logs (Informacje o przeszukiwaniu dzienników w usłudze Azure Monitor)](../log-analytics/log-analytics-log-search.md)
+* [Informacje o przeszukiwaniu dzienników w dziennikach Azure Monitor](../log-analytics/log-analytics-log-search.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md) (Ujednolicone alerty na platformie Azure Monitor)
 
 

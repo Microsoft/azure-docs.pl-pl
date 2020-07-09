@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847861"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integracja z usługą Resource Manager za pomocą Service Fabric zarządzania klastrami
 Menedżer zasobów klastra Service Fabric nie ma na dysku uaktualnień w Service Fabric, ale jest to konieczne. Pierwszy sposób, w jaki klaster Menedżer zasobów pomaga zarządzać, to śledzenie żądanego stanu klastra i usług w nim. Klaster Menedżer zasobów wysyła raporty kondycji, gdy nie można umieścić klastra w żądanej konfiguracji. Na przykład jeśli nie ma wystarczającej pojemności, klaster Menedżer zasobów wysyła ostrzeżenia dotyczące kondycji i błędy wskazujące problem. Inna część integracji polega na tym, jak działają uaktualnienia. Klaster Menedżer zasobów nieco zmienia zachowanie podczas uaktualnień.  
@@ -18,7 +18,7 @@ Menedżer zasobów klastra Service Fabric nie ma na dysku uaktualnień w Service
 ## <a name="health-integration"></a>Integracja z kondycją
 Klaster Menedżer zasobów ciągle śledzi reguły zdefiniowane do umieszczania usług. Śledzi również pozostałe pojemności dla każdej metryki w węzłach i w klastrze oraz w klastrze jako całość. Jeśli nie można spełnić tych zasad lub jeśli jest za mało miejsca, są emitowane ostrzeżenia i błędy kondycji. Na przykład, jeśli węzeł przekracza pojemność, a klaster Menedżer zasobów podejmie próbę rozwiązania problemu przez przeniesienie usług. Jeśli nie można poprawić sytuacji, która emituje ostrzeżenie o kondycji wskazujące, który węzeł przekracza pojemność i dla których metryk.
 
-Innym przykładem ostrzeżeń dotyczących kondycji Menedżer zasobów są naruszenia ograniczeń umieszczania. Na przykład, jeśli zdefiniowano ograniczenie umieszczania (na przykład `“NodeColor == Blue”`), a Menedżer zasobów wykryje naruszenie tego ograniczenia, emituje ostrzeżenie o kondycji. Dotyczy to ograniczeń niestandardowych i ograniczeń domyślnych (takich jak domena błędów i ograniczenia domeny uaktualnienia).
+Innym przykładem ostrzeżeń dotyczących kondycji Menedżer zasobów są naruszenia ograniczeń umieszczania. Na przykład, jeśli zdefiniowano ograniczenie umieszczania (na przykład `“NodeColor == Blue”` ), a Menedżer zasobów wykryje naruszenie tego ograniczenia, emituje ostrzeżenie o kondycji. Dotyczy to ograniczeń niestandardowych i ograniczeń domyślnych (takich jak domena błędów i ograniczenia domeny uaktualnienia).
 
 Oto przykład tego raportu kondycji. W takim przypadku Raport kondycji dotyczy jednej z partycji usługi systemowej. Komunikat o kondycji wskazuje, że repliki tej partycji są tymczasowo pakowane na zbyt mało domen uaktualnienia.
 
@@ -68,7 +68,7 @@ Oto, co ten komunikat o kondycji informuje nas:
 2. Ograniczenie dystrybucji domeny uaktualnienia jest obecnie naruszane. Oznacza to, że określona domena uaktualnienia ma więcej replik z tej partycji niż powinna.
 3. Który węzeł zawiera replikę powodującą naruszenie. W tym przypadku jest to węzeł o nazwie "Node. 8"
 4. Czy uaktualnienie jest aktualnie wykonywane dla tej partycji ("aktualnie uaktualnia--false")
-5. Zasady dystrybucji dla tej usługi: "zasady dystrybucji--pakowanie". Podlega `RequireDomainDistribution` to [zasadom umieszczania](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Pakowanie" wskazuje, że w tym przypadku DomainDistribution _nie_ jest wymagany, dlatego wiemy, że zasady umieszczania nie zostały określone dla tej usługi. 
+5. Zasady dystrybucji dla tej usługi: "zasady dystrybucji--pakowanie". Podlega to `RequireDomainDistribution` [zasadom umieszczania](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Pakowanie" wskazuje, że w tym przypadku DomainDistribution _nie_ jest wymagany, dlatego wiemy, że zasady umieszczania nie zostały określone dla tej usługi. 
 6. Gdy raport wystąpił — 8/10/2015 7:13:02 PM
 
 Informacje, takie jak ta, umożliwiają zgłaszanie alertów w środowisku produkcyjnym informujących o niepowodzeniu i służy również do wykrywania i zatrzymania nieprawidłowych uaktualnień. W tym przypadku chcemy sprawdzić, czy w przypadku Menedżer zasobów należało spakować repliki do domeny uaktualnienia. Zwykle pakowanie jest przejściowe, ponieważ węzły w innych domenach uaktualnienia zostały wyłączone, na przykład.
@@ -122,7 +122,7 @@ W sytuacjach zaawansowanych można zmienić priorytety ograniczeń. Załóżmy n
 
 Domyślne wartości priorytetów dla różnych ograniczeń są określone w następującej konfiguracji:
 
-ClusterManifest. XML
+ClusterManifest.xml
 
 ```xml
         <Section Name="PlacementAndLoadBalancing">
@@ -135,7 +135,7 @@ ClusterManifest. XML
         </Section>
 ```
 
-za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych przez platformę Azure:
+za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych na platformie Azure:
 
 ```json
 "fabricSettings": [

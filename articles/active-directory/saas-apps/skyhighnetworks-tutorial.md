@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z sieciami SkyHigh | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i sieciami SkyHigh.
+title: 'Samouczek: integracja Azure Active Directory z usługą MVISION w chmurze Azure AD Logowanie jednokrotne | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i MVISION konfigurację logowania jednokrotnego w chmurze usługi Azure AD.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,99 +11,78 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 92f3f101807171e71d40171dfa2bd3f006363ae0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a519ab6558db95ecf86b7595dbbb13a970460043
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090389"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85806860"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Samouczek: integracja Azure Active Directory z sieciami SkyHigh
+# <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Samouczek: Integrowanie konfiguracji rejestracji jednokrotnej usługi Azure AD w chmurze MVISION z usługą Azure Active Directory
 
-W tym samouczku dowiesz się, jak zintegrować sieci SkyHigh z usługą Azure Active Directory (Azure AD).
-Integracja sieci SkyHigh z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować konfigurację SSO usługi Azure AD MVISION w chmurze z usługą Azure Active Directory (Azure AD). W przypadku integrowania konfiguracji usługi Azure AD SSO w chmurze MVISION z usługą Azure AD można:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do sieci SkyHigh.
-* Możesz umożliwić użytkownikom automatyczne logowanie do sieci SkyHigh (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do konfiguracji rejestracji jednokrotnej usługi Azure AD w chmurze MVISION.
+* Zezwól użytkownikom na automatyczne logowanie się w celu MVISION konfiguracji rejestracji jednokrotnej w chmurze usługi Azure AD przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z sieciami SkyHigh, potrzebne są następujące elementy:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z włączonym logowaniem jednokrotnym w sieci SkyHigh
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
+* MVISION chmurową subskrypcję usługi Azure AD Logowanie jednokrotne (SSO).
+
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Sieci SkyHigh obsługują usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* Konfiguracja logowania jednokrotnego w usłudze Azure AD w chmurze MVISION obsługuje usługi **SP i dostawcy tożsamości** zainicjowane przez usługę SSO
+* Po skonfigurowaniu usługi Dropbox można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-skyhigh-networks-from-the-gallery"></a>Dodawanie sieci SkyHigh z galerii
+## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Dodawanie konfiguracji usługi Azure AD SSO w chmurze MVISION z galerii
 
-Aby skonfigurować integrację sieci SkyHigh z usługą Azure AD, należy dodać sieci SkyHigh z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację konfiguracji rejestracji jednokrotnej usługi Azure AD w chmurze MVISION w usłudze Azure AD, musisz dodać konfigurację rejestracji jednokrotnej w chmurze MVISION usługi Azure AD z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać sieci SkyHigh z galerii, wykonaj następujące czynności:**
-
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
-
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
-
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
-
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
-
-4. W polu wyszukiwania wpisz **SkyHigh Networks**, wybierz pozycję **sieci SkyHigh** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
-
-     ![SkyHigh sieci na liście wyników](common/search-new-app.png)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **MVISION Cloud Azure AD SSO Configuration** w polu wyszukiwania.
+1. Wybierz pozycję **MVISION w chmurze konfiguracja logowania jednokrotnego usługi Azure AD** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD przy użyciu sieci SkyHigh w oparciu o użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w sieci SkyHigh.
+Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą konfiguracji usługi Azure AD SSO w chmurze MVISION przy użyciu użytkownika testowego o nazwie **Britta Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze MVISION Cloud Azure AD SSO Configuration.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu sieci SkyHigh, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą konfiguracji logowania jednokrotnego w chmurze usługi Azure AD, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-skyhigh-networks-single-sign-on)** jednokrotne w sieciach SkyHigh — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego sieci SkyHigh](#create-skyhigh-networks-test-user)** , aby uzyskać odpowiednik Britta Simon w sieciach SkyHigh, które są połączone z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
+    4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. Skonfiguruj konfigurację logowania jednokrotnego w **[chmurze usługi Azure AD](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** w usłudze MVISION, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego konfiguracji logowania jednokrotnego w usłudze Azure AD MVISION w chmurze](#create-mvision-cloud-azure-ad-sso-configuration-test-user)** , aby uzyskać odpowiednik Britta Simon w usłudze MVISION w chmurze konfiguracja logowania jednokrotnego usługi Azure AD, która jest połączona z reprezentacją użytkownika usługi Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu sieci SkyHigh, wykonaj następujące czynności:
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **usługi Datadog** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **sieci SkyHigh** wybierz pozycję **Logowanie jednokrotne**.
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
-
-    ![Informacje o rejestracji jednokrotnej w sieciach SkyHigh Networks i adresach URL](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
@@ -111,30 +90,21 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu sieci Sky
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Informacje o rejestracji jednokrotnej w sieciach SkyHigh Networks i adresach URL](common/metadata-upload-additional-signon.png)
+    ![MVISION w chmurze konfiguracja logowania jednokrotnego usługi Azure AD i adresy URL logowania jednokrotnego](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta sieci SkyHigh](mailto:support@skyhighnetworks.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej usługi Azure AD MVISION Cloud Configuration Client](mailto:support@skyhighnetworks.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-7. W sekcji **Konfigurowanie sieci SkyHigh** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. W sekcji Konfiguracja **usługi MVISION w chmurze Azure AD SSO** należy skopiować odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-    a. Adres URL logowania
-
-    b. Identyfikator usługi Azure AD
-
-    c. Adres URL wylogowywania
-
-### <a name="configure-skyhigh-networks-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w sieciach SkyHigh
-
-Aby skonfigurować Logowanie jednokrotne w **sieci SkyHigh** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z usługi Azure Portal do [sieci SkyHigh](mailto:support@skyhighnetworks.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -159,19 +129,19 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do sieci SkyHigh.
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do konfiguracji rejestracji jednokrotnej w chmurze usługi Azure AD.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **sieci SkyHigh**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję MVISION w **chmurze Azure AD SSO Configuration**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **sieci SkyHigh**.
+2. Na liście Aplikacje wybierz pozycję **MVISION Cloud Azure AD SSO Configuration**.
 
-    ![Link sieci SkyHigh na liście aplikacji](common/all-applications.png)
+    ![Link konfiguracja logowania jednokrotnego w usłudze Azure AD w chmurze MVISION na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -187,15 +157,21 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-skyhigh-networks-test-user"></a>Tworzenie użytkownika testowego sieci SkyHigh
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w sieci SkyHigh. Współpracuj z [zespołem pomocy technicznej SkyHigh Networks](mailto:support@skyhighnetworks.com) , aby dodać użytkowników z platformy sieci SkyHigh. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+## <a name="configure-mvision-cloud-azure-ad-sso-configuration-sso"></a>Konfigurowanie usługi MVISION w chmurze Azure AD SSO konfiguracja logowania jednokrotnego
 
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
+Aby skonfigurować Logowanie jednokrotne na stronie **Konfiguracja logowania jednokrotnego w usłudze Azure AD w chmurze MVISION** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [MVISION Cloud usługi Azure AD SSO Configuration support](mailto:support@skyhighnetworks.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+
+
+### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Tworzenie użytkownika testowego konfiguracji logowania jednokrotnego w usłudze Azure AD w chmurze MVISION
+
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w usłudze MVISION Cloud Azure AD SSO Configuration. Współpracuj z [zespołem pomocy technicznej usługi Azure AD MVISION w chmurze](mailto:support@skyhighnetworks.com) , aby dodać użytkowników z platformy konfiguracji usługi Azure AD rejestracji jednokrotnej w chmurze MVISION. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka sieci SkyHigh w panelu dostępu należy automatycznie zalogować się do sieci SkyHigh, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka konfiguracja logowania jednokrotnego usługi Azure AD w chmurze MVISION w panelu dostępu należy automatycznie zalogować się do konfiguracji usługi Azure AD rejestracji jednokrotnej w chmurze MVISION, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -203,4 +179,8 @@ Po kliknięciu kafelka sieci SkyHigh w panelu dostępu należy automatycznie zal
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Wypróbuj usługę MVISION w chmurze Azure AD SSO Configuration with Azure AD](https://aad.portal.azure.com/)
+
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

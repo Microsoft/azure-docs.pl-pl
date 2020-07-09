@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 9962d4333e458243670d1005ad2ccfbc0bb7c92a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75348912"
 ---
 # <a name="reliable-actors-state-management"></a>Zarządzanie stanem Reliable Actors
@@ -72,9 +71,9 @@ class MyActorImpl extends FabricActor implements MyActor
 To ustawienie powoduje użycie dostawcy stanu tylko w pamięci i ustawia liczbę replik na 1.
 
 ### <a name="defaults-and-generated-settings"></a>Ustawienia domyślne i wygenerowane
-Gdy używasz `StatePersistence` atrybutu, dostawca stanu jest automatycznie wybierany w czasie wykonywania, gdy usługa aktora zostanie uruchomiona. Liczba replik jest jednak ustawiana w czasie kompilacji przez narzędzia do tworzenia aktorów programu Visual Studio. Narzędzia kompilacji automatycznie generują *domyślną usługę* dla usługi aktora w ApplicationManifest. XML. Parametry są tworzone dla **minimalnej wielkości zestawu replik** i **docelowego rozmiaru zestawu replik**.
+Gdy używasz `StatePersistence` atrybutu, dostawca stanu jest automatycznie wybierany w czasie wykonywania, gdy usługa aktora zostanie uruchomiona. Liczba replik jest jednak ustawiana w czasie kompilacji przez narzędzia do tworzenia aktorów programu Visual Studio. Narzędzia kompilacji automatycznie generują *domyślną usługę* dla usługi aktora w ApplicationManifest.xml. Parametry są tworzone dla **minimalnej wielkości zestawu replik** i **docelowego rozmiaru zestawu replik**.
 
-Te parametry można zmienić ręcznie. Ale za każdym razem `StatePersistence` , gdy atrybut jest zmieniany, parametry są ustawiane na domyślne wartości rozmiaru zestawu replik dla `StatePersistence` wybranego atrybutu, zastępując wszystkie poprzednie wartości. Inaczej mówiąc, wartości ustawiane w pliku servicemanifest. XML są zastępowane w czasie kompilacji *tylko* wtedy, gdy zmieniasz `StatePersistence` wartość atrybutu.
+Te parametry można zmienić ręcznie. Ale za każdym razem `StatePersistence` , gdy atrybut jest zmieniany, parametry są ustawiane na domyślne wartości rozmiaru zestawu replik dla wybranego `StatePersistence` atrybutu, zastępując wszystkie poprzednie wartości. Innymi słowy, wartości ustawione w ServiceManifest.xml są zastępowane w czasie kompilacji *tylko* wtedy, gdy zmienisz `StatePersistence` wartość atrybutu.
 
 ```xml
 <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">

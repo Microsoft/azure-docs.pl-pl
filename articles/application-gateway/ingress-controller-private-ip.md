@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje na temat używania prywatnych adres
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73795491"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806799"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Używanie prywatnego adresu IP do routingu wewnętrznego dla punktu końcowego transferu danych przychodzących 
 
@@ -24,14 +24,14 @@ Application Gateway z [konfiguracją prywatnego adresu IP](https://docs.microsof
 Istnieją dwa sposoby konfigurowania kontrolera do korzystania z prywatnego adresu IP na potrzeby ruchu przychodzącego.
 
 ## <a name="assign-to-a-particular-ingress"></a>Przypisywanie do określonego ruchu przychodzącego
-Aby uwidocznić określony ruch przychodzący przez prywatny adres IP, [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) należy użyć adnotacji w danych wejściowych.
+Aby uwidocznić określony ruch przychodzący przez prywatny adres IP, należy użyć adnotacji [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) w danych wejściowych.
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-W przypadku bram aplikacji bez prywatnego adresu IP Ingresses z `appgw.ingress.kubernetes.io/use-private-ip: "true"` adnotacją zostanie zignorowane. Zostanie to wskazane w dzienniku zdarzeń przychodzących i AGIC pod.
+W przypadku bram aplikacji bez prywatnego adresu IP Ingresses z adnotacją `appgw.ingress.kubernetes.io/use-private-ip: "true"` zostanie zignorowane. Zostanie to wskazane w dzienniku zdarzeń przychodzących i AGIC pod.
 
 * Błąd, jak wskazano w zdarzeniu transferu danych przychodzących
 
@@ -51,9 +51,9 @@ W przypadku bram aplikacji bez prywatnego adresu IP Ingresses z `appgw.ingress.k
 
 
 ## <a name="assign-globally"></a>Przypisz globalnie
-W przypadku wymogu jest ograniczenie, że wszystkie Ingresses mają być udostępniane za pośrednictwem prywatnego `appgw.usePrivateIP: true` adresu `helm` IP. w tym celu należy użyć konfiguracji.
+W przypadku wymogu jest ograniczenie, że wszystkie Ingresses mają być udostępniane za pośrednictwem prywatnego adresu IP. w tym celu należy użyć `appgw.usePrivateIP: true` `helm` konfiguracji.
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 ```yaml
 appgw:
     subscriptionId: <subscriptionId>
@@ -63,7 +63,7 @@ appgw:
 ```
 
 Dzięki temu kontroler transferu danych przychodzących będzie przefiltrować konfiguracje adresów IP dla prywatnego adresu IP podczas konfigurowania odbiorników frontonu na Application Gateway.
-AGIC będzie awaryjnego i ulega awarii `usePrivateIP: true` , jeśli nie zostanie przypisany prywatny adres IP.
+AGIC będzie awaryjnego i ulega awarii, jeśli `usePrivateIP: true` nie zostanie przypisany prywatny adres IP.
 
 > [!NOTE]
 > Jednostka SKU Application Gateway v2 wymaga publicznego adresu IP. Jeśli potrzebujesz Application Gateway być prywatnym, Dołącz [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) do podsieci Application Gateway, aby ograniczyć ruch.

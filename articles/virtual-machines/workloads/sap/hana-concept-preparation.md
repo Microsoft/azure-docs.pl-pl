@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70101259"
 ---
 # <a name="disaster-recovery-principles"></a>Zasady odzyskiwania po awarii
@@ -64,7 +64,7 @@ Następnym krokiem jest zainstalowanie drugiego wystąpienia SAP HANA w jednostc
 
 - Wykonaj krok 2 przygotowania migawki magazynu opisanego w temacie [Tworzenie kopii zapasowych i przywracanie](hana-backup-restore.md).
 - Utwórz klucz publiczny dla jednostki usługi DR o dużej instancji platformy HANA, jeśli jeszcze tego nie zrobiono. Zobacz Krok 3 przygotowania migawki magazynu opisanego w temacie [Tworzenie kopii zapasowych i przywracanie](hana-backup-restore.md).
-- Zachowaj *HANABackupCustomerDetails. txt* z nowym wystąpieniem platformy Hana i sprawdź, czy połączenie z magazynem działa poprawnie.  
+- Zachowaj *HANABackupCustomerDetails.txt* przy użyciu nowego wystąpienia platformy Hana i sprawdź, czy połączenie z magazynem działa prawidłowo.  
 - Zatrzymaj nowo zainstalowane wystąpienie SAP HANA w jednostce usługi HANA duże wystąpienie w regionie odzyskiwania po awarii.
 - Odinstaluj te woluminy PRD i skontaktuj się SAP HANA w usłudze Azure Service Management. Woluminy nie mogą pozostać zainstalowane w jednostce, ponieważ nie mogą być dostępne podczas działania jako cel replikacji magazynu.  
 

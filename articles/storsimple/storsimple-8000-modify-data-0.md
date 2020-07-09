@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514615"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modyfikowanie ustawień interfejsu sieciowego DATA 0 na urządzeniu z serii StorSimple 8000
 
@@ -38,7 +38,7 @@ Po przeczytaniu tego samouczka będziesz mieć możliwość:
 Ustawienia sieciowe danych 0 można skonfigurować ponownie, łącząc się z interfejsem programu Windows PowerShell urządzenia StorSimple i uruchamiając sesję Kreatora instalacji. Wykonaj następujące kroki, aby zmodyfikować ustawienia DATA 0:
 
 #### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Aby zmodyfikować ustawienia sieci DATA 0 za poorednictwem Kreatora instalacji
-1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło to `Password1`.
+1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło to `Password1` .
 2. W wierszu polecenia wpisz polecenie:
    
     `Invoke-HcsSetupWizard`
@@ -51,7 +51,7 @@ Ustawienia sieciowe danych 0 można skonfigurować ponownie, łącząc się z in
 Alternatywny sposób zmiany konfiguracji interfejsu sieciowego danych 0 polega na użyciu `Set-HcsNetInterface` polecenia cmdlet. Polecenie cmdlet jest wykonywane z interfejsu programu Windows PowerShell urządzenia StorSimple. Korzystając z tej procedury, można również skonfigurować stałe adresy IP kontrolera. Wykonaj następujące kroki, aby zmodyfikować ustawienia DATA 0: 
 
 #### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Aby zmodyfikować ustawienia sieci DATA 0 za pomocą polecenia cmdlet Set-HcsNetInterface
-1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj hasło administratora urządzenia. Domyślne hasło to `Password1`.
+1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj hasło administratora urządzenia. Domyślne hasło to `Password1` .
 2. W wierszu polecenia wpisz polecenie:
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`

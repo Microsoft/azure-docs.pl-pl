@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ebf7086aba3e311bc595c6eafa4b2debdc32e7f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cbc13695610e8fe190793a7dc925a414f5da2e53
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118373"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207434"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
 

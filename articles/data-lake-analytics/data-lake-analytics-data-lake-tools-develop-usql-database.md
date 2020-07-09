@@ -6,15 +6,15 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: a81f623b3bca2877fce1a9aee7cd2dff6e44f37d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71309925"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117427"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Użyj projektu bazy danych U-SQL, aby utworzyć bazę danych U-SQL dla Azure Data Lake
 
@@ -54,7 +54,7 @@ Dla obiektu zestawu narzędzie zapewnia przyjazny dla użytkownika Edytor interf
  
 ## <a name="build-a-u-sql-database-project"></a>Kompilowanie projektu bazy danych U-SQL
 
-Dane wyjściowe kompilacji dla projektu bazy danych U-SQL są pakietem wdrożeniowym bazy danych U-SQL o nazwie z `.usqldbpack`sufiksem. `.usqldbpack` Pakiet jest plikiem ZIP, który zawiera wszystkie instrukcje języka DDL w jednym skrypcie U-SQL w folderze **DDL** oraz wszystkie biblioteki DLL i dodatkowe pliki dla zestawów w folderze **tymczasowym** .
+Dane wyjściowe kompilacji dla projektu bazy danych U-SQL są pakietem wdrożeniowym bazy danych U-SQL o nazwie z sufiksem `.usqldbpack` . `.usqldbpack`Pakiet jest plikiem ZIP, który zawiera wszystkie instrukcje języka DDL w jednym skrypcie U-SQL w folderze **DDL** oraz wszystkie biblioteki DLL i dodatkowe pliki dla zestawów w folderze **tymczasowym** .
 
 Dowiedz się więcej [na temat tworzenia projektu bazy danych U-SQL przy użyciu wiersza polecenia programu MSBuild i zadania kompilacji Azure DevOps Services](data-lake-analytics-cicd-overview.md).
 
@@ -91,7 +91,7 @@ Bazę danych U-SQL można wdrożyć za pomocą projektu bazy danych U-SQL lub pa
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Wdrażanie bazy danych U-SQL przy użyciu zestawu SDK
 
-`PackageDeploymentTool.exe`zapewnia programowanie i interfejsy wiersza polecenia, które ułatwiają wdrażanie baz danych U-SQL. Zestaw SDK jest zawarty w [pakiecie NuGet zestawu SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), który znajduje `build/runtime/PackageDeploymentTool.exe`się w lokalizacji.
+`PackageDeploymentTool.exe`zapewnia programowanie i interfejsy wiersza polecenia, które ułatwiają wdrażanie baz danych U-SQL. Zestaw SDK jest zawarty w [pakiecie NuGet zestawu SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), który znajduje się w lokalizacji `build/runtime/PackageDeploymentTool.exe` .
 
 [Dowiedz się więcej o zestawie SDK i sposobach konfigurowania potoku ciągłej integracji i ciągłego wdrażania bazy danych U-SQL](data-lake-analytics-cicd-overview.md).
 

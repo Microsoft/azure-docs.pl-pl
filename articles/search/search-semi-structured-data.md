@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: ce3b3839319de38020b968ff8db1ee6713b29c47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78269973"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85559021"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: indeksowanie obiektów BLOB JSON z usługi Azure Storage przy użyciu interfejsu REST
 
@@ -27,11 +27,11 @@ W tym samouczku jest używany program Poster i [interfejsy API REST wyszukiwania
 > * Konfigurowanie i uruchamianie indeksatora w celu odczytu kontenera i wyodrębnienia zawartości możliwej do przeszukania z usługi Azure Blob Storage
 > * Przeszukać utworzony indeks
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ [Usługa Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 + [Aplikacja klasyczna narzędzia Postman](https://www.getpostman.com/)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="download-files"></a>Pobieranie plików
 
-Plik [Clinical-Trials-JSON. zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) zawiera dane używane w tym samouczku. Pobierz i rozpakuj ten plik do własnego folderu. Dane pochodzą z [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konwertowane na format JSON dla tego samouczka.
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) zawiera dane używane w tym samouczku. Pobierz i rozpakuj ten plik do własnego folderu. Dane pochodzą z [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konwertowane na format JSON dla tego samouczka.
 
 ## <a name="1---create-services"></a>1 — Tworzenie usług
 
@@ -96,7 +96,7 @@ Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla ka
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+1. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
 ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
@@ -108,17 +108,17 @@ Uruchom narzędzie Postman i skonfiguruj żądanie HTTP. Jeśli nie znasz tego n
 
 Metody żądań dla każdego wywołania w tym samouczku są **ogłaszane** i **odbierane**. Aby utworzyć źródło danych, indeks i indeksator, należy wykonać trzy wywołania interfejsu API do usługi wyszukiwania. Źródło danych zawiera wskaźnik do konta magazynu i danych JSON. Usługa wyszukiwania nawiązuje połączenie podczas ładowania danych.
 
-W obszarze nagłówki ustaw wartość "Content-Type" `application/json` na wartość `api-key` i ustaw na klucz Admin API-Key usługi Azure wyszukiwanie poznawcze. Po ustawieniu nagłówków można używać ich dla każdego żądania w tym ćwiczeniu.
+W obszarze nagłówki ustaw wartość "Content-Type" na wartość `application/json` i ustaw `api-key` na klucz Admin API-Key usługi Azure wyszukiwanie poznawcze. Po ustawieniu nagłówków można używać ich dla każdego żądania w tym ćwiczeniu.
 
   ![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
 
-Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie powinno zwrócić **201**. Ogólnie dostępna wersja interfejsu API do korzystania z tablic JSON to `2019-05-06`.
+Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie powinno zwrócić **201**. Ogólnie dostępna wersja interfejsu API do korzystania z tablic JSON to `2020-06-30` .
 
 ## <a name="3---create-a-data-source"></a>3 — Tworzenie źródła danych
 
 [Interfejs API tworzenia źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) tworzy obiekt wyszukiwanie poznawcze platformy Azure, który określa, jakie dane mają być indeksowane.
 
-1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Zastąp element `[service name]` nazwą usługi wyszukiwania. 
+1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/datasources?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania. 
 
 1. Skopiuj poniższy kod JSON do treści żądania.
 
@@ -161,7 +161,7 @@ Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie 
     
 Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index), tworzenie indeksu wyszukiwanie poznawcze platformy Azure, w którym są przechowywane wszystkie dane z możliwością wyszukiwania. Indeks określa wszystkie parametry i ich atrybuty.
 
-1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw punkt końcowy tego wywołania `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
 1. Skopiuj poniższy kod JSON do treści żądania.
 
@@ -236,7 +236,7 @@ Drugie wywołanie to [Tworzenie interfejsu API indeksu](https://docs.microsoft.c
 
 Indeksator nawiązuje połączenie ze źródłem danych, importuje dane do docelowego indeksu wyszukiwania i opcjonalnie udostępnia harmonogram do automatyzowania odświeżania danych. Interfejs API REST służy do [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexers?api-version=2020-06-30` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
 1. Skopiuj poniższy kod JSON do treści żądania.
 
@@ -281,7 +281,7 @@ Możesz rozpocząć wyszukiwanie zaraz po załadowaniu pierwszego dokumentu.
 
 1. Zmień zlecenie, aby **uzyskać**.
 
-1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Zastąp element `[service name]` nazwą usługi wyszukiwania.
+1. Ustaw identyfikator URI dla tego wywołania `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true` . Zastąp element `[service name]` nazwą usługi wyszukiwania.
 
 1. Wyślij żądanie. Jest to nieokreślone zapytanie wyszukiwania pełnotekstowego, które zwraca wszystkie pola oznaczone jako możliwy do pobierania w indeksie oraz liczbę dokumentów. Odpowiedź powinna wyglądać następująco:
 
@@ -313,11 +313,11 @@ Możesz rozpocząć wyszukiwanie zaraz po załadowaniu pierwszego dokumentu.
             . . . 
     ```
 
-1. Dodaj parametr `$select` zapytania, aby ograniczyć wyniki do mniejszej liczby pól `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`:.  W przypadku tego zapytania 100 dokumenty są zgodne, ale domyślnie usługa Azure Wyszukiwanie poznawcze zwraca wartość 50 w wynikach.
+1. Dodaj `$select` parametr zapytania, aby ograniczyć wyniki do mniejszej liczby pól: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  W przypadku tego zapytania 100 dokumenty są zgodne, ale domyślnie usługa Azure Wyszukiwanie poznawcze zwraca wartość 50 w wynikach.
 
    ![Zapytanie sparametryzowane](media/search-semi-structured-data/lastquery.png "Paramterized zapytanie")
 
-1. Przykładem bardziej złożonej kwerendy może być `$filter=MinimumAge ge 30 and MaximumAge lt 75`funkcja, która zwraca tylko wyniki, w przypadku których minimalny stopień ważności parametrów jest większy lub równy 30, a wartość maksymalna jest mniejsza niż 75. Zamień `$select` wyrażenie na `$filter` wyrażenie.
+1. Przykładem bardziej złożonej kwerendy może być `$filter=MinimumAge ge 30 and MaximumAge lt 75` Funkcja, która zwraca tylko wyniki, w przypadku których minimalny stopień ważności parametrów jest większy lub równy 30, a wartość maksymalna jest mniejsza niż 75. Zamień `$select` wyrażenie na `$filter` wyrażenie.
 
    ![Wyszukiwanie częściowo ustrukturyzowane](media/search-semi-structured-data/metadatashort.png)
 
@@ -333,7 +333,7 @@ W przypadku wczesnych eksperymentalnych etapów tworzenia najlepszym podejściem
 Możesz użyć portalu, aby usunąć indeksy, indeksatory i źródła danych. Lub Użyj **Usuń** i podaj adresy URL do każdego obiektu. Następujące polecenie usuwa indeksator.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 W przypadku pomyślnego usunięcia jest zwracany kod stanu 204.

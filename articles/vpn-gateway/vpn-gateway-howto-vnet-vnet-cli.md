@@ -5,15 +5,14 @@ services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e93bae91827b2807ef577d7659924a5d37454fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834573"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987114"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -23,7 +22,7 @@ Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Narzędzia](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Łączenie różnych modeli wdrażania — witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -292,7 +291,7 @@ Podczas tworzenia dodatkowych połączeń, ważne jest, by sprawdzić, czy przes
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Krok 7 — Tworzenie i konfigurowanie sieci TestVNet5
 
-Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji. Aby przełączać się `az account list --all` między subskrypcjami, użyj, aby wyświetlić listę subskrypcji dostępnych `az account set --subscription <subscriptionID>` dla Twojego konta, a następnie użyj opcji, aby przełączyć się na subskrypcję, której chcesz użyć.
+Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji. Aby przełączać się między subskrypcjami `az account list --all` , użyj, aby wyświetlić listę subskrypcji dostępnych dla Twojego konta, a następnie użyj opcji, `az account set --subscription <subscriptionID>` Aby przełączyć się na subskrypcję, której chcesz użyć.
 
 1. Upewnij się, czy nastąpiło połączenie z Subskrypcją 5, a następnie utwórz grupę zasobów.
 
@@ -331,7 +330,7 @@ Ten krok należy wykonać w kontekście nowej subskrypcji (Subskrypcja 5). Tę c
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Krok 8 — Tworzenie połączeń
 
-Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozbicie na dwie sesje interfejsu wiersza polecenia oznaczone jako **[Subskrypcja 1]** i **[Subskrypcja 5]**. Aby przełączać się `az account list --all` między subskrypcjami, użyj, aby wyświetlić listę subskrypcji dostępnych `az account set --subscription <subscriptionID>` dla Twojego konta, a następnie użyj opcji, aby przełączyć się na subskrypcję, której chcesz użyć.
+Ze względu na to, że bramy należą do różnych subskrypcji, zastosowano rozbicie na dwie sesje interfejsu wiersza polecenia oznaczone jako **[Subskrypcja 1]** i **[Subskrypcja 5]**. Aby przełączać się między subskrypcjami `az account list --all` , użyj, aby wyświetlić listę subskrypcji dostępnych dla Twojego konta, a następnie użyj opcji, `az account set --subscription <subscriptionID>` Aby przełączyć się na subskrypcję, której chcesz użyć.
 
 1. **[Subskrypcja 1]** Zaloguj się i połącz z Subskrypcją 1. Uruchom następujące polecenie, aby uzyskać nazwę i identyfikator bramy z danych wyjściowych:
 

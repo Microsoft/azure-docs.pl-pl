@@ -2,13 +2,12 @@
 title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718329"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -48,7 +47,7 @@ Obsługiwane typy plików | Kopie zapasowe tych typów plików można wykonać p
 Nieobsługiwane typy plików | Serwery w systemach plików z uwzględnieniem wielkości liter; twarde linki (pomijane); punkty ponownej analizy (pominięte); zaszyfrowane i skompresowane (pomijane); zaszyfrowane i rozrzedzone (pomijane); Strumień skompresowany; Przeanalizuj strumień.
 Magazyn lokalny | Każdy komputer, którego kopia zapasowa ma zostać utworzona, musi mieć lokalne wolne miejsce, co najmniej 5% rozmiaru danych, których kopia zapasowa jest tworzona. Na przykład kopia zapasowa 100 GB danych wymaga co najmniej 5 GB wolnego miejsca w lokalizacji tymczasowej.
 Magazyn magazynu | Nie ma limitu ilości danych, do których można utworzyć kopię zapasową w magazynie Azure Backup, ale rozmiar źródła danych (na przykład maszyny wirtualnej lub bazy danych) nie powinien przekraczać 54 400 GB.
-Azure ExpressRoute | Jeśli usługa Azure ExpressRoute jest skonfigurowana za pomocą komunikacji równorzędnej prywatnej lub firmy Microsoft, nie można jej używać do tworzenia kopii zapasowych danych na platformie Azure.<br/><br/> Jeśli usługa Azure ExpressRoute jest skonfigurowana z publicznej komunikacji równorzędnej, może służyć do tworzenia kopii zapasowych danych na platformie Azure.<br/><br/> **Uwaga:** Publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
+Azure ExpressRoute | Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRoute za pomocą publicznej komunikacji równorzędnej (dostępne dla starych obwodów) i komunikacji równorzędnej firmy Microsoft. Tworzenie kopii zapasowej za pośrednictwem prywatnej komunikacji równorzędnej nie jest obsługiwane.<br/><br/> **Przy użyciu publicznej komunikacji równorzędnej**: Upewnij się, że dostęp do następujących domen/adresów:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **W przypadku komunikacji równorzędnej firmy Microsoft**wybierz następujące usługi/regiony i odpowiednie wartości społeczności:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure region (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>— Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)<br/><br/>Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Uwaga**: publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
 Agent usługi Azure Backup | Jeśli program DPM jest uruchomiony w programie System Center 2012 SP1, zainstaluj pakiet zbiorczy 2 lub nowszy dla programu DPM z dodatkiem SP1. Jest to wymagane na potrzeby instalacji agenta.<br/><br/> W tym artykule opisano sposób wdrażania najnowszej wersji agenta Azure Backup, znanego również jako Agent usługi odzyskiwania Microsoft Azure (MARS). Jeśli wdrożono wcześniejszą wersję, należy ją zaktualizować do najnowszej wersji, aby upewnić się, że kopia zapasowa działa zgodnie z oczekiwaniami.
 
 Przed rozpoczęciem musisz mieć konto platformy Azure z włączoną funkcją Azure Backup. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Przeczytaj o [cenach Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -103,9 +102,9 @@ Pobierz plik poświadczeń magazynu na komputer lokalny w następujący sposób:
 
     ![Otwieranie menu magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. W oknie **Właściwości** > **poświadczenia kopii zapasowej**kliknij pozycję **Pobierz**. Portal generuje plik poświadczeń magazynu przy użyciu kombinacji nazwy magazynu i bieżącej daty i udostępnia je do pobrania.
+4. W oknie **Właściwości**  >  **poświadczenia kopii zapasowej**kliknij pozycję **Pobierz**. Portal generuje plik poświadczeń magazynu przy użyciu kombinacji nazwy magazynu i bieżącej daty i udostępnia je do pobrania.
 
-    ![Pliki do pobrania](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Pobierz](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 5. Kliknij przycisk **Zapisz** , aby pobrać poświadczenia magazynu do folderu lub **Zapisz jako** i określ lokalizację. Wygenerowanie pliku będzie trwać do minuty.
 
@@ -119,15 +118,15 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
     ![Otwieranie menu magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na stronie **Właściwości** pobierz agenta Azure Backup.
 
-    ![Pliki do pobrania](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Pobierz](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-4. Po pobraniu Uruchom program plik marsagentinstaller. exe. Aby zainstalować agenta na komputerze DPM.
+4. Po pobraniu Uruchom MARSAgentInstaller.exe. Aby zainstalować agenta na komputerze DPM.
 5. Wybierz folder instalacyjny i folder pamięci podręcznej agenta. Ilość wolnego miejsca w lokalizacji pamięci podręcznej musi wynosić co najmniej 5% danych kopii zapasowej.
 6. Jeśli używasz serwera proxy do łączenia się z Internetem, na ekranie **Konfiguracja serwera proxy** wprowadź szczegóły serwera proxy. Jeśli używasz uwierzytelnionego serwera proxy, wprowadź nazwę użytkownika i hasło na tym ekranie.
 7. Agent Azure Backup instaluje .NET Framework 4,5 i Windows PowerShell (jeśli nie są zainstalowane), aby zakończyć instalację.
 8. Po zainstalowaniu agenta **Zamknij** okno.
 
-    ![Zamykanie](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![Zamknij](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Rejestrowanie serwera DPM w magazynie
 

@@ -4,10 +4,9 @@ description: Jak usunąć zestaw Application Insights SDK dla ASP.NET i ASP.NET 
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1c9ff8d3d305645ac7d113421e2c6c5f8451bd2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80805107"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Jak usunąć Application Insights w programie Visual Studio
@@ -49,7 +48,7 @@ Aby usunąć Application Insights, należy usunąć pakiety NuGet i odwołania z
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. W *Eksplorator rozwiązań* po prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie** i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
+1. W *Eksplorator rozwiązań*po   prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie**   i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
     Zobaczysz ekran, który umożliwia edytowanie wszystkich pakietów NuGet, które są częścią projektu.
     
@@ -58,9 +57,9 @@ Aby usunąć Application Insights, należy usunąć pakiety NuGet i odwołania z
     > [!NOTE]
     > Jeśli kolekcja śledzenia jest włączona, należy najpierw odinstalować program Microsoft. ApplicationInsights. TraceListener bez zaznaczenia opcję Usuń zależności, a następnie wykonać poniższe kroki, aby odinstalować program Microsoft. ApplicationInsights. Web z wybraną opcją Usuń zależności.
     
-1. Kliknij pakiet "Microsoft. ApplicationInsights. Web".Po prawej stronie zaznacz pole wyboru obok pozycji *projekt* , aby wybrać wszystkie projekty.
+1. Kliknij pakiet "Microsoft. ApplicationInsights. Web".Po prawej stronie zaznacz pole wyboru obok pozycji *projekt*   , aby wybrać wszystkie projekty.
     
-1. Aby usunąć wszystkie zależności podczas odinstalowywania, wybierz przycisk listy rozwijanej **Opcje** poniżej sekcji, w której został wybrany projekt.
+1. Aby usunąć wszystkie zależności podczas odinstalowywania, wybierz **Options**   przycisk listy rozwijanej opcje poniżej sekcji, w której został wybrany projekt.
 
     W obszarze *Opcje dezinstalacji*zaznacz pole wyboru obok pozycji *Usuń zależności*.
 
@@ -68,15 +67,15 @@ Aby usunąć Application Insights, należy usunąć pakiety NuGet i odwołania z
     
     ![Zaznacz Usuń zależności, a następnie Odinstaluj](./media/remove-application-insights/uninstall-framework.png)
 
-    Zostanie wyświetlone okno dialogowe, w którym zostaną wyświetlone wszystkie zależności, które mają zostać usunięte z aplikacji.Wybierz **przycisk OK** , aby odinstalować.
+    Zostanie wyświetlone okno dialogowe, w którym zostaną wyświetlone wszystkie zależności, które mają zostać usunięte z aplikacji.Wybierz **przycisk OK**   , aby odinstalować.
     
     ![Zaznacz Usuń zależności, a następnie Odinstaluj](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  Po odinstalowaniu wszystkiego w *Eksplorator rozwiązań*nadal mogą być widoczne "ApplicationInsights. config" i "AiHandleErrorAttribute.cs".Te dwa pliki można usunąć ręcznie.
+1.  Po odinstalowaniu wszystkiego w *Eksplorator rozwiązań*mogą być widoczne "ApplicationInsights.config" i "AiHandleErrorAttribute.cs".Te dwa pliki można usunąć ręcznie.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. W *Eksplorator rozwiązań* po prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie** i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
+1. W *Eksplorator rozwiązań*po   prawej stronie kliknij prawym przyciskiem myszy **rozwiązanie**   i wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
 
     Zobaczysz ekran, który umożliwia edytowanie wszystkich pakietów NuGet, które są częścią projektu.
 
@@ -107,7 +106,7 @@ Dodano następujące fragmenty kodu:
      <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
     ```
 
-- Packages. config
+- Packages.config
 
     ```xml
     <packages>
@@ -155,7 +154,7 @@ Dodano następujące fragmenty kodu:
     </head>
     ```
 
-- Usługę połączoną. JSON
+- ConnectedService.jsna
 
     ```json
     {
@@ -197,14 +196,14 @@ Po dodaniu telemetria usługi Application Insights do projektu szablonu ASP.NET 
       </ItemGroup>
     ```
 
-- AppSettings. JSON:
+- Appsettings.js:
 
     ```json
     "ApplicationInsights": {
         "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
     ```
 
-- Usługę połączoną. JSON
+- ConnectedService.jsna
     
     ```json
     {

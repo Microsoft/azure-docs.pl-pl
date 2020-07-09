@@ -1,10 +1,9 @@
 ---
-title: Konfigurowanie odbiorników grup dostępności & module równoważenia obciążenia (PowerShell)
+title: Konfigurowanie odbiorników grup dostępności i modułu równoważenia obciążenia (PowerShell)
 description: Skonfiguruj odbiorniki grup dostępności w modelu Azure Resource Manager przy użyciu wewnętrznego modułu równoważenia obciążenia z co najmniej jednym adresem IP.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,27 +13,25 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 63f8c9a1e47c5885132cb4a613924e9f1ed81166
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 8f2a2ecb499a88ac8e33b6d281ccde4e5adffebd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049323"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669392"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Skonfiguruj co najmniej jeden odbiornik grupy dostępności — Menedżer zasobów
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+W tym dokumencie przedstawiono sposób użycia programu PowerShell w celu wykonania jednego z następujących zadań:
+- Tworzenie modułu równoważenia obciążenia
+- Dodaj adresy IP do istniejącego modułu równoważenia obciążenia dla SQL Server grup dostępności.
 
-W tym temacie pokazano, jak:
+Odbiornik grupy dostępności to nazwa sieci wirtualnej, z którą łączą się klienci w celu uzyskania dostępu do bazy danych. W usłudze Azure Virtual Machines moduł równoważenia obciążenia przechowuje adres IP odbiornika. Moduł równoważenia obciążenia kieruje ruch do wystąpienia SQL Server, które nasłuchuje na porcie sondy. Zwykle Grupa dostępności używa wewnętrznego modułu równoważenia obciążenia. Wewnętrzny moduł równoważenia obciążenia platformy Azure może obsługiwać jeden lub wiele adresów IP. Każdy adres IP używa określonego portu sondowania. 
 
-* Utwórz wewnętrzny moduł równoważenia obciążenia dla SQL Server grup dostępności przy użyciu poleceń cmdlet programu PowerShell.
-* Dodaj dodatkowe adresy IP do modułu równoważenia obciążenia dla więcej niż jednej grupy dostępności. 
+Możliwość przypisania wielu adresów IP do wewnętrznego modułu równoważenia obciążenia jest nowa na platformie Azure i jest dostępna tylko w modelu Menedżer zasobów. Aby wykonać to zadanie, należy mieć SQL Server grupę dostępności wdrożoną na platformie Azure Virtual Machines w modelu Menedżer zasobów. Obie SQL Server maszyny wirtualne muszą należeć do tego samego zestawu dostępności. Możesz użyć [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md) , aby automatycznie utworzyć grupę dostępności w Azure Resource Manager. Ten szablon automatycznie tworzy grupę dostępności wraz z wewnętrznym modułem równoważenia obciążenia. Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności zawsze włączona](availability-group-manually-configure-tutorial.md).
 
-Odbiornik grupy dostępności to nazwa sieci wirtualnej, z którą łączą się klienci w celu uzyskania dostępu do bazy danych. W usłudze Azure Virtual Machines moduł równoważenia obciążenia przechowuje adres IP odbiornika. Moduł równoważenia obciążenia kieruje ruch do wystąpienia SQL Server, które nasłuchuje na porcie sondy. Zwykle Grupa dostępności używa wewnętrznego modułu równoważenia obciążenia. Wewnętrzny moduł równoważenia obciążenia platformy Azure może obsługiwać jeden lub wiele adresów IP. Każdy adres IP używa określonego portu sondowania. W tym dokumencie pokazano, jak utworzyć moduł równoważenia obciążenia przy użyciu programu PowerShell lub dodać adresy IP do istniejącego modułu równoważenia obciążenia dla SQL Server grup dostępności. 
-
-Możliwość przypisania wielu adresów IP do wewnętrznego modułu równoważenia obciążenia jest nowa na platformie Azure i jest dostępna tylko w modelu Menedżer zasobów. Aby wykonać to zadanie, należy mieć SQL Server grupę dostępności wdrożoną na maszynach wirtualnych platformy Azure w modelu Menedżer zasobów. Obie SQL Server maszyny wirtualne muszą należeć do tego samego zestawu dostępności. Możesz użyć [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md) , aby automatycznie utworzyć grupę dostępności w Azure Resource Manager. Ten szablon automatycznie tworzy grupę dostępności wraz z wewnętrznym modułem równoważenia obciążenia. Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności zawsze włączona](availability-group-manually-configure-tutorial.md).
-
-Ten temat wymaga, aby grupy dostępności zostały już skonfigurowane.  
+Aby wykonać kroki opisane w tym artykule, Twoje grupy dostępności muszą być już skonfigurowane.  
 
 Tematy pokrewne obejmują:
 
@@ -67,7 +64,7 @@ Bieżący [szablon firmy Microsoft](availability-group-azure-marketplace-templat
 
    > [!NOTE]
    > Jeśli używasz standardowego modułu równoważenia obciążenia i usługi Azure Storage dla monitora chmury, musisz skonfigurować [punkt końcowy usługi](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) . 
-
+   > 
 
 W przykładach w tym artykule określono moduł równoważenia obciążenia w warstwie Standardowa. W przykładach skrypt zawiera `-sku Standard` .
 
@@ -86,7 +83,7 @@ $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $
 > [!NOTE]
 > Jeśli grupa dostępności została utworzona przy użyciu [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md), wewnętrzna usługa równoważenia obciążenia została już utworzona.
 
-Poniższy skrypt programu PowerShell tworzy wewnętrzny moduł równoważenia obciążenia, konfiguruje reguły równoważenia obciążenia i ustawia adres IP dla modułu równoważenia obciążenia. Aby uruchomić skrypt, Otwórz Windows PowerShell ISE i wklej skrypt w okienku Skrypt. Użyj polecenia `Connect-AzAccount` , aby zalogować się do programu PowerShell. Jeśli masz wiele subskrypcji platformy Azure, użyj, `Select-AzSubscription` Aby ustawić subskrypcję. 
+Poniższy skrypt programu PowerShell tworzy wewnętrzny moduł równoważenia obciążenia, konfiguruje reguły równoważenia obciążenia i ustawia adres IP dla modułu równoważenia obciążenia. Aby uruchomić skrypt, Otwórz Windows PowerShell ISE, a następnie wklej skrypt w okienku Skrypt. Użyj polecenia `Connect-AzAccount` , aby zalogować się do programu PowerShell. Jeśli masz wiele subskrypcji platformy Azure, użyj, `Select-AzSubscription` Aby ustawić subskrypcję. 
 
 ```powershell
 # Connect-AzAccount
@@ -137,6 +134,7 @@ foreach($VMName in $VMNames)
 ```
 
 ## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>Przykładowy skrypt: Dodawanie adresu IP do istniejącego modułu równoważenia obciążenia za pomocą programu PowerShell
+
 Aby użyć więcej niż jednej grupy dostępności, należy dodać dodatkowy adres IP do modułu równoważenia obciążenia. Każdy adres IP wymaga własnej reguły równoważenia obciążenia, portu sondowania i portu frontonu.
 
 Port frontonu to port używany przez aplikacje do łączenia się z wystąpieniem SQL Server. Adresy IP dla różnych grup dostępności mogą korzystać z tego samego portu frontonu.
@@ -196,17 +194,17 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Uruchom SQL Server Management Studio i Połącz się z repliką podstawową.
 
-1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  |  **Availability Groups**  |  **Availability Group Listeners**. 
+1. Przejdź do funkcji AlwaysOn grup dostępności dla grup dostępności **o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners**. 
 
-1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i kliknij polecenie **Właściwości**.
+1. Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. Kliknij prawym przyciskiem myszy nazwę odbiornika i wybierz pozycję **Właściwości**.
 
-1. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie kliknij przycisk **OK**.
+1. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie wybierz **przycisk OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testowanie połączenia z odbiornikiem
 
 Aby przetestować połączenie:
 
-1. Protokół RDP do SQL Server znajdującego się w tej samej sieci wirtualnej, ale nie jest to replika. Może to być inne SQL Server w klastrze.
+1. Użyj Remote Desktop Protocol (RDP), aby połączyć się z SQL Server, który znajduje się w tej samej sieci wirtualnej, ale nie jest to replika. Może to być inne SQL Server w klastrze.
 
 1. Przetestuj połączenie przy użyciu narzędzia **sqlcmd** . Na przykład poniższy skrypt ustanawia połączenie **sqlcmd** z repliką podstawową za pomocą odbiornika z uwierzytelnianiem systemu Windows:
    
@@ -223,24 +221,29 @@ Aby przetestować połączenie:
 Połączenie SQLCMD jest automatycznie nawiązywane z niezależnym wystąpieniem SQL Server hostuje replikę podstawową. 
 
 > [!NOTE]
-> Upewnij się, że określony port jest otwarty na zaporze obu serwerów SQL. Oba serwery wymagają reguły ruchu przychodzącego dla używanego portu TCP. Aby uzyskać więcej informacji [, zobacz Dodawanie lub Edytowanie reguły zapory](https://technet.microsoft.com/library/cc753558.aspx) . 
-> 
+> Upewnij się, że określony port jest otwarty na zaporze obu serwerów SQL. Oba serwery wymagają reguły ruchu przychodzącego dla używanego portu TCP. Aby uzyskać więcej informacji, zobacz [Dodawanie lub Edytowanie reguły zapory](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Wytyczne i ograniczenia
+
 Zwróć uwagę na następujące wytyczne dotyczące odbiornika grupy dostępności na platformie Azure przy użyciu wewnętrznego modułu równoważenia obciążenia:
 
 * W przypadku wewnętrznego modułu równoważenia obciążenia dostęp do odbiornika można uzyskać tylko w ramach tej samej sieci wirtualnej.
 
-* W przypadku ograniczania dostępu za pomocą grupy zabezpieczeń sieci platformy Azure upewnij się, że reguły zezwalania zawierają SQL Server adresy IP maszyny wirtualnej, a moduł równoważenia obciążenia — adresy IP dla odbiornika AG i podstawowy adres IP klastra, jeśli ma zastosowanie.
+* W przypadku ograniczania dostępu za pomocą grupy zabezpieczeń sieci platformy Azure upewnij się, że reguły zezwalania obejmują:
+  - Zaplecze SQL Server adresy IP maszyny wirtualnej
+  - Przestawne adresy IP modułu równoważenia obciążenia dla odbiornika AG
+  - Podstawowy adres IP klastra, jeśli ma zastosowanie.
 
 * Utwórz punkt końcowy usługi przy użyciu standardowego modułu równoważenia obciążenia z usługą Azure Storage dla monitora chmury. Aby uzyskać więcej informacji, zobacz [udzielanie dostępu z sieci wirtualnej](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Więcej informacji
+
 Aby uzyskać więcej informacji, zobacz [Ręczne konfigurowanie zawsze włączonych grup dostępności na maszynie wirtualnej platformy Azure](availability-group-manually-configure-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Polecenia cmdlet programu PowerShell
-Użyj następujących poleceń cmdlet programu PowerShell, aby utworzyć wewnętrzny moduł równoważenia obciążenia dla maszyn wirtualnych platformy Azure.
+
+Użyj następujących poleceń cmdlet programu PowerShell, aby utworzyć wewnętrzny moduł równoważenia obciążenia dla Virtual Machines platformy Azure.
 
 * [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) tworzy moduł równoważenia obciążenia. 
 * [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) tworzy konfigurację adresu IP frontonu dla modułu równoważenia obciążenia. 

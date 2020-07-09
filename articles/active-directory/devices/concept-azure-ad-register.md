@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67462761"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554870"
 ---
 # <a name="azure-ad-registered-devices"></a>Urządzenia zarejestrowane w usłudze Azure AD
 
 Celem zarejestrowanych urządzeń usługi Azure AD jest zapewnienie użytkownikom pomocy technicznej na potrzeby scenariuszy przynoszenia własnych urządzeń (BYOD) lub urządzeń przenośnych. W tych scenariuszach użytkownik może uzyskać dostęp do Azure Active Directory kontrolowanych zasobów organizacji przy użyciu urządzenia osobistego.
 
-|   | Zarejestrowane usługi Azure AD |
+| Zarejestrowane usługi Azure AD | Opis |
 | --- | --- |
 | **Definicja** | Zarejestrowano w usłudze Azure AD bez konieczności logowania się na urządzeniu przy użyciu konta organizacyjnego |
 | **Odbiorcy podstawowe** | Dotyczy wszystkich użytkowników z następującymi kryteriami: |

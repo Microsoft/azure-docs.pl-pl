@@ -3,12 +3,12 @@ title: Przegląd Service Health | Microsoft Docs
 description: Spersonalizowane informacje o tym, w jaki sposób aplikacje platformy Azure wpływają na bieżące i przyszłe problemy z usługą i konserwację platformy Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563420"
 ---
 # <a name="service-health-overview"></a>Przegląd Service Health
 
@@ -21,7 +21,7 @@ Service Health śledzi cztery typy zdarzeń dotyczących kondycji, które mogą 
 1. **Problemy z usługą** — problemy z usługami platformy Azure, które już teraz mają wpływ. 
 2. **Planowana konserwacja** — nadchodząca konserwacja, która może mieć wpływ na dostępność usług w przyszłości.  
 3. **Klasyfikatory kondycji** — zmiany w usługach platformy Azure, które wymagają Twojej uwagi. Przykłady obejmują przestarzałe funkcje platformy Azure lub wymagania dotyczące uaktualniania (np. uaktualnienie do obsługiwanej struktury PHP).
-4. **Klasyfikatory zabezpieczeń (wersja zapoznawcza)** — powiadomienia dotyczące zabezpieczeń, które mogą mieć wpływ na dostępność usług platformy Azure.
+4. **Klasyfikatory zabezpieczeń** — powiadomienia dotyczące zabezpieczeń lub naruszenia, które mogą mieć wpływ na dostępność usług platformy Azure.
 
 > [!NOTE]
 > Aby wyświetlać zdarzenia Service Health, użytkownicy muszą mieć [przydaną rolę czytelnika](../role-based-access-control/role-assignments-portal.md) w ramach subskrypcji.
@@ -36,11 +36,11 @@ Aby uruchomić Pulpit nawigacyjny Service Health, wybierz kafelek Service Health
 
 W widoku **problemy dotyczące usługi** są wyświetlane wszystkie bieżące problemy dotyczące usług platformy Azure, które mają wpływ na zasoby. Można zrozumieć, kiedy problem pojawił się i jakie usługi i regiony mają wpływ. Możesz również przeczytać najnowszą aktualizację, aby zrozumieć, co platforma Azure wykonuje, aby rozwiązać ten problem. 
 
-![Zarządzanie problemem z usługą](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Zarządzanie problemem z usługą](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 Wybierz kartę **potencjalny wpływ** , aby wyświetlić konkretną listę zasobów, które mogą mieć wpływ na problem. Możesz pobrać listę woluminów CSV tych zasobów do udostępnienia zespołowi.
 
-![Zarządzanie problemem z usługą](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Zarządzanie problemem z usługą](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>Zobacz pojawiające się problemy, które mogą mieć wpływ na usługi
 
@@ -52,7 +52,7 @@ Istnieją sytuacje, w których można opublikować rozległe problemy z usługą
 
 Możesz uzyskać link do problemu, który będzie używany w systemie zarządzania problemami. Możesz pobrać plik PDF i czasami pliki CSV, aby udostępnić je osobom, które nie mają dostępu do Azure Portal.   
 
-![Zarządzanie problemem z usługą — Zarządzanie problemami](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Zarządzanie problemem z usługą — Zarządzanie problemami](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## <a name="get-support-from-microsoft"></a>Uzyskaj pomoc techniczną od firmy Microsoft
 
@@ -62,7 +62,7 @@ Skontaktuj się z pomocą techniczną, jeśli zasób jest pozostawiony w niepraw
 
 Filtruj Service Health, aby wyświetlić krytyczne subskrypcje, regiony i typy zasobów firmy. Zapisz filtr i przypnij spersonalizowaną mapę kondycji na świecie do pulpitu nawigacyjnego portalu. 
 
-![Filtruj spersonalizowaną mapę kondycji](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Filtruj spersonalizowaną mapę kondycji](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Przypinanie spersonalizowanej mapy kondycji](./media/service-health-overview/azure-service-health-overview-6b.png)
 

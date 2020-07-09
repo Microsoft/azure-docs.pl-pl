@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437450"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203864"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego w Azure Active Directory B2C zasad niestandardowych
 
@@ -30,13 +30,13 @@ Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę rejestrowania i wer
 - Zwraca wartość określającą, czy użytkownik podał nowy numer telefonu. Możesz użyć tego żądania, aby określić, czy numer telefonu ma zostać utrwalony w Azure AD B2C profilu użytkownika.  
 - Używa [definicji zawartości](contentdefinitions.md) w celu kontrolowania wyglądu i działania.
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary`. Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla współczynnika telefonu:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla współczynnika telefonu:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 Poniższy przykład przedstawia profil techniczny procesu rejestracji i weryfikacji:
 
-```XML
+```xml
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
   <DisplayName>PhoneFactor</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -57,14 +57,14 @@ Element InputClaimsTransformations może zawierać kolekcję przekształceń oś
 
 Element InputClaims musi zawierać następujące oświadczenia. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną w profilu technicznym w ramach technicznego telefonu. 
 
-|  Typ danych| Wymagany | Opis |
+|  Typ danych| Wymagane | Opis |
 | --------- | -------- | ----------- | 
-| ciąg| Tak | Unikatowy identyfikator użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na `UserId`. To zgłoszenie nie powinno zawierać informacji osobistych.|
+| ciąg| Tak | Unikatowy identyfikator użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na `UserId` . To zgłoszenie nie powinno zawierać informacji osobistych.|
 | ciąg| Tak | Lista typów zgłoszeń. Każde z tych roszczeń zawiera jeden numer telefonu. Jeśli którekolwiek z oświadczeń wejściowych nie zawierają numeru telefonu, użytkownik zostanie poproszony o zarejestrowanie i zweryfikowanie nowego numeru telefonu. Sprawdzony numer telefonu jest zwracany jako zgłoszenie wyjściowe. Jeśli jedno z oświadczeń wejściowych zawiera numer telefonu, użytkownik zostanie poproszony o jego zweryfikowanie. Jeśli wiele oświadczeń wejściowych zawiera numer telefonu, użytkownik zostanie poproszony o wybranie i zweryfikowanie jednego z numerów telefonów. |
 
 Poniższy przykład ilustruje użycie wielu numerów telefonów. Aby uzyskać więcej informacji, zobacz temat [przykładowe zasady](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
   <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
@@ -76,10 +76,10 @@ Poniższy przykład ilustruje użycie wielu numerów telefonów. Aby uzyskać wi
 
 Element OutputClaims zawiera listę oświadczeń zwracanych przez profil techniczny czynnika telefonu.
 
-|  Typ danych| Wymagany | Opis |
+|  Typ danych| Wymagane | Opis |
 |  -------- | ----------- |----------- |
 | wartość logiczna | Tak | Wskazuje, czy nowy numer telefonu został wprowadzony przez użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na`newPhoneNumberEntered`|
-| ciąg| Tak | Zweryfikowany numer telefonu. Nazwa lub PartnerClaimType musi być ustawiona na `Verified.OfficePhone`.|
+| ciąg| Tak | Zweryfikowany numer telefonu. Nazwa lub PartnerClaimType musi być ustawiona na `Verified.OfficePhone` .|
 
 Element OutputClaimsTransformations może zawierać kolekcję elementów OutputClaimsTransformation, które są używane do modyfikowania oświadczeń wyjściowych, lub generować nowe.
 
@@ -90,12 +90,12 @@ Element **CryptographicKeys** nie jest używany.
 
 ## <a name="metadata"></a>Metadane
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Tak | Identyfikator [definicji zawartości](contentdefinitions.md) skojarzonej z tym profilem technicznym. |
-| ManualPhoneNumberEntryAllowed| Nie | Określ, czy użytkownik może ręcznie wprowadzić numer telefonu. Możliwe wartości: `true`, lub `false` (wartość domyślna).|
-| Ustawianie. AuthenticationMode | Nie | Metoda weryfikacji numeru telefonu. Możliwe wartości: `sms`, `phone`, lub `mixed` (wartość domyślna).|
-| ustawienie. autowybieranie| Nie| Określ, czy profil techniczny ma wybierać autowybieranie, czy wysyłać wiadomości SMS. Możliwe wartości: `true`, lub `false` (wartość domyślna). Funkcja autowybierania `setting.authenticationMode` wymaga, aby metadane `sms`były ustawione `phone`na lub. Kolekcja oświadczeń wejściowych musi mieć pojedynczy numer telefonu. |
+| ManualPhoneNumberEntryAllowed| Nie | Określ, czy użytkownik może ręcznie wprowadzić numer telefonu. Możliwe wartości: `true` , lub `false` (wartość domyślna).|
+| Ustawianie. AuthenticationMode | Nie | Metoda weryfikacji numeru telefonu. Możliwe wartości: `sms` , `phone` , lub `mixed` (wartość domyślna).|
+| ustawienie. autowybieranie| Nie| Określ, czy profil techniczny ma wybierać autowybieranie, czy wysyłać wiadomości SMS. Możliwe wartości: `true` , lub `false` (wartość domyślna). Funkcja autowybierania wymaga `setting.authenticationMode` , aby metadane były ustawione na `sms` lub `phone` . Kolekcja oświadczeń wejściowych musi mieć pojedynczy numer telefonu. |
 
 ### <a name="ui-elements"></a>Elementy interfejsu użytkownika
 

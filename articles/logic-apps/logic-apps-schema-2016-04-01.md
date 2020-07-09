@@ -9,10 +9,9 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792880"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aktualizacje schematu dla Azure Logic Apps — 1 czerwca 2016
@@ -85,7 +84,7 @@ W poprzednich wersjach schematu warunki i pętle były parametrami skojarzonymi 
 
 ## <a name="runafter-property"></a>Właściwość "runAfter"
 
-`runAfter` Właściwość zastępuje `dependsOn`, co zapewnia większą precyzję podczas określania kolejności uruchamiania dla akcji na podstawie stanu poprzednich akcji. `dependsOn` Właściwość wskazuje, czy "akcja została uruchomiona i powiodła się", w zależności od tego, czy Poprzednia akcja zakończyła się powodzeniem, zakończyła się niepowodzeniem lub jako pominięcia — nie liczba uruchomień akcji. `runAfter` Właściwość zapewnia elastyczność jako obiekt, który określa wszystkie nazwy akcji, po których działa obiekt. Ta właściwość definiuje również tablicę Stanów, które są akceptowane jako wyzwalacze. Na przykład jeśli chcesz, aby akcja działała po pomyślnym wykonaniu akcji, a także po pomyślnym wykonaniu akcji B lub `runAfter` niepowodzeniem, skonfiguruj tę właściwość:
+`runAfter`Właściwość zastępuje `dependsOn` , co zapewnia większą precyzję podczas określania kolejności uruchamiania dla akcji na podstawie stanu poprzednich akcji. `dependsOn`Właściwość wskazuje, czy "akcja została uruchomiona i powiodła się", w zależności od tego, czy Poprzednia akcja zakończyła się powodzeniem, zakończyła się niepowodzeniem lub jako pominięcia — nie liczba uruchomień akcji. `runAfter`Właściwość zapewnia elastyczność jako obiekt, który określa wszystkie nazwy akcji, po których działa obiekt. Ta właściwość definiuje również tablicę Stanów, które są akceptowane jako wyzwalacze. Na przykład jeśli chcesz, aby akcja działała po pomyślnym wykonaniu akcji, a także po pomyślnym wykonaniu akcji B lub niepowodzeniem, skonfiguruj tę `runAfter` Właściwość:
 
 ```json
 {
@@ -127,7 +126,7 @@ Aby uaktualnić do najnowszego [schematu](https://schema.management.azure.com/sc
 
 ### <a name="mapping-conditions"></a>Warunki mapowania
 
-W uaktualnionej definicji Narzędzie to najlepiej sprawdza się w przypadku grupowania prawdy i fałszywych akcji rozgałęzień jednocześnie jako zakresu. W odniesieniu do wzorca `@equals(actions('a').status, 'Skipped')` projektanta pojawia się `else` jako akcja. Jeśli jednak narzędzie wykryje nierozpoznawalne wzorce, narzędzie może utworzyć osobne warunki zarówno dla gałęzi true, jak i false. W razie potrzeby można ponownie mapować akcje po uaktualnieniu.
+W uaktualnionej definicji Narzędzie to najlepiej sprawdza się w przypadku grupowania prawdy i fałszywych akcji rozgałęzień jednocześnie jako zakresu. W `@equals(actions('a').status, 'Skipped')` odniesieniu do wzorca projektanta pojawia się jako `else` Akcja. Jeśli jednak narzędzie wykryje nierozpoznawalne wzorce, narzędzie może utworzyć osobne warunki zarówno dla gałęzi true, jak i false. W razie potrzeby można ponownie mapować akcje po uaktualnieniu.
 
 #### <a name="foreach-loop-with-condition"></a>Pętla "foreach" z warunkiem
 
@@ -141,19 +140,19 @@ Po uaktualnieniu Tagi zasobów zostaną usunięte, dlatego należy je zresetowa�
 
 ### <a name="renamed-manual-trigger-to-request-trigger"></a>Zmieniono nazwę wyzwalacza "Manual" na wyzwalacz "Request"
 
-Typ `manual` wyzwalacza został uznany za przestarzały, `request` a jego `http`nazwa została zmieniona na typ. Ta zmiana powoduje utworzenie większej spójności dla rodzaju wzorca używanego przez wyzwalacz do kompilowania.
+`manual`Typ wyzwalacza został uznany za przestarzały, a jego nazwa została zmieniona na `request` Typ `http` . Ta zmiana powoduje utworzenie większej spójności dla rodzaju wzorca używanego przez wyzwalacz do kompilowania.
 
 ### <a name="new-filter-action"></a>Nowa akcja "filter"
 
-Aby odfiltrować dużą tablicę w dół do mniejszego zestawu elementów, `filter` nowy typ akceptuje tablicę i warunek, oblicza warunek dla każdego elementu i zwraca tablicę zawierającą elementy spełniające warunek.
+Aby odfiltrować dużą tablicę w dół do mniejszego zestawu elementów, nowy `filter` Typ akceptuje tablicę i warunek, oblicza warunek dla każdego elementu i zwraca tablicę zawierającą elementy spełniające warunek.
 
 ### <a name="restrictions-for-foreach-and-until-actions"></a>Ograniczenia dotyczące akcji "foreach" i "until"
 
-`foreach` Pętla `until` i jest ograniczona do pojedynczej akcji.
+`foreach` `until` Pętla i jest ograniczona do pojedynczej akcji.
 
 ### <a name="new-trackedproperties-for-actions"></a>Nowe "trackedProperties" dla akcji
 
-Akcje mogą teraz mieć dodatkową właściwość o nazwie `trackedProperties`, która jest elementem równorzędnym `runAfter` dla `type` właściwości i. Ten obiekt Określa pewne dane wejściowe lub wyjściowe akcji, które mają zostać dołączone do telemetrii diagnostyki platformy Azure, emitowane w ramach przepływu pracy. Przykład:
+Akcje mogą teraz mieć dodatkową właściwość o nazwie `trackedProperties` , która jest elementem równorzędnym `runAfter` dla `type` właściwości i. Ten obiekt Określa pewne dane wejściowe lub wyjściowe akcji, które mają zostać dołączone do telemetrii diagnostyki platformy Azure, emitowane w ramach przepływu pracy. Przykład:
 
 ``` json
 {

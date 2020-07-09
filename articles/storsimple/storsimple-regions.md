@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76275106"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Dostępne regiony dla StorSimple
@@ -71,10 +70,10 @@ W przypadku korzystania z urządzenia fizycznego z systemem StorSimple 8100 lub 
 | 6  | Kanada                | 21 | Irlandia            | 36 | Polska              | 51 | Szwajcaria                |
 | 7  | Chile                 | 22 | Izrael             | 37 | Portugalia            | 52 | Tajwan                     |
 | 8  | Kolumbia              | 23 | Włochy              | 38 | Portoryko         | 53 | Tajlandia                   |
-| 9  | Czechy        | 24 | Japonia              | 39 | Katar               | 54 | Turcja                     |
+| 9  | Republika Czeska        | 24 | Japonia              | 39 | Katar               | 54 | Turcja                     |
 | 10 | Dania               | 25 | Kenia              | 40 | Rumunia             | 55 | Ukraina                    |
 | 11 | Egipt                 | 26 | Kuwejt             | 41 | Rosja              | 56 | Zjednoczone Emiraty Arabskie       |
-| 12 | Finlandia               | 27 | SRA Makau          | 42 | Arabia Saudyjska        | 57 | Wielka Brytania             |
+| 12 | Finlandia               | 27 | SRA Makau          | 42 | Arabia Saudyjska        | 57 | Zjednoczone Królestwo             |
 | 13 | Francja                | 28 | Malezja           | 43 | Singapur           | 58 | Stany Zjednoczone              |
 | 14 | Niemcy               | 29 | Meksyk             | 44 | Słowacja            | 59 | Wietnam                    |
 | 15 | Grecja                | 30 | Holandia        | 45 | Słowenia            | 60 | Chorwacja                    |

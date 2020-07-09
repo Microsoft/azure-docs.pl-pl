@@ -5,16 +5,15 @@ description: Włącz nietrwałe usuwanie obiektów BLOB w celu łatwiejszego odz
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83634121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463726"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -105,7 +104,7 @@ Aby znaleźć bieżące zasady przechowywania nietrwałego usuwania, użyj nast�
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-# <a name="cli"></a>[Interfejs](#tab/azure-CLI)
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-CLI)
 
 Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
 

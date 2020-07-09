@@ -112,8 +112,14 @@
       items:
         - name: Konfigurowanie wspólnych ustawień
           href: configure-common.md
+        - name: Konfigurowanie platformy ASP.NET
+          href: configure-language-dotnet-framework.md
+        - name: Konfigurowanie platformy ASP.NET Core
+          href: configure-language-dotnetcore.md
+        - name: Konfigurowanie języka Node.js
+          href: configure-language-nodejs.md
         - name: Konfigurowanie języka PHP
-          href: web-sites-php-configure.md
+          href: configure-language-php.md
         - name: Konfigurowanie środowiska Java
           href: configure-language-java.md
         - name: Nawiązywanie połączenia z zasobami lokalnymi
@@ -216,12 +222,14 @@
           href: app-service-web-app-cloning.md
         - name: Przywracanie usuniętej usługi App Service
           href: app-service-undelete.md
+        - name: Przywracanie z niedziałającego regionu
+          href: manage-disaster-recovery.md
     - name: Przenoszenie aplikacji
       items:
         - name: Przenoszenie między regionami
           href: manage-move-across-regions.md
         - name: Przenoszenie subskrypcji
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
     - name: Uruchamianie zadań w tle
       items:
         - name: Tworzenie zadań WebJob
@@ -237,7 +245,7 @@
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/appservice
     - name: Azure PowerShell
-      href: '/powershell/module/az.websites/#app_service'
+      href: /powershell/module/az.websites/#app_service
     - name: Interfejs API REST
       href: /rest/api/appservice/
     - name: Szablon usługi Resource Manager
@@ -253,7 +261,7 @@
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informacje o limitach przydziału
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Przewodniki dotyczące asystenta migracji

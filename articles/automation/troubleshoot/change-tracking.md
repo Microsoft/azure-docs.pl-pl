@@ -10,13 +10,12 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83684872"
 ---
-# <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Rozwiązywanie problemów dotyczących Change Tracking i spisu
+# <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Rozwiązywanie problemów ze śledzeniem zmian i spisem
 
 W tym artykule opisano sposób rozwiązywania problemów i rozwiązywania problemów z Azure Automation Change Tracking i spisu. Aby uzyskać ogólne informacje na temat Change Tracking i spisu, zobacz [omówienie Change Tracking i spisu](../change-tracking.md).
 
@@ -55,7 +54,7 @@ Jeśli nadal potrzebujesz pomocy, możesz zebrać informacje diagnostyczne i sko
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Agent Log Analytics dla systemu Windows nie działa
 
-Sprawdź, czy na maszynie jest uruchomiony agent Log Analytics dla systemu Windows (**HealthService. exe**).
+Sprawdź, czy na komputerze jest uruchomiony agent Log Analytics dla systemu Windows (**HealthService.exe**).
 
 ##### <a name="communication-to-automation-account-blocked"></a>Zablokowano komunikację z kontem usługi Automation
 

@@ -10,10 +10,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81258460"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Połącz usługę zestawu deweloperskiego IoT DevKit z akceleratorem rozwiązania do monitorowania zdalnego usługi Azure IoT
@@ -62,7 +61,7 @@ Aktywna subskrypcja platformy Azure. Jeśli go nie masz, możesz zarejestrować 
   
    ![Dodawanie nowego urządzenia](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
-7. Kliknij pozycję **pozwól mi zdefiniować własny identyfikator urządzenia**, wprowadź `AZ3166`, a następnie kliknij przycisk **Utwórz**.
+7. Kliknij pozycję **pozwól mi zdefiniować własny identyfikator urządzenia**, wprowadź `AZ3166` , a następnie kliknij przycisk **Utwórz**.
   
    ![Utwórz urządzenie o IDENTYFIKATORze](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
@@ -82,11 +81,11 @@ Aktywna subskrypcja platformy Azure. Jeśli go nie masz, możesz zarejestrować 
 4. Rozwiń sekcję **przykłady Arduino** lewej strony, przejdź do **przykładów dla zestawu deweloperskiego AZ3166 > AzureIoT**, a następnie wybierz pozycję **RemoteMonitoring**. Otwiera nowe okno VS Code z folderem projektu.
 
    > [!NOTE]
-   > W przypadku zamknięcia okienka można go otworzyć ponownie. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
+   > W przypadku zamknięcia okienka można go otworzyć ponownie. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P` ), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
 
 ## <a name="provision-required-azure-services"></a>Udostępnianie wymaganych usług platformy Azure
 
-W oknie rozwiązanie Uruchom zadanie przez `Ctrl+P` (macOS: `Cmd+P`), wprowadzając `task cloud-provision` w podanym polu tekstowym.
+W oknie rozwiązanie Uruchom zadanie przez `Ctrl+P` (macOS: `Cmd+P` ), wprowadzając `task cloud-provision` w podanym polu tekstowym.
 
 W terminalu VS Code interaktywny wiersz polecenia przeprowadzi Cię przez proces aprowizacji wymaganych usług platformy Azure.
 
@@ -94,7 +93,7 @@ W terminalu VS Code interaktywny wiersz polecenia przeprowadzi Cię przez proces
 
 ## <a name="build-and-upload-the-device-code"></a>Kompilowanie i przekazywanie kodu urządzenia
 
-1. Użyj `Ctrl+P` (macOS: `Cmd + P`) i wpisz **config zadania-Device-Connection**.
+1. Użyj `Ctrl+P` (macOS: `Cmd + P` ) i wpisz **config zadania-Device-Connection**.
 
 2. Terminal pyta, czy chcesz użyć parametrów połączenia pobieranych z `task cloud-provision` kroku. Możesz również wprowadzić własne parametry połączenia urządzenia, klikając pozycję "Utwórz nowy..."
 
@@ -102,7 +101,7 @@ W terminalu VS Code interaktywny wiersz polecenia przeprowadzi Cię przez proces
 
    ![Parametry połączenia wejściowego](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
 
-4. Po `task config-device-connection` zakończeniu kliknij przycisk `F1` , aby załadować vs Code polecenia i `Arduino: Upload`wybrać opcję. VS Code zaczyna weryfikować i przekazywać szkic Arduino.
+4. Po `task config-device-connection` zakończeniu kliknij przycisk, `F1` aby załadować vs Code polecenia i wybrać opcję `Arduino: Upload` . VS Code zaczyna weryfikować i przekazywać szkic Arduino.
   
    ![Weryfikacja i przekazywanie szkicu Arduino](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 

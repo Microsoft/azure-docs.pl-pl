@@ -5,18 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 66fa4e7d3edf839ab1e497e86362bcfc979dc279
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81266164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078737"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Pobieranie danych pogody od partnerów pogody
 
 Usługa Azure FarmBeats ułatwia wprowadzanie danych pogody od dostawców danych pogody przy użyciu struktury łączników opartych na platformie Docker. Korzystając z tej struktury, dostawcy danych pogody implementują platformę Docker, którą można zintegrować z FarmBeats. Obecnie obsługiwane są następujące dostawcy danych pogody:
 
-[NOAA dane z usługi Azure Open DataSets](https://azure.microsoft.com/services/open-datasets/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Dane pogodowe mogą służyć do generowania szczegółowych informacji z możliwością podejmowania działań i tworzenia modeli AI/ML w FarmBeats.
 
@@ -28,7 +30,7 @@ Aby uzyskać dane pogodowe, upewnij się, że zainstalowano FarmBeats. **Integra
 
 Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj następujące czynności:
 
-1. Przejdź do centrum danych FarmBeats Swagger (https://yourdatahub.azurewebsites.net/swagger)
+1. Przejdź do centrum danych FarmBeats Swagger (https://farmbeatswebsite-api.azurewebsites.net/swagger)
 
 2. Przejdź do interfejsu API/partner i wprowadź żądanie POST z następującym ładunkiem wejściowym:
 
@@ -40,7 +42,7 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
          "username": "<credentials to access private docker - not required for public docker>", 
          "password": "<credentials to access private docker – not required for public docker>"  
        },  
-       "imageName" : "<docker image name. Default is azurefarmbeats/fambeats-noaa>",
+       "imageName" : "<docker image name",
        "imageTag" : "<docker image tag, default:latest>",
        "azureBatchVMDetails": {  
          "batchVMSKU" : "<VM SKU. Default is standard_d2_v2>",  
@@ -59,13 +61,16 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
    }  
    ```
 
-   Na przykład aby uzyskać dane o pogodzie z NOAA przez otwarte zestawy danych platformy Azure, użyj poniższego ładunku. Nazwę i opis można zmodyfikować zgodnie z preferencjami.
+   Na przykład aby uzyskać dane pogodowe z DTN, użyj poniższego ładunku. Nazwę i opis można zmodyfikować zgodnie z preferencjami.
+
+   > [!NOTE]
+   > Poniższy krok wymaga klucza interfejsu API, skontaktuj się z DTN, aby uzyskać tę samą subskrypcję DTN.
 
    ```json
    {
  
      "dockerDetails": {
-       "imageName": "azurefarmbeats/farmbeats-noaa",
+       "imageName": "dtnweather/dtn-farm-beats",
        "imageTag": "latest",
        "azureBatchVMDetails": {
          "batchVMSKU": "standard_d2_v2",
@@ -73,9 +78,12 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
          "nodeAgentSKUID": "batch.node.ubuntu 18.04"
        }
      },
+     "partnerCredentials": {
+      "apikey": "<API key from DTN>"
+      },
      "partnerType": "Weather",
-     "name": "ods-noaa",
-     "description": "NOAA data from Azure Open Datasets registered as a Weather Partner"
+     "name": "dtn-weather",
+     "description": "DTN registered as a Weather Partner in FarmBeats"
    }  
    ```
 
@@ -92,10 +100,12 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
 
 5. Teraz wystąpienie usługi FarmBeats ma aktywnego partnera danych pogody i można uruchamiać zadania do żądania danych pogody dla określonej lokalizacji (Szerokość geograficzna/Długość geograficzna) i zakres dat. Typu zadania będzie zawierać szczegółowe informacje o parametrach wymaganych do uruchamiania zadań pogodowych.
 
-   Na przykład w przypadku danych NOAA z usługi Azure Open DataSets zostanie utworzony następujący typu zadania (s):
-
-   - get_weather_data (Pobierz dane pogody ISD/historyczne)
-   - get_weather_forecast_data (pobieranie danych pogody GFS/prognoza)
+   Na przykład dla DTN zostaną utworzone następujące typu zadania (s):
+   
+   - get_dtn_daily_observations (Uzyskaj codzienne obserwacje dla lokalizacji i okresu)
+   - get_dtn_daily_forecasts (Pobierz prognozy dzienne dla lokalizacji i okresu)
+   - get_dtn_hourly_observations (Uzyskiwanie godzinowych obserwacji dla lokalizacji i okresu)
+   - get_dtn_hourly_forecasts (Uzyskiwanie prognoz godzinowych dla lokalizacji i okresu)
 
 6. Zanotuj **Identyfikator** i parametry typu zadaniaów.
 
@@ -115,17 +125,15 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
        }
    ```
 
-   Na przykład aby uruchomić **get_weather_data**, należy użyć następującego ładunku:
+   Na przykład aby uruchomić **get_dtn_daily_observations**, należy użyć następującego ładunku:
 
    ```json
-   {
- 
+   { 
          "typeId": "<id of the JobType>",
          "arguments": {
                "latitude": 47.620422,
                "longitude": -122.349358,
-               "start_date": "yyyy-mm-dd",
-               "end_date": "yyyy-mm-dd"
+               "days": 5
          },
          "name": "<name of the job>",
          "description": "<description>",
@@ -137,18 +145,15 @@ Aby rozpocząć pobieranie danych pogody z centrum danych FarmBeats, wykonaj nas
 
 ## <a name="query-ingested-weather-data"></a>Kwerenda pozyskiwania danych pogodowych
 
-Po zakończeniu zadań pogodowych możesz wysyłać zapytania do pozyskanych danych pogodowych, aby tworzyć modele lub szczegółowe informacje umożliwiające podjęcie odpowiednich działań. Istnieją dwa sposoby uzyskiwania dostępu do danych pogody z FarmBeats i wykonywania na nich zapytań:
-
-- Interfejs API i
-- Time Series Insights (TSI).
+Po zakończeniu zadań pogodowych możesz wysyłać zapytania do pozyskanych danych pogodowych w celu tworzenia modeli lub szczegółowych informacji z możliwością podejmowania działań za pomocą interfejsów API REST FarmBeats Datahub.
 
 ### <a name="query-using-rest-api"></a>Zapytanie przy użyciu interfejsu API REST
 
 Aby zbadać dane pogodowe przy użyciu interfejsu API REST FarmBeats, wykonaj następujące czynności:
 
-1. W centrum danych FarmBeats Swagger (https://yourdatahub.azurewebsites.net/swagger)przejdź do interfejsu API/WeatherDataLocation i Utwórz żądanie Get. Odpowiedź będzie mieć obiekty/WeatherDataLocation utworzone dla lokalizacji (Szerokość geograficzna/Długość geograficzna), która została określona w ramach uruchomienia zadania. Zanotuj **Identyfikator** i **weatherDataModelId** obiektów (y).
+1. W centrum danych FarmBeats Swagger ( https://yourdatahub.azurewebsites.net/swagger) Przejdź do interfejsu API/WeatherDataLocation i Utwórz żądanie Get. Odpowiedź będzie mieć obiekty/WeatherDataLocation utworzone dla lokalizacji (Szerokość geograficzna/Długość geograficzna), która została określona w ramach uruchomienia zadania. Zanotuj **Identyfikator** i **weatherDataModelId** obiektów (y).
 
-2. Utwórz funkcję GET/{ID} w interfejsie API/WeatherDataModel dla **weatherDataModelId** zgodnie z opisem w kroku 1. "Model danych pogody" zawiera wszystkie metadane i szczegółowe informacje o pozyskanych danych pogodowych. Na przykład **miara pogody** w obiekcie **modelu danych pogody** zawiera szczegółowe informacje o tym, jakie informacje o pogodzie są obsługiwane i w jakich typach i jednostkach. Na przykład:
+2. Utwórz funkcję GET/{ID} w interfejsie API/WeatherDataModel dla **weatherDataModelId** zgodnie z opisem w kroku 1. "Model danych pogody" zawiera wszystkie metadane i szczegółowe informacje o pozyskanych danych pogodowych. Na przykład **miara pogody** w obiekcie **modelu danych pogody** zawiera szczegółowe informacje o tym, jakie informacje o pogodzie są obsługiwane i w jakich typach i jednostkach. Na przykład
 
    ```json
    {
@@ -206,25 +211,11 @@ Aby zbadać dane pogodowe przy użyciu interfejsu API REST FarmBeats, wykonaj na
 
 W poprzednim przykładzie odpowiedź zawiera dane dla dwóch sygnatur czasowych wraz z nazwą miary ("temperatura") i wartościami danych o raportowanych Pogoda w dwóch sygnaturach czasowych. Należy odwołać się do skojarzonego modelu danych pogody (zgodnie z opisem w kroku 2 powyżej), aby interpretować typ i jednostkę raportowanych wartości.
 
-### <a name="query-using-azure-time-series-insights-tsi"></a>Zapytanie przy użyciu Azure Time Series Insights (TSI)
-
-FarmBeats korzysta z [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) do pozyskiwania, przechowywania, wykonywania zapytań i wizualizacji danych w skali IoT — dane, które są wysoce kontekstowe i zoptymalizowane pod kątem szeregów czasowych.
-
-Dane o pogodzie są odbierane w centrum EventHub, a następnie wypychane do środowiska TSI w ramach grupy zasobów FarmBeats. Dane mogą następnie być wysyłane bezpośrednio z TSI. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
-
-Postępuj zgodnie z instrukcjami, aby wizualizować dane w ramach TSI:
-
-1. Przejdź do **Azure portal** > **grupy zasobów Azure Portal FarmBeats DataHub** > wybierz pozycję **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych**. Dodaj użytkownika z dostępem czytelnika lub współautorem.
-
-2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights**. Teraz można wizualizować pozyskane dane pogodowe.
-
-Oprócz przechowywania, wykonywania zapytań i wizualizacji danych pogody, TSI również umożliwia integrację z pulpitem nawigacyjnym Power BI. Aby uzyskać więcej informacji, zobacz [Wizualizacja danych z Time Series Insights w Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
-
 ## <a name="appendix"></a>Dodatek
 
 |        Partner   |  Szczegóły   |
 | ------- | -------             |
-|     DockerDetails-ImageName         |          Nazwa obrazu platformy Docker. Na przykład docker.io/azurefarmbeats/farmbeats-noaa (Image in hub.docker.com) lub myazureacr.azurecr.io/mydockerimage (Image in Azure Container Registry) i tak dalej. Jeśli nie podano żadnego rejestru, wartością domyślną jest hub.docker.com      |
+|     DockerDetails-ImageName         |          Nazwa obrazu platformy Docker. Na przykład docker.io/mydockerimage (Image in hub.docker.com) lub myazureacr.azurecr.io/mydockerimage (Image in Azure Container Registry) i tak dalej. Jeśli nie podano żadnego rejestru, wartość domyślna to hub.docker.com      |
 |          DockerDetails - imageTag             |         Nazwa tagu obrazu platformy Docker. Wartość domyślna to "Najnowsza"     |
 |  DockerDetails — poświadczenia      |  Poświadczenia umożliwiające dostęp do prywatnego platformy Docker. Klient zostanie dostarczony przez partnera   |
 |  DockerDetails - azureBatchVMDetails - batchVMSKU     |    Azure Batch jednostki SKU maszyny wirtualnej. Zobacz [tutaj](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , aby znaleźć wszystkie dostępne maszyny wirtualne z systemem Linux. Prawidłowe wartości to: "Small", "ExtraLarge", "Large", "A8", "A9", "medium", "A5", "STANDARD_D1 A6", "", "STANDARD_D2", "STANDARD_D3", "STANDARD_D4", "STANDARD_D11", "STANDARD_D12", "STANDARD_D13", "STANDARD_D14", "A10", "A11", "STANDARD_D1_V2", "STANDARD_D2_V2", "STANDARD_D3_V2", "STANDARD_D4_V2", "STANDARD_D11_V2", "STANDARD_D12_V2", "STANDARD_D13_V2", "STANDARD_D14_V2", "STANDARD_G1", "STANDARD_G2", "STANDARD_G3", "STANDARD_G4" , "STANDARD_G5", "STANDARD_D5_V2", "BASIC_A1", "BASIC_A2", "BASIC_A3", "BASIC_A4", "STANDARD_A1", "STANDARD_A2", "STANDARD_A3", "STANDARD_A4", "STANDARD_A5", "STANDARD_A6", "STANDARD_A7", "STANDARD_A8", "STANDARD_A9", "STANDARD_A10", "STANDARD_A11", "STANDARD_D15_V2", "STANDARD_F1", "STANDARD_F2", "STANDARD_F4", "STANDARD_F8", "STANDARD_F16", "STANDARD_NV6", "STANDARD_NV12", "STANDARD_NV24", "STANDARD_NC6", "STANDARD_NC12", "STANDARD_NC24", "STANDARD_NC24r" "STANDARD_H8", "STANDARD_H8m", "STANDARD_H16", "STANDARD_H16m", "STANDARD_H16mr", "STANDARD_H16r", "STANDARD_A1_V2", "STANDARD_A2_V2", "STANDARD_A4_V2", "STANDARD_A8_V2", "STANDARD_A2m_V2", "STANDARD_A4m_V2", "STANDARD_A8m_V2", "STANDARD_M64ms", "STANDARD_M128s", "STANDARD_D2_V3". **Wartość domyślna to "standard_d2_v2"**  |

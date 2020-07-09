@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82783749"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Typowe problemy z usługą Azure IoT Edge i ich rozwiązania
@@ -75,7 +75,7 @@ Domyślnie IoT Edge uruchamia moduły w swojej własnej izolowanej sieci kontene
 
 **Opcja 1. Ustawianie serwera DNS w ustawieniach aparatu kontenera**
 
-Określ serwer DNS dla środowiska w ustawieniach aparatu kontenera, które będą stosowane do wszystkich modułów kontenera uruchomionych przez aparat. Utwórz plik o nazwie `daemon.json` OKREŚLAJĄC serwer DNS, który ma być używany. Przykład:
+Określ serwer DNS dla środowiska w ustawieniach aparatu kontenera, które będą stosowane do wszystkich modułów kontenera uruchomionych przez aparat. Utwórz plik o nazwie `daemon.json` określając serwer DNS, który ma być używany. Na przykład:
 
 ```json
 {
@@ -92,7 +92,7 @@ Umieść `daemon.json` w odpowiedniej lokalizacji dla Twojej platformy:
 | Linux | `/etc/docker` |
 | Host z systemem Windows z kontenerami systemu Windows | `C:\ProgramData\iotedge-moby\config` |
 
-Jeśli lokalizacja zawiera `daemon.json` już plik, Dodaj do niej klucz **DNS** i Zapisz plik.
+Jeśli lokalizacja zawiera już `daemon.json` plik, Dodaj do niej klucz **DNS** i Zapisz plik.
 
 Aby aktualizacje zaczęły obowiązywać, uruchom ponownie aparat kontenerów.
 
@@ -103,7 +103,7 @@ Aby aktualizacje zaczęły obowiązywać, uruchom ponownie aparat kontenerów.
 
 **Opcja 2: Ustaw serwer DNS w IoT Edge wdrożenia na moduł**
 
-Można ustawić serwer DNS dla *opcji* "wszystkie" modułu we wdrożeniu IoT Edge. Przykład:
+Można ustawić serwer DNS dla *opcji* "wszystkie" modułu we wdrożeniu IoT Edge. Na przykład:
 
 ```json
 "createOptions": {
@@ -149,7 +149,7 @@ Ten problem można rozwiązać na dwa sposoby:
 
 Jeśli urządzenie IoT Edge działa jako urządzenie bramy, należy znaleźć i zatrzymać proces korzystający z portu 443, 5671 lub 8883. Błąd portu 443 zazwyczaj oznacza, że inny proces to serwer sieci Web.
 
-Jeśli nie musisz używać urządzenia IoT Edge jako bramy, możesz usunąć powiązania portów z modułu edgeHub. Możesz zmienić opcje tworzenia w Azure Portal lub bezpośrednio w pliku Deployment. JSON.
+Jeśli nie musisz używać urządzenia IoT Edge jako bramy, możesz usunąć powiązania portów z modułu edgeHub. Możesz zmienić opcje tworzenia w Azure Portal lub bezpośrednio w deployment.jsna pliku.
 
 W witrynie Azure Portal:
 
@@ -165,11 +165,11 @@ W witrynie Azure Portal:
 
 6. Zapisz zmiany i Utwórz wdrożenie.
 
-W pliku Deployment. JSON:
+W deployment.jspliku:
 
-1. Otwórz plik Deployment. JSON, który został zastosowany do urządzenia IoT Edge.
+1. Otwórz deployment.jspliku, który został zastosowany do urządzenia IoT Edge.
 
-2. Znajdź `edgeHub` ustawienia w sekcji edgeAgent żądane właściwości:
+2. Znajdź `edgeHub` Ustawienia w sekcji edgeAgent żądane właściwości:
 
    ```json
    "edgeHub": {
@@ -222,7 +222,7 @@ Gdy ten błąd jest wyświetlany, można go rozwiązać przez skonfigurowanie na
    ![Skonfiguruj nazwę DNS maszyny wirtualnej](./media/troubleshoot/configure-dns.png)
 
 3. Podaj wartość w obszarze **etykieta nazwy DNS** i wybierz pozycję **Zapisz**.
-4. Skopiuj nową nazwę DNS, która powinna mieć format ** \<DNSnamelabel\>.\< vmlocation\>. cloudapp.Azure.com**.
+4. Skopiuj nową nazwę DNS, która powinna mieć format ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. W ramach maszyny wirtualnej Użyj następującego polecenia, aby skonfigurować środowisko uruchomieniowe IoT Edge przy użyciu nazwy DNS:
 
    * W systemie Linux:
@@ -241,11 +241,11 @@ Gdy ten błąd jest wyświetlany, można go rozwiązać przez skonfigurowanie na
 
 **Obserwowane zachowanie:**
 
-Podczas korzystania `Get-WinEvent` z systemu Windows jest pobierany dziennik zdarzeń.
+Podczas korzystania z systemu Windows jest pobierany dziennik zdarzeń `Get-WinEvent` .
 
 **Główna przyczyna:**
 
-Polecenie `Get-WinEvent` programu PowerShell polega na wpisie rejestru, który ma być obecny w celu znalezienia dzienników według `ProviderName`określonego.
+`Get-WinEvent`Polecenie programu PowerShell polega na wpisie rejestru, który ma być obecny w celu znalezienia dzienników według określonego `ProviderName` .
 
 **Rozwiązanie:**
 
@@ -276,7 +276,7 @@ W przypadku Centrum IoT Edge Ustaw dla zmiennej środowiskowej **OptimizeForPerf
 
 W witrynie Azure Portal:
 
-W IoT Hub wybierz urządzenie IoT Edge i ze strony Szczegóły urządzenia, a następnie wybierz pozycję **Ustaw** > **Ustawienia środowiska uruchomieniowego**moduły. Utwórz zmienną środowiskową dla modułu IoT Edge Hub o nazwie *OptimizeForPerformance* , która ma wartość *false*.
+W IoT Hub wybierz urządzenie IoT Edge i ze strony Szczegóły urządzenia, a następnie wybierz pozycję **Ustaw**  >  **Ustawienia środowiska uruchomieniowego**moduły. Utwórz zmienną środowiskową dla modułu IoT Edge Hub o nazwie *OptimizeForPerformance* , która ma wartość *false*.
 
 ![OptimizeForPerformance ustawiona na wartość false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -300,7 +300,7 @@ W manifeście wdrożenia:
 
 **Obserwowane zachowanie:**
 
-Niestandardowa moduł IoT Edge nie może wysłać komunikatu do centrum IoT Edge z błędem 404 `Module not found` . Demon IoT Edge przedrukuje następujący komunikat do dzienników:
+Niestandardowa moduł IoT Edge nie może wysłać komunikatu do centrum IoT Edge z `Module not found` błędem 404. Demon IoT Edge przedrukuje następujący komunikat do dzienników:
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
@@ -314,7 +314,7 @@ Demon IoT Edge wymusza identyfikację procesu dla wszystkich modułów łącząc
 
 W przypadku wersji 1.0.7 wszystkie procesy modułów są autoryzowane do nawiązania połączenia. Aby uzyskać więcej informacji, zobacz [Dziennik zmian wersji 1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-Jeśli uaktualnienie do 1.0.7 nie jest możliwe, wykonaj następujące czynności. Upewnij się, że ten sam identyfikator procesu jest zawsze używany przez moduł IoT Edge niestandardowego do wysyłania komunikatów do edgeHub. Na przykład upewnij się, że `ENTRYPOINT` zamiast `CMD` polecenia w pliku Docker. `CMD` Polecenie prowadzi do jednego identyfikatora procesu dla modułu i innego identyfikatora procesu dla polecenia bash uruchamianego w programie głównym, ale `ENTRYPOINT` prowadzi do jednego identyfikatora procesu.
+Jeśli uaktualnienie do 1.0.7 nie jest możliwe, wykonaj następujące czynności. Upewnij się, że ten sam identyfikator procesu jest zawsze używany przez moduł IoT Edge niestandardowego do wysyłania komunikatów do edgeHub. Na przykład upewnij się, że `ENTRYPOINT` zamiast `CMD` polecenia w pliku Docker. `CMD`Polecenie prowadzi do jednego identyfikatora procesu dla modułu i innego identyfikatora procesu dla polecenia bash uruchamianego w programie głównym, ale `ENTRYPOINT` prowadzi do jednego identyfikatora procesu.
 
 ## <a name="iot-edge-module-deploys-successfully-then-disappears-from-device"></a>Pomyślnie wdrożenia modułów IoT Edge zostaną wyświetlone z urządzenia
 

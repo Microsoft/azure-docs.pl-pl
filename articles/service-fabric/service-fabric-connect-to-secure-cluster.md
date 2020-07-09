@@ -4,11 +4,10 @@ description: Zawiera opis sposobu uwierzytelniania dostępu klienta do klastra S
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258579"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701223"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
 
@@ -38,7 +37,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 W przypadku plików PEM chronionych hasłem przed uruchomieniem dowolnego polecenia zostanie wyświetlony monit o podanie hasła.
 
-Aby określić certyfikat, para kluczy Użyj argumentów `--cert` i `--key` , aby określić ścieżki plików do każdego odpowiedniego pliku.
+Aby określić certyfikat, para kluczy Użyj `--cert` argumentów i, `--key` Aby określić ścieżki plików do każdego odpowiedniego pliku.
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key

@@ -3,16 +3,16 @@ title: Tworzenie pierwszego zautomatyzowanego przepływu pracy
 description: Szybki Start — Tworzenie pierwszego zautomatyzowanego przepływu pracy przy użyciu Azure Logic Apps na potrzeby rozwiązań integracji systemu i integracji aplikacji w przedsiębiorstwie (EAI)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 3087b964ff5f9754d6552fc95625541ce94a6535
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147995"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321585"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Szybki Start: Tworzenie pierwszego przepływu pracy przy użyciu Azure Logic Apps-Azure Portal
 
@@ -45,14 +45,14 @@ Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu po
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Nazwa** | <*Logic-App-Name*> | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry,`-`łączniki (), podkreślenia (`_`), nawiasy (`(`, `)`) i kropki (`.`). W tym przykładzie zastosowano "My-First-Logic-App". |
+   | **Nazwa** | <*Logic-App-Name*> | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ), nawiasy ( `(` , `)` ) i kropki ( `.` ). W tym przykładzie zastosowano "My-First-Logic-App". <p><p>**Uwaga**: nazwy aplikacji logiki muszą być unikatowe w różnych regionach. |
    | **Subskrypcja** | <*Azure — nazwa subskrypcji*> | Nazwa subskrypcji platformy Azure |
-   | **Grupa zasobów** | <*Azure-Resource-Group-Name*> | Nazwa [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md) używanej do organizowania powiązanych zasobów. W tym przykładzie jest stosowana wartość "My-First-LA-RG". |
+   | **Grupa zasobów** | <*Azure-Resource-Group-Name*> | Nazwa [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md) używanej do organizowania powiązanych zasobów. W tym przykładzie jest stosowana wartość "My-First-LA-RG". <p><p>**Uwaga**: nazwy grup zasobów muszą być unikatowe w różnych regionach. |
    | **Lokalizacja** | <*Platforma Azure — region*> | Region, w którym są przechowywane informacje o aplikacji logiki. W tym przykładzie zastosowano "zachodnie stany USA". |
    | **Log Analytics** | Wyłączone | Ustawienie **Wyłączone** umożliwia rejestrowanie w celach diagnostycznych. |
    ||||
 
-1. Po wdrożeniu aplikacji przez platformę Azure na pasku narzędzi platformy Azure wybierz pozycję **powiadomienia** > **Przejdź do pozycji zasób** dla wdrożonej aplikacji logiki.
+1. Po wdrożeniu aplikacji przez platformę Azure na pasku narzędzi platformy Azure wybierz pozycję **powiadomienia**  >  **Przejdź do pozycji zasób** dla wdrożonej aplikacji logiki.
 
    ![Przejdź do nowo utworzonego zasobu aplikacji logiki](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -70,17 +70,17 @@ Następnie dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
 
 1. W **Projektancie aplikacji logiki**, w polu wyszukiwania zaznacz **wszystko**.
 
-1. W polu wyszukiwania wpisz ciąg `rss` , aby znaleźć łącznik RSS. Z listy Wyzwalacze wybierz wyzwalacz, **gdy element kanału informacyjnego jest publikowany** .
+1. W polu wyszukiwania wpisz ciąg, `rss` Aby znaleźć łącznik RSS. Z listy Wyzwalacze wybierz wyzwalacz, **gdy element kanału informacyjnego jest publikowany** .
 
    ![Wybierz wyzwalacz "gdy element kanału informacyjnego jest opublikowany"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Podaj te informacje dla wyzwalacza, jak pokazano i opisano tutaj:
+1. Podaj informacje dla wyzwalacza zgodnie z opisem w tabeli:
 
    ![Konfigurowanie kanału informacyjnego RSS, częstotliwości i interwału dla wyzwalacza](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Adres URL źródła danych RSS** | `http://feeds.reuters.com/reuters/topNews` | Link do źródła danych RSS, które chcesz monitorować |
+   | **Adres URL źródła danych RSS** | <*RSS-źródło — adres URL*> | Link do źródła danych RSS, które chcesz monitorować. Ten przykład używa `http://feeds.reuters.com/reuters/topNews` . |
    | **Dat** | 1 | Liczba interwałów do odczekania między sprawdzaniami |
    | **Częstotliwość** | Minuta | Jednostka czasu dla każdego interwału między sprawdzaniami  |
    ||||
@@ -105,7 +105,7 @@ Teraz Dodaj [akcję](../logic-apps/logic-apps-overview.md#logic-app-concepts) , 
 
 1. W obszarze **Wybierz akcję** i pole wyszukiwania wybierz pozycję **wszystkie**.
 
-1. W polu wyszukiwania wpisz ciąg `send an email` , aby znaleźć łączniki, które oferują tę akcję. Z listy Akcje wybierz akcję "Wyślij wiadomość e-mail" dla usługi poczty e-mail, której chcesz użyć. W tym przykładzie jest używany łącznik Office 365 Outlook, który ma akcję **Wyślij wiadomość e-mail** .
+1. W polu wyszukiwania wpisz ciąg, `send an email` Aby znaleźć łączniki, które oferują tę akcję. Z listy Akcje wybierz akcję "Wyślij wiadomość e-mail" dla usługi poczty e-mail, której chcesz użyć. W tym przykładzie jest używany łącznik Office 365 Outlook, który ma akcję **Wyślij wiadomość e-mail** .
 
    ![Wybierz akcję "Wyślij wiadomość e-mail" dla pakietu Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 

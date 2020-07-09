@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388888"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Dostosuj interfejs użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -34,9 +34,9 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych](custom-
 
 Aby skonfigurować dostosowanie interfejsu użytkownika, skopiuj **ContentDefinition** i jego elementy podrzędne z pliku podstawowego do pliku rozszerzeń.
 
-1. Otwórz podstawowy plik zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>. Ten plik podstawowy jest jednym z plików zasad zawartych w pakiecie startowym zasad niestandardowych, który powinien zostać uzyskany w wymaganiu wstępnym, [Rozpocznij od zasad niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Otwórz podstawowy plik zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Ten plik podstawowy jest jednym z plików zasad zawartych w pakiecie startowym zasad niestandardowych, który powinien zostać uzyskany w wymaganiu wstępnym, [Rozpocznij od zasad niestandardowych](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Wyszukaj i Skopiuj całą zawartość elementu **ContentDefinitions** .
-1. Otwórz plik rozszerzenia. Na przykład *TrustFrameworkExtensions. XML*. Wyszukaj element **BuildingBlocks** . Jeśli element nie istnieje, Dodaj go.
+1. Otwórz plik rozszerzenia. Na przykład *TrustFrameworkExtensions.xml*. Wyszukaj element **BuildingBlocks** . Jeśli element nie istnieje, Dodaj go.
 1. Wklej całą zawartość elementu **ContentDefinitions** , który został skopiowany jako element podrzędny elementu **BuildingBlocks** .
 1. Wyszukaj element **ContentDefinition** , który zawiera `Id="api.signuporsignin"` kod XML, który został skopiowany.
 1. Zmień wartość **LoadUri** na adres URL pliku HTML, który został przekazany do magazynu. Na przykład `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
@@ -79,13 +79,13 @@ Aby skonfigurować dostosowanie interfejsu użytkownika, skopiuj **ContentDefini
 
 ## <a name="configure-dynamic-custom-page-content-uri"></a>Skonfiguruj dynamiczny Identyfikator URI zawartości strony niestandardowej
 
-Za pomocą Azure AD B2C zasad niestandardowych można wysłać parametr w ścieżce URL lub ciągu zapytania. Przekazanie parametru do punktu końcowego HTML pozwala na dynamiczną zmianę zawartość strony. Na podstawie parametru przekazywanego z aplikacji internetowej lub aplikacji mobilnej można na przykład zmienić obraz tła na stronie rejestracji lub logowania usługi Azure AD B2C. Parametr może być dowolnymi [mechanizmami rozwiązywania konfliktów](claim-resolver-overview.md), takimi jak identyfikator aplikacji, identyfikator języka lub niestandardowy parametr ciągu zapytania `campaignId`, taki jak.
+Za pomocą Azure AD B2C zasad niestandardowych można wysłać parametr w ścieżce URL lub ciągu zapytania. Przekazanie parametru do punktu końcowego HTML pozwala na dynamiczną zmianę zawartość strony. Na podstawie parametru przekazywanego z aplikacji internetowej lub aplikacji mobilnej można na przykład zmienić obraz tła na stronie rejestracji lub logowania usługi Azure AD B2C. Parametr może być dowolnymi [mechanizmami rozwiązywania konfliktów](claim-resolver-overview.md), takimi jak identyfikator aplikacji, identyfikator języka lub niestandardowy parametr ciągu zapytania, taki jak `campaignId` .
 
 ### <a name="sending-query-string-parameters"></a>Wysyłanie parametrów ciągu zapytania
 
 Aby wysłać parametry ciągu zapytania, w [zasadach jednostki uzależnionej](relyingparty.md)Dodaj `ContentDefinitionParameters` element, jak pokazano poniżej.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
@@ -99,9 +99,9 @@ Aby wysłać parametry ciągu zapytania, w [zasadach jednostki uzależnionej](re
 </RelyingParty>
 ```
 
-W definicji zawartości Zmień wartość `LoadUri` na. `https://<app_name>.azurewebsites.net/home/unified` Zasady `ContentDefinition` niestandardowe powinny wyglądać podobnie do następującego fragmentu kodu:
+W definicji zawartości Zmień wartość `LoadUri` na `https://<app_name>.azurewebsites.net/home/unified` . Zasady niestandardowe `ContentDefinition` powinny wyglądać podobnie do następującego fragmentu kodu:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
   ...
@@ -118,14 +118,14 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 Zawartość można ściągnąć z różnych miejsc na podstawie używanych parametrów. W punkcie końcowym z obsługą mechanizmu CORS Skonfiguruj strukturę folderów, aby hostować zawartość. Można na przykład zorganizować zawartość w następującej strukturze. *Folder główny/folder na język/pliki HTML*. Na przykład identyfikator URI strony niestandardowej może wyglądać następująco:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
 </ContentDefinition>
 ```
 
-Azure AD B2C wysyła dwuliterowy kod ISO dla języka `fr` w języku francuskim:
+Azure AD B2C wysyła dwuliterowy kod ISO dla języka w `fr` języku francuskim:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html

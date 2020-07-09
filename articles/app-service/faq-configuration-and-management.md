@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160004"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące konfiguracji i zarządzania dla Web Apps na platformie Azure
@@ -105,7 +105,7 @@ Typową przyczyną niepowodzenia tworzenia kopii zapasowej jest to, że niektór
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Jak mogę usunąć nagłówka z odpowiedzi HTTP?
 
-Aby usunąć nagłówki z odpowiedzi HTTP, zaktualizuj plik Web. config witryny. Aby uzyskać więcej informacji, zobacz [usuwanie standardowych nagłówków serwera w usłudze Azure Websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Aby usunąć nagłówki z odpowiedzi HTTP, zaktualizuj plik web.config lokacji. Aby uzyskać więcej informacji, zobacz [usuwanie standardowych nagłówków serwera w usłudze Azure Websites](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>Czy jest App Service zgodne ze standardami PCI 3,0 i 3,1?
 
@@ -125,7 +125,7 @@ Aby uzyskać więcej informacji o używaniu miejsc wdrożenia, zobacz [Konfiguro
 
 Aby przejrzeć dzienniki zadań WebJob:
 
-1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+1. Zaloguj się do **witryny sieci Web kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Wybierz zadanie WebJob.
 3. Wybierz przycisk **Przełącz dane wyjściowe** .
 4. Aby pobrać plik wyjściowy, wybierz link **pobierania** .
@@ -147,7 +147,7 @@ Wyjątek został spowodowany przez problem z Menedżer połączeń hybrydowych, 
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Jak mogę dodać regułę ponownego zapisywania adresu URL?
 
-Aby dodać regułę ponownego zapisywania adresu URL, Utwórz plik Web. config z odpowiednimi wpisami konfiguracji w folderze **wwwroot** . Aby uzyskać więcej informacji, zobacz [Azure App Services: Omówienie ponownego zapisywania adresów URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Aby dodać regułę ponownego zapisywania adresu URL, Utwórz plik web.config z odpowiednimi wpisami konfiguracji w folderze **wwwroot** . Aby uzyskać więcej informacji, zobacz [Azure App Services: Omówienie ponownego zapisywania adresów URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Jak mogę kontrolować ruch przychodzący do App Service?
 
@@ -302,7 +302,7 @@ Jeśli żaden z tych warunków nie zostanie spełniony i problem będzie nadal w
 
 ## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>Jak mogę włączyć kompresję HTTP dla mojej zawartości?
 
-Aby włączyć kompresję zarówno dla typów zawartości statycznej, jak i dynamicznej, Dodaj następujący kod do pliku Web. config na poziomie aplikacji:
+Aby włączyć kompresję zarówno dla typów zawartości statycznej, jak i dynamicznej, Dodaj następujący kod do pliku web.config na poziomie aplikacji:
 
 ```xml
 <system.webServer>

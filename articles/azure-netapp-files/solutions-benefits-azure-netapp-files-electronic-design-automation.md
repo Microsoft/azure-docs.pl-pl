@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
 ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160157"
 ---
-# <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Zalety korzystania z Azure NetApp Files na potrzeby automatyzacji projektowania elektronicznego
+# <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Zalety korzystania z usługi Azure NetApp Files na potrzeby automatyzacji projektowania elektroniki
 
 Czas wprowadzenia na rynek (TTM) to krytyczne zagadnienie dla branży projektowania półprzewodnikowego i mikroukładu. Branża ma wysoką przepustowość i małe opóźnienia związane z magazynem. W tym artykule wyjaśniono Azure NetApp Files rozwiązania, które zapewnia spełnienie wymagań branżowych. Prezentuje scenariusze testów korzystające ze standardowego testu porównawczego dla automatyzacji projektowania elektronicznego (EDA) przy użyciu Azure NetApp Files. 
 

@@ -6,10 +6,9 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811697"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Użyj certyfikatu TLS/SSL w kodzie w Azure App Service
@@ -29,7 +28,7 @@ Aby wykonać następujące czynności:
 
 ## <a name="find-the-thumbprint"></a>Znajdowanie odcisku palca
 
-W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services** > **\<App-Name>**.
+W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services**  >  **\<app-name>** .
 
 W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**, a następnie wybierz pozycję **certyfikaty kluczy prywatnych (pfx)** lub **Certyfikaty klucza publicznego (CER)**.
 
@@ -39,22 +38,22 @@ Znajdź certyfikat, którego chcesz użyć, i Skopiuj odcisk palca.
 
 ## <a name="make-the-certificate-accessible"></a>Udostępnianie certyfikatu
 
-Aby uzyskać dostęp do certyfikatu w kodzie aplikacji, Dodaj jego odcisk palca `WEBSITE_LOAD_CERTIFICATES` do ustawienia aplikacji, uruchamiając następujące polecenie w <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+Aby uzyskać dostęp do certyfikatu w kodzie aplikacji, Dodaj jego odcisk palca do `WEBSITE_LOAD_CERTIFICATES` Ustawienia aplikacji, uruchamiając następujące polecenie w <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Aby udostępnić wszystkie certyfikaty, ustaw wartość na `*`.
+Aby udostępnić wszystkie certyfikaty, ustaw wartość na `*` .
 
 ## <a name="load-certificate-in-windows-apps"></a>Ładowanie certyfikatu w aplikacjach systemu Windows
 
-Ustawienie `WEBSITE_LOAD_CERTIFICATES` aplikacji sprawia, że określone certyfikaty są dostępne dla aplikacji hostowanej w systemie Windows w magazynie certyfikatów systemu Windows, a lokalizacja zależy od [warstwy cenowej](overview-hosting-plans.md):
+`WEBSITE_LOAD_CERTIFICATES`Ustawienie aplikacji sprawia, że określone certyfikaty są dostępne dla aplikacji hostowanej w systemie Windows w magazynie certyfikatów systemu Windows, a lokalizacja zależy od [warstwy cenowej](overview-hosting-plans.md):
 
 - Warstwa **izolowana** — [Machine\My lokalny](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
 - Wszystkie inne warstwy — w [bieżącym User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-W kodzie C# można uzyskać dostęp do certyfikatu za pomocą odcisku palca certyfikatu. Poniższy kod ładuje certyfikat z odciskiem palca `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+W kodzie C# można uzyskać dostęp do certyfikatu za pomocą odcisku palca certyfikatu. Poniższy kod ładuje certyfikat z odciskiem palca `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` .
 
 ```csharp
 using System;
@@ -109,7 +108,7 @@ W przypadku języków, które nie obsługują programu lub nie oferują wystarcz
 
 ## <a name="load-certificate-in-linux-apps"></a>Ładowanie certyfikatu w aplikacjach systemu Linux
 
-Ustawienia `WEBSITE_LOAD_CERTIFICATES` aplikacji umożliwiają dostęp do określonych certyfikatów dla aplikacji hostowanych w systemie Linux (w tym niestandardowych aplikacji kontenerów) jako plików. Pliki znajdują się w następujących katalogach:
+`WEBSITE_LOAD_CERTIFICATES`Ustawienia aplikacji umożliwiają dostęp do określonych certyfikatów dla aplikacji hostowanych w systemie Linux (w tym niestandardowych aplikacji kontenerów) jako plików. Pliki znajdują się w następujących katalogach:
 
 - Certyfikaty prywatne — `/var/ssl/private` ( `.p12` pliki)
 - Certyfikaty publiczne — `/var/ssl/certs` ( `.der` pliki)
@@ -128,7 +127,7 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w językach Node. js, PHP, Python, Java lub Ruby, zapoznaj się z dokumentacją odpowiedniego języka lub platformy sieci Web.
+Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w Node.js, PHP, Python, Java lub Ruby, zapoznaj się z dokumentacją odpowiedniego języka lub platformy sieci Web.
 
 ## <a name="load-certificate-from-file"></a>Załaduj certyfikat z pliku
 
@@ -157,9 +156,9 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w językach Node. js, PHP, Python, Java lub Ruby, zapoznaj się z dokumentacją odpowiedniego języka lub platformy sieci Web.
+Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w Node.js, PHP, Python, Java lub Ruby, zapoznaj się z dokumentacją odpowiedniego języka lub platformy sieci Web.
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 * [Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md)
 * [Wymuszanie protokołu HTTPS](configure-ssl-bindings.md#enforce-https)

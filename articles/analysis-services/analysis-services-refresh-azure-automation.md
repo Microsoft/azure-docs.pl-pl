@@ -6,31 +6,27 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926565"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389976"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
 Za pomocą Azure Automation i elementów Runbook programu PowerShell, można wykonywać automatyczne operacje odświeżania danych w modelach tabelarycznych usługi Azure Analysis.  
 
-W przykładzie w tym artykule są wykorzystywane [moduły programu PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
-
-Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
+W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
 
 ## <a name="authentication"></a>Authentication
 
-Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładzie w tym artykule zostanie użyta nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services.
-
-Aby dowiedzieć się więcej na temat tworzenia nazwy głównej usługi, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
+Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładzie w tym artykule jest wykorzystywana nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!IMPORTANT]
-> W poniższym przykładzie przyjęto założenie, że Zapora Azure Analysis Services jest wyłączona. Jeśli Zapora jest włączona, publiczny adres IP inicjatora żądania będzie musiał być listy dozwolonych w zaporze.
+> W poniższym przykładzie przyjęto założenie, że Zapora Azure Analysis Services jest wyłączona. Jeśli Zapora jest włączona, publiczny adres IP inicjatora żądania musi być uwzględniony w regule zapory.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Zainstaluj moduły SqlServer z galerii programu PowerShell.
 
@@ -68,11 +64,11 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
     ![Importuj element Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Wyszukaj plik **Refresh-model. ps1** , podaj **nazwę** i **Opis**, a następnie kliknij przycisk **Utwórz**.
+4. Wyszukaj plik **Refresh-Model.ps1** , podaj **nazwę** i **Opis**, a następnie kliknij przycisk **Utwórz**.
 
     ![Importuj element Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. Po utworzeniu elementu Runbook zostanie on automatycznie przeszedł w tryb edycji.  Wybierz pozycję **Publikuj**.
+5. Po utworzeniu elementu Runbook zostanie on automatycznie przeszedł w tryb edycji.  Wybierz polecenie **Publikuj**.
 
     ![Publikowanie elementu Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
@@ -101,11 +97,11 @@ Można to skonfigurować w następujący sposób:
  
     ![Utwórz harmonogram](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Kliknij pozycję **harmonogram** > **Utwórz nowy harmonogram**, a następnie wprowadź szczegóły.
+2. Kliknij pozycję **harmonogram**  >  **Utwórz nowy harmonogram**, a następnie wprowadź szczegóły.
 
     ![Konfigurowanie harmonogramu](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Kliknij przycisk **Utwórz**.
+3. Kliknij pozycję **Utwórz**.
 
 4. Wypełnij parametry harmonogramu. Zostaną one użyte przy każdym wyzwoleniu elementu Runbook. Parametr **WEBHOOKDATA** powinien pozostać pusty, gdy jest uruchamiany zgodnie z harmonogramem.
 
@@ -147,7 +143,7 @@ Aby korzystać z elementu Runbook przy użyciu Azure Data Factory, należy najpi
 |Właściwość  |Wartość  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nazwa bazy danych Azure Analysis Services <br/> Przykład: AdventureWorksDB         |
-|**AnalysisServicesServer**     |Nazwa serwera Azure Analysis Services. <br/> Przykład: https:\//westus.asazure.Windows.NET/Servers/MyServer/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Nazwa serwera Azure Analysis Services. <br/> Przykład: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |Typ odświeżania do wykonania. <br/> Przykład: pełne         |
 
 Przykładowa treść JSON:
@@ -175,7 +171,7 @@ Maszyna wirtualna platformy Azure ze statycznym publicznym adresem IP może być
 >
 >Aby dowiedzieć się więcej o konfigurowaniu Azure Automation hybrydowych procesów roboczych, zobacz [Instalacja hybrydowego procesu roboczego elementu Runbook](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
-Po skonfigurowaniu hybrydowego procesu roboczego Utwórz element webhook zgodnie z opisem w sekcji [Korzystanie z Data Factory](#consume-with-data-factory).  Jedyną różnicą jest wybranie opcji **Uruchom przy** > użyciu**hybrydowego procesu roboczego** podczas konfigurowania elementu webhook.
+Po skonfigurowaniu hybrydowego procesu roboczego Utwórz element webhook zgodnie z opisem w sekcji [Korzystanie z Data Factory](#consume-with-data-factory).  Jedyną różnicą jest wybranie opcji **Uruchom przy**użyciu  >  **hybrydowego procesu roboczego** podczas konfigurowania elementu webhook.
 
 Przykładowy element webhook z użyciem hybrydowego procesu roboczego:
 

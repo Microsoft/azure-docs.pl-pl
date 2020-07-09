@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870823"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Zapytania sparametryzowane w Azure Cosmos DB
@@ -19,7 +18,7 @@ Cosmos DB obsługuje zapytania z parametrami wyrażonymi przez znajomą @ Notati
 
 ## <a name="examples"></a>Przykłady
 
-Można na przykład napisać zapytanie, które `lastName` przyjmuje i `address.state` jako parametry, i wykonać je dla różnych wartości `lastName` i `address.state` na podstawie danych wejściowych użytkownika.
+Można na przykład napisać zapytanie, które przyjmuje `lastName` i `address.state` jako parametry, i wykonać je dla różnych wartości `lastName` i `address.state` na podstawie danych wejściowych użytkownika.
 
 ```sql
     SELECT *

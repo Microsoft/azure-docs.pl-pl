@@ -2,21 +2,20 @@
 title: Używanie Microsoft Graph interfejsów API do konfigurowania aprowizacji — Azure Active Directory | Microsoft Docs
 description: Potrzebujesz skonfigurować Inicjowanie obsługi dla wielu wystąpień aplikacji? Dowiedz się, jak zaoszczędzić czas przy użyciu interfejsów API Microsoft Graph, aby zautomatyzować konfigurację automatycznej aprowizacji.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782062"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurowanie aprowizacji przy użyciu Microsoft Graph interfejsów API
 

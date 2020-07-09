@@ -4,15 +4,14 @@ description: Utwórz połączenie usługi bramy VPN Gateway między sieciami wir
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78674149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84985564"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -24,7 +23,7 @@ Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Narzędzia](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Łączenie różnych modeli wdrażania — witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -92,7 +91,7 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
     - **Typ sieci VPN**: wybierz pozycję **oparta na trasach**.
     - **Jednostka SKU**: Wybierz jednostkę SKU bramy, której chcesz użyć.
     - **Nazwa publicznego adresu IP**: VNet1GWpip
-    - **Połączenia**
+    - **Połączenie**
        - **Nazwa**: VNet1toVNet4
        - **Klucz współużytkowany**: możesz samodzielnie utworzyć klucz współużytkowany. Podczas tworzenia połączenia między sieciami wirtualnymi wartości muszą być zgodne. W tym ćwiczeniu należy użyć abc123.
 
@@ -117,7 +116,7 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
     - **Typ sieci VPN**: wybierz pozycję **oparta na trasach**.
     - **Jednostka SKU**: Wybierz jednostkę SKU bramy, której chcesz użyć.
     - **Nazwa publicznego adresu IP**: VNet4GWpip
-    - **Połączenia** 
+    - **Połączenie** 
        - **Nazwa**: VNet4toVNet1
        - **Klucz współużytkowany**: możesz samodzielnie utworzyć klucz współużytkowany. Podczas tworzenia połączenia między sieciami wirtualnymi wartości muszą być zgodne. W tym ćwiczeniu należy użyć abc123.
 
@@ -165,7 +164,7 @@ Po zakończeniu bram sieci wirtualnej dla VNet1 i sieci vnet4 można utworzyć p
 
      - **Klucz współużytkowany (PSK)**: w tym polu Wprowadź klucz współużytkowany dla połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja-lokacja używany klucz jest taki sam dla urządzenia lokalnego oraz połączenia bramy sieci wirtualnej. Koncepcja jest tutaj podobna, z tym że zamiast połączenia z urządzeniem sieci VPN następuje połączenie z inną bramą sieci wirtualnej.
     
-4. Aby zapisać zmiany, wybierz pozycję **OK**.
+4. Wybierz przycisk **OK**, aby zapisać zmiany.
 
 ## <a name="configure-the-vnet4-gateway-connection"></a>Konfigurowanie połączenia bramy sieci vnet4
 Następnie utwórz połączenie od sieci vnet4 do VNet1. W portalu Znajdź bramę sieci wirtualnej skojarzonej z sieci vnet4. Postępuj zgodnie z instrukcjami z poprzedniej sekcji, zastępując wartości, aby utworzyć połączenie z sieci vnet4 do VNet1. Pamiętaj, aby użyć tego samego klucza współużytkowanego.

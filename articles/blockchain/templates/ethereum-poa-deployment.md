@@ -1,15 +1,15 @@
 ---
 title: Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 description: Użyj rozwiązania Ethereum The-Authority Consortium do wdrożenia i skonfigurowania wieloskładnikowej sieci Ethereum konsorcjum na platformie Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.openlocfilehash: 859be5d779663e429ef333c8fd8163c0aa60eab5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75387681"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085926"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -17,15 +17,17 @@ Za pomocą [szablonu rozwiązania Ethereum weryfikacji urzędu certyfikacji w we
 
 Szablon rozwiązania może być używany przez każdego członka konsorcjum do aprowizacji łańcucha bloków sieci Microsoft Azure za pomocą usług obliczeniowych, sieciowych i magazynowych. Każdy element sieci członkowski konsorcjum składa się z zestawu węzłów modułu sprawdzania o zrównoważonym obciążeniu, z którymi aplikacja lub użytkownik może współdziałać w celu przesyłania transakcji Ethereum.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## <a name="choose-an-azure-blockchain-solution"></a>Wybierz rozwiązanie Azure łańcucha bloków
 
 Przed wybraniem opcji użycia szablonu rozwiązania do Ethereum weryfikacji dla urzędu certyfikacji Porównaj swój scenariusz z typowymi przypadkami użycia dostępnych opcji usługi Azure łańcucha bloków.
 
 Opcja | Model usług | Typowy przypadek użycia
 -------|---------------|-----------------
-Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków.
+Szablony rozwiązań | IaaS | Szablony rozwiązań są Azure Resource Manager szablonów, których można użyć do aprowizacji w pełni skonfigurowanej topologii sieci łańcucha bloków. Szablony wdrażają i konfigurują Microsoft Azure usług obliczeniowych, sieci i magazynu dla danego typu sieci łańcucha bloków. Szablony rozwiązań są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
 [Usługa Azure Blockchain](../service/overview.md) | PaaS | Usługa Azure łańcucha bloków w wersji zapoznawczej upraszcza tworzenie, zarządzanie i nadzór nad sieciami łańcucha bloków konsorcjum. Korzystaj z usługi Azure łańcucha bloków Service, aby uzyskać rozwiązania wymagające PaaS, zarządzania konsorcjum oraz prywatności umów i transakcji.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS i PaaS | Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Użyj usługi Azure łańcucha bloków Workbench do tworzenia prototypów rozwiązania łańcucha bloków lub weryfikacji koncepcji łańcucha blokówowej aplikacji. Usługa Azure Blockchain Workbench jest świadczona bez umowy dotyczącej poziomu usług. Aby uzyskać pomoc techniczną, Skorzystaj z [&stronie pytań](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) i odpowiedzi.
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
@@ -76,13 +78,13 @@ W następnych sekcjach przedstawiono sposób konfigurowania zasięgu pierwszego 
 
 W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
 
-Wybierz pozycję **łańcucha bloków** > **Ethereum weryfikacji urzędu certyfikacji (wersja zapoznawcza)**.
+Wybierz pozycję **łańcucha bloków**  >  **Ethereum weryfikacji urzędu certyfikacji (wersja zapoznawcza)**.
 
-### <a name="basics"></a>Podstawy
+### <a name="basics"></a>Informacje podstawowe
 
 W obszarze **podstawowe**Określ wartości parametrów standardowych dla każdego wdrożenia.
 
-![Podstawy](./media/ethereum-poa-deployment/basic-blade.png)
+![Informacje podstawowe](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------
@@ -95,7 +97,7 @@ Subskrypcja | Subskrypcja, do której ma zostać wdrożona sieć konsorcjum |
 Grupa zasobów| Grupa zasobów, w której ma zostać wdrożona sieć konsorcjum. | myResourceGroup
 Lokalizacja | Region świadczenia usługi Azure dla grupy zasobów. | Zachodnie stany USA 2
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="deployment-regions"></a>Regiony wdrożenia
 
@@ -109,7 +111,7 @@ Liczba regionów|Liczba regionów do wdrożenia sieci konsorcjum| 2
 Pierwszy region | Pierwszy region wdrożenia sieci konsorcjum | Zachodnie stany USA 2
 Drugi region | Drugi region do wdrożenia sieci konsorcjum. Dodatkowe regiony są widoczne, gdy liczba regionów jest równa co najmniej dwa. | Wschodnie stany USA 2
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="network-size-and-performance"></a>Rozmiar i wydajność sieci
 
@@ -131,7 +133,7 @@ F1|Dysk SSD w warstwie Standardowa|małą|małą|wysoka
 D2_v3|Dysk SSD w warstwie Standardowa|średni|średni|średni
 F16s|Dysk SSD w warstwie Premium|wysoka|wysoka|małą
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="ethereum-settings"></a>Ustawienia Ethereum
 
@@ -144,13 +146,13 @@ Parametr | Opis | Przykładowa wartość
 Identyfikator członka konsorcjum | Identyfikator skojarzony z każdym członkiem uczestniczącym w sieci konsorcjum. Służy do konfigurowania przestrzeni adresów IP w celu uniknięcia kolizji. W przypadku sieci prywatnej identyfikator elementu członkowskiego musi być unikatowy w różnych organizacjach w tej samej sieci.  Unikatowy identyfikator elementu członkowskiego jest wymagany nawet wtedy, gdy ta sama organizacja jest wdrażana w wielu regionach. Zanotuj wartość tego parametru, ponieważ musisz udostępnić go innym członkom, aby upewnić się, że nie ma kolizji. Prawidłowy zakres to od 0 do 255. | 0
 Identyfikator sieci | Identyfikator sieci dla wdrażanej sieci Ethereum. Każda sieć Ethereum ma swój własny identyfikator sieci, a 1 to identyfikator sieci publicznej. Prawidłowy zakres to od 5 do 999 999 999 | 10101010
 Adres Ethereum administratora | Adres konta Ethereum używany przez uczestnictwo w ładu PoA. W celu wygenerowania adresu Ethereum można użyć elementubinding. |
-Opcje zaawansowane | Opcje zaawansowane dla ustawień Ethereum | Włączanie
+Opcje zaawansowane | Opcje zaawansowane dla ustawień Ethereum | Włącz
 Wdróż przy użyciu publicznego adresu IP | Jeśli wybrana jest prywatna sieć wirtualna, Sieć zostanie wdrożona za bramą sieci wirtualnej i zostanie usunięta funkcja dostępu równorzędnego. W przypadku prywatnej sieci wirtualnej wszystkie elementy członkowskie muszą używać bramy sieci wirtualnej, aby połączenie było zgodne. | Publiczny adres IP
 Limit blokowania gazu | Limit wychodzący z bloków wyjściowych sieci. | 50000000
 Okres ponownego pieczętowania bloku (s) | Częstotliwość tworzenia pustych bloków, gdy nie ma żadnych transakcji w sieci. Wyższa częstotliwość będzie miała szybszy wzrost, ale zwiększy się koszty magazynowania. | 15
 Kontrakt uprawnień transakcji | Kod bajtowy dla kontraktu uprawniającego do transakcji. Ogranicza wdrożenie i wykonywanie kontraktu inteligentnego do listy dozwolonych kont Ethereum. |
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="monitoring"></a>Monitorowanie
 
@@ -160,13 +162,13 @@ Monitorowanie umożliwia skonfigurowanie zasobu dziennika dla sieci. Agent monit
 
 Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------
-Monitorowanie | Opcja włączania monitorowania | Włączanie
+Monitorowanie | Opcja włączania monitorowania | Włącz
 Nawiązywanie połączenia z istniejącymi dziennikami Azure Monitor | Opcja tworzenia nowego wystąpienia dzienników Azure Monitor lub łączenia istniejącego wystąpienia | Tworzenie nowego elementu
 Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | Wschodnie stany USA
 Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
 Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
 
-Wybierz przycisk **OK**.
+Kliknij przycisk **OK**.
 
 ### <a name="summary"></a>Podsumowanie
 
@@ -335,7 +337,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Aby przejść do dodatkowych węzłów transakcji, Zwiększ numer portu o jeden.
 
-Jeśli wdrożono w więcej niż jednym regionie, należy zmienić polecenie na nazwę DNS lub adres IP modułu równoważenia obciążenia w tym regionie. Aby znaleźć nazwę DNS lub adres IP innych regionów, Znajdź zasób z Konwencją ** \* \* \* \* \*nazewnictwa-lbpip-reg\# ** i Wyświetl jego właściwości nazwy DNS i adresu IP.
+Jeśli wdrożono w więcej niż jednym regionie, należy zmienić polecenie na nazwę DNS lub adres IP modułu równoważenia obciążenia w tym regionie. Aby znaleźć nazwę DNS lub adres IP innych regionów, Znajdź zasób z konwencją nazewnictwa ** \* \* \* \* \* -lbpip-reg \# ** i Wyświetl jego właściwości nazwy DNS i adresu IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Równoważenie obciążenia Traffic Manager platformy Azure
 
@@ -558,7 +560,7 @@ W poniższym przykładzie utworzysz prosty kontrakt inteligentny. Użyj Truffle,
 #### <a name="prerequisites"></a>Wymagania wstępne
 
 * Zainstaluj środowisko [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Środowisko Python jest niezbędne dla Truffle i Web3. Wybierz opcję Zainstaluj, aby dołączyć Język Python do ścieżki.
-* Zainstaluj Truffle v 5.0.5 `npm install -g truffle@v5.0.5`. Truffle wymaga zainstalowania kilku narzędzi, w tym [Node. js](https://nodejs.org), [git](https://git-scm.com/). Aby uzyskać więcej informacji, zobacz [dokumentację Truffle](https://github.com/trufflesuite/truffle).
+* Zainstaluj Truffle v 5.0.5 `npm install -g truffle@v5.0.5` . Truffle wymaga zainstalowania kilku narzędzi, w tym [Node.js](https://nodejs.org), [git](https://git-scm.com/). Aby uzyskać więcej informacji, zobacz [dokumentację Truffle](https://github.com/trufflesuite/truffle).
 
 ### <a name="create-truffle-project"></a>Utwórz projekt Truffle
 
@@ -567,7 +569,7 @@ Zanim będzie możliwe skompilowanie i wdrożenie kontraktu inteligentnego, nale
 1. Otwórz wiersz polecenia lub powłokę.
 1. Utwórz folder o nazwie `HelloWorld`.
 1. Zmień katalog na nowy `HelloWorld` folder.
-1. Zainicjuj nowy projekt Truffle za pomocą polecenia `truffle init`.
+1. Zainicjuj nowy projekt Truffle za pomocą polecenia `truffle init` .
 
     ![Utwórz nowy projekt Truffle](./media/ethereum-poa-deployment/create-truffle-project.png)
 
@@ -623,7 +625,7 @@ Projekty Truffle zawierają plik konfiguracyjny łańcucha bloków szczegóły p
     };
     ```
 
-1. Ponieważ korzystamy z dostawcy portfela Truffle HD, zainstaluj moduł w projekcie za pomocą polecenia `npm install truffle-hdwallet-provider --save`.
+1. Ponieważ korzystamy z dostawcy portfela Truffle HD, zainstaluj moduł w projekcie za pomocą polecenia `npm install truffle-hdwallet-provider --save` .
 
 Truffle używa skryptów migracji do wdrożenia inteligentnych kontraktów w sieci łańcucha bloków. Do wdrożenia nowego kontraktu inteligentnego potrzebny jest skrypt migracji.
 
@@ -647,8 +649,8 @@ Truffle używa skryptów migracji do wdrożenia inteligentnych kontraktów w sie
 
 Po wdrożeniu kontraktu inteligentnego można wysłać transakcję, aby wywołać funkcję.
 
-1. W katalogu projektu Truffle Utwórz nowy plik o nazwie `sendtransaction.js`.
-1. Dodaj następującą zawartość do **sendtransaction. js**.
+1. W katalogu projektu Truffle Utwórz nowy plik o nazwie `sendtransaction.js` .
+1. Dodaj następującą zawartość do **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");
@@ -718,6 +720,20 @@ Przepływność transakcji będzie wysoce zależna od typów transakcji i topolo
 ### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Jak mogę subskrybować zdarzenia dotyczące kontraktu inteligentnego?
 
 Ethereum potwierdzenie urzędu obsługuje teraz sieci Web-Sockets.  Sprawdź dane wyjściowe wdrożenia, aby znaleźć adres URL i port gniazda sieci Web.
+
+## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
+
+W przypadku usługi Azure łańcucha bloków News odwiedź [blog usługi Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/) , aby zachować aktualność w zakresie usług łańcucha bloków i uzyskać informacje od zespołu inżynierów ds. platformy Azure łańcucha bloków.
+
+Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub zagłosuj na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Pomoc techniczna w społeczności
+
+Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
+
+* [Microsoft Q&strony pytania](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
+* [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Następne kroki
 

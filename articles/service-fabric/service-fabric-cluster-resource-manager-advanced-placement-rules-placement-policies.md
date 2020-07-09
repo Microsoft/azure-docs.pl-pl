@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75834398"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Zasady umieszczania dla usług Service Fabric
@@ -101,7 +100,7 @@ Repliki są _zwykle_ dystrybuowane w domenach błędów i uaktualnień, gdy klas
 > Aby uzyskać więcej informacji na temat ograniczeń i priorytetów ograniczeń na ogół, zapoznaj się z [tym tematem](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities).
 >
 
-Jeśli kiedykolwiek zobaczysz komunikat o kondycji, taki jak`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`"", osiągnięto ten warunek lub coś innego. Zwykle tylko jedna lub dwie repliki są pakowane tymczasowo. Tak długo, jak jest mniej niż kworum replik w danej domenie, jesteś bezpieczny. Pakowanie jest rzadkie, ale może się tak zdarzyć, a zazwyczaj sytuacje są przejściowe, ponieważ węzły wracają do tyłu. Jeśli węzły nie działają, a klaster Menedżer zasobów musi tworzyć zamiany, zazwyczaj istnieją inne węzły dostępne w domenach idealnego błędu.
+Jeśli kiedykolwiek zobaczysz komunikat o kondycji, taki jak " `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain` ", osiągnięto ten warunek lub coś innego. Zwykle tylko jedna lub dwie repliki są pakowane tymczasowo. Tak długo, jak jest mniej niż kworum replik w danej domenie, jesteś bezpieczny. Pakowanie jest rzadkie, ale może się tak zdarzyć, a zazwyczaj sytuacje są przejściowe, ponieważ węzły wracają do tyłu. Jeśli węzły nie działają, a klaster Menedżer zasobów musi tworzyć zamiany, zazwyczaj istnieją inne węzły dostępne w domenach idealnego błędu.
 
 Niektóre obciążenia wolą zawsze mieć docelową liczbę replik, nawet jeśli są zapakowane do mniejszej liczby domen. Te obciążenia są skierowane do całkowitej liczby równoczesnych niepowodzeń domeny i zazwyczaj mogą odzyskać stan lokalny. Inne obciążenia spowodują skrócenie czasu przestoju niż poprawność ryzyka lub utratę danych. Większość obciążeń produkcyjnych działa z więcej niż trzema replikami, więcej niż trzema domenami błędów i wieloma prawidłowymi węzłami na domenę błędów. W związku z tym domyślne zachowanie domyślnie zezwala na pakowanie domeny. Domyślne zachowanie umożliwia normalne Równoważenie i przełączenie w tryb failover w celu obsługi tych skrajnych przypadków, nawet jeśli oznacza to tymczasowe pakowanie domen.
 

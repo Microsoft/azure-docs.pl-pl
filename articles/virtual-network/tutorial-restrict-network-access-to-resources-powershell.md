@@ -11,18 +11,17 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3a9ae1b847d3f31a2cd4c01f9ecb61e39e950ffe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185536"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688147"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi sieci wirtualnej przy użyciu programu PowerShell
 
@@ -37,7 +36,7 @@ Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu
 * Potwierdzanie dostępu do zasobu z podsieci
 * Potwierdzanie zablokowania dostępu do zasobu z podsieci i z Internetu
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -172,7 +171,7 @@ Kroki niezbędne do ograniczenia dostępu sieciowego do zasobów utworzonych za 
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz konto usługi Azure Storage za pomocą elementu [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Zamień `<replace-with-your-unique-storage-account-name>` na nazwę, która jest unikatowa we wszystkich lokalizacjach platformy Azure, od 3-24 znaków, używając tylko cyfr i małych liter.
+Utwórz konto usługi Azure Storage za pomocą elementu [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Zamień na `<replace-with-your-unique-storage-account-name>` nazwę, która jest unikatowa we wszystkich lokalizacjach platformy Azure, od 3-24 znaków, używając tylko cyfr i małych liter.
 
 ```azurepowershell-interactive
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
@@ -297,7 +296,7 @@ W poniższym poleceniu zastąp ciąg `<publicIpAddress>` publicznym adresem IP z
 mstsc /v:<publicIpAddress>
 ```
 
-Zostanie utworzony i pobrany na komputer plik Remote Desktop Protocol (rdp). Otwórz pobrany plik rdp. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej. Może okazać się konieczne wybranie pozycji **Więcej opcji**, a następnie pozycji **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej. Kliknij przycisk **OK**. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **Tak** lub **Kontynuuj**, aby nawiązać połączenie.
+Zostanie utworzony i pobrany na komputer plik Remote Desktop Protocol (rdp). Otwórz pobrany plik rdp. Po wyświetleniu monitu wybierz pozycję **Połącz**. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej. Może okazać się konieczne wybranie pozycji **Więcej opcji**, a następnie pozycji **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej. Wybierz przycisk **OK**. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie, wybierz pozycję **Tak** lub **Kontynuuj**, aby nawiązać połączenie.
 
 Na maszynie wirtualnej *myVmPrivate* mapuj udział plików platformy Azure na dysk Z przy użyciu programu PowerShell. Przed uruchomieniem następujących poleceń Zastąp `<storage-account-key>` wartości i `<storage-account-name>` wartościami z dostarczonych lub pobranych w obszarze [Tworzenie konta magazynu](#create-a-storage-account).
 
@@ -366,7 +365,7 @@ Get-AzStorageFile `
 
 Odmowa dostępu i otrzymasz polecenie *Get-AzStorageFile: serwer zdalny zwrócił błąd: (403) zabronione. Kod stanu HTTP: 403 — komunikat o błędzie HTTP: to żądanie nie ma autoryzacji do wykonania tego błędu operacji* , ponieważ komputer nie znajduje się w podsieci *prywatnej* sieci wirtualnej *MyVirtualNetwork* .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
 

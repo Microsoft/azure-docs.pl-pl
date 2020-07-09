@@ -9,10 +9,10 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
 ms.openlocfilehash: 36660854b9a7ae13431545392ef551694b48e97c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628916"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Otwieranie i zapisywanie plików lokalnych i na platformie Azure z pakietami SSIS wdrożonymi na platformie Azure
@@ -23,7 +23,7 @@ W tym artykule opisano sposób otwierania i zapisywania plików lokalnych i na p
 
 ## <a name="save-temporary-files"></a>Zapisz pliki tymczasowe
 
-Jeśli zachodzi potrzeba przechowywania i przetwarzania plików tymczasowych podczas wykonywania pojedynczego pakietu, pakiety mogą korzystać z bieżącego katalogu roboczego (`.`) lub folderu tymczasowego (`%TEMP%`) węzłów Azure-SSIS Integration Runtime.
+Jeśli zachodzi potrzeba przechowywania i przetwarzania plików tymczasowych podczas wykonywania pojedynczego pakietu, pakiety mogą korzystać z bieżącego katalogu roboczego ( `.` ) lub folderu tymczasowego ( `%TEMP%` ) węzłów Azure-SSIS Integration Runtime.
 
 ## <a name="use-on-premises-file-shares"></a>Korzystanie z lokalnych udziałów plików
 
@@ -37,7 +37,7 @@ Aby nadal korzystać z lokalnych **udziałów plików** podczas podnoszenia i pr
 
 4. Połącz Azure-SSIS IR z lokalnymi udziałami plików w tej samej sieci wirtualnej przez skonfigurowanie poświadczeń dostępu, które używają uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z danymi i udziałami plików przy użyciu uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
 
-5. Zaktualizuj lokalne ścieżki plików w Twoich pakietach do ścieżek UNC wskazujących udziały plików lokalnych. Na przykład zaktualizuj `C:\abc.txt` do programu `\\<on-prem-server-name>\<share-name>\abc.txt`.
+5. Zaktualizuj lokalne ścieżki plików w Twoich pakietach do ścieżek UNC wskazujących udziały plików lokalnych. Na przykład zaktualizuj `C:\abc.txt` do programu `\\<on-prem-server-name>\<share-name>\abc.txt` .
 
 ## <a name="use-azure-file-shares"></a>Korzystanie z udziałów plików platformy Azure
 
@@ -47,7 +47,7 @@ Aby użyć **Azure Files** podczas podnoszenia i przesunięcia pakietów, które
 
 2. Połącz Azure-SSIS IR, aby Azure Files przez skonfigurowanie poświadczeń dostępu, które używają uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z danymi i udziałami plików przy użyciu uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
 
-3. Zaktualizuj lokalne ścieżki plików w Twoich pakietach do ścieżek UNC wskazujących Azure Files. Na przykład zaktualizuj `C:\abc.txt` do programu `\\<storage-account-name>.file.core.windows.net\<share-name>\abc.txt`.
+3. Zaktualizuj lokalne ścieżki plików w Twoich pakietach do ścieżek UNC wskazujących Azure Files. Na przykład zaktualizuj `C:\abc.txt` do programu `\\<storage-account-name>.file.core.windows.net\<share-name>\abc.txt` .
 
 ## <a name="next-steps"></a>Następne kroki
 

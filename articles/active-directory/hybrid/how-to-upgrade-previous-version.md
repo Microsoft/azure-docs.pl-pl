@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60347752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356631"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: uaktualnianie z wcześniejszej wersji do najnowszej
 W tym temacie opisano różne metody, których można użyć w celu uaktualnienia instalacji programu Azure Active Directory (Azure AD) Connect do najnowszej wersji. Zalecamy, aby zachować aktualność w wersjach Azure AD Connect. W przypadku zmiany konfiguracji należy również użyć kroków [z sekcji](#swing-migration) przedziały czasowe.
@@ -54,7 +54,7 @@ Jeśli wprowadzono zmiany w regułach synchronizacji out-of-Box, te reguły są 
 
 W trakcie uaktualniania w miejscu mogą zostać wprowadzone zmiany wymagające wykonania określonych czynności synchronizacji (w tym krok pełnego importu i krok pełnej synchronizacji), które mają zostać wykonane po zakończeniu uaktualniania. Aby odroczyć te działania, zapoznaj się z sekcją [jak odroczyć pełną synchronizację po uaktualnieniu](#how-to-defer-full-synchronization-after-upgrade).
 
-Jeśli używasz Azure AD Connect z łącznikiem niestandardowym (na przykład ogólny łącznik LDAP i ogólny łącznik SQL), należy odświeżyć odpowiednią konfigurację łącznika w [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) po uaktualnieniu w miejscu. Aby uzyskać szczegółowe informacje na temat odświeżania konfiguracji łącznika, zapoznaj się z sekcją artykułu w temacie [historia wersji — Rozwiązywanie problemów](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Jeśli konfiguracja nie zostanie odświeżona, procedury importowania i eksportowania nie będą działać poprawnie dla łącznika. W dzienniku zdarzeń aplikacji zostanie wyświetlony następujący błąd z komunikatem *"wersja zestawu w konfiguracji łącznika usługi AAD (" X.X.xxx. X ") jest wcześniejsza niż wersja rzeczywista (" X.X.XXX. X ") w lokalizacji" C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ".*
+Jeśli używasz Azure AD Connect z łącznikiem niestandardowym (na przykład ogólny łącznik LDAP i ogólny łącznik SQL), należy odświeżyć odpowiednią konfigurację łącznika w [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) po uaktualnieniu w miejscu. Aby uzyskać szczegółowe informacje na temat odświeżania konfiguracji łącznika, zapoznaj się z sekcją artykułu w temacie [historia wersji — Rozwiązywanie problemów](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Jeśli konfiguracja nie zostanie odświeżona, procedury importowania i eksportowania nie będą działać poprawnie dla łącznika. W dzienniku zdarzeń aplikacji zostanie wyświetlony następujący błąd z komunikatem *"wersja zestawu w konfiguracji łącznika usługi AAD (" X.X.xxx. X ") jest wcześniejsza niż wersja rzeczywista (" X.X.XXX. X ") elementu" C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ".*
 
 ## <a name="swing-migration"></a>Migracja typu swing
 Jeśli masz złożone wdrożenie lub wiele obiektów, może być niepraktyczne, aby przeprowadzić uaktualnienie w miejscu na żywo systemu. W przypadku niektórych klientów ten proces może trwać wiele dni i w tym czasie nie są przetwarzane żadne zmiany różnicowe. Możesz również użyć tej metody, gdy planujesz wprowadzić znaczące zmiany w konfiguracji i chcesz wypróbować je przed wypchnięciem do chmury.
@@ -142,7 +142,7 @@ Poniższa sekcja zawiera informacje dotyczące rozwiązywania problemów i infor
 
 Podczas uaktualniania Azure AD Connect z poprzedniej wersji, można napotkać następujący błąd na początku uaktualnienia 
 
-![Error](./media/how-to-upgrade-previous-version/error1.png)
+![Błąd](./media/how-to-upgrade-previous-version/error1.png)
 
 Ten błąd występuje, ponieważ łącznik Azure Active Directory o identyfikatorze b891884f-051e-4a83-95af-2544101c9083 nie istnieje w bieżącej konfiguracji Azure AD Connect. Aby sprawdzić, czy jest to przypadek, Otwórz okno programu PowerShell, uruchom polecenie cmdlet.`Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 

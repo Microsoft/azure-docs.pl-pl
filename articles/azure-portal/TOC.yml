@@ -8,6 +8,13 @@
       href: azure-portal-quickstart-center.md
     - name: Obsługiwane przeglądarki i urządzenia
       href: azure-portal-supported-browsers-devices.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie maszyny wirtualnej w portalu
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: Tworzenie pulpitu nawigacyjnego — szablon usługi ARM
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Pojęcia
   items:
     - name: Udostępnianie pulpitów nawigacyjnych przy użyciu kontroli dostępu opartej na rolach
@@ -36,8 +43,8 @@
       items:
         - name: Tworzenie wniosku o pomoc techniczną platformy Azure
           href: supportability/how-to-create-azure-support-request.md
-        - name: Przekazywanie plików dla żądania pomocy technicznej
-          href: supportability/how-to-use-file-uploader.md
+        - name: Zarządzanie wnioskiem o pomoc techniczną platformy Azure
+          href: supportability/how-to-manage-azure-support-request.md
         - name: Prośba o zwiększenie limitów przydziałów
           items:
             - name: Zwiększanie limitów obliczeniowych procesorów wirtualnych
@@ -70,11 +77,13 @@
       href: azure-portal-safelist-urls.md
     - name: Struktura pulpitów nawigacyjnych platformy Azure
       href: azure-portal-dashboards-structure.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/portal/portal
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/'
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-portal
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'

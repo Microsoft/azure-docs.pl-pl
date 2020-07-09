@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b84f98bd383c2b90c3291527b336d798e9b9cae9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666138"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510985"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Samouczek: diagnozowanie, naprawianie i zatwierdzanie zmian w zestawu umiejętności
 
 Ten artykuł zawiera Azure Portal do uzyskiwania dostępu do sesji debugowania w celu naprawy problemów z podaną zestawu umiejętności. Zestawu umiejętności zawiera błędy, które należy rozwiązać. Ten samouczek przeprowadzi Cię przez sesję debugowania, aby identyfikować i rozwiązywać problemy związane z danymi wejściowymi i wyjściowymi.
 
 > [!Important]
-> Obsługa sesji debugowania dla usługi Azure Wyszukiwanie poznawcze jest dostępna [na żądanie](https://aka.ms/DebugSessions) jako wersja zapoznawcza ograniczonego dostępu. Funkcje w wersji zapoznawczej są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sesje debugowania to funkcja w wersji zapoznawczej, która jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Po uzyskaniu dostępu do wersji zapoznawczej będziesz mieć możliwość dostępu do sesji debugowania i używania ich dla usługi przy użyciu Azure Portal.
->   
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -173,12 +171,12 @@ Po zakończeniu wykonywania sesji debugowania kliknij kartę błędy/ostrzeżeni
 ## <a name="fix-missing-skill-output-values"></a>Popraw brakujące wartości wyjściowe kwalifikacji
 
 > [!div class="mx-imgBorder"]
-> ![Błędy i ostrzeżenia](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Błędy i ostrzeżenia](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 Brak wartości wyjściowych z umiejętności. Aby zidentyfikować umiejętność z błędem, przejdź do wzbogaconej struktury danych, Znajdź nazwę wartości i sprawdź jej pierwotne źródło. W przypadku brakujących wartości organizacji i lokalizacji są one wyprowadzane z #1 umiejętności. Otwarcie < ewaluatora wyrażeń/> dla każdej ścieżki spowoduje wyświetlenie odpowiednio wyrażeń wymienionych jako "/Document/Content/Organizations" i "/Document/Content/Locations".
 
 > [!div class="mx-imgBorder"]
-> ![Jednostka organizacji ewaluatora wyrażeń](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Jednostka organizacji ewaluatora wyrażeń](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 Dane wyjściowe dla tych jednostek są puste i nie powinny być puste. Jakie są dane wejściowe tego wyniku?
 
@@ -187,7 +185,7 @@ Dane wyjściowe dla tych jednostek są puste i nie powinny być puste. Jakie są
 1. Otwórz ewaluatora wyrażeń **</>** dla danych wejściowych "text".
 
 > [!div class="mx-imgBorder"]
-> ![Dane wejściowe dotyczące kwalifikacji tekstu](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Dane wejściowe dotyczące kwalifikacji tekstu](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 Wyświetlany wynik dla tego danych wejściowych nie wygląda jak tekst wejściowy. Wygląda podobnie do obrazu, który jest ujęty w nowe wiersze. Brak tekstu oznacza, że nie można zidentyfikować żadnych jednostek. Spojrzenie na hierarchię zestawu umiejętności wyświetla zawartość, która jest najpierw przetwarzana przez umiejętność #6 (OCR), a następnie przenoszona do umiejętności #5 (merge). 
 
@@ -195,7 +193,7 @@ Wyświetlany wynik dla tego danych wejściowych nie wygląda jak tekst wejściow
 1. Wybierz kartę **wykonania** w prawym okienku szczegółów umiejętności i Otwórz ewaluatora wyrażeń **</>** dla danych wyjściowych "mergedText".
 
 > [!div class="mx-imgBorder"]
-> ![Dane wyjściowe dla umiejętności scalania](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Dane wyjściowe dla umiejętności scalania](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 W tym miejscu tekst jest sparowany z obrazem. Spojrzenie na wyrażenie "/Document/merged_content" powoduje błąd w ścieżkach "Organizations" i "Locations" dla #1 umiejętności. Zamiast używać elementu "/Document/Content", powinien on używać elementu "/Document/merged_content" dla danych wejściowych "text".
 
@@ -216,7 +214,7 @@ Po zakończeniu działania indeksatora te błędy nadal są dostępne. Wróć do
 1. Otwórz ewaluatora wyrażeń **</>** dla jednostki "organizacje".
 
 > [!div class="mx-imgBorder"]
-> ![Dane wyjściowe dla jednostki organizacji](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Dane wyjściowe dla jednostki organizacji](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 Obliczenie wyniku wyrażenia daje prawidłowy wynik. Umiejętność działania umożliwia zidentyfikowanie poprawnej wartości dla jednostki "organizacje". Jednak mapowanie danych wyjściowych w ścieżce jednostki nadal zgłasza błąd. W porównaniu ze ścieżką wyjściową w polu umiejętność do ścieżki wyjściowej błędu, umiejętność nadrzędna danych wyjściowych, organizacji i lokalizacji w węźle/Document/Content. Chociaż mapowanie pola wyjściowego oczekuje, że wyniki mają być nadrzędne w węźle merged_content/Document/. W poprzednim kroku dane wejściowe zmieniły się z "/Document/Content" na "/Document/merged_content". Kontekst w ustawieniach umiejętności należy zmienić, aby upewnić się, że dane wyjściowe są generowane z odpowiednim kontekstem.
 
@@ -228,7 +226,7 @@ Obliczenie wyniku wyrażenia daje prawidłowy wynik. Umiejętność działania u
 1. W menu okna sesje kliknij polecenie **Uruchom** . Spowoduje to uruchomienie innego wykonywania zestawu umiejętności przy użyciu dokumentu.
 
 > [!div class="mx-imgBorder"]
-> ![Korekta kontekstu w ustawieniu umiejętności](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Korekta kontekstu w ustawieniu umiejętności](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 Wszystkie błędy zostały rozwiązane.
 
@@ -249,7 +247,7 @@ Gdy indeksator zakończył działanie, powinien istnieć zielony znacznik wyboru
 1. Otwórz indeks "badania kliniczne", a następnie na karcie Eksplorator wyszukiwania kliknij pozycję **Wyszukaj**.
 1. W oknie wyników należy pokazać, że organizacje i lokalizacje obiektów są teraz wypełniane oczekiwanymi wartościami.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

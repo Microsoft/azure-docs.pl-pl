@@ -1,22 +1,14 @@
 ---
 title: Korzystanie z Akka strumieni dla Apache Kafka platformy Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące sposobu łączenia strumieni Akka z centrum zdarzeń platformy Azure.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320211"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Używanie programu Akka Streams z usługą Event Hubs dla platformy Apache Kafka
 W tym samouczku pokazano, jak połączyć strumienie Akka z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Event Hubs platformy Azure dla usługi Kafka obsługuje [Apache Kafka w wersji 1,0.](https://kafka.apache.org/10/documentation.html)
@@ -66,7 +58,7 @@ Korzystając z podanego przykładowego strumienia Akka, Wysyłaj komunikaty do u
 
 #### <a name="producer-applicationconf"></a>Aplikacja producenta. conf
 
-Zaktualizuj wartości `bootstrap.servers` i `sasl.jaas.config` w programie `producer/src/main/resources/application.conf` , aby skierować producenta do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
+Zaktualizuj `bootstrap.servers` wartości i `sasl.jaas.config` w programie, `producer/src/main/resources/application.conf` Aby skierować producenta do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
 
 ```xml
 akka.kafka.producer {
@@ -93,7 +85,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-Producent zaczyna wysyłać zdarzenia do centrum zdarzeń w temacie `test`i drukuje zdarzenia do stdout.
+Producent zaczyna wysyłać zdarzenia do centrum zdarzeń w temacie `test` i drukuje zdarzenia do stdout.
 
 ## <a name="run-akka-streams-consumer"></a>Uruchom odbiorcę strumieni Akka
 
@@ -103,7 +95,7 @@ Korzystając z podanego przykładu konsumenta, odbieraj komunikaty z centrum zda
 
 #### <a name="consumer-applicationconf"></a>Aplikacja konsumencka. conf
 
-Zaktualizuj wartości `bootstrap.servers` i `sasl.jaas.config` w programie `consumer/src/main/resources/application.conf` , aby skierować odbiorcę do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
+Zaktualizuj `bootstrap.servers` wartości i `sasl.jaas.config` w programie, `consumer/src/main/resources/application.conf` Aby skierować odbiorcę do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
 
 ```xml
 akka.kafka.consumer {
@@ -133,7 +125,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-Jeśli centrum zdarzeń ma zdarzenia (na przykład jeśli producent jest również uruchomiony), konsument rozpocznie pobieranie zdarzeń z tematu `test`. 
+Jeśli centrum zdarzeń ma zdarzenia (na przykład jeśli producent jest również uruchomiony), konsument rozpocznie pobieranie zdarzeń z tematu `test` . 
 
 Aby uzyskać bardziej szczegółowe informacje na temat strumieni Akka, zapoznaj się z [instrukcją Akka strumienie Kafka](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) .
 

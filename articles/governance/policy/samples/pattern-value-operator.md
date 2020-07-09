@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: operator wartości w definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład użycia operatora Value w definicji zasad.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
-ms.openlocfilehash: ace7b7cd4a765cdb8c7aa764b52b180c60508ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e246e3a5e2517fa80626081227070bcb2f967784
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172786"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85565673"
 ---
 # <a name="azure-policy-pattern-the-value-operator"></a>Wzorzec Azure Policy: wartość operator wartości
 
@@ -23,7 +23,7 @@ Ta definicja zasad dodaje lub zastępuje tag określony w parametrze **TagName**
 
 :::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json":::
 
-### <a name="explanation"></a>Wyjaśnienie
+### <a name="explanation"></a>Objaśnienie
 
 :::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json" range="20-30" highlight="7,8":::
 

@@ -3,14 +3,13 @@ title: Konfigurowanie Start/Stop VMs during off-hours Azure Automation
 description: W tym artykule opisano sposób konfigurowania funkcji Start/Stop VMs during off-hours w celu obsługi różnych przypadków użycia lub scenariuszy.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827679"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266719"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurowanie Start/Stop VMs during off-hours
 
@@ -44,11 +43,15 @@ Można włączyć opcję określania wartości docelowej dla subskrypcji i grupy
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Kierowanie akcji Rozpocznij i Zatrzymaj według maszyny wirtualnej
 
-1. Uruchom **ScheduledStartStop_Parent** element Runbook z ustawioną **akcją** **Start**, Dodaj rozdzieloną przecinkami listę maszyn wirtualnych w polu parametr **VMList** , a następnie ustaw dla pola parametru **WHATIF** wartość true. Wyświetl podgląd zmian.
+1. Uruchom **ScheduledStartStop_Parent** element Runbook z **akcją** ustawioną na **początek**.
 
-2. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3).
+2. Dodaj rozdzieloną przecinkami listę maszyn wirtualnych (bez spacji) w polu parametr **VMList** . Przykładową listą jest `vm1,vm2,vm3` .
 
-3. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
+3. Dla pola parametru **WHATIF** ustaw wartość true.
+
+4. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3), bez spacji między wartościami rozdzielanymi przecinkami.
+
+5. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
 
     > [!NOTE]
     > Wartość **docelowej nazwy obiektu** do odniesień jest przechowywana jako wartości dla obu `External_Start_ResourceGroupNames` i `External_Stop_ResourceGroupNames` . Aby uzyskać więcej stopnia szczegółowości, można zmodyfikować każdą z tych zmiennych dla różnych grup zasobów. Dla akcji Rozpocznij akcję, użyj `External_Start_ResourceGroupNames` , i Użyj `External_Stop_ResourceGroupNames` do zatrzymania działania. Maszyny wirtualne są automatycznie dodawane do harmonogramów uruchamiania i zatrzymywania.
@@ -71,13 +74,17 @@ W środowisku zawierającym co najmniej dwa składniki na wielu maszynach wirtua
 
 1. Dodaj `sequencestart` `sequencestop` tag i z dodatnimi wartościami całkowitymi do maszyn wirtualnych, które zamierzasz dodać do `VMList` parametru.
 
-2. Uruchom **SequencedStartStop_Parent** element Runbook z **akcją** ustawioną na **początek**, Dodaj rozdzieloną przecinkami listę maszyn wirtualnych w polu parametr **VMList** , a następnie ustaw wartość **WHATIF** na true. Wyświetl podgląd zmian.
+2. Uruchom **SequencedStartStop_Parent** element Runbook z **akcją** ustawioną na **początek**.
 
-3. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3).
+3. Dodaj rozdzieloną przecinkami listę maszyn wirtualnych (bez spacji) w polu parametr **VMList** . Przykładową listą jest `vm1,vm2,vm3` .
 
-4. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
+4. Dla opcji **WHATIF** ustaw wartość true. 
 
-5. Wyświetl podgląd akcji i wprowadź wszelkie niezbędne zmiany przed wdrożeniem na maszynach wirtualnych w środowisku produkcyjnym. Gdy wszystko będzie gotowe, ręcznie wykonaj polecenie **monitoring-and-Diagnostics/monitoring-Action-groupsrunbook** z parametrem ustawionym na **wartość false**. Alternatywnie, można zezwolić usłudze Automation Schedules **Sequenced-StartVM** i **Sequenced-StopVM** działać automatycznie zgodnie z określonym harmonogramem.
+5. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych, bez spacji między wartościami rozdzielonymi przecinkami.
+
+6. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
+
+7. Wyświetl podgląd akcji i wprowadź wszelkie niezbędne zmiany przed wdrożeniem na maszynach wirtualnych w środowisku produkcyjnym. Gdy wszystko będzie gotowe, ręcznie wykonaj polecenie **monitoring-and-Diagnostics/monitoring-Action-groupsrunbook** z parametrem ustawionym na **wartość false**. Alternatywnie, można zezwolić usłudze Automation Schedules **Sequenced-StartVM** i **Sequenced-StopVM** działać automatycznie zgodnie z określonym harmonogramem.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Scenariusz 3. Uruchamianie lub zatrzymywanie automatyczne na podstawie użycia procesora CPU
 
@@ -120,7 +127,7 @@ Po uruchomieniu **AutoStop_CreateAlert_Parent** elementu Runbook sprawdza, czy i
 
 1. Utwórz nowy [harmonogram](shared-resources/schedules.md#create-a-schedule) i podłącz go do **AutoStop_CreateAlert_Parent** elementu Runbook, dodając rozdzieloną PRZECINKAMI listę nazw maszyn wirtualnych do `VMList` parametru.
 
-2. Opcjonalnie, jeśli chcesz wykluczyć niektóre maszyny wirtualne z akcji autozatrzymaj, możesz dodać do zmiennej listę nazw maszyn wirtualnych rozdzielonych przecinkami `External_ExcludeVMNames` .
+2. Opcjonalnie, jeśli chcesz wykluczyć niektóre maszyny wirtualne z akcji autozatrzymaj, możesz dodać rozdzieloną przecinkami listę nazw maszyn wirtualnych (bez spacji) do `External_ExcludeVMNames` zmiennej.
 
 ## <a name="configure-email-notifications"></a>Konfigurowanie powiadomień e-mail
 
@@ -151,13 +158,13 @@ Ta funkcja pozwala dodawać maszyny wirtualne do dołączenia lub wykluczenia.
 
 Istnieją dwa sposoby upewnienia się, że maszyna wirtualna jest dołączona podczas uruchamiania funkcji:
 
-* Każdy z nadrzędnych [elementów Runbook](automation-solution-vm-management.md#runbooks) funkcji ma `VMList` parametr. Można przekazać rozdzieloną przecinkami listę nazw maszyn wirtualnych do tego parametru podczas planowania odpowiedniego nadrzędnego elementu Runbook dla danej sytuacji. te maszyny wirtualne zostaną uwzględnione po uruchomieniu funkcji.
+* Każdy z nadrzędnych [elementów Runbook](automation-solution-vm-management.md#runbooks) funkcji ma `VMList` parametr. Można przekazać rozdzieloną przecinkami listę nazw maszyn wirtualnych (bez spacji) do tego parametru podczas planowania odpowiedniego nadrzędnego elementu Runbook dla danej sytuacji, a te maszyny wirtualne zostaną uwzględnione podczas uruchamiania funkcji.
 
 * Aby wybrać wiele maszyn wirtualnych, ustawić `External_Start_ResourceGroupNames` i `External_Stop_ResourceGroupNames` przy użyciu nazw grup zasobów zawierających maszyny wirtualne, które mają zostać uruchomione lub zatrzymane. Możesz również ustawić zmienne na wartość, `*` Aby funkcja była uruchamiana dla wszystkich grup zasobów w subskrypcji.
 
 ### <a name="exclude-a-vm"></a>Wykluczanie maszyny wirtualnej
 
-Aby wykluczyć maszynę wirtualną z zatrzymywania/uruchamiania maszyn wirtualnych poza godzinami pracy, możesz dodać jej nazwę do `External_ExcludeVMNames` zmiennej. Ta zmienna jest rozdzielaną przecinkami listą maszyn wirtualnych, które mają zostać wykluczone z funkcji. Ta lista jest ograniczona do 140 maszyn wirtualnych. Jeśli dodasz więcej niż 140 maszyn wirtualnych do tej listy, maszyny wirtualne, które zostaną wykluczone, mogą zostać przypadkowo uruchomione lub zatrzymane.
+Aby wykluczyć maszynę wirtualną z zatrzymywania/uruchamiania maszyn wirtualnych poza godzinami pracy, możesz dodać jej nazwę do `External_ExcludeVMNames` zmiennej. Ta zmienna jest rozdzielaną przecinkami listą określonych maszyn wirtualnych (bez spacji) do wykluczenia z funkcji. Ta lista jest ograniczona do 140 maszyn wirtualnych. Jeśli dodasz więcej niż 140 maszyn wirtualnych do tej listy, maszyny wirtualne, które zostaną wykluczone, mogą zostać przypadkowo uruchomione lub zatrzymane.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modyfikowanie harmonogramów uruchamiania i zamykania
 

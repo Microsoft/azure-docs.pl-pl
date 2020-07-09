@@ -1,5 +1,5 @@
 ---
-title: Wybierz uprawnienia dla danego interfejsu API
+title: Wybieranie uprawnień dla danego interfejsu API
 description: Dowiedz się więcej na temat sposobu działania żądań uprawnień dla aplikacji klienta i zasobów dla aplikacji, które tworzysz
 services: active-directory
 author: rwike77
@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 2735403ff02914213d68db27e2635e7329261f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883894"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Jak wybrać uprawnienia dla danego interfejsu API 

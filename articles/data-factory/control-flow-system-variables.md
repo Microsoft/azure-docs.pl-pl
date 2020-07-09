@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 2690ded0ac45719cb1082c85ab535c91ad491172
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417967"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez Azure Data Factory
@@ -41,8 +41,8 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON w
 
 | Nazwa zmiennej | Opis |
 | --- | --- |
-| @trigger().scheduledTime |Czas, w którym wyzwalacz został zaplanowany do wywołania uruchomienia potoku. Na przykład dla wyzwalacza, który jest uruchamiany co 5 minut, ta zmienna zwróci `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z` `2017-06-01T22:30:00Z` odpowiednio.|
-| @trigger(). startTime |Czas, po którym **wyzwalacz jest** uruchamiany w celu wywołania uruchomienia potoku. Na przykład dla wyzwalacza, który jest uruchamiany co 5 minut, ta zmienna może zwrócić coś podobnego `2017-06-01T22:25:00.7958577Z`do `2017-06-01T22:30:00.9935483Z` tego `2017-06-01T22:20:00.4061448Z`, odpowiednio. (Uwaga: sygnatura czasowa jest domyślnie w formacie ISO 8601)|
+| @trigger().scheduledTime |Czas, w którym wyzwalacz został zaplanowany do wywołania uruchomienia potoku. Na przykład dla wyzwalacza, który jest uruchamiany co 5 minut, ta zmienna zwróci `2017-06-01T22:20:00Z` , `2017-06-01T22:25:00Z` `2017-06-01T22:30:00Z` odpowiednio.|
+| @trigger(). startTime |Czas, po którym **wyzwalacz jest** uruchamiany w celu wywołania uruchomienia potoku. Na przykład dla wyzwalacza, który jest uruchamiany co 5 minut, ta zmienna może zwrócić coś podobnego do tego `2017-06-01T22:20:00.4061448Z` , `2017-06-01T22:25:00.7958577Z` `2017-06-01T22:30:00.9935483Z` odpowiednio. (Uwaga: sygnatura czasowa jest domyślnie w formacie ISO 8601)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Zakres wyzwalacza okna wirowania
 Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza, jeśli wyzwalacz jest typu: "TumblingWindowTrigger".

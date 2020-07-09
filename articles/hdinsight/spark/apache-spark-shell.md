@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
-ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162807"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081183"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Uruchamianie Apache Spark z powłoki Spark
 
@@ -59,7 +59,7 @@ Interaktywna powłoka [Apache Spark](https://spark.apache.org/) udostępnia śro
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Zbadaj plik CSV. Zwróć uwagę, że język poniżej `spark-shell` działa `pyspark`dla i.
+1. Zbadaj plik CSV. Zwróć uwagę, że język poniżej działa dla `spark-shell` i `pyspark` .
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
@@ -101,17 +101,17 @@ Interaktywna powłoka [Apache Spark](https://spark.apache.org/) udostępnia śro
 
 Domyślnie po uruchomieniu powłoki Spark wystąpienia SparkSession i SparkContext są automatycznie tworzone dla Ciebie.
 
-Aby uzyskać dostęp do wystąpienia SparkSession, `spark`wprowadź. Aby uzyskać dostęp do wystąpienia SparkContext, `sc`wprowadź.
+Aby uzyskać dostęp do wystąpienia SparkSession, wprowadź `spark` . Aby uzyskać dostęp do wystąpienia SparkContext, wprowadź `sc` .
 
 ## <a name="important-shell-parameters"></a>Ważne parametry powłoki
 
-Polecenie powłoki Spark (`spark-shell`lub `pyspark`) obsługuje wiele parametrów wiersza polecenia. Aby wyświetlić pełną listę parametrów, Uruchom powłokę Spark za pomocą przełącznika `--help`. Niektóre z tych parametrów mogą dotyczyć tylko `spark-submit`tych, które są zawijane przez powłokę Spark.
+Polecenie powłoki Spark ( `spark-shell` lub `pyspark` ) obsługuje wiele parametrów wiersza polecenia. Aby wyświetlić pełną listę parametrów, Uruchom powłokę Spark za pomocą przełącznika `--help` . Niektóre z tych parametrów mogą dotyczyć tylko tych `spark-submit` , które są zawijane przez powłokę Spark.
 
 | switch | description | przykład |
 | --- | --- | --- |
-| --MASTER_URL wzorca | Określa główny adres URL. W usłudze HDInsight ta wartość jest zawsze `yarn`. | `--master yarn`|
+| --MASTER_URL wzorca | Określa główny adres URL. W usłudze HDInsight ta wartość jest zawsze `yarn` . | `--master yarn`|
 | --Jars JAR_LIST | Rozdzielana przecinkami lista Jars lokalnego do uwzględnienia w sterownikach i ścieżkach klas wykonywania. W usłudze HDInsight ta lista zawiera ścieżki do domyślnego systemu plików w usłudze Azure Storage lub Data Lake Storage. | `--jars /path/to/examples.jar` |
-| --MAVEN_COORDS pakietów | Rozdzielana przecinkami lista współrzędnych Maven Jars do uwzględnienia w sterownikach i ścieżkach klas wykonywania. Przeszukuje lokalne repozytorium Maven, a następnie Maven Central, wszelkie dodatkowe repozytoria zdalne określone za `--repositories`pomocą. Format współrzędnych to *GroupID*:*artifactId*:*Version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --MAVEN_COORDS pakietów | Rozdzielana przecinkami lista współrzędnych Maven Jars do uwzględnienia w sterownikach i ścieżkach klas wykonywania. Przeszukuje lokalne repozytorium Maven, a następnie Maven Central, wszelkie dodatkowe repozytoria zdalne określone za pomocą `--repositories` . Format współrzędnych to *GroupID*:*artifactId*:*Version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --Lista z LISTą plików | Tylko w przypadku języka Python, rozdzielana przecinkami lista plików zip, jaja lub. PR do umieszczenia w PYTHONPATH. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>Następne kroki

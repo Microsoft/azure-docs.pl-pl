@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8619bd7159bbbd418548a5e014dd92f7b9c9e84
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531020"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086385"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Tworzenie sieci wirtualnych dla klastrów usługi Azure HDInsight
 
@@ -50,7 +50,7 @@ Poniższy skrypt programu PowerShell umożliwia utworzenie sieci wirtualnej, kt�
 > [!IMPORTANT]  
 > Zmień adresy IP dla `hdirule1` i `hdirule2` w tym przykładzie w celu dopasowania do regionu platformy Azure, z którego korzystasz. Te informacje można znaleźć w obszarze [adresy IP zarządzania usługą HDInsight](hdinsight-management-ip-addresses.md).
 
-```powershell
+```azurepowershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
@@ -153,7 +153,7 @@ $vnet | Set-AzVirtualNetwork
 
 W tym przykładzie pokazano, jak dodać reguły zezwalające na ruch przychodzący na wymaganych adresach IP. Nie zawiera ona reguły ograniczania dostępu przychodzącego z innych źródeł. Poniższy kod ilustruje sposób włączania dostępu SSH z Internetu:
 
-```powershell
+```azurepowershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
@@ -162,7 +162,7 @@ Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -So
 
 Wykonaj następujące kroki, aby utworzyć sieć wirtualną ograniczającą ruch przychodzący, ale zezwala na ruch z adresów IP wymaganych przez usługi HDInsight.
 
-1. Użyj poniższego polecenia, aby utworzyć nową sieciową grupę zabezpieczeń `hdisecure`o nazwie. Zamień `RESOURCEGROUP` na grupę zasobów zawierającą Virtual Network platformy Azure. Zamień `LOCATION` na lokalizację (region), w którym została utworzona grupa.
+1. Użyj poniższego polecenia, aby utworzyć nową sieciową grupę zabezpieczeń o nazwie `hdisecure` . Zamień na `RESOURCEGROUP` grupę zasobów zawierającą Virtual Network platformy Azure. Zamień na `LOCATION` lokalizację (region), w którym została utworzona grupa.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUP -n hdisecure -l LOCATION
@@ -192,9 +192,11 @@ Wykonaj następujące kroki, aby utworzyć sieć wirtualną ograniczającą ruch
 
     To polecenie zwraca wartość podobną do następującego tekstu:
 
-        "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```output
+    "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
+    ```
 
-4. Użyj poniższego polecenia, aby zastosować sieciową grupę zabezpieczeń do podsieci. Zastąp `GUID` wartości `RESOURCEGROUP` i wartościami zwracanymi z poprzedniego kroku. `SUBNETNAME` Zamień `VNETNAME` nazwę sieci wirtualnej i nazwę podsieci, które chcesz utworzyć.
+4. Użyj poniższego polecenia, aby zastosować sieciową grupę zabezpieczeń do podsieci. Zastąp `GUID` `RESOURCEGROUP` wartości i wartościami zwracanymi z poprzedniego kroku. Zamień `VNETNAME` `SUBNETNAME` nazwę sieci wirtualnej i nazwę podsieci, które chcesz utworzyć.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUP --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
@@ -228,7 +230,7 @@ Na niestandardowym serwerze DNS w sieci wirtualnej:
 
     Zamień `RESOURCEGROUP` na nazwę grupy zasobów zawierającej sieć wirtualną, a następnie wprowadź polecenie:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -310,7 +312,7 @@ Ten przykład wykonuje następujące założenia:
 
     Zamień `RESOURCEGROUP` na nazwę grupy zasobów zawierającej sieć wirtualną, a następnie wprowadź polecenie:
 
-    ```powershell
+    ```azurepowershell
     $NICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP"
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
@@ -360,7 +362,7 @@ Ten przykład wykonuje następujące założenia:
     };
     ```
 
-   Zastąp `10.0.0.0/16` wartości `10.1.0.0/16` i wartościami z zakresu adresów IP sieci wirtualnych. Ten wpis umożliwia zasobom w każdej sieci wykonywanie żądań serwerów DNS.
+   Zastąp `10.0.0.0/16` `10.1.0.0/16` wartości i wartościami z zakresu adresów IP sieci wirtualnych. Ten wpis umożliwia zasobom w każdej sieci wykonywanie żądań serwerów DNS.
 
     Wszystkie żądania, które nie są sufiksami DNS sieci wirtualnych (na przykład microsoft.com) są obsługiwane przez program rozpoznawania cyklicznego Azure.
 

@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych dziennika systemowego z platformą Azure Microsoft Docs
-description: Dowiedz się, jak połączyć dane dziennika systemu z platformą Azure.
+description: Podłącz każde urządzenie lokalne obsługujące dziennik systemowy do platformy Azure, korzystając z agenta na komputerze z systemem Linux między urządzeniem a wskaźnikiem kontrolnym. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588080"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565370"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Łączenie rozwiązania zewnętrznego przy użyciu dziennika systemowego
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 > - Agent może zbierać dzienniki z wielu źródeł, ale muszą być zainstalowane na dedykowanym komputerze proxy.
 > - Aby umożliwić obsługę łączników dla CEF i dziennika systemowego na tej samej maszynie wirtualnej, wykonaj następujące kroki, aby uniknąć duplikowania danych:
 >    1. Postępuj zgodnie z instrukcjami, aby [nawiązać połączenie z usługą CEF](connect-common-event-format.md).
->    2. Aby połączyć dane dziennika systemu, przejdź do pozycji **Ustawienia** > **obszaru roboczego** > ustawienia**Zaawansowane ustawienia** > **danych** > **dziennika** systemowego i ustaw obiekty i ich priorytety, tak aby nie były to te same funkcje i właściwości, które zostały użyte w konfiguracji CEF. <br></br>W przypadku wybrania opcji **Zastosuj poniższą konfigurację do moich maszyn**te ustawienia są stosowane do wszystkich maszyn wirtualnych połączonych z tym obszarem roboczym.
+>    2. Aby połączyć dane dziennika systemu, przejdź do pozycji **Ustawienia**  >  **obszaru roboczego**ustawienia  >  **Zaawansowane ustawienia**  >  **danych**  >  **dziennika** systemowego i ustaw obiekty i ich priorytety, tak aby nie były to te same funkcje i właściwości, które zostały użyte w konfiguracji CEF. <br></br>W przypadku wybrania opcji **Zastosuj poniższą konfigurację do moich maszyn**te ustawienia są stosowane do wszystkich maszyn wirtualnych połączonych z tym obszarem roboczym.
 
 
 ## <a name="connect-your-syslog-appliance"></a>Połącz urządzenie dziennika systemu
@@ -57,9 +57,9 @@ Aby uzyskać więcej informacji, zobacz [źródła danych dziennika systemowego 
 
 4. Wybierz pozycję **Otwórz konfigurację ustawień zaawansowanych obszaru roboczego**.
 
-5. W bloku **Ustawienia zaawansowane** wybierz pozycję**Dziennik**systemowy **danych** > . Następnie Dodaj obiekty do zebrania dla łącznika.
+5. W bloku **Ustawienia zaawansowane** wybierz pozycję Dziennik systemowy **danych**  >  **Syslog**. Następnie Dodaj obiekty do zebrania dla łącznika.
     
-    Dodaj obiekty, które urządzenie dziennika systemu zawiera w jego nagłówkach dziennika. Tę konfigurację można wyświetlić w urządzeniu dziennika systemowego w **Syslog-d** `/etc/rsyslog.d/security-config-omsagent.conf` folderze dziennika systemowego, a w obszarze **r-dziennik** systemu. `/etc/syslog-ng/security-config-omsagent.conf`
+    Dodaj obiekty, które urządzenie dziennika systemu zawiera w jego nagłówkach dziennika. Tę konfigurację można wyświetlić w urządzeniu dziennika systemowego w folderze **dziennika** `/etc/rsyslog.d/security-config-omsagent.conf` systemowego, a w obszarze **r-dziennik** systemu `/etc/syslog-ng/security-config-omsagent.conf` .
     
     Jeśli chcesz użyć nietypowego wykrywania logowania SSH za pomocą zbieranych danych, Dodaj **uwierzytelnianie** i **authpriv**. Aby uzyskać dodatkowe informacje, zobacz [następującą sekcję](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
@@ -100,7 +100,7 @@ To wykrywanie wymaga określonej konfiguracji łącznika danych dziennika system
     
     Jeśli wynikowa liczba jest równa zero, Potwierdź konfigurację łącznika i że monitorowane komputery mają działanie pomyślnego logowania dla okresu określonego dla zapytania.
     
-    Jeśli wynikowa liczba jest większa od zera, dane dziennika systemowego są odpowiednie dla nietypowego wykrywania logowania SSH. To wykrywanie można włączyć z **Analytics** >  **szablonów** > reguł analizy **(wersja zapoznawcza) wykrywanie nietypowego logowania SSH**.
+    Jeśli wynikowa liczba jest większa od zera, dane dziennika systemowego są odpowiednie dla nietypowego wykrywania logowania SSH. To wykrywanie można włączyć z **Analytics**  >   **szablonów reguł**analizy  >  **(wersja zapoznawcza) wykrywanie nietypowego logowania SSH**.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób łączenia lokalnych urządzeń dziennika systemu z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

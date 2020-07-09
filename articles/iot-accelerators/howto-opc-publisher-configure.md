@@ -8,12 +8,11 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0ebbf0d41c05f71c571d9665903ba4ba44f71bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77198807"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445699"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurowanie wydawcy OPC
 
@@ -31,7 +30,7 @@ W tej sekcji opisano opcje konfigurowania publikowania węzłów OPC UA przy uż
 
 ### <a name="use-a-configuration-file-to-configure-publishing-data-changes"></a>Użycie pliku konfiguracji w celu skonfigurowania zmian danych do opublikowania
 
-Najprostszym sposobem skonfigurowania węzłów OPC UA do opublikowania jest plik konfiguracji. Format pliku konfiguracji jest udokumentowany w [publishednodes. JSON](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) w repozytorium.
+Najprostszym sposobem skonfigurowania węzłów OPC UA do opublikowania jest plik konfiguracji. Format pliku konfiguracji jest udokumentowany w [publishednodes.js](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/publishednodes.json) w repozytorium.
 
 Składnia pliku konfiguracji została zmieniona z upływem czasu. Program Publisher OPC nadal odczytuje stare formaty, ale konwertuje je do najnowszego formatu, gdy zachowuje konfigurację.
 
@@ -58,7 +57,7 @@ Poniższy przykład przedstawia format pliku konfiguracji:
 
 Aby opublikować zdarzenia OPC UA, należy użyć tego samego pliku konfiguracji, co w przypadku zmian danych.
 
-Poniższy przykład pokazuje, jak skonfigurować publikowanie dla zdarzeń generowanych przez [serwer SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/SimpleEvents/Server). Serwer SimpleEvents można znaleźć w [repozytorium OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard) :
+Poniższy przykład pokazuje, jak skonfigurować publikowanie dla zdarzeń generowanych przez [serwer SimpleEvents](https://github.com/OPCFoundation/UA-.NETStandard-Samples/tree/master/Workshop/SimpleEvents/Server). Serwer SimpleEvents można znaleźć w [repozytorium OPC Foundation](https://github.com/OPCFoundation/UA-.NETStandard-Samples) :
 
 ```json
 [
@@ -116,7 +115,7 @@ W tej sekcji opisano wywołania metod, których można użyć w celu skonfigurow
 
 ### <a name="configure-using-opc-ua-method-calls"></a>Konfigurowanie przy użyciu wywołań metod OPC UA
 
-Wydawca OPC zawiera serwer OPC UA, do którego można uzyskać dostęp na porcie 62222. Jeśli nazwa hosta jest **wydawcą**, identyfikator URI punktu końcowego `opc.tcp://publisher:62222/UA/Publisher`to:.
+Wydawca OPC zawiera serwer OPC UA, do którego można uzyskać dostęp na porcie 62222. Jeśli nazwa hosta jest **wydawcą**, identyfikator URI punktu końcowego to: `opc.tcp://publisher:62222/UA/Publisher` .
 
 Ten punkt końcowy udostępnia cztery następujące metody:
 
@@ -174,7 +173,7 @@ Jeśli właściwość **OpcAuthenticationMode** nie jest ustawiona w ładunku, u
 
 Gdy Wydawca OPC odbiera powiadomienie o zmianie wartości w opublikowanym węźle, generuje komunikat w formacie JSON, który jest wysyłany do IoT Hub.
 
-Zawartość tego komunikatu w formacie JSON można skonfigurować przy użyciu pliku konfiguracji. Jeśli dla `--tc` opcji nie określono pliku konfiguracji, zostanie użyta domyślna konfiguracja zgodna z [akceleratorem rozwiązania połączonej fabryki](https://github.com/Azure/azure-iot-connected-factory).
+Zawartość tego komunikatu w formacie JSON można skonfigurować przy użyciu pliku konfiguracji. Jeśli dla opcji nie określono pliku konfiguracji `--tc` , zostanie użyta domyślna konfiguracja zgodna z [akceleratorem rozwiązania połączonej fabryki](https://github.com/Azure/azure-iot-connected-factory).
 
 Jeśli OPC Wydawca jest skonfigurowany do tworzenia komunikatów wsadowych, są one wysyłane jako prawidłowa tablica JSON.
 

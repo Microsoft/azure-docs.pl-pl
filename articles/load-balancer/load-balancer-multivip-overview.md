@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022815"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956376"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Wiele frontonów dla Azure Load Balancer
 
@@ -102,20 +102,31 @@ W przypadku każdej maszyny wirtualnej w puli zaplecza Uruchom następujące pol
 
 Aby uzyskać listę nazw interfejsów, które znajdują się na maszynie wirtualnej, wpisz następujące polecenie:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 Dla karty sieciowej maszyny wirtualnej (zarządzanej przez platformę Azure) wpisz następujące polecenie:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (Zastąp wartość InterfaceName nazwą tego interfejsu)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(Zastąp wartość InterfaceName nazwą tego interfejsu)
 
 Dla każdego dodanego interfejsu sprzężenia zwrotnego Powtórz następujące polecenia:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (Zastąp wartość InterfaceName nazwą tego interfejsu sprzężenia zwrotnego)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (Zastąp wartość InterfaceName nazwą tego interfejsu sprzężenia zwrotnego)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(Zastąp wartość InterfaceName nazwą tego interfejsu sprzężenia zwrotnego)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(Zastąp wartość InterfaceName nazwą tego interfejsu sprzężenia zwrotnego)
 
 > [!IMPORTANT]
 > Konfiguracja interfejsów sprzężenia zwrotnego jest wykonywana w systemie operacyjnym gościa. Ta konfiguracja nie jest wykonywana ani zarządzana przez platformę Azure. Bez tej konfiguracji reguły nie będą działać. Definicje sond kondycji używają adresu DIP maszyny wirtualnej, a nie interfejsu sprzężenia zwrotnego reprezentującego fronton DSR. W związku z tym usługa musi dostarczyć odpowiedzi na port DIP, który odzwierciedla stan usługi oferowanej w interfejsie sprzężenia zwrotnego reprezentującym fronton DSR.

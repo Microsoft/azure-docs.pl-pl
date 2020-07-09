@@ -2,14 +2,14 @@
 title: Oceń maszyny wirtualne funkcji Hyper-V do migracji na platformę Azure za pomocą Azure Migrate | Microsoft Docs
 description: Opisuje sposób oceny lokalnych maszyn wirtualnych funkcji Hyper-V na potrzeby migracji na platformę Azure przy użyciu funkcji oceny serwera Azure Migrate.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c95916bf5f92f8a82b9dfae50aa311891857e7a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535455"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114248"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Ocenianie maszyn wirtualnych funkcji Hyper-V za pomocą oceny serwera Azure Migrate
 
@@ -28,7 +28,7 @@ Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migr
 > [!NOTE]
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z artykułami z instrukcjami.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 - [Wykonaj](tutorial-prepare-hyper-v.md) pierwszy samouczek z tej serii. Jeśli tego nie zrobisz, instrukcje podane w tym samouczku nie będą działały.
 - Oto co należy zrobić w pierwszym samouczku:
     - [Przygotuj platformę Azure](tutorial-prepare-hyper-v.md#prepare-azure) do pracy z Azure Migrate.
-    - Przygotowanie oceny hostów i maszyn wirtualnych [funkcji Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) .
+    - Przygotowanie oceny hostów i maszyn wirtualnych [funkcji Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-assessment) .
     - [Sprawdź](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) , co jest potrzebne, aby wdrożyć urządzenie Azure Migrate na potrzeby oceny funkcji Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurowanie projektu Azure Migrate
@@ -57,7 +57,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Kliknij przycisk **Dalej**.
-8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena** > serwera**dalej**.
+8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-hyper-v/assessment-tool.png)
 
@@ -79,8 +79,8 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 
 Pobierz szablon skompresowanego dysku VHD dla urządzenia.
 
-1. W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2. W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją Hyper-V**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij przycisk **tak, z funkcją Hyper-V**.
 3. Kliknij pozycję **Pobierz** , aby pobrać plik VHD.
 
     ![Pobierz maszynę wirtualną](./media/tutorial-assess-hyper-v/download-appliance-hyperv.png)
@@ -96,12 +96,20 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Przykład użycia: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  W przypadku 2.19.07.30 w wersji urządzenia wygenerowany skrót powinien być zgodny z tymi ustawieniami.
+3.  Sprawdź najnowsze wersje urządzeń i wartości skrótu:
 
-  **Algorytm** | **Wartość skrótu**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - W przypadku chmury publicznej platformy Azure:
+
+        **Scenariusz** | **Pobieranie** | **SHA256**
+        --- | --- | ---
+        Funkcja Hyper-V (8,93 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - Dla Azure Government:
+
+        **Scenariusz*** | **Pobieranie** | **SHA256**
+        --- | --- | ---
+        Funkcja Hyper-V (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### <a name="create-the-appliance-vm"></a>Tworzenie maszyny wirtualnej urządzenia
 
@@ -122,7 +130,7 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 2. W obszarze **Wybierz typ importu**kliknij pozycję **Kopiuj maszynę wirtualną (Utwórz nowy unikatowy identyfikator)**. Następnie kliknij przycisk **Dalej**.
 3. W obszarze **Wybierz lokalizację docelową**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
 4. W obszarze **foldery magazynu**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
-5. W obszarze **Wybierz sieć**Określ przełącznik wirtualny, który będzie używany przez maszynę wirtualną. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) na temat tworzenia przełącznika wirtualnego.
+5. W obszarze **Wybierz sieć**Określ przełącznik wirtualny, który będzie używany przez maszynę wirtualną. Przełącznik wymaga połączenia z Internetem, aby wysyłać dane do platformy Azure. [Dowiedz się więcej](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) na temat tworzenia przełącznika wirtualnego.
 6. W obszarze **Podsumowanie**przejrzyj ustawienia. Następnie kliknij przycisk **Zakończ**.
 7. W Menedżerze funkcji Hyper-V > **Virtual Machines**Uruchom maszynę wirtualną.
 
@@ -146,7 +154,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
     - **Licencja**: zaakceptuj postanowienia licencyjne i przeczytaj informacje o innych firmach.
     - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
-      - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN.
+      - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN .
       - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
       - Obsługiwane są tylko serwery proxy HTTP.
     - **Synchronizacja czasu**: godzina została zweryfikowana. Czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby funkcja odnajdywania maszyn wirtualnych działała prawidłowo.
@@ -161,15 +169,12 @@ Skonfiguruj urządzenie po raz pierwszy.
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
 4. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate. Następnie wybierz projekt.
 5. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-6. Kliknij pozycję **zarejestruj**.
+6. Kliknij pozycję **Zarejestruj**.
 
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegowanie poświadczeń dla wirtualnych dysków twardych SMB
 
-Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowanie poświadczeń z urządzenia do hostów funkcji Hyper-V. Wymaga to:
-
-- Każdemu hostowi można umożliwić działanie jako delegata urządzenia. Jeśli samouczki zostały wykonane w powyższej części samouczka, podczas przygotowywania funkcji Hyper-V do oceny i migracji należy wykonać te instrukcje. Należy skonfigurować protokół CredSSP dla hostów [ręcznie](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)lub przez [uruchomienie skryptu](tutorial-prepare-hyper-v.md#prepare-with-a-script) , który to robi.
-- Włącz delegowanie CredSSP, aby urządzenie Azure Migrate było działać jako klient, Delegowanie poświadczeń do hosta.
+Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowanie poświadczeń z urządzenia do hostów funkcji Hyper-V. W tym celu należy umożliwić każdemu hostowi działanie jako delegata urządzenia. Jeśli samouczki zostały wykonane w powyższej części samouczka, podczas przygotowywania funkcji Hyper-V do oceny i migracji należy wykonać te instrukcje. Należy skonfigurować protokół CredSSP dla hostów [ręcznie](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials)lub przez [uruchomienie skryptu](tutorial-prepare-hyper-v.md#run-the-script) , który to robi.
 
 Włącz na urządzeniu w następujący sposób:
 
@@ -178,7 +183,7 @@ Włącz na urządzeniu w następujący sposób:
 Na maszynie wirtualnej urządzenia Uruchom to polecenie. HyperVHost1/HyperVHost2 są przykładowymi nazwami hostów.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Przykład: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
@@ -187,7 +192,7 @@ Przykład: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.cont
 
 Alternatywnie należy to zrobić w Edytor lokalnych zasad grupy na urządzeniu:
 
-1. W obszarze**Konfiguracja komputera** >  **zasad komputera lokalnego**kliknij pozycję **Szablony administracyjne** > **System** > **delegowania poświadczeń**systemowych.
+1. W obszarze Konfiguracja komputera **zasad komputera lokalnego**  >  **Computer Configuration**kliknij pozycję **Szablony administracyjne**  >  **System**  >  **delegowania poświadczeń**systemowych.
 2. Kliknij dwukrotnie pozycję **Zezwól na delegowanie świeżych poświadczeń**i wybierz pozycję **włączone**.
 3. W obszarze **Opcje**kliknij pozycję **Pokaż**, a następnie na liście Dodaj każdego hosta funkcji Hyper-V, który ma zostać odnajdowany, przy użyciu **usługi WSMAN/** jako prefiksu.
 4. Następnie w obszarze **Delegowanie poświadczeń**kliknij dwukrotnie pozycję **Zezwól na delegowanie świeżych poświadczeń z uwierzytelnianiem serwera tylko NTLM**. Ponownie Dodaj każdy host funkcji Hyper-V, który ma zostać odnalezienie do listy, przy użyciu **usługi WSMAN/** jako prefiksu.
@@ -212,7 +217,7 @@ Spowoduje to uruchomienie odnajdywania. Dla każdego hosta pozostanie około 1,5
 Po zakończeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są widoczne w portalu.
 
 1. Otwórz pulpit nawigacyjny Azure Migrate.
-2. W **Azure Migrate serwery** > **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurowanie oceny
 
@@ -230,7 +235,7 @@ Istnieją dwa typy ocen, które można uruchomić za pomocą Azure Migrate oceny
 Uruchom ocenę w następujący sposób:
 
 1. Zapoznaj się z [najlepszymi rozwiązaniami](best-practices-assessment.md) dotyczącymi tworzenia ocen.
-2. W obszarze **serwery** > **Azure Migrate: Ocena serwera**, kliknij przycisk **Oceń**.
+2. W obszarze **serwery**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **Oceń**.
 
     ![Ocena](./media/tutorial-assess-hyper-v/assess.png)
 
@@ -245,7 +250,7 @@ Uruchom ocenę w następujący sposób:
 
     ![Tworzenie oceny](./media/tutorial-assess-hyper-v/assessment-create.png)
 
-6. Po utworzeniu oceny Wyświetl ją w obszarze **serwery** > **Azure Migrate: Ocena serwera**.
+6. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: Ocena serwera**.
 7. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
 
 
@@ -260,7 +265,7 @@ Ocena zawiera opis:
 
 ### <a name="view-an-assessment"></a>Wyświetlanie oceny
 
-1. W obszarze**serwery** >  **celów** >  migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **oceny**.
+1. W obszarze serwery **celów migracji**  >   **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **oceny**.
 2. W obszarze **oceny**kliknij ocenę, aby go otworzyć.
 
     ![Podsumowanie oceny](./media/tutorial-assess-hyper-v/assessment-summary.png)

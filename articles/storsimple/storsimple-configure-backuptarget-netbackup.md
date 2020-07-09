@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 87885d9b476582fcce53b8b960d24093693af4ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67876206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509391"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup
 
@@ -55,8 +55,8 @@ Podobnie jak w przypadku dowolnego rozwiązania magazynu, staranna ocena wydajno
 
 StorSimple zaprojektowano w celu zapewnienia magazynu dla aplikacji, które działają na dobrze zdefiniowanym zestawie roboczym danych (gorącą dane). W tym modelu zestaw roboczy danych jest przechowywany w warstwach lokalnych, a pozostała część danych niepracujących/zimnych/zarchiwizowanych jest warstwą w chmurze. Ten model jest reprezentowany na poniższej ilustracji. Prawie płaski zielony wiersz reprezentuje dane przechowywane w warstwach lokalnych urządzenia StorSimple. Czerwona linia reprezentuje łączną ilość danych przechowywanych w rozwiązaniu StorSimple we wszystkich warstwach. Odstęp między płaską zieloną linią a wykładniczą czerwoną krzywą reprezentuje łączną ilość danych przechowywanych w chmurze.
 
-**StorSimple tiering**
-![Diagram warstwowy StorSimple warstw StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+Obsługa **warstw StorSimple** 
+ ![ Diagram warstwowy StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 W tej architekturze należy zauważyć, że StorSimple idealnie nadaje się do działania jako miejsce docelowe kopii zapasowej. Możesz użyć StorSimple, aby:
 -   Wykonaj najczęstsze przywracanie z lokalnego zestawu roboczego danych.
@@ -185,7 +185,7 @@ W tej sekcji przedstawiono przykłady konfiguracji. Poniższe przykłady i zalec
 | StorSimple zadania wdrażania  | Dodatkowe komentarze |
 |---|---|
 | Wdróż lokalne urządzenie StorSimple. | Obsługiwane wersje: Update 3 i nowsze wersje. |
-| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable`. </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable`. </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej `Get-HCSBackupApplianceMode`:. |
+| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
 | Utwórz wspólny kontener woluminów dla woluminu, który przechowuje dane kopii zapasowej. Wszystkie dane w kontenerze woluminów są deduplikowane. | Kontenery woluminów StorSimple definiują domeny deduplikacji.  |
 | Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarach jak najbliżej przewidywanego użycia, ponieważ rozmiar woluminu wpływa na czas trwania migawki w chmurze. Aby uzyskać informacje o sposobie rozmiaru woluminu, Przeczytaj o [zasadach przechowywania](#retention-policies).</br> </br> Użyj StorSimple woluminów warstwowych i zaznacz pole wyboru **Użyj tego woluminu dla rzadziej używanych danych archiwalnych** . </br> Używanie tylko woluminów przypiętych lokalnie nie jest obsługiwane. |
 | Utwórz unikatowe zasady tworzenia kopii zapasowych StorSimple dla wszystkich woluminów docelowych kopii zapasowych. | Zasady tworzenia kopii zapasowych StorSimple definiują grupę spójności woluminu. |
@@ -265,7 +265,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
 ### <a name="to-set-up-netbackup-storage"></a>Aby skonfigurować magazyn NetBackup
 
-1.  W konsoli administracyjnej NetBackup wybierz pozycję**Pule dysków** > **urządzenia** >  **Zarządzanie nośnikami i**urządzeniami. W Kreatorze konfiguracji puli dysków wybierz typ serwera magazynu **AdvancedDisk**, a następnie wybierz przycisk **dalej**.
+1.  W konsoli administracyjnej NetBackup wybierz pozycję Pule dysków urządzenia **Zarządzanie nośnikami i**urządzeniami  >  **Devices**  >  **Disk Pools**. W Kreatorze konfiguracji puli dysków wybierz typ serwera magazynu **AdvancedDisk**, a następnie wybierz przycisk **dalej**.
 
     ![Konsola administracyjna NetBackup, Kreator konfiguracji puli dysków](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![NetBackup konsolę administracyjną, wybierz dysk woluminu StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Wprowadź nazwę dla miejsca docelowego kopii zapasowej, a następnie wybierz przycisk **dalej** > **dalej** , aby zakończyć pracę kreatora.
+4.  Wprowadź nazwę dla miejsca docelowego kopii zapasowej, a następnie wybierz przycisk **dalej**  >  **dalej** , aby zakończyć pracę kreatora.
 
 5.  Przejrzyj ustawienia, a następnie wybierz pozycję **Zakończ**.
 
@@ -316,7 +316,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, tworzenie nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. W oknie dialogowym **Dodaj nowe zasady** wprowadź nazwę zasad, a następnie zaznacz pole wyboru **Użyj Kreatora konfiguracji zasad** . Kliknij przycisk **OK**.
+2. W oknie dialogowym **Dodaj nowe zasady** wprowadź nazwę zasad, a następnie zaznacz pole wyboru **Użyj Kreatora konfiguracji zasad** . Wybierz przycisk **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Dodawanie nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
@@ -328,7 +328,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, wybierz typ zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz opcję **Dalej**.
+5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz pozycję **Dalej**.
 
    ![Konsola administracyjna NetBackup, lista klientów w nowych zasadach](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -340,7 +340,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, częstotliwość tworzenia kopii zapasowych i rotacja nowych zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Wybierz pozycję **dalej** > **następne** > **zakończenie**.  Harmonogram można modyfikować po utworzeniu zasad.
+8. Wybierz pozycję **dalej**  >  **następne**  >  **zakończenie**.  Harmonogram można modyfikować po utworzeniu zasad.
 
 9. Wybierz, aby rozwinąć właśnie utworzone zasady, a następnie wybierz pozycję **harmonogramy**.
 
@@ -360,7 +360,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
     ![Konsola administracyjna NetBackup, zmiana okna startowego](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14. Kliknij przycisk **OK**.
+14. Wybierz przycisk **OK**.
 
 15. Powtórz kroki 10-14 dla każdej przyrostowej kopii zapasowej. Wybierz odpowiedni wolumin i harmonogram dla każdej utworzonej kopii zapasowej.
 
@@ -395,7 +395,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Wymagania dotyczące konfiguracji i pojemności kopii zapasowych
 
-| Typ i przechowywanie kopii zapasowych | Skonfigurowany magazyn | Rozmiar (TiB) | Mnożnik GFS | Całkowita pojemność\* (TIB) |
+| Typ i przechowywanie kopii zapasowych | Skonfigurowany magazyn | Rozmiar (TiB) | Mnożnik GFS | Całkowita pojemność \* (TIB) |
 |---|---|---|---|---|
 | Tydzień 1 (pełny i przyrostowy) |Dysk lokalny (krótkoterminowy)| 1 | 1 | 1 |
 | StorSimple tygodni 2-4 |Dysk StorSimple (długoterminowy) | 1 | 4 | 4 |
@@ -430,13 +430,13 @@ Po zdefiniowaniu początkowych pul dysków należy zdefiniować trzy dodatkowe z
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Aby przypisać woluminy StorSimple do archiwum NetBackup i zadania duplikowania
 
-1. W > konsoli administracyjnej NetBackup wybierz pozycję**Zasady cyklu życia magazynu** **magazynu** > **nowe zasady cyklu życia magazynu**.
+1. W konsoli administracyjnej NetBackup wybierz pozycję **Storage**  >  **Zasady cyklu życia magazynu**magazynu  >  **nowe zasady cyklu życia magazynu**.
 
    ![Konsola administracyjna NetBackup, nowe zasady cyklu życia magazynu](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
 2. Wprowadź nazwę migawki, a następnie wybierz pozycję **Dodaj**.
 
-3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Kliknij przycisk **OK**.
+3. W oknie dialogowym **Nowa operacja** na karcie **Właściwości** dla **operacji**wybierz pozycję **kopia zapasowa**. Wybierz wartości dla **magazynu docelowego**, **typ przechowywania**i **okres przechowywania**. Wybierz przycisk **OK**.
 
    ![Konsola administracyjna NetBackup, okno dialogowe Nowa operacja](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
@@ -507,9 +507,9 @@ W poniższej sekcji opisano, jak utworzyć krótki skrypt do uruchamiania i usuw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Aby rozpocząć lub usunąć migawkę w chmurze
 
-1. [Zainstaluj Azure PowerShell](/powershell/azure/overview).
-2. Pobierz i zainstaluj skrypt programu PowerShell [Manage-CloudSnapshots. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) .
-3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony `-WhatIf $true` za pomocą programu, aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false`. Uruchom następujące polecenie:
+1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/overview).
+2. Pobierz i skonfiguruj [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) skrypt programu PowerShell.
+3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony za pomocą programu, `-WhatIf $true` Aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false` . Uruchom następujące polecenie:
    ```powershell
    .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
    ```
@@ -535,7 +535,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria serwera NetBackup | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych. | Należy ponownie skompilować lub przywrócić serwer NetBackup w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych NetBackup nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Następujące dokumenty odwołują się do tego artykułu:
 

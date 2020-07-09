@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84742865"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Możliwości zarządzania dla ról usługi Azure AD w Privileged Identity Management
 
@@ -56,9 +56,9 @@ Obie akcje inicjowane przez użytkownika wymagają zatwierdzenia od administrato
 
 ## <a name="api-changes"></a>Zmiany interfejsu API
 
-Gdy klienci mają zaktualizowaną wersję w organizacji usługi Azure AD, istniejący interfejs API programu Graph przestanie działać. Musisz przejść do korzystania z [interfejs API programu Graph dla ról zasobów platformy Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Aby zarządzać rolami usługi Azure AD przy użyciu tego interfejsu `/azureResources` API `/aadroles` , należy zamienić na w podpisie i użyć `resourceId`identyfikatora katalogu dla.
+Gdy klienci mają zaktualizowaną wersję w organizacji usługi Azure AD, istniejący interfejs API programu Graph przestanie działać. Musisz przejść do korzystania z [interfejs API programu Graph dla ról zasobów platformy Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Aby zarządzać rolami usługi Azure AD przy użyciu tego interfejsu API, należy zamienić na `/azureResources` `/aadroles` w podpisie i użyć identyfikatora katalogu dla `resourceId` .
 
-Wszyscy klienci, którzy korzystają z poprzedniego interfejsu API, chętnie poinformują nas o tej zmianie. Jeśli Twoja organizacja usługi Azure AD została przeniesiona do nowej wersji i nadal zależy od starego interfejsu API, skontaktuj się z zespołem pod adresem pim_preview@microsoft.com.
+Wszyscy klienci, którzy korzystają z poprzedniego interfejsu API, chętnie poinformują nas o tej zmianie. Jeśli Twoja organizacja usługi Azure AD została przeniesiona do nowej wersji i nadal zależy od starego interfejsu API, skontaktuj się z zespołem pod adresem pim_preview@microsoft.com .
 
 ## <a name="powershell-change"></a>Zmiana programu PowerShell
 

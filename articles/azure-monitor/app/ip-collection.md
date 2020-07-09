@@ -3,12 +3,11 @@ title: Kolekcja adresów IP Application Insights platformy Azure | Microsoft Doc
 description: Zrozumienie, jak adresy IP i geolokalizacja są obsługiwane za pomocą usługi Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807132"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 
@@ -18,7 +17,7 @@ W tym artykule wyjaśniono, w jaki sposób wyszukiwanie geolokalizacji i obsług
 
 Domyślnie adresy IP są zbierane tymczasowo, ale nie są przechowywane w Application Insights. Podstawowy proces przebiega w następujący sposób:
 
-Adresy IP są wysyłane do Application Insights w ramach danych telemetrycznych. Po osiągnięciu punktu końcowego pozyskiwania na platformie Azure adres IP jest używany do przeszukiwania geolokalizacji przy użyciu [GeoLite2 z MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Wyniki tego wyszukiwania są używane do wypełniania następujących pól `client_City`, `client_StateOrProvince`,. `client_CountryOrRegion` W tym momencie adres IP zostanie odrzucony i `0.0.0.0` zapisany w `client_IP` polu.
+Adresy IP są wysyłane do Application Insights w ramach danych telemetrycznych. Po osiągnięciu punktu końcowego pozyskiwania na platformie Azure adres IP jest używany do przeszukiwania geolokalizacji przy użyciu [GeoLite2 z MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Wyniki tego wyszukiwania są używane do wypełniania następujących pól `client_City` , `client_StateOrProvince` , `client_CountryOrRegion` . W tym momencie adres IP zostanie odrzucony i `0.0.0.0` zapisany w `client_IP` polu.
 
 * Telemetria przeglądarki: tymczasowo zbieramy adres IP nadawcy. Adres IP jest obliczany przez punkt końcowy pozyskiwania.
 * Dane telemetryczne serwera: moduł Application Insights tymczasowo zbiera adres IP klienta. Nie jest zbierane, jeśli `X-Forwarded-For` jest ustawiony.
@@ -31,7 +30,7 @@ Mimo że domyślne zachowanie polega na zminimalizowaniu kolekcji danych osobowy
 
 ## <a name="storing-ip-address-data"></a>Przechowywanie danych adresów IP
 
-Aby można było włączyć zbieranie i przechowywanie adresów IP, `DisableIpMasking` właściwość składnika Application Insights musi być ustawiona na `true`wartość. Tę właściwość można ustawić za pomocą szablonów Azure Resource Manager lub przez wywołanie interfejsu API REST. 
+Aby można było włączyć zbieranie i przechowywanie adresów IP, `DisableIpMasking` Właściwość składnika Application Insights musi być ustawiona na wartość `true` . Tę właściwość można ustawić za pomocą szablonów Azure Resource Manager lub przez wywołanie interfejsu API REST. 
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
@@ -59,7 +58,7 @@ Aby można było włączyć zbieranie i przechowywanie adresów IP, `DisableIpMa
 
 Jeśli musisz tylko zmodyfikować zachowanie dla pojedynczego zasobu Application Insights najłatwiejszym sposobem osiągnięcia tego problemu jest za pośrednictwem Azure Portal.  
 
-1. Przejdź do**szablonu eksportu** **ustawień** > > zasobów Application Insights 
+1. Przejdź do **Settings**  >  **szablonu eksportu** ustawień > zasobów Application Insights 
 
     ![Eksportuj szablon](media/ip-collection/export-template.png)
 
@@ -78,7 +77,7 @@ Jeśli musisz tylko zmodyfikować zachowanie dla pojedynczego zasobu Application
     > [!WARNING]
     > Jeśli wystąpi błąd informujący, że ** _Grupa zasobów znajduje się w lokalizacji, która nie jest obsługiwana przez co najmniej jeden zasób w szablonie. Wybierz inną grupę zasobów._** Tymczasowo wybierz inną grupę zasobów z listy rozwijanej, a następnie ponownie wybierz oryginalną grupę zasobów, aby rozwiązać ten problem.
 
-5. Wybierz opcję **zgadzam** > się na**zakup**. 
+5. Wybierz opcję **zgadzam**się na  >  **zakup**. 
 
     ![Edytowanie szablonu](media/ip-collection/purchase.png)
 
@@ -86,7 +85,7 @@ Jeśli musisz tylko zmodyfikować zachowanie dla pojedynczego zasobu Application
 
 6. Po zakończeniu wdrożenia nowe dane telemetryczne zostaną zarejestrowane.
 
-    Jeśli użytkownik chce wybrać i edytować szablon ponownie, zobaczysz tylko szablon domyślny i nie zobaczysz nowo dodanej właściwości i skojarzonej z nią wartości. Jeśli nie widzisz danych adresów IP i chcesz potwierdzić, że `"DisableIpMasking": true` jest ustawiony. Uruchom następujące środowisko PowerShell: (Zamień `Fabrikam-dev` na odpowiednią nazwę zasobu i grupy zasobów).
+    Jeśli użytkownik chce wybrać i edytować szablon ponownie, zobaczysz tylko szablon domyślny i nie zobaczysz nowo dodanej właściwości i skojarzonej z nią wartości. Jeśli nie widzisz danych adresów IP i chcesz potwierdzić, że `"DisableIpMasking": true` jest ustawiony. Uruchom następujące środowisko PowerShell: (Zamień na `Fabrikam-dev` odpowiednią nazwę zasobu i grupy zasobów).
     
     ```powershell
     # If you aren't using the cloud shell you will need to connect to your Azure account
@@ -95,7 +94,7 @@ Jeśli musisz tylko zmodyfikować zachowanie dla pojedynczego zasobu Application
     $AppInsights.Properties
     ```
     
-    Lista właściwości zostanie zwrócona w wyniku. Jedna z właściwości powinna zostać odczytana `DisableIpMasking: true`. Jeśli program PowerShell zostanie uruchomiony przed wdrożeniem nowej właściwości z Azure Resource Manager, właściwość nie będzie istnieć.
+    Lista właściwości zostanie zwrócona w wyniku. Jedna z właściwości powinna zostać odczytana `DisableIpMasking: true` . Jeśli program PowerShell zostanie uruchomiony przed wdrożeniem nowej właściwości z Azure Resource Manager, właściwość nie będzie istnieć.
 
 ### <a name="rest-api"></a>Interfejs API REST
 
@@ -148,7 +147,7 @@ namespace MyWebApp
 ```
 
 > [!NOTE]
-> Jeśli nie możesz uzyskać dostępu `ISupportProperties`, sprawdź i upewnij się, że korzystasz z najnowszej stabilnej wersji zestawu SDK Application Insights. `ISupportProperties`są przeznaczone do wartości o dużej kardynalności, `GlobalProperties` natomiast są bardziej odpowiednie dla niskich wartości kardynalnych, takich jak nazwa regionu, Nazwa środowiska itp. 
+> Jeśli nie możesz uzyskać dostępu `ISupportProperties` , sprawdź i upewnij się, że korzystasz z najnowszej stabilnej wersji zestawu SDK Application Insights. `ISupportProperties`są przeznaczone do wartości o dużej kardynalności, natomiast `GlobalProperties` są bardziej odpowiednie dla niskich wartości kardynalnych, takich jak nazwa regionu, Nazwa środowiska itp. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Włącz inicjatora telemetrii dla ASP.NET
 
@@ -229,10 +228,10 @@ requests
 | project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
-Nowo zebrane adresy IP powinny pojawić się `customDimensions_client-ip` w kolumnie. Kolumna Domyślna `client-ip` nadal będzie zawierać wszystkie 4 oktety albo zero lub tylko wyświetlanie pierwszych trzech oktetów w zależności od sposobu skonfigurowania zbierania adresów IP na poziomie składnika. W przypadku testowania lokalnego po wdrożeniu inicjatora telemetrii, gdy wartość widoczna `customDimensions_client-ip` dla `::1` jest to oczekiwane zachowanie. `::1`reprezentuje adres sprzężenia zwrotnego w protokole IPv6. Jest on odpowiednikiem `127.0.01` w protokole IPv4, a wynik jest wyświetlany podczas testowania z hosta lokalnego.
+Nowo zebrane adresy IP powinny pojawić się w `customDimensions_client-ip` kolumnie. Kolumna Domyślna `client-ip` nadal będzie zawierać wszystkie 4 oktety albo zero lub tylko wyświetlanie pierwszych trzech oktetów w zależności od sposobu skonfigurowania zbierania adresów IP na poziomie składnika. W przypadku testowania lokalnego po wdrożeniu inicjatora telemetrii, gdy wartość widoczna dla `customDimensions_client-ip` jest `::1` to oczekiwane zachowanie. `::1`reprezentuje adres sprzężenia zwrotnego w protokole IPv6. Jest on odpowiednikiem `127.0.01` w protokole IPv4, a wynik jest wyświetlany podczas testowania z hosta lokalnego.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [zbieraniu danych osobowych](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) w Application Insights.
 
-* Dowiedz się więcej o sposobie działania [zbierania adresów IP](https://apmtips.com/blog/2016/07/05/client-ip-address/) w Application Insights. (Jest to starszy wpis w blogu zewnętrznym zapisany przez jednego z naszych inżynierów. Jest to wstępnie bieżące zachowanie domyślne, w którym adres IP jest rejestrowany jako `0.0.0.0`, ale jest bardziej głębokością Mechanics wbudowanego `ClientIpHeaderTelemetryInitializer`.)
+* Dowiedz się więcej o sposobie działania [zbierania adresów IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) w Application Insights. (Jest to starszy wpis w blogu zewnętrznym zapisany przez jednego z naszych inżynierów. Jest to wstępnie bieżące zachowanie domyślne, w którym adres IP jest rejestrowany jako `0.0.0.0` , ale jest bardziej głębokością Mechanics wbudowanego `ClientIpHeaderTelemetryInitializer` .)

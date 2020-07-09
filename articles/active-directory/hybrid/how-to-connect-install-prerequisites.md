@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358722"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Wymagania wstępne dotyczące programu Azure AD Connect
 Ten temat zawiera opis wymagań wstępnych i wymagania sprzętowe Azure AD Connect.
@@ -81,7 +81,7 @@ Aby dowiedzieć się więcej, zobacz:
 * Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Domyślnie jest zainstalowana SQL Server 2012 Express LocalDB (wersja uproszczona SQL Server Express). SQL Server Express ma limit rozmiaru 10 GB, który umożliwia zarządzanie około 100 000 obiektów. Aby zarządzać większą ilością obiektów katalogu, należy wskazać Kreator instalacji innej instalacji SQL Server. Typ instalacji SQL Server może mieć wpływ na [wydajność Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
 * W przypadku korzystania z innej instalacji SQL Server są stosowane następujące wymagania:
   * Azure AD Connect obsługuje wszystkie wersje Microsoft SQL Server z 2012 (z najnowszym dodatkiem Service Pack) do SQL Server 2019. Microsoft Azure SQL Database **nie jest obsługiwana** jako baza danych.
-  * Musisz użyć sortowania SQL bez uwzględniania wielkości liter. Te sortowania są identyfikowane za pomocą \_CI_ w ich nazwie. Nie jest **obsługiwane** użycie sortowania z uwzględnieniem wielkości liter, identyfikowane przez \_cs_ w ich nazwie.
+  * Musisz użyć sortowania SQL bez uwzględniania wielkości liter. Te sortowania są identyfikowane za pomocą \_ CI_ w ich nazwie. Nie jest **obsługiwane** użycie sortowania z uwzględnieniem wielkości liter, identyfikowane przez \_ cs_ w ich nazwie.
   * Można korzystać tylko z jednego aparatu synchronizacji na wystąpienie bazy danych SQL. Udostępnianie wystąpienia programu SQL Server za pomocą narzędzia synchronizacji FIM/MIM, narzędzia DirSync lub Azure AD Sync **nie jest obsługiwane** .
 
 ### <a name="accounts"></a>Konta
@@ -96,7 +96,7 @@ Aby dowiedzieć się więcej, zobacz:
   * Jeśli używasz Microsoft Cloud w Niemczech lub w chmurze Microsoft Azure Government, zobacz [zagadnienia dotyczące wystąpień usługi synchronizacji Azure AD Connect](reference-connect-instances.md) dla adresów URL.
 * Azure AD Connect (w wersji 1.1.614.0 i After) domyślnie używa protokołu TLS 1,2 do szyfrowania komunikacji między aparatem synchronizacji i usługą Azure AD. Jeśli protokół TLS 1,2 nie jest dostępny w podstawowym systemie operacyjnym, Azure AD Connect stopniowo powraca do starszych protokołów (TLS 1,1 i TLS 1,0).
 * W wersjach wcześniejszych niż 1.1.614.0 Azure AD Connect domyślnie używa protokołu TLS 1,0 do szyfrowania komunikacji między aparatem synchronizacji i usługą Azure AD. Aby zmienić protokół TLS 1,2, wykonaj kroki opisane w temacie [Włączanie protokołu tls 1,2 dla Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Jeśli używasz wychodzącego serwera proxy do łączenia się z Internetem, do Kreatora instalacji należy dodać następujące ustawienie w pliku **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** oraz Azure AD Connect synchronizacji, aby można było łączyć się z Internetem i usługą Azure AD. Ten tekst musi być wprowadzony w dolnej części pliku. W tym kodzie &lt;ProxyAddress&gt; reprezentuje rzeczywisty adres IP lub nazwę hosta serwera proxy.
+* Jeśli używasz wychodzącego serwera proxy do łączenia się z Internetem, do Kreatora instalacji należy dodać następujące ustawienie w pliku **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** i Azure AD Connect synchronizacji, aby można było łączyć się z Internetem i usługą Azure AD. Ten tekst musi być wprowadzony w dolnej części pliku. W tym kodzie &lt; ProxyAddress &gt; reprezentuje rzeczywisty adres IP lub nazwę hosta serwera proxy.
 
 ```
     <system.net>
@@ -110,7 +110,7 @@ Aby dowiedzieć się więcej, zobacz:
     </system.net>
 ```
 
-* Jeśli serwer proxy wymaga uwierzytelnienia, [konto usługi](reference-connect-accounts-permissions.md#adsync-service-account) musi znajdować się w domenie i należy użyć ścieżki instalacji dostosowane ustawienia, aby określić [niestandardowe konto usługi](how-to-connect-install-custom.md#install-required-components). Wymagana jest również inna zmiana pliku Machine. config. Po tej zmianie w pliku Machine. config Kreator instalacji i aparat synchronizacji odpowiadają na żądania uwierzytelniania z serwera proxy. Na wszystkich stronach Kreatora instalacji z wyłączeniem strony **Konfiguracja** są używane poświadczenia zalogowanego użytkownika. Na stronie **Konfigurowanie** na końcu Kreatora instalacji, kontekst jest przełączany do [konta usługi](reference-connect-accounts-permissions.md#adsync-service-account) , które zostało utworzone przez użytkownika. Sekcja Machine. config powinna wyglądać następująco.
+* Jeśli serwer proxy wymaga uwierzytelnienia, [konto usługi](reference-connect-accounts-permissions.md#adsync-service-account) musi znajdować się w domenie i należy użyć ścieżki instalacji dostosowane ustawienia, aby określić [niestandardowe konto usługi](how-to-connect-install-custom.md#install-required-components). Wymagana jest również inna zmiana machine.config. W przypadku tej zmiany w machine.config Kreator instalacji i aparat synchronizacji odpowiadają na żądania uwierzytelniania z serwera proxy. Na wszystkich stronach Kreatora instalacji z wyłączeniem strony **Konfiguracja** są używane poświadczenia zalogowanego użytkownika. Na stronie **Konfigurowanie** na końcu Kreatora instalacji, kontekst jest przełączany do [konta usługi](reference-connect-accounts-permissions.md#adsync-service-account) , które zostało utworzone przez użytkownika. Sekcja machine.config powinna wyglądać następująco.
 
 ```
     <system.net>
@@ -151,7 +151,7 @@ W wersjach wcześniejszych niż 1.1.614.0 Azure AD Connect domyślnie używa pro
     ```
 2. For all operating systems, set this registry key and restart the server.
     ```
-    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "schusestrongcrypto we" = DWORD: 00000001
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \. NETFramework\v4.0.30319 "schusestrongcrypto we" = DWORD: 00000001
     ```
 4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 

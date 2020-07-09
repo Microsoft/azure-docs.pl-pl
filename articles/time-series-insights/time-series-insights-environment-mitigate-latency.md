@@ -13,10 +13,9 @@ ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81263390"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorowanie i ograniczanie ograniczania przepustowości w celu zmniejszenia opóźnień w Azure Time Series Insights
@@ -32,7 +31,7 @@ Najprawdopodobniej napotkasz opóźnienia i ograniczanie przepustowości, gdy:
 - Wypchnij duże ilości zdarzeń historycznych do źródła zdarzeń, co spowodowało zwłokę (Time Series Insights będzie konieczne przechwycenie).
 - Dołącz dane referencyjne do telemetrii, co skutkuje większym rozmiarem zdarzenia. Maksymalny dozwolony rozmiar pakietu to 32 KB; pakiety danych o rozmiarze większym niż 32 KB są obcinane.
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 ### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Dowiedz się więcej na temat Time Series Insights zachowania związanego z transferem danych przychodzących i sposobu ich planowania.</br>
 
@@ -56,7 +55,7 @@ Alerty mogą ułatwić diagnozowanie i łagodzenie problemów opóźnienia wyst�
 
    W tym miejscu możesz skonfigurować alerty przy użyciu następujących warunków:
 
-   |Metryka  |Opis  |
+   |Metric  |Opis  |
    |---------|---------|
    |**Bajty odebrane z ruchu przychodzącego**     | Liczba nieprzetworzonych bajtów odczytanych ze źródeł zdarzeń. Licznik nieprzetworzony zazwyczaj zawiera nazwę właściwości i wartość.  |  
    |**Odebrano nieprawidłowe komunikaty dotyczące transferu danych przychodzących**     | Liczba nieprawidłowych komunikatów odczytywanych ze wszystkich Event Hubs platformy Azure lub źródeł zdarzeń platformy Azure IoT Hub.      |

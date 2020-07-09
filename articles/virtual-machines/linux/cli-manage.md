@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969249"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Typowe polecenia interfejsu wiersza polecenia platformy Azure do zarządzania zasobami platformy Azure
@@ -20,7 +19,7 @@ Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów platfo
 Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz przeprowadzić uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz również użyć [Cloud Shell](/azure/cloud-shell/quickstart) z przeglądarki.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Podstawowe polecenia usługi Azure Resource Manager w interfejsie wiersza polecenia platformy Azure
-Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączników wiersza polecenia i opcji, możesz użyć pomocy i opcji w trybie `az <command> <subcommand> --help`online, wpisując polecenie.
+Aby uzyskać bardziej szczegółową pomoc dotyczącą określonych przełączników wiersza polecenia i opcji, możesz użyć pomocy i opcji w trybie online, wpisując polecenie `az <command> <subcommand> --help` .
 
 ### <a name="create-vms"></a>Tworzenie maszyn wirtualnych
 | Zadanie | Polecenia interfejsu wiersza polecenia platformy Azure |

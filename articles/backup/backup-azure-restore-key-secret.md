@@ -4,10 +4,10 @@ description: Dowiedz się, jak przywrócić klucz Key Vault i wpis tajny w Azure
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82186825"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Przywracanie klucza i wpisu tajnego usługi Key Vault dla szyfrowanych maszyn wirtualnych za pomocą usługi Azure Backup
@@ -92,7 +92,7 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 
 > [!NOTE]
 >
-> * Wartość $secretname można uzyskać, odwołując się do danych wyjściowych $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl i przy użyciu tekstu po kluczach tajnych/np. `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` adres URL tajnego wpisu danych wyjściowych to i nazwa wpisu tajnego to B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Wartość $secretname można uzyskać, odwołując się do danych wyjściowych $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl i przy użyciu tekstu po kluczach tajnych/np. adres URL tajnego wpisu danych wyjściowych to `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` i nazwa wpisu tajnego to B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Wartość tagu DiskEncryptionKeyFileName jest taka sama jak nazwa klucza tajnego.
 >
 >
@@ -128,7 +128,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 > [!NOTE]
 >
-> * Wartość $secretname można uzyskać, odwołując się do danych wyjściowych $rp 1. KeyAndSecretDetails. SecretUrl i Using Text po kluczach tajnych/np. wyjściowy `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` adres URL tajny to i nazwa wpisu tajnego to B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Wartość $secretname można uzyskać, odwołując się do danych wyjściowych $rp 1. KeyAndSecretDetails. SecretUrl i Using Text po kluczach tajnych/np. wyjściowy adres URL tajny to `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` i nazwa wpisu tajnego to B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Wartość tagu DiskEncryptionKeyFileName jest taka sama jak nazwa klucza tajnego.
 > * Wartość DiskEncryptionKeyEncryptionKeyURL można uzyskać z magazynu kluczy po przywróceniu kluczy z powrotem i przy użyciu polecenia cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey)
 >

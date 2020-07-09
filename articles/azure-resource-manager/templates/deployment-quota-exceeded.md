@@ -2,20 +2,20 @@
 title: Przekroczono limit przydziału wdrożenia
 description: Opisuje sposób rozwiązywania problemów z więcej niż 800 wdrożeniami w historii grupy zasobów.
 ms.topic: troubleshooting
-ms.date: 05/26/2020
-ms.openlocfilehash: 0fec8fa91ec79822115d83b15e8c8a839dc7fd69
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/25/2020
+ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85391183"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Usuń błąd, gdy liczba wdrożeń przekracza 800
 
 Każda grupa zasobów jest ograniczona do 800 wdrożeń w swojej historii wdrażania. W tym artykule opisano błąd pojawiający się w przypadku niepowodzenia wdrożenia, ponieważ spowodowałoby to przekroczenie dozwolonych wdrożeń 800. Aby rozwiązać ten problem, Usuń wdrożenia z historii grupy zasobów. Usunięcie wdrożenia z historii nie ma wpływu na żadne wdrożone zasoby.
 
 > [!NOTE]
-> Począwszy od czerwca 2020, Azure Resource Manager automatycznie usuwa wdrożenia z historii, jak zbliżasz się do limitu. Ten błąd może nadal pojawić się, jeśli wybrałeś opcję automatycznego usuwania. Aby uzyskać więcej informacji, zobacz [Automatyczne usuwanie z historii wdrażania](deployment-history-deletions.md).
+> Azure Resource Manager wkrótce rozpocznie automatyczne usuwanie wdrożeń z historii, jak zbliżasz się do limitu. Ten błąd może nadal pojawić się, jeśli wybrałeś opcję automatycznego usuwania. Aby uzyskać więcej informacji, zobacz [Automatyczne usuwanie z historii wdrażania](deployment-history-deletions.md).
 
 ## <a name="symptom"></a>Objaw
 

@@ -9,10 +9,9 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895314"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Rozwiązywanie problemów dotyczących wolnego działania lub niepowodzenia zadania w klastrze usługi HDInsight
@@ -111,7 +110,7 @@ W poniższych sekcjach opisano, jak sprawdzić kondycję każdego węzła i cał
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Utwórz migawkę kondycji klastra przy użyciu pulpitu nawigacyjnego interfejsu użytkownika Ambari
 
-[Pulpit nawigacyjny interfejsu użytkownika Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) zawiera omówienie kondycji klastra, takie jak czas przestoju, pamięć, użycie sieci i procesora, dysk systemu plików HDFS i tak dalej. Aby wyświetlić zasoby na poziomie hosta, użyj sekcji hosty w Ambari. Możesz również zatrzymać i ponownie uruchomić usługi.
+[Pulpit nawigacyjny interfejsu użytkownika Ambari](#view-cluster-configuration-settings-with-the-ambari-ui) ( `https://<clustername>.azurehdinsight.net` ) zawiera omówienie kondycji klastra, takie jak czas przestoju, pamięć, użycie sieci i procesora, dysk systemu plików HDFS i tak dalej. Aby wyświetlić zasoby na poziomie hosta, użyj sekcji hosty w Ambari. Możesz również zatrzymać i ponownie uruchomić usługi.
 
 ### <a name="check-your-webhcat-service"></a>Sprawdź usługę WebHCat
 
@@ -129,11 +128,11 @@ Ambari wyświetla alert pokazujący hosty, na których nie działa usługa WebHC
 
 ![Serwer Apache Ambari ponowne uruchomienie serwera WebHCat](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
-Jeśli serwer WebHCat nadal nie działa, sprawdź dziennik operacji pod kątem komunikatów o niepowodzeniu. Aby uzyskać szczegółowe informacje, sprawdź pliki `stderr` i `stdout` , do których odwołuje się węzeł.
+Jeśli serwer WebHCat nadal nie działa, sprawdź dziennik operacji pod kątem komunikatów o niepowodzeniu. Aby uzyskać szczegółowe informacje, sprawdź `stderr` pliki i, `stdout` do których odwołuje się węzeł.
 
 #### <a name="webhcat-times-out"></a>WebHCat limit czasu
 
-HDInsight An Brama przekroczy limit czasu odpowiedzi trwających dłużej niż dwie `502 BadGateway`minuty. WebHCat wysyła zapytania do usług PRZĘDZy dla stanów zadań, a w przypadku, gdy trwa dłużej niż dwie minuty, żądanie może przekroczyć limit czasu.
+HDInsight An Brama przekroczy limit czasu odpowiedzi trwających dłużej niż dwie minuty `502 BadGateway` . WebHCat wysyła zapytania do usług PRZĘDZy dla stanów zadań, a w przypadku, gdy trwa dłużej niż dwie minuty, żądanie może przekroczyć limit czasu.
 
 W takim przypadku zapoznaj się z poniższymi dziennikami w `/var/log/webhcat` katalogu:
 
@@ -142,7 +141,7 @@ W takim przypadku zapoznaj się z poniższymi dziennikami w `/var/log/webhcat` k
 * **webhcat-Console-Error. log** to stderr procesu serwera
 
 > [!NOTE]  
-> Każda `webhcat.log` z nich jest rzutowana codziennie, generując pliki `webhcat.log.YYYY-MM-DD`o nazwie. Wybierz odpowiedni plik dla przedziału czasu, który badasz.
+> Każda `webhcat.log` z nich jest rzutowana codziennie, generując pliki o nazwie `webhcat.log.YYYY-MM-DD` . Wybierz odpowiedni plik dla przedziału czasu, który badasz.
 
 W poniższych sekcjach opisano niektóre możliwe przyczyny przekroczenia limitu czasu WebHCat.
 
@@ -170,7 +169,7 @@ Na poziomie PRZĘDZenia istnieją dwa typy limitów czasu:
 
 1. Przesyłanie zadania PRZĘDZy może trwać wystarczająco długo, aby spowodować przekroczenie limitu czasu.
 
-    Jeśli otworzysz plik `/var/log/webhcat/webhcat.log` dziennika i wyszukasz "zadanie w kolejce", zobaczysz wiele wpisów, w których czas wykonywania jest zbyt długi (>2000 MS) z wpisami pokazującymi rosnące czasy oczekiwania.
+    Jeśli otworzysz `/var/log/webhcat/webhcat.log` plik dziennika i wyszukasz "zadanie w kolejce", zobaczysz wiele wpisów, w których czas wykonywania jest zbyt długi (>2000 MS) z wpisami pokazującymi rosnące czasy oczekiwania.
 
     Czas trwania zadań w kolejce nadal rośnie, ponieważ szybkość, z jaką są wysyłane nowe zadania, jest wyższa niż szybkość, z jaką są wykonywane stare zadania. Gdy pamięć PRZĘDZy jest używana do 100%, *Kolejka joblauncher* nie może już pożyczać zdolności produkcyjnych z *kolejki domyślnej*. W związku z tym nie można zaakceptować więcej nowych zadań w kolejce joblauncher. Takie zachowanie może spowodować dłuższe i dłuższe czas oczekiwania, powodując błąd przekroczenia limitu czasu, który zwykle występuje przez wiele innych.
 
@@ -184,7 +183,7 @@ Na poziomie PRZĘDZenia istnieją dwa typy limitów czasu:
 
     * Wyświetl listę wszystkich zadań: jest to czasochłonne wywołanie. To wywołanie wylicza aplikacje z datasourcemanager, a dla każdej ukończonej aplikacji Pobiera stan z PRZĘDZy JobHistoryServer. W przypadku większej liczby zadań to wywołanie może przekroczyć limit czasu.
 
-    * Wyświetl listę zadań starszych niż siedem dni: Usługa HDInsight PRZĘDZy JobHistoryServer jest skonfigurowana tak, aby zachować ukończone informacje o`mapreduce.jobhistory.max-age-ms` zadaniu przez siedem dni (wartość). Próba wyliczenia przeczyszczonych zadań skutkuje przekroczeniem limitu czasu.
+    * Wyświetl listę zadań starszych niż siedem dni: Usługa HDInsight PRZĘDZy JobHistoryServer jest skonfigurowana tak, aby zachować ukończone informacje o zadaniu przez siedem dni ( `mapreduce.jobhistory.max-age-ms` wartość). Próba wyliczenia przeczyszczonych zadań skutkuje przekroczeniem limitu czasu.
 
 Aby zdiagnozować te problemy:
 
@@ -202,7 +201,7 @@ Aby zdiagnozować te problemy:
 
     Mogą wystąpić sytuacje, w których interakcje z usługą WebHCat są pomyślne, ale zadania kończą się niepowodzeniem.
 
-    Templeton zbiera dane wyjściowe konsoli zadań w `stderr` programie `statusdir`, co jest często przydatne do rozwiązywania problemów. `stderr`zawiera identyfikator aplikacji PRZĘDZy rzeczywistego zapytania.
+    Templeton zbiera dane wyjściowe konsoli zadań w `stderr` programie `statusdir` , co jest często przydatne do rozwiązywania problemów. `stderr`zawiera identyfikator aplikacji PRZĘDZy rzeczywistego zapytania.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Krok 4. przegląd stosu i wersji środowiska
 
@@ -214,7 +213,7 @@ Na stronie **stos i wersja** interfejsu użytkownika Ambari dostępne są inform
 
 Istnieje wiele typów dzienników, które są generowane na podstawie wielu usług i składników wchodzących w skład klastra usługi HDInsight. [Pliki dziennika WebHCat](#check-your-webhcat-service) są opisane wcześniej. Istnieje kilka innych przydatnych plików dziennika, które można zbadać w celu zawężenia problemów z klastrem, zgodnie z opisem w poniższych sekcjach.
 
-* Klastry usługi HDInsight składają się z kilku węzłów, z których większość jest zadaniem do uruchamiania przesłanych zadań. Zadania są uruchamiane współbieżnie, ale w plikach dziennika mogą być wyświetlane tylko wyniki liniowe. Usługa HDInsight wykonuje nowe zadania, kończąc inne, które kończą się niepowodzeniem. Wszystkie te działania są rejestrowane w plikach `stderr` i `syslog` .
+* Klastry usługi HDInsight składają się z kilku węzłów, z których większość jest zadaniem do uruchamiania przesłanych zadań. Zadania są uruchamiane współbieżnie, ale w plikach dziennika mogą być wyświetlane tylko wyniki liniowe. Usługa HDInsight wykonuje nowe zadania, kończąc inne, które kończą się niepowodzeniem. Wszystkie te działania są rejestrowane w `stderr` plikach i `syslog` .
 
 * W plikach dziennika akcji skryptu są wyświetlane błędy lub nieoczekiwane zmiany konfiguracji podczas procesu tworzenia klastra.
 

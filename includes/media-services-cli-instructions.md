@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79461218"
 ---
 ## <a name="use-cli-shell"></a>Korzystanie z powłoki interfejsu wiersza polecenia
@@ -21,7 +21,7 @@ Zalecane jest używanie [Azure Cloud Shell](https://docs.microsoft.com/azure/clo
 
 Interfejs wiersza polecenia można także zainstalować lokalnie. Instrukcje dotyczące platformy można znaleźć w temacie [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) .
 
-### <a name="sign-in"></a>Zaloguj się
+### <a name="sign-in"></a>Zaloguj
 
 Przy użyciu lokalnej instalacji interfejsu wiersza polecenia wymagane jest zalogowanie się do platformy Azure. Ten krok nie jest wymagany w przypadku Azure Cloud Shell. Zaloguj się przy użyciu `az login` polecenia.
 

@@ -5,17 +5,16 @@ description: Wykrywaj dryfy danych (wersja zapoznawcza) w ramach wdrożonych mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: d1da7309b296b57db0c28d5b52fe91efa86709c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0f56ab853983ebf9b3e27f38ae1737c0c2bce4ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75537008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430298"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Wykrywaj dryfowanie danych (wersja zapoznawcza) dla modeli wdrożonych w usłudze Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -75,7 +74,7 @@ Za pomocą Azure Machine Learning, dryfowanie danych jest monitorowane za pośre
     print(model_name, image_name, service_name, model)
     ```
 
-- [Włącz zbieranie danych modelu](how-to-enable-data-collection.md) , aby zbierać dane z wdrożenia AKS modelu i potwierdzić, że dane są zbierane w kontenerze `modeldata` obiektów BLOB.
+- [Włącz zbieranie danych modelu](how-to-enable-data-collection.md) , aby zbierać dane z wdrożenia AKS modelu i potwierdzić, że dane są zbierane w `modeldata` kontenerze obiektów BLOB.
 
 ## <a name="configure-data-drift"></a>Konfigurowanie dryfowania danych
 Aby skonfigurować dryf danych dla eksperymentu, zaimportuj zależności, jak pokazano w poniższym przykładzie języka Python. 
@@ -98,7 +97,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Prześlij DataDriftDetector uruchomienie
 
-Po skonfigurowaniu `DataDriftDetector` obiektu można przesłać [dane dotyczące przebiegu danych](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) w danym dniu dla modelu. W ramach przebiegu należy włączyć alerty DataDriftDetector przez ustawienie `drift_threshold` parametru. Jeśli [datadrift_coefficient](#visualize-drift-metrics) znajduje się powyżej podanej `drift_threshold`wiadomości e-mail, zostanie ona wysłana.
+Po `DataDriftDetector` skonfigurowaniu obiektu można przesłać [dane dotyczące przebiegu danych](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) w danym dniu dla modelu. W ramach przebiegu należy włączyć alerty DataDriftDetector przez ustawienie `drift_threshold` parametru. Jeśli [datadrift_coefficient](#visualize-drift-metrics) znajduje się powyżej podanej `drift_threshold` wiadomości e-mail, zostanie ona wysłana.
 
 ```python
 # adhoc run today
@@ -123,7 +122,7 @@ RunDetails(dd_run).show()
 Po przesłaniu uruchomienia DataDriftDetector można zobaczyć metryki dryfu, które są zapisywane w każdej iteracji uruchomienia dla zadania dryfowania danych:
 
 
-|Metryka|Opis|
+|Metric|Opis|
 --|--|
 wasserstein_distance|Odległość statystyczna zdefiniowana dla jednowymiarowej dystrybucji liczbowej.|
 energy_distance|Odległość statystyczna zdefiniowana dla jednowymiarowej dystrybucji liczbowej.|
@@ -132,7 +131,7 @@ datadrift_contribution|Znaczenie funkcji dotyczącej dryfu.|
 
 Istnieje wiele sposobów wyświetlania metryk dryfu:
 
-* `RunDetails`Użyj [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+* Użyj `RunDetails` [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Użyj [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) funkcji na dowolnym `datadrift` obiekcie Run.
 * Wyświetl metryki z sekcji **modele** obszaru roboczego w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
@@ -152,7 +151,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>Zaplanuj skanowanie dryfowania danych 
 
-Po włączeniu wykrywania dryfowania danych DataDriftDetector jest uruchamiany zgodnie z określoną, zaplanowaną częstotliwością. Jeśli datadrift_coefficient osiągnie daną `drift_threshold`wartość, zostanie wysłana wiadomość e-mail z każdym zaplanowanym przebiegiem. 
+Po włączeniu wykrywania dryfowania danych DataDriftDetector jest uruchamiany zgodnie z określoną, zaplanowaną częstotliwością. Jeśli datadrift_coefficient osiągnie daną wartość `drift_threshold` , zostanie wysłana wiadomość e-mail z każdym zaplanowanym przebiegiem. 
 
 ```python
 datadrift.enable_schedule()

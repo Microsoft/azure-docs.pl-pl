@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować szyfrowanie danych Azure Database 
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: 3c33fdb114356af7707c1aae2eddefd81bf10b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6cb3e5db1c7fae3b0542557d2dae8239e0624f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185833"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114622"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -22,17 +22,18 @@ Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for MySQL
 * Musisz mieć subskrypcję platformy Azure i być administratorem tej subskrypcji.
 * Utwórz magazyn kluczy i klucz do użycia dla klucza zarządzanego przez klienta. Włącz również ochronę przed czyszczeniem i usuwanie nietrwałe w magazynie kluczy.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+  ```azurecli-interactive
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  ```
 
 * W utworzonym Azure Key Vault Utwórz klucz, który będzie używany do szyfrowania danych Azure Database for MySQL.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+  ```azurecli-interactive
+  az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+  ```
 
 * Aby można było użyć istniejącego magazynu kluczy, musi on mieć następujące właściwości, aby użyć go jako klucza zarządzanego przez klienta:
+
   * [Usuwanie nietrwałe](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
@@ -54,17 +55,17 @@ Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for MySQL
 
 1. Istnieją dwa sposoby uzyskania tożsamości zarządzanej dla Azure Database for MySQL.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Utwórz nowy serwer Azure Database for MySQL z tożsamością zarządzaną.
+   ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Utwórz nowy serwer Azure Database for MySQL z tożsamością zarządzaną.
 
-    ```azurecli-interactive
-    az mysql server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server create --name -g <resource_group> --location <locations> --storage-size size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> -geo-redundant-backup <Enabled/Disabled>  --assign-identity
+   ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Zaktualizuj istniejący serwer Azure Database for MySQL, aby uzyskać zarządzaną tożsamość.
+   ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Zaktualizuj istniejący serwer Azure Database for MySQL, aby uzyskać zarządzaną tożsamość.
 
-    ```azurecli-interactive
-    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
-    ```
+   ```azurecli-interactive
+   az mysql server update --name  <server name>  -g <resource_group> --assign-identity
+   ```
 
 2. Ustaw **uprawnienia klucza** (**pobieranie**, **Zawijanie**, **odpakowywanie) dla** **podmiotu zabezpieczeń**, który jest nazwą serwera MySQL.
 
@@ -88,36 +89,36 @@ Gdy Azure Database for MySQL jest szyfrowany przy użyciu klucza zarządzanego p
 
 ### <a name="creating-a-restoredreplica-server"></a>Tworzenie serwera przywróconego/repliki
 
-  *  [Tworzenie serwera przywracania](howto-restore-server-cli.md) 
-  *  [Tworzenie serwera repliki odczytu](howto-read-replicas-cli.md) 
+* [Tworzenie serwera przywracania](howto-restore-server-cli.md) 
+* [Tworzenie serwera repliki odczytu](howto-read-replicas-cli.md) 
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Po przywróceniu serwera ponownie Zweryfikuj szyfrowanie danych na przywróconym serwerze
 
-    ```azurecli-interactive
-    az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-mysql"></a>Dodatkowa możliwość dla klucza używanego dla Azure Database for MySQL
 
 ### <a name="get-the-key-used"></a>Pobierz klucz używany
 
-    ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Adres URL klucza:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### <a name="list-the-key-used"></a>Wyświetlenie używanego klucza
 
-    ```azurecli-interactive
-    az mysql server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az mysql server key list --name  <server name>  -g <resource_group>
+```
 
 ### <a name="drop-the-key-being-used"></a>Usuń używany klucz
 
-    ```azurecli-interactive
-    az mysql server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az mysql server key delete -g <resource_group> --kid <key url>
+```
 
 ## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Używanie szablonu Azure Resource Manager do włączania szyfrowania danych
 
@@ -130,6 +131,7 @@ Użyj jednego z wstępnie utworzonych szablonów Azure Resource Manager, aby zai
 Ten Azure Resource Manager szablonu służy do tworzenia serwera Azure Database for MySQL i korzystania z **magazynu** **kluczy oraz klucza** , który został przesłany jako parametry, aby umożliwić szyfrowanie danych na serwerze.
 
 ### <a name="for-an-existing-server"></a>Dla istniejącego serwera
+
 Ponadto można użyć szablonów Azure Resource Manager, aby włączyć szyfrowanie danych na istniejących serwerach Azure Database for MySQL.
 
 * Przekaż identyfikator zasobu klucza Azure Key Vault, który został wcześniej skopiowany we `Uri` właściwości obiektu właściwości.

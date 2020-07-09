@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495744"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083954"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Używanie wielu klastrów usługi HDInsight z kontem Azure Data Lake Storage
 
@@ -44,7 +44,7 @@ W tabeli,
 - Nazwa **główna usługi** jest jednostką usługi Azure Active Directory (AAD) skojarzoną z kontem.
 - **FINGRP** to grupa użytkowników utworzona w usłudze AAD, która zawiera użytkowników z organizacji finansów.
 
-Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji usługi AAD (która również tworzy jednostkę nazwy głównej), zobacz [Tworzenie aplikacji w usłudze AAD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Aby uzyskać instrukcje dotyczące sposobu tworzenia grupy użytkowników w usłudze AAD, zobacz [Zarządzanie grupami w Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Aby uzyskać instrukcje dotyczące sposobu tworzenia aplikacji usługi AAD (która również tworzy jednostkę nazwy głównej), zobacz [Tworzenie aplikacji w usłudze AAD](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Aby uzyskać instrukcje dotyczące sposobu tworzenia grupy użytkowników w usłudze AAD, zobacz [Zarządzanie grupami w Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Niektóre kluczowe kwestie, które należy wziąć pod uwagę.
 
@@ -79,15 +79,17 @@ Po utworzeniu nowego konta Azure Data Lake Storage katalog główny zostanie aut
 
 Te ustawienia mają wpływ na jeden przypadek użycia usługi HDInsight przechwytywany w [przędze 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Przesyłanie zadań może zakończyć się niepowodzeniem z komunikatem o błędzie podobnym do przedstawionego poniżej:
 
-    Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```output
+Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```
 
 Jak określono w połączonej wcześniej JIRA PRZĘDZy, podczas lokalizowania zasobów publicznych lokalizator sprawdza, czy wszystkie żądane zasoby są rzeczywiście publiczne, sprawdzając ich uprawnienia do zdalnego systemu plików. Wszystkie LocalResource, które nie pasują do tego warunku, są odrzucane dla lokalizacji. Sprawdzanie uprawnień, obejmuje dostęp do odczytu do pliku dla "inne". Ten scenariusz nie działa w przypadku hostowania klastrów usługi HDInsight na Azure Data Lake, ponieważ Azure Data Lake nie zezwala na dostęp do innych użytkowników na poziomie folderu głównego.
 
 #### <a name="workaround"></a>Obejście
 
-Ustaw uprawnienia do odczytu dla **innych użytkowników** w hierarchii, na przykład **/**, **/Clusters** i **/Clusters/Finance** , jak pokazano w powyższej tabeli.
+Ustaw uprawnienia do odczytu dla **innych użytkowników** w hierarchii, na przykład, **/** **/Clusters** i **/Clusters/Finance** , jak pokazano w powyższej tabeli.
 
 ## <a name="see-also"></a>Zobacz także
 
 - [Szybki start: konfigurowanie klastrów w usłudze HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-- [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

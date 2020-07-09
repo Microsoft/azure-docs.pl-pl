@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84340678"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Zmienne HTTP dla aparatu reguł Azure CDN
 Zmienne HTTP zapewniają metodę, za pomocą której można pobrać metadane żądań i odpowiedzi HTTP. Można następnie użyć tych metadanych do dynamicznego zmiany żądania lub odpowiedzi. Użycie zmiennych HTTP jest ograniczone do następujących funkcji aparatu zasad:
 
-- [Pamięć podręczna — ponowne zapisywanie klucza](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modyfikowanie nagłówka żądania klienta](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [Modyfikowanie nagłówka odpowiedzi klienta](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [Przekierowanie adresu URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [Ponowne zapisywanie adresów URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Pamięć podręczna — ponowne zapisywanie klucza](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [Modyfikowanie nagłówka żądania klienta](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [Modyfikowanie nagłówka odpowiedzi klienta](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [Przekierowanie adresu URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [Ponowne zapisywanie adresów URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## <a name="definitions"></a>Definicje
 W poniższej tabeli opisano obsługiwane zmienne HTTP. Wartość pusta jest zwracana, gdy metadane geograficzne (na przykład kod pocztowy) są niedostępne dla określonego żądania.
@@ -60,9 +59,9 @@ W poniższej tabeli opisano obsługiwane zmienne HTTP. Wartość pusta jest zwra
 | Żądaj hosta | % {Host} | Wskazuje hosta zdefiniowanego w adresie URL żądania. | <www.mydomain.com> |
 | Protokół żądania | % {request_protocol} | Wskazuje protokół żądania. | PROTOKÓŁ HTTP/1.1 |
 | Schemat żądania | % {Schema} | Wskazuje schemat żądania. |http |
-| Identyfikator URI żądania (względne) | % {request_uri} | Wskazuje ścieżkę względną, łącznie z ciągiem zapytania zdefiniowanym w identyfikatorze URI żądania. | /Marketing/foo.js? zalogowano = prawda |
+| Identyfikator URI żądania (względne) | % {request_uri} | Wskazuje ścieżkę względną, łącznie z ciągiem zapytania zdefiniowanym w identyfikatorze URI żądania. | /Marketing/foo.js? zarejestrowano = prawda |
 | Identyfikator URI żądania (względny bez ciągu zapytania) | % {URI} | Wskazuje ścieżkę względną do wymaganej zawartości. <br /><br/>Informacje o kluczu:<br />-Ta ścieżka względna wyklucza ciąg zapytania.<br />-Ta ścieżka względna odzwierciedla ponowne zapisywanie adresów URL. Adres URL zostanie zapisany w następujących warunkach:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Funkcja ponownego zapisywania adresów URL: Ta funkcja ponownie zapisuje ścieżkę względną zdefiniowaną w identyfikatorze URI żądania.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Edge adres URL CNAME: ten typ żądania jest zapisywana na odpowiednim adresie URL usługi CDN. |/800001/corigin/rewrittendir/foo.js |
-| Identyfikator URI żądania | % {Request} | Zawiera opis żądania. <br />Składnia: &lt; &gt; &lt; &gt; protokół http ścieżki względnej metody http &lt;&gt; | Pobierz/Marketing/foo.js? zarejestrowano = true HTTP/1.1 |
+| Identyfikator URI żądania | % {Request} | Zawiera opis żądania. <br />Składnia: &lt; &gt; &lt; &gt; protokół http ścieżki względnej metody http &lt;&gt; | Pobierz/Marketing/foo.js? zarejestrowane = true HTTP/1.1 |
 | Wartość nagłówka odpowiedzi | % {resp_ &lt; ResponseHeader &gt; } | Zwraca wartość odpowiadającą nagłówkowi odpowiedzi identyfikowanemu przez &lt; termin ResponseHeader &gt; . <br /><br />Jeśli nazwa nagłówka odpowiedzi zawiera Łącznik (na przykład User-Agent), zastąp go znakiem podkreślenia (na przykład User_Agent). | Przykładowe użycie:% {resp_Content_Length}<br /><br />Przykładowa wartość: 100 |
 
 ## <a name="usage"></a>Użycie
@@ -160,7 +159,7 @@ Informacje o kluczu:
 
 W poniższym przykładzie zależą od następującego przykładowego adresu URL żądania:
 
-https: \/ /CDN.mydomain.com/folder/Marketing/myconsultant/Proposal.html
+https: \/ /cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 Następujący ciąg ilustruje różne metody manipulowania zmiennymi:
 
@@ -168,7 +167,7 @@ https: \/ /www%{HTTP_HOST: 3}/mobile/%{REQUEST_URI: 7:10}/% {REQUEST_URI:-5:-8}.
 
 Na podstawie przykładowego adresu URL żądania w powyższej zmiennej manipulowanie zostanie utworzona następująca wartość:
 
-https: \/ /www.mydomain.com/Mobile/Marketing/Proposal.htm
+https: \/ /www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Usuwanie wzorca
@@ -189,8 +188,8 @@ W poniższej tabeli przedstawiono sposób działania tej składni.
 
 | Przykładowa składnia | Wyniki | |
 | ------------- | ------- | --- |
-| % {request_uri #/800001}/customerorigin | /customerorigin/myorigin/Marketing/Product.html? language = EN-US | Ponieważ zmienna zaczyna się od wzorca, została zastąpiona. |
-| % {request_uri% HTML} htm | /800001/myorigin/Marketing/Product.html? language = EN-US | Ponieważ zmienna nie kończy się wzorcem, nie wprowadzono zmian.|
+| % {request_uri #/800001}/customerorigin | /customerorigin/myorigin/Marketing/product.html? language = EN-US | Ponieważ zmienna zaczyna się od wzorca, została zastąpiona. |
+| % {request_uri% HTML} htm | /800001/myorigin/Marketing/product.html? language = EN-US | Ponieważ zmienna nie kończy się wzorcem, nie wprowadzono zmian.|
 
 ### <a name="find-and-replace"></a>Znajdowanie i zamienianie
 Składnia Znajdź i Zamień została opisana w poniższej tabeli.

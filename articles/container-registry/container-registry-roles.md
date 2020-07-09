@@ -4,10 +4,9 @@ description: Użyj kontroli dostępu opartej na rolach (RBAC) na platformie Azur
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74893488"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry ról i uprawnień
@@ -30,7 +29,7 @@ Wszystkie uprawnienia są stosowane, najlepszym rozwiązaniem jest zapewnienie n
 
 ### <a name="cicd-solutions"></a>Rozwiązania CI/CD
 
-W przypadku automatyzowania `docker build` poleceń z rozwiązań ciągłej integracji/ciągłego `docker push` wdrażania wymagane są funkcje. W przypadku tych scenariuszy usługi bezobsługowe sugerujemy przypisanie roli **AcrPush** . Ta rola, w przeciwieństwie do szerszej roli **współautor** , uniemożliwia kontu wykonywanie innych operacji rejestru lub uzyskiwanie dostępu do Azure Resource Manager.
+W przypadku automatyzowania poleceń z rozwiązań ciągłej integracji/ciągłego wdrażania `docker build` wymagane są `docker push` funkcje. W przypadku tych scenariuszy usługi bezobsługowe sugerujemy przypisanie roli **AcrPush** . Ta rola, w przeciwieństwie do szerszej roli **współautor** , uniemożliwia kontu wykonywanie innych operacji rejestru lub uzyskiwanie dostępu do Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Węzły hosta kontenera
 
@@ -38,7 +37,7 @@ Podobnie węzły korzystające z kontenerów wymagają roli **AcrPull** , ale ni
 
 ### <a name="visual-studio-code-docker-extension"></a>Visual Studio Code rozszerzenie platformy Docker
 
-Dla narzędzi, takich jak Visual Studio Code [Docker Extension](https://code.visualstudio.com/docs/azure/docker), wymagany jest dodatkowy dostęp dostawcy zasobów, aby wyświetlić listę dostępnych rejestrów kontenerów platformy Azure. W takim przypadku należy zapewnić użytkownikom dostęp do roli **czytelnik** lub **współautor** . Role te umożliwiają `docker pull`, `docker push`, `az acr list` `az acr build`, i inne możliwości. 
+Dla narzędzi, takich jak Visual Studio Code [Docker Extension](https://code.visualstudio.com/docs/azure/docker), wymagany jest dodatkowy dostęp dostawcy zasobów, aby wyświetlić listę dostępnych rejestrów kontenerów platformy Azure. W takim przypadku należy zapewnić użytkownikom dostęp do roli **czytelnik** lub **współautor** . Role te umożliwiają `docker pull` , `docker push` , `az acr list` , `az acr build` i inne możliwości. 
 
 ## <a name="access-resource-manager"></a>Menedżer zasobów dostępu
 
@@ -81,7 +80,7 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 Aby zdefiniować rolę niestandardową, zapoznaj [się z instrukcjami tworzenia roli niestandardowej](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!IMPORTANT]
-> W roli niestandardowej Azure Container Registry nie obsługuje obecnie symboli wieloznacznych, takich `Microsoft.ContainerRegistry/*` jak `Microsoft.ContainerRegistry/registries/*` lub udzielających dostępu do wszystkich akcji dopasowywania. Określ dowolną akcję wymaganą pojedynczo w roli.
+> W roli niestandardowej Azure Container Registry nie obsługuje obecnie symboli wieloznacznych, takich jak `Microsoft.ContainerRegistry/*` lub `Microsoft.ContainerRegistry/registries/*` udzielających dostępu do wszystkich akcji dopasowywania. Określ dowolną akcję wymaganą pojedynczo w roli.
 
 ## <a name="next-steps"></a>Następne kroki
 

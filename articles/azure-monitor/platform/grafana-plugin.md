@@ -5,10 +5,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672212"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorowanie usług platformy Azure w Grafana
@@ -42,7 +41,7 @@ Aby skonfigurować lokalny serwer Grafana, [Pobierz i zainstaluj Grafana w środ
 
 ## <a name="sign-in-to-grafana"></a>Zaloguj się do Grafana
 
-1. Korzystając z adresu IP serwera, Otwórz stronę logowania pod *adresem\<\>IP http://: 3000* lub * \< \:dnsname>3000* w przeglądarce. Chociaż 3000 jest portem domyślnym, należy zauważyć, że podczas instalacji mógł zostać wybrany inny port. Powinna zostać wyświetlona strona logowania dla skompilowanego serwera Grafana.
+1. Korzystając z adresu IP serwera, Otwórz stronę logowania w witrynie *http:// \<IP address\> : 3000* lub * \<DNSName> \: 3000* w przeglądarce. Chociaż 3000 jest portem domyślnym, należy zauważyć, że podczas instalacji mógł zostać wybrany inny port. Powinna zostać wyświetlona strona logowania dla skompilowanego serwera Grafana.
 
     ![Ekran logowania Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
@@ -150,7 +149,7 @@ Jedną z wielu przydatnych funkcji Grafana jest lista odtwarzania pulpitu nawiga
 
 ![Przykład listy odtwarzania Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli skonfigurowano środowisko Grafana na platformie Azure, opłaty są naliczone, gdy maszyny wirtualne działają, niezależnie od tego, czy są używane. Aby uniknąć naliczania dodatkowych opłat, wyczyść grupę zasobów utworzoną w tym artykule.
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70073600"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Jak dodać niestandardowy certyfikat urzędu certyfikacji na platformie Azure API Management
@@ -47,12 +47,12 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przekazać nowy certyfikat urz
 
     ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/02.png)  
 
-5. Kliknij przycisk **Zapisz**. Ta operacja może potrwać kilka minut.
+5. Kliknij pozycję **Zapisz**. Ta operacja może potrwać kilka minut.
 
     ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Certyfikat urzędu certyfikacji można przekazać za pomocą polecenia `New-AzApiManagementSystemCertificate` programu PowerShell.
+> Certyfikat urzędu certyfikacji można przekazać za pomocą `New-AzApiManagementSystemCertificate` polecenia programu PowerShell.
 
 ## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Usuwanie certyfikatu klienta
 

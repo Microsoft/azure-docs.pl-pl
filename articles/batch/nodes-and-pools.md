@@ -2,13 +2,13 @@
 title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/16/2020
+ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791155"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964046"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -27,6 +27,8 @@ Wszystkie węzły obliczeniowe usługi Batch obejmują również:
 - Standardową [strukturę folderów](files-and-directories.md) i skojarzone [zmienne środowiskowe](jobs-and-tasks.md) dostępne do użycia jako odwołania w zadaniach podrzędnych.
 - Ustawienia **Zapory** skonfigurowane do kontroli dostępu.
 - [Dostęp zdalny](error-handling.md#connect-to-compute-nodes) do węzłów systemu Windows (protokół RDP (Remote Desktop)) i Linux (SSH (Secure Shell)).
+
+Domyślnie węzły mogą komunikować się ze sobą, ale nie mogą komunikować się z maszynami wirtualnymi, które nie są częścią tej samej puli. Aby umożliwić węzłom bezpieczne komunikowanie się z innymi maszynami wirtualnymi lub z siecią lokalną, można zainicjować obsługę administracyjną puli [w podsieci sieci wirtualnej platformy Azure](batch-virtual-network.md). Po wykonaniu tej czynności Twoje węzły będą dostępne za poorednictwem publicznych adresów IP. Te publiczne adresy IP są tworzone przez partię i mogą ulec zmianie w okresie istnienia puli. Istnieje również możliwość [utworzenia puli ze statycznymi publicznymi adresami IP](create-pool-public-ip.md) , co gwarantuje, że nie ulegną zmianie.
 
 ## <a name="pools"></a>Pule
 
@@ -78,7 +80,7 @@ Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services
 
 ### <a name="node-agent-skus"></a>Jednostki SKU agenta węzła
 
-W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Można uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła na odwołania do obrazów systemu operacyjnego, wywołując [listę obsługiwanych jednostek SKU agenta węzła](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) .
+W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Można uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła na odwołania do obrazów systemu operacyjnego, wywołując [listę obsługiwanych jednostek SKU agenta węzła](/rest/api/batchservice/list-supported-node-agent-skus) .
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Niestandardowe obrazy dla pul usługi Virtual Machines
 
@@ -127,7 +129,7 @@ Formuła skalowania może opierać się na następujących metrykach:
 - **Metryki zasobów** — na podstawie użycia procesora, wykorzystania przepustowości, użycia pamięci i liczby węzłów.
 - **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone*.
 
-Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji węzła `taskcompletion` lub `retaineddata` uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wygasły wszystkie okresy przechowywania zadań.
+Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji węzła `taskcompletion` lub `retaineddata` uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wygasły wszystkie okresy przechowywania zadań.
 
 Więcej informacji na temat automatycznego skalowania aplikacji znajduje się w temacie [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md) (Automatyczne skalowanie węzłów obliczeniowych w puli usługi Azure Batch).
 
@@ -162,13 +164,16 @@ Aby uzyskać więcej informacji o używaniu pakietów aplikacji do wdrażania ap
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfiguracja sieci wirtualnej i zapory
 
-Podczas aprowizowania puli węzłów obliczeniowych w usłudze Batch możesz ją skojarzyć z podsiecią [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).  
+Podczas aprowizowania puli węzłów obliczeniowych w usłudze Batch możesz ją skojarzyć z podsiecią [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
 
 ### <a name="vnet-requirements"></a>Wymagania dotyczące sieci wirtualnej
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Aby uzyskać więcej informacji na temat konfigurowania puli usługi Batch w sieci wirtualnej, zobacz [Create a pool of virtual machines with your virtual network](batch-virtual-network.md) (Tworzenie puli maszyn wirtualnych przy użyciu sieci wirtualnej).
+
+> [!TIP]
+> Aby mieć pewność, że publiczne adresy IP używane do dostępu do węzłów nie zmieniają się, można [utworzyć pulę z określonymi publicznymi adresami IP, które kontrolujesz](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Okres istnienia puli i węzła obliczeniowego
 
@@ -184,7 +189,7 @@ Połączone podejście jest zwykle używane do obsługi zmiennej, ale trwająceg
 
 Zazwyczaj certyfikatów należy użyć podczas szyfrowania i odszyfrowywania poufnych informacji dotyczących zadań podrzędnych, np. klucza [konta usługi Azure Storage](accounts.md#azure-storage-accounts). Aby to umożliwić, można zainstalować certyfikaty w węzłach. Zaszyfrowane klucze tajne są przekazywane do zadań za pomocą parametrów wiersza polecenia lub osadzane w jednym z zasobów zadań, a zainstalowanych certyfikatów można użyć do ich odszyfrowania.
 
-Aby dodać certyfikat do konta usługi Batch, należy użyć operacji [Dodaj certyfikat](https://docs.microsoft.com/rest/api/batchservice/certificate/add) (interfejs API REST usługi Batch) lub metody [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) (platforma .NET usługi Batch). Następnie można skojarzyć certyfikat z nową lub istniejącą pulą.
+Aby dodać certyfikat do konta usługi Batch, należy użyć operacji [Dodaj certyfikat](/rest/api/batchservice/certificate/add) (interfejs API REST usługi Batch) lub metody [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) (platforma .NET usługi Batch). Następnie można skojarzyć certyfikat z nową lub istniejącą pulą.
 
 Gdy certyfikat zostaje skojarzony z pulą, usługa Batch instaluje certyfikat w każdym węźle w puli. Usługa Batch instaluje odpowiednie certyfikaty podczas uruchamiania węzła, przed uruchomieniem jakichkolwiek zadań (w tym zadania podrzędnego [Uruchom zadanie](jobs-and-tasks.md#start-task) i [Menedżer zadań](jobs-and-tasks.md#job-manager-task)).
 

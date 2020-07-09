@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857162"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
@@ -27,7 +26,7 @@ Następujące fazy SDL zostały omówione w tym artykule:
 
 - Szkolenia
 - Wymagania
-- Projektowanie
+- Projekt
 
 ## <a name="training"></a>Szkolenia
 Przed rozpoczęciem opracowywania aplikacji w chmurze należy zapoznać się z tematem bezpieczeństwo i prywatność na platformie Azure. Wykonując ten krok, można zmniejszyć liczbę i ważność luk w zabezpieczeniach w aplikacji. Zostanie przygotowana do odpowiedniej reakcji na stale zmieniający się poziom zagrożenia.
@@ -97,7 +96,7 @@ Jednak warto również założyć, że nastąpi [naruszenie](https://docs.micros
 
   - Jak odzyskiwać dane z ataku, takiego jak przecieki lub manipulowanie danymi?
 
-## <a name="design"></a>Projektowanie
+## <a name="design"></a>Projekt
 
 Faza projektowania ma kluczowe znaczenie dla ustanowienia najlepszych rozwiązań dotyczących projektowania i specyfikacji funkcjonalnych. Ma ona również kluczowe znaczenie dla przeprowadzania analizy ryzyka, która pomaga w ograniczeniu bezpieczeństwa i ochrony prywatności w całym projekcie.
 
@@ -128,7 +127,7 @@ Możesz korzystać z w pełni funkcjonalnych, zintegrowanych środowisk programi
 
 Firma Microsoft oferuje wiele [języków, struktur i narzędzi](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) , których można użyć do tworzenia aplikacji na platformie Azure. Przykładem jest [platforma Azure dla deweloperów .NET i .NET Core](https://docs.microsoft.com/dotnet/azure/). Dla każdego oferowanego języka i platformy znajdziesz Przewodniki Szybki Start, samouczki i odwołania do interfejsów API, które ułatwiają szybkie rozpoczęcie pracy.
 
-Platforma Azure oferuje różne usługi, których można używać do hostowania witryn i aplikacji sieci Web. Te usługi umożliwiają programowanie w ulubionym języku, niezależnie od tego, czy są to .NET, .NET Core, Java, Ruby, Node. js, PHP lub Python.
+Platforma Azure oferuje różne usługi, których można używać do hostowania witryn i aplikacji sieci Web. Te usługi umożliwiają programowanie w ulubionym języku, niezależnie od tego, czy są to platformy .NET, .NET Core, Java, Ruby, Node.js, PHP czy Python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) to jedna z tych usług.
 
 Web Apps dodaje możliwości Microsoft Azure do aplikacji. Obejmuje to zabezpieczenia, równoważenie obciążenia, Skalowanie automatyczne i zautomatyzowane zarządzanie. Możesz również skorzystać z możliwości DevOps w Web Apps, takich jak zarządzanie pakietami, środowiska przejściowe, domeny niestandardowe, certyfikaty SSL/TLS i ciągłe wdrażanie z usługi Azure DevOps, GitHub, Docker Hub i innych źródeł.
@@ -151,7 +150,7 @@ Aby ułatwić proces modelowania zagrożeń, zaprojektowano [Threat Modeling Too
 
 Modelowanie projektu aplikacji i wyliczanie [zagrożeń dotyczących](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) kroków — fałszowanie, manipulowanie, wyparcie, ujawnienie informacji, odmowa usługi i podniesienie uprawnień — w ramach wszystkich granic zaufania sprawdzono skuteczny sposób na wczesne przechwytywanie błędów projektu. W poniższej tabeli przedstawiono listę zagrożeń i przedstawiono przykładowe środki zaradcze korzystające z funkcji oferowanych przez platformę Azure. Te środki zaradcze nie będą działały w każdej sytuacji.
 
-| Ważną | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
+| Zagrożenie | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Fałszowanie zawartości               | Authentication        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulowanie              | Integralność             | Sprawdź poprawność certyfikatów SSL/TLS. Aplikacje korzystające z protokołu SSL/TLS muszą w pełni weryfikować certyfikaty X. 509 jednostek, z którymi się łączą. Użyj Azure Key Vault certyfikatów do [zarządzania certyfikatami x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |

@@ -10,9 +10,9 @@
     - name: Tworzenie usługi CF na platformie Azure
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Wdrażanie aplikacji usługi CF na platformie Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
     - name: Usługa CloudFoundry na platformie Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
+      href: /azure/cloudfoundry/cloudfoundry-get-started
     - name: Wdrażanie dodatku OMS Nozzle usługi CF
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
     - name: Integracja usługi Cloud Foundry z platformą Azure

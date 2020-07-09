@@ -1,18 +1,18 @@
 ---
 title: Jak kupić oprogramowanie w witrynie AppSource | Portal Azure Marketplace
 description: Kroki do zakupu oprogramowania w witrynie AppSource | Portal Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 450a97b0be1b11980d65477d396431170180d00f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e3faad025a794b0ae9905fa73b090b55799f3279
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746638"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103042"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Jak kupić oprogramowanie w Microsoft AppSource
 
@@ -65,4 +65,4 @@ W przypadku produktów firmowych [skontaktuj się z pomocą techniczną tutaj](h
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Więcej informacji można znaleźć w [dokumentacji komercyjnej portalu Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) .
+- Więcej informacji można znaleźć w [dokumentacji komercyjnej portalu Marketplace](partner-center-portal/commercial-marketplace-overview.md) .

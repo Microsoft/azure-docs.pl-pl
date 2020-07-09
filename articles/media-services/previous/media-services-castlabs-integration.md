@@ -16,10 +16,9 @@ ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
 ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74969144"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services 
@@ -84,7 +83,7 @@ W poniższej tabeli opisano token JWT w castLabs.
 
 Aby użyć aplikacji konsolowej:
 
-1. Zmień plik App. config, aby skonfigurować poświadczenia usługi AMS, poświadczenia castLabs, konfigurację usługi STS i klucz współużytkowany.
+1. Zmień app.config, aby skonfigurować poświadczenia usługi AMS, poświadczenia castLabs, konfigurację usługi STS i klucz współużytkowany.
 2. Przekaż element zawartości do AMS.
 3. Pobierz identyfikator UUID z przekazanego elementu zawartości i Zmień wiersz 32 w pliku Program.cs:
    
@@ -96,7 +95,7 @@ Aby użyć aplikacji konsolowej:
 
 Aby użyć aplikacji sieci Web (STS):
 
-1. Zmień plik Web. config w celu skonfigurowania identyfikatora handlowca castlabs, konfiguracji usługi STS i klucza współużytkowanego.
+1. Zmień web.config, aby skonfigurować identyfikator handlowca castlabs, konfigurację usługi STS i klucz współużytkowany.
 2. Wdróż w usłudze Azure Websites.
 3. Przejdź do witryny sieci Web.
 
@@ -122,6 +121,6 @@ Aby odtworzyć wideo szyfrowane za pomocą typowego szyfrowania (PlayReady i/lub
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

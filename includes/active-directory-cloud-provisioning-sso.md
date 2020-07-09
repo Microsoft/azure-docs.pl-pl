@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79504284"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Procedura włączania logowania jednokrotnego
@@ -25,16 +25,16 @@ Inicjowanie obsługi administracyjnej w chmurze współpracuje z logowaniem jedn
 
 1. Pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Zaimportuj bezproblemowy moduł programu PowerShell dla logowania `Import-Module .\AzureADSSO.psd1`jednokrotnego za pomocą tego polecenia:.
+3. Zaimportuj bezproblemowy moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
 
 ### <a name="step-3-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Krok 3. Pobieranie listy Active Directory lasów, w których włączono bezproblemowe logowanie jednokrotne
 
-1. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj `New-AzureADSSOAuthenticationContext`polecenie. Po wyświetleniu monitu wprowadź poświadczenia administratora globalnego dzierżawy.
-2. Wywołanie `Get-AzureADSSOStatus`. To polecenie umożliwia wyświetlenie listy Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję.
+1. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . Po wyświetleniu monitu wprowadź poświadczenia administratora globalnego dzierżawy.
+2. Wywołanie `Get-AzureADSSOStatus` . To polecenie umożliwia wyświetlenie listy Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Krok 4. Włączanie bezproblemowego logowania jednokrotnego dla każdego lasu Active Directory
 
-1. Wywołanie `Enable-AzureADSSOForest`. Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
+1. Wywołanie `Enable-AzureADSSOForest` . Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
 
    > [!NOTE]
    >Należy podać nazwę użytkownika poświadczeń administratora domeny w formacie nazwy konta SAM (contoso\johndoe lub contoso. com\johndoe). Używamy części nazwy użytkownika do lokalizowania kontrolera domeny administratora domeny przy użyciu systemu DNS.
@@ -46,4 +46,4 @@ Inicjowanie obsługi administracyjnej w chmurze współpracuje z logowaniem jedn
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Krok 5. Włączanie funkcji w dzierżawie
 
-Aby włączyć funkcję w dzierżawie, wywołaj `Enable-AzureADSSO -Enable $true`polecenie.
+Aby włączyć funkcję w dzierżawie, wywołaj polecenie `Enable-AzureADSSO -Enable $true` .

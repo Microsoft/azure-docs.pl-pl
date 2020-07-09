@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: eb5e15f5387628fea293c767202ece77b14f656c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753568"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -30,6 +30,8 @@ Integration Runtime (IR) to infrastruktura obliczeniowa używana przez usługę 
 - **Wykonanie pakietów SSIS**: natywne wykonywanie pakietów SQL Server Integration Services (SSIS) w zarządzanym środowisku obliczeniowym platformy Azure.
 
 W usłudze Data Factory działanie definiuje akcję do wykonania. Połączona usługa definiuje docelowy magazyn danych lub usługę obliczeniową. Infrastruktura Integration Runtime zapewnia połączenie między działaniem i połączonymi usługami.  Jest on przywoływany przez połączoną usługę lub działanie i udostępnia środowisko obliczeniowe, w którym działanie jest uruchamiane lub wysyłane z programu. Dzięki temu działanie można wykonać w regionie najbliższym docelowemu magazynowi danych lub usłudze obliczeniowej, w sposób najbardziej wydajny, jednocześnie spełniając wymagania dotyczące zabezpieczeń i zgodności.
+
+Środowisko Integration Runtimes można utworzyć w interfejsie użytkownika Azure Data Factory za pośrednictwem [centrum zarządzania](author-management-hub.md) oraz wszelkich działań, zestawów danych lub przepływów, które odwołują się do nich.
 
 ## <a name="integration-runtime-types"></a>Typy infrastruktury Integration Runtime
 
@@ -57,7 +59,7 @@ Na poniższym diagramie przedstawiono, jak różnych infrastruktur Integration R
 
 - Uruchamianie przepływów danych na platformie Azure 
 - Uruchamianie działania kopiowania między magazynami danych w chmurze
-- Wysyłanie następujących działań przekształcania w sieci publicznej: działania notesu/jar/Python, działania Hive usługi HDInsight, działania dotyczącego usługi HDInsight, działania dotyczące usługi HDInsight, działania usługi HDInsight Spark, działania usługi HDInsight Streaming Machine Learning, działania związanego z Data Lake Analytics Machine Learning wykonywaniem wsadowym programu .NET, działania w sieci Web, działania wyszukiwania i działania pobierania metadanych.
+- Wysyłaj następujące działania przekształcania w sieci publicznej: działania notesu/jar/Python, działanie Hive usługi HDInsight, działanie usługi HDInsight, działanie dotyczące usługi HDInsight, działanie usługi HDInsight Spark, działanie usługi HDInsight Streaming Machine Learning, działanie tworzenia Data Lake Analytics Machine Learning wsadowego programu .NET, aktywność sieci Web, działanie wyszukiwania i działanie Get Metadata.
 
 ### <a name="azure-ir-network-environment"></a>Środowisko sieciowe IR Azure
 

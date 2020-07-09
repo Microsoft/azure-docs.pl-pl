@@ -6,16 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201069"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212631"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
@@ -58,7 +57,7 @@ Następnie Udziel uprawnień aplikacji do wywoływania interfejsów API usługi 
 
     ![Zrzut ekranu przedstawiający uprawnienia do magazynu](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-Okienko **uprawnienia interfejsu API** pokazuje teraz, że zarejestrowana aplikacja usługi Azure AD ma dostęp do Microsoft Graph i usługi Azure Storage. Uprawnienia są udzielane Microsoft Graph automatycznie po pierwszym zarejestrowaniu aplikacji w usłudze Azure AD.
+Okienko **uprawnienia interfejsu API** pokazuje teraz, że zarejestrowana aplikacja usługi Azure AD ma dostęp do interfejsów API Microsoft Graph i Azure Storage. Uprawnienia są udzielane Microsoft Graph automatycznie po pierwszym zarejestrowaniu aplikacji w usłudze Azure AD.
 
 ![Zrzut ekranu przedstawiający rejestrowanie uprawnień aplikacji](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -213,7 +212,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -245,7 +244,7 @@ Aby uruchomić przykładową aplikację, należy najpierw sklonować ją lub pob
 
 ### <a name="provide-values-in-the-settings-file"></a>Podaj wartości w pliku ustawień
 
-Następnie zaktualizuj plik *appSettings. JSON* przy użyciu własnych wartości w następujący sposób:
+Następnie zaktualizuj *appsettings.js* pliku przy użyciu własnych wartości w następujący sposób:
 
 ```json
 {
@@ -284,8 +283,8 @@ CloudBlockBlob blob = new CloudBlockBlob(
 Aby uruchomić przykład, może być konieczne skonfigurowanie niejawnego przepływu dotacji dla rejestracji aplikacji. Wykonaj następujące kroki:
 
 1. Przejdź do rejestracji aplikacji w Azure Portal.
-1. W sekcji Zarządzanie wybierz ustawienie **uwierzytelnianie** .
-1. W obszarze **Ustawienia zaawansowane**w sekcji **niejawne przyznanie** zaznacz pola wyboru, aby włączyć tokeny dostępu i tokeny identyfikatorów, jak pokazano na poniższej ilustracji:
+1. W sekcji **Zarządzanie** wybierz ustawienie **uwierzytelnianie** .
+1. W sekcji **niejawne przyznanie** zaznacz pole wyboru, aby włączyć tokeny identyfikatora, jak pokazano na poniższej ilustracji:
 
     ![Zrzut ekranu przedstawiający sposób włączania ustawień dla niejawnego przepływu dotacji](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
@@ -294,13 +293,13 @@ Aby uruchomić przykład, może być konieczne skonfigurowanie niejawnego przep�
 Po uruchomieniu przykładu możesz sprawdzić, czy należy zaktualizować identyfikator URI przekierowania określony w rejestracji aplikacji, aby użyć portu *localhost* przypisanego w czasie wykonywania. Aby zaktualizować identyfikator URI przekierowania, aby używał przypisanego portu, wykonaj następujące czynności:
 
 1. Przejdź do rejestracji aplikacji w Azure Portal.
-1. W sekcji Zarządzanie wybierz ustawienie **uwierzytelnianie** .
+1. W sekcji **Zarządzanie** wybierz ustawienie **uwierzytelnianie** .
 1. W obszarze **identyfikatory URI przekierowania**Edytuj port, aby dopasować go do używanego przez przykładową aplikację, jak pokazano na poniższej ilustracji:
 
     ![Zrzut ekranu przedstawiający identyfikatory URI przekierowania dla rejestracji aplikacji](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej na temat platformy tożsamości firmy Microsoft, zobacz [Microsoft Identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
-- Aby dowiedzieć się więcej o rolach RBAC dla usługi Azure Storage, zobacz [Zarządzanie prawami dostępu do danych magazynu za pomocą RBAC](storage-auth-aad-rbac.md).
-- Aby dowiedzieć się więcej o używaniu tożsamości zarządzanych dla zasobów platformy Azure w usłudze Azure Storage, zobacz temat [uwierzytelnianie dostępu do obiektów blob i kolejek przy użyciu Azure Active Directory i zarządzanych tożsamości dla zasobów platformy Azure](storage-auth-aad-msi.md).
+- [Platforma tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Zarządzanie prawami dostępu do danych magazynu za pomocą RBAC](storage-auth-aad-rbac.md)
+- [Uwierzytelnianie dostępu do obiektów blob i kolejek przy użyciu tożsamości Azure Active Directory i zarządzanych dla zasobów platformy Azure](storage-auth-aad-msi.md)

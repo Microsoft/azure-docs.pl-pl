@@ -6,20 +6,20 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c1f279e49b938fb391223bec47d23326e34b2ea
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477689"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Oznacz aplikację jako zweryfikowaną przez wydawcę (wersja zapoznawcza)
+# <a name="mark-your-app-as-publisher-verified-preview"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę (wersja zapoznawcza)
 
 Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca sprawdził swoją tożsamość przy użyciu konta Microsoft Partner Network (MPN) i skojarzył to konto MPN z rejestracją aplikacji. W tym artykule opisano, jak ukończyć proces [weryfikacji wydawcy (wersja zapoznawcza)](publisher-verification-overview.md) .
 

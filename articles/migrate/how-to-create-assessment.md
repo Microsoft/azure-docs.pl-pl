@@ -1,21 +1,21 @@
 ---
-title: Tworzenie oceny przy użyciu oceny serwera Azure Migrate | Microsoft Docs
-description: Opisuje sposób tworzenia oceny przy użyciu narzędzia do oceny Azure Migrate Server
+title: Tworzenie oceny maszyn wirtualnych platformy Azure za pomocą oceny serwera Azure Migrate | Microsoft Docs
+description: Opisuje sposób tworzenia oceny maszyn wirtualnych platformy Azure za pomocą narzędzia do oceny Azure Migrate Server
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68229104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549823"
 ---
-# <a name="create-an-assessment"></a>Tworzenie oceny
+# <a name="create-an-azure-vm-assessment"></a>Tworzenie oceny maszyny wirtualnej platformy Azure
 
-W tym artykule opisano sposób tworzenia oceny lokalnych maszyn wirtualnych programu VMware lub maszyn wirtualnych funkcji Hyper-V z Azure Migrate: Ocena serwera.
+W tym artykule opisano sposób tworzenia oceny maszyn wirtualnych platformy Azure dla lokalnych maszyn wirtualnych VMware lub maszyn wirtualnych funkcji Hyper-V z Azure Migrate: Ocena serwera.
 
 [Azure Migrate](migrate-services-overview.md) ułatwia Migrowanie do platformy Azure. Azure Migrate udostępnia scentralizowany centrum do śledzenia odnajdywania, oceny i migracji lokalnej infrastruktury, aplikacji i danych na platformę Azure. Centrum udostępnia narzędzia platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
@@ -26,8 +26,8 @@ W tym artykule opisano sposób tworzenia oceny lokalnych maszyn wirtualnych prog
 - Aby utworzyć ocenę, należy skonfigurować urządzenie Azure Migrate dla oprogramowania [VMware](how-to-set-up-appliance-vmware.md) lub [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md). Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera. [Dowiedz się więcej](migrate-appliance.md).
 
 
-## <a name="assessment-overview"></a>Przegląd oceny
-Istnieją dwa typy ocen, które można utworzyć przy użyciu Azure Migrate: Ocena serwera.
+## <a name="azure-vm-assessment-overview"></a>Przegląd oceny maszyn wirtualnych platformy Azure
+Istnieją dwa typy kryteriów ustalania rozmiarów, których można użyć do utworzenia oceny maszyny wirtualnej platformy Azure przy użyciu Azure Migrate: Ocena serwera.
 
 **Ocena** | **Szczegóły** | **Dane**
 --- | --- | ---
@@ -45,33 +45,37 @@ Uruchom ocenę w następujący sposób:
 
     ![Ocena](./media/how-to-create-assessment/assess.png)
 
-2. W obszarze **ocenianie serwerów**Określ nazwę oceny.
-3. Kliknij pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
+3. W obszarze **ocenianie serwerów**wybierz typ oceny jako "maszyna wirtualna platformy Azure", wybierz źródło odnajdywania i określ nazwę oceny.
+
+    ![Podstawowe informacje o ocenie](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
+4. Kliknij pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
 
     ![Właściwości oceny](./media/how-to-create-assessment//view-all.png)
 
-3. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
-4. W obszarze **Dodawanie maszyn do grupy**Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
-5. Kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę, i uruchom ocenę.
+5. Kliknij przycisk **dalej** , aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
+6. W obszarze **Dodawanie maszyn do grupy**Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
+7. Kliknij przycisk **dalej** , aby **przejrzeć i utworzyć ocenę** , aby przejrzeć szczegóły oceny.
+8. Kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę, i uruchom ocenę.
 
     ![Tworzenie oceny](./media/how-to-create-assessment//assessment-create.png)
 
-6. Po utworzeniu oceny Wyświetl ją w obszarze **serwery** > **Azure Migrate:** > **oceny**oceny serwera.
-7. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
+9. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
+10. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
 
 
 
-## <a name="review-an-assessment"></a>Przegląd oceny
+## <a name="review-an-azure-vm-assessment"></a>Przegląd oceny maszyny wirtualnej platformy Azure
 
-Ocena zawiera opis:
+Informacje na temat oceny maszyn wirtualnych platformy Azure:
 
 - **Gotowość platformy Azure**: czy maszyny wirtualne są odpowiednie do migracji na platformę Azure.
 - **Oszacowanie kosztów miesięcznych**: szacowane miesięczne koszty obliczeniowe i magazynowe związane z uruchamianiem maszyn wirtualnych na platformie Azure.
 - **Oszacowanie kosztu miesięcznego magazynu**: szacowane koszty magazynu dyskowego po migracji.
 
-### <a name="view-an-assessment"></a>Wyświetlanie oceny
+### <a name="view-an-azure-vm-assessment"></a>Wyświetlanie oceny maszyny wirtualnej platformy Azure
 
-1. W obszarze >  **serwery** **celów migracji**kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
+1. W obszarze serwery **celów migracji**  >   **Servers**kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
 2. W obszarze **oceny**kliknij ocenę, aby go otworzyć.
 
     ![Podsumowanie oceny](./media/how-to-create-assessment/assessment-summary.png)
@@ -85,7 +89,7 @@ Ocena zawiera opis:
     - **Nie gotowy na platformę Azure**: zawiera problemy i sugerowane korygowanie.
     - **Nieznane gotowość**: używany, gdy Azure Migrate nie może ocenić gotowości ze względu na problemy z dostępnością danych.
 
-2. Kliknij stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości maszyn wirtualnych i przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
+3. Kliknij stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości maszyn wirtualnych i przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
 
 
 

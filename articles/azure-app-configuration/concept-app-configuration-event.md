@@ -8,10 +8,9 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77523802"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagowanie na zdarzenia konfiguracji aplikacji platformy Azure
@@ -46,10 +45,10 @@ Zdarzenia konfiguracji aplikacji platformy Azure zawierają wszystkie informacje
 > |Identyfikator|ciąg|Unikatowy identyfikator tego zdarzenia.|
 > |dataVersion|ciąg|Wersja schematu obiektu danych.|
 > |metadataVersion|ciąg|Wersja schematu właściwości najwyższego poziomu.|
-> |dane|obiekt|Kolekcja danych zdarzeń specyficznych dla konfiguracji aplikacji platformy Azure|
+> |dane|object|Kolekcja danych zdarzeń specyficznych dla konfiguracji aplikacji platformy Azure|
 > |Data. Key|ciąg|Klucz wartości, który został zmodyfikowany lub usunięty.|
 > |Data. Label|ciąg|Etykieta (jeśli istnieje) wartości klucz-wartość, która została zmodyfikowana lub usunięta.|
-> |Data. ETag|ciąg|Dla `KeyValueModified` elementu ETag nowej wartości klucz-wartość. Dla `KeyValueDeleted` elementu ETag, który został usunięty.|
+> |Data. ETag|ciąg|Dla elementu `KeyValueModified` ETag nowej wartości klucz-wartość. Dla elementu `KeyValueDeleted` ETag, który został usunięty.|
 
 Oto przykład zdarzenia KeyValueModified:
 ```json

@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183311"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Uzyskaj parametry połączenia z Azure Portal
 Użyj [Azure Portal](https://portal.azure.com/) , aby uzyskać parametry połączenia, które są niezbędne do współpracy programu klienckiego z Azure SQL Database.
 
-1. Wybierz pozycję **wszystkie usługi** > **bazy danych SQL**.
+1. Wybierz pozycję **wszystkie usługi**  >  **bazy danych SQL**.
 
 2. Wprowadź nazwę bazy danych w polu tekstowym filtr w lewym górnym rogu bloku **baz danych SQL** .
 
@@ -34,7 +34,7 @@ Użyj [Azure Portal](https://portal.azure.com/) , aby uzyskać parametry połąc
 
     ![Kopiowanie parametrów połączenia ADO dla bazy danych][20-CopyAdoConnectionString]
 
-7. Edytuj parametry połączenia zgodnie z wymaganiami. oznacza to, że można wstawić hasło do parametrów połączenia lub usunąć "@&lt;ServerName&gt;" z nazwy użytkownika, jeśli nazwa użytkownika lub serwera jest zbyt długa.
+7. Edytuj parametry połączenia zgodnie z wymaganiami. oznacza to, że można wstawić hasło do parametrów połączenia lub usunąć "@ &lt; servername &gt; " z nazwy użytkownika, jeśli nazwa użytkownika lub serwera jest zbyt długa.
 
 8. W jednym formacie lub innym, wklej informacje o parametrach połączenia do kodu programu klienckiego.
 

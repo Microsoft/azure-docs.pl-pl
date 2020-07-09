@@ -5,13 +5,13 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
-ms.topic: conceptual
-ms.openlocfilehash: c29d0d9ecd856ee9611df21d23b1b2b763e24652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75486471"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044366"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testowanie Stream Analytics zapytań lokalnie z przykładowymi danymi przy użyciu Visual Studio Code
 
@@ -35,7 +35,7 @@ Najpierw należy przygotować przykładowe pliki danych wejściowych. Jeśli na 
 
 ## <a name="define-a-local-input"></a>Definiowanie lokalnego Wejścia
 
-1. Kliknij pozycję **Input. JSON** w folderze dane wejściowe w projekcie Stream Analytics. Następnie wybierz pozycję **Dodaj dane wejściowe lokalnego** z górnego wiersza.
+1. Kliknij pozycję **input.jsw** obszarze folder danych wejściowych w projekcie Stream Analytics. Następnie wybierz pozycję **Dodaj dane wejściowe lokalnego** z górnego wiersza.
 
     ![Dodaj lokalne dane wejściowe z projektu](./media/quick-create-vs-code/add-input-from-project.png)
 
@@ -55,7 +55,7 @@ Najpierw należy przygotować przykładowe pliki danych wejściowych. Jeśli na 
 
     ![Dodawanie nowego lokalnego aliasu wejściowego ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. W nowo wygenerowanym pliku **LocalInput_Input. JSON** wprowadź ścieżkę pliku, w którym znajduje się plik danych lokalnych.
+5. W nowo wygenerowanym **LocalInput_Input.jsw** pliku wprowadź ścieżkę pliku, w którym znajduje się plik danych lokalnych.
 
     ![Wprowadź ścieżkę do lokalnego pliku w programie Visual Studio](./media/vscode-local-run/local-file-path.png)
 

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75980628"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z wdrażaniem w usłudze Azure Cloud Services: często zadawane pytania
@@ -54,7 +53,7 @@ Aby sprawdzić dostępne rozmiary w Twoim regionie, zobacz [Microsoft Azure: pro
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Dlaczego wdrożenie usługi w chmurze kończy się niepowodzeniem z powodu limitów/przydziałów/ograniczeń dotyczących mojej subskrypcji lub usługi?
 Wdrożenie usługi w chmurze może zakończyć się niepowodzeniem, jeśli zasoby, które są wymagane do przydzielenia, przekraczają domyślny lub maksymalny limit przydziału dozwolony dla usługi na poziomie regionu/centrum danych. Aby uzyskać więcej informacji, zobacz [limity Cloud Services](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Możesz również śledzić bieżące użycie/przydział dla subskrypcji w portalu: Azure Portal => subscriptions => \<odpowiednie subskrypcje> => "użycie i przydział".
+Możesz również śledzić bieżące użycie/przydział dla subskrypcji w portalu: Azure Portal => subscriptions => \<appropriate subscription>   => "użycie + przydział".
 
 Informacje dotyczące użycia zasobów/zużycia można także pobrać za pośrednictwem interfejsy API rozliczeń platformy Azure. Zobacz [interfejs API użycia zasobów platformy Azure (wersja zapoznawcza)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

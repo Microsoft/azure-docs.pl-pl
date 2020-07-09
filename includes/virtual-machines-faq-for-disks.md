@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,11 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85242229"
 ---
 W tym artykule przedstawiono kilka często zadawanych pytań dotyczących usługi Azure Managed Disks i Azure SSD w warstwie Premium Disks.
 
@@ -158,7 +157,7 @@ Rezerwacja dysków Azure jest zakupionych dla określonego regionu i jednostki S
 **Co się stanie w przypadku wygaśnięcia rezerwacji z usługi Azure disks?**    
 Powiadomienia e-mail będą wysyłane na 30 dni przed wygaśnięciem i od daty wygaśnięcia. Po wygaśnięciu rezerwacji wdrożone dyski będą nadal działać i opłaty są naliczane przy użyciu najnowszych [stawek płatności zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/managed-disks/)użyciem.
 
-### <a name="azure-shared-disks"></a>Udostępnione dyski platformy Azure
+### <a name="azure-shared-disks"></a>Dyski udostępnione platformy Azure
 
 **Czy funkcja dysków udostępnionych jest obsługiwana w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 
@@ -302,7 +301,7 @@ Nie. Dostępne są Azure Site Recovery ochrony platformy Azure na platformie Azu
 
 **Czy można migrować maszyny wirtualne z dyskami niezarządzanymi, które znajdują się na kontach magazynu, które zostały wcześniej zaszyfrowane do dysków zarządzanych?**
 
-Yes
+Tak
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks i szyfrowanie usługi Storage
 
@@ -340,7 +339,7 @@ Tak. Wszystkie zarządzane migawki i obrazy są szyfrowane automatycznie.
 
 **Czy mogę przekonwertować maszyny wirtualne z dyskami niezarządzanymi, które znajdują się na kontach magazynu, które zostały wcześniej zaszyfrowane do dysków zarządzanych?**
 
-Yes
+Tak
 
 **Czy plik wirtualnego dysku twardego z dysku zarządzanego lub migawki zostanie również zaszyfrowany?**
 
@@ -415,7 +414,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 
@@ -451,7 +450,7 @@ Można zatrzymać i uruchomić maszynę wirtualną, do której jest dołączony 
 
 **Czy obsługujemy Włączanie buforowania hosta dla wszystkich rozmiarów dysków?**
 
-Obsługiwane jest buforowanie hosta dla odczytu i odczyt/zapis na dysku o rozmiarze mniejszym niż 4 TiB. W przypadku dysków o rozmiarze ponad 4 TiB nie obsługujemy ustawiania opcji buforowania innej niż none. Zalecamy korzystanie z pamięci podręcznej w przypadku mniejszych rozmiarów dysków, w których można oczekiwać, że lepsze zwiększenie wydajności w przypadku danych zapisanych w pamięci podręcznej do maszyny wirtualnej.
+Buforowanie hosta (ReadOnly i odczyt/zapis) jest obsługiwane na dyskach o rozmiarze mniejszym niż 4 TiB. Oznacza to, że każdy dysk o pojemności do 4095 GiB może korzystać z buforowania hosta. Buforowanie hosta nie jest obsługiwane w przypadku dysków o rozmiarze większym lub równym 4096 GiB. Na przykład dysk P50 Premium zainicjowany w 4095 GiB może korzystać z pamięci podręcznej hosta, a dysk P50 z obsługą administracyjną na 4096 GiB nie może korzystać z buforowania hosta. Zalecamy korzystanie z pamięci podręcznej w przypadku mniejszych rozmiarów dysków, w których można oczekiwać, że lepsze zwiększenie wydajności w przypadku danych zapisanych w pamięci podręcznej do maszyny wirtualnej.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
 

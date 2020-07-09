@@ -10,12 +10,11 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193406"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)
 
@@ -32,7 +31,7 @@ Jedyną instrukcją SQL obsługiwaną przez przyspieszenie zapytania jest instru
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-W przypadku danych w formacie CSV *tabela* musi być `BlobStorage`.  Oznacza to, że zapytanie zostanie uruchomione względem tego, który obiekt BLOB został określony w wywołaniu REST.
+W przypadku danych w formacie CSV *tabela* musi być `BlobStorage` .  Oznacza to, że zapytanie zostanie uruchomione względem tego, który obiekt BLOB został określony w wywołaniu REST.
 W przypadku danych w formacie JSON *tabela* jest "deskryptorem tabeli".   Zobacz sekcję [deskryptory tabeli](#table-descriptors) w tym artykule.
 
 W poniższym przykładzie dla każdego wiersza, dla którego *wyrażenie* WHERE zwraca wartość true, ta instrukcja zwróci nowy wiersz, który jest wykonywany przy obliczaniu każdego z wyrażeń projekcji.
@@ -54,7 +53,7 @@ Poniższy przykład zwraca odpowiednie przesunięcia dla dzielenia obiektu BLOB 
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## <a name="data-types"></a>Typy danych
 
@@ -109,7 +108,7 @@ Oto kilka przykładów:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-Funkcja [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ułatwia wyszukiwanie wzorca. Oto kilka przykładów, które wykorzystują funkcję [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) do wyszukiwania ciągu ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``danych.
+Funkcja [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ułatwia wyszukiwanie wzorca. Oto kilka przykładów, które wykorzystują funkcję [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) do wyszukiwania ciągu danych ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
 
 |Zapytanie|Przykład|
 |--|--|
@@ -149,7 +148,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 #### <a name="extract-function"></a>EXTRACT — funkcja
 
-W przypadku WYODRĘBNIenia innego niż część daty obsługiwana ``DATE_ADD`` dla tej funkcji język SQL przyspieszania zapytań obsługuje timezone_hour i timezone_minute jako część daty.
+W przypadku WYODRĘBNIenia innego niż część daty obsługiwana dla tej ``DATE_ADD`` funkcji język SQL przyspieszania zapytań obsługuje timezone_hour i timezone_minute jako część daty.
 
 Przykłady:
 
@@ -172,7 +171,7 @@ W tej tabeli opisano ciągi, których można użyć do określenia formatu danyc
 |Ciąg formatu    |Dane wyjściowe                               |
 |-----------------|-------------------------------------|
 |RR               |Rok w formacie 2-cyfrowym — 1999 jako "99"|
-|t                |Rok w formacie 4-cyfrowym               |
+|Y                |Rok w formacie 4-cyfrowym               |
 |yyyy             |Rok w formacie 4-cyfrowym               |
 |M                |Miesiąc roku — 1                    |
 |MM               |Miesiąc uzupełniony o zero — 01               |
@@ -220,7 +219,7 @@ Instrukcja SELECT może zawierać jedno lub więcej wyrażeń projekcji lub poje
 
 |Wyrażenie|Opis|
 |--|--|
-|[COUNT (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, które pasują do wyrażenia predykatu.|
+|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, które pasują do wyrażenia predykatu.|
 |[COUNT (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, dla których wyrażenie jest inne niż null.|
 |[Średnia (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Zwraca średnią wartości wyrażenia inne niż null.|
 |[MIN (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Zwraca minimalną wartość wyrażenia o wartości innej niż null.|
@@ -229,13 +228,13 @@ Instrukcja SELECT może zawierać jedno lub więcej wyrażeń projekcji lub poje
 
 ### <a name="missing"></a>NIEDOSTĘPNY
 
-``IS MISSING`` Operator jest jedynym niestandardowym, który obsługuje język SQL przyspieszania zapytań.  W przypadku danych JSON w przypadku braku pola w określonym rekordzie wejściowym pole ``IS MISSING`` Expression zostanie obliczone do wartości logicznej true.
+``IS MISSING``Operator jest jedynym niestandardowym, który obsługuje język SQL przyspieszania zapytań.  W przypadku danych JSON w przypadku braku pola w określonym rekordzie wejściowym pole Expression ``IS MISSING`` zostanie obliczone do wartości logicznej true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## <a name="table-descriptors"></a>Deskryptory tabeli
 
-W przypadku danych CSV nazwa tabeli jest zawsze `BlobStorage`.  Przykład:
+W przypadku danych CSV nazwa tabeli jest zawsze `BlobStorage` .  Przykład:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -279,7 +278,7 @@ Oto nasze przykładowe dane:
 }
 ```
 
-Może zainteresować tylko obiekt `warehouses` JSON z powyższych danych. `warehouses` Obiekt jest typem tablicy JSON, więc można go wspominać w klauzuli FROM. Przykładowe zapytanie może wyglądać podobnie do tego.
+Może zainteresować tylko `warehouses` obiekt JSON z powyższych danych. `warehouses`Obiekt jest typem tablicy JSON, więc można go wspominać w klauzuli FROM. Przykładowe zapytanie może wyglądać podobnie do tego.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
@@ -287,7 +286,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 Zapytanie pobiera wszystkie pola, ale wybiera tylko szerokość geograficzną.
 
-Jeśli chcesz uzyskać dostęp tylko do wartości `dimensions` obiektu JSON, możesz użyć odwołującego się do tego obiektu w zapytaniu. Przykład:
+Jeśli chcesz uzyskać dostęp tylko do `dimensions` wartości obiektu JSON, możesz użyć odwołującego się do tego obiektu w zapytaniu. Przykład:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -300,9 +299,9 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage i BlobStorage [\*] odnoszą się do całego obiektu. Jeśli jednak ścieżka znajduje się w klauzuli FROM, należy użyć BlobStorage [\*]. Path
+> BlobStorage i BlobStorage [ \* ] odnoszą się do całego obiektu. Jeśli jednak ścieżka znajduje się w klauzuli FROM, należy użyć BlobStorage [ \* ]. Path
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## <a name="syssplit"></a>Sys. Split
 
@@ -314,7 +313,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 Użyj tej instrukcji w przypadkach, w których chcesz pobrać, a następnie przetworzyć rekordy danych CSV w partiach. Dzięki temu możesz przetwarzać rekordy równolegle, zamiast pobierać wszystkie rekordy jednocześnie. Ta instrukcja nie zwraca rekordów z pliku CSV. Zamiast tego zwraca kolekcję rozmiarów partii. Następnie można użyć każdego rozmiaru partii do pobrania partii rekordów danych. 
 
-Użyj parametru *split_size* , aby określić liczbę bajtów, które mają zawierać każda partia zadań. Na przykład jeśli chcesz przetworzyć tylko 10 MB danych jednocześnie, będzie to wyglądać następująco: `SELECT sys.split(10485760)FROM BlobStorage` , ponieważ 10 MB jest równe 10 485 760 bajtów. Każda partia zadań będzie zawierać tyle rekordów, ile można dopasować do tych 10 MB. 
+Użyj parametru *split_size* , aby określić liczbę bajtów, które mają zawierać każda partia zadań. Na przykład jeśli chcesz przetworzyć tylko 10 MB danych jednocześnie, będzie to wyglądać następująco:, `SELECT sys.split(10485760)FROM BlobStorage` ponieważ 10 MB jest równe 10 485 760 bajtów. Każda partia zadań będzie zawierać tyle rekordów, ile można dopasować do tych 10 MB. 
 
 W większości przypadków rozmiar każdej partii będzie nieco większy niż określona liczba. Wynika to z faktu, że partia nie może zawierać rekordu częściowego. Jeśli ostatni rekord w partii zaczyna się przed końcem progu, partia będzie większa, aby mogła zawierać cały rekord. Rozmiar ostatniej partii będzie prawdopodobnie mniejszy niż określony rozmiar.
 

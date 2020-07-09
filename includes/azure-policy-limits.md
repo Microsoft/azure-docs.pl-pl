@@ -6,12 +6,12 @@ ms.service: azure-policy
 ms.topic: include
 ms.date: 04/23/2020
 ms.author: dacoulte
-ms.openlocfilehash: 04e607296478520298a2febab61a7edac911a59c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e9faea1d5913a19dfdeff662e26992529dc1b22d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466960"
 ---
 Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zakres_ oznacza subskrypcję lub [grupę zarządzania](../articles/governance/management-groups/overview.md).
 
@@ -19,7 +19,7 @@ Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zak
 |---|---|---|
 | Zakres | Definicje zasad | 500 |
 | Zakres | Definicje inicjatyw | 100 |
-| Dzierżawca | Definicje inicjatyw | 1000 |
+| Dzierżawa | Definicje inicjatyw | 2500 |
 | Zakres | Zasady lub przypisania inicjatywy | 100 |
 | Definicja zasad | Parametry | 20 |
 | Definicja inicjatywy | Zasady | 100 |

@@ -15,10 +15,9 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83774340"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Wyłączanie zapory systemu operacyjnego gościa na maszynie wirtualnej platformy Azure
@@ -126,7 +125,7 @@ Jeśli masz sytuację, w której nie można nawiązać połączenia z maszyną w
 
 4.  Przed wprowadzeniem jakichkolwiek zmian Utwórz kopię folderu \Windows\System32\Config w przypadku, gdy konieczne jest wycofanie zmian.
 
-5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit. exe). 
+5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit.exe). 
 
 6.  W ramach tej procedury rozwiązywania problemów instalujemy gałęzie jako BROKENSYSTEM i BROKENSOFTWARE.
 

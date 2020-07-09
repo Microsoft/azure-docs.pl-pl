@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
 ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614370"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Add logging to your Service Fabric application (Dodawanie rejestrowania do aplikacji usługi Service Fabric)
@@ -126,7 +125,7 @@ Rejestrowanie ASP.NET Core ([pakiet NuGet Microsoft. Extensions. rejestrowania](
 Niektórzy dostawcy innych firm używają podejścia opisanego w poprzedniej sekcji, w tym [Serilog](https://serilog.net/), [nLOG](https://nlog-project.org/)i [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Każdy z nich można podłączyć do ASP.NET Core rejestrowania lub użyć ich osobno. Serilog zawiera funkcję, która wzbogaca wszystkie komunikaty wysyłane z rejestratora. Ta funkcja może być przydatna do wyprowadzania nazwy usługi, typu i informacji o partycji. Aby skorzystać z tej możliwości w infrastrukturze ASP.NET Core, wykonaj następujące czynności:
 
 1. Dodaj **Serilog**, **Serilog. Extensions. Logging**, **Serilog. ujścias. Literate**i **Serilog. ujścia. zauważalne** pakiety NuGet do projektu. 
-2. Utwórz wystąpienie `LoggerConfiguration` rejestratora i.
+2. Utwórz `LoggerConfiguration` wystąpienie rejestratora i.
 
    ```csharp
    Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
@@ -161,7 +160,7 @@ Niektórzy dostawcy innych firm używają podejścia opisanego w poprzedniej sek
 5. Instrumentacja kodu jest taka sama jak w przypadku używania ASP.NET Core bez Serilog.
 
    >[!NOTE]
-   >Zalecamy, aby *nie* używać static `Log.Logger` w poprzednim przykładzie. Service Fabric może hostować wiele wystąpień tego samego typu usługi w ramach jednego procesu. Jeśli używasz statycznego `Log.Logger`, ostatni składnik służący do wzbogacania właściwości będzie wyświetlał wartości dla wszystkich wystąpień, które są uruchomione. Jest to jeden powód, dla którego zmienna _logger jest prywatną zmienną członkowską klasy usługi. Ponadto należy udostępnić `_logger` wspólny kod, który może być używany przez usługi.
+   >Zalecamy, aby *nie* używać static w `Log.Logger` poprzednim przykładzie. Service Fabric może hostować wiele wystąpień tego samego typu usługi w ramach jednego procesu. Jeśli używasz statycznego `Log.Logger` , ostatni składnik służący do wzbogacania właściwości będzie wyświetlał wartości dla wszystkich wystąpień, które są uruchomione. Jest to jeden powód, dla którego zmienna _logger jest prywatną zmienną członkowską klasy usługi. Ponadto należy udostępnić `_logger` wspólny kod, który może być używany przez usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,73 +5,45 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: 45bc8f16a547d4a95820f9dcd02132844b3be83c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 4cdb9390b3146df74f2cbe8eba7b170a5d11fb2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507062"
 ---
-# <a name="enable-azure-monitor-for-vms-in-the-azure-portal"></a>Włącz Azure Monitor dla maszyn wirtualnych w Azure Portal
+# <a name="enable-azure-monitor-for-single-vm-or-vmss-in-the-azure-portal"></a>Włącz Azure Monitor dla pojedynczej maszyny wirtualnej lub VMSS w Azure Portal
+W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych dla jednej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych przy użyciu Azure Portal. Ta procedura może być używana w następujących kwestiach:
 
-W tym artykule opisano sposób włączania Azure Monitor dla maszyn wirtualnych na niewielkiej liczbie maszyn wirtualnych platformy Azure przy użyciu Azure Portal. Twoje cele polegają na monitorowaniu maszyn wirtualnych i znalezieniu problemów z wydajnością lub dostępnością. 
+- Maszyna wirtualna platformy Azure
+- Zestaw skalowania maszyn wirtualnych platformy Azure
+- Maszyna Azure Arc
 
 Przed rozpoczęciem Sprawdź [wymagania wstępne](vminsights-enable-overview.md) i upewnij się, że Twoja subskrypcja i zasoby spełniają wymagania.  
 
-## <a name="enable-monitoring-for-a-single-azure-vm"></a>Włączanie monitorowania pojedynczej maszyny wirtualnej platformy Azure
-Aby włączyć monitorowanie maszyny wirtualnej platformy Azure:
+## <a name="enable-azure-monitor-for-vms"></a>Włącz Azure Monitor dla maszyn wirtualnych
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Wybierz **Virtual Machines**.
+1. Wybierz kolejno pozycje **maszyny wirtualne**, **zestawy skalowania maszyn wirtualnych**lub **maszyny — Azure Arc**.
 
-1. Z listy wybierz maszynę wirtualną.
+1. Wybierz zasób z listy.
 
-1. Na stronie maszyna wirtualna w sekcji **monitorowanie** wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**.
+1. W sekcji **monitorowanie** w menu wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**. W poniższym przykładzie przedstawiono maszynę wirtualną platformy Azure, ale menu jest podobne do usługi Azure VMSS lub Azure Arc.
 
     ![Włączanie Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-1. Na stronie Dołączanie do usługi **Azure monitor Insights** , jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji, wybierz go na liście rozwijanej.  
+1. Jeśli maszyna wirtualna nie jest już połączona z obszarem roboczym Log Analytics, zostanie wyświetlony monit o wybranie jednej z nich. Jeśli nie utworzono wcześniej [obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md), możesz wybrać wartość domyślną dla lokalizacji, w której WDROŻONo maszynę wirtualną lub VMSS. Ten obszar roboczy zostanie utworzony i skonfigurowany, jeśli jeszcze nie istnieje.
 
-    Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w której wdrożono maszynę wirtualną w ramach subskrypcji. 
-
-    >[!NOTE]
-    >Aby utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z maszyny wirtualnej, zobacz [tworzenie log Analytics obszaru roboczego](../../azure-monitor/learn/quick-create-workspace.md). Obszar roboczy Log Analytics musi należeć do jednego z [obsługiwanych regionów](vminsights-enable-overview.md#log-analytics).
-
-6. Komunikaty o stanie zostaną odebrane w miarę przeprowadzania konfiguracji.
-
-    ![Włącz przetwarzanie wdrożenia monitorowania Azure Monitor dla maszyn wirtualnych](media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
-
-## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Włącz monitorowanie dla pojedynczego zestawu skalowania maszyn wirtualnych
-
-Aby włączyć monitorowanie zestawu skalowania maszyn wirtualnych platformy Azure:
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-
-2. Wybierz **Virtual Machine Scale Sets**.
-
-3. Z listy wybierz zestaw skalowania maszyn wirtualnych.
-
-4. Na stronie zestaw skalowania maszyn wirtualnych w sekcji **monitorowanie** wybierz pozycję **szczegółowe informacje** , a następnie **Włącz**.
-
-5. Na stronie **szczegółowe informacje** Jeśli chcesz użyć istniejącego obszaru roboczego log Analytics, wybierz go na liście rozwijanej.
-
-    Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w ramach której wdrożono maszynę wirtualną. 
-
-    ![Włączanie Azure Monitor dla maszyn wirtualnych na potrzeby zestawu skalowania maszyn wirtualnych](media/vminsights-enable-single-vm/enable-vminsights-vmss-portal.png)
-
-    >[!NOTE]
-    >Aby utworzyć nowy obszar roboczy Log Analytics do przechowywania danych monitorowania z zestawu skalowania maszyn wirtualnych, zobacz [tworzenie log Analytics obszaru roboczego](../learn/quick-create-workspace.md). Obszar roboczy Log Analytics musi należeć do jednego z [obsługiwanych regionów](vminsights-enable-overview.md#log-analytics).
-
-6. Komunikaty o stanie zostaną odebrane w miarę przeprowadzania konfiguracji.
+2. Komunikaty o stanie zostaną odebrane w miarę przeprowadzania konfiguracji.
 
     >[!NOTE]
     >W przypadku korzystania z modelu skalowania ręcznego należy uaktualnić wystąpienia, aby zakończyć instalację. Uaktualnienia można uruchomić z poziomu strony **wystąpienia** , w sekcji **Ustawienia** .
-    
-    ![Włącz przetwarzanie wdrożenia monitorowania Azure Monitor dla maszyn wirtualnych](media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status.png)
 
-Po włączeniu monitorowania dla maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych informacje o monitorowaniu są dostępne do analizy w Azure Monitor dla maszyn wirtualnych. 
+    ![Włącz przetwarzanie wdrożenia monitorowania Azure Monitor dla maszyn wirtualnych](media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

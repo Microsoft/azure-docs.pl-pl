@@ -1,18 +1,16 @@
 ---
 title: Naliczanie opłat za aplikacje zarządzane przy użyciu usługi pomiaru Marketplace | Portal Azure Marketplace
 description: Ta dokumentacja zawiera Przewodnik po opublikowaniu aplikacji platformy Azure przy użyciu elastycznych modeli rozliczeń.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 180015a6bab576c02dcfaaea589628e40c6adde4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736177"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118940"
 ---
 # <a name="managed-application-metered-billing"></a>Rozliczenia taryfowe zarządzanej aplikacji 
 
@@ -125,7 +123,7 @@ Wykonaj poniższe kroki, aby przesłać bilet pomocy technicznej:
 4. W obszarze "Wybierz problem, który najlepiej opisuje problem" Wybierz pozycję **naliczanie opłat**.
 5. Po wybraniu przycisku **dalej** nastąpi przekierowanie do strony **szczegółów problemu** , na której można wprowadzić więcej szczegółów dotyczących problemu.
 
-Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Aby uzyskać więcej informacji na temat opcji pomocy technicznej wydawcy, zobacz [Pomoc techniczna dla komercyjnego programu w witrynie Marketplace w centrum partnerskim](support.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

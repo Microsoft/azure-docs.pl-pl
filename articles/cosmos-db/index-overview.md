@@ -6,12 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85798157"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
@@ -41,7 +40,7 @@ Rozważmy na przykład ten element:
 
 Powinna być reprezentowana przez następujące drzewo:
 
-![Poprzedni element reprezentowany jako drzewo](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="Poprzedni element reprezentowany jako drzewo" border="false":::
 
 Zwróć uwagę, jak tablice są kodowane w drzewie: każdy wpis w tablicy pobiera pośredni węzeł z etykietą z indeksem tego wpisu w tablicy (0, 1 itd.).
 
@@ -51,14 +50,14 @@ Powód, dla którego Azure Cosmos DB przekształcania elementów na drzewa, jest
 
 Poniżej znajdują się ścieżki każdej właściwości z przykładowego elementu opisanego powyżej:
 
-    /locations/0/country: "Germany"
-    /locations/0/city: "Berlin"
-    /locations/1/country: "France"
-    /locations/1/city: "Paris"
-    /headquarters/country: "Belgium"
-    /headquarters/employees: 250
-    /exports/0/city: "Moscow"
-    /exports/1/city: "Athens"
+- /Locations/0/Country: "Niemcy"
+- /Locations/0/City: "Berlin"
+- /Locations/1/Country: "Francja"
+- /Locations/1/City: "Paryż"
+- /Headquarters/Country: "Belgia"
+- /Headquarters/Employees: 250
+- /exports/0/City: "Moskwa"
+- /exports/1/City: "Ateny"
 
 Po zapisaniu elementu Azure Cosmos DB efektywnie indeksuje ścieżkę każdej właściwości i odpowiadającą jej wartość.
 
@@ -181,7 +180,7 @@ Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat
 
 Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj/region) byłoby zgodny z ścieżką wyróżnioną w kolorze czerwonym poniżej:
 
-![Dopasowanie określonej ścieżki w drzewie](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Dopasowanie określonej ścieżki w drzewie" border="false":::
 
 > [!NOTE]
 > `ORDER BY`Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.

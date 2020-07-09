@@ -3,17 +3,17 @@ title: Monitorowanie działającej aplikacji internetowej platformy ASP.NET za p
 description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdrażania. Współpracuje z usługą ASP.NET Web Apps hostowaną lokalnie lub na maszynach wirtualnych.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536832"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107482"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentacja aplikacji sieci Web w środowisku uruchomieniowym z dołączaniem bez kodu Application Insights
 
 > [!IMPORTANT]
-> Monitor stanu nie jest już zalecana do użycia. Został on zastąpiony przez agenta Application Insights Azure Monitor (dawniej nazwany monitor stanu v2). Zapoznaj się z naszą dokumentacją wdrożeń [serwera lokalnego](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) lub [wdrożenia zestawu skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Monitor stanu nie jest już zalecany do użycia i **od 1 czerwca 2021** ta wersja monitora stanu nie będzie obsługiwana. Został on zastąpiony przez agenta Application Insights Azure Monitor (dawniej nazwany monitor stanu v2). Zapoznaj się z naszą dokumentacją wdrożeń [serwera lokalnego](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) lub [wdrożenia zestawu skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Możliwe jest instrumentowanie działającej aplikacji internetowej za pomocą usługi Azure Application Insights bez konieczności modyfikowania kodu ani jego ponownego wdrażania. Potrzebna jest subskrypcja platformy [Microsoft Azure](https://azure.com).
 
@@ -43,10 +43,10 @@ Poniżej przedstawiono podsumowanie tego, co można uzyskać, korzystając z dan
 | [Bardziej szczegółowe wyjątki](../../azure-monitor/app/asp-net-exceptions.md) | |Tak |
 | [Diagnostyka zależności](../../azure-monitor/app/asp-net-dependencies.md) |Na platformie .NET 4.6 +, ale mniej szczegółów |Tak, kompletne szczegóły: kody wyników, tekst polecenia SQL, czasownik HTTP|
 | [Liczniki wydajności sytemu](../../azure-monitor/app/performance-counters.md) |Tak |Tak |
-| [Interfejs API dla telemetrii niestandardowej][api] |Tak |Nie |
-| [Integracja dziennika śledzenia](../../azure-monitor/app/asp-net-trace-logs.md) |Tak |Nie |
-| [Widok strony i dane użytkownika](../../azure-monitor/app/javascript.md) |Tak |Nie |
-| Konieczność ponownej kompilacji kodu |Tak | Nie |
+| [Interfejs API dla telemetrii niestandardowej][api] |Yes |Nie |
+| [Integracja dziennika śledzenia](../../azure-monitor/app/asp-net-trace-logs.md) |Yes |Nie |
+| [Widok strony i dane użytkownika](../../azure-monitor/app/javascript.md) |Yes |Nie |
+| Konieczność ponownej kompilacji kodu |Yes | Nie |
 
 
 
@@ -90,15 +90,16 @@ Jeśli chcesz ponownie przeprowadzić publikację bez dodawania usługi Applicat
 
 Oto kilka kroków, które można wykonać, aby upewnić się, że instalacja zakończyła się pomyślnie.
 
-- Upewnij się, że plik applicationInsights. config znajduje się w docelowym katalogu aplikacji i zawiera iKey.
+- Upewnij się, że plik applicationInsights.config znajduje się w docelowym katalogu aplikacji i zawiera iKey.
 
-- Jeśli podejrzewasz, że brakuje danych, możesz uruchomić proste zapytanie w [analizie](../log-query/get-started-portal.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne.
+- Jeśli podejrzewasz, że brakuje danych, możesz uruchomić zapytanie w [analizie](../log-query/get-started-portal.md) , aby wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Jeśli musisz potwierdzić, że Application Insights został pomyślnie dołączony, możesz uruchomić [uchwyt Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) w oknie polecenia, aby potwierdzić, że ApplicationInsights. dll został załadowany przez usługi IIS.
-  ```cmd
+- Jeśli musisz potwierdzić, że Application Insights został pomyślnie dołączony, możesz uruchomić [uchwyt Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) w oknie polecenia, aby potwierdzić, że applicationinsights.dll został załadowany przez usługi IIS.
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Oto kilka kroków, które można wykonać, aby upewnić się, że instalacja zak
 
 ### <a name="unable-to-login"></a>Nie można zalogować
 
-* Jeśli monitor stanu nie może się zalogować, zamiast tego należy zainstalować wiersz polecenia. Monitor stanu próbuje zalogować się, aby zebrać iKey, ale można je podać ręcznie przy użyciu polecenia:
+Jeśli monitor stanu nie może się zalogować, zamiast tego należy zainstalować wiersz polecenia. Monitor stanu próbuje zalogować się, aby zebrać iKey, ale można je podać ręcznie przy użyciu polecenia:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -119,7 +120,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 ### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Nie można załadować pliku lub zestawu "System. Diagnostics. DiagnosticSource"
 
 Ten błąd może wystąpić po włączeniu Application Insights. Wynika to z faktu, że Instalator zastępuje tę bibliotekę DLL w katalogu bin.
-Aby naprawić plik Web. config:
+Aby naprawić web.config:
 
 ```xml
 <dependentAssembly>
@@ -141,7 +142,7 @@ Aby naprawić plik Web. config:
 
 * Domyślnie monitor stanu dane wyjściowe dzienników diagnostycznych znajdują się w:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
-* Aby wyprowadzić pełne dzienniki, zmodyfikuj plik konfiguracji: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` i Dodaj `<add key="TraceLevel" value="All" />` do `appsettings`.
+* Aby wyprowadzić pełne dzienniki, zmodyfikuj plik konfiguracji: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` i Dodaj `<add key="TraceLevel" value="All" />` do `appsettings` .
 Następnie uruchom ponownie Monitor stanu.
 
 * Jako monitor stanu jest aplikacją platformy .NET, można również włączyć [śledzenie .NET, dodając odpowiednią diagnostykę do pliku konfiguracji](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Na przykład w niektórych scenariuszach może być przydatne, aby zobaczyć, co dzieje się na poziomie sieci przez [skonfigurowanie śledzenia sieci](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
@@ -162,21 +163,21 @@ Jeśli monitor stanu nie powiedzie się w trakcie instalacji, możesz pozostać 
 
 Usuń dowolne z tych plików znajdujących się w katalogu aplikacji:
 - Wszystkie biblioteki DLL w katalogu bin zaczynają się od "Microsoft.AI". lub "Microsoft. ApplicationInsights.".
-- Ta biblioteka DLL w katalogu bin "Microsoft. Web. Infrastructure. dll"
-- Ta biblioteka DLL w katalogu bin "System. Diagnostics. DiagnosticSource. dll"
+- Ta biblioteka DLL w katalogu bin "Microsoft.Web.Infrastructure.dll"
+- Ta biblioteka DLL w katalogu bin "System.Diagnostics.DiagnosticSource.dll"
 - W katalogu aplikacji Usuń "App_Data \packages"
-- W katalogu aplikacji Usuń plik "ApplicationInsights. config"
+- W katalogu aplikacji Usuń "applicationinsights.config"
 
 
 ### <a name="additional-troubleshooting"></a>Dodatkowe procedury rozwiązywania problemów
 
 * Zobacz dodatkowe [Rozwiązywanie problemów][qna].
 
-## <a name="system-requirements"></a>Wymagania systemu
+## <a name="system-requirements"></a>Wymagania systemowe
 Serwerowe systemy operacyjne obsługiwane przez monitor stanu usługi Application Insights:
 
 * Windows Server 2008
-* Windows Server 2008 R2
+* Windows Server 2008 z dodatkiem R2
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -192,7 +193,9 @@ Monitorowanie można uruchomić i zatrzymać przy użyciu programu PowerShell na
 
 Najpierw zaimportuj moduł Application Insights:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Dowiedz się, które aplikacje są monitorowane:
 
@@ -221,12 +224,14 @@ Dowiedz się, które aplikacje są monitorowane:
     Aby pobrać najnowszą wersję, użyj polecenia cmdlet Update-ApplicationInsightsVersion.
 * Zwraca obiekt `ApplicationInsightsApplication` w przypadku powodzenia. W razie niepowodzenia rejestruje ślad do stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
@@ -268,7 +273,7 @@ Nie zbiera on telemetrii samodzielnie. Po prostu konfiguruje aplikacje interneto
 
 Po wybraniu aplikacji internetowej do instrumentacji za pomocą monitora stanu:
 
-* Pobiera i umieszcza zestawy Application Insights i plik ApplicationInsights. config w folderze plików binarnych aplikacji sieci Web.
+* Pobiera i umieszcza zestawy Application Insights i ApplicationInsights.config pliku w folderze plików binarnych aplikacji sieci Web.
 * Umożliwia profilowanie aparatu CLR w celu gromadzenia wywołań zależności.
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Jakiej wersji zestawu SDK Application Insights monitor stanu zainstalować?
@@ -298,9 +303,9 @@ W przypadku aplikacji już instrumentowanych w czasie kompilacji:
  * Wywołania zależności (.NET 4.5); wartości zwracane w wywołaniach zależności (.NET 4.6).
  * Wartości śladu stosu wyjątków.
 
-[Dowiedz się więcej](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Dowiedz się więcej](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

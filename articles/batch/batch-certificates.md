@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 4da5fad63b148fa054eefb7f13424b46dc43bf29
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 96a3ada98bb41ea007eaaae2a40983d2448b38c2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83764338"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960830"
 ---
 # <a name="using-certificates-with-batch"></a>Używanie certyfikatów z usługą Batch
 
@@ -39,6 +39,6 @@ Teraz podczas tworzenia puli wsadowej można przejść do certyfikatów w puli i
 
 ## <a name="next-steps"></a>Następne kroki
 
-Partia ma interfejs API certyfikatów, [AZ Batch Certificate Create](https://docs.microsoft.com/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
+Partia ma interfejs API certyfikatów, [AZ Batch Certificate Create](/cli/azure/batch/certificate?view=azure-cli-latest#az-batch-certificate-create)
 
 Aby uzyskać informacje na temat korzystania z Key Vault, zobacz [bezpieczny dostęp Key Vault za pomocą usługi Batch](credential-access-key-vault.md).

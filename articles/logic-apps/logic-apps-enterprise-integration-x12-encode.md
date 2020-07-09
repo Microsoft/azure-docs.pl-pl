@@ -9,16 +9,15 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792351"
 ---
-# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Koduj komunikaty X12 w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
+# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Kodowanie komunikatów X12 w usłudze Azure Logic Apps przy użyciu Pakietu integracyjnego dla przedsiębiorstw
 
-Za pomocą łącznika komunikatu X12 można sprawdzić poprawność EDI i właściwości specyficzne dla partnera, konwertować komunikaty kodowane w formacie XML na zestawy transakcji EDI w ramach wymiany i żądać potwierdzenia technicznego, potwierdzenia funkcjonalności lub obu tych funkcji.
-Aby użyć tego łącznika, należy dodać Łącznik do istniejącego wyzwalacza w aplikacji logiki.
+Za pomocą łącznika kodowania komunikatów X12 można walidować właściwości specyficzne dla standardu EDI i partnera, konwertować komunikaty kodowane w formacie XML na zestawy transakcji EDI w ramach wymiany oraz żądać potwierdzenia technicznego, potwierdzenia funkcjonalności lub obu tych potwierdzeń.
+Aby użyć tego łącznika, musisz dodać go do istniejącego wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

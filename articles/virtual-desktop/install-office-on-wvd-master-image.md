@@ -4,20 +4,20 @@ description: Jak zainstalować i dostosować pakiet Office na głównym obrazie 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b93f26a6799a50868feb1f3350a3dc4a73a0b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e213ac7a4d0436cf904a8104cea7e76eabaece4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200532"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalowanie pakietu Office w głównym obrazie wirtualnego dysku twardego
 
-W tym artykule opisano, jak zainstalować pakiet Office 365 ProPlus, OneDrive i inne typowe aplikacje na głównym obrazie wirtualnego dysku twardego (VHD) na potrzeby przekazywania na platformę Azure. Jeśli użytkownicy muszą uzyskać dostęp do niektórych aplikacji biznesowych, zalecamy ich zainstalowanie po zakończeniu instrukcji przedstawionych w tym artykule.
+W tym artykule opisano sposób instalowania aplikacji Microsoft 365 dla przedsiębiorstw, usługi OneDrive i innych typowych aplikacji na głównym obrazie wirtualnego dysku twardego (VHD) na potrzeby przekazywania na platformę Azure. Jeśli użytkownicy muszą uzyskać dostęp do niektórych aplikacji biznesowych, zalecamy ich zainstalowanie po zakończeniu instrukcji przedstawionych w tym artykule.
 
 W tym artykule przyjęto założenie, że utworzono już maszynę wirtualną (VM). Jeśli nie, zobacz [Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego](set-up-customize-master-image.md#create-a-vm) .
 
@@ -28,46 +28,47 @@ W tym artykule przyjęto również, że masz podwyższony poziom dostępu do mas
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Instalowanie pakietu Office w trybie aktywacji komputera udostępnionego
 
-Aktywacja na komputerze udostępnionym pozwala wdrożyć pakiet Office 365 ProPlus na komputerze w organizacji, do którego uzyskuje dostęp wielu użytkowników. Aby uzyskać więcej informacji na temat aktywacji komputera udostępnionego, zobacz [Omówienie aktywacji komputera udostępnionego dla pakietu Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
+Aktywacja na komputerze udostępnionym umożliwia wdrażanie aplikacji Microsoft 365 dla przedsiębiorstw na komputerze w organizacji, do którego dostęp jest uzyskiwany przez wielu użytkowników. Aby uzyskać więcej informacji na temat aktywacji komputera udostępnionego, zobacz [Omówienie aktywacji na komputerze udostępnionym dla aplikacji Microsoft 365](/deployoffice/overview-shared-computer-activation).
 
 Zainstaluj pakiet Office za pomocą [narzędzia wdrażania pakietu Office](https://www.microsoft.com/download/details.aspx?id=49117) . Wiele sesji systemu Windows 10 Enterprise obsługuje tylko następujące wersje pakietu Office:
-- Office 365 ProPlus
-- Pakiet Office 365 firmy, który jest dostarczany z subskrypcją Microsoft 365 Business
+
+   - Aplikacje platformy Microsoft 365 dla przedsiębiorstw
+   - Microsoft 365 aplikacje dla firm, które są dostarczane z subskrypcją usługi Microsoft 365 Business Premium
 
 Narzędzie wdrażania pakietu Office wymaga pliku XML konfiguracji. Aby dostosować Poniższy przykład, zobacz [Opcje konfiguracji narzędzia do wdrażania pakietu Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 Ten przykładowy plik XML konfiguracji wykona następujące czynności:
 
-- Zainstaluj pakiet Office z miesięcznego kanału i dostarczaj aktualizacje z miesięcznego kanału, gdy są one wykonywane.
-- Użyj architektury x64.
-- Wyłącz aktualizacje automatyczne.
-- Usuń wszystkie istniejące instalacje pakietu Office i Migruj ich ustawienia.
-- Włącz aktywację komputera udostępnionego.
+   - Zainstaluj pakiet Office z miesięcznego kanału przedsiębiorstwa i dostarczaj aktualizacje w miesięcznym kanale przedsiębiorstwa.
+   - Użyj architektury x64.
+   - Wyłącz aktualizacje automatyczne.
+   - Usuń wszystkie istniejące instalacje pakietu Office i Migruj ich ustawienia.
+   - Włącz aktywację komputera udostępnionego.
 
 >[!NOTE]
 >Funkcja wyszukiwania wzornika programu Visio może nie zadziałać zgodnie z oczekiwaniami w programie Virtual Desktop systemu Windows.
 
 Oto co to jest przykładowy kod XML konfiguracji:
 
-- Instalowanie programu Skype dla firm
-- Zainstaluj usługę OneDrive w trybie dla użytkownika. Aby dowiedzieć się więcej, zobacz [Instalowanie usługi OneDrive w trybie dla komputera](#install-onedrive-in-per-machine-mode).
+   - Instalowanie programu Skype dla firm
+   - Zainstaluj usługę OneDrive w trybie dla użytkownika. Aby dowiedzieć się więcej, zobacz [Instalowanie usługi OneDrive w trybie dla komputera](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Aktywację komputera udostępnionego można skonfigurować za zasady grupy obiektów zasad grupy (GPO) lub ustawień rejestru. Obiekt zasad grupy znajduje się w **obszarze\\zasady\\konfiguracji\\komputera Szablony administracyjne Microsoft Office 2016 (\\maszyny) ustawienia licencjonowania**
+>Aktywację komputera udostępnionego można skonfigurować za zasady grupy obiektów zasad grupy (GPO) lub ustawień rejestru. Obiekt zasad grupy znajduje się w obszarze **zasady konfiguracji komputera \\ \\ Szablony administracyjne \\ Microsoft Office 2016 (maszyny) \\ Ustawienia licencjonowania**
 
-Narzędzie wdrażania pakietu Office zawiera plik Setup. exe. Aby zainstalować pakiet Office, uruchom następujące polecenie w wierszu polecenia:
+Narzędzie wdrażania pakietu Office zawiera setup.exe. Aby zainstalować pakiet Office, uruchom następujące polecenie w wierszu polecenia:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Przykładowa konfiguracja. XML
+#### <a name="sample-configurationxml"></a>Przykład configuration.xml
 
-Poniższy przykład kodu XML zainstaluje comiesięczne wydanie.
+Poniższy przykład kodu XML zainstaluje comiesięczną wersję Enterprise Channel.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel="Monthly">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
@@ -116,12 +117,12 @@ Usługa OneDrive jest zwykle instalowana dla poszczególnych użytkowników. W t
 
 Poniżej przedstawiono sposób instalowania usługi OneDrive w trybie na maszynę:
 
-1. Najpierw Utwórz lokalizację, aby przemieścić Instalatora usługi OneDrive. Lokalizacja folderu dysku lokalnego lub [\\\\UNC] (File://UNC) jest odpowiednia.
+1. Najpierw Utwórz lokalizację, aby przemieścić Instalatora usługi OneDrive. Lokalizacja folderu dysku lokalnego lub [ \\ \\ UNC] (File://UNC) jest odpowiednia.
 
-2. Pobierz OneDriveSetup. exe do lokalizacji przygotowanej za pomocą tego linku:<https://aka.ms/OneDriveWVD-Installer>
+2. Pobierz OneDriveSetup.exe do lokalizacji przygotowanej za pomocą tego linku:<https://aka.ms/OneDriveWVD-Installer>
 
-3. Jeśli zainstalowano pakiet Office z usługą OneDrive przez pominięcie ** \<ExcludeApp ID = "OneDrive\>"/**, Odinstaluj wszystkie istniejące instalacje dla poszczególnych użytkowników w usłudze OneDrive w wierszu polecenia z podwyższonym poziomem uprawnień, uruchamiając następujące polecenie:
-    
+3. Jeśli zainstalowano pakiet Office z usługą OneDrive **\<ExcludeApp ID="OneDrive" /\>** , należy odinstalować wszystkie istniejące instalacje dla poszczególnych użytkowników z poziomu wiersza polecenia z podwyższonym poziomem uprawnień, uruchamiając następujące polecenie:
+
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
@@ -156,9 +157,11 @@ Poniżej przedstawiono sposób instalowania usługi OneDrive w trybie na maszyn�
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Zespoły i Skype
+## <a name="microsoft-teams-and-skype-for-business"></a>Microsoft Teams i Skype dla firm
 
-Pulpit wirtualny systemu Windows nie obsługuje programu Skype dla firm i zespołów.
+Pulpit wirtualny systemu Windows nie obsługuje programu Skype dla firm.
+
+Aby uzyskać pomoc dotyczącą instalowania programu Microsoft Teams, zobacz Korzystanie z usługi [Microsoft Teams na pulpicie wirtualnym systemu Windows](teams-on-wvd.md). Optymalizacja multimediów dla zespołów Microsoft Teams na pulpicie wirtualnym systemu Windows jest dostępna w wersji zapoznawczej.
 
 ## <a name="next-steps"></a>Następne kroki
 

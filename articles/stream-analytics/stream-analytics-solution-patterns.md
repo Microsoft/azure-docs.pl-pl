@@ -7,12 +7,11 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 49c83fab54b7188c3a3838f3162e71d8495989dd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535786"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037515"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Wzorce rozwiązań usługi Azure Stream Analytics
 
@@ -30,13 +29,13 @@ Ten wzorzec rozwiązania zapewnia najniższe opóźnienie ze źródła zdarzenia
 
 ## <a name="use-sql-for-dashboard"></a>Korzystanie z SQL dla pulpitu nawigacyjnego
 
-Pulpit nawigacyjny Power BI zapewnia małe opóźnienia, ale nie może być używany do tworzenia raportów pełnych Power BI dopracowane. Typowym wzorcem raportowania jest najpierw wyprowadzanie danych do bazy danych SQL. Następnie użyj Power BI łącznika SQL, aby wysłać zapytanie do programu SQL w celu uzyskania najnowszych danych.
+Pulpit nawigacyjny Power BI zapewnia małe opóźnienia, ale nie może być używany do tworzenia raportów pełnych Power BI dopracowane. Typowym wzorcem raportowania jest wyprowadzanie danych w pierwszej kolejności SQL Database. Następnie użyj Power BI łącznika SQL, aby wysłać zapytanie do programu SQL w celu uzyskania najnowszych danych.
 
 ![Pulpit nawigacyjny programu ASA SQL](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-Korzystanie z usługi SQL Database zapewnia większą elastyczność, ale kosztem nieco większego opóźnienia. To rozwiązanie jest optymalne w przypadku zadań z wymaganiami opóźnienia większą niż jedna sekunda. Za pomocą tej metody można zmaksymalizować możliwości Power BI w celu dodatkowego wycinania i utworzenia indeksu danych dla raportów oraz wielu opcji wizualizacji. Zapewniasz również elastyczność korzystania z innych rozwiązań pulpitu nawigacyjnego, takich jak Tableau.
+Korzystanie z SQL Database zapewnia większą elastyczność, ale kosztem nieco większego opóźnienia. To rozwiązanie jest optymalne w przypadku zadań z wymaganiami opóźnienia większą niż jedna sekunda. Za pomocą tej metody można zmaksymalizować możliwości Power BI w celu dodatkowego wycinania i utworzenia indeksu danych dla raportów oraz wielu opcji wizualizacji. Zapewniasz również elastyczność korzystania z innych rozwiązań pulpitu nawigacyjnego, takich jak Tableau.
 
-SQL nie jest magazynem danych o dużej przepływności. Maksymalna przepływność do bazy danych SQL z Azure Stream Analytics jest obecnie około 24 MB/s. Jeśli źródła zdarzeń w rozwiązaniu generują dane z większą szybkością, należy użyć logiki przetwarzania w Stream Analytics, aby zmniejszyć szybkość danych wyjściowych do SQL. Można używać technik takich jak filtrowanie, agregacje okien, dopasowanie wzorców do sprzężeń czasowych i funkcje analityczne. Szybkość danych wyjściowych do SQL może być dodatkowo zoptymalizowana przy użyciu technik opisanych w [Azure Stream Analytics danych wyjściowych Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL nie jest magazynem danych o dużej przepływności. Maksymalna przepływność do SQL Database z Azure Stream Analytics jest obecnie około 24 MB/s. Jeśli źródła zdarzeń w rozwiązaniu generują dane z większą szybkością, należy użyć logiki przetwarzania w Stream Analytics, aby zmniejszyć szybkość danych wyjściowych do SQL. Można używać technik takich jak filtrowanie, agregacje okien, dopasowanie wzorców do sprzężeń czasowych i funkcje analityczne. Szybkość danych wyjściowych do SQL może być dodatkowo zoptymalizowana przy użyciu technik opisanych w [Azure Stream Analytics danych wyjściowych Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Dołączanie szczegółowych informacji w czasie rzeczywistym do aplikacji przy użyciu komunikatów zdarzeń
 
@@ -72,7 +71,7 @@ Ten wzorzec poprawia odporność i możliwości zarządzania w systemie. Jednak 
 
 ## <a name="use-reference-data-for-application-customization"></a>Korzystanie z danych referencyjnych na potrzeby dostosowywania aplikacji
 
-Funkcja dane referencyjne Azure Stream Analytics jest zaprojektowana specjalnie dla użytkowników końcowych, takich jak progi alertów, reguły przetwarzania i [geoogrodzenia](geospatial-scenarios.md). Warstwa aplikacji może akceptować zmiany parametrów i przechowywać je w bazie danych SQL. Zadanie Stream Analytics okresowo wysyła zapytania o zmiany z bazy danych i udostępnia parametry dostosowania za pośrednictwem sprzężenia danych referencyjnych. Aby uzyskać więcej informacji na temat sposobu używania danych referencyjnych do dostosowywania aplikacji, zobacz [dane referencyjne SQL](sql-reference-data.md) i [sprzężenie danych referencyjnych](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+Funkcja dane referencyjne Azure Stream Analytics jest zaprojektowana specjalnie dla użytkowników końcowych, takich jak progi alertów, reguły przetwarzania i [geoogrodzenia](geospatial-scenarios.md). Warstwa aplikacji może akceptować zmiany parametrów i przechowywać je w SQL Database. Zadanie Stream Analytics okresowo wysyła zapytania o zmiany z bazy danych i udostępnia parametry dostosowania za pośrednictwem sprzężenia danych referencyjnych. Aby uzyskać więcej informacji na temat sposobu używania danych referencyjnych do dostosowywania aplikacji, zobacz [dane referencyjne SQL](sql-reference-data.md) i [sprzężenie danych referencyjnych](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 Ten wzorzec może również służyć do implementowania aparatu reguł, w którym progi reguł są zdefiniowane na podstawie danych referencyjnych. Aby uzyskać więcej informacji na temat reguł, zobacz [konfigurowalne reguły oparte na progach w Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
@@ -106,7 +105,7 @@ Większość działań związanych z nauką i analizą danych nadal działa w tr
 
 ## <a name="use-reference-data-for-enrichment"></a>Użyj danych referencyjnych do wzbogacania
 
-Wzbogacanie danych jest często wymagane dla aparatów ETL. Azure Stream Analytics obsługuje Wzbogacanie danych za pomocą [danych referencyjnych](stream-analytics-use-reference-data.md) z bazy danych SQL i usługi Azure Blob Storage. Wzbogacanie danych można wykonać w celu załadowania danych zarówno Azure Data Lake, jak i SQL Data Warehouse.
+Wzbogacanie danych jest często wymagane dla aparatów ETL. Azure Stream Analytics obsługuje Wzbogacanie danych z [danymi referencyjnymi](stream-analytics-use-reference-data.md) z SQL Database i usługi Azure Blob Storage. Wzbogacanie danych można wykonać w celu załadowania danych zarówno Azure Data Lake, jak i SQL Data Warehouse.
 
 ![Analiza usługi ASA w trybie offline z wzbogacaniem danych](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
@@ -172,7 +171,7 @@ W przypadku wypełniania nadmiaru jest nadal ważne, aby co najmniej czasowo zar
 |Scenariusze  |Uruchom ponownie tylko teraz  |Uruchom ponownie od czasu ostatniego zatrzymania |Uruchom ponownie od teraz i wypełnianie z zarchiwizowanymi zdarzeniami|
 |---------|---------|---------|---------|
 |**Pulpit nawigacyjny**   |Tworzy przerwy    |OK dla krótkiej awarii    |Użyj do długotrwałej przestoju |
-|**Generowanie alertów**   |Zadowalające |OK dla krótkiej awarii    |Niepotrzebne |
+|**Alerty**   |Zadowalające |OK dla krótkiej awarii    |Niepotrzebne |
 |**Aplikacja do pozyskiwania zdarzeń** |Zadowalające |OK dla krótkiej awarii    |Użyj do długotrwałej przestoju |
 |**Magazynowanie danych**   |Utrata danych  |Zadowalające |Niepotrzebne |
 |**Analiza w trybie offline**  |Utrata danych  |Zadowalające |Niepotrzebne|

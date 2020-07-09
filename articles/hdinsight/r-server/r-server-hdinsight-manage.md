@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75647734"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087643"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Zarządzanie klastrem usług ML w usłudze Azure HDInsight
 
@@ -50,17 +50,19 @@ Ponieważ RStudio działa w węźle brzegowym klastra, należy wykonać kilka kr
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Krok 1. użycie utworzonego użytkownika SSH do logowania się do węzła brzegowego
 
-Postępuj zgodnie z instrukcjami w obszarze [Connect to HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) , aby uzyskać dostęp do węzła brzegowego. Adres węzła brzegowego klastra usług ML w usłudze HDInsight to `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Postępuj zgodnie z instrukcjami w obszarze [Connect to HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) , aby uzyskać dostęp do węzła brzegowego. Adres węzła brzegowego klastra usług ML w usłudze HDInsight to `CLUSTERNAME-ed-ssh.azurehdinsight.net` .
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Krok 2. Dodawanie użytkowników systemu Linux w węźle krawędzi
 
 Aby dodać użytkownika do węzła krawędzi, uruchom te polecenia:
 
-    # Add a user 
-    sudo useradd <yournewusername> -m
+```bash
+# Add a user 
+sudo useradd <yournewusername> -m
 
-    # Set password for the new user
-    sudo passwd <yournewusername>
+# Set password for the new user
+sudo passwd <yournewusername>
+```
 
 Poniższy zrzut ekranu przedstawia dane wyjściowe.
 
@@ -70,7 +72,7 @@ Po wyświetleniu monitu o podanie "bieżące hasło protokołu Kerberos:" naciś
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Krok 3. Korzystanie z programu RStudio Community przy pomocy utworzonego użytkownika
 
-Dostęp do RStudio `https://CLUSTERNAME.azurehdinsight.net/rstudio/`z. Jeśli logujesz się po raz pierwszy po utworzeniu klastra, wprowadź poświadczenia administratora klastra, a następnie poświadczenia użytkownika SSH utworzone przez Ciebie. Jeśli nie jest to Twoje pierwsze logowanie, wprowadź tylko poświadczenia dla utworzonego użytkownika SSH.
+Dostęp do RStudio z `https://CLUSTERNAME.azurehdinsight.net/rstudio/` . Jeśli logujesz się po raz pierwszy po utworzeniu klastra, wprowadź poświadczenia administratora klastra, a następnie poświadczenia użytkownika SSH utworzone przez Ciebie. Jeśli nie jest to Twoje pierwsze logowanie, wprowadź tylko poświadczenia dla utworzonego użytkownika SSH.
 
 Możesz również zalogować się przy użyciu oryginalnych poświadczeń (domyślnie jest to *sshuser*) współbieżnie z innego okna przeglądarki.
 
@@ -80,27 +82,29 @@ Pamiętaj, że nowo dodani użytkownicy nie mają uprawnień użytkownika root w
 
 Dostęp do kontekstu obliczeniowego usługi HDInsight Spark można skonfigurować ze zdalnego wystąpienia klienta ML uruchomionego na pulpicie. W tym celu należy określić opcje (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches i sshProfileScript) podczas definiowania kontekstu obliczeniowego obliczeniowego rxspark na pulpicie: na przykład:
 
-    myNameNode <- "default"
-    myPort <- 0
+```r
+myNameNode <- "default"
+myPort <- 0
 
-    mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
-    mySshUsername  <- '<sshuser>'# HDI SSH username
-    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
+mySshUsername  <- '<sshuser>'# HDI SSH username
+mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
-    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
 
-    mySparkCluster <- RxSpark(
-      hdfsShareDir = myhdfsShareDir,
-      shareDir     = myShareDir,
-      sshUsername  = mySshUsername,
-      sshHostname  = mySshHostname,
-      sshSwitches  = mySshSwitches,
-      sshProfileScript = '/etc/profile',
-      nameNode     = myNameNode,
-      port         = myPort,
-      consoleOutput= TRUE
-    )
+mySparkCluster <- RxSpark(
+    hdfsShareDir = myhdfsShareDir,
+    shareDir     = myShareDir,
+    sshUsername  = mySshUsername,
+    sshHostname  = mySshHostname,
+    sshSwitches  = mySshSwitches,
+    sshProfileScript = '/etc/profile',
+    nameNode     = myNameNode,
+    port         = myPort,
+    consoleOutput= TRUE
+)
+```
 
 Aby uzyskać więcej informacji, zobacz sekcję "Używanie Microsoft Machine Learning Server jako klient Apache Hadoop" w temacie [jak używać kolekcję funkcji revoscaler w kontekście obliczeń Apache Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
@@ -110,27 +114,31 @@ Kontekst obliczeniowy pozwala określić, czy obliczenia są wykonywane lokalnie
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Dystrybucja kodu R do wielu węzłów
 
-Za pomocą usługi ML w usłudze HDInsight można korzystać z istniejącego kodu R i uruchamiać go w wielu węzłach klastra za pomocą `rxExec`programu. Funkcja ta jest przydatna podczas czyszczenia parametrów lub przeprowadzania symulacji. Poniższy kod przedstawia przykładowe użycie programu `rxExec`:
+Za pomocą usługi ML w usłudze HDInsight można korzystać z istniejącego kodu R i uruchamiać go w wielu węzłach klastra za pomocą programu `rxExec` . Funkcja ta jest przydatna podczas czyszczenia parametrów lub przeprowadzania symulacji. Poniższy kod przedstawia przykładowe użycie programu `rxExec`:
 
-    rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```r
+rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
+```
 
-Jeśli nadal używasz kontekstu Spark, to polecenie zwraca wartość nodename dla węzłów procesu roboczego, w których uruchomiono kod `(Sys.info()["nodename"])` . Na przykład w klastrze z czterema węzłami oczekuje się, że dane wyjściowe są podobne do następującego fragmentu kodu:
+Jeśli nadal używasz kontekstu Spark, to polecenie zwraca wartość nodename dla węzłów procesu roboczego, `(Sys.info()["nodename"])` w których uruchomiono kod. Na przykład w klastrze z czterema węzłami oczekuje się, że dane wyjściowe są podobne do następującego fragmentu kodu:
 
-    $rxElem1
-        nodename
-    "wn3-mymlser"
+```r
+$rxElem1
+    nodename
+"wn3-mymlser"
 
-    $rxElem2
-        nodename
-    "wn0-mymlser"
+$rxElem2
+    nodename
+"wn0-mymlser"
 
-    $rxElem3
-        nodename
-    "wn3-mymlser"
+$rxElem3
+    nodename
+"wn3-mymlser"
 
-    $rxElem4
-        nodename
-    "wn3-mymlser"
+$rxElem4
+    nodename
+"wn3-mymlser"
+```
 
 ## <a name="access-data-in-apache-hive-and-parquet"></a>Dostęp do danych w Apache Hive i Parquet
 
@@ -138,38 +146,39 @@ Usługi HDInsight ML umożliwiają bezpośredni dostęp do danych w usłudze Hiv
 
 Poniżej przedstawiono przykładowy kod korzystający z nowych funkcji:
 
-    #Create a Spark compute context:
-    myHadoopCluster <- rxSparkConnect(reset = TRUE)
+```r
+#Create a Spark compute context:
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
-    #Retrieve some sample data from Hive and run a model:
-    hiveData <- RxHiveData("select * from hivesampletable",
-                     colInfo = list(devicemake = list(type = "factor")))
-    rxGetInfo(hiveData, getVarInfo = TRUE)
+#Retrieve some sample data from Hive and run a model:
+hiveData <- RxHiveData("select * from hivesampletable",
+                       colInfo = list(devicemake = list(type = "factor")))
+rxGetInfo(hiveData, getVarInfo = TRUE)
 
-    rxLinMod(querydwelltime ~ devicemake, data=hiveData)
+rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 
-    #Retrieve some sample data from Parquet and run a model:
-    rxHadoopMakeDir('/share')
-    rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
-    pqData <- RxParquetData('/share/claimsParquet',
-                     colInfo = list(
-                age    = list(type = "factor"),
-               car.age = list(type = "factor"),
-                  type = list(type = "factor")
-             ) )
-    rxGetInfo(pqData, getVarInfo = TRUE)
+#Retrieve some sample data from Parquet and run a model:
+rxHadoopMakeDir('/share')
+rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
+pqData <- RxParquetData('/share/claimsParquet',
+                        colInfo = list(
+                            age    = list(type = "factor"),
+                            car.age = list(type = "factor"),
+                            type = list(type = "factor")
+                        ) )
+rxGetInfo(pqData, getVarInfo = TRUE)
 
-    rxNaiveBayes(type ~ age + cost, data = pqData)
+rxNaiveBayes(type ~ age + cost, data = pqData)
 
-    #Check on Spark data objects, cleanup, and close the Spark session:
-    lsObj <- rxSparkListData() # two data objs are cached
-    lsObj
-    rxSparkRemoveData(lsObj)
-    rxSparkListData() # it should show empty list
-    rxSparkDisconnect(myHadoopCluster)
+#Check on Spark data objects, cleanup, and close the Spark session:
+lsObj <- rxSparkListData() # two data objs are cached
+lsObj
+rxSparkRemoveData(lsObj)
+rxSparkListData() # it should show empty list
+rxSparkDisconnect(myHadoopCluster)
+```
 
-
-Aby uzyskać dodatkowe informacje na temat korzystania z tych nowych funkcji, zobacz Pomoc online w usłudze ML za pomocą `?RxHivedata` poleceń `?RxParquetData` i.  
+Aby uzyskać dodatkowe informacje na temat korzystania z tych nowych funkcji, zobacz Pomoc online w usłudze ML za pomocą `?RxHivedata` `?RxParquetData` poleceń i.  
 
 ## <a name="install-additional-r-packages-on-the-cluster"></a>Instalowanie dodatkowych pakietów języka R w klastrze
 
@@ -192,7 +201,7 @@ Aby zainstalować pakiety języka R na węzłach procesu roboczego klastra, musi
 
    * W polu **Nazwa**Podaj nazwę akcji skryptu.
 
-     * Dla **identyfikatora URI skryptu bash**wprowadź `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Jest to skrypt instalujący dodatkowe pakiety języka R w węźle procesu roboczego
+     * Dla **identyfikatora URI skryptu bash**wprowadź `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh` . Jest to skrypt instalujący dodatkowe pakiety języka R w węźle procesu roboczego
 
    * Zaznacz pole wyboru tylko dla **procesu roboczego**.
 

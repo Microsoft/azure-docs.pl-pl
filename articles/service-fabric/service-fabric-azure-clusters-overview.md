@@ -7,12 +7,11 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8c1be30750e6a6d1c541f244c4d0c3875e7dd927
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75614676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234688"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
@@ -31,7 +30,7 @@ Klaster Service Fabric na platformie Azure to zasób platformy Azure, który uż
 ![Klaster Service Fabric][Image]
 
 ### <a name="virtual-machine"></a>Maszyna wirtualna
-[Maszyna wirtualna](/azure/virtual-machines/) będąca częścią klastra nazywa się węzłem, ale technicznie, węzeł klastra to proces środowiska uruchomieniowego Service Fabric. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak [Właściwości umieszczania](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Każda maszyna lub maszyna wirtualna ma uruchomioną funkcję Autostart, *elemencie fabrichost określono. exe*, która uruchamia się w czasie rozruchu, a następnie uruchamia dwa pliki wykonywalne, *Fabric. exe* i *FabricGateway. exe*, które tworzą ten węzeł. Wdrożenie produkcyjne to jeden węzeł na maszynę fizyczną lub wirtualną. Scenariusze testowania umożliwiają hostowanie wielu węzłów na jednej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień programu *Fabric. exe* i *FabricGateway. exe*.
+[Maszyna wirtualna](/azure/virtual-machines/) będąca częścią klastra nazywa się węzłem, ale technicznie, węzeł klastra to proces środowiska uruchomieniowego Service Fabric. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają właściwości, takie jak [Właściwości umieszczania](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Każda maszyna lub maszyna wirtualna ma usługę Autostart *FabricHost.exe*, która rozpoczyna pracę w czasie rozruchu, a następnie uruchamia dwa pliki wykonywalne, *Fabric.exe* i *FabricGateway.exe*, które tworzą ten węzeł. Wdrożenie produkcyjne to jeden węzeł na maszynę fizyczną lub wirtualną. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień *Fabric.exe* i *FabricGateway.exe*.
 
 Każda maszyna wirtualna jest skojarzona z kartą sieci wirtualnej (NIC), a każda karta sieciowa ma przypisany prywatny adres IP.  Maszyna wirtualna jest przypisana do sieci wirtualnej i lokalnego modułu równoważenia obciążenia za pomocą karty sieciowej.
 
@@ -48,9 +47,9 @@ Zestawy skalowania umożliwiają wdrażanie kolekcji maszyn wirtualnych jako zes
 Aby uzyskać więcej informacji, Przeczytaj [Service Fabric typy węzłów i zestawy skalowania maszyn wirtualnych](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Wystąpienia maszyn wirtualnych są przyłączone za [modułem równoważenia obciążenia platformy Azure](/azure/load-balancer/load-balancer-overview), który jest skojarzony z [publicznym adresem IP](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) i etykietą DNS.  W przypadku inicjowania obsługi administracyjnej klastra z * &lt;&gt;klastrem*nazwa DNS, * &lt;ClusterName.&lt; &gt; Location&gt;. cloudapp.Azure.com* to etykieta DNS skojarzona z modułem równoważenia obciążenia przed zestawem skalowania.
+Wystąpienia maszyn wirtualnych są przyłączone za [modułem równoważenia obciążenia platformy Azure](/azure/load-balancer/load-balancer-overview), który jest skojarzony z [publicznym adresem IP](../virtual-network/public-ip-addresses.md) i etykietą DNS.  W przypadku inicjowania obsługi administracyjnej klastra z * &lt; klastrem &gt; *nazwa DNS, * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com* to etykieta DNS skojarzona z modułem równoważenia obciążenia przed zestawem skalowania.
 
-Maszyny wirtualne w klastrze mają tylko [prywatne adresy IP](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Ruch związany z zarządzaniem i ruch usługi są kierowane przez publiczny moduł równoważenia obciążenia.  Ruch sieciowy jest kierowany do tych maszyn za pośrednictwem reguł translatora adresów sieciowych (połączenia klientów z określonymi węzłami/wystąpieniami) lub reguł równoważenia obciążenia (ruch przechodzi do działania okrężnego maszyn wirtualnych).  Moduł równoważenia obciążenia ma skojarzony publiczny adres IP z nazwą DNS w formacie: * &lt;ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com*.  Publiczny adres IP jest innym zasobem platformy Azure w grupie zasobów.  W przypadku zdefiniowania wielu typów węzłów w klastrze dla każdego typu węzła/zestawu skalowania zostanie utworzony moduł równoważenia obciążenia. Lub można skonfigurować pojedynczy moduł równoważenia obciążenia dla wielu typów węzłów.  Typ węzła podstawowego ma etykietę * &lt;DNS ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com*, inne typy węzłów mają etykietę * &lt;DNS&gt;-&lt;ClusterName NodeType&gt;.&lt; Location&gt;. cloudapp.Azure.com*.
+Maszyny wirtualne w klastrze mają tylko [prywatne adresy IP](../virtual-network/private-ip-addresses.md).  Ruch związany z zarządzaniem i ruch usługi są kierowane przez publiczny moduł równoważenia obciążenia.  Ruch sieciowy jest kierowany do tych maszyn za pośrednictwem reguł translatora adresów sieciowych (połączenia klientów z określonymi węzłami/wystąpieniami) lub reguł równoważenia obciążenia (ruch przechodzi do działania okrężnego maszyn wirtualnych).  Moduł równoważenia obciążenia ma skojarzony publiczny adres IP z nazwą DNS w formacie: * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*.  Publiczny adres IP jest innym zasobem platformy Azure w grupie zasobów.  W przypadku zdefiniowania wielu typów węzłów w klastrze dla każdego typu węzła/zestawu skalowania zostanie utworzony moduł równoważenia obciążenia. Lub można skonfigurować pojedynczy moduł równoważenia obciążenia dla wielu typów węzłów.  Typ węzła podstawowego ma etykietę DNS * &lt; ClusterName &gt; . &lt; Location &gt; . cloudapp.Azure.com*, inne typy węzłów mają etykietę DNS * &lt; ClusterName &gt; - &lt; NodeType &gt; . &lt; Location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Konta magazynu
 Każdy typ węzła klastra jest obsługiwany przez [konto usługi Azure Storage](/azure/storage/common/storage-introduction) i dyski zarządzane.
@@ -98,7 +97,7 @@ Możesz tworzyć klastry na maszynach wirtualnych z następującymi systemami op
 
 | System operacyjny | Najwcześniejsza obsługiwana wersja Service Fabric |
 | --- | --- |
-| Windows Server 2012 R2 | Wszystkie wersje |
+| Windows Server 2012 z dodatkiem R2 | Wszystkie wersje |
 | Windows Server 2016 | Wszystkie wersje |
 | System Windows Server 1709 | 6.0 |
 | System Windows Server 1803 | 6.4 |

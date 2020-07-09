@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660760"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -120,9 +119,9 @@ Poniższa tabela klasyfikuje narzędzia firmy Microsoft i ich bieżącą przydat
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Obsługiwane. Udziały plików platformy Azure można instalować jako dyski sieciowe. | Pełna wierność. * |
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natywnie zintegrowane z udziałami plików platformy Azure. | Pełna wierność. * |
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Usługa migracji magazynu | Obsługiwane pośrednio. Udziały plików platformy Azure można instalować jako dyski sieciowe na serwerach docelowych programu SMS. | Pełna wierność. * |
+|![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, wersja 10,4 lub nowsza| Obsługiwane. | Pełna wierność. * |
 |![Nie w pełni zalecane](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Obsługiwane. | Nie kopiuje metadanych. [Urządzenie Data Box można używać z Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Niezalecane](media/storage-files-migration-overview/circle-red-x.png)| Narzędzie AzCopy | Obsługiwane. | Nie kopiuje metadanych. |
-|![Niezalecane](media/storage-files-migration-overview/circle-red-x.png)| Eksplorator usługi Azure Storage | Obsługiwane. | Nie kopiuje metadanych. |
+|![Nie w pełni zalecane](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Eksplorator usługi Azure Storage, wersja 1,14 | Obsługiwane. | Nie kopiuje list ACL. Obsługuje sygnatury czasowe.  |
 |![Niezalecane](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Obsługiwane. | Nie kopiuje metadanych. |
 |||||
 

@@ -3,16 +3,18 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554339"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
 Ten artykuł podsumowuje reguły nazewnictwa i ograniczenia dotyczące zasobów platformy Azure. Aby zapoznać się z zaleceniami dotyczącymi nazw zasobów, zobacz [zalecane konwencje nazewnictwa i tagowania](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+
+W tym artykule wymieniono zasoby według przestrzeni nazw dostawcy zasobów. Aby uzyskać listę sposobu, w jaki dostawcy zasobów są zgodni z usługami platformy Azure, zobacz [dostawcy zasobów dla usług platformy Azure](azure-services-resource-providers.md).
 
 W nazwach zasobów nie jest rozróżniana wielkość liter, o ile nie zaznaczono inaczej w kolumnie nieprawidłowe znaki.
 
@@ -34,7 +36,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | usługa | global | 1-50 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
+> | usługa | global | 1-50 | Znaki alfanumeryczne i łączniki.<br><br>Zacznij od litery i kończyć się znakiem alfanumerycznym. |
 > | Usługa/interfejsy API | usługa | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/problemy | api | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/problemy/załączniki | wykonaj | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
@@ -172,8 +174,8 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Galerie/obrazy/wersje | image (obraz) | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | images | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | Migawki | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
-> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/""[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
-> | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/""[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
+> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
+> | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
 
 > [!NOTE]
 > Maszyny wirtualne platformy Azure mają dwie odrębne nazwy: nazwę zasobu i nazwę hosta. Podczas tworzenia maszyny wirtualnej w portalu ta sama wartość jest używana dla obu nazw. Ograniczenia w powyższej tabeli dotyczą nazwy hosta. Rzeczywista nazwa zasobu może mieć długość maksymalnie 64 znaków.
@@ -341,7 +343,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | laboratoria/formuły | trybie | 1-80 | Alfanumeryczne, podkreślenia, łączniki i nawiasy. |
 > | Labs/virtualmachines | trybie | 1-15 (system Windows)<br>1-64 (Linux) | Alfanumeryczne i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. Nie mogą być wszystkie cyfry. |
 
-## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
@@ -522,7 +524,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | przestrzeni | global | 6-50 | Alfanumeryczne i łączniki<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
+> | przestrzeni | global | 6-50 | Alfanumeryczne i łączniki<br><br>Zacznij od litery. Kończy się znakiem alfanumerycznym. |
 > | przestrzenie nazw/reguł autoryzacji | namespace | 1-256 | Alfanumeryczne, kropki, łączniki i podkreślenia.<br><br>Rozpocznij alfanumeryczne. |
 > | przestrzenie nazw/notificationHubs | namespace | 1-260 | Alfanumeryczne, kropki, łączniki i podkreślenia.<br><br>Rozpocznij alfanumeryczne. |
 > | przestrzenie nazw/notificationHubs/reguł autoryzacji | Centrum powiadomień | 1-256 | Alfanumeryczne, kropki, łączniki i podkreślenia.<br><br>Rozpocznij alfanumeryczne. |

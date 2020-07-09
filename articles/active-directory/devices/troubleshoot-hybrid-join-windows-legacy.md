@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74379120"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu 
@@ -24,9 +23,9 @@ Ten artykuł dotyczy tylko następujących urządzeń:
 
 - Windows 7 
 - Windows 8.1 
-- Windows Server 2008 R2 
+- Windows Server 2008 z dodatkiem R2 
 - Windows Server 2012 
-- Windows Server 2012 R2 
+- Windows Server 2012 z dodatkiem R2 
 
 W przypadku systemu Windows 10 lub Windows Server 2016 zobacz [Rozwiązywanie problemów hybrydowych Azure Active Directory dołączone do urządzeń z systemem Windows 10 i Windows server 2016](troubleshoot-hybrid-join-windows-current.md).
 
@@ -68,13 +67,13 @@ Jeśli urządzenie nie zostało dołączone do hybrydowej usługi Azure AD, moż
 
     ![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-   - Nie można w trybie dyskretnym przeprowadzić uwierzytelniania za pomocą usługi Azure AD lub AD FS. Może to być spowodowane brakiem lub nieprawidłowym skonfigurowaniem AD FS (dla domen federacyjnych) lub braku lub nieprawidłowym skonfigurowaniu logowania jednokrotnego w usłudze Azure AD (w przypadku domen zarządzanych) lub problemów z siecią. 
+   - Autoworkplace.exe nie może przeprowadzić dyskretnego uwierzytelniania przy użyciu usługi Azure AD lub AD FS. Może to być spowodowane brakiem lub nieprawidłowym skonfigurowaniem AD FS (dla domen federacyjnych) lub braku lub nieprawidłowym skonfigurowaniu logowania jednokrotnego w usłudze Azure AD (w przypadku domen zarządzanych) lub problemów z siecią. 
    - Może to być, że uwierzytelnianie wieloskładnikowe (MFA) jest włączone/skonfigurowane dla użytkownika, a WIAORMULTIAUTHN nie jest skonfigurowany na serwerze AD FS. 
-   - Kolejną możliwością jest to, że strona odnajdowania obszaru macierzystego (HRD) oczekuje na interakcję użytkownika, co uniemożliwia automatyczne zażądanie tokenu przez program **. exe.**
+   - Kolejną możliwością jest to, że strona odnajdowania obszaru macierzystego (HRD) oczekuje na interakcję użytkownika, co uniemożliwia **autoworkplace.exe** z dyskretnym żądaniem tokenu.
    - Może to być AD FS i brak adresów URL usługi Azure AD w strefie intranetowej programu IE na kliencie.
-   - Problemy z łącznością sieciową mogą uniemożliwiać automatyczne przejście do AD FS lub adresów URL usługi Azure **AD.** 
-   - Usługa autosite **. exe** wymaga, aby klient miał bezpośredni wgląd z klienta do lokalnego kontrolera domeny usługi AD w organizacji, co oznacza, że sprzężenie hybrydowe usługi Azure AD powiedzie się tylko wtedy, gdy klient jest połączony z intranetem firmy.
-   - Twoja organizacja korzysta z bezproblemowego logowania jednokrotnego `https://autologon.microsoftazuread-sso.com` usługi `https://aadg.windows.net.nsatc.net` Azure AD lub nie jest dostępna w ustawieniach sieci intranet dla tego urządzenia i nie **można włączyć aktualizacji paska stanu za pomocą skryptu** dla strefy intranetowej.
+   - Problemy z łącznością sieciową mogą uniemożliwiać **autoworkplace.exe** do osiągnięcia AD FS lub adresów URL usługi Azure AD. 
+   - **Autoworkplace.exe** wymaga od klienta bezpośredniej linii wglądu z klienta do lokalnego kontrolera domeny usługi AD w organizacji, co oznacza, że hybrydowe dołączenie do usługi Azure AD powiedzie się tylko wtedy, gdy klient jest połączony z intranetem firmy.
+   - Twoja organizacja korzysta z bezproblemowego logowania jednokrotnego usługi Azure AD `https://autologon.microsoftazuread-sso.com` lub `https://aadg.windows.net.nsatc.net` nie jest dostępna w ustawieniach sieci intranet dla tego urządzenia i nie **można włączyć aktualizacji paska stanu za pomocą skryptu** dla strefy intranetowej.
 - Użytkownik nie jest zalogowany jako użytkownik domeny
 
    ![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)

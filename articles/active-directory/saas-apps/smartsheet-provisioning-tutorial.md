@@ -15,51 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9fbdf8a1c4b1881fc6dfd9d7b95a4103761e9ce7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 699eb37176d6737744fb0ba01f9f3f4a2d4e55b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063207"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318751"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie narzędzia Smartsheet na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest przedstawienie czynności, które należy wykonać w narzędzia Smartsheet i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do narzędzia Smartsheet.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w narzędzia Smartsheet i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do [Narzędzia Smartsheet](https://www.smartsheet.com/pricing). Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+## <a name="capabilities-supported"></a>Obsługiwane możliwości
+> [!div class="checklist"]
+> * Tworzenie użytkowników w narzędzia Smartsheet
+> * Usuń użytkowników w narzędzia Smartsheet, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i narzędzia Smartsheet
+> * Logowanie jednokrotne do narzędzia Smartsheet (zalecane)
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
->
 > Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
-* Dzierżawa usługi Azure AD
-* [Dzierżawa narzędzia Smartsheet](https://www.smartsheet.com/pricing)
+* [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. Administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny).
+* [Dzierżawa narzędzia Smartsheet](https://www.smartsheet.com/pricing).
 * Konto użytkownika w planie narzędzia Smartsheet Enterprise lub Enterprise Premier z uprawnieniami administratora systemu.
 
-## <a name="assign-users-to-smartsheet"></a>Przypisywanie użytkowników do narzędzia Smartsheet
+## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
+1. Dowiedz się [, jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Określ, które dane mają być [mapowane między usługą Azure AD i narzędzia Smartsheet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
-
-Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do narzędzia Smartsheet. Po ustaleniu tych użytkowników i/lub grup można przypisywać do narzędzia Smartsheet, postępując zgodnie z poniższymi instrukcjami:
-
-* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
-
-### <a name="important-tips-for-assigning-users-to-smartsheet"></a>Ważne wskazówki dotyczące przypisywania użytkowników do narzędzia Smartsheet
-
-* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do narzędzia Smartsheet w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
-
-* Podczas przypisywania użytkownika do narzędzia Smartsheet należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
-
-* Aby zapewnić zgodność z przypisaniami ról użytkowników między narzędzia Smartsheet i usługą Azure AD, zaleca się korzystanie z tych samych przypisań ról, które zostały wypełnione na liście pełnych użytkowników narzędzia Smartsheet. Aby pobrać tę listę użytkowników z narzędzia Smartsheet, przejdź do **administratora konta > zarządzanie użytkownikami > więcej akcji > Pobierz listę użytkowników (CSV)**.
-
-* Aby uzyskać dostęp do pewnych funkcji w aplikacji, narzędzia Smartsheet wymaga, aby użytkownik miał wiele ról. Aby dowiedzieć się więcej o typach i uprawnieniach użytkownika w narzędzia Smartsheet, przejdź do pozycji [typy użytkowników i uprawnienia](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
-
-*  Jeśli użytkownik ma wiele ról przypisanych w narzędzia Smartsheet, **należy** się upewnić, że te przypisania ról są replikowane w usłudze Azure AD, aby uniknąć sytuacji, w której użytkownicy mogą trwale utracić dostęp do obiektów narzędzia Smartsheet. Każda unikatowa rola w narzędzia Smartsheet **musi** być przypisana do innej grupy w usłudze Azure AD. Użytkownik **musi** następnie dodać do każdej grupy odpowiadającej żądanym rolom. 
-
-## <a name="set-up-smartsheet-for-provisioning"></a>Konfigurowanie narzędzia Smartsheet na potrzeby aprowizacji
+## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie narzędzia Smartsheet w celu obsługi aprowizacji za pomocą usługi Azure AD
 
 Przed skonfigurowaniem usługi narzędzia Smartsheet na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim na narzędzia Smartsheet.
 
@@ -95,39 +87,25 @@ Przed skonfigurowaniem usługi narzędzia Smartsheet na potrzeby automatycznego 
 
     ![Token narzędzia Smartsheet](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
-## <a name="add-smartsheet-from-the-gallery"></a>Dodaj narzędzia Smartsheet z galerii
+## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie narzędzia Smartsheet z galerii aplikacji usługi Azure AD
 
-Aby skonfigurować narzędzia Smartsheet automatycznej aprowizacji użytkowników w usłudze Azure AD, musisz dodać narzędzia Smartsheet z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Dodaj narzędzia Smartsheet z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do narzędzia Smartsheet. Jeśli wcześniej skonfigurowano narzędzia Smartsheet do logowania jednokrotnego, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie osobnej aplikacji podczas wstępnego testowania integracji. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Zdefiniuj, kto będzie w zakresie aprowizacji 
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika/grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany na podstawie atrybutów użytkownika lub grupy, możesz użyć filtru określania zakresu, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+* Podczas przypisywania użytkowników i grup do narzędzia Smartsheet należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać dodatkowe role. 
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+* Aby zapewnić zgodność z przypisaniami ról użytkowników między narzędzia Smartsheet i usługą Azure AD, zaleca się korzystanie z tych samych przypisań ról, które zostały wypełnione na liście pełnych użytkowników narzędzia Smartsheet. Aby pobrać tę listę użytkowników z narzędzia Smartsheet, przejdź do **administratora konta > zarządzanie użytkownikami > więcej akcji > Pobierz listę użytkowników (CSV)**.
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
+* Aby uzyskać dostęp do pewnych funkcji w aplikacji, narzędzia Smartsheet wymaga, aby użytkownik miał wiele ról. Aby dowiedzieć się więcej o typach i uprawnieniach użytkownika w narzędzia Smartsheet, przejdź do pozycji [typy użytkowników i uprawnienia](https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions).
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+*  Jeśli użytkownik ma wiele ról przypisanych w narzędzia Smartsheet, **należy** się upewnić, że te przypisania ról są replikowane w usłudze Azure AD, aby uniknąć sytuacji, w której użytkownicy mogą trwale utracić dostęp do obiektów narzędzia Smartsheet. Każda unikatowa rola w narzędzia Smartsheet **musi** być przypisana do innej grupy w usłudze Azure AD. Użytkownik **musi** następnie dodać do każdej grupy odpowiadającej żądanym rolom. 
 
-4. W polu wyszukiwania wpisz **Narzędzia Smartsheet**, a następnie wybierz pozycję **Narzędzia Smartsheet** w panelu wyniki. 
+* Zacznij od małych. Przetestuj przy użyciu małego zestawu użytkowników i grup przed przekazaniem ich do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu na podstawie atrybutu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Narzędzia Smartsheet na liście wyników](common/search-new-app.png)
-
-5. Wybierz przycisk **Utwórz konto w usłudze narzędzia Smartsheet** , który przekieruje Cię do strony logowania usługi narzędzia Smartsheet. 
-
-    ![Narzędzia Smartsheet OIDC Dodaj](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-add.png)
-
-6. Ponieważ narzędzia Smartsheet jest aplikacją OpenIDConnect, wybierz logowanie do narzędzia Smartsheet przy użyciu konta służbowego firmy Microsoft.
-
-    ![Narzędzia Smartsheet OIDC logowania](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-login.png)
-
-7. Po pomyślnym uwierzytelnieniu Zaakceptuj monit o zgodę na stronie zgody. Aplikacja zostanie następnie automatycznie dodana do dzierżawy i nastąpi przekierowanie do konta narzędzia Smartsheet.
-
-    ![Narzędzia Smartsheet OIDc](media/smartsheet-provisioning-tutorial/smartsheet-OIDC-consent.png)
-
-## <a name="configure-automatic-user-provisioning-to-smartsheet"></a>Konfigurowanie automatycznej aprowizacji użytkowników do narzędzia Smartsheet 
+## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników do narzędzia Smartsheet 
 
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie narzędzia Smartsheet na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
@@ -149,7 +127,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://scim.smartsheet.com/v2/` **adres URL dzierżawy**. Wprowadź wartość, która została pobrana i zapisana wcześniej z narzędzia Smartsheet w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą narzędzia Smartsheet. Jeśli połączenie nie powiedzie się, upewnij się, że konto narzędzia Smartsheet ma uprawnienia administratora systemu, i spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź odpowiednie wartości w polach **adres** URL **i token dostępu Standard scim 2,0** , które zostały pobrane wcześniej z narzędzia Smartsheet i **tokenu tajnego** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą narzędzia Smartsheet. Jeśli połączenie nie powiedzie się, upewnij się, że konto narzędzia Smartsheet ma uprawnienia administratora systemu, i spróbuj ponownie.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -157,15 +135,32 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do narzędzia Smartsheet**.
 
-    ![Narzędzia Smartsheet mapowania użytkowników](media/smartsheet-provisioning-tutorial/smartsheet-user-mappings.png)
-
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do narzędzia Smartsheet w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie narzędzia Smartsheet for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Narzędzia Smartsheet atrybuty użytkownika](media/smartsheet-provisioning-tutorial/smartsheet-user-attributes.png)
+   |Atrybut|Typ|
+   |---|---|
+   |aktywne|Boolean|
+   |tytuł|String|
+   |userName|String|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |externalId|String|
+   |role [podstawowa EQ "true"]. Display|String|
+   |role [podstawowa EQ "true"]. Type|String|
+   |role [podstawowa EQ "true"]. Value|String|
+   |role|String|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
+
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -181,15 +176,24 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie narzędzia Smartsheet.
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. 
 
-Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
+Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
+
+1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 
 * Narzędzia Smartsheet nie obsługuje usuwania nietrwałego. Gdy **aktywny** atrybut użytkownika ma wartość FAŁSZ, narzędzia Smartsheet trwale usuwa użytkownika.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="change-log"></a>Dziennik zmian
+
+* 06/16/2020 — dodano obsługę atrybutów rozszerzenia przedsiębiorstwa "centrum kosztów", "Wydział", "Menedżer" i "dział" dla użytkowników.
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

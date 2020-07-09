@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75452153"
 ---
 # <a name="introduction-to-application-groups"></a>Wprowadzenie do grup aplikacji
@@ -184,7 +183,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 ```
 
-To polecenie usuwa wszystkie parametry zarządzania pojemnością aplikacji z wystąpienia aplikacji. Obejmuje to MinimumNodes, MaximumNodes i metryki aplikacji, o ile istnieją. Efekt polecenia jest natychmiastowy. Po zakończeniu wykonywania tego polecenia klaster Menedżer zasobów używa domyślnego zachowania do zarządzania aplikacjami. Parametry pojemności aplikacji można określić ponownie za pośrednictwem `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
+To polecenie usuwa wszystkie parametry zarządzania pojemnością aplikacji z wystąpienia aplikacji. Obejmuje to MinimumNodes, MaximumNodes i metryki aplikacji, o ile istnieją. Efekt polecenia jest natychmiastowy. Po zakończeniu wykonywania tego polecenia klaster Menedżer zasobów używa domyślnego zachowania do zarządzania aplikacjami. Parametry pojemności aplikacji można określić ponownie za pośrednictwem `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()` .
 
 ### <a name="restrictions-on-application-capacity"></a>Ograniczenia pojemności aplikacji
 Istnieją pewne ograniczenia dotyczące parametrów pojemności aplikacji, które muszą być przestrzegane. Jeśli wystąpiły błędy sprawdzania poprawności, nie wprowadzono żadnych zmian.

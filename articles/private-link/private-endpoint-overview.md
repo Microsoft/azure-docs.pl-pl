@@ -5,14 +5,13 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f75b080ce31a5c954471d277aad354879c16c6b3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414151"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -37,7 +36,7 @@ Poniżej przedstawiono niektóre kluczowe szczegóły dotyczące prywatnych punk
  
 - Połączenia sieciowe mogą być inicjowane tylko przez klientów nawiązujących połączenie z prywatnym punktem końcowym, ale dostawcy usług nie mają żadnej konfiguracji routingu do inicjowania połączeń z klientami usługi. Połączenia można nawiązywać tylko w jednym kierunku.
 
-- Podczas tworzenia prywatnego punktu końcowego jest również tworzony interfejs sieciowy tylko do odczytu dla cyklu życia zasobu. Interfejsowi przypisano dynamicznie prywatne adresy IP z podsieci, która jest mapowana na zasób link prywatny. wartość prywatnego adresu IP pozostaje niezmieniona dla całego cyklu życia prywatnego punktu końcowego.
+- Podczas tworzenia prywatnego punktu końcowego jest również tworzony interfejs sieciowy tylko do odczytu dla cyklu życia zasobu. Interfejsowi przypisano dynamicznie prywatne adresy IP z podsieci, która jest mapowana na zasób link prywatny. Wartość prywatnego adresu IP pozostaje niezmieniona dla całego cyklu życia prywatnego punktu końcowego.
  
 - Prywatny punkt końcowy musi być wdrożony w tym samym regionie, w którym znajduje się sieć wirtualna. 
  
@@ -55,9 +54,10 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |Nazwa zasobu linku prywatnego  |Typ zasobu   |Dowolnych podrzędnych  |
 |---------|---------|---------|
 |**Usługa link prywatny** (Twoja usługa)   |  Microsoft. Network/privateLinkServices       | puste |
+|**Azure Automation** |  Microsoft. Automation/automationAccounts | Element webhook, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        | 
-|**Usługa Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
+|**Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Gen2 systemu plików Data Lake (system plików DFS, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts    | SQL, MongoDB, Cassandra, Gremlin, tabela|
 |**Azure Database for PostgreSQL — pojedynczy serwer** | Microsoft. DBforPostgreSQL/serwery    | postgresqlServer |
@@ -75,7 +75,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Relay** | Microsoft. Relay/przestrzenie nazw | namespace |
 |**Azure Event Grid** | Microsoft. EventGrid/tematy    | temat |
 |**Azure Event Grid** | Microsoft. EventGrid/domeny    | domena |
-|**Azure webapps** | Microsoft. Web/witryny    | lokacja |
+|**Azure webapps** | Microsoft. Web/witryny    | lokacje |
 |**Azure Machine Learning** | Microsoft. MachineLearningServices/obszary robocze    | obszar roboczy |
   
  
@@ -118,7 +118,7 @@ Aby uzyskać szczegółowe informacje o najlepszych rozwiązaniach i zaleceniach
 Poniższa tabela zawiera listę znanych ograniczeń dotyczących używania prywatnych punktów końcowych: 
 
 
-|Ograniczenia |Opis |Środki zaradcze  |
+|Ograniczenie |Opis |Środki zaradcze  |
 |---------|---------|---------|
 |Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i trasy zdefiniowane przez użytkownika nie mają zastosowania do prywatnego punktu końcowego    |SIECIOWEJ grupy zabezpieczeń nie jest obsługiwany w prywatnych punktach końcowych. W podsieciach zawierających prywatny punkt końcowy może być skojarzonych sieciowej grupy zabezpieczeń, więc reguły nie będą obowiązywać w przypadku ruchu przetwarzanego przez prywatny punkt końcowy. Aby wdrażać prywatne punkty końcowe w podsieci, należy [wyłączyć wymuszanie zasad sieciowych](disable-private-endpoint-network-policy.md) . SIECIOWEJ grupy zabezpieczeń jest nadal wymuszane dla innych obciążeń hostowanych w tej samej podsieci. Trasy w dowolnej podsieci klienta będą używać prefiksu/32, zmiana domyślnego zachowania routingu wymaga podobnego UDR  | Kontroluj ruch przy użyciu reguł sieciowej grupy zabezpieczeń dla ruchu wychodzącego na klientach źródłowych. Wdróż pojedyncze trasy z prefiksem/32, aby przesłonić prywatne trasy punktów końcowych. Dzienniki przepływu sieciowej grupy zabezpieczeń i informacje monitorowania dla połączeń wychodzących są nadal obsługiwane i mogą być używane        |
 

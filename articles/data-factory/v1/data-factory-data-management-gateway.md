@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 76f8b741eb49949bb59ab5e1a4b7279f84b77111
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021572"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087082"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "84021572"
 
 Brama zarządzania danymi jest agentem klienta, który należy zainstalować w środowisku lokalnym w celu kopiowania danych między magazynami danych w chmurze i lokalnymi. Lokalne magazyny danych obsługiwane przez Data Factory są wymienione w sekcji [obsługiwane źródła danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Ten artykuł zawiera uzupełnienie przewodnika po artykule [przenoszenie danych między lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z lokalnej bazy danych SQL Server do obiektu blob platformy Azure. Ten artykuł zawiera szczegółowe informacje na temat bramy zarządzania danymi.
+Ten artykuł zawiera uzupełnienie przewodnika po artykule [przenoszenie danych między lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z bazy danych SQL Server do obiektu blob platformy Azure. Ten artykuł zawiera szczegółowe informacje na temat bramy zarządzania danymi.
 
 Bramę zarządzania danymi można skalować w poziomie, kojarząc wiele maszyn lokalnych z bramą. Możesz skalować w górę, zwiększając liczbę zadań przenoszenia danych, które mogą być uruchamiane współbieżnie w węźle. Ta funkcja jest również dostępna dla bramy logicznej z pojedynczym węzłem. Aby uzyskać szczegółowe informacje, zobacz temat [skalowanie bramy zarządzania danymi w artykule Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) .
 
@@ -103,7 +103,7 @@ Bramę zarządzania danymi można zainstalować w następujący sposób:
 10. Na stronie **Rejestrowanie bramy** **Zarządzanie danymi bramy Configuration Manager** uruchomionej na maszynie wykonaj następujące czynności:
     1. Wklej klucz w tekście.
     2. Opcjonalnie kliknij pozycję **Pokaż klucz bramy** , aby zobaczyć tekst klucza.
-    3. Kliknij pozycję **zarejestruj**.
+    3. Kliknij pozycję **Zarejestruj**.
 
 ### <a name="register-gateway-using-key"></a>Rejestrowanie bramy przy użyciu klucza
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>Jeśli nie utworzono jeszcze bramy logicznej w portalu
@@ -164,7 +164,7 @@ Na przykład, aby skopiować z **lokalnego magazynu danych do ujścia Azure SQL 
 * Skonfiguruj ustawienia zapory dla logicznego programu SQL Server, aby dodać adres IP maszyny bramy do listy dozwolonych adresów IP.
 
 > [!NOTE]
-> Jeśli Zapora nie zezwala na port wychodzący 1433, Brama nie może bezpośrednio uzyskać dostępu do usługi Azure SQL. W takim przypadku można użyć [kopii przygotowanej](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) do bazy danych SQL Azure/DW usługi SQL Azure. W tym scenariuszu do przenoszenia danych jest wymagany tylko protokół HTTPS (port 443).
+> Jeśli Zapora nie zezwala na port wychodzący 1433, Brama nie może bezpośrednio uzyskać dostępu do usługi Azure SQL. W takim przypadku można użyć [kopii przygotowanej](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) do SQL Database/wystąpienia zarządzanego SQL/DW usługi SQL Azure. W tym scenariuszu do przenoszenia danych jest wymagany tylko protokół HTTPS (port 443).
 >
 >
 
@@ -180,8 +180,8 @@ Brama używa serwera proxy w celu nawiązania połączenia z usługą w chmurze.
 Dostępne są trzy opcje konfiguracji:
 
 * **Nie używaj serwera proxy**: Brama nie używa jawnie serwera proxy do nawiązywania połączenia z usługami w chmurze.
-* **Użyj systemowego serwera proxy**: Brama używa ustawień serwera proxy skonfigurowanych w diahost. exe. config i diawp. exe. config. Jeśli żaden serwer proxy nie jest skonfigurowany w diahost. exe. config i diawp. exe. config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
-* **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP, które ma być używane dla bramy, zamiast używać konfiguracji w diahost. exe. config i diawp. exe. config. Wymagany jest adres i port. Nazwa użytkownika i hasło są opcjonalne w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą certyfikatu poświadczeń bramy i przechowywane lokalnie na komputerze hosta bramy.
+* **Użyj systemowego serwera proxy**: Brama używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli żaden serwer proxy nie jest skonfigurowany w diahost.exe.config i diawp.exe.config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
+* **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP do użycia dla bramy, zamiast używać konfiguracji w diahost.exe.config i diawp.exe.config. Wymagany jest adres i port. Nazwa użytkownika i hasło są opcjonalne w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą certyfikatu poświadczeń bramy i przechowywane lokalnie na komputerze hosta bramy.
 
 Usługa hosta bramy zarządzania danymi jest uruchamiana automatycznie po zapisaniu zaktualizowanych ustawień serwera proxy.
 
@@ -202,10 +202,10 @@ Serwer proxy HTTP można wyświetlić i zaktualizować za pomocą narzędzia Con
 >
 
 ### <a name="configure-proxy-server-settings"></a>Skonfiguruj ustawienia serwera proxy
-W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy HTTP brama używa ustawienia proxy w diahost. exe. config i diawp. exe. config. Jeśli żaden serwer proxy nie został określony w diahost. exe. config i diawp. exe. config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost. exe. config.
+W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy HTTP brama używa ustawienia proxy w diahost.exe.config i diawp.exe.config. Jeśli w diahost.exe.config i diawp.exe.config nie określono żadnego serwera proxy, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost.exe.config.
 
-1. W Eksploratorze plików wykonaj bezpieczną kopię *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\ diahost. exe. config* , aby utworzyć kopię zapasową oryginalnego pliku.
-2. Uruchom Notepad. exe uruchomiony jako administrator i Otwórz plik tekstowy *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\ diahost. exe. config*. Znajdziesz tag domyślny dla system.net, jak pokazano w poniższym kodzie:
+1. W Eksploratorze plików wykonaj bezpieczną kopię *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config* , aby utworzyć kopię zapasową oryginalnego pliku.
+2. Uruchom Notepad.exe uruchomiony jako administrator i Otwórz plik tekstowy *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config*. Znajdziesz tag domyślny dla system.net, jak pokazano w poniższym kodzie:
 
     ```
     <system.net>
@@ -231,7 +231,7 @@ W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy
 3. Zapisz plik konfiguracji w oryginalnej lokalizacji, a następnie uruchom ponownie usługę hosta bramy Zarządzanie danymi, która pobiera zmiany. Aby ponownie uruchomić usługę: użyj apletu usługi w panelu sterowania lub **Configuration Manager zarządzanie danymi bramy** , > kliknij przycisk **Zatrzymaj usługę** , a następnie kliknij przycisk **Uruchom usługę**. Jeśli usługa nie zostanie uruchomiona, prawdopodobnie dodano niepoprawną składnię tagu XML do pliku konfiguracji aplikacji, który był edytowany.
 
 > [!IMPORTANT]
-> Nie zapomnij zaktualizować **obu** diahost. exe. config i diawp. exe. config.
+> Nie zapomnij zaktualizować **obu** diahost.exe.config i diawp.exe.config.
 
 Oprócz tych punktów należy również upewnić się, że Microsoft Azure znajduje się w dozwolonych firmy. Listę prawidłowych adresów IP Microsoft Azure można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -247,7 +247,9 @@ Aplikacja **Ustawienia poświadczeń** używa portu przychodzącego **8050** do 
 
 Jeśli używasz zapory innej firmy, możesz ręcznie otworzyć port 8050. Jeśli podczas instalacji bramy wystąpi problem z zaporą, możesz użyć poniższego polecenia, aby zainstalować bramę bez konfigurowania zapory.
 
-    msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```cmd
+msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+```
 
 W przypadku wybrania opcji nie należy otwierać portu 8050 na maszynie bramy należy użyć mechanizmów innych niż ustawienia aplikacji **poświadczenia** w celu skonfigurowania poświadczeń magazynu danych. Można na przykład użyć polecenia cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) programu PowerShell. Zapoznaj się z sekcją Ustawianie poświadczeń i zabezpieczeń w temacie jak można ustawić poświadczenia magazynu danych.
 
@@ -309,7 +311,7 @@ Funkcję autoaktualizacji można wyłączyć lub włączyć, wykonując następu
 Po zainstalowaniu bramy można uruchomić Zarządzanie danymi Configuration Manager bramy w jeden z następujących sposobów:
 
 1. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia.
-2. Uruchom plik wykonywalny *config. exe* w folderze: *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared*.
+2. Uruchom plik wykonywalny *ConfigManager.exe* w folderze: *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared*.
 
 ### <a name="home-page"></a>Strona główna
 Strona główna umożliwia wykonywanie następujących czynności:
@@ -510,7 +512,7 @@ W tej sekcji opisano sposób tworzenia i rejestrowania bramy przy użyciu polece
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. W Azure PowerShell przejdź do folderu: *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *. Uruchom polecenie *RegisterGateway. ps1* skojarzone ze zmienną lokalną **$Key** jak pokazano w poniższym poleceniu. Ten skrypt rejestruje agenta klienta zainstalowanego na maszynie przy użyciu utworzonej wcześniej bramy logicznej.
+1. W Azure PowerShell przejdź do folderu: *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *. Uruchom *RegisterGateway.ps1* skojarzone ze zmienną lokalną **$Key** , jak pokazano w poniższym poleceniu. Ten skrypt rejestruje agenta klienta zainstalowanego na maszynie przy użyciu utworzonej wcześniej bramy logicznej.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -543,4 +545,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Zobacz [przenoszenie danych między środowiskiem lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z lokalnej bazy danych SQL Server do obiektu blob platformy Azure.
+* Zobacz [przenoszenie danych między środowiskiem lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z bazy danych SQL Server do obiektu blob platformy Azure.

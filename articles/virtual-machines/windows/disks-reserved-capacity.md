@@ -4,15 +4,14 @@ description: Dowiedz się więcej na temat kupowania Azure Disk Storage rezerwac
 author: roygara
 ms.author: rogarana
 ms.date: 01/30/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 18d10dfa1f45f9f2a669e35d13f94dfbeabd3cee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b9eac9ff3eb312d8311b733d9e8334be471f4b65
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660140"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Obniż koszty dzięki rezerwacji dysków platformy Azure
 [!INCLUDE [disk-reserved-capacity-shared](../../../includes/disk-reserved-capacity-shared.md)]

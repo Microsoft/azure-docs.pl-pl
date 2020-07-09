@@ -4,10 +4,9 @@ description: Zapewnianie dostępu do obrazów w prywatnym rejestrze kontenera pr
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74456498"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Uwierzytelnianie w usłudze Azure Container Registry za pomocą tożsamości zarządzanej platformy Azure 
@@ -49,7 +48,7 @@ Następnie użyj tożsamości do uwierzytelniania w dowolnej [usłudze, która o
 
 Jeśli nie masz jeszcze usługi Azure Container Registry, Utwórz rejestr i wypchnij przykładowy obraz kontenera do niego. Aby uzyskać instrukcje, zobacz [Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
 
-W tym artykule przyjęto założenie, `aci-helloworld:v1` że obraz kontenera jest przechowywany w rejestrze. W przykładach użyto nazwy rejestru *myContainerRegistry*. Zastąp własnymi nazwami rejestru i obrazów w dalszych krokach.
+W tym artykule przyjęto założenie, że `aci-helloworld:v1` obraz kontenera jest przechowywany w rejestrze. W przykładach użyto nazwy rejestru *myContainerRegistry*. Zastąp własnymi nazwami rejestru i obrazów w dalszych krokach.
 
 ## <a name="create-a-docker-enabled-vm"></a>Tworzenie maszyny wirtualnej z obsługą platformy Docker
 
@@ -66,7 +65,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Utworzenie maszyny wirtualnej może potrwać kilka minut. Po zakończeniu wykonywania polecenia Zanotuj `publicIpAddress` wyświetlane wartości w wierszu polecenia platformy Azure. Użyj tego adresu, aby nawiązać połączenia SSH z maszyną wirtualną.
+Utworzenie maszyny wirtualnej może potrwać kilka minut. Po zakończeniu wykonywania polecenia Zanotuj wyświetlane wartości w wierszu polecenia `publicIpAddress` platformy Azure. Użyj tego adresu, aby nawiązać połączenia SSH z maszyną wirtualną.
 
 ### <a name="install-docker-on-the-vm"></a>Zainstaluj platformę Docker na maszynie wirtualnej
 
@@ -160,19 +159,19 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH do maszyny wirtualnej platformy Docker skonfigurowanej przy użyciu tożsamości. Uruchom następujące poleceń interfejsu wiersza polecenia platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure zainstalowanego na maszynie wirtualnej.
 
-Najpierw należy przeprowadzić uwierzytelnienie w interfejsie wiersza polecenia platformy Azure za pomocą polecenia [AZ login][az-login]przy użyciu tożsamości skonfigurowanej na maszynie wirtualnej. W `<userID>`przypadku programu należy zastąpić identyfikator tożsamości, która została pobrana w poprzednim kroku. 
+Najpierw należy przeprowadzić uwierzytelnienie w interfejsie wiersza polecenia platformy Azure za pomocą polecenia [AZ login][az-login]przy użyciu tożsamości skonfigurowanej na maszynie wirtualnej. W przypadku programu `<userID>` należy zastąpić identyfikator tożsamości, która została pobrana w poprzednim kroku. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Następnie Uwierzytelnij się w rejestrze za pomocą [AZ ACR login][az-acr-login]. Korzystając z tego polecenia, interfejs CLI używa tokenu Active Directory utworzonego podczas uruchamiania, `az login` aby bezproblemowo uwierzytelniać sesję przy użyciu rejestru kontenerów. (W zależności od konfiguracji maszyny wirtualnej może być konieczne uruchomienie tego polecenia i poleceń platformy Docker z programem `sudo`).
+Następnie Uwierzytelnij się w rejestrze za pomocą [AZ ACR login][az-acr-login]. Korzystając z tego polecenia, interfejs CLI używa tokenu Active Directory utworzonego podczas `az login` uruchamiania, aby bezproblemowo uwierzytelniać sesję przy użyciu rejestru kontenerów. (W zależności od konfiguracji maszyny wirtualnej może być konieczne uruchomienie tego polecenia i poleceń platformy Docker z programem `sudo` ).
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-Powinien pojawić się `Login succeeded` komunikat. Następnie można uruchamiać `docker` polecenia bez podawania poświadczeń. Na przykład uruchom [Docker pull][docker-pull] , aby ściągnąć `aci-helloworld:v1` obraz, określając nazwę serwera logowania rejestru. Nazwa serwera logowania składa się z nazwy rejestru kontenerów (wszystkie małe litery) `.azurecr.io` , `mycontainerregistry.azurecr.io`a następnie — na przykład.
+Powinien pojawić się `Login succeeded` komunikat. Następnie można uruchamiać `docker` polecenia bez podawania poświadczeń. Na przykład uruchom [Docker pull][docker-pull] , aby ściągnąć `aci-helloworld:v1` obraz, określając nazwę serwera logowania rejestru. Nazwa serwera logowania składa się z nazwy rejestru kontenerów (wszystkie małe litery) `.azurecr.io` , a następnie — na przykład `mycontainerregistry.azurecr.io` .
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
@@ -218,13 +217,13 @@ Najpierw należy przeprowadzić uwierzytelnienie interfejsu wiersza polecenia pl
 az login --identity
 ```
 
-Następnie Uwierzytelnij się w rejestrze za pomocą [AZ ACR login][az-acr-login]. Korzystając z tego polecenia, interfejs CLI używa tokenu Active Directory utworzonego podczas uruchamiania, `az login` aby bezproblemowo uwierzytelniać sesję przy użyciu rejestru kontenerów. (W zależności od konfiguracji maszyny wirtualnej może być konieczne uruchomienie tego polecenia i poleceń platformy Docker z programem `sudo`).
+Następnie Uwierzytelnij się w rejestrze za pomocą [AZ ACR login][az-acr-login]. Korzystając z tego polecenia, interfejs CLI używa tokenu Active Directory utworzonego podczas `az login` uruchamiania, aby bezproblemowo uwierzytelniać sesję przy użyciu rejestru kontenerów. (W zależności od konfiguracji maszyny wirtualnej może być konieczne uruchomienie tego polecenia i poleceń platformy Docker z programem `sudo` ).
 
 ```azurecli
 az acr login --name myContainerRegistry
 ```
 
-Powinien pojawić się `Login succeeded` komunikat. Następnie można uruchamiać `docker` polecenia bez podawania poświadczeń. Na przykład uruchom [Docker pull][docker-pull] , aby ściągnąć `aci-helloworld:v1` obraz, określając nazwę serwera logowania rejestru. Nazwa serwera logowania składa się z nazwy rejestru kontenerów (wszystkie małe litery) `.azurecr.io` , `mycontainerregistry.azurecr.io`a następnie — na przykład.
+Powinien pojawić się `Login succeeded` komunikat. Następnie można uruchamiać `docker` polecenia bez podawania poświadczeń. Na przykład uruchom [Docker pull][docker-pull] , aby ściągnąć `aci-helloworld:v1` obraz, określając nazwę serwera logowania rejestru. Nazwa serwera logowania składa się z nazwy rejestru kontenerów (wszystkie małe litery) `.azurecr.io` , a następnie — na przykład `mycontainerregistry.azurecr.io` .
 
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1

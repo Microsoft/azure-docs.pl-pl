@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888835"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Wdrażanie akceleratora rozwiązania do monitorowania zdalnego lokalnie — Docker
@@ -36,7 +35,7 @@ Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainst
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/) — Jeśli planujesz wprowadzić zmiany w mikrousługach.
-* [Node. js V8](https://nodejs.org/) — to oprogramowanie jest wymaganiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj środowiska Node. js v10.
+* [Node.js V8](https://nodejs.org/) — to oprogramowanie jest warunkiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj Node.js v10.
 
 > [!NOTE]
 > Te narzędzia są dostępne na wielu platformach, w tym w systemach Windows, Linux i iOS.
@@ -63,14 +62,14 @@ Mikrousługi działające w lokalnych kontenerach platformy Docker muszą uzyski
 docker run --rm -ti library/alpine ping google.com
 ```
 
-Aby uruchomić Akcelerator rozwiązania, przejdź do folderu **\\usługi skrypty\\lokalne** w środowisku wiersza polecenia i uruchom następujące polecenie:
+Aby uruchomić Akcelerator rozwiązania, przejdź do folderu **usługi \\ skrypty \\ lokalne** w środowisku wiersza polecenia i uruchom następujące polecenie:
 
 ```cmd/sh
 docker-compose up
 ```
 
 > [!NOTE] 
-> Przed uruchomieniem `docker-compose up`programu upewnij się, że [dysk lokalny został udostępniony](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) przy użyciu platformy Docker.
+> Przed uruchomieniem programu upewnij się, że [dysk lokalny został udostępniony](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) przy użyciu platformy Docker `docker-compose up` .
 
 Przy pierwszym uruchomieniu tego polecenia usługa Docker pobiera obrazy mikrousług z usługi Docker Hub w celu lokalnego tworzenia kontenerów. W przypadku następujących uruchomień Aparat Docker natychmiast uruchamia kontenery.
 
@@ -83,7 +82,7 @@ docker rm <list_of_containers>
 docker rmi <list_of_images>
 ```
 
-Aby wyświetlić dzienniki z kontenera, można użyć oddzielnej powłoki. Najpierw Znajdź identyfikator kontenera za pomocą `docker ps` polecenia. Następnie użyj `docker logs {container-id} --tail 1000` , aby wyświetlić ostatnie 1000 wpisów dla określonego kontenera.
+Aby wyświetlić dzienniki z kontenera, można użyć oddzielnej powłoki. Najpierw Znajdź identyfikator kontenera za pomocą `docker ps` polecenia. Następnie użyj, `docker logs {container-id} --tail 1000` Aby wyświetlić ostatnie 1000 wpisów dla określonego kontenera.
 
 ### <a name="start-the-stream-analytics-job"></a>Uruchamianie zadania Stream Analytics
 
@@ -96,7 +95,7 @@ Wykonaj następujące kroki, aby uruchomić zadanie Stream Analytics:
 
 ### <a name="connect-to-the-dashboard"></a>Nawiązywanie połączenia z pulpitem nawigacyjnym
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania `http://localhost:8080` zdalnego, przejdź do przeglądarki. Teraz można korzystać z interfejsu użytkownika sieci Web i lokalnych mikrousług.
+Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego, przejdź do `http://localhost:8080` przeglądarki. Teraz można korzystać z interfejsu użytkownika sieci Web i lokalnych mikrousług.
 
 ## <a name="clean-up"></a>Czyszczenie
 

@@ -8,18 +8,17 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734862"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791796"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klasyczni administratorzy subskrypcji platformy Azure
 
@@ -38,13 +37,13 @@ W tym artykule opisano, jak dodać lub zmienić role administratora współadmin
 
     Współadministratory mogą być przypisani tylko w zakresie subskrypcji.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
 1. Kliknij kartę **klasyczne Administratorzy** .
 
     ![Zrzut ekranu, który otwiera administratorów klasycznych](./media/classic-administrators/classic-administrators.png)
 
-1. Kliknij przycisk **Dodaj** > **Dodaj współadministrator** , aby otworzyć okienko Dodaj współadministratorów.
+1. Kliknij przycisk **Dodaj**  >  **Dodaj współadministrator** , aby otworzyć okienko Dodaj współadministratorów.
 
     Jeśli opcja Dodaj administratora współpracującego jest wyłączona, nie masz uprawnień.
 
@@ -83,7 +82,7 @@ Aby uzyskać informacje, które porównują użytkowników i użytkowników-Goś
 
 1. Otwórz blok [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i wybierz subskrypcję.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
 1. Kliknij kartę **klasyczne Administratorzy** .
 
@@ -128,7 +127,7 @@ Może istnieć tylko jeden administrator usługi dla każdej subskrypcji platfor
 | Konto Microsoft | Yes | Nie | Nie |
 | Konto usługi Azure AD | Tak | Yes | Nie |
 
-Jeśli administrator konta jest kontem usługi Azure AD, możesz zmienić administratora usługi na konto usługi Azure AD w tym samym katalogu, ale nie w innym katalogu. Na przykład program abby@contoso.com może zmienić administratora usługi na bob@contoso.com, ale nie może zmienić administratora usługi na john@notcontoso.com , chyba john@notcontoso.com że ma obecność w katalogu contoso.com.
+Jeśli administrator konta jest kontem usługi Azure AD, możesz zmienić administratora usługi na konto usługi Azure AD w tym samym katalogu, ale nie w innym katalogu. Na przykład program abby@contoso.com może zmienić administratora usługi na bob@contoso.com , ale nie może zmienić administratora usługi na, john@notcontoso.com chyba że john@notcontoso.com ma obecność w katalogu contoso.com.
 
 Aby uzyskać więcej informacji o kontach Microsoft i kontach usługi Azure AD, zobacz [co to jest Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
@@ -152,4 +151,4 @@ Wykonaj następujące kroki, aby wyświetlić administratora konta.
 
 * [Omówienie różnych ról](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md)
-* [Dodaj lub Zmień administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
+* [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

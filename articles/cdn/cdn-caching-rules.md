@@ -10,15 +10,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
-ms.openlocfilehash: 874ec75fb9173b6cee50bf8880510464fa13e9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254244"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887867"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Sterowanie zachowaniem buforowania w usłudze Azure CDN przy użyciu reguł buforowania
 
@@ -75,7 +75,7 @@ W przypadku globalnych i niestandardowych reguł buforowania można określić c
 
 W przypadku niestandardowych reguł pamięci podręcznej dostępne są dwa warunki dopasowania:
  
-- **Ścieżka**: ten warunek jest zgodny ze ścieżką adresu URL, z wyłączeniem nazwy domeny i obsługuje symbol wieloznaczny\*(). Na przykład _/myfile.html_, _/My/folder/*_ i _/My/images/*. jpg_. Maksymalna długość to 260 znaków.
+- **Ścieżka**: ten warunek jest zgodny ze ścieżką adresu URL, z wyłączeniem nazwy domeny i obsługuje symbol wieloznaczny ( \* ). Na przykład _/myfile.html_, _/My/folder/*_ i _/My/images/*. jpg_. Maksymalna długość to 260 znaków.
 
 - **Rozszerzenie**: ten warunek dopasowuje rozszerzenie pliku żądanego pliku. Można podać listę rozszerzeń plików rozdzielanych przecinkami. Na przykład _jpg_, _MP3_lub _PNG_. Maksymalna liczba rozszerzeń to 50, a maksymalna liczba znaków na rozszerzenie to 16. 
 
@@ -103,7 +103,7 @@ Globalne i niestandardowe reguły buforowania są przetwarzane w następującej 
    - Zachowanie buforowania: **Ustaw, jeśli brakuje**
    - Czas wygaśnięcia pamięci podręcznej: 3 dni
 
-Gdy te reguły są ustawione, żądanie dla _ &lt;nazwy&gt;hosta punktu końcowego_azureedge.net/home/index.html wyzwala niestandardową regułę buforowania #2, która jest ustawiona na: **Ustaw, jeśli brakuje** i 3 dni. W związku z tym, jeśli plik *index. html* ma `Cache-Control` lub `Expires` nagłówki HTTP, są one honorowane; w przeciwnym razie, jeśli te nagłówki nie są ustawione, plik jest buforowany przez 3 dni.
+Gdy te reguły są ustawione, żądanie dla _ &lt; nazwy hosta &gt; punktu końcowego_. azureedge.net/Home/index.html wyzwala niestandardową regułę buforowania #2, która jest ustawiona na: **Ustaw, jeśli brakuje** i 3 dni. W związku z tym, jeśli plik *index.html* ma `Cache-Control` lub `Expires` nagłówki HTTP, są one honorowane; w przeciwnym razie, jeśli te nagłówki nie są ustawione, plik jest buforowany przez 3 dni.
 
 > [!NOTE] 
 > Pliki przechowywane w pamięci podręcznej przed zmianą reguły utrzymują ustawienia czasu trwania pamięci podręcznej. Aby zresetować ich okresy istnienia pamięci podręcznej, należy [przeczyścić plik](cdn-purge-endpoint.md). 

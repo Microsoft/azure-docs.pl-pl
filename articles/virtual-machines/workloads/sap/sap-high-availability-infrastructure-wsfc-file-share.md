@@ -17,10 +17,9 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201669"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Przygotowanie infrastruktury platformy Azure pod kątem wysokiej dostępności SAP przy użyciu klastra trybu failover systemu Windows i udziału plików dla wystąpień oprogramowania SAP ASCS/SCS
@@ -209,7 +208,7 @@ ms.locfileid: "83201669"
 
 W tym artykule opisano kroki przygotowania infrastruktury platformy Azure, które są niezbędne do zainstalowania i skonfigurowania systemów SAP o wysokiej dostępności w klastrze usługi Windows Server Failover Clustering (WSFC), korzystając z udziału plików skalowalnego w poziomie jako opcji klastrowania wystąpień SAP ASCS/SCS.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 
@@ -222,13 +221,13 @@ Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 | --- | --- | --- | --- |
 | Pierwszy węzeł klastra ASCS/SCS klaster | ASCS-1 | 10.0.6.4 | ASCS — as |
 | Drugi węzeł klastra ASCS/SCS klaster | ASCS-2 | 10.0.6.5 | ASCS — as |
-| Nazwa sieci klastra |ASCS — CL | 10.0.6.6 | n/d |
-| Nazwa sieci klastra SAP PR1 ASCS |PR1 — ASCS | 10.0.6.7 | n/d |
+| Nazwa sieci klastra |ASCS — CL | 10.0.6.6 | nie dotyczy |
+| Nazwa sieci klastra SAP PR1 ASCS |PR1 — ASCS | 10.0.6.7 | nie dotyczy |
 
 
 **Tabela 1**: klaster ASCS/SCS
 
-| \<> identyfikatorów SID SAP | Numer wystąpienia SAP ASCS/SCS |
+| OPROGRAMOWANIA\<SID> | Numer wystąpienia SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -240,8 +239,8 @@ Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 | Pierwszy węzeł klastra | SOFS-1 | 10.0.6.10 | SOFS — as |
 | Drugi węzeł klastra | SOFS-2 | 10.0.6.11 | SOFS — as |
 | Trzeci węzeł klastra | SOFS-3 | 10.0.6.12 | SOFS — as |
-| Nazwa sieci klastra | SOFS — CL | 10.0.6.13 | n/d |
-| Nazwa hosta globalnego SAP | sapglobal | Używaj adresów IP wszystkich węzłów klastra | n/d |
+| Nazwa sieci klastra | SOFS — CL | 10.0.6.13 | nie dotyczy |
+| Nazwa hosta globalnego SAP | sapglobal | Używaj adresów IP wszystkich węzłów klastra | nie dotyczy |
 
 **Tabela 3**: klaster serwer plików skalowalny w poziomie
 

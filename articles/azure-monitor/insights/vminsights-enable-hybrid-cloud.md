@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
 ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480746"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Włącz Azure Monitor dla maszyn wirtualnych środowiska hybrydowego
@@ -41,7 +40,7 @@ Kroki umożliwiające wykonanie tego zadania są podsumowane w następujący spo
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Zainstaluj agenta zależności w systemie Windows
 
-Agenta zależności można zainstalować ręcznie na komputerach z systemem Windows, uruchamiając `InstallDependencyAgent-Windows.exe`program. Jeśli uruchomisz ten plik wykonywalny bez żadnych opcji, uruchamia Kreatora instalacji, który można wykonać, aby zainstalować agenta interaktywnie.
+Agenta zależności można zainstalować ręcznie na komputerach z systemem Windows, uruchamiając program `InstallDependencyAgent-Windows.exe` . Jeśli uruchomisz ten plik wykonywalny bez żadnych opcji, uruchamia Kreatora instalacji, który można wykonać, aby zainstalować agenta interaktywnie.
 
 >[!NOTE]
 >Do zainstalowania lub odinstalowania agenta wymagane są uprawnienia *administratora* .
@@ -53,7 +52,7 @@ W poniższej tabeli przedstawiono parametry, które są obsługiwane przez Insta
 | /? | Zwraca listę opcji wiersza polecenia. |
 | / S | Wykonuje instalację dyskretną bez interakcji ze strony użytkownika. |
 
-Na przykład aby uruchomić program instalacyjny z `/?` parametrem, wprowadź **InstallDependencyAgent-Windows. exe/?**.
+Na przykład, aby uruchomić program instalacyjny z `/?` parametrem, wprowadź **InstallDependencyAgent-Windows.exe/?**.
 
 Pliki dla agenta zależności systemu Windows są domyślnie instalowane w *katalogu C:\Program Files\Microsoft Agent zależności* . Jeśli nie można uruchomić agenta zależności po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramFiles%\Microsoft Dependency Agent\logs*.
 
@@ -73,13 +72,13 @@ Agent zależności jest instalowany na serwerach z systemem Linux z *InstallDepe
 
 Na przykład aby uruchomić program instalacyjny z `-help` parametrem, wprowadź **InstallDependencyAgent-linux64. bin-help**.
 
-Zainstaluj agenta zależności systemu Linux jako element główny, uruchamiając `sh InstallDependencyAgent-Linux64.bin`polecenie.
+Zainstaluj agenta zależności systemu Linux jako element główny, uruchamiając polecenie `sh InstallDependencyAgent-Linux64.bin` .
 
 Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W przypadku agentów systemu Linux katalog dziennika to */var/opt/Microsoft/Dependency-Agent/log*.
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| Pliki | Lokalizacja |
+| Files | Lokalizacja |
 |:--|:--|
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |
@@ -156,7 +155,7 @@ Jeśli nie wiesz, jak wdrażać zasoby przy użyciu szablonu, zobacz:
 * [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Aby korzystać z interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.27 lub nowszej. Aby zidentyfikować swoją wersję, uruchom `az --version`polecenie. Aby zainstalować lub uaktualnić interfejs wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Aby korzystać z interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.27 lub nowszej. Aby zidentyfikować swoją wersję, uruchom polecenie `az --version` . Aby zainstalować lub uaktualnić interfejs wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Tworzenie i wykonywanie szablonu
 
@@ -206,7 +205,7 @@ Aby korzystać z interfejsu wiersza polecenia platformy Azure, należy najpierw 
     }
     ```
 
-1. Zapisz ten plik jako *installsolutionsforvminsights. JSON* w folderze lokalnym.
+1. Zapisz ten plik jako *installsolutionsforvminsights.jsw* folderze lokalnym.
 
 1. Przechwyć wartości dla *obszarów roboczych*, *ResourceGroupName*i *WorkspaceLocation*. Wartość dla *obszaru roboczegoname* jest nazwą obszaru roboczego log Analytics. Wartość parametru *WorkspaceLocation* to region, w którym jest zdefiniowany obszar roboczy.
 
@@ -229,7 +228,7 @@ Aby korzystać z interfejsu wiersza polecenia platformy Azure, należy najpierw 
 
 Jeśli instalacja agenta zależności zakończyła się pomyślnie, ale nie widzisz komputera na mapie, należy zdiagnozować problem, wykonując następujące kroki.
 
-1. Czy Agent zależności został zainstalowany pomyślnie? Można to sprawdzić, sprawdzając, czy usługa jest zainstalowana i uruchomiona.
+1. Czy agent zależności został zainstalowany pomyślnie? Możesz to zweryfikować, sprawdzając, czy usługa jest zainstalowana i uruchomiona.
 
     **Windows**: Wyszukaj usługę o nazwie "Microsoft Dependency Agent".
 
@@ -243,13 +242,13 @@ Jeśli instalacja agenta zależności zakończyła się pomyślnie, ale nie widz
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-    Czy zwraca co najmniej jeden wynik? Czy dane są ostatnie? W takim przypadku Agent Log Analytics działa prawidłowo i komunikuje się z usługą. Jeśli nie, sprawdź, czy Agent na serwerze: [log Analytics Agent na potrzeby rozwiązywania problemów z systemem Windows](../platform/agent-windows-troubleshoot.md) lub [agenta log Analytics do rozwiązywania problemów z systemem Linux](../platform/agent-linux-troubleshoot.md).
+    Czy zwraca co najmniej jeden wynik? Czy są to świeże dane? W takim przypadku Agent Log Analytics działa prawidłowo i komunikuje się z usługą. Jeśli nie, sprawdź, czy Agent na serwerze: [log Analytics Agent na potrzeby rozwiązywania problemów z systemem Windows](../platform/agent-windows-troubleshoot.md) lub [agenta log Analytics do rozwiązywania problemów z systemem Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="computer-appears-on-the-map-but-has-no-processes"></a>Komputer jest wyświetlany na mapie, ale nie ma procesów
 
 Jeśli widzisz serwer na mapie, ale nie ma on danych procesu ani połączenia, oznacza to, że Agent zależności został zainstalowany i uruchomiony, ale Sterownik jądra nie został załadowany.
 
-Sprawdź plik C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) lub plik/var/opt/Microsoft/Dependency-Agent/log/Service.log (Linux). Ostatni wiersz pliku powinien wskazywać, dlaczego jądro nie zostało załadowane. Na przykład jądro może nie być obsługiwane w systemie Linux, jeśli zaktualizowano jądro.
+Sprawdź plik C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) lub /var/opt/microsoft/dependency-agent/log/service.log (Linux). W ostatnich wierszach pliku powinna znajdować się odpowiedź, dlaczego nie załadowano jądra. Na przykład jądro może nie być obsługiwane w systemie Linux, jeśli zostało zaktualizowane.
 
 
 ## <a name="next-steps"></a>Następne kroki

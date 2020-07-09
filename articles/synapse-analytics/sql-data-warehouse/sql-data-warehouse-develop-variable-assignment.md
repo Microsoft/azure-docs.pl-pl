@@ -6,17 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0cbadc10fb817c70bd259397c840aae68abc2d54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633408"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213333"
 ---
 # <a name="assign-variables-in-synapse-sql-pool"></a>Przypisywanie zmiennych w puli SQL Synapse
 
@@ -24,7 +23,7 @@ W tym artykule znajdziesz istotne porady dotyczące przypisywania zmiennych T-SQ
 
 ## <a name="set-variables-with-declare"></a>Ustaw zmienne z deklaracją DECLARE
 
-Zmienne w puli SQL są ustawiane przy `DECLARE` użyciu instrukcji lub `SET` instrukcji. Inicjowanie zmiennych przy użyciu deklaracji jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w puli SQL.
+Zmienne w puli SQL są ustawiane przy użyciu `DECLARE` instrukcji lub `SET` instrukcji. Inicjowanie zmiennych przy użyciu deklaracji jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w puli SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -39,7 +38,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Nie można zainicjować i użyć zmiennej w tej samej instrukcji DECLARE. W celu zilustrowania punktu Poniższy przykład jest @p1 niedozwolony **, ponieważ jest zainicjowany** i używany w tej samej instrukcji DECLARE. W związku z tym Poniższy przykład zawiera błąd:
+Nie można zainicjować i użyć zmiennej w tej samej instrukcji DECLARE. W celu zilustrowania punktu Poniższy przykład jest **niedozwolony,** ponieważ @p1 jest zainicjowany i używany w tej samej instrukcji DECLARE. W związku z tym Poniższy przykład zawiera błąd:
 
 ```sql
 DECLARE @p1 int = 0

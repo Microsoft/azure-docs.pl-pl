@@ -1,30 +1,29 @@
 ---
 title: 'Azure SQL Database: Zarządzanie długoterminowym przechowywaniem kopii zapasowych'
-description: Dowiedz się, jak przechowywać i przywracać automatyczne kopie zapasowe Azure SQL Database jednej lub puli baz danych w usłudze Azure Storage (przez maksymalnie 10 lat) przy użyciu Azure Portal i programu PowerShell
+description: Dowiedz się, jak przechowywać i przywracać automatyczne kopie zapasowe Azure SQL Database w usłudze Azure Storage (przez maksymalnie 10 lat) przy użyciu Azure Portal i programu PowerShell
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 6ae38bb81ad0b229d6bb5a9e2f626d17810d7b01
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048343"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087354"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W Azure SQL Database można skonfigurować bazę danych z zasadami [długoterminowego przechowywania kopii zapasowych](long-term-retention-overview.md) (LTR), aby automatycznie zachować kopie zapasowe bazy danych w oddzielnych kontenerach usługi Azure Blob Storage przez maksymalnie 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych przy użyciu Azure Portal lub programu PowerShell. Możesz również skonfigurować długoterminowe przechowywanie dla [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/long-term-backup-retention-configure.md) , ale jest ono obecnie w ograniczonej publicznej wersji zapoznawczej.
 
-## <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
+## <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 W poniższych sekcjach pokazano, jak za pomocą Azure Portal skonfigurować długoterminowe przechowywanie, wyświetlać kopie zapasowe w długoterminowym przechowywaniu oraz przywracać kopie zapasowe z długoterminowego przechowywania.
 
@@ -32,7 +31,7 @@ W poniższych sekcjach pokazano, jak za pomocą Azure Portal skonfigurować dłu
 
 Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](long-term-retention-overview.md) przez okres dłuższy niż okres przechowywania w warstwie usług.
 
-1. W Azure Portal wybierz serwer SQL, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **Konfigurowanie zasad** zaznacz pole wyboru dla bazy danych, dla której chcesz ustawić lub zmodyfikować długoterminowe zasady przechowywania kopii zapasowych. Jeśli pole wyboru obok bazy danych nie jest zaznaczone, zmiany zasad nie będą miały zastosowania do tej bazy danych.  
+1. W Azure Portal wybierz wystąpienie SQL Server, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **Konfigurowanie zasad** zaznacz pole wyboru dla bazy danych, dla której chcesz ustawić lub zmodyfikować długoterminowe zasady przechowywania kopii zapasowych. Jeśli pole wyboru obok bazy danych nie jest zaznaczone, zmiany zasad nie będą miały zastosowania do tej bazy danych.  
 
    ![Link zarządzania kopiami zapasowymi](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -47,7 +46,7 @@ Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](
 
 ### <a name="view-backups-and-restore-from-a-backup"></a>Wyświetl kopie zapasowe i Przywróć z kopii zapasowej
 
-Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych z zasadami LTR, i przywróć je z tych kopii zapasowych.
+Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych za pomocą zasad oddzielania i Przywróć te kopie zapasowe.
 
 1. W Azure Portal wybierz serwer, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **dostępne kopie zapasowe** wybierz bazę danych, dla której chcesz wyświetlić dostępne kopie zapasowe.
 
@@ -61,7 +60,7 @@ Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych z z
 
    ![Przywracanie](./media/long-term-backup-retention-configure/ltr-restore.png)
 
-1. Kliknij przycisk **OK** , aby przywrócić bazę danych z kopii zapasowej w usłudze Azure SQL Storage do nowej bazy danych.
+1. Kliknij przycisk **OK** , aby przywrócić bazę danych z kopii zapasowej w usłudze Azure Storage do nowej bazy danych.
 
 1. Na pasku narzędzi kliknij ikonę powiadomienia, aby wyświetlić stan zadania przywracania.
 
@@ -79,7 +78,7 @@ Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych z z
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
-W poniższych sekcjach pokazano, jak używać programu PowerShell do konfigurowania długoterminowego przechowywania kopii zapasowych, wyświetlania kopii zapasowych w usłudze Azure SQL Storage oraz przywracania danych z kopii zapasowej w usłudze Azure SQL Storage.
+W poniższych sekcjach pokazano, jak za pomocą programu PowerShell skonfigurować długoterminowe przechowywanie kopii zapasowych, wyświetlać kopie zapasowe w usłudze Azure Storage i przywracać je z kopii zapasowej w usłudze Azure Storage.
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>Role RBAC do zarządzania długoterminowym przechowywaniem
 
@@ -134,12 +133,12 @@ Ten przykład pokazuje, jak wyświetlić listę zasad LTR na serwerze
 
 ```powershell
 # get all LTR policies within a server
-$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | `
-    Get-AzSqlDatabaseLongTermRetentionPolicy -Current
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $serverName | `
+    Get-AzSqlDatabaseLongTermRetentionPolicy
 
 # get the LTR policy of a specific database
 $ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName `
-    -ResourceGroupName $resourceGroup -Current
+    -ResourceGroupName $resourceGroup
 ```
 
 ### <a name="clear-an-ltr-policy"></a>Wyczyść zasady odltr

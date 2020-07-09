@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76119622"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Rozwiązywanie problemów z wadliwą maszyną wirtualną platformy Azure przy użyciu wirtualizacji zagnieżdżonej na platformie Azure
@@ -42,13 +41,13 @@ Aby można było zainstalować wadliwą maszynę wirtualną, maszyna ratownicza 
 
 2.  Po utworzeniu łodziowej maszyny wirtualnej do ratowniczej maszyny wirtualnej.
 
-3.  W Menedżer serwera wybierz pozycję **Zarządzaj** > **Dodaj role i funkcje**.
+3.  W Menedżer serwera wybierz pozycję **Zarządzaj**  >  **Dodaj role i funkcje**.
 
 4.  W sekcji **Typ instalacji** wybierz pozycję **Instalacja oparta na rolach lub oparta na funkcjach**.
 
 5.  Upewnij się, że w sekcji **Wybierz serwer docelowy** została wybrana maszyna wirtualna.
 
-6.  Wybierz >  **rolę funkcji Hyper-V****Dodaj funkcje**.
+6.  Wybierz **rolę funkcji Hyper-V**  >  **Dodaj funkcje**.
 
 7.  W sekcji **funkcje** wybierz pozycję **dalej** .
 
@@ -74,7 +73,7 @@ Aby można było zainstalować wadliwą maszynę wirtualną, maszyna ratownicza 
 
 4.  Otwórz Menedżera funkcji Hyper-V: w **Menedżer serwera**wybierz **rolę funkcji Hyper-v**. Kliknij prawym przyciskiem myszy serwer, a następnie wybierz **Menedżera funkcji Hyper-V**.
 
-5.  W Menedżerze funkcji Hyper-V kliknij prawym przyciskiem myszy ratowniczą maszynę wirtualną, a następnie wybierz pozycję **Nowa** > **maszyna** > wirtualna**dalej**.
+5.  W Menedżerze funkcji Hyper-V kliknij prawym przyciskiem myszy ratowniczą maszynę wirtualną, a następnie wybierz pozycję **Nowa**  >  **maszyna wirtualna**  >  **dalej**.
 
 6.  Wpisz nazwę maszyny wirtualnej, a następnie wybierz przycisk **dalej**.
 

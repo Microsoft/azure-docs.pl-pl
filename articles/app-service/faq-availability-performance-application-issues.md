@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82159987"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące wydajności aplikacji dla Web Apps na platformie Azure
@@ -46,20 +46,20 @@ Za pomocą poleceń cmdlet programu PowerShell można zarządzać App Service ap
 
 Aby wyświetlić dzienniki zdarzeń aplikacji sieci Web:
 
-1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
-2. W menu wybierz kolejno polecenia **Debuguj konsolę** > **cmd**.
+1. Zaloguj się do **witryny sieci Web kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. W menu wybierz kolejno polecenia **Debuguj konsolę**  >  **cmd**.
 3. Wybierz folder **LogFiles** .
-4. Aby wyświetlić dzienniki zdarzeń, wybierz ikonę ołówka obok pozycji **EventLog. XML**.
-5. Aby pobrać dzienniki, uruchom polecenie cmdlet `Save-AzureWebSiteLog -Name webappname`programu PowerShell.
+4. Aby wyświetlić dzienniki zdarzeń, wybierz ikonę ołówka obok pozycji **eventlog.xml**.
+5. Aby pobrać dzienniki, uruchom polecenie cmdlet programu PowerShell `Save-AzureWebSiteLog -Name webappname` .
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Jak mogę przechwycić zrzut pamięci w trybie użytkownika aplikacji sieci Web?
 
 Aby przechwycić zrzut pamięci w trybie użytkownika aplikacji sieci Web:
 
-1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+1. Zaloguj się do **witryny sieci Web kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Wybierz menu **Eksploratora procesów** .
-3. Kliknij prawym przyciskiem myszy proces **w3wp. exe** lub proces WebJob.
-4. Wybierz pozycję **Pobierz zrzut** > pamięci**pełny zrzut**.
+3. Kliknij prawym przyciskiem myszy proces **w3wp.exe** lub proces WebJob.
+4. Wybierz pozycję **Pobierz zrzut pamięci**  >  **pełny zrzut**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Jak mogę wyświetlić informacje na poziomie procesu dla mojej aplikacji sieci Web?
 
@@ -67,11 +67,11 @@ Dostępne są dwie opcje wyświetlania informacji na poziomie procesu dla aplika
 
 *   W witrynie Azure Portal:
     1. Otwórz **Eksploratora procesów** dla aplikacji sieci Web.
-    2. Aby wyświetlić szczegóły, wybierz proces **w3wp. exe** .
+    2. Aby wyświetlić szczegóły, wybierz proces **w3wp.exe** .
 *   W konsoli kudu:
-    1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+    1. Zaloguj się do **witryny sieci Web kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
     2. Wybierz menu **Eksploratora procesów** .
-    3. W przypadku procesu **w3wp. exe** wybierz pozycję **Właściwości**.
+    3. Dla procesu **w3wp.exe** wybierz pozycję **Właściwości**.
 
 ## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Po przejściu do mojej aplikacji pojawia się komunikat "Błąd 403 — ta aplikacja sieci Web została zatrzymana". Jak rozwiązać ten problem?
 
@@ -101,14 +101,14 @@ Domyślnie aplikacje sieci Web są zwalniane, jeśli są bezczynne przez określ
 Aby włączyć śledzenie nieudanych żądań:
 
 1. W Azure Portal przejdź do aplikacji sieci Web.
-3. Wybierz kolejno pozycje **wszystkie ustawienia** > **dzienniki diagnostyki**.
+3. Wybierz kolejno pozycje **wszystkie ustawienia**  >  **dzienniki diagnostyki**.
 4. W przypadku **śledzenia nieudanych żądań**wybierz pozycję **włączone**.
 5. Wybierz pozycję **Zapisz**.
 6. W bloku aplikacja sieci Web wybierz pozycję **Narzędzia**.
 7. Wybierz pozycję **Visual Studio Online**.
 8. Jeśli to ustawienie nie jest **włączone**, wybierz pozycję **włączone**.
 9. Wybierz pozycję **Przejdź**.
-10. Wybierz **plik Web. config**.
+10. Wybierz **Web.config**.
 11. W obszarze System. WebServer Dodaj tę konfigurację (aby przechwycić określony adres URL):
 
     ```xml
@@ -142,8 +142,8 @@ Aby włączyć śledzenie nieudanych żądań:
     </tracing>
     ```
 13. Aby pobrać ślady żądań zakończonych niepowodzeniem, w [portalu](https://portal.azure.com)przejdź do witryny sieci Web.
-15. Wybierz pozycję **Narzędzia** > **kudu** > **Przejdź**.
-18. W menu wybierz kolejno polecenia **Debuguj konsolę** > **cmd**.
+15. Wybierz pozycję **Narzędzia**  >  **kudu**  >  **Przejdź**.
+18. W menu wybierz kolejno polecenia **Debuguj konsolę**  >  **cmd**.
 19. Wybierz folder **LogFiles** , a następnie wybierz folder o nazwie rozpoczynającej się od **W3SVC**.
 20. Aby wyświetlić plik XML, wybierz ikonę ołówka.
 
@@ -174,7 +174,7 @@ Ten problem został rozwiązany w wersji Kestrel 1.0.2. Ta wersja jest uwzględn
 
 W przypadku korzystania z funkcji lokalnej pamięci podręcznej App Service, ma to na przykład strukturę folderu LogFiles i foldery danych dla wystąpienia App Service. Gdy lokalna pamięć podręczna jest używana, podfoldery są tworzone w dziennikach i w folderach danych magazynu. Podfoldery używają wzorca nazewnictwa "unikatowy identyfikator" + sygnatura czasowa. Każdy podfolder odnosi się do wystąpienia maszyny wirtualnej, w którym działa aplikacja sieci Web lub która została uruchomiona.
 
-Aby określić, czy korzystasz z lokalnej pamięci podręcznej, sprawdź kartę **Ustawienia aplikacji** App Service. Jeśli lokalna pamięć podręczna jest używana, ustawienie `WEBSITE_LOCAL_CACHE_OPTION` aplikacji jest ustawione na `Always`.
+Aby określić, czy korzystasz z lokalnej pamięci podręcznej, sprawdź kartę **Ustawienia aplikacji** App Service. Jeśli lokalna pamięć podręczna jest używana, ustawienie aplikacji `WEBSITE_LOCAL_CACHE_OPTION` jest ustawione na `Always` .
 
 Jeśli nie korzystasz z lokalnej pamięci podręcznej i występuje ten problem, Prześlij żądanie pomocy technicznej.
 

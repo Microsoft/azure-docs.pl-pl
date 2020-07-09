@@ -4,15 +4,14 @@ description: Poznaj proces tworzenia testów porównawczych aplikacji na platfor
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 77e542e9bff399e58b433286385864478bcb5076
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6a9089bb13a9b2d7f091d209240bcd7a9e02e148
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75719549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660746"
 ---
 # <a name="benchmarking-a-disk"></a>Przeprowadzenie testu porównawczego dysku
 

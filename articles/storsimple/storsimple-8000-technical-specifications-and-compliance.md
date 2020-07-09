@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965285"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specyfikacje techniczne i zgodność dla urządzenia StorSimple
@@ -43,10 +42,10 @@ Obudowa EBOD używa 580 W module PCM, a Podstawowa obudowa używa 764 W module P
 | Maksymalna inrush |20 A |20 A |
 | Korekcja współczynnika mocy |>95% znamionowy napięcia Wejścia |>95% znamionowy napięcia Wejścia |
 | Harmoniczne |Spełnia wymagania EN61000-3-2 |Spełnia wymagania EN61000-3-2 |
-| Dane wyjściowe |5V z napięciem \@ gotowości 2,0 A |5V z napięciem \@ gotowości 2,7 A |
+| Dane wyjściowe |5V z napięciem gotowości \@ 2,0 A |5V z napięciem gotowości \@ 2,7 A |
 | + 5V \@ 42 A |+ 5V \@ 40 A | |
 | + \@ 38 |+ \@ 38 | |
-| Możliwość podłączenia gorąca |Yes |Yes |
+| Możliwość podłączenia gorąca |Tak |Tak |
 | Przełączniki i diody LED |Przełącznik WŁĄCZania/wyłączania zasilania i czterech diod LED wskaźnika stanu |Przełącznik WŁĄCZania/wyłączania zasilania i sześciu wskaźników stanu |
 | Chłodzenie obudowy |Wentylator osiowy ze zmienną szybkością wentylatorów |Wentylator osiowy ze zmienną szybkością wentylatorów |
 
@@ -81,7 +80,7 @@ Urządzenia StorSimple mają kombinację dysków twardych i dysków SSD dla 8100
 | Użyteczna pojemność dysku twardego |14 TB |36 TB |
 | Użyteczna pojemność dysków SSD |800 GB |2 TB |
 | Łączna pojemność użyteczna * |~ 15 TB |~ 38 TB |
-| Maksymalna pojemność rozwiązania (w tym chmura) |200 TB |500 TB |
+| Maksymalna pojemność rozwiązania (w tym chmura) |200 TB |500 TB |
 
 <sup>* </sup>- *Łączna pojemność do użycia obejmuje pojemność danych, metadanych i buforów. Woluminy przypięte lokalnie można inicjować do 8,5 TB na urządzeniu 8100 lub do 22,5 TB na większym urządzeniu 8600. Aby uzyskać więcej informacji, przejdź do obszaru [StorSimple lokalnie przypięte woluminy](storsimple-8000-local-volume-faq.md).*
 

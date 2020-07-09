@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73161196"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian JIRA i Podręcznik administratora Confluence dla Azure Active Directory
@@ -95,7 +95,7 @@ Aby zainstalować wtyczkę, wykonaj następujące kroki:
 
 2. Przejdź do konsoli administracyjnej JIRA/Confluence i wybierz pozycję **Dodatki**.
 
-3. W centrum pobierania Microsoft Pobierz [wtyczkę usługi Microsoft SAML SSO dla JIRA](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO plugin for Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
+3. W centrum pobierania Microsoft Pobierz [wtyczkę usługi Microsoft SAML SSO dla JIRA](https://www.microsoft.com/download/details.aspx?id=56506) /  [Microsoft SAML SSO plugin for Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    W wynikach wyszukiwania zostanie wyświetlona odpowiednia wersja wtyczki.
 
@@ -113,11 +113,11 @@ Na poniższej ilustracji przedstawiono ekran konfiguracji zarówno w JIRA, jak i
 
 * **Adres URL metadanych**: adres URL umożliwiający uzyskiwanie metadanych Federacji z usługi Azure AD.
 
-* **Identyfikatory**: adres URL, którego usługa Azure AD używa do weryfikacji źródła żądania. Mapuje do elementu **identyfikatora** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako*\<domenę https://: Port>*/.
+* **Identyfikatory**: adres URL, którego usługa Azure AD używa do weryfikacji źródła żądania. Mapuje do elementu **identyfikatora** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /.
 
-* **Adres URL odpowiedzi**: adres URL odpowiedzi w dostawcy tożsamości (dostawcy tożsamości), który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **adresu URL odpowiedzi** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako*\<domenę https://: Port>*/plugins/servlet/SAML/auth.
+* **Adres URL odpowiedzi**: adres URL odpowiedzi w dostawcy tożsamości (dostawcy tożsamości), który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **adresu URL odpowiedzi** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
-* **Adres URL logowania**: adres URL logowania w dostawcy tożsamości, który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **Sign on** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako*\<domenę https://: Port>*/plugins/servlet/SAML/auth.
+* **Adres URL logowania**: adres URL logowania w dostawcy tożsamości, który inicjuje Logowanie przy użyciu protokołu SAML. Jest on mapowany na element **Sign on** w usłudze Azure AD. Wtyczka automatycznie dziedziczy ten adres URL jako https:// *\<domain:port>* /plugins/servlet/SAML/auth.
 
 * **Identyfikator jednostki dostawcy tożsamości**: identyfikator jednostki używany przez dostawcy tożsamości. To pole jest wypełniane, gdy adres URL metadanych zostanie rozwiązany.
 

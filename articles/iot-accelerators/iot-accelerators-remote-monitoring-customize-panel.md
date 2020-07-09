@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187232"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie niestandardowego panelu do pulpitu nawigacyjnego w interfejsie użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
@@ -43,13 +43,13 @@ Aby dodać panel do interfejsu użytkownika sieci Web, należy dodać pliki źr�
 
 Aby rozpocząć pracę, folder **src/Przewodnik/składniki/strony/pulpit nawigacyjny/panele/examplePanel** zawiera pliki definiujące panel, w tym:
 
-**examplePanel. js**
+**examplePanel.js**
 
 [!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Skopiuj folder **src/Instruktaż/Components/Pages/Dashboard/Paneles/examplePanel** do folderu **src/Components/Pages/Dashboard/Paneles** .
 
-Dodaj następujący eksport do pliku **src/Przewodnik/Components/Pages/Dashboard/Paneles/index. js** :
+Dodaj następujący eksport do pliku **src/Przewodnik/Components/Pages/Dashboard/Paneles/index.js** :
 
 ```js
 export * from './examplePanel';
@@ -57,7 +57,7 @@ export * from './examplePanel';
 
 ### <a name="add-the-panel-to-the-dashboard"></a>Dodawanie panelu do pulpitu nawigacyjnego
 
-Zmodyfikuj element **src/Components/Pages/Dashboard/Dashboard. js** , aby dodać panel.
+Zmodyfikuj element **src/Components/Pages/Dashboard/dashboard.js** , aby dodać panel.
 
 Dodaj przykładowy panel do listy importy z paneli:
 
@@ -90,7 +90,7 @@ Jeśli interfejs użytkownika sieci Web nie jest jeszcze uruchomiony lokalnie, u
 npm start
 ```
 
-Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard`. Przejdź do strony **pulpitu nawigacyjnego** , aby wyświetlić nowy panel.
+Poprzednie polecenie uruchamia interfejs użytkownika lokalnie w `http://localhost:3000/dashboard` . Przejdź do strony **pulpitu nawigacyjnego** , aby wyświetlić nowy panel.
 
 ## <a name="next-steps"></a>Następne kroki
 

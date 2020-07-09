@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 93880269edd72477f3aa85b2dbdc9d9f3ec8ef25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079738"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security
 
@@ -21,7 +21,7 @@ Informacje o użytkownikach i rolach w usłudze HDInsight pakiet Enterprise Secu
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Łączenie z klastrem przyłączonym do domeny za pomocą programu VSCode
 
-Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanego przez Apache Ambari, a także połączyć Klaster Apache Hadoop zabezpieczeń przy użyciu nazwy użytkownika domeny (na przykład `user1@contoso.com`:).
+Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanego przez Apache Ambari, a także połączyć Klaster Apache Hadoop zabezpieczeń przy użyciu nazwy użytkownika domeny (na przykład: `user1@contoso.com` ).
 
 1. Otwórz [Visual Studio Code](https://code.visualstudio.com/). Upewnij się, że zainstalowano rozszerzenie [narzędzi Hive & platformy Spark](../hdinsight-for-vscode.md) .
 
@@ -29,7 +29,7 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzaneg
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Łączenie z klastrem przyłączonym do domeny za pomocą środowiska IntelliJ
 
-Normalny klaster można połączyć przy użyciu nazwy użytkownika Ambari Managed, a także połączyć klaster usługi Hadoop z zabezpieczeniami przy użyciu nazwy użytkownika domeny (na `user1@contoso.com`przykład:).
+Normalny klaster można połączyć przy użyciu nazwy użytkownika Ambari Managed, a także połączyć klaster usługi Hadoop z zabezpieczeniami przy użyciu nazwy użytkownika domeny (na przykład: `user1@contoso.com` ).
 
 1. Otwórz środowisko IntelliJ IDEA. Upewnij się, że spełniono wszystkie [wymagania wstępne](../spark/apache-spark-intellij-tool-plugin.md#prerequisites) .
 
@@ -37,7 +37,7 @@ Normalny klaster można połączyć przy użyciu nazwy użytkownika Ambari Manag
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Łączenie z klastrem przyłączonym do domeny za pomocą programu Eclipse
 
-Normalny klaster można połączyć przy użyciu nazwy użytkownika Ambari Managed, a także połączyć klaster usługi Hadoop z zabezpieczeniami przy użyciu nazwy użytkownika domeny (na `user1@contoso.com`przykład:).
+Normalny klaster można połączyć przy użyciu nazwy użytkownika Ambari Managed, a także połączyć klaster usługi Hadoop z zabezpieczeniami przy użyciu nazwy użytkownika domeny (na przykład: `user1@contoso.com` ).
 
 1. Otwórz program Eclipse. Upewnij się, że spełniono wszystkie [wymagania wstępne](../spark/apache-spark-eclipse-tool-plugin.md#prerequisites) .
 
@@ -87,7 +87,7 @@ Aby znaleźć w pełni kwalifikowaną nazwę domeny węzła głównego, użyj in
 
 Klaster usługi HDInsight inny niż ESP ma dwa konta użytkowników, które są tworzone podczas tworzenia klastra:
 
-- **Ambari administrator**: to konto jest również znane jako *użytkownik usługi Hadoop* lub *użytkownik http*. Tego konta można użyć do zalogowania się do Ambari o `https://CLUSTERNAME.azurehdinsight.net`. Można go również użyć do uruchamiania zapytań w widokach Ambari, wykonywania zadań za pośrednictwem zewnętrznych narzędzi (na przykład PowerShell, Templeton, Visual Studio) i uwierzytelniania za pomocą sterownika programu Hive ODBC oraz narzędzi analizy biznesowej (na przykład Excel, Power BI lub Tableau).
+- **Ambari administrator**: to konto jest również znane jako *użytkownik usługi Hadoop* lub *użytkownik http*. Tego konta można użyć do zalogowania się do Ambari o `https://CLUSTERNAME.azurehdinsight.net` . Można go również użyć do uruchamiania zapytań w widokach Ambari, wykonywania zadań za pośrednictwem zewnętrznych narzędzi (na przykład PowerShell, Templeton, Visual Studio) i uwierzytelniania za pomocą sterownika programu Hive ODBC oraz narzędzi analizy biznesowej (na przykład Excel, Power BI lub Tableau).
 
 Klaster usługi HDInsight z protokołem ESP ma trzech nowych użytkowników oprócz administratora Ambari.
 

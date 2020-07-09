@@ -5,15 +5,16 @@ services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ef72b23f804ce7fcdb339ba4c66bcefe39db46
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020816"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480443"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
 
@@ -88,21 +89,21 @@ SQL na żądanie nie ma magazynu lokalnego. w bazach danych są przechowywane ty
 
 Aby zapewnić bezproblemowe środowisko tworzenia zapytań dotyczących danych znajdujących się w plikach w usłudze Data Lake, funkcja SQL na żądanie rozszerza istniejącą funkcję [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , dodając następujące możliwości:
 
-[Kwerenda wielu plików lub folderów](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Kwerenda wielu plików lub folderów](query-data-storage.md#query-multiple-files-or-folders)
 
-[Format pliku PARQUET](develop-storage-files-overview.md#parquet-file-format)
+[Format pliku PARQUET](query-data-storage.md#query-parquet-files)
 
-[Dodatkowe opcje pracy z rozdzielonym tekstem (terminator pola, terminator wiersza, znak ucieczki)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Dodatkowe opcje pracy z rozdzielonym tekstem (terminator pola, terminator wiersza, znak ucieczki)](query-data-storage.md#query-csv-files)
 
-[Odczytaj wybrany podzestaw kolumn](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Odczytaj wybrany podzestaw kolumn](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Wnioskowanie schematu](develop-storage-files-overview.md#schema-inference)
+[Wnioskowanie schematu](query-data-storage.md#schema-inference)
 
-[Funkcja filename](develop-storage-files-overview.md#filename-function)
+[Funkcja filename](query-data-storage.md#filename-function)
 
-[FilePath — funkcja](develop-storage-files-overview.md#filepath-function)
+[FilePath — funkcja](query-data-storage.md#filepath-function)
 
-[Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## <a name="security"></a>Zabezpieczenia
 

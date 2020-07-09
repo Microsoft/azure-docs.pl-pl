@@ -8,10 +8,9 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: e7396ce9fbed46688d59b582f246e5454d063fb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477038"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Azure Red Hat OpenShift
@@ -19,7 +18,7 @@ ms.locfileid: "79477038"
 Aby kompilować i uruchamiać Microsoft Azure aplikacje Red Hat OpenShift, należy wykonać następujące działania:
 
 * Zainstaluj wersję 2.0.65 (lub nowszą) interfejsu wiersza polecenia platformy Azure (lub użyj Azure Cloud Shell).
-* Zarejestruj się, `AROGA` Aby uzyskać dostęp do funkcji i powiązanych dostawców zasobów.
+* Zarejestruj się, aby uzyskać dostęp do `AROGA` funkcji i powiązanych dostawców zasobów.
 * Utwórz dzierżawę usługi Azure Active Directory (Azure AD).
 * Utwórz obiekt aplikacji usługi Azure AD.
 * Utwórz użytkownika usługi Azure AD.
@@ -34,7 +33,7 @@ Na platformie Azure Red Hat OpenShift jest wymagany system 2.0.65 lub nowszy int
 az --version
 ```
 
-Pierwszy wiersz danych wyjściowych będzie miał wersję interfejsu wiersza polecenia, na `azure-cli (2.0.65)`przykład.
+Pierwszy wiersz danych wyjściowych będzie miał wersję interfejsu wiersza polecenia, na przykład `azure-cli (2.0.65)` .
 
 Poniżej znajdują się instrukcje dotyczące [instalowania interfejsu wiersza polecenia platformy Azure,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Jeśli wymagana jest nowa instalacja lub uaktualnienie.
 
@@ -42,7 +41,7 @@ Alternatywnie można użyć [Azure Cloud Shell](https://docs.microsoft.com/azure
 
 ## <a name="register-providers-and-features"></a>Zarejestruj dostawców i funkcje
 
-Przed `Microsoft.ContainerService AROGA` wdrożeniem `Microsoft.Solutions`pierwszego `Microsoft.Compute`klastra `Microsoft.Storage`usługi `Microsoft.KeyVault` Azure `Microsoft.Network` Red Hat OpenShift należy ręcznie zarejestrować funkcję,,, i dostawców.
+`Microsoft.ContainerService AROGA` `Microsoft.Solutions` `Microsoft.Compute` `Microsoft.Storage` `Microsoft.KeyVault` `Microsoft.Network` Przed wdrożeniem pierwszego klastra usługi Azure Red Hat OpenShift należy ręcznie zarejestrować funkcję,,, i dostawców.
 
 Aby ręcznie zarejestrować tych dostawców i funkcji, należy skorzystać z poniższych instrukcji z poziomu powłoki bash, jeśli zainstalowano interfejs wiersza polecenia lub z sesji Azure Cloud Shell (bash) w Azure Portal:
 

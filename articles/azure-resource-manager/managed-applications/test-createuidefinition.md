@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
 ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78250179"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Przetestuj interfejs portalu dla Azure Managed Applications
 
-Po [utworzeniu pliku createUiDefinition. JSON](create-uidefinition-overview.md) dla aplikacji zarządzanej należy przetestować środowisko użytkownika. Aby uprościć testowanie, użyj środowiska piaskownicy ładującego plik w portalu. Nie musisz faktycznie wdrażać zarządzanej aplikacji. Piaskownica prezentuje interfejs użytkownika w bieżącym, pełnym środowisku portalu. Można też użyć skryptu do testowania interfejsu. W tym artykule przedstawiono oba podejścia. Piaskownica jest zalecanym sposobem na wyświetlenie podglądu interfejsu.
+Po [utworzeniu createUiDefinition.jsw pliku](create-uidefinition-overview.md) dla aplikacji zarządzanej należy przetestować środowisko użytkownika. Aby uprościć testowanie, użyj środowiska piaskownicy ładującego plik w portalu. Nie musisz faktycznie wdrażać zarządzanej aplikacji. Piaskownica prezentuje interfejs użytkownika w bieżącym, pełnym środowisku portalu. Można też użyć skryptu do testowania interfejsu. W tym artykule przedstawiono oba podejścia. Piaskownica jest zalecanym sposobem na wyświetlenie podglądu interfejsu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Plik **createUiDefinition. JSON** . Jeśli nie masz tego pliku, skopiuj [plik przykładowy](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
+* **createUiDefinition.js** pliku. Jeśli nie masz tego pliku, skopiuj [plik przykładowy](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -28,7 +27,7 @@ Po [utworzeniu pliku createUiDefinition. JSON](create-uidefinition-overview.md) 
 
    ![Pokaż piaskownicę](./media/test-createuidefinition/show-sandbox.png)
 
-1. Zastąp pustą definicję zawartością pliku createUiDefinition. JSON. Wybierz pozycję **Podgląd**.
+1. Zastąp pustą definicję zawartością createUiDefinition.jspliku. Wybierz pozycję **Podgląd**.
 
    ![Wybierz podgląd](./media/test-createuidefinition/select-preview.png)
 
@@ -54,9 +53,9 @@ Aby przetestować interfejs w portalu, skopiuj jeden z następujących skryptów
 * [Skrypt ładowania po stronie programu PowerShell — moduł platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Skrypt ładowania po stronie interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
-Aby wyświetlić plik interfejsu w portalu, Uruchom pobrany skrypt. Skrypt tworzy konto magazynu w ramach subskrypcji platformy Azure i przekazuje plik createUiDefinition. JSON do konta magazynu. Konto magazynu jest tworzone podczas pierwszego uruchomienia skryptu lub jeśli konto magazynu zostało usunięte. Jeśli konto magazynu już istnieje w ramach subskrypcji platformy Azure, skrypt ponownie używa go. Skrypt otwiera Portal i ładuje plik z konta magazynu.
+Aby wyświetlić plik interfejsu w portalu, Uruchom pobrany skrypt. Skrypt tworzy konto magazynu w ramach subskrypcji platformy Azure i przekazuje createUiDefinition.jsw pliku na konto magazynu. Konto magazynu jest tworzone podczas pierwszego uruchomienia skryptu lub jeśli konto magazynu zostało usunięte. Jeśli konto magazynu już istnieje w ramach subskrypcji platformy Azure, skrypt ponownie używa go. Skrypt otwiera Portal i ładuje plik z konta magazynu.
 
-Podaj lokalizację dla konta magazynu i określ folder, w którym znajduje się plik createUiDefinition. JSON.
+Podaj lokalizację dla konta magazynu i określ folder, w którym znajduje się createUiDefinition.jspliku.
 
 W przypadku programu PowerShell użyj polecenia:
 
@@ -74,7 +73,7 @@ W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
   -a .\100-Marketplace-Sample
 ```
 
-Jeśli plik createUiDefinition. JSON znajduje się w tym samym folderze co skrypt, a konto magazynu zostało już utworzone, nie trzeba podawać tych parametrów.
+Jeśli createUiDefinition.jsw pliku znajduje się w tym samym folderze co skrypt, a konto magazynu zostało już utworzone, nie trzeba podawać tych parametrów.
 
 W przypadku programu PowerShell użyj polecenia:
 
@@ -100,7 +99,7 @@ Jeśli portal zostanie zasunięty na ekran podsumowania, w sekcji dane wyjściow
 
 ## <a name="test-your-solution-files"></a>Testowanie plików rozwiązania
 
-Po zweryfikowaniu, że interfejs portalu działa zgodnie z oczekiwaniami, należy sprawdzić, czy plik createUiDefinition jest prawidłowo zintegrowany z plikiem mainTemplate. JSON. Test skryptu weryfikacji można uruchomić w celu przetestowania zawartości plików rozwiązania, w tym pliku createUiDefinition. Skrypt weryfikuje składnię JSON, wyszukuje wyrażenia regularne w polach tekstowych i sprawdza, czy wartości wyjściowe interfejsu portalu pasują do parametrów szablonu. Aby uzyskać informacje na temat uruchamiania tego skryptu, zobacz [run static Validation checks for templates](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
+Po zweryfikowaniu, że interfejs portalu działa zgodnie z oczekiwaniami, należy sprawdzić, czy plik createUiDefinition jest prawidłowo zintegrowany z mainTemplate.jsem pliku. Test skryptu weryfikacji można uruchomić w celu przetestowania zawartości plików rozwiązania, w tym pliku createUiDefinition. Skrypt weryfikuje składnię JSON, wyszukuje wyrażenia regularne w polach tekstowych i sprawdza, czy wartości wyjściowe interfejsu portalu pasują do parametrów szablonu. Aby uzyskać informacje na temat uruchamiania tego skryptu, zobacz [run static Validation checks for templates](https://github.com/Azure/azure-quickstart-templates/tree/master/test).
 
 ## <a name="next-steps"></a>Następne kroki
 

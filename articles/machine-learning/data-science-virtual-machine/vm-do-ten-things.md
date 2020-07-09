@@ -5,16 +5,16 @@ description: Wykonuj zadania eksploracji i modelowania danych w Data Science Vir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 7d9aced42efefc8651605be44f0091b2f4f2815e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994087"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959283"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dziesięć rzeczy, które możesz wykonać w Data Science Virtual Machine systemu Windows
 
@@ -55,24 +55,24 @@ W przypadku języka R można użyć środowiska IDE, takiego jak RStudio, które
 
 W przypadku języka Python można użyć środowiska IDE, takiego jak Visual Studio Community Edition, na którym jest wstępnie zainstalowane rozszerzenie Python Tools for Visual Studio (PTVS). Domyślnie tylko język Python 3,6, główne środowisko Conda jest skonfigurowany w PTVS. Aby włączyć Anaconda Python 2,7, wykonaj następujące czynności:
 
-1. Twórz środowiska niestandardowe dla każdej wersji, przechodząc do **narzędzi** > **Python Tools** > **Python**Environments, a następnie wybierając pozycję **+ Custom** w programie Visual Studio Community Edition.
+1. Twórz środowiska niestandardowe dla każdej wersji, przechodząc do **narzędzi**  >  **Python Tools**  >  **Python**Environments, a następnie wybierając pozycję **+ Custom** w programie Visual Studio Community Edition.
 1. Podaj opis i Ustaw ścieżkę prefiksu środowiska jako **c:\anaconda\envs\python2** dla anaconda Python 2,7.
-1. Wybierz pozycję **Autowykrywanie** > **Zastosuj** , aby zapisać środowisko.
+1. Wybierz pozycję **Autowykrywanie**  >  **Zastosuj** , aby zapisać środowisko.
 
 Zapoznaj się z [dokumentacją PTVS](https://aka.ms/ptvsdocs) , aby uzyskać szczegółowe informacje na temat tworzenia środowisk języka Python.
 
-Teraz można utworzyć nowy projekt w języku Python. Przejdź do pozycji **plik** > **Nowy** > **projekt** > **Python** i wybierz typ kompilowanej aplikacji języka Python. Możesz ustawić środowisko Python dla bieżącego projektu na żądaną wersję (Python 2,7 lub 3,6), klikając prawym przyciskiem myszy **środowiska Python** , a następnie wybierając polecenie **Dodaj/Usuń środowiska Python**. Więcej informacji na temat pracy z programem PTVS można znaleźć w [dokumentacji produktu](https://aka.ms/ptvsdocs).
+Teraz można utworzyć nowy projekt w języku Python. Przejdź do pozycji **plik**  >  **Nowy**  >  **projekt**  >  **Python** i wybierz typ kompilowanej aplikacji języka Python. Możesz ustawić środowisko Python dla bieżącego projektu na żądaną wersję (Python 2,7 lub 3,6), klikając prawym przyciskiem myszy **środowiska Python** , a następnie wybierając polecenie **Dodaj/Usuń środowiska Python**. Więcej informacji na temat pracy z programem PTVS można znaleźć w [dokumentacji produktu](https://aka.ms/ptvsdocs).
 
 ## <a name="use-jupyter-notebooks"></a>Korzystanie z notesów programu Jupyter
 Jupyter Notebook udostępnia środowisko IDE oparte na przeglądarce do eksploracji i modelowania danych. W notesie Jupyter można używać języka Python 2, Python 3 lub R (zarówno typu open source, jak i Microsoft R Server).
 
 Aby uruchomić Jupyter Notebook, wybierz ikonę **Jupyter Notebook** w menu **Start** lub na pulpicie. W wierszu polecenia DSVM można także uruchomić polecenie ```jupyter notebook``` z katalogu, w którym znajdują się już notesy, lub w którym chcesz utworzyć nowe notesy.  
 
-Po rozpoczęciu Jupyter przejdź do `/notebooks` katalogu, w którym znajdują się przykładowe notesy, które są wstępnie SPAKOWANE do DSVM. Co możesz teraz zrobić:
+Po rozpoczęciu Jupyter przejdź do `/notebooks` katalogu, w którym znajdują się przykładowe notesy, które są wstępnie spakowane do DSVM. Co możesz teraz zrobić:
 
 * Wybierz Notes, aby wyświetlić kod.
 * Uruchom każdą komórkę, wybierając SHIFT + ENTER.
-* Uruchom cały Notes, wybierając pozycję **Cell** > **przebieg**komórki.
+* Uruchom cały Notes, wybierając pozycję **Cell**  >  **przebieg**komórki.
 * Utwórz nowy Notes, wybierając ikonę Jupyter (w lewym górnym rogu), wybierając przycisk **Nowy** po prawej stronie, a następnie wybierając język notesu (nazywany także jądrami).   
 
 > [!NOTE]
@@ -129,19 +129,19 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Tworzenie i operacjonalizować modeli R
-Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto kroki do wykonania:
+Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto odpowiednie kroki:
 
-1. Utwórz plik Settings. JSON, aby podać identyfikator obszaru roboczego i token uwierzytelniania. 
+1. Utwórz settings.jsw pliku, aby podać identyfikator obszaru roboczego i token uwierzytelniania. 
 2. Napisz otokę dla funkcji przewidywania modelu.
 3. Wywołaj ```publishWebService``` w bibliotece Azure Machine Learning, aby przekazać otokę funkcji.  
 
 Użyj poniższej procedury i fragmentów kodu, aby skonfigurować, skompilować, opublikować i korzystać z modelu jako usługi sieci Web w Azure Machine Learning.
 
-#### <a name="set-up"></a>Konfigurowanie
+#### <a name="set-up"></a>Konfiguruj
 
-Utwórz plik Settings. JSON w katalogu o nazwie ```.azureml``` w katalogu macierzystym. Wprowadź parametry w obszarze roboczym Azure Machine Learning.
+Utwórz settings.jsw pliku w katalogu o nazwie ```.azureml``` w katalogu macierzystym. Wprowadź parametry w obszarze roboczym Azure Machine Learning.
 
-Oto Struktura pliku Settings. JSON:
+Oto settings.jsw strukturze pliku:
 
 ```json
 {"workspace":{
@@ -171,7 +171,7 @@ ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema =
 ```
 
 #### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Korzystaj z modelu wdrożonego w Azure Machine Learning
-Aby korzystać z modelu z aplikacji klienckiej, użyj biblioteki Azure Machine Learning, aby wyszukać opublikowaną usługę sieci Web według nazwy. Użyj wywołania `services` interfejsu API, aby określić punkt końcowy. Następnie wystarczy wywołać `consume` funkcję i przekazać ją do przewidywania.
+Aby korzystać z modelu z aplikacji klienckiej, użyj biblioteki Azure Machine Learning, aby wyszukać opublikowaną usługę sieci Web według nazwy. Użyj `services` wywołania interfejsu API, aby określić punkt końcowy. Następnie wystarczy wywołać `consume` funkcję i przekazać ją do przewidywania.
 
 Użyj poniższego kodu, aby wykorzystać model opublikowany jako usługa sieci Web Azure Machine Learning:
 
@@ -248,7 +248,9 @@ DSVM jest ładowany z narzędziami klienckimi w wierszu polecenia i na graficzny
 
 Aby pobrać kod z repozytorium GitHub, użyj ```git clone``` polecenia. Na przykład aby pobrać repozytorium analizy danych opublikowane przez firmę Microsoft w bieżącym katalogu, możesz uruchomić następujące polecenie w narzędziu git bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 W programie Visual Studio można wykonać tę samą operację klonowania. Poniższy zrzut ekranu pokazuje, jak uzyskać dostęp do narzędzi git i GitHub w programie Visual Studio:
 
@@ -266,7 +268,7 @@ Magazyn obiektów blob platformy Azure to niezawodna, ekonomiczna usługa magazy
 
    ![Zrzut ekranu procesu tworzenia konta magazynu w Azure Portal](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Upewnij się, że narzędzie wiersza polecenia AzCopy jest wstępnie zainstalowane: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Katalog zawierający plik AzCopy. exe znajduje się już w zmiennej środowiskowej PATH, dlatego można uniknąć wpisywania pełnej ścieżki polecenia podczas uruchamiania tego narzędzia. Więcej informacji o narzędziu AzCopy można znaleźć w [dokumentacji AzCopy](../../storage/common/storage-use-azcopy.md).
+* Upewnij się, że narzędzie wiersza polecenia AzCopy jest wstępnie zainstalowane: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . Katalog zawierający azcopy.exe znajduje się już w zmiennej środowiskowej PATH, dlatego można uniknąć wpisywania pełnej ścieżki polecenia podczas uruchamiania tego narzędzia. Więcej informacji o narzędziu AzCopy można znaleźć w [dokumentacji AzCopy](../../storage/common/storage-use-azcopy.md).
 * Uruchom narzędzie Eksplorator usługi Azure Storage. Można go pobrać z [witryny sieci web Eksplorator usługi Storage](https://storageexplorer.com/). 
 
    ![Zrzut ekranu przedstawiający Eksplorator usługi Azure Storage uzyskiwania dostępu do konta magazynu](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -275,7 +277,9 @@ Magazyn obiektów blob platformy Azure to niezawodna, ekonomiczna usługa magazy
 
 Aby przenieść dane między lokalnymi plikami i magazynem obiektów blob, można użyć AzCopy w wierszu polecenia lub w programie PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Zastąp **C:\MyFolder** ścieżką, w której jest przechowywany plik, **mojekontomagazynu** z nazwą konta magazynu obiektów BLOB **, z** nazwą kontenera i **kluczem konta magazynu** za pomocą klucza dostępu do magazynu obiektów BLOB. Poświadczenia konta magazynu można znaleźć w [Azure Portal](https://portal.azure.com).
 
@@ -298,8 +302,8 @@ Po uruchomieniu polecenia AzCopy w celu skopiowania do obiektu blob platformy Az
 
 Możesz również przekazać dane z lokalnego pliku na maszynę wirtualną przy użyciu Eksplorator usługi Azure Storage:
 
-* Aby przekazać dane do kontenera, wybierz kontener docelowy i wybierz przycisk **Przekaż** . ![Zrzut ekranu przycisku przekazywania w Eksplorator usługi Azure Storage](./media/vm-do-ten-things/storage-accounts.png)
-* Wybierz wielokropek (**...**) z prawej strony pola **pliki** , wybierz co najmniej jeden plik do przekazania z systemu plików, a następnie wybierz pozycję **Przekaż** , aby rozpocząć przekazywanie plików. ![Zrzut ekranu przedstawiający okno dialogowe przekazywanie plików](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Aby przekazać dane do kontenera, wybierz kontener docelowy i wybierz przycisk **Przekaż** . ![ Zrzut ekranu przycisku przekazywania w Eksplorator usługi Azure Storage](./media/vm-do-ten-things/storage-accounts.png)
+* Wybierz wielokropek (**...**) z prawej strony pola **pliki** , wybierz co najmniej jeden plik do przekazania z systemu plików, a następnie wybierz pozycję **Przekaż** , aby rozpocząć przekazywanie plików. ![ Zrzut ekranu przedstawiający okno dialogowe przekazywanie plików](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-machine-learning-reader-module"></a>Odczytywanie danych z obiektu blob platformy Azure: Machine Learning modułu czytnika
 
@@ -436,7 +440,7 @@ Po przesłaniu zapytania do serwera na diagramie zostanie wyświetlony stan Twoj
 
 Po pozyskaniu zestawu danych w Azure Data Lake można użyć [języka U-SQL](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) do wykonywania zapytań i eksplorowania danych. Język U-SQL jest podobny do T-SQL, ale łączy niektóre funkcje języka C#, aby użytkownicy mogli pisać niestandardowe moduły i funkcje zdefiniowane przez użytkownika. Możesz użyć skryptów w poprzednim kroku.
 
-Po przesłaniu zapytania do serwera tripdata_summary. Plik CSV jest wyświetlany w Eksploratorze Azure Data Lake. Możesz wyświetlić podgląd danych, klikając plik prawym przyciskiem myszy.
+Po przesłaniu zapytania do serwera tripdata_summary.CSV pojawia się w Eksploratorze Azure Data Lake. Możesz wyświetlić podgląd danych, klikając plik prawym przyciskiem myszy.
 
 ![Zrzut ekranu przedstawiający plik CSV w Eksploratorze Data Lake](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -457,7 +461,7 @@ Aby uzyskać dostęp do Azure Cosmos DB z DSVM, należy wykonać następujące c
 1. Azure Cosmos DB Python SDK jest już zainstalowany na DSVM. Aby go zaktualizować, uruchom ```pip install pydocumentdb --upgrade``` polecenie w wierszu polecenia.
 2. Utwórz konto Azure Cosmos DB i bazę danych z [Azure Portal](https://portal.azure.com).
 3. Pobierz narzędzie do migracji danych Azure Cosmos DB z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=53595) i Wyodrębnij je do wybranego katalogu.
-4. Importuj dane JSON (Volcano Data) przechowywane w [publicznym obiekcie blob](https://https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) do Azure Cosmos DB z następującymi parametrami polecenia do narzędzia migracji. (Użyj programu dtui. exe z katalogu, w którym zainstalowano narzędzie do migracji danych Azure Cosmos DB). Wprowadź lokalizację źródłową i docelową z następującymi parametrami:
+4. Importuj dane JSON (Volcano Data) przechowywane w [publicznym obiekcie blob](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) do Azure Cosmos DB z następującymi parametrami polecenia do narzędzia migracji. (Użyj dtui.exe z katalogu, w którym zainstalowano narzędzie do migracji danych Azure Cosmos DB). Wprowadź lokalizację źródłową i docelową z następującymi parametrami:
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
@@ -466,11 +470,11 @@ Po zaimportowaniu danych możesz przejść do Jupyter i otworzyć Notes zatytuł
 ## <a name="use-power-bi-reports-and-dashboards"></a>Korzystanie z Power BI raportów i pulpitów nawigacyjnych 
 Możesz wizualizować plik JSON Volcano z powyższego przykładu Azure Cosmos DB w Power BI Desktop, aby uzyskać wizualny wgląd w dane. Szczegółowe kroki są dostępne w [artykule Power BI](../../cosmos-db/powerbi-visualize.md). Poniżej przedstawiono ogólne czynności:
 
-1. Otwórz program Power BI Desktop i wybierz pozycję **Pobierz dane**. Określ adres URL jako: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
+1. Otwórz program Power BI Desktop i wybierz pozycję **Pobierz dane**. Określ adres URL jako: `https://cahandson.blob.core.windows.net/samples/volcano.json` .
 2. Powinny zostać wyświetlone rekordy JSON zaimportowane jako lista. Przekonwertuj listę na tabelę, aby Power BI mogła z nią korzystać.
 4. Rozwiń kolumny, wybierając ikonę rozwijania (strzałka).
 5. Zauważ, że lokalizacja jest polem **rekordu** . Rozwiń rekord i wybierz tylko współrzędne. **Koordynuje** to kolumna listy.
-6. Dodaj nową kolumnę, aby przekonwertować kolumnę współrzędnej listy na kolumnę **LatLong** rozdzieloną przecinkami. Połącz dwa elementy w polu listy współrzędnych przy użyciu formuły ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
+6. Dodaj nową kolumnę, aby przekonwertować kolumnę współrzędnej listy na kolumnę **LatLong** rozdzieloną przecinkami. Połącz dwa elementy w polu listy współrzędnych przy użyciu formuły ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})``` .
 7. Przekonwertuj kolumnę **podniesienia uprawnień** na wartość dziesiętną i wybierz przyciski **Zamknij** i **Zastosuj** .
 
 Zamiast kroków poprzedzających, można wkleić poniższy kod. Skryptuje kroki używane w Edytor zaawansowany w Power BI, aby zapisać przekształcenia danych w języku zapytań.
@@ -508,7 +512,7 @@ Analogicznie, zapotrzebowanie na wydajność przetwarzania maszyn wirtualnych mo
 ## <a name="add-more-tools"></a>Dodaj więcej narzędzi
 Narzędzia wbudowane w DSVM mogą dotyczyć wielu typowych potrzeb związanych z analizą danych. Pozwala to zaoszczędzić czas, ponieważ nie trzeba instalować i konfigurować swoich środowisk po jednym. Pozwala to również zaoszczędzić pieniądze, ponieważ płacisz tylko za zasoby, których używasz.
 
-Aby ulepszyć środowisko analityczne, można użyć innych usług Azure Data and Analytics w tym artykule. W niektórych przypadkach mogą być potrzebne dodatkowe narzędzia, w tym niektóre własnościowe narzędzia partnerskie. Na maszynie wirtualnej masz pełny dostęp administracyjny, aby zainstalować potrzebne nowe narzędzia. Można także zainstalować dodatkowe pakiety w języku Python i języku R, które nie są wstępnie zainstalowane. W przypadku języka Python można użyć jednego ```conda``` lub ```pip```. W przypadku języka r możesz użyć ```install.packages()``` programu w konsoli języka r lub użyć środowiska IDE, a następnie wybrać pozycję **pakiety** > **Zainstaluj pakiety**.
+Aby ulepszyć środowisko analityczne, można użyć innych usług Azure Data and Analytics w tym artykule. W niektórych przypadkach mogą być potrzebne dodatkowe narzędzia, w tym niektóre własnościowe narzędzia partnerskie. Na maszynie wirtualnej masz pełny dostęp administracyjny, aby zainstalować potrzebne nowe narzędzia. Można także zainstalować dodatkowe pakiety w języku Python i języku R, które nie są wstępnie zainstalowane. W przypadku języka Python można użyć jednego ```conda``` lub ```pip``` . W przypadku języka r możesz użyć ```install.packages()``` programu w konsoli języka r lub użyć środowiska IDE, a następnie wybrać pozycję **pakiety**  >  **Zainstaluj pakiety**.
 
 ## <a name="deep-learning"></a>Uczenie głębokie
 

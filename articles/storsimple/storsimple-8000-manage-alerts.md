@@ -3,15 +3,15 @@ title: Wyświetlanie alertów dla urządzenia z serii StorSimple 8000 i zarządz
 description: Opisuje warunki i ważność alertów StorSimple, sposób konfigurowania powiadomień o alertach oraz sposób używania usługi StorSimple Menedżer urządzeń do zarządzania alertami.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36f416183bd44180bee59142714e924e0ac8fefe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830047"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Używanie usługi StorSimple Menedżer urządzeń do wyświetlania alertów StorSimple i zarządzania nimi
 
@@ -48,11 +48,11 @@ Możesz wybrać, czy chcesz otrzymywać powiadomienia pocztą e-mail o warunkach
 > [!NOTE]
 > Możesz wprowadzić maksymalnie 20 adresów e-mail na urządzenie.
 
-Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy wystąpi alert krytyczny. Komunikaty będą wysyłane z *StorSimple-Alerts-\@noreply mail.windowsazure.com* i opisują warunek alertu. Adresaci mogą kliknąć przycisk **Anuluj subskrypcję** , aby usunąć siebie z listy powiadomień e-mail.
+Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy wystąpi alert krytyczny. Komunikaty będą wysyłane z *StorSimple-Alerts-noreply \@ mail.windowsazure.com* i opisują warunek alertu. Adresaci mogą kliknąć przycisk **Anuluj subskrypcję** , aby usunąć siebie z listy powiadomień e-mail.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Aby włączyć powiadomienia e-mail o alertach dla urządzenia
 1. Przejdź do usługi Menedżer urządzeń StorSimple. Z listy urządzeń wybierz i kliknij urządzenie, które chcesz skonfigurować.
-2. Przejdź do pozycji **Ustawienia** > **Ogólne** dla urządzenia.
+2. Przejdź do pozycji **Ustawienia**  >  **Ogólne** dla urządzenia.
 
    ![Blok alerty](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
@@ -60,7 +60,7 @@ Po włączeniu powiadomienia e-mail dla urządzenia członkowie listy powiadomie
    
    1. W polu **Wyślij wiadomość e-mail z powiadomieniem** wybierz pozycję **tak**.
    2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **tak** , aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
-   3. W polu **inni adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś\@Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie. 
+   3. W polu **inni adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś \@ Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie. 
       
 3. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Menedżer urządzeń będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
 
@@ -120,6 +120,7 @@ W poniższej tabeli wymieniono niektóre z Microsoft Azure StorSimple alertów, 
 * [Alerty wydajności](#performance-alerts)
 * [Alerty zabezpieczeń](#security-alerts)
 * [Alerty pakietu pomocy technicznej](#support-package-alerts)
+* [Alerty środowiska obudowy](#enclosure-environment-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alerty łączności w chmurze
 
@@ -152,13 +153,13 @@ W przypadku niepowodzenia łączności z chmurą na urządzeniu produkcyjnym Sto
 | Urządzenie przełączone w tryb failover do <> *nazwy urządzenia* . |Inna/nieznana przyczyna. |Jeśli zobaczysz dużą liczbę tych alertów, skontaktuj się z firmą pomoc techniczna firmy Microsoft. Po rozwiązaniu problemu Wyczyść ten alert na stronie alertów. |
 | Krytyczna usługa urządzenia zgłasza stan jako niepowodzenie. |Błąd usługi ścieżki datapath. |Skontaktuj się pomoc techniczna firmy Microsoft w celu uzyskania pomocy. |
 | Wirtualny adres IP dla interfejsu sieciowego <*Data #*> zgłasza stan jako niepowodzenie. |Inna/nieznana przyczyna. |Czasami warunki tymczasowe mogą spowodować te alerty. W takim przypadku ten alert zostanie automatycznie wyczyszczony po pewnym czasie. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft. |
-| Wirtualny adres IP dla interfejsu sieciowego <*Data #*> zgłasza stan jako niepowodzenie. |Nazwa interfejsu: <*Data #*> adres `<IP address>` IP nie może zostać przełączony w tryb online, ponieważ w sieci wykryto zduplikowany adres IP. |Upewnij się, że zduplikowany adres IP został usunięty z sieci lub ponownie skonfiguruj interfejs przy użyciu innego adresu IP. |
+| Wirtualny adres IP dla interfejsu sieciowego <*Data #*> zgłasza stan jako niepowodzenie. |Nazwa interfejsu: <*Data #*> adres IP `<IP address>` nie może zostać przełączony w tryb online, ponieważ w sieci wykryto zduplikowany adres IP. |Upewnij się, że zduplikowany adres IP został usunięty z sieci lub ponownie skonfiguruj interfejs przy użyciu innego adresu IP. |
 
 ### <a name="disaster-recovery-alerts"></a>Alerty odzyskiwania po awarii
 
 | Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Operacje odzyskiwania nie mogą przywrócić wszystkich ustawień dla tej usługi. Dane konfiguracji urządzenia są w niespójnym stanie dla niektórych urządzeń. |Wykryto niespójność danych po odzyskiwaniu po awarii. |Zaszyfrowane dane w usłudze nie są zsynchronizowane z programem na urządzeniu. Autoryzuj urządzenie <*nazwę urządzenia*> z StorSimple Menedżer urządzeń, aby rozpocząć proces synchronizacji. Użyj interfejsu programu Windows PowerShell dla StorSimple, aby uruchomić `Restore-HcsmEncryptedServiceData` *nazwę urządzenia* <> polecenie cmdlet, dostarczając stare hasło jako dane wejściowe tego polecenia cmdlet w celu przywrócenia profilu zabezpieczeń. Następnie uruchom polecenie `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet, aby zaktualizować klucz szyfrowania danych usługi. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
+| Operacje odzyskiwania nie mogą przywrócić wszystkich ustawień dla tej usługi. Dane konfiguracji urządzenia są w niespójnym stanie dla niektórych urządzeń. |Wykryto niespójność danych po odzyskiwaniu po awarii. |Zaszyfrowane dane w usłudze nie są zsynchronizowane z programem na urządzeniu. Autoryzuj urządzenie <*nazwę urządzenia*> z StorSimple Menedżer urządzeń, aby rozpocząć proces synchronizacji. Użyj interfejsu programu Windows PowerShell dla StorSimple, aby uruchomić `Restore-HcsmEncryptedServiceData` *nazwę urządzenia* <> polecenie cmdlet, dostarczając stare hasło jako dane wejściowe tego polecenia cmdlet w celu przywrócenia profilu zabezpieczeń. Następnie uruchom `Invoke-HcsmServiceDataEncryptionKeyChange` polecenie cmdlet, aby zaktualizować klucz szyfrowania danych usługi. Po wykonaniu odpowiedniej akcji wyczyść ten alert na stronie alertów. |
 
 ### <a name="hardware-alerts"></a>Alerty sprzętu
 
@@ -192,9 +193,9 @@ W przypadku niepowodzenia łączności z chmurą na urządzeniu produkcyjnym Sto
 | Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
 | Nie można uruchomić usług StorSimple. |Błąd ścieżki datapath |Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
-| Wykryto zduplikowany adres IP dla elementu "Data0". | |System wykrył konflikt dla adresu IP "10.0.0.1". Zasób sieciowy "Data0" na urządzeniu * \<device1>* jest w trybie offline. Upewnij się, że ten adres IP nie jest używany przez żadną inną jednostkę w tej sieci. Aby rozwiązać problemy z siecią, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Skontaktuj się z administratorem sieci, aby uzyskać pomoc w rozwiązaniu tego problemu. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
-| Adres IPv4 (lub IPv6) dla elementu "Data0" jest w trybie offline. | |Zasób sieciowy "Data0" o adresie IP "10.0.0.1". i długość prefiksu "22" na urządzeniu * \<device1>* jest w trybie offline. Upewnij się, że porty przełącznika, do których jest podłączony ten interfejs są operacyjne. Aby rozwiązać problemy z siecią, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Nie można nawiązać połączenia z usługą uwierzytelniania. |Błąd ścieżki datapath |URLthat jest używany do uwierzytelniania jest nieosiągalny. Upewnij się, że reguły zapory zawierają wzorce URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów URL w Azure Portal, przejdź\/do protokołu https:/aka.MS/SS-8000-Network-reqs. W przypadku korzystania z chmury Azure Government przejdź do wzorca adresu URL w protokole https:\//aka.MS/ss8000-gov-Network-reqs.|
+| Wykryto zduplikowany adres IP dla elementu "Data0". | |System wykrył konflikt dla adresu IP "10.0.0.1". Zasób sieciowy "Data0" na urządzeniu jest w *\<device1>* trybie offline. Upewnij się, że ten adres IP nie jest używany przez żadną inną jednostkę w tej sieci. Aby rozwiązać problemy z siecią, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Skontaktuj się z administratorem sieci, aby uzyskać pomoc w rozwiązaniu tego problemu. Jeśli problem będzie się powtarzał, skontaktuj się z pomoc techniczna firmy Microsoft. |
+| Adres IPv4 (lub IPv6) dla elementu "Data0" jest w trybie offline. | |Zasób sieciowy "Data0" o adresie IP "10.0.0.1". i długość prefiksu "22" na urządzeniu *\<device1>* jest w trybie offline. Upewnij się, że porty przełącznika, do których jest podłączony ten interfejs są operacyjne. Aby rozwiązać problemy z siecią, przejdź do [obszaru Rozwiązywanie problemów za pomocą polecenia cmdlet Get-adapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Nie można nawiązać połączenia z usługą uwierzytelniania. |Błąd ścieżki datapath |URLthat jest używany do uwierzytelniania jest nieosiągalny. Upewnij się, że reguły zapory zawierają wzorce URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów URL w Azure Portal, przejdź do protokołu https: \/ /aka.MS/SS-8000-Network-reqs. W przypadku korzystania z chmury Azure Government przejdź do wzorca adresu URL w protokole https: \/ /aka.MS/ss8000-gov-Network-reqs.|
 
 ### <a name="performance-alerts"></a>Alerty wydajności
 
@@ -219,7 +220,12 @@ W przypadku niepowodzenia łączności z chmurą na urządzeniu produkcyjnym Sto
 |:--- |:--- |:--- |
 | Tworzenie pakietu dla pomocy technicznej nie powiodło się. |StorSimple nie może wygenerować pakietu. |Spróbuj ponownie wykonać tę operację. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft. Po rozwiązaniu problemu Wyczyść ten alert na stronie alertów. |
 
+### <a name="enclosure-environment-alerts"></a>Alerty środowiska obudowy
+
+| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+|:--- |:--- |:--- |
+| Czujnik temperatury otoczenia składnika sprzętowego zgłasza stan jako niepowodzenie.  | Typ obudowy: Obudowa główna | Ten alert jest wyzwalany, gdy otoczenia poza temperaturą StorSimple przekracza akceptowalny zakres. Sprawdź otoczenia poza temperaturą lub przepływem powietrza z oddziału AC w centrum danych. Gdy temperatura powróci do normalnego, alert zostanie automatycznie wyczyszczony po upływie pewnego czasu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft.   |
+
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o [błędach StorSimple i rozwiązywaniu problemów z wdrażaniem urządzeń](storsimple-8000-troubleshoot-deployment.md).
-

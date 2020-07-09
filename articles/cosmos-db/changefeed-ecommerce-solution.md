@@ -4,15 +4,15 @@ description: W tym artykule opisano, jak źródło danych zmian może być używ
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513513"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263011"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Użyj kanału informacyjnego zmiany Azure Cosmos DB, aby wizualizować analizę danych w czasie rzeczywistym
 
@@ -28,7 +28,7 @@ Interesuje Cię Obejrzyj film wideo dotyczący rozwiązania przed rozpoczęciem 
 ## <a name="solution-components"></a>Składniki rozwiązania
 Na poniższym diagramie przedstawiono przepływ danych i składniki wykorzystywane w rozwiązaniu:
 
-![Wizualizacja projektu](./media/changefeed-ecommerce-solution/project-visual.png)
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Wizualizacja projektu" border="false":::
  
 1. **Generowanie danych:** Symulator danych służy do generowania danych detalicznych, które reprezentują zdarzenia, takie jak Użytkownik przeglądający element, Dodawanie elementu do swojego koszyka i kupowanie elementu. Można wygenerować duży zestaw przykładowych danych przy użyciu generatora danych. Wygenerowane przykładowe dane zawierają dokumenty w następującym formacie:
    
@@ -78,9 +78,9 @@ Utwórz zasoby platformy Azure — Azure Cosmos DB, konto magazynu, centrum zdar
    Set-ExecutionPolicy Unrestricted 
    ```
 
-2. Z repozytorium GitHub pobranego w poprzednim kroku przejdź do folderu **Azure Resource Manager** i Otwórz plik o nazwie **Parameters. JSON** .  
+2. Z repozytorium GitHub pobranego w poprzednim kroku przejdź do folderu **Azure Resource Manager** , a następnie otwórz plik o nazwie **parameters.jsna** pliku.  
 
-3. Podaj wartości dla cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name i parametrów, jak wskazano w pliku **Parameters. JSON** . Musisz użyć nazw przystosowanych do każdego z zasobów później.  
+3. Podaj wartości dla cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name i parametrów, jak wskazano w **parameters.js** pliku. Musisz użyć nazw przystosowanych do każdego z zasobów później.  
 
 4. W programie **Windows PowerShell**przejdź do folderu **Azure Resource Manager** i uruchom następujące polecenie:
 
@@ -149,7 +149,7 @@ Po utworzeniu nowego dokumentu lub zmodyfikowaniu bieżącego dokumentu w konten
 
 2. Kliknij prawym przyciskiem myszy plik o nazwie **ChangeFeedLabSolution. sln** i wybierz polecenie **Otwórz za pomocą programu Visual Studio**.  
 
-3. Przejdź do pliku **Local. Settings. JSON** w programie Visual Studio. Następnie należy użyć zarejestrowanych wcześniej wartości, aby wypełnić puste.  
+3. Przejdź do **local.settings.js** w programie Visual Studio. Następnie należy użyć zarejestrowanych wcześniej wartości, aby wypełnić puste.  
 
 4. Przejdź do **ChangeFeedProcessor.cs**. W parametrach funkcji **Run** wykonaj następujące czynności:  
 
@@ -165,11 +165,11 @@ Aby dowiedzieć się, jak kanał informacyjny zmiany przetwarza nowe akcje w wit
 
 1. Przejdź z powrotem do repozytorium w Eksploratorze plików, a następnie kliknij prawym przyciskiem myszy **ChangeFeedFunction. sln** , aby otworzyć go ponownie w nowym oknie programu Visual Studio.  
 
-2. Przejdź do pliku **App. config** . W `<appSettings>` bloku Dodaj punkt końcowy i unikatowy **klucz podstawowy** , który został wcześniej pobrany z konta Azure Cosmos DB.  
+2. Przejdź do pliku **App.config** . W `<appSettings>` bloku Dodaj punkt końcowy i unikatowy **klucz podstawowy** , który został wcześniej pobrany z konta Azure Cosmos DB.  
 
 3. Dodaj do **kolekcji** i nazw **baz danych** . (Nazwy te powinny mieć **changefeedlabcollection** i **changefeedlabdatabase** , chyba że użytkownik zdecyduje się na inną nazwę).
 
-   ![Aktualizowanie parametrów połączenia](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Aktualizowanie parametrów połączenia":::
  
 4. Zapisz zmiany we wszystkich edytowanych plikach.  
 
@@ -179,7 +179,7 @@ Aby dowiedzieć się, jak kanał informacyjny zmiany przetwarza nowe akcje w wit
 
 7. Jeśli przejdziesz do [Azure Portal](https://portal.azure.com/) , do konta Cosmos DB w grupie zasobów, a następnie do **Eksplorator danych**, zostaną wyświetlone losowo zaimportowane dane w **changefeedlabcollection** .
  
-   ![Dane wygenerowane w portalu](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Dane wygenerowane w portalu":::
 
 ## <a name="set-up-a-stream-analytics-job"></a>Konfigurowanie zadania usługi Stream Analytics
 
@@ -189,7 +189,7 @@ Azure Stream Analytics to w pełni zarządzana usługa w chmurze umożliwiająca
 
 2. Wybierz **dane wejściowe** , jak pokazano poniżej.  
 
-   ![Utwórz dane wejściowe](./media/changefeed-ecommerce-solution/create-input.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Utwórz dane wejściowe":::
 
 3. Wybierz pozycję **+ Dodaj dane wejściowe strumienia**. Następnie wybierz pozycję **centrum zdarzeń** z menu rozwijanego.  
 
@@ -221,7 +221,7 @@ Azure Stream Analytics to w pełni zarządzana usługa w chmurze umożliwiająca
 
 8. Następnie wróć do **streamjob1** i wybierz pozycję **Edytuj zapytanie**.
 
-   ![Edytuj zapytanie](./media/changefeed-ecommerce-solution/edit-query.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Edytuj zapytanie":::
  
 9. Wklej następujące zapytanie do okna zapytania. Kwerenda **Średnia cena** oblicza średnią cenę wszystkich elementów wyświetlanych przez użytkowników, średnią cenę wszystkich elementów, które są dodawane do koszyków użytkowników, oraz średnią cenę wszystkich elementów zakupionych przez użytkowników. Ta Metryka może ułatwić firmom handlu elektronicznego decydowanie o cenach sprzedaży elementów i rodzaju spisu, w którym zainwestowano. Na przykład jeśli średnia cena wyświetlanych elementów jest znacznie wyższa niż średnia cena zakupionych elementów, firma może zdecydować się na dodanie tańszych elementów do spisu.
 
@@ -314,7 +314,7 @@ Power BI to pakiet narzędzi do analityki biznesowej, który pozwala analizować
 
    Oto jak wygląda przykładowy pulpit nawigacyjny z następującymi wykresami:
 
-   ![wizualizacje](./media/changefeed-ecommerce-solution/visualizations.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="wizualizacje":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcjonalne: Wizualizuj w witrynie handlu elektronicznego
 
@@ -322,19 +322,19 @@ Teraz zobaczysz, jak można użyć nowego narzędzia do analizy danych, aby nawi
 
 1. Przejdź z powrotem do [Azure Portal](https://portal.azure.com/), a następnie do **konta Cosmos DB**, aby **Eksplorator danych**.  
 
-   Dodaj dwie kolekcje w obszarze**produkty** i **Kategorie** **changefeedlabdatabase** - o stałej pojemności magazynu.
+   Dodaj dwie kolekcje w **changefeedlabdatabase**obszarze  -  **produkty** i **Kategorie** changefeedlabdatabase o stałej pojemności magazynu.
 
    Dodaj kolejną kolekcję w obszarze **changefeedlabdatabase** o nazwie **topItems** i **/Item** jako klucz partycji.
 
 2. Wybierz kolekcję **topItems** , a w obszarze **Skala i ustawienia** ustaw wartość **czasu wygaśnięcia** na **30 sekund** , aby topItems aktualizacje co 30 sekund.
 
-   ![Czas wygaśnięcia](./media/changefeed-ecommerce-solution/time-to-live.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Czas wygaśnięcia":::
 
 3. Aby wypełnić kolekcję **topItems** z najczęściej zakupionymi elementami, przejdź z powrotem do **streamjob1** i Dodaj nowe **dane wyjściowe**. Wybierz **Cosmos DB**.
 
 4. Wypełnij wymagane pola, tak jak pokazano poniżej.
 
-   ![Cosmos dane wyjściowe](./media/changefeed-ecommerce-solution/cosmos-output.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Cosmos dane wyjściowe":::
  
 5. W przypadku dodania opcjonalnego zapytania TOP 5 w poprzedniej części laboratorium należy przejoć do części 5a. W przeciwnym razie należy przejoć do części 5B.
 
@@ -374,13 +374,13 @@ Teraz zobaczysz, jak można użyć nowego narzędzia do analizy danych, aby nawi
    FROM arrayselect
    ```
 
-6. Otwórz plik **EcommerceWebApp. sln** i przejdź do pliku **Web. config** w **Eksplorator rozwiązań**.  
+6. Otwórz plik **EcommerceWebApp. sln** i przejdź do pliku **Web.config** w **Eksplorator rozwiązań**.  
 
 7. W `<appSettings>` bloku Dodaj **Identyfikator URI** i **klucz podstawowy** , który został wcześniej zapisany, gdzie tutaj znajduje się **Identyfikator URI** i **klucz podstawowy**. Następnie Dodaj **nazwę bazy danych** i **nazwę kolekcji** w określony sposób. (Nazwy te powinny być **changefeedlabdatabase** i **changefeedlabcollection** , chyba że wybrano opcję nazywania inaczej).
 
    Wypełnij pola **Nazwa kolekcji produktów**, **Nazwa kolekcji kategorii**i **Nazwa kolekcji Top Items** , jak wskazano. (Nazwy te powinny być **produktami, kategoriami i topItems,** chyba że wybrano opcję nazywania inaczej).  
 
-8. Przejdź do **folderu wyewidencjonowywanie** i otwórz go w obszarze **EcommerceWebApp. sln.** Następnie otwórz plik **Web. config** w tym folderze.  
+8. Przejdź do **folderu wyewidencjonowywanie** i otwórz go w obszarze **EcommerceWebApp. sln.** Następnie otwórz plik **Web.config** w tym folderze.  
 
 9. W `<appSettings>` bloku Dodaj **Identyfikator URI** i **klucz podstawowy** , który został wcześniej zapisany, tam gdzie wskazano. Następnie Dodaj **nazwę bazy danych** i **nazwę kolekcji** w określony sposób. (Nazwy te powinny być **changefeedlabdatabase** i **changefeedlabcollection** , chyba że wybrano opcję nazywania inaczej).  
 

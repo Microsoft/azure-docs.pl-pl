@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609931"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Konfigurowanie dzienników Azure Monitor dla klastra
@@ -32,7 +31,7 @@ Jeśli chcesz dodać obszar roboczy Log Analytics po wdrożeniu klastra, przejd�
 
 2. Wyszukaj **Service Fabric Analytics**. Wybierz wyświetlony zasób.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
     ![Service Fabric Analytics w witrynie Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
@@ -47,17 +46,17 @@ W przypadku korzystania z systemu Windows wykonaj następujące kroki, aby poł�
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Łączenie obszaru roboczego Log Analytics z klastrem 
 
-1. Obszar roboczy musi być połączony z danymi diagnostycznymi pochodzącymi z klastra. Przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. Wybierz pozycję **\<servicefabric\> nameOfWorkspace** i przejdź do jej strony przegląd. W tym miejscu możesz zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i uzyskać dostęp do obszaru roboczego Log Analytics.
+1. Obszar roboczy musi być połączony z danymi diagnostycznymi pochodzącymi z klastra. Przejdź do grupy zasobów, w której utworzono rozwiązanie Service Fabric Analytics. Wybierz pozycję **servicefabric \<nameOfWorkspace\> ** i przejdź do jej strony przegląd. W tym miejscu możesz zmienić ustawienia rozwiązania, ustawienia obszaru roboczego i uzyskać dostęp do obszaru roboczego Log Analytics.
 
 2. W menu nawigacji po lewej stronie w obszarze **źródła danych obszaru roboczego**wybierz pozycję **dzienniki kont magazynu**.
 
 3. Na stronie **dzienniki konta magazynu** wybierz pozycję **Dodaj** u góry, aby dodać dzienniki klastra do obszaru roboczego.
 
-4. Wybierz pozycję **konto magazynu** , aby dodać odpowiednie konto utworzone w klastrze. Jeśli została użyta nazwa domyślna, konto magazynu to **sfdg\<resourceGroupName\>**. Można to również potwierdzić przy użyciu szablonu Azure Resource Manager używanego do wdrożenia klastra, sprawdzając wartość używaną dla **applicationDiagnosticsStorageAccountName**. Jeśli nazwa nie zostanie wyświetlona, przewiń w dół i wybierz pozycję **Załaduj więcej**. Wybierz nazwę konta magazynu.
+4. Wybierz pozycję **konto magazynu** , aby dodać odpowiednie konto utworzone w klastrze. Jeśli została użyta nazwa domyślna, konto magazynu to **sfdg \<resourceGroupName\> **. Można to również potwierdzić przy użyciu szablonu Azure Resource Manager używanego do wdrożenia klastra, sprawdzając wartość używaną dla **applicationDiagnosticsStorageAccountName**. Jeśli nazwa nie zostanie wyświetlona, przewiń w dół i wybierz pozycję **Załaduj więcej**. Wybierz nazwę konta magazynu.
 
 5. Określ typ danych. Ustaw ją na **Service Fabric zdarzenia**.
 
-6. Upewnij się, że źródło jest automatycznie ustawione **na\*WADServiceFabric zdarzenia**.
+6. Upewnij się, że źródło jest automatycznie ustawione na **WADServiceFabric \* zdarzenia**.
 
 7. Wybierz **przycisk OK** , aby połączyć obszar roboczy z dziennikami klastra.
 

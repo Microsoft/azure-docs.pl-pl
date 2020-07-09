@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 467d8b89ef5c114d647a257053ed3367d6336bdc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265963"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84559337"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Szablony interfejsu API na platformie Azure API Management
 
@@ -30,7 +30,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 -   [Operacja](#Product)  
 -   [Przykłady kodu](#CodeSamples)  
     -   [Odsłon](#Curl)  
-    -   [S #](#CSharp)  
+    -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
     -   [Cel C](#ObjectiveC)  
@@ -81,7 +81,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 ```  
   
 ### <a name="controls"></a>Formanty  
- `API list` Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
+ `API list`Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
 -   [Kontrola stronicowania](api-management-page-controls.md#paging-control)  
   
@@ -340,7 +340,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 ```  
   
 ### <a name="controls"></a>Formanty  
- `Operation` Szablon nie zezwala na używanie żadnych [kontrolek strony](api-management-page-controls.md).  
+ `Operation`Szablon nie zezwala na używanie żadnych [kontrolek strony](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Model danych  
   
@@ -650,7 +650,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 -   [Odsłon](#Curl)  
   
--   [S #](#CSharp)  
+-   [C#](#CSharp)  
   
 -   [Java](#Stub)  
   
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="c"></a><a name="CSharp"></a>S #  
+### <a name="c"></a><a name="CSharp"></a> C#  
  Szablon **DocumentationSamplesCsharp** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  
@@ -1283,7 +1283,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="python"></a><a name="Python"></a>Python  
+### <a name="python"></a><a name="Python"></a> Python  
  Szablon **DocumentationSamplesPython** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  

@@ -1,6 +1,6 @@
 ---
-title: Łączenie Raspberry Pi z rozwiązaniem do zdalnego monitorowania — Node. js-Azure | Microsoft Docs
-description: Opisuje sposób podłączenia urządzenia Raspberry Pi do akceleratora rozwiązania do zdalnego monitorowania przy użyciu aplikacji w języku Node. js.
+title: Łączenie Raspberry Pi z rozwiązaniem do zdalnego monitorowania — Node.js — Azure | Microsoft Docs
+description: Opisuje sposób podłączenia urządzenia Raspberry Pi do akceleratora rozwiązania do zdalnego monitorowania przy użyciu aplikacji, która jest zapisywana w Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,17 +10,16 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt
 ms.openlocfilehash: 9335c45688752ea41801e988157740f4170cfcb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683939"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Łączenie urządzenia z programem Raspberry Pi z akceleratorem rozwiązania do zdalnego monitorowania (Node. js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Połącz urządzenie Raspberry Pi z akceleratorem rozwiązania do zdalnego monitorowania (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-W tym samouczku pokazano, jak podłączyć rzeczywiste urządzenie do akceleratora rozwiązania do monitorowania zdalnego. W tym samouczku jest używany program Node. js, który jest dobrym rozwiązaniem w przypadku środowisk z minimalnymi ograniczeniami zasobów.
+W tym samouczku pokazano, jak podłączyć rzeczywiste urządzenie do akceleratora rozwiązania do monitorowania zdalnego. W tym samouczku użyjesz Node.js, co jest dobrą opcją dla środowisk z minimalnymi ograniczeniami zasobów.
 
 Jeśli wolisz symulować urządzenie, zobacz [Tworzenie i testowanie nowego symulowanego urządzenia](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
@@ -44,9 +43,9 @@ Do uzyskania zdalnego dostępu do wiersza polecenia na Raspberry Pi jest potrzeb
 
 ### <a name="required-raspberry-pi-software"></a>Wymagane oprogramowanie Raspberry Pi
 
-Jeśli jeszcze tego nie zrobiono, zainstaluj program Node. js w wersji 4.0.0 lub nowszej na Raspberry Pi. Poniższe kroki pokazują, jak zainstalować program Node. js V6 na Raspberry Pi:
+Jeśli jeszcze tego nie zrobiono, zainstaluj Node.js w wersji 4.0.0 lub nowszej na Raspberry Pi. Poniższe kroki pokazują, jak zainstalować program Node.js V6 na Raspberry Pi:
 
-1. Nawiąż połączenie z Raspberry Pi `ssh`przy użyciu. Aby uzyskać więcej informacji, zobacz [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) w [witrynie sieci Web Raspberry Pi](https://www.raspberrypi.org/).
+1. Nawiąż połączenie z Raspberry Pi przy użyciu `ssh` . Aby uzyskać więcej informacji, zobacz [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) w [witrynie sieci Web Raspberry Pi](https://www.raspberrypi.org/).
 
 1. Aby zaktualizować Raspberry Pi, użyj następującego polecenia:
 
@@ -54,7 +53,7 @@ Jeśli jeszcze tego nie zrobiono, zainstaluj program Node. js w wersji 4.0.0 lub
     sudo apt-get update
     ```
 
-1. Użyj następujących poleceń, aby usunąć istniejącą instalację środowiska Node. js z Raspberry Pi:
+1. Użyj następujących poleceń, aby usunąć istniejącą instalację Node.js z Raspberry Pi:
 
     ```sh
     sudo apt-get remove nodered -y
@@ -62,20 +61,20 @@ Jeśli jeszcze tego nie zrobiono, zainstaluj program Node. js w wersji 4.0.0 lub
     sudo apt-get remove npm  -y
     ```
 
-1. Użyj następującego polecenia, aby pobrać i zainstalować Node. js V6 na Raspberry Pi:
+1. Użyj następującego polecenia, aby pobrać i zainstalować Node.js V6 na Raspberry Pi:
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs npm
     ```
 
-1. Użyj poniższego polecenia, aby sprawdzić, czy pomyślnie zainstalowano program Node. js v 6.11.4:
+1. Użyj poniższego polecenia, aby sprawdzić, czy pomyślnie zainstalowano Node.js v 6.11.4:
 
     ```sh
     node --version
     ```
 
-## <a name="create-a-nodejs-solution"></a>Tworzenie rozwiązania Node. js
+## <a name="create-a-nodejs-solution"></a>Tworzenie rozwiązania Node.js
 
 Wykonaj następujące kroki, korzystając z `ssh` połączenia z Raspberry Pi:
 
@@ -93,9 +92,9 @@ Wykonaj następujące kroki, korzystając z `ssh` połączenia z Raspberry Pi:
     npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
-1. W `remotemonitoring` folderze Utwórz plik o nazwie **remote_monitoring. js**. Otwórz ten plik w edytorze tekstu. Na Raspberry Pi można użyć edytorów `nano` lub `vi` tekstu.
+1. W `remotemonitoring` folderze Utwórz plik o nazwie **remote_monitoring.js**. Otwórz ten plik w edytorze tekstu. Na Raspberry Pi można użyć `nano` `vi` edytorów lub tekstu.
 
-1. W pliku **remote_monitoring. js** Dodaj następujące `require` instrukcje:
+1. W pliku **remote_monitoring.js** Dodaj następujące `require` instrukcje:
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -104,7 +103,7 @@ Wykonaj następujące kroki, korzystając z `ssh` połączenia z Raspberry Pi:
     var async = require('async');
     ```
 
-1. Dodaj następujące deklaracje zmiennych po instrukcji `require`. Zastąp wartość `{device connection string}` symbolu zastępczego wartością zanotowaną dla urządzenia obsługiwanego w rozwiązaniu do zdalnego monitorowania:
+1. Dodaj następujące deklaracje zmiennych po instrukcji `require`. Zastąp wartość symbolu zastępczego `{device connection string}` wartością zanotowaną dla urządzenia obsługiwanego w rozwiązaniu do zdalnego monitorowania:
 
     ```javascript
     var connectionString = '{device connection string}';
@@ -385,7 +384,7 @@ Wykonaj następujące kroki, korzystając z `ssh` połączenia z Raspberry Pi:
       });
       ```
 
-1. Zapisz zmiany w pliku **remote_monitoring. js** .
+1. Zapisz zmiany w pliku **remote_monitoring.js** .
 
 1. Aby uruchomić przykładową aplikację, uruchom następujące polecenie w wierszu polecenia na Raspberry Pi:
 

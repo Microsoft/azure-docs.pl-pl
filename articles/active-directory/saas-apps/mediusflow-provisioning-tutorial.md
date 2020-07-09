@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: cd2217046a725f0bb0a05f1eb0afc5434bf3b6fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664284"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482415"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -52,15 +52,15 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-mediusflow-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie MediusFlow w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-### <a name="activate-the-office-365-app-within-mediusflow"></a>Aktywuj aplikację pakietu Office 365 w ramach MediusFlow
+### <a name="activate-the-microsoft-365-app-within-mediusflow"></a>Aktywuj aplikację Microsoft 365 w MediusFlow
 Zacznij od włączenia dostępu do usługi Azure AD login i funkcji konfiguracji usługi Azure AD w ramach usługi MediusFlow, wykonując następujące czynności:
 
 #### <a name="user-login"></a>Logowanie użytkownika
-Aby włączyć przepływ logowania do usługi Office 365/Azure AD, zobacz https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artykuł.
+Aby włączyć przepływ logowania do Microsoft 365/Azure AD, zobacz [this] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artykuł.
 
 #### <a name="user-transfer-configuration"></a>Konfiguracja transferu użytkownika
-Aby włączyć obsługę administracyjną usługi Azure AD w portalu konfiguracji, zapoznaj się z [tym](
-https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artykułem.
+Aby włączyć Portal konfiguracji użytkowników do aprowizacji z usługi Azure AD, zobacz [ten](
+https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artykuł.
 
 #### <a name="configure-user-provisioning"></a>Konfigurowanie aprowizacji użytkowników
 
@@ -94,7 +94,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
     ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
 
-8. Aby użytkownicy importowali ze wstępnie zdefiniowanym zestawem ról, firm i innych konfiguracji ogólnych w MediusFlow, należy najpierw ją skonfigurować. Zacznij od dodania konfiguracji, klikając pozycję **Dodaj nową konfigurację**.
+8. Aby użytkownicy zaimportowali ze wstępnie zdefiniowanym zestawem ról, firm i innych konfiguracji ogólnych w MediusFlow, należy najpierw ją skonfigurować. Zacznij od dodania konfiguracji, klikając pozycję **Dodaj nową konfigurację**.
 
     ![Użytkownicy konfiguracji](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
 
@@ -164,12 +164,12 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |userName|String|
    |wiadomości e-mail [Type EQ "Work"]. Value|String|
    |Nazwa. displayName|String|
-   |aktywne|Wartość logiczna|
+   |aktywne|Boolean|
    |Nazwa. imię|String|
    |Nazwa. rodzina|String|
    |Nazwa. sformatowana|String|
    |externalID|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
 
 
 10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do MediusFlow**.
@@ -180,7 +180,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
       |---|---|
       |displayName|String|
       |externalID|String|
-      |elementy członkowskie|Tematy pomocy|
+      |elementy członkowskie|Dokumentacja|
 
 12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

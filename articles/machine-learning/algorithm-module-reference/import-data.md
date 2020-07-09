@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456203"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611819"
 ---
 # <a name="import-data-module"></a>Importuj moduł danych
 
@@ -24,7 +24,7 @@ Ten moduł służy do ładowania danych do potoku uczenia maszynowego z istniej�
 
 > [!Note]
 > Wszystkie funkcje zapewniane przez ten moduł mogą być wykonywane przez **Magazyn** **danych i DataSets** na stronie docelowej obszaru roboczego. Zalecamy korzystanie z **magazynu** danych i **zestawu danych** , który zawiera dodatkowe funkcje, takie jak monitorowanie dane. Aby dowiedzieć się więcej, zobacz artykuł [jak uzyskać dostęp do danych](../how-to-access-data.md) i [jak rejestrować zestawy danych](../how-to-create-register-datasets.md) .
-> Po zarejestrowaniu zestawu danych możesz go znaleźć w kategorii **zestawy** -> danych**MOJE ZESTAWY** danych w interfejsie projektanta. Ten moduł jest zarezerwowany dla użytkowników programu Studio (klasycznych) w celu uzyskania znanego środowiska. 
+> Po zarejestrowaniu zestawu danych możesz go znaleźć w kategorii **zestawy**danych  ->  **MOJE ZESTAWY** danych w interfejsie projektanta. Ten moduł jest zarezerwowany dla użytkowników programu Studio (klasycznych) w celu uzyskania znanego środowiska. 
 >
 
 Moduł **Importuj dane** obsługuje odczyt danych z następujących źródeł:
@@ -44,6 +44,10 @@ Po zdefiniowaniu danych, które chcesz połączyć ze źródłem, **[Importowani
 
 Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i dodać nowe dane przez ponowne uruchomienie [importowania danych](./import-data.md).
 
+> [!WARNING]
+> Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować magazyny danych tak, aby korzystały z funkcji wizualizacji z danymi projektanta. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](../how-to-enable-virtual-network.md#machine-learning-studio).
+
+
 ## <a name="how-to-configure-import-data"></a>Jak skonfigurować Importowanie danych
 
 1. Dodaj moduł **Import danych** do potoku. Ten moduł można znaleźć w kategorii dane **wejściowe i wyjściowe** w projektancie.
@@ -52,7 +56,7 @@ Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i doda�
 
 1. Wybierz pozycję **Źródło danych**i wybierz typ źródła danych. Może to być HTTP lub magazyn danych.
 
-    Jeśli wybierzesz pozycję Magazyn danych, możesz wybrać istniejące magazyny danych, które zostały już zarejestrowane w obszarze roboczym Azure Machine Learning, lub utworzyć nowy magazyn danych. Następnie należy zdefiniować ścieżkę danych do zaimportowania w magazynie danych. Możesz łatwo przeglądać ścieżkę, klikając kolejno pozycje **Przeglądaj ścieżka** ![Importuj-dane-ścieżka](media/module/import-data-path.png)
+    Jeśli wybierzesz pozycję Magazyn danych, możesz wybrać istniejące magazyny danych, które zostały już zarejestrowane w obszarze roboczym Azure Machine Learning, lub utworzyć nowy magazyn danych. Następnie należy zdefiniować ścieżkę danych do zaimportowania w magazynie danych. Możesz łatwo przeglądać ścieżkę, klikając kolejno pozycje **Przeglądaj ścieżka** ![ Importuj-dane-ścieżka](media/module/import-data-path.png)
 
 1. Wybierz schemat podglądu, aby odfiltrować kolumny, które chcesz dołączyć. Możesz również zdefiniować ustawienia zaawansowane, takie jak ogranicznik w opcjach analizy.
 

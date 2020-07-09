@@ -8,12 +8,13 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 05b94ca9bd14392bad5288882a80f5c75590ef7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 167bcf4364b88529256b79574c6b8c03098fed02
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76931796"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607129"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Szybki start: Uruchamianie przepływu za pośrednictwem usługi Microsoft Genomics
 
@@ -22,7 +23,7 @@ W tym przewodniku szybki start przekażesz dane wejściowe do konta usługi Azur
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- Środowisko [Python 2.7.12 +](https://www.python.org/downloads/release/python-2714/), `pip` z zainstalowanym `python` i w ścieżce systemowej. Klient Microsoft Genomics nie jest zgodny z językiem Python 3. 
+- Środowisko [Python 2.7.12 +](https://www.python.org/downloads/release/python-2714/), z `pip` zainstalowanym i `python` w ścieżce systemowej. Klient Microsoft Genomics nie jest zgodny z językiem Python 3. 
 
 ## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Konfiguracja: tworzenie konta usługi Microsoft Genomics w witrynie Azure Portal
 
@@ -58,17 +59,17 @@ Microsoft Genomics klienta języka Python jest zgodny z językiem Python 2.7.12 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Instalacja klienta usługi Microsoft Genomics
 
-Zainstaluj klienta `pip` `msgen`Microsoft Genomics przy użyciu języka Python. W następujących instrukcjach założono, że język Python jest już zainstalowany w ścieżce systemowej. Jeśli występują problemy z `pip` nierozpoznaną instalacją, należy dodać do ścieżki systemowej Język Python i podfolder skrypty.
+`pip`Zainstaluj klienta Microsoft Genomics przy użyciu języka Python `msgen` . W następujących instrukcjach założono, że język Python jest już zainstalowany w ścieżce systemowej. Jeśli występują problemy z `pip` nierozpoznaną instalacją, należy dodać do ścieżki systemowej Język Python i podfolder skrypty.
 
 ```
 pip install --upgrade --no-deps msgen
 pip install msgen
 ```
 
-Jeśli nie chcesz instalować `msgen` jako plików binarnych w całym systemie i modyfikować pakietów w języku Python obejmujących system, użyj `–-user` flagi z `pip`.
-Jeśli używasz instalacji opartej na pakiecie lub pliku setup.py, zostaną zainstalowane wszystkie wymagane pakiety. W przeciwnym razie podstawowe pakiety wymagane dla `msgen` programu są 
+Jeśli nie chcesz instalować `msgen` jako plików binarnych w całym systemie i modyfikować pakietów w języku Python obejmujących system, użyj `–-user` flagi z `pip` .
+Jeśli używasz instalacji opartej na pakiecie lub pliku setup.py, zostaną zainstalowane wszystkie wymagane pakiety. W przeciwnym razie podstawowe pakiety wymagane dla programu `msgen` są 
 
- * [Azure-storage](https://pypi.python.org/pypi/azure-storage) 
+ * [Azure-Storage](https://pypi.python.org/pypi/azure-storage). 
  * [Żądania](https://pypi.python.org/pypi/requests). 
 
 Możesz zainstalować te pakiety przy użyciu modułu `pip`, procedury `easy_install` lub za pośrednictwem standardowych procedur `setup.py`. 
@@ -102,7 +103,7 @@ Skonfiguruj konto magazynu przy użyciu następujących informacji, jak pokazano
  |Grupa zasobów       | MyResourceGroup       |  Możesz wybrać tę samą grupę zasobów, która jest taka sama jak konto genomika. W przypadku prawidłowych nazw grup zasobów zobacz [reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Nazwa konta magazynu         | MyStorageAccount     |Wybierz unikatowy identyfikator konta. Poprawne nazwy można znaleźć w temacie [reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Lokalizacja                  | Zachodnie stany USA 2                  | Użyj tej samej lokalizacji co lokalizacja konta genomika, aby zmniejszyć opłaty za ruch wychodzący i skrócić opóźnienia.  | 
- |Wydajność                  | Standardowa                   | Wartość domyślna to Standardowa. Aby uzyskać więcej informacji na temat kont magazynu w warstwach Standardowa i Premium, zobacz [wprowadzenie do usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Wydajność                  | Standardowa (Standard)                   | Wartość domyślna to Standardowa. Aby uzyskać więcej informacji na temat kont magazynu w warstwach Standardowa i Premium, zobacz [wprowadzenie do usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Rodzaj konta       | BlobStorage       |  Magazyn obiektów blob może być 2–5 razy szybszy od konta ogólnego przeznaczenia w przypadku pobierania i przekazywania. |
  |Replikacja                  | Magazyn lokalnie nadmiarowy                  | Magazyn lokalnie nadmiarowy replikuje dane w centrum danych w regionie, w którym utworzono konto magazynu. Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
  |Warstwa dostępu                  | Gorąca                   | Gorąca warstwa dostępu oznacza, że dostęp do obiektów na koncie magazynu będzie uzyskiwany częściej.    |
@@ -125,9 +126,9 @@ Otwórz plik *config. txt* pobrany z konta genomiki. Sekcje, które należy okre
 
 ![Konfiguracja genomiki](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Konfiguracja genomiki")
 
-Jeśli chcesz uruchomić GATK4, ustaw `process_name` parametr na. `gatk4`
+Jeśli chcesz uruchomić GATK4, ustaw `process_name` parametr na `gatk4` .
 
-Domyślnie usługa Genomics generuje pliki VCF. Jeśli chcesz, aby dane wyjściowe gVCF zamiast pliku wyjściowego VCF `-emitRefConfidence` (ODPOWIEDNIK w GATK 3. x i `emit-ref-confidence` w GATK 4. x), Dodaj `emit_ref_confidence` parametr do *pliku config. txt* i ustaw go na `gvcf`, jak pokazano na powyższym rysunku.  Aby zmienić z powrotem na dane wyjściowe VCF, usuń je z pliku *config. txt* lub ustaw `emit_ref_confidence` parametr na. `none` 
+Domyślnie usługa Genomics generuje pliki VCF. Jeśli chcesz, aby dane wyjściowe gVCF zamiast pliku wyjściowego VCF (odpowiednik `-emitRefConfidence` w GATK 3. x i `emit-ref-confidence` w GATK 4. x), Dodaj `emit_ref_confidence` parametr do *pliku config. txt* i ustaw go na `gvcf` , jak pokazano na powyższym rysunku.  Aby zmienić z powrotem na dane wyjściowe VCF, usuń je z pliku *config. txt* lub ustaw `emit_ref_confidence` parametr na `none` . 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Przesyłanie przepływu pracy do usługi Microsoft Genomics przy użyciu klienta usługi Microsoft Genomics
 
@@ -145,4 +146,4 @@ msgen list -f c:\temp\config.txt
 Po zakończeniu przepływu pracy można wyświetlić pliki wyjściowe na koncie usługi Azure Storage w skonfigurowanym kontenerze danych wyjściowych. 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz też zapoznać się z tym samouczkiem przy użyciu [samouczka dotyczącego notesu platformy Azure](https://aka.ms/genomicsnotebook).
+W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz też zapoznać się z tym samouczkiem przy użyciu [samouczka dotyczącego notesu platformy Azure](https://aka.ms/genomicsnotebook).

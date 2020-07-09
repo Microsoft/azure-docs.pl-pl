@@ -4,16 +4,16 @@ description: Ten artykuł pomaga zresetować obwód ExpressRoute, który jest w 
 services: expressroute
 author: anzaman
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f75d9ae2fc788bbeb769aaf412c77dfacec9d04c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73748105"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738128"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Resetowanie błędnego obwodu usługi ExpressRoute
 

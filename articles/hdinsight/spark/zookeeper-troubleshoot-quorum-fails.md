@@ -7,12 +7,11 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
-ms.openlocfilehash: dc93121d7565b95b9bd604160028659f3a741b0c
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
-ms.translationtype: MT
+ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673364"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Serwer Apache ZooKeeper nie może utworzyć kworum w usłudze Azure HDInsight
 
@@ -27,7 +26,7 @@ W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania p
 
 ## <a name="sample-log"></a>Przykładowy dziennik
 
-Może zostać wyświetlony komunikat o błędzie podobny do:
+W dziennikach przędzy może zostać wyświetlony komunikat o błędzie podobny do następującego:
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -116,6 +115,7 @@ Node count: 133212
 
 ## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>CancelledKeyException w dzienniku serwera dozorcy nie wymaga oczyszczania migawek
 
+* Ten wyjątek będzie widoczny na serwerach dozorcy (/var/log/Zookeeper/Zookeeper-Zookeeper-* lub/var/log/HDInsight-Zookeeper/Zookeeper * plików)
 * Ten wyjątek zwykle oznacza, że klient nie jest już aktywny i serwer nie może wysłać komunikatu
 * Ten wyjątek wskazuje również, że klient dozorcy kończy przedwcześnie sesje
 * Poszukaj innych objawów przedstawionych w tym dokumencie

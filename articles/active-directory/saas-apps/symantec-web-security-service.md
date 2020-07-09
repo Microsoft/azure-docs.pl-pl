@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: fbd105ca1623512a3c16f3b609374f5c4055898b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063122"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi firmy Symantec w sieci Web Security (WSS) do automatycznej aprowizacji użytkowników
@@ -56,11 +55,11 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed skonfigurowaniem usługi firmy Symantec w sieci Web Security (WSS) do automatycznej aprowizacji użytkowników w usłudze Azure AD należy włączyć obsługę Standard scim przy użyciu usługi Symantec Web Security Service (WSS).
 
-1. Zaloguj się do [konsoli administracyjnej usługi zabezpieczeń sieci Web firmy Symantec](https://portal.threatpulse.com/login.jsp). Przejdź do usługi **Solutions** > **Service**.
+1. Zaloguj się do [konsoli administracyjnej usługi zabezpieczeń sieci Web firmy Symantec](https://portal.threatpulse.com/login.jsp). Przejdź do **Solutions**  >  **usługi Solutions Service**.
 
     ![Usługa zabezpieczeń internetowych firmy Symantec (WSS)](media/symantec-web-security-service/service.png)
 
-2. Przejdź do obszarze**integracja z integracją** > z **obsługą** > **nowej integracji**.
+2. Przejdź do obszarze integracja z integracją z **obsługą**  >  **Integrations**  >  **nowej integracji**.
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 
@@ -127,7 +126,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy z usługą Symantec Web Security Service (WSS)**.
 
@@ -163,7 +162,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępować zgodnie z raportem dotyczącym aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w usłudze zabezpieczeń internetowych firmy Symantec. Aby uzyskać więcej informacji, zobacz [Sprawdzanie stanu aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Aby zapoznać się z dziennikami aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

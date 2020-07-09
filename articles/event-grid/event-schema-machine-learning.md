@@ -1,18 +1,14 @@
 ---
 title: Azure Machine Learning jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń Obszar roboczy usługi Machine Learning z Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 07/07/2020
+ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928877"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102501"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning jako źródło Event Grid
 
@@ -192,14 +188,14 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| temat | string | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | string | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | string | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | string | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| identyfikator | string | Unikatowy identyfikator zdarzenia. |
+| temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
+| Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Dane zdarzenia magazynu obiektów BLOB. |
-| dataVersion | string | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
-| metadataVersion | string | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
+| dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
+| metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
 Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
@@ -207,8 +203,8 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| ModelName | string | Nazwa zarejestrowanego modelu. |
-| ModelVersion | string | Wersja zarejestrowanego modelu. |
+| ModelName | ciąg | Nazwa zarejestrowanego modelu. |
+| ModelVersion | ciąg | Wersja zarejestrowanego modelu. |
 | ModelTags | object | Tagi modelu, który został zarejestrowany. |
 | ModelProperties | object | Właściwości modelu, który został zarejestrowany. |
 
@@ -216,9 +212,9 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| ServiceName | string | Nazwa wdrożonej usługi. |
-| Servicecomputetype | string | Typ obliczeń (np. ACI, AKS) wdrożonej usługi. |
-  | ModelIds | string | Rozdzielana przecinkami lista identyfikatorów modeli. Identyfikatory modeli wdrożonych w usłudze. |
+| ServiceName | ciąg | Nazwa wdrożonej usługi. |
+| Servicecomputetype | ciąg | Typ obliczeń (np. ACI, AKS) wdrożonej usługi. |
+  | ModelIds | ciąg | Rozdzielana przecinkami lista identyfikatorów modeli. Identyfikatory modeli wdrożonych w usłudze. |
 | Tagi | object | Tagi wdrożonej usługi. |
 | Właściwości serviceproperties | object | Właściwości wdrożonej usługi. |
 
@@ -226,10 +222,10 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| ExperimentId | string | Identyfikator eksperymentu, do którego należy uruchomienie. |
-| Eksperymentname | string | Nazwa eksperymentu, do którego należy uruchomienie. |
-| RunId | string | Identyfikator przebiegu, który został ukończony. |
-| RunType | string | Typ uruchomienia ukończonego przebiegu. |
+| ExperimentId | ciąg | Identyfikator eksperymentu, do którego należy uruchomienie. |
+| Eksperymentname | ciąg | Nazwa eksperymentu, do którego należy uruchomienie. |
+| RunId | ciąg | Identyfikator przebiegu, który został ukończony. |
+| RunType | ciąg | Typ uruchomienia ukończonego przebiegu. |
 | RunTags | object | Tagi ukończonego przebiegu. |
 | RunProperties | object | Właściwości ukończonego uruchomienia. |
 
@@ -237,11 +233,11 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| DataDriftId | string | Identyfikator monitora dryfowania danych, który wyzwolił zdarzenie. |
-| Datadryfname | string | Nazwa monitora dryfowania danych, który wyzwolił zdarzenie. |
-| RunId | string | Identyfikator uruchomienia, który wykrył dryf danych. |
-| BaseDatasetId | string | Identyfikator podstawowego zestawu danych używanego do wykrywania dryfu. |
-| TargetDatasetId | string | Identyfikator docelowego zestawu danych używanego do wykrywania dryfu. |
+| DataDriftId | ciąg | Identyfikator monitora dryfowania danych, który wyzwolił zdarzenie. |
+| Datadryfname | ciąg | Nazwa monitora dryfowania danych, który wyzwolił zdarzenie. |
+| RunId | ciąg | Identyfikator uruchomienia, który wykrył dryf danych. |
+| BaseDatasetId | ciąg | Identyfikator podstawowego zestawu danych używanego do wykrywania dryfu. |
+| TargetDatasetId | ciąg | Identyfikator docelowego zestawu danych używanego do wykrywania dryfu. |
 | DriftCoefficient | double | Wynik współczynnika, który wyzwolił zdarzenie. |
 | StartTime | datetime | Godzina rozpoczęcia serii czasu docelowej zestawu danych, która spowodowała wykrywanie dryfu.  |
 | EndTime | datetime | Godzina zakończenia serii czasu docelowej zestawu danych, która spowodowała wykrywanie dryfu. |
@@ -250,13 +246,13 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
-| ExperimentId | string | Identyfikator eksperymentu, do którego należy uruchomienie. |
-| Eksperymentname | string | Nazwa eksperymentu, do którego należy uruchomienie. |
-| RunId | string | Identyfikator przebiegu, który został ukończony. |
-| RunType | string | Typ uruchomienia ukończonego przebiegu. |
+| ExperimentId | ciąg | Identyfikator eksperymentu, do którego należy uruchomienie. |
+| Eksperymentname | ciąg | Nazwa eksperymentu, do którego należy uruchomienie. |
+| RunId | ciąg | Identyfikator przebiegu, który został ukończony. |
+| RunType | ciąg | Typ uruchomienia ukończonego przebiegu. |
 | RunTags | object | Tagi ukończonego przebiegu. |
 | RunProperties | object | Właściwości ukończonego uruchomienia. |
-| RunStatus | string | Stan uruchomienia. |
+| RunStatus | ciąg | Stan uruchomienia. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 | Tytuł | Opis |

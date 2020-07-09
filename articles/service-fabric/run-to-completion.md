@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431295"
 ---
 # <a name="runtocompletion"></a>RunToCompletion
@@ -22,7 +22,7 @@ Przed przejściem do tego artykułu zalecamy zapoznanie się z [modelem aplikacj
 > Semantyka RunToCompletion nie jest obecnie obsługiwana w przypadku usług pisanych przy użyciu modelu programowania [Reliable Services][reliable-services-link] .
  
 ## <a name="runtocompletion-semantics-and-specification"></a>RunToCompletion, semantyka i Specyfikacja
-Semantykę RunToCompletion można określić jako **ExecutionPolicy** podczas importowania elementu [servicemanifest][application-and-service-manifests-link]. Określone zasady są dziedziczone przez wszystkie CodePackages tworzące servicemanifest. Poniższy fragment kodu ApplicationManifest. xml zawiera przykład.
+Semantykę RunToCompletion można określić jako **ExecutionPolicy** podczas importowania elementu [servicemanifest][application-and-service-manifests-link]. Określone zasady są dziedziczone przez wszystkie CodePackages tworzące servicemanifest. Poniższy fragment kodu ApplicationManifest.xml zawiera przykład.
 
 ```xml
 <ServiceManifestImport>
@@ -47,7 +47,7 @@ Spójrzmy na kompletny przykład przy użyciu semantyki RunToCompletion.
 >
 > Ten przykład odwołuje się do mcr.microsoft.com/windows/nanoserver:1809. Kontenery systemu Windows Server nie są zgodne ze wszystkimi wersjami systemu operacyjnego hosta. Aby dowiedzieć się więcej, zobacz [zgodność wersji kontenera systemu Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Następujący element servicemanifest. XML opisuje pakiet servicepackage składający się z dwóch CodePackagesów, które reprezentują kontenery. *RunToCompletionCodePackage1* po prostu rejestruje komunikat do strumienia **stdout** i kończy pracę. *RunToCompletionCodePackage2* wysyła polecenie ping do adresu sprzężenia zwrotnego, a następnie kończy działanie z kodem zakończenia równym **0**, **1** lub **2**.
+W poniższym ServiceManifest.xml opisano pakiet servicepackage składający się z dwóch CodePackages, które reprezentują kontenery. *RunToCompletionCodePackage1* po prostu rejestruje komunikat do strumienia **stdout** i kończy pracę. *RunToCompletionCodePackage2* wysyła polecenie ping do adresu sprzężenia zwrotnego, a następnie kończy działanie z kodem zakończenia równym **0**, **1** lub **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ Następujący element servicemanifest. XML opisuje pakiet servicepackage składa
 </ServiceManifest>
 ```
 
-Poniższy ApplicationManifest. XML opisuje aplikację opartą na pliku servicemanifest. XML opisanym powyżej. Określa **RunToCompletion** **ExecutionPolicy** dla *WindowsRunToCompletionServicePackage* z zasadami ponownego uruchamiania o wartości **OnFailure**. Po aktywacji *WindowsRunToCompletionServicePackage*zostanie uruchomiony jego składnik CodePackages. *RunToCompletionCodePackage1* powinna zakończyć się powodzeniem przy pierwszej aktywacji. Jednak *RunToCompletionCodePackage2* może zakończyć się niepowodzeniem **(kod zakończenia inny niż zero)**, w tym przypadku zostanie on ponownie uruchomiony, ponieważ zasady ponownego uruchamiania **są błędne**.
+W poniższym ApplicationManifest.xml opisano aplikację opartą na ServiceManifest.xml opisanej powyżej. Określa **RunToCompletion** **ExecutionPolicy** dla *WindowsRunToCompletionServicePackage* z zasadami ponownego uruchamiania o wartości **OnFailure**. Po aktywacji *WindowsRunToCompletionServicePackage*zostanie uruchomiony jego składnik CodePackages. *RunToCompletionCodePackage1* powinna zakończyć się powodzeniem przy pierwszej aktywacji. Jednak *RunToCompletionCodePackage2* może zakończyć się niepowodzeniem **(kod zakończenia inny niż zero)**, w tym przypadku zostanie on ponownie uruchomiony, ponieważ zasady ponownego uruchamiania **są błędne**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

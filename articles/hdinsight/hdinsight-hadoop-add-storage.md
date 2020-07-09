@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192488"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080010"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
 
-Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu platformy Azure do usługi HDInsight. Kroki opisane w tym dokumencie umożliwiają dodanie *konta* magazynu do istniejącego klastra usługi HDInsight. Ten artykuł dotyczy *kont* magazynu (nie domyślnego konta magazynu klastra), a nie dodatkowego magazynu, takiego jak [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) i. [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu platformy Azure do usługi HDInsight. Kroki opisane w tym dokumencie umożliwiają dodanie *konta* magazynu do istniejącego klastra usługi HDInsight. Ten artykuł dotyczy *kont* magazynu (nie domyślnego konta magazynu klastra), a nie dodatkowego magazynu, takiego jak [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) i [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > Informacje przedstawione w tym dokumencie dotyczą dodawania dodatkowych kont magazynu do klastra po jego utworzeniu. Aby uzyskać informacje na temat dodawania kont magazynu podczas tworzenia klastra, zobacz [Konfigurowanie klastrów w usłudze HDInsight przy użyciu Apache Hadoop, Apache Spark, Apache Kafka i innych](hdinsight-hadoop-provision-linux-clusters.md).
@@ -32,13 +32,13 @@ Dowiedz się, jak za pomocą akcji skryptu dodać dodatkowe *konta* magazynu pla
 
 Podczas przetwarzania skrypt wykonuje następujące czynności:
 
-* Jeśli konto magazynu istnieje już w konfiguracji pliku Core-site. XML klastra, skrypt zostanie zakończony i nie zostaną wykonane żadne dalsze akcje.
+* Jeśli konto magazynu istnieje już w konfiguracji core-site.xml klastra, skrypt zostanie zakończony i nie zostaną wykonane żadne dalsze akcje.
 
 * Sprawdza, czy konto magazynu istnieje i czy można uzyskać do niego dostęp przy użyciu klucza.
 
 * Szyfruje klucz przy użyciu poświadczeń klastra.
 
-* Dodaje konto magazynu do pliku pliku Core-site. XML.
+* Dodaje konto magazynu do pliku core-site.xml.
 
 * Powoduje zatrzymanie i ponowne uruchomienie usługi Apache Oozie, Apache Hadoop PRZĘDZy, Apache Hadoop MapReduce2 i Apache Hadoop HDFS. Zatrzymywanie i uruchamianie tych usług pozwala im na korzystanie z nowego konta magazynu.
 
@@ -53,11 +53,11 @@ Użyj [akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#script-action-
 |---|---|
 |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Typy węzłów|Head|
-|Parametry|`ACCOUNTNAME``ACCOUNTKEY` `-p`|
+|Parametry|`ACCOUNTNAME``ACCOUNTKEY` `-p` (opcjonalnie)|
 
 * `ACCOUNTNAME`jest nazwą konta magazynu, które ma zostać dodane do klastra usługi HDInsight.
-* `ACCOUNTKEY`jest kluczem dostępu dla `ACCOUNTNAME`.
-* Parametr `-p` jest opcjonalny. Jeśli ta wartość jest określona, klucz nie jest szyfrowany i jest przechowywany w pliku pliku Core-site. XML jako zwykły tekst.
+* `ACCOUNTKEY`jest kluczem dostępu dla `ACCOUNTNAME` .
+* Parametr `-p` jest opcjonalny. Jeśli ta wartość jest określona, klucz nie jest szyfrowany i jest przechowywany w pliku core-site.xml jako zwykły tekst.
 
 ## <a name="verification"></a>Weryfikacja
 
@@ -67,7 +67,7 @@ Aby sprawdzić, czy magazyn dodatkowy wykorzystuje jedną z metod przedstawionyc
 
 ### <a name="powershell"></a>PowerShell
 
-Skrypt zwróci nazwy kont magazynu skojarzone z danym klastrem. Zamień `CLUSTERNAME` na rzeczywistą nazwę klastra, a następnie uruchom skrypt.
+Skrypt zwróci nazwy kont magazynu skojarzone z danym klastrem. Zamień na `CLUSTERNAME` rzeczywistą nazwę klastra, a następnie uruchom skrypt.
 
 ```powershell
 # Update values
@@ -95,19 +95,19 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 ### <a name="apache-ambari"></a>Apache Ambari
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **HDFS** > **konfiguracji** > systemu plików HDFS —**Zaawansowane** > **niestandardowe podstawowe Lokacje**.
+1. Przejdź do **HDFS**  >  **konfiguracji**systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
 
-1. Obserwuj klucze, które zaczynają `fs.azure.account.key`się od. Nazwa konta będzie częścią klucza, jak pokazano w tym przykładowym obrazie:
+1. Obserwuj klucze, które zaczynają się od `fs.azure.account.key` . Nazwa konta będzie częścią klucza, jak pokazano w tym przykładowym obrazie:
 
    ![Weryfikacja za poorednictwem oprogramowania Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
 
 ## <a name="remove-storage-account"></a>Usuń konto magazynu
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
-1. Przejdź do **HDFS** > **konfiguracji** > systemu plików HDFS —**Zaawansowane** > **niestandardowe podstawowe Lokacje**.
+1. Przejdź do **HDFS**  >  **konfiguracji**systemu plików HDFS  >  **Advanced**  >  **— Zaawansowane niestandardowe podstawowe Lokacje**.
 
 1. Usuń następujące klucze:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -123,7 +123,7 @@ Jeśli wybierzesz opcję zabezpieczenia konta magazynu za pomocą ograniczeń **
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Nie można uzyskać dostępu do magazynu po zmianie klucza
 
-Jeśli zmienisz klucz dla konta magazynu, Usługa HDInsight nie będzie już uzyskiwać dostępu do konta magazynu. Usługa HDInsight używa zapisanej w pamięci podręcznej kopii klucza w pliku Core-site. XML dla klastra. Tę kopię w pamięci podręcznej należy zaktualizować, aby odpowiadała nowemu kluczowi.
+Jeśli zmienisz klucz dla konta magazynu, Usługa HDInsight nie będzie już uzyskiwać dostępu do konta magazynu. Usługa HDInsight używa zapisanej w pamięci podręcznej kopii klucza w core-site.xml klastra. Tę kopię w pamięci podręcznej należy zaktualizować, aby odpowiadała nowemu kluczowi.
 
 Ponowne uruchomienie akcji skryptu **nie powoduje** aktualizacji klucza, ponieważ skrypt sprawdza, czy wpis dla konta magazynu już istnieje. Jeśli wpis już istnieje, nie wprowadza żadnych zmian.
 
@@ -133,14 +133,6 @@ Aby obejść ten problem:
 
 > [!IMPORTANT]  
 > Obracanie klucza magazynu dla konta magazynu podstawowego dołączonego do klastra nie jest obsługiwane.
-
-### <a name="poor-performance"></a>Niska wydajność
-
-Jeśli konto magazynu znajduje się w innym regionie niż klaster usługi HDInsight, może wystąpić niska wydajność. Dostęp do danych w innym regionie wysyła ruch sieciowy poza regionalnym centrum danych platformy Azure. I przez publiczny Internet, który może wprowadzać opóźnienia.
-
-### <a name="additional-charges"></a>Dodatkowe opłaty
-
-Jeśli konto magazynu znajduje się w innym regionie niż klaster usługi HDInsight, możesz zauważyć dodatkowe opłaty za ruch wychodzący w ramach rozliczeń na platformie Azure. Opłata za ruch wychodzący jest stosowana, gdy dane opuszczają regionalne centrum danych. Ta opłata jest stosowana, nawet jeśli ruch jest przeznaczony dla innego centrum danych platformy Azure w innym regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

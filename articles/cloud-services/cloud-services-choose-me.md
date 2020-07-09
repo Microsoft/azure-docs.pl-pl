@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75386854"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Omówienie Cloud Services platformy Azure
@@ -45,7 +44,7 @@ PaaS charakter platformy Azure Cloud Services ma inne konsekwencje. Jednym z naj
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie aplikacji usługi w chmurze w programie .NET](cloud-services-dotnet-get-started.md) 
-* [Tworzenie aplikacji usługi w chmurze w języku Node. js](cloud-services-nodejs-develop-deploy-app.md) 
+* [Tworzenie aplikacji usługi w chmurze w Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Tworzenie aplikacji usługi w chmurze w języku PHP](../cloud-services-php-create-web-role.md) 
 * [Tworzenie aplikacji usługi w chmurze w języku Python](cloud-services-python-ptvs.md)
 

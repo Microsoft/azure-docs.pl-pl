@@ -5,12 +5,11 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509206"
 ---
 # <a name="entities"></a>Jednostki
 
@@ -25,6 +24,33 @@ Najważniejszym aspektem samej jednostki jest hierarchia i wyniki transformacji 
 Obiekt jest jednoznacznie własnością elementu nadrzędnego, co oznacza, że gdy element nadrzędny zostanie zniszczony za pomocą `Entity.Destroy()` , to są jego elementy podrzędne i wszystkie połączone [składniki](components.md). W ten sposób usuwanie modelu z sceny odbywa się przez wywołanie `Destroy` na głównym węźle modelu, zwrócone przez `AzureSession.Actions.LoadModelAsync()` lub jego wariant SAS `AzureSession.Actions.LoadModelFromSASAsync()` .
 
 Jednostki są tworzone, gdy serwer załaduje zawartość lub kiedy użytkownik chce dodać obiekt do sceny. Na przykład jeśli użytkownik chce dodać płaszczyznę wycinania w celu wizualizacji wnętrza siatki, użytkownik może utworzyć jednostkę, w której powinna istnieć płaszczyzna, a następnie dodać do niej składnik wycinania płaszczyzny.
+
+## <a name="create-an-entity"></a>Tworzenie jednostki
+
+Aby dodać nową jednostkę do sceny, na przykład przekazać ją jako obiekt główny do ładowania modeli lub dołączyć do niej składniki, użyj następującego kodu:
+
+```cs
+Entity CreateNewEntity(AzureSession session)
+{
+    Entity entity = session.Actions.CreateEntity();
+    entity.Position = new LocalPosition(1, 2, 3);
+    return entity;
+}
+```
+
+```cpp
+ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+{
+    ApiHandle<Entity> entity(nullptr);
+    if (auto entityRes = session->Actions()->CreateEntity())
+    {
+        entity = entityRes.value();
+        entity->Position(Double3{ 1, 2, 3 });
+        return entity;
+    }
+    return entity;
+}
+```
 
 ## <a name="query-functions"></a>Funkcje zapytań
 

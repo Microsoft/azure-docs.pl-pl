@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: ARO, OpenShift, aquasec, TwistLock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271379"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Uruchamianie uprzywilejowanych kontenerów w klastrze usługi Azure Red Hat OpenShift
@@ -29,9 +28,9 @@ Tytuły sekcji w krokach specyficznych dla produktu odnoszą się bezpośrednio 
 W dokumentacji większości produktów zabezpieczeń założono, że masz uprawnienia do administrowania klastrem.
 Administratorzy klienta nie mają wszystkich uprawnień na platformie Azure Red Hat OpenShift. Uprawnienia wymagane do modyfikacji zasobów na poziomie klastra są ograniczone.
 
-Najpierw upewnij się, że użytkownik jest zalogowany do klastra jako administrator klienta, uruchamiając `oc get scc`polecenie. Wszyscy użytkownicy, którzy są członkami grupy Administratorzy klienta, mają uprawnienia do wyświetlania ograniczeń kontekstu zabezpieczeń (SCCs) w klastrze.
+Najpierw upewnij się, że użytkownik jest zalogowany do klastra jako administrator klienta, uruchamiając polecenie `oc get scc` . Wszyscy użytkownicy, którzy są członkami grupy Administratorzy klienta, mają uprawnienia do wyświetlania ograniczeń kontekstu zabezpieczeń (SCCs) w klastrze.
 
-Następnie upewnij się, że `oc` wersja binarna `3.11.154`to.
+Następnie upewnij się, że `oc` wersja binarna to `3.11.154` .
 ```
 oc version
 oc v3.11.154
@@ -74,9 +73,9 @@ Kontynuuj zgodnie z pozostałymi instrukcjami w kroku 1.  Te instrukcje opisują
 ### <a name="step-2-deploy-the-aqua-server-database-and-gateway"></a>Krok 2. Wdrażanie serwera, bazy danych i bramy
 Postępuj zgodnie z instrukcjami podanymi w dokumentacji dotyczącej instalacji akwamaryna-Console. YAML.
 
-Zmodyfikuj podaną `aqua-console.yaml`wartość.  Usuń pierwsze dwa obiekty z etykietą `kind: ClusterRole` i. `kind: ClusterRoleBinding`  Te zasoby nie zostaną utworzone, ponieważ administrator klienta nie ma w tym momencie uprawnień do modyfikowania `ClusterRole` i `ClusterRoleBinding` obiektów.
+Zmodyfikuj podaną wartość `aqua-console.yaml` .  Usuń pierwsze dwa obiekty z etykietą `kind: ClusterRole` i `kind: ClusterRoleBinding` .  Te zasoby nie zostaną utworzone, ponieważ administrator klienta nie ma w tym momencie uprawnień do modyfikowania `ClusterRole` i `ClusterRoleBinding` obiektów.
 
-Druga modyfikacja będzie `kind: Route` częścią `aqua-console.yaml`. Zastąp następujący YAML dla `kind: Route` obiektu w `aqua-console.yaml` pliku.
+Druga modyfikacja będzie `kind: Route` częścią `aqua-console.yaml` . Zastąp następujący YAML dla `kind: Route` obiektu w `aqua-console.yaml` pliku.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -115,7 +114,7 @@ Podczas wdrażania wymuszania należy określić następujące pola:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | akwamaryna — konto  |
-| Projekt        | akwamaryna — zabezpieczenia |
+| Project        | akwamaryna — zabezpieczenia |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Kroki specyficzne dla produktu Prisma Cloud/TwistLock
 
@@ -135,7 +134,7 @@ Rozpocznij od sekcji "Instalowanie konsoli".
 
 ### <a name="install-console"></a>Zainstaluj konsolę
 
-`oc create -f twistlock_console.yaml` W kroku 2 wystąpi błąd podczas tworzenia przestrzeni nazw.
+`oc create -f twistlock_console.yaml`W kroku 2 wystąpi błąd podczas tworzenia przestrzeni nazw.
 Można je bezpiecznie zignorować, dlatego przestrzeń nazw została wcześniej utworzona za pomocą `oc new-project` polecenia.
 
 Użyj `azure-disk` dla typu magazynu.
@@ -177,7 +176,7 @@ Postępuj zgodnie z dokumentacją TwistLock.
 
 ### <a name="install-defender"></a>Instalowanie Defender
 
-`oc create -f defender.yaml` W kroku 2 podczas tworzenia roli klastra i powiązania roli klastra wystąpią błędy.
+`oc create -f defender.yaml`W kroku 2 podczas tworzenia roli klastra i powiązania roli klastra wystąpią błędy.
 Można je zignorować.
 
 Obrona zostanie wdrożona tylko w węzłach obliczeniowych. Nie trzeba ograniczać ich przy użyciu selektora węzłów.

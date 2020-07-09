@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 19e4c61ba930bb9b127e2401174bcea3fd240dce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85112782"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partycjonowanie i skalowanie w poziomie w usłudze Azure Cosmos DB
 
@@ -19,11 +19,11 @@ W tym artykule opisano relację między partycjami logicznymi a fizycznymi. Omó
 
 ## <a name="logical-partitions"></a>Partycje logiczne
 
-Partycja logiczna składa się z zestawu elementów, które mają ten sam klucz partycji. Na przykład w kontenerze zawierającym dane dotyczące żywienia żywności wszystkie elementy zawierają `foodGroup` właściwość. Można użyć `foodGroup` jako klucza partycji dla kontenera. Grupy `foodGroup`elementów, dla których określone wartości, takie jak `Beef Products`,`Baked Products`, i `Sausages and Luncheon Meats`, tworzą odrębne partycje logiczne. Nie trzeba martwić się o usunięcie partycji logicznej, gdy dane podstawowe są usuwane.
+Partycja logiczna składa się z zestawu elementów, które mają ten sam klucz partycji. Na przykład w kontenerze zawierającym dane dotyczące żywienia żywności wszystkie elementy zawierają `foodGroup` Właściwość. Można użyć `foodGroup` jako klucza partycji dla kontenera. Grupy elementów, dla których określone wartości `foodGroup` , takie jak `Beef Products` , `Baked Products` , i `Sausages and Luncheon Meats` , tworzą odrębne partycje logiczne. Nie trzeba martwić się o usunięcie partycji logicznej, gdy dane podstawowe są usuwane.
 
 Partycja logiczna definiuje również zakres transakcji bazy danych. Można aktualizować elementy w ramach partycji logicznej przy użyciu [transakcji z izolacją migawki](database-transactions-optimistic-concurrency.md). Gdy nowe elementy są dodawane do kontenera, nowe partycje logiczne są w sposób niewidoczny dla użytkownika tworzone przez system.
 
-W kontenerze nie ma żadnego limitu liczby partycji logicznych. Każda partycja logiczna może przechowywać do 20 GB danych. Dobre opcje kluczy partycji mają szeroką gamę możliwych wartości. Na przykład w kontenerze, w którym wszystkie elementy zawierają `foodGroup`właściwość, dane znajdujące się `Beef Products` w partycji logicznej mogą rosnąć do 20 GB. [Wybór klucza partycji](partitioning-overview.md#choose-partitionkey) z szerokim zakresem możliwych wartości zapewnia możliwość skalowania kontenera.
+W kontenerze nie ma żadnego limitu liczby partycji logicznych. Każda partycja logiczna może przechowywać do 20 GB danych. Dobre opcje kluczy partycji mają szeroką gamę możliwych wartości. Na przykład w kontenerze, w którym wszystkie elementy zawierają `foodGroup` Właściwość, dane znajdujące się w `Beef Products` partycji logicznej mogą ROSNĄĆ do 20 GB. [Wybór klucza partycji](partitioning-overview.md#choose-partitionkey) z szerokim zakresem możliwych wartości zapewnia możliwość skalowania kontenera.
 
 ## <a name="physical-partitions"></a>Partycje fizyczne
 
@@ -40,11 +40,11 @@ Obsługa przepływności dla kontenera jest dzielona równomiernie między party
 
 Partycje fizyczne kontenera można zobaczyć w sekcji **Magazyn** w **bloku metryki** Azure Portal:
 
-[![Wyświetlanie liczby partycji](./media/partition-data/view-partitions-zoomed-out.png) fizycznych](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
+:::image type="content" source="./media/partition-data/view-partitions-zoomed-out.png" alt-text="Wyświetlanie liczby partycji fizycznych" lightbox="./media/partition-data/view-partitions-zoomed-in.png" ::: 
 
-W tym przykładowym kontenerze, który `/foodGroup` został wybrany jako nasz klucz partycji, każdy z trzech prostokątów reprezentuje partycję fizyczną. W obrazie **zakres kluczy partycji** jest taki sam jak w przypadku partycji fizycznej. Wybrana partycja fizyczna zawiera trzy partycje logiczne `Beef Products`: `Vegetable and Vegetable Products`, i `Soups, Sauces, and Gravies`.
+W tym przykładowym kontenerze, który został wybrany `/foodGroup` jako nasz klucz partycji, każdy z trzech prostokątów reprezentuje partycję fizyczną. W obrazie **zakres kluczy partycji** jest taki sam jak w przypadku partycji fizycznej. Wybrana partycja fizyczna zawiera trzy partycje logiczne: `Beef Products` , `Vegetable and Vegetable Products` i `Soups, Sauces, and Gravies` .
 
-W przypadku udostępnienia przepływności 18 000 jednostek żądań na sekundę (RU/s), każda z trzech partycji fizycznych może korzystać z 1/3 całkowitej alokowanej przepływności. W ramach wybranej partycji fizycznej klucze `Beef Products` `Vegetable and Vegetable Products`logicznej partycji, i `Soups, Sauces, and Gravies` mogą wspólnie korzystać z 6 000 o zainicjowaniu jednostki ru na partycji fizycznej. Ponieważ zainicjowana przepływność jest równomiernie podzielona na partycje fizyczne kontenera, należy wybrać klucz partycji, który równomiernie dystrybuuje zużycie przepływności przez wybranie odpowiedniego [klucza partycji logicznej](partitioning-overview.md#choose-partitionkey). W przypadku wybrania klucza partycji, który równomiernie dystrybuuje zużycie przepływności między partycjami logicznymi, należy zapewnić zrównoważenie zużycia przepływności w ramach partycji fizycznych.
+W przypadku udostępnienia przepływności 18 000 jednostek żądań na sekundę (RU/s), każda z trzech partycji fizycznych może korzystać z 1/3 całkowitej alokowanej przepływności. W ramach wybranej partycji fizycznej klucze logicznej partycji, `Beef Products` `Vegetable and Vegetable Products` i `Soups, Sauces, and Gravies` mogą wspólnie korzystać z 6 000 o zainicjowaniu jednostki ru na partycji fizycznej. Ponieważ zainicjowana przepływność jest równomiernie podzielona na partycje fizyczne kontenera, należy wybrać klucz partycji, który równomiernie dystrybuuje zużycie przepływności przez wybranie odpowiedniego [klucza partycji logicznej](partitioning-overview.md#choose-partitionkey). W przypadku wybrania klucza partycji, który równomiernie dystrybuuje zużycie przepływności między partycjami logicznymi, należy zapewnić zrównoważenie zużycia przepływności w ramach partycji fizycznych.
 
 ## <a name="replica-sets"></a>Zestawy replik
 
@@ -54,7 +54,7 @@ Większość małych kontenerów Cosmos wymaga tylko pojedynczej partycji fizycz
 
 Na poniższej ilustracji przedstawiono, jak partycje logiczne są mapowane na partycje fizyczne dystrybuowane globalnie:
 
-![Obraz, który demonstruje Azure Cosmos DB partycjonowanie](./media/partition-data/logical-partitions.png)
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Obraz, który demonstruje Azure Cosmos DB partycjonowanie" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

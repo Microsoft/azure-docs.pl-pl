@@ -12,12 +12,11 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161728"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84308630"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
 
@@ -202,7 +201,7 @@ Wystąpienie katalogu usługi Azure AD nazywa się dzierżawą usługi Azure AD.
 * uwierzytelnianie kont użytkowników i zarejestrowanych aplikacji
 * Punkty końcowe REST są wymagane do obsługi różnych protokołów, w tym OAuth2 i SAML, w tym [punkt końcowy autoryzacji](#authorization-endpoint), [punkt końcowy tokenu](#token-endpoint) i punkt końcowy "Common" używany przez [aplikacje](#multi-tenant-application)wielodostępne.
 
-Dzierżawy usługi Azure AD są tworzone/skojarzone z subskrypcjami platformy Azure i pakietu Office 365 podczas tworzenia konta, zapewniając & funkcje zarządzania dostępem dla subskrypcji. Administratorzy subskrypcji platformy Azure mogą również tworzyć dodatkowe dzierżawy usługi Azure AD za pośrednictwem Azure Portal. Zobacz, [jak uzyskać dzierżawę Azure Active Directory][AAD-How-To-Tenant] , aby uzyskać szczegółowe informacje na temat różnych sposobów uzyskiwania dostępu do dzierżawy. Zobacz, [jak subskrypcje platformy Azure są skojarzone z Azure Active Directory][AAD-How-Subscriptions-Assoc] , aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD.
+Dzierżawy usługi Azure AD są tworzone/skojarzone z subskrypcjami platformy Azure i pakietu Office 365 podczas tworzenia konta, zapewniając & funkcje zarządzania dostępem dla subskrypcji. Administratorzy subskrypcji platformy Azure mogą również tworzyć dodatkowe dzierżawy usługi Azure AD za pośrednictwem Azure Portal. Zobacz, [jak uzyskać dzierżawę Azure Active Directory][AAD-How-To-Tenant] , aby uzyskać szczegółowe informacje na temat różnych sposobów uzyskiwania dostępu do dzierżawy. Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami i dzierżawą usługi Azure AD, zobacz [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory][AAD-How-Subscriptions-Assoc] . Aby uzyskać instrukcje dotyczące kojarzenia lub dodawania subskrypcji do dzierżawy usługi Azure AD.
 
 ## <a name="token-endpoint"></a>punkt końcowy tokenu
 

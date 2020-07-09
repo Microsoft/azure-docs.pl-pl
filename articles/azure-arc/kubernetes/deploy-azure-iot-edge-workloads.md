@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Wdrażanie obciążeń Azure IoT Edge
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: d82c93783d80060bc3443131191b7cec32dc4878
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680777"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103980"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Wdrażanie obciążeń Azure IoT Edge (wersja zapoznawcza)
 
@@ -25,11 +25,11 @@ Usługa Azure Arc i Azure IoT Edge uzupełniają wszystkie możliwości. Usługa
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 
-* [Zarejestruj urządzenie IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#register-an-iot-edge-device) i [Wdróż moduł symulowanej czujnika temperatury](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#deploy-a-module). Pamiętaj, aby zanotować parametry połączenia urządzenia.
+* [Zarejestruj urządzenie IoT Edge](../../iot-edge/quickstart-linux.md#register-an-iot-edge-device) i [Wdróż moduł symulowanej czujnika temperatury](../../iot-edge/quickstart-linux.md#deploy-a-module). Pamiętaj, aby zanotować parametry połączenia urządzenia.
 
 * Użyj [obsługi IoT Edge](https://aka.ms/edgek8sdoc) , aby wdrożyć ją za pośrednictwem operatora strumienia usługi Azure Arc.
 
-* Pobierz plik [**Values. yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) IoT Edge dla wykresu Helm i Zastąp symbol zastępczy **deviceConnectionString** na końcu pliku zanotowanym w kroku 1. W razie potrzeby można ustawić inne obsługiwane opcje instalacji wykresów. Utwórz przestrzeń nazw dla obciążeń IoT Edge i Utwórz w niej wpis tajny:
+* Pobierz plik [**Values. yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) IoT Edge dla wykresu Helm i Zastąp symbol zastępczy **deviceConnectionString** na końcu pliku zanotowanym w kroku 1. W razie potrzeby można ustawić inne obsługiwane opcje instalacji wykresów. Utwórz przestrzeń nazw dla obciążenia IoT Edge i Utwórz wpis tajny:
 
     ```
     $ kubectl create ns iotedge

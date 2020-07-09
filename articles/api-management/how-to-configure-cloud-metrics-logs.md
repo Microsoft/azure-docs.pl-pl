@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: d0fbdcb877e91a703306f15fdc7507fd19d534f4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205133"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Konfigurowanie metryk i dzienników w chmurze dla usługi Azure API Management Brama samoobsługowa
@@ -28,11 +28,11 @@ Brama samoobsługowa musi być skojarzona z usługą API Management i wymaga po�
 ## <a name="metrics"></a>Metryki
 Domyślnie Brama samoobsługowa emituje wiele metryk za pomocą [Azure monitor](https://azure.microsoft.com/services/monitor/), takich jak zarządzana Brama [w chmurze](api-management-howto-use-azure-monitor.md). 
 
-Funkcję można włączać lub wyłączać przy `telemetry.metrics.cloud` użyciu klucza w ConfigMap wdrożenia bramy. Poniżej znajduje się podział dostępnych konfiguracji:
+Funkcję można włączać lub wyłączać przy użyciu `telemetry.metrics.cloud` klucza w ConfigMap wdrożenia bramy. Poniżej znajduje się podział dostępnych konfiguracji:
 
-| Pole  | Domyślny | Opis |
+| Pole  | Domyślne | Opis |
 | ------------- | ------------- | ------------- |
-| Telemetria. Metrics. Cloud  | `true` | Włącza rejestrowanie za Azure Monitor. Wartość może być `true`, `false`. |
+| Telemetria. Metrics. Cloud  | `true` | Włącza rejestrowanie za Azure Monitor. Wartość może być `true` , `false` . |
 
 
 Oto Przykładowa konfiguracja:
@@ -49,7 +49,7 @@ Oto Przykładowa konfiguracja:
 
 Brama samoobsługowa obecnie emituje następujące metryki za pomocą Azure Monitor:
 
-| Metryka  | Opis |
+| Metric  | Opis |
 | ------------- | ------------- |
 | Żądania  | Liczba żądań interfejsu API w danym okresie |
 | Czas trwania żądań bramy | Liczba milisekund od momentu odebrania żądania w bramie do momentu pełnego wysłania odpowiedzi |

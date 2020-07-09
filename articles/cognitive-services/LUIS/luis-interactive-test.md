@@ -2,13 +2,13 @@
 title: Testowanie aplikacji w portalu LUIS
 description: Użyj Language Understanding (LUIS), aby w sposób ciągły pracować w aplikacji, aby udoskonalić ją i ulepszyć jej zrozumienie.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 06/02/2020
+ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714424"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677744"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testowanie aplikacji LUIS w portalu LUIS
 
@@ -65,9 +65,25 @@ W panelu Inspekcja można dodać test wypowiedź do celu, wybierając pozycję *
 
 ## <a name="disable-required-features"></a>Wyłącz wymagane funkcje
 
-Wybierz ten przełącznik, aby zobaczyć, jakie jest prognozowanie, jeśli funkcja jednostki nie była wymagana.
+Ten przełącznik pozwala określić, czy przeszkolonej aplikacji prawidłowo przewidywalnuje jednostki na podstawie wymaganych funkcji. Ustawieniem domyślnym jest zastosowanie funkcji zgodnie z wymaganiami podczas przewidywania. Wybierz ten przełącznik, aby zobaczyć, co będzie prognozować, jeśli funkcja podjednostki nie była wymagana.
 
-Ten przełącznik pozwala określić, czy przeszkolonej aplikacji prawidłowo przewidywalnuje jednostki na podstawie wymaganych funkcji. Przeszkolonej aplikacji może błędnie przewidzieć jednostkę dodaną przez maszynę na podstawie nieprawidłowej etykiety przykładu wyrażenia długości lub gdy wymagana funkcja nie jest zgodna z tekstem.
+### <a name="when-to-disable-required-features"></a>Kiedy należy wyłączyć wymagane funkcje
+
+Przewidywalna aplikacja może źle przewidzieć jednostkę uczenia maszynowego na podstawie jednego z następujących elementów:
+* Nieprawidłowa etykieta przykładu wyrażenia długości.
+* Wymagana funkcja nie jest zgodna z tekstem.
+
+Przykładem jest jednostka poznania maszynowego z podobiektem nazwy osoby.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Zrzut ekranu przedstawiający schemat jednostki pouczenia maszynowego LUIS z wymaganą funkcją":::
+
+Przykład wypowiedź dla tej jednostki o tej maszynie: `Assign Bob Jones to work on the new security feature` .
+
+Ekstrakcja powinna być `security feature` jak opis biletu i `Bob Jones` jako inżynier, dwie podjednostki `Assign ticket` jednostki.
+
+Aby ułatwić przewidywalność podjednostki, Dodaj do podjednostki funkcję z wbudowaną jednostką [PersonName](luis-reference-prebuilt-person.md) AA `engineer` . Jeśli wprowadzisz wymaganą funkcję, oznacza to, że podjednostka zostanie wyodrębniona tylko wtedy, gdy jest przewidywany tekst. Oznacza to, że jakakolwiek nazwa w tekście, która nie jest przewidywalna przy użyciu podobiektu PersonName, nie zostanie zwrócona jako podjednostka oznaczona etykietą `engineer` .
+
+W przypadku korzystania z interaktywnego okienka testowania i wyświetlania podjednostki z wymaganą funkcją, należy przełączać to ustawienie, aby sprawdzić, czy podjednostka zostanie przewidywalna bez wymaganej funkcji. Podjednostka może być w stanie być prawidłowo przewidywalna bez konieczności działania z powodu prawidłowej etykietowania przykładu wyrażenia długości.
 
 ## <a name="view-sentiment-results"></a>Wyświetl wyniki tonacji
 

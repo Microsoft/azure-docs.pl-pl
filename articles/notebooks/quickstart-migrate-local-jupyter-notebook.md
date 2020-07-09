@@ -3,14 +3,16 @@ title: Migrowanie lokalnego notesu Jupyter do wersji zapoznawczej programu Azure
 description: Szybko Przenieś Notes Jupyter Azure Notebooks do wersji zapoznawczej z komputera lokalnego lub adresu URL sieci Web, a następnie Udostępnij go do współpracy.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c961ad67260cee2809e0bba1e79f2c709183dea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064329"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832121"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Szybki Start: Migrowanie lokalnego notesu Jupyter w wersji zapoznawczej programu Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 W tym przewodniku szybki start przeprowadzisz migrację notesu Jupyter z komputera lokalnego lub innego dostępnego adresu URL pliku do Azure Notebooks. 
 
@@ -26,15 +28,13 @@ Migrowanie notesów lokalnych lub opartych na repozytorium do Azure Notebooks um
 
 Ten przewodnik Szybki Start przedstawia migrację notesu z komputera lokalnego lub innego dostępnego adresu URL pliku. Aby przeprowadzić migrację notesów z repozytorium GitHub, zobacz [Szybki Start: klonowanie notesu](quickstart-clone-jupyter-notebook.md).
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
-
 1. Przejdź do [Azure Notebooks](https://notebooks.azure.com) i zaloguj się. (Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. Na stronie Twój profil publiczny wybierz pozycję **Moje projekty** w górnej części strony:
 
     ![Link Moje projekty w górnej części okna przeglądarki](media/quickstarts/my-projects-link.png)
 
-1. Na stronie **Moje projekty** wybierz pozycję **Nowy projekt** (skrót klawiaturowy: n). Przycisk może się pojawić tylko **+** wtedy, gdy okno przeglądarki jest wąskie:
+1. Na stronie **Moje projekty** wybierz pozycję **Nowy projekt** (skrót klawiaturowy: n). Przycisk może się pojawić tylko wtedy, **+** gdy okno przeglądarki jest wąskie:
 
     ![Polecenie nowego projektu na stronie Moje projekty](media/quickstarts/new-project-command.png)
 
@@ -56,7 +56,7 @@ Ten przewodnik Szybki Start przedstawia migrację notesu z komputera lokalnego l
 
      ![Okno podręczne przekazywania z adresu URL](media/quickstarts/upload-from-url-popup.png)
 
-1. Otwórz i Uruchom nowo przekazany Notes, aby sprawdzić jego zawartość i działanie. Gdy skończysz, wybierz pozycję **plik** > **zatrzymać i Zamknij** , aby zamknąć Notes.
+1. Otwórz i Uruchom nowo przekazany Notes, aby sprawdzić jego zawartość i działanie. Gdy skończysz, wybierz pozycję **plik**  >  **zatrzymać i Zamknij** , aby zamknąć Notes.
 
 1. Aby udostępnić link do przekazanego notesu, kliknij prawym przyciskiem myszy plik w projekcie i wybierz polecenie **Kopiuj link** (skrót klawiaturowy: y), a następnie wklej ten link do odpowiedniego komunikatu. Alternatywnie można udostępnić projekt jako całość przy użyciu kontrolki **Udostępnij** na stronie projektu.
 

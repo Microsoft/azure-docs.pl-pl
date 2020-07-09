@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 8e1b75dfc6a979956ff4a2868027bb769bf7c4ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213486"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE JAKO SELECT (CTAS)
 
@@ -38,7 +38,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-Wybierz... W programie nie pozwala na zmianę metody dystrybucji lub typu indeksu w ramach operacji. Tworzysz `[dbo].[FactInternetSales_new]` przy użyciu domyślnego typu dystrybucji ROUND_ROBIN i domyślnej struktury tabeli klastrowanego indeksu magazynu kolumn.
+Wybierz... W programie nie pozwala na zmianę metody dystrybucji lub typu indeksu w ramach operacji. Tworzysz przy `[dbo].[FactInternetSales_new]` użyciu domyślnego typu dystrybucji ROUND_ROBIN i domyślnej struktury tabeli klastrowanego indeksu magazynu kolumn.
 
 Z CTAS, z drugiej strony, można określić zarówno dystrybucję danych tabeli, jak i typ struktury tabeli. Aby skonwertować poprzedni przykład do CTAS:
 
@@ -59,9 +59,9 @@ FROM    [dbo].[FactInternetSales];
 
 ## <a name="use-ctas-to-copy-a-table"></a>Używanie CTAS do kopiowania tabeli
 
-Być może jednym z najczęściej używanych CTAS jest utworzenie kopii tabeli w celu zmiany kodu DDL. Załóżmy, że pierwotnie utworzono tabelę jako `ROUND_ROBIN`i chcesz ją zmienić na tabelę dystrybuowaną w kolumnie. CTAS to sposób zmiany kolumny dystrybucji. Można również użyć CTAS, aby zmienić typ partycjonowania, indeksowania lub kolumny.
+Być może jednym z najczęściej używanych CTAS jest utworzenie kopii tabeli w celu zmiany kodu DDL. Załóżmy, że pierwotnie utworzono tabelę jako `ROUND_ROBIN` i chcesz ją zmienić na tabelę dystrybuowaną w kolumnie. CTAS to sposób zmiany kolumny dystrybucji. Można również użyć CTAS, aby zmienić typ partycjonowania, indeksowania lub kolumny.
 
-Załóżmy `ROUND_ROBIN`, że utworzono tę tabelę przy użyciu domyślnego typu dystrybucji, a nie do określenia kolumny dystrybucji w `CREATE TABLE`.
+Załóżmy, że utworzono tę tabelę przy użyciu domyślnego typu dystrybucji `ROUND_ROBIN` , a nie do określenia kolumny dystrybucji w `CREATE TABLE` .
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -91,7 +91,7 @@ CREATE TABLE FactInternetSales
     CustomerPONumber nvarchar(25));
 ```
 
-Teraz chcesz utworzyć nową kopię tej tabeli przy użyciu programu `Clustered Columnstore Index`, aby można było korzystać z wydajności tabel klastrowanych magazynu kolumn. Warto również rozproszyć tę tabelę `ProductKey`, ponieważ oczekujesz sprzężeń w tej kolumnie i chcesz uniknąć przenoszenia danych podczas przyłączania. `ProductKey` Na `OrderDateKey`koniec warto również dodać partycjonowanie, dzięki czemu można szybko usunąć stare dane, usuwając stare partycje. Oto instrukcja CTAS, która kopiuje swoją starą tabelę do nowej tabeli.
+Teraz chcesz utworzyć nową kopię tej tabeli przy użyciu programu `Clustered Columnstore Index` , aby można było korzystać z wydajności tabel klastrowanych magazynu kolumn. Warto również rozproszyć tę tabelę `ProductKey` , ponieważ oczekujesz sprzężeń w tej kolumnie i chcesz uniknąć przenoszenia danych podczas przyłączania `ProductKey` . Na koniec warto również dodać partycjonowanie `OrderDateKey` , dzięki czemu można szybko usunąć stare dane, usuwając stare partycje. Oto instrukcja CTAS, która kopiuje swoją starą tabelę do nowej tabeli.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Zamiana sprzężenia ANSI dla instrukcji DELETE
 
-Czasami najlepszym rozwiązaniem do usuwania danych jest użycie CTAS, szczególnie w przypadku `DELETE` instrukcji wykorzystujących składnię sprzężenia ANSI. Wynika to z faktu, `FROM` że Synapse SQL nie obsługuje sprzężeń ANSI w `DELETE` klauzuli instrukcji. Zamiast usuwać dane, wybierz dane, które chcesz zachować.
+Czasami najlepszym rozwiązaniem do usuwania danych jest użycie CTAS, szczególnie w przypadku `DELETE` instrukcji wykorzystujących składnię sprzężenia ANSI. Wynika to z faktu, że Synapse SQL nie obsługuje sprzężeń ANSI w `FROM` klauzuli `DELETE` instrukcji. Zamiast usuwać dane, wybierz dane, które chcesz zachować.
 
 Poniżej znajduje się przykład przekonwertowanej `DELETE` instrukcji:
 
@@ -232,9 +232,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 
 ## <a name="replace-merge-statements"></a>Zamień instrukcje scalania
 
-Można zastąpić instrukcje scalania, co najmniej w części, przy użyciu CTAS. Można połączyć `INSERT` i `UPDATE` do jednej instrukcji. Wszystkie usunięte rekordy powinny być ograniczone z instrukcji `SELECT` , aby pominąć wyniki.
+Można zastąpić instrukcje scalania, co najmniej w części, przy użyciu CTAS. Można połączyć `INSERT` i `UPDATE` do jednej instrukcji. Wszystkie usunięte rekordy powinny być ograniczone z `SELECT` instrukcji, aby pominąć wyniki.
 
-Poniższy przykład dotyczy `UPSERT`:
+Poniższy przykład dotyczy `UPSERT` :
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -330,7 +330,7 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Pamiętaj o następujących kwestiach:
+. Weź pod uwagę następujące kwestie:
 
 * Można użyć CAST lub CONVERT.
 * Aby wymusić wartość NULL, użyj ISNULL, a nie łączenia. Zobacz poniższą uwagę.

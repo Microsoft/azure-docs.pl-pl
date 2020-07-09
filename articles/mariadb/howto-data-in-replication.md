@@ -4,20 +4,20 @@ description: W tym artykule opisano sposób konfigurowania replikacja typu data-
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 3/30/2020
-ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/11/2020
+ms.openlocfilehash: 623c072cb8cb2c7fb1b9b6ec7d3ea661302d5e6a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422469"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104677"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurowanie replikacja typu data-in w Azure Database for MariaDB
 
-W tym artykule opisano sposób konfigurowania replikacja typu data-in w Azure Database for MariaDB przez skonfigurowanie serwerów głównych i replik. W tym artykule założono, że masz pewne doświadczenie w korzystaniu z serwerów i baz danych MariaDB.
+W tym artykule opisano sposób konfigurowania [replikacja typu Data-in](concepts-data-in-replication.md) w Azure Database for MariaDB przez skonfigurowanie serwerów głównych i replik. W tym artykule założono, że masz pewne doświadczenie w korzystaniu z serwerów i baz danych MariaDB.
 
-Aby utworzyć replikę w usłudze Azure Database for MariaDB, replikacja typu data-in synchronizuje dane z lokalnego serwera MariaDB, w maszynach wirtualnych lub w usługach bazy danych w chmurze.
+Aby utworzyć replikę w usłudze Azure Database for MariaDB, [replikacja typu Data-in](concepts-data-in-replication.md) synchronizuje dane z lokalnego serwera MariaDB, w maszynach wirtualnych lub w usługach bazy danych w chmurze. Replikacja typu data-in jest wykonywana za pomocą technologii replikacji opartej na pozycji w pliku dziennika binarnego (binlog) natywnej dla programu MariaDB. Aby dowiedzieć się więcej na temat replikacji binlog, zobacz [Omówienie replikacji binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wymagania](concepts-data-in-replication.md#limitations-and-considerations) replikacji danych.
 
@@ -42,6 +42,12 @@ Przed wykonaniem kroków opisanych w tym artykule Przejrzyj [ograniczenia i wyma
 
    Zaktualizuj reguły zapory za pomocą [witryny Azure Portal](howto-manage-firewall-portal.md) lub [interfejsu wiersza polecenia platformy Azure](howto-manage-firewall-cli.md).
 
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
+
 ## <a name="configure-the-master-server"></a>Konfigurowanie serwera głównego
 
 Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie, na maszynie wirtualnej lub w usłudze bazy danych w chmurze dla replikacja typu data-in. Serwer MariaDB jest serwerem głównym w replikacja typu data-in.
@@ -60,13 +66,13 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Jeśli zmienna [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) zwraca wartość `ON`, rejestrowanie binarne jest włączone na serwerze.
+   Jeśli zmienna [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) zwraca wartość `ON` , rejestrowanie binarne jest włączone na serwerze.
 
-   Jeśli `log_bin` zwraca wartość `OFF`, edytuj plik **My. cnf** , aby `log_bin=ON` włączyć rejestrowanie binarne. Aby zmiana zaczęła obowiązywać, należy ponownie uruchomić serwer.
+   Jeśli `log_bin` zwraca wartość `OFF` , edytuj plik **My. cnf** , aby `log_bin=ON` włączyć rejestrowanie binarne. Aby zmiana zaczęła obowiązywać, należy ponownie uruchomić serwer.
 
 3. Skonfiguruj ustawienia serwera głównego.
 
-    Replikacja typu data-in wymaga, aby `lower_case_table_names` parametr był spójny między serwerem głównym a serwerami repliki. `lower_case_table_names` Parametr jest domyślnie ustawiony na `1` wartość Azure Database for MariaDB.
+    Replikacja typu data-in wymaga, `lower_case_table_names` Aby parametr był spójny między serwerem głównym a serwerami repliki. `lower_case_table_names`Parametr jest domyślnie ustawiony na wartość `1` Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -78,7 +84,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    
    Aby dowiedzieć się, jak dodać konta użytkowników na serwerze głównym, zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/library/create-user/).
 
-   Przy użyciu następujących poleceń Nowa rola replikacji może uzyskać dostęp do serwera głównego z dowolnego komputera, a nie tylko z komputera, który hostuje wzorzec. W przypadku tego dostępu określ **syncuser\@"%"** w poleceniu, aby utworzyć użytkownika.
+   Przy użyciu następujących poleceń Nowa rola replikacji może uzyskać dostęp do serwera głównego z dowolnego komputera, a nie tylko z komputera, który hostuje wzorzec. W przypadku tego dostępu określ **syncuser \@ "%"** w poleceniu, aby utworzyć użytkownika.
    
    Aby dowiedzieć się więcej na temat dokumentacji MariaDB, zobacz [Określanie nazw kont](https://mariadb.com/kb/en/library/create-user/#account-names).
 
@@ -128,7 +134,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
 6. Pobierz bieżącą nazwę pliku dziennika binarnego i przesunięcia.
 
-   Aby określić bieżącą nazwę pliku dziennika binarnego i przesunięcia, uruchom polecenie [`show master status`](https://mariadb.com/kb/en/library/show-master-status/).
+   Aby określić bieżącą nazwę pliku dziennika binarnego i przesunięcia, uruchom polecenie [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) .
     
    ```sql
    show master status;
@@ -177,7 +183,7 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
 
    Wszystkie funkcje replikacja typu data-in są wykonywane przez procedury składowane. Wszystkie procedury można znaleźć w [replikacja typu Data-in procedurach składowanych](reference-data-in-stored-procedures.md). Procedury składowane można uruchamiać w programie MySQL Shell lub MySQL Workbench.
 
-   Aby połączyć dwa serwery i rozpocząć replikację, zaloguj się do docelowego serwera repliki w usłudze Azure DB dla MariaDB. Następnie ustaw wystąpienie zewnętrzne jako serwer główny przy użyciu procedury składowanej `mysql.az_replication_change_master` lub `mysql.az_replication_change_master_with_gtid` na serwerze usługi Azure DB dla MariaDB.
+   Aby połączyć dwa serwery i rozpocząć replikację, zaloguj się do docelowego serwera repliki w usłudze Azure DB dla MariaDB. Następnie ustaw wystąpienie zewnętrzne jako serwer główny przy użyciu `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` procedury składowanej lub na serwerze usługi Azure DB dla MariaDB.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -241,13 +247,13 @@ Poniższe kroki przygotowują i skonfigurują serwer MariaDB hostowany lokalnie,
    show slave status;
    ```
 
-   Jeśli `Slave_IO_Running` i `Slave_SQL_Running` są w stanie `yes`, a wartość `Seconds_Behind_Master` to `0`, działa replikacja. `Seconds_Behind_Master`wskazuje, jak późna jest replika. Jeśli ta wartość nie `0`jest, replika przetwarza aktualizacje.
+   Jeśli `Slave_IO_Running` i `Slave_SQL_Running` są w stanie `yes` , a wartość `Seconds_Behind_Master` to `0` , działa replikacja. `Seconds_Behind_Master`wskazuje, jak późna jest replika. Jeśli ta wartość nie jest `0` , replika przetwarza aktualizacje.
 
 4. Zaktualizuj odpowiednie zmienne serwera, aby zapewnić bezpieczeństwo replikacji danych (wymagane tylko w przypadku replikacji bez GTID).
     
     Ze względu na ograniczenie replikacji natywnej w MariaDB należy ustawić [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) i [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) zmienne w replikacji bez scenariusza GTID.
 
-    Sprawdź, czy serwer podrzędny `sync_master_info` i `sync_relay_log_info` zmienne, aby upewnić się, że replikacja danych jest stabilna, i Ustaw zmienne `1`na.
+    Sprawdź, czy serwer podrzędny `sync_master_info` i `sync_relay_log_info` zmienne, aby upewnić się, że replikacja danych jest stabilna, i Ustaw zmienne na `1` .
     
 ## <a name="other-stored-procedures"></a>Inne procedury składowane
 

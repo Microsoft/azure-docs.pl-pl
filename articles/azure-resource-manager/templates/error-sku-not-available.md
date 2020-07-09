@@ -4,10 +4,9 @@ description: Opisuje sposób rozwiązywania problemów z niedostępnym jednostk�
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78942727"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Usuwanie błędów związanych z niedostępną jednostką SKU
@@ -40,7 +39,7 @@ Aby określić, które jednostki SKU są dostępne w regionie/strefie, użyj pol
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Wyniki obejmują listę jednostek SKU dla lokalizacji i wszelkie ograniczenia dotyczące tej jednostki SKU. Zwróć uwagę, że jednostka SKU może być `NotAvailableForSubscription`wymieniona jako.
+Wyniki obejmują listę jednostek SKU dla lokalizacji i wszelkie ograniczenia dotyczące tej jednostki SKU. Zwróć uwagę, że jednostka SKU może być wymieniona jako `NotAvailableForSubscription` .
 
 ```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
@@ -62,7 +61,7 @@ Dołączanie "FC" na końcu zwraca więcej szczegółów.
 
 ## <a name="solution-2---azure-cli"></a>Rozwiązanie 2 — interfejs wiersza polecenia platformy Azure
 
-Aby określić, które jednostki SKU są dostępne w regionie, użyj `az vm list-skus` polecenia. Użyj parametru `--location` , aby przefiltrować dane wyjściowe do lokalizacji, z której korzystasz. Użyj parametru `--size` , aby wyszukać według częściowej nazwy rozmiaru.
+Aby określić, które jednostki SKU są dostępne w regionie, użyj `az vm list-skus` polecenia. Użyj `--location` parametru, aby przefiltrować dane wyjściowe do lokalizacji, z której korzystasz. Użyj `--size` parametru, aby wyszukać według częściowej nazwy rozmiaru.
 
 ```azurecli-interactive
 az vm list-skus --location southcentralus --size Standard_F --output table

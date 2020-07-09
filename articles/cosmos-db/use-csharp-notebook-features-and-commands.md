@@ -3,15 +3,16 @@ title: Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB not
 description: Dowiedz się, jak używać wbudowanych poleceń i funkcji, aby wykonywać typowe operacje przy użyciu wbudowanych notesów języka C# Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 94cb23b1795a93462a0356fb0af215601edb9d64
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: tracking-python
+ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664109"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263419"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach C# (wersja zapoznawcza)
 
@@ -38,7 +39,7 @@ Wersja 3 [zestawu Azure Cosmos DB .NET SDK dla interfejsu API SQL](https://githu
 
 Utwórz wystąpienie programu, ``CosmosClient`` Aby uruchomić dowolną operację zestawu SDK. 
 
-Na przykład:
+Przykład:
 
 ```csharp
 // Include usings
@@ -95,7 +96,7 @@ var endpoint = Cosmos.Endpoint;
 ## <a name="print-console-output-in-c-code"></a>Drukuj dane wyjściowe konsoli w kodzie C#
 W kodzie C# można użyć składni Display. AsMarkdown () z [interpolacją ciągu](/dotnet/csharp/language-reference/tokens/interpolated) do drukowania danych wyjściowych konsoli, które będą wyświetlane po uruchomieniu komórki. 
 
-Na przykład: 
+Przykład: 
 
 ```csharp
 // Print text in the output
@@ -114,14 +115,14 @@ Można użyć wbudowanego [Eksploratora danych nteract](https://blog.nteract.io/
 
 Na przykład w *GetingStarted_Csharp. ipynb* można wydrukować zmienną z wynikiem, a ``telemetryEvents`` . Pełny przykład można znaleźć w [notesie GettingStarted_Csharp. ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb) . 
 
-![Komórka zapytania CSharp](media/use-notebook-features-and-commands/csharp-query-cell.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Komórka zapytania CSharp":::
 
-![Eksplorator danych nteract](media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Eksplorator danych nteract":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Korzystanie z wbudowanej przeglądarki słowników
 Aby wyświetlić zmienną, można użyć wbudowanej przeglądarki słowników. W komórce należy umieścić zmienną, którą chcesz wizualizować w ostatnim wierszu, która zostanie automatycznie wyświetlona, gdy komórka zostanie uruchomiona.
 
-![Wbudowana przeglądarka słowników](media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png)
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Wbudowana przeglądarka słowników":::
 
 ## <a name="upload-json-items-to-a-container"></a>Przekazywanie elementów JSON do kontenera
 Możesz użyć ``%%upload`` polecenia Magic, aby przekazać dane z pliku JSON do określonego kontenera usługi Azure Cosmos. Aby przekazać elementy, użyj następującego polecenia:
@@ -133,7 +134,7 @@ Możesz użyć ``%%upload`` polecenia Magic, aby przekazać dane z pliku JSON do
 - Zastąp wartości ``{database_id}`` i ``{container_id}`` nazwą bazy danych i kontenera na koncie usługi Azure Cosmos. 
 - Zamień ``{url_location_of_file}`` na lokalizację pliku JSON. Plik musi być tablicą prawidłowych obiektów JSON i powinien być dostępny za pośrednictwem publicznego Internetu.
 
-Na przykład:
+Przykład:
 
 ```csharp
 %%upload --database databaseName --container containerName --url 
@@ -159,7 +160,7 @@ Zamień ``{notebookName}`` na nazwę notesu, który chcesz uruchomić. Notes mus
 ## <a name="reset-notebooks-workspace"></a>Resetuj obszar roboczy notesów
 Aby zresetować obszar roboczy notesy do ustawień domyślnych, wybierz pozycję **Zresetuj obszar roboczy** na pasku poleceń. Spowoduje to usunięcie wszystkich zainstalowanych pakietów niestandardowych i ponowne uruchomienie serwera Jupyter. Nie wpłynie to na Twoje notesy, pliki i zasoby platformy Azure Cosmos.  
 
-![Resetuj obszar roboczy notesów](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Resetuj obszar roboczy notesów":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: ARO, OpenShift, prywatny klaster, Red Hat
 ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727648"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Tworzenie prywatnego klastra przy użyciu usługi Azure Red Hat OpenShift 3,11
@@ -62,7 +61,7 @@ export CLIENT_ID=
 export SECRET=
 ```
 
-### <a name="private-clusterjson"></a>plik Private-Cluster. JSON
+### <a name="private-clusterjson"></a>private-cluster.jsna
 
 Korzystając ze zmiennych środowiskowych zdefiniowanych powyżej, poniżej przedstawiono przykładową konfigurację klastra z włączonym klastrem prywatnym.
 

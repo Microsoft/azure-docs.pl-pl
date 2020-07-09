@@ -7,10 +7,9 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461953"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurowanie zasobu bramy do przesyłania żądań
@@ -21,7 +20,7 @@ Zasoby bramy muszą być zadeklarowane jako część szablonu wdrożenia (JSON l
 
 ## <a name="options-for-configuring-your-gateway-resource"></a>Opcje konfigurowania zasobu bramy
 
-Ponieważ zasób bramy służy jako Most między siecią aplikacji a siecią źródłową infrastruktury ( `open` sieć). Należy tylko skonfigurować jeden (w podglądzie siatki, istnieje limit jednej bramy dla każdej aplikacji). Deklaracja dla zasobu składa się z dwóch głównych części: metadanych zasobów i właściwości. 
+Ponieważ zasób bramy służy jako Most między siecią aplikacji a siecią źródłową infrastruktury ( `open` Sieć). Należy tylko skonfigurować jeden (w podglądzie siatki, istnieje limit jednej bramy dla każdej aplikacji). Deklaracja dla zasobu składa się z dwóch głównych części: metadanych zasobów i właściwości. 
 
 ### <a name="gateway-resource-metadata"></a>Metadane zasobów bramy
 
@@ -55,7 +54,7 @@ Sekcja właściwości służy do definiowania sieci, między którymi jest brama
 
 #### <a name="source-and-destination-network"></a>Sieć źródłowa i docelowa 
 
-Każda Brama wymaga programu `sourceNetwork` i `destinationNetwork`. Sieć źródłowa jest definiowana jako sieć, z której aplikacja będzie odbierać żądania przychodzące. Właściwość Name powinna zawsze być ustawiona na wartość "Open". Sieć docelowa to sieć, do której są kierowane żądania. Wartość nazwy dla tej opcji powinna być ustawiona na nazwę zasobu sieci lokalnej aplikacji (powinna zawierać pełne odwołanie do zasobu). Poniżej znajduje się Przykładowa konfiguracja tego, jak wygląda w przypadku wdrożenia w sieci o nazwie "Moja sieć".
+Każda Brama wymaga programu `sourceNetwork` i `destinationNetwork` . Sieć źródłowa jest definiowana jako sieć, z której aplikacja będzie odbierać żądania przychodzące. Właściwość Name powinna zawsze być ustawiona na wartość "Open". Sieć docelowa to sieć, do której są kierowane żądania. Wartość nazwy dla tej opcji powinna być ustawiona na nazwę zasobu sieci lokalnej aplikacji (powinna zawierać pełne odwołanie do zasobu). Poniżej znajduje się Przykładowa konfiguracja tego, jak wygląda w przypadku wdrożenia w sieci o nazwie "Moja sieć".
 
 ```json 
 "properties": {
@@ -81,7 +80,7 @@ Reguły routingu są określane dla poszczególnych portów. Każdy port transfe
 Reguła routingu TCP składa się z następujących właściwości: 
 * `name`-odwołanie do reguły, która może być dowolnym dowolnym ciągiem 
 * `port`-Port, na którym nasłuchuje żądań przychodzących 
-* `destination`-Specyfikacja punktu końcowego `applicationName`obejmująca `serviceName`, i `endpointName`, w przypadku których żądania muszą być kierowane do
+* `destination`-Specyfikacja punktu końcowego obejmująca `applicationName` , `serviceName` i `endpointName` , w przypadku których żądania muszą być kierowane do
 
 Oto przykładowa reguła routingu TCP:
 
@@ -112,12 +111,12 @@ Reguła routingu HTTP składa się z następujących właściwości:
     * `name`-Nazwa DNS hosta, dla którego określono następujące reguły routingu. Użycie znaku "*" spowoduje utworzenie reguł routingu dla wszystkich hostów.
     * `routes`-tablicę zasad dla tego konkretnego hosta
         * `match`-Specyfikacja przychodzącej struktury żądań dla tej reguły na podstawie`path`
-            * `path`-zawiera `value` (przychodzący identyfikator URI `rewrite` ), (w jaki sposób żądanie ma zostać przesłane dalej) i `type` (obecnie tylko "prefiks")
+            * `path`-zawiera `value` (przychodzący identyfikator URI), `rewrite` (w jaki sposób żądanie ma zostać przesłane dalej) i `type` (obecnie tylko "prefiks")
             * `header`-to opcjonalna Tablica wartości nagłówków do dopasowania w nagłówku żądania, gdy żądanie jest zgodne ze specyfikacją ścieżki (powyżej).
               * Każdy wpis zawiera `name` (Nazwa ciągu nagłówka do dopasowania), `value` (wartość ciągu nagłówka w żądaniu) i `type` (teraz może być tylko "dokładne")
-        * `destination`— Jeśli żądanie jest zgodne, zostanie przekazane do tego miejsca docelowego, które jest określone przy użyciu `applicationName`, i `serviceName``endpointName`
+        * `destination`— Jeśli żądanie jest zgodne, zostanie przekazane do tego miejsca docelowego, które jest określone przy użyciu `applicationName` , `serviceName` i`endpointName`
 
-Poniżej znajduje się przykład reguły routingu HTTP, która powinna być stosowana do żądań przychodzących na porcie 80, do wszystkich hostów obsługiwanych przez aplikacje w tej sieci. Jeśli adres URL żądania ma strukturę zgodną ze specyfikacją ścieżki, tj. `<IPAddress>:80/pickme/<requestContent>`, zostanie ona skierowana do `myListener` punktu końcowego.  
+Poniżej znajduje się przykład reguły routingu HTTP, która powinna być stosowana do żądań przychodzących na porcie 80, do wszystkich hostów obsługiwanych przez aplikacje w tej sieci. Jeśli adres URL żądania ma strukturę zgodną ze specyfikacją ścieżki, tj., `<IPAddress>:80/pickme/<requestContent>` zostanie ona skierowana do `myListener` punktu końcowego.  
 
 ```json
 "properties": {
@@ -219,8 +218,8 @@ Oto jak wygląda pełna Konfiguracja zasobów bramy (jest to dostosowana z przyk
 ```
 
 Ta brama jest skonfigurowana dla aplikacji systemu Linux "meshAppLinux", która składa się z co najmniej dwóch usług, "helloWorldService" i "counterService", które nasłuchuje na porcie 80. W zależności od struktury adresu URL żądania przychodzącego kieruje ono żądanie do jednej z tych usług. 
-* "\<AdresIP>:80/helloWorld/\<Request\>" spowoduje skierowanie żądania do elementu "helloWorldListener" w helloWorldService. 
-* "\<AdresIP>:80/Counter/\<Request\>" spowoduje skierowanie żądania do elementu "counterListener" w CounterService. 
+* " \<IPAddress> : 80/helloWorld/ \<request\> " spowoduje przekierowanie żądania do "helloWorldListener" w helloWorldService. 
+* " \<IPAddress> : 80/Counter/ \<request\> " spowoduje przekierowanie żądania do "counterListener" w CounterService. 
 
 ## <a name="next-steps"></a>Następne kroki
 * Wdróż [przykład](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) transferu danych przychodzących, aby zobaczyć bramy w działaniu

@@ -1,6 +1,6 @@
 ---
 title: Połącz dane usługi Check Point z platformą Azure — wskaźnikiem | Microsoft Docs
-description: Dowiedz się, jak połączyć dane punktów kontrolnych z platformą Azure.
+description: Skonfiguruj urządzenie do sprawdzania punktów kontrolnych do przesyłania dalej komunikatów dziennika systemowego w formacie CEF do obszaru roboczego usługi Azure wskaźnikowego za pośrednictwem agenta dziennika systemu.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566049"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Połącz punkt kontroli z platformą Azure — wskaźnik
 

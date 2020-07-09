@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2b0238d8026bff435fce9c03b6517efb6a55311d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318913"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory — przykłady
 > [!NOTE]
@@ -31,12 +31,12 @@ ms.locfileid: "84019915"
 | [Przewodnik po podajniku APD](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Ten przykład zawiera kompleksowy przewodnik dotyczący przetwarzania plików dzienników przy użyciu Azure Data Factory do przekształcania danych z plików dziennika w szczegółowe informacje. <br/><br/>W tym instruktażu potok Data Factory zbiera przykładowe dzienniki, przetwarza i wzbogaca dane z dzienników o dane referencyjne i przekształca je w celu ocenienia skuteczności kampanii marketingowej, która była ostatnio uruchomiona. |
 | [Przykłady JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Ten przykład zawiera przykłady JSON dla typowych scenariuszy. |
 | [Przykład pobierania danych http](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Ten przykład przedstawia pobieranie danych z punktu końcowego HTTP do usługi Azure Blob Storage przy użyciu niestandardowego działania programu .NET. |
-| [Przykład działania z kropką NET w wielu domenach](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Ten przykład umożliwia utworzenie niestandardowego działania platformy .NET, które nie jest ograniczone do wersji zestawu używanych przez program do uruchamiania ADF (na przykład WindowsAzure. Storage v 4.3.0, Newtonsoft. JSON v 6.0. x itp.). |
-| [Uruchom skrypt języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Ten przykład obejmuje niestandardowe działanie Data Factory, które może służyć do wywoływania RScript. exe. Ten przykład działa tylko z własnym klastrem usługi HDInsight (nie na żądanie), na którym jest już zainstalowany język R. |
+| [Przykład działania z kropką NET w wielu domenach](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Ten przykład umożliwia utworzenie niestandardowego działania platformy .NET, które nie jest ograniczone do wersji zestawu używanych przez program do uruchamiania ADF (na przykład WindowsAzure. Storage v 4.3.0, Newtonsoft.Jsw wersji v 6.0. x itd.). |
+| [Uruchom skrypt języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Ten przykład zawiera Data Factory niestandardowe działanie, które może służyć do wywoływania RScript.exe. Ten przykład działa tylko z własnym klastrem usługi HDInsight (nie na żądanie), na którym jest już zainstalowany język R. |
 | [Wywoływanie zadań platformy Spark w klastrze usługi HDInsight Hadoop](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Ten przykład pokazuje, jak używać działania MapReduce do wywołania programu Spark. Program Spark kopiuje dane z jednego kontenera obiektów blob platformy Azure do innego. |
 | [Analiza usługi Twitter przy użyciu działania oceniania usługi Batch Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Ten przykład pokazuje, jak używać elementu AzureMLBatchScoringActivity do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |
 | [Analiza usługi Twitter przy użyciu działania niestandardowego](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Ten przykład pokazuje, jak używać niestandardowego działania platformy .NET do wywołania modelu Azure Machine Learning, który wykonuje analizę tonacji, ocenianie, prognozowanie itp. |
-| [Potoki sparametryzowane dla Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Przykład zawiera kompletny kod w języku C#, który umożliwia wdrożenie N potoków do oceniania i przeszkolenie każdego z parametrów regionu, w którym lista regionów pochodzi z pliku Parameters. txt, który jest dołączony do tego przykładu. |
+| [Potoki sparametryzowane dla Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Przykład zawiera kompletny kod w języku C#, który umożliwia wdrożenie N potoków do oceniania i przeszkolenie każdego z parametrów regionu, w którym lista regionów pochodzi z pliku parameters.txt, który jest dołączony do tego przykładu. |
 | [Odświeżanie danych referencyjnych dla zadań Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Ten przykład pokazuje, jak używać Azure Data Factory i Azure Stream Analytics razem do uruchamiania zapytań z danymi referencyjnymi i konfigurowania odświeżania dla danych referencyjnych zgodnie z harmonogramem. |
 | [Potok hybrydowy z lokalną usługą Hortonworks Hadoop](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |Przykład używa lokalnego klastra usługi Hadoop jako obiektu docelowego obliczeń do uruchamiania zadań w Data Factory tak samo jak w przypadku klastra Hadoop opartego na usłudze HDInsight w chmurze. |
 | [Narzędzie konwersji JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |To narzędzie umożliwia konwertowanie notacji JSON z wersji wcześniejszej niż 2015-07-01 — wersja zapoznawcza do najnowszej lub 2015-07-01 — wersja zapoznawcza (wartość domyślna). |
@@ -48,7 +48,7 @@ Poniższe szablony Azure Resource Manager dla Data Factory można znaleźć w wi
 
 | Szablon | Opis |
 | --- | --- |
-| [Kopiuj z usługi Azure Blob Storage do Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Wdrożenie tego szablonu powoduje utworzenie usługi Azure Data Factory z potokiem, który kopiuje dane z określonego magazynu obiektów blob platformy Azure do bazy danych Azure SQL. |
+| [Kopiuj z usługi Azure Blob Storage do Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Wdrożenie tego szablonu powoduje utworzenie usługi Azure Data Factory z potokiem, który kopiuje dane z określonego magazynu obiektów blob platformy Azure do Azure SQL Database |
 | [Kopiuj z witryny Salesforce do usługi Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Wdrożenie tego szablonu powoduje utworzenie usługi Azure Data Factory z potokiem, który kopiuje dane z określonego konta usług Salesforce do magazynu obiektów blob platformy Azure. |
 | [Przekształcanie danych przez uruchomienie skryptu programu Hive w klastrze usługi Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Wdrożenie tego szablonu powoduje utworzenie usługi Azure Data Factory z potokiem, który przekształca dane przez uruchomienie przykładowego skryptu Hive w klastrze Azure HDInsight Hadoop. |
 
@@ -104,7 +104,7 @@ Na komputerze muszą być zainstalowane następujące elementy:
    4. Wybierz **grupę zasobów** dla fabryki danych.
    5. Wybierz region **zachodnie stany USA**, **Wschodnie stany USA**i **Europa Północna** dla **regionu**.
    6. Kliknij przycisk **Dalej**.
-6. Na stronie **Konfigurowanie magazynów danych** Określ istniejącą **bazę danych Azure SQL Database** i **konto usługi Azure Storage** (lub) Utwórz bazę danych/magazyn, a następnie kliknij przycisk Dalej.
+6. Na stronie **Konfigurowanie magazynów danych** Określ istniejącą **bazę danych w Azure SQL Database** i **konto usługi Azure Storage** (lub) Utwórz bazę danych/magazyn, a następnie kliknij przycisk Dalej.
 7. Na stronie **Konfigurowanie obliczeń** wybierz pozycję domyślne, a następnie kliknij przycisk **dalej**.
 8. Na stronie **Podsumowanie** Przejrzyj wszystkie ustawienia, a następnie kliknij przycisk **dalej**.
 9. Na stronie **stan wdrożenia** poczekaj na zakończenie wdrażania, a następnie kliknij przycisk **Zakończ**.

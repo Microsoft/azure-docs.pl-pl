@@ -17,10 +17,9 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982976"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure
@@ -70,10 +69,10 @@ Ta architektura jest specyficzna dla następujących sposobów:
 
 * Usługi SAP Central (z własną strukturą plików i procesami dodawania komunikatów i kolejkowania) są niezależne od plików hosta globalnego SAP.
 * Usługi SAP Central działają w wystąpieniu SAP ASCS/SCS.
-* Wystąpienie SAP ASCS/SCS jest klastrowane i jest dostępne przy użyciu nazwy \<\> hosta wirtualnego ASCS/SCS nazwa hosta wirtualnego.
-* Pliki globalne SAP są umieszczane w udziale plików SMB i są dostępne przy użyciu nazwy \<\> hosta globalnego hosta SAP \\ \\ &lt;: Global host&gt;\sapmnt\\&lt;SID&gt;\SYS\...
+* Wystąpienie SAP ASCS/SCS jest klastrowane i jest dostępne przy użyciu \<ASCS/SCS virtual host name\> nazwy hosta wirtualnego.
+* Pliki globalne SAP są umieszczane w udziale plików SMB i są dostępne przy użyciu \<SAP global host\> nazwy hosta: \\ \\ &lt; Global Host SAP &gt; \sapmnt \\ &lt; SID &gt; \SYS \. ..
 * Wystąpienie SAP ASCS/SCS jest zainstalowane na dysku lokalnym na obu węzłach klastra.
-* Nazwa \<sieci nazwy\> hosta wirtualnego ASCS/SCS różni się od &lt;hosta&gt;globalnego SAP.
+* \<ASCS/SCS virtual host name\>Nazwa sieci różni się od &lt; hosta globalnego SAP &gt; .
 
 ![Rysunek 2: architektura SAP ASCS/SCS z udziałem plików SMB][sap-ha-guide-figure-8004]
 
@@ -82,17 +81,17 @@ _**Rysunek 2.** Nowa architektura oprogramowania SAP ASCS/SCS z udziałem plikó
 Wymagania wstępne dotyczące udziału plików SMB:
 
 * Protokół SMB 3,0 (lub nowszy).
-* Możliwość ustawienia Active Directory list kontroli dostępu (ACL) dla Active Directory grup użytkowników i obiektu `computer$` komputera.
+* Możliwość ustawienia Active Directory list kontroli dostępu (ACL) dla Active Directory grup użytkowników i `computer$` obiektu komputera.
 * Udział plików musi mieć włączoną obsługę HA:
     * Dyski używane do przechowywania plików nie mogą być single point of failure.
     * Przestój serwera lub maszyny wirtualnej nie powoduje przestoju w udziale plików.
 
-Rola klastra \<identyfikatora\> SID SAP nie zawiera udostępnionych dysków klastra ani zasobu klastra ogólnego udziału plików.
+\<SID\>Rola klastra SAP nie zawiera udostępnionych dysków klastra ani zasobu klastra ogólnego udziału plików.
 
 
-![Rysunek 3. zasoby \<roli\> klastra usługi SAP SID dotyczące korzystania z udziału plików][sap-ha-guide-figure-8005]
+![Rysunek 3. \< \> zasoby roli klastra usługi SAP SID dotyczące korzystania z udziału plików][sap-ha-guide-figure-8005]
 
-_**Rysunek 3.** Zasoby &lt;roli&gt; klastra usługi SAP SID do korzystania z udziału plików_
+_**Rysunek 3.** &lt; &gt; Zasoby roli klastra usługi SAP SID do korzystania z udziału plików_
 
 
 ## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Udziały plików skalowalne w poziomie z Bezpośrednie miejsca do magazynowania na platformie Azure jako udział plików SAPMNT
@@ -137,20 +136,20 @@ Aby można było użyć udziału plików skalowalnego w poziomie, system musi sp
 * Aby zapewnić dobrą wydajność sieci między maszynami wirtualnymi, które są niezbędne do Bezpośrednie miejsca do magazynowania synchronizacji dysków, użyj typu maszyny wirtualnej z co najmniej przepustowością sieci "High".
     Aby uzyskać więcej informacji, zobacz specyfikacje [serii DSv2][dv2-series] i [ds][ds-series] .
 * Zalecamy zarezerwowanie pewnej nieprzypisanej pojemności w puli magazynów. Pozostawienie nieprzypisanej pojemności w puli magazynów powoduje, że miejsce na woluminy do naprawy "w miejscu" w przypadku awarii dysku. Zwiększa to bezpieczeństwo i wydajność danych.  Aby uzyskać więcej informacji, zobacz [Wybieranie rozmiaru woluminu][choosing-the-size-of-volumes-s2d].
-* Nie trzeba konfigurować wewnętrznego modułu równoważenia obciążenia platformy Azure dla nazwy sieciowej udziału plików skalowalnego w poziomie, na przykład dla \<hosta\>globalnego SAP. Jest to wykonywane dla nazwy \<\> hosta wirtualnego ASCS/SCS wystąpienia SAP ASCS/SCS lub dla systemu DBMS. Udział plików skalowalny w poziomie skaluje obciążenie we wszystkich węzłach klastra. \<Host\> globalny SAP używa lokalnego adresu IP dla wszystkich węzłów klastra.
+* Nie trzeba konfigurować wewnętrznego modułu równoważenia obciążenia platformy Azure dla nazwy sieciowej udziału plików skalowalnego w poziomie, na przykład dla programu \<SAP global host\> . Jest to realizowane w przypadku \<ASCS/SCS virtual host name\> wystąpienia SAP ASCS/SCS lub systemu DBMS. Udział plików skalowalny w poziomie skaluje obciążenie we wszystkich węzłach klastra. \<SAP global host\>używa lokalnego adresu IP dla wszystkich węzłów klastra.
 
 
 > [!IMPORTANT]
-> Nie można zmienić nazwy udziału plików SAPMNT, który wskazuje na \<hosta\>globalnego SAP. SAP obsługuje tylko nazwę udziału "sapmnt".
+> Nie można zmienić nazwy udziału plików SAPMNT, który wskazuje na \<SAP global host\> . SAP obsługuje tylko nazwę udziału "sapmnt".
 >
 > Aby uzyskać więcej informacji, zobacz temat [SAP uwaga 2492395 — czy nazwa udziału sapmnt być zmieniona?][2492395]
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Skonfiguruj wystąpienia SAP ASCS/SCS i udział plików skalowalny w poziomie w dwóch klastrach
 
-Wystąpienia SAP ASCS/SCS można wdrożyć w jednym klastrze z własną rolą klastra identyfikatorów SID \<\> SAP. W takim przypadku należy skonfigurować udział plików skalowalny w poziomie w innym klastrze przy użyciu innej roli klastra.
+Wystąpienia SAP ASCS/SCS można wdrożyć w jednym klastrze z własną \<SID\> rolą klastra SAP. W takim przypadku należy skonfigurować udział plików skalowalny w poziomie w innym klastrze przy użyciu innej roli klastra.
 
 > [!IMPORTANT]
->W tym scenariuszu wystąpienie SAP ASCS/SCS jest skonfigurowane do uzyskiwania dostępu do hosta globalnego SAP przy użyciu \\ \\ &lt;ścieżki&gt;UNC hosta globalnego SAP \sapmnt\\&lt;SID&gt;\SYS\.
+>W tym scenariuszu wystąpienie SAP ASCS/SCS jest skonfigurowane do uzyskiwania dostępu do hosta globalnego SAP przy użyciu ścieżki UNC \\ \\ &lt; hosta globalnego SAP &gt; \sapmnt \\ &lt; SID &gt; \SYS\.
 >
 
 ![Rysunek 5: wystąpienie SAP ASCS/SCS oraz udział plików skalowalny w poziomie wdrożony w dwóch klastrach][sap-ha-guide-figure-8007]

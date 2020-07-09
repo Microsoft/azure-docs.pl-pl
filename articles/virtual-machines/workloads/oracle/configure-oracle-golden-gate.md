@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683729"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie bramy Oracle na maszynie wirtualnej platformy Azure z systemem Linux 
@@ -82,7 +82,7 @@ az vm availability-set create \
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). 
 
-Poniższy przykład tworzy dwie maszyny wirtualne o `myVM1` nazwach i `myVM2`. Utwórz klucze SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
+Poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2` . Utwórz klucze SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
 #### <a name="create-myvm1-primary"></a>Utwórz myVM1 (podstawowy):
 
@@ -96,7 +96,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do poniższego przykładu. (Zanotuj `publicIpAddress`. Ten adres jest używany w celu uzyskania dostępu do maszyny wirtualnej.
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do poniższego przykładu. (Zanotuj `publicIpAddress` . Ten adres jest używany w celu uzyskania dostępu do maszyny wirtualnej.
 
 ```output
 {
@@ -354,7 +354,7 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Pobierz oprogramowanie bramy
 Aby pobrać i przygotować oprogramowanie Oracle, należy wykonać następujące czynności:
 
-1. Pobierz plik **fbo_ggs_Linux_x64_shiphome. zip** z [strony pobierania bramy Oracle](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). W obszarze tytuł pobierania **Oracle GoldenGate 12. x. x. x dla Oracle Linux x86-64**powinien istnieć zestaw plików. zip do pobrania.
+1. Pobierz plik **fbo_ggs_Linux_x64_shiphome.zip** z [strony pobierania bramy programu Oracle](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). W obszarze tytuł pobierania **Oracle GoldenGate 12. x. x. x dla Oracle Linux x86-64**powinien istnieć zestaw plików. zip do pobrania.
 
 2. Po pobraniu plików zip na komputer kliencki Użyj protokołu Secure Copy Protocol (SCP) do skopiowania plików na maszynę wirtualną:
 
@@ -391,7 +391,7 @@ Jest to opcjonalny krok. Ten krok można pominąć, jeśli używasz klienta z sy
    * [Pobierz pobieranie](https://www.putty.org/)
    * [Pobierz Xming](https://xming.en.softonic.com/)
 
-2. Po zainstalowaniu programu w folderze podano (na przykład C:\Program Files\PuTTY) Uruchom program PuTTYgen. exe (generator kluczy).
+2. Po zainstalowaniu programu w folderze podano (na przykład C:\Program Files\PuTTY) Uruchom puttygen.exe (wygenerował generator kluczy).
 
 3. W oknie generator kluczy:
 
@@ -413,14 +413,14 @@ Jest to opcjonalny krok. Ten krok można pominąć, jeśli używasz klienta z sy
 5. Utwórz plik o nazwie **authorized_keys**. Wklej zawartość klucza w tym pliku, a następnie Zapisz plik.
 
    > [!NOTE]
-   > Klucz musi zawierać ciąg `ssh-rsa`. Ponadto zawartość klucza musi być pojedynczym wierszem tekstu.
+   > Klucz musi zawierać ciąg `ssh-rsa` . Ponadto zawartość klucza musi być pojedynczym wierszem tekstu.
    >  
 
-6. Uruchom program PuTTY. W okienku **Kategoria** wybierz pozycję **połączenie** > **SSH** > **AUTH**. W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
+6. Uruchom program PuTTY. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **AUTH**. W polu **plik klucza prywatnego dla uwierzytelniania** przejdź do wygenerowanego wcześniej klucza.
 
    ![Zrzut ekranu przedstawiający stronę Ustawianie klucza prywatnego](./media/oracle-golden-gate/setprivatekey.png)
 
-7. W okienku **Kategoria** wybierz pozycję **połączenie** > **SSH** > **X11**. Następnie zaznacz pole wyboru **Włącz przekazywanie X11** .
+7. W okienku **Kategoria** wybierz pozycję **połączenie**  >  **SSH**  >  **X11**. Następnie zaznacz pole wyboru **Włącz przekazywanie X11** .
 
    ![Zrzut ekranu przedstawiający stronę Włączanie X11](./media/oracle-golden-gate/enablex11.png)
 

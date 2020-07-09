@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 525417bd83a1d30479fd3effbce690ed04d9af73
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400829"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608008"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Konwertowanie zamiany tekstu na mowę przy użyciu języka Python
 
@@ -26,7 +27,7 @@ Ten artykuł wymaga [konta Cognitive Services platformy Azure](https://docs.micr
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Środowisko Python 2.7.x lub 3.x
-* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>lub ulubiony Edytor tekstu
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span> </a>lub ulubiony Edytor tekstu
 * Klucz subskrypcji platformy Azure dla usługi mowy
 
 ## <a name="create-a-project-and-import-required-modules"></a>Tworzenie projektu i importowanie wymaganych modułów
@@ -67,13 +68,13 @@ class TextToSpeech(object):
         self.access_token = None
 ```
 
-`subscription_key` Jest to klucz unikatowy z Azure Portal. `tts`monituje użytkownika o wprowadzenie tekstu, który zostanie przekonwertowany na mowę. Ta wartość wejściowa jest literałem ciągu, dlatego znaki nie muszą być wyprowadzane. Na koniec `timestr` pobiera bieżącą godzinę, przy użyciu której będziemy nazwać plik.
+`subscription_key`Jest to klucz unikatowy z Azure Portal. `tts`monituje użytkownika o wprowadzenie tekstu, który zostanie przekonwertowany na mowę. Ta wartość wejściowa jest literałem ciągu, dlatego znaki nie muszą być wyprowadzane. Na koniec `timestr` Pobiera bieżącą godzinę, przy użyciu której będziemy nazwać plik.
 
 ## <a name="get-an-access-token"></a>Pobranie tokenu dostępu
 
 Interfejs API REST zamiany tekstu na mowę wymaga tokenu dostępu do uwierzytelniania. Aby uzyskać token dostępu, wymagany jest program Exchange. Ten przykład umożliwia wymianę klucza subskrypcji usługi mowy dla tokenu dostępu przy użyciu `issueToken` punktu końcowego.
 
-W tym przykładzie przyjęto założenie, że subskrypcja usługi mowy znajduje się w regionie zachodnie stany USA. Jeśli używasz innego regionu, zaktualizuj wartość parametru `fetch_token_url`. Aby uzyskać pełną listę, zobacz [regiony](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+W tym przykładzie przyjęto założenie, że subskrypcja usługi mowy znajduje się w regionie zachodnie stany USA. Jeśli używasz innego regionu, zaktualizuj wartość parametru `fetch_token_url` . Aby uzyskać pełną listę, zobacz [regiony](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Skopiuj ten kod do `TextToSpeech` klasy:
 
@@ -92,14 +93,14 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Utwórz żądanie i Zapisz odpowiedź
 
-Tutaj można skompilować żądanie i zapisać odpowiedź na mowę. Najpierw należy ustawić `base_url` i `path`. W tym przykładzie przyjęto założenie, że używasz regionu zachodnie stany USA. Jeśli zasób jest zarejestrowany w innym regionie, upewnij się, że Zaktualizowano `base_url`. Aby uzyskać więcej informacji, zobacz [regiony usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Tutaj można skompilować żądanie i zapisać odpowiedź na mowę. Najpierw należy ustawić `base_url` i `path` . W tym przykładzie przyjęto założenie, że używasz regionu zachodnie stany USA. Jeśli zasób jest zarejestrowany w innym regionie, upewnij się, że Zaktualizowano `base_url` . Aby uzyskać więcej informacji, zobacz [regiony usługi mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Następnie musisz dodać wymagane nagłówki dla żądania. Upewnij się, że Zaktualizowano `User-Agent` o nazwę zasobu (znajdującą się w Azure Portal), i ustaw `X-Microsoft-OutputFormat` na preferowane dane wyjściowe dźwięku. Aby zapoznać się z pełną listą formatów danych wyjściowych, zobacz [wyjście audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-Następnie Skonstruuj treść żądania przy użyciu języka SSML (Speech Syntezing Language). Ten przykład definiuje strukturę i używa utworzonych wcześniej `tts` danych wejściowych.
+Następnie Skonstruuj treść żądania przy użyciu języka SSML (Speech Syntezing Language). Ten przykład definiuje strukturę i używa `tts` utworzonych wcześniej danych wejściowych.
 
 >[!NOTE]
-> Ten przykład używa czcionki `Guy24kRUS` głosowej. Aby zapoznać się z pełną listą podanych głosów/języków firmy Microsoft, zobacz temat [Obsługa języków](language-support.md).
+> Ten przykład używa `Guy24kRUS` czcionki głosowej. Aby zapoznać się z pełną listą podanych głosów/języków firmy Microsoft, zobacz temat [Obsługa języków](language-support.md).
 > Jeśli interesuje Cię tworzenie unikatowego, rozpoznawalnego głosu dla marki, zobacz [Tworzenie niestandardowych czcionek głosowych](how-to-customize-voice-font.md).
 
 Na koniec zostanie wysłane żądanie do usługi. Jeśli żądanie zakończy się pomyślnie i zostanie zwrócony kod stanu 200, odpowiedź mowy jest zapisywana w pliku z sygnaturą czasową.
@@ -168,7 +169,7 @@ Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zos
 > [!div class="nextstepaction"]
 > [Poznaj przykłady dla języka Python w serwisie GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja interfejsu API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Konwertowanie zamiany tekstu na mowę przy użyciu języka Python i zestawu Speech SDK](quickstarts/speech-to-text-from-microphone.md)

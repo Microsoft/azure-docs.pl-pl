@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70881290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300736"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Dedykowana sieć HSM platformy Azure
 
@@ -78,7 +77,7 @@ Urządzenia HSM umożliwiają przekierowanie ruchu do alternatywnego modułu HSM
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>Międzyregionowa HA przy użyciu bramy sieci VPN
 
-W przypadku aplikacji rozproszonych globalnie lub dla regionalnych scenariuszy trybu failover o wysokiej dostępności wymagane jest połączenie sieci wirtualnych między regionami. Za pomocą dedykowanego modułu HSM platformy Azure można osiągnąć wysoką dostępność przy użyciu VPN Gateway, która zapewnia bezpieczny tunel między dwiema sieciami wirtualnymi. Aby uzyskać więcej informacji na temat połączeń między sieciami wirtualnymi przy użyciu VPN Gateway, zobacz artykuł [co to jest VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
+W przypadku aplikacji rozproszonych globalnie lub dla regionalnych scenariuszy trybu failover o wysokiej dostępności wymagane jest połączenie sieci wirtualnych między regionami. Za pomocą dedykowanego modułu HSM platformy Azure można osiągnąć wysoką dostępność przy użyciu VPN Gateway, która zapewnia bezpieczny tunel między dwiema sieciami wirtualnymi. Aby uzyskać więcej informacji na temat połączeń między sieciami wirtualnymi przy użyciu VPN Gateway, zobacz artykuł [co to jest VPN Gateway?](../vpn-gateway/design.md#V2V)
 
 > [!NOTE]
 > Globalna komunikacja równorzędna sieci wirtualnych nie jest dostępna w scenariuszach łączności między regionami z dedykowanymi sprzętowych modułów zabezpieczeńami w tej chwili, a zamiast tego należy użyć bramy sieci VPN. 

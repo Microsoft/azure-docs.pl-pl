@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176914"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Szablony aplikacji na platformie Azure API Management
@@ -74,7 +74,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- `Product list` Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
+ `Product list`Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
 -   [Kontrola stronicowania](api-management-page-controls.md#paging-control)  
   
@@ -181,7 +181,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```  
   
 ### <a name="controls"></a>Formanty  
- `Application` Szablon nie zezwala na używanie żadnych [kontrolek strony](api-management-page-controls.md).  
+ `Application`Szablon nie zezwala na używanie żadnych [kontrolek strony](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Model danych  
  Jednostka [aplikacji](api-management-template-data-model-reference.md#Application) .  

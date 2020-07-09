@@ -12,15 +12,14 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882322"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplikacja jednostronicowa: uzyskiwanie tokenu do wywoływania interfejsu API
 
-Wzorcem uzyskiwania tokenów dla interfejsów API z MSAL. js jest najpierw próba żądania tokenu dyskretnego za pomocą `acquireTokenSilent` metody. Po wywołaniu tej metody Biblioteka najpierw sprawdza pamięć podręczną w magazynie przeglądarki, aby sprawdzić, czy istnieje prawidłowy token i zwraca go. Gdy w pamięci podręcznej nie ma prawidłowego tokenu, wysyła żądanie tokenu dyskretnego do Azure Active Directory (Azure AD) z ukrytego elementu iframe. Ta metoda umożliwia również bibliotece odnawianie tokenów. Aby uzyskać więcej informacji na temat sesji logowania jednokrotnego i okresu istnienia tokenu w usłudze Azure AD, zobacz [okresy istnienia tokenu](active-directory-configurable-token-lifetimes.md).
+Wzorcem uzyskiwania tokenów dla interfejsów API z MSAL.js jest najpierw próba żądania tokenu dyskretnego za pomocą `acquireTokenSilent` metody. Po wywołaniu tej metody Biblioteka najpierw sprawdza pamięć podręczną w magazynie przeglądarki, aby sprawdzić, czy istnieje prawidłowy token i zwraca go. Gdy w pamięci podręcznej nie ma prawidłowego tokenu, wysyła żądanie tokenu dyskretnego do Azure Active Directory (Azure AD) z ukrytego elementu iframe. Ta metoda umożliwia również bibliotece odnawianie tokenów. Aby uzyskać więcej informacji na temat sesji logowania jednokrotnego i okresu istnienia tokenu w usłudze Azure AD, zobacz [okresy istnienia tokenu](active-directory-configurable-token-lifetimes.md).
 
 Żądania tokenu dyskretnego do usługi Azure AD mogą się nie powieść z przyczyn takich jak wygasła sesja usługi Azure AD lub zmiana hasła. W takim przypadku można wywołać jedną z metod interaktywnych (co spowoduje wyświetlenie monitu użytkownika) o uzyskanie tokenów:
 
@@ -70,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 Otoka kątowa MSAL zapewnia Interceptor HTTP, który automatycznie uzyskuje tokeny dostępu w trybie dyskretnym i dołącza je do żądań HTTP do interfejsów API.
 
-W opcji `protectedResourceMap` konfiguracji można określić zakresy interfejsów API. `MsalInterceptor`Program będzie żądać tych zakresów podczas automatycznego uzyskiwania tokenów.
+W opcji konfiguracji można określić zakresy interfejsów API `protectedResourceMap` . `MsalInterceptor`Program będzie żądać tych zakresów podczas automatycznego uzyskiwania tokenów.
 
 ```javascript
 // app.module.ts
@@ -126,7 +125,7 @@ ngOnDestroy() {
  }
 ```
 
-Alternatywnie można jawnie uzyskać tokeny przy użyciu metod pozyskiwania tokenów, zgodnie z opisem w podstawowej bibliotece MSAL. js.
+Alternatywnie można jawnie uzyskać tokeny przy użyciu metod pozyskiwania tokenów, zgodnie z opisem w bibliotece Core MSAL.js.
 
 ---
 
@@ -168,7 +167,7 @@ Możesz użyć opcjonalnych oświadczeń do następujących celów:
 - Zmień zachowanie niektórych oświadczeń zwracanych przez usługę Azure AD w tokenach.
 - Dodawanie niestandardowych oświadczeń do aplikacji i uzyskiwanie do nich dostępu.
 
-Aby zażądać opcjonalnych `IdToken`oświadczeń w, można wysłać obiekt oświadczeń skonwertowanej do `claimsRequest` pola `AuthenticationParameters.ts` klasy.
+Aby zażądać opcjonalnych oświadczeń w `IdToken` , można wysłać obiekt oświadczeń skonwertowanej do `claimsRequest` pola `AuthenticationParameters.ts` klasy.
 
 ```javascript
 "optionalClaims":

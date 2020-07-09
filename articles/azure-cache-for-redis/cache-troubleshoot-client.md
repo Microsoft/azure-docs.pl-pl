@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829673"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie klienta
 
@@ -30,7 +30,7 @@ Wykorzystanie pamięci na komputerze klienckim prowadzi do wszystkich rodzajów 
 Aby wykryć wykorzystanie pamięci na kliencie:
 
 - Monitoruj użycie pamięci na maszynie, aby upewnić się, że nie przekracza ona dostępnej pamięci.
-- Monitoruj licznik `Page Faults/Sec` wydajności klienta. Podczas normalnej pracy większość systemów zawiera pewne błędy stron. Skoki błędów stron odpowiadających limitom czasu żądania mogą wskazywać na wykorzystanie pamięci.
+- Monitoruj `Page Faults/Sec` licznik wydajności klienta. Podczas normalnej pracy większość systemów zawiera pewne błędy stron. Skoki błędów stron odpowiadających limitom czasu żądania mogą wskazywać na wykorzystanie pamięci.
 
 Duże wykorzystanie pamięci na kliencie można ograniczyć na kilka sposobów:
 
@@ -43,21 +43,23 @@ Rozerwania ruchu połączonego z słabymi `ThreadPool` ustawieniami mogą spowod
 
 Monitoruj jak `ThreadPool` dane statystyczne zmieniają się w miarę upływu czasu przy użyciu [przykładu `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Możesz użyć `TimeoutException` komunikatów z stackexchange. Redis, jak pokazano poniżej, aby dokładniej zbadać:
 
+```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
+```
 
 W powyższym wyjątku występuje kilka interesujących problemów:
 
-- Zwróć uwagę, że `IOCP` w sekcji i `WORKER` sekcji masz `Busy` wartość większą niż `Min` wartość. Różnica polega na tym `ThreadPool` , że Twoje ustawienia wymagają dostosowania.
-- Możesz również zobaczyć `in: 64221`. Ta wartość wskazuje, że 64 211 bajtów została odebrana w warstwie gniazda jądra klienta, ale nie została odczytana przez aplikację. Ta różnica zwykle oznacza, że aplikacja (na przykład StackExchange. Redis) nie odczytuje danych z sieci tak szybko, jak serwer wysyła go do Ciebie.
+- Zwróć uwagę, że w `IOCP` sekcji i `WORKER` sekcji masz `Busy` wartość większą niż `Min` wartość. Różnica polega na tym, że Twoje `ThreadPool` Ustawienia wymagają dostosowania.
+- Możesz również zobaczyć `in: 64221` . Ta wartość wskazuje, że 64 211 bajtów została odebrana w warstwie gniazda jądra klienta, ale nie została odczytana przez aplikację. Ta różnica zwykle oznacza, że aplikacja (na przykład StackExchange. Redis) nie odczytuje danych z sieci tak szybko, jak serwer wysyła go do Ciebie.
 
-Można [skonfigurować `ThreadPool` ustawienia](cache-faq.md#important-details-about-threadpool-growth) , aby upewnić się, że Pula wątków szybko skaluje się w ramach scenariuszy z serii.
+Można [skonfigurować `ThreadPool` Ustawienia](cache-faq.md#important-details-about-threadpool-growth) , aby upewnić się, że Pula wątków szybko skaluje się w ramach scenariuszy z serii.
 
 ## <a name="high-client-cpu-usage"></a>Duże użycie procesora CPU przez klienta
 
 Wysokie użycie procesora CPU przez klienta wskazuje, że system nie może zachować pracy z pożądanymi zadaniami. Mimo że pamięć podręczna przesłała szybko odpowiedź, klient może nie przetwarzać odpowiedzi w odpowiednim czasie.
 
-Monitoruj użycie procesora CPU w całym systemie przy użyciu metryk dostępnych w Azure Portal lub liczników wydajności na komputerze. Należy zachować ostrożność, aby nie monitorować procesora *procesów* , ponieważ pojedynczy proces może mieć niskie użycie procesora CPU, ale procesor CPU może być wysoki. Obserwuj w przypadku szczytów użycia procesora, które są zgodne z limitami czasu. Wysoki procesor CPU może również spowodować `in: XXX` wysokie wartości `TimeoutException` w komunikatach o błędach zgodnie z opisem w sekcji [Seria ruchu](#traffic-burst) .
+Monitoruj użycie procesora CPU w całym systemie przy użyciu metryk dostępnych w Azure Portal lub liczników wydajności na komputerze. Należy zachować ostrożność, aby nie monitorować procesora *procesów* , ponieważ pojedynczy proces może mieć niskie użycie procesora CPU, ale procesor CPU może być wysoki. Obserwuj w przypadku szczytów użycia procesora, które są zgodne z limitami czasu. Wysoki procesor CPU może również spowodować wysokie `in: XXX` wartości w `TimeoutException` komunikatach o błędach zgodnie z opisem w sekcji [Seria ruchu](#traffic-burst) .
 
 > [!NOTE]
 > StackExchange. Redis 1.1.603 i nowsze zawierają `local-cpu` metrykę w `TimeoutException` komunikatach o błędach. Upewnij się, że używasz najnowszej wersji [pakietu NuGet stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/). Błędy są ciągle naprawiane w kodzie, aby zwiększyć jego niezawodność, tak aby Najnowsza wersja była ważna.

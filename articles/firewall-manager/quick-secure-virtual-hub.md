@@ -1,27 +1,27 @@
 ---
-title: 'Szybki Start: Zabezpieczanie wirtualnego koncentratora przy użyciu narzędzia Azure firewall Manager w wersji zapoznawczej — Menedżer zasobów szablonu'
-description: Dowiedz się, jak zabezpieczyć koncentrator wirtualny przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure.
+title: 'Szybki Start: Zabezpieczanie wirtualnego koncentratora przy użyciu Menedżera zapory platformy Azure — Menedżer zasobów szablonu'
+description: Dowiedz się, jak zabezpieczyć koncentrator wirtualny przy użyciu Menedżera zapory platformy Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167200"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563700"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Szybki Start: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure — Menedżer zasobów szablonu
 
-W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby zabezpieczyć centrum wirtualne przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure. Wdrożona Zapora ma regułę aplikacji, która umożliwia nawiązywanie połączeń z usługą `www.microsoft.com` . Dwie maszyny wirtualne z systemem Windows Server 2019 są wdrażane w celu przetestowania zapory. Jeden serwer skoku jest używany do nawiązywania połączenia z serwerem obciążeń. Z serwera obciążenia można łączyć się tylko z usługą `www.microsoft.com` .
+W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby zabezpieczyć centrum wirtualne przy użyciu Menedżera zapory platformy Azure. Wdrożona Zapora ma regułę aplikacji, która umożliwia nawiązywanie połączeń z usługą `www.microsoft.com` . Dwie maszyny wirtualne z systemem Windows Server 2019 są wdrażane w celu przetestowania zapory. Jeden serwer skoku jest używany do nawiązywania połączenia z serwerem obciążeń. Z serwera obciążenia można łączyć się tylko z usługą `www.microsoft.com` .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Aby uzyskać więcej informacji na temat wersji zapoznawczej Menedżera zapory platformy Azure, zobacz [co to jest wersja zapoznawcza Menedżera zapory platformy Azure?](overview.md)
+Aby uzyskać więcej informacji na temat Menedżera zapory platformy Azure, zobacz [co to jest Menedżer zapory platformy Azure?](overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,11 +29,11 @@ Aby uzyskać więcej informacji na temat wersji zapoznawczej Menedżera zapory p
 
 ## <a name="create-a-secured-virtual-hub"></a>Tworzenie bezpiecznego centrum wirtualnego
 
-Ten szablon służy do tworzenia bezpiecznego koncentratora wirtualnego przy użyciu programu Azure firewall Manager w wersji zapoznawczej wraz z zasobami wymaganymi do obsługi tego scenariusza.
+Ten szablon umożliwia utworzenie bezpiecznego koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure wraz z zasobami wymaganymi do obsługi tego scenariusza.
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
@@ -57,7 +57,7 @@ Wdróż szablon Menedżer zasobów na platformie Azure:
 
 1. Wybierz pozycję **Wdróż na platformie Azure** , aby zalogować się do platformy Azure i otworzyć szablon. Szablon umożliwia utworzenie zapory platformy Azure, wirtualnej sieci WAN i wirtualnego centrum, infrastruktury sieciowej i dwóch maszyn wirtualnych.
 
-   [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
 
 2. W portalu na stronie **zabezpieczone centra wirtualne** wpisz lub wybierz następujące wartości:
    - Subskrypcja: wybierz z istniejących subskrypcji 
@@ -88,7 +88,7 @@ Teraz sprawdzono, że reguły zapory działają:
 
 * Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą zapory, Usuń grupę zasobów. Spowoduje to usunięcie zapory i wszystkich powiązanych zasobów.
 
@@ -101,4 +101,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Informacje o zaufanych partnerach zabezpieczeń](trusted-security-partners.md)
+> [Dowiedz się więcej o dostawcach partnerów zabezpieczeń](trusted-security-partners.md)

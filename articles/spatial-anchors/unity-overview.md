@@ -9,10 +9,9 @@ ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: d76207d9991d496c36fa8f9db3911a62d003fafe
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006133"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Kompilowanie w środowisku Unity przy użyciu kotwic platformy Azure

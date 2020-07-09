@@ -7,14 +7,14 @@ author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c1c36d146b4370962fc6328f6b75ef7160e28b5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71315816"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121456"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Debuguj kod języka C# zdefiniowany przez użytkownika dla niezakończonych zadań U-SQL
 
@@ -80,7 +80,7 @@ Jeśli kod użytkownika nie jest uwzględniony w pliku związanym z kodem lub ni
 
 2. Pobierz ścieżkę folderu projektu dla projektu **FailedVertexDebugHost** . 
 
-3. Kliknij prawym przyciskiem myszy **dodany projekt kodu źródłowego zestawu > właściwości**, wybierz kartę **kompilacja** na lewo i wklej skopiowaną ścieżkę kończącą się na \bin\debug jako **wyjście > Ścieżka wyjściowa**. Końcowa ścieżka wyjściowa jest `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`taka sama.
+3. Kliknij prawym przyciskiem myszy **dodany projekt kodu źródłowego zestawu > właściwości**, wybierz kartę **kompilacja** na lewo i wklej skopiowaną ścieżkę kończącą się na \bin\debug jako **wyjście > Ścieżka wyjściowa**. Końcowa ścieżka wyjściowa jest taka sama `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` .
 
     ![Ścieżka pliku PDB zestawu Azure Data Lake Analytics U-SQL](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -93,13 +93,13 @@ Po wykonaniu tych ustawień Rozpocznij debugowanie za pomocą klawisza **F5** i 
 
 Po zakończeniu debugowania, jeśli projekt zakończy się pomyślnie, w oknie danych wyjściowych zostanie wyświetlony następujący komunikat:
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Azure Data Lake Analytics debugowanie U-SQL zakończyło się pomyślnie](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
 Aby ponownie przesłać zadanie zakończone niepowodzeniem:
 
-1. W przypadku zadań z rozwiązaniami związanymi z kodem Skopiuj kod C# do pliku źródłowego związanego z kodem ( `Script.usql.cs`zazwyczaj).
+1. W przypadku zadań z rozwiązaniami związanymi z kodem Skopiuj kod C# do pliku źródłowego związanego z kodem (zazwyczaj `Script.usql.cs` ).
 
 2. W przypadku zadań z zestawami kliknij prawym przyciskiem myszy projekt kodu źródłowego zestawu w debugowanym rozwiązaniu i zarejestruj zaktualizowane zestawy dll w katalogu Azure Data Lake.
 

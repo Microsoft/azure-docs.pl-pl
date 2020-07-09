@@ -9,10 +9,10 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183664"
 ---
 ## <a name="download-the-source-code"></a>Pobierz kod źródłowy
@@ -62,7 +62,7 @@ Jeśli nie utworzono jeszcze wymaganych zasobów platformy Azure, wykonaj nastę
      Skrypt dodaje również zestaw zmiennych środowiskowych z prefiksowymi **komputerami** do komputera lokalnego. Te zmienne środowiskowe udostępniają szczegóły zdalnego monitorowania, które mają mieć możliwość odczytu z zasobu Azure Key Vault. Ten Key Vault zasób polega na tym, że monitorowanie zdalne odczyta jego wartości konfiguracyjne z.
 
      > [!TIP]
-     > Po zakończeniu działania skryptu zapisuje także zmienne środowiskowe do pliku o nazwie ** \<\>\\folder macierzysty.\\\<\>Nazwa rozwiązania komputerów. env**. Można ich używać do przyszłych wdrożeń akceleratora rozwiązań. Należy pamiętać, że wszystkie zmienne środowiskowe ustawione na komputerze lokalnym zastępują wartości w pliku **\\\\. env skryptów usług\\** , gdy uruchamiasz **platformę Docker**.
+     > Po zakończeniu działania skryptu zapisuje także zmienne środowiskowe do pliku o nazwie ** \<your home folder\> \\ . PCs \\ \<solution name\> . env**. Można ich używać do przyszłych wdrożeń akceleratora rozwiązań. Należy pamiętać, że wszystkie zmienne środowiskowe ustawione na komputerze lokalnym zastępują wartości w pliku ** \\ \\ \\ . env skryptów usług** , gdy uruchamiasz **platformę Docker**.
 
 1. Wyjdź z środowiska wiersza polecenia.
 
@@ -74,6 +74,6 @@ Ustaw zmienne środowiskowe dla następujących:
 * **PCS_AAD_APPID** — identyfikator aplikacji usługi AAD
 * **PCS_AAD_APPSECRET** — wpis tajny aplikacji usługi AAD
 
-Wartości konfiguracyjne zostaną odczytane z tego zasobu Azure Key Vault. Te zmienne środowiskowe mogą być zapisane w ** \<folderze\>\\macierzystym. nazwa\\\<\>rozwiązania komputerów. env** z wdrożenia. Należy pamiętać, że zmienne środowiskowe ustawione na wartości Zastąp na komputerze lokalnym w pliku **Local\\. env skryptów\\\\usług** po uruchomieniu **platformy Docker — tworzenie**.
+Wartości konfiguracyjne zostaną odczytane z tego zasobu Azure Key Vault. Te zmienne środowiskowe mogą być zapisane w pliku ** \<your home folder\> \\ PCs \\ \<solution name\> . env** z wdrożenia. Należy pamiętać, że zmienne środowiskowe ustawione na wartości Zastąp na komputerze lokalnym w pliku ** \\ \\ Local \\ . env skryptów usług** po uruchomieniu **platformy Docker — tworzenie**.
 
 Niektóre konfiguracje wymagające mikrousługi są przechowywane w wystąpieniu **Key Vault** , które zostało utworzone podczas początkowego wdrożenia. Odpowiednie zmienne w magazynie kluczy powinny być modyfikowane w razie konieczności.

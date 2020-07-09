@@ -8,17 +8,17 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85445529"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Windows na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
 
-Ten artykuł został ostatnio przetestowany w dniu 2/21/2019 przy użyciu polecenia [AZ PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) Version 1.3.0 i [Packer](https://www.packer.io/docs/install/index.html) w wersji 1.3.4.
+Ten artykuł został ostatnio przetestowany w dniu 2/21/2019 przy użyciu polecenia [AZ PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) Version 1.3.0 i [Packer](https://www.packer.io/docs/install) w wersji 1.3.4.
 
 > [!NOTE]
 > Platforma Azure ma teraz usługę, program Azure Image Builder (wersja zapoznawcza) służącą do definiowania i tworzenia własnych obrazów niestandardowych. Konstruktor obrazów platformy Azure jest oparty na programie Packer, dzięki czemu możesz nawet używać istniejących skryptów aprowizacji powłoki programu Packer. Aby rozpocząć pracę z konstruktorem obrazów platformy Azure, zobacz [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu Azure Image Builder](image-builder.md).
@@ -64,7 +64,7 @@ Get-AzSubscription
 ## <a name="define-packer-template"></a>Definiowanie szablonu pakietu Packer
 Aby tworzyć obrazy, należy utworzyć szablon jako plik JSON. W szablonie należy zdefiniować konstruktory i aprowizacji, które wykonują rzeczywisty proces kompilacji. Program Packer ma [konstruktora dla platformy Azure](https://www.packer.io/docs/builders/azure.html) , który umożliwia definiowanie zasobów platformy Azure, takich jak poświadczenia nazwy głównej usługi utworzone w poprzednim kroku.
 
-Utwórz plik o nazwie *Windows. JSON* i wklej poniższą zawartość. Wprowadź własne wartości w następujący sposób:
+Utwórz plik o nazwie *windows.jsna* i wklej następującą zawartość. Wprowadź własne wartości w następujący sposób:
 
 | Parametr                           | Skąd uzyskać |
 |-------------------------------------|----------------------------------------------------|
@@ -122,7 +122,7 @@ Ten szablon tworzy maszynę wirtualną z systemem Windows Server 2016, instaluje
 
 
 ## <a name="build-packer-image"></a>Obraz pakietu Build Pack
-Jeśli nie masz jeszcze zainstalowanego programu Packer na komputerze lokalnym, [postępuj zgodnie z instrukcjami instalacji programu Packer](https://www.packer.io/docs/install/index.html).
+Jeśli nie masz jeszcze zainstalowanego programu Packer na komputerze lokalnym, [postępuj zgodnie z instrukcjami instalacji programu Packer](https://learn.hashicorp.com/packer/getting-started/install).
 
 Utwórz obraz, otwierając wiersz polecenia cmd i określając plik szablonu programu Packer w następujący sposób:
 

@@ -1,5 +1,5 @@
 ---
-title: Jak działa zgoda aplikacji
+title: Jak działa zgoda dla aplikacji
 description: Dowiedz się więcej o tym, jak działa struktura zgody usługi Azure AD, aby zobaczyć, jak można jej używać podczas tworzenia aplikacji w usłudze Azure AD
 services: active-directory
 author: rwike77
@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.openlocfilehash: 86b592ecf5485654ab6860addbfde48cee4df077
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885552"
 ---
-# <a name="how-application-consent-works"></a>Jak działa zgoda aplikacji
+# <a name="how-application-consent-works"></a>Jak działa zgoda dla aplikacji
 
 Ten artykuł ma na celu ułatwienie Dowiedz się więcej o tym, jak działa struktura zgody na usługę Azure AD, dzięki czemu możesz bardziej efektywnie opracowywać aplikacje.
 

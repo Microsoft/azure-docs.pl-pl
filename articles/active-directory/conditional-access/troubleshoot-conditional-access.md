@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82610524"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Rozwiązywanie problemów z logowaniem przy użyciu dostępu warunkowego
@@ -41,7 +41,7 @@ Więcej informacji o problemie można znaleźć, klikając **więcej szczegół�
 Aby dowiedzieć się, które zasady dostępu warunkowego lub zasady są stosowane, i dlaczego należy wykonać następujące czynności.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub czytnik globalny.
-1. Przejdź do **Azure Active Directory** > **logowania**.
+1. Przejdź do **Azure Active Directory**  >  **logowania**.
 1. Znajdź zdarzenie logowania do przeglądu. Dodaj lub Usuń filtry i kolumny, aby odfiltrować zbędne informacje.
    1. Dodaj filtry, aby zawęzić zakres:
       1. **Identyfikator korelacji** w przypadku konkretnego zdarzenia do zbadania.

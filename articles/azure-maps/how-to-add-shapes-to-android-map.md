@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7a793ff35675c876dc429976ebee96887b12735a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335606"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie kształtu do mapy przy użyciu Azure Maps Android SDK
@@ -28,7 +28,7 @@ Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android 
 
 Możesz dodać linię do mapy za pomocą **warstwy liniowej**, wykonując poniższe kroki, aby dodać linię na mapie.
 
-1. Edytuj **> układ zasobów > activity_main. XML** , tak aby wyglądał wyglądać następująco:
+1. Edytuj **układ > zasobów > activity_main.xml** tak, aby wyglądał następująco:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlo
 
 **Warstwa Wielokąt** umożliwia renderowanie obszaru wielokąta do mapy. Wykonaj poniższe kroki, aby dodać wielokąt na mapie.
 
-1. Edytuj **> układ zasobów > activity_main. XML** , tak aby wyglądał wyglądać następująco:
+1. Edytuj **układ > zasobów > activity_main.xml** tak, aby wyglądał następująco:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

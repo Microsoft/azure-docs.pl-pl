@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83872492"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN z referencyjnego aparatu reguł Verizon Premium
@@ -99,7 +98,7 @@ Znak | Opis
 % | Symbol procentu jest używany do wskazania kodowania adresów URL (na przykład `%20` ).
 \* | Gwiazdka jest symbolem wieloznacznym reprezentującym jeden lub więcej znaków.
 Miejsce | Znak spacji wskazuje, że warunek dopasowania może być spełniony przez jedną z określonych wartości lub wzorców.
-wartościami | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw pojedynczych cudzysłowów służy do wskazywania, że wartość powinna być traktowana jako wartość literału. Może być używana w następujący sposób:<br><br/>-Pozwala na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <br/><br/>/Business/**ma**rathon/Asset.htm<br/>**ma**p. gif<br/>/business/template. **ma**p<br /><br />— Umożliwia określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie pojedynczych cudzysłowów (czyli `' '` lub `'sample value'` ).<br/>-Umożliwia określenie wartości pustej. Określ wartość pustą, określając zestaw pojedynczych cudzysłowów (czyli "").<br /><br/>**Ważne**<br/>— Jeśli określona wartość nie zawiera symbolu wieloznacznego, zostanie automatycznie uznana za wartość literału, co oznacza, że nie jest konieczne określenie zestawu pojedynczych cudzysłowów.<br/>-Jeśli ukośnik odwrotny nie powoduje ucieczki innego znaku w tej tabeli, jest on ignorowany, gdy jest określony w ramach zestawu pojedynczych cudzysłowów.<br/>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego (czyli, `\` ).
+wartościami | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw pojedynczych cudzysłowów służy do wskazywania, że wartość powinna być traktowana jako wartość literału. Może być używana w następujący sposób:<br><br/>-Pozwala na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <br/><br/>/Business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template. **ma**p<br /><br />— Umożliwia określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie pojedynczych cudzysłowów (czyli `' '` lub `'sample value'` ).<br/>-Umożliwia określenie wartości pustej. Określ wartość pustą, określając zestaw pojedynczych cudzysłowów (czyli "").<br /><br/>**Ważne:**<br/>— Jeśli określona wartość nie zawiera symbolu wieloznacznego, zostanie automatycznie uznana za wartość literału, co oznacza, że nie jest konieczne określenie zestawu pojedynczych cudzysłowów.<br/>-Jeśli ukośnik odwrotny nie powoduje ucieczki innego znaku w tej tabeli, jest on ignorowany, gdy jest określony w ramach zestawu pojedynczych cudzysłowów.<br/>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego (czyli, `\` ).
 
 ### <a name="regular-expressions"></a>Wyrażenia regularne
 

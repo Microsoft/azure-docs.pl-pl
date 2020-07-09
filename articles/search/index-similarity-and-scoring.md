@@ -8,12 +8,11 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 4c725fe74185088dea55b7506493fe667e71b7ae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806639"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Podobieństwo i ocenianie na platformie Azure Wyszukiwanie poznawcze
 
@@ -38,7 +37,7 @@ Profil oceniania jest częścią definicji indeksu składającą się z pól wa�
 
 <a name="scoring-statistics"></a>
 
-## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Statystyki oceniania i sesje programu Sticky Notes (wersja zapoznawcza)
+## <a name="scoring-statistics-and-sticky-sessions"></a>Statystyki oceniania i sesje programu Sticky Notes
 
 W celu zapewnienia skalowalności usługa Azure Wyszukiwanie poznawcze dystrybuuje każdy indeks w poziomie za pomocą procesu fragmentowania, co oznacza, że fragmenty indeksu są fizycznie oddzielone.
 
@@ -47,14 +46,14 @@ Domyślnie wynik dokumentu jest obliczany na podstawie właściwości statystycz
 Jeśli wolisz obliczyć wynik na podstawie właściwości statystycznych we wszystkich fragmentów, możesz to zrobić przez dodanie *scoringStatistics = Global* jako [parametru zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents) (lub dodać *"scoringStatistics": "Global"* jako parametr treści [żądania zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
 Użycie scoringStatistics gwarantuje, że wszystkie fragmentów w tej samej replice będą mieć te same wyniki. Oznacza to, że różne repliki mogą się nieco różnić od siebie, ponieważ zawsze są aktualizowane przy użyciu najnowszych zmian wprowadzonych w indeksie. W niektórych scenariuszach można chcieć, aby użytkownicy mieli bardziej spójne wyniki w trakcie "sesji zapytań". W takich scenariuszach można podać `sessionId` jako część zapytań. `sessionId`Jest to unikatowy ciąg tworzony w celu odwoływania się do unikatowej sesji użytkownika.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
@@ -72,6 +71,37 @@ Na razie możesz określić algorytm klasyfikacji podobieństwa, którego chcesz
 Poniższy segment wideo szybko przekazuje do wyjaśnień dotyczących algorytmów klasyfikacji używanych w usłudze Azure Wyszukiwanie poznawcze. Możesz obejrzeć pełny film wideo, aby uzyskać więcej informacji.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+<a name="featuresMode-param"></a>
+
+## <a name="featuresmode-parameter-preview"></a>Features — parametr (wersja zapoznawcza)
+
+Żądania [przeszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) mają nowy parametr [Features](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) , który może dostarczyć dodatkowych informacji na temat istotności na poziomie pola. W `@searchScore` przypadku obliczenia wartości dla dokumentu (w zależności od tego dokumentu w kontekście tego zapytania) można uzyskać informacje dotyczące poszczególnych pól, które zostały przedstawione w `@search.features` strukturze. Struktura zawiera wszystkie pola używane w zapytaniu (określone pola za pomocą **searchFields** w zapytaniach lub wszystkie pola, które są przypisywane do **wyszukiwania** w indeksie). Dla każdego pola uzyskuje się następujące wartości:
+
++ Liczba unikatowych tokenów znalezionych w polu
++ Wynik podobieństwa lub miara podobieństwa zawartości pola, względem terminu zapytania
++ Częstotliwość okresu lub liczba znalezionych terminów zapytania w polu
+
+W przypadku zapytania przeznaczonego dla pól "Description" i "title" odpowiedź obejmująca następujące elementy `@search.features` mogą wyglądać następująco:
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial) lub użyć tych informacji do debugowania problemów dotyczących istotności.
 
 ## <a name="see-also"></a>Zobacz także
 

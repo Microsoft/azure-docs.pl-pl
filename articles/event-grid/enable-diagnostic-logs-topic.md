@@ -1,18 +1,14 @@
 ---
 title: Azure Event Grid — Włączanie dzienników diagnostycznych dla tematów lub domen
 description: Ten artykuł zawiera instrukcje krok po kroku dotyczące włączania dzienników diagnostycznych tematu usługi Azure Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.author: spelluru
-ms.openlocfilehash: 13a2168c854475b841b0ebc52bb678c7ca22a1bb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 07/07/2020
+ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626466"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114707"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Włączanie dzienników diagnostycznych dla tematów lub domen usługi Azure Event Grid
 Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie i wyświetlanie dzienników **błędów publikowania i dostarczania** na koncie magazynu, centrum zdarzeń lub w obszarze roboczym log Analytics. Ten artykuł zawiera instrukcje krok po kroku dotyczące włączania tych ustawień w temacie Event Grid.
@@ -25,15 +21,19 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
     - Centrum zdarzeń
     - Obszar roboczy usługi Log Analytics
 
-## <a name="steps-for-enabling-diagnostic-logs-for-a-topic"></a>Procedura włączania dzienników diagnostycznych w temacie
+## <a name="enable-diagnostic-logs-for-a-custom-topic"></a>Włączanie dzienników diagnostycznych tematu niestandardowego
 
 > [!NOTE]
 > Poniższa procedura zawiera instrukcje krok po kroku dotyczące włączania dzienników diagnostycznych w temacie. Kroki umożliwiające włączenie dzienników diagnostycznych dla domeny są bardzo podobne. W kroku 2 Przejdź do **domeny** w usłudze Event grid w Azure Portal.  
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do tematu usługi Event Grid, dla którego chcesz włączyć ustawienia dziennika diagnostycznego. 
-3. Wybierz pozycję **Ustawienia diagnostyczne** w obszarze **monitorowanie** w menu po lewej stronie.
-4. Na stronie **Ustawienia diagnostyczne** wybierz opcję **Dodaj nowe ustawienie diagnostyczne**. 
+    1. Na pasku wyszukiwania u góry Szukaj **Event Grid tematy**. 
+    
+        ![Wyszukiwanie niestandardowych tematów](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Wybierz **temat** z listy, dla którego chcesz skonfigurować ustawienia diagnostyczne. 
+1. Wybierz pozycję **Ustawienia diagnostyczne** w obszarze **monitorowanie** w menu po lewej stronie.
+1. Na stronie **Ustawienia diagnostyczne** wybierz opcję **Dodaj nowe ustawienie diagnostyczne**. 
     
     ![Dodaj przycisk ustawień diagnostycznych](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Określ **nazwę** ustawienia diagnostycznego. 
@@ -53,6 +53,38 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
 
      Możesz również włączyć zbieranie wszystkich metryk dla tematu. 
 
+## <a name="enable-diagnostic-logs-for-a-system-topic"></a>Włączanie dzienników diagnostycznych tematu systemu
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Przejdź do tematu usługi Event Grid, dla którego chcesz włączyć ustawienia dziennika diagnostycznego. 
+    1. Na pasku wyszukiwania u góry Wyszukaj **Event Grid tematy systemowe**. 
+    
+        ![Wyszukaj tematy systemowe](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Wybierz **temat systemowy** , dla którego chcesz skonfigurować ustawienia diagnostyczne. 
+    
+        ![Wybieranie tematu systemu](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Wybierz pozycję **Ustawienia diagnostyczne** w obszarze **monitorowanie** w menu po lewej stronie, a następnie wybierz pozycję **Dodaj ustawienie diagnostyczne**. 
+
+    ![Dodawanie ustawień diagnostycznych — przycisk](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Określ **nazwę** ustawienia diagnostycznego. 
+7. Wybierz **DeliveryFailures** w sekcji **log** . 
+    ![Wybór niepowodzeń dostarczania](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Włącz co najmniej jeden z lokalizacji docelowych przechwytywania dla dzienników, a następnie skonfiguruj je, wybierając poprzedni utworzony zasób przechwytywania. 
+    - W przypadku wybrania opcji **Wyślij do log Analytics**wybierz obszar roboczy log Analytics.
+        ![Wysyłanie do usługi Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - Jeśli wybierzesz opcję **Archiwizuj na koncie magazynu**, wybierz pozycję **konto magazynu — konfiguracja**, a następnie wybierz konto magazynu w ramach subskrypcji platformy Azure. 
+
+        ![Archiwizowanie na koncie usługi Azure Storage](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - W przypadku wybrania opcji **strumień do centrum zdarzeń**wybierz pozycję **centrum zdarzeń — Skonfiguruj**, a następnie wybierz Event Hubs przestrzeń nazw, centrum zdarzeń i zasady dostępu. 
+        ![Przesyłanie strumieniowe do centrum zdarzeń](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Wybierz pozycję **Zapisz**. Następnie w prawym górnym rogu wybierz pozycję **X** , aby zamknąć stronę. 
+9. Teraz wróć na stronę **Ustawienia diagnostyczne** , aby potwierdzić, że w tabeli **ustawień diagnostycznych** jest wyświetlany nowy wpis. 
+    ![Ustawienie diagnostyczne na liście](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+     Można również włączyć zbieranie wszystkich **metryk** dla tematu systemowego.
+
+    ![Temat systemu — Włącz wszystkie metryki](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
+
 ## <a name="view-diagnostic-logs-in-azure-storage"></a>Wyświetlanie dzienników diagnostycznych w usłudze Azure Storage 
 
 1. Po włączeniu konta magazynu jako miejsca docelowego przechwytywania, gdy Event Grid rozpocznie emitowanie dzienników diagnostycznych, powinny pojawić się nowe kontenery o nazwie **Insights-Logs-deliveryfailures** i **Insights-Logs-publishfailures** na koncie magazynu. 
@@ -60,7 +92,7 @@ Ustawienia diagnostyczne umożliwiają użytkownikom Event Grid przechwytywanie 
     ![Magazyn — kontenery dla dzienników diagnostycznych](./media/enable-diagnostic-logs-topic/storage-containers.png)
 2. Podczas poruszania się po jednym z kontenerów można zakończyć korzystanie z obiektu BLOB w formacie JSON. Plik zawiera wpisy dziennika dla niepowodzenia dostarczania lub błędu publikacji. Ścieżka nawigacji reprezentuje identyfikator **zasobu** tematu siatki zdarzeń oraz sygnaturę czasową (poziom minuty), która ma być emitowana przez wpisy dziennika. Plik BLOB/JSON, który jest dostępny do pobrania, w końcu jest zgodny ze schematem opisanym w następnej sekcji. 
 
-    [![Plik JSON w magazynie](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
+    [![Plik JSON w magazynie ](./media/enable-diagnostic-logs-topic/select-json.png)](./media/enable-diagnostic-logs-topic/select-json.png)
 3. Zawartość powinna zostać wyświetlona w pliku JSON podobnym do poniższego przykładu: 
 
     ```json

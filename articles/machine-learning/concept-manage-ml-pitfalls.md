@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85210188"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Zapobiegaj przestępowaniu i niezrównoważonym danych za pomocą zautomatyzowanego uczenia maszynowego
 
@@ -79,8 +79,6 @@ Zautomatyzowanej ML również implementuje jawne **ograniczenia złożoności mo
 
 Niezrównoważone dane często znajdują się w danych dla scenariuszy klasyfikacji uczenia maszynowego i odwołują się do danych, które zawierają nieproporcjonalny współczynnik obserwacji w każdej klasie. Takie niezrównoważone może prowadzić do fałszywego odczuwania pozytywnego skutku dokładności modelu, ponieważ dane wejściowe mają odchylenia względem jednej klasy, co skutkuje modelem szkolonym do naśladowania tej odchylenia. 
 
-Ponieważ algorytmy klasyfikacji są często oceniane według dokładności, sprawdzanie dokładności modelu jest dobrym sposobem na ustalenie, czy miało to wpływ na dane niezrównoważone. Czy w przypadku niektórych klas jest naprawdę wysoka dokładność, czy naprawdę niska dokładność?
-
 Dodatkowo automatyczne przebiegi w sieci automatycznie generują następujące wykresy, co może pomóc zrozumieć prawidłowość klasyfikacji modelu i zidentyfikować modele potencjalnie wpływać na dane niezrównoważone.
 
 Wykres| Opis
@@ -91,17 +89,19 @@ Wykres| Opis
 
 ## <a name="handle-imbalanced-data"></a>Obsługa niezrównoważonych danych 
 
-W ramach tego celu uproszczenie przepływu pracy usługi Machine Learning funkcja zautomatyzowanej wagi jest wbudowana w funkcje, które ułatwiają rozwiązywanie niezrównoważonych danych, takich jak, 
+W ramach tego celu uproszczenie przepływu pracy usługi Machine Learning funkcja **zautomatyzowanej wagi jest wbudowana w funkcje** , które ułatwiają rozwiązywanie niezrównoważonych danych, takich jak, 
 
-- **Kolumna wagi**: automatyczna ml obsługuje ważone kolumny jako dane wejściowe, co sprawia, że wiersze w danych są ważone w górę lub w dół, co może spowodować, że Klasa jest bardziej lub mniej "ważna".
+- **Kolumna wagi**: automatyczna część ml obsługuje kolumnę odważników jako dane wejściowe, co sprawia, że wiersze w danych mają być ważone w górę lub w dół, których można użyć, aby zwiększyć lub zmniejszyć klasę "ważne".
 
 - Algorytmy używane przez zautomatyzowaną ML mogą prawidłowo obsłużyć nierównowagi do 20:1, co oznacza, że najbardziej typowa Klasa może mieć 20 razy więcej wierszy w danych niż najmniejsza wspólna Klasa.
 
-Następujące techniki są dodatkowymi opcjami obsługi niezrównoważonych danych poza zautomatyzowaną ML. 
+- Użyj metryki wydajności, która zajmuje się lepszym użyciem niezrównoważonych danych. Na przykład AUC_weighted jest podstawową metryką, która oblicza wkład każdej klasy w oparciu o względną liczbę próbek reprezentujących tę klasę, dlatego jest bardziej niezawodna w odniesieniu do nierównowagi.
+
+Następujące techniki są dodatkowymi opcjami obsługi niezrównoważonych danych **poza zautomatyzowaną ml**. 
 
 - Ponowne próbkowanie do nawet nierównowagi klasy, przez zwiększenie próbkowania mniejszych klas lub próbkowanie w dół do większych klas. Te metody wymagają ekspertyzy do przetworzenia i analizowania.
 
-- Użyj metryki wydajności, która zajmuje się lepszym użyciem niezrównoważonych danych. Na przykład, wynik F1 jest średnią ważoną dokładności i odwołania. Precyzja mierzy stopień dokładności klasyfikatora — niska precyzja wskazuje dużą liczbę fałszywych dodatnich--, podczas odwoływania miar klasyfikatora — niska funkcja odwoływania wskazuje dużą liczbę fałszywych wartości ujemnych. 
+- Przejrzyj metryki wydajności dla niezrównoważonych danych. Na przykład, wynik F1 jest średnią ważoną dokładności i odwołania. Precyzja mierzy stopień dokładności klasyfikatora — niska precyzja wskazuje dużą liczbę fałszywych dodatnich--, podczas odwoływania miar klasyfikatora — niska funkcja odwoływania wskazuje dużą liczbę fałszywych wartości ujemnych.
 
 ## <a name="next-steps"></a>Następne kroki
 

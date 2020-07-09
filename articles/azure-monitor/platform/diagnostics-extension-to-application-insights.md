@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
 ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77672331"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Wyślij usługę w chmurze, maszynę wirtualną lub Service Fabric dane diagnostyczne do Application Insights
@@ -68,8 +67,8 @@ Przykładowa konfiguracja ujścia dla Application Insights:
         - Pełny
         - Informacje
         - Ostrzeżenie
-        - Error
-        - Krytyczny
+        - Błąd
+        - Krytyczne
 
 Kanał działa jak filtr i umożliwia wybranie określonych poziomów dziennika do wysłania do docelowego ujścia. Można na przykład zebrać pełne dzienniki i wysłać je do magazynu, ale wysłać tylko błędy do ujścia.
 

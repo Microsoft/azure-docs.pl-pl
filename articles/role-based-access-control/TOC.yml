@@ -92,12 +92,17 @@
           href: custom-roles-cli.md
         - name: Interfejs API REST
           href: custom-roles-rest.md
+        - name: Szablon ARM
+          displayName: Resource Manager
+          href: custom-roles-template.md
     - name: Wyświetlanie dzienników aktywności
       href: change-history-report.md
     - name: Podnoszenie poziomu dostępu
       href: elevate-access-global-admin.md
     - name: Administratorzy klasyczni
       href: classic-administrators.md
+    - name: Przenoszenie subskrypcji do innego katalogu (wersja zapoznawcza)
+      href: transfer-subscription.md
     - name: Rozwiązywanie problemów
       href: troubleshooting.md
 - name: Dokumentacja
@@ -107,7 +112,7 @@
     - name: Operacje dostawcy zasobów
       href: resource-provider-operations.md
     - name: Limity kontroli RBAC na platformie Azure
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: Interfejs wiersza polecenia platformy Azure

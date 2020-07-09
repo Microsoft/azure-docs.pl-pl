@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339216"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Azure Data Box Gateway
 
@@ -22,6 +21,7 @@ W tym artykule opisano sposób zarządzania dostępem, możliwością i trybem �
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
+>
 > * Zarządzanie dostępem do urządzeń
 > * Zarządzanie trybem łączności
 > * Zarządzanie mocą
@@ -65,7 +65,7 @@ Podczas generowania klucza aktywacji dla urządzenia brzegowego Azure Stack lub 
 -  Tworzenie udziału ze skojarzonym kontem magazynu.
 -  Tworzenie użytkownika, który może uzyskiwać dostęp do udziałów na urządzeniu.
 
-Musisz mieć `User` dostęp do Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects`. Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień `Read all directory objects`do programu. Jeśli jesteś gościem, operacje takie jak generacja klucza aktywacji, utworzenie udziału na urządzeniu Azure Stack Edge spowoduje niepowodzenie tworzenia użytkownika.
+Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, operacje takie jak generacja klucza aktywacji, utworzenie udziału na urządzeniu Azure Stack Edge spowoduje niepowodzenie tworzenia użytkownika.
 
 Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -79,7 +79,7 @@ Nie musisz przyznawać uprawnień dostępu dla poziomu subskrypcji, aby użytkow
 
 Przed podjęciem próby utworzenia dowolnego zasobu upewnij się, że dostawca zasobów został zarejestrowany w ramach subskrypcji. Jeśli dostawca zasobów nie jest zarejestrowany, należy się upewnić, że użytkownik tworzący nowy zasób ma wystarczającą ilość uprawnień do zarejestrowania wymaganego dostawcy zasobów na poziomie subskrypcji. Jeśli nie zostało to jeszcze zrobione, zobaczysz następujący komunikat o błędzie:
 
-*Nazwa subskrypcji \<subskrypcji> nie ma uprawnień do rejestrowania dostawców zasobów: Microsoft. DataBoxEdge.*
+*Subskrypcja \<Subscription name> nie ma uprawnień do rejestrowania dostawców zasobów: Microsoft. DataBoxEdge.*
 
 
 Aby uzyskać listę zarejestrowanych dostawców zasobów w bieżącej subskrypcji, uruchom następujące polecenie:
@@ -88,7 +88,7 @@ Aby uzyskać listę zarejestrowanych dostawców zasobów w bieżącej subskrypcj
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-W przypadku Azure Stack urządzenia brzegowego `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować `Microsoft.DataBoxEdge`się, administrator subskrypcji powinien uruchomić następujące polecenie:
+W przypadku Azure Stack urządzenia brzegowego `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować się `Microsoft.DataBoxEdge` , administrator subskrypcji powinien uruchomić następujące polecenie:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

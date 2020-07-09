@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79477667"
 ---
 # <a name="convert-to-indicator-values"></a>Konwertowanie na wartości wskaźnika
@@ -48,8 +47,8 @@ Załóżmy, że masz kolumnę z wynikami wskazującą, czy serwer ma wysokie, ś
 | Identyfikator serwera | Ocena niepowodzenia |
 | --------- | ------------- |
 | 10301     | Małe           |
-| 10302     | Medium        |
-| 10303     | Wysoka          |
+| 10302     | Średniaa        |
+| 10303     | Wysoki          |
 
 Po zastosowaniu **konwersji do wartości wskaźnika**Projektant konwertuje pojedynczą kolumnę etykiet w wiele kolumn zawierających wartości logiczne:  
 
@@ -63,7 +62,7 @@ Oto jak działa konwersja:
 
 -   W kolumnie **oceny niepowodzenia** opisującej ryzyko występuje tylko trzy możliwe wartości (wysoki, średni i niski) i brak wartości. W związku z tym tworzone są dokładnie trzy nowe kolumny.  
 
--   Nowe kolumny wskaźnika są nazwane na podstawie nagłówków kolumn i wartości kolumny źródłowej, przy użyciu tego wzorca: * \<kolumna źródłowa> — \<wartość danych>*.  
+-   Nowe kolumny wskaźnika są nazwane na podstawie nagłówków kolumn i wartości kolumny źródłowej, przy użyciu tego wzorca: *\<source column>- \<data value>* .  
 
 -   Powinna istnieć 1 w dokładnie jednej kolumnie wskaźnika i 0 we wszystkich innych kolumnach wskaźnika, ponieważ każdy serwer może mieć tylko jedną ocenę ryzyka.  
 
@@ -98,13 +97,13 @@ Ta sekcja zawiera szczegóły implementacji, porady i odpowiedzi na często zada
 
 -   Tylko kolumny oznaczone jako kategorii mogą być konwertowane na kolumny wskaźników. Jeśli zobaczysz następujący błąd, prawdopodobnie jedna z wybranych kolumn nie jest kategorii:  
 
-     Błąd 0056: kolumna z nazwą \<kolumny o nazwie> nie należy do dozwolonej kategorii.  
+     Błąd 0056: kolumna o nazwie \<column name> nie jest w dozwolonej kategorii.  
 
      Domyślnie większość kolumn ciągów jest obsługiwana jako funkcje ciągów, dlatego należy jawnie oznaczyć je jako kategorii przy użyciu polecenia [Edytuj metadane](edit-metadata.md).  
 
 -   Nie ma żadnego limitu liczby kolumn, które można przekonwertować na kolumny wskaźników. Jednak ponieważ każda kolumna wartości może zwracać wiele kolumn wskaźników, można skonwertować i przejrzeć tylko kilka kolumn naraz.  
 
--   Jeśli kolumna zawiera brakujące wartości, dla brakującej kategorii zostanie utworzona oddzielna kolumna wskaźnika o tej nazwie: * \<kolumna źródłowa> — brak*  
+-   Jeśli kolumna zawiera brakujące wartości, dla brakującej kategorii zostanie utworzona oddzielna kolumna wskaźnika o tej nazwie: * \<source column> Brak*  
 
 -   Jeśli kolumna konwertowana na wartości wskaźników zawiera liczby, muszą one być oznaczone jako kategorii, jak każda inna kolumna funkcji. Po wykonaniu tej czynności liczby są traktowane jako odrębne wartości. Na przykład jeśli masz kolumnę liczbową z wartościami MPG z zakresu od 25 do 30, zostanie utworzona nowa kolumna wskaźnika dla każdej wartości dyskretnej:  
 

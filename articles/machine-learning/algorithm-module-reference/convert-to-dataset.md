@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79456594"
 ---
 # <a name="convert-to-dataset"></a>Konwertowanie na zestaw danych
@@ -46,9 +45,9 @@ Zalecamy użycie modułu [Edytowanie metadanych](edit-metadata.md) w celu przygo
     - **ReplaceValues**: Użyj tej opcji, aby określić pojedynczą dokładną wartość, która zostanie zamieniona na inną dokładną wartość. Brakujące wartości lub wartości niestandardowe można zastąpić, ustawiając metodę **replace** :
 
       - **Brak**: Wybierz tę opcję, aby zastąpić brakujące wartości w wejściowym zestawie danych. Dla opcji **Nowa wartość**wprowadź wartość, aby zastąpić brakujące wartości wartościami.
-      - **Niestandardowe**: Wybierz tę opcję, aby zastąpić wartości niestandardowe w wejściowym zestawie danych. W polu **wartość niestandardowa**wprowadź wartość, która ma zostać znaleziona. Na przykład, jeśli dane zawierają ciąg `obs` używany jako symbol zastępczy dla brakujących wartości, należy wprowadzić `obs`. Dla **nowej wartości**wprowadź nową wartość, aby zastąpić oryginalny ciąg ciągiem.
+      - **Niestandardowe**: Wybierz tę opcję, aby zastąpić wartości niestandardowe w wejściowym zestawie danych. W polu **wartość niestandardowa**wprowadź wartość, która ma zostać znaleziona. Na przykład, jeśli dane zawierają ciąg `obs` używany jako symbol zastępczy dla brakujących wartości, należy wprowadzić `obs` . Dla **nowej wartości**wprowadź nową wartość, aby zastąpić oryginalny ciąg ciągiem.
   
-    Należy pamiętać, że operacja **ReplaceValues** ma zastosowanie tylko do dokładnych dopasowań. Na przykład nie wpłynie to na te ciągi: `obs.`,. `obsolete`  
+    Należy pamiętać, że operacja **ReplaceValues** ma zastosowanie tylko do dokładnych dopasowań. Na przykład nie wpłynie to na te ciągi: `obs.` , `obsolete` .  
  
   
 5.  Prześlij potok.  

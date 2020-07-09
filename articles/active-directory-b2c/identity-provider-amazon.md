@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3149d45f50c53209e3be6be6688c9c2ce8fb0555
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: d1a771cb13fcfa76449500ad71c67dcf7c446fa4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900347"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388446"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi Amazon i zaloguj się na nim przy użyciu Azure Active Directory B2C
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Tworzenie aplikacji w konsoli dewelopera usługi Amazon
 
-Aby użyć konta Amazon jako dostawcy tożsamości federacyjnych w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w usłudze [Amazon Developer Services i technologiach](https://developer.amazon.com). Jeśli nie masz jeszcze konta usługi Amazon, możesz zarejestrować się w [https://www.amazon.com/](https://www.amazon.com/)usłudze.
+Aby użyć konta Amazon jako dostawcy tożsamości federacyjnych w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w usłudze [Amazon Developer Services i technologiach](https://developer.amazon.com). Jeśli nie masz jeszcze konta usługi Amazon, możesz zarejestrować się w usłudze [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
 > Użyj następujących adresów URL w **kroku 8** poniżej, zastępując `your-tenant-name` je nazwą dzierżawy. Wprowadzając nazwę dzierżawy, użyj wszystkich małych liter, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.

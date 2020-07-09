@@ -3,13 +3,13 @@ title: Rozwiązywanie typowych problemów z usługą Azure Kubernetes
 description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzystaniem z usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
-ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/20/2020
+ms.openlocfilehash: 08668289faa2341389a80b00cba11a33021da608
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724998"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054393"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -31,11 +31,34 @@ Ustawienie maksymalny rozmiar poszczególnych węzłów domyślnie 110 w przypad
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Otrzymuję błąd insufficientSubnetSize podczas wdrażania klastra AKS przy użyciu zaawansowanej sieci. Co mam zrobić?
 
-W przypadku korzystania z wtyczki sieciowej usługi Azure CNI AKS przydziela adresy IP na podstawie parametru "--Max-" na węzeł. Rozmiar podsieci musi być większy niż liczba węzłów pomnożona przez ustawienie maksymalna liczba numerów na węzeł. Poniższe równanie zawiera opis:
+Ten błąd wskazuje, że podsieć w użyciu dla klastra nie ma już dostępnych adresów IP w ramach CIDR dla pomyślnego przypisania zasobu. W przypadku klastrów korzystającą wtyczki kubenet wymaga wystarczającej przestrzeni adresowej IP dla każdego węzła w klastrze. W przypadku klastrów usługi Azure CNI wymagane jest wystarczające miejsce na adresy IP dla każdego węzła i znajdującego się w klastrze.
+Przeczytaj więcej na temat [projektowania usługi Azure CNI, aby przypisać adresy IP do zasobników](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Rozmiar podsieci > liczbę węzłów w klastrze (biorąc pod uwagę przyszłe wymagania dotyczące skalowania) * Maksymalna liczba zasobników na zestaw węzłów.
+Te błędy są również nawiązane w [diagnostyce AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics) , która aktywnie przyniesie problemy, takie jak niewystarczająca ilość podsieci.
 
-Aby uzyskać więcej informacji, zobacz [Planowanie adresów IP w klastrze](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Następujące trzy przypadki (3) powodują niewystarczający rozmiar podsieci:
+
+1. Skalowanie AKS lub AKS Nodepool
+   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of new nodes requested` .
+   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+1. Uaktualnienie AKS lub uaktualnienie Nodepool AKS
+   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of buffer nodes needed to upgrade` .
+   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
+   
+   Domyślnie klastry AKS ustawiają maksymalną wartość (w buforze uaktualnienia) jedną (1), ale to zachowanie uaktualnienia można dostosować, ustawiając [maksymalną wartość przepięcia puli węzłów](upgrade-cluster.md#customize-node-surge-upgrade-preview) , która spowoduje zwiększenie liczby dostępnych adresów IP potrzebnych do przeprowadzenia uaktualnienia.
+
+1. AKS Utwórz lub AKS Nodepool Dodaj
+   1. Jeśli używasz korzystającą wtyczki kubenet, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza niż** `number of nodes requested for the node pool` .
+   1. Jeśli używasz usługi Azure CNI, dzieje się tak, gdy wartość `number of free IPs in the subnet` jest **mniejsza od** `number of nodes requested times (*) the node pool's --max-pod value` .
+
+Poniższe środki zaradcze mogą być podejmowane przez utworzenie nowych podsieci. Uprawnienie do tworzenia nowej podsieci jest wymagane w celu ograniczenia ryzyka ze względu na niezdolność do aktualizowania zakresu CIDR istniejącej podsieci.
+
+1. Odbuduj nową podsieć o większym zakresie CIDR wystarczającym dla celów operacji:
+   1. Utwórz nową podsieć z nowym żądanym nienakładanym zakresem.
+   1. Utwórz nowy nodepool w nowej podsieci.
+   1. Opróżnij zasobniki ze starego nodepool znajdującego się w starej podsieci, aby zostać zastąpione.
+   1. Usuń starą podsieć i stare nodepool.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mój pod jest zablokowany w trybie CrashLoopBackOff. Co mam zrobić?
 
@@ -46,6 +69,19 @@ Może istnieć różne przyczyny zablokowania w tym trybie. Możesz zajrzeć do:
 
 Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [debugowanie aplikacji](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
+## <a name="im-receiving-tcp-timeouts-when-using-kubectl-or-other-third-party-tools-connecting-to-the-api-server"></a>Otrzymuję w `TCP timeouts` przypadku korzystania z programu `kubectl` lub innych narzędzi innych firm łączących się z serwerem interfejsu API
+AKS ma płaszczyzny kontroli HA skalowanie w pionie zgodnie z liczbą rdzeni, aby zapewnić swoje cele poziomu usług (SLO) i umowy dotyczące poziomu usług (umowy SLA). Jeśli występują problemy z limitem czasu połączeń, zapoznaj się z poniższymi tematami:
+
+- **Czy wszystkie polecenia interfejsu API są stale przekroczenia limitu czasu?** Jeśli jest to tylko kilka, na `tunnelfront` poziomie użytkownika lub `aks-link` pod, odpowiedzialne za komunikację płaszczyzny > węzła kontroli, może nie być w stanie uruchomienia. Upewnij się, że węzły obsługujące ten węzeł nie są nadmiernie wykorzystane lub nie są w mocy obciążeniowej. Rozważ przeniesienie ich do własnej [ `system` puli węzłów](use-system-pools.md).
+- **Czy zostały otwarte wszystkie wymagane porty, nazwy FQDN i adresy IP odnotowane w dokumentacji [AKS ograniczenia ruchu wychodzącego](limit-egress-traffic.md)?** W przeciwnym razie wywołania kilku poleceń mogą zakończyć się niepowodzeniem.
+- **Czy bieżący adres IP jest objęty [zakresem autoryzowanych adresów IP API](api-server-authorized-ip-ranges.md)?** Jeśli używasz tej funkcji, a adres IP nie należy do zakresów, Twoje wywołania zostaną zablokowane. 
+- **Czy klient lub aplikacja nie wywołuje wywołań do serwera interfejsu API?** Upewnij się, że używasz zegarki zamiast częstego pobierania, a aplikacje innych firm nie wycieka takich wywołań. Na przykład usterka w mikserze Istio powoduje, że nowy serwer interfejsu API obserwuje połączenie, które jest tworzone za każdym razem, gdy wpis tajny jest odczytywany wewnętrznie. Ponieważ takie zachowanie odbywa się w regularnych odstępach czasu, Obejrzyj połączenia szybko, a ostatecznie serwer interfejsu API staje się przeciążony bez względu na wzorzec skalowania. https://github.com/istio/istio/issues/19481
+- **Czy masz wiele wydań w ramach wdrożeń Helm?** Ten scenariusz może spowodować użycie zbyt dużej ilości pamięci w węzłach, a także dużej ilości `configmaps` , co może spowodować niepotrzebne skoki na serwerze interfejsu API. Rozważ skonfigurowanie `--history-max` at `helm init` i wykorzystanie nowego Helm 3. Więcej szczegółów na temat następujących problemów: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+
+
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć Access Control oparty na rolach (RBAC) w istniejącym klastrze. Jak to zrobić?
 
 Włączenie kontroli dostępu opartej na rolach (RBAC) w istniejących klastrach nie jest obecnie obsługiwane, należy ją ustawić podczas tworzenia nowych klastrów. RBAC jest domyślnie włączone w przypadku korzystania z interfejsu wiersza polecenia, portalu lub wersji API nowszej niż `2020-03-01` .
@@ -53,12 +89,6 @@ Włączenie kontroli dostępu opartej na rolach (RBAC) w istniejących klastrach
 ## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Został utworzony klaster z włączoną funkcją RBAC i teraz widzimy wiele ostrzeżeń na pulpicie nawigacyjnym Kubernetes. Pulpit nawigacyjny służący do pracy bez żadnych ostrzeżeń. Co mam zrobić?
 
 Przyczyna ostrzeżeń to klaster z włączoną funkcją RBAC, a dostęp do pulpitu nawigacyjnego jest teraz ograniczony domyślnie. Ogólnie rzecz biorąc, to podejście jest dobrym rozwiązaniem, ponieważ domyślne narażenie pulpitu nawigacyjnego na wszystkich użytkowników klastra może prowadzić do zagrożeń bezpieczeństwa. Jeśli nadal chcesz włączyć pulpit nawigacyjny, postępuj zgodnie z instrukcjami w [tym wpisie w blogu](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
-
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Nie mogę nawiązać połączenia z pulpitem nawigacyjnym. Co mam zrobić?
-
-Najprostszym sposobem, aby uzyskać dostęp do usługi poza klastrem, jest uruchomienie `kubectl proxy` , które serwery proxy żądania wysyłane do portu localhost 8001 do serwera interfejsu API Kubernetes. Z tego miejsca serwer interfejsu API może być serwerem proxy usługi: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/` .
-
-Jeśli nie widzisz pulpitu nawigacyjnego Kubernetes, sprawdź, czy `kube-proxy` pod przestrzeni nazw jest uruchomiony program `kube-system` . Jeśli nie jest w stanie uruchomionym, Usuń element pod, a zostanie uruchomiony ponownie.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Nie mogę pobrać dzienników przy użyciu dzienników polecenia kubectl lub nie mogę nawiązać połączenia z serwerem interfejsu API. Otrzymuję komunikat "błąd z serwera: błąd podczas wybierania numeru zaplecza: wybierz TCP...". Co mam zrobić?
 
@@ -119,6 +149,7 @@ Ograniczenia nazewnictwa są implementowane przez platformę Azure i AKS. Jeśli
 * Nazwa grupy zasobów Node/*MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* musi zaczynać i kończyć się wartościami alfanumerycznymi i muszą zawierać od 1-54 znaków. Prawidłowe znaki to wartości alfanumeryczne i łączniki (-). *DnsPrefix* nie może zawierać znaków specjalnych, takich jak kropka (.).
 * Nazwy puli węzłów AKS muszą składać się z małych liter i zawierać 1-11 znaków dla pul węzłów systemu Linux i 1-6 znaków dla pul węzłów Windows. Nazwa musi zaczynać się od litery i Jedyne dozwolone znaki to litery i cyfry.
+* *Nazwa użytkownika administratora*, która ustawia nazwę użytkownika administratora dla węzłów systemu Linux, musi rozpoczynać się od litery, może zawierać tylko litery, cyfry, łączniki i podkreślenia, a maksymalna długość wynosząca 64 znaków.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Otrzymuję błędy podczas próby utworzenia, zaktualizowania, skalowania, usunięcia lub uaktualnienia klastra, ta operacja nie jest dozwolona, ponieważ inna operacja jest w toku.
 
@@ -166,14 +197,14 @@ Sprawdź, czy ustawienia nie powodują konfliktu z żadnym z wymaganych lub opcj
 
 W programie Kubernetes w wersji 1,10, MountVolume. WaitForAttach może zakończyć się niepowodzeniem przy ponownej instalacji dysku platformy Azure.
 
-W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Na przykład:
+W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Przykład:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Na przykład:
+W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Przykład:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -220,7 +251,7 @@ spec:
   >[!NOTE]
   > Ponieważ GID i UID są domyślnie instalowane jako root lub 0. Jeśli gid lub UID są ustawione jako spoza katalogu głównego, na przykład 1000, Kubernetes będzie używać `chown` do zmiany wszystkich katalogów i plików znajdujących się na tym dysku. Ta operacja może być czasochłonna i może spowodować, że instalacja dysku będzie bardzo niska.
 
-* Użyj `chown` w initContainers, aby ustawić GID i UID. Na przykład:
+* Użyj `chown` w initContainers, aby ustawić GID i UID. Przykład:
 
 ```yaml
 initContainers:
@@ -379,13 +410,13 @@ Jeśli klucz konta magazynu został zmieniony, mogą pojawić się błędy insta
 
 Możesz zmniejszyć wartość ręcznie aktualizując `azurestorageaccountkey` pole ręcznie w kluczu tajnym systemu Azure za pomocą klucza konta magazynu szyfrowanego algorytmem Base64.
 
-Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Na przykład:
+Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Przykład:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Na przykład:
+Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Przykład:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be6c1fdc5deb6d541656c198469822dae0a5f7c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77463208"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887896"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Ogólne informacje i wskazówki dotyczące zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 
@@ -43,9 +43,9 @@ W przypadku wdrażania bezpiecznego klastra usługi HDInsight istnieją pewne na
 
 * Gdy dostęp do danych odbywa się za pomocą usługi, w której włączono autoryzację:
   * Wtyczka autoryzacji Ranger jest wywoływana i ma kontekst żądania.
-  * Ranger stosuje zasady skonfigurowane dla usługi. Jeśli zasady Ranger zakończą się niepowodzeniem, sprawdzanie dostępu zostanie odroczone do systemu plików. Niektóre usługi, takie jak MapReduce, sprawdzają, czy plik/folder należy do tego samego użytkownika, który przesyła żądanie. Usługi, takie jak Hive, sprawdzają zgodność własności lub odpowiednie uprawnienia systemu`rwx`plików ().
+  * Ranger stosuje zasady skonfigurowane dla usługi. Jeśli zasady Ranger zakończą się niepowodzeniem, sprawdzanie dostępu zostanie odroczone do systemu plików. Niektóre usługi, takie jak MapReduce, sprawdzają, czy plik/folder należy do tego samego użytkownika, który przesyła żądanie. Usługi, takie jak Hive, sprawdzają zgodność własności lub odpowiednie uprawnienia systemu plików ( `rwx` ).
 
-* W przypadku programu Hive oprócz uprawnień do wykonywania uprawnień do tworzenia/aktualizowania/usuwania użytkownik powinien mieć `rwx`uprawnienia do katalogu w magazynie i wszystkich podkatalogach.
+* W przypadku programu Hive oprócz uprawnień do wykonywania uprawnień do tworzenia/aktualizowania/usuwania użytkownik powinien mieć `rwx` uprawnienia do katalogu w magazynie i wszystkich podkatalogach.
 
 * Zasady mogą być stosowane do grup (preferowany), a nie do poszczególnych użytkowników.
 
@@ -67,13 +67,13 @@ Gdy hierarchiczna przestrzeń nazw nie jest włączona:
 ### <a name="default-hdfs-permissions"></a>Domyślne uprawnienia systemu HDFS
 
 * Domyślnie użytkownicy nie mają dostępu do **/** folderu w systemie plików HDFS (muszą mieć rolę właściciela obiektu blob magazynu, aby uzyskać dostęp do programu).
-* W przypadku katalogu przemieszczania dla MapReduce i innych elementów tworzony jest katalog specyficzny dla użytkownika i `sticky _wx` podano uprawnienia. Użytkownicy mogą tworzyć pliki i foldery poniżej, ale nie mogą przeglądać innych elementów.
+* W przypadku katalogu przemieszczania dla MapReduce i innych elementów tworzony jest katalog specyficzny dla użytkownika i podano `sticky _wx` uprawnienia. Użytkownicy mogą tworzyć pliki i foldery poniżej, ale nie mogą przeglądać innych elementów.
 
 ### <a name="url-auth"></a>Uwierzytelnianie adresów URL
 
 Jeśli jest włączone uwierzytelnianie adresu URL:
 
-* Konfiguracja będzie zawierać informacje o tym, jakie prefiksy są objęte uwierzytelnianiem adresu `adl://`URL (na przykład).
+* Konfiguracja będzie zawierać informacje o tym, jakie prefiksy są objęte uwierzytelnianiem adresu URL (na przykład `adl://` ).
 * Jeśli dostęp jest przeznaczony dla tego adresu URL, Ranger sprawdzi, czy użytkownik znajduje się na liście dozwolonych.
 * Ranger nie sprawdza żadnych szczegółowych zasad.
 
@@ -87,7 +87,7 @@ Użyj nowej grupy zasobów dla każdego klastra, aby można było rozróżnić z
 * Używanie zapory do obsługi zasad dostępu wychodzącego.
 * Użyj wewnętrznej bramy, która nie jest otwarta w publicznym Internecie.
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to usługa zarządzania tożsamościami i dostępem opartymi na chmurze firmy Microsoft.
 
@@ -119,7 +119,7 @@ Usługa HDInsight nie może zależeć od lokalnych kontrolerów domeny ani niest
 
 ### <a name="azure-ad-ds-instance"></a>Wystąpienie usługi Azure AD DS
 
-* Utwórz wystąpienie z `.onmicrosoft.com domain`. W ten sposób nie będzie można obsługiwać domeny wielu serwerów DNS.
+* Utwórz wystąpienie z `.onmicrosoft.com domain` . W ten sposób nie będzie można obsługiwać domeny wielu serwerów DNS.
 * Utwórz certyfikat z podpisem własnym dla usług LDAPs i przekaż go do usługi Azure AD DS.
 * Używanie równorzędnej sieci wirtualnej do wdrażania klastrów (w przypadku wielu zespołów, które wdrażają klastry usługi HDInsight ESP, będzie to pomocne). Dzięki temu nie trzeba otwierać portów (sieciowych grup zabezpieczeń) w sieci wirtualnej z kontrolerem domeny.
 * Odpowiednio skonfiguruj system DNS dla sieci wirtualnej (nazwa domeny usługi Azure AD DS powinna zostać rozpoznana bez żadnych wpisów w pliku hosts).
@@ -159,6 +159,17 @@ Najczęstsze przyczyny:
 * Sieciowych grup zabezpieczeń są zbyt restrykcyjne, uniemożliwiając przyłączanie do domeny.
 * Tożsamość zarządzana nie ma wystarczających uprawnień.
 * Nazwa klastra nie jest unikatowa w pierwszych sześciu znakach (z innym klastrem na żywo lub z usuniętym klastrem).
+
+## <a name="authentication-setup-and-configuration"></a>Konfigurowanie i konfiguracja uwierzytelniania
+
+### <a name="user-principal-name-upn"></a>Główna nazwa użytkownika (UPN)
+
+* Użyj małych liter dla wszystkich usług — nazwy UPN nie uwzględniają wielkości liter w klastrach ESP, ale
+* Prefiks nazwy UPN powinien pasować do obu wartości SAMAccountName w usłudze Azure AD — DS. Dopasowanie do pola poczty nie jest wymagane.
+
+### <a name="ldap-properties-in-ambari-configuration"></a>Właściwości LDAP w konfiguracji Ambari
+
+Aby uzyskać pełną listę właściwości Ambari, które wpływają na konfigurację klastra usługi HDInsight, zobacz [AMBARI LDAP Setup Authentication](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

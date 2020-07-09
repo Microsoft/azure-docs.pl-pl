@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 9a5e2c1e36a742115ed2f5c690c81a186a86dee7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82129097"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrowanie do usługi Azure Kubernetes Service (AKS)
@@ -94,7 +94,7 @@ Aby uzyskać więcej informacji, zobacz [limity subskrypcji i usług platformy A
 
 Jeśli aplikacja nie może obsłużyć przestoju, należy postępować zgodnie z najlepszymi rozwiązaniami dotyczącymi scenariuszy migracji wysokiej dostępności.  Najlepsze rozwiązania związane z ciągłym planowaniem ciągłości biznesowej, odzyskiwaniem po awarii i maksymalizacją czasu pracy wykraczają poza zakres tego dokumentu.  Przeczytaj więcej o [najlepszych rozwiązaniach dotyczących ciągłości działania i odzyskiwania po awarii w usłudze Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region) , aby dowiedzieć się więcej.
 
-W przypadku złożonych aplikacji zwykle przeprowadzana jest migracja w czasie, a nie wszystkie jednocześnie. Oznacza to, że stare i nowe środowiska mogą wymagać komunikacji za pośrednictwem sieci. Aplikacje, które wcześniej `ClusterIP` korzystały z usług do komunikacji, mogą być narażone `LoadBalancer` jako typ i być odpowiednio zabezpieczone.
+W przypadku złożonych aplikacji zwykle przeprowadzana jest migracja w czasie, a nie wszystkie jednocześnie. Oznacza to, że stare i nowe środowiska mogą wymagać komunikacji za pośrednictwem sieci. Aplikacje, które wcześniej korzystały `ClusterIP` z usług do komunikacji, mogą być narażone jako typ `LoadBalancer` i być odpowiednio zabezpieczone.
 
 Aby ukończyć migrację, należy wskazać klientom nowe usługi, które działają w systemie AKS. Zalecamy przekierowanie ruchu przez zaktualizowanie systemu DNS w taki sposób, aby wskazywał Load Balancer, które znajduje się przed klastrem AKS.
 
@@ -158,7 +158,7 @@ Niektóre narzędzia Open Source mogą pomóc w tworzeniu dysków zarządzanych 
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Wdrażanie konfiguracji klastra
 
-Zalecamy używanie istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby wdrożyć znaną dobrą konfigurację do AKS. Za pomocą Azure Pipelines można [kompilować i wdrażać aplikacje w programie AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Sklonuj istniejące zadania wdrażania i upewnij się, `kubeconfig` że wskazuje nowy klaster AKS.
+Zalecamy używanie istniejącego potoku ciągłej integracji i ciągłego dostarczania, aby wdrożyć znaną dobrą konfigurację do AKS. Za pomocą Azure Pipelines można [kompilować i wdrażać aplikacje w programie AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Sklonuj istniejące zadania wdrażania i upewnij się, że `kubeconfig` wskazuje nowy klaster AKS.
 
 Jeśli nie jest to możliwe, należy wyeksportować definicje zasobów z istniejącego klastra Kubernetes, a następnie zastosować je do AKS. Można użyć `kubectl` do eksportowania obiektów.
 

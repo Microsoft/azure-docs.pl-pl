@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857648"
 ---
 # <a name="transformation-with-azure-databricks"></a>Przekształcanie za pomocą usługi Azure Databricks
@@ -36,7 +35,7 @@ Dla uproszczenia szablon w tym samouczku nie tworzy zaplanowanego wyzwalacza. W 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto magazynu obiektów blob platformy Azure z kontenerem `sinkdata` o nazwie do użycia jako ujścia.
+- Konto magazynu obiektów blob platformy Azure z kontenerem o nazwie `sinkdata` do użycia jako ujścia.
 
   Zanotuj nazwę konta magazynu, nazwę kontenera i klucz dostępu. Te wartości będą potrzebne później w szablonie.
 
@@ -47,8 +46,8 @@ Dla uproszczenia szablon w tym samouczku nie tworzy zaplanowanego wyzwalacza. W 
 Aby zaimportować Notes **transformacji** do obszaru roboczego datakostki:
 
 1. Zaloguj się do obszaru roboczego Azure Databricks, a następnie wybierz pozycję **Importuj**.
-       ![Polecenie menu do importowania obszaru roboczego](media/solution-template-Databricks-notebook/import-notebook.png) ścieżka obszaru roboczego może różnić się od pokazanej, ale zapamiętać ją w późniejszym czasie.
-1. Wybierz pozycję **Importuj z: adres URL**. W polu tekstowym wprowadź `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`.
+       ![Polecenie menu do importowania obszaru roboczego ](media/solution-template-Databricks-notebook/import-notebook.png) Ścieżka obszaru roboczego może różnić się od pokazanej, ale zapamiętać ją w późniejszym czasie.
+1. Wybierz pozycję **Importuj z: adres URL**. W polu tekstowym wprowadź `https://adflabstaging1.blob.core.windows.net/share/Transformations.html` .
 
    ![Opcje importowania notesu](media/solution-template-Databricks-notebook/import-from-url.png)
 
@@ -56,7 +55,7 @@ Aby zaimportować Notes **transformacji** do obszaru roboczego datakostki:
 
    W zaimportowanym notesie przejdź do **polecenia 5** , jak pokazano w poniższym fragmencie kodu.
 
-   - `<storage name>`Zastąp `<access key>` i własnymi informacjami o połączeniu z magazynem.
+   - Zastąp `<storage name>` i `<access key>` własnymi informacjami o połączeniu z magazynem.
    - Użyj konta magazynu z `sinkdata` kontenerem.
 
     ```python
@@ -90,7 +89,7 @@ Aby zaimportować Notes **transformacji** do obszaru roboczego datakostki:
 
     ![Przycisk "Generuj"](media/solution-template-Databricks-notebook/generate-new-token.png)
 
-   *Zapisz token dostępu* do późniejszego użycia podczas tworzenia połączonej usługi datakostki. Token dostępu wygląda podobnie `dapi32db32cbb4w6eee18b7d87e45exxxxxx`.
+   *Zapisz token dostępu* do późniejszego użycia podczas tworzenia połączonej usługi datakostki. Token dostępu wygląda podobnie `dapi32db32cbb4w6eee18b7d87e45exxxxxx` .
 
 ## <a name="how-to-use-this-template"></a>Jak używać tego szablonu
 
@@ -132,13 +131,13 @@ W nowym potoku większość ustawień jest konfigurowana automatycznie z wartoś
 
 1. W oknie działanie **Kopiuj dane** **do obiektów BLOB**Sprawdź karty **źródłowe** i **ujścia** . Zmień ustawienia w razie potrzeby.
 
-   - **Karta źródło karty** ![źródłowej](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   - **Karta źródło karty** źródłowej ![](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
-   - **Sink** Karta ujścia ![karty ujścia](media/solution-template-Databricks-notebook/copy-sink-settings.png)
+   - Karta ujścia karty **ujścia** ![](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
 1. W **transformacji**działania **notesu** Przejrzyj i zaktualizuj ścieżki oraz ustawienia zgodnie z wymaganiami.
 
-   **Połączona usługa datakostki** powinna być wstępnie wypełniona wartością z poprzedniego kroku, jak pokazano: ![wartość wypełniono dla połączonej usługi datakostki](media/solution-template-Databricks-notebook/notebook-activity.png)
+   **Połączona usługa datakostki** powinna być wstępnie wypełniona wartością z poprzedniego kroku, jak pokazano: ![ wartość wypełniono dla połączonej usługi datakostki](media/solution-template-Databricks-notebook/notebook-activity.png)
 
    Aby sprawdzić ustawienia **notesu** :
   
@@ -150,7 +149,7 @@ W nowym potoku większość ustawień jest konfigurowana automatycznie z wartoś
 
        ![Parametry podstawowe](media/solution-template-Databricks-notebook/base-parameters.png)
 
-1. Sprawdź, czy **Parametry potoku** są zgodne z tym, co pokazano na ![poniższym zrzucie ekranu: parametry potoku](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+1. Sprawdź, czy **Parametry potoku** są zgodne z tym, co pokazano na poniższym zrzucie ekranu: ![ Parametry potoku](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Nawiąż połączenie z zestawami danych.
 
@@ -167,9 +166,9 @@ W nowym potoku większość ustawień jest konfigurowana automatycznie z wartoś
 
    - **DestinationFilesDataset** — aby skopiować dane do lokalizacji docelowej ujścia. Wprowadź następujące wartości:
 
-     - **Połączona usługa** - `sinkBlob_LS`utworzona w poprzednim kroku.
+     - **Połączona usługa**  -  `sinkBlob_LS` utworzona w poprzednim kroku.
 
-     - **File path** - Ścieżka`sinkdata/staged_sink`pliku.
+     - **Ścieżka pliku**  -  `sinkdata/staged_sink` .
 
        ![Wybory dla połączonej usługi i ścieżki pliku dla DestinationFilesDataset](media/solution-template-Databricks-notebook/destination-dataset.png)
 

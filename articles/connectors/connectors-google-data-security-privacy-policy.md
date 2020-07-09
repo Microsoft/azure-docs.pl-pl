@@ -4,18 +4,18 @@ description: Dowiedz się więcej na temat wpływu, jaki zasady usługi Google S
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.topic: conceptual
+ms.date: 06/05/2020
+ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628712"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194978"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Zasady zabezpieczeń i ochrony danych dla łączników Google w Azure Logic Apps
 
-Od **1 maja 2020**zmiany wynikające z [zasad bezpieczeństwa i ochrony danych](https://www.blog.google/technology/safety-security/project-strobe/) firmy Google mogą mieć wpływ na przepływy pracy aplikacji logiki, które korzystają z [łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com), Aplikacje logiki mogą używać tylko określonych [wyzwalaczy, akcji i łączników zatwierdzonych przez firmę Google](#approved-connectors). 
+Od **1 maja 2020**zmiany wynikające z [zasad bezpieczeństwa i ochrony danych](https://www.blog.google/technology/safety-security/project-strobe/) firmy Google mogą mieć wpływ na przepływy pracy aplikacji logiki, które korzystają z [łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com ), Aplikacje logiki mogą używać tylko określonych [wyzwalaczy, akcji i łączników zatwierdzonych przez firmę Google](#approved-connectors).
 
 > [!NOTE]
 > Jeśli aplikacje logiki korzystają z łącznika usługi Gmail z kontem biznesowym usługi G (adres e-mail z domeną niestandardową), nie ma to wpływu na aplikacje logiki ani nie mają ograniczeń dotyczących używania łącznika usługi Gmail.
@@ -36,11 +36,31 @@ W ramach tych zasad, jeśli używasz konta użytkownika usługi Gmail, możesz u
 
 * Logic Apps wbudowane wyzwalacze i akcje: dane wsadowe, kontrolki, operacje na danych, Data/godzina, prosty plik, ciecz, żądanie, harmonogram, zmienne i XML
 
+  Wbudowane wyzwalacze i akcje, które nie są zatwierdzone przez firmę Google, takie jak HTTP, Azure Functions, Azure Logic Apps i inne, sprawiają, że aplikacja logiki nie jest zgodna z łącznikiem usługi Gmail, ponieważ aplikacja może wysyłać lub odbierać dane z dowolnego miejsca.
+
 * Usługi Google Services: Gmail, Kalendarz Google, kontakty Google, dysk Google, Arkusze Google i zadania Google
 
 * Zatwierdzone usługi firmy Microsoft: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive i SharePoint Online
 
 * Łączniki dla źródeł danych zarządzanych przez klienta: FTP, RSS, SFTP, SMTP i SQL Server
+
+## <a name="non-compliant-examples"></a>Niezgodne przykłady
+
+Poniżej przedstawiono kilka przykładów użycia łącznika usługi Gmail z wbudowanymi wyzwalaczami i akcjami lub łącznikami zarządzanymi, które nie są zatwierdzone przez firmę Google:
+
+* Ta aplikacja logiki używa łącznika usługi Gmail z wbudowanym wyzwalaczem protokołu HTTP:
+
+  ![Niezgodna aplikacja logiki — przykład 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  
+  Aplikacja logiki używa również łącznika usługi Google Calendar, który został zatwierdzony.
+
+* Ta aplikacja logiki używa łącznika gmail przy użyciu łącznika usługi Azure Blob Storage:
+
+  ![Niezgodna aplikacja logiki — przykład 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+
+* Ta aplikacja logiki używa łącznika usługi Gmail z łącznikiem usługi Twitter:
+
+  ![Niezgodna aplikacja logiki — przykład 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 Aby uzyskać najnowsze informacje, zapoznaj się z [dokumentacją techniczną łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/).
 
@@ -70,7 +90,7 @@ Aby użyć identyfikatora klienta i klucza tajnego klienta z aplikacji klienckie
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Jeśli dodajesz nowy wyzwalacz lub akcję usługi Gmail i utworzysz całkowicie nowe połączenie, przejdź do następnego kroku. W przeciwnym razie w wyzwalaczu lub akcji usługi Gmail wybierz pozycję **Zmień połączenie** > **Dodaj nowe**, na przykład:
+1. Jeśli dodajesz nowy wyzwalacz lub akcję usługi Gmail i utworzysz całkowicie nowe połączenie, przejdź do następnego kroku. W przeciwnym razie w wyzwalaczu lub akcji usługi Gmail wybierz pozycję **Zmień połączenie**  >  **Dodaj nowe**, na przykład:
 
    ![Wybierz pozycję "Zmień połączenie" > "Dodaj nowe"](./media/connectors-google-data-security-privacy-policy/change-gmail-connection.png)
 
@@ -81,7 +101,7 @@ Aby użyć identyfikatora klienta i klucza tajnego klienta z aplikacji klienckie
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
    | **Typ uwierzytelniania** | **Przenoszenie własnej aplikacji** | Określa, że do uwierzytelniania będzie używana Twoja aplikacja kliencka. |
-   | **Client ID (Identyfikator klienta)** | <*Identyfikator klienta*> | Identyfikator klienta z aplikacji klienckiej Google |
+   | **Identyfikator klienta** | <*Identyfikator klienta*> | Identyfikator klienta z aplikacji klienckiej Google |
    | **Client Secret (Wpis tajny klienta)** | <*Klient-klucz tajny*> | Wpis tajny klienta z aplikacji klienckiej Google |
    ||||
 

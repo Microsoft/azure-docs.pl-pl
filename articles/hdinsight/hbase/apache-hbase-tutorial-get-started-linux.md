@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81390260"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958365"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: korzystanie z platformy Apache HBase w usłudze Azure HDInsight
 
@@ -75,7 +75,7 @@ W HBase (implementacja BigTable w [chmurze](https://cloud.google.com/bigtable/))
 
 **Korzystanie z powłoki HBase**
 
-1. Użyj `ssh` polecenia, aby nawiązać połączenie z klastrem HBase. Edytuj poniższe polecenie, zastępując `CLUSTERNAME` je nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj `ssh` polecenia, aby nawiązać połączenie z klastrem HBase. Edytuj poniższe polecenie, zastępując je `CLUSTERNAME` nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -108,7 +108,7 @@ W HBase (implementacja BigTable w [chmurze](https://cloud.google.com/bigtable/))
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-1. Użyj `scan` polecenia, aby przeskanować `Contacts` i zwrócić dane tabeli. Wprowadź następujące polecenie:
+1. Użyj `scan` polecenia, aby przeskanować i zwrócić `Contacts` dane tabeli. Wprowadź następujące polecenie:
 
     ```hbase
     scan 'Contacts'
@@ -122,7 +122,7 @@ W HBase (implementacja BigTable w [chmurze](https://cloud.google.com/bigtable/))
     get 'Contacts', '1000'
     ```
 
-    Podobne wyniki można zobaczyć, używając polecenia `scan` , ponieważ istnieje tylko jeden wiersz.
+    Podobne wyniki można zobaczyć, używając `scan` polecenia, ponieważ istnieje tylko jeden wiersz.
 
     Aby uzyskać więcej informacji na temat schematu tabeli HBase, zobacz [wprowadzenie do projektu schematu Apache HBase](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Więcej poleceń bazy danych HBase można znaleźć w [Podręczniku bazy danych Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
@@ -138,22 +138,31 @@ Baza danych HBase obsługuje kilka metod ładowania danych do tabel.  Aby uzyska
 
 Przykładowy plik danych znajduje się w publicznym kontenerze obiektów blob, `wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt`.  Plik danych ma następującą zawartość:
 
-    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
-    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
-    3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
-    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+`8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.`
+
+`16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz`
+
+`4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta`
+
+`16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.`
+
+`3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive`
+
+`3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle`
+
+`10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street`
+
+`4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street`
+
+`4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.`
+
+`16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive`
 
 Opcjonalnie możesz utworzyć plik tekstowy i przesłać go na swoje konto magazynu. Aby uzyskać instrukcje, zobacz [przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight](../hdinsight-upload-data.md).
 
 Ta procedura korzysta z `Contacts` tabeli HBase utworzonej w ostatniej procedurze.
 
-1. Z otwartego połączenia SSH Uruchom następujące polecenie, aby przekształcić plik danych do postaci storefiles i przechowywać ją w ścieżce względnej określonej przez `Dimporttsv.bulk.output`.
+1. Z otwartego połączenia SSH Uruchom następujące polecenie, aby przekształcić plik danych do postaci storefiles i przechowywać ją w ścieżce względnej określonej przez `Dimporttsv.bulk.output` .
 
     ```bash
     hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
@@ -194,15 +203,15 @@ Możesz wykonywać zapytania dotyczące danych w tabelach HBase przy użyciu [Ap
     SELECT count(rowkey) AS rk_count FROM hbasecontacts;
     ```
 
-1. Aby wyjść z Z usługi Beeline, `!exit`Użyj polecenia.
+1. Aby wyjść z Z usługi Beeline, użyj polecenia `!exit` .
 
-1. Aby wyjść z połączenia SSH, użyj `exit`polecenia.
+1. Aby wyjść z połączenia SSH, użyj polecenia `exit` .
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Korzystanie z interfejsów API REST HBase przy użyciu programu Curl
 
 Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
 
-1. Ustaw zmienną środowiskową, aby ułatwić korzystanie z niej. Edytuj poniższe polecenia, zastępując `MYPASSWORD` je hasłem logowania klastra. Zamień `MYCLUSTERNAME` na nazwę klastra HBase. Następnie wprowadź polecenia.
+1. Ustaw zmienną środowiskową, aby ułatwić korzystanie z niej. Edytuj poniższe polecenia, zastępując je `MYPASSWORD` hasłem logowania klastra. Zamień `MYCLUSTERNAME` na nazwę klastra HBase. Następnie wprowadź polecenia.
 
     ```bash
     export password='MYPASSWORD'
@@ -262,14 +271,14 @@ Aby uzyskać więcej informacji o interfejsie Rest HBase, zobacz [Apache HBase R
 > Platforma Thrift nie jest obsługiwana przez bazę danych HBase w usłudze HDInsight.
 >
 > Używając programu Curl lub innego połączenia REST z usługą WebHCat, należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Należy również użyć nazwy klastra jako części identyfikatora URI stosowanego przy wysyłaniu żądań do serwera:
-> 
->   
->        curl -u <UserName>:<Password> \
->        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
->   
->    Powinna zostać zwrócona odpowiedź podobna do następującej:
->   
->        {"status":"ok","version":"v1"}
+>
+> `curl -u <UserName>:<Password> \`
+>
+> `-G https://<ClusterName>.azurehdinsight.net/templeton/v1/status`
+>
+> Powinna zostać zwrócona odpowiedź podobna do następującej:
+>
+> `{"status":"ok","version":"v1"}`
 
 ## <a name="check-cluster-status"></a>Sprawdzanie stanu klastra
 
@@ -277,7 +286,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 
 **Aby uzyskać dostęp do głównego interfejsu użytkownika HBase**
 
-1. Zaloguj się do interfejsu użytkownika sieci Web `https://CLUSTERNAME.azurehdinsight.net` Ambari `CLUSTERNAME` , gdzie jest nazwą klastra HBase.
+1. Zaloguj się do interfejsu użytkownika sieci Web Ambari, `https://CLUSTERNAME.azurehdinsight.net` gdzie `CLUSTERNAME` jest nazwą klastra HBase.
 
 1. Z menu po lewej stronie wybierz pozycję **HBase** .
 
@@ -293,15 +302,15 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
    - zadania
    - atrybuty oprogramowania
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia `disable 'Contacts'`HBase. Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
+Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia HBase `disable 'Contacts'` . Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka.
-1. Kliknij przycisk **Usuń**. Kliknij przycisk **tak**.
+1. Kliknij polecenie **Usuń**. Kliknij przycisk **tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261075"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103555"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
 W tym temacie opisano wbudowany harmonogram w programie Azure AD Connect Sync (aparat synchronizacji).
@@ -40,12 +40,16 @@ Harmonogram jest odpowiedzialny za dwa zadania:
 
 Sam harmonogram jest zawsze uruchomiony, ale można go skonfigurować tak, aby uruchamiał tylko jedno lub żadne z tych zadań. Na przykład jeśli musisz mieć własny proces cyklu synchronizacji, możesz wyłączyć to zadanie w harmonogramie, ale nadal uruchomić zadanie obsługi.
 
+>[!IMPORTANT]
+>Musisz się upewnić, że cykl synchronizacji jest uruchamiany co najmniej raz w ciągu 7 dni. Niewykonanie tej czynności może spowodować problemy z synchronizacją, co spowoduje konieczność uruchomienia pełnej synchronizacji w celu rozwiązania problemu.
+
+
 ## <a name="scheduler-configuration"></a>Konfiguracja harmonogramu
-Aby wyświetlić bieżące ustawienia konfiguracji, przejdź do programu PowerShell i uruchom `Get-ADSyncScheduler`polecenie. Przedstawiono tutaj następujący obraz:
+Aby wyświetlić bieżące ustawienia konfiguracji, przejdź do programu PowerShell i uruchom polecenie `Get-ADSyncScheduler` . Przedstawiono tutaj następujący obraz:
 
 ![GetSyncScheduler](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
 
-Jeśli po uruchomieniu tego polecenia cmdlet zobaczysz **polecenie Synchronizuj, lub polecenie cmdlet nie jest dostępne** , moduł programu PowerShell nie zostanie załadowany. Przyczyną tego problemu może być uruchomienie Azure AD Connect na kontrolerze domeny lub na serwerze z wyższymi poziomami ograniczeń programu PowerShell niż ustawienia domyślne. Jeśli ten błąd jest wyświetlany, uruchom `Import-Module ADSync` polecenie, aby wyświetlić dostępne polecenia cmdlet.
+Jeśli po uruchomieniu tego polecenia cmdlet zobaczysz **polecenie Synchronizuj, lub polecenie cmdlet nie jest dostępne** , moduł programu PowerShell nie zostanie załadowany. Przyczyną tego problemu może być uruchomienie Azure AD Connect na kontrolerze domeny lub na serwerze z wyższymi poziomami ograniczeń programu PowerShell niż ustawienia domyślne. Jeśli ten błąd jest wyświetlany, uruchom polecenie, `Import-Module ADSync` Aby wyświetlić dostępne polecenia cmdlet.
 
 * **AllowedSyncCycleInterval**. Najkrótszy odstęp czasu między cyklami synchronizacji dozwolonymi przez usługę Azure AD. Nie można synchronizować częściej niż to ustawienie i nadal jest obsługiwane.
 * **CurrentlyEffectiveSyncCycleInterval**. Harmonogram aktualnie działa. Ma taką samą wartość jak CustomizedSyncInterval (jeśli jest ustawiona), jeśli nie jest częściej niż AllowedSyncInterval. Jeśli używasz kompilacji przed 1.1.281 i zmienisz CustomizedSyncCycleInterval, ta zmiana zacznie obowiązywać po kolejnym cyklu synchronizacji. Od kompilacji 1.1.281 zmiana zacznie obowiązywać natychmiast.
@@ -58,7 +62,7 @@ Jeśli po uruchomieniu tego polecenia cmdlet zobaczysz **polecenie Synchronizuj,
 * **StagingModeEnabled**. Pokazuje, czy [tryb przejściowy](how-to-connect-sync-staging-server.md) jest włączony. Jeśli to ustawienie jest włączone, program pomija operacje eksportowania z uruchomionym programem, ale nadal uruchamia Importowanie i synchronizację.
 * **SchedulerSuspended**. Ustawiane przez połączenie podczas uaktualniania w celu tymczasowego blokowania uruchamiania harmonogramu.
 
-Niektóre z tych ustawień można zmienić za pomocą `Set-ADSyncScheduler`programu. Następujące parametry można modyfikować:
+Niektóre z tych ustawień można zmienić za pomocą programu `Set-ADSyncScheduler` . Następujące parametry można modyfikować:
 
 * CustomizedSyncCycleInterval
 * NextSyncCyclePolicyType
@@ -83,11 +87,11 @@ Zmiany zmieniają harmonogram uruchamiania codziennie.
 ### <a name="disable-the-scheduler"></a>Wyłączanie harmonogramu  
 Jeśli musisz wprowadzić zmiany w konfiguracji, chcesz wyłączyć harmonogram. Na przykład podczas [konfigurowania filtrowania](how-to-connect-sync-configure-filtering.md) lub [wprowadzania zmian w regułach synchronizacji](how-to-connect-sync-change-the-configuration.md).
 
-Aby wyłączyć harmonogram, uruchom `Set-ADSyncScheduler -SyncCycleEnabled $false`polecenie.
+Aby wyłączyć harmonogram, uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $false` .
 
 ![Wyłączanie harmonogramu](./media/how-to-connect-sync-feature-scheduler/schedulerdisable.png)
 
-Po wprowadzeniu zmian nie zapomnij ponownie włączyć harmonogramu przy użyciu `Set-ADSyncScheduler -SyncCycleEnabled $true`programu.
+Po wprowadzeniu zmian nie zapomnij ponownie włączyć harmonogramu przy użyciu programu `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 ## <a name="start-the-scheduler"></a>Uruchom Harmonogram
 Harmonogram jest domyślnie uruchamiany co 30 minut. W niektórych przypadkach może być konieczne uruchomienie cyklu synchronizacji między planowanymi cyklami lub uruchomienie innego typu.
@@ -109,9 +113,9 @@ Pełny cykl synchronizacji obejmuje następujące kroki:
 
 Może się zdarzyć, że masz pilną zmianę, która musi zostać natychmiast zsynchronizowana, co jest potrzebne do ręcznego uruchomienia cyklu. 
 
-Jeśli musisz ręcznie uruchomić cykl synchronizacji, uruchom `Start-ADSyncSyncCycle -PolicyType Delta`polecenie z programu PowerShell.
+Jeśli musisz ręcznie uruchomić cykl synchronizacji, uruchom polecenie z programu PowerShell `Start-ADSyncSyncCycle -PolicyType Delta` .
 
-Aby zainicjować cykl pełnej synchronizacji, uruchom `Start-ADSyncSyncCycle -PolicyType Initial` polecenie w wierszu polecenia programu PowerShell.   
+Aby zainicjować cykl pełnej synchronizacji, uruchom polecenie `Start-ADSyncSyncCycle -PolicyType Initial` w wierszu polecenia programu PowerShell.   
 
 Uruchamianie pełnego cyklu synchronizacji może być bardzo czasochłonne. Przeczytaj następną sekcję, aby zapoznać się z tematem Optymalizacja tego procesu.
 
@@ -156,8 +160,8 @@ Jeśli harmonogram jest aktualnie uruchomiony w cyklu synchronizacji, może być
 
 Gdy cykl synchronizacji jest uruchomiony, nie można wprowadzać zmian w konfiguracji. Możesz poczekać, aż harmonogram zakończy proces, ale możesz również zatrzymać go, aby można było natychmiast wprowadzić zmiany. Zatrzymywanie bieżącego cyklu nie jest szkodliwe i oczekujące zmiany są przetwarzane z następnym uruchomieniem.
 
-1. Zacznij od poinformowania harmonogramu, aby zatrzymał bieżący cykl przy `Stop-ADSyncSyncCycle`użyciu polecenia cmdlet programu PowerShell.
-2. Jeśli używasz kompilacji przed 1.1.281, zatrzymanie harmonogramu nie zatrzyma bieżącego łącznika z jego bieżącego zadania. Aby wymusić zatrzymanie łącznika, wykonaj następujące czynności: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+1. Zacznij od poinformowania harmonogramu, aby zatrzymał bieżący cykl przy użyciu polecenia cmdlet programu PowerShell `Stop-ADSyncSyncCycle` .
+2. Jeśli używasz kompilacji przed 1.1.281, zatrzymanie harmonogramu nie zatrzyma bieżącego łącznika z jego bieżącego zadania. Aby wymusić zatrzymanie łącznika, wykonaj następujące czynności: ![ StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Uruchom **usługę synchronizacji** z menu Start. Przejdź do **łączników**, podświetl łącznik z **uruchomionym**stanem i wybierz pozycję **Zatrzymaj** w akcjach.
 
 Harmonogram jest nadal aktywny i zostanie uruchomiony ponownie przy następnej okazji.
@@ -178,7 +182,7 @@ Nazwy, które mają być używane w [nazwach łączników](how-to-connect-sync-s
 
 ![Wywołaj przebieg profilu](./media/how-to-connect-sync-feature-scheduler/invokerunprofile.png)  
 
-`Invoke-ADSyncRunProfile` Polecenie cmdlet jest synchroniczne, czyli nie zwraca kontroli, dopóki łącznik nie ukończy operacji, pomyślnie lub z powodu błędu.
+`Invoke-ADSyncRunProfile`Polecenie cmdlet jest synchroniczne, czyli nie zwraca kontroli, dopóki łącznik nie ukończy operacji, pomyślnie lub z powodu błędu.
 
 Po zaplanowaniu łączników zaleca się zaplanowanie ich w następującej kolejności:
 

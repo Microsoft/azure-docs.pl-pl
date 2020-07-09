@@ -12,27 +12,27 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6a292201796ccb08f684d2c44a3cee71442edbfe
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611385"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848690"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolve error messages from the NPS extension for Azure Multi-Factor Authentication (Rozstrzyganie komunikatów o błędach z rozszerzenia serwera NPS dotyczących usługi Azure Multi-Factor Authentication)
 
-Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Factor Authentication, użyj tego artykułu, aby szybciej uzyskać rozwiązanie. Dzienniki rozszerzenia serwera NPS znajdują się w Podgląd zdarzeń w obszarze **widoki** > niestandardowe**role** > serwera**usługi zasad sieciowych i dostępu** na serwerze, na którym zainstalowano rozszerzenie serwera NPS.
+Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Factor Authentication, użyj tego artykułu, aby szybciej uzyskać rozwiązanie. Dzienniki rozszerzenia serwera NPS znajdują się w Podgląd zdarzeń w obszarze **widoki niestandardowe**  >  **role serwera**  >  **usługi zasad sieciowych i dostępu** na serwerze, na którym zainstalowano rozszerzenie serwera NPS.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Kroki rozwiązywania problemów z typowymi błędami
 
 | Kod błędu | Kroki rozwiązywania problemów |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Skontaktuj się z pomocą techniczną](#contact-microsoft-support)i zanotuj listę kroków związanych z zbieraniem dzienników. Podaj jak najwięcej informacji o tym, co się stało przed błędem, w tym identyfikatorem dzierżawy oraz główną nazwą użytkownika (UPN). |
+| **CONTACT_SUPPORT** | [Skontaktuj się z pomocą techniczną](#contact-microsoft-support)i zanotuj listę kroków związanych z zbieraniem dzienników. Podaj jak najwięcej informacji o tym, co się stało przed błędem, w tym IDENTYFIKATORem dzierżawy oraz główną nazwą użytkownika (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Może wystąpić problem z zainstalowaniem lub skojarzeniem certyfikatu klienta z dzierżawcą. Postępuj zgodnie z instrukcjami w [temacie Rozwiązywanie problemów z serwerem NPS usługi MFA](howto-mfa-nps-extension.md#troubleshooting) w celu zbadania problemów z certyfikatem klienta. |
 | **ESTS_TOKEN_ERROR** | Postępuj zgodnie z instrukcjami w [temacie Rozwiązywanie problemów z rozszerzeniem zasad sieciowych usługi MFA,](howto-mfa-nps-extension.md#troubleshooting) aby zbadać certyfikat klienta i tokeny ADAL. |
 | **HTTPS_COMMUNICATION_ERROR** | Serwer NPS nie może odbierać odpowiedzi z usługi Azure MFA. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i zhttps://adnotifications.windowsazure.com |
-| **HTTP_CONNECT_ERROR** | Na serwerze, na którym działa rozszerzenie serwera zasad sieciowych, sprawdź, czy `https://adnotifications.windowsazure.com` można `https://login.microsoftonline.com/`nawiązać połączenie i. Jeśli te lokacje nie są ładowane, Rozwiąż problemy z łącznością na tym serwerze. |
-| **Rozszerzenie serwera NPS dla usługi Azure MFA:** <br> Rozszerzenie serwera NPS dla usługi Azure MFA wykonuje tylko uwierzytelnianie pomocnicze dla żądań RADIUS w stanie AccessAccept. Żądanie zostało odebrane dla użytkownika o nazwie "odpowiedź" o stanie odpowiedzi AccessReject, ignorując żądanie. | Ten błąd zwykle odzwierciedla błąd uwierzytelniania w usłudze AD lub że serwer NPS nie może odebrać odpowiedzi z usługi Azure AD. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i z i `https://adnotifications.windowsazure.com` `https://login.microsoftonline.com` z portów 80 i 443. Ważne jest również, aby sprawdzić, czy na karcie TELEFONowania uprawnień dostępu do sieci jest ustawiona opcja "Kontroluj dostęp za pomocą zasad sieciowych NPS". Ten błąd może również być wyzwalany, jeśli użytkownik nie ma przypisanej licencji. |
+| **HTTP_CONNECT_ERROR** | Na serwerze, na którym działa rozszerzenie serwera zasad sieciowych, sprawdź, czy można nawiązać połączenie `https://adnotifications.windowsazure.com` i `https://login.microsoftonline.com/` . Jeśli te lokacje nie są ładowane, Rozwiąż problemy z łącznością na tym serwerze. |
+| **Rozszerzenie serwera NPS dla usługi Azure MFA:** <br> Rozszerzenie serwera NPS dla usługi Azure MFA wykonuje tylko uwierzytelnianie pomocnicze dla żądań RADIUS w stanie AccessAccept. Żądanie zostało odebrane dla użytkownika o nazwie "odpowiedź" o stanie odpowiedzi AccessReject, ignorując żądanie. | Ten błąd zwykle odzwierciedla błąd uwierzytelniania w usłudze AD lub że serwer NPS nie może odebrać odpowiedzi z usługi Azure AD. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i z `https://adnotifications.windowsazure.com` i z `https://login.microsoftonline.com` portów 80 i 443. Ważne jest również, aby sprawdzić, czy na karcie TELEFONowania uprawnień dostępu do sieci jest ustawiona opcja "Kontroluj dostęp za pomocą zasad sieciowych NPS". Ten błąd może również być wyzwalany, jeśli użytkownik nie ma przypisanej licencji. |
 | **REGISTRY_CONFIG_ERROR** | Brak klucza w rejestrze dla aplikacji, co może być spowodowane tym, że [skrypt programu PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) nie został uruchomiony po instalacji. Komunikat o błędzie powinien zawierać brakujący klucz. Upewnij się, że masz klucz w obszarze HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> W żądaniu usługi RADIUS brakuje obowiązkowego atrybutu userName\Identifier usługi RADIUS. Sprawdź, czy serwer NPS otrzymuje żądania RADIUS | Ten błąd zwykle odzwierciedla problem z instalacją. Rozszerzenie serwera NPS musi być zainstalowane na serwerach NPS, które mogą odbierać żądania RADIUS. Serwery NPS zainstalowane jako zależności dla usług takich jak RDG i RRAS nie odbierają żądań RADIUS. Rozszerzenie serwera NPS nie działa w przypadku instalacji w takich instalacjach i błędów, ponieważ nie może odczytać szczegółów z żądania uwierzytelnienia. |
 | **REQUEST_MISSING_CODE** | Upewnij się, że protokół szyfrowania hasła między serwerami NPS i NAS obsługuje pomocniczą metodę uwierzytelniania. **Protokół PAP** obsługuje wszystkie metody uwierzytelniania usługi Azure MFA w chmurze: połączenie telefoniczne, jednokierunkową wiadomość tekstową, powiadomienie aplikacji mobilnej i kod weryfikacyjny aplikacji mobilnej. **CHAPv2** i **Protokół EAP** obsługują połączenia telefoniczne i powiadomienia aplikacji mobilnej. |
@@ -60,7 +60,7 @@ Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Facto
 | **OathCodePinIncorrect** | Wprowadzono nieprawidłowy kod i numer PIN. | Ten błąd nie jest oczekiwany w rozszerzeniu serwera NPS. Jeśli użytkownik napotka ten problem, [skontaktuj się z pomocą techniczną](#contact-microsoft-support) , aby uzyskać pomoc dotyczącą rozwiązywania problemów. |
 | **ProofDataNotFound** | Nie skonfigurowano danych dowodowych dla określonej metody uwierzytelniania. | Użytkownik próbuje użyć innej metody weryfikacji lub dodać nowe metody weryfikacji zgodnie z instrukcjami w sekcji [Zarządzanie ustawieniami weryfikacji dwuetapowej](../user-help/multi-factor-authentication-end-user-manage-settings.md). Jeśli użytkownik będzie nadal widział ten błąd po potwierdzeniu, że metoda weryfikacji została prawidłowo skonfigurowana, [skontaktuj się z pomocą techniczną](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Wprowadzono nieprawidłowy kod i numer PIN. (OneWaySMS) | Ten błąd nie jest oczekiwany w rozszerzeniu serwera NPS. Jeśli użytkownik napotka ten problem, [skontaktuj się z pomocą techniczną](#contact-microsoft-support) , aby uzyskać pomoc dotyczącą rozwiązywania problemów. |
-| **TenantIsBlocked** | Dzierżawca jest zablokowany | [Skontaktuj się z pomocą techniczną](#contact-microsoft-support) z identyfikatorem katalogu na stronie właściwości usługi Azure AD w Azure Portal. |
+| **TenantIsBlocked** | Dzierżawca jest zablokowany | [Skontaktuj się z pomocą techniczną](#contact-microsoft-support) , podając *Identyfikator dzierżawy* ze strony właściwości usługi Azure AD w Azure Portal. |
 | **UserNotFound** | Nie znaleziono określonego użytkownika | Dzierżawca nie jest już widoczny jako aktywny w usłudze Azure AD. Sprawdź, czy Twoja subskrypcja jest aktywna i czy masz wymagane aplikacje pierwszej firmy. Upewnij się również, że dzierżawa w temacie certyfikatu jest zgodnie z oczekiwaniami, a certyfikat jest nadal ważny i zarejestrowany w jednostce usługi. |
 
 ## <a name="messages-your-users-may-encounter-that-arent-errors"></a>Komunikaty, które mogą napotkać użytkownicy, którzy nie są błędami
@@ -81,7 +81,7 @@ W przypadku wystąpienia jednego z tych błędów zalecamy [skontaktowanie się 
 | ---------- | ------------- |
 | **Nieprawidłowy parametr** | Żądanie nie może mieć wartości null |
 | **Nieprawidłowy parametr** | Obiekt ObjectId nie może mieć wartości null ani być pusty dla ReplicationScope:{0} |
-| **Nieprawidłowy parametr** | Długość elementu NazwaFirmy \{0} \ przekracza maksymalną dozwoloną długość{1} |
+| **Nieprawidłowy parametr** | Długość elementu NazwaFirmy \{ 0} \ przekracza maksymalną dozwoloną długość{1} |
 | **Nieprawidłowy parametr** | Element UserPrincipalName nie może mieć wartości null ani być pusty |
 | **Nieprawidłowy parametr** | Podany TenantId nie ma poprawnego formatu |
 | **Nieprawidłowy parametr** | Identyfikator sesji nie może mieć wartości null ani być pusty |

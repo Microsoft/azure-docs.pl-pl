@@ -7,10 +7,9 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75498147"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorowanie i diagnostyka
@@ -43,7 +42,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 Środowisko siatki przedstawia kilku metryki wskazujące, jak działają kontenery. Następujące metryki są dostępne za pośrednictwem interfejsu wiersza polecenia Azure Portal i Azure Monitor:
 
-| Metryka | Opis | Jednostki|
+| Metric | Opis | Lekcji|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu jako wartość procentowa | % |
 | MemoryUtilization | ActualMem/AllocatedMem jako wartość procentowa | % |

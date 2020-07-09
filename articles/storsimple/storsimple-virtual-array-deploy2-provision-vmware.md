@@ -9,10 +9,9 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76272094"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi administracyjnej w oprogramowaniu VMware
@@ -95,13 +94,13 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 7. Zostanie wyświetlone okno **Datastore Browser** (Przeglądarka magazynu danych).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. Na pasku narzędzi kliknij ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) ikonę, aby utworzyć nowy folder. Określ nazwę folderu i zanotuj ją. Ta nazwa folderu będzie używana później, podczas tworzenia maszyny wirtualnej (zalecane najlepsze rozwiązanie). Kliknij przycisk **OK**.
+8. Na pasku narzędzi kliknij ikonę, ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) Aby utworzyć nowy folder. Określ nazwę folderu i zanotuj ją. Ta nazwa folderu będzie używana później, podczas tworzenia maszyny wirtualnej (zalecane najlepsze rozwiązanie). Kliknij przycisk **OK**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. Nowy folder zostanie wyświetlony w okienku po lewej stronie okna **Datastore Browser** (Przeglądarka magazynu danych).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. Kliknij ikonę ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) Przekaż i wybierz pozycję **Przekaż plik**.
+10. Kliknij ikonę Przekaż ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) i wybierz pozycję **Przekaż plik**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. Wskaż pobrane pliki VMDK. Pliki są dwa. Wybierz plik do przekazania.
@@ -151,10 +150,10 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 26. Na stronie **Opcje zaawansowane** Zaakceptuj ustawienie domyślne i kliknij przycisk **dalej**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. **Przed ukończeniem Sprawdź ustawienia maszyny wirtualnej**. Kliknij przycisk **Kontynuuj**.
+27. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. **Przed ukończeniem Sprawdź ustawienia maszyny wirtualnej**. Kliknij pozycję **Kontynuuj**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Na stronie **właściwości Virtual Machines** na karcie **sprzęt** zlokalizuj sprzęt urządzenia. Wybierz pozycję **nowy dysk twardy**. Kliknij pozycję **Add** (Dodaj).
+28. Na stronie **właściwości Virtual Machines** na karcie **sprzęt** zlokalizuj sprzęt urządzenia. Wybierz pozycję **nowy dysk twardy**. Kliknij pozycję **Dodaj**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. Zobaczysz okno **Dodaj sprzęt** . Na stronie **Typ urządzenia** w obszarze **Wybierz typ urządzenia, które chcesz dodać**wybierz pozycję **dysk twardy**, a następnie kliknij przycisk **dalej**.

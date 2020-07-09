@@ -7,10 +7,9 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77482976"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synchronizuj zawartość z folderu w chmurze w celu Azure App Service
@@ -22,7 +21,7 @@ Wdrożenie synchronizacji zawartości na żądanie jest obsługiwane przez [Apar
 
 Aby włączyć synchronizację zawartości, przejdź do strony aplikacji App Service w [Azure Portal](https://portal.azure.com).
 
-W menu po lewej stronie kliknij pozycję **Deployment Center** > **OneDrive** lub **Dropbox** > **Autoryzuj**. Postępuj zgodnie z monitami o autoryzację. 
+W menu po lewej stronie kliknij pozycję **Deployment Center**  >  **OneDrive** lub **Dropbox**  >  **Autoryzuj**. Postępuj zgodnie z monitami o autoryzację. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
@@ -54,7 +53,7 @@ Jeśli chcesz synchronizować zawartość w folderze w chmurze za pomocą App Se
 
 Aby wyłączyć synchronizację zawartości, przejdź do strony aplikacji App Service w [Azure Portal](https://portal.azure.com).
 
-W menu po lewej stronie kliknij pozycję **centrum** > wdrażania**Odłącz**.
+W menu po lewej stronie kliknij pozycję **centrum wdrażania**  >  **Odłącz**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

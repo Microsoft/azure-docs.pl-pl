@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /sql/
+  topicHref: /azure/index
+  items:
+    - name: Wystąpienie zarządzane SQL
+      tocHref: /sql/
+      topicHref: /azure/azure-sql/managed-instance
+      items:
+        - name: Usługa Machine Learning
+          tocHref: /sql/machine-learning/
+          topicHref: /azure/azure-sql/managed-instance/machine-learning-services-overview

@@ -1,18 +1,14 @@
 ---
 title: Azure Key Vault jako źródło Event Grid
 description: Opisuje właściwości i schemat udostępnione dla zdarzeń Azure Key Vault z Azure Event Grid
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
-ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458253"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109437"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault jako źródło Event Grid
 
@@ -69,13 +65,13 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 | Właściwość | Typ | Opis |
 | ---------- | ----------- |---|
-| id | ciąg | Identyfikator obiektu, który wyzwolił to zdarzenie |
+| identyfikator | ciąg | Identyfikator obiektu, który wyzwolił to zdarzenie |
 | vaultName | ciąg | Nazwa magazynu kluczy obiektu, który wyzwolił to zdarzenie |
 | objectType | ciąg | Typ obiektu, który wyzwolił to zdarzenie. |
 | Obiektu | ciąg | Nazwa obiektu, który wyzwolił to zdarzenie |
 | version | ciąg | Wersja obiektu, który wyzwolił to zdarzenie |
-| NBF | numer | Data nie wcześniejsza (w sekundach) od 1970 r-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
-| exp | numer | Data wygaśnięcia (w sekundach) od 1970 r-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
+| NBF | liczba | Data nie wcześniejsza (w sekundach) od 1970 r-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
+| exp | liczba | Data wygaśnięcia (w sekundach) od 1970 r-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł  |Opis  |

@@ -1,18 +1,14 @@
 ---
 title: Utracony komunikat i zasady ponawiania — Azure Event Grid
 description: Opisuje sposób dostosowywania opcji dostarczania zdarzeń dla Event Grid. Ustaw miejsce docelowe utraconych wiadomości, a następnie określ, jak długo ma być ponawiane dostarczanie.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: spelluru
-ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 07/07/2020
+ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72794036"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105510"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Utracony i ponawianie zasad
 
@@ -26,7 +22,7 @@ Aby ustawić pustą lokalizację, musisz mieć konto magazynu do przechowywania 
 
 > [!NOTE]
 > - Utwórz konto magazynu i kontener obiektów BLOB w magazynie przed uruchomieniem poleceń w tym artykule.
-> - Usługa Event Grid tworzy obiekty blob w tym kontenerze. Nazwy obiektów BLOB będą mieć nazwę subskrypcji Event Grid ze wszystkimi literami w Wielkiej litery. Na przykład, jeśli nazwa subskrypcji to my-BLOB-Subscription, nazwy obiektów blob z utraconą listą będą mieć wartość MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. JSON). Takie zachowanie ma na celu ochronę przed różnicami w przypadku obsługi w przypadku korzystania z usług platformy Azure.
+> - Usługa Event Grid tworzy obiekty blob w tym kontenerze. Nazwy obiektów BLOB będą mieć nazwę subskrypcji Event Grid ze wszystkimi literami w Wielkiej litery. Na przykład, jeśli nazwa subskrypcji to my-BLOB-Subscription, nazwy obiektów blob z utraconą listą będą miały wartość MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.jsw systemie). Takie zachowanie ma na celu ochronę przed różnicami w przypadku obsługi w przypadku korzystania z usług platformy Azure.
 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
@@ -44,7 +40,7 @@ az eventgrid event-subscription create \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić polecenie, aby utworzyć subskrypcję zdarzeń, ale nie podawać wartości `deadletter-endpoint`dla. Nie musisz usuwać subskrypcji zdarzeń.
+Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić polecenie, aby utworzyć subskrypcję zdarzeń, ale nie podawać wartości dla `deadletter-endpoint` . Nie musisz usuwać subskrypcji zdarzeń.
 
 > [!NOTE]
 > Jeśli używasz interfejsu wiersza polecenia platformy Azure na komputerze lokalnym, powinien on być w wersji co najmniej 2.0.56. Aby uzyskać instrukcje na temat instalowania najnowszej wersji interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
@@ -64,7 +60,7 @@ New-AzEventGridSubscription `
   -DeadLetterEndpoint "$storageid/blobServices/default/containers/$containername"
 ```
 
-Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić polecenie, aby utworzyć subskrypcję zdarzeń, ale nie podawać wartości `DeadLetterEndpoint`dla. Nie musisz usuwać subskrypcji zdarzeń.
+Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić polecenie, aby utworzyć subskrypcję zdarzeń, ale nie podawać wartości dla `DeadLetterEndpoint` . Nie musisz usuwać subskrypcji zdarzeń.
 
 > [!NOTE]
 > Jeśli używasz usługi Azure PowerShell na komputerze lokalnym, użyj Azure PowerShell w wersji 1.1.0 lub nowszej. Pobierz i zainstaluj najnowszą Azure PowerShell z [usługi Azure downloads](https://azure.microsoft.com/downloads/).
@@ -99,7 +95,7 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Po ustawieniu obu tych `event-ttl` opcji `max-deliver-attempts`i, Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
+Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -127,7 +123,7 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Po ustawieniu obu tych `EventTtl` opcji `MaxDeliveryAttempt`i, Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
+Po ustawieniu obu tych opcji `EventTtl` i `MaxDeliveryAttempt` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń.
 
 ## <a name="next-steps"></a>Następne kroki
 

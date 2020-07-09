@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 6751f64706444176f0df8f8fc0c6132e76b39b2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417319"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Google BigQuery przy użyciu Azure Data Factory
@@ -48,9 +48,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Google BigQuery są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość **GoogleBigQuery**. | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **GoogleBigQuery**. | Tak |
 | projekt | Identyfikator projektu domyślnego projektu BigQuery, względem którego ma być wysyłana kwerenda.  | Tak |
 | additionalProjects | Rozdzielana przecinkami lista identyfikatorów projektów publicznych projektów BigQuery do dostępu.  | Nie |
 | requestGoogleDriveScope | Czy zażądać dostępu do usługi dysk Google. Umożliwienie dostępu do usługi dysk Google umożliwia obsługę tabel federacyjnych, które łączą dane BigQuery z danymi z dysku Google. Wartość domyślna to **fałsz**.  | Nie |
@@ -60,7 +60,7 @@ Dla połączonej usługi Google BigQuery są obsługiwane następujące właści
 
 Ustaw właściwość "AuthenticationType" na wartość **UserAuthentication**, a następnie określ następujące właściwości wraz z właściwościami ogólnymi opisanymi w poprzedniej sekcji:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | clientId | Identyfikator aplikacji użytej do wygenerowania tokenu odświeżania. | Nie |
 | clientSecret | Wpis tajny aplikacji użyty do wygenerowania tokenu odświeżania. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -96,9 +96,9 @@ Ustaw właściwość "AuthenticationType" na wartość **UserAuthentication**, a
 
 Ustaw właściwość "AuthenticationType" na wartość **serviceauthentication**i określ następujące właściwości wraz z właściwościami ogólnymi opisanymi w poprzedniej sekcji. Tego typu uwierzytelniania można używać tylko w przypadku samodzielnej obsługi Integration Runtime.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| email | Identyfikator poczty e-mail konta usługi, który jest używany na potrzeby usługi serviceauthentication. Może być używany tylko w Integration Runtime samodzielnego udostępniania.  | Nie |
+| poczta e-mail | Identyfikator poczty e-mail konta usługi, który jest używany na potrzeby usługi serviceauthentication. Może być używany tylko w Integration Runtime samodzielnego udostępniania.  | Nie |
 | Atrybut keyfilepath | Pełna ścieżka do pliku klucza. P12, który jest używany do uwierzytelniania adresu e-mail konta usługi. | Nie |
 | trustedCertPath | Pełna ścieżka pliku PEM zawierającego certyfikaty zaufanych urzędów certyfikacji używane do weryfikacji serwera podczas łączenia się za pośrednictwem protokołu TLS. Tę właściwość można ustawić tylko w przypadku korzystania z protokołu TLS na samodzielnym Integration Runtime. Wartość domyślna to plik cacerts. pem instalowany z programem Integration Runtime.  | Nie |
 | useSystemTrustStore | Określa, czy certyfikat urzędu certyfikacji ma być używany z magazynu zaufania systemu czy z określonego pliku PEM. Wartość domyślna to **fałsz**.  | Nie |
@@ -131,14 +131,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Google BigQuery, ustaw właściwość Type zestawu danych na **GoogleBigQueryObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **GoogleBigQueryObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **GoogleBigQueryObject** | Tak |
 | zestawu | Nazwa zestawu danych usługi Google BigQuery. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tableName | Nazwa tabeli. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `dataset` i `table`. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| tableName | Nazwa tabeli. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `dataset` i `table` . | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -163,9 +163,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Google BigQuery, ustaw typ źródła w działaniu Copy na **GoogleBigQuerySource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość **GoogleBigQuerySource**. | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość **GoogleBigQuerySource**. | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Może to być na przykład `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

@@ -5,15 +5,14 @@ author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466004"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrowanie ze sklepu premium HDFS do usługi Azure Storage za pomocą Azure Data Box
 
@@ -59,7 +58,7 @@ Wykonaj następujące kroki, aby skopiować dane za pośrednictwem interfejsów 
 
 2. W oknie dialogowym dostęp do konta magazynu i przekazywania danych Skopiuj **BLOB Service punkt końcowy** i **klucz konta magazynu**. W punkcie końcowym usługi BLOB należy pominąć `https://` i końcowy ukośnik.
 
-    W tym przypadku punkt końcowy to: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Część hosta identyfikatora URI, który będzie używany, to: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Aby zapoznać się z przykładem, zobacz jak [nawiązać połączenie z usługą REST za pośrednictwem protokołu HTTP](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    W tym przypadku punkt końcowy to: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . Część hosta identyfikatora URI, który będzie używany, to: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Aby zapoznać się z przykładem, zobacz jak [nawiązać połączenie z usługą REST za pośrednictwem protokołu HTTP](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Okno dialogowe uzyskiwanie dostępu do konta magazynu i przekazywanie danych](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -71,9 +70,9 @@ Wykonaj następujące kroki, aby skopiować dane za pośrednictwem interfejsów 
 
     Jeśli używasz innego mechanizmu dla systemu DNS, upewnij się, że można rozpoznać urządzenie Data Box punkt końcowy.
 
-4. Ustaw zmienną `azjars` Shell na lokalizację plików jar `hadoop-azure` i. `azure-storage` Te pliki można znaleźć w katalogu instalacji usługi Hadoop.
+4. Ustaw zmienną Shell `azjars` na lokalizację `hadoop-azure` `azure-storage` plików jar i. Te pliki można znaleźć w katalogu instalacji usługi Hadoop.
 
-    Aby określić, czy te pliki istnieją, użyj następującego polecenia: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Zastąp `<hadoop_install_dir>` symbol zastępczy ścieżką do katalogu, w którym zainstalowano Hadoop. Upewnij się, że używasz w pełni kwalifikowanych ścieżek.
+    Aby określić, czy te pliki istnieją, użyj następującego polecenia: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` . Zastąp `<hadoop_install_dir>` symbol zastępczy ścieżką do katalogu, w którym zainstalowano Hadoop. Upewnij się, że używasz w pełni kwalifikowanych ścieżek.
 
     Przykłady:
 
@@ -135,9 +134,9 @@ Wykonaj następujące kroki, aby skopiować dane za pośrednictwem interfejsów 
 
     * Zastąp `<destination_directory>` symbol zastępczy nazwą katalogu, do którego chcesz skopiować dane.
 
-    `-libjars` Opcja służy do udostępniania plików zależnych `hadoop-azure*.jar` `azure-storage*.jar` i `distcp`. Może to być spowodowane niektórymi klastrami.
+    `-libjars`Opcja służy do udostępniania `hadoop-azure*.jar` plików zależnych i `azure-storage*.jar` `distcp` . Może to być spowodowane niektórymi klastrami.
 
-    Poniższy przykład pokazuje, `distcp` jak polecenie jest używane do kopiowania danych.
+    Poniższy przykład pokazuje, jak `distcp` polecenie jest używane do kopiowania danych.
 
     ```
      hadoop distcp \
@@ -151,7 +150,7 @@ Wykonaj następujące kroki, aby skopiować dane za pośrednictwem interfejsów 
   
     Aby zwiększyć szybkość kopiowania:
 
-    * Spróbuj zmienić liczbę odwzorów. (W powyższym `m` przykładzie zastosowano funkcję = 4 mapowania).
+    * Spróbuj zmienić liczbę odwzorów. (W powyższym przykładzie zastosowano funkcję `m` = 4 mapowania).
 
     * Spróbuj uruchomić wiele `distcp` równolegle.
 
@@ -233,13 +232,13 @@ Uruchom to polecenie, aby zastosować uprawnienia do danych skopiowanych na kont
 
 * Zastąp `<container-name>` symbol zastępczy nazwą kontenera.
 
-* Zastąp `<application-id>` symbole `<client-secret>` zastępcze i identyfikator aplikacji oraz klucz tajny klienta zebrane podczas tworzenia jednostki usługi.
+* Zastąp `<application-id>` `<client-secret>` symbole zastępcze i identyfikator aplikacji oraz klucz tajny klienta zebrane podczas tworzenia jednostki usługi.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Dodatek: dzielenie danych między wieloma urządzenie Data Box urządzeniami
 
 Przed przeniesieniem danych na urządzenie urządzenie Data Box należy pobrać niektóre skrypty pomocnika, upewnić się, że dane są zorganizowane tak, aby mieściły się na urządzeniu urządzenie Data Box i wykluczyć zbędne pliki.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Pobierz skrypty pomocnika i skonfiguruj węzeł brzegowy, aby uruchomić je
 
@@ -281,7 +280,7 @@ Jeśli rozmiar danych przekracza rozmiar pojedynczego urządzenia urządzenie Da
 
 Jeśli dane nie przekroczą rozmiaru pojedynczego urządzenia urządzenie Data Box, można przejdź do następnej sekcji.
 
-1. Mając podwyższony poziom uprawnień, `generate-file-list` Uruchom pobrany skrypt, postępując zgodnie ze wskazówkami w poprzedniej sekcji.
+1. Mając podwyższony poziom uprawnień, uruchom `generate-file-list` pobrany skrypt, postępując zgodnie ze wskazówkami w poprzedniej sekcji.
 
    Oto opis parametrów poleceń:
 

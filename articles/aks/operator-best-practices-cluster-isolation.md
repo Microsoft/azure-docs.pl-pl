@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra na pot
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668352"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077770"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania związane z izolacją klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Platforma Kubernetes udostępnia funkcje, które umożliwiają logiczną izolacj
   * Bardziej zaawansowane funkcje harmonogramu obejmują: przeznaczenia i tolerowanie, selektory węzłów oraz koligacje węzła i pod. Aby uzyskać więcej informacji o tych funkcjach, zobacz [najlepsze rozwiązania dotyczące zaawansowanych funkcji usługi Scheduler w programie AKS][aks-best-practices-advanced-scheduler].
 * **Sieć** obejmuje korzystanie z zasad sieciowych w celu kontrolowania przepływu ruchu do i z zasobników.
 * **Uwierzytelnianie i autoryzacja** obejmują użytkownika dotyczące integracji kontroli dostępu opartej na ROLACH (RBAC) i Azure Active Directory (AD), tożsamości pod i wpisy tajne w Azure Key Vault. Aby uzyskać więcej informacji o tych funkcjach, zobacz [najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w programie AKS][aks-best-practices-identity].
-* **Kontenery** obejmują zasady zabezpieczeń na mocy, na kontekstach zabezpieczeń, skanowania obrazów i środowisk uruchomieniowych pod kątem luk w zabezpieczeniach. Obejmuje również ochronę aplikacji lub Seccomp (Zabezpieczanie obliczeniowe) w celu ograniczenia dostępu kontenera do podstawowego węzła.
+* **Kontenery** zawierają dodatek Azure Policy dla AKS, aby wymusić zabezpieczenia, użycie kontekstów zabezpieczeń na poziomie i skanowanie obu obrazów i środowiska uruchomieniowego pod kątem luk w zabezpieczeniach. Obejmuje również ochronę aplikacji lub Seccomp (Zabezpieczanie obliczeniowe) w celu ograniczenia dostępu kontenera do podstawowego węzła.
 
 ## <a name="logically-isolate-clusters"></a>Logicznie Izoluj klastry
 

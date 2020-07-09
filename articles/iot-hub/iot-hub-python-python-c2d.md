@@ -8,13 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: f0760f6e61904295771ba349f8101e2d6dc6afe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 12d25fd06ddfa8265dbf046093d3854f7fde4f33
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609560"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Python)
 
@@ -152,7 +151,7 @@ W tej sekcji utworzysz aplikację konsolową w języku Python, która wysyła ko
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. Dodaj następujący kod do pliku **SendCloudToDeviceMessage.py** . Zastąp `{iot hub connection string}` wartości `{device id}` symboli i symbolami zastępczymi parametrów połączenia usługi IoT Hub i ZAnotowanym wcześniej identyfikatorem urządzenia:
+1. Dodaj następujący kod do pliku **SendCloudToDeviceMessage.py** . Zastąp `{iot hub connection string}` `{device id}` wartości symboli i symbolami zastępczymi parametrów połączenia usługi IoT Hub i zanotowanym wcześniej identyfikatorem urządzenia:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

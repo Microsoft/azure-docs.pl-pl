@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82629069"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiuj nowe i zmienione pliki przez LastModifiedDate z Azure Data Factory
@@ -84,12 +84,12 @@ Szablon definiuje sześć parametrów:
     ![Tworzenie wyzwalacza](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 10. Ustaw wartość **parametrów uruchamiania wyzwalacza** w następujący sposób, a następnie wybierz pozycję **Zakończ**.
-    - **FolderPath_Source** = **SourceFolder**.  Możesz zastąpić folder w źródłowym magazynie danych.
-    - **Directory_Source** = **Podfolder**Directory_Source.  Możesz zamienić na podfolder w źródłowym magazynie danych.
-    - **FolderPath_Destination** = **destinationfolder**.  Możesz zamienić folder na docelowy magazyn danych.
-    - **Directory_Destination** = **Podfolder**Directory_Destination.  Możesz zamienić na podfolder w docelowym magazynie danych.
-    - **LastModified_From** =  **LastModified_From\@wyzwalacza (). Output. windowStartTime**.  Jest to zmienna systemowa z wyzwalacza określająca czas ostatniego uruchomienia potoku.
-    - **LastModified_To** = **LastModified_To\@wyzwalacza (). Output. windowEndTime**.  Jest to zmienna systemowa z wyzwalacza określająca czas, w którym potok jest wyzwalany w tym czasie.
+    - **FolderPath_Source**  =  **SourceFolder**.  Możesz zastąpić folder w źródłowym magazynie danych.
+    - **Directory_Source**  =  **podfolder**.  Możesz zamienić na podfolder w źródłowym magazynie danych.
+    - **FolderPath_Destination**  =  **destinationfolder**.  Możesz zamienić folder na docelowy magazyn danych.
+    - **Directory_Destination**  =  **podfolder**.  Możesz zamienić na podfolder w docelowym magazynie danych.
+    - **LastModified_From**  =   ** \@ Trigger (). Output. windowStartTime**.  Jest to zmienna systemowa z wyzwalacza określająca czas ostatniego uruchomienia potoku.
+    - **LastModified_To**  =  ** \@ Trigger (). Output. windowEndTime**.  Jest to zmienna systemowa z wyzwalacza określająca czas, w którym potok jest wyzwalany w tym czasie.
     
     ![Parametry wejściowe](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

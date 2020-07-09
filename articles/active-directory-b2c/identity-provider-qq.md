@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b0f15124c64e5cca54112987d486ddadaca79452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d230bc8a1e9bf388e1cca4e3a3a691223146d734
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387987"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi QQ za pomocą Azure Active Directory B2C
 
@@ -23,12 +23,12 @@ ms.locfileid: "78187991"
 
 ## <a name="create-a-qq-application"></a>Tworzenie aplikacji QQ
 
-Aby użyć konta QQ jako dostawcy tożsamości w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w swojej dzierżawie, która go reprezentuje. Jeśli nie masz jeszcze konta QQ, możesz zarejestrować się w [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)usłudze.
+Aby użyć konta QQ jako dostawcy tożsamości w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w swojej dzierżawie, która go reprezentuje. Jeśli nie masz jeszcze konta QQ, możesz zarejestrować się w usłudze [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
 
 ### <a name="register-for-the-qq-developer-program"></a>Zarejestruj się w programie QQ Developer
 
 1. Zaloguj się do [portalu deweloperów QQ](http://open.qq.com) przy użyciu poświadczeń konta QQ.
-1. Po zalogowaniu się przejdź do [https://open.qq.com/reg](https://open.qq.com/reg) , aby zarejestrować się jako deweloper.
+1. Po zalogowaniu się przejdź do, aby [https://open.qq.com/reg](https://open.qq.com/reg) zarejestrować się jako deweloper.
 1. Wybierz pozycję**个人**(indywidualny deweloper).
 1. Wprowadź wymagane informacje i wybierz pozycję**下一步**(Następny krok).
 1. Ukończ proces weryfikacji poczty e-mail. Musisz poczekać kilka dni po zarejestrowaniu się jako deweloper.
@@ -38,7 +38,7 @@ Aby użyć konta QQ jako dostawcy tożsamości w Azure Active Directory B2C (Azu
 1. Przejdź do witryny [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Wybierz pozycję**应用管理**(Zarządzanie aplikacjami).
 1. Wybierz pozycję**创建应用**(Utwórz aplikację) i wprowadź wymagane informacje.
-1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` w**授权回调域**(adres URL wywołania zwrotnego). Na przykład jeśli `tenant_name` jesteś contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` w**授权回调域**(adres URL wywołania zwrotnego). Na przykład jeśli jesteś `tenant_name` contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
 1. Wybierz pozycję**创建应用**(Utwórz aplikację).
 1. Na stronie potwierdzenie wybierz pozycję**应用管理**(Zarządzanie aplikacjami), aby powrócić do strony zarządzania aplikacjami.
 1. Wybierz pozycję**查看**(widok) obok utworzonej aplikacji.

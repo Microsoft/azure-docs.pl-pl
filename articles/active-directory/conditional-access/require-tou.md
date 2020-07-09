@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74380100"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039827"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze
 
@@ -29,7 +29,7 @@ Ten przewodnik Szybki Start przedstawia sposób konfigurowania [zasad dostępu w
 
 ![Tworzenie zasad](./media/require-tou/5555.png)
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -54,11 +54,11 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia przykładowej warunków użytk
 **Aby utworzyć warunki użytkowania:**
 
 1. W programie Microsoft Word Utwórz nowy dokument.
-1. Wpisz **Moje warunki użytkowania**, a następnie Zapisz dokument na komputerze jako **mytou. PDF**.
+1. Wpisz **Moje warunki użytkowania**, a następnie Zapisz dokument na komputerze jako **mytou.pdf**.
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. W Azure Portal na lewym pasku nawigacyjnym kliknij pozycję **Azure Active Directory**.
 
-   ![Azure Active Directory](./media/require-tou/02.png)
+   ![Usługa Azure Active Directory](./media/require-tou/02.png)
 
 1. Na stronie **Azure Active Directory** w sekcji **zabezpieczenia** kliknij pozycję **dostęp warunkowy**.
 
@@ -82,7 +82,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia przykładowej warunków użytk
    1. Jako **Język**wybierz pozycję **angielski**.
    1. **Aby użytkownicy mogli rozwijać warunki użytkowania**, wybierz pozycję **włączone**.
    1. Jako **wymuszanie przy użyciu szablonów zasad dostępu warunkowego**, wybierz pozycję **zasady niestandardowe**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ## <a name="create-your-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -139,14 +139,14 @@ W zasadach ustaw następujące ustawienia:
 
    ![Uprawnienie](./media/require-tou/111.png)
 
-   1. Wybierz pozycję **Udziel dostępu**.
+   1. Kliknij opcję **Przyznaj dostęp**.
    1. Wybierz pozycję **Moje warunków użytkowania**.
    1. Kliknij pozycję **Wybierz**.
 1. W sekcji **Włączanie zasad** **kliknij pozycję włączone.**
 
    ![Włącz zasady](./media/require-tou/18.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Oceń symulowane logowanie
 
@@ -193,7 +193,7 @@ Aby przetestować zasady, spróbuj zalogować się do [Azure Portal](https://por
 
 ![Warunki użytkowania](./media/require-tou/57.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń użytkownika testowego i zasady dostępu warunkowego:
 
@@ -209,5 +209,4 @@ Gdy nie jest już potrzebne, Usuń użytkownika testowego i zasady dostępu waru
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Wymagaj usługi MFA dla określonych aplikacji](app-based-mfa.md)
-> [Blokuj dostęp w przypadku wykrycia ryzyka sesji](app-sign-in-risk.md)
+> [Wymaganie uwierzytelniania MFA dla określonych aplikacji](app-based-mfa.md)

@@ -3,25 +3,24 @@ title: Logowanie jednokrotne w usłudze SAML dla aplikacji lokalnych z serwerem 
 description: Dowiedz się, jak zapewnić Logowanie jednokrotne dla aplikacji lokalnych, które są zabezpieczone przy użyciu uwierzytelniania SAML. Zapewnianie dostępu zdalnego do aplikacji lokalnych przy użyciu serwera proxy aplikacji.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803301"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764829"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Logowanie jednokrotne SAML dla aplikacji lokalnych przy użyciu serwera proxy aplikacji
 
@@ -74,7 +73,7 @@ Aby można było zapewnić Logowanie jednokrotne dla aplikacji lokalnych, należ
 
 2. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** przejdź do nagłówka **Podstawowa konfiguracja SAML** i wybierz jego ikonę **edycji** (ołówek). Upewnij się, że **zewnętrzny adres URL** skonfigurowany w serwerze proxy aplikacji jest wypełniony w polach **Identyfikator**, **adres URL odpowiedzi**i **wylogowywanie adresu URL** . Te adresy URL są wymagane do poprawnego działania serwera proxy aplikacji. 
 
-3. Edytuj **adres URL odpowiedzi** skonfigurowany wcześniej, tak aby jego domena była dostępna w Internecie za pośrednictwem serwera proxy aplikacji. Na przykład jeśli **zewnętrzny adres URL** to `https://contosotravel-f128.msappproxy.net` i oryginalny **adres URL odpowiedzi** `https://contosotravel.com/acs`, należy zaktualizować oryginalny **adres URL odpowiedzi** `https://contosotravel-f128.msappproxy.net/acs`.
+3. Edytuj **adres URL odpowiedzi** skonfigurowany wcześniej, tak aby jego domena była dostępna w Internecie za pośrednictwem serwera proxy aplikacji. Na przykład jeśli **zewnętrzny adres URL** to `https://contosotravel-f128.msappproxy.net` i oryginalny **adres URL odpowiedzi** , należy `https://contosotravel.com/acs` zaktualizować oryginalny **adres URL odpowiedzi** `https://contosotravel-f128.msappproxy.net/acs` .
 
     ![Wprowadź podstawowe dane konfiguracyjne SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

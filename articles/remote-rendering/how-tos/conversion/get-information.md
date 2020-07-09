@@ -5,20 +5,20 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681521"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805008"
 ---
 # <a name="get-information-about-a-converted-model"></a>Pobieranie informacji o przekonwertowanym modelu
 
-Plik arrAsset utworzony przez usługę konwersji jest przeznaczony wyłącznie do użytku przez usługę renderowania. Mogą jednak wystąpić sytuacje, w których chcesz uzyskać dostęp do informacji o modelu bez rozpoczynania sesji renderowania. W związku z tym usługa konwersji umieszcza plik JSON obok pliku arrAsset w kontenerze danych wyjściowych. Na przykład jeśli plik `buggy.gltf` zostanie przekonwertowany, kontener wyjściowy będzie zawierać plik o nazwie `buggy.info.json` obok przekonwertowanego elementu zawartości `buggy.arrAsset`. Zawiera informacje o modelu źródłowym, przekonwertowanym modelu i o samej konwersji.
+Plik arrAsset utworzony przez usługę konwersji jest przeznaczony wyłącznie do użytku przez usługę renderowania. Mogą jednak wystąpić sytuacje, w których chcesz uzyskać dostęp do informacji o modelu bez rozpoczynania sesji renderowania. W związku z tym usługa konwersji umieszcza plik JSON obok pliku arrAsset w kontenerze danych wyjściowych. Na przykład jeśli plik `buggy.gltf` zostanie przekonwertowany, kontener wyjściowy będzie zawierać plik o nazwie `buggy.info.json` obok przekonwertowanego elementu zawartości `buggy.arrAsset` . Zawiera informacje o modelu źródłowym, przekonwertowanym modelu i o samej konwersji.
 
 ## <a name="example-info-file"></a>Przykładowy plik *informacyjny*
 
-Oto przykładowy plik *informacyjny* tworzony przez konwersję pliku o nazwie `buggy.gltf`:
+Oto przykładowy plik *informacyjny* tworzony przez konwersję pliku o nazwie `buggy.gltf` :
 
 ```JSON
 {
@@ -100,7 +100,7 @@ Ta sekcja rejestruje informacje o formacie pliku źródłowego.
 Ta sekcja zawiera informacje dotyczące sceny źródłowej. Często występują rozbieżności między wartościami w tej sekcji a odpowiednikami wartości w narzędziu, które utworzyły Model źródłowy. Takie różnice są oczekiwane, ponieważ model jest modyfikowany podczas kroków eksportu i konwersji.
 
 * `numMeshes`: Liczba części siatki, gdzie każda część może odwoływać się do pojedynczego materiału.
-* `numFaces`: Całkowita liczba _trójkątów_ w całym modelu. Należy zauważyć, że siatka jest triangulacją podczas konwersji.
+* `numFaces`: Całkowita liczba _trójkątów_ w całym modelu. Należy zauważyć, że siatka jest triangulacją podczas konwersji. Ta liczba ma wpływ na limit wielokąta w [standardowym rozmiarze renderowania maszyn wirtualnych](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: Całkowita liczba wierzchołków w całym modelu.
 * `numMaterial`: Całkowita liczba materiałów w całym modelu.
 * `numFacesSmallestMesh`: Liczba trójkątów w najmniejszej sieci modelu.

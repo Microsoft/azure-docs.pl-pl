@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f149678bd65ff47b8582e56cf376d88284c8fa8b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681333"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360762"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
@@ -182,7 +182,7 @@ Wykonaj następujące kroki, aby skonfigurować Inicjowanie obsługi:
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Weryfikowanie, czy użytkownicy są obsługiwani przez aprowizacji w chmurze
 Teraz sprawdź, czy użytkownicy, którzy mieli dostęp do naszego katalogu lokalnego, zostali zsynchronizowani i teraz istnieją w dzierżawie usługi Azure AD.  Ukończenie tego procesu może potrwać kilka godzin.  Aby sprawdzić, czy użytkownicy są aprowizacji przy użyciu aprowizacji w chmurze, wykonaj następujące kroki:
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
 2. W obszarze po lewej stronie wybierz pozycję **Azure Active Directory**.
 3. Kliknij **Azure AD Connect**
 4. Kliknij pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**

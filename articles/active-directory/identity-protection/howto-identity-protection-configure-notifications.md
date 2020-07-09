@@ -4,19 +4,19 @@ description: Dowiedz się, jak powiadomienia obsługują Twoje działania dochod
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 05/05/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853118"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130436"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Powiadomienia Azure Active Directory Identity Protection
 
@@ -31,7 +31,11 @@ Ten artykuł zawiera omówienie obu wiadomości e-mail z powiadomieniami.
 
 W odpowiedzi na wykryte konto zagrożone Azure AD Identity Protection generuje alert e-mail z **użytkownikami narażonymi na ryzyko wykryte** jako temat. Wiadomość e-mail zawiera link do raportu **[Użytkownicy oflagowani w związku z ryzykiem](../reports-monitoring/concept-user-at-risk.md)** . Najlepszym rozwiązaniem jest natychmiastowe badanie narażonych użytkowników.
 
-Konfiguracja tego alertu umożliwia określenie poziomu ryzyka użytkownika, który ma zostać wygenerowany przez alert. Wiadomość e-mail zostanie wygenerowana, gdy poziom ryzyka użytkownika osiągnie określone elementy. jednak nie otrzymasz nowych użytkowników na ryzyko wykrycia alertów e-mail dla tego użytkownika po przejściu na ten poziom ryzyka użytkownika. Jeśli na przykład ustawisz zasady, aby otrzymywać alerty na średnim ryzyku użytkownika, a użytkownik Jan przejdzie do średniego ryzyka, otrzymasz wiadomość e-mail z informacją o ryzyku wykrytym przez Jan. Jednak nie otrzymasz alertu drugiego użytkownika o zagrożeniu, jeśli Jan następnie przejdzie do wysokiego ryzyka lub wykryje dodatkowe ryzyko.
+Konfiguracja tego alertu umożliwia określenie poziomu ryzyka użytkownika, który ma zostać wygenerowany przez alert. Wiadomość e-mail zostanie wygenerowana, gdy poziom ryzyka użytkownika osiągnie określone elementy. Jeśli na przykład ustawisz zasady, aby otrzymywać alerty dotyczące średniego ryzyka użytkownika, a Ocena ryzyka użytkownika przez użytkownika Jan przejdzie na średnie ryzyko z powodu ryzyka związanego z logowaniem w czasie rzeczywistym, otrzymasz wiadomość e-mail z wykrytym ryzykiem. Jeśli użytkownik ma kolejne wykrycia ryzyka, które spowodują, że Obliczanie poziomu ryzyka użytkownika będzie określonym poziomem ryzyka (lub wyższym), otrzymasz komunikat o zagrożeniu wykrytym przez użytkownika w przypadku ponownego obliczenia wyniku ryzyka dla użytkowników. Na przykład jeśli użytkownik przejdzie do średniego ryzyka pierwszego stycznia, otrzymasz powiadomienie e-mail, jeśli ustawienia są ustawione na alert dotyczący średniego ryzyka. Jeśli ten sam użytkownik ma inne wykrycie ryzyka o piątym ryzyku, co oznacza również średnie ryzyko, a Ocena ryzyka użytkownika zostanie przeliczona i będzie nadal średnia, otrzymasz kolejną wiadomość e-mail z powiadomieniem. 
+
+Jednak dodatkowe powiadomienie e-mail będzie wysyłane tylko wtedy, gdy wystąpiło wykrycie ryzyka (co spowodowało zmianę poziomu ryzyka użytkownika). Na przykład użytkownik loguje się na dzień 1 stycznia w dniu 5 AM i nie ma ryzyka w czasie rzeczywistym (oznacza to, że nie można wygenerować poczty e-mail z powodu tego logowania). Dziesięć minut później, o godzinie 5:10, to ten sam użytkownik zostanie zalogowany i ma wysokie ryzyko w czasie rzeczywistym, co spowoduje, że poziom ryzyka użytkownika zostanie przeniesiony na wysoki i wiadomość e-mail do wysłania. Następnie, o godzinie 5:15, wynik ryzyka w trybie offline dla oryginalnego logowania w 5 AM zmieni się na wysokie ryzyko związane z przetwarzaniem ryzyka w trybie offline. Dodatkowy użytkownik oflagowany do wiadomości e-mail nie zostanie wysłany, ponieważ czas pierwszego logowania był przed drugim logowaniem, które już wyzwoliło powiadomienie e-mail.
+
+Aby zapobiec przeciążeniu poczty e-mail, otrzymasz wiadomość e-mail z wykrytym ryzykiem w ciągu 5-sekundowego okresu. Oznacza to, że jeśli wielu użytkowników przejdzie do określonego poziomu ryzyka w tym samym 5 drugim przedziale czasu, firma Microsoft agreguje i wyśle wiadomość e-mail, aby reprezentować zmianę poziomu ryzyka dla wszystkich z nich.
 
 ![Użytkownicy z wykrytymi zagrożeniami wiadomości e-mail](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -43,7 +47,7 @@ Jako administrator możesz ustawić:
 - Adresaci **tej wiadomości e-mail** — domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administratorzy globalni mogą również dodawać innych administratorów globalnych, administratorów zabezpieczeń, czytelników zabezpieczeń jako odbiorców.
    - Opcjonalnie możesz **dodać dodatkowe wiadomości e-mail w celu otrzymywania powiadomień o alertach** , ponieważ ta funkcja jest dostępna w wersji zapoznawczej, a zdefiniowane przez użytkowników muszą mieć odpowiednie uprawnienia do wyświetlania raportów połączonych w Azure Portal.
 
-Należy skonfigurować użytkowników pod kątem ryzykownych wiadomości e-mail w **Azure Portal** w obszarze **Azure Active Directory** > użytkownicy**ochrony** > tożsamości**zabezpieczeń** > **na wykryciu zagrożeń**.
+Należy skonfigurować użytkowników pod kątem ryzykownych wiadomości e-mail w **Azure Portal** w obszarze **Azure Active Directory**  >  **Security**  >  Użytkownicy**ochrony tożsamości**zabezpieczeń  >  **na wykryciu zagrożeń**.
 
 ## <a name="weekly-digest-email"></a>Tygodniowy adres e-mail w postaci skróconej
 
@@ -62,8 +66,8 @@ Domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administra
 
 Jako administrator możesz przełączać wysyłanie cotygodniowej wiadomości e-mail z podsumowaniem lub wyłączyć ją i wybrać użytkowników przypisanych do odbierania wiadomości e-mail.
 
-Skonfiguruj cotygodniowe wiadomości e-mail z podsumowaniem w **Azure Portal** w obszarze **Azure Active Directory** > **Security** > **Identity Protection** > **.**
+Skonfiguruj cotygodniowe wiadomości e-mail z podsumowaniem w **Azure Portal** w obszarze **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **Weekly digest**.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md)

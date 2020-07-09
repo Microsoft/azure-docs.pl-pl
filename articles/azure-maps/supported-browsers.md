@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988791"
 ---
 # <a name="web-sdk-supported-browsers"></a>Przeglądarki obsługiwane przez zestaw Web SDK
@@ -29,7 +28,7 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>Komputery
+## <a name="desktop"></a>Klasyczna
 
 Azure Maps Web SDK obsługuje następujące przeglądarki pulpitu:
 
@@ -40,7 +39,7 @@ Azure Maps Web SDK obsługuje następujące przeglądarki pulpitu:
 
 Zobacz też więcej niż [starsze przeglądarki](#Target-Legacy-Browsers) w dalszej części tego artykułu.
 
-## <a name="mobile"></a>Komórkowy
+## <a name="mobile"></a>Aplikacje mobilne
 
 Zestaw SDK sieci Web Azure Maps obsługuje następujące przeglądarki dla urządzeń przenośnych:
 
@@ -57,9 +56,9 @@ Zestaw SDK sieci Web Azure Maps obsługuje następujące przeglądarki dla urzą
 
 ## <a name="nodejs"></a>Node.js
 
-W programie Node. js są również obsługiwane następujące moduły zestawu SDK sieci Web:
+W Node.js są również obsługiwane następujące moduły zestawu SDK sieci Web:
 
-- Module usług ([Dokumentacja](how-to-use-services-module.md) | [npm module](https://www.npmjs.com/package/azure-maps-rest))
+- Module usług ([Dokumentacja](how-to-use-services-module.md)  |  [npm module](https://www.npmjs.com/package/azure-maps-rest))
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Docelowe starsze przeglądarki
 
@@ -68,7 +67,7 @@ Możesz chcieć użyć starszych przeglądarek, które nie obsługują WebGL lub
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Azure Maps + ulotka" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Zobacz pióro <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + ulotka</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+Zobacz pióro <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + ulotka</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 

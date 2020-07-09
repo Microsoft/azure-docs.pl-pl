@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 03/09/2020
-  ms.openlocfilehash: f05b14039f5b83b4f214d7fa479a3ab809e859c6
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 07/07/2020
+  ms.openlocfilehash: 4a40b64c72946c84d034e13f3a22b7cda2b9c6aa
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78943228"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86118872"
 landingContent:
 - title: Informacje o szablonach usługi ARM
   linkLists:
@@ -27,17 +27,19 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Najlepsze praktyki
+    - text: Najlepsze rozwiązania
       url: template-best-practices.md
+    - text: Często zadawane pytania
+      url: frequently-asked-questions.md
     - text: Tryby wdrażania
       url: deployment-modes.md
     - text: Połączone szablony
       url: linked-templates.md
   - linkListType: video
     links:
-    - text: Co nowego?
-      url: https://youtu.be/3D-JIKShrws
-- title: Wprowadzenie
+    - text: Prezentacja z konferencji Build 2020
+      url: https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -61,8 +63,6 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Korzystanie z programu VS Code
-      url: use-vs-code-to-create-template.md
     - text: Korzystanie z funkcji
       url: template-functions.md
     - text: Definiowanie parametrów
@@ -83,7 +83,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Program PowerShell
+    - text: PowerShell
       url: deploy-powershell.md
     - text: Interfejs wiersza polecenia platformy Azure
       url: deploy-cli.md

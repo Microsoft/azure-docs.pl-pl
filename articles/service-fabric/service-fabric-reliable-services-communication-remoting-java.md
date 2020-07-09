@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75426636"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Komunikacja zdalna usługi w języku Java z Reliable Services
@@ -67,7 +66,7 @@ class MyServiceImpl extends StatelessService implements MyService {
 >
 
 ## <a name="call-remote-service-methods"></a>Wywoływanie metod usługi zdalnej
-Wywoływanie metod w ramach usługi przy użyciu stosu zdalnego jest realizowane przy użyciu lokalnego serwera proxy do usługi za pośrednictwem `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klasy. `ServiceProxyBase` Metoda tworzy lokalny serwer proxy przy użyciu tego samego interfejsu, który implementuje usługa. Za pomocą tego serwera proxy można po prostu wywołać metody w interfejsie.
+Wywoływanie metod w ramach usługi przy użyciu stosu zdalnego jest realizowane przy użyciu lokalnego serwera proxy do usługi za pośrednictwem `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klasy. `ServiceProxyBase`Metoda tworzy lokalny serwer proxy przy użyciu tego samego interfejsu, który implementuje usługa. Za pomocą tego serwera proxy można po prostu wywołać metody w interfejsie.
 
 ```java
 
@@ -80,10 +79,10 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 Struktura komunikacji zdalnej propaguje wyjątki zgłoszone przez usługę do klienta programu. Logika obsługi wyjątków na kliencie przy użyciu programu `ServiceProxyBase` może bezpośrednio obsługiwać wyjątki zgłaszane przez usługę.
 
 ## <a name="service-proxy-lifetime"></a>Okres istnienia serwera proxy usługi
-Tworzenie ServiceProxy jest operacją uproszczoną, więc można utworzyć dowolną liczbę potrzebną. Wystąpienia serwera proxy usługi mogą być ponownie używane, o ile są one zbędne. Jeśli zdalne wywołanie procedury zgłasza wyjątek, nadal można użyć tego samego wystąpienia serwera proxy. Każdy serwer ServiceProxy zawiera klienta komunikacyjnego służącego do wysyłania komunikatów przez sieć. Podczas wywoływania wywołań zdalnych testy wewnętrzne są wykonywane w celu ustalenia, czy klient komunikacyjny jest prawidłowy. W zależności od wyników tych testów klient komunikacyjny zostanie odtworzony w razie konieczności. W związku z tym, jeśli wystąpi wyjątek, nie trzeba ponownie tworzyć `ServiceProxy`.
+Tworzenie ServiceProxy jest operacją uproszczoną, więc można utworzyć dowolną liczbę potrzebną. Wystąpienia serwera proxy usługi mogą być ponownie używane, o ile są one zbędne. Jeśli zdalne wywołanie procedury zgłasza wyjątek, nadal można użyć tego samego wystąpienia serwera proxy. Każdy serwer ServiceProxy zawiera klienta komunikacyjnego służącego do wysyłania komunikatów przez sieć. Podczas wywoływania wywołań zdalnych testy wewnętrzne są wykonywane w celu ustalenia, czy klient komunikacyjny jest prawidłowy. W zależności od wyników tych testów klient komunikacyjny zostanie odtworzony w razie konieczności. W związku z tym, jeśli wystąpi wyjątek, nie trzeba ponownie tworzyć `ServiceProxy` .
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory okres istnienia
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) to fabryka, która tworzy serwer proxy dla różnych interfejsów komunikacji zdalnej. Jeśli używasz interfejsu API `ServiceProxyBase.create` do tworzenia serwera proxy, platforma utworzy `FabricServiceProxyFactory`.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) to fabryka, która tworzy serwer proxy dla różnych interfejsów komunikacji zdalnej. Jeśli używasz interfejsu API `ServiceProxyBase.create` do tworzenia serwera proxy, platforma utworzy `FabricServiceProxyFactory` .
 Warto utworzyć je ręcznie, gdy zachodzi potrzeba zastąpienia właściwości [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) .
 Fabryka jest kosztowną operacją. `FabricServiceProxyFactory`obsługuje pamięć podręczną klientów komunikacyjnych.
 Najlepszym rozwiązaniem jest buforowanie `FabricServiceProxyFactory` tak długo, jak to możliwe.

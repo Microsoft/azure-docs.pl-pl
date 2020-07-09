@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 391851927d03a557483afa2656e315b28c613956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322621"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Ramka zabezpieczeń: zarządzanie konfiguracją | Środki zaradcze 
 | Produkt/usługa | Artykuł |
 | --------------- | ------- |
 | **Aplikacja sieci Web** | <ul><li>[Zaimplementuj zasady zabezpieczeń zawartości (CSP) i Wyłącz wbudowane środowisko JavaScript](#csp-js)</li><li>[Włącz filtr XSS przeglądarki](#xss-filter)</li><li>[Aplikacje ASP.NET muszą wyłączyć śledzenie i debugowanie przed wdrożeniem](#trace-deploy)</li><li>[Dostęp do języka JavaScript innych firm tylko z zaufanych źródeł](#js-trusted)</li><li>[Upewnij się, że uwierzytelnione strony ASP.NET obejmują zadośćuczynienie interfejsu użytkownika lub obronę kliknięcia](#ui-defenses)</li><li>[Upewnij się, że tylko zaufane źródła są dozwolone, jeśli funkcja CORS jest włączona w aplikacjach sieci Web ASP.NET](#cors-aspnet)</li><li>[Włącz atrybut ValidateRequest na stronach ASP.NET](#validate-aspnet)</li><li>[Korzystanie z najnowszych wersji bibliotek JavaScript obsługiwanych lokalnie](#local-js)</li><li>[Wyłącz automatyczne wykrywanie MIME](#mime-sniff)</li><li>[Usuń standardowe nagłówki serwera w witrynach sieci Web systemu Windows Azure, aby uniknąć używania odcisków palców](#standard-finger)</li></ul> |
-| **Database** | <ul><li>[Konfigurowanie zapory systemu Windows na potrzeby dostępu do aparatu bazy danych](#firewall-db)</li></ul> |
+| **Baza danych** | <ul><li>[Konfigurowanie zapory systemu Windows na potrzeby dostępu do aparatu bazy danych](#firewall-db)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Upewnij się, że tylko zaufane źródła są dozwolone, jeśli funkcja CORS jest włączona w interfejsie API sieci Web ASP.NET](#cors-api)</li><li>[Szyfruj sekcje plików konfiguracji internetowego interfejsu API, które zawierają dane poufne](#config-sensitive)</li></ul> |
 | **Urządzenie IoT** | <ul><li>[Upewnij się, że wszystkie interfejsy administracyjne są zabezpieczone przy użyciu silnych poświadczeń](#admin-strong)</li><li>[Upewnij się, że nieznany kod nie może zostać wykonany na urządzeniach](#unknown-exe)</li><li>[Szyfrowanie systemu operacyjnego i dodatkowych partycji urządzenia IoT z funkcją blokowania bitowego](#partition-iot)</li><li>[Upewnij się, że na urządzeniach są włączone tylko minimalne usługi/funkcje](#min-enable)</li></ul> |
 | **Brama pola IoT** | <ul><li>[Szyfrowanie systemu operacyjnego i dodatkowych partycji bramy pola IoT z usługą Unlocker](#field-bit-locker)</li><li>[Upewnij się, że domyślne poświadczenia logowania bramy pola są zmieniane podczas instalacji](#default-change)</li></ul> |
@@ -113,7 +113,7 @@ Example: var str="alert(1)"; eval(str);
 | **Czynnooci** | <p>w przypadku, gdy osoba atakująca używa wielu przezroczystych lub nieprzezroczystych warstw w celu nakłonienia użytkownika do kliknięcia przycisku lub linku na innej stronie, gdy zachodzi taka potrzeba, kliknij stronę najwyższego poziomu.</p><p>Ta warstwa jest osiągana przez Napływanie złośliwej strony z elementem iframe, który ładuje stronę ofiary. W takim przypadku osoba atakująca to "przejmowanie", które są przeznaczone dla swojej strony i rozsyłają je do innej strony, najprawdopodobniej są własnością innej aplikacji, domeny lub obu. Aby zapobiec atakom typu dwukrotnego, ustaw odpowiednie nagłówki odpowiedzi HTTP z opcjami X-Frame-Option, które instruują przeglądarkę, aby nie zezwalać na ramkę z innych domen</p>|
 
 ### <a name="example"></a>Przykład
-Nagłówek X-FRAME-OPTIONS można ustawić za pośrednictwem usług IIS Web. config. Fragment kodu Web. config dla witryn, które nigdy nie powinny być frameowe: 
+Nagłówek X-FRAME-OPTIONS można ustawić za pośrednictwem usług IIS web.config. Web.config fragment kodu dotyczący witryn, które nigdy nie powinny być frameowe: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -125,7 +125,7 @@ Nagłówek X-FRAME-OPTIONS można ustawić za pośrednictwem usług IIS Web. con
 ```
 
 ### <a name="example"></a>Przykład
-Kod Web. config dla witryn, które powinny być poddzielone tylko przez strony w tej samej domenie: 
+Web.config kod dla witryn, które powinny być poddzielone tylko przez strony w tej samej domenie: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -148,7 +148,7 @@ Kod Web. config dla witryn, które powinny być poddzielone tylko przez strony w
 | **Czynnooci** | <p>Zabezpieczenia przeglądarki uniemożliwiają stronie internetowej wysyłanie żądań AJAX do innej domeny. To ograniczenie jest nazywane zasadami tego samego źródła i uniemożliwia złośliwym lokacjom odczytywanie poufnych danych z innej lokacji. Czasami jednak może być konieczne, aby udostępnić interfejsy API bezpiecznie, które mogą zużywać inne lokacje. Udostępnianie zasobów między źródłami (CORS) jest standardem W3C, który umożliwia serwerowi złagodzenie zasad tego samego źródła. Przy użyciu mechanizmu CORS serwer może jawnie zezwolić na niektóre żądania między źródłami podczas odrzucania innych.</p><p>Mechanizm CORS jest bezpieczniejszy i bardziej elastyczny niż wcześniejsze techniki, takie jak JSONP. Na swoim rdzeńu włączenie funkcji CORS tłumaczy, aby dodać do aplikacji sieci Web kilka nagłówków odpowiedzi HTTP (Access-Control-*) i można to zrobić na kilka sposobów.</p>|
 
 ### <a name="example"></a>Przykład
-Jeśli jest dostępny dostęp do pliku Web. config, CORS można dodać za pomocą następującego kodu: 
+Jeśli dostęp do Web.config jest dostępny, CORS można dodać za pomocą następującego kodu: 
 ```XML
 <system.webServer>
     <httpProtocol>
@@ -160,7 +160,7 @@ Jeśli jest dostępny dostęp do pliku Web. config, CORS można dodać za pomoc�
 ```
 
 ### <a name="example"></a>Przykład
-Jeśli dostęp do pliku Web. config nie jest dostępny, można skonfigurować funkcję CORS, dodając następujący kod CSharp: 
+Jeśli dostęp do web.config nie jest dostępny, można skonfigurować funkcję CORS, dodając następujący kod CSharp: 
 ```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
@@ -175,7 +175,7 @@ Należy pamiętać, że ma to na celu zapewnienie, że lista źródeł w atrybuc
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Formularze sieci Web, MVC5 |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Żądanie weryfikacji — zapobieganie atakom skryptów](https://www.asp.net/whitepapers/request-validation) |
+| **Odwołania**              | [Żądanie walidacji — zapobieganie atakom za pomocą skryptów](https://www.asp.net/whitepapers/request-validation) |
 | **Czynnooci** | <p>Zażądaj zweryfikowania funkcji ASP.NET od wersji 1,1, uniemożliwiając serwerowi akceptowanie zawartości zawierającej niezakodowany kod HTML. Ta funkcja została zaprojektowana w taki sposób, aby zapobiec atakom polegającym na wstrzyknięciu skryptów, zgodnie z którymi kod skryptu klienta lub HTML może być nieświadomie przesłany do serwera, przechowywany i przedstawiony innym użytkownikom. Zdecydowanie zalecamy, aby sprawdzać poprawność wszystkich danych wejściowych i kodu HTML w razie potrzeby.</p><p>Sprawdzanie poprawności żądania jest wykonywane przez porównanie wszystkich danych wejściowych z listą potencjalnie niebezpiecznych wartości. W przypadku wystąpienia dopasowania ASP.NET wywołuje `HttpRequestValidationException` . Domyślnie funkcja walidacji żądania jest włączona.</p>|
 
 ### <a name="example"></a>Przykład
@@ -216,7 +216,7 @@ Należy pamiętać, że funkcja walidacji żądania nie jest obsługiwana i nie 
 | **Czynnooci** | Nagłówek X-Content-options jest nagłówkiem HTTP, który umożliwia deweloperom określenie, że ich zawartość nie powinna być wykrywaniem MIME. Ten nagłówek jest przeznaczony do ograniczania ataków z wykrywaniem MIME. Dla każdej strony, która może zawierać zawartość z możliwością kontrolowania użytkownika, należy użyć nagłówka HTTP X-Content-Type-Options: nowykrywania. Aby włączyć wymagany nagłówek globalnie dla wszystkich stron w aplikacji, można wykonać jedną z następujących czynności:|
 
 ### <a name="example"></a>Przykład
-Dodaj nagłówek w pliku Web. config, jeśli aplikacja jest hostowana przez Internet Information Services (IIS) 7 lub nowszy. 
+Dodaj nagłówek w pliku web.config, jeśli aplikacja jest hostowana przez Internet Information Services (IIS) w wersji 7 lub nowszej. 
 ```XML
 <system.webServer>
 <httpProtocol>
@@ -288,7 +288,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | SQL Azure, lokalnego |
 | **Atrybuty**              | Nie dotyczy, wersja SQL — V12 |
-| **Odwołania**              | [Jak skonfigurować zaporę usługi Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Skonfiguruj zaporę systemu Windows pod kątem dostępu do aparatu bazy danych](https://msdn.microsoft.com/library/ms175043) |
+| **Odwołania**              | [Jak skonfigurować zaporę Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Skonfiguruj zaporę systemu Windows na potrzeby dostępu do aparatu bazy danych](https://msdn.microsoft.com/library/ms175043) |
 | **Czynnooci** | Systemy zapory zapobiegają nieautoryzowanemu dostępowi do zasobów komputera. Aby uzyskać dostęp do wystąpienia aparatu bazy danych SQL Server za pomocą zapory, należy skonfigurować zaporę na komputerze z systemem SQL Server, aby zezwolić na dostęp |
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Upewnij się, że tylko zaufane źródła są dozwolone, jeśli funkcja CORS jest włączona w interfejsie API sieci Web ASP.NET
@@ -488,7 +488,7 @@ Aby wyłączyć mechanizm CORS dla kontrolera lub akcji, Użyj atrybutu [Disable
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | [Instrukcje: szyfrowanie sekcji konfiguracyjnych w ASP.NET 2,0 przy użyciu funkcji DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Określanie dostawcy konfiguracji chronionej](https://msdn.microsoft.com/library/68ze1hb2.aspx) [przy użyciu Azure Key Vault do ochrony kluczy tajnych aplikacji](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
-| **Czynnooci** | Pliki konfiguracji, takie jak Web. config, appSettings. JSON, są często używane do przechowywania informacji poufnych, w tym nazw użytkowników, haseł, parametrów połączenia bazy danych i kluczy szyfrowania. Jeśli te informacje nie są chronione, aplikacja jest narażona na osoby atakujące lub Złośliwi użytkownicy otrzymujące poufne informacje, takie jak nazwy użytkowników kont i hasła, nazwy baz danych i nazwy serwerów. Na podstawie typu wdrożenia (Azure/on-Premium) Zaszyfruj poufne sekcje plików konfiguracyjnych za pomocą funkcji DPAPI lub usług, takich jak Azure Key Vault. |
+| **Czynnooci** | Pliki konfiguracji, takie jak Web.config, appsettings.jssą często używane do przechowywania informacji poufnych, w tym nazw użytkowników, haseł, parametrów połączenia bazy danych i kluczy szyfrowania. Jeśli te informacje nie są chronione, aplikacja jest narażona na osoby atakujące lub Złośliwi użytkownicy otrzymujące poufne informacje, takie jak nazwy użytkowników kont i hasła, nazwy baz danych i nazwy serwerów. Na podstawie typu wdrożenia (Azure/on-Premium) Zaszyfruj poufne sekcje plików konfiguracyjnych za pomocą funkcji DPAPI lub usług, takich jak Azure Key Vault. |
 
 ## <a name="ensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>Upewnij się, że wszystkie interfejsy administracyjne są zabezpieczone przy użyciu silnych poświadczeń
 

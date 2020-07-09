@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
 ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82925449"
 ---
 ## <a name="register-an-azure-ad-app"></a>Rejestrowanie aplikacji usługi Azure AD
@@ -36,7 +36,7 @@ Aby włączyć Logowanie użytkowników z określonej organizacji usługi Azure 
 
 ### <a name="configuring-optional-claims"></a>Konfigurowanie oświadczeń opcjonalnych
 
-Jeśli chcesz uzyskać oświadczenia `family_name` i `given_name` usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](/azure/active-directory/develop/active-directory-optional-claims).
+Jeśli chcesz uzyskać `family_name` `given_name` oświadczenia i usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](/azure/active-directory/develop/active-directory-optional-claims).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
@@ -44,5 +44,5 @@ Jeśli chcesz uzyskać oświadczenia `family_name` i `given_name` usługi Azure 
 1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
 1. Wybierz pozycję **Dodaj opcjonalne**pole.
 1. W polu **Typ tokenu**wybierz pozycję **Identyfikator**.
-1. Wybierz opcjonalne oświadczenia do dodania, `family_name` a `given_name`następnie.
+1. Wybierz opcjonalne oświadczenia do dodania, `family_name` a następnie `given_name` .
 1. Kliknij pozycję **Dodaj**.

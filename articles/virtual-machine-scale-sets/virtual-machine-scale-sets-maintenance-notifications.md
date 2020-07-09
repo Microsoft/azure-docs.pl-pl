@@ -10,10 +10,9 @@ ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83200087"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Powiadomienia dotyczące planowanej konserwacji zestawów skalowania maszyn wirtualnych
@@ -83,7 +82,7 @@ Na liście zestawów skalowania maszyn wirtualnych jest teraz wyświetlana kolum
 
 | Wartość | Opis |
 |-------|-------------|
-| Yes | Co najmniej jedna maszyna wirtualna w zestawie skalowania maszyn wirtualnych znajduje się w oknie samoobsługowym. Konserwację można uruchomić w dowolnym momencie podczas tego okna samoobsługowego. | 
+| Tak | Co najmniej jedna maszyna wirtualna w zestawie skalowania maszyn wirtualnych znajduje się w oknie samoobsługowym. Konserwację można uruchomić w dowolnym momencie podczas tego okna samoobsługowego. | 
 | Nie | Żadne maszyny wirtualne nie znajdują się w oknie samoobsługowym w zestawie skalowania maszyn wirtualnych, których to dotyczy. | 
 | - | Zestawy skalowania maszyn wirtualnych nie są częścią planowanej fazy konserwacji.| 
 

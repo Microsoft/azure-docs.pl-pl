@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213095"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 
@@ -138,7 +137,7 @@ Najpierw musisz zarejestrować się, aby uzyskać subskrypcję platformy Azure. 
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Czy mogę uzyskać dostęp do gotowych przykładów, aby zacząć od początku?
 
-Przykłady [dla interfejsów API](sql-api-dotnet-samples.md)SQL, [Java](https://github.com/Azure/azure-documentdb-java), [Node. js](sql-api-nodejs-samples.md)i [Python](sql-api-python-samples.md) SDK są dostępne w serwisie GitHub.
+Przykłady [dla interfejsów API](sql-api-dotnet-samples.md)SQL, [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md)i [Python](sql-api-python-samples.md) SDK są dostępne w serwisie GitHub.
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>Czy baza danych SQL API obsługuje dane bez schematu?
 
@@ -152,7 +151,7 @@ Tak, interfejs API SQL obsługuje transakcje między dokumentami wyrażone jako 
 
 Kontener jest grupą dokumentów i skojarzonych z nimi logiki aplikacji JavaScript. Kontener jest jednostką rozliczaną, w której [koszt](performance-levels.md) jest określany przez przepływność i użycie magazynu. Kontenery mogą obejmować co najmniej jedną partycję lub serwery i mogą być skalowane w celu obsługi praktycznie nieograniczonego wolumenu magazynu lub przepływności.
 
-* W przypadku interfejsu API SQL kontener jest mapowany do kontenera.
+* W przypadku interfejsu API SQL zasób nosi nazwę kontenera.
 * Dla interfejsu API Cosmos DB dla kont MongoDB, kontener jest mapowany do kolekcji.
 * W przypadku kont Cassandra i interfejs API tabel kontener jest mapowany na tabelę.
 * W przypadku kont interfejsu API Gremlin kontener jest mapowany na wykres.

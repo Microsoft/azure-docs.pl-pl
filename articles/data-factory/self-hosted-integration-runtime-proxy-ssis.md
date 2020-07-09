@@ -13,10 +13,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605492"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Skonfiguruj własne środowisko IR jako serwer proxy dla Azure-SSIS IR w Azure Data Factory
@@ -58,7 +57,7 @@ Jeśli jeszcze tego nie zrobiono, Utwórz połączoną usługę Azure Blob Stora
 - W obszarze **Metoda uwierzytelniania**wybierz pozycję **klucz konta**, **Identyfikator URI sygnatury dostępu współdzielonego**lub **nazwę główną usługi**.  
 
     >[!TIP]
-    >W przypadku wybrania metody **głównej usługi** Udziel nazwy głównej usługi co najmniej roli  *współautor danych obiektu blob magazynu*. Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties).
+    >W przypadku wybrania metody **głównej usługi** Udziel nazwy głównej usługi co najmniej roli *współautor danych obiektu blob magazynu*   . Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties).
 
 ![Przygotowywanie usługi połączonej Azure Blob Storage do przemieszczania](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -78,7 +77,7 @@ Po przygotowaniu samodzielnego środowiska IR i usługi połączonej Azure Blob 
 
    1. W polu **ścieżka przemieszczania** Określ kontener obiektów BLOB na wybranym koncie usługi Azure Blob Storage lub pozostaw to pole puste, aby użyć domyślnego ustawienia do przemieszczania.
 
-   1. Wybierz przycisk **Kontynuuj**.
+   1. Wybierz pozycję **Continue** (Kontynuuj).
 
    ![Ustawienia zaawansowane przy użyciu samodzielnego środowiska IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
@@ -118,7 +117,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Zezwól na łączenie pakietów SSIS z serwerem proxy
 
-Przy użyciu najnowszego rozszerzenia SSDT z projektami SSIS dla programu Visual Studio lub instalatora autonomicznego można znaleźć nową `ConnectByProxy` właściwość, która została dodana w menedżerach sieci OLEDB lub prostych połączeń plików.
+Przy użyciu najnowszego rozszerzenia SSDT z projektami SSIS dla programu Visual Studio lub instalatora autonomicznego można znaleźć nową `ConnectByProxy` Właściwość, która została dodana w menedżerach sieci OLEDB lub prostych połączeń plików.
 * [Pobierz rozszerzenie SSDT z projektami SSIS dla programu Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Pobierz instalatora autonomicznego](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
@@ -135,11 +134,11 @@ Możesz również włączyć tę właściwość, gdy uruchamiasz istniejące pak
   
   ![Włącz ConnectByProxy Property3](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- **Opcja B:** Wdróż ponownie projekt zawierający te pakiety do uruchomienia na urządzeniu SSIS IR. Następnie można włączyć właściwość, dostarczając jej ścieżkę `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`właściwości, i ustawiając ją na *wartość true* jako przesłonięcie właściwości na karcie **Zaawansowane** w oknie podręcznym **Wykonaj pakiet** , gdy korzystasz z pakietów z programu SSMS.
+- **Opcja B:** Wdróż ponownie projekt zawierający te pakiety do uruchomienia na urządzeniu SSIS IR. Następnie można włączyć właściwość, dostarczając jej ścieżkę właściwości, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` i ustawiając ją na *wartość true* jako przesłonięcie właściwości na karcie **Zaawansowane** w oknie podręcznym **Wykonaj pakiet** , gdy korzystasz z pakietów z programu SSMS.
 
   ![Włącz ConnectByProxy Property4](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  Możesz również włączyć właściwość, dostarczając jej ścieżkę właściwości `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`, i ustawiając ją na *wartość true* w ramach przesłonięcia właściwości na karcie **przesłonięcie** [działania pakietu SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) w przypadku uruchamiania pakietów w potokach Data Factory.
+  Możesz również włączyć właściwość, dostarczając jej ścieżkę właściwości, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]` i ustawiając ją na *wartość true* w ramach przesłonięcia właściwości na karcie **przesłonięcie** [działania pakietu SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) w przypadku uruchamiania pakietów w potokach Data Factory.
   
   ![Włącz ConnectByProxy Property5](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
@@ -153,7 +152,7 @@ Na własnym hostowanym środowisku IR można znaleźć dzienniki środowiska uru
 
 Jeśli zadania przemieszczania w samoobsługowym środowisku IR wymagają uwierzytelniania systemu Windows, [Skonfiguruj pakiety usług SSIS tak, aby korzystały z tego samego uwierzytelniania systemu Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-Zadania przemieszczania zostaną wywołane przy użyciu samodzielnego konta usługi IR (domyślnie*NT SERVICE\DIAHostService*), a Twoje magazyny danych będą dostępne przy użyciu konta uwierzytelniania systemu Windows. Oba konta wymagają przypisania pewnych zasad zabezpieczeń do nich. Na komputerze z własnym obsługą podczerwieni > przejdź do pozycji **zasady zabezpieczeń lokalnych****zasady** > lokalne**Przypisywanie praw użytkownika**, a następnie wykonaj następujące czynności:
+Zadania przemieszczania zostaną wywołane przy użyciu samodzielnego konta usługi IR (domyślnie*NT SERVICE\DIAHostService*), a Twoje magazyny danych będą dostępne przy użyciu konta uwierzytelniania systemu Windows. Oba konta wymagają przypisania pewnych zasad zabezpieczeń do nich. Na komputerze z własnym obsługą podczerwieni przejdź do pozycji **zasady zabezpieczeń lokalnych**  >  **Zasady lokalne**  >  **Przypisywanie praw użytkownika**, a następnie wykonaj następujące czynności:
 
 1. Przypisz *limity przydziałów pamięci dla procesu* i *Zastąp zasady tokenów na poziomie procesu* do samodzielnego konta usługi IR. To powinno nastąpić automatycznie podczas instalacji własnego środowiska IR przy użyciu domyślnego konta usługi. Jeśli nie, przypisz te zasady ręcznie. W przypadku użycia innego konta usługi Przypisz do niego te same zasady.
 
@@ -165,7 +164,7 @@ Opłaty za pierwsze zadania przemieszczania uruchamiane w ramach własnego środ
 
 W przypadku drugiego zadania przemieszczania uruchomionego na Azure-SSIS IR nie są naliczane opłaty osobno, ale w przypadku uruchomionego Azure-SSIS IR zostanie naliczona wartość określona w artykule [cennik Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
-## <a name="enabling-tls-12"></a>Włączanie protokołu TLS 1,2
+## <a name="enabling-tls-12"></a>Włączanie protokołu TLS 1.2
 
 Jeśli musisz użyć silnego szyfrowania/bezpieczniejszego protokołu sieciowego (TLS 1,2) i wyłączyć starsze wersje protokołu SSL/TLS na własnym hostowanym środowisku IR, możesz pobrać i uruchomić główny skrypt *. cmd* , który znajduje się w folderze *CustomSetupScript/UserScenarios/TLS 1,2* naszego publicznego kontenera w wersji zapoznawczej.  Korzystając z [Eksplorator usługi Azure Storage](https://storageexplorer.com/), możesz nawiązać połączenie z naszym publicznym kontenerem w wersji zapoznawczej, wprowadzając następujący identyfikator URI SAS:
 

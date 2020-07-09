@@ -6,19 +6,19 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.topic: conceptual
-ms.openlocfilehash: fba213be2de3b747d3ba962674a03c0bc7df3ed5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 68856a4c5218232943ac657bbd67759d5ab4b804
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863669"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983159"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Usuwanie bramy sieci wirtualnej przy użyciu portalu
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [Narzędzia](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [Program PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
 Ten artykuł zawiera instrukcje dotyczące usuwania bram sieci VPN platformy Azure wdrożonych przy użyciu modelu wdrażania Menedżer zasobów. Istnieje kilka różnych metod, które można wykonać, aby usunąć bramę sieci wirtualnej dla konfiguracji bramy sieci VPN.
@@ -60,5 +60,5 @@ W tym momencie Brama sieci wirtualnej zostanie usunięta. Następne kroki pomaga
 Jeśli nie chcesz przechowywać żadnych zasobów w grupie zasobów i chcesz zacząć od razu, możesz usunąć całą grupę zasobów. Jest to szybka metoda usuwania wszystkiego. Poniższe kroki dotyczą tylko modelu wdrażania Menedżer zasobów.
 
 1. W obszarze **wszystkie zasoby**Znajdź grupę zasobów i kliknij, aby otworzyć blok.
-2. Kliknij przycisk **Usuń**. W bloku Usuń Wyświetl zasoby, których to dotyczy. Upewnij się, że chcesz usunąć wszystkie te zasoby. W przeciwnym razie wykonaj kroki opisane w sekcji Usuwanie bramy sieci VPN w górnej części tego artykułu.
+2. Kliknij polecenie **Usuń**. W bloku Usuń Wyświetl zasoby, których to dotyczy. Upewnij się, że chcesz usunąć wszystkie te zasoby. W przeciwnym razie wykonaj kroki opisane w sekcji Usuwanie bramy sieci VPN w górnej części tego artykułu.
 3. Aby to zrobić, wpisz nazwę grupy zasobów, która ma zostać usunięta, a następnie kliknij przycisk **Usuń**.

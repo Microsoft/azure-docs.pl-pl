@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74232757"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Przechowywanie wersji w Durable Functions (Azure Functions)
@@ -35,7 +34,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Ta funkcja uproszczony pobiera wyniki **foo** i przekazuje je do **paska**. Załóżmy, że musimy zmienić wartość zwracaną **foo** z `bool` na `int` , aby obsługiwać szersze różne wartości wynikowe. Wynik będzie wyglądać następująco:
+Ta funkcja uproszczony pobiera wyniki **foo** i przekazuje je do **paska**. Załóżmy, że musimy zmienić wartość zwracaną **foo** z na, `bool` Aby `int` obsługiwać szersze różne wartości wynikowe. Wynik będzie wyglądać następująco:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,9 +46,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> W poprzednich przykładach języka C# Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> W poprzednich przykładach języka C# Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-Ta zmiana działa prawidłowo dla wszystkich nowych wystąpień funkcji programu Orchestrator, ale przerywa wszystkie wystąpienia w locie. Rozważmy na przykład przypadek, w którym wystąpienie aranżacji wywołuje funkcję o nazwie `Foo`, pobiera wartość logiczną, a następnie punkty kontrolne. Jeśli w tym momencie zostanie wdrożona zmiana podpisu, wystąpienie z punktem kontrolnym zakończy się niepowodzeniem natychmiast po jego wznowieniu i odtwarza wywołanie `context.CallActivityAsync<int>("Foo")`. Ten błąd występuje, ponieważ wynik w tabeli historii jest `bool` , ale nowy kod próbuje zdeserializować go do. `int`
+Ta zmiana działa prawidłowo dla wszystkich nowych wystąpień funkcji programu Orchestrator, ale przerywa wszystkie wystąpienia w locie. Rozważmy na przykład przypadek, w którym wystąpienie aranżacji wywołuje funkcję o nazwie `Foo` , pobiera wartość logiczną, a następnie punkty kontrolne. Jeśli w tym momencie zostanie wdrożona zmiana podpisu, wystąpienie z punktem kontrolnym zakończy się niepowodzeniem natychmiast po jego wznowieniu i odtwarza wywołanie `context.CallActivityAsync<int>("Foo")` . Ten błąd występuje, ponieważ wynik w tabeli historii jest, `bool` ale nowy kod próbuje zdeserializować go do `int` .
 
 Ten przykład jest tylko jednym z wielu różnych sposobów, w których zmiana podpisu może przerwać istniejące wystąpienia. Ogólnie rzecz biorąc, jeśli program Orchestrator musi zmienić sposób wywoływania funkcji, zmiana będzie prawdopodobnie powodować problemy.
 
@@ -85,9 +84,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> W poprzednich przykładach języka C# Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> W poprzednich przykładach języka C# Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-Ta zmiana powoduje dodanie nowego wywołania funkcji do **SendNotification** między **foo** a **paskiem**. Brak zmian sygnatur. Problem występuje, gdy istniejące wystąpienie zostanie wznowione z wywołania do **paska**. Podczas powtarzania, jeśli oryginalne wywołanie metody **foo** zwróci `true`wartość, ponowne uruchomienie programu Orchestrator wywoła wywołanie do **SendNotification**, które nie znajduje się w jego historii wykonywania. W związku z tym trwała struktura zadań kończy się niepowodzeniem z `NonDeterministicOrchestrationException` powodu wystąpienia **SendNotification** , gdy oczekiwano na wyświetlenie wywołania do **paska**. Ten sam typ problemu może wystąpić podczas dodawania wszelkich wywołań do "trwałych" interfejsów API, `CreateTimer`w `WaitForExternalEvent`tym, itp.
+Ta zmiana powoduje dodanie nowego wywołania funkcji do **SendNotification** między **foo** a **paskiem**. Brak zmian sygnatur. Problem występuje, gdy istniejące wystąpienie zostanie wznowione z wywołania do **paska**. Podczas powtarzania, jeśli oryginalne wywołanie metody **foo** zwróci `true` wartość, ponowne uruchomienie programu Orchestrator wywoła wywołanie do **SendNotification**, które nie znajduje się w jego historii wykonywania. W związku z tym trwała struktura zadań kończy się niepowodzeniem z `NonDeterministicOrchestrationException` powodu wystąpienia **SendNotification** , gdy oczekiwano na wyświetlenie wywołania do **paska**. Ten sam typ problemu może wystąpić podczas dodawania wszelkich wywołań do "trwałych" interfejsów API, w tym `CreateTimer` , `WaitForExternalEvent` itp.
 
 ## <a name="mitigation-strategies"></a>Strategie ograniczenia
 
@@ -120,7 +119,7 @@ Najbardziej nieudaną próbą zapewnienia, że krytyczne zmiany są wdrażane be
 
 ### <a name="how-to-change-task-hub-name"></a>Jak zmienić nazwę centrum zadań
 
-Centrum zadań można skonfigurować w pliku *host. JSON* w następujący sposób:
+Centrum zadań można skonfigurować w *host.js* pliku w następujący sposób:
 
 #### <a name="functions-1x"></a>Functions w wersji 1.x
 
@@ -144,7 +143,7 @@ Centrum zadań można skonfigurować w pliku *host. JSON* w następujący sposó
 }
 ```
 
-Wartość domyślna dla Durable Functions v1. x to `DurableFunctionsHub`. Począwszy od Durable Functions v 2.0, domyślna nazwa centrum zadań jest taka sama jak nazwa aplikacji funkcji na platformie Azure lub `TestHubName` w przypadku uruchamiania poza platformą Azure.
+Wartość domyślna dla Durable Functions v1. x to `DurableFunctionsHub` . Począwszy od Durable Functions v 2.0, domyślna nazwa centrum zadań jest taka sama jak nazwa aplikacji funkcji na platformie Azure lub w `TestHubName` przypadku uruchamiania poza platformą Azure.
 
 Wszystkie jednostki usługi Azure Storage są nazwane na podstawie `hubName` wartości konfiguracji. Nadając centrum zadań nową nazwę, upewnij się, że dla nowej wersji aplikacji zostanie utworzona osobna kolejka i tabela historii. Aplikacja funkcji, jednak zatrzyma przetwarzanie zdarzeń dla aranżacji lub jednostek utworzonych w ramach poprzedniej nazwy centrum zadań.
 

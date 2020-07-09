@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f87625fe4f56b369f2bf4aade3ef5424084b6fe8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4665666fe56c208b2437a7051bbf9201383365f8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254890"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962139"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi sygnalizującej
 
@@ -45,7 +45,9 @@ W tej sekcji użyjesz [interfejsu wiersza polecenia platformy .NET Core](https:/
 
 2. W nowym folderze Uruchom następujące polecenie, aby utworzyć projekt:
 
-        dotnet new mvc
+    ```dotnetcli
+    dotnet new mvc
+    ```
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Dodawanie narzędzia Secret Manager do projektu
@@ -72,13 +74,17 @@ W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](ht
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Dodawanie usługi Azure SignalR do aplikacji internetowej
 
-1. Dodaj odwołanie do pakietu `Microsoft.Azure.SignalR` NuGet, uruchamiając następujące polecenie:
+1. Dodaj odwołanie do `Microsoft.Azure.SignalR` pakietu NuGet, uruchamiając następujące polecenie:
 
-        dotnet add package Microsoft.Azure.SignalR
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.SignalR
+    ```
 
 2. Uruchom następujące polecenie, aby przywrócić pakiety dla projektu:
 
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
+    ```
 
 3. Dodaj wpis tajny o nazwie *Azure:SignalR:ConnectionString* do narzędzia Secret Manager. 
 
@@ -86,7 +92,7 @@ W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](ht
 
     To polecenie należy uruchomić w tym samym katalogu, w którym znajduje się plik *. csproj* .
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
@@ -105,7 +111,7 @@ W tej sekcji dodasz do projektu [Narzędzie do zarządzania kluczami tajnymi](ht
     }
     ```
 
-    Nie przekazując parametru do `AddAzureSignalR()`, ten kod używa domyślnego klucza konfiguracji dla parametrów połączenia zasobu usługi sygnalizującego. Domyślnym kluczem konfiguracji jest *Azure: sygnalizującer: ConnectionString*.
+    Nie przekazując parametru do `AddAzureSignalR()` , ten kod używa domyślnego klucza konfiguracji dla parametrów połączenia zasobu usługi sygnalizującego. Domyślnym kluczem konfiguracji jest *Azure: sygnalizującer: ConnectionString*.
 
 5. Również w *Startup.cs*należy zaktualizować `Configure` metodę przez zastąpienie wywołania do `app.UseStaticFiles()` następującego kodu i zapisanie pliku tylko dla ASP.NET Core 2.
 
@@ -167,11 +173,11 @@ Obie metody używają `Clients` interfejsu, który udostępnia zestaw SDK ASP.NE
 
 ### <a name="add-the-client-interface-for-the-web-app"></a>Dodawanie interfejsu klienta dla aplikacji sieci Web
 
-Interfejs użytkownika klienta dla tej aplikacji pokoju rozmów będzie zawierać kod HTML i JavaScript w pliku o nazwie *index. html* w katalogu *wwwroot* .
+Interfejs użytkownika klienta dla tej aplikacji pokoju rozmów będzie zawierać kod HTML i JavaScript w pliku o nazwie *index.html* w katalogu *wwwroot* .
 
-Skopiuj plik *index. html* , folder *CSS* i folder *scripts* z folderu *wwwroot* [repozytorium Samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Wklej je do folderu *wwwroot* Twojego projektu.
+Skopiuj plik *index.html* , folder *CSS* i folder *scripts* z folderu *wwwroot* [repozytorium Samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Wklej je do folderu *wwwroot* Twojego projektu.
 
-Oto główny kod *index. html*: 
+Oto kod główny *index.html*: 
 
 ```javascript
 var connection = new signalR.HubConnectionBuilder()
@@ -187,7 +193,7 @@ connection.start()
     });
 ```    
 
-Kod w wywołaniach `HubConnectionBuilder.build()` *index. html* w celu nawiązania połączenia HTTP z zasobem usługi Azure Signal.
+Kod w *index.html* wywołań, `HubConnectionBuilder.build()` Aby NAwiązać połączenie HTTP z zasobem usługi Azure Signal.
 
 Jeśli połączenie zostanie nawiązane pomyślnie, zostanie przekazane do metody `bindConnectionMessage`, która dodaje procedury obsługi zdarzeń dla przychodzących wypchnięć zawartości do klienta. 
 
@@ -199,7 +205,7 @@ W tej sekcji dodasz środowisko środowiska uruchomieniowego dla ASP.NET Core. A
 
 1. Utwórz folder o nazwie *Właściwości* w projekcie.
 
-2. Dodaj nowy plik o nazwie *profilu launchsettings. JSON* do folderu z następującą zawartością i Zapisz plik.
+2. Dodaj nowy plik o nazwie *launchSettings.js* do folderu z następującą zawartością i Zapisz plik.
 
     ```json
     {
@@ -224,27 +230,33 @@ W tej sekcji dodasz środowisko środowiska uruchomieniowego dla ASP.NET Core. A
 
 1. Aby skompilować aplikację przy użyciu interfejs wiersza polecenia platformy .NET Core, uruchom następujące polecenie w powłoce poleceń:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 2. Po pomyślnym zakończeniu kompilacji Uruchom następujące polecenie, aby uruchomić aplikację sieci Web lokalnie:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     Aplikacja będzie hostowana lokalnie na porcie 5000, zgodnie z konfiguracją w naszym profilu środowiska uruchomieniowego programu Development:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Development
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Development
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+    Application started. Press Ctrl+C to shut down.    
+    ```
 
-3. Otwórz dwa okna przeglądarki. W każdej przeglądarce przejdź do `http://localhost:5000`. Zostanie wyświetlony monit o wprowadzenie nazwy. Wprowadź nazwę klienta dla obu klientów i przetestuj zawartość wiadomości między obu klientów za pomocą przycisku **Wyślij** .
+3. Otwórz dwa okna przeglądarki. W każdej przeglądarce przejdź do `http://localhost:5000` . Zostanie wyświetlony monit o wprowadzenie nazwy. Wprowadź nazwę klienta dla obu klientów i przetestuj zawartość wiadomości między obu klientów za pomocą przycisku **Wyślij** .
 
     ![Przykład rozmowy z grupą sygnałów platformy Azure](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przejdziesz do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki Start i użyć ich ponownie.
 

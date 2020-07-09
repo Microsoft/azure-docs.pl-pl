@@ -4,15 +4,14 @@ description: Dowiedz się, jak instrumentować i debugować wydajność zapytań
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69614824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392135"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)
 
@@ -32,9 +31,9 @@ Krótkie omówienie partycjonowania: definiujesz klucz partycji, taki jak "miast
 Po wydaniu zapytania do Azure Cosmos DB, zestaw SDK wykonuje następujące czynności logiczne:
 
 * Przeanalizuj zapytanie SQL, aby określić plan wykonywania zapytania. 
-* Jeśli zapytanie zawiera filtr względem klucza partycji, na przykład `SELECT * FROM c WHERE c.city = "Seattle"`, jest kierowany do pojedynczej partycji. Jeśli zapytanie nie ma filtru dla klucza partycji, to jest wykonywane we wszystkich partycjach, a wyniki są scalone po stronie klienta.
+* Jeśli zapytanie zawiera filtr względem klucza partycji, `SELECT * FROM c WHERE c.city = "Seattle"` na przykład, jest kierowany do pojedynczej partycji. Jeśli zapytanie nie ma filtru dla klucza partycji, to jest wykonywane we wszystkich partycjach, a wyniki są scalone po stronie klienta.
 * Zapytanie jest wykonywane w ramach każdej partycji lub równolegle, na podstawie konfiguracji klienta. W ramach każdej partycji zapytanie może wykonać jedną lub kilka rund w zależności od złożoności zapytania, skonfigurowanego rozmiaru strony i przepływności dla kolekcji. Każde wykonanie zwraca liczbę [jednostek żądań](request-units.md) używanych przez wykonanie zapytania i opcjonalnie, statystyk wykonywania zapytań. 
-* Zestaw SDK wykonuje podsumowanie wyników zapytania między partycjami. Na przykład, jeśli zapytanie zawiera zamówienie według między partycjami, wyniki z poszczególnych partycji są scalane — posortowane w celu zwrócenia wyników w kolejności sortowania globalnie. Jeśli zapytanie jest agregacją `COUNT`, na przykład, liczby z poszczególnych partycji są sumowane w celu uzyskania ogólnej liczby.
+* Zestaw SDK wykonuje podsumowanie wyników zapytania między partycjami. Na przykład, jeśli zapytanie zawiera zamówienie według między partycjami, wyniki z poszczególnych partycji są scalane — posortowane w celu zwrócenia wyników w kolejności sortowania globalnie. Jeśli zapytanie jest agregacją, na `COUNT` przykład, liczby z poszczególnych partycji są sumowane w celu uzyskania ogólnej liczby.
 
 Zestawy SDK udostępniają różne opcje wykonywania zapytań. Na przykład w programie .NET te opcje są dostępne w `FeedOptions` klasie. W poniższej tabeli opisano te opcje i ich wpływ na czas wykonywania zapytania. 
 
@@ -49,7 +48,7 @@ Zestawy SDK udostępniają różne opcje wykonywania zapytań. Na przykład w pr
 | `RequestContinuation` | Można wznowić wykonywanie zapytania, przekazując nieprzezroczysty token kontynuacji zwrócony przez dowolne zapytanie. Token kontynuacji hermetyzuje wszystkie Stany wymagane do wykonania zapytania. |
 | `ResponseContinuationTokenLimitInKb` | Można ograniczyć maksymalny rozmiar tokenu kontynuacji zwracanego przez serwer. Może być konieczne ustawienie tego ustawienia, Jeśli host aplikacji ma limity rozmiaru nagłówka odpowiedzi. Ustawienie to może zwiększyć całkowity czas trwania i jednostek ru zużyty dla zapytania.  |
 
-Załóżmy na przykład, że zażądano przykładowego zapytania dotyczącego klucza partycji w kolekcji `/city` z kluczem partycji i z obsługą jednostki przepływności 100 000 ru/s. Zażądano tego zapytania `CreateDocumentQuery<T>` przy użyciu programu .NET, takiego jak następujące:
+Załóżmy na przykład, że zażądano przykładowego zapytania dotyczącego klucza partycji w kolekcji z `/city` kluczem partycji i z obsługą jednostki przepływności 100 000 ru/s. Zażądano tego zapytania przy użyciu programu `CreateDocumentQuery<T>` .NET, takiego jak następujące:
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -93,7 +92,7 @@ Expect: 100-continue
 {"query":"SELECT * FROM c WHERE c.city = 'Seattle'"}
 ```
 
-Każda Strona wykonywania zapytania odpowiada interfejsowi API `POST` REST z `Accept: application/query+json` nagłówkiem i kwerendzie SQL w treści. Każde zapytanie wykonuje co najmniej jedną rundę na serwerze z `x-ms-continuation` tokenem, który został przez siebie uruchomiony na serwerze, aby wznowić wykonywanie. Opcje konfiguracji w FeedOptions są przesyłane do serwera w postaci nagłówków żądania. Na przykład `MaxItemCount` odpowiada `x-ms-max-item-count`. 
+Każda Strona wykonywania zapytania odpowiada interfejsowi API REST `POST` z `Accept: application/query+json` nagłówkiem i kwerendzie SQL w treści. Każde zapytanie wykonuje co najmniej jedną rundę na serwerze z tokenem, który został przez siebie uruchomiony na `x-ms-continuation` serwerze, aby wznowić wykonywanie. Opcje konfiguracji w FeedOptions są przesyłane do serwera w postaci nagłówków żądania. Na przykład `MaxItemCount` odpowiada `x-ms-max-item-count` . 
 
 Żądanie zwróci następujący (obcięty dla czytelności) odpowiedzi:
 
@@ -126,12 +125,12 @@ Następujące nagłówki odpowiedzi są zwracane z zapytania:
 
 | Opcja | Opis |
 | ------ | ----------- |
-| `x-ms-item-count` | Liczba elementów zwróconych w odpowiedzi. Jest to zależne od podanej `x-ms-max-item-count`liczby elementów, które mogą być dopasowane do maksymalnego rozmiaru ładunku odpowiedzi, alokowanej przepływności i czasu wykonywania zapytania. |  
+| `x-ms-item-count` | Liczba elementów zwróconych w odpowiedzi. Jest to zależne od podanej `x-ms-max-item-count` liczby elementów, które mogą być dopasowane do maksymalnego rozmiaru ładunku odpowiedzi, alokowanej przepływności i czasu wykonywania zapytania. |  
 | `x-ms-continuation:` | Token kontynuacji, aby wznowić wykonywanie zapytania, jeśli są dostępne dodatkowe wyniki. | 
-| `x-ms-documentdb-query-metrics` | Statystyka zapytania dla wykonania. Jest to rozdzielany ciąg zawierający dane statystyczne czasu spędzonego w różnych fazach wykonywania zapytania. Zwraca wartość `x-ms-documentdb-populatequerymetrics` , jeśli jest `True`ustawiona na. | 
+| `x-ms-documentdb-query-metrics` | Statystyka zapytania dla wykonania. Jest to rozdzielany ciąg zawierający dane statystyczne czasu spędzonego w różnych fazach wykonywania zapytania. Zwraca `x-ms-documentdb-populatequerymetrics` wartość, jeśli jest ustawiona na `True` . | 
 | `x-ms-request-charge` | Liczba [jednostek żądań](request-units.md) zużytych przez zapytanie. | 
 
-Aby uzyskać szczegółowe informacje na temat nagłówków i opcji żądań interfejsu API REST, zobacz [wykonywanie zapytań dotyczących zasobów przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+Aby uzyskać szczegółowe informacje na temat nagłówków i opcji żądań interfejsu API REST, zobacz [wykonywanie zapytań dotyczących zasobów przy użyciu interfejsu API REST](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Najlepsze rozwiązania dotyczące wydajności zapytań
 Poniżej przedstawiono najbardziej typowe czynniki wpływające na wydajność zapytań Azure Cosmos DB. Dig się do każdego z tych tematów w tym artykule.
@@ -182,7 +181,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Maksymalny stopień równoległości
-W przypadku zapytań Dostosuj program `MaxDegreeOfParallelism` , aby zidentyfikować najlepsze konfiguracje dla aplikacji, szczególnie w przypadku wykonywania zapytań między partycjami (bez filtrowania wartości klucza partycji). `MaxDegreeOfParallelism`kontroluje maksymalną liczbę równoległych zadań, czyli maksymalną liczbę partycji, które mają być odwiedzane równolegle. 
+W przypadku zapytań Dostosuj program, `MaxDegreeOfParallelism` Aby zidentyfikować najlepsze konfiguracje dla aplikacji, szczególnie w przypadku wykonywania zapytań między partycjami (bez filtrowania wartości klucza partycji). `MaxDegreeOfParallelism`kontroluje maksymalną liczbę równoległych zadań, czyli maksymalną liczbę partycji, które mają być odwiedzane równolegle. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -211,7 +210,7 @@ Informacje o wersji zestawu SDK i szczegóły dotyczące zaimplementowanych klas
 ### <a name="network-latency"></a>Opóźnienie sieci
 Zobacz [Azure Cosmos DB globalnej dystrybucji](tutorial-global-distribution-sql-api.md) , jak skonfigurować dystrybucję globalną i połączyć się z najbliższym regionem. Opóźnienie sieci ma znaczny wpływ na wydajność zapytań, gdy konieczne jest wykonanie wielu operacji rundy lub pobranie dużego zestawu wyników zapytania. 
 
-W sekcji metryki wykonywania zapytania wyjaśniono, jak pobrać czas wykonywania zapytań ( `totalExecutionTimeInMs`), aby można było odróżnić czas trwania wykonywania zapytania i czas spędzony na przeniesieniu do sieci.
+W sekcji metryki wykonywania zapytania wyjaśniono, jak pobrać czas wykonywania zapytań ( `totalExecutionTimeInMs` ), aby można było odróżnić czas trwania wykonywania zapytania i czas spędzony na przeniesieniu do sieci.
 
 ### <a name="indexing-policy"></a>Zasady indeksowania
 Zobacz [Konfigurowanie zasad indeksowania](index-policy.md) dla ścieżek indeksowania, rodzajów i trybów oraz ich wpływu na wykonywanie zapytań. Domyślnie zasady indeksowania wykorzystują indeksowanie skrótów dla ciągów, które są skuteczne dla zapytań równości, ale nie dla zapytań zakresowych/kolejności według zapytań. Jeśli potrzebujesz zapytań zakresowych dla ciągów, zalecamy określenie typu indeksu zakresu dla wszystkich ciągów. 
@@ -219,7 +218,7 @@ Zobacz [Konfigurowanie zasad indeksowania](index-policy.md) dla ścieżek indeks
 Domyślnie Azure Cosmos DB będzie stosować Automatyczne indeksowanie do wszystkich danych. W przypadku scenariuszy wstawiania o wysokiej wydajności należy rozważyć wykluczenie ścieżek, ponieważ spowoduje to zmniejszenie kosztu RU dla każdej operacji wstawiania. 
 
 ## <a name="query-execution-metrics"></a>Metryki wykonywania zapytania
-Możesz uzyskać szczegółowe metryki wykonywania zapytania, przekazując opcjonalne `x-ms-documentdb-populatequerymetrics` nagłówki (`FeedOptions.PopulateQueryMetrics` w zestawie SDK .NET). Wartość zwrócona w `x-ms-documentdb-query-metrics` ma następujące pary klucz-wartość przeznaczone do zaawansowanego rozwiązywania problemów dotyczących wykonywania zapytania. 
+Możesz uzyskać szczegółowe metryki wykonywania zapytania, przekazując opcjonalne `x-ms-documentdb-populatequerymetrics` nagłówki ( `FeedOptions.PopulateQueryMetrics` w zestawie SDK .NET). Wartość zwrócona w `x-ms-documentdb-query-metrics` ma następujące pary klucz-wartość przeznaczone do zaawansowanego rozwiązywania problemów dotyczących wykonywania zapytania. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -255,20 +254,20 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `writeOutputTimeInMs` | milisekundy | Czas wykonywania zapytania w milisekundach | 
 | `indexUtilizationRatio` | współczynnik (<= 1) | Stosunek liczby dokumentów dopasowanych przez filtr do liczby załadowanych dokumentów  | 
 
-Zestawy SDK klienta mogą wewnętrznie wykonywać wiele operacji zapytania w celu obsługi zapytania w ramach każdej partycji. Klient wykonuje więcej niż jedno wywołanie na partycję, jeśli łączna liczba wyników przekroczy `x-ms-max-item-count`, jeśli zapytanie przekracza zainicjowaną przepływność dla partycji lub jeśli ładunek zapytania osiągnie maksymalny rozmiar na stronę lub jeśli zapytanie osiągnie limit czasu przydzielonego systemu. Każde wykonanie zapytania częściowego zwraca `x-ms-documentdb-query-metrics` dla tej strony. 
+Zestawy SDK klienta mogą wewnętrznie wykonywać wiele operacji zapytania w celu obsługi zapytania w ramach każdej partycji. Klient wykonuje więcej niż jedno wywołanie na partycję, jeśli łączna liczba wyników przekroczy `x-ms-max-item-count` , jeśli zapytanie przekracza zainicjowaną przepływność dla partycji lub jeśli ładunek zapytania osiągnie maksymalny rozmiar na stronę lub jeśli zapytanie osiągnie limit czasu przydzielonego systemu. Każde wykonanie zapytania częściowego zwraca `x-ms-documentdb-query-metrics` dla tej strony. 
 
 Oto kilka przykładowych zapytań i sposób interpretowania niektórych metryk zwracanych z wykonywania zapytania: 
 
 | Zapytanie | Przykładowa Metryka | Opis | 
 | ------ | -----| ----------- |
-| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Liczba pobranych dokumentów wynosi 100 + 1, aby pasowała do klauzuli TOP. Czas zapytania jest głównie poświęcany `WriteOutputTime` na `DocumentLoadTime` i ponieważ jest to skanowanie. | 
+| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Liczba pobranych dokumentów wynosi 100 + 1, aby pasowała do klauzuli TOP. Czas zapytania jest głównie poświęcany na `WriteOutputTime` i `DocumentLoadTime` ponieważ jest to skanowanie. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount jest teraz wyższa (500 + 1, aby dopasować klauzulę TOP). | 
-| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Informacje o 0,9 MS odbywają się w IndexLookupTime na potrzeby wyszukiwania kluczy, ponieważ jest to wyszukiwanie w `/N/?`indeksie. | 
-| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Nieco więcej czasu (1,7 ms) spędzony w IndexLookupTime przez skanowanie zakresu, ponieważ jest to wyszukiwanie w `/N/?`indeksie. | 
+| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Informacje o 0,9 MS odbywają się w IndexLookupTime na potrzeby wyszukiwania kluczy, ponieważ jest to wyszukiwanie w indeksie `/N/?` . | 
+| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Nieco więcej czasu (1,7 ms) spędzony w IndexLookupTime przez skanowanie zakresu, ponieważ jest to wyszukiwanie w indeksie `/N/?` . | 
 | `SELECT TOP 500 c.N FROM c` | `"IndexLookupTime": "00:00:00.0017700"` | Ten sam czas poświęcany na `DocumentLoadTime` poprzednie zapytania, ale `WriteOutputTime` jest niższy, ponieważ obsługujemy tylko jedną właściwość. | 
-| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Informacje o 213 MS poświęcają `UserDefinedFunctionExecutionTime` na wykonywanie operacji UDF dla każdej wartości `c.N`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Informacje o 0,6 MS odbywają `IndexLookupTime` się `/Name/?`w dniu. Większość czasu wykonywania zapytania (~ 7 ms) w `SystemFunctionExecutionTime`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Zapytanie jest wykonywane w ramach skanowania, ponieważ jest `LOWER`w nim stosowane, a 500 z 2491 pobrane dokumenty są zwracane. |
+| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Informacje o 213 MS poświęcają na `UserDefinedFunctionExecutionTime` wykonywanie operacji UDF dla każdej wartości `c.N` . |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Informacje o 0,6 MS odbywają się w `IndexLookupTime` dniu `/Name/?` . Większość czasu wykonywania zapytania (~ 7 ms) w `SystemFunctionExecutionTime` . |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Zapytanie jest wykonywane w ramach skanowania, ponieważ jest w nim stosowane `LOWER` , a 500 z 2491 pobrane dokumenty są zwracane. |
 
 
 ## <a name="next-steps"></a>Następne kroki

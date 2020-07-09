@@ -1,25 +1,17 @@
 ---
 title: Tworzenie zasobów Azure Service Bus przy użyciu szablonów
 description: Automatyzacja tworzenia zasobów Service Bus za pomocą szablonów Azure Resource Manager
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 09/11/2018
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bc784ee57b9bde393408cbefa9a197aebc59b08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2fd6a42d9624d7a95e66b88e004e1f5203a738a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264462"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85336615"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Tworzenie zasobów Service Bus przy użyciu szablonów Azure Resource Manager
 
@@ -173,7 +165,7 @@ Zostanie wyświetlony monit o zalogowanie się do konta platformy Azure. Po zalo
 Get-AzSubscription
 ```
 
-To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję bieżącej sesji, uruchamiając następujące polecenie. Zamień `<YourSubscriptionId>` na identyfikator GUID subskrypcji platformy Azure, której chcesz użyć:
+To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję bieżącej sesji, uruchamiając następujące polecenie. Zamień na `<YourSubscriptionId>` Identyfikator GUID subskrypcji platformy Azure, której chcesz użyć:
 
 ```powershell
 Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -199,7 +191,7 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testowanie wdrożenia
 
-Sprawdź poprawność wdrożenia, `Test-AzResourceGroupDeployment` uruchamiając polecenie cmdlet. Podczas testowania wdrożenia podaj parametry dokładnie tak, jak podczas wykonywania wdrożenia.
+Sprawdź poprawność wdrożenia, uruchamiając `Test-AzResourceGroupDeployment` polecenie cmdlet. Podczas testowania wdrożenia podaj parametry dokładnie tak, jak podczas wykonywania wdrożenia.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

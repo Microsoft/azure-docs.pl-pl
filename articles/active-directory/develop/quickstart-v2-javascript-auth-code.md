@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0ba4531ed15630a8887cb7be843a00ba23a439cc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682039"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134171"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania
 
@@ -26,7 +26,7 @@ ms.locfileid: "83682039"
 
 W tym przewodniku szybki start uruchomisz przykład kodu, który demonstruje, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji. Przykładowy kod ilustruje również uzyskiwanie tokenu dostępu do wywoływania internetowego interfejsu API, w tym przypadku Microsoft Graph API. Zobacz [, jak działa Przykładowa](#how-the-sample-works) ilustracja.
 
-Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. Aby zapoznać się z podobnym przewodnikiem Szybki Start, który używa MSAL. js 1,0 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. Aby skorzystać z podobnego przewodnika Szybki Start, który używa MSAL.js 1,0 z niejawnym przepływem, zobacz [Szybki Start: Logowanie użytkowników w aplikacjach jednostronicowych języka JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -76,10 +76,10 @@ Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. 
 #### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu
 
 > [!div renderon="docs"]
-> Aby uruchomić projekt z serwerem sieci Web przy użyciu środowiska Node. js, [Pobierz podstawowe pliki projektu](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
+> Aby uruchomić projekt z serwerem sieci Web przy użyciu Node.js, [Pobierz podstawowe pliki projektu](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Uruchamianie projektu z serwerem sieci Web przy użyciu środowiska Node. js
+> Uruchom projekt z serwerem sieci Web za pomocą Node.js
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/ms-identity-javascript-v2/archive/master.zip)
@@ -87,7 +87,7 @@ Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Krok 3. Konfigurowanie aplikacji JavaScript
 >
-> W folderze *App (aplikacja* ) Otwórz plik *authConfig. js* i zaktualizuj `clientID` wartości, `authority` , i `redirectUri` w `msalConfig` obiekcie.
+> W folderze *aplikacji* otwórz plik *authConfig.js* i zaktualizuj `clientID` `authority` wartości,, i `redirectUri` w `msalConfig` obiekcie.
 >
 > ```javascript
 > // Config object to be passed to Msal on creation
@@ -119,9 +119,9 @@ Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. 
 >   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość wartością `organizations` .
 >   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` . **W tym przewodniku szybki start Użyj programu** `common` .
 >   - Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość wartością `consumers` .
-> - Parametr `Enter_the_Redirect_Uri_Here` ma wartość `http://localhost:3000/`.
+> - `Enter_the_Redirect_Uri_Here` to `http://localhost:3000/`.
 >
-> `authority`Wartość w *authConfig. js* powinna wyglądać podobnie do poniższego, jeśli używana jest główna (globalna) Chmura platformy Azure:
+> `authority`Wartość w *authConfig.js* powinna wyglądać podobnie do poniższego, jeśli używasz głównej (globalnej) chmury platformy Azure:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
@@ -136,7 +136,7 @@ Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. 
 
 > [!div renderon="docs"]
 >
-> Następnie w tym samym folderze należy edytować plik *graphConfig. js* i zaktualizować `graphMeEndpoint` `graphMailEndpoint` wartości i w `apiConfig` obiekcie.
+> Następnie w tym samym folderze należy edytować plik *graphConfig.js* i zaktualizować `graphMeEndpoint` `graphMailEndpoint` wartości i w `apiConfig` obiekcie.
 >
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -155,7 +155,7 @@ Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. 
 >
 > `Enter_the_Graph_Endpoint_Here`jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Aby uzyskać więcej informacji na temat Microsoft Graph w chmurach narodowych, zobacz [wdrażanie w chmurze krajowej](https://docs.microsoft.com/graph/deployments).
 >
-> `graphMeEndpoint`Wartości i `graphMailEndpoint` w pliku *graphConfig. js* powinny wyglądać podobnie do następujących, jeśli używasz głównej (globalnej) Microsoft Graph usługi interfejsu API:
+> `graphMeEndpoint`Wartości i `graphMailEndpoint` w pliku *graphConfig.js* powinny wyglądać podobnie do poniższego, jeśli używasz głównej (globalnej) usługi interfejsu API Microsoft Graph:
 >
 > ```javascript
 > graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -164,7 +164,7 @@ Ten przewodnik Szybki Start używa MSAL. js 2,0 z przepływem kodu autoryzacji. 
 >
 > #### <a name="step-4-run-the-project"></a>Krok 4. uruchamianie projektu
 
-Uruchom projekt z serwerem sieci Web przy użyciu środowiska Node. js:
+Uruchom projekt z serwerem sieci Web przy użyciu Node.js:
 
 1. Aby uruchomić serwer, uruchom następujące polecenia w katalogu projektu:
     ```console
@@ -181,18 +181,18 @@ Uruchom projekt z serwerem sieci Web przy użyciu środowiska Node. js:
 
 ### <a name="how-the-sample-works"></a>Jak działa przykład
 
-:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji dla aplikacji jednostronicowej":::
+![Diagram przedstawiający przepływ kodu autoryzacji dla aplikacji jednostronicowej.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
-### <a name="msaljs"></a>msal. js
+### <a name="msaljs"></a>msal.js
 
-Biblioteka MSAL. js rejestruje użytkowników i żąda tokenów, które są używane w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Plik *index. html* z przykładem zawiera odwołanie do biblioteki:
+Biblioteka MSAL.js umożliwia użytkownikom i żąda tokenów, które są używane w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Przykładowy plik *index.html* zawiera odwołanie do biblioteki:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js" integrity=
 "sha384-r7Qxfs6PYHyfoBR6zG62DGzptfLBxnREThAlcJyEfzJ4dq5rqExc1Xj3TPFE/9TH" crossorigin="anonymous"></script>
 ```
 
-Jeśli masz zainstalowany program Node. js, możesz pobrać najnowszą wersję przy użyciu Menedżera pakietów Node. js (npm):
+Jeśli zainstalowano Node.js, możesz pobrać najnowszą wersję przy użyciu Menedżera pakietów Node.js (npm):
 
 ```console
 npm install @azure/msal-browser

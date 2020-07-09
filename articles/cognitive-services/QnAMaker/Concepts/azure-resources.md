@@ -3,12 +3,12 @@ title: Zasoby platformy Azure — QnA Maker
 description: QnA Maker używa kilku źródeł platformy Azure, z których każdy ma inny cel. Zrozumienie, w jaki sposób są one używane pojedynczo, umożliwia zaplanowanie i wybranie odpowiedniej warstwy cenowej lub Dowiedz się, kiedy zmienić warstwę cenową. Zrozumienie, jak są używane w połączeniu, umożliwia znajdowanie i rozwiązywanie problemów, gdy wystąpią.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80873909"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236091"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Zasoby platformy Azure dla QnA Maker
 
@@ -48,7 +48,7 @@ W poniższej tabeli przedstawiono ogólne wytyczne.
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Eksperymentowanie        | Bezpłatna jednostka SKU             | Warstwa Bezpłatna   | Warstwa Bezpłatna    | Publikowanie do 2 artykułów bazy wiedzy, rozmiar 50 MB  |
 | Środowisko deweloperskie/testowe   | Standardowy SKU         | Shared      | Podstawowy        | Publikowanie do 14 artykułów bazy wiedzy, rozmiar 2 GB    |
-| Środowisko produkcyjne | Standardowy SKU         | Podstawowy       | Standardowa     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
+| Środowisko produkcyjne | Standardowy SKU         | Podstawowy       | Standardowa (Standard)     | Publikowanie do 49 artykułów bazy wiedzy, rozmiar 25 GB |
 
 ## <a name="recommended-settings"></a>Zalecane ustawienia
 
@@ -72,7 +72,7 @@ Pobierz najnowsze aktualizacje środowiska uruchomieniowego, [aktualizując App 
 
 ## <a name="resource-naming-considerations"></a>Zagadnienia dotyczące nazewnictwa zasobów
 
-Nazwa zasobu dla QnA Maker zasobu, na przykład `qna-westus-f0-b`, jest również używana do nazywania innych zasobów.
+Nazwa zasobu dla QnA Maker zasobu, na przykład `qna-westus-f0-b` , jest również używana do nazywania innych zasobów.
 
 Okno Azure Portal Create umożliwia utworzenie zasobu QnA Maker i wybranie warstw cenowych dla innych zasobów.
 
@@ -150,7 +150,7 @@ QnA Maker tworzy kilka zasobów platformy Azure. Aby ograniczyć zarządzanie i 
 |Plan usługi App Service|✔|Stałe miejsce na dysku przydzielono dla planu App Service. Jeśli inne aplikacje, które współużytkują ten sam plan App Service, użyją znacznego miejsca na dysku, wystąpienie App Service QnAMaker napotka problemy.|
 |App Service|X|Niemożliwa przez projekt|
 |Application Insights|✔|Mogą być udostępniane|
-|Search Service|✔|1. `testkb` jest zarezerwowaną nazwą usługi QnAMaker. nie mogą być używane przez inne osoby.<br>2. Mapa synonimów o nazwie `synonym-map` jest zarezerwowana dla usługi QnAMaker.<br>3. liczba opublikowanych baz wiedzy jest ograniczona przez warstwę usługi wyszukiwania. Jeśli dostępne są wolne indeksy, można z nich korzystać inne usługi.|
+|Search Service|✔|1. `testkb` jest zarezerwowaną nazwą usługi QnAMaker. nie może być używana przez inne osoby.<br>2. Mapa synonimów o nazwie `synonym-map` jest zarezerwowana dla usługi QnAMaker.<br>3. liczba opublikowanych baz wiedzy jest ograniczona przez warstwę usługi wyszukiwania. Jeśli dostępne są wolne indeksy, można z nich korzystać inne usługi.|
 
 ### <a name="using-a-single-cognitive-search-service"></a>Korzystanie z pojedynczej usługi Wyszukiwanie poznawcze
 
@@ -182,6 +182,14 @@ Te klucze są używane podczas wykonywania żądań do usługi za pomocą interf
 Kluczowe terminy tworzenia i wykonywania zapytań są poprawnymi postanowieniami. Poprzedni termin był **kluczem subskrypcji**. Jeśli zostanie wyświetlona inna dokumentacja odwołująca się do kluczy subskrypcji, są one równoważne z tworzeniem kluczy punktu końcowego tworzenia i wykonywania zapytań (użytych w czasie wykonywania).
 
 Aby dowiedzieć się, który klucz należy znaleźć, należy znać dostęp do klucza, zarządzania bazami wiedzy lub zapytania bazy wiedzy.
+
+## <a name="recommended-settings-for-network-isolation"></a>Zalecane ustawienia izolacji sieci
+
+* Ochrona zasobów usługi poznawczej przed dostępem publicznym przez [skonfigurowanie sieci wirtualnej](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Ochrona App Service (QnA Runtime) z dostępu publicznego:
+    * Zezwalaj na ruch tylko z adresów IP usługi poznawczej. Są one już zawarte w tagu usługi "CognitiveServicesManagement". Jest to wymagane do tworzenia interfejsów API (Utwórz/zaktualizuj KB), aby odpowiednio wywoływać usługę App Service i zaktualizować usługę Azure Search.
+    * Upewnij się, że można również zezwolić na inne punkty wejścia, takie jak usługa bot, Portal QnA Maker (może to być Corpnet) itp., aby uzyskać dostęp do interfejsu API przewidywania "GenerateAnswer".
+    * Zapoznaj się z [dodatkowymi informacjami na temat tagów usługi.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,15 +3,15 @@ title: Jak zamknąć Microsoft Azure FXT Edge
 description: Procedury uruchamiania i bezpiecznego zamykania węzła usługi Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 91445c4219abaa67385105f52515f52c87e2cf06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92364de82bc3de8229eced4ee02997a27afbde45
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72256002"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506416"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Jak bezpiecznie wyłączyć sprzęt usługi Azure FXT Edge
 
@@ -29,7 +29,7 @@ Gdy węzeł usługi Microsoft Azure FXT Edge jest używany jako część klastra
 Postępuj zgodnie z poniższymi instrukcjami, aby bezpiecznie wyłączyć węzeł usługi Azure FXT Edge:
 
 1. Zaloguj się do panelu sterowania klastra. (Instrukcje w temacie [otwieranie stron ustawień](fxt-cluster-create.md#open-the-settings-pages))
-1. Kliknij kartę **Ustawienia** , a następnie Załaduj stronę**węzły FXT** **klastra** > .
+1. Kliknij kartę **Ustawienia** , a następnie załaduj **Cluster**  >  stronę**węzły FXT** klastra.
 1. Na liście węzłów klastra Znajdź ten, który chcesz zamknąć. Kliknij przycisk **Wyłącz** w kolumnie **Akcje** . 
 1. Poczekaj chwilę. Węzeł zostanie zamknięty i nastąpi wyłączenie.
 

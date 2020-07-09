@@ -11,10 +11,9 @@ ms.author: raiye
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
 ms.openlocfilehash: 45c51403661dfae6c8f78eaf35296881e5d90626
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869585"
 ---
 # <a name="enable-write-accelerator"></a>Włącz akcelerator zapisu

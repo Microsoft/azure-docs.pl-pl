@@ -3,16 +3,16 @@ title: Dodawanie narzędzi do oceny w Azure Migrate
 description: Dowiedz się, jak dodać narzędzia do oceny w Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901057"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86122119"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny
 
-W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](migrate-overview.md). 
+W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](./migrate-services-overview.md). 
 
 - Jeśli chcesz dodać narzędzie do oceny i nie masz jeszcze projektu Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
 - Po dodaniu narzędzia niezależnego dostawcy oprogramowania lub przeniesieniu do oceny [postępuj zgodnie z](prepare-isv-movere.md)instrukcjami, aby przygotować się do pracy z narzędziem.
@@ -23,7 +23,7 @@ W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](mi
 2. Wybierz scenariusz oceny, którego chcesz użyć:
 
     - Aby odnajdywać i oceniać maszyny i obciążenia do migracji na platformę Azure, wybierz pozycję **Oceń i Przeprowadź migrację serwerów**.
-    - Aby ocenić lokalne maszyny SQL, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
+    - Aby ocenić lokalne bazy danych SQL Server, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
     - Aby ocenić lokalne aplikacje sieci Web, wybierz pozycję **Oceń i Migruj aplikacje sieci Web**.
 
     ![Scenariusz oceny](./media/how-to-assess/assess-scenario.png)

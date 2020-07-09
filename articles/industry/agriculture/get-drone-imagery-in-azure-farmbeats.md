@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77132051"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Pobieranie obrazów drona z partnerów drona
@@ -51,7 +50,7 @@ Wykonaj następujące kroki.
     ![Przekazywanie plików](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
 5. Przejdź do katalogu, do którego pliki zostały przekazane. Domyślnie są one przekazywane do katalogu macierzystego w ramach nazwy użytkownika.
-6. Uruchom następujący skrypt:
+6. Uruchom poniższy skrypt:
 
     ```azurepowershell-interactive 
 

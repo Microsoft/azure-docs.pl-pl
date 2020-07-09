@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84717804"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Uwierzytelnianie urządzeń za pomocą certyfikatów X.509 urzędu certyfikacji
 
@@ -28,7 +27,7 @@ W tym artykule opisano, jak za pomocą certyfikatów urzędu certyfikacji X. 509
 
 Funkcja urząd certyfikacji X. 509 umożliwia uwierzytelnianie urządzeń IoT Hub przy użyciu urzędu certyfikacji (CA). Znacznie upraszcza proces wstępnej rejestracji urządzeń oraz logistyki łańcucha dostaw podczas produkcji urządzenia. [Więcej informacji znajduje się w tym artykule o wartości użycia certyfikatów programu X. 509 urzędu certyfikacji](iot-hub-x509ca-concept.md) na potrzeby uwierzytelniania urządzeń.  Zachęcamy do przeczytania tego artykułu scenariusza przed kontynuowaniem, ponieważ wyjaśnia, dlaczego istnieją poniższe kroki.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Korzystanie z funkcji urzędu certyfikacji X. 509 wymaga konta IoT Hub.  [Dowiedz się, jak utworzyć wystąpienie IoT Hub](quickstart-send-telemetry-dotnet.md) , jeśli jeszcze go nie masz.
 
@@ -50,7 +49,7 @@ Właściciel certyfikatu X. 509 urzędu certyfikacji może kryptograficznie podp
 
 ![IMG-Generic-CERT-on-Trust](./media/generic-cert-chain-of-trust.png)
 
-Certyfikat urządzenia (nazywany również certyfikatem liścia) musi mieć ustawioną *nazwę podmiotu* na **Identyfikator urządzenia** , który został użyty podczas rejestrowania urządzenia IoT w usłudze Azure IoT Hub. To ustawienie jest wymagane do uwierzytelniania.
+Certyfikat urządzenia (nazywany również certyfikatem liścia) musi mieć ustawioną *nazwę podmiotu* na **Identyfikator urządzenia** ( `CN=deviceId` ), który został użyty podczas rejestrowania urządzenia IoT w usłudze Azure IoT Hub. To ustawienie jest wymagane do uwierzytelniania.
 
 Dowiedz się tutaj, jak [utworzyć łańcuch certyfikatów](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) jako gotowy podczas podpisywania urządzeń.
 

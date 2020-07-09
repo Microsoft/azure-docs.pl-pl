@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728324"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Wprowadzenie do Threat Modeling Tool
@@ -43,7 +42,7 @@ Po uruchomieniu Threat Modeling Tool zauważysz kilka rzeczy, jak widać na zdj�
 
 | Składnik                                   | Szczegóły                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Przycisk opinii, sugestie i problemy** | Obejmuje **[forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** dla wszystkich elementów SDL. Dzięki temu można zapoznać się z możliwościami wykonywania innych użytkowników, a także obejść i zaleceń. Jeśli nadal nie możesz znaleźć tego, czego szukasz, Wyślij tmtextsupport@microsoft.com wiadomość e-mail do naszego zespołu pomocy technicznej, aby Ci pomóc                                                                                                                            |
+| **Przycisk opinii, sugestie i problemy** | Obejmuje **[forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** dla wszystkich elementów SDL. Dzięki temu można zapoznać się z możliwościami wykonywania innych użytkowników, a także obejść i zaleceń. Jeśli nadal nie możesz znaleźć tego, czego szukasz, Wyślij wiadomość e-mail tmtextsupport@microsoft.com do naszego zespołu pomocy technicznej, aby Ci pomóc                                                                                                                            |
 | **Tworzenie modelu**                          | Otwiera pustą kanwę do rysowania diagramu. Upewnij się, że wybierasz szablon, którego chcesz użyć dla modelu                                                                                                                                                                                                                                                                                                                                                                       |
 | **Szablon dla nowych modeli**                 | Musisz wybrać szablon, który ma być używany przed utworzeniem modelu. Naszym głównym szablonem jest szablon modelu zagrożeń platformy Azure, który zawiera wzorniki, zagrożenia i środki związane z platformą Azure. W przypadku modeli ogólnych wybierz bazę wiedzy SDL TM z menu rozwijanego. Chcesz utworzyć własny szablon lub przesłać nowy dla wszystkich użytkowników? Zapoznaj się z naszą stroną **[repozytorium szablonów](https://github.com/Microsoft/threat-modeling-templates)** w serwisie GitHub, aby dowiedzieć się więcej                              |
 | **Otwórz model**                            | <p>Otwiera poprzednio zapisane modele zagrożeń. Funkcja ostatnio otwieranych modeli jest doskonałym rozwiązaniem, jeśli musisz otworzyć najnowsze pliki. Po umieszczeniu wskaźnika myszy na zaznaczeniu znajdziesz dwa sposoby otwierania modeli:</p><p><ul><li>Otwórz z tego komputera — klasyczny sposób otwierania pliku przy użyciu magazynu lokalnego</li><li>Otwórz w usłudze OneDrive — zespoły mogą korzystać z folderów w usłudze OneDrive, aby zapisywać i udostępniać wszystkie modele zagrożeń w jednej lokalizacji, aby zwiększyć produktywność i współpracę</li></ul></p> |
@@ -144,4 +143,4 @@ Podejście do modelowania zagrożeń przedstawione tutaj jest znacznie prostsze 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wyślij swoje pytania, komentarze i wątpliwości do tmtextsupport@microsoft.comprogramu. **[Pobierz](https://aka.ms/threatmodelingtool)** Threat Modeling Tool, aby rozpocząć pracę.
+Wyślij swoje pytania, komentarze i wątpliwości do programu tmtextsupport@microsoft.com . **[Pobierz](https://aka.ms/threatmodelingtool)** Threat Modeling Tool, aby rozpocząć pracę.

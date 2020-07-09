@@ -5,17 +5,18 @@ description: Monitorowanie usług sieci Web wdrożonych za pomocą Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 03/12/2020
-ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.custom: tracking-python
+ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743515"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,10 +44,12 @@ Oprócz zbierania danych wyjściowych i odpowiedzi punktu końcowego można moni
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadane usługi sieci Web i dane odpowiedzi
 
->[!Important]
-> Usługa Azure Application Insights rejestruje tylko ładunki o rozmiarze do 64 KB. Jeśli limit zostanie osiągnięty, rejestrowane są tylko najnowsze dane wyjściowe modelu. 
+> [!IMPORTANT]
+> Usługa Azure Application Insights rejestruje tylko ładunki o rozmiarze do 64 KB. Po osiągnięciu tego limitu mogą pojawić się błędy, takie jak brak pamięci lub nie można rejestrować informacji.
 
-Metadane i odpowiedź usługi — odpowiadające metadanych usługi sieci Web i prognozom modelu — są rejestrowane w śladach Application Insights platformy Azure pod komunikatem `"model_data_collection"`. Możesz wysyłać zapytania do usługi Azure Application Insights bezpośrednio, aby uzyskać dostęp do tych danych, lub skonfigurować [ciągły eksport](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) do konta magazynu w celu dłuższego przechowywania lub dalszego przetwarzania. Dane modelu można następnie użyć w Azure Machine Learning, aby skonfigurować etykietowanie, przeszkolenie, wyjaśnienie, analizę danych lub inne użycie. 
+Aby rejestrować informacje o żądaniu do usługi sieci Web, Dodaj `print` instrukcje do pliku Score.py. Każda `print` instrukcja powoduje jeden wpis w tabeli śledzenia w Application Insights, w obszarze komunikatu `STDOUT` . Zawartość `print` instrukcji zostanie zawarta w `customDimensions` , a następnie `Contents` w tabeli śledzenia. W przypadku drukowania ciągu JSON tworzy hierarchiczną strukturę danych w danych wyjściowych śledzenia poniżej `Contents` .
+
+Możesz wysyłać zapytania do usługi Azure Application Insights bezpośrednio, aby uzyskać dostęp do tych danych, lub skonfigurować [ciągły eksport](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) do konta magazynu w celu dłuższego przechowywania lub dalszego przetwarzania. Dane modelu można następnie użyć w Azure Machine Learning, aby skonfigurować etykietowanie, przeszkolenie, wyjaśnienie, analizę danych lub inne użycie. 
 
 <a name="python"></a>
 
@@ -70,10 +73,51 @@ Metadane i odpowiedź usługi — odpowiadające metadanych usługi sieci Web i 
 
 Jeśli chcesz rejestrować niestandardowe ślady, postępuj zgodnie ze standardowym procesem wdrażania dla AKS lub ACI w temacie [jak wdrożyć i gdzie](how-to-deploy-and-where.md) dokument. Następnie wykonaj następujące czynności:
 
-1. Aktualizowanie pliku oceniania przez dodanie instrukcji Print
+1. Aby wysłać dane do Application Insights podczas wnioskowania, zaktualizuj plik oceniania przez dodanie instrukcji Print. Aby zalogować się do bardziej złożonych informacji, takich jak dane żądania i odpowiedź, możemy nam mieć strukturę JSON. Poniższy przykład pliku score.py rejestruje czas inicjowania modelu, dane wejściowe i wyjściowe podczas wnioskowania oraz czas wystąpienia jakichkolwiek błędów:
+
+    > [!IMPORTANT]
+    > Usługa Azure Application Insights rejestruje tylko ładunki o rozmiarze do 64 KB. Po osiągnięciu tego limitu mogą pojawić się błędy, takie jak brak pamięci lub nie można rejestrować informacji. Jeśli dane, które mają być rejestrowane, są większe niż 64 KB, należy je zapisać w usłudze BLOB Storage przy użyciu informacji w temacie [zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md).
     
     ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
+    import pickle
+    import json
+    import numpy 
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    from azureml.core.model import Model
+    import time
+
+    def init():
+        global model
+        #Print statement for appinsights custom traces:
+        print ("model initialized" + time.strftime("%H:%M:%S"))
+        
+        # note here "sklearn_regression_model.pkl" is the name of the model registered under the workspace
+        # this call should return the path to the model.pkl file on the local disk.
+        model_path = Model.get_model_path(model_name = 'sklearn_regression_model.pkl')
+        
+        # deserialize the model file back into a sklearn model
+        model = joblib.load(model_path)
+    
+
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+            # Log the input and output data to appinsights:
+            info = {
+                "input": raw_data,
+                "output": result.tolist()
+                }
+            print(json.dumps(info))
+            # you can return any datatype as long as it is JSON-serializable
+            return result.tolist()
+        except Exception as e:
+            error = str(e)
+            print (error + time.strftime("%H:%M:%S"))
+            return error
     ```
 
 2. Aktualizowanie konfiguracji usługi
@@ -117,19 +161,19 @@ Aby ją wyświetlić:
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. Wybierz kartę **Przegląd** , aby wyświetlić podstawowy zestaw metryk dla usługi
+1. Na karcie **Omówienie** lub w sekcji __monitorowanie__ na liście po lewej stronie wybierz pozycję __dzienniki__.
 
-   [![Omówienie](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+    [![Karta Omówienie monitorowania](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. Aby przyjrzeć się metadanych i odpowiedzi na żądanie usługi sieci Web, wybierz tabelę **Requests** w sekcji **Logs (analiza)** i wybierz pozycję **Uruchom** , aby wyświetlić żądania.
+1. Aby wyświetlić informacje zarejestrowane z pliku score.py, zapoznaj się z tabelą __TRACES__ . Następujące zapytanie wyszukuje dzienniki, w których zarejestrowano wartość __wejściową__ :
 
-   [![Modelowanie danych](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+    ```kusto
+    traces
+    | where customDimensions contains "input"
+    | limit 10
+    ```
 
-
-3. Aby zapoznać się ze śladami niestandardowymi, wybierz pozycję **Analiza**
-4. W sekcji schemat wybierz pozycję **ślady**. Następnie wybierz pozycję **Uruchom** , aby uruchomić zapytanie. Dane powinny być wyświetlane w formacie tabeli i powinny być mapowane na niestandardowe wywołania w pliku oceniania
-
-   [![Niestandardowe ślady](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![dane śledzenia](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 Aby dowiedzieć się więcej na temat korzystania z usługi Azure Application Insights, zobacz [co to jest Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
@@ -138,14 +182,14 @@ Aby dowiedzieć się więcej na temat korzystania z usługi Azure Application In
 >[!Important]
 > Usługa Azure Application Insights obsługuje tylko eksporty do magazynu obiektów BLOB. Dodatkowe limity tej możliwości eksportu są wymienione w temacie [Eksportowanie danych telemetrycznych z usługi App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Aby wysyłać komunikaty do obsługiwanego konta magazynu, można użyć usługi Azure Application Insights " [eksport ciągły](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) ", w której można ustawić dłuższe przechowywanie. `"model_data_collection"` Komunikaty są przechowywane w formacie JSON i można je łatwo przeanalizować w celu wyodrębnienia danych modelu. 
+Aby wysyłać komunikaty do obsługiwanego konta magazynu, można użyć usługi Azure Application Insights " [eksport ciągły](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) ", w której można ustawić dłuższe przechowywanie. Dane są przechowywane w formacie JSON i można je łatwo przeanalizować w celu wyodrębnienia danych modelu. 
 
 Azure Data Factory, potoki Azure ML lub inne narzędzia do przetwarzania danych mogą służyć do przekształcania danych zgodnie z wymaganiami. Po przeniesieniu danych można zarejestrować je w obszarze roboczym Azure Machine Learning jako zestaw danych. Aby to zrobić, zobacz [jak utworzyć i zarejestrować zestawy danych](how-to-create-register-datasets.md).
 
    [![Eksport ciągły](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
 
 
-## <a name="example-notebook"></a>Przykładowy Notes
+## <a name="example-notebook"></a>Przykładowy notes
 
 W notesie [enable-App-Insights-in-Product-Service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) przedstawiono Koncepcje opisane w tym artykule. 
  

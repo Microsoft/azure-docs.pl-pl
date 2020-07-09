@@ -7,24 +7,24 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: overview
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: 1291563a39e3cf3acd4b343302be8b150bf794ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 95bd7b5ac325ef5484bd01284c46489acb919a32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80883512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830353"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Używanie identyfikatorów URI przekierowania z biblioteką uwierzytelniania firmy Microsoft dla systemów iOS i macOS
 
 Po uwierzytelnieniu użytkownika usługa Azure Active Directory (Azure AD) wysyła token do aplikacji przy użyciu identyfikatora URI przekierowania zarejestrowanego w aplikacji usługi Azure AD.
 
-Biblioteka Microsoft Authentication Library (MSAL) wymaga, aby identyfikator URI przekierowania był zarejestrowany w aplikacji usługi Azure AD w określonym formacie. MSAL używa domyślnego identyfikatora URI przekierowania, jeśli nie zostanie on określony. Format to `msauth.[Your_Bundle_Id]://auth`.
+Biblioteka Microsoft Authentication Library (MSAL) wymaga, aby identyfikator URI przekierowania był zarejestrowany w aplikacji usługi Azure AD w określonym formacie. MSAL używa domyślnego identyfikatora URI przekierowania, jeśli nie zostanie on określony. Format to `msauth.[Your_Bundle_Id]://auth` .
 
 Domyślny format URI przekierowania działa w przypadku większości aplikacji i scenariuszy, w tym uwierzytelniania obsługiwanego przez brokera i widoku sieci Web systemu. Użyj domyślnego formatu, jeśli jest to możliwe.
 
@@ -36,14 +36,16 @@ Jednak może zajść potrzeba zmiany identyfikatora URI przekierowania dla zaawa
 
 Aby platforma tożsamości firmy Microsoft mogła udostępniać tokeny w aplikacjach, każda aplikacja musi mieć ten sam identyfikator klienta lub identyfikator aplikacji. Jest to unikatowy identyfikator podany podczas rejestrowania aplikacji w portalu (nie identyfikator pakietu aplikacji, który rejestruje się na aplikację przy użyciu firmy Apple).
 
-Identyfikatory URI przekierowania muszą być różne dla każdej aplikacji systemu iOS. Dzięki temu usługa tożsamości firmy Microsoft może jednoznacznie identyfikować różne aplikacje, które współużytkują identyfikator aplikacji. Każda aplikacja może mieć wiele identyfikatorów URI przekierowania zarejestrowanych w Azure Portal. Każda aplikacja w Twoim pakiecie będzie miała inny identyfikator URI przekierowania. Przykład:
+Identyfikatory URI przekierowania muszą być różne dla każdej aplikacji systemu iOS. Dzięki temu usługa tożsamości firmy Microsoft może jednoznacznie identyfikować różne aplikacje, które współużytkują identyfikator aplikacji. Każda aplikacja może mieć wiele identyfikatorów URI przekierowania zarejestrowanych w Azure Portal. Każda aplikacja w Twoim pakiecie będzie miała inny identyfikator URI przekierowania. Na przykład:
 
 Uwzględniając następujące zarejestrowane aplikacje w Azure Portal:
 
-    Client ID: ABCDE-12345 (this is a single client ID)
-    RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
+* Identyfikator klienta: `ABCDE-12345` (jest to pojedynczy identyfikator klienta)
+* RedirectUris: `msauth.com.contoso.app1://auth` , `msauth.com.contoso.app2://auth` ,`msauth.com.contoso.app3://auth`
 
-APP1 używa przekierowania `msauth.com.contoso.app1://auth` APP2 `msauth.com.contoso.app2://auth` używa APP3`msauth.com.contoso.app1://auth`
+APP1 używa przekierowania `msauth.com.contoso.app1://auth` . \
+App2 używa `msauth.com.contoso.app2://auth` . \
+APP3 używa `msauth.com.contoso.app1://auth` .
 
 ### <a name="migrating-from-adal-to-msal"></a>Migrowanie z biblioteki ADAL do MSAL
 
@@ -53,11 +55,11 @@ Podczas migrowania kodu, który używał biblioteki Azure AD Authentication Libr
 
 * Identyfikator URI przekierowania MSAL musi mieć postać`<scheme>://host`
 
-    Gdzie `<scheme>` jest unikatowym ciągiem identyfikującym aplikację. Jest on głównie oparty na identyfikatorze pakietu aplikacji w celu zagwarantowania unikalności. Jeśli na przykład identyfikator pakietu aplikacji to `com.contoso.myapp`, identyfikator URI przekierowania będzie miał postać:. `msauth.com.contoso.myapp://auth`
+    Gdzie `<scheme>` jest unikatowym ciągiem identyfikującym aplikację. Jest on głównie oparty na identyfikatorze pakietu aplikacji w celu zagwarantowania unikalności. Jeśli na przykład identyfikator pakietu aplikacji to `com.contoso.myapp` , identyfikator URI przekierowania będzie miał postać: `msauth.com.contoso.myapp://auth` .
 
-    Jeśli przeprowadzasz migrację z biblioteki ADAL, identyfikator URI przekierowania prawdopodobnie będzie miał `<scheme>://[Your_Bundle_Id]`następujący format `scheme` :, gdzie jest unikatowym ciągiem. Ten format będzie nadal działał w przypadku korzystania z MSAL.
+    Jeśli przeprowadzasz migrację z biblioteki ADAL, identyfikator URI przekierowania prawdopodobnie będzie miał następujący format: `<scheme>://[Your_Bundle_Id]` , gdzie `scheme` jest unikatowym ciągiem. Ten format będzie nadal działał w przypadku korzystania z MSAL.
 
-* `<scheme>`musi być zarejestrowany w info. plist `CFBundleURLTypes > CFBundleURLSchemes`aplikacji.  W tym przykładzie został otwarty program info. plist jako kod źródłowy:
+* `<scheme>`musi być zarejestrowany w info. plist `CFBundleURLTypes > CFBundleURLSchemes` aplikacji.  W tym przykładzie został otwarty program info. plist jako kod źródłowy:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -70,15 +72,14 @@ Podczas migrowania kodu, który używał biblioteki Azure AD Authentication Libr
         </dict>
     </array>
     ```
-    
 
 MSAL sprawdzi, czy identyfikator URI przekierowania prawidłowo rejestruje i zwróci błąd, jeśli nie jest.
     
-* Jeśli chcesz używać linków uniwersalnych jako identyfikatora URI przekierowania, `<scheme>` musi być `https` i nie musi być zadeklarowany w. `CFBundleURLSchemes` Zamiast tego należy skonfigurować aplikacje i domenę na podstawie instrukcji firmy Apple w obszarze [uniwersalne linki dla deweloperów](https://developer.apple.com/ios/universal-links/) i `handleMSALResponse:sourceApplication:` wywołać metodę `MSALPublicClientApplication` , gdy aplikacja zostanie otwarta przy użyciu uniwersalnego łącza.
+* Jeśli chcesz używać linków uniwersalnych jako identyfikatora URI przekierowania, `<scheme>` musi być `https` i nie musi być zadeklarowany w `CFBundleURLSchemes` . Zamiast tego należy skonfigurować aplikacje i domenę na podstawie instrukcji firmy Apple w obszarze [uniwersalne linki dla deweloperów](https://developer.apple.com/ios/universal-links/) i wywołać `handleMSALResponse:sourceApplication:` metodę, `MSALPublicClientApplication` gdy aplikacja zostanie otwarta przy użyciu uniwersalnego łącza.
 
 ## <a name="use-a-custom-redirect-uri"></a>Użyj niestandardowego identyfikatora URI przekierowania
 
-Aby użyć niestandardowego identyfikatora URI przekierowania, Przekaż `redirectUri` parametr do `MSALPublicClientApplicationConfig` i przekaż ten obiekt do `MSALPublicClientApplication` momentu zainicjowania obiektu. Jeśli identyfikator URI przekierowania jest nieprawidłowy, inicjator zwróci `nil` i ustawi `redirectURIError`dodatkowe informacje.  Przykład:
+Aby użyć niestandardowego identyfikatora URI przekierowania, Przekaż `redirectUri` parametr do `MSALPublicClientApplicationConfig` i przekaż ten obiekt do `MSALPublicClientApplication` momentu zainicjowania obiektu. Jeśli identyfikator URI przekierowania jest nieprawidłowy, inicjator zwróci `nil` i ustawi `redirectURIError` dodatkowe informacje.  Na przykład:
 
 Cel-C:
 

@@ -4,15 +4,15 @@ description: Użyj aparatu reguł dla programu Microsoft Standard Azure Content 
 services: cdn
 author: asudbring
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: allensu
-ms.openlocfilehash: 91a442573139bf4fdd09978290bf2380c8bcb97e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c596bf10d8afbce504b5abf04eacb877989521a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887530"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Skonfiguruj aparat reguł standardowych dla Azure CDN
 

@@ -9,13 +9,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
+- tracking-python
 ms.date: 11/05/2019
-ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 120708cc72117495e6200f41f13422e94a58c265
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010855"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84556482"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Szybki Start: Tworzenie aplikacji w języku Python korzystającej z usługi Azure cache for Redis
 
@@ -41,7 +42,7 @@ W poniższym przykładzie użyto *PIP3* for Python 3 do zainstalowania *Redis-PR
 
 ## <a name="read-and-write-to-the-cache"></a>Odczytywanie i zapisywanie w pamięci podręcznej
 
-Uruchom Język Python z wiersza polecenia i przetestuj pamięć podręczną przy użyciu następującego kodu. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać * \<nazwa DNS>. Redis.cache.Windows.NET*.
+Uruchom Język Python z wiersza polecenia i przetestuj pamięć podręczną przy użyciu następującego kodu. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać * \<DNS name> . Redis.cache.Windows.NET*.
 
 ```python
 >>> import redis
@@ -58,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Tworzenie przykładowej aplikacji w języku Python
 
-Utwórz nowy plik tekstowy, Dodaj następujący skrypt i Zapisz plik jako *PythonApplication1.py*. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać * \<nazwa DNS>. Redis.cache.Windows.NET*.
+Utwórz nowy plik tekstowy, Dodaj następujący skrypt i Zapisz plik jako *PythonApplication1.py*. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać * \<DNS name> . Redis.cache.Windows.NET*.
 
 ```python
 import redis

@@ -8,50 +8,37 @@ author: mlearned
 ms.author: mlearned
 description: Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: c017e9422733069ffd93f6dff72ecb884da057c4
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111273"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie
 
-Użyj Azure Policy, aby wymusić `Microsoft.Kubernetes/connectedclusters` , że każdy lub zasób z włączoną obsługą git-Ops `Microsoft.ContainerService/managedClusters` został określony `Microsoft.KubernetesConfiguration/sourceControlConfigurations` .  Aby użyć Azure Policy należy wybrać istniejącą definicję zasad i utworzyć przypisanie zasad.  Podczas tworzenia przypisania zasad należy ustawić zakres przypisania: będzie to grupa zasobów platformy Azure lub subskrypcja.  Należy również ustawić parametry `sourceControlConfiguration` , które zostaną utworzone.  Po utworzeniu przypisania aparat zasad zidentyfikuje wszystkie `connectedCluster` lub `managedCluster` zasoby, które znajdują się w zakresie i zastosuje `sourceControlConfiguration` do każdego z nich.
+Użyj Azure Policy, aby wymusić, że dla każdego zasobu `Microsoft.Kubernetes/connectedclusters` lub dla zasobu z włączoną obsługą operacji git-Ops `Microsoft.ContainerService/managedClusters` `Microsoft.KubernetesConfiguration/sourceControlConfigurations` zastosowano konkretną funkcję. Aby użyć Azure Policy należy wybrać istniejącą definicję zasad i utworzyć przypisanie zasad. Podczas tworzenia przypisania zasad należy ustawić zakres przypisania: będzie to grupa zasobów platformy Azure lub subskrypcja. Należy również ustawić parametry `sourceControlConfiguration` , które zostaną utworzone. Po utworzeniu przypisania aparat zasad zidentyfikuje wszystkie `connectedCluster` lub `managedCluster` zasoby, które znajdują się w zakresie i zastosuje `sourceControlConfiguration` do każdego z nich.
 
 Jeśli używasz wielu repozytoriów Git jako źródeł prawdy dla każdego klastra (na przykład jedno repozytorium dla operatora centralnego IT/klastra i innych repozytoriów dla zespołów aplikacji), możesz je włączyć przy użyciu wielu przypisań zasad, każde przypisanie zasad skonfigurowane do korzystania z innego repozytorium git.
-
-## <a name="create-a-custom-policy-definition"></a>Tworzenie niestandardowej definicji zasad
-
-1. W Azure Portal przejdź do zasad i w sekcji **Tworzenie** na pasku bocznym wybierz pozycję **definicje**.
-2. Wybierz pozycję **+ Definicja zasad**.
-3. Ustaw **lokalizację definicji** na subskrypcję lub grupę zarządzania.  Spowoduje to określenie najszerszego zakresu, w którym można użyć definicji zasad.
-4. Podaj **nazwę** i **Opis**zasad.
-5. W obszarze Kategoria wybierz kolejno pozycje **Utwórz nowy**i Zapisz *klaster Kubernetes — Azure Arc*
-6. W polu edycji **reguły zasad** Skopiuj/wklej zawartość tej [przykładowej definicji zasad](https://raw.githubusercontent.com/Azure/arc-k8s-demo/master/policy/Ensure-GitOps-configuration-for-Kubernetes-cluster.json).
-7. **Zapisz**.
-
-Ten krok tworzenia niestandardowej definicji zasad nie będzie konieczny po zakończeniu pracy, aby wykonać to wbudowane zasady.
 
 ## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
 1. W Azure Portal przejdź do zasad i w sekcji **Tworzenie** na pasku bocznym wybierz pozycję **definicje**.
-2. Znajdź utworzoną przez siebie definicję i wybierz ją.
-3. Na stronie Akcje wybierz pozycję **Przypisz**.
-4. Ustaw **zakres** dla grupy zarządzania, subskrypcji lub grupy zasobów, w której będą stosowane przypisania zasad.
-5. Jeśli chcesz wykluczyć wszystkie zasoby z zakresu zasad, ustaw **wykluczenia**.
-6. Nadaj zasadom **nazwę** i **Opis** , których można użyć do łatwego identyfikowania.
-7. Upewnij się, że **wymuszanie zasad** jest ustawione na *włączone*.
-8. Wybierz pozycję **Dalej**.
-9. Ustaw wartości parametrów, które będą używane podczas tworzenia `sourceControlConfiguration` .
-10. Wybierz pozycję **Dalej**.
-11. Włącz **zadanie tworzenia korygowania**.
-12. Należy upewnić się, że jest zaznaczona opcja **Utwórz tożsamość zarządzaną** oraz że tożsamość będzie mieć uprawnienia **współautora** .  Zobacz [ten dokument](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) i [komentarz w tym dokumencie](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) , aby uzyskać więcej informacji na temat potrzebnych uprawnień.
-13. Wybierz pozycję **Przegląd + utwórz**.
+2. Wybierz wbudowane zasady "wdróż GitOps do Kubernetes Cluster" w kategorii "Kubernetes", a następnie kliknij przycisk **Assign (Przypisz**).
+3. Ustaw **zakres** dla grupy zarządzania, subskrypcji lub grupy zasobów, w której będą stosowane przypisania zasad.
+4. Jeśli chcesz wykluczyć wszystkie zasoby z zakresu zasad, ustaw **wykluczenia**.
+5. Nadaj zasadom **nazwę** i **Opis** , których można użyć do łatwego identyfikowania.
+6. Upewnij się, że **wymuszanie zasad** jest ustawione na *włączone*.
+7. Wybierz opcję **Dalej**.
+8. Ustaw wartości parametrów, które będą używane podczas tworzenia `sourceControlConfiguration` .
+9. Wybierz opcję **Dalej**.
+10. Włącz **zadanie tworzenia korygowania**.
+11. Należy upewnić się, że jest zaznaczona opcja **Utwórz tożsamość zarządzaną** oraz że tożsamość będzie mieć uprawnienia **współautora** . Zobacz [ten dokument](../../governance/policy/assign-policy-portal.md) i [komentarz w tym dokumencie](../../governance/policy/how-to/remediate-resources.md) , aby uzyskać więcej informacji na temat potrzebnych uprawnień.
+12. Wybierz pozycję **Przegląd + utwórz**.
 
-Po utworzeniu przypisania zasad dla każdego nowego `connectedCluster` zasobu (lub `managedCluster` zasobu z zainstalowanymi agentami GitOps), który znajduje się w zakresie przypisania, `sourceControlConfiguration` zostanie zastosowane.  W przypadku istniejących klastrów należy ręcznie uruchomić zadanie korygowania.  Przydzielenie zasad zwykle trwa od 10-20 minut.
+Po utworzeniu przypisania zasad dla każdego nowego `connectedCluster` zasobu (lub `managedCluster` zasobu z zainstalowanymi agentami GitOps), który znajduje się w zakresie przypisania, `sourceControlConfiguration` zostanie zastosowane. W przypadku istniejących klastrów należy ręcznie uruchomić zadanie korygowania. Przydzielenie zasad zwykle trwa od 10-20 minut.
 
 ## <a name="verify-a-policy-assignment"></a>Weryfikowanie przypisania zasad
 
@@ -64,4 +51,4 @@ Po utworzeniu przypisania zasad dla każdego nowego `connectedCluster` zasobu (l
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Skonfiguruj Azure Monitor dla kontenerów z włączonymi Kubernetes klastrami](./deploy-azure-monitor-for-containers.md)
+* [Skonfiguruj Azure Monitor dla kontenerów z włączonymi Kubernetes klastrami](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)

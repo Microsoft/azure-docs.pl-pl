@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: c3b514c79be87cd136375b4853226426965f4185
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311215"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456797"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Wybieranie i wdrażanie agenta zabezpieczeń na urządzeniu IoT
 
@@ -44,9 +43,9 @@ Agent zabezpieczeń oparty na języku C ma mniejszą ilość pamięci i jest ide
 
 |     | Agent zabezpieczeń oparty na języku C | Agent zabezpieczeń oparty na języku C# |
 | --- | ----------- | --------- |
-| Open Source | Dostępne w ramach [licencji MIT](https://en.wikipedia.org/wiki/MIT_License) w serwisie [GitHub](https://aka.ms/iot-security-github-cs) | Dostępne w ramach [licencji MIT](https://en.wikipedia.org/wiki/MIT_License) w serwisie [GitHub](https://aka.ms/iot-security-github-c) |
-| Języka programowania    | C | C# |
-| Obsługiwane platformy Windows? | Nie | Tak |
+| Open Source | Dostępne w ramach [licencji MIT](https://en.wikipedia.org/wiki/MIT_License) w serwisie [GitHub](https://aka.ms/iot-security-github-c) | Dostępne w ramach [licencji MIT](https://en.wikipedia.org/wiki/MIT_License) w serwisie [GitHub](https://aka.ms/iot-security-github-cs) |
+| Język programowania    | C | C# |
+| Obsługiwane platformy Windows? | Nie | Yes |
 | Wymagania wstępne systemu Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Obsługiwane platformy Linux? | Tak, x64 i x86 | Tak, tylko x64 |
 | Wymagania wstępne systemu Linux | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins, sudo, netstat, dołączenie iptables |
@@ -60,7 +59,7 @@ Agent zabezpieczeń oparty na języku C ma mniejszą ilość pamięci i jest ide
 
 ## <a name="security-agent-installation-guidelines"></a>Wskazówki dotyczące instalacji agenta zabezpieczeń
 
-Dla **systemu Windows**: skrypt install SecurityAgent. ps1 musi zostać wykonany z okna programu PowerShell administratora.
+Dla **systemu Windows**: skrypt instalacji SecurityAgent.ps1 musi zostać wykonany z okna programu PowerShell administratora.
 
 Dla systemu **Linux**: InstallSecurityAgent.sh musi być uruchomiona jako administratora. Zalecamy prefiks polecenia instalacji z "sudo".
 

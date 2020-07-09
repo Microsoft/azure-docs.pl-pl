@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658714"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opcje konwersji Azure Monitor View na skoroszyty
@@ -20,12 +19,12 @@ ms.locfileid: "77658714"
 
 Projektant widoków ma stały statyczny styl reprezentacji, podczas gdy skoroszyty umożliwiają swobodne dołączanie i modyfikowanie sposobu reprezentowania danych. Poniższe obrazy przedstawiają dwa przykłady, w których można rozmieścić skoroszyty podczas konwertowania widoków.
 
-[Skoroszyt pionowy](view-designer-conversion-examples.md#vertical)
-![](media/view-designer-conversion-options/view-designer-vertical.png)
+[Vertical workbook](view-designer-conversion-examples.md#vertical) 
+ Skoroszyt ![ pionowy Pionow](media/view-designer-conversion-options/view-designer-vertical.png)
 
-[Tabbed workbook](view-designer-conversion-examples.md#tabbed)
-![Karta rozkład](media/view-designer-conversion-options/distribution-tab.png)
-typów![danych w arkuszu z kartami w karcie czas](media/view-designer-conversion-options/over-time-tab.png)
+[Tabbed workbook](view-designer-conversion-examples.md#tabbed) 
+ Skoroszyt ![ z kartami Dane karty rozkładu ](media/view-designer-conversion-options/distribution-tab.png)
+ ![ typów danych w karcie czas](media/view-designer-conversion-options/over-time-tab.png)
 
 ## <a name="tile-conversion"></a>Konwersja kafelka
 Projektant widoków używa funkcji kafelka przeglądu do reprezentowania i podsumowywania ogólnego stanu. Są one reprezentowane w siedmiu kafelkach, od liczb do wykresów. W skoroszytach użytkownicy mogą tworzyć podobne wizualizacje i przypinać je do oryginalnego stylu kafelków przegląd. 

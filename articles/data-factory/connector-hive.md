@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3720d917d71fa4e8c5a14bb60fdc7c405be4bfdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987052"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z usługi Hive przy użyciu Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,14 +47,14 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące właściwości, 
 
 Następujące właściwości są obsługiwane dla połączonej usługi Hive:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość: **Hive** | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość: **Hive** | Tak |
 | host | Adres IP lub nazwa hosta serwera Hive, oddzielona znakiem ";" dla wielu hostów (tylko po włączeniu funkcji ServiceDiscoveryMode).  | Tak |
 | port | Port TCP, którego serwer Hive używa do nasłuchiwania połączeń klientów. W przypadku nawiązywania połączenia z usługą Azure HDInsight określ port jako 443. | Tak |
 | serverType | Typ serwera Hive. <br/>Dozwolone wartości to: **HiveServer1**, **serwera hiveserver2**, **HiveThriftServer** | Nie |
 | thriftTransportProtocol | Protokół transportowy do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, **http** | Nie |
-| authenticationType | Metoda uwierzytelniania używana do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **Anonymous**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Tak |
+| authenticationType | Metoda uwierzytelniania używana do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **Anonymous**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Uwierzytelnianie Kerberos nie jest teraz obsługiwane. | Tak |
 | ServiceDiscoveryMode | wartość true oznacza użycie usługi dozorcy.  | Nie |
 | zooKeeperNameSpace | Przestrzeń nazw na dozorcy, w której dodawane są węzły serwera Hive 2.  | Nie |
 | useNativeQuery | Określa, czy sterownik używa natywnych zapytań HiveQL, czy konwertuje je do równoważnej formy w HiveQL.  | Nie |
@@ -96,14 +95,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Hive, ustaw właściwość Type zestawu danych na **hiveobject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **hiveobject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **hiveobject** | Tak |
 | schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tableName | Nazwa tabeli, w tym część schematu. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table`. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
+| tableName | Nazwa tabeli, w tym część schematu. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -128,9 +127,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Hive, ustaw typ źródła w działaniu Copy na **HiveSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HiveSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HiveSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

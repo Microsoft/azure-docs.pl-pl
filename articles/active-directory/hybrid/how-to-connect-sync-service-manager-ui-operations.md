@@ -11,18 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474000d1d4d7e1358682d1421125d482e3782049
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 64ab5901ad54e37fc05d7da757ce7f31d42fe3b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60381430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357107"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Korzystanie z karty operacje Service Manager synchronizacji
 
@@ -39,8 +39,8 @@ Kolumna **stan** jest najważniejszymi informacjami i pokazuje najbardziej powa�
 | --- | --- |
 | przerwać\* |Nie można ukończyć przebiegu. Na przykład jeśli system zdalny nie działa i nie można się z nim skontaktować. |
 | Zatrzymano — limit błędów |Występuje więcej niż 5 000 błędów. Przebieg został automatycznie zatrzymany z powodu dużej liczby błędów. |
-| ukończono —\*błędy |Ukończono przebieg, ale wystąpiły błędy (mniej niż 5 000), które powinny zostać zbadane. |
-| ukończone —\*ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Dopóki nie zostaną rozkierowane błędy, nie należy badać ostrzeżeń. |
+| ukończono — \* Błędy |Ukończono przebieg, ale wystąpiły błędy (mniej niż 5 000), które powinny zostać zbadane. |
+| ukończone — \* ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Dopóki nie zostaną rozkierowane błędy, nie należy badać ostrzeżeń. |
 | powodzenie |Brak problemów. |
 
 Po wybraniu wiersza Dolna aktualizacja pokazuje szczegóły tego uruchomienia. Na końcu z lewej strony możesz wyświetlić listę z informacją o **kroku #**. Ta lista pojawia się tylko wtedy, gdy w lesie istnieje wiele domen, w których każda domena jest reprezentowana przez krok. Nazwę domeny można znaleźć pod **partycją**nagłówka. W obszarze **Statystyka synchronizacji**można znaleźć więcej informacji na temat liczby przetworzonych zmian. Możesz kliknąć linki, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane w obszarze **Błędy synchronizacji**.

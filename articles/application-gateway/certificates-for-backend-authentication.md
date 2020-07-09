@@ -5,15 +5,15 @@ description: W tym artykule przedstawiono przykłady sposobu konwertowania certy
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 20f588639c54b0a8b7cd304f33b5a9d633a73be6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976544"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Tworzenie certyfikatów w celu zezwalania na zaplecze przy użyciu usługi Azure Application Gateway
 
@@ -54,7 +54,7 @@ Z certyfikatu TLS/SSL wyeksportuj plik. cer klucza publicznego (nie klucz prywat
 
 5. W polu **plik do wyeksportowania** **Przejdź** do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **dalej**.
 
-   ![Browse](./media/certificates-for-backend-authentication/browse.png)
+   ![Przeglądaj](./media/certificates-for-backend-authentication/browse.png)
 
 6. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat.
 
@@ -74,11 +74,11 @@ Z certyfikatu TLS/SSL wyeksportuj plik. cer klucza publicznego (nie klucz prywat
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Eksportuj zaufany certyfikat główny (dla jednostki SKU v2)
 
-Zaufany certyfikat główny jest wymagany do dozwolonych wystąpień zaplecza w jednostce SKU bramy aplikacji w wersji 2. Certyfikat główny to podstawowy-64 zakodowany X. 509 (. CER) format certyfikatu głównego z certyfikatów serwera wewnętrznej bazy danych. W tym przykładzie użyjemy certyfikatu TLS/SSL dla certyfikatu zaplecza, Eksportuj swój klucz publiczny, a następnie wyeksportuj certyfikat główny zaufanego urzędu certyfikacji z klucza publicznego w formacie zakodowanym algorytmem Base64, aby uzyskać zaufany certyfikat główny. Certyfikaty pośrednie powinny być powiązane z certyfikatem serwera i instalowane na serwerze wewnętrznej bazy danych.
+Zaufany certyfikat główny jest wymagany do zezwalania na wystąpienia zaplecza w jednostce SKU bramy aplikacji w wersji 2. Certyfikat główny to podstawowy-64 zakodowany X. 509 (. CER) format certyfikatu głównego z certyfikatów serwera wewnętrznej bazy danych. W tym przykładzie użyjemy certyfikatu TLS/SSL dla certyfikatu zaplecza, Eksportuj swój klucz publiczny, a następnie wyeksportuj certyfikat główny zaufanego urzędu certyfikacji z klucza publicznego w formacie zakodowanym algorytmem Base64, aby uzyskać zaufany certyfikat główny. Certyfikaty pośrednie powinny być powiązane z certyfikatem serwera i instalowane na serwerze wewnętrznej bazy danych.
 
 Poniższe kroki ułatwiają wyeksportowanie pliku CER dla certyfikatu:
 
-1. Aby wyeksportować klucz publiczny z certyfikatu zaplecza, należy wykonać kroki 1-9 wymienione w sekcji **Eksportowanie certyfikatu uwierzytelniania z certyfikatu wewnętrznej bazy danych (dla jednostki SKU v1)** .
+1. Aby wyeksportować klucz publiczny z certyfikatu wewnętrznej bazy danych, należy wykonać kroki 1-8 opisane w poprzedniej sekcji. Wyeksportuj [certyfikat uwierzytelniania (dla jednostki SKU w wersji 1)](#export-authentication-certificate-for-v1-sku) .
 
 2. Po wyeksportowaniu klucza publicznego Otwórz plik.
 
@@ -106,5 +106,5 @@ Poniższe kroki ułatwiają wyeksportowanie pliku CER dla certyfikatu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz masz certyfikat uwierzytelniania/zaufany certyfikat główny w Base-64 zakodowany X. 509 (. CER). Można dodać to do bramy aplikacji, aby dozwolonych serwery wewnętrznej bazy danych w celu kompleksowego szyfrowania TLS. Zobacz [Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Teraz masz certyfikat uwierzytelniania/zaufany certyfikat główny w Base-64 zakodowany X. 509 (. CER). Można dodać to do bramy aplikacji, aby umożliwić serwerom zaplecza kompleksowe szyfrowanie TLS. Zobacz [Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

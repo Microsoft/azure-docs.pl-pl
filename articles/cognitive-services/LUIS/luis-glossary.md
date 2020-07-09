@@ -3,12 +3,12 @@ title: Słownik — LUIS
 description: Słownik objaśnia warunki, które mogą wystąpić podczas pracy z usługą interfejsu API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681619"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056382"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
 W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą LUIS.
@@ -38,11 +38,11 @@ Tworzenie umożliwia tworzenie i wdrażanie aplikacji LUIS oraz zarządzanie ni�
 
 ### <a name="authoring-key"></a>Klucz tworzenia
 
-[Klucz autorstwo](luis-concept-keys.md) służy do tworzenia aplikacji. Nieużywane dla zapytań punktów końcowych na poziomie produkcyjnym. Aby uzyskać więcej informacji, zobacz [limity kluczy](luis-limits.md#key-limits).
+[Klucz autorstwo](luis-how-to-azure-subscription.md) służy do tworzenia aplikacji. Nieużywane dla zapytań punktów końcowych na poziomie produkcyjnym. Aby uzyskać więcej informacji, zobacz [limity kluczy](luis-limits.md#key-limits).
 
 ### <a name="authoring-resource"></a>Tworzenie zasobu
 
-[Zasób autorstwa](luis-concept-keys.md#azure-resources-for-luis) Luis jest elementem możliwym do zarządzania, który jest dostępny za pomocą platformy Azure. Zasób to dostęp do skojarzonych możliwości tworzenia, uczenia i publikowania usługi platformy Azure. Zasób obejmuje informacje o uwierzytelnianiu, autoryzacji i zabezpieczeniach potrzebne do uzyskania dostępu do skojarzonej usługi platformy Azure.
+[Zasób autorstwa](luis-how-to-azure-subscription.md#azure-resources-for-luis) Luis jest elementem możliwym do zarządzania, który jest dostępny za pomocą platformy Azure. Zasób to dostęp do skojarzonych możliwości tworzenia, uczenia i publikowania usługi platformy Azure. Zasób obejmuje informacje o uwierzytelnianiu, autoryzacji i zabezpieczeniach potrzebne do uzyskania dostępu do skojarzonej usługi platformy Azure.
 
 Zasób tworzenia ma "rodzaj" platformy Azure `LUIS-Authoring` .
 
@@ -234,7 +234,7 @@ Prognoza to żądanie REST do usługi predykcyjnej Azure LUIS, która przyjmuje 
 
 ### <a name="prediction-key"></a>Klucz predykcyjny
 
-[Klucz predykcyjny](luis-concept-keys.md) (wcześniej znany jako klucz subskrypcji) to klucz skojarzony z usługą Luis utworzoną na platformie Azure, która autoryzuje użycie punktu końcowego przewidywania.
+[Klucz predykcyjny](luis-how-to-azure-subscription.md) (wcześniej znany jako klucz subskrypcji) to klucz skojarzony z usługą Luis utworzoną na platformie Azure, która autoryzuje użycie punktu końcowego przewidywania.
 
 Ten klucz nie jest kluczem autorskim. Jeśli masz klucz punktu końcowego przewidywania, powinien on być używany w przypadku żądań punktu końcowego zamiast klucza tworzenia. Bieżący klucz przewidywania można zobaczyć w adresie URL punktu końcowego w dolnej części strony zasobów platformy Azure w witrynie sieci Web LUIS. Jest to wartość pary nazwa/wartość klucza subskrypcji.
 
@@ -258,7 +258,7 @@ Zmieniono nazwę [klucza tworzenia](#authoring-key).
 
 [Opublikowanie](luis-how-to-publish-app.md) oznacza, że dostępna jest Luis aktywna wersja na etapie przejściowym [lub produkcyjnym](#endpoint).
 
-## <a name="quota"></a>Limit przydziału
+## <a name="quota"></a>limit przydziału
 
 Limit przydziału LUIS to ograniczenie warstwy subskrypcji platformy Azure. Limit przydziału LUIS może być ograniczony przez oba żądania na sekundę (stan HTTP 429) i łączne żądania w miesiącu (stan HTTP 403).
 
@@ -290,7 +290,7 @@ W [jednostkach listy](reference-entity-list.md)Luis można utworzyć znormalizow
 
 Model zwróci wartość znormalizowaną dla jednostki, gdy którykolwiek z synonimów jest widoczny w danych wejściowych.
 
-## <a name="test"></a>Testuj
+## <a name="test"></a>Testowanie
 
 [Testowanie](luis-concept-test.md) aplikacji Luis oznacza przeglądanie prognoz modeli.
 
@@ -305,7 +305,7 @@ Zobacz [Zmiana strefy czasowej prekompilowanej jednostki datetimeV2](luis-concep
 
 W przypadku **języka angielskiego**token jest ciągłym zakresem (bez spacji i znaków interpunkcyjnych) liter i cyfr. Spacja nie jest tokenem.
 
-|R40|Liczba tokenów|Wyjaśnienie|
+|R40|Liczba tokenów|Objaśnienie|
 |--|--|--|
 |`Dog`|1|Pojedynczy wyraz bez znaków interpunkcyjnych ani spacji.|
 |`RMT33W`|1|Numer lokalizatora rekordu. Może zawierać cyfry i litery, ale nie ma żadnych znaków interpunkcyjnych.|

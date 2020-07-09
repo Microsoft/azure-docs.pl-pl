@@ -5,16 +5,15 @@ description: Rozwiązywanie problemów z wyjątkami modułu w programie Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: 2e84d2f7c1a45f1ef18e5dc32b58d75bb17e2516
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213758"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Wyjątki i kody błędów dla projektanta (wersja zapoznawcza)
 
@@ -22,9 +21,9 @@ W tym artykule opisano komunikaty o błędach i kody wyjątków w programie Azur
 
 Komunikat o błędzie można znaleźć w projektancie, wykonując następujące czynności:  
 
-- Wybierz moduł, który zakończył się niepowodzeniem. Przejdź do karty dane **wyjściowe i dzienniki** , aby znaleźć szczegółowy dziennik w pliku **70_driver_log. txt** w kategorii **Logs — dzienniki** .
+- Wybierz moduł, który zakończył się niepowodzeniem. Przejdź do karty dane **wyjściowe i dzienniki** , aby znaleźć szczegółowy dziennik w pliku **70_driver_log.txt** w kategorii **Logs — dzienniki** .
 
-- Szczegóły błędu modułu można sprawdzić w error_info. JSON w obszarze **module_statistics** kategorii.
+- Szczegółowe instrukcje dotyczące błędu modułu można sprawdzić w error_info.jsw obszarze **module_statistics** kategorii.
 
 Poniżej przedstawiono kody błędów modułów w projektancie.
 
@@ -1515,7 +1514,7 @@ Wewnętrzny wyjątek biblioteki.
 
 Ten błąd jest dostarczany w celu przechwycenia nieobsłużonych błędów aparatu wewnętrznego. W związku z tym przyczyny tego błędu mogą się różnić w zależności od modułu, który wygenerował błąd.  
 
-Aby uzyskać dalszą pomoc, zalecamy opublikowanie szczegółowego komunikatu zawierającego błąd do forum Azure Machine Learning, wraz z opisem scenariusza, włącznie z danymi używanymi jako dane wejściowe. Ta opinia pomoże nam określić priorytety błędów i zidentyfikować Najważniejsze problemy w celu dalszej pracy.  
+Aby uzyskać dalszą pomoc, zalecamy opublikowanie szczegółowego komunikatu zawierającego błąd do [forum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), wraz z opisem scenariusza, włącznie z danymi używanymi jako dane wejściowe. Ta opinia pomoże nam określić priorytety błędów i zidentyfikować Najważniejsze problemy w celu dalszej pracy.  
 
 |Komunikaty o wyjątkach|
 |------------------------|

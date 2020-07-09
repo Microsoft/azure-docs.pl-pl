@@ -3,19 +3,18 @@ title: Wymagania dotyczące pakietu rysowania w programie Azure Maps Creator
 description: Dowiedz się więcej o wymaganiach dotyczących pakietów rysowania w celu przekonwertowania plików projektu funkcji na potrzeby mapowania danych przy użyciu usługi konwersji Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 5/18/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681907"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791575"
 ---
-# <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu rysowania
+# <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
 [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. W tym artykule opisano wymagania dotyczące pakietu rysowania dla interfejsu API konwersji. Aby wyświetlić przykładowy pakiet, można pobrać przykładowy [pakiet do rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -34,7 +33,7 @@ Słownik terminów użytych w tym dokumencie.
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
 | Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg) dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
-| Cechy | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
+| Cecha | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
 | Klasy funkcji | Typowy plan dla funkcji. Na przykład jednostka jest klasą funkcji, a pakiet Office jest funkcją. |
 
 ## <a name="drawing-package-structure"></a>Struktura pakietu rysowania
@@ -42,7 +41,7 @@ Słownik terminów użytych w tym dokumencie.
 Pakiet rysowania to archiwum zip, które zawiera następujące pliki:
 
 * Pliki DWG w formacie pliku DWG programu AutoCAD.
-* Plik _manifest. JSON_ dla pojedynczej funkcji.
+* _manifest.jsw_ pliku dla pojedynczej funkcji.
 
 Pliki DWG można organizować w dowolny sposób wewnątrz folderu, ale plik manifestu musi znajdować się w katalogu głównym folderu. Folder musi być spakowany w jednym pliku archiwum z rozszerzeniem zip. W następnych sekcjach opisano wymagania dotyczące plików DWG, pliku manifestu i zawartości tych plików.  
 
@@ -167,14 +166,15 @@ Przykład warstwy Zonelabel może być traktowany jako warstwa ZONELABELS w [prz
 
 ## <a name="manifest-file-requirements"></a>Wymagania dotyczące pliku manifestu
 
-Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest. JSON**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, zostaną zignorowane.
+Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest.jsna**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, zostaną zignorowane.
 
-Ścieżki plików w obiekcie **buildingLevels** pliku manifestu muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 zostałby nazwany jako "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia. 
+Ścieżki plików w obiekcie **buildingLevels** pliku manifestu muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 zostałby nazwany jako "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia.
 
 Chociaż istnieją wymagania dotyczące korzystania z obiektów manifestu, nie wszystkie obiekty są wymagane. W poniższej tabeli przedstawiono wymagane i opcjonalne obiekty w wersji 1,1 [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Obiekt | Wymagane | Opis |
 | :----- | :------- | :------- |
+| version | true |Wersja schematu manifestu. Obecnie obsługiwana jest tylko wersja 1,1.|
 | directoryInfo | true | Przedstawia informacje o lokalizacji geograficznej i kontakcie. Można go również użyć do zaprojektowania geograficznego i informacji kontaktowych. |
 | buildingLevels | true | Określa poziomy budynków i pliki zawierające projekt poziomów. |
 | odwołanie georeferencyjne | true | Zawiera liczbowe informacje geograficzne dla rysowania obiektu. |
@@ -188,14 +188,14 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 
 | Właściwość  | typ | Wymagane | Opis |
 |-----------|------|----------|-------------|
-| name      | ciąg/int | true   |  Nazwa budynku. |
-| streetAddress|    ciąg/int |    fałsz    | Adres budynku. |
-|unit     | ciąg/int    |  fałsz    |  Trwa Kompilowanie. |
-| miejscowość |    ciąg/int |    fałsz |    Nazwa obszaru, klubu lub regionu. Na przykład "przewidziano" lub "Region Centralny". Miejscowość nie jest częścią adresu wysyłkowego. |
+| name      | ciąg | true   |  Nazwa budynku. |
+| streetAddress|    ciąg |    fałsz    | Adres budynku. |
+|unit     | ciąg    |  fałsz    |  Trwa Kompilowanie. |
+| miejscowość |    ciąg |    fałsz |    Nazwa obszaru, klubu lub regionu. Na przykład "przewidziano" lub "Region Centralny". Miejscowość nie jest częścią adresu wysyłkowego. |
 | adminDivisions |    Tablica JSON ciągów |    fałsz     | Tablica zawierająca oznaczenia adresów (kraj, Województwo, miasto) lub (kraj, Prefektura, miasto, miejscowość). Użyj kodów kraju ISO 3166 i kodów stanu/regionu ISO 3166-2. |
-| Pocztowy |    ciąg/int    | fałsz    | Kod sortowania poczty. |
+| Pocztowy |    ciąg    | fałsz    | Kod sortowania poczty. |
 | hoursOfOperation |    ciąg |     fałsz | Stosuje się do formatu [godzin otwarcia OSM](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) . |
-| phone    | ciąg/int |    fałsz |    Numer telefonu skojarzony z kompilowaniem. Musi zawierać kod kraju. |
+| phone    | ciąg |    fałsz |    Numer telefonu skojarzony z kompilowaniem. Musi zawierać kod kraju. |
 | witryna internetowa    | ciąg |    fałsz    | Witryna internetowa skojarzona z kompilowaniem. M zaczyna się od http lub https. |
 | nonPublic |    bool    | fałsz | Flaga określająca, czy kompilacja jest otwarta do publicznej. |
 | anchorLatitude | numeryczne |    fałsz | Szerokość i zakotwiczenie obiektu (pinezki). |
@@ -209,11 +209,11 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 
 | Właściwość  | Typ | Wymagane | Opis |
 |-----------|------|----------|-------------|
-|levelName    |ciąg/int    |true |    Nazwa poziomu w opisie. Na przykład: piętro 1, poczekalni, niebieskie parkingi, Basement i tak dalej.|
+|levelName    |ciąg    |true |    Nazwa poziomu w opisie. Na przykład: piętro 1, poczekalni, niebieskie parkingi, Basement i tak dalej.|
 |liczbą | liczba całkowita |    true | Numer porządkowy jest używany do określenia pionowej kolejności poziomów. Każda funkcja musi mieć poziom z liczbą porządkową 0. |
-|heightAboveFacilityAnchor | numeryczne |    fałsz |    Wysokość poziomu powyżej podłogi podłogowej w metrach. |
+|heightAboveFacilityAnchor | numeryczne | fałsz |    Wysokość poziomu nad kotwicą w metrach. |
 | verticalExtent | numeryczne | fałsz | Podłoga do wysokości sufitu (grubości) poziomu w licznikach. |
-|filename |    ciąg/int |    true |    Ścieżka systemu plików rysunku CAD dla poziomu budynku. Musi być względem katalogu głównego pliku zip budynku. |
+|filename |    ciąg |    true |    Ścieżka systemu plików rysunku CAD dla poziomu budynku. Musi być względem katalogu głównego pliku zip budynku. |
 
 ### <a name="georeference"></a>odwołanie georeferencyjne
 
@@ -227,13 +227,13 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 
 | Właściwość  | Typ | Wymagane | Opis |
 |-----------|------|----------|-------------|
-|Krawężnik    |Tablica ciągów/liczby całkowite|    true|    Nazwy warstw, które definiują zewnętrzny profil budynku.|
-|unit|    Tablica ciągów/liczby całkowite|    true|    Nazwy warstw, które definiują jednostki.|
-|osłon|    Tablica ciągów/liczby całkowite    |fałsz|    Nazwy warstw, które definiują ściany.|
-|drzwi    |Tablica ciągów/liczby całkowite|    fałsz   | Nazwy warstw, które definiują drzwi.|
-|unitLabel    |Tablica ciągów/liczby całkowite|    fałsz    |Nazwy warstw, które definiują nazwy jednostek.|
-|strefa | Tablica ciągów/liczby całkowite    | fałsz    | Nazwy warstw, które definiują strefy.|
-|zoneLabel | Tablica ciągów/liczby całkowite |     fałsz |    Nazwy warstw, które definiują nazwy stref.|
+|Krawężnik    |Tablica ciągów|    true|    Nazwy warstw, które definiują zewnętrzny profil budynku.|
+|unit|    Tablica ciągów|    true|    Nazwy warstw, które definiują jednostki.|
+|osłon|    Tablica ciągów    |fałsz|    Nazwy warstw, które definiują ściany.|
+|drzwi    |Tablica ciągów|    fałsz   | Nazwy warstw, które definiują drzwi.|
+|unitLabel    |Tablica ciągów|    fałsz    |Nazwy warstw, które definiują nazwy jednostek.|
+|strefa | Tablica ciągów    | fałsz    | Nazwy warstw, które definiują strefy.|
+|zoneLabel | Tablica ciągów |     fałsz |    Nazwy warstw, które definiują nazwy stref.|
 
 ### <a name="unitproperties"></a>unitProperties
 
@@ -241,19 +241,19 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 
 | Właściwość  | Typ | Wymagane | Opis |
 |-----------|------|----------|-------------|
-|jednostkaname    |ciąg/int    |true    |Nazwa jednostki do skojarzenia z tym `unitProperty` rekordem. Ten rekord jest prawidłowy tylko wtedy `unitName` , gdy w warstwach znaleziono dopasowanie do etykiet `unitLabel` . |
-|categoryName|    ciąg/int|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
+|jednostkaname    |ciąg    |true    |Nazwa jednostki do skojarzenia z tym `unitProperty` rekordem. Ten rekord jest prawidłowy tylko wtedy `unitName` , gdy w warstwach znaleziono dopasowanie do etykiet `unitLabel` . |
+|categoryName|    ciąg|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Tablica ciągów |    fałsz    |Wskazuje typy agentów nawigacyjnych, które mogą przechodzić przez jednostkę. Na przykład "pies". Ta właściwość będzie informować o możliwościach wayfinding.  Dozwolone wartości to,,,,,,,,,, `pedestrian` `wheelchair` `machine` `bicycle` `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` i `disallowed` .|
 |routeThroughBehavior|    ciąg|    fałsz    |Zachowanie trasy dla jednostki. Dozwolone wartości to `disallowed` , `allowed` , i `preferred` . Wartość domyślna to `allowed` .|
 |osoby    |Tablica obiektów directoryInfo |fałsz    |Lista osób zajmujących się jednostką. |
-|nameAlt|    ciąg/int|    fałsz|    Alternatywna nazwa jednostki. |
-|nameSubtitle|    ciąg/int    |fałsz|    Podtytuł jednostki. |
-|addressRoomNumber|    ciąg/int|    fałsz|    Numer pomieszczenia/jednostki/komórki/zestawu jednostki.|
-|verticalPenetrationCategory|    ciąg/int|    fałsz| Gdy ta właściwość jest zdefiniowana, wynikiem funkcji będzie pionowa penetracja (VRT), a nie jednostka. VRTs można użyć do przechodzenia do innych funkcji VRT na poziomach powyżej lub poniżej. Penetracja pionowa to nazwa [kategorii](https://aka.ms/pa-indoor-spacecategories) . Jeśli ta właściwość jest zdefiniowana, właściwość categoryName jest zastępowana verticalPenetrationCategory. |
+|nameAlt|    ciąg|    fałsz|    Alternatywna nazwa jednostki. |
+|nameSubtitle|    ciąg    |fałsz|    Podtytuł jednostki. |
+|addressRoomNumber|    ciąg|    fałsz|    Numer pomieszczenia/jednostki/komórki/zestawu jednostki.|
+|verticalPenetrationCategory|    ciąg|    fałsz| Gdy ta właściwość jest zdefiniowana, wynikiem funkcji będzie pionowa penetracja (VRT), a nie jednostka. VRTs można użyć do przechodzenia do innych funkcji VRT na poziomach powyżej lub poniżej. Penetracja pionowa to nazwa [kategorii](https://aka.ms/pa-indoor-spacecategories) . Jeśli ta właściwość jest zdefiniowana, właściwość categoryName jest zastępowana verticalPenetrationCategory. |
 |verticalPenetrationDirection|    ciąg|    fałsz    |Jeśli `verticalPenetrationCategory` jest zdefiniowany, opcjonalnie Zdefiniuj prawidłowy kierunek podróży. Dozwolone wartości to `lowToHigh` , `highToLow` , `both` , i `closed` . Wartość domyślna to `both` .|
 | nonPublic | bool | fałsz | Wskazuje, czy jednostka jest otwarta publicznie. |
 | isRoutable | bool | fałsz | Gdy ustawiona `false` jest wartość, nie można przejść do jednostki, lub przez. Wartość domyślna to `true` . |
-| isOpenArea | bool | fałsz | Umożliwia nawigowanie przez agenta w celu przejścia do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na, `true` chyba że jednostka ma otwarte. |
+| isOpenArea | bool | fałsz | Zezwala agentowi nawigacyjnemu na przejście do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na `true` dla jednostek bez otwartych; `false` dla jednostek z otwartymi.  Ręczne ustawienie `isOpenArea` `false` w jednostce bez otwartych wyników powoduje ostrzeżenie. Wynika to z faktu, że jednostka, która nie będzie osiągalna przez agenta nawigowania.|
 
 ### <a name="the-zoneproperties-object"></a>Obiekt zoneProperties
 
@@ -261,10 +261,11 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 
 | Właściwość  | Typ | Wymagane | Opis |
 |-----------|------|----------|-------------|
-|zoneName        |ciąg/int    |true    |Nazwa strefy do skojarzenia z `zoneProperty` rekordem. Ten rekord jest prawidłowy tylko wtedy, gdy `zoneName` w warstwie strefy znaleziono dopasowanie do etykiet `zoneLabel` .  |
-|categoryName|    ciąg/int|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    ciąg/int|    fałsz    |Alternatywna nazwa strefy.  |
-|zoneNameSubtitle|    ciąg/int |    fałsz    |Podtytuł strefy. |
+|zoneName        |ciąg    |true    |Nazwa strefy do skojarzenia z `zoneProperty` rekordem. Ten rekord jest prawidłowy tylko wtedy, gdy `zoneName` w warstwie strefy znaleziono dopasowanie do etykiet `zoneLabel` .  |
+|categoryName|    ciąg|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    ciąg|    fałsz    |Alternatywna nazwa strefy.  |
+|zoneNameSubtitle|    ciąg |    fałsz    |Podtytuł strefy. |
+|zoneSetId|    ciąg |    fałsz    | Ustaw identyfikator, aby ustanowić relację między wieloma strefami, aby można było wykonywać zapytania lub wybierać jako grupę. Na przykład strefy obejmujące wiele poziomów. |
 
 ### <a name="sample-drawing-package-manifest"></a>Przykładowy manifest pakietu rysowania
 

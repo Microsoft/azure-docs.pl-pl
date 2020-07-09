@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e02f6946ff6f520fec63ead7e14e94f33182357f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682353"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85553798"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
@@ -32,24 +32,21 @@ W tym samouczku pokazano, jak utworzyć aplikację jednostronicową języka Java
 > * Uzyskiwanie tokenu dostępu
 > * Wywołaj Microsoft Graph lub własny interfejs API wymagający tokenów dostępu uzyskanych z punktu końcowego platformy tożsamości firmy Microsoft
 
-MSAL. js 2,0 usprawnia MSAL. js 1,0 przez obsługę przepływu kodu autoryzacji w przeglądarce zamiast niejawnego przepływu dotacji. MSAL. js 2,0 nie **obsługuje przepływu** niejawnego.
+MSAL.js 2,0 usprawnia MSAL.js 1,0 przez obsługę przepływu kodu autoryzacji w przeglądarce zamiast niejawnego przepływu dotacji. MSAL.js 2,0 nie **obsługuje przepływu** niejawnego.
 
 ## <a name="how-the-tutorial-app-works"></a>Jak działa aplikacja samouczka
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram przedstawiający przepływ kodu autoryzacji w aplikacji jednostronicowej":::
 
-Aplikacja, którą tworzysz w tym samouczku, umożliwia skryptom w języku JavaScript Wysyłanie zapytań do interfejsu API Microsoft Graph przez uzyskanie tokenów zabezpieczających z punktu końcowego platformy tożsamości firmy Microsoft. W tym scenariuszu po zalogowaniu się użytkownika token dostępu jest wymagany i dodawany do żądań HTTP w nagłówku autoryzacji. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez bibliotekę uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL. js).
+Aplikacja, którą tworzysz w tym samouczku, umożliwia skryptom w języku JavaScript Wysyłanie zapytań do interfejsu API Microsoft Graph przez uzyskanie tokenów zabezpieczających z punktu końcowego platformy tożsamości firmy Microsoft. W tym scenariuszu po zalogowaniu się użytkownika token dostępu jest wymagany i dodawany do żądań HTTP w nagłówku autoryzacji. Pozyskiwanie i odnawianie tokenów jest obsługiwane przez bibliotekę uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js).
 
 W tym samouczku jest stosowana następująca Biblioteka:
 
-| | |
-|---|---|
-|[msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)|Biblioteka Microsoft Authentication Library for JavaScript v 2.0 — pakiet przeglądarki|
-| | |
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Biblioteka Microsoft Authentication Library for JavaScript v 2.0 — pakiet przeglądarki
 
 ## <a name="get-the-completed-code-sample"></a>Pobierz ukończony przykład kodu
 
-Wolisz pobrać zakończono przykładowego projektu w tym samouczku? Aby uruchomić projekt przy użyciu lokalnego serwera sieci Web, takiego jak Node. js, Sklonuj repozytorium [MS-Identity-JavaScript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) :
+Wolisz pobrać zakończono przykładowego projektu w tym samouczku? Aby uruchomić projekt przy użyciu lokalnego serwera sieci Web, takiego jak Node.js, Sklonuj repozytorium [MS-Identity-JavaScript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) :
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
@@ -59,14 +56,14 @@ Aby kontynuować pracę z samouczkiem i samodzielnie skompilować aplikację, pr
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Node. js](https://nodejs.org/en/download/) do uruchamiania lokalnego serwera WebServer
+* [Node.js](https://nodejs.org/en/download/) uruchamiania lokalnego serwera WebServer
 * [Visual Studio Code](https://code.visualstudio.com/download) lub inny edytor kodu
 
 ## <a name="create-your-project"></a>Tworzenie projektu
 
-Po zainstalowaniu środowiska [Node. js](https://nodejs.org/en/download/) Utwórz folder do hostowania aplikacji, na przykład *msal-Spa-samouczek*.
+Po zainstalowaniu [Node.js](https://nodejs.org/en/download/) Utwórz folder do hostowania aplikacji, na przykład *msal-Spa-samouczek*.
 
-Następnie Zaimplementuj [mały serwer](https://expressjs.com/) sieci Web, który będzie obsługiwał plik *index. html* .
+Następnie Zaimplementuj [mały serwer](https://expressjs.com/) sieci Web, który będzie obsługiwał plik *index.html* .
 
 1. Najpierw przejdź do katalogu projektu w terminalu, a następnie uruchom następujące `npm` polecenia:
     ```console
@@ -76,7 +73,7 @@ Następnie Zaimplementuj [mały serwer](https://expressjs.com/) sieci Web, któr
     npm install morgan
     npm install yargs
     ```
-2. Następnie utwórz plik o nazwie *Server. js* i Dodaj następujący kod:
+2. Następnie utwórz plik o nazwie *server.js* i Dodaj następujący kod:
 
    ```JavaScript
    const express = require('express');
@@ -136,9 +133,9 @@ msal-spa-tutorial/
 
 ## <a name="create-the-spa-ui"></a>Tworzenie interfejsu użytkownika SPA
 
-1. Utwórz folder *aplikacji* w katalogu projektu i Utwórz plik *index. html* dla spa w języku JavaScript. Ten plik implementuje interfejs użytkownika utworzony przy użyciu **środowiska Bootstrap 4** i importuje pliki skryptów do konfiguracji, uwierzytelniania i wywołań interfejsu API.
+1. Utwórz folder *aplikacji* w katalogu projektu i utwórz plik *index.html* dla Spa JavaScript. Ten plik implementuje interfejs użytkownika utworzony przy użyciu **środowiska Bootstrap 4** i importuje pliki skryptów do konfiguracji, uwierzytelniania i wywołań interfejsu API.
 
-    W pliku *index. html* Dodaj następujący kod:
+    W pliku *index.html* Dodaj następujący kod:
 
     ```html
     <!DOCTYPE html>
@@ -215,7 +212,7 @@ msal-spa-tutorial/
     </html>
     ```
 
-2. Następnie w folderze *aplikacji* Utwórz plik o nazwie *UI. js* i Dodaj następujący kod. Ten plik będzie miał dostęp do elementów DOM i je zaktualizować.
+2. Następnie w folderze *aplikacja* Utwórz plik o nazwie *ui.js* i Dodaj następujący kod. Ten plik będzie miał dostęp do elementów DOM i je zaktualizować.
 
     ```JavaScript
     // Select DOM elements to work with
@@ -296,13 +293,13 @@ msal-spa-tutorial/
 
 Wykonaj kroki w [aplikacji jednostronicowej: Rejestracja aplikacji](scenario-spa-app-registration.md) , aby utworzyć rejestrację aplikacji dla spa.
 
-W kroku [przepływ URI przekierowania: MSAL. js 2,0 z zastosowaniem przepływu kodu uwierzytelniania](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) wprowadź `http://localhost:3000` lokalizację domyślną, w której działa ten samouczek.
+W obszarze [URI przekierowania: MSAL.js 2,0 z etapem przepływu kodu uwierzytelniania](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) wprowadź `http://localhost:3000` lokalizację domyślną, w której jest uruchamiana aplikacja tego samouczka.
 
-Jeśli chcesz użyć innego portu, wprowadź `http://localhost:<port>` , gdzie `<port>` jest preferowanym numerem portu TCP. Jeśli określisz numer portu inny niż `3000` , zaktualizuj również *serwer. js* przy użyciu preferowanego numeru portu.
+Jeśli chcesz użyć innego portu, wprowadź `http://localhost:<port>` , gdzie `<port>` jest preferowanym numerem portu TCP. Jeśli określisz numer portu inny niż `3000` , zaktualizuj również *server.js* przy użyciu preferowanego numeru portu.
 
 ### <a name="configure-your-javascript-spa"></a>Konfigurowanie protokołu JavaScript SPA
 
-Utwórz plik o nazwie *authConfig. js* w folderze *App* , aby zawierał parametry konfiguracji na potrzeby uwierzytelniania, a następnie Dodaj następujący kod:
+Utwórz plik o nazwie *authConfig.js* w folderze *App* , aby zawierał parametry konfiguracji na potrzeby uwierzytelniania, a następnie Dodaj następujący kod:
 
 ```javascript
 const msalConfig = {
@@ -341,13 +338,13 @@ Zmodyfikuj wartości w `msalConfig` sekcji zgodnie z opisem w tym miejscu:
   - Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość wartością `consumers` .
 - Parametr `Enter_the_Redirect_Uri_Here` ma wartość `http://localhost:3000`.
 
-`authority`Wartość w *authConfig. js* powinna wyglądać podobnie do poniższego, jeśli używana jest globalna Chmura platformy Azure:
+`authority`Wartość w *authConfig.js* powinna wyglądać podobnie do poniższego, jeśli używana jest globalna Chmura platformy Azure:
 
 ```javascript
 authority: "https://login.microsoftonline.com/common",
 ```
 
-Nadal w folderze *aplikacji* Utwórz plik o nazwie *graphConfig. js*. Dodaj następujący kod w celu udostępnienia aplikacji parametrów konfiguracji służących do wywoływania interfejsu API Microsoft Graph:
+Nadal w folderze *aplikacji* Utwórz plik o nazwie *graphConfig.js*. Dodaj następujący kod w celu udostępnienia aplikacji parametrów konfiguracji służących do wywoływania interfejsu API Microsoft Graph:
 
 ```javascript
 // Add the endpoints here for Microsoft Graph API services you'd like to use.
@@ -363,7 +360,7 @@ Zmodyfikuj wartości w `graphConfig` sekcji zgodnie z opisem w tym miejscu:
   - W przypadku **globalnego** punktu końcowego interfejsu API Microsoft Graph Zastąp oba wystąpienia tego ciągu ciągiem `https://graph.microsoft.com` .
   - W przypadku punktów końcowych w ramach wdrożeń w chmurze **krajowej** zapoznaj się z dokumentacją dotyczącą [wdrożeń w chmurze krajowej](https://docs.microsoft.com/graph/deployments) w dokumentacji Microsoft Graph.
 
-`graphMeEndpoint` `graphMailEndpoint` W przypadku korzystania z globalnego punktu końcowego wartości i w *graphConfig. js* powinny być podobne do następujących:
+`graphMeEndpoint`Wartości i `graphMailEndpoint` w *graphConfig.js* powinny wyglądać podobnie do następujących, jeśli używasz globalnego punktu końcowego:
 
 ```javascript
 graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
@@ -374,7 +371,7 @@ graphMailEndpoint: "https://graph.microsoft.com/v1.0/me/messages"
 
 ### <a name="pop-up"></a>Wyskakujące okienko
 
-W folderze *App (aplikacja* ) Utwórz plik o nazwie *authPopup. js* i Dodaj następujący kod uwierzytelniania i token pozyskiwania dla logowania w wyskakującym logowaniu:
+W folderze *aplikacja* Utwórz plik o nazwie *authPopup.js* i Dodaj następujący kod uwierzytelniania i token pozyskiwania dla logowania w wyskakującym logowaniu:
 
 ```JavaScript
 // Create the main myMSALObj instance
@@ -441,7 +438,7 @@ function readMail() {
 
 ### <a name="redirect"></a>Przekierowanie
 
-Utwórz plik o nazwie *authRedirect. js* w folderze *App* i Dodaj następujący kod uwierzytelniania i token pozyskiwania dla przekierowania logowania:
+Utwórz plik o nazwie *authRedirect.js* w folderze *App* i Dodaj następujący kod uwierzytelniania i token pozyskiwania dla przekierowania logowania:
 
 ```javascript
 // Create the main myMSALObj instance
@@ -514,9 +511,9 @@ function readMail() {
 
 ### <a name="how-the-code-works"></a>Działanie kodu
 
-Gdy użytkownik wybierze przycisk **Zaloguj** po raz pierwszy, `signIn` wywołuje metodę `loginPopup` logowania użytkownika. `loginPopup`Metoda powoduje otwarcie okna podręcznego z *punktem końcowym platformy tożsamości firmy Microsoft* w celu wyświetlenia monitu i zweryfikowania poświadczeń użytkownika. Po pomyślnym zalogowaniu *msal. js* inicjuje [przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md).
+Gdy użytkownik wybierze przycisk **Zaloguj** po raz pierwszy, `signIn` wywołuje metodę `loginPopup` logowania użytkownika. `loginPopup`Metoda powoduje otwarcie okna podręcznego z *punktem końcowym platformy tożsamości firmy Microsoft* w celu wyświetlenia monitu i zweryfikowania poświadczeń użytkownika. Po pomyślnym zalogowaniu *msal.js* inicjuje [przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md).
 
-W tym momencie kod autoryzacji chroniony przez PKCE jest wysyłany do punktu końcowego tokenu chronionego przez funkcję CORS i jest wymieniany na potrzeby tokenów. Token identyfikatora, token dostępu i token odświeżania są odbierane przez aplikację i przetwarzane przez *msal. js*, a informacje zawarte w tokenach są buforowane.
+W tym momencie kod autoryzacji chroniony przez PKCE jest wysyłany do punktu końcowego tokenu chronionego przez funkcję CORS i jest wymieniany na potrzeby tokenów. Token identyfikatora, token dostępu i token odświeżania są odbierane przez aplikację i przetwarzane przez *msal.js*, a informacje zawarte w tokenach są buforowane.
 
 Token identyfikatora zawiera podstawowe informacje o użytkowniku, takie jak nazwa wyświetlana. Jeśli planujesz używać dowolnych danych dostarczonych przez token identyfikatora, serwer zaplecza *musi* sprawdzić jego poprawność, aby zagwarantować, że token został wystawiony dla prawidłowego użytkownika aplikacji. Token odświeżania ma ograniczony okres istnienia i wygasa po 24 godzinach. Token odświeżania może służyć do dyskretnego pozyskiwania nowych tokenów dostępu.
 
@@ -524,7 +521,7 @@ SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.
@@ -540,11 +537,11 @@ Wywołanie `acquireTokenPopup` powoduje otwarcie okna podręcznego (lub `acquire
 1. Wizualnie wskazuje użytkownikowi, że logowanie interaktywne jest wymagane, aby użytkownik mógł wybrać odpowiedni czas na zalogowanie się, a aplikacja może ponowić próbę `acquireTokenSilent` w późniejszym czasie. Ta technika jest często używana, gdy użytkownik może korzystać z innych funkcji aplikacji bez zakłócania pracy. Na przykład w aplikacji może być dostępna nieuwierzytelniona zawartość. W takiej sytuacji użytkownik może zdecydować się na zalogowanie się w celu uzyskania dostępu do chronionego zasobu lub odświeżenie nieaktualnych informacji.
 
 > [!NOTE]
-> W tym samouczku `loginPopup` Domyślnie są stosowane `acquireTokenPopup` metody i. Jeśli używasz programu Internet Explorer, zalecamy użycie `loginRedirect` `acquireTokenRedirect` metod i ze względu na [znany problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) z programem Internet Explorer i wyskakującymi oknami. Przykład osiągnięcia tego samego wyniku przy użyciu metod przekierowania, zobacz [*authRedirect. js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js) w witrynie GitHub.
+> W tym samouczku `loginPopup` Domyślnie są stosowane `acquireTokenPopup` metody i. Jeśli używasz programu Internet Explorer, zalecamy użycie `loginRedirect` `acquireTokenRedirect` metod i ze względu na [znany problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) z programem Internet Explorer i wyskakującymi oknami. Przykład osiągnięcia tego samego wyniku przy użyciu metod przekierowania można znaleźć w temacie [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js) w witrynie GitHub.
 
 ## <a name="call-the-microsoft-graph-api"></a>Wywoływanie interfejsu API Microsoft Graph
 
-Utwórz plik o nazwie *Graph. js* w folderze *App* i Dodaj następujący kod służący do tworzenia wywołań REST do interfejsu API Microsoft Graph:
+Utwórz plik o nazwie *graph.js* w folderze *aplikacji* i Dodaj następujący kod w celu utworzenia wywołań REST do interfejsu API Microsoft Graph:
 
 ```javascript
 // Helper function to call Microsoft Graph API endpoint
@@ -573,18 +570,18 @@ W przykładowej aplikacji utworzonej w tym samouczku `callMSGraph()` Metoda słu
 
 ## <a name="test-your-application"></a>Testowanie aplikacji
 
-Ukończono tworzenie aplikacji i teraz można uruchomić serwer sieci Web Node. js i przetestować jego funkcjonalność.
+Ukończono tworzenie aplikacji i teraz można jej użyć do uruchomienia serwera sieci Web Node.js i przetestowania funkcji aplikacji.
 
-1. Uruchom serwer sieci Web Node. js, uruchamiając następujące polecenie z poziomu katalogu głównego folderu projektu:
+1. Uruchom serwer sieci Web Node.js, uruchamiając następujące polecenie z poziomu katalogu głównego folderu projektu:
 
    ```console
    npm start
    ```
-1. W przeglądarce przejdź do `http://localhost:3000` `http://localhost:<port>` lokalizacji lub, gdzie `<port>` jest port, na którym nasłuchuje serwer sieci Web. Powinna zostać wyświetlona zawartość pliku *index. html* i przycisku **Zaloguj** .
+1. W przeglądarce przejdź do `http://localhost:3000` `http://localhost:<port>` lokalizacji lub, gdzie `<port>` jest port, na którym nasłuchuje serwer sieci Web. Powinna zostać wyświetlona zawartość pliku *index.html* i przycisku **Zaloguj** .
 
 ### <a name="sign-in-to-the-application"></a>Logowanie się do aplikacji
 
-Po załadowaniu przez przeglądarkę pliku *index. html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą punktu końcowego platformy tożsamości firmy Microsoft:
+Po załadowaniu przez przeglądarkę pliku *index.html* wybierz pozycję **Zaloguj**. Zostanie wyświetlony monit o zalogowanie się za pomocą punktu końcowego platformy tożsamości firmy Microsoft:
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Okno dialogowe logowania w przeglądarce sieci Web":::
 

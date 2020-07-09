@@ -8,29 +8,30 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 43096e61fee740c6d1f1093cd441b8d2ee5901f8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171637"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392067"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
 > [!div class="op_single_selector"]
 >
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
+> * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
+> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * CZĘŚĆ (/rest/api
+> * [Dostawca zasobów REST] (/rest/api
 > * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -98,7 +99,7 @@ ms.locfileid: "84171637"
 
 ### <a name="210"></a><a name="2.1.0"></a>2.1.0
 * Dodano nowy interfejs API, zadanie &lt; IReadOnlyList &lt; RemainingPartitionWork &gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Może to służyć do uzyskania szacowanej pracy dla każdej partycji.
-* Obsługuje pakiet Microsoft. Azure. DocumentDB SDK 2,0. Wymaga programu Microsoft. Azure. DocumentDB 2,0 lub nowszego.
+* Obsługuje Microsoft.Azure.DocumentDB SDK 2,0. Wymaga Microsoft.Azure.DocumentDB 2,0 lub nowszego.
 
 ### <a name="206"></a><a name="2.0.6"></a>2.0.6
 * Dodano Właściwość publiczną ChangeFeedEventHost. HostName w celu zapewnienia zgodności z v1.
@@ -115,10 +116,10 @@ ms.locfileid: "84171637"
   * Interfejs API GetEstimatedRemainingWork zwrócił wartość 0, gdy w kolekcji dzierżawy nie ma żadnych dzierżaw.
 
 * Następujące wyjątki są udostępniane publicznie. Rozszerzenia implementujące IPartitionProcessor mogą zgłosić te wyjątki.
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. Partitionexception. 
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
-  * Microsoft. Azure. Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. Partitionexception. 
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
+  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
 
 ### <a name="202-prerelease"></a><a name="2.0.2-prerelease"></a>2.0.2 — wydanie wstępne
 * Drobne zmiany interfejsu API:

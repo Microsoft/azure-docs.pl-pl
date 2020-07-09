@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c7091592f8806b6f6655315ae1faace286c2c1f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78207695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805476"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -26,7 +26,7 @@ Usługa Azure Storage udostępnia rozszerzenia interfejsu wiersza polecenia plat
 
 ## <a name="specify-how-data-operations-are-authorized"></a>Określ sposób autoryzacji operacji na danych
 
-Polecenie interfejsu wiersza polecenia platformy Azure służące do odczytywania i zapisywania danych `--auth-mode` obiektów blob i kolejek zawierają opcjonalny parametr. Określ ten parametr, aby wskazać, w jaki sposób ma być autoryzowana operacja na danych:
+Polecenie interfejsu wiersza polecenia platformy Azure służące do odczytywania i zapisywania danych obiektów blob i kolejek zawierają opcjonalny `--auth-mode` parametr. Określ ten parametr, aby wskazać, w jaki sposób ma być autoryzowana operacja na danych:
 
 - Ustaw `--auth-mode` parametr na `login` , aby zalogować się przy użyciu podmiotu zabezpieczeń usługi Azure AD (zalecane).
 - Ustaw `--auth-mode` parametr na starszą `key` wartość, aby próbować pobrać klucz dostępu konta do użycia na potrzeby autoryzacji. Jeśli pominięto `--auth-mode` parametr, interfejs wiersza polecenia platformy Azure podejmie również próbę pobrania klucza dostępu.
@@ -34,7 +34,7 @@ Polecenie interfejsu wiersza polecenia platformy Azure służące do odczytywani
 Aby użyć `--auth-mode` parametru, upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.46 lub nowszej. Uruchom `az --version` , aby sprawdzić zainstalowaną wersję.
 
 > [!IMPORTANT]
-> Jeśli pominięto `--auth-mode` parametr lub ustawisz go na `key`, interfejs wiersza polecenia platformy Azure próbuje użyć klucza dostępu do konta w celu autoryzacji. W tym przypadku firma Microsoft zaleca, aby podać klucz dostępu przy użyciu polecenia lub zmiennej środowiskowej **AZURE_STORAGE_KEY** . Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zapoznaj się z sekcją [Ustawianie zmiennych środowiskowych dla parametrów autoryzacji](#set-environment-variables-for-authorization-parameters).
+> Jeśli pominięto `--auth-mode` parametr lub ustawisz go na `key` , interfejs wiersza polecenia platformy Azure próbuje użyć klucza dostępu do konta w celu autoryzacji. W tym przypadku firma Microsoft zaleca, aby podać klucz dostępu przy użyciu polecenia lub zmiennej środowiskowej **AZURE_STORAGE_KEY** . Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zapoznaj się z sekcją [Ustawianie zmiennych środowiskowych dla parametrów autoryzacji](#set-environment-variables-for-authorization-parameters).
 >
 > Jeśli nie podasz klucza dostępu, interfejs wiersza polecenia platformy Azure podejmie próbę wywołania dostawcy zasobów usługi Azure Storage w celu pobrania go dla każdej operacji. Wykonanie wielu operacji na danych, które wymagają wywołania dostawcy zasobów może spowodować ograniczenie przepustowości. Aby uzyskać więcej informacji na temat limitów dostawcy zasobów, zobacz [cele skalowalności i wydajności dla dostawcy zasobów usługi Azure Storage](scalability-targets-resource-provider.md).
 
@@ -59,7 +59,7 @@ Poniższy przykład pokazuje, jak utworzyć kontener z interfejsu wiersza polece
     > [!IMPORTANT]
     > Propagowanie przypisań ról RBAC może potrwać kilka minut.
 
-1. Wywołaj polecenie [AZ Storage Container Create](/cli/azure/storage/container#az-storage-container-create) z `--auth-mode` parametrem ustawionym `login` na, aby utworzyć kontener przy użyciu poświadczeń usługi Azure AD. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
+1. Wywołaj polecenie [AZ Storage Container Create](/cli/azure/storage/container#az-storage-container-create) z `--auth-mode` parametrem ustawionym na, aby `login` utworzyć kontener przy użyciu poświadczeń usługi Azure AD. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 
     ```azurecli
     az storage container create \
@@ -103,7 +103,7 @@ Możesz określić parametry autoryzacji w zmiennych środowiskowych, aby unikn�
 |    AZURE_STORAGE_KEY                  |    Klucz konta magazynu. Ta zmienna musi być używana w połączeniu z nazwą konta magazynu.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    Parametry połączenia, które obejmują klucz konta magazynu lub token sygnatury dostępu współdzielonego. Ta zmienna musi być używana w połączeniu z nazwą konta magazynu.                                                                                                                                                                                                                       |
 |    AZURE_STORAGE_SAS_TOKEN            |    Token sygnatury dostępu współdzielonego (SAS). Ta zmienna musi być używana w połączeniu z nazwą konta magazynu.                                                                                                                                                                                                                                                            |
-|    AZURE_STORAGE_AUTH_MODE            |    Tryb autoryzacji, z którym ma zostać uruchomione polecenie. Dozwolone wartości to `login` (zalecane) lub `key`. Jeśli określisz `login`, interfejs wiersza polecenia platformy Azure używa poświadczeń usługi Azure AD do autoryzacji operacji na danych. W przypadku określenia starszego `key` trybu interfejs wiersza polecenia platformy Azure próbuje wykonać zapytanie o klucz dostępu do konta i autoryzować polecenie przy użyciu klucza.    |
+|    AZURE_STORAGE_AUTH_MODE            |    Tryb autoryzacji, z którym ma zostać uruchomione polecenie. Dozwolone wartości to `login` (zalecane) lub `key` . Jeśli określisz `login` , interfejs wiersza polecenia platformy Azure używa poświadczeń usługi Azure AD do autoryzacji operacji na danych. W przypadku określenia starszego `key` trybu interfejs wiersza polecenia platformy Azure próbuje wykonać zapytanie o klucz dostępu do konta i autoryzować polecenie przy użyciu klucza.    |
 
 ## <a name="next-steps"></a>Następne kroki
 

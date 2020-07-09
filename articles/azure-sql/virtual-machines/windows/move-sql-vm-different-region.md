@@ -1,10 +1,9 @@
 ---
-title: Przenieś maszynę wirtualną do innego regionu (Azure Site Recovery)
+title: Przenoszenie maszyny wirtualnej do innego regionu (Azure Site Recovery)
 description: Dowiedz się, jak migrować SQL Server maszynę wirtualną z jednego regionu do innego na platformie Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -15,24 +14,24 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bca7237b38c1164d14ccf796e18980ba326090ac
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851805"
 ---
-# <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Przenoszenie SQL Server maszyny wirtualnej do innego regionu na platformie Azure przy użyciu usług Azure Site Recovery Services
+# <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Przenoszenie SQL Server maszyny wirtualnej do innego regionu na platformie Azure z Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule przedstawiono sposób użycia Azure Site Recovery do migrowania SQL Server maszyny wirtualnej z jednego regionu do drugiego na platformie Azure. 
 
 Przeniesienie maszyny wirtualnej SQL Server do innego regionu wymaga wykonania następujących czynności:
-1. [**Przygotowywanie**](#prepare-to-move): Upewnij się, że źródłowa maszyna wirtualna SQL Server i region docelowy są odpowiednio przygotowane do przeniesienia. 
-1. [**Konfigurowanie**](#configure-azure-site-recovery-vault): przeniesienie maszyny wirtualnej SQL Server wymaga, aby była ona replikowanym obiektem w magazynie Azure Site Recovery. Musisz dodać maszynę wirtualną SQL Server do magazynu Azure Site Recovery. 
-1. [**Testowanie**](#test-move-process): MIGROWANIE maszyny wirtualnej SQL Server wymaga jej przełączenia w tryb failover z regionu źródłowego do zreplikowanego regionu docelowego. Aby upewnić się, że proces przenoszenia zakończy się pomyślnie, musisz najpierw sprawdzić, czy SQL Server maszyna wirtualna może pomyślnie przejść w tryb failover w regionie docelowym. Ułatwi to ujawnienie wszelkich problemów i uniknięcie ich podczas rzeczywistego przenoszenia. 
-1. [**Przenoszenie**](#move-the-sql-server-vm): po przejściu testowej pracy w trybie failover, Jeśli wiesz, że możesz bezpiecznie migrować maszynę wirtualną SQL Server, możesz przeprowadzić przeniesienie maszyny wirtualnej do regionu docelowego. 
-1. [**Czyszczenie**](#clean-up-source-resources): aby uniknąć naliczania opłat, Usuń SQL Server maszynę wirtualną z magazynu i wszelkie niepotrzebne zasoby, które są pozostawione w grupie zasobów. 
+1. [Przygotowywanie](#prepare-to-move): Upewnij się, że źródłowa maszyna wirtualna SQL Server i region docelowy są odpowiednio przygotowane do przeniesienia. 
+1. [Konfigurowanie](#configure-azure-site-recovery-vault): przeniesienie maszyny wirtualnej SQL Server wymaga, aby była ona replikowanym obiektem w magazynie Azure Site Recovery. Musisz dodać maszynę wirtualną SQL Server do magazynu Azure Site Recovery. 
+1. [Testowanie](#test-move-process): MIGROWANIE maszyny wirtualnej SQL Server wymaga jej przełączenia w tryb failover z regionu źródłowego do zreplikowanego regionu docelowego. Aby upewnić się, że proces przenoszenia zakończy się pomyślnie, musisz najpierw sprawdzić, czy SQL Server maszyna wirtualna może przejść w tryb failover w regionie docelowym. Ułatwi to ujawnienie wszelkich problemów i uniknięcie ich podczas rzeczywistego przenoszenia. 
+1. [Przenoszenie](#move-the-sql-server-vm): po przejściu testowej pracy w trybie failover, Jeśli wiesz, że możesz bezpiecznie migrować maszynę wirtualną SQL Server, możesz przeprowadzić przeniesienie maszyny wirtualnej do regionu docelowego. 
+1. [Czyszczenie](#clean-up-source-resources): aby uniknąć naliczania opłat, Usuń SQL Server maszynę wirtualną z magazynu i wszelkie niepotrzebne zasoby, które są pozostawione w grupie zasobów. 
 
 ## <a name="verify-prerequisites"></a>Weryfikacja wymagań wstępnych 
 
@@ -51,7 +50,7 @@ Przygotuj zarówno źródłową, SQL Server maszynę wirtualną, jak i region do
 ### <a name="prepare-the-source-sql-server-vm"></a>Przygotuj źródłową maszynę wirtualną SQL Server
 
 - Upewnij się, że wszystkie najnowsze certyfikaty główne znajdują się na maszynie wirtualnej SQL Server, która ma zostać przeniesiona. Jeśli nie ma tam najnowszych certyfikatów głównych, ograniczenia zabezpieczeń uniemożliwią kopiowanie danych do regionu docelowego. 
-- Na maszynach wirtualnych z systemem Windows zainstaluj wszystkie najnowsze aktualizacje systemu Windows na maszynie wirtualnej, aby wszystkie zaufane certyfikaty główne były na tym komputerze. W środowisku odłączonym postępuj zgodnie ze standardowym procesem aktualizacji usługi Windows UPdate i certyfikatów dla swojej organizacji. 
+- Na maszynach wirtualnych z systemem Windows zainstaluj wszystkie najnowsze aktualizacje systemu Windows na maszynie wirtualnej, aby wszystkie zaufane certyfikaty główne były na tym komputerze. W środowisku odłączonym postępuj zgodnie ze standardową Windows Update i procesem aktualizacji certyfikatu dla swojej organizacji. 
 - W przypadku maszyn wirtualnych z systemem Linux postępuj zgodnie ze wskazówkami dostarczonymi przez dystrybutora systemu Linux w celu uzyskania najnowszych zaufanych certyfikatów głównych i listy odwołania certyfikatów na maszynie wirtualnej. 
 - Upewnij się, że nie używasz serwera proxy uwierzytelniania do kontrolowania łączności sieciowej dla maszyn wirtualnych, które chcesz przenieść. 
 - Jeśli maszyna wirtualna, którą próbujesz przenieść, nie ma dostępu do Internetu lub używa serwera proxy zapory do kontrolowania dostępu wychodzącego, Sprawdź wymagania. 
@@ -65,7 +64,7 @@ Przygotuj zarówno źródłową, SQL Server maszynę wirtualną, jak i region do
     - Azure Site Recovery automatycznie wykrywa i tworzy sieć wirtualną po włączeniu replikacji dla źródłowej maszyny wirtualnej. Możesz również wstępnie utworzyć sieć i przypisać ją do maszyny wirtualnej w przepływie użytkownika w celu włączenia replikacji. Należy ręcznie utworzyć wszystkie inne zasoby w regionie docelowym.
 - Aby utworzyć najczęściej używane zasoby sieciowe, które są odpowiednie dla Ciebie na podstawie konfiguracji źródłowej maszyny wirtualnej, zapoznaj się z następującą dokumentacją: 
     - [Grupy zabezpieczeń sieci](../../../virtual-network/tutorial-filter-network-traffic.md) 
-    - [Moduł równoważenia obciążenia](../../../load-balancer/tutorial-load-balancer-basic-internal-portal.md)
+    - [Moduł równoważenia obciążenia](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Publiczny adres IP](../../../virtual-network/virtual-network-public-ip-address.md)
     - Dodatkowe składniki sieci można znaleźć w dokumentacji dotyczącej [sieci](../../../virtual-network/virtual-networks-overview.md).
 - Ręcznie Utwórz sieć nieprodukcyjną w regionie docelowym, jeśli chcesz przetestować konfigurację przed przeprowadzeniem ostatniego przejścia do regionu docelowego. Zalecamy wykonanie tej czynności, ponieważ zapewnia ona minimalne zakłócenia w sieci produkcyjnej. 

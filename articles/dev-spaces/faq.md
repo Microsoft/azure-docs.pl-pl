@@ -5,12 +5,11 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6328515232b257e01b9b453de4ca0aca820c4038
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267498"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Często zadawane pytania dotyczące Azure Dev Spaces
 
@@ -30,7 +29,7 @@ Tak. Jeśli chcesz przenieść klaster AKS z Azure Dev Spaces do innego [obsług
 
 ## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Czy mogę używać Azure Dev Spaces z istniejącymi wykresami wieloetapowe dockerfile lub Helm?
 
-Tak, jeśli projekt zawiera już wykres pliku dockerfile lub Helm, można użyć tych plików z Azure Dev Spaces. Po uruchomieniu `azds prep`, użyj `--chart` parametru i określ lokalizację wykresu. Azure Dev Spaces nadal generuje plik *azds. YAML* i *pliku dockerfile. opracowywać* , ale nie zastąpi ani nie zmodyfikuje istniejącego wykresu pliku dockerfile lub Helm. Może być konieczne zmodyfikowanie plików *azds. YAML* i *pliku dockerfile. opracowywać* , aby wszystkie elementy działały prawidłowo z istniejącą aplikacją podczas uruchamiania `azds up`.
+Tak, jeśli projekt zawiera już wykres pliku dockerfile lub Helm, można użyć tych plików z Azure Dev Spaces. Po uruchomieniu `azds prep` , użyj `--chart` parametru i określ lokalizację wykresu. Azure Dev Spaces nadal generuje plik *azds. YAML* i *pliku dockerfile. opracowywać* , ale nie zastąpi ani nie zmodyfikuje istniejącego wykresu pliku dockerfile lub Helm. Może być konieczne zmodyfikowanie plików *azds. YAML* i *pliku dockerfile. opracowywać* , aby wszystkie elementy działały prawidłowo z istniejącą aplikacją podczas uruchamiania `azds up` .
 
 Korzystając z własnego wykresu pliku dockerfile lub Helm, istnieją następujące ograniczenia:
 * Jeśli używany jest tylko jeden pliku dockerfile, musi on zawierać wszystko, co jest potrzebne do włączenia scenariuszy programistycznych, takich jak zestaw SDK języka nie tylko środowisko uruchomieniowe. W przypadku używania oddzielnego pliku dockerfile dla Azure Dev Spaces, takich jak pliku dockerfile. Development, wszystko, czego potrzebujesz do włączenia scenariuszy deweloperskich, musi być zawarte w tym pliku dockerfile.
@@ -99,7 +98,6 @@ W tej chwili nie można używać Azure Dev Spaces z oczkami usługi, takimi jak 
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
-[aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-migration]: ../aks/aks-migration.md
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities

@@ -12,7 +12,7 @@
       items:
         - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal'
-        - name: System Windows
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal'
     - name: Praca bezserwerowa
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function'
@@ -38,13 +38,13 @@
       items:
         - name: Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm'
-        - name: System Windows
+        - name: Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
     - name: Tworzenie funkcji połączonej z platformą Azure
       href: 'https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function'
     - name: Aplikacja internetowa wdrażana w rozwiązaniu Docker w systemie Linux
       href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
-- name: Przykłady
+- name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       items:
@@ -175,7 +175,7 @@
         - name: PHP
           href: 'https://github.com/Azure/azure-sdk-for-php/blob/master/README.md'
         - name: Python
-          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/'
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/README.md'
         - name: Ruby
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: Interfejsy wiersza polecenia
@@ -196,7 +196,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Przykłady
+    - name: Samples
       href: 'https://azure.microsoft.com/resources/samples/'
     - name: Filmy wideo
       href: 'https://azure.microsoft.com/resources/videos/home/'

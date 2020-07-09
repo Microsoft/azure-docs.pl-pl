@@ -3,16 +3,16 @@ title: Funkcje planów platformy Azure
 description: Zawiera opis funkcji dostępnych do użycia z artefaktami strategii w definicjach i przypisaniach platformy Azure.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834785"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970879"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funkcje do użycia z planami platformy Azure
 
-Plany platformy Azure udostępniają funkcje, które ułatwiają tworzenie definicji planu. Te funkcje są przeznaczone do użycia z definicjami planów i artefaktami strategii. Artefakt szablonu Menedżer zasobów obsługuje pełne korzystanie z funkcji Menedżer zasobów oprócz pobierania wartości dynamicznej za pomocą parametru strategii.
+Plany platformy Azure udostępniają funkcje, które ułatwiają tworzenie definicji planu. Te funkcje są przeznaczone do użycia z definicjami planów i artefaktami strategii. Artefakt szablonu Azure Resource Manager (szablon ARM) obsługuje pełne korzystanie z funkcji Menedżer zasobów oprócz pobierania wartości dynamicznej za pomocą parametru strategii.
 
 Obsługiwane są następujące funkcje:
 
@@ -30,13 +30,13 @@ Obsługiwane są następujące funkcje:
 Zwraca obiekt właściwości wypełniony przez dane wyjściowe artefaktów planu.
 
 > [!NOTE]
-> `artifacts()`Nie można użyć funkcji z wnętrza szablonu Menedżer zasobów. Funkcja może być używana tylko w formacie JSON definicji strategii lub w pliku JSON artefaktu podczas zarządzania planem za pomocą Azure PowerShell lub interfejsu API REST jako części [planów jako kodu](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> `artifacts()`Nie można użyć funkcji z wnętrza szablonu ARM. Funkcja może być używana tylko w formacie JSON definicji strategii lub w pliku JSON artefaktu podczas zarządzania planem za pomocą Azure PowerShell lub interfejsu API REST jako części [planów jako kodu](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| artefaktname |Yes |ciąg |Nazwa artefaktu planu. |
+| artefaktname |Tak |ciąg |Nazwa artefaktu planu. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -60,9 +60,9 @@ Obiekt właściwości danych wyjściowych. Właściwości danych **wyjściowych*
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Menedżer zasobów artefaktu szablonu
+#### <a name="arm-template-artifact"></a>Artefakt szablonu ARM
 
-Właściwości danych **wyjściowych** zwróconego obiektu są zdefiniowane w szablonie Menedżer zasobów i zwracane przez wdrożenie.
+Właściwości danych **wyjściowych** zwróconego obiektu są zdefiniowane w szablonie ARM i zwracane przez wdrożenie.
 
 #### <a name="role-assignment-artifact"></a>Artefakt przypisania roli
 
@@ -78,7 +78,7 @@ Właściwości danych **wyjściowych** zwróconego obiektu są zdefiniowane w sz
 
 ### <a name="example"></a>Przykład
 
-Artefakt szablonu Menedżer zasobów z IDENTYFIKATORem _myTemplateArtifact_ zawierający następującą przykładową Właściwość wyjściową:
+Artefakt szablonu ARM z IDENTYFIKATORem _myTemplateArtifact_ zawierający następującą przykładową Właściwość wyjściową:
 
 ```json
 {
@@ -125,7 +125,7 @@ Przykłady pobierania danych z przykładu _myTemplateArtifact_ są następujące
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| ciąg1 |Yes |ciąg |Pierwsza wartość dla łączenia. |
+| ciąg1 |Tak |ciąg |Pierwsza wartość dla łączenia. |
 | dodatkowe argumenty |Nie |ciąg |Dodatkowe wartości w kolejności sekwencyjnej dla łączenia |
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -134,7 +134,7 @@ Ciąg łączonych wartości.
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja Azure Blueprint różni się od funkcji szablonu Azure Resource Manager, która działa tylko z ciągami.
+Funkcja Azure Blueprint różni się od funkcji szablonu ARM w tym, że działa tylko z ciągami.
 
 ### <a name="example"></a>Przykład
 
@@ -150,7 +150,7 @@ Zwraca wartość parametru planu. Określona nazwa parametru musi być zdefiniow
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| parameterName |Yes |ciąg |Nazwa parametru do zwrócenia. |
+| parameterName |Tak |ciąg |Nazwa parametru do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -158,7 +158,7 @@ Wartość określonego parametru strategii lub artefaktu strategii.
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja Azure Blueprint różni się od funkcji szablonu Azure Resource Manager, która działa tylko z parametrami strategii.
+Funkcja Azure Blueprint różni się od funkcji szablonu ARM w tym, że działa tylko z parametrami strategii.
 
 ### <a name="example"></a>Przykład
 
@@ -218,7 +218,7 @@ Zwrócony obiekt ma następujący format:
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja Azure Blueprint różni się od funkcji szablonu Azure Resource Manager. `resourceGroup()`Nie można użyć funkcji w artefaktie poziomu subskrypcji lub definicji planu. Może być używany tylko w artefaktach planu, które są częścią artefaktu grupy zasobów.
+Funkcja Azure Blueprint różni się od funkcji szablonu ARM. `resourceGroup()`Nie można użyć funkcji w artefaktie poziomu subskrypcji lub definicji planu. Może być używany tylko w artefaktach planu, które są częścią artefaktu grupy zasobów.
 
 Typowym zastosowaniem `resourceGroup()` funkcji jest tworzenie zasobów w tej samej lokalizacji co artefakt grupy zasobów.
 
@@ -271,7 +271,7 @@ Zwraca obiekt, który reprezentuje określony artefakt grupy zasobów. W przeciw
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Symbol zastępczy |Yes |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
+| Symbol zastępczy |Tak |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 

@@ -1,19 +1,14 @@
 ---
 title: Uwierzytelnianie dostępu do usługi Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego
 description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85318049"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
@@ -63,13 +58,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token zawiera wartości niebędące skrótami, dzięki czemu odbiorca może ponownie obliczyć skrót z tymi samymi parametrami, sprawdzając, czy Wystawca ma prawidłowy klucz podpisywania.
 
-Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. <namespace>Na przykład http://.<entityPath> ServiceBus.Windows.NET/lub `sb://<namespace>.servicebus.windows.net/<entityPath>;` to,. `http://contoso.servicebus.windows.net/eventhubs/eh1`
+Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. Na przykład http:// <namespace> . ServiceBus.Windows.NET/ <entityPath> lub `sb://<namespace>.servicebus.windows.net/<entityPath>;` to, `http://contoso.servicebus.windows.net/eventhubs/eh1` .
 
 Identyfikator URI musi być zakodowany przy użyciu wartości procentowej.
 
 Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub według jednego z hierarchicznych obiektów nadrzędnych. Na przykład `http://contoso.servicebus.windows.net/eventhubs/eh1` lub `http://contoso.servicebus.windows.net` w poprzednim przykładzie.
 
-Token sygnatury dostępu współdzielonego jest prawidłowy dla wszystkich zasobów <resourceURI> poprzedzonych prefiksem używanym w ciągu sygnatury.
+Token sygnatury dostępu współdzielonego jest prawidłowy dla wszystkich zasobów poprzedzonych prefiksem <resourceURI> używanym w ciągu sygnatury.
 
 > [!NOTE]
 > Token dostępu jest generowany dla Event Hubs przy użyciu zasad dostępu współdzielonego. Aby uzyskać więcej informacji, zobacz [zasady autoryzacji dostępu współdzielonego](authorize-access-shared-access-signature.md#shared-access-authorization-policies).

@@ -3,15 +3,14 @@ title: Użyj Azure Automation, aby uruchomić zadanie w StorSimple Data Manager
 description: Dowiedz się, jak używać Azure Automation do wyzwalania StorSimple Data Manager zadań
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273991"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514928"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Użyj Azure Automation, aby wyzwolić zadanie
 
@@ -50,7 +49,7 @@ Przed rozpoczęciem upewnij się, że masz:
    3. Utwórz nową grupę zasobów lub wybierz ją z istniejącej grupy zasobów.
    4. Wybierz **lokalizację**.
    5. Pozostaw wybraną opcję Domyślne **Utwórz konto Uruchom jako** .
-   6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij przycisk **Utwórz**.
+   6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij pozycję **Utwórz**.
 
       ![Utwórz konto usługi Automation as](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -86,7 +85,7 @@ Wykonaj następujące kroki, aby zaimportować, opublikować i uruchomić elemen
 
 2. W obszarze **Dodawanie elementu Runbook**kliknij pozycję **Importuj istniejący element Runbook**.
 
-3. Wskaż plik `Trigger-DataTransformation-Job.ps1` skryptu Azure PowerShell dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij przycisk **Utwórz**.
+3. Wskaż plik skryptu Azure PowerShell `Trigger-DataTransformation-Job.ps1` dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij pozycję **Utwórz**.
 
     ![Dodaj element Runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 

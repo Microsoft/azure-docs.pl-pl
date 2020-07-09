@@ -1,18 +1,18 @@
 ---
 title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
-ms.date: 03/30/2020
-ms.topic: conceptual
-ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.topic: how-to
+ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458815"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105170"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
-Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grupy zasobów są delegowane do dzierżawy za pomocą [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md)lub gdy wcześniej delegowane zasoby zostaną usunięte.
+Jako usługodawcę możesz mieć świadomość, że subskrypcje klienta lub grupy zasobów są delegowane do dzierżawy za pomocą [usługi Azure Lighthouse](../overview.md)lub gdy wcześniej delegowane zasoby zostaną usunięte.
 
 W dzierżawie zarządzającej [Dziennik aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) śledzi działania delegowania na poziomie dzierżawy. To zarejestrowane działanie obejmuje wszystkie dodane lub usunięte delegowania ze wszystkich dzierżawców klientów.
 
@@ -44,7 +44,7 @@ Ponieważ jest to szeroki poziom dostępu, zalecamy przypisanie tej roli do kont
 
 - [Utwórz nowe konto nazwy głównej usługi](../../active-directory/develop/howto-create-service-principal-portal.md) , które ma być używane tylko dla tej funkcji, zamiast przypisywać tę rolę do istniejącej jednostki usługi używanej do innej automatyzacji.
 - Upewnij się, że ta jednostka usługi nie ma dostępu do żadnych delegowanych zasobów klienta.
-- [Użyj certyfikatu do uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) i [bezpiecznego przechowywania w Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Użyj certyfikatu do uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) i [bezpiecznego przechowywania w Azure Key Vault](../../key-vault/general/best-practices.md).
 - Ogranicz użytkowników, którzy mają dostęp do działania w imieniu jednostki usługi.
 
 Użyj jednej z następujących metod, aby utworzyć przypisania zakresu głównego.
@@ -73,7 +73,7 @@ Po utworzeniu konta nazwy głównej usługi i przypisaniu roli czytnika monitoro
 
 Po utworzeniu nowego konta nazwy głównej usługi z dostępem do programu z możliwością monitorowania do zakresu głównego dzierżawy zarządzającej możesz użyć go do zapytania i raportu o działaniach delegowania w dzierżawie. 
 
-[Ten skrypt Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) może służyć do wykonywania zapytań dotyczących ostatnich 1 dnia działania i raportów dotyczących dodanych lub usuniętych delegacji (lub nieudanych prób). Wysyła zapytanie do danych [dziennika aktywności dzierżawców](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) , a następnie konstruuje następujące wartości w celu raportowania delegowania, które są dodawane lub usuwane:
+[Ten skrypt Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) może służyć do wykonywania zapytań dotyczących ostatnich 1 dnia działania i raportów dotyczących dodanych lub usuniętych delegacji (lub nieudanych prób). Wysyła zapytanie do danych [dziennika aktywności dzierżawców](/rest/api/monitor/TenantActivityLogs/List) , a następnie konstruuje następujące wartości w celu raportowania delegowania, które są dodawane lub usuwane:
 
 - **DelegatedResourceId**: Identyfikator delegowanej subskrypcji lub grupy zasobów
 - **CustomerTenantId**: Identyfikator dzierżawy klienta
@@ -158,5 +158,5 @@ else
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak dołączyć klientów do [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md).
+- Dowiedz się, jak dołączyć klientów do [usługi Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
 - Dowiedz się więcej o [Azure monitor](../../azure-monitor/index.yml) i [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md).

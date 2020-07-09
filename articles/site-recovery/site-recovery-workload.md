@@ -4,10 +4,10 @@ description: W tym artykule opisano obciążenia, które można chronić za pomo
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80062835"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Informacje o odzyskiwaniu po awarii dla aplikacji lokalnych
@@ -108,8 +108,8 @@ W poniższej tabeli przedstawiono opcje replikacji:
 
 | **Usługi pulpitu zdalnego** |**Replikacja maszyn wirtualnych platformy Azure na platformę Azure** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikowanie maszyn wirtualnych VMware na platformę Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Pulpit wirtualny w puli (niezarządzany)** |Nie|Tak |Nie |Tak |Nie |Tak |Nie |
-| **Pulpit wirtualny w puli (zarządzany i bez dysku UPD)** |Nie|Tak |Nie |Tak |Nie |Tak |Nie |
+| **Pulpit wirtualny w puli (niezarządzany)** |Nie|Yes |Nie |Yes |Nie |Yes |Nie |
+| **Pulpit wirtualny w puli (zarządzany i bez dysku UPD)** |Nie|Yes |Nie |Yes |Nie |Yes |Nie |
 | **Zdalne aplikacje i sesje pulpitu (bez dysku UPD)** |Tak|Tak |Tak |Tak |Tak |Tak |Tak |
 
 [Dowiedz się więcej](/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure) na temat odzyskiwania po awarii dla usług RDS.

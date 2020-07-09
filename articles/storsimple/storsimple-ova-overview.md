@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76273865"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Wprowadzenie do macierzy wirtualnej StorSimple
@@ -32,7 +31,7 @@ Macierz wirtualna obsługuje protokół iSCSI lub SMB (Server Message Block). Je
 
 Poniższa tabela zawiera podsumowanie ważnych funkcji macierzy wirtualnej StorSimple.
 
-| Funkcja | Macierz wirtualna usługi StorSimple |
+| Cecha | Macierz wirtualna usługi StorSimple |
 | --- | --- |
 | Wymagania dotyczące instalacji |Używa infrastruktury wirtualizacji (Hyper-V lub VMware) |
 | Dostępność |Jeden węzeł |
@@ -57,7 +56,7 @@ StorSimple łączy użytkowników i serwery z usługą Azure Storage w kilka min
 
 W poniższej tabeli opisano niektóre z najważniejszych korzyści oferowanych przez rozwiązanie StorSimple Virtual Array.
 
-| Funkcja | Korzyść |
+| Cecha | Korzyść |
 | --- | --- |
 | Integracja przezroczysta |Macierz wirtualna obsługuje protokół iSCSI lub SMB. Przenoszenie danych między warstwą lokalną a warstwą chmury jest bezproblemowe i niewidoczne dla użytkownika. |
 | Zmniejszone koszty magazynowania |W przypadku usługi StorSimple należy zapewnić wystarczającą ilość miejsca w magazynie lokalnym, aby zaspokoić bieżące wymagania dotyczące najczęściej używanych danych. W miarę wzrostu potrzeb magazynu StorSimple warstwy zimne dane do ekonomicznego magazynu w chmurze. Dane są deduplikowane i kompresowane przed wysłaniem do chmury, aby jeszcze bardziej ograniczyć wymagania i koszty magazynu. |
@@ -82,7 +81,7 @@ Gdy wielu współbieżnych użytkowników uzyskują dostęp do macierzy wirtualn
 
 StorSimple Virtual Array nie jest odpowiednia dla obciążeń wymagających wysokiej dostępności. Macierz wirtualna to urządzenie z jednym węzłem, które powoduje przestoje podczas instalowania aktualizacji oprogramowania. Administratorzy powinni zaplanować okno obsługi o 30 minut 3-4 razy na rok.
 
-## <a name="workflows"></a>Przepływy pracy
+## <a name="workflows"></a>Przepływy
 
 Wirtualna macierz StorSimple jest szczególnie odpowiednia dla następujących przepływów pracy:
 

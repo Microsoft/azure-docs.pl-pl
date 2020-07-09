@@ -10,20 +10,20 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: b02a08b7e8d8b867df820868b72a0ce14b6afa40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71670948"
 ---
 # <a name="microsoft-client-tools-for-working-with-azure-storage"></a>Narzędzia klienta firmy Microsoft do pracy z usługą Azure Storage
 
 Firma Microsoft udostępnia kilka narzędzi graficznego interfejsu użytkownika (GUI) służących do pracy z danymi na koncie usługi Azure Storage. Wszystkie narzędzia opisane w poniższej tabeli są bezpłatne.
 
-| Narzędzie klienckie usługi Azure Storage                 | Obsługiwane platformy | Blokowy obiekt BLOB | Obiekt BLOB strony | Dołącz obiekt BLOB | Tabele | Kolejki | Pliki |
+| Narzędzie klienckie usługi Azure Storage                 | Obsługiwane platformy | Blokowy obiekt BLOB | Obiekt BLOB strony | Dołącz obiekt BLOB | Tabele | Kolejki | Files |
 |-------------------------------------------|---------------------|------------|-----------|-------------|--------|--------|-------|
-| [Azure Portal](https://portal.azure.com)                    | sieć Web                 | Tak          | Tak         | Tak           | Tak      | Tak      | Tak     |
-| [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | Tak          | Tak         | Tak           | Tak      | Tak      | Tak     |
-| [Microsoft Visual Studio w programie Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Tak          | Tak         | Tak           | Tak      | Tak      | Nie      |
+| [Azure Portal](https://portal.azure.com)                    | Internet                 | Tak          | Tak         | Tak           | Tak      | Tak      | Yes     |
+| [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | Tak          | Tak         | Tak           | Tak      | Tak      | Yes     |
+| [Microsoft Visual Studio w programie Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Tak          | Tak         | Tak           | Tak      | Yes      | Nie      |
 
 Dostępne są również różne narzędzia innych firm umożliwiające pracę z danymi usługi Azure Storage.

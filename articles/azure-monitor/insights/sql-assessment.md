@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82871246"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Zoptymalizuj środowisko SQL za pomocą rozwiązania do sprawdzania kondycji SQL Server w Azure Monitor
@@ -38,7 +37,7 @@ Po dodaniu rozwiązania i zakończeniu oceny informacje podsumowujące dotycząc
 * Log Analytics obszar roboczy, aby dodać rozwiązanie sprawdzania kondycji SQL z witryny Azure Marketplace w Azure Portal. Aby można było zainstalować rozwiązanie, musisz być administratorem lub współautorem w subskrypcji platformy Azure.
 
   > [!NOTE]
-  > Po dodaniu rozwiązania do serwerów z agentami zostanie dodany plik AdvisorAssessment. exe. Dane konfiguracji są odczytywane, a następnie wysyłane do Azure Monitor w chmurze w celu przetworzenia. Logika jest stosowana do odebranych danych, a usługa w chmurze rejestruje dane.
+  > Po dodaniu rozwiązania plik AdvisorAssessment.exe zostanie dodany do serwerów z agentami. Dane konfiguracji są odczytywane, a następnie wysyłane do Azure Monitor w chmurze w celu przetworzenia. Logika jest stosowana do odebranych danych, a usługa w chmurze rejestruje dane.
   >
   >
 
@@ -85,7 +84,7 @@ Poniższe informacje służą do ustawiania konta Uruchom jako Operations Manage
    > Typ konta Uruchom jako musi być w systemie Windows. Konto Uruchom jako musi być również częścią lokalnej grupy administratorów na wszystkich serwerach z systemem Windows hostującym wystąpienia SQL Server.
    >
    >
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 6. Zmodyfikuj i wykonaj następujące przykładowe polecenie T-SQL na każdym wystąpieniu SQL Server, aby przyznać minimalnym uprawnieniam wymaganym dla konta Uruchom jako, aby przeprowadzić kontrolę kondycji. Nie trzeba jednak tego robić, jeśli konto Uruchom jako jest już częścią roli serwera sysadmin w SQL Server wystąpieniach.
 
 ```
@@ -177,8 +176,8 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
 
 3. Wybierz zalecenia, które chcesz zignorować. W następnej procedurze użyjesz wartości dla RecommendationId.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Aby utworzyć plik tekstowy IgnoreRecommendations. txt i korzystać z niego
-1. Utwórz plik o nazwie IgnoreRecommendations. txt.
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Aby utworzyć plik tekstowy IgnoreRecommendations.txt i używać go
+1. Utwórz plik o nazwie IgnoreRecommendations.txt.
 2. Wklej lub wpisz każdą RecommendationId każdego zalecenia, które Azure Monitor mają być ignorowane w osobnym wierszu, a następnie Zapisz i zamknij plik.
 3. Umieść plik w następującym folderze na każdym komputerze, na którym ma Azure Monitor ignorowanie zaleceń.
    * Na komputerach z Microsoft Monitoring Agent (połączone bezpośrednio lub za pomocą Operations Manager)- *dysk_systemowy*: \Program Files\Microsoft monitoring Agent\Agent
@@ -192,7 +191,7 @@ Jeśli masz zalecenia, które chcesz zignorować, możesz utworzyć plik tekstow
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-3. Jeśli zdecydujesz się później, aby zobaczyć zignorowane zalecenia, Usuń wszystkie pliki IgnoreRecommendations. txt lub Usuń z nich RecommendationIDs.
+3. Jeśli zdecydujesz się później, aby zobaczyć zignorowane zalecenia, Usuń wszelkie IgnoreRecommendations.txt pliki lub Usuń z nich RecommendationIDs.
 
 ## <a name="sql-health-check-solution-faq"></a>Rozwiązanie SQL Health Check — często zadawane pytania
 
@@ -226,7 +225,7 @@ Wyniki można następnie wyeksportować do programu Excel w celu dalszej analizy
 
 *Jaka jest nazwa procesu, który wykonuje zbieranie danych?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Jak długo trwa zbieranie danych?*
 

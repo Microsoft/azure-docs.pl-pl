@@ -9,10 +9,9 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974942"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracjami urządzeń za pomocą witryny Azure Portal
@@ -34,7 +33,7 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
      a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **grupy rejestracji** .  
      b. Kliknij przycisk **Dodaj** na górze.  
      c. Po wyświetleniu panelu "Dodaj grupę rejestracji" Wprowadź informacje dotyczące wpisu listy rejestracji.  **Nazwa grupy** jest wymagana. W polu **Typ certyfikatu**wybierz również pozycję "ca lub pośredni" i przekaż główny **certyfikat podstawowy** dla grupy urządzeń.  
-     d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
+     d. Kliknij pozycję **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
 
      [![Grupa rejestracji w portalu](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
@@ -49,7 +48,7 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
        a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **rejestracje indywidualne** .  
        b. Kliknij przycisk **Dodaj** na górze.   
        c. Po wyświetleniu panelu "Dodaj rejestrację" Wprowadź informacje dotyczące wpisu listy rejestracji. Najpierw wybierz **mechanizm** zaświadczania dla urządzenia (X. 509 lub moduł TPM). Zaświadczanie X. 509 wymaga przekazania **podstawowego certyfikatu** liścia dla urządzenia. Moduł TPM wymaga wprowadzenia **klucza zaświadczania** i **identyfikatora rejestracji** dla urządzenia.  
-       d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
+       d. Kliknij pozycję **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
 
        [![Rejestracja indywidualna w portalu](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

@@ -1,31 +1,21 @@
 ---
 title: Migrowanie do usługi Azure Event Hubs dla Apache Kafka
 description: W tym artykule pokazano, jak konsumenci i producenci korzystający z różnych protokołów (AMQP, Apache Kafka i HTTPS) mogą wymieniać zdarzenia podczas korzystania z usługi Azure Event Hubs.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/01/2020
-ms.author: shvija
-ms.openlocfilehash: 32b08e565b86af8f6373c9848211646128bb346d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 8f6c4cbdcbbc1d589b0803f36305f9a9fe6eebfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677368"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322739"
 ---
-# <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrowanie do Event Hubs platformy Azure dla ekosystemów Apache Kafka
+# <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migracja do usługi Azure Event Hubs z ekosystemu Apache Kafka
 Usługa Azure Event Hubs udostępnia punkt końcowy Apache Kafka, który umożliwia nawiązywanie połączenia z Event Hubs przy użyciu protokołu Kafka. Wprowadzając minimalne zmiany w istniejącej aplikacji Kafka, możesz połączyć się z usługą Azure Event Hubs i skorzystać korzyści z ekosystemu platformy Azure. Event Hubs obsługi Kafka [Apache Kafka wersja 1,0](https://kafka.apache.org/10/documentation.html) i nowsza.
 
 ## <a name="pre-migration"></a>Czynności przed migracją 
 
 ### <a name="create-an-azure-account"></a>Tworzenie konta platformy Azure
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs
 Wykonaj instrukcje krok po kroku w artykule [Tworzenie centrum zdarzeń](event-hubs-create.md) , aby utworzyć Event Hubs przestrzeni nazw i centrum zdarzeń. 
@@ -38,15 +28,15 @@ Może być również potrzebna nazwa FQDN wskazująca na przestrzeń nazw centru
 
 `Endpoint=sb://`**`mynamespace.servicebus.windows.net`**`/;SharedAccessKeyName=XXXXXX;SharedAccessKey=XXXXXX`
 
-Jeśli przestrzeń nazw Event Hubs została wdrożona w chmurze innej niż publiczna, nazwa domeny może się różnić (na przykład \*. ServiceBus.chinacloudapi.CN, \*. ServiceBus.usgovcloudapi.NET lub \*. ServiceBus.cloudapi.de).
+Jeśli przestrzeń nazw Event Hubs została wdrożona w chmurze innej niż publiczna, nazwa domeny może się różnić (na przykład \* . ServiceBus.chinacloudapi.CN, \* . ServiceBus.usgovcloudapi.NET lub \* . ServiceBus.cloudapi.de).
 
 ## <a name="migration"></a>Migracja 
 
 ### <a name="update-your-kafka-client-configuration"></a>Aktualizowanie konfiguracji klienta Kafka
 
-Aby nawiązać połączenie z centrum zdarzeń z obsługą Kafka, należy zaktualizować konfiguracje klienta Kafka. Jeśli masz problemy z znalezieniem Twojego rozwiązania, spróbuj wyszukać miejsce, w którym `bootstrap.servers` jest ustawiony w aplikacji.
+Aby nawiązać połączenie z centrum zdarzeń z obsługą Kafka, należy zaktualizować konfiguracje klienta Kafka. Jeśli masz problemy z znalezieniem Twojego rozwiązania, spróbuj wyszukać miejsce, `bootstrap.servers` w którym jest ustawiony w aplikacji.
 
-Wstaw następujące konfiguracje, wszędzie tam, gdzie jest to zrozumiałe dla aplikacji. Upewnij się, że `bootstrap.servers` Zaktualizowano `sasl.jaas.config` wartości i, aby skierować klienta do Event Hubs punktu końcowego Kafka z prawidłowym uwierzytelnianiem. 
+Wstaw następujące konfiguracje, wszędzie tam, gdzie jest to zrozumiałe dla aplikacji. Upewnij się, że Zaktualizowano `bootstrap.servers` wartości i, `sasl.jaas.config` Aby skierować klienta do Event Hubs punktu końcowego Kafka z prawidłowym uwierzytelnianiem. 
 
 ```
 bootstrap.servers={MYNAMESPACE}.servicebus.windows.net:9093

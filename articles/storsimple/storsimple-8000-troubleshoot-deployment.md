@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 04c541dc10b2e25aa1e24ef704b4d939243f23ca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267627"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513730"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem urządzeń StorSimple
 ## <a name="overview"></a>Omówienie
@@ -82,7 +81,7 @@ W poniższej tabeli wymieniono typowe błędy, które mogą wystąpić podczas:
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Błędy podczas opcjonalnych ustawień serwera proxy sieci Web
 | Nie. | Komunikat o błędzie | Możliwe przyczyny | Zalecana akcja |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: nieprawidłowy parametr (wyjątek z HRESULT: 0x80070057) |Jeden z parametrów podanych dla ustawień serwera proxy jest nieprawidłowy. |Identyfikator URI nie ma poprawnego formatu. Użyj następującego formatu: http://*\<adres IP lub nazwa FQDN serwera proxy sieci Web>*:*\<numer portu TCP>* |
+| 1 |Invoke-HcsSetupWizard: nieprawidłowy parametr (wyjątek z HRESULT: 0x80070057) |Jeden z parametrów podanych dla ustawień serwera proxy jest nieprawidłowy. |Identyfikator URI nie ma poprawnego formatu. Użyj następującego formatu: http:// *\<IP address or FQDN of the web proxy server>* :*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: serwer RPC niedostępny (wyjątek z HRESULT: 0x800706ba) |Główna przyczyna jest jedną z następujących czynności:<ol><li>Klaster nie działa.</li><li>Kontroler pasywny nie może komunikować się z aktywnym kontrolerem, a polecenie jest uruchamiane z kontrolera pasywnego.</li></ol> |W zależności od przyczyny głównej:<ol><li>[Skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby upewnić się, że klaster działa.</li><li>Uruchom polecenie z poziomu aktywnego kontrolera. Jeśli chcesz uruchomić polecenie z kontrolera pasywnego, musisz się upewnić, że kontroler pasywny może komunikować się z aktywnym kontrolerem. Jeśli ta łączność zostanie przerwana, należy [skontaktować się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) .</li></ol> |
 | 3 |Invoke-HcsSetupWizard: wywołanie RPC nie powiodło się (wyjątek z HRESULT: 0X800706be) |Klaster nie działa. |[Skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby upewnić się, że klaster działa. |
 | 4 |Invoke-HcsSetupWizard: nie znaleziono zasobu klastra (wyjątek z HRESULT: 0x8007138f) |Nie znaleziono zasobu klastra. Taka sytuacja może wystąpić, jeśli instalacja nie powiodła się. |Może być konieczne zresetowanie urządzenia do domyślnych ustawień fabrycznych. [Skontaktuj się pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby utworzyć zasób klastra. |
@@ -139,7 +138,7 @@ Aby zarejestrować urządzenie, należy użyć usługi StorSimple Menedżer urz�
 | 9 |Ostrzeżenie: nie można aktywować urządzenia. Hasła administratora urządzenia i StorSimple Snapshot Manager nie zostały zmienione. |Jeśli rejestracja nie powiedzie się, hasła administratora i StorSimple Snapshot Manager nie są zmieniane. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Narzędzia do rozwiązywania problemów z wdrożeniami usługi StorSimple
-StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Należą do nich:
+StorSimple zawiera kilka narzędzi, których można użyć do rozwiązywania problemów z rozwiązaniem StorSimple. Są to moduły:
 
 * Obsługa pakietów i dzienników urządzeń.
 * Polecenia cmdlet przeznaczone specjalnie do rozwiązywania problemów.
@@ -173,7 +172,7 @@ Aby wykryć błędy łączności, użyj następujących poleceń cmdlet programu
 * `Test-Connection`: To polecenie cmdlet służy do sprawdzania łączności sieciowej wewnątrz i poza siecią.
 * `Test-HcsmConnection`: To polecenie cmdlet służy do sprawdzania łączności pomyślnie zarejestrowanego urządzenia.
 * `Sync-HcsTime`: To polecenie cmdlet służy do wyświetlania czasu urządzenia i wymuszania synchronizacji czasu z serwerem NTP.
-* `Enable-HcsPing`i `Disable-HcsPing`: Użyj tych poleceń cmdlet, aby umożliwić hostom pingowanie interfejsów sieciowych na urządzeniu StorSimple. Domyślnie interfejsy sieciowe StorSimple nie odpowiadają na żądania ping.
+* `Enable-HcsPing`i `Disable-HcsPing` : Użyj tych poleceń cmdlet, aby umożliwić hostom pingowanie interfejsów sieciowych na urządzeniu StorSimple. Domyślnie interfejsy sieciowe StorSimple nie odpowiadają na żądania ping.
 * `Trace-HcsRoute`: Użyj tego polecenia cmdlet jako narzędzia do śledzenia tras. Wysyła pakiety do każdego routera w drodze do ostatecznego miejsca docelowego w danym okresie, a następnie oblicza wyniki na podstawie pakietów zwróconych z każdego przeskoku. Ponieważ `Trace-HcsRoute` pokazuje stopień utraty pakietów na danym routerze lub łączu, można wskazać, które routery lub łącza mogą powodować problemy z siecią.
 * `Get-HcsRoutingTable`: Użyj tego polecenia cmdlet, aby wyświetlić tabelę lokalnego routingu IP.
 
@@ -181,7 +180,7 @@ Aby wykryć błędy łączności, użyj następujących poleceń cmdlet programu
 W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urządzenia po raz pierwszy stan sprzętu nie jest dostępny w interfejsie użytkownika usługi StorSimple Menedżer urządzeń, ponieważ urządzenie nie zostało jeszcze zarejestrowane w usłudze. Ponadto blok **kondycji sprzętu** może nie zawsze odzwierciedlać stan urządzenia, szczególnie w przypadku problemów mających wpływ na synchronizację usługi. W takich sytuacjach można użyć `Get-NetAdapter` polecenia cmdlet w celu określenia kondycji i stanu interfejsów sieciowych.
 
 ### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Aby wyświetlić listę wszystkich kart sieciowych na urządzeniu
-1. Rozpocznij program Windows PowerShell dla usługi StorSimple, a następnie wpisz `Get-NetAdapter`. 
+1. Rozpocznij program Windows PowerShell dla usługi StorSimple, a następnie wpisz `Get-NetAdapter` . 
 2. Użyj danych wyjściowych `Get-NetAdapter` polecenia cmdlet i poniższych wytycznych, aby zrozumieć stan interfejsu sieciowego.
    
    * Jeśli interfejs jest w dobrej kondycji i włączony, stan **numer IfIndex** jest wyświetlany **jako.**
@@ -191,7 +190,7 @@ W przypadku konfigurowania interfejsów sieciowych na potrzeby wdrożenia urząd
 
 Aby uzyskać więcej informacji na temat korzystania z tego polecenia cmdlet, przejdź do polecenia [Get-adapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) w dokumentacji poleceń cmdlet programu Windows PowerShell.
 
-W poniższych sekcjach przedstawiono przykłady danych wyjściowych `Get-NetAdapter` z polecenia cmdlet.
+W poniższych sekcjach przedstawiono przykłady danych wyjściowych z `Get-NetAdapter` polecenia cmdlet.
 
  W tych przykładach kontroler 0 był kontrolerem pasywnym i został skonfigurowany w następujący sposób:
 
@@ -235,11 +234,11 @@ Poniżej przedstawiono dane wyjściowe z kontrolera 1 (aktywny kontroler). Tylko
 
 
 ## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Rozwiązywanie problemów za pomocą polecenia cmdlet Test-connection
-Za pomocą polecenia cmdlet `Test-Connection` można określić, czy urządzenie StorSimple może nawiązać połączenie z siecią zewnętrzną. Jeśli wszystkie parametry sieci, w tym DNS, są poprawnie skonfigurowane w Kreatorze instalacji, można użyć `Test-Connection` polecenia cmdlet do pingowania znanego adresu spoza sieci, na przykład Outlook.com.
+Za pomocą `Test-Connection` polecenia cmdlet można określić, czy urządzenie StorSimple może nawiązać połączenie z siecią zewnętrzną. Jeśli wszystkie parametry sieci, w tym DNS, są poprawnie skonfigurowane w Kreatorze instalacji, można użyć `Test-Connection` polecenia cmdlet do pingowania znanego adresu spoza sieci, na przykład Outlook.com.
 
 Należy włączyć polecenie ping, aby rozwiązać problemy z łącznością z tym poleceniem cmdlet, jeśli polecenie ping jest wyłączone.
 
-Zapoznaj się z poniższymi przykładami `Test-Connection` danych wyjściowych z polecenia cmdlet.
+Zapoznaj się z poniższymi przykładami danych wyjściowych z `Test-Connection` polecenia cmdlet.
 
 > [!NOTE]
 > W pierwszym przykładzie urządzenie jest skonfigurowane z nieprawidłowym systemem DNS. W drugim przykładzie serwer DNS jest prawidłowy.
@@ -305,7 +304,7 @@ Aby uzyskać więcej informacji na temat sposobu korzystania z polecenia cmdlet,
 > [!IMPORTANT]
 > To polecenie cmdlet można uruchomić zarówno dla aktywnego, jak i pasywnego kontrolera.
 
-Zapoznaj się z poniższymi przykładami `Test-HcsmConnection` danych wyjściowych z polecenia cmdlet.
+Zapoznaj się z poniższymi przykładami danych wyjściowych z `Test-HcsmConnection` polecenia cmdlet.
 
 **Przykładowe dane wyjściowe — pomyślnie zarejestrowano urządzenie z systemem StorSimple Update 3**
 
@@ -491,7 +490,7 @@ Przyczyną błędu może być dowolny z następujących elementów:
 * Nieprawidłowe ustawienia zapory
 
 ### <a name="to-locate-and-fix-the-device-registration-problem"></a>Aby zlokalizować i rozwiązać problem z rejestracją urządzenia
-1. Sprawdź konfigurację urządzenia: na aktywnym kontrolerze Uruchom `Invoke-HcsSetupWizard`polecenie.
+1. Sprawdź konfigurację urządzenia: na aktywnym kontrolerze Uruchom polecenie `Invoke-HcsSetupWizard` .
    
    > [!NOTE]
    > Kreator instalacji musi działać na aktywnym kontrolerze. Aby sprawdzić, czy masz połączenie z aktywnym kontrolerem, zapoznaj się z transparentem przedstawionym w konsoli szeregowej. Transparent wskazuje, czy masz połączenie z kontrolerem 0, czy kontrolerem 1 i czy kontroler jest aktywny, czy pasywny. Aby uzyskać więcej informacji, przejdź do [pozycji identyfikowanie aktywnego kontrolera na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).

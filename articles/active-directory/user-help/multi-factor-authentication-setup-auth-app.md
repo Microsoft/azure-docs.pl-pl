@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738646"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurowanie aplikacji uwierzytelniania jako metody weryfikacji dwuskładnikowej
@@ -65,7 +65,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
     >[!Note]
     >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-9. Wybierz pozycję **Done** (Gotowe).
+9. Wybierz pozycję **Gotowe**.
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Konfigurowanie aplikacji Microsoft Authenticator do używania kodów weryfikacyjnych
 
@@ -107,7 +107,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
     >[!Note]
     >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-9. Wybierz pozycję **Done** (Gotowe).
+9. Wybierz pozycję **Gotowe**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,21 +10,21 @@ caps.latest.revision: 42
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: dadb50bd0663f47e6a1bf3d58b5187c8b466964d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79528374"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Schemat definicji Cloud Services platformy Azure (plik. csdef)
 Plik definicji usługi definiuje model usługi dla aplikacji. Plik zawiera definicje ról, które są dostępne dla usługi w chmurze, określa punkty końcowe usługi i ustanawia ustawienia konfiguracji usługi. Wartości ustawień konfiguracji są ustawiane w pliku konfiguracji usługi zgodnie z opisem w [schemacie konfiguracji usługi w chmurze (klasycznej)](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
-Domyślnie plik schematu konfiguracji Diagnostyka Azure jest instalowany w `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` katalogu. Zamień `<version>` na zainstalowaną wersję [zestawu Azure SDK](https://www.windowsazure.com/develop/downloads/).
+Domyślnie plik schematu konfiguracji Diagnostyka Azure jest instalowany w `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` katalogu. Zamień na `<version>` zainstalowaną wersję [zestawu Azure SDK](https://www.windowsazure.com/develop/downloads/).
 
 Domyślnym rozszerzeniem dla pliku definicji usługi jest. csdef.
 
 ## <a name="basic-service-definition-schema"></a>Schemat definicji usługi podstawowej
-Plik definicji usługi musi zawierać jeden `ServiceDefinition` element. Definicja usługi musi zawierać co najmniej jeden element roli (`WebRole` lub `WorkerRole`). Może zawierać do 25 ról zdefiniowanych w jednej definicji i można mieszać typy ról. Definicja usługi zawiera również opcjonalny `NetworkTrafficRules` element, który ogranicza, które role mogą komunikować się z określonymi wewnętrznymi punktami końcowymi. Definicja usługi zawiera również opcjonalny `LoadBalancerProbes` element, który zawiera określone przez klienta sondy kondycji punktów końcowych.
+Plik definicji usługi musi zawierać jeden `ServiceDefinition` element. Definicja usługi musi zawierać co najmniej jeden element roli ( `WebRole` lub `WorkerRole` ). Może zawierać do 25 ról zdefiniowanych w jednej definicji i można mieszać typy ról. Definicja usługi zawiera również opcjonalny `NetworkTrafficRules` element, który ogranicza, które role mogą komunikować się z określonymi wewnętrznymi punktami końcowymi. Definicja usługi zawiera również opcjonalny `LoadBalancerProbes` element, który zawiera określone przez klienta sondy kondycji punktów końcowych.
 
 Podstawowy format pliku definicji usługi jest następujący:.
 
@@ -53,13 +53,13 @@ Podstawowy format pliku definicji usługi jest następujący:.
 ## <a name="schema-definitions"></a>Definicje schematu
 W poniższych tematach opisano schemat:
 
-- [LoadBalancerProbe — schemat](schema-csdef-loadbalancerprobe.md)
-- [WebRole — schemat](schema-csdef-webrole.md)
-- [WorkerRole — schemat](schema-csdef-workerrole.md)
-- [NetworkTrafficRules — schemat](schema-csdef-networktrafficrules.md)
+- [Schemat LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)
+- [Schemat WebRole](schema-csdef-webrole.md)
+- [Schemat WorkerRole](schema-csdef-workerrole.md)
+- [Schemat NetworkTrafficRules](schema-csdef-networktrafficrules.md)
 
 ##  <a name="servicedefinition-element"></a><a name="ServiceDefinition"></a>Element ServiceDefinition
-`ServiceDefinition` Element jest elementem najwyższego poziomu pliku definicji usługi.
+`ServiceDefinition`Element jest elementem najwyższego poziomu pliku definicji usługi.
 
 W poniższej tabeli opisano atrybuty `ServiceDefinition` elementu.
 

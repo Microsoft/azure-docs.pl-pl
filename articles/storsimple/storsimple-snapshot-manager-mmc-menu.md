@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: ced075395c4f2a51308d5d3b0cbe4c0153a17816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508830"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Użyj akcji menu programu MMC w StorSimple Snapshot Manager
 
@@ -28,7 +28,7 @@ W StorSimple Snapshot Manager zostaną wyświetlone następujące akcje wymienio
 
 * Widok
 * Nowe okno w tym miejscu 
-* Odświeżanie 
+* Odśwież 
 * Eksportuj listę 
 * Pomoc 
 
@@ -69,7 +69,7 @@ Możesz użyć **nowego okna z tego miejsca** , aby otworzyć nowe okno konsoli.
    
     ![Nowe okno w tym miejscu](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
 
-## <a name="refresh"></a>Odświeżanie
+## <a name="refresh"></a>Odśwież
 Możesz użyć akcji **Odśwież** , aby zaktualizować okno konsoli.
 
 #### <a name="to-update-the-console-window"></a>Aby zaktualizować okno konsoli
@@ -87,7 +87,7 @@ Za pomocą akcji **Eksportuj listę** można zapisać listę w pliku z wartości
    1. W polu **Nazwa pliku** wpisz nazwę pliku CSV lub kliknij strzałkę, aby wybrać z listy rozwijanej.
    2. W polu **Zapisz jako typ** kliknij strzałkę i wybierz typ pliku z listy rozwijanej.
    3. Aby zapisać tylko wybrane elementy, zaznacz wiersze, a następnie kliknij pole wyboru **Zapisz tylko zaznaczone wiersze** . Aby zapisać wszystkie wyeksportowane listy, wyczyść pole wyboru **Zapisz tylko zaznaczone wiersze** .
-   4. Kliknij przycisk **Zapisz**.
+   4. Kliknij pozycję **Zapisz**.
       
       ![Eksportuj listę jako plik z wartościami rozdzielanymi przecinkami](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

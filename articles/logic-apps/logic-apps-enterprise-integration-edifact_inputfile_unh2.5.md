@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792537"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Obsługa dokumentów EDIFACT z segmentami UNH 2.5 w Azure Logic Apps
 
-Jeśli w dokumencie EDIFACT istnieje segment UNH 2.5, segment jest używany do wyszukiwania w schemacie. Na przykład w tym przykładowym komunikacie EDIFACT pole UNH jest `EAN008`następujące:
+Jeśli w dokumencie EDIFACT istnieje segment UNH 2.5, segment jest używany do wyszukiwania w schemacie. Na przykład w tym przykładowym komunikacie EDIFACT pole UNH jest `EAN008` następujące:
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
@@ -29,7 +28,7 @@ Aby obsłużyć ten komunikat, wykonaj następujące kroki opisane poniżej:
 
 ## <a name="update-the-schema"></a>Aktualizowanie schematu
 
-Aby przetworzyć komunikat, należy wdrożyć schemat, który ma nazwę węzła głównego UNH 2.5. Na przykład główna nazwa schematu dla przykładowego pola UNH `EFACT_D03B_ORDERS_EAN008`. Dla każdego `D03B_ORDERS` , który ma inny segment UNH 2,5, należy wdrożyć pojedynczy schemat.
+Aby przetworzyć komunikat, należy wdrożyć schemat, który ma nazwę węzła głównego UNH 2.5. Na przykład główna nazwa schematu dla przykładowego pola UNH `EFACT_D03B_ORDERS_EAN008` . Dla każdego, `D03B_ORDERS` który ma inny segment UNH 2,5, należy wdrożyć pojedynczy schemat.
 
 ## <a name="add-schema-to-edifact-agreement"></a>Dodaj schemat do umowy EDIFACT
 
@@ -43,7 +42,7 @@ Aby zdekodować komunikat przychodzący, skonfiguruj schemat w ustawieniach odbi
 
 1. Skonfiguruj schemat w ustawieniach odbioru umowy EDIFACT.
 
-1. Wybierz umowę EDIFACT i wybierz pozycję **Edytuj jako kod JSON**. Dodaj wartość UNH 2,5 do `schemaReferences` sekcji umowy odbioru:
+1. Wybierz umowę EDIFACT i wybierz pozycję **Edytuj jako kod JSON**. Dodaj wartość UNH 2,5 do sekcji umowy odbioru `schemaReferences` :
 
    ![Dodaj UNH 2.5, aby uzyskać umowę](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
@@ -59,7 +58,7 @@ Aby zakodować komunikat przychodzący, skonfiguruj schemat w ustawieniach umowy
 
 1. Wybierz umowę EDIFACT, a następnie kliknij pozycję **Edytuj jako plik JSON**.  Dodaj wartość UNH 2,5 w umowie Send **schemaReferences**
 
-1. Wybierz umowę EDIFACT i wybierz pozycję **Edytuj jako kod JSON**. Dodaj wartość UNH 2,5 do `schemaReferences` sekcji z umową wysyłania:
+1. Wybierz umowę EDIFACT i wybierz pozycję **Edytuj jako kod JSON**. Dodaj wartość UNH 2,5 do sekcji z umową wysyłania `schemaReferences` :
 
    ![Dodaj UNH 2.5, aby wysłać umowę](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 

@@ -7,15 +7,14 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/06/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1a7cb964064e229ee29591ca14aa8ef33e393a7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484182"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Zasady niestandardowe w Azure Active Directory B2C
 
@@ -25,7 +24,7 @@ Zasady niestandardowe to pliki konfiguracji, które definiują zachowanie dzier�
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Porównywanie przepływów użytkowników i zasad niestandardowych
 
-| | Przepływy użytkowników | Zasady niestandardowe |
+| Kontekst | Przepływy użytkowników | Zasady niestandardowe |
 |-|-------------------|-----------------|
 | Użytkownicy docelowi | Wszyscy deweloperzy aplikacji z wiedzą lub bez wiedzy z zakresu tożsamości. | Specjaliści tożsamości, Integratory systemów, konsultanci i wewnętrzne zespoły tożsamości. Są one wygodne w połączeniu z usługą OpenID Connect Connect Flows i wiedzą dostawców tożsamości i uwierzytelniania opartego na oświadczeniach. |
 | Metoda konfiguracji | Azure Portal z interfejsem użytkownika przyjaznym dla użytkownika (UI). | Bezpośrednie edytowanie plików XML i przekazywanie ich do Azure Portal. |

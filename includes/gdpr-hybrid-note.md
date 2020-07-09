@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: active-directory
 author: eross-msft
 ms.service: active-directory
@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: 968ebe89de65de5fa49e56a90a1bc92109a16861
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75613769"
 ---
 >[!Note]
->Jeśli interesuje Cię przeglądanie lub usuwanie danych osobowych, przejrzyj wskazówki firmy Microsoft w witrynie [żądania podmiotu udostępniającego dane systemu Windows dotyczące rozporządzenia GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests). Jeśli szukasz ogólnych informacji o ogólnym rozporządzeniu o ochronie danych osobowych (GDPR, General Data Protection Regulation), zobacz sekcję [Ogólne rozporządzenie o ochronie danych osobowych (GDPR) w portalu zaufania usług](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Jeśli interesuje Cię wyświetlanie lub usuwanie danych osobowych, zapoznaj się z wytycznymi firmy Microsoft w witrynie [Windows Data Subject Requests for the GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) (Żądania podmiotów danych w systemie Windows na potrzeby RODO). Jeśli szukasz ogólnych informacji o ogólnym rozporządzeniu o ochronie danych osobowych (GDPR, General Data Protection Regulation), zobacz sekcję [Ogólne rozporządzenie o ochronie danych osobowych (GDPR) w portalu zaufania usług](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

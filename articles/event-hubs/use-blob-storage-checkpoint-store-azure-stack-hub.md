@@ -1,19 +1,14 @@
 ---
 title: Użyj Blob Storage jako magazynu punktów kontrolnych w centrum Azure Stack (wersja zapoznawcza)
 description: W tym artykule opisano, jak używać Blob Storage jako magazynu punktów kontrolnych w Event Hubs w centrum Azure Stack (wersja zapoznawcza).
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 03/18/2020
-ms.author: spelluru
-ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 0990941191827c66cd51d70216c75e106d0448fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82023665"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322359"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Użyj Blob Storage jako magazynu punktów kontrolnych — Event Hubs w centrum Azure Stack (wersja zapoznawcza)
 Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
@@ -34,7 +29,7 @@ The value for one of the HTTP headers is not in the correct format
 
 
 ## <a name="sample-error-message-in-python"></a>Przykładowy komunikat o błędzie w języku Python
-W przypadku języka Python błąd `azure.core.exceptions.HttpResponseError` jest przesyłany do procedury obsługi `on_error(partition_context, error)` błędu programu `EventHubConsumerClient.receive()`. Jednak Metoda `receive()` nie zgłasza wyjątku. `print(error)`Program będzie drukował następujące informacje o wyjątku:
+W przypadku języka Python błąd `azure.core.exceptions.HttpResponseError` jest przesyłany do procedury obsługi błędu `on_error(partition_context, error)` programu `EventHubConsumerClient.receive()` . Jednak Metoda `receive()` nie zgłasza wyjątku. `print(error)`Program będzie drukował następujące informacje o wyjątku:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.

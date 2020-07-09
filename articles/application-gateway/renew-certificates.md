@@ -4,15 +4,15 @@ description: Dowiedz się, jak odnowić certyfikat skojarzony z odbiornikiem bra
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de57a58f7c891009d2e0cc43b351c2cad42a2766
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311965"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807889"
 ---
 # <a name="renew-application-gateway-certificates"></a>Odnów Application Gateway certyfikaty
 

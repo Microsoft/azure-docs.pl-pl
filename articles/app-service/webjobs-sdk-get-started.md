@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83743621"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
@@ -201,7 +201,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
 1. Wybierz ten sam **region** , w którym została utworzona aplikacja App Service, lub region blisko siebie.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    ![Utwórz konto magazynu](./media/webjobs-sdk-get-started/create-storage-account.png)
 
@@ -217,7 +217,7 @@ Emulator usługi Azure Storage, który działa lokalnie, nie ma wszystkich funkc
 
 Zestaw SDK zadań WebJob szuka parametrów połączenia magazynu w ustawieniach aplikacji na platformie Azure. W przypadku uruchamiania lokalnego program szuka tej wartości w lokalnym pliku konfiguracyjnym lub w zmiennych środowiskowych.
 
-1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**  >  **nowy element...**, wybierz **plik konfiguracji JSON języka JavaScript**, nazwij nowy plik *appSettings. JSON* , a następnie wybierz pozycję **Dodaj**. 
+1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**  >  **nowy element...**, wybierz **plik konfiguracji JSON języka JavaScript**, nazwij nowy plik *appsettings.js* pliku i wybierz polecenie **Dodaj**. 
 
 1. W nowym pliku Dodaj `AzureWebJobsStorage` pole, jak w poniższym przykładzie:
 
@@ -229,7 +229,7 @@ Zestaw SDK zadań WebJob szuka parametrów połączenia magazynu w ustawieniach 
 
 1. Zastąp *{Parametry połączenia magazynu}* parametrami połączenia, które zostały wcześniej skopiowane.
 
-1. Wybierz plik *appSettings. JSON* w Eksplorator rozwiązań i w oknie **Właściwości** ustaw wartość **Kopiuj do katalogu wyjściowego** na Kopiuj, **jeśli nowszy**.
+1. Wybierz *appsettings.jsw* pliku Eksplorator rozwiązań i w oknie **Właściwości** ustaw wartość **Kopiuj do katalogu wyjściowego** na **Kopiuj, jeśli nowszy**.
 
 Później należy dodać to samo ustawienie aplikacji parametrów połączenia w aplikacji w Azure App Service.
 
@@ -340,7 +340,7 @@ W tej sekcji wykonaj następujące zadania, aby skonfigurować rejestrowanie App
 
 1. Wybierz pozycję **Zapisz**.
 
-1. Dodaj Application Insights połączenie z projektem, aby można było uruchomić je lokalnie. W pliku *appSettings. JSON* Dodaj `APPINSIGHTS_INSTRUMENTATIONKEY` pole, jak w poniższym przykładzie:
+1. Dodaj Application Insights połączenie z projektem, aby można było uruchomić je lokalnie. W *appsettings.jsna* pliku Dodaj `APPINSIGHTS_INSTRUMENTATIONKEY` pole, jak w poniższym przykładzie:
 
     ```json
     {

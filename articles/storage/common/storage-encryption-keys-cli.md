@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 893c953562e0d150bd5e8110e5473fd24a2aff83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176349"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506207"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -86,13 +86,13 @@ az keyvault key create \
     --vault-name <key-vault>
 ```
 
-Szyfrowanie za pomocą usługi Azure Storage jest obsługiwane tylko przez 2048-bitowe klucze RSA i RSA-HSM. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta
 
 Domyślnie szyfrowanie usługi Azure Storage używa kluczy zarządzanych przez firmę Microsoft. Skonfiguruj konto usługi Azure Storage dla kluczy zarządzanych przez klienta i określ klucz, który ma zostać skojarzony z kontem magazynu.
 
-Aby zaktualizować ustawienia szyfrowania konta magazynu, wywołaj polecenie [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update), jak pokazano w poniższym przykładzie. Uwzględnij `--encryption-key-source` parametr i ustaw go na `Microsoft.Keyvault` , aby włączyć klucze zarządzane przez klienta dla konta magazynu. Przykładem jest również zapytanie dotyczące identyfikatora URI magazynu kluczy i najnowszej wersji klucza, obie wartości są konieczne do skojarzenia klucza z kontem magazynu. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
+Aby zaktualizować ustawienia szyfrowania konta magazynu, wywołaj polecenie [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update), jak pokazano w poniższym przykładzie. Uwzględnij `--encryption-key-source` parametr i ustaw go na, aby `Microsoft.Keyvault` włączyć klucze zarządzane przez klienta dla konta magazynu. Przykładem jest również zapytanie dotyczące identyfikatora URI magazynu kluczy i najnowszej wersji klucza, obie wartości są konieczne do skojarzenia klucza z kontem magazynu. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -134,7 +134,7 @@ az keyvault delete-policy \
 
 ## <a name="disable-customer-managed-keys"></a>Wyłącz klucze zarządzane przez klienta
 
-Po wyłączeniu kluczy zarządzanych przez klienta konto magazynu będzie ponownie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby wyłączyć klucze zarządzane przez klienta, wywołaj polecenie [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update) i `--encryption-key-source parameter` Ustaw `Microsoft.Storage`polecenie na, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
+Po wyłączeniu kluczy zarządzanych przez klienta konto magazynu będzie ponownie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby wyłączyć klucze zarządzane przez klienta, wywołaj polecenie [AZ Storage account Update](/cli/azure/storage/account#az-storage-account-update) i `--encryption-key-source parameter` Ustaw `Microsoft.Storage` polecenie na, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
 ```azurecli-interactive
 az storage account update
@@ -145,5 +145,5 @@ az storage account update
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md) 
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md) 
 - [Co to jest Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

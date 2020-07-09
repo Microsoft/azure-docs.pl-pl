@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80550346"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Jak skonfigurować opcje tworzenia kontenerów dla modułów IoT Edge
@@ -52,15 +52,15 @@ Manifest wdrażania IoT Edge akceptuje opcje tworzenia sformatowane jako dane JS
 
 Ten edgeHub przykład używa parametru **HostConfig. PortBindings** w celu mapowania uwidocznionych portów w kontenerze na port na urządzeniu hosta.
 
-Jeśli używasz rozszerzeń narzędzi Azure IoT Tools for Visual Studio lub Visual Studio Code, możesz napisać opcje tworzenia w formacie JSON w pliku **Deployment. Template. JSON** . Następnie, gdy użyjesz rozszerzenia do skompilowania rozwiązania IoT Edge lub wygenerowania manifestu wdrożenia, stringify to kod JSON w formacie, którego oczekuje środowisko uruchomieniowe IoT Edge. Przykład:
+Jeśli używasz rozszerzeń narzędzi Azure IoT Tools for Visual Studio lub Visual Studio Code, możesz napisać opcje tworzenia w formacie JSON w **deployment.template.js** pliku. Następnie, gdy użyjesz rozszerzenia do skompilowania rozwiązania IoT Edge lub wygenerowania manifestu wdrożenia, stringify to kod JSON w formacie, którego oczekuje środowisko uruchomieniowe IoT Edge. Na przykład:
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-Jedną z porad dotyczących pisania opcji tworzenia jest użycie `docker inspect` polecenia. W ramach procesu deweloperskiego Uruchom moduł lokalnie za pomocą polecenia `docker run <container name>`. Gdy moduł działa prawidłowo, uruchom `docker inspect <container name>`polecenie. To polecenie wyświetla szczegóły modułu w formacie JSON. Znajdź skonfigurowane parametry i skopiuj kod JSON. Przykład:
+Jedną z porad dotyczących pisania opcji tworzenia jest użycie `docker inspect` polecenia. W ramach procesu deweloperskiego Uruchom moduł lokalnie za pomocą polecenia `docker run <container name>` . Gdy moduł działa prawidłowo, uruchom polecenie `docker inspect <container name>` . To polecenie wyświetla szczegóły modułu w formacie JSON. Znajdź skonfigurowane parametry i skopiuj kod JSON. Na przykład:
 
-[![Wyniki inspekcji platformy Docker edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Wyniki inspekcji platformy Docker edgeHub ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
@@ -75,11 +75,11 @@ Opcje tworzenia kontenera umożliwiają korzystanie z wielu scenariuszy, ale pon
 Jeśli moduł musi komunikować się z usługą spoza rozwiązania IoT Edge i nie korzysta z tej funkcji, należy zmapować port hosta na port modułu.
 
 >[!TIP]
->To mapowanie portu nie jest wymagane w przypadku komunikacji między modułami na tym samym urządzeniu. Jeśli moduł A musi wysyłać zapytania do interfejsu API hostowanego w module B, może to zrobić bez żadnego mapowania portów. Moduł B musi uwidocznić port w pliku dockerfile, na przykład: `EXPOSE 8080`. Następnie moduł A może wysyłać zapytania do interfejsu API przy użyciu nazwy modułu B, na `http://ModuleB:8080/api`przykład:.
+>To mapowanie portu nie jest wymagane w przypadku komunikacji między modułami na tym samym urządzeniu. Jeśli moduł A musi wysyłać zapytania do interfejsu API hostowanego w module B, może to zrobić bez żadnego mapowania portów. Moduł B musi uwidocznić port w pliku dockerfile, na przykład: `EXPOSE 8080` . Następnie moduł A może wysyłać zapytania do interfejsu API przy użyciu nazwy modułu B, na przykład: `http://ModuleB:8080/api` .
 
 Najpierw upewnij się, że port wewnątrz modułu jest narażony na nasłuchiwanie połączeń. Można to zrobić przy użyciu instrukcji [uwidacznianej](https://docs.docker.com/engine/reference/builder/#expose) w pliku dockerfile. Na przykład `EXPOSE 8080`. Jeśli nie określono lub można określić UDP, uwidaczniaj instrukcję jako wartość domyślną protokołu TCP.
 
-Następnie użyj ustawienia **PortBindings** w grupie **HostConfig** [kontenera Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) , aby zamapować uwidoczniony port w module na port na urządzeniu hosta. Na przykład jeśli w module został uwidoczniony port 8080, a chcesz zmapować port 80 urządzenia hosta, opcje Utwórz w pliku Template. JSON będą wyglądać podobnie jak w poniższym przykładzie:
+Następnie użyj ustawienia **PortBindings** w grupie **HostConfig** [kontenera Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) , aby zamapować uwidoczniony port w module na port na urządzeniu hosta. Na przykład jeśli w module został uwidoczniony port 8080 i chcesz zmapować port 80 urządzenia hosta, opcje tworzenia w template.jsna pliku będą wyglądać podobnie jak w poniższym przykładzie:
 
 ```json
 "createOptions": {
@@ -109,7 +109,7 @@ Można zadeklarować, jaka część zasobów hosta może być używana przez mod
 * **MemorySwap**: całkowity limit pamięci (pamięć + wymiana). Na przykład 536870912 bajtów = 512 MB
 * **CpuPeriod**: długość okresu procesora CPU w mikrosekundach. Wartość domyślna to 100000, więc na przykład wartość 25000 ogranicza kontener do 25% zasobów procesora CPU.
 
-W formacie Template. JSON te wartości wyglądają podobnie jak w poniższym przykładzie:
+W template.jsw formacie te wartości będą wyglądać podobnie jak w poniższym przykładzie:
 
 ```json
 "createOptions": {

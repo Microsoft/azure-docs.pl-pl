@@ -11,12 +11,11 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885467"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253124"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenariusz: aplikacja demona, która wywołuje interfejsy API sieci Web
 
@@ -38,7 +37,7 @@ Oto przykładowe przypadki użycia dla aplikacji demonów:
 - Aplikacje klasyczne (takie jak usługi systemu Windows w ramach procesów systemu Windows lub demonów w systemie Linux) wykonujące zadania wsadowe lub usługę systemu operacyjnego działającą w tle
 - Interfejsy API sieci Web, które wymagają manipulowania katalogami, a nie określonymi użytkownikami
 
-Istnieje inny typowy przypadek, w którym aplikacje niedemonowe korzystają z poświadczeń klienta: nawet jeśli działają w imieniu użytkowników, muszą uzyskać dostęp do internetowego interfejsu API lub zasobu w ramach swojej tożsamości ze względów technicznych. Przykładem jest dostęp do wpisów tajnych w Azure Key Vault lub bazy danych Azure SQL Database dla pamięci podręcznej.
+Istnieje inny typowy przypadek, w którym aplikacje niedemonowe korzystają z poświadczeń klienta: nawet jeśli działają w imieniu użytkowników, muszą uzyskać dostęp do internetowego interfejsu API lub zasobu w ramach swojej tożsamości ze względów technicznych. Przykładem jest dostęp do wpisów tajnych w Azure Key Vault lub Azure SQL Database dla pamięci podręcznej.
 
 Aplikacje, które uzyskują token dla własnych tożsamości:
 

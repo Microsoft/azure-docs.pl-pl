@@ -2,45 +2,43 @@
 title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure Migrate
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
-ms.date: 2/24/2020
-ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 6/08/2020
+ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455710"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771380"
 ---
-# <a name="set-up-agentless-dependency-visualization"></a>Konfigurowanie wizualizacji zależności bez agenta 
+# <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
-W tym artykule opisano sposób konfigurowania analizy zależności bez agentów w Azure Migrate: Ocena serwera. [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować i zrozumieć zależności między maszynami, które mają być oceniane i migrowane do platformy Azure.
+W tym artykule opisano sposób konfigurowania analizy zależności bez agentów w Azure Migrate: Ocena serwera. [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować i zrozumieć zależności między maszynami w celu oceny i migracji do platformy Azure.
 
 
 > [!IMPORTANT]
-> Wizualizacja zależności bez agenta jest obecnie dostępna tylko w wersji zapoznawczej dla maszyn wirtualnych VMware, odnaleziona za pomocą narzędzia do oceny serwera Azure Migrate:.
+> Wizualizacja zależności bez agenta jest obecnie dostępna w wersji zapoznawczej dla maszyn wirtualnych VMware odnalezionych za pomocą narzędzia do oceny serwera Azure Migrate:.
 > Funkcje mogą być ograniczone lub niekompletne.
 > Ta wersja zapoznawcza jest objęta wsparciem klienta i może być używana na potrzeby obciążeń produkcyjnych.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## <a name="current-limitations"></a>Bieżące ograniczenia
 
+- W widoku Analiza zależności nie można obecnie dodawać ani usuwać serwera z grupy.
+- Mapa zależności dla grupy serwerów jest obecnie niedostępna.
+- Nie można pobrać danych zależności w formacie tabelarycznym.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- [Dowiedz się więcej o](concepts-dependency-visualization.md#agentless-analysis) analizie zależności bez agentów.
-- [Zapoznaj](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) się z wymaganiami dotyczącymi wymagań wstępnych i pomocy technicznej w zakresie konfigurowania wizualizacji zależności bez agenta dla maszyn wirtualnych VMware
-- Upewnij się, że [utworzono](how-to-add-tool-first-time.md) projekt Azure Migrate.
-- Jeśli projekt został już utworzony, upewnij się, że [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera.
-- Upewnij się, że skonfigurowano [urządzenie Azure Migrate](migrate-appliance.md) w celu odnajdywania maszyn lokalnych. Dowiedz się, jak skonfigurować urządzenie dla maszyn wirtualnych [VMware](how-to-set-up-appliance-vmware.md) . Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera.
+- [Przejrzyj](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) obsługiwane systemy operacyjne i wymagane uprawnienia.
+- Upewnij się, że:
+    - Mieć projekt Azure Migrate. Jeśli tego nie zrobisz, [Utwórz](how-to-add-tool-first-time.md) je teraz.
+    - Sprawdź, czy [dodano](how-to-assess.md) Azure Migrate: Narzędzie do oceny serwera do projektu.
+    - Skonfiguruj [urządzenie Azure Migrate](migrate-appliance.md) w celu odnajdywania maszyn lokalnych. [Skonfiguruj urządzenie](how-to-set-up-appliance-vmware.md) dla maszyn wirtualnych VMware. Urządzenie odnajduje maszyny lokalne i wysyła metadane i dane wydajności do Azure Migrate: Ocena serwera.
+- Sprawdź, czy narzędzia VMware (nowsze niż 10,2) są zainstalowane na każdej maszynie wirtualnej, którą chcesz przeanalizować.
 
-
-## <a name="current-limitations"></a>Bieżące ograniczenia
-
-- Teraz nie można dodać ani usunąć serwera z grupy w widoku Analiza zależności.
-- Mapa zależności dla grupy serwerów nie jest obecnie dostępna.
-- Obecnie nie można pobrać danych zależności w formacie tabelarycznym.
 
 ## <a name="create-a-user-account-for-discovery"></a>Tworzenie konta użytkownika na potrzeby odnajdywania
 
-Skonfiguruj konto użytkownika, aby Ocena serwera mogła uzyskać dostęp do maszyny wirtualnej w celu odnajdywania. [Dowiedz się więcej](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) o wymaganiach dotyczących konta.
+Skonfiguruj konto użytkownika, aby Ocena serwera mogła uzyskać dostęp do maszyny wirtualnej w celu odnalezienia zależności. [Dowiedz się więcej](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) o wymaganiach dotyczących konta maszyn wirtualnych z systemami Windows i Linux.
 
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Dodaj konto użytkownika do urządzenia
@@ -50,8 +48,8 @@ Dodaj konto użytkownika do urządzenia.
 1. Otwórz aplikację zarządzanie urządzeniami. 
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
 3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
-3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i**hasło** w polu **Nazwa użytkownika**/
-6. Kliknij przycisk **Zapisz**.
+3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
+6. Kliknij pozycję **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
     ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -63,9 +61,9 @@ Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności.
 1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij pozycję **Dodaj serwery**.
-3. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
-4. Z listy maszyna wybierz maszyny.
-5. Kliknij pozycję **Dodaj serwery**.
+4. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
+5. Z listy maszyna wybierz maszyny.
+6. Kliknij pozycję **Dodaj serwery**.
 
     ![Uruchom odnajdywanie zależności](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -91,6 +89,38 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 > [!NOTE]
 > Informacje o procesie dla zależności nie są zawsze dostępne. Jeśli ta funkcja jest niedostępna, zależność jest przedstawiana z procesem oznaczonym jako "nieznany proces".
+
+## <a name="export-dependency-data"></a>Eksportuj dane zależności
+
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+2. Kliknij ikonę **analiza zależności** .
+3. Kliknij pozycję **Eksportuj zależności aplikacji**.
+4. Na stronie **Eksportuj zależności aplikacji** wybierz urządzenie, które odnajduje odpowiednie maszyny.
+5. Wybierz godzinę rozpoczęcia i godzinę zakończenia. Należy pamiętać, że dane można pobrać tylko w ciągu ostatnich 30 dni.
+6. Kliknij pozycję **Eksportuj zależność**.
+
+Dane zależności są eksportowane i pobierane w formacie CSV. Pobrany plik zawiera dane zależności między wszystkimi maszynami, na których włączono obsługę analizy zależności. 
+
+![Eksportuj zależności](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
+### <a name="dependency-information"></a>Informacje o zależnościach
+
+Każdy wiersz w wyeksportowanym woluminie CSV odpowiada zależności zaobserwowanej w określonym gnieździe czasu. 
+
+Poniższa tabela zawiera podsumowanie pól w wyeksportowanym pliku CSV. Zwróć uwagę, że pola Nazwa serwera, aplikacja i proces są wypełniane tylko dla serwerów, na których jest włączona analiza zależności bez agenta.
+
+**Nazwa pola** | **Szczegóły**
+--- | --- 
+Timeslot | Timeslot, w którym zaobserwowano zależność. <br/> Dane zależności są obecnie przechwytywane za pośrednictwem gniazd 6-godzinnych.
+Nazwa serwera źródłowego | Nazwa maszyny źródłowej 
+Aplikacja źródłowa | Nazwa aplikacji na maszynie źródłowej 
+Proces źródłowy | Nazwa procesu na maszynie źródłowej 
+Nazwa serwera docelowego | Nazwa maszyny docelowej
+Docelowy adres IP | Adres IP maszyny docelowej
+Aplikacja docelowa | Nazwa aplikacji na maszynie docelowej
+Proces docelowy | Nazwa procesu na maszynie docelowej 
+Port docelowy | Numer portu na maszynie docelowej
+
 
 ## <a name="stop-dependency-discovery"></a>Zatrzymaj odnajdywanie zależności
 

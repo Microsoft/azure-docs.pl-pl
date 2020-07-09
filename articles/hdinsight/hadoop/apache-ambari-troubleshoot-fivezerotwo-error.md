@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 2b17c2488e47148e8845433f9c7613e1127fbffa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895753"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scenariusz: błąd interfejsu 502 użytkownika Apache Ambari w usłudze Azure HDInsight
@@ -32,7 +31,7 @@ W większości przypadków, aby wyeliminować problem, można ponownie uruchomi�
 
 ### <a name="ambari-server-failed-to-start"></a>Nie można uruchomić serwera Ambari
 
-Możesz sprawdzić dzienniki serwera Ambari, aby dowiedzieć się, dlaczego nie można uruchomić serwera Ambari. Jednym z typowych przyczyn jest błąd sprawdzania spójności bazy danych. Można to znaleźć w tym pliku dziennika: `/var/log/ambari-server/ambari-server-check-database.log`.
+Możesz sprawdzić dzienniki serwera Ambari, aby dowiedzieć się, dlaczego nie można uruchomić serwera Ambari. Jednym z typowych przyczyn jest błąd sprawdzania spójności bazy danych. Można to znaleźć w tym pliku dziennika: `/var/log/ambari-server/ambari-server-check-database.log` .
 
 W przypadku wprowadzenia jakichkolwiek modyfikacji w węźle klastra należy je cofnąć. Zawsze używaj interfejsu użytkownika Ambari, aby modyfikować wszystkie konfiguracje związane z usługą Hadoop/Spark.
 
@@ -49,7 +48,7 @@ service ambari-server start
 
 ### <a name="ambari-server-killed-by-oom-killer"></a>Serwer Ambari zabity przez OOM — killer
 
-W niektórych scenariuszach węzła głównego zabrakło pamięci, a system Linux OOM-killer zaczyna wybierać procesy do zabicia. Możesz sprawdzić tę sytuację, wyszukując identyfikator procesu AmbariServer, który nie powinien zostać znaleziony. Następnie zapoznaj się `/var/log/syslog`z tematem i poszukaj podobnej zawartości:
+W niektórych scenariuszach węzła głównego zabrakło pamięci, a system Linux OOM-killer zaczyna wybierać procesy do zabicia. Możesz sprawdzić tę sytuację, wyszukując identyfikator procesu AmbariServer, który nie powinien zostać znaleziony. Następnie zapoznaj się z tematem `/var/log/syslog` i poszukaj podobnej zawartości:
 
 ```
 Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
@@ -71,6 +70,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) za pomocą — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się za pomocą [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

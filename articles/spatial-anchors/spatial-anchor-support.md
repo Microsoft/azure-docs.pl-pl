@@ -9,10 +9,9 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74276983"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opcje obsługi kotwic przestrzennych platformy Azure
@@ -31,7 +30,7 @@ Aby otworzyć bilet pomocy technicznej w witrynie Azure Portal dla zakotwiczeń 
 
 1. Podczas kończenia pól biletu pomocy technicznej:
 
-- Typ problemu: Techniczny
+- Typ wydania: Techniczne
 - Usługa: kotwice przestrzenne
 
 ![Azure Portal pól biletu pomocy technicznej](./media/spatial-anchor-support3.png)

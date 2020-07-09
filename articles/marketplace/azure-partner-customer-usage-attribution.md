@@ -1,18 +1,18 @@
 ---
 title: Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 description: Zapoznaj się z omówieniem śledzenia użycia klientów na potrzeby rozwiązań w portalu Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 6997c1aaab8cbe635ccef21967a0fce1f735c1ab
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800790"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103028"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -59,11 +59,14 @@ Identyfikatory GUID muszą być zarejestrowane w centrum partnerskim, aby umożl
 
 Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejestrowaniu identyfikatora GUID w centrum partnerskim są śledzone przyszłe wdrożenia.
 
+> [!NOTE]
+> W przypadku publikowania oferty [aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) w portalu Azure Marketplace za pomocą Centrum partnerskiego każdy nowy identyfikator GUID używany wewnątrz szablonu zostanie automatycznie zarejestrowany w profilu Centrum partnerskiego podczas przekazywania szablonu.  
+
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
 
 1. Zarejestruj się jako [komercyjny wydawca portalu Marketplace](https://aka.ms/JoinMarketplace).
 
-   * Partnerzy muszą [mieć profil w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/become-publisher). Zachęcamy do korzystania z oferty w witrynie Azure Marketplace lub AppSource.
+   * Partnerzy muszą [mieć profil w centrum partnerskim](become-publisher.md). Zachęcamy do korzystania z oferty w witrynie Azure Marketplace lub AppSource.
    * Partnerzy mogą rejestrować wiele identyfikatorów GUID.
    * Partnerzy mogą rejestrować identyfikatory GUID dla szablonów rozwiązań i ofert spoza witryny Marketplace.
 
@@ -71,7 +74,7 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
 
 1. Na **stronie Ustawienia konta**wybierz pozycję **Dodaj identyfikator GUID śledzenia.**
 
-1. W polu **GUID** wprowadź identyfikator GUID śledzenia. Wprowadź tylko identyfikator GUID bez prefiksu **PID** . W polu **Opis** wprowadź nazwę lub opis oferty.
+1. W polu **GUID** wprowadź identyfikator GUID śledzenia. Wprowadź tylko identyfikator GUID bez `pid-` prefiksu. W polu **Opis** wprowadź nazwę lub opis oferty.
 
 1. Aby zarejestrować więcej niż jeden identyfikator GUID, ponownie wybierz pozycję **Dodaj identyfikator GUID śledzenia** . Na stronie są wyświetlane dodatkowe pola.
 
@@ -82,7 +85,7 @@ Wiele rozwiązań partnerskich jest wdrażanych przy użyciu szablonów Azure Re
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia i publikowania szablonów rozwiązań, zobacz
-> * [Utwórz i Wdróż pierwszy szablon Menedżer zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Utwórz i Wdróż pierwszy szablon Menedżer zasobów](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Oferta aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Wideo: [Tworzenie szablonów rozwiązań i aplikacji zarządzanych dla portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -93,9 +96,9 @@ Aby dodać unikatowy identyfikator globalny (GUID), należy dokonać pojedynczej
 
 1. Otwórz szablon Menedżer zasobów.
 
-1. Dodaj nowy zasób do głównego pliku szablonu. Zasób musi znajdować się w pliku **mainTemplate. JSON** lub **azuredeploy. JSON** , a nie w żadnych zagnieżdżonych lub połączonych szablonach.
+1. Dodaj nowy zasób do głównego pliku szablonu. Zasób musi znajdować się w **mainTemplate.js** lubazuredeploy.jstylko **dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
 
-1. Wprowadź wartość identyfikatora GUID po prefiksie **identyfikatora PID** (np. PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie (na przykład PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Sprawdź, czy szablon nie ma błędów.
 
@@ -106,7 +109,7 @@ Aby dodać unikatowy identyfikator globalny (GUID), należy dokonać pojedynczej
 ### <a name="sample-resource-manager-template-code"></a>Przykładowy kod szablonu Menedżer zasobów
 
 Aby włączyć śledzenie zasobów dla szablonu, należy dodać do sekcji Resources następujący dodatkowy zasób. Pamiętaj o zmodyfikowaniu poniższego przykładowego kodu przy użyciu własnych danych wejściowych po dodaniu go do głównego pliku szablonu.
-Zasób należy dodać tylko w pliku **mainTemplate. JSON** lub **azuredeploy. JSON** , a nie w żadnym z szablonów zagnieżdżonych lub połączonych.
+Zasób należy dodać do **mainTemplate.js** lub **azuredeploy.jstylko dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
 
 ```
 // Make sure to modify this sample code with your own inputs where applicable
@@ -134,16 +137,16 @@ Jeśli używasz szablonu Menedżer zasobów, należy oznaczyć rozwiązanie, pos
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Dodawanie tagów do wdrożenia za pomocą interfejsów API Menedżer zasobów
 
-Aby włączyć przypisanie użycia klienta, podczas projektowania wywołań interfejsu API Dołącz identyfikator GUID w nagłówku agenta użytkownika w żądaniu. Dodaj identyfikator GUID dla każdej oferty lub jednostki SKU. Sformatuj ciąg z prefiksem **identyfikatora PID** i Uwzględnij wygenerowany przez partnera identyfikator GUID. Oto przykład formatu identyfikatora GUID do wstawienia do agenta użytkownika:
+Aby włączyć przypisanie użycia klienta, podczas projektowania wywołań interfejsu API Dołącz identyfikator GUID w nagłówku agenta użytkownika w żądaniu. Dodaj identyfikator GUID dla każdej oferty lub jednostki SKU. Sformatuj ciąg z `pid-` prefiksem i Uwzględnij wygenerowany przez partnera identyfikator GUID. Oto przykład formatu identyfikatora GUID do wstawienia do agenta użytkownika:
 
 ![Przykładowy format identyfikatora GUID](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> Format ciągu jest ważny. Jeśli prefiks **identyfikatora PID** nie jest uwzględniony, nie jest możliwe wykonywanie zapytań dotyczących danych. Różne zestawy SDK śledzą się inaczej. Aby zaimplementować tę metodę, zapoznaj się z podejściem do pomocy technicznej i śledzenia dla preferowanego zestawu Azure SDK.
+> Format ciągu jest ważny. Jeśli `pid-` prefiks nie jest uwzględniony, nie jest możliwe wykonywanie zapytań dotyczących danych. Różne zestawy SDK śledzą się inaczej. Aby zaimplementować tę metodę, zapoznaj się z podejściem do pomocy technicznej i śledzenia dla preferowanego zestawu Azure SDK.
 
 #### <a name="example-the-python-sdk"></a>Przykład: zestaw SDK języka Python
 
-Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do UserAgent. Oto przykład:
+Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do UserAgent. Przykład:
 
 ![Dodawanie atrybutu do agenta użytkownika](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -165,7 +168,7 @@ Korzystając z interfejsu wiersza polecenia platformy Azure, aby dołączyć ide
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Aby uzyskać więcej informacji, zobacz [Azure SDK dla języka go](https://docs.microsoft.com/azure/go/).
+Aby uzyskać więcej informacji, zobacz [Azure SDK dla języka go](https://docs.microsoft.com/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Użyj Terraform
 
@@ -238,15 +241,15 @@ Wybierz pozycję śledzony szablon na liście rozwijanej Typ powiązania partner
 
 ## <a name="notify-your-customers"></a>Powiadamiaj klientów
 
-Partnerzy powinni poinformować klientów o wdrożeniach korzystających z przypisywania użycia przez klienta. Firma Microsoft zgłasza do partnera użycie platformy Azure skojarzone z tymi wdrożeniami. Poniższe przykłady obejmują zawartość, której można użyć do powiadamiania klientów o tych wdrożeniach. W przykładach Zastąp \<> partnera nazwą swojej firmy. Partnerzy powinni upewnić się, że powiadomienia są wyrównane do zasad zachowania poufności danych i ich zbierania, w tym opcji dla klientów, które mają być wykluczone ze śledzenia.
+Partnerzy powinni poinformować klientów o wdrożeniach korzystających z przypisywania użycia przez klienta. Firma Microsoft zgłasza do partnera użycie platformy Azure skojarzone z tymi wdrożeniami. Poniższe przykłady obejmują zawartość, której można użyć do powiadamiania klientów o tych wdrożeniach. W przykładach Zastąp ciąg \<PARTNER> nazwą swojej firmy. Partnerzy powinni upewnić się, że powiadomienia są wyrównane do zasad zachowania poufności danych i ich zbierania, w tym opcji dla klientów, które mają być wykluczone ze śledzenia.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Powiadomienie dotyczące wdrożeń szablonów Menedżer zasobów
 
-Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \< partnera> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
+Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Powiadomienie o wdrożeniach zestawu SDK lub interfejsu API
 
-Po wdrożeniu \< oprogramowania partnerskiego> firma Microsoft może zidentyfikować instalację \< oprogramowania partnerskiego> przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
+Podczas wdrażania \<PARTNER> oprogramowania firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
@@ -254,7 +257,7 @@ Istnieją dwa kanały pomocy technicznej w zależności od występujących probl
 
 W przypadku wystąpienia jakichkolwiek problemów w centrum partnerskim, takich jak wyświetlanie raportu dotyczącego użycia klienta lub logowanie, Utwórz żądanie pomocy technicznej z zespołem pomocy technicznej Centrum partnerskiego tutaj:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Zrzut ekranu przedstawiający stronę Uzyskaj pomoc techniczną](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Jeśli potrzebujesz pomocy w ogólnym przypisywaniu do portalu Marketplace i/lub użyciu klienta, na przykład w sposobie konfigurowania przypisywania użycia klienta, wykonaj następujące czynności:
 
@@ -329,7 +332,7 @@ Formularz generatora GUID usługi Azure Storage jest gwarantowany do wygenerowan
 
 **Czy można użyć prywatnego, niestandardowego wirtualnego dysku twardego dla oferty szablonu rozwiązania w portalu Azure Marketplace?**
 
-Nie. Obraz maszyny wirtualnej musi pochodzić z portalu Azure Marketplace, patrz: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
+Nie. Obraz maszyny wirtualnej musi pochodzić z portalu Azure Marketplace, patrz: [Przewodnik publikowania dla ofert maszyn wirtualnych w portalu Azure Marketplace](marketplace-virtual-machines.md).
 
 Możesz utworzyć ofertę maszyny wirtualnej w portalu Marketplace przy użyciu niestandardowego wirtualnego dysku twardego i oznaczyć ją jako prywatną, tak aby nikt nie mógł go zobaczyć. Następnie odwołuje się do tej maszyny wirtualnej w szablonie rozwiązania.
 

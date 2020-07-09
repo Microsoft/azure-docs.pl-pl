@@ -10,10 +10,9 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74671687"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące aplikacji internetowych na platformie Azure
@@ -86,7 +85,7 @@ Dostępne są dwie opcje korzystania z ciągłego wdrażania w usłudze Azure De
 *   Użyj projektu git. Połącz się za pośrednictwem App Service przy użyciu centrum wdrażania.
 *   Użyj projektu Kontrola wersji serwera Team Foundation (TFVC). Wdróż program przy użyciu agenta kompilacji dla App Service.
 
-Ciągłe wdrażanie kodu dla obu tych opcji zależy od istniejących przepływów pracy dla deweloperów i procedur zaewidencjonowania. Więcej informacji można znaleźć w tych artykułach: 
+Ciągłe wdrażanie kodu dla obu tych opcji zależy od istniejących przepływów pracy dla deweloperów i procedur zaewidencjonowania. Więcej informacji można znaleźć w następujących artykułach: 
 
 *   [Implementowanie ciągłego wdrażania aplikacji w witrynie sieci Web platformy Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Skonfiguruj organizację usługi Azure DevOps, aby umożliwić wdrażanie jej w aplikacji sieci Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

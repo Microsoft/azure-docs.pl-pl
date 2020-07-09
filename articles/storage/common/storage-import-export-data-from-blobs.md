@@ -4,16 +4,16 @@ description: Dowiedz się, jak tworzyć zadania eksportu w Azure Portal, aby prz
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169206"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513507"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Eksportowanie danych z usługi Azure Blob Storage za pomocą usługi Azure Import/Export
 
@@ -39,7 +39,7 @@ Należy:
 
 Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
-1. Zaloguj się do https://portal.azure.com/ .
+1. Zaloguj się do <https://portal.azure.com/> .
 2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
 
     ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
     - Wybierz subskrypcję.
     - Wprowadź lub wybierz grupę zasobów.
 
-        ![Podstawy](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Informacje podstawowe](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. W **szczegółach zadania**:
 
@@ -129,7 +129,11 @@ Eksportowanie zostało zakończone.
 
 Jeśli używasz wersji 1.4.0.300 narzędzia WAImportExport, użyj następującego polecenia, aby odblokować dysk:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+
+Oto przykład danych wejściowych przykładowych.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
 Jeśli używasz wcześniejszych wersji tego narzędzia, użyj okna dialogowego BitLocker do odblokowania dysku.
 
@@ -143,11 +147,11 @@ Ten *opcjonalny* krok pozwala określić liczbę dysków wymaganych dla zadania 
 2. Rozpakuj do folderu domyślnego `waimportexportv1` . Na przykład `C:\WaImportExportV1`.
 3. Otwórz okno programu PowerShell lub wiersza polecenia z uprawnieniami administracyjnymi. Aby zmienić katalog na folder niespakowany, uruchom następujące polecenie:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. Aby sprawdzić liczbę dysków wymaganych dla wybranych obiektów blob, uruchom następujące polecenie:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     Parametry są opisane w poniższej tabeli:
 
@@ -212,8 +216,8 @@ W poniższej tabeli przedstawiono przykłady prawidłowych ścieżek obiektów b
    | Rozpoczyna się od |/book |Eksportuje wszystkie obiekty blob w dowolnym kontenerze rozpoczynającym się od prefiksu **książki** |
    | Rozpoczyna się od |muzyk |Eksportuje wszystkie obiekty blob w kontenerze **muzyka** |
    | Rozpoczyna się od |/music/love |Eksportuje wszystkie obiekty blob w ramach **muzyki** kontenera, które zaczynają się od prefiksu **miłość** |
-   | Równa się |$root/logo.bmp |Eksportuje **logo obiektu BLOB. bmp** w kontenerze głównym |
-   | Równa się |wideo/historia. mp4 |Eksportuje **wątek obiektów BLOB. mp4** w **filmach wideo** kontenera |
+   | Równa się |$root/logo.bmp |Eksportuje **logo.bmp** obiektów BLOB w kontenerze głównym |
+   | Równa się |wideo/story.mp4 |Eksportuje **story.mp4** obiektów BLOB w **filmach wideo** kontenera |
 
 ## <a name="next-steps"></a>Następne kroki
 

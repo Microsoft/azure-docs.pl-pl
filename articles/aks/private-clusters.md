@@ -3,13 +3,13 @@ title: Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
-ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 6/18/2020
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849692"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374529"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -71,11 +71,11 @@ Najłatwiej jest utworzyć maszynę wirtualną w tej samej sieci wirtualnej, co 
 
 Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposobów uzyskiwania dostępu do klastra prywatnego. Aby można było użyć komunikacji równorzędnej sieci wirtualnej, należy skonfigurować łącze między siecią wirtualną i prywatną strefą DNS.
     
-1. Przejdź do grupy zasobów MC_ * w Azure Portal.  
+1. Przejdź do grupy zasobów węzła w Azure Portal.  
 2. Wybierz prywatną strefę DNS.   
 3. W lewym okienku wybierz łącze **Sieć wirtualna** .  
 4. Utwórz nowy link, aby dodać sieć wirtualną maszyny wirtualnej do prywatnej strefy DNS. Udostępnienie linku strefy DNS może potrwać kilka minut.  
-5. Wróć do grupy zasobów MC_ * w Azure Portal.  
+5. W Azure Portal przejdź do grupy zasobów zawierającej sieć wirtualną klastra.  
 6. W prawym okienku wybierz sieć wirtualną. Nazwa sieci wirtualnej ma postać *AKS-VNET- \* *.  
 7. W lewym okienku wybierz pozycję **Komunikacja równorzędna**.  
 8. Wybierz pozycję **Dodaj**, Dodaj sieć wirtualną maszyny wirtualnej, a następnie utwórz komunikację równorzędną.  
@@ -91,7 +91,7 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 
 2. Prywatna strefa DNS jest połączona tylko z siecią wirtualną, do której są dołączone węzły klastra (3). Oznacza to, że prywatny punkt końcowy może być rozpoznany tylko przez hosty w połączonej sieci wirtualnej. W scenariuszach, w których w sieci wirtualnej nie skonfigurowano żadnych niestandardowych nazw DNS (domyślnie), to działa bez problemu jako hosty w 168.63.129.16 dla systemu DNS, który może rozpoznawać rekordy w prywatnej strefie DNS ze względu na link.
 
-3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrożenie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną, która zawiera niestandardowe resolvery DNS (5). Ten link można utworzyć ręcznie po utworzeniu strefy prywatnej podczas aprowizacji klastra lub za pośrednictwem automatyzacji podczas wykrywania tworzenia strefy przy użyciu Azure Policy lub innych mechanizmów wdrażania opartych na zdarzeniach (na przykład Azure Event Grid i Azure Functions).
+3. W scenariuszach, w których sieć wirtualna zawierająca klaster ma niestandardowe ustawienia DNS (4), wdrożenie klastra kończy się niepowodzeniem, chyba że prywatna strefa DNS jest połączona z siecią wirtualną, która zawiera niestandardowe resolvery DNS (5). Ten link można utworzyć ręcznie po utworzeniu strefy prywatnej podczas aprowizacji klastra lub za pośrednictwem automatyzacji podczas wykrywania tworzenia strefy przy użyciu mechanizmów wdrażania opartych na zdarzeniach (na przykład Azure Event Grid i Azure Functions).
 
 ## <a name="dependencies"></a>Zależności  
 
@@ -100,9 +100,8 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 
 ## <a name="limitations"></a>Ograniczenia 
 * Nie można zastosować dozwolonych zakresów adresów IP do punktu końcowego serwera prywatnego interfejsu API, są one stosowane tylko do publicznego serwera interfejsu API
-* Strefy dostępności są obecnie obsługiwane w niektórych regionach, zobacz początek tego dokumentu. 
+* [Strefy dostępności][availability-zones] są obecnie obsługiwane w niektórych regionach. 
 * [Ograniczenia usługi Azure Private link][private-link-service] są stosowane do klastrów prywatnych.
-* Brak obsługi węzłów wirtualnych w klastrze prywatnym do Azure Container Instances prywatnego (ACI) w prywatnej sieci wirtualnej platformy Azure
 * Brak obsługi dla agentów hostowanych przez firmę Microsoft dla platformy Azure DevOps z klastrami prywatnymi. Rozważ użycie [agentów samoobsługowych][devops-agents]. 
 * W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
 * Brak bieżącej obsługi Azure Dev Spaces
@@ -122,3 +121,4 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

@@ -3,20 +3,20 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Co to jest zarządzanie aplikacjami w chmurze i logowanie jednokrotne?
+    - name: Co to jest zarządzanie aplikacjami?
       href: what-is-application-management.md
-    - name: Co to jest serwer proxy aplikacji dla aplikacji lokalnych?
-      href: what-is-application-proxy.md
-    - name: Typowe scenariusze zarządzania aplikacjami
-      href: common-scenarios.md
-    - name: Co to jest aprowizowanie aplikacji?
-      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Przewodniki Szybki start
   items:
-    - name: Dodawanie aplikacji w chmurze z galerii
-      href: add-application-portal.md
-    - name: Wyświetlanie aplikacji dla przedsiębiorstw
+    - name: Wyświetlanie aplikacji
       href: view-applications-portal.md
+    - name: Dodawanie aplikacji
+      href: add-application-portal.md
+    - name: Konfigurowanie aplikacji
+      href: add-application-portal-configure.md
+    - name: Konfigurowanie logowania jednokrotnego
+      href: add-application-portal-setup-sso.md
+    - name: Usuwanie aplikacji
+      href: delete-application-portal.md
 - name: Samouczki
   items:
     - name: 'Zintegrowane aplikacje z galerii (np. usługi ServiceNow, Salesforce, Dropbox)'
@@ -32,6 +32,8 @@
   items:
     - name: Najlepsze rozwiązania dotyczące zarządzania aplikacjami
       href: application-management-fundamentals.md
+    - name: Typowe scenariusze zarządzania aplikacjami
+      href: common-scenarios.md
     - name: Aplikacje w chmurze i logowanie jednokrotne
       items:
         - name: Planowanie integracji aplikacji w chmurze
@@ -80,6 +82,8 @@
       items:
         - name: Serwer proxy aplikacji
           href: application-proxy.md
+        - name: Co to jest serwer proxy aplikacji dla aplikacji lokalnych?
+          href: what-is-application-proxy.md
         - name: Planowanie wdrożenia serwera proxy aplikacji
           href: application-proxy-deployment-plan.md
         - name: Łączniki
@@ -101,12 +105,8 @@
       items:
         - name: Dodawanie aplikacji w chmurze
           items:
-            - name: Dodawanie aplikacji z galerii
-              href: add-gallery-app.md
             - name: Dodawanie aplikacji spoza galerii
               href: add-non-gallery-app.md
-            - name: Zmienianie nazwy lub logo aplikacji
-              href: change-name-or-logo-portal.md
         - name: Konfigurowanie logowania jednokrotnego
           items:
             - name: Konfigurowanie logowania jednokrotnego opartego na języku SAML
@@ -303,8 +303,6 @@
               href: application-proxy-page-load-speed-problem.md
             - name: Linki na stronie aplikacji nie działają
               href: application-proxy-page-links-broken-problem.md
-            - name: Jakie porty należy otworzyć dla mojej aplikacji
-              href: application-proxy-connectivity-ports-how-to.md
             - name: Brak działającego łącznika w grupie łączników mojej aplikacji
               href: application-proxy-connectivity-no-working-connector.md
             - name: Konfigurowanie w portalu administracyjnym

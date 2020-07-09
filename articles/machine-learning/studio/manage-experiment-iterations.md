@@ -5,17 +5,16 @@ description: Zarządzaj przebiegami eksperymentów w Azure Machine Learning Stud
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: fc0effa473109cd8d0e0d4fb50f6300ebf435206
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117618"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687399"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Zarządzanie przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny)
 

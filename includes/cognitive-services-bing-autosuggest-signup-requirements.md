@@ -4,20 +4,16 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
-ms.openlocfilehash: 01dabff80f0c7e46e183a05a000251797d490e32
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: f12fbe3ea9fa07c5ba8498a1f0b846a72647f5da
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929534"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85805520"
 ---
 ## <a name="create-an-azure-resource"></a>Tworzenie zasobu platformy Azure
 
 Zacznij korzystać z interfejs API automatycznego sugerowania Bing, tworząc jeden z następujących zasobów platformy Azure.
-
-### <a name="trial-resource"></a>[Zasób wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-   * Nie jest wymagana żadna subskrypcja platformy Azure.
-   * Ważne przez siedem dni bezpłatnie. Po zarejestrowaniu się w [witrynie sieci Web platformy Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/)będą dostępne klucze próbne i punkt końcowy.
 
 ### <a name="bing-autosuggest-resource"></a>[Zasób automatyczne sugerowanie Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
    * Dostępne w Azure Portal do momentu usunięcia zasobu.

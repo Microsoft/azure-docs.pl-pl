@@ -3,20 +3,22 @@ title: Omówienie Start/Stop VMs during off-hours Azure Automation
 description: W tym artykule opisano funkcję Start/Stop VMs during off-hours, która uruchamia lub wstrzymuje maszyny wirtualne zgodnie z harmonogramem i aktywnie monitoruje je z dzienników Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424078"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
-Funkcja Start/Stop VMs during off-hours uruchamia lub przerywa włączone maszyny wirtualne platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
+Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
 
-Ta funkcja używa polecenia cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) .
+Ta funkcja używa polecenia cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) .
+
+> [!NOTE]
+> Mimo że elementy Runbook zostały zaktualizowane do korzystania z nowych poleceń cmdlet platformy Azure AZ module, używają aliasu prefiksu AzureRM.
 
 > [!NOTE]
 > Zaktualizowano Start/Stop VMs during off-hours, aby obsługiwały najnowsze wersje modułów platformy Azure, które są dostępne. Zaktualizowana wersja tej funkcji dostępna w portalu Marketplace nie obsługuje modułów AzureRM, ponieważ przeprowadzono migrację z AzureRM do AZ modules.
@@ -50,24 +52,24 @@ Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours prz
 
 | Uprawnienie | Zakres|
 | --- | --- |
-| Microsoft. Automation/automationAccounts/Read | Resource Group |
-| Microsoft. Automation/automationAccounts/zmienne/zapis | Resource Group |
-| Microsoft. Automation/automationAccounts/Schedules/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Runbooks/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Connections/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Certificates/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/moduły/zapis | Resource Group |
-| Microsoft. Automation/automationAccounts/moduły/odczyt | Resource Group |
-| Microsoft. Automation/automationAccounts/jobSchedules/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Jobs/Write | Resource Group |
-| Microsoft. Automation/automationAccounts/Jobs/Read | Resource Group |
-| Microsoft. OperationsManagement/Solutions/Write | Resource Group |
-| Microsoft. OperationalInsights/obszary robocze/* | Resource Group |
-| Microsoft. Insights/diagnosticSettings/Write | Resource Group |
-| Microsoft. Insights/ActionGroups/Write | Resource Group |
-| Microsoft. Insights/ActionGroups/Read | Resource Group |
-| Microsoft. resources/subscriptions/resourceGroups/Read | Resource Group |
-| Microsoft. resources/Deployments/* | Resource Group |
+| Microsoft. Automation/automationAccounts/Read | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/zmienne/zapis | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Schedules/Write | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Runbooks/Write | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Connections/Write | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Certificates/Write | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/moduły/zapis | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/moduły/odczyt | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/jobSchedules/Write | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Jobs/Write | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Jobs/Read | Grupa zasobów |
+| Microsoft. OperationsManagement/Solutions/Write | Grupa zasobów |
+| Microsoft. OperationalInsights/obszary robocze/* | Grupa zasobów |
+| Microsoft. Insights/diagnosticSettings/Write | Grupa zasobów |
+| Microsoft. Insights/ActionGroups/Write | Grupa zasobów |
+| Microsoft. Insights/ActionGroups/Read | Grupa zasobów |
+| Microsoft. resources/subscriptions/resourceGroups/Read | Grupa zasobów |
+| Microsoft. resources/Deployments/* | Grupa zasobów |
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Uprawnienia dla nowego konta usługi Automation i nowego obszaru roboczego Log Analytics
 
@@ -83,10 +85,10 @@ Maszyny wirtualne można włączyć dla funkcji Start/Stop VMs during off-hours 
 | Microsoft. Autoryzacja/uprawnienia/Odczyt |Subskrypcja|
 | Microsoft. Authorization/roleAssignments/Read | Subskrypcja |
 | Microsoft.Authorization/roleAssignments/write | Subskrypcja |
-| Microsoft. Authorization/roleAssignments/Delete | Subskrypcja || Microsoft. Automation/automationAccounts/Connections/Read | Resource Group |
-| Microsoft. Automation/automationAccounts/Certificates/Read | Resource Group |
-| Microsoft. Automation/automationAccounts/Write | Resource Group |
-| Microsoft. OperationalInsights/obszary robocze/zapis | Resource Group |
+| Microsoft. Authorization/roleAssignments/Delete | Subskrypcja || Microsoft. Automation/automationAccounts/Connections/Read | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Certificates/Read | Grupa zasobów |
+| Microsoft. Automation/automationAccounts/Write | Grupa zasobów |
+| Microsoft. OperationalInsights/obszary robocze/zapis | Grupa zasobów |
 
 ## <a name="components"></a>Składniki
 
@@ -104,7 +106,7 @@ Wszystkie nadrzędne elementy Runbook zawierają `WhatIf` parametr. Po ustawieni
 |Element Runbook | Parametry | Opis|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Wywoływana z nadrzędnego elementu Runbook. Ten element Runbook tworzy alerty dotyczące poszczególnych zasobów dla scenariusza automatycznie zatrzymywania.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true lub false  | Tworzy lub aktualizuje reguły alertów platformy Azure na maszynach wirtualnych w ramach dostosowanej subskrypcji lub grup zasobów. <br> `VMList`jest rozdzielaną przecinkami listą maszyn wirtualnych. Na przykład `vm1, vm2, vm3`.<br> `WhatIf`Włącza weryfikację logiki elementu Runbook bez wykonywania operacji.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true lub false  | Tworzy lub aktualizuje reguły alertów platformy Azure na maszynach wirtualnych w ramach dostosowanej subskrypcji lub grup zasobów. <br> `VMList`jest rozdzielaną przecinkami listą maszyn wirtualnych (bez odstępów), na przykład `vm1,vm2,vm3` .<br> `WhatIf`Włącza weryfikację logiki elementu Runbook bez wykonywania operacji.|
 |AutoStop_Disable | Brak | Wyłącza alerty autozatrzymaj i domyślny harmonogram.|
 |AutoStop_VM_Child | WebHookData | Wywoływana z nadrzędnego elementu Runbook. Reguły alertów wywołują ten element Runbook, aby zatrzymać klasyczną maszynę wirtualną.|
 |AutoStop_VM_Child_ARM | WebHookData |Wywoływana z nadrzędnego elementu Runbook. Reguły alertów wywołują ten element Runbook, aby zatrzymać maszynę wirtualną.  |
@@ -112,7 +114,7 @@ Wszystkie nadrzędne elementy Runbook zawierają `WhatIf` parametr. Po ustawieni
 |ScheduledStartStop_Child | VMName <br> Akcja: uruchamianie lub zatrzymywanie <br> ResourceGroupName | Wywoływana z nadrzędnego elementu Runbook. Wykonuje akcję uruchamiania lub zatrzymywania dla zaplanowanego zatrzymania.|
 |ScheduledStartStop_Child_Classic | VMName<br> Akcja: uruchamianie lub zatrzymywanie<br> ResourceGroupName | Wywoływana z nadrzędnego elementu Runbook. Wykonuje akcję uruchamiania lub zatrzymywania dla zaplanowanego zatrzymania dla klasycznych maszyn wirtualnych. |
 |ScheduledStartStop_Parent | Akcja: uruchamianie lub zatrzymywanie <br>VMList <br> WhatIf: true lub false | Uruchamia lub kończy wszystkie maszyny wirtualne w subskrypcji. Edytuj zmienne `External_Start_ResourceGroupNames` i `External_Stop_ResourceGroupNames` Wykonaj tylko te grupy zasobów przeznaczonych do wykonania. Można również wykluczyć określone maszyny wirtualne, aktualizując `External_ExcludeVMNames` zmienną.|
-|SequencedStartStop_Parent | Akcja: uruchamianie lub zatrzymywanie <br> WhatIf: true lub false<br>VMList| Tworzy Tagi o nazwie **sequencestart** i **sequencestop** na każdej maszynie wirtualnej, dla której chcesz sekwencjonować działanie uruchamiania/zatrzymywania. W tych nazwach tagów jest rozróżniana wielkość liter. Wartość tagu powinna być dodatnią liczbą całkowitą (1, 2, 3) odpowiadającą kolejności, w której ma zostać uruchomiona lub zatrzymana. <br>**Uwaga**: maszyny wirtualne muszą znajdować się w grupach zasobów zdefiniowanych w `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` zmiennych, i `External_ExcludeVMNames` . Muszą mieć odpowiednie Tagi, aby akcje zaczęły obowiązywać.|
+|SequencedStartStop_Parent | Akcja: uruchamianie lub zatrzymywanie <br> WhatIf: true lub false<br>VMList| Tworzy Tagi o nazwie **sequencestart** i **sequencestop** na każdej maszynie wirtualnej, dla której chcesz sekwencjonować działanie uruchamiania/zatrzymywania. W tych nazwach tagów jest rozróżniana wielkość liter. Wartość znacznika powinna być listą dodatnich liczb całkowitych, na przykład, `1,2,3` odpowiadającą kolejności, w której chcesz uruchomić lub zatrzymać. <br>**Uwaga**: maszyny wirtualne muszą znajdować się w grupach zasobów zdefiniowanych w `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` zmiennych, i `External_ExcludeVMNames` . Muszą mieć odpowiednie Tagi, aby akcje zaczęły obowiązywać.|
 
 ### <a name="variables"></a>Zmienne
 
@@ -132,7 +134,7 @@ Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automati
 |External_AutoStop_TimeAggregationOperator | Operator agregacji czasu stosowany do wybranego rozmiaru okna, aby oszacować warunek. Dopuszczalne wartości to `Average` , `Minimum` , `Maximum` , `Total` i `Last` .|
 |External_AutoStop_TimeWindow | Rozmiar okna, w którym platforma Azure analizuje wybrane metryki na potrzeby wyzwalania alertu. Ten parametr akceptuje dane wejściowe w formacie TimeSpan. Możliwe wartości to od 5 minut do 6 godzin.|
 |External_EnableClassicVMs| Wartość określająca, czy klasyczne maszyny wirtualne są objęte funkcją. Wartość domyślna to true. Ustaw dla tej zmiennej wartość false dla subskrypcji dostawcy rozwiązań w chmurze Azure (CSP). Klasyczne maszyny wirtualne wymagają [klasycznego konta Uruchom jako](automation-create-standalone-account.md#create-a-classic-run-as-account).|
-|External_ExcludeVMNames | Rozdzielana przecinkami lista nazw maszyn wirtualnych do wykluczenia, ograniczona do 140 maszyn wirtualnych. Jeśli dodasz więcej niż 140 maszyn wirtualnych do listy, maszyny wirtualne, które są wykluczone, mogą zostać przypadkowo uruchomione lub zatrzymane.|
+|External_ExcludeVMNames | Rozdzielana przecinkami lista nazw maszyn wirtualnych do wykluczenia, ograniczona do 140 maszyn wirtualnych. Jeśli dodasz więcej niż 140 maszyn wirtualnych do listy, maszyny wirtualne określone do wykluczenia mogą zostać przypadkowo uruchomione lub zatrzymane.|
 |External_Start_ResourceGroupNames | Rozdzielana przecinkami lista jednej lub większej liczby grup zasobów przeznaczonych do uruchamiania akcji.|
 |External_Stop_ResourceGroupNames | Rozdzielana przecinkami lista co najmniej jednej grupy zasobów, która jest przeznaczona dla akcji zatrzymania.|
 |External_WaitTimeForVMRetrySeconds |Czas oczekiwania (w sekundach) wykonywania akcji na maszynach wirtualnych dla **SequencedStartStop_Parent** elementu Runbook. Ta zmienna umożliwia elementowi Runbook oczekiwanie na wykonanie operacji podrzędnych przez określoną liczbę sekund przed przejściem do następnej akcji. Maksymalny czas oczekiwania wynosi 10800 lub trzy godziny. Wartość domyślna to 2100 sekund.|
@@ -170,7 +172,7 @@ Do korzystania z funkcji z klasycznymi maszynami wirtualnymi wymagane jest klasy
 Jeśli masz więcej niż 20 maszyn wirtualnych na usługę w chmurze, poniżej przedstawiono niektóre zalecenia:
 
 * Tworzenie wielu harmonogramów z nadrzędnym elementem Runbook **ScheduledStartStop_Parent** i określanie 20 maszyn wirtualnych na harmonogram. 
-* We właściwościach harmonogramu Użyj parametru, `VMList` Aby określić nazwy maszyn wirtualnych jako listę rozdzieloną przecinkami. 
+* We właściwościach harmonogramu Użyj parametru, `VMList` Aby określić nazwy maszyn wirtualnych jako listę rozdzieloną przecinkami (bez odstępów). 
 
 W przeciwnym razie, jeśli zadanie automatyzacji dla tej funkcji działa dłużej niż trzy godziny, jest tymczasowo zwolnione lub zatrzymane według ograniczonego limitu [udostępniania](automation-runbook-execution.md#fair-share) .
 

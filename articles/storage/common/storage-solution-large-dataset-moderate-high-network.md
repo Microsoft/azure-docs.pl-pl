@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b60162800695be67c742554881b296c3d8bb9dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504376"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku umiarkowanej lub wysokiej przepustowości sieci
  
@@ -67,13 +67,13 @@ W przypadku korzystania z transferu danych w trybie offline Skorzystaj z poniżs
 |    Rozmiar danych                        |    Do 35 usług TBs                 |    Do 80 usług TBs na urządzenie                       |    Do 800 TB na urządzenie               |    Zmienna                            |
 |    Typ danych                        |    Obiekty blob platformy Azure                  |    Obiekty blob platformy Azure<br>Azure Files                    |    Obiekty blob platformy Azure<br>Azure Files            |    Obiekty blob platformy Azure<br>Azure Files          |
 |    Współczynnik postaci                      |    5 dysków SSD na zamówienie             |    1 X 50-funtów urządzenie o rozmiarze stacjonarnym na zamówienie    |    1 X ~ 500-funty. duże urządzenie na zamówienie    |    Do 10 HDD/dysków SSD na zamówienie        |
-|    Czas wstępnej instalacji               |    Małe <br>(15 minut)            |    Od niska do umiarkowanych <br> (<30 minut)               |    Średni<br>(1-2 godzin)               |    Umiarkowane, aby trudne<br>zmiennej |
+|    Czas wstępnej instalacji               |    Małe <br>(15 minut)            |    Od niska do umiarkowanych <br> (<30 minut)               |    Umiarkowane<br>(1-2 godzin)               |    Umiarkowane, aby trudne<br>zmiennej |
 |    Wysyłanie danych do platformy Azure               |    Tak                          |    Tak                                           |    Tak                                   |    Tak                                 |
-|    Eksportowanie danych z platformy Azure           |    Nie                           |    Nie                                            |    Nie                                    |    Tak                                 |
+|    Eksportowanie danych z platformy Azure           |    Nie                           |    Nie                                            |    Nie                                    |    Yes                                 |
 |    Szyfrowanie                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    Sprzęt                         |     Dostarczone przez firmę Microsoft          |    Dostarczone przez firmę Microsoft                            |    Dostarczone przez firmę Microsoft                    |    Dostarczone przez klienta                   |
 |    Interfejs sieciowy                |    USB 3.1/SATA                 |    PORT RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
-|    Integracja z partnerami              |    Niektóre                         |    [Wysokowydajn](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Wysokowydajn](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Niektóre                                |
+|    Integracja z partnerami              |    Niektóre                         |    [Wysoki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Wysoki](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Niektóre                                |
 |    Wysyłka                         |    Zarządzane przez firmę Microsoft            |    Zarządzane przez firmę Microsoft                             |    Zarządzane przez firmę Microsoft                     |    Zarządzane przez klienta                    |
 | Użyj podczas przenoszenia danych         |Granica handlowa|Granica handlowa|Granica handlowa|Między granicami geograficznymi, np. do UE|
 |    Cennik                          |    [Cennik](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Cennik](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
@@ -87,7 +87,7 @@ W przypadku korzystania z transferu danych w trybie online Skorzystaj z tabeli w
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Typ danych                  |    Obiekty blob platformy Azure, Azure Files, tabele platformy Azure    |    Obiekty blob platformy Azure, Azure Files, tabele platformy Azure    |    Obiekty blob platformy Azure, Azure Files                           |   Obsługuje ponad 70 łączników danych dla magazynów danych i formatów    |
 |    Współczynnik postaci                |    Narzędzia wiersza polecenia                        |    Interfejs programistyczny                    |    Firma Microsoft dostarcza wirtualne <br>lub urządzenie fizyczne     |    Usługa w Azure Portal                                            |
-|    Początkowa konfiguracja jednorazowa     |    Narzędzia               |    Średni                       |    Łatwe (<30 minut) do umiarkowanego (1-2 godzin)            |    Złożone                                                          |
+|    Początkowa konfiguracja jednorazowa     |    Narzędzia               |    Umiarkowane                       |    Łatwe (<30 minut) do umiarkowanego (1-2 godzin)            |    Złożone                                                          |
 |    Przetwarzanie wstępne danych              |    Nie                                        |    Nie                                        |    Tak (przy użyciu obliczeń brzegowych)                               |    Tak                                                                |
 |    Transfer z innych chmur       |    Nie                                        |    Nie                                        |    Nie                                                    |    Tak                                                                |
 |    Typ użytkownika                        |    Specjalista IT Pro lub dev                                       |    Deweloperskie                                       |    Informatyk                                                |    Informatyk                                                             |

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: gwallace
 ms.openlocfilehash: 22b33d7b4b0ff69a2e751cadff70453f73ed4f8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69876821"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Jak korzystać z funkcji Twilio na potrzeby obsługi głosu i programu SMS z platformy Azure
@@ -38,7 +38,7 @@ Interfejs API Twilio jest interfejsem API RESTful, który zapewnia funkcje głos
 Kluczowe aspekty interfejsu API Twilio są czasownikami Twilio i Twilio Markup Language (TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Zlecenia Twilio
-Interfejs API korzysta z czasowników Twilio; na przykład czasownik ** &lt;powiedzie&gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu.
+Interfejs API korzysta z czasowników Twilio; na przykład czasownik ** &lt; powiedzie &gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu.
 
 Poniżej znajduje się lista zleceń Twilio.  Zapoznaj się z innymi zleceniami i możliwościami za pośrednictwem [dokumentacji języka Twilio Markup](https://www.twilio.com/docs/api/twiml)Language.
 
@@ -98,7 +98,7 @@ Przykłady podane w tym przewodniku wykorzystują bibliotekę Twilio. API.
 
 Biblioteki można [zainstalować przy użyciu rozszerzenia Menedżera pakietów NuGet](https://www.twilio.com/docs/csharp/install) dostępnego dla programu Visual Studio 2010 do 2015.  Kod źródłowy jest hostowany w witrynie [GitHub][twilio_github_repo], która obejmuje witrynę typu wiki, która zawiera kompletną dokumentację dotyczącą używania bibliotek.
 
-Domyślnie Microsoft Visual Studio 2010 instaluje wersję 1,2 programu NuGet. Instalowanie bibliotek Twilio wymaga wersji 1,6 programu NuGet lub nowszej. Aby uzyskać informacje na temat instalowania lub aktualizowania programu [https://nuget.org/][nuget]NuGet, zobacz.
+Domyślnie Microsoft Visual Studio 2010 instaluje wersję 1,2 programu NuGet. Instalowanie bibliotek Twilio wymaga wersji 1,6 programu NuGet lub nowszej. Aby uzyskać informacje na temat instalowania lub aktualizowania programu NuGet, zobacz [https://nuget.org/][nuget] .
 
 > [!NOTE]
 > Aby zainstalować najnowszą wersję programu NuGet, należy najpierw odinstalować załadowanej wersji za pomocą Menedżera rozszerzeń programu Visual Studio. Aby to zrobić, musisz uruchomić program Visual Studio jako administrator. W przeciwnym razie przycisk Odinstaluj jest wyłączony.
@@ -139,7 +139,7 @@ var call = CallResource.Create(
     }
 ```
 
-Aby uzyskać więcej informacji o parametrach przekazaną do metody **CallResource. Create** , [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]Zobacz.
+Aby uzyskać więcej informacji o parametrach przekazaną do metody **CallResource. Create** , zobacz [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls] .
 
 Jak wspomniano, ten kod używa witryny dostarczonej przez Twilio do zwrócenia odpowiedzi TwiML. Zamiast tego możesz użyć własnej lokacji, aby zapewnić odpowiedź TwiML. Aby uzyskać więcej informacji, zobacz [How to: dostarczanie odpowiedzi TwiML z własnej witryny sieci Web](#howto_provide_twiml_responses).
 
@@ -171,10 +171,10 @@ catch (TwilioException ex)
 ```
 
 ## <a name="how-to-provide-twiml-responses-from-your-own-website"></a><a id="howto_provide_twiml_responses"></a>Instrukcje: udostępnianie odpowiedzi TwiML z własnej witryny sieci Web
-Gdy aplikacja inicjuje wywołanie interfejsu API Twilio — na przykład za pomocą metody **CallResource. Create** -Twilio wysyła żądanie do adresu URL, który powinien zwrócić odpowiedź TwiML. Przykład w [instrukcje: nawiązać połączenie wychodzące](#howto_make_call) używa adresu URL [https://twimlets.com/message][twimlet_message_url] podanego przez Twilio do zwrócenia odpowiedzi.
+Gdy aplikacja inicjuje wywołanie interfejsu API Twilio — na przykład za pomocą metody **CallResource. Create** -Twilio wysyła żądanie do adresu URL, który powinien zwrócić odpowiedź TwiML. Przykład w [instrukcje: nawiązać połączenie wychodzące](#howto_make_call) używa adresu URL podanego przez Twilio [https://twimlets.com/message][twimlet_message_url] do zwrócenia odpowiedzi.
 
 > [!NOTE]
-> Gdy TwiML jest przeznaczony do użycia przez usługi sieci Web, można wyświetlić TwiML w przeglądarce. Na przykład kliknij [https://twimlets.com/message][twimlet_message_url] , aby wyświetlić pusty `<Response>` element; w [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) innym przykładzie kliknij, aby wyświetlić `<Response>` element, który zawiera element &lt;powiedz&gt; .
+> Gdy TwiML jest przeznaczony do użycia przez usługi sieci Web, można wyświetlić TwiML w przeglądarce. Na przykład kliknij, [https://twimlets.com/message][twimlet_message_url] Aby wyświetlić pusty `<Response>` element; w innym przykładzie kliknij, [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) Aby wyświetlić `<Response>` element, który zawiera &lt; &gt; element powiedz.
 >
 
 Zamiast polegać na adresie URL podanej przez Twilio, można utworzyć własną witrynę adresu URL, która zwraca odpowiedzi HTTP. Lokację można utworzyć w dowolnym języku, który zwraca odpowiedzi HTTP. W tym temacie przyjęto założenie, że adres URL jest obsługiwany z procedury obsługi ogólnej ASP.NET.
@@ -251,7 +251,7 @@ namespace WebRole1
 }
 ```
 
-Aby uzyskać więcej informacji na temat TwiML [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml), zobacz.
+Aby uzyskać więcej informacji na temat TwiML, zobacz [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml) .
 
 Po skonfigurowaniu sposobu udostępniania odpowiedzi TwiML można przekazać ten adres URL do metody **CallResource. Create** . Na przykład jeśli masz aplikację sieci Web o nazwie MyTwiML wdrożoną w usłudze w chmurze platformy Azure, a nazwa programu obsługi ASP.NET to MyTwiML. ashx, adres URL można przesłać do **CallResource. Create** , jak pokazano w następującym przykładzie kodu:
 

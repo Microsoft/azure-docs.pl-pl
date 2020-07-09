@@ -36,9 +36,27 @@
       href: manage-dhcp.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
+    - name: Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości
+      href: deploy-vm-content-library.md
+    - name: Serwer Azure Backup Server dla usługi AVS
+      items:
+        - name: Konfigurowanie serwera Azure Backup Server dla usługi AVS
+          href: set-up-mabs-for-avs.md
+        - name: Tworzenie kopii zapasowych maszyn wirtualnych usługi AVS za pomocą usługi Azure Backup Server
+          href: backup-avs-vms-with-mabs.md
+    - name: Integracja z funkcjami macierzystymi platformy Azure
+      items:
+        - name: API Management
+          href: concepts-api-management.md
+        - name: Gwiazda
+          href: concepts-avs-hub-and-spoke-integration.md
 - name: Dokumentacja
   items: null
 - name: Zasoby
   items:
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Uzyskaj pomoc dotyczącą błędów wdrażania lub aprowizacji usługi AVS
+          href: fix-deployment-provisioning-failures.md
     - name: Często zadawane pytania
       href: faq.md

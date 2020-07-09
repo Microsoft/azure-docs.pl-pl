@@ -4,15 +4,15 @@ description: Dowiedz się więcej o możliwości przekierowania w usłudze Azure
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 5943d8aad4d5dd0d981fae9b2325dd3fc75b31e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74129885"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253855"
 ---
 # <a name="application-gateway-redirect-overview"></a>Omówienie przekierowania Application Gateway
 

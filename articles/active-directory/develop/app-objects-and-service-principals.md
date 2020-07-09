@@ -9,57 +9,51 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a636ff15da09bcf1891618d65270376f26fd3239
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604628"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Obiekty aplikacji i jednostki usługi w usłudze Azure Active Directory
 
-Czasami znaczenie terminu "aplikacja" może być interpretowane w kontekście Azure Active Directory (Azure AD). W tym artykule wyjaśniono koncepcje i konkretne aspekty integracji aplikacji usługi Azure AD z ilustracją rejestracji i zgody dla [aplikacji wielodostępnych](developer-glossary.md#multi-tenant-application).
-
-## <a name="overview"></a>Omówienie
-
-Aplikacja zintegrowana z usługą Azure AD ma konsekwencje wykraczające poza aspekt oprogramowania. "Aplikacja" jest często używana jako termin koncepcyjny, odnoszący się do nie tylko oprogramowania aplikacji, ale także rejestrację i rolę usługi Azure AD w ramach uwierzytelniania/autoryzacji "konwersacje" w czasie wykonywania.
-
-Zgodnie z definicją aplikacja może działać w następujących rolach:
-
-- Rola [klienta](developer-glossary.md#client-application) (zużywanie zasobu)
-- Rola [serwera zasobów](developer-glossary.md#resource-server) (Uwidacznianie interfejsów API klientom)
-- Rola klienta i serwer zasobów
-
-[Przepływ przyznania autoryzacji OAuth 2,0](developer-glossary.md#authorization-grant) definiuje protokół konwersacji, który umożliwia klientowi/zasobowi dostęp/ochronę danych zasobów.
-
-W poniższych sekcjach opisano sposób, w jaki model aplikacji usługi Azure AD reprezentuje aplikację w czasie projektowania i w czasie wykonywania.
+W tym artykule opisano rejestrację aplikacji, obiekty aplikacji i jednostki usługi w Azure Active Directory: co to jest, jak są używane oraz jak są ze sobą powiązane. Przykładowy scenariusz z wieloma dzierżawcami został również przedstawiony do zilustrowania relacji między obiektem aplikacji aplikacji i odpowiadającymi obiektami głównych usług.
 
 ## <a name="application-registration"></a>Rejestracja aplikacji
+Aby delegować funkcje zarządzania tożsamościami i dostępem do usługi Azure AD, należy zarejestrować aplikację w [dzierżawie](developer-glossary.md#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD tworzysz konfigurację tożsamości dla aplikacji, która umożliwia integrację z usługą Azure AD. Po zarejestrowaniu aplikacji w [Azure Portal][AZURE-Portal]należy określić, czy jest ona pojedynczą dzierżawą (dostępną tylko w dzierżawie) czy z wieloma dzierżawcami (dostępną dla innych dzierżawców) i opcjonalnie mogą ustawić identyfikator URI przekierowania (do którego jest wysyłany token dostępu).
 
-Po zarejestrowaniu aplikacji usługi Azure AD w [Azure Portal][AZURE-Portal]są tworzone dwa obiekty w dzierżawie usługi Azure AD:
+Po zakończeniu rejestracji aplikacji masz globalne, unikatowe wystąpienie aplikacji (obiektu aplikacji), które znajdują się w dzierżawie lub katalogu głównym.  Masz również globalnie unikatowy identyfikator dla aplikacji (Identyfikator aplikacji lub klienta).  W portalu możesz dodać wpisy tajne lub certyfikaty i zakresy, aby umożliwić działanie aplikacji, dostosować znakowanie aplikacji w oknie dialogowym logowania i nie tylko.
 
-- Obiekt aplikacji i
-- Obiekt jednostki usługi
+Jeśli aplikacja zostanie zarejestrowana w portalu, obiekt aplikacji oraz obiekt główny usługi są tworzone automatycznie w dzierżawie głównej.  Jeśli zarejestrujesz/utworzysz aplikację przy użyciu Microsoft Graph interfejsów API, tworzenie obiektu głównego usługi jest osobnym krokiem.
 
-### <a name="application-object"></a>Obiekt aplikacji
+## <a name="application-object"></a>Obiekt aplikacji
+Aplikacja usługi Azure AD jest definiowana przez jeden i tylko obiekt aplikacji, który znajduje się w dzierżawie usługi Azure AD, w której zarejestrowano aplikację (znaną jako dzierżawa "główna" aplikacji).  Obiekt aplikacji jest używany jako szablon lub plan do tworzenia co najmniej jednego obiektu jednostki usługi.  Nazwa główna usługi jest tworzona w każdej dzierżawie, w której jest używana aplikacja. Podobnie jak Klasa w programowaniu zorientowanym obiektom, obiekt aplikacji ma pewne właściwości statyczne, które są stosowane do wszystkich utworzonych nazw głównych usługi (lub wystąpień aplikacji). 
 
-Aplikacja usługi Azure AD jest definiowana przez jeden i tylko obiekt aplikacji, który znajduje się w dzierżawie usługi Azure AD, w której zarejestrowano aplikację, znanej jako dzierżawa "główna" aplikacji. [Jednostka aplikacji][MS-Graph-App-Entity] Microsoft Graph definiuje schemat właściwości obiektu aplikacji.
+Obiekt Application opisuje trzy aspekty aplikacji: sposób, w jaki usługa może wystawiać tokeny w celu uzyskania dostępu do aplikacji, zasoby, do których aplikacja może potrzebować dostępu, oraz akcje, które może wykonać aplikacja. 
 
-### <a name="service-principal-object"></a>Obiekt główny usługi
+Blok **rejestracje aplikacji** w [Azure Portal][AZURE-Portal] służy do wyświetlania obiektów aplikacji w dzierżawie domowej i zarządzania nimi.
 
-Aby uzyskać dostęp do zasobów zabezpieczonych przez dzierżawę usługi Azure AD, jednostka wymagająca dostępu musi być reprezentowana przez podmiot zabezpieczeń. Dotyczy to zarówno użytkowników (głównej nazwy użytkownika), jak i aplikacji (nazwy głównej usługi).
+[Jednostka aplikacji][MS-Graph-App-Entity] Microsoft Graph definiuje schemat właściwości obiektu aplikacji.
 
-Podmiot zabezpieczeń definiuje zasady dostępu i uprawnienia dla użytkownika/aplikacji w dzierżawie usługi Azure AD. Umożliwia to korzystanie z podstawowych funkcji, takich jak uwierzytelnianie użytkownika/aplikacji podczas logowania, oraz autoryzacja w trakcie dostępu do zasobów.
+## <a name="service-principal-object"></a>Obiekt główny usługi
+Aby uzyskać dostęp do zasobów zabezpieczonych przez dzierżawę usługi Azure AD, jednostka wymagająca dostępu musi być reprezentowana przez podmiot zabezpieczeń. Dotyczy to zarówno użytkowników (głównej nazwy użytkownika), jak i aplikacji (nazwy głównej usługi). Podmiot zabezpieczeń definiuje zasady dostępu i uprawnienia dla użytkownika/aplikacji w dzierżawie usługi Azure AD. Umożliwia to korzystanie z podstawowych funkcji, takich jak uwierzytelnianie użytkownika/aplikacji podczas logowania, oraz autoryzacja w trakcie dostępu do zasobów.
 
-Gdy aplikacja uzyskuje uprawnienia dostępu do zasobów w dzierżawie (po rejestracji lub [zgodzie](developer-glossary.md#consent)), tworzony jest obiekt jednostki usługi. Jednostka Microsoft Graph [serviceprincipal][MS-Graph-Sp-Entity] definiuje schemat właściwości obiektu głównego usługi.
+Jednostka usługi to lokalna reprezentacja lub wystąpienie aplikacji globalnego obiektu aplikacji w pojedynczej dzierżawie lub katalogu. Nazwa główna usługi jest konkretnym wystąpieniem utworzonym na podstawie obiektu aplikacji i dziedziczy pewne właściwości z tego obiektu aplikacji.  Jednostka usługi jest tworzona w każdej dzierżawie, w której używana jest aplikacja, i odwołuje się do globalnego, unikatowego obiektu aplikacji.  Obiekt główny usługi definiuje, co aplikacja może w rzeczywistości wykonać w określonej dzierżawie, kto może uzyskiwać dostęp do aplikacji i jakie zasoby mogą uzyskać do niej dostęp. 
 
-### <a name="application-and-service-principal-relationship"></a>Relacja aplikacji i jednostki usługi
+Gdy aplikacja uzyskuje uprawnienia dostępu do zasobów w dzierżawie (po rejestracji lub [zgodzie](developer-glossary.md#consent)), tworzony jest obiekt jednostki usługi. Możesz również utworzyć obiekt jednostki usługi w dzierżawie przy użyciu [Azure PowerShell](howto-authenticate-service-principal-powershell.md), interfejsu wiersza polecenia platformy Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]i innych narzędzi.  W przypadku korzystania z portalu jednostka usługi jest tworzona automatycznie podczas rejestrowania aplikacji.
 
-Rozważmy obiekt aplikacji jako *globalną* reprezentację aplikacji do użycia we wszystkich dzierżawcach i nazwę główną usługi jako reprezentację *lokalną* do użycia w określonej dzierżawie.
+Blok **aplikacje przedsiębiorstwa** w portalu służy do wyświetlania i zarządzania jednostkami usługi w dzierżawie. Można wyświetlić uprawnienia jednostki usługi, uprawnienia użytkowników, którzy wykonali tę zgodę, informacje logowania i inne.
+
+Jednostka Microsoft Graph [serviceprincipal][MS-Graph-Sp-Entity] definiuje schemat właściwości obiektu głównego usługi.
+
+## <a name="relationship-between-application-objects-and-service-principals"></a>Relacja między obiektami aplikacji a jednostkami usługi
+
+Obiekt aplikacji to *globalna* reprezentacja aplikacji do użycia we wszystkich dzierżawcach, a jednostka usługi to *lokalna* reprezentacja do użycia w określonej dzierżawie.
 
 Obiekt aplikacji służy jako szablon, z którego *pochodzą* typowe i domyślne właściwości do stosowania podczas tworzenia odpowiednich obiektów jednostki usługi. W związku z tym obiekt aplikacji ma 1:1 relację z aplikacją oprogramowania i 1: wiele relacji z odpowiadającymi im obiektami głównych usług.
 

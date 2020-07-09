@@ -4,10 +4,9 @@ description: Wyszukaj ślady Log4J lub Logback w Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657218"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Eksplorowanie dzienników śledzenia Java w Application Insights
@@ -56,7 +55,7 @@ Postępuj zgodnie z instrukcjami, aby zainstalować [Application INSIGHTS SDK dl
 *Wybierz odpowiedni sposób dla danego projektu.*
 
 #### <a name="if-youre-using-maven"></a>Jeśli używasz narzędzia Maven...
-Jeśli projekt jest już skonfigurowany do korzystania z Maven na potrzeby kompilacji, Scal jeden z następujących fragmentów kodu w pliku pliku pom. XML.
+Jeśli projekt jest już skonfigurowany do korzystania z Maven na potrzeby kompilacji, Scal jeden z następujących fragmentów kodu z plikiem pom.xml.
 
 Następnie Odśwież zależności projektu, aby pobrać pliki binarne pobrane.
 
@@ -126,7 +125,7 @@ Następnie Odśwież zależności projektu, aby pobrać pliki binarne pobrane.
 #### <a name="otherwise-"></a>W innym przypadku...
 Postępuj zgodnie z instrukcjami, aby ręcznie zainstalować Application Insights Java SDK, Pobierz plik JAR (po nadejściu na stronie Maven Central kliknij link "Jar" w sekcji pobierania) dla odpowiedniego dołączania i Dodaj pobrany plik JAR dołączonego do projektu.
 
-| Rejestratora | Pliki do pobrania | Biblioteka |
+| Rejestratora | Pobierz | Biblioteka |
 | --- | --- | --- |
 | Logback |[Logback Dołącz do jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |ApplicationInsights-Logging-logback |
 | Log4J v 2.0 |[Log4J v2 — plik JAR](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |ApplicationInsights-Logging-log4j2 |

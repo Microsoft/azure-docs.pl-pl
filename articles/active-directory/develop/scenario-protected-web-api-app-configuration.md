@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 073eca94ad93c69811b02abe2c8649940a394e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882475"
 ---
 # <a name="protected-web-api-code-configuration"></a>Chroniony internetowy interfejs API: Konfiguracja kodu
@@ -134,7 +133,7 @@ Poprzedni fragment kodu został wyodrębniony z ASP.NET Coreowego samouczka inte
 
 ## <a name="token-validation"></a>Sprawdzanie poprawności tokenu
 
-W poprzednim fragmencie kodu JwtBearer oprogramowanie pośredniczące, takie jak OpenID Connect Połącz oprogramowanie pośredniczące w usłudze Web Apps, sprawdza token na podstawie wartości `TokenValidationParameters`. Token jest odszyfrowywany w razie konieczności, oświadczenia są wyodrębniane, a podpis zostanie zweryfikowany. Oprogramowanie pośredniczące sprawdza token, sprawdzając, czy są to dane:
+W poprzednim fragmencie kodu JwtBearer oprogramowanie pośredniczące, takie jak OpenID Connect Połącz oprogramowanie pośredniczące w usłudze Web Apps, sprawdza token na podstawie wartości `TokenValidationParameters` . Token jest odszyfrowywany w razie konieczności, oświadczenia są wyodrębniane, a podpis zostanie zweryfikowany. Oprogramowanie pośredniczące sprawdza token, sprawdzając, czy są to dane:
 
 - Odbiorcy: token jest przeznaczony dla internetowego interfejsu API.
 - Sub: został wystawiony dla aplikacji, która może wywołać internetowy interfejs API.

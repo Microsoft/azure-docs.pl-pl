@@ -4,17 +4,16 @@ description: Dowiedz się więcej o usuwaniu i wdrażaniu aplikacji na platformi
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699842"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Wdrażanie i usuwanie aplikacji przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
-> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Program PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [Interfejsy API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -64,7 +63,7 @@ Jeśli chcesz zweryfikować pakiet aplikacji lokalnie, użyj polecenia cmdlet [t
 
 Polecenie [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) przekazuje pakiet aplikacji do magazynu obrazów klastra.
 
-Załóżmy, że tworzysz aplikację i pakujesz ją *w programie* Visual Studio 2015. Domyślnie nazwa typu aplikacji wymieniona w ApplicationManifest. XML to "webapplicationtype".  Pakiet aplikacji, który zawiera wymagany manifest aplikacji, manifesty usługi i pakiety danych/config/dane, znajduje się w lokalizacji *C:\Users\<username\>\Documents\Visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*. 
+Załóżmy, że tworzysz aplikację i pakujesz ją *w programie* Visual Studio 2015. Domyślnie nazwa typu aplikacji wymieniona w ApplicationManifest.xml to "noapplicationtype".  Pakiet aplikacji, który zawiera wymagany manifest aplikacji, manifesty usługi i pakiety danych/config/dane, znajduje się w lokalizacji *C:\Users \<username\> \Documents\Visual Studio 2015 \ Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 Następujące polecenie wyświetla zawartość pakietu aplikacji:
 
@@ -105,7 +104,7 @@ Efekt uboczny polega na tym, że rejestrowanie i Wyrejestrowanie typu aplikacji 
 Aby skompresować pakiet, użyj tego samego polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) . Kompresję można wykonać niezależnie od przekazywania, przy użyciu `SkipCopy` flagi lub razem z operacją przekazywania. Zastosowanie kompresji w skompresowanym pakiecie to no-op.
 Aby zdekompresować skompresowany pakiet, użyj tego samego polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) z `UncompressPackage` przełącznikiem.
 
-Poniższe polecenie cmdlet kompresuje pakiet bez kopiowania go do magazynu obrazów. Pakiet zawiera teraz pliki spakowane dla pakietów `Code` i. `Config` Aplikacje i manifesty usług nie są spakowane, ponieważ są one zbędne w przypadku wielu operacji wewnętrznych (takich jak udostępnianie pakietów, nazwa typu aplikacji i wyodrębnianie wersji dla pewnych walidacji). Zapakowywanie manifestów spowodowałoby niewydajne wykonywanie tych operacji.
+Poniższe polecenie cmdlet kompresuje pakiet bez kopiowania go do magazynu obrazów. Pakiet zawiera teraz pliki spakowane dla `Code` `Config` pakietów i. Aplikacje i manifesty usług nie są spakowane, ponieważ są one zbędne w przypadku wielu operacji wewnętrznych (takich jak udostępnianie pakietów, nazwa typu aplikacji i wyodrębnianie wersji dla pewnych walidacji). Zapakowywanie manifestów spowodowałoby niewydajne wykonywanie tych operacji.
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
@@ -191,7 +190,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Rejestrowanie pakietu aplikacji skopiowanego do magazynu zewnętrznego
 
-Service Fabric począwszy od wersji 6,1, Inicjowanie obsługi administracyjnej obsługuje pobieranie pakietu z magazynu zewnętrznego. Identyfikator URI pobierania reprezentuje ścieżkę do [ `sfpkg` pakietu aplikacji](service-fabric-package-apps.md#create-an-sfpkg) , z którego można pobrać pakiet aplikacji przy użyciu protokołów HTTP lub https. Pakiet musi zostać wcześniej przekazany do tej lokalizacji zewnętrznej. Identyfikator URI musi zezwalać na dostęp do odczytu, aby Service Fabric mógł pobrać plik. `sfpkg` Plik musi mieć rozszerzenie ". sfpkg". Operacja aprowizacji powinna obejmować informacje o typie aplikacji, jak zostało to Znalezione w manifeście aplikacji.
+Service Fabric począwszy od wersji 6,1, Inicjowanie obsługi administracyjnej obsługuje pobieranie pakietu z magazynu zewnętrznego. Identyfikator URI pobierania reprezentuje ścieżkę do [ `sfpkg` pakietu aplikacji](service-fabric-package-apps.md#create-an-sfpkg) , z którego można pobrać pakiet aplikacji przy użyciu protokołów HTTP lub https. Pakiet musi zostać wcześniej przekazany do tej lokalizacji zewnętrznej. Identyfikator URI musi zezwalać na dostęp do odczytu, aby Service Fabric mógł pobrać plik. `sfpkg`Plik musi mieć rozszerzenie ". sfpkg". Operacja aprowizacji powinna obejmować informacje o typie aplikacji, jak zostało to Znalezione w manifeście aplikacji.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async

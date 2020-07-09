@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890858"
 ---
 # <a name="implement-the-device-model-behavior"></a>Zaimplementuj zachowanie modelu urządzenia
@@ -61,7 +60,7 @@ Poniższy przykład przedstawia definicję obiektu stanu urządzenia symulowaneg
 }
 ```
 
-Stan symulowanego urządzenia, zgodnie z definicją w `InitialState` sekcji, jest przechowywany w pamięci przez usługę symulacji. Informacje o stanie są przesyłane jako dane wejściowe do `main` funkcji zdefiniowanej w **Chiller-01-State. js**. W tym przykładzie usługa symulacji uruchamia plik **Chiller-01-State. js** co pięć sekund. Skrypt może zmodyfikować stan symulowanego urządzenia.
+Stan symulowanego urządzenia, zgodnie z definicją w `InitialState` sekcji, jest przechowywany w pamięci przez usługę symulacji. Informacje o stanie są przesyłane jako dane wejściowe do `main` funkcji zdefiniowanej w **chiller-01-state.js**. W tym przykładzie usługa symulacji uruchamia plik **chiller-01-state.js** co pięć sekund. Skrypt może zmodyfikować stan symulowanego urządzenia.
 
 Poniżej przedstawiono konspekt typowej `main` funkcji:
 
@@ -76,13 +75,13 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-`context` Parametr ma następujące właściwości:
+`context`Parametr ma następujące właściwości:
 
 - `currentTime`jako ciąg z formatem`yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, na przykład`Simulated.Chiller.123`
 - `deviceModel`, na przykład`Chiller`
 
-`state` Parametr zawiera stan urządzenia obsługiwanego przez usługę symulacji urządzenia. Ta wartość jest `state` obiektem zwracanym przez poprzednie wywołanie metody `main`.
+`state`Parametr zawiera stan urządzenia obsługiwanego przez usługę symulacji urządzenia. Ta wartość jest `state` obiektem zwracanym przez poprzednie wywołanie metody `main` .
 
 Poniższy przykład przedstawia typową implementację `main` metody do obsługi stanu urządzenia obsługiwanego przez usługę symulacji:
 
@@ -118,7 +117,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Poniższy przykład pokazuje, `main` jak metoda może symulować wartości telemetryczne, które różnią się w zależności od czasu:
+Poniższy przykład pokazuje, jak `main` Metoda może symulować wartości telemetryczne, które różnią się w zależności od czasu:
 
 ```javascript
 /**
@@ -156,7 +155,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-Możesz wyświetlić pełny [Chiller-01-State. js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) w witrynie GitHub.
+Pełną [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) można wyświetlić w witrynie GitHub.
 
 ## <a name="method-behavior"></a>Zachowanie metody
 
@@ -197,15 +196,15 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-`context` Parametr ma następujące właściwości:
+`context`Parametr ma następujące właściwości:
 
 - `currentTime`jako ciąg z formatem`yyyy-MM-dd'T'HH:mm:sszzz`
 - `deviceId`, na przykład`Simulated.Chiller.123`
 - `deviceModel`, na przykład`Chiller`
 
-`state` Parametr zawiera stan urządzenia obsługiwanego przez usługę symulacji urządzenia.
+`state`Parametr zawiera stan urządzenia obsługiwanego przez usługę symulacji urządzenia.
 
-`properties` Parametr zawiera właściwości urządzenia, które są zapisywane jako raportowane właściwości dla sznurka urządzenia IoT Hub.
+`properties`Parametr zawiera właściwości urządzenia, które są zapisywane jako raportowane właściwości dla sznurka urządzenia IoT Hub.
 
 Istnieją trzy funkcje globalne, których można użyć, aby pomóc zaimplementować zachowanie metody:
 
@@ -213,7 +212,7 @@ Istnieją trzy funkcje globalne, których można użyć, aby pomóc zaimplemento
 - `updateProperty`Aktualizowanie pojedynczej właściwości urządzenia.
 - `sleep`w celu wstrzymania wykonywania w celu symulowania długotrwałego zadania.
 
-Poniższy przykład przedstawia skróconą wersję skryptu **IncreasePressure-Method. js** używanego przez symulowane urządzenia chłodzenia:
+Poniższy przykład przedstawia skróconą wersję skryptu **IncreasePressure-method.js** używanego przez symulowane urządzenia chłodzenia:
 
 ```javascript
 function main(context, previousState, previousProperties) {
@@ -250,9 +249,9 @@ function main(context, previousState, previousProperties) {
 
 ## <a name="debugging-script-files"></a>Debugowanie plików skryptów
 
-Nie można dołączyć debugera do interpretera języka JavaScript używanego przez usługę symulacji urządzenia do uruchamiania skryptów stanu i metod. Można jednak rejestrować informacje w dzienniku usługi. Wbudowana `log()` funkcja umożliwia zapisywanie informacji do śledzenia i debugowania wykonywania funkcji.
+Nie można dołączyć debugera do interpretera języka JavaScript używanego przez usługę symulacji urządzenia do uruchamiania skryptów stanu i metod. Można jednak rejestrować informacje w dzienniku usługi. Wbudowana `log()` Funkcja umożliwia zapisywanie informacji do śledzenia i debugowania wykonywania funkcji.
 
-Jeśli wystąpi błąd składni interpretera kończy się niepowodzeniem i zapisuje `Jint.Runtime.JavaScriptException` wpis w dzienniku usługi.
+Jeśli wystąpi błąd składni interpretera kończy się niepowodzeniem i zapisuje wpis w `Jint.Runtime.JavaScriptException` dzienniku usługi.
 
 W artykule dotyczącym [uruchamiania usługi w serwisie](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) GitHub pokazano, jak uruchomić usługę symulacji urządzenia lokalnie. Uruchamianie usługi lokalnie ułatwia debugowanie symulowanych urządzeń przed ich wdrożeniem w chmurze.
 

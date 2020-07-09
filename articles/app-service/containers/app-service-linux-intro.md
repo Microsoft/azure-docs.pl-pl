@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 891e0c18b3f95dca905fbc14b957af773135eeec
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046415"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557904"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Wprowadzenie do usługi Azure App Service w systemie Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "80046415"
 
 ## <a name="languages"></a>Języki
 
-Usługa App Service w systemie Linux obsługuje szereg wbudowanych obrazów w celu zwiększenia produktywności deweloperów. Języki obejmują: Node. js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) , aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli aplikacja wymaga środowiska uruchomieniowego, które nie jest obsługiwane we wbudowanych obrazach, skorzystaj z instrukcji dotyczących sposobu [tworzenia własnego obrazu platformy Docker](tutorial-custom-docker-image.md), aby wykonać wdrożenie w usłudze Web App for Containers.
+Usługa App Service w systemie Linux obsługuje szereg wbudowanych obrazów w celu zwiększenia produktywności deweloperów. Języki obejmują: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom, [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) Aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli aplikacja wymaga środowiska uruchomieniowego, które nie jest obsługiwane we wbudowanych obrazach, skorzystaj z instrukcji dotyczących sposobu [tworzenia własnego obrazu platformy Docker](tutorial-custom-docker-image.md), aby wykonać wdrożenie w usłudze Web App for Containers.
 
 ## <a name="deployments"></a>Wdrożenia
 
@@ -54,7 +54,7 @@ Sprawdź [Pulpit nawigacyjny stanu platformy Azure](https://azure.microsoft.com/
 
 Witryna Azure Portal wyświetla tylko te funkcje, które obecnie działają dla usługi Web App for Containers. Kiedy włączymy więcej funkcji, będą one widoczne w portalu.
 
-App Service w systemie Linux jest obsługiwana tylko w przypadku planów usługi App Service w warstwach [bezpłatna, podstawowa, standardowa i Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) i nie ma warstwy [udostępnionej](https://azure.microsoft.com/pricing/details/app-service/plans/) . Nie można utworzyć aplikacji sieci Web systemu Linux w planie App Service, na którym jest już obsługiwany Web Apps w systemie innym niż Linux.  
+App Service w systemie Linux jest obsługiwana tylko w przypadku planów [bezpłatnego, Basic, standard, Premium i izolowanych](https://azure.microsoft.com/pricing/details/app-service/plans/) aplikacji oraz nie ma warstwy [udostępnionej](https://azure.microsoft.com/pricing/details/app-service/plans/) . Nie można utworzyć aplikacji sieci Web systemu Linux w planie App Service, na którym jest już obsługiwany Web Apps w systemie innym niż Linux.  
 
 W oparciu o bieżące ograniczenie dla tej samej grupy zasobów nie można mieszać aplikacji systemu Windows i Linux w tym samym regionie.
 
@@ -65,7 +65,7 @@ W oparciu o bieżące ograniczenie dla tej samej grupy zasobów nie można miesz
 >
 >
 
-Jeśli nie można uruchomić aplikacji lub chcesz sprawdzić rejestrowanie z aplikacji, sprawdź dzienniki platformy Docker w katalogu LogFiles. Dostęp do tego katalogu można uzyskać za pomocą witryny funkcji SCM lub za pośrednictwem protokołu FTP. Aby zalogować `stdout` się `stderr` i z kontenera, musisz włączyć **rejestrowanie aplikacji** w obszarze **dzienniki App Service**. To ustawienie jest stosowane od razu. App Service wykrywa zmianę i automatycznie ponownie uruchamia kontener.
+Jeśli nie można uruchomić aplikacji lub chcesz sprawdzić rejestrowanie z aplikacji, sprawdź dzienniki platformy Docker w katalogu LogFiles. Dostęp do tego katalogu można uzyskać za pomocą witryny funkcji SCM lub za pośrednictwem protokołu FTP. Aby zalogować się `stdout` i `stderr` z kontenera, musisz włączyć **Rejestrowanie aplikacji** w obszarze **dzienniki App Service**. To ustawienie jest stosowane od razu. App Service wykrywa zmianę i automatycznie ponownie uruchamia kontener.
 
 Dostęp do witryny SCM można uzyskać za pomocą opcji **Narzędzia zaawansowane** w menu **Narzędzia programistyczne**.
 

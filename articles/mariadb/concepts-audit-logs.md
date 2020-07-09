@@ -5,34 +5,35 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: e8d5abd81feb86ba48fc442ee95615cb52230a24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/24/2020
+ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063828"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362428"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Inspekcja dzienników w Azure Database for MariaDB
 
 W Azure Database for MariaDB dziennik inspekcji jest dostępny dla użytkowników. Dziennik inspekcji może służyć do śledzenia aktywności na poziomie bazy danych i jest często używany w celu zapewnienia zgodności.
 
-> [!IMPORTANT]
-> Funkcje dziennika inspekcji są obecnie dostępne w wersji zapoznawczej.
-
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 
-Domyślnie dziennik inspekcji jest wyłączony. Aby włączyć tę opcję, `audit_log_enabled` ustaw wartość na na.
+>[!IMPORTANT]
+> Zaleca się tylko rejestrowanie typów zdarzeń i użytkowników wymaganych do celów inspekcji, aby upewnić się, że wydajność serwera nie jest w dużym stopniu zagrożona.
+
+Domyślnie dziennik inspekcji jest wyłączony. Aby włączyć tę opcję, ustaw wartość `audit_log_enabled` na na.
 
 Inne parametry, które można dostosować, obejmują:
 
 - `audit_log_events`: kontroluje zdarzenia, które mają być rejestrowane. Szczegółowe zdarzenia inspekcji można znaleźć w poniższej tabeli.
-- `audit_log_include_users`: MariaDB użytkowników do uwzględnienia w rejestrowaniu. Wartość domyślna tego parametru jest pusta, co spowoduje uwzględnienie wszystkich użytkowników do rejestrowania. Ma wyższy priorytet niż `audit_log_exclude_users`. Maksymalna długość parametru to 512 znaków.
-> [!Note]
-> `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users`. Na `audit_log_include_users`  =  `demouser` przykład jeśli `audit_log_exclude_users`  = i `demouser`, użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
+- `audit_log_include_users`: MariaDB użytkowników do uwzględnienia w rejestrowaniu. Wartość domyślna tego parametru jest pusta, co spowoduje uwzględnienie wszystkich użytkowników do rejestrowania. Ma wyższy priorytet niż `audit_log_exclude_users` . Maksymalna długość parametru to 512 znaków.
 - `audit_log_exclude_users`: MariaDB użytkowników do wykluczenia z rejestrowania. Zezwala na maksymalnie czterech użytkowników. Maksymalna długość parametru to 256 znaków.
 
-| **Wydarzen** | **Opis** |
+> [!Note]
+> `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
+
+| **Wydarzenie** | **Opis** |
 |---|---|
 | `CONNECTION` | -Inicjacja połączenia (powodzenie lub niepowodzenie) <br> -Uwierzytelnianie użytkownika przy użyciu innego użytkownika/hasła podczas sesji <br> -Zakończenie połączenia |
 | `DML_SELECT`| Wybieranie zapytań |
@@ -45,7 +46,7 @@ Inne parametry, które można dostosować, obejmują:
 
 ## <a name="access-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji
 
-Dzienniki inspekcji są zintegrowane z Azure Monitor dziennikami diagnostycznymi. Po włączeniu dzienników inspekcji na serwerze MariaDB można je emitować do dzienników Azure Monitor, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat włączania dzienników diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Dzienniki inspekcji są zintegrowane z dziennikami diagnostycznymi usługi Azure Monitor. Gdy włączysz dzienniki inspekcji na serwerze MariaDB, możesz je emitować do dzienników usługi Azure Monitor, Event Hubs i Azure Storage. Aby dowiedzieć się więcej na temat włączania dzienników diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Schematy dzienników diagnostycznych
 
@@ -79,6 +80,9 @@ W poniższych sekcjach opisano dane wyjściowe przez dzienniki inspekcji MariaDB
 ### <a name="general"></a>Ogólne
 
 Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL i administrator.
+
+> [!NOTE]
+> W przypadku programu `sql_text` Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
 
 | **Właściwość** | **Opis** |
 |---|---|

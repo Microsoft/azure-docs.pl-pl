@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d611be27d8d576748019dee46022ca4cb70e966a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170617"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253447"
 ---
 # <a name="back-up-your-app-in-azure"></a>Tworzenie kopii zapasowej aplikacji na platformie Azure
 Funkcja tworzenia kopii zapasowych i przywracania w [Azure App Service](overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji ręcznie lub zgodnie z harmonogramem. Kopie zapasowe można skonfigurować tak, aby były przechowywane przez czas nieokreślony. Możesz przywrócić aplikację do migawki poprzedniego stanu, zastępując istniejącą aplikację lub przywracając ją do innej aplikacji.
@@ -74,7 +74,7 @@ Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kop
 
 4. Wybierz miejsce docelowe kopii zapasowej, wybierając **konto magazynu** i **kontener**. Konto magazynu musi należeć do tej samej subskrypcji co aplikacja, dla której ma zostać utworzona kopia zapasowa. Jeśli chcesz, możesz utworzyć nowe konto magazynu lub nowy kontener na odpowiednich stronach. Gdy skończysz, kliknij przycisk **Wybierz**.
 
-5. Na stronie **Konfiguracja kopii zapasowej** , która jest nadal otwarta, można skonfigurować **bazę danych kopii zapasowej**, a następnie wybrać bazy danych, które mają zostać uwzględnione w kopiach zapasowych (SQL Database lub MySQL), a następnie kliknąć przycisk **OK**.
+5. Na stronie **Konfiguracja kopii zapasowej** , która pozostaje otwarta, można skonfigurować **bazę danych kopii zapasowej**, a następnie wybrać bazy danych, które mają zostać uwzględnione w kopiach zapasowych (SQL Database lub MySQL), a następnie kliknąć przycisk **OK**.
 
     ![Wybierz konto magazynu](./media/manage-backup/configure-database.png)
 
@@ -150,7 +150,7 @@ Uruchom kopie zapasowe w taki sam sposób, jak zwykle, [ręcznie](#create-a-manu
 ## <a name="how-backups-are-stored"></a>Jak są przechowywane kopie zapasowe
 Po wykonaniu co najmniej jednej kopii zapasowej dla aplikacji kopie zapasowe są widoczne na stronie **kontenery** Twojego konta magazynu i aplikacji. Na koncie magazynu każda kopia zapasowa składa się z `.zip` pliku zawierającego dane kopii zapasowej i `.xml` pliku, który zawiera manifest `.zip` zawartości pliku. Można rozpakować i przeglądać te pliki, jeśli chcesz uzyskać dostęp do kopii zapasowych bez rzeczywistego wykonywania przywracania aplikacji.
 
-Kopia zapasowa bazy danych aplikacji jest przechowywana w katalogu głównym pliku zip. W przypadku bazy danych SQL jest to plik BACPAC (bez rozszerzenia pliku) i można go zaimportować. Aby utworzyć bazę danych SQL na podstawie eksportu BACPAC, zobacz [Importowanie pliku BACPAC w celu utworzenia nowej bazy danych użytkownika](https://technet.microsoft.com/library/hh710052.aspx).
+Kopia zapasowa bazy danych aplikacji jest przechowywana w katalogu głównym pliku zip. W przypadku SQL Database jest to plik BACPAC (bez rozszerzenia pliku) i może zostać zaimportowany. Aby utworzyć bazę danych w Azure SQL Database na podstawie eksportu BACPAC, zobacz [Importowanie pliku BACPAC w celu utworzenia bazy danych w programie Azure SQL Database](../azure-sql/database/database-import.md).
 
 > [!WARNING]
 > Zmiana któregokolwiek z plików w kontenerze **websitebackups** może spowodować, że kopia zapasowa stanie się nieprawidłowa i w związku z tym nie jest dostępnych.
@@ -164,7 +164,7 @@ Zarządzanie tworzeniem kopii zapasowych za pomocą skryptów można zautomatyzo
 Aby zapoznać się z przykładami, zobacz:
 
 - [Przykłady interfejsu wiersza polecenia platformy Azure](samples-cli.md)
-- [Przykłady Azure PowerShell](samples-powershell.md)
+- [Przykłady programu Azure PowerShell](samples-powershell.md)
 
 <a name="nextsteps"></a>
 

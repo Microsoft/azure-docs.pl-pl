@@ -8,17 +8,16 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146610"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687977"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu Azure Portal
 
@@ -38,7 +37,7 @@ Możesz dodać prywatne i publiczne adresy IP do interfejsu sieciowego platformy
 
 ### <a name="core-steps"></a><a name="coreadd"></a>Podstawowe kroki
 
-1. W razie potrzeby przejdź do https://portal.azure.com Azure Portal i zaloguj się w nim.
+1. W razie potrzeby przejdź do Azure Portal https://portal.azure.com i zaloguj się w nim.
 2. W portalu kliknij pozycję **więcej usług** > wpisz *maszyny wirtualne* w polu Filtr, a następnie kliknij pozycję **maszyny wirtualne**.
 3. W okienku **maszyny wirtualne** kliknij maszynę wirtualną, do której chcesz dodać adresy IP. Przejdź do karty **Sieć** . kliknij pozycję **interfejs sieciowy** na stronie. Jak pokazano na poniższej ilustracji: 
 
@@ -52,8 +51,8 @@ Możesz dodać prywatne i publiczne adresy IP do interfejsu sieciowego platformy
 
 Aby dodać nowy prywatny adres IP, wykonaj następujące kroki:
 
-1. Wykonaj kroki opisane w sekcji [podstawowe kroki](#coreadd) tego artykułu.
-2. Kliknij pozycję **Dodaj**. W wyświetlonym okienku **Dodawanie konfiguracji protokołu IP** Utwórz konfigurację adresu IP o nazwie *ipconfig-4* z *10.0.0.7* jako *statyczny* prywatny adres IP, a następnie kliknij przycisk **OK**.
+1. Wykonaj kroki opisane w sekcji [podstawowe kroki](#coreadd) tego artykułu i upewnij się, że znajdują się w sekcji **Konfiguracje protokołu IP** interfejsu sieciowego maszyny wirtualnej.  Sprawdź podsieć widoczną jako domyślną (na przykład 10.0.0.0/24).
+2. Kliknij pozycję **Dodaj**. W wyświetlonym okienku **Dodawanie konfiguracji protokołu IP** Utwórz konfigurację adresu IP o nazwie *ipconfig-4* z nowym *statycznym* prywatnym adresem IP, wybierając nową liczbę dla końcowego oktetu, a następnie kliknij przycisk **OK**.  (W przypadku podsieci 10.0.0.0/24 przykładowym adresem IP byłby *10.0.0.7*).
 
     > [!NOTE]
     > Podczas dodawania statycznego adresu IP należy określić nieużywany, prawidłowy adres w podsieci, z którą jest połączona karta sieciowa. Jeśli wybrany adres nie jest dostępny, w portalu zostanie wyświetlony symbol X dla adresu IP i należy wybrać inny.
@@ -74,8 +73,8 @@ Publiczny adres IP jest dodawany przez skojarzenie zasobu publicznego adresu IP 
 
 Publiczny adres IP jest jednym ustawieniem dla zasobu publicznego adresu IP. Jeśli masz zasób publicznego adresu IP, który nie jest aktualnie skojarzony z konfiguracją adresu IP, która ma zostać skojarzona z konfiguracją adresu IP, Pomiń poniższe kroki i wykonaj czynności opisane w jednej z poniższych sekcji, zgodnie z potrzebami. Jeśli nie masz dostępnego zasobu publicznego adresu IP, wykonaj następujące kroki, aby go utworzyć:
 
-1. W razie potrzeby przejdź do https://portal.azure.com Azure Portal i zaloguj się w nim.
-3. W portalu kliknij pozycję **Utwórz zasób** > **Sieć** > **publiczny adres IP**.
+1. W razie potrzeby przejdź do Azure Portal https://portal.azure.com i zaloguj się w nim.
+3. W portalu kliknij pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny adres IP**.
 4. W wyświetlonym okienku **Utwórz publiczny adres IP** wprowadź **nazwę**, wybierz typ **przypisania adresu IP** , **subskrypcję**, **grupę zasobów**i **lokalizację**, a następnie kliknij przycisk **Utwórz**, jak pokazano na poniższej ilustracji:
 
     ![Utwórz zasób publicznego adresu IP](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dac8e0f2e10906f2cc56ecf86e0cc70947cb7e85
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0433b7287fc00da09fcf303fbcb8d74bf4e3b196
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78897781"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800116"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą PureCloud przez Genesys
 
@@ -51,7 +51,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 ## <a name="adding-purecloud-by-genesys-from-the-gallery"></a>Dodawanie aplikacji PureCloud by Genesys z galerii
 
-Aby skonfigurować integrację PureCloud przez Genesys z usługą Azure AD, musisz dodać PureCloud przez Genesys z galerii do listy zarządzanych aplikacji SaaS. W tym celu wykonaj następujące czynności:
+Aby skonfigurować integrację PureCloud przez Genesys z usługą Azure AD, musisz dodać PureCloud przez Genesys z galerii do listy zarządzanych aplikacji SaaS. W tym celu wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub za pomocą konto Microsoft osobistych.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
@@ -87,39 +87,39 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
     a. W polu **Identyfikator** wprowadź adres URL odpowiadający regionowi:
 
-    | |
-    |--|
-    | `https://login.mypurecloud.com/saml` |
-    | `https://login.mypurecloud.de/saml` |
-    | `https://login.mypurecloud.jp/saml` |
-    | `https://login.mypurecloud.ie/saml` |
-    | `https://login.mypurecloud.au/saml` |
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.au/saml
+    ```
 
     b. W polu **adres URL odpowiedzi** wprowadź adres URL odpowiadający regionowi:
 
-    | |
-    |--|
-    | `https://login.mypurecloud.com/saml` |
-    | `https://login.mypurecloud.de/saml` |
-    | `https://login.mypurecloud.jp/saml` |
-    | `https://login.mypurecloud.ie/saml` |
-    | `https://login.mypurecloud.com.au/saml`|
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.com.au/saml
+    ```
 
 1. Wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu **adres URL logowania** wprowadź adres URL odpowiadający regionowi:
     
-    | |
-    |--|
-    | `https://login.mypurecloud.com` |
-    | `https://login.mypurecloud.de` |
-    | `https://login.mypurecloud.jp` |
-    | `https://login.mypurecloud.ie` |
-    | `https://login.mypurecloud.com.au` |
+    ```http
+    https://login.mypurecloud.com
+    https://login.mypurecloud.de
+    https://login.mypurecloud.jp
+    https://login.mypurecloud.ie
+    https://login.mypurecloud.com.au
+    ```
 
 1. Aplikacja PureCloud by Genesys oczekuje asercji SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów języka SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych:
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
 1. Ponadto PureCloud przez aplikację Genesys oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML, jak pokazano w poniższej tabeli. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć w razie konieczności.
 
@@ -144,9 +144,9 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal:
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika w następującym formacie: username@companydomain.extension. Na przykład: `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika w następującym formacie: username@companydomain.extension . Na przykład: `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -212,9 +212,9 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do PureCloud przez
 
     a. W polu **pełna nazwa** wprowadź nazwę użytkownika. Na przykład: **B. Simon**.
 
-    b. W polu **adres e-mail** wprowadź adres e-mail użytkownika. Na przykład: **b. simon\@contoso.com**.
+    b. W polu **adres e-mail** wprowadź adres e-mail użytkownika. Na przykład: **b. simon \@ contoso.com**.
 
-    c. Wybierz przycisk **Utwórz**.
+    c. Wybierz pozycję **Utwórz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 

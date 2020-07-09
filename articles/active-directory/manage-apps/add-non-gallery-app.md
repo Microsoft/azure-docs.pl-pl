@@ -2,22 +2,22 @@
 title: Dodaj aplikację bez galerii — platforma tożsamości firmy Microsoft | Microsoft Docs
 description: Dodaj aplikację spoza galerii do dzierżawy usługi Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555130"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Dodawanie aplikacji nieznajdującej się na liście (bez galerii) do organizacji usługi Azure AD
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com/) przy użyciu konta administratora platformy tożsamości firmy Microsoft.
 
-2. Wybierz pozycję **aplikacje** > dla przedsiębiorstw**Nowa aplikacja**.
+2. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **Nowa aplikacja**.
 
 3. (Opcjonalne, ale zalecane) W polu wyszukiwania **Przejrzyj galerię usługi Azure AD** wprowadź nazwę wyświetlaną aplikacji. 
 
@@ -54,7 +54,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
    >* **Skonfiguruj serwer proxy aplikacji dla bezpiecznego dostępu zdalnego do aplikacji lokalnej** otwiera stronę konfiguracji dla serwer proxy aplikacji usługi Azure AD i łączników platformy Azure.
    >* **Zarejestrowanie aplikacji, nad którą pracujesz, aby zintegrować usługę z usługą Azure AD** , spowoduje otwarcie strony **rejestracje aplikacji** . Ta opcja jest zwykle używana w przypadku aplikacji OpenID Connect Connect.
 
-7. Wybierz przycisk **Utwórz**. Zostanie otwarta strona **Przegląd** aplikacji.
+7. Wybierz pozycję **Utwórz**. Zostanie otwarta strona **Przegląd** aplikacji.
 
 ## <a name="configure-user-sign-in-properties"></a>Konfigurowanie właściwości logowania użytkownika
 
@@ -70,7 +70,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
 
       Zachowanie w przypadku użytkowników **przypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników przypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników przypisanych | Środowisko użytkowników przypisanych |
        |---|---|---|---|---|
        | Włączono dla użytkowników w celu logowania się? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy przypisani użytkownicy mogą się logować? | Czy przypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | tak | tak  |
@@ -84,7 +84,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
 
       Zachowanie w przypadku użytkowników **nieprzypisanych**:
 
-       | Ustawienia właściwości aplikacji | | | Środowisko użytkowników nieprzypisanych | |
+       | Właściwość aplikacji | Właściwość aplikacji | Właściwość aplikacji | Środowisko użytkowników nieprzypisanych | Środowisko użytkowników nieprzypisanych |
        |---|---|---|---|---|
        | Włączono, aby użytkownicy mogli się zalogować? | Wymagane przypisanie użytkownika? | Widoczne dla użytkowników? | Czy nieprzypisani użytkownicy mogą się logować? | Czy nieprzypisani użytkownicy widzą aplikację?* |
        | tak | tak | tak | nie  | nie   |

@@ -2,21 +2,21 @@
 title: Samouczek — Tworzenie szablonu wdrażania &
 description: Utwórz pierwszy szablon Azure Resource Manager. Samouczek zawiera informacje na temat składni pliku szablonu i sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 05/20/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714801"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102087"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
 W tym samouczku przedstawiono Azure Resource Manager szablonów (ARM). Pokazuje, jak utworzyć początkowy szablon i wdrożyć go na platformie Azure. Poznasz strukturę szablonu i narzędzia potrzebne do pracy z szablonami. Ukończenie tego samouczka zajmuje około **12 minut** , ale rzeczywisty czas będzie różny w zależności od liczby narzędzi, które należy zainstalować.
 
-Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię należy zmodyfikować szablon startowy krok po kroku do momentu zbadania wszystkich podstawowych części szablonu ARM. Elementy te są blokami konstrukcyjnymi dla znacznie bardziej złożonych szablonów. Mamy nadzieję, że na końcu serii masz pewność, że tworzysz własne szablony i chcesz zautomatyzować wdrożenia przy użyciu szablonów.
+Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię należy zmodyfikować początkowy szablon krok po kroku, dopóki nie zostaną zbadane wszystkie podstawowe części szablonu ARM. Elementy te są blokami konstrukcyjnymi dla znacznie bardziej złożonych szablonów. Mamy nadzieję, że na końcu serii masz pewność, że tworzysz własne szablony i chcesz zautomatyzować wdrożenia przy użyciu szablonów.
 
 Jeśli chcesz dowiedzieć się więcej na temat korzyści z używania szablonów i dlaczego należy zautomatyzować wdrażanie za pomocą szablonów, zobacz [Azure Resource Manager templates](overview.md).
 
@@ -28,7 +28,7 @@ Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do tworzenia i wdra�
 
 ### <a name="editor"></a>Edytor
 
-Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
+Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### <a name="command-line-deployment"></a>Wdrożenie wiersza polecenia
 
@@ -37,8 +37,12 @@ Do wdrożenia szablonu wymagane są również Azure PowerShell lub interfejs wie
 - [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
+- [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
 
 Po zainstalowaniu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure upewnij się, że logujesz się po raz pierwszy. Aby uzyskać pomoc, zobacz artykuł [Logowanie — PowerShell](/powershell/azure/install-az-ps#sign-in) lub [Logowanie się do interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli#sign-in).
+
+> [!IMPORTANT]
+> Jeśli używasz interfejsu wiersza polecenia platformy Azure, upewnij się, że masz wersję 2,6 lub nowszą. Polecenia pokazane w tym samouczku nie będą działały, jeśli używasz wcześniejszych wersji. Aby sprawdzić zainstalowaną wersję, użyj: `az --version` .
 
 Teraz możesz zacząć uczenie się o szablonach.
 
@@ -47,7 +51,7 @@ Teraz możesz zacząć uczenie się o szablonach.
 1. Otwórz Visual Studio Code z zainstalowanym rozszerzeniem narzędzi Menedżer zasobów.
 1. Z menu **plik** wybierz pozycję **nowy plik** , aby utworzyć nowy plik.
 1. Z menu **plik** wybierz polecenie **Zapisz jako**.
-1. Nazwij plik **azuredeploy** i wybierz rozszerzenie pliku **JSON** . Pełna nazwa pliku **azuredeploy. JSON**.
+1. Nazwij plik **azuredeploy** i wybierz rozszerzenie pliku **JSON** . Pełna nazwa **azuredeploy.js**pliku.
 1. Zapisz plik na stacji roboczej. Wybierz ścieżkę, która jest łatwa do zapamiętania, ponieważ będzie ona dostarczana później podczas wdrażania szablonu.
 1. Skopiuj i wklej następujący kod JSON do pliku:
 

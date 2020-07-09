@@ -3,16 +3,16 @@ title: Administracja przy użyciu witryny Azure EA Portal
 description: W tym artykule opisano typowe zadania wykonywane przez administratora w witrynie Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6169a18148b251540d66bce6e34374a16f697015
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648193"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044893"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
@@ -33,7 +33,7 @@ Administratorzy przedsiębiorstwa mogą skojarzyć istniejące konta z działami
 
 ## <a name="department-spending-quotas"></a>Limity przydziału wydatków dla działu
 
-Klienci z umowami EA mogą ustawiać lub zmieniać limity przydziałów wydatków dla każdego działu w ramach rejestracji. Kwota przydziału wydatków jest ustawiana dla bieżącego okresu zobowiązania. Na koniec bieżącego okresu zobowiązania system przedłuży istniejący limit przydziału wydatków na następny okres zobowiązania, chyba że wartości zostaną zaktualizowane.
+Klienci z umowami EA mogą ustawiać lub zmieniać limity przydziałów wydatków dla każdego działu w ramach rejestracji. Kwota przydziału wydatków jest ustawiana dla bieżącego okresu przedpłaty. Na koniec bieżącego okresu przedpłaty system przedłuży istniejący limit przydziału wydatków na następny okres przedpłaty, chyba że wartości zostaną zaktualizowane.
 
 Administrator działu może wyświetlić limit przydziału wydatków, ale tylko administrator przedsiębiorstwa może zaktualizować wartość limitu przydziału. Administrator przedsiębiorstwa i administrator działu otrzymają powiadomienia, gdy limit przydziału zostanie wykorzystany w 50%, 75%, 90%, i 100%.
 
@@ -48,9 +48,9 @@ Administrator działu może wyświetlić limit przydziału wydatków, ale tylko 
     - W tym miejscu można także edytować nazwę działu i centrum kosztów.
  1. Wybierz pozycję **Zapisz**.
 
-Limit przydziału wydatków działu będzie teraz widoczny w widoku Lista działów na karcie Dział. Na koniec bieżącego zobowiązania witryna Azure EA Portal zachowa limity przydziału wydatków na następny okres zobowiązania.
+Limit przydziału wydatków działu będzie teraz widoczny w widoku Lista działów na karcie Dział. Na koniec bieżącej przedpłaty witryna Azure EA Portal zachowa limity przydziału wydatków na następny okres przedpłaty.
 
-Kwota limitu przydziału dla działu jest niezależna od bieżącego zobowiązania pieniężnego. Ponadto kwota limitu przydziału i alerty są stosowane tylko do użycia tej samej firmy. Limit przydziału wydatków dla działu jest przeznaczony wyłącznie do celów informacyjnych i nie wymusza limitów wydatków.
+Kwota limitu przydziału dla działu jest niezależna od bieżącej przedpłaty za platformę Azure. Ponadto kwota limitu przydziału i alerty są stosowane tylko do użycia tej samej firmy. Limit przydziału wydatków dla działu jest przeznaczony wyłącznie do celów informacyjnych i nie wymusza limitów wydatków.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Wyświetlanie limitu przydziału przez administratora działu:
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji na temat ról użytkownika, zobacz [Role użytko
 
 Konto Azure EA to jednostka organizacyjna w witrynie Azure EA Portal. Służy ono do administrowania subskrypcjami i tworzenia raportów. Aby uzyskać dostęp do usług platformy Azure i korzystać z nich, musisz utworzyć konto lub poprosić o jego utworzenie.
 
-Aby uzyskać więcej informacji na temat kont platformy Azure, zobacz temat dotyczący dodawania konta.
+Aby uzyskać więcej informacji na temat kont platformy Azure, zobacz [Dodawanie konta](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Oferta Enterprise — tworzenie i testowanie
 
@@ -174,7 +174,7 @@ Ten dokument zawiera odpowiedzi na często zadawane pytania dotyczące własnoś
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Ilu właścicieli konta platformy Azure można mieć na subskrypcję?
 
-Dozwolony jest tylko jeden właściciel konta na subskrypcję.  Dodatkowe role można dodawać przy użyciu funkcji dostępu opartego na rolach lub kontroli dostępu (zarządzanie dostępem i tożsamościami) na karcie subskrypcji w lewym górnym rogu strony [portal.azure.com]] (https://portal.azure.com).
+Dozwolony jest tylko jeden właściciel konta na subskrypcję.  Dodatkowe role można dodawać przy użyciu funkcji dostępu opartego na rolach lub kontroli dostępu (zarządzanie dostępem i tożsamościami) na karcie subskrypcji w lewym górnym rogu strony witryny [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Czy właściciel konta platformy Azure może być wymieniony w więcej niż jednym dziale?
 

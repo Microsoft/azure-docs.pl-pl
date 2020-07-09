@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: ad57fe01313957c4f3d23ef44d0e02ad11ab3fa8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780576"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262178"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Samouczek: Dodawanie stronicowania do wyników wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować dwa różne systemy stronicowania, pierwsze na podstawie numerów stron i drugi przy nieskończonym przewijaniu. Oba systemy stronicowania są szeroko używane i wybór jednego z nich zależy od środowiska użytkownika, które chcesz uzyskać w wyniku. W tym samouczku przedstawiono systemy stronicowania w projekcie utworzonym w [samouczku języka C#: Tworzenie pierwszej aplikacji — samouczek wyszukiwanie poznawcze platformy Azure](tutorial-csharp-create-first-app.md) .
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Poszerzanie aplikacji za pomocą numerowanego stronicowania
 > * Zwiększanie możliwości aplikacji dzięki nieskończonemu przewijaniu
@@ -100,7 +100,7 @@ Ma otwarte rozwiązanie podstawowego strony wyszukiwania.
 
 ### <a name="add-a-table-of-paging-options-to-the-view"></a>Dodawanie tabeli opcji stronicowania do widoku
 
-1. Otwórz plik index. cshtml i Dodaj poniższy kod bezpośrednio przed tagiem zamykającym &lt;/Body.&gt; Ten nowy kod przedstawia tabelę opcji stronicowania: pierwszy, poprzedni, 1, 2, 3, 4, 5, następny, ostatni.
+1. Otwórz plik index. cshtml i Dodaj poniższy kod bezpośrednio przed tagiem zamykającym &lt; /Body &gt; . Ten nowy kod przedstawia tabelę opcji stronicowania: pierwszy, poprzedni, 1, 2, 3, 4, 5, następny, ostatni.
 
     ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -424,7 +424,7 @@ Aby zaimplementować nieskończoność przewijania, Zacznijmy od projektu przed 
 
 1. Zlokalizuj sekcję pliku index. cshtml, który wyświetla wyniki (zaczyna się od ** @if (model! = null)**).
 
-2. Zastąp sekcję poniższym kodem. Nowa ** &lt;sekcja DIV&gt; ** znajduje się wokół obszaru, który powinien być przewijalny i dodaje zarówno atrybut **overflow-y** , jak i wywołanie funkcji **OnScroll** o nazwie "scrolled ()", tak jak to zrobić.
+2. Zastąp sekcję poniższym kodem. Nowa sekcja ** &lt; DIV &gt; ** znajduje się wokół obszaru, który powinien być przewijalny i dodaje zarówno atrybut **overflow-y** , jak i wywołanie funkcji **OnScroll** o nazwie "scrolled ()", tak jak to zrobić.
 
     ```cs
         @if (Model != null)
@@ -447,7 +447,7 @@ Aby zaimplementować nieskończoność przewijania, Zacznijmy od projektu przed 
         }
     ```
 
-3. Bezpośrednio pod pętlą po tagu &lt;/DIV&gt; Dodaj funkcję **przewijania** .
+3. Bezpośrednio pod pętlą po &lt; &gt; tagu/DIV Dodaj funkcję **przewijania** .
 
     ```javascript
         <script>
@@ -563,7 +563,7 @@ Istnieją tylko trzy akcje, które muszą zostać wysłane do kontrolera: pierws
         }
     ```
 
-4. Jeśli otrzymujesz błąd składniowy w **&lt;&gt;ciągu listy**, Dodaj następującą dyrektywę **using** do nagłówka pliku kontrolera.
+4. Jeśli otrzymujesz błąd składniowy w ** &lt; ciągu &gt; listy**, Dodaj następującą dyrektywę **using** do nagłówka pliku kontrolera.
 
     ```cs
     using System.Collections.Generic;
@@ -578,7 +578,7 @@ Teraz wybierz pozycję **Uruchom bez debugowania** (lub naciśnij klawisz F5).
     ![Nieskończone przewijanie w wyniku "puli"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > Aby mieć pewność, że na pierwszej stronie pojawi się pasek przewijania, pierwsza strona wyników musi nieco przekroczyć wysokość obszaru, w którym są wyświetlane. W naszym przykładzie **. BOX1** ma wysokość 30 pikseli, **. box2** ma wysokość 100 pikseli _i_ dolny margines 24 pikseli. Dlatego każdy wpis używa 154 pikseli. Trzy wpisy zajmieją 3 x 154 = 462 pikseli. Aby mieć pewność, że zostanie wyświetlony pionowy pasek przewijania, Wysokość do obszaru wyświetlania musi być mniejsza niż 462 pikseli, nawet 461. Ten problem występuje tylko na pierwszej stronie, gdy pasek przewijania jest widoczny. Wierszem do zaktualizowania jest: ** &lt;DIV ID = "myDiv" Style = "width: 800px; Height: 450px; overflow-y: Scroll;" OnScroll = "scrolled ()&gt;"**.
+    > Aby mieć pewność, że na pierwszej stronie pojawi się pasek przewijania, pierwsza strona wyników musi nieco przekroczyć wysokość obszaru, w którym są wyświetlane. W naszym przykładzie **. BOX1** ma wysokość 30 pikseli, **. box2** ma wysokość 100 pikseli _i_ dolny margines 24 pikseli. Dlatego każdy wpis używa 154 pikseli. Trzy wpisy zajmieją 3 x 154 = 462 pikseli. Aby mieć pewność, że zostanie wyświetlony pionowy pasek przewijania, Wysokość do obszaru wyświetlania musi być mniejsza niż 462 pikseli, nawet 461. Ten problem występuje tylko na pierwszej stronie, gdy pasek przewijania jest widoczny. Wierszem do zaktualizowania jest: ** &lt; DIV ID = "myDiv" Style = "width: 800px; Height: 450px; overflow-y: Scroll;" OnScroll = "scrolled () &gt; "**.
 
 2. Przewiń w dół do końca wyników. Zwróć uwagę na to, jak wszystkie informacje są teraz na stronie jednego widoku. Można przewijać wszystko z powrotem do góry bez wyzwalania wywołań serwera.
 

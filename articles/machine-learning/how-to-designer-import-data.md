@@ -5,19 +5,19 @@ description: Dowiedz się, jak importować dane do programu Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
 ms.custom: designer
-ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 12473aca589f8a04dd0e09fdc2dc7f0d4e450c5a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610952"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
+# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
 
 W tym artykule dowiesz się, jak zaimportować własne dane do projektanta w celu utworzenia niestandardowych rozwiązań. Istnieją dwa sposoby importowania danych do projektanta: 
 
@@ -79,7 +79,7 @@ Projektant obsługuje tabelaryczne zestawy danych utworzone na podstawie następ
 Projektant wewnętrznie rozpoznaje następujące typy danych:
 
 * String
-* Liczba całkowita
+* Integer
 * Wartość dziesiętna
 * Wartość logiczna
 * Date
@@ -89,6 +89,10 @@ Projektant używa wewnętrznego typu danych do przekazywania danych między modu
 ## <a name="data-constraints"></a>Ograniczenia danych
 
 Moduły w projektancie są ograniczone przez rozmiar obiektu docelowego obliczeń. W przypadku większych zestawów danych należy użyć większego Azure Machine Learning zasobów obliczeniowych. Aby uzyskać więcej informacji na temat Azure Machine Learning obliczeń, zobacz [co to są cele obliczeń w Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## <a name="access-data-in-a-virtual-network"></a>Dostęp do danych w sieci wirtualnej
+
+Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz wykonać dodatkowe czynności konfiguracyjne, aby wizualizować dane w projektancie. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## <a name="next-steps"></a>Następne kroki
 

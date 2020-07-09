@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969558"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Tworzenie kompletnej maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -471,7 +470,7 @@ Informacje wyjściowe są domenami błędów i domenami aktualizacji:
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 Utworzono zasoby sieciowe do obsługi maszyn wirtualnych dostępnych dla Internetu. Teraz Utwórz maszynę wirtualną i Zabezpiecz ją przy użyciu klucza SSH. W tym przykładzie utworzyszmy maszynę wirtualną Ubuntu w oparciu o najnowszą LTS. Dodatkowe obrazy można znaleźć za pomocą programu [AZ VM Image list](/cli/azure/vm/image), zgodnie z opisem w temacie [Znajdowanie obrazów maszyn wirtualnych platformy Azure](cli-ps-findimage.md).
 
-Określ klucz SSH, który ma być używany do uwierzytelniania. Jeśli nie masz pary kluczy publicznych SSH, możesz [je utworzyć](mac-create-ssh-keys.md) lub użyć `--generate-ssh-keys` parametru, aby je utworzyć. Jeśli masz już parę kluczy, ten parametr używa istniejących kluczy w `~/.ssh`.
+Określ klucz SSH, który ma być używany do uwierzytelniania. Jeśli nie masz pary kluczy publicznych SSH, możesz [je utworzyć](mac-create-ssh-keys.md) lub użyć `--generate-ssh-keys` parametru, aby je utworzyć. Jeśli masz już parę kluczy, ten parametr używa istniejących kluczy w `~/.ssh` .
 
 Utwórz maszynę wirtualną, przenosząc wszystkie zasoby i informacje za pomocą polecenia [AZ VM Create](/cli/azure/vm) . Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM*:
 
@@ -556,7 +555,7 @@ Co zrobić, jeśli chcesz teraz utworzyć dodatkowe środowisko programistyczne 
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-To polecenie tworzy `myResourceGroup.json` plik w bieżącym katalogu roboczym. Po utworzeniu środowiska na podstawie tego szablonu zostanie wyświetlony monit o podanie wszystkich nazw zasobów. Można wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr do `az group export` polecenia. Edytuj szablon JSON, aby określić nazwy zasobów, lub [Utwórz plik Parameters. JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , który określa nazwy zasobów.
+To polecenie tworzy `myResourceGroup.json` plik w bieżącym katalogu roboczym. Po utworzeniu środowiska na podstawie tego szablonu zostanie wyświetlony monit o podanie wszystkich nazw zasobów. Można wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr do `az group export` polecenia. Edytuj szablon JSON, aby określić nazwy zasobów, lub [utwórz parameters.jsw pliku](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , który określa nazwy zasobów.
 
 Aby utworzyć środowisko na podstawie szablonu, użyj [AZ Group Deployment Create](/cli/azure/group/deployment) w następujący sposób:
 

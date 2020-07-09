@@ -9,18 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f5b1ec02400c5cd9d26cc324ddbafdf8d76537
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731974"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegowanie administracji w Azure Active Directory
 

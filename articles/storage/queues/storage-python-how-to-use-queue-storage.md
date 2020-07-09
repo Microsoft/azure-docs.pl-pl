@@ -6,21 +6,24 @@ ms.author: mhopkins
 ms.date: 09/17/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.custom: seo-javascript-october2019
-ms.openlocfilehash: ca0831fd7554058d21e315b67d6965579af1d38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.custom: seo-javascript-october2019, tracking-python
+ms.openlocfilehash: 46d144a95708ac834478871ca27763f0ebd3b201
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84805244"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Jak korzystać z usługi Azure queue storage w wersji 2.1 z poziomu języka Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 W tym artykule przedstawiono typowe scenariusze korzystające z usługi Azure queue storage. Omówione scenariusze obejmują Wstawianie, wgląd, pobieranie i usuwanie komunikatów w kolejce oraz tworzenie i usuwanie kolejek.
+
+> [!IMPORTANT]
+> Ten artykuł odnosi się do starszej wersji biblioteki klienta usługi Azure Storage dla języka Python. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Biblioteka kliencka usługi Azure queue storage dla języka Python](storage-quickstart-queues-python.md)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
@@ -45,7 +48,7 @@ pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]
-> Jeśli uaktualniasz z zestawu SDK usługi Azure Storage dla języka Python w wersji 0,36 lub starszej, Odinstaluj starszy `pip uninstall azure-storage` zestaw SDK przy użyciu programu przed zainstalowaniem najnowszego pakietu.
+> Jeśli uaktualniasz z zestawu SDK usługi Azure Storage dla języka Python w wersji 0,36 lub starszej, Odinstaluj starszy zestaw SDK przy użyciu programu `pip uninstall azure-storage` przed zainstalowaniem najnowszego pakietu.
 
 Aby zapoznać się z alternatywnymi metodami instalacji, zobacz [zestaw SDK usługi Azure Storage dla języka Python](https://github.com/Azure/azure-storage-python/).
 
@@ -53,7 +56,7 @@ Aby zapoznać się z alternatywnymi metodami instalacji, zobacz [zestaw SDK usł
 
 Aby wyświetlić i uruchomić przykładową aplikację, która pokazuje, jak używać języka Python z kolejkami platformy Azure, zobacz [Azure Storage: wprowadzenie z kolejkami platformy Azure w języku Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
 
-Aby uruchomić przykładową aplikację, upewnij się, że zainstalowano `azure-storage-queue` pakiety `azure-storage-common` i.
+Aby uruchomić przykładową aplikację, upewnij się, że zainstalowano `azure-storage-queue` `azure-storage-common` pakiety i.
 
 ## <a name="create-a-queue"></a>Tworzenie kolejki
 
@@ -131,7 +134,7 @@ for message in messages:
 
 ## <a name="get-the-queue-length"></a>Pobieranie długości kolejki
 
-Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) żąda, aby usługa kolejki zwracała metadane dotyczące kolejki i `approximate_message_count`. Wynik jest przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po udzieleniu odpowiedzi przez usługę kolejki na żądanie.
+Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) żąda, aby usługa kolejki zwracała metadane dotyczące kolejki i `approximate_message_count` . Wynik jest przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po udzieleniu odpowiedzi przez usługę kolejki na żądanie.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')

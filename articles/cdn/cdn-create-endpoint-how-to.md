@@ -10,16 +10,16 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43718f8ebc851f27035f2999bfb4ff3ec12ca5b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254019"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887722"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Tworzenie punktu końcowego Azure CDN
 W tym artykule opisano wszystkie ustawienia dotyczące tworzenia punktu końcowego [usługi Azure Content Delivery Network (CDN)](cdn-overview.md) w istniejącym profilu CDN. Po utworzeniu profilu i punktu końcowego możesz rozpocząć dostarczanie zawartości do klientów. Aby zapoznać się z przewodnikiem Szybki Start dotyczącym tworzenia profilu i punktu końcowego, zobacz [Szybki Start: tworzenie Azure CDN profilu i punktu końcowego](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
    
     ![Dodaj stronę punktu końcowego](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. W polu **Nazwa** wprowadź unikatową nazwę nowego punktu końcowego CDN. Ta nazwa służy do uzyskiwania dostępu do buforowanych zasobów w domenie _ \<EndpointName>_. azureedge.NET.
+3. W polu **Nazwa** wprowadź unikatową nazwę nowego punktu końcowego CDN. Ta nazwa służy do uzyskiwania dostępu do buforowanych zasobów w domenie _\<endpointname>_ . azureedge.NET.
 
 4. W **polu Typ źródła**wybierz jeden z następujących typów źródła: 
    - **Magazyn** dla usługi Azure Storage
@@ -62,7 +62,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
    > Niektóre typy źródeł, takie jak usługi Azure Storage i Web Apps, wymagają, aby nagłówek hosta był zgodny z domeną źródła. Pozostaw wartość domyślną, chyba że masz źródło, które wymaga nagłówka hosta innego niż jego domena.
    > 
     
-8. Dla **protokołu** i **portu pochodzenia**Określ protokoły i porty, które mają być używane do uzyskiwania dostępu do zasobów na serwerze źródłowym. Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS). Aby uzyskać dostęp do zawartości https, użyj domeny udostępnionej przez usługę CDN (_\<EndpointName>_. azureedge.NET). 
+8. Dla **protokołu** i **portu pochodzenia**Określ protokoły i porty, które mają być używane do uzyskiwania dostępu do zasobów na serwerze źródłowym. Należy wybrać co najmniej jeden protokół (HTTP lub HTTPS). Użyj domeny dostarczonej przez usługę CDN ( _\<endpointname>_ azureedge.NET) w celu uzyskania dostępu do zawartości https. 
    
    > [!NOTE]
    > Wartość **portu źródła** określa tylko port wykorzystywany przez punkt końcowy do pobierania informacji z serwera pochodzenia. Sam punkt końcowy jest dostępny dla klientów końcowych tylko na domyślnych portach HTTP i HTTPS (80 i 443), niezależnie od wartości **Port źródła**.  
@@ -101,7 +101,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu ko
    
     Jeśli próbujesz użyć nazwy domeny usługi CDN przed przekazaniem konfiguracji punktu końcowego do serwerów punktu obecności (POP), może zostać wyświetlony stan odpowiedzi HTTP 404. Jeśli masz kilka godzin od momentu utworzenia punktu końcowego, a nadal otrzymujesz 404 o stanie odpowiedzi, zobacz [Rozwiązywanie problemów Azure CDN punkty końcowe, które zwracają kod stanu 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby usunąć punkt końcowy, gdy nie jest już wymagany, zaznacz go, a następnie wybierz pozycję **Usuń**. 
 
 ## <a name="next-steps"></a>Następne kroki

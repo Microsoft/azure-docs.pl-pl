@@ -11,11 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270058"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708012"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Narzędzia do pozyskiwania danych Data Science Virtual Machine
 
@@ -30,7 +29,7 @@ Oto kilka narzędzi do przenoszenia danych, które są dostępne w DSVM.
 | co to jest?   | Narzędzie do kopiowania danych z usługi Azure Blob Storage do Azure Data Lake Store. Może również kopiować dane między dwoma kontami Azure Data Lake Store.      |
 | Obsługiwane wersje DSVM      | Windows      |
 | Typowe zastosowania      | Importowanie wielu obiektów blob z usługi Azure Blob Storage do Azure Data Lake Store.      |
-|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz `adlcopy` , aby uzyskać pomoc.    |
+|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz, `adlcopy` Aby uzyskać pomoc.    |
 | Linki do przykładów      | [Korzystanie z narzędzia AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Narzędzia pokrewne na DSVM      | AzCopy, interfejs wiersza polecenia platformy Azure     |
 
@@ -41,19 +40,19 @@ Oto kilka narzędzi do przenoszenia danych, które są dostępne w DSVM.
 | co to jest?   | Narzędzie do zarządzania dla platformy Azure. Zawiera również zlecenia poleceń służące do przenoszenia danych z platform danych platformy Azure, takich jak Azure Blob Storage i Azure Data Lake Store.     |
 | Obsługiwane wersje DSVM      | Windows, Linux     |
 | Typowe zastosowania      | Importowanie i eksportowanie danych do i z usługi Azure Storage oraz do Azure Data Lake Store.      |
-|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz `az` , aby uzyskać pomoc.    |
+|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz, `az` Aby uzyskać pomoc.    |
 | Linki do przykładów      | [Korzystanie z interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)     |
 | Narzędzia pokrewne na DSVM      | AzCopy, AdlCopy      |
 
 
-## <a name="azcopy"></a>Narzędzie AzCopy
+## <a name="azcopy"></a>AzCopy
 
 |    |           |
 | ------------- | ------------- |
 | co to jest?   | Narzędzie do kopiowania danych do i z plików lokalnych, magazynu obiektów blob platformy Azure, plików i tabel.      |
 | Obsługiwane wersje DSVM      | Windows      |
 | Typowe zastosowania      | Kopiowanie plików do usługi Azure Blob Storage i kopiowanie obiektów BLOB między kontami.      |
-|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz `azcopy` , aby uzyskać pomoc.    |
+|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz, `azcopy` Aby uzyskać pomoc.    |
 | Linki do przykładów      | [Narzędzie AzCopy w systemie Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Narzędzia pokrewne na DSVM      | AdlCopy     |
 
@@ -65,7 +64,7 @@ Oto kilka narzędzi do przenoszenia danych, które są dostępne w DSVM.
 | co to jest?   | Narzędzie do importowania danych z różnych źródeł do Azure Cosmos DB bazy danych NoSQL w chmurze. Te źródła obejmują pliki JSON, pliki CSV, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB i Azure Cosmos DB kolekcje interfejsów API SQL.      |
 | Obsługiwane wersje DSVM      | Windows      |
 | Typowe zastosowania      | Importowanie plików z maszyny wirtualnej do CosmosDB, importowanie danych z usługi Azure Table Storage do CosmosDB i importowanie danych z bazy danych Microsoft SQL Server do CosmosDB.     |
-|  Jak używać/uruchamiać?    |   Aby użyć wersji wiersza polecenia, Otwórz wiersz polecenia i wpisz `dt`. Aby użyć narzędzia graficznego interfejsu użytkownika, Otwórz wiersz polecenia i `dtui`wpisz.    |
+|  Jak używać/uruchamiać?    |   Aby użyć wersji wiersza polecenia, Otwórz wiersz polecenia i wpisz `dt` . Aby użyć narzędzia graficznego interfejsu użytkownika, Otwórz wiersz polecenia i wpisz `dtui` .    |
 | Linki do przykładów      | [CosmosDB Importuj dane](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Narzędzia pokrewne na DSVM      | AzCopy, AdlCopy      |
 
@@ -87,7 +86,7 @@ Oto kilka narzędzi do przenoszenia danych, które są dostępne w DSVM.
 | co to jest?   | SQL Server Narzędzie do kopiowania danych między SQL Server i plikiem danych.      |
 | Obsługiwane wersje DSVM      | Windows      |
 | Typowe zastosowania      | Importowanie pliku CSV do tabeli SQL Server i eksportowanie tabeli SQL Server do pliku.      |
-|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz `bcp` , aby uzyskać pomoc.    |
+|  Jak używać/uruchamiać?    |   Otwórz wiersz polecenia i wpisz, `bcp` Aby uzyskać pomoc.    |
 | Linki do przykładów      | [Narzędzie bcp](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Narzędzia pokrewne na DSVM      | SQL Server, SQLCMD      |
 

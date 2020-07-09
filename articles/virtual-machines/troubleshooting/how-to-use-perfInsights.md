@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847451"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -65,7 +65,7 @@ W tym scenariuszu jest uruchamiany test testu porównawczego [Narzędzia diskspd
 
 ### <a name="performance-analysis"></a>Analiza wydajności
 
-W tym scenariuszu jest uruchamiany ślad [licznika wydajności](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) przy użyciu liczników, które są określone w pliku RuleEngineConfig. JSON. Jeśli maszyna wirtualna zostanie zidentyfikowana jako serwer z uruchomionym SQL Server, zostanie uruchomione śledzenie licznika wydajności. Robi to przy użyciu liczników znalezionych w pliku RuleEngineConfig. JSON. Ten scenariusz obejmuje również dane diagnostyki wydajności.
+W tym scenariuszu jest uruchamiany ślad [licznika wydajności](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) przy użyciu liczników określonych w RuleEngineConfig.jspliku. Jeśli maszyna wirtualna zostanie zidentyfikowana jako serwer z uruchomionym SQL Server, zostanie uruchomione śledzenie licznika wydajności. Robi to przy użyciu liczników znalezionych w RuleEngineConfig.jsna pliku. Ten scenariusz obejmuje również dane diagnostyki wydajności.
 
 ### <a name="azure-files-analysis"></a>Analiza Azure Files
 
@@ -189,15 +189,15 @@ Aby uzyskać więcej informacji na temat tej opcji, zobacz [Instalowanie rozszer
 Aby uruchomić narzędzie że program perfinsights, wykonaj następujące kroki:
 
 
-1. Pobierz plik [że program perfinsights. zip](https://aka.ms/perfinsightsdownload).
+1. Pobierz [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
-2. Odblokuj plik że program perfinsights. zip. Aby to zrobić, kliknij prawym przyciskiem myszy plik że program perfinsights. zip, a następnie wybierz pozycję **Właściwości**. Na karcie **Ogólne** wybierz opcję **odblokowywanie**, a następnie wybierz przycisk **OK**. Dzięki temu narzędzie zostanie uruchomione bez dodatkowych wskazówek dotyczących zabezpieczeń.  
+2. Odblokuj plik PerfInsights.zip. Aby to zrobić, kliknij prawym przyciskiem myszy plik PerfInsights.zip i wybierz polecenie **Właściwości**. Na karcie **Ogólne** wybierz opcję **odblokowywanie**, a następnie wybierz przycisk **OK**. Dzięki temu narzędzie zostanie uruchomione bez dodatkowych wskazówek dotyczących zabezpieczeń.  
 
     ![Zrzut ekranu przedstawiający właściwości że program perfinsights z wyróżnionym odblokowywaniem](media/how-to-use-perfInsights/pi-unlock-file.png)
 
-3.  Rozwiń skompresowany plik że program perfinsights. zip do dysku tymczasowego (domyślnie jest to dysk D). 
+3.  Rozwiń skompresowany plik PerfInsights.zip na dysk tymczasowy (domyślnie jest to dysk D). 
 
-4.  Otwórz wiersz polecenia systemu Windows jako administrator, a następnie uruchom program że program perfinsights. exe, aby wyświetlić dostępne parametry commandline.
+4.  Otwórz wiersz polecenia systemu Windows jako administrator, a następnie uruchom PerfInsights.exe, aby wyświetlić dostępne parametry commandline.
 
     ```
     cd <the path of PerfInsights folder>
@@ -244,16 +244,16 @@ Aby uruchomić narzędzie że program perfinsights, wykonaj następujące kroki:
     >
     >Jeśli przełącznik czasu trwania **/d** nie zostanie określony, że program perfinsights wyświetli monit o Odtwórz problemu podczas uruchamiania vmslow, migracji pamięci i zaawansowanych scenariuszy. 
 
-Po zakończeniu śledzenia lub operacji, nowy plik zostanie wyświetlony w tym samym folderze co że program perfinsights. Nazwa pliku to **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. zip.** Możesz wysłać ten plik do agenta pomocy technicznej na potrzeby analizy lub otworzyć raport w pliku zip, aby przejrzeć wyniki i zalecenia.
+Po zakończeniu śledzenia lub operacji, nowy plik zostanie wyświetlony w tym samym folderze co że program perfinsights. Nazwa pliku to **PerformanceDiagnostics \_ rrrr-mm-dd \_hh-mm-ss-fff.zip.** Możesz wysłać ten plik do agenta pomocy technicznej na potrzeby analizy lub otworzyć raport w pliku zip, aby przejrzeć wyniki i zalecenia.
 
 ## <a name="review-the-diagnostics-report"></a>Przejrzyj raport diagnostyczny
 
-W pliku **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. zip** można znaleźć raport HTML, który zawiera szczegółowe informacje o wynikach że program perfinsights. Aby przejrzeć raport, rozwiń plik **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. zip** , a następnie otwórz plik **że program perfinsights Report. html** .
+W pliku **PerformanceDiagnostics \_ rrrr-mm-dd \_hh-mm-ss-fff.zip** można znaleźć raport HTML, który zawiera szczegółowe informacje o że program perfinsights. Aby przejrzeć raport, rozwiń plik **PerformanceDiagnostics \_ rrrr-mm-dd \_hh-mm-ss-fff.zip** , a następnie otwórz plik **że program perfinsights Report.html** .
 
 Wybierz kartę **wnioski** .
 
-![Zrzut ekranu przedstawiający](media/how-to-use-perfInsights/pi-finding-tab.png)
-![zrzut ekranu raportu że program perfinsights o że program perfinsights](media/how-to-use-perfInsights/pi-findings.png)
+![Zrzut ekranu przedstawiający ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ zrzut ekranu raportu że program perfinsights o że program perfinsights](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Ustalenia sklasyfikowane jako duże są znanymi problemami, które mogą powodować problemy z wydajnością. Ustalenia sklasyfikowane jako średnie reprezentują nieoptymalne konfiguracje, które nie muszą powodować problemów z wydajnością. Ustalenia sklasyfikowane jako niskie są tylko w instrukcjach informacyjnych.
@@ -270,7 +270,7 @@ W perspektywie dysku fizycznego (mapa dysku) w tabeli są wyświetlane wszystkie
 
 ![Zrzut ekranu przedstawiający kartę dysk](media/how-to-use-perfInsights/pi-disk-tab.png)
 
-W perspektywie woluminu (mapa woluminu) w tabelach są wyświetlane wszystkie dyski fizyczne w poszczególnych woluminach logicznych. Należy zauważyć, że w przypadku dysków macierzy RAID/dynamicznych można uruchomić wolumin logiczny na wielu dyskach fizycznych. W poniższym przykładzie *C:\\Mount* jest punktem instalacji skonfigurowanym jako *SpannedDisk* na dyskach fizycznych 2 i 3:
+W perspektywie woluminu (mapa woluminu) w tabelach są wyświetlane wszystkie dyski fizyczne w poszczególnych woluminach logicznych. Należy zauważyć, że w przypadku dysków macierzy RAID/dynamicznych można uruchomić wolumin logiczny na wielu dyskach fizycznych. W poniższym przykładzie *C: \\ Mount* jest punktem instalacji skonfigurowanym jako *SpannedDisk* na dyskach fizycznych 2 i 3:
 
 ![Zrzut ekranu przedstawiający kartę woluminu](media/how-to-use-perfInsights/pi-volume-tab.png)
 
@@ -313,5 +313,5 @@ Poniższy zrzut ekranu przedstawia komunikat podobny do następującego:
 
 Postępuj zgodnie z instrukcjami wyświetlanymi w komunikacie, aby uzyskać dostęp do obszaru roboczego transferu plików. Aby zwiększyć bezpieczeństwo, należy zmienić hasło przy pierwszym użyciu.
 
-Po zalogowaniu zostanie wyświetlone okno dialogowe z przekazaniem pliku **\_PERFORMANCEDIAGNOSTICS rrrr-mm-dd\_HH-mm-SS-FFF. zip** , który został zebrany przez że program perfinsights.
+Po zalogowaniu się zostanie wyświetlone okno dialogowe umożliwiające przekazanie **PerformanceDiagnostics \_ rrrr-mm-dd \_hh-mm-ss-fff.zip** pliku, który został zebrany przez że program perfinsights.
 

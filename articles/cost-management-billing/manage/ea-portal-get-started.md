@@ -3,16 +3,16 @@ title: Wprowadzenie do witryny Azure Enterprise Portal
 description: W tym artykule omówiono sposób korzystania z witryny Azure Enterprise Portal przez klientów mających umowę Enterprise Agreement platformy Azure (Azure EA).
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 647802ada8c8ca701c552749730b54bfce1e1651
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691558"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044961"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Wprowadzenie do witryny Azure Enterprise Portal
 
@@ -372,7 +372,7 @@ Jeśli dodasz istniejące konto z subskrypcją pomocy technicznej do witryny Azu
 
 ## <a name="view-usage-summary-and-download-reports"></a>Wyświetlanie podsumowania użycia i pobieranie raportów
 
-Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytego zobowiązania pieniężnego i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
+Administratorzy przedsiębiorstwa mogą wyświetlić podsumowanie danych użycia, użytej przedpłaty za platformę Azure i opłat związanych z dodatkowym użyciem w witrynie Azure Enterprise Portal. Opłaty są wyświetlane na poziomie podsumowania dla wszystkich kont i subskrypcji.
 
 Aby wyświetlić szczegółowe informacje o użyciu na określonych kontach, pobierz raport ze szczegółami użycia:
 
@@ -390,7 +390,7 @@ Aby wyświetlić raporty i wykresy podsumowania użycia:
 
 1. Zaloguj się w witrynie Azure Enterprise Portal.
 
-1. Wybierz termin zobowiązania.
+1. Wybierz termin przedpłaty.
 
    Aby zmienić zakres dat w raporcie **Podsumowanie użycia**, można zmienić ustawienie przełącznika z **M** (miesięczne) na **C** (niestandardowe) w prawym górnym rogu strony, a następnie wprowadzić datę początkową i datę końcową.
 
@@ -455,7 +455,7 @@ Witryna Azure Enterprise Portal umożliwia ukrycie nieaktywnych rejestracji. Aby
 - **Konto**: Jednostka organizacyjna w witrynie Azure Enterprise Portal. Służy ona do administrowania subskrypcjami i tworzenia raportów.
 - **Właściciel konta**: Osoba, która zarządza subskrypcjami i administratorami usług na platformie Azure. Może wyświetlać dane użycia na tym koncie i w skojarzonych z nim subskrypcjach.
 - **Aneks subskrypcji**: Jednoroczna lub współbieżna subskrypcja w ramach poprawki do rejestracji.
-- **Zobowiązanie**: Zobowiązanie rocznej kwoty pieniężnej dla usług platformy Azure z obniżoną stawką zobowiązania za korzystanie z tej przedpłaty.
+- **Przedpłata**: Przedpłata rocznej kwoty pieniężnej dla usług platformy Azure z obniżoną stawką przedpłaty za korzystanie z tej przedpłaty.
 - **Administrator działu**: Osoba, która zarządza działem, tworzy nowe konta i właścicieli kont, wyświetla szczegóły użycia dla zarządzanych działów i może wyświetlać koszty po udzieleniu uprawnień.
 - **Numer rejestracji**: Unikatowy identyfikator przydzielany przez firmę Microsoft w celu identyfikowania konkretnej rejestracji skojarzonej z umową Enterprise Agreement.
 - **Administratora przedsiębiorstwa**: Osoba, która zarządza działami, właścicielami działów, kontami i właścicielami kont na platformie Azure. Ma możliwość zarządzania administratorami przedsiębiorstwa, a także wyświetlania danych użycia, rozliczonych ilości i nierozliczonych opłat na wszystkich kontach i we wszystkich subskrypcjach skojarzonych z rejestracją przedsiębiorstwa.
@@ -471,13 +471,14 @@ Witryna Azure Enterprise Portal umożliwia ukrycie nieaktywnych rejestracji. Aby
 
 ### <a name="enrollment-statuses"></a>Stany rejestracji
 
+- **Nowa**: Ten stan jest przypisywany do rejestracji utworzonej w ciągu 24 godzin i zostanie zaktualizowany do stanu Oczekująca w ciągu 24 godzin.
 - **Oczekująca**: Administrator rejestracji musi zalogować się w witrynie Azure Enterprise Portal. Po zalogowaniu rejestracja zostanie przełączona do stanu aktywnego.
 - **Aktywna**: Rejestracja jest aktywna i można tworzyć konta i subskrypcje w witrynie Azure Enterprise Portal. Rejestracja pozostanie aktywna do daty zakończenia umowy Enterprise Agreement.
 - **Przedłużenie na czas nieokreślony**: Przedłużenie na czas nieokreślony występuje po terminie zakończenia umowy Enterprise Agreement. Umożliwia to klientom z umowami EA platformy Azure, którzy wybrali opcję przedłużenia, dalsze korzystanie z usług platformy Azure przez czas nieokreślony po zakończeniu umowy Enterprise Agreement.
 
    Przed upływem terminu zakończenia umowy Enterprise Agreement związanej z rejestracją EA platformy Azure administrator rejestracji powinien zdecydować, która z poniższych opcji zostanie wybrana:
 
-  - Odnowienie rejestracji przez dodanie kolejnego zobowiązania pieniężnego.
+  - Odnowienie rejestracji przez dodanie kolejnej przedpłaty za platformę Azure.
   - Przeniesienie do nowej rejestracji.
   - Przeprowadzenie migracji do programu subskrypcji online firmy Microsoft (MOSP).
   - Potwierdzenie wyłączenia wszystkich usług skojarzonych z rejestracją.

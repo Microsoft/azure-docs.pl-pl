@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 12ca4df6e5dd4ba86ece8469255195e2fa1c155e
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628899"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558538"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Rozwiązywanie problemów związanych z Azure Data Box i Azure Data Box Heavy
 
@@ -51,8 +51,8 @@ Są to błędy związane z nazwami kontenerów i udziałów.
     - Nazwy mogą zawierać tylko litery, cyfry i łączniki.
     - Nazwy nie mogą rozpoczynać się ani kończyć znakiem łączników.
     - Nazwy nie mogą mieć kolejnych łączników.
-    - Przykłady prawidłowych nazw: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Przykłady nieprawidłowych nazw `my-folder_1`:, `my`, `--myfolder`,, `myfolder--``myfolder!`
+    - Przykłady prawidłowych nazw: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` ,`myfolder!`
 
     Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [nazw kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) i [nazw udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -70,8 +70,8 @@ Są to błędy związane z nazwami kontenerów i udziałów.
     - Nazwy mogą zawierać tylko litery, cyfry i łączniki.
     - Nazwy nie mogą rozpoczynać się ani kończyć znakiem łączników.
     - Nazwy nie mogą mieć kolejnych łączników.
-    - Przykłady prawidłowych nazw: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Przykłady nieprawidłowych nazw `my-folder_1`:, `my`, `--myfolder`,, `myfolder--``myfolder!`
+    - Przykłady prawidłowych nazw: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` ,`myfolder!`
 
     Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [nazw kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) i [nazw udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -88,8 +88,8 @@ Są to błędy związane z nazwami kontenerów i udziałów.
     - Nazwy mogą zawierać tylko litery, cyfry i łączniki.
     - Nazwy nie mogą rozpoczynać się ani kończyć znakiem łączników.
     - Nazwy nie mogą mieć kolejnych łączników.
-    - Przykłady prawidłowych nazw: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Przykłady nieprawidłowych nazw `my-folder_1`:, `my`, `--myfolder`,, `myfolder--``myfolder!`
+    - Przykłady prawidłowych nazw: `my-folder-1` ,`my-really-extra-long-folder-111`
+    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` ,`myfolder!`
 
     Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [nazw kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) i [nazw udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
@@ -102,7 +102,7 @@ Są to błędy związane z nazwami kontenerów i udziałów.
 - Na stronie łączenie i kopiowanie w lokalnym interfejsie użytkownika sieci Web Pobierz i Przejrzyj pliki błędów w celu zidentyfikowania nazw folderów zawierających problemy. 
 - Zmień nazwę katalogu lub kontenerów, aby upewnić się, że są one zgodne z konwencjami nazewnictwa platformy Azure.
 
-Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [katalogów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) i [kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [katalogów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   i [kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Błędy limitu rozmiaru kontenera lub udziału
 

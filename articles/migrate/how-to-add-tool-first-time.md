@@ -3,16 +3,16 @@ title: Dodaj narzędzie do oceny/migracji w Azure Migrate
 description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzędzia do oceny/migracji.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86102535"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Dodawanie narzędzia oceny/migracji po raz pierwszy
 
-W tym artykule opisano sposób dodawania narzędzia do oceny lub migracji do projektu [Azure Migrate](migrate-overview.md) po raz pierwszy.  
+W tym artykule opisano sposób dodawania narzędzia do oceny lub migracji do projektu [Azure Migrate](./migrate-services-overview.md) po raz pierwszy.  
 Azure Migrate udostępnia centralne centrum do śledzenia odnajdywania, oceny i migracji lokalnych aplikacji i obciążeń oraz maszyn wirtualnych chmur prywatnych/publicznych na platformie Azure. Centrum udostępnia Azure Migrate narzędzia do oceny i migracji, a także inne narzędzia i [oferty](migrate-services-overview.md#isv-integration) niezależnych dostawców oprogramowania (ISV). 
 
 ## <a name="check-permissions-to-create-project"></a>Sprawdź uprawnienia do tworzenia projektu
@@ -58,8 +58,8 @@ Skonfiguruj nowy projekt Azure Migrate w ramach subskrypcji platformy Azure i Do
     > [!NOTE]
     > Podczas tworzenia projektu należy dodać co najmniej jedno narzędzie do oceny lub migracji.
 
-5. W **narzędziu Wybierz ocenę**Dodaj narzędzie do oceny. Jeśli nie potrzebujesz narzędzia do oceny, wybierz pozycję **Pomiń Dodawanie narzędzia do oceny teraz** > **.** 
-2. W obszarze **Wybieranie narzędzia migracji**Dodaj narzędzie do migracji zgodnie z wymaganiami. Jeśli nie**potrzebujesz teraz narzędzia**migracji, wybierz pozycję **Pomiń Dodawanie narzędzia do migracji teraz** > .
+5. W **narzędziu Wybierz ocenę**Dodaj narzędzie do oceny. Jeśli nie potrzebujesz narzędzia do oceny, wybierz pozycję **Pomiń Dodawanie narzędzia do oceny teraz**  >  **Next**. 
+2. W obszarze **Wybieranie narzędzia migracji**Dodaj narzędzie do migracji zgodnie z wymaganiami. Jeśli nie potrzebujesz teraz narzędzia migracji, wybierz pozycję **Pomiń Dodawanie narzędzia do migracji teraz**  >  **Next**.
 3. W oknie **Recenzja + Dodawanie narzędzi**przejrzyj ustawienia, a następnie kliknij pozycję **Dodaj narzędzia**.
 
 Po utworzeniu projektu można wybrać dodatkowe narzędzia do oceny i migracji serwerów oraz obciążeń, baz danych i aplikacji sieci Web.

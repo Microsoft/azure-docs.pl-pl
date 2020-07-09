@@ -11,15 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
 ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81768307"
 ---
 # <a name="wildcard-domains"></a>Domeny wieloznaczne
 
-Poza domenami i domenami w języku Apex można zamapować wieloznaczną nazwę domeny na listę hostów frontonu lub domen niestandardowych w profilu z systemem Azure. Posiadanie wieloznacznych domen w konfiguracji drzwi platformy Azure upraszcza zachowanie routingu ruchu dla wielu poddomen dla interfejsu API, aplikacji lub witryny sieci Web z tej samej reguły routingu. Nie trzeba modyfikować konfiguracji, aby dodać lub określić każdą poddomenę osobno. Można na przykład zdefiniować Routing `customer1.contoso.com`dla, `customer2.contoso.com`i `customerN.contoso.com` za pomocą tej samej reguły routingu i dodać domenę `*.contoso.com`wieloznaczną.
+Poza domenami i domenami w języku Apex można zamapować wieloznaczną nazwę domeny na listę hostów frontonu lub domen niestandardowych w profilu z systemem Azure. Posiadanie wieloznacznych domen w konfiguracji drzwi platformy Azure upraszcza zachowanie routingu ruchu dla wielu poddomen dla interfejsu API, aplikacji lub witryny sieci Web z tej samej reguły routingu. Nie trzeba modyfikować konfiguracji, aby dodać lub określić każdą poddomenę osobno. Można na przykład zdefiniować Routing dla `customer1.contoso.com` , `customer2.contoso.com` i za `customerN.contoso.com` pomocą tej samej reguły routingu i dodać domenę wieloznaczną `*.contoso.com` .
 
 Najważniejsze scenariusze, które zostały ulepszone z obsługą domen symboli wieloznacznych, to m.in.:
 
@@ -31,7 +30,7 @@ Najważniejsze scenariusze, które zostały ulepszone z obsługą domen symboli 
 
 ## <a name="adding-wildcard-domains"></a>Dodawanie domen wieloznacznych
 
-W sekcji dla hostów lub domen frontonu można dodać domenę symboli wieloznacznych. Podobnie jak w przypadku poddomen, drzwi frontonu platformy Azure sprawdzają, czy istnieje mapowanie rekordów CNAME dla domeny wieloznacznej. To mapowanie DNS może być bezpośrednim mapowaniem rekordu CNAME, `*.contoso.com` takiego jak `contoso.azurefd.net`mapowany do. Można też użyć tymczasowego mapowania afdverify. Na przykład `afdverify.contoso.com` mapowane do `afdverify.contoso.azurefd.net` walidacji mapy rekordów CNAME dla symbolu wieloznacznego.
+W sekcji dla hostów lub domen frontonu można dodać domenę symboli wieloznacznych. Podobnie jak w przypadku poddomen, drzwi frontonu platformy Azure sprawdzają, czy istnieje mapowanie rekordów CNAME dla domeny wieloznacznej. To mapowanie DNS może być bezpośrednim mapowaniem rekordu CNAME, takiego jak `*.contoso.com` mapowany do `contoso.azurefd.net` . Można też użyć tymczasowego mapowania afdverify. Na przykład `afdverify.contoso.com` mapowane do `afdverify.contoso.azurefd.net` walidacji mapy rekordów CNAME dla symbolu wieloznacznego.
 
 > [!NOTE]
 > Usługa DNS platformy Azure obsługuje rekordy z użyciem symboli wieloznacznych.
@@ -40,7 +39,7 @@ Na hostach frontonu można dodać dowolną liczbę poddomen domen z symbolem wie
 
 - Definiowanie innej trasy dla domeny podrzędnej niż reszta domen (z domeny z symbolem wieloznacznym).
 
-- Posiadanie innych zasad WAF dla określonej domeny podrzędnej. Na przykład `*.contoso.com` zezwala na dodawanie `foo.contoso.com` bez konieczności ponownego posiadania własności domeny. Ale nie jest to `foo.bar.contoso.com` dozwolone, ponieważ nie jest poddomeną na `*.contoso.com`poziomie jednego poziomu. Aby dodać `foo.bar.contoso.com` bez sprawdzania poprawności własności domeny, `*.bar.contosonews.com` należy dodać.
+- Posiadanie innych zasad WAF dla określonej domeny podrzędnej. Na przykład `*.contoso.com` zezwala na dodawanie `foo.contoso.com` bez konieczności ponownego posiadania własności domeny. Ale nie jest to dozwolone `foo.bar.contoso.com` , ponieważ nie jest poddomeną na poziomie jednego poziomu `*.contoso.com` . Aby dodać `foo.bar.contoso.com` bez sprawdzania poprawności własności domeny, należy `*.bar.contosonews.com` dodać.
 
 Można dodawać symbole wieloznaczne i ich poddomeny z pewnymi ograniczeniami:
 
@@ -72,7 +71,7 @@ Jeśli nie chcesz uruchamiać zasad WAFymi dla poddomeny, możesz utworzyć pust
 Podczas konfigurowania reguły routingu można wybrać domenę wieloznaczną jako hosta frontonu. Istnieje również różne zachowanie trasy dla domen symboli wieloznacznych i poddomen. Zgodnie z opisem w temacie [jak usługa Azure Front-drzwiczki kieruje Dopasowywanie](front-door-route-matching.md)do siebie, w czasie wykonywania wybiera się najbardziej szczegółowe dopasowanie dla domeny w różnych regułach routingu.
 
 > [!IMPORTANT]
-> Musisz mieć zgodne wzorce ścieżki w regułach routingu lub klienci będą widzieć błędy. Na przykład istnieją dwie reguły routingu, takie jak Route 1 (`*.foo.com/*` zamapowane do puli zaplecza a) i trasy 2 (`bar.foo.com/somePath/*` mapowane na pulę zaplecza B). Następnie zostanie odebrane żądanie `bar.foo.com/anotherPath/*`. Drzwi frontonu platformy Azure wybierają pozycję Route 2 w oparciu o bardziej szczegółowe dopasowanie domeny, aby znaleźć niezgodne wzorce ścieżki w ramach tras.
+> Musisz mieć zgodne wzorce ścieżki w regułach routingu lub klienci będą widzieć błędy. Na przykład istnieją dwie reguły routingu, takie jak Route 1 ( `*.foo.com/*` zamapowane do puli zaplecza a) i trasy 2 ( `bar.foo.com/somePath/*` mapowane na pulę zaplecza B). Następnie zostanie odebrane żądanie `bar.foo.com/anotherPath/*` . Drzwi frontonu platformy Azure wybierają pozycję Route 2 w oparciu o bardziej szczegółowe dopasowanie domeny, aby znaleźć niezgodne wzorce ścieżki w ramach tras.
 
 ## <a name="next-steps"></a>Następne kroki
 

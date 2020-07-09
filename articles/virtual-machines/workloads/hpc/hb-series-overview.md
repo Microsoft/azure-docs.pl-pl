@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
 ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67707771"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Informacje o maszynach wirtualnych z serii HB
@@ -60,8 +60,8 @@ Na poniższym diagramie przedstawiono rozdzielenie rdzeni zarezerwowanych dla fu
 | Dodatkowe struktury       | Ujednolicona komunikacja X, libfabric, PGAS |
 | Obsługa usługi Azure Storage       | STD + Premium (maksymalnie 4 dyski) |
 | Obsługa systemu operacyjnego dla sterownik RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Pomoc techniczna platformy Azure CycleCloud    | Yes                         |
-| Obsługa Azure Batch         | Yes                         |
+| Pomoc techniczna platformy Azure CycleCloud    | Tak                         |
+| Obsługa Azure Batch         | Tak                         |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,20 +8,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 07/07/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94c0d1efa83af53804be89a9e86f4cafd5bc0ae0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025905"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057759"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Zmień przypisania licencji dla użytkownika lub grupy w Azure Active Directory
 
@@ -46,10 +46,10 @@ Przed zaktualizowaniem przypisań licencji należy sprawdzić, czy pewne założ
 Na stronie **Aktualizowanie przypisań licencji** , Jeśli zobaczysz, że niektóre pola wyboru są niedostępne, wskazuje usługi, których nie można zmienić, ponieważ są dziedziczone z licencji grupy.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora licencji w organizacji usługi Azure AD.
-1. Wybierz pozycję **Azure Active Directory** > **Użytkownicy**, a następnie otwórz stronę **profilu** dla użytkownika.
+1. Wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**, a następnie otwórz stronę **profilu** dla użytkownika.
 1. Wybierz pozycję **licencje**.
 1. Wybierz pozycję **przypisania** , aby edytować przypisanie licencji dla użytkownika lub grupy. Na stronie **przypisania** można rozwiązać konflikty przypisywania licencji.
-1. Zaznacz pole wyboru dla pakietu Office 366 E3 i upewnij się, że wybrano co najmniej wszystkie usługi E1 przypisane do użytkownika.
+1. Zaznacz pole wyboru dla pakietu Office 365 E3 i upewnij się, że wybrano co najmniej wszystkie usługi E1 przypisane do użytkownika.
 1. Wyczyść pole wyboru dla pakietu Office 365 E1.
 
     ![Strona przypisania licencji dla użytkownika pokazującego wyczyszczone pakiet Office 365 E1 i zaznaczona opcja pakiet Office 365 E3](media/licensing-groups-change-licenses/update-user-license-assignments.png)
@@ -61,10 +61,10 @@ Usługa Azure AD stosuje nowe licencje i usuwa stare licencje jednocześnie w ce
 ## <a name="change-group-license-assignments"></a>Zmień przypisania licencji grupy
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora licencji w organizacji usługi Azure AD.
-1. Wybierz pozycję **Azure Active Directory** > **grupy**, a następnie otwórz stronę **Przegląd** dla grupy.
+1. Wybierz pozycję **Azure Active Directory**  >  **grupy**, a następnie otwórz stronę **Przegląd** dla grupy.
 1. Wybierz pozycję **licencje**.
 1. Wybierz polecenie **przypisania** , aby edytować przypisanie licencji dla użytkownika lub grupy.
-1. Zaznacz pole wyboru dla pakietu Office 366 E3. Aby zachować ciągłość działania usługi, upewnij się, że wybrano wszystkie usługi E1, które są już przypisane do użytkownika.
+1. Zaznacz pole wyboru dla pakietu Office 365 E3. Aby zachować ciągłość działania usługi, upewnij się, że wybrano wszystkie usługi E1, które są już przypisane do użytkownika.
 1. Wyczyść pole wyboru dla pakietu Office 365 E1.
 
     ![Wybierz polecenie przypisania na stronie licencji użytkownika lub grupy](media/licensing-groups-change-licenses/update-group-license-assignments.png)

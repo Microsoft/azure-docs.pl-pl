@@ -3,18 +3,18 @@ title: 'Samouczek: przewidywanie zamiarów — LUIS'
 description: Utwórz niestandardową aplikację, która przewiduje zamiar użytkownika w oparciu o wypowiedź (tekst) w tym samouczku.
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588960"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959863"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Samouczek: Tworzenie aplikacji LUIS w celu określenia zamiarów użytkownika
 
 W tym samouczku utworzysz aplikację niestandardową, która przewiduje zamiar użytkownika w oparciu o wypowiedź (tekst).
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie nowej aplikacji
@@ -113,9 +113,8 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
 
     `get a medium vegetarian pizza for delivery`
 
-    Nie jest to dokładnie takie samo, jak przykład wypowiedź, dlatego jest dobrym testem, aby sprawdzić, czy LUIS może dowiedzieć się, co należy przewidzieć w tym zamierzeniu.
-
-    Ostatni parametr ciągu zapytania to `query`, czyli **query** (zapytanie) wypowiedzi. Ta wypowiedź nie przypomina żadnej z przykładowych wypowiedzi. Jest to dobry test, który powinien zwrócić intencję `OrderPizza` jako najwyżej ocenioną.
+  
+    Parametr ciągu zapytania to `query` **zapytanie** wypowiedź, które jest przesyłane w identyfikatorze URI. Ta wypowiedź nie przypomina żadnej z przykładowych wypowiedzi. Powinien to być dobry test, aby sprawdzić, czy LUIS uczy się i przewiduje przewidywalność `OrderPizza` jako najbardziej zamiar oceniania.
 
     ```JSON
     {

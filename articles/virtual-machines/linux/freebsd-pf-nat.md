@@ -9,10 +9,9 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
 ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83652542"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Jak utworzyć bezpieczną zaporę na platformie Azure przy użyciu filtru pakietów FreeBSD
@@ -34,7 +33,7 @@ Potrzebujesz najnowszego [interfejsu wiersza polecenia platformy Azure](/cli/azu
 az group create --name myResourceGroup --location westus
 ```
 
-Następnie wdróż szablon PF-FreeBSD-Setup za pomocą polecenie [AZ Group Deployment Create](/cli/azure/group/deployment). Pobierz azuredeploy. Parameters. JSON w tej samej ścieżce i zdefiniuj własne wartości zasobów, takie jak `adminPassword` , `networkPrefix` , i `domainNamePrefix` . 
+Następnie wdróż szablon PF-FreeBSD-Setup za pomocą polecenie [AZ Group Deployment Create](/cli/azure/group/deployment). Pobierz azuredeploy.parameters.jsw tej samej ścieżce i zdefiniuj własne wartości zasobów, takie jak `adminPassword` , `networkPrefix` , i `domainNamePrefix` . 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

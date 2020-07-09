@@ -6,18 +6,18 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264221"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383941"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji Azure AD B2C
 
@@ -37,9 +37,9 @@ Kategoria **B2C** w dziennikach inspekcji zawiera następujące typy działań:
 |Autoryzacja |Działania dotyczące autoryzacji użytkownika w celu uzyskania dostępu do zasobów B2C (na przykład administratorów uzyskujących dostęp do listy zasad B2C).         |
 |Katalog |Działania związane z atrybutami katalogu pobrane, gdy administrator zaloguje się przy użyciu Azure Portal. |
 |Aplikacja | Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) operacji na aplikacjach B2C. |
-|Key |Operacje CRUD na kluczach przechowywanych w kontenerze kluczy B2C. |
+|Klucz |Operacje CRUD na kluczach przechowywanych w kontenerze kluczy B2C. |
 |Zasób |CRUD operacji na zasobach B2C. Na przykład zasady i dostawcy tożsamości.
-|Uwierzytelnianie |Weryfikowanie poświadczeń użytkownika i wystawianie tokenów.|
+|Authentication |Weryfikowanie poświadczeń użytkownika i wystawianie tokenów.|
 
 W przypadku działań CRUD obiektów użytkownika zapoznaj się z kategorią **katalogu podstawowego** .
 
@@ -100,9 +100,9 @@ Po zarejestrowaniu aplikacji z odpowiednimi uprawnieniami zapoznaj się z sekcj�
 
 ### <a name="access-the-api"></a>Dostęp do interfejsu API
 
-Aby pobrać Azure AD B2C zdarzenia dziennika inspekcji za pośrednictwem interfejsu API, przefiltruj `B2C` dzienniki w kategorii. Aby filtrować według kategorii, użyj parametru `filter` ciągu zapytania podczas wywoływania punktu końcowego interfejsu API raportowania usługi Azure AD.
+Aby pobrać Azure AD B2C zdarzenia dziennika inspekcji za pośrednictwem interfejsu API, przefiltruj dzienniki w `B2C` kategorii. Aby filtrować według kategorii, użyj `filter` parametru ciągu zapytania podczas wywoływania punktu końcowego interfejsu API raportowania usługi Azure AD.
 
-```HTTP
+```http
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
 ```
 
@@ -158,7 +158,7 @@ if ($oauth.access_token -ne $null) {
 
 Oto reprezentacja danych JSON przykładowego zdarzenia działania wyświetlonego wcześniej w artykule:
 
-```JSON
+```json
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",

@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68965014"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Sprzęt obsługiwany w przypadku interfejsów sieciowych 10 GbE na urządzeniu StorSimple
@@ -37,7 +36,7 @@ Firma Microsoft przetestowała następujące małe urządzenia nadawczo-Factor (
 | Cisco |SFP-10G — SR |
 
 ### <a name="cables"></a>Kable
-| Mag. Nie. | Marka | Model |
+| S. Nie. | Marka | Model |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -45,7 +44,7 @@ Firma Microsoft przetestowała następujące małe urządzenia nadawczo-Factor (
 | 4. |Telefonia — Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Przełączniki
-| Mag. Nie. | Marka | Model |
+| S. Nie. | Marka | Model |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -73,7 +72,7 @@ Mellanox przetestował następujące małe urządzenia nadawczo-Factor (SFP), ka
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Kable i moduły obsługiwane przez Mellanox
 W poniższej tabeli wymieniono kable i moduły obsługiwane przez program Mellanox. Nie zostały one przetestowane przez firmę Microsoft, ale mogą pracować z urządzeniem StorSimple.
 
-| Mag. Nie. | Szybkość | Model | Opis | Marka |
+| S. Nie. | Szybkość | Model | Opis | Marka |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |pasywny kabel miedzy SFP + 10 GB/s 1M |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2 MLN |pasywny kabel miedzy SFP + 10 GB/s 2 mln |Arista |
@@ -114,7 +113,7 @@ W poniższej tabeli wymieniono kable i moduły obsługiwane przez program Mellan
 ### <a name="switches-supported-by-mellanox"></a>Przełączniki obsługiwane przez Mellanox
 Poniższa tabela zawiera listę przełączników obsługiwanych przez Mellanox. Nie zostały one przetestowane przez firmę Microsoft, ale mogą pracować z urządzeniem StorSimple.
 
-| Mag. Nie. | Szybkość | Model | Opis | Marka |
+| S. Nie. | Szybkość | Model | Opis | Marka |
 | --- | --- | --- | --- | --- |
 | 1. |10 |516733 – B21 |Przełącznik bloku HP pro6120XG 10GbE Ethernet |FIRM |
 | 2. |10 |538113 – B21 |Moduł przekazywania HP 10 (PTM) |FIRM |

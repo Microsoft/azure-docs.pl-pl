@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671090"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorty
@@ -129,7 +128,7 @@ Kohorty i filtry są różne. Załóżmy, że masz kohorta użytkowników ze Zje
 * Wersja kohorta pokazuje wszystkie zdarzenia użytkowników, którzy otrzymali jedno lub więcej wydarzeń z Zjednoczonego Królestwa w bieżącym przedziale czasu. Jeśli podzieli według kraju lub regionu, najkorzystniej widzisz wiele krajów i regionów.
 * Wersja filtrów zawiera tylko zdarzenia ze Zjednoczonego Królestwa. Ale jeśli podzielę według kraju lub regionu, zobaczysz tylko Zjednoczone Królestwo.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Język zapytań usługi Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)

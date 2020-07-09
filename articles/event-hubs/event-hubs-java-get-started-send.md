@@ -1,19 +1,14 @@
 ---
 title: Wysyłanie i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka Java (starsza wersja)
 description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji Java, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu starego pakietu Azure-eventhubs.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 379739533e15e60bc47bfc883a67037d4a58d0e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 8c44cfa2a3130e714ac95989248aee634996df2a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81417619"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320321"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs (Azure-eventhubs) przy użyciu języka Java
 
@@ -57,7 +52,7 @@ W przypadku prostego wydawcy zdarzeń zaimportuj pakiet *com. Microsoft. Azure. 
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Pisanie kodu w celu wysyłania komunikatów do centrum zdarzeń
 
-Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Dodaj klasę o nazwie `SimpleSend`i Dodaj następujący kod do klasy:
+Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Dodaj klasę o nazwie `SimpleSend` i Dodaj następujący kod do klasy:
 
 ```java
 import com.google.gson.Gson;
@@ -210,7 +205,7 @@ Biblioteka klienta Java dla Event Hubs jest dostępna do użycia w projektach Ma
 
 W przypadku różnych typów środowisk kompilacji można jawnie uzyskać najnowsze wydane pliki JAR z [repozytorium Maven Central](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22).
 
-1. Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Klasa jest wywoływana `ErrorNotificationHandler`.     
+1. Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Klasa jest wywoływana `ErrorNotificationHandler` .     
    
     ```java
     import java.util.function.Consumer;
@@ -316,7 +311,7 @@ W przypadku różnych typów środowisk kompilacji można jawnie uzyskać najnow
        }
    }
    ```
-3. Utwórz co najmniej jedną klasę `EventProcessor`o nazwie, używając następującego kodu:
+3. Utwórz co najmniej jedną klasę o nazwie `EventProcessor` , używając następującego kodu:
    
     ```java
     public static class EventProcessor implements IEventProcessor

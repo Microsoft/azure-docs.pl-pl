@@ -5,17 +5,18 @@ description: W tym artykule przedstawiono sposób użycia Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78398335"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077001"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Wdrażanie modelu uczenia głębokiego na potrzeby wnioskowania z procesorem GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -135,11 +136,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Ten plik ma nazwę `score.py`. Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [jak i gdzie należy wdrożyć](how-to-deploy-and-where.md).
+Ten plik ma nazwę `score.py` . Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [jak i gdzie należy wdrożyć](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Zdefiniuj środowisko Conda
 
-Plik środowiska Conda określa zależności dla usługi. Zawiera zależności wymagane przez model i skrypt wejścia. Należy pamiętać, że należy wskazać wartość domyślną usługi Azure Wersja >= 1.0.45 jako zależność PIP, ponieważ zawiera ona funkcje wymagane do hostowania modelu jako usługi sieci Web. Poniższy YAML definiuje środowisko dla modelu Tensorflow. Określa `tensorflow-gpu`, która spowoduje użycie procesora GPU użytego w tym wdrożeniu:
+Plik środowiska Conda określa zależności dla usługi. Zawiera zależności wymagane przez model i skrypt wejścia. Należy pamiętać, że należy wskazać wartość domyślną usługi Azure Wersja >= 1.0.45 jako zależność PIP, ponieważ zawiera ona funkcje wymagane do hostowania modelu jako usługi sieci Web. Poniższy YAML definiuje środowisko dla modelu Tensorflow. Określa `tensorflow-gpu` , która spowoduje użycie procesora GPU użytego w tym wdrożeniu:
 
 ```yaml
 name: project_environment
@@ -157,9 +158,12 @@ channels:
 - conda-forge
 ```
 
-Na potrzeby tego przykładu plik jest zapisywany `myenv.yml`jako.
+Na potrzeby tego przykładu plik jest zapisywany jako `myenv.yml` .
 
 ## <a name="define-the-deployment-configuration"></a>Definiowanie konfiguracji wdrożenia
+
+> [!IMPORTANT]
+> AKS nie zezwala na współużytkowanie procesorów GPU, ale może mieć tylko tyle replik usługi sieci Web obsługujących procesor GPU, ponieważ w klastrze są dostępne procesory GPU.
 
 Konfiguracja wdrożenia definiuje środowisko usługi Azure Kubernetes, które jest używane do uruchamiania usługi sieci Web:
 
@@ -212,9 +216,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> Jeśli `InferenceConfig` obiekt ma `enable_gpu=True`, wówczas `deployment_target` parametr musi odwoływać się do klastra, który udostępnia procesor GPU. W przeciwnym razie wdrożenie zakończy się niepowodzeniem.
 
 Aby uzyskać więcej informacji, zobacz dokumentację referencyjną dla [modelu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

@@ -4,12 +4,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: d91082ae3c0ae5e501675a06b02e2f55f20ce236
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 57db307b1fe5c5112b08fbcffda06e6f24177bff
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399567"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035693"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -17,8 +16,8 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypc
 
 ## <a name="install-the-speech-sdk"></a>Instalowanie zestawu SDK usługi Mowa
 
-Przed wykonaniem jakichkolwiek czynności należy zainstalować <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">zestaw SDK <span class="docon docon-navigate-external x-hidden-focus"> </span>mowy JavaScript </a>. W zależności od platformy należy wykonać następujące instrukcje:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node. js<span 
+Przed wykonaniem jakichkolwiek czynności konieczne będzie zainstalowanie <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">zestawu Speech SDK dla języka JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. W zależności od platformy należy wykonać następujące instrukcje:
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js<span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Przeglądarka sieci Web<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
@@ -36,7 +35,7 @@ import {
 } from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-Aby uzyskać więcej informacji `import`na temat, zobacz <a href="https://javascript.info/import-export" target="_blank">eksport <span class="docon docon-navigate-external x-hidden-focus"> </span>i import </a>.
+Aby uzyskać więcej informacji na temat `import` , zobacz <a href="https://javascript.info/import-export" target="_blank">eksport <span class="docon docon-navigate-external x-hidden-focus"></span> i import </a>.
 
 # <a name="require"></a>[wymagane](#tab/require)
 
@@ -45,30 +44,30 @@ const readFileSync = require("fs").readFileSync;
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-Aby uzyskać więcej informacji `require`na temat, zobacz <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">co jest wymagane? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Aby uzyskać więcej informacji na temat `require` , zobacz <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">co to <span class="docon docon-navigate-external x-hidden-focus"></span> jest wymagane? </a>.
 
 
-# <a name="script"></a>[napisy](#tab/script)
+# <a name="script"></a>[skrypt](#tab/script)
 
-Pobierz i wyodrębnij plik <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript Speech <span class="docon docon-navigate-external x-hidden-focus"></span> SDK</a> *Microsoft. cognitiveservices. Speech. Sdk. pakiet. js* i umieść go w folderze dostępnym dla pliku HTML.
+Pobierz i Wyodrębnij <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">zestaw Speech SDK dla <span class="docon docon-navigate-external x-hidden-focus"></span> </a> pliku *microsoft.cognitiveservices.speech.sdk.bundle.js* JavaScript i umieść go w folderze dostępnym dla pliku HTML.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
 ```
 
 > [!TIP]
-> Jeśli jesteś celem przeglądarki sieci Web i używasz `<script>` znacznika; `sdk` prefiks nie jest wymagany. `sdk` Prefiks jest aliasem używanym do nazwy `require` modułu.
+> Jeśli masz dostęp do przeglądarki sieci Web i używasz `<script>` znacznika; `sdk` prefiks nie jest wymagany. `sdk`Prefiks jest aliasem używanym do nazwy `require` modułu.
 
 ---
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
-Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest). Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
+Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) . Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
 
 > [!NOTE]
 > Bez względu na to, czy wykonujesz rozpoznawanie mowy, synteza mowy, tłumaczenie czy rozpoznawanie intencji, zawsze utworzysz konfigurację.
 
-Istnieje kilka sposobów na zainicjowanie [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest):
+Istnieje kilka sposobów na zainicjowanie [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) :
 
 * Z subskrypcją: Przekaż klucz i skojarzony region.
 * Z punktem końcowym: Pass w punkcie końcowym usługi mowy. Klucz lub Token autoryzacji jest opcjonalny.
@@ -85,9 +84,9 @@ function synthesizeSpeech() {
 
 ## <a name="synthesize-speech-to-a-file"></a>Wyrównać mowę do pliku
 
-Następnie utworzysz [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) obiekt, który wykonuje konwersje zamiany tekstu na mowę i wyjście na głośniki, pliki lub inne strumienie wyjściowe. [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) Akceptuje jako params [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) obiekt utworzony w poprzednim kroku oraz [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) obiekt, który określa sposób obsługi wyników.
+Następnie utworzysz [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) obiekt, który wykonuje konwersje zamiany tekstu na mowę i wyjście na głośniki, pliki lub inne strumienie wyjściowe. [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest)Akceptuje jako params [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) obiekt utworzony w poprzednim kroku oraz [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) obiekt, który określa sposób obsługi wyników.
 
-Aby rozpocząć, Utwórz element `AudioConfig` , aby automatycznie zapisywać dane wyjściowe do `.wav` pliku przy użyciu `fromAudioFileOutput()` funkcji statycznej.
+Aby rozpocząć, Utwórz element, `AudioConfig` Aby automatycznie zapisywać dane wyjściowe do `.wav` pliku przy użyciu `fromAudioFileOutput()` funkcji statycznej.
 
 ```javascript
 function synthesizeSpeech() {
@@ -96,7 +95,7 @@ function synthesizeSpeech() {
 }
 ```
 
-Następnie Utwórz wystąpienie `SpeechSynthesizer` przekazanie `speechConfig` obiektu i `audioConfig` obiektu jako parametry. Następnie wykonanie syntezy mowy i zapis w pliku jest tak proste jak uruchamianie `speakTextAsync()` z ciągiem tekstu. Wywołanie zwrotne wynik jest doskonałym miejscem do wywołania `synthesizer.close()`, w rzeczywistości — to wywołanie jest konieczne, aby synteza działała prawidłowo.
+Następnie Utwórz wystąpienie `SpeechSynthesizer` przekazanie `speechConfig` obiektu i `audioConfig` obiektu jako parametry. Następnie wykonanie syntezy mowy i zapis w pliku jest tak proste jak uruchamianie `speakTextAsync()` z ciągiem tekstu. Wywołanie zwrotne wynik jest doskonałym miejscem do wywołania `synthesizer.close()` , w rzeczywistości — to wywołanie jest konieczne, aby synteza działała prawidłowo.
 
 ```javascript
 function synthesizeSpeech() {
@@ -111,20 +110,19 @@ function synthesizeSpeech() {
                 console.log(JSON.stringify(result));
             }
             synthesizer.close();
-        }
-    },
-    error => {
-        console.log(error);
-        synthesizer.close();
-    });
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
 }
 ```
 
-Uruchom program, a `.wav` plik z syntezą jest zapisywana w określonej lokalizacji. Jest to dobry przykład typowego użycia, ale następnym zapoznaj się z tematem dostosowywania danych wyjściowych i obsługi odpowiedzi wyjściowej jako strumienia znajdującego się w pamięci na potrzeby pracy z niestandardowymi scenariuszami.
+Uruchom program, a plik z syntezą `.wav` jest zapisywana w określonej lokalizacji. Jest to dobry przykład typowego użycia, ale następnym zapoznaj się z tematem dostosowywania danych wyjściowych i obsługi odpowiedzi wyjściowej jako strumienia znajdującego się w pamięci na potrzeby pracy z niestandardowymi scenariuszami.
 
 ## <a name="synthesize-to-speaker-output"></a>Synteza danych wyjściowych prezentera
 
-W niektórych przypadkach można chcieć bezpośrednio wyprowadzać dane z głosu do osoby mówiącej. W tym celu Utwórz wystąpienie `AudioConfig` przy użyciu funkcji `fromDefaultSpeakerOutput()` statycznej. To wyjście do bieżącego aktywnego urządzenia wyjściowego.
+W niektórych przypadkach można chcieć bezpośrednio wyprowadzać dane z głosu do osoby mówiącej. W tym celu Utwórz wystąpienie `AudioConfig` przy użyciu `fromDefaultSpeakerOutput()` funkcji statycznej. To wyjście do bieżącego aktywnego urządzenia wyjściowego.
 
 ```javascript
 function synthesizeSpeech() {
@@ -158,9 +156,9 @@ W przypadku wielu scenariuszy tworzenia aplikacji mowy potrzebne są wyniki dany
 Jest to proste, aby wprowadzić tę zmianę z poprzedniego przykładu. Najpierw usuń `AudioConfig` blok, ponieważ będzie można ręcznie zarządzać zachowaniem danych wyjściowych od tego momentu w celu zwiększenia kontroli. Następnie Przekaż `undefined` `AudioConfig` w `SpeechSynthesizer` konstruktorze. 
 
 > [!NOTE]
-> W `undefined` przypadku, `AudioConfig`gdy nie zostanie pominięty w powyższym przykładzie danych wyjściowych prezentera, nie będzie odtwarzany dźwięk domyślnie na bieżącym aktywnym urządzeniu wyjściowym.
+> W `undefined` przypadku `AudioConfig` , gdy nie zostanie pominięty w powyższym przykładzie danych wyjściowych prezentera, nie będzie odtwarzany dźwięk domyślnie na bieżącym aktywnym urządzeniu wyjściowym.
 
-Tym razem można zapisać wynik w [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest) zmiennej. `SpeechSynthesisResult.audioData` Właściwość zwraca `ArrayBuffer` dane wyjściowe. Możesz to `ArrayBuffer` zrobić ręcznie.
+Tym razem można zapisać wynik w [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest) zmiennej. `SpeechSynthesisResult.audioData`Właściwość zwraca `ArrayBuffer` dane wyjściowe. Możesz to zrobić `ArrayBuffer` ręcznie.
 
 ```javascript
 function synthesizeSpeech() {
@@ -183,7 +181,7 @@ function synthesizeSpeech() {
 }
 ```
 
-W tym miejscu można zaimplementować dowolne zachowanie niestandardowe przy użyciu obiektu `ArrayBuffer` wyniku.
+W tym miejscu można zaimplementować dowolne zachowanie niestandardowe przy użyciu `ArrayBuffer` obiektu wyniku.
 
 ## <a name="customize-audio-format"></a>Dostosuj format audio
 
@@ -193,11 +191,11 @@ W poniższej sekcji pokazano, jak dostosować atrybuty wyjściowe audio, w tym:
 * Szybkość próbkowania
 * Bit — Głębokość
 
-Aby zmienić format dźwięku, należy użyć `speechSynthesisOutputFormat` właściwości `SpeechConfig` obiektu. Ta właściwość oczekuje `enum` typu [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest), którego można użyć do wybrania formatu danych wyjściowych. [Listę dostępnych formatów audio](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) można znaleźć w dokumentacji referencyjnej.
+Aby zmienić format dźwięku, należy użyć `speechSynthesisOutputFormat` właściwości `SpeechConfig` obiektu. Ta właściwość oczekuje `enum` typu [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) , którego można użyć do wybrania formatu danych wyjściowych. [Listę dostępnych formatów audio](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) można znaleźć w dokumentacji referencyjnej.
 
-Istnieją różne opcje dla różnych typów plików, w zależności od wymagań. Należy pamiętać, że zgodnie z definicją `Raw24Khz16BitMonoPcm` , formaty nieprzetworzone, takie jak nie obejmują nagłówków audio. Używaj formatów nieprzetworzonych tylko wtedy, gdy wiesz, że wdrożenie podrzędne może zdekodować surową Bitstream lub jeśli planujesz ręczne tworzenie nagłówków na podstawie głębi bitowej, szybkości próbkowania, liczby kanałów itd.
+Istnieją różne opcje dla różnych typów plików, w zależności od wymagań. Należy pamiętać, że zgodnie z definicją, formaty nieprzetworzone, takie jak `Raw24Khz16BitMonoPcm` nie obejmują nagłówków audio. Używaj formatów nieprzetworzonych tylko wtedy, gdy wiesz, że wdrożenie podrzędne może zdekodować surową Bitstream lub jeśli planujesz ręczne tworzenie nagłówków na podstawie głębi bitowej, szybkości próbkowania, liczby kanałów itd.
 
-W tym przykładzie należy określić format `Riff24Khz16BitMonoPcm` RIFF o wysokiej wierności, ustawiając `speechSynthesisOutputFormat` dla `SpeechConfig` obiektu. Podobnie jak w przypadku przykładu w poprzedniej sekcji, Pobierz dane `ArrayBuffer` audio i pracuj z nimi.
+W tym przykładzie należy określić format RIFF o wysokiej wierności, `Riff24Khz16BitMonoPcm` ustawiając `speechSynthesisOutputFormat` dla `SpeechConfig` obiektu. Podobnie jak w przypadku przykładu w poprzedniej sekcji, Pobierz `ArrayBuffer` dane audio i pracuj z nimi.
 
 ```javascript
 function synthesizeSpeech() {
@@ -230,7 +228,7 @@ Ponowne uruchomienie programu spowoduje zapisanie `.wav` pliku w określonej śc
 Język znaczników syntezy mowy (SSML) umożliwia precyzyjne dostosowanie wielkości liter, wymowy, liczby głosu i większej liczby danych wyjściowych zamiany tekstu na mowę przez przesłanie żądań ze schematu XML. W tej sekcji przedstawiono kilka praktycznych przykładów użycia, ale w celu uzyskania bardziej szczegółowego przewodnika zapoznaj się z [artykułem How to SSML](../../../speech-synthesis-markup.md).
 
 Aby rozpocząć korzystanie z SSML do dostosowywania, należy wprowadzić prostą zmianę, która przełącza głos.
-Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projektu, w tym przykładzie `ssml.xml`. Element główny jest zawsze `<speak>`, a Zawijanie tekstu w `<voice>` elemencie pozwala na zmianę głosu przy użyciu `name` parametru. Ten przykład zmienia głos na styk brytyjski (Zjednoczone Królestwo). Należy zauważyć, że ten głos jest **standardowym** głosem, który ma inne ceny i dostępność niż **neuronowych** głosów. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) obsługiwanych głosów **standardowych** .
+Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projektu, w tym przykładzie `ssml.xml` . Element główny jest zawsze `<speak>` , a Zawijanie tekstu w `<voice>` elemencie pozwala na zmianę głosu przy użyciu `name` parametru. Ten przykład zmienia głos na styk brytyjski (Zjednoczone Królestwo). Należy zauważyć, że ten głos jest **standardowym** głosem, który ma inne ceny i dostępność niż **neuronowych** głosów. Zapoznaj się z [pełną listą](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) obsługiwanych głosów **standardowych** .
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -240,7 +238,7 @@ Najpierw utwórz nowy plik XML dla konfiguracji SSML w katalogu głównym projek
 </speak>
 ```
 
-Następnie musisz zmienić żądanie syntezy mowy, aby odwołać się do pliku XML. Żądanie jest w większości takie samo, ale zamiast przy użyciu `speakTextAsync()` funkcji, używasz. `speakSsmlAsync()` Ta funkcja oczekuje ciągu XML, więc najpierw należy utworzyć funkcję do załadowania pliku XML i zwrócić ją jako ciąg.
+Następnie musisz zmienić żądanie syntezy mowy, aby odwołać się do pliku XML. Żądanie jest w większości takie samo, ale zamiast przy użyciu `speakTextAsync()` funkcji, używasz `speakSsmlAsync()` . Ta funkcja oczekuje ciągu XML, więc najpierw należy utworzyć funkcję do załadowania pliku XML i zwrócić ją jako ciąg.
 
 ```javascript
 function xmlToString(filePath) {
@@ -249,7 +247,7 @@ function xmlToString(filePath) {
 }
 ```
 
-Aby uzyskać więcej informacji `readFileSync`na temat, zobacz <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">system<span class="docon docon-navigate-external x-hidden-focus"></span>plików Node. js</a>. W tym miejscu obiekt wynik jest dokładnie taki sam jak w poprzednich przykładach.
+Aby uzyskać więcej informacji na temat `readFileSync` , zobacz <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Node.js <span class="docon docon-navigate-external x-hidden-focus"></span> File System</a>. W tym miejscu obiekt wynik jest dokładnie taki sam jak w poprzednich przykładach.
 
 ```javascript
 function synthesizeSpeech() {
@@ -291,7 +289,7 @@ Dane wyjściowe działają, ale wprowadzono kilka prostych dodatkowych zmian, kt
 
 Głosy neuronowych są algorytmami syntezy mowy obsługiwanymi przez głębokie sieci neuronowych. W przypadku korzystania z głosu neuronowych, synteza mowy jest niemal nieczytelna w odróżnieniu od nagrań ludzkich. Podobnie jak naturalna prosodya i wyraźny zbiór wyrazów, głosy neuronowych znacząco zmniejszają zmęczenie nasłuchiwania, gdy użytkownicy współpracują z systemami AI.
 
-Aby przełączyć się na głos neuronowych, Zmień `name` na jedną z [opcji głosu neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Następnie Dodaj przestrzeń nazw XML dla `mstts`i zawiń tekst w `<mstts:express-as>` tagu. Użyj parametru `style` , aby dostosować styl mówiący. Ten przykład używa `cheerful`, ale spróbuje ustawić `customerservice` lub `chat` , aby zobaczyć różnicę w stylu mówiącym.
+Aby przełączyć się na głos neuronowych, Zmień na `name` jedną z [opcji głosu neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Następnie Dodaj przestrzeń nazw XML dla `mstts` i zawiń tekst w `<mstts:express-as>` tagu. Użyj `style` parametru, aby dostosować styl mówiący. Ten przykład używa `cheerful` , ale spróbuje ustawić `customerservice` lub, `chat` Aby zobaczyć różnicę w stylu mówiącym.
 
 > [!IMPORTANT]
 > Głosy neuronowych są obsługiwane **tylko** w przypadku zasobów mowy utworzonych w regionach *Wschodnie stany usa*, *Południowe Azja Wschodnia*i *Europa Zachodnia* .

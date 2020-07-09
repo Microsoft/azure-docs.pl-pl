@@ -4,12 +4,12 @@ description: Użyj Azure Functions, aby zaplanować zadanie, które łączy się
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 18e310559cb0b88aac53b1020172847968616f97
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020340"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254280"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Użyj Azure Functions, aby nawiązać połączenie z Azure SQL Database
 
@@ -21,13 +21,13 @@ Jeśli jest to pierwsze środowisko pracy z funkcjami języka C#, należy przecz
 
 + Wykonaj kroki opisane w artykule [Tworzenie pierwszej funkcji przy użyciu programu Visual Studio](functions-create-your-first-function-visual-studio.md) , aby utworzyć lokalną aplikację funkcji, która jest przeznaczona dla wersji 2. x lub nowszej wersji środowiska uruchomieniowego. Musisz również opublikować projekt w aplikacji funkcji na platformie Azure.
 
-+ W tym artykule przedstawiono polecenie języka Transact-SQL, które wykonuje operację oczyszczania zbiorczego w tabeli **SalesOrderHeader** w przykładowej bazie danych AdventureWorksLT. Aby utworzyć przykładową bazę danych AdventureWorksLT, wykonaj kroki opisane w artykule [Tworzenie bazy danych Azure SQL Database w Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
++ W tym artykule przedstawiono polecenie języka Transact-SQL, które wykonuje operację oczyszczania zbiorczego w tabeli **SalesOrderHeader** w przykładowej bazie danych AdventureWorksLT. Aby utworzyć przykładową bazę danych AdventureWorksLT, wykonaj kroki opisane w artykule [Tworzenie bazy danych w Azure SQL Database przy użyciu Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Należy dodać [regułę zapory na poziomie serwera](../sql-database/sql-database-get-started-portal-firewall.md) dla publicznego adresu IP komputera, który jest używany w tym przewodniku Szybki Start. Ta reguła jest wymagana, aby można było uzyskać dostęp do wystąpienia bazy danych SQL z komputera lokalnego.  
++ Należy dodać [regułę zapory na poziomie serwera](../sql-database/sql-database-get-started-portal-firewall.md) dla publicznego adresu IP komputera, który jest używany w tym przewodniku Szybki Start. Ta reguła jest wymagana, aby można było uzyskać dostęp do wystąpienia SQL Database z komputera lokalnego.  
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
-Należy uzyskać parametry połączenia dla bazy danych utworzonej po zakończeniu [tworzenia bazy danych Azure SQL Database w Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
+Należy uzyskać parametry połączenia dla bazy danych utworzonej po zakończeniu [tworzenia bazy danych w Azure SQL Database przy użyciu Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -51,11 +51,11 @@ Aplikacja musi być wcześniej opublikowana na platformie Azure. Jeśli jeszcze 
 
     ![Dodaj ustawienie parametrów połączenia SQL.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
-    Parametry połączenia są przechowywane w postaci zaszyfrowanej na platformie Azure (**zdalna**). Aby zapobiec przeciekom kluczy tajnych, plik projektu Local. Settings. JSON (**Local**) powinien być wykluczony z kontroli źródła, na przykład przy użyciu pliku. gitignore.
+    Parametry połączenia są przechowywane w postaci zaszyfrowanej na platformie Azure (**zdalna**). Aby zapobiec przeciekom danych tajnych, local.settings.jsw pliku projektu (**lokalnego**) powinien być wykluczony z kontroli źródła, na przykład przy użyciu pliku. gitignore.
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>Dodaj pakiet SqlClient do projektu
 
-Należy dodać pakiet NuGet zawierający bibliotekę SqlClient. Ta biblioteka dostępu do danych jest niezbędna do nawiązania połączenia z bazą danych SQL.
+Należy dodać pakiet NuGet zawierający bibliotekę SqlClient. Ta biblioteka dostępu do danych jest niezbędna do nawiązania połączenia z SQL Database.
 
 1. Otwórz projekt aplikacji funkcji lokalnych w programie Visual Studio 2019.
 

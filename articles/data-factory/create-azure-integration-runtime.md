@@ -6,16 +6,15 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659696"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,13 +47,13 @@ Istniejące Azure IR można skonfigurować w celu zmiany jego lokalizacji za pom
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Tworzenie Azure IR za pośrednictwem interfejsu użytkownika Azure Data Factory
 Wykonaj następujące kroki, aby utworzyć Azure IR przy użyciu Azure Data Factory interfejsu użytkownika.
 
-1. Na stronie Wprowadzenie Azure Data Factory interfejsie użytkownika wybierz kartę **autor** w okienku po **lewej stronie.**
+1. Na stronie Wprowadzenie Azure Data Factory interfejsu użytkownika wybierz [kartę Zarządzanie](https://docs.microsoft.com/azure/data-factory/author-management-hub) w okienku po **lewej stronie.**
 
-   ![Przycisk autora strony głównej](media/doc-common-process/get-started-page-author-button.png)
+   ![Przycisk zarządzania stroną główną](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Wybierz pozycję **połączenia** w dolnej części okienka po lewej stronie, a następnie wybierz pozycję **Integration Runtimes** w oknie **połączenia** . Wybierz pozycję **+ Nowy**.
+1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy**.
 
-   ![Tworzenie środowiska Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+   ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 0789a866ebda270f3e5e8b150e072c7aedea7f04
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82790613"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service (AKS)
@@ -54,7 +54,7 @@ kubectl apply -f internal-lb.yaml
 
 Moduł równoważenia obciążenia platformy Azure jest tworzony w grupie zasobów węzła i połączony z tą samą siecią wirtualną co klaster AKS.
 
-Po wyświetleniu szczegółów usługi adres IP wewnętrznego modułu równoważenia obciążenia jest wyświetlany w kolumnie *zewnętrzny adres IP* . W tym kontekście *zewnętrzny* jest w odniesieniu do zewnętrznego interfejsu modułu równoważenia obciążenia, a nie otrzymuje publicznego zewnętrznego adresu IP. Zmiana adresu IP w * \<zależności od\> * rzeczywistego wewnętrznego adresu IP może potrwać minutę lub dwa, jak pokazano w następującym przykładzie:
+Po wyświetleniu szczegółów usługi adres IP wewnętrznego modułu równoważenia obciążenia jest wyświetlany w kolumnie *zewnętrzny adres IP* . W tym kontekście *zewnętrzny* jest w odniesieniu do zewnętrznego interfejsu modułu równoważenia obciążenia, a nie otrzymuje publicznego zewnętrznego adresu IP. Zmiana adresu IP na faktyczny wewnętrzny adres IP może potrwać minutę lub dwa *\<pending\>* , jak pokazano w następującym przykładzie:
 
 ```
 $ kubectl get service internal-app
@@ -106,7 +106,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Może być konieczne przyznanie jednostce usługi dla klastra AKS roli *współautor sieci* do grupy zasobów, w której są wdrożone zasoby sieci wirtualnej platformy Azure. Wyświetl nazwę główną usługi za pomocą [AZ AKS show][az-aks-show], taką `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`jak. Aby utworzyć przypisanie roli, użyj polecenia [AZ role przypisanie Create][az-role-assignment-create] .
+> Może być konieczne przyznanie jednostce usługi dla klastra AKS roli *współautor sieci* do grupy zasobów, w której są wdrożone zasoby sieci wirtualnej platformy Azure. Wyświetl nazwę główną usługi za pomocą [AZ AKS show][az-aks-show], taką jak `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"` . Aby utworzyć przypisanie roli, użyj polecenia [AZ role przypisanie Create][az-role-assignment-create] .
 
 ## <a name="specify-a-different-subnet"></a>Określ inną podsieć
 
@@ -132,7 +132,7 @@ spec:
 
 Po usunięciu wszystkich usług, które korzystają z wewnętrznego modułu równoważenia obciążenia, sam moduł równoważenia obciążenia również zostaje usunięty.
 
-Można również bezpośrednio usunąć usługę tak, jak w przypadku dowolnego zasobu Kubernetes, na `kubectl delete service internal-app`przykład, która spowoduje również usunięcie bazowego modułu równoważenia obciążenia platformy Azure.
+Można również bezpośrednio usunąć usługę tak, jak w przypadku dowolnego zasobu Kubernetes, na przykład `kubectl delete service internal-app` , która spowoduje również usunięcie bazowego modułu równoważenia obciążenia platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

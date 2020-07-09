@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/09/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84216389"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiowanie danych z Netezza za pomocą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,16 +55,16 @@ Dla połączonej usługi Netezza są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **Netezza**. | Yes |
-| Parametry połączenia | Parametry połączenia ODBC do połączenia z Netezza. <br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `pwd` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Yes |
+| typ | Właściwość **Type** musi być ustawiona na wartość **Netezza**. | Tak |
+| Parametry połączenia | Parametry połączenia ODBC do połączenia z Netezza. <br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `pwd` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 Typowe parametry połączenia to `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>` . W poniższej tabeli opisano więcej właściwości, które można ustawić:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| SecurityLevel | Poziom zabezpieczeń (SSL/TLS) wykorzystywany przez sterownik do nawiązywania połączenia z magazynem danych. Sterownik obsługuje połączenia SSL z uwierzytelnianiem jednokierunkowym przy użyciu protokołu SSL w wersji 3. <br>Przykład: `SecurityLevel=preferredSecured`. Obsługiwane są następujące wartości:<br/>- **Tylko niezabezpieczone** (**onlyUnSecured**): sterownik nie używa protokołu TLS.<br/>- **Preferowana niezabezpieczona (preferredUnSecured) (domyślnie)**: Jeśli serwer zawiera wybór, sterownik nie używa protokołu TLS. <br/>- **Preferowany zabezpieczony (preferredSecured)**: Jeśli serwer zawiera wybór, sterownik używa protokołu TLS. <br/>- **Zabezpieczone tylko (onlySecured)**: sterownik nie jest połączony, chyba że jest dostępne połączenie TLS. | Nie |
-| PlikCertUC | Pełna ścieżka do certyfikatu TLS/SSL, który jest używany przez serwer. Przykład: `CaCertFile=<cert path>;`| Tak, jeśli protokół TLS jest włączony |
+| SecurityLevel | Poziom zabezpieczeń wykorzystywany przez sterownik do nawiązywania połączenia z magazynem danych. Sterownik obsługuje połączenia SSL z uwierzytelnianiem jednokierunkowym przy użyciu protokołu SSL w wersji 3. <br>Przykład: `SecurityLevel=preferredSecured`. Obsługiwane są następujące wartości:<br/>- **Tylko niezabezpieczone** (**onlyUnSecured**): sterownik nie używa protokołu SSL.<br/>- **Preferowana niezabezpieczona (preferredUnSecured) (domyślnie)**: Jeśli serwer zawiera wybór, sterownik nie używa protokołu SSL. <br/>- **Preferowany zabezpieczony (preferredSecured)**: Jeśli serwer zawiera wybór, sterownik używa protokołu SSL. <br/>- **Zabezpieczone tylko (onlySecured)**: sterownik nie jest połączony, chyba że dostępne jest połączenie SSL. | Nie |
+| PlikCertUC | Pełna ścieżka do certyfikatu SSL, który jest używany przez serwer. Przykład: `CaCertFile=<cert path>;`| Tak, jeśli jest włączony protokół SSL |
 
 **Przykład**
 
@@ -121,7 +120,7 @@ Aby skopiować dane z Netezza, ustaw właściwość **Type** zestawu danych na *
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **NetezzaTable** | Yes |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **NetezzaTable** | Tak |
 | schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
@@ -157,7 +156,7 @@ Aby skopiować dane z Netezza, ustaw typ **źródła** w działaniu Kopiuj na **
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **NetezzaSource**. | Yes |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **NetezzaSource**. | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM MyTable"` | Nie (Jeśli określono "TableName" w zestawie danych) |
 | partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z Netezza. <br>Zezwalaj na wartości: **none** (wartość domyślna), **dataslice**i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z bazy danych Netezza jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie dla działania kopiowania. | Nie |
 | partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |

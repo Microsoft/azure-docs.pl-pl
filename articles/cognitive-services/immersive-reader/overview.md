@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: 2eab7ab62f6a7a105dab33aa889af9f2be3a3fa3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052383"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267277"
 ---
 # <a name="what-is-immersive-reader"></a>Co to jest czytnik immersyjny?
 
@@ -55,12 +55,12 @@ Czytnik immersyjny został zaprojektowany w celu ułatwienia dostępu do odczytu
 
 ## <a name="how-does-immersive-reader-work"></a>Jak działa czytnik immersyjny?
 
-Czytnik immersyjny to autonomiczna aplikacja internetowa, która jest wywoływana przy użyciu zestawu SDK języka JavaScript czytnika immersyjny, która jest wyświetlana na górze istniejącej aplikacji sieci Web `iframe`za pośrednictwem. Po wywołaniu interfejsu API w celu uruchomienia czytnika immersyjny należy określić zawartość, która ma być wyświetlana w czytniku immersyjny. Nasz zestaw SDK obsługuje tworzenie i określanie stylów `iframe` i komunikacji z usługą zaplecza czytnika immersyjny, która przetwarza zawartość dla części mowy, zamiany tekstu na mowę, tłumaczenie i tak dalej.
+Czytnik immersyjny to autonomiczna aplikacja internetowa, która jest wywoływana przy użyciu zestawu SDK języka JavaScript czytnika immersyjny, która jest wyświetlana na górze istniejącej aplikacji sieci Web za pośrednictwem `iframe` . Po wywołaniu interfejsu API w celu uruchomienia czytnika immersyjny należy określić zawartość, która ma być wyświetlana w czytniku immersyjny. Nasz zestaw SDK obsługuje tworzenie i określanie stylów `iframe` i komunikacji z usługą zaplecza czytnika immersyjny, która przetwarza zawartość dla części mowy, zamiany tekstu na mowę, tłumaczenie i tak dalej.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Rozpoczynanie pracy z czytnikiem immersyjnym:
 
-* Przejdź do [przewodnika Szybki Start](./quickstart.md)
+* Przejdź do [przewodników szybki start](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
 * Eksplorowanie [zestawu SDK czytnika immersyjny w witrynie GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Przeczytaj [Kompendium zestawu SDK czytnika immersyjny](./reference.md)

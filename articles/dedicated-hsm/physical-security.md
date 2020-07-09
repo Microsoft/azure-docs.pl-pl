@@ -13,10 +13,9 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70881032"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Dedykowane zabezpieczenia fizyczne modułu HSM platformy Azure
@@ -56,7 +55,7 @@ Sprzętowych modułów zabezpieczeń są obsługiwane w sieci wirtualnej utworzo
 Zaleca się, aby wszystkie kluczowe pojęcia dotyczące usługi, takie jak wysoka dostępność i bezpieczeństwo i możliwości obsługi, były dobrze zrozumiałe przed zainicjowaniem obsługi urządzeń, projektem lub wdrożeniem aplikacji.
 
 * [Wysoka dostępność](high-availability.md)
-* [Networking](networking.md)
+* [Sieć](networking.md)
 * [Możliwości obsługi](supportability.md)
 * [Monitorowanie](monitoring.md)
 * [Architektura wdrożenia](deployment-architecture.md)

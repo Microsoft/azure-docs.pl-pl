@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420829"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132410"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -32,9 +32,13 @@ Funkcja Hyper-V bez Virtual Machine Manager | Odzyskiwanie po awarii można prze
 
 **Serwer** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (w tym instalacja Server Core), Windows Server 2012 R2 z najnowszymi aktualizacjami | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md) 
-Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.<br/><br/> Uwaga: powrót po awarii do alternatywnej lokalizacji nie jest obsługiwany w przypadku hostów z systemem Windows Server 2019.
+Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami (w tym z instalacją Server Core systemów operacyjnych, z wyjątkiem systemu Windows Server 2019) | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md)
+Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (w tym systemy operacyjne z instalacją Server Core), z wyjątkiem Virtual Machine Manager 2019) | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.
 
+> [!NOTE]
+>
+> - Upewnij się, że na serwerze lokalnym jest zainstalowany .NET Framework 4.6.2 lub nowszy.
+> - Tryb failover i powrót po awarii do lokalizacji alternatywnej lub oryginalnej lokalizacji, w której działa program lub bez Virtual Machine Manager, nie jest obsługiwany w wersji Server Core systemu Windows Server 2019.
 
 ## <a name="replicated-vms"></a>Zreplikowane maszyny wirtualne
 
@@ -44,7 +48,7 @@ Poniższa tabela zawiera podsumowanie obsługi maszyn wirtualnych. Site Recovery
  **Składnik** | **Szczegóły**
 --- | ---
 Konfiguracja maszyny wirtualnej | Maszyny wirtualne, które są replikowane na platformę Azure, muszą spełniać [wymagania dotyczące platformy Azure](#azure-vm-requirements).
-System operacyjny gościa | Wszystkie systemy operacyjne gościa [obsługiwane przez platformę Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)..<br/><br/> System Windows Server 2016 nano Server nie jest obsługiwany.
+System operacyjny gościa | Wszystkie systemy operacyjne gościa [obsługiwane przez platformę Azure](../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases)..<br/><br/> System Windows Server 2016 nano Server nie jest obsługiwany.
 
 
 ## <a name="vmdisk-management"></a>Zarządzanie MASZYNami wirtualnymi/dyskami
@@ -64,7 +68,7 @@ Sieć hosta: IPv4 | Tak | Tak
 Sieć hosta: IPv6 | Nie | Nie
 Sieć VMNETWORK gościa: Tworzenie zespołu kart interfejsu sieciowego | Nie | Nie
 Sieć VMNETWORK gościa: IPv4 | Tak | Tak
-Sieć VMNETWORK gościa: IPv6 | Nie | Tak
+Sieć VMNETWORK gościa: IPv6 | Nie | Yes
 Sieć VMNETWORK gościa: statyczny adres IP (system Windows) | Tak | Tak
 Sieć VMNETWORK gościa: statyczny adres IP (Linux) | Nie | Nie
 Sieć VMNETWORK gościa: wiele kart sieciowych | Tak | Tak
@@ -133,6 +137,7 @@ Blokowe obiekty blob | Nie | Nie
 Szyfrowanie w spoczynku (SSE)| Tak | Tak
 Szyfrowanie w spoczynku (CMK) <br></br> (Tylko w przypadku przełączenia w tryb failover do dysków zarządzanych)| Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym) | Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
 Premium Storage | Tak | Tak
+Standard Storage | Tak | Tak
 Usługa importu/eksportu | Nie | Nie
 Konta usługi Azure Storage z włączoną zaporą | Tak. Dla magazynu docelowego i pamięci podręcznej. | Tak. Dla magazynu docelowego i pamięci podręcznej.
 Modyfikowanie konta magazynu | Nie. Nie można zmodyfikować docelowego konta usługi Azure Storage po włączeniu replikacji. Aby zmodyfikować, Wyłącz, a następnie włącz ponownie funkcję odzyskiwania po awarii. | Nie
@@ -152,7 +157,7 @@ Lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wyma
 
 **Składnik** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-System operacyjny gościa | Site Recovery obsługuje wszystkie systemy operacyjne, które są [obsługiwane przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana
+System operacyjny gościa | Site Recovery obsługuje wszystkie systemy operacyjne, które są [obsługiwane przez platformę Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana
 Architektura systemu operacyjnego gościa | 32-bitowy (Windows Server 2008)/64-bit | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana
 Rozmiar dysku systemu operacyjnego | Do 2 048 GB dla maszyn wirtualnych 1. generacji.<br/><br/> Do 300 GB dla maszyn wirtualnych 2. generacji.  | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana
 Liczba dysków systemu operacyjnego | 1 | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana

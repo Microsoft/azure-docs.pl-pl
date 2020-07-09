@@ -4,10 +4,9 @@ description: W tym artykule opisano sposób włączania szyfrowania dysków dla 
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78251815"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Włączanie szyfrowania dysków dla węzłów klastra usługi Azure Service Fabric w systemie Windows 
@@ -31,7 +30,7 @@ Przewodnik obejmuje następujące tematy:
 
 **Rejestracja samoobsługowa** 
 
-Wersja zapoznawcza szyfrowania dysków dla zestawu skalowania maszyn wirtualnych wymaga samorejestracji. Wykonaj następujące czynności: 
+Wersja zapoznawcza szyfrowania dysków dla zestawu skalowania maszyn wirtualnych wymaga samorejestracji. Wykonaj następujące kroki: 
 
 1. Najpierw uruchom następujące polecenie:
     ```powershell

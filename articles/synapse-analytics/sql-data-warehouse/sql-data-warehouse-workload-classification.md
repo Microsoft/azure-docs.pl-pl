@@ -6,17 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e7aa0c402878c994aabe4e12d811a99e300d7e67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 266eebc8322b5fc648180c0524abc973a4b60373
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743655"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85212381"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Klasyfikacja obciążeń usługi Azure Synapse Analytics
 
@@ -53,7 +52,7 @@ W ramach procesu klasyfikacji jest stosowane ustalanie wagi, aby określić, kt�
 |WLM_CONTEXT          |8        |
 |START_TIME/END_TIME  |4        |
 
-`membername` Parametr jest obowiązkowy.  Jeśli jednak określona wartość elementu członkowskiego jest użytkownikiem bazy danych, a nie rolą bazy danych, oznacza to, że wagi dla użytkownika są wyższe i w ten sposób jest wybierany klasyfikator.
+`membername`Parametr jest obowiązkowy.  Jeśli jednak określona wartość elementu członkowskiego jest użytkownikiem bazy danych, a nie rolą bazy danych, oznacza to, że wagi dla użytkownika są wyższe i w ten sposób jest wybierany klasyfikator.
 
 Jeśli użytkownik jest członkiem wielu ról z różnymi klasami zasobów przypisanymi lub dopasowanymi w wielu klasyfikatorach, użytkownik otrzymuje największe przypisanie klasy zasobów.  To zachowanie jest spójne z istniejącym zachowaniem przypisywania klasy zasobów.
 

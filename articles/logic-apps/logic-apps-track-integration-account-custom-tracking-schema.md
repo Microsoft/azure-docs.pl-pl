@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76903053"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Tworzenie niestandardowych schematów śledzenia, które monitorują kompleksowe przepływy pracy w usłudze Azure Logic A
@@ -53,13 +52,13 @@ Azure Logic Apps ma wbudowane śledzenie, które można włączyć dla części 
 
 | Właściwość | Wymagany | Typ | Opis |
 |----------|----------|------|-------------|
-| sourceType | Tak | String | Typ źródła przebiegu z tymi dozwolonymi wartościami: `Microsoft.Logic/workflows`,`custom` |
-| source | Tak | Ciąg lub JToken | Jeśli typ źródła to `Microsoft.Logic/workflows`, informacje źródłowe muszą być zgodne z tym schematem. Jeśli typem źródła jest `custom`, schemat jest JToken. |
+| sourceType | Tak | String | Typ źródła przebiegu z tymi dozwolonymi wartościami: `Microsoft.Logic/workflows` ,`custom` |
+| source | Tak | Ciąg lub JToken | Jeśli typ źródła to `Microsoft.Logic/workflows` , informacje źródłowe muszą być zgodne z tym schematem. Jeśli typem źródła jest `custom` , schemat jest JToken. |
 | systemId | Tak | String | Identyfikator systemu aplikacji logiki |
 | runId | Tak | String | Identyfikator przebiegu aplikacji logiki |
 | operationName | Tak | String | Nazwa operacji, na przykład akcja lub wyzwalacz |
-| repeatItemScopeName | Tak | String | Powtórz nazwę elementu, jeśli akcja znajduje się wewnątrz `foreach`pętli `until` lub |
-| repeatItemIndex | Tak | Liczba całkowita | Wskazuje, że akcja znajduje się wewnątrz `foreach` pętli `until` lub i jest numerem indeksu powtarzanego elementu. |
+| repeatItemScopeName | Tak | String | Powtórz nazwę elementu, jeśli akcja znajduje się wewnątrz `foreach` `until` pętli lub |
+| repeatItemIndex | Tak | Integer | Wskazuje, że akcja znajduje się wewnątrz `foreach` `until` pętli lub i jest numerem indeksu powtarzanego elementu. |
 | trackingId | Nie | String | Identyfikator śledzenia do skorelowania komunikatów |
 | correlationId | Nie | String | Identyfikator korelacji do skorelowania komunikatów |
 | Identyfikatorem żądania klienta | Nie | String | Klient może wypełnić tę właściwość w celu skorelowania komunikatów |

@@ -5,21 +5,20 @@ description: Tworzenie VPN Gateway opartej na trasach przy użyciu Azure Portal
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4409df576c23e0dbc3e663cc348b45bc23ad5460
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78331353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987719"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal
 
 Ten artykuł pomaga w szybkim tworzeniu bramy sieci VPN opartej na trasach przy użyciu Azure Portal.  Brama sieci VPN jest używana podczas tworzenia połączenia sieci VPN z siecią lokalną. Do łączenia się z usługą sieci wirtualnych można także użyć bramy sieci VPN. 
 
-Kroki opisane w tym artykule spowodują utworzenie sieci wirtualnej, podsieci, podsieci bramy i bramy sieci VPN opartej na trasach (bramy sieci wirtualnej). Po zakończeniu tworzenia bramy można utworzyć połączenia. Te kroki wymagają subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Kroki opisane w tym artykule spowodują utworzenie sieci wirtualnej, podsieci, podsieci bramy i bramy sieci VPN opartej na trasach (bramy sieci wirtualnej). Po zakończeniu tworzenia bramy można utworzyć połączenia. Te kroki wymagają subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-virtual-network"></a><a name="vnet"></a>Tworzenie sieci wirtualnej
 
@@ -42,7 +41,7 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 
 1. Po utworzeniu bramy przejdź do VNet1 w portalu. Brama sieci VPN jest wyświetlana na stronie Przegląd jako połączone urządzenie.
 
-   ![Połączone urządzenia](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Połączone urządzenia")
+   ![Podłączone urządzenia](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Połączone urządzenia")
 
 2. Na liście urządzeń kliknij pozycję **VNet1GW** , aby wyświetlić więcej informacji.
 

@@ -8,22 +8,21 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e0e5dde246dbcd5e5cb2e4ae923872a59a539d87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476405"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040269"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Koncepcje i funkcje lasu zasobów dla Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) oferuje środowisko logowania dla starszych aplikacji lokalnych, biznesowych. Użytkownicy, grupy i skróty haseł użytkowników lokalnych i w chmurze są synchronizowane z domeną zarządzaną platformy Azure AD DS. Te zsynchronizowane skróty haseł udostępniają użytkownikom pojedynczy zestaw poświadczeń, których mogą używać w lokalnych AD DS, Office 365 i Azure Active Directory.
+Azure Active Directory Domain Services (Azure AD DS) oferuje środowisko logowania dla starszych, lokalnych aplikacji biznesowych. Użytkownicy, grupy i skróty haseł użytkowników lokalnych i w chmurze są synchronizowane z domeną zarządzaną platformy Azure AD DS. Te zsynchronizowane skróty haseł udostępniają użytkownikom pojedynczy zestaw poświadczeń, których mogą używać w lokalnych AD DS, Office 365 i Azure Active Directory.
 
 Chociaż bezpieczeństwo i zapewnia dodatkowe korzyści z zabezpieczeń, niektóre organizacje nie mogą synchronizować tych skrótów haseł użytkowników z usługą Azure AD lub Azure AD DS. Użytkownicy w organizacji mogą nie znać hasła, ponieważ korzystają tylko z uwierzytelniania za pomocą kart inteligentnych. Te ograniczenia uniemożliwiają niektórym organizacjom korzystanie z usługi Azure AD DS w celu podnoszenia i przesunięcia lokalnych aplikacji klasycznych na platformę Azure.
 
-Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzaną platformy Azure AD DS, która używa lasu zasobów. W tym artykule opisano, jakie lasy są i jak ufają innym zasobom w celu zapewnienia bezpiecznej metody uwierzytelniania. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
+Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzaną, która używa lasu zasobów. W tym artykule opisano, jakie lasy są i jak ufają innym zasobom w celu zapewnienia bezpiecznej metody uwierzytelniania. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
 
 > [!IMPORTANT]
 > Lasy zasobów AD DS platformy Azure nie obsługują obecnie usługi Azure HDInsight ani Azure Files. Domyślne lasy użytkownika platformy Azure AD DS obsługują obie te dodatkowe usługi.
@@ -32,11 +31,11 @@ Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzan
 
 *Las* to logiczna konstrukcja używana przez Active Directory Domain Services (AD DS) do grupowania jednej lub wielu *domen*. Domeny następnie przechowują obiekty dla użytkowników lub grup i zapewniają usługi uwierzytelniania.
 
-W usłudze Azure AD DS Las zawiera tylko jedną domenę. Lokalne lasy AD DS często zawierają wiele domen. W dużych organizacjach, szczególnie po fuzjach i przejęciach, może się okazać, że istnieje wiele lasów lokalnych, które każdy z nich będzie zawierać wiele domen.
+W domenie zarządzanej AD DS platformy Azure Las zawiera tylko jedną domenę. Lokalne lasy AD DS często zawierają wiele domen. W dużych organizacjach, szczególnie po fuzjach i przejęciach, może się okazać, że istnieje wiele lasów lokalnych, które każdy z nich będzie zawierać wiele domen.
 
-Domyślnie domena zarządzana AD DS platformy Azure jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Konta użytkowników mogą być uwierzytelniane bezpośrednio w domenie zarządzanej AD DS platformy Azure, na przykład w celu zalogowania się do maszyny wirtualnej przyłączonej do domeny. Las użytkownika działa, gdy można synchronizować skróty haseł, a użytkownicy nie korzystają z takich samych metod logowania, jak uwierzytelnianie karty inteligentnej.
+Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Konta użytkowników mogą być uwierzytelniane bezpośrednio względem domeny zarządzanej, na przykład w celu zalogowania się do maszyny wirtualnej przyłączonej do domeny. Las użytkownika działa, gdy można synchronizować skróty haseł, a użytkownicy nie korzystają z takich samych metod logowania, jak uwierzytelnianie karty inteligentnej.
 
-W lesie *zasobów* AD DS platformy Azure użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu z AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z usługą Azure AD DS. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
+W lesie *zasobów* domeny zarządzanej użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu od ich AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z domeną zarządzaną. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
 
 Lasy zasobów zapewniają również możliwość podnoszenia i przenoszenia aplikacji po jednym składniku jednocześnie. Wiele starszych aplikacji lokalnych jest w wielu warstwach, często przy użyciu serwera sieci Web lub frontonu i wielu składników związanych z bazą danych. Te warstwy sprawiają, że trudno jest podnieść i przenieść całą aplikację do chmury w jednym kroku. W przypadku lasów zasobów można podnieść swoją aplikację do chmury w podejściu fazowym, co ułatwia przenoszenie aplikacji na platformę Azure.
 
@@ -56,7 +55,7 @@ Relacje zaufania są również skonfigurowane do obsługi dodatkowych relacji za
 * **Nieprzechodnie** — zaufanie istnieje tylko między dwiema domenami partnerskimi partnera.
 * **Przechodnie** — zaufanie jest automatycznie rozszerzane do wszystkich innych domen, które ufają partnerom.
 
-W niektórych przypadkach relacje zaufania są automatycznie ustanawiane podczas tworzenia domen. Czasami musisz wybrać typ zaufania i jawnie ustanowić odpowiednie relacje. Określone typy relacji zaufania i struktura tych relacji zaufania zależą od sposobu organizowania usługi katalogowej Active Directory oraz tego, czy różne wersje systemu Windows współistnieją w sieci.
+W niektórych przypadkach relacje zaufania są automatycznie ustanawiane podczas tworzenia domen. Czasami musisz wybrać typ zaufania i jawnie ustanowić odpowiednie relacje. Określone typy relacji zaufania i struktura tych relacji zaufania zależą od tego, jak katalog AD DS jest zorganizowany i czy różne wersje systemu Windows współdziałają w sieci.
 
 ## <a name="trusts-between-two-forests"></a>Relacje zaufania między dwoma lasami
 
@@ -69,11 +68,11 @@ Przechodnie relacje zaufania lasów są ograniczone do dwóch partnerów lasu. Z
 
 ![Diagram zaufania lasów z usługi Azure AD DS do lokalnego AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-W zależności od struktury Active Directory organizacji można utworzyć różne konfiguracje zaufania domen i lasów. Usługa Azure AD DS obsługuje tylko jednokierunkowe zaufanie lasu. W tej konfiguracji zasoby w usłudze Azure AD DS mogą ufać wszystkim domenom w lesie lokalnym.
+W zależności od struktury AD DS organizacji można utworzyć różne konfiguracje zaufania domen i lasów. Usługa Azure AD DS obsługuje tylko jednokierunkowe zaufanie lasu. W tej konfiguracji zasoby w domenie zarządzanej mogą ufać wszystkim domenom w lesie lokalnym.
 
 ## <a name="supporting-technology-for-trusts"></a>Obsługa technologii zaufania
 
-Relacje zaufania wykorzystują różne usługi i funkcje, takie jak usługa DNS do lokalizowania kontrolerów domeny w lasach partnerskich. Relacje zaufania są również zależne od protokołów uwierzytelniania NTLM i Kerberos oraz mechanizmów autoryzacji i kontroli dostępu opartej na systemie Windows w celu zapewnienia bezpiecznej infrastruktury komunikacyjnej w Active Directory domenach i lasach. Poniższe usługi i funkcje pomagają zapewnić pomyślne relacje zaufania.
+Relacje zaufania wykorzystują różne usługi i funkcje, takie jak usługa DNS do lokalizowania kontrolerów domeny w lasach partnerskich. Relacje zaufania są również zależne od protokołów uwierzytelniania NTLM i Kerberos oraz mechanizmów autoryzacji i kontroli dostępu opartej na systemie Windows w celu zapewnienia bezpiecznej infrastruktury komunikacyjnej w AD DS domenach i lasach. Poniższe usługi i funkcje pomagają zapewnić pomyślne relacje zaufania.
 
 ### <a name="dns"></a>DNS
 
@@ -82,31 +81,31 @@ AD DS wymaga systemu DNS dla lokalizacji kontrolera domeny (DC) i nazewnictwa. D
 * Usługa rozpoznawania nazw, która umożliwia hostom i usługom sieciowym lokalizowanie kontrolerów domen.
 * Struktura nazewnictwa, która pozwala przedsiębiorstwom odzwierciedlać swoją strukturę organizacyjną w nazwach domen usługi katalogowej.
 
-Przestrzeń nazw domeny DNS jest zwykle wdrażana, która odzwierciedla obszar nazw domeny AD DS. Jeśli istnieje istniejąca przestrzeń nazw DNS przed wdrożeniem AD DS, przestrzeń nazw DNS jest zwykle partycjonowana dla Active Directory, a poddomena DNS i delegowanie dla katalogu głównego lasu Active Directory. Dodatkowe nazwy domen DNS są następnie dodawane dla każdej Active Directory domeny podrzędnej.
+Przestrzeń nazw domeny DNS jest zwykle wdrażana, która odzwierciedla obszar nazw domeny AD DS. Jeśli istnieje istniejąca przestrzeń nazw DNS przed wdrożeniem AD DS, przestrzeń nazw DNS jest zwykle partycjonowana dla AD DS, a poddomena DNS i delegowanie dla katalogu głównego lasu AD DS. Dodatkowe nazwy domen DNS są następnie dodawane dla każdej AD DS domeny podrzędnej.
 
-Serwer DNS jest również używany do obsługi lokalizacji Active Directory kontrolerami domeny. Strefy DNS są wypełniane rekordami zasobów DNS, które umożliwiają hostom i usługom sieciowym lokalizowanie Active Directory kontrolerów domeny.
+Serwer DNS jest również używany do obsługi lokalizacji AD DS kontrolerami domeny. Strefy DNS są wypełniane rekordami zasobów DNS, które umożliwiają hostom i usługom sieciowym lokalizowanie AD DS kontrolerów domeny.
 
 ### <a name="applications-and-net-logon"></a>Aplikacje i logowanie do sieci
 
-Obie aplikacje i usługa Logowanie do sieci są składnikami modelu kanału zabezpieczeń rozproszonych systemu Windows. Aplikacje zintegrowane z systemem Windows Server i Active Directory używają protokołów uwierzytelniania do komunikowania się z usługą logowanie do sieci, aby można było ustalić bezpieczną ścieżkę, w której może wystąpić uwierzytelnianie.
+Obie aplikacje i usługa Logowanie do sieci są składnikami modelu kanału zabezpieczeń rozproszonych systemu Windows. Aplikacje zintegrowane z systemem Windows Server i AD DS używają protokołów uwierzytelniania do komunikowania się z usługą logowanie do sieci, aby można było ustalić bezpieczną ścieżkę, w której może wystąpić uwierzytelnianie.
 
 ### <a name="authentication-protocols"></a>Protokoły uwierzytelniania
 
-Active Directory kontrolery domeny uwierzytelniają użytkowników i aplikacje przy użyciu jednego z następujących protokołów:
+AD DS kontrolery domeny uwierzytelniają użytkowników i aplikacje przy użyciu jednego z następujących protokołów:
 
 * **Protokół uwierzytelniania Kerberos w wersji 5**
-    * Protokół Kerberos w wersji 5 jest domyślnym protokołem uwierzytelniania używanym przez lokalne komputery z systemem Windows i obsługujący systemy operacyjne innych firm. Ten protokół jest określony w dokumencie RFC 1510 i jest w pełni zintegrowany z Active Directory, bloku komunikatów serwera (SMB), protokołu HTTP i zdalnego wywołania procedury (RPC), a także aplikacji klienta i serwera, które używają tych protokołów.
+    * Protokół Kerberos w wersji 5 jest domyślnym protokołem uwierzytelniania używanym przez lokalne komputery z systemem Windows i obsługujący systemy operacyjne innych firm. Ten protokół jest określony w dokumencie RFC 1510 i jest w pełni zintegrowany z AD DS, bloku komunikatów serwera (SMB), protokołu HTTP i zdalnego wywołania procedury (RPC), a także aplikacji klienta i serwera, które używają tych protokołów.
     * Gdy używany jest protokół Kerberos, serwer nie musi skontaktować się z kontrolerem domeny. Zamiast tego klient otrzymuje bilet dla serwera, żądając jednego z kontrolerów domeny w domenie konta serwera. Następnie serwer sprawdza poprawność biletu bez konsultacji z żadnym innym Urzędem.
     * Jeśli którykolwiek z komputerów należących do transakcji nie obsługuje protokołu Kerberos w wersji 5, używany jest protokół NTLM.
 
 * **Protokół uwierzytelniania NTLM**
-    * Protokół NTLM to klasyczny protokół uwierzytelniania sieciowego używany przez starsze systemy operacyjne. Ze względów zgodności są używane przez domeny Active Directory do przetwarzania żądań uwierzytelniania sieciowego, które pochodzą z aplikacji przeznaczonych dla starszych klientów i serwerów z systemem Windows, oraz systemów operacyjnych innych firm.
+    * Protokół NTLM to klasyczny protokół uwierzytelniania sieciowego używany przez starsze systemy operacyjne. Ze względów zgodności są używane przez domeny AD DS do przetwarzania żądań uwierzytelniania sieciowego, które pochodzą z aplikacji przeznaczonych dla starszych klientów i serwerów z systemem Windows, oraz systemów operacyjnych innych firm.
     * Gdy protokół NTLM jest używany między klientem a serwerem, serwer musi skontaktować się z usługą uwierzytelniania domeny na kontrolerze domeny, aby zweryfikować poświadczenia klienta. Serwer uwierzytelnia klienta, przekazując poświadczenia klienta do kontrolera domeny w domenie konta klienta.
-    * Gdy dwie Active Directory domeny lub lasy są połączone z zaufaniem, żądania uwierzytelniania wykonywane przy użyciu tych protokołów mogą być kierowane w celu zapewnienia dostępu do zasobów w obu lasach.
+    * Gdy dwie AD DS domeny lub lasy są połączone z zaufaniem, żądania uwierzytelniania wykonywane przy użyciu tych protokołów mogą być kierowane w celu zapewnienia dostępu do zasobów w obu lasach.
 
 ## <a name="authorization-and-access-control"></a>Autoryzacja i kontrola dostępu
 
-Technologie autoryzacji i zaufania współpracują ze sobą w celu zapewnienia bezpiecznej infrastruktury komunikacyjnej w Active Directory domenach lub lasach. Autoryzacja określa poziom dostępu użytkownika do zasobów w domenie. Relacje zaufania ułatwiają użytkownikom autoryzację między domenami, zapewniając ścieżkę do uwierzytelniania użytkowników w innych domenach, dzięki czemu ich żądania do udostępnionych zasobów w tych domenach mogą być autoryzowane.
+Technologie autoryzacji i zaufania współpracują ze sobą w celu zapewnienia bezpiecznej infrastruktury komunikacyjnej w AD DS domenach lub lasach. Autoryzacja określa poziom dostępu użytkownika do zasobów w domenie. Relacje zaufania ułatwiają użytkownikom autoryzację między domenami, zapewniając ścieżkę do uwierzytelniania użytkowników w innych domenach, dzięki czemu ich żądania do udostępnionych zasobów w tych domenach mogą być autoryzowane.
 
 W przypadku zweryfikowania żądania uwierzytelnienia w domenie ufającej przez domenę zaufaną zostanie ona przeniesiona do zasobu docelowego. Następnie zasób docelowy decyduje o tym, czy należy autoryzować określone żądanie wykonywane przez użytkownika, usługę lub komputer w zaufanej domenie w oparciu o jego konfigurację kontroli dostępu.
 
@@ -116,7 +115,7 @@ Relacje zaufania zapewniają ten mechanizm do weryfikowania żądań uwierzyteln
 
 Aby dowiedzieć się więcej na temat relacji zaufania, zobacz [jak działają relacje zaufania lasów na platformie Azure AD DS?][concepts-trust]
 
-Aby rozpocząć tworzenie domeny zarządzanej AD DS platformy Azure przy użyciu lasu zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej (wersja zapoznawcza)][create-forest-trust].
+Aby rozpocząć tworzenie domeny zarządzanej z lasem zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej (wersja zapoznawcza)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

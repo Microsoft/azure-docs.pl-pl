@@ -5,16 +5,20 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: bf1acd8bce53801c7c241121db2079e9b8a01851
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383163"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253710"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Przegląd interfejsów API raportowania dla klientów korporacyjnych
+
+> [!Note]
+> Firma Microsoft nie przeprowadza już aktualizacji interfejsów API rozliczeń platformy Azure — raportowania dla przedsiębiorstw Zamiast nich należy używać interfejsów API [użycia platformy Azure](/rest/api/consumption).
+
 Interfejsy API raportowania umożliwiają klientom korporacyjnym platformy Azure programowe ściąganie danych użycia i rozliczeń do preferowanych narzędzi do analizy danych. Klienci korporacyjni podpisali umowę [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) na platformie Azure, na podstawie której mają wynegocjowane zobowiązania pieniężne i dostęp do niestandardowych cen zasobów platformy Azure.
 
 Wszystkie parametry daty i godziny wymagane dla interfejsów API muszą być reprezentowane jako wartości uniwersalnego czasu koordynowanego (UTC). Wartości zwracane przez interfejsy API są wyświetlane w formacie UTC.
@@ -27,7 +31,7 @@ Wszystkie parametry daty i godziny wymagane dla interfejsów API muszą być rep
 |-|-|
 |Autoryzacja| Określ wartość w tym formacie: **bearer {API_KEY}** <br/> Przykład: bearer eyr....09|
 
-## <a name="consumption-apis"></a>Interfejsy API użycia
+## <a name="consumption-based-apis"></a>Interfejsy API użycia
 Punkt końcowy struktury Swagger dla opisanych poniżej interfejsów API jest dostępny [tutaj](https://consumption.azure.com/swagger/ui/index). Powinien on umożliwić łatwą introspekcję interfejsu API i dać możliwość wygenerowania zestawów SDK klienta przy użyciu funkcji [AutoRest](https://github.com/Azure/AutoRest) lub narzędzia [Swagger CodeGen](https://swagger.io/swagger-codegen/). Dane są dostępne za pośrednictwem tego interfejsu API od 1 maja 2014 r.
 
 * **Saldo i podsumowanie** — [interfejs API salda i podsumowania](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferuje comiesięczne podsumowanie informacji dotyczących sald, nowych zakupów, opłat za usługę Azure Marketplace, korekt i opłat za użycie nadwyżkowe.

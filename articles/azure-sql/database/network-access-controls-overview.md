@@ -1,7 +1,7 @@
 ---
 title: Kontrola dostępu do sieci
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Przegląd sposobu zarządzania dostępem do sieci Azure SQL Database i SQL Data Warehouse (dawniej SQL Data Warehouse).
+description: Przegląd sposobu zarządzania dostępem do sieci Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,15 +12,14 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 95fa7a22f88d8c6a53a6459e0f5d6a123b2f728b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045578"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085467"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Po utworzeniu logicznego serwera SQL na podstawie [Azure Portal](single-database-create-quickstart.md) dla Azure SQL Database i usługi Azure Synapse Analytics wynik jest publicznym punktem końcowym w formacie *yourservername.Database.Windows.NET*.
 
@@ -31,8 +30,8 @@ Aby selektywnie zezwolić na dostęp do bazy danych za pośrednictwem publiczneg
 
 Możesz również zezwolić na prywatny dostęp do bazy danych z [sieci wirtualnych](../../virtual-network/virtual-networks-overview.md) za pośrednictwem:
 
-- Virtual Network reguł zapory: Użyj tej funkcji, aby zezwolić na ruch z określonego Virtual Network w ramach granicy platformy Azure
-- Link prywatny: Ta funkcja służy do tworzenia prywatnego punktu końcowego dla [logicznego programu SQL Server](logical-servers.md) w ramach określonego Virtual Network
+- Reguły zapory sieci wirtualnej: Użyj tej funkcji, aby zezwolić na ruch z określonej sieci wirtualnej w ramach granicy platformy Azure
+- Link prywatny: Ta funkcja służy do tworzenia prywatnego punktu końcowego dla [logicznego programu SQL Server](logical-servers.md) w ramach określonej sieci wirtualnej
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji na temat konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md) .
@@ -51,13 +50,13 @@ Możesz również zmienić to ustawienie za pośrednictwem okienka Zapora po utw
 
 Po ustawieniu na wartość on serwer zezwala **na**komunikację ze wszystkich zasobów w ramach granicy platformy Azure, która może być niedostępna w ramach subskrypcji.
 
-W wielu przypadkach ustawienie **on** jest bardziej ograniczane niż to, czego chcą klienci. Można ustawić ustawienie na **wyłączone** i zamienić je na bardziej restrykcyjne reguły zapory IP lub Virtual Network reguły zapory. 
+W wielu przypadkach ustawienie **on** jest bardziej ograniczane niż to, czego chcą klienci. Można ustawić ustawienie na **wyłączone** i zamienić je na bardziej restrykcyjne reguły zapory IP lub reguły zapory sieci wirtualnej. 
 
 Jednak ma to wpływ na następujące funkcje, które są uruchamiane na maszynach wirtualnych platformy Azure, które nie są częścią sieci wirtualnej, a tym samym łączą się z bazą danych za pośrednictwem adresu IP platformy Azure:
 
 ### <a name="import-export-service"></a>Importuj usługę eksportu
 
-Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone**. Można jednak obejść ten problem [, ręcznie uruchamiając program sqlpackage. exe z maszyny wirtualnej platformy Azure lub wykonując eksport](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
+Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone**. Można jednak obejść ten problem [, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonując eksport](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
 
 ### <a name="data-sync"></a>Synchronizacja danych
 
@@ -83,7 +82,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 > [!TIP]
 > Funkcja Get-AzNetworkServiceTag zwraca globalny zakres dla tagu usługi SQL pomimo określenia parametru Location. Pamiętaj, aby przefiltrować go do regionu, który hostuje bazę danych centrum używaną przez daną grupę synchronizacji
 
-Należy zauważyć, że dane wyjściowe skryptu programu PowerShell są w notacji CIDR (Inter-Domain Routing) i należy ją przekonwertować na format początkowego i końcowego adresu IP za pomocą [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) :
+Należy pamiętać, że dane wyjściowe skryptu programu PowerShell są w notacji CIDR (Classless Inter-Domain Routing). Należy ją przekonwertować na format początkowy i końcowy adresu IP, używając [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) jak to:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26
@@ -107,32 +106,32 @@ Teraz można je dodać jako odrębne reguły zapory, a następnie ustawić opcj�
 
 ## <a name="ip-firewall-rules"></a>Reguły zapory adresów IP
 
-Zapora oparta na protokole IP to funkcja logicznego programu SQL Server na platformie Azure, która uniemożliwia dostęp do serwera bazy danych, dopóki nie zostaną jawnie [dodane adresy IP](firewall-create-server-level-portal-quickstart.md) komputerów klienckich.
+Zapora oparta na protokole IP to funkcja logicznego programu SQL Server na platformie Azure, która uniemożliwia dostęp do serwera do momentu jawnego [dodawania adresów IP](firewall-create-server-level-portal-quickstart.md) komputerów klienckich.
 
-## <a name="virtual-network-firewall-rules"></a>Virtual Network reguły zapory
+## <a name="virtual-network-firewall-rules"></a>Reguły zapory sieci wirtualnej
 
 Oprócz reguł IP Zapora serwera umożliwia definiowanie *reguł sieci wirtualnej*.  
-Aby dowiedzieć się więcej, zobacz [Virtual Network punkty końcowe usługi i reguły dla Azure SQL Database](vnet-service-endpoint-rule-overview.md) lub Obejrzyj ten film wideo:
+Aby dowiedzieć się więcej, zobacz [punkty końcowe usługi sieci wirtualnej i reguły dotyczące Azure SQL Database](vnet-service-endpoint-rule-overview.md) lub Obejrzyj ten film wideo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
 ### <a name="azure-networking-terminology"></a>Terminologia dotycząca sieci platformy Azure
 
-Należy pamiętać o następujących kwestiach dotyczących sieci platformy Azure podczas eksplorowania Virtual Network regułami zapory
+Należy pamiętać o następujących kwestiach dotyczących sieci platformy Azure, aby poznać reguły zapory sieci wirtualnej
 
 **Sieć wirtualna:** Możesz mieć sieci wirtualne skojarzone z subskrypcją platformy Azure
 
 **Podsieć:** Sieć wirtualna zawiera **podsieci**. Wszystkie maszyny wirtualne platformy Azure, które są przypisane do podsieci. Jedna podsieć może zawierać wiele maszyn wirtualnych lub innych węzłów obliczeniowych. Węzły obliczeniowe znajdujące się poza siecią wirtualną nie mogą uzyskać dostępu do sieci wirtualnej, chyba że skonfigurowano zabezpieczenia, aby zezwolić na dostęp.
 
-**Virtual Network punkt końcowy usługi:** [Punkt końcowy usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule interesuje Cię nazwę typu **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database.
+**Punkt końcowy usługi sieci wirtualnej:** [Punkt końcowy usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md) jest podsiecią, której wartości właściwości zawierają co najmniej jedną formalną nazwę typu usługi platformy Azure. W tym artykule jesteśmy zainteresowani nazwą typu **Microsoft. SQL**, która odnosi się do usługi platformy Azure o nazwie SQL Database.
 
-**Reguła sieci wirtualnej:** Reguła sieci wirtualnej dla serwera to podsieć wymieniona na liście kontroli dostępu (ACL) serwera. Aby można było uzyskać listę ACL SQL Database, podsieć musi zawierać nazwę typu **Microsoft. SQL** . Reguła sieci wirtualnej instruuje serwer, aby zaakceptował komunikację z każdego węzła znajdującego się w podsieci.
+**Reguła sieci wirtualnej:** Reguła sieci wirtualnej dla serwera to podsieć wymieniona na liście kontroli dostępu (ACL) serwera. Aby znajdować się na liście kontroli dostępu dla bazy danych w SQL Database, podsieć musi zawierać nazwę typu **Microsoft. SQL** . Reguła sieci wirtualnej instruuje serwer, aby zaakceptował komunikację z każdego węzła znajdującego się w podsieci.
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>Reguły zapory dla protokołu IP a Virtual Network
+## <a name="ip-vs-virtual-network-firewall-rules"></a>Protokół IP a reguły zapory sieci wirtualnej
 
 Zapora Azure SQL Database umożliwia określenie zakresów adresów IP, z których ma zostać zaakceptowana komunikacja, SQL Database. To podejście jest odpowiednie dla stabilnych adresów IP, które są poza siecią prywatną platformy Azure. Jednak maszyny wirtualne w sieci prywatnej platformy Azure są skonfigurowane przy użyciu *dynamicznych* adresów IP. Dynamiczne adresy IP mogą ulec zmianie po ponownym uruchomieniu maszyny wirtualnej i w wyniku unieważnienia reguły zapory opartej na protokole IP. Folly do określenia dynamicznego adresu IP w regule zapory w środowisku produkcyjnym.
 
-To ograniczenie można obejść, uzyskując *statyczny* adres IP dla maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu Azure Portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali.
+To ograniczenie można obejść, uzyskując *statyczny* adres IP dla maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP przy użyciu Azure Portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). Jednak podejście ze statycznym adresem IP może być trudne do zarządzania i jest kosztowne, gdy jest wykonywane w odpowiedniej skali.
 
 Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania dostępem z określonej podsieci zawierającej maszyny wirtualne.
 
@@ -141,7 +140,7 @@ Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania dostępe
 
 ## <a name="private-link"></a>Private Link
 
-Link prywatny umożliwia nawiązanie połączenia z serwerem za pośrednictwem **prywatnego punktu końcowego**. Prywatny punkt końcowy to prywatny adres IP w ramach określonego [Virtual Network](../../virtual-network/virtual-networks-overview.md) i podsieci.
+Link prywatny umożliwia nawiązanie połączenia z serwerem za pośrednictwem **prywatnego punktu końcowego**. Prywatny punkt końcowy to prywatny adres IP w ramach określonej [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -160,3 +159,4 @@ Link prywatny umożliwia nawiązanie połączenia z serwerem za pośrednictwem *
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
+ 

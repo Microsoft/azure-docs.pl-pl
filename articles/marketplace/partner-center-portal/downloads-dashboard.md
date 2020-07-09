@@ -1,20 +1,18 @@
 ---
 title: Pobierz pulpit nawigacyjny w usłudze Microsoft Commercial Marketplace Analytics w centrum partnerskim
 description: Dowiedz się, jak uzyskać dostęp do żądań pobrania dla ofert portalu Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: fde95e3b6d1b4d1cdfb060c11e1e67241d3329f8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732722"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121711"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Pobierz pulpit nawigacyjny w komercyjnej analizie Marketplace
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Pobieranie w analizie komercyjnej platformy handlowej
 
 Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego pliki do pobrania w centrum partnerskim. Ten pulpit nawigacyjny wyświetla listę żądań pobierania w ciągu ostatnich 30 dni.
 

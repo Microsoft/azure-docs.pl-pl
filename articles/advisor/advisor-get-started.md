@@ -3,12 +3,12 @@ title: Wprowadzenie do usługi Azure Advisor
 description: Rozpocznij pracę z Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117866"
 ---
 # <a name="get-started-with-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
 
@@ -27,7 +27,7 @@ Dowiedz się, jak uzyskać dostęp do usługi Advisor za pomocą Azure Portal, u
 
 1. Na pulpicie nawigacyjnym usługi Advisor zostanie wyświetlone podsumowanie zaleceń dla wszystkich wybranych subskrypcji.  Możesz wybrać subskrypcje, do których mają być wyświetlane zalecenia, przy użyciu listy rozwijanej filtru subskrypcji.
 
-1. Aby uzyskać zalecenia dotyczące określonej kategorii, kliknij jedną z kart: **wysoka dostępność**, **zabezpieczenia**, **wydajność**lub **koszt**. 
+1. Aby uzyskać zalecenia dotyczące określonej kategorii, kliknij jedną z kart: **niezawodność**, **zabezpieczenia**, **wydajność**lub **koszt**. 
 
    ![Pulpit nawigacyjny Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -124,7 +124,8 @@ Opcja pobierania uwzględnia wszystkie filtry, które zostały zastosowane do pu
 Aby dowiedzieć się więcej na temat usługi Advisor, zobacz:
 
 - [Wprowadzenie do Azure Advisor](advisor-overview.md)
-- [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
+- [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 - [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 - [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
-- [Zalecenia dotyczące kosztów usługi Advisor](advisor-performance-recommendations.md)
+- [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
+- [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)

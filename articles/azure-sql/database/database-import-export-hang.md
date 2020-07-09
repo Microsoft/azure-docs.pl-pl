@@ -3,30 +3,31 @@ title: Importowanie i eksportowanie bazy danych zajmuje dużo czasu
 description: Importowanie lub eksportowanie bazy danych usługi Azure SQL instance Managed/Export nie potrwa dużo czasu Azure SQL Database
 ms.custom: seo-lt-2019, sqldbrb=1
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: data-movement
 ms.topic: troubleshooting
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-manager: dcscontentpm
-ms.openlocfilehash: 7addee4cae2e8b1488e37776f31954412e6c0db4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045263"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982314"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Importowanie lub eksportowanie bazy danych za pomocą usługi importu/eksportu wystąpienia zarządzanego Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W przypadku korzystania z usługi Import/Export proces może trwać dłużej niż oczekiwano. W tym artykule opisano potencjalne przyczyny tego opóźnienia i alternatywne metody obejścia.
 
 ## <a name="azure-sql-database-importexport-service"></a>Azure SQL Database usługi Import/Export
 
-Usługa Azure SQL Database Import/Export to usługa sieci Web oparta na protokole REST, która działa w każdym centrum danych platformy Azure. Ta usługa jest wywoływana w przypadku używania opcji [Importuj bazę danych](database-import.md#using-azure-portal) lub [Eksportuj](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) , aby przenieść bazę danych SQL do Azure Portal. Usługa udostępnia bezpłatne usługi kolejkowania żądań i usług obliczeniowych w celu przeprowadzania importu i eksportu między Azure SQL Database i magazynem obiektów blob platformy Azure.
+Usługa Azure SQL Database Import/Export to usługa sieci Web oparta na protokole REST, która działa w każdym centrum danych platformy Azure. Ta usługa jest wywoływana w przypadku używania opcji [Importuj bazę danych](database-import.md#using-azure-portal) lub [Eksportuj](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) , aby przenieść bazę danych do Azure Portal. Usługa udostępnia bezpłatne usługi kolejkowania żądań i usług obliczeniowych w celu przeprowadzania importu i eksportu między Azure SQL Database i magazynem obiektów blob platformy Azure.
 
-Operacje importu i eksportu nie reprezentują tradycyjnej fizycznej kopii zapasowej bazy danych, ale zamiast logicznej kopii zapasowej bazy danych, która używa specjalnego formatu BACPAC. Format BACPAC pozwala uniknąć konieczności używania fizycznego formatu, który może się różnić między wersjami Microsoft SQL Server i Azure SQL Database. Z tego względu można użyć go do bezpiecznego przywrócenia bazy danych do bazy danych SQL Server i bazy danych SQL.
+Operacje importu i eksportu nie reprezentują tradycyjnej fizycznej kopii zapasowej bazy danych, ale zamiast logicznej kopii zapasowej bazy danych, która używa specjalnego formatu BACPAC. Format BACPAC pozwala uniknąć konieczności używania formatu fizycznego, który może się różnić między wersjami Microsoft SQL Server, Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 
 ## <a name="what-causes-delays-in-the-process"></a>Co powoduje opóźnienia w procesie?
 
@@ -46,13 +47,13 @@ Jeśli eksporty bazy danych są używane tylko do odzyskiwania po przypadkowym u
   * [Przestrzeń nazw Microsoft. SqlServer. DAC](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [Pobierz DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
-## <a name="things-to-consider-when-you-export-or-import-an-azure-sql-database"></a>Zagadnienia, które należy wziąć pod uwagę podczas eksportowania lub importowania bazy danych Azure SQL Database
+## <a name="things-to-consider-when-you-export-or-import-a-database"></a>Zagadnienia, które należy wziąć pod uwagę podczas eksportowania lub importowania bazy danych
 
 * Wszystkie metody omówione w tym artykule korzystają z limitu przydziału jednostki transakcji bazy danych (DTU), co powoduje ograniczenie przepustowości przez usługę Azure SQL Database. Można [wyświetlić statystyki jednostek DTU dla bazy danych na Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). Jeśli baza danych osiągnęła limity zasobów, [Uaktualnij warstwę usług](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) , aby dodać więcej zasobów.
-* Najlepiej uruchamiać aplikacje klienckie (takie jak narzędzie sqlpackage lub niestandardowa aplikacja DAC) z poziomu maszyny wirtualnej w tym samym regionie, w którym znajduje się baza danych SQL. W przeciwnym razie mogą wystąpić problemy z wydajnością związane z opóźnieniem sieci.
+* Najlepiej uruchamiać aplikacje klienckie (takie jak narzędzie sqlpackage lub niestandardowa aplikacja DAC) z maszyny wirtualnej w tym samym regionie, w którym znajduje się baza danych. W przeciwnym razie mogą wystąpić problemy z wydajnością związane z opóźnieniem sieci.
 * Eksportowanie dużych tabel bez indeksów klastrowanych może być bardzo wolne lub nawet przyczyną błędu. Takie zachowanie występuje, ponieważ nie można jednocześnie podzielić i wyeksportować tabeli. Zamiast tego należy go wyeksportować w jednej transakcji, co powoduje spowolnienie wydajności i potencjalne błędy podczas eksportowania, szczególnie w przypadku dużych tabel.
 
 
 ## <a name="related-documents"></a>Powiązane dokumenty
 
-[Zagadnienia dotyczące eksportowania bazy danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)
+[Zagadnienia dotyczące eksportowania bazy danych](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)

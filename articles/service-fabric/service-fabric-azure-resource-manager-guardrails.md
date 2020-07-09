@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602707"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Podczas wdrażania klastra Service Fabric są umieszczane guardrails, co spowoduje niepowodzenie wdrożenia Azure Resource Manager w przypadku nieprawidłowej konfiguracji klastra. Poniższe sekcje zawierają omówienie typowych problemów z konfiguracją klastra oraz czynności wymagane w celu rozwiązania tych problemów. 
@@ -68,12 +68,12 @@ Aby rozwiązać niezgodność trwałości, która jest wskazywana przez któryko
 
 ## <a name="seed-node-deletion"></a>Usuwanie węzła inicjatora 
 ### <a name="overview"></a>Omówienie
-Klaster Service Fabric ma właściwość [warstwy niezawodności](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) , która jest używana do określania liczby replik usług systemowych, które są uruchomione na podstawowym typie węzła klastra. Liczba wymaganych replik określi minimalną liczbę węzłów, które muszą być utrzymywane w podstawowym typie klastra. Jeśli liczba węzłów w typie węzła podstawowego spadnie poniżej wymaganej wartości minimalnej dla warstwy niezawodności, klaster stanie się niestabilny.  
+Klaster Service Fabric ma właściwość [warstwy niezawodności](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) , która jest używana do określania liczby replik usług systemowych, które są uruchomione na podstawowym typie węzła klastra. Liczba wymaganych replik określi minimalną liczbę węzłów, które muszą być utrzymywane w podstawowym typie klastra. Jeśli liczba węzłów w typie węzła podstawowego spadnie poniżej wymaganej wartości minimalnej dla warstwy niezawodności, klaster stanie się niestabilny.  
 
 ### <a name="error-messages"></a>Komunikaty o błędach 
 Wykryto operację usuwania węzła inicjatora i zostanie on odrzucony. 
-* Ta operacja spowoduje, że tylko {0} potencjalni węzły inicjatora będą pozostawać w {1} klastrze, a ich minimum wymagają.
-* Usunięcie {0} węzłów inicjatora {1} spowoduje, że klaster przeprowadził z powodu utraty kworum węzła inicjatora. Maksymalna liczba węzłów inicjatora, które można usunąć w danym momencie, {2}to.
+* Ta operacja spowoduje, że tylko {0} potencjalni węzły inicjatora będą pozostawać w klastrze, a {1} ich minimum wymagają.
+* Usunięcie {0} węzłów inicjatora {1} spowoduje, że klaster przeprowadził z powodu utraty kworum węzła inicjatora. Maksymalna liczba węzłów inicjatora, które można usunąć w danym momencie, to {2} .
  
 ### <a name="mitigation"></a>Środki zaradcze 
 Upewnij się, że typ węzła podstawowego ma wystarczającą Virtual Machines, aby zapewnić niezawodność określoną w klastrze. Nie będzie można usunąć maszyny wirtualnej, jeśli zestaw skalowania maszyn wirtualnych zostanie ustawiony poniżej minimalnej liczby węzłów dla danej warstwy niezawodności.

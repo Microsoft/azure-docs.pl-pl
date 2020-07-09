@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645756"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Zdarzenia klastra Service Fabric systemu Linux w dzienniku systemu
@@ -25,10 +24,10 @@ W wersji 6,4 SyslogConsumer został wprowadzony do wysyłania zdarzeń platformy
 Każde zdarzenie dziennika systemu zawiera 4 składniki
 * Urządzenia
 * Tożsamość
-* Wiadomość
+* Komunikat
 * Ważność
 
-SyslogConsumer zapisuje wszystkie zdarzenia platformy przy użyciu funkcji `Local0`. Możesz zaktualizować do dowolnego prawidłowego obiektu, zmieniając konfigurację konfiguracji. Używana tożsamość to `ServiceFabric`. Pole Message zawiera całe zdarzenie serializowane w formacie JSON, tak aby można było wykonywać zapytania i korzystać z różnych narzędzi. 
+SyslogConsumer zapisuje wszystkie zdarzenia platformy przy użyciu funkcji `Local0` . Możesz zaktualizować do dowolnego prawidłowego obiektu, zmieniając konfigurację konfiguracji. Używana tożsamość to `ServiceFabric` . Pole Message zawiera całe zdarzenie serializowane w formacie JSON, tak aby można było wykonywać zapytania i korzystać z różnych narzędzi. 
 
 ## <a name="enable-syslogconsumer"></a>Włącz SyslogConsumer
 
@@ -75,9 +74,9 @@ Aby włączyć SyslogConsumer, należy przeprowadzić uaktualnienie klastra. Nal
 ```
 
 Poniżej przedstawiono zmiany, które należy wywoływać
-1. W sekcji Common jest wywoływany `LinuxStructuredTracesEnabled`nowy parametr. **Jest to wymagane, aby zdarzenia systemu Linux były strukturalne i serializowane podczas wysyłania do dziennika systemowego.**
+1. W sekcji Common jest wywoływany nowy parametr `LinuxStructuredTracesEnabled` . **Jest to wymagane, aby zdarzenia systemu Linux były strukturalne i serializowane podczas wysyłania do dziennika systemowego.**
 2. W sekcji Diagnostyka został dodany nowy ConsumerInstance: SyslogConsumer. Oznacza to, że platforma jest innym konsumentem zdarzeń. 
-3. Nowa sekcja SyslogConsumer musi mieć `IsEnabled` jako. `true` Jest ona konfigurowana do automatycznego używania funkcji Local0. Można to zastąpić przez dodanie innego parametru.
+3. Nowa sekcja SyslogConsumer musi mieć `IsEnabled` jako `true` . Jest ona konfigurowana do automatycznego używania funkcji Local0. Można to zastąpić przez dodanie innego parametru.
 
 ```json
     {
@@ -101,7 +100,7 @@ Te zdarzenia dziennika systemowego można odczytać w narzędziu do monitorowani
 5. Przejdź do Eksploratora zapytań, klikając `Logs` menu zasobów obszaru roboczego, aby rozpocząć wykonywanie zapytań
 
     ![Dzienniki obszaru roboczego](media/service-fabric-diagnostics-oms-syslog/workspace-logs.png)
-6. Można wykonać zapytanie względem `Syslog` tabeli szukanej jako `ServiceFabric` elementu ProcessName. Poniższe zapytanie przedstawia przykład sposobu analizowania kodu JSON w zdarzeniu i wyświetlania jego zawartości
+6. Można wykonać zapytanie względem `Syslog` tabeli szukanej `ServiceFabric` jako elementu ProcessName. Poniższe zapytanie przedstawia przykład sposobu analizowania kodu JSON w zdarzeniu i wyświetlania jego zawartości
 
 ```kusto
     Syslog | where ProcessName == "ServiceFabric" | extend $payload = parse_json(SyslogMessage) | project $payload

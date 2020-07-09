@@ -14,10 +14,9 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76696525"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Korzystanie z MSAL dla systemu Android z B2C
@@ -34,7 +33,7 @@ Dana aplikacja B2C, która ma dwie zasady:
 - Edytuj profil
     * Wywołan`B2C_1_EditProfile`
 
-Plik konfiguracyjny aplikacji deklaruje dwa `authorities`. Jeden dla każdej zasady. `type` Właściwość każdego urzędu ma wartość `B2C`.
+Plik konfiguracyjny aplikacji deklaruje dwa `authorities` . Jeden dla każdej zasady. `type`Właściwość każdego urzędu ma wartość `B2C` .
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -54,7 +53,7 @@ Plik konfiguracyjny aplikacji deklaruje dwa `authorities`. Jeden dla każdej zas
 }
 ```
 
-Program `redirect_uri` musi być zarejestrowany w konfiguracji aplikacji, a także w `AndroidManifest.xml` celu obsługi przekierowywania w ramach [przepływu przydzielenia kodu autoryzacji](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri`Program musi być zarejestrowany w konfiguracji aplikacji, a także w `AndroidManifest.xml` celu obsługi przekierowywania w ramach [przepływu przydzielenia kodu autoryzacji](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Zainicjuj IPublicClientApplication
 
@@ -112,7 +111,7 @@ pca.acquireToken(parameters);
 
 ## <a name="silently-renew-a-token"></a>Odnawianie tokenu w trybie dyskretnym
 
-Aby uzyskać token dyskretnie z MSAL, skompiluj `AcquireTokenSilentParameters` wystąpienie i podaj je do `acquireTokenSilentAsync` metody. W `authority` przeciwieństwie `acquireToken` do metody, należy określić, aby uzyskać token dyskretnie.
+Aby uzyskać token dyskretnie z MSAL, skompiluj `AcquireTokenSilentParameters` wystąpienie i podaj je do `acquireTokenSilentAsync` metody. W przeciwieństwie do `acquireToken` metody, `authority` należy określić, aby uzyskać token dyskretnie.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -155,9 +154,9 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 Przepływ użytkownika rejestracji lub logowania na koncie lokalnym pokazuje "**zapomniane hasło"?** powiązań. Kliknięcie tego linku nie powoduje automatycznego wyzwolenia przepływu użytkownika resetowania hasła.
 
-Zamiast tego kod `AADB2C90118` błędu jest zwracany do aplikacji. Aplikacja powinna obsłużyć ten kod błędu przez uruchomienie określonego przepływu użytkownika, który resetuje hasło.
+Zamiast tego kod błędu `AADB2C90118` jest zwracany do aplikacji. Aplikacja powinna obsłużyć ten kod błędu przez uruchomienie określonego przepływu użytkownika, który resetuje hasło.
 
-Aby przechwytywać kod błędu resetowania hasła, w programie `AuthenticationCallback`można używać następującej implementacji:
+Aby przechwytywać kod błędu resetowania hasła, w programie można używać następującej implementacji `AuthenticationCallback` :
 
 ```java
 new AuthenticationCallback() {
@@ -227,15 +226,15 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken oświadczeń
 
-Oświadczenia zwrócone w IdToken są wypełniane przez usługę tokenu zabezpieczającego (STS), a nie przez MSAL. Niektóre oświadczenia mogą być nieobecne w zależności od używanego dostawcy tożsamości (dostawcy tożsamości). Niektóre dostawców tożsamości nie udostępniają obecnie `preferred_username` tego żądania. Ponieważ to zgłoszenie jest używane przez MSAL do buforowania, w jego miejsce jest `MISSING FROM THE TOKEN RESPONSE`używana wartość symbolu zastępczego. Aby uzyskać więcej informacji na temat oświadczeń usługi B2C IdToken, zobacz [Omówienie tokenów w Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Oświadczenia zwrócone w IdToken są wypełniane przez usługę tokenu zabezpieczającego (STS), a nie przez MSAL. Niektóre oświadczenia mogą być nieobecne w zależności od używanego dostawcy tożsamości (dostawcy tożsamości). Niektóre dostawców tożsamości nie udostępniają obecnie tego `preferred_username` żądania. Ponieważ to zgłoszenie jest używane przez MSAL do buforowania, `MISSING FROM THE TOKEN RESPONSE` w jego miejsce jest używana wartość symbolu zastępczego. Aby uzyskać więcej informacji na temat oświadczeń usługi B2C IdToken, zobacz [Omówienie tokenów w Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Zarządzanie kontami i zasadami
 
-B2C traktuje każdą zasadę jako oddzielny urząd. W ten sposób tokeny dostępu, tokeny odświeżania i tokeny identyfikatorów zwracane przez poszczególne zasady nie są zamienne. Oznacza to, że każda zasada zwraca `IAccount` oddzielny obiekt, którego tokeny nie mogą być używane do wywoływania innych zasad.
+B2C traktuje każdą zasadę jako oddzielny urząd. W ten sposób tokeny dostępu, tokeny odświeżania i tokeny identyfikatorów zwracane przez poszczególne zasady nie są zamienne. Oznacza to, że każda zasada zwraca oddzielny `IAccount` obiekt, którego tokeny nie mogą być używane do wywoływania innych zasad.
 
-Każda zasada dodaje `IAccount` do pamięci podręcznej dla każdego użytkownika. Jeśli użytkownik zaloguje się do aplikacji i wywoła dwie zasady, będą mieć dwie `IAccount`s. Aby usunąć tego użytkownika z pamięci podręcznej, należy `removeAccount()` wywołać dla każdej zasady.
+Każda zasada dodaje `IAccount` do pamięci podręcznej dla każdego użytkownika. Jeśli użytkownik zaloguje się do aplikacji i wywoła dwie zasady, będą mieć dwie `IAccount` s. Aby usunąć tego użytkownika z pamięci podręcznej, należy wywołać `removeAccount()` dla każdej zasady.
 
-W przypadku odnowienia tokenów dla zasad `acquireTokenSilent`w programie Podaj takie `IAccount` samo, które zostało zwrócone z poprzednich wywołań zasad do `AcquireTokenSilentParameters`. Podanie konta zwróconego przez inne zasady spowoduje wystąpienie błędu.
+W przypadku odnowienia tokenów dla zasad w programie `acquireTokenSilent` Podaj takie samo, `IAccount` które zostało zwrócone z poprzednich wywołań zasad do `AcquireTokenSilentParameters` . Podanie konta zwróconego przez inne zasady spowoduje wystąpienie błędu.
 
 ## <a name="next-steps"></a>Następne kroki
 

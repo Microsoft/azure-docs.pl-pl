@@ -20,11 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692805"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Składnia $filter OData na platformie Azure Wyszukiwanie poznawcze
 
@@ -60,15 +59,15 @@ Dostępny jest również interaktywny diagram składni:
 
 Typy wyrażeń logicznych obejmują:
 
-- Wyrażenia filtru kolekcji `any` używające `all`lub. Zastosuj kryteria filtrowania do pól kolekcji. Aby uzyskać więcej informacji, zobacz [Operatory kolekcji OData na platformie Azure wyszukiwanie poznawcze](search-query-odata-collection-operators.md).
-- Wyrażenia logiczne łączące inne wyrażenia logiczne przy użyciu operatorów `and`, `or`i `not`. Aby uzyskać więcej informacji, zobacz [logiczne operatory OData na platformie Azure wyszukiwanie poznawcze](search-query-odata-logical-operators.md).
-- Wyrażenia porównania, które porównują pola lub zmienne zakresów do wartości stałych przy użyciu `eq`operatorów `ne`, `gt`, `lt`, `ge`, i `le`. Aby uzyskać więcej informacji, zobacz [Operatory porównania OData na platformie Azure wyszukiwanie poznawcze](search-query-odata-comparison-operators.md). Wyrażenia porównania są również używane do porównywania odległości między współrzędnymi geograficznie `geo.distance` przy użyciu funkcji. Aby uzyskać więcej informacji, zobacz [funkcje geograficzne OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-geo-spatial-functions.md).
-- Literały logiczne `true` i `false`. Te stałe mogą być przydatne czasami podczas programowego generowania filtrów, ale w przeciwnym razie nie są one używane w ćwiczeniach.
+- Wyrażenia filtru kolekcji używające `any` lub `all` . Zastosuj kryteria filtrowania do pól kolekcji. Aby uzyskać więcej informacji, zobacz [Operatory kolekcji OData na platformie Azure wyszukiwanie poznawcze](search-query-odata-collection-operators.md).
+- Wyrażenia logiczne łączące inne wyrażenia logiczne przy użyciu operatorów `and` , `or` i `not` . Aby uzyskać więcej informacji, zobacz [logiczne operatory OData na platformie Azure wyszukiwanie poznawcze](search-query-odata-logical-operators.md).
+- Wyrażenia porównania, które porównują pola lub zmienne zakresów do wartości stałych przy użyciu operatorów `eq` , `ne` ,,, `gt` `lt` `ge` i `le` . Aby uzyskać więcej informacji, zobacz [Operatory porównania OData na platformie Azure wyszukiwanie poznawcze](search-query-odata-comparison-operators.md). Wyrażenia porównania są również używane do porównywania odległości między współrzędnymi geograficznie przy użyciu `geo.distance` funkcji. Aby uzyskać więcej informacji, zobacz [funkcje geograficzne OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-geo-spatial-functions.md).
+- Literały logiczne `true` i `false` . Te stałe mogą być przydatne czasami podczas programowego generowania filtrów, ale w przeciwnym razie nie są one używane w ćwiczeniach.
 - Wywołania funkcji logicznych, w tym:
   - `geo.intersects`, który testuje, czy dany punkt znajduje się w obrębie danego wielokąta. Aby uzyskać więcej informacji, zobacz [funkcje geograficzne OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-geo-spatial-functions.md).
-  - `search.in`, która porównuje zmienną pola lub zakresu z każdą wartością na liście wartości. Aby uzyskać więcej informacji, [Zobacz `search.in` funkcja OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-search-in-function.md).
-  - `search.ismatch`i `search.ismatchscoring`, które wykonują operacje wyszukiwania pełnotekstowego w kontekście filtru. Aby uzyskać więcej informacji, zobacz [funkcje wyszukiwania pełnotekstowego protokołu OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-full-text-search-functions.md).
-- Ścieżki pól lub zmienne zakresowe typu `Edm.Boolean`. Na przykład jeśli indeks ma pole logiczne o nazwie `IsEnabled` i chcesz zwrócić wszystkie dokumenty, w których to pole jest `true`, wyrażenie filtru może być po prostu nazwą. `IsEnabled`
+  - `search.in`, która porównuje zmienną pola lub zakresu z każdą wartością na liście wartości. Aby uzyskać więcej informacji, [Zobacz `search.in` Funkcja OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-search-in-function.md).
+  - `search.ismatch`i `search.ismatchscoring` , które wykonują operacje wyszukiwania pełnotekstowego w kontekście filtru. Aby uzyskać więcej informacji, zobacz [funkcje wyszukiwania pełnotekstowego protokołu OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-full-text-search-functions.md).
+- Ścieżki pól lub zmienne zakresowe typu `Edm.Boolean` . Na przykład jeśli indeks ma pole logiczne o nazwie `IsEnabled` i chcesz zwrócić wszystkie dokumenty, w których to pole jest `true` , wyrażenie filtru może być po prostu nazwą `IsEnabled` .
 - Wyrażenia logiczne w nawiasach. Używanie nawiasów może pomóc jawnie określić kolejność operacji w filtrze. Aby uzyskać więcej informacji na temat domyślnego pierwszeństwa operatorów OData, zobacz następną sekcję.
 
 ### <a name="operator-precedence-in-filters"></a>Pierwszeństwo operatorów w filtrach
@@ -82,12 +81,12 @@ Jeśli piszesz wyrażenie filtru bez nawiasów wokół jego wyrażeń podrzędny
 | Operatory logiczne | `and` |
 | Operatory logiczne | `or` |
 
-Operator, który jest wyższy w powyższej tabeli, zostanie "poddany bardziej ścisłie" do jego operandów niż inne operatory. Na przykład `and` ma wyższy priorytet niż `or`, a operatory porównania mają wyższy priorytet niż jeden z nich, dlatego następujące dwa wyrażenia są równoważne:
+Operator, który jest wyższy w powyższej tabeli, zostanie "poddany bardziej ścisłie" do jego operandów niż inne operatory. Na przykład `and` ma wyższy priorytet niż `or` , a operatory porównania mają wyższy priorytet niż jeden z nich, dlatego następujące dwa wyrażenia są równoważne:
 
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
 
-`not` Operator ma najwyższy priorytet wszystkich elementów — nawet wyższych niż operatory porównania. Dlatego jeśli próbujesz napisać filtr podobny do tego:
+`not`Operator ma najwyższy priorytet wszystkich elementów — nawet wyższych niż operatory porównania. Dlatego jeśli próbujesz napisać filtr podobny do tego:
 
     not Rating gt 5
 
@@ -95,7 +94,7 @@ Zostanie wyświetlony następujący komunikat o błędzie:
 
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
 
-Ten błąd występuje, ponieważ operator jest skojarzony tylko z `Rating` polem, który jest typu `Edm.Int32`, a nie z całym wyrażeniem porównania. Poprawka polega na umieszczeniu operandu `not` w nawiasach:
+Ten błąd występuje, ponieważ operator jest skojarzony tylko z `Rating` polem, który jest typu `Edm.Int32` , a nie z całym wyrażeniem porównania. Poprawka polega na umieszczeniu operandu `not` w nawiasach:
 
     not (Rating gt 5)
 
@@ -134,7 +133,7 @@ Znajdź wszystkie hotele, które są możliwość zaprojektowaniae lub zawieraj�
 
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 
-Znajdź wszystkie hotele ze znacznikiem "Wi-Fi" w co najmniej jednym pokoju (gdzie każde pomieszczenie ma Tagi przechowywane `Collection(Edm.String)` w polu):  
+Znajdź wszystkie hotele ze znacznikiem "Wi-Fi" w co najmniej jednym pokoju (gdzie każde pomieszczenie ma Tagi przechowywane w `Collection(Edm.String)` polu):  
 
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
 
@@ -146,7 +145,7 @@ Znajdź wszystkie hotele, które nie mają pokojów:
 
     $filter=not Rooms/any()
 
-Znajdź wszystkie hotele w ciągu 10 kilometrów danego punktu odwołania (gdzie `Location` jest polem typu `Edm.GeographyPoint`):
+Znajdź wszystkie hotele w ciągu 10 kilometrów danego punktu odwołania (gdzie `Location` jest polem typu `Edm.GeographyPoint` ):
 
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
@@ -174,11 +173,11 @@ Znajdź dopasowanie do fraz w kolekcji, takich jak "ogrzewane Stojaki ręcznikó
 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) w `search=waterfront`.
+Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) w `search=waterfront` .
 
     $filter=search.ismatchscoring('waterfront')
 
-Znajdź dokumenty z wyrazem "Hostel" i klasyfikacją wyższą lub równą 4 lub dokumenty z wyrazem "Motel" i klasyfikacją równą 5. Nie można wyrazić tego żądania bez `search.ismatchscoring` funkcji, ponieważ łączy ono wyszukiwanie pełnotekstowe z operacjami filtrowania przy `or`użyciu.
+Znajdź dokumenty z wyrazem "Hostel" i klasyfikacją wyższą lub równą 4 lub dokumenty z wyrazem "Motel" i klasyfikacją równą 5. Nie można wyrazić tego żądania bez `search.ismatchscoring` funkcji, ponieważ łączy ono wyszukiwanie pełnotekstowe z operacjami filtrowania przy użyciu `or` .
 
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 
@@ -186,7 +185,7 @@ Znajdź dokumenty bez słowa "możliwość zaprojektowania".
 
     $filter=not search.ismatch('luxury')
 
-Znajdź dokumenty z frazą "widok oceanu" lub klasyfikacją równą 5. `search.ismatchscoring` Zapytanie zostanie wykonane tylko względem pól `HotelName` i `Description`. Dokumenty, które pasują tylko do drugiej klauzuli rozłączenia, zostaną zwrócone zbyt--Hotele `Rating` z równymi 5. Te dokumenty zostaną zwrócone z wynikiem równym zero, aby było jasne, że nie pasują do żadnej z ocenionych części wyrażenia.
+Znajdź dokumenty z frazą "widok oceanu" lub klasyfikacją równą 5. `search.ismatchscoring`Zapytanie zostanie wykonane tylko względem pól `HotelName` i `Description` . Dokumenty, które pasują tylko do drugiej klauzuli rozłączenia, zostaną zwrócone zbyt--Hotele z `Rating` równymi 5. Te dokumenty zostaną zwrócone z wynikiem równym zero, aby było jasne, że nie pasują do żadnej z ocenionych części wyrażenia.
 
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
 

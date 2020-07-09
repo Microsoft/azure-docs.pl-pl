@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265859"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084294"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiowanie danych do lokalnego lub z programu Oracle w środowisku lokalnym przy użyciu Azure Data Factory
 
@@ -70,13 +70,13 @@ Ten łącznik Oracle obsługuje dwie wersje sterowników:
 
 - **Oracle dostawca danych dla platformy .NET**: możesz użyć programu Oracle dostawca danych do kopiowania danych z programu lub do programu Oracle. Ten składnik jest dostępny w [składnikach programu Oracle Data Access dla systemu Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Zainstaluj odpowiednią wersję (32-bitową lub 64-bitową) na komputerze, na którym zainstalowano bramę. [Oracle dostawca danych .net 12,1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) ma dostęp do Oracle Database 10 GB w wersji 2 i nowszych.
 
-    W przypadku wybrania opcji **Instalacja xcopy**wykonaj kroki opisane w pliku Readme. htm. Zalecamy wybranie Instalatora z interfejsem użytkownika (nie Instalatora XCopy).
+    W przypadku wybrania opcji **Instalacja xcopy**wykonaj kroki opisane w pliku readme.htm. Zalecamy wybranie Instalatora z interfejsem użytkownika (nie Instalatora XCopy).
 
     Po zainstalowaniu dostawcy należy ponownie uruchomić usługę hosta bramy Zarządzanie danymi na maszynie za pomocą apletu usługi lub Zarządzanie danymi bramy Configuration Manager.
 
 W przypadku tworzenia potoku kopiowania przy użyciu Kreatora kopiowania typ sterownika jest określany jako autoustalany. Sterownik firmy Microsoft jest używany domyślnie, chyba że wersja bramy jest wcześniejsza niż wersja 2,7 lub jako ujścia jest wybierana baza danych Oracle.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Można utworzyć potok z działaniem kopiowania. Potok przenosi dane do lub z lokalnej bazy danych Oracle przy użyciu różnych narzędzi lub interfejsów API.
 
@@ -99,9 +99,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 
 W poniższej tabeli opisano elementy JSON, które są specyficzne dla połączonej usługi Oracle:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość **Type** musi być ustawiona na wartość **OnPremisesOracle**. |Tak |
+| typ |Właściwość **Type** musi być ustawiona na wartość **OnPremisesOracle**. |Tak |
 | drivertype | Określ, który sterownik ma być używany do kopiowania danych z lub do bazy danych Oracle. Dozwolone wartości to **Microsoft** i **ODP** (domyślnie). Zobacz [obsługiwaną wersję i instalację,](#supported-versions-and-installation) Aby uzyskać szczegółowe informacje o sterowniku. | Nie |
 | Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem bazy danych Oracle dla właściwości **ConnectionString** . | Tak |
 | gatewayName | Nazwa bramy, która jest używana do nawiązywania połączenia z lokalnym serwerem Oracle. |Tak |
@@ -150,7 +150,7 @@ Sekcje pliku JSON zestawu danych, takie jak struktura, dostępność i zasady, s
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja **typeProperties** zestawu danych typu **Oracle** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | tableName |Nazwa tabeli w bazie danych Oracle, do której odwołuje się połączona usługa. |Nie (Jeśli określono **oracleReaderQuery** lub **OracleSource** ) |
 
@@ -169,15 +169,15 @@ Właściwości, które są dostępne w sekcji **typeProperties** działania, ró
 
 W działaniu kopiowania, gdy źródłem jest typ **OracleSource** , w sekcji **typeProperties** są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład "Select \* from **MyTable**". <br/><br/>Jeśli nie zostanie określony, ta instrukcja SQL jest wykonywana: " \* SELECT FROM **MyTable**" |Nie<br />(Jeśli określono element **TableName** **zestawu danych** ) |
+| oracleReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład "Select \* from **MyTable**". <br/><br/>Jeśli nie zostanie określony, ta instrukcja SQL jest wykonywana: "Select \* from **MyTable**" |Nie<br />(Jeśli określono element **TableName** **zestawu danych** ) |
 
 ### <a name="oraclesink"></a>OracleSink
 
 **OracleSink** obsługuje następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Czas oczekiwania na zakończenie operacji wstawiania partii przed przekroczeniem limitu czasu. |**zakres czasu**<br/><br/> Przykład: 00:30:00 (30 minut) |Nie |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy rozmiar buforu osiągnie wartość **writeBatchSize**. |Liczba całkowita (liczba wierszy) |Nie (domyślnie: 100) |
@@ -556,33 +556,39 @@ Potok zawiera działanie kopiowania, które jest skonfigurowane do używania wej
 
 **Komunikat o błędzie**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```text
+Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
+```
 
 **Możliwe przyczyny**
 
 * Nie zainstalowano Dostawca danych .NET Framework dla programu Oracle.
 * Dostawca danych .NET Framework dla programu Oracle został zainstalowany w .NET Framework 2,0 i nie można go znaleźć w folderach .NET Framework 4,0.
 
-**Rozwiązanie**
+**Rozdzielczość**
 
 * Jeśli nie zainstalowano dostawcy platformy .NET dla programu Oracle, [zainstaluj ją](https://www.oracle.com/technetwork/topics/dotnet/downloads/), a następnie ponów próbę wykonania tego scenariusza.
 * Jeśli zobaczysz komunikat o błędzie nawet po zainstalowaniu dostawcy, wykonaj następujące czynności:
-    1. Otwórz plik konfiguracji maszyny dla programu .NET 2,0 z folderu <dysk\>systemowy: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Wyszukaj ciąg **Oracle dostawca danych dla platformy .NET**. Powinno być możliwe znalezienie wpisu, jak pokazano w poniższym przykładzie w obszarze **System. Data** > **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Skopiuj ten wpis do pliku Machine. config w następującym folderze .NET 4,0: dysk\>systemowy <: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Następnie zmień wersję na 4. xxx. x.x.
-* Zainstaluj <ODP.NET zainstalowana ścieżka\>\ 11.2.0 \ client_1 \odp.net\bin\4\oracle.DataAccess.dll w globalnej pamięci podręcznej zestawów (GAC) przez uruchomienie **Gacutil/i [ścieżka dostawcy]**.
+    1. Otwórz plik konfiguracji komputera dla programu .NET 2,0 z folderu <dysku systemowego \>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Wyszukaj ciąg **Oracle dostawca danych dla platformy .NET**. Powinno być możliwe znalezienie wpisu, jak pokazano w poniższym przykładzie w obszarze **System. Data**  >  **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Skopiuj ten wpis do pliku machine.config w następującym folderze .NET 4,0: <dysku systemowego \>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Następnie zmień wersję na 4. xxx. x.x.
+* Zainstaluj ścieżkę <ODP.NET zainstalowana \>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll w globalnej pamięci podręcznej zestawów (GAC), uruchamiając **Gacutil/i [ścieżka dostawcy]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problem 2: Formatowanie daty i godziny
 
 **Komunikat o błędzie**
 
-    Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```text
+Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+```
 
-**Rozwiązanie**
+**Rozdzielczość**
 
 Może być konieczne dostosowanie ciągu zapytania w działaniu kopiowania w zależności od sposobu skonfigurowania dat w bazie danych Oracle. Oto przykład (przy użyciu funkcji **TO_DATE** ):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```console   
+"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+```
 
 
 ## <a name="type-mapping-for-oracle"></a>Mapowanie typu dla programu Oracle

@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76938864"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Tworzenie stref DNS i zestawów rekordów przy użyciu zestawu .NET SDK
@@ -34,7 +33,7 @@ Zazwyczaj dostęp programistyczny do zasobów platformy Azure uzyskuje się za p
 3. Użyj usługi Azure RBAC, aby przyznać uprawnienia współautora strefy DNS konta głównego usługi do grupy zasobów ([Oto jak to zrobić](../role-based-access-control/role-assignments-portal.md)).
 4. Jeśli używasz przykładowego projektu Azure DNS zestawu SDK, edytuj plik "program. cs" w następujący sposób:
 
-   * Wstaw poprawne wartości `tenantId`dla, `clientId` (znane również jako identyfikator konta), `secret` (hasło konta nazwy głównej usługi) i `subscriptionId` jak używane w kroku 1.
+   * Wstaw poprawne wartości dla `tenantId` , `clientId` (znane również jako identyfikator konta), `secret` (hasło konta nazwy głównej usługi) i `subscriptionId` jak używane w kroku 1.
    * Wprowadź nazwę grupy zasobów wybraną w kroku 2.
    * Wprowadź wybraną nazwę strefy DNS.
 
@@ -43,7 +42,7 @@ Zazwyczaj dostęp programistyczny do zasobów platformy Azure uzyskuje się za p
 Aby użyć Azure DNS .NET SDK, należy zainstalować pakiet NuGet **biblioteki zarządzania Azure DNS** i inne wymagane pakiety platformy Azure.
 
 1. W programie **Visual Studio**Otwórz projekt lub nowy projekt.
-2. Wybierz kolejno pozycje **Narzędzia** **>** **Menedżer** **>** pakietów NuGet **Zarządzanie pakietami NuGet dla rozwiązania...**
+2. Wybierz kolejno pozycje **Narzędzia** **>** **Menedżer pakietów NuGet** **>** **Zarządzanie pakietami NuGet dla rozwiązania...**
 3. Kliknij przycisk **Przeglądaj**, zaznacz pole wyboru **Uwzględnij wersję wstępną** i wpisz **Microsoft. Azure. Management. DNS** w polu wyszukiwania.
 4. Wybierz pakiet i kliknij pozycję **Zainstaluj** , aby dodać go do projektu programu Visual Studio.
 5. Powtórz ten proces, aby zainstalować również następujące pakiety: **Microsoft. Rest. ClientRuntime. Azure. Authentication** i **Microsoft. Azure. Management. ResourceManager**.
@@ -60,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>Inicjowanie klienta zarządzania usługą DNS
 
-`DnsManagementClient` Zawiera metody i właściwości niezbędne do zarządzania strefami i zestawami rekordów DNS.  Poniższy kod loguje się do konta głównego usługi i tworzy `DnsManagementClient` obiekt.
+`DnsManagementClient`Zawiera metody i właściwości niezbędne do zarządzania strefami i zestawami rekordów DNS.  Poniższy kod loguje się do konta głównego usługi i tworzy `DnsManagementClient` obiekt.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -99,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 Rekordy DNS są zarządzane jako zestaw rekordów. Zestaw rekordów jest zestawem rekordów o tej samej nazwie i typie rekordu w obrębie strefy.  Nazwa zestawu rekordów jest względna w stosunku do nazwy strefy, a nie w pełni kwalifikowanej nazwy DNS.
 
-Aby utworzyć lub zaktualizować zestaw rekordów, tworzony jest obiekt parametrów "RecordSet" i przeszedł do `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Podobnie jak w przypadku stref DNS, istnieją trzy tryby działania: synchroniczne ("metodę createorupdate"), asynchroniczne ("CreateOrUpdateAsync") lub asynchroniczne z dostępem do odpowiedzi HTTP ("CreateOrUpdateWithHttpMessagesAsync").
+Aby utworzyć lub zaktualizować zestaw rekordów, tworzony jest obiekt parametrów "RecordSet" i przeszedł do `DnsManagementClient.RecordSets.CreateOrUpdateAsync` . Podobnie jak w przypadku stref DNS, istnieją trzy tryby działania: synchroniczne ("metodę createorupdate"), asynchroniczne ("CreateOrUpdateAsync") lub asynchroniczne z dostępem do odpowiedzi HTTP ("CreateOrUpdateWithHttpMessagesAsync").
 
 Podobnie jak w przypadku stref DNS, operacje na zestawach rekordów obejmują obsługę optymistycznej współbieżności.  W tym przykładzie, ponieważ nie określono opcji "If-Match" ani "If-None-Match", zestaw rekordów jest zawsze tworzony.  To wywołanie zastępuje wszystkie istniejące zestawy rekordów o tej samej nazwie i typie rekordu w tej strefie DNS.
 
@@ -123,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>Pobierz strefy i zestawy rekordów
 
-Metody `DnsManagementClient.Zones.Get` i `DnsManagementClient.RecordSets.Get` pobierają odpowiednio poszczególne strefy i zestawy rekordów. Zestawy rekordów są identyfikowane według ich typu, nazwy i strefy oraz grupy zasobów, w których istnieją. Strefy są identyfikowane przez ich nazwę i grupę zasobów, w której istnieją.
+`DnsManagementClient.Zones.Get`Metody i `DnsManagementClient.RecordSets.Get` pobierają odpowiednio poszczególne strefy i zestawy rekordów. Zestawy rekordów są identyfikowane według ich typu, nazwy i strefy oraz grupy zasobów, w których istnieją. Strefy są identyfikowane przez ich nazwę i grupę zasobów, w której istnieją.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);

@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem, przypisywaniem i usuwaniem planów, takich jak naruszenia zasad i funkcje parametrów planu.
-ms.date: 01/15/2020
+ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76157087"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557508"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Rozwiązywanie problemów z błędami przy użyciu planów platformy Azure
 
@@ -55,11 +55,11 @@ Parametry planu, które są funkcjami są przetwarzane przed przekazaniem do art
 
 #### <a name="cause"></a>Przyczyna
 
-Przekazywanie parametru planu, który używa funkcji, na przykład `[resourceGroup().tags.myTag]`, do artefaktu, powoduje przetworzony wynik funkcji ustawionej dla artefaktu zamiast funkcji dynamicznej.
+Przekazywanie parametru planu, który używa funkcji, `[resourceGroup().tags.myTag]` na przykład, do artefaktu, powoduje przetworzony wynik funkcji ustawionej dla artefaktu zamiast funkcji dynamicznej.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby przekazać funkcję przez parametr, należy wypróbować cały ciąg w `[` taki sposób, aby parametr strategii wyglądał następująco. `[[resourceGroup().tags.myTag]` Znak ucieczki powoduje, że plany traktują wartość jako ciąg podczas przetwarzania planu. Plany następnie umieszczają funkcję na artefaktie, umożliwiając jej dynamiczne działanie zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zobacz [składnia i wyrażenia w szablonach Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Aby przekazać funkcję przez parametr, należy wypróbować cały ciąg w taki sposób, `[` Aby parametr strategii wyglądał następująco `[[resourceGroup().tags.myTag]` . Znak ucieczki powoduje, że plany traktują wartość jako ciąg podczas przetwarzania planu. Plany następnie umieszczają funkcję na artefaktie, umożliwiając jej dynamiczne działanie zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zobacz [składnia i wyrażenia w szablonach Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Usuń błędy
 

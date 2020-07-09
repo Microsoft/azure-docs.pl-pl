@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 1dd716a279f7a09e7d9152ee34ff5c7bdac201dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849918"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Co to jest usługa ML w usłudze Azure HDInsight
 
@@ -84,7 +84,7 @@ Skrypty języka R mogą korzystać z dowolnego z pakietów języka R typu "open 
 
 ## <a name="operationalize-a-model"></a>`Operationalize`Model
 
-Po zakończeniu `operationalize` modelowania danych model do prognozowania dla nowych danych na platformie Azure lub w środowisku lokalnym. Ten proces jest znany jako ocenianie. Ocenianie może odbywać się w usłudze HDInsight, Azure Machine Learning lub lokalnie.
+Po zakończeniu modelowania danych `operationalize` model do prognozowania dla nowych danych na platformie Azure lub w środowisku lokalnym. Ten proces jest znany jako ocenianie. Ocenianie może odbywać się w usłudze HDInsight, Azure Machine Learning lub lokalnie.
 
 ### <a name="score-in-hdinsight"></a>Wyniki w usłudze HDInsight
 
@@ -114,7 +114,9 @@ Po uruchomieniu zadania MapReduce można modyfikować dostępną pamięć do us�
 
 Dostępną pamięć do usługi ML można zmienić przy użyciu przełączników Hadoop w wywołaniu **RxHadoopMR**:
 
-    hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
+```r
+hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"
+```
 
 ### <a name="scale-your-cluster"></a>Skalowanie klastra
 
@@ -134,7 +136,7 @@ Węzeł brzegowy systemu Linux klastra usługi HDInsight jest strefą docelową 
 
 Aby uzyskać dostęp do konsoli języka R w węźle brzegowym, wpisz **R** w wierszu polecenia. Korzystając z interfejsu konsoli, wygodnie jest utworzyć skrypt języka R w edytorze tekstu. Następnie należy wyciąć i wkleić sekcje skryptu do konsoli języka R, zgodnie z potrzebami.
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Ceny skojarzone z klastrem usługi HDInsight usług w usłudze ML mają strukturę podobną do innych typów klastrów w usłudze HDInsight. Są one oparte na wymiarze rozmiarów bazowych maszyn wirtualnych w obrębie nazwy, danych i węzłów brzegowych. Również przyrosty godzin. Aby uzyskać więcej informacji, zobacz [Cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

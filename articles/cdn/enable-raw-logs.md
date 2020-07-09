@@ -7,15 +7,15 @@ manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a2522eba17574246ab99a0d47a42f128d5f61ace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888640"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN dziennikami nieprzetworzonymi HTTP
 Dzienniki RAW zawierają bogate informacje o operacjach i błędach, które są ważne w przypadku inspekcji i rozwiązywania problemów. Dzienniki pierwotne różnią się od dzienników aktywności. Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki pierwotne zawierają rekord operacji dla zasobu.
@@ -29,11 +29,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Aby skonfigurować dzienniki pierwotne dla Azure CDN z profilu Microsoft: 
 
-1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby**  >>  ** \<>profilu sieci CDN **.
+1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby**  >>  **\<your-CDN-profile>** .
 
 2. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyki**.
 

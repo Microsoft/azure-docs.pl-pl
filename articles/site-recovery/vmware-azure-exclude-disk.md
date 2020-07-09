@@ -6,12 +6,12 @@ manager: rochakm
 ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: cd54da5ee01206e576157435135065189bfb8035
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129873"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Wykluczanie dysków z replikacji maszyny wirtualnej VMware do platformy Azure
 
@@ -42,7 +42,7 @@ Przed wykluczeniem dysków z replikacji:
 
 ## <a name="exclude-disks-from-replication"></a>Wykluczanie dysków z replikacji
 
-1. Po [włączeniu replikacji](site-recovery-hyper-v-site-to-azure.md) dla maszyny wirtualnej VMware, po wybraniu maszyn wirtualnych, które mają być replikowane, na stronie **Włączanie** > **Właściwości** > **Configure properties** replikacji należy przejrzeć kolumny **dyski do replikacji** . Domyślnie do replikacji są wybierane wszystkie dyski.
+1. Po [włączeniu replikacji](./hyper-v-azure-tutorial.md) dla maszyny wirtualnej VMware, po wybraniu maszyn wirtualnych, które mają być replikowane, na stronie **Włączanie właściwości replikacji**należy  >  **Properties**  >  **Configure properties** przejrzeć kolumny **dyski do replikacji** . Domyślnie do replikacji są wybierane wszystkie dyski.
 2. Jeśli nie chcesz replikować określonego dysku, w obszarze **dyski do replikacji** wyczyść zaznaczenie dla wszystkich dysków, które chcesz wykluczyć. 
 
     ![Wykluczanie dysków z replikacji](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)

@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84699820"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funkcja diagnostyki dla stanowych usług Reliable Services
 Service Fabric stanowa platformy Azure Reliable Services Klasa StatefulServiceBase emituje zdarzenia [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) , które mogą być używane do debugowania usługi, zapewnia wgląd w sposób działania środowiska uruchomieniowego i pomaga w rozwiązywaniu problemów.
@@ -56,11 +55,11 @@ Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/li
 Klaster, który ma dużą liczbę niezawodnych usług lub niezawodnych partycji usługi, będzie miał dużą liczbę wystąpień liczników wydajności dla replikatorów transakcyjnych. Jest to również przypadek dla liczników wydajności TStore, ale jest również mnożony przez liczbę niezawodnych słowników i używanych niezawodnych kolejek. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu konkretnej [partycji](service-fabric-concepts-partitioning.md), repliki usługi i dostawcy stanu w przypadku TStore, z którym jest skojarzone wystąpienie licznika wydajności.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Service Fabric kategorii replikatorów transakcyjnych
-W przypadku kategorii `Service Fabric Transactional Replicator`nazwy wystąpień liczników mają następujący format:
+W przypadku kategorii `Service Fabric Transactional Replicator` nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) jest generowana za pomocą specyfikatora formatu "D".
+*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) specyfikatora formatu "D".
 
 *ServiceFabricReplicaId* to identyfikator skojarzony z daną repliką niezawodnej usługi. IDENTYFIKATOR repliki jest dołączany do nazwy wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tę samą partycję. Więcej informacji o replikach i ich roli w niezawodnych usługach można znaleźć [tutaj](service-fabric-concepts-replica-lifecycle.md).
 
@@ -71,11 +70,11 @@ Następująca nazwa wystąpienia licznika jest typowa dla licznika w `Service Fa
 W poprzednim przykładzie `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacją ciągu Service Fabric identyfikator partycji i `131652217797162571` jest identyfikatorem repliki.
 
 #### <a name="service-fabric-tstore-category"></a>Service Fabric kategorii TStore
-W przypadku kategorii `Service Fabric TStore`nazwy wystąpień liczników mają następujący format:
+W przypadku kategorii `Service Fabric TStore` nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) jest generowana za pomocą specyfikatora formatu "D".
+*ServiceFabricPartitionId* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) specyfikatora formatu "D".
 
 *ServiceFabricReplicaId* to identyfikator skojarzony z daną repliką niezawodnej usługi. IDENTYFIKATOR repliki jest dołączany do nazwy wystąpienia licznika wydajności, aby zapewnić jego unikatowość i uniknąć konfliktu z innymi wystąpieniami liczników wydajności generowanymi przez tę samą partycję. Więcej informacji o replikach i ich roli w niezawodnych usługach można znaleźć [tutaj](service-fabric-concepts-replica-lifecycle.md).
 
@@ -89,7 +88,7 @@ Następująca nazwa wystąpienia licznika jest typowa dla licznika w `Service Fa
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-W poprzednim przykładzie `00d0126d-3e36-4d68-98da-cc4f7195d85e` , jest reprezentacją ciągu Service Fabric identyfikator partycji, `131652217797162571` jest identyfikatorem repliki, `142652217797162571` jest identyfikatorem dostawcy stanu i `1337` jest odróżniany od wystąpienia licznika wydajności. `urn:MyReliableDictionary/dataStore`jest nazwą dostawcy stanu, który przechowuje dane dla kolekcji o nazwie `urn:MyReliableDictionary`.
+W poprzednim przykładzie, `00d0126d-3e36-4d68-98da-cc4f7195d85e` jest reprezentacją ciągu Service Fabric identyfikator partycji, `131652217797162571` jest identyfikatorem repliki, `142652217797162571` jest identyfikatorem dostawcy stanu i `1337` jest odróżniany od wystąpienia licznika wydajności. `urn:MyReliableDictionary/dataStore`jest nazwą dostawcy stanu, który przechowuje dane dla kolekcji o nazwie `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Liczniki wydajności transakcyjnych replikatorów
 

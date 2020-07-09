@@ -3,23 +3,23 @@ title: Projektowanie przepływów pracy typu zasady jako kod
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684267"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970947"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
 W miarę postępów związanych z zarządzaniem chmurą należy zmienić ręczną procedurę zarządzania wszystkimi definicjami zasad w Azure Portal lub za pośrednictwem różnych zestawów SDK, aby łatwiej zarządzać i powtarzać się w skali przedsiębiorstwa. Dwa z dominujących metod zarządzania systemami na dużą skalę w chmurze to:
 
-- Infrastruktura jako kod: praktyczne traktowanie zawartości definiującej Twoje środowiska, wszystko to z szablonów Menedżer zasobów, aby Azure Policy definicje do planów platformy Azure, jako kod źródłowy.
+- Infrastruktura jako kod: praktyczne traktowanie zawartości definiującej Twoje środowiska, wszystko z szablonów Azure Resource Manager (szablony ARM) do Azure Policy definicji do planów platformy Azure, jako kod źródłowy.
 - DevOps: związek osób, procesów i produktów, aby umożliwić ciągłe dostarczanie wartości naszym użytkownikom końcowym.
 
 Zasady jako kod to kombinacja tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła oraz za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
 
-Krok walidacji powinien również być składnikiem innych przepływów pracy ciągłej integracji i ciągłego wdrażania. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki wykorzystaniu Azure Policy sprawdzać poprawność wczesnego składnika procesu kompilacji i wdrożenia, zespoły aplikacji i operacji wykrywają, czy ich zmiany nie są reklamacją, długo przed upływem zbyt późno i podejmują próbę wdrożenia w środowisku produkcyjnym.
+Krok walidacji powinien również być składnikiem innych przepływów pracy ciągłej integracji i ciągłego wdrażania. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki wykorzystaniu Azure Policy sprawdzać poprawność wczesnego składnika procesu kompilacji i wdrożenia, zespoły aplikacji i operacji wykrywają, czy zmiany nie są zgodne, długo przed upływem zbyt późno i podejmują próbę wdrożenia w środowisku produkcyjnym.
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 
@@ -115,7 +115,7 @@ Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać 
 
 ## <a name="process-integrated-evaluations"></a>Przetwarzaj zintegrowane oceny
 
-Ogólny przepływ pracy dla zasad jako kod służy do opracowywania i wdrażania zasad oraz inicjatyw w środowisku na dużą skalę. Jednak Ocena zasad powinna być częścią procesu wdrażania dla każdego przepływu pracy, który wdraża lub tworzy zasoby na platformie Azure, takie jak wdrażanie aplikacji lub uruchamianie szablonów Menedżer zasobów w celu utworzenia infrastruktury.
+Ogólny przepływ pracy dla zasad jako kod służy do opracowywania i wdrażania zasad oraz inicjatyw w środowisku na dużą skalę. Jednak Ocena zasad powinna być częścią procesu wdrażania dla każdego przepływu pracy, który wdraża lub tworzy zasoby na platformie Azure, takie jak wdrażanie aplikacji lub uruchamianie szablonów ARM w celu utworzenia infrastruktury.
 
 W takich przypadkach po wdrożeniu aplikacji lub infrastruktury w ramach subskrypcji testowej lub grupy zasobów należy przeprowadzić ocenę dla tego zakresu, sprawdzając sprawdzanie poprawności wszystkich istniejących zasad i inicjatyw. Chociaż mogą być skonfigurowane jako **wymuszenia** _wyłączone_ w takim środowisku, warto szybko wiedzieć, czy wdrożenie aplikacji lub infrastruktury ma na celu wczesne naruszenie definicji zasad. W związku z tym Ocena zasad powinna być krokiem w tych przepływach pracy i wdrożeniami zakończonymi niezgodnością.
 

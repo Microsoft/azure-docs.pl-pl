@@ -4,14 +4,13 @@ description: Wyświetla listę typów zasobów platformy Azure, które mogą by�
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 01/20/2020
+ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 9bc7dc66ccf3049ac878f7871c816e5ade1afde5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0510df504c8de70cfb6a486f394db6da65dbfce2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760712"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057691"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -32,7 +31,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft. Batchai Job](#microsoftbatchai)
+> - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
 > - [Microsoft. BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft. łańcucha bloków](#microsoftblockchain)
@@ -74,7 +73,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. urządzenia](#microsoftdevices)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. wspólny](#microsoftdevtestlab)
-> - [Microsoft. DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft. DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft. EventGrid](#microsofteventgrid)
@@ -186,7 +185,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | usługa |  Tak | 
+> | usługa |  Tak (przy użyciu szablonu) <br/><br/> [Przenieś API Management między regionami](../../api-management/api-management-howto-migrate.md). | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
 
@@ -200,7 +199,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | apiapps | Nie | 
+> | apiapps | Tak (przy użyciu szablonu)<br/><br/> [Przenoszenie aplikacji App Service do innego regionu](../../app-service/manage-move-across-regions.md) | 
 > | appidentities | Nie | 
 > | bram | Nie | 
 
@@ -217,7 +216,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | automationaccounts | Nie | 
+> | automationaccounts | Tak (przy użyciu szablonu) <br/><br/> [Korzystanie z replikacji geograficznej](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
 > | automationaccounts/konfiguracje | Nie | 
 > | automationaccounts/elementy Runbook | Nie | 
 
@@ -249,14 +248,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | batchaccounts | Nie |
+> | batchaccounts |  Kont usługi Batch nie można przenieść bezpośrednio z jednego regionu do innego, ale można użyć szablonu do wyeksportowania szablonu, zmodyfikowania go i wdrożenia szablonu w nowym regionie. <br/><br/> Dowiedz się więcej o [przenoszeniu konta w usłudze Batch w różnych regionach](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
-## <a name="microsoftbatchai"></a>Microsoft. Batchai Job
+## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | oparty | Nie | 
+> | oparty | Nie <br/><br/> Usługa Azure Batch AI zostanie [wycofana](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | Nie | 
 > | zadania | Nie | 
 > | obszary robocze | Nie | 
@@ -280,7 +279,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | blockchainmembers | Nie |
+> | blockchainmembers | Nie <br/><br/> Sieć łańcucha bloków nie może mieć węzłów w różnych regionach. 
 > | obserwatorów | Nie | 
 
 ## <a name="microsoftblueprint"></a>Microsoft. plan
@@ -327,7 +326,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | domainnames | Nie |  
+> | domainnames | Nie zaplanowano żadnych zadań dla usług klasycznych.
 > | virtualmachines | Nie | 
 
 
@@ -337,7 +336,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | networksecuritygroups | Nie |
+> | networksecuritygroups | Nie zaplanowano żadnych zadań dla usług klasycznych.
 > | reservedips | Nie | 
 > | virtualnetworks | Nie | 
 
@@ -355,6 +354,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Konta | Nie | 
+> | Cognitive Search | Obsługiwane z ręcznymi krokami.<br/><br/> Dowiedz się więcej o [przenoszeniu usługi Wyszukiwanie poznawcze platformy Azure do innego regionu](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -409,7 +409,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | containerservices | Nie | 
+> | containerservices | Nie.<br/><br/> Usługa została [wycofana](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 > | managedclusters | Nie | 
 > | openshiftmanagedclusters | Nie | 
 
@@ -542,7 +542,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | serwerem | Nie |  
+> | serwerem | Jeśli usługa jest obsługiwana z magazynem geograficznie nadmiarowym, można użyć przywracania geograficznego do przywrócenia w innych regionach. [Dowiedz się więcej](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
@@ -577,9 +577,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | elasticpools | Nie | 
-> | elasticpools / iothubtenants | Nie | 
-> | iothubs | Tak | 
+> | elasticpools | Nie. Zasób nie jest ujawniony.
+> | elasticpools / iothubtenants | Nie. Zasób nie jest ujawniony.
+> | iothubs | Tak. [Dowiedz się więcej](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | Nie | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
@@ -588,6 +588,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | kontrolery | Nie | 
+> | Klaster AKS | Nie<br/><br/> [Dowiedz się więcej](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) o przenoszeniu do innego regionu.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. wspólny
 
@@ -601,7 +602,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Labs/virtualmachines | Nie |  
 > | Uruchamianie | Nie |  
 
-## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
@@ -636,7 +637,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | oparty | Nie |  
-> | przestrzeni | Nie | 
+> | przestrzeni | Tak (z szablonem)<br/><br/> [Przenoszenie przestrzeni nazw centrum zdarzeń do innego regionu](../../event-hubs/move-across-regions.md) | 
 
 ## <a name="microsoftgenomics"></a>Microsoft. genomika
 
@@ -713,7 +714,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | iotapps |  Nie |  
+> | checknameavailability |  Nie.<br/><br/> IoT Central współpracuje z lokalizacje geograficzneą, a nie regionami.
+> | ziół | Nie
+
+## <a name="microsoftiothub"></a>Microsoft. IoTHub
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> |  iothub |  Tak (Klonuj Hub) <br/><br/> [Klonowanie Centrum IoT Hub do innego regionu](../../iot-hub/iot-hub-how-to-clone.md)
 
 ## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
 
@@ -758,7 +767,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | Konta | Nie | 
+> | Konta | Nie, jest to usługa globalna.
 
 ## <a name="microsoftlogic"></a>Microsoft. Logic
 
@@ -832,14 +841,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | Konta |  Nie |  
+> | Konta |  Nie, Azure Maps jest usługą geograficznym. 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | classicdevservices | Nie | 
+> | classicdevservices | Nie zaplanowano żadnych zadań dla usług klasycznych 
 
 ## <a name="microsoftmedia"></a>Microsoft. Media
 
@@ -897,7 +906,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | expressrouteports | Nie | 
 > | usługi frontdoor | Nie | 
 > | frontdoorwebapplicationfirewallpolicies | Nie | 
-> | loadbalancers | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br> -Tak — standardowa jednostka SKU |
+> | loadbalancers | Tak <br/><br/> Istnieje możliwość wyeksportowania istniejącej konfiguracji jako szablonu i wdrożenia szablonu w nowym regionie. Dowiedz się, jak przenieść [zewnętrzny](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) lub [wewnętrzny](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) moduł równoważenia obciążenia. |
 > | localnetworkgateways |  Nie | 
 > | natgateways |  Nie | 
 > | networkintentpolicies |  Nie | 
@@ -913,7 +922,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | privatednszones / virtualnetworklinks |  Nie |  
 > | privateendpoints | Nie | 
 > | privatelinkservices | Nie | 
-> | adresów publicipaddress | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
+> | adresów publicipaddress | Tak<br/><br/> Istnieje możliwość wyeksportowania istniejącej konfiguracji publicznego adresu IP jako szablonu i wdrożenia szablonu w nowym regionie. [Dowiedz się więcej](../../virtual-network/move-across-regions-publicip-portal.md) o przenoszeniu publicznego adresu IP. |
 > | publicipprefixes | Nie | 
 > | routefilters | Nie | 
 > | routetables |  Nie | 
@@ -1001,7 +1010,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | magazynów | Nie. [Wyłącz magazyn i Utwórz ponownie](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) dla Site Recovery  | 
+> | magazynów | Nie.<br/><br/> Przeniesienie Recovery Services magazynów dla Azure Backup w regionach platformy Azure nie jest obsługiwane.<br/><br/> W Recovery Services magazynach Azure Site Recovery można [wyłączyć i utworzyć ponownie magazyn](../../site-recovery/move-vaults-across-regions.md) w regionie docelowym. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft. Relay
@@ -1096,7 +1105,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | signalr |  Nie |  
+> | SignalR |  Nie |  
 
 ## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
@@ -1142,7 +1151,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | storageaccounts | Tak | 
+> | storageaccounts | Tak<br/><br/> [Przenoszenie konta usługi Azure Storage do innego regionu](../../storage/common/storage-account-move.md) | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 

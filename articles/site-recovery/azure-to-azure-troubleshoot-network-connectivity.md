@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884872"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132713"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
@@ -20,7 +20,7 @@ Aby replikacja Site Recovery działała, do maszyny wirtualnej wymagane jest po�
 
 | Adres URL | Szczegóły |
 |---|---|
-| `*.blob.core.windows.net` | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net`. |
+| `*.blob.core.windows.net` | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
 | `login.microsoftonline.com` | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
 | `*.hypervrecoverymanager.windowsazure.com` | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
 | `*.servicebus.windows.net` | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
@@ -51,7 +51,7 @@ Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguracja Site Recovery nie powiodła się (151196)
 
 > [!NOTE]
-> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do adresów IP pakietu Office 365 `login.microsoftonline.com`, takich jak. Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do adresów IP pakietu Office 365, takich jak `login.microsoftonline.com` . Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/configure-load-balancer-outbound-cli.md).
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
@@ -60,7 +60,7 @@ Nie można nawiązać połączenia z uwierzytelnianiem pakietu Office 365 i punk
 #### <a name="resolution"></a>Rozwiązanie
 
 - Azure Site Recovery wymaga dostępu do zakresów adresów IP pakietu Office 365 na potrzeby uwierzytelniania.
-- Jeśli używasz zasad grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że zezwalasz na komunikację z zakresami adresów IP pakietu Office 365. Azure Active Directory utwórz sieciowej grupy zabezpieczeń regułę opartą na [tagu usług (Azure AD)](/azure/virtual-network/security-overview#service-tags) , która umożliwia dostęp do wszystkich adresów IP odpowiadających usłudze Azure AD.
+- Jeśli używasz zasad grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że zezwalasz na komunikację z zakresami adresów IP pakietu Office 365. Azure Active Directory utwórz sieciowej grupy zabezpieczeń regułę opartą na [tagu usług (Azure AD)](../virtual-network/security-overview.md#service-tags) , która umożliwia dostęp do wszystkich adresów IP odpowiadających usłudze Azure AD.
 - Jeśli nowe adresy są dodawane do usługi Azure AD w przyszłości, należy utworzyć nowe reguły sieciowej grupy zabezpieczeń.
 
 ### <a name="example-nsg-configuration"></a>Przykładowa konfiguracja sieciowej grupy zabezpieczeń
@@ -124,7 +124,7 @@ Niestandardowe ustawienia serwera proxy są nieprawidłowe, a Agent usługi mobi
 
 #### <a name="resolution"></a>Rozwiązanie
 
-1. Agent usługi mobilności wykrywa ustawienia serwera proxy z programu IE w systemach `/etc/environment` Windows i Linux.
+1. Agent usługi mobilności wykrywa ustawienia serwera proxy z programu IE w systemach Windows i `/etc/environment` Linux.
 1. Jeśli wolisz ustawić serwer proxy tylko dla usługi mobilności Azure Site Recovery, możesz podać szczegóły serwera proxy w _ProxyInfo. conf_ znajdującym się w:
 
    - System **Linux**:`/usr/local/InMage/config/`
@@ -143,7 +143,7 @@ Niestandardowe ustawienia serwera proxy są nieprawidłowe, a Agent usługi mobi
 
 ### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
-Aby zezwolić na [wymagane adresy URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) lub [wymagane zakresy adresów IP](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), wykonaj kroki opisane w [dokumencie wskazówki dotyczące sieci](site-recovery-azure-to-azure-networking-guidance.md).
+Aby zezwolić na [wymagane adresy URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) lub [wymagane zakresy adresów IP](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), wykonaj kroki opisane w [dokumencie wskazówki dotyczące sieci](./azure-to-azure-about-networking.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

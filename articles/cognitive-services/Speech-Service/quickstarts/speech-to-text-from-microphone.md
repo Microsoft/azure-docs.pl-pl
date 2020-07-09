@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
+ms.date: 06/25/2020
+ms.author: trbye
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js-go-spx
-ms.openlocfilehash: 455475d87557cf70f3a3d14b18060c08a2ac5da1
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e5097b30bd280e0a46e3b327d94fbd26244a4fdc
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715316"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391574"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Szybki Start: Rozpoznawanie mowy z mikrofonu
 

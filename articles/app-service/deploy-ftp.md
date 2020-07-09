@@ -7,10 +7,10 @@ ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81532597"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Wdrażanie aplikacji do Azure App Service przy użyciu protokołu FTP/S
@@ -29,7 +29,7 @@ Punkt końcowy FTP/S aplikacji jest już aktywny. W celu włączenia wdrożenia 
 
     ![Wybierz aplikację.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Wybierz pozycję**pulpit nawigacyjny** > **FTP** >  **centrum wdrażania**.
+3. Wybierz **Deployment Center**pozycję  >  **FTP**  >  **pulpit nawigacyjny**FTP centrum wdrażania.
 
     ![Otwórz pulpit nawigacyjny FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -60,7 +60,7 @@ Zalecamy użycie **poświadczeń aplikacji** do wdrożenia aplikacji, ponieważ 
 >
 > - Przywracanie zależności (takie jak NuGet, NPM, PIP i Automation Composer)
 > - Kompilacja plików binarnych platformy .NET
-> - generacja pliku Web. config (Oto przykład środowiska [Node. js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
+> - Generowanie web.config (Oto [przykładNode.js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Ręcznie Wygeneruj te wymagane pliki na komputerze lokalnym, a następnie wdróż je razem z aplikacją.
 >
@@ -69,7 +69,7 @@ Zalecamy użycie **poświadczeń aplikacji** do wdrożenia aplikacji, ponieważ 
 
 Aby zapewnić większe bezpieczeństwo, należy zezwalać tylko na protokół FTP przez protokół TLS/SSL. Jeśli nie korzystasz z wdrażania FTP, możesz również wyłączyć zarówno protokół FTP, jak i FTPS.
 
-Na stronie zasobów aplikacji w obszarze [Azure Portal](https://portal.azure.com)wybierz pozycję **Konfiguracja** > **Ogólne ustawienia** w lewym okienku nawigacji.
+Na stronie zasobów aplikacji w obszarze [Azure Portal](https://portal.azure.com)wybierz pozycję **Konfiguracja**  >  **Ogólne ustawienia** w lewym okienku nawigacji.
 
 Aby wyłączyć nieszyfrowane FTP, wybierz pozycję **FTPS tylko** w polu **stan FTP**. Aby całkowicie wyłączyć protokół FTP i FTPS, wybierz pozycję **wyłączone**. Po skończeniu kliknij przycisk **Zapisz**. W przypadku używania **tylko FTPS**należy wymusić TLS 1,2 lub nowszy, przechodząc do bloku **Ustawienia protokołu TLS/SSL** w aplikacji sieci Web. Protokoły TLS 1,0 i 1,1 nie są obsługiwane **tylko**w przypadku FTPS.
 
@@ -112,6 +112,6 @@ Azure App Service obsługuje łączenie za pośrednictwem trybu aktywnego i pasy
 
 W przypadku bardziej zaawansowanych scenariuszy wdrażania spróbuj [wdrożyć platformę Azure za pomocą narzędzia Git](deploy-local-git.md). Wdrożenie oparte na usłudze Git na platformie Azure umożliwia kontrolę wersji, przywracanie pakietów, MSBuild i nie tylko.
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 * [Poświadczenia wdrażania Azure App Service](deploy-configure-credentials.md)

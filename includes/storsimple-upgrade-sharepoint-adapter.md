@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183274"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Uaktualnij program SharePoint 2010 do programu SharePoint 2013, a następnie zainstaluj adapter StorSomple dla programu SharePoint
@@ -29,7 +29,7 @@ ms.locfileid: "67183274"
 > Należy zaplanować to uaktualnienie w trakcie zaplanowanego okna obsługi z następujących powodów:
 > 
 > * Wcześniej zewnętrzna zawartość nie będzie dostępna do momentu ponownego zainstalowania karty.
-> * Każda zawartość przekazana do lokacji po odinstalowaniu poprzedniej wersji adaptera StorSimple dla programu SharePoint, ale przed zainstalowaniem nowej wersji, będzie przechowywana w bazie danych zawartości. Po zainstalowaniu nowej karty należy przenieść tę zawartość na urządzenie StorSimple. Do migrowania zawartości można `RBS Migrate()` użyć polecenia cmdlet programu Microsoft PowerShell dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Każda zawartość przekazana do lokacji po odinstalowaniu poprzedniej wersji adaptera StorSimple dla programu SharePoint, ale przed zainstalowaniem nowej wersji, będzie przechowywana w bazie danych zawartości. Po zainstalowaniu nowej karty należy przenieść tę zawartość na urządzenie StorSimple. `RBS Migrate()`Do migrowania zawartości można użyć polecenia cmdlet programu Microsoft PowerShell dołączonego do programu SharePoint. Aby uzyskać więcej informacji, zobacz [Migrowanie zawartości do lub z SPZ](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371766"
 ---
 Aby można było pomyślnie ustanowić tunel urządzenia, muszą zostać spełnione następujące wymagania:
@@ -28,7 +28,7 @@ Aby można było pomyślnie ustanowić tunel urządzenia, muszą zostać spełni
 
 Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w magazynie komputera lokalnego na kliencie systemu Windows 10 Użyj następujących przykładów, aby skonfigurować tunel urządzenia klienckiego:
 
-1. Skopiuj poniższy tekst i Zapisz go jako ***devicecert. ps1***.
+1. Skopiuj poniższy tekst i Zapisz go jako ***devicecert.ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Skopiuj poniższy tekst i Zapisz go jako ***VPNProfile. XML*** w tym samym folderze, co **devicecert. ps1**. Edytuj następujący tekst, aby dopasować go do środowiska.
+1. Skopiuj poniższy tekst i Zapisz go jako ***VPNProfile.xml*** w tym samym folderze co **devicecert.ps1**. Edytuj następujący tekst, aby dopasować go do środowiska.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -124,7 +124,7 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    ```
 
    ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. W programie PowerShell przejdź do folderu, w którym znajdują się **devicecert. ps1** i **VPNProfile. XML** , a następnie uruchom następujące polecenie:
+1. W programie PowerShell przejdź do folderu, w którym znajdują się **devicecert.ps1** i **VPNProfile.xml** , i uruchom następujące polecenie:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest

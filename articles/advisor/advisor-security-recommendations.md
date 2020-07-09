@@ -3,12 +3,12 @@ title: Zabezpieczanie zasobów za pomocą Azure Advisor
 description: Użyj Azure Advisor, aby zwiększyć bezpieczeństwo wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443040"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85113861"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Zabezpieczanie zasobów za pomocą Azure Advisor
 
@@ -29,9 +29,9 @@ Aby uzyskać więcej informacji na temat zaleceń dotyczących zabezpieczeń, zo
 Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 * [Wprowadzenie do usługi Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
-* [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
+* [Zalecenia usługi Advisor dotyczące kosztów](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
-* [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
+* [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
-
+* [Interfejs API REST usługi Advisor](https://docs.microsoft.com/rest/api/advisor/)
  

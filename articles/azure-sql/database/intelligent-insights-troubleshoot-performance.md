@@ -2,7 +2,7 @@
 title: Rozwiązywanie problemów z wydajnością przy użyciu funkcji Intelligent Insights
 description: Intelligent Insights pomaga rozwiązywać problemy związane z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 2008dd5e1e583a99756f62bc25f27e8f9832646e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/12/2020
+ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045606"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986390"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,6 +25,8 @@ Ta strona zawiera informacje dotyczące Azure SQL Database i problemów z wydajn
 
 > [!NOTE]
 > Aby uzyskać szybki Przewodnik rozwiązywania problemów dotyczących wydajności przy użyciu Intelligent Insights, zapoznaj się ze schematem blokowym [przepływu rozwiązywania problemów](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) w tym dokumencie.
+>
+> Usługa Intelligent Insights to funkcja w wersji zapoznawczej, która nie jest dostępna w następujących regionach: Europa Zachodnia, Europa Północna, zachodnie stany USA 1 i Wschodnie stany USA 1.
 
 ## <a name="detectable-database-performance-patterns"></a>Wykryte wzorce wydajności bazy danych
 
@@ -35,7 +37,7 @@ Intelligent Insights automatycznie wykrywa problemy z wydajnością w zależnoś
 | [Osiąganie limitów zasobów](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Limity zasobów dotyczące użycia dostępnych zasobów (DTU), wątków roboczych bazy danych lub sesji logowania do bazy danych dostępnych w monitorowanej subskrypcji osiągnęły. Ma to wpływ na wydajność. | Użycie zasobów procesora CPU zbliża się do limitów zasobów. Ma to wpływ na wydajność bazy danych. |
 | [Wzrost obciążenia](intelligent-insights-troubleshoot-performance.md#workload-increase) | Wykryto wzrost obciążenia lub ciągłe gromadzenie obciążeń w bazie danych. Ma to wpływ na wydajność. | Wykryto wzrost obciążenia. Ma to wpływ na wydajność bazy danych. |
 | [Wykorzystanie pamięci](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Pracownicy, którzy zażądali przydzielenia pamięci, muszą oczekiwać na alokacje pamięci przez statystycznie znaczny czas lub zwiększony akumulację pracowników, którzy zażądali przyznanych pamięci. Ma to wpływ na wydajność. | Pracownicy, którzy zażądali przydzielenia pamięci, oczekują na alokacje pamięci przez statystycznie znaczący czas. Ma to wpływ na wydajność bazy danych. |
-| [Blokowan](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
+| [Blokowanie](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
 | [Zwiększono MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. |
 | [Rywalizacja o PAGELATCH](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność. | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność bazy danych. |
 | [Brakujący indeks](intelligent-insights-troubleshoot-performance.md#missing-index) | Wykryto brakujący indeks mający wpływ na wydajność. | Wykryto brakujący indeks mający wpływ na wydajność bazy danych. |
@@ -283,7 +285,7 @@ Zmiany konfiguracji w zakresie bazy danych można ustawić dla każdej pojedyncz
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Dziennik diagnostyczny wyprowadza zmiany konfiguracji z zakresem bazy danych, które zostały ostatnio wykonane, co spowodowało spadek wydajności w porównaniu z poprzednim 7-dniowym zachowaniem obciążenia. Zmiany konfiguracji można przywrócić do poprzednich wartości. Możesz również dostroić wartość przez wartość do momentu osiągnięcia żądanego poziomu wydajności. Możesz kopiować wartości konfiguracyjne zakresu bazy danych z podobnej bazy danych o zadowalającą wydajności. Jeśli nie możesz rozwiązać problemu z wydajnością, Przywróć domyślne wartości domyślne i ponów próbę dostosowania, rozpoczynając od tej linii bazowej.
+Dziennik diagnostyczny wyprowadza zmiany konfiguracji z zakresem bazy danych, które zostały ostatnio wykonane, co spowodowało spadek wydajności w porównaniu z poprzednim 7-dniowym zachowaniem obciążenia. Zmiany konfiguracji można przywrócić do poprzednich wartości. Możesz również dostroić wartość przez wartość do momentu osiągnięcia żądanego poziomu wydajności. Możesz kopiować wartości konfiguracyjne zakresu bazy danych z podobnej bazy danych o zadowalającą wydajności. Jeśli nie możesz rozwiązać problemu z wydajnością, Przywróć wartości domyślne i spróbuj precyzyjnie dostosować rozpoczęcie od tej linii bazowej.
 
 Aby uzyskać więcej informacji na temat optymalizacji konfiguracji z zakresem bazy danych i składni języka T-SQL podczas zmiany konfiguracji, zobacz [ALTER DATABASE-scoped Configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

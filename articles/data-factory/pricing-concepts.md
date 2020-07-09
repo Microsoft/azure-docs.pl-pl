@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414942"
 ---
-# <a name="understanding-data-factory-pricing-through-examples"></a>Informacje o cenach Data Factory w ramach przykładów
+# <a name="understanding-data-factory-pricing-through-examples"></a>Informacje o cenach usługi Data Factory w ramach przykładów
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -53,10 +53,10 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 **Łączny Cennik scenariusza: $0,16811**
 
 - Operacje Data Factory = **$0,0001**
-  - Odczyt/zapis = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
-  - Monitorowanie = 2\*000005 = $0,00001 [1 Monitorowanie = $0,25/50000 = 0,000005]
-- &amp; Wykonywanie aranżacji potoku = **$0,168**
-  - Uruchomienia działania = 001\*2 = 0,002 [1 Run = $1/1000 = 0,001]
+  - Odczyt/zapis = 10 \* 00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorowanie = 2 \* 000005 = $0,00001 [1 Monitorowanie = $0,25/50000 = 0,000005]
+- Wykonywanie aranżacji potoku &amp; = **$0,168**
+  - Uruchomienia działania = 001 \* 2 = 0,002 [1 Run = $1/1000 = 0,001]
   - Działania przenoszenia danych = $0,166 (proporcjonalnie do 10 minut czasu wykonywania. $0,25/godz. w Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Kopiowanie danych i przekształcanie ich przy użyciu Azure Databricks co godzinę
@@ -85,10 +85,10 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 **Łączny Cennik scenariusza: $0,16916**
 
 - Operacje Data Factory = **$0,00012**
-  - Odczyt/zapis = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
-  - Monitorowanie = 3\*000005 = $0,00001 [1 Monitorowanie = $0,25/50000 = 0,000005]
-- &amp; Wykonywanie aranżacji potoku = **$0,16904**
-  - Uruchomienia działania = 001\*3 = 0,003 [1 Run = $1/1000 = 0,001]
+  - Odczyt/zapis = 11 \* 00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorowanie = 3 \* 000005 = $0,00001 [1 Monitorowanie = $0,25/50000 = 0,000005]
+- Wykonywanie aranżacji potoku &amp; = **$0,16904**
+  - Uruchomienia działania = 001 \* 3 = 0,003 [1 Run = $1/1000 = 0,001]
   - Działania przenoszenia danych = $0,166 (proporcjonalnie do 10 minut czasu wykonywania. $0,25/godz. w Azure Integration Runtime)
   - Działanie zewnętrznego potoku = $0,000041 (proporcjonalnie do 10 minut czasu wykonywania. $0.00025/godzinę w Azure Integration Runtime)
 
@@ -120,10 +120,10 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 **Łączny Cennik scenariusza: $0,17020**
 
 - Operacje Data Factory = **$0,00013**
-  - Odczyt/zapis = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
-  - Monitorowanie = 4\*000005 = $0,00002 [1 Monitorowanie = $0,25/50000 = 0,000005]
-- &amp; Wykonywanie aranżacji potoku = **$0,17007**
-  - Uruchomienia działania = 001\*4 = 0,004 [1 Run = $1/1000 = 0,001]
+  - Odczyt/zapis = 11 \* 00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorowanie = 4 \* 000005 = $0,00002 [1 Monitorowanie = $0,25/50000 = 0,000005]
+- Wykonywanie aranżacji potoku &amp; = **$0,17007**
+  - Uruchomienia działania = 001 \* 4 = 0,004 [1 Run = $1/1000 = 0,001]
   - Działania przenoszenia danych = $0,166 (proporcjonalnie do 10 minut czasu wykonywania. $0,25/godz. w Azure Integration Runtime)
   - Działanie potoku = $0,00003 (proporcjonalnie do 1 minuty czasu wykonywania. $0.002/godzinę w Azure Integration Runtime)
   - Działanie zewnętrznego potoku = $0,000041 (proporcjonalnie do 10 minut czasu wykonywania. $0.00025/godzinę w Azure Integration Runtime)
@@ -161,10 +161,10 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 **Łączny Cennik scenariusza: $1,4631**
 
 - Operacje Data Factory = **$0,0001**
-  - Odczyt/zapis = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
-  - Monitorowanie = 2\*000005 = $0,00001 [1 Monitorowanie = $0,25/50000 = 0,000005]
-- &amp; Wykonywanie aranżacji potoku = **$1,463**
-  - Uruchomienia działania = 001\*2 = 0,002 [1 Run = $1/1000 = 0,001]
+  - Odczyt/zapis = 10 \* 00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorowanie = 2 \* 000005 = $0,00001 [1 Monitorowanie = $0,25/50000 = 0,000005]
+- Wykonywanie aranżacji potoku &amp; = **$1,463**
+  - Uruchomienia działania = 001 \* 2 = 0,002 [1 Run = $1/1000 = 0,001]
   - Działania związane z przepływem danych = $1,461 proporcjonalnie do 20 minut (czas wykonywania w 10 minutach + 10 minut TTL). $0.274/godzinę w Azure Integration Runtime z 16 rdzeniami ogólnymi obliczeniowymi
 
 ## <a name="next-steps"></a>Następne kroki

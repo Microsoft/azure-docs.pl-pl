@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69016788"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960371"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows  
 
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa odwołań |Okna/rozszerzenia |
-    | Tematy pomocy |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
+    | Dokumentacja |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
 
 1. Kliknij przycisk **OK**. 
 
@@ -95,7 +95,7 @@ Po dodaniu odwołań należy wybrać platformę dodającą (x64 lub x86), Dodawa
 ### <a name="to-design-the-player-user-interface"></a>Aby zaprojektować interfejs użytkownika odtwarzacza
 
 1. W Eksplorator rozwiązań kliknij dwukrotnie plik **MainPage. XAML** , aby otworzyć go w widoku projektu.
-2. Znajdź ** &lt;siatkę&gt; ** i ** &lt;/Grid&gt; ** Tagi pliku XAML i wklej następujący kod między dwoma tagami:
+2. Znajdź ** &lt; siatkę &gt; ** i ** &lt; /Grid &gt; ** Tagi pliku XAML i wklej następujący kod między dwoma tagami:
 
    ```xml
          <Grid.RowDefinitions>
@@ -152,15 +152,24 @@ W tym pliku XAML niektóre programy obsługi zdarzeń są skojarzone z kontrolka
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję **MainPage. XAML**, a następnie kliknij pozycję **Wyświetl kod**.
 2. W górnej części pliku Dodaj następującą instrukcję using:
-   
+
+    ```csharp
         using Windows.Media;
+    ```
+
 3. Na początku klasy **MainPage** Dodaj następujący element członkowski danych:
-   
-         private MediaExtensionManager extensions = new MediaExtensionManager();
+
+    ```csharp
+        private MediaExtensionManager extensions = new MediaExtensionManager();
+    ```
+
 4. Na końcu konstruktora **MainPage** Dodaj następujące dwa wiersze:
-   
+
+    ```csharp
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+    ```
+
 5. Na końcu klasy **MainPage** wklej następujący kod:
    ```csharp
          # region UI Button Click Events
@@ -254,7 +263,7 @@ Ta lekcja zawiera następujące procedury:
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
    ```
-4. W konstruktorze **MainPage** Dodaj następujący kod po **tym elemencie. Inicjuj składniki ();** wiersz i wiersze rejestracji wpisane w poprzedniej lekcji:
+4. W konstruktorze **MainPage** Dodaj następujący kod po elemencie **this.Initialize Components (),** wierszu i kodzie rejestracji zapisanym w poprzedniej lekcji:
 
    ```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
@@ -553,7 +562,7 @@ Smooth Streaming jest w stanie przesyłać strumieniowo zawartość z wieloma ś
 ### <a name="to-modify-the-xaml-file"></a>Aby zmodyfikować plik XAML
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję **MainPage. XAML**, a następnie kliknij pozycję **Projektant widoków**.
-2. Znajdź &lt;siatkę.&gt;RowDefinitions i zmodyfikuj RowDefinitions, tak aby wyglądały następująco:
+2. Znajdź &lt; siatkę. RowDefinitions &gt; i zmodyfikuj RowDefinitions, tak aby wyglądały następująco:
 
    ```xml
          <Grid.RowDefinitions>            
@@ -564,7 +573,7 @@ Smooth Streaming jest w stanie przesyłać strumieniowo zawartość z wieloma ś
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
    ```
-3. Wewnątrz tagów &lt;/Grid&gt;&lt;&gt; siatki Dodaj następujący kod, aby zdefiniować formant ListBox, aby użytkownicy mogli zobaczyć listę dostępnych strumieni i wybrać pozycję strumienie:
+3. Wewnątrz &lt; &gt; &lt; tagów/Grid siatki &gt; Dodaj następujący kod, aby zdefiniować formant ListBox, aby użytkownicy mogli zobaczyć listę dostępnych strumieni i wybrać pozycję strumienie:
 
    ```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
@@ -831,7 +840,7 @@ Prezentacja Smooth Streaming może zawierać wiele plików wideo zakodowanych pr
 ### <a name="to-modify-the-xaml-file"></a>Aby zmodyfikować plik XAML
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję **MainPage. XAML**, a następnie kliknij pozycję **Projektant widoków**.
-2. Znajdź tag &lt;Grid&gt; o nazwie **gridStreamAndBitrateSelection**, Dołącz następujący kod na końcu tagu:
+2. Znajdź &lt; tag Grid &gt; o nazwie **gridStreamAndBitrateSelection**, Dołącz następujący kod na końcu tagu:
    ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -1028,7 +1037,7 @@ Lekcja 4 została ukończona.  W tej lekcji dodasz funkcje do wybierania ścież
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Inne zasoby:

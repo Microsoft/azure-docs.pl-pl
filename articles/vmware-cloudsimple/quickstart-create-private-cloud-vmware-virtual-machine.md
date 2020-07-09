@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ac818cfd267b781366c0e32c9f93cc885dff99c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77566152"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Tworzenie maszyn wirtualnych VMware w chmurze prywatnej
@@ -96,7 +95,7 @@ Poniższe sekcje zawierają opcjonalne informacje dotyczące konfigurowania serw
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Dodawanie użytkowników i źródeł tożsamości do programu vCenter (opcjonalnie)
 
-CloudSimple przypisuje domyślne konto użytkownika vCenter z nazwą `cloudowner@cloudsimple.local`użytkownika. Do rozpoczęcia pracy nie jest wymagana żadna dodatkowa konfiguracja konta.  CloudSimple zwykle przypisuje administratorom uprawnienia potrzebne do wykonywania normalnych operacji.  Skonfiguruj lokalną usługę Active Directory lub usługę Azure AD jako [dodatkowe źródło tożsamości](set-vcenter-identity.md) w chmurze prywatnej.
+CloudSimple przypisuje domyślne konto użytkownika vCenter z nazwą użytkownika `cloudowner@cloudsimple.local` . Do rozpoczęcia pracy nie jest wymagana żadna dodatkowa konfiguracja konta.  CloudSimple zwykle przypisuje administratorom uprawnienia potrzebne do wykonywania normalnych operacji.  Skonfiguruj lokalną usługę Active Directory lub usługę Azure AD jako [dodatkowe źródło tożsamości](set-vcenter-identity.md) w chmurze prywatnej.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>Tworzenie serwera DNS i DHCP (opcjonalnie)
 

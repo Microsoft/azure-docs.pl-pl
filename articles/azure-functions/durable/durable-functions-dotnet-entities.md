@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125484"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Przewodnik dewelopera dotyczący trwałych jednostek w programie .NET
 
@@ -31,7 +31,7 @@ Ten artykuł koncentruje się głównie na składni opartej na klasie, ponieważ
  
 ## <a name="defining-entity-classes"></a>Definiowanie klas jednostek
 
-Poniższy przykład jest `Counter` implementacją jednostki, która przechowuje pojedynczą wartość typu integer i oferuje cztery operacje `Add`, `Reset`, `Get`, i. `Delete`
+Poniższy przykład jest implementacją `Counter` jednostki, która przechowuje pojedynczą wartość typu integer i oferuje cztery operacje `Add` , `Reset` , `Get` , i `Delete` .
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -67,10 +67,10 @@ public class Counter
 }
 ```
 
-`Run` Funkcja zawiera typowe wymagania dotyczące korzystania z składni opartej na klasie. Musi to być *statyczna* funkcja platformy Azure. Jest ono wykonywane raz dla każdego komunikatu operacji, który jest przetwarzany przez jednostkę. Gdy `DispatchAsync<T>` jest wywoływana i jednostka nie znajduje się już w pamięci, konstruuje obiekt typu `T` i wypełnia pola z ostatniego utrwalonego JSON znalezionego w magazynie (jeśli istnieje). Następnie wywołuje metodę o pasującej nazwie.
+`Run`Funkcja zawiera typowe wymagania dotyczące korzystania z składni opartej na klasie. Musi to być *statyczna* funkcja platformy Azure. Jest ono wykonywane raz dla każdego komunikatu operacji, który jest przetwarzany przez jednostkę. Gdy `DispatchAsync<T>` jest wywoływana i jednostka nie znajduje się już w pamięci, konstruuje obiekt typu `T` i wypełnia pola z ostatniego utrwalonego JSON znalezionego w magazynie (jeśli istnieje). Następnie wywołuje metodę o pasującej nazwie.
 
 > [!NOTE]
-> Stan jednostki opartej na klasie jest **tworzony niejawnie** przed przetwarzaniem operacji przez jednostkę i można ją **usunąć jawnie** w operacji, wywołując `Entity.Current.DeleteState()`metodę.
+> Stan jednostki opartej na klasie jest **tworzony niejawnie** przed przetwarzaniem operacji przez jednostkę i można ją **usunąć jawnie** w operacji, wywołując metodę `Entity.Current.DeleteState()` .
 
 ### <a name="class-requirements"></a>Wymagania dotyczące klas
  
@@ -82,7 +82,7 @@ Klasy jednostek to POCOs (zwykłe stare obiekty CLR), które nie wymagają specj
 Ponadto wszelkie metody, które mają być wywoływane jako operacje, muszą spełniać dodatkowe wymagania:
 
 - Operacja musi mieć co najwyżej jeden argument i nie może mieć żadnych przeciążeń lub argumentów typu ogólnego.
-- Operacja przeznaczona do wywołania z aranżacji przy użyciu interfejsu musi zwracać `Task` lub. `Task<T>`
+- Operacja przeznaczona do wywołania z aranżacji przy użyciu interfejsu musi zwracać `Task` lub `Task<T>` .
 - Argumenty i zwracane wartości muszą być wartościami możliwymi do serializacji lub obiektami.
 
 ### <a name="what-can-operations-do"></a>Do czego służą operacje?
@@ -103,9 +103,9 @@ Można na przykład zmodyfikować jednostkę licznika, aby rozpocząć aranżacj
 ```csharp
     public void Add(int amount) 
     {
-        if (this.Value < 100 && this.Value + amount > 100)
+        if (this.Value < 100 && this.Value + amount >= 100)
         {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId)
+            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
         }
         this.Value += amount;      
     }
@@ -203,7 +203,7 @@ Poza zapewnieniem kontroli typów interfejsy są przydatne do lepszego oddzielen
 
 ### <a name="example-client-signals-entity-through-interface"></a>Przykład: klient sygnalizuje jednostkę za pośrednictwem interfejsu
 
-Kod klienta może służyć `SignalEntityAsync<TEntityInterface>` do wysyłania sygnałów do jednostek, które `TEntityInterface`implementują. Przykład:
+Kod klienta może służyć `SignalEntityAsync<TEntityInterface>` do wysyłania sygnałów do jednostek, które implementują `TEntityInterface` . Przykład:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -218,11 +218,11 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-W tym przykładzie `proxy` parametr jest dynamicznie generowanym wystąpieniem `ICounter`, które wewnętrznie tłumaczy wywołanie na `Delete` sygnał.
+W tym przykładzie `proxy` parametr jest dynamicznie generowanym wystąpieniem `ICounter` , które wewnętrznie tłumaczy wywołanie na `Delete` sygnał.
 
 > [!NOTE]
-> `SignalEntityAsync` Interfejsów API można używać tylko w przypadku operacji jednokierunkowych. Nawet w przypadku, gdy `Task<T>`operacja zwraca, wartość `T` parametru zawsze będzie równa null lub `default`nie jest rzeczywistym wynikiem.
-Na przykład nie ma sensu sygnalizowanie `Get` operacji, ponieważ nie jest zwracana żadna wartość. Zamiast tego klienci mogą uzyskać dostęp `ReadStateAsync` do stanu licznika bezpośrednio lub uruchomić funkcję programu Orchestrator, która wywołuje `Get` operację. 
+> `SignalEntityAsync`Interfejsów API można używać tylko w przypadku operacji jednokierunkowych. Nawet w przypadku, gdy operacja zwraca `Task<T>` , wartość `T` parametru zawsze będzie równa null lub `default` nie jest rzeczywistym wynikiem.
+Na przykład nie ma sensu sygnalizowanie `Get` operacji, ponieważ nie jest zwracana żadna wartość. Zamiast tego klienci mogą `ReadStateAsync` uzyskać dostęp do stanu licznika bezpośrednio lub uruchomić funkcję programu Orchestrator, która wywołuje `Get` operację. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Przykład: pierwsze sygnały aranżacji, a następnie wywołuje jednostkę za pośrednictwem serwera proxy
 
@@ -246,7 +246,7 @@ public static async Task<int> Run(
 }
 ```
 
-Niejawnie wszystkie operacje, które `void` zwracają, są sygnalizowane i wszelkie operacje, które `Task` zwracają `Task<T>` lub są wywoływane. Jeden może zmienić to zachowanie domyślne i operacje sygnałów nawet wtedy, gdy zwracają zadanie, przy użyciu `SignalEntity<IInterfaceType>` metody jawnie.
+Niejawnie wszystkie operacje, które zwracają, `void` są sygnalizowane i wszelkie operacje, które zwracają `Task` lub `Task<T>` są wywoływane. Jeden może zmienić to zachowanie domyślne i operacje sygnałów nawet wtedy, gdy zwracają zadanie, przy użyciu `SignalEntity<IInterfaceType>` metody jawnie.
 
 ### <a name="shorter-option-for-specifying-the-target"></a>Krótsza opcja określania celu
 
@@ -267,9 +267,9 @@ Wymuszamy również kilka dodatkowych reguł:
 * Interfejsy jednostek mogą definiować tylko metody.
 * Interfejsy jednostek nie mogą zawierać parametrów ogólnych.
 * Metody interfejsu jednostki nie mogą mieć więcej niż jednego parametru.
-* Metody interfejsu jednostki muszą zwracać `void`, `Task`lub`Task<T>` 
+* Metody interfejsu jednostki muszą zwracać `void` , `Task` lub`Task<T>` 
 
-Jeśli którykolwiek z tych reguł zostanie naruszony, `InvalidOperationException` jest generowany w czasie wykonywania, gdy interfejs jest używany jako argument typu do `SignalEntity` lub. `CreateProxy` Komunikat o wyjątku wyjaśnia, która reguła została przerwana.
+Jeśli którykolwiek z tych reguł zostanie naruszony, `InvalidOperationException` jest generowany w czasie wykonywania, gdy interfejs jest używany jako argument typu do `SignalEntity` lub `CreateProxy` . Komunikat o wyjątku wyjaśnia, która reguła została przerwana.
 
 > [!NOTE]
 > Metody interfejsu zwracające `void` można sygnalizować tylko (jednokierunkowe), niewywoływane (dwukierunkowe). Metody interfejsu zwracają `Task` lub `Task<T>` mogą być wywoływane lub sygnalizowane. Jeśli zostanie wywołana, zwracają wynik operacji lub ponownie generują wyjątki zgłoszone przez operację. Jednak w przypadku, gdy są sygnalizowane, nie zwracają rzeczywistego wyniku lub wyjątku z operacji, ale tylko wartości domyślnej.
@@ -310,8 +310,8 @@ public class User
 ### <a name="serialization-attributes"></a>Atrybuty serializacji
 
 W powyższym przykładzie wybieramy kilka atrybutów, aby zapewnić, że bazowa Serializacja jest bardziej widoczna:
-- Dodajemy do klasy adnotację `[JsonObject(MemberSerialization.OptIn)]` z, aby przypominać nam, że klasa musi być serializowana i aby zachować tylko elementy członkowskie, które są jawnie oznaczone jako właściwości JSON.
--  Adnotuj pola, które mają być utrwalane, `[JsonProperty("name")]` aby przypominać, że pole jest częścią trwałego stanu jednostki i określić nazwę właściwości, która ma być używana w reprezentacji JSON.
+- Dodajemy do klasy adnotację z, `[JsonObject(MemberSerialization.OptIn)]` aby przypominać nam, że klasa musi być serializowana i aby zachować tylko elementy członkowskie, które są jawnie oznaczone jako właściwości JSON.
+-  Adnotuj pola, które mają być utrwalane `[JsonProperty("name")]` , aby przypominać, że pole jest częścią trwałego stanu jednostki i określić nazwę właściwości, która ma być używana w reprezentacji JSON.
 
 Jednak te atrybuty nie są wymagane; inne konwencje lub atrybuty są dozwolone, o ile pracują z Json.NET. Na przykład jeden może używać `[DataContract]` atrybutów lub nie ma żadnych atrybutów w ogóle:
 
@@ -331,11 +331,11 @@ public class Counter
 }
 ```
 
-Domyślnie nazwa klasy *nie* jest przechowywana jako część reprezentacji JSON: to jest, używane `TypeNameHandling.None` jako ustawienie domyślne. To zachowanie domyślne można przesłonić `JsonObject` przy `JsonProperty` użyciu atrybutów lub.
+Domyślnie nazwa klasy *nie* jest przechowywana jako część reprezentacji JSON: to jest, używane `TypeNameHandling.None` jako ustawienie domyślne. To zachowanie domyślne można przesłonić przy użyciu `JsonObject` `JsonProperty` atrybutów lub.
 
 ### <a name="making-changes-to-class-definitions"></a>Wprowadzanie zmian w definicjach klas
 
-Przed wprowadzeniem zmian w definicji klasy po uruchomieniu aplikacji należy zwrócić uwagę, ponieważ zapisany obiekt JSON nie jest już zgodny z nową definicją klasy. W dalszym ciągu jest często możliwe poprawność w przypadku zmiany formatów danych, o ile jedna z nich rozumie proces deserializacji `JsonConvert.PopulateObject`używany przez.
+Przed wprowadzeniem zmian w definicji klasy po uruchomieniu aplikacji należy zwrócić uwagę, ponieważ zapisany obiekt JSON nie jest już zgodny z nową definicją klasy. W dalszym ciągu jest często możliwe poprawność w przypadku zmiany formatów danych, o ile jedna z nich rozumie proces deserializacji używany przez `JsonConvert.PopulateObject` .
 
 Na przykład poniżej przedstawiono kilka przykładów zmian i ich wpływu:
 
@@ -345,7 +345,7 @@ Na przykład poniżej przedstawiono kilka przykładów zmian i ich wpływu:
 1. Jeśli typ właściwości zostanie zmieniony, dlatego nie można już przeprowadzić deserializacji z zapisanego pliku JSON, zostanie zgłoszony wyjątek.
 1. Jeśli typ właściwości zostanie zmieniony, ale nadal będzie można go zdeserializować z zapisanego kodu JSON, zostanie to zrobione.
 
-Istnieje wiele opcji dostosowywania zachowania Json.NET. Na przykład, aby wymusić wyjątek, jeśli przechowywany kod JSON zawiera pole, którego nie ma w klasie, określ atrybut `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. Istnieje również możliwość napisania niestandardowego kodu do deserializacji, który może odczytywać dane JSON przechowywane w dowolnych formatach.
+Istnieje wiele opcji dostosowywania zachowania Json.NET. Na przykład, aby wymusić wyjątek, jeśli przechowywany kod JSON zawiera pole, którego nie ma w klasie, określ atrybut `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)` . Istnieje również możliwość napisania niestandardowego kodu do deserializacji, który może odczytywać dane JSON przechowywane w dowolnych formatach.
 
 ## <a name="entity-construction"></a>Konstrukcja jednostki
 
@@ -353,7 +353,7 @@ Czasami chcemy mieć większą kontrolę nad sposobem konstruowania obiektów En
 
 ### <a name="custom-initialization-on-first-access"></a>Inicjowanie niestandardowe przy pierwszym dostępie
 
-Czasami konieczne jest wykonanie pewnej inicjalizacji specjalnej przed wysłaniem operacji do jednostki, do której nigdy nie uzyskano dostępu lub który został usunięty. Aby określić takie zachowanie, jeden może dodać warunek warunkowy przed `DispatchAsync`:
+Czasami konieczne jest wykonanie pewnej inicjalizacji specjalnej przed wysłaniem operacji do jednostki, do której nigdy nie uzyskano dostępu lub który został usunięty. Aby określić takie zachowanie, jeden może dodać warunek warunkowy przed `DispatchAsync` :
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -369,9 +369,9 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="bindings-in-entity-classes"></a>Powiązania w klasach jednostek
 
-W przeciwieństwie do funkcji regularnych, metody klasy jednostek nie mają bezpośredniego dostępu do powiązań wejściowych i wyjściowych. Zamiast tego, dane wiążące muszą być przechwytywane w deklaracji funkcji punktu wejścia, a następnie przekazywać do `DispatchAsync<T>` metody. Wszystkie obiekty, do `DispatchAsync<T>` których przechodzą, zostaną automatycznie przesłane do konstruktora klasy jednostki jako argument.
+W przeciwieństwie do funkcji regularnych, metody klasy jednostek nie mają bezpośredniego dostępu do powiązań wejściowych i wyjściowych. Zamiast tego, dane wiążące muszą być przechwytywane w deklaracji funkcji punktu wejścia, a następnie przekazywać do `DispatchAsync<T>` metody. Wszystkie obiekty, do których przechodzą, `DispatchAsync<T>` zostaną automatycznie przesłane do konstruktora klasy jednostki jako argument.
 
-Poniższy przykład pokazuje, `CloudBlobContainer` jak odwołanie z [powiązania danych wejściowych obiektu BLOB](../functions-bindings-storage-blob-input.md) może zostać udostępnione jednostce opartej na klasie.
+Poniższy przykład pokazuje, jak `CloudBlobContainer` odwołanie z [powiązania danych wejściowych obiektu BLOB](../functions-bindings-storage-blob-input.md) może zostać udostępnione jednostce opartej na klasie.
 
 ```csharp
 public class BlobBackedEntity
@@ -450,7 +450,7 @@ public class HttpEntity
 > Aby uniknąć problemów z serializacją, upewnij się, że wykluczono pola przeznaczone do przechowywania wprowadzonych wartości z serializacji.
 
 > [!NOTE]
-> W przeciwieństwie do używania iniekcji konstruktora w zwykłych Azure Functions .NET, Metoda punktu wejścia funkcji dla jednostek opartych *must* na klasie musi `static`być zadeklarowana. Deklarowanie niestatycznego punktu wejścia funkcji może spowodować konflikty między normalnym inicjatorem obiektu Azure Functions i inicjatorem obiektów trwałe jednostki.
+> W przeciwieństwie do używania iniekcji konstruktora w zwykłych Azure Functions .NET, Metoda punktu wejścia funkcji dla jednostek opartych na klasie *musi* być zadeklarowana `static` . Deklarowanie niestatycznego punktu wejścia funkcji może spowodować konflikty między normalnym inicjatorem obiektu Azure Functions i inicjatorem obiektów trwałe jednostki.
 
 ## <a name="function-based-syntax"></a>Składnia oparta na funkcjach
 
@@ -482,7 +482,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="the-entity-context-object"></a>Obiekt kontekstu jednostki
 
-Dostęp do funkcji specyficznych dla jednostki można uzyskać za pośrednictwem obiektu `IDurableEntityContext`kontekstu typu. Ten obiekt kontekstu jest dostępny jako parametr funkcji Entity i za pośrednictwem właściwości `Entity.Current`Async-Local.
+Dostęp do funkcji specyficznych dla jednostki można uzyskać za pośrednictwem obiektu kontekstu typu `IDurableEntityContext` . Ten obiekt kontekstu jest dostępny jako parametr funkcji Entity i za pośrednictwem właściwości Async-Local `Entity.Current` .
 
 Poniższe elementy członkowskie zawierają informacje o bieżącej operacji i umożliwiają określenie wartości zwracanej. 
 
@@ -500,7 +500,7 @@ Następujący członkowie zarządzają stanem jednostki (tworzenie, Odczyt, aktu
 * `SetState(arg)`: tworzy lub aktualizuje stan jednostki.
 * `DeleteState()`: usuwa stan jednostki, jeśli istnieje. 
 
-Jeśli stan zwrócony przez `GetState` to obiekt, może on być bezpośrednio modyfikowany przez kod aplikacji. Nie ma potrzeby ponownego wywołania `SetState` na końcu (ale również bez szkody). Jeśli `GetState<TState>` jest wywoływana wiele razy, należy użyć tego samego typu.
+Jeśli stan zwrócony przez `GetState` to obiekt, może on być bezpośrednio modyfikowany przez kod aplikacji. Nie ma potrzeby `SetState` ponownego wywołania na końcu (ale również bez szkody). Jeśli `GetState<TState>` jest wywoływana wiele razy, należy użyć tego samego typu.
 
 Na koniec następujące elementy członkowskie są używane do sygnalizowania innych jednostek lub uruchamiania nowych aranżacji:
 

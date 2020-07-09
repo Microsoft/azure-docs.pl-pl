@@ -5,22 +5,18 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ceab81f4dd9089acc2d902f80e7acc95e9f9cb11
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122752"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676458"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
 
-Azure Functions umożliwia uruchamianie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web.
+W tym artykule opisano użycie programu Visual Studio do utworzenia funkcji opartej na bibliotece klasy C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions.  
 
-W tym przewodniku szybki start dowiesz się, jak używać programu Visual Studio 2019 do lokalnego tworzenia i testowania aplikacji funkcji wyzwalającej języka C# "Hello World", która następnie jest publikowana na platformie Azure. 
-
-![Odpowiedź hosta localhost funkcji wyświetlona w przeglądarce](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
-
-Ten przewodnik Szybki Start został zaprojektowany z założenia dla programu Visual Studio 2019. 
+W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,17 +24,25 @@ Aby ukończyć ten samouczek, najpierw zainstaluj [program Visual Studio 2019](h
 
 ![Instalowanie programu Visual Studio przy użyciu obciążeń programistycznych platformy Azure](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-Jeśli nie masz [subskrypcji platformy Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/dotnet/).
+Jeśli nie masz [subskrypcji platformy Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/dotnet/) .
 
 ## <a name="create-a-function-app-project"></a>Tworzenie projektu aplikacji funkcji
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Program Visual Studio tworzy projekt i klasę, która zawiera kod standardowy dla typu funkcji wyzwalacza HTTP. `FunctionName`Atrybut metody ustawia nazwę funkcji, która domyślnie jest `Function1` . Ten `HttpTrigger` atrybut określa, że funkcja jest wyzwalana przez żądanie HTTP. Standardowy kod wysyła odpowiedź HTTP zawierającą wartość z treści żądania lub ciągu zapytania.
+Program Visual Studio tworzy projekt i klasę, która zawiera kod standardowy dla typu funkcji wyzwalacza HTTP. Standardowy kod wysyła odpowiedź HTTP zawierającą wartość z treści żądania lub ciągu zapytania. Ten `HttpTrigger` atrybut określa, że funkcja jest wyzwalana przez żądanie HTTP. 
 
-Rozwiń możliwości funkcji za pomocą powiązań wejściowych i wyjściowych przez zastosowanie odpowiednich atrybutów do metody. Aby uzyskać więcej informacji, zobacz sekcję [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Wyzwalacze i powiązania) [dokumentacji usługi Azure Functions dla deweloperów w C#](functions-dotnet-class-library.md).
+## <a name="rename-the-function"></a>Zmień nazwę funkcji
 
-Teraz, po utworzeniu projektu funkcji i funkcji wyzwalacza HTTP, można je przetestować na komputerze lokalnym.
+`FunctionName`Atrybut metody ustawia nazwę funkcji, która domyślnie jest generowana jako `Function1` . Ponieważ narzędzia nie umożliwiają przesłaniania domyślnej nazwy funkcji podczas tworzenia projektu, poświęć minutę, aby utworzyć lepszą nazwę klasy, pliku i metadanych funkcji.
+
+1. W **Eksploratorze plików**kliknij prawym przyciskiem myszy plik Function1.cs i zmień jego nazwę na `HttpExample.cs` .
+
+1. W kodzie zmień nazwę klasy Function1 na "HttpExample".
+
+1. W `HttpTrigger` metodzie o nazwie `Run` Zmień nazwę `FunctionName` atrybutu metody na `HttpExample` .
+
+Po zmianie nazwy funkcji można ją przetestować na komputerze lokalnym.
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
 
@@ -56,19 +60,41 @@ Przed opublikowaniem projektu musisz mieć aplikację funkcji w ramach subskrypc
 
 ## <a name="test-your-function-in-azure"></a>Testowanie funkcji na platformie Azure
 
-1. Skopiuj podstawowy adres URL aplikacji funkcji ze strony profil **publikowania** . Zastąp `localhost:port` część adresu URL użytego do lokalnego przetestowania funkcji przy użyciu nowego podstawowego adresu URL. Dołącz ciąg zapytania `?name=<YOUR_NAME>` do tego adresu URL i uruchom żądanie.
+1. W programie Cloud Explorer należy wybrać nową aplikację funkcji. Jeśli nie, rozwiń **App Services**> subskrypcji i wybierz nową aplikację funkcji.
+
+1. Kliknij prawym przyciskiem myszy aplikację funkcji i wybierz polecenie **Otwórz w przeglądarce**. Spowoduje to otwarcie katalogu głównego aplikacji funkcji w domyślnej przeglądarce sieci Web i wyświetlenie strony wskazującej, że aplikacja funkcji jest uruchomiona. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Uruchomiona aplikacja funkcji":::
+
+1. Na pasku adresu w przeglądarce Dołącz ciąg `/api/HttpExample?name=Functions` do podstawowego adresu URL i uruchom żądanie.
 
     Adres URL, który wywołuje funkcję wyzwalacza HTTP, ma następujący format:
 
-    `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
+    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Wklej nowy adres URL żądania HTTP na pasku adresu przeglądarki. Na poniższej ilustracji przedstawiono odpowiedź w przeglądarce do zdalnego żądania GET zwróconego przez funkcję:
+2. Przejdź do tego adresu URL i zobaczysz odpowiedź w przeglądarce do zdalnego żądania GET zwróconego przez funkcję, która wygląda podobnie do poniższego przykładu:
 
-    ![Odpowiedź funkcji wyświetlona w przeglądarce](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Odpowiedź funkcji wyświetlona w przeglądarce":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz współpracować z kolejnymi przewodnikami Szybki Start, samouczkami lub z dowolnymi usługami utworzonymi w ramach tego przewodnika Szybki Start, nie czyść zasobów.
+
+*Zasoby* na platformie Azure dotyczą aplikacji funkcji, funkcji, kont magazynu i tak dalej. Są one pogrupowane w *grupy zasobów*, a wszystkie elementy w grupie można usunąć, usuwając grupę. 
+
+Aby ukończyć te przewodniki Szybki start, zostały utworzone zasoby. Za te zasoby może zostać naliczona opłata — zależy to od Twojego [stanu konta](https://azure.microsoft.com/account/) i [cennika usług](https://azure.microsoft.com/pricing/). Jeśli nie potrzebujesz już tych zasobów, oto jak możesz je usunąć:
+
+1. W Eksploratorze chmury rozwiń **App Services**> subskrypcji, kliknij prawym przyciskiem myszy aplikację funkcji, a następnie wybierz polecenie **Otwórz w portalu**. 
+
+1. Na stronie aplikacja funkcji wybierz kartę **Przegląd** , a następnie wybierz link w obszarze **Grupa zasobów**.
+
+   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Wybierz grupę zasobów do usunięcia ze strony aplikacji funkcji":::
+
+2. Na stronie **Grupa zasobów** zapoznaj się z listą uwzględnionych zasobów i sprawdź, czy są one tymi, które chcesz usunąć.
+ 
+3. Wybierz pozycję **Usuń grupę zasobów**, a następnie postępuj zgodnie z instrukcjami.
+
+   Usuwanie może potrwać kilka minut. Po jego zakończeniu przez kilka sekund będzie widoczne powiadomienie. Możesz również wybrać ikonę dzwonka w górnej części strony, aby wyświetlić powiadomienie.
 
 ## <a name="next-steps"></a>Następne kroki
 

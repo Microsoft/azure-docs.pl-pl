@@ -1,10 +1,10 @@
 ---
-title: Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD
+title: Korzystanie z uwierzytelniania wieloskładnikowego Azure Active Directory
 description: Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i usługa Azure Synapse Analytics obsługują połączenia z SQL Server Management Studio (SSMS) przy użyciu uwierzytelniania uniwersalnego Active Directory.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -13,14 +13,14 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 04/23/2020
 tags: azure-synapse
-ms.openlocfilehash: 574999686c38ce4ce1e6d40b3148b70e3602fe00
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 25d08e86fde47c24c134bc03b036c4f456314856
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041889"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983583"
 ---
-# <a name="using-multi-factor-aad-authentication"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD
+# <a name="using-multi-factor-azure-active-directory-authentication"></a>Korzystanie z uwierzytelniania wieloskładnikowego Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, wystąpienie zarządzane przez platformę Azure i usługa Azure Synapse Analytics obsługują połączenia z SQL Server Management Studio (SSMS) przy użyciu uwierzytelniania *WIELOskładnikowego Azure Active Directory* . W tym artykule omówiono różnice między różnymi opcjami uwierzytelniania, a także ograniczenia związane z uwierzytelnianiem uniwersalnym.
@@ -42,11 +42,11 @@ Istnieją również dwa nieinteraktywne modele uwierzytelniania, które mogą by
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-Metoda interaktywna, która obsługuje również uwierzytelnianie wieloskładnikowe Azure (MFA):`Active Directory - Universal with MFA`
+Metoda interaktywna obsługująca również usługę Azure Multi-Factor Authentication (MFA) to:`Active Directory - Universal with MFA`
 
 Usługa Azure MFA zabezpiecza dostęp do danych i aplikacji, a jednocześnie spełnia wymagania użytkowników dotyczące prostoty procesu logowania. Zapewnia silne uwierzytelnianie dzięki szerokiemu zakresowi opcji łatwej weryfikacji (połączenie telefoniczne, wiadomość tekstowa, kartach inteligentnych z numerem PIN lub powiadomieniem aplikacji mobilnej), co pozwala użytkownikom na wybranie preferowanej metody. Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację.
 
-Opis Multi-Factor Authentication można znaleźć w temacie [Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
+Aby uzyskać opis Multi-Factor Authentication platformy Azure, zobacz [Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 Aby uzyskać instrukcje dotyczące konfiguracji, zobacz [konfigurowanie Azure SQL Database usługi uwierzytelniania wieloskładnikowego dla SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nazwa domeny usługi Azure AD lub parametr identyfikatora dzierżawy
@@ -64,13 +64,13 @@ Użytkownicy usługi Azure AD, którzy są obsługiwani przez scenariusze B2B us
 
 ## <a name="universal-authentication-limitations"></a>Ograniczenia uwierzytelniania uniwersalnego
 
-- Narzędzie SSMS i sqlpackage. exe są jedynymi narzędziami obecnie włączonymi dla usługi MFA za pomocą uwierzytelniania uniwersalnego Active Directory.
+- Narzędzie SSMS i SqlPackage.exe są jedynymi narzędziami obecnie włączonych dla usługi MFA za pomocą uwierzytelniania uniwersalnego Active Directory.
 - Program SSMS w wersji 17,2 obsługuje współbieżne dostęp użytkowników przy użyciu uwierzytelniania uniwersalnego w ramach usługi MFA. W wersji 17,0 i 17,1 program ogranicza logowanie do wystąpienia programu SSMS przy użyciu uwierzytelniania uniwersalnego na pojedynczym koncie Azure Active Directory. Aby zalogować się jako inne konto usługi Azure AD, musisz użyć innego wystąpienia programu SSMS. To ograniczenie jest ograniczone do Active Directory uwierzytelniania uniwersalnego. możesz zalogować się do innego serwera za pomocą Active Directory uwierzytelniania hasła, Active Directory uwierzytelniania zintegrowanego lub SQL Server uwierzytelniania).
 - Program SSMS obsługuje uwierzytelnianie uniwersalne Active Directory w przypadku Eksplorator obiektów, edytora zapytań i wizualizacji magazynu zapytań.
 - Program SSMS w wersji 17,2 zapewnia obsługę kreatora DacFx dla bazy danych eksport/Extract/Deploy. Gdy określony użytkownik zostanie uwierzytelniony za pośrednictwem okna dialogowego uwierzytelniania początkowego przy użyciu uwierzytelniania uniwersalnego, Kreator DacFx działa tak samo jak w przypadku wszystkich innych metod uwierzytelniania.
 - Projektant tabel programu SSMS nie obsługuje uwierzytelniania uniwersalnego.
 - Nie ma dodatkowych wymagań dotyczących oprogramowania dla Active Directory uwierzytelniania uniwersalnego, z tą różnicą, że należy użyć obsługiwanej wersji programu SSMS.  
-- Wersja Active Directory Authentication Library (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej udostępnionej wersji biblioteki ADAL. dll 3.13.9. Zobacz [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- Wersja Active Directory Authentication Library (ADAL) dla uwierzytelniania uniwersalnego została zaktualizowana do najnowszej ADAL.dll 3.13.9 dostępna wersja udostępniona. Zobacz [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -79,8 +79,8 @@ Użytkownicy usługi Azure AD, którzy są obsługiwani przez scenariusze B2B us
 - Upewnij się, że inne osoby mogą łączyć się za pośrednictwem zapory: [Skonfiguruj regułę zapory na poziomie serwera przy użyciu Azure Portal](firewall-configure.md)  
 - [Konfigurowanie i Zarządzanie uwierzytelnianiem Azure Active Directory za pomocą SQL Database lub Azure Synapse](authentication-aad-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
-- [Sqlpackage. exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Importowanie pliku BACPAC do nowej bazy danych Azure SQL Database](database-import.md)  
-- [Eksportowanie bazy danych Azure SQL Database do pliku BACPAC](database-export.md)  
+- [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
+- [Importowanie pliku BACPAC do nowej bazy danych](database-import.md)  
+- [Eksportowanie bazy danych do pliku BACPAC](database-export.md)  
 - Interfejs C# interfejsu [IUniversalAuthProvider](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - W przypadku korzystania **z Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi**, menu **opcji** , w obszarze **usługi platformy Azure**, **Azure Cloud**, **ADAL okno dane wyjściowe poziom śledzenia**, a następnie przez włączenie **danych wyjściowych** w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory**.  

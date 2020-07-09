@@ -5,18 +5,17 @@ description: Dowiedz się, jak najlepiej określić wersję zestawów danych i j
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
-ms.custom: ''
-ms.openlocfilehash: 5bd4436fc63fb570f052606ab557dbcf243cf5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: e0b2d7abb378a6717eb4444882ede54debdb5968
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476855"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84555628"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Wersje i śledzenie zestawów danych w eksperymentach
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,7 +51,7 @@ Rejestrując zestaw danych, można w wersji, ponownie użyć i udostępnić go w
 
 ### <a name="register-a-dataset-version"></a>Rejestrowanie wersji zestawu danych
 
-Poniższy kod rejestruje nową wersję `titanic_ds` zestawu danych przez ustawienie `create_new_version` parametru na. `True` Jeśli nie ma istniejącego `titanic_ds` zestawu danych zarejestrowanego w obszarze roboczym, kod utworzy nowy zestaw danych o `titanic_ds` nazwie i ustawi jego wersję na 1.
+Poniższy kod rejestruje nową wersję `titanic_ds` zestawu danych przez ustawienie `create_new_version` parametru na `True` . Jeśli nie ma istniejącego `titanic_ds` zestawu danych zarejestrowanego w obszarze roboczym, kod utworzy nowy zestaw danych o nazwie `titanic_ds` i ustawi jego wersję na 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -169,9 +168,9 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Eksperymenty można również znaleźć `input_datasets` za pomocą https://ml.azure.com/. 
+Eksperymenty można również znaleźć za `input_datasets` pomocą https://ml.azure.com/ . 
 
-Na poniższej ilustracji przedstawiono, gdzie znaleźć zestaw danych wejściowych eksperymentu w programie Azure Machine Learning Studio. Na potrzeby tego przykładu przejdź do okienka **eksperymenty** i Otwórz kartę **Właściwości** dla określonego uruchomienia eksperymentu `keras-mnist`.
+Na poniższej ilustracji przedstawiono, gdzie znaleźć zestaw danych wejściowych eksperymentu w programie Azure Machine Learning Studio. Na potrzeby tego przykładu przejdź do okienka **eksperymenty** i Otwórz kartę **Właściwości** dla określonego uruchomienia eksperymentu `keras-mnist` .
 
 ![Wejściowe zestawy danych](./media/how-to-version-track-datasets/input-datasets.png)
 
@@ -183,7 +182,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Po zarejestrowaniu można zobaczyć listę modeli zarejestrowanych w zestawie danych przy użyciu języka Python lub przejdź do https://ml.azure.com/.
+Po zarejestrowaniu można zobaczyć listę modeli zarejestrowanych w zestawie danych przy użyciu języka Python lub przejdź do https://ml.azure.com/ .
 
 Poniższy widok pochodzi z okienka **zestawy danych** w obszarze **zasoby**. Wybierz zestaw danych, a następnie wybierz kartę **modele** , aby wyświetlić listę modeli zarejestrowanych z zestawem danych. 
 

@@ -4,18 +4,18 @@ description: W tym artykule opisano sposób tworzenia kontenera profilu FSLogix 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362445"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Tworzenie kontenera profilu FSLogix z Azure Files
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
 
 W tym artykule przedstawiono sposób tworzenia kontenera profilu FSLogix z Azure Files i Azure Active Directory Domain Services (AD DS).
 
@@ -41,7 +41,7 @@ Aby dodać administratora:
 
 ## <a name="set-up-an-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
 
-Teraz czas na włączenie uwierzytelniania za pomocą usługi Azure AD DS przy użyciu bloku komunikatów serwera (SMB). 
+Teraz czas na włączenie uwierzytelniania za pomocą usługi Azure AD DS przy użyciu bloku komunikatów serwera (SMB).
 
 Aby włączyć uwierzytelnianie:
 
@@ -93,7 +93,8 @@ Aby uzyskać klucz dostępu do konta magazynu:
 
     Spowoduje to pobranie pliku RDP, który umożliwi zalogowanie się do maszyny wirtualnej przy użyciu własnych poświadczeń.
 
-    ![Zrzut ekranu karty RDP okna łączenie z maszyną wirtualną.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu karty RDP okna łączenie z maszyną wirtualną.](media/rdp-tab.png)
 
 6. Po zalogowaniu się do maszyny wirtualnej Uruchom wiersz polecenia jako administrator.
 
@@ -103,13 +104,13 @@ Aby uzyskać klucz dostępu do konta magazynu:
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Zamień `<desired-drive-letter>` na wybraną literę dysku (na przykład `y:`).
-    - Zamień wszystkie wystąpienia `<storage-account-name>` z nazwą konta magazynu określonego wcześniej.
-    - Zamień `<share-name>` na nazwę utworzonego wcześniej udziału.
-    - Zamień `<storage-account-key>` na klucz konta magazynu z platformy Azure.
+    - Zamień na `<desired-drive-letter>` wybraną literę dysku (na przykład `y:` ).
+    - Zamień wszystkie wystąpienia z `<storage-account-name>` nazwą konta magazynu określonego wcześniej.
+    - Zamień na `<share-name>` nazwę utworzonego wcześniej udziału.
+    - Zamień na `<storage-account-key>` klucz konta magazynu z platformy Azure.
 
-    Przykład:  
-  
+    Przykład:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -120,11 +121,11 @@ Aby uzyskać klucz dostępu do konta magazynu:
      icacls <mounted-drive-letter>: /grant <user-email>:(f)
      ```
 
-    - Zamień `<mounted-drive-letter>` na literę dysku, który ma być używany przez użytkownika.
-    - Zamień `<user-email>` na nazwę UPN użytkownika, który będzie używać tego profilu do uzyskiwania dostępu do maszyn wirtualnych hosta sesji.
+    - Zamień na `<mounted-drive-letter>` literę dysku, który ma być używany przez użytkownika.
+    - Zamień na `<user-email>` nazwę UPN użytkownika, który będzie używać tego profilu do uzyskiwania dostępu do maszyn wirtualnych hosta sesji.
 
     Przykład:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -137,30 +138,32 @@ Aby skonfigurować kontener profilu FSLogix:
 
 1. Zaloguj się do maszyny wirtualnej hosta sesji skonfigurowanej na początku tego artykułu, a następnie [Pobierz i Zainstaluj agenta FSLogix](/fslogix/install-ht/).
 
-2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64** > **Releases**, a następnie otwórz **FSLogixAppsSetup. exe**.
+2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64**  >  **Releases**, a następnie otwórz **FSLogixAppsSetup.exe**.
 
 3. Po uruchomieniu Instalatora zaznacz opcję **Akceptuję warunki i postanowienia licencyjne.** Jeśli ma to zastosowanie, podaj nowy klucz.
 
 4. Wybierz pozycję **Zainstaluj**.
 
-5. Otwórz **dysk C**, a następnie przejdź do pozycji **Program Files** > **FSLogix** > **Apps** , aby upewnić się, że Agent FSLogix został prawidłowo zainstalowany.
+5. Otwórz **dysk C**, a następnie przejdź do pozycji **Program Files**  >  **FSLogix**  >  **Apps** , aby upewnić się, że Agent FSLogix został prawidłowo zainstalowany.
 
      >[!NOTE]
      > Jeśli w puli hostów istnieje wiele maszyn wirtualnych, należy powtórzyć kroki od 1 do 5 dla każdej maszyny wirtualnej.
 
 6. Uruchom **Edytor rejestru** (regedit) jako administrator.
 
-7. Przejdź do **komputera** > **HKEY_LOCAL_MACHINE** > **Software** > **FSLogix**, kliknij prawym przyciskiem myszy pozycję **FSLogix**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **klucz**.
+7. Przejdź do **komputera**  >  **HKEY_LOCAL_MACHINE**  >  **Software**  >  **FSLogix**, kliknij prawym przyciskiem myszy pozycję **FSLogix**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **klucz**.
 
 8. Utwórz nowy klucz o nazwie **Profile**.
 
 9.  Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz **wartość DWORD (32-bitową).** Nazwij wartość **Enabled** i ustaw wartość **danych** na **1**.
 
-    ![Zrzut ekranu przedstawiający klucz profile. Plik REG_DWORD jest wyróżniony, a jego wartość danych jest ustawiona na 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający klucz profile. Plik REG_DWORD jest wyróżniony, a jego wartość danych jest ustawiona na 1.](media/dword-value.png)
 
-10. Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **wartość ciągu wielociągowego**. Nadaj wartość **VHDLocations** , a w polu wartość danych wprowadź identyfikator URI dla `\\fsprofile.file.core.windows.net\share` udziału Azure Files.
+10. Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **wartość ciągu wielociągowego**. Nadaj wartość **VHDLocations** , a w polu wartość danych wprowadź identyfikator URI dla udziału Azure Files `\\fsprofile.file.core.windows.net\share` .
 
-    ![Zrzut ekranu przedstawiający klucz profile pokazujący plik VHDLocations. Jego wartość danych pokazuje identyfikator URI udziału Azure Files.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający klucz profile pokazujący plik VHDLocations. Jego wartość danych pokazuje identyfikator URI udziału Azure Files.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Przypisywanie użytkowników do hosta sesji
 
@@ -197,19 +200,19 @@ Aby przypisać użytkowników:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Podobnie jak w przypadku wcześniejszych poleceń cmdlet, pamiętaj, `<your-wvd-tenant>`aby `<wvd-pool>`zastąpić, `<user-principal>` i z odpowiednimi wartościami.
+    Podobnie jak w przypadku wcześniejszych poleceń cmdlet, pamiętaj, aby zastąpić `<your-wvd-tenant>` , `<wvd-pool>` i `<user-principal>` z odpowiednimi wartościami.
 
     Przykład:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
@@ -231,7 +234,7 @@ Aby zweryfikować profil:
 
 6. Wybierz ikonę **pliki** , a następnie rozwiń swój udział.
 
-    Jeśli wszystko zostało skonfigurowane prawidłowo, powinien zostać wyświetlony **katalog** o nazwie, który jest sformatowany w następujący sposób: `<user SID>-<username>`.
+    Jeśli wszystko zostało skonfigurowane prawidłowo, powinien zostać wyświetlony **katalog** o nazwie, który jest sformatowany w następujący sposób: `<user SID>-<username>` .
 
 ## <a name="next-steps"></a>Następne kroki
 

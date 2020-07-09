@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc
 ms.openlocfilehash: f66890c503de8de9160f11fb28795012ae57daeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75561341"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Instalowanie udziału plików platformy Azure w usłudze Azure Container Instances
@@ -81,7 +80,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-`--dns-name-label` Wartość musi być unikatowa w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. Zaktualizuj wartość w poprzednim poleceniu, jeśli podczas wykonywania polecenia zostanie wyświetlony komunikat o błędzie **etykiety nazwy DNS** .
+`--dns-name-label`Wartość musi być unikatowa w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. Zaktualizuj wartość w poprzednim poleceniu, jeśli podczas wykonywania polecenia zostanie wyświetlony komunikat o błędzie **etykiety nazwy DNS** .
 
 ## <a name="manage-files-in-mounted-volume"></a>Zarządzanie plikami w zainstalowanym woluminie
 
@@ -98,9 +97,9 @@ Po zapisaniu tekstu przy użyciu aplikacji można użyć [Azure Portal][portal] 
 
 Możesz również wdrożyć grupę kontenerów i zainstalować wolumin w kontenerze za pomocą interfejsu wiersza polecenia platformy Azure i [szablonu YAML](container-instances-multi-container-yaml.md). Wdrażanie przy użyciu szablonu YAML jest preferowaną metodą wdrażania grup kontenerów składających się z wielu kontenerów.
 
-Poniższy szablon YAML definiuje grupę kontenerów z jednym kontenerem utworzonym przy `aci-hellofiles` użyciu obrazu. Kontener instaluje *acishare* udział plików platformy Azure utworzony wcześniej jako wolumin. Gdzie to wskazane, wprowadź nazwę i klucz magazynu dla konta magazynu, które obsługuje udział plików. 
+Poniższy szablon YAML definiuje grupę kontenerów z jednym kontenerem utworzonym przy użyciu `aci-hellofiles` obrazu. Kontener instaluje *acishare* udział plików platformy Azure utworzony wcześniej jako wolumin. Gdzie to wskazane, wprowadź nazwę i klucz magazynu dla konta magazynu, które obsługuje udział plików. 
 
-Podobnie jak w przykładzie interfejsu wiersza polecenia `dnsNameLabel` , wartość musi być unikatowa w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. W razie konieczności zaktualizuj wartość w pliku YAML.
+Podobnie jak w przykładzie interfejsu wiersza polecenia, `dnsNameLabel` wartość musi być unikatowa w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. W razie konieczności zaktualizuj wartość w pliku YAML.
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -138,7 +137,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Aby wdrożyć z szablonem YAML, Zapisz poprzedni YAML do pliku o nazwie `deploy-aci.yaml`, a następnie wykonaj polecenie [AZ Container Create][az-container-create] z `--file` parametrem:
+Aby wdrożyć z szablonem YAML, Zapisz poprzedni YAML do pliku o nazwie `deploy-aci.yaml` , a następnie wykonaj polecenie [AZ Container Create][az-container-create] z `--file` parametrem:
 
 ```azurecli
 # Deploy with YAML template
@@ -148,11 +147,11 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Oprócz wdrożenia interfejsu wiersza polecenia i YAML można wdrożyć grupę kontenerów i zainstalować wolumin w kontenerze przy użyciu [szablonu Menedżer zasobów](/azure/templates/microsoft.containerinstance/containergroups)platformy Azure.
 
-Najpierw Wypełnij `volumes` tablicę w sekcji Grupa `properties` kontenerów szablonu. 
+Najpierw Wypełnij `volumes` tablicę w sekcji Grupa kontenerów `properties` szablonu. 
 
 Następnie dla każdego kontenera, w którym chcesz zainstalować wolumin, Wypełnij `volumeMounts` tablicę w `properties` sekcji definicji kontenera.
 
-Poniższy szablon Menedżer zasobów definiuje grupę kontenerów z jednym kontenerem utworzonym przy `aci-hellofiles` użyciu obrazu. Kontener instaluje *acishare* udział plików platformy Azure utworzony wcześniej jako wolumin. Gdzie to wskazane, wprowadź nazwę i klucz magazynu dla konta magazynu, które obsługuje udział plików. 
+Poniższy szablon Menedżer zasobów definiuje grupę kontenerów z jednym kontenerem utworzonym przy użyciu `aci-hellofiles` obrazu. Kontener instaluje *acishare* udział plików platformy Azure utworzony wcześniej jako wolumin. Gdzie to wskazane, wprowadź nazwę i klucz magazynu dla konta magazynu, które obsługuje udział plików. 
 
 Tak jak w poprzednich przykładach, `dnsNameLabel` wartość musi być unikatowa w regionie świadczenia usługi Azure, w którym tworzysz wystąpienie kontenera. W razie konieczności zaktualizuj wartość w szablonie.
 
@@ -223,7 +222,7 @@ Tak jak w poprzednich przykładach, `dnsNameLabel` wartość musi być unikatowa
 }
 ```
 
-Aby wdrożyć z szablonem Menedżer zasobów, Zapisz poprzedni kod JSON do pliku o nazwie `deploy-aci.json`, a następnie uruchom polecenie [AZ Group Deployment Create][az-group-deployment-create] z `--template-file` parametrem:
+Aby wdrożyć z szablonem Menedżer zasobów, Zapisz poprzedni kod JSON do pliku o nazwie `deploy-aci.json` , a następnie uruchom polecenie [AZ Group Deployment Create][az-group-deployment-create] z `--template-file` parametrem:
 
 ```azurecli
 # Deploy with Resource Manager template
@@ -235,7 +234,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 Aby zainstalować wiele woluminów w wystąpieniu kontenera, należy wdrożyć przy użyciu [szablonu Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), pliku YAML lub innej metody programowej. Aby użyć szablonu lub pliku YAML, podaj szczegóły udziału i zdefiniuj woluminy, wypełniając `volumes` tablicę w `properties` sekcji pliku. 
 
-Jeśli na przykład utworzono dwa Azure Files udziały o nazwie *share1* i *Share2* na koncie magazynu *mojekontomagazynu*, `volumes` tablica w Menedżer zasobów szablon będzie wyglądać podobnie do następującej:
+Jeśli na przykład utworzono dwa Azure Files udziały o nazwie *share1* i *Share2* na koncie magazynu *mojekontomagazynu*, `volumes` Tablica w Menedżer zasobów szablon będzie wyglądać podobnie do następującej:
 
 ```JSON
 "volumes": [{

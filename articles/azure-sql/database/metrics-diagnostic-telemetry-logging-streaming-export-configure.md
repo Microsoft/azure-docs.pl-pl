@@ -2,7 +2,7 @@
 title: Konfigurowanie przesyłania strumieniowego eksportu metryk i dzienników zasobów
 description: Dowiedz się, jak skonfigurować eksportowanie strumieniowe metryk i dzienników zasobów, w tym inteligentną analizę diagnostyki z Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL do miejsca docelowego w celu przechowywania informacji dotyczących wykorzystania zasobów i statystyk wykonywania zapytań.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 87a30544378936f8408f187f6b9ad67edb8dce12
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117756"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085603"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ Znajdziesz również informacje o miejscach docelowych, do których można przes
 
 - [Log Analytics i analiza SQL](#stream-into-sql-analytics)
 - [Event Hubs](#stream-into-event-hubs)
-- [Usługa Azure Storage](#stream-into-azure-storage)
+- [Azure Storage](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export"></a>Dane telemetryczne diagnostyki na potrzeby eksportu
 
@@ -39,15 +39,15 @@ Oprócz przesyłania strumieniowego eksportu dziennika Intelligent Insights moż
 | :------------------- | ----- | ----- |
 | [Metryki podstawowe](#basic-metrics): zawiera wartość procentową jednostek DTU/CPU, limit liczby jednostek DTU/procesora, procent odczytu danych fizycznych, procent zapisu w dzienniku, powodzenie/niepowodzenie/zablokowano przez połączenia zapory, procentową wartość procentową, magazyn, procent magazynu i procent magazynu XTP. | Yes | Nie |
 | [Zaawansowane wystąpienie i aplikacja](#advanced-metrics): zawiera bazę danych tempdb system Data i rozmiar pliku dziennika oraz plik dziennika bazy danych tempdb (%). | Yes | Nie |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): zawiera informacje o statystykach środowiska uruchomieniowego zapytań, takich jak użycie procesora CPU i statystyka czasu trwania zapytania. | Tak | Yes |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): zawiera informacje o statystykach oczekiwania na zapytanie (zapytania, w których zarejestrowano), takie jak procesor CPU, dziennik i blokowanie. | Tak | Yes |
-| [Błędy](#errors-dataset): zawiera informacje o błędach SQL w bazie danych. | Tak | Yes |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): zawiera informacje o statystykach środowiska uruchomieniowego zapytań, takich jak użycie procesora CPU i statystyka czasu trwania zapytania. | Tak | Tak |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): zawiera informacje o statystykach oczekiwania na zapytanie (zapytania, w których zarejestrowano), takie jak procesor CPU, dziennik i blokowanie. | Tak | Tak |
+| [Błędy](#errors-dataset): zawiera informacje o błędach SQL w bazie danych. | Tak | Tak |
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset): zawiera informacje o tym, ile czasu baza danych poświęca na oczekiwanie na różne typy oczekiwania. | Yes | Nie |
 | [Limity czasu](#time-outs-dataset): zawiera informacje na temat limitów czasu w bazie danych. | Yes | Nie |
 | [Bloki](#blockings-dataset): zawiera informacje o blokowaniu zdarzeń w bazie danych. | Yes | Nie |
 | [Zakleszczenia](#deadlocks-dataset): zawiera informacje o zdarzeniach zakleszczenia w bazie danych. | Yes | Nie |
 | [AutomaticTuning](#automatic-tuning-dataset): zawiera informacje o zaleceniach dostrajania automatycznego dla bazy danych. | Yes | Nie |
-| [SQLInsights](#intelligent-insights-dataset): zawiera Intelligent Insights do wydajności bazy danych. Aby dowiedzieć się więcej, zobacz [Intelligent Insights](intelligent-insights-overview.md). | Tak | Yes |
+| [SQLInsights](#intelligent-insights-dataset): zawiera Intelligent Insights do wydajności bazy danych. Aby dowiedzieć się więcej, zobacz [Intelligent Insights](intelligent-insights-overview.md). | Tak | Tak |
 
 > [!NOTE]
 > Nie można skonfigurować ustawień diagnostycznych dla **systemowych baz danych**, takich jak bazy danych Master, msdb, model, Resource i tempdb.
@@ -133,9 +133,9 @@ Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostyki dla 
 > [!IMPORTANT]
 > Oprócz konfigurowania telemetrii diagnostyki dla puli elastycznej należy również skonfigurować telemetrię diagnostyki dla każdej bazy danych w puli elastycznej.
 
-### <a name="single-and-pooled-databases-in-azure-sql-database"></a>Pojedyncze i w puli baz danych w Azure SQL Database
+### <a name="databases-in-azure-sql-database"></a>Bazy danych w Azure SQL Database
 
-Istnieje możliwość skonfigurowania jednego lub puli zasobów bazy danych, aby zebrać następujące dane telemetryczne diagnostyki:
+Można skonfigurować zasób bazy danych, aby zebrać następujące dane telemetryczne diagnostyki:
 
 | Zasób | Monitorowanie telemetrii |
 | :------------------- | ------------------- |
@@ -231,7 +231,7 @@ Aby włączyć przesyłanie strumieniowe telemetrii diagnostyki dla bazy danych 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell nadal obsługuje platformę Azure, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Można włączyć funkcję rejestrowania metryk i diagnostyki przy użyciu programu PowerShell.
 

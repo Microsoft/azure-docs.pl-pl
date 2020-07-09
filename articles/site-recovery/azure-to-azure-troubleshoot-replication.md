@@ -5,16 +5,16 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130406"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Rozwiązywanie problemów z replikacją w ramach odzyskiwania po awarii maszyny wirtualnej Azure
 
-W tym artykule opisano typowe problemy w Azure Site Recovery w przypadku replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do innego. Wyjaśniono również, jak rozwiązywać typowe problemy. Aby uzyskać więcej informacji o obsługiwanych konfiguracjach, zobacz [Macierz obsługi w celu replikowania maszyn wirtualnych platformy Azure](site-recovery-support-matrix-azure-to-azure.md).
+W tym artykule opisano typowe problemy w Azure Site Recovery w przypadku replikowania i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do innego. Wyjaśniono również, jak rozwiązywać typowe problemy. Aby uzyskać więcej informacji o obsługiwanych konfiguracjach, zobacz [Macierz obsługi w celu replikowania maszyn wirtualnych platformy Azure](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery spójnie replikuje dane z regionu źródłowego do regionu odzyskiwania po awarii. Tworzy również punkt odzyskiwania spójny na poziomie awarii co 5 minut. Jeśli Site Recovery nie może utworzyć punktów odzyskiwania przez 60 minut, powiadamia o tych informacjach:
 
@@ -28,7 +28,7 @@ W poniższych sekcjach opisano przyczyny i rozwiązania.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Wysoki współczynnik zmian danych na źródłowej maszynie wirtualnej
 
-Azure Site Recovery tworzy zdarzenie, jeśli współczynnik zmian danych na źródłowej maszynie wirtualnej jest większy niż obsługiwane limity. Aby sprawdzić, czy problem jest spowodowany dużym zmianą, przejdź do **pozycji zreplikowane elementy** > zdarzenia**maszyny wirtualnej** > **— ostatnie 72 godzin**.
+Azure Site Recovery tworzy zdarzenie, jeśli współczynnik zmian danych na źródłowej maszynie wirtualnej jest większy niż obsługiwane limity. Aby sprawdzić, czy problem jest spowodowany dużym zmianą, przejdź do **pozycji zreplikowane elementy**  >  zdarzenia**maszyny wirtualnej**  >  **— ostatnie 72 godzin**.
 Powinna zostać wyświetlona **częstotliwość zmian danych zdarzeń poza obsługiwanymi limitami**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
@@ -78,7 +78,7 @@ Wzrost liczby zmian danych może pochodzić z okazjonalnej serii danych. Jeśli 
 
 Site Recovery wysyła zreplikowane dane na konto magazynu pamięci podręcznej. Opóźnienie sieci może wystąpić, jeśli przekazywanie danych z maszyny wirtualnej na konto magazynu pamięci podręcznej jest wolniejsze niż 4 MB w ciągu 3 sekund.
 
-Aby sprawdzić, czy wystąpił problem związany z opóźnieniem, użyj [AzCopy](/azure/storage/common/storage-use-azcopy). Za pomocą tego narzędzia wiersza polecenia można przekazać dane z maszyny wirtualnej na konto magazynu pamięci podręcznej. Jeśli opóźnienie jest wysokie, sprawdź, czy używasz sieciowego urządzenia wirtualnego (urządzenie WUS) do kontrolowania wychodzącego ruchu sieciowego z maszyn wirtualnych. Urządzenie może zostać ograniczone, jeśli cały ruch związany z replikacją przechodzi przez urządzenie WUS.
+Aby sprawdzić, czy wystąpił problem związany z opóźnieniem, użyj [AzCopy](../storage/common/storage-use-azcopy-v10.md). Za pomocą tego narzędzia wiersza polecenia można przekazać dane z maszyny wirtualnej na konto magazynu pamięci podręcznej. Jeśli opóźnienie jest wysokie, sprawdź, czy używasz sieciowego urządzenia wirtualnego (urządzenie WUS) do kontrolowania wychodzącego ruchu sieciowego z maszyn wirtualnych. Urządzenie może zostać ograniczone, jeśli cały ruch związany z replikacją przechodzi przez urządzenie WUS.
 
 Zalecamy utworzenie punktu końcowego usługi sieciowej w sieci wirtualnej dla elementu "Storage", aby ruch związany z replikacją nie przechodził do urządzenie WUS. Aby uzyskać więcej informacji, zobacz [Konfiguracja wirtualnego urządzenia sieciowego](azure-to-azure-about-networking.md#network-virtual-appliance-configuration).
 
@@ -105,6 +105,10 @@ Poniżej przedstawiono niektóre z najczęściej spotykanych problemów.
 ### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Używasz konfiguracji usługi Azure Bezpośrednie miejsca do magazynowania
 
 **Jak naprawić**: Azure Site Recovery nie może utworzyć punktu odzyskiwania spójnego na poziomie aplikacji dla konfiguracji bezpośrednie miejsca do magazynowania. [Skonfiguruj zasady replikacji](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+
+### <a name="app-consistency-not-enabled-on-linux-servers"></a>Nie włączono spójności aplikacji na serwerach z systemem Linux
+
+**Jak naprawić** : Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery w celu zapewnienia spójności aplikacji. [Poniżej](./site-recovery-faq.md#replication) przedstawiono kroki, które należy włączyć.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Więcej przyczyn spowodowanych problemami związanymi z usługą VSS:
 

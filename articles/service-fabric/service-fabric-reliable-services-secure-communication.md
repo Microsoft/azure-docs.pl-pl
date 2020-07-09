@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609625"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Bezpieczna komunikacja zdalna usługi w usłudze C#
@@ -23,7 +22,7 @@ Bezpieczeństwo jest jednym z najważniejszych aspektów komunikacji. Platforma 
 
 Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych usługi w języku C#, wykonaj następujące kroki:
 
-1. Utwórz interfejs `IHelloWorldStateful`, który definiuje metody, które będą dostępne dla zdalnego wywołania procedury w usłudze. Zostanie użyta `FabricTransportServiceRemotingListener`usługa, która jest zadeklarowana w `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` przestrzeni nazw. Jest to `ICommunicationListener` implementacja, która udostępnia możliwości komunikacji zdalnej.
+1. Utwórz interfejs, `IHelloWorldStateful` który definiuje metody, które będą dostępne dla zdalnego wywołania procedury w usłudze. Zostanie użyta usługa `FabricTransportServiceRemotingListener` , która jest zadeklarowana w `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` przestrzeni nazw. Jest to `ICommunicationListener` implementacja, która udostępnia możliwości komunikacji zdalnej.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -90,7 +89,7 @@ Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych us
        ```
    2. Podaj je przy użyciu [pakietu konfiguracji](service-fabric-application-and-service-manifests.md):
 
-       Dodaj nazwaną `TransportSettings` sekcję w pliku Settings. XML.
+       Dodaj nazwaną `TransportSettings` sekcję w pliku settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -120,7 +119,7 @@ Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych us
        }
        ```
 
-        Jeśli dodasz `TransportSettings` sekcję w pliku Settings. XML, `FabricTransportRemotingListenerSettings` program załaduje domyślnie wszystkie ustawienia z tej sekcji.
+        W przypadku dodania `TransportSettings` sekcji w pliku settings.xml program `FabricTransportRemotingListenerSettings` Domyślnie załaduje wszystkie ustawienia z tej sekcji.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -141,7 +140,7 @@ Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych us
             };
         }
         ```
-3. Gdy wywołujesz metody w zabezpieczonej usłudze przy użyciu stosu zdalnego, zamiast używać `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` klasy do tworzenia serwera proxy usługi, użyj polecenia. `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` Przekaż `FabricTransportRemotingSettings`, który zawiera `SecurityCredentials`.
+3. Gdy wywołujesz metody w zabezpieczonej usłudze przy użyciu stosu zdalnego, zamiast używać `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` klasy do tworzenia serwera proxy usługi, użyj polecenia `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory` . Przekaż `FabricTransportRemotingSettings` , który zawiera `SecurityCredentials` .
 
     ```csharp
 
@@ -171,7 +170,7 @@ Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych us
 
     ```
 
-    Jeśli kod klienta jest uruchomiony w ramach usługi, można załadować `FabricTransportRemotingSettings` z pliku Settings. XML. Utwórz sekcję HelloWorldClientTransportSettings podobną do kodu usługi, jak pokazano wcześniej. Wprowadź następujące zmiany w kodzie klienta:
+    Jeśli kod klienta jest uruchomiony w ramach usługi, można załadować `FabricTransportRemotingSettings` z pliku settings.xml. Utwórz sekcję HelloWorldClientTransportSettings podobną do kodu usługi, jak pokazano wcześniej. Wprowadź następujące zmiany w kodzie klienta:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -184,9 +183,9 @@ Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych us
 
     ```
 
-    Jeśli klient nie działa w ramach usługi, można utworzyć plik client_name. Settings. XML w tej samej lokalizacji, w której znajduje się client_name. exe. Następnie utwórz sekcję TransportSettings w tym pliku.
+    Jeśli klient nie działa w ramach usługi, można utworzyć plik client_name.settings.xml w tej samej lokalizacji, w której znajduje się client_name.exe. Następnie utwórz sekcję TransportSettings w tym pliku.
 
-    Podobnie jak w przypadku dodania `TransportSettings` sekcji w ustawieniach klienta. xml/CLIENT_NAME. Settings. XML, program `FabricTransportRemotingSettings` domyślnie ładuje wszystkie ustawienia z tej sekcji.
+    Podobnie jak w przypadku dodania `TransportSettings` sekcji w settings.xml klienta/client_name.settings.xml, program `FabricTransportRemotingSettings` Domyślnie ładuje wszystkie ustawienia z tej sekcji.
 
     W takim przypadku poprzedni kod jest jeszcze bardziej uproszczony:  
 

@@ -8,25 +8,25 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582697"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85611292"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identyfikowanie i rozwiązywanie problemów z przypisaniem licencji dla grupy w Azure Active Directory
 
 Licencjonowanie oparte na grupach w Azure Active Directory (Azure AD) wprowadza koncepcję użytkowników w stanie błąd licencjonowania. W tym artykule wyjaśniono przyczyny, dla których użytkownicy mogą zakończyć w tym stanie.
 
-Po przypisaniu licencji bezpośrednio do poszczególnych użytkowników bez korzystania z licencjonowania opartego na grupach operacja przypisania może zakończyć się niepowodzeniem. Na przykład po wykonaniu polecenia cmdlet `Set-MsolUserLicense` programu PowerShell w systemie użytkownika polecenie cmdlet może zakończyć się niepowodzeniem z wielu powodów związanych z logiką biznesową. Na przykład może być niewystarczająca liczba licencji lub występuje konflikt między dwoma planami usług, których nie można przypisać w tym samym czasie. Problem jest natychmiast raportowany do Ciebie.
+Po przypisaniu licencji bezpośrednio do poszczególnych użytkowników bez korzystania z licencjonowania opartego na grupach operacja przypisania może zakończyć się niepowodzeniem. Na przykład po wykonaniu polecenia cmdlet programu PowerShell `Set-MsolUserLicense` w systemie użytkownika polecenie cmdlet może zakończyć się niepowodzeniem z wielu powodów związanych z logiką biznesową. Na przykład może być niewystarczająca liczba licencji lub występuje konflikt między dwoma planami usług, których nie można przypisać w tym samym czasie. Problem jest natychmiast raportowany do Ciebie.
 
 W przypadku korzystania z licencjonowania opartego na grupach te same błędy mogą wystąpić, ale występują w tle, podczas gdy usługa Azure AD przypisuje licencje. Z tego powodu błędy nie mogą być od razu przekazane. Zamiast tego są one rejestrowane w obiekcie użytkownika, a następnie raportowane za pośrednictwem portalu administracyjnego. Oryginalny cel licencji użytkownika nigdy nie jest tracony, ale jest rejestrowany w stanie błędu w celu przyszłego zbadania i rozwiązania problemu.
 
@@ -56,7 +56,7 @@ Poniższe sekcje zawierają opis każdego potencjalnego problemu i sposobu jego 
 
 **Problem:** Za mało dostępnych licencji dla jednego z produktów określonych w grupie. Musisz zakupić więcej licencji dla produktu lub zwolnić niewykorzystane licencje od innych użytkowników lub grup.
 
-Aby sprawdzić, ile licencji jest dostępnych, przejdź do pozycji **Azure Active Directory** > **licencje** > **wszystkie produkty**.
+Aby sprawdzić, ile licencji jest dostępnych, przejdź do pozycji **Azure Active Directory**  >  **licencje**  >  **wszystkie produkty**.
 
 Aby sprawdzić, którzy użytkownicy i które grupy korzystają z licencji, wybierz produkt. W obszarze **Licencjonowani użytkownicy**zobaczysz listę wszystkich użytkowników, którzy mają przypisane licencje bezpośrednio lub za pośrednictwem co najmniej jednej grupy. W obszarze **grupy licencjonowane**zostaną wyświetlone wszystkie grupy, które mają przypisane te produkty.
 
@@ -87,7 +87,7 @@ Program **PowerShell:** Polecenia cmdlet programu PowerShell zgłaszają ten bł
 
 ## <a name="usage-location-isnt-allowed"></a>Lokalizacja użycia nie jest dozwolona
 
-**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w sekcji > **Ustawienia** profilu **użytkownika** > **Profile**w Azure Portal.
+**Problem:** Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach ze względu na lokalne przepisy i przepisy. Aby można było przypisać licencję do użytkownika, należy określić właściwość **Lokalizacja użycia** dla użytkownika. Lokalizację można określić w **User**  >  **Profile**  >  sekcji**Ustawienia** profilu użytkownika w Azure Portal.
 
 Gdy usługa Azure AD podejmie próbę przypisania licencji grupy do użytkownika, którego lokalizacja użycia nie jest obsługiwana, kończy się niepowodzeniem i rejestruje błąd użytkownika.
 
@@ -120,7 +120,7 @@ Aktualizacja przypisania licencji dla użytkownika powoduje, że Obliczanie adre
 ## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>LicenseAssignmentAttributeConcurrencyException w dziennikach inspekcji
 
 **Problem:** Użytkownik ma LicenseAssignmentAttributeConcurrencyException do przypisania licencji w dziennikach inspekcji.
-Gdy Licencjonowanie oparte na grupach próbuje przetworzyć współbieżne przypisanie licencji tej samej licencji do użytkownika, ten wyjątek jest rejestrowany na użytkowniku. Zwykle dzieje się tak, gdy użytkownik jest członkiem więcej niż jednej grupy z tą samą przypisaną licencją. Usługa AZure AD podejmie ponowną próbę przetworzenia licencji użytkownika i rozwiąże ten problem. Klient nie wymaga żadnych działań w celu rozwiązania tego problemu.
+Gdy Licencjonowanie oparte na grupach próbuje przetworzyć współbieżne przypisanie licencji tej samej licencji do użytkownika, ten wyjątek jest rejestrowany na użytkowniku. Zwykle dzieje się tak, gdy użytkownik jest członkiem więcej niż jednej grupy z tą samą przypisaną licencją. Usługa Azure AD podejmie ponowną próbę przetworzenia licencji użytkownika i rozwiąże ten problem. Klient nie wymaga żadnych działań w celu rozwiązania tego problemu.
 
 ## <a name="more-than-one-product-license-assigned-to-a-group"></a>Do grupy przypisano więcej niż jedną licencję produktu
 

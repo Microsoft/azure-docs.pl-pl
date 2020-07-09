@@ -1,20 +1,18 @@
 ---
 title: Monitoruj kondycję IoT Hub platformy Azure | Microsoft Docs
 description: Używanie Azure Monitor i Azure Resource Health do monitorowania IoT Hub i szybkiego diagnozowania problemów
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732427"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792046"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorowanie kondycji usługi Azure IoT Hub i szybkie diagnozowanie problemów
 
@@ -32,8 +30,6 @@ IoT Hub również zawiera własne metryki, których można użyć do zrozumienia
 ## <a name="use-azure-monitor"></a>Korzystanie z usługi Azure Monitor
 
 Azure Monitor udostępnia informacje diagnostyczne dotyczące zasobów platformy Azure, co oznacza, że można monitorować operacje, które mają miejsce w usłudze IoT Hub.
-
-Azure Monitor ustawień diagnostycznych zastępuje monitor operacji IoT Hub. Jeśli obecnie używasz monitorowania operacji, należy migrować przepływy pracy. Aby uzyskać więcej informacji, zobacz [Migrowanie z monitorowania operacji do ustawień diagnostycznych](iot-hub-migrate-to-diagnostics-settings.md).
 
 Aby dowiedzieć się więcej o określonych metrykach i zdarzeniach, które Azure Monitor zegarki, zobacz temat [obsługiwane metryki z Azure monitor](../azure-monitor/platform/metrics-supported.md) i [obsługiwanymi usługami, schematami i kategoriami dla dzienników diagnostycznych platformy Azure](../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -121,11 +117,11 @@ Kategoria operacje tożsamości urządzenia śledzi błędy występujące podcza
 
 #### <a name="routes"></a>Trasy
 
-Kategoria routingu wiadomości śledzi błędy występujące podczas oceny trasy komunikatów i kondycji punktu końcowego, jak zostało to postrzegane przez IoT Hub. Ta kategoria obejmuje następujące zdarzenia:
+Kategoria [routingu wiadomości](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) śledzi błędy występujące podczas oceny trasy komunikatów i kondycji punktu końcowego, jak zostało to postrzegane przez IoT Hub. Ta kategoria obejmuje następujące zdarzenia:
 
 * Reguła ma wartość "undefined".
 * IoT Hub oznacza punkt końcowy jako martwy lub
-* Wszystkie błędy odebrane z punktu końcowego. 
+* Wszystkie błędy odebrane z punktu końcowego.
 
 Ta kategoria nie zawiera określonych błędów dotyczących samych komunikatów (takich jak błędy ograniczania urządzeń), które są raportowane w kategorii "dane telemetryczne urządzenia".
 
@@ -134,17 +130,24 @@ Ta kategoria nie zawiera określonych błędów dotyczących samych komunikatów
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+Poniżej przedstawiono więcej szczegółów dotyczących routingu dzienników diagnostycznych:
+
+* [Lista kodów błędów dzienników diagnostycznych routingu](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [Lista operationNames dzienników diagnostycznych routingu](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### <a name="device-telemetry"></a>Dane telemetryczne urządzenia
 
@@ -315,7 +318,7 @@ Kategoria metody bezpośrednie śledzi interakcje z żądaniem odpowiedzi wysył
 
 Kategoria śledzenie rozproszone śledzi identyfikatory korelacji dla komunikatów, które zawierają nagłówek kontekstu śledzenia. Aby w pełni włączyć te dzienniki, kod po stronie klienta należy zaktualizować, wykonując następujące czynności: [analizowanie i diagnozowanie aplikacji IoT w ramach kompleksowego śledzenia IoT Hub (wersja zapoznawcza)](iot-hub-distributed-tracing.md).
 
-Należy pamiętać `correlationId` , że jest to zgodne z propozycją w [kontekście śledzenia W3C](https://github.com/w3c/trace-context) , w `trace-id` której znajduje się, `span-id`a także.
+Należy pamiętać, że jest to zgodne z `correlationId` propozycją w [kontekście śledzenia W3C](https://github.com/w3c/trace-context) , w której znajduje się, a także `trace-id` `span-id` .
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Dzienniki IoT Hub D2C (urządzenie-chmura)
 
@@ -342,12 +345,12 @@ IoT Hub rejestruje ten dziennik, gdy komunikat zawierający prawidłowe właści
 }
 ```
 
-W tym `durationMs` miejscu nie jest obliczany, ponieważ zegar IoT Hub może nie być zsynchronizowany z zegarem urządzenia i w ten sposób Obliczanie czasu trwania może być mylące. Zalecamy zapisanie logiki przy użyciu sygnatur czasowych w `properties` sekcji, aby przechwytywać opóźnienia w czasie oczekiwania między urządzeniami a chmurą.
+W tym miejscu `durationMs` nie jest obliczany, ponieważ zegar IoT Hub może nie być zsynchronizowany z zegarem urządzenia i w ten sposób Obliczanie czasu trwania może być mylące. Zalecamy zapisanie logiki przy użyciu sygnatur czasowych w `properties` sekcji, aby przechwytywać opóźnienia w czasie oczekiwania między urządzeniami a chmurą.
 
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Liczba całkowita | Rozmiar komunikatu z urządzenia do chmury w bajtach |
-| **Identyfikator** | Ciąg znaków alfanumerycznych ASCII 7-bitowych | Tożsamość urządzenia |
+| **messageSize** | Integer | Rozmiar komunikatu z urządzenia do chmury w bajtach |
+| **deviceId** | Ciąg znaków alfanumerycznych ASCII 7-bitowych | Tożsamość urządzenia |
 | **callerLocalTimeUtc** | Sygnatura czasowa UTC | Godzina utworzenia komunikatu zgłoszonego przez zegar lokalny urządzenia |
 | **calleeLocalTimeUtc** | Sygnatura czasowa UTC | Godzina przybycia wiadomości w bramie IoT Hubej zgłoszonej przez IoT Hub zegar po stronie usługi |
 
@@ -543,7 +546,7 @@ Aby sprawdzić kondycję centrów IoT, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do **Service Health** > **kondycji zasobów**.
+2. Przejdź do **Service Health**  >  **kondycji zasobów**.
 
 3. Z listy rozwijanej wybierz subskrypcję, a następnie wybierz **IoT Hub** jako typ zasobu.
 

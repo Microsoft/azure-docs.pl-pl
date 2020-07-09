@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77120693"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Użyj akcji skalowania automatycznego do wysyłania powiadomień o alertach poczty e-mail i elementów webhook w Azure Monitor
@@ -67,7 +66,7 @@ W przypadku korzystania z interfejsu API REST lub szablonu Menedżer zasobów na
 | properties |tak |wartość musi być pusta {} lub może zawierać pary klucz-wartość |
 
 ## <a name="authentication-in-webhooks"></a>Uwierzytelnianie w elementach webhook
-Element webhook może uwierzytelniać się przy użyciu uwierzytelniania opartego na tokenach, w którym można zapisać identyfikator URI elementu webhook z IDENTYFIKATORem tokenu jako parametr zapytania. Na przykład https:\//mysamplealert/webcallback? obiektu tokenidd = sometokenid&someparameter = wartość someValue
+Element webhook może uwierzytelniać się przy użyciu uwierzytelniania opartego na tokenach, w którym można zapisać identyfikator URI elementu webhook z IDENTYFIKATORem tokenu jako parametr zapytania. Na przykład https: \/ /mysamplealert/webcallback? obiektu tokenidd = sometokenid&someparameter = wartość someValue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Schemat ładunku elementu webhook powiadomień automatycznego skalowania
 Po wygenerowaniu powiadomienia skalowania automatycznego następujące metadane są uwzględniane w ładunku elementu webhook:
@@ -105,7 +104,7 @@ Po wygenerowaniu powiadomienia skalowania automatycznego następujące metadane 
 | operacje |tak |W przypadku zwiększenia liczby wystąpień będzie to "skalowalne w poziomie", a w przypadku spadku wystąpień będzie to "skalowane". |
 | kontekst |tak |Kontekst akcji skalowania automatycznego |
 | sygnatura czasowa |tak |Sygnatura czasowa, gdy akcja skalowania automatycznego została wyzwolona |
-| id |Tak |Identyfikator Menedżer zasobów ustawienia skalowania automatycznego |
+| identyfikator |Tak |Identyfikator Menedżer zasobów ustawienia skalowania automatycznego |
 | name |Tak |Nazwa ustawienia automatycznego skalowania |
 | uzyskać |Tak |Wyjaśnienie akcji podjętej przez usługę automatycznego skalowania i zmianę liczby wystąpień |
 | subscriptionId |Tak |Identyfikator subskrypcji zasobu docelowego, który jest skalowany |

@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące zarządz
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72808f315f28a996a88e6cc56ae232a136726451
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208095"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298025"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)
 
@@ -160,7 +160,7 @@ Wdróż przykład przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply
 kubectl apply -f ./aks-seccomp.yaml
 ```
 
-Wyświetl stan polecenia kubectl, korzystając z polecenia [GetBinding][kubectl-get] . Na stronie raportowany jest błąd. `chmod` Polecenie nie jest uruchamiane przez filtr seccomp, jak pokazano w następujących przykładowych danych wyjściowych:
+Wyświetl stan polecenia kubectl, korzystając z polecenia [GetBinding][kubectl-get] . Na stronie raportowany jest błąd. `chmod`Polecenie nie jest uruchamiane przez filtr seccomp, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ kubectl get pods
@@ -173,7 +173,7 @@ Aby uzyskać więcej informacji na temat dostępnych filtrów, zobacz [Profile z
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Regularnie Aktualizuj do najnowszej wersji programu Kubernetes
 
-**Wskazówki dotyczące najlepszych** rozwiązań — aby zachować bieżące informacje o nowych funkcjach i poprawkach błędów, należy regularnie uaktualnić do wersji Kubernetes w klastrze AKS.
+**Wskazówki dotyczące najlepszych** rozwiązań — aby zachować bieżące informacje o nowych funkcjach i poprawkach błędów, należy regularnie uaktualnić wersję Kubernetes w klastrze AKS.
 
 Kubernetes zwalnia nowe funkcje w szybszym tempie niż w przypadku tradycyjnych platform infrastruktury. Aktualizacje Kubernetes obejmują nowe funkcje i poprawki błędów lub zabezpieczeń. Nowe funkcje zwykle przechodzą przez *alfa* , a następnie stan *wersji beta* , zanim staną się *stabilne* i są ogólnie dostępne i zalecane do użycia w środowisku produkcyjnym. Ten cykl wydawniczy powinien zezwalać na aktualizację Kubernetes bez regularnego napotkania istotnych zmian lub dostosowywania wdrożeń i szablonów.
 
@@ -199,11 +199,11 @@ Aby uzyskać więcej informacji na temat uaktualnień w programie AKS, zobacz [o
 
 Każdy wieczór, węzły systemu Linux w AKS pobierają poprawki zabezpieczeń dostępne za pośrednictwem ich kanału aktualizacji dystrybucji. To zachowanie jest konfigurowane automatycznie, ponieważ węzły są wdrażane w klastrze AKS. Aby zminimalizować zakłócenia i potencjalny wpływ na uruchamianie obciążeń, węzły nie są automatycznie uruchamiane ponownie, Jeśli poprawka zabezpieczeń lub Aktualizacja jądra tego wymaga.
 
-Projekt typu open source [kured (KUbernetes Boot daemon)][kured] przez Weaveworks czujki dla oczekujących ponownych uruchomień węzłów. Gdy węzeł systemu Linux zastosuje aktualizacje, które wymagają ponownego uruchomienia, węzeł jest bezpiecznie odizolowywane i opróżniany w celu przeniesienia i zaplanowania w innych węzłach w klastrze. Po ponownym uruchomieniu węzła zostanie on dodany z powrotem do klastra, a Kubernetes wznawia na nim planowanie. Aby zminimalizować zakłócenia, może być uruchamiany ponownie tylko jeden węzeł w danym momencie `kured`.
+Projekt typu open source [kured (KUbernetes Boot daemon)][kured] przez Weaveworks czujki dla oczekujących ponownych uruchomień węzłów. Gdy węzeł systemu Linux zastosuje aktualizacje, które wymagają ponownego uruchomienia, węzeł jest bezpiecznie odizolowywane i opróżniany w celu przeniesienia i zaplanowania w innych węzłach w klastrze. Po ponownym uruchomieniu węzła zostanie on dodany z powrotem do klastra, a Kubernetes wznawia na nim planowanie. Aby zminimalizować zakłócenia, może być uruchamiany ponownie tylko jeden węzeł w danym momencie `kured` .
 
 ![Proces ponownego uruchamiania węzła AKS przy użyciu kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
-Jeśli potrzebujesz bardziej precyzyjnej kontroli ziarna podczas ponownego uruchamiania, można zintegrować z usługą Prometheus, `kured` aby zapobiec ponownym uruchomieniu w przypadku wystąpienia innych zdarzeń konserwacji lub problemów z klastrem. Ta integracja minimalizuje dodatkowe komplikacje przez ponowne uruchomienie węzłów podczas aktywnego rozwiązywania problemów z innymi problemami.
+Jeśli potrzebujesz bardziej precyzyjnej kontroli ziarna podczas ponownego uruchamiania, `kured` można zintegrować z usługą Prometheus, aby zapobiec ponownym uruchomieniu w przypadku wystąpienia innych zdarzeń konserwacji lub problemów z klastrem. Ta integracja minimalizuje dodatkowe komplikacje przez ponowne uruchomienie węzłów podczas aktywnego rozwiązywania problemów z innymi problemami.
 
 Więcej informacji o sposobie obsługi ponownych uruchomień węzłów znajduje się [w temacie stosowanie aktualizacji zabezpieczeń i jądra do węzłów w AKS][aks-kured].
 

@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8381e391afa0f8866f511d3d85e02467c6d9ba5d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413386"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne za pomocą interfejsu API REST
 
@@ -30,7 +29,7 @@ Podstawowy adres URL jest następujący:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Na przykład rozważmy model o nazwie AdventureWorks na serwerze o nazwie `myserver`, który znajduje się w regionie platformy Azure zachodnie stany USA. Nazwa serwera:
+Na przykład rozważmy model o nazwie AdventureWorks na serwerze o nazwie `myserver` , który znajduje się w regionie platformy Azure zachodnie stany USA. Nazwa serwera:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -56,12 +55,12 @@ Na przykład możesz użyć zlecenia POST w kolekcji rerefreshs, aby wykonać op
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2) w nagłówku autoryzacji i muszą spełniać następujące wymagania:
 
 - Token musi być tokenem użytkownika lub podmiotem usługi aplikacji.
-- Token musi mieć odpowiednich odbiorców `https://*.asazure.windows.net`.
+- Token musi mieć odpowiednich odbiorców `https://*.asazure.windows.net` .
 - Użytkownik lub aplikacja musi mieć wystarczające uprawnienia na serwerze lub modelu, aby wykonać żądane wywołanie. Poziom uprawnień jest określany przez role należące do modelu lub grupy administratorów na serwerze.
 
     > [!IMPORTANT]
@@ -97,7 +96,7 @@ Treść może wyglądać następująco:
 
 Określanie parametrów nie jest wymagane. Ustawienie domyślne jest stosowane.
 
-| Nazwa             | Typ  | Opis  |Domyślny  |
+| Nazwa             | Typ  | Opis  |Domyślne  |
 |------------------|-------|--------------|---------|
 | `Type`           | Wyliczenie  | Typ przetwarzania do wykonania. Typy są wyrównane z typami [poleceń Refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, Oblicz, dataonly, Automatic i defragmentowania. Dodawanie typu nie jest obsługiwane.      |   automatyczne      |
 | `CommitMode`     | Wyliczenie  | Określa, czy obiekty będą zatwierdzane w partiach, czy tylko po zakończeniu. Tryby to: default, transakcyjna, partialBatch.  |  transakcyjna       |
@@ -158,14 +157,14 @@ Aby uzyskać listę operacji odświeżania historycznego dla modelu, użyj zlece
 [
     {
         "refreshId": "1344a272-7893-4afa-a4b3-3fb87222fdac",
-        "startTime": "2017-12-09T01:58:04.76",
-        "endTime": "2017-12-09T01:58:12.607",
+        "startTime": "2017-12-07T02:06:57.1838734Z",
+        "endTime": "2017-12-07T02:07:00.4929675Z",
         "status": "succeeded"
     },
     {
         "refreshId": "474fc5a0-3d69-4c5d-adb4-8a846fa5580b",
-        "startTime": "2017-12-07T02:05:48.32",
-        "endTime": "2017-12-07T02:05:54.913",
+        "startTime": "2017-12-07T01:05:54.157324Z",
+        "endTime": "2017-12-07T01:05:57.353371Z",
         "status": "succeeded"
     }
 ]
@@ -194,7 +193,7 @@ Aby sprawdzić stan operacji synchronizacji, użyj metody GET, która przekazuje
 }
 ```
 
-Wartości dla `syncstate`:
+Wartości dla `syncstate` :
 
 - 0: Replikowanie. Pliki bazy danych są replikowane do folderu docelowego.
 - 1: ponownego wypełniania. Baza danych jest usuwana w wystąpieniach serwera tylko do odczytu.
@@ -218,7 +217,7 @@ Przykładowy kod używa uwierzytelniania [nazwy głównej usługi](#service-prin
 Aby uzyskać więcej informacji na temat konfigurowania nazwy głównej usługi i przypisywania do niej wymaganych uprawnień na platformie Azure, zobacz [Tworzenie jednostki usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) i [Dodawanie jednostki usługi do roli administratora serwera](analysis-services-addservprinc-admins.md) . Po wykonaniu kroków wykonaj następujące dodatkowe czynności:
 
 1.    W przykładzie kodu Znajdź **ciąg Authority =...**, Zamień **wspólny** z identyfikatorem dzierżawy w Twojej organizacji.
-2.    Comment/uncomment, aby Klasa ClientCredential była używana do tworzenia wystąpienia obiektu poświadczeń. Upewnij się \<, że identyfikator aplikacji \<> i wartości> klucza aplikacji są dostępne w bezpieczny sposób lub Użyj uwierzytelniania opartego na certyfikatach dla podmiotów usługi.
+2.    Comment/uncomment, aby Klasa ClientCredential była używana do tworzenia wystąpienia obiektu poświadczeń. Upewnij się, że \<App ID> \<App Key> wartości i są dostępne w bezpieczny sposób lub Użyj uwierzytelniania opartego na certyfikatach dla podmiotów usługi.
 3.    Uruchom przykład.
 
 

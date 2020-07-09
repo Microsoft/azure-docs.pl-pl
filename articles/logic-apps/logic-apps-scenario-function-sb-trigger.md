@@ -7,10 +7,9 @@ ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75428702"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Wywołaj lub Wyzwól Aplikacje logiki przy użyciu Azure Functions i Azure Service Bus
@@ -117,7 +116,7 @@ Następnie Utwórz funkcję, która działa jako wyzwalacz i nasłuchuje kolejki
 
 1. Napisz podstawową funkcję do wywołania utworzonego wcześniej punktu końcowego aplikacji logiki przy użyciu komunikatu kolejki jako wyzwalacza. Przed zapisaniem funkcji zapoznaj się z następującymi kwestiami:
 
-   * W tym przykładzie jest `application/json` użyty typ zawartości komunikatu, ale w razie potrzeby można zmienić ten typ.
+   * W tym przykładzie jest użyty `application/json` Typ zawartości komunikatu, ale w razie potrzeby można zmienić ten typ.
    
    * Ze względu na możliwe współbieżnie uruchomione funkcje, duże ilości lub duże obciążenia, należy unikać tworzenia wystąpienia [klasy HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) za pomocą `using` instrukcji i bezpośrednio tworzyć wystąpienia HttpClient na żądanie. Aby uzyskać więcej informacji, zobacz [Używanie HttpClientFactory do implementowania odpornych żądań HTTP](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    

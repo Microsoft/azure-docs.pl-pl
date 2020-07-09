@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 05/11/2020
 ms.author: radeltch
 ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196866"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
@@ -112,7 +111,7 @@ Aby wdrożyć szablon, wykonaj następujące kroki:
     - **Dostępność systemu**: Wybierz **ha**.
     - **Nazwa użytkownika administratora i hasło administratora**: tworzony jest nowy użytkownik, którego można użyć do zalogowania się na komputerze.
     - **Nowa lub istniejąca podsieć**: określa, czy należy utworzyć nową sieć wirtualną i podsieć, czy też użyto istniejącej podsieci. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
-    - **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator jest zwykle wygląda jak ** \< Identyfikator subskrypcji/subscriptions/>/ResourceGroups/ \< grupy zasobów>/Providers/Microsoft.Network/virtualnetworks/ \< Nazwa sieci wirtualnej>/Subnets/ \< Nazwa podsieci>**.
+    - **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda podobnie do **/subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name> **.
 
 ### <a name="manual-deployment"></a>Wdrażanie ręczne
 

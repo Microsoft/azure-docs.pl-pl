@@ -4,15 +4,15 @@ description: Informacje dotyczące rozwiązywania problemów z usługą Azure In
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: fe173ec4d4f28444d43739ea2ed51e43021916b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745468"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744361"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Rozwiązywanie problemów z analizatorem internetowym platformy Azure
 

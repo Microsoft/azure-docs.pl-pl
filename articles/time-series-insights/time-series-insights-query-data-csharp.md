@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 754d1b80236d138693987cccee7a218ccd96b16b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81383882"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights GA przy użyciu języka C #
@@ -23,7 +23,7 @@ ms.locfileid: "81383882"
 W tym przykładzie w języku C# pokazano, jak używać [interfejsów API zapytania ga](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) do wykonywania zapytań dotyczących danych w środowiskach Azure Time Series Insights.
 
 > [!TIP]
-> Wyświetl przykłady kodu w języku C# [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)w lokalizacji.
+> Wyświetl przykłady kodu w języku C# w lokalizacji [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -64,9 +64,9 @@ Zalecamy użycie najnowszej wersji programu Visual Studio:
 Przykładowy kod ma dwie wymagane zależności:
 
 * [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -3.13.9 Package.
-* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) — pakiet 9.0.1.
+* [Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json) pakiet 9.0.1.
 
-Pobierz pakiety w programie Visual Studio 2019, wybierając opcję **Kompiluj** > **kompilację rozwiązania** .
+Pobierz pakiety w programie Visual Studio 2019, wybierając opcję **Kompiluj**  >  **kompilację rozwiązania** .
 
 Alternatywnie Dodaj pakiety przy użyciu narzędzia [NuGet 2.12 +](https://www.nuget.org/):
 

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: tisande
 ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83700991"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Klauzula GROUP BY w Azure Cosmos DB
@@ -46,7 +45,7 @@ Klauzula GROUP BY dzieli wyniki zapytania zgodnie z wartościami jednej lub wię
   Klauzula GROUP BY nie zezwala na żadną z następujących wartości:
   
 - Właściwości aliasowania lub funkcje systemowe aliasowania (aliasowanie jest nadal dozwolone w klauzuli SELECT)
-- Podzapytania
+- Zapytania podrzędne
 - Agreguj funkcje systemowe (są dozwolone tylko w klauzuli SELECT)
 
 Zapytania z zagregowaną funkcją systemową i podzapytaniem z `GROUP BY` nie są obsługiwane. Na przykład następujące zapytanie nie jest obsługiwane:
@@ -188,6 +187,6 @@ Wyniki są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pierwsze kroki](sql-query-getting-started.md)
+- [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [SELECT — klauzula](sql-query-select.md)
 - [Funkcje agregujące](sql-query-aggregates.md)

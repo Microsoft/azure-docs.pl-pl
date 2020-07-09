@@ -5,18 +5,18 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75461193"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044570"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurowanie zasad określania kolejności zdarzeń dla Azure Stream Analytics
 
-W tym artykule opisano sposób konfigurowania i używania późnego przybycia i zasad dotyczących zdarzeń poza kolejnością w programie Azure Stream Analytics. Te zasady są stosowane tylko w przypadku używania klauzuli [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu.
+W tym artykule opisano sposób konfigurowania i używania późnego przybycia i zasad dotyczących zdarzeń poza kolejnością w programie Azure Stream Analytics. Te zasady są stosowane tylko wtedy, gdy używasz klauzuli [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu i są one stosowane tylko w przypadku źródeł danych wejściowych w chmurze.
 
 ## <a name="event-time-and-arrival-time"></a>Godzina i czas przybycia zdarzenia
 
@@ -40,7 +40,7 @@ Zapoznaj się z przykładem tych zasad w działaniu.
 <br> **Zasady późnego przybycia:** 15 sekund
 <br> **Zasady poza kolejnością:** 8 sekund
 
-| Nr zdarzenia | Czas zdarzenia | Czas przybycia | System.Timestamp | Wyjaśnienie |
+| Nr zdarzenia | Czas zdarzenia | Czas przybycia | System.Timestamp | Objaśnienie |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Zdarzenie dotarło do najpóźnego i zewnętrznego poziomu tolerancji. W związku z tym czas zdarzenia jest dostosowywany do maksymalnej tolerancji późnego przybycia.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Zdarzenie zostało odebrane z opóźnieniem, ale w ramach poziomu tolerancji. Czas zdarzenia nie zostanie dostosowany.  |

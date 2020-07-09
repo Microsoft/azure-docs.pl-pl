@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74132962"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131166"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matryca obsługi odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
 
@@ -26,7 +26,7 @@ W tym artykule opisano, co jest obsługiwane w przypadku używania usługi [Azur
 
 **System operacyjny** | **Szczegóły**
 --- | ---
-Windows Server 2012 R2 | Na serwerach musi być uruchomionych najnowszych aktualizacji.
+Windows Server 2012 z dodatkiem R2 | Na serwerach musi być uruchomionych najnowszych aktualizacji.
 Windows Server 2016 |  Chmury programu VMM 2016 z mieszaniną hostów z systemami Windows Server 2016 i 2012 R2 nie są obecnie obsługiwane.<br/><br/> Wdrożenia uaktualnione z programu System Center 2012 R2 VMM 2012 R2 do programu System Center 2016 nie są obecnie obsługiwane.
 
 
@@ -36,8 +36,8 @@ Poniższa tabela zawiera podsumowanie obsługi systemu operacyjnego dla maszyn r
 
 **Wersja systemu Windows** | **Funkcja Hyper-V (z programem VMM)**
 --- | ---
-Windows Server 2016 | Wszystkie systemy operacyjne gościa [obsługiwane przez funkcję Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) w systemie Windows Server 2016 
-Windows Server 2012 R2 | Wszystkie systemy operacyjne gościa [obsługiwane przez funkcję Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) w systemie Windows Server 2012 R2
+Windows Server 2016 | Wszystkie systemy operacyjne gościa [obsługiwane przez funkcję Hyper-V](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) w systemie Windows Server 2016 
+Windows Server 2012 z dodatkiem R2 | Wszystkie systemy operacyjne gościa [obsługiwane przez funkcję Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) w systemie Windows Server 2012 R2
 
 ## <a name="linux-machine-storage"></a>Magazyn maszyny z systemem Linux
 
@@ -51,7 +51,7 @@ Można replikować tylko maszyny z systemem Linux z następującym magazynem:
 
 ## <a name="network-configuration---hostguest-vm"></a>Konfiguracja sieci-Host/maszyna wirtualna gościa
 
-**Konfiguracja** | **Obsługiwał**  
+**Konfiguracja** | **Obsługiwane**  
 --- | --- 
 Hostowanie — Tworzenie zespołu kart interfejsu sieciowego | Tak 
 Host-sieć VLAN | Tak 
@@ -68,7 +68,7 @@ Maszyna wirtualna gościa — wiele kart sieciowych | Yes
 
 ### <a name="host-storage"></a>Magazyn hosta
 
-**Magazyn (Host)** | **Obsługiwał**
+**Magazyn (Host)** | **Obsługiwane**
 --- | --- 
 NFS | Nie dotyczy
 SMB 3.0 |  Tak
@@ -77,7 +77,7 @@ Wiele ścieżek (MPIO) | Tak
 
 ### <a name="guest-or-physical-server-storage"></a>Magazyn Gości lub serwer fizyczny
 
-**Konfiguracja** | **Obsługiwał**
+**Konfiguracja** | **Obsługiwane**
 --- | --- | 
 VMDK |  Nie dotyczy
 DYSK VHD/VHDX | Tak (do 16 dysków)
@@ -97,7 +97,7 @@ Wiele ścieżek (MPIO) | Tak
 
 ## <a name="vaults"></a>Magazyny
 
-**Akcja** | **Obsługiwał**
+**Akcja** | **Obsługiwane**
 --- | --- 
 Przenoszenie magazynów między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) |  Nie
 Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) | Nie
@@ -106,7 +106,7 @@ Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami
 
 Dostawca koordynuje komunikację między serwerami programu VMM. 
 
-**Ostatnia** | **Aktualizacje**
+**Najnowsza** | **Aktualizacje**
 --- | --- 
 5.1.19 ([dostępne z portalu](https://aka.ms/downloaddra) | [Najnowsze funkcje i poprawki](https://support.microsoft.com/kb/3155002)
 
@@ -114,5 +114,4 @@ Dostawca koordynuje komunikację między serwerami programu VMM.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do lokacji dodatkowej](tutorial-vmm-to-vmm.md)
-
+[Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do lokacji dodatkowej](./hyper-v-vmm-disaster-recovery.md)

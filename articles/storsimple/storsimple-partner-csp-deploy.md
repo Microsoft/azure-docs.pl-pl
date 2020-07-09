@@ -15,10 +15,9 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77466913"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Wdróż StorSimple wirtualną macierzy dla programu Cloud Solution Provider
@@ -81,7 +80,7 @@ W niektórych przypadkach użytkownik może mieć istniejącego klienta i musi d
 
      ![Pulpit nawigacyjny w centrum partnerskim](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. W okienku po lewej stronie kliknij pozycję **Customers**. Znajdź lub przejdź do klienta, do którego chcesz dodać subskrypcję. Kliknij ikonę ![rozwiń ikonę](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) , aby rozwinąć wiersz nazwy firmy dla klienta. W obszarze Szczegóły kliknij pozycję **Dodaj subskrypcje**.
+2. W okienku po lewej stronie kliknij pozycję **Customers**. Znajdź lub przejdź do klienta, do którego chcesz dodać subskrypcję. Kliknij ![ ikonę rozwiń ikonę, ](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) Aby rozwinąć wiersz nazwy firmy dla klienta. W obszarze Szczegóły kliknij pozycję **Dodaj subskrypcje**.
 
     ![Klienci](./media/storsimple-partner-csp-deploy/image10.png)
 

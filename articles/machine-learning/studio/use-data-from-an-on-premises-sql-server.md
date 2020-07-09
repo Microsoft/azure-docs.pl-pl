@@ -1,27 +1,26 @@
 ---
 title: SQL Server lokalne
 titleSuffix: ML Studio (classic) - Azure
-description: Użyj danych z lokalnej bazy danych SQL Server, aby przeprowadzić zaawansowaną analizę przy użyciu Azure Machine Learning Studio (klasyczny).
+description: Użyj danych z bazy danych SQL Server, aby przeprowadzić zaawansowaną analizę przy użyciu Azure Machine Learning Studio (klasyczny).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 890486214eb67be26479b122c88c7a6b640b8ade
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706056"
 ---
-# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Wykonywanie analizy z Azure Machine Learning Studio (klasyczny) przy użyciu lokalnej bazy danych SQL Server
+# <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Wykonywanie analizy za pomocą Azure Machine Learning Studio (klasyczny) przy użyciu bazy danych SQL Server
 
-Często przedsiębiorstwa, które współpracują z danymi lokalnymi, mogą wykorzystać skalę i elastyczność chmury na potrzeby obciążeń uczenia maszynowego. Ale nie chcą zakłócać swoich bieżących procesów i przepływów pracy, przenosząc dane lokalne do chmury. Azure Machine Learning Studio (klasyczny) obsługuje teraz odczytywanie danych z lokalnej SQL Server bazy danych, a następnie uczenie i ocenianie modelu przy użyciu tych danych. Nie jest już konieczne ręczne kopiowanie i synchronizowanie danych między chmurą a serwerem lokalnym. Zamiast tego moduł **Importuj dane** w Azure Machine Learning Studio (klasyczny) można teraz odczytywać bezpośrednio z lokalnej bazy danych SQL Server do celów szkoleniowych i oceniających.
+Często przedsiębiorstwa, które współpracują z danymi lokalnymi, mogą wykorzystać skalę i elastyczność chmury na potrzeby obciążeń uczenia maszynowego. Ale nie chcą zakłócać swoich bieżących procesów i przepływów pracy, przenosząc dane lokalne do chmury. Azure Machine Learning Studio (klasyczny) obsługuje teraz odczytywanie danych z SQL Serverj bazy danych, a następnie uczenie i ocenianie modelu przy użyciu tych danych. Nie jest już konieczne ręczne kopiowanie i synchronizowanie danych między chmurą a serwerem lokalnym. Zamiast tego moduł **Importuj dane** w Azure Machine Learning Studio (klasyczny) można teraz odczytywać bezpośrednio z bazy danych SQL Server do zadań szkolenia i oceniania.
 
-Ten artykuł zawiera omówienie sposobu transferowania lokalnych danych programu SQL Server do Azure Machine Learning Studio (klasyczne). Przyjęto założenie, że znane są koncepcje programu Studio (klasyczne), takie jak obszary robocze, moduły, zestawy danych, eksperymenty *itp.*
+Ten artykuł zawiera omówienie sposobu, w jaki SQL Server dane w Azure Machine Learning Studio (klasyczne). Przyjęto założenie, że znane są koncepcje programu Studio (klasyczne), takie jak obszary robocze, moduły, zestawy danych, eksperymenty *itp.*
 
 > [!NOTE]
 > Ta funkcja jest niedostępna w przypadku bezpłatnych obszarów roboczych. Aby uzyskać więcej informacji o Machine Learning cenach i warstwach, zobacz [Azure Machine Learning cennika](https://azure.microsoft.com/pricing/details/machine-learning/).
@@ -33,7 +32,7 @@ Ten artykuł zawiera omówienie sposobu transferowania lokalnych danych programu
 
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Instalowanie Data Factory samoobsługowego Integration Runtime
-Aby uzyskać dostęp do lokalnej bazy danych SQL Server w Azure Machine Learning Studio (klasyczny), należy pobrać i zainstalować Data Factory samodzielnej Integration Runtime, wcześniej znanej jako brama Zarządzanie danymi. Po skonfigurowaniu połączenia w Machine Learning Studio (klasyczny) można pobrać i zainstalować Integration Runtime (IR) przy użyciu okna dialogowego **Pobierz i zarejestruj bramę danych** opisaną poniżej.
+Aby uzyskać dostęp do bazy danych SQL Server w Azure Machine Learning Studio (klasyczny), należy pobrać i zainstalować Data Factory samodzielnej Integration Runtime, wcześniej znanej jako brama Zarządzanie danymi. Po skonfigurowaniu połączenia w Machine Learning Studio (klasyczny) można pobrać i zainstalować Integration Runtime (IR) przy użyciu okna dialogowego **Pobierz i zarejestruj bramę danych** opisaną poniżej.
 
 
 Możesz również zainstalować środowisko IR wcześniej, pobierając i uruchamiając pakiet instalacyjny MSI z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Plik MSI może również służyć do uaktualniania istniejącego środowiska IR do najnowszej wersji z zachowaniem wszystkich ustawień.
@@ -64,8 +63,8 @@ Podczas konfigurowania i używania Data Factory samoobsługowego Integration Run
 
 Szczegółowe informacje na temat wymagań wstępnych instalacji, kroki instalacji i wskazówki dotyczące rozwiązywania problemów znajdują się w artykule [Integration Runtime w Data Factory](../../data-factory/concepts-integration-runtime.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Dane przychodzące z lokalnej bazy danych SQL Server do Azure Machine Learning
-W tym instruktażu skonfigurujesz Integration Runtime Azure Data Factory w obszarze roboczym Azure Machine Learning, skonfigurujesz ją, a następnie odczytasz dane z lokalnej bazy danych SQL Server.
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-id_toc450838866-classanchorspanspaningress-data-from-your-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Dane przychodzące z usługi SQL Server Database do Azure Machine Learning
+W tym instruktażu skonfigurujesz Integration Runtime Azure Data Factory w obszarze roboczym Azure Machine Learning, skonfigurujesz ją, a następnie odczytasz dane z SQL Serverj bazy danych.
 
 > [!TIP]
 > Przed rozpoczęciem należy wyłączyć blokowanie wyskakujących okienek w przeglądarce dla programu `studio.azureml.net` . Jeśli używasz przeglądarki Google Chrome, Pobierz i Zainstaluj jedną z kilku wtyczek dostępnych w sklepie Google Chrome webstore [kliknij pozycję po rozszerzeniu aplikacji](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
@@ -74,7 +73,7 @@ W tym instruktażu skonfigurujesz Integration Runtime Azure Data Factory w obsza
 > Azure Data Factory samoobsługowy Integration Runtime był wcześniej znany jako brama Zarządzanie danymi. Samouczek krok po kroku będzie nadal odwoływać się do niego jako brama.  
 
 ### <a name="step-1-create-a-gateway"></a>Krok 1. Tworzenie bramy
-Pierwszym krokiem jest utworzenie i skonfigurowanie bramy w celu uzyskania dostępu do lokalnej bazy danych SQL.
+Pierwszym krokiem jest utworzenie i skonfigurowanie bramy w celu uzyskania dostępu do bazy danych SQL.
 
 1. Zaloguj się do [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net/Home/) i wybierz obszar roboczy, w którym chcesz korzystać.
 2. Kliknij blok **Ustawienia** po lewej stronie, a następnie kliknij kartę **bramy danych** w górnej części ekranu.
@@ -121,7 +120,7 @@ Teraz możesz przystąpić do korzystania z danych lokalnych.
 Można utworzyć i skonfigurować wiele bram w programie Studio (klasyczny) dla każdego obszaru roboczego. Na przykład możesz mieć bramę, którą chcesz połączyć ze źródłami danych testowych podczas opracowywania, i inną bramą dla produkcyjnych źródeł danych. Azure Machine Learning Studio (klasyczny) zapewnia elastyczność konfigurowania wielu bram w zależności od środowiska firmowego. Obecnie nie można udostępnić bramy między obszarami roboczymi, a na jednym komputerze można zainstalować tylko jedną bramę. Aby uzyskać więcej informacji, zobacz [przenoszenie danych między źródłami lokalnymi i chmurą przy użyciu bramy zarządzanie danymi](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Krok 2. Używanie bramy do odczytywania danych z lokalnego źródła danych
-Po skonfigurowaniu bramy można dodać do eksperymentu moduł **danych importu** , który wprowadza dane z lokalnej bazy danych SQL Server.
+Po skonfigurowaniu bramy można dodać moduł **importowania danych** do eksperymentu, który wprowadza dane z bazy danych SQL Server.
 
 1. W Machine Learning Studio (klasyczny) wybierz kartę **eksperymenty** , kliknij pozycję **+ Nowy** w lewym dolnym rogu, a następnie wybierz pozycję **pusty eksperyment** (lub wybierz jedną z kilku dostępnych przykładowych eksperymentów).
 2. Znajdź i przeciągnij moduł **Import danych** do kanwy eksperymentu.
@@ -133,7 +132,7 @@ Po skonfigurowaniu bramy można dodać do eksperymentu moduł **danych importu**
 
    ![Wybieranie bramy danych dla modułu importowania danych](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
 6. Wprowadź **nazwę serwera bazy danych** SQL i **nazwę bazy danych**wraz z **kwerendą bazy danych** SQL, która ma zostać wykonana.
-7. Kliknij pozycję **wprowadź wartości** w obszarze **Nazwa użytkownika i hasło** , a następnie wprowadź swoje poświadczenia bazy danych. W zależności od konfiguracji lokalnego SQL Server, można użyć uwierzytelniania zintegrowanego systemu Windows lub uwierzytelniania SQL Server.
+7. Kliknij pozycję **wprowadź wartości** w obszarze **Nazwa użytkownika i hasło** , a następnie wprowadź swoje poświadczenia bazy danych. W zależności od konfiguracji SQL Server można użyć zintegrowanego uwierzytelniania systemu Windows lub uwierzytelniania SQL Server.
 
    ![Wprowadź poświadczenia bazy danych](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
@@ -144,4 +143,4 @@ Po skonfigurowaniu bramy można dodać do eksperymentu moduł **danych importu**
 
 Po zakończeniu eksperymentu można wizualizować dane zaimportowane z bazy danych, klikając port wyjściowy modułu **Importuj dane** i wybierając opcję **Wizualizuj**.
 
-Po zakończeniu opracowywania eksperymentu możesz wdrożyć i operacjonalizować model. Przy użyciu usługi Batch Execution dane z lokalnej SQL Serverej bazy danych skonfigurowanej w module **Importuj dane** zostaną odczytane i wykorzystane do oceny. Mimo że można użyć usługi odpowiedzi na żądanie do oceniania danych lokalnych, firma Microsoft zaleca użycie [dodatku programu Excel](excel-add-in-for-web-services.md) . Obecnie zapisywanie w lokalnej bazie danych SQL Server za pomocą **eksportu danych** nie jest obsługiwane w doświadczeniach ani opublikowanych usługach sieci Web.
+Po zakończeniu opracowywania eksperymentu możesz wdrożyć i operacjonalizować model. Przy użyciu usługi wykonywania wsadowego dane z SQL Serverj bazy danych skonfigurowanej w module **Importuj dane** zostaną odczytane i wykorzystane do oceny. Mimo że można użyć usługi odpowiedzi na żądanie do oceniania danych lokalnych, firma Microsoft zaleca użycie [dodatku programu Excel](excel-add-in-for-web-services.md) . Obecnie zapisywanie w bazie danych SQL Server za pomocą **eksportu danych** nie jest obsługiwane w eksperymentach ani opublikowanych usługach sieci Web.

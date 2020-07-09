@@ -7,12 +7,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835346"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807710"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -245,7 +244,7 @@ Szczegóły są zależne od typu projektu. Dla aplikacji sieci Web:
 
 * Dodaje te pliki do projektu:
   * Plik ApplicationInsights.config
-  * AI. js
+  * ai.js
 * Instaluje te pakiety NuGet:
   * *Application INSIGHTS API* — podstawowy interfejs API
   * *Application INSIGHTS API dla aplikacji sieci Web* — służy do wysyłania danych telemetrycznych z serwera
@@ -262,7 +261,7 @@ Szczegóły są zależne od typu projektu. Dla aplikacji sieci Web:
 Zapoznaj się z [informacjami o wersji](app/release-notes.md) zestawu SDK, które są odpowiednie dla danego typu aplikacji.
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Jak mogę zmienić zasób platformy Azure, do którego mój projekt wysyła dane?
-W Eksplorator rozwiązań kliknij prawym przyciskiem myszy `ApplicationInsights.config` i wybierz polecenie **Aktualizuj Application Insights**. Dane można wysyłać do istniejącego lub nowego zasobu na platformie Azure. Kreator aktualizacji zmienia klucz Instrumentacji w pliku ApplicationInsights. config, który określa, gdzie zestaw SDK serwera wysyła dane. Chyba że usuniesz opcję "Aktualizuj wszystko", zostanie również zmieniony klucz, w którym pojawia się na stronach sieci Web.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy `ApplicationInsights.config` i wybierz polecenie **Aktualizuj Application Insights**. Dane można wysyłać do istniejącego lub nowego zasobu na platformie Azure. Kreator aktualizacji zmienia klucz Instrumentacji w programie ApplicationInsights.config, który określa, gdzie zestaw SDK serwera wysyła dane. Chyba że usuniesz opcję "Aktualizuj wszystko", zostanie również zmieniony klucz, w którym pojawia się na stronach sieci Web.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Czy można użyć `providers('Microsoft.Insights', 'components').apiVersions[0]` w ramach wdrożeń Azure Resource Manager?
 
@@ -318,7 +317,7 @@ Wyszukujemy adres IP (IPv4 lub IPv6) klienta sieci Web za pomocą [GeoLite2](htt
 * Aby dowiedzieć się więcej o sposobie zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Można skonfigurować, `ClientIpHeaderTelemetryInitializer` Aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do programu `X-Originating-IP` . [Dowiedz się więcej](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Można skonfigurować, `ClientIpHeaderTelemetryInitializer` Aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do programu `X-Originating-IP` . [Dowiedz się więcej](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 Możesz [użyć Power BI](app/export-power-bi.md ) , aby wyświetlić dane telemetryczne żądania na mapie.
 
@@ -367,7 +366,7 @@ Użyj pojedynczego zasobu dla wszystkich składników lub ról w jednym systemie
 ### <a name="what-are-the-user-and-session-counts"></a>Jakie są liczby użytkowników i sesji?
 
 * Zestaw SDK języka JavaScript ustawia plik cookie użytkownika na kliencie sieci Web, aby zidentyfikować zwracających użytkowników i plik cookie sesji w celu pogrupowania działań.
-* Jeśli nie istnieje skrypt po stronie klienta, można [ustawić pliki cookie na serwerze](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Jeśli nie istnieje skrypt po stronie klienta, można [ustawić pliki cookie na serwerze](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Jeśli jeden z rzeczywistych użytkowników korzysta z witryny w różnych przeglądarkach lub korzysta z funkcji przeglądania w trybie prywatnym/incognito lub różnych maszyn, zostaną one zliczone więcej niż jeden raz.
 * Aby zidentyfikować zalogowanego użytkownika na maszynach i w przeglądarkach, należy dodać wywołanie do [setAuthenticatedUserContext ()](app/api-custom-events-metrics.md#authenticated-users).
 
@@ -443,12 +442,12 @@ Zezwól serwerowi sieci Web na wysyłanie danych telemetrycznych do naszych punk
 
 #### <a name="gateway-redirect"></a>Przekierowanie bramy
 
-Kierowanie ruchu z serwera do bramy w intranecie przez zastępowanie punktów końcowych w konfiguracji. Jeśli te właściwości "punkt końcowy" nie są obecne w konfiguracji, te klasy będą używały domyślnych wartości przedstawionych poniżej w przykładowym pliku ApplicationInsights. config. 
+Kierowanie ruchu z serwera do bramy w intranecie przez zastępowanie punktów końcowych w konfiguracji. Jeśli te właściwości "punkt końcowy" nie są obecne w konfiguracji, te klasy będą używały domyślnych wartości przedstawionych poniżej w przykładzie ApplicationInsights.config. 
 
 Twoja Brama powinna kierować ruch do adresu podstawowego tego punktu końcowego. W konfiguracji Zastąp wartości domyślne wartością `http://<your.gateway.address>/<relative path>` .
 
 
-##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Przykład ApplicationInsights. config z domyślnymi punktami końcowymi:
+##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Przykład ApplicationInsights.config z domyślnymi punktami końcowymi:
 ```xml
 <ApplicationInsights>
   ...
@@ -479,7 +478,7 @@ Twoja Brama powinna kierować ruch do adresu podstawowego tego punktu końcowego
 Przekazywanie serwerów proxy można osiągnąć przez skonfigurowanie serwera proxy poziomu komputera lub aplikacji.
 Aby uzyskać więcej informacji, zobacz artykuł dotnet w witrynie [defaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
- Przykład Web. config:
+ Przykład Web.config:
  ```xml
 <system.net>
     <defaultProxy>
@@ -619,7 +618,7 @@ Aby dowiedzieć się, jak uaktualnić agenta, zobacz [Zarządzanie agentem](insi
 
 Obecnie Azure Monitor dla kontenerów nie obsługuje rejestrowania wielowierszowego, ale są dostępne obejścia. Można skonfigurować wszystkie usługi do zapisu w formacie JSON, a następnie Docker/Moby zapisze je jako jeden wiersz.
 
-Na przykład możesz otoczyć dziennik jako obiekt JSON, jak pokazano w poniższym przykładzie dla przykładowej aplikacji node. js:
+Na przykład możesz otoczyć dziennik jako obiekt JSON, jak pokazano w poniższym przykładzie dla przykładowej aplikacji node.js:
 
 ```
 console.log(json.stringify({ 

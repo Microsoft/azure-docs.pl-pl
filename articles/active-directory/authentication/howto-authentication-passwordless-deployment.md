@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451435"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
@@ -51,7 +51,7 @@ Firma Microsoft oferuje trzy opcje uwierzytelniania bezhasło, które obejmują 
 
 Metody uwierzytelniania bezhaseł firmy Microsoft umożliwiają korzystanie z różnych scenariuszy. Aby wybrać strategię uwierzytelniania bezhasło, należy wziąć pod uwagę potrzeby organizacyjne, wymagania wstępne i możliwości poszczególnych metod uwierzytelniania. Zalecamy, aby każda organizacja korzystająca z urządzeń z systemem Windows 10 korzystała z usługi Windows Hello dla firm. Następnie Dodaj do dodatkowych scenariuszy opcję logowanie za pomocą telefonu (z aplikacją Microsoft Authenticator) lub kluczami zabezpieczeń.
 
-| Scenariusz | Uwierzytelnianie na telefonie | Klucze zabezpieczeń | Windows Hello for Business |
+| Scenariusz | Uwierzytelnianie na telefonie | Klucze zabezpieczeń | Windows Hello dla firm |
 | --- | --- | --- | --- |
 | **Logowanie do komputera**: <br> Z przypisanego urządzenia z systemem Windows 10 | **Nie** | **Tak** <br> Przy użyciu biometrycznych, PIN | **Tak**<br>z rozpoznawaniem biometrycznym i lub numerem PIN |
 | **Logowanie do komputera**: <br> Z udostępnionego urządzenia z systemem Windows 10 | **Nie** | **Tak** <br> Przy użyciu biometrycznych, PIN  | **Nie** |
@@ -65,7 +65,7 @@ Aby uzyskać informacje na temat wybierania najlepszej metody dla organizacji, z
 
 Przed rozpoczęciem wdrażania bezhaseł organizacje muszą spełniać następujące wymagania wstępne:
 
-| Wymagania wstępne | Aplikacja Authenticator | FIDO2 klucze zabezpieczeń |
+| Wymaganie wstępne | Aplikacja Authenticator | FIDO2 klucze zabezpieczeń |
 | --- | --- | --- |
 | [Połączona Rejestracja w ramach usługi Azure MFA Authentication i samoobsługowego resetowania hasła (SSPR)](howto-registration-mfa-sspr-combined.md) jest włączona | √ | √ |
 | [Użytkownicy mogą przeprowadzać uwierzytelnianie wieloskładnikowe na platformie Azure](howto-mfa-getstarted.md) | √ | √ |
@@ -118,7 +118,7 @@ Komunikacja z użytkownikami końcowymi powinna obejmować następujące informa
 - [Rejestrowanie w aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Logowanie za pomocą telefonu](../user-help/user-help-auth-app-sign-in.md)
 
-Firma Microsoft udostępnia [Szablony komunikacji](https://aka.ms/mfatemplates)usługi uwierzytelniania wieloskładnikowego, [Szablony komunikacji](https://www.microsoft.com/download/details.aspx?id=56768)samoobsługowego resetowania haseł (SSPR) oraz [dokumentację użytkowników końcowych](../user-help/security-info-setup-signin.md) ułatwiającą przygotowanie komunikacji. Możesz wysyłać użytkowników [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) do rejestracji bezpośrednio, wybierając linki do **informacji zabezpieczających** na tej stronie.
+Firma Microsoft udostępnia [Szablony komunikacji](https://aka.ms/mfatemplates)usługi uwierzytelniania wieloskładnikowego, [Szablony komunikacji](https://www.microsoft.com/download/details.aspx?id=56768)samoobsługowego resetowania haseł (SSPR) oraz [dokumentację użytkowników końcowych](../user-help/security-info-setup-signin.md) ułatwiającą przygotowanie komunikacji. Możesz wysyłać użytkowników do [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) rejestracji bezpośrednio, wybierając linki do **informacji zabezpieczających** na tej stronie.
 
 ### <a name="plan-to-pilot"></a>Planowanie pilotażu
 
@@ -172,7 +172,7 @@ Aby uzyskać pełną listę wymagań, zobacz [Włączanie logowania za pomocą k
 Klucze zabezpieczeń umożliwiają dostęp do zasobów i należy zaplanować zarządzanie tymi urządzeniami fizycznymi.
 
 1. **Dystrybucja kluczy**: Zaplanuj sposób aprowizacji kluczy w organizacji. Może istnieć scentralizowany proces aprowizacji lub umożliwienie użytkownikom końcowym zakupu kluczy zgodnych z systemem FIDO 2,0.
-1. **Aktywacja klucza**: użytkownicy końcowi muszą samoczynnie aktywować klucz zabezpieczeń. Użytkownicy końcowi rejestrują swoje klucze [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) zabezpieczeń w programie i włączają drugi współczynnik (PIN lub biometryczne) przy pierwszym użyciu.
+1. **Aktywacja klucza**: użytkownicy końcowi muszą samoczynnie aktywować klucz zabezpieczeń. Użytkownicy końcowi rejestrują swoje klucze zabezpieczeń w [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) programie i włączają drugi współczynnik (PIN lub biometryczne) przy pierwszym użyciu.
 1. **Wyłączanie klucza**: podczas gdy funkcje klucza zabezpieczeń są dostępne na etapie wersji zapoznawczej, nie ma możliwości, aby administrator usunął klucz z konta użytkownika. Użytkownik musi je usunąć. Jeśli klucz zostanie zgubiony lub skradziony:
    1. Usuń użytkownika z dowolnej grupy z włączoną obsługą uwierzytelniania bez hasła.
    1. Sprawdź, czy klucz został usunięty jako metoda uwierzytelniania.
@@ -228,7 +228,7 @@ W poniższej tabeli przedstawiono kilka przykładów typowych scenariuszy raport
 
 **Usługa Azure AD przechowuje większość danych inspekcji przez 30 dni** i udostępnia dane za pośrednictwem portalu administracyjnego platformy Azure lub interfejsu API do pobierania w swoich systemach analitycznych. Jeśli potrzebujesz już przechowywania, Eksportuj i Zużywaj dzienniki w narzędziu SIEM, takim jak [Azure](../../sentinel/connect-azure-active-directory.md), Splunk lub Sumo Logic. [Dowiedz się więcej o wyświetlaniu raportów dotyczących dostępu i użycia](../reports-monitoring/overview-reports.md).
 
-Użytkownicy mogą rejestrować swoje poświadczenia i zarządzać nimi, przechodząc [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)do programu. Ten link kieruje użytkowników do środowiska zarządzania poświadczeniami użytkowników końcowych, które zostały włączone za pośrednictwem połączenia usługi SSPR/uwierzytelniania wieloskładnikowego. Rejestracja w usłudze Azure AD rejestruje urządzenia zabezpieczeń FIDO2 oraz zmiany metod uwierzytelniania użytkowników.
+Użytkownicy mogą rejestrować swoje poświadczenia i zarządzać nimi, przechodząc do programu [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . Ten link kieruje użytkowników do środowiska zarządzania poświadczeniami użytkowników końcowych, które zostały włączone za pośrednictwem połączenia usługi SSPR/uwierzytelniania wieloskładnikowego. Rejestracja w usłudze Azure AD rejestruje urządzenia zabezpieczeń FIDO2 oraz zmiany metod uwierzytelniania użytkowników.
 
 ### <a name="plan-security"></a>Planowanie zabezpieczeń
 W ramach tego planu wdrożenia firma Microsoft zaleca włączenie uwierzytelniania bezhaseł dla wszystkich uprzywilejowanych kont administratorów.
@@ -324,7 +324,7 @@ Postępuj zgodnie z instrukcjami w artykule, [włączając klucz zabezpieczeń b
 | **Komunikat o błędzie**: wykryliśmy, że ta przeglądarka lub system operacyjny nie obsługują kluczy zabezpieczeń FIDO2. | Urządzenia zabezpieczeń FIDO2 bezhasło mogą być rejestrowane tylko w obsługiwanych przeglądarkach (Microsoft Edge, Firefox w wersji 67) w systemie Windows 10 w wersji 1809 lub nowszej. |
 | **Komunikat o błędzie**: zasady firmy wymagają, aby można było zalogować się przy użyciu innej metody. | Brak pewności, że klucze zabezpieczeń są włączone w dzierżawie. |
 | Użytkownik nie może zarządzać moim kluczem zabezpieczeń w systemie Windows 10 w wersji 1809 | Wersja 1809 wymaga użycia oprogramowania do zarządzania kluczami zabezpieczeń dostarczonym przez dostawcę klucza FIDO2. Skontaktuj się z dostawcą, aby uzyskać pomoc techniczną. |
-| Myślę, że klucz zabezpieczeń FIDO2 może być wadliwy — jak można go przetestować. | Przejdź do [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)lokalizacji, wprowadź poświadczenia dla konta testowego, podłącz podejrzany klucz zabezpieczeń, wybierz **+** przycisk w prawym górnym rogu ekranu, kliknij polecenie Utwórz i przejdź przez proces tworzenia. Jeśli ten scenariusz nie powiedzie się, urządzenie może być uszkodzone. |
+| Myślę, że klucz zabezpieczeń FIDO2 może być wadliwy — jak można go przetestować. | Przejdź do lokalizacji [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/) , wprowadź poświadczenia dla konta testowego, podłącz podejrzany klucz zabezpieczeń, wybierz **+** przycisk w prawym górnym rogu ekranu, kliknij polecenie Utwórz i przejdź przez proces tworzenia. Jeśli ten scenariusz nie powiedzie się, urządzenie może być uszkodzone. |
 
 ## <a name="next-steps"></a>Następne kroki
 

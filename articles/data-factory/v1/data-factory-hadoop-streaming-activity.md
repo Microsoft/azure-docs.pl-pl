@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703365"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania usługi Hadoop streaming w Azure Data Factory
@@ -44,7 +43,7 @@ Działanie przesyłania strumieniowego usługi HDInsight w [potoku](data-factory
 > Jeśli dopiero zaczynasz Azure Data Factory, przeczytaj artykuł [wprowadzenie do Azure Data Factory](data-factory-introduction.md) i wykonaj samouczek: [Kompiluj pierwszy potok danych](data-factory-build-your-first-pipeline.md) przed przeczytaniem tego artykułu. 
 
 ## <a name="json-sample"></a>Przykład JSON
-Klaster usługi HDInsight jest automatycznie wypełniany przy użyciu przykładowych programów (z. exe i Cat. exe) oraz danych (DaVinci. txt). Domyślnie nazwa kontenera, który jest używany przez klaster usługi HDInsight, jest nazwą klastra. Na przykład jeśli nazwa klastra to myhdicluster, nazwa skojarzonego kontenera obiektów BLOB byłaby myhdicluster. 
+Klaster usługi HDInsight jest automatycznie wypełniany przy użyciu przykładowych programów (wc.exe i cat.exe) i danych (davinci.txt). Domyślnie nazwa kontenera, który jest używany przez klaster usługi HDInsight, jest nazwą klastra. Na przykład jeśli nazwa klastra to myhdicluster, nazwa skojarzonego kontenera obiektów BLOB byłaby myhdicluster. 
 
 ```JSON
 {
@@ -96,11 +95,11 @@ Pamiętaj o następujących kwestiach:
 
 1. Ustaw **linkedServiceName** na nazwę połączonej usługi, która wskazuje na klaster HDInsight, na którym uruchamiane jest zadanie przesyłania strumieniowego MapReduce.
 2. Ustaw typ działania na **HDInsightStreaming**.
-3. Dla właściwości **Mapowanie** Określ nazwę pliku wykonywalnego mapowania. W przykładzie Cat. exe jest plikiem wykonywalnym mapowania.
-4. Dla właściwości **Redukuj** Określ nazwę pliku wykonywalnego. W przykładzie plik. exe jest plikiem wykonywalnym.
-5. Dla właściwości Typ **danych wejściowych** Określ plik wejściowy (łącznie z lokalizacją) dla mapowania. W przykładzie: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample jest kontenerem obiektów blob, przykładem/danymi/Gutenberg jest folder, a DaVinci. txt jest obiektem BLOB.
+3. Dla właściwości **Mapowanie** Określ nazwę pliku wykonywalnego mapowania. W przykładzie cat.exe jest plikiem wykonywalnym mapowania.
+4. Dla właściwości **Redukuj** Określ nazwę pliku wykonywalnego. W przykładzie wc.exe jest plikiem wykonywalnym.
+5. Dla właściwości Typ **danych wejściowych** Określ plik wejściowy (łącznie z lokalizacją) dla mapowania. W przykładzie: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt` : adfsample jest kontenerem obiektów blob, przykładem/danymi/Gutenberg jest folder, a davinci.txt jest obiektem BLOB.
 6. Dla właściwości Typ **danych wyjściowych** Określ plik wyjściowy (łącznie z lokalizacją) dla elementu zmniejszającego liczbę. Dane wyjściowe zadania przesyłania strumieniowego Hadoop są zapisywane w lokalizacji określonej dla tej właściwości.
-7. W sekcji **filePaths** Określ ścieżki dla plików wykonywalnych mapowania i redukcji. W przykładzie: "adfsample/example/Apps/w pliku. exe", adfsample jest kontenerem obiektów blob, przykładem/aplikacjami jest folder, a plik. exe jest plikiem wykonywalnym.
+7. W sekcji **filePaths** Określ ścieżki dla plików wykonywalnych mapowania i redukcji. W przykładzie: "adfsample/example/Apps/wc.exe", adfsample jest kontenerem obiektów blob, przykładem/aplikacjami jest folder, a wc.exe jest plikiem wykonywalnym.
 8. Dla właściwości **fileLinkedService** Określ połączoną usługę Azure Storage, która reprezentuje magazyn platformy Azure, który zawiera pliki określone w sekcji filePaths.
 9. Dla właściwości **argumenty** określ argumenty zadania przesyłania strumieniowego.
 10. Właściwość **GetDebugInfo —** jest elementem opcjonalnym. Jeśli jest ustawiona na niepowodzenie, dzienniki są pobierane tylko w przypadku niepowodzenia. Gdy ustawienie ma wartość zawsze, dzienniki są zawsze pobierane niezależnie od stanu wykonania.
@@ -176,7 +175,7 @@ Potok w tym przykładzie nie przyjmuje żadnych danych wejściowych. Należy okr
 ### <a name="pipeline"></a>Potok
 Potok w tym przykładzie ma tylko jedno działanie, którego typem jest: **HDInsightStreaming**. 
 
-Klaster usługi HDInsight jest automatycznie wypełniany przy użyciu przykładowych programów (z. exe i Cat. exe) oraz danych (DaVinci. txt). Domyślnie nazwa kontenera, który jest używany przez klaster usługi HDInsight, jest nazwą klastra. Na przykład jeśli nazwa klastra to myhdicluster, nazwa skojarzonego kontenera obiektów BLOB byłaby myhdicluster.  
+Klaster usługi HDInsight jest automatycznie wypełniany przy użyciu przykładowych programów (wc.exe i cat.exe) i danych (davinci.txt). Domyślnie nazwa kontenera, który jest używany przez klaster usługi HDInsight, jest nazwą klastra. Na przykład jeśli nazwa klastra to myhdicluster, nazwa skojarzonego kontenera obiektów BLOB byłaby myhdicluster.  
 
 ```JSON
 {

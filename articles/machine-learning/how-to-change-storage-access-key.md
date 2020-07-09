@@ -5,17 +5,17 @@ description: Dowiedz się, jak zmienić klucze dostępu dla konta usługi Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/19/2020
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80296945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483316"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "80296945"
 Dowiedz się, jak zmienić klucze dostępu dla kont usługi Azure Storage używanych przez Azure Machine Learning. Azure Machine Learning mogą używać kont magazynu do przechowywania danych lub modeli szkoleniowych.
 
 Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage. Po ponownym wygenerowaniu klucza dostępu Azure Machine Learning należy zaktualizować, aby użyć nowego klucza. Azure Machine Learning może korzystać z konta magazynu zarówno dla magazynu modelowego, jak i magazynu danych.
+
+> [!IMPORTANT]
+> Poświadczenia registred z magazynami danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli w Key Vault włączono opcję [nietrwałego usuwania](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) , pamiętaj, aby postępować zgodnie z tym artykułem dotyczącym aktualizacji poświadczeń. Wyrejestrowanie magazynu danych i ponowne zarejestrowanie go w tej samej nazwie zakończy się niepowodzeniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -85,7 +88,7 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
 1. Wygeneruj ponownie klucz. Aby uzyskać informacje na temat ponownego generowania klucza dostępu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md). Zapisz nowy klucz.
 
-1. Aby zaktualizować obszar roboczy pod kątem używania nowego klucza, wykonaj następujące czynności:
+1. Obszar roboczy Azure Machine Learning automatycznie zsynchronizuje nowy klucz i zacznie korzystać z niego po godzinie. Aby wymusić natychmiastowe zsynchronizowanie obszaru roboczego z nowym kluczem, wykonaj następujące czynności:
 
     1. Aby zalogować się do subskrypcji platformy Azure, która zawiera obszar roboczy, za pomocą następującego polecenia platformy Azure:
 
@@ -95,7 +98,7 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
         [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-    1. Aby zaktualizować obszar roboczy pod kątem używania nowego klucza, użyj następującego polecenia. Zastąp `myworkspace` ciąg nazwą obszaru roboczego Azure Machine Learning i Zamień `myresourcegroup` na nazwę grupy zasobów platformy Azure, która zawiera obszar roboczy.
+    1. Aby zaktualizować obszar roboczy pod kątem używania nowego klucza, użyj następującego polecenia. Zastąp ciąg `myworkspace` nazwą obszaru roboczego Azure Machine Learning i Zamień na `myresourcegroup` nazwę grupy zasobów platformy Azure, która zawiera obszar roboczy.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -105,28 +108,36 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
         To polecenie automatycznie synchronizuje nowe klucze dla konta usługi Azure Storage używanego w obszarze roboczym.
 
-1. Aby ponownie zarejestrować magazyny danych korzystające z konta magazynu, użyj wartości z sekcji [co należy zaktualizować](#whattoupdate) , a klucz z kroku 1 z następującym kodem:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Można ponownie zarejestrować magazyny danych korzystające z konta magazynu za pośrednictwem zestawu SDK lub [Azure Machine Learning Studio](https://ml.azure.com).
+    1. **Aby ponownie zarejestrować magazyny danych za pomocą zestawu SDK języka Python**, użyj wartości z sekcji [co należy zaktualizować](#whattoupdate) , a klucz z kroku 1 z poniższym kodem. 
+    
+        Ponieważ `overwrite=True` został określony, ten kod zastępuje istniejącą rejestrację i aktualizuje ją w celu użycia nowego klucza.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Ponieważ `overwrite=True` został określony, ten kod zastępuje istniejącą rejestrację i aktualizuje ją w celu użycia nowego klucza.
+    1. **Aby ponownie zarejestrować magazyny danych za pośrednictwem programu Studio**, wybierz pozycję **magazyny** danych z okienka po lewej stronie w programie Studio. 
+        1. Wybierz magazyn danych, który chcesz zaktualizować.
+        1. Wybierz przycisk **Aktualizuj poświadczenia** w lewym górnym rogu. 
+        1. Użyj nowego klucza dostępu z kroku 1, aby wypełnić formularz, a następnie kliknij przycisk **Zapisz**.
+        
+            Jeśli aktualizujesz poświadczenia dla **domyślnego magazynu**danych, wykonaj ten krok i powtórz krok 2b, aby ponownie zsynchronizować nowy klucz z domyślnym magazynem danych obszaru roboczego. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rejestrowania magazynów danych, [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) Zobacz odwołanie do klasy.
+Aby uzyskać więcej informacji na temat rejestrowania magazynów danych, zobacz [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) odwołanie do klasy.

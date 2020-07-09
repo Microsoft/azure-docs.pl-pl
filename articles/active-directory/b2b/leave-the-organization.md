@@ -4,19 +4,19 @@ description: Pokazuje, w jaki sposób użytkownik systemu Azure AD B2B może opu
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bce67c81b924d768826402b707c41c085b7767b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272494"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386984"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Opuść organizację jako użytkownika-gościa
 
@@ -51,8 +51,8 @@ Gdy użytkownik opuści organizację, konto użytkownika jest "nietrwałe usuni�
 
 W razie potrzeby Administrator dzierżawy może trwale usunąć konto w dowolnym momencie w okresie 30 dni. W tym celu:
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Azure Active Directory**.
-2. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**.
+2. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 3. Wybierz pozycję **usunięci użytkownicy**.
 4. Zaznacz pole wyboru obok usuniętego użytkownika, a następnie wybierz pozycję **Usuń trwale**.
 

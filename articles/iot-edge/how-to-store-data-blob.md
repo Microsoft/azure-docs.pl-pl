@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76509822"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85562714"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Store data at the edge with Azure Blob Storage on IoT Edge (Przechowywanie danych na urządzeniu brzegowym dzięki usłudze Azure Blob Storage w usłudze IoT Edge)
 
@@ -38,7 +38,7 @@ Ten moduł zawiera funkcje **deviceToCloudUpload** i **deviceAutoDelete** .
 * Określ konto usługi Azure Storage, do którego chcesz przekazać dane.
 * Określ kontenery, które chcesz przekazać do platformy Azure. Ten moduł pozwala określić źródłową i docelową nazwę kontenera.
 * Wybierz możliwość natychmiastowego usunięcia obiektów BLOB po zakończeniu przekazywania do magazynu w chmurze
-* Wykonaj pełne przekazywanie obiektów BLOB ( `Put Blob` przy użyciu operacji) i przekazywanie na `Put Block` `Put Block List` poziomie bloku ( `Append Block` przy użyciu i operacji).
+* Wykonaj pełne przekazywanie obiektów BLOB (przy użyciu `Put Blob` operacji) i przekazywanie na poziomie bloku (przy użyciu `Put Block` `Put Block List` i `Append Block` operacji).
 
 Ten moduł używa przekazywania na poziomie bloku, gdy obiekt BLOB zawiera bloki. Poniżej przedstawiono niektóre typowe scenariusze:
 
@@ -71,29 +71,29 @@ Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Standa
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>Właściwości deviceToCloudUpload i deviceAutoDelete
 
-Użyj odpowiednich właściwości modułu, aby ustawić **deviceToCloudUploadProperties** i **deviceAutoDeleteProperties**. Żądane właściwości można ustawić podczas wdrażania lub zmienić je później, edytując sznurek modułu bez konieczności ponownego wdrażania. Zalecamy sprawdzenie "sznurka modułu" dla `reported configuration` i, `configurationValidation` aby upewnić się, że wartości są prawidłowo propagowane.
+Użyj odpowiednich właściwości modułu, aby ustawić **deviceToCloudUploadProperties** i **deviceAutoDeleteProperties**. Żądane właściwości można ustawić podczas wdrażania lub zmienić je później, edytując sznurek modułu bez konieczności ponownego wdrażania. Zalecamy sprawdzenie "sznurka modułu" dla `reported configuration` i, `configurationValidation` Aby upewnić się, że wartości są prawidłowo propagowane.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-Nazwa tego ustawienia to `deviceToCloudUploadProperties`. Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
+Nazwa tego ustawienia to `deviceToCloudUploadProperties` . Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
 
-| Właściwość | Możliwe wartości | Wyjaśnienie |
+| Właściwość | Możliwe wartości | Objaśnienie |
 | ----- | ----- | ---- |
-| uploadOn | wartość true, false | `false` Domyślnie ustawiona wartość. Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true`. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | Umożliwia wybranie kolejności, w której dane są kopiowane na platformę Azure. `OldestFirst` Domyślnie ustawiona wartość. Kolejność jest określana według czasu ostatniej modyfikacji obiektu BLOB. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`to parametry połączenia, które umożliwiają określenie konta magazynu, do którego chcesz przekazać dane. Określ `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Dodaj odpowiednie EndpointSuffix systemu Azure, w przypadku których dane zostaną przekazane, różnią się w zależności od globalnego platformy Azure, platformy Azure dla instytucji rządowych i Microsoft Azure Stack. <br><br> W tym miejscu możesz określić parametry połączenia SAS usługi Azure Storage. Ale należy zaktualizować tę właściwość po jej wygaśnięciu. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Pozwala określić nazwy kontenerów, które mają zostać przekazane na platformę Azure. Ten moduł pozwala określić źródłową i docelową nazwę kontenera. Jeśli nie określisz nazwy kontenera docelowego, automatycznie przypiszesz nazwę kontenera jako `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Można utworzyć ciągi szablonów dla docelowej nazwy kontenera, zapoznaj się z kolumną możliwe wartości. <br>*% h-> IoT Hub nazwy (3-50 znaków). <br>*% d-> IoT Edge identyfikator urządzenia (od 1 do 129 znaków). <br>*% m-> Nazwa modułu (od 1 do 64 znaków). <br>*% c-> nazwę kontenera źródłowego (od 3 do 63 znaków). <br><br>Maksymalny rozmiar nazwy kontenera to 63 znaków, podczas gdy automatyczne przypisywanie nazwy kontenera docelowego, jeśli rozmiar kontenera przekracza 63 znaków, przycinanie każdej sekcji (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) do 15 znaków. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | wartość true, false | `false` Domyślnie ustawiona wartość. Po jego ustawieniu `true`usługa automatycznie usunie dane po zakończeniu przekazywania do magazynu w chmurze. <br><br> **Uwaga**: Jeśli używasz dołączanych obiektów blob, to ustawienie spowoduje usunięcie dołączanych obiektów blob z magazynu lokalnego po pomyślnym przekazaniu, a wszelkie przyszłe operacje dołączania bloków do tych obiektów BLOB zakończą się niepowodzeniem. Użyj tego ustawienia z zachowaniem ostrożności, nie należy włączać tej opcji, jeśli aplikacja wykonuje rzadko wykonywane operacje dołączania lub nie obsługuje ciągłych operacji dołączania<br><br> Zmienna środowiskowa `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`:. |
+| uploadOn | wartość true, false | Domyślnie ustawiona wartość `false` . Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true` . <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | Umożliwia wybranie kolejności, w której dane są kopiowane na platformę Azure. Domyślnie ustawiona wartość `OldestFirst` . Kolejność jest określana według czasu ostatniej modyfikacji obiektu BLOB. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`to parametry połączenia, które umożliwiają określenie konta magazynu, do którego chcesz przekazać dane. Określ `Azure Storage Account Name` , `Azure Storage Account Key` , `End point suffix` . Dodaj odpowiednie EndpointSuffix systemu Azure, w przypadku których dane zostaną przekazane, różnią się w zależności od globalnego platformy Azure, platformy Azure dla instytucji rządowych i Microsoft Azure Stack. <br><br> W tym miejscu możesz określić parametry połączenia SAS usługi Azure Storage. Ale należy zaktualizować tę właściwość po jej wygaśnięciu. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Pozwala określić nazwy kontenerów, które mają zostać przekazane na platformę Azure. Ten moduł pozwala określić źródłową i docelową nazwę kontenera. Jeśli nie określisz nazwy kontenera docelowego, automatycznie przypiszesz nazwę kontenera jako `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . Można utworzyć ciągi szablonów dla docelowej nazwy kontenera, zapoznaj się z kolumną możliwe wartości. <br>*% h-> IoT Hub nazwy (3-50 znaków). <br>*% d-> IoT Edge identyfikator urządzenia (od 1 do 129 znaków). <br>*% m-> Nazwa modułu (od 1 do 64 znaków). <br>*% c-> nazwę kontenera źródłowego (od 3 do 63 znaków). <br><br>Maksymalny rozmiar nazwy kontenera to 63 znaków, podczas gdy automatyczne przypisywanie nazwy kontenera docelowego, jeśli rozmiar kontenera przekracza 63 znaków, przycinanie każdej sekcji (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) do 15 znaków. <br><br> Zmienna środowiskowa:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| deleteAfterUpload | wartość true, false | Domyślnie ustawiona wartość `false` . Po jego ustawieniu usługa `true` automatycznie usunie dane po zakończeniu przekazywania do magazynu w chmurze. <br><br> **Uwaga**: Jeśli używasz dołączanych obiektów blob, to ustawienie spowoduje usunięcie dołączanych obiektów blob z magazynu lokalnego po pomyślnym przekazaniu, a wszelkie przyszłe operacje dołączania bloków do tych obiektów BLOB zakończą się niepowodzeniem. Użyj tego ustawienia z zachowaniem ostrożności, nie należy włączać tej opcji, jeśli aplikacja wykonuje rzadko wykonywane operacje dołączania lub nie obsługuje ciągłych operacji dołączania<br><br> Zmienna środowiskowa: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` . |
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-Nazwa tego ustawienia to `deviceAutoDeleteProperties`. Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
+Nazwa tego ustawienia to `deviceAutoDeleteProperties` . Jeśli używasz symulatora IoT Edge, ustaw wartości w powiązanych zmiennych środowiskowych dla tych właściwości, które można znaleźć w sekcji wyjaśnienie.
 
-| Właściwość | Możliwe wartości | Wyjaśnienie |
+| Właściwość | Możliwe wartości | Objaśnienie |
 | ----- | ----- | ---- |
-| deleteOn | wartość true, false | `false` Domyślnie ustawiona wartość. Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true`. <br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteOn | wartość true, false | Domyślnie ustawiona wartość `false` . Jeśli chcesz włączyć tę funkcję, ustaw to pole na `true` . <br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Określ czas (w minutach). Po wygaśnięciu tej wartości moduł automatycznie usunie obiekty blob z magazynu lokalnego. <br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | wartość true, false | Domyślnie jest ustawiony na `true`i zachowuje obiekt BLOB podczas przekazywania go do magazynu w chmurze, jeśli deleteAfterMinutes wygasa. Można ją ustawić na `false` i będzie ona usuwać dane natychmiast po wygaśnięciu deleteAfterMinutes. Uwaga: aby ta właściwość działała, uploadOn powinna mieć wartość true.  <br><br> **Uwaga**: Jeśli używasz dołączanych obiektów blob, to ustawienie spowoduje usunięcie dołączanych obiektów blob z magazynu lokalnego, gdy wartość wygaśnie, a wszelkie przyszłe operacje dołączania bloków do tych obiektów BLOB zakończą się niepowodzeniem. Warto upewnić się, że wartość wygaśnięcia jest wystarczająco duża dla oczekiwanej częstotliwości operacji dołączania wykonywanych przez aplikację.<br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| retainWhileUploading | wartość true, false | Domyślnie jest ustawiony na `true` i zachowuje obiekt BLOB podczas przekazywania go do magazynu w chmurze, jeśli deleteAfterMinutes wygasa. Można ją ustawić na `false` i będzie ona usuwać dane natychmiast po wygaśnięciu deleteAfterMinutes. Uwaga: aby ta właściwość działała, uploadOn powinna mieć wartość true.  <br><br> **Uwaga**: Jeśli używasz dołączanych obiektów blob, to ustawienie spowoduje usunięcie dołączanych obiektów blob z magazynu lokalnego, gdy wartość wygaśnie, a wszelkie przyszłe operacje dołączania bloków do tych obiektów BLOB zakończą się niepowodzeniem. Warto upewnić się, że wartość wygaśnięcia jest wystarczająco duża dla oczekiwanej częstotliwości operacji dołączania wykonywanych przez aplikację.<br><br> Zmienna środowiskowa:`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Używanie udziału SMB jako magazynu lokalnego
 
@@ -101,7 +101,7 @@ Udział SMB można dostarczyć jako ścieżkę do magazynu lokalnego, podczas wd
 
 Upewnij się, że udział SMB i urządzenie IoT należą do wzajemnie zaufanych domen.
 
-Można uruchomić `New-SmbGlobalMapping` polecenie programu PowerShell, aby MAPOWAĆ udział SMB lokalnie na urządzeniu IoT z systemem Windows.
+Można uruchomić `New-SmbGlobalMapping` polecenie programu PowerShell, aby mapować udział SMB lokalnie na urządzeniu IoT z systemem Windows.
 
 Poniżej przedstawiono kroki konfiguracji:
 
@@ -143,7 +143,7 @@ sudo chown -R 11000:11000 /srv/containerdata
 sudo chmod -R 700 /srv/containerdata
 ```
 
-Jeśli potrzebujesz uruchomić usługę jako użytkownik inny niż **Absie**, możesz określić niestandardowy identyfikator użytkownika w obszarze Opcje w obszarze właściwości "użytkownik" w manifeście wdrożenia. W takim przypadku należy użyć domyślnego lub głównego identyfikatora `0`grupy.
+Jeśli potrzebujesz uruchomić usługę jako użytkownik inny niż **Absie**, możesz określić niestandardowy identyfikator użytkownika w obszarze Opcje w obszarze właściwości "użytkownik" w manifeście wdrożenia. W takim przypadku należy użyć domyślnego lub głównego identyfikatora grupy `0` .
 
 ```json
 "createOptions": {
@@ -168,7 +168,7 @@ Możesz użyć nazwy konta i klucza konta skonfigurowanego dla modułu, aby uzys
 
 Określ urządzenie IoT Edge jako punkt końcowy obiektu BLOB dla dowolnych żądań magazynu, które wprowadzasz do niego. [Parametry połączenia dla jawnego punktu końcowego magazynu można utworzyć](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) przy użyciu IoT Edge informacji o urządzeniu i skonfigurowanej nazwy konta.
 
-* W przypadku modułów wdrożonych na tym samym urządzeniu, na których jest uruchomiony Blob Storage platformy Azure w module IoT Edge, punkt końcowy obiektu BLOB `http://<module name>:11002/<account name>`to:.
+* W przypadku modułów wdrożonych na tym samym urządzeniu, na których jest uruchomiony Blob Storage platformy Azure w module IoT Edge, punkt końcowy obiektu BLOB to: `http://<module name>:11002/<account name>` .
 * W przypadku modułów lub aplikacji uruchamianych na innym urządzeniu należy wybrać odpowiedni punkt końcowy dla sieci. W zależności od konfiguracji sieci wybierz format punktu końcowego, który umożliwia dostęp danych z modułu zewnętrznego lub aplikacji do urządzenia z uruchomioną Blob Storage platformy Azure na IoT Edge module. Punkt końcowy obiektu BLOB w tym scenariuszu jest jednym z:
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
@@ -291,7 +291,7 @@ Ten Blob Storage platformy Azure na IoT Edge module zapewnia teraz integrację z
 
 Poniżej znajdują się [Informacje o wersji usługi Docker Hub](https://hub.docker.com/_/microsoft-azure-blob-storage) dla tego modułu
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions"></a>Sugestie
 
 Twoja opinia jest ważna dla nas, aby ułatwić korzystanie z tego modułu i jego funkcji. Podziel się swoją opinią i daj nam znać, jak możemy udoskonalić.
 

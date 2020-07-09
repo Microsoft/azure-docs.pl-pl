@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479563"
 ---
 # <a name="install-azure-farmbeats"></a>Zainstaluj projekt Azure FarmBeats
@@ -124,9 +123,9 @@ Wykonaj następujące kroki w wystąpieniu Cloud Shell przy użyciu środowiska 
 
 4. Skrypt pyta o następujące trzy dane wejściowe:
 
-    - **Nazwa witryny internetowej FarmBeats**: jest to unikatowy prefiks adresu URL aplikacji sieci Web FarmBeats. W przypadku, gdy prefiks został już pobrany, skrypt wystąpi błąd. Po zainstalowaniu wdrożenie FarmBeats będzie dostępne z https://\<FarmBeats-Website-Name>. azurewebsites.NET, a interfejsy API struktury Swagger będą mieć wartość https://\<FarmBeats-Website-Name>-API.azurewebsites.NET
+    - **Nazwa witryny internetowej FarmBeats**: jest to unikatowy prefiks adresu URL aplikacji sieci Web FarmBeats. W przypadku, gdy prefiks został już pobrany, skrypt wystąpi błąd. Po zainstalowaniu wdrożenie FarmBeats będzie dostępne z https:// \<FarmBeats-website-name> . azurewebsites.NET, a interfejsy API programu Swagger będą w https:// \<FarmBeats-website-name> -API.azurewebsites.NET
 
-    - **Identyfikator logowania platformy Azure**: podaj identyfikator logowania platformy Azure dla użytkownika, który ma zostać dodany jako administrator FarmBeats. Ten użytkownik może następnie udzielić dostępu FarmBeats aplikacji sieci Web innym użytkownikom. Identyfikator logowania ma zwykle postać john.doe@domain.com. Dostępna jest również nazwa UPN platformy Azure.
+    - **Identyfikator logowania platformy Azure**: podaj identyfikator logowania platformy Azure dla użytkownika, który ma zostać dodany jako administrator FarmBeats. Ten użytkownik może następnie udzielić dostępu FarmBeats aplikacji sieci Web innym użytkownikom. Identyfikator logowania ma zwykle postać john.doe@domain.com . Dostępna jest również nazwa UPN platformy Azure.
 
     - **Identyfikator subskrypcji**: to jest Identyfikator subskrypcji, w której chcesz zainstalować usługę Azure FarmBeats
 
@@ -152,7 +151,7 @@ Teraz można przystąpić do instalowania FarmBeats. Wykonaj poniższe kroki, ab
 
 2. Przejdź do witryny Azure Marketplace w portalu i Wyszukaj **usługę Azure FarmBeats** w witrynie Marketplace.
 
-3. Zostanie wyświetlone nowe okno z omówieniem usługi Azure FarmBeats. Wybierz przycisk **Utwórz**.
+3. Zostanie wyświetlone nowe okno z omówieniem usługi Azure FarmBeats. Wybierz pozycję **Utwórz**.
 
 4. Zostanie wyświetlone nowe okno. Ukończ proces rejestracji, wybierając poprawną subskrypcję, grupę zasobów i lokalizację, w której chcesz zainstalować usługę Azure FarmBeats.
 
@@ -168,9 +167,9 @@ Teraz można przystąpić do instalowania FarmBeats. Wykonaj poniższe kroki, ab
 
 8. Po sprawdzeniu poprawności wprowadzonych szczegółów wybierz **przycisk OK**. Zostanie wyświetlona strona Warunki użytkowania. Przejrzyj warunki i wybierz pozycję **Utwórz** , aby rozpocząć instalację. Nastąpi przekierowanie do strony, na której można wykonać postęp instalacji.
 
-Po zakończeniu instalacji możesz zweryfikować instalację i rozpocząć korzystanie z portalu FarmBeats, przechodząc do nazwy witryny sieci Web podanej podczas instalacji: https://\<FarmBeats-Website-Name>. azurewebsites.NET. Powinien zostać wyświetlony interfejs użytkownika FarmBeats z opcją tworzenia Farm.
+Po zakończeniu instalacji możesz zweryfikować instalację i rozpocząć korzystanie z portalu FarmBeats, przechodząc do nazwy witryny sieci Web podanej podczas instalacji: https:// \<FarmBeats-website-name> . azurewebsites.NET. Powinien zostać wyświetlony interfejs użytkownika FarmBeats z opcją tworzenia Farm.
 
-**Datahub** można znaleźć w https://\<FarmBeats-Site-Name>-API.azurewebsites.NET/Swagger. W tym miejscu zobaczysz różne obiekty interfejsu API FarmBeats i wykonamy operacje REST w interfejsach API.
+**Datahub** można znaleźć pod adresem https:// \<FarmBeats-website-name> -API.azurewebsites.NET/Swagger. W tym miejscu zobaczysz różne obiekty interfejsu API FarmBeats i wykonamy operacje REST w interfejsach API.
 
 ## <a name="upgrade"></a>Uaktualnienie
 
@@ -196,9 +195,9 @@ Użytkownicy korzystający z pierwszego czasu będą monitowani o wybranie subsk
         ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-Ścieżka do pliku Input. JSON jest opcjonalna. Jeśli nie zostanie określony, skrypt będzie pytał wszystkie wymagane dane wejściowe. Uaktualnienie powinno zakończyć się około 30 minut.
+Ścieżka do input.jsw pliku jest opcjonalna. Jeśli nie zostanie określony, skrypt będzie pytał wszystkie wymagane dane wejściowe. Uaktualnienie powinno zakończyć się około 30 minut.
 
-## <a name="uninstall"></a>Odinstaluj
+## <a name="uninstall"></a>Dezinstalacja
 
 Aby odinstalować usługę Azure FarmBeats Datahub lub akcelerator, wykonaj następujące czynności:
 

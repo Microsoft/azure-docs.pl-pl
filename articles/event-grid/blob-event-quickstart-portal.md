@@ -1,20 +1,14 @@
 ---
 title: 'Szybki Start: wysyłanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web — Portal'
 description: 'Szybki Start: używanie Azure Event Grid i Azure Portal do tworzenia konta usługi BLOB Storage i subskrybowania jego zdarzeń. Wyślij zdarzenia do elementu webhook.'
-services: event-grid
-keywords: ''
-author: spelluru
-ms.author: spelluru
-ms.date: 04/16/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
-ms.openlocfilehash: ada451b6bb3578a2903e9bd832b98981d7029d1d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103640"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal
 
@@ -71,7 +65,7 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 4. Na stronie **Grupa zasobów** na liście zasobów wybierz utworzoną aplikację sieci Web. Zobaczysz również plan App Service i konto magazynu na tej liście. 
 
     ![Wybierz witrynę sieci Web](./media/blob-event-quickstart-portal/resource-group-resources.png)
-5. Na stronie **App Service** aplikacji sieci Web wybierz adres URL, aby przejść do witryny sieci Web. Adres URL powinien mieć następujący format: `https://<your-site-name>.azurewebsites.net`.
+5. Na stronie **App Service** aplikacji sieci Web wybierz adres URL, aby przejść do witryny sieci Web. Adres URL powinien mieć następujący format: `https://<your-site-name>.azurewebsites.net` .
     
     ![Przejdź do witryny sieci Web](./media/blob-event-quickstart-portal/web-site.png)
 
@@ -86,16 +80,19 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzenia chcesz śledzić i gdzie mają być one wysyłane.
 
 1. W portalu przejdź do utworzonego wcześniej konta usługi Azure Storage. Z menu po lewej stronie wybierz pozycję **wszystkie zasoby** , a następnie wybierz konto magazynu. 
-2. Na stronie **konto magazynu** wybierz pozycję **zdarzenia** z menu po lewej stronie.
+2. Na stronie **konto magazynu** wybierz pozycję **zdarzenia** z menu po lewej stronie. 
 1. Wybierz kolejno pozycje **Więcej opcji** i **Element webhook**. Wysyłasz zdarzenia do aplikacji przeglądarki przy użyciu elementu webhook dla punktu końcowego. 
 
    ![Wybieranie elementu webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Na stronie **Tworzenie subskrypcji zdarzeń** wykonaj następujące czynności: 
     1. Wprowadź **nazwę** subskrypcji zdarzeń.
+    2. Wprowadź **nazwę** **tematu systemowego**. Aby dowiedzieć się więcej na temat tematów systemowych, zobacz [Omówienie tematów systemowych](system-topics.md).
+
+       ![Wprowadź nazwy dla subskrypcji zdarzeń i tematu systemu](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
     2. Wybierz **element Hook sieci Web** dla **typu punktu końcowego**. 
 
        ![Wybierz typ punktu końcowego elementu webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
-4. W przypadku **punktu końcowego**kliknij pozycję **Wybierz punkt końcowy**, a następnie wprowadź adres URL aplikacji sieci Web `api/updates` i Dodaj adres URL strony głównej (na przykład `https://spegridsite.azurewebsites.net/api/updates`:), a następnie wybierz pozycję **Potwierdź wybór**.
+4. W przypadku **punktu końcowego**kliknij pozycję **Wybierz punkt końcowy**, a następnie wprowadź adres URL aplikacji sieci Web i Dodaj adres `api/updates` URL strony głównej (na przykład: `https://spegridsite.azurewebsites.net/api/updates` ), a następnie wybierz pozycję **Potwierdź wybór**.
 
    ![Potwierdź wybór punktu końcowego](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
 5. Teraz na stronie **Tworzenie subskrypcji zdarzeń** wybierz pozycję **Utwórz** , aby utworzyć subskrypcję zdarzeń. 
@@ -134,7 +131,7 @@ Zdarzenie magazynu Blob Storage jest wyzwalane przez przekazanie pliku. Plik nie
 
    ![Zdarzenie utworzenia obiektu BLOB](./media/blob-event-quickstart-portal/blob-created-event.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie usuń zasoby utworzone w ramach tego artykułu.
 

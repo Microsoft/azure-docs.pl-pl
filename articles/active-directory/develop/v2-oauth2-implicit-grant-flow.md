@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 34ae87859b20895598611d25eb069fd05c24d262
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: fbe74b62352babf7a1fdd93bf19a6e1475e3f032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553583"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity platform i niejawny przepływ dotacji
 
@@ -27,7 +27,7 @@ Za pomocą punktu końcowego platformy tożsamości firmy Microsoft możesz zalo
 * Wiele serwerów autoryzacji i dostawców tożsamości nie obsługuje żądań CORS.
 * Przeglądarka pełnej strony przekieruje się do środowiska użytkownika.
 
-W przypadku tych aplikacji (kątowych, wpływ. js, reaguje. js itd.) platforma Microsoft Identity platform obsługuje niejawny przepływ OAuth 2,0. Niejawny przepływ jest opisany w [specyfikacji OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-4.2). Główną korzyścią jest umożliwienie aplikacji uzyskiwania tokenów z platformy tożsamości firmy Microsoft bez konieczności wymiany poświadczeń serwera wewnętrznej bazy danych. Dzięki temu aplikacja może logować się do użytkownika, obsługiwać sesję i uzyskiwać tokeny do innych interfejsów API sieci Web w kodzie JavaScript klienta. Istnieje kilka ważnych zagadnień związanych z zabezpieczeniami, które należy wziąć pod uwagę podczas korzystania z niejawnego przepływu w odróżnieniu od [personifikacji](https://tools.ietf.org/html/rfc6749#section-10.3) [klientów](https://tools.ietf.org/html/rfc6749#section-10.3) i użytkowników.
+W przypadku tych aplikacji (kątowych, Ember.js, React.js itd.) platforma Microsoft Identity platform obsługuje niejawny przepływ OAuth 2,0. Niejawny przepływ jest opisany w [specyfikacji OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-4.2). Główną korzyścią jest umożliwienie aplikacji uzyskiwania tokenów z platformy tożsamości firmy Microsoft bez konieczności wymiany poświadczeń serwera wewnętrznej bazy danych. Dzięki temu aplikacja może logować się do użytkownika, obsługiwać sesję i uzyskiwać tokeny do innych interfejsów API sieci Web w kodzie JavaScript klienta. Istnieje kilka ważnych zagadnień związanych z zabezpieczeniami, które należy wziąć pod uwagę podczas korzystania z niejawnego przepływu w odróżnieniu od [personifikacji](https://tools.ietf.org/html/rfc6749#section-10.3) [klientów](https://tools.ietf.org/html/rfc6749#section-10.3) i użytkowników.
 
 W tym artykule opisano, jak programować bezpośrednio w odniesieniu do protokołu w aplikacji.  Jeśli to możliwe, zalecamy korzystanie z obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast [uzyskiwać tokeny i wywoływać zabezpieczone interfejsy API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z MSAL](sample-v2-code.md).
 
@@ -73,10 +73,10 @@ Na poniższym diagramie przedstawiono, jak wygląda cały niejawny przepływ log
 
 ## <a name="send-the-sign-in-request"></a>Wyślij żądanie logowania
 
-Aby najpierw podpisać użytkownika w aplikacji, możesz wysłać żądanie uwierzytelniania [OpenID Connect Connect](v2-protocols-oidc.md) i uzyskać dostęp `id_token` do punktu końcowego platformy tożsamości firmy Microsoft.
+Aby najpierw podpisać użytkownika w aplikacji, możesz wysłać żądanie uwierzytelniania [OpenID Connect Connect](v2-protocols-oidc.md) i uzyskać dostęp do `id_token` punktu końcowego platformy tożsamości firmy Microsoft.
 
 > [!IMPORTANT]
-> Aby pomyślnie zażądać tokenu identyfikatora i/lub tokenu dostępu, Rejestracja aplikacji na stronie [Azure Portal-rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) musi mieć odpowiedni niejawny przepływ, który jest włączony, wybierając **tokeny identyfikatora** i **tokeny dostępu** lub w sekcji **niejawne udzielenie** . Jeśli nie jest włączona, zostanie zwrócony `unsupported_response` błąd: **podana wartość parametru wejściowego "response_type" nie jest dozwolona dla tego klienta. Oczekiwana wartość to "Code"**
+> Aby pomyślnie zażądać tokenu identyfikatora i/lub tokenu dostępu, Rejestracja aplikacji na stronie [Azure Portal-rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) musi mieć odpowiedni niejawny przepływ, który jest włączony, wybierając **tokeny identyfikatora** i **tokeny dostępu** lub w sekcji **niejawne udzielenie** . Jeśli nie jest włączona, `unsupported_response` zostanie zwrócony błąd: **podana wartość parametru wejściowego "response_type" nie jest dozwolona dla tego klienta. Oczekiwana wartość to "Code"**
 
 ```
 // Line breaks for legibility only
@@ -92,30 +92,30 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Aby przetestować Logowanie przy użyciu przepływu niejawnego, kliknij pozycję <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Po zalogowaniu przeglądarka powinna zostać przekierowana do `https://localhost/myapp/` programu przy użyciu `id_token` na pasku adresu.
+> Aby przetestować Logowanie przy użyciu przepływu niejawnego, kliknij pozycję <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. .</a> Po zalogowaniu przeglądarka powinna zostać przekierowana do programu `https://localhost/myapp/` przy użyciu `id_token` na pasku adresu.
 >
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
-| `tenant` | wymagany |`{tenant}` Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common`, `organizations`, `consumers`i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | wymagany | Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
-| `response_type` | wymagany |Musi zawierać `id_token` do logowania za OpenID Connect Connect. Może również zawierać response_type `token`. Użycie `token` w tym miejscu umożliwi aplikacji otrzymywanie tokenu dostępu od razu od autoryzowanego punktu końcowego bez konieczności podawania drugiego żądania do autoryzowanego punktu końcowego. Jeśli używasz `token` response_type, `scope` parametr musi zawierać zakres wskazujący zasób, dla którego ma zostać wystawiony token (na przykład user. Read on Microsoft Graph).  |
+| `tenant` | wymagane |`{tenant}`Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common` , `organizations` , `consumers` i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints). |
+| `client_id` | wymagane | Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
+| `response_type` | wymagane |Musi zawierać `id_token` do logowania za OpenID Connect Connect. Może również zawierać response_type `token` . Użycie w `token` tym miejscu umożliwi aplikacji otrzymywanie tokenu dostępu od razu od autoryzowanego punktu końcowego bez konieczności podawania drugiego żądania do autoryzowanego punktu końcowego. Jeśli używasz `token` response_type, `scope` parametr musi zawierać zakres wskazujący zasób, dla którego ma zostać wystawiony token (na przykład user. read on Microsoft Graph).  |
 | `redirect_uri` | zalecane |Redirect_uri aplikacji, w której odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie pasować do jednego z redirect_uris zarejestrowanego w portalu, z wyjątkiem tego, że musi on być zakodowany w adresie URL. |
-| `scope` | wymagany |Rozdzielana spacjami lista [zakresów](v2-permissions-and-consent.md). W przypadku programu OpenID Connect Connect (id_tokens) musi zawierać zakres `openid`, który tłumaczy uprawnienie "Logowanie do Ciebie" w interfejsie użytkownika wyrażania zgody. Opcjonalnie możesz również uwzględnić zakresy `email` i `profile` , aby uzyskać dostęp do dodatkowych danych użytkownika. W przypadku żądania zgody na różne zasoby można również uwzględnić inne zakresy w żądaniu. |
+| `scope` | wymagane |Rozdzielana spacjami lista [zakresów](v2-permissions-and-consent.md). W przypadku programu OpenID Connect Connect (id_tokens) musi zawierać zakres `openid` , który tłumaczy uprawnienie "Logowanie do Ciebie" w interfejsie użytkownika wyrażania zgody. Opcjonalnie możesz również uwzględnić zakresy i, aby `email` uzyskać `profile` dostęp do dodatkowych danych użytkownika. W przypadku żądania zgody na różne zasoby można również uwzględnić inne zakresy w żądaniu. |
 | `response_mode` | optional |Określa metodę, która ma zostać użyta do wysłania zwróconego tokenu z powrotem do aplikacji. Domyślnie kwerenda dotyczy tylko tokenu dostępu, ale fragmentu, jeśli żądanie zawiera id_token. |
 | `state` | zalecane |Wartość uwzględniona w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
-| `nonce` | wymagany |Wartość uwzględniona w żądaniu wygenerowanym przez aplikację, która zostanie uwzględniona w uzyskanym id_token jako jako żądanie. Następnie aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Wartość jest zazwyczaj losowo losowym, unikatowym ciągiem, który może służyć do identyfikowania pochodzenia żądania. Wymagane tylko wtedy, gdy zażądano id_token. |
+| `nonce` | wymagane |Wartość uwzględniona w żądaniu wygenerowanym przez aplikację, która zostanie uwzględniona w uzyskanym id_token jako jako żądanie. Następnie aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Wartość jest zazwyczaj losowo losowym, unikatowym ciągiem, który może służyć do identyfikowania pochodzenia żądania. Wymagane tylko wtedy, gdy zażądano id_token. |
 | `prompt` | optional |Wskazuje typ interakcji użytkownika, która jest wymagana. Jedyne prawidłowe wartości w tym momencie to "login'", "none", "select_account" i "zgody". `prompt=login`wymusić użytkownikowi wprowadzanie poświadczeń na to żądanie, negację logowania jednokrotnego. `prompt=none`jest przeciwieństwem do siebie, upewnia się, że użytkownik nie jest wyświetlany z żadnym interaktywnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, punkt końcowy platformy tożsamości firmy Microsoft zwróci błąd. `prompt=select_account`wysyła użytkownika do selektora konta, w którym zostaną wyświetlone wszystkie konta zapamiętane w sesji. `prompt=consent`spowoduje wyzwolenie okna dialogowego zgody na uwierzytelnianie OAuth po zalogowaniu się użytkownika, z prośbą o udzielenie uprawnień do aplikacji. |
 | `login_hint`  |optional |Może służyć do wstępnego wypełniania pola Nazwa użytkownika/adres e-mail na stronie logowania dla użytkownika, jeśli znana jest jego nazwa użytkownika przed czasem. Często aplikacje będą używać tego parametru podczas ponownego uwierzytelniania, ponieważ już wyodrębnili nazwę użytkownika z poprzedniego logowania przy użyciu tego `preferred_username` żądania.|
 | `domain_hint` | optional |W przypadku pominięcia zostanie pominięty proces odnajdywania na podstawie poczty e-mail, który użytkownik przejdzie na stronie logowania, co prowadzi do nieco bardziej usprawnionego środowiska użytkownika. Jest to często używane w przypadku aplikacji biznesowych, które działają w ramach jednej dzierżawy, gdzie będą podawać nazwę domeny w ramach danej dzierżawy.  Spowoduje to przekazanie tego użytkownika do dostawcy federacyjnego dla tej dzierżawy.  Należy zauważyć, że uniemożliwi to Gościom logowanie do tej aplikacji.  |
 
-W tym momencie użytkownik zostanie poproszony o wprowadzenie poświadczeń i zakończenie uwierzytelniania. Punkt końcowy platformy tożsamości firmy Microsoft sprawdzi również, czy użytkownik wyraził zgodę na uprawnienia wskazane w parametrze `scope` zapytania. Jeśli użytkownik wyraził zgodę na **żadne** z tych uprawnień, skontaktuje się z użytkownikiem, aby zalecić wymagane uprawnienia. Aby uzyskać więcej informacji, zobacz [uprawnienia, zgoda i aplikacje z wieloma dzierżawcami](v2-permissions-and-consent.md).
+W tym momencie użytkownik zostanie poproszony o wprowadzenie poświadczeń i zakończenie uwierzytelniania. Punkt końcowy platformy tożsamości firmy Microsoft sprawdzi również, czy użytkownik wyraził zgodę na uprawnienia wskazane w `scope` parametrze zapytania. Jeśli użytkownik wyraził zgodę na **żadne** z tych uprawnień, skontaktuje się z użytkownikiem, aby zalecić wymagane uprawnienia. Aby uzyskać więcej informacji, zobacz [uprawnienia, zgoda i aplikacje z wieloma dzierżawcami](v2-permissions-and-consent.md).
 
-Gdy użytkownik uwierzytelni się i udzieli zgody, punkt końcowy platformy tożsamości firmy Microsoft zwróci odpowiedź do aplikacji we wskazanym `redirect_uri`miejscu przy użyciu metody określonej w `response_mode` parametrze.
+Gdy użytkownik uwierzytelni się i udzieli zgody, punkt końcowy platformy tożsamości firmy Microsoft zwróci odpowiedź do aplikacji we wskazanym miejscu `redirect_uri` przy użyciu metody określonej w `response_mode` parametrze.
 
 #### <a name="successful-response"></a>Pomyślna odpowiedź
 
-Pomyślna odpowiedź `response_mode=fragment` przy `response_type=id_token+token` użyciu i wygląda następująco (z podziałami wierszy na potrzeby czytelności):
+Pomyślna odpowiedź przy użyciu `response_mode=fragment` i wygląda następująco `response_type=id_token+token` (z podziałami wierszy na potrzeby czytelności):
 
 ```HTTP
 GET https://localhost/myapp/#
@@ -127,16 +127,16 @@ GET https://localhost/myapp/#
 
 | Parametr | Opis |
 | --- | --- |
-| `access_token` |Uwzględnione, `response_type` Jeśli `token`zawiera. Token dostępu, którego żądała aplikacja. Token dostępu nie powinien być zdekodowany lub w inny sposób sprawdzany, powinien być traktowany jako ciąg nieprzezroczysty. |
-| `token_type` |Uwzględnione, `response_type` Jeśli `token`zawiera. Zawsze będzie `Bearer`. |
-| `expires_in`|Uwzględnione, `response_type` Jeśli `token`zawiera. Wskazuje liczbę sekund ważności tokenu na potrzeby buforowania. |
-| `scope` |Uwzględnione, `response_type` Jeśli `token`zawiera. Wskazuje zakresy, dla których access_token będzie prawidłowy. Nie może zawierać wszystkich żądanych zakresów, jeśli nie mają zastosowania do użytkownika (w przypadku zakresów tylko w usłudze Azure AD, które są wymagane w przypadku logowania za pomocą konta osobistego). |
-| `id_token` | Podpisany token sieci Web JSON (JWT). Aplikacja może zdekodować segmenty tego tokenu, aby zażądać informacji o użytkowniku, który się zalogował. Aplikacja może buforować wartości i wyświetlać je, ale nie należy polegać na nich dla żadnych ograniczeń autoryzacji lub zabezpieczeń. Aby uzyskać więcej informacji na temat id_tokens, [`id_token reference`](id-tokens.md)Zobacz. <br> **Uwaga:** Dostępne tylko wtedy `openid` , gdy żądany został zakres. |
+| `access_token` |Uwzględnione, jeśli `response_type` zawiera `token` . Token dostępu, którego żądała aplikacja. Token dostępu nie powinien być zdekodowany lub w inny sposób sprawdzany, powinien być traktowany jako ciąg nieprzezroczysty. |
+| `token_type` |Uwzględnione, jeśli `response_type` zawiera `token` . Zawsze będzie `Bearer` . |
+| `expires_in`|Uwzględnione, jeśli `response_type` zawiera `token` . Wskazuje liczbę sekund ważności tokenu na potrzeby buforowania. |
+| `scope` |Uwzględnione, jeśli `response_type` zawiera `token` . Wskazuje zakresy, dla których access_token będzie prawidłowy. Nie może zawierać wszystkich żądanych zakresów, jeśli nie mają zastosowania do użytkownika (w przypadku zakresów tylko w usłudze Azure AD, które są wymagane w przypadku logowania za pomocą konta osobistego). |
+| `id_token` | Podpisany token sieci Web JSON (JWT). Aplikacja może zdekodować segmenty tego tokenu, aby zażądać informacji o użytkowniku, który się zalogował. Aplikacja może buforować wartości i wyświetlać je, ale nie należy polegać na nich dla żadnych ograniczeń autoryzacji lub zabezpieczeń. Aby uzyskać więcej informacji na temat id_tokens, zobacz [`id_token reference`](id-tokens.md) . <br> **Uwaga:** Dostępne tylko wtedy, gdy `openid` żądany został zakres. |
 | `state` |Jeśli w żądaniu zostanie uwzględniony parametr stanu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy wartości stanu w żądaniu i odpowiedzi są identyczne. |
 
 #### <a name="error-response"></a>Odpowiedź na błąd
 
-Odpowiedzi na błędy mogą być również wysyłane do `redirect_uri` , aby aplikacja mogła je odpowiednio obsłużyć:
+Odpowiedzi na błędy mogą być również wysyłane do, aby `redirect_uri` aplikacja mogła je odpowiednio obsłużyć:
 
 ```HTTP
 GET https://localhost/myapp/#
@@ -153,7 +153,7 @@ error=access_denied
 
 Teraz, gdy użytkownik został zarejestrowany w aplikacji jednostronicowej, można w trybie dyskretnym uzyskać tokeny dostępu do wywoływania interfejsów API sieci Web zabezpieczonych przez platformę tożsamości firmy Microsoft, takich jak [Microsoft Graph](https://developer.microsoft.com/graph). Nawet jeśli token został już odebrany przy użyciu `token` response_type, można użyć tej metody, aby uzyskać tokeny dla dodatkowych zasobów bez konieczności przekierowania użytkownika w celu ponownego zalogowania.
 
-W normalnym przepływie OpenID Connect Connect/OAuth należy to zrobić, wysyłając żądanie do punktu końcowego platformy `/token` tożsamości firmy Microsoft. Jednak punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje żądań CORS, dlatego w celu uzyskania i odświeżenia tokenów nie można wykonać wywołań AJAX. Zamiast tego można użyć niejawnego przepływu w ukrytym elemencie iframe, aby uzyskać nowe tokeny dla innych interfejsów API sieci Web:
+W normalnym przepływie OpenID Connect Connect/OAuth należy to zrobić, wysyłając żądanie do punktu końcowego platformy tożsamości firmy Microsoft `/token` . Jednak punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje żądań CORS, dlatego w celu uzyskania i odświeżenia tokenów nie można wykonać wywołań AJAX. Zamiast tego można użyć niejawnego przepływu w ukrytym elemencie iframe, aby uzyskać nowe tokeny dla innych interfejsów API sieci Web:
 
 ```
 // Line breaks for legibility only
@@ -178,11 +178,11 @@ Aby uzyskać szczegółowe informacje na temat parametrów zapytania w adresie U
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
 
-Za pomocą `prompt=none` tego parametru żądanie zakończy się pomyślnie lub natychmiast zakończy się niepowodzeniem i wróci do aplikacji. Pomyślna odpowiedź zostanie wysłana do aplikacji w wskazanym `redirect_uri`miejscu przy użyciu metody określonej w `response_mode` parametrze.
+Za pomocą `prompt=none` tego parametru żądanie zakończy się pomyślnie lub natychmiast zakończy się niepowodzeniem i wróci do aplikacji. Pomyślna odpowiedź zostanie wysłana do aplikacji w wskazanym miejscu `redirect_uri` przy użyciu metody określonej w `response_mode` parametrze.
 
 #### <a name="successful-response"></a>Pomyślna odpowiedź
 
-Pomyślna odpowiedź `response_mode=fragment` przy użyciu wygląda następująco:
+Pomyślna odpowiedź przy użyciu `response_mode=fragment` wygląda następująco:
 
 ```HTTP
 GET https://localhost/myapp/#
@@ -195,16 +195,16 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametr | Opis |
 | --- | --- |
-| `access_token` |Uwzględnione, `response_type` Jeśli `token`zawiera. Token dostępu, którego żądał aplikacja, w tym przypadku Microsoft Graph. Token dostępu nie powinien być zdekodowany lub w inny sposób sprawdzany, powinien być traktowany jako ciąg nieprzezroczysty. |
-| `token_type` | Zawsze będzie `Bearer`. |
+| `access_token` |Uwzględnione, jeśli `response_type` zawiera `token` . Token dostępu, którego żądał aplikacja, w tym przypadku Microsoft Graph. Token dostępu nie powinien być zdekodowany lub w inny sposób sprawdzany, powinien być traktowany jako ciąg nieprzezroczysty. |
+| `token_type` | Zawsze będzie `Bearer` . |
 | `expires_in` | Wskazuje liczbę sekund ważności tokenu na potrzeby buforowania. |
 | `scope` | Wskazuje zakresy, dla których access_token będzie prawidłowy. Nie może zawierać wszystkich żądanych zakresów, jeśli nie mają zastosowania do użytkownika (w przypadku zakresów tylko w usłudze Azure AD, które są wymagane w przypadku logowania za pomocą konta osobistego). |
-| `id_token` | Podpisany token sieci Web JSON (JWT). Uwzględnione, `response_type` Jeśli `id_token`zawiera. Aplikacja może zdekodować segmenty tego tokenu, aby zażądać informacji o użytkowniku, który się zalogował. Aplikacja może buforować wartości i wyświetlać je, ale nie należy polegać na nich dla żadnych ograniczeń autoryzacji lub zabezpieczeń. Aby uzyskać więcej informacji na temat id_tokens, zobacz [ `id_token` odwołanie](id-tokens.md). <br> **Uwaga:** Dostępne tylko wtedy `openid` , gdy żądany został zakres. |
+| `id_token` | Podpisany token sieci Web JSON (JWT). Uwzględnione, jeśli `response_type` zawiera `id_token` . Aplikacja może zdekodować segmenty tego tokenu, aby zażądać informacji o użytkowniku, który się zalogował. Aplikacja może buforować wartości i wyświetlać je, ale nie należy polegać na nich dla żadnych ograniczeń autoryzacji lub zabezpieczeń. Aby uzyskać więcej informacji na temat id_tokens, zobacz [ `id_token` odwołanie](id-tokens.md). <br> **Uwaga:** Dostępne tylko wtedy, gdy `openid` żądany został zakres. |
 | `state` |Jeśli w żądaniu zostanie uwzględniony parametr stanu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy wartości stanu w żądaniu i odpowiedzi są identyczne. |
 
 #### <a name="error-response"></a>Odpowiedź na błąd
 
-Odpowiedzi na błędy mogą być również wysyłane do `redirect_uri` , aby aplikacja mogła je odpowiednio obsłużyć. W przypadku `prompt=none`, oczekiwany błąd to:
+Odpowiedzi na błędy mogą być również wysyłane do, aby `redirect_uri` aplikacja mogła je odpowiednio obsłużyć. W przypadku `prompt=none` , oczekiwany błąd to:
 
 ```HTTP
 GET https://localhost/myapp/#
@@ -221,7 +221,7 @@ Jeśli ten błąd wystąpi w żądaniu iframe, użytkownik musi interaktywnie za
 
 ## <a name="refreshing-tokens"></a>Odświeżanie tokenów
 
-Niejawne przyznanie nie zapewnia tokenów odświeżania. Oba `id_token`elementy s `access_token`i s wygasną po krótkim czasie, więc należy przygotować aplikację do okresowego odświeżania tych tokenów. Aby odświeżyć każdy typ tokenu, można wykonać te same ukryte żądanie iframe z powyżej przy użyciu parametru `prompt=none` , aby kontrolować zachowanie platformy tożsamości. Jeśli chcesz `id_token`otrzymywać nowe, pamiętaj, aby użyć `id_token` w `response_type` i, a `scope=openid`także `nonce` parametru.
+Niejawne przyznanie nie zapewnia tokenów odświeżania. Oba `id_token` elementy s i `access_token` s wygasną po krótkim czasie, więc należy przygotować aplikację do okresowego odświeżania tych tokenów. Aby odświeżyć każdy typ tokenu, można wykonać te same ukryte żądanie iframe z powyżej przy użyciu `prompt=none` parametru, aby kontrolować zachowanie platformy tożsamości. Jeśli chcesz otrzymywać nowe `id_token` , pamiętaj, aby użyć `id_token` w `response_type` i `scope=openid` , a także `nonce` parametru.
 
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
 
@@ -231,9 +231,9 @@ OpenID Connect Connect `end_session_endpoint` umożliwia aplikacji wysyłanie ż
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
-| `tenant` |wymagany |`{tenant}` Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common`, `organizations`, `consumers`i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints). |
+| `tenant` |wymagane |`{tenant}`Wartość w ścieżce żądania może służyć do kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości to `common` , `organizations` , `consumers` i identyfikator dzierżawy. Aby uzyskać więcej informacji, zobacz temat [podstawowe informacje o protokole](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | zalecane | Adres URL, do którego użytkownik powinien zostać zwrócony po zakończeniu wylogowywania. Ta wartość musi być zgodna z jednym z identyfikatorów URI przekierowania zarejestrowanych dla aplikacji. Jeśli ta wartość nie jest uwzględniona, użytkownik zostanie pokazany jako komunikat ogólny przez punkt końcowy platformy tożsamości firmy Microsoft. |
 
 ## <a name="next-steps"></a>Następne kroki

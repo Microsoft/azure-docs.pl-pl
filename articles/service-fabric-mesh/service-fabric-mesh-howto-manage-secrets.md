@@ -4,10 +4,9 @@ description: Zarządzanie wpisami tajnymi aplikacji umożliwia bezpieczne tworze
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75461918"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Zarządzanie wpisami tajnymi aplikacji usługi Service Fabric Mesh
@@ -202,7 +201,7 @@ Przekaż parametr **template-file** lub **template-uri** (lecz nie oba).
 
 Przykład:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- AZ siatk wdrożenia Create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- AZ siatki Deployment Create--https: \/ /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Wyświetlanie wpisu tajnego
 Zwraca opis wpisu tajnego (lecz nie wartość).

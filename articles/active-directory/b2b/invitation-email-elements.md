@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407212"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy wiadomości e-mail z zaproszeniem do współpracy B2B — Azure Active Directory
@@ -36,11 +36,11 @@ Przyjrzyjmy się kilku elementom wiadomości e-mail, aby dowiedzieć się, jak n
 
 Temat wiadomości e-mail jest następujący:
 
-&lt;Nazwa&gt; użytkownika zaprosiła Cię do dostępu do aplikacji w swojej organizacji.
+&lt;Nazwa użytkownika &gt; zaprosiła Cię do dostępu do aplikacji w swojej organizacji.
 
 ### <a name="from-address"></a>Adres od
 
-Użyjemy wzorca przypominającego serwis LinkedIn dla adresu od. Ten wzorzec powinien wyjaśnić, że mimo że wiadomość e-mail pochodzi z invites@microsoft.com, zaproszenie pochodzi z innej organizacji. Format to <invites@microsoft.com> : zaproszenia firmy Microsoft lub zaproszenia firmy Microsoft w imieniu &lt;dzierżawcy.&gt; <invites@microsoft.com> 
+Użyjemy wzorca przypominającego serwis LinkedIn dla adresu od. Ten wzorzec powinien wyjaśnić, że mimo że wiadomość e-mail pochodzi z invites@microsoft.com , zaproszenie pochodzi z innej organizacji. Format to: zaproszenia firmy Microsoft  <invites@microsoft.com> lub zaproszenia firmy Microsoft w imieniu &lt; dzierżawcy &gt;  <invites@microsoft.com> . 
 
 ### <a name="reply-to"></a>Odpowiedz na
 

@@ -11,15 +11,14 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74278097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921154"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Używanie Azure CDN z mechanizmem CORS
 ## <a name="what-is-cors"></a>Co to jest mechanizm CORS?
@@ -30,7 +29,7 @@ Istnieją dwa typy żądań CORS, *proste żądania* i *skomplikowane żądania.
 
 ### <a name="for-simple-requests"></a>W przypadku prostych żądań:
 
-1. Przeglądarka wysyła żądanie CORS przy użyciu dodatkowego nagłówka żądania HTTP **źródła** . Wartość tego nagłówka jest źródłem, który obsługuje stronę nadrzędną, która jest definiowana jako kombinacja *protokołu,* *domeny* i *portu.*  Gdy strona z usługi https\://www.contoso.com próbuje uzyskać dostęp do danych użytkownika w pochodzeniu fabrikam.com, do fabrikam.com zostanie wysłany następujący nagłówek żądania:
+1. Przeglądarka wysyła żądanie CORS przy użyciu dodatkowego nagłówka żądania HTTP **źródła** . Wartość tego nagłówka jest źródłem, który obsługuje stronę nadrzędną, która jest definiowana jako kombinacja *protokołu,* *domeny* i *portu.*  Gdy strona z usługi https \: //www.contoso.com próbuje uzyskać dostęp do danych użytkownika w pochodzeniu fabrikam.com, do fabrikam.com zostanie wysłany następujący nagłówek żądania:
 
    `Origin: https://www.contoso.com`
 
@@ -48,7 +47,7 @@ Istnieją dwa typy żądań CORS, *proste żądania* i *skomplikowane żądania.
 
 ### <a name="for-complex-requests"></a>W przypadku złożonych żądań:
 
-Żądanie złożone to żądanie CORS, w którym przeglądarka jest wymagana do wysłania *żądania wstępnego* (czyli wstępnej sondy) przed wysłaniem rzeczywistego żądania CORS. Żądanie inspekcji wstępnej prosi o zezwolenie na serwer, jeśli będzie można wykonać oryginalne żądanie CORS i `OPTIONS` jest żądaniem tego samego adresu URL.
+Żądanie złożone to żądanie CORS, w którym przeglądarka jest wymagana do wysłania *żądania wstępnego* (czyli wstępnej sondy) przed wysłaniem rzeczywistego żądania CORS. Żądanie inspekcji wstępnej prosi o zezwolenie na serwer, jeśli będzie można wykonać oryginalne żądanie CORS i jest `OPTIONS` żądaniem tego samego adresu URL.
 
 > [!TIP]
 > Aby uzyskać więcej informacji na temat przepływów CORS i wspólnych pułapek, zobacz [Przewodnik dotyczący funkcji CORS dla interfejsów API REST](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
@@ -82,7 +81,9 @@ Istnieją dwa sposoby wykonania tej czynności za pomocą aparatu reguł Premium
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Jedno wyrażenie regularne ze wszystkimi prawidłowymi źródłami
 W tym przypadku utworzysz wyrażenie regularne zawierające wszystkie źródła, które mają być dozwolone: 
 
-    https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```http
+https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
+```
 
 > [!TIP]
 > **Azure CDN Premium from Verizon** używa [wyrażeń regularnych zgodnych](https://pcre.org/) ze standardem Perl jako aparat dla wyrażeń regularnych.  Aby zweryfikować wyrażenie regularne, można użyć narzędzia, takiego jak [wyrażenia regularne 101](https://regex101.com/) .  Należy zauważyć, że znak "/" jest prawidłowy w wyrażeniach regularnych i nie musi być zmieniony, ale ucieczki, że znak jest uznawany za najlepsze rozwiązanie i jest oczekiwany przez niektóre walidacje wyrażenia regularnego.

@@ -4,18 +4,17 @@ description: Dowiedz się więcej na temat obsługi warstw w chmurze w usłudze 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85413981"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
-Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync. sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
+Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
  
 Gdy użytkownik otwiera plik warstwowy, Azure File Sync bezproblemowo oddzwoni dane pliku od Azure Files bez konieczności znajomości, że plik jest przechowywany na platformie Azure. 
  
@@ -31,11 +30,38 @@ Gdy użytkownik otwiera plik warstwowy, Azure File Sync bezproblemowo oddzwoni d
 ### <a name="how-does-cloud-tiering-work"></a>Jak działa Obsługa warstw w chmurze?
 Filtr systemu Azure File Sync kompiluje "mapę cieplną" przestrzeni nazw na każdym punkcie końcowym serwera. Monitoruje dostęp (operacje odczytu i zapisu) w miarę upływu czasu, a następnie, w zależności od częstotliwości i recency dostępu, przypisuje wynik ciepła do każdego pliku. Plik, który był ostatnio otwarty, jest uznawany za gorącą, podczas gdy plik, który jest stanowią jedynie ułamek i nie jest dostępny przez jakiś czas, będzie uznawany za chłodną. Gdy wolumin plików na serwerze przekracza ustawiony próg ilości wolnego miejsca na woluminie, zostanie podwyższony poziom największej liczby plików do Azure Files, dopóki nie zostanie osiągnięty procent wolnego miejsca.
 
-W wersji 4,0 i nowszych Azure File Sync Agent można dodatkowo określić zasady dotyczące dat dla każdego punktu końcowego serwera, który będzie warstwować wszystkie pliki, które nie są dostępne ani modyfikowane w ciągu określonej liczby dni.
+Ponadto można określić zasady daty dla każdego punktu końcowego serwera, który będzie warstwować wszystkie pliki, które nie są dostępne w ciągu określonej liczby dni, niezależnie od dostępnego miejsca do magazynowania lokalnego. Jest to dobry wybór, aby proaktywnie zwolnić miejsce na dysku lokalnym, Jeśli wiesz, że pliki w tym punkcie końcowym serwera nie muszą być przechowywane lokalnie poza określonym okresem ważności. Pozwala to zwiększyć cenne pojemności dysku lokalnego dla innych punktów końcowych w tym samym woluminie, aby buforować więcej plików.
+
+Mapę cieplną warstw w chmurze jest zasadniczo uporządkowaną listą wszystkich synchronizowanych plików i znajdują się w lokalizacji, w której włączono obsługę warstw w chmurze. Aby określić względną pozycję pojedynczego pliku w tym mapę cieplną, system używa maksymalnie jednego z następujących sygnatur czasowych, w tej kolejności: MAX (godzina ostatniego dostępu, czas ostatniej modyfikacji, godzina utworzenia). Zazwyczaj czas ostatniego dostępu jest śledzony i dostępny. Jeśli jednak zostanie utworzony nowy punkt końcowy serwera z włączoną obsługą warstw w chmurze, początkowo nie upłynął wystarczająco dużo czasu, aby obserwować dostęp do pliku. W przypadku braku czasu ostatniego dostępu czas ostatniej modyfikacji jest używany do obliczania pozycji względnej w mapę cieplną. Ta sama wartość rezerwowa dotyczy zasad daty. W przypadku braku czasu ostatniego dostępu zasady daty będą działać od czasu ostatniej modyfikacji. Powinna być niedostępna, nastąpi powrót do czasu utworzenia pliku. W miarę upływu czasu system będzie obserwować więcej i więcej żądań dostępu do plików i przestawiać je w celu wykorzystania wstępnie śledzonego czasu ostatniego dostępu.
+
+Obsługa warstw w chmurze nie zależy od funkcji NTFS do śledzenia czasu ostatniego dostępu. Ta funkcja systemu plików NTFS jest domyślnie wyłączona i ze względu na wydajność nie zaleca się ręcznego włączania tej funkcji. Obsługa warstw w chmurze śledzi czas ostatniego dostępu osobno i bardzo wydajnie.
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Jaki jest minimalny rozmiar pliku do warstwy?
-W przypadku agenta w wersji 9. x i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików (dwukrotnie rozmiar klastra systemu plików). Jeśli na przykład rozmiar klastra systemu plików NTFS to 4 KB, minimalny rozmiar pliku do warstwy to rozmiarze 8 KB. W przypadku agenta w wersji 8. x i starszej minimalny rozmiar pliku do warstwy to 64 KB.
+
+W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
+
+|Rozmiar klastra objętościowego (w bajtach) |Pliki o tym rozmiarze lub większe mogą być warstwowe  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) i większych    | 64 KB   |
+
+Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Jeśli rozmiary plików nie są dostępne nawet w przypadku wielokrotnego rozmiaru klastra, należy użyć dodatkowego miejsca do przechowywania pliku (do kolejnej wielokrotności rozmiaru klastra).
+
+Azure File Sync jest obsługiwana na woluminach NTFS w systemie Windows Server 2012 R2 lub nowszym. W poniższej tabeli opisano domyślne rozmiary klastra podczas tworzenia nowego woluminu NTFS. 
+
+|Rozmiar woluminu    |System Windows Server 2012R2 i nowsze |
+|---------------|---------------|
+|7 MB — 16 TB   | 4 KB          |
+|16TB – 32 TB   | 8 KB          |
+|32 TB MIEJSCA – 64 TB   | 16 KB         |
+|64TB – 128 TB  | 32 KB         |
+|128TB – 256 TB | 64 KB         |
+|> 256 TB       | Nieobsługiwane |
+
+Istnieje możliwość, że podczas tworzenia woluminu ręcznie sformatowano wolumin z innym rozmiarem klastra (jednostki alokacji). Jeśli wolumin jest rdzeniem ze starszej wersji systemu Windows, domyślne rozmiary klastra mogą być różne. [Ten artykuł zawiera więcej informacji na temat domyślnych rozmiarów klastra.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Jak działają zasady obsługi warstw wolnego miejsca na woluminie?
@@ -53,7 +79,7 @@ Jeśli na woluminie znajduje się więcej niż jeden punkt końcowy serwera, pr�
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Jak działają zasady obsługi warstw dat w połączeniu z zasadami obsługi poziomów wolnego miejsca na woluminie? 
 Podczas włączania obsługi warstw w chmurze w punkcie końcowym serwera ustawia się zasady wolnego miejsca na woluminie. Zawsze ma pierwszeństwo przed innymi zasadami, w tym zasadami daty. Opcjonalnie można włączyć zasady daty dla każdego punktu końcowego serwera na tym woluminie. Te zasady umożliwiają zarządzanie tylko tymi plikami, do których dostęp (czyli odczyt lub zapis) w zakresie dni, w ramach których te zasady są przechowywane lokalnie. Nie można uzyskać dostępu do plików z określoną liczbą dni, zostanie warstwowa. 
 
-Obsługa warstw w chmurze polega na określeniu, które pliki powinny być warstwowe. Sterownik filtru obsługi warstw w chmurze (storagesync. sys) śledzi czas ostatniego dostępu i rejestruje informacje w magazynie w warstwie cieplnej w chmurze. Magazyn ciepła można zobaczyć przy użyciu lokalnego polecenia cmdlet programu PowerShell.
+Obsługa warstw w chmurze polega na określeniu, które pliki powinny być warstwowe. Sterownik filtru obsługi warstw w chmurze (storagesync.sys) śledzi czas ostatniego dostępu i rejestruje informacje w magazynie ciepła w warstwach w chmurze. Magazyn ciepła można zobaczyć przy użyciu lokalnego polecenia cmdlet programu PowerShell.
 
 ```powershell
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
@@ -78,7 +104,11 @@ Utrzymywanie większej ilości danych może prowadzić do obniżenia kosztów ru
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Dodaliśmy nowy punkt końcowy serwera. Jak długo do moich plików w tej warstwie serwera?
-W wersji 4,0 i większej od agenta Azure File Sync, gdy pliki zostały przekazane do udziału plików platformy Azure, zostaną warstwowo zgodnie z zasadami, gdy tylko zostanie uruchomiona kolejna sesja warstwowa, co nastąpi po godzinie. W przypadku starszych agentów może upłynąć nawet 24 godziny.
+
+Niezależnie od tego, czy pliki muszą być warstwowe dla poszczególnych ustawionych zasad, są oceniane co godzinę. Po utworzeniu nowego punktu końcowego serwera mogą wystąpić dwie sytuacje:
+
+1. Po dodaniu nowego punktu końcowego serwera często istnieją pliki znajdujące się w tej lokalizacji serwera. Przed rozpoczęciem obsługi warstw w chmurze należy je najpierw przekazać. Zasady wolnego miejsca na woluminie nie rozpoczną pracy do momentu zakończenia wstępnego przekazania wszystkich plików. Jednak opcjonalne zasady dotyczące dat rozpoczną pracę nad pojedynczym plikiem, gdy tylko plik zostanie przekazany. W tym miejscu obowiązuje również interwał jednorazowy. 
+2. Po dodaniu nowego punktu końcowego serwera możliwe jest połączenie pustej lokalizacji serwera z udziałem plików platformy Azure z danymi. Czy jest to dla drugiego serwera, czy podczas odzyskiwania po awarii. Jeśli zdecydujesz się pobrać przestrzeń nazw i odwołać zawartość podczas wstępnego pobierania na serwer, po rozpoczęciu przestrzeni nazw pliki zostaną odwołane na podstawie ostatniej zmodyfikowanej sygnatury czasowej. Tylko tyle plików będzie można odwołać w ramach zasad wolnego miejsca na woluminie i opcjonalnych zasad dotyczących daty.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Jak mogę sprawdzić, czy plik został warstwowy?
@@ -92,7 +122,7 @@ Istnieje kilka sposobów, aby sprawdzić, czy plik został warstwowy w udziale p
         | A | Archiwum | Wskazuje, że należy utworzyć kopię zapasową pliku przez oprogramowanie kopii zapasowej. Ten atrybut jest zawsze ustawiany, niezależnie od tego, czy plik jest warstwowy czy przechowywany w całości na dysku. |
         | P | Plik rozrzedzony | Wskazuje, że plik jest plikiem rozrzedzonym. Plik rozrzedzony to wyspecjalizowany typ pliku, który oferuje system plików NTFS do wydajnego użycia, gdy plik w strumieniu dysku jest w większości pusty. Azure File Sync używa plików rozrzedzonych, ponieważ plik jest w pełni warstwowy lub częściowo ponownie wywoływany. W przypadku w pełni warstwowego pliku strumień plików jest przechowywany w chmurze. W częściowo odwywoływanym pliku, ta część pliku znajduje się już na dysku. Jeśli plik jest w pełni wywoływany na dysk, Azure File Sync konwertuje go z pliku rozrzedzonego na zwykły plik. Ten atrybut jest ustawiany tylko w systemie Windows Server 2016 i starszych.|
         | M | Odwołaj dostęp do danych | Wskazuje, że dane pliku nie są w pełni obecne w magazynie lokalnym. Odczytanie pliku spowoduje pobranie co najmniej niektórych zawartości pliku z udziału plików platformy Azure, do którego jest podłączony punkt końcowy serwera. Ten atrybut jest ustawiany tylko w systemie Windows Server 2019. |
-        | L | Punkt ponownej analizy | Wskazuje, że plik ma punkt ponownej analizy. Punkt ponownej analizy to specjalny wskaźnik używany przez filtr systemu plików. Azure File Sync używa punktów ponownej analizy do zdefiniowania do Azure File Sync filtru systemu plików (StorageSync. sys) lokalizacji w chmurze, w której jest przechowywany plik. Zapewnia to bezproblemowe dostęp. Użytkownicy nie muszą wiedzieć, że Azure File Sync są używane, lub jak uzyskać dostęp do pliku w udziale plików platformy Azure. Gdy plik jest w pełni wywoływany, Azure File Sync usuwa punkt ponownej analizy z pliku. |
+        | L | Punkt ponownej analizy | Wskazuje, że plik ma punkt ponownej analizy. Punkt ponownej analizy to specjalny wskaźnik używany przez filtr systemu plików. Azure File Sync używa punktów ponownej analizy do zdefiniowania do Azure File Sync filtr systemu plików (StorageSync.sys) lokalizacji w chmurze, w której jest przechowywany plik. Zapewnia to bezproblemowe dostęp. Użytkownicy nie muszą wiedzieć, że Azure File Sync są używane, lub jak uzyskać dostęp do pliku w udziale plików platformy Azure. Gdy plik jest w pełni wywoływany, Azure File Sync usuwa punkt ponownej analizy z pliku. |
         | O | W trybie offline | Wskazuje, że część lub cała zawartość pliku nie jest przechowywana na dysku. Gdy plik jest w pełni wywoływany, Azure File Sync usuwa ten atrybut. |
 
         ![Okno dialogowe właściwości dla pliku, z wybraną kartą szczegóły](media/storage-files-faq/azure-file-sync-file-attributes.png)
@@ -100,7 +130,7 @@ Istnieje kilka sposobów, aby sprawdzić, czy plik został warstwowy w udziale p
         Możesz zobaczyć atrybuty dla wszystkich plików w folderze, dodając pole **atrybuty** do wyświetlania tabeli Eksploratora plików. Aby to zrobić, kliknij prawym przyciskiem myszy istniejącą kolumnę (na przykład **rozmiar**), wybierz pozycję **więcej**, a następnie z listy rozwijanej wybierz pozycję **atrybuty** .
         
    * **Służy `fsutil` do sprawdzania punktów ponownej analizy pliku.**
-       Zgodnie z opisem w poprzedniej opcji, plik warstwowy zawsze ma zestaw punktów ponownej analizy. Wskaźnik ponownej analizy jest specjalnym wskaźnikiem filtru systemu plików Azure File Sync (StorageSync. sys). Aby sprawdzić, czy plik ma punkty ponownej analizy, w wierszu polecenia z podwyższonym poziomem uprawnień lub w oknie `fsutil` programu PowerShell uruchom narzędzie:
+       Zgodnie z opisem w poprzedniej opcji, plik warstwowy zawsze ma zestaw punktów ponownej analizy. Wskaźnik ponownej analizy jest specjalnym wskaźnikiem filtru systemu plików Azure File Sync (StorageSync.sys). Aby sprawdzić, czy plik ma punkty ponownej analizy, w wierszu polecenia z podwyższonym poziomem uprawnień lub w oknie programu PowerShell uruchom `fsutil` Narzędzie:
     
         ```powershell
         fsutil reparsepoint query <your-file-name>
@@ -109,12 +139,11 @@ Istnieje kilka sposobów, aby sprawdzić, czy plik został warstwowy w udziale p
         Jeśli plik ma punkty ponownej analizy, można oczekiwać, że zostanie wyświetlona **wartość tagu ponownej analizy: 0x8000001E**. Ta wartość szesnastkowa to wartość punktu ponownej analizy, która jest własnością Azure File Sync. Dane wyjściowe zawierają również dane dotyczące ponownej analizy, które reprezentują ścieżkę do pliku w udziale plików platformy Azure.
 
         > [!WARNING]  
-        > Polecenie `fsutil reparsepoint` narzędzia ma także możliwość usunięcia punktu ponownej analizy. Nie wykonuj tego polecenia, chyba że zespół inżynierów Azure File Sync prosi o. Uruchomienie tego polecenia może spowodować utratę danych. 
+        > `fsutil reparsepoint`Polecenie Narzędzia ma także możliwość usunięcia punktu ponownej analizy. Nie wykonuj tego polecenia, chyba że zespół inżynierów Azure File Sync prosi o. Uruchomienie tego polecenia może spowodować utratę danych. 
 
 <a id="afs-recall-file"></a>
-
 ### <a name="a-file-i-want-to-use-has-been-tiered-how-can-i-recall-the-file-to-disk-to-use-it-locally"></a>Plik, którego chcę użyć, został warstwowy. Jak można przywołać plik na dysk, aby użyć go lokalnie?
-Najprostszym sposobem odwoływania pliku na dysk jest otwarcie pliku. Filtr systemu plików Azure File Sync (StorageSync. sys) bezproblemowo pobiera plik z udziału plików platformy Azure bez żadnej pracy z Twoją częścią. W przypadku typów plików, które mogą być częściowo odczytywane z, takich jak pliki multimedialne lub zip, otwarcie pliku nie powoduje pobrania całego pliku.
+Najprostszym sposobem odwoływania pliku na dysk jest otwarcie pliku. Filtr systemu plików Azure File Sync (StorageSync.sys) bezproblemowo pobiera plik z udziału plików platformy Azure bez żadnej pracy z Twoją częścią. W przypadku typów plików, które mogą być częściowo odczytywane z, takich jak pliki multimedialne lub zip, otwarcie pliku nie powoduje pobrania całego pliku.
 
 Można też użyć programu PowerShell, aby wymusić oddzwonienie pliku. Ta opcja może być przydatna, jeśli chcesz odwołać wiele plików jednocześnie, takich jak wszystkie pliki w folderze. Otwórz sesję programu PowerShell w węźle serwera, na którym zainstalowano Azure File Sync, a następnie uruchom następujące polecenia programu PowerShell:
     
@@ -123,13 +152,22 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parametry opcjonalne:
-* `-Order CloudTieringPolicy`najpierw przywróci ostatnio zmodyfikowane pliki.  
+* `-Order CloudTieringPolicy`najpierw przywróci ostatnio zmodyfikowane lub dostęp do plików, które są dozwolone przez bieżące zasady dotyczące warstw. 
+    * Jeśli skonfigurowano zasady wolnego miejsca na woluminie, pliki zostaną odwołane do momentu osiągnięcia ustawienia zasad wolnego miejsca na woluminie. Jeśli na przykład ustawienie zasad wolnego woluminu to 20%, odwołanie zostanie zatrzymane, gdy ilość wolnego miejsca woluminu osiągnie 20%.  
+    * W przypadku skonfigurowania ilości wolnego miejsca i zasad dotyczących ilości danych zostaną one odwołane, dopóki nie zostanie osiągnięty limit ilości wolnego miejsca lub ustawienia zasad daty. Jeśli na przykład ustawienie zasad wolnego woluminu to 20%, a zasady dat to 7 dni, funkcja odwoływania zostanie zatrzymana, gdy ilość wolnego miejsca na woluminie osiągnie 20%, a wszystkie pliki, do których dostęp lub zmodyfikowano w ciągu 7 dni, będą lokalne.
 * `-ThreadCount`Określa, ile plików można wielokrotnie odwoływać.
 * `-PerFileRetryCount`Określa, jak często zostanie podjęta próba odwołania pliku, który jest aktualnie zablokowany.
 * `-PerFileRetryDelaySeconds`Określa czas (w sekundach) między ponownymi próbami odwołania i powinna być zawsze używana w połączeniu z poprzednim parametrem.
 
+Przykład:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+``` 
+
 > [!Note]  
-> Jeśli na lokalnym woluminie hostującym serwer nie ma wystarczającej ilości wolnego miejsca, aby odwołać wszystkie dane warstwowe `Invoke-StorageSyncFileRecall` , polecenie cmdlet kończy się niepowodzeniem.  
+> - Przy dodawaniu nowego punktu końcowego serwera do istniejącej grupy synchronizacji można także użyć polecenia cmdlet Invoke-StorageSyncFileRecall.  
+>- Jeśli na lokalnym woluminie hostującym serwer nie ma wystarczającej ilości wolnego miejsca, aby odwołać wszystkie dane warstwowe, `Invoke-StorageSyncFileRecall` polecenie cmdlet kończy się niepowodzeniem.  
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Dlaczego rozmiar właściwości *dysku* dla pliku jest zgodny z właściwością *size* po użyciu Azure File Sync? 
@@ -137,6 +175,10 @@ Eksplorator plików systemu Windows udostępnia dwie właściwości, aby repreze
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Jak mogę wymusić przeprowadzenie warstwowego pliku lub katalogu?
+
+> [!NOTE]
+> W przypadku wybrania katalogu, który ma być warstwowy, w warstwach są dostępne tylko pliki znajdujące się obecnie w katalogu. Wszystkie pliki utworzone po tym czasie nie są automatycznie warstwowe.
+
 Po włączeniu funkcji obsługi warstw w chmurze usługa Cloud warstws automatycznie warstwuje pliki na podstawie ostatniego dostępu i modyfikuje czasy, aby osiągnąć procent wolnego miejsca na woluminie określony w punkcie końcowym w chmurze. Czasami może być konieczne ręczne wymuszenie pliku w warstwie. Może to być przydatne, jeśli zapiszesz duży plik, którego nie zamierzasz ponownie używać przez dłuższy czas, i chcesz, aby wolne miejsce na woluminie było teraz używane dla innych plików i folderów. Można wymusić obsługę warstw przy użyciu następujących poleceń programu PowerShell:
 
 ```powershell
@@ -149,6 +191,15 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 W przypadku plików warstwowych miniatury i podglądy nie będą widoczne w punkcie końcowym serwera. To zachowanie jest oczekiwane, ponieważ funkcja pamięci podręcznej miniatur w systemie Windows celowo pomija odczytywanie plików z atrybutem offline. Po włączeniu obsługi warstw w chmurze odczytywanie za pomocą plików warstwowych spowodowałoby ich pobranie (są one wywoływane).
 
 To zachowanie nie jest specyficzne dla Azure File Sync, Eksplorator Windows wyświetla "szary X" dla wszystkich plików, które mają ustawiony atrybut offline. Podczas uzyskiwania dostępu do plików za pośrednictwem protokołu SMB zobaczysz ikonę X. Szczegółowe wyjaśnienie tego zachowania można znaleźć w[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+<a id="afs-tiering-disabled"></a>
+### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>Mam wyłączone warstwy chmury, dlaczego istnieją pliki warstwowe w lokalizacji punktu końcowego serwera?
+
+Istnieją dwa powody, dla których w lokalizacji punktu końcowego serwera mogą znajdować się pliki warstwowe:
+
+- Podczas dodawania nowego punktu końcowego serwera do istniejącej grupy synchronizacji metadane są najpierw synchronizowane z serwerem, a następnie pobierane do serwera w tle. Pliki będą wyświetlane jako warstwowe, dopóki nie zostaną pobrane lokalnie. Aby zwiększyć wydajność pobierania plików podczas dodawania nowego serwera do grupy synchronizacji, należy użyć polecenia cmdlet [Invoke-StorageSyncFileRecall](storage-sync-cloud-tiering.md#afs-recall-file) .
+
+- Jeśli Obsługa warstw w chmurze została włączona w punkcie końcowym serwera, a następnie wyłączona, pliki pozostaną warstwą do momentu uzyskania do nich dostępu.
 
 
 ## <a name="next-steps"></a>Następne kroki

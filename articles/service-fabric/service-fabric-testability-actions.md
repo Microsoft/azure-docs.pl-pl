@@ -6,18 +6,17 @@ ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692584"
 ---
 # <a name="testability-actions"></a>Akcje dotyczące testowania
 W celu zasymulowania niezawodnej infrastruktury usługa Azure Service Fabric zapewnia deweloperom sposoby symulowania różnych rzeczywistych awarii i przejść do stanu. Są one dostępne jako akcje testowania. Akcje są interfejsami API niskiego poziomu, które powodują konkretną iniekcję błędów, zmianę stanu lub weryfikację. Łącząc te akcje, można napisać kompleksowe scenariusze testów dla usług.
 
 Service Fabric udostępnia niektóre typowe scenariusze testowe składające się z tych akcji. Zdecydowanie zalecamy korzystanie z tych wbudowanych scenariuszy, które są starannie wybierane w celu przetestowania typowych przejść między Stanami i przypadkami niepowodzeń. Jednak akcje mogą służyć do tworzenia niestandardowych scenariuszy testowych, gdy chcesz dodać pokrycie dla scenariuszy, które nie są jeszcze objęte wbudowanymi scenariuszami lub które są niestandardowe dostosowane do aplikacji.
 
-Implementacje w języku C# akcji można znaleźć w zestawie System. Fabric. dll. Moduł PowerShell programu System Fabric znajduje się w zestawie Microsoft. servicefabric. PowerShell. dll. W ramach instalacji środowiska uruchomieniowego moduł servicefabric PowerShell jest instalowany, aby zapewnić łatwość użycia.
+Implementacje w języku C# akcji są dostępne w zestawie System.Fabric.dll. Moduł PowerShell programu System Fabric znajduje się w zestawie Microsoft.ServiceFabric.Powershell.dll. W ramach instalacji środowiska uruchomieniowego moduł servicefabric PowerShell jest instalowany, aby zapewnić łatwość użycia.
 
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>Bezpieczne i nieprolongaty akcje dotyczące błędów
 Akcje dotyczące testowania są klasyfikowane do dwóch głównych zasobników:
@@ -46,7 +45,7 @@ Aby zapewnić lepszą weryfikację jakości, należy uruchomić usługę i obci�
 | ValidateService |Sprawdza dostępność i kondycję usługi Service Fabric, zazwyczaj po wystąpieniu błędu w systemie. |ValidateServiceAsync |Test-ServiceFabricService |Nie dotyczy |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Uruchamianie akcji testowania przy użyciu programu PowerShell
-W tym samouczku pokazano, jak uruchomić akcję testowania przy użyciu programu PowerShell. Dowiesz się, jak uruchomić akcję testowania dla lokalnego klastra (z jedną ramką) lub klastra platformy Azure. Microsoft. Fabric. PowerShell. dll — moduł Service Fabric PowerShell — jest instalowany automatycznie podczas instalacji programu Microsoft Service Fabric MSI. Moduł jest ładowany automatycznie po otwarciu wiersza polecenia programu PowerShell.
+W tym samouczku pokazano, jak uruchomić akcję testowania przy użyciu programu PowerShell. Dowiesz się, jak uruchomić akcję testowania dla lokalnego klastra (z jedną ramką) lub klastra platformy Azure. Microsoft.Fabric.Powershell.dll — Service Fabric module programu PowerShell — jest instalowany automatycznie podczas instalacji programu Microsoft Service Fabric MSI. Moduł jest ładowany automatycznie po otwarciu wiersza polecenia programu PowerShell.
 
 Segmenty samouczka:
 
@@ -75,7 +74,7 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-Aby ponownie uruchomić węzeł Service Fabric w klastrze, należy **ponownie uruchomić ServiceFabricNode** . Spowoduje to zatrzymanie procesu Fabric. exe, co spowoduje ponowne uruchomienie wszystkich replik usługi systemowej i usługi użytkownika hostowanych w tym węźle. Użycie tego interfejsu API do testowania usługi ułatwia odkrywanie usterek w ścieżkach odzyskiwania trybu failover. Ułatwia symulowanie awarii węzłów w klastrze.
+Aby ponownie uruchomić węzeł Service Fabric w klastrze, należy **ponownie uruchomić ServiceFabricNode** . Spowoduje to zatrzymanie procesu Fabric.exe, co spowoduje ponowne uruchomienie wszystkich replik usługi systemowej i usługi użytkownika hostowanych w tym węźle. Użycie tego interfejsu API do testowania usługi ułatwia odkrywanie usterek w ścieżkach odzyskiwania trybu failover. Ułatwia symulowanie awarii węzłów w klastrze.
 
 Poniższy zrzut ekranu przedstawia polecenie **"Uruchom ponownie ServiceFabricNode"** w akcji.
 

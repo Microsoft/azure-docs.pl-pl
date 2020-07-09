@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82509673"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
@@ -59,14 +59,14 @@ Procedury składowane są skojarzone z kontenerem usługi Azure Cosmos, a wykony
 
 ### <a name="commit-and-rollback"></a>Zatwierdź i Wycofaj
 
-Transakcje są natywnie zintegrowane z Azure Cosmos DB modelem programowania JavaScript. W ramach funkcji języka JavaScript wszystkie operacje są automatycznie zawijane w ramach jednej transakcji. Jeśli logika JavaScript w procedurze składowanej zakończy się bez żadnych wyjątków, wszystkie operacje w ramach transakcji zostaną zatwierdzone do bazy danych. Instrukcje, `BEGIN TRANSACTION` takie `COMMIT TRANSACTION` jak i (znane jako relacyjne bazy danych), są niejawne w Azure Cosmos DB. W przypadku wystąpienia dowolnego wyjątku ze skryptu środowisko uruchomieniowe JavaScript Azure Cosmos DB będzie wycofać całą transakcję. W związku z tym zgłaszanie wyjątku jest skutecznym odpowiednikiem `ROLLBACK TRANSACTION` w Azure Cosmos DB.
+Transakcje są natywnie zintegrowane z Azure Cosmos DB modelem programowania JavaScript. W ramach funkcji języka JavaScript wszystkie operacje są automatycznie zawijane w ramach jednej transakcji. Jeśli logika JavaScript w procedurze składowanej zakończy się bez żadnych wyjątków, wszystkie operacje w ramach transakcji zostaną zatwierdzone do bazy danych. Instrukcje, takie jak `BEGIN TRANSACTION` i `COMMIT TRANSACTION` (znane jako relacyjne bazy danych), są niejawne w Azure Cosmos DB. W przypadku wystąpienia dowolnego wyjątku ze skryptu środowisko uruchomieniowe JavaScript Azure Cosmos DB będzie wycofać całą transakcję. W związku z tym zgłaszanie wyjątku jest skutecznym odpowiednikiem `ROLLBACK TRANSACTION` w Azure Cosmos DB.
 
 ### <a name="data-consistency"></a>Spójność danych
 
 Procedury składowane i wyzwalacze są zawsze wykonywane dla repliki podstawowej kontenera usługi Azure Cosmos. Ta funkcja zapewnia, że odczyty z procedur składowanych zapewniają [silną spójność](consistency-levels-tradeoffs.md). Zapytania używające funkcji zdefiniowanych przez użytkownika mogą być wykonywane na podstawowej lub dowolnej replice pomocniczej. Procedury składowane i wyzwalacze są przeznaczone do obsługi zapisów transakcyjnych, ponieważ logika tylko do odczytu jest najlepszym zaimplementowana jako logika po stronie aplikacji i zapytania przy użyciu [zestawów SDK interfejsu API programu SQL Azure Cosmos DB](sql-api-dotnet-samples.md). 
 
 > [!TIP]
-> Zapytania wykonywane w ramach procedury składowanej lub wyzwalacza mogą nie zobaczyć zmian elementów wykonanych przez tę samą transakcję skryptu. Ta instrukcja dotyczy zarówno zapytań SQL, jak `getContent().getCollection.queryDocuments()`i zintegrowanych zapytań dotyczących języka, takich jak. `getContext().getCollection().filter()`
+> Zapytania wykonywane w ramach procedury składowanej lub wyzwalacza mogą nie zobaczyć zmian elementów wykonanych przez tę samą transakcję skryptu. Ta instrukcja dotyczy zarówno zapytań SQL, jak `getContent().getCollection.queryDocuments()` i zintegrowanych zapytań dotyczących języka, takich jak `getContext().getCollection().filter()` .
 
 ## <a name="bounded-execution"></a>Powiązane wykonywanie
 
@@ -82,7 +82,7 @@ Usługa Azure Cosmos DB obsługuje dwa typy wyzwalaczy:
 
 ### <a name="pre-triggers"></a>Wyzwalacze wykonywane przed operacją
 
-Usługa Azure Cosmos DB udostępnia wyzwalacze, które mogą być wywoływane przez wykonanie operacji w obrębie elementu usługi Azure Cosmos. Można na przykład wybrać wyzwalacz wykonywany przed operacją podczas tworzenia elementu. W takim przypadku wyzwalacz tego typu zostanie uruchomiony przed utworzeniem elementu. Wyzwalacze wykonywane przed operacją nie mogą mieć żadnych parametrów wejściowych. W razie potrzeby obiekt żądania może służyć do aktualizowania treści dokumentu z oryginalnego żądania. Podczas rejestrowania wyzwalaczy użytkownicy mogą określić operacje, z którymi można je uruchamiać. Jeśli wyzwalacz został utworzony przy użyciu `TriggerOperation.Create`, oznacza to, że użycie wyzwalacza w operacji Replace nie będzie dozwolone. Aby zapoznać się z przykładami, zobacz artykuł [jak pisać wyzwalacze](how-to-write-stored-procedures-triggers-udfs.md#triggers) .
+Usługa Azure Cosmos DB udostępnia wyzwalacze, które mogą być wywoływane przez wykonanie operacji w obrębie elementu usługi Azure Cosmos. Można na przykład wybrać wyzwalacz wykonywany przed operacją podczas tworzenia elementu. W takim przypadku wyzwalacz tego typu zostanie uruchomiony przed utworzeniem elementu. Wyzwalacze wykonywane przed operacją nie mogą mieć żadnych parametrów wejściowych. W razie potrzeby obiekt żądania może służyć do aktualizowania treści dokumentu z oryginalnego żądania. Podczas rejestrowania wyzwalaczy użytkownicy mogą określić operacje, z którymi można je uruchamiać. Jeśli wyzwalacz został utworzony przy użyciu elementu `TriggerOperation.Create`, oznacza to, że użycie wyzwalacza w operacji zastępowania nie będzie dozwolone. Aby zapoznać się z przykładami, zobacz artykuł [jak pisać wyzwalacze](how-to-write-stored-procedures-triggers-udfs.md#triggers) .
 
 ### <a name="post-triggers"></a>Wyzwalacze wykonywane po operacji
 

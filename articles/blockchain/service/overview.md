@@ -4,12 +4,12 @@ description: Omówienie usługi Azure łańcucha bloków Service
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 38d0a5564e1e7a28168ac95826cc527d47ef093b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d7aedbc837a58a65fe4c29dbdeed8662d94fc534
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844594"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214081"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Co to jest usługa Azure Blockchain Service?
 
@@ -59,7 +59,7 @@ Do akcji związanych z zarządzaniem konsorcjum, takich jak dodawanie i usuwanie
 
 ## <a name="develop-using-familiar-development-tools"></a>Opracowywanie przy użyciu znanych narzędzi programistycznych
 
-Na podstawie księgi Ethereum kworum Open Source można opracowywać aplikacje dla usługi Azure łańcucha bloków w taki sam sposób, jak w przypadku istniejących aplikacji Ethereum. Korzystając z wiodących partnerów branżowych, rozszerzenie Azure łańcucha bloków Development Visual Studio Code Kit pozwala deweloperom korzystać z dobrze znanych narzędzi, takich jak Truffle Suite, aby kompilować inteligentne kontrakty. Korzystając z rozszerzenia Azure łańcucha bloków Development Kit, deweloperzy mogą tworzyć i łączyć się z istniejącym konsorcjum, aby móc kompilować i wdrażać inteligentne kontrakty z jednego środowiska IDE. Za pomocą rozszerzenia usługi Azure łańcucha bloków Visual Studio Code można utworzyć istniejący konsorcjum lub połączyć się z nim, aby można było kompilować i wdrażać inteligentne kontrakty z jednego środowiska IDE. Aby uzyskać więcej informacji, zobacz [Azure łańcucha bloków Development Kit w witrynie vs Code Marketplace](https://aka.ms/vscodebcextension) i [podręczniku użytkownika zestawu Azure łańcucha bloków Development Kit](https://aka.ms/vscodebcextensionwiki).
+Na podstawie księgi Ethereum kworum Open Source można opracowywać aplikacje dla usługi Azure łańcucha bloków w taki sam sposób, jak w przypadku istniejących aplikacji Ethereum. Korzystając z wiodących partnerów branżowych, rozszerzenie Azure łańcucha bloków Development Visual Studio Code Kit pozwala deweloperom korzystać z dobrze znanych narzędzi, takich jak Truffle Suite, aby kompilować inteligentne kontrakty. Za pomocą rozszerzenia usługi Azure łańcucha bloków Visual Studio Code można utworzyć istniejący konsorcjum lub połączyć się z nim, aby można było kompilować i wdrażać inteligentne kontrakty z jednego środowiska IDE. Aby uzyskać więcej informacji, zobacz [Azure łańcucha bloków Development Kit w witrynie vs Code Marketplace](https://aka.ms/vscodebcextension) i [podręczniku użytkownika zestawu Azure łańcucha bloków Development Kit](https://aka.ms/vscodebcextensionwiki).
 
 ## <a name="publish-blockchain-data"></a>Publikowanie danych łańcucha bloków
 
@@ -69,7 +69,7 @@ Na podstawie księgi Ethereum kworum Open Source można opracowywać aplikacje d
 
 W przypadku usługi Azure łańcucha bloków News odwiedź [blog usługi Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/) , aby zachować aktualność w zakresie usług łańcucha bloków i uzyskać informacje od zespołu inżynierów ds. platformy Azure łańcucha bloków.
 
-Aby przekazać opinie o produkcie lub zażądać nowych funkcji, Opublikuj głos na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
+Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub zagłosuj na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Pomoc techniczna w społeczności
 

@@ -15,10 +15,9 @@ ms.topic: troubleshooting
 ms.date: 05/05/2020
 ms.author: v-miegge
 ms.openlocfilehash: 118c81dd52951729bfbbb97a510e693861666ee6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83665138"
 ---
 # <a name="troubleshoot-windows-stop-error--directory-service-initialization-failure"></a>Rozwiązywanie problemów z błędem zatrzymania systemu Windows — niepowodzenie inicjowania usługi katalogowej
@@ -35,7 +34,7 @@ W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azur
 
 Kod błędu **0xC00002E2** reprezentuje **STATUS_DS_INIT_FAILURE**, a kod błędu **0xC00002E1** reprezentuje **STATUS_DS_CANT_START**. Oba błędy występują w przypadku wystąpienia problemu z usługą katalogową.
 
-Podczas rozruchu systemu operacyjnego jest wymuszane ponowne uruchomienie komputera automatycznie przez serwer uwierzytelniania zabezpieczeń lokalnych (**Lsass. exe**), który uwierzytelnia logowania użytkowników. Nie można przeprowadzić uwierzytelniania, gdy system operacyjny na maszynie wirtualnej jest kontrolerem domeny, który nie ma dostępu do odczytu/zapisu do swojej lokalnej Active Directory bazy danych. Ze względu na brak dostępu do **Active Directory (AD)** nie można uwierzytelnić usługi LSASS. exe i wymuszono ponowne uruchomienie systemu operacyjnego.
+Podczas rozruchu systemu operacyjnego wymuszone ponowne uruchomienie komputera przez lokalny serwer uwierzytelniania zabezpieczeń (**LSASS.exe**), który uwierzytelnia logowania użytkowników. Nie można przeprowadzić uwierzytelniania, gdy system operacyjny na maszynie wirtualnej jest kontrolerem domeny, który nie ma dostępu do odczytu/zapisu do swojej lokalnej Active Directory bazy danych. Ze względu na brak dostępu do **Active Directory (AD)** nie można uwierzytelnić LSASS.exe i wymuszono ponowne uruchomienie systemu operacyjnego.
 
 Przyczyną tego błędu może być dowolny z następujących warunków:
 

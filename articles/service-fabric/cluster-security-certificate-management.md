@@ -4,12 +4,11 @@ description: Informacje o zarządzaniu certyfikatami w klastrze Service Fabric z
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: ecdeb5c9e30c176e2f3525f8efeb861d9210b202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324746"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Zarządzanie certyfikatami w klastrach Service Fabric
 
@@ -82,7 +81,8 @@ Ten temat został szczegółowo opisany w [dokumentacji](../key-vault/create-cer
     - gdy wystawca (urząd certyfikacji) odpowie z podpisanym certyfikatem, wynik zostanie scalony z magazynem, a certyfikat jest dostępny dla następujących operacji:
       - w obszarze {vaultUri}/Certificates/{Name}: certyfikat zawierający klucz publiczny i metadane
       - w obszarze {vaultUri}/Keys/{Name}: klucz prywatny certyfikatu, dostępny dla operacji kryptograficznych (Zawijanie/depakowanie, podpisywanie/Weryfikowanie)
-      - w obszarze {vaultUri}/Secrets/{Name}: certyfikat zawierający klucz prywatny, dostępny do pobrania jako niechroniony plik PFX lub PEM, odwołujący certyfikat magazynu to w rzeczywistości chronologiczny wiersz wystąpień certyfikatów, który udostępnia zasady. Wersje certyfikatów zostaną utworzone na podstawie atrybutów okresu istnienia i odnawiania zasad. Zdecydowanie zaleca się, aby certyfikaty magazynu nie współużytkują podmiotów lub domen/nazw DNS; może to powodować zakłócenia w klastrze w celu aprowizacji wystąpień certyfikatów z różnych certyfikatów magazynu, z identycznymi podmiotami, ale znacząco różnymi innymi atrybutami, takimi jak wystawca, użycie klucza itd.
+      - w obszarze {vaultUri}/Secrets/{Name}: certyfikat z kluczem prywatnym, dostępny do pobrania jako niechroniony plik PFX lub PEM  
+    Odwołaj się do certyfikatu magazynu, w rzeczywistości chronologicznej linii wystąpień certyfikatów, udostępniając zasady. Wersje certyfikatów zostaną utworzone na podstawie atrybutów okresu istnienia i odnawiania zasad. Zdecydowanie zaleca się, aby certyfikaty magazynu nie współużytkują podmiotów lub domen/nazw DNS; może to powodować zakłócenia w klastrze w celu aprowizacji wystąpień certyfikatów z różnych certyfikatów magazynu, z identycznymi podmiotami, ale znacząco różnymi innymi atrybutami, takimi jak wystawca, użycie klucza itd.
 
 W tym momencie certyfikat istnieje w magazynie, gotowy do użycia. Od do do:
 
@@ -202,7 +202,7 @@ Oto fragment kodu JSON z szablonu odpowiadającego takiemu stanowi — należy p
   ]
 ```   
 
-Powyżej stwierdza się, że certyfikat z odciskiem palca ```json [parameters('primaryClusterCertificateTP')] ``` i znaleziony w ```json [parameters('clusterCertificateUrlValue')] ``` identyfikatorze URI magazynu kluczy jest zadeklarowany jako jedyny certyfikat klastra przez odcisk palca. Następnie skonfigurujemy dodatkowe zasoby potrzebne do zapewnienia autorollover certyfikatu.
+Powyżej stwierdza się, że certyfikat z odciskiem palca ```json [parameters('primaryClusterCertificateTP')] ``` i znaleziony w identyfikatorze URI magazynu kluczy ```json [parameters('clusterCertificateUrlValue')] ``` jest zadeklarowany jako jedyny certyfikat klastra przez odcisk palca. Następnie skonfigurujemy dodatkowe zasoby potrzebne do zapewnienia autorollover certyfikatu.
 
 ### <a name="setting-up-prerequisite-resources"></a>Konfigurowanie zasobów wymaganych wstępnie
 Jak wspomniano wcześniej, certyfikat zainicjowany jako wpis tajny zestawu skalowania maszyn wirtualnych jest pobierany z magazynu przez usługę dostawcy zasobów Microsoft. COMPUTE przy użyciu tożsamości pierwszej firmy i w imieniu operatora wdrażania. W przypadku automatycznego przerzucania zmiany zostaną przełączone do korzystania z tożsamości zarządzanej przypisanej do zestawu skalowania maszyn wirtualnych, a przyznano uprawnienia do wpisów tajnych magazynu.
@@ -414,7 +414,7 @@ W tym momencie można uruchomić aktualizacje wymienione powyżej w jednym wdro�
 Ta sekcja jest częścią przechwycenia w celu wyjaśnienia szczegółowych czynności opisanych powyżej, a także do rysowania ważnych aspektów.
 
 #### <a name="certificate-provisioning-explained"></a>Inicjowanie obsługi certyfikatów, wyjaśnione
-Rozszerzenie KVVM, jako agent aprowizacji, działa w sposób ciągły zgodnie z ustaloną częstotliwością. W przypadku niepowodzenia pobrania zaobserwowanego certyfikatu nadal będzie on dalej w wierszu, a następnie przechodzi do trybu hibernacji do następnego cyklu. Rozszerzenie SFVM, jako agent inicjujący klaster, będzie wymagało zadeklarowanych certyfikatów, aby można było utworzyć klaster. To z kolei oznacza, że rozszerzenie SFVM może zostać uruchomione tylko po pomyślnym pobraniu certyfikatów klastra, które jest tutaj wskazywane przez ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` klauzulę oraz ```json "requireInitialSync": true``` ustawienia rozszerzenia KeyVaultVM. Wskazuje to na rozszerzenie KVVM, które w pierwszym uruchomieniu (po wdrożeniu lub ponownym uruchomieniu) musi przechodzić przez zaobserwowane certyfikaty do momentu pomyślnego pobrania wszystkich. Ustawienie tego parametru na false, powiązane z błędem pobrania certyfikatów klastra spowoduje niepowodzenie wdrożenia klastra. Bez względu na to, że wymaga synchronizacji początkowej z błędną/nieprawidłową listą obserwowanych certyfikatów, spowoduje to niepowodzenie rozszerzenia KVVM, a więc ponowne wdrożenie klastra nie powiodło się.  
+Rozszerzenie KVVM, jako agent aprowizacji, działa w sposób ciągły zgodnie z ustaloną częstotliwością. W przypadku niepowodzenia pobrania zaobserwowanego certyfikatu nadal będzie on dalej w wierszu, a następnie przechodzi do trybu hibernacji do następnego cyklu. Rozszerzenie SFVM, jako agent inicjujący klaster, będzie wymagało zadeklarowanych certyfikatów, aby można było utworzyć klaster. To z kolei oznacza, że rozszerzenie SFVM może zostać uruchomione tylko po pomyślnym pobraniu certyfikatów klastra, które jest tutaj wskazywane przez ```json "provisionAfterExtensions" : [ "KVVMExtension" ]"``` klauzulę oraz ustawienia rozszerzenia KeyVaultVM ```json "requireInitialSync": true``` . Wskazuje to na rozszerzenie KVVM, które w pierwszym uruchomieniu (po wdrożeniu lub ponownym uruchomieniu) musi przechodzić przez zaobserwowane certyfikaty do momentu pomyślnego pobrania wszystkich. Ustawienie tego parametru na false, powiązane z błędem pobrania certyfikatów klastra spowoduje niepowodzenie wdrożenia klastra. Bez względu na to, że wymaga synchronizacji początkowej z błędną/nieprawidłową listą obserwowanych certyfikatów, spowoduje to niepowodzenie rozszerzenia KVVM, a więc ponowne wdrożenie klastra nie powiodło się.  
 
 #### <a name="certificate-linking-explained"></a>Łączenie certyfikatów, wyjaśnienie
 Być może zauważono flagę "linkOnRenewal" rozszerzenia KVVM i oznacza to, że jest ona ustawiona na wartość false. W tym miejscu rozmieszczono tutaj szczegółowe omówienie zachowania kontrolowanego przez tę flagę i jego wpływ na działanie klastra. Należy zauważyć, że to zachowanie jest specyficzne dla systemu Windows.
@@ -441,7 +441,7 @@ W obu przypadkach transport kończy się niepowodzeniem i klaster może wejść 
 
 Aby wyeliminować takie zdarzenia, zalecamy:
   - nie należy mieszać sieci San różnych certyfikatów magazynu; Każdy certyfikat magazynu powinien działać w określonym celu, a ich temat i sieć SAN powinny odzwierciedlać, że z specyfiką
-  - Uwzględnij wspólną nazwę podmiotu na liście SAN (tak samo, "CN =<subject common name>")  
+  - Uwzględnij wspólną nazwę podmiotu na liście SAN (tak samo, "CN = <subject common name> ")  
   - w razie wątpliwości należy wyłączyć Łączenie przy odnawianiu dla certyfikatów zainicjowanych przy użyciu rozszerzenia KVVM 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>Dlaczego warto używać tożsamości zarządzanej przypisanej przez użytkownika? Jakie są implikacje ich używania?

@@ -3,23 +3,25 @@ title: Wprowadzenie do usługi Azure Cost Management dla partnerów
 description: W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi Azure Cost Management i jak umożliwiają dostęp do usługi Cost Management swoim klientom.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 07/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204889"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849843"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
-Usługa Azure Cost Management jest natywnie dostępna dla bezpośrednich partnerów, którzy dołączyli swoich klientów do umowy klienta firmy Microsoft i [zakupili plan platformy Azure](/partner-center/purchase-azure-plan). W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi [Azure Cost Management](../index.yml) do wyświetlania kosztów subskrypcji w planie platformy Azure. Opisano w nim również, jak partnerzy zapewniają swoim klientom dostęp do usługi Cost Management.
+Usługa Azure Cost Management jest natywnie dostępna dla bezpośrednich partnerów, którzy dołączyli swoich klientów do umowy klienta firmy Microsoft i [zakupili plan platformy Azure](/partner-center/purchase-azure-plan). W tym artykule wyjaśniono, w jaki sposób partnerzy używają funkcji usługi [Azure Cost Management](../index.yml) do wyświetlania kosztów subskrypcji w planie platformy Azure. Opisano w nim również, jak partnerzy zapewniają swoim klientom dostęp do usługi Cost Management według stawek detalicznych.
 
-W przypadku bezpośrednich partnerów i dostawców pośrednich administrator globalny oraz agenci administratora dostawcy pośredniego mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie partnera. Odsprzedawcy i klienci mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie klienta i wyświetlić koszty dla subskrypcji, które są obliczane i przedstawiane przy użyciu stawek detalicznych. Jednak muszą oni mieć dostęp RBAC do subskrypcji w dzierżawie klienta w celu wyświetlania kosztów. Zasady widoczności kosztów muszą zostać włączone przez dostawcę dla dzierżawy klienta.
+W przypadku bezpośrednich partnerów i dostawców pośrednich administrator globalny oraz agenci administratora mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie partnera i zarządzać kosztami według zafakturowanych cen.
+
+Odsprzedawcy i klienci mogą uzyskiwać dostęp do usługi Cost Management w dzierżawie klienta i wyświetlić koszty dla subskrypcji, które są obliczane i przedstawiane przy użyciu stawek detalicznych. Jednak muszą oni mieć dostęp RBAC do subskrypcji w dzierżawie klienta w celu wyświetlania kosztów. Zasady widoczności kosztów muszą zostać włączone przez dostawcę dla dzierżawy klienta.
 
 Klienci mogą korzystać z funkcji usługi Cost Management, jeśli są one włączone przez ich partnera będącego dostawcą usług w chmurze.
 
@@ -33,10 +35,12 @@ Partnerzy będący dostawcami usług w chmurze używają usługi Cost Management
 - Wyeksportowania danych kosztów i użycia do obiektu blob magazynu z subskrypcją płatną zgodnie z rzeczywistym użyciem.
 
 Oto przykład przedstawiający koszty dla wszystkich klientów.
-![Przykład przedstawiający koszty dla wszystkich klientów](./media/get-started-partners/customer-costs1.png)
+
+[![Przykład przedstawiający koszty dla wszystkich klientów](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
 
 Oto przykład przedstawiający koszty dla jednego klienta.
-![Przykład przedstawiający koszty dla jednego klienta](./media/get-started-partners/customer-costs2.png)
+
+[![Przykład przedstawiający koszty dla jednego klienta](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
 Wszystkie funkcje dostępne w usłudze Azure Cost Management są również dostępne w interfejsach API REST. Użyj interfejsów API do automatyzowania zadań zarządzania kosztami.
 
@@ -50,8 +54,7 @@ Usługa Azure Cost Management wymaga dostępu do odczytu do konta rozliczenioweg
 
 Aby uzyskać więcej informacji na temat włączania i przypisywania dostępu do usługi Azure Cost Management dla konta rozliczeniowego, zobacz [Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview). Kosztami dla konta rozliczeniowego mogą zarządzać role **Administrator globalny** i **Agent administratora**.
 
-Aby uzyskać dostęp do usługi Azure Cost Management w zakresie subskrypcji, każdy użytkownik z dostępem RBAC do subskrypcji może wyświetlać koszty po stawkach detalicznych (płatność zgodnie z rzeczywistym użyciem). Jednak zasady widoczności kosztów dla dzierżawy klienta muszą być włączone. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
-
+Aby uzyskać dostęp do usługi Azure Cost Management w zakresie subskrypcji, każdy użytkownik z dostępem RBAC do subskrypcji może wyświetlać koszty po stawkach detalicznych (płatność zgodnie z rzeczywistym użyciem). Jednak [zasady widoczności kosztów dla dzierżawy klienta](#enable-the-policy-to-view-azure-usage-charges) muszą być włączone. Aby wyświetlić pełną listę obsługiwanych typów kont, zobacz [Omówienie danych usługi Cost Management](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Jak usługa Cost Management używa zakresów
 
@@ -110,13 +113,13 @@ Zakres klienta nie obejmuje klientów, którzy są objęci bieżącą ofertą do
 
 Tylko użytkownicy mający role **Administrator globalny** i **Agent administratora** mogą wyświetlać koszty dla kont rozliczeniowych, profilów rozliczeniowych i klientów bezpośrednio w dzierżawie platformy Azure partnera oraz zarządzać nimi. Aby uzyskać więcej informacji na temat ról Centrum partnerskiego, zobacz [Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>Włączanie zarządzania kosztami w dzierżawie klienta
+## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Włączanie zarządzania kosztami dla subskrypcji dzierżawy klienta
 
-Partnerzy mogą włączyć dostęp do usługi Cost Management po dołączeniu klientów do Umowy z Klientem Microsoft. Następnie partnerzy mogą włączyć zasady umożliwiające klientom wyświetlanie ich kosztów obliczonych na podstawie stawek detalicznych za płatność zgodnie z rzeczywistym użyciem. Koszty są pokazane w walucie rozliczeniowej klienta dla ich użycia w ramach subskrypcji RBAC i zakresów grup zasobów.
+Partnerzy mogą włączyć dostęp do usługi Cost Management po dołączeniu klientów do Umowy z Klientem Microsoft. Następnie partnerzy mogą włączyć zasady umożliwiające klientom wyświetlanie ich kosztów usług używanych w ramach platformy Azure obliczonych na podstawie stawek detalicznych za płatność zgodnie z rzeczywistym użyciem. Koszty są pokazane w walucie rozliczeniowej klienta dla ich użycia w ramach subskrypcji RBAC i zakresów grup zasobów.
 
 Po włączeniu przez partnera zasad dotyczących widoczności kosztów każdy użytkownik, który ma dostęp w usłudze Azure Resource Manager do subskrypcji, może zarządzać kosztami i analizować je według stawek płatności zgodnie z rzeczywistym użyciem. Efektywnie odsprzedawcy i klienci, którzy mają odpowiedni dostęp RBAC do subskrypcji platformy Azure, mogą wyświetlać koszt.
 
-Bez względu na zasady partnerzy mogą również wyświetlać koszty, jeśli mają dostęp do subskrypcji i grupy zasobów.
+Niezależnie od zasad administratorzy globalni i agenci administratora dostawcy mogą wyświetlać koszty subskrypcji, jeśli mają dostęp do subskrypcji i grupy zasobów.
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Włączanie zasad w celu wyświetlania opłat za użycie platformy Azure
 
@@ -126,7 +129,7 @@ W witrynie Azure Portal zaloguj się do dzierżawy partnera i wybierz pozycję *
 
 Na liście klientów wybierz klienta, który ma być uprawniony do wyświetlania kosztów.
 
-![Wybieranie klientów w usłudze Cost Management](./media/get-started-partners/customer-list.png)
+[![Wybieranie klientów w usłudze Cost Management](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
 W obszarze **Ustawienia** wybierz pozycję **Zasady**.
 
@@ -139,20 +142,21 @@ Gdy zasady kosztów zostaną ustawione na wartość **Tak**, użytkownicy subskr
 
 Po włączeniu zasad widoczności kosztów wszystkie usługi mające użycie subskrypcji wykazują koszty według stawek płatności zgodnie z rzeczywistym użyciem. Użycie rezerwacji jest wyświetlane z zerowymi opłatami za rzeczywiste i amortyzowane koszty. Zakupy i upoważnienia nie są skojarzone z konkretną subskrypcją. W związku z tym zakupy nie są wyświetlane w zakresie subskrypcji.
 
+### <a name="view-subscription-costs-in-the-customer-tenant"></a>Wyświetlanie kosztów subskrypcji w dzierżawie klienta
 
-### <a name="view-customer-costs"></a>Wyświetlanie kosztów klienta
+Aby wyświetlić koszty dla subskrypcji, otwórz panel **Zarządzanie kosztami i rozliczenia** w dzierżawie platformy Azure klienta. Wybierz pozycję **Analiza kosztów** dla wymaganej subskrypcji, aby rozpocząć przeglądanie kosztów. Koszty użycia poszczególnych subskrypcji można wyświetlić indywidualnie w dzierżawie klienta.
 
-Aby wyświetlić koszty dla dzierżawy klienta, przejdź do obszaru **Zarządzanie kosztami i rozliczenia**. Wybierz pozycję **Analiza kosztów**, a następnie zmień zakres na subskrypcję dzierżawy klienta, aby rozpocząć przegląd kosztów.
-
-![Wyświetlanie analizy kosztów jako klient ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+[![Wyświetlanie analizy kosztów jako klient](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
 Analiza kosztów, budżety i alerty są dostępne dla zakresów subskrypcji i zakresów RBAC grup zasobów z kosztami bazującymi na płatności zgodnie z rzeczywistym użyciem.
 
 Widoki amortyzowane i rzeczywiste koszty dla wystąpień zarezerwowanych w zakresach RBAC pokazują zero opłat. Koszty wystąpień zarezerwowanych są wyświetlane tylko w zakresach rozliczeniowych, w których dokonano zakupów.
 
+Stawki detaliczne używane do obliczania kosztów pokazanych w widoku to te same ceny, które są widoczne w kalkulatorze cen platformy Azure dla wszystkich klientów. Pokazane koszty nie obejmują żadnych rabatów ani środków, które mogą być w posiadaniu partnera, takich jak środki uzyskane przez partnerów, rabaty dotyczące warstw i zniżki na usługi globalne.
+
 ## <a name="analyze-costs-in-cost-analysis"></a>Analizowanie kosztów w obrębie analizy kosztów
 
-Partnerzy z dostępem do zakresów rozliczeniowych w dzierżawie partnera mogą badać i analizować zafakturowane koszty w analizie kosztów u klientów dla określonego klienta lub faktury. W widoku [Analiza kosztów](quick-acm-cost-analysis.md) możesz także [zapisywać widoki](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) i eksportować dane do [plików CSV i PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Partnerzy z dostępem do zakresów rozliczeniowych w dzierżawie partnera mogą badać i analizować zafakturowane koszty w analizie kosztów u klientów dla określonego klienta lub faktury. W widoku [Analiza kosztów](quick-acm-cost-analysis.md) możesz także [zapisywać widoki](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) i eksportować dane do [plików CSV i PNG](quick-acm-cost-analysis.md#download-usage-data).
 
 Użytkownicy RBAC z dostępem do subskrypcji w dzierżawie klienta mogą również analizować koszty sprzedaży detalicznej dla subskrypcji w dzierżawie klienta, zapisywać widoki oraz eksportować dane do plików CSV i PNG.
 
@@ -246,7 +250,7 @@ Gdy właściwość **PartnerEarnedCreditApplied** ma wartość _True_, skojarzon
 
 Gdy właściwość **PartnerEarnedCreditApplied** ma wartość _False_, skojarzony koszt nie ma wymaganych uprawnień do środków. Możliwe też, że zakupiona usługa nie kwalifikuje się do środków uzyskanych przez partnerów.
 
-Wyświetlenie danych użycia usługi w usłudze Cost Management zwykle zajmuje od 8 do 24 godzin. Aby uzyskać więcej informacji, zobacz [Częstotliwość aktualizacji danych użycia zmienia się](understand-cost-mgt-data.md#usage-data-update-frequency-varies). Środki uzyskane przez partnerów są wyświetlane w ciągu 48 godzin od momentu uzyskania dostępu w usłudze Azure Cost Management.
+Wyświetlenie danych użycia usługi w usłudze Cost Management zwykle zajmuje od 8 do 24 godzin. Aby uzyskać więcej informacji, zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Środki uzyskane przez partnerów są wyświetlane w ciągu 48 godzin od momentu uzyskania dostępu w usłudze Azure Cost Management.
 
 
 Możesz również grupować i filtrować według właściwości **PartnerEarnedCreditApplied** przy użyciu opcji **Grupuj według**. Użyj opcji, aby zbadać koszty, które mają i nie mają środków uzyskanych przez partnerów.

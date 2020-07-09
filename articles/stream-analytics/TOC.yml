@@ -13,7 +13,10 @@
       items:
         - name: Azure Portal
           href: stream-analytics-quick-create-portal.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: quick-create-azure-cli.md
         - name: Szablon ARM
+          displayName: Resource Manager
           href: quick-create-azure-resource-manager.md
         - name: PowerShell
           href: stream-analytics-quick-create-powershell.md
@@ -29,7 +32,7 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 — Wdrażanie za pomocą ciągłej integracji/ciągłego wdrażania w usłudze Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '4 — Uruchamianie funkcji zdefiniowanej przez użytkownika w języku C#'
+    - name: 4 — Uruchamianie funkcji zdefiniowanej przez użytkownika w języku C#
       href: stream-analytics-edge-csharp-udf.md
     - name: 5 — Tworzenie niestandardowego deserializatora platformy .NET
       href: custom-deserializer.md
@@ -48,6 +51,10 @@
       href: feature-comparison.md
     - name: Opracowywanie w środowisku lokalnym
       href: develop-locally.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Typy wejść zadania
       items:
         - name: Przegląd danych wejściowych
@@ -77,10 +84,12 @@
           href: stream-analytics-javascript-user-defined-functions.md
         - name: JavaScript — UDA
           href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: 'Funkcja zdefiniowana przez użytkownika w języku C#'
+        - name: Funkcja zdefiniowana przez użytkownika w języku C#
           href: stream-analytics-edge-csharp-udf-methods.md
         - name: Funkcja zdefiniowana przez użytkownika dla uczenia maszynowego
           href: machine-learning-udf.md
+        - name: Debugowanie funkcji zdefiniowanych przez użytkownika
+          href: debug-user-defined-functions.md
     - name: Optymalizowanie zadania usługi Stream Analytics
       items:
         - name: Opis i dostosowywanie jednostek przesyłania strumieniowego
@@ -114,6 +123,8 @@
   items:
     - name: Zarządzanie
       items:
+        - name: Zadania autoskalowania
+          href: stream-analytics-autoscale.md
         - name: Aktualizowanie poświadczeń
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Konfigurowanie zasad określania kolejności zdarzeń
@@ -221,6 +232,8 @@
           href: visual-studio-code-local-run.md
         - name: Testowanie lokalne przy użyciu rzeczywistych danych
           href: visual-studio-code-local-run-live-input.md
+        - name: Debugowanie zapytań za pomocą diagramu zadań
+          href: debug-locally-using-job-diagram-vs-code.md
         - name: Konfigurowanie potoku ciągłej integracji/ciągłego dostarczania
           href: setup-cicd-vs-code.md
         - name: Eksplorowanie zadań
@@ -611,6 +624,8 @@
       href: /rest/api/streamanalytics
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Zasoby
   items:
     - name: Stream Analytics — wersje zapoznawcze

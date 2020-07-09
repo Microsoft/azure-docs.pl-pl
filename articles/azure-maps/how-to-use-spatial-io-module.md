@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80804643"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Jak używać przestrzennego modułu we/wy Azure Maps
@@ -127,13 +126,13 @@ Moduł operacji we/wy można załadować Azure Maps przy użyciu jednej z dwóch
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. `datasource`Zainicjuj i Dodaj źródło danych do mapy. `layer`Zainicjuj i Dodaj źródło danych do warstwy mapy. Następnie Renderuj zarówno źródło danych, jak i warstwę. Przed przewinięciem w dół, aby zobaczyć pełny kod w następnym kroku, należy zastanowić się, jak najlepiej umieścić źródło danych i fragmenty kodu warstw. Należy przypomnieć, że przed programistycznym manipulowaniem mapą należy zaczekać, aż zasób mapy będzie gotowy.
+3. Zainicjuj `datasource` i Dodaj źródło danych do mapy. Zainicjuj `layer` i Dodaj źródło danych do warstwy mapy. Następnie Renderuj zarówno źródło danych, jak i warstwę. Przed przewinięciem w dół, aby zobaczyć pełny kod w następnym kroku, należy zastanowić się, jak najlepiej umieścić źródło danych i fragmenty kodu warstw. Należy przypomnieć, że przed programistycznym manipulowaniem mapą należy zaczekać, aż zasób mapy będzie gotowy.
 
     ```javascript
     var datasource, layer;
     ```
 
-    i
+    oraz
 
     ```javascript
     //Create a data source and add it to the map.
@@ -222,7 +221,7 @@ Moduł operacji we/wy można załadować Azure Maps przy użyciu jednej z dwóch
     </html>
     ```
 
-5. Pamiętaj, aby `<Your Azure Maps Key>` zastąpić klucz podstawowy. Otwórz plik HTML i zobaczysz wyniki podobne do poniższej:
+5. Pamiętaj, aby zastąpić `<Your Azure Maps Key>` klucz podstawowy. Otwórz plik HTML i zobaczysz wyniki podobne do poniższej:
 
     <center>
 
@@ -238,10 +237,10 @@ Ta funkcja jest dostępna w tym miejscu jest tylko jedną z wielu funkcji dostę
 > [Dodawanie prostej warstwy danych](spatial-io-add-simple-data-layer.md)
 
 > [!div class="nextstepaction"]
-> [Odczytuj i zapisuj dane przestrzenne](spatial-io-read-write-spatial-data.md)
+> [Odczytywanie i zapisywanie danych przestrzennych](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
-> [Dodaj warstwę mapy OGC](spatial-io-add-ogc-map-layer.md)
+> [Dodawanie warstwy mapy OGC](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z usługą WFS](spatial-io-connect-wfs-service.md)

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: f18672b9e3a368a833fc8cba279d748dfe3c2a9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbf2039ad695f332b69bd5429ff527a4a2534e26
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366772"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026988"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Używanie prywatnych punktów końcowych dla konfiguracji aplikacji platformy Azure
 
@@ -24,7 +24,7 @@ Używanie prywatnych punktów końcowych dla magazynu konfiguracji aplikacji poz
 - Bezpiecznie łącz się z magazynem konfiguracji aplikacji z sieci lokalnych, które łączą się z siecią wirtualną przy użyciu [sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Usługa expressroutes](../expressroute/expressroute-locations.md) z prywatną komunikację równorzędną.
 
 > [!NOTE]
-> Usługa Azure App Configuration oferuje prywatne punkty końcowe jako publiczną wersję zapoznawczą. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.
+> Funkcja prywatnego punktu końcowego jest teraz ogólnie dostępna we wszystkich regionach *z wyjątkiem* Indii środkowej. W regionie **Indie Środkowe** usługa Azure App Configuration oferuje prywatne punkty końcowe jako publiczną wersję zapoznawczą. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.
 
 ## <a name="conceptual-overview"></a>Omówienie pojęć
 
@@ -44,25 +44,21 @@ Podczas tworzenia prywatnego punktu końcowego należy określić magazyn konfig
 
 ### <a name="connecting-to-private-endpoints"></a>Nawiązywanie połączenia z prywatnymi punktami końcowymi
 
-Platforma Azure korzysta z rozpoznawania nazw DNS w celu kierowania połączeń z sieci wirtualnej do magazynu konfiguracji za pośrednictwem prywatnego linku. Ciągi połączeń w Azure Portal można szybko znaleźć, wybierając swój magazyn konfiguracji aplikacji, a następnie wybierając pozycję **Ustawienia** > **klucze dostępu**.  
+Platforma Azure korzysta z rozpoznawania nazw DNS w celu kierowania połączeń z sieci wirtualnej do magazynu konfiguracji za pośrednictwem prywatnego linku. Ciągi połączeń w Azure Portal można szybko znaleźć, wybierając swój magazyn konfiguracji aplikacji, a następnie wybierając pozycję **Ustawienia**  >  **klucze dostępu**.  
 
 > [!IMPORTANT]
-> Użyj tych samych parametrów połączenia, aby nawiązać połączenie z magazynem konfiguracji aplikacji przy użyciu prywatnych punktów końcowych, jak ma być używany dla publicznego punktu końcowego. Nie łącz się z kontem magazynu przy użyciu `privatelink` adresu URL jego domeny podrzędnej.
+> Użyj tych samych parametrów połączenia, aby nawiązać połączenie z magazynem konfiguracji aplikacji przy użyciu prywatnych punktów końcowych, jak ma być używany dla publicznego punktu końcowego. Nie łącz się z magazynem przy użyciu `privatelink` adresu URL jego domeny podrzędnej.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
 
-Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla magazynu konfiguracji jest aktualizowany do aliasu w poddomenie z prefiksem `privatelink`. Platforma Azure tworzy również [prywatną strefę DNS](../dns/private-dns-overview.md) odpowiadającą `privatelink` poddomeny, z rekordem zasobów DNS a dla prywatnych punktów końcowych.
+Podczas tworzenia prywatnego punktu końcowego rekord zasobu CNAME DNS dla magazynu konfiguracji jest aktualizowany do aliasu w poddomenie z prefiksem `privatelink` . Platforma Azure tworzy również [prywatną strefę DNS](../dns/private-dns-overview.md) odpowiadającą `privatelink` poddomeny, z rekordem zasobów DNS a dla prywatnych punktów końcowych.
 
-W przypadku rozpoznania adresu URL punktu końcowego spoza sieci wirtualnej jest on rozpoznawany jako publiczny punkt końcowy magazynu. Po rozwiązaniu z siecią wirtualną, w której jest przechowywany prywatny punkt końcowy, adres URL punktu końcowego jest rozpoznawany jako prywatny punkt końcowy.
-
-Dostęp do klientów spoza sieci wirtualnej można kontrolować za pośrednictwem publicznego punktu końcowego za pomocą usługi Zapora systemu Azure.
-
-Takie podejście umożliwia dostęp do magazynu **przy użyciu tych samych parametrów połączenia** dla klientów w sieci wirtualnej, w których znajdują się prywatne punkty końcowe, a także klientów spoza sieci wirtualnej.
+W przypadku rozpoznania adresu URL punktu końcowego z poziomu sieci wirtualnej hostującym prywatny punkt końcowy jest on rozpoznawany jako prywatny punkt końcowy magazynu. Po rozwiązaniu z zewnątrz sieci wirtualnej adres URL punktu końcowego jest rozpoznawany jako publiczny punkt końcowy. W przypadku tworzenia prywatnego punktu końcowego publiczny punkt końcowy jest wyłączony.
 
 Jeśli używasz niestandardowego serwera DNS w sieci, klienci muszą być w stanie rozpoznać w pełni kwalifikowaną nazwę domeny (FQDN) dla punktu końcowego usługi jako prywatny adres IP punktu końcowego. Skonfiguruj serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej lub skonfiguruj rekordy A dla `AppConfigInstanceA.privatelink.azconfig.io` za pomocą prywatnego adresu IP punktu końcowego.
 
 > [!TIP]
-> W przypadku korzystania z niestandardowego lub lokalnego serwera DNS należy skonfigurować serwer DNS w celu rozpoznania nazwy magazynu w `privatelink` poddomenie na adres IP prywatnego punktu końcowego. Można to zrobić przez delegowanie `privatelink` poddomeny do prywatnej strefy DNS sieci wirtualnej lub SKONFIGUROWANIE strefy DNS na serwerze DNS i dodanie rekordu A DNS a.
+> W przypadku korzystania z niestandardowego lub lokalnego serwera DNS należy skonfigurować serwer DNS w celu rozpoznania nazwy magazynu w `privatelink` poddomenie na adres IP prywatnego punktu końcowego. Można to zrobić przez delegowanie `privatelink` poddomeny do prywatnej strefy DNS sieci wirtualnej lub skonfigurowanie strefy DNS na serwerze DNS i dodanie rekordu A DNS a.
 
 ## <a name="pricing"></a>Cennik
 

@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81533993"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Korzystanie z MSAL w środowisku chmury krajowej
@@ -66,7 +66,7 @@ W poniższych samouczkach pokazano, jak utworzyć aplikację sieci Web platformy
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aby włączyć aplikację MSAL. js dla chmur suwerennych:
+Aby włączyć aplikację MSAL.js dla suwerennych chmur:
 
 ### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 
@@ -125,7 +125,7 @@ W tym kodzie:
 - `Enter_the_Application_Id_here`jest wartością **identyfikatora aplikacji (klienta)** dla zarejestrowanej aplikacji.
 - `Enter_the_Tenant_Info_Here`jest ustawiona na jedną z następujących opcji:
     - Jeśli aplikacja obsługuje **konta w tym katalogu organizacyjnym**, Zastąp tę wartość identyfikatorem dzierżawy lub nazwą dzierżawy (na przykład contoso.Microsoft.com).
-    - Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym**, Zastąp tę wartość `organizations`wartością.
+    - Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym**, Zastąp tę wartość wartością `organizations` .
 
     Aby znaleźć punkty końcowe uwierzytelniania dla wszystkich chmur narodowych, zobacz [punkty końcowe uwierzytelniania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
@@ -182,9 +182,9 @@ Oto przykład punktu końcowego grafu z zakresem:
 "scope": "User.Read"
 ```
 
-## <a name="objective-c"></a>[Obiektowy C](#tab/objc)
+## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
-MSAL dla systemów iOS i macOS mogą być używane do uzyskiwania tokenów w chmurach narodowych, ale wymaga dodatkowej `MSALPublicClientApplication`konfiguracji podczas tworzenia.
+MSAL dla systemów iOS i macOS mogą być używane do uzyskiwania tokenów w chmurach narodowych, ale wymaga dodatkowej konfiguracji podczas tworzenia `MSALPublicClientApplication` .
 
 Na przykład jeśli chcesz, aby aplikacja była aplikacją wielodostępną w chmurze krajowej (w tym przypadku dla instytucji rządowych USA), możesz napisać:
 
@@ -207,7 +207,7 @@ MSALPublicClientApplication *application =
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-MSAL dla systemów iOS i macOS mogą być używane do uzyskiwania tokenów w chmurach narodowych, ale wymaga dodatkowej `MSALPublicClientApplication`konfiguracji podczas tworzenia.
+MSAL dla systemów iOS i macOS mogą być używane do uzyskiwania tokenów w chmurach narodowych, ale wymaga dodatkowej konfiguracji podczas tworzenia `MSALPublicClientApplication` .
 
 Na przykład jeśli chcesz, aby aplikacja była aplikacją wielodostępną w chmurze krajowej (w tym przypadku dla instytucji rządowych USA), możesz napisać:
 
@@ -222,7 +222,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 
 - [Uwierzytelnianie w chmurach narodowych](authentication-national-cloud.md)
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)

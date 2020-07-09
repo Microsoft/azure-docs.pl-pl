@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Importuj plik BACPAC (Azure SQL Database)'
+title: 'PowerShell: Zaimportuj plik BACPAC do nowej bazy danych w Azure SQL Database'
 description: Azure PowerShell przykładowy skrypt do zaimportowania pliku BACPAC do bazy danych w programie SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: 6ee3363be0e59ab6b14ea6c1f385ba3012f412a5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5cd4b4049b5584673a6988ab175c1a5da5fdc18b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054083"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196883"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Użyj programu PowerShell do zaimportowania pliku BACPAC do bazy danych w SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell importuje bazę danych z pliku BACPAC do bazy danych w SQL Database.  
+Ten Azure PowerShell przykład skryptu importuje bazę danych z pliku BACPAC do nowej bazy danych w programie SQL Database.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -55,6 +55,6 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat Azure PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/overview).
 
 Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../powershell-script-content-guide.md).

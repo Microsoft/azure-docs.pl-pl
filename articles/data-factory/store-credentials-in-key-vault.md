@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81451690"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Przechowywanie poświadczeń w Azure Key Vault
@@ -42,14 +42,14 @@ Aby odwołać się do poświadczeń przechowywanych w Azure Key Vault, należy:
 
 Następujące właściwości są obsługiwane dla Azure Key Vault połączonej usługi:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **AzureKeyVault**. | Tak |
+| typ | Właściwość Type musi mieć wartość: **AzureKeyVault**. | Tak |
 | baseUrl | Określ adres URL Azure Key Vault. | Tak |
 
 **Korzystanie z interfejsu użytkownika tworzenia:**
 
-Wybierz pozycję **połączenia** -> **połączone usługi** -> **Nowość**. W obszarze Nowa połączona usługa Wyszukaj i wybierz pozycję "Azure Key Vault":
+Wybierz pozycję **połączenia**  ->  **połączone usługi**  ->  **Nowość**. W obszarze Nowa połączona usługa Wyszukaj i wybierz pozycję "Azure Key Vault":
 
 ![Azure Key Vault wyszukiwania](media/store-credentials-in-key-vault/search-akv.png)
 
@@ -75,9 +75,9 @@ Wybierz Azure Key Vault, w którym są przechowywane Twoje poświadczenia. Może
 
 Następujące właściwości są obsługiwane podczas konfigurowania pola w połączonej usłudze, do którego odwołuje się klucz tajny magazynu kluczy:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type pola musi być ustawiona na wartość: **AzureKeyVaultSecret**. | Tak |
+| typ | Właściwość Type pola musi być ustawiona na wartość: **AzureKeyVaultSecret**. | Tak |
 | secretName | Nazwa wpisu tajnego w Azure Key Vault. | Tak |
 | Wersjawpisutajnego | Wersja wpisu tajnego w Azure Key Vault.<br/>Jeśli nie zostanie określony, zawsze używa najnowszej wersji klucza tajnego.<br/>Jeśli ta wartość jest określona, zostanie ona dodana do danej wersji.| Nie |
 | store | Odnosi się do Azure Key Vault połączonej usługi, która jest używana do przechowywania poświadczeń. | Tak |

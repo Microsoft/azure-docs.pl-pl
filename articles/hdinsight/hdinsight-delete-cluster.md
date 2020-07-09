@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 2912777c001a36ec913e2cfd618091ada5aa107a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60f3ce0ad4f6ee6b1a38130867e0bcd1420620ef
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74807140"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086368"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Usuwanie klastra usługi HDInsight przy użyciu przeglądarki, programu PowerShell lub interfejsu wiersza polecenia platformy Azure
 
@@ -26,7 +26,7 @@ Naliczanie opłat rozpoczyna się w momencie utworzenia klastra usługi HDInsigh
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Z menu po lewej stronie wybierz kolejno pozycje **wszystkie usługi** > **Analiza** > usług**HDInsight** i klaster.
+2. Z menu po lewej stronie wybierz kolejno pozycje **wszystkie usługi**  >  **Analiza**usług  >  **HDInsight** i klaster.
 
 3. Z widoku domyślnego wybierz ikonę **Usuń** . Postępuj zgodnie z monitem, aby usunąć klaster.
 
@@ -34,7 +34,7 @@ Naliczanie opłat rozpoczyna się w momencie utworzenia klastra usługi HDInsigh
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Zastąp `CLUSTERNAME` ciąg nazwą klastra usługi HDInsight w poniższym kodzie. W wierszu polecenia programu PowerShell wprowadź następujące polecenie, aby usunąć klaster:
+Zastąp ciąg `CLUSTERNAME` nazwą klastra usługi HDInsight w poniższym kodzie. W wierszu polecenia programu PowerShell wprowadź następujące polecenie, aby usunąć klaster:
 
 ```powershell
 Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
@@ -42,7 +42,7 @@ Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Zastąp `CLUSTERNAME` ciąg nazwą klastra usługi HDInsight i `RESOURCEGROUP` nazwą grupy zasobów w poniższym kodzie.  W wierszu polecenia wprowadź następujące polecenie, aby usunąć klaster:
+Zastąp ciąg `CLUSTERNAME` nazwą klastra usługi HDInsight i `RESOURCEGROUP` nazwą grupy zasobów w poniższym kodzie.  W wierszu polecenia wprowadź następujące polecenie, aby usunąć klaster:
 
 ```azurecli
 az hdinsight delete --name CLUSTERNAME --resource-group RESOURCEGROUP

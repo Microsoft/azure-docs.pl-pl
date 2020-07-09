@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75444737"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114388"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — kompilowanie interfejsu użytkownika za pomocą aplikacji Angular
 
@@ -51,7 +51,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
     Okno terminalu pokazuje potwierdzenie dla nowych składników.
 
-    ![Instalowanie składnika hero](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png" alt-text="Instalowanie składnika hero":::
 
     Spójrzmy na pliki, które zostały utworzone i zaktualizowane. 
 
@@ -62,7 +62,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 4. W tym samym folderze otwórz plik **app.module.ts** i zwróć uwagę, że do deklaracji w wierszu 5 dodano element `HeroesComponent` oraz zaimportowano go również w wierszu 10.
 
-    ![Otwórz plik app-module.ts](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Otwórz plik app-module.ts":::
 
 5. Wróć do pliku **heroes.component.html** i skopiuj do niego ten kod. Element `<div>` jest kontenerem całej strony. Wewnątrz tego kontenera znajduje się lista elementów hero, które musimy utworzyć w taki sposób, aby po kliknięciu jednego z nich można było go zaznaczyć, a następnie edytować lub usunąć w interfejsie użytkownika. Następnie w kodzie HTML mamy trochę zmieniania stylu, aby było wiadomo, który element został wybrany. Jest tam też obszar edycji, aby można było dodać nowy element hero lub edytować istniejący. 
 
@@ -394,7 +394,7 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
 5. Kliknij lewym przyciskiem myszy termin `Hero`, a program Visual Studio wyświetli ikonę żarówki po lewej stronie bloku kodu. 
 
-    ![Żarówka w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Żarówka w programie Visual Studio Code":::
 
 6. Kliknij ikonę żarówki, a następnie kliknij pozycję **Importuj element Hero z folderu „/app/hero”** lub **Importuj element Hero z folderu „./hero”**. (Komunikat zmienia się w zależności od konfiguracji).
 
@@ -490,7 +490,7 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
 3. Teraz otwórz przeglądarkę internetową, przejdź pod adres **localhost:3000** i obejrzyj lokalnie uruchomioną aplikację.
 
-     ![Aplikacja Hero uruchomiona lokalnie](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Aplikacja Hero uruchomiona lokalnie":::
 
 ## <a name="next-steps"></a>Następne kroki
 

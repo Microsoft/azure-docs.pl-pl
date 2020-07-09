@@ -16,10 +16,9 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74073853"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Zrozumienie i używanie agenta systemu Linux platformy Azure
@@ -42,13 +41,13 @@ Agent Microsoft Azure Linux (waagent) zarządza obsługą systemu Linux & FreeBS
   * Zarządzanie dyskami zasobów
   * Formatowanie i Instalowanie dysku zasobów
   * Konfigurowanie obszaru wymiany
-* **Networking**
+* **Sieć**
   
   * Zarządza trasami w celu poprawy zgodności z serwerami DHCP platformy
   * Zapewnia stabilność nazwy interfejsu sieciowego
 * **Jądro**
   
-  * Konfiguruje wirtualną architekturę NUMA (Wyłącz `2.6.37`dla jądra <)
+  * Konfiguruje wirtualną architekturę NUMA (Wyłącz dla jądra <`2.6.37` )
   * Zużywa entropię funkcji Hyper-V dla/dev/Random
   * Konfiguruje limity czasu SCSI dla urządzenia głównego (co może być zdalne)
 * **Diagnostyka**
@@ -131,7 +130,7 @@ Zapoznaj się z dokumentacją w [repozytorium agenta systemu Azure Linux w witry
 * Demon: Uruchom waagent jako demona, aby zarządzać interakcją z platformą. Ten argument jest określony do waagent w skrypcie init waagent.
 * Uruchom: Uruchom waagent jako proces w tle
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Plik konfiguracji (/etc/waagent.conf) kontroluje akcje waagent. Poniżej przedstawiono przykładowy plik konfiguracji:
 
     ```
@@ -170,7 +169,7 @@ Default: y
 Dzięki temu użytkownik może włączyć lub wyłączyć funkcję aprowizacji w agencie. Prawidłowe wartości to "y" lub "n". Jeśli Inicjowanie obsługi jest wyłączone, hosty SSH i klucze użytkownika w obrazie są zachowywane i jakakolwiek konfiguracja określona w interfejsie API aprowizacji platformy Azure zostanie zignorowana.
 
 > [!NOTE]
-> `Provisioning.Enabled` Parametr domyślnie ma wartość "n" w obrazach w chmurze Ubuntu, które korzystają z usługi Cloud-init na potrzeby aprowizacji.
+> `Provisioning.Enabled`Parametr domyślnie ma wartość "n" w obrazach w chmurze Ubuntu, które korzystają z usługi Cloud-init na potrzeby aprowizacji.
 > 
 > 
 
@@ -195,7 +194,7 @@ Typ szyfrowania pary kluczy można skonfigurować przy użyciu wpisu aprowizacji
 Type: String  
 Default: rsa
 ```
-Można ustawić ten typ algorytmu szyfrowania, który jest obsługiwany przez demona SSH na maszynie wirtualnej. Zazwyczaj obsługiwane są wartości "RSA", "DSA" i "ECDSA". "w systemie Windows" nie obsługuje "ECDSA". Tak więc, jeśli zamierzasz użyć w systemie Windows programu w celu nawiązania połączenia z wdrożeniem systemu Linux, użyj "RSA" lub "DSA".
+Można ustawić ten typ algorytmu szyfrowania, który jest obsługiwany przez demona SSH na maszynie wirtualnej. Zazwyczaj obsługiwane są wartości "RSA", "DSA" i "ECDSA". "putty.exe" w systemie Windows nie obsługuje "ECDSA". Dlatego jeśli zamierzasz używać putty.exe w systemie Windows do nawiązywania połączenia z wdrożeniem systemu Linux, użyj "RSA" lub "DSA".
 
 **Inicjowanie obsługi administracyjnej. MonitorHostName:**  
 ```
@@ -211,7 +210,7 @@ Default: n
 ```
 Jeśli jest ustawiona, waagent dekoduje CustomData z base64.
 
-**Inicjowanie obsługi administracyjnej. ExecuteCustomData**  
+**Provisioning.ExecuteCustomData**  
 ```
 Type: Boolean  
 Default: n

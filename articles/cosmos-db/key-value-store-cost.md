@@ -3,16 +3,16 @@ title: Opłata jednostkowa żądania dla Azure Cosmos DB jako magazyn wartości 
 description: Dowiedz się więcej na temat opłat za jednostkę żądania Azure Cosmos DB w przypadku prostych operacji zapisu i odczytu, gdy są one używane jako magazyn klucz/wartość.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77647508"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262824"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB jako magazyn wartości klucza — przegląd kosztów
 

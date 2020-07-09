@@ -1,36 +1,51 @@
 ---
-title: Konfigurowanie niestandardowej odpowiedzi dla WAF za pomocą usług Azure Front Drzwiczks
-description: Dowiedz się, jak skonfigurować niestandardowy kod odpowiedzi i komunikat, gdy Zapora aplikacji sieci Web (WAF) blokuje żądanie.
+title: Konfigurowanie odpowiedzi niestandardowych dla zapory aplikacji sieci Web (WAF) przy użyciu usług frontonu platformy Azure
+description: Dowiedz się, jak skonfigurować niestandardowy kod odpowiedzi i komunikat, gdy WAF blokuje żądanie.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 215d4058937ad5fded6bef7a36e873b52a1b5ae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14e4ccdf17647823dc9e1005c1c68a9f1f217b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84726387"
 ---
-# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Konfigurowanie niestandardowej odpowiedzi dla zapory aplikacji sieci Web platformy Azure
+# <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Konfigurowanie niestandardowej odpowiedzi dla zapory aplikacji sieci Web platformy Azure (WAF)
 
-Domyślnie, gdy Zapora aplikacji sieci Web platformy Azure (WAF) z systemem Azure front-drzwi blokuje żądanie ze względu na dopasowaną regułę, zwraca kod stanu 403 z **żądaniem jest zablokowany** komunikat. W tym artykule opisano sposób konfigurowania niestandardowego kodu stanu odpowiedzi i komunikatu odpowiedzi, gdy żądanie jest blokowane przez WAF.
+Domyślnie, gdy WAF blokuje żądanie ze względu na dopasowaną regułę, zwraca kod stanu 403 z **żądaniem jest zablokowany** komunikat. Komunikat domyślny zawiera również ciąg odwołania śledzenia, który może służyć do łączenia [wpisów dziennika](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) dla żądania.  Można skonfigurować niestandardowy kod stanu odpowiedzi i komunikat niestandardowy z ciągiem odwołania dla przypadku użycia. W tym artykule opisano sposób konfigurowania niestandardowej strony odpowiedzi, gdy żądanie jest blokowane przez WAF.
 
-## <a name="set-up-your-powershell-environment"></a>Konfigurowanie środowiska programu PowerShell
+## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Konfigurowanie niestandardowego kodu stanu odpowiedzi i portalu korzystania z komunikatów
+
+Można skonfigurować niestandardowy kod stanu odpowiedzi i treść w obszarze "ustawienia zasad" w portalu WAF.
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Ustawienia zasad WAF":::
+
+W powyższym przykładzie kod odpowiedzi został zachowany jako 403 i skonfigurowano krótki komunikat "Skontaktuj się z nami", jak pokazano na poniższym obrazie:
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Przykład odpowiedzi niestandardowej":::
+
+"{{Azure-ref}}" Wstawia unikatowy ciąg odwołania w treści odpowiedzi. Wartość pasuje do pola TrackingReference w `FrontdoorAccessLog` `FrontdoorWebApplicationFirewallLog` dziennikach i.
+
+## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Konfigurowanie niestandardowego kodu stanu odpowiedzi i komunikatów przy użyciu programu PowerShell
+
+### <a name="set-up-your-powershell-environment"></a>Konfigurowanie środowiska programu PowerShell
+
 Program Azure PowerShell udostępnia zestaw poleceń cmdlet, które pozwalają zarządzać zasobami platformy Azure przy użyciu modelu usługi [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
 
 Możesz zainstalować program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) w maszynie lokalnej i używać go w dowolnej sesji programu PowerShell. Postępuj zgodnie z instrukcjami na stronie, aby zalogować się przy użyciu poświadczeń platformy Azure, i zainstaluj moduł AZ PowerShell module.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Nawiązywanie połączenia z platformą Azure przy użyciu interaktywnego okna dialogowego logowania
+
 ```
 Connect-AzAccount
 Install-Module -Name Az
+
 ```
 Upewnij się, że masz zainstalowaną bieżącą wersję programu PowerShellGet. Uruchom poniższe polecenie i ponownie otwórz program PowerShell.
-
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
@@ -40,17 +55,17 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 
-## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. W tym przykładzie utworzysz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
+Na platformie Azure możesz przydzielić powiązane zasoby do grupy zasobów. Tutaj tworzymy grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupWAF
 ```
 
-## <a name="create-a-new-waf-policy-with-custom-response"></a>Utwórz nowe zasady WAF z odpowiedzią niestandardową 
+### <a name="create-a-new-waf-policy-with-custom-response"></a>Utwórz nowe zasady WAF z odpowiedzią niestandardową 
 
-Poniżej znajduje się przykład tworzenia nowych zasad WAF z niestandardowym kodem stanu odpowiedzi ustawionym na 405, a komunikat **jest blokowany.** przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Poniżej znajduje się przykład tworzenia nowych zasad WAF z niestandardowym kodem stanu odpowiedzi ustawionym na 405, a komunikat **jest zablokowany.**, za pomocą polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)
 
 ```azurepowershell
 # WAF policy setting
@@ -80,7 +95,7 @@ Update-AzFrontDoorFireWallPolicy `
 Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
--CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"
+-CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
 ```
 
 ## <a name="next-steps"></a>Następne kroki

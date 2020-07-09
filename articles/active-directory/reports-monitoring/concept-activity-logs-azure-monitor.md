@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261027"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Dzienniki aktywności usługi Azure AD w Azure Monitor
@@ -78,10 +77,10 @@ Poniższa tabela zawiera oszacowanie kosztów w zależności od rozmiaru dzierż
 
 | Kategoria dziennika | Liczba użytkowników | Zdarzenia dziennie | Ilość danych na miesiąc (szac.) | Koszt za miesiąc (szac.) | Koszt za rok (szac.) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Inspekcja | 100 000 | 1,5&nbsp;mln | 90 GB | 1,93 USD | 23,12 USD |
+| Inspekcja | 100 000 | 1,5&nbsp;mln | 90 GB | 1,93 USD | 23,12 USD |
 | Inspekcja | 1000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
 | Logowania | 1000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
-| Logowania | 100 000 | 15&nbsp;mln | 1,7 TB | 35,41 USD | 424,92 USD |
+| Logowania | 100 000 | 15&nbsp;mln | 1,7 TB | 35,41 USD | 424,92 USD |
  
 
 
@@ -102,9 +101,9 @@ Poniższa tabela zawiera szacowane koszty miesięcznie w przypadku podstawowego 
 
 | Kategoria dziennika | Liczba użytkowników | Zdarzenia na sekundę | Zdarzenia na pięciominutowy interwał | Wolumen na interwał | Komunikaty na interwał | Komunikaty na miesiąc | Koszt za miesiąc (szac.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Inspekcja | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
+| Inspekcja | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
 | Inspekcja | 1000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 USD |
-| Logowania | 100 000 | 18000 | 5 400 000 | 10,8 GB | 42188 | 364 504 320 | $23,9 |  
+| Logowania | 100 000 | 18000 | 5 400 000 | 10,8 GB | 42188 | 364 504 320 | $23,9 |  
 | Logowania | 1000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Zagadnienia dotyczące kosztów Azure Monitor dzienników
@@ -113,9 +112,9 @@ Poniższa tabela zawiera szacowane koszty miesięcznie w przypadku podstawowego 
 
 | Kategoria dziennika       | Liczba użytkowników | Zdarzenia dziennie | Liczba zdarzeń miesięcznie (30 dni) | Koszt miesięcznie w USD (EST.) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Inspekcja i logowania | 100 000         | 16 500 000     | 495 000 000                |  $1093,00                       |
-| Inspekcja              | 100 000         | 1 500 000      | 45 000 000                 |  $246,66                     |
-| Logowania           | 100 000         | 15 000 000     | 450 000 000                |  $847,28                     |
+| Inspekcja i logowania | 100 000         | 16 500 000     | 495 000 000                |  $1093,00                       |
+| Inspekcja              | 100 000         | 1 500 000      | 45 000 000                 |  $246,66                     |
+| Logowania           | 100 000         | 15 000 000     | 450 000 000                |  $847,28                     |
 
 
 

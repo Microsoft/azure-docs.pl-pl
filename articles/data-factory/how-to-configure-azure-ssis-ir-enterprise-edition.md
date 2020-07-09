@@ -11,10 +11,9 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: a0e35a309fd30a36263b498b6a8e74a312004a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606155"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Udostępnianie wersji Enterprise Edition dla Azure-SSIS Integration Runtime
@@ -48,7 +47,7 @@ Niektóre z tych funkcji wymagają zainstalowania dodatkowych składników w cel
 
 1.  Pobierz i zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps).
 
-2.  Podczas aprowizacji lub zmiany konfiguracji Azure-SSIS IR przy użyciu programu PowerShell należy uruchomić `Set-AzDataFactoryV2IntegrationRuntime` polecenie with **Enterprise** jako wartość parametru **Edition** przed rozpoczęciem Azure-SSIS IR. Oto przykładowy skrypt:
+2.  Podczas aprowizacji lub zmiany konfiguracji Azure-SSIS IR przy użyciu programu PowerShell należy uruchomić polecenie `Set-AzDataFactoryV2IntegrationRuntime` with **Enterprise** jako wartość parametru **Edition** przed rozpoczęciem Azure-SSIS IR. Oto przykładowy skrypt:
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"

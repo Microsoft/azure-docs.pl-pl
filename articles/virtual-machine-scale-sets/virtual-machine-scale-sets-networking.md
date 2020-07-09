@@ -6,15 +6,15 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 07/17/2017
+ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125200"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374733"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -44,13 +44,15 @@ Usługa Azure Accelerated Networking zwiększa wydajność sieci, umożliwiając
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Zestawy skalowania maszyn wirtualnych platformy Azure z Azure Load Balancer
 
-Podczas pracy z zestawami skalowania maszyn wirtualnych i usługą równoważenia obciążenia należy wziąć pod uwagę następujące kwestie:
+Podczas pracy z zestawami skalowania maszyn wirtualnych i usługą równoważenia obciążenia należy wziąć pod uwagę następujące elementy:
 
 * **Wiele zestawów skalowania maszyn wirtualnych nie może korzystać z tego samego modułu równoważenia obciążenia**.
 * **Przekazywanie portów i reguły NAT dla ruchu przychodzącego**:
   * Każdy zestaw skalowania maszyn wirtualnych musi mieć regułę NAT dla ruchu przychodzącego.
   * Po utworzeniu zestawu skalowania nie można zmodyfikować portu zaplecza dla reguły równoważenia obciążenia używanej przez sondę kondycji modułu równoważenia obciążenia. Aby zmienić port, można usunąć sondę kondycji, aktualizując zestaw skalowania maszyn wirtualnych platformy Azure, zaktualizować port, a następnie ponownie skonfiguruj sondę kondycji.
   * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślne reguły NAT dla ruchu przychodzącego są tworzone automatycznie.
+* **Pula NAT dla ruchu przychodzącego**:
+  * Pula NAT dla ruchu przychodzącego jest kolekcją reguł NAT dla ruchu przychodzącego. Jedna pula NAT dla ruchu przychodzącego nie obsługuje wielu zestawów skalowania maszyn wirtualnych.
 * **Reguły równoważenia obciążenia**:
   * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślna reguła równoważenia obciążenia zostanie utworzona automatycznie.
 * **Reguły ruchu wychodzącego**:
@@ -144,7 +146,7 @@ Dane wyjściowe dla nazwy DNS pojedynczej maszyny wirtualnej będą miały nast�
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Publiczny adres IPv4 dla każdej maszyny wirtualnej
-Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć własnych publicznych adresów IP. W przypadku większości scenariuszy najekonomiczniejszym i najbezpieczniejszym rozwiązaniem jest skojarzenie publicznego adresu IP z modułem równoważenia obciążenia lub konkretną maszyną wirtualną, która kieruje połączenia przychodzące do maszyn wirtualnych zestawu skalowania zgodnie z potrzebami (na przykład za pomocą reguł NAT dla ruchu przychodzącego).
+Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć własnych publicznych adresów IP. W większości scenariuszy jest bardziej ekonomiczny i bezpieczny, aby skojarzyć publiczny adres IP z usługą równoważenia obciążenia lub do pojedynczej maszyny wirtualnej (znanej również jako serwera przesiadkowego), która następnie kieruje połączenia przychodzące do maszyn wirtualnych zestawu skalowania odpowiednio do potrzeb (na przykład za pomocą reguł NAT dla ruchu przychodzącego).
 
 Jednak w niektórych scenariuszach maszyny wirtualne zestawu skalowania muszą mieć własne publiczne adresy IP. Przykładem są gry — gdy konsola musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze obsługującą przetwarzanie symulacji świata fizycznego w grze. Innym przykładem jest sytuacja, w której maszyny wirtualne muszą nawiązywać ze sobą połączenia zewnętrzne między regionami w rozproszonej bazie danych.
 

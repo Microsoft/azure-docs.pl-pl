@@ -13,20 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75902455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674265"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasadach usługi API Management
 
-Dostarczając `ProxyError` obiekt, usługa Azure API Management umożliwia wydawcom reagowanie na warunki błędów, które mogą wystąpić podczas przetwarzania żądań. Dostęp `ProxyError` do obiektu odbywa się za pomocą [kontekstu. Właściwość LastError](api-management-policy-expressions.md#ContextVariables) i może być używana przez zasady w sekcji `on-error` Policy. Ten artykuł zawiera informacje dotyczące możliwości obsługi błędów w usłudze Azure API Management.
+Dostarczając `ProxyError` obiekt, usługa Azure API Management umożliwia wydawcom reagowanie na warunki błędów, które mogą wystąpić podczas przetwarzania żądań. `ProxyError`Dostęp do obiektu odbywa się za pomocą [kontekstu. Właściwość LastError](api-management-policy-expressions.md#ContextVariables) i może być używana przez zasady w `on-error` sekcji Policy. Ten artykuł zawiera informacje dotyczące możliwości obsługi błędów w usłudze Azure API Management.
 
 ## <a name="error-handling-in-api-management"></a>Obsługa błędów w API Management
 
-Zasady w usłudze Azure API Management są podzielone `inbound`na `backend`sekcje `outbound`,, `on-error` i, jak pokazano w poniższym przykładzie.
+Zasady w usłudze Azure API Management są podzielone `inbound` na `backend` sekcje,, i, `outbound` `on-error` jak pokazano w poniższym przykładzie.
 
 ```xml
 <policies>
@@ -47,17 +46,17 @@ Zasady w usłudze Azure API Management są podzielone `inbound`na `backend`sekcj
 </policies>
 ```
 
-Podczas przetwarzania żądania wbudowane kroki są wykonywane wraz z wszelkimi zasadami, które znajdują się w zakresie żądania. Jeśli wystąpi błąd, przetwarzanie natychmiast przeskakuje do sekcji `on-error` zasad.
-Sekcji `on-error` zasad można używać w dowolnym zakresie. Wydawcy interfejsu API mogą konfigurować zachowanie niestandardowe, takie jak rejestrowanie błędu w centrach zdarzeń lub tworzenie nowej odpowiedzi w celu powrotu do obiektu wywołującego.
+Podczas przetwarzania żądania wbudowane kroki są wykonywane wraz z wszelkimi zasadami, które znajdują się w zakresie żądania. Jeśli wystąpi błąd, przetwarzanie natychmiast przeskakuje do `on-error` sekcji zasad.
+`on-error`Sekcji zasad można używać w dowolnym zakresie. Wydawcy interfejsu API mogą konfigurować zachowanie niestandardowe, takie jak rejestrowanie błędu w centrach zdarzeń lub tworzenie nowej odpowiedzi w celu powrotu do obiektu wywołującego.
 
 > [!NOTE]
-> `on-error` Sekcja domyślnie nie istnieje w zasadach. Aby dodać `on-error` sekcję do zasad, przejdź do odpowiedniej zasady w edytorze zasad i Dodaj ją. Aby uzyskać więcej informacji o konfigurowaniu zasad, zobacz [zasady w API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> `on-error`Sekcja domyślnie nie istnieje w zasadach. Aby dodać `on-error` sekcję do zasad, przejdź do odpowiedniej zasady w edytorze zasad i Dodaj ją. Aby uzyskać więcej informacji o konfigurowaniu zasad, zobacz [zasady w API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
 >
-> Jeśli nie `on-error` ma sekcji, obiekty wywołujące otrzymają komunikaty odpowiedzi HTTP 400 lub 500 w przypadku wystąpienia błędu.
+> Jeśli nie ma `on-error` sekcji, obiekty wywołujące otrzymają komunikaty odpowiedzi HTTP 400 lub 500 w przypadku wystąpienia błędu.
 
 ### <a name="policies-allowed-in-on-error"></a>Zasady dozwolone w przypadku błędu
 
-W sekcji `on-error` Policy można używać następujących zasad.
+W sekcji Policy można używać następujących zasad `on-error` .
 
 -   [następnie](api-management-advanced-policies.md#choose)
 -   [Set-Variable](api-management-advanced-policies.md#set-variable)
@@ -71,12 +70,16 @@ W sekcji `on-error` Policy można używać następujących zasad.
 -   [Logowanie do centrum eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [JSON-to-XML](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [XML-to-JSON](api-management-transformation-policies.md#ConvertXMLtoJSON)
+-   [Ograniczanie współbieżności](api-management-advanced-policies.md#LimitConcurrency)
+-   [makieta — odpowiedź](api-management-advanced-policies.md#mock-response)
+-   [Spróbuj ponownie wykonać](api-management-advanced-policies.md#Retry)
+-   [szuka](api-management-advanced-policies.md#Trace)
 
 ## <a name="lasterror"></a>LastError
 
-Gdy wystąpi błąd i formant przechodzi do sekcji `on-error` zasad, ten błąd jest przechowywany w [kontekście. Właściwość LastError](api-management-policy-expressions.md#ContextVariables) , do której można uzyskać dostęp za pomocą zasad `on-error` w sekcji. LastError ma następujące właściwości.
+Gdy wystąpi błąd i formant przechodzi do `on-error` sekcji zasad, ten błąd jest przechowywany w [kontekście. Właściwość LastError](api-management-policy-expressions.md#ContextVariables) , do której można uzyskać dostęp za pomocą zasad w `on-error` sekcji. LastError ma następujące właściwości.
 
-| Nazwa       | Typ   | Opis                                                                                               | Wymagany |
+| Nazwa       | Typ   | Opis                                                                                               | Wymagane |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | ciąg | Nazwa elementu, w którym wystąpił błąd. Może to być zasada lub wbudowana Nazwa kroku potoku.      | Tak      |
 | `Reason`   | ciąg | Przyjazny dla maszyn kod błędu, który może być używany w obsłudze błędów.                                       | Nie       |
@@ -96,7 +99,7 @@ Gdy wystąpi błąd i formant przechodzi do sekcji `on-error` zasad, ten błąd 
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny wbudowanych kroków przetwarzania.
 
-| Element źródłowy        | Warunek                                 | Przyczyna                  | Wiadomość                                                                                                                |
+| Element źródłowy        | Warunek                                 | Przyczyna                  | Komunikat                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | konfiguracja | Identyfikator URI nie jest zgodny z żadnym interfejsem API ani operacją | OperationNotFound       | Nie można dopasować przychodzącego żądania do operacji.                                                                      |
 | autoryzacja | Nie podano klucza subskrypcji             | SubscriptionKeyNotFound | Odmowa dostępu z powodu braku klucza subskrypcji. Pamiętaj o dołączeniu klucza subskrypcji podczas wykonywania żądań do tego interfejsu API. |
@@ -109,7 +112,7 @@ Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny zasad.
 
-| Element źródłowy       | Warunek                                                       | Przyczyna                    | Wiadomość                                                                                                                              |
+| Element źródłowy       | Warunek                                                       | Przyczyna                    | Komunikat                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | stawka — limit   | Przekroczono limit szybkości                                             | RateLimitExceeded         | Przekroczono limit szybkości                                                                                                               |
 | limit przydziału        | Przekroczono limit przydziału                                                  | QuotaExceeded             | Poza limitem woluminu wywołania. Przydział zostanie uzupełniony w XX: XX: XX. -lub do limitu przydziału przepustowości. Przydział zostanie uzupełniony w XX: XX: XX. |
@@ -120,12 +123,12 @@ Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które
 | znacznik wyboru | Wymagany nagłówek nie został przedstawiony lub brak wartości               | HeaderNotFound            | W żądaniu nie znaleziono nagłówka {header-Name}. Odmowa dostępu.                                                                    |
 | znacznik wyboru | Wymagany nagłówek nie został przedstawiony lub brak wartości               | HeaderValueNotAllowed     | Wartość nagłówka {header-name} elementu {header-Value} jest niedozwolona. Odmowa dostępu.                                                          |
 | Walidacja — JWT | Brak tokenu JWT w żądaniu                                 | TokenNotFound             | Nie znaleziono tokenu JWT w żądaniu. Odmowa dostępu.                                                                                         |
-| Walidacja — JWT | Weryfikacja podpisu nie powiodła się                                     | TokenSignatureInvalid     | <komunikat z biblioteki\>JWT. Odmowa dostępu.                                                                                          |
-| Walidacja — JWT | Nieprawidłowi odbiorcy                                                | TokenAudienceNotAllowed   | <komunikat z biblioteki\>JWT. Odmowa dostępu.                                                                                          |
-| Walidacja — JWT | Nieprawidłowy wystawca                                                  | TokenIssuerNotAllowed     | <komunikat z biblioteki\>JWT. Odmowa dostępu.                                                                                          |
-| Walidacja — JWT | Token wygasł                                                   | TokenExpired              | <komunikat z biblioteki\>JWT. Odmowa dostępu.                                                                                          |
-| Walidacja — JWT | Klucz podpisu nie został rozpoznany przez identyfikator                            | TokenSignatureKeyNotFound | <komunikat z biblioteki\>JWT. Odmowa dostępu.                                                                                          |
-| Walidacja — JWT | Brak wymaganych oświadczeń w tokenie                          | TokenClaimNotFound        | W tokenie JWT brakuje następujących oświadczeń: <C1\>, <C2\>,... Odmowa dostępu.                                                            |
+| Walidacja — JWT | Weryfikacja podpisu nie powiodła się                                     | TokenSignatureInvalid     | <komunikat z biblioteki JWT \> . Odmowa dostępu.                                                                                          |
+| Walidacja — JWT | Nieprawidłowi odbiorcy                                                | TokenAudienceNotAllowed   | <komunikat z biblioteki JWT \> . Odmowa dostępu.                                                                                          |
+| Walidacja — JWT | Nieprawidłowy wystawca                                                  | TokenIssuerNotAllowed     | <komunikat z biblioteki JWT \> . Odmowa dostępu.                                                                                          |
+| Walidacja — JWT | Token wygasł                                                   | TokenExpired              | <komunikat z biblioteki JWT \> . Odmowa dostępu.                                                                                          |
+| Walidacja — JWT | Klucz podpisu nie został rozpoznany przez identyfikator                            | TokenSignatureKeyNotFound | <komunikat z biblioteki JWT \> . Odmowa dostępu.                                                                                          |
+| Walidacja — JWT | Brak wymaganych oświadczeń w tokenie                          | TokenClaimNotFound        | W tokenie JWT brakuje następujących oświadczeń: <C1 \> , <C2 \> ,... Odmowa dostępu.                                                            |
 | Walidacja — JWT | Niezgodność wartości zgłoszeń                                           | TokenClaimValueNotAllowed | Wartość {Claim-name} elementu {Claim-Value} jest niedozwolona. Odmowa dostępu.                                                             |
 | Walidacja — JWT | Inne błędy weryfikacji                                       | JwtInvalid                | <komunikat z biblioteki JWT\>                                                                                                          |
 | żądanie przesyłania dalej lub wysyłanie żądania | Kod stanu odpowiedzi HTTP i nagłówki nie zostały odebrane z zaplecza w skonfigurowanym limicie czasu | Limit czasu | wiele |

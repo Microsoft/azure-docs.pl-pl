@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 205a4bd119a7324c4e6524a0e29d432aa57bf315
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014931"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848217"
 ---
-# <a name="frequently-asked-questions"></a>Często zadawane pytania
+# <a name="load-balancer-frequently-asked-questions"></a>Load Balancer często zadawane pytania
 
 ## <a name="what-types-of-load-balancer-exist"></a>Jakie typy Load Balancer istnieją?
 Wewnętrzne moduły równoważenia obciążenia, które równoważą ruch w obrębie sieci wirtualnej i zewnętrznych usług równoważenia obciążenia, które równoważą ruch do i z połączonego z Internetem punktu końcowego. Aby uzyskać więcej informacji, zobacz [typy Load Balancer](components.md#frontend-ip-configurations). 
@@ -35,6 +35,19 @@ Reguły NAT są używane do określania zasobu zaplecza, do którego ma być kie
 
 ## <a name="what-is-ip-1686312916"></a>Co to jest 168.63.129.16 IP?
 Wirtualny adres IP dla hosta oznaczonego jako infrastruktura platformy Azure Load Balancer, z którego pochodzą sondy kondycji platformy Azure. Podczas konfigurowania wystąpień zaplecza muszą zezwalać na ruch z tego adresu IP, aby pomyślnie reagować na sondy kondycji. Ta reguła nie współdziała z dostępem do Load Balancer frontonu. Jeśli nie używasz Azure Load Balancer, możesz zastąpić tę regułę. Więcej informacji na temat tagów usługi można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
+
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Czy można używać globalnej komunikacji równorzędnej sieci wirtualnej z podstawową Load Balancer?
+Nie. Podstawowa Load Balancer nie obsługuje globalnej komunikacji równorzędnej sieci wirtualnej. Zamiast tego można użyć usługa Load Balancer w warstwie Standardowa. Zapoznaj się z artykułem [uaktualnienie z warstwy Podstawowa do standardowa](upgrade-basic-standard.md) w celu zapewnienia bezproblemowego uaktualnienia.
+
+## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Jak mogę wykryć publiczny adres IP, którego używa maszyna wirtualna platformy Azure?
+
+Istnieje wiele sposobów określenia publicznego źródłowego adresu IP połączenia wychodzącego. OpenDNS zapewnia usługę, która może wyświetlać publiczny adres IP maszyny wirtualnej.
+Za pomocą polecenia nslookup można wysłać zapytanie DNS dla nazwy myip.opendns.com do OpenDNS rozpoznawania nazw. Usługa zwraca źródłowy adres IP, który został użyty do wysłania zapytania. Po uruchomieniu następującego zapytania z maszyny wirtualnej odpowiedź jest publicznym adresem IP używanym dla tej maszyny wirtualnej:
+
+ ```nslookup myip.opendns.com resolver1.opendns.com```
+
+## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Jak działają połączenia z usługą Azure Storage w tym samym regionie?
+Połączenia wychodzące za pośrednictwem powyższych scenariuszy nie są wymagane do nawiązania połączenia z magazynem w tym samym regionie, w którym znajduje się maszyna wirtualna. Jeśli nie chcesz tego robić, użyj sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), jak wyjaśniono powyżej. Łączność wychodząca jest wymagana w przypadku łączności z magazynem w innych regionach. Podczas nawiązywania połączenia z magazynem z maszyny wirtualnej w tym samym regionie źródłowy adres IP w dziennikach diagnostycznych magazynu będzie adresem wewnętrznym dostawcy, a nie publicznym adresem IP maszyny wirtualnej. Jeśli chcesz ograniczyć dostęp do konta magazynu do maszyn wirtualnych w co najmniej jednej podsieci Virtual Network w tym samym regionie, użyj [Virtual Network punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md) , a nie publicznego adresu IP podczas konfigurowania zapory konta magazynu. Po skonfigurowaniu punktów końcowych usługi zobaczysz Virtual Network prywatny adres IP w dziennikach diagnostycznych magazynu, a nie na wewnętrznym adresie dostawcy.
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli Twoje pytanie nie jest wymienione powyżej, Prześlij opinię na temat tej strony wraz z pytaniem. Spowoduje to utworzenie problemu usługi GitHub dla zespołu produktu, aby upewnić się, że otrzymasz odpowiedzi na wszystkie nasze pytania klientów.

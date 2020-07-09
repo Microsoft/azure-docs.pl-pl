@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75495329"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485317"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Powrót po awarii maszyn wirtualnych VMware do lokacji lokalnej
 
@@ -29,7 +28,7 @@ W tym artykule opisano sposób powrotu po awarii maszyn wirtualnych platformy Az
 
 ## <a name="run-a-failover-to-fail-back"></a>Uruchamianie trybu failover w celu powrotu po awarii
 
-1. Upewnij się, że maszyny wirtualne platformy Azure są ponownie chronione i replikowane do lokacji lokalnej. 
+1. Upewnij się, że maszyny wirtualne platformy Azure są ponownie chronione i replikowane do lokacji lokalnej.
     - Maszyna wirtualna musi mieć co najmniej jeden punkt odzyskiwania w celu powrotu po awarii.
     - W przypadku powrotu po awarii planu odzyskiwania wszystkie maszyny w planie powinny mieć co najmniej jeden punkt odzyskiwania.
 2. W magazynie > **zreplikowane elementy**wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **niezaplanowaną pracę w trybie failover**.

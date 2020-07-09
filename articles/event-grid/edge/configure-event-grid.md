@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 841b5092775353bbe3340dbbd55610026f998a15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76846475"
 ---
 # <a name="event-grid-configuration"></a>Konfiguracja Event Grid
@@ -35,9 +34,9 @@ Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zab
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-|`inbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na certyfikatach. Wartość domyślna to true.
+|`inbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na certyfikatach. Wartość domyślna to True.
 |`inbound__clientAuth__clientCert__source`| Źródło do sprawdzania poprawności certyfikatów klienta. Wartość domyślna to IoT Edge.
-|`inbound__clientAuth__clientCert__allowUnknownCA`| Zasady zezwalające na certyfikat klienta z podpisem własnym. Wartość domyślna to true.
+|`inbound__clientAuth__clientCert__allowUnknownCA`| Zasady zezwalające na certyfikat klienta z podpisem własnym. Wartość domyślna to True.
 |`inbound__clientAuth__sasKeys__enabled`| Aby włączyć/wyłączyć uwierzytelnianie klienta oparte na kluczu SAS. Wartość domyślna to off.
 |`inbound__clientAuth__sasKeys__key1`| Jedna z wartości, aby zweryfikować przychodzące żądania.
 |`inbound__clientAuth__sasKeys__key2`| Opcjonalna druga wartość do walidacji żądań przychodzących.
@@ -47,7 +46,7 @@ Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zab
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-|`outbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć dołączanie certyfikatu tożsamości dla żądań wychodzących. Wartość domyślna to true.
+|`outbound__clientAuth__clientCert__enabled`| Aby włączyć/wyłączyć dołączanie certyfikatu tożsamości dla żądań wychodzących. Wartość domyślna to True.
 |`outbound__clientAuth__clientCert__source`| Źródło pobierania certyfikatu wychodzącego modułu Event Grid. Wartość domyślna to IoT Edge.
 
 ## <a name="webhook-event-handlers"></a>Procedury obsługi zdarzeń elementu webhook
@@ -57,8 +56,8 @@ Aby uzyskać ogólne informacje na temat uwierzytelniania klientów, zobacz [zab
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
 |`outbound__webhook__httpsOnly`| Zasady umożliwiające kontrolowanie, czy dozwolone są tylko subskrybenci HTTPS. Wartość domyślna to true (tylko HTTPS).
-|`outbound__webhook__skipServerCertValidation`| Oflaguj, aby kontrolować certyfikat subskrybenta. Wartość domyślna to true.
-|`outbound__webhook__allowUnknownCA`| Zasady umożliwiające kontrolowanie, czy certyfikat z podpisem własnym może być prezentowany przez subskrybenta. Wartość domyślna to true. 
+|`outbound__webhook__skipServerCertValidation`| Oflaguj, aby kontrolować certyfikat subskrybenta. Wartość domyślna to True.
+|`outbound__webhook__allowUnknownCA`| Zasady umożliwiające kontrolowanie, czy certyfikat z podpisem własnym może być prezentowany przez subskrybenta. Wartość domyślna to True. 
 
 ## <a name="delivery-and-retry"></a>Dostarczanie i ponawianie prób
 
@@ -75,10 +74,10 @@ Aby uzyskać ogólne informacje na temat tej funkcji, zobacz [dostarczanie i wyp
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Maksymalna dozwolona wartość dla `ApproxBatchSizeInBytes` pokrętła. Wartość domyślna to `1_058_576`.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dozwolona wartość dla `MaxEventsPerBatch` pokrętła. Wartość domyślna to `50`.
-| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania dostarczania, gdy `MaxEventsPerBatch` jest określony tylko. Wartość domyślna to `1_058_576`.
-| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania do partii, gdy tylko `MaxBatchSizeInBytes` zostanie określony. Wartość domyślna to `10`.
+| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Maksymalna dozwolona wartość dla `ApproxBatchSizeInBytes` pokrętła. Wartość domyślna to `1_058_576` .
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maksymalna dozwolona wartość dla `MaxEventsPerBatch` pokrętła. Wartość domyślna to `50` .
+| `broker__defaultMaxBatchSizeInBytes` | Maksymalny rozmiar żądania dostarczania, gdy `MaxEventsPerBatch` jest określony tylko. Wartość domyślna to `1_058_576` .
+| `broker__defaultMaxEventsPerBatch` | Maksymalna liczba zdarzeń do dodania do partii, gdy tylko `MaxBatchSizeInBytes` zostanie określony. Wartość domyślna to `10` .
 
 ## <a name="metrics"></a>Metryki
 
@@ -86,4 +85,4 @@ Aby dowiedzieć się więcej na temat używania metryk z Event Grid na IoT Edge,
 
 | Nazwa właściwości | Opis |
 | ---------------- | ------------ |
-| `metrics__reporterType` | Typ programu Reporter dla metryk Enpoint. Wartość domyślna `none` to i wyłącza metryki. Ustawienie umożliwiające `prometheus` włączenie metryk w formacie specyfikacji Prometheus.
+| `metrics__reporterType` | Typ programu Reporter dla metryk Enpoint. Wartość domyślna to `none` i wyłącza metryki. Ustawienie umożliwiające `prometheus` włączenie metryk w formacie specyfikacji Prometheus.

@@ -3,13 +3,12 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 4ebd0b7b02036ca9aed6848ee261d32245ba4973
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: 4889d9b0f142206bf26a69f275cb60598fba577f
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979691"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035695"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
@@ -159,7 +158,7 @@ Aby można było zainicjować `SpeechRecognizer` obiekt, należy utworzyć konfi
 
 ## <a name="create-an-audio-configuration"></a>Tworzenie konfiguracji audio
 
-Teraz musisz utworzyć `AudioConfig` obiekt, który wskazuje na dane wejściowe devic3. Wstaw ten kod w `startIntentRecognizeAsyncButton.addEventListener()` metodzie bezpośrednio poniżej konfiguracji mowy.
+Teraz musisz utworzyć `AudioConfig` obiekt, który wskazuje na urządzenie wejściowe. Wstaw ten kod w `startIntentRecognizeAsyncButton.addEventListener()` metodzie bezpośrednio poniżej konfiguracji mowy.
 
 ```JavaScript
         var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
@@ -245,7 +244,7 @@ Wstaw ten kod pod dodaniem modelu:
 W przypadku, gdy chcesz udostępnić stronę internetową na serwerze internetowym, możesz opcjonalnie podać źródło tokenu dla swojej aplikacji pokazowej.
 W ten sposób Twój klucz subskrypcji nigdy nie opuści serwera, ale jednocześnie umożliwi użytkownikom korzystanie z możliwości funkcji rozpoznawania mowy bez wprowadzania przez nich kodu autoryzacji.
 
-Utwórz nowy plik o nazwie `token.php`. W tym przykładzie przyjęto założenie, że serwer internetowy obsługuje język skryptów PHP. Wprowadź następujący kod:
+Utwórz nowy plik o nazwie `token.php`. W tym przykładzie przyjęto założenie, że serwer sieci Web obsługuje język skryptów PHP z włączonym zwinięciem. Wprowadź następujący kod:
 
 ```php
 <?php

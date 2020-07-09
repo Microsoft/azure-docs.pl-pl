@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100910"
 ---
 # <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
@@ -27,7 +27,7 @@ Poniżej przedstawiono kilka wskazówek dotyczących rozwiązywania problemów z
 Komunikaty o błędach skojarzone z przepływem pracy można zlokalizować przez:
 
 1. Korzystanie z wiersza polecenia i wpisywanie`msgen status`
-2. Badanie zawartości wyjście standardowe. txt.
+2. Badanie zawartości standardoutput.txt.
 
 ### <a name="1-using-the-command-line-msgen-status"></a>1. Korzystanie z wiersza polecenia`msgen status`
 
@@ -75,21 +75,21 @@ Istnieją trzy wymagane argumenty:
   > [!NOTE]
   >  Alternatywnie możesz dołączyć ścieżkę do pliku konfiguracji, zamiast bezpośrednio wprowadzić adres URL i klucz. Jeśli te argumenty zostaną uwzględnione w wierszu polecenia, a także w pliku konfiguracji, pierwszeństwo mają argumenty wiersza polecenia.  
 
-W przypadku przepływu pracy o IDENTYFIKATORze 1001 i pliku config. txt umieszczonym w tej samej ścieżce co plik wykonywalny msgen polecenie będzie wyglądać następująco:
+W przypadku przepływu pracy o IDENTYFIKATORze 1001 i pliku config.txt umieszczonego w tej samej ścieżce co plik wykonywalny msgen polecenie będzie wyglądać następująco:
 
 ```bash
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Przeanalizuj zawartość wyjście standardowe. txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Przeanalizuj zawartość standardoutput.txt 
 Znajdź kontener danych wyjściowych dla danego przepływu pracy. MSGEN tworzy folder, `[workflowfilename].logs.zip` po każdym wykonaniu przepływu pracy. Rozpakuj folder, aby wyświetlić jego zawartość:
 
-* outputFileList. txt — lista plików wyjściowych tworzonych w ramach przepływu pracy
-* błąd standardowy. txt — ten plik jest pusty.
-* Wyjście standardowe. txt — rejestruje wszystkie komunikaty o stanie najwyższego poziomu, w tym błędy, które wystąpiły podczas uruchamiania przepływu pracy.
+* outputFileList.txt — lista plików wyjściowych tworzonych w ramach przepływu pracy
+* standarderror.txt — ten plik jest pusty.
+* standardoutput.txt — rejestruje wszystkie komunikaty o stanie najwyższego poziomu, w tym błędy, które wystąpiły podczas uruchamiania przepływu pracy.
 * Pliki dziennika GATK — wszystkie pozostałe pliki w `logs` folderze
 
-W celu rozwiązywania problemów sprawdź zawartość wyjście standardowe. txt i zanotuj wszystkie wyświetlane komunikaty o błędach.
+W celu rozwiązywania problemów sprawdź zawartość standardoutput.txt i zanotuj wszystkie wyświetlane komunikaty o błędach.
 
 
 ## <a name="step-2-try-recommended-steps-for-common-errors"></a>Krok 2. Wypróbuj zalecane kroki dla typowych błędów

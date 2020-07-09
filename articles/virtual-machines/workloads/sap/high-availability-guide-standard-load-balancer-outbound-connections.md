@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660172"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907469"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
 
@@ -78,7 +78,7 @@ Konfiguracja będzie wyglądać następująco:
 
 ![Kontrola łączności z publicznymi punktami końcowymi przy użyciu sieciowych grup zabezpieczeń](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
 
-### <a name="important-considerations"></a>Ważne zagadnienia
+### <a name="important-considerations"></a>Istotne zagadnienia
 
 - Możesz użyć jednej z dodatkowych Load Balancer publicznych dla wielu maszyn wirtualnych w tej samej podsieci, aby uzyskać łączność wychodzącą z publicznym punktem końcowym i zoptymalizować koszty  
 - Używaj [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview) do kontrolowania, które publiczne punkty końcowe są dostępne z maszyn wirtualnych. Można przypisać sieciową grupę zabezpieczeń do podsieci lub do każdej maszyny wirtualnej. Jeśli to możliwe, użyj [tagów usługi](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) , aby zmniejszyć złożoność reguł zabezpieczeń.  
@@ -129,7 +129,7 @@ Architektura będzie wyglądać następująco:
 
 ![Połączenie wychodzące z zaporą platformy Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall.png)
 
-### <a name="important-considerations"></a>Ważne zagadnienia
+### <a name="important-considerations"></a>Istotne zagadnienia
 
 - Zapora systemu Azure to usługa natywna w chmurze z wbudowaną wysoką dostępnością i obsługuje wdrożenie strefowe.
 - Wymaga dodatkowej podsieci, która musi mieć nazwę AzureFirewallSubnet. 
@@ -155,25 +155,25 @@ Architektura będzie wyglądać następująco:
    1. Wybierz pozycję reguły, Kolekcja reguł sieci, a następnie kliknij pozycję Dodaj kolekcję reguł sieci.  
    1. Nazwa: **MyOutboundRule**, wprowadź priorytet, wybierz pozycję Akcja **Zezwalaj**.  
    1. Usługa: nazwa **ToAzureAPI**.  Protokół: Wybierz **dowolny**. Adres źródłowy: Wprowadź zakres podsieci, w której wdrożono maszyny wirtualne i usługa Load Balancer w warstwie Standardowa na przykład: **11.97.0.0/24**. Porty docelowe: wprowadź <b>*</b> .  
-   1. Zapisywanie
+   1. Zapisz
    1. Ponieważ nadal umieszczasz w zaporze platformy Azure, wybierz pozycję przegląd. Zanotuj prywatny adres IP zapory platformy Azure.  
 5. Tworzenie trasy do zapory platformy Azure  
    1. W Azure Portal wybierz pozycję wszystkie zasoby, a następnie kliknij pozycję Dodaj, Roześlij tabelę, Utwórz.  
    1. Wprowadź nazwę Moje trasy, wybierz opcję subskrypcja, Grupa zasobów i lokalizacja (zgodna z lokalizacją sieci wirtualnej i zapory).  
-   1. Zapisywanie  
+   1. Zapisz  
 
    Reguła zapory będzie wyglądać następująco: ![ połączenie wychodzące z zaporą platformy Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Utwórz trasę zdefiniowaną przez użytkownika z podsieci maszyn wirtualnych do prywatnego adresu IP **MyAzureFirewall**.
    1. Po umieszczeniu w tabeli tras kliknij pozycję trasy. Wybierz pozycję Dodaj. 
    1. Nazwa trasy: ToMyAzureFirewall, prefiks adresu: **0.0.0.0/0**. Typ następnego przeskoku: wybierz pozycję urządzenie wirtualne. Adres następnego przeskoku: wprowadź prywatny adres IP skonfigurowanej zapory: **11.97.1.4**.  
-   1. Zapisywanie
+   1. Zapisz
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Używanie serwera proxy dla wywołań Pacemaker do interfejsu API zarządzania platformy Azure
 
 Serwera proxy można użyć do zezwalania na wywołania Pacemaker do publicznego punktu końcowego interfejsu API zarządzania platformy Azure.  
 
-### <a name="important-considerations"></a>Ważne zagadnienia
+### <a name="important-considerations"></a>Istotne zagadnienia
 
   - Jeśli istnieje już firmowy serwer proxy, możesz kierować wywołania wychodzące do publicznych punktów końcowych. Wywołania wychodzące do publicznych punktów końcowych przechodzą przez punkt kontroli firmowej.  
   - Upewnij się, że konfiguracja serwera proxy umożliwia łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i`https://login.microsoftonline.com`  
@@ -222,7 +222,10 @@ Aby umożliwić usłudze Pacemaker komunikowanie się z interfejsem API zarządz
 
 ## <a name="other-solutions"></a>Inne rozwiązania
 
-Jeśli ruch wychodzący jest kierowany za pośrednictwem zapory innej firmy, upewnij się, że konfiguracja zapory zezwala na łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i `https://login.microsoftonline.com` .  
+Jeśli ruch wychodzący jest kierowany za pośrednictwem zapory innej firmy:
+
+- w przypadku korzystania z agenta usługi Azure ogrodzenia upewnij się, że konfiguracja zapory zezwala na łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i`https://login.microsoftonline.com`   
+- Jeśli korzystasz z infrastruktury aktualizacji chmury publicznej platformy Azure do stosowania aktualizacji i poprawek, zobacz [infrastruktura aktualizacji chmury publicznej platformy azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## <a name="next-steps"></a>Następne kroki
 

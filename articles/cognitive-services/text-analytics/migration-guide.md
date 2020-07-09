@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2fd6c908aa95ef22cbf7ea0b62b925d84d66cd28
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143272"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412587"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Przeprowadź migrację do wersji 3. x interfejs API analizy tekstu
 
@@ -44,7 +44,7 @@ Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy ż
 ## <a name="feature-changes"></a>Zmiany funkcji
 
 > [!NOTE] 
-> Obecnie [Kategorie jednostek v3](named-entity-types.md) są zwracane tylko w tekocie w języku angielskim. Interfejs API zwraca wersję 2,1 wyników dla żądań w innych językach, pod warunkiem, że są one obsługiwane w wersji 2,1.
+> Obecnie [Kategorie jednostek v3](named-entity-types.md) są zwracane tylko w języku angielskim i tekście hiszpańskim. Interfejs API zwraca wersję 2,1 wyników dla żądań w innych językach, pod warunkiem, że są one obsługiwane w wersji 2,1.
 
 W wersji 2,1 interfejs API analizy tekstu używa jednego punktu końcowego dla nazwanego rozpoznawania jednostek (NER) i konsolidacji jednostek. Wersja 3 zapewnia rozszerzone wykrywanie nazwanych jednostek i używa oddzielnych punktów końcowych dla żądań NER i konsolidacji jednostek. Począwszy od wersji v 3.1 — wersja zapoznawcza. 1, NER może dodatkowo wykrywać `pii` informacje osobiste i kondycję `phi` . 
 
@@ -103,9 +103,9 @@ Jeśli aplikacja używa interfejsu API REST, Zaktualizuj swój punkt końcowy ż
 ---
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja interfejs API analizy tekstu v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [Co to jest interfejs API analizy tekstu](overview.md)
 * [Obsługa języków](language-support.md)
-* [Przechowywanie wersji modelu](concepts/model-versioning.md)
+* [Wersje modelu danych](concepts/model-versioning.md)

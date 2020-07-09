@@ -9,12 +9,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 60b0a0f0d83b9b83c9cf8d530881508af591de59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099652"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84232826"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego wirtualnego dysku twardego na koncie magazynu
 
@@ -72,7 +71,7 @@ Jeśli musisz utworzyć konto magazynu, wykonaj następujące czynności:
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Przekazywanie wirtualnego dysku twardego do konta magazynu
-Użyj polecenia cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) , aby przekazać obraz do kontenera na koncie magazynu. Ten przykład przekazuje plik **myVHD. VHD** z `"C:\Users\Public\Documents\Virtual hard disks\"` do konta magazynu o nazwie **mojekontomagazynu** w **grupie zasobów zasobu** . Plik zostanie umieszczony w kontenerze o nazwie Moja **kontener, a nowa** nazwa pliku będzie **myUploadedVHD. VHD**.
+Użyj polecenia cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) , aby przekazać obraz do kontenera na koncie magazynu. Ten przykład przekazuje plik **myVHD. VHD** z `"C:\Users\Public\Documents\Virtual hard disks\"` do konta magazynu o nazwie **mojekontomagazynu** w grupie zasobów zasobu. **myResourceGroup** Plik zostanie umieszczony w kontenerze o nazwie Moja **kontener, a nowa** nazwa pliku będzie **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -112,7 +111,7 @@ Upewnij się, że:
 ### <a name="deallocate-the-vm"></a>Cofanie przydziału maszyny wirtualnej
 Cofnij przydział maszyny wirtualnej, co zwalnia dysk VHD do skopiowania. 
 
-* **Portal**: kliknij kolejno pozycje **maszyny** > wirtualne**myVM** > Zatrzymaj
+* **Portal**: kliknij kolejno pozycje **maszyny wirtualne**  >  **myVM** > Zatrzymaj
 * **PowerShell**: Użyj polecenia [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) , aby zatrzymać (cofnąć przydział) maszynę wirtualną o nazwie **myVM** **w grupie zasobów**.
 
 ```powershell
@@ -122,11 +121,11 @@ Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 **Stan** maszyny wirtualnej w Azure Portal zmiany z **zatrzymane** na **zatrzymane (cofnięto przydział)**.
 
 ### <a name="get-the-storage-account-urls"></a>Pobierz adresy URL konta magazynu
-Potrzebujesz adresów URL źródłowych i docelowych kont magazynu. Adresy URL wyglądają następująco `https://<storageaccount>.blob.core.windows.net/<containerName>/`:. Jeśli znasz już konto magazynu i nazwę kontenera, możesz po prostu zastąpić informacje w nawiasach, aby utworzyć adres URL. 
+Potrzebujesz adresów URL źródłowych i docelowych kont magazynu. Adresy URL wyglądają następująco: `https://<storageaccount>.blob.core.windows.net/<containerName>/` . Jeśli znasz już konto magazynu i nazwę kontenera, możesz po prostu zastąpić informacje w nawiasach, aby utworzyć adres URL. 
 
 Aby uzyskać adres URL, można użyć Azure Portal lub programu Azure PowerShell:
 
-* **Portal**: kliknij pozycję **>** dla **wszystkich usług** > **Magazyn konta** > *storage account* > magazynu**obiekty blob** i plik wirtualnego dysku twardego prawdopodobnie znajduje się w kontenerze **VHD** . Kliknij pozycję **Właściwości** dla kontenera i skopiuj tekst z etykietą **adres URL**. Potrzebne będą adresy URL zarówno kontenera źródłowego, jak i docelowego. 
+* **Portal**: kliknij pozycję **>** dla **wszystkich usług**  >  **Magazyn konta**  >  *magazynu*  >  **obiekty blob** i plik wirtualnego dysku twardego prawdopodobnie znajduje się w kontenerze **VHD** . Kliknij pozycję **Właściwości** dla kontenera i skopiuj tekst z etykietą **adres URL**. Potrzebne będą adresy URL zarówno kontenera źródłowego, jak i docelowego. 
 * **PowerShell**: należy użyć polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) , aby uzyskać informacje o maszynie wirtualnej o nazwie **myVM** **w grupie zasobów**. W wynikach zapoznaj się z sekcją **profil magazynu** dla **identyfikatora URI dysku VHD**. Pierwsza część identyfikatora URI jest adresem URL kontenera, a ostatnią częścią jest nazwa wirtualnego dysku twardego systemu operacyjnego dla maszyny wirtualnej.
 
 ```powershell
@@ -136,7 +135,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Pobierz klucze dostępu do magazynu
 Znajdź klucze dostępu dla konta magazynu źródłowego i docelowego. Aby uzyskać więcej informacji o kluczach dostępu, zobacz [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: kliknij kolejno pozycje **wszystkie usługi** > **konta** > magazyn**klucze dostępu do***konta* > . Skopiuj klucz oznaczony jako **Klucz1**.
+* **Portal**: kliknij kolejno pozycje **wszystkie usługi**  >  **konta magazyn**  >  *storage account*  >  **klucze dostępu do**konta. Skopiuj klucz oznaczony jako **Klucz1**.
 * **PowerShell**: należy użyć polecenia [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) , aby uzyskać klucz magazynu dla konta magazynu **mojekontomagazynu** **w grupie zasobów**. Skopiuj klucz o nazwie **Klucz1**.
 
 ```powershell
@@ -225,7 +224,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 Aby uzyskać więcej informacji na temat punktów końcowych i reguł sieciowej grupy zabezpieczeń, zobacz [otwieranie portów do maszyny wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Tworzenie publicznego adresu IP i karty sieciowej
-Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejsu sieciowego.
+Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/public-ip-addresses.md) i interfejsu sieciowego.
 
 1. Utwórz publiczny adres IP. W tym przykładzie nazwa publicznego adresu IP jest ustawiona na **myIP**.
    
@@ -278,7 +277,7 @@ $dataDiskName = $vmName + "dataDisk"
 $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
-W przypadku korzystania z konta magazynu adresy URL dysków danych i systemu operacyjnego wyglądają następująco: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Można to znaleźć w portalu, przechodząc do docelowego kontenera magazynu, klikając system operacyjny lub wirtualny dysk twardy danych, który został skopiowany, a następnie kopiując zawartość adresu URL.
+W przypadku korzystania z konta magazynu adresy URL dysków danych i systemu operacyjnego wyglądają następująco: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd` . Można to znaleźć w portalu, przechodząc do docelowego kontenera magazynu, klikając system operacyjny lub wirtualny dysk twardy danych, który został skopiowany, a następnie kopiując zawartość adresu URL.
 
 
 ### <a name="complete-the-vm"></a>Ukończ maszynę wirtualną 
@@ -300,7 +299,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com)w obszarze **wszystkie usługi** > **maszyny wirtualne**lub przy użyciu następujących poleceń programu PowerShell:
+Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com)w obszarze **wszystkie usługi**  >  **maszyny wirtualne**lub przy użyciu następujących poleceń programu PowerShell:
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $rgName

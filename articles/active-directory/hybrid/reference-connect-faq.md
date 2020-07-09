@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827152"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
@@ -88,7 +87,7 @@ Poniżej znajduje się dokument informacyjny, który przedstawia niektóre z naj
     - Mniejsza złożoność
     - Należy wyznaczyć zasoby na SQL i zezwolić na narzuty dla Azure AD Connect i systemu operacyjnego
 - Obejście serwera proxy jeśli jest to możliwe, jeśli nie można ominąć serwera proxy, należy się upewnić, że wartość limitu czasu jest większa niż 5 minut.
-- Jeśli wymagany jest serwer proxy, należy dodać serwer proxy do pliku Machine. config
+- Jeśli wymagany jest serwer proxy, należy dodać serwer proxy do pliku machine.config
 - Zapoznaj się z lokalnymi zadaniami SQL i konserwacją oraz wpływem Azure AD Connect na ponowne indeksowanie
 - Upewnij się, że system DNS może być rozpoznawany zewnętrznie
 - Upewnij się, że [specyfikacje serwera](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) są zgodnie z zaleceniem niezależnie od tego, czy są używane serwery fizyczne czy wirtualne.
@@ -203,7 +202,7 @@ W zeszłym roku wydano wersję Azure AD Connect, która w pewnych okolicznościa
 
 Aby uruchomić skrypt programu PowerShell, [Pobierz skrypt](https://aka.ms/repairaadconnect) i uruchom go na serwerze Azure AD Connect w oknie administracyjnym programu PowerShell. Aby dowiedzieć się, jak uruchomić skrypt, [Obejrzyj ten krótki film wideo](https://aka.ms/repairaadcau).
 
-Aby ręcznie uaktualnić, należy pobrać i uruchomić najnowszą wersję pliku AADConnect. msi.
+Aby ręcznie uaktualnić, należy pobrać i uruchomić najnowszą wersję pliku AADConnect.msi.
  
 -  Jeśli bieżąca wersja jest starsza niż 1.1.750.0, [Pobierz ją i przeprowadź uaktualnienie do najnowszej wersji](https://www.microsoft.com/download/details.aspx?id=47594).
 - Jeśli Azure AD Connect wersja to 1.1.750.0 lub nowsza, nie są wymagane żadne dalsze działania. Używasz już wersji, która zawiera poprawkę automatycznej aktualizacji. 

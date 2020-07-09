@@ -11,10 +11,9 @@ ms.date: 05/09/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 07234e5f456a5467adde4d899341a6124d128567
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006118"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Obciążenia mainframe obsługiwane na platformie Azure

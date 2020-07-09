@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357413"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect Sync: Konfigurowanie preferowanej lokalizacji danych dla zasobów pakietu Office 365
 W tym temacie opisano sposób konfigurowania atrybutu dla preferowanej lokalizacji danych w programie Azure Active Directory (Azure AD) Connect Sync. Gdy ktoś korzysta z funkcji wieloznacznych w pakiecie Office 365, ten atrybut służy do określania lokalizacji geograficznej danych pakietu Office 365 użytkownika. ( *Region* terminów i *geograficznie* są używane zamiennie).
@@ -53,7 +53,7 @@ Georegiony w pakiecie Office 365 dostępne dla wielogeograficzne:
 | Republika Południowej Afryki | ZAF |
 | Szwajcaria | MIEŚĆ |
 | Zjednoczone Emiraty Arabskie | LEŻĄ |
-| Wielka Brytania | GBR |
+| Zjednoczone Królestwo | GBR |
 | Stany Zjednoczone | Wietnam |
 
 * Jeśli lokalizacja geograficzna nie jest wymieniona w tej tabeli (na przykład Ameryka Południowa), nie można jej używać w przypadku używania wiele lokalizacji geograficznych.
@@ -62,7 +62,7 @@ Georegiony w pakiecie Office 365 dostępne dla wielogeograficzne:
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Obsługa Azure AD Connect synchronizacji
 
-Azure AD Connect obsługuje synchronizację atrybutu **preferredDataLocation** dla obiektów **użytkownika** w wersji 1.1.524.0 i nowszych. Są to:
+Azure AD Connect obsługuje synchronizację atrybutu **preferredDataLocation** dla obiektów **użytkownika** w wersji 1.1.524.0 i nowszych. W szczególności:
 
 * Schemat typu obiektu **użytkownika** w łączniku usługi Azure AD został rozszerzony w celu uwzględnienia atrybutu **preferredDataLocation** . Ten atrybut jest typu String o pojedynczej wartości.
 * Schemat **typu obiektu** w obiekcie Metaverse został rozszerzony tak, aby obejmował atrybut **preferredDataLocation** . Ten atrybut jest typu String o pojedynczej wartości.
@@ -91,8 +91,8 @@ Poniższe sekcje zawierają instrukcje dotyczące włączania synchronizacji atr
 Aby uniknąć niezamierzonych zmian, które są eksportowane do usługi Azure AD, należy się upewnić, że synchronizacja nie odbywa się w trakcie aktualizacji reguł synchronizacji. Aby wyłączyć wbudowany harmonogram synchronizacji:
 
 1. Uruchom sesję programu PowerShell na serwerze Azure AD Connect.
-2. Wyłącz zaplanowaną synchronizację przez uruchomienie tego `Set-ADSyncScheduler -SyncCycleEnabled $false`polecenia cmdlet:.
-3. Uruchom **Synchronization Service Manager** , aby **uruchomić** > **usługę synchronizacji**.
+2. Wyłącz zaplanowaną synchronizację przez uruchomienie tego polecenia cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false` .
+3. Uruchom **Synchronization Service Manager** , aby **uruchomić**  >  **usługę synchronizacji**.
 4. Wybierz kartę **operacje** i upewnij się, że nie ma operacji o stanie *w toku*.
 
 ![Zrzut ekranu przedstawiający Synchronization Service Manager](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
@@ -135,7 +135,7 @@ Domyślnie atrybut **preferredDataLocation** nie jest zaimportowany do obszaru �
 ## <a name="step-5-create-an-inbound-synchronization-rule"></a>Krok 5. Tworzenie reguły synchronizacji ruchu przychodzącego
 Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atrybutu z atrybutu Source w Active Directory lokalnym do magazynu Metaverse.
 
-1. Uruchom **Edytor reguł synchronizacji** , przechodząc do **START** > **edytora reguł synchronizacji**.
+1. Uruchom **Edytor reguł synchronizacji** , przechodząc do **START**  >  **edytora reguł synchronizacji**.
 2. Ustaw **kierunek** filtrowania wyszukiwania na **ruch przychodzący**.
 3. Aby utworzyć nową regułę ruchu przychodzącego, wybierz pozycję **Dodaj nową regułę**.
 4. Na karcie **Opis** podaj następującą konfigurację:
@@ -155,7 +155,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Wybierz atrybut źródłowy | Unchecked | Aktualizowanie |
+    |Direct | preferredDataLocation | Wybierz atrybut źródłowy | Unchecked | Aktualizacja |
 
 7. Aby utworzyć regułę ruchu przychodzącego, wybierz pozycję **Dodaj**.
 
@@ -184,7 +184,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
     | sourceObjectType | WIĘKSZY | Użytkownik |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | Prawda |
 
     Filtr określania zakresu określa, do których obiektów usługi Azure AD jest stosowana ta reguła synchronizacji danych wychodzących. W tym przykładzie używamy tego samego filtru określania zakresu od "out do Azure AD — tożsamość użytkownika" OOB (out-of-Box) reguły synchronizacji. Uniemożliwia stosowanie reguły synchronizacji do obiektów **użytkownika** , które nie są zsynchronizowane z Active Directory lokalnego. Może być konieczne dostosowanie filtru określania zakresu zgodnie ze wdrożeniem Azure AD Connect.
 
@@ -192,7 +192,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Unchecked | Aktualizowanie |
+    | Direct | preferredDataLocation | preferredDataLocation | Unchecked | Aktualizacja |
 
 7. Zamknij **Dodaj** , aby utworzyć regułę wychodzącą.
 

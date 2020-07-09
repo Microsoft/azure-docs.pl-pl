@@ -3,24 +3,24 @@ title: Konfigurowanie prywatnych adresów IP dla maszyn wirtualnych — interfej
 description: Dowiedz się, jak skonfigurować prywatne adresy IP dla maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
-ms.author: kumud
-ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: c34ab73422d8dd41feb9da542ed63fdba060fe3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78199482"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708165"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -38,38 +38,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
 
 1. Jeśli jeszcze tego nie zrobiono, zainstaluj i skonfiguruj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zaloguj się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
 
-2. Utwórz publiczny adres IP dla maszyny wirtualnej za pomocą polecenia [AZ Network Public-IP Create](/cli/azure/network/public-ip) . Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
-
-    > [!NOTE]
-    > Może być konieczne lub konieczne użycie różnych wartości argumentów w tym i kolejnych krokach, w zależności od środowiska.
-
-    ```azurecli
-    az network public-ip create \
-    --name TestPIP \
-    --resource-group TestRG \
-    --location centralus \
-    --allocation-method Static
-    ```
-
-    Oczekiwane dane wyjściowe:
-
-   ```json
-   {
-        "publicIp": {
-            "idleTimeoutInMinutes": 4,
-            "ipAddress": "52.176.43.167",
-            "provisioningState": "Succeeded",
-            "publicIPAllocationMethod": "Static",
-            "resourceGuid": "79e8baa3-33ce-466a-846c-37af3c721ce1"
-        }
-    }
-    ```
-
-   * `--resource-group`: Nazwa grupy zasobów, w której ma zostać utworzony publiczny adres IP.
-   * `--name`: Nazwa publicznego adresu IP.
-   * `--location`: Region platformy Azure, w którym ma zostać utworzony publiczny adres IP.
-
-3. Uruchom polecenie [AZ Network nic Create](/cli/azure/network/nic) , aby utworzyć kartę sieciową ze statycznym prywatnym adresem IP. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. 
+2. Uruchom polecenie [AZ Network nic Create](/cli/azure/network/nic) , aby utworzyć kartę sieciową ze statycznym prywatnym adresem IP. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. 
    
     ```azurecli
     az network nic create \
@@ -121,7 +90,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
     * `--vnet-name`: Nazwa sieci wirtualnej, w której ma zostać utworzona karta sieciowa.
     * `--subnet`: Nazwa podsieci, w której ma zostać utworzona karta sieciowa.
 
-4. Uruchom polecenie [Azure VM Create](/cli/azure/vm/nic) , aby utworzyć maszynę wirtualną przy użyciu publicznego adresu IP i karty sieciowej utworzonej wcześniej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
+3. Uruchom polecenie [Azure VM Create](/cli/azure/vm/nic) , aby utworzyć maszynę wirtualną przy użyciu publicznego adresu IP i karty sieciowej utworzonej wcześniej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
    
     ```azurecli
     az vm create \

@@ -4,12 +4,11 @@ description: Poznaj Azure Functions koncepcje i techniki, które są potrzebne d
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921736"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions — przewodnik dla deweloperów
 W Azure Functions określone funkcje udostępniają kilka podstawowych pojęć i składników technicznych, niezależnie od używanego języka lub powiązania. Przed przejściem do szczegółów szczegółowych informacji dotyczących danego języka lub powiązania należy zapoznać się z tym omówieniem, który ma zastosowanie do wszystkich z nich.
@@ -17,9 +16,9 @@ W Azure Functions określone funkcje udostępniają kilka podstawowych pojęć i
 W tym artykule przyjęto założenie, że [przegląd Azure Functions](functions-overview.md)został już odczytany.
 
 ## <a name="function-code"></a>Kod funkcji
-*Funkcja* jest podstawową koncepcją w Azure Functions. Funkcja zawiera dwa ważne elementy — kod, który można napisać w różnych językach, i kilka konfiguracji, plik Function. JSON. W przypadku skompilowanych języków ten plik konfiguracji jest generowany automatycznie z adnotacji w kodzie. W przypadku języków skryptów należy samodzielnie dostarczyć plik konfiguracji.
+*Funkcja* jest podstawową koncepcją w Azure Functions. Funkcja zawiera dwa ważne elementy — kod, który można napisać w różnych językach, i kilka konfiguracji, function.jsna pliku. W przypadku skompilowanych języków ten plik konfiguracji jest generowany automatycznie z adnotacji w kodzie. W przypadku języków skryptów należy samodzielnie dostarczyć plik konfiguracji.
 
-Plik Function. JSON definiuje wyzwalacz funkcji, powiązania i inne ustawienia konfiguracji. Każda funkcja ma jeden i tylko jeden wyzwalacz. Środowisko uruchomieniowe używa tego pliku konfiguracji do określenia zdarzeń do monitorowania oraz przekazywania danych do i zwracania danych z wykonywania funkcji. Poniżej znajduje się przykładowy plik Function. JSON.
+function.jsw pliku definiuje wyzwalacz funkcji, powiązania i inne ustawienia konfiguracji. Każda funkcja ma jeden i tylko jeden wyzwalacz. Środowisko uruchomieniowe używa tego pliku konfiguracji do określenia zdarzeń do monitorowania oraz przekazywania danych do i zwracania danych z wykonywania funkcji. Poniżej znajduje się przykład function.jspliku.
 
 ```json
 {
@@ -38,7 +37,7 @@ Plik Function. JSON definiuje wyzwalacz funkcji, powiązania i inne ustawienia k
 
 Aby uzyskać więcej informacji, zobacz temat [Azure Functions wyzwalacze i koncepcje powiązań](functions-triggers-bindings.md).
 
-Właściwość `bindings` służy do konfigurowania wyzwalaczy i powiązań. Każde powiązanie udostępnia kilka typowych ustawień i niektóre ustawienia, które są specyficzne dla określonego typu powiązania. Każde powiązanie wymaga następujących ustawień:
+`bindings`Właściwość służy do konfigurowania wyzwalaczy i powiązań. Każde powiązanie udostępnia kilka typowych ustawień i niektóre ustawienia, które są specyficzne dla określonego typu powiązania. Każde powiązanie wymaga następujących ustawień:
 
 | Właściwość | Wartości/typy | Komentarze |
 | --- | --- | --- |
@@ -55,10 +54,10 @@ Aplikacja funkcji udostępnia kontekst wykonywania na platformie Azure, w który
 ## <a name="folder-structure"></a>Struktura folderów
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Powyższa wartość to domyślna (i zalecana) struktura folderów dla aplikacji funkcji. Jeśli chcesz zmienić lokalizację pliku kodu funkcji, zmodyfikuj `scriptFile` sekcję pliku _Function. JSON_ . Zalecamy również użycie [wdrożenia pakietu](deployment-zip-push.md) do wdrożenia projektu w aplikacji funkcji na platformie Azure. Możesz również korzystać z istniejących narzędzi, takich jak [ciągła integracja i wdrażanie](functions-continuous-deployment.md) oraz Azure DevOps.
+Powyższa wartość to domyślna (i zalecana) struktura folderów dla aplikacji funkcji. Jeśli chcesz zmienić lokalizację pliku kodu funkcji, zmodyfikuj `scriptFile` sekcję _function.jsw_ pliku. Zalecamy również użycie [wdrożenia pakietu](deployment-zip-push.md) do wdrożenia projektu w aplikacji funkcji na platformie Azure. Możesz również korzystać z istniejących narzędzi, takich jak [ciągła integracja i wdrażanie](functions-continuous-deployment.md) oraz Azure DevOps.
 
 > [!NOTE]
-> W przypadku ręcznego wdrażania pakietu Pamiętaj o wdrożeniu plików _hosta. JSON_ i folderów funkcji bezpośrednio do `wwwroot` folderu. Nie dołączaj `wwwroot` folderu we wdrożeniach. W przeciwnym razie możesz się dokończyć z `wwwroot\wwwroot` folderami.
+> Jeśli wdrażasz pakiet ręcznie, pamiętaj o wdrożeniu _host.jsw_ folderach plików i funkcji bezpośrednio do `wwwroot` folderu. Nie dołączaj `wwwroot` folderu we wdrożeniach. W przeciwnym razie możesz się dokończyć z `wwwroot\wwwroot` folderami.
 
 #### <a name="use-local-tools-and-publishing"></a>Korzystanie z lokalnych narzędzi i publikowanie
 Aplikacje funkcji można tworzyć i publikować przy użyciu różnych narzędzi, w tym [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [zaćmienie](./functions-create-maven-eclipse.md)i [Azure Functions Core Tools](./functions-develop-local.md). Aby uzyskać więcej informacji, zobacz temat [kod i test Azure Functions lokalnie](./functions-develop-local.md).
@@ -66,14 +65,14 @@ Aplikacje funkcji można tworzyć i publikować przy użyciu różnych narzędzi
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 ## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a>Jak edytować funkcje w Azure Portal
-Edytor funkcji wbudowanych w Azure Portal pozwala aktualizować kod i plik *Function. JSON* bezpośrednio w wierszu. Jest to zalecane tylko w przypadku małych zmian lub prób koncepcji — najlepszym rozwiązaniem jest użycie lokalnego narzędzia programistycznego, takiego jak VS Code.
+Edytor funkcji wbudowanych w Azure Portal pozwala aktualizować kod i *function.jsna* pliku bezpośrednio w wierszu. Jest to zalecane tylko w przypadku małych zmian lub prób koncepcji — najlepszym rozwiązaniem jest użycie lokalnego narzędzia programistycznego, takiego jak VS Code.
 
 ## <a name="parallel-execution"></a>Wykonywanie równoległe
 Gdy wielokrotne zdarzenia wyzwalające są wykonywane szybciej niż środowisko uruchomieniowe funkcji pojedynczego wątku, może je przetworzyć, ale środowisko uruchomieniowe może wielokrotnie wywołać funkcję.  Jeśli aplikacja funkcji korzysta z [planu hostingu zużycia](functions-scale.md#how-the-consumption-and-premium-plans-work), aplikacja funkcji może automatycznie skalować w poziomie.  Każde wystąpienie aplikacji funkcji, niezależnie od tego, czy aplikacja działa zgodnie z planem hostingu zużycia czy regularnym [App Service planem hostingu](../app-service/overview-hosting-plans.md), może przetwarzać współbieżne wywołania funkcji równolegle przy użyciu wielu wątków.  Maksymalna liczba współbieżnych wywołań funkcji w każdym wystąpieniu aplikacji funkcji różni się w zależności od typu używanego wyzwalacza oraz zasobów używanych przez inne funkcje w aplikacji funkcji.
 
 ## <a name="functions-runtime-versioning"></a>Przechowywanie wersji środowiska uruchomieniowego funkcji
 
-Wersję środowiska uruchomieniowego funkcji można skonfigurować przy użyciu ustawienia `FUNCTIONS_EXTENSION_VERSION` aplikacji. Na przykład wartość "~ 3" wskazuje, że aplikacja funkcji będzie używać 3. x jako wersji głównej. Aplikacje funkcji są uaktualniane do każdej nowej wersji pomocniczej po ich wydaniu. Aby uzyskać więcej informacji, w tym o sposobie wyświetlania dokładnej wersji aplikacji funkcji, zobacz [jak dowiedzieć się, jak kierować Azure Functions wersje środowiska uruchomieniowego](set-runtime-version.md).
+Wersję środowiska uruchomieniowego funkcji można skonfigurować przy użyciu `FUNCTIONS_EXTENSION_VERSION` Ustawienia aplikacji. Na przykład wartość "~ 3" wskazuje, że aplikacja funkcji będzie używać 3. x jako wersji głównej. Aplikacje funkcji są uaktualniane do każdej nowej wersji pomocniczej po ich wydaniu. Aby uzyskać więcej informacji, w tym o sposobie wyświetlania dokładnej wersji aplikacji funkcji, zobacz [jak dowiedzieć się, jak kierować Azure Functions wersje środowiska uruchomieniowego](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repozytoria
 Kod dla Azure Functions jest otwartym źródłem i przechowywany w repozytoriach usługi GitHub:
@@ -102,4 +101,4 @@ Więcej informacji zawierają następujące zasoby:
 * [Kodowanie i testowanie usługi Azure Functions lokalnie](./functions-develop-local.md)
 * [Najlepsze rozwiązania dotyczące Azure Functions](functions-best-practices.md)
 * [Dokumentacja dla deweloperów Azure Functions C#](functions-dotnet-class-library.md)
-* [Azure Functions Dokumentacja dla deweloperów Node. js](functions-reference-node.md)
+* [Azure Functions Node.js Dokumentacja dla deweloperów](functions-reference-node.md)

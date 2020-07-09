@@ -11,12 +11,11 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/28/2020
-ms.openlocfilehash: 051187a7dde7bf0ee04f8323cdecba01760de13d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 5449bb335232d3c7a6f2b97c5cce41a8bd2cf0f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046684"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249775"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -251,7 +250,7 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Użyj trybu FAILOVER lub FORCE_FAILOVER_ALLOW_DATA_LOSS, aby przełączyć pomocniczą bazę danych jako główną w celu zainicjowania trybu failover |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Użyj Usuń POMOCNICZy serwer na serwerze, aby zakończyć replikację danych między SQL Database a określoną pomocniczą bazą danych. |
 | [sys. geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Zwraca informacje o wszystkich istniejących łączach replikacji dla każdej bazy danych na serwerze. |
-| [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Pobiera czas ostatniej replikacji, ostatnie opóźnienie replikacji oraz inne informacje o łączu replikacji danej bazy danych SQL. |
+| [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Pobiera czas ostatniej replikacji, ostatnie opóźnienie replikacji i inne informacje o łączu replikacji danej bazy danych. |
 | [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Przedstawia stan wszystkich operacji bazy danych, w tym stan łączy replikacji. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |powoduje, że aplikacja czeka, aż wszystkie zatwierdzone transakcje zostaną zreplikowane i potwierdzone przez aktywną pomocniczą bazę danych. |
 |  | |
@@ -282,8 +281,8 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 | [Pobieranie lub aktualizowanie stanu bazy danych](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Zwraca stan podczas operacji tworzenia. |
 | [Ustaw pomocniczą bazę danych jako podstawową (planowana praca w trybie failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Ustawia pomocniczą bazę danych jako podstawową przez przechodzenie w tryb failover z bieżącej podstawowej bazy danych. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
 | [Ustaw pomocniczą bazę danych jako podstawową (nieplanowaną pracę w trybie failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Ustawia pomocniczą bazę danych jako podstawową przez przechodzenie w tryb failover z bieżącej podstawowej bazy danych. Ta operacja może spowodować utratę danych. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
-| [Pobierz łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Pobiera określone łącze replikacji dla danej bazy danych SQL w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys. geo_replication_links. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
-| [Linki replikacji — lista według bazy danych](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Pobiera wszystkie linki replikacji dla danej bazy danych SQL w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys. geo_replication_links. |
+| [Pobierz łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Pobiera określone łącze replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys. geo_replication_links. **Ta opcja nie jest obsługiwana w przypadku wystąpienia zarządzanego SQL.**|
+| [Linki replikacji — lista według bazy danych](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Pobiera wszystkie linki replikacji dla danej bazy danych w ramach powiązania z replikacją geograficzną. Pobiera informacje widoczne w widoku wykazu sys. geo_replication_links. |
 | [Usuń łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Usuwa łącze replikacji bazy danych. Nie można wykonać operacji w trybie failover. |
 |  | |
 

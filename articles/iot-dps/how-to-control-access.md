@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
 ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79285151"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrola dostępu do IoT Hub Device Provisioning Service platformy Azure
@@ -39,7 +38,7 @@ Musisz mieć odpowiednie uprawnienia, aby uzyskać dostęp do dowolnych punktów
 > [!NOTE]
 > Aby uzyskać szczegółowe informacje, zobacz [uprawnienia](#device-provisioning-service-permissions) .
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Usługa Azure IoT Hub Device Provisioning Service udziela dostępu do punktów końcowych przez Weryfikowanie tokenu względem zasad dostępu współdzielonego. Poświadczenia zabezpieczeń, takie jak klucze symetryczne, nigdy nie są wysyłane przez sieć.
 
@@ -77,14 +76,14 @@ Poniżej przedstawiono oczekiwane wartości:
 
 | Wartość | Opis |
 | --- | --- |
-| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry`. **Ważne**: klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256.|
+| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry` . **Ważne**: klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256.|
 | wygaśnięcia |Ciągi UTF8 przez liczbę sekund od czasu epoki 00:00:00 UTC 1 stycznia 1970. |
 | {Zakodowany w adresie URL — resourceURI} | Dolny adres URL w przypadku małych liter — kodowanie identyfikatora URI zasobu małymi literami. Prefiks identyfikatora URI (segment) punktów końcowych, do których można uzyskać dostęp za pomocą tego tokenu, rozpoczynając od nazwy hosta usługi IoT Device Provisioning (brak protokołu). Na przykład `mydps.azure-devices-provisioning.net`. |
 | PolicyName |Nazwa zasad dostępu współdzielonego, do których odwołuje się ten token. |
 
-**Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla `/a/b/c` , ale nie dla `/a/bc`.
+**Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
 
-Poniższy fragment kodu środowiska Node. js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token z danych wejściowych `resourceUri, signingKey, policyName, expiresInMins`. W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
+Poniższy fragment kodu Node.js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token na podstawie danych wejściowych `resourceUri, signingKey, policyName, expiresInMins` . W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -141,7 +140,7 @@ Składniki usługi mogą generować tylko tokeny zabezpieczające przy użyciu z
 
 Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
-| Endpoint | Funkcjonalność |
+| Endpoint | Funkcja |
 | --- | --- |
 | `{your-service}.azure-devices-provisioning.net/enrollments` |Zapewnia operacje rejestracji urządzeń w usłudze Device Provisioning. |
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Zawiera operacje zarządzania grupami rejestracji urządzeń. |
@@ -150,9 +149,9 @@ Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
 Przykładowo usługa wygenerowana przy użyciu wstępnie utworzonych zasad dostępu współdzielonego o nazwie **enrollmentread** utworzy token z następującymi parametrami:
 
-* Identyfikator URI zasobu `{mydps}.azure-devices-provisioning.net`:,
+* Identyfikator URI zasobu: `{mydps}.azure-devices-provisioning.net` ,
 * klucz podpisywania: jeden z kluczy `enrollmentread` zasad,
-* Nazwa zasad: `enrollmentread`,
+* Nazwa zasad: `enrollmentread` ,
 * dowolny czas wygaśnięcia. backn
 
 ![Tworzenie zasad dostępu współdzielonego dla wystąpienia usługi Device Provisioning w portalu][img-add-shared-access-policy]

@@ -6,17 +6,17 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 31533eefbfae63e0eb4049d2eabaf6b853340636
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208692"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics — Monitorowanie portal zarządzania obciążeń
 
@@ -59,7 +59,7 @@ Poniższy wykres jest skonfigurowany w następujący sposób:<br>
 Metric 1: *efektywny minimalny procent zasobów* (średnia agregacji, `blue line` )<br>
 Metryka 2: *alokacja grupy obciążeń według wartości procentowej systemu* (średnia agregacja, `purple line` )<br>
 Filtr: [Grupa obciążeń] =`wgPriority`<br>
-![underutilized-wg. png ](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) Wykres pokazuje, że z możliwością obciążania o 25%, tylko 10% jest używana średnio.  W takim przypadku `MIN_PERCENTAGE_RESOURCE` wartość parametru może być obniżona do zakresu od 10 do 15, a inne obciążenia w systemie zużywają zasoby.
+![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) Wykres pokazuje, że w przypadku korzystania z 25% obciążania obciążenia jest używana średnio 10%.  W takim przypadku `MIN_PERCENTAGE_RESOURCE` wartość parametru może być obniżona do zakresu od 10 do 15, a inne obciążenia w systemie zużywają zasoby.
 
 ### <a name="workload-group-bottleneck"></a>Wąskie gardła grupy obciążeń
 

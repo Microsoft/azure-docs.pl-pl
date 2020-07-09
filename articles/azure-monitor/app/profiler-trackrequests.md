@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671600"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Napisz kod do śledzenia żądań za pomocą Application Insights
@@ -31,7 +30,7 @@ Aby ręcznie śledzić żądania, wykonaj następujące czynności:
         ```
       Aby uzyskać więcej informacji na temat konfiguracji globalnego klucza instrumentacji, zobacz [używanie Service Fabric z Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. Dla dowolnego fragmentu kodu, który ma być instrumentem, Dodaj `StartOperation<RequestTelemetry>` do niego instrukcję **using** , jak pokazano w poniższym przykładzie:
+  1. Dla dowolnego fragmentu kodu, który ma być instrumentem, Dodaj do `StartOperation<RequestTelemetry>` niego instrukcję **using** , jak pokazano w poniższym przykładzie:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -45,7 +44,7 @@ Aby ręcznie śledzić żądania, wykonaj następujące czynności:
         }
         ```
 
-        Wywoływanie `StartOperation<RequestTelemetry>` w `StartOperation<RequestTelemetry>` innym zakresie nie jest obsługiwane. Zamiast tego można `StartOperation<DependencyTelemetry>` użyć w zagnieżdżonym zakresie. Przykład:  
+        Wywoływanie `StartOperation<RequestTelemetry>` w innym `StartOperation<RequestTelemetry>` zakresie nie jest obsługiwane. `StartOperation<DependencyTelemetry>`Zamiast tego można użyć w zagnieżdżonym zakresie. Przykład:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

@@ -3,14 +3,13 @@ title: Tworzenie kopii zapasowych maszyn z systemem Windows przy użyciu agenta 
 description: Użyj agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 002f4cd2e0582fb87af622f721f286bd78920350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85604849"
 ---
-# <a name="back-up-windows-machines-by-using-the-azure-backup-mars-agent"></a>Tworzenie kopii zapasowych maszyn z systemem Windows przy użyciu agenta Azure Backup MARS
+# <a name="back-up-windows-server-files-and-folders-to-azure"></a>Tworzenie kopii zapasowych plików i folderów systemu Windows Server na platformie Azure
 
 W tym artykule opisano sposób tworzenia kopii zapasowych maszyn z systemem Windows przy użyciu usługi [Azure Backup](backup-overview.md) i agenta Microsoft Azure Recovery Services (MARS). Usługa MARS jest również znana jako agent Azure Backup.
 
@@ -43,7 +42,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 1. W obszarze **Akcje**wybierz pozycję **Zaplanuj kopię zapasową**.
 
     ![Planowanie tworzenia kopii zapasowej systemu Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-1. W Kreatorze harmonogramu tworzenia kopii zapasowej wybierz pozycję **Rozpocznij** > **dalej**.
+1. W Kreatorze harmonogramu tworzenia kopii zapasowej wybierz pozycję **Rozpocznij**  >  **dalej**.
 1. W obszarze **Wybierz elementy do utworzenia kopii zapasowej**wybierz pozycję **Dodaj elementy**.
 
     ![Dodaj elementy do kopii zapasowej](./media/backup-azure-manage-mars/select-item-to-backup.png)
@@ -79,7 +78,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
         ![Przykład zasad przechowywania](./media/backup-configure-vault/retention-example.png)
 
-1. Na stronie **Wybierz typ początkowej kopii zapasowej** Zdecyduj, czy chcesz pobrać początkową kopię zapasową za pośrednictwem sieci, czy użyć kopii zapasowej offline. Aby pobrać początkową kopię zapasową za pośrednictwem sieci, wybierz pozycję **automatycznie za pośrednictwem sieci** > **.**
+1. Na stronie **Wybierz typ początkowej kopii zapasowej** Zdecyduj, czy chcesz pobrać początkową kopię zapasową za pośrednictwem sieci, czy użyć kopii zapasowej offline. Aby pobrać początkową kopię zapasową za pośrednictwem sieci, wybierz pozycję **automatycznie za pośrednictwem sieci**  >  **Next**.
 
     Aby uzyskać więcej informacji na temat kopii zapasowej offline, zobacz [używanie Azure Data Box do tworzenia kopii zapasowych w trybie offline](offline-backup-azure-data-box.md).
 
@@ -150,7 +149,7 @@ Po zakończeniu początkowej kopii zapasowej w konsoli kopia zapasowa zostanie w
 
 | Backup — opcja harmonogramu | Czas przechowywania danych
 | -- | --
-| Day | **Domyślne przechowywanie**: równoważne "przechowywanie w dniach dla codziennych kopii zapasowych". <br/><br/> **Wyjątek**: Jeśli dzienna zaplanowana kopia zapasowa ustawiona na przechowywanie długoterminowe (tygodnie, miesiące lub lata) zakończy się niepowodzeniem, kopia zapasowa na żądanie, która jest wyzwalana bezpośrednio po awarii, będzie brana pod uwagę w przypadku przechowywania długoterminowego. W przeciwnym razie Następna zaplanowana kopia zapasowa jest traktowana do długoterminowego przechowywania.<br/><br/> **Przykładowy scenariusz**: zaplanowana kopia zapasowa w czwartek o godzinie 8:00 kończy się niepowodzeniem. Ta kopia zapasowa była brana pod uwagę przez cotygodniowe, comiesięczne lub coroczne przechowywanie. Dlatego pierwsza kopia zapasowa na żądanie wyzwolona przed następną zaplanowaną kopią zapasową w piątek o godzinie 8:00 jest automatycznie oznaczana jako cotygodniowe, miesięczne lub coroczne przechowywanie. Ta kopia zapasowa zastępuje kopie zapasowe w czwartek 8:00.
+| Dzień | **Domyślne przechowywanie**: równoważne "przechowywanie w dniach dla codziennych kopii zapasowych". <br/><br/> **Wyjątek**: Jeśli dzienna zaplanowana kopia zapasowa ustawiona na przechowywanie długoterminowe (tygodnie, miesiące lub lata) zakończy się niepowodzeniem, kopia zapasowa na żądanie, która jest wyzwalana bezpośrednio po awarii, będzie brana pod uwagę w przypadku przechowywania długoterminowego. W przeciwnym razie Następna zaplanowana kopia zapasowa jest traktowana do długoterminowego przechowywania.<br/><br/> **Przykładowy scenariusz**: zaplanowana kopia zapasowa w czwartek o godzinie 8:00 kończy się niepowodzeniem. Ta kopia zapasowa była brana pod uwagę przez cotygodniowe, comiesięczne lub coroczne przechowywanie. Dlatego pierwsza kopia zapasowa na żądanie wyzwolona przed następną zaplanowaną kopią zapasową w piątek o godzinie 8:00 jest automatycznie oznaczana jako cotygodniowe, miesięczne lub coroczne przechowywanie. Ta kopia zapasowa zastępuje kopie zapasowe w czwartek 8:00.
 | Tydzień | **Domyślne przechowywanie**: jeden dzień. Kopie zapasowe na żądanie pobierane dla źródła danych, które mają cotygodniowe zasady tworzenia kopii zapasowych, są usuwane w następnym dniu. Są one usuwane, nawet jeśli są najnowszymi kopiami zapasowymi źródła danych. <br/><br/> **Wyjątek**: Jeśli cotygodniowa zaplanowana kopia zapasowa ustawiona na przechowywanie długoterminowe (tygodnie, miesiące lub lata) zakończy się niepowodzeniem, kopia zapasowa na żądanie, która jest wyzwalana bezpośrednio po awarii, zostanie uznana za długoterminowe przechowywanie danych. W przeciwnym razie Następna zaplanowana kopia zapasowa jest traktowana do długoterminowego przechowywania. <br/><br/> **Przykładowy scenariusz**: zaplanowana kopia zapasowa w czwartek o godzinie 8:00 kończy się niepowodzeniem. Ta kopia zapasowa była brana pod uwagę w przypadku przechowywania miesięcznego lub rocznego. Dlatego pierwsza kopia zapasowa na żądanie, która jest wyzwalana przed następną zaplanowaną kopią zapasową w czwartek o godzinie 8:00, zostanie automatycznie oznaczona jako comiesięczna lub roczna. Ta kopia zapasowa zastępuje kopie zapasowe w czwartek 8:00.
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie zasad kopii zapasowych](#create-a-backup-policy).

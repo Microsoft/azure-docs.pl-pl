@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73839166"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Tworzenie projektów za pomocą edytora Video Indexer
@@ -57,7 +56,7 @@ W tym artykule pokazano, jak utworzyć projekt od podstaw, a także jak utworzy�
 
     ![Filtr](./media/video-indexer-view-edit/visual-text.png)
 
-    Do zapytania można przydzielić wiele filtrów. Użyj przycisków **+** / **-** , aby dodać/usunąć filtry. Użyj **Wyczyść filtry** , aby usunąć wszystkie filtry.
+    Do zapytania można przydzielić wiele filtrów. Użyj **+** / **-** przycisków, aby dodać/usunąć filtry. Użyj **Wyczyść filtry** , aby usunąć wszystkie filtry.
 1. Aby dodać filmy wideo, zaznacz je, a następnie wybierz pozycję **Dodaj**.
 1. Teraz zostaną wyświetlone wszystkie wybrane filmy wideo. Są to filmy wideo, z których zamierzasz wybierać klipy dla projektu.
 

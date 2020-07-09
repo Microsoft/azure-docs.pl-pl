@@ -4,15 +4,14 @@ description: Ten artykuł zawiera omówienie zapisywania nagłówków HTTP w us�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248687"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP przy użyciu Application Gateway
 
@@ -69,21 +68,21 @@ Brama aplikacji obsługuje te zmienne serwera:
 | client_port                | Port klienta.                                                  |
 | client_tcp_rtt             | Informacje o połączeniu TCP klienta. Dostępne w systemach obsługujących opcję TCP_INFO gniazda. |
 | client_user                | Gdy używane jest uwierzytelnianie przy użyciu protokołu HTTP, nazwa użytkownika podana na potrzeby uwierzytelniania. |
-| host                       | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*wartość hosta będzie *contoso.com* |
+| host                       | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* wartość hosta będzie *contoso.com* |
 | *nazwa* cookie_              | *Nazwa* pliku cookie.                                            |
 | http_method                | Metoda używana do żądania adresu URL. Na przykład Pobierz lub Opublikuj. |
 | http_status                | Stan sesji. Na przykład 200, 400 lub 403.                       |
 | http_version               | Protokół żądania. Zazwyczaj HTTP/1.0, HTTP/1.1 lub HTTP/2.0. |
-| query_string               | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*QUERY_STRING wartość będzie równa *id = 123&title = Fabrikam* |
+| query_string               | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING wartość będzie równa *ID = 123&title = Fabrikam* |
 | received_bytes             | Długość żądania (w tym wiersza żądania, nagłówka i treści żądania). |
 | request_query              | Argumenty w wierszu żądania.                                |
 | request_scheme             | Schemat żądania: http lub https.                            |
-| request_uri                | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*REQUEST_URI wartość będzie */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* REQUEST_URI wartość będzie */article.aspx? id = 123&title = Fabrikam*   |
 | sent_bytes                 | Liczba bajtów wysłanych do klienta.                             |
 | server_port                | Port serwera, który zaakceptował żądanie.                 |
 | ssl_connection_protocol    | Protokół ustanowionego połączenia TLS.        |
 | ssl_enabled                | "Włączone", jeśli połączenie działa w trybie TLS. W przeciwnym razie pusty ciąg. |
-| uri_path                   | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*uri_path wartość zostanie */article.aspx*  |
+| uri_path                   | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path wartość zostanie */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Zapisz ponownie konfigurację
 
@@ -131,7 +130,7 @@ Ten problem można rozwiązać przez ustawienie nazwy hosta w nagłówku lokaliz
 
 Poniżej przedstawiono procedurę zamieniania nazwy hosta:
 
-1. Utwórz regułę ponownego zapisywania z warunkiem, który oblicza, czy nagłówek lokalizacji w odpowiedzi zawiera azurewebsites.net. Wprowadź wzorzec `(https?):\/\/.*azurewebsites\.net(.*)$`.
+1. Utwórz regułę ponownego zapisywania z warunkiem, który oblicza, czy nagłówek lokalizacji w odpowiedzi zawiera azurewebsites.net. Wprowadź wzorzec `(https?):\/\/.*azurewebsites\.net(.*)$` .
 1. Wykonaj akcję, aby ponownie zapisać nagłówek lokalizacji tak, aby miał nazwę hosta bramy aplikacji. Zrób to, wprowadzając `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` jako wartość nagłówka.
 
 ![Modyfikowanie nagłówka lokalizacji](media/rewrite-http-headers/app-service-redirection.png)
@@ -156,13 +155,13 @@ Można oszacować żądanie HTTP lub nagłówek odpowiedzi dla obecności nagł�
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Może to być spowodowane zwykle z nagłówkiem Set-cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład. `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` Ponowne zapisanie jednego z nagłówków zestawu plików cookie w tym scenariuszu może spowodować usunięcie innego nagłówka deplika cookie z odpowiedzi.
+- Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Może to być spowodowane zwykle z nagłówkiem Set-cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Ponowne zapisanie jednego z nagłówków zestawu plików cookie w tym scenariuszu może spowodować usunięcie innego nagłówka deplika cookie z odpowiedzi.
 
 - Ponowne zapisywanie nie jest obsługiwane, gdy Brama aplikacji jest skonfigurowana do przekierowywania żądań lub wyświetlania niestandardowej strony błędu.
 
 - Ponowne zapisywanie nagłówków połączenia, uaktualnienia i hosta nie jest obecnie obsługiwane.
 
-- Nazwy nagłówków mogą zawierać dowolne znaki alfanumeryczne i określone symbole, zgodnie z definicją w [dokumencie RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Obecnie nie obsługujemy znaku podkreślenia (\_) w nazwach nagłówków.
+- Nazwy nagłówków mogą zawierać dowolne znaki alfanumeryczne i określone symbole, zgodnie z definicją w [dokumencie RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Obecnie nie obsługujemy znaku podkreślenia ( \_ ) w nazwach nagłówków.
 
 ## <a name="next-steps"></a>Następne kroki
 

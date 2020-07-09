@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,11 +10,11 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 0f5ee8b1f575c3caa8e1e2608444ea853c51d53f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a55f880398aa186ef2f2e7e2c66d731c1631b3f4
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77372210"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86062671"
 ---
-W tym artykule możesz użyć bezpłatnego konta [Luis](../luis-concept-keys.md#starter-key) i jego początkowego klucza w celu utworzenia aplikacji Luis.
+W tym artykule możesz użyć bezpłatnego konta [Luis](../luis-how-to-azure-subscription.md#starter-key) i jego początkowego klucza w celu utworzenia aplikacji Luis.

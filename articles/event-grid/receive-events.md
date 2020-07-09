@@ -1,19 +1,14 @@
 ---
 title: Odbieraj zdarzenia z Azure Event Grid do punktu końcowego HTTP
 description: Opisuje, jak sprawdzać poprawność punktu końcowego HTTP, a następnie odbierać i deserializować zdarzenia z Azure Event Grid
-services: event-grid
-author: banisadr
-manager: darosa
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.author: babanisa
-ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 07/07/2020
+ms.openlocfilehash: 460efc15c7b85821f422c9964eb246df883a849f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116972"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108196"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Odbieranie zdarzeń w punkcie końcowym HTTP
 
@@ -32,7 +27,7 @@ W przypadku tworzenia aplikacji w programie .NET należy [dodać zależność](.
 
 Zestawy SDK dla innych języków są dostępne za pośrednictwem referencyjnego [publikowania zestawów SDK](./sdk-overview.md#data-plane-sdks) . Te pakiety mają modele dla natywnych typów zdarzeń, takich jak `EventGridEvent` , `StorageBlobCreatedEventData` , i `EventHubCaptureFileCreatedEventData` .
 
-Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w portalu usługi Azure Functions) i Utwórz plik o nazwie Project. JSON. Dodaj następującą zawartość do `project.json` pliku i Zapisz go:
+Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w portalu usługi Azure Functions) i Utwórz plik o nazwie project.json. Dodaj następującą zawartość do `project.json` pliku i Zapisz go:
 
  ```json
 {

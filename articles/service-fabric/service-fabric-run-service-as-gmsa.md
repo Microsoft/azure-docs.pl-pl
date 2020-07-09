@@ -7,15 +7,14 @@ ms.date: 03/29/2018
 ms.author: dekapur
 ms.custom: sfrev
 ms.openlocfilehash: 19343d370547cb5457f6bed70a8465187ff27102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988400"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Uruchamianie usługi za pomocą zarządzanego konta usługi grupy
 
-W klastrze autonomicznym systemu Windows Server można uruchomić usługę jako *konto usługi zarządzane przez grupę* (gMSA) przy użyciu zasad *runas* .  Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, w ramach `Fabric.exe` którego działa proces. Uruchamianie aplikacji na różnych kontach, nawet w udostępnianym środowisku hostowanym, sprawia, że są one bezpieczniejsze od siebie nawzajem. Korzystając z gMSA, nie ma hasła ani zaszyfrowanego hasła przechowywanego w manifeście aplikacji.  Możesz również uruchomić usługę jako [Active Directory użytkownika lub grupę](service-fabric-run-service-as-ad-user-or-group.md).
+W klastrze autonomicznym systemu Windows Server można uruchomić usługę jako *konto usługi zarządzane przez grupę* (gMSA) przy użyciu zasad *runas* .  Domyślnie Service Fabric aplikacje są uruchamiane w ramach konta, `Fabric.exe` w ramach którego działa proces. Uruchamianie aplikacji na różnych kontach, nawet w udostępnianym środowisku hostowanym, sprawia, że są one bezpieczniejsze od siebie nawzajem. Korzystając z gMSA, nie ma hasła ani zaszyfrowanego hasła przechowywanego w manifeście aplikacji.  Możesz również uruchomić usługę jako [Active Directory użytkownika lub grupę](service-fabric-run-service-as-ad-user-or-group.md).
 
 Poniższy przykład pokazuje, jak utworzyć konto gMSA o nazwie *SVC-test $*, jak wdrożyć to konto usługi zarządzanej w węzłach klastra oraz jak skonfigurować podmiot użytkownika.
 
@@ -27,13 +26,13 @@ Wymagania wstępne:
 - Domena wymaga klucza głównego KDS.
 - W domenie musi być co najmniej jeden kontroler domeny systemu Windows Server 2012 (lub R2).
 
-1. Aby administrator domeny Active Directory utworzyć konto usługi zarządzane przez grupę przy użyciu `New-ADServiceAccount` polecenia cmdlet i upewnić się, `PrincipalsAllowedToRetrieveManagedPassword` że zawiera wszystkie węzły klastra Service Fabric. `AccountName`, `DnsHostName`i `ServicePrincipalName` muszą być unikatowe.
+1. Aby administrator domeny Active Directory utworzyć konto usługi zarządzane przez grupę przy użyciu `New-ADServiceAccount` polecenia cmdlet i upewnić się, że `PrincipalsAllowedToRetrieveManagedPassword` zawiera wszystkie węzły klastra Service Fabric. `AccountName`, `DnsHostName` i `ServicePrincipalName` muszą być unikatowe.
 
     ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
-2. Na każdym z węzłów klastra Service Fabric (na przykład `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`) Zainstaluj i przetestuj gMSA.
+2. Na każdym z węzłów klastra Service Fabric (na przykład `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$` ) Zainstaluj i przetestuj gMSA.
     
     ```powershell
     Add-WindowsFeature RSAT-AD-PowerShell
@@ -41,7 +40,7 @@ Wymagania wstępne:
     Test-AdServiceAccount svc-Test$
     ```
 
-3. Skonfiguruj nazwę główną użytkownika i skonfiguruj ją, `RunAsPolicy` aby odwoływać się do [użytkownika](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
+3. Skonfiguruj nazwę główną użytkownika i skonfiguruj ją, `RunAsPolicy` Aby odwoływać się do [użytkownika](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#runas).
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

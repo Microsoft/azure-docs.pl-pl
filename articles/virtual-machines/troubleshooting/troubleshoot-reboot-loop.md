@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
 ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75443584"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Pętla ponownego uruchamiania systemu Windows na maszynie wirtualnej platformy Azure
@@ -62,7 +61,7 @@ Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjneg
 
 4. Na maszynie ratowniczej, Otwórz Edytor rejestru systemu Windows (regedit).
 
-5. Wybierz klucz **HKEY_LOCAL_MACHINE** a następnie wybierz pozycję **plik** > **Załaduj gałąź** z menu.
+5. Wybierz klucz **HKEY_LOCAL_MACHINE** a następnie wybierz pozycję **plik**  >  **Załaduj gałąź** z menu.
 
 6. Przejdź do pliku SYSTEMowego w folderze **\Windows\System32\config**
 
@@ -86,7 +85,7 @@ Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjneg
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Wybierz klucz **BROKENSYSTEM** , a następnie wybierz pozycję **plik** > **Zwolnij gałąź** z menu.
+13. Wybierz klucz **BROKENSYSTEM** , a następnie wybierz pozycję **plik**  >  **Zwolnij gałąź** z menu.
 
 14. Odłącz dysk systemu operacyjnego od maszyny wirtualnej rozwiązywania problemów.
 
@@ -94,7 +93,7 @@ Aby rozwiązać ten problem, [Wykonaj kopię zapasową dysku systemu operacyjneg
 
 16. [Utwórz nową maszynę wirtualną z dysku systemu operacyjnego](../windows/create-vm-specialized.md).
 
-17. Jeśli problem został rozwiązany, może być konieczne ponowne zainstalowanie programu [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent. exe).
+17. Jeśli problem został rozwiązany, może być konieczne ponowne zainstalowanie [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 

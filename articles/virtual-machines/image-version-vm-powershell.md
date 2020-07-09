@@ -10,10 +10,9 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82838471"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Wersja zapoznawcza: Tworzenie obrazu na podstawie maszyny wirtualnej
@@ -38,7 +37,7 @@ W trakcie pracy z tym artykułem Zastąp nazwy zasobów, w razie konieczności.
 
 ## <a name="get-the-gallery"></a>Uzyskaj galerię
 
-Wszystkie galerie i definicje obrazów można wyświetlić według nazwy. Wyniki są w formacie `gallery\image definition\image version`.
+Wszystkie galerie i definicje obrazów można wyświetlić według nazwy. Wyniki są w formacie `gallery\image definition\image version` .
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
@@ -75,13 +74,13 @@ Stop-AzVM `
 
 Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o obrazie. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W przypadku uogólnionej maszyny wirtualnej (przy użyciu programu Sysprep dla systemu Windows lub waagent-anulowania aprowizacji w systemie Linux) należy utworzyć definicję obrazu przy `-OsState generalized`użyciu polecenia. Jeśli maszyna wirtualna nie została uogólniona, Utwórz definicję obrazu za pomocą `-OsState specialized`polecenia.
+Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W przypadku uogólnionej maszyny wirtualnej (przy użyciu programu Sysprep dla systemu Windows lub waagent-anulowania aprowizacji w systemie Linux) należy utworzyć definicję obrazu przy użyciu polecenia `-OsState generalized` . Jeśli maszyna wirtualna nie została uogólniona, Utwórz definicję obrazu za pomocą polecenia `-OsState specialized` .
 
 Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
-W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest przeznaczona dla WYSPECJALIZOWANEJ maszyny wirtualnej z systemem Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu Linux, `-OsType Linux`Użyj polecenia. 
+W tym przykładzie definicja obrazu ma nazwę *myImageDefinition*i jest przeznaczona dla WYSPECJALIZOWANEJ maszyny wirtualnej z systemem Windows. Aby utworzyć definicję dla obrazów przy użyciu systemu Linux, użyj polecenia `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -105,7 +104,7 @@ Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakre
 
 W tym przykładzie wersja obrazu to *1.0.0* i jest replikowana do centrów danych *zachodnio-środkowe stany USA* i południowo- *środkowe stany USA* . Podczas wybierania regionów docelowych na potrzeby replikacji należy pamiętać, że należy również uwzględnić region *źródłowy* jako element docelowy dla replikacji.
 
-Aby utworzyć wersję obrazu z maszyny wirtualnej, użyj `$vm.Id.ToString()` dla. `-Source`
+Aby utworzyć wersję obrazu z maszyny wirtualnej, użyj `$vm.Id.ToString()` dla `-Source` .
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -124,7 +123,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -asJob 
 ```
 
-Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać, więc utworzyliśmy zadanie, aby można było śledzić postęp. Aby wyświetlić postęp zadania, wpisz `$job.State`polecenie.
+Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać, więc utworzyliśmy zadanie, aby można było śledzić postęp. Aby wyświetlić postęp zadania, wpisz polecenie `$job.State` .
 
 ```azurepowershell-interactive
 $job.State
@@ -133,7 +132,7 @@ $job.State
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS`lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `-StorageAccountType Premium_LRS` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `-StorageAccountType Standard_ZRS` go podczas tworzenia wersji obrazu.
 >
 
 ## <a name="next-steps"></a>Następne kroki

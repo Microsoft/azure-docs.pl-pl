@@ -4,14 +4,14 @@ description: Dowiedz się, jak odwołać subskrypcję udziału z odbiorcy przy u
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.openlocfilehash: 97f672b266c2df6956282aea6dec8d5207944943
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1c049d467cdf07962719f0dc257acbf47631aaf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73476388"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119688"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share"></a>Jak odwołać subskrypcję udziału użytkownika w udziale danych platformy Azure
 

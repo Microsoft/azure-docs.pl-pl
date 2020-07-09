@@ -1,18 +1,14 @@
 ---
 title: Jak filtrować zdarzenia dla Azure Event Grid
 description: W tym artykule przedstawiono sposób filtrowania zdarzeń (według typu zdarzenia, według operatorów i danych itp.) podczas tworzenia subskrypcji Event Grid.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: 99fb00f99a055033ccfcd99e32a52d423878fb44
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454027"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105578"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtruj zdarzenia dla Event Grid
 
@@ -22,7 +18,7 @@ W tym artykule przedstawiono sposób filtrowania zdarzeń podczas tworzenia subs
 
 ## <a name="filter-by-event-type"></a>Filtruj według typu zdarzenia
 
-Podczas tworzenia subskrypcji Event Grid można określić [typy zdarzeń](event-schema.md) do wysłania do punktu końcowego. Przykłady w tej sekcji tworzą subskrypcje zdarzeń dla grupy zasobów, ale ograniczają zdarzenia, które są wysyłane do `Microsoft.Resources.ResourceWriteFailure` i `Microsoft.Resources.ResourceWriteSuccess`. Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według typów zdarzeń, zobacz filtrowanie według zaawansowanych operatorów i pól danych.
+Podczas tworzenia subskrypcji Event Grid można określić [typy zdarzeń](event-schema.md) do wysłania do punktu końcowego. Przykłady w tej sekcji tworzą subskrypcje zdarzeń dla grupy zasobów, ale ograniczają zdarzenia, które są wysyłane do `Microsoft.Resources.ResourceWriteFailure` i `Microsoft.Resources.ResourceWriteSuccess` . Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według typów zdarzeń, zobacz filtrowanie według zaawansowanych operatorów i pól danych.
 
 W przypadku programu PowerShell Użyj `-IncludedEventType` parametru podczas tworzenia subskrypcji.
 
@@ -36,7 +32,7 @@ New-AzEventGridSubscription `
   -IncludedEventType $includedEventTypes
 ```
 
-W przypadku interfejsu wiersza polecenia platformy `--included-event-types` Azure Użyj parametru. W poniższym przykładzie pokazano użycie interfejsu wiersza polecenia platformy Azure w bash Shell:
+W przypadku interfejsu wiersza polecenia platformy Azure Użyj `--included-event-types` parametru. W poniższym przykładzie pokazano użycie interfejsu wiersza polecenia platformy Azure w bash Shell:
 
 ```azurecli
 includedEventTypes="Microsoft.Resources.ResourceWriteFailure Microsoft.Resources.ResourceWriteSuccess"
@@ -81,7 +77,7 @@ Dla szablonu Menedżer zasobów Użyj `includedEventTypes` właściwości.
 
 Zdarzenia można filtrować według tematu w danych zdarzenia. Możesz określić wartość do dopasowania na początku lub na końcu tematu. Jeśli potrzebujesz większej elastyczności podczas filtrowania zdarzeń według tematu, zobacz filtrowanie według zaawansowanych operatorów i pól danych.
 
-W poniższym przykładzie programu PowerShell utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. Należy użyć parametru `-SubjectBeginsWith` , aby ograniczyć zdarzenia do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
+W poniższym przykładzie programu PowerShell utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. Należy użyć `-SubjectBeginsWith` parametru, aby ograniczyć zdarzenia do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
 
 ```powershell
 $resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
@@ -93,7 +89,7 @@ New-AzEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-Następny przykład programu PowerShell tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego `.jpg`się na.
+Następny przykład programu PowerShell tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego się na `.jpg` .
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -105,7 +101,7 @@ New-AzEventGridSubscription `
   -SubjectEndsWith ".jpg"
 ```
 
-W poniższym przykładzie interfejsu wiersza polecenia platformy Azure utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. Należy użyć parametru `--subject-begins-with` , aby ograniczyć zdarzenia do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
+W poniższym przykładzie interfejsu wiersza polecenia platformy Azure utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. Należy użyć `--subject-begins-with` parametru, aby ograniczyć zdarzenia do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
 
 ```azurecli
 resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
@@ -117,7 +113,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-Następny przykład interfejsu wiersza polecenia platformy Azure tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego `.jpg`się na.
+Następny przykład interfejsu wiersza polecenia platformy Azure tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego się na `.jpg` .
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -129,7 +125,7 @@ az eventgrid event-subscription create \
   --subject-ends-with ".jpg"
 ```
 
-W poniższym przykładzie szablonu Menedżer zasobów utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. `subjectBeginsWith` Właściwość służy do ograniczania liczby zdarzeń do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
+W poniższym przykładzie szablonu Menedżer zasobów utworzysz subskrypcję zdarzeń, która jest filtrowana według początku tematu. `subjectBeginsWith`Właściwość służy do ograniczania liczby zdarzeń do określonych zasobów. Należy przekazać identyfikator zasobu sieciowej grupy zabezpieczeń.
 
 ```json
 "resources": [
@@ -155,7 +151,7 @@ W poniższym przykładzie szablonu Menedżer zasobów utworzysz subskrypcję zda
 ]
 ```
 
-Następny przykład szablonu Menedżer zasobów tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego `.jpg`się na.
+Następny przykład szablonu Menedżer zasobów tworzy subskrypcję magazynu obiektów BLOB. Ogranicza zdarzenia do tych elementów za pomocą podmiotu kończącego się na `.jpg` .
 
 ```json
 "resources": [

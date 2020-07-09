@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
 ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77469769"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services
@@ -136,12 +135,12 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Dodaj plik XML do projektu **WorkerRole1** , klikając prawym przyciskiem myszy projekt **WorkerRole1** i wybierając polecenie **Dodaj** -> **nowy element...** -> **Visual C# items** -> **Data** -> **Plik XML**danych elementów Visual C#. Nazwij plik "WadExample. xml".
+2. Dodaj plik XML do projektu **WorkerRole1** , klikając prawym przyciskiem myszy projekt **WorkerRole1** i wybierając polecenie **Dodaj**  ->  **nowy element...** -> **Elementy**  ->  Visual C# **Dane**  ->  **Plik XML**. Nazwij plik "WadExample.xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Skojarz plik WadConfig. xsd z plikiem konfiguracji. Upewnij się, że okno edytora WadExample. XML jest oknem aktywnym. Naciśnij klawisz **F4** , aby otworzyć okno **Właściwości** . Kliknij właściwość **schematy** w oknie **Właściwości** . Kliknij przycisk **...** we właściwości **schematy** . Kliknij przycisk **Dodaj...** i przejdź do lokalizacji, w której zapisano plik XSD, a następnie wybierz plik WadConfig. xsd. Kliknij przycisk **OK**.
+3. Skojarz plik WadConfig. xsd z plikiem konfiguracji. Upewnij się, że okno edytora WadExample.xml jest oknem aktywnym. Naciśnij klawisz **F4** , aby otworzyć okno **Właściwości** . Kliknij właściwość **schematy** w oknie **Właściwości** . Kliknij przycisk **...** we właściwości **schematy** . Kliknij przycisk **Dodaj...** i przejdź do lokalizacji, w której zapisano plik XSD, a następnie wybierz plik WadConfig. xsd. Kliknij przycisk **OK**.
 
-4. Zastąp zawartość pliku konfiguracji WadExample. XML następującym kodem XML i Zapisz plik. Ten plik konfiguracji definiuje kilka liczników wydajności do zebrania: jeden do użycia procesora CPU i jeden do wykorzystania pamięci. Następnie konfiguracja definiuje cztery zdarzenia odpowiadające metodom w klasie SampleEventSourceWriter.
+4. Zastąp zawartość pliku konfiguracji WadExample.xml następującym kodem XML i Zapisz plik. Ten plik konfiguracji definiuje kilka liczników wydajności do zebrania: jeden do użycia procesora CPU i jeden do wykorzystania pamięci. Następnie konfiguracja definiuje cztery zdarzenia odpowiadające metodom w klasie SampleEventSourceWriter.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,7 +169,7 @@ namespace WorkerRole1
 Polecenia cmdlet programu PowerShell służące do zarządzania diagnostyką w ramach roli sieci Web lub procesu roboczego są następujące: Set-AzureServiceDiagnosticsExtension, get-AzureServiceDiagnosticsExtension i Remove-AzureServiceDiagnosticsExtension.
 
 1. Otwórz program Azure PowerShell.
-2. Wykonaj skrypt, aby zainstalować diagnostykę w roli procesu roboczego (Zastąp *StorageAccountKey* z kluczem konta magazynu dla konta magazynu wadexample i *config_path* ze ścieżką do pliku *wadexample. XML* ):
+2. Wykonaj skrypt, aby zainstalować diagnostykę w roli procesu roboczego (Zastąp *StorageAccountKey* kluczem konta magazynu dla konta magazynu wadexample i *config_path* ze ścieżką do pliku *WadExample.xml* ):
 
 ```powershell
 $storage_name = "wadexample"

@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80653629"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Zbieranie danych użytkownika Multi-Factor Authentication platformy Azure
@@ -136,16 +135,16 @@ Zmiany (używane do synchronizowania zmian użytkowników z serwerem MFA lub us�
 W przypadku serwera usługi MFA w wersji 8,0 lub nowszej następujący proces pozwala administratorom eksportować wszystkie dane dla użytkowników:
 
 - Zaloguj się do serwera usługi MFA, przejdź do karty **Użytkownicy** , wybierz odpowiednie dane użytkownika, a następnie kliknij przycisk **Edytuj** . Wykonaj zrzuty ekranu (Alt-PrtScn) każdej karty, aby zapewnić użytkownikowi swoje bieżące ustawienia usługi MFA.
-- W wierszu polecenia serwera usługi MFA Uruchom następujące polecenie, zmieniając ścieżkę zgodnie z instalacją `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` , aby utworzyć plik sformatowany w formacie JSON.
+- W wierszu polecenia serwera usługi MFA Uruchom następujące polecenie, zmieniając ścieżkę zgodnie z instalacją, `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` Aby utworzyć plik sformatowany w formacie JSON.
 - Administratorzy mogą również użyć operacji GetUserGdpr zestawu SDK usługi sieci Web, aby wyeksportować wszystkie informacje o usłudze w chmurze usługi MFA zebrane dla danego użytkownika lub włączyć je do większego rozwiązania do raportowania.
-- Wyszukaj `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` i wszystkie kopie zapasowe\<dla "username>" (Uwzględnij cudzysłowy w wyszukiwaniu), aby znaleźć wszystkie wystąpienia rekordu użytkownika, które są dodawane lub zmieniane.
+- Wyszukaj `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` i wszystkie kopie zapasowe dla " \<username> " (Uwzględnij cudzysłowy w wyszukiwaniu), aby znaleźć wszystkie wystąpienia rekordu użytkownika, które są dodawane lub zmieniane.
    - Te rekordy mogą być ograniczone (ale nie można ich wyeliminować) przez wyszukanie opcji **"Rejestruj zmiany użytkownika"** w obszarze UX serwera usługi MFA, sekcji rejestrowanie na karcie pliki dziennika.
    - Jeśli skonfigurowano dziennik systemowy i w środowisku użytkownika serwera usługi MFA jest zaznaczone pole wyboru **Rejestruj zmiany użytkowników** , w sekcji rejestrowanie na karcie dziennik systemu, a następnie wpisy dziennika mogą być zbierane z dziennika systemowego.
-- Inne wystąpienia nazwy użytkownika w MultiFactorAuthSvc. log i innych plikach dziennika usługi MFA związanych z próbami uwierzytelniania są uznawane za operacyjne i duplikowane do informacji dostępnych przy użyciu MultiFactorAuthGdpr. exe Export lub Web Service SDK GetUserGdpr.
+- Inne wystąpienia nazwy użytkownika w MultiFactorAuthSvc. log i innych plikach dziennika usługi MFA związanych z próbami uwierzytelniania są uznawane za operacyjne i zduplikowane w informacjach dostarczonych przy użyciu MultiFactorAuthGdpr.exe eksportu lub zestawu SDK usługi sieci Web GetUserGdpr.
 
 ## <a name="delete-data-from-mfa-server"></a>Usuń dane z serwera MFA
 
-W wierszu polecenia serwera usługi MFA Uruchom następujące polecenie, zmieniając ścieżkę zgodnie z instalacją `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe delete <username>` , aby usunąć wszystkie informacje o usłudze w chmurze usługi MFA zebrane dla tego użytkownika.
+W wierszu polecenia serwera usługi MFA Uruchom następujące polecenie, zmieniając ścieżkę zgodnie z instalacją, `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe delete <username>` Aby usunąć wszystkie informacje o usłudze w chmurze usługi MFA zebrane dla tego użytkownika.
 
 - Dane zawarte w eksporcie są usuwane w czasie rzeczywistym, ale może upłynąć do 30 dni, aby można było całkowicie usunąć dane operacyjne lub duplikowane.
 - Administratorzy mogą również użyć operacji DeleteUserGdpr zestawu SDK usługi sieci Web, aby usunąć wszystkie informacje o usłudze w chmurze usługi MFA zebrane dla danego użytkownika lub włączyć je do większego rozwiązania do raportowania.

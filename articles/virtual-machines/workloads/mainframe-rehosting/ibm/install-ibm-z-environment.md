@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72025942"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Zainstaluj środowisko IBM zD&w środowisku deweloperskim/testowym na platformie Azure
@@ -62,11 +62,11 @@ W tym artykule opisano sposób konfigurowania środowiska deweloperskiego i test
 
 3. Uzyskaj poświadczenia SSH wyświetlane w bloku **Przegląd** maszyny wirtualnej za pomocą przycisku **Połącz** . Wybierz kartę **SSH** i skopiuj polecenie SSH Logon do Schowka.
 
-4. Zaloguj się do [powłoki bash](/azure/cloud-shell/quickstart) z lokalnego komputera i Wklej polecenie. Będzie on miał postać **adres\>\@\<\>IP użytkownika\<SSH**. Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź je w celu nawiązania połączenia z katalogiem macierzystym.
+4. Zaloguj się do [powłoki bash](/azure/cloud-shell/quickstart) z lokalnego komputera i Wklej polecenie. Będzie on w formacie **SSH \<user id\> \@ \<IP Address\> **. Gdy zostanie wyświetlony monit o podanie poświadczeń, wprowadź je w celu nawiązania połączenia z katalogiem macierzystym.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiuj plik instalacyjny na serwer
 
-Plik instalacyjny dla serwera sieci Web to **ZDT\_instalacji\_EE\_v 12.0.0.1. tgz**. Jest ona uwzględniona na nośniku dostarczonym przez firmę IBM. Musisz przekazać ten plik na maszynę wirtualną Ubuntu.
+Plik instalacyjny dla serwera sieci Web to **ZDT \_ instalacji \_ EE \_ v 12.0.0.1. tgz**. Jest ona uwzględniona na nośniku dostarczonym przez firmę IBM. Musisz przekazać ten plik na maszynę wirtualną Ubuntu.
 
 1. W wierszu polecenia wprowadź następujące polecenie, aby upewnić się, że wszystko jest aktualne w nowo utworzonym obrazie:
 
@@ -91,7 +91,7 @@ Plik instalacyjny dla serwera sieci Web to **ZDT\_instalacji\_EE\_v 12.0.0.1. tg
 
 ## <a name="install-the-enterprise-edition"></a>Zainstaluj wersję Enterprise Edition
 
-1. Przejdź do katalogu ZDT i zdekompresuj plik ZDT\_zainstaluj\_EE\_v 12.0.0.1. tgz przy użyciu następujących poleceń:
+1. Przejdź do katalogu ZDT i zdekompresuj \_ plik ZDT zainstaluj \_ EE \_ v 12.0.0.1. tgz przy użyciu następujących poleceń:
 
     ```
     cd ZDT

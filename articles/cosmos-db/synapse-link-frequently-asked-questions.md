@@ -1,21 +1,20 @@
 ---
-title: Często zadawane pytania dotyczące usługi Azure Synapse link dla Azure Cosmos DB
+title: Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące Azure Cosmos DB linków Synapse w obszarach takich jak rozliczenia, magazyn analityczny, zabezpieczenia, czas wygaśnięcia w magazynie analitycznym.
 author: srchi
 ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 36be05f72597ae9864eff812862589cafb1f5b0d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921186"
 ---
-# <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse link dla Azure Cosmos DB
+# <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
-Link Synapse platformy Azure dla Azure Cosmos DB umożliwia ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics. Umożliwia klientom Uruchamianie analizy niemal w czasie rzeczywistym na podstawie danych operacyjnych z pełną izolacją wydajności z obciążeń transakcyjnych i bez potoku ETL. Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Synapse Azure Cosmos DB.
+Link Synapse platformy Azure dla Azure Cosmos DB umożliwia ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics. Umożliwia klientom Uruchamianie analizy niemal w czasie rzeczywistym na podstawie danych operacyjnych z pełną izolacją wydajności z obciążeń transakcyjnych i bez potoku ETL. W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące usługi Synapse Link dla usługi Azure Cosmos DB.
 
 ## <a name="general-faq"></a>Ogólne często zadawane pytania
 
@@ -30,8 +29,11 @@ Podczas planowania konfigurowania wieloregionowego konta platformy Azure Cosmos 
 ### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Czy mogę włączyć link Synapse tylko dla pewnego regionu, a nie wszystkich regionów w konfiguracji konta wieloregionowego?
 W wersji zapoznawczej, gdy łącze Synapse jest włączone dla konta wieloregionowego, magazyn analityczny jest tworzony we wszystkich regionach. Dane podstawowe są zoptymalizowane pod kątem przepływności i spójności transakcyjnej w magazynie transakcyjnym.
 
+### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Czy funkcja tworzenia kopii zapasowych i przywracania jest obsługiwana dla kont Synapse z linkami?
+W wersji zapoznawczej dla kont bazy danych z włączonym linkiem Synapse nie jest obsługiwane wykonywanie kopii zapasowych i przywracanie kontenerów. W przypadku obciążeń produkcyjnych, które wymagają funkcji tworzenia kopii zapasowych i przywracania, zaleca się, aby nie włączać linku Synapse na tych kontach baz danych. 
+
 ### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Czy mogę wyłączyć funkcję linku Synapse dla konta usługi Azure Cosmos?
-Obecnie po włączeniu funkcji linku Synapse na poziomie konta nie można jej wyłączyć.  Jeśli chcesz wyłączyć tę funkcję, musisz usunąć i ponownie utworzyć nowe konto usługi Azure Cosmos.
+Obecnie po włączeniu funkcji usługi Synapse Link na poziomie konta nie można jej wyłączyć.  Jeśli chcesz wyłączyć tę funkcję, musisz usunąć i ponownie utworzyć nowe konto usługi Azure Cosmos.
 
 Należy pamiętać, że **nie** będziesz mieć żadnych implikacji rozliczeń, jeśli możliwość linku Synapse zostanie włączona na poziomie konta, ale nie ma kontenerów z włączonym magazynem analitycznym.
 
@@ -53,10 +55,10 @@ Azure Cosmos DB gwarantuje izolację wydajności między obciążeniami transakc
 Tak, usunięcie i aktualizacja danych w magazynie transakcyjnym zostaną odzwierciedlone w magazynie analitycznym. Można skonfigurować czas wygaśnięcia (TTL) w kontenerze w celu uwzględnienia danych historycznych, aby Magazyn analityczny przechowywał wszystkie wersje elementów, które spełniają kryteria analityczne czasu wygaśnięcia. Aby uzyskać więcej informacji, zobacz [Omówienie czasu wygaśnięcia (TTL)](analytical-store-introduction.md#analytical-ttl) .
 
 ### <a name="can-i-connect-to-analytical-store-from-analytics-engines-other-than-azure-synapse-analytics"></a>Czy mogę połączyć się z magazynem analitycznym z innych aparatów analizy niż usługa Azure Synapse Analytics?
-Możesz uzyskać dostęp i uruchamiać zapytania względem magazynu analitycznego, korzystając z różnych godzin uruchomienia udostępnionych przez usługę Azure Synapse Analytics. Można zbadać magazyn analityczny i analizować go przy użyciu:
+Można uzyskać dostęp magazynu analitycznego i uruchamiać zapytania względem magazynu analitycznego, jedynie korzystając z różnych środowisk uruchomieniowych udostępnianych przez usługę Azure Synapse Analytics. Magazyn analityczny można odpytywać i analizować przy użyciu następujących narzędzi:
 
-* Synapse Spark z pełną obsługą Scala, Python, SparkSQL i C#. Synapse Spark jest głównym scenariuszem inżynierii danych i nauki
-* Program SQL Server w języku T-SQL i obsługa znanych narzędzi analizy biznesowej (na przykład Power BI Premium itd.)
+* Synapse Spark z pełną obsługą Scala, Python, SparkSQL i C#. Usługa Synapse Spark stanowi podstawę w przypadku scenariuszy z zakresu inżynierii danych i nauki
+* Bezserwerowa usługa SQL z językiem T-SQL i obsługą znanych narzędzi analizy biznesowej (na przykład Power BI Premium itd.)
 
 ### <a name="can-i-connect-to-analytical-store-from-synapse-sql-provisioned"></a>Czy można nawiązać połączenie z magazynem analitycznym z Synapse SQL?
 W tej chwili nie można uzyskać dostępu do magazynu analitycznego z Synapse SQL.
@@ -71,7 +73,7 @@ Replikacja jest asynchroniczna i obecnie oczekiwane opóźnienie wynosi około 2
 Jeśli określone elementy w kontenerze naruszają [dobrze zdefiniowany schemat dla analiz](analytical-store-introduction.md#analytical-schema), nie zostaną uwzględnione w magazynie analitycznym. Jeśli masz scenariusze blokowane przez dobrze zdefiniowany schemat analityczny, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) , aby uzyskać pomoc.
 
 ### <a name="can-i-partition-the-data-in-analytical-store-differently-from-transactional-store"></a>Czy można podzielić dane w magazynie analitycznym inaczej niż w sklepie transakcyjnym?
-Dane w magazynie analitycznym są partycjonowane na podstawie podziału poziomego fragmentów w magazynie transakcyjnym. Obecnie nie można wybrać innej strategii partycjonowania dla magazynu analitycznego.
+Dane w magazynie analitycznym są partycjonowane w oparciu o partycjonowanie poziome fragmentów w magazynie transakcyjnym. Obecnie nie można wybrać innej strategii partycjonowania dla magazynu analitycznego.
 
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>Czy mogę dostosować lub zastąpić sposób przekształcania danych transakcyjnych na format kolumnowy w magazynie analitycznym?
 Obecnie nie można przekształcić elementów danych, gdy są one automatycznie propagowane ze sklepu transakcyjnego do magazynu analitycznego. Jeśli masz scenariusze blokowane przez to ograniczenie, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
@@ -118,11 +120,11 @@ Obecnie obsługa przesyłania strumieniowego platformy Spark dla Azure Cosmos DB
 ### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>W programie Synapse Studio jak rozpoznać, czy nawiązano połączenie z kontenerem Azure Cosmos DB z włączonym magazynem analizy?
 Kontener Azure Cosmos DB włączony z magazynem analitycznym ma następującą ikonę:
 
-![Kontener Azure Cosmos DB włączony z magazynem analitycznym — ikona](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/analytical-store-icon.png" alt-text="Kontener Azure Cosmos DB włączony z magazynem analitycznym — ikona":::
 
 Kontener magazynu transakcyjnego będzie reprezentowany z następującą ikoną:
 
-![Azure Cosmos DB kontenera włączonym za pomocą ikony magazynu transakcyjnego](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB kontenera włączonym za pomocą ikony magazynu transakcyjnego":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Jak przekazać poświadczenia Azure Cosmos DB z programu Synapse Studio?
 Obecnie Azure Cosmos DB poświadczenia są przesyłane podczas tworzenia połączonej usługi przez użytkownika, który ma dostęp do Azure Cosmos DB baz danych. Dostęp do tego magazynu jest dostępny dla innych użytkowników, którzy mają dostęp do obszaru roboczego.

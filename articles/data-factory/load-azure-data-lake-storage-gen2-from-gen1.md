@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415820"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Skopiuj dane z Azure Data Lake Storage Gen1 do Gen2 z Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczony dla analizy danych Big Data, która jest wbudowana w [usługę Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Można jej używać do interfejsów z danymi przy użyciu zarówno odmian systemu plików, jak i magazynu obiektów.
+Azure Data Lake Storage Gen2 to zestaw funkcji przeznaczony dla analizy danych Big Data, która jest wbudowana w [usługę Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Można ją wykorzystać do połączenia interfejsem z danymi przy użyciu zarówno paradygmatów systemu plików, jak i magazynu obiektów.
 
 Jeśli obecnie używasz Azure Data Lake Storage Gen1, możesz oszacować Azure Data Lake Storage Gen2 kopiując dane z Data Lake Storage Gen1 do Gen2 przy użyciu Azure Data Factory.
 
@@ -35,13 +35,13 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 * Azure Data Lake Storage Gen1 z danymi w tym koncie.
 * Konto usługi Azure Storage z włączonym Data Lake Storage Gen2. Jeśli nie masz konta magazynu, [Utwórz konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**.
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory**.
    
    ![Data Factory wybór w nowym okienku](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -49,13 +49,13 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
       
    ![Nowa strona fabryki danych](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "nazwa \"fabryki danych\" LoadADLSDemo jest niedostępna", wprowadź inną nazwę fabryki danych. Na przykład użyj nazwy _**twojanazwa**_**ADFTutorialDataFactory**. Ponownie utwórz fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
+    * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych \" LoadADLSDemo \" jest niedostępna", wprowadź inną nazwę fabryki danych. Na przykład użyj nazwy _**twojanazwa**_**ADFTutorialDataFactory**. Ponownie utwórz fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
     * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej. Możesz również wybrać opcję **Utwórz nową** , a następnie wprowadzić nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
     * **Wersja**: wybierz pozycję **v2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych, mogą znajdować się w innych lokalizacjach i regionach. 
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji: 
    
    ![Strona główna fabryki danych](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -99,7 +99,7 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
 
     ![Określ folder wyjściowy](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-8. Na stronie **docelowy magazyn danych** wybierz pozycję **+ Utwórz nowe połączenie** > **Azure Data Lake Storage Gen2** > **Kontynuuj**.
+8. Na stronie **docelowy magazyn danych** wybierz pozycję **+ Utwórz nowe połączenie**  >  **Azure Data Lake Storage Gen2**  >  **Kontynuuj**.
 
     ![Strona Docelowy magazyn danych](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
@@ -180,6 +180,6 @@ Właściwa częstotliwość ładowania przyrostowego zależy od łącznej liczby
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przegląd](copy-activity-overview.md)
-> działania kopiowania Azure Data Lake Storage Gen1[łącznika Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) [łącznika](connector-azure-data-lake-store.md)
-> 
+> [Przegląd](copy-activity-overview.md) 
+>  działania kopiowania [Łącznik Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) 
+>  [Łącznik Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: f3c1e7337c0ce07b7fbebb9f954deeb75f0b9584
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84d14d63cd7bb96a7a4f37d2a6c29f09a50b2420
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80246657"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848684"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie łącznika tożsamości usługi Brivo OnAir w celu automatycznego aprowizacji użytkowników
 
@@ -54,17 +54,17 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 ## <a name="setup-brivo-onair-identity-connector-for-provisioning"></a>Konfigurowanie łącznika tożsamości usługi Brivo OnAir na potrzeby aprowizacji
 
-1.    Zaloguj się do [konsoli administracyjnej łącznika tożsamości programu Brivo OnAir](https://acs.brivo.com/login/). Przejdź do **konta > ustawienia konta**.
+1. Zaloguj się do [konsoli administracyjnej łącznika tożsamości programu Brivo OnAir](https://acs.brivo.com/login/). Przejdź do **konta > ustawienia konta**.
 
-    ![Konsola administracyjna łącznika Brivo OnAir Identity](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
+   ![Konsola administracyjna łącznika Brivo OnAir Identity](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2.  Kliknij kartę **Azure AD** . Na stronie Szczegóły **usługi Azure AD** wprowadź ponownie hasło konta administratora wyższego poziomu. Kliknij pozycję **Prześlij**.
+2. Kliknij kartę **Azure AD** . Na stronie Szczegóły **usługi Azure AD** wprowadź ponownie hasło konta administratora wyższego poziomu. Kliknij pozycję **Prześlij**.
 
-    ![Łącznik tożsamości Brivo OnAir Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
+   ![Łącznik tożsamości Brivo OnAir Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.    Kliknij przycisk **Kopiuj token** i Zapisz **token tajny**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji Brivo OnAir Identity Connector w Azure Portal.
+3. Kliknij przycisk **Kopiuj token** i Zapisz **token tajny**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji Brivo OnAir Identity Connector w Azure Portal.
 
-    ![Token łącznika Brivo OnAir Identity](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
+   ![Token łącznika Brivo OnAir Identity](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
 ## <a name="add-brivo-onair-identity-connector-from-the-gallery"></a>Dodawanie łącznika tożsamości usługi Brivo OnAir z galerii
 
@@ -118,7 +118,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby Brivo OnAir Identity Connector**.
 
@@ -154,7 +154,7 @@ Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/l
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

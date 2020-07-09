@@ -6,17 +6,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffbf37730d5064edcd067c3383fe18c342a2b053
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77619918"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738502"
 ---
 # <a name="read-nsg-flow-logs"></a>Odczytywanie dzienników przepływu sieciowych grup zabezpieczeń
 
@@ -96,7 +96,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-`$blockList` Zmienna zwraca listę bloków w obiekcie blob. Każdy blokowy obiekt BLOB zawiera co najmniej dwa bloki.  Pierwszy blok ma długość `12` bajtów, ten blok zawiera nawiasy otwierające dziennika JSON. Drugi blok jest nawiasem zamykającym i ma długość `2` bajtów.  Jak widać w poniższym przykładzie dziennik zawiera siedem wpisów, każdy z nich jest pojedynczym wpisem. Wszystkie nowe wpisy w dzienniku są dodawane do końca bezpośrednio przed końcowym blokiem.
+`$blockList`Zmienna zwraca listę bloków w obiekcie blob. Każdy blokowy obiekt BLOB zawiera co najmniej dwa bloki.  Pierwszy blok ma długość `12` bajtów, ten blok zawiera nawiasy otwierające dziennika JSON. Drugi blok jest nawiasem zamykającym i ma długość `2` bajtów.  Jak widać w poniższym przykładzie dziennik zawiera siedem wpisów, każdy z nich jest pojedynczym wpisem. Wszystkie nowe wpisy w dzienniku są dodawane do końca bezpośrednio przed końcowym blokiem.
 
 ```
 Name                                         Length Committed
@@ -114,7 +114,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Odczytaj blokowy obiekt BLOB
 
-Następnie musisz odczytać zmienną, `$blocklist` aby pobrać dane. W tym przykładzie wykonujemy iterację przez listy blokowania, odczytuje bajty z każdego bloku i umieszcza je w tablicy. Użyj metody [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) , aby pobrać dane.
+Następnie musisz odczytać `$blocklist` zmienną, aby pobrać dane. W tym przykładzie wykonujemy iterację przez listy blokowania, odczytuje bajty z każdego bloku i umieszcza je w tablicy. Użyj metody [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) , aby pobrać dane.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
@@ -158,7 +158,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Teraz `$valuearray` tablica zawiera wartość ciągu dla każdego bloku. Aby sprawdzić wpis, Pobierz sekundę do ostatniej wartości z tablicy, uruchamiając `$valuearray[$valuearray.Length-2]`polecenie. Ostatnia wartość nie jest potrzebna, ponieważ jest to nawias zamykający.
+Teraz `$valuearray` Tablica zawiera wartość ciągu dla każdego bloku. Aby sprawdzić wpis, Pobierz sekundę do ostatniej wartości z tablicy, uruchamiając polecenie `$valuearray[$valuearray.Length-2]` . Ostatnia wartość nie jest potrzebna, ponieważ jest to nawias zamykający.
 
 Wyniki tej wartości są pokazane w następującym przykładzie:
 

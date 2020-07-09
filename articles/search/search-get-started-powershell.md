@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96ab2b7c8e80375f97df550ed6c83e7bb3e2f3e3
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121606"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562079"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie PowerShell przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [S #](search-create-index-dotnet.md)
+> * [C#](search-create-index-dotnet.md)
 > * [Poster (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-create-index-portal.md)
@@ -27,7 +27,7 @@ ms.locfileid: "77121606"
 
 W tym artykule omówiono proces tworzenia, ładowania i wykonywania zapytań dotyczących indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu programu PowerShell i [interfejsów API REST platformy azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/). W tym artykule wyjaśniono, jak uruchomić polecenia programu PowerShell interaktywnie. Alternatywnie można [pobrać i uruchomić skrypt programu PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) , który wykonuje te same operacje.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla ka
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-2. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
 ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
@@ -63,7 +63,7 @@ Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do u
 2. Utwórz obiekt **$URL** , który określa kolekcję indeksów usługi. Zastąp nazwę usługi (nazwa użytkownika-SEARCH-SERVICE-NAME) poprawną usługą wyszukiwania.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name"
     ```
 
 3. Uruchom **Invoke-RestMethod** , aby wysłać żądanie Get do usługi i zweryfikować połączenie. Dodaj **ConvertTo-JSON** , aby wyświetlić odpowiedzi wysyłane z powrotem z usługi.
@@ -87,7 +87,7 @@ Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do u
 
 Jeśli nie korzystasz z portalu, musi istnieć indeks usługi, aby można było załadować dane. Ten krok umożliwia zdefiniowanie indeksu i wypchnięcie go do usługi. Dla tego kroku jest używany [interfejs API Rest tworzenia indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) .
 
-Wymagane elementy indeksu obejmują nazwę i kolekcję pól. Kolekcja Fields definiuje strukturę *dokumentu*. Każde pole ma nazwę, typ i atrybuty, które określają, w jaki sposób jest używany (na przykład czy umożliwia wyszukiwanie pełnotekstowe, filtrowanie lub pobieranie w wynikach wyszukiwania). W indeksie należy wyznaczyć jedno z pól `Edm.String` typu jako *klucz* dla tożsamości dokumentu.
+Wymagane elementy indeksu obejmują nazwę i kolekcję pól. Kolekcja Fields definiuje strukturę *dokumentu*. Każde pole ma nazwę, typ i atrybuty, które określają, w jaki sposób jest używany (na przykład czy umożliwia wyszukiwanie pełnotekstowe, filtrowanie lub pobieranie w wynikach wyszukiwania). W indeksie należy wyznaczyć jedno z pól typu `Edm.String` jako *klucz* dla tożsamości dokumentu.
 
 Ten indeks ma nazwę "Hotele-Szybki Start" i zawiera definicje pól widoczne poniżej. Jest to podzestaw większego [indeksu hoteli](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) używany w innych przewodnikach. Ten przewodnik Szybki Start został przez nas przycięty do zwięzłości.
 
@@ -123,7 +123,7 @@ Ten indeks ma nazwę "Hotele-Szybki Start" i zawiera definicje pól widoczne pon
 2. Ustaw identyfikator URI dla kolekcji indeksów w usłudze i w indeksie *hoteli — szybki start* .
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30"
     ```
 
 3. Aby utworzyć indeks usługi, uruchom polecenie z **$URL**, **$Headers**i **$Body** . 
@@ -183,7 +183,7 @@ Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu 
 
 1. Wklej ten przykład do programu PowerShell, aby utworzyć obiekt **$Body** zawierający dokumenty, które chcesz przekazać. 
 
-    To żądanie zawiera dwa pełne i jeden rekord częściowy. Rekord częściowy pokazuje, że można przekazać niekompletne dokumenty. `@search.action` Parametr określa sposób indeksowania. Prawidłowe wartości to upload, Merge, mergeOrUpload i DELETE. Zachowanie mergeOrUpload tworzy nowy dokument dla hotelId = 3 lub aktualizuje zawartość, jeśli już istnieje.
+    To żądanie zawiera dwa pełne i jeden rekord częściowy. Rekord częściowy pokazuje, że można przekazać niekompletne dokumenty. `@search.action`Parametr określa sposób indeksowania. Prawidłowe wartości to upload, Merge, mergeOrUpload i DELETE. Zachowanie mergeOrUpload tworzy nowy dokument dla hotelId = 3 lub aktualizuje zawartość, jeśli już istnieje.
 
     ```powershell
     $body = @"
@@ -273,7 +273,7 @@ Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu 
 1. Ustaw punkt końcowy w kolekcji *hoteli-szybkiego startu* i Uwzględnij operację indeksu (indeksy/Hotele — szybki start/docs/indeks).
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30"
     ```
 
 1. Uruchom polecenie z **$URL**, **$Headers**i **$Body** , aby załadować dokumenty do indeksu hoteli-szybkiego startu.
@@ -326,7 +326,7 @@ Upewnij się, że w $urls wyszukiwania są używane pojedyncze cudzysłowy. Cią
    Ten ciąg wykonuje puste wyszukiwanie (Search = *), zwracając niesklasyfikowaną listę (wynik wyszukiwania = 1,0) dowolnych dokumentów. Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca 50 dopasowań w danym momencie. Zgodnie ze strukturą, to zapytanie zwraca całą strukturę dokumentu i jego wartości. Dodaj **$Count = true** , aby uzyskać liczbę wszystkich dokumentów w wynikach.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$count=true'
     ```
 
 1. Uruchom polecenie, aby wysłać **$URL** do usługi.
@@ -375,21 +375,21 @@ Wypróbuj kilka innych przykładów zapytania, aby uzyskać działanie dla skła
 # Query example 1
 # Search the entire index for the terms 'restaurant' and 'wifi'
 # Return only the HotelName, Description, and Tags fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
 # Take the top two results, and show only HotelName and Category in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelName,Category'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
 # Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921606"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Rozwiązywanie problemów z błędami alokacji podczas wdrażania usługi Cloud Services na platformie Azure
 ## <a name="summary"></a>Podsumowanie
@@ -41,7 +41,7 @@ Gdy żądanie alokacji jest przypięte do klastra, nie można znaleźć bezpłat
 ### <a name="error-message"></a>Komunikat o błędzie
 Może zostać wyświetlony następujący komunikat o błędzie:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "Operacja platformy Azure" {OperationName} "nie powiodła się z kodem COMPUTE. ConstrainedAllocationFailed. Szczegóły: Alokacja nie powiodła się; nie można spełnić ograniczeń w żądaniu. Zażądane nowe wdrożenie usługi jest związane z grupą koligacji, dotyczy sieci wirtualnej albo w ramach tej usługi hostowanej występuje już wdrożenie. Każdy z tych warunków ogranicza nowe wdrożenie do określonych zasobów platformy Azure. Spróbuj ponownie później albo ogranicz rozmiar maszyny wirtualnej lub liczbę wystąpień roli. Alternatywnie, jeśli to możliwe, Usuń wspomniane ograniczenia lub spróbuj wykonać wdrożenie w innym regionie.
 
 ### <a name="common-issues"></a>Typowe problemy
 Poniżej przedstawiono typowe scenariusze alokacji, które powodują Przypinanie żądania alokacji do jednego klastra.

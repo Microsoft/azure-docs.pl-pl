@@ -3,24 +3,24 @@ title: Usługa Azure serwer proxy aplikacji usługi Azure AD często zadawane py
 description: Poznaj odpowiedzi na często zadawane pytania dotyczące korzystania z usługi Azure serwer proxy aplikacji usługi Azure AD w celu publikowania wewnętrznych aplikacji lokalnych dla użytkowników zdalnych.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583088"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386287"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -71,6 +71,13 @@ Istnieją liczniki Monitora wydajności, które są zainstalowane wraz z łączn
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Czy łącznik usługi Azure serwer proxy aplikacji usługi Azure AD musi znajdować się w tej samej podsieci co zasób?
 
 Łącznik nie musi znajdować się w tej samej podsieci. Wymaga to jednak rozpoznawania nazw (DNS, hostowania pliku) do zasobu i niezbędnej łączności sieciowej (routingu do zasobu, portów otwartych w danym zasobie itp.). Aby uzyskać zalecenia, zobacz [zagadnienia dotyczące topologii sieci podczas korzystania z serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md).
+
+### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>W jakich wersjach systemu Windows Server można zainstalować łącznik?
+Serwer proxy aplikacji wymaga systemu Windows Server 2012 R2 lub nowszego. Obecnie istnieje ograniczenie dotyczące HTTP2 dla systemu Windows Server 2019. Aby można było pomyślnie korzystać z łącznika w systemie Windows Server 2019, należy dodać następujący klucz rejestru i ponownie uruchomić serwer:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
+
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 
@@ -152,7 +159,7 @@ Nie. Usługa Azure serwer proxy aplikacji usługi Azure AD została zaprojektowa
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>Czy obsługa protokołu WebSocket działa w przypadku aplikacji innych niż QlikSense?
 
-Obecnie obsługa protokołu WebSocket jest nadal w publicznej wersji zapoznawczej i może nie współpracować z innymi aplikacjami. Niektórzy klienci mają mieszany sukces przy użyciu protokołu WebSocket z innymi aplikacjami. Jeśli testujesz takie scenariusze, chcielibyśmy poznać Twoje wyniki. Wyślij nam swoją opinię na aadapfeedback@microsoft.comten temat.
+Obecnie obsługa protokołu WebSocket jest nadal w publicznej wersji zapoznawczej i może nie współpracować z innymi aplikacjami. Niektórzy klienci mają mieszany sukces przy użyciu protokołu WebSocket z innymi aplikacjami. Jeśli testujesz takie scenariusze, chcielibyśmy poznać Twoje wyniki. Wyślij nam swoją opinię na ten temat aadapfeedback@microsoft.com .
 
 Funkcje (EventLogs, PowerShell i Usługi pulpitu zdalnego) w centrum administracyjnym systemu Windows (WAC) lub Pulpit zdalny Web Client (HTML5) nie działają na platformie Azure serwer proxy aplikacji usługi Azure AD.
 

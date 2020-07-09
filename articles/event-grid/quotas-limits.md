@@ -1,20 +1,14 @@
 ---
 title: Przydziały i limity — Azure Event Grid | Microsoft Docs
 description: Ten artykuł zawiera limity i przydziały dla Azure Event Grid. Na przykład liczba subskrypcji tematu, liczba tematów niestandardowych na subskrypcję itd.
-services: event-grid
-author: spelluru
-editor: ''
-ms.service: event-grid
-ms.devlang: na
 ms.topic: reference
-ms.date: 05/12/2020
-ms.author: shvija
-ms.openlocfilehash: decfc6659ea38ea35ab41615ff5077492cfa03b5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/07/2020
+ms.openlocfilehash: 78fb18f579eb1fa0c032b72c6d32bf56a7f0c8f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598101"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120436"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Przydziały i limity Azure Event Grid
 W tym artykule wymieniono przydziały i limity w Azure Event Grid. 

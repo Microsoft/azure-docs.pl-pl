@@ -1,18 +1,17 @@
 ---
-title: Av2 — seria Virtual Machines platformy Azure
+title: Seria Av2
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Av2.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: jushiman
+ms.openlocfilehash: 7d2064ec89e107aa219f34520f71ed8704bb7aeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78163951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676934"
 ---
 # <a name="av2-series"></a>Seria Av2
 

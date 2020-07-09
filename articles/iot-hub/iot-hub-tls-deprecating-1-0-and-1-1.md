@@ -8,10 +8,9 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 5c717a02c2008436617d16f08625a1cecc204340
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83849522"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Wycofanie protokołu TLS 1,0 i 1,1 w IoT Hub

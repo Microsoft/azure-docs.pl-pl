@@ -6,19 +6,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142473"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119212"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Szczegółowe kroki: tworzenie kluczy SSH i zarządzanie nimi na potrzeby uwierzytelniania na maszynie wirtualnej z systemem Linux na platformie Azure 
 Za pomocą pary kluczy Secure Shell (SSH) można utworzyć maszynę wirtualną z systemem Linux na platformie Azure, która domyślnie używa kluczy SSH do uwierzytelniania, eliminując konieczność logowania przy użyciu haseł. Maszyny wirtualne utworzone przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, szablonów Menedżer zasobów lub innych narzędzi mogą zawierać klucz publiczny SSH w ramach wdrożenia, które konfiguruje uwierzytelnianie klucza SSH dla połączeń SSH. 
 
 Ten artykuł zawiera szczegółowe informacje o tym, jak utworzyć parę plików prywatnego klucza SSH RSA dla połączeń klienta SSH i zarządzać nią. Jeśli chcesz użyć szybkich poleceń, zobacz [jak utworzyć parę kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](mac-create-ssh-keys.md).
 
-Aby uzyskać dodatkowe sposoby generowania i używania kluczy SSH na komputerze z systemem Windows, zobacz [jak używać kluczy SSH w systemie Windows na platformie Azure](ssh-from-windows.md).
+Aby generować klucze SSH i używać ich do łączenia się z komputerem z **systemem Windows** , zobacz [jak używać kluczy SSH w systemie Windows na platformie Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -41,7 +41,7 @@ Klucze SSH są domyślnie przechowywane w katalogu `~/.ssh`.  Jeśli nie masz ka
 
 ### <a name="basic-example"></a>Przykład podstawowy
 
-Następujące `ssh-keygen` polecenie generuje pliki o 2048-bitowym publicznym i prywatnym kluczu SSH, domyślnie w `~/.ssh` katalogu. Jeśli para kluczy SSH istnieje w bieżącej lokalizacji, te pliki są zastępowane.
+Następujące `ssh-keygen` polecenie generuje pliki o 4096-bitowym publicznym i prywatnym kluczu SSH, domyślnie w `~/.ssh` katalogu. Jeśli para kluczy SSH istnieje w bieżącej lokalizacji, te pliki są zastępowane.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

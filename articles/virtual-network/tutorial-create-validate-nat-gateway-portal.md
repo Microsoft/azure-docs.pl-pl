@@ -8,18 +8,19 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d798725892a9586c17cd7023863fe5cf7df05cb6
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82084747"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417841"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure Portal i testowanie usługi translatora adresów sieciowych
 
@@ -43,12 +44,12 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupNAT |
-| **\<Nazwa sieci wirtualnej>** | myVNetsource          |
-| **\<Nazwa regionu>**          | Wschodnie stany USA 2      |
-| **\<Adresy IPv4>miejsca**   | 192.168.0.0/16          |
-| **\<>nazwy podsieci**          | mySubnetsource        |
-| **\<>zakresu adresów podsieci** | 192.168.0.0/24          |
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetsource          |
+| **\<region-name>**          | Wschodnie stany USA 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0/16          |
+| **\<subnet-name>**          | mySubnetsource        |
+| **\<subnet-address-range>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -60,16 +61,16 @@ Aby przetestować bramę NAT, przypiszemy zasób publicznego adresu IP jako publ
 
 Możesz również utworzyć tę maszynę wirtualną bez publicznego adresu IP i utworzyć kolejną maszynę wirtualną do użycia jako serwera przesiadkowego bez publicznego adresu IP jako ćwiczenia.
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **Ubuntu Server 18,04 LTS**lub Wyszukaj **Ubuntu Server 18,04 LTS** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **Ubuntu Server 18,04 LTS**lub Wyszukaj **Ubuntu Server 18,04 LTS** w obszarze wyszukiwania w portalu Marketplace.
 
 2. W obszarze **Utwórz maszynę wirtualną**wprowadź lub wybierz następujące wartości z karty **podstawowe** :
-   - **Subscription** > **Grupa zasobów**subskrypcji: wybierz pozycję **myResourceGroupNAT**.
-   - **Szczegóły** > wystąpienia**Nazwa maszyny wirtualnej**: wprowadź **myVMsource**.
-   - **Instance Details** > **Region** szczegółów wystąpienia > wybierz pozycję **Wschodnie stany USA 2**.
-   - **Administrator account** > **Wprowadzenie do uwierzytelniania**konta administratora: wybierz opcję **hasło**.
+   - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**.
+   - **Szczegóły wystąpienia**  >  **Nazwa maszyny wirtualnej**: wprowadź **myVMsource**.
+   - **Szczegóły wystąpienia**  >  **Region** > wybierz pozycję **Wschodnie stany USA 2**.
+   - **Konto administratora**  >  **Wprowadzanie uwierzytelniania**: wybierz opcję **hasło**.
    - **Konto administratora** > wprowadź **nazwę użytkownika**, **hasło**i potwierdź informacje o **haśle** .
-   - **Inbound port rules** > **Publiczne porty przychodzące**dla reguł portów przychodzących: wybierz opcję **Zezwalaj na wybrane porty**.
-   - **Reguły portów ruchu przychodzącego** > **wybierają porty przychodzące**: Wybierz **SSH (22)**
+   - Reguły portów ruchu **przychodzącego**  >  **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty**.
+   - Reguły portów ruchu **przychodzącego**  >  **Wybierz porty wejściowe**: wybierz pozycję **SSH (22)**
    - Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
 
 3. Na karcie **Sieć** upewnij się, że wybrano następujące elementy:
@@ -96,7 +97,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 
 ### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **Sieć** > **publiczny adres IP**lub Wyszukaj **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace. 
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny adres IP**lub Wyszukaj **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace. 
 
 2. W obszarze **Utwórz publiczny adres IP**wprowadź lub wybierz następujące informacje:
 
@@ -113,13 +114,13 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 
 ### <a name="create-a-public-ip-prefix"></a>Tworzenie publicznego prefiksu adresu IP
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **Sieć** > **publiczny prefiks adresu IP**lub Wyszukaj pozycję **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **publiczny prefiks adresu IP**lub Wyszukaj pozycję **publiczny adres IP** w obszarze wyszukiwania w portalu Marketplace.
 
 2. W obszarze **Utwórz publiczny prefiks adresu IP**wprowadź lub wybierz następujące wartości z karty **podstawowe** :
-   - **Subscription** > **Grupa zasobów**subskrypcji: wybierz pozycję **myResourceGroupNAT**>
-   - **Instance details** > **Nazwa**szczegółów wystąpienia: wprowadź **myPublicIPprefixsource**.
-   - **Instance details** > **Region**szczegółów wystąpienia: wybierz pozycję **Wschodnie stany USA 2**.
-   - **Instance details** > **Rozmiar prefiksu**szczegółów wystąpienia: Wybierz **/31 (2 adresy)**
+   - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**>
+   - **Szczegóły wystąpienia**  >  **Nazwa**: wprowadź **myPublicIPprefixsource**.
+   - **Szczegóły wystąpienia**  >  **Region**: wybierz pozycję **Wschodnie stany USA 2**.
+   - **Szczegóły wystąpienia**  >  **Rozmiar prefiksu**: Wybierz **/31 (2 adresy)**
 
 3. Pozostaw ustawienia domyślne i wybierz pozycję **Przegląd + Utwórz**.
 
@@ -128,13 +129,13 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
 
 ### <a name="create-a-nat-gateway-resource"></a>Tworzenie zasobu bramy NAT
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **Sieć** > **brama translatora adresów sieciowych**lub Wyszukaj **bramę translatora adresów sieciowych** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **brama translatora adresów sieciowych**lub Wyszukaj **bramę translatora adresów sieciowych** w obszarze wyszukiwania w portalu Marketplace.
 
 2. W obszarze **Utwórz bramę translacji adresów sieciowych (NAT)** wprowadź lub wybierz następujące wartości z karty **podstawowe** :
-   - **Subscription** > **Grupa zasobów**subskrypcji: wybierz pozycję **myResourceGroupNAT**.
-   - **Szczegóły** > wystąpienia**Nazwa bramy translatora adresów sieciowych**: wprowadź **myNATgateway**.
-   - **Instance details** > **Region**szczegółów wystąpienia: wybierz pozycję **Wschodnie stany USA 2**.
-   - **Szczegóły** > wystąpienia —**limit czasu bezczynności (minuty)**: wprowadź wartość **10**.
+   - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**.
+   - **Szczegóły wystąpienia**  >  **Nazwa bramy translatora adresów sieciowych**: wprowadź **myNATgateway**.
+   - **Szczegóły wystąpienia**  >  **Region**: wybierz pozycję **Wschodnie stany USA 2**.
+   - **Szczegóły wystąpienia**  >  **Limit czasu bezczynności (w minutach)**: wprowadź wartość **10**.
    - Wybierz kartę **publiczny adres IP** lub wybierz pozycję **Dalej: publiczny adres IP**.
 
 3. Na karcie **publiczny adres IP** wprowadź lub wybierz następujące wartości:
@@ -143,7 +144,7 @@ W tej sekcji szczegółowo opisano, jak utworzyć i skonfigurować następujące
    - Wybierz kartę **podsieć** lub wybierz pozycję **Dalej: podsieć**.
 
 4. Na karcie **podsieć** wprowadź lub wybierz następujące wartości:
-   - **Virtual Network**: wybierz pozycję **myResourceGroupNAT** > **myVnetsource**.
+   - **Virtual Network**: wybierz pozycję **myResourceGroupNAT**  >  **myVnetsource**.
    - **Nazwa podsieci**: zaznacz pole wyboru obok pozycji **mySubnetsource**.
 
 5. Wybierz pozycję **Przegląd + utwórz**.
@@ -166,27 +167,27 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupNAT |
-| **\<Nazwa sieci wirtualnej>** | myVNetdestination          |
-| **\<Nazwa regionu>**          | Wschodnie stany USA 2      |
-| **\<Adresy IPv4>miejsca**   | 192.168.0.0/16          |
-| **\<>nazwy podsieci**          | mySubnetdestination        |
-| **\<>zakresu adresów podsieci** | 192.168.0.0/24          |
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNetdestination          |
+| **\<region-name>**          | Wschodnie stany USA 2      |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnetdestination        |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-destination-virtual-machine"></a>Utwórz docelową maszynę wirtualną
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **Ubuntu Server 18,04 LTS**lub Wyszukaj **Ubuntu Server 18,04 LTS** w obszarze wyszukiwania w portalu Marketplace.
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **Ubuntu Server 18,04 LTS**lub Wyszukaj **Ubuntu Server 18,04 LTS** w obszarze wyszukiwania w portalu Marketplace.
 
 2. W obszarze **Utwórz maszynę wirtualną**wprowadź lub wybierz następujące wartości z karty **podstawowe** :
-   - **Subscription** > **Grupa zasobów**subskrypcji: wybierz pozycję **myResourceGroupNAT**.
-   - **Szczegóły** > wystąpienia**Nazwa maszyny wirtualnej**: wprowadź **myVMdestination**.
-   - **Instance Details** > **Region** szczegółów wystąpienia > wybierz pozycję **Wschodnie stany USA 2**.
-   - **Administrator account** > **Wprowadzenie do uwierzytelniania**konta administratora: wybierz opcję **hasło**.
+   - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupNAT**.
+   - **Szczegóły wystąpienia**  >  **Nazwa maszyny wirtualnej**: wprowadź **myVMdestination**.
+   - **Szczegóły wystąpienia**  >  **Region** > wybierz pozycję **Wschodnie stany USA 2**.
+   - **Konto administratora**  >  **Wprowadzanie uwierzytelniania**: wybierz opcję **hasło**.
    - **Konto administratora** > wprowadź **nazwę użytkownika**, **hasło**i potwierdź informacje o **haśle** .
-   - **Inbound port rules** > **Publiczne porty przychodzące**dla reguł portów przychodzących: wybierz opcję **Zezwalaj na wybrane porty**.
-   - **Reguły portów ruchu przychodzącego** > **wybierają porty przychodzące**: Wybierz **SSH (22)** i **http (80)**.
+   - Reguły portów ruchu **przychodzącego**  >  **Publiczne porty przychodzące**: wybierz opcję **Zezwalaj na wybrane porty**.
+   - Reguły portów ruchu **przychodzącego**  >  **Wybierz porty wejściowe**: wybierz pozycję **SSH (22)** i **http (80)**.
    - Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
 
 3. Na karcie **Sieć** upewnij się, że wybrano następujące elementy:
@@ -286,13 +287,13 @@ Teraz można przystąpić do testowania usługi translatora adresów sieciowych.
 
 Po zalogowaniu się do źródłowej maszyny wirtualnej można użyć jej **zwinięcie** i **Hej** do generowania żądań na docelowy adres IP.
 
-Użyj zwinięciea, aby pobrać plik 100-kilobajtów.  Zastąp ** \<>IP-Address-Destination** w poniższym przykładzie z docelowym wcześniej skopiowanym adresem IP.  Parametr **--Output** wskazuje, że pobrany plik zostanie odrzucony.
+Użyj zwinięciea, aby pobrać plik 100-kilobajtów.  **\<ip-address-destination>** W poniższym przykładzie Zastąp wartość docelowym wcześniej skopiowanym adresem IP.  Parametr **--Output** wskazuje, że pobrany plik zostanie odrzucony.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Możesz również generować serię żądań za pomocą polecenia **Hej**. Ponownie Zastąp ** \<>IP-Address-Destination** adresem IP, który został wcześniej skopiowany.
+Możesz również generować serię żądań za pomocą polecenia **Hej**. Ponownie Zastąp **\<ip-address-destination>** wartość docelowym adresem IP, który został wcześniej skopiowany.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

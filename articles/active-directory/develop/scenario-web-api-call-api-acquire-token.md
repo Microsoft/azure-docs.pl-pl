@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 79f8eb9e804502a7c0e61c18e4998fa05db10278
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885144"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji
@@ -50,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
 
 `BuildConfidentialClient()`jest podobny do scenariusza w [interfejsie API sieci Web, który wywołuje interfejsy API sieci Web: Konfiguracja aplikacji](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`tworzy wystąpienia `IConfidentialClientApplication` z pamięcią podręczną zawierającą informacje tylko dla jednego konta. Konto jest dostarczane przez `GetAccountIdentifier` metodę.
 
-`GetAccountIdentifier` Metoda korzysta z oświadczeń, które są skojarzone z tożsamością użytkownika, dla którego internetowy interfejs API odebrał token sieci Web JSON (JWT):
+`GetAccountIdentifier`Metoda korzysta z oświadczeń, które są skojarzone z tożsamością użytkownika, dla którego internetowy interfejs API odebrał token sieci Web JSON (JWT):
 
 ```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -91,7 +90,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Interfejs API sieci Web w języku Python będzie musiał użyć oprogramowania pośredniczącego w celu zweryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) MSAL, wywołując metodę. Przykład pokazujący ten przepływ przy użyciu języka MSAL Python nie jest jeszcze dostępny.
+Interfejs API sieci Web w języku Python będzie musiał użyć oprogramowania pośredniczącego w celu zweryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL, wywołując [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metodę. Przykład pokazujący ten przepływ przy użyciu języka MSAL Python nie jest jeszcze dostępny.
 
 ---
 

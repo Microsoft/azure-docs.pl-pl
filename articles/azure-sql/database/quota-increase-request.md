@@ -2,18 +2,19 @@
 title: Poproś o zwiększenie limitu przydziału
 description: Na tej stronie opisano, jak utworzyć żądanie pomocy technicznej w celu zwiększenia limitów przydziału dla Azure SQL Database i wystąpienia zarządzanego Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: service
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 02/04/2020
-ms.openlocfilehash: 53160fa5a2d24f747b0653673a6f817ae14a7975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118868"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987290"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Wzrost przydziału żądań dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,19 +50,20 @@ Wykonaj następujące kroki, aby utworzyć nowe żądanie obsługi z Azure Porta
 
    ![Wybierz typ limitu przydziału](./media/quota-increase-request/select-quota-type.png)
 
-1. W oknie **szczegóły** wybierz pozycję **Podaj szczegóły** , aby wprowadzić dodatkowe informacje.
+1. W oknie **szczegóły** wybierz pozycję **Wprowadź szczegóły** , aby wprowadzić dodatkowe informacje.
 
-   ![Link "Podaj szczegóły"](./media/quota-increase-request/provide-details-link.png)
+   ![Wprowadź link do szczegółów](./media/quota-increase-request/provide-details-link.png)
 
-Kliknięcie pozycji **Podaj szczegóły** powoduje wyświetlenie okna **Szczegóły przydziału** umożliwiającego dodanie dodatkowych informacji. W poniższych sekcjach opisano różne opcje **SQL Database** i SQL Database typy przydziałów **wystąpienia zarządzanego** .
+Kliknięcie przycisku **Wprowadź szczegóły** powoduje wyświetlenie okna **Szczegóły przydziału** , które umożliwia dodanie dodatkowych informacji. W poniższych sekcjach opisano różne opcje **SQL Database** i SQL Database typy przydziałów **wystąpienia zarządzanego** .
 
 ## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>SQL Database typy przydziałów
 
-W poniższych sekcjach opisano trzy opcje wzrostu przydziału dla **SQL Database** typów przydziałów:
+W poniższych sekcjach opisano opcje zwiększania limitu przydziału dla **SQL Database** typów przydziałów:
 
 - Jednostki transakcji bazy danych (DTU) na serwer
 - Serwery na subskrypcję
-- Włączanie dostępu do subskrypcji do regionu
+- Dostęp do regionu serii M
+- Dostęp regionu
 
 ### <a name="database-transaction-units-dtus-per-server"></a>Jednostki transakcji bazy danych (DTU) na serwer
 
@@ -91,15 +93,32 @@ Wykonaj następujące kroki, aby zażądać zwiększenia liczby serwerów na sub
 
 Aby uzyskać więcej informacji, zobacz [SQL Database limity zasobów i zarządzanie zasobami](resource-limits-logical-server.md).
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a>Włączanie dostępu do subskrypcji do regionu
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Włączanie dostępu do subskrypcji do regionu
 
 Niektóre typy ofert nie są dostępne w każdym regionie. Może zostać wyświetlony następujący błąd:
 
-`This location is not available for subscription`
+`Your subscription does not have access to create a server in the selected region. For the latest information about region availability for your subscription, go to aka.ms/sqlcapacity. Please try another region or create a support ticket to request access.`
 
-Jeśli Twoja subskrypcja wymaga dostępu w określonym regionie, użyj **innej opcji żądania przydziału** , aby zażądać dostępu. W żądaniu Określ szczegóły oferty i jednostki SKU, które chcesz włączyć dla regionu. Aby poznać opcje oferty i jednostki SKU, zobacz [cennik Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Jeśli Twoja subskrypcja wymaga dostępu w określonym regionie, wybierz opcję **dostęp do regionu** . W żądaniu Określ szczegóły oferty i jednostki SKU, które chcesz włączyć dla regionu. Aby poznać opcje oferty i jednostki SKU, zobacz [cennik Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-![Inne szczegóły przydziału](./media/quota-increase-request/quota-details-whitelisting.png)
+1. Wybierz typ limitu przydziału **dostępu do regionu** .
+
+1. Z listy **Wybierz lokalizację** wybierz region platformy Azure, który ma być używany. Przydział jest przypadany na subskrypcję w każdym regionie.
+
+1. Wprowadź **model zakupu**oraz szczegóły **oczekiwanego zużycia** .
+
+   ![Dostęp do regionu żądania](./media/quota-increase-request/quota-details-whitelisting.png)
+
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>Włączanie dostępu z serii M do regionu
+
+Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żądanie obsługi.
+
+1. Wybierz typ limitu przydziału **dostępu do regionu serii M** .
+
+1. Z listy **Wybierz lokalizację** wybierz region platformy Azure, który ma być używany. Przydział jest przypadany na subskrypcję w każdym regionie.
+
+
+   ![Dostęp do regionu żądania](./media/quota-increase-request/quota-m-series.png)
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>Typ przydziału wystąpienia zarządzanego SQL
 

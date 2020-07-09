@@ -3,12 +3,12 @@ title: Aktualizacje obrazu podstawowego — zadania
 description: Informacje o obrazach podstawowych dla obrazów kontenerów aplikacji oraz o sposobie wyzwalania przez aktualizację obrazu podstawowego zadania Azure Container Registry.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918514"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Informacje o aktualizacjach obrazu podstawowego dla zadań ACR
 
@@ -39,11 +39,18 @@ W przypadku kompilacji obrazu z pliku dockerfile, zadanie ACR wykrywa zależnoś
 
 Jeśli obraz podstawowy określony w `FROM` instrukcji znajduje się w jednej z tych lokalizacji, zadanie ACR dodaje punkt zaczepienia, aby upewnić się, że obraz został odbudowany w dowolnym momencie, gdy jego baza jest aktualizowana.
 
+## <a name="base-image-notifications"></a>Powiadomienia obrazu podstawowego
+
+Czas między aktualizacją obrazu podstawowego a wyzwalaniem zależnego zadania zależy od lokalizacji obrazu podstawowego:
+
+* **Obrazy podstawowe z repozytorium publicznego w usłudze Docker Hub lub MCR** — dla obrazów podstawowych w repozytoriach publicznych, zadanie ACR sprawdza dostępność aktualizacji obrazów w losowym interwale wynoszącym od 10 do 60 minut. Zadania zależne są uruchamiane odpowiednio.
+* **Obrazy podstawowe z usługi Azure Container Registry** — w przypadku obrazów bazowych w rejestrach kontenerów platformy Azure, zadanie ACR natychmiast wyzwala uruchomienie, gdy jego obraz podstawowy zostanie zaktualizowany. Obraz podstawowy może znajdować się w tym samym ACR, w którym zadanie działa lub w innym ACR w dowolnym regionie.
+
 ## <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
 * **Obrazy podstawowe dla obrazów aplikacji** — obecnie zadanie ACR śledzi jedynie podstawowe aktualizacje obrazu dla obrazów aplikacji (*środowiska uruchomieniowego*). Nie są śledzone aktualizacje obrazu podstawowego dla obrazów pośrednich (*buildtime*) używanych w wieloetapowym wieloetapowe dockerfile.  
 
-* **Domyślnie włączone** — podczas tworzenia zadania ACR za pomocą polecenia [AZ ACR Task Create][az-acr-task-create] Domyślnie zadanie jest *włączone* dla wyzwalacza przez podstawową aktualizację obrazu. Oznacza to, że `base-image-trigger-enabled` właściwość jest ustawiona na wartość true. Jeśli chcesz wyłączyć to zachowanie w zadaniu, zaktualizuj właściwość do wartości false. Na przykład uruchom następujące polecenie [AZ ACR Task Update][az-acr-task-update] :
+* **Domyślnie włączone** — podczas tworzenia zadania ACR za pomocą polecenia [AZ ACR Task Create][az-acr-task-create] Domyślnie zadanie jest *włączone* dla wyzwalacza przez podstawową aktualizację obrazu. Oznacza to, że `base-image-trigger-enabled` Właściwość jest ustawiona na wartość true. Jeśli chcesz wyłączyć to zachowanie w zadaniu, zaktualizuj właściwość do wartości false. Na przykład uruchom następujące polecenie [AZ ACR Task Update][az-acr-task-update] :
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
@@ -51,7 +58,7 @@ Jeśli obraz podstawowy określony w `FROM` instrukcji znajduje się w jednej z 
 
 * **Wyzwalacz do śledzenia zależności** — aby włączyć zadanie ACR w celu ustalenia i śledzenia zależności obrazu kontenera — w tym obrazu podstawowego — należy najpierw wyzwolić zadanie, aby utworzyć obraz **co najmniej raz**. Na przykład Wyzwól zadanie ręcznie przy użyciu polecenia [AZ ACR Task Run][az-acr-task-run] .
 
-* **Stabilny tag obrazu podstawowego** — aby wyzwolić zadanie w ramach aktualizacji obrazu podstawowego, podstawowy obraz musi mieć *stabilny* tag, taki jak `node:9-alpine`. Ten znakowanie jest typowe w przypadku obrazu podstawowego, który jest aktualizowany przy użyciu poprawek systemu operacyjnego i wersji Framework do najnowszej stabilnego wydania. Jeśli obraz podstawowy został zaktualizowany przy użyciu nowego tagu wersji, zadanie nie zostanie wyzwolone. Aby uzyskać więcej informacji na temat znakowania obrazu, zobacz [wskazówki dotyczące najlepszych](container-registry-image-tag-version.md)rozwiązań. 
+* **Stabilny tag obrazu podstawowego** — aby wyzwolić zadanie w ramach aktualizacji obrazu podstawowego, podstawowy obraz musi mieć *stabilny* tag, taki jak `node:9-alpine` . Ten znakowanie jest typowe w przypadku obrazu podstawowego, który jest aktualizowany przy użyciu poprawek systemu operacyjnego i wersji Framework do najnowszej stabilnego wydania. Jeśli obraz podstawowy został zaktualizowany przy użyciu nowego tagu wersji, zadanie nie zostanie wyzwolone. Aby uzyskać więcej informacji na temat znakowania obrazu, zobacz [wskazówki dotyczące najlepszych](container-registry-image-tag-version.md)rozwiązań. 
 
 * **Inne Wyzwalacze zadań** — w ramach zadania wyzwalanego przez aktualizacje obrazu podstawowego można także włączyć wyzwalacze na podstawie [zatwierdzenia kodu źródłowego](container-registry-tutorial-build-task.md) lub [harmonogramu](container-registry-tasks-scheduled.md). Aktualizacja obrazu podstawowego może również wyzwolić [zadanie wieloetapowe](container-registry-tasks-multi-step.md).
 

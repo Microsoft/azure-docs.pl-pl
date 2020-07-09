@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9006a70ae941abb700412a7c596627939c994028
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587514"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339602"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Porównanie rozwiązań dla tożsamości zewnętrznych w Azure Active Directory
 
@@ -36,11 +36,11 @@ Poniższa tabela zawiera szczegółowe porównanie różnych scenariuszy, które
 
 | Aplikacje wielodostępne  | Współpraca z użytkownikami zewnętrznymi (B2B) | Aplikacje dla odbiorców lub klientów (B2C)  |
 | ---- | --- | --- |
-| Scenariusz podstawowy: oprogramowanie jako usługa (SaaS) dla przedsiębiorstw | Scenariusz podstawowy: współpraca przy użyciu aplikacji firmy Microsoft (Office 365, zespołów,...) lub własnego oprogramowania do współpracy.  | Scenariusz podstawowy: aplikacje transakcyjne używające niestandardowych aplikacji.   |
+| Scenariusz podstawowy: oprogramowanie jako usługa (SaaS) dla przedsiębiorstw | Scenariusz podstawowy: współpraca przy użyciu aplikacji firmy Microsoft (Microsoft 365, zespołów,...) lub własnego oprogramowania do współpracy.  | Scenariusz podstawowy: aplikacje transakcyjne używające niestandardowych aplikacji.   |
 | Przeznaczone dla: organizacje, które chcą udostępnić oprogramowanie wielu klientom korporacyjnym.    | Przeznaczenie: organizacje, które chcą uwierzytelniać użytkowników z organizacji partnerskiej, niezależnie od dostawcy tożsamości.    | Zamierzone dla: zapraszanie klientów aplikacji mobilnych i sieci Web, niezależnie od tego, czy klienci indywidualni, instytucjonalni, czy organizacyjni są w katalogu usługi Azure AD oddzielony od katalogu Twojej organizacji. |
 | Obsługiwane tożsamości: pracownicy z kontami usługi Azure AD. | Obsługiwane tożsamości: pracownicy z kontami służbowymi, partnerzy z kontami służbowymi lub dowolny adres e-mail. Wkrótce będzie możliwa obsługa federacji bezpośredniej.      | Obsługiwane tożsamości: użytkownicy konsumenci z kontami aplikacji lokalnych (dowolny adres e-mail lub nazwa użytkownika) albo dowolna obsługiwana tożsamość społecznościowa z federacją bezpośrednią.       |
 | Użytkownicy zewnętrzni są zarządzani w ich własnym katalogu, odizolowany od katalogu, w którym zarejestrowano aplikację.    | Użytkownicy zewnętrzni są zarządzani w tym samym katalogu co pracownicy, ale mają specjalne adnotacje. Mogą być zarządzane w taki sam sposób jak pracownicy, ale mogą być dodawane do tych samych grup i tak dalej.    | Użytkownicy zewnętrzni są zarządzani w katalogu aplikacji. Są one zarządzane oddzielnie od pracownika organizacji i katalogu partnera (jeśli istnieją).  |
-| Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD.          | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD. Można zapewnić dostęp do usługi Office 365 lub aplikacji lokalnych oraz innych aplikacji SaaS, takich jak Salesforce lub Workday.    | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do aplikacji należących do klienta w ramach dzierżawców Azure AD B2C. Logowanie jednokrotne do pakietu Office 365 lub innych aplikacji Microsoft SaaS nie jest obsługiwane.    |
+| Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD.          | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do wszystkich aplikacji połączonych z usługą Azure AD. Na przykład możesz zapewnić dostęp do Microsoft 365 lub aplikacji lokalnych oraz innych aplikacji SaaS, takich jak Salesforce lub Workday.    | Logowanie jednokrotne: obsługiwane jest logowanie jednokrotne do aplikacji należących do klienta w ramach dzierżawców Azure AD B2C. Logowanie jednokrotne do Microsoft 365 lub innych aplikacji Microsoft SaaS nie jest obsługiwane.    |
 | Cykl życia klientów: zarządzane przez organizację główną użytkownika.      | Cykl życia partnera: zarządzany przez hosta/organizację zapraszającą.    | Cykl życia klienta: samoobsługowy lub zarządzany przez aplikację.      |
 | Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).           | Zasady zabezpieczeń i zgodność: zarządzane przez hosta/zapraszanie organizacji (na przykład z [zasadami dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)). | Zasady zabezpieczeń i zgodność: zarządzane przez aplikację.        |
 | Znakowanie: używana jest marka Host/zapraszanie do organizacji.   | Znakowanie: używana jest marka Host/zapraszanie do organizacji.    | Znakowanie: zarządzane przez aplikację. Zazwyczaj jest używana marka produktu z danymi organizacji w tle.   |

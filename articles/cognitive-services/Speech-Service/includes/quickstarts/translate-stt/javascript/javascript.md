@@ -3,13 +3,12 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
-ms.openlocfilehash: 61c5370bc8dd77babaaa79c814c0d7a9c8049d73
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.author: trbye
+ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978846"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035892"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +40,7 @@ Utwórz w folderze nowy plik o nazwie `index.html`, a następnie otwórz ten pli
 W przypadku, gdy chcesz udostępnić stronę internetową na serwerze internetowym, możesz opcjonalnie podać źródło tokenu dla swojej aplikacji pokazowej.
 W ten sposób Twój klucz subskrypcji nigdy nie opuści serwera, ale jednocześnie umożliwi użytkownikom korzystanie z możliwości funkcji rozpoznawania mowy bez wprowadzania przez nich kodu autoryzacji.
 
-Utwórz nowy plik o nazwie `token.php`. W tym przykładzie przyjęto założenie, że serwer internetowy obsługuje język skryptów PHP. Wprowadź następujący kod:
+Utwórz nowy plik o nazwie `token.php`. W tym przykładzie przyjęto założenie, że serwer sieci Web obsługuje język skryptów PHP z włączonym zwinięciem. Wprowadź następujący kod:
 
 ```php
 <?php
@@ -67,11 +66,11 @@ echo curl_exec($ch);
 
 ## <a name="build-and-run-the-sample-locally"></a>Lokalne kompilowanie i uruchamianie przykładu
 
-Aby uruchomić aplikację, kliknij dwukrotnie plik index.html lub otwórz plik index.html za pomocą swojej ulubionej przeglądarki internetowej. Udostępnimy prosty graficzny interfejs użytkownika, który umożliwia wprowadzanie klucza subskrypcji i [regionu](../../../../regions.md) oraz wyzwalanie syntezy tekstu wejściowego.
+Aby uruchomić aplikację, kliknij dwukrotnie plik index.html lub otwórz plik index.html za pomocą swojej ulubionej przeglądarki internetowej. Udostępnimy prosty graficzny interfejs użytkownika, który umożliwi wprowadzanie klucza subskrypcji i [regionu](../../../../regions.md) oraz wyzwalanie transkrypcji tekstu wejściowego.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Kompilowanie i uruchamianie przykładu za pomocą serwera internetowego
 
-Aby uruchomić aplikację, Otwórz ulubioną przeglądarkę internetową i wskaż jej publiczny adres URL, na którym znajduje się folder, wprowadź swój [region](../../../../regions.md)i Wyzwól syntezę tekstu wejściowego. Jeśli skonfigurowano tę funkcję, pobierze ona token ze źródła tokenu.
+Aby uruchomić aplikację, Otwórz ulubioną przeglądarkę internetową i wskaż jej publiczny adres URL, na którym znajduje się folder, wprowadź swój [region](../../../../regions.md)i Wyzwól transkrypcję tekstu wejściowego. Jeśli skonfigurowano tę funkcję, pobierze ona token ze źródła tokenu.
 
 ## <a name="next-steps"></a>Następne kroki
 

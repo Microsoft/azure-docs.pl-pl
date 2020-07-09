@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670206"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Sprzężenia w kwerendach dziennika Azure Monitor
@@ -53,7 +52,7 @@ on $left.key1 == $right.key2
 ```
 
 ## <a name="lookup-tables"></a>Tabele odnośników
-Typowym zastosowaniem sprzężeń jest użycie statycznego mapowania wartości przy `datatable` użyciu, które mogą pomóc w przekształcaniu wyników na bardziej niemożliwe do wysłania. Na przykład, aby wzbogacić dane zdarzenia zabezpieczeń z nazwą zdarzenia dla każdego identyfikatora zdarzenia.
+Typowym zastosowaniem sprzężeń jest użycie statycznego mapowania wartości przy użyciu `datatable` , które mogą pomóc w przekształcaniu wyników na bardziej niemożliwe do wysłania. Na przykład, aby wzbogacić dane zdarzenia zabezpieczeń z nazwą zdarzenia dla każdego identyfikatora zdarzenia.
 
 ```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
@@ -93,7 +92,7 @@ Określ typ sprzężenia z argumentem _rodzaju_ . Każdy typ wykonuje różne do
 W celu uzyskania optymalnej wydajności należy rozważyć następujące kwestie:
 
 - Użyj filtru czasu dla każdej tabeli, aby zmniejszyć liczbę rekordów, które muszą zostać ocenione dla sprzężenia.
-- Użyj `where` i `project` , aby zmniejszyć liczbę wierszy i kolumn w tabelach wejściowych przed sprzężeniem.
+- Użyj `where` i, `project` Aby zmniejszyć liczbę wierszy i kolumn w tabelach wejściowych przed sprzężeniem.
 - Jeśli jedna tabela jest zawsze mniejsza niż druga, użyj jej jako lewej strony sprzężenia.
 
 

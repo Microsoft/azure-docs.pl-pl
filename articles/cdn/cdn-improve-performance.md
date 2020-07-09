@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 7124dd40d4510674014afe012a8f40dcb5bb6153
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887691"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN
 Kompresja plików to prosta i skuteczna metoda zwiększania szybkości transferu plików i zwiększania wydajności ładowania strony poprzez zmniejszenie rozmiaru pliku przed jego wysłaniem z serwera. Kompresja plików pozwala zmniejszyć koszty przepustowości i zapewnić użytkownikom większą wydajność.
@@ -127,7 +127,7 @@ Te profile obsługują następujące kodowania kompresji:
 
 Jeśli żądanie obsługuje więcej niż jeden typ kompresji, te typy kompresji mają pierwszeństwo przed kompresją brotli.
 
-Gdy żądanie dla elementu zawartości określa kompresję brotli (nagłówek HTTP is `Accept-Encoding: br`), a żądanie powoduje odrzucenie pamięci podręcznej, Azure CDN wykonuje kompresję brotli elementu zawartości bezpośrednio na serwerze pop. Następnie skompresowany plik jest obsługiwany z pamięci podręcznej.
+Gdy żądanie dla elementu zawartości określa kompresję brotli (nagłówek HTTP is `Accept-Encoding: br` ), a żądanie powoduje odrzucenie pamięci podręcznej, Azure CDN wykonuje kompresję brotli elementu zawartości bezpośrednio na serwerze pop. Następnie skompresowany plik jest obsługiwany z pamięci podręcznej.
 
 ### <a name="azure-cdn-standard-from-akamai-profiles"></a>Standard Azure CDN z profilów Akamai
 
@@ -139,7 +139,7 @@ Te profile obsługują tylko kodowanie kompresji gzip. Gdy punkt końcowy profil
 W poniższych tabelach opisano zachowanie kompresji Azure CDN w każdym scenariuszu:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Kompresja jest wyłączona lub plik nie kwalifikuje się do kompresji
-| Wymagany format klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | &nbsp; &nbsp; Uwagi&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Wymagany format klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | &nbsp; &nbsp; &nbsp; &nbsp; Uwagi &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Skompresowane |Skompresowane |Skompresowane | |
 | Skompresowane |Nieskompresowanych |Nieskompresowanych | |
@@ -162,7 +162,7 @@ W poniższych tabelach opisano zachowanie kompresji Azure CDN w każdym scenariu
 W przypadku punktów końcowych włączonych do Media Services przesyłania strumieniowego w sieci CDN kompresja jest domyślnie włączona dla następujących typów MIME: 
 - application/vnd. MS-SStR + XML 
 - Aplikacja/łącznik + XML
-- application/vnd. Apple. mpegurl
+- adres URL aplikacji/vnd.apple.mpeg
 - Application/f4m + XML 
 
 ## <a name="see-also"></a>Zobacz także

@@ -2,18 +2,16 @@
 title: Przewodnik publikowania aplikacji SaaS — Microsoft Commercial Marketplace
 description: Wymagania i zasoby dotyczące publikowania publikacji SaaS oferty aplikacji Microsoft AppSource w witrynie Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: dsindona
-ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c19799265679eeead96bf95943f274aa32c75ff2
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657825"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121575"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Przewodnik publikowania ofert w aplikacjach SaaS
 
@@ -28,9 +26,9 @@ Aplikacje SaaS są dostępne w Microsoft AppSource i w witrynie Azure Marketplac
 
 | Oferta aplikacji SaaS | Wymagania biznesowe | Wymagania techniczne |  
 | --- | --- | --- |  
-| **Skontaktuj się z nami** | Yes | Nie |  
-| **Power BI/Dynamics** | Yes | Tak (Integracja z usługą Azure AD) |  
-| **Aplikacje SaaS**| Yes | Tak (Integracja z usługą Azure AD) |     
+| **Skontaktuj się z nami** | Tak | Nie |  
+| **Power BI/Dynamics** | Tak | Tak (Integracja z usługą Azure AD) |  
+| **Aplikacje SaaS**| Tak | Tak (Integracja z usługą Azure AD) |     
 
 ## <a name="saas-list"></a>Lista SaaS
 
@@ -62,11 +60,9 @@ Aby rozpocząć, zalecamy korzystanie z subskrypcji przeznaczonej do publikacji 
 
 Najlepsza Azure Active Directory dokumentacja, przykłady i wskazówki znajdują się w następujących lokacjach: 
 
-* [Przewodnik dewelopera Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Przewodnik dewelopera Azure Active Directory](../active-directory/develop/index.yml)
 
-* [Integracja z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Integrowanie aplikacji z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integracja z usługą Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Plan Azure — zabezpieczenia i tożsamość](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +86,7 @@ Ponadto Azure Active Directory udostępnia lokację do sprawdzenia dostępności
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Używanie Azure Active Directory do włączania prób  
 
-Firma Microsoft uwierzytelnia wszystkich użytkowników portalu Marketplace przy użyciu usługi Azure AD, więc gdy uwierzytelniony użytkownik kliknie listę próbną w witrynie Marketplace i zostanie przekierowany do środowiska próbnego, można udostępnić użytkownikowi bezpośrednio w wersji próbnej bez konieczności dodatkowego kroku logowania. Token, który aplikacja otrzymuje z usługi Azure AD podczas uwierzytelniania, zawiera cenne informacje o użytkowniku, których można użyć do utworzenia konta użytkownika w aplikacji, co pozwala zautomatyzować środowisko aprowizacji i zwiększyć prawdopodobieństwo konwersji. Aby uzyskać więcej informacji o tokenie, zobacz [przykładowe tokeny](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Firma Microsoft uwierzytelnia wszystkich użytkowników portalu Marketplace przy użyciu usługi Azure AD, więc gdy uwierzytelniony użytkownik kliknie listę próbną w witrynie Marketplace i zostanie przekierowany do środowiska próbnego, można udostępnić użytkownikowi bezpośrednio w wersji próbnej bez konieczności dodatkowego kroku logowania. Token, który aplikacja otrzymuje z usługi Azure AD podczas uwierzytelniania, zawiera cenne informacje o użytkowniku, których można użyć do utworzenia konta użytkownika w aplikacji, co pozwala zautomatyzować środowisko aprowizacji i zwiększyć prawdopodobieństwo konwersji. Aby uzyskać więcej informacji o tokenie, zobacz [przykładowe tokeny](../active-directory/develop/active-directory-token-and-claims.md) .
 
 Za pomocą usługi Azure AD Włącz uwierzytelnianie jednokrotne w aplikacji lub wersji próbnej, wykonując następujące czynności:  
 * Usprawnia obsługę klienta z witryny Marketplace w wersji próbnej.  
@@ -106,15 +102,15 @@ Zatwierdź integrację z usługą Azure AD na kilka różnych sposobów, w zale�
 
 Jeśli już obsługujesz usługę Azure AD, wykonaj następujące czynności:
 1.    Zarejestruj swoją aplikację w Azure Portal
-2.    Włącz funkcję obsługi wielu dzierżawców w usłudze Azure AD, aby pobrać wersję próbną jednego kliknięcia. Bardziej szczegółowe informacje można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+2.    Włącz funkcję obsługi wielu dzierżawców w usłudze Azure AD, aby pobrać wersję próbną jednego kliknięcia. Bardziej szczegółowe informacje można znaleźć [tutaj](../active-directory/develop/active-directory-integrating-applications.md).  
 
 Jeśli jesteś nowym w przypadku federacyjnego logowania jednokrotnego usługi Azure AD, wykonaj następujące czynności: 
 1.  Zarejestruj swoją aplikację w Azure Portal
-2.  Utwórz Logowanie jednokrotne za pomocą usługi Azure AD przy użyciu [OpenID Connect Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) lub [OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Włącz funkcję obsługi wielu dzierżawców w usłudze AAD, aby uzyskać więcej informacji na temat środowiska próbnego "jednym kliknięciem". bardziej szczegółowe informacje można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Utwórz Logowanie jednokrotne za pomocą usługi Azure AD przy użyciu [OpenID Connect Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) lub [OAuth 2,0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Włącz funkcję obsługi wielu dzierżawców w usłudze AAD, aby uzyskać więcej informacji na temat środowiska próbnego "jednym kliknięciem". bardziej szczegółowe informacje można znaleźć [tutaj](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **W przypadku aplikacji z jedną dzierżawą Użyj jednej z następujących opcji:**  
-* Dodawanie użytkowników do katalogu jako użytkowników-Gości korzystających z [platformy Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Dodawanie użytkowników do katalogu jako użytkowników-Gości korzystających z [platformy Azure B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)
 * Ręczne inicjowanie obsługi wersji próbnych dla klientów za pomocą polecenia "kontakt ze mną"
 * Opracowywanie dysku testowego dla poszczególnych klientów
 * Tworzenie przykładowej aplikacji demonstracyjnej z wieloma dzierżawcami przy użyciu logowania jednokrotnego

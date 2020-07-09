@@ -3,16 +3,15 @@ title: Ultra disks dla maszyn wirtualnych z systemem Linux — Azure Managed dis
 description: Dowiedz się więcej o usłudze Ultra disks dla maszyn wirtualnych platformy Azure
 author: roygara
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 35eeab099f988941c5acd7ef3da9aa818193bbef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 900781efa2a000c1062db45c6b8d0543f3939443
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659240"
 ---
 # <a name="using-azure-ultra-disks"></a>Korzystanie z usługi Azure Ultra disks
 

@@ -3,12 +3,11 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744065"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259426"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -91,7 +90,7 @@ Uprawnienia są skuteczne na poziomie aplikacji funkcji. Rola współautor jest 
 
 Parametry połączenia i inne poświadczenia przechowywane w ustawieniach aplikacji dają wszystkie funkcje w aplikacji funkcji ten sam zestaw uprawnień w skojarzonym zasobie. Rozważ zminimalizowanie liczby funkcji mających dostęp do określonych poświadczeń, przenosząc funkcje, które nie używają tych poświadczeń do osobnej aplikacji funkcji. Można zawsze używać technik, takich jak [łańcuchy funkcji](/learn/modules/chain-azure-functions-data-using-bindings/) , do przekazywania danych między funkcjami w różnych aplikacjach funkcji.  
 
-#### <a name="managed-identities"></a>Zarządzane tożsamości
+#### <a name="managed-identities"></a>Tożsamości zarządzane
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 

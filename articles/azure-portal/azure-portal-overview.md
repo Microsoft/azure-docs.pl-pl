@@ -6,15 +6,15 @@ keywords: portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: c5e02e791185db3713c67b8ff97b8f7eebe9da77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763928"
 ---
 # <a name="azure-portal-overview"></a>Azure Portal — omówienie
 
@@ -64,7 +64,7 @@ Na rysunku poniżej przedstawiono podstawowe elementy Azure Portal, z których k
 
 ![Zrzut ekranu przedstawiający menu rozwijane portalu](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|Key|Opis
+|Klucz|Opis
 |:---:|---|
 |1|Nagłówek strony. Pojawia się u góry każdej strony portalu i zawiera elementy globalne.|
 |2| Wyszukiwanie globalne. Pasek wyszukiwania umożliwia szybkie znalezienie określonego zasobu, usługi lub dokumentacji.|

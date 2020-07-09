@@ -8,16 +8,16 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359963"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurowanie oświadczeń grupy dla aplikacji z Azure Active Directory
 
@@ -84,7 +84,7 @@ Użyj przycisków radiowych, aby wybrać grupy do uwzględnienia w tokenie
 
 ![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
-| Wybór | Opis |
+| Zaznaczenie | Opis |
 |----------|-------------|
 | **Wszystkie grupy** | Emituje grupy zabezpieczeń i listy dystrybucyjne i role.  |
 | **Grupy zabezpieczeń** | Emituje grupy zabezpieczeń, których użytkownik jest członkiem w ramach roszczeń grupowych |
@@ -140,7 +140,7 @@ Oświadczenia grup można również skonfigurować w sekcji [opcjonalne oświadc
 
 Prawidłowe wartości:
 
-| Wybór | Opis |
+| Zaznaczenie | Opis |
 |----------|-------------|
 | **Całą** | Emituje grupy zabezpieczeń, listy dystrybucyjne i role |
 | **Grupy securitygroup** | Emituje grupy zabezpieczeń, których użytkownik jest członkiem w ramach roszczeń grupowych |
@@ -222,6 +222,6 @@ Aby emitować nazwy grup, które mają być zwracane w formacie netbiosDomain\sa
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Konfigurowanie oświadczeń roli](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Dodawanie autoryzacji przy użyciu grup & grup oświadczeń do ASP.NET Core aplikacji sieci Web (przykład kodu)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Konfigurowanie oświadczeń roli](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

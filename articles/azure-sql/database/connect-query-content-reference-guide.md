@@ -1,6 +1,7 @@
 ---
-title: Łączenie i wykonywanie zapytań dotyczących zawartości
-description: Informacje dotyczące Azure SQL Database przewodników szybki start przedstawiających sposób nawiązywania połączeń z usługą i Azure SQL Database zapytań.
+title: Nawiązywanie połączeń i wykonywanie zapytań
+description: Linki do Azure SQL Database przewodników szybki start przedstawiających sposób nawiązywania połączeń z usługą i Azure SQL Database zapytań oraz wystąpienia zarządzanego usługi Azure SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,41 +11,41 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 12/18/2018
-ms.openlocfilehash: ea4b201cd9ad6fa295bbccafe445733aadcf31c1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: ceaff4575713d4bf40bea621cbb08313aad11611
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054317"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267481"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Przewodniki Szybki Start: łączenie Azure SQL Database i zapytania
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database i wyszukiwanie w artykułach wystąpienia zarządzanego usługi Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Poniższy dokument zawiera linki do przykładów platformy Azure, w których pokazano, jak nawiązać połączenie i Azure SQL Database zapytań. Zawiera także pewne rekomendacje dotyczące protokołu TLS.
+Poniższy dokument zawiera linki do przykładów platformy Azure, w których pokazano, jak nawiązać połączenie i wykonać zapytania dotyczące Azure SQL Database i wystąpienia zarządzanego Azure SQL. Niektóre powiązane zalecenia dotyczące zabezpieczeń na poziomie transportu znajdują się w temacie [zagadnienia dotyczące łączności z bazą danych TLS](#tls-considerations-for-database-connectivity).
 
 ## <a name="quickstarts"></a>Przewodniki Szybki start
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](connect-query-ssms.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączenia z usługą Azure SQL Database przy użyciu programu SSMS, a następnie używania instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|W tym przewodniku szybki start pokazano, jak za pomocą Azure Data Studio połączyć się z Azure SQL Database, a następnie użyć instrukcji języka Transact-SQL (T-SQL) w celu utworzenia TutorialDB używanych w samouczkach Azure Data Studio.|
-|[Azure Portal](connect-query-portal.md)|W tym przewodniku Szybki start pokazano, jak używać edytora zapytań w celu nawiązywania połączenia z bazą danych SQL, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane oraz wstawiać, aktualizować i usuwać dane z bazy danych.|
-|[Visual Studio Code](connect-query-vscode.md)|W tym przewodniku szybki start pokazano, jak za pomocą Visual Studio Code połączyć się z Azure SQL Database, a następnie użyć instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
-|[.NET przy użyciu programu Visual Studio](connect-query-dotnet-visual-studio.md)|W tym przewodniku szybki start pokazano, jak za pomocą programu .NET Framework utworzyć program w języku C# z programem Visual Studio, aby połączyć się z usługą Azure SQL Database i użyć instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[.NET Core](connect-query-dotnet-core.md)|Ten przewodnik Szybki Start przedstawia sposób korzystania z platformy .NET Core w systemie Windows/Linux/macOS w celu utworzenia programu w języku C# do łączenia się z Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[Przejdź](connect-query-go.md)|W tym przewodniku szybki start pokazano, jak używać języka go do nawiązywania połączenia z Azure SQL Database. Ponadto przedstawiono instrukcje języka Transact-SQL umożliwiające wykonywanie zapytań i modyfikowanie danych.|
-|[Java](connect-query-java.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z usługą Azure SQL Database przy użyciu języka Java, a następnie używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[Node. js](connect-query-nodejs.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia przez program środowiska Node. js programu w celu nawiązania połączenia z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[PHP](connect-query-php.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[Python](connect-query-python.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych. |
-|[Ruby](connect-query-ruby.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[R](connect-query-r.md)|W tym przewodniku szybki start pokazano, jak używać języka R z Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[SQL Server Management Studio](connect-query-ssms.md)|Ten przewodnik Szybki Start przedstawia sposób łączenia się z bazą danych za pomocą programu SSMS, a następnie używania instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|W tym przewodniku szybki start pokazano, jak za pomocą Azure Data Studio połączyć się z bazą danych, a następnie użyć instrukcji języka Transact-SQL (T-SQL) w celu utworzenia TutorialDB używanych w samouczkach Azure Data Studio.|
+|[Azure Portal](connect-query-portal.md)|W tym przewodniku szybki start pokazano, jak używać edytora zapytań do łączenia się z bazą danych (tylko Azure SQL Database), a następnie używać instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
+|[Visual Studio Code](connect-query-vscode.md)|W tym przewodniku szybki start pokazano, jak za pomocą Visual Studio Code połączyć się z bazą danych, a następnie użyć instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
+|[.NET przy użyciu programu Visual Studio](connect-query-dotnet-visual-studio.md)|W tym przewodniku szybki start pokazano, jak za pomocą programu .NET Framework utworzyć program w języku C# z programem Visual Studio, aby połączyć się z bazą danych i użyć instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[.NET Core](connect-query-dotnet-core.md)|Ten przewodnik Szybki Start przedstawia sposób korzystania z platformy .NET Core w systemie Windows/Linux/macOS w celu utworzenia programu w języku C# do łączenia się z bazą danych i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[Przejdź](connect-query-go.md)|W tym przewodniku szybki start pokazano, jak używać języka go do łączenia się z bazą danych. Ponadto przedstawiono instrukcje języka Transact-SQL umożliwiające wykonywanie zapytań i modyfikowanie danych.|
+|[Java](connect-query-java.md)|W tym przewodniku szybki start pokazano, jak nawiązać połączenie z bazą danych przy użyciu języka Java, a następnie użyć instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[Node.js](connect-query-nodejs.md)|W tym przewodniku szybki start pokazano, jak za pomocą środowiska Node. js utworzyć program do łączenia się z bazą danych i używać instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[PHP](connect-query-php.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych przy użyciu języka PHP i wykonywania zapytań o dane przy użyciu instrukcji Transact-SQL.|
+|[Python](connect-query-python.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych przy użyciu języka Python i używania instrukcji Transact-SQL do wykonywania zapytań dotyczących danych. |
+|[Ruby](connect-query-ruby.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[R](connect-query-r.md)|Ten przewodnik Szybki Start przedstawia sposób używania języka R z Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z bazą danych w Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
 |||
 
-## <a name="tls-considerations-for-sql-database-connectivity"></a>Zagadnienia dotyczące protokołu TLS na potrzeby łączności z usługą SQL Database
+## <a name="tls-considerations-for-database-connectivity"></a>Zagadnienia dotyczące łączności z bazą danych TLS
 
-Protokół TLS (Transport Layer Security) jest używany przez wszystkie sterowniki dostarczane lub obsługiwane przez firmę Microsoft na potrzeby nawiązywania połączenia z usługą Azure SQL Database. Nie jest konieczna żadna specjalna konfiguracja. W przypadku wszystkich połączeń do SQL Server, Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL zaleca się, aby wszystkie aplikacje ustawili następujące konfiguracje lub ich odpowiedniki:
+Usługa Transport Layer Security (TLS) jest używana przez wszystkie sterowniki dostarczone lub obsługiwane przez firmę Microsoft w celu łączenia się z bazami danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL. Nie jest konieczna żadna specjalna konfiguracja. W przypadku wszystkich połączeń z wystąpieniem SQL Server, bazy danych w Azure SQL Database lub wystąpienia zarządzanego wystąpienia usługi Azure SQL zaleca się, aby wszystkie aplikacje ustawili następujące konfiguracje lub ich odpowiedniki:
 
 - **Encrypt = On**
 - **TrustServerCertificate = Off**
@@ -53,23 +54,23 @@ Niektóre systemy używają innych, lecz równoważnych słów kluczowych dla ty
 
 Zalecamy również wyłączenie protokołu TLS 1.1 i 1.0 na kliencie, jeśli wymagana jest zgodność ze standardem Payment Card Industry Data Security Standard (PCI DSS).
 
-Sterowniki firm innych niż Microsoft mogą nie używać domyślnie protokołu TLS. Może to mieć znaczenie podczas nawiązywania połączenia z usługą Azure SQL Database. Aplikacje ze sterownikami osadzonymi mogą nie pozwalać na kontrolowanie tych ustawień połączenia. Zaleca się zbadanie zabezpieczeń takich sterowników i aplikacji przed ich użyciem w systemach, które wchodzą w interakcję z danymi poufnymi.
+Sterowniki firm innych niż Microsoft mogą nie używać domyślnie protokołu TLS. Może to być współczynnik podczas nawiązywania połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL. Aplikacje ze sterownikami osadzonymi mogą nie pozwalać na kontrolowanie tych ustawień połączenia. Zaleca się zbadanie zabezpieczeń takich sterowników i aplikacji przed ich użyciem w systemach, które wchodzą w interakcję z danymi poufnymi.
 
 ## <a name="libraries"></a>Biblioteki
 
 Do łączenia się z usługą Azure SQL Database lub wystąpieniem zarządzanym Azure SQL można używać różnych bibliotek i platform. Zapoznaj się z naszymi [samouczkami wprowadzającymi](https://aka.ms/sqldev), aby szybko rozpocząć pracę z językami programowania, takimi jak C#, Java, Node.js, PHP i Python. Następnie utwórz aplikację przy użyciu programu SQL Server w systemie Linux lub Windows albo platformy Docker w systemie macOS.
 
-W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których aplikacje klienckie mogą używać w różnych językach, aby łączyć się z programem SQL Server działającym lokalnie lub w chmurze i korzystać z niego. Można ich używać w systemach Linux i Windows oraz na platformie Docker, a także za ich pomocą łączyć się z usługami Azure SQL Database i Azure SQL Data Warehouse.
+W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których aplikacje klienckie mogą używać w różnych językach, aby łączyć się z programem SQL Server działającym lokalnie lub w chmurze i korzystać z niego. Można ich używać w systemie Linux, Windows lub Docker i używać ich do łączenia się z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i Azure SQL Data Warehouse.
 
 | Język | Platforma | Zasoby dodatkowe | Pobierz | Rozpoczęcie pracy |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobierz](https://www.microsoft.com/net/download/) | [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Pobierz](https://go.microsoft.com/fwlink/?linkid=852460) |  [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Sterowniki PHP SQL dla programu SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Pobierz](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
-| Node.js | Windows, Linux, macOS | [Sterowniki Node.js dla programu SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Instalacja](https://msdn.microsoft.com/library/mt652094.aspx) |  [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Sterownik SQL języka Python](https://msdn.microsoft.com/library/mt652092.aspx) | Opcje instalacji: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Sterowniki Ruby dla programu SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Instalacja](https://msdn.microsoft.com/library/mt711041.aspx) | [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Sterownik ODBC firmy Microsoft dla programu SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Pobierz](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
+| C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobierz](https://www.microsoft.com/net/download/) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Pobierz](https://go.microsoft.com/fwlink/?linkid=852460) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Sterowniki PHP SQL dla programu SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Pobierz](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows, Linux, macOS | [Sterowniki Node.js dla programu SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Instalacja](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Sterownik SQL języka Python](/sql/connect/python/python-driver-for-sql-server/) | Opcje instalacji: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Sterowniki Ruby dla programu SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Instalacja](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Sterownik ODBC firmy Microsoft dla programu SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Pobierz](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
 
 W poniższej tabeli przedstawiono przykłady struktur mapowania obiektów (ORM) i platformy sieci Web, które mogą być używane przez aplikacje klienckie z SQL Server, Azure SQL Database, wystąpienia zarządzanego Azure SQL lub Azure Synapse Analytics. Można używać platform w systemie Linux, Windows lub Docker.
 
@@ -86,17 +87,17 @@ W poniższej tabeli przedstawiono przykłady struktur mapowania obiektów (ORM) 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać informacje na temat architektury łączności, zobacz artykuł [Azure SQL Database Connectivity Architecture (Architektura łączności usługi Azure SQL Database)](connectivity-architecture.md).
-- Znajdź [sterowniki programu SQL Server](https://msdn.microsoft.com/library/mt654049.aspx) służące do łączenia się z aplikacji klienckich
-- Łączenie z usługą SQL Database:
-  - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu platformy .NET (C#)](connect-query-dotnet-core.md)
-  - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka PHP](connect-query-php.md)
-  - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka Node.js](connect-query-nodejs.md)
-  - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu platformy Java](connect-query-java.md)
-  - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka Python](connect-query-python.md)
-  - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka Ruby](connect-query-ruby.md)
+- Znajdź [SQL Server sterowniki](/sql/connect/sql-connection-libraries/) , które są używane do nawiązywania połączenia z aplikacji klienckich.
+- Połącz z usługą Azure SQL Database lub wystąpieniem zarządzanym Azure SQL:
+  - [Łączenie i wykonywanie zapytań przy użyciu platformy .NET (C#)](connect-query-dotnet-core.md)
+  - [Łączenie i wykonywanie zapytań przy użyciu języka PHP](connect-query-php.md)
+  - [Łączenie i wykonywanie zapytań przy użyciu środowiska Node. js](connect-query-nodejs.md)
+  - [Nawiązywanie połączenia i wykonywanie zapytań przy użyciu języka Java](connect-query-java.md)
+  - [Łączenie i wykonywanie zapytań przy użyciu języka Python](connect-query-python.md)
+  - [Łączenie i zapytanie przy użyciu języka Ruby](connect-query-ruby.md)
 - Przykłady kodu logiki ponawiania próby:
-  - [Nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą środowiska ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą języka PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Odporne na połączenia z usługą ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Odporne na błędy w języku PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

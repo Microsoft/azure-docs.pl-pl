@@ -6,10 +6,9 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84022798"
 ---
 # <a name="server-side-performance-queries"></a>Zapytania wydajności po stronie serwera
@@ -61,7 +60,7 @@ void QueryFrameData(ApiHandle<AzureSession> session)
 
 Pobrany `FrameStatistics` obiekt zawiera następujące elementy członkowskie:
 
-| Członek | Wyjaśnienie |
+| Członek | Objaśnienie |
 |:-|:-|
 | latencyPoseToReceive | Opóźnienie z aparatu jest szacowane na urządzeniu klienckim do momentu, gdy ramka serwera dla tego ułożenia jest w pełni dostępna dla aplikacji klienckiej. Ta wartość obejmuje sieć w sieci, czas renderowania serwera, dekodowanie wideo i kompensację wahania. Zobacz **interwał 1 na powyższej ilustracji.**|
 | latencyReceiveToPresent | Opóźnienie od dostępności odebranej ramki zdalnej do momentu, gdy aplikacja kliencka wywoła PresentFrame na procesorze CPU. |
@@ -119,7 +118,7 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
 
 W przeciwieństwie do `FrameStatistics` obiektu, `PerformanceAssessment` obiekt zawiera informacje po stronie serwera:
 
-| Członek | Wyjaśnienie |
+| Członek | Objaśnienie |
 |:-|:-|
 | timeCPU | Średni czas procesora CPU serwera na klatkę w milisekundach |
 | timeGPU | Średni czas procesora GPU serwera na klatkę w milisekundach |

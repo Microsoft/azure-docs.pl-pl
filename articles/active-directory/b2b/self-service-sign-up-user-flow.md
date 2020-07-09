@@ -4,26 +4,23 @@ description: Sfederować z usługą Facebook, aby umożliwić użytkownikom zewn
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712353"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551253"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
-|     |
-| --- |
-| Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+> [!NOTE]
+> Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 Możesz tworzyć przepływy użytkowników dla aplikacji, które są tworzone przez organizację. Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestracji w tej aplikacji. Możesz wybrać więcej niż jedną aplikację, która ma być skojarzona z przepływem użytkownika. Po skojarzeniu przepływu użytkownika z co najmniej jedną aplikacją użytkownicy, którzy odwiedzają tę aplikację, będą mogli zarejestrować się i uzyskać konto gościa przy użyciu opcji skonfigurowanych w przepływie użytkownika.
 
@@ -74,14 +71,14 @@ Następnie utworzysz przepływ użytkownika na potrzeby rejestracji samoobsługo
 
    ![Tworzenie nowej strony przepływu użytkownika](media/self-service-sign-up-user-flow/create-user-flow.png)
 
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Nowy przepływ użytkownika zostanie wyświetlony na liście **przepływy użytkownika (wersja zapoznawcza)** . W razie potrzeby Odśwież stronę.
 
 ## <a name="select-the-layout-of-the-attribute-collection-form"></a>Wybierz układ formularza kolekcji atrybutów
 
 Możesz wybrać kolejność, w jakiej atrybuty są wyświetlane na stronie rejestracji. 
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Azure Active Directory**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**.
 2. Wybierz pozycję **tożsamości zewnętrzne**, wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**.
 3. Wybierz z listy przepływ użytkownika do samoobsługowego rejestrowania.
 4. W obszarze **Dostosowywanie**wybierz pozycję **układy stron**.
@@ -109,3 +106,5 @@ Teraz można kojarzyć aplikacje z przepływem użytkownika.
 
 - [Dodaj firmę Google do listy dostawców tożsamości społecznościowych](google-federation.md)
 - [Dodawanie usługi Facebook do listy dostawców tożsamości społecznościowych](facebook-federation.md)
+- [Używanie łączników interfejsu API do dostosowywania i zwiększania przepływów użytkownika za pośrednictwem interfejsów API sieci Web](api-connectors-overview.md)
+- [Dodawanie niestandardowego przepływu pracy zatwierdzenia do przepływu użytkownika](self-service-sign-up-add-approvals.md)

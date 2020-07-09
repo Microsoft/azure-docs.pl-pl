@@ -9,10 +9,9 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74038087"
 ---
 # <a name="azcopy"></a>azcopy
@@ -21,9 +20,9 @@ AzCopy to narzędzie wiersza polecenia, które przenosi dane do i z usługi Azur
 
 ## <a name="synopsis"></a>Streszczenie
 
-Ogólny format poleceń to: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
+Ogólny format poleceń to: `azcopy [command] [arguments] --[flag-name]=[flag-value]` .
 
-Aby zgłosić problemy lub dowiedzieć się więcej na temat narzędzia, [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)Zobacz.
+Aby zgłosić problemy lub dowiedzieć się więcej na temat narzędzia, zobacz [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy) .
 
 ## <a name="related-conceptual-articles"></a>Pokrewne artykuły koncepcyjne
 

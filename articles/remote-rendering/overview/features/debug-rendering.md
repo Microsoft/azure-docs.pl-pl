@@ -3,14 +3,14 @@ title: Debugowanie renderowania
 description: Przegląd efektów renderowania debugowania po stronie serwera
 author: jumeder
 ms.author: jumeder
-ms.date: 04/09/2020
+ms.date: 06/15/2020
 ms.topic: article
-ms.openlocfilehash: dc07b20340b852eadeb7c93e5cef2ed2092b3641
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: aa6e6dced3dfd32896489db2ed76704304dbc745
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565441"
 ---
 # <a name="debug-rendering"></a>Debugowanie renderowania
 

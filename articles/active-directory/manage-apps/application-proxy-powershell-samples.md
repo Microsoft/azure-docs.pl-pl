@@ -2,22 +2,22 @@
 title: Przykłady programu PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD
 description: Za pomocą tych przykładów programu PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD można uzyskać informacje o aplikacjach i łącznikach serwera proxy aplikacji, przypisać użytkowników i grupy do aplikacji oraz uzyskać informacje o certyfikatach.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476bdfdd2c0b81d86900cee18024cc261ee80a07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57efd88b9d194442920496107d4c37ba2baf94d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481266"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85554997"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Przykłady programu Azure AD PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -26,7 +26,7 @@ Poniższa tabela zawiera linki do przykładów skryptów programu PowerShell dla
 
 Aby uzyskać więcej informacji o poleceniach cmdlet używanych w tych przykładach, zobacz [Zarządzanie aplikacjami serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) i [Zarządzanie łącznikami serwera proxy aplikacji](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
-| | |
+| Link | Opis |
 |---|---|
 |**Aplikacje serwera proxy aplikacji**||
 | [Wyświetl podstawowe informacje dotyczące wszystkich aplikacji serwera proxy aplikacji](scripts/powershell-get-all-app-proxy-apps-basic.md) | Wyświetla listę podstawowych informacji (AppId, DisplayName, ObjId) dotyczących wszystkich aplikacji serwera proxy aplikacji w katalogu. |

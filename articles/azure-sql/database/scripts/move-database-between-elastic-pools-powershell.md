@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Przenoszenie bazy danych między elastycznymi pulami'
-description: Azure PowerShell przykładowy skrypt do przenoszenia bazy danych w SQL Database między dwiema elastycznymi pulami za pomocą programu PowerShell.
+description: Użyj przykładowego skryptu Azure PowerShell, aby przenieść bazę danych w SQL Database między dwoma elastycznymi pulami.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,17 +11,18 @@ author: stevestein
 ms.reviewer: ''
 ms.author: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: f2811fd16dbda13a98ae7e7cb3de0671b278d698
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: de26542c56eeddefc560c17a9d7b03f18f7c15a3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053705"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196792"
 ---
-# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Tworzenie elastycznych pul i przenoszenie baz danych między elastycznymi pulami za pomocą programu PowerShell
+# <a name="use-powershell-to-create-elastic-pools-and-move-a-database-between-them"></a>Tworzenie pul elastycznych i przenoszenie bazy danych przy użyciu programu PowerShell
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell tworzy dwie elastyczne pule i przenosi bazę danych w SQL Database z jednej elastycznej puli do innej elastycznej puli, a następnie przenosi bazę danych z puli elastycznej do rozmiaru obliczeniowego pojedynczej bazy danych.
+Ten przykładowy skrypt programu PowerShell tworzy dwie elastyczne pule, przenosi bazę danych w puli w SQL Database z jednej elastycznej puli SQL do innej elastycznej puli SQL, a następnie przenosi bazę danych w puli poza pulę elastyczną SQL na jedną bazę danych w Azure SQL Database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -31,7 +32,7 @@ Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie,
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=18-19 "Move database between pools")]
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=18-19 "Move a database between pools")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
@@ -57,6 +58,6 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat Azure PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/overview).
 
 Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../powershell-script-content-guide.md).

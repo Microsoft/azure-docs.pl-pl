@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71066768"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Advanced request throttling with Azure API Management (Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management)
@@ -30,7 +30,7 @@ Do tej pory możliwości ograniczania przepustowości zostały ograniczone do za
 ## <a name="custom-key-based-throttling"></a>Ograniczanie oparte na kluczach niestandardowych
 
 > [!NOTE]
-> Zasady `rate-limit-by-key` i `quota-by-key` nie są dostępne w ramach warstwy zużycia usługi Azure API Management. 
+> `rate-limit-by-key`Zasady i `quota-by-key` nie są dostępne w ramach warstwy zużycia usługi Azure API Management. 
 
 Nowe zasady [Rate-limit-by-Key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) i [Quote według klucza](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) zapewniają bardziej elastyczne rozwiązanie do kontroli ruchu. Te nowe zasady umożliwiają definiowanie wyrażeń w celu identyfikowania kluczy, które są używane do śledzenia użycia ruchu sieciowego. Sposób, w jaki to działa, jest najłatwiejszym zilustrowanym przykładem. 
 
@@ -48,7 +48,7 @@ Poniższe zasady ograniczają pojedynczy adres IP klienta tylko do 10 wywołań 
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-Jeśli wszyscy klienci w Internecie użyły unikatowego adresu IP, może to być efektywny sposób ograniczania użycia przez użytkownika. Jednak prawdopodobnie wielu użytkowników współużytkuje jeden publiczny adres IP z powodu uzyskiwania dostępu do Internetu za pośrednictwem urządzenia NAT. Pomimo tego dla interfejsów API, które zezwalają na dostęp `IpAddress` nieuwierzytelnionym, może być najlepszą opcją.
+Jeśli wszyscy klienci w Internecie użyły unikatowego adresu IP, może to być efektywny sposób ograniczania użycia przez użytkownika. Jednak prawdopodobnie wielu użytkowników współużytkuje jeden publiczny adres IP z powodu uzyskiwania dostępu do Internetu za pośrednictwem urządzenia NAT. Pomimo tego dla interfejsów API, które zezwalają na dostęp nieuwierzytelnionym, `IpAddress` może być najlepszą opcją.
 
 ## <a name="user-identity-throttling"></a>Ograniczanie tożsamości użytkownika
 W przypadku uwierzytelnienia użytkownika końcowego klucz ograniczenia przepustowości może zostać wygenerowany na podstawie informacji, które jednoznacznie identyfikują tego użytkownika.

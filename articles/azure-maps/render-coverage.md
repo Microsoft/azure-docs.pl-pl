@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123942"
 ---
 # <a name="azure-maps-render-coverage"></a>Pokrycie Azure Maps renderowania
@@ -66,7 +65,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 | Mali                             | ✓ | ✓ |
 | Mauretania                       | ✓ | ✓ |
 | Mauritius                        | ✓ | ✓ |
-| Majotta                          | ✓ | ✓ |
+| Wyspa Majotta                          | ✓ | ✓ |
 | Maroko                          | ✓ | ✓ |
 | Mozambik                       | ✓ | ✓ |
 | Namibia                          | ✓ | ✓ |
@@ -90,7 +89,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 | Zambia                           | ✓ | ✓ |
 | Zimbabwe                         | ✓ | ✓ |
 
-## <a name="americas"></a>Ameryki
+## <a name="americas"></a>Ameryka Północna i Południowa
 
 | Kraj/region | Zunifikowane kafelki rastrowe | Zunifikowane kafelki wektorowe |
 | ------ | :------------------: | :------------------: |
@@ -144,7 +143,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 | Sint Maarten (holenderski)      | ✓ | ✓ |
 | Georgia Południowa i Sandwich Południowy | ✓ | ✓ |
 | Surinam                  | ✓ | ✓ |
-| Trynidad i Tobago       | ✓ | ✓ |
+| Trinidad i Tobago       | ✓ | ✓ |
 | Wyspy Turks i Caicos  | ✓ | ✓ |
 | Stany Zjednoczone             | ✓ | ✓ |
 | Urugwaj                   | ✓ | ✓ |
@@ -251,7 +250,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 | Bułgaria                  | ✓ | ✓ |
 | Chorwacja                   | ✓ | ✓ |
 | Cypr                    | ✓ | ✓ |
-| Czechy            | ✓ | ✓ |
+| Republika Czeska            | ✓ | ✓ |
 | Dania                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
 | Wyspy Owcze             | ✓ | O |
@@ -295,7 +294,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 | Szwajcaria               | ✓ | ✓ |
 | Turcja                    | ✓ | ✓ |
 | Ukraina                   | ✓ | ✓ |
-| Wielka Brytania            | ✓ | ✓ |
+| Zjednoczone Królestwo            | ✓ | ✓ |
 | Watykan              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Następne kroki

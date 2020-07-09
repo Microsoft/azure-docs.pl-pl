@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
 ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81414772"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrowanie danych z usługi Amazon S3 do Azure Data Lake Storage Gen2
@@ -50,7 +50,7 @@ Szablon zawiera dwa parametry:
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Szablon do kopiowania zmienionych plików tylko z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
-Ten szablon (*Nazwa szablonu: Kopiuj dane różnicowe z AWS S3 do Azure Data Lake Storage Gen2*) używa LastModifiedTime każdego pliku do kopiowania nowych lub zaktualizowanych plików tylko z AWS S3 na platformę Azure. Należy pamiętać, że pliki lub foldery zostały już podzielone na partycje za pomocą timeslice informacji w ramach nazwy pliku lub folderu w AWS S3 (na przykład/yyyy/mm/dd/File.csv), można przejść do tego [samouczka](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) , aby uzyskać bardziej wydajne podejście do przyrostowego ładowania nowych plików. W tym szablonie przyjęto założenie, że lista partycji została zapisywana w tabeli formantów zewnętrznych w Azure SQL Database. Dlatego użyje działania *Lookup* do pobrania listy partycji z tabeli formantów zewnętrznych, iteracji na każdą partycję, a każde zadanie kopiowania ADF kopiuje jedną partycję w danym momencie. Gdy każde zadanie kopiowania rozpocznie kopiowanie plików z AWS S3, opiera się on na właściwości LastModifiedTime, aby identyfikować i kopiować tylko nowe lub zaktualizowane pliki. Po zakończeniu każdego zadania kopiowania korzysta ono z działania *procedury składowanej* w celu zaktualizowania stanu kopiowania każdej partycji w tabeli kontroli.
+Ten szablon (*Nazwa szablonu: Kopiuj dane różnicowe z AWS S3 do Azure Data Lake Storage Gen2*) używa LastModifiedTime każdego pliku do kopiowania nowych lub zaktualizowanych plików tylko z AWS S3 na platformę Azure. Należy pamiętać, że jeśli pliki lub foldery zostały już podzielone na partycje za pomocą timeslice informacji w ramach nazwy pliku lub folderu w AWS S3 (na przykład/yyyy/mm/dd/file.csv), możesz przejść do tego [samouczka](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) , aby uzyskać bardziej wydajne podejście do przyrostowego ładowania nowych plików. W tym szablonie przyjęto założenie, że lista partycji została zapisywana w tabeli formantów zewnętrznych w Azure SQL Database. Dlatego użyje działania *Lookup* do pobrania listy partycji z tabeli formantów zewnętrznych, iteracji na każdą partycję, a każde zadanie kopiowania ADF kopiuje jedną partycję w danym momencie. Gdy każde zadanie kopiowania rozpocznie kopiowanie plików z AWS S3, opiera się on na właściwości LastModifiedTime, aby identyfikować i kopiować tylko nowe lub zaktualizowane pliki. Po zakończeniu każdego zadania kopiowania korzysta ono z działania *procedury składowanej* w celu zaktualizowania stanu kopiowania każdej partycji w tabeli kontroli.
 
 Szablon zawiera siedem działań:
 - Funkcja **Lookup** pobiera partycje z tabeli formantów zewnętrznych. Nazwa tabeli jest *s3_partition_delta_control_table* a zapytanie do ładowania danych z tabeli to *"Select distinct PartitionPrefix from s3_partition_delta_control_table"*.

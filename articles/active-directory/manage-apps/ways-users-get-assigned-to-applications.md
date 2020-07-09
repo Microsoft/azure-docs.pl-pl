@@ -3,24 +3,24 @@ title: Jak przypisać użytkowników do aplikacji | Microsoft Docs
 description: Informacje o sposobie przypisywania użytkowników do aplikacji w dzierżawie
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b818fe1d8b6bbc9d2d8c5b460b4d71dccdd39366
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 45124862fffa3a1ef6f601733407fbbea4eb5e74
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65825986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762976"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Jak przypisać użytkowników do aplikacji
 

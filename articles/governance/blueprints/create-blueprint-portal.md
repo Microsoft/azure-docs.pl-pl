@@ -3,20 +3,20 @@ title: 'Szybki Start: Tworzenie strategii w portalu'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów za pomocą Azure Portal.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381889"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045216"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Szybki Start: Definiowanie i Przypisywanie planu w portalu
 
-Gdy dowiesz się, jak tworzyć i przypisywać plany, możesz definiować typowe wzorce, aby opracowywać konfiguracje do wielokrotnego użytku i szybko wdrażane na podstawie Azure Resource Manager szablonów, zasad, zabezpieczeń i innych. W ramach tego samouczka nauczysz się korzystać z planów platformy Azure w celu wykonywania niektórych typowych zadań związanych z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji. Te zadania obejmują:
+Gdy dowiesz się, jak tworzyć i przypisywać plany, możesz definiować typowe wzorce, aby opracowywać konfiguracje do wielokrotnego użytku i szybko wdrażane w oparciu o szablony Azure Resource Manager (szablony ARM), zasady, zabezpieczenia i inne. W ramach tego samouczka nauczysz się korzystać z planów platformy Azure w celu wykonywania niektórych typowych zadań związanych z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji. Te zadania obejmują:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="create-a-blueprint"></a>Tworzenie strategii
 
@@ -85,8 +85,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
 
    1. Wybierz **szablon Azure Resource Manager** dla **typu artefaktu**, ustaw **nazwę wyświetlaną artefaktu** na **StorageAccount**i pozostaw pole **Opis** puste.
 
-   1. Na karcie **Szablon** w polu edytora wklej poniższy szablon usługi Resource Manager.
-      Po wklejeniu szablonu wybierz kartę **Parametry** i zwróć uwagę na to, że wykryto parametry szablonu **storageAccountType** i **Location** . Każdy parametr został automatycznie wykryty i wypełniony, ale skonfigurowany jako parametr dynamiczny.
+   1. Na karcie **szablon** w polu Edytor wklej następujący szablon ARM. Po wklejeniu szablonu wybierz kartę **Parametry** i zwróć uwagę na to, że wykryto parametry szablonu **storageAccountType** i **Location** . Każdy parametr został automatycznie wykryty i wypełniony, ale skonfigurowany jako parametr dynamiczny.
 
       > [!IMPORTANT]
       > W przypadku importowania szablonu upewnij się, że plik ma tylko format JSON i nie zawiera kodu HTML. Gdy wskazujesz adres URL w serwisie GitHub, upewnij się, że wybrano opcję **RAW** , aby uzyskać czysty plik JSON, a nie ten, który został opakowany w formacie HTML do wyświetlania w serwisie GitHub. Jeśli zaimportowany szablon nie jest czystym plikiem JSON, wystąpi błąd.
@@ -140,7 +139,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
       }
       ```
 
-   1. Wyczyść pole wyboru **storageAccountType** i pamiętaj, że lista rozwijana zawiera tylko wartości zawarte w szablonie Menedżer zasobów w obszarze **allowedValues**. Zaznacz pole, aby ponownie ustawić parametr dynamiczny.
+   1. Wyczyść pole wyboru **storageAccountType** i pamiętaj, że lista rozwijana zawiera tylko wartości zawarte w szablonie ARM w obszarze **allowedValues**. Zaznacz pole, aby ponownie ustawić parametr dynamiczny.
 
    1. Wybierz pozycję **Dodaj** , aby dodać ten artefakt do planu.
 
@@ -207,7 +206,7 @@ Po opublikowaniu planu można go przypisać do subskrypcji. Przypisz utworzony p
 
 1. Na stronie **Przypisz plan** na liście rozwijanej **subskrypcja** wybierz subskrypcje, dla których chcesz wdrożyć ten plan.
 
-   Jeśli w portalu [Azure Billing](../../billing/index.md) są dostępne obsługiwane oferty dotyczące wersji Enterprise, zostanie uaktywniony link **Utwórz nową** w obszarze **Subskrypcja**. Wykonaj następujące kroki:
+   Jeśli w portalu [Azure Billing](../../cost-management-billing/index.yml) są dostępne obsługiwane oferty dotyczące wersji Enterprise, zostanie uaktywniony link **Utwórz nową** w obszarze **Subskrypcja**. Wykonaj następujące kroki:
 
    1. Wybierz link **Utwórz nową**, aby utworzyć nową subskrypcję, zamiast wybierać już istniejące.
 
@@ -249,7 +248,7 @@ Po opublikowaniu planu można go przypisać do subskrypcji. Przypisz utworzony p
    > Dla każdego artefaktu dodanego w ramach grupy zasobów podczas definiowania planu, ten artefakt jest wcięty do dopasowania do grupy zasobów lub obiektu, w którym zostanie wdrożony.
    > Artefakty, które nie przyjmują parametrów lub nie mają parametrów, które mają być zdefiniowane podczas przypisywania, są wyświetlane tylko dla informacji kontekstowych.
 
-1. Na **StorageAccount**szablonu Azure Resource Manager wybierz **Standard_GRS** dla parametru **storageAccountType** .
+1. Na **StorageAccount**szablonu ARM wybierz **Standard_GRS** dla parametru **storageAccountType** .
 
 1. Zapoznaj się z polem informacji w dolnej części strony, a następnie wybierz pozycję **Przypisz**.
 
@@ -270,7 +269,7 @@ Teraz, gdy plan został przypisany do subskrypcji, sprawdź postęp wdrożenia:
 
 1. Na stronie **przypisanie** strategii Sprawdź, czy wszystkie artefakty zostały pomyślnie wdrożone i czy nie wystąpiły żadne błędy podczas wdrażania. Jeśli wystąpią błędy, zobacz tematy dotyczące [rozwiązywania problemów](./troubleshoot/general.md) , aby określić, co poszło źle.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="unassign-a-blueprint"></a>Cofanie przypisania strategii
 

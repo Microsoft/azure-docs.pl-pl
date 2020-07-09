@@ -1,22 +1,14 @@
 ---
 title: Omówienie obsługi komunikatów w usłudze Azure Service Bus | Microsoft Docs
 description: Ten artykuł zawiera ogólne omówienie Azure Service Bus, a w pełni zarządzanego brokera komunikatów integracji przedsiębiorstwa.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: overview
-ms.date: 11/04/2019
-ms.custom: mvc
-ms.author: aschhab
-ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240632"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341667"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 
@@ -31,7 +23,7 @@ Niektóre typowe scenariusze obsługi komunikatów:
 * *Tematy i subskrypcje*. Włącz 1:*n* relacji między wydawcami a subskrybentami.
 * *Sesje komunikatów*. Implementuj przepływy pracy, które wymagają porządkowania komunikatów lub odroczenia komunikatów.
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>Przestrzenie nazw
 
 Przestrzeń nazw jest kontenerem dla wszystkich składników obsługi komunikatów. W jednej przestrzeni nazw może znajdować się wiele kolejek i tematów, a przestrzenie nazw często pełnią rolę kontenerów aplikacji.
 
@@ -122,7 +114,7 @@ Usługa Service Bus w pełni integruje się z następującymi usługami platform
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
-* [Usługa Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## <a name="next-steps"></a>Następne kroki
 

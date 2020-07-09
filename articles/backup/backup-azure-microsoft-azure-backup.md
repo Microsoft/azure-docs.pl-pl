@@ -3,12 +3,11 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84247278"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -147,7 +146,7 @@ Aby edytować ustawienia replikacji magazynu:
 
 ### <a name="extracting-the-software-package"></a>Wyodrębnianie pakietu oprogramowania
 
-Po pobraniu wszystkich plików kliknij przycisk **MicrosoftAzureBackupInstaller. exe**. Spowoduje to uruchomienie **Kreatora instalacji Microsoft Azure Backup** w celu wyodrębnienia plików instalacyjnych do lokalizacji określonej przez użytkownika. Kontynuuj pracę kreatora i kliknij przycisk **Wyodrębnij** , aby rozpocząć proces wyodrębniania.
+Po pobraniu wszystkich plików kliknij przycisk **MicrosoftAzureBackupInstaller.exe**. Spowoduje to uruchomienie **Kreatora instalacji Microsoft Azure Backup** w celu wyodrębnienia plików instalacyjnych do lokalizacji określonej przez użytkownika. Kontynuuj pracę kreatora i kliknij przycisk **Wyodrębnij** , aby rozpocząć proces wyodrębniania.
 
 > [!WARNING]
 > Do wyodrębnienia plików instalacyjnych wymagane jest co najmniej 4 GB wolnego miejsca.
@@ -156,7 +155,7 @@ Po pobraniu wszystkich plików kliknij przycisk **MicrosoftAzureBackupInstaller.
 
 ![Kreator instalacji Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Po zakończeniu procesu wyodrębniania zaznacz pole wyboru, aby uruchomić świeżo wyodrębniony *plik Setup. exe* , aby rozpocząć instalację serwera Microsoft Azure Backup i kliknij przycisk **Zakończ** .
+Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia świeżo wyodrębnionego *setup.exe* , aby rozpocząć instalowanie programu Microsoft Azure Backup Server i kliknij przycisk **Zakończ** .
 
 ### <a name="installing-the-software-package"></a>Instalowanie pakietu oprogramowania
 
@@ -174,7 +173,7 @@ Po zakończeniu procesu wyodrębniania zaznacz pole wyboru, aby uruchomić świe
 
     ![Sprawdzanie Azure Backup Server — SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Jeśli wystąpi błąd z zaleceniem ponownego uruchomienia maszyny, zrób to, a następnie kliknij przycisk **Sprawdź ponownie**. Jeśli występują problemy z konfiguracją SQL, skonfiguruj ponownie program SQL zgodnie z wytycznymi SQL i ponów próbę instalacji/uaktualnienia serwera usługi MAB przy użyciu istniejącego wystąpienia programu SQL.
+    Jeśli wystąpi błąd z zaleceniem ponownego uruchomienia maszyny, zrób to, a następnie kliknij przycisk **Sprawdź ponownie**. Jeśli występują problemy z konfiguracją SQL, skonfiguruj ponownie SQL zgodnie z wytycznymi SQL i spróbuj ponownie zainstalować/uaktualnić serwera usługi MAB przy użyciu istniejącego wystąpienia programu SQL Server.
 
    **Konfiguracja ręczna**
 
@@ -186,9 +185,9 @@ Po zakończeniu procesu wyodrębniania zaznacz pole wyboru, aby uruchomić świe
 
     W przypadku konfiguracji usług SSRS należy użyć następujących wartości:
     * Konto usługi: "Użyj wbudowanego konta" powinno być usługą sieciową
-    * Adres URL usługi sieci Web: "katalog wirtualny" powinien być ReportServer_ \< Sqlinstancename>
-    * Baza danych: DatabaseName powinna być ReportServer $ \< Sqlinstancename>
-    * Adres URL portalu sieci Web: "katalog wirtualny" powinien być Reports_ \< Sqlinstancename>
+    * Adres URL usługi sieci Web: "katalog wirtualny" powinien być ReportServer_\<SQLInstanceName>
+    * Baza danych: DatabaseName powinna być ReportServer $\<SQLInstanceName>
+    * Adres URL portalu sieci Web: "katalog wirtualny" powinien być Reports_\<SQLInstanceName>
 
     [Dowiedz się więcej](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) o konfiguracji usług SSRS.
 
@@ -311,7 +310,7 @@ Jeśli masz zaporę lub serwer proxy, który uniemożliwia dostęp do platformy 
 Jeśli używasz komunikacji równorzędnej firmy Microsoft ExpressRoute, wybierz następujące usługi/regiony:
 
 * Azure Active Directory (12076:5060)
-* Region Microsoft Azure (zgodnie z lokalizacją Recovery Services magazynu)
+* Region Microsoft Azure (zgodnie z lokalizacją magazynu Recovery Services)
 * Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)
 
 Aby uzyskać więcej informacji, odwiedź stronę [wymagania dotyczące routingu ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
@@ -343,7 +342,7 @@ Wykonaj następujące kroki, aby uaktualnić program serwera usługi MAB:
 
    > [!NOTE]
    >
-   > Nie zamykaj, gdy wystąpienie programu SQL jest uaktualniane, zakończenie spowoduje odinstalowanie wystąpienia raportowania SQL, a w związku z tym próba ponownego uaktualnienia serwera usługi MAB zakończy się niepowodzeniem.
+   > Nie zamykaj, gdy wystąpienie programu SQL jest uaktualniane, wyjście spowoduje odinstalowanie wystąpienia programu SQL Reporting, w związku z czym próba ponownego uaktualnienia serwera usługi MAB zakończy się niepowodzeniem.
 
    > [!IMPORTANT]
    >

@@ -4,16 +4,15 @@ description: Utwórz certyfikaty testowe i Dowiedz się, jak zainstalować je na
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/23/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9540913cd86b74fd51e96aa9d1d1dd34c5d60631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84430662"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Tworzenie certyfikatów demonstracyjnych do testowania funkcji urządzenia IoT Edge
 
@@ -25,7 +24,7 @@ Te certyfikaty wygasną za 30 dni i nie powinny być używane w żadnym scenariu
 
 Możesz tworzyć certyfikaty na dowolnym komputerze, a następnie kopiować je na urządzenie IoT Edge.
 Łatwiej jest używać komputera podstawowego do tworzenia certyfikatów zamiast generować je na urządzeniu IoT Edge.
-Korzystając z komputera podstawowego, można skonfigurować skrypty jeden raz, a następnie powtórzyć proces tworzenia certyfikatów dla wielu urządzeń.
+Korzystając z komputera podstawowego, można skonfigurować skrypty jeden raz, a następnie użyć ich do tworzenia certyfikatów dla wielu urządzeń.
 
 Wykonaj następujące kroki, aby utworzyć certyfikaty demonstracyjne na potrzeby testowania IoT Edge scenariuszu:
 
@@ -53,11 +52,11 @@ Aby utworzyć certyfikaty demonstracyjne na urządzeniu z systemem Windows, nale
 #### <a name="install-openssl"></a>Zainstaluj OpenSSL
 
 Zainstaluj program OpenSSL dla systemu Windows na komputerze, którego używasz do generowania certyfikatów.
-Jeśli masz już zainstalowaną OpenSSL na urządzeniu z systemem Windows, możesz pominąć ten krok, ale upewnij się, że OpenSSL. exe jest dostępny w zmiennej środowiskowej PATH.
+Jeśli masz już zainstalowaną OpenSSL na urządzeniu z systemem Windows, możesz pominąć ten krok, ale upewnij się, że openssl.exe jest dostępny w zmiennej środowiskowej PATH.
 
 Istnieje kilka sposobów instalacji programu OpenSSL, w tym następujące opcje:
 
-* **Łatwiejsze:** Pobierz i zainstaluj wszystkie [pliki binarne OpenSSL innych](https://wiki.openssl.org/index.php/Binaries)firm, na przykład z [OpenSSL na sourceforge](https://sourceforge.net/projects/openssl/). Dodaj pełną ścieżkę do OpenSSL. exe do zmiennej środowiskowej PATH.
+* **Łatwiejsze:** Pobierz i zainstaluj wszystkie [pliki binarne OpenSSL innych](https://wiki.openssl.org/index.php/Binaries)firm, na przykład z [OpenSSL na sourceforge](https://sourceforge.net/projects/openssl/). Dodaj pełną ścieżkę do openssl.exe do zmiennej środowiskowej PATH.
 
 * **Zalecane:** Pobierz kod źródłowy OpenSSL i Utwórz pliki binarne na komputerze przez siebie lub za pośrednictwem [vcpkg](https://github.com/Microsoft/vcpkg). Poniższe instrukcje wykorzystują vcpkg do pobierania kodu źródłowego, kompilowania i instalowania OpenSSL na komputerze z systemem Windows z prostymi krokami.
 
@@ -69,7 +68,7 @@ Istnieje kilka sposobów instalacji programu OpenSSL, w tym następujące opcje:
       .\vcpkg install openssl:x64-windows
       ```
 
-   3. Dodaj `<vcpkg path>\installed\x64-windows\tools\openssl` do zmiennej ŚRODOWISKowej Path, tak aby plik OpenSSL. exe był dostępny do wywołania.
+   3. Dodaj `<vcpkg path>\installed\x64-windows\tools\openssl` do zmiennej środowiskowej PATH, aby plik openssl.exe był dostępny do wywołania.
 
 #### <a name="prepare-scripts-in-powershell"></a>Przygotowywanie skryptów w programie PowerShell
 
@@ -84,7 +83,7 @@ W tej sekcji można sklonować repozytorium IoT Edge i wykonać skrypty.
    git clone https://github.com/Azure/iotedge.git
    ```
 
-3. Przejdź do katalogu, w którym chcesz korzystać. W tym artykule wywołamy ten katalog * \<WRKDIR>*. Wszystkie certyfikaty i klucze zostaną utworzone w tym katalogu roboczym.
+3. Przejdź do katalogu, w którym chcesz korzystać. W tym artykule wywołamy ten katalog *\<WRKDIR>* . Wszystkie certyfikaty i klucze zostaną utworzone w tym katalogu roboczym.
 
 4. Skopiuj pliki konfiguracji i skryptów ze sklonowanego repozytorium do katalogu roboczego.
 
@@ -93,7 +92,7 @@ W tej sekcji można sklonować repozytorium IoT Edge i wykonać skrypty.
    copy <path>\iotedge\tools\CACertificates\ca-certs.ps1 .
    ```
 
-   Jeśli repozytorium zostało pobrane jako plik ZIP, nazwa folderu to `iotedge-master` , a reszta ścieżki jest taka sama.
+   Jeśli repozytorium zostało pobrane jako plik ZIP, nazwa folderu to, `iotedge-master` a reszta ścieżki jest taka sama.
 
 5. Włącz program PowerShell, aby uruchamiał skrypty.
 
@@ -125,7 +124,7 @@ Aby można było tworzyć certyfikaty demonstracyjne na urządzeniu z systemem W
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Przejdź do katalogu, w którym chcesz korzystać. Odwołujemy się do tego katalogu w artykule jako * \<WRKDIR>*. Wszystkie pliki certyfikatów i kluczy zostaną utworzone w tym katalogu.
+2. Przejdź do katalogu, w którym chcesz korzystać. Odwołujemy się do tego katalogu w artykule jako *\<WRKDIR>* . Wszystkie pliki certyfikatów i kluczy zostaną utworzone w tym katalogu.
   
 3. Skopiuj pliki konfiguracji i skryptów ze sklonowanego repozytorium IoT Edge do katalogu roboczego.
 
@@ -181,54 +180,6 @@ Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sek
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
-## <a name="create-iot-edge-device-ca-certificates"></a>Tworzenie certyfikatów urzędu certyfikacji urządzenia IoT Edge
-
-Każde urządzenie IoT Edge do produkcji wymaga certyfikatu urzędu certyfikacji urządzenia, do którego odwołuje się plik config. YAML.
-Certyfikat urzędu certyfikacji urządzenia jest odpowiedzialny za tworzenie certyfikatów dla modułów uruchomionych na urządzeniu.
-Jest to również sposób, w jaki urządzenie IoT Edge weryfikuje swoją tożsamość podczas łączenia z urządzeniami podrzędnymi.
-
-Certyfikaty urzędu certyfikacji urządzenia przejdź do sekcji **certyfikat** pliku config. YAML na urządzeniu IoT Edge.
-
-Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sekcji [Konfigurowanie skryptów](#set-up-scripts) i [Tworzenie certyfikatu głównego urzędu certyfikacji](#create-root-ca-certificate) .
-
-### <a name="windows"></a>Windows
-
-1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
-
-2. Utwórz certyfikat i klucz prywatny urzędu certyfikacji urządzenia IoT Edge przy użyciu następującego polecenia. Podaj nazwę certyfikatu urzędu certyfikacji, na przykład **MyEdgeDeviceCA**, który jest używany do nazwy plików wyjściowych.
-
-   ```powershell
-   New-CACertsEdgeDevice "MyEdgeDeviceCA"
-   ```
-
-   To polecenie skryptu tworzy kilka certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane na urządzenie IoT Edge i przywoływane w pliku config. YAML:
-
-   * `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-
-Nazwa urządzenia bramy przeniesiona do tych skryptów nie powinna być taka sama jak parametr "hostname" w pliku config. YAML lub identyfikator urządzenia w IoT Hub.
-Skrypty te pomagają uniknąć wszelkich problemów, dołączając ciąg ". ca" do nazwy urządzenia bramy, aby zapobiec kolizji nazw na wypadek, gdyby Użytkownik ustawił IoT Edge przy użyciu tej samej nazwy w obu miejscach.
-Jednak dobrym sposobem jest unikanie używania tej samej nazwy.
-
-### <a name="linux"></a>Linux
-
-1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
-
-2. Utwórz certyfikat i klucz prywatny urzędu certyfikacji urządzenia IoT Edge przy użyciu następującego polecenia. Podaj nazwę certyfikatu urzędu certyfikacji, na przykład **MyEdgeDeviceCA**, który jest używany do nazwy plików wyjściowych.
-
-   ```bash
-   ./certGen.sh create_edge_device_certificate "MyEdgeDeviceCA"
-   ```
-
-   To polecenie skryptu tworzy kilka certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane na urządzenie IoT Edge i przywoływane w pliku config. YAML:
-
-   * `<WRKDIR>/certs/iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-MyEdgeDeviceCA.key.pem`
-
-Nazwa urządzenia bramy przeniesiona do tych skryptów nie powinna być taka sama jak parametr "hostname" w pliku config. YAML lub identyfikator urządzenia w IoT Hub.
-Skrypty te pomagają uniknąć wszelkich problemów, dołączając ciąg ". ca" do nazwy urządzenia bramy, aby zapobiec kolizji nazw na wypadek, gdyby Użytkownik ustawił IoT Edge przy użyciu tej samej nazwy w obu miejscach.
-Jednak dobrym sposobem jest unikanie używania tej samej nazwy.
-
 ## <a name="create-iot-edge-device-identity-certificates"></a>Tworzenie certyfikatów tożsamości urządzeń IoT Edge
 
 Certyfikaty tożsamości urządzeń służą do aprowizacji IoT Edge urządzeń za pomocą [usługi Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml).
@@ -269,9 +220,58 @@ Skrypt tworzy kilka plików certyfikatów i kluczy, w tym trzy, które będą u�
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 
+## <a name="create-iot-edge-device-ca-certificates"></a>Tworzenie certyfikatów urzędu certyfikacji urządzenia IoT Edge
+
+Każde urządzenie IoT Edge do produkcji wymaga certyfikatu urzędu certyfikacji urządzenia, do którego odwołuje się plik config. YAML.
+Certyfikat urzędu certyfikacji urządzenia jest odpowiedzialny za tworzenie certyfikatów dla modułów uruchomionych na urządzeniu.
+Jest to również konieczne w scenariuszach związanych z bramą, ponieważ certyfikat urzędu certyfikacji urządzenia określa, jak urządzenie IoT Edge weryfikuje swoją tożsamość na urządzeniach podrzędnych.
+
+Certyfikaty urzędu certyfikacji urządzenia przejdź do sekcji **certyfikat** pliku config. YAML na urządzeniu IoT Edge.
+
+Przed przejściem do procedury opisanej w tej sekcji wykonaj kroki opisane w sekcji [Konfigurowanie skryptów](#set-up-scripts) i [Tworzenie certyfikatu głównego urzędu certyfikacji](#create-root-ca-certificate) .
+
+### <a name="windows"></a>Windows
+
+1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
+
+2. Utwórz certyfikat i klucz prywatny urzędu certyfikacji urządzenia IoT Edge przy użyciu następującego polecenia. Podaj nazwę certyfikatu urzędu certyfikacji.
+
+   ```powershell
+   New-CACertsEdgeDevice "<CA cert name>"
+   ```
+
+   To polecenie umożliwia utworzenie kilku certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane na urządzenie IoT Edge i przywoływane w pliku config. YAML:
+
+   * `<WRKDIR>\certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
+
+Nazwa przeniesiona do polecenia **New-CACertsEdgeDevice** nie powinna być taka sama jak parametr nazwy hosta w pliku config. YAML lub identyfikator urządzenia w IoT Hub.
+Skrypt pomaga uniknąć wszelkich problemów, dołączając ciąg ". ca" do nazwy certyfikatu, aby zapobiec kolizji nazw na wypadek, gdyby Użytkownik ustawił IoT Edge przy użyciu tej samej nazwy w obu miejscach.
+Jednak dobrym sposobem jest unikanie używania tej samej nazwy.
+
+### <a name="linux"></a>Linux
+
+1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
+
+2. Utwórz certyfikat i klucz prywatny urzędu certyfikacji urządzenia IoT Edge przy użyciu następującego polecenia. Podaj nazwę certyfikatu urzędu certyfikacji.
+
+   ```bash
+   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ```
+
+   To polecenie skryptu tworzy kilka certyfikatów i plików kluczy. Poniższego certyfikatu i pary kluczy muszą zostać skopiowane na urządzenie IoT Edge i przywoływane w pliku config. YAML:
+
+   * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
+
+Nazwa przenoszona do polecenia **create_edge_device_certificate** nie powinna być taka sama jak parametr nazwy hosta w pliku config. YAML lub identyfikator urządzenia w IoT Hub.
+Skrypt pomaga uniknąć wszelkich problemów, dołączając ciąg ". ca" do nazwy certyfikatu, aby zapobiec kolizji nazw na wypadek, gdyby Użytkownik ustawił IoT Edge przy użyciu tej samej nazwy w obu miejscach.
+Jednak dobrym sposobem jest unikanie używania tej samej nazwy.
+
 ## <a name="create-downstream-device-certificates"></a>Tworzenie certyfikatów urządzeń podrzędnych
 
-W przypadku konfigurowania podrzędnego urządzenia IoT dla scenariusza bramy można generować certyfikaty demonstracyjne dla uwierzytelniania X. 509.
+W przypadku konfigurowania podrzędnego urządzenia IoT dla scenariusza bramy i używania uwierzytelniania X. 509 można generować certyfikaty demonstracyjne dla urządzenia podrzędnego.
+Jeśli chcesz użyć uwierzytelniania przy użyciu klucza symetrycznego, nie musisz tworzyć dodatkowych certyfikatów dla urządzenia podrzędnego.
 Istnieją dwa sposoby uwierzytelniania urządzenia IoT przy użyciu certyfikatów X. 509: przy użyciu certyfikatów z podpisem własnym lub certyfikatów podpisanych przez urząd certyfikacji.
 W przypadku uwierzytelniania z podpisem własnym X. 509, czasami określanego jako Uwierzytelnianie odciskiem palca, należy utworzyć nowe certyfikaty do umieszczenia na urządzeniu IoT.
 Te certyfikaty mają odcisk palca, które udostępniają IoT Hub na potrzeby uwierzytelniania.
@@ -358,7 +358,7 @@ Certyfikaty w tej sekcji dotyczą kroków [konfigurowania zabezpieczeń X. 509 w
 
 #### <a name="windows"></a>Windows
 
-1. Przekaż plik certyfikatu głównego urzędu certyfikacji z katalogu `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`roboczego do centrum IoT.
+1. Przekaż plik certyfikatu głównego urzędu certyfikacji z katalogu roboczego `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` do centrum IoT.
 
 2. Użyj kodu podanego w Azure Portal, aby sprawdzić, czy jesteś własnym certyfikatem głównego urzędu certyfikacji.
 
@@ -381,7 +381,7 @@ Certyfikaty w tej sekcji dotyczą kroków [konfigurowania zabezpieczeń X. 509 w
 
 #### <a name="linux"></a>Linux
 
-1. Przekaż plik certyfikatu głównego urzędu certyfikacji z katalogu `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`roboczego do centrum IoT.
+1. Przekaż plik certyfikatu głównego urzędu certyfikacji z katalogu roboczego `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` do centrum IoT.
 
 2. Użyj kodu podanego w Azure Portal, aby sprawdzić, czy jesteś własnym certyfikatem głównego urzędu certyfikacji.
 

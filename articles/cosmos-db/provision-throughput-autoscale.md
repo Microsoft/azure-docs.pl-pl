@@ -5,17 +5,16 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.date: 06/04/2020
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655813"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791150"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Tworzenie kontenerów i baz danych usługi Azure Cosmos przy użyciu przepływności automatycznego skalowania
 
-Azure Cosmos DB pozwala ustawić przepustowość standardową (ręczną) lub automatyczne skalowanie w bazach danych i kontenerach. W tym artykule opisano zalety i przypadki użycia alokowanej przepływności skalowania automatycznego. 
+Usługa Azure Cosmos DB pozwala skonfigurować przepływność standardową (ręczną) lub aprowizowaną przez autoskalowanie w bazach danych i kontenerach. W tym artykule opisano zalety i przypadki użycia przepływności aprowizowanej przez autoskalowanie. 
 
 Alokacja automatycznego skalowania jest odpowiednia dla obciążeń o kluczowym znaczeniu, które mają zmienne lub nieprzewidywalne wzorce ruchu, i wymagają umowy SLA na wysoką wydajność i skalowalność. 
 
@@ -29,7 +28,7 @@ Bazy danych i kontenery usługi Azure Cosmos, które są skonfigurowane przy uż
 
 * **Skalowalność:** Bazy danych i kontenery automatycznie skalują zainicjowaną przepływność zgodnie z potrzebami. Nie ma przerw w połączeniach klientów, aplikacjach ani wpływu na Azure Cosmos DB umowy SLA.
 
-* **Koszt ekonomiczny:** Funkcja automatycznego skalowania pomaga zoptymalizować użycie RU/s i zużycie kosztów poprzez skalowanie w dół, gdy nie jest używane. Płacisz tylko za zasoby, których obciążenia wymagają w ciągu godziny.
+* **Koszt ekonomiczny:** Funkcja automatycznego skalowania pomaga zoptymalizować użycie RU/s i zużycie kosztów poprzez skalowanie w dół, gdy nie jest używane. Płacisz tylko za zasoby, których obciążenia wymagają w ciągu godziny. Przez wszystkie godziny w miesiącu, jeśli ustawisz automatyczne skalowanie RU/s (Tmax) i wykorzystasz pełną kwotę Tmax przez 66% godzin lub mniej, będziesz zapisywać z funkcją automatycznego skalowania. Aby dowiedzieć się więcej, zobacz artykuł [jak wybrać między standardowym (ręcznym) i automatycznym skalowaniem przepływności](how-to-choose-offer.md) .
 
 * **Wysoka dostępność:** Bazy danych i kontenery korzystające z funkcji automatycznego skalowania używają tych samych globalnie rozproszonych, odpornych na uszkodzenia Azure Cosmos DB zaplecza w celu zapewnienia trwałości i wysokiej dostępności danych.
 
@@ -57,16 +56,17 @@ Każda godzina zostanie naliczona za najwyższą przepływność `T` , którą s
 
 Punkt wejścia dla maksymalnej przepływności skalowania automatycznego `Tmax` rozpoczyna się od 4000 ru/s, co skaluje się między 400 4000 ru/s. Można ustawić `Tmax` liczbę przyrostów 1000 ru/s i zmienić wartość w dowolnym momencie.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>Włącz automatyczne skalowanie dla istniejących zasobów ##
-Użyj [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) , aby włączyć automatyczne skalowanie dla istniejącej bazy danych lub kontenera. W dowolnym momencie można przełączać się między funkcją automatycznego skalowania i standardową (ręczną). Aby uzyskać więcej informacji, zobacz tę [dokumentację](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) .
+## <a name="enable-autoscale-on-existing-resources"></a>Włącz automatyczne skalowanie dla istniejących zasobów
+
+Użyj [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) , aby włączyć automatyczne skalowanie dla istniejącej bazy danych lub kontenera. W dowolnym momencie można przełączać się między funkcją automatycznego skalowania i standardową (ręczną). Aby uzyskać więcej informacji, zobacz tę [dokumentację](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) . Obecnie w przypadku wszystkich interfejsów API można użyć Azure Portal, aby włączyć automatyczne skalowanie dla istniejących zasobów.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Limity przepływności i magazynu dla automatycznego skalowania
 
-Dla każdej wartości `Tmax` , baza danych lub kontener może przechowywać łącznie `0.01 * Tmax GB` . Po osiągnięciu tej ilości miejsca do magazynowania maksymalna wartość RU/s zostanie automatycznie zwiększona na podstawie nowej wartości magazynu, bez wpływu na aplikację. 
+Dla każdej wartości `Tmax` , baza danych lub kontener może przechowywać łącznie `0.01 * Tmax GB` . Po osiągnięciu tej ilości miejsca do magazynowania maksymalna wartość RU/s zostanie automatycznie zwiększona na podstawie nowej wartości miejsca do magazynowania, bez wpływu na aplikację. 
 
-Jeśli na przykład zaczniesz od maksimum RU/s z 50 000 RU/s (skale się między 5000 50 000 RU/s), możesz przechowywać do 500 GB danych. W przypadku przekroczenia 500 GB — np. magazyn wynosi teraz 600 GB, nowe maksymalne wartości RU/s będą 60 000 RU/s (skaluje się między 6000-60 000 RU/s).
+Jeśli na przykład zaczniesz od maksymalnej wartości 50 000 RU/s (skalowanie w zakresie 5000 – 50 000 RU/s), możesz przechowywać do 500 GB danych. Jeśli przekroczysz 500 GB (np. miejsce do magazynowania będzie wynosić 600 GB), nową maksymalną wartością RU/s będzie 60 000 RU/s (skalowanie w zakresie 6000 – 60 000 RU/s).
 
-W przypadku korzystania z przepływności na poziomie bazy danych przy użyciu funkcji automatycznego skalowania można mieć pierwsze 25 kontenerów, które mają wartość maksymalnego rozmiaru RU/s z 4000 (skaluje się między 400 – 4000 RU/s), o ile nie przekroczy to 40 GB miejsca w magazynie. Aby uzyskać więcej informacji, zobacz tę [dokumentację](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) .
+Jeśli używasz przepływności na poziomie bazy danych z autoskalowaniem, pierwsze 25 kontenerów może współdzielić maksymalną wartość autoskalowania równą 4000 RU/s (skalowanie w zakresie 400 – 4000 RU/s), o ile nie przekroczysz 40 GB miejsca do magazynowania. Aby uzyskać więcej informacji, zobacz tę [dokumentację](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) .
 
 ## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Porównanie — kontenery skonfigurowane z ręczną przepływność automatycznego skalowania
 Więcej szczegółów można znaleźć w tej [dokumentacji](how-to-choose-offer.md) dotyczącej wyboru między standardowym (ręcznym) i automatycznym skalowaniem przepływności.  

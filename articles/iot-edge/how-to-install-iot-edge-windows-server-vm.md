@@ -9,12 +9,11 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
-ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77045890"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266478"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Uruchom Azure IoT Edge w systemie Windows Server Virtual Machines
 
@@ -22,11 +21,11 @@ ms.locfileid: "77045890"
 
 Aby dowiedzieć się więcej o tym, jak działa środowisko uruchomieniowe IoT Edge i jakie składniki są uwzględnione, zobacz [Omówienie środowiska uruchomieniowego Azure IoT Edge i jego architektury](iot-edge-runtime.md).
 
-W tym artykule przedstawiono procedurę uruchamiania środowiska uruchomieniowego Azure IoT Edge na maszynie wirtualnej z systemem Windows Server 2019 przy użyciu oferty [systemu Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace. Postępuj zgodnie z instrukcjami w obszarze [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge-windows.md) w systemie Windows, aby używać go z innymi wersjami.
+W tym artykule przedstawiono procedurę uruchamiania środowiska uruchomieniowego Azure IoT Edge na maszynie wirtualnej z systemem Windows Server 2019 przy użyciu oferty [systemu Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace. Postępuj zgodnie z instrukcjami w obszarze [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge-windows.md) w systemie Windows, aby używać go z innymi wersjami.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Wdrażanie z poziomu portalu Azure Marketplace
 
-1. Przejdź do oferty [systemu Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace lub wyszukiwania "Windows Server" w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1. Przejdź do oferty [systemu Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) Azure Marketplace lub wyszukiwania "Windows Server" w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2. Wybierz pozycję **Pobierz teraz**
 3. W **planie oprogramowania**Znajdź pozycję "Windows Server 2019 Datacenter Server Core with Containers", a następnie wybierz pozycję **Kontynuuj** w następnym oknie dialogowym.
     * Możesz również użyć tych instrukcji dla innych wersji systemu Windows Server z kontenerami
@@ -87,8 +86,8 @@ W tym artykule przedstawiono procedurę uruchamiania środowiska uruchomienioweg
    az vm create -g IoTEdgeResources -n EdgeVM --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-with-Containers:latest  --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   * To polecenie wyświetli monit o podanie hasła, ale można dodać opcję `--admin-password` , aby łatwiej ją ustawić w skrypcie
-   * Obraz systemu Windows Server Core ma obsługę wiersza polecenia tylko z pulpitem zdalnym, więc jeśli chcesz, aby środowisko pulpitu było pełne, `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` Określ jako obraz
+   * To polecenie wyświetli monit o podanie hasła, ale można dodać opcję, `--admin-password` Aby łatwiej ją ustawić w skrypcie
+   * Obraz systemu Windows Server Core ma obsługę wiersza polecenia tylko z pulpitem zdalnym, więc jeśli chcesz, aby środowisko pulpitu było pełne, określ `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` jako obraz
 
 1. Ustaw parametry połączenia urządzenia (można postępować zgodnie z procedurą [pobierania parametrów połączenia za pomocą interfejsu wiersza polecenia platformy Azure](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) , jeśli nie masz doświadczenia z tym procesem):
 

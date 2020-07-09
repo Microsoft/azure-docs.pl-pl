@@ -10,10 +10,10 @@ ms.author: trbye
 author: trevorbye
 ms.date: 03/18/2020
 ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80064193"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Co to są środowiska Azure Machine Learning?
@@ -26,7 +26,7 @@ Możesz użyć `Environment` obiektu na lokalnym obliczeniu, aby:
 * Ponownie Użyj tego samego środowiska na Azure Machine Learning COMPUTE na potrzeby szkolenia modeli na dużą skalę.
 * Wdróż model przy użyciu tego samego środowiska.
 
-Na poniższym diagramie pokazano, w jaki sposób można użyć `Environment` pojedynczego obiektu w konfiguracji przebiegu, na potrzeby szkoleń oraz konfiguracji wnioskowania i wdrożenia w przypadku wdrożeń usług sieci Web.
+Na poniższym diagramie pokazano, w jaki sposób można użyć pojedynczego `Environment` obiektu w konfiguracji przebiegu, na potrzeby szkoleń oraz konfiguracji wnioskowania i wdrożenia w przypadku wdrożeń usług sieci Web.
 
 ![Diagram środowiska w przepływie pracy uczenia maszynowego](./media/concept-environments/ml-environment.png)
 
@@ -93,9 +93,9 @@ Na poniższym diagramie przedstawiono trzy definicje środowiska. Dwa z nich maj
 ![Diagram pamięci podręcznej środowiska jako obrazów platformy Docker](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> W przypadku tworzenia środowiska z przypiętym zależnością pakietu, na ```numpy```przykład, to środowisko będzie korzystać z zainstalowanej wersji pakietu _w momencie tworzenia środowiska_. Ponadto wszystkie przyszłe środowiska ze zgodną definicją będą nadal używane w starej wersji. 
+> W przypadku tworzenia środowiska z przypiętym zależnością pakietu, na przykład, ```numpy``` to środowisko będzie korzystać z zainstalowanej wersji pakietu _w momencie tworzenia środowiska_. Ponadto wszystkie przyszłe środowiska ze zgodną definicją będą nadal używane w starej wersji. 
 
-Aby zaktualizować pakiet, określ numer wersji, aby wymusić Odbudowywanie obrazu ```numpy==1.18.1```. Należy zauważyć, że zostaną zainstalowane nowe zależności, w tym zagnieżdżone, które mogą spowodować uszkodzenie wcześniej działającego scenariusza.
+Aby zaktualizować pakiet, określ numer wersji, aby wymusić Odbudowywanie obrazu ```numpy==1.18.1``` . Należy zauważyć, że zostaną zainstalowane nowe zależności, w tym zagnieżdżone, które mogą spowodować uszkodzenie wcześniej działającego scenariusza.
 
 > [!WARNING]
 >  Metoda [Environment. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) spowoduje odbudowanie buforowanego obrazu z możliwym efektem ubocznym aktualizowania przypiętych pakietów i przerwaniem odtwarzalności dla wszystkich definicji środowiska odpowiadających danemu z pamięci podręcznej.

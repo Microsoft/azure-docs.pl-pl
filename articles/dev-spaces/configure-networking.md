@@ -5,12 +5,11 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Opisuje wymagania sieciowe dotyczące uruchamiania Azure Dev Spaces w usłudze Azure Kubernetes Services
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, CNI, korzystającą wtyczki kubenet, SDN, Network
-ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300695"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurowanie sieci dla Azure Dev Spaces w różnych topologiach sieci
 
@@ -33,9 +32,8 @@ Azure Dev Spaces wymaga ruchu przychodzącego i wychodzącego dla następującyc
 | cloudflare.docker.com      | HTTPS: 443 | Aby ściągnąć obrazy platformy Docker dla Azure Dev Spaces |
 | gcr.io                     | HTTPS: 443 | Aby ściągnąć obrazy Helm dla Azure Dev Spaces |
 | storage.googleapis.com     | HTTPS: 443 | Aby ściągnąć obrazy Helm dla Azure Dev Spaces |
-| azds-*. azds. IO             | HTTPS: 443 | Aby komunikować się z usługami Azure Dev Spaces zaplecza dla kontrolera Azure Dev Spaces. Dokładną nazwę FQDN można znaleźć w *dataplaneFqdn* w`USERPROFILE\.azds\settings.json` |
 
-Zaktualizuj zaporę lub konfigurację zabezpieczeń, aby zezwalać na ruch sieciowy do i z wszystkich powyższych nazw FQDN. Na przykład jeśli używasz zapory do zabezpieczenia sieci, powyższe nazwy FQDN należy dodać do reguły aplikacji zapory, aby zezwolić na ruch do i z tych domen.
+Zaktualizuj zaporę lub konfigurację zabezpieczeń, aby zezwalać na ruch sieciowy do i z wszystkich powyższych nazw FQDN i [usług Azure dev Spaces infrastruktury][service-tags]. Na przykład jeśli używasz zapory do zabezpieczenia sieci, powyższe nazwy FQDN należy dodać do reguły aplikacji zapory, a do zapory należy również [dodać][firewall-service-tags]tag usługi Azure dev Spaces. Obie te aktualizacje zapory muszą zezwalać na ruch do i z tych domen.
 
 ### <a name="ingress-only-network-traffic-requirements"></a>Tylko wymagania dotyczące ruchu sieciowego
 
@@ -47,7 +45,7 @@ AKS umożliwia korzystanie z [zasad sieciowych][aks-network-policies] w celu kon
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>Wymagania dotyczące ruchu przychodzącego i wychodzącego w sieci
 
-Azure Dev Spaces pozwala komunikować się bezpośrednio z obszarem w środowisku deweloperskim w klastrze w celu debugowania. Aby ta funkcja działała, należy dodać zasady sieciowe zezwalające na ruch przychodzący i wychodzący do adresów IP infrastruktury Azure Dev Spaces, które [różnią się w zależności od regionu][dev-spaces-ip-auth-range-regions].
+Azure Dev Spaces pozwala komunikować się bezpośrednio z obszarem w środowisku deweloperskim w klastrze w celu debugowania. Aby ta funkcja działała, należy dodać zasady sieciowe zezwalające na ruch przychodzący i wychodzący do adresów IP infrastruktury Azure Dev Spaces, które [różnią się w zależności od regionu][service-tags].
 
 ### <a name="ingress-only-network-traffic-requirements"></a>Tylko wymagania dotyczące ruchu sieciowego
 
@@ -59,7 +57,7 @@ Domyślnie klastry AKS są skonfigurowane do używania [korzystającą wtyczki k
 
 ## <a name="using-api-server-authorized-ip-ranges"></a>Korzystanie z autoryzowanych zakresów adresów IP serwera interfejsu API
 
-Klastry AKS umożliwiają skonfigurowanie dodatkowych zabezpieczeń, które ograniczają, który adres IP może współdziałać z klastrami, na przykład przy użyciu niestandardowych sieci wirtualnych lub [zabezpieczania dostępu do serwera interfejsu API przy użyciu autoryzowanych zakresów adresów IP][aks-ip-auth-ranges]. Aby użyć Azure Dev Spaces podczas korzystania z tego dodatkowego zabezpieczenia podczas [tworzenia][aks-ip-auth-range-create] klastra, należy [zezwolić na dodatkowe zakresy w zależności od regionu][dev-spaces-ip-auth-range-regions]. Można również [zaktualizować][aks-ip-auth-range-update] istniejący klaster, aby zezwalał na te dodatkowe zakresy. Należy również zezwolić na adres IP wszystkich maszyn deweloperskich, które łączą się z klastrem AKS w celu debugowania w celu nawiązania połączenia z serwerem interfejsu API.
+Klastry AKS umożliwiają skonfigurowanie dodatkowych zabezpieczeń, które ograniczają, który adres IP może współdziałać z klastrami, na przykład przy użyciu niestandardowych sieci wirtualnych lub [zabezpieczania dostępu do serwera interfejsu API przy użyciu autoryzowanych zakresów adresów IP][aks-ip-auth-ranges]. Aby użyć Azure Dev Spaces podczas korzystania z tego dodatkowego zabezpieczenia podczas [tworzenia][aks-ip-auth-range-create] klastra, należy [zezwolić na dodatkowe zakresy w zależności od regionu][service-tags]. Można również [zaktualizować][aks-ip-auth-range-update] istniejący klaster, aby zezwalał na te dodatkowe zakresy. Należy również zezwolić na adres IP wszystkich maszyn deweloperskich, które łączą się z klastrem AKS w celu debugowania w celu nawiązania połączenia z serwerem interfejsu API.
 
 ## <a name="using-aks-private-clusters"></a>Używanie prywatnych klastrów AKS
 
@@ -69,8 +67,8 @@ W tej chwili Azure Dev Spaces nie jest obsługiwana w przypadku [prywatnych klas
 
 Azure Dev Spaces może uwidaczniać punkty końcowe dla usług uruchomionych w usłudze AKS. Podczas włączania Azure Dev Spaces w klastrze dostępne są następujące opcje konfigurowania typu punktu końcowego dla klastra:
 
-* *Publiczny* punkt końcowy, który jest domyślnym, wdraża kontroler transferu danych przychodzących z publicznym adresem IP. Publiczny adres IP jest zarejestrowany w systemie DNS klastra, co pozwala na publiczny dostęp do usług przy użyciu adresu URL. Ten adres URL można wyświetlić za `azds list-uris`pomocą polecenia.
-* *Prywatny* punkt końcowy wdraża kontroler transferu danych przychodzących z prywatnym adresem IP. Przy użyciu prywatnego adresu IP moduł równoważenia obciążenia dla klastra jest dostępny tylko w sieci wirtualnej klastra. Prywatny adres IP modułu równoważenia obciążenia jest zarejestrowany w systemie DNS klastra, aby można było uzyskać dostęp do usług w sieci wirtualnej klastra przy użyciu adresu URL. Ten adres URL można wyświetlić za `azds list-uris`pomocą polecenia.
+* *Publiczny* punkt końcowy, który jest domyślnym, wdraża kontroler transferu danych przychodzących z publicznym adresem IP. Publiczny adres IP jest zarejestrowany w systemie DNS klastra, co pozwala na publiczny dostęp do usług przy użyciu adresu URL. Ten adres URL można wyświetlić za pomocą polecenia `azds list-uris` .
+* *Prywatny* punkt końcowy wdraża kontroler transferu danych przychodzących z prywatnym adresem IP. Przy użyciu prywatnego adresu IP moduł równoważenia obciążenia dla klastra jest dostępny tylko w sieci wirtualnej klastra. Prywatny adres IP modułu równoważenia obciążenia jest zarejestrowany w systemie DNS klastra, aby można było uzyskać dostęp do usług w sieci wirtualnej klastra przy użyciu adresu URL. Ten adres URL można wyświetlić za pomocą polecenia `azds list-uris` .
 * Ustawienie *Brak* dla opcji punktu końcowego powoduje, że nie zostanie wdrożony kontroler transferu danych przychodzących. Gdy nie wdrożono kontrolera transferu danych przychodzących, [możliwości routingu Azure dev Spaces][dev-spaces-routing] nie będą działały. Opcjonalnie można zaimplementować własne rozwiązanie kontrolera transferu danych przychodzących za pomocą [traefik][traefik-ingress] lub [Nginx][nginx-ingress], co umożliwi ponowne działanie funkcji routingu.
 
 Aby skonfigurować opcję punktu końcowego, użyj *-e* lub *--Endpoint* przy włączaniu Azure dev Spaces w klastrze. Przykład:
@@ -84,7 +82,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 ## <a name="client-requirements"></a>Wymagania dotyczące klientów
 
-Azure Dev Spaces używa narzędzi po stronie klienta, takich jak rozszerzenie interfejsu wiersza polecenia Azure Dev Spaces, rozszerzenia Visual Studio Code i rozszerzenia programu Visual Studio, aby komunikować się z klastrem AKS na potrzeby debugowania. Aby użyć Azure Dev Spaces narzędzia po stronie klienta, Zezwól na ruch z maszyn deweloperskich do domeny *azds-\*. azds.IO* . Zobacz *dataplaneFqdn* w `USERPROFILE\.azds\settings.json` programie, aby poznać dokładną nazwę FQDN. W przypadku korzystania z [dozwolonych zakresów adresów IP serwera interfejsu API][auth-range-section]należy również zezwolić na adres IP wszystkich maszyn deweloperskich, które łączą się z klastrem AKS w celu debugowania w celu nawiązania połączenia z serwerem interfejsu API.
+Azure Dev Spaces używa narzędzi po stronie klienta, takich jak rozszerzenie interfejsu wiersza polecenia Azure Dev Spaces, rozszerzenia Visual Studio Code i rozszerzenia programu Visual Studio, aby komunikować się z klastrem AKS na potrzeby debugowania. Aby użyć Azure Dev Spaces narzędzia po stronie klienta, Zezwól na ruch z maszyn deweloperskich do [infrastruktury Azure dev Spaces][dev-spaces-allow-infrastructure]. W przypadku korzystania z [dozwolonych zakresów adresów IP serwera interfejsu API][auth-range-section]należy również zezwolić na adres IP wszystkich maszyn deweloperskich, które łączą się z klastrem AKS w celu debugowania w celu nawiązania połączenia z serwerem interfejsu API.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -104,10 +102,12 @@ Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych ap
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
 [azure-cli-install]: /cli/azure/install-azure-cli
-[dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-allow-infrastructure]: #virtual-network-or-subnet-configurations
 [dev-spaces-routing]: how-dev-spaces-works-routing.md
 [endpoint-options]: #using-different-endpoint-options
+[firewall-service-tags]: ../firewall/service-tags.md
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
 [sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
+[service-tags]: ../virtual-network/service-tags-overview.md#available-service-tags
 [team-quickstart]: quickstart-team-development.md

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74122683"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrowanie z usługi Managed Cache Service do usługi Azure Cache for Redis
@@ -47,7 +46,7 @@ Usługa Azure Managed Cache Service i usługa Azure cache for Redis są podobne,
 | Zasady wygasania |Domyślne zasady wygasania są bezwzględne i domyślny interwał wygaśnięcia wynosi 10 minut. Dostępne są również zasady przesuwania i nienigdy. |Domyślnie elementy w pamięci podręcznej nie wygasną, ale okres ważności można skonfigurować dla każdego zapisu, używając przeciążeń zestawu pamięci podręcznej. |
 | Regiony i tagowanie |Regiony są podgrupami elementów w pamięci podręcznej. Regiony obsługują również adnotację elementów w pamięci podręcznej z dodatkowymi opisami ciągów nazywanymi tagami. Regiony obsługują możliwość wykonywania operacji wyszukiwania na wszystkich oznakowanych elementach w tym regionie. Wszystkie elementy w obrębie regionu znajdują się w jednym węźle klastra pamięci podręcznej. |Pamięć podręczna platformy Azure dla usługi Redis składa się z jednego węzła (chyba że klaster Redis jest włączony), więc pojęcie Managed Cache Service regionów nie ma zastosowania. Redis obsługuje wyszukiwanie i wieloznaczne operacje podczas pobierania kluczy, tak aby Tagi opisowe mogły być osadzane w nazwach kluczy i używane do późniejszego pobierania elementów. Aby zapoznać się z przykładem implementacji rozwiązania tagowania za pomocą Redis, zobacz [implementowanie tagowania pamięci podręcznej za pomocą Redis](https://stackify.com/implementing-cache-tagging-redis/). |
 | Serializacja |Zarządzana pamięć podręczna obsługuje NetDataContractSerializer, BinaryFormatter i używa serializatorów niestandardowych. Wartość domyślna to NetDataContractSerializer. |Przed umieszczeniem ich w pamięci podręcznej przez aplikację kliencką można serializować obiekty .NET, a następnie wybrać serializator do deweloperów aplikacji klienta. Aby uzyskać więcej informacji i przykładowy kod, zobacz [Work with .NET objectss w pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
-| Emulator pamięci podręcznej |Zarządzana pamięć podręczna zapewnia emulator lokalnej pamięci podręcznej. |Pamięć podręczna systemu Azure dla Redis nie ma emulatora, ale można [lokalnie uruchomić kompilację MSOpenTech Redis-Server. exe](cache-faq.md#cache-emulator) w celu zapewnienia środowiska emulatora. |
+| Emulator pamięci podręcznej |Zarządzana pamięć podręczna zapewnia emulator lokalnej pamięci podręcznej. |Pamięć podręczna systemu Azure dla Redis nie ma emulatora, ale można [uruchomić kompilację MSOpenTech redis-server.exe lokalnie](cache-faq.md#cache-emulator) w celu zapewnienia środowiska emulatora. |
 
 ## <a name="choose-a-cache-offering"></a>Wybieranie oferty pamięci podręcznej
 Pamięć podręczna Microsoft Azure dla Redis jest dostępna w następujących warstwach:
@@ -76,9 +75,9 @@ Aby odinstalować pakiet NuGet Managed Cache Service, kliknij prawym przyciskiem
 
 ![Odinstaluj pakiet NuGet Managed Cache Service platformy Azure](./media/cache-migrate-to-redis/IC757666.jpg)
 
-Odinstalowywanie pakietu NuGet Managed Cache Service usuwa zestawy Managed Cache Service i Managed Cache Service wpisów w pliku App. config lub Web. config aplikacji klienckiej. Niektóre dostosowane ustawienia nie mogą zostać usunięte podczas odinstalowywania pakietu NuGet, Otwórz plik Web. config lub App. config i upewnij się, że zostały usunięte następujące elementy.
+Odinstalowywanie pakietu NuGet Managed Cache Service powoduje usunięcie zestawów Managed Cache Service i Managed Cache Service wpisów w app.config lub web.config aplikacji klienckiej. Ponieważ niektóre dostosowane ustawienia nie mogą zostać usunięte podczas odinstalowywania pakietu NuGet, Otwórz web.config lub app.config i upewnij się, że zostały usunięte następujące elementy.
 
-Upewnij się, `dataCacheClients` że wpis został usunięty z `configSections` elementu. Nie usuwaj całego `configSections` elementu; po prostu usuń `dataCacheClients` wpis, jeśli jest obecny.
+Upewnij się, że `dataCacheClients` wpis został usunięty z `configSections` elementu. Nie usuwaj całego `configSections` elementu; po prostu usuń `dataCacheClients` wpis, jeśli jest obecny.
 
 ```xml
 <configSections>
@@ -87,7 +86,7 @@ Upewnij się, `dataCacheClients` że wpis został usunięty z `configSections` e
 </configSections>
 ```
 
-Upewnij się, `dataCacheClients` że sekcja została usunięta. `dataCacheClients` Sekcja będzie wyglądać podobnie do poniższego przykładu.
+Upewnij się, że `dataCacheClients` sekcja została usunięta. `dataCacheClients`Sekcja będzie wyglądać podobnie do poniższego przykładu.
 
 ```xml
 <dataCacheClients>
@@ -114,7 +113,7 @@ Po usunięciu konfiguracji Managed Cache Service można skonfigurować klienta p
 Interfejs API StackExchange. Azure cache for Redis Client jest podobny do Managed Cache Service. Ta sekcja zawiera omówienie różnic.
 
 ### <a name="connect-to-the-cache-using-the-connectionmultiplexer-class"></a>Nawiązywanie połączenia z pamięcią podręczną przy użyciu klasy ConnectionMultiplexer
-W Managed Cache Service połączenia z pamięcią podręczną były obsługiwane przez `DataCacheFactory` klasy `DataCache` i. W usłudze Azure cache for Redis te połączenia są zarządzane przez `ConnectionMultiplexer` klasę.
+W Managed Cache Service połączenia z pamięcią podręczną były obsługiwane przez `DataCacheFactory` `DataCache` klasy i. W usłudze Azure cache for Redis te połączenia są zarządzane przez `ConnectionMultiplexer` klasę.
 
 Dodaj następującą instrukcję using na początku każdego pliku, z którego chcesz uzyskać dostęp do pamięci podręcznej.
 
@@ -163,11 +162,11 @@ string key1 = cache.StringGet("key1");
 int key2 = (int)cache.StringGet("key2");
 ```
 
-Klient StackExchange. Redis używa typów `RedisKey` i `RedisValue` do uzyskiwania dostępu do elementów w pamięci podręcznej i ich przechowywania. Te typy są mapowane na większość typów języka pierwotnego, w tym ciąg i często nie są używane bezpośrednio. Ciągi Redis są najbardziej podstawowym rodzajem wartości Redis i mogą zawierać wiele typów danych, w tym serializowane strumienie binarne, a chociaż nie można używać typu bezpośrednio, należy użyć metod, które zawierają `String` nazwę. W przypadku większości typów danych pierwotnych można przechowywać i pobierać elementy z pamięci podręcznej przy użyciu metod `StringSet` i `StringGet` , chyba że przechowujesz kolekcje lub inne typy danych Redis w pamięci podręcznej. 
+Klient StackExchange. Redis używa `RedisKey` `RedisValue` typów i do uzyskiwania dostępu do elementów w pamięci podręcznej i ich przechowywania. Te typy są mapowane na większość typów języka pierwotnego, w tym ciąg i często nie są używane bezpośrednio. Ciągi Redis są najbardziej podstawowym rodzajem wartości Redis i mogą zawierać wiele typów danych, w tym serializowane strumienie binarne, a chociaż nie można używać typu bezpośrednio, należy użyć metod, które zawierają `String` nazwę. W przypadku większości typów danych pierwotnych można przechowywać i pobierać elementy z pamięci podręcznej przy użyciu `StringSet` `StringGet` metod i, chyba że przechowujesz kolekcje lub inne typy danych Redis w pamięci podręcznej. 
 
 `StringSet`i `StringGet` są podobne do Managed Cache Service `Put` i `Get` metod, z jedną istotną różnicą przed rozpoczęciem ustawiania i pobierania obiektu .NET do pamięci podręcznej, należy najpierw serializować ją. 
 
-W przypadku `StringGet`wywołania, jeśli obiekt istnieje, jest zwracany, a jeśli nie, zwracana jest wartość null. W takim przypadku można pobrać wartość z żądanego źródła danych i zapisać ją w pamięci podręcznej do późniejszego użycia. Ten wzorzec jest znany jako wzorzec z odkładaniem do pamięci podręcznej.
+W przypadku wywołania `StringGet` , jeśli obiekt istnieje, jest zwracany, a jeśli nie, zwracana jest wartość null. W takim przypadku można pobrać wartość z żądanego źródła danych i zapisać ją w pamięci podręcznej do późniejszego użycia. Ten wzorzec jest znany jako wzorzec z odkładaniem do pamięci podręcznej.
 
 Aby określić wygaśnięcie elementu w pamięci podręcznej, użyj parametru `TimeSpan` metody `StringSet`.
 
@@ -178,7 +177,7 @@ cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 Pamięć podręczna systemu Azure dla usługi Redis może współdziałać z obiektami .NET, a także typami danych pierwotnych, ale zanim obiekt programu .NET może być buforowany, musi być serializowany. Ta Serializacja jest odpowiedzialna za programistę aplikacji i zapewnia elastyczność dewelopera w wyborze serializatora. Aby uzyskać więcej informacji i przykładowy kod, zobacz [Work with .NET objectss w pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
 ## <a name="migrate-aspnet-session-state-and-output-caching-to-azure-cache-for-redis"></a>Migruj stan sesji ASP.NET i buforowanie danych wyjściowych do usługi Azure cache dla Redis
-Pamięć podręczna systemu Azure dla usługi Redis ma dostawców zarówno na potrzeby buforowania stanu sesji ASP.NET, jak i danych wyjściowych strony. Aby przeprowadzić migrację aplikacji korzystającej z Managed Cache Service wersji tych dostawców, najpierw usuń istniejące sekcje z pliku Web. config, a następnie skonfiguruj pamięć podręczną platformy Azure dla wersji Redis dostawców. Aby uzyskać instrukcje dotyczące korzystania z usługi Azure cache for Redis ASP.NET Providers, zobacz dostawca [stanu sesji ASP.NET dla usługi Azure cache for Redis](cache-aspnet-session-state-provider.md) i [ASP.NET wyjściowych dostawców pamięci podręcznej dla usługi Azure cache for Redis](cache-aspnet-output-cache-provider.md).
+Pamięć podręczna systemu Azure dla usługi Redis ma dostawców zarówno na potrzeby buforowania stanu sesji ASP.NET, jak i danych wyjściowych strony. Aby przeprowadzić migrację aplikacji korzystającej z Managed Cache Service wersji tych dostawców, najpierw usuń istniejące sekcje z web.config, a następnie skonfiguruj pamięć podręczną platformy Azure dla wersji Redis dostawców. Aby uzyskać instrukcje dotyczące korzystania z usługi Azure cache for Redis ASP.NET Providers, zobacz dostawca [stanu sesji ASP.NET dla usługi Azure cache for Redis](cache-aspnet-session-state-provider.md) i [ASP.NET wyjściowych dostawców pamięci podręcznej dla usługi Azure cache for Redis](cache-aspnet-output-cache-provider.md).
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z [pamięcią podręczną platformy Azure, aby uzyskać dokumentację Redis](https://azure.microsoft.com/documentation/services/cache/) dla samouczków, przykładów, filmów wideo i nie tylko.

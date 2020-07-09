@@ -3,12 +3,11 @@ title: Statyczny adres IP dla grupy kontenerów
 description: Utwórz grupę kontenerów w sieci wirtualnej i Użyj usługi Azure Application Gateway, aby udostępnić statyczny adres IP frontonu dla zwirtualizowanej aplikacji sieci Web.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84299166"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Uwidacznianie statycznego adresu IP dla grupy kontenerów
 
@@ -17,7 +16,7 @@ W tym artykule pokazano, jak udostępnić statyczny publiczny adres IP dla [grup
 W tym artykule opisano tworzenie zasobów dla tego scenariusza przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 * Sieć wirtualna platformy Azure
-* Grupa kontenerów wdrożona [w sieci wirtualnej (wersja zapoznawcza)](container-instances-vnet.md) , która obsługuje małą aplikację sieci Web
+* Grupa kontenerów wdrożona [w sieci wirtualnej](container-instances-vnet.md) , która hostuje małą aplikację sieci Web
 * Brama aplikacji z publicznym adresem IP frontonu, odbiornikiem do hostowania witryny sieci Web w bramie i trasą do grupy kontenerów zaplecza
 
 Tak długo, jak działa Brama aplikacji, a grupa kontenerów uwidacznia stabilny prywatny adres IP w podsieci delegowanej sieci, Grupa kontenerów jest dostępna na tym publicznym adresie IP.
@@ -71,7 +70,7 @@ az network public-ip create \
 
 Uruchom następujące [AZ Container Create][az-container-create] , aby utworzyć grupę kontenerów w sieci wirtualnej skonfigurowanej w poprzednim kroku. 
 
-Grupa jest wdrażana w podsieci *myACISubnet* i zawiera jedno wystąpienie o nazwie *APPCONTAINER* , które pobiera `aci-helloworld` obraz. Jak pokazano w innych artykułach w dokumentacji, ten obraz zawiera niewielką aplikację sieci Web w języku Node. js, która obsługuje statyczną stronę HTML. 
+Grupa jest wdrażana w podsieci *myACISubnet* i zawiera jedno wystąpienie o nazwie *APPCONTAINER* , które pobiera `aci-helloworld` obraz. Jak pokazano w innych artykułach w dokumentacji, ten obraz zawiera niewielką aplikację sieci Web zapisaną w Node.js, która obsługuje statyczną stronę HTML. 
 
 ```azurecli
 az container create \
@@ -136,7 +135,7 @@ az network public-ip show \
 --output tsv
 ```
 
-Wyjście jest publicznym adresem IP, podobnym do: `52.142.18.133`.
+Wyjście jest publicznym adresem IP, podobnym do: `52.142.18.133` .
 
 Aby wyświetlić uruchomioną aplikację sieci Web po pomyślnym skonfigurowaniu, przejdź do publicznego adresu IP bramy w przeglądarce. Udany dostęp jest podobny do:
 

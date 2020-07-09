@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: b2d2d14f89fa25bba1a19538c758aa0c930b3964
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018535"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85506977"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 
@@ -30,9 +30,9 @@ Niestandardowe metryki mogą być wysyłane do Azure Monitor za pomocą kilku me
 - Zainstaluj [agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md) na maszynie wirtualnej z systemem Linux systemu Azure i wysyłaj metryki przy użyciu wtyczki danych wyjściowych Azure monitor.
 - Wysyłać niestandardowe metryki [bezpośrednio do interfejsu API REST Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
-## <a name="pricing-model-and-rentention"></a>Model cen i przechowywania
+## <a name="pricing-model-and-retention"></a>Model cen i przechowywanie
 
-Zapoznaj się ze [stroną cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) , aby uzyskać szczegółowe informacje o tym, kiedy rozliczenia będą włączone dla zapytań niestandardowych metryk i metryk. Na tej stronie są dostępne szczegółowe informacje o cenach wszystkich metryk, w tym metryki niestandardowe i zapytania dotyczące metryk. Podsumowując, nie ma opłat za pozyskiwanie metryk standardowych (metryki platformy) do magazynu metryk Azure Monitor, ale metryki niestandardowe spowodują naliczanie kosztów po udostępnieniu ogólnej dostępności. Zapytania interfejsu API metryk są kosztami ponoszenia kosztów.
+Zapoznaj się ze [stroną cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) , aby uzyskać szczegółowe informacje o tym, kiedy rozliczenia będą włączone dla zapytań niestandardowych metryk i metryk. Na tej stronie są dostępne szczegółowe informacje o cenach wszystkich metryk, w tym metryki niestandardowe i zapytania dotyczące metryk. Podsumowując, nie ma kosztu pozyskiwania metryk standardowych (metryki platformy) do magazynu metryk Azure Monitor, ale metryki niestandardowe będą naliczane po wprowadzeniu ogólnej dostępności. Zapytania interfejsu API metryk powodują ponoszenia kosztów.
 
 Metryki niestandardowe są przechowywane przez ten [sam czas jako metryki platformy](data-platform-metrics.md#retention-of-metrics). 
 
@@ -44,7 +44,7 @@ Metryki niestandardowe są przechowywane przez ten [sam czas jako metryki platfo
 
 W przypadku wysyłania niestandardowych metryk do Azure Monitor, każdy punkt danych lub wartość, raportowane muszą zawierać następujące informacje.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 Aby przesłać niestandardowe metryki do Azure Monitor, jednostka, która przesyła metrykę, musi być prawidłowym tokenem Azure Active Directory (Azure AD) w nagłówku **okaziciela** żądania. Istnieje kilka obsługiwanych metod uzyskiwania prawidłowego tokenu okaziciela:
 1. [Zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Zwraca tożsamość do zasobu platformy Azure, na przykład maszynę wirtualną. Tożsamość usługi zarządzanej (MSI) jest zaprojektowana w celu przyznania zasobom uprawnień do wykonywania określonych operacji. Przykładem jest umożliwienie zasobowi emisji metryk dotyczących siebie. Do zasobu lub jego pliku MSI można przyznać uprawnienia **wydawcy metryk monitorowania** dla innego zasobu. Za pomocą tego uprawnienia plik MSI może również emitować metryki dla innych zasobów.
 2. Nazwa [główna usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). W tym scenariuszu aplikacja usługi Azure AD lub usługa może mieć przypisane uprawnienia do emisji metryk dotyczących zasobu platformy Azure.
@@ -78,7 +78,7 @@ Przestrzenie nazw umożliwiają kategoryzowanie i grupowanie podobnych metryk je
 **Nazwa** to nazwa metryki, która jest raportowana. Zwykle nazwa jest wystarczająco opisowa, aby pomóc w ustaleniu, co jest mierzone. Przykładem jest Metryka, która mierzy liczbę bajtów pamięci używanych na danej maszynie wirtualnej. Może istnieć Nazwa metryki, taka jak **bajty pamięci**.
 
 ### <a name="dimension-keys"></a>Klucze wymiarów
-Wymiar to para klucz lub wartość ułatwiająca opisywanie dodatkowych cech dotyczących zbieranych metryk. Korzystając z dodatkowych cech, można zebrać więcej informacji na temat metryki, która umożliwia dokładniejszy wgląd w szczegółowe dane. Na przykład Metryka **bajtów pamięci w użyciu** może mieć klucz wymiaru o nazwie **Process** , który przechwytuje, ile bajtów pamięci każdy proces na maszynie wirtualnej zużywa. Za pomocą tego klucza można odfiltrować metrykę, aby zobaczyć, ile procesów specyficznych dla pamięci używa lub do identyfikowania pięciu pierwszych procesów według użycia pamięci.
+Wymiar to para klucz lub wartość ułatwiająca opisywanie dodatkowych cech dotyczących zbieranych metryk. Korzystając z dodatkowych cech, można zebrać więcej informacji na temat metryki, która umożliwia dokładniejszy wgląd w szczegółowe dane. Na przykład Metryka **bajtów pamięci w użyciu** może mieć klucz wymiaru o nazwie **Process** , który przechwytuje, ile bajtów pamięci każdy proces na maszynie wirtualnej zużywa. Za pomocą tego klucza można odfiltrować metrykę, aby sprawdzić, ile procesów specyficznych dla pamięci używa lub aby zidentyfikować pięć pierwszych procesów według użycia pamięci.
 Wymiary są opcjonalne, nie wszystkie metryki mogą mieć wymiary. Metryka niestandardowa może zawierać maksymalnie 10 wymiarów.
 
 ### <a name="dimension-values"></a>Wartości wymiarów
@@ -86,7 +86,7 @@ Przy raportowaniu punktu danych metryki dla każdego klucza wymiaru w raportowan
 
 * Nazwa metryki będzie **używana przez bajty pamięci**.
 * Klucz wymiaru będzie **przetwarzany**.
-* Wartość wymiaru to **ContosoApp. exe**.
+* Wartość wymiaru będzie **ContosoApp.exe**.
 
 Podczas publikowania wartości metryki można określić tylko jedną wartość wymiaru dla każdego klucza wymiaru. Jeśli zbierasz to samo użycie pamięci dla wielu procesów na maszynie wirtualnej, możesz zgłosić wiele wartości metryk dla tej sygnatury czasowej. Każda wartość metryki będzie określać inną wartość wymiaru dla klucza wymiaru **procesu** .
 Wymiary są opcjonalne, nie wszystkie metryki mogą mieć wymiary. Jeśli wpis metryki definiuje klucze wymiarów, odpowiednie wartości wymiarów są obowiązkowe.
@@ -189,27 +189,28 @@ W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowy
 |Region platformy Azure |Prefiks regionu punktu końcowego|
 |---|---|
 | **Stany Zjednoczone i Kanada** | |
-|Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com/ |
-|Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com/ |
+|Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com |
+|Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com |
 |Północno-środkowe stany USA | https: \/ /northcentralus.Monitoring.Azure.com
-|Południowo-środkowe stany USA| https: \/ /southcentralus.Monitoring.Azure.com/ |
+|Południowo-środkowe stany USA| https: \/ /southcentralus.Monitoring.Azure.com |
 |Środkowe stany USA      | https: \/ /centralus.Monitoring.Azure.com |
-|Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.Comc
-|Wschodnie stany USA| https: \/ /eastus.Monitoring.Azure.com/ |
+|Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.com |
+|Wschodnie stany USA| https: \/ /eastus.Monitoring.Azure.com |
+|Wschodnie stany USA 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
-|Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com/ |
-|Europa Zachodnia     | https: \/ /westeurope.Monitoring.Azure.com/ |
+|Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com |
+|Europa Zachodnia     | https: \/ /westeurope.Monitoring.Azure.com |
 |Południowe Zjednoczone Królestwo | https: \/ /uksouth.Monitoring.Azure.com
 |Francja Środkowa | https: \/ /francecentral.Monitoring.Azure.com |
 | **Afryka** | |
-|Północna Republika Południowej Afryki | https: \/ /southafricanorth.Monitoring.Azure.com
+|Północna Republika Południowej Afryki | https: \/ /southafricanorth.Monitoring.Azure.com |
 | **Azja** | |
-|Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com
-|Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com
-|Japonia Wschodnia | https: \/ /japaneast.Monitoring.Azure.com
+|Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com |
+|Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com |
+|Japonia Wschodnia | https: \/ /japaneast.Monitoring.Azure.com |
 |Azja Południowo-Wschodnia  | https: \/ /southeastasia.Monitoring.Azure.com |
-|Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com
-|Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com
+|Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com |
+|Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Opóźnienie i przechowywanie magazynu
 

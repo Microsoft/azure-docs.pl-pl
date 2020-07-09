@@ -4,15 +4,15 @@ description: Dowiedz się, jak wyłączyć zasady sieciowe dla prywatnych punkt�
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: b5ab62e7ab57d32a11a45713519633034deb6a5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4c04033f3fb5ff523f0d80bb6c978955f4c9ec2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737516"
 ---
 # <a name="disable-network-policies-for-private-endpoints"></a>Wyłączanie zasad sieciowych dla prywatnych punktów końcowych
 
@@ -20,7 +20,7 @@ Zasady sieciowe, takie jak sieciowe grupy zabezpieczeń (sieciowej grupy zabezpi
  
 W przypadku tworzenia prywatnego punktu końcowego przy użyciu portalu to ustawienie jest automatycznie wyłączone w ramach procesu tworzenia. Wdrożenie przy użyciu innych klientów wymaga dodatkowego kroku, aby zmienić to ustawienie. Można wyłączyć ustawienie za pomocą usługi Cloud Shell z poziomu Azure Portal lub lokalnych instalacji Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub użyć szablonów Azure Resource Manager.  
  
-W poniższych przykładach opisano, jak `PrivateEndpointNetworkPolicies` wyłączyć sieć wirtualną o nazwie *myVirtualNetwork* z *domyślną* podsiecią hostowaną w grupie zasobów o nazwie Moja *resourceName*.
+W poniższych przykładach opisano, jak wyłączyć `PrivateEndpointNetworkPolicies` sieć wirtualną o nazwie *myVirtualNetwork* z *domyślną* podsiecią hostowaną w grupie zasobów o nazwie Moja *resourceName*.
 
 ## <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 W tej sekcji opisano, jak wyłączyć zasady prywatnego punktu końcowego podsieci przy użyciu Azure PowerShell.

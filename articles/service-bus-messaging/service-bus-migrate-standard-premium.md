@@ -1,23 +1,13 @@
 ---
 title: Migrowanie Azure Service Bus przestrzenie nazw — Standard do warstwy Premium
 description: Przewodnik umożliwiający migrację istniejących Azure Service Bus standardowych przestrzeni nazw do warstwy Premium
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2019
-ms.author: aschhab
-ms.openlocfilehash: 27e3260b91bebee14ff12188a7dbd6c7cf76355c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340739"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrowanie istniejących Azure Service Bus standardowych przestrzeni nazw do warstwy Premium
 
@@ -187,8 +177,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-![Przerwij przepływ — Przerwij przepływ][]
-![przerwania synchronizacji — ukończono przerywanie][]
+![Przerwij przepływ — Przerwij ][]
+ ![ przepływ przerwania synchronizacji — ukończono przerywanie][]
 
 Gdy proces migracji zostanie przerwany, przerywa proces kopiowania jednostek (tematów, subskrypcji i filtrów) z warstwy Standardowa do przestrzeni nazw Premium i przerywa parowanie.
 

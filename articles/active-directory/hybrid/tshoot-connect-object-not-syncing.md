@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253535"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356478"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Rozwiązywanie problemów z obiektem, który nie jest synchronizowany z Azure Active Directory
 
@@ -77,8 +77,8 @@ Kolumna **stan** zawiera najważniejsze informacje i pokazuje najbardziej poważ
 | --- | --- |
 | Zatrzymano-* |Nie można zakończyć przebiegu. Może się tak zdarzyć, jeśli na przykład system zdalny nie działa i nie można się z nim skontaktować. |
 | Zatrzymano — limit błędów |Występuje więcej niż 5 000 błędów. Przebieg został automatycznie zatrzymany z powodu dużej liczby błędów. |
-| ukończono —\*błędy |Przebieg został ukończony, ale wystąpiły błędy (mniej niż 5 000), które powinny zostać zbadane. |
-| ukończone —\*ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Nie Badaj ostrzeżeń, dopóki nie zostaną rozkierowane błędy. |
+| ukończono — \* Błędy |Przebieg został ukończony, ale wystąpiły błędy (mniej niż 5 000), które powinny zostać zbadane. |
+| ukończone — \* ostrzeżenia |Przebieg został ukończony, ale niektóre dane nie są w oczekiwanym stanie. Jeśli występują błędy, ten komunikat jest zazwyczaj tylko objawem. Nie Badaj ostrzeżeń, dopóki nie zostaną rozkierowane błędy. |
 | powodzenie |Brak problemów. |
 
 Po zaznaczeniu wiersza Dolna część karty **operacje** zostanie zaktualizowana, aby wyświetlić szczegóły tego uruchomienia. Po lewej stronie tego obszaru może istnieć lista o tytule **krok nr**. Ta lista jest wyświetlana tylko w przypadku, gdy w lesie znajduje się wiele domen, a każda z nich jest reprezentowana przez krok. Nazwę domeny można znaleźć pod **partycją**nagłówka. W nagłówku **statystyki synchronizacji** można znaleźć więcej informacji na temat liczby przetworzonych zmian. Wybierz linki, aby uzyskać listę zmienionych obiektów. Jeśli masz obiekty z błędami, te błędy są wyświetlane pod nagłówkiem **Błędy synchronizacji** .

@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159187"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalowanie i korzystanie z programu Azure IoT Explorer
@@ -28,8 +28,8 @@ W tym artykule wyjaśniono, jak:
 
 Aby korzystać z narzędzia Azure IoT Explorer, potrzebne są:
 
-- Usługa Azure IoT Hub. Istnieje wiele sposobów dodawania usługi IoT Hub do subskrypcji platformy Azure, takich jak [Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-hub/iot-hub-create-using-cli.md). Do uruchomienia narzędzia Azure IoT Explorer potrzebne są parametry połączenia z usługą IoT Hub. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
-- Urządzenie zarejestrowane w usłudze IoT Hub. Aby zarejestrować urządzenie, można użyć poniższego polecenia interfejsu CLI platformy Azure. Pamiętaj, aby zastąpić symbole `{YourIoTHubName}` zastępcze i `{YourDeviceID}` wartościami:
+- Usługa Azure IoT Hub. Istnieje wiele sposobów dodawania usługi IoT Hub do subskrypcji platformy Azure, takich jak [Tworzenie Centrum IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure](../iot-hub/iot-hub-create-using-cli.md). Do uruchomienia narzędzia Azure IoT Explorer potrzebne są parametry połączenia z usługą IoT Hub. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Urządzenie zarejestrowane w usłudze IoT Hub. Aby zarejestrować urządzenie, można użyć poniższego polecenia interfejsu CLI platformy Azure. Pamiętaj, aby zastąpić `{YourIoTHubName}` `{YourDeviceID}` symbole zastępcze i wartościami:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -73,7 +73,7 @@ Na stronie lista **urządzeń** można wykonać następujące instrukcje:
 
 - Wybierz pozycję **Dodaj** , aby zarejestrować nowe urządzenie w centrum. Następnie wprowadź identyfikator urządzenia. Użyj ustawień domyślnych, aby automatycznie generować klucze uwierzytelniania i włączyć połączenie z centrum.
 - Wybierz urządzenie, a następnie wybierz pozycję **Usuń** , aby usunąć tożsamość urządzenia. Przed ukończeniem tej akcji Przejrzyj szczegóły urządzenia, aby upewnić się, że usuwasz właściwą tożsamość urządzenia.
-- Zapytanie według `capabilityID` i `interfaceID`. Dodaj swój `capabilityID` lub `interfaceID` jako parametr, aby wykonać zapytanie dotyczące urządzeń.
+- Zapytanie według `capabilityID` i `interfaceID` . Dodaj swój `capabilityID` lub `interfaceID` jako parametr, aby wykonać zapytanie dotyczące urządzeń.
 
 ## <a name="interact-with-a-device"></a>Korzystanie z urządzenia
 
@@ -93,7 +93,7 @@ Ta sekcja zawiera karty **tożsamość urządzenia**, **dane** **telemetrii, dan
 
 Możesz użyć narzędzia, aby wyświetlić wystąpienie cyfrowego przędzenia urządzenia. W przypadku urządzenia Plug and Play IoT wszystkie interfejsy skojarzone z modelem możliwości urządzenia są wyświetlane w tej sekcji Narzędzia. Wybierz interfejs, aby rozwinąć odpowiednie elementy podstawowe [Plug and Play IoT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-### <a name="interface"></a>Interface
+### <a name="interface"></a>Interfejs
 
 Na stronie **interfejs** można wyświetlić definicję JSON interfejsu.
 

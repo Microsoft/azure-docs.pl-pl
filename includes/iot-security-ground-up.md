@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72789714"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050324"
 ---
 Internet rzeczy (IoT) stanowi unikatowe wyzwania w zakresie zabezpieczeń, prywatności i zgodności dla firm na całym świecie. W przeciwieństwie do tradycyjnej technologii cybernetycznymi, w której te problemy są nanoszone wokół oprogramowania i sposobu ich implementacji, IoT ma wpływ na to, co się dzieje w przypadku zbieżności cybernetycznymi i fizycznych rozwiązań. Ochrona rozwiązań IoT wymaga zapewnienia bezpiecznego aprowizacji urządzeń, bezpiecznej łączności między tymi urządzeniami i chmurą oraz zapewnienia bezpiecznej ochrony danych w chmurze podczas przetwarzania i przechowywania. Korzystanie z tych funkcji jest jednak urządzeniami z ograniczeniami zasobów, dystrybucją geograficzną wdrożeń i dużą liczbą urządzeń w ramach rozwiązania.
 
@@ -89,7 +89,7 @@ Korzystając z Azure Active Directory (AAD) do uwierzytelniania i autoryzacji u�
 
 Gdy dane znajdują się w chmurze, mogą być przetwarzane i przechowywane w dowolnym zdefiniowanym przez użytkownika przepływie pracy. Dostęp do każdej części danych jest kontrolowany przy użyciu Azure Active Directory, w zależności od używanej usługi magazynu.
 
-Wszystkie klucze używane przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przejęcia kluczy przypadków należy ponownie zainicjować obsługę administracyjną. Dane mogą być przechowywane w [Azure Cosmos DB](../articles/cosmos-db/introduction.md) lub w [bazach danych SQL](../articles/sql-database/sql-database-faq.md), co pozwala na zdefiniowanie żądanego poziomu zabezpieczeń. Ponadto platforma Azure umożliwia monitorowanie i inspekcję całego dostępu do danych w taki sposób, aby ostrzegał o wszelkich włamaniach lub nieautoryzowanym dostępie.
+Wszystkie klucze używane przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przejęcia kluczy przypadków należy ponownie zainicjować obsługę administracyjną. Dane mogą być przechowywane w [Azure Cosmos DB](../articles/cosmos-db/introduction.md) lub w [SQL Database](../articles/sql-database/sql-database-faq.md), co pozwala na zdefiniowanie żądanego poziomu zabezpieczeń. Ponadto platforma Azure umożliwia monitorowanie i inspekcję całego dostępu do danych w taki sposób, aby ostrzegał o wszelkich włamaniach lub nieautoryzowanym dostępie.
 
 ## <a name="conclusion"></a>Podsumowanie
 
@@ -107,7 +107,7 @@ Każdy akcelerator rozwiązań tworzy wystąpienia usług platformy Azure, takic
 
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Przetwarzanie strumienia w czasie rzeczywistym w chmurze, które pozwala szybko opracowywać i wdrażać rozwiązanie do analizy o niskich kosztach w celu odkrywania szczegółowych informacji z urządzeń, czujników, infrastruktury i aplikacji. Dane z tej w pełni zarządzanej usługi mogą być skalowane do dowolnego woluminu i nadal osiągać wysoką przepływność, małe opóźnienia i odporność.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): platforma w chmurze umożliwiająca tworzenie zaawansowanych aplikacji sieci Web i mobilnych, które łączą się z danymi w dowolnym miejscu; w chmurze lub lokalnie. Twórz atrakcyjne aplikacje mobilne dla systemów iOS, Android i Windows. Integracja z oprogramowaniem jako usługą (SaaS) i aplikacjami przedsiębiorstwa dzięki wbudowanej łączności z dziesiątami z wielu usług w chmurze i aplikacji dla przedsiębiorstw. Kod w ulubionym języku i środowisku IDE — .NET, Node. js, PHP, Python lub Java — do tworzenia aplikacji sieci Web i interfejsów API szybciej niż kiedykolwiek.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): platforma w chmurze umożliwiająca tworzenie zaawansowanych aplikacji sieci Web i mobilnych, które łączą się z danymi w dowolnym miejscu; w chmurze lub lokalnie. Twórz atrakcyjne aplikacje mobilne dla systemów iOS, Android i Windows. Integracja z oprogramowaniem jako usługą (SaaS) i aplikacjami przedsiębiorstwa dzięki wbudowanej łączności z dziesiątami z wielu usług w chmurze i aplikacji dla przedsiębiorstw. Kod w ulubionym języku i środowisku IDE — .NET, Node.js, PHP, Python lub Java — do tworzenia aplikacji sieci Web i interfejsów API szybciej niż kiedykolwiek.
 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): funkcja Logic Apps Azure App Service umożliwia integrację rozwiązania IoT z istniejącymi systemami biznesowymi i automatyzowanie procesów przepływu pracy. Logic Apps umożliwia deweloperom projektowanie przepływów pracy rozpoczynających się od wyzwalacza, a następnie wykonanie serii kroków — reguł i akcji, które używają zaawansowanych łączników do integracji z procesami biznesowymi. Logic Apps oferuje wbudowaną łączność z obszernym ekosystemem aplikacji SaaS, opartych na chmurze i lokalnych.
 

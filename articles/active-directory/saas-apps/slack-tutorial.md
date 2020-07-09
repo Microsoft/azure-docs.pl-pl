@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70caf48163483b449fa2cf3576681b5c9c15f4f2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834411"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259290"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z zapasem czasu
 
@@ -40,7 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 * Subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 > [!NOTE]
-> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
+> Jeśli musisz zintegrować z więcej niż jednym wystąpieniem zapasowym w jednej dzierżawie, identyfikator dla każdej aplikacji może być zmienną.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -93,20 +93,24 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     > [!NOTE]
     > Wartość adresu URL logowania nie jest prawdziwa. Zaktualizuj wartość za pomocą rzeczywistego adresu URL logowania. W celu uzyskania tej wartości skontaktuj się z [zespołem pomocy technicznej klienta usługi Slack](https://slack.com/help/contact). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    
+    > [!NOTE]
+    > Wartość **identyfikatora (identyfikator jednostki)** może być zmienną, jeśli masz więcej niż jedno wystąpienie zapasowe, które należy zintegrować z dzierżawcą. Użyj wzorca `https://<DOMAIN NAME>.slack.com` . W tym scenariuszu należy również sparować z innym ustawieniem w zapasach czasu, używając tej samej wartości.
 
 1. Aplikacja do Autowypełniania oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
     ![image (obraz)](common/edit-attribute.png)
 
-1. Oprócz powyższych, aplikacja Autowypełniania oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami. Jeśli użytkownicy nie mają adresu e-mail, Mapuj **EmailAddress** na **User. userPrincipalName**.
+1. Oprócz powyższych, aplikacja Autowypełniania oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami. Należy również dodać `email` atrybut. Jeśli użytkownik nie ma adresu e-mail, Mapuj **EmailAddress** na **User. userPrincipalName** i Mapuj **wiadomości e-mail** na **User. userPrincipalName**.
 
     | Nazwa | Atrybut źródłowy |
     | -----|---------|
     | emailaddress | user.userprincipalname |
+    | poczta e-mail | user.userprincipalname |
     | | |
 
-> [!NOTE]
-    > Aby skonfigurować dostawcę usług (SP), należy kliknąć przycisk **Rozszerz** obok **opcji Opcje zaawansowane** na stronie Konfiguracja protokołu SAML. W polu **wystawca dostawcy usług** wprowadź adres URL obszaru roboczego. Wartość domyślna to slack.com. 
+   > [!NOTE]
+   > Aby skonfigurować dostawcę usług (SP), należy kliknąć przycisk **Rozszerz** obok **opcji Opcje zaawansowane** na stronie Konfiguracja protokołu SAML. W polu **wystawca dostawcy usług** wprowadź adres URL obszaru roboczego. Wartość domyślna to slack.com. 
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -166,15 +170,18 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b.  W polu tekstowym **Identity Provider Issuer** (Wystawca dostawcy tożsamości) wklej wartość pola **Identyfikator usługi Azure AD** skopiowaną z witryny Azure Portal.
 
-    c.  Otwórz pobrany plik certyfikatu w Notatniku, skopiuj zawartość do schowka, a następnie wklej ją w polu tekstowym **Public Certificate** (Certyfikat publiczny).
+    d.  Otwórz pobrany plik certyfikatu w Notatniku, skopiuj jego zawartość do schowka, a następnie wklej go do pola tekstowego **certyfikatu publicznego** .
 
     d. Skonfiguruj trzy powyższe ustawienia odpowiednio dla Twojego zespołu usługi Slack. Więcej informacji na temat ustawień możesz znaleźć w **przewodniku po konfiguracji logowania jednokrotnego w usłudze Slack** znajdującym się pod następującym adresem. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     ![Skonfiguruj Logowanie jednokrotne na stronie aplikacji](./media/slack-tutorial/tutorial-slack-004.png)
 
-    e. Kliknij przycisk **Rozwiń** i wprowadź `https://slack.com` w polu tekstowym **wystawca dostawcy tożsamości** .
+    e. Kliknij przycisk **Rozwiń** i wprowadź `https://slack.com` w polu tekstowym **wystawca dostawcy usług** .
 
     f.  Kliknij pozycję **Save Configuration** (Zapisz konfigurację).
+    
+    > [!NOTE]
+    > Jeśli masz więcej niż jedno wystąpienie zapasowe, które chcesz zintegrować z usługą Azure AD, ustaw `https://<DOMAIN NAME>.slack.com` jako **wystawcę dostawcy usług** , aby można było sparować się z ustawieniem **identyfikatora** aplikacji platformy Azure.
 
 ### <a name="create-slack-test-user"></a>Tworzenie użytkownika testowego usługi Slack
 

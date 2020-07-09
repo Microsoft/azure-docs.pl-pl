@@ -30,6 +30,10 @@
       href: tutorial-url-redirect-cli.md
     - name: Skalowanie automatyczne i strefowo nadmiarowe
       href: tutorial-autoscale-ps.md
+    - name: Dodatek kontrolera ruchu przychodzącego usługi AKS (Greenfield)
+      href: tutorial-ingress-controller-add-on-new.md
+    - name: Dodatek kontrolera ruchu przychodzącego usługi AKS (brownfield)
+      href: tutorial-ingress-controller-add-on-existing.md
 - name: Samples
   items:
     - name: Azure PowerShell
@@ -66,8 +70,6 @@
           href: redirect-overview.md
         - name: Ponowne zapisywanie nagłówków HTTP
           href: rewrite-http-headers.md
-        - name: Niestandardowe strony błędów
-          href: custom-error.md
     - name: Protokół SSL
       items:
         - name: Kończenie żądań protokołu SSL i kompleksowa łączność SSL
@@ -136,10 +138,12 @@
               href: application-gateway-configure-ssl-policy-powershell.md
     - name: Ruch przychodzący usługi AKS
       items:
-        - name: Konfigurowanie przy użyciu istniejącej bramy usługi Application Gateway
+        - name: Ruch przychodzący usługi AKS za pośrednictwem programu Helm (brownfield)
           href: ingress-controller-install-existing.md
-        - name: Konfigurowanie przy użyciu nowej bramy usługi Application Gateway
+        - name: Ruch przychodzący usługi AKS za pośrednictwem programu Helm (greenfield)
           href: ingress-controller-install-new.md
+        - name: Wyłączanie i ponowne włączanie dodatku kontrolera ruchu przychodzącego usługi AKS
+          href: ingress-controller-disable-addon.md
         - name: Włączanie koligacji plików cookie
           href: ingress-controller-cookie-affinity.md
         - name: Włączanie obsługi wielu przestrzeni nazw
@@ -234,6 +238,8 @@
           href: log-analytics.md
         - name: Problemy z kondycją zaplecza
           href: application-gateway-backend-health-troubleshooting.md
+    - name: Niestandardowe strony błędów
+      href: custom-error.md
     - name: Migrowanie z wersji 1 do wersji 2
       href: migrate-v1-v2.md
 - name: Dokumentacja

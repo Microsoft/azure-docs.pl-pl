@@ -2,7 +2,7 @@
 title: Skonfiguruj alerty i powiadomienia dla wystąpienia zarządzanego (Azure Portal)
 description: Użyj Azure Portal, aby utworzyć alerty wystąpienia zarządzanego SQL, które mogą wyzwalać powiadomienia lub automatyzację, gdy zostaną spełnione określone warunki.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
@@ -11,12 +11,11 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: 4251ac28bf378144d7f3374e615c15e69d316f80
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117637"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695712"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Tworzenie alertów dla wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

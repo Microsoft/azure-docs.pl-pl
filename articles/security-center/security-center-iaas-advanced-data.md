@@ -1,6 +1,6 @@
 ---
-title: Zaawansowane zabezpieczenia danych dla IaaS w Azure Security Center | Microsoft Docs
-description: " Dowiedz się, jak włączyć zaawansowane zabezpieczenia danych dla IaaS w Azure Security Center. "
+title: Zaawansowane zabezpieczenia danych Azure Security Center dla maszyn SQL (wersja zapoznawcza)
+description: Dowiedz się, jak włączyć zaawansowane zabezpieczenia danych dla maszyn SQL w Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,155 +11,127 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282733"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043873"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Zaawansowane zabezpieczenia danych dla serwerów SQL w systemie Azure Virtual Machines (wersja zapoznawcza)
-Zaawansowane zabezpieczenia danych dla serwerów SQL w systemie Azure Virtual Machines to ujednolicony pakiet dla zaawansowanych funkcji zabezpieczeń SQL. Ta funkcja w wersji zapoznawczej obejmuje funkcje identyfikacji i łagodzenia potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenia dla bazy danych. 
+# <a name="advanced-data-security-for-sql-machines-preview"></a>Zaawansowane zabezpieczenia danych dla maszyn SQL (wersja zapoznawcza)
 
-Ta oferta zabezpieczeń dla serwerów SQL maszyn wirtualnych platformy Azure jest oparta na tej samej podstawowej technologii, która jest używana w [pakiecie Azure SQL Database Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Zaawansowane zabezpieczenia danych Azure Security Center dla maszyn SQL chronią serwery SQL hostowane na platformie Azure, w innych środowiskach w chmurze, a nawet na maszynach lokalnych. Rozszerza to ochronę natywnych serwerów SQL platformy Azure, aby w pełni obsługiwać środowiska hybrydowe.
+
+Ta funkcja w wersji zapoznawczej obejmuje funkcje identyfikacji i łagodzenia potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenia dla bazy danych: 
+
+* **Ocena luk w zabezpieczeniach** — Usługa skanowania w celu odnajdywania, śledzenia i rozwiązywania problemów dotyczących potencjalnych luk w zabezpieczeniach bazy danych. Przeglądy oceny zawierają omówienie stanu zabezpieczeń maszyn SQL i szczegółowe informacje o wszelkich wynikach związanych z bezpieczeństwem.
+
+* [Zaawansowana ochrona przed zagrożeniami](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) — usługa wykrywania, która stale monitoruje serwery SQL pod kątem zagrożeń, takich jak iniekcja SQL, ataki z wymuszeniem i nadużycie uprawnień. Ta usługa udostępnia alerty zabezpieczeń zorientowane na działania w Azure Security Center z szczegółowymi informacjami o podejrzanych działaniach, wskazówkami dotyczącymi sposobu łagodzenia zagrożeń oraz opcjami do kontynuowania badań za pomocą platformy Azure.
+
+>[!TIP]
+> Zaawansowane zabezpieczenia danych dla maszyn SQL to rozszerzenie [zaawansowanego pakietu zabezpieczeń danych](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)Azure Security Center, dostępne dla Azure SQL Database, Azure Synapse i wystąpienia zarządzanego SQL.
 
 
-## <a name="overview"></a>Omówienie
+## <a name="set-up-advanced-data-security-for-sql-machines"></a>Konfigurowanie zaawansowanych zabezpieczeń danych dla maszyn SQL 
 
-Zaawansowane zabezpieczenia danych zapewniają zestaw zaawansowanych funkcji zabezpieczeń SQL, które obejmują ocenę luk w zabezpieczeniach i zaawansowaną ochronę przed zagrożeniami.
+Konfigurowanie zaawansowanych zabezpieczeń danych Azure Security Center dla maszyn SQL obejmuje dwa kroki:
 
-* [Ocena luk w zabezpieczeniach](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) to prosta konfiguracja usługi, która umożliwia odnajdywanie, śledzenie i rozwiązywanie problemów z potencjalnymi lukami w zabezpieczeniach bazy danych. Zapewnia wgląd w stan zabezpieczeń i zawiera kroki rozwiązywania problemów z zabezpieczeniami i ulepszania bazy danych FORTIFICATIONS.
-* [Zaawansowana ochrona przed zagrożeniami](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do programu SQL Server lub korzystania z niego. Nieustannie monitoruje bazę danych pod kątem podejrzanych działań i zapewnia zorientowane na działania alerty zabezpieczeń dotyczące nietypowych wzorców dostępu do bazy danych. Te alerty zawierają szczegóły podejrzanych działań i zalecane akcje do zbadania i ograniczenia zagrożenia.
+* Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server. Zapewnia to połączenie z platformą Azure.
 
-## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Wprowadzenie do zaawansowanych zabezpieczeń danych SQL na maszynach wirtualnych platformy Azure
+* Włącz opcjonalny pakiet na stronie ceny i ustawienia w Security Center.
 
-Poniższe kroki ułatwiają rozpoczęcie pracy z zaawansowanymi zabezpieczeniami danych SQL na maszynach wirtualnych platformy Azure w publicznej wersji zapoznawczej.
+Oba te elementy zostały opisane poniżej.
 
-### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Konfigurowanie zaawansowanych zabezpieczeń danych SQL na maszynach wirtualnych platformy Azure
+### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Krok 1. Zainicjuj obsługę agenta Log Analytics na hoście programu SQL Server:
 
-Włącz zaawansowane zabezpieczenia danych dla serwerów SQL w Virtual Machines na poziomie subskrypcji/obszaru roboczego:
- 
+- **SQL Server na maszynie wirtualnej platformy Azure** — Jeśli maszyna SQL jest hostowana na maszynie wirtualnej platformy Azure, można [zainicjować obsługę administracyjną log Analytics agenta](security-center-enable-data-collection.md#workspace-configuration). Alternatywnie można wykonać procedurę ręczną, aby [dodać maszynę wirtualną platformy Azure](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
+
+- **SQL Server w usłudze Azure Arc** — Jeśli SQL Server jest hostowana na maszynie [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/) , można wdrożyć agenta Log Analytics przy użyciu zalecenia Security Center "log Analytics Agent należy zainstalować na maszynach usługi Azure Arc opartych na systemie Windows (wersja zapoznawcza)". Alternatywnie można wykonać procedurę ręczną w [dokumentacji usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+
+- **SQL Server Premium** — Jeśli SQL Server jest hostowana na lokalnym komputerze z systemem Windows bez usługi Azure ARC, dostępne są dwie opcje połączenia z platformą Azure:
+    
+    - **Wdrażanie usługi Azure Arc** — można podłączyć dowolną maszynę z systemem Windows do Security Center. Natomiast usługa Azure Arc zapewnia lepszą integrację ze *wszystkimi* środowiskami platformy Azure. W przypadku skonfigurowania usługi Azure Arc zostanie wyświetlona strona **SQL Server — usługa Azure Arc** w portalu, a na tej stronie zostaną wyświetlone **alerty zabezpieczeń.** Dlatego pierwszą i zalecaną opcją jest [skonfigurowanie usługi Azure Arc na hoście](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) i postępuj zgodnie z instrukcjami dotyczącymi **SQL Server w usłudze Azure Arc**powyżej.
+        
+    - **Połącz maszynę z systemem Windows bez usługi Azure Arc** — w przypadku wybrania opcji łączenia SQL Server uruchomionego na komputerze z systemem Windows bez korzystania z usługi Azure Arc postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem windows, aby Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+
+
+### <a name="step-2-enable-the-optional-bundle-in-security-centers-pricing-and-settings-page"></a>Krok 2. Włącz opcjonalny pakiet na stronie cennika i ustawienia Security Center:
+
 1. Na pasku bocznym Security Center Otwórz stronę **ustawienia & cennika** .
 
-1. Wybierz subskrypcję lub obszar roboczy, dla którego chcesz włączyć zaawansowane zabezpieczenia danych SQL na maszynach wirtualnych platformy Azure.
+    - Jeśli używasz **domyślnego obszaru roboczego Azure Security Center** (o nazwie "defaultworkspace-[Identyfikator subskrypcji] — [region]"), wybierz odpowiednią **subskrypcję**.
 
-1. Przełącz opcję dla **serwerów SQL na maszynie wirtualnej (wersja zapoznawcza)** na wartość włączone. 
+    - Jeśli używasz **obszaru roboczego innego niż domyślny**, wybierz odpowiedni **obszar roboczy** (w razie potrzeby wprowadź nazwę obszaru roboczego w filtrze):
 
-    (Kliknij zrzut ekranu, aby rozwinąć)
-
-    [![Security Center zalecenia i alerty wyświetlane w centrum administracyjnym systemu Windows](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
-
-    Zaawansowane zabezpieczenia danych dla serwerów SQL zostaną włączone na wszystkich serwerach SQL połączonych z wybranym obszarem roboczym lub domyślnym obszarze roboczym wybranej subskrypcji.
-
-    >[!NOTE]
-    > Rozwiązanie będzie w pełni aktywne po pierwszym ponownym uruchomieniu SQL Server. 
-
-Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-
-Aby połączyć hosta SQL Server z obszarem roboczym, postępuj zgodnie z instrukcjami podanymi w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+        ![tytuł](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 
-## <a name="set-up-email-notification-for-security-alerts"></a>Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń 
+1. Przełącz opcję dla **serwerów SQL na maszynach (wersja zapoznawcza)** na wartość włączone. 
 
-Po wygenerowaniu alertów Security Center można ustawić listę adresatów, którzy otrzymają powiadomienie e-mail. Wiadomość e-mail zawiera bezpośredni link do alertu w Azure Security Center ze wszystkimi odpowiednimi szczegółami. 
+    [![Strona cennika Security Center z opcjonalnymi pakietami](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-1. Przejdź do **Security Center** > **Cennik & ustawienia** i kliknij odpowiednią subskrypcję
+    Zaawansowane zabezpieczenia danych dla serwerów SQL na maszynach zostaną włączone na wszystkich serwerach SQL połączonych z wybranym obszarem roboczym. Ochrona zostanie w pełni aktywna po pierwszym ponownym uruchomieniu SQL Server. 
 
-    ![Ustawienia subskrypcji](./media/security-center-advanced-iaas-data/subscription-settings.png)
+    >[!TIP] 
+    > Aby utworzyć nowy obszar roboczy, postępuj zgodnie z instrukcjami w temacie [tworzenie log Analytics obszaru roboczego](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-1. W menu Ustawienia kliknij pozycję **powiadomienia e-mail**. 
-1. W polu tekstowym **adres e-mail** wprowadź adresy e-mail, na które mają być wysyłane powiadomienia. Można wprowadzić więcej niż jeden adres e-mail, oddzielając adresy e-mail przecinkami (,).  Na przykład admin1@mycompany.comadmin2@mycompany.com,admin3@mycompany.com
 
-    ![Ustawienia poczty e-mail](./media/security-center-advanced-iaas-data/email-settings.png)
+1. Opcjonalnie możesz skonfigurować powiadomienia e-mail o alertach zabezpieczeń. 
+    Po wygenerowaniu alertów Security Center można ustawić listę adresatów, którzy otrzymają powiadomienie e-mail. Wiadomość e-mail zawiera bezpośredni link do alertu w Azure Security Center ze wszystkimi odpowiednimi szczegółami. Aby uzyskać więcej informacji, zobacz [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 
-1. W ustawieniach **powiadomień e-mail** ustaw następujące opcje:
-  
-    * **Wysyłaj powiadomienia e-mail o alertach o wysokiej ważności**: zamiast wysyłać wiadomości e-mail dla wszystkich alertów, wysyłaj je tylko do alertów o wysokiej ważności.
-    * **Wysyłaj również powiadomienia e-mail do właścicieli subskrypcji**: Wyślij powiadomienia do właścicieli subskrypcji.
 
-1. W górnej części ekranu **powiadomienia e-mail** kliknij pozycję **Zapisz**.
-
-  > [!NOTE]
-  > Pamiętaj, aby kliknąć przycisk **Zapisz** przed zamknięciem okna lub nowe ustawienia **powiadomień e-mail** nie zostaną zapisane.
 
 ## <a name="explore-vulnerability-assessment-reports"></a>Poznaj raporty oceny luk w zabezpieczeniach
 
-Pulpit nawigacyjny oceny luk w zabezpieczeniach zawiera przegląd wyników oceny dla wszystkich baz danych. Można wyświetlić dystrybucję baz danych zgodnie z wersją SQL Server, wraz z podsumowaniem niepowodzenia i przekazywania baz danych oraz ogólnym podsumowaniem niepowodzenia kontroli w zależności od dystrybucji ryzyka.
+Usługa oceny luk w zabezpieczeniach skanuje bazy danych raz w tygodniu. Skany są uruchamiane w tym samym dniu tygodnia, w którym włączono usługę.
+
+Pulpit nawigacyjny oceny luk w zabezpieczeniach zawiera przegląd wyników oceny dla wszystkich baz danych oraz podsumowanie kondycji i złej jakości baz danych oraz ogólne podsumowanie niepowodzenia kontroli zgodnie z dystrybucją ryzyka.
 
 Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security Center.
 
-1. Na pasku bocznym Security Center w obszarze HIGIENa zabezpieczeń zasobów wybierz pozycję **dane & Storage**.
+1. Na pasku bocznym Security Center Otwórz stronę **zalecenia** i wybierz **luki w zabezpieczeniach serwerów SQL na maszynach, które należy skorygować (wersja zapoznawcza)**. Aby uzyskać więcej informacji, zobacz [Security Center zalecenia](security-center-recommendations.md). 
 
-1. Wybierz luki w **zabezpieczeniach dotyczące baz danych SQL w maszynach wirtualnych, które powinny zostać skorygowane (wersja zapoznawcza)**. Aby uzyskać więcej informacji, zobacz [Security Center zalecenia](security-center-recommendations.md). 
 
-    [![* * Luki w zabezpieczeniach baz danych SQL na maszynach wirtualnych należy skorygować (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![* * Luki w zabezpieczeniach serwerów SQL na maszynach powinny być skorygowane (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     Zostanie wyświetlony szczegółowy widok tego zalecenia.
 
-    [![Szczegółowy widok dla * * luk w zabezpieczeniach baz danych SQL na maszynach wirtualnych powinien zostać skorygowany (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Szczegółowy widok dla luk w zabezpieczeniach * * na serwerach SQL na maszynach powinien zostać skorygowany (wersja zapoznawcza) * * zalecenie](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-1. Aby przejść do szczegółów, aby uzyskać więcej szczegółów:
+1. Aby uzyskać więcej informacji, przechodzenie do szczegółów:
 
-    * Aby zapoznać się z omówieniem skanowanych zasobów (bazy danych) i listę testowanych testów zabezpieczeń, kliknij odpowiedni serwer.
-    [![Luki w zabezpieczeniach pogrupowane według programu SQL Server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
+    * Aby zapoznać się z omówieniem skanowanych zasobów (bazy danych) i listę testowanych testów zabezpieczeń, wybierz odpowiedni serwer.
 
-    * Aby zapoznać się z omówieniem luk w zabezpieczeniach pogrupowanych według konkretnej bazy danych SQL, kliknij interesującą bazę danych.
-    [![Luki w zabezpieczeniach pogrupowane według programu SQL Server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
+    * Aby zapoznać się z omówieniem luk w zabezpieczeniach pogrupowanych według konkretnej bazy danych SQL, wybierz interesującą bazę danych.
 
     W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem**, jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Zaawansowana ochrona przed zagrożeniami dla serwerów SQL na maszynach wirtualnych platformy Azure
-Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do serwerów SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać następujące alerty:
+## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>Zaawansowana ochrona przed zagrożeniami dla serwerów SQL na komputerach
+Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane w [sekcji alerty dla SQL Database i SQL Data Warehouse na stronie informacje o alertach](alerts-reference.md#alerts-sql-db-and-warehouse).
 
-### <a name="anomalous-access-pattern-alerts-preview"></a>Alerty nietypowego wzorca dostępu (wersja zapoznawcza)
-
-* **Dostęp z nietypowej lokalizacji:** Ten alert jest wyzwalany w przypadku zmiany wzorca dostępu do programu SQL Server, w którym ktoś zalogował się do serwera SQL z nietypowej lokalizacji geograficznej. Możliwe przyczyny:
-    * Osoba atakująca lub poprzednie złośliwe oprogramowanie uzyskało dostęp do SQL Server.
-    * Uprawniony użytkownik uzyskał dostęp do SQL Server z nowej lokalizacji.
-* **Dostęp z potencjalnie szkodliwej aplikacji**: Ten alert jest wyzwalany, gdy potencjalnie szkodliwa aplikacja jest używana w celu uzyskania dostępu do bazy danych. Możliwe przyczyny:
-    * Osoba atakująca próbująca naruszyć kod SQL przy użyciu popularnych narzędzi ataku.
-    * W działaniu legalne testowanie penetracji.
-* **Dostęp z nieznanego podmiotu zabezpieczeń**: Ten alert jest wyzwalany w przypadku zmiany wzorca dostępu do serwera SQL, gdy ktoś zalogował się do serwera SQL za pomocą nietypowego podmiotu zabezpieczeń (użytkownika SQL). Możliwe przyczyny:
-    * Osoba atakująca lub poprzednie złośliwe oprogramowanie uzyskało dostęp do SQL Server. 
-    * Uprawniony użytkownik uzyskał dostęp do SQL Server z nowego podmiotu zabezpieczeń.
-* **Atak siłowy na poświadczenia SQL**: Ten alert jest wyzwalany w przypadku nietypowo dużej liczby nieudanych prób logowania przy użyciu różnych poświadczeń. Możliwe przyczyny:
-    * Osoba atakująca próbująca naruszyć kod SQL przy użyciu funkcji pełnego wymuszania.
-    * W działaniu legalne testowanie penetracji.
-
-### <a name="potential-sql-injection-attacks-supported-in-sql-server-2019"></a>Potencjalne ataki z iniekcją SQL (obsługiwane w SQL Server 2019)
-
-* **Podatność na iniekcję SQL**: ten alert jest wyzwalany, gdy aplikacja generuje błędną instrukcję SQL w bazie danych. który może oznaczać możliwe luki w zabezpieczeniach umożliwiające ataki przez iniekcję kodu SQL. Możliwe przyczyny:
-    * Usterka w kodzie aplikacji powoduje utworzenie błędnej instrukcji SQL
-    * Kod aplikacji lub procedury składowane nie oczyszczają danych wejściowych użytkownika podczas tworzenia błędnej instrukcji SQL, co można wykorzystać do iniekcji SQL
-* **Potencjalna iniekcja SQL**: Ten alert jest wyzwalany w przypadku aktywnego wykorzystania zidentyfikowanej luki umożliwiającej iniekcję SQL w aplikacji. Oznacza to, że osoba atakująca próbuje wstrzyknąć złośliwe instrukcje SQL, korzystając z podatnego kodu aplikacji lub procedur składowanych.
-
-
-### <a name="unsafe-command-supported-in-sql-server-2019"></a>Niebezpieczne polecenie (obsługiwane w SQL Server 2019)
-
-* **Potencjalnie niebezpieczna akcja**: ten alert jest wyzwalany, gdy jest wykonywane wysoce uprzywilejowane i potencjalnie niebezpieczne polecenie. Możliwe przyczyny:
-    * Polecenie, które zaleca się wyłączenie dla lepszego stan zabezpieczeń, jest włączone.
-    * Osoba atakująca próbuje wykorzystać dostęp do programu SQL Server lub eskalować uprawnienia.   
 
 
 ## <a name="explore-and-investigate-security-alerts"></a>Eksplorowanie i badanie alertów zabezpieczeń
 
-Alerty zabezpieczeń danych są dostępne na stronie Alerty Security Center, na karcie Zabezpieczenia zasobu lub za pośrednictwem bezpośredniego linku w wiadomościach e-mail dotyczących alertów.
+Alerty zabezpieczeń są dostępne na stronie Alerty Security Center, na karcie Zabezpieczenia zasobu lub za pośrednictwem linku bezpośredniego w wiadomościach e-mail z alertami.
 
-1. Aby wyświetlić alerty:
-
-    * W obszarze Security Center kliknij pozycję **alerty zabezpieczeń** na pasku bocznym i wybierz alert.
-    * W zakresie zasobów — Otwórz odpowiednią stronę zasobów, a następnie z paska bocznego kliknij pozycję **zabezpieczenia**. 
+1. Aby wyświetlić alerty, wybierz pozycję **alerty zabezpieczeń** z paska bocznego Security Center i wybierz alert.
 
 1. Alerty zostały zaprojektowane jako samodzielne, z szczegółowymi krokami korygującymi i informacjami o badaniu w każdej z nich. Można dokładniej badać przy użyciu innych Azure Security Center i możliwości funkcji badania platformy Azure w szerszym widoku:
 
-    * Włącz funkcję inspekcji SQL Server na potrzeby dalszych badań. Jeśli jesteś użytkownikiem ze wskaźnikiem wydajności platformy Azure, możesz przekazać dzienniki inspekcji SQL z zdarzeń dziennika zabezpieczeń systemu Windows do badania wskaźnikowego i cieszyć się bogatym doświadczeniem.
+    * Włącz funkcję inspekcji SQL Server na potrzeby dalszych badań. Jeśli jesteś użytkownikiem ze wskaźnikiem wydajności platformy Azure, możesz przekazać dzienniki inspekcji SQL z zdarzeń dziennika zabezpieczeń systemu Windows do badania wskaźnikowego i cieszyć się bogatym doświadczeniem. [Dowiedz się więcej na temat inspekcji SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * Aby ulepszyć stan zabezpieczeń, użyj zaleceń Security Center dla maszyny hosta wskazanej w każdym alercie. Pozwoli to zmniejszyć ryzyko ataków na ataki w przyszłości. 
+
+    [Dowiedz się więcej o tym, jak zarządzać alertami i odpowiadać na](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)nie.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 W przypadku pokrewnego materiału zapoznaj się z następującym artykułem:
 
-- [Jak skorygować zalecenia](security-center-remediate-recommendations.md)
+- [Alerty zabezpieczeń dla SQL Database i SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md)
+- [Dowiedz się więcej na temat platformy Azure — Wskaźnikowanie](https://docs.microsoft.com/azure/sentinel/)
+- [Pakiet zaawansowanej ochrony danych Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

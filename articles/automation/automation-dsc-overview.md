@@ -7,19 +7,19 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9880915061c0639aebe30bdb33258d7c79e155d7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85206890"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Przegląd konfiguracji stanu Azure Automation
 
-Konfiguracja stanu Azure Automation to usługa zarządzania konfiguracją platformy Azure, która umożliwia pisanie, zarządzanie i kompilowanie konfiguracyjnych [konfiguracji stanu (DSC) dla](/powershell/scripting/dsc/configurations/configurations) węzłów w chmurze lub lokalnych centrach danych. Usługa importuje również [zasoby DSC](/powershell/scripting/dsc/resources/resources)i przypisuje konfiguracje do węzłów docelowych, a wszystko to w chmurze. Aby uzyskać dostęp do konfiguracji stanu Azure Automation w Azure Portal, wybierz pozycję **Konfiguracja stanu (DSC)** w obszarze **Zarządzanie konfiguracją**. 
+Konfiguracja stanu Azure Automation to usługa zarządzania konfiguracją platformy Azure, która umożliwia pisanie, zarządzanie i kompilowanie konfiguracyjnych [konfiguracji stanu (DSC) dla](/powershell/scripting/dsc/configurations/configurations) węzłów w chmurze lub lokalnych centrach danych. Usługa importuje również [zasoby DSC](/powershell/scripting/dsc/resources/resources)i przypisuje konfiguracje do węzłów docelowych, a wszystko to w chmurze. Aby uzyskać dostęp do konfiguracji stanu Azure Automation w Azure Portal, wybierz pozycję **Konfiguracja stanu (DSC)** w obszarze **Zarządzanie konfiguracją**.
 
 Azure Automation konfiguracji stanu można użyć do zarządzania różnymi maszynami:
 
@@ -53,7 +53,7 @@ Azure Automation konfiguracja stanu umożliwia korzystanie z tej samej warstwy z
 
 Węzły, które są zarządzane za pomocą Azure Automation stanu Configuration, wysyłają szczegółowe dane stanu raportowania do wbudowanego serwera ściągania. Konfigurację stanu Azure Automation można skonfigurować w celu wysłania tych danych do Log Analytics obszaru roboczego. Zapoznaj [się z raportem Azure Monitor Azure Automation przekazywania danych dotyczących konfiguracji stanu](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Wymagania wstępne dotyczące używania konfiguracji stanu Azure Automation
+## <a name="prerequisites"></a>Wymagania wstępne
 
 W przypadku korzystania z konfiguracji stanu Azure Automation należy wziąć pod uwagę wymagania zawarte w tej sekcji.
 
@@ -88,9 +88,11 @@ Jeśli węzły znajdują się w sieci prywatnej, wymagane są następujące port
 * Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
 * Globalny adres URL: ***. Azure-Automation.NET**
 * Globalny adres URL US Gov Wirginia: ***. Azure-Automation.us**
-* Usługa agenta: **https:// \< identyfikator obszaru roboczego \> . agentsvc.Azure-Automation.NET**
+* Usługa agenta: **https:// \<workspaceId\> . agentsvc.Azure-Automation.NET**
 
 Jeśli używasz zasobów DSC komunikujących się między węzłami, takimi jak [WAITFOR * Resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), musisz również zezwolić na ruch między węzłami. Zapoznaj się z dokumentacją poszczególnych zasobów DSC, aby poznać te wymagania sieciowe.
+
+Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="proxy-support"></a>Obsługa serwera proxy
 
@@ -101,36 +103,9 @@ Obsługa serwera proxy dla agenta DSC jest dostępna w systemie Windows w wersji
 
 W przypadku węzłów systemu Linux Agent DSC obsługuje serwer proxy i używa `http_proxy` zmiennej do określenia adresu URL. Aby dowiedzieć się więcej na temat obsługi serwera proxy, zobacz [generowanie konfiguracji DSC](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
-#### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Zakresy sieci Azure Automation konfiguracji stanu i przestrzeń nazw
+#### <a name="dns-records-per-region"></a>Rekordy DNS na region
 
-Zaleca się użycie adresów wymienionych poniżej podczas definiowania wyjątków. W przypadku adresów IP można pobrać [zakresy adresów IP centrum danych Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ten plik jest aktualizowany co tydzień i ma aktualnie wdrożone zakresy oraz wszystkie nadchodzące zmiany w zakresach adresów IP.
-
-Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację z tym regionalnym centrum danych. Poniższa tabela zawiera rekord DNS dla każdego regionu:
-
-| **Okolicy** | **Rekord DNS** |
-| --- | --- |
-| Zachodnio-środkowe stany USA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Południowo-środkowe stany USA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| Wschodnie stany USA    | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
-| Wschodnie stany USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Kanada Środkowa |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Europa Zachodnia |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Europa Północna |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| Azja Południowo-Wschodnia |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Indie Środkowe |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| Japonia Wschodnia |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Australia Południowo-Wschodnia |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Południowe Zjednoczone Królestwo | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov Wirginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-
-Aby uzyskać listę adresów IP regionów zamiast nazw regionów, Pobierz plik XML [adresu IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653) z centrum pobierania Microsoft.
-
-> [!NOTE]
-> Plik XML adresu IP centrum danych platformy Azure zawiera zakresy adresów IP, które są używane w centrach danych Microsoft Azure. Plik zawiera zakresy obliczeń, SQL i magazynu.
->
->Zaktualizowany plik jest publikowany co tydzień. Plik odzwierciedla aktualnie wdrożone zakresy i wszystkie nadchodzące zmiany w zakresach adresów IP. Nowe zakresy, które pojawiają się w pliku nie są używane w centrach danych przez co najmniej jeden tydzień. Dobrym pomysłem jest pobranie nowego pliku XML co tydzień. Następnie zaktualizuj swoją witrynę, aby prawidłowo identyfikować usługi działające na platformie Azure. 
-
-Użytkownicy usługi Azure ExpressRoute powinni pamiętać, że ten plik jest używany do aktualizacji anonsu usługi Border Gateway Protocol (BGP) w pierwszym tygodniu każdego miesiąca.
+Zaleca się używanie adresów wymienionych w tabeli [rekordy DNS na region](how-to/automation-region-dns-records.md) podczas definiowania wyjątków.
 
 ## <a name="next-steps"></a>Następne kroki
 

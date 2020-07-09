@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74848582"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowanie haseł w usłudze Azure AD
@@ -34,9 +33,9 @@ Gdy użytkownik przechodzi do portalu resetowania haseł, przepływ pracy zostaj
 
 Przeczytaj poniższe kroki, aby dowiedzieć się więcej na temat logiki za stroną resetowania hasła:
 
-1. Użytkownik wybierze link **nie można uzyskać dostępu do konta** lub przechodzi bezpośrednio [https://aka.ms/sspr](https://passwordreset.microsoftonline.com)do.
+1. Użytkownik wybierze link **nie można uzyskać dostępu do konta** lub przechodzi bezpośrednio do [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) .
    * W zależności od ustawień regionalnych przeglądarki środowisko jest renderowane w odpowiednim języku. Środowisko resetowania hasła jest zlokalizowane w tych samych językach, które obsługuje pakiet Office 365.
-   * Aby wyświetlić Portal resetowania haseł w innym zlokalizowanym języku, Dołącz "? MKT =" na końcu adresu URL resetowania hasła, korzystając z przykładu zlokalizowanego na hiszpański [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+   * Aby wyświetlić Portal resetowania haseł w innym zlokalizowanym języku, Dołącz "? MKT =" na końcu adresu URL resetowania hasła, korzystając z przykładu zlokalizowanego na hiszpański [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 2. Użytkownik wprowadza identyfikator użytkownika i przekazuje CAPTCHA.
 3. Usługa Azure AD weryfikuje, czy użytkownik może korzystać z tej funkcji, wykonując następujące sprawdzenia:
    * Sprawdza, czy użytkownik ma włączoną tę funkcję i ma przypisaną licencję usługi Azure AD.
@@ -90,12 +89,12 @@ W przypadku korzystania z aplikacji mobilnej, takiej jak aplikacja Microsoft Aut
 
 | Liczba metod wymaganych do zresetowania | Jeden | Dwa |
 | :---: | :---: | :---: |
-| Dostępne funkcje aplikacji mobilnej | Code | Kod lub powiadomienie |
+| Dostępne funkcje aplikacji mobilnej | Kod | Kod lub powiadomienie |
 
-Użytkownicy nie mają możliwości zarejestrowania swojej aplikacji mobilnej podczas rejestrowania do samoobsługowego resetowania hasła [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Użytkownicy mogą rejestrować swoją aplikację [https://aka.ms/mfasetup](https://aka.ms/mfasetup)mobilną w usłudze lub w nowej wersji zapoznawczej rejestracji [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)informacji o zabezpieczeniach.
+Użytkownicy nie mają możliwości zarejestrowania swojej aplikacji mobilnej podczas rejestrowania do samoobsługowego resetowania hasła [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Użytkownicy mogą rejestrować swoją aplikację mobilną w usłudze [https://aka.ms/mfasetup](https://aka.ms/mfasetup) lub w nowej wersji zapoznawczej rejestracji informacji o zabezpieczeniach [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!WARNING]
-> Aby użytkownicy mogli uzyskać dostęp do nowego środowiska w [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)programie, należy włączyć [zbieżną rejestrację na potrzeby samoobsługowego resetowania haseł i usługi Azure Multi-Factor Authentication (publiczna wersja zapoznawcza)](concept-registration-mfa-sspr-converged.md) .
+> Aby użytkownicy mogli uzyskać dostęp do nowego środowiska w programie, należy włączyć [zbieżną rejestrację na potrzeby samoobsługowego resetowania haseł i usługi Azure Multi-Factor Authentication (publiczna wersja zapoznawcza)](concept-registration-mfa-sspr-converged.md) [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
 > Nie można wybrać aplikacji Authenticator jako jedynej metody uwierzytelniania podczas konfigurowania zasad 1 bramy. Podobnie w przypadku konfigurowania zasad 2-bram nie można wybrać aplikacji Authenticator i tylko jednej metody dodatkowej.

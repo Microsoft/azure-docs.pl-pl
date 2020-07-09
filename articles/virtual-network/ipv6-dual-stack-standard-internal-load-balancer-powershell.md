@@ -8,17 +8,16 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: fdf726fd31e8b92a04a1c136eb5cd7110e0c6d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72333367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707518"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Wdrażanie aplikacji podwójnego stosu IPv6 przy użyciu standardowego wewnętrznego Load Balancer na platformie Azure — PowerShell (wersja zapoznawcza)
 
@@ -38,9 +37,9 @@ Procedura tworzenia Load Balancer wewnętrznych z obsługą protokołu IPv6 jest
 ```
 
 Zmiany, które przewyższają powyższą konfigurację frontonu modułu równoważenia obciążenia:
-- `PrivateIpAddressVersion` Jest określony jako "IPv6"
-- `-PublicIpAddress` Argument został pominięty lub zastąpiony przez `-PrivateIpAddress`. Należy pamiętać, że adres prywatny musi znajdować się w zakresie przestrzeni adresów IP podsieci, w której zostanie wdrożony wewnętrzny moduł równoważenia obciążenia. W przypadku pominięcia statycznego `-PrivateIpAddress` zostanie wybrany następny bezpłatny adres IPv6 z podsieci, w której jest wdrażany wewnętrzny moduł równoważenia obciążenia.
-- Podsieć o podwójnej stercie, w której zostanie wdrożony wewnętrzny moduł równoważenia obciążenia, jest `-Subnet` określana za pomocą argumentu lub `-SubnetId` .
+- `PrivateIpAddressVersion`Jest określony jako "IPv6"
+- `-PublicIpAddress`Argument został pominięty lub zastąpiony przez `-PrivateIpAddress` . Należy pamiętać, że adres prywatny musi znajdować się w zakresie przestrzeni adresów IP podsieci, w której zostanie wdrożony wewnętrzny moduł równoważenia obciążenia. W przypadku `-PrivateIpAddress` pominięcia statycznego zostanie wybrany następny bezpłatny adres IPv6 z podsieci, w której jest wdrażany wewnętrzny moduł równoważenia obciążenia.
+- Podsieć o podwójnej stercie, w której zostanie wdrożony wewnętrzny moduł równoważenia obciążenia, jest określana za pomocą `-Subnet` `-SubnetId` argumentu lub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -339,7 +338,7 @@ Sieć wirtualną o podwójnym stosie IPv6 można wyświetlić w Azure Portal w n
 > [!NOTE]
 > Protokół IPv6 dla usługi Azure Virtual Network jest dostępny w Azure Portal w ramach tej wersji zapoznawczej tylko do odczytu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

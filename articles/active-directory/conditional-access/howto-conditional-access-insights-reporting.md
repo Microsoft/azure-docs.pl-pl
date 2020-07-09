@@ -4,19 +4,18 @@ description: Korzystanie z skoroszytu usługi Azure AD Insights i raportowania w
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2b4864232892f1940de5c8fe46fa23879c92f3
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112776"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253277"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Szczegółowe informacje i raportowanie dostępu warunkowego
 

@@ -1,33 +1,34 @@
 ---
-title: Lista kontrolna tworzenia oferty SaaS — Marketing komercyjny dla platformy Azure
-description: Szczegóły, jakie można podać w procesie tworzenia oferty SaaS. — Komercyjne witryny Marketplace na platformie Azure
-author: dsindona
-ms.author: dsindona
+title: Lista kontrolna tworzenia oferty SaaS w portalu komercyjnym firmy Microsoft
+description: Szczegóły, jakie można podać w procesie tworzenia oferty SaaS w centrum partnerskim.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/08/2020
+ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850015"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101712"
 ---
-# <a name="saas-offer-creation-checklist"></a>Lista kontrolna tworzenia oferty SaaS
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista kontrolna tworzenia oferty SaaS w centrum partnerskim
 
-Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron. Poniżej znajdują się szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
+Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron.  Poniżej znajdują się szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
 
-Elementy wymagane do podania lub określenia są wymienione poniżej. Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami. Nie musisz już korzystać z tych sekcji w podanej kolejności.
+Elementy wymagane do podania lub określenia są wymienione poniżej.  Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami.  Nie musisz już korzystać z tych sekcji w podanej kolejności.
+
+>[!Note]
+>W przypadku tworzenia oferty SaaS z funkcją transakcyjnej upewnij się, że zaimplementowano integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-apis.md).  Integracja z interfejsami API jest jedynym sposobem zapewnienia poprawnego działania transactu w portalu Marketplace.
 
 | **Element**    | **Przeznaczenie**  |
 | :---------- | :-------------------|
 | [**Nowa oferta — modalne**](#new-offer-modal) | Zbiera informacje o tożsamości oferty.  |
 | [Strona konfiguracji oferty](#offer-setup-page) | Umożliwia korzystanie z kluczowych funkcji i wybór sposobu sprzedaży oferty przez firmę Microsoft.  |
 | [Strona właściwości](#properties-page) | Zdefiniuj kategorie i branże używane do grupowania oferty na rynkach Marketplace, umowy prawne wspierające Twoją ofertę i wersję aplikacji. |
-| [Strona z listą ofert](#offer-listing-page) | Zdefiniuj szczegóły oferty do wyświetlania w portalu Marketplace, w tym opisy oferty i zasobów marketingowych. |
-| [Strona podglądu](#preview-page) | Zdefiniuj ograniczonego odbiorcę w wersji zapoznawczej, aby wypróbować ofertę przed opublikowaniem oferty w szerszym gronie odbiorców w portalu Marketplace. |
-| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły techniczne (ścieżkę URL, element webhook, identyfikator dzierżawy i identyfikator aplikacji) używane do nawiązania połączenia z ofertą. |
+| [Strona z listą ofert](#offer-listing-page) | Zdefiniuj szczegóły oferty do wyświetlania w portalu Marketplace, w tym opisy oferty i zasobów marketingowych.|
+| [Strona podglądu](#preview-page) | Zdefiniuj ograniczonego odbiorcę w wersji zapoznawczej, aby wypróbować ofertę przed opublikowaniem oferty w szerszym gronie odbiorców w portalu Marketplace.|
+| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  |  Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Zdefiniuj szczegóły techniczne (adres URL strony docelowej, adres URL połączenia elementu webhook, identyfikator dzierżawy usługi Azure AD i identyfikator aplikacji usługi Azure AD), które są używane przez witrynę Marketplace do łączenia się z ofertą.  Te parametry są wymagane do poprawnego zintegrowania z realizacją SaaS oraz z użyciem mierzonych interfejsów API rozliczeń w portalu Marketplace.|
 | [**Nowy modalny plan**](#plan-identity-modal) | Zbiera informacje o tożsamości planu.  |
 | [Strona aukcji planu](#plan-listing-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły używane do wyświetlania planu w portalu Marketplace.  |
 | [Zaplanuj stronę dostępności & cennika](#plan-pricing--availability-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Gromadzi informacje o cechach biznesowej (modelu cen), odbiorcach i dostępności dla każdego planu (wersji) oferty.  |
@@ -89,7 +90,7 @@ Na stronie lista znajduje się tekst i obrazy widoczne dla klientów podczas wy�
 | Przydatne linki tytuł + adres URL  | Opcjonalny. |
 | Dokument pomocniczy tytuł + plik  | Wymagane, minimum 1 i 3. Musi być formatem pliku PDF. |
 | Zrzuty ekranu  | Wymagany, minimalny 1 zrzut ekranu i maksymalnie 5; co najmniej cztery zalecane. Musi mieć 1280 X 720 w formacie PNG. |
-| Logo Sklepu (małe, średnie, duże, szerokie, Hero)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), szeroki (255 x 115), Hero (815 x 290). Musi być w formacie PNG. |
+| Logo Sklepu (małe, średnie, duże, szerokie)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), szeroki (255 x 115). Musi być w. Format PNG. |
 | Nazwa wideo + URL + miniatura  | Opcjonalne, zalecane, maksymalnie 4 wideo. Miniatura musi mieć 1280 x 720 w formacie PNG. Wideo musi być hostowane w serwisie YouTube lub Vimeo. |
 | Kontakty (program CSP, inżynieria, pomoc techniczna)  | Wymagana osoba kontaktu inżynieryjnego i pomocy technicznej (nazwisko, adres e-mail i numer telefonu); Program CSP kontaktuje się z opcjonalnym, ale zalecanym. |
 | Adres URL pomocy technicznej  | Wymagany. |

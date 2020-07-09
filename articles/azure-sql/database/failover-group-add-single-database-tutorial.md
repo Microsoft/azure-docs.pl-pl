@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Dodawanie bazy danych do grupy trybu failover'
-description: Dodaj Azure SQL Database do grupy autotrybu failover za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+description: Dodaj bazę danych w Azure SQL Database do grupy autotrybu failover przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 78904feac106fbd1b612dfd494a2e8a280b40b25
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051486"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255317"
 ---
-# <a name="tutorial-add-an-azure-sql-database-to-an-auto-failover-group"></a>Samouczek: Dodawanie Azure SQL Database do grupy autotrybu failover
+# <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Samouczek: Dodawanie Azure SQL Database do grupy autotrybu failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Grupa trybu failover](auto-failover-group-overview.md) jest deklaratywną warstwą abstrakcji, która pozwala grupować wiele baz danych replikowanych geograficznie. Dowiedz się, jak skonfigurować grupę trybu failover dla Azure SQL Database i testować tryb failover przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.  Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+[Grupa trybu failover](auto-failover-group-overview.md) jest deklaratywną warstwą abstrakcji, która pozwala grupować wiele baz danych replikowanych geograficznie. Dowiedz się, jak skonfigurować grupę trybu failover dla Azure SQL Database i testować tryb failover przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.  Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -31,7 +31,7 @@ ms.locfileid: "84051486"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następującymi elementami:
 
@@ -44,7 +44,7 @@ Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 - Subskrypcja platformy Azure. [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) , jeśli jeszcze go nie masz.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 
@@ -61,7 +61,7 @@ Aby ukończyć ten samouczek, upewnij się, że masz następujące elementy:
 
 W tym kroku utworzysz [grupę trybu failover](auto-failover-group-overview.md) między istniejącym serwerem a nowym serwerem w innym regionie. Następnie Dodaj przykładową bazę danych do grupy trybu failover.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Utwórz grupę trybu failover i Dodaj do niej swoją bazę danych przy użyciu Azure Portal.
 
@@ -172,7 +172,7 @@ W tej części samouczka są stosowane następujące polecenia cmdlet programu P
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Pobiera co najmniej jedną bazę danych w Azure SQL Database. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Dodaje co najmniej jedną bazę danych do grupy trybu failover w Azure SQL Database. |
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Utwórz grupę trybu failover i Dodaj do niej swoją bazę danych przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -205,9 +205,9 @@ Ta część samouczka używa następujących poleceń cmdlet interfejsu wiersza 
 
 ## <a name="3---test-failover"></a>3 — Testowanie pracy w trybie failover
 
-W tym kroku nastąpi niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót po awarii przy użyciu Azure Portal.
+W tym kroku nastąpi awaria grupy trybu failover do serwera pomocniczego, a następnie powrót po awarii przy użyciu Azure Portal.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Testowanie pracy w trybie failover przy użyciu Azure Portal.
 
@@ -222,13 +222,13 @@ Testowanie pracy w trybie failover przy użyciu Azure Portal.
    ![Wybieranie grupy trybu failover z portalu](./media/failover-group-add-single-database-tutorial/select-failover-group.png)
 
 1. Sprawdź, który serwer jest podstawowy i który serwer jest serwerem pomocniczym.
-1. Wybierz pozycję **tryb failover** z okienka zadań, aby przełączyć grupę trybu failover w tryb failover zawierający przykładową bazę danych.
+1. Wybierz pozycję **tryb failover** z okienka zadań, aby przełączyć grupę trybu failover w tryb pracy awaryjnej zawierającej przykładową bazę danych.
 1. Na ostrzeżeniu wybierz pozycję **tak** , aby powiadomić, że sesje TDS zostaną rozłączone.
 
-   ![Praca awaryjna grupy trybu failover zawierającej bazę danych SQL](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
+   ![Praca awaryjna grupy trybu failover zawierającej bazę danych](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
-1. Sprawdź, który serwer jest teraz podstawowy i który serwer jest serwerem pomocniczym. Jeśli przełączenie w tryb failover powiodło się, te dwa serwery powinny mieć zamienione role.
-1. Wybierz ponownie **tryb failover** , aby powrócić do awarii serwerów z powrotem do ich pierwotnych ról.
+1. Sprawdź, który serwer jest teraz podstawowy i który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role.
+1. Wybierz ponownie **tryb failover** , aby powrócić do błędów serwerów do ich oryginalnych ról.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -291,7 +291,7 @@ W tej części samouczka są stosowane następujące polecenia cmdlet programu P
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Pobiera lub wyświetla listę grup Azure SQL Database trybu failover. |
 | [Przełącznik-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Wykonuje tryb failover grupy trybu failover Azure SQL Database. |
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Testowanie pracy w trybie failover przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -331,7 +331,7 @@ Ta część samouczka używa następujących poleceń cmdlet interfejsu wiersza 
 
 Wyczyść zasoby, usuwając grupę zasobów.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Usuń grupę zasobów przy użyciu Azure Portal.
 
@@ -359,7 +359,7 @@ W tej części samouczka są stosowane następujące polecenia cmdlet programu P
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów |
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Usuń grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -419,7 +419,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [AZ SQL failover-Group Set-Primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ustaw podstawową grupę trybu failover, przełączając się na wszystkie bazy danych z bieżącego serwera podstawowego. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Brak skryptów dostępnych dla Azure Portal.
 
@@ -429,7 +429,7 @@ Inne skrypty Azure SQL Database można znaleźć tutaj: [Azure PowerShell](power
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dodano Azure SQL Database do grupy trybu failover i przetestowano tryb failover. W tym samouczku omówiono:
+W tym samouczku dodano bazę danych w Azure SQL Database do grupy trybu failover i przetestowano tryb failover. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 >

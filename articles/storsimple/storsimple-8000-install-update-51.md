@@ -7,17 +7,17 @@ author: priestlg
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
-ms.openlocfilehash: b90f0f35f908d16b0746075e638fe66769939a64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb2123bdb0e12571a58a32e414a610665935ebb6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80658042"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508218"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Zainstaluj aktualizację 5,1 na urządzeniu StorSimple
 
@@ -58,7 +58,7 @@ Wykonaj następujące kroki, aby zaktualizować urządzenie do [aktualizacji 5,1
 
     ![Wybierz urządzenie](./media/storsimple-8000-install-update-51/update1.png)
 
-2. Przejdź do **ustawień urządzenia ustawienia** > **aktualizacje urządzeń**.
+2. Przejdź do **ustawień urządzenia ustawienia**  >  **aktualizacje urządzeń**.
 
     ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update-51/update2.png)
 

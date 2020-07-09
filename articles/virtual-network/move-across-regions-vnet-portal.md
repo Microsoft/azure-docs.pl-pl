@@ -3,15 +3,14 @@ title: Przenoszenie sieci wirtualnej platformy Azure do innego regionu platformy
 description: Przenoszenie sieci wirtualnej platformy Azure z jednego regionu platformy Azure do innego przy użyciu szablonu Menedżer zasobów i Azure Portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75640792"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711446"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Przenoszenie sieci wirtualnej platformy Azure do innego regionu przy użyciu Azure Portal
 
@@ -42,9 +41,9 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **grupy zasobów**.
 1. Znajdź grupę zasobów zawierającą źródłową sieć wirtualną, a następnie wybierz ją.
-1. Wybierz kolejno pozycje **Ustawienia** > **Eksportuj szablon**.
+1. Wybierz kolejno pozycje **Ustawienia**  >  **Eksportuj szablon**.
 1. W okienku **Eksportuj szablon** wybierz pozycję **Wdróż**.
-1. Aby otworzyć plik *Parameters. JSON* w edytorze online, wybierz pozycję **szablon** > **Edytuj parametry**.
+1. Aby otworzyć *parameters.js* w pliku w edytorze online, wybierz pozycję **szablon**  >  **Edytuj parametry**.
 1. Aby edytować parametr nazwy sieci wirtualnej, Zmień właściwość **Value** w obszarze **Parametry**:
 
     ```json
@@ -63,7 +62,7 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
 
 1. Wybierz pozycję **Zapisz** w edytorze.
 
-1. Aby otworzyć plik *Template. JSON* w edytorze online, wybierz pozycję **szablon** > **Edytuj szablon**.
+1. Aby otworzyć *template.js* w pliku w edytorze online, wybierz pozycję **szablon**  >  **Edytuj szablon**.
 
 1. Aby edytować region docelowy, w którym zostanie przeniesiona Sieć wirtualna, w edytorze online Zmień właściwość **Location** w obszarze **zasoby**:
 
@@ -85,11 +84,11 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
 
     ```
 
-1. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu, bez spacji (na przykład **środkowe stany USA** = **).**
+1. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu, bez spacji (na przykład **środkowe stany USA**  =  **centralus**).
 
 1. Obowiązkowe Możesz również zmienić inne parametry w szablonie, w zależności od wymagań:
 
-    * **Przestrzeń adresowa**: przed zapisaniem pliku można zmienić przestrzeń adresową sieci wirtualnej, modyfikując sekcję**addressSpace** **zasobów** > i zmieniając właściwość **addressPrefixes** :
+    * **Przestrzeń adresowa**: przed zapisaniem pliku można zmienić przestrzeń adresową sieci wirtualnej, modyfikując **resources**  >  sekcję**addressSpace** zasobów i zmieniając właściwość **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -140,7 +139,7 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
                 ]
         ```
 
-        Aby zmienić prefiks adresu w pliku *Template. JSON* , edytuj go w dwóch miejscach: w kodzie w poprzedniej sekcji i w sekcji **Type** poniższego kodu. Zmień właściwość **addressPrefix** w poniższym kodzie, aby dopasować Właściwość **addressPrefix** w kodzie w poprzedniej sekcji.
+        Aby zmienić prefiks adresu w *template.js* w pliku, należy edytować go w dwóch miejscach: w kodzie w poprzedniej sekcji i w sekcji **Type** poniższego kodu. Zmień właściwość **addressPrefix** w poniższym kodzie, aby dopasować Właściwość **addressPrefix** w kodzie w poprzedniej sekcji.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -178,13 +177,13 @@ Aby wyeksportować sieć wirtualną i wdrożyć docelową sieć wirtualną przy 
 
 1. W edytorze online wybierz pozycję **Zapisz**.
 
-1. Aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć wirtualna, wybierz pozycję**subskrypcja** **podstawy** > .
+1. Aby wybrać subskrypcję, w której zostanie wdrożona docelowa sieć **Basics**wirtualna, wybierz pozycję  >  **subskrypcja**podstawy.
 
-1. Aby wybrać grupę zasobów, w której zostanie wdrożona docelowa sieć wirtualna, wybierz pozycję **podstawowe** > **grupy zasobów**. 
+1. Aby wybrać grupę zasobów, w której zostanie wdrożona docelowa sieć wirtualna, wybierz pozycję **podstawowe**  >  **grupy zasobów**. 
 
     Jeśli musisz utworzyć nową grupę zasobów dla docelowej sieci wirtualnej, wybierz pozycję **Utwórz nową**. Upewnij się, że nazwa nie jest taka sama jak nazwa źródłowej grupy zasobów w istniejącej sieci wirtualnej.
 
-1. Sprawdź, czy**Lokalizacja** **podstawy** > jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
+1. Sprawdź, **Basics**czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożona Sieć wirtualna.
 
 1. W obszarze **Ustawienia**Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
 

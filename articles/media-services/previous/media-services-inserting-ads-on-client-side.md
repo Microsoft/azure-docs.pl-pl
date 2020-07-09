@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594869"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Wstawianie reklam po stronie klienta
@@ -143,7 +143,7 @@ Oferty liniowe mogą być wyświetlane w określonej kolejności. W tym celu nal
     </VAST>
 ```
 
-Reklamy nieliniowe są również określone `<Creative>` w elemencie. Poniższy przykład pokazuje `<Creative>` element, który opisuje nieliniowe AD.
+Reklamy nieliniowe są również określone w `<Creative>` elemencie. Poniższy przykład pokazuje `<Creative>` element, który opisuje nieliniowe AD.
 
 ```xml
     <Creative id="video" sequence="1" AdID="">
@@ -160,7 +160,7 @@ Reklamy nieliniowe są również określone `<Creative>` w elemencie. Poniższy 
     </Creative>
 ```
 
-Element <**NonLinearAds**> może zawierać co najmniej jeden <**nieliniowych** elementów>, z których każdy może opisywać nieliniowe AD. Element <**Nieliniowy**> określa zasób dla nieliniowej usługi AD. Zasób może być <**StaticResource**>, <**IFrameResource**> lub <**HTMLResource**>. \<**StaticResource**> opisuje zasób niebędący w formacie HTML i definiuje atrybut creativetype określający sposób wyświetlania zasobów:
+Element <**NonLinearAds**> może zawierać co najmniej jeden <**nieliniowych** elementów>, z których każdy może opisywać nieliniowe AD. Element <**Nieliniowy**> określa zasób dla nieliniowej usługi AD. Zasób może być <**StaticResource**>, <**IFrameResource**> lub <**HTMLResource**>. \<**StaticResource**>Opisuje zasób niebędący w formacie HTML i definiuje atrybut creativetype, który określa sposób wyświetlania zasobu:
 
 Image/GIF, Image/JPEG, Image/PNG — zasób jest wyświetlany w tagu <**img**> języka HTML.
 
@@ -170,7 +170,7 @@ Application/x-Shockwave-Flash — zasób jest wyświetlany w odtwarzaczu Flash.
 
 **IFrameResource** OPISUJE zasób HTML, który może być wyświetlany w elemencie iframe. **HTMLResource** opisuje fragment kodu HTML, który można wstawić do strony sieci Web. **TrackingEvents** Określ zdarzenia śledzenia i identyfikator URI do żądania, gdy wystąpi zdarzenie. W tym przykładzie zdarzenia acceptInvitation i zwijania są śledzone. Aby uzyskać więcej informacji na temat elementu **NonLinearAds** i jego elementów podrzędnych, zobacz IAB.NET/VAST. Należy zauważyć, że element **TrackingEvents** znajduje się w elemencie **NonLinearAds** , a nie w elemencie **nieliniowym** .
 
-Reklamy towarzyszące są zdefiniowane w `<CompanionAds>` obrębie elementu. `<CompanionAds>` Element może zawierać jeden lub więcej `<Companion>` elementów. Każdy `<Companion>` element zawiera opis pomocnika i może zawierać `<StaticResource>`, `<IFrameResource>`, lub `<HTMLResource>` , które są określone w taki sam sposób jak w przypadku nieliniowej usługi AD. OLBRZYMI plik może zawierać wiele reklam, a aplikacja odtwarzacza może wybrać najbardziej odpowiednią reklamę do wyświetlenia. Aby uzyskać więcej informacji na temat OGROMNYch, zobacz artykuł [ogromny 3,0](https://www.iab.net/media/file/VASTv3.0.pdf).
+Reklamy towarzyszące są zdefiniowane w obrębie `<CompanionAds>` elementu. `<CompanionAds>`Element może zawierać jeden lub więcej `<Companion>` elementów. Każdy `<Companion>` element zawiera opis pomocnika i może zawierać `<StaticResource>` , `<IFrameResource>` , lub, `<HTMLResource>` które są określone w taki sam sposób jak w przypadku nieliniowej usługi AD. OLBRZYMI plik może zawierać wiele reklam, a aplikacja odtwarzacza może wybrać najbardziej odpowiednią reklamę do wyświetlenia. Aby uzyskać więcej informacji na temat OGROMNYch, zobacz artykuł [ogromny 3,0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Używanie pliku listy odtwarzania (VMAP) cyfrowego wideo
 Plik VMAP umożliwia określenie czasu, w którym występują przerwy w usłudze AD, czas trwania każdego przerwania, liczbę reklam, które mogą być wyświetlane w ramach przerwy, oraz typy reklam, które mogą być wyświetlane w trakcie przerwy. Poniżej znajduje się przykład pliku VMAP, który definiuje pojedynczy podział usługi AD:
@@ -325,16 +325,16 @@ Plik MAST pozwala określić wyzwalacze, które definiują, kiedy zostanie wyśw
 ```
 
 
-Plik MAST rozpoczyna się od elementu **Mast** , który zawiera jeden element **Triggers** . `<triggers>` Element zawiera jeden lub więcej elementów **wyzwalacza** , które definiują, kiedy ma być odtwarzany AD.
+Plik MAST rozpoczyna się od elementu **Mast** , który zawiera jeden element **Triggers** . `<triggers>`Element zawiera jeden lub więcej elementów **wyzwalacza** , które definiują, kiedy ma być odtwarzany AD.
 
-Element **wyzwalacza** zawiera element **startConditions** , który określa, kiedy ma się rozpoczynać odtwarzanie AD. Element **startConditions** zawiera jeden lub więcej `<condition>` elementów. Gdy każda `<condition>` z nich szacuje wartość true, wyzwalacz jest inicjowany lub odwołany w zależności `<condition>` od tego, czy jest zawarty w elemencie **startConditions** czy **endConditions** odpowiednio. Gdy są `<condition>` obecne wiele elementów, są one traktowane jako niejawne lub, dowolny warunek oceniający wartość true spowoduje, że wyzwalacz zostanie zainicjowany. `<condition>`elementy mogą być zagnieżdżane. Gdy elementy `<condition>` podrzędne są wstępnie zdefiniowane, są traktowane jako niejawne i, wszystkie warunki muszą mieć wartość true, aby można było zainicjować wyzwalacz. `<condition>` Element zawiera następujące atrybuty, które definiują warunek:
+Element **wyzwalacza** zawiera element **startConditions** , który określa, kiedy ma się rozpoczynać odtwarzanie AD. Element **startConditions** zawiera jeden lub więcej `<condition>` elementów. Gdy każda `<condition>` z nich szacuje wartość true, wyzwalacz jest inicjowany lub odwołany w zależności od tego, czy `<condition>` jest zawarty w elemencie **startConditions** czy **endConditions** odpowiednio. Gdy `<condition>` są obecne wiele elementów, są one traktowane jako niejawne lub, dowolny warunek oceniający wartość true spowoduje, że wyzwalacz zostanie zainicjowany. `<condition>`elementy mogą być zagnieżdżane. Gdy `<condition>` elementy podrzędne są wstępnie zdefiniowane, są traktowane jako niejawne i, wszystkie warunki muszą mieć wartość true, aby można było zainicjować wyzwalacz. `<condition>`Element zawiera następujące atrybuty, które definiują warunek:
 
 1. **Typ** — określa typ warunku, zdarzenia lub właściwości.
 2. **name** — nazwa właściwości lub zdarzenia, które mają być używane podczas obliczania
 3. **Value** — wartość, względem której zostanie oceniona Właściwość
 4. **operator** — operacja do użycia podczas obliczania: EQ (równe), NEQ (nie równe), GTR (większe), GEQ (większe lub równe), lt (mniejsze niż), LEQ (mniejsze niż lub równe), mod (modulo)
 
-**endConditions** również zawiera `<condition>` elementy. Gdy warunek zwróci wartość true, wyzwalacz jest resetowany. `<trigger>` Element zawiera również `<sources>` element, który zawiera jeden lub więcej `<source>` elementów. `<source>` Elementy definiują identyfikator URI odpowiedzi usługi AD i typ odpowiedzi usługi AD. W tym przykładzie identyfikator URI jest przydzielany do ogromnej odpowiedzi.
+**endConditions** również zawiera `<condition>` elementy. Gdy warunek zwróci wartość true, wyzwalacz jest resetowany. `<trigger>`Element zawiera również `<sources>` element, który zawiera jeden lub więcej `<source>` elementów. `<source>`Elementy definiują identyfikator URI odpowiedzi usługi AD i typ odpowiedzi usługi AD. W tym przykładzie identyfikator URI jest przydzielany do ogromnej odpowiedzi.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -363,7 +363,7 @@ Plik wykonywalny usługi AD jest tworzony w kodzie, który musi być wykonywany 
     </MediaFiles>
 ```
 
-Plik wykonywalny usługi AD można zainicjować przy `<AdParameters>` użyciu elementu w `<Linear>` obrębie `<NonLinear>` lub w ramach ogromnej odpowiedzi. Aby uzyskać więcej informacji na `<AdParameters>` temat elementu, zobacz artykuł [ogromny 3,0](https://www.iab.net/media/file/VASTv3.0.pdf). Aby uzyskać więcej informacji na temat interfejsu API VPAID, zobacz [VPAID 2,0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Plik wykonywalny usługi AD można zainicjować przy użyciu `<AdParameters>` elementu w obrębie `<Linear>` lub w ramach `<NonLinear>` ogromnej odpowiedzi. Aby uzyskać więcej informacji na temat `<AdParameters>` elementu, zobacz artykuł [ogromny 3,0](https://www.iab.net/media/file/VASTv3.0.pdf). Aby uzyskać więcej informacji na temat interfejsu API VPAID, zobacz [VPAID 2,0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementowanie programu Windows lub Windows Phone 8 Player z obsługą usługi AD
 Platforma Microsoft Media platform: Player Framework dla systemów Windows 8 i Windows Phone 8 zawiera kolekcję przykładowych aplikacji, które pokazują, jak wdrożyć aplikację odtwarzacza wideo przy użyciu struktury. Możesz pobrać platformę odtwarzacza i przykłady z programu [Player Framework dla systemu Windows 8 i Windows Phone 8](https://playerframework.codeplex.com).
@@ -530,7 +530,7 @@ Ten przykład używa AdSchedulerPlugin do zaplanowania rzutu usługi AD przy uż
 ```
 
 ### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
-Ten przykład ilustruje sposób użycia AdSchedulerPlugin do zaplanowania rzutu liniowego usługi AD przy użyciu pomocnika usługi AD. `<RemoteAdSource>` Element określa lokalizację ogromnego pliku.
+Ten przykład ilustruje sposób użycia AdSchedulerPlugin do zaplanowania rzutu liniowego usługi AD przy użyciu pomocnika usługi AD. `<RemoteAdSource>`Element określa lokalizację ogromnego pliku.
 
 ```xml
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -552,7 +552,7 @@ Ten przykład ilustruje sposób użycia AdSchedulerPlugin do zaplanowania rzutu 
 ```
 
 ### <a name="vastlinearnonlinearpage"></a>VastLinearNonLinearPage
-Ten przykład używa AdSchedulerPlugin do zaplanowania liniowej i nieliniowej usługi AD. OGROMNa lokalizacja pliku jest określana za `<RemoteAdSource>` pomocą elementu.
+Ten przykład używa AdSchedulerPlugin do zaplanowania liniowej i nieliniowej usługi AD. OGROMNa lokalizacja pliku jest określana za pomocą `<RemoteAdSource>` elementu.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -846,5 +846,5 @@ Poniższy przykład pokazuje, jak zaplanować nakładanie się usługi AD.
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

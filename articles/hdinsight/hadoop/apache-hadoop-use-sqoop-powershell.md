@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 87077eacd607acf4efbd660a1926daf15db7f7e5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cd0918da2a1bf6d953eb6006dc71f0611d3ed1c8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653581"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076100"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Uruchamianie zadań Apache Sqoop w Azure PowerShell usłudze HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Dowiedz się, jak używać Azure PowerShell do uruchamiania zadań Apache Sqoop w usłudze Azure HDInsight w celu importowania i eksportowania danych między klastrem usługi HDInsight i bazą danych Azure SQL Database lub SQL Server.  Ten artykuł jest kontynuacją [używania platformy Apache Sqoop z usługą Hadoop w usłudze HDInsight](./hdinsight-use-sqoop.md).
+Dowiedz się, jak używać Azure PowerShell do uruchamiania zadań Apache Sqoop w usłudze Azure HDInsight w celu importowania i eksportowania danych między klastrem usługi HDInsight i Azure SQL Database lub SQL Server.  Ten artykuł jest kontynuacją [używania platformy Apache Sqoop z usługą Hadoop w usłudze HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,9 +31,9 @@ Dowiedz się, jak używać Azure PowerShell do uruchamiania zadań Apache Sqoop 
 
 ## <a name="sqoop-export"></a>Eksport Sqoop
 
-Z programu Hive do SQL Server.
+Z usługi Hive do bazy danych SQL.
 
-Ten przykład eksportuje dane z tabeli programu Hive `hivesampletable` do `mobiledata` tabeli w SQL Database. Ustaw wartości dla zmiennych poniżej, a następnie wykonaj polecenie.
+Ten przykład eksportuje dane z `hivesampletable` tabeli Hive do `mobiledata` tabeli w SQL. Ustaw wartości dla zmiennych poniżej, a następnie wykonaj polecenie.
 
 ```powershell
 $hdinsightClusterName = ""
@@ -96,7 +96,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie, `The specified blob does not
 
 ## <a name="sqoop-import"></a>Sqoop import
 
-Z SQL Server do usługi Azure Storage. Ten przykład importuje dane z `mobiledata` tabeli w SQL Database do `wasb:///tutorials/usesqoop/importeddata` katalogu w usłudze HDInsight. Pola w danych są oddzielane znakami tabulacji, a wiersze kończą się znakiem nowego wiersza. W tym przykładzie założono, że wykonano poprzedni przykład.
+Z usługi SQL do magazynu Azure Storage. Ten przykład importuje dane z `mobiledata` tabeli SQL do `wasb:///tutorials/usesqoop/importeddata` katalogu w usłudze HDInsight. Pola w danych są oddzielane znakami tabulacji, a wiersze kończą się znakiem nowego wiersza. W tym przykładzie założono, że wykonano poprzedni przykład.
 
 ```powershell
 $sqoopCommand = "import --connect $connectionString --table mobiledata --target-dir wasb:///tutorials/usesqoop/importeddata --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1"
@@ -128,7 +128,7 @@ Get-AzHDInsightJobOutput `
 
 Jest to niezawodny przykład, który eksportuje dane z programu `/tutorials/usesqoop/data/sample.log` z domyślnego konta magazynu, a następnie importuje go do tabeli o nazwie `log4jlogs` w bazie danych SQL Server. Ten przykład nie zależy od wcześniejszych przykładów.
 
-Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy, a następnie eksportuje go do Azure SQL Database do tabeli `log4jlogs` . Zastąp `CLUSTERNAME` `CLUSTERPASSWORD` wartości, i `SQLPASSWORD` wartościami użytymi w ramach wymagań wstępnych.
+Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy, a następnie eksportuje go do tabeli `log4jlogs` . Zastąp `CLUSTERNAME` `CLUSTERPASSWORD` wartości, i `SQLPASSWORD` wartościami użytymi w ramach wymagań wstępnych.
 
 ```powershell
 <#------ BEGIN USER INPUT ------#>
@@ -219,7 +219,7 @@ $writeStream.Flush()
 $memStream.Seek(0, "Begin")
 $destBlob.UploadFromStream($memStream)
 
-#export the log file from the cluster to the SQL database
+#export the log file from the cluster to SQL
 Write-Host "Exporting the log file ..." -ForegroundColor Green
 
 $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
@@ -271,7 +271,7 @@ Get-AzHDInsightJobOutput `
 
 Usługa HDInsight oparta na systemie Linux oferuje następujące ograniczenia:
 
-* Eksport zbiorczy: Łącznik Sqoop używany do eksportowania danych do Microsoft SQL Server lub Azure SQL Database obecnie nie obsługuje operacji wstawiania zbiorczego.
+* Eksport zbiorczy: Łącznik Sqoop używany do eksportowania danych do programu SQL nie obsługuje obecnie operacji wstawiania zbiorczego.
 
 * Przetwarzanie wsadowe: przy użyciu `-batch` przełącznika, gdy wykonuje operacje wstawiania, Sqoop wykonuje wiele operacji INSERT zamiast wsadowych operacja wstawiania.
 

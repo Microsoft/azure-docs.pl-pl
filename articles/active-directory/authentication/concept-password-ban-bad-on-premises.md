@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b9d07099f8de996181948921330ef6744b302a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74848650"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Enforce Azure AD password protection for Windows Server Active Directory (Wymuszanie ochrony hasłem usługi Azure AD dla usługi Active Directory systemu Windows Server)
@@ -87,7 +86,7 @@ Wdrożenie ochrony hasłem usługi Azure AD w lesie Active Directory wymaga reje
 
 Las Active Directory i wszystkie wdrożone usługi proxy w lesie muszą być zarejestrowane w ramach tej samej dzierżawy. Nie jest obsługiwane posiadanie lasu Active Directory ani żadnych usług serwera proxy w tym lesie zarejestrowanych w różnych dzierżawach usługi Azure AD. Objawy takiego nieskonfigurowanego wdrożenia obejmują możliwość pobierania zasad haseł.
 
-## <a name="download"></a>Pliki do pobrania
+## <a name="download"></a>Pobierz
 
 W [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=57071)są dostępne dwa wymagane Instalatory agentów ochrony za pomocą hasła usługi Azure AD.
 

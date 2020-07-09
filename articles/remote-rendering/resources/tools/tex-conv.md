@@ -6,20 +6,19 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80680026"
 ---
 # <a name="texconv---texture-conversion-tool"></a>TexConv — narzędzie konwersji tekstury
 
 TexConv to narzędzie wiersza polecenia do przetwarzania tekstur z typowych formatów danych wejściowych, takich jak PNG, TGA, JPEG i DDS, do zoptymalizowanych formatów dla użycia środowiska uruchomieniowego.
-Typowym scenariuszem jest konwertowanie pojedynczego pliku `A.xxx` wejściowego do formatu `B.yyy`zoptymalizowanego, ale narzędzie ma wiele dodatkowych opcji do użycia zaawansowanego.
+Typowym scenariuszem jest konwertowanie pojedynczego pliku wejściowego `A.xxx` do formatu zoptymalizowanego `B.yyy` , ale narzędzie ma wiele dodatkowych opcji do użycia zaawansowanego.
 
 ## <a name="command-line-help"></a>Pomoc wiersza polecenia
 
-Uruchomienie TexConv. exe z `--help` parametrem będzie wyświetlać wszystkie dostępne opcje. Ponadto TexConv drukuje używane opcje podczas wykonywania, aby pomóc zrozumieć, co robi. Szczegółowe informacje można znaleźć w tych danych wyjściowych.
+Uruchomienie TexConv.exe z `--help` parametrem wyświetli wszystkie dostępne opcje. Ponadto TexConv drukuje używane opcje podczas wykonywania, aby pomóc zrozumieć, co robi. Szczegółowe informacje można znaleźć w tych danych wyjściowych.
 
 ## <a name="general-usage"></a>Ogólne użycie
 
@@ -37,13 +36,13 @@ TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 
 ## <a name="multiple-input-files"></a>Wiele plików wejściowych
 
-Aby utworzyć dane wyjściowe z wielu plików wejściowych, określ każdy plik wejściowy przy `-in` użyciu opcji o rosnącej liczbie:
+Aby utworzyć dane wyjściowe z wielu plików wejściowych, określ każdy plik wejściowy przy użyciu `-in` opcji o rosnącej liczbie:
 
 ```cmd
 -in0 D:/img0.jpg -in1 D:/img1.jpg -in2 D:/img2.jpg ...
 ```
 
-Podczas składania mapy sześciennej z tekstur 2D, jeden może również używać `-right`, `-left`, `-top` `-bottom`,, `-front`, `-back` lub `-px`, `-nx`, `-py`, `-ny`, `-pz`,. `-nz`
+Podczas składania mapy sześciennej z tekstur 2D, jeden może również używać `-right` ,,, `-left` , `-top` `-bottom` `-front` , `-back` lub,, `-px` `-nx` ,, `-py` `-ny` `-pz` , `-nz` .
 
 Aby zmapować te dane wejściowe do pliku wyjściowego, konieczne jest odpowiednie mapowanie kanału.
 
@@ -67,7 +66,7 @@ Każde mapowanie każdego kanału zapewnia największą elastyczność. Dla wygo
 
 Dostępne są następujące opcje mapowania kanału:
 
-- `-r`, `-g`, `-b`, `-a` : Określają przypisania pojedynczego kanału
+- `-r`, `-g` , `-b` , `-a` : Określają przypisania pojedynczego kanału
 - `-rg`: Określ przydziały czerwieni i zielonego kanału.
 - `-rgb`: Określ przydziały czerwony, zielony i niebieski kanał.
 - `-rgba`: Określa wszystkie cztery przypisania kanałów.
@@ -89,7 +88,7 @@ Jeden może również wypełnić kanały kolorem czarnym lub białym:
 
 ## <a name="common-options"></a>Typowe opcje
 
-Poniżej przedstawiono najbardziej interesujące opcje. Więcej opcji znajduje się na `TexConv --help`liście.
+Poniżej przedstawiono najbardziej interesujące opcje. Więcej opcji znajduje się na liście `TexConv --help` .
 
 ### <a name="output-type"></a>Typ danych wyjściowych
 
@@ -111,7 +110,7 @@ Domyślnie TexConv generuje mipmapy, gdy obsługuje go format danych wyjściowyc
 
 ### <a name="usage-srgb--gamma-correction"></a>Użycie (Korekcja sRGB/gamma)
 
-`-usage` Opcja określa przeznaczenie danych wyjściowych, a tym samym informuje TexConv o tym, czy zastosować korekcję gamma do plików wejściowych i wyjściowych. Użycie ma wpływ tylko na kanały RGB. Kanał alfa jest zawsze uznawany za zawierający wartości "liniowe". Jeśli użycie nie zostanie określone, tryb "automatycznie" podejmie próbę wykrycia użycia z formatu i nazwy pierwszego obrazu wejściowego. Na przykład formaty danych wyjściowych o pojedynczym i podwójnym kanale są zawsze liniowe. Sprawdź dane wyjściowe, aby zobaczyć, jakie decyzje TexConv.
+`-usage`Opcja określa przeznaczenie danych wyjściowych, a tym samym informuje TexConv o tym, czy zastosować korekcję gamma do plików wejściowych i wyjściowych. Użycie ma wpływ tylko na kanały RGB. Kanał alfa jest zawsze uznawany za zawierający wartości "liniowe". Jeśli użycie nie zostanie określone, tryb "automatycznie" podejmie próbę wykrycia użycia z formatu i nazwy pierwszego obrazu wejściowego. Na przykład formaty danych wyjściowych o pojedynczym i podwójnym kanale są zawsze liniowe. Sprawdź dane wyjściowe, aby zobaczyć, jakie decyzje TexConv.
 
 - `-usage Linear`: Obraz wyjściowy zawiera wartości, które nie reprezentują kolorów. Jest to zazwyczaj przypadek dla tekstur metalicznych i niesztywnych, a także wszystkich rodzajów masek.
 

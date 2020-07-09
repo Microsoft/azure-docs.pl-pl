@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: e5e60fbcbdd7784cf131b7acb461065251a2dfd7
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: references_regions
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84982003"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -72,7 +73,13 @@ W przypadku jednostki SKU v2 Otwórz zasób publicznego adresu IP i wybierz pozy
 
 *Limit czasu utrzymywania aktywności* określa, jak długo Application Gateway będzie czekać na wysłanie przez klienta kolejnego żądania HTTP przed ponownym użyciem lub zamknięciem. *Limit czasu bezczynności protokołu TCP* określa, jak długo połączenie TCP jest przechowywane w przypadku braku aktywności. 
 
-*Limit czasu utrzymywania aktywności* w jednostce SKU Application Gateway v1 wynosi 120 sekund, a w jednostce SKU v2 jest 75 sekund. *Limit czasu bezczynności protokołu TCP* to domyślna wartość 4-minutowa w WIRTUALNYm adresie IP frontonu (VIP) zarówno w wersji 1, jak i w wersji 2 programu Application Gateway. Nie można zmienić tych wartości.
+*Limit czasu utrzymywania aktywności* w jednostce SKU Application Gateway v1 wynosi 120 sekund, a w jednostce SKU v2 jest 75 sekund. *Limit czasu bezczynności protokołu TCP* to domyślna wartość 4-minutowa w WIRTUALNYm adresie IP frontonu (VIP) zarówno w wersji 1, jak i w wersji 2 programu Application Gateway. Wartość limitu czasu bezczynności protokołu TCP można skonfigurować w przypadku bram aplikacji w wersji 1 i v2, które mają miejsce w zakresie od 4 do 30 minut. W przypadku bram aplikacji V1 i v2 należy przejść do publicznego adresu IP Application Gateway i zmienić limit czasu bezczynności protokołu TCP w bloku "Konfiguracja" publicznego adresu IP w portalu. Możesz ustawić wartość limitu czasu bezczynności protokołu TCP dla publicznego adresu IP za pomocą programu PowerShell, uruchamiając następujące polecenia: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Czy nazwa adresu IP lub DNS jest zmieniana w okresie istnienia bramy aplikacji?
 
@@ -337,11 +344,31 @@ Nie, używaj tylko znaków alfanumerycznych w haśle pliku PFX.
 Kubernetes umożliwia tworzenie `deployment` i `service` zasób w celu uwidocznienia grupy zasobów w klastrze. Aby udostępnić tę samą usługę zewnętrznie, [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) jest zdefiniowany zasób, który zapewnia Równoważenie obciążenia, zakończenie protokołu TLS i hosting wirtualny oparte na nazwach.
 Aby spełnić ten `Ingress` zasób, wymagany jest kontroler transferu danych przychodzących, który nasłuchuje wszelkich zmian `Ingress` zasobów i konfiguruje zasady usługi równoważenia obciążenia.
 
-Application Gateway kontroler transferu danych przychodzących umożliwia korzystanie z [platformy azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) jako ruchu przychodzącego dla [usługi Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) , znanej również jako klaster AKS.
+Application Gateway kontroler transferu danych przychodzących (AGIC) umożliwia korzystanie z [platformy azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) jako ruchu przychodzącego dla [usługi Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) znanego również jako klaster AKS.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Czy pojedyncze wystąpienie kontrolera ruchu przychodzącego może zarządzać wieloma bramami aplikacji?
 
 Obecnie jedno wystąpienie kontrolera transferu danych przychodzących może być skojarzone tylko z jednym Application Gateway.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Dlaczego mój klaster AKS z korzystającą wtyczki kubenetem nie działa z usługą AGIC?
+
+AGIC próbuje automatycznie skojarzyć zasób tabeli tras z podsiecią Application Gateway, ale może to się nie powieść z powodu braku uprawnień z AGIC. Jeśli AGIC nie może skojarzyć tabeli tras z podsiecią Application Gateway, wystąpi błąd w dziennikach AGIC, co oznacza, że w takim przypadku trzeba ręcznie skojarzyć tabelę tras utworzoną przez klaster AKS z podsiecią Application Gateway. Aby uzyskać więcej informacji, zobacz instrukcje w [tym miejscu](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Czy mogę połączyć klaster AKS i Application Gateway w oddzielnych sieciach wirtualnych? 
+
+Tak, o ile sieci wirtualne są połączone za pomocą komunikacji równorzędnej i nie mają nakładających się przestrzeni adresowych. Jeśli korzystasz z programu AKS z korzystającą wtyczki kubenet, pamiętaj, aby skojarzyć tabelę tras wygenerowaną przez AKS z podsiecią Application Gateway. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Jakie funkcje nie są obsługiwane przez dodatek AGIC? 
+
+Zapoznaj się z różnicami między AGIC wdrożonymi za pomocą Helm a wdrożeniem jako dodatek AKS [tutaj](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>Kiedy należy używać dodatku w porównaniu z wdrożeniem Helm? 
+
+Zapoznaj się z różnicami między AGIC wdrożonymi w Helm i wdrożonymi jako dodatki AKS w [tym miejscu](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), zwłaszcza w tabelach, w których scenariusze są obsługiwane przez AGIC wdrożone za pomocą Helm, w przeciwieństwie do dodatku AKS. Ogólnie wdrażanie przy użyciu programu Helm umożliwi przetestowanie funkcji beta i kandydatów wydania przed oficjalną wersją. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>Czy mogę określić, która wersja AGIC zostanie wdrożona z dodatkiem?
+
+Nie, dodatek AGIC jest usługą zarządzaną, co oznacza, że firma Microsoft będzie automatycznie aktualizować dodatek do najnowszej stabilnej wersji. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnostyka i rejestrowanie
 

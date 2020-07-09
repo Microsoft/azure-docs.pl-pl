@@ -1,29 +1,19 @@
 ---
-title: Monitorowanie dostarczania komunikatów Azure Event Grid
-description: W tym artykule opisano, jak używać Azure Portal do wyświetlania stanu dostarczania komunikatów Azure Event Grid.
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
+title: Wyświetlanie metryk Azure Event Grid i Ustawianie alertów
+description: W tym artykule opisano, jak używać Azure Portal do wyświetlania metryk dotyczących Azure Event Grid tematów i subskrypcji, a następnie tworzyć na nich alerty.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890851"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114887"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorowanie dostarczania komunikatów Event Grid 
+W tym artykule opisano, jak używać portalu do wyświetlania metryk dotyczących tematów i subskrypcji Event Grid oraz tworzenia na nich alertów. 
 
-W tym artykule opisano sposób korzystania z portalu w celu wyświetlenia stanu dostaw zdarzeń.
-
-Event Grid zapewnia trwałe dostarczanie. Każdy z nich dostarcza każdy komunikat co najmniej raz dla każdej subskrypcji. Zdarzenia są natychmiast wysyłane do zarejestrowanego elementu webhook każdej subskrypcji. Jeśli element webhook nie potwierdzi odbioru zdarzenia w ciągu 60 sekund od pierwszej próby dostarczenia, Event Grid ponawianie prób dostarczenia zdarzenia.
-
-Aby uzyskać informacje dotyczące dostarczania i ponawiania zdarzeń, [Event Grid dostarczania komunikatów i ponawiania próby](delivery-and-retry.md).
-
-## <a name="delivery-metrics"></a>Metryki dostarczania
+## <a name="metrics"></a>Metryki
 
 W portalu są wyświetlane metryki dotyczące stanu dostarczania komunikatów o zdarzeniach.
 
@@ -43,50 +33,69 @@ Poniżej przedstawiono niektóre metryki dotyczące subskrypcji:
     > [!NOTE]
     > Aby uzyskać pełną listę metryk, zobacz [metryki obsługiwane przez Azure Event Grid](metrics.md).
 
-## <a name="event-subscription-status"></a>Stan subskrypcji zdarzeń
+## <a name="view-custom-topic-metrics"></a>Wyświetl metryki tematu niestandardowego
 
-Aby wyświetlić metryki dla subskrypcji zdarzeń, można wyszukać według typu subskrypcji lub subskrypcji dla określonego zasobu.
+Po opublikowaniu tematu niestandardowego można wyświetlić metryki dla niego. 
 
-Aby wyszukać według typu subskrypcji zdarzeń, wybierz pozycję **wszystkie usługi**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+2. Na pasku wyszukiwania w temacie wpisz **Event Grid tematy**, a następnie wybierz pozycję **Event Grid tematy** z listy rozwijanej. 
 
-![Wybierz wszystkie usługi](./media/monitor-event-delivery/all-services.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Wyszukaj i wybierz tematy Event Grid":::
+3. Wybierz niestandardowy temat z listy tematów. 
 
-Wyszukaj ciąg **Event Grid** i wybierz opcję **Event Grid subskrypcje** z dostępnych opcji.
+    :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Wybieranie tematu niestandardowego":::
+4. Wyświetl metryki dla niestandardowego tematu zdarzeń na stronie **tematu Event Grid** . Na poniższej ilustracji sekcja **podstawowe** informacje o grupie zasobów, subskrypcji itp. jest zminimalizowana. 
 
-![Wyszukaj subskrypcje zdarzeń](./media/monitor-event-delivery/search-and-select.png)
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Wyświetl metryki zdarzeń":::
 
-Filtrowanie według typu zdarzenia, subskrypcji i lokalizacji. Wybierz **metryki** dla subskrypcji do wyświetlenia.
+Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki** na stronie **tematu Event Grid** .
 
-![Filtrowanie subskrypcji zdarzeń](./media/monitor-event-delivery/filter-events.png)
+:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Temat — Strona metryk":::
 
-Wyświetl metryki dotyczące tematu i subskrypcji zdarzenia.
+Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md)
 
-![Wyświetl metryki zdarzeń](./media/monitor-event-delivery/subscription-metrics.png)
+Na przykład zapoznaj się z wykresem metryk dla metryki **opublikowanych zdarzeń** .
 
-Aby znaleźć metryki dla określonego zasobu, wybierz ten zasób. Następnie wybierz pozycję **zdarzenia**.
+:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Metryka opublikowanych zdarzeń":::
 
-![Wybieranie zdarzeń dla zasobu](./media/monitor-event-delivery/select-events.png)
 
-Są wyświetlane metryki dla subskrypcji dla tego zasobu.
+## <a name="view-subscription-metrics"></a>Wyświetl metryki subskrypcji
+1. Przejdź do strony **tematu Event Grid** , wykonując czynności opisane w poprzedniej sekcji. 
+2. Wybierz subskrypcję w dolnym okienku, jak pokazano w poniższym przykładzie. 
 
-## <a name="custom-event-status"></a>Stan zdarzenia niestandardowego
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Wybierz subskrypcję zdarzeń":::    
 
-Po opublikowaniu tematu niestandardowego można wyświetlić metryki dla niego. Wybierz grupę zasobów dla tematu i wybierz temat.
+    Możesz również wyszukać **Event Grid subskrypcje** na pasku wyszukiwania w Azure Portal, wybrać **Typ tematu**, **subskrypcję**i **lokalizację** , aby wyświetlić subskrypcję zdarzeń. 
 
-![Wybieranie tematu niestandardowego](./media/monitor-event-delivery/select-custom-topic.png)
+    :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Wybierz subskrypcję zdarzeń ze strony subskrypcji Event Grid":::        
 
-Wyświetl metryki dla niestandardowego tematu zdarzeń.
+    W przypadku tematów niestandardowych wybierz **Event Grid tematy** jako **Typ tematu**. W obszarze Tematy systemowe wybierz typ zasobu platformy Azure, na przykład **konta magazynu (BLOB, GPv2)**. 
+3. Zapoznaj się z metrykami subskrypcji na stronie głównej subskrypcji na wykresie. Metryki **Ogólne**, **Błędy**, **opóźnienia**i **utraconych liter** można zobaczyć w ciągu ostatnich 1 godziny, 6 godzin, 12 godzin, 1 dzień, 7 dni lub 30 dni. 
 
-![Wyświetl metryki zdarzeń](./media/monitor-event-delivery/custom-topic-metrics.png)
+    :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Metryki na stronie głównej subskrypcji":::    
 
-## <a name="set-alerts"></a>Ustawianie alertów
+## <a name="view-system-topic-metrics"></a>Wyświetl metryki tematu systemu
 
-Możesz ustawić alerty dla tematu i metryk na poziomie domeny dla tematów niestandardowych i domen zdarzeń. W bloku przegląd dla programu wybierz pozycję **alerty** z menu po lewej stronie, w którym mają być wyświetlane reguły alertów, a następnie zarządzaj nimi. [Dowiedz się więcej o alertach Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+2. Na pasku wyszukiwania w temacie wpisz **Event Grid tematy systemowe**, a następnie wybierz pozycję **Event Grid tematy systemowe** z listy rozwijanej. 
 
-![Wyświetl metryki zdarzeń](./media/monitor-event-delivery/select-alerts.png)
+    :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Wyszukaj i wybierz Event Grid tematy systemowe":::
+3. Wybierz temat system z listy tematów. 
+
+    :::image type="content" source="./media/monitor-event-delivery/select-system-topic.png" alt-text="Wybieranie tematu systemu":::
+4. Zapoznaj się z metrykami tematu system na stronie **tematu system Event Grid** . Na poniższej ilustracji sekcja **podstawowe** informacje o grupie zasobów, subskrypcji itp. jest zminimalizowana. 
+
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Wyświetl metryki tematu systemu na stronie Przegląd":::
+
+Wykresy z obsługiwanymi metrykami można tworzyć przy użyciu karty **metryki** na stronie **tematu Event Grid** .
+
+:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Temat systemu-Strona metryki":::
+
+Aby dowiedzieć się więcej o metrykach, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md)
+
 
 ## <a name="next-steps"></a>Następne kroki
+Zobacz następujące artykuły:
 
-* Aby uzyskać informacje dotyczące dostarczania i ponawiania zdarzeń, [Event Grid dostarczania komunikatów i ponawiania próby](delivery-and-retry.md).
-* Aby zapoznać się z wprowadzeniem do usługi Event Grid, zobacz [Wprowadzenie do usługi Azure Event Grid](overview.md).
-* Aby szybko rozpocząć korzystanie z Event Grid, zobacz [Tworzenie i kierowanie zdarzeń niestandardowych z Azure Event Grid](custom-event-quickstart.md).
+- Aby dowiedzieć się, jak tworzyć alerty dotyczące metryk i operacji dziennika aktywności, zobacz [Ustawianie alertów](set-alerts.md).
+- Aby uzyskać informacje dotyczące dostarczania i ponawiania zdarzeń, [Event Grid dostarczania komunikatów i ponawiania próby](delivery-and-retry.md).

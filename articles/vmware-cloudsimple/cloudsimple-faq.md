@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025065"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Często zadawane pytania dotyczące rozwiązania VMware według CloudSimple
@@ -33,7 +32,7 @@ CloudSimple jest dostępna w regionach Wschodnie stany USA, zachodnie stany USA 
 
 **Jak mogę włączyć moją subskrypcję usługi CloudSimple?**
 
-[azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) Aby włączyć subskrypcję usługi CloudSimple, możesz skontaktować się z przedstawicielem konto Microsoft. Podaj identyfikator subskrypcji w wiadomości e-mail, dla której usługa CloudSimple ma być włączona.  
+[azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com)Aby włączyć subskrypcję usługi CloudSimple, możesz skontaktować się z przedstawicielem konto Microsoft. Podaj identyfikator subskrypcji w wiadomości e-mail, dla której usługa CloudSimple ma być włączona.  
 
 **Jak mogę uzyskać dostęp do portalu CloudSimple?**
 
@@ -100,7 +99,7 @@ Usługa CloudSimple zapewnia następujące funkcje zabezpieczeń w celu zabezpie
 * **Zabezpieczenia sieciowe**. Sterowanie przepływem ruchu sieciowego za pomocą reguł zapory, które są stosowane między chmurą prywatną i Internetem, chmurą prywatną i środowiskiem lokalnym lub w podsieciach chmury prywatnej.
 * **Bezpieczne połączenie prywatne**. Bezpieczne połączenie prywatne jest nawiązywane między siecią lokalną i subskrypcją platformy Azure.
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 **Jakiego rodzaju hosty są dostępne?**
 
@@ -150,7 +149,7 @@ Program CloudSimple nie wykonuje uaktualnień ani aktualizacji aplikacji zainsta
 
 **Jakie usługi platformy Azure są obsługiwane?**
 
-Usługa CloudSimple udostępnia połączenie usługi Azure ExpressRoute z subskrypcją na platformie Azure.  Wszystkie usługi działające w ramach subskrypcji mogą łączyć się z chmurą prywatną.  Przykłady:
+Usługa CloudSimple udostępnia połączenie usługi Azure ExpressRoute z subskrypcją na platformie Azure.  Wszystkie usługi działające w ramach subskrypcji mogą łączyć się z chmurą prywatną.  Przykłady obejmują:
 
 * **Azure Active Directory** jako źródło tożsamości dla programu CloudSimple vCenter.
 * **Usługa Azure Storage** do przechowywania kopii zapasowych, obrazów i innych danych z chmury prywatnej.

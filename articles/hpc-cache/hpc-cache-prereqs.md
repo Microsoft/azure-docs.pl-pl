@@ -3,19 +3,35 @@ title: Wymagania wstępne dotyczące pamięci podręcznej platformy Azure HPC
 description: Wymagania wstępne dotyczące korzystania z pamięci podręcznej platformy Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 06/01/2020
+ms.author: v-erkel
+ms.openlocfilehash: d7a5bfe56a17ecc2377be7b59dcbe3254d813a0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106512"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513252"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
 Przed rozpoczęciem korzystania z Azure Portal tworzenia nowej pamięci podręcznej platformy Azure HPC upewnij się, że środowisko spełnia te wymagania.
+
+## <a name="video-overviews"></a>Przeglądy wideo
+
+Obejrzyj te filmy wideo, aby zapoznać się z krótkim omówieniem składników systemu oraz o tym, czego potrzebują.
+
+(Kliknij obraz wideo lub link, aby obejrzeć).
+
+* [Jak to działa](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) — objaśnia sposób współdziałania pamięci podręcznej platformy Azure HPC z magazynem i klientami
+
+  [![obraz miniatury wideo: Azure HPC cache: jak działa (kliknij, aby odwiedzić stronę wideo)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [Wymagania wstępne](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) — opis wymagań dotyczących magazynu serwera nas, usługi Azure Blob Storage, dostępu do sieci i dostępu klienta
+
+  [![obraz miniatury wideo: Azure HPC cache: wymagania wstępne (kliknij, aby odwiedzić stronę wideo)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+Zapoznaj się z pozostałą częścią tego artykułu, aby uzyskać szczegółowe zalecenia.
 
 ## <a name="azure-subscription"></a>Subskrypcja platformy Azure
 
@@ -115,7 +131,7 @@ Więcej informacji znajduje się w temacie [Rozwiązywanie problemów z konfigur
 
   * Jeśli nie możesz użyć `rpcinfo` polecenia, upewnij się, że te najczęściej używane porty zezwalają na ruch przychodzący i wychodzący:
 
-    | Protocol (Protokół) | Port  | Usługa  |
+    | Protokół | Port  | Usługa  |
     |----------|-------|----------|
     | TCP/UDP  | 111   | rpcbind  |
     | TCP/UDP  | 2049  | NFS      |
@@ -136,7 +152,7 @@ Więcej informacji znajduje się w temacie [Rozwiązywanie problemów z konfigur
 
 * **Dostęp do katalogu głównego** (odczyt/zapis): pamięć podręczna łączy się z systemem zaplecza jako identyfikator użytkownika 0. Sprawdź te ustawienia w systemie magazynu:
   
-  * Włącz `no_root_squash`. Ta opcja zapewnia, że zdalny użytkownik główny może uzyskać dostęp do plików należących do katalogu głównego.
+  * Włącz `no_root_squash` . Ta opcja zapewnia, że zdalny użytkownik główny może uzyskać dostęp do plików należących do katalogu głównego.
 
   * Zaznacz pole wyboru Eksportuj zasady, aby upewnić się, że nie obejmują one ograniczeń dotyczących dostępu głównego z podsieci pamięci podręcznej.
 

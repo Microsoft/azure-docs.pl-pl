@@ -7,10 +7,9 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78246969"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
@@ -27,9 +26,9 @@ W przypadku przepływu pracy kontenera Azure App Service plik ma trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Uwierzytelnianie** | 1. Zdefiniuj nazwę główną usługi. <br /> 2. Utwórz wpis tajny usługi GitHub. |
+|**Authentication** | 1. Zdefiniuj nazwę główną usługi. <br /> 2. Utwórz wpis tajny usługi GitHub. |
 |**Kompilacja** | 1. Skonfiguruj środowisko. <br /> 2. Skompiluj obraz kontenera. |
-|**Wdróż** | 1. Wdróż obraz kontenera. |
+|**Wdrażanie** | 1. Wdróż obraz kontenera. |
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
@@ -123,15 +122,15 @@ jobs:
 
 Aby wdrożyć obraz do niestandardowego kontenera w App Service, użyj `azure/webapps-container-deploy@v1` akcji. Ta akcja ma pięć parametrów:
 
-| **Konstruktora**  | **Wyjaśnienie**  |
+| **Parametr**  | **Objaśnienie**  |
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza miejscem produkcyjnym |
 | **rastrow** | Potrzeb Określ w pełni kwalifikowaną nazwę obrazu kontenera. Na przykład "myregistry.azurecr.io/nginx:latest" lub "Python: 3.7.2-Alpine/". W przypadku aplikacji z wieloma kontenerami można podać wiele nazw obrazów kontenerów (rozdzielonych w wielu wierszach) |
 | **plik konfiguracji** | Obowiązkowe Ścieżka pliku z systemem Docker — tworzenie. Powinna być w pełni kwalifikowana ścieżka lub odnosząca się do domyślnego katalogu roboczego. Wymagane dla aplikacji wielokontenerowych. |
-| **Container — polecenie** | Obowiązkowe Wprowadź polecenie uruchamiania. Na przykład uruchomienie dotnet lub NazwaPliku filename. dll |
+| **Container — polecenie** | Obowiązkowe Wprowadź polecenie uruchamiania. Na przykład filename.dll uruchomienia dotnet lub dotnet |
 
-Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji node. js do niestandardowego kontenera w App Service.
+Poniżej znajduje się przykładowy przepływ pracy do kompilowania i wdrażania aplikacji Node.js w kontenerze niestandardowym w App Service.
 
 ```yaml
 on: [push]

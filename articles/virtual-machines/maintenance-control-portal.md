@@ -3,16 +3,15 @@ title: Kontrola konserwacji maszyn wirtualnych platformy Azure przy użyciu Azur
 description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu kontroli konserwacji i Azure Portal.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: c0cb4800bdabe5eb500422fca55b3060b6422e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82139240"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676050"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Kontrolowanie aktualizacji z kontrolą konserwacji i Azure Portal
 
@@ -38,7 +37,7 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 
    ![Zrzut ekranu przedstawiający sposób dodawania tagów do konfiguracji konserwacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 
-1. Przejrzyj podsumowanie. Kliknij przycisk **Utwórz**.
+1. Przejrzyj podsumowanie. Kliknij pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sposób tworzenia konfiguracji konserwacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
 

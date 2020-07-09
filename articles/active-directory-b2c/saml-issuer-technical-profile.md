@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f7beccde92030d1e01633f4e4044849d7e91d05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d709bf02f1cb504121e52f88385d0f6c074b24a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229956"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203592"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy tokenów SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -24,13 +24,13 @@ ms.locfileid: "82229956"
 
 Azure Active Directory B2C (Azure AD B2C) emituje kilka typów tokenów zabezpieczających podczas przetwarzania poszczególnych przepływów uwierzytelniania. Profil techniczny wystawcy tokenów SAML emituje token SAML zwracanego z powrotem do aplikacji jednostki uzależnionej (dostawcy usługi). Zazwyczaj ten profil techniczny to ostatni krok aranżacji w podróży użytkownika.
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `None`. Ustaw element **OutputTokenFormat** na `SAML2`wartość.
+Atrybut **name** elementu **Protocol** musi być ustawiony na `None` . Ustaw element **OutputTokenFormat** na wartość `SAML2` .
 
-W poniższym przykładzie przedstawiono profil techniczny dla `Saml2AssertionIssuer`:
+W poniższym przykładzie przedstawiono profil techniczny dla `Saml2AssertionIssuer` :
 
-```XML
+```xml
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
   <Protocol Name="SAML2"/>
@@ -54,7 +54,7 @@ Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie 
 
 ## <a name="metadata"></a>Metadane
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | IssuerUri | Nie | Nazwa wystawcy, która pojawia się w odpowiedzi SAML. Wartość powinna być taka sama jak nazwa skonfigurowana w aplikacji jednostki uzależnionej. |
 
@@ -62,7 +62,7 @@ Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie 
 
 Element CryptographicKeys zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | MetadataSigning | Tak | Certyfikat x509 (zestaw kluczy RSA) służący do podpisywania metadanych protokołu SAML. Azure AD B2C używa tego klucza do podpisywania metadanych. |
 | SamlMessageSigning| Tak| Określ certyfikat x509 (zestaw kluczy RSA), który ma być używany do podpisywania komunikatów SAML. Azure AD B2C używa tego klucza do podpisywania wysyłania odpowiedzi `<samlp:Response>` do jednostki uzależnionej.|

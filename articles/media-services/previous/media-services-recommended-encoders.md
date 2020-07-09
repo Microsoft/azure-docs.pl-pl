@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 3c42070525fc60e45b976620513929c3d5a32341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81535098"
 ---
 # <a name="recommended-on-premises-encoders"></a>Zalecane kodery lokalne
@@ -94,4 +94,4 @@ Weryfikacja eksploatacji
 7. Zatrzymaj wydarzenie na żywo
 8. Rejestrowanie identyfikatora zasobu, opublikowanego adresu URL przesyłania strumieniowego dla archiwum na żywo oraz ustawień i wersji używanych z kodera na żywo
 
-Na koniec Wyślij zapisane ustawienia i parametry Archiwum na żywo, aby Media Services pocztą e-mail amsstreaming@microsoft.com. Po otrzymaniu Media Services wykonuje testy weryfikacyjne na przykładach z kodera na żywo. Możesz skontaktować się z Media Servicesą z pytaniami dotyczącymi tego procesu.
+Na koniec Wyślij zapisane ustawienia i parametry Archiwum na żywo, aby Media Services pocztą e-mail amsstreaming@microsoft.com . Po otrzymaniu Media Services wykonuje testy weryfikacyjne na przykładach z kodera na żywo. Możesz skontaktować się z Media Servicesą z pytaniami dotyczącymi tego procesu.

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846664"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ W tym artykule są używane następujące narzędzia:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Szablon Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Szablon usługi Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Zdarzenia platformy Service Fabric
 Service Fabric konfiguruje kilka gotowych [kanałów rejestrowania](service-fabric-diagnostics-event-generation-infra.md), których następujące kanały są wstępnie skonfigurowane z rozszerzeniem, aby wysyłać dane monitorowania i diagnostyki do tabeli magazynu lub w innym miejscu:
@@ -63,12 +63,12 @@ Teraz, gdy agregujesz zdarzenia w usłudze Azure Storage, [Skonfiguruj dzienniki
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Tworzenie klastra z rozszerzeniem diagnostyki
 Aby utworzyć klaster przy użyciu Menedżer zasobów, musisz dodać kod JSON konfiguracji diagnostyki do szablonu pełny Menedżer zasobów. Udostępniamy przykładowy szablon Menedżer zasobów klastra z pięcioma MASZYNami wirtualnymi z dodaną konfiguracją diagnostyki w ramach naszych przykładów szablonu Menedżer zasobów. Zobaczysz ją w tej lokalizacji w galerii przykładów platformy Azure: [klaster z pięcioma węzłami z przykładem szablonu Menedżer zasobów diagnostyki](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
-Aby wyświetlić ustawienia diagnostyki w szablonie Menedżer zasobów, Otwórz plik azuredeploy. JSON i Wyszukaj **IaaSDiagnostics**. Aby utworzyć klaster przy użyciu tego szablonu, wybierz przycisk **Wdróż na platformie Azure** dostępny przy poprzednim łączu.
+Aby wyświetlić ustawienia diagnostyki w szablonie Menedżer zasobów, Otwórz azuredeploy.jspliku i Wyszukaj **IaaSDiagnostics**. Aby utworzyć klaster przy użyciu tego szablonu, wybierz przycisk **Wdróż na platformie Azure** dostępny przy poprzednim łączu.
 
 Alternatywnie można pobrać przykład Menedżer zasobów, wprowadzić w nim zmiany i utworzyć klaster ze zmodyfikowanym szablonem za pomocą `New-AzResourceGroupDeployment` polecenia w oknie Azure PowerShell. Zapoznaj się z poniższym kodem parametrów przekazywanych do polecenia. Aby uzyskać szczegółowe informacje na temat sposobu wdrażania grupy zasobów przy użyciu programu PowerShell, zobacz artykuł [wdrażanie grupy zasobów z szablonem Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Dodawanie rozszerzenia diagnostyki do istniejącego klastra
-Jeśli masz istniejący klaster, który nie ma wdrożonej diagnostyki, możesz go dodać lub zaktualizować za pomocą szablonu klastra. Zmodyfikuj szablon Menedżer zasobów używany do tworzenia istniejącego klastra lub Pobierz szablon z portalu zgodnie z wcześniejszym opisem. Zmodyfikuj plik Template. JSON, wykonując następujące zadania:
+Jeśli masz istniejący klaster, który nie ma wdrożonej diagnostyki, możesz go dodać lub zaktualizować za pomocą szablonu klastra. Zmodyfikuj szablon Menedżer zasobów używany do tworzenia istniejącego klastra lub Pobierz szablon z portalu zgodnie z wcześniejszym opisem. Zmodyfikuj template.jspliku, wykonując następujące zadania:
 
 Dodaj nowy zasób magazynu do szablonu poprzez dodanie do sekcji Resources.
 
@@ -89,7 +89,7 @@ Dodaj nowy zasób magazynu do szablonu poprzez dodanie do sekcji Resources.
 },
 ```
 
- Następnie Dodaj do sekcji Parameters tuż po definicjach konta magazynu, między `supportLogStorageAccountName`. Zastąp symbol zastępczy Text *Storage wpisz tutaj* nazwę konta magazynu, którego potrzebujesz.
+ Następnie Dodaj do sekcji Parameters tuż po definicjach konta magazynu, między `supportLogStorageAccountName` . Zastąp symbol zastępczy Text *Storage wpisz tutaj* nazwę konta magazynu, którego potrzebujesz.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -111,7 +111,7 @@ Dodaj nowy zasób magazynu do szablonu poprzez dodanie do sekcji Resources.
       }
     },
 ```
-Następnie należy zaktualizować `VirtualMachineProfile` sekcję pliku Template. JSON, dodając następujący kod w tablicy rozszerzeń. Pamiętaj, aby dodać przecinek na początku lub na końcu, w zależności od tego, gdzie został wstawiony.
+Następnie należy zaktualizować `VirtualMachineProfile` sekcję template.jsw pliku, dodając następujący kod w tablicy rozszerzeń. Pamiętaj, aby dodać przecinek na początku lub na końcu, w zależności od tego, gdzie został wstawiony.
 
 ```json
 {
@@ -177,7 +177,7 @@ Następnie należy zaktualizować `VirtualMachineProfile` sekcję pliku Template
 }
 ```
 
-Po zmodyfikowaniu pliku Template. JSON zgodnie z opisem należy ponownie opublikować szablon Menedżer zasobów. Jeśli szablon został wyeksportowany, uruchomienie pliku Deploy. ps1 powoduje ponowne opublikowanie szablonu. Po wdrożeniu programu upewnij się, że **ProvisioningState** **zakończyło się pomyślnie**.
+Po zmodyfikowaniu template.jsw pliku zgodnie z opisem, należy ponownie opublikować szablon Menedżer zasobów. Jeśli szablon został wyeksportowany, uruchomienie pliku deploy.ps1 ponownie publikuje szablon. Po wdrożeniu programu upewnij się, że **ProvisioningState** **zakończyło się pomyślnie**.
 
 > [!TIP]
 > Jeśli zamierzasz wdrożyć kontenery w klastrze, Włącz funkcję funkcji wad, aby pobrać statystyki platformy Docker, dodając ją do sekcji **WadCfg > DiagnosticMonitorConfiguration** .
@@ -229,7 +229,7 @@ Dzienniki z dodatkowych kanałów są również dostępne dla kolekcji, poniżej
 >Ten kanał ma bardzo duże ilości zdarzeń, co umożliwia zbieranie zdarzeń z tego kanału szczegółowego, co pozwala na szybkie generowanie wielu śladów i zużywanie pojemności magazynu. Włącz tę opcję tylko wtedy, gdy jest to absolutnie konieczne.
 
 
-Aby włączyć **podstawowy kanał operacyjny** naszym rekomendacją dotyczącą kompleksowego rejestrowania z najmniejszą ilością szumu `EtwManifestProviderConfiguration` , `WadCfg` w szablonie będzie wyglądać następujący przykład:
+Aby włączyć **podstawowy kanał operacyjny** naszym rekomendacją dotyczącą kompleksowego rejestrowania z najmniejszą ilością szumu, `EtwManifestProviderConfiguration` w `WadCfg` szablonie będzie wyglądać następujący przykład:
 
 ```json
   "WadCfg": {
@@ -282,7 +282,7 @@ Aby włączyć **podstawowy kanał operacyjny** naszym rekomendacją dotyczącą
 
 Aby zaktualizować diagnostykę w celu zbierania dzienników z nowych kanałów EventSource, które reprezentują nową aplikację, którą zamierzasz wdrożyć, wykonaj te same czynności, które zostały opisane wcześniej w celu skonfigurowania diagnostyki dla istniejącego klastra.
 
-Zaktualizuj `EtwEventSourceProviderConfiguration` sekcję w pliku Template. JSON, aby dodać wpisy dla nowych kanałów EventSource przed zastosowaniem aktualizacji konfiguracji za pomocą polecenia `New-AzResourceGroupDeployment` programu PowerShell. Nazwa źródła zdarzenia jest definiowana jako część kodu w pliku ServiceEventSource.cs wygenerowanego przez program Visual Studio.
+Zaktualizuj `EtwEventSourceProviderConfiguration` sekcję w template.jsna pliku, aby dodać wpisy dla nowych kanałów EventSource przed zastosowaniem aktualizacji konfiguracji za pomocą `New-AzResourceGroupDeployment` polecenia programu PowerShell. Nazwa źródła zdarzenia jest definiowana jako część kodu w pliku ServiceEventSource.cs wygenerowanego przez program Visual Studio.
 
 Na przykład jeśli źródło zdarzenia ma nazwę my-EventSource, Dodaj następujący kod, aby umieścić zdarzenia z elementu my-EventSource w tabeli o nazwie MyDestinationTableName.
 
@@ -300,7 +300,7 @@ W celu zbierania liczników wydajności lub dzienników zdarzeń należy zmodyfi
 
 ## <a name="collect-performance-counters"></a>Zbieranie liczników wydajności
 
-Aby zbierać metryki wydajności z klastra, Dodaj liczniki wydajności do "WadCfg > DiagnosticMonitorConfiguration" w szablonie Menedżer zasobów dla klastra. Zobacz [monitorowanie wydajności w programie funkcji wad](service-fabric-diagnostics-perf-wad.md) , aby poznać procedurę `WadCfg` modyfikowania programu w celu zbierania określonych liczników wydajności. Informacje dotyczące [liczników wydajności Service Fabric](service-fabric-diagnostics-event-generation-perf.md) , aby uzyskać listę liczników wydajności, które zalecamy zbieranie.
+Aby zbierać metryki wydajności z klastra, Dodaj liczniki wydajności do "WadCfg > DiagnosticMonitorConfiguration" w szablonie Menedżer zasobów dla klastra. Zobacz [monitorowanie wydajności w programie funkcji wad](service-fabric-diagnostics-perf-wad.md) , aby poznać procedurę modyfikowania programu `WadCfg` w celu zbierania określonych liczników wydajności. Informacje dotyczące [liczników wydajności Service Fabric](service-fabric-diagnostics-event-generation-perf.md) , aby uzyskać listę liczników wydajności, które zalecamy zbieranie.
   
 Jeśli używasz ujścia Application Insights, zgodnie z opisem w sekcji poniżej, i chcesz, aby te metryki były wyświetlane w Application Insights, a następnie upewnij się, że nazwa ujścia została dodana w sekcji "ujścia", jak pokazano powyżej. Spowoduje to automatyczne wysłanie liczników wydajności, które są indywidualnie skonfigurowane dla zasobu Application Insights.
 
@@ -338,7 +338,7 @@ W "WadCfg" szablonu Menedżer zasobów Dodaj "ujścia", uwzględniając następu
 
     ```
 
-2. Uwzględnij ujścia `DiagnosticMonitorConfiguration` w elemencie, dodając następujący wiersz `DiagnosticMonitorConfiguration` w `WadCfg` (po prawej stronie przed `EtwProviders` zadeklarowanymi):
+2. Uwzględnij ujścia w elemencie, `DiagnosticMonitorConfiguration` dodając następujący wiersz w `DiagnosticMonitorConfiguration` `WadCfg` (po prawej stronie przed `EtwProviders` zadeklarowanymi):
 
     ```json
     "sinks": "applicationInsights"

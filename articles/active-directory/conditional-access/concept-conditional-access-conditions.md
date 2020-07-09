@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160719"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024459"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -32,6 +32,10 @@ Na przykład podczas uzyskiwania dostępu do poufnej aplikacji administrator mo�
 
 W przypadku klientów mających dostęp do usługi [Identity Protection](../identity-protection/overview-identity-protection.md)można ocenić ryzyko związane z logowaniem w ramach zasad dostępu warunkowego. Ryzyko związane z logowaniem reprezentuje prawdopodobieństwo, że dane żądanie uwierzytelnienia nie jest autoryzowane przez właściciela tożsamości. Więcej informacji na temat ryzyka związanego z logowaniem można znaleźć w artykułach, [co jest ryzykowne](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) i [jak: Konfigurowanie i Włączanie zasad ryzyka](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
+## <a name="user-risk"></a>Ryzyko użytkownika 
+
+W przypadku klientów mających dostęp do usługi [Identity Protection](../identity-protection/overview-identity-protection.md)można ocenić ryzyko użytkownika w ramach zasad dostępu warunkowego. Ryzyko użytkownika reprezentuje prawdopodobieństwo naruszenia zabezpieczeń danej tożsamości lub konta. Więcej informacji o ryzyku użytkownika można znaleźć w artykułach, [co jest ryzykowne](../identity-protection/concept-identity-protection-risks.md#user-risk) i [jak: Konfigurowanie i Włączanie zasad ryzyka](../identity-protection/howto-identity-protection-configure-risk-policies.md).
+
 ## <a name="device-platforms"></a>Platformy urządzeń
 
 Platforma urządzenia jest scharakteryzowana przez system operacyjny, który działa na urządzeniu. Usługa Azure AD identyfikuje platformę przy użyciu informacji dostarczonych przez urządzenie, takich jak ciągi agenta użytkownika. Ponieważ ciągi agentów użytkownika mogą być modyfikowane, te informacje nie są weryfikowane. Platforma urządzeń powinna być używana w połączeniu z Microsoft Intune zasadami zgodności urządzeń lub jako część instrukcji blokowej. Wartość domyślna ma zastosowanie do wszystkich platform urządzeń.
@@ -43,9 +47,6 @@ Dostęp warunkowy usługi Azure AD obsługuje następujące platformy urządzeń
 - Windows Phone
 - Windows
 - macOS
-
-> [!WARNING]
-> Firma Microsoft wie o problemie z zasadami dostępu warunkowego i urządzeniami opartymi na macOS 10.15.4. Więcej informacji można znaleźć w wpisie w blogu, [znanym problemie: dostęp warunkowy nieoczekiwanie blokuje macOS 10.15.4 Native mail Client/inne aplikacje](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 W przypadku zablokowania starszego uwierzytelniania przy użyciu warunku **other clients** można również ustawić warunek platformy urządzenia.
 
@@ -101,8 +102,8 @@ To ustawienie działa ze wszystkimi przeglądarkami. Jednak w celu spełnienia z
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| Windows Server 2012 R2 | Internet Explorer |
-| Windows Server 2008 R2 | Internet Explorer |
+| Windows Server 2012 z dodatkiem R2 | Internet Explorer |
+| Windows Server 2008 z dodatkiem R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Dlaczego widzę monit dotyczący certyfikatu w przeglądarce
@@ -115,21 +116,17 @@ Aby uzyskać pomoc techniczną dla programu Chrome w **aktualizacji systemu Wind
 
 Aby automatycznie wdrożyć to rozszerzenie w przeglądarkach programu Chrome, Utwórz następujący klucz rejestru:
 
-|    |    |
-| --- | --- |
-| Ścieżka | HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nazwa | 1 |
-| Typ | REG_SZ (ciąg) |
-| Dane | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.Google.com/Service/UPDATE2/CRX |
+- Ścieżka HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- Nazwa 1
+- Typ REG_SZ (ciąg)
+- Ppnbnpeolgkicgegkbkbjmhlideopiji danych; https \: //clients2.Google.com/Service/UPDATE2/CRX
 
 Aby uzyskać pomoc techniczną dla programu Chrome w **Windows 8.1 i 7**, Utwórz następujący klucz rejestru:
 
-|    |    |
-| --- | --- |
-| Ścieżka | HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nazwa | 1 |
-| Typ | REG_SZ (ciąg) |
-| Dane | {"wzorzec": "https://device.login.microsoftonline.com", "filter": {"wystawca": {"CN": "MS-Organization-Access"}}} |
+- Ścieżka HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- Nazwa 1
+- Typ REG_SZ (ciąg)
+- Data {"wzorzec": " https://device.login.microsoftonline.com ", "filter": {"wystawca": {"CN": "MS-Organization-Access"}}}
 
 Te przeglądarki obsługują uwierzytelnianie urządzeń, co pozwala na identyfikację i weryfikację urządzenia względem zasad. Sprawdzenie urządzenia kończy się niepowodzeniem, jeśli przeglądarka działa w trybie prywatnym.
 
@@ -167,7 +164,7 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 
 Jeśli funkcja kontroli dostępu przypisanej do zasad **wymaga zatwierdzonej aplikacji klienckiej**, użytkownik jest kierowany do instalacji i używania klienta mobilnego Outlook. W przypadku, gdy wymagane jest **uwierzytelnianie wieloskładnikowe** , których użytkownicy są Zablokowani, ponieważ uwierzytelnianie podstawowe nie obsługuje uwierzytelniania wieloskładnikowego.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Blokuj starsze uwierzytelnianie przy użyciu dostępu warunkowego](block-legacy-authentication.md)
 - [Wymaganie zatwierdzonych aplikacji klienckich z dostępem warunkowym](app-based-conditional-access.md)

@@ -4,29 +4,29 @@ description: Dowiedz się, jak przypisać role platformy Azure do lokalnej grupy
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128877"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386372"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
 Aby zarządzać urządzeniem z systemem Windows, musisz być członkiem lokalnej grupy administratorów. W ramach procesu dołączania Azure Active Directory (Azure AD) usługa Azure AD aktualizuje członkostwo tej grupy na urządzeniu. Aktualizację członkostwa można dostosować w celu spełnienia wymagań firmy. Aktualizacja członkostwa jest na przykład przydatna, jeśli chcesz umożliwić personelowi pomocy technicznej wykonywanie zadań wymagających uprawnień administratora na urządzeniu.
 
-W tym artykule wyjaśniono, jak działa aktualizacja członkostwa oraz jak można ją dostosować podczas dołączania do usługi Azure AD. Zawartość tego artykułu nie ma zastosowania do **hybrydowego** sprzężenia usługi Azure AD.
+W tym artykule wyjaśniono, jak działa aktualizacja członkostwa administratorów lokalnych i jak można ją dostosować podczas dołączania do usługi Azure AD. Zawartość tego artykułu nie dotyczy urządzeń **przyłączonych do hybrydowej usługi Azure AD** .
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Po połączeniu urządzenia z systemem Windows z usługą Azure AD przy użyciu funkcji Azure AD Join usługa Azure AD dodaje następujące zasady zabezpieczeń do lokalnej grupy administratorów na urządzeniu:
+Po połączeniu urządzenia z systemem Windows z usługą Azure AD przy użyciu funkcji Azure AD Join usługa Azure AD dodaje następujące podmioty zabezpieczeń do lokalnej grupy administratorów na urządzeniu:
 
 - Rola administratora globalnego usługi Azure AD
 - Rola administratora urządzenia usługi Azure AD 
@@ -59,10 +59,13 @@ Aby zmodyfikować rolę administratora urządzenia, należy skonfigurować **dod
 >[!NOTE]
 > Ta opcja wymaga dzierżawy Azure AD — wersja Premium. 
 
-Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie można określić zakresu administratorów urządzeń do określonego zestawu urządzeń. Aktualizacja roli administratora urządzenia nie musi mieć natychmiastowego wpływu na użytkowników, których dotyczy problem. Na urządzeniach, na których użytkownik jest już zalogowany, aktualizacja uprawnień odbywa się po *obu* poniższych akcjach:
+Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie można określić zakresu administratorów urządzeń do określonego zestawu urządzeń. Aktualizacja roli administratora urządzenia nie musi mieć natychmiastowego wpływu na użytkowników, których dotyczy problem. Na urządzeniach, na których użytkownik jest już zalogowany, podwyższenie poziomu uprawnień odbywa się po *obu* poniższych akcjach:
 
-- 4 godziny przekazały, że usługa Azure AD wystawia nowy podstawowy token odświeżania z odpowiednimi uprawnieniami. 
+- Maksymalnie 4 godziny przekazały, że usługa Azure AD wystawia nowy podstawowy token odświeżania z odpowiednimi uprawnieniami. 
 - Użytkownik wyloguje się i zaloguje się ponownie, nie blokując/Odblokuj, aby odświeżyć swój profil.
+
+>[!NOTE]
+> Powyższe akcje nie dotyczą użytkowników, którzy nie zarejestrowali się na odpowiednim urządzeniu wcześniej. W takim przypadku uprawnienia administratora są stosowane natychmiast po pierwszym zalogowaniu się do urządzenia. 
 
 ## <a name="manage-regular-users"></a>Zarządzanie regularnymi użytkownikami
 
@@ -79,16 +82,16 @@ Począwszy od wersji **Windows 10 1709** , można wykonać to zadanie na podstaw
  
 Dodatkowo można również dodać użytkowników przy użyciu wiersza polecenia:
 
-- Jeśli użytkownicy dzierżawy są synchronizowani z Active Directory lokalnych, użyj `net localgroup administrators /add "Contoso\username"`programu.
+- Jeśli użytkownicy dzierżawy są synchronizowani z Active Directory lokalnych, użyj programu `net localgroup administrators /add "Contoso\username"` .
 - Jeśli w usłudze Azure AD są tworzone użytkownicy dzierżawy, użyj`net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>Zagadnienia do rozważenia 
+## <a name="considerations"></a>Istotne zagadnienia 
 
 Nie można przypisać grup do roli administratora urządzenia. dozwolone są tylko indywidualni użytkownicy.
 
 Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie mogą one być ograniczone do określonego zestawu urządzeń.
 
-Usunięcie użytkowników z roli administratora urządzenia nadal ma uprawnienia administratora lokalnego na urządzeniu, o ile są z nim zalogowane. Uprawnienie jest odwoływane podczas następnego logowania lub po 4 godzinach, gdy zostanie wystawiony nowy podstawowy token odświeżania.
+Usunięcie użytkowników z roli administratora urządzenia nadal ma uprawnienia administratora lokalnego na urządzeniu, o ile są z nim zalogowane. Uprawnienie jest odwoływane podczas kolejnego logowania, gdy zostanie wystawiony nowy podstawowy token odświeżania. To odwołanie, podobne do podniesienia uprawnień, może trwać do maksymalnie 4 godzin.
 
 ## <a name="next-steps"></a>Następne kroki
 

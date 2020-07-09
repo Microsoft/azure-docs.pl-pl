@@ -4,9 +4,7 @@ description: Dowiedz się, jak wysyłać bezpieczne powiadomienia wypychane do a
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,11 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75530752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85248704"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpieczne wypychanie
 
@@ -50,7 +47,7 @@ Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) przyjęto z
 Ten samouczek bezpiecznego wypychania pokazuje, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek jest oparty na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , dlatego należy najpierw wykonać kroki opisane w tym samouczku.
 
 > [!NOTE]
-> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w [wprowadzenie z Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w temacie [wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -60,12 +57,12 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
 
 Aby osiągnąć ten cel, należy napisać logikę, aby pobrać bezpieczną zawartość z zaplecza aplikacji.
 
-1. W `AppDelegate.m`programie upewnij się, że aplikacja jest zarejestrowana na potrzeby powiadomień dyskretnych, aby przetworzyć identyfikator powiadomienia, który został wysłany z zaplecza. Dodaj `UIRemoteNotificationTypeNewsstandContentAvailability` opcję w didFinishLaunchingWithOptions:
+1. W programie upewnij `AppDelegate.m` się, że aplikacja jest zarejestrowana na potrzeby powiadomień dyskretnych, aby przetworzyć identyfikator powiadomienia, który został wysłany z zaplecza. Dodaj `UIRemoteNotificationTypeNewsstandContentAvailability` opcję w didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. W sekcji `AppDelegate.m` Dodaj implementację u góry z następującą deklaracją:
+2. W `AppDelegate.m` sekcji Dodaj implementację u góry z następującą deklaracją:
 
     ```objc
     @interface AppDelegate ()
@@ -126,7 +123,7 @@ Aby osiągnąć ten cel, należy napisać logikę, aby pobrać bezpieczną zawar
 
     ![][IOS1]
 
-6. W `AppDelegate.m` obszarze Dodaj następującą metodę do obsługi powiadomień wypychanych:
+6. W obszarze `AppDelegate.m` Dodaj następującą metodę do obsługi powiadomień wypychanych:
 
     ```objc
     -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler

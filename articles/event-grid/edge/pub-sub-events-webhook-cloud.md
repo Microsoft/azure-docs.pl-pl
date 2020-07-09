@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844597"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Samouczek: publikowanie, subskrybowanie zdarzeń w chmurze
@@ -67,7 +66,7 @@ W nowej funkcji wybierz pozycję **Pobierz adres URL funkcji** w prawym górnym 
 
 Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. Temat odnosi się do punktu końcowego, w którym wydawcy mogą wysyłać zdarzenia do programu.
 
-1. Utwórz plik topic2. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz topic2.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
          {
@@ -110,7 +109,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz plik subscription2. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz subscription2.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         {
@@ -159,7 +158,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 ## <a name="publish-an-event"></a>Publikowanie zdarzenia
 
-1. Utwórz plik event2. JSON z następującą zawartością. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
+1. Utwórz event2.jsprzy użyciu następującej zawartości. Szczegółowe informacje o ładunku można znaleźć w [dokumentacji interfejsu API](api.md) .
 
     ```json
         [

@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Wskazówki dotyczące wdrażania maszyn wirtualnych
   items:
+    - name: Uaktualnianie do wersji SLES 15 SP1
+      href: linux-upgrade-suse-15sp1.md
     - name: Nowe wdrożenia maszyn wirtualnych
       items:
         - name: Linux
@@ -67,6 +69,8 @@
       items:
         - name: Diagnostyka rozruchu
           href: boot-diagnostics.md
+        - name: Błąd rozruchu — wystąpił błąd odczytu z dysku
+          href: boot-error-disk-read-error-occurred.md
         - name: Błędy funkcji BitLocker
           href: troubleshoot-bitlocker-boot-error.md
         - name: Błędy z błękitnym ekranem
@@ -87,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Blokada w trakcie aktualizacji systemu Windows
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Nieoczekiwane ponowne uruchomienie lub błąd
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: Proces uruchamiania maszyny wirtualnej zablokował się
           href: troubleshoot-vm-boot-configure-update.md
         - name: Nie można uruchomić maszyny wirtualnej ze względu na menedżera rozruchu systemu Windows
@@ -95,6 +101,10 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad grupy
           href: unresponsive-vm-apply-group-policy.md
+        - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad zabezpieczeń
+          href: unresponsive-vm-apply-security-policy.md
+        - name: Błąd zatrzymania systemu Windows — stan braku pamięci
+          href: troubleshoot-windows-stop-error.md
 - name: Nie można nawiązać połączenia z maszyną wirtualną
   items:
     - name: RDP
@@ -190,6 +200,8 @@
       href: storage-resource-deletion-errors.md
     - name: Błędy podczas usuwania klasycznych zasobów magazynu
       href: storage-classic-cannot-delete-storage-account-container-vhd.md
+    - name: Wirtualny dysk twardy nie jest obsługiwany podczas tworzenia maszyny wirtualnej na platformie Azure
+      href: vhd-not-supported-vm-azure.md
     - name: Używanie wirtualizacji zagnieżdżonej
       href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Problemy z wydajnością maszyny wirtualnej

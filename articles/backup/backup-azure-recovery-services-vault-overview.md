@@ -3,12 +3,11 @@ title: Omówienie magazynów usługi Recovery Services
 description: Omówienie i porównanie między magazynami Recovery Services i magazynami Azure Backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: MT
+ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248910"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -20,7 +19,7 @@ W ramach subskrypcji platformy Azure Możesz utworzyć do 500 magazynów Recover
 
 Jeśli nadal masz magazyny kopii zapasowych, są one uaktualniane do Recovery Services magazynów. Do listopada 2017 wszystkie magazyny kopii zapasowych zostały uaktualnione do magazynów Recovery Services.
 
-Magazyny Recovery Services opierają się na Azure Resource Manager modelu platformy Azure, a magazyny kopii zapasowych opierają się na modelu Service Manager platformy Azure. Po uaktualnieniu magazynu kopii zapasowych do magazynu Recovery Services dane kopii zapasowej pozostają nienaruszone podczas procesu uaktualniania. Magazyny Recovery Services udostępniają funkcje niedostępne dla magazynów kopii zapasowych, na przykład:
+Magazyny Recovery Services opierają się na Azure Resource Manager modelu platformy Azure, jednak magazyny kopii zapasowych opierają się na modelu Service Manager platformy Azure. Po uaktualnieniu magazynu kopii zapasowych do magazynu Recovery Services dane kopii zapasowej pozostają nienaruszone podczas procesu uaktualniania. Magazyny Recovery Services udostępniają funkcje niedostępne dla magazynów kopii zapasowych, na przykład:
 
 - **Udoskonalone funkcje ułatwiające zabezpieczanie danych kopii zapasowych**: w Recovery Services magazynów Azure Backup zapewnia funkcje zabezpieczeń w celu ochrony kopii zapasowych w chmurze. Funkcje zabezpieczeń zapewniają możliwość zabezpieczenia kopii zapasowych i bezpiecznego odzyskiwania danych, nawet jeśli naruszone są serwery produkcyjne i zapasowe. [Dowiedz się więcej](backup-azure-security-feature.md)
 

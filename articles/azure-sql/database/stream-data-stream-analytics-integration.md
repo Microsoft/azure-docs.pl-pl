@@ -1,5 +1,5 @@
 ---
-title: Przesyłanie strumieniowe danych przy użyciu integracji Stream Analytics (wersja zapoznawcza)
+title: Przesyłanie strumieniowe danych przy użyciu integracji Azure Stream Analytics (wersja zapoznawcza)
 description: Aby przesyłać strumieniowo dane do Azure SQL Database, użyj integracji Azure Stream Analytics.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,15 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: ea129902e5ab30a5d7f7a70c3606d4aa73cd84a5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044654"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345363"
 ---
-# <a name="stream-data-into-azure-sql-database-using-stream-analytics-integration-preview"></a>Przesyłanie strumieniowe danych do Azure SQL Database przy użyciu integracji Stream Analytics (wersja zapoznawcza)
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+# <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Przesyłanie strumieniowe danych do Azure SQL Database przy użyciu integracji Azure Stream Analytics (wersja zapoznawcza)
 
-Użytkownicy mogą teraz pozyskiwanie, przetwarzać, wyświetlać i analizować dane przesyłane strumieniowo w czasie rzeczywistym w tabeli bezpośrednio z bazy danych SQL w Azure Portal przy użyciu [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). To środowisko umożliwia korzystanie z wielu różnych scenariuszy, takich jak połączone samochodu, zdalne monitorowanie, wykrywanie oszustw i wiele innych. W Azure Portal można wybrać źródło zdarzeń (centrum zdarzeń/IoT Hub), wyświetlić przychodzące zdarzenia w czasie rzeczywistym i wybrać tabelę do przechowywania zdarzeń. Możesz również napisać zapytania dotyczące języka zapytań Stream Analytics w portalu, aby przekształcić zdarzenia przychodzące i przechowywać je w wybranej tabeli. Ten nowy punkt wejścia stanowi uzupełnienie środowiska tworzenia i konfiguracji, które już istnieją w Stream Analytics. To środowisko jest uruchamiane z kontekstu bazy danych, dzięki czemu można szybko skonfigurować zadanie Stream Analytics i bezproblemowo nawigować między Azure SQL Database i Stream Analytics środowiska.
+Użytkownicy mogą teraz pozyskiwanie, przetwarzać, wyświetlać i analizować dane przesyłane strumieniowo w czasie rzeczywistym w tabeli bezpośrednio z bazy danych w Azure SQL Database. Działają one w Azure Portal przy użyciu [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md). To środowisko umożliwia korzystanie z wielu różnych scenariuszy, takich jak połączone samochodu, zdalne monitorowanie, wykrywanie oszustw i wiele innych. W Azure Portal można wybrać źródło zdarzeń (centrum zdarzeń/IoT Hub), wyświetlić przychodzące zdarzenia w czasie rzeczywistym i wybrać tabelę do przechowywania zdarzeń. Możesz również napisać zapytania dotyczące języka zapytań Azure Stream Analytics w portalu, aby przekształcić zdarzenia przychodzące i przechowywać je w wybranej tabeli. Ten nowy punkt wejścia stanowi uzupełnienie środowiska tworzenia i konfiguracji, które już istnieją w Stream Analytics. To środowisko jest uruchamiane z kontekstu bazy danych, dzięki czemu można szybko skonfigurować zadanie Stream Analytics i bezproblemowo nawigować między bazą danych w Azure SQL Database i Stream Analytics środowiska.
 
 ![Przepływ Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics-flow.png)
 
@@ -32,7 +30,7 @@ Użytkownicy mogą teraz pozyskiwanie, przetwarzać, wyświetlać i analizować 
 - Dodatkowa łatwość użycia z podglądem danych: Podgląd danych przychodzących ze źródła zdarzeń (centrum zdarzeń/IoT Hub) w kontekście wybranej tabeli
 
 > [!IMPORTANT]
-> Zadanie Azure Stream Analytics może wyprowadzać dane wyjściowe do Azure SQL Database, wystąpienia zarządzanego Azure SQL lub Azure Synapse (dawniej Azure SQL Data Warehouse). Aby uzyskać więcej informacji, zobacz dane [wyjściowe](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Zadanie Azure Stream Analytics może wyprowadzać dane wyjściowe do Azure SQL Database, wystąpienia zarządzanego Azure SQL lub usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse). Aby uzyskać więcej informacji, zobacz dane [wyjściowe](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,12 +42,12 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 ## <a name="configure-stream-analytics-integration"></a>Konfigurowanie integracji usługi Stream Analytics
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do bazy danych, w której chcesz pozyskać dane przesyłane strumieniowo. Wybierz pozycję **Stream Analytics (wersja zapoznawcza)**.
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)
 
-3. Aby rozpocząć pozyskiwanie danych przesyłanych strumieniowo do tej bazy danych SQL, wybierz pozycję **Utwórz** i nadaj jej nazwę zadanie przesyłania strumieniowego, a następnie wybierz kolejno pozycje **Dalej: dane wejściowe**.
+3. Aby rozpocząć pozyskiwanie danych przesyłanych strumieniowo do tej bazy danych, wybierz pozycję **Utwórz** i nadaj jej nazwę zadanie przesyłania strumieniowego, a następnie wybierz kolejno pozycje **Dalej: dane wejściowe**.
 
     ![Tworzenie zadania Stream Analytics](./media/stream-data-stream-analytics-integration/create-job.png)
 
@@ -108,18 +106,18 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
    - **Jednostki przesyłania strumieniowego**: Azure Stream Analytics są wyceniane według liczby jednostek przesyłania strumieniowego wymaganych do przetworzenia danych w usłudze. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/).
    - **Obsługa błędów danych wyjściowych**:  
      - Ponów próbę: w przypadku wystąpienia błędu Azure Stream Analytics ponawianie próby zapisu zdarzenia przez czas do momentu pomyślnego zapisu. Nie ma limitu czasu dla ponownych prób. Ostatecznie wszystkie kolejne zdarzenia są blokowane przed przetwarzaniem przez zdarzenie, które jest ponawiane. Ta opcja jest domyślną zasadą obsługi błędów wyjścia.
-     - Upuść: Azure Stream Analytics spowoduje porzucenie zdarzenia wyjściowego, które powoduje błąd konwersji danych. Porzuconych zdarzeń nie można odzyskać na potrzeby ponownego przetwarzania później. Wszystkie błędy przejściowe (na przykład błędy sieciowe) są ponawiane niezależnie od konfiguracji wyjściowych zasad obsługi błędów.
+     - Upuść: Azure Stream Analytics spowoduje porzucenie zdarzenia wyjściowego, które powoduje błąd konwersji danych. Nie można odzyskać porzuconych zdarzeń w celu późniejszego przetworzenia. Wszystkie błędy przejściowe (na przykład błędy sieciowe) są ponawiane niezależnie od konfiguracji wyjściowych zasad obsługi błędów.
    - **SQL Database Ustawienia wyjściowe**: opcja dziedziczenia schematu partycjonowania poprzedniego kroku zapytania, aby włączyć w pełni równoległą topologię z wieloma składnikami zapisywania do tabeli. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics danych wyjściowych Azure SQL Database](../../stream-analytics/stream-analytics-sql-output-perf.md).
    - **Maksymalna liczba partii**: zalecany górny limit liczby rekordów wysyłanych z każdą zbiorczą transakcją wstawiania.  
     Aby uzyskać więcej informacji na temat obsługi błędów wyjściowych, zobacz [wyjściowe zasady błędów w Azure Stream Analytics](../../stream-analytics/stream-analytics-output-error-policy.md).  
 
      ![Uruchom zadanie](./media/stream-data-stream-analytics-integration/start-job.png)
 
-8. Po uruchomieniu zadania zobaczysz uruchomione zadanie na liście i możesz wykonać następujące czynności:
+8. Po rozpoczęciu zadania zobaczysz uruchomione zadanie na liście i możesz wykonać następujące czynności:
    - **Uruchom/Zatrzymaj zadanie**: Jeśli zadanie jest uruchomione, możesz zatrzymać zadanie. Jeśli zadanie zostało zatrzymane, można je uruchomić.
    - **Edytuj zadanie**: można edytować zapytanie. Jeśli chcesz wprowadzić więcej zmian w zadaniu, Dodaj więcej danych wejściowych/wyjściowych, a następnie otwórz zadanie w Stream Analytics. Opcja Edytuj jest wyłączona, gdy zadanie jest uruchomione.
    - **Wyświetl podgląd tabeli wyjściowej**: można wyświetlić podgląd tabeli w edytorze zapytań SQL.
-   - **Otwórz w Stream Analytics**: Otwórz zadanie w usłudze Stream Analytics, aby wyświetlić monitorowanie, debugowanie szczegółów zadania.
+   - **Otwórz w Stream Analytics**: Otwórz zadanie w Stream Analytics, aby wyświetlić monitorowanie, szczegóły debugowania zadania.
 
      ![zadania usługi Stream Analytics](./media/stream-data-stream-analytics-integration/jobs.png)
 
@@ -127,3 +125,4 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 - [Dokumentacja usługi Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)
 - [Wzorce rozwiązań usługi Azure Stream Analytics](../../stream-analytics/stream-analytics-solution-patterns.md)
+ 

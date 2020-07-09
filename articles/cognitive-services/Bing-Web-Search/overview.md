@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4cbf79abaf915e7f6e055f5bcb0d8f09de026ad5
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477467"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85604866"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Co to jest interfejs API wyszukiwania w sieci Web Bing?
 
@@ -30,7 +30,7 @@ Chcesz zobaczyć, jak to działa? Wypróbuj [Pokaz interfejsu API wyszukiwania w
 
 Wyszukiwanie w sieci Web Bing nie tylko zapewnia dostęp do natychmiastowych odpowiedzi. Udostępnia także dodatkowe funkcje i funkcje, które umożliwiają dostosowywanie wyników wyszukiwania dla użytkowników.
 
-| Funkcja | Opis |
+| Cecha | Opis |
 |---------|-------------|
 | [Sugerowanie terminów wyszukiwania w czasie rzeczywistym](../bing-autosuggest/get-suggested-search-terms.md) | Ulepsz działanie aplikacji przy użyciu interfejsu API automatycznego sugerowania Bing, aby wyświetlać sugerowane terminy wyszukiwania w miarę ich wpisywania. |
 | [Filtrowanie i ograniczanie wyników według typu zawartości](filter-answers.md) | Dostosuj i zawęź wyniki wyszukiwania za pomocą filtrów i parametrów zapytania dla stron internetowych, obrazów, wideo, bezpiecznego wyszukiwania itd. |
@@ -42,7 +42,7 @@ Wyszukiwanie w sieci Web Bing nie tylko zapewnia dostęp do natychmiastowych odp
 
 Interfejs API wyszukiwania w Internecie Bing jest łatwo wywołać z dowolnego języka programowania, który może wysyłać żądania HTTP i analizować odpowiedzi w formacie JSON. Usługa jest dostępna przy użyciu [interfejsu API REST](quickstarts/python.md) lub [bibliotek klienckich wyszukiwanie w sieci Web Bing](./quickstarts/client-libraries.md).
 
-1. [Utwórz zasób platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) dla interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
+1. [Utwórz zasób platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) dla interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [utworzyć bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).  
 2. Wyślij [żądanie do interfejs API wyszukiwania w sieci Web Bing](quickstarts/python.md).
 3. Przeanalizuj odpowiedź w formacie JSON.
 

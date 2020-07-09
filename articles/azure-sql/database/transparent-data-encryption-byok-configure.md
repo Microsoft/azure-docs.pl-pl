@@ -1,9 +1,9 @@
 ---
 title: Włącz program SQL TDE w Azure Key Vault
-titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Dowiedz się, jak skonfigurować Azure SQL Database i usługę Azure Synapse Analytics, aby rozpocząć korzystanie z funkcji Transparent Data Encryption (TDE) do szyfrowania w środowisku REST przy użyciu programu PowerShell lub interfejsu wiersza polecenia.
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
+description: Dowiedz się, jak skonfigurować Azure SQL Database i usługę Azure Synapse Analytics, aby rozpocząć korzystanie z funkcji Transparent Data Encryption (TDE) do szyfrowania w środowisku REST przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
@@ -12,17 +12,17 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a71d4f2d724584509f25c7ae458ed6ab1b415af
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051178"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981332"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell i interfejs wiersza polecenia: Włącz Transparent Data Encryption z kluczem zarządzanym przez klienta w programie Azure Key Vault
+# <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell i interfejs wiersza polecenia platformy Azure: Włącz Transparent Data Encryption z kluczem zarządzanym przez klienta w programie Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transparent Data Encryption (TDE) na platformie Azure SQL Database lub Azure Synapse Analytics (dawniej SQL DW). Aby dowiedzieć się więcej na temat obsługi TDE Azure Key Vault z integracją Bring Your Own Key (BYOK), odwiedź [TDE z kluczami zarządzanymi przez klienta w Azure Key Vault](transparent-data-encryption-byok-overview.md).
+W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transparent Data Encryption (TDE) na platformie Azure SQL Database lub Azure Synapse Analytics (dawniej SQL Data Warehouse). Aby dowiedzieć się więcej na temat obsługi TDE Azure Key Vault z integracją Bring Your Own Key (BYOK), odwiedź [TDE z kluczami zarządzanymi przez klienta w Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 ## <a name="prerequisites-for-powershell"></a>Wymagania wstępne dotyczące programu PowerShell
 
@@ -47,9 +47,9 @@ Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [instrukcje pro
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell (RM) jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
 
-## <a name="assign-an-azure-ad-identity-to-your-server"></a>Przypisywanie tożsamości usługi Azure AD do serwera
+## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>Przypisywanie tożsamości usługi Azure Active Directory (Azure AD) do serwera
 
-Jeśli masz istniejący [serwer](logical-servers.md), użyj następującego elementu, aby dodać tożsamość usługi Azure AD do serwera:
+Jeśli masz istniejący [serwer](logical-servers.md), użyj poniższego, aby dodać tożsamość usługi Azure Active Directory (Azure AD) do serwera:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
@@ -121,9 +121,9 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby zainstalować wymagany interfejs wiersza polecenia w wersji 2,0 lub nowszej i nawiązać połączenie z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie międzyplatformowego interfejsu wiersza polecenia platformy azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Aby zainstalować wymaganą wersję interfejsu wiersza polecenia platformy Azure (w wersji 2,0 lub nowszej) i nawiązać połączenie z subskrypcją platformy Azure, zobacz [Install and configure the Azure cross-platform Line Interface 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia 2,0](../../key-vault/general/manage-with-cli2.md) i [sposobu używania Key Vault nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md).
 
@@ -207,7 +207,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 - Ogólne ustawienia bazy danych można znaleźć w temacie [AZ SQL](/cli/azure/sql).
 
@@ -229,7 +229,7 @@ Jeśli wystąpi problem, sprawdź następujące kwestie:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+   # <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

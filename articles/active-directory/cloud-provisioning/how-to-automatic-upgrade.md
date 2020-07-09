@@ -8,31 +8,31 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f09b2fc685881aa8a7bd87b6a855c657af9ef43d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d0f7093f44a284ec26907d7c4bcfb2bdfd04763
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190317"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360915"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Azure AD Connect agenta aprowizacji w chmurze: automatyczne uaktualnianie
 
 Upewnienie się, że Azure Active Directory (Azure AD) łączenie z agentem aprowizacji usług w chmurze jest zawsze aktualne, dzięki funkcji automatycznego uaktualniania.
 
-Agent jest instalowany w tym miejscu: "program files\Azure AD Connecting Agent\AADConnectProvisioningAgent.exe"
+Agent jest instalowany w tym miejscu: "program files\Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"
 
 Aby sprawdzić wersję, kliknij prawym przyciskiem myszy plik wykonywalny i wybierz polecenie Właściwości, a następnie Szczegóły.
 
 ![Wersja pliku agenta](media/how-to-automatic-upgrade/agent1.png)
 
-Agent Aktualizator jest zainstalowany w tym miejscu: "program files\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"
+Agent Aktualizator jest zainstalowany w tym miejscu: "program files\Azure AD Connect Updater\AzureADConnectAgentUpdater.exe Agent aprowizacji"
 
 Aby sprawdzić wersję, kliknij prawym przyciskiem myszy plik wykonywalny i wybierz polecenie Właściwości, a następnie Szczegóły.
 

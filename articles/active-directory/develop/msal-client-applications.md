@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81534316"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Klient publiczny i poufne aplikacje klienckie
@@ -26,15 +26,15 @@ Biblioteka Microsoft Authentication Library (MSAL) definiuje dwóch typów klien
 - **Poufne aplikacje klienckie** to aplikacje działające na serwerach (aplikacje sieci Web, aplikacje interfejsu Web API, a nawet aplikacje usługi/demon). Są one uznawane za trudne do uzyskania dostępu i z tego powodu mogą utrzymać klucz tajny aplikacji. Poufne klienci mogą przechowywać wpisy tajne czasu konfiguracji. Każde wystąpienie klienta ma odrębną konfigurację (w tym identyfikator klienta i klucz tajny klienta). Te wartości są trudne dla użytkowników końcowych do wyodrębnienia. Aplikacja sieci Web to najbardziej typowy klient poufny. Identyfikator klienta jest udostępniany za pośrednictwem przeglądarki sieci Web, ale wpis tajny jest przesyłany tylko w kanale zaplecza i nigdy nie jest bezpośrednio narażony.
 
     Poufne aplikacje klienckie: <BR>
-    ![Demon/](media/msal-client-applications/web-app.png) ![usługa internetowego](media/msal-client-applications/web-api.png) ![interfejsu API aplikacji sieci Web](media/msal-client-applications/daemon-service.png)
+    ![](media/msal-client-applications/web-app.png) ![ ](media/msal-client-applications/web-api.png) ![ Demon/usługa internetowego interfejsu API aplikacji sieci Web](media/msal-client-applications/daemon-service.png)
 
 - **Publiczne aplikacje klienckie** to aplikacje działające na urządzeniach lub komputerach stacjonarnych lub w przeglądarce sieci Web. Nie są one zaufane, aby bezpiecznie przechowywać wpisy tajne aplikacji, więc uzyskują dostęp tylko do interfejsów API sieci Web w imieniu użytkownika. (Obsługują tylko publiczne przepływy klientów). Klienci publiczni nie mogą przechowywać wpisów tajnych czasu konfiguracji, więc nie mają kluczy tajnych klienta.
 
     Publiczne aplikacje klienckie: <BR>
-    ![](media/msal-client-applications/desktop-app.png) ![Aplikacja mobilna interfejsu API](media/msal-client-applications/browserless-app.png) ![bezprzeglądarka aplikacji klasycznych](media/msal-client-applications/mobile-app.png)
+    ![](media/msal-client-applications/desktop-app.png) ![ ](media/msal-client-applications/browserless-app.png) Aplikacja mobilna interfejsu API bezprzeglądarka aplikacji klasycznych ![](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
-> W MSAL. js nie ma rozdzielania publicznych i poufnych aplikacji klienckich.  MSAL. js reprezentuje aplikacje klienckie jako aplikacje oparte na agencie użytkownika, klienci publiczni, w których kod klienta jest wykonywany w agencie użytkownika, takim jak przeglądarka sieci Web. Ci klienci nie przechowują wpisów tajnych, ponieważ kontekst przeglądarki jest otwarty.
+> W MSAL.js nie ma rozdzielania publicznych i poufnych aplikacji klienckich.  MSAL.js reprezentuje aplikacje klienckie jako aplikacje oparte na agencie użytkownika, klienci publiczni, w których kod klienta jest wykonywany w agencie użytkownika, takim jak przeglądarka sieci Web. Ci klienci nie przechowują wpisów tajnych, ponieważ kontekst przeglądarki jest otwarty.
 
 ## <a name="comparing-the-client-types"></a>Porównywanie typów klienta
 Poniżej przedstawiono niektóre podobieństwa i różnice między klientem publicznym i poufnymi aplikacjami klienckimi:
@@ -49,4 +49,4 @@ Jeśli użyto biblioteki ADAL, możesz zauważyć, że w przeciwieństwie do kon
 Dowiedz się więcej:
 - [Opcje konfiguracji aplikacji klienckiej](msal-client-application-configuration.md)
 - [Tworzenie wystąpienia aplikacji klienckich za pomocą MSAL.NET](msal-net-initializing-client-applications.md)
-- [Tworzenie wystąpienia aplikacji klienckich przy użyciu MSAL. js](msal-js-initializing-client-applications.md)
+- [Tworzenie wystąpienia aplikacji klienckich przy użyciu MSAL.js](msal-js-initializing-client-applications.md)

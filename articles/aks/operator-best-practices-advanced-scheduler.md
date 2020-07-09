@@ -5,12 +5,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617533"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077851"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zaawansowanych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-Gdy ten temat zostanie wdrożony, na przykład `kubectl apply -f gpu-toleration.yaml`przy użyciu, Kubernetes można pomyślnie zaplanować na węzłach z zastosowaniem zmiany. Ta izolacja logiczna pozwala kontrolować dostęp do zasobów w klastrze.
+Gdy ten temat zostanie wdrożony, na przykład przy użyciu `kubectl apply -f gpu-toleration.yaml` , Kubernetes można pomyślnie zaplanować na węzłach z zastosowaniem zmiany. Ta izolacja logiczna pozwala kontrolować dostęp do zasobów w klastrze.
 
 Po zastosowaniu przydziałów należy współpracować z programistami i właścicielami aplikacji, aby mogli definiować wymagane tolerowania w ich wdrożeniach.
 
@@ -101,10 +101,10 @@ Przydziały i tolerowania są używane do logicznego izolowania zasobów przy u�
 Spójrzmy na przykład węzłów z dużą ilością pamięci. Te węzły mogą dać preferencję do zasobników, które żądają dużej ilości pamięci. Aby upewnić się, że zasoby nie są bezczynne, zezwalają również na uruchamianie innych zasobów.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
-Specyfikacja pod, następnie dodaje `nodeSelector` właściwość w celu zdefiniowania selektora węzła, który pasuje do zestawu etykiet w węźle:
+Specyfikacja pod, następnie dodaje `nodeSelector` Właściwość w celu zdefiniowania selektora węzła, który pasuje do zestawu etykiet w węźle:
 
 ```yaml
 kind: Pod
@@ -122,7 +122,7 @@ spec:
       limits:
         cpu: 4.0
         memory: 16Gi
-    nodeSelector:
+  nodeSelector:
       hardware: highmem
 ```
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803967"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
 
@@ -55,7 +55,7 @@ Aby zarządzać kosztami i złożonością, rekordy połączeń nie reprezentuj�
 |SourceIp |Adres IP źródła |
 |DestinationIp |Adres IP miejsca docelowego |
 |DestinationPort |Numer portu miejsca docelowego |
-|Protocol (Protokół) |Protokół używany do nawiązywania połączenia.  Wartości to *TCP*. |
+|Protokół |Protokół używany do nawiązywania połączenia.  Wartości to *TCP*. |
 
 W celu uwzględnienia wpływu grupowania informacje o liczbie zgrupowanych połączeń fizycznych są dostępne w następujących właściwościach rekordu:
 
@@ -133,7 +133,7 @@ Każdy rekord w VMBoundPort jest identyfikowany przez następujące pola:
 |Proces | Tożsamość procesu (lub grup procesów), z którym jest skojarzony port.|
 |Przegląd | Adres IP portu (może to być symbol wieloznaczny adresu IP, *0.0.0.0*) |
 |Port |Numer portu |
-|Protocol (Protokół) | Protokół.  Przykład: *TCP* lub *UDP* (tylko *protokół TCP* jest obecnie obsługiwany).|
+|Protokół | Protokół.  Przykład: *TCP* lub *UDP* (tylko *protokół TCP* jest obecnie obsługiwany).|
  
 Tożsamość, którą port pochodzi od powyższych pięciu pól i jest przechowywana we właściwości identyfikator portu. Ta właściwość może służyć do szybkiego znajdowania rekordów dla określonego portu w czasie. 
 
@@ -159,7 +159,7 @@ Rekordy z typem *VMComputer* mają dane spisu dla serwerów z agentem zależnoś
 | Właściwość | Opis |
 |:--|:--|
 |TenantId | Unikatowy identyfikator obszaru roboczego |
-|SourceSystem | *Szczegółowe informacje* | 
+|SourceSystem | *Insights* | 
 |TimeGenerated | Sygnatura czasowa rekordu (UTC) |
 |Computer (Komputer) | Nazwa FQDN komputera | 
 |Identyfikator agenta | Unikatowy identyfikator agenta Log Analytics |
@@ -221,7 +221,7 @@ Rekordy z typem *VMProcess* mają dane spisu dla procesów połączonych z proto
 | Właściwość | Opis |
 |:--|:--|
 |TenantId | Unikatowy identyfikator obszaru roboczego |
-|SourceSystem | *Szczegółowe informacje* | 
+|SourceSystem | *Insights* | 
 |TimeGenerated | Sygnatura czasowa rekordu (UTC) |
 |Computer (Komputer) | Nazwa FQDN komputera | 
 |Identyfikator agenta | Unikatowy identyfikator agenta Log Analytics |
@@ -240,7 +240,7 @@ Rekordy z typem *VMProcess* mają dane spisu dla procesów połączonych z proto
 |ProductVersion | Wersja produktu |
 |FileVersion | Wersja pliku |
 |Ścieżka pliku wykonywalnego |Ścieżka pliku wykonywalnego |
-|Wiersza polecenia | Wiersz polecenia |
+|CommandLine | Wiersz polecenia |
 |WorkingDirectory | Katalog roboczy |
 |Usługi | Tablica usług, w ramach których proces jest wykonywany |
 |UserName | Konto, na którym proces jest wykonywany |
@@ -437,7 +437,7 @@ Rekordy z typem *InsightsMetrics* mają dane dotyczące wydajności z systemu op
 | Właściwość | Opis |
 |:--|:--|
 |TenantId | Unikatowy identyfikator obszaru roboczego |
-|SourceSystem | *Szczegółowe informacje* | 
+|SourceSystem | *Insights* | 
 |TimeGenerated | Godzina zebrania wartości (UTC) |
 |Computer (Komputer) | Nazwa FQDN komputera | 
 |Origin | *vm.azm.ms* |
@@ -454,10 +454,10 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 | Przestrzeń nazw | Nazwa | Opis | Jednostka | Tagi |
 |:---|:---|:---|:---|:---|
 | Computer (Komputer)    | Puls             | Puls komputera                        | | |
-| Memory (Pamięć)      | AvailableMB           | Bajty dostępne pamięci                    | Bajty          | memorySizeMB — całkowity rozmiar pamięci|
+| Memory (Pamięć)      | AvailableMB           | Bajty dostępne pamięci                    | Megabajtach      | memorySizeMB — całkowity rozmiar pamięci|
 | Sieć     | WriteBytesPerSecond   | Bajty zapisu sieci na sekundę            | BytesPerSecond | NetworkDeviceId — identyfikator urządzenia<br>bajty — całkowita liczba wysłanych bajtów |
 | Sieć     | ReadBytesPerSecond    | Bajty odczytu sieci na sekundę             | BytesPerSecond | networkDeviceId — identyfikator urządzenia<br>bajty — całkowita liczba odebranych bajtów |
-| Procesor   | UtilizationPercentage | Procent użycia procesora          | Wartość procentowa        | totalCpus — łączna liczba procesorów CPU |
+| Procesor   | UtilizationPercentage | Procent użycia procesora          | Procent        | totalCpus — łączna liczba procesorów CPU |
 | Dysk logiczny | WritesPerSecond       | Zapisy dysku logicznego na sekundę            | CountPerSecond | mountId — identyfikator instalacji urządzenia |
 | Dysk logiczny | WriteLatencyMs        | Opóźnienie zapisu na dysku logicznym w milisekundach    | )   | mountId — identyfikator instalacji urządzenia |
 | Dysk logiczny | WriteBytesPerSecond   | Bajty zapisu dysku logicznego na sekundę       | BytesPerSecond | mountId — identyfikator instalacji urządzenia |
@@ -466,8 +466,8 @@ Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione
 | Dysk logiczny | ReadsPerSecond        | Odczyty dysku logicznego na sekundę             | CountPerSecond | mountId — identyfikator instalacji urządzenia |
 | Dysk logiczny | ReadLatencyMs         | Opóźnienie odczytu z dysku logicznego (milisekundy)     | )   | mountId — identyfikator instalacji urządzenia |
 | Dysk logiczny | ReadBytesPerSecond    | Bajty odczytu z dysku logicznego na sekundę        | BytesPerSecond | mountId — identyfikator instalacji urządzenia |
-| Dysk logiczny | FreeSpacePercentage   | Procent wolnego miejsca na dysku logicznym        | Wartość procentowa        | mountId — identyfikator instalacji urządzenia |
-| Dysk logiczny | FreeSpaceMB           | Bajty wolnego miejsca na dysku logicznym             | Bajty          | mountId — identyfikator instalacji urządzenia<br>diskSizeMB — całkowity rozmiar dysku |
+| Dysk logiczny | FreeSpacePercentage   | Procent wolnego miejsca na dysku logicznym        | Procent        | mountId — identyfikator instalacji urządzenia |
+| Dysk logiczny | FreeSpaceMB           | Bajty wolnego miejsca na dysku logicznym             | Megabajtach      | mountId — identyfikator instalacji urządzenia<br>diskSizeMB — całkowity rozmiar dysku |
 | Dysk logiczny | BytesPerSecond        | Liczba bajtów dysku logicznego na sekundę             | BytesPerSecond | mountId — identyfikator instalacji urządzenia |
 
 

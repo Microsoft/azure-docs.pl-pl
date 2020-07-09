@@ -13,10 +13,9 @@ ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
 ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79249999"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal
@@ -127,7 +126,7 @@ Po rozwiązaniu błędów Odłącz istniejący wirtualny dysk twardy z maszyny w
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Wymiana dysku systemu operacyjnego dla maszyny wirtualnej
 
-Azure Portal teraz obsługuje zmianę dysku systemu operacyjnego maszyny wirtualnej. W tym celu wykonaj następujące czynności:
+Azure Portal teraz obsługuje zmianę dysku systemu operacyjnego maszyny wirtualnej. W tym celu wykonaj następujące kroki:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
 1. W okienku po lewej stronie wybierz pozycję **dyski**, a następnie wybierz pozycję **Zamień dysk systemu operacyjnego**.

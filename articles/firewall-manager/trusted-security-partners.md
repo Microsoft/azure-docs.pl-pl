@@ -1,33 +1,30 @@
 ---
-title: Co to są zaufani partnerzy usługi Azure firewall Manager (wersja zapoznawcza)
-description: Informacje o zaufanych partnerach usługi Azure firewall Manager
+title: Co to są dostawcy usługi Azure firewall Manager Security Partners?
+description: Informacje o dostawcach partnera zabezpieczeń usługi Azure firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436769"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563600"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>Co to są zaufani partnerzy w zakresie zabezpieczeń (wersja zapoznawcza)?
+# <a name="what-are-security-partner-providers"></a>Kim są dostawcy partnerów w zakresie zabezpieczeń?
 
-> [!IMPORTANT]
-> Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+*Dostawcy usług partnerskich zabezpieczeń* w Menedżerze zapory platformy Azure mogą używać znanych, najlepszych w swojej organizacji ofert zabezpieczeń jako usługi (SECaaS) w celu ochrony dostępu do Internetu użytkownikom.
 
-*Zaufani partnerzy zabezpieczeń (wersja zapoznawcza)* w Menedżerze zapory platformy Azure umożliwiają używanie znanych, najlepszych w swojej organizacji ofert zabezpieczeń jako usługi (SECaaS) w celu ochrony dostępu do Internetu użytkownikom.
-
-Dzięki szybkiej konfiguracji można zabezpieczyć koncentrator z obsługiwanym partnerem zabezpieczeń oraz skierować i przefiltrować ruch internetowy z sieci wirtualnych (sieci wirtualnych) lub lokalizacji rozgałęzień w obrębie regionu. Odbywa się to za pomocą zautomatyzowanego zarządzania trasami bez konieczności konfigurowania tras zdefiniowanych przez użytkownika i zarządzania nimi (UDR).
+Dzięki szybkiej konfiguracji można zabezpieczyć koncentrator z obsługiwanym partnerem zabezpieczeń oraz skierować i przefiltrować ruch internetowy z sieci wirtualnych (sieci wirtualnych) lub lokalizacji rozgałęzień w obrębie regionu. Można to zrobić za pomocą zautomatyzowanego zarządzania trasami bez konieczności konfigurowania tras zdefiniowanych przez użytkownika (UDR) i zarządzania nimi.
 
 Można wdrożyć zabezpieczone centra skonfigurowane z wybranym przez partnera zabezpieczeń w wielu regionach świadczenia usługi Azure, aby uzyskać łączność i bezpieczeństwo użytkowników w dowolnym miejscu na świecie w tych regionach. Dzięki możliwości korzystania z oferty partnera zabezpieczeń na potrzeby ruchu aplikacji internetowych/SaaS oraz zapory platformy Azure dla ruchu prywatnego w zabezpieczonych centrach możesz teraz rozpocząć tworzenie swojej krawędzi zabezpieczeń na platformie Azure, która jest blisko globalnie dystrybuowanych użytkowników i aplikacji.
 
-W przypadku tej wersji zapoznawczej obsługiwane partnerzy zabezpieczeń to **rozwiązania Zscaler** i **iboss**. Obsługiwane regiony to WestCentralUS, NorthCentralUS, zachodnie, WestUS2 i wschód.
+Obsługiwane partnerzy zabezpieczeń to **rozwiązania Zscaler**, **Check Point** (wersja zapoznawcza) i **iboss** (wersja zapoznawcza).
 
-![Zaufani partnerzy w zakresie zabezpieczeń](media/trusted-security-partners/trusted-security-partners.png)
+![Dostawcy partnerów w zakresie zabezpieczeń](media/trusted-security-partners/trusted-security-partners.png)
 
 ## <a name="key-scenarios"></a>Najważniejsze scenariusze
 
@@ -42,18 +39,8 @@ Korzystając z partnerów zabezpieczeń, można filtrować ruch internetowy w na
    Korzystaj z łączności z platformą Azure i globalnej dystrybucji, aby łatwo dodać filtrowanie NSaaS innych firm do scenariuszy internetowych. Możesz skompilować globalną sieć tranzytową i krawędź zabezpieczeń przy użyciu wirtualnej sieci WAN platformy Azure.
 
 Obsługiwane są następujące scenariusze:
--   Sieć wirtualna z Internetem za pośrednictwem oferty partnera innej firmy.
--   Rozgałęzianie do Internetu za pośrednictwem oferty partnera innej firmy.
--   Rozgałęzienie do Internetu za pośrednictwem oferty partnera innej firmy, pozostałej części ruchu prywatnego (szprych-to-szprych, szprychy do gałęzi) za pośrednictwem zapory platformy Azure.
-
-Następujący scenariusz nie jest obsługiwany:
-
-- Sieci wirtualnej z Internetem za pośrednictwem oferty partnerskiej nie można łączyć z zaporą platformy Azure dla ruchu prywatnego. Zobacz następujące ograniczenia.
-
-## <a name="current-limitations"></a>Bieżące ograniczenia
-
-- W przypadku połączeń wirtualnych z Internetem nie można mieszać dodawania zapory platformy Azure dla ruchu prywatnego i oferty partnera dla ruchu internetowego. Można wysłać ruch internetowy do zapory platformy Azure lub oferty partnera zabezpieczeń innej firmy w zabezpieczonym koncentratorze wirtualnym, ale nie w obu tych przypadkach. 
-- W każdym koncentratorze wirtualnym można wdrożyć maksymalnie jednego partnera zabezpieczeń. Jeśli musisz zmienić dostawcę, musisz usunąć istniejącego partnera i dodać nowy.
+- Sieć wirtualna/gałąź do Internetu za pośrednictwem dostawcy usługi Security partner oraz inny ruch (szprych do rozgałęzienia, gałąź do szprych) za pośrednictwem zapory platformy Azure.
+- Sieć wirtualna/gałąź do Internetu przez dostawcę partnera zabezpieczeń
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Najlepsze rozwiązania dotyczące filtrowania ruchu internetowego w zabezpieczonych centrach wirtualnych
 
@@ -75,9 +62,8 @@ W przypadku pakietu Office 365 opóźnienie sieci i wydajność mają kluczowe z
 
 [Zasady łączności sieciowej z pakietem office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) są wywoływane w przypadku połączeń sieciowych z pakietem Office 365, które mają być kierowane lokalnie z gałęzi użytkownika lub urządzenia przenośnego i bezpośrednio przez Internet do najbliższego punktu sieci firmy Microsoft.
 
-Ponadto połączenia pakietu Office 365 są silnie zaszyfrowane w celu zachowania poufności i używania wydajnych protokołów ze względów wydajnościowych. To sprawia, że nie jest to praktyczne i ma wpływ na te połączenia z tradycyjnymi rozwiązaniami zabezpieczeń na poziomie sieci. Z tego względu zdecydowanie zalecamy, aby klienci wysyłali ruch pakietu Office 365 bezpośrednio z gałęzi przed wysłaniem reszty ruchu przez platformę Azure. Firma Microsoft współpracuje z kilkoma dostawcami rozwiązań SD-WAN, którzy integrują się z platformą Azure i pakietem Office 365 i ułatwiają klientom korzystanie z pakietu Office 365 Direct i lokalnego zagadnień internetowego. Aby uzyskać szczegółowe informacje, zobacz [Jak mogę ustawić moje zasady usługi O365 za pośrednictwem wirtualnej sieci WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
-
+Ponadto połączenia pakietu Office 365 są szyfrowane w celu zachowania poufności i używania wydajnych protokołów ze względów wydajnościowych. To sprawia, że nie jest to praktyczne i ma wpływ na te połączenia z tradycyjnymi rozwiązaniami zabezpieczeń na poziomie sieci. Z tego względu zdecydowanie zalecamy, aby klienci wysyłali ruch pakietu Office 365 bezpośrednio z gałęzi przed wysłaniem reszty ruchu przez platformę Azure. Firma Microsoft współpracuje z kilkoma dostawcami rozwiązań SD-WAN, którzy integrują się z platformą Azure i pakietem Office 365 i ułatwiają klientom korzystanie z pakietu Office 365 Direct i lokalnego zagadnień internetowego. Aby uzyskać szczegółowe informacje, zobacz [Jak mogę ustawić moje zasady usługi O365 za pośrednictwem wirtualnej sieci WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdróż zaufaną ofertę zabezpieczeń w zabezpieczonym centrum przy użyciu Menedżera zapory platformy Azure](deploy-trusted-security-partner.md).
+[Wdróż ofertę partnera zabezpieczeń w zabezpieczonym centrum przy użyciu Menedżera zapory platformy Azure](deploy-trusted-security-partner.md).

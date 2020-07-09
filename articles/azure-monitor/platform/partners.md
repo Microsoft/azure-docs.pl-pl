@@ -3,13 +3,12 @@ title: Partnerzy, którzy integrują się z Azure Monitor
 description: Dowiedz się więcej o partnerach Azure Monitor i sposobach ich integracji z dokumentacją.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: a9ba9972bcdd5b7e4bd1c4b489dcea08b5502a72
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854936"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248975"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
 
@@ -106,7 +105,8 @@ Grafana to aplikacja Open Source, która umożliwia wizualizację danych metryk 
 
 ![Logo InfluxData](./media/partners/Influxdata.png)
 
-InfluxData, twórca InfluxDB, oferuje nowoczesne platformy typu open source stworzone od podstaw do analizowania metryk i zdarzeń (dane szeregów czasowych) dla aplikacji DevOps i IoT. Bez względu na to, czy dane pochodzą od ludzi, czujników czy maszyn, InfluxData zapewnia deweloperom szybsze i prostsze tworzenie aplikacji do monitorowania, analizy i IoT. Na podstawie Francisco San InfluxData ponad 420 klientów obejmuje firmy Cisco, eBay, IBM i Siemens.
+InfluxData to twórca bazy danych InfluxDB typu open source. Nasze technologie są przeznaczone do obsługi dużych ilości danych z sygnaturami czasowymi generowanych przez urządzenia IoT, aplikacje, sieci, kontenery i komputery. Jesteśmy w organizacji, aby pomóc deweloperom i organizacjom, takim jak IBM, Visa, Siemens, Tesla i NASA, przechowywać i analizować dane w czasie rzeczywistym, umożliwiając im szybsze tworzenie aplikacji monitorowania, analiz i IoT oraz skalowanie. Możliwości zbierania metryk i zdarzeń monitora Microsoft Azure można rozszerzyć za pomocą agenta telegraf InfluxData, dzięki czemu użytkownicy firmy Microsoft mogą korzystać z wiodącego rozwiązania bazy danych szeregów czasowych i korzystać z rosnących wkładów typu "open source" w telegraf.
+
 
 [Przejdź do dokumentacji.][influxdata-doc]
 
@@ -115,7 +115,7 @@ InfluxData, twórca InfluxDB, oferuje nowoczesne platformy typu open source stwo
 
 ![Logo monitora logiki](./media/partners/logicmonitor.png)
 
-LogicMonitor&reg; to wiodąca platforma monitorowania wydajności oparta na SaaS, dla złożonej infrastruktury IT. Z zakresu tysięcy technologii LogicMonitor zapewnia szczegółowy wgląd w wydajność infrastruktury i aplikacji. Kompleksowe monitorowanie platformy Azure w chmurze umożliwia użytkownikom skorelowanie wydajności chmury platformy Azure, zasobów lokalnych i hybrydowych w chmurze — wszystko to — wszystko to z jednej platformy. Automatyczne odnajdowanie zasobów, wbudowane w szablony monitorowania, wstępnie skonfigurowane progi alertów i dostosowywalne pulpity nawigacyjne są łączone w celu zapewnienia pomyślnej szybkości, elastyczności i widoczności.
+LogicMonitor &reg; to wiodąca platforma monitorowania wydajności oparta na SaaS, dla złożonej infrastruktury IT. Z zakresu tysięcy technologii LogicMonitor zapewnia szczegółowy wgląd w wydajność infrastruktury i aplikacji. Kompleksowe monitorowanie platformy Azure w chmurze umożliwia użytkownikom skorelowanie wydajności chmury platformy Azure, zasobów lokalnych i hybrydowych w chmurze — wszystko to — wszystko to z jednej platformy. Automatyczne odnajdowanie zasobów, wbudowane w szablony monitorowania, wstępnie skonfigurowane progi alertów i dostosowywalne pulpity nawigacyjne są łączone w celu zapewnienia pomyślnej szybkości, elastyczności i widoczności.
 
 [Przejdź do dokumentacji.][logicmonitor-doc]
 
@@ -137,9 +137,9 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 **Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację jakości monitorowania usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
 
-Dowiedz się więcej
+Więcej tutaj
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Pobierz](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.
 
 

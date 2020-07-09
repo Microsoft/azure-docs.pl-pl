@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f50373b0841b7626bc405f121015c15ae1587a97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80108577"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201416"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny Application Insights w Azure AD B2C zasadach niestandardowych
 
@@ -30,9 +30,9 @@ Azure Active Directory B2C (Azure AD B2C) obsługuje wysyłanie danych zdarzeń 
 * Utwórz powiadomienia z Application Insights.
 
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary`. Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 Poniższy przykład przedstawia wspólny profil techniczny Application Insights. Inne Application Insights profile techniczne obejmują AzureInsightsą, aby wykorzystać jej konfigurację.  
 
@@ -45,9 +45,9 @@ Poniższy przykład przedstawia wspólny profil techniczny Application Insights.
 
 ## <a name="input-claims"></a>Oświadczenia wejściowe
 
-Element **InputClaims** zawiera listę oświadczeń do wysłania do Application Insights. Możesz również zmapować nazwę swojego żądania na nazwę, która ma być wyświetlana w Application Insights. Poniższy przykład pokazuje, jak wysyłać telemetrii do Application Insights. Właściwości zdarzenia są dodawane za pomocą składni `{property:NAME}`, gdzie nazwa jest dodawana do zdarzenia. Wartość domyślna może być wartością statyczną lub wartością, która jest rozpoznawana przez jeden z obsługiwanych elementów [rozpoznawania](claim-resolver-overview.md).
+Element **InputClaims** zawiera listę oświadczeń do wysłania do Application Insights. Możesz również zmapować nazwę swojego żądania na nazwę, która ma być wyświetlana w Application Insights. Poniższy przykład pokazuje, jak wysyłać telemetrii do Application Insights. Właściwości zdarzenia są dodawane za pomocą składni `{property:NAME}` , gdzie nazwa jest dodawana do zdarzenia. Wartość domyślna może być wartością statyczną lub wartością, która jest rozpoznawana przez jeden z obsługiwanych elementów [rozpoznawania](claim-resolver-overview.md).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
   <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
@@ -73,7 +73,7 @@ Element CryptographicKeys nie jest używany.
 
 ## <a name="metadata"></a>Metadane
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | InstrumentationKey| Tak | [Klucz instrumentacji](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)Application Insights, który będzie używany do rejestrowania zdarzeń. | 
 | Deweloper| Nie | Wartość logiczna wskazująca, czy tryb dewelopera jest włączony. Możliwe wartości: `true` lub `false` (wartość domyślna). Te metadane sterują sposobem buforowania zdarzeń. W środowisku programistycznym z minimalnym woluminem zdarzeń włączenie trybu dewelopera powoduje natychmiastowe wysyłanie zdarzeń do Application Insights.|  

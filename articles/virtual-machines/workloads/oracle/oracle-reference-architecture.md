@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: borisb
 ms.custom: ''
 ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683487"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
@@ -154,7 +154,7 @@ Oprogramowanie Oracle fragmentowania obejmuje głównie następujące składniki
 
 - Bazy **danych fragmentu** — bazy danych fragmentu są bazami danych Oracle. Każda baza danych jest replikowana przy użyciu funkcji Oracle Data Guard w konfiguracji brokera z włączonym szybkim rozpoczęciem pracy w trybie failover (FSFO). Nie ma potrzeby konfigurowania trybu failover i replikacji w usłudze Data Guard dla każdego fragmentuu. Jest to automatycznie konfigurowane i wdrażane podczas tworzenia udostępnionej bazy danych. Jeśli określony fragmentu ulegnie awarii, udostępnianie oprogramowania Oracle automatycznie przejdzie w tryb failover w przypadku połączeń bazy danych z poziomu podstawowego do stanu wstrzymania.
 
-Bazy danych Oracle podzielonej na fragmenty można wdrożyć i zarządzać nimi za pomocą dwóch interfejsów: graficznego interfejsu użytkownika kontroli chmury programu Oracle `GDSCTL` Enterprise Manager i/lub narzędzia wiersza polecenia. Można nawet monitorować różne fragmentów pod kątem dostępności i wydajności przy użyciu funkcji Cloud Control. `GDSCTL DEPLOY` Polecenie automatycznie tworzy fragmentów i odpowiadające im detektory. Ponadto to polecenie automatycznie wdraża konfigurację replikacji używaną na poziomie fragmentu o wysokiej dostępności określonej przez administratora.
+Bazy danych Oracle podzielonej na fragmenty można wdrożyć i zarządzać nimi za pomocą dwóch interfejsów: graficznego interfejsu użytkownika kontroli chmury programu Oracle Enterprise Manager i/lub `GDSCTL` narzędzia wiersza polecenia. Można nawet monitorować różne fragmentów pod kątem dostępności i wydajności przy użyciu funkcji Cloud Control. `GDSCTL DEPLOY`Polecenie automatycznie tworzy fragmentów i odpowiadające im detektory. Ponadto to polecenie automatycznie wdraża konfigurację replikacji używaną na poziomie fragmentu o wysokiej dostępności określonej przez administratora.
 
 Istnieją różne sposoby fragmentu bazy danych:
 

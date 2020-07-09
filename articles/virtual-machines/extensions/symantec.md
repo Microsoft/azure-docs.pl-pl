@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
 ms.openlocfilehash: 63f9441d4df9551405c2ab2bf8c0c67d7de5753c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77919910"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Jak zainstalować i skonfigurować Endpoint Protection firmy Symantec na maszynie wirtualnej z systemem Windows
@@ -33,7 +32,7 @@ Jeśli masz istniejącą subskrypcję firmy Symantec dla rozwiązania lokalnego,
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>Instalowanie Endpoint Protection firmy Symantec na istniejącej maszynie wirtualnej
 Przed rozpoczęciem należy wykonać następujące czynności:
 
-* Moduł Azure PowerShell w wersji 0.8.2 lub nowszej na komputerze służbowym. Możesz sprawdzić wersję Azure PowerShell, która została zainstalowana za pomocą polecenia **Get-module platformy Azure | format-Table Version** . Instrukcje i link do najnowszej wersji znajdują się w temacie [How to Install and Configure Azure PowerShell][PS]. Zaloguj się do subskrypcji platformy Azure za `Add-AzureAccount`pomocą polecenia.
+* Moduł Azure PowerShell w wersji 0.8.2 lub nowszej na komputerze służbowym. Możesz sprawdzić wersję Azure PowerShell, która została zainstalowana za pomocą polecenia **Get-module platformy Azure | format-Table Version** . Instrukcje i link do najnowszej wersji znajdują się w temacie [How to Install and Configure Azure PowerShell][PS]. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Add-AzureAccount` .
 * Agent maszyny wirtualnej uruchomiony na maszynie wirtualnej platformy Azure.
 
 Najpierw upewnij się, że Agent maszyny wirtualnej jest już zainstalowany na maszynie wirtualnej. Wypełnij pola Nazwa usługi w chmurze i nazwa maszyny wirtualnej, a następnie uruchom następujące polecenia w wierszu polecenia Azure PowerShell na poziomie administratora. Zamień wszystkie elementy w cudzysłowie, w tym znaki < i >.
@@ -65,7 +64,7 @@ Aby sprawdzić, czy rozszerzenie zabezpieczeń firmy Symantec zostało zainstalo
 2. W przypadku systemu Windows Server 2008 R2 kliknij przycisk **Start > Symantec Endpoint Protection**. W przypadku systemu Windows Server 2012 lub Windows Server 2012 R2 na ekranie startowym wpisz **Symantec**, a następnie kliknij pozycję **Symantec Endpoint Protection**.
 3. Na karcie **stan** okna **stanu — Symantec Endpoint Protection** Zastosuj aktualizacje lub Uruchom ponownie, jeśli jest to wymagane.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 [Jak zalogować się do maszyny wirtualnej z systemem Windows Server][Logon]
 
 [Rozszerzenia i funkcje maszyny wirtualnej platformy Azure][Ext]

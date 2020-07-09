@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847249"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Wprowadzenie do monitorowania usługi w chmurze
 
@@ -54,7 +54,7 @@ Po utworzeniu każdej roli program Visual Studio dodaje do niej rozszerzenie Dia
 
 Po pierwsze, jeśli nie masz **klasycznego** konta magazynu, [Utwórz je](../storage/common/storage-account-create.md). Upewnij się, że konto magazynu zostało utworzone przy użyciu określonego **klasycznego modelu wdrażania** .
 
-Następnie przejdź do zasobu **konta magazynu (klasycznego)** . Wybierz pozycję **Ustawienia** > **klucze dostępu** i skopiuj wartość **podstawowe parametry połączenia** . Ta wartość jest potrzebna dla usługi w chmurze. 
+Następnie przejdź do zasobu **konta magazynu (klasycznego)** . Wybierz pozycję **Ustawienia**  >  **klucze dostępu** i skopiuj wartość **podstawowe parametry połączenia** . Ta wartość jest potrzebna dla usługi w chmurze. 
 
 Istnieją dwa pliki konfiguracji, które należy zmienić w celu zapewnienia, że Zaawansowana diagnostyka zostanie włączona, **ServiceDefinition. csdef** i **ServiceConfiguration. cscfg**.
 
@@ -71,7 +71,7 @@ W pliku **ServiceDefinition. csdef** Dodaj nowe ustawienie o nazwie `Microsoft.W
 
 Definiuje nowe ustawienie, które należy dodać do każdego pliku **ServiceConfiguration. cscfg** . 
 
-Najprawdopodobniej masz dwa pliki **. cscfg** o nazwie **ServiceConfiguration. Cloud. cscfg** do wdrożenia na platformie Azure oraz jedną nazwę **ServiceConfiguration. local. cscfg** , która jest używana na potrzeby wdrożeń lokalnych w emulowanym środowisku. Otwórz i Zmień każdy plik **. cscfg** . Dodaj ustawienie o nazwie `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ustaw wartość na **podstawowe parametry połączenia** klasycznego konta magazynu. Jeśli chcesz użyć magazynu lokalnego na komputerze deweloperskim, użyj `UseDevelopmentStorage=true`programu.
+Najprawdopodobniej masz dwa pliki **. cscfg** o nazwie **ServiceConfiguration. Cloud. cscfg** do wdrożenia na platformie Azure oraz jedną nazwę **ServiceConfiguration. local. cscfg** , która jest używana na potrzeby wdrożeń lokalnych w emulowanym środowisku. Otwórz i Zmień każdy plik **. cscfg** . Dodaj ustawienie o nazwie `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` . Ustaw wartość na **podstawowe parametry połączenia** klasycznego konta magazynu. Jeśli chcesz użyć magazynu lokalnego na komputerze deweloperskim, użyj programu `UseDevelopmentStorage=true` .
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

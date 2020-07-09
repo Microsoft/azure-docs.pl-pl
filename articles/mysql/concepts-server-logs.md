@@ -7,10 +7,9 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81271985"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Wolne dzienniki zapytań w Azure Database for MySQL
@@ -19,7 +18,7 @@ W Azure Database for MySQL dziennik wolnych zapytań jest dostępny dla użytkow
 Aby uzyskać więcej informacji na temat dziennika wolnych zapytań programu MySQL, zobacz [sekcję dziennik wolnych zapytań](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)dotyczących usługi MySQL Reference.
 
 ## <a name="configure-slow-query-logging"></a>Skonfiguruj rejestrowanie wolnych zapytań 
-Domyślnie dziennik wolnych zapytań jest wyłączony. Aby włączyć tę opcję, `slow_query_log` ustaw wartość na na. Tę funkcję można włączyć za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. 
+Domyślnie dziennik wolnych zapytań jest wyłączony. Aby włączyć tę opcję, ustaw wartość `slow_query_log` na na. Tę funkcję można włączyć za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. 
 
 Inne parametry, które można dostosować, obejmują:
 
@@ -27,16 +26,16 @@ Inne parametry, które można dostosować, obejmują:
 - **log_slow_admin_statements**: Jeśli on zawiera instrukcje administracyjne, takie jak ALTER_TABLE i ANALYZE_TABLE w instrukcjach zapisanych do slow_query_log.
 - **log_queries_not_using_indexes**: określa, czy zapytania, które nie używają indeksów są rejestrowane w slow_query_log
 - **log_throttle_queries_not_using_indexes**: ten parametr ogranicza liczbę zapytań, które nie są indeksami, które można zapisać w dzienniku wolnych zapytań. Ten parametr zacznie obowiązywać, gdy log_queries_not_using_indexes jest ustawiona na wartość włączone.
-- **log_output**: Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. W przypadku braku "Dziennik wolnych zapytań zostanie zapisany tylko w przypadku dzienników diagnostyki Azure Monitor. 
+- **log_output**: Jeśli "plik" umożliwia zapisanie dziennika wolnych zapytań do lokalnego magazynu serwera i Azure monitor dzienników diagnostycznych. Jeśli jest to opcja „None”, dziennik wolnych zapytań zostanie zapisany wyłącznie w dziennikach diagnostycznych usługi Azure Monitor. 
 
 > [!IMPORTANT]
-> Jeśli tabele nie są indeksowane, ustawienie parametrów `log_queries_not_using_indexes` i `log_throttle_queries_not_using_indexes` na wartość on może wpłynąć na wydajność programu MySQL, ponieważ wszystkie zapytania uruchomione względem tych nieindeksowanych tabel zostaną zazapisywane w dzienniku wolnych zapytań.<br><br>
+> Jeśli tabele nie są indeksowane, ustawienie `log_queries_not_using_indexes` parametrów i na wartość `log_throttle_queries_not_using_indexes` on może wpłynąć na wydajność programu MySQL, ponieważ wszystkie zapytania uruchomione względem tych nieindeksowanych tabel zostaną zazapisywane w dzienniku wolnych zapytań.<br><br>
 > Jeśli planujesz rejestrowanie wolnych zapytań przez dłuższy czas, zaleca się ustawienie wartości `log_output` "none" (brak). W przypadku wybrania opcji "plik" te dzienniki są zapisywane w magazynie serwera lokalnego i mogą mieć wpływ na wydajność programu MySQL. 
 
 Więcej opisów parametrów dziennika wolnych zapytań można znaleźć w [dokumentacji dziennika wolnych zapytań](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) programu MySQL.
 
 ## <a name="access-slow-query-logs"></a>Dostęp do dzienników wolnych zapytań
-Dostępne są dwie opcje uzyskiwania dostępu do dzienników wolnych zapytań w Azure Database for MySQL: lokalnego magazynu serwera lub Azure Monitor dzienników diagnostycznych. Ta wartość jest ustawiana `log_output` za pomocą parametru.
+Dostępne są dwie opcje uzyskiwania dostępu do dzienników wolnych zapytań w Azure Database for MySQL: lokalnego magazynu serwera lub Azure Monitor dzienników diagnostycznych. Ta wartość jest ustawiana za pomocą `log_output` parametru.
 
 W przypadku magazynu serwera lokalnego można wyświetlić i pobrać wolne dzienniki zapytań przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. W Azure Portal przejdź do serwera w Azure Portal. W obszarze nagłówek **monitorowania** wybierz stronę **Dzienniki serwera** . Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [Konfigurowanie i dostęp do dzienników wolnych zapytań za pomocą interfejsu wiersza polecenia platformy Azure](howto-configure-server-logs-in-cli.md) 
 
@@ -84,7 +83,7 @@ W poniższej tabeli opisano zawartość poszczególnych dzienników. W zależno�
 | `\_ResourceId` | Identyfikator URI zasobu |
 
 > [!Note]
-> W `sql_text`przypadku programu Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
+> W przypadku programu `sql_text` Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analizowanie dzienników w dziennikach Azure Monitor
 

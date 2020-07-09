@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c0e4d281880b3870c81352efca146ece7100be74
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67059207"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964315"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Używanie elementów webhook platformy Azure do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET 
 
@@ -64,7 +64,7 @@ Sekcja [Ustawienia aplikacji](media-services-dotnet-how-to-use-azure-functions.m
 |Nazwa|Definicja|Przykład| 
 |---|---|---|
 |SigningKey |Klucz podpisywania.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | Adres punktu końcowego elementu webhook. Po utworzeniu funkcji elementu webhook można skopiować adres URL z linku **adresu URL funkcji Pobierz funkcję** . | https:\//juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
+|WebHookEndpoint | Adres punktu końcowego elementu webhook. Po utworzeniu funkcji elementu webhook można skopiować adres URL z linku **adresu URL funkcji Pobierz funkcję** . | https: \/ /juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
 
 ## <a name="create-a-function"></a>Tworzenie funkcji
 
@@ -75,15 +75,15 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 3. Wybierz **ogólny element webhook — C#**.
 4. Nadaj nazwę elementowi webhook i naciśnij pozycję **Utwórz**.
 
-### <a name="files"></a>Pliki
+### <a name="files"></a>Files
 
-Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Domyślnie funkcja jest skojarzona z plikami **Function. JSON** i **Run. CSX** (C#). Musisz dodać plik **Project. JSON** . W pozostałej części tej sekcji przedstawiono definicje tych plików.
+Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Domyślnie funkcja jest skojarzona z plikami **function.json** i **Run. CSX** (C#). Musisz dodać **project.js** do pliku. W pozostałej części tej sekcji przedstawiono definicje tych plików.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
-Plik Function. JSON definiuje powiązania funkcji i inne ustawienia konfiguracji. Środowisko uruchomieniowe używa tego pliku do określenia zdarzeń do monitorowania oraz przekazywania danych do i zwracania danych z wykonywania funkcji. 
+function.jsw pliku definiuje powiązania funkcji i inne ustawienia konfiguracji. Środowisko uruchomieniowe używa tego pliku do określenia zdarzeń do monitorowania oraz przekazywania danych do i zwracania danych z wykonywania funkcji. 
 
 ```json
 {
@@ -106,7 +106,7 @@ Plik Function. JSON definiuje powiązania funkcji i inne ustawienia konfiguracji
 
 #### <a name="projectjson"></a>project.json
 
-Plik Project. JSON zawiera zależności. 
+project.jsw pliku zawiera zależności. 
 
 ```json
 {
@@ -354,25 +354,27 @@ Zapisz i Uruchom funkcję.
 
 Po wyzwoleniu elementu webhook w powyższym przykładzie zostaną wygenerowane następujące dane wyjściowe.
 
-    C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-    Request Body = 
-    {
-      "MessageVersion": "1.1",
-      "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
-      "EventType": 4,
-      "TimeStamp": "2017-02-16T03:59:53.3041122Z",
-      "Properties": {
-        "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
-        "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
-        "NewState": "Finished",
-        "OldState": "Processing",
-        "AccountName": "mediapkeewmg5c3peq",
-        "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
-        "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
-      }
-    }
-    
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```output
+C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/otification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
+Request Body = 
+{
+  "MessageVersion": "1.1",
+  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
+  "EventType": 4,
+  "TimeStamp": "2017-02-16T03:59:53.3041122Z",
+  "Properties": {
+    "JobId": "nb:jid:UUID:badd996c-8d7c-4ae0-9bc1-bd7f1902dbdd",
+    "TaskId": "nb:tid:UUID:80e26fb9-ee04-4739-abd8-2555dc24639f",
+    "NewState": "Finished",
+    "OldState": "Processing",
+    "AccountName": "mediapkeewmg5c3peq",
+    "AccountId": "301912b0-659e-47e0-9bc4-6973f2be3424",
+    "NotificationEndPointId": "nb:nepid:UUID:cb5d707b-4db8-45fe-a558-19f8d3306093"
+  }
+}
+
+URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+```
 
 ## <a name="add-a-webhook-to-your-encoding-task"></a>Dodawanie elementu webhook do zadania kodowania
 
@@ -380,7 +382,7 @@ W tej sekcji zostanie wyświetlony kod, który dodaje powiadomienie elementu web
 
 1. Utwórz nową aplikację konsoli języka C# w programie Visual Studio. Uzupełnij informacje w polach Nazwa, Lokalizacja i Nazwa rozwiązania, a następnie kliknij przycisk OK.
 2. Zainstaluj Azure Media Services przy użyciu narzędzia [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) .
-3. Zaktualizuj plik App. config o odpowiednie wartości: 
+3. Plik App.config aktualizacji z odpowiednimi wartościami: 
     
    * Azure Media Services informacje o połączeniu, 
    * adres URL elementu webhook, który oczekuje na otrzymywanie powiadomień, 
@@ -520,5 +522,5 @@ W tej sekcji zostanie wyświetlony kod, który dodaje powiadomienie elementu web
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -3,20 +3,20 @@ title: Chmury i regiony, w których jest dostępny Azure Media Services wersja 3
 description: Ten artykuł zawiera informacje o chmurach i regionach platformy Azure, w których jest dostępny Azure Media Services wersja 3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
+ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382974"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196238"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Chmury i regiony, w których istnieje Azure Media Services v3
 
@@ -24,7 +24,7 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 
 ## <a name="feature-availability-in-azure-clouds"></a>Dostępność funkcji w chmurach platformy Azure
 
-| Funkcja|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
+| Cecha|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure Event Grid](reacting-to-media-services-events.md) | Dostępne | Niedostępne | Niedostępne | Niedostępne |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
@@ -32,6 +32,19 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 | [StandardEncoderPreset](encoding-concept.md) | Dostępne | Dostępne | Dostępne | Dostępne |
 | [LiveEvents](live-streaming-overview.md) | Dostępne | Dostępne | Dostępne | Dostępne |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Dostępne | Dostępne | Dostępne | Dostępne |
+
+## <a name="feature-availability-in-preview"></a>Dostępność funkcji w wersji zapoznawczej
+
+[LiveTranscription](live-transcription.md) jest dostępny w następujących regionach:
+
+- Azja Południowo-Wschodnia
+- Europa Zachodnia
+- Europa Północna
+- Wschodnie stany USA
+- Środkowe stany USA
+- Południowo-środkowe stany USA
+- Zachodnie stany USA 2
+- Brazylia Południowa
 
 ## <a name="regionsgeographieslocations"></a>Regiony/lokalizacje geograficzne/lokalizacje
 
@@ -69,7 +82,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 |Punkty końcowe||
 | --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Uwierzytelnianie | `https://login.microsoftonline.com/` |
+| Authentication | `https://login.microsoftonline.com/` |
 | Odbiorcy tokenu | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -77,7 +90,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 |Punkty końcowe||
 | --- | --- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Uwierzytelnianie | `https://login.microsoftonline.us/` |
+| Authentication | `https://login.microsoftonline.us/` |
 | Odbiorcy tokenu | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure (Niemcy)
@@ -85,7 +98,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Punkty końcowe ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Uwierzytelnianie | `https://login.microsoftonline.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
 | Odbiorcy tokenu | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet
@@ -93,12 +106,12 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 |Punkty końcowe||
 | --- | --- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Uwierzytelnianie | `https://login.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
 | Odbiorcy tokenu |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>Zobacz także
 
-* [Regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Regiony świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Obszary geograficzne platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

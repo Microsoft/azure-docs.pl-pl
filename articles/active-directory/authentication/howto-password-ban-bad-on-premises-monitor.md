@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 841b12b27447c4d32d25b8eb0d5bcf51ff8e2932
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80652609"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550285"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorowanie i przeglądanie dzienników lokalnych środowisk ochrony haseł usługi Azure AD
 
@@ -63,7 +63,7 @@ Zdarzenia dyskretne umożliwiające przechwycenie tych sytuacji są rejestrowane
 
 Zdarzenia związane z walidacją hasła klucza są następujące:
 
-|   |Zmiana hasła |Ustawiono hasło|
+| Wydarzenie |Zmiana hasła |Ustawiono hasło|
 | --- | :---: | :---: |
 |Chodzenia |10014 |10015|
 |Niepowodzenie (z powodu zasad haseł klienta)| 10016, 30002| 10017, 30003|
@@ -79,7 +79,7 @@ Gdy para zdarzeń jest rejestrowana razem, oba zdarzenia są jawnie skojarzone p
 
 ### <a name="password-validation-summary-reporting-via-powershell"></a>Raportowanie podsumowania hasła w programie PowerShell
 
-`Get-AzureADPasswordProtectionSummaryReport` Polecenie cmdlet może służyć do tworzenia widoku podsumowania działania weryfikacji hasła. Przykładowe dane wyjściowe tego polecenia cmdlet są następujące:
+`Get-AzureADPasswordProtectionSummaryReport`Polecenie cmdlet może służyć do tworzenia widoku podsumowania działania weryfikacji hasła. Przykładowe dane wyjściowe tego polecenia cmdlet są następujące:
 
 ```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
@@ -96,7 +96,7 @@ PasswordSetErrors               : 1
 
 Zakres raportowania polecenia cmdlet może mieć wpływ na użycie jednego z parametrów – lasu,-Domain lub – kontroler domeny. Nie określono parametru – Las.
 
-`Get-AzureADPasswordProtectionSummaryReport` Polecenie cmdlet działa przez wykonanie zapytania dotyczącego dziennika zdarzeń administratora agenta kontrolera domeny, a następnie zliczanie łącznej liczby zdarzeń, które odpowiadają każdej wyświetlonej kategorii wynik. Poniższa tabela zawiera mapowania między każdym wynikiem i odpowiednim IDENTYFIKATORem zdarzenia:
+`Get-AzureADPasswordProtectionSummaryReport`Polecenie cmdlet działa przez wykonanie zapytania dotyczącego dziennika zdarzeń administratora agenta kontrolera domeny, a następnie zliczanie łącznej liczby zdarzeń, które odpowiadają każdej wyświetlonej kategorii wynik. Poniższa tabela zawiera mapowania między każdym wynikiem i odpowiednim IDENTYFIKATORem zdarzenia:
 
 |Get-AzureADPasswordProtectionSummaryReport Właściwość |Identyfikator odpowiedniego zdarzenia|
 | :---: | :---: |
@@ -109,7 +109,7 @@ Zakres raportowania polecenia cmdlet może mieć wpływ na użycie jednego z par
 |PasswordChangeErrors |10012|
 |PasswordSetErrors |10013|
 
-Należy pamiętać, `Get-AzureADPasswordProtectionSummaryReport` że polecenie cmdlet jest dostarczane w postaci skryptu programu PowerShell, a jeśli to możliwe, może być przywoływane bezpośrednio w następującej lokalizacji:
+Należy pamiętać, że `Get-AzureADPasswordProtectionSummaryReport` polecenie cmdlet jest dostarczane w postaci skryptu programu PowerShell, a jeśli to możliwe, może być przywoływane bezpośrednio w następującej lokalizacji:
 
 `%ProgramFiles%\WindowsPowerShell\Modules\AzureADPasswordProtection\Get-AzureADPasswordProtectionSummaryReport.ps1`
 
@@ -250,7 +250,7 @@ Oprogramowanie usługi Agent DC instaluje obiekt licznika wydajności o nazwie *
 
 ## <a name="dc-agent-discovery"></a>Odnajdywanie agenta kontrolera domeny
 
-`Get-AzureADPasswordProtectionDCAgent` Polecenie cmdlet może służyć do wyświetlania podstawowych informacji o różnych AGENTACH kontrolera domeny działających w domenie lub lesie. Te informacje są pobierane z obiektów serviceConnectionPoint zarejestrowanych przez uruchomione usługi agenta kontrolera domeny.
+`Get-AzureADPasswordProtectionDCAgent`Polecenie cmdlet może służyć do wyświetlania podstawowych informacji o różnych agentach kontrolera domeny działających w domenie lub lesie. Te informacje są pobierane z obiektów serviceConnectionPoint zarejestrowanych przez uruchomione usługi agenta kontrolera domeny.
 
 Przykładowe dane wyjściowe tego polecenia cmdlet są następujące:
 
@@ -343,7 +343,7 @@ Jeśli wystąpi błąd polecenia cmdlet i rozwiązanie and\or problemu nie jest 
 
 ## <a name="proxy-discovery"></a>Odnajdywanie serwera proxy
 
-`Get-AzureADPasswordProtectionProxy` Polecenie cmdlet może służyć do wyświetlania podstawowych informacji o różnych usługach proxy ochrony haseł usługi Azure AD działających w domenie lub lesie. Te informacje są pobierane z obiektów usługi serviceConnectionPoint zarejestrowanych przez uruchomione usługi serwera proxy.
+`Get-AzureADPasswordProtectionProxy`Polecenie cmdlet może służyć do wyświetlania podstawowych informacji o różnych usługach proxy ochrony haseł usługi Azure AD działających w domenie lub lesie. Te informacje są pobierane z obiektów usługi serviceConnectionPoint zarejestrowanych przez uruchomione usługi serwera proxy.
 
 Przykładowe dane wyjściowe tego polecenia cmdlet są następujące:
 

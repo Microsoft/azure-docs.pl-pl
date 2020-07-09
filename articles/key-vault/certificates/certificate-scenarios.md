@@ -3,19 +3,17 @@ title: Rozpoczynanie pracy z certyfikatami usługi Key Vault
 description: Poniższe scenariusze przedstawiają kilka podstawowych zastosowań usługi zarządzania certyfikatami Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5881314f0d3c62e7d6181ebd7bb27a5e0e87729a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765101"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Rozpoczynanie pracy z certyfikatami usługi Key Vault
 Poniższe scenariusze przedstawiają kilka podstawowych zastosowań usługi zarządzania certyfikatami Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
@@ -97,13 +95,19 @@ Uwaga — Ten proces, przez krok 3,1, jest operacją jednorazowej.
 -   Ponadto użytkownik może edytować zasady, które są funkcjonalne w czasie importowania, ale zawierają wartości domyślne, gdy nie zostały określone żadne informacje podczas importowania. Np. Brak informacji o wystawcy  
 
 ### <a name="formats-of-import-we-support"></a>Obsługiwane formaty importowania
+Azure Key Vault obsługuje pliki certyfikatu PEM i pfx na potrzeby importowania certyfikatów do magazynu kluczy.
 Obsługujemy następujący typ importu dla formatu pliku PEM. Jeden certyfikat szyfrowany przez PEM wraz z zakodowanym niezaszyfrowanym kluczem PKCS # 8, który ma następujące
 
 -----ROZPOCZNIJ CERTYFIKAT----------CERTYFIKAT KOŃCOWY-----
 
 -----ROZPOCZNIJ KLUCZ PRYWATNY----------KOŃCOWYM KLUCZEM PRYWATNYM-----
 
-W przypadku scalania certyfikatów obsługiwane są 2 formaty oparte na PEM. Można scalić pojedynczy certyfikat zakodowany PKCS # 8 lub plik P7B szyfrowany algorytmem Base64. -----ROZPOCZNIJ CERTYFIKAT----------CERTYFIKAT KOŃCOWY-----
+Podczas importowania certyfikatu należy upewnić się, że klucz jest dołączony do samego pliku. Jeśli klucz prywatny jest osobno w innym formacie, należy połączyć klucz z certyfikatem. Niektóre urzędy certyfikacji dostarczają certyfikaty w różnych formatach, dlatego przed zaimportowaniem certyfikatu upewnij się, że są one w formacie PEM lub PFX. 
+
+### <a name="formats-of-merge-csr-we-support"></a>Formaty w formacie scalania CSR obsługiwane przez nas
+AKV obsługuje 2 formaty oparte na PEM. Możliwe jest scalenie pojedynczego certyfikatu zakodowanego PKCS # 8 lub szyfrowania Base64 (łańcuch certyfikatów podpisanych przez urząd certyfikacji). 
+
+-----ROZPOCZNIJ CERTYFIKAT----------CERTYFIKAT KOŃCOWY-----
 
 Obecnie nie obsługujemy kluczy EC w formacie PEM.
 
@@ -123,4 +127,3 @@ Obecnie nie obsługujemy kluczy EC w formacie PEM.
   (4) — wybrany urząd certyfikacji odpowiada za pomocą certyfikatu x509.  
 
   (5) — Twoja aplikacja kończy Tworzenie nowego certyfikatu przy użyciu fuzji certyfikatu x509 z urzędu certyfikacji.
-

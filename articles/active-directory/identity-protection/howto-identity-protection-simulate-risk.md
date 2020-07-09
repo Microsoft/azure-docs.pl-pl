@@ -4,19 +4,18 @@ description: Dowiedz się, jak symulować wykrywanie zagrożeń w usłudze Ident
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72886937"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463760"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Symulowanie wykrywania ryzyka w usłudze Identity Protection
 
@@ -44,7 +43,7 @@ Wykonanie poniższej procedury wymaga zastosowania:
 
 **Aby zasymulować logowanie z anonimowego adresu IP, wykonaj następujące czynności**:
 
-1. Korzystając z [przeglądarki tor](https://www.torproject.org/projects/torbrowser.html.en), przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Korzystając z [przeglądarki tor](https://www.torproject.org/projects/torbrowser.html.en), przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com) .   
 2. Wprowadź poświadczenia konta, które mają być wyświetlane w raporcie **logowania z anonimowych adresów IP** .
 
 Logowanie zostanie wyświetlone na pulpicie nawigacyjnym ochrony tożsamości w ciągu 10-15 minut. 
@@ -66,7 +65,7 @@ Wykonanie poniższej procedury wymaga skorzystania z konta użytkownika, które 
 **Aby zasymulować logowanie z nieznanej lokalizacji, wykonaj następujące czynności**:
 
 1. Podczas logowania się przy użyciu konta testowego niepowodzenie żądania uwierzytelniania wieloskładnikowego (MFA) przez nieprzekazywanie żądania MFA.
-2. Korzystając z nowej sieci VPN, przejdź [https://myapps.microsoft.com](https://myapps.microsoft.com) do i wprowadź poświadczenia konta testowego.
+2. Korzystając z nowej sieci VPN, przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com) i wprowadź poświadczenia konta testowego.
 
 Logowanie zostanie wyświetlone na pulpicie nawigacyjnym ochrony tożsamości w ciągu 10-15 minut.
 
@@ -76,7 +75,7 @@ Symulowanie nietypowego stanu podróży jest trudne, ponieważ algorytm używa u
 
 **Aby symulować nietypowe wykrywanie ryzyka podróży, wykonaj następujące czynności**:
 
-1. Korzystając z standardowej przeglądarki, przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Korzystając z standardowej przeglądarki, przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com) .  
 2. Wprowadź poświadczenia konta, dla którego chcesz wygenerować nietypowe wykrywanie ryzyka podróży.
 3. Zmień agenta użytkownika. Możesz zmienić agenta użytkownika w przeglądarce Microsoft Edge z Narzędzia deweloperskie (F12).
 4. Zmień adres IP. Adres IP można zmienić przy użyciu sieci VPN, dodatku sieci Tor lub tworzenia nowej maszyny wirtualnej na platformie Azure w innym centrum danych.
@@ -93,15 +92,15 @@ Ta sekcja zawiera instrukcje dotyczące testowania użytkownika i zasad dotyczą
 Aby przetestować zasady zabezpieczeń dotyczące ryzyka użytkownika, wykonaj następujące czynności:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do**omówienia**usługi **Azure Active Directory** > **Security** > .
+1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Overview**.
 1. Wybierz pozycję **Konfiguruj zasady ryzyka użytkownika**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
-      1. **Warunki** - **ryzyko dla użytkownika** firma Microsoft zaleca ustawienie tej opcji na **wysoki**.
+      1. **Warunki**  -  **Ryzyko użytkownika** Zalecenie firmy Microsoft polega na ustawieniu tej opcji na **wysoki**.
    1. W obszarze **Controls**
       1. **Dostęp** — zalecenia firmy Microsoft mają **na celu umożliwienie dostępu** i **wymaganie zmiany hasła**.
-   1. **Wymuś** - **wyłączenie** zasad
+   1. **Wymuś zasady**  -  **Wyłączone**
    1. **Zapisz** — ta akcja spowoduje powrót do strony **Przegląd** .
 1. Podnieś poziom ryzyka dla użytkownika przy użyciu konta testowego, na przykład symulacja jednego z wykrycia ryzyka kilka razy.
 1. Poczekaj kilka minut, a następnie sprawdź, czy ryzyko zostało podwyższone do użytkownika. Jeśli nie, Symuluj więcej wykryć ryzyka dla użytkownika.
@@ -113,15 +112,15 @@ Aby przetestować zasady zabezpieczeń dotyczące ryzyka użytkownika, wykonaj n
 Aby przetestować zasady dotyczące ryzyka związanego z logowaniem, wykonaj następujące czynności:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do**omówienia**usługi **Azure Active Directory** > **Security** > .
+1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Overview**.
 1. Wybierz pozycję **Konfiguruj zasady dotyczące ryzyka związanego z logowaniem**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
-      1. **Warunki** - **ryzyka związanego z logowaniem** firma Microsoft polega na ustawieniu tej opcji na **średni i wyższy**.
+      1. **Warunki**  -  **Ryzyko związane z logowaniem** Zalecenie firmy Microsoft polega na ustawieniu tej opcji na **średni i wyższy**.
    1. W obszarze **Controls**
       1. **Dostęp** — zalecenia firmy Microsoft mają na celu **umożliwienie dostępu** i **wymaganie uwierzytelniania wieloskładnikowego**.
-   1. **Wymuś zasady** - **On**
+   1. **Wymuś zasady**  -  **Na**
    1. **Zapisz** — ta akcja spowoduje powrót do strony **Przegląd** .
 1. Teraz można testować dostęp warunkowy oparty na ryzyku, logując się przy użyciu ryzykownej sesji (na przykład przy użyciu przeglądarki tor). 
 

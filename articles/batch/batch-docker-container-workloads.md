@@ -5,10 +5,9 @@ ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18
 ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83726727"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Uruchamianie aplikacji kontenera na Azure Batch
@@ -28,7 +27,7 @@ Używanie kontenerów zapewnia łatwy sposób uruchamiania zadań wsadowych bez 
     * Zestaw SDK platformy .NET w wersji 8.0.0
     * Zestaw SDK języka Python w wersji 4,0
     * Zestaw SDK dla języka Java w wersji 3,0
-    * Zestaw SDK w usłudze Batch Node. js w wersji 3,0
+    * Zestaw SDK programu Batch Node.js w wersji 3,0
 
 * **Konta**: w ramach subskrypcji platformy Azure należy utworzyć konto usługi Batch i opcjonalnie konto magazynu platformy Azure.
 

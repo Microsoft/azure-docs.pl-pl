@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
-ms.openlocfilehash: 21bc903349876a76576fb742840e9899f9d94bcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0761ea059350369a363ee1022b21c9da2702b396
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74769391"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076117"
 ---
-# <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Importowanie i eksportowanie danych między narzędziem Apache Hadoop w usłudze HDInsight i usługą SQL Database przy użyciu narzędzia Apache Sqoop
+# <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-azure-sql-database"></a>Za pomocą oprogramowania Apache Sqoop można importować i eksportować dane między Apache Hadoop w usłudze HDInsight i Azure SQL Database
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Dowiedz się, jak używać platformy Apache Sqoop do importowania i eksportowania między klastrem Apache Hadoop w usłudze Azure HDInsight i Azure SQL Database lub Microsoft SQL Server bazie danych. Kroki opisane w tym dokumencie używają `sqoop` polecenia bezpośrednio z węzła głównego klastra Hadoop. Używasz protokołu SSH do nawiązywania połączenia z węzłem głównym i uruchamiania poleceń z tego dokumentu. Ten artykuł jest kontynuacją [używania platformy Apache Sqoop z usługą Hadoop w usłudze HDInsight](./hdinsight-use-sqoop.md).
+Dowiedz się, jak używać platformy Apache Sqoop do importowania i eksportowania między klastrem Apache Hadoop w usłudze Azure HDInsight i Azure SQL Database lub Microsoft SQL Server. Kroki opisane w tym dokumencie używają `sqoop` polecenia bezpośrednio z węzła głównego klastra Hadoop. Używasz protokołu SSH do nawiązywania połączenia z węzłem głównym i uruchamiania poleceń z tego dokumentu. Ten artykuł jest kontynuacją [używania platformy Apache Sqoop z usługą Hadoop w usłudze HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Dowiedz się, jak używać platformy Apache Sqoop do importowania i eksportowani
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aby ułatwić użycie, Ustaw zmienne. `PASSWORD`Zastąp `MYSQLSERVER`wartości, `MYDATABASE` i z odpowiednimi wartościami, a następnie wprowadź poniższe polecenia:
+1. Aby ułatwić użycie, Ustaw zmienne. Zastąp `PASSWORD` `MYSQLSERVER` wartości, i `MYDATABASE` z odpowiednimi wartościami, a następnie wprowadź poniższe polecenia:
 
     ```bash
     export password='PASSWORD'
@@ -51,9 +51,9 @@ Dowiedz się, jak używać platformy Apache Sqoop do importowania i eksportowani
 
 ## <a name="sqoop-export"></a>Eksport Sqoop
 
-Z programu Hive do SQL Server.
+Z usługi Hive do bazy danych SQL.
 
-1. Aby sprawdzić, czy Sqoop może zobaczyć SQL Database, wprowadź poniższe polecenie w obszarze Otwórz połączenie SSH. To polecenie zwraca listę baz danych.
+1. Aby sprawdzić, czy Sqoop może zobaczyć swoją bazę danych, wprowadź poniższe polecenie w otwartym połączeniu SSH. To polecenie zwraca listę baz danych.
 
     ```bash
     sqoop list-databases --connect $serverConnect
@@ -65,7 +65,7 @@ Z programu Hive do SQL Server.
     sqoop list-tables --connect $serverDbConnect
     ```
 
-1. Aby wyeksportować dane z tabeli programu `hivesampletable` Hive do `mobiledata` tabeli w SQL Database, wprowadź poniższe polecenie w otwartym połączeniu SSH:
+1. Aby wyeksportować dane z tabeli programu Hive `hivesampletable` do `mobiledata` tabeli w bazie danych, wprowadź poniższe polecenie w otwartym połączeniu SSH:
 
     ```bash
     sqoop export --connect $serverDbConnect \
@@ -86,9 +86,9 @@ Z programu Hive do SQL Server.
 
 ## <a name="sqoop-import"></a>Sqoop import
 
-Z SQL Server do usługi Azure Storage.
+Z usługi SQL do magazynu Azure Storage.
 
-1. Wprowadź poniższe polecenie w otwartym połączeniu SSH, aby zaimportować dane z `mobiledata` tabeli w SQL Database, do `wasbs:///tutorials/usesqoop/importeddata` katalogu w usłudze HDInsight. Pola w danych są oddzielane znakami tabulacji, a wiersze kończą się znakiem nowego wiersza.
+1. Wprowadź poniższe polecenie w otwartym połączeniu SSH, aby zaimportować dane z `mobiledata` tabeli w programie SQL do katalogu w usłudze `wasbs:///tutorials/usesqoop/importeddata` HDInsight. Pola w danych są oddzielane znakami tabulacji, a wiersze kończą się znakiem nowego wiersza.
 
     ```bash
     sqoop import --connect $serverDbConnect \
@@ -134,13 +134,13 @@ Z SQL Server do usługi Azure Storage.
         SELECT * FROM mobiledata_imported2 LIMIT 10;
         ```
 
-    1. Zakończ z usługi Beeline z `!exit`.
+    1. Zakończ z usługi Beeline z `!exit` .
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Eksport zbiorczy — za pomocą usługi HDInsight opartej na systemie Linux łącznik Sqoop używany do eksportowania danych do Microsoft SQL Server lub Azure SQL Database nie obsługuje operacji wstawiania zbiorczego.
+* Eksport zbiorczy — za pomocą usługi HDInsight opartej na systemie Linux łącznik Sqoop używany do eksportowania danych do programu SQL nie obsługuje operacji wstawiania zbiorczego.
 
-* Przetwarzanie wsadowe — za pomocą usługi HDInsight opartej na systemie `-batch` Linux, gdy podczas wykonywania operacji wstawiania jest używany przełącznik, Sqoop tworzy wiele wstawek zamiast wsadowych operacje wstawiania.
+* Przetwarzanie wsadowe — za pomocą usługi HDInsight opartej na systemie Linux, gdy podczas wykonywania operacji wstawiania jest używany `-batch` przełącznik, Sqoop tworzy wiele wstawek zamiast wsadowych operacje wstawiania.
 
 ## <a name="important-considerations"></a>Istotne zagadnienia
 
@@ -159,5 +159,5 @@ Z SQL Server do usługi Azure Storage.
 Teraz wiesz już, jak używać programu Sqoop. Aby dowiedzieć się więcej, zobacz:
 
 * [Korzystanie z platformy Apache Oozie z usługą HDInsight](../hdinsight-use-oozie-linux-mac.md): Użyj akcji Sqoop w przepływie pracy Oozie.
-* [Analizowanie danych dotyczących opóźnień lotów przy użyciu usługi HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Użyj interakcyjnego zapytania, aby analizować dane opóźnień lotów, a następnie używać Sqoop do eksportowania danych do usługi Azure SQL Database.
+* [Analizowanie danych dotyczących opóźnień lotów przy użyciu usługi HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Użyj interakcyjnego zapytania, aby analizować dane opóźnień lotów, a następnie używać Sqoop do eksportowania danych do bazy danych na platformie Azure.
 * [Przekazywanie danych do usługi HDInsight](../hdinsight-upload-data.md): Znajdź inne metody przekazywania danych do magazynu HDInsight/Azure Blob Storage.

@@ -10,10 +10,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77019676"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitoruj rozwiązanie VMware według działania CloudSimple
@@ -49,7 +48,7 @@ W przypadku alertów dostępne są następujące kolumny informacji. Kliknij poz
 | Kolumna | Opis |
 ------------ | ------------- |
 | Typ alertu | Kategoria alertu.|
-| Time | Czas wystąpienia alertu. |
+| Godzina | Czas wystąpienia alertu. |
 | Ważność | Istotność alertu.|
 | Nazwa zasobu | Nazwa przypisana do zasobu, taka jak nazwa chmury prywatnej. |
 | Typ zasobu | Kategoria zasobu: Chmura prywatna, stojak w chmurze. |
@@ -65,7 +64,7 @@ W przypadku alertów dostępne są następujące kolumny informacji. Kliknij poz
 
 | Kolumna | Opis |
 ------------ | ------------- |
-| Time | Data i godzina wystąpienia zdarzenia. |
+| Godzina | Data i godzina wystąpienia zdarzenia. |
 | Typ zdarzenia | Kod liczbowy, który identyfikuje zdarzenie. |
 | Ważność | Ważność zdarzenia.|
 | Nazwa zasobu | Nazwa przypisana do zasobu, taka jak nazwa chmury prywatnej. |
@@ -86,7 +85,7 @@ W przypadku alertów dostępne są następujące kolumny informacji. Kliknij poz
 | Nazwa zasobu | Nazwa przypisana do zasobu. |
 | Typ zasobu | Kategoria zasobu: Chmura prywatna, stojak w chmurze. |
 | Identyfikator zasobu | Identyfikator zasobu. |
-| Uruchamianie | Godzina rozpoczęcia zadania. |
+| Rozpocznij | Godzina rozpoczęcia zadania. |
 | End | Godzina zakończenia zadania. |
 | Stan | Bieżący stan zadania. |
 | Upłynęło czasu | Czas trwania zadania (jeśli został ukończony) lub trwa jego wykonywanie (jeśli jest w toku). |
@@ -100,7 +99,7 @@ W przypadku alertów dostępne są następujące kolumny informacji. Kliknij poz
 
 | Kolumna | Opis |
 ------------ | ------------- |
-| Time | Godzina wpisu inspekcji. |
+| Godzina | Godzina wpisu inspekcji. |
 | Operacja | Akcja wykonywana przez zadanie. |
 | Użytkownik | Użytkownik przypisany do zadania. |
 | Nazwa zasobu | Nazwa przypisana do zasobu. |

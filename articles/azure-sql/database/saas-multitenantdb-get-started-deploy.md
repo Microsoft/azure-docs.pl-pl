@@ -11,12 +11,11 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 274f8d985304ee27776017dfee7d263df8271fbc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 59a7fbbd6f948ec5207522814a1375b806536810
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84310091"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Wdrażanie i eksplorowanie aplikacji podzielonej na fragmenty z wieloma dzierżawcami
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -99,7 +98,7 @@ Podczas wdrażania aplikacji Pobierz kod źródłowy aplikacji i skrypty zarząd
 1. Przejdź do [repozytorium GitHub WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Kliknij pozycję **Klonuj lub Pobierz**.
 3. Kliknij pozycję **Pobierz kod pocztowy** i Zapisz plik.
-4. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-MultiTenantDb-Master. zip** i wybierz polecenie **Właściwości**.
+4. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-MultiTenantDb-master.zip** i wybierz polecenie **Właściwości**.
 5. Na karcie **Ogólne** wybierz pozycję **Odblokuj**, a następnie kliknij pozycję **Zastosuj**.
 6. Kliknij przycisk **OK**.
 7. Wyodrębnij pliki.
@@ -155,22 +154,22 @@ W środowisku produkcyjnym zwykle tworzony jest rekord DNS CNAME, który [wskazu
 
 Teraz, gdy aplikacja jest wdrożona, przyjrzyjmy ją. *LoadGenerator* skrypt programu PowerShell uruchamia obciążenie dla każdej dzierżawy. Rzeczywiste obciążenie wielu aplikacji SaaS jest zwykle sporadyczne i nieprzewidywalne. W celu symulowania tego typu obciążenia Generator tworzy obciążenie rozproszone dla wszystkich dzierżawców. Obciążenie obejmuje losowe przyrosty dla każdej dzierżawy występujące w interwałach losowych. Aby wzorzec obciążenia był uruchamiany przez kilka minut, najlepszym rozwiązaniem jest umożliwienie generatora przez co najmniej trzy minuty przed monitorowaniem obciążenia.
 
-1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły szkoleniowe \\ Utilities \\ *demo-LoadGenerator. ps1* .
+1. W *ISE programu PowerShell*Otwórz pozycję... \\ Moduły uczenia \\ narzędzi \\ *Demo-LoadGenerator.ps1* Script.
 2. Naciśnij klawisz **F5**, aby uruchomić skrypt i generator obciążenia (na razie pozostaw bez zmian wartości domyślne parametrów).
 
-Skrypt *demo-LoadGenerator. ps1* otwiera kolejną sesję programu PowerShell, w której jest uruchamiany Generator obciążenia. Generator obciążenia jest uruchamiany w tej sesji jako zadanie pierwszego planu, które wywołuje zadania generowania obciążenia w tle, po jednym dla każdej dzierżawy.
+Skrypt *Demo-LoadGenerator.ps1* otwiera kolejną sesję programu PowerShell, w której jest uruchamiany Generator obciążenia. Generator obciążenia jest uruchamiany w tej sesji jako zadanie pierwszego planu, które wywołuje zadania generowania obciążenia w tle, po jednym dla każdej dzierżawy.
 
 Po rozpoczęciu zadania pierwszego planu pozostanie ono w stanie niewywołującym. Zadanie uruchamia dodatkowe zadania w tle dla wszystkich nowych dzierżawców, które są następnie inicjowane.
 
 Zamknięcie sesji programu PowerShell powoduje zatrzymanie wszystkich zadań.
 
-Możesz chcieć ponownie uruchomić sesję generatora obciążenia, aby użyć innych wartości parametrów. Jeśli tak, Zamknij sesję generacji programu PowerShell, a następnie ponownie uruchom *demo-LoadGenerator. ps1*.
+Możesz chcieć ponownie uruchomić sesję generatora obciążenia, aby użyć innych wartości parametrów. Jeśli tak, Zamknij sesję generacji programu PowerShell, a następnie ponownie uruchom *Demo-LoadGenerator.ps1*.
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Inicjowanie obsługi administracyjnej nowej dzierżawy w bazie danych podzielonej na fragmenty
 
 Początkowe wdrożenie obejmuje trzy przykładowe dzierżawy w bazie danych *Tenants1* . Utwórzmy kolejną dzierżawę i obserwuj jej wpływ na wdrożoną aplikację. W tym kroku należy nacisnąć jeden klawisz, aby utworzyć nową dzierżawę:
 
-1. Otwórz... \\ Moduły szkoleniowe udostępniają \\ i wykazują \\ *demo-ProvisionTenants. ps1* w programie *PowerShell ISE*.
+1. Otwórz... \\ Moduły szkoleniowe udostępniają \\ i wykazują \\ *Demo-ProvisionTenants.ps1* w programie *PowerShell ISE*.
 2. Naciśnij klawisz **F5** (nie **F8**), aby uruchomić skrypt (pozostaw wartości domyślne teraz).
 
    > [!NOTE]
@@ -193,7 +192,7 @@ W przypadku baz danych z wieloma dzierżawcami możesz wybrać klientów z bezp�
 
 Następnie oferujemy inną dzierżawcę, tym razem z własną bazą danych:
 
-1. W... \\ Moduły szkoleniowe udostępniają \\ i wykazują \\ *demo-ProvisionTenants. ps1*, modyfikują *$TenantName* na **Salix Salsa**, *$VenueType* do **odpowiedzialna** i *$Scenario* do **2**.
+1. W... \\ Moduły szkoleniowe udostępniają \\ i wykazują \\ *Demo-ProvisionTenants.ps1*, modyfikują *$TenantName* do **Salix Salsa**, *$VenueType* do **odpowiedzialna** i *$Scenario* do **2**.
 
 2. Naciśnij klawisz **F5** , aby ponownie uruchomić skrypt.
     - Naciśnięcie klawisza **F5** spowoduje zarezerwowanie nowej dzierżawy w oddzielnej bazie danych. Baza danych i dzierżawca są zarejestrowane w wykazie. Następnie w przeglądarce zostanie otwarta strona zdarzenia dzierżawy.
@@ -265,7 +264,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Jak wyświetlić użycie puli do monitorowania aktywności dzierżawy.
 > - Jak usunąć przykładowe zasoby, aby zatrzymać powiązane rozliczenia.
 
-Wypróbuj teraz [Samouczek dotyczący aprowizacji i katalogu](saas-dbpertenant-provision-and-catalog.md).
+Wypróbuj teraz [Samouczek dotyczący aprowizacji i katalogu](saas-multitenantdb-provision-and-catalog.md).
 
 
 <!--  Link references.

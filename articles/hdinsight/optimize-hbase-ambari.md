@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: a7da6bc23d797e0e89b2338f446fc850b0fd0577
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82797164"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086334"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie oprogramowania Apache HBase z usługą Apache Ambari w usłudze Azure HDInsight
 
@@ -56,12 +56,12 @@ Aby zoptymalizować odczyty losowe, można zmniejszyć górną i dolną granicę
 
 ### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>Liczba wierszy pobranych podczas skanowania z dysku
 
-`hbase.client.scanner.caching` Ustawienie definiuje liczbę wierszy odczytanych z dysku, gdy `next` Metoda jest wywoływana na skanerze.  Wartość domyślna to 100. Im większa liczba, tym mniej wywołań zdalnych wykonanych z klienta do serwera regionów, co skutkuje szybszymi skanami. Jednak to ustawienie spowoduje również zwiększenie poziomu wykorzystania pamięci na kliencie.
+`hbase.client.scanner.caching`Ustawienie definiuje liczbę wierszy odczytanych z dysku, gdy `next` Metoda jest wywoływana na skanerze.  Wartość domyślna to 100. Im większa liczba, tym mniej wywołań zdalnych wykonanych z klienta do serwera regionów, co skutkuje szybszymi skanami. Jednak to ustawienie spowoduje również zwiększenie poziomu wykorzystania pamięci na kliencie.
 
 ![Liczba pobranych wierszy Apache HBase](./media/optimize-hbase-ambari/hbase-num-rows-fetched.png)
 
 > [!IMPORTANT]  
-> Nie ustawiaj wartości w taki sposób, aby czas między wywołaniem następnej metody na skanerze był większy niż limit czasu skanera. Czas trwania skanera jest definiowany przez `hbase.regionserver.lease.period` właściwość.
+> Nie ustawiaj wartości w taki sposób, aby czas między wywołaniem następnej metody na skanerze był większy niż limit czasu skanera. Czas trwania skanera jest definiowany przez `hbase.regionserver.lease.period` Właściwość.
 
 ## <a name="optimize-write-heavy-workloads"></a>Optymalizowanie dużych obciążeń zapisu
 
@@ -79,21 +79,21 @@ Im większy rozmiar pliku regionu, tym mniejsza jest liczba podziałów. Można 
 
 * Właściwość `hbase.hregion.memstore.flush.size` definiuje rozmiar, przy którym magazynu jest opróżniany na dysk. Domyślny rozmiar to 128 MB.
 
-* Mnożnik bloku regionu HBase jest definiowany przez `hbase.hregion.memstore.block.multiplier`. Wartość domyślna to 4. Maksymalna dozwolona wartość to 8.
+* Mnożnik bloku regionu HBase jest definiowany przez `hbase.hregion.memstore.block.multiplier` . Wartość domyślna to 4. Maksymalna dozwolona wartość to 8.
 
-* HBase blokuje aktualizacje, jeśli magazynu to (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) b.
+* HBase blokuje aktualizacje, jeśli magazynu to ( `hbase.hregion.memstore.flush.size`  *  `hbase.hregion.memstore.block.multiplier` ) b.
 
-    Przy domyślnych wartościach rozmiaru opróżniania i mnożnika bloku aktualizacje są blokowane, gdy magazynu jest 128 * 4 = 512 MB. Aby zmniejszyć liczbę blokowania aktualizacji, zwiększ wartość `hbase.hregion.memstore.block.multiplier`.
+    Przy domyślnych wartościach rozmiaru opróżniania i mnożnika bloku aktualizacje są blokowane, gdy magazynu jest 128 * 4 = 512 MB. Aby zmniejszyć liczbę blokowania aktualizacji, zwiększ wartość `hbase.hregion.memstore.block.multiplier` .
 
 ![Mnożnik bloku regionu Apache HBase](./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png)
 
 ## <a name="define-memstore-size"></a>Zdefiniuj rozmiar magazynu
 
-Rozmiar magazynu jest definiowany przez parametry `hbase.regionserver.global.memstore.UpperLimit` i `hbase.regionserver.global.memstore.LowerLimit` . Ustawienie tych wartości w taki sposób, że zmniejsza przerwy podczas operacji zapisu (co również powoduje częstsze opróżnianie) i skutkuje zwiększoną wydajnością zapisu.
+Rozmiar magazynu jest definiowany przez `hbase.regionserver.global.memstore.UpperLimit` Parametry i `hbase.regionserver.global.memstore.LowerLimit` . Ustawienie tych wartości w taki sposób, że zmniejsza przerwy podczas operacji zapisu (co również powoduje częstsze opróżnianie) i skutkuje zwiększoną wydajnością zapisu.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Ustaw bufor przydziału lokalnego magazynu
 
-Użycie magazynu lokalnego buforu alokacji jest określane przez właściwość `hbase.hregion.memstore.mslab.enabled`. Po włączeniu tego ustawienia zapobiega fragmentacji sterty podczas ciężkiej operacji zapisu. Wartością domyślną jest true.
+Użycie magazynu lokalnego buforu alokacji jest określane przez właściwość `hbase.hregion.memstore.mslab.enabled` . Po włączeniu tego ustawienia zapobiega fragmentacji sterty podczas ciężkiej operacji zapisu. Wartością domyślną jest true.
 
 ![HBase. hregion. magazynu. mslab. Enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
 

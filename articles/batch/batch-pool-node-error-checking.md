@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
-ms.openlocfilehash: 5ac3991a52ab75dccd0033160d6e972d155a882b
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723922"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85979921"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sprawdź, czy występują błędy puli i węzłów
 
@@ -24,9 +24,9 @@ W tym artykule opisano operacje w tle, które mogą wystąpić w przypadku pul i
 
 ### <a name="resize-timeout-or-failure"></a>Zmień limit czasu lub niepowodzenie
 
-Podczas tworzenia nowej puli lub zmiany rozmiarów istniejącej puli należy określić docelową liczbę węzłów.  Operacja tworzenia lub zmiany rozmiaru zostanie zakończona natychmiast, ale rzeczywista alokacja nowych węzłów lub usunięcie istniejących węzłów może potrwać kilka minut.  Limit czasu można określić w interfejsie API [tworzenia](https://docs.microsoft.com/rest/api/batchservice/pool/add) lub [zmiany rozmiaru](https://docs.microsoft.com/rest/api/batchservice/pool/resize) . Jeśli w usłudze Batch nie można uzyskać docelowej liczby węzłów podczas okresu limitu czasu, Pula przechodzi w stan stały i raporty błędów zmieniania rozmiaru.
+Podczas tworzenia nowej puli lub zmiany rozmiarów istniejącej puli należy określić docelową liczbę węzłów.  Operacja tworzenia lub zmiany rozmiaru zostanie zakończona natychmiast, ale rzeczywista alokacja nowych węzłów lub usunięcie istniejących węzłów może potrwać kilka minut.  Limit czasu można określić w interfejsie API [tworzenia](/rest/api/batchservice/pool/add) lub [zmiany rozmiaru](/rest/api/batchservice/pool/resize) . Jeśli w usłudze Batch nie można uzyskać docelowej liczby węzłów podczas okresu limitu czasu, Pula przechodzi w stan stały i raporty błędów zmieniania rozmiaru.
 
-Właściwość [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) dla najnowszej oceny zawiera listę błędów, które wystąpiły.
+Właściwość [ResizeError](/rest/api/batchservice/pool/get#resizeerror) dla najnowszej oceny zawiera listę błędów, które wystąpiły.
 
 Typowe przyczyny błędów zmiany rozmiaru obejmują:
 
@@ -34,31 +34,31 @@ Typowe przyczyny błędów zmiany rozmiaru obejmują:
   - W większości przypadków domyślny limit czasu wynoszący 15 minut jest wystarczająco długi dla węzłów puli do przydzielenia lub usunięcia.
   - W przypadku przydzielania dużej liczby węzłów zalecamy ustawienie limitu czasu na 30 minut. Na przykład po zmianie wielkości na więcej niż 1 000 węzłów z obrazu portalu Azure Marketplace lub do ponad 300 węzłów z niestandardowego obrazu maszyny wirtualnej.
 - Niewystarczający przydział rdzeni
-  - Konto w usłudze Batch jest ograniczone do liczby rdzeni, które można przydzielić między wszystkimi pulami. Zadanie wsadowe przerywa alokowanie węzłów po osiągnięciu limitu przydziału. [Możesz zwiększyć](https://docs.microsoft.com/azure/batch/batch-quota-limit) limit przydziału rdzeni, aby zadanie wsadowe mogły przydzielić więcej węzłów.
-- Za mało adresów IP podsieci, gdy [Pula znajduje się w sieci wirtualnej](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Konto w usłudze Batch jest ograniczone do liczby rdzeni, które można przydzielić między wszystkimi pulami. Zadanie wsadowe przerywa alokowanie węzłów po osiągnięciu limitu przydziału. [Możesz zwiększyć](./batch-quota-limit.md) limit przydziału rdzeni, aby zadanie wsadowe mogły przydzielić więcej węzłów.
+- Za mało adresów IP podsieci, gdy [Pula znajduje się w sieci wirtualnej](./batch-virtual-network.md)
   - Podsieć sieci wirtualnej musi mieć wystarczającą liczbę nieprzypisanych adresów IP do przydzielenia do każdego żądanego węzła puli. W przeciwnym razie nie można utworzyć węzłów.
-- Niewystarczające zasoby, gdy [Pula znajduje się w sieci wirtualnej](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+- Niewystarczające zasoby, gdy [Pula znajduje się w sieci wirtualnej](./batch-virtual-network.md)
   - Możesz tworzyć zasoby, takie jak moduły równoważenia obciążenia, publiczne adresy IP i sieciowe grupy zabezpieczeń w tej samej subskrypcji, co konto usługi Batch. Sprawdź, czy limity przydziału subskrypcji są wystarczające dla tych zasobów.
 - Duże pule z niestandardowymi obrazami maszyn wirtualnych
   - Duże pule, które używają niestandardowych obrazów maszyn wirtualnych, mogą być dłużej przydzielane i zmieniać limity czasu.  Zapoznaj się z tematem [Tworzenie puli za pomocą galerii obrazów udostępnionych](batch-sig-images.md) w celu uzyskania zaleceń dotyczących ograniczeń i konfiguracji.
 
 ### <a name="automatic-scaling-failures"></a>Automatyczne skalowanie błędów
 
-Możesz również ustawić Azure Batch, aby automatycznie skalować liczbę węzłów w puli. Należy zdefiniować parametry dla [formuły automatycznego skalowania dla puli](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Usługa Batch używa formuły, aby okresowo oszacować liczbę węzłów w puli i ustawić nowy numer docelowy. Mogą wystąpić następujące typy problemów:
+Możesz również ustawić Azure Batch, aby automatycznie skalować liczbę węzłów w puli. Należy zdefiniować parametry dla [formuły automatycznego skalowania dla puli](./batch-automatic-scaling.md). Usługa Batch używa formuły, aby okresowo oszacować liczbę węzłów w puli i ustawić nowy numer docelowy. Mogą wystąpić następujące typy problemów:
 
 - Obliczanie automatycznego skalowania kończy się niepowodzeniem.
 - Operacja powodująca zmianę rozmiaru kończy się niepowodzeniem i zostanie przeprowadzona.
 - Problem z formułą automatycznego skalowania prowadzi do nieprawidłowych wartości docelowych węzła. Zmiana rozmiaru jest wykonywana lub przeprowadzona w czasie.
 
-Możesz uzyskać informacje na temat ostatniej automatycznej oceny skalowania przy użyciu właściwości [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) . Ta właściwość służy do raportowania czasu oceny, wartości i wyniku oraz ewentualnych błędów wydajności.
+Możesz uzyskać informacje na temat ostatniej automatycznej oceny skalowania przy użyciu właściwości [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) . Ta właściwość służy do raportowania czasu oceny, wartości i wyniku oraz ewentualnych błędów wydajności.
 
-[Zdarzenie ukończenia zmiany rozmiaru puli](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) przechwytuje informacje o wszystkich obliczeniach.
+[Zdarzenie ukończenia zmiany rozmiaru puli](./batch-pool-resize-complete-event.md) przechwytuje informacje o wszystkich obliczeniach.
 
 ### <a name="delete"></a>Usuń
 
 Po usunięciu puli zawierającej węzły, pierwsza partia danych Usuwa węzły. Spowoduje to usunięcie samego obiektu puli. Usunięcie węzłów puli może potrwać kilka minut.
 
-Wsadowe ustawia [stan puli](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) do **usunięcia** podczas procesu usuwania. Aplikacja wywołująca może wykryć, czy usunięcie puli trwa zbyt długo przy użyciu właściwości **State** i **stateTransitionTime** .
+Wsadowe ustawia [stan puli](/rest/api/batchservice/pool/get#poolstate) do **usunięcia** podczas procesu usuwania. Aplikacja wywołująca może wykryć, czy usunięcie puli trwa zbyt długo przy użyciu właściwości **State** i **stateTransitionTime** .
 
 ## <a name="pool-compute-node-errors"></a>Błędy węzłów obliczeniowych puli
 
@@ -131,7 +131,7 @@ Inne pliki są zapisywane dla każdego zadania uruchamianego w węźle, na przyk
 Rozmiar dysku tymczasowego zależy od rozmiaru maszyny wirtualnej. Należy wziąć pod uwagę podczas wybierania rozmiaru maszyny wirtualnej, aby upewnić się, że na dysku tymczasowym jest wystarczająca ilość miejsca.
 
 - W Azure Portal podczas dodawania puli zostanie wyświetlona pełna lista rozmiarów maszyn wirtualnych, w której jest dostępna kolumna "rozmiar dysku zasobu".
-- Artykuły opisujące wszystkie rozmiary maszyn wirtualnych mają tabele z kolumną "temp Storage"; na przykład [rozmiary maszyn wirtualnych zoptymalizowane pod kątem obliczeń](/azure/virtual-machines/windows/sizes-compute)
+- Artykuły opisujące wszystkie rozmiary maszyn wirtualnych mają tabele z kolumną "temp Storage"; na przykład [rozmiary maszyn wirtualnych zoptymalizowane pod kątem obliczeń](../virtual-machines/sizes-compute.md)
 
 W przypadku plików pisanych przez każde zadanie można określić czas przechowywania dla każdego zadania, które określa, jak długo pliki zadań są przechowywane przed automatycznym wyczyszczeniem. Czas przechowywania można zmniejszyć, aby zmniejszyć wymagania dotyczące magazynu.
 
@@ -140,17 +140,17 @@ Jeśli na dysku tymczasowym wyczerpie się wolne miejsce (lub jest bardzo blisko
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>Co zrobić, gdy dysk jest pełny
 
-Określ, dlaczego dysk jest pełny: Jeśli nie masz pewności co do tego, co zajmuje miejsce w węźle, zaleca się zdalne z węzłem i zbadaj ręcznie miejsce, gdzie został usunięty. Można również użyć [interfejsu API plików list usługi Batch](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) do sprawdzenia plików w folderach zarządzanych wsadowo (na przykład w danych wyjściowych zadania). Należy zauważyć, że ten interfejs API wyświetla listę tylko plików w katalogach zarządzanych przez partię i jeśli zadania utworzone w innym miejscu nie będą widoczne.
+Określ, dlaczego dysk jest pełny: Jeśli nie masz pewności co do tego, co zajmuje miejsce w węźle, zaleca się zdalne z węzłem i zbadaj ręcznie miejsce, gdzie został usunięty. Można również użyć [interfejsu API plików list usługi Batch](/rest/api/batchservice/file/listfromcomputenode) do sprawdzenia plików w folderach zarządzanych wsadowo (na przykład w danych wyjściowych zadania). Należy zauważyć, że ten interfejs API wyświetla listę tylko plików w katalogach zarządzanych przez partię i jeśli zadania utworzone w innym miejscu nie będą widoczne.
 
 Upewnij się, że wszystkie dane, które są potrzebne, zostały pobrane z węzła lub przekazane do magazynu trwałego. Wszystkie środki zaradcze związane z dyskiem — pełny problem polega na usunięciu danych w celu zwolnienia miejsca.
 
 ### <a name="recovering-the-node"></a>Odzyskiwanie węzła
 
-1. Jeśli pula jest pulą [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) , możesz ją odtworzyć przy użyciu [interfejsu API ponownego obrazu usługi Batch](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Spowoduje to wyczyszczenie całego dysku. Ponowne tworzenie obrazu nie jest obecnie obsługiwane w przypadku pul [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
+1. Jeśli pula jest pulą [C. loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) , możesz ją odtworzyć przy użyciu [interfejsu API ponownego obrazu usługi Batch](/rest/api/batchservice/computenode/reimage). Spowoduje to wyczyszczenie całego dysku. Ponowne tworzenie obrazu nie jest obecnie obsługiwane w przypadku pul [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
 
-2. Jeśli pula jest [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), można usunąć węzeł z puli za pomocą [interfejsu API usuwania węzłów](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Następnie można ponownie zwiększyć pulę, aby zastąpić zły węzeł nowym.
+2. Jeśli pula jest [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), można usunąć węzeł z puli za pomocą [interfejsu API usuwania węzłów](/rest/api/batchservice/pool/removenodes). Następnie można ponownie zwiększyć pulę, aby zastąpić zły węzeł nowym.
 
-3.  Usuń stare zakończone zadania lub stare wykonane zadania, których dane zadania są nadal w węzłach. Aby uzyskać wskazówkę na temat tego, jakie dane zadań/zadań są w węzłach, można wyszukać w [kolekcji RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) w węźle lub w [plikach w węźle](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Usunięcie zadania spowoduje usunięcie wszystkich zadań z zadania, a usunięcie zadań w ramach zadania spowoduje wyzwolenie danych w katalogach zadań w węźle, który ma zostać usunięty, w ten sposób Zwolnij miejsce. Po zwolnieniu wystarczającej ilości miejsca, uruchom ponownie węzeł i nie powinna zostać przeniesiona z stanu "bez użycia" do "bezczynne".
+3.  Usuń stare zakończone zadania lub stare wykonane zadania, których dane zadania są nadal w węzłach. Aby uzyskać wskazówkę na temat tego, jakie dane zadań/zadań są w węzłach, można wyszukać w [kolekcji RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) w węźle lub w [plikach w węźle](/rest/api/batchservice/file/listfromcomputenode). Usunięcie zadania spowoduje usunięcie wszystkich zadań z zadania, a usunięcie zadań w ramach zadania spowoduje wyzwolenie danych w katalogach zadań w węźle, który ma zostać usunięty, w ten sposób Zwolnij miejsce. Po zwolnieniu wystarczającej ilości miejsca, uruchom ponownie węzeł i nie powinna zostać przeniesiona z stanu "bez użycia" do "bezczynne".
 
 ## <a name="next-steps"></a>Następne kroki
 

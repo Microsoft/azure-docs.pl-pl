@@ -8,13 +8,13 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 97eb39772715fad8a1ca065a8bfdfa81bd7e132f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085504"
 ---
-# <a name="azure-shared-disks"></a>Udostępnione dyski platformy Azure
+# <a name="azure-shared-disks"></a>Dyski udostępnione platformy Azure
 
 [!INCLUDE [virtual-machines-disks-shared](../../../includes/virtual-machines-disks-shared.md)]
 

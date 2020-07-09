@@ -2,22 +2,21 @@
 title: Współpraca z istniejącymi lokalnymi serwerami proxy i usługą Azure AD | Microsoft Docs
 description: Obejmuje sposób pracy z istniejącymi lokalnymi serwerami proxy.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 088a87f4c4eb200cfeecff1d2513fefdb0088a38
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764931"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -56,7 +55,7 @@ Aby wyłączyć użycie wychodzącego serwera proxy dla łącznika, edytuj plik 
 </configuration>
 ```
 
-Aby upewnić się, że usługa Aktualizator łączników również pomija serwer proxy, należy wprowadzić podobną zmianę do pliku ApplicationProxyConnectorUpdaterService. exe. config. Ten plik znajduje się w folderze C:\Program Files\Microsoft AAD App proxy Aktualizator łączników.
+Aby upewnić się, że usługa Aktualizator łączników również pomija serwer proxy, wprowadź podobną zmianę do pliku ApplicationProxyConnectorUpdaterService.exe.config. Ten plik znajduje się w folderze C:\Program Files\Microsoft AAD App proxy Aktualizator łączników.
 
 Pamiętaj o utworzeniu kopii oryginalnych plików. W ten sposób będzie można przywrócić domyślne pliki .config, jeśli zajdzie taka potrzeba.
 
@@ -77,7 +76,7 @@ W wyniku posiadania tylko ruchu wychodzącego nie ma potrzeby konfigurowania dos
 
 Jeśli funkcja WPAD jest włączona w środowisku i odpowiednio skonfigurowana, łącznik automatycznie odnajdzie wychodzący serwer proxy i spróbuje go użyć. Można jednak jawnie skonfigurować łącznik, aby przechodzić przez wychodzący serwer proxy.
 
-W tym celu należy edytować plik C:\Program Files\Microsoft AAD proxy aplikacji Connector\ApplicationProxyConnectorService.exe.config i dodać sekcję *System.NET* pokazaną w tym przykładzie kodu. Zmień *ProxyServer: 8080* , aby odzwierciedlała nazwę lokalnego serwera proxy lub adres IP oraz port, na którym nasłuchuje. Wartość musi mieć prefiks http://, nawet jeśli jest używany adres IP.
+Aby to zrobić, należy edytować plik Connector\ApplicationProxyConnectorService.exe.config proxy aplikacji usługi AAD i dodać sekcję *System.NET* pokazaną w tym przykładzie kodu. Zmień *ProxyServer: 8080* , aby odzwierciedlała nazwę lokalnego serwera proxy lub adres IP oraz port, na którym nasłuchuje. Wartość musi mieć prefiks http://, nawet jeśli jest używany adres IP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -96,7 +95,7 @@ W tym celu należy edytować plik C:\Program Files\Microsoft AAD proxy aplikacji
 </configuration>
 ```
 
-Następnie skonfiguruj usługę Aktualizator łączników do korzystania z serwera proxy, wprowadzając podobną zmianę do pliku Updater\ApplicationProxyConnectorUpdaterService.exe.config łącznika serwera proxy aplikacji usługi AAD.
+Następnie skonfiguruj usługę Aktualizator łączników, aby korzystała z serwera proxy, wprowadzając podobną zmianę do pliku Updater\ApplicationProxyConnectorUpdaterService.exe.config łącznika serwera proxy aplikacji usługi AAD.
 
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Krok 2. Konfigurowanie serwera proxy w celu zezwalania na przepływ ruchu z łącznika i powiązanych usług
 
@@ -152,9 +151,9 @@ Aby je włączyć, wykonaj następujące czynności:
 3.  Uruchom wiersz polecenia z podwyższonym poziomem uprawnień z uprawnieniami administratora i wprowadź `control inetcpl.cpl` .
 4.  Skonfiguruj wymagane ustawienia serwera proxy. 
 
-Te ustawienia powodują, że łącznik używa tego samego serwera proxy przesyłania dalej do komunikacji z platformą Azure i aplikacji zaplecza. Jeśli Łącznik do komunikacji z platformą Azure nie wymaga serwera proxy przesyłania dalej lub innego serwera proxy do przesyłania dalej, można skonfigurować ten program przy użyciu modyfikacji pliku ApplicationProxyConnectorService. exe. config zgodnie z opisem w sekcji Obejdź wychodzące serwery proxy lub korzystając z serwera wychodzącego.
+Te ustawienia powodują, że łącznik używa tego samego serwera proxy przesyłania dalej do komunikacji z platformą Azure i aplikacji zaplecza. Jeśli Łącznik do komunikacji z platformą Azure nie wymaga serwera proxy przesyłania dalej lub innego serwera proxy do przesyłania dalej, można skonfigurować ten program przy użyciu opcji modyfikowania plików ApplicationProxyConnectorService.exe.config zgodnie z opisem w sekcji Pomijaj wychodzące serwery proxy lub użyć serwera wychodzącego.
 
-Usługa łącznika Aktualizator będzie również używać serwera proxy maszyny. To zachowanie można zmienić, modyfikując plik ApplicationProxyConnectorUpdaterService. exe. config.
+Usługa łącznika Aktualizator będzie również używać serwera proxy maszyny. To zachowanie można zmienić, modyfikując plik ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Rozwiązywanie problemów z serwerem proxy łącznika i problemów z łącznością usług
 

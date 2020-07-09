@@ -5,15 +5,14 @@ description: Kojarzenie równorzędnych elementów ASN z subskrypcją platformy 
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0ad9ae885a458da5df8975d5d13018fd92bbdaf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75908982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710783"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Kojarzenie równorzędnych elementów ASN z subskrypcją platformy Azure przy użyciu programu PowerShell
 

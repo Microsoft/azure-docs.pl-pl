@@ -3,15 +3,15 @@ title: Szablon — klaster usługi HDInsight z Data Lake Storage Gen1
 description: Użyj szablonów Azure Resource Manager, aby tworzyć klastry usługi Azure HDInsight i korzystać z nich przy użyciu Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 486809201db45e0f5bbeed870e24b1f63770e319
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 593edecd2cc1bbdd3627430af41c64be4d6a022b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508643"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Tworzenie klastra usługi HDInsight z Azure Data Lake Storage Gen1 przy użyciu szablonu Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Aby upewnić się, że przekazywane dane przykładowe są dostępne z klastra us
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Uruchom zadania testowe w klastrze usługi HDInsight, aby używać Data Lake Storage Gen1
 Po skonfigurowaniu klastra usługi HDInsight można uruchomić zadania testowe w klastrze, aby sprawdzić, czy klaster usługi HDInsight ma dostęp do Data Lake Storage Gen1. W tym celu zostanie uruchomione przykładowe zadanie Hive, które tworzy tabelę przy użyciu przykładowych danych, które zostały przekazane wcześniej do konta Data Lake Storage Gen1.
 
-W tej sekcji poznasz protokół SSH w klastrze usługi HDInsight Linux i uruchomiono zapytanie przykładowego programu Hive. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu.** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+W tej sekcji poznasz protokół SSH w klastrze usługi HDInsight Linux i uruchomiono zapytanie przykładowego programu Hive. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) .
 
 Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -118,7 +118,7 @@ Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [U
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Data Lake Storage Gen1 dostępu przy użyciu systemu plików HDFS
 Po skonfigurowaniu klastra usługi HDInsight do używania Data Lake Storage Gen1 można uzyskać dostęp do magazynu za pomocą poleceń powłoki systemu plików HDFS.
 
-W tej sekcji nawiążesz połączenie SSH z klastrem usługi HDInsight Linux i uruchomisz polecenia HDFS. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu.** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+W tej sekcji nawiążesz połączenie SSH z klastrem usługi HDInsight Linux i uruchomisz polecenia HDFS. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) .
 
 Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

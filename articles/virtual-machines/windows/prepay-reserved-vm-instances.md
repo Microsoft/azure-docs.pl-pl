@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2020
 ms.author: banders
 ms.openlocfilehash: 8d9b883c5319108166951814fcedb18181e25145
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82098666"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Oszczędność kosztów dzięki Azure Reserved VM Instances

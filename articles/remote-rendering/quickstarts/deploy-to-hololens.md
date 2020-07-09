@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 75b6629ea924ec17888ec2f981ff85ed917434c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679737"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557047"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Szybki Start: wdrażanie przykładu aparatu Unity w usłudze HoloLens
 
@@ -36,12 +36,14 @@ Upewnij się, że poświadczenia są poprawnie zapisane w scenie i możesz poł�
 1. Zmień *platformę* na **platforma uniwersalna systemu Windows**
 1. Ustawianie *urządzenia docelowego na urządzenie* **HoloLens**
 1. Ustaw *architekturę* na **arm64**
-1. Ustaw *typ kompilacji* na ustawienia kompilacji **projektu D3D** ![](./media/unity-build-settings.png)
+1. Ustaw *typ kompilacji* na **projekt D3D**\
+    ![Ustawienia kompilacji](./media/unity-build-settings.png)
 1. Wybierz pozycję **Przełącz na platformę**
 1. Podczas naciskania **kompilacji** (lub kompilowania i uruchamiania) zostanie wyświetlony monit o wybranie folderu, w którym ma być przechowywane rozwiązanie
 1. Otwórz wygenerowanego **przewodnika Szybki Start** dla programu Visual Studio
 1. Zmień konfigurację na **Release** i **arm64**
-1. Przełącz tryb debugera na konfigurację rozwiązania **maszyny zdalnej** ![](media/unity-deploy-config.png)
+1. Przełącz tryb debugera na **maszynę zdalną**\
+    ![Konfiguracja rozwiązania](media/unity-deploy-config.png)
 1. Kompiluj rozwiązanie (F7)
 1. Dla projektu "Szybki Start" przejdź do *właściwości > debugowanie*
     1. Upewnij się, że *wersja* konfiguracji jest aktywna

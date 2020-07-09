@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010311"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
@@ -43,23 +42,23 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
     * [Rozmiar klastra](#cluster-size)
     * [Trwałość danych](#redis-data-persistence)
     * [Aktualizacje harmonogramu](#schedule-updates)
-    * [Geo-replication](#geo-replication) (Replikacja geograficzna)
+    * [Replikacja geograficzna](#geo-replication)
     * [Virtual Network](#virtual-network)
-    * [Zapory](#firewall)
+    * [Zapora](#firewall)
     * [Właściwości](#properties)
     * [Blokady](#locks)
     * [Skrypt usługi Automation](#automation-script)
 * Administracja
     * [Importuj dane](#importexport)
-    * [Eksportowanie danych](#importexport)
+    * [Eksportuj dane](#importexport)
     * [Ponowne uruchamianie](#reboot)
 * [Monitorowanie](#monitoring)
     * [Metryki Redis](#redis-metrics)
     * [Reguły alertów](#alert-rules)
     * [Diagnostyka](#diagnostics)
 * Obsługa & ustawień rozwiązywania problemów
-    * [Kondycja zasobów](#resource-health)
-    * [Nowe żądanie obsługi](#new-support-request)
+    * [Kondycja zasobu](#resource-health)
+    * [Nowy wniosek o pomoc techniczną](#new-support-request)
 
 
 ## <a name="overview"></a>Omówienie
@@ -95,9 +94,9 @@ Sekcja **Ustawienia** umożliwia dostęp do i konfigurowanie następujących ust
 * [Rozmiar klastra](#cluster-size)
 * [Trwałość danych](#redis-data-persistence)
 * [Aktualizacje harmonogramu](#schedule-updates)
-* [Geo-replication](#geo-replication) (Replikacja geograficzna)
+* [Replikacja geograficzna](#geo-replication)
 * [Virtual Network](#virtual-network)
-* [Zapory](#firewall)
+* [Zapora](#firewall)
 * [Właściwości](#properties)
 * [Blokady](#locks)
 * [Skrypt usługi Automation](#automation-script)
@@ -139,13 +138,13 @@ W bloku **Ustawienia zaawansowane** **zasady maxmemory**, **zarezerwowane maxmem
 * `volatile-ttl`
 * `noeviction`
 
-Aby uzyskać więcej informacji `maxmemory` na temat zasad, zobacz [Zasady wykluczania](https://redis.io/topics/lru-cache#eviction-policies).
+Aby uzyskać więcej informacji na temat `maxmemory` zasad, zobacz [Zasady wykluczania](https://redis.io/topics/lru-cache#eviction-policies).
 
 Ustawienie **zastrzeżone maxmemory** konfiguruje ilość pamięci (w MB) zarezerwowaną dla operacji poza pamięcią podręczną, na przykład replikację podczas pracy w trybie failover. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy obciążenie jest różne. Ta wartość powinna być ustawiona na wyższą dla obciążeń, które są bardzo duże. Gdy pamięć jest zarezerwowana dla takich operacji, jest niedostępna w przypadku przechowywania danych w pamięci podręcznej.
 
 Ustawienie **zastrzeżone maxfragmentationmemory** konfiguruje ilość pamięci w MB zarezerwowaną dla fragmentacji pamięci. Ustawienie tej wartości pozwala na bardziej spójne środowisko serwera Redis, gdy pamięć podręczna jest pełna lub bliska pełnej wartości, a współczynnik fragmentacji jest wysoki. Gdy pamięć jest zarezerwowana dla takich operacji, jest niedostępna w przypadku przechowywania danych w pamięci podręcznej.
 
-Należy wziąć pod uwagę podczas wybierania nowej wartości rezerwacji pamięci (**maxmemory-zastrzeżone** lub **maxfragmentationmemory-zastrzeżone**), ponieważ ta zmiana może mieć wpływ na pamięć podręczną, która jest już uruchomiona z dużymi ilościami danych. Na przykład jeśli masz pamięć podręczną 53 GB z 49 GB danych, a następnie zmień wartość rezerwacji na 8 GB, ta zmiana spowoduje spadek maksymalnej dostępnej pamięci dla systemu do 45 GB. Jeśli bieżące `used_memory` lub Twoje `used_memory_rss` wartości są wyższe niż nowy limit wynoszący 45 GB, system będzie musiał wykluczyć dane do obydwu `used_memory` i `used_memory_rss` poniżej 45 GB. Wykluczenie może zwiększyć obciążenie serwera i fragmentację pamięci. Aby uzyskać więcej informacji na temat metryk pamięci `used_memory` podręcznej, takich jak i `used_memory_rss`, zobacz [Dostępne metryki i interwały raportowania](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Należy wziąć pod uwagę podczas wybierania nowej wartości rezerwacji pamięci (**maxmemory-zastrzeżone** lub **maxfragmentationmemory-zastrzeżone**), ponieważ ta zmiana może mieć wpływ na pamięć podręczną, która jest już uruchomiona z dużymi ilościami danych. Na przykład jeśli masz pamięć podręczną 53 GB z 49 GB danych, a następnie zmień wartość rezerwacji na 8 GB, ta zmiana spowoduje spadek maksymalnej dostępnej pamięci dla systemu do 45 GB. Jeśli bieżące `used_memory` lub Twoje `used_memory_rss` wartości są wyższe niż nowy limit wynoszący 45 GB, system będzie musiał wykluczyć dane do obydwu `used_memory` i `used_memory_rss` poniżej 45 GB. Wykluczenie może zwiększyć obciążenie serwera i fragmentację pamięci. Aby uzyskać więcej informacji na temat metryk pamięci podręcznej, takich jak `used_memory` i `used_memory_rss` , zobacz [Dostępne metryki i interwały raportowania](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > Ustawienia **zarezerwowane** maxmemory i maxfragmentationmemory są dostępne tylko dla pamięci podręcznej w **warstwach** standardowa i Premium.
@@ -291,7 +290,7 @@ Ustawienia w sekcji **Administracja** umożliwiają wykonywanie następujących 
 ![Administracja](./media/cache-configure/redis-cache-administration.png)
 
 * [Importuj dane](#importexport)
-* [Eksportowanie danych](#importexport)
+* [Eksportuj dane](#importexport)
 * [Ponowne uruchamianie](#reboot)
 
 
@@ -356,8 +355,8 @@ Ustawienia w sekcji **Pomoc techniczna i rozwiązywanie problemów** zawierają 
 
 ![Pomoc techniczna i rozwiązywanie problemów](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-* [Kondycja zasobów](#resource-health)
-* [Nowe żądanie obsługi](#new-support-request)
+* [Kondycja zasobu](#resource-health)
+* [Nowy wniosek o pomoc techniczną](#new-support-request)
 
 ### <a name="resource-health"></a>Kondycja zasobów
 **Kondycja zasobu** obserwuje zasób i informuje o tym, że działa zgodnie z oczekiwaniami. Aby uzyskać więcej informacji o usłudze Azure Resource Health, zobacz [Omówienie usługi Azure Resource Health](../resource-health/resource-health-overview.md).
@@ -367,7 +366,7 @@ Ustawienia w sekcji **Pomoc techniczna i rozwiązywanie problemów** zawierają 
 >
 >
 
-### <a name="new-support-request"></a>Nowe żądanie pomocy technicznej
+### <a name="new-support-request"></a>Nowy wniosek o pomoc techniczną
 Kliknij pozycję **nowe żądanie obsługi** , aby otworzyć żądanie pomocy technicznej dla pamięci podręcznej.
 
 
@@ -388,16 +387,16 @@ W nowej pamięci podręcznej platformy Azure dla wystąpień Redis są skonfigur
 
 | Ustawienie | Wartość domyślna | Opis |
 | --- | --- | --- |
-| `databases` |16 |Domyślna liczba baz danych to 16, ale można skonfigurować inną liczbę na podstawie warstwy cenowej. <sup>1</sup> domyślna baza danych to baza danych 0, można wybrać inną dla poszczególnych połączeń, przy `connection.GetDatabase(dbid)` użyciu której `dbid` jest liczbą między `0` i. `databases - 1` |
+| `databases` |16 |Domyślna liczba baz danych to 16, ale można skonfigurować inną liczbę na podstawie warstwy cenowej. <sup>1</sup> domyślna baza danych to baza danych 0, można wybrać inną dla poszczególnych połączeń, przy użyciu `connection.GetDatabase(dbid)` której `dbid` jest liczbą między `0` i `databases - 1` . |
 | `maxclients` |Zależy od warstwy cenowej<sup>2</sup> |Ta wartość jest maksymalną liczbą połączonych klientów dozwolonych w tym samym czasie. Po osiągnięciu limitu Redis zamyka wszystkie nowe połączenia, zwracając błąd "Maksymalna liczba klientów osiągniętych". |
-| `maxmemory-policy` |`volatile-lru` |Maxmemory Policy to ustawienie, w jaki sposób Redis wybiera elementy do usunięcia `maxmemory` , gdy zostanie osiągnięty rozmiar oferty pamięci podręcznej wybranej podczas tworzenia pamięci podręcznej. W przypadku usługi Azure cache for Redis ustawieniem `volatile-lru`domyślnym jest, co spowoduje usunięcie kluczy z ustawionym ustawieniem wygaśnięcia przy użyciu algorytmu LRU. To ustawienie można skonfigurować w Azure Portal. Aby uzyskać więcej informacji, zobacz [zasady pamięci](#memory-policies). |
+| `maxmemory-policy` |`volatile-lru` |Maxmemory Policy to ustawienie, w jaki sposób Redis wybiera elementy do usunięcia `maxmemory` , gdy zostanie osiągnięty rozmiar oferty pamięci podręcznej wybranej podczas tworzenia pamięci podręcznej. W przypadku usługi Azure cache for Redis ustawieniem domyślnym jest `volatile-lru` , co spowoduje usunięcie kluczy z ustawionym ustawieniem wygaśnięcia przy użyciu algorytmu LRU. To ustawienie można skonfigurować w Azure Portal. Aby uzyskać więcej informacji, zobacz [zasady pamięci](#memory-policies). |
 | `maxmemory-samples` |3 |Aby zaoszczędzić pamięć, algorytmy LRU i minimalnego czasu wygaśnięcia są przybliżone algorytmy, a nie precyzyjne algorytmy. Domyślnie Redis sprawdza trzy klucze i wybiera te, które były ostatnio używane. |
 | `lua-time-limit` |5000 |Maksymalny czas wykonywania skryptu Lua w milisekundach. W przypadku osiągnięcia maksymalnego czasu wykonania program Redis rejestruje, że skrypt nadal jest wykonywany po upływie maksymalnego dozwolonego czasu, i zaczyna odpowiadać na zapytania z błędem. |
 | `lua-event-limit` |500 |Maksymalny rozmiar kolejki zdarzeń skryptu. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Limity buforów wyjściowych klienta mogą być używane w celu wymuszenia odłączenia klientów, którzy nie odczytują danych z serwera na tyle z powodów (częstą przyczyną jest to, że klient publikowania/sub nie może zużywać komunikatów tak szybko, jak Wydawca może je generować). Aby uzyskać więcej informacji, [https://redis.io/topics/clients](https://redis.io/topics/clients)Zobacz. |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Limity buforów wyjściowych klienta mogą być używane w celu wymuszenia odłączenia klientów, którzy nie odczytują danych z serwera na tyle z powodów (częstą przyczyną jest to, że klient publikowania/sub nie może zużywać komunikatów tak szybko, jak Wydawca może je generować). Aby uzyskać więcej informacji, zobacz [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
-<sup>1</sup> Limit dla `databases` jest różny dla każdej usługi Azure cache dla warstwy cenowej Redis i można ją ustawić podczas tworzenia pamięci podręcznej. Jeśli ustawienie `databases` nie zostanie określone podczas tworzenia pamięci podręcznej, wartością domyślną jest 16.
+<sup>1</sup> Limit dla `databases` jest różny dla każdej usługi Azure cache dla warstwy cenowej Redis i można ją ustawić podczas tworzenia pamięci podręcznej. Jeśli `databases` ustawienie nie zostanie określone podczas tworzenia pamięci podręcznej, wartością domyślną jest 16.
 
 * Pamięć podręczna podstawowa i Standardowa
   * Z pamięci podręcznej C0 (250 MB) — do 16 baz danych
@@ -412,12 +411,12 @@ W nowej pamięci podręcznej platformy Azure dla wystąpień Redis są skonfigur
   * P2 (13 GB-130 GB) — do 32 baz danych
   * P3 (26 GB-260 GB) — do 48 baz danych
   * P4 (53 GB – 530 GB) — do 64 baz danych
-  * Wszystkie pamięć podręczna Premium z włączonym klastrem Redis — klaster Redis obsługuje tylko Korzystanie z bazy `databases` danych 0, dlatego limit dla dowolnej pamięci podręcznej Premium z włączonym klastrem Redis jest skuteczny 1, a polecenie [SELECT](https://redis.io/commands/select) jest niedozwolone. Aby uzyskać więcej informacji, zobacz [Czy muszę wprowadzić zmiany w aplikacji klienckiej w celu korzystania z klastrowania?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Wszystkie pamięć podręczna Premium z włączonym klastrem Redis — klaster Redis obsługuje tylko Korzystanie z bazy danych 0, dlatego `databases` limit dla dowolnej pamięci podręcznej Premium z włączonym klastrem Redis jest skuteczny 1, a polecenie [SELECT](https://redis.io/commands/select) jest niedozwolone. Aby uzyskać więcej informacji, zobacz [Czy muszę wprowadzić zmiany w aplikacji klienckiej w celu korzystania z klastrowania?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są bazy danych Redis?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> `databases` Ustawienie można skonfigurować tylko podczas tworzenia pamięci podręcznej i tylko przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych klientów zarządzania. Przykład konfigurowania `databases` podczas tworzenia pamięci podręcznej przy użyciu programu PowerShell można znaleźć w temacie [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
+> `databases`Ustawienie można skonfigurować tylko podczas tworzenia pamięci podręcznej i tylko przy użyciu programu PowerShell, interfejsu wiersza polecenia lub innych klientów zarządzania. Przykład konfigurowania `databases` podczas tworzenia pamięci podręcznej przy użyciu programu PowerShell można znaleźć w temacie [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 >
 >
 
@@ -447,7 +446,7 @@ Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są bazy dany
 
 ## <a name="redis-commands-not-supported-in-azure-cache-for-redis"></a>Polecenia Redis nie są obsługiwane w usłudze Azure cache dla Redis
 > [!IMPORTANT]
-> Ponieważ konfiguracja i zarządzanie usługą Azure cache for Redis Instances jest zarządzana przez firmę Microsoft, następujące polecenia są wyłączone. Jeśli spróbujesz je wywołać, zostanie wyświetlony komunikat o błędzie podobny do `"(error) ERR unknown command"`.
+> Ponieważ konfiguracja i zarządzanie usługą Azure cache for Redis Instances jest zarządzana przez firmę Microsoft, następujące polecenia są wyłączone. Jeśli spróbujesz je wywołać, zostanie wyświetlony komunikat o błędzie podobny do `"(error) ERR unknown command"` .
 >
 > * BGREWRITEAOF
 > * BGSAVE
@@ -461,14 +460,14 @@ Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są bazy dany
 >
 >
 
-Aby uzyskać więcej informacji o poleceniach Redis [https://redis.io/commands](https://redis.io/commands), zobacz.
+Aby uzyskać więcej informacji o poleceniach Redis, zobacz [https://redis.io/commands](https://redis.io/commands) .
 
 ## <a name="redis-console"></a>Konsola Redis
 Możesz bezpiecznie wydać polecenia do pamięci podręcznej platformy Azure dla wystąpień Redis za pomocą **konsoli Redis**, która jest dostępna w Azure Portal dla wszystkich warstw pamięci podręcznej.
 
 > [!IMPORTANT]
 > - Konsola Redis nie współpracuje z siecią [wirtualną](cache-how-to-premium-vnet.md). Gdy pamięć podręczna jest częścią sieci wirtualnej, tylko klienci w sieci wirtualnej mogą uzyskać dostęp do pamięci podręcznej. Ponieważ konsola Redis działa w przeglądarce lokalnej, która znajduje się poza siecią wirtualną, nie może nawiązać połączenia z pamięcią podręczną.
-> - Nie wszystkie polecenia Redis są obsługiwane w pamięci podręcznej platformy Azure dla Redis. Listę poleceń Redis, które są wyłączone dla usługi Azure cache for Redis, można znaleźć w sekcji poprzednie [polecenia Redis nieobsługiwane w usłudze Azure cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) . Aby uzyskać więcej informacji o poleceniach Redis [https://redis.io/commands](https://redis.io/commands), zobacz.
+> - Nie wszystkie polecenia Redis są obsługiwane w pamięci podręcznej platformy Azure dla Redis. Listę poleceń Redis, które są wyłączone dla usługi Azure cache for Redis, można znaleźć w sekcji poprzednie [polecenia Redis nieobsługiwane w usłudze Azure cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) . Aby uzyskać więcej informacji o poleceniach Redis, zobacz [https://redis.io/commands](https://redis.io/commands) .
 >
 >
 
@@ -494,7 +493,7 @@ shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
 
-W poprzednim przykładzie fragmentu 1 jest wybranym fragmentu, ale `myKey` znajduje się w fragmentu 0, jak wskazano `(shard 0)` część komunikatu o błędzie. W tym przykładzie w celu uzyskania `myKey`dostępu wybierz pozycję fragmentu 0 przy użyciu selektora fragmentu, a następnie wydaj odpowiednie polecenie.
+W poprzednim przykładzie fragmentu 1 jest wybranym fragmentu, ale znajduje się `myKey` w fragmentu 0, jak wskazano `(shard 0)` część komunikatu o błędzie. W tym przykładzie w celu uzyskania dostępu `myKey` Wybierz pozycję fragmentu 0 przy użyciu selektora fragmentu, a następnie wydaj odpowiednie polecenie.
 
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>Przenoszenie pamięci podręcznej do nowej subskrypcji

@@ -10,10 +10,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74112268"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indeksowanie obiektów BLOB w celu utworzenia wielu dokumentów wyszukiwania
@@ -25,11 +24,11 @@ Domyślnie indeksator obiektów BLOB będzie traktować zawartość obiektu BLOB
 ## <a name="one-to-many-document-key"></a>Klucz dokumentu "jeden do wielu"
 Każdy dokument, który jest wyświetlany w indeksie Wyszukiwanie poznawcze platformy Azure, jest jednoznacznie identyfikowany przez klucz dokumentu. 
 
-Gdy nie jest określony tryb analizowania i jeśli nie istnieje jawne mapowanie dla pola klucza w indeksie Azure Wyszukiwanie poznawcze automatycznie [mapuje](search-indexer-field-mappings.md) `metadata_storage_path` właściwość jako klucz. To mapowanie zapewnia, że każdy obiekt BLOB będzie wyświetlany jako odrębny dokument wyszukiwania.
+Gdy nie jest określony tryb analizowania i jeśli nie istnieje jawne mapowanie dla pola klucza w indeksie Azure Wyszukiwanie poznawcze automatycznie [mapuje](search-indexer-field-mappings.md) `metadata_storage_path` Właściwość jako klucz. To mapowanie zapewnia, że każdy obiekt BLOB będzie wyświetlany jako odrębny dokument wyszukiwania.
 
 W przypadku korzystania z dowolnego z wymienionych powyżej trybów analizowania jeden obiekt BLOB mapuje do "wielu" dokumentów wyszukiwania, co sprawia, że klucz dokumentu opiera się wyłącznie na metadanych obiektów BLOB. Aby można było obejść to ograniczenie, usługa Azure Wyszukiwanie poznawcze może wygenerować klucz dokumentu "jeden do wielu" dla każdej jednostki wyodrębnionej z obiektu BLOB. Ta właściwość ma nazwę `AzureSearch_DocumentKey` i jest dodawana do każdej pojedynczej jednostki wyodrębnionej z obiektu BLOB. Wartość tej właściwości gwarantuje, że jest unikatowa dla każdej jednostki w obiektach _BLOB_ , a jednostki będą widoczne jako osobne dokumenty wyszukiwania.
 
-Domyślnie, gdy nie są określone żadne jawne mapowania pól dla pola indeks klucza, `AzureSearch_DocumentKey` jest ono mapowane na ten element przy użyciu funkcji `base64Encode` mapowania pól.
+Domyślnie, gdy nie są określone żadne jawne mapowania pól dla pola indeks klucza, `AzureSearch_DocumentKey` jest ono mapowane na ten element przy użyciu `base64Encode` funkcji mapowania pól.
 
 ## <a name="example"></a>Przykład
 Załóżmy, że masz definicję indeksu z następującymi polami:
@@ -40,17 +39,17 @@ Załóżmy, że masz definicję indeksu z następującymi polami:
 
 I kontener obiektów BLOB zawiera obiekty blob o następującej strukturze:
 
-_Blob1. JSON_
+_Blob1.jsna_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2. JSON_
+_Blob2.jsna_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
 
-Gdy tworzysz indeksator i `jsonLines` ustawisz dla opcji- **parsingMode** bez określania wszystkich jawnych mapowań pól klucza, następujące mapowanie zostanie zastosowane niejawnie
+Gdy tworzysz indeksator i ustawisz **dla opcji** `jsonLines` -bez określania wszystkich jawnych mapowań pól klucza, następujące mapowanie zostanie zastosowane niejawnie
     
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
@@ -60,7 +59,7 @@ Gdy tworzysz indeksator i `jsonLines` ustawisz dla opcji- **parsingMode** bez ok
 
 Ta konfiguracja spowoduje, że indeks usługi Azure Wyszukiwanie poznawcze zawierający następujące informacje (skrócony identyfikator kodowany algorytmem Base64 dla zwięzłości)
 
-| id | temperature | pressure | sygnatura czasowa |
+| identyfikator | temperature | pressure | sygnatura czasowa |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -71,19 +70,19 @@ Ta konfiguracja spowoduje, że indeks usługi Azure Wyszukiwanie poznawcze zawie
 
 Przy założeniu, że ta sama definicja indeksu jest taka sama jak w poprzednim przykładzie, Załóżmy, że kontener obiektów BLOB zawiera obiekty blob o następującej strukturze:
 
-_Blob1. JSON_
+_Blob1.jsna_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2. JSON_
+_Blob2.jsna_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
 
-Podczas tworzenia indeksatora przy użyciu `delimitedText` elementu **analizowaniamode**może zajść konieczność skonfigurowania funkcji mapowania pól do pola klucza w następujący sposób:
+Podczas tworzenia indeksatora przy użyciu elementu `delimitedText` **analizowaniamode**może zajść konieczność skonfigurowania funkcji mapowania pól do pola klucza w następujący sposób:
 
     {
         "sourceFieldName" : "recordid",
@@ -95,12 +94,12 @@ Jednak to mapowanie _nie_ powoduje, że 4 dokumenty wyświetlane w indeksie, pon
 Jeśli chcesz skonfigurować jawne Mapowanie pól, upewnij się, że _sourceField_ różni się dla poszczególnych jednostek **we wszystkich**obiektach Blob.
 
 > [!NOTE]
-> Podejście używane w `AzureSearch_DocumentKey` celu zapewnienia unikatowości dla wyodrębnionej jednostki może ulec zmianie, dlatego nie należy polegać na jej wartości dla potrzeb aplikacji.
+> Podejście używane w celu `AzureSearch_DocumentKey` zapewnienia unikatowości dla wyodrębnionej jednostki może ulec zmianie, dlatego nie należy polegać na jej wartości dla potrzeb aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli nie znasz już podstawowej struktury i przepływu pracy indeksowania obiektów blob, należy najpierw przejrzeć [indeksowanie BLOB Storage platformy Azure przy użyciu usługi azure wyszukiwanie poznawcze](search-howto-index-json-blobs.md) . Aby uzyskać więcej informacji na temat trybów analizowania dla różnych typów zawartości obiektów blob, zapoznaj się z następującymi artykułami.
 
 > [!div class="nextstepaction"]
-> [Indeksowanie obiektów BLOB](search-howto-index-csv-blobs.md)
-> w formacie CSV[indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md)
+> [Indeksowanie obiektów BLOB](search-howto-index-csv-blobs.md) 
+>  woluminów CSV [Indeksowanie obiektów BLOB JSON](search-howto-index-json-blobs.md)

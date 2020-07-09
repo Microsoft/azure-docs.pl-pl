@@ -3,19 +3,18 @@ title: Wdróż Azure File Sync | Microsoft Docs
 description: Dowiedz się, jak wdrożyć Azure File Sync od początku do końca.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4d179697707b8190515e8c0e6dee2defa8881c03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515358"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
-Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego protokołu, który jest dostępny w systemie Windows Server, aby uzyskać dostęp do danych lokalnie, w tym SMB, NFS i FTPS. Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
+Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
 
 Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](storage-files-planning.md) i [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md) przed wykonaniem kroków opisanych w tym artykule.
 
@@ -23,14 +22,14 @@ Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](sto
 * Udział plików platformy Azure w tym samym regionie, w którym chcesz wdrożyć Azure File Sync. Aby uzyskać więcej informacji, zobacz:
     - [Dostępność regionu](storage-sync-files-planning.md#azure-file-sync-region-availability) dla Azure File Sync.
     - [Utwórz udział plików](storage-how-to-create-file-share.md) , aby uzyskać szczegółowy opis sposobu tworzenia udziału plików.
-* Co najmniej jedno obsługiwane wystąpienie klastra systemu Windows Server lub systemu Windows Server do synchronizacji z Azure File Sync. Aby uzyskać więcej informacji o obsługiwanych wersjach systemu Windows Server, zobacz [współdziałanie z systemem Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
-* Moduł AZ PowerShell może być używany z programem PowerShell 5,1 lub PowerShell 6 +. Możesz użyć polecenia AZ PowerShell module dla Azure File Sync w dowolnym obsługiwanym systemie, w tym w systemach innych niż Windows, jednak polecenie cmdlet rejestracji serwera musi być zawsze uruchamiane w zarejestrowanym wystąpieniu systemu Windows Server (można to zrobić bezpośrednio lub za pośrednictwem komunikacji zdalnej programu PowerShell). W systemie Windows Server 2012 R2 można sprawdzić, czy jest uruchomiony program PowerShell 5,1 lub nowszy. \* przeglądając wartość właściwości **PSVersion** obiektu **$PSVersionTable** :
+* Co najmniej jedno obsługiwane wystąpienie klastra systemu Windows Server lub systemu Windows Server do synchronizacji z Azure File Sync. Aby uzyskać więcej informacji na temat obsługiwanych wersji systemu Windows Server i zalecanych zasobów systemowych, zobacz [zagadnienia dotyczące serwera plików systemu Windows](storage-sync-files-planning.md#windows-file-server-considerations).
+* Moduł AZ PowerShell może być używany z programem PowerShell 5,1 lub PowerShell 6 +. Możesz użyć polecenia AZ PowerShell module dla Azure File Sync w dowolnym obsługiwanym systemie, w tym w systemach innych niż Windows, jednak polecenie cmdlet rejestracji serwera musi być zawsze uruchamiane w zarejestrowanym wystąpieniu systemu Windows Server (można to zrobić bezpośrednio lub za pośrednictwem komunikacji zdalnej programu PowerShell). W systemie Windows Server 2012 R2 można sprawdzić, czy jest uruchomiony program PowerShell 5,1 lub nowszy. \* Przeglądając wartość właściwości **PSVersion** obiektu **$PSVersionTable** :
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Jeśli wartość PSVersion jest mniejsza niż 5,1. \*, podobnie jak w przypadku większości świeżych instalacji systemu windows Server 2012 R2, można łatwo przeprowadzić uaktualnienie, pobierając i instalując [system Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Odpowiedni pakiet do pobrania i zainstalowania dla systemu Windows Server 2012 R2 to **Win 8.1 andw2k12r2-KB\*\*\*\*\*\*\*-x64. msu**. 
+    Jeśli wartość PSVersion jest mniejsza niż 5,1. \* , podobnie jak w przypadku większości świeżych instalacji systemu Windows Server 2012 R2, można łatwo przeprowadzić uaktualnienie, pobierając i instalując program [Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Odpowiedni pakiet do pobrania i zainstalowania dla systemu Windows Server 2012 R2 to **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
 
     Program PowerShell 6 może być używany z dowolnym obsługiwanym systemem i można go pobrać za pośrednictwem [strony usługi GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -40,7 +39,7 @@ Zdecydowanie zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](sto
 * Jeśli wybrano opcję użycia programu PowerShell 5,1, należy się upewnić, że jest zainstalowany co najmniej program .NET 4.7.2. Dowiedz się więcej na temat [.NET Framework wersji i zależności](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) w systemie.
 
     > [!Important]  
-    > W przypadku instalowania programu .NET 4.7.2 + w systemie Windows Server Core należy zainstalować z flagami `quiet` i `norestart` lub instalacja nie powiedzie się. Na przykład w przypadku instalowania programu .NET 4,8 polecenie będzie wyglądać następująco:
+    > W przypadku instalowania programu .NET 4.7.2 + w systemie Windows Server Core należy zainstalować z `quiet` `norestart` flagami i lub instalacja nie powiedzie się. Na przykład w przypadku instalowania programu .NET 4,8 polecenie będzie wyglądać następująco:
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
@@ -65,7 +64,7 @@ Dla każdego serwera, który ma być używany z Azure File Sync, włącznie z ka
 4. W oknie dialogowym **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer** wybierz pozycję **wyłączone** dla **administratorów** i **użytkowników**:  
     ![Okno podręczne „Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer” z wybraną pozycją „Wyłączono”](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Aby wyłączyć konfigurację zwiększonych zabezpieczeń programu Internet Explorer, wykonaj następujące czynności z poziomu sesji programu PowerShell z podwyższonym poziomem uprawnień:
 
 ```powershell
@@ -108,8 +107,8 @@ W otwartym okienku wprowadź następujące informacje:
 
 Po zakończeniu wybierz pozycję **Utwórz** , aby wdrożyć usługę synchronizacji magazynu.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
-`<Az_Region>`Zastąp `<RG_Name>`wartości, `<my_storage_sync_service>` i własnymi wartościami, a następnie użyj następujących poleceń, aby utworzyć i wdrożyć usługę synchronizacji magazynu:
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+Zastąp `<Az_Region>` `<RG_Name>` wartości, i `<my_storage_sync_service>` własnymi wartościami, a następnie użyj następujących poleceń, aby utworzyć i wdrożyć usługę synchronizacji magazynu:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -172,7 +171,7 @@ Zalecamy wykonanie następujących czynności:
 
 Po zakończeniu instalacji agenta Azure File Sync zostanie automatycznie otwarty interfejs użytkownika rejestracji serwera. Musisz mieć usługę synchronizacji magazynu przed rejestracją; Zobacz następną sekcję, jak utworzyć usługę synchronizacji magazynu.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Wykonaj następujący kod programu PowerShell, aby pobrać odpowiednią wersję agenta Azure File Sync dla systemu operacyjnego i zainstalować ją w systemie.
 
 > [!Important]  
@@ -229,7 +228,7 @@ Po zalogowaniu zostanie wyświetlony monit o podanie następujących informacji:
 
 Po wybraniu odpowiednich informacji wybierz pozycję **zarejestruj** , aby zakończyć rejestrację serwera. W ramach procesu rejestracji zostanie wyświetlony monit o dodatkowe logowanie.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```powershell
 $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
@@ -256,15 +255,15 @@ W otwartym okienku wprowadź następujące informacje, aby utworzyć grupę sync
 - **Konto magazynu**: w przypadku wybrania **opcji wybierz konto magazynu**zostanie wyświetlone inne okienko, w którym można wybrać konto magazynu, które ma udział plików platformy Azure, z którym chcesz przeprowadzić synchronizację.
 - **Udział plików platformy Azure**: nazwa udziału plików platformy Azure, z którym chcesz przeprowadzić synchronizację.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
-Aby utworzyć grupę synchronizacji, wykonaj następujące polecenie programu PowerShell. Pamiętaj, aby `<my-sync-group>` zamienić na żądaną nazwę grupy synchronizacji.
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+Aby utworzyć grupę synchronizacji, wykonaj następujące polecenie programu PowerShell. Pamiętaj, aby zamienić na `<my-sync-group>` żądaną nazwę grupy synchronizacji.
 
 ```powershell
 $syncGroupName = "<my-sync-group>"
 $syncGroup = New-AzStorageSyncGroup -ParentObject $storageSync -Name $syncGroupName
 ```
 
-Po pomyślnym utworzeniu grupy synchronizacji można utworzyć punkt końcowy w chmurze. Pamiętaj, aby `<my-storage-account>` zamienić `<my-file-share>` i uzyskać oczekiwane wartości.
+Po pomyślnym utworzeniu grupy synchronizacji można utworzyć punkt końcowy w chmurze. Pamiętaj, aby zamienić `<my-storage-account>` i uzyskać `<my-file-share>` oczekiwane wartości.
 
 ```powershell
 # Get or create a storage account with desired name
@@ -320,7 +319,7 @@ W okienku **Dodawanie punktu końcowego serwera** wprowadź następujące inform
 
 Aby dodać punkt końcowy serwera, wybierz pozycję **Utwórz**. Twoje pliki są teraz zsynchronizowane w ramach udziału plików platformy Azure i systemu Windows Server. 
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Wykonaj następujące polecenia programu PowerShell, aby utworzyć punkt końcowy serwera, i pamiętaj o zastąpieniu `<your-server-endpoint-path>` i `<your-volume-free-space>` z odpowiednimi wartościami.
 
 ```powershell

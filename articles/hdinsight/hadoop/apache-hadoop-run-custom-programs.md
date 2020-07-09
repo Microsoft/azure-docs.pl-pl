@@ -5,21 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 78623f738285e781cb561a3844db8fbf37226929
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8751a54393f310c1d5a77ccbfdb553ee3643f74a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645025"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86080112"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Uruchamianie niestandardowych programów MapReduce
 
 Oparte na Apache Hadoop systemy danych Big Data, takie jak HDInsight, umożliwiają przetwarzanie danych przy użyciu szerokiej gamy narzędzi i technologii. W poniższej tabeli opisano główne zalety i zagadnienia dotyczące każdego z nich.
 
-| Mechanizm zapytania | Zalety | Zagadnienia do rozważenia |
+| Mechanizm zapytania | Zalety | Istotne zagadnienia |
 | --- | --- | --- |
 | **Apache Hive przy użyciu HiveQL** | <ul><li>Doskonałe rozwiązanie do przetwarzania wsadowego i analizy dużych ilości niezmiennych danych, podsumowania danych i wykonywania zapytań na żądanie. Używa znanej składni podobnej do języka SQL.</li><li>Może służyć do tworzenia trwałych tabel danych, które można łatwo podzielić na partycje i zindeksować.</li><li>Dla tych samych danych można tworzyć wiele tabel i widoków zewnętrznych.</li><li>Obsługuje ona prostą implementację magazynu danych, która zapewnia ogromne możliwości skalowania i odporności na uszkodzenia na potrzeby przechowywania i przetwarzania danych.</li></ul> | <ul><li>Wymaga, aby dane źródłowe miały co najmniej pewną rozpoznawalną strukturę.</li><li>Nie jest to odpowiednie dla zapytań w czasie rzeczywistym i aktualizacji na poziomie wiersza. Najlepiej jest używać do zadań wsadowych w dużych zestawach danych.</li><li>Może nie być możliwe przeprowadzenie niektórych typów złożonych zadań przetwarzania.</li></ul> |
 | **Apache świnie z użyciem wieprzowiny** | <ul><li>Doskonałe rozwiązanie do manipulowania danymi jako zestawy, scalanie i filtrowanie zestawów danych, stosowanie funkcji do rekordów lub grup rekordów oraz na potrzeby restrukturyzacji danych przez definiowanie kolumn, grupowanie wartości lub konwersja kolumn do wierszy.</li><li>Można użyć podejścia opartego na przepływie pracy jako sekwencji operacji na danych.</li></ul> | <ul><li>Użytkownicy SQL mogą znaleźć mniej znane i trudniejsze na korzystanie z HiveQL.</li><li>Domyślnym wyjściem jest zwykle plik tekstowy, więc może być trudniejszy do użycia z narzędziami do wizualizacji, takimi jak program Excel. Zazwyczaj warstwy Hive zostaną przełączone na dane wyjściowe.</li></ul> |
@@ -48,7 +48,7 @@ Należy rozważyć utworzenie własnej mapy i zmniejszenie składników pod kąt
 
 Najpopularniejsze programy MapReduce są zapisywane w języku Java i kompilowane do pliku JAR.
 
-1. Po opracowaniu, skompilowaniu i przetestowaniu programu MapReduce Użyj `scp` polecenia, aby przekazać plik jar do węzła głównego.
+1. Po opracowaniu, skompilowaniu i przetestowaniu programu MapReduce Użyj polecenia, `scp` Aby przekazać plik jar do węzła głównego.
 
     ```cmd
     scp mycustomprogram.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -68,7 +68,7 @@ Najpopularniejsze programy MapReduce są zapisywane w języku Java i kompilowane
     yarn jar mycustomprogram.jar mynamespace.myclass /example/data/sample.log /example/data/logoutput
     ```
 
-    To polecenie przesyła zadanie MapReduce do PRZĘDZenia. Plik wejściowy jest `/example/data/sample.log`i katalog wyjściowy `/example/data/logoutput`. Plik wejściowy i wszystkie pliki wyjściowe są przechowywane w domyślnym magazynie klastra.
+    To polecenie przesyła zadanie MapReduce do PRZĘDZenia. Plik wejściowy jest `/example/data/sample.log` i katalog wyjściowy `/example/data/logoutput` . Plik wejściowy i wszystkie pliki wyjściowe są przechowywane w domyślnym magazynie klastra.
 
 ## <a name="next-steps"></a>Następne kroki
 

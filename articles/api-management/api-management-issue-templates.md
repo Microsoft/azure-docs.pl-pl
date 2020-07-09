@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846848"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Szablony problemów na platformie Azure API Management
 Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu dla deweloperów przy użyciu zestawu szablonów, które konfigurują ich zawartość. Korzystając z składni [DotLiquid](http://dotliquidmarkup.org/) i wybranego edytora, takiego jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i dostępnego zestawu zlokalizowanych [zasobów ciągów](api-management-template-resources.md#strings), [zasobów glifów](api-management-template-resources.md#glyphs)i [kontrolek stron](api-management-page-controls.md), masz doskonałą elastyczność konfigurowania zawartości stron w miarę, w jakiej są one widoczne przy użyciu tych szablonów.  
@@ -92,7 +92,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 ```
   
 ### <a name="controls"></a>Formanty  
- `Issue list` Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
+ `Issue list`Szablon może korzystać z następujących [kontrolek strony](api-management-page-controls.md).  
   
 -   [Kontrola stronicowania](api-management-page-controls.md#paging-control)  
   

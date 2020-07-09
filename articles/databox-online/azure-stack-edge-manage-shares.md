@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d64ecb32c783dcee08164856aa90a43d004894a8
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
-ms.translationtype: MT
+ms.openlocfilehash: 1aceb9d2fb1d9b5890bc0859d432bc1c5e7e4db4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339843"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
 
@@ -88,7 +87,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 6. W polu **użytkownik lokalny wszystkie uprawnienia** wybierz opcję **Utwórz nowe** lub **Użyj istniejącej**.
 
-7. Wybierz przycisk **Utwórz**. 
+7. Wybierz pozycję **Utwórz**. 
 
    ![Utwórz udział lokalny](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
@@ -152,7 +151,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć udział.
 
    ![Wybieranie udziału](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
-2. Kliknij przycisk **Usuń**.
+2. Kliknij polecenie **Usuń**.
 
    ![Klikanie polecenia Usuń](media/azure-stack-edge-manage-shares/delete-share-2.png)
 

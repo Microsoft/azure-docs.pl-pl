@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720048"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Zadania w celu przygotowania danych do rozszerzonego uczenia maszynowego
@@ -96,7 +95,7 @@ Istnieją różne metody zmniejszania rozmiaru danych w celu ułatwienia obsług
 
 **Eksploracja danych** oferuje wczesny wgląd w dane. W trakcie tego kroku można odzyskać wiele problemów z danymi, a odpowiednie metody mogą być stosowane w celu rozwiązania tych problemów.  Ważne jest, aby zadawać pytania, takie jak to, co jest źródłem problemu i jak można było wprowadzić problem. Ten proces pomaga również w wyborze kroków przetwarzania danych, które należy podjąć w celu ich rozwiązania. Określenie ostatecznych przypadków użycia i osób może być również używane do określania priorytetów nakładu pracy przetwarzania danych.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 > *Wyszukiwanie danych: koncepcje i techniki*, wydanie trzecie, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber i Jian PEI
 > 
 > 

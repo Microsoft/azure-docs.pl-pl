@@ -16,10 +16,9 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b8038896a11b65e835ce71f5fc34e85723cc91a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77060525"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Salesforce do automatycznego aprowizacji użytkowników
@@ -96,7 +95,7 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
 10. Skopiuj token, przejdź do okna usługi Azure AD i wklej go w polu **token tajny** .
 
-11. Należy wprowadzić **adres URL dzierżawy** , jeśli wystąpienie usługi Salesforce znajduje się w chmurze dla instytucji rządowych usługi Salesforce. W przeciwnym razie jest to opcjonalne. Wprowadź adres URL dzierżawy przy użyciu formatu "https://\<The-instance\>. my.Salesforce.com", zastępując \<swój wystąpienie\> nazwą wystąpienia usługi Salesforce.
+11. Należy wprowadzić **adres URL dzierżawy** , jeśli wystąpienie usługi Salesforce znajduje się w chmurze dla instytucji rządowych usługi Salesforce. W przeciwnym razie jest to opcjonalne. Wprowadź adres URL dzierżawy przy użyciu formatu "https:// \<your-instance\> . my.Salesforce.com", zastępując go \<your-instance\> nazwą wystąpienia usługi Salesforce.
 
 12. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z Twoją aplikacją w usłudze Salesforce.
 
@@ -132,7 +131,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Przed zmianą usługi Salesforce wymagane jest ręczne zatwierdzenie aktualizacji poczty e-mail. W związku z tym w dziennikach aprowizacji może zostać wyświetlona wiele wpisów w celu zaktualizowania wiadomości e-mail użytkownika (do momentu zatwierdzenia zmiany wiadomości e-mail).
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

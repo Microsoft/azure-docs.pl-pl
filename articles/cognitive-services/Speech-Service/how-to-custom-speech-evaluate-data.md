@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856835"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Ocena dokładności usługi Custom Speech
 
@@ -23,7 +23,7 @@ W tym dokumencie dowiesz się, jak ilościowo mierzyć jakość modelu zamiany m
 
 ## <a name="what-is-word-error-rate-wer"></a>Co to jest współczynnik błędów programu Word?
 
-Standardem branżowym do mierzenia dokładności modelu jest *Współczynnik błędów programu Word* . Funkcja Raportowanie błędów systemu Windows zlicza błędne słowa identyfikowane podczas rozpoznawania, a następnie dzieli przez łączną liczbę wyrazów w transkrypcji z etykietami ludzkimi. Na koniec ten numer jest mnożony przez 100%, aby obliczyć raportowanie błędów.
+Standardem branżowym do mierzenia dokładności modelu jest *Współczynnik błędów programu Word* . Funkcja Raportowanie błędów systemu Windows zlicza błędne słowa identyfikowane podczas rozpoznawania, a następnie dzieli przez łączną liczbę wyrazów w transkrypcji z etykietami ludzkimi (pokazane poniżej jako N). Na koniec ten numer jest mnożony przez 100%, aby obliczyć raportowanie błędów.
 
 ![Formuła raportowanie błędów](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -52,11 +52,11 @@ Jeśli chcesz przetestować jakość modelu linii bazowej zamiany mowy na tekst 
 Aby oszacować modele obok siebie:
 
 1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
-2. Przejdź do **> funkcji zamiany mowy na tekst Custom Speech > testowanie**.
+2. Przejdź do **> zamiany mowy na tekst Custom Speech > [nazwa projektu] > testowanie**.
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Oceń dokładność**. Nadaj testowi nazwę, opis, a następnie wybierz swój audio + ludzki zestaw danych transkrypcji.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 Po pomyślnym utworzeniu testu można porównać wyniki obok siebie.
 
@@ -69,7 +69,7 @@ Po zakończeniu testu, wskazywanym przez zmianę stanu na *powodzenie*, można z
 * [Trenowanie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)

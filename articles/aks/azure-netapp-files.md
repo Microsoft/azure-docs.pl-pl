@@ -2,16 +2,13 @@
 title: Integracja Azure NetApp Files z usługą Azure Kubernetes Service
 description: Dowiedz się, jak zintegrować Azure NetApp Files z usługą Azure Kubernetes Service
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
-ms.author: zarhoads
-ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273751"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465647"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integracja Azure NetApp Files z usługą Azure Kubernetes Service
 
@@ -49,7 +46,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Ukończenie tej operacji może zająć trochę czasu.
 
-Podczas tworzenia konta usługi Azure NetApp do użytku z usługą AKS należy utworzyć konto w grupie zasobów **węzła** . Najpierw Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj parametr `--query nodeResourceGroup` zapytania. Poniższy przykład pobiera grupę zasobów węzła dla klastra AKS o nazwie *myAKSCluster* w grupie *zasobów nazwa zasobu*:
+Podczas tworzenia konta usługi Azure NetApp do użytku z usługą AKS należy utworzyć konto w grupie zasobów **węzła** . Najpierw Pobierz nazwę grupy zasobów za pomocą polecenia [AZ AKS show][az-aks-show] i Dodaj `--query nodeResourceGroup` parametr zapytania. Poniższy przykład pobiera grupę zasobów węzła dla klastra AKS o nazwie *myAKSCluster* w grupie *zasobów nazwa zasobu*:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -148,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień `path` na *CreationToken* i `server` z *adresem IP* z poprzedniego polecenia. Przykład:
+Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień na `path` *creationToken* i `server` z *adresem IP* z poprzedniego polecenia. Przykład:
 
 ```yaml
 ---
@@ -246,7 +243,7 @@ Sprawdź, czy pod poleceniem jest *uruchomiony* program, używając polecenia [p
 kubectl describe pod nginx-nfs
 ```
 
-Sprawdź, czy wolumin został zainstalowany w obszarze pod przy użyciu programu [polecenia kubectl exec][kubectl-exec] , aby nawiązać połączenie `df -h` z usługą pod warunkiem, aby sprawdzić, czy wolumin jest zainstalowany.
+Sprawdź, czy wolumin został zainstalowany w obszarze pod przy użyciu programu [polecenia kubectl exec][kubectl-exec] , aby nawiązać połączenie z usługą pod `df -h` warunkiem, aby sprawdzić, czy wolumin jest zainstalowany.
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash

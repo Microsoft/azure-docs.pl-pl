@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7973ef9c56b70b6b43256db947e7f6f7210c178f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: bf1e3abc1d4fceaa6547f63346ecd64e1128eac2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930441"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234961"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Windows na platformie Azure
 
@@ -92,12 +92,12 @@ Typowe zadania można realizować przy użyciu różnych rozszerzeń:
 ### <a name="related-resources"></a>Powiązane zasoby
 Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą istnieć lub zostać utworzone podczas jej tworzenia.
 
-| Zasób | Wymagany | Opis |
+| Zasób | Wymagane | Opis |
 | --- | --- | --- |
 | [Grupa zasobów](../../azure-resource-manager/management/overview.md) |Tak |Maszyna wirtualna musi być zawarta w grupie zasobów. |
 | [Konto magazynu](../../storage/common/storage-create-storage-account.md) |Tak |Maszyna wirtualna wymaga konta magazynu do przechowywania wirtualnych dysków twardych. |
 | [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md) |Tak |Maszyna wirtualna musi należeć do sieci wirtualnej. |
-| [Publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
+| [Publiczny adres IP](../../virtual-network/public-ip-addresses.md) |Nie |Maszyna wirtualna może mieć przypisany publiczny adres IP umożliwiający uzyskiwanie do niej dostępu zdalnego. |
 | [Interfejs sieciowy](../../virtual-network/virtual-network-network-interface.md) |Tak |Maszyna wirtualna wymaga interfejsu sieciowego do komunikacji w sieci. |
 | [Dyski z danymi](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nie |Maszyna wirtualna może zawierać dyski danych zwiększające jej pojemność. |
 
@@ -106,6 +106,6 @@ Zasoby wymienione w tej tabeli są używane przez maszynę wirtualną i muszą i
 Utwórz pierwszą maszynę wirtualną.
 
 - [Portal](quick-create-portal.md)
-- [PowerShell](quick-create-powershell.md)
+- [Program PowerShell](quick-create-powershell.md)
 - [Interfejs wiersza polecenia platformy Azure](quick-create-cli.md)
 

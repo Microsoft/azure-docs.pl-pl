@@ -4,35 +4,35 @@ description: Zapoznaj się z podstawowymi pojęciami i Głównymi obszarami Serv
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791854"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Czy chcesz dowiedzieć się więcej o Service Fabric?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Service Fabric ma jednak duże powierzchnie, ale istnieje wiele informacji.  Ten artykuł zawiera streszczenie Service Fabric i zawiera opis podstawowych pojęć, modeli programowania, cyklu życia aplikacji, testowania, klastrów i monitorowania kondycji. Zapoznaj się z [omówieniem](service-fabric-overview.md) i [co to są mikrousługi?](service-fabric-overview-microservices.md) , aby zapoznać się z wprowadzeniem i jak Service Fabric może służyć do tworzenia mikrousług. Ten artykuł nie zawiera obszernej listy zawartości, ale łączy się z artykułami dotyczącymi przeglądu i uruchamiania dla każdego obszaru Service Fabric. 
 
-## <a name="core-concepts"></a>Kluczowe pojęcia
+## <a name="core-concepts"></a>Podstawowe pojęcia
 [Service Fabric terminologia](service-fabric-technical-overview.md), [model aplikacji](service-fabric-application-model.md)i [obsługiwane modele programowania](service-fabric-choose-framework.md) zawierają więcej pojęć i opisów, ale poniżej przedstawiono podstawowe informacje.
 
 ### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Czas projektowania: typ usługi, pakiet usługi i manifest, typ aplikacji, pakiet aplikacji i manifest
-Typ usługi to nazwa/wersja przypisana do pakietów kodu usługi, pakietów danych i pakietów konfiguracyjnych. Jest to zdefiniowane w pliku servicemanifest. XML. Typ usługi składa się z ustawień kodu wykonywalnego i konfiguracji usługi, które są ładowane w czasie wykonywania, oraz danych statycznych, które są używane przez usługę.
+Typ usługi to nazwa/wersja przypisana do pakietów kodu usługi, pakietów danych i pakietów konfiguracyjnych. Jest to zdefiniowane w pliku ServiceManifest.xml. Typ usługi składa się z ustawień kodu wykonywalnego i konfiguracji usługi, które są ładowane w czasie wykonywania, oraz danych statycznych, które są używane przez usługę.
 
-Pakiet usługi to katalog dysku zawierający plik servicemanifest. xml typu usługi, który odwołuje się do kodu, danych statycznych i pakietów konfiguracyjnych dla typu usługi. Na przykład pakiet usługi może odwoływać się do kodu, danych statycznych i pakietów konfiguracyjnych tworzących usługę bazy danych.
+Pakiet usługi to katalog dysku zawierający plik ServiceManifest.xml typu usługi, który odwołuje się do kodu, danych statycznych i pakietów konfiguracyjnych dla typu usługi. Na przykład pakiet usługi może odwoływać się do kodu, danych statycznych i pakietów konfiguracyjnych tworzących usługę bazy danych.
 
-Typ aplikacji to nazwa/wersja przypisana do kolekcji typów usług. Ten element jest zdefiniowany w pliku ApplicationManifest. XML.
+Typ aplikacji to nazwa/wersja przypisana do kolekcji typów usług. Jest to zdefiniowane w pliku ApplicationManifest.xml.
 
 ![Service Fabric typów aplikacji i typów usług][cluster-imagestore-apptypes]
 
-Pakiet aplikacji to katalog dysku, który zawiera plik ApplicationManifest. xml typu aplikacji, który odwołuje się do pakietów usługi dla każdego typu usługi tworzących typ aplikacji. Na przykład pakiet aplikacji typu aplikacja poczty e-mail może zawierać odwołania do pakietu usługi kolejki, pakietu usługi frontonu i pakietu usługi bazy danych.  
+Pakiet aplikacji jest katalogiem dysku, który zawiera plik ApplicationManifest.xml typu aplikacji, który odwołuje się do pakietów usługi dla każdego typu usługi tworzącego typ aplikacji. Na przykład pakiet aplikacji typu aplikacja poczty e-mail może zawierać odwołania do pakietu usługi kolejki, pakietu usługi frontonu i pakietu usługi bazy danych.  
 
 Pliki w katalogu pakietu aplikacji są kopiowane do magazynu obrazów klastra Service Fabric. Następnie można utworzyć nazwaną aplikację z tego typu aplikacji, która następnie jest uruchamiana w klastrze. Po utworzeniu nazwanej aplikacji można utworzyć nazwę usługi na podstawie jednego z typów usług typu aplikacji. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Czas wykonywania: klastry i węzły, nazwane aplikacje, nazwane usługi, partycje i repliki
 [Klaster Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Klastry mogą obejmować nawet tysiące maszyn.
 
-Maszyna lub maszyna wirtualna, która jest częścią klastra, jest nazywana węzłem. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają swoje właściwości — na przykład właściwości dotyczące umieszczania. Każda maszyna lub maszyna wirtualna ma uruchomioną funkcję autostartu `FabricHost.exe`systemu Windows, która jest uruchamiana po rozruchu, a następnie uruchamia `Fabric.exe` dwa `FabricGateway.exe`pliki wykonywalne: i. Te dwa pliki wykonywalne składają się na węzeł. W przypadku scenariuszy programistycznych lub testowych można hostować wiele węzłów na jednej maszynie lub maszynie wirtualnej, uruchamiając wiele `Fabric.exe` wystąpień `FabricGateway.exe`i.
+Maszyna lub maszyna wirtualna, która jest częścią klastra, jest nazywana węzłem. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają swoje właściwości — na przykład właściwości dotyczące umieszczania. Każda maszyna lub maszyna wirtualna ma uruchomioną funkcję autostartu systemu Windows, `FabricHost.exe` która jest uruchamiana po rozruchu, a następnie uruchamia dwa pliki wykonywalne: `Fabric.exe` i `FabricGateway.exe` . Te dwa pliki wykonywalne składają się na węzeł. W przypadku scenariuszy programistycznych lub testowych można hostować wiele węzłów na jednej maszynie lub maszynie wirtualnej, uruchamiając wiele wystąpień `Fabric.exe` i `FabricGateway.exe` .
 
 Nazwana aplikacja to kolekcja nazwanych usług, która wykonuje określoną funkcję lub funkcje. Usługa wykonuje pełną i autonomiczną funkcję (można uruchamiać i uruchamiać niezależnie od innych usług) i składa się z kodu, konfiguracji i danych. Po skopiowaniu pakietu aplikacji do magazynu obrazów można utworzyć wystąpienie aplikacji w klastrze, określając typ aplikacji pakietu aplikacji (przy użyciu jego nazwy/wersji). Każde wystąpienie typu aplikacji ma przypisaną nazwę identyfikatora URI, która wygląda jak *Sieć szkieletowa:/MyNamedApp*. W ramach klastra można utworzyć wiele nazwanych aplikacji z jednego typu aplikacji. Można również tworzyć nazwane aplikacje z różnych typów aplikacji. Każda nazwana aplikacja jest zarządzana i niezależnie od wersji.
 
@@ -66,7 +66,7 @@ Dlaczego mikrousługi stanowe mają być bezstanowe? Istnieją dwa główne przy
 ## <a name="supported-programming-models"></a>Obsługiwane modele programowania
 Service Fabric oferuje wiele sposobów zapisywania usług i zarządzania nimi. Usługi mogą korzystać z interfejsów API Service Fabric, aby w pełni korzystać z funkcji platformy i struktur aplikacji. Usługi mogą być również dowolnym skompilowanym programem wykonywalnym zapisanym w dowolnym języku i hostowanym w klastrze Service Fabric. Aby uzyskać więcej informacji, zobacz [obsługiwane modele programowania](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontenery
 Domyślnie program Service Fabric wdraża i aktywuje usługi jako procesy. Service Fabric można również wdrożyć usługi w [kontenerach](service-fabric-containers-overview.md). Ważne, można mieszać usługi w ramach procesów i usług w kontenerach w tej samej aplikacji. Service Fabric obsługuje wdrażanie kontenerów systemu Linux i kontenerów Windows w systemie Windows Server 2016. W kontenerach można wdrażać istniejące aplikacje, usługi bezstanowe lub usługi stanowe. 
 
 ### <a name="reliable-services"></a>Reliable Services
@@ -105,7 +105,7 @@ Aby stworzyć prawdziwą usługę w skali chmury, należy sprawdzić, czy aplika
 * [Scenariusz trybu failover](service-fabric-testability-scenarios.md#failover-test)— wersja scenariusza testowego chaos, który jest przeznaczony dla określonej partycji usługi, pozostawiając inne nienaruszone usługi.
 
 ## <a name="clusters"></a>Klastry
-[Klaster Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Klastry mogą obejmować nawet tysiące maszyn. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają swoje właściwości — na przykład właściwości dotyczące umieszczania. Każda maszyna lub maszyna wirtualna ma usługę `FabricHost.exe`Autostart, która zaczyna działać po rozruchu, a następnie uruchamia dwa pliki wykonywalne: Fabric. exe i FabricGateway. exe. Te dwa pliki wykonywalne składają się na węzeł. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień `Fabric.exe` i. `FabricGateway.exe`
+[Klaster Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Klastry mogą obejmować nawet tysiące maszyn. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Każdy węzeł ma przypisaną nazwę węzła (ciąg). Węzły mają swoje właściwości — na przykład właściwości dotyczące umieszczania. Każda maszyna lub maszyna wirtualna ma usługę Autostart, `FabricHost.exe` która zaczyna działać po rozruchu, a następnie uruchamia dwa pliki wykonywalne: Fabric.exe i FabricGateway.exe. Te dwa pliki wykonywalne składają się na węzeł. Scenariusze testowania umożliwiają hostowanie wielu węzłów na pojedynczej maszynie lub maszynie wirtualnej przez uruchomienie wielu wystąpień `Fabric.exe` i `FabricGateway.exe` .
 
 Klastry Service Fabric można tworzyć na maszynach wirtualnych lub fizycznych z systemem Windows Server lub Linux. Można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku, w którym istnieje zestaw połączonych komputerów z systemem Windows Server lub Linux: lokalnie, na Microsoft Azure lub w dowolnym dostawcy chmury.
 
@@ -143,7 +143,7 @@ Okresowo są wydawane nowe wersje środowiska uruchomieniowego Service Fabric. P
 
 Klaster Service Fabric jest posiadanym zasobem, ale jest częścią zarządzaną przez firmę Microsoft. Firma Microsoft jest odpowiedzialna za stosowanie poprawek do podstawowego systemu operacyjnego i przeprowadzanie uaktualnień sieci szkieletowej w klastrze. Można ustawić, aby klaster otrzymywał automatyczne uaktualnienia sieci szkieletowej, podczas gdy firma Microsoft wyprowadzi nową wersję, lub wybrać wybraną obsługiwaną wersję sieci szkieletowej. Uaktualnienia sieci szkieletowej i konfiguracji można ustawić za pomocą Azure Portal lub Menedżer zasobów. Aby uzyskać więcej informacji, przeczytaj artykuł [Uaktualnij klaster Service Fabric](service-fabric-cluster-upgrade.md). 
 
-Autonomiczny klaster jest zasobem, który jesteś całkowicie własnym. Użytkownik jest odpowiedzialny za stosowanie poprawek do podstawowego systemu operacyjnego i Inicjowanie uaktualnień sieci szkieletowej. Jeśli klaster może nawiązać połączenie [https://www.microsoft.com/download](https://www.microsoft.com/download)z usługą, można ustawić, aby klaster automatycznie pobierał i udostępniał nowy pakiet Service Fabric środowiska uruchomieniowego. Następnie można zainicjować uaktualnienie. Jeśli klaster nie może uzyskać [https://www.microsoft.com/download](https://www.microsoft.com/download)dostępu, możesz ręcznie pobrać nowy pakiet środowiska uruchomieniowego z maszyny podłączonej do Internetu, a następnie zainicjować uaktualnienie. Aby uzyskać więcej informacji, przeczytaj temat [uaktualnianie autonomicznego klastra Service Fabric](service-fabric-cluster-upgrade-windows-server.md).
+Autonomiczny klaster jest zasobem, który jesteś całkowicie własnym. Użytkownik jest odpowiedzialny za stosowanie poprawek do podstawowego systemu operacyjnego i Inicjowanie uaktualnień sieci szkieletowej. Jeśli klaster może nawiązać połączenie z usługą [https://www.microsoft.com/download](https://www.microsoft.com/download) , można ustawić, aby klaster automatycznie pobierał i udostępniał nowy pakiet Service Fabric środowiska uruchomieniowego. Następnie można zainicjować uaktualnienie. Jeśli klaster nie może uzyskać dostępu [https://www.microsoft.com/download](https://www.microsoft.com/download) , możesz ręcznie pobrać nowy pakiet środowiska uruchomieniowego z maszyny podłączonej do Internetu, a następnie zainicjować uaktualnienie. Aby uzyskać więcej informacji, przeczytaj temat [uaktualnianie autonomicznego klastra Service Fabric](service-fabric-cluster-upgrade-windows-server.md).
 
 ## <a name="health-monitoring"></a>Monitorowanie kondycji
 W Service Fabric wprowadzono [model kondycji](service-fabric-health-introduction.md) umożliwiający Flagowanie klastrów w złej kondycji i aplikacji na określonych jednostkach (takich jak węzły klastra i repliki usług). Model kondycji używa raportów kondycji (składniki systemowe i alarmy). Celem jest łatwe i Szybkie diagnozowanie i naprawa. Moduły zapisujące usługi muszą myśleć o kondycji i sposobach [projektowania raportów o kondycji](service-fabric-report-health.md#design-health-reporting). Każdy warunek, który może mieć wpływ na kondycję, powinien być raportowany w szczególności, jeśli może pomóc w oflagowaniu problemów blisko poziomu głównego. Informacje o kondycji mogą zaoszczędzić czas i wysiłku związane z debugowaniem i badaniem, gdy usługa jest uruchomiona i działa na dużą skalę w środowisku produkcyjnym.

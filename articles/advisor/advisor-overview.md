@@ -3,30 +3,30 @@ title: Wprowadzenie do Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować wdrożenia platformy Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854433"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117781"
 ---
 # <a name="introduction-to-azure-advisor"></a>Wprowadzenie do Azure Advisor
 
 Poznaj kluczowe możliwości Azure Advisor i uzyskaj odpowiedzi na często zadawane pytania.
 
 ## <a name="what-is-advisor"></a>Co to jest Doradca?
-Usługa Advisor to spersonalizowany konsultant ds. rozwiązań w chmurze, który pomaga stosować najlepsze rozwiązania w celu optymalizacji wdrożeń platformy Azure. Analizuje konfigurację zasobów i dane telemetryczne dotyczące użycia, a następnie zaleca rozwiązania, które mogą pomóc w zapewnieniu wysokiej dostępności, bezpieczeństwa, wydajności i efektywności kosztowej zasobów platformy Azure.
+Usługa Advisor to spersonalizowany konsultant ds. rozwiązań w chmurze, który pomaga stosować najlepsze rozwiązania w celu optymalizacji wdrożeń platformy Azure. Analizuje on konfigurację zasobów i dane telemetryczne użycia, a następnie zaleca rozwiązania, które mogą pomóc w poprawieniu sprawności kosztów, wydajności, niezawodności (wcześniej nazywanej wysoką dostępnością) i bezpieczeństwu zasobów platformy Azure.
 
 Za pomocą usługi Advisor można:
 * uzyskiwanie proaktywnych, spersonalizowanych zaleceń dotyczących najlepszych rozwiązań umożliwiających podjęcie działań; 
-* Zwiększ wydajność, bezpieczeństwo i wysoką dostępność zasobów, ponieważ możesz identyfikować możliwości zmniejszania ogólnych wydatków związanych z platformą Azure.
+* Zwiększ wydajność, bezpieczeństwo i niezawodność Twoich zasobów, aby identyfikować możliwości zmniejszania ogólnych wydatków na platformę Azure.
 * uzyskiwanie zaleceń dotyczących proponowanych wbudowanych akcji.
 
 Dostęp do usługi Advisor można uzyskać za pomocą [Azure Portal](https://aka.ms/azureadvisordashboard). Zaloguj się do [portalu](https://portal.azure.com), Znajdź polecenie **Advisor** w menu nawigacji lub wyszukaj je w menu **wszystkie usługi** .
 
 Pulpit nawigacyjny klasyfikatora Wyświetla spersonalizowane zalecenia dotyczące wszystkich subskrypcji.  Filtry mogą być stosowane do wyświetlania zaleceń dotyczących określonych subskrypcji i typów zasobów.  Zalecenia są podzielone na pięć kategorii: 
 
-* **Wysoka dostępność**: aby zapewnić i poprawić ciągłość aplikacji o krytycznym znaczeniu dla firmy. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md).
+* **Niezawodność (dawniej znana wysoka dostępność)**: aby zapewnić i poprawić ciągłość aplikacji o krytycznym znaczeniu dla firmy. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md).
 * **Zabezpieczenia**: aby wykrywać zagrożenia i luki w zabezpieczeniach, które mogą prowadzić do naruszeń zabezpieczeń. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md).
 * **Wydajność**: aby zwiększyć szybkość działania aplikacji. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md).
 * **Koszt**: aby zoptymalizować i zmniejszyć ogólne wydatki na platformę Azure. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md).
@@ -68,7 +68,7 @@ Aby odłożyć lub odrzucić zalecenie, kliknij link **Odłożenie** . Możesz o
 Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
-* [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
+* [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: e643c7fe7b18eed30843e7cab3977036435d2112
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb5171048b5a12310b6c0af5d652b7e615a71f5
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435802"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087813"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Łączenie programu Excel z Apache Hadoop przy użyciu Power Query
 
@@ -43,27 +43,27 @@ Dodatek Power Query dla programu Excel ułatwia importowanie danych z klastra us
 
    * Excel 2016
 
-     * Wybierz pozycję > **dane** > **Pobierz dane** > **z platformy Azure** > **z usługi Azure HDInsight (HDFS)**.
+     * Wybierz pozycję > **dane**  >  **Pobierz dane**  >  **z platformy Azure**  >  **z usługi Azure HDInsight (HDFS)**.
 
        ![HDI. PowerQuery. SelectHdiSource. 2016](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
 
    * Excel 2013/2010
 
-     * Wybierz **Power Query** > **z platformy Azure** > **z Microsoft Azure HDInsight**.
+     * Wybierz **Power Query**  >  **z platformy Azure**  >  **z Microsoft Azure HDInsight**.
 
        ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **Uwaga:** Jeśli nie widzisz menu **Power Query** , przejdź do pozycji **File** > **Opcje** > pliku**Dodatki**i wybierz opcję **Dodatki COM** w polu rozwijanym **Zarządzaj** w dolnej części strony. Wybierz przycisk **Przejdź...** i sprawdź, czy pole dla dodatku dla Power Query dla programu Excel zostało zaznaczone.
+       **Uwaga:** Jeśli nie widzisz menu **Power Query** , przejdź do pozycji **File**  >  **Opcje**pliku  >  **Dodatki**i wybierz opcję **Dodatki COM** w polu rozwijanym **Zarządzaj** w dolnej części strony. Wybierz przycisk **Przejdź...** i sprawdź, czy pole dla dodatku dla Power Query dla programu Excel zostało zaznaczone.
 
        **Uwaga:** Power Query umożliwia również Importowanie danych z systemu plików HDFS przez wybranie **z innych źródeł**.
 
-1. W oknie dialogowym **Azure HDInsight (HDFS)** w polu tekstowym **nazwa konta lub adres URL** wprowadź nazwę konta usługi Azure Blob Storage skojarzonego z klastrem. Następnie wybierz pozycję **OK**. To konto może być domyślnym kontem magazynu lub połączonym kontem magazynu.  Format to `https://StorageAccountName.blob.core.windows.net/`.
+1. W oknie dialogowym **Azure HDInsight (HDFS)** w polu tekstowym **nazwa konta lub adres URL** wprowadź nazwę konta usługi Azure Blob Storage skojarzonego z klastrem. Następnie wybierz pozycję **OK**. To konto może być domyślnym kontem magazynu lub połączonym kontem magazynu.  Format to `https://StorageAccountName.blob.core.windows.net/` .
 
 1. W polu **klucz konta**wprowadź klucz dla konta usługi BLOB Storage, a następnie wybierz pozycję **Połącz**. (Należy wprowadzić informacje o koncie tylko podczas pierwszego dostępu do tego magazynu).
 
 1. W okienku **Nawigator** po lewej stronie edytora zapytań kliknij dwukrotnie nazwę kontenera magazynu obiektów BLOB skojarzoną z klastrem. Domyślnie nazwa kontenera jest taka sama jak nazwa klastra.
 
-1. Zlokalizuj **HiveSampleData. txt** w kolumnie **name** (ścieżka folderu to **... /Hive/Warehouse/hivesampletable/**), a następnie wybierz pozycję **Binary** po lewej stronie HiveSampleData. txt. HiveSampleData. txt jest dostarczany ze wszystkimi klastrami. Opcjonalnie możesz użyć własnego pliku.
+1. Znajdź **HiveSampleData.txt** w kolumnie **Nazwa** (ścieżka folderu to **... /Hive/Warehouse/hivesampletable/**), a następnie wybierz pozycję **Binary** po lewej stronie HiveSampleData.txt. HiveSampleData.txt jest dostarczany ze wszystkimi klastrami. Opcjonalnie możesz użyć własnego pliku.
 
     ![Zaimportuj dane programu Excel w programie HDI](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 

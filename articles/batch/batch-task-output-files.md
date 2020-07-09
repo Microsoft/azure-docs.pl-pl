@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą interfejsu API usługi Batch utrwalać
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726319"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965131"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Utrwalanie danych zadań w usłudze Azure Storage za pomocą interfejsu API usługi Batch
 
@@ -32,7 +32,7 @@ Jeśli Twój Scenariusz różni się od wymienionych powyżej, może być koniec
 
 ## <a name="create-a-container-in-azure-storage"></a>Tworzenie kontenera w usłudze Azure Storage
 
-Aby zachować dane wyjściowe zadania do usługi Azure Storage, należy utworzyć kontener, który służy jako miejsce docelowe dla plików wyjściowych. Utwórz kontener przed uruchomieniem zadania, najlepiej przed przesłaniem zadania. Aby utworzyć kontener, użyj odpowiedniej biblioteki klienta usługi Azure Storage lub zestawu SDK. Aby uzyskać więcej informacji na temat interfejsów API usługi Azure Storage, zobacz [dokumentację usługi Azure Storage](https://docs.microsoft.com/azure/storage/).
+Aby zachować dane wyjściowe zadania do usługi Azure Storage, należy utworzyć kontener, który służy jako miejsce docelowe dla plików wyjściowych. Utwórz kontener przed uruchomieniem zadania, najlepiej przed przesłaniem zadania. Aby utworzyć kontener, użyj odpowiedniej biblioteki klienta usługi Azure Storage lub zestawu SDK. Aby uzyskać więcej informacji na temat interfejsów API usługi Azure Storage, zobacz [dokumentację usługi Azure Storage](../storage/index.yml).
 
 Na przykład jeśli piszesz aplikację w języku C#, użyj [biblioteki klienta usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Poniższy przykład pokazuje, jak utworzyć kontener:
 
@@ -61,7 +61,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>Określ pliki wyjściowe dla danych wyjściowych zadania
 
-Aby określić pliki wyjściowe dla zadania, Utwórz kolekcję obiektów [plik_wyjściowy](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) i przypisz ją do właściwości [CloudTask. OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) podczas tworzenia zadania.
+Aby określić pliki wyjściowe dla zadania, Utwórz kolekcję obiektów [plik_wyjściowy](/dotnet/api/microsoft.azure.batch.outputfile) i przypisz ją do właściwości [CloudTask. OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) podczas tworzenia zadania.
 
 Poniższy przykład kodu w języku C# tworzy zadanie, które zapisuje liczby losowe do pliku o nazwie `output.txt` . Przykład tworzy plik wyjściowy do zapisu w `output.txt` kontenerze. Przykład tworzy również pliki wyjściowe dla plików dziennika, które pasują do wzorca pliku `std*.txt` (_np._ `stdout.txt` i `stderr.txt` ). Adres URL kontenera wymaga sygnatury dostępu współdzielonego, która została wcześniej utworzona dla kontenera. Usługa Batch używa sygnatury dostępu współdzielonego, aby uwierzytelniać dostęp do kontenera:
 
@@ -91,7 +91,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Określ wzorzec pliku do dopasowania
 
-Po określeniu pliku wyjściowego można użyć właściwości [plik_wyjściowy. FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) , aby określić wzorzec pliku do dopasowania. Wzorzec pliku może być zgodny z zerowymi plikami, pojedynczym plikiem lub zestawem plików, które są tworzone przez zadanie.
+Po określeniu pliku wyjściowego można użyć właściwości [plik_wyjściowy. FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) , aby określić wzorzec pliku do dopasowania. Wzorzec pliku może być zgodny z zerowymi plikami, pojedynczym plikiem lub zestawem plików, które są tworzone przez zadanie.
 
 Właściwość **FilePattern** obsługuje standardowe symbole wieloznaczne systemu plików, takie jak `*` (dla dopasowań niecyklicznych) i `**` (dla dopasowań cyklicznych). Na przykład przykładowy kod określa wzorzec pliku do dopasowania `std*.txt` niecyklicznie:
 
@@ -103,19 +103,19 @@ Aby przekazać pojedynczy plik, określ wzorzec pliku bez symboli wieloznacznych
 
 ### <a name="specify-an-upload-condition"></a>Określ warunek przekazywania
 
-Właściwość [OutputFileUploadOptions. UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) zezwala na warunkowe przekazywanie plików wyjściowych. Typowym scenariuszem jest przekazanie jednego zestawu plików, jeśli zadanie zakończy się pomyślnie, a inny zestaw plików, jeśli zakończy się niepowodzeniem. Na przykład możesz chcieć przekazywać pełne pliki dziennika tylko wtedy, gdy zadanie kończy się niepowodzeniem i kończy pracę z niezerowym kodem zakończenia. Podobnie można przekazać pliki wynikowe tylko wtedy, gdy zadanie zakończy się pomyślnie, ponieważ te pliki mogą być niedostępne lub niekompletne, jeśli zadanie nie powiedzie się.
+Właściwość [OutputFileUploadOptions. UploadCondition](/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) zezwala na warunkowe przekazywanie plików wyjściowych. Typowym scenariuszem jest przekazanie jednego zestawu plików, jeśli zadanie zakończy się pomyślnie, a inny zestaw plików, jeśli zakończy się niepowodzeniem. Na przykład możesz chcieć przekazywać pełne pliki dziennika tylko wtedy, gdy zadanie kończy się niepowodzeniem i kończy pracę z niezerowym kodem zakończenia. Podobnie można przekazać pliki wynikowe tylko wtedy, gdy zadanie zakończy się pomyślnie, ponieważ te pliki mogą być niedostępne lub niekompletne, jeśli zadanie nie powiedzie się.
 
 Powyższy przykład kodu ustawia właściwość **UploadCondition** na **TaskCompletion**. To ustawienie określa, że plik ma być przekazywany po zakończeniu zadań, niezależnie od wartości kodu zakończenia.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-Aby poznać inne ustawienia, zobacz Wyliczenie [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) .
+Aby poznać inne ustawienia, zobacz Wyliczenie [OutputFileUploadCondition](/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) .
 
 ### <a name="disambiguate-files-with-the-same-name"></a>Uściślanie plików o tej samej nazwie
 
 Zadania w zadaniu mogą generować pliki o tej samej nazwie. Na przykład `stdout.txt` i `stderr.txt` są tworzone dla każdego zadania uruchamianego w ramach zadania. Ponieważ każde zadanie jest uruchamiane we własnym kontekście, te pliki nie powodują konfliktu w systemie plików węzła. Jednak podczas przekazywania plików z wielu zadań do udostępnionego kontenera należy rozróżnić pliki o tej samej nazwie.
 
-Właściwość [OutputFileBlobContainerDestination. Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) określa docelowy obiekt BLOB lub katalog wirtualny dla plików wyjściowych. Możesz użyć właściwości **Path** , aby nazwać obiekt BLOB lub katalog wirtualny w taki sposób, że pliki wyjściowe o tej samej nazwie są jednoznacznie nazwane w usłudze Azure Storage. Użycie identyfikatora zadania w ścieżce jest dobrym sposobem na zapewnienie unikatowych nazw i łatwe identyfikowanie plików.
+Właściwość [OutputFileBlobContainerDestination. Path](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) określa docelowy obiekt BLOB lub katalog wirtualny dla plików wyjściowych. Możesz użyć właściwości **Path** , aby nazwać obiekt BLOB lub katalog wirtualny w taki sposób, że pliki wyjściowe o tej samej nazwie są jednoznacznie nazwane w usłudze Azure Storage. Użycie identyfikatora zadania w ścieżce jest dobrym sposobem na zapewnienie unikatowych nazw i łatwe identyfikowanie plików.
 
 Jeśli właściwość **FilePattern** jest ustawiona na wyrażenie symbolu wieloznacznego, wszystkie pliki zgodne ze wzorcem są przekazywane do katalogu wirtualnego określonego przez właściwość **Path** . Na przykład, jeśli kontener to `mycontainer` , identyfikator zadania to `mytask` , a wzorzec pliku to `..\std*.txt` , bezwzględne identyfikatory URI plików wyjściowych w usłudze Azure Storage będą podobne do następujących:
 
@@ -139,7 +139,7 @@ Aby uzyskać więcej informacji o katalogach wirtualnych w usłudze Azure Storag
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnozuj błędy przekazywania plików
 
-W przypadku niepowodzenia przekazywania plików wyjściowych do usługi Azure Storage zadanie zostanie przesunięte do stanu **ukończono** i zostanie ustawiona właściwość [TaskExecutionInformation. FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) . Sprawdź Właściwość **FailureInformation** , aby określić, jaki błąd wystąpił. Na przykład poniżej znajduje się błąd podczas przekazywania pliku, jeśli nie można znaleźć kontenera:
+W przypadku niepowodzenia przekazywania plików wyjściowych do usługi Azure Storage zadanie zostanie przesunięte do stanu **ukończono** i zostanie ustawiona właściwość [TaskExecutionInformation. FailureInformation](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) . Sprawdź Właściwość **FailureInformation** , aby określić, jaki błąd wystąpił. Na przykład poniżej znajduje się błąd podczas przekazywania pliku, jeśli nie można znaleźć kontenera:
 
 ```
 Category: UserError
@@ -163,7 +163,7 @@ Jeśli tworzysz program w języku C#, możesz użyć metod wbudowanych w [biblio
 string containerName = job.OutputStorageContainerName();
 ```
 
-Można użyć metody [CloudJobExtensions. GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) w celu zwrócenia adresu URL sygnatury dostępu współdzielonego, który jest używany do zapisu w kontenerze. Następnie można przekazać sygnaturę dostępu współdzielonego do konstruktora [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) .
+Można użyć metody [CloudJobExtensions. GetOutputStorageContainerUrl](/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) w celu zwrócenia adresu URL sygnatury dostępu współdzielonego, który jest używany do zapisu w kontenerze. Następnie można przekazać sygnaturę dostępu współdzielonego do konstruktora [OutputFileBlobContainerDestination](/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) .
 
 Jeśli tworzysz w języku innym niż C#, musisz samodzielnie zaimplementować standardy plików.
 
@@ -172,7 +172,7 @@ Jeśli tworzysz w języku innym niż C#, musisz samodzielnie zaimplementować st
 Przykładowy projekt [PersistOutputs][github_persistoutputs] jest jednym z [przykładów kodu Azure Batch][github_samples] w witrynie GitHub. W tym rozwiązaniu programu Visual Studio pokazano, jak używać biblioteki klienta usługi Batch dla platformy .NET do utrwalania danych wyjściowych zadań w magazynie trwałym. Aby uruchomić przykład, wykonaj następujące kroki:
 
 1. Otwórz projekt w programie **Visual Studio 2019**.
-2. Dodaj **poświadczenia konta** usługi Batch i Storage do **AccountSettings. Settings** w projekcie Microsoft. Azure. Batch. Samples. Common.
+2. Dodaj **poświadczenia konta** magazynu i partii do **AccountSettings. settings** w projekcie Microsoft.Azure.Batch. Samples. Common.
 3. **Kompiluj** (ale nie uruchamiaj) rozwiązanie. Jeśli zostanie wyświetlony monit, Przywróć wszystkie pakiety NuGet.
 4. Użyj Azure Portal, aby przekazać [pakiet aplikacji](batch-application-packages.md) dla **PersistOutputsTask**. Uwzględnij `PersistOutputsTask.exe` i jej zestawy zależne w pakiecie. zip, ustaw identyfikator aplikacji na "PersistOutputsTask" i wersję pakietu aplikacji na "1,0".
 5. **Uruchom** (Uruchom) projekt **PersistOutputs** .

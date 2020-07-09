@@ -3,15 +3,15 @@ title: Konfigurowanie ustawień pamięci podręcznej platformy Azure HPC
 description: Wyjaśnia sposób konfigurowania dodatkowych ustawień pamięci podręcznej, takich jak MTU i No-root-squash, oraz sposobu uzyskiwania dostępu do migawek ekspresowych z obiektów docelowych usługi Azure Blob Storage.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871412"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505311"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
@@ -22,6 +22,9 @@ W tym artykule opisano również sposób korzystania z funkcji migawek dla obiek
 Aby wyświetlić ustawienia, Otwórz stronę **konfiguracji** pamięci podręcznej w Azure Portal.
 
 ![zrzut ekranu przedstawiający stronę konfiguracji w Azure Portal](media/configuration.png)
+
+> [!TIP]
+> W obszarze [Zarządzanie wideo w pamięci podręcznej platformy Azure HPC](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) wyświetlana jest strona Konfiguracja i jej ustawienia.
 
 ## <a name="adjust-mtu-value"></a>Dostosuj wartość MTU
 <!-- linked from troubleshoot-nas article -->
@@ -48,7 +51,7 @@ Po włączeniu elementu głównego squash użytkownicy root z klienta są automa
 
 Jeśli główny squash jest wyłączony, żądanie od użytkownika głównego klienta (UID 0) jest przenoszona do systemu magazynu w pamięci podręcznej systemu plików NFS jako element główny. Ta konfiguracja może umożliwić niewłaściwy dostęp do pliku.
 
-Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu ``no_root_squash`` wymaganego ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
+Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu wymaganego ``no_root_squash`` Ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
 
 Ustawieniem domyślnym jest **tak**. (Pamięć podręczna utworzona przed 2020 kwietnia może mieć ustawienie domyślne **nie**.)
 

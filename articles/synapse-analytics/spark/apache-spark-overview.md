@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140977"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476788"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark zapewnia elementy podstawowe do przetwarzania klastrów w pamięci.
 
 Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spark. Zalety tworzenia puli platformy Spark w usłudze Synapse Analytics są wymienione tutaj.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Szybkość i wydajność |Wystąpienia platformy Spark zaczynają się około 2 minut przez mniej niż 60 węzłów i około 5 minut przez więcej niż 60 węzłów. Wystąpienie jest zamykane, domyślnie 5 minut od ostatniego wykonanego zadania, chyba że jest ono utrzymywane przez połączenie notesu. |
 | Łatwość tworzenia |Nową pulę platformy Spark można utworzyć na platformie Azure Synapse w ciągu kilku minut, korzystając z zestawu SDK Azure Portal, Azure PowerShell lub Synapse Analytics. Zobacz Rozpoczynanie [pracy z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
@@ -60,7 +60,7 @@ SparkContext może połączyć się z menedżerem klastra, który przydziela zas
 
 SparkContext uruchamia główną funkcję użytkownika i wykonuje różne operacje równoległe na węzłach. Następnie pobiera wyniki operacji. Węzły odczytują i zapisują dane z i do systemu plików. Węzły również buforują dane przekształcone w pamięci jako odporne rozproszone zestawy danych (odporne).
 
-SparkContext nawiązuje połączenie z pulą Spark i jest odpowiedzialny za konwersję aplikacji na wykres kierowany (DAG). Wykres składa się z poszczególnych zadań, które są wykonywane w procesie wykonawcy w węzłach. Poszczególne aplikacje uzyskują własne procesy wykonawcze, które istnieją przez cały czas działania aplikacji i pozwalają uruchamiać zadania w wielu wątkach.
+SparkContext nawiązuje połączenie z pulą Spark i jest odpowiedzialny za konwersję aplikacji na ukierunkowany wykres o postaci acykliczne (DAG). Wykres składa się z poszczególnych zadań, które są wykonywane w procesie wykonawcy w węzłach. Poszczególne aplikacje uzyskują własne procesy wykonawcze, które istnieją przez cały czas działania aplikacji i pozwalają uruchamiać zadania w wielu wątkach.
 
 ## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark w przypadku użycia analizy Synapse
 

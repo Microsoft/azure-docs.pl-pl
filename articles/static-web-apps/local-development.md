@@ -7,12 +7,11 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36d580b7659325d4bf5f13889f774ddaa2ab0702
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597128"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259273"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Skonfiguruj lokalne Programowanie dla usługi Azure static Web Apps Preview
 
@@ -64,7 +63,7 @@ Rozszerzenie serwer na żywo dla Visual Studio Code zapewnia lokalny serwer siec
 
 #### <a name="create-a-repository"></a>Tworzenie repozytorium
 
-1. Przejdź do [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) i Utwórz nowy projekt GitHub o nazwie **Wanili-API**przy użyciu tego szablonu.
+1. Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) i Utwórz nowy projekt GitHub o nazwie **Wanili-API**przy użyciu tego szablonu.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Okno nowego repozytorium GitHub":::
 
@@ -122,7 +121,7 @@ W ramach procesu tworzenia interfejsu API konfiguracja uruchamiania jest tworzon
 
 ### <a name="debugging-the-api"></a>Debugowanie interfejsu API
 
-1. Otwórz plik _API/GetMessage/index. js_ w Visual Studio Code.
+1. Otwórz plik _API/GetMessage/index.js_ w Visual Studio Code.
 
 1. Kliknij lewy margines w wierszu 2, aby ustawić punkt przerwania. Zostanie wyświetlona czerwona kropka, która wskazuje, że punkt przerwania jest ustawiony.
 

@@ -3,15 +3,14 @@ title: Korzystanie z zestawu SDK platformy .NET na potrzeby zadań Data Manager 
 description: Dowiedz się, jak uruchamiać zadania StorSimple Data Manager przy użyciu zestawu SDK platformy .NET
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 316eddc98de78974bb2583f91ced635b148686c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76270724"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514900"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Inicjowanie transformacji danych przy użyciu zestawu SDK platformy .NET
 

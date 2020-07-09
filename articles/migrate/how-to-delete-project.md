@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 55842d36cddb2a7851ff5bd7002c20e9873158f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fd6285c3d22c8e0bdddbbe47366e6ae9428e7d8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73512732"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109879"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Usuwanie projektu usługi Azure Migrate
 
-W tym artykule opisano sposób usuwania projektu [Azure Migrate](migrate-overview.md) .
+W tym artykule opisano sposób usuwania projektu [Azure Migrate](./migrate-services-overview.md) .
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
@@ -26,7 +26,7 @@ Przed usunięciem projektu:
 - Jeśli dołączono obszar roboczy Log Analytics do narzędzia do oceny zależności serwera, należy zdecydować, czy chcesz usunąć obszar roboczy. 
     - Obszar roboczy nie jest automatycznie usuwany. Usuń je ręcznie.
     - Przed usunięciem należy sprawdzić, do czego służy obszar roboczy. Ten sam obszar roboczy Log Analytics może być używany w wielu scenariuszach.
-    - Przed usunięciem projektu można znaleźć link do obszaru roboczego w obszarze **Azure Migrate serwery** > **Azure Migrate — Ocena serwera**, w obszarze **roboczym pakietu OMS**.
+    - Przed usunięciem projektu można znaleźć link do obszaru roboczego w obszarze **Azure Migrate serwery**  >  **Azure Migrate — Ocena serwera**, w obszarze **roboczym pakietu OMS**.
     - Aby usunąć obszar roboczy po usunięciu projektu, Znajdź obszar roboczy w odpowiedniej grupie zasobów i postępuj zgodnie z [tymi instrukcjami](../azure-monitor/platform/delete-workspace.md).
 
 

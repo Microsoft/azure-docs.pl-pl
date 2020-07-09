@@ -3,12 +3,12 @@ title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zaso
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773695"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107431"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
@@ -45,33 +45,34 @@ Aby ułatwić zmianę iKey, ponieważ kod przemieszcza się między etapami prod
 
 Ustaw klucz w metodzie inicjującej, na przykład global.aspx.cs w usłudze ASP.NET:
 
-*S #*
-
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      ...
+```csharp
+protected void Application_Start()
+{
+  Microsoft.ApplicationInsights.Extensibility.
+    TelemetryConfiguration.Active.InstrumentationKey = 
+      // - for example -
+      WebConfigurationManager.AppSettings["ikey"];
+  ...
+```
 
 W tym przykładzie kluczy iKey dla różnych zasobów są umieszczane w różnych wersjach pliku konfiguracji sieci Web. Zamienianie pliku konfiguracji sieci Web, który można wykonać jako część skryptu wydania — spowoduje zamianę zasobu docelowego.
 
 ### <a name="web-pages"></a>Strony sieci Web
 IKey jest również używany na stronach sieci Web aplikacji w [skrypcie, który został uzyskany z okienka szybkiego startu](../../azure-monitor/app/javascript.md). Zamiast kodowania go do skryptu, wygeneruj go ze stanu serwera. Na przykład w aplikacji ASP.NET:
 
-*Kod JavaScript w Razor*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      "@Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
-
+```javascript
+<script type="text/javascript">
+// Standard Application Insights web page script:
+var appInsights = window.appInsights || function(config){ ...
+// Modify this part:
+}({instrumentationKey:  
+  // Generate from server property:
+  "@Microsoft.ApplicationInsights.Extensibility.
+     TelemetryConfiguration.Active.InstrumentationKey"
+  }
+ )
+//...
+```
 
 ## <a name="create-additional-application-insights-resources"></a>Tworzenie dodatkowych zasobów Application Insights
 
@@ -96,7 +97,6 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 * [ASP.NET] Ustaw wersję w `BuildInfo.config` . Moduł sieci Web pobierze wersję z węzła BuildLabel. Dołącz ten plik do projektu i pamiętaj, aby ustawić właściwość Copy Always w Eksplorator rozwiązań.
 
     ```XML
-
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -108,16 +108,15 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Automatycznie Generuj plik BuildInfo. config w programie MSBuild. Aby to zrobić, Dodaj kilka wierszy do `.csproj` pliku:
+* [ASP.NET] Generuj BuildInfo.config automatycznie w programie MSBuild. Aby to zrobić, Dodaj kilka wierszy do `.csproj` pliku:
 
     ```XML
-
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
     ```
 
-    Spowoduje to wygenerowanie pliku o nazwie *yourProjectName*. BuildInfo. config. proces publikowania zmienia nazwę na BuildInfo. config.
+    Spowoduje to wygenerowanie pliku o nazwie *yourProjectName*.BuildInfo.config. Proces publikowania zmienia nazwę na BuildInfo.config.
 
     Etykieta kompilacji zawiera symbol zastępczy (AutoGen_...) podczas kompilowania przy użyciu programu Visual Studio. Ale w przypadku skompilowania przy użyciu programu MSBuild jest on wypełniony prawidłowym numerem wersji.
 
@@ -127,10 +126,10 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 Aby śledzić wersje aplikacji, upewnij się, że plik `buildinfo.config` jest generowany przez proces aparatu Microsoft Build Engine. W `.csproj` pliku Dodaj następujące polecenie:  
 
 ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
+<PropertyGroup>
+  <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
+  <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+</PropertyGroup>
 ```
 
 Jeśli plik zawiera informację o kompilacji, moduł sieci Web usługi Application Insights automatycznie dodaje **wersję aplikacji** jako właściwość do każdego elementu telemetrii. Pozwala to na filtrowanie według wersji podczas przeprowadzania [wyszukiwania diagnostycznego](../../azure-monitor/app/diagnostic-search.md) lub [eksplorowania metryk](../../azure-monitor/platform/metrics-charts.md).

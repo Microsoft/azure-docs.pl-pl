@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75397470"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Pracuj z ciągami w zapytaniach dziennika Azure Monitor
@@ -27,7 +26,7 @@ Każdy znak w ciągu ma numer indeksu, zgodnie z jego lokalizacją. Pierwszy zna
 
 
 ## <a name="strings-and-escaping-them"></a>Ciągi i ucieczki
-Wartości ciągów są opakowane z pojedynczym lub podwójnym cudzysłowem. Ukośnik odwrotny\\() jest używany do ucieczki znaków następującego znaku, takiego jak \t dla karty, \n dla wiersza i \" znaku cudzysłowu.
+Wartości ciągów są opakowane z pojedynczym lub podwójnym cudzysłowem. Ukośnik odwrotny ( \\ ) jest używany do ucieczki znaków następującego znaku, takiego jak \t dla karty, \n dla wiersza i \" znaku cudzysłowu.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -37,7 +36,7 @@ print "this is a 'string' literal in double \" quotes"
 print 'this is a "string" literal in single \' quotes'
 ```
 
-Aby zapobiec\\działaniu jako znak ucieczki, Dodaj "\@" jako prefiks do ciągu:
+Aby zapobiec \\ działaniu jako znak ucieczki, Dodaj " \@ " jako prefiks do ciągu:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
@@ -46,7 +45,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Porównanie ciągów
 
-Operator       |Opis                         |Z uwzględnieniem wielkości liter|Przykład (yields `true`)
+Operator       |Opis                         |Z uwzględnieniem wielkości liter|Przykład (yields `true` )
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Równa się                              |Tak           |`"aBc" == "aBc"`
 `!=`           |Nie równa się                          |Tak           |`"abc" != "ABC"`
@@ -93,7 +92,7 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>Argumentu
 - `text`-Ciąg wejściowy 
 - `search`-Zwykłego ciągu lub wyrażenia regularnego do dopasowania wewnątrz tekstu.
-- `kind` - _normalne_ | _wyrażenie regularne_ (domyślnie: Normal).
+- `kind` - _normalne_  |  _wyrażenie regularne_ (domyślnie: Normal).
 
 ### <a name="returns"></a>Zwraca
 

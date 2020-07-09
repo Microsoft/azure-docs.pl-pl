@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81273294"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Utrwalanie plików w Azure Cloud Shell
@@ -39,7 +38,7 @@ W przypadku korzystania z ustawień podstawowych i wybierania tylko subskrypcji 
 
 ![Ustawienie subskrypcji](media/persisting-shell-storage/basic-storage.png)
 
-Udział plików jest instalowany jako `clouddrive` znajdujący się `$Home` w katalogu. Jest to jednorazowa akcja, a udział plików jest instalowany automatycznie w kolejnych sesjach. 
+Udział plików jest instalowany jako `clouddrive` znajdujący się w `$Home` katalogu. Jest to jednorazowa akcja, a udział plików jest instalowany automatycznie w kolejnych sesjach. 
 
 Udział plików zawiera również obraz 5 GB, który jest tworzony, co powoduje automatyczne utrwalanie danych w `$Home` katalogu. Dotyczy to zarówno bash, jak i programu PowerShell.
 
@@ -62,13 +61,13 @@ Cloud Shell używa udziału plików platformy Azure na koncie magazynu w ramach 
 Użytkownicy powinni zablokować dostęp do swoich plików, ustawiając uprawnienia na koncie magazynu lub na poziomie subskrypcji.
 
 ## <a name="supported-storage-regions"></a>Obsługiwane regiony magazynu
-Aby znaleźć bieżący region, możesz uruchomić `env` program w bash i zlokalizować zmienną `ACC_LOCATION`lub z poziomu programu PowerShell. `$env:ACC_LOCATION` Udziały plików otrzymują obraz 5 GB utworzony w celu utrwalenia `$Home` katalogu.
+Aby znaleźć bieżący region, możesz uruchomić program `env` w bash i zlokalizować zmienną `ACC_LOCATION` lub z poziomu programu PowerShell `$env:ACC_LOCATION` . Udziały plików otrzymują obraz 5 GB utworzony w celu utrwalenia `$Home` katalogu.
 
 Maszyny Cloud Shell istnieją w następujących regionach:
 
 |Obszar|Region|
 |---|---|
-|Ameryki|Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA|
+|Ameryka Północna i Południowa|Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA|
 |Europa|Europa Północna, Europa Zachodnia|
 |Azja i Pacyfik|Indie Środkowe, Azja Południowo-Wschodnia|
 
@@ -80,15 +79,15 @@ Jeśli jest używany pomocniczy region magazynu, skojarzone konto usługi Azure 
 > [!NOTE]
 > W przypadku korzystania z regionu pomocniczego dostęp do plików i czas uruchamiania Cloud Shell mogą być wolniejsze.
 
-Użytkownik może uruchomić `(Get-CloudDrive | Get-AzStorageAccount).Location` program PowerShell, aby zobaczyć lokalizację ich udziału plików.
+Użytkownik może uruchomić program `(Get-CloudDrive | Get-AzStorageAccount).Location` PowerShell, aby zobaczyć lokalizację ich udziału plików.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Ograniczanie tworzenia zasobów przy użyciu zasad zasobów platformy Azure
-Konta magazynu tworzone w Cloud Shell są oznaczone przy użyciu `ms-resource-usage:azure-cloud-shell`. Jeśli chcesz uniemożliwić użytkownikom tworzenie kont magazynu w Cloud Shell, Utwórz [zasady zasobów platformy Azure dla tagów](../azure-policy/json-samples.md) , które są wyzwalane przez ten konkretny tag.
+Konta magazynu tworzone w Cloud Shell są oznaczone przy użyciu `ms-resource-usage:azure-cloud-shell` . Jeśli chcesz uniemożliwić użytkownikom tworzenie kont magazynu w Cloud Shell, Utwórz [zasady zasobów platformy Azure dla tagów](../azure-policy/json-samples.md) , które są wyzwalane przez ten konkretny tag.
 
 ## <a name="how-cloud-shell-storage-works"></a>Jak działa Cloud Shell Storage 
 Cloud Shell utrzymuje pliki przy użyciu obu następujących metod: 
-* Tworzenie obrazu dysku `$Home` katalogu w celu utrwalenia całej zawartości w katalogu. Obraz dysku jest zapisywany w określonym udziale plików jako `acc_<User>.img` o godzinie `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`i automatycznie synchronizuje zmiany. 
-* Zainstalowanie określonego udziału plików jako `clouddrive` `$Home` katalogu w celu bezpośredniej interakcji z udziałem plików. `/Home/<User>/clouddrive`jest mapowany na `fileshare.storage.windows.net/fileshare`.
+* Tworzenie obrazu dysku `$Home` katalogu w celu utrwalenia całej zawartości w katalogu. Obraz dysku jest zapisywany w określonym udziale plików jako `acc_<User>.img` o godzinie `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img` i automatycznie synchronizuje zmiany. 
+* Zainstalowanie określonego udziału plików jako `clouddrive` `$Home` katalogu w celu bezpośredniej interakcji z udziałem plików. `/Home/<User>/clouddrive`jest mapowany na `fileshare.storage.windows.net/fileshare` .
  
 > [!NOTE]
 > Wszystkie pliki w `$Home` katalogu, takie jak klucze SSH, są utrwalane w obrazie dysku użytkownika, który jest przechowywany w zainstalowanym udziale plików. Stosuj najlepsze rozwiązania w przypadku utrwalania informacji w `$Home` katalogu i zainstalowanego udziału plików.
@@ -96,12 +95,12 @@ Cloud Shell utrzymuje pliki przy użyciu obu następujących metod:
 ## <a name="clouddrive-commands"></a>polecenia CloudDrive
 
 ### <a name="use-the-clouddrive-command"></a>Użyj `clouddrive` polecenia
-W Cloud Shell można uruchomić polecenie o nazwie `clouddrive`, które pozwala ręcznie zaktualizować udział plików zainstalowany w programie Cloud Shell.
+W Cloud Shell można uruchomić polecenie o nazwie `clouddrive` , które pozwala ręcznie zaktualizować udział plików zainstalowany w programie Cloud Shell.
 
 ![Uruchamianie polecenia "CloudDrive"](media/persisting-shell-storage/clouddrive-h.png)
 
 ### <a name="list-clouddrive"></a>Staw`clouddrive`
-Aby wykryć, który udział plików został zainstalowany `clouddrive`jako, uruchom `df` polecenie. 
+Aby wykryć, który udział plików został zainstalowany jako `clouddrive` , uruchom `df` polecenie. 
 
 Ścieżka do pliku CloudDrive zawiera nazwę konta magazynu i udział plików w adresie URL. Na przykład: `//storageaccountname.file.core.windows.net/filesharename`
 
@@ -122,12 +121,12 @@ justin@Azure:~$
 #### <a name="prerequisites-for-manual-mounting"></a>Wymagania wstępne dotyczące ręcznego instalowania
 Udział plików skojarzony z Cloud Shell można zaktualizować przy użyciu `clouddrive mount` polecenia.
 
-W przypadku instalowania istniejącego udziału plików konta magazynu muszą znajdować się w regionie wybierania Cloud Shell. Pobierz lokalizację, uruchamiając `env` i sprawdzając `ACC_LOCATION`.
+W przypadku instalowania istniejącego udziału plików konta magazynu muszą znajdować się w regionie wybierania Cloud Shell. Pobierz lokalizację, uruchamiając `env` i sprawdzając `ACC_LOCATION` .
 
-#### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` Polecenie
+#### <a name="the-clouddrive-mount-command"></a>`clouddrive mount`Polecenie
 
 > [!NOTE]
-> Jeśli instalujesz nowy udział plików, dla `$Home` katalogu zostanie utworzony nowy obraz użytkownika. Poprzedni `$Home` obraz jest przechowywany w poprzednim udziale plików.
+> Jeśli instalujesz nowy udział plików, dla katalogu zostanie utworzony nowy obraz użytkownika `$Home` . Poprzedni `$Home` obraz jest przechowywany w poprzednim udziale plików.
 
 Uruchom `clouddrive mount` polecenie z następującymi parametrami:
 
@@ -135,7 +134,7 @@ Uruchom `clouddrive mount` polecenie z następującymi parametrami:
 clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
 ```
 
-Aby wyświetlić więcej szczegółów, uruchom `clouddrive mount -h`polecenie, jak pokazano poniżej:
+Aby wyświetlić więcej szczegółów, uruchom `clouddrive mount -h` polecenie, jak pokazano poniżej:
 
 ![Uruchamianie CloudDrive mount'command](media/persisting-shell-storage/mount-h.png)
 
@@ -145,22 +144,22 @@ Można odinstalować udział plików, który jest zainstalowany do Cloud Shell w
 1. Uruchom polecenie `clouddrive unmount`.
 2. Potwierdzanie i Potwierdzanie zatwierdzeń.
 
-Udział plików będzie nadal istnieć, chyba że zostanie usunięty ręcznie. Cloud Shell nie będzie już wyszukiwać tego udziału plików na kolejnych sesjach. Aby wyświetlić więcej szczegółów, uruchom `clouddrive unmount -h`polecenie, jak pokazano poniżej:
+Udział plików będzie nadal istnieć, chyba że zostanie usunięty ręcznie. Cloud Shell nie będzie już wyszukiwać tego udziału plików na kolejnych sesjach. Aby wyświetlić więcej szczegółów, uruchom `clouddrive unmount -h` polecenie, jak pokazano poniżej:
 
 ![Uruchamianie CloudDrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Chociaż uruchomienie tego polecenia nie spowoduje usunięcia żadnych zasobów, ręczne usunięcie grupy zasobów, konta magazynu lub udziału plików, który jest mapowany do Cloud Shell wymazuje obraz dysku `$Home` katalogu i wszystkie pliki w udziale plików. Tej akcji nie można cofnąć.
+> Chociaż uruchomienie tego polecenia nie spowoduje usunięcia żadnych zasobów, ręczne usunięcie grupy zasobów, konta magazynu lub udziału plików, który jest mapowany do Cloud Shell wymazuje `$Home` obraz dysku katalogu i wszystkie pliki w udziale plików. Tej akcji nie można cofnąć.
 ## <a name="powershell-specific-commands"></a>Polecenia specyficzne dla programu PowerShell
 
-### <a name="list-clouddrive-azure-file-shares"></a>Wyświetl `clouddrive` listę udziałów plików platformy Azure
-`Get-CloudDrive` Polecenie cmdlet pobiera informacje o udziale plików platformy Azure aktualnie zainstalowane przez `clouddrive` program w Cloud Shell. <br>
+### <a name="list-clouddrive-azure-file-shares"></a>Wyświetl listę `clouddrive` udziałów plików platformy Azure
+`Get-CloudDrive`Polecenie cmdlet pobiera informacje o udziale plików platformy Azure aktualnie zainstalowane przez program `clouddrive` w Cloud Shell. <br>
 ![Uruchamianie Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
 ### <a name="unmount-clouddrive"></a>Odinstaluj`clouddrive`
 Można odinstalować udział plików platformy Azure, który jest instalowany w Cloud Shell w dowolnym momencie. Jeśli udział plików platformy Azure został usunięty, zostanie wyświetlony monit o utworzenie i zainstalowanie nowego udziału plików platformy Azure podczas kolejnej sesji.
 
-`Dismount-CloudDrive` Polecenie cmdlet Odinstalowuje udział plików platformy Azure z bieżącego konta magazynu. Odinstalowanie `clouddrive` kończy bieżącą sesję. Użytkownik zostanie poproszony o utworzenie i zainstalowanie nowego udziału plików platformy Azure podczas kolejnej sesji.
+`Dismount-CloudDrive`Polecenie cmdlet Odinstalowuje udział plików platformy Azure z bieżącego konta magazynu. Odinstalowanie `clouddrive` kończy bieżącą sesję. Użytkownik zostanie poproszony o utworzenie i zainstalowanie nowego udziału plików platformy Azure podczas kolejnej sesji.
 ![Uruchamianie programu Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]

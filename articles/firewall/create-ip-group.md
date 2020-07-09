@@ -4,20 +4,17 @@ description: Grupy IP umożliwiają grupowanie adresów IP dla reguł zapory pla
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: how-to
+ms.date: 06/23/2020
 ms.author: victorh
-ms.openlocfilehash: 7e8b2350b9e85d07ce1c399ce4536703ec998cbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77444539"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602537"
 ---
-# <a name="create-ip-groups-preview"></a>Tworzenie grup adresów IP (wersja zapoznawcza)
-
-> [!IMPORTANT]
-> Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-ip-groups"></a>Tworzenie grup adresów IP
 
 Grupy IP umożliwiają grupowanie adresów IP dla reguł zapory platformy Azure i zarządzanie nimi. Mogą mieć jeden adres IP, wiele adresów IP lub jeden lub więcej zakresów adresów IP.
 
@@ -25,7 +22,7 @@ Grupy IP umożliwiają grupowanie adresów IP dla reguł zapory platformy Azure 
 
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **grupy IP** , a następnie wybierz pozycję **grupy adresów IP**.
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Wybierz subskrypcję.
 5. Wybierz grupę zasobów lub Utwórz nową.
 6. Wpisz unikatową nazwę grupy adresów IP, a następnie wybierz region.

@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65137829"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849897"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federowanie wielu wystąpień usługi Azure AD przy użyciu jednego wystąpienia usługi AD FS
 
@@ -58,10 +58,14 @@ Wystawca w ustawieniu federacji domeny zostanie zmieniony na „http\://contoso.
  
 W sesji programu Azure AD PowerShell wykonaj następujące czynności: nawiąż połączenie z usługą Azure Active Directory, która zawiera domenę fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Konwertuj domenę zarządzaną fabrikam.com na domenę federacyjną:
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 Powyższa operacja spowoduje sfederowanie domeny fabrikam.com z tą samą usługą AD FS. Ustawienia domeny możesz sprawdzić za pomocą polecenia Get-MsolDomainFederationSettings dla obu domen.
 

@@ -3,16 +3,16 @@ title: Korzystanie z udziału plików platformy Azure w systemie Windows | Micro
 description: Dowiedz się, jak używać udziału plików platformy Azure w systemach Windows i Windows Server.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/07/2018
+ms.topic: how-to
+ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773104"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509782"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -28,7 +28,7 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 | Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Tak |
 | Windows Server 2016 | SMB 3.0 | Tak | Tak |
 | Windows 8.1 | SMB 3.0 | Tak | Tak |
-| Windows Server 2012 R2 | SMB 3.0 | Tak | Tak |
+| Windows Server 2012 z dodatkiem R2 | SMB 3.0 | Tak | Tak |
 | Windows Server 2012 | SMB 3.0 | Tak | Tak |
 | Windows 7<sup>3</sup> | SMB 2.1 | Yes | Nie |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Nie |
@@ -41,41 +41,8 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 > Zawsze zalecamy pobranie najnowszej aktualizacji KB dla danej wersji systemu Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-* **Nazwa konta magazynu**: Aby zainstalować udział plików platformy Azure, potrzebna będzie nazwa konta magazynu.
 
-* **Klucz konta magazynu**: Aby zainstalować udział plików platformy Azure, konieczne będzie posiadanie podstawowego (lub dodatkowego) klucza magazynu. Klucze sygnatur dostępu współdzielonego nie są aktualnie obsługiwane na potrzeby instalowania.
-
-* **Otwarty port 445**: protokół SMB wymaga otwartego portu TCP 445; połączenia zakończą się niepowodzeniem, jeśli port 445 będzie zablokowany. Aby sprawdzić, czy zapora blokuje port 445, można użyć polecenia cmdlet `Test-NetConnection`. Można dowiedzieć się więcej [na temat różnych sposobów obejścia zablokowanego portu 445 w tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
-
-    W poniższym kodzie programu PowerShell założono, że zainstalowano moduł Azure PowerShell, zobacz [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) , aby uzyskać więcej informacji. Pamiętaj, aby zastąpić wyrażenia `<your-storage-account-name>` i `<your-resource-group-name>` nazwami odpowiednimi dla konta magazynu.
-
-    ```powershell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-    ```
-
-    Jeśli połączenie zostało pomyślnie nawiązane, powinny pojawić się następujące dane wyjściowe:
-
-    ```
-    ComputerName     : <storage-account-host-name>
-    RemoteAddress    : <storage-account-ip-address>
-    RemotePort       : 445
-    InterfaceAlias   : <your-network-interface>
-    SourceAddress    : <your-ip-address>
-    TcpTestSucceeded : True
-    ```
-
-    > [!Note]  
-    > Powyższe polecenie zwraca bieżący adres IP konta magazynu. Nie ma żadnej gwarancji, że ten adres IP pozostanie niezmieniony. Może on ulec zmianie w dowolnym momencie. Nie umieszczaj tego adresu IP w żadnym kodzie skryptu ani konfiguracji zapory. 
+Otwarty port 445: protokół SMB wymaga otwartego portu TCP 445; połączenia zakończą się niepowodzeniem, jeśli port 445 będzie zablokowany. Możesz sprawdzić, czy Zapora blokuje port 445 przy użyciu `Test-NetConnection` polecenia cmdlet. Aby dowiedzieć się, jak obejść zablokowany port 445, zobacz sekcję [Przyczyna 1: port 445 jest zablokowany](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) w przewodniku rozwiązywania problemów systemu Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 Aby używać udziału plików platformy Azure w systemie Windows, musisz go zainstalować, czyli przypisać do niego literę dysku bądź ścieżkę do punktu instalacji, lub uzyskiwać do niego dostęp za pośrednictwem jego [ścieżki UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
@@ -84,97 +51,31 @@ W tym artykule jest wykorzystywany klucz konta magazynu w celu uzyskania dostęp
 
 Typowym sposobem na przeniesienie na platformę Azure aplikacji biznesowych (LOB), które oczekują obsługi udziału plików SMB, jest użycie udziału plików platformy Azure jako alternatywy do uruchamiania dedykowanego serwera plików Windows na maszynie wirtualnej platformy Azure. Ważnym zagadnieniem warunkującym pomyślną migrację aplikacji biznesowej do korzystania z udziału plików platformy Azure jest to, że wiele aplikacji biznesowych działa w kontekście dedykowanego konta usługi z ograniczonymi uprawnieniami systemowymi, a nie w kontekście konta administracyjnego maszyny wirtualnej. W związku z tym należy się upewnić, że poświadczenia dla udziału plików platformy Azure zostały zainstalowane/zapisane w kontekście konta usługi, a nie konta administracyjnego.
 
-### <a name="persisting-azure-file-share-credentials-in-windows"></a>Utrwalanie poświadczeń udziału plików platformy Azure w systemie Windows  
-Narzędzie [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) umożliwia przechowywanie poświadczeń konta magazynu w systemie Windows. Oznacza to, że podczas próby dostępu do udziału plików platformy Azure za pośrednictwem ścieżki UNC lub próby zainstalowania udziału plików platformy Azure nie będzie konieczne podawanie poświadczeń. Aby zapisać poświadczenia konta magazynu, uruchom następujące polecenia programu PowerShell, zastępując elementy `<your-storage-account-name>` i `<your-resource-group-name>` zgodnie z wymaganiami.
+### <a name="mount-the-azure-file-share"></a>Instalowanie udziału plików platformy Azure
 
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
+Azure Portal zapewnia skrypt, którego można użyć do zainstalowania udziału plików bezpośrednio na hoście. Zalecamy korzystanie z tego dostarczonego skryptu.
 
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+Aby uzyskać ten skrypt:
 
-# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
-# consume the appropriate values from the storage account variables. The value given to the add parameter of the
-# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
-# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
-    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)")
-```
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Przejdź do konta magazynu zawierającego udział plików, który chcesz zainstalować.
+1. Wybierz **udziały plików**.
+1. Wybierz udział plików, który chcesz zainstalować.
 
-Aby sprawdzić, czy narzędzie cmdkey zapisało poświadczenia dla konta magazynu, możesz użyć parametru „list”:
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="przyklad":::
 
-```powershell
-cmdkey /list
-```
+1. Wybierz pozycję **Połącz**.
 
-Jeśli poświadczenia dla udziału plików platformy Azure zostały pomyślnie zapisane, dane wyjściowe powinny wyglądać w następujący sposób (na liście mogą być zapisane dodatkowe klucze):
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Zrzut ekranu przedstawiający ikonę połączenia dla udziału plików.":::
 
-```
-Currently stored credentials:
+1. Wybierz literę dysku, w której ma zostać zainstalowany udział.
+1. Skopiuj podany skrypt.
 
-Target: Domain:target=<storage-account-host-name>
-Type: Domain Password
-User: AZURE\<your-storage-account-name>
-```
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Przykładowy tekst":::
 
-Teraz powinno być możliwe zainstalowanie udziału lub uzyskanie do niego dostępu bez konieczności podawania dodatkowych poświadczeń.
+1. Wklej skrypt do powłoki na hoście, na którym chcesz zainstalować udział plików, a następnie uruchom go.
 
-#### <a name="advanced-cmdkey-scenarios"></a>Zaawansowane scenariusze narzędzia cmdkey
-Istnieją dwa dodatkowe scenariusze użycia narzędzia cmdkey, które warto poznać: przechowywanie poświadczeń dla innego użytkownika na tej samej maszynie, na przykład za pośrednictwem konta usługi, i przechowywanie poświadczeń na maszynie zdalnej za pomocą komunikacji zdalnej programu PowerShell.
-
-Przechowywanie poświadczeń dla innego użytkownika na komputerze jest proste: po zalogowaniu się na koncie wystarczy wykonać następujące polecenie programu PowerShell:
-
-```powershell
-$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
-```
-
-Zostanie otwarte nowe okno programu PowerShell w kontekście użytkownika konta usługi (lub konta użytkownika). Następnie można użyć narzędzia cmdkey zgodnie z opisem [powyżej](#persisting-azure-file-share-credentials-in-windows).
-
-Przechowywanie poświadczeń na maszynie zdalnej za pomocą komunikacji zdalnej programu PowerShell nie jest możliwe, ponieważ narzędzie cmdkey nie zezwala na dostęp, nawet dla operacji dodawania, do jego magazynu poświadczeń, gdy użytkownik jest zalogowany przy użyciu komunikacji zdalnej programu PowerShell. Firma Microsoft zaleca zalogowanie się do maszyny za pomocą [pulpitu zdalnego](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
-
-### <a name="mount-the-azure-file-share-with-powershell"></a>Instalowanie udziału plików platformy Azure za pomocą programu PowerShell
-Aby zainstalować udział plików platformy Azure, uruchom następujące polecenia z zwykłej (nie z podwyższonym poziomem uprawnień). Pamiętaj, aby zastąpić elementy `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` i `<desired-drive-letter>` odpowiednimi informacjami.
-
-```powershell
-$resourceGroupName = "<your-resource-group-name>"
-$storageAccountName = "<your-storage-account-name>"
-$fileShareName = "<your-file-share-name>"
-
-# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
-# already logged in.
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
-    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
-}
-
-if ($fileShare -eq $null) {
-    throw [System.Exception]::new("Azure file share not found")
-}
-
-# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
-# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
-# hosts for Azure file shares (and other storage resources).
-$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
-New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
-```
-
-> [!Note]  
-> Użycie opcji `-Persist` polecenia cmdlet `New-PSDrive` spowoduje, że ponowne zainstalowanie udziału plików podczas rozruchu będzie możliwe tylko wtedy, gdy poświadczenia zostały zapisane. Poświadczenia można zapisać za pomocą narzędzia cmdkey, postępując zgodnie z [wcześniejszym opisem](#persisting-azure-file-share-credentials-in-windows). 
-
-Jeśli to konieczne, możesz odinstalować udział plików platformy Azure przy użyciu następującego polecenia cmdlet programu PowerShell.
-
-```powershell
-Remove-PSDrive -Name <desired-drive-letter>
-```
+Udział plików platformy Azure został już zainstalowany.
 
 ### <a name="mount-the-azure-file-share-with-file-explorer"></a>Instalowanie udziału plików platformy Azure za pomocą Eksploratora plików
 > [!Note]  
@@ -182,7 +83,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Otwórz Eksploratora plików. Można to zrobić przy użyciu menu Start lub przez naciśnięcie skrótu Win+E.
 
-1. Przejdź do **tego elementu komputera** po lewej stronie okna. Spowoduje to zmianę menu dostępnego na wstążce. W menu komputer wybierz pozycję **Mapuj dysk sieciowy**.
+1. Przejdź do **tego komputera** po lewej stronie okna. Spowoduje to zmianę menu dostępnego na wstążce. W menu komputer wybierz pozycję **Mapuj dysk sieciowy**.
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -201,7 +102,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 1. Gdy zajdzie potrzeba odinstalowania udziału plików platformy Azure, możesz to zrobić przez kliknięcie prawym przyciskiem myszy wpisu dla udziału w obszarze **Lokalizacje sieciowe** w Eksploratorze plików i wybranie polecenia **Odłącz**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Dostęp do migawek udziałów z systemu Windows
-Jeśli migawkę udziału utworzono ręcznie lub automatycznie za pomocą skryptu bądź usługi, takiej jak Azure Backup, możesz wyświetlić poprzednie wersje udziału, katalogu lub konkretnego pliku z udziału plików w systemie Windows. Migawkę udziału można wykonać za pomocą [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md)i [interfejsu wiersza polecenia platformy Azure](storage-how-to-use-files-cli.md).
+Jeśli migawkę udziału utworzono ręcznie lub automatycznie za pomocą skryptu bądź usługi, takiej jak Azure Backup, możesz wyświetlić poprzednie wersje udziału, katalogu lub konkretnego pliku z udziału plików w systemie Windows. Migawkę udziału można wykonać przy użyciu [Azure PowerShell](storage-how-to-use-files-powershell.md), [interfejsu wiersza polecenia platformy Azure](storage-how-to-use-files-cli.md)lub [Azure Portal](storage-how-to-use-files-portal.md).
 
 #### <a name="list-previous-versions"></a>Wyświetlanie listy poprzednich wersji
 Przejdź do elementu lub elementu nadrzędnego, który należy przywrócić. Kliknij dwukrotnie, aby przejść do żądanego katalogu. Kliknij prawym przyciskiem myszy i wybierz z menu pozycję **Właściwości**.
@@ -233,10 +134,10 @@ W poniższej tabeli zebrano szczegółowe informacje dotyczące stanu protokołu
 | Windows 10 w wersjach 1709+                | Disabled (Wyłączony)             | Usunięcie za pomocą funkcji systemu Windows |
 | Windows Server 2016                       | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows |
 | Windows 10 w wersjach 1507, 1607 i 1703 | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows |
-| Windows Server 2012 R2                    | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows | 
+| Windows Server 2012 z dodatkiem R2                    | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows | 
 | Windows 8.1                               | Enabled (Włączony)              | Usunięcie za pomocą funkcji systemu Windows | 
 | Windows Server 2012                       | Enabled (Włączony)              | Wyłączenie za pomocą rejestru       | 
-| Windows Server 2008 R2                    | Enabled (Włączony)              | Wyłączenie za pomocą rejestru       |
+| Windows Server 2008 z dodatkiem R2                    | Enabled (Włączony)              | Wyłączenie za pomocą rejestru       |
 | Windows 7                                 | Enabled (Włączony)              | Wyłączenie za pomocą rejestru       | 
 
 ### <a name="auditing-smb-1-usage"></a>Inspekcja użycia protokołu SMB 1

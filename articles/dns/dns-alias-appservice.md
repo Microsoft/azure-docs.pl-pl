@@ -4,23 +4,22 @@ description: Użyj rekordu aliasu Azure DNS, aby hostować aplikacje sieci Web z
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710545"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hostowanie aplikacji sieci Web platformy Azure ze zrównoważonym obciążeniem w wierzchołku strefy
 
-Protokół DNS uniemożliwia przypisanie elementów innych niż rekord A lub AAAA w wierzchołku strefy. Przykładem wierzchołka strefy jest contoso.com. To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają aplikacje o zrównoważonym obciążeniu za Traffic Manager. Nie można wskazać profilu Traffic Manager z rekordu wierzchołka strefy. W związku z tym właściciele aplikacji muszą używać obejścia. Przekierowanie w warstwie aplikacji musi przekierować ze wierzchołka strefy do innej domeny. Przykładem jest przekierowanie z contoso.com do www\.contoso.com. To rozmieszczenie przedstawia single point of failure funkcji redirect.
+Protokół DNS uniemożliwia przypisanie elementów innych niż rekord A lub AAAA w wierzchołku strefy. Przykładem wierzchołka strefy jest contoso.com. To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają aplikacje o zrównoważonym obciążeniu za Traffic Manager. Nie można wskazać profilu Traffic Manager z rekordu wierzchołka strefy. W związku z tym właściciele aplikacji muszą używać obejścia. Przekierowanie w warstwie aplikacji musi przekierować ze wierzchołka strefy do innej domeny. Przykładem jest przekierowanie z contoso.com do www \. contoso.com. To rozmieszczenie przedstawia single point of failure funkcji redirect.
 
 W przypadku rekordów aliasów ten problem już nie istnieje. Teraz właściciele aplikacji mogą wskazywać ich rekord wierzchołka strefy w profilu Traffic Manager, który ma zewnętrzne punkty końcowe. Właściciele aplikacji mogą wskazywać ten sam profil Traffic Manager, który jest używany przez dowolną inną domenę w ramach strefy DNS.
 
-Na przykład contoso.com i www\.contoso.com mogą wskazywać na ten sam profil Traffic Manager. Jest to przypadek, o ile profil Traffic Manager ma skonfigurowane tylko zewnętrzne punkty końcowe.
+Na przykład contoso.com i www \. contoso.com mogą wskazywać na ten sam profil Traffic Manager. Jest to przypadek, o ile profil Traffic Manager ma skonfigurowane tylko zewnętrzne punkty końcowe.
 
 W tym artykule dowiesz się, jak utworzyć rekord aliasu dla wierzchołka domeny i skonfigurować punkty końcowe Traffic Manager profilu dla aplikacji sieci Web.
 
@@ -55,7 +54,7 @@ Utwórz dwie aplikacje sieci Web, jeden w każdym planie App Service.
 1. W lewym górnym rogu strony Azure Portal wybierz pozycję **Utwórz zasób**.
 2. Wpisz ciąg **aplikacja sieci Web** na pasku wyszukiwania i naciśnij klawisz ENTER.
 3. Wybierz pozycję **aplikacja sieci Web**.
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 5. Zaakceptuj wartości domyślne i Skorzystaj z poniższej tabeli, aby skonfigurować dwie aplikacje sieci Web:
 
    |Nazwa<br>(musi być unikatowy w obrębie. azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region|App Service plan/lokalizacja
@@ -89,8 +88,8 @@ Teraz można utworzyć punkty końcowe dla dwóch aplikacji sieci Web.
 
    |Typ  |Nazwa  |Środowisko docelowe  |Lokalizacja  |Niestandardowe ustawienia nagłówka|
    |---------|---------|---------|---------|---------|
-   |Zewnętrzny punkt końcowy     |Koniec-01|Adres IP zarejestrowany dla aplikacji App-01|Wschodnie stany USA|Host:\<adres URL zarejestrowany dla aplikacji App-01\><br>Przykład: **host: App-01.azurewebsites.NET**|
-   |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla aplikacji App-02|Środkowe stany USA|Host:\<adres URL zarejestrowany dla aplikacji App-02\><br>Przykład: **host: App-02.azurewebsites.NET**
+   |Zewnętrzny punkt końcowy     |Koniec-01|Adres IP zarejestrowany dla aplikacji App-01|Wschodnie stany USA|Host:\<the URL you recorded for App-01\><br>Przykład: **host: App-01.azurewebsites.NET**|
+   |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla aplikacji App-02|Środkowe stany USA|Host:\<the URL you recorded for App-02\><br>Przykład: **host: App-02.azurewebsites.NET**
 
 ## <a name="create-dns-zone"></a>Utwórz strefę DNS
 

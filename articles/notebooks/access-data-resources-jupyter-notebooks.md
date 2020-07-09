@@ -3,22 +3,23 @@ title: Dostęp do danych w notesach Jupyter Azure Notebooks — wersja zapoznawc
 description: Dowiedz się, jak uzyskać dostęp do plików, interfejsów API REST, baz danych i różnych zasobów usługi Azure Storage z notesu Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646351"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833489"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Dostęp do danych z chmury w notesie
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Wykonanie interesującej pracy w notesie Jupyter wymaga danych. Dane, faktycznie, to Lifeblood notesów.
 
 Można na pewno [zaimportować pliki danych do projektu](work-with-project-data-files.md), nawet używając poleceń takich jak `curl` z notesu, aby bezpośrednio pobrać plik. Jest to jednak konieczne, aby pracować z znacznie bardziej rozbudowanymi danymi, które są dostępne w źródłach niezwiązanych z plikami, takimi jak interfejsy API REST, relacyjne bazy danych i magazyn w chmurze, takie jak tabele platformy Azure.
 
 W tym artykule krótko opisano te różne opcje. Ze względu na to, że dostęp do danych jest najlepiej widoczny w akcji, można znaleźć kod możliwy do uruchomienia w [Azure Notebooks próbkach — dostęp do danych](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
@@ -41,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bazy danych SQL Azure
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database i wystąpienie zarządzane SQL
 
-Dostęp do SQL Server baz danych można uzyskać za pomocą bibliotek moduł pyodbc lub pymssql.
+Można uzyskać dostęp do baz danych w SQL Database lub wystąpieniu zarządzanym SQL z pomocą bibliotek moduł pyodbc lub pymssql.
 
-[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
+[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych w SQL Database zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
 
 ## <a name="azure-storage"></a>Azure Storage
 

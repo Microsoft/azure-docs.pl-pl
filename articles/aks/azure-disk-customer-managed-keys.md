@@ -4,12 +4,12 @@ description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyj
 services: container-service
 ms.topic: article
 ms.date: 01/12/2020
-ms.openlocfilehash: ac6c4d2c4b3f309e2098ff6a6513aab8a3f8ea5f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9fd04b44be969e03eec2ed18f618068316572066
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141538"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84882534"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
@@ -105,14 +105,13 @@ diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceG
 az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version KUBERNETES_VERSION --generate-ssh-keys
 ```
 
 Po dodaniu nowych pul węzłów do klastra utworzonego powyżej klucz zarządzany przez klienta podany podczas tworzenia jest używany do szyfrowania dysku systemu operacyjnego.
 
-## <a name="encrypt-your-aks-cluster-data-disk"></a>Szyfrowanie dysku z danymi klastra AKS
-
-Dyski danych AKS można także zaszyfrować własnymi kluczami.
+## <a name="encrypt-your-aks-cluster-data-diskoptional"></a>Szyfruj dysk danych klastra AKS (opcjonalnie)
+Klucz szyfrowania dysku systemu operacyjnego będzie używany do szyfrowania dysku danych, jeśli nie podano klucza dla dysku danych z programu v 1.17.2. można także szyfrować dyski danych AKS z innymi kluczami.
 
 > [!IMPORTANT]
 > Upewnij się, że masz odpowiednie poświadczenia AKS. Jednostka usługi musi mieć dostęp współautora do grupy zasobów, w której wdrożono diskencryptionset. W przeciwnym razie zostanie wyświetlony komunikat o błędzie z sugestią, że jednostka usługi nie ma uprawnień.
@@ -166,11 +165,9 @@ kubectl apply -f byok-azure-disk.yaml
 ## <a name="limitations"></a>Ograniczenia
 
 * Usługa BYOK jest obecnie dostępna tylko w wersji zapoznawczej i w niektórych [regionach świadczenia usługi Azure][supported-regions]
-* Szyfrowanie dysków systemu operacyjnego obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej   
+* Szyfrowanie dysków danych obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej   
 * Dostępne tylko w regionach, w których jest obsługiwany BYOK
 * Szyfrowanie z kluczami zarządzanymi przez klienta jest obecnie przeznaczone tylko dla nowych klastrów AKS, nie można uaktualnić istniejących klastrów
-* AKS klastra z użyciem Virtual Machine Scale Sets są wymagane, brak obsługi zestawów dostępności maszyn wirtualnych
-
 
 ## <a name="next-steps"></a>Następne kroki
 

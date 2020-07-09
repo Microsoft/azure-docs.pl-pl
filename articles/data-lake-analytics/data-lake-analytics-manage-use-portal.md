@@ -7,14 +7,14 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9709f8ee700958b310b2fa94a546bb3ea4fc511
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265703"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121320"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Manage Azure Data Lake Analytics using the Azure portal (Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal)
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -30,23 +30,23 @@ W tym artykule opisano sposób zarządzania kontami Azure Data Lake Analytics, �
 ### <a name="create-an-account"></a>Tworzenie konta
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Kliknij kolejno pozycje **Utwórz zasób** > **Analiza i analiza** > **Data Lake Analytics**.
+2. Kliknij kolejno pozycje **Utwórz zasób**  >  **Analiza i analiza**  >  **Data Lake Analytics**.
 3. Wybierz wartości dla następujących elementów: 
    1. **Nazwa**: nazwa konta Data Lake Analytics.
    2. **Subskrypcja**: subskrypcja platformy Azure użyta dla tego konta.
    3. **Grupa zasobów**: Grupa zasobów platformy Azure, w której ma zostać utworzone konto. 
    4. **Lokalizacja**: centrum danych platformy Azure dla konta Data Lake Analytics. 
    5. **Data Lake Store**: magazyn domyślny, który ma być używany dla konta Data Lake Analytics. Konto Azure Data Lake Store i konto Data Lake Analytics muszą znajdować się w tej samej lokalizacji.
-4. Kliknij przycisk **Utwórz**. 
+4. Kliknij pozycję **Utwórz**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Usuwanie konta Data Lake Analytics
 
 Przed usunięciem konta Data Lake Analytics usuń jego domyślne konto Data Lake Store.
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
-2. Kliknij przycisk **Usuń**.
+2. Kliknij polecenie **Usuń**.
 3. Wpisz nazwę konta.
-4. Kliknij przycisk **Usuń**.
+4. Kliknij polecenie **Usuń**.
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -111,7 +111,7 @@ Użyj roli deweloper Data Lake Analytics, aby umożliwić deweloperom U-SQL korz
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Dodawanie użytkowników lub grup zabezpieczeń do konta Data Lake Analytics
 
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
-2. Kliknij pozycję **Kontrola dostępu (IAM)** > **Dodaj przypisanie roli**.
+2. Kliknij pozycję **Kontrola dostępu (IAM)**  >  **Dodaj przypisanie roli**.
 3. Wybierz rolę.
 4. Dodaj użytkownika.
 5. Kliknij przycisk **OK**.

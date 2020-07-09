@@ -9,10 +9,9 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457648"
 ---
 # <a name="design-for-querying"></a>Projektowanie pod kątem wykonywania zapytań
@@ -41,7 +40,7 @@ W poniższych przykładach przyjęto założenie, że usługa Table Service zapi
 | **RowKey** (identyfikator pracownika) |String |
 | **Imię** |String |
 | **Nazwisko** |String |
-| **Wiek** |Liczba całkowita |
+| **Wiek** |Integer |
 | **EmailAddress** |String |
 
 Artykuł [Omówienie usługi Azure Table Storage](table-storage-overview.md) zawiera opis niektórych kluczowych funkcji usługi Azure Table Service, które mają bezpośredni wpływ na projektowanie zapytań. Poniżej przedstawiono ogólne wytyczne dotyczące projektowania zapytań Table service. Należy zauważyć, że składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST Table service, aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  

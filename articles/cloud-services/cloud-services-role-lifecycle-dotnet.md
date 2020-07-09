@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652092"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Dostosowywanie cyklu życia roli sieci Web lub procesu roboczego w programie .NET
@@ -72,7 +71,7 @@ Można zastąpić metodę **Run** , aby zaimplementować długotrwały wątek dl
 Zastępowanie metody **Run** nie jest wymagane; Domyślna implementacja uruchamia wątek, który w stanie uśpienia w nieskończoność. W przypadku zastąpienia metody **Run** kod powinien blokować czas nieokreślony. Jeśli metoda **Run** zwraca metodę, rola jest automatycznie odtwarzana; Innymi słowy, platforma Azure zgłasza zdarzenie **zatrzymania** i wywołuje metodę **OnStop** , aby można było wykonać sekwencje zamknięcia przed przełączeniem roli w tryb offline.
 
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementowanie metod cyklu życia ASP.NET dla roli sieci Web
-Aby zarządzać sekwencjami inicjalizacji i zamykania dla roli sieci Web, można użyć metod cyklu życia ASP.NET (oprócz tych dostarczonych przez klasę **RoleEntryPoint** ). Może to być przydatne w przypadku przenoszenia istniejącej aplikacji ASP.NET na platformę Azure. Metody cyklu życia ASP.NET są wywoływane z poziomu metod **RoleEntryPoint** . Metoda **startowa aplikacji\_** jest wywoływana po zakończeniu metody **RoleEntryPoint. OnStart** . Metoda **Application\_End** jest wywoływana przed wywołaniem metody **RoleEntryPoint. OnStop** .
+Aby zarządzać sekwencjami inicjalizacji i zamykania dla roli sieci Web, można użyć metod cyklu życia ASP.NET (oprócz tych dostarczonych przez klasę **RoleEntryPoint** ). Może to być przydatne w przypadku przenoszenia istniejącej aplikacji ASP.NET na platformę Azure. Metody cyklu życia ASP.NET są wywoływane z poziomu metod **RoleEntryPoint** . Metoda ** \_ startowa aplikacji** jest wywoływana po zakończeniu metody **RoleEntryPoint. OnStart** . Metoda **Application \_ End** jest wywoływana przed wywołaniem metody **RoleEntryPoint. OnStop** .
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się, jak [utworzyć pakiet usługi w chmurze](cloud-services-model-and-package.md).

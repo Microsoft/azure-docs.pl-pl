@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/23/2020
+ms.date: 06/04/2020
 ms.author: tamram
-ms.openlocfilehash: 333d9f12ff817a5264183666cd1b858075a93077
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 471a8018a608da818f5961973f23123874c63427
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176689"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434449"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -32,7 +32,7 @@ Interfejs wiersza polecenia platformy Azure to środowisko wiersza polecenia pla
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.46 lub nowszej. Uruchom polecenie `az --version`, aby sprawdzić wersję. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz się zalogować i uwierzytelnić. Ten krok nie jest konieczny, jeśli używasz Azure Cloud Shell. Aby zalogować się do interfejsu wiersza polecenia `az login` platformy Azure, Uruchom i Uwierzytelnij w oknie przeglądarki:
+Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz się zalogować i uwierzytelnić. Ten krok nie jest konieczny, jeśli używasz Azure Cloud Shell. Aby zalogować się do interfejsu wiersza polecenia platformy Azure, uruchom `az login` i Uwierzytelnij w oknie przeglądarki:
 
 ```azurecli
 az login
@@ -44,9 +44,9 @@ Aby uzyskać więcej informacji o uwierzytelnianiu za pomocą interfejsu wiersza
 
 Dostęp do magazynu obiektów BLOB można autoryzować z poziomu interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD lub klucza dostępu do konta magazynu. Zalecane jest korzystanie z poświadczeń usługi Azure AD. W tym artykule przedstawiono sposób autoryzacji operacji usługi BLOB Storage przy użyciu usług Azure AD.
 
-Polecenie interfejsu wiersza polecenia platformy Azure dla operacji na danych w `--auth-mode` usłudze BLOB Storage obsługuje parametr, który umożliwia określenie sposobu autoryzacji danej operacji. Ustaw `--auth-mode` parametr na `login` , aby autoryzować się przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Polecenie interfejsu wiersza polecenia platformy Azure dla operacji na danych w usłudze BLOB Storage obsługuje `--auth-mode` parametr, który umożliwia określenie sposobu autoryzacji danej operacji. Ustaw `--auth-mode` parametr na `login` , aby autoryzować się przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Tylko operacje na danych magazynu obiektów BLOB `--auth-mode` obsługują ten parametr. Operacje zarządzania, takie jak tworzenie grupy zasobów lub konta magazynu, automatycznie używają poświadczeń usługi Azure AD do autoryzacji.
+Tylko operacje na danych magazynu obiektów BLOB obsługują ten `--auth-mode` parametr. Operacje zarządzania, takie jak tworzenie grupy zasobów lub konta magazynu, automatycznie używają poświadczeń usługi Azure AD do autoryzacji.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -77,9 +77,13 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty blob są zawsze przesyłane do kontenera. Grupy obiektów BLOB można organizować w kontenerach podobnie jak w przypadku organizowania plików na komputerze w folderach.
+Obiekty blob są zawsze przesyłane do kontenera. Grupy obiektów BLOB można organizować w kontenerach podobnie jak w przypadku organizowania plików na komputerze w folderach. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). 
 
-Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
+W poniższym przykładzie używane jest konto usługi Azure AD do autoryzacji operacji tworzenia kontenera. Przed utworzeniem kontenera Przypisz do siebie rolę [współautor danych obiektu blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) . Nawet jeśli jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji na temat przypisywania ról RBAC, zobacz [Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli RBAC na potrzeby dostępu](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+
+Możesz również użyć klucza konta magazynu do autoryzacji operacji do utworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+
+Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 
 ```azurecli
 az storage container create \

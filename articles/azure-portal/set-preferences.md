@@ -6,15 +6,14 @@ keywords: Ustawienia, limit czasu, język, regionalne
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310683"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763962"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Ustawianie preferencji witryny Azure Portal
 
@@ -79,7 +78,7 @@ Wybrany motyw ma wpływ na kolory tła i czcionki, które pojawiają się w Azur
 
    ![Zrzut ekranu przedstawiający ustawienia Azure Portal z wyróżnionymi motywami](./media/set-preferences/theme.png)
 
-Zamiast tego możesz wybrać jeden z motywów o wysokim kontraście. Ustawienia dużego kontrastu ułatwiają odczytanie Azure Portal dla użytkowników niedowidzących i zastępowanie wszystkich innych opcji motywu. Aby uzyskać więcej informacji, zobacz [Włączanie dużego kontrastu lub Zmienianie motywu](azure-portal-change-theme-high-contrast.md).
+Zamiast tego możesz wybrać jeden z motywów o wysokim kontraście. Ustawienia dużego kontrastu ułatwiają Azure Portal odczytywania dla osób, które mają niesparowaną wizualizację, i zastępują wszystkie inne opcje motywu. Aby uzyskać więcej informacji, zobacz [Włączanie dużego kontrastu lub Zmienianie motywu](azure-portal-change-theme-high-contrast.md).
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>Włączanie lub wyłączanie powiadomień wyskakujących
 

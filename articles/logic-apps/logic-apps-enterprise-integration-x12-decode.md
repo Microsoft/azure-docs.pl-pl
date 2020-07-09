@@ -9,15 +9,14 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792377"
 ---
-# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Dekodowanie komunikatów X12 w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
+# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Dekodowanie komunikatów X12 w usłudze Azure Logic Apps przy użyciu Pakietu integracyjnego dla przedsiębiorstw
 
-Za pomocą łącznika komunikatu X12 można sprawdzić poprawność koperty do umowy partnera handlowego, zweryfikować właściwości EDI i specyficzne dla partnera, podzielić zmiany na zbiory transakcji lub zachować całe zmiany i wygenerować potwierdzenia dla przetworzonych transakcji. Aby użyć tego łącznika, należy dodać Łącznik do istniejącego wyzwalacza w aplikacji logiki.
+Za pomocą łącznika dekodowania komunikatów X12 możesz walidować kopertę względem sprawdzać właściwości usługi EDI i partnerów, dzielić wymiany na zestawy transakcji lub zachowywać całe wymiany i generować potwierdzenia dla przetworzonych transakcji. Aby użyć tego łącznika, musisz dodać go do istniejącego wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -88,13 +87,13 @@ Oto elementy, których potrzebujesz:
   * Sprawdza numer kontroli zestawu transakcji dla innych numerów kontroli zestawu transakcji w tej grupie.
 * Dzieli wymianę na zestawy transakcji lub zachowuje całą transakcję wymiany:
   * Rozdziel wymianę jako zestawy transakcji — Zawieś zestawy transakcji w przypadku błędu: dzieli wymianę na zestawy transakcji i analizuje poszczególne zestawy transakcji. 
-  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja `badMessages`nie powiodła się, i wyprowadza pozostałe `goodMessages`zestawy transakcji do.
+  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
   * Rozdziel wymianę jako zestawy transakcji — Zawieś wymianę w przypadku błędu: dzieli wymianę na zestawy transakcji i analizuje poszczególne zestawy transakcji. 
-  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages`.
+  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
   * Zachowaj zestawy transakcji zawieszania wymiany w przypadku błędu: Zachowaj wymianę i przetwórz całą partię zbiorczą. 
-  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja `badMessages`nie powiodła się, i wyprowadza pozostałe `goodMessages`zestawy transakcji do.
+  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
   * Zachowaj wymianę — Wstrzymaj wymianę w przypadku błędu: Zachowaj wymianę i przetwórz całą partię zbiorczą. 
-  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages`. 
+  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` . 
 * Generuje potwierdzenie techniczne i/lub funkcjonalne (jeśli jest skonfigurowany).
   * Potwierdzenie techniczne generuje wynik weryfikacji nagłówka. Potwierdzenie techniczne raportuje stan przetwarzania nagłówka wymiany i przyczepy przez odbiorcę adresu.
   * Potwierdzenie funkcjonalne generuje wynik weryfikacji treści. Potwierdzenie funkcjonalne zgłasza każdy błąd napotkany podczas przetwarzania otrzymanego dokumentu

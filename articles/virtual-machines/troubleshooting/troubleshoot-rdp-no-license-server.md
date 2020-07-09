@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71088523"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Serwer licencji Pulpit zdalny nie jest dostępny w przypadku łączenia się z maszyną wirtualną platformy Azure
@@ -62,7 +62,7 @@ Aby rozwiązać ten problem, wykonaj [kopię zapasową dysku systemu operacyjneg
 
     Jeśli nie możesz połączyć się z maszyną wirtualną przy użyciu sesji administracyjnej, możesz użyć [konsoli szeregowej maszyny wirtualnej na platformie Azure](serial-console-windows.md) , aby uzyskać dostęp do maszyny wirtualnej w następujący sposób:
 
-    1. Uzyskaj dostęp do konsoli szeregowej, wybierając pozycję **Obsługa & Rozwiązywanie problemów** > **konsola szeregowa (wersja zapoznawcza)**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
+    1. Uzyskaj dostęp do konsoli szeregowej, wybierając pozycję **Obsługa & Rozwiązywanie problemów**  >  **konsola szeregowa (wersja zapoznawcza)**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
 
     2. Utwórz nowy kanał dla wystąpienia CMD. Wprowadź **polecenie cmd** w celu uruchomienia kanału i pobrania nazwy kanału.
 

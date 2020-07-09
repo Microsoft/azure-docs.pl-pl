@@ -12,13 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471476"
 ---
-# <a name="url-rewrite-custom-forwarding-path"></a>Ponowne zapisywanie adresów URL (ścieżka do przesyłania dalej)
+# <a name="url-rewrite-custom-forwarding-path"></a>Ponowne zapisywanie adresów URL (niestandardowa ścieżka przesyłania dalej)
 Funkcja Azure Front Drzwiczks obsługuje ponowne zapisywanie adresów URL, umożliwiając Konfigurowanie opcjonalnej **niestandardowej ścieżki przekazywania** , która będzie używana podczas konstruowania żądania do przesyłania dalej do zaplecza. Domyślnie jeśli nie ma określonej niestandardowej ścieżki przesyłania dalej, usługa Front Door kopiuje przychodzącą ścieżkę adresu URL do adresu URL użytego w przesłanym dalej żądaniu. Nagłówek Host użyty w przesłanym dalej żądaniu jest skonfigurowany dla wybranego zaplecza. Odczytaj [nagłówek hosta zaplecza](front-door-backend-pool.md#hostheader) , aby dowiedzieć się, co robi i jak można go skonfigurować.
 
 Zaawansowana część adresu URL do ponownego zapisu przy użyciu ścieżki niestandardowego przesyłania dalej polega na skopiowaniu dowolnej części ścieżki przychodzącej dopasowanej do ścieżki wieloznacznej do przesłanej dalej ścieżki (te segmenty ścieżki są **zielonymi** segmentami w poniższym przykładzie):
@@ -30,24 +29,24 @@ Rozważ użycie reguły routingu z skonfigurowanymi następującymi hostami fron
 
 | Hosts      | Ścieżki       |
 |------------|-------------|
-| contoso.com\.www | /\*         |
+| \.contoso.com www | /\*         |
 |            | /foo        |
 |            | Foo\*     |
 |            | /foo/bar/\* |
 
 W pierwszej kolumnie poniższej tabeli przedstawiono przykłady żądań przychodzących, a druga kolumna pokazuje, co to jest "najbardziej specyficzna" ścieżka do trasy.  Trzecia i kolejna kolumna pierwszego wiersza tabeli to przykłady skonfigurowanych **niestandardowych ścieżek przesyłania dalej**, z pozostałymi wierszami w tych kolumnach, które reprezentują przykłady ścieżki przesłane dalej, jeśli pasują do żądania w tym wierszu.
 
-Na przykład jeśli odczytasz w drugim wierszu, oznacza to, że w przypadku żądania `www.contoso.com/sub`przychodzącego, jeśli niestandardowa ścieżka `/`przesyłania dalej to, przekazana ścieżka `/sub`będzie. W przypadku niestandardowej ścieżki `/fwd/`przesyłania dalej zostanie `/fwd/sub`przekazana ścieżka. I tak dalej, dla pozostałych kolumn. **Wyróżnione** fragmenty ścieżek poniżej reprezentują fragmenty, które są częścią dopasowania symboli wieloznacznych.
+Na przykład jeśli odczytasz w drugim wierszu, oznacza to, że w przypadku żądania przychodzącego `www.contoso.com/sub` , jeśli niestandardowa ścieżka przesyłania dalej to `/` , przekazana ścieżka będzie `/sub` . W przypadku niestandardowej ścieżki przesyłania dalej `/fwd/` zostanie przekazana ścieżka `/fwd/sub` . I tak dalej, dla pozostałych kolumn. **Wyróżnione** fragmenty ścieżek poniżej reprezentują fragmenty, które są częścią dopasowania symboli wieloznacznych.
 
 
 | Żądanie przychodzące       | Najbardziej Szczegółowa ścieżka dopasowania | /          | /fwd/          | Foo          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| contoso.com/\.www            | /\*                      | /          | /fwd/          | Foo          | /foo/bar/          |
-| contoso.com/\.www**sub**     | /\*                      | /**Sub**   | /FWD/**Sub**   | /foo/**Sub**   | /foo/bar/**Sub**   |
-| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /FWD/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
-| contoso.com/foo\.www         | /foo                     | /          | /fwd/          | Foo          | /foo/bar/          |
-| contoso.com/foo/\.www        | Foo\*                  | /          | /fwd/          | Foo          | /foo/bar/          |
-| pasek\.contoso.com/foo/**bar** www | Foo\*                  | /**słup**   | **pasek** /FWD/   | **pasek** /foo/   | **pasek** /foo/bar/   |
+| \.contoso.com/www            | /\*                      | /          | /fwd/          | Foo          | /foo/bar/          |
+| \.contoso.com/www**sub**     | /\*                      | /**Sub**   | /FWD/**Sub**   | /foo/**Sub**   | /foo/bar/**Sub**   |
+| www \. contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /FWD/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
+| \.contoso.com/foo www         | /foo                     | /          | /fwd/          | Foo          | /foo/bar/          |
+| \.contoso.com/foo/www        | Foo\*                  | /          | /fwd/          | Foo          | /foo/bar/          |
+| \.**pasek** contoso.com/foo/www | Foo\*                  | /**słup**   | **pasek** /FWD/   | **pasek** /foo/   | **pasek** /foo/bar/   |
 
 
 ## <a name="optional-settings"></a>Ustawienia opcjonalne

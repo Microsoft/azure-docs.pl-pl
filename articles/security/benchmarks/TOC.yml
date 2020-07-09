@@ -35,35 +35,61 @@
       href: security-baselines-overview.md
     - name: Punkt odniesienia zabezpieczeń usługi API Management
       href: ../../api-management/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Application Gateway
+      href: ../../application-gateway/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Automation
+      href: ../../automation/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Policy
+      href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Backup
       href: ../../backup/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Batch
       href: ../../batch/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usług Cognitive Services
+      href: ../../cognitive-services/security-baseline.md
+    - name: Linia bazowa zabezpieczeń usługi Container Instances
+      href: ../../container-instances/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Container Registry
       href: ../../container-registry/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Cosmos DB
       href: ../../cosmos-db/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń skrytki klienta
+      href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Data Box
+      href: ../../databox/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń eksploratora danych
       href: /azure/data-explorer/security-baseline
+    - name: Punkt odniesienia zabezpieczeń usługi Data Factory
+      href: ../../data-factory/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi ExpressRoute
+      href: ../../expressroute/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Functions
       href: ../../azure-functions/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Logic Apps
+      href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń bazy danych MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń bazy danych MySQL
       href: ../../mysql/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
+      href: ../../network-watcher/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń bazy danych PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi SQL Database
       href: ../../sql-database/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Stream Analytics
+      href: ../../stream-analytics/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Storage
       href: ../../storage/common/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Synapse Analytics
+      href: ../../synapse-analytics/security-baseline.md

@@ -8,16 +8,16 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fb64463b0372202adb04c2deb304c389c7773b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3dee468764f27d930081b5a3cd415c48bb79c0d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79164685"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104014"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
 
-Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) można zautomatyzować instalację oprogramowania i konfigurację dla komputera z systemem Windows. W tym artykule opisano sposób instalowania usługi Azure ARC dla serwerów połączonych z agentem maszyn na hybrydowych komputerach z systemem Windows.
+Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) można zautomatyzować instalację oprogramowania i konfigurację dla komputera z systemem Windows. W tym artykule opisano sposób instalowania usługi Azure ARC dla serwerów połączonych z agentem maszyn na hybrydowych komputerach z systemem Windows.
 
 ## <a name="requirements"></a>Wymagania
 
@@ -29,7 +29,7 @@ Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](h
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Instalowanie modułu ConnectedMachine DSC
 
-1. Aby ręcznie zainstalować moduł, należy pobrać kod źródłowy i rozpakować zawartość katalogu projektu do programu `$env:ProgramFiles\WindowsPowerShell\Modules folder`. Lub uruchom następujące polecenie, aby zainstalować program z galerii programu PowerShell przy użyciu programu PowerShellGet (w programie PowerShell 5,0):
+1. Aby ręcznie zainstalować moduł, należy pobrać kod źródłowy i rozpakować zawartość katalogu projektu do programu `$env:ProgramFiles\WindowsPowerShell\Modules folder` . Lub uruchom następujące polecenie, aby zainstalować program z galerii programu PowerShell przy użyciu programu PowerShellGet (w programie PowerShell 5,0):
 
     ```powershell
     Find-Module -Name AzureConnectedMachineDsc -Repository PSGallery | Install-Module
@@ -47,9 +47,9 @@ Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](h
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalowanie agenta i nawiązywanie połączenia z platformą Azure
 
-Zasoby w tym module są przeznaczone do zarządzania konfiguracją agenta połączonej maszyny platformy Azure. Uwzględniono również skrypt `AzureConnectedMachineAgent.ps1`programu PowerShell, który znajduje się `AzureConnectedMachineDsc\examples` w folderze. Używa zasobów społeczności do automatyzowania pobierania i instalacji oraz nawiązywania połączenia z usługą Azure Arc. Ten skrypt wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) .
+Zasoby w tym module są przeznaczone do zarządzania konfiguracją agenta połączonej maszyny platformy Azure. Uwzględniono również skrypt programu PowerShell, który znajduje się `AzureConnectedMachineAgent.ps1` w `AzureConnectedMachineDsc\examples` folderze. Używa zasobów społeczności do automatyzowania pobierania i instalacji oraz nawiązywania połączenia z usługą Azure Arc. Ten skrypt wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) .
 
-Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](onboard-portal.md#configure-the-agent-proxy-setting). Powoduje to ustawienie zmiennej `https_proxy`środowiskowej serwera proxy. Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
+Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](onboard-portal.md#configure-the-agent-proxy-setting). Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` . Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
 
 >[!NOTE]
 >Aby można było uruchomić DSC, system Windows musi być skonfigurowany do odbierania poleceń zdalnych programu PowerShell nawet w przypadku uruchamiania konfiguracji hosta lokalnego. Aby prawidłowo skonfigurować środowisko, po prostu uruchom `Set-WsManQuickConfig -Force` w terminalu programu PowerShell z podwyższonym poziomem uprawnień.
@@ -73,13 +73,13 @@ Poniżej przedstawiono parametry, które są przekazywane do skryptu programu Po
 
 1. W konsoli programu PowerShell przejdź do folderu, w którym zapisano `.ps1` plik.
 
-2. Uruchom następujące polecenia programu PowerShell, aby skompilować dokument MOF (Aby uzyskać informacje na temat kompilowania konfiguracji DSC, zobacz [konfiguracje DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
+2. Uruchom następujące polecenia programu PowerShell, aby skompilować dokument MOF (Aby uzyskać informacje na temat kompilowania konfiguracji DSC, zobacz [konfiguracje DSC](/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
     ```
 
-3. Spowoduje to utworzenie `localhost.mof file` nowego folderu o nazwie `C:\dsc`.
+3. Spowoduje to utworzenie `localhost.mof file` nowego folderu o nazwie `C:\dsc` .
 
 Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z usługą Azure ARC dla serwerów (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetlanie maszyn w [Azure Portal](https://aka.ms/hybridmachineportal).
 
@@ -87,7 +87,7 @@ Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połą
 
 Ten zasób można dodać do istniejących konfiguracji DSC, aby reprezentować konfigurację kompleksową dla maszyny. Na przykład możesz chcieć dodać ten zasób do konfiguracji, która ustawia bezpieczne ustawienia systemu operacyjnego.
 
-Moduł [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
+Moduł [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
 
 ## <a name="next-steps"></a>Następne kroki
 

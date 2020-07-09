@@ -7,17 +7,25 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480015"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84248740"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Łącznik Azure Monitor dzienników dla Logic Apps i przepływu
 [Azure Logic Apps](/azure/logic-apps/) i [Automatyzacja](https://ms.flow.microsoft.com) — umożliwia tworzenie zautomatyzowanych przepływów pracy przy użyciu setek działań dla różnych usług. Łącznik Azure Monitor Logs umożliwia tworzenie przepływów pracy, które pobierają dane z obszaru roboczego Log Analytics lub aplikacji Application Insights w Azure Monitor. W tym artykule opisano akcje dołączone do łącznika i przedstawiono Przewodnik tworzenia przepływu pracy przy użyciu tych danych.
 
 Na przykład możesz utworzyć aplikację logiki, która będzie używać danych dziennika Azure Monitor w powiadomieniach e-mail z pakietu Office 365, utworzyć usterkę w usłudze Azure DevOps lub opublikować komunikat o zapasach.  Przepływ pracy można wyzwolić według prostego harmonogramu lub z niektórych akcji w połączonej usłudze, takiej jak w przypadku otrzymania wiadomości e-mail lub tweetu. 
+
+## <a name="connector-limits"></a>Limity łączników
+Łącznik dzienników Azure Monitor ma następujące limity:
+* Maksymalny rozmiar danych: 16 MB
+* Maksymalny rozmiar odpowiedzi kwerendy 100 MB
+* Maksymalna liczba rekordów: 500 000
+* Maksymalny limit czasu zapytania 110 sekundę.
+
+W zależności od rozmiaru danych i użytego zapytania łącznik może trafić w jego limity i zakończyć się niepowodzeniem. Takie przypadki można obejść podczas dopasowywania cyklu wyzwalacza do uruchamiania częściej i wykonywania zapytań o mniej danych. Możesz użyć zapytań, które agregują dane, aby zwracać mniejsze rekordy i kolumny.
 
 ## <a name="actions"></a>Akcje
 W poniższej tabeli opisano akcje dołączone do łącznika dzienników Azure Monitor. Oba umożliwiają uruchamianie zapytania dziennika względem obszaru roboczego Log Analytics lub Application Insights aplikacji. Różnica polega na tym, jak dane są zwracane.

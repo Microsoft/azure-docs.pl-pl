@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836417"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135371"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Rozwiązywanie problemów z replikacją dla maszyn wirtualnych VMware i serwerów fizycznych
 
@@ -71,13 +71,13 @@ Możliwe przyczyny:
 - Współczynnik zmian danych (bajty zapisu/s) na wymienionych dyskach maszyny wirtualnej jest większy niż [Azure Site Recovery obsługiwane limity](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) dla typu konta magazynu docelowego replikacji.
 - Występuje nagłe zwiększenie współczynnika zmian, ze względu na to, które duże ilości danych oczekuje na przekazanie.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 - Upewnij się, że docelowy typ konta magazynu (w warstwie Standardowa lub Premium) jest obsługiwany zgodnie z wymaganiami dotyczącymi współczynnika zmian w źródle.
 - Jeśli przeprowadzasz już replikację do dysku zarządzanego w warstwie Premium (typ asrseeddisk), upewnij się, że rozmiar dysku obsługuje zaobserwowany współczynnik zmian zgodnie z limitami Site Recovery. W razie potrzeby można zwiększyć rozmiar asrseeddisk. Wykonaj poniższe czynności:
     - Przejdź do bloku dyski zagrożonej replikowanej maszyny i skopiuj nazwę dysku repliki
     - Przejdź do tego dysku zarządzanego repliki
     - W bloku przeglądu może zostać wyświetlony transparent informujący o wygenerowaniu adresu URL sygnatury dostępu współdzielonego. Kliknij ten transparent i Anuluj eksport. Zignoruj ten krok, jeśli transparent nie jest widoczny.
-    - Gdy tylko adres URL sygnatury dostępu współdzielonego zostanie odwołany, przejdź do bloku Konfiguracja dysku zarządzanego i Zwiększ rozmiar, tak aby funkcja ASR obsługiwała zaobserwowany wskaźnik zmian na dysku źródłowym
+    - Gdy tylko adres URL sygnatury dostępu współdzielonego zostanie odwołany, przejdź do bloku Konfiguracja dysku zarządzanego i Zwiększ rozmiar, tak aby Azure Site Recovery obsługiwał częstotliwość zaobserwowanych zmian na dysku źródłowym
 - Jeśli zaobserwowane zmiany są tymczasowe, poczekaj kilka godzin, aż oczekujące przekazywanie danych zostanie wyszukane i utworzone w celu utworzenia punktów odzyskiwania.
 - Jeśli dysk zawiera dane niekrytyczne, takie jak dzienniki tymczasowe, dane testowe itp., należy rozważyć przeniesienie tych danych w innym miejscu lub całkowite wykluczenie tego dysku z replikacji
 - Jeśli problem będzie nadal występował, użyj [planisty wdrażania](site-recovery-deployment-planner.md#overview) Site Recovery, aby pomóc w zaplanowaniu replikacji.
@@ -95,16 +95,16 @@ Aby rozwiązać ten problem, wykonaj następujące kroki, aby zweryfikować poł
    - InMage Scout Application Service
 4. Na maszynie źródłowej Przejrzyj dzienniki w lokalizacji, aby uzyskać szczegółowe informacje o błędzie:
 
-       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    *C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\svagents \* . log*
 
 ### <a name="process-server-with-no-heartbeat-error-806"></a>Serwer przetwarzania bez pulsu [błąd 806]
 W przypadku braku pulsu z serwera przetwarzania (PS), sprawdź, czy:
 1. Maszyna wirtualna PS jest uruchomiona
 2. Sprawdź następujące dzienniki na stronie PS, aby uzyskać szczegółowe informacje o błędzie:
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    *C:\ProgramData\ASR\home\svsystems\eventmanager \* . log*\
+    lub
+    *C:\ProgramData\ASR\home\svsystems\ monitor_protection \* . log*
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>Główny serwer docelowy bez pulsu [Error 78022]
 
@@ -117,7 +117,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki w celu sprawdzenia stan
     - Sprawdź, czy usługa svagents jest uruchomiona. Jeśli jest uruchomiona, należy ponownie uruchomić usługę.
     - Sprawdź dzienniki w lokalizacji, aby uzyskać szczegółowe informacje o błędzie:
 
-          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+        *C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\svagents \* . log*
 3. Aby zarejestrować główny cel z serwerem konfiguracji, przejdź do folderu **%ProgramData%\ASR\Agent**, a następnie uruchom następujące polecenie w wierszu polecenia:
    ```
    cmd
@@ -146,28 +146,30 @@ Poniżej wymieniono niektóre z najczęstszych problemów
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Przyczyna 3: znany problem w SQL Server 2016 i 2017
 **Jak naprawić** : [artykuł](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) z bazy wiedzy
 
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Przyczyna 4: spójność aplikacji nie jest włączona na serwerach z systemem Linux
+**Jak naprawić** : Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery w celu zapewnienia spójności aplikacji. [Poniżej](./site-recovery-faq.md#replication) przedstawiono kroki, które należy włączyć.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Więcej przyczyn spowodowanych problemami związanymi z usługą VSS:
 
 Aby przeprowadzić dalsze Rozwiązywanie problemów, sprawdź pliki na maszynie źródłowej, aby uzyskać dokładny kod błędu dla niepowodzenia:
 
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+*C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 Jak znaleźć błędy w pliku?
 Wyszukaj ciąg "vacpError", otwierając plik vacp. log w edytorze
 
-    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 W powyższym przykładzie **2147754994** jest kod błędu informujący o niepowodzeniu, jak pokazano poniżej
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>Składnik zapisywania usługi VSS nie jest zainstalowany — błąd 2147221164
 
-*Jak naprawić*: aby wygenerować tag spójności aplikacji, Azure Site Recovery używa usługi kopiowania woluminów w tle (VSS) firmy Microsoft. Powoduje zainstalowanie dostawcy usługi VSS w celu wykonania migawek spójności aplikacji. Ten dostawca usługi VSS jest instalowany jako usługa. Jeśli nie zainstalowano usługi dostawcy VSS, tworzenie migawki spójności aplikacji kończy się niepowodzeniem z identyfikatorem błędu 0x80040154 "Klasa nie jest zarejestrowana". </br>
-Zobacz [artykuł dotyczący rozwiązywania problemów z instalacją składnika zapisywania usługi VSS](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
+*Jak naprawić*: aby wygenerować tag spójności aplikacji, Azure Site Recovery używa usługi kopiowania woluminów w tle (VSS) firmy Microsoft. Powoduje zainstalowanie dostawcy usługi VSS w celu wykonania migawek spójności aplikacji. Ten dostawca usługi VSS jest instalowany jako usługa. Jeśli nie zainstalowano usługi dostawcy VSS, tworzenie migawki spójności aplikacji kończy się niepowodzeniem z IDENTYFIKATORem błędu 0x80040154 "Klasa nie jest zarejestrowana". </br>
+Zobacz [artykuł dotyczący rozwiązywania problemów z instalacją składnika zapisywania usługi VSS](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>Składnik zapisywania usługi VSS jest wyłączony — błąd 2147943458
 
-**Jak naprawić**: aby wygenerować tag spójności aplikacji, Azure Site Recovery używa usługi kopiowania woluminów w tle (VSS) firmy Microsoft. Powoduje zainstalowanie dostawcy usługi VSS w celu wykonania migawek spójności aplikacji. Ten dostawca usługi VSS jest instalowany jako usługa. W przypadku wyłączenia usługi dostawcy VSS Tworzenie migawki spójności aplikacji kończy się niepowodzeniem z identyfikatorem błędu "określona usługa jest wyłączona i nie można jej uruchomić (0x80070422)". </br>
+**Jak naprawić**: aby wygenerować tag spójności aplikacji, Azure Site Recovery używa usługi kopiowania woluminów w tle (VSS) firmy Microsoft. Powoduje zainstalowanie dostawcy usługi VSS w celu wykonania migawek spójności aplikacji. Ten dostawca usługi VSS jest instalowany jako usługa. W przypadku wyłączenia usługi dostawcy VSS Tworzenie migawki spójności aplikacji kończy się niepowodzeniem z IDENTYFIKATORem błędu "określona usługa jest wyłączona i nie można jej uruchomić (0x80070422)". </br>
 
 - Jeśli usługa VSS jest wyłączona,
     - Sprawdź, czy typ uruchamiania usługi dostawcy VSS jest ustawiony na wartość **automatycznie**.
@@ -193,4 +195,4 @@ Sprawdź, czy typ uruchamiania usługi dostawcy VSS jest ustawiony na wartość 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. Mamy aktywną społeczność i jeden z naszych inżynierów może Ci pomóc.
+Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. Mamy aktywną społeczność i jeden z naszych inżynierów może Ci pomóc.

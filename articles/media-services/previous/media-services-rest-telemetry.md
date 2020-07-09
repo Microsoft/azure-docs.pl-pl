@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76774867"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurowanie telemetrii Azure Media Services przy użyciu interfejsu REST
@@ -34,7 +33,7 @@ Kroki opisane w tym temacie są następujące:
 - Pobieranie punktów końcowych powiadomień
 - Tworzenie punktu końcowego powiadomienia do monitorowania. 
 
-    Aby utworzyć punkt końcowy powiadomień, ustaw dla elementu EndPointtype wartość Azure (2) i endPontAddress jako tabelę magazynu (na przykład https:\//telemetryvalidationstore.Table.Core.Windows.NET/).
+    Aby utworzyć punkt końcowy powiadomień, ustaw dla elementu EndPointtype wartość Azure (2) i endPontAddress jako tabelę magazynu (na przykład https: \/ /telemetryvalidationstore.Table.Core.Windows.NET/).
   
 - Pobierz konfiguracje monitorowania
 
@@ -46,7 +45,7 @@ Kroki opisane w tym temacie są następujące:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Pobierz konto magazynu skojarzone z kontem Media Services
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.19
@@ -74,7 +73,7 @@ Kroki opisane w tym temacie są następujące:
 
 ## <a name="get-the-notification-endpoints"></a>Pobierz punkty końcowe powiadomień
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.19
@@ -107,7 +106,7 @@ Kroki opisane w tym temacie są następujące:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Tworzenie punktu końcowego powiadomień na potrzeby monitorowania
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.19
@@ -126,7 +125,7 @@ Kroki opisane w tym temacie są następujące:
     }
 
 > [!NOTE]
-> Nie zapomnij zmienić wartości "https:\//telemetryvalidationstore.Table.Core.Windows.NET" na konto magazynu.
+> Nie zapomnij zmienić wartości "https: \/ /telemetryvalidationstore.Table.Core.Windows.NET" na konto magazynu.
 
 ### <a name="response"></a>Odpowiedź
 
@@ -149,7 +148,7 @@ Kroki opisane w tym temacie są następujące:
  
 ## <a name="get-the-monitoring-configurations"></a>Pobierz konfiguracje monitorowania
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.19
@@ -179,7 +178,7 @@ Kroki opisane w tym temacie są następujące:
 
 ## <a name="add-a-monitoring-configuration"></a>Dodaj konfigurację monitorowania
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.19
@@ -222,7 +221,7 @@ Kroki opisane w tym temacie są następujące:
 
 ## <a name="stop-telemetry"></a>Zatrzymaj telemetrię
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.19
@@ -241,6 +240,6 @@ Informacje o korzystaniu z informacji telemetrycznych znajdują się w [tym](med
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

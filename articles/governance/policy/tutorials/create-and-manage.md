@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Tworzenie zasad w celu wymuszenia zgodności'
 description: W tym samouczku użyjesz zasad, aby wymusić standardy, kontrolować koszty, obsługiwać zabezpieczenia i nakładać zasady projektowania całego przedsiębiorstwa.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190830"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781131"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności
 
@@ -24,7 +24,7 @@ Przejrzyj artykuły Szybki start, aby dowiedzieć się, jak przypisać zasady w 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="assign-a-policy"></a>Przypisywanie zasad
 
@@ -78,7 +78,7 @@ Pierwszym krokiem w celu wymuszenia zgodności za pomocą usługi Azure Policy j
 
 ## <a name="implement-a-new-custom-policy"></a>Implementowanie nowych zasad niestandardowych
 
-Teraz, gdy wbudowana definicja zasad została przypisana, możesz wykonywać dalsze działania w ramach usługi Azure Policy. Utwórz nowe zasady niestandardowe w celu ograniczenia kosztów przez zapewnienie, że maszyny wirtualne tworzone w Twoim środowisku nie mogą korzystać z serii G. Dzięki temu za każdym razem, gdy użytkownik w Twojej organizacji spróbuje utworzyć maszynę wirtualną serii G, żądanie zostanie odrzucone.
+Teraz, gdy wbudowana definicja zasad została przypisana, możesz wykonywać dalsze działania w ramach usługi Azure Policy. Następnie utwórz nowe zasady niestandardowe, aby zmniejszyć koszty, sprawdzając, czy maszyny wirtualne utworzone w środowisku nie mogą znajdować się w serii G. W ten sposób, za każdym razem, gdy użytkownik w organizacji próbuje utworzyć maszynę wirtualną w serii G, żądanie zostanie odrzucone.
 
 1. W lewej części strony usługi Azure Policy wybierz opcję **Definicje** w obszarze **Tworzenie**.
 
@@ -93,8 +93,8 @@ Teraz, gdy wbudowana definicja zasad została przypisana, możesz wykonywać dal
      > [!NOTE]
      > Jeśli planujesz zastosowanie tej definicji zasad w wielu subskrypcjach, lokalizacja musi być grupą zarządzania zawierającą subskrypcje, do których zostaną przypisane zasady. To samo dotyczy definicji inicjatywy.
 
-   - Nazwa definicji zasad-_ *_wymaga, aby jednostki SKU maszyny wirtualnej były mniejsze niż Seria G_
-   - Opis wskazujący, jaki jest cel tej definicji zasad — _Ta definicja zasad wymusza jednostki SKU mniejsze niż seria G dla wszystkich maszyn wirtualnych tworzonych w tym zakresie, aby ograniczyć koszty._
+   - Nazwa definicji zasad — _wymagane jednostki SKU maszyny wirtualnej nie są w serii G_
+   - Opis definicji zasad przeznaczonych do wykonania — _Ta definicja zasad wymusza, że wszystkie maszyny wirtualne utworzone w tym zakresie mają jednostki SKU inne niż Seria G, aby zmniejszyć koszty._
    - Wybierz jedną z istniejących opcji (np. _Compute_) lub utwórz nową kategorię dla tej definicji zasad.
    - Skopiuj poniższy kod JSON, a następnie zaktualizuj go zgodnie ze swoimi potrzebami przy użyciu następujących danych:
       - Parametry zasad.
@@ -278,7 +278,7 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 
 ## <a name="create-a-policy-definition-with-azure-cli"></a>Tworzenie definicji zasad za pomocą wiersza polecenia platformy Azure
 
-Definicję zasad można utworzyć przy użyciu interfejsu wiersza `az policy definition` polecenia platformy Azure z poleceniem. Aby utworzyć definicję zasad z wbudowaną regułą, skorzystaj z następującego przykładu:
+Definicję zasad można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure z `az policy definition` poleceniem. Aby utworzyć definicję zasad z wbudowaną regułą, skorzystaj z następującego przykładu:
 
 ```azurecli-interactive
 az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
@@ -373,7 +373,7 @@ Za pomocą definicji inicjatywy możesz grupować kilka definicji zasad w celu o
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Zmień parametry definicji inicjatywy z dozwolonych wartości" border="false":::
 
    > [!NOTE]
-   > W przypadku niektórych parametrów `strongType` listy wartości nie można określić automatycznie. W takich przypadkach z prawej strony wiersza parametru jest wyświetlany symbol wielokropka. Wybranie tej opcji spowoduje otwarcie strony "zakres&lt;parametrów (&gt;Nazwa parametru)". Na tej stronie wybierz subskrypcję, która ma zostać użyta do podania opcji wartości. Ten zakres parametru jest używany wyłącznie w trakcie tworzenia definicji inicjatywy i nie ma żadnego wpływu na ocenę zasad lub zakres inicjatywy podczas przypisania.
+   > W przypadku niektórych parametrów `strongType` listy wartości nie można określić automatycznie. W takich przypadkach z prawej strony wiersza parametru jest wyświetlany symbol wielokropka. Wybranie tej opcji spowoduje otwarcie strony "zakres parametrów ( &lt; Nazwa parametru &gt; )". Na tej stronie wybierz subskrypcję, która ma zostać użyta do podania opcji wartości. Ten zakres parametru jest używany wyłącznie w trakcie tworzenia definicji inicjatywy i nie ma żadnego wpływu na ocenę zasad lub zakres inicjatywy podczas przypisania.
 
    Ustaw parametr "dozwolone lokalizacje" na wartość "Wschodnie stany USA 2" i pozostaw inne jako wartość domyślną "AuditifNotExists".
 
@@ -381,7 +381,7 @@ Za pomocą definicji inicjatywy możesz grupować kilka definicji zasad w celu o
 
 #### <a name="create-a-policy-initiative-definition-with-azure-cli"></a>Tworzenie definicji inicjatywy zasad przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Definicję inicjatywy zasad można utworzyć przy użyciu interfejsu wiersza `az policy set-definition` polecenia platformy Azure z poleceniem. Aby utworzyć definicję inicjatywy zasad z istniejącą definicją zasad, należy użyć następującego przykładu:
+Definicję inicjatywy zasad można utworzyć przy użyciu interfejsu wiersza polecenia platformy Azure z `az policy set-definition` poleceniem. Aby utworzyć definicję inicjatywy zasad z istniejącą definicją zasad, należy użyć następującego przykładu:
 
 ```azurecli-interactive
 az policy set-definition create -n readOnlyStorage --definitions '[
@@ -395,7 +395,7 @@ az policy set-definition create -n readOnlyStorage --definitions '[
 
 #### <a name="create-a-policy-initiative-definition-with-azure-powershell"></a>Tworzenie definicji inicjatywy zasad przy użyciu Azure PowerShell
 
-Definicję inicjatywy zasad można utworzyć przy użyciu Azure PowerShell z `New-AzPolicySetDefinition` poleceniem cmdlet. Aby utworzyć definicję inicjatywy zasad z istniejącą definicją zasad, użyj następującego pliku definicji inicjatywy zasad jako `VMPolicySet.json`:
+Definicję inicjatywy zasad można utworzyć przy użyciu Azure PowerShell z `New-AzPolicySetDefinition` poleceniem cmdlet. Aby utworzyć definicję inicjatywy zasad z istniejącą definicją zasad, użyj następującego pliku definicji inicjatywy zasad jako `VMPolicySet.json` :
 
 ```json
 [
@@ -496,7 +496,7 @@ W tym przykładzie Trent Baker, jeden z doświadczonych specjalistów firmy Cont
 
 W tej sekcji rozwiązano problem z odmową żądania przez utworzenie wykluczenia pojedynczej grupy zasobów.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli wykonujesz pracę z zasobami z tego samouczka, wykonaj następujące kroki, aby usunąć wszystkie utworzone powyżej przypisania zasad lub definicje:
 

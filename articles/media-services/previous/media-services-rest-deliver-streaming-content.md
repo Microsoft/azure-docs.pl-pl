@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77050003"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publikowanie Azure Media Services zawartości przy użyciu interfejsu REST 
@@ -46,7 +45,7 @@ W [poniższej](#types) sekcji przedstawiono typy wyliczeniowe, których wartośc
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsem API usługi AMS, zobacz [dostęp do interfejsu api Azure Media Services przy użyciu uwierzytelniania w usłudze Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Po pomyślnym https://media.windows.netnawiązaniu połączenia z usługą zostanie wyświetlone przekierowanie 301 określające inny identyfikator URI Media Services. Należy wykonać kolejne wywołania nowego identyfikatora URI.
+>Po pomyślnym nawiązaniu połączenia z usługą https://media.windows.net zostanie wyświetlone przekierowanie 301 określające inny identyfikator URI Media Services. Należy wykonać kolejne wywołania nowego identyfikatora URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Tworzenie lokalizatora przesyłania strumieniowego OnDemand
 Aby utworzyć lokalizator przesyłania strumieniowego OnDemand i uzyskać adresy URL, należy wykonać następujące czynności:
@@ -62,7 +61,7 @@ Aby utworzyć lokalizator przesyłania strumieniowego OnDemand i uzyskać adresy
 ### <a name="create-an-access-policy"></a>Tworzenie zasad dostępu
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego identyfikatora zasad, jeśli zawsze używasz tych samych dni/uprawnień dostępu, na przykład zasad dla lokalizatorów, które mają być nadal wykonywane przez długi czas (zasady bez przekazywania). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Użyj tego samego identyfikatora zasad, jeśli zawsze używasz tych samych dni/uprawnień dostępu, na przykład zasad dla lokalizatorów, które mają być nadal wykonywane przez długi czas (zasady bez przekazywania). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) artykuł.
 
 Żądanie:
 
@@ -190,7 +189,7 @@ przykład:
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz także

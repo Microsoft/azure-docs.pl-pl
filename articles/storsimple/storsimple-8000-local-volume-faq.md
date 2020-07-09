@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.openlocfilehash: aa69d8b07d31b5cf0386e34c113475cbf4191891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60319551"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511510"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple woluminy przypięte lokalnie: często zadawane pytania
 ## <a name="overview"></a>Omówienie
@@ -48,7 +48,7 @@ Ponieważ niektóre lokalne miejsce na urządzeniu jest używane do hostowania z
 
 | Wolumin przypięty lokalnie | Dostępna pojemność do aprowizacji woluminów warstwowych — 8100 | Dostępna pojemność do aprowizacji woluminów warstwowych — 8600 |
 | --- | --- | --- |
-| 0 |200 TB |500 TB |
+| 0 |200 TB |500 TB |
 | 1 TB |176,5 TB |477,8 TB |
 | 4 TB |105,9 TB |411,1 TB |
 | 8,5 TB |0 TB |311,1 TB |

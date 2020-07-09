@@ -1,19 +1,14 @@
 ---
 title: Przetwarzanie danych z Event Hubs platformy Azure przy użyciu Stream Analytics | Microsoft Docs
 description: W tym artykule pokazano, jak przetwarzać dane z centrum zdarzeń platformy Azure przy użyciu zadania Azure Stream Analytics.
-services: event-hubs
-author: spelluru
-manager: ''
-ms.author: spelluru
-ms.date: 07/09/2019
+ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
-ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69991945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312901"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Przetwarzanie danych z centrum zdarzeń przy użyciu Azure Stream Analytics 
 Usługa Azure Stream Analytics ułatwia pozyskiwanie, przetwarzanie i analizowanie danych przesyłanych strumieniowo z usługi Azure Event Hubs, dzięki czemu można uzyskać zaawansowane informacje o działaniach w czasie rzeczywistym. Ta Integracja umożliwia szybkie utworzenie potoku analizy na gorąco. Za pomocą Azure Portal można wizualizować dane przychodzące i pisać zapytanie Stream Analytics. Gdy zapytanie będzie gotowe, możesz je przenieść do środowiska produkcyjnego tylko na kilka kliknięć. 
@@ -49,7 +44,7 @@ Oto najważniejsze zalety platformy Azure Event Hubs i integracji Azure Stream A
     - Dane przychodzące można wyświetlać w formacie tabeli lub w formacie nieprzetworzonym. 
     - Jeśli wyświetlane dane nie są aktualne, wybierz pozycję **Odśwież** , aby wyświetlić najnowsze zdarzenia. 
 
-        Oto przykład danych w **formacie tabeli**: ![wyniki w formacie tabeli](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Oto przykład danych w **formacie tabeli**: ![ wyniki w formacie tabeli](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Oto przykład danych w **formacie nieprzetworzonym**: 
 

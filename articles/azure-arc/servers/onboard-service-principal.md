@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 45a61b5bc6f1082b84bf94db7e8ad5ce49ec068f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac6a00efa7db848e4c05703c81ba835fbf5f77e3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648057"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103793"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Łączenie maszyn hybrydowych z platformą Azure na dużą skalę
 
@@ -86,7 +86,7 @@ Poniżej przedstawiono ustawienia, które należy skonfigurować dla jednostki `
 * `location`: Zobacz [Obsługiwane regiony platformy Azure](overview.md#supported-regions). Ta lokalizacja może być taka sama lub inna, jak lokalizacja grupy zasobów.
 * `resource-name`: (*Opcjonalnie*) używany do reprezentacji zasobów platformy Azure na komputerze lokalnym. Jeśli ta wartość nie zostanie określona, zostanie użyta nazwa hosta maszyny.
 
-Więcej informacji na temat `azcmagent` narzędzia wiersza polecenia można uzyskać, przeglądając [odwołanie Azcmagent](azcmagent-reference.md).
+Więcej informacji na temat `azcmagent` narzędzia wiersza polecenia można uzyskać, przeglądając [odwołanie Azcmagent](./manage-agent.md).
 
 ### <a name="windows-installation-script"></a>Skrypt instalacji systemu Windows
 

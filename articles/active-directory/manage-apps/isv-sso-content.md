@@ -2,22 +2,21 @@
 title: Włączanie logowania jednokrotnego dla aplikacji wielodostępnej
 description: Wskazówki dla niezależnych dostawców oprogramowania na potrzeby integracji z usługą Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c89a83ade6305579e700afb86f0b9e3aca2695e
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 26fa2b82b89c7b9ce1e05062718f2c4d0c93197c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67795178"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763282"
 ---
 # <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Włącz logowanie jednokrotne dla aplikacji wielodostępnych  
 

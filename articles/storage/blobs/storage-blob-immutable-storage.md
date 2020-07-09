@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129251"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85561042"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem
 
@@ -22,11 +22,11 @@ Niezmienny magazyn usługi Azure Blob Storage umożliwia użytkownikom przechowy
 
 Aby uzyskać informacje na temat sposobu ustawiania i czyszczenia lub tworzenia zasad przechowywania opartych na czasie za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure, zobacz [Set and Manage niezmienności Policy for BLOB Storage](storage-blob-immutability-policies-manage.md).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Informacje o niezmiennym magazynie obiektów BLOB
 
-Niezmienny magazyn ułatwia organizacjom&mdash;&mdash;opieki zdrowotnej, instytucjom finansowym i powiązanym branżom, a w szczególności organizację dealerów brokera do bezpiecznego przechowywania danych. W każdym scenariuszu można również użyć niezmiennego magazynu, aby chronić krytyczne dane przed modyfikacją lub usunięciem.
+Niezmienny magazyn ułatwia organizacjom opieki zdrowotnej, instytucjom finansowym i powiązanym branżom, a &mdash; w szczególności organizację dealerów brokera &mdash; do bezpiecznego przechowywania danych. W każdym scenariuszu można również użyć niezmiennego magazynu, aby chronić krytyczne dane przed modyfikacją lub usunięciem.
 
 Typowe zastosowania tej funkcji to:
 
@@ -84,9 +84,9 @@ Ponieważ to ustawienie jest częścią zasad przechowywania opartych na czasie,
 
 Załóżmy na przykład, że użytkownik tworzy zasady przechowywania oparte na czasie z `allowProtectedAppendWrites` włączonym i interwałem przechowywania wynoszącym 90 dni. W kontenerze zostanie utworzony obiekt BLOB append, _logblob1_, nowe dzienniki są nadal dodawane do dołączanego obiektu BLOB przez następne 10 dni; w związku z tym obowiązuje okres przechowywania _logblob1_ przez 100 dni od dzisiaj (godzina ostatniego dołączenia + 90 dni).
 
-Zablokowane zasady przechowywania oparte na czasie umożliwiają włączenie `allowProtectedAppendWrites` i wyłączenie ustawienia w dowolnym momencie. Po zablokowaniu zasad przechowywania na podstawie czasu nie można `allowProtectedAppendWrites` zmienić tego ustawienia.
+Zablokowane zasady przechowywania oparte na czasie umożliwiają `allowProtectedAppendWrites` włączenie i wyłączenie ustawienia w dowolnym momencie. Po zablokowaniu zasad przechowywania na podstawie czasu `allowProtectedAppendWrites` nie można zmienić tego ustawienia.
 
-Zasady wstrzymania prawnego nie `allowProtectedAppendWrites` mogą być włączone, a żadne blokady prawne będą zniesienia Właściwość "allowProtectedAppendWrites". Jeśli dla zasad przechowywania opartych na czasie z `allowProtectedAppendWrites` włączonym dodatkiem zostanie zastosowana Blokada prawna, interfejs API *AppendBlock* zakończy się niepowodzeniem do momentu zniesienia prawnego wstrzymania.
+Zasady wstrzymania prawnego nie mogą być włączone `allowProtectedAppendWrites` , a żadne blokady prawne będą zniesienia Właściwość "allowProtectedAppendWrites". Jeśli dla zasad przechowywania opartych na czasie z włączonym dodatkiem zostanie zastosowana Blokada prawna `allowProtectedAppendWrites` , interfejs API *AppendBlock* zakończy się niepowodzeniem do momentu zniesienia prawnego wstrzymania.
 
 ## <a name="legal-holds"></a>Archiwizacja ze względów prawnych
 
@@ -118,7 +118,7 @@ W poniższej tabeli przedstawiono typy operacji magazynu obiektów blob, które 
 
 Za korzystanie z tej funkcji nie są naliczane dodatkowe opłaty. Zmienne dane są wyceniane w taki sam sposób jak dane modyfikowalne. Aby uzyskać szczegółowe informacje o cenach usługi Azure Blob Storage, zobacz [stronę z cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Czy można udostępnić dokumentację zgodności z ROBAKiem?**
 

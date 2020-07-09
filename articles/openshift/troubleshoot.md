@@ -7,10 +7,9 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
 ms.openlocfilehash: ee032cdf4a3f72b2cd2e7da0658effe75b6fb1fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76274930"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Rozwiązywanie problemów z usługą Azure Red Hat OpenShift
@@ -19,18 +18,18 @@ W tym artykule opisano niektóre typowe problemy występujące podczas tworzenia
 
 ## <a name="retrying-the-creation-of-a-failed-cluster"></a>Ponawianie próby utworzenia klastra, który uległ awarii
 
-W przypadku tworzenia klastra usługi Azure Red Hat OpenShift przy `az` użyciu polecenia CLI nie powiedzie się, ponawianie próby tworzenia będzie kończyć się niepowodzeniem.
+W przypadku tworzenia klastra usługi Azure Red Hat OpenShift przy użyciu `az` polecenia CLI nie powiedzie się, ponawianie próby tworzenia będzie kończyć się niepowodzeniem.
 Użyj `az openshift delete` , aby usunąć uszkodzony klaster, a następnie utwórz zupełnie nowy klaster.
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Ukryta Grupa zasobów klastra usługi Azure Red Hat OpenShift
 
-Obecnie `Microsoft.ContainerService/openShiftManagedClusters` zasób, który jest automatycznie tworzony za pomocą interfejsu wiersza polecenia platformy`az openshift create` Azure (polecenie), jest ukryty w Azure Portal. W widoku **grupy zasobów** zaznacz opcję **Pokaż ukryte typy** , aby wyświetlić grupę zasobów.
+Obecnie zasób, `Microsoft.ContainerService/openShiftManagedClusters` który jest automatycznie tworzony za pomocą interfejsu wiersza polecenia platformy Azure ( `az openshift create` polecenie), jest ukryty w Azure Portal. W widoku **grupy zasobów** zaznacz opcję **Pokaż ukryte typy** , aby wyświetlić grupę zasobów.
 
 ![Zrzut ekranu przedstawiający pole wyboru typu ukrytego w portalu](./media/aro-portal-hidden-type.png)
 
 ## <a name="creating-a-cluster-results-in-error-that-no-registered-resource-provider-found"></a>Tworzenie klastra powoduje błąd, który nie znalazł zarejestrowanego dostawcy zasobów
 
-W przypadku tworzenia klastra Wystąpił błąd, który `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview`jest częścią wersji zapoznawczej i teraz trzeba [zakupić zarezerwowane wystąpienia maszyn wirtualnych platformy Azure](https://aka.ms/openshift/buy) , aby użyć ogólnie dostępnego produktu. Rezerwacja zmniejsza wydatki dzięki przedpłaceniu za w pełni zarządzane usługi platformy Azure. Zapoznaj się z tematami [*Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) , aby dowiedzieć się więcej o rezerwacjach i sposobach ich oszczędności.
+W przypadku tworzenia klastra Wystąpił błąd, który jest `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview` częścią wersji zapoznawczej i teraz trzeba [zakupić zarezerwowane wystąpienia maszyn wirtualnych platformy Azure](https://aka.ms/openshift/buy) , aby użyć ogólnie dostępnego produktu. Rezerwacja zmniejsza wydatki dzięki przedpłaceniu za w pełni zarządzane usługi platformy Azure. Zapoznaj się z tematami [*Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) , aby dowiedzieć się więcej o rezerwacjach i sposobach ich oszczędności.
 
 ## <a name="next-steps"></a>Następne kroki
 

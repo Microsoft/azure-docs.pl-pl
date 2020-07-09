@@ -11,18 +11,17 @@ Customer intent: I want only resources in a virtual network subnet to access an 
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d08dd2705c69f3fa8f8e0830e487833f7cf96f8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74186402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84689337"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Ograniczanie dostępu sieciowego do zasobów PaaS za pomocą punktów końcowych usługi sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -35,7 +34,7 @@ Punkty końcowe usługi dla sieci wirtualnej umożliwiają ograniczenie dostępu
 * Potwierdzanie dostępu do zasobu z podsieci
 * Potwierdzanie zablokowania dostępu do zasobu z podsieci i z Internetu
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -120,7 +119,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"` Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
+Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"`Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -160,7 +159,7 @@ Kroki niezbędne do ograniczenia dostępu sieciowego do zasobów utworzonych za 
 
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz konto usługi Azure Storage za pomocą [AZ Storage account Create](/cli/azure/storage/account). Zamień `<replace-with-your-unique-storage-account-name>` na nazwę, która jest unikatowa we wszystkich lokalizacjach platformy Azure, od 3-24 znaków, używając tylko cyfr i małych liter.
+Utwórz konto usługi Azure Storage za pomocą [AZ Storage account Create](/cli/azure/storage/account). Zamień na `<replace-with-your-unique-storage-account-name>` nazwę, która jest unikatowa we wszystkich lokalizacjach platformy Azure, od 3-24 znaków, używając tylko cyfr i małych liter.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -272,7 +271,7 @@ W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu należy
 
 ## <a name="confirm-access-to-storage-account"></a>Potwierdzanie dostępu do konta magazynu
 
-Użyj protokołu SSH do maszyny wirtualnej *myVmPrivate* . Zastąp * \<publicIpAddress>* publicznym adresem IP maszyny wirtualnej *myVmPrivate* .
+Użyj protokołu SSH do maszyny wirtualnej *myVmPrivate* . Zastąp *\<publicIpAddress>* wartość publicznym adresem IP maszyny wirtualnej *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -284,7 +283,7 @@ Utwórz folder dla punktu instalacji:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Zainstaluj udział plików platformy Azure w utworzonym katalogu. Przed uruchomieniem następującego polecenia Zastąp `<storage-account-name>` ciąg nazwą konta i `<storage-account-key>` kluczem pobranym w obszarze [Tworzenie konta magazynu](#create-a-storage-account).
+Zainstaluj udział plików platformy Azure w utworzonym katalogu. Przed uruchomieniem następującego polecenia Zastąp ciąg `<storage-account-name>` nazwą konta i `<storage-account-key>` kluczem pobranym w obszarze [Tworzenie konta magazynu](#create-a-storage-account).
 
 ```bash
 sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -316,7 +315,7 @@ Utwórz katalog dla punktu instalacji:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Spróbuj zainstalować udział plików platformy Azure w utworzonym katalogu. W tym artykule przyjęto założenie, że wdrożono najnowszą wersję programu Ubuntu. Jeśli używasz wcześniejszych wersji programu Ubuntu, zobacz [Instalowanie w systemie Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby uzyskać dodatkowe instrukcje dotyczące instalowania udziałów plików. Przed uruchomieniem następującego polecenia Zastąp `<storage-account-name>` ciąg nazwą konta i `<storage-account-key>` kluczem pobranym podczas [tworzenia konta magazynu](#create-a-storage-account):
+Spróbuj zainstalować udział plików platformy Azure w utworzonym katalogu. W tym artykule przyjęto założenie, że wdrożono najnowszą wersję programu Ubuntu. Jeśli używasz wcześniejszych wersji programu Ubuntu, zobacz [Instalowanie w systemie Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby uzyskać dodatkowe instrukcje dotyczące instalowania udziałów plików. Przed uruchomieniem następującego polecenia Zastąp ciąg `<storage-account-name>` nazwą konta i `<storage-account-key>` kluczem pobranym podczas [tworzenia konta magazynu](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -326,7 +325,7 @@ Odmowa dostępu i pojawienie się `mount error(13): Permission denied` błędu, 
 
 Wyjdź z sesji SSH na maszynę wirtualną *myVmPublic* .
 
-Na komputerze spróbuj wyświetlić udziały na koncie magazynu za pomocą polecenie [AZ Storage Share list](/cli/azure/storage/share?view=azure-cli-latest). `<account-name>` Zastąp `<account-key>` i nazwą i kluczem konta magazynu w obszarze [Utwórz konto magazynu](#create-a-storage-account):
+Na komputerze spróbuj wyświetlić udziały na koncie magazynu za pomocą polecenie [AZ Storage Share list](/cli/azure/storage/share?view=azure-cli-latest). Zastąp `<account-name>` i `<account-key>` nazwą i kluczem konta magazynu w obszarze [Utwórz konto magazynu](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \
@@ -336,7 +335,7 @@ az storage share list \
 
 Odmowa dostępu i odebranie *tego żądania nie ma autoryzacji do wykonania tej operacji* , ponieważ komputer nie znajduje się w podsieci *prywatnej* sieci wirtualnej *MyVirtualNetwork* .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 

@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać ustawień diagnostycznych platformy Azur
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: b1a507c54c6a6555fc945dd35ee6e54d37d49bfd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857570"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85549980"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorowanie danych Azure Cosmos DB przy użyciu ustawień diagnostycznych na platformie Azure
 
@@ -20,7 +20,7 @@ Ustawienia diagnostyczne na platformie Azure służą do zbierania dzienników z
 
 Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku z tym należy utworzyć ustawienie diagnostyczne w celu zbierania dzienników zasobów lub przesyłania ich dalej poza Azure Monitor. Ustawienie diagnostyczne dla kont usługi Azure Cosmos można włączyć, wykonując następujące czynności:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Przejdź do swojego konta usługi Azure Cosmos. Otwórz okienko **Ustawienia diagnostyczne** , a następnie wybierz opcję **Dodaj ustawienie diagnostyczne** .
 
@@ -32,19 +32,19 @@ Metryki platformy i dzienniki aktywności są zbierane automatycznie. w związku
 
 1. Podczas tworzenia ustawień diagnostycznych należy określić, którą kategorię dzienników należy zebrać. Kategorie dzienników obsługiwane przez Azure Cosmos DB są wymienione poniżej wraz z przykładowym dziennikiem zebranym przez nich:
 
- * **DataPlaneRequests**: Wybierz tę opcję, aby rejestrować żądania wewnętrznej bazy danych do wszystkich interfejsów API, takich jak SQL, Graph, MongoDB, Cassandra i interfejs API tabel, w Azure Cosmos DB. Właściwości klucza do uwagi `Requestcharge`:, `statusCode`, `clientIPaddress`, i. `partitionID`
+ * **DataPlaneRequests**: Wybierz tę opcję, aby rejestrować żądania wewnętrznej bazy danych do wszystkich interfejsów API, takich jak SQL, Graph, MongoDB, Cassandra i interfejs API tabel, w Azure Cosmos DB. Właściwości klucza do uwagi: `Requestcharge` , `statusCode` , `clientIPaddress` , i `partitionID` .
 
     ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla MongoDB. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza do uwagi: `Requestcharge`,. `opCode` Po włączeniu MongoRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
+* **MongoRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla MongoDB. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza do uwagi: `Requestcharge` , `opCode` . Po włączeniu MongoRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla Cassandra. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza, które należy zwrócić `operationName`uwagę `requestCharge`, `piiCommandText`są,,. Po włączeniu CassandraRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
+* **CassandraRequests**: Wybierz tę opcję, aby rejestrować żądania inicjowane przez użytkownika z frontonu, aby obsłużyć żądania do interfejsu API Azure Cosmos DB dla Cassandra. Ten typ dziennika nie jest dostępny dla innych kont interfejsu API. Właściwości klucza, które należy zwrócić uwagę `operationName` , są, `requestCharge` , `piiCommandText` . Po włączeniu CassandraRequests w dziennikach diagnostycznych należy wyłączyć DataPlaneRequests. Zostanie wyświetlony jeden dziennik dla każdego żądania wykonanego w interfejsie API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
@@ -145,6 +145,21 @@ Aby uzyskać szczegółowe informacje na temat sposobu tworzenia ustawień diagn
    | order by requestCharge_s desc
    | limit 100
    ```
+
+1. Jak uzyskać opłaty za żądania i czas trwania zapytania?
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
 
 1. Jak uzyskać dystrybucję dla różnych operacji?
 

@@ -4,16 +4,16 @@ description: Ten przewodnik Szybki Start zawiera przykłady kodu w języku Pytho
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76769058"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560933"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -30,15 +30,15 @@ W tym przewodniku szybki start pracujesz z Azure Database for PostgreSQL przy u�
 - Najnowsza wersja Instalatora pakietu [PIP](https://pip.pypa.io/en/stable/installing/) .
 
 ## <a name="install-the-python-libraries-for-postgresql"></a>Instalowanie bibliotek języka Python dla PostgreSQL
-Moduł [psycopg2](https://pypi.python.org/pypi/psycopg2/) umożliwia łączenie się z bazą danych PostgreSQL i wykonywanie na nich zapytań oraz jest dostępny [jako pakiet dla](https://pythonwheels.com/) systemu Linux, macOS lub Windows. Zainstaluj wersję binarną modułu, w tym wszystkie zależności. Aby uzyskać więcej informacji `psycopg2` na temat instalacji i wymagań, zobacz [Instalacja](http://initd.org/psycopg/docs/install.html). 
+Moduł [psycopg2](https://pypi.python.org/pypi/psycopg2/) umożliwia łączenie się z bazą danych PostgreSQL i wykonywanie na nich zapytań oraz jest dostępny [jako pakiet dla](https://pythonwheels.com/) systemu Linux, macOS lub Windows. Zainstaluj wersję binarną modułu, w tym wszystkie zależności. Aby uzyskać więcej informacji na temat `psycopg2` instalacji i wymagań, zobacz [Instalacja](http://initd.org/psycopg/docs/install.html). 
 
-Aby zainstalować `psycopg2`program, Otwórz terminal lub wiersz polecenia i uruchom polecenie `pip install psycopg2`.
+Aby zainstalować `psycopg2` program, Otwórz terminal lub wiersz polecenia i uruchom polecenie `pip install psycopg2` .
 
 ## <a name="get-database-connection-information"></a>Pobierz informacje o połączeniu z bazą danych
 Połączenie z bazą danych Azure Database for PostgreSQL wymaga w pełni kwalifikowanej nazwy serwera i poświadczeń logowania. Te informacje można uzyskać z Azure Portal.
 
 1. W [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz nazwę serwera Azure Database for PostgreSQL. 
-1. Na stronie **Przegląd** serwera Skopiuj w pełni kwalifikowaną **nazwę serwera** i nazwa **użytkownika administratora**. W pełni kwalifikowana **Nazwa serwera** ma zawsze postać * \<My-Server-Name>. Postgres.Database.Azure.com*, a nazwa **użytkownika administratora** ma zawsze postać * \<my-admin-username> @\<My-Server-Name>*. 
+1. Na stronie **Przegląd** serwera Skopiuj w pełni kwalifikowaną **nazwę serwera** i nazwa **użytkownika administratora**. W pełni kwalifikowana **Nazwa serwera** ma zawsze postać * \<my-server-name> . Postgres.Database.Azure.com*, a nazwa **użytkownika administratora** jest zawsze w postaci *\<my-admin-username>@\<my-server-name>* . 
    
    Potrzebujesz także hasła administratora. Jeśli zapomnisz, możesz zresetować ją na tej stronie. 
    
@@ -57,7 +57,7 @@ Dla każdego przykładu kodu w tym artykule:
    
 1. Zapisz plik w folderze projektu z rozszerzeniem *. PR* , takim jak *Postgres-INSERT.py*. W przypadku systemu Windows upewnij się, że podczas zapisywania pliku wybrano kodowanie UTF-8. 
    
-1. Aby uruchomić plik, przejdź do folderu projektu w interfejsie wiersza polecenia, a następnie wpisz `python` nazwę pliku, na przykład. `python postgres-insert.py`
+1. Aby uruchomić plik, przejdź do folderu projektu w interfejsie wiersza polecenia, a `python` następnie wpisz nazwę pliku, na przykład `python postgres-insert.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Tworzenie tabeli i wstawianie danych
 Poniższy przykład kodu nawiązuje połączenie z bazą danych Azure Database for PostgreSQL przy użyciu funkcji [psycopg2. Connect](http://initd.org/psycopg/docs/connection.html) i ładuje dane za pomocą instrukcji **INSERT** języka SQL. Funkcja [Cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) wykonuje zapytanie SQL względem bazy danych. 

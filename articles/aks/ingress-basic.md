@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować podstawowy kontrol
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: e5b3d1c94de8406c12222eea59beafd7277d646d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 049df92fcbc6126516fef5cf463b1485b1d19b0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945549"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w usłudze Azure Kubernetes Service (AKS)
 
@@ -80,7 +80,7 @@ Utwórz plik *AKS-HelloWorld-one. YAML* i skopiuj go w poniższym przykładzie Y
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   replicas: 1
   selector:
@@ -103,7 +103,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-one
+  name: aks-helloworld-one  
 spec:
   type: ClusterIP
   ports:
@@ -118,7 +118,7 @@ Utwórz plik *AKS-HelloWorld-dwa. YAML* i skopiuj go w poniższym przykładzie Y
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   replicas: 1
   selector:
@@ -141,7 +141,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld-two
+  name: aks-helloworld-two  
 spec:
   type: ClusterIP
   ports:
@@ -150,7 +150,7 @@ spec:
     app: aks-helloworld-two
 ```
 
-Uruchom dwie aplikacje demonstracyjne przy `kubectl apply`użyciu:
+Uruchom dwie aplikacje demonstracyjne przy użyciu `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
@@ -161,7 +161,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Obie aplikacje działają teraz w klastrze Kubernetes. Aby skierować ruch do poszczególnych aplikacji, utwórz zasób Kubernetes. Zasób danych przychodzących konfiguruje reguły, które kierują ruch do jednej z dwóch aplikacji.
 
-W poniższym przykładzie ruch do *EXTERNAL_IP* jest kierowany do usługi o nazwie `aks-helloworld-one`. Ruch do *EXTERNAL_IP/Hello-World-Two* jest kierowany do `aks-helloworld-two` usługi. Ruch do *EXTERNAL_IP/static* jest kierowany do usługi o nazwie `aks-helloworld-one` dla zasobów statycznych.
+W poniższym przykładzie ruch do *EXTERNAL_IP* jest kierowany do usługi o nazwie `aks-helloworld-one` . Ruch do *EXTERNAL_IP/Hello-World-Two* jest kierowany do `aks-helloworld-two` usługi. Ruch do *EXTERNAL_IP/static* jest kierowany do usługi o nazwie `aks-helloworld-one` dla zasobów statycznych.
 
 Utwórz plik o nazwie `hello-world-ingress.yaml` i skopiuj w poniższym przykładzie YAML.
 
@@ -169,8 +169,7 @@ Utwórz plik o nazwie `hello-world-ingress.yaml` i skopiuj w poniższym przykła
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
-  namespace: ingress-basic
+  name: hello-world-ingress  
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -226,7 +225,7 @@ Teraz dodaj ścieżkę */Hello-World-Two* do adresu IP, na przykład *EXTERNAL_I
 
 ![Druga aplikacja uruchomiona za kontrolerem transferu danych przychodzących](media/ingress-basic/app-two.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących i przykładowych aplikacji. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Te zasoby obejmują między innymi te, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 

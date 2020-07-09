@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 42b26911c12b1e7c62444a6fb2ee68720b02a56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654606"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734286"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Informacje o Stanach kondycji i rozwiązywaniu zawieszonych domen w Azure Active Directory Domain Services
 
@@ -26,11 +26,11 @@ W tym artykule wyjaśniono, dlaczego domeny zarządzane są zawieszone i jak odz
 
 ## <a name="overview-of-managed-domain-states"></a>Przegląd Stanów domeny zarządzanej
 
-W ramach cyklu życia domeny zarządzanej AD DS platformy Azure istnieją różne stany, które wskazują jego kondycję. Jeśli zarządzana domena zgłasza problem, szybko rozwiązać podstawową przyczynę, aby zatrzymać stan z ciągłego obniżenia poziomu.
+W cyklu życia domeny zarządzanej istnieją różne stany, które wskazują jego kondycję. Jeśli zarządzana domena zgłasza problem, szybko rozwiązać podstawową przyczynę, aby zatrzymać stan z ciągłego obniżenia poziomu.
 
-![Postęp w zakresie Stanów, które usługa Azure AD DS zarządza domeną do zawieszenia](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+![Postęp w stanie, w którym domena zarządza ma na celu zawieszenie](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-Domena zarządzana AD DS platformy Azure może działać w jednym z następujących stanów:
+Domena zarządzana może być w jednym z następujących stanów:
 
 * [Uruchomiono](#running-state)
 * [Wymaga uwagi](#needs-attention-state)
@@ -39,7 +39,7 @@ Domena zarządzana AD DS platformy Azure może działać w jednym z następując
 
 ## <a name="running-state"></a>Stan działania
 
-Domena zarządzana AD DS platformy Azure, która została prawidłowo skonfigurowana i uruchomiona bez problemów, jest w stanie *uruchomienia* . Jest to żądany stan dla domeny zarządzanej.
+Domena zarządzana, która została prawidłowo skonfigurowana i uruchomiona bez problemów, jest w stanie *uruchomienia* . Jest to żądany stan dla domeny zarządzanej.
 
 ### <a name="what-to-expect"></a>Czego oczekiwać
 
@@ -50,15 +50,15 @@ Domena zarządzana AD DS platformy Azure, która została prawidłowo skonfiguro
 
 ## <a name="needs-attention-state"></a>Wymaga stanu uwagi
 
-Domena zarządzana AD DS platformy Azure z co najmniej jednym zagadnieniem, które należy naprawić, jest w stanie *wymaga uwagi* . Na stronie kondycji dla domeny zarządzanej znajduje się lista alertów i wskazuje, gdzie występuje problem. Niektóre alerty są przejściowe i automatycznie rozwiązywane przez platformę Azure. W przypadku innych alertów można rozwiązać ten problem, wykonując podane kroki rozwiązania. Występuje alert krytyczny, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
+Domena zarządzana z co najmniej jednym zagadnieniem, które należy naprawić, jest w stanie *wymaga uwagi* . Na stronie kondycji dla domeny zarządzanej znajduje się lista alertów i wskazuje, gdzie występuje problem. Niektóre alerty są przejściowe i automatycznie rozwiązywane przez platformę Azure. W przypadku innych alertów można rozwiązać ten problem, wykonując podane kroki rozwiązania. Występuje alert krytyczny, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
 Przykładem alertu jest nierestrykcyjna sieciowa Grupa zabezpieczeń. W tej konfiguracji platforma platformy Azure może nie być w stanie zaktualizować i monitorować domeny zarządzanej. Generowany jest alert, a stan zmieni się na *wymaga uwagi*.
 
-Aby uzyskać więcej informacji, zobacz [Jak rozwiązywać problemy z alertami dotyczącymi domeny zarządzanej AD DS platformy Azure][resolve-alerts].
+Aby uzyskać więcej informacji, zobacz [Jak rozwiązywać problemy z alertami dla domeny zarządzanej][resolve-alerts].
 
 ### <a name="what-to-expect"></a>Czego oczekiwać
 
-Gdy domena zarządzana AD DS platformy Azure jest w stanie *wymaga uwagi* , platforma Azure może nie być w stanie regularnie monitorować, poprawiać, aktualizować ani tworzyć kopii zapasowych danych. W niektórych przypadkach, podobnie jak w przypadku nieprawidłowej konfiguracji sieci, kontrolery domeny dla domeny zarządzanej mogą być nieosiągalne.
+Gdy domena zarządzana jest w stanie *wymaga uwagi* , platforma Azure może nie być w stanie regularnie monitorować, poprawiać, aktualizować ani tworzyć kopii zapasowych danych. W niektórych przypadkach, podobnie jak w przypadku nieprawidłowej konfiguracji sieci, kontrolery domeny dla domeny zarządzanej mogą być nieosiągalne.
 
 * Domena zarządzana jest w złej kondycji, a ciągłe monitorowanie kondycji może zostać zatrzymane do momentu rozwiązania alertu.
 * Nie można uaktualnić ani zaktualizować kontrolerów domeny dla domeny zarządzanej.
@@ -69,7 +69,7 @@ Gdy domena zarządzana AD DS platformy Azure jest w stanie *wymaga uwagi* , plat
 
 ## <a name="suspended-state"></a>Stan wstrzymania
 
-Domena zarządzana AD DS platformy Azure przechodzi do stanu **wstrzymania** z jednego z następujących powodów:
+Domena zarządzana przechodzi do stanu **wstrzymania** z jednego z następujących powodów:
 
 * Nie rozwiązano co najmniej jednego alertu krytycznego w ciągu 15 dni.
     * Alerty krytyczne mogą być spowodowane przez nieprawidłową konfigurację, która blokuje dostęp do zasobów, które są wymagane przez usługę Azure AD DS. Na przykład alert [AADDS104: błąd sieci][alert-nsg] został rozwiązany przez ponad 15 dni w domenie zarządzanej.
@@ -79,7 +79,7 @@ Domeny zarządzane są zawieszane, gdy platforma Azure nie może zarządzać, mo
 
 ### <a name="what-to-expect"></a>Czego oczekiwać
 
-Następujące zachowanie ma miejsce, gdy domena zarządzana platformy Azure AD DS jest w stanie *wstrzymania* :
+W przypadku, gdy domena zarządzana jest w stanie *wstrzymania* , wystąpią następujące działania:
 
 * Kontrolery domeny dla domeny zarządzanej są nieobsługiwane i nie są dostępne w sieci wirtualnej.
 * Secure LDAP dostęp do domeny zarządzanej za pośrednictwem Internetu, jeśli ta funkcja jest włączona, przestanie działać.
@@ -93,10 +93,10 @@ Na Azure Portal stronie usługi Azure AD DS Health zostanie wyświetlony [alert]
 
 ### <a name="restore-a-suspended-domain"></a>Przywracanie zawieszonej domeny
 
-Aby przywrócić kondycję domeny zarządzanej AD DS platformy Azure, która jest w stanie *wstrzymania* , wykonaj następujące czynności:
+Aby przywrócić kondycję domeny zarządzanej, która jest w stanie *wstrzymania* , wykonaj następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **usługi domenowe**.
-1. Wybierz z listy domenę zarządzaną platformy Azure AD DS, na przykład *aaddscontoso.com*, a następnie wybierz pozycję **kondycja**.
+1. Wybierz domenę zarządzaną z listy, na przykład *aaddscontoso.com*, a następnie wybierz pozycję **kondycja**.
 1. Wybierz Alert, taki jak *AADDS503* lub *AADDS504*, w zależności od przyczyny zawieszenia.
 1. Wybierz łącze rozwiązania, które jest dostępne w alercie, a następnie postępuj zgodnie z instrukcjami, aby rozwiązać ten problem.
 
@@ -106,11 +106,11 @@ Po rozwiązaniu alertów, gdy domena zarządzana jest w stanie *wstrzymania* , [
 
 ## <a name="deleted-state"></a>Stan usunięcia
 
-Jeśli domena zarządzana AD DS platformy Azure pozostaje w stanie *wstrzymania* przez 15 dni, zostanie usunięta. Ten proces nie jest możliwy do odzyskania.
+Jeśli zarządzana domena pozostaje w stanie *wstrzymania* przez 15 dni, zostanie usunięta. Ten proces nie jest możliwy do odzyskania.
 
 ### <a name="what-to-expect"></a>Czego oczekiwać
 
-Gdy domena zarządzana AD DS platformy Azure zostanie *usunięta* , zostanie wyświetlona następująca wartość:
+Gdy domena zarządzana przejdzie do stanu *usunięte* , zostanie wyświetlona następująca wartość:
 
 * Wszystkie zasoby i kopie zapasowe dla domeny zarządzanej są usuwane.
 * Nie można przywrócić domeny zarządzanej i należy utworzyć zastępczą domenę zarządzaną, aby ponownie użyć usługi Azure AD DS.
@@ -118,7 +118,7 @@ Gdy domena zarządzana AD DS platformy Azure zostanie *usunięta* , zostanie wy�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapewnić zachowanie domeny zarządzanej przez platformę Azure AD DS w dobrej kondycji i zminimalizować ryzyko jej wstrzymania, Dowiedz się, jak [rozwiązywać alerty dla domeny zarządzanej][resolve-alerts].
+Aby zachować kondycję domeny zarządzanej i zminimalizować ryzyko jej wstrzymania, Dowiedz się, jak [rozwiązywać alerty dla domeny zarządzanej][resolve-alerts].
 
 <!-- INTERNAL LINKS -->
 [alert-nsg]: alert-nsg.md

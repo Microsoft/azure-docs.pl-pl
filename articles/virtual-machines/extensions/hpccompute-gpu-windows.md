@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a30a6b3daaf1f334c7e61f93aaab6fc717e18063
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676543"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Rozszerzenie sterownika GPU NVIDIA dla systemu Windows
 
@@ -37,9 +36,9 @@ To rozszerzenie obsługuje następujące elementy OSs:
 
 | Dystrybucja | Wersja |
 |---|---|
-| Windows 10 | Podstawowe |
-| Windows Server 2016 | Podstawowe |
-| Windows Server 2012 R2 | Podstawowe |
+| Windows 10 | Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012 z dodatkiem R2 | Core |
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
@@ -61,7 +60,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -75,8 +74,8 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. HpcCompute | ciąg |
-| type | NvidiaGpuDriverWindows | ciąg |
-| typeHandlerVersion | 1.2 | int |
+| typ | NvidiaGpuDriverWindows | ciąg |
+| typeHandlerVersion | 1.3 | int |
 
 
 ## <a name="deployment"></a>Wdrożenie
@@ -101,7 +100,7 @@ W poniższym przykładzie przyjęto założenie, że rozszerzenie jest zagnieżd
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -119,7 +118,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
     }'
 ```
@@ -127,13 +126,13 @@ Set-AzVMExtension
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverWindows `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
+  --settings '{ \
   }'
 ```
 

@@ -10,12 +10,11 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: 870182af6a00e4d2e2a762ce92b569fb9eeb7f0a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: d31fd8cca9df2ea21bf19beed26810568fc6481e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046915"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345312"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Użycie OLTP w pamięci w celu poprawy wydajności aplikacji w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -23,7 +22,7 @@ ms.locfileid: "84046915"
 [OLTP w pamięci](in-memory-oltp-overview.md) może służyć do ulepszania wydajności przetwarzania transakcji, pozyskiwania danych i przejściowych scenariuszy danych w [warstwach Premium i krytyczne dla działania firmy](database/service-tiers-vcore.md) baz danych bez zwiększania warstwy cenowej.
 
 > [!NOTE]
-> Dowiedz się [, jak kworum podwaja obciążenie bazy danych przy jednoczesnym obniżeniu liczby jednostek DTU o 70% z SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Dowiedz się [, jak kworum podwaja obciążenie bazy danych przy jednoczesnym obniżeniu liczby jednostek DTU o 70% z Azure SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 Wykonaj następujące kroki, aby wdrożyć OLTP w pamięci w istniejącej bazie danych.
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106580"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783218"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
@@ -37,14 +36,8 @@ Azure Security Center monitoruje następujące zasoby platformy Azure:
 
 * Maszyny wirtualne (z uwzględnieniem [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Zestawy skalowania maszyn wirtualnych
-* Sieci wirtualne platformy Azure
-* Containers
-* Usługa Azure SQL
-* Konto usługi Azure Storage
-* Web Apps platformy Azure (w [App Service Environment](../app-service/environment/intro.md))
 * Rozwiązania partnerskie zintegrowane z subskrypcją platformy Azure, taką jak Zapora aplikacji sieci Web na maszynach wirtualnych i na App Service Environment
-
-Ponadto komputery spoza platformy Azure (w tym lokalne) mogą być również monitorowane przez Azure Security Center. Obsługiwane są zarówno [maszyny z systemem Windows](./quick-onboard-windows-computer.md) , jak i komputery z systemem [Linux](./quick-onboard-linux-computer.md) .
+* [Wiele usług PaaS platformy Azure wymienionych w przeglądzie produktu](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Jak można zobaczyć bieżący stan zabezpieczeń moich zasobów platformy Azure?
@@ -59,7 +52,7 @@ Zasady zabezpieczeń włączone w Azure Security Center na dysku zalecenia dotyc
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Kto może zmodyfikować zasady zabezpieczeń?
-Aby zmodyfikować zasady zabezpieczeń, musisz być administratorem zabezpieczeń lub właścicielem subskrypcji lub współautorem.
+Aby zmodyfikować zasady zabezpieczeń, musisz być **administratorem zabezpieczeń** lub **właścicielem** tej subskrypcji.
 
 Aby dowiedzieć się, jak skonfigurować zasady zabezpieczeń, zobacz [Ustawianie zasad zabezpieczeń w Azure Security Center](tutorial-security-policy.md).
 
@@ -87,7 +80,7 @@ Azure Security Center automatycznie gromadzi, analizuje i odrzuca dane dziennik�
 
 
 ## <a name="why-did-secure-score-values-change"></a>Dlaczego zostały zmienione wartości oceny? <a name="secure-score-faq"></a>
-Od lutego 2019 Security Center skorygowany wynik kilku zaleceń w celu lepszego dopasowania ich ważności. W wyniku tej korekty mogą wystąpić zmiany ogólnych, bezpiecznych wartości oceny.  Aby uzyskać więcej informacji na temat zabezpieczeń oceny, zobacz [Secure Score calculation](security-center-secure-score.md).
+Od lutego 2019 Security Center skorygowany wynik kilku zaleceń w celu lepszego dopasowania ich ważności. W wyniku tej korekty mogą wystąpić zmiany ogólnych, bezpiecznych wartości oceny.  Aby uzyskać więcej informacji na temat zabezpieczeń oceny, zobacz [ulepszony bezpieczny wynik w Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Jaka jest różnica między zagrożeniami wykrytymi przez centrum Microsoft Security Response Center a Azure Security Centerymi

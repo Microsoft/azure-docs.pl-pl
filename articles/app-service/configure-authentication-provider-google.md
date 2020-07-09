@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80519942"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania Google
@@ -25,8 +25,8 @@ Aby wykonać procedurę opisaną w tym temacie, musisz mieć konto Google, któr
 ## <a name="register-your-application-with-google"></a><a name="register"> </a>Zarejestruj swoją aplikację w usłudze Google
 
 1. Aby utworzyć identyfikator klienta i klucz tajny klienta, postępuj zgodnie z dokumentacją Google w temacie [Logowanie do aplikacji po stronie serwera](https://developers.google.com/identity/sign-in/web/server-side-flow) . Nie ma potrzeby wprowadzania żadnych zmian w kodzie. Po prostu Użyj następujących informacji:
-    - W przypadku **autoryzowanych źródeł języka JavaScript**Użyj `https://<app-name>.azurewebsites.net` nazwy aplikacji w polu * \<nazwa aplikacji>*.
-    - Aby uzyskać **Autoryzowany identyfikator URI przekierowania**, użyj `https://<app-name>.azurewebsites.net/.auth/login/google/callback`elementu.
+    - W przypadku **autoryzowanych źródeł języka JavaScript**Użyj `https://<app-name>.azurewebsites.net` nazwy aplikacji w temacie *\<app-name>* .
+    - Aby uzyskać **Autoryzowany identyfikator URI przekierowania**, użyj elementu `https://<app-name>.azurewebsites.net/.auth/login/google/callback` .
 1. Skopiuj identyfikator aplikacji i wartości klucza tajnego aplikacji.
 
     > [!IMPORTANT]
@@ -35,7 +35,7 @@ Aby wykonać procedurę opisaną w tym temacie, musisz mieć konto Google, któr
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Dodawanie informacji Google do aplikacji
 
 1. W [Azure Portal]przejdź do aplikacji App Service.
-1. Wybierz pozycję **Ustawienia** > **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
+1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
 1. Wybierz pozycję **Google**, a następnie wklej wartości w polu Identyfikator aplikacji i klucz tajny aplikacji, które zostały uzyskane wcześniej. Włącz wszystkie zakresy wymagane przez aplikację.
 1. Wybierz przycisk **OK**.
 

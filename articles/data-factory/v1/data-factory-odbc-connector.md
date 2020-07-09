@@ -13,11 +13,10 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281394"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707382"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Przenoszenie danych ze magazynów danych ODBC przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -64,10 +63,10 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi ODBC.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **OnPremisesOdbc** |Tak |
-| Parametry połączenia |Część poświadczeń braku dostępu do parametrów połączenia i opcjonalne zaszyfrowane poświadczenia. Zobacz przykłady w poniższych sekcjach. <br/><br/>Można określić parametry połączenia z wzorcem `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`lub użyć systemowej nazwy DSN (nazwa źródła danych) skonfigurowanego na maszynie bramy przy użyciu `"DSN=<name of the DSN>;"` programu (należy odpowiednio określić część Credential w połączonej usłudze). |Tak |
+| typ |Właściwość Type musi mieć wartość: **OnPremisesOdbc** |Tak |
+| Parametry połączenia |Część poświadczeń braku dostępu do parametrów połączenia i opcjonalne zaszyfrowane poświadczenia. Zobacz przykłady w poniższych sekcjach. <br/><br/>Można określić parametry połączenia z wzorcem `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` lub użyć systemowej nazwy DSN (nazwa źródła danych) skonfigurowanego na maszynie bramy przy użyciu programu (należy `"DSN=<name of the DSN>;"` odpowiednio określić część Credential w połączonej usłudze). |Tak |
 | poświadczenia |Część poświadczeń dostępu do parametrów połączenia określona w formacie wartości właściwości specyficznej dla sterownika. Przykład: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Nie |
 | authenticationType |Typ uwierzytelniania używany do nawiązywania połączenia z magazynem danych ODBC. Możliwe wartości to: Anonymous i Basic. |Tak |
 | userName |Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego. |Nie |
@@ -136,7 +135,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja typeProperties dla zestawu danych typu **relacyjnego** (który zawiera zestaw danych ODBC) ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | tableName |Nazwa tabeli w magazynie danych ODBC. |Tak |
 
@@ -147,7 +146,7 @@ Właściwości dostępne w sekcji **typeProperties** działania z drugiej strony
 
 W działaniu kopiowania, gdy źródło jest typu **RelationalSource** (w tym ODBC), w sekcji typeProperties są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: select * from MyTable. |Tak |
 

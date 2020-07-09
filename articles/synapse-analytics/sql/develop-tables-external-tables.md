@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7c795e6077bc5a7b755a388a6f50848ad6094d48
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701446"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921801"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
@@ -96,13 +96,17 @@ data_source_name
 Określa zdefiniowaną przez użytkownika nazwę źródła danych. Nazwa musi być unikatowa w obrębie bazy danych.
 
 #### <a name="location"></a>Lokalizacja
-LOCATION = `'<prefix>://<path>'` — udostępnia protokół połączenia i ścieżkę do zewnętrznego źródła danych. Ścieżka może zawierać kontener w postaci `'<prefix>://<path>/container'` , a folder w postaci `'<prefix>://<path>/container/folder'` .
+LOCATION = `'<prefix>://<path>'` — udostępnia protokół połączenia i ścieżkę do zewnętrznego źródła danych. W lokalizacji można używać następujących wzorców:
 
 | Zewnętrzne źródło danych        | Prefiks lokalizacji | Ścieżka lokalizacji                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
+|                             | `https`         | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
 | Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
 | Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
+|                             | `https`         | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+
+`https:`prefiks umożliwia użycie podfolderu w ścieżce.
 
 #### <a name="credential"></a>Poświadczenie
 CREDENTIAL = `<database scoped credential>` to opcjonalne poświadczenie, które będzie używane do uwierzytelniania w usłudze Azure Storage. Zewnętrzne źródło danych bez poświadczeń może uzyskać dostęp do konta magazynu publicznego. 
@@ -124,7 +128,7 @@ Poniższy przykład tworzy zewnętrzne źródło danych dla Azure Data Lake Gen2
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
-  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' ,
+  ( LOCATION = 'abfss://data@newyorktaxidataset.dfs.core.windows.net' ,
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;
@@ -300,7 +304,7 @@ W przypadku określenia lokalizacji folderu zapytanie na żądanie SQL zostanie 
 > [!NOTE]
 > W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
 
-W tym przykładzie, jeśli LOCATION = "/webdata/", zapytanie na żądanie SQL zwróci wiersze z. txt i _hidden. txt. Nie zwróci mydata2. txt i mydata3. txt, ponieważ znajdują się one w podfolderze.
+W tym przykładzie, jeśli LOCATION = "/webdata/", zapytanie na żądanie SQL zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-tables-external-tables/folder-traversal.png)
 

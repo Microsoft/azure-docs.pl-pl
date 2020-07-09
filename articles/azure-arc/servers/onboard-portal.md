@@ -8,12 +8,13 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 52c53cc10fe6517be6083a14c98daa9e6ff3b56f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: references_regions
+ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648084"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103997"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 
@@ -39,9 +40,10 @@ Skrypt służący do automatyzowania pobierania i instalacji oraz do nawiązywan
 
     >[!NOTE]
     >Usługa Azure ARC dla serwerów (wersja zapoznawcza) obsługuje tylko następujące regiony:
+    >- EastUS
     >- WestUS2
     >- WestEurope
-    >- WestAsia
+    >- SoutheastAsia
     >
     >Zapoznaj się z dodatkowymi zagadnieniami dotyczącymi [wyboru regionu w](overview.md#supported-regions) artykule przegląd.
 
@@ -57,7 +59,7 @@ Skrypt służący do automatyzowania pobierania i instalacji oraz do nawiązywan
 
 ### <a name="install-manually"></a>Instalowanie ręczne
 
-Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając pakiet Instalator Windows *AzureConnectedMachineAgent. msi*. Najnowszą wersję [pakietu Windows agent Instalator Windows](https://aka.ms/AzureConnectedMachineAgent) można pobrać z centrum pobierania Microsoft. 
+Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając *AzureConnectedMachineAgent.msi*pakietu Instalator Windows. Najnowszą wersję [pakietu Windows agent Instalator Windows](https://aka.ms/AzureConnectedMachineAgent) można pobrać z centrum pobierania Microsoft. 
 
 > [!NOTE]
 > * Aby zainstalować lub odinstalować agenta, musisz mieć uprawnienia *administratora* .
@@ -65,7 +67,7 @@ Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając pakiet
 
 Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie opisane w dalszej części artykułu. Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` .
 
-Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](/windows/win32/msi/command-line-options).
 
 Na przykład Uruchom program instalacyjny z `/?` parametrem, aby przejrzeć opcję Pomoc i krótka dokumentacja. 
 

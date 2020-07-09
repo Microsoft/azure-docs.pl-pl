@@ -190,7 +190,7 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Ścieżka szkoleniowa
-      href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
+      href: /learn/paths/azure-fundamentals/
     - name: Pytania i odpowiedzi Microsoft — strona pytania
       href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
     - name: Cennik

@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685071"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800095"
 ---
 # <a name="learn-text-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem tekstu
 
 Używaj modeli moderowania tekstu Content Moderator do analizowania zawartości tekstowej.
 
-Można zablokować, zatwierdzać lub przeglądać zawartość na podstawie zasad i progów (zobacz [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka). Używaj modeli moderowania tekstu, aby rozszerzyć ludzkie moderowanie środowisk, w których partnerzy, pracownicy i konsumenci generują zawartość tekstową. Te środowiska obejmują pokoje czatów, tablice dyskusyjne, czatboty, katalogi handlu elektronicznego i dokumenty. 
+Można zablokować, zatwierdzać lub przeglądać zawartość na podstawie zasad i progów (zobacz [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka). Używaj modeli moderowania tekstu, aby rozszerzyć ludzkie moderowanie środowisk, w których partnerzy, pracownicy i konsumenci generują zawartość tekstową. Te środowiska obejmują pokoje czatów, tablice dyskusyjne, czatboty, katalogi handlu elektronicznego i dokumenty.
 
 Odpowiedź usługi zawiera następujące informacje:
 
@@ -36,13 +36,15 @@ Odpowiedź usługi zawiera następujące informacje:
 
 Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsługiwanych języków](Text-Moderation-API-Languages.md), te warunki są zawarte w odpowiedzi. Odpowiedź zawiera również lokalizację ( `Index` ) w oryginalnym tekście. `ListId`W poniższym przykładowym kodzie JSON odwołują się do warunków znalezionych w [niestandardowych listach terminów](try-terms-list-api.md) , jeśli są dostępne.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > W polu parametr **języka** Przypisz `eng` lub pozostaw to pole puste, aby wyświetlić odpowiedź **klasyfikacji** z obsługą maszyn (funkcja w wersji zapoznawczej). **Ta funkcja obsługuje tylko język angielski**.
@@ -55,20 +57,22 @@ Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsłu
 
 Poniższy wyodrębnienie w ekstrakcie JSON pokazuje przykładowe dane wyjściowe:
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
-### <a name="explanation"></a>Wyjaśnienie
+### <a name="explanation"></a>Objaśnienie
 
 - `Category1`odnosi się do potencjalnej obecności języka, który może być uważany za jawny lub dorosły w pewnych sytuacjach.
 - `Category2`odnosi się do potencjalnej obecności języka, który może być uważany za seksowo lub dojrzały w niektórych sytuacjach.
@@ -127,11 +131,11 @@ W poniższym przykładzie pokazano przykładową odpowiedź:
 
 Załóżmy, że tekst wejściowy jest ("lzay" i "f0x" zamierzone):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> Qu! soczewka brązowy f0x przeskakuje przez lzay Dog.
 
 W przypadku poproszenia o korektę automatyczną odpowiedź zawiera poprawioną wersję tekstu:
 
-    The quick brown fox jumps over the lazy dog.
+> Szybkim brązowym przeskokiem w ciągu z opóźnieniem.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Tworzenie niestandardowych list terminów i zarządzanie nimi
 
@@ -143,13 +147,15 @@ Mimo że globalna lista warunków jest bardzo wysoka w większości przypadków,
 
 Poniższy przykład pokazuje identyfikator pasującej listy:
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 Content Moderator udostępnia [interfejs API listy terminów](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) z operacjami do zarządzania listami terminów niestandardowych. Rozpocznij od [terminu listy konsoli interfejsu](try-terms-list-api.md) API i użyj przykładów kodu interfejsu API REST. Zapoznaj się również z tematem [przewodnika Szybki Start dla programu .NET](term-lists-quickstart-dotnet.md) , jeśli znasz program Visual Studio i C#.
 

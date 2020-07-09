@@ -12,10 +12,9 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84118829"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Rozwiązywanie problemów z usługą SSIS Integration Runtime Management w programie Azure Data Factory
@@ -124,7 +123,7 @@ Ten błąd może wystąpić z różnych powodów. Aby rozwiązać ten problem, z
 
 ### <a name="forbidden"></a>Forbidden
 
-Ten rodzaj błędu może wyglądać następująco: "SubnetId nie jest włączona dla bieżącego konta. Dostawca zasobów Microsoft. Batch nie jest zarejestrowany w ramach tej samej subskrypcji sieci wirtualnej ".
+Ten rodzaj błędu może wyglądać następująco: "SubnetId nie jest włączona dla bieżącego konta. Dostawca zasobów Microsoft.Batch nie jest zarejestrowany w ramach tej samej subskrypcji sieci wirtualnej ".
 
 Te szczegóły oznaczają, że usługa Azure Batch nie może uzyskać dostępu do sieci wirtualnej. Zarejestruj dostawcę zasobów Microsoft.Batch w ramach tej samej subskrypcji co sieć wirtualna.
 

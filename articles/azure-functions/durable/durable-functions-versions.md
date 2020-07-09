@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807840"
 ---
 # <a name="durable-functions-versions-overview"></a>Omówienie wersji Durable Functions
 
@@ -50,19 +50,19 @@ Zainstaluj wersję 2. x [rozszerzenia powiązań Durable Functions](https://www.
 
 Durable Functions 2. x wprowadza kilka istotnych zmian. Aplikacje Durable Functions 1. x nie są zgodne z Durable Functions 2. x bez zmian w kodzie. W tej sekcji przedstawiono niektóre zmiany, które należy wykonać podczas uaktualniania funkcji w wersji 1. x do 2. x.
 
-#### <a name="hostjson-schema"></a>Schemat pliku host. JSON
+#### <a name="hostjson-schema"></a>Host.jsw schemacie
 
-Durable Functions 2. x używa nowego schematu pliku host. JSON. Główne zmiany z 1. x obejmują:
+Durable Functions 2. x używa nowego host.jsna schemacie. Główne zmiany z 1. x obejmują:
 
 * `"storageProvider"`(i `"azureStorage"` podsekcję) dla konfiguracji specyficznej dla magazynu.
 * `"tracing"`dla konfiguracji śledzenia i rejestrowania.
 * `"notifications"`(i `"eventGrid"` podsekcję) dla konfiguracji powiadomień usługi Event Grid.
 
-Aby uzyskać szczegółowe informacje, zobacz [dokumentację dotyczącą Durable Functions pliku host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
+Aby uzyskać szczegółowe informacje, zobacz [host.jsDurable Functions w dokumentacji referencyjnej](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 
 #### <a name="default-taskhub-name-changes"></a>Domyślne zmiany nazwy taskhub
 
-W wersji 1. x, jeśli nazwa centrum zadań nie została określona w pliku host. JSON, wartość domyślna to "DurableFunctionsHub". W wersji 2. x domyślna nazwa centrum zadań jest teraz pochodną nazwy aplikacji funkcji. W związku z tym, jeśli nie określisz nazwy centrum zadań podczas uaktualniania do wersji 2. x, kod będzie działać z nowym centrum zadań, a wszystkie aranżacje w locie nie będą już miały przetwarzania aplikacji. Aby obejść ten krok, można jawnie ustawić nazwę centrum zadań jako wartość domyślną v1. x "DurableFunctionsHub" lub skorzystać z naszych [wskazówek dotyczących wdrażania bez przestojów](durable-functions-zero-downtime-deployment.md) , aby uzyskać szczegółowe informacje na temat sposobu obsługi istotnych zmian dla aranżacji w locie.
+W wersji 1. x, jeśli nazwa centrum zadań nie została określona w host.json, miało wartość domyślną "DurableFunctionsHub". W wersji 2. x domyślna nazwa centrum zadań jest teraz pochodną nazwy aplikacji funkcji. W związku z tym, jeśli nie określisz nazwy centrum zadań podczas uaktualniania do wersji 2. x, kod będzie działać z nowym centrum zadań, a wszystkie aranżacje w locie nie będą już miały przetwarzania aplikacji. Aby obejść ten krok, można jawnie ustawić nazwę centrum zadań jako wartość domyślną v1. x "DurableFunctionsHub" lub skorzystać z naszych [wskazówek dotyczących wdrażania bez przestojów](durable-functions-zero-downtime-deployment.md) , aby uzyskać szczegółowe informacje na temat sposobu obsługi istotnych zmian dla aranżacji w locie.
 
 #### <a name="public-interface-changes-net-only"></a>Zmiany interfejsu publicznego (tylko platforma .NET)
 
@@ -77,8 +77,12 @@ Poniższa tabela przedstawia główne zmiany:
 | `DurableActivityContext` lub `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-W przypadku, gdy abstrakcyjna klasa bazowa zawiera metody wirtualne, te metody wirtualne zostały zastąpione metodami rozszerzenia zdefiniowanymi `DurableContextExtensions`w.
+W przypadku, gdy abstrakcyjna klasa bazowa zawiera metody wirtualne, te metody wirtualne zostały zastąpione metodami rozszerzenia zdefiniowanymi w `DurableContextExtensions` .
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>Functions. JSON — zmiany (skrypt JavaScript i C#)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>function.jszmian (skrypt JavaScript i C#)
 
-W Durable Functions 1. x powiązanie klienta aranżacji używa programu `type` z. `orchestrationClient` Zamiast tego używa `durableClient` programu w wersji 2. x.
+W Durable Functions 1. x powiązanie klienta aranżacji używa programu `type` z `orchestrationClient` . Zamiast tego używa programu w wersji 2. x `durableClient` .
+
+#### <a name="raise-event-changes"></a>Zgłoś zmiany zdarzenia
+
+W Durable Functions 1. x wywołanie interfejsu API [zdarzenia](durable-functions-external-events.md#send-events) wywołania i określenie wystąpienia, które nie istniało w wyniku błędu dyskretnego. Począwszy od 2. x, podnoszenie zdarzenia do nieistniejącej aranżacji spowoduje wyjątek.

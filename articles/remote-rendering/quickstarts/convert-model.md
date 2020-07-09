@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81312994"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85557182"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Szybki Start: konwertowanie modelu do renderowania
 
@@ -48,9 +48,9 @@ Potrzebne elementy:
 
 ## <a name="azure-setup"></a>Konfiguracja platformy Azure
 
-Jeśli nie masz jeszcze konta, przejdź do [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), kliknij opcję bezpłatnego konta i postępuj zgodnie z instrukcjami.
+Jeśli nie masz jeszcze konta, przejdź do [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/) , kliknij opcję bezpłatnego konta i postępuj zgodnie z instrukcjami.
 
-Gdy masz konto platformy Azure, przejdź do [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
+Gdy masz konto platformy Azure, przejdź do [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home) .
 
 ### <a name="storage-account-creation"></a>Tworzenie konta magazynu
 
@@ -70,7 +70,7 @@ Kliknięcie tego przycisku spowoduje wyświetlenie następującego ekranu z wła
 Wypełnij formularz w następujący sposób:
 
 * Utwórz nową grupę zasobów z linku poniżej pola listy rozwijanej i nadaj jej nazwę **ARR_Tutorial**
-* W polu **nazwa konta magazynu**wprowadź unikatową nazwę. **Ta nazwa musi być globalnie unikatowa**, w przeciwnym razie zostanie wyświetlony monit informujący o tym, że nazwa jest przygotowana. W zakresie tego przewodnika Szybki Start **arrtutorialstoragemy**IT. W związku z tym należy zamienić ją na nazwę dowolnego wystąpienia w tym przewodniku Szybki Start.
+* W polu **nazwa konta magazynu**wprowadź unikatową nazwę. **Ta nazwa musi być globalnie unikatowa**, w przeciwnym razie zostanie wyświetlony monit z informacją o tym, że nazwa jest już zajęta. W zakresie tego przewodnika Szybki Start **arrtutorialstoragemy**IT. W związku z tym należy zamienić ją na nazwę dowolnego wystąpienia w tym przewodniku Szybki Start.
 * Wybierz **lokalizację** bliską. Najlepiej używać tej samej lokalizacji, która jest używana do konfigurowania renderowania w innym przewodniku Szybki Start.
 * **Wydajność** ustawiona na wartość "Standardowa"
 * **Rodzaj konta** ustawiony na wartość "StorageV2 (ogólnego przeznaczenia w wersji 2)"
@@ -108,16 +108,16 @@ Teraz powinny istnieć dwa kontenery magazynu obiektów blob:
 
 ## <a name="run-the-conversion"></a>Uruchamianie konwersji
 
-Aby ułatwić Wywoływanie usługi konwersji zasobów, udostępniamy skrypt narzędziowy. Znajduje się w folderze *skryptów* i nosi nazwę **Conversion. ps1**.
+Aby ułatwić Wywoływanie usługi konwersji zasobów, udostępniamy skrypt narzędziowy. Znajduje się w folderze *skryptów* i nosi nazwę **Conversion.ps1**.
 
 W szczególności ten skrypt
 
 1. przekazuje wszystkie pliki w danym katalogu z dysku lokalnego do wejściowego kontenera magazynu
 1. wywołuje [interfejs API REST konwersji zasobów](../how-tos/conversion/conversion-rest-api.md) , który pobierze dane z wejściowego kontenera magazynu i rozpocznie konwersję, która zwróci identyfikator konwersji
-1. sondowanie interfejsu API stanu konwersji z pobranym identyfikatorem konwersji do momentu zakończenia procesu konwersji z sukcesem lub niepowodzeniem
+1. sondowanie interfejsu API stanu konwersji z pobranym IDENTYFIKATORem konwersji do momentu zakończenia procesu konwersji z sukcesem lub niepowodzeniem
 1. Pobiera link do przekonwertowanego elementu zawartości w magazynie danych wyjściowych
 
-Skrypt odczytuje swoją konfigurację z pliku *Scripts\arrconfig.JSON*. Otwórz ten plik JSON w edytorze tekstu.
+Skrypt odczytuje swoją konfigurację z pliku *Scripts\arrconfig.jsna*. Otwórz ten plik JSON w edytorze tekstu.
 
 ```json
 {
@@ -149,15 +149,15 @@ Konfiguracja w ramach grupy **accountSettings** (Identyfikator konta i klucz) po
 Upewnij się, że w grupie **assetConversionSettings** należy zmienić grupę **zasobów**, **blobInputContainerName**i **blobOutputContainerName** , jak pokazano powyżej.
 Należy pamiętać, że wartość **arrtutorialstorage** musi zostać zastąpiona unikatową nazwą, którą pobrano podczas tworzenia konta magazynu.
 
-Zmień **localAssetDirectoryPath** w taki sposób, aby wskazywał katalog na dysku zawierający model, który ma zostać przekształcony. Należy zachować ostrożność w prawidłowym wykorzystaniu\\ukośników odwrotnych ("") w ścieżce przy użyciu\\\\podwójnych ukośników odwrotnych ("").
+Zmień **localAssetDirectoryPath** w taki sposób, aby wskazywał katalog na dysku zawierający model, który ma zostać przekształcony. Należy zachować ostrożność w prawidłowym wykorzystaniu ukośników odwrotnych (" \\ ") w ścieżce przy użyciu podwójnych ukośników odwrotnych (" \\ \\ ").
 
-Wszystkie dane ze ścieżki podanej w **localAssetDirectoryPath** zostaną przekazane do kontenera obiektów BLOB **blobInputContainerName** w ramach ścieżki podrzędnej podanej przez **inputFolderPath**. Dlatego w przykładowej konfiguracji powyżej zawartości katalogu "D:\\tmp\\Robot" zostanie przekazany do kontenera obiektów BLOB "arrinput" konta magazynu "arrtutorialstorage" pod ścieżką "robotConversion". Już istniejące pliki zostaną nadpisywane.
+Wszystkie dane ze ścieżki podanej w **localAssetDirectoryPath** zostaną przekazane do kontenera obiektów BLOB **blobInputContainerName** w ramach ścieżki podrzędnej podanej przez **inputFolderPath**. Dlatego w przykładowej konfiguracji powyżej zawartości katalogu "D: \\ tmp \\ Robot" zostanie przekazany do kontenera obiektów BLOB "arrinput" konta magazynu "arrtutorialstorage" pod ścieżką "robotConversion". Już istniejące pliki zostaną nadpisywane.
 
-Zmień **inputAssetPath** na ścieżkę modelu do przekonwertowania — ścieżka jest względna do localAssetDirectoryPath. Użyj znaku "/" zamiast znaku\\"" jako separatora ścieżki. Tak więc dla pliku "Robot. FBX", który znajduje się bezpośrednio w "D\\:\\tmp Robot", użyj "Robot. FBX".
+Zmień **inputAssetPath** na ścieżkę modelu do przekonwertowania — ścieżka jest względna do localAssetDirectoryPath. Użyj znaku "/" zamiast znaku " \\ " jako separatora ścieżki. Tak więc dla pliku "Robot. FBX", który znajduje się bezpośrednio w "D: \\ tmp \\ Robot", użyj "Robot. FBX".
 
 Przekonwertowany model zostanie zapisany z powrotem do kontenera magazynu podanego przez **blobOutputContainerName**. Ścieżka podrzędna może być określona przez podanie opcjonalnej **outputFolderPath**. W powyższym przykładzie "Robot. arrAsset" zostanie skopiowany do wyjściowego kontenera obiektów BLOB w obszarze "skonwertowane/robotny".
 
-Ustawienie konfiguracji **outputAssetFileName** określa nazwę przekonwertowanego elementu zawartości — parametr jest opcjonalny, a wartość pliku wyjściowego zostanie wyliczona z nazwy pliku wejściowego w przeciwnym razie. 
+Ustawienie konfiguracji **outputAssetFileName** określa nazwę przekonwertowanego elementu zawartości — parametr jest opcjonalny, a wartość pliku wyjściowego zostanie wyliczona z nazwy pliku wejściowego w przeciwnym razie.
 
 Otwórz program PowerShell i upewnij się, że zainstalowano *Azure PowerShell* jak wspomniano w [wymaganiach wstępnych](#prerequisites). Następnie zaloguj się do subskrypcji przy użyciu następującego polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
 
@@ -174,7 +174,9 @@ Przejdź do `azure-remote-rendering\Scripts` katalogu i uruchom skrypt konwersji
 .\Conversion.ps1 -UseContainerSas
 ```
 
-Powinien wyglądać podobnie do tego: ![Conversion. ps1](./media/successful-conversion.png)
+Powinieneś wyglądać następująco: ![Conversion.ps1](./media/successful-conversion.png)
+
+## <a name="insert-new-model-into-quickstart-sample-app"></a>Wstaw nowy model do przykładowej aplikacji szybkiego startu
 
 Skrypt konwersji generuje identyfikator URI *sygnatury dostępu współdzielonego (SAS)* dla przekonwertowanego modelu. Teraz można skopiować ten identyfikator URI jako **nazwę modelu** do przykładowej aplikacji szybkiego startu (zobacz [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](render-model.md)).
 
@@ -186,9 +188,9 @@ Skrypt konwersji generuje identyfikator URI *sygnatury dostępu współdzieloneg
 
 Identyfikator URI sygnatury dostępu współdzielonego utworzony przez skrypt konwersji będzie prawidłowy tylko przez 24 godziny. Jednak po jego wygaśnięciu nie trzeba ponownie konwertować modelu. Zamiast tego można utworzyć nowe sygnatury dostępu współdzielonego w portalu, zgodnie z opisem w następnych krokach:
 
-1. Przejdź do witryny [Azure Portal](https://www.portal.azure.com).
-1. Kliknij zasób **konta magazynu** : ![dostęp do podpisu](./media/portal-storage-accounts.png)
-1. Na poniższym ekranie kliknij pozycję **Eksplorator magazynu** na lewym panelu i Znajdź model wyjściowy (plik *. arrAsset* ) w kontenerze magazynu obiektów BLOB *arroutput* . Kliknij prawym przyciskiem myszy plik i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego** z ![menu kontekstowego: dostęp do podpisu](./media/portal-storage-explorer.png)
+1. Przejdź do [Azure Portal](https://www.portal.azure.com)
+1. Kliknij zasób **konta magazynu** : ![ dostęp do podpisu](./media/portal-storage-accounts.png)
+1. Na poniższym ekranie kliknij pozycję **Eksplorator magazynu** na lewym panelu i Znajdź model wyjściowy (plik *. arrAsset* ) w kontenerze magazynu obiektów BLOB *arroutput* . Kliknij prawym przyciskiem myszy plik i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego** z menu kontekstowego: ![ dostęp do podpisu](./media/portal-storage-explorer.png)
 1. Zostanie otwarty nowy ekran, w którym można wybrać datę wygaśnięcia. Naciśnij pozycję **Utwórz**i skopiuj identyfikator URI, który jest wyświetlany w następnym oknie dialogowym. Ten nowy identyfikator URI zastępuje tymczasowy identyfikator URI utworzony przez skrypt.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -198,4 +200,4 @@ Teraz, gdy znasz już podstawy, zapoznaj się z naszymi samouczkami, aby uzyska�
 Jeśli chcesz poznać szczegóły konwersji modelu, zapoznaj [się z interfejsem API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Samouczek: Konfigurowanie projektu Unity od podstaw](../tutorials/unity/project-setup.md)
+> [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../tutorials/unity/view-remote-models/view-remote-models.md)

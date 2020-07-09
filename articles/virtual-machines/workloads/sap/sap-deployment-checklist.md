@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b8c1b0bcc74d73f1f869972488ba7c5dfe610d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ba229025608d183b886a17346a725bc64dc6b60e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84556655"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -86,7 +85,7 @@ W tej fazie planujesz migrację obciążenia SAP na platformę Azure. Co najmnie
     - [Instalacja SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Zdefiniuj regularne przeglądy projektowe i wdrożeniowe erze od użytkownika jako klienta, integratora systemów, firmy Microsoft i innych podmiotów.
 
- 
+
 ## <a name="pilot-phase-strongly-recommended"></a>Faza pilotażowa (zdecydowanie zalecane)
  
 Możesz uruchomić pilotaż przed lub podczas planowania i przygotowywania projektu. Możesz również użyć fazy pilotażowej do testowania podejścia i projektów wykonanych w fazie planowania i przygotowywania. Możesz też rozwinąć fazę pilotażową, aby uczynić ją prawdziwej weryfikacji koncepcji.
@@ -213,7 +212,7 @@ W tej fazie zwykle wdrażane są systemy deweloperskie, systemy testowania jedno
 14. Zoptymalizuj i stworzyć właściwy zespół oparty na rolach, uprawnienia i procesy platformy Azure, aby upewnić się, że masz Rozdzielenie obowiązków. W tym samym czasie upewnij się, że wszystkie zespoły mogą wykonywać swoje zadania w infrastrukturze platformy Azure.
 15. Ćwiczenia, testowanie i dokumentowanie procedur wysokiej dostępności i odzyskiwania po awarii, aby umożliwić pracownikom wykonywanie tych zadań. Zidentyfikuj niedoskonałości i Dostosuj nowe funkcje platformy Azure, które są integrowane ze wdrożeniami.
 
- 
+
 ## <a name="production-preparation-phase"></a>Faza przygotowania produkcyjnego 
 W tej fazie należy zebrać informacje o doświadczeniu i Poznaniu w ramach wdrożeń nieprodukcyjnych i zastosować je do przyszłych wdrożeń produkcyjnych. Konieczne jest również przygotowanie pracy transferu danych między bieżącą lokalizacją hostingu i platformą Azure.
 

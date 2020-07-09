@@ -1,28 +1,29 @@
 ---
-title: 'Szybki Start: Tworzenie bramy translatora adresów sieciowych — interfejs wiersza polecenia platformy Azure'
+title: 'Samouczek: Tworzenie bramy translatora adresów sieciowych — interfejs wiersza polecenia platformy Azure'
 titlesuffix: Azure Virtual Network NAT
 description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu interfejsu wiersza polecenia platformy Azure
 services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: KumundD
+manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 9402960927f56092e226ab81bd3e6ede0cf6a52d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 016e187c2ae41958b9527b88b06517b5f5544c7b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79202200"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707910"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Szybki Start: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="tutorial-create-a-nat-gateway-using-azure-cli"></a>Samouczek: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten przewodnik Szybki Start przedstawia sposób korzystania z usługi Azure Virtual Network translator adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
+W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Network translatora adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -212,7 +213,7 @@ ssh <ip-address-destination>
 
 Teraz można przystąpić do korzystania z usługi translatora adresów sieciowych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) .
 

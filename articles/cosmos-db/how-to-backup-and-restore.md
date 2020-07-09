@@ -3,16 +3,16 @@ title: Jak przywrócić Azure Cosmos DB dane z kopii zapasowej
 description: W tym artykule opisano, jak przywrócić Azure Cosmos DB dane z kopii zapasowej, jak skontaktować się z pomocą techniczną platformy Azure w celu przywrócenia danych, czynności, które należy wykonać po przywróceniu danych.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1a0075f9b4fc3ff919d4db4bd440a5435d711c83
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70240763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261736"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Przywracanie danych z kopii zapasowej w Azure Cosmos DB 
 
@@ -43,11 +43,11 @@ Gdy następuje uszkodzenie danych i jeśli dokumenty w kontenerze są modyfikowa
 
 Poniższy zrzut ekranu ilustruje sposób tworzenia żądania obsługi dla kontenera (kolekcji/wykresu/tabeli) w celu przywrócenia danych przy użyciu Azure Portal. Podaj dodatkowe szczegóły, takie jak typ danych, cel przywracania, czas, po usunięciu danych, aby pomóc nam określić priorytet żądania.
 
-![Utwórz żądanie obsługi kopii zapasowej za pomocą Azure Portal](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+:::image type="content" source="./media/how-to-backup-and-restore/backup-support-request-portal.png" alt-text="Utwórz żądanie obsługi kopii zapasowej za pomocą Azure Portal":::
 
 ## <a name="post-restore-actions"></a>Akcje po przywróceniu
 
-Po przywróceniu danych otrzymasz powiadomienie o nazwie nowego konta (zwykle w formacie `<original-name>-restored1`) i czasie, w którym konto zostało przywrócone. Przywrócone konto będzie miało taką samą przepływność, a zasady indeksowania i znajdują się w tym samym regionie co oryginalne konto. Użytkownik będący administratorem subskrypcji lub współadministratorem może zobaczyć przywrócone konto.
+Po przywróceniu danych otrzymasz powiadomienie o nazwie nowego konta (zwykle w formacie `<original-name>-restored1` ) i czasie, w którym konto zostało przywrócone. Przywrócone konto będzie miało taką samą przepływność, a zasady indeksowania i znajdują się w tym samym regionie co oryginalne konto. Użytkownik będący administratorem subskrypcji lub współadministratorem może zobaczyć przywrócone konto.
 
 Po przywróceniu danych należy sprawdzić i sprawdzić poprawność danych na przywróconym koncie i upewnić się, że zawiera ona oczekiwaną wersję. Jeśli wszystko wygląda dobrze, należy przeprowadzić migrację danych z powrotem do oryginalnego konta przy użyciu [Azure Cosmos DB zmian](change-feed.md) lub [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 

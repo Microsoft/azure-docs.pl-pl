@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664783"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Rozwiązanie VMware Monitoring (przestarzałe) w Azure Monitor
@@ -40,10 +39,10 @@ Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszyst
    ![przepływ dziennika systemowego](./media/vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Konfigurowanie kolekcji dziennika systemowego
-1. Skonfiguruj przekazywanie dziennika systemowego do usługi VSphere. Aby uzyskać szczegółowe informacje ułatwiające skonfigurowanie przekazywania dziennika systemu, zobacz [Konfigurowanie dziennika systemowego na ESXi 5,0 i wyższych (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Przejdź do pozycji >  **Konfiguracja hosta ESXi****oprogramowanie** > **Zaawansowane ustawienia** > **dziennika**systemowego.
+1. Skonfiguruj przekazywanie dziennika systemowego do usługi VSphere. Aby uzyskać szczegółowe informacje ułatwiające skonfigurowanie przekazywania dziennika systemu, zobacz [Konfigurowanie dziennika systemowego na ESXi 5,0 i wyższych (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Przejdź do pozycji **Konfiguracja hosta ESXi**  >  **oprogramowanie**  >  **Zaawansowane ustawienia**  >  **dziennika**systemowego.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
 1. W polu *Dziennik system. Global. logHost* Dodaj serwer z systemem Linux i numer portu *1514*. Na przykład `tcp://hostname:1514` lub `tcp://123.456.789.101:1514`
-1. Otwórz Zaporę hosta ESXi dla dziennika systemowego. **ESXi Host Configuration** > **Software**Konfiguracja > hosta ESXi > **Zapora** **profilu zabezpieczeń**i Otwórz **Właściwości**.  
+1. Otwórz Zaporę hosta ESXi dla dziennika systemowego. **Konfiguracja**  >  hosta ESXi **Oprogramowanie**  >  **Profil zabezpieczeń**  >  **Zapora** i otwarte **Właściwości**.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
 
@@ -56,7 +55,7 @@ Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszyst
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-1. Uruchom ponownie agenta Log Analytics dla systemu Linux, `sudo /opt/microsoft/omsagent/bin/service_control restart`uruchamiając.
+1. Uruchom ponownie agenta Log Analytics dla systemu Linux, uruchamiając `sudo /opt/microsoft/omsagent/bin/service_control restart` .
 1. Przetestuj połączenie między serwerem z systemem Linux i hostem ESXi przy użyciu `nc` polecenia na hoście ESXi. Przykład:
 
     ```
@@ -64,9 +63,9 @@ Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszyst
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. W Azure Portal wykonaj zapytanie dziennika dla `VMware_CL`. Gdy Azure Monitor zbiera dane dziennika systemu, zachowuje format dziennika systemowego. W portalu są przechwytywane określone pola, takie jak *Nazwa hosta* i *procesname*.  
+1. W Azure Portal wykonaj zapytanie dziennika dla `VMware_CL` . Gdy Azure Monitor zbiera dane dziennika systemu, zachowuje format dziennika systemowego. W portalu są przechwytywane określone pola, takie jak *Nazwa hosta* i *procesname*.  
 
-    ![type](./media/vmware/type.png)  
+    ![typ](./media/vmware/type.png)  
 
     Jeśli wyniki przeszukiwania dzienników widoku są podobne do powyższego obrazu, można użyć pulpitu nawigacyjnego rozwiązania VMware Monitoring.  
 
@@ -186,9 +185,9 @@ Może istnieć wiele przyczyn:
 * Maszyna wirtualna z agentem Log Analytics nie jest ustawiona poprawnie. Aby to przetestować, wykonaj następujące czynności:
 
   1. Log Analytics nasłuchuje na porcie 1514. Aby sprawdzić, czy jest otwarty, uruchom następujące polecenie:`netstat -a | grep 1514`
-  1. Powinien być widoczny otwarty `1514/tcp` port. Jeśli nie, sprawdź, czy omsagent jest prawidłowo zainstalowany. Jeśli nie widzisz informacji o porcie, wówczas port dziennika systemu nie jest otwarty na maszynie wirtualnej.
+  1. Powinien być widoczny `1514/tcp` otwarty port. Jeśli nie, sprawdź, czy omsagent jest prawidłowo zainstalowany. Jeśli nie widzisz informacji o porcie, wówczas port dziennika systemu nie jest otwarty na maszynie wirtualnej.
 
-    a. Sprawdź, czy Agent Log Analytics jest uruchomiony przy użyciu `ps -ef | grep oms`programu. Jeśli nie jest uruchomiona, uruchom proces, uruchamiając polecenie`sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Sprawdź, czy Agent Log Analytics jest uruchomiony przy użyciu programu `ps -ef | grep oms` . Jeśli nie jest uruchomiona, uruchom proces, uruchamiając polecenie`sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Otwórz plik `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 

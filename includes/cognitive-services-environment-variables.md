@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 367ae27a6afec803d2e3f98f54bdcf852330ddc6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 95bd83575809f6ecda716ff751b47b7bb499cae3
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70274676"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073285"
 ---
 ## <a name="configure-an-environment-variable-for-authentication"></a>Konfigurowanie zmiennej środowiskowej na potrzeby uwierzytelniania
 
@@ -41,6 +41,6 @@ Edytuj swój plik .bash_profile i dodaj zmienną środowiskową:
 export COGNITIVE_SERVICE_KEY=your-key
 ```
 
-Po dodaniu zmiennej środowiskowej uruchom polecenie `source .bash_profile` z okna konsoli, aby zmiany zostały uwzględnione.
+Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.bash_profile` z okna konsoli, aby zmiany zostały uwzględnione.
 
 ***

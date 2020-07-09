@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57f412f93d9dbe2d9967c5cbc7dc50b1ee8bd61f
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73177016"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85801499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Samouczek: integracja Azure Active Directory z usługą Picturepark
 
@@ -109,12 +109,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Picturepark
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: 
 
-    |  |
-    |--|
-    | `https://<companyname>.current-picturepark.com`|
-    | `https://<companyname>.picturepark.com`|
-    | `https://<companyname>.next-picturepark.com`|
-    | |
+    ```http
+        https://<companyname>.current-picturepark.com
+        https://<companyname>.picturepark.com
+        https://<companyname>.next-picturepark.com
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Picturepark](https://picturepark.com/company/picturepark-customer-support) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -148,7 +147,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Picturepark
 
 3. Kliknij pozycję **uwierzytelnianie**, a następnie kliknij pozycję **dostawcy tożsamości**.
    
-    ![Authentication](./media/picturepark-tutorial/ic795063.png "Authentication")
+    ![Uwierzytelnianie](./media/picturepark-tutorial/ic795063.png "Uwierzytelnianie")
 
 4. W sekcji **Konfiguracja dostawcy tożsamości** wykonaj następujące czynności:
    
@@ -188,11 +187,11 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład: BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -240,7 +239,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Picture
    
     ![Utwórz użytkownika](./media/picturepark-tutorial/ic795069.png "Utwórz użytkownika")
    
-    a. W polu tekstowym **adres e-mail** wpisz **adres e-mail** użytkownika `BrittaSimon@contoso.com`.  
+    a. W polu tekstowym **adres e-mail** wpisz **adres e-mail** użytkownika `BrittaSimon@contoso.com` .  
    
     b. W polach tekstowych **hasło** i **Potwierdź hasło** wpisz **hasło** BrittaSimon. 
    
@@ -252,13 +251,13 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Picture
    
     f. W polu tekstowym **Country (kraj** ) wybierz **kraj/region** użytkownika.
   
-    g. W polu tekstowym **zip** wpisz **Kod pocztowy** miasta.
+    przykład W polu tekstowym **zip** wpisz **Kod pocztowy** miasta.
    
     h. W polu tekstowym **miasto** wpisz **nazwę miasta** użytkownika.
 
     i. Wybierz **Język**.
    
-    j. Kliknij przycisk **Utwórz**.
+    j. Kliknij pozycję **Utwórz**.
 
 >[!NOTE]
 >Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników Picturepark i interfejsów API udostępnionych przez usługę Picturepark.
@@ -276,5 +275,5 @@ Po kliknięciu kafelka Picturepark w panelu dostępu należy automatycznie zalog
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

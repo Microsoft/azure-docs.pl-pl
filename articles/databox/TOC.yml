@@ -46,8 +46,12 @@
                   href: data-box-system-requirements-rest.md
             - name: Poznawanie ograniczeń
               href: data-box-limits.md
-            - name: Przegląd zabezpieczeń
-              href: data-box-security.md
+            - name: Zabezpieczenia
+              items:
+                - name: Punkt odniesienia zabezpieczeń
+                  href: security-baseline.md
+                - name: Przegląd zabezpieczeń
+                  href: data-box-security.md
             - name: Często zadawane pytania
               href: data-box-faq.md
         - name: Instrukcje
@@ -195,11 +199,19 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Z magazynu HDFS
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+    - name: Dokumentacja
+      items:
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: /cli/azure/ext/databox/databox
+        - name: Azure PowerShell
+          href: /powershell/module/az.databox
+        - name: Interfejsy API platformy .NET
+          href: /dotnet/api/overview/azure/databox/management
     - name: Zasoby
       items:
         - name: Produkt Data Box
           href: 'https://azure.microsoft.com/services/storage/databox/data/'
         - name: Cennik urządzenia Data Box
-          href: 'https://azure.microsoft.com/pricing/details/storage/databox/'
+          href: 'https://azure.microsoft.com/pricing/details/databox/'
         - name: Cennik urządzenia Data Box Disk
-          href: 'https://azure.microsoft.com/pricing/details/storage/databox/disk/'
+          href: 'https://azure.microsoft.com/pricing/details/databox/disk/'

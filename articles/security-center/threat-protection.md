@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744157"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86037192"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -106,36 +106,18 @@ Aby uzyskać więcej informacji na temat planów App Service, zobacz [plany App 
 
 
 
-## <a name="threat-protection-for-azure-containers"></a>Ochrona przed zagrożeniami dla kontenerów platformy Azure<a name="azure-containers"></a>
+## <a name="threat-protection-for-containers"></a>Ochrona przed zagrożeniami dla kontenerów<a name="azure-containers"></a>
 
-> [!NOTE]
-> Ta usługa nie jest obecnie dostępna w regionach platformy Azure dla instytucji rządowych i suwerennych.
+### <a name="availability"></a>Dostępność
 
-Security Center zapewnia ochronę przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów i generuje alerty dla podejrzanych działań. Te informacje pozwalają na szybkie rozwiązywanie problemów dotyczących zabezpieczeń i poprawę bezpieczeństwa kontenerów.
+- Stan wydania: **Ogólna dostępność**
+- Wymagane role: **administrator zabezpieczeń** może odrzucać alerty. **Czytelnik zabezpieczeń** może przeglądać wyniki.
+- Połączeń<br>
+    ✔ Chmury komercyjne<br>
+    ✘ US Gov<br>
+    ✘ Chiny gov, inne gov
 
-Security Center zapewnia ochronę przed zagrożeniami na różnych poziomach: 
-
-* Agent Security Center na **poziomie hosta** (dostępny w warstwie Standardowa, zobacz [Cennik](security-center-pricing.md) dla szczegółów) monitory Linux dla podejrzanych działań. Agent wyzwala alerty dotyczące podejrzanych działań pochodzących z węzła lub kontenera, w którym jest uruchomiona. Przykłady takich działań obejmują wykrywanie i nawiązywanie powłoki sieci Web przy użyciu znanych podejrzanych adresów IP.
-
-    Aby uzyskać dokładniejszy wgląd w zabezpieczenia środowiska kontenerowego, agent monitoruje analizę specyficzną dla kontenera. Spowoduje to wyzwolenie alertów dotyczących zdarzeń, takich jak tworzenie kontenera uprzywilejowanego, podejrzany dostęp do serwerów interfejsu API i serwery Secure Shell (SSH) działające wewnątrz kontenera Docker.
-
-    >[!IMPORTANT]
-    > Jeśli zdecydujesz się nie instalować agentów na hostach, będziesz otrzymywać tylko podzbiór korzyści z ochrony przed zagrożeniami i alerty zabezpieczeń. Nadal będziesz otrzymywać alerty dotyczące analizy sieci i komunikacji ze złośliwymi serwerami.
-
-    Listę alertów na poziomie hosta można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-containerhost).
-
-
-* Na **poziomie klastra AKS**ochrona przed zagrożeniami jest oparta na analizie dzienników inspekcji Kubernetes. Aby włączyć monitorowanie **bez wykorzystania agentów** , Dodaj opcję Kubernetes do subskrypcji na stronie **ustawień & cenowej** (zobacz [Cennik](security-center-pricing.md)). Aby generować alerty na tym poziomie, Security Center monitoruje usługi zarządzane przez AKS przy użyciu dzienników pobranych przez AKS. Przykłady zdarzeń na tym poziomie obejmują uwidocznione pulpity nawigacyjne Kubernetes, tworzenie uprzywilejowanych ról i tworzenie poufnych instalacji.
-
-    >[!NOTE]
-    > Security Center generuje alerty zabezpieczeń dotyczące akcji i wdrożeń usługi Azure Kubernetes w przypadku włączenia opcji Kubernetes w ustawieniach subskrypcji. 
-
-    Listę alertów na poziomie klastra AKS można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-akscluster).
-
-Ponadto nasz globalny zespół badaczy ds. zabezpieczeń stale monitoruje zagrożenie w poziomie. Po ich odnalezieniu są dodawane alerty i luki specyficzne dla kontenera.
-
-> [!TIP]
-> Alerty kontenera można symulować, postępując zgodnie z instrukcjami zawartymi w [tym wpisie w blogu](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -150,7 +132,7 @@ Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database wykrywa anomalie
 
 Zobaczysz alerty w przypadku podejrzanych działań bazy danych, potencjalnych luk w zabezpieczeniach lub ataków wstrzykiwania kodu SQL oraz nietypowego dostępu do bazy danych i wzorców zapytań.
 
-Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database i SQL jest częścią ujednoliconego pakietu [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) na potrzeby zaawansowanych funkcji zabezpieczeń SQL, obejmujących bazy danych SQL azure, Azure SQL Database wystąpienia zarządzane, bazy danych Azure SQL Data Warehouse i serwery SQL na platformie Azure Virtual Machines.
+Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database i SQL jest częścią ujednoliconego pakietu [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) w celu uzyskania zaawansowanych możliwości zabezpieczeń SQL, obejmujących Azure SQL Database, wystąpienia zarządzane usługi Azure SQL, bazy danych Azure SQL Data Warehouse i serwery SQL na platformie Azure Virtual Machines.
 
 Aby uzyskać więcej informacji, zobacz:
 
@@ -162,11 +144,44 @@ Aby uzyskać więcej informacji, zobacz:
 
 ## <a name="threat-protection-for-azure-storage"></a>Ochrona przed zagrożeniami dla usługi Azure Storage<a name="azure-storage"></a>
 
-Zaawansowana ochrona przed zagrożeniami dla magazynu wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń bez konieczności posiadania eksperta zabezpieczeń oraz zarządzania systemami monitorowania zabezpieczeń.
+### <a name="availability"></a>Dostępność
 
-Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/). 
+- Stan wydania:
+    - [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) (ogólna dostępność)
+    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (wersja zapoznawcza)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (wersja zapoznawcza)
+- Połączeń<br>
+    ✔ Chmury komercyjne<br>
+    ✔ US Gov<br>
+    ✘ Chiny gov, inne gov
 
-Ta usługa jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie ma innych regionów w chmurze lub Azure Government.
+### <a name="whats-protected"></a>Co jest chronione?
+
+Ochrona przed zagrożeniami dla usługi Azure Storage wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
+
+Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń *bez* konieczności posiadania eksperta zabezpieczeń oraz zarządzania systemami monitorowania zabezpieczeń.
+
+Twoje konta magazynu są chronione 
+
+### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Jakiego rodzaju alerty zapewnia ochrona przed zagrożeniami dla usługi Azure Storage?
+
+Alerty zabezpieczeń są wyzwalane w przypadku:
+
+- **Podejrzane działanie** — na przykład dostęp do konta magazynu powiodło się z adresu IP, który jest znany jako aktywny węzeł zakończenia tor
+- **Nietypowe zachowanie** — na przykład zmiany w wzorcu dostępu do konta magazynu
+- **Przekazane potencjalne złośliwe oprogramowanie** — analiza reputacji skrótu wskazuje, że przekazany plik zawiera złośliwe oprogramowanie
+
+Alerty obejmują szczegółowe informacje o zdarzeniu, które je wywołały, a także zalecenia dotyczące sposobu badania i korygowania zagrożeń.
+
+### <a name="what-is-hash-reputation-analysis-for-malware"></a>Co to jest analiza reputacji w przypadku złośliwego oprogramowania?
+
+Aby określić, czy przekazany plik jest podejrzany, ochrona przed zagrożeniami dla usługi Azure Storage używa analizy reputacji skrótu obsługiwanej przez usługę [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). Narzędzia ochrony przed zagrożeniami nie skanują przekazanych plików, a zamiast nich sprawdzają dzienniki magazynu i porównują skróty nowo przekazanych plików z tymi znanymi wirusami, koniami trojańskimi, programami szpiegującymi i oprogramowaniem wymuszającego okup. 
+
+W przypadku podejrzenia, że plik zawiera złośliwe oprogramowanie, Security Center wyświetla alert i opcjonalnie może wysłać wiadomość e-mail do właściciela magazynu w celu zatwierdzenia, aby usunąć podejrzany plik. Aby skonfigurować to automatyczne usuwanie plików, których analiza reputacji jest określona, zawiera złośliwe oprogramowanie, wdróż [automatyzację przepływu pracy, aby wyzwolić alerty zawierające "potencjalne złośliwe oprogramowanie przekazane do konta magazynu"](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005).
+
+
+
+### <a name="next-steps"></a>Następne kroki 
 
 Aby uzyskać szczegółowe informacje o cenach, w tym bezpłatną 30-dniową wersję próbną, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -174,9 +189,13 @@ Aby uzyskać więcej informacji, zobacz:
 
 * [Jak włączyć zaawansowaną ochronę przed zagrożeniami dla usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Lista alertów dotyczących ochrony przed zagrożeniami dla usługi Azure Storage](alerts-reference.md#alerts-azurestorage)
+* [Możliwości analizy zagrożeń firmy Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684)
 
 > [!TIP]
-> Alerty usługi Azure Storage można symulować, postępując zgodnie z instrukcjami zawartymi w [tym wpisie w blogu](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Alerty magazynu można symulować, postępując zgodnie z instrukcjami zawartymi w [tym wpisie w blogu](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
+
+
 
 
 
@@ -224,14 +243,17 @@ Aby uzyskać listę alertów Azure Resource Manager (wersja zapoznawcza), zobacz
 >[!NOTE]
 > Niektóre z powyższych analiz są obsługiwane przez Microsoft Cloud App Security. Aby skorzystać z tych analiz, należy aktywować licencję Cloud App Securityową. Jeśli masz licencję na Cloud App Security, te alerty są domyślnie włączone. Aby wyłączyć alerty:
 >
-> 1. W bloku **Security Center** wybierz pozycję **zasady zabezpieczeń**. W przypadku subskrypcji, którą chcesz zmienić, wybierz pozycję **Edytuj ustawienia**.
-> 2. Wybierz pozycję **wykrywanie zagrożeń**.
-> 3. W obszarze **Włącz integracje**wyczyść pole wyboru **Zezwalaj Microsoft Cloud App Security na dostęp do moich danych**i wybierz pozycję **Zapisz**.
+> 1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+> 1. Wybierz subskrypcję, którą chcesz zmienić.
+> 1. Wybierz pozycję **wykrywanie zagrożeń**.
+> 1. Wyczyść pole wyboru **zezwalaj Microsoft Cloud App Security na dostęp do danych**i wybierz pozycję **Zapisz**.
 
 >[!NOTE]
 >Security Center przechowuje dane klienta związane z zabezpieczeniami w tym samym miejscu geograficznym, co jego zasób. Jeśli firma Microsoft jeszcze nie wdrożona Security Center w lokalizacji geograficznej zasobu, przechowuje dane w Stany Zjednoczone. Gdy Cloud App Security jest włączona, te informacje są przechowywane zgodnie z zasadami lokalizacji geograficznej Cloud App Security. Aby uzyskać więcej informacji, zobacz [Magazyn danych dla usług nieregionalnych](https://azuredatacentermap.azurewebsites.net/).
 
+1. Ustaw obszar roboczy, w którym jest instalowany Agent. Upewnij się, że obszar roboczy znajduje się w tej samej subskrypcji, której używasz w Security Center i że masz uprawnienia do odczytu/zapisu w obszarze roboczym.
 
+1. Ustaw warstwę cenową standardowa i wybierz pozycję **Zapisz**.
 
 
 

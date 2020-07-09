@@ -6,12 +6,11 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ae27aba9fb6dc1421d224dab0c36373753acd5a2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: f56d3a364e38d13931f8e07d749d3a5958dcee67
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322523"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrowanie Azure Data Lake Storage Gen1 z innymi usługami platformy Azure
 Azure Data Lake Storage Gen1 można używać w połączeniu z innymi usługami platformy Azure, aby umożliwić szersze korzystanie z wielu scenariuszy. W poniższym artykule wymieniono usługi, z którymi można zintegrować Data Lake Storage Gen1.
@@ -59,7 +58,7 @@ Aby załadować dane z Data Lake Storage Gen1 do SQL Data Warehouse, można uży
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Korzystanie z Data Lake Storage Gen1 z platformą Azure Event Hubs
 Za pomocą Azure Data Lake Storage Gen1 można archiwizować i przechwytywać dane odebrane przez usługę Azure Event Hubs. Aby uzyskać więcej informacji, zobacz [używanie Data Lake Storage Gen1 z usługą Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Wprowadzenie do Data Lake Storage Gen1 przy użyciu portalu](data-lake-store-get-started-portal.md)
 * [Wprowadzenie do Data Lake Storage Gen1 przy użyciu programu PowerShell](data-lake-store-get-started-powershell.md)  

@@ -4,11 +4,10 @@ description: Dowiedz się więcej o pakowaniu aplikacji Service Fabric platformy
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258345"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701051"
 ---
 # <a name="package-an-application"></a>Tworzenie pakietu aplikacji
 
@@ -45,7 +44,7 @@ Nazwy folderów odpowiadają atrybutom **nazw** każdego odpowiadającego elemen
 
 Typowymi scenariuszami używania **SetupEntryPoint** są sytuacje, w których należy uruchomić plik wykonywalny przed uruchomieniem usługi lub trzeba wykonać operację z podniesionymi uprawnieniami. Przykład:
 
-* Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest ograniczony tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm. exe wymaga pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node. js.
+* Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest ograniczony tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm.exe potrzebuje pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node.js.
 * Konfigurowanie kontroli dostępu przez zainstalowanie certyfikatów zabezpieczeń.
 
 Aby uzyskać więcej informacji na temat konfigurowania **SetupEntryPoint**, zobacz [Konfigurowanie zasad dla punktu wejścia Instalatora usługi](service-fabric-application-runas-security.md)
@@ -66,7 +65,7 @@ Po zakończeniu tworzenia pakietów można znaleźć lokalizację pakietu w okni
 
 ### <a name="build-a-package-by-command-line"></a>Kompiluj pakiet w wierszu polecenia
 
-Możliwe jest również programowo pakowanie aplikacji przy użyciu programu `msbuild.exe`. Pod okapem program Visual Studio działa tak, aby dane wyjściowe były takie same.
+Możliwe jest również programowo pakowanie aplikacji przy użyciu programu `msbuild.exe` . Pod okapem program Visual Studio działa tak, aby dane wyjściowe były takie same.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -88,7 +87,7 @@ Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ```
 
-Ten błąd wskazuje, że w pakiecie kodu brakuje pliku *servicesetup. bat* , do którego odwołuje się **SetupEntryPoint** manifestu usługi. Po dodaniu brakującego pliku weryfikacja aplikacji kończy się powodzeniem:
+Ten błąd wskazuje, że w pakiecie kodu brakuje pliku *MySetup.bat* , do którego odwołuje się **SetupEntryPoint** manifestu usługi. Po dodaniu brakującego pliku weryfikacja aplikacji kończy się powodzeniem:
 
 ```
 tree /f .\MyApplicationType
@@ -137,7 +136,7 @@ Kompresja zastępuje prawidłowy pakiet Service Fabric ze skompresowaną wersją
 Pakiet można skompresować, uruchamiając polecenie PowerShell [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) z `CompressPackage` przełącznikiem. Możesz zdekompresować pakiet za pomocą tego samego polecenia, używając `UncompressPackage` przełącznika.
 
 Następujące polecenie kompresuje pakiet bez kopiowania go do magazynu obrazów. Możesz skopiować skompresowany pakiet do jednego lub kilku klastrów Service Fabric, w razie potrzeby, za pomocą polecenia [copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) bez `SkipCopy` flagi.
-Pakiet zawiera teraz pliki spakowane dla pakietów `code`, `config`i. `data` Manifest aplikacji i manifesty usługi nie są spakowane, ponieważ są one zbędne dla wielu operacji wewnętrznych. Na przykład udostępnianie pakietów, nazwa typu aplikacji i wyodrębnianie wersji dla niektórych walidacji muszą mieć dostęp do manifestów. Zapakowywanie manifestów spowodowałoby niewydajne wykonywanie tych operacji.
+Pakiet zawiera teraz pliki spakowane dla `code` `config` pakietów, i `data` . Manifest aplikacji i manifesty usługi nie są spakowane, ponieważ są one zbędne dla wielu operacji wewnętrznych. Na przykład udostępnianie pakietów, nazwa typu aplikacji i wyodrębnianie wersji dla niektórych walidacji muszą mieć dostęp do manifestów. Zapakowywanie manifestów spowodowałoby niewydajne wykonywanie tych operacji.
 
 ```
 tree /f .\MyApplicationType
@@ -187,13 +186,13 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType
 
 Wewnętrznie, Service Fabric oblicza sumy kontrolne dla pakietów aplikacji na potrzeby walidacji. W przypadku korzystania z kompresji sumy kontrolne są obliczane w spakowanych wersjach każdego pakietu. Generowanie nowego pliku zip z tego samego pakietu aplikacji tworzy różne sumy kontrolne. Aby zapobiec błędom walidacji, należy użyć [udostępniania różnicowego](service-fabric-application-upgrade-advanced.md). W przypadku tej opcji nie należy uwzględniać pakietów niezmienionych w nowej wersji. Zamiast tego należy odwołać się do nich bezpośrednio z nowego manifestu usługi.
 
-Jeśli obsługa różnic nie jest opcją i musisz dołączyć pakiety, wygeneruj nowe wersje dla pakietów `code`, `config`i `data` , aby uniknąć niezgodności sumy kontrolnej. Generowanie nowych wersji dla niezmienionych pakietów jest konieczne, gdy jest używany skompresowany pakiet, niezależnie od tego, czy Poprzednia wersja używa kompresji, czy nie.
+Jeśli obsługa różnic nie jest opcją i musisz dołączyć pakiety, wygeneruj nowe wersje dla `code` `config` pakietów, i, `data` Aby uniknąć niezgodności sumy kontrolnej. Generowanie nowych wersji dla niezmienionych pakietów jest konieczne, gdy jest używany skompresowany pakiet, niezależnie od tego, czy Poprzednia wersja używa kompresji, czy nie.
 
 Pakiet jest teraz spakowany prawidłowo, sprawdzony i kompresowany (w razie potrzeby), więc jest gotowy do [wdrożenia](service-fabric-deploy-remove-applications.md) co najmniej jednego klastra Service Fabric.
 
 ### <a name="compress-packages-when-deploying-using-visual-studio"></a>Kompresuj pakiety podczas wdrażania przy użyciu programu Visual Studio
 
-Można nakazać programowi Visual Studio kompresowanie pakietów w ramach wdrożenia, dodając `CopyPackageParameters` element do profilu publikowania i ustawiając `CompressPackage` atrybut na. `true`
+Można nakazać programowi Visual Studio kompresowanie pakietów w ramach wdrożenia, dodając `CopyPackageParameters` element do profilu publikowania i ustawiając `CompressPackage` atrybut na `true` .
 
 ``` xml
     <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
@@ -208,21 +207,21 @@ Można nakazać programowi Visual Studio kompresowanie pakietów w ramach wdroż
 Począwszy od wersji 6,1, Service Fabric umożliwia inicjowanie obsługi administracyjnej ze sklepu zewnętrznego.
 W przypadku tej opcji pakiet aplikacji nie musi być kopiowany do magazynu obrazów. Zamiast tego można utworzyć `sfpkg` i przekazać go do magazynu zewnętrznego, a następnie podać identyfikator URI pobierania, aby Service Fabric podczas aprowizacji. Ten sam pakiet można zainicjować w wielu klastrach. Inicjowanie obsługi administracyjnej w sklepie zewnętrznym pozwala zaoszczędzić czas wymagany do skopiowania pakietu do każdego klastra.
 
-`sfpkg` Plik jest plikiem ZIP, który zawiera początkowy pakiet aplikacji i ma rozszerzenie ". sfpkg".
+`sfpkg`Plik jest plikiem ZIP, który zawiera początkowy pakiet aplikacji i ma rozszerzenie ". sfpkg".
 W pliku zip pakiet aplikacji może być skompresowany lub nieskompresowany. Kompresja pakietu aplikacji wewnątrz pliku zip odbywa się przy użyciu kodu, konfiguracji i poziomów pakietów danych, jak [wspomniano wcześniej](service-fabric-package-apps.md#compress-a-package).
 
-Aby utworzyć `sfpkg`, należy rozpocząć od folderu zawierającego oryginalny pakiet aplikacji, skompresowany lub nie. Następnie użyj dowolnego narzędzia do ZIP folderu z rozszerzeniem ". sfpkg". Na przykład użyj [zipfile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Aby utworzyć `sfpkg` , należy rozpocząć od folderu zawierającego oryginalny pakiet aplikacji, skompresowany lub nie. Następnie użyj dowolnego narzędzia do ZIP folderu z rozszerzeniem ". sfpkg". Na przykład użyj [zipfile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 ```
 
-`sfpkg` Należy przekazać do zewnętrznego magazynu poza pasmem, poza Service Fabric. Magazyn zewnętrzny może być dowolnym magazynem, który uwidacznia punkt końcowy HTTP lub https. Podczas aprowizacji Service Fabric wykonuje operację pobierania, aby pobrać pakiet `sfpkg` aplikacji, więc magazyn musi zezwalać na dostęp do odczytu pakietu.
+`sfpkg`Należy przekazać do zewnętrznego magazynu poza pasmem, poza Service Fabric. Magazyn zewnętrzny może być dowolnym magazynem, który uwidacznia punkt końcowy HTTP lub https. Podczas aprowizacji Service Fabric wykonuje operację pobierania, aby pobrać `sfpkg` pakiet aplikacji, więc magazyn musi zezwalać na dostęp do odczytu pakietu.
 
 Aby zainicjować obsługę administracyjną pakietu, Użyj zewnętrznej obsługi administracyjnej, który wymaga identyfikatora URI pobierania i informacji o typie aplikacji.
 
 >[!NOTE]
-> Inicjowanie obsługi oparte na ścieżce względnej magazynu obrazów nie obsługuje `sfpkg` obecnie plików. W `sfpkg` związku z tym nie należy kopiować do magazynu obrazów.
+> Inicjowanie obsługi oparte na ścieżce względnej magazynu obrazów nie obsługuje obecnie `sfpkg` plików. W związku z tym `sfpkg` nie należy kopiować do magazynu obrazów.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/27/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c3c177bfcd5ee969e1430306c7294f0a14b658
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261725"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85078098"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Zatwierdzanie lub odrzucanie żądań dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -43,7 +43,7 @@ Pierwszym krokiem w celu zatwierdzenia lub odmowy żądań dostępu jest znalezi
 
 Jeśli nie masz wiadomości e-mail, możesz znaleźć żądania dostępu oczekujące na zatwierdzenie, wykonując następujące kroki.
 
-1. Zaloguj się do portalu My Access pod adresem [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (W przypadku instytucji rządowych Stanów Zjednoczonych jest to domena w linku `myaccess.microsoft.us`my Access Portal).
+1. Zaloguj się do portalu My Access pod adresem [https://myaccess.microsoft.com](https://myaccess.microsoft.com) .  (W przypadku instytucji rządowych Stanów Zjednoczonych jest to domena w linku my Access Portal `myaccess.microsoft.us` ).
 
 1. W menu po lewej stronie kliknij pozycję **zatwierdzenia** , aby wyświetlić listę żądań dostępu oczekujących na zatwierdzenie.
 

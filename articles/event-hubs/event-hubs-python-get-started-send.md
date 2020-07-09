@@ -1,20 +1,14 @@
 ---
 title: Wysyłanie lub odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka Python (stary)
 description: W tym instruktażu przedstawiono sposób tworzenia i uruchamiania skryptów języka Python, które wysyłają zdarzenia do i odbierają zdarzenia z usługi Azure Event Hubs przy użyciu starego pakietu Azure-eventhub w wersji 1.
-services: event-hubs
-author: spelluru
-manager: femila
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 01/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 4ce53d2d82a00f98dbbd538bd7a61da9ba44e832
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77162603"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314471"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Szybki Start: wysyłanie i odbieranie zdarzeń za pomocą Event Hubs przy użyciu języka Python (Azure-eventhub w wersji 1)
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu języka Python **platformy Azure-eventhub w wersji 1** . 
@@ -43,11 +37,11 @@ Do wykonania kroków tego przewodnika Szybki start niezbędne jest spełnienie n
 Aby utworzyć aplikację w języku Python, która wysyła zdarzenia do centrum zdarzeń:
 
 > [!NOTE]
-> Zamiast korzystać z przewodnika Szybki Start można pobrać i uruchomić [przykładowe aplikacje](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) z usługi GitHub. Zamień ciągi `EventHubConnectionString` i `EventHubName` na wartości z centrum zdarzeń.
+> Zamiast korzystać z przewodnika Szybki Start można pobrać i uruchomić [przykładowe aplikacje](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) z usługi GitHub. Zamień `EventHubConnectionString` ciągi i na `EventHubName` wartości z centrum zdarzeń.
 
 1. Otwórz swój ulubiony Edytor Python, taki jak [Visual Studio Code](https://code.visualstudio.com/)
 2. Utwórz nowy plik o nazwie *send.py*. Ten skrypt wysyła zdarzenia 100 do centrum zdarzeń.
-3. Wklej następujący kod do *send.py*, zastępując Event Hubs \<przestrzeni nazw> \<, eventhub>, \<> AccessKeyName i \<wartość klucza podstawowego> z wartościami: 
+3. Wklej następujący kod do *send.py*, zastępując Event Hubs \<namespace> , \<eventhub> , \<AccessKeyName> i \<primary key value> z wartościami: 
    
    ```python
    import sys
@@ -110,7 +104,7 @@ Gratulacje! Wysłano komunikaty do centrum zdarzeń.
 Aby utworzyć aplikację w języku Python, która odbiera zdarzenia z centrum zdarzeń:
 
 1. W edytorze języka Python Utwórz plik o nazwie *recv.py*.
-2. Wklej następujący kod do *recv.py*, zastępując Event Hubs \<przestrzeni nazw> \<, eventhub>, \<> AccessKeyName i \<wartość klucza podstawowego> z wartościami: 
+2. Wklej następujący kod do *recv.py*, zastępując Event Hubs \<namespace> , \<eventhub> , \<AccessKeyName> i \<primary key value> z wartościami: 
    
    ```python
    import os

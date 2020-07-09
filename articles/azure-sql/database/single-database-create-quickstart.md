@@ -1,6 +1,6 @@
 ---
 title: Tworzenie pojedynczej bazy danych
-description: Utwórz pojedynczy Azure SQL Database przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Wykonaj zapytanie do bazy danych za pomocą edytora zapytań w Azure Portal.
+description: Utwórz pojedynczą bazę danych w Azure SQL Database przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Wykonaj zapytanie do bazy danych za pomocą edytora zapytań w Azure Portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,23 +11,22 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 8b4e057fe41bdf76612888e9d4715d7cdee0ce29
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054773"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081591"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W tym przewodniku szybki start użyjesz Azure Portal, skryptu programu PowerShell lub skryptu interfejsu wiersza polecenia platformy Azure, aby utworzyć pojedynczy Azure SQL Database. Następnie należy wykonać zapytanie do bazy danych za pomocą **edytora zapytań** w Azure Portal.
+W tym przewodniku szybki start użyjesz Azure Portal, skryptu programu PowerShell lub skryptu interfejsu wiersza polecenia platformy Azure, aby utworzyć pojedynczą bazę danych w programie Azure SQL Database. Następnie należy wykonać zapytanie do bazy danych za pomocą **edytora zapytań** w Azure Portal.
 
 [Pojedyncza baza danych](single-database-overview.md) jest najszybszą i najprostszą opcją dla Azure SQL Database. Zarządzasz pojedynczą bazą danych na [serwerze](logical-servers.md), która znajduje się w [grupie zasobów platformy Azure](../../active-directory-b2c/overview.md) w określonym regionie świadczenia usługi Azure. W tym przewodniku szybki start utworzysz nową grupę zasobów i serwer dla nowej bazy danych.
 
 Można utworzyć pojedynczą bazę danych w warstwie *obliczeniowej lub* *bezserwerowej* . Zainicjowana baza danych jest wstępnie przydzieloną ustaloną ilością zasobów obliczeniowych, w tym procesora CPU i pamięci, i używa jednego z dwóch [modeli zakupu](purchasing-models.md). Ten przewodnik Szybki Start tworzy zainicjowaną bazę danych przy użyciu modelu zakupu [opartego na rdzeń wirtualny](service-tiers-vcore.md) , ale można również wybrać model [oparty na](service-tiers-dtu.md) jednostkach DTU.
 
-Warstwa obliczeń bezserwerowych jest dostępna tylko w modelu zakupu opartym na rdzeń wirtualny i ma automatycznie skalowany zakres zasobów obliczeniowych, w tym procesora CPU i pamięci. Aby utworzyć pojedynczą bazę danych w warstwie obliczeń bezserwerowych, zobacz [Tworzenie bazy danych bez serwera](serverless-tier-overview.md#create-new-database-in-serverless-compute-tier).
+Warstwa obliczeń bezserwerowych jest dostępna tylko w modelu zakupu opartym na rdzeń wirtualny i ma przeskalowany zakres zasobów obliczeniowych, w tym procesor CPU i pamięć. Aby utworzyć pojedynczą bazę danych w warstwie obliczeń bezserwerowych, zobacz [Tworzenie bazy danych bez serwera](serverless-tier-overview.md#create-a-new-database-in-the-serverless-compute-tier).
 
 ## <a name="prerequisite"></a>Wymaganie wstępne
 
@@ -68,7 +67,7 @@ Należy zachować grupę zasobów, serwer i pojedynczą bazę danych, aby przej�
 
 Po zakończeniu korzystania z tych zasobów można usunąć utworzoną grupę zasobów, która spowoduje również usunięcie serwera i pojedynczej bazy danych w ramach tej grupy.
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 Aby usunąć **zasób** i wszystkie jego zasoby przy użyciu Azure Portal:
 
@@ -76,7 +75,7 @@ Aby usunąć **zasób** i wszystkie jego zasoby przy użyciu Azure Portal:
 1. Na stronie Grupa zasobów wybierz pozycję **Usuń grupę zasobów**.
 1. W obszarze **wpisz nazwę grupy zasobów** *, wprowadź,* a następnie wybierz pozycję **Usuń**.
 
-### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+### <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby usunąć grupę zasobów i wszystkie jej zasoby, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure, używając nazwy grupy zasobów:
 
@@ -98,5 +97,11 @@ Remove-AzResourceGroup -Name <your resource group>
 
 [Łączenie i wykonywanie zapytań](connect-query-content-reference-guide.md) dotyczących bazy danych przy użyciu różnych narzędzi i języków:
 > [!div class="nextstepaction"]
-> [Łączenie i wykonywanie zapytań przy użyciu SQL Server Management Studio](connect-query-ssms.md) 
->  [Łączenie i wykonywanie zapytań przy użyciu Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+> [Nawiązywanie połączeń i wykonywanie zapytań przy użyciu programu SQL Server Management Studio](connect-query-ssms.md)
+>
+> [Nawiązywanie połączeń i wykonywanie zapytań za pomocą usługi Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+
+Chcesz zoptymalizować i zapisać wydatki na chmurę?
+
+> [!div class="nextstepaction"]
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

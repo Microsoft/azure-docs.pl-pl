@@ -7,16 +7,16 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
-ms.date: 04/03/2019
-ms.openlocfilehash: 867db23521ea08641f538efe5279408343373336
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+author: stevestein
+ms.author: sstein
+ms.reviewer: genemi
+ms.date: 06/11/2020
+ms.openlocfilehash: 85d8d288a8b2d0f256294b0c8975afc367e6e381
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047895"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736054"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porty wyższe niż 1433 dla platformy ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,7 +52,7 @@ Upewnij się, że zakresy portów 11000-11999 na komputerze klienckim platformy 
 * W szczególności porty w zakresie muszą być wolne od innych zablokowanych wychodzących bloków.
 * Na maszynie wirtualnej platformy Azure **Zapora systemu Windows z zabezpieczeniami zaawansowanymi** kontroluje ustawienia portu.
   
-  * Za pomocą [interfejsu użytkownika zapory](https://msdn.microsoft.com/library/cc646023.aspx) można dodać regułę określającą protokół **TCP** wraz z zakresem portów o składni podobnej do **11000-11999**.
+  * Za pomocą [interfejsu użytkownika zapory](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access) można dodać regułę określającą protokół **TCP** wraz z zakresem portów o składni podobnej do **11000-11999**.
 
 ## <a name="version-clarifications"></a>Wyjaśnienia dotyczące wersji
 
@@ -81,6 +81,6 @@ W tej części objaśniono monikery odwołujące się do wersji produktu. Zawier
 
 * Nawiązywanie połączenia z usługą Azure SQL Database V12 za pomocą przekierowaniahttps://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Lista wersji protokołu TDS](https://www.freetds.org/userguide/tdshistory.htm)
+* [Lista wersji protokołu TDS](https://www.freetds.org/)
 * [Przegląd SQL Database Development](develop-overview.md)
 * [Zapora Azure SQL Database](firewall-configure.md)

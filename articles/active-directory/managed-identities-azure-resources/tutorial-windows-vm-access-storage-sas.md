@@ -1,5 +1,5 @@
 ---
-title: Samouczek`:` używanie tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage przy użyciu poświadczeń SAS — Azure AD
+title: Samouczek `:` Używanie tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage przy użyciu poświadczeń SAS — Azure AD
 description: Samouczek przedstawiający sposób użycia tożsamości zarządzanej przypisanej przez system Windows VM do uzyskiwania dostępu do usługi Azure Storage przy użyciu poświadczeń SAS zamiast klucza dostępu do konta magazynu.
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ editor: daveba
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c344c25a696500182030ff849a001ad586c92032
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: c1ed86db85de8d4665c9eecfbde96b0909b12362
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74232162"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608317"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Samouczek: używanie tożsamości zarządzanej przypisanej przez system Windows VM do uzyskiwania dostępu do usługi Azure Storage za pośrednictwem poświadczeń SYGNATURy dostępu współdzielonego
 
@@ -50,7 +50,7 @@ Jeśli jeszcze nie masz konta magazynu, teraz je utworzysz. Możesz również po
 3. Wprowadź nazwę konta magazynu, której będziesz używać później.  
 4. Opcje **Model wdrażania** i **Rodzaj konta** należy ustawić na „Resource Manager” i „Ogólnego przeznaczenia”. 
 5. Upewnij się, że **Subskrypcja** i **Grupa zasobów** pasują do wartości określonych podczas tworzenia maszyny wirtualnej w poprzednim kroku.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
     ![Tworzenie nowego konta magazynu](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -126,7 +126,7 @@ W przypadku tego żądania użyjemy następujących parametrów żądania HTTP, 
 
 Te parametry są uwzględnione w treści żądania POST dla poświadczeń SAS. Aby uzyskać więcej informacji o parametrach potrzebnych do tworzenia poświadczeń SAS, zobacz [Dokumentację interfejsu REST sygnatury dostępu współdzielonego usługi listy](/rest/api/storagerp/storageaccounts/listservicesas).
 
-Najpierw przekonwertuj parametry na format JSON, a następnie Wywołaj `listServiceSas` punkt końcowy magazynu, aby utworzyć poświadczenie sygnatury dostępu współdzielonego:
+Najpierw przekonwertuj parametry na format JSON, a następnie Wywołaj `listServiceSas` punkt końcowy magazynu, aby utworzyć poświadczenie sygnatury dostępu WSPÓŁdzielonego:
 
 ```powershell
 $params = @{canonicalizedResource="/blob/<STORAGE-ACCOUNT-NAME>/<CONTAINER-NAME>";signedResource="c";signedPermission="rcw";signedProtocol="https";signedExpiry="2017-09-23T00:00:00Z"}
@@ -153,7 +153,7 @@ PS C:\> $sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
-Następnie utworzymy plik o nazwie „test.txt”. Następnie Użyj poświadczeń sygnatury dostępu współdzielonego `New-AzStorageContent` w celu uwierzytelnienia za pomocą polecenia cmdlet, Przekaż plik do naszego kontenera obiektów blob, a następnie Pobierz plik.
+Następnie utworzymy plik o nazwie „test.txt”. Następnie Użyj poświadczeń sygnatury dostępu współdzielonego w celu uwierzytelnienia za pomocą `New-AzStorageContent` polecenia cmdlet, Przekaż plik do naszego kontenera obiektów blob, a następnie Pobierz plik.
 
 ```bash
 echo "This is a test text file." > test.txt

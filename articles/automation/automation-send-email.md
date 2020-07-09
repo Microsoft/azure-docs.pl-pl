@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a92f65bd88a5aec79a179a6e2d53de15c274add4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1fa270907c96cb341f6ce2cbaeb91dfa323c4431
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834564"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855222"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Wysyłanie wiadomości e-mail z poziomu elementu runbook
 
@@ -67,8 +67,8 @@ Aby zapoznać się z innymi sposobami tworzenia Azure Key Vault i przechowywania
 
 Aby użyć Azure Key Vault w elemencie Runbook, należy zaimportować następujące moduły do konta usługi Automation:
 
-    * [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
-    * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
+* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 Aby uzyskać instrukcje, zobacz [Importowanie AZ modules](shared-resources/modules.md#import-az-modules).
 
@@ -79,7 +79,7 @@ Po utworzeniu Key Vault i zapisaniu `SendGrid` klucza interfejsu API czas tworze
 1. Przejdź do swojego konta Azure Automation.
 2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook**.
 3. W górnej części listy elementów Runbook wybierz pozycję **+ Utwórz element Runbook**.
-4. Na stronie Dodawanie elementu Runbook wprowadź polecenie **send-GridMailMessage** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz przycisk **Create** (Utwórz).
+4. Na stronie Dodawanie elementu Runbook wprowadź polecenie **send-GridMailMessage** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz pozycję **Utwórz**.
    ![Utwórz element Runbook](./media/automation-send-email/automation-send-email-runbook.png)
 5. Element runbook zostanie utworzony i zostanie otworzona strona Edytuj element runbook programu PowerShell.
    ![Edytowanie elementu Runbook](./media/automation-send-email/automation-send-email-edit.png)

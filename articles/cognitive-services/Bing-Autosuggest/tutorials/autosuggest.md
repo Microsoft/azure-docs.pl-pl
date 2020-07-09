@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25338ab6960addeebcc224d0a6633df451964
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04f4c91ece77f7476cbe3bb27236ecdc2b5c60e7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943141"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85603166"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Samouczek: uzyskiwanie sugestii wyszukiwania na stronie sieci Web
 
@@ -29,7 +29,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skorzystać z tego samouczka, potrzebny jest klucz subskrypcji interfejsu API automatycznego sugerowania Bing. Jeśli go nie masz, [Utwórz zasób automatyczne sugerowanie Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) w Azure Portal. Możesz również użyć [klucza próbnego](https://azure.microsoft.com/try/cognitive-services/).
+Aby skorzystać z tego samouczka, potrzebny jest klucz subskrypcji interfejsu API automatycznego sugerowania Bing. Jeśli go nie masz, [Utwórz zasób automatyczne sugerowanie Bing](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) w Azure Portal.
 
 ## <a name="create-a-new-web-page"></a>Tworzenie nowej strony internetowej
 

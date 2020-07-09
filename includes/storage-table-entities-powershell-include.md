@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67182906"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -27,7 +27,7 @@ Można zdefiniować maksymalnie 252 właściwości niestandardowych dla jednostk
 
 ### <a name="add-table-entities"></a>Dodaj jednostki tabeli
 
-Dodawanie jednostek do tabeli przy użyciu polecenia **Add-AzTableRow**. W tych przykładach użyto kluczy partycji `partition1` z `partition2`wartościami i, a klucze wierszy są równe skrótom stanu. Właściwości w każdej jednostce są `username` i. `userid` 
+Dodawanie jednostek do tabeli przy użyciu polecenia **Add-AzTableRow**. W tych przykładach użyto kluczy partycji z wartościami `partition1` i `partition2` , a klucze wierszy są równe skrótom stanu. Właściwości w każdej jednostce są `username` i `userid` . 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -101,7 +101,7 @@ Get-AzTableRow -table $cloudTable `
 
 To zapytanie pobiera jeden rekord.
 
-|pole|value|
+|pole|wartość|
 |----|----|
 | userid | 1 |
 | nazwa użytkownika | Chris |
@@ -118,7 +118,7 @@ Get-AzTableRow `
 
 To zapytanie pobiera jeden rekord.
 
-|pole|value|
+|pole|wartość|
 |----|----|
 | userid | 1 |
 | nazwa użytkownika | Chris |
@@ -153,7 +153,7 @@ Get-AzTableRow -table $cloudTable `
 
 Wyniki przedstawiają rekord Jessie2.
 
-|pole|value|
+|pole|wartość|
 |----|----|
 | userid | 2 |
 | nazwa użytkownika | Jessie2 |

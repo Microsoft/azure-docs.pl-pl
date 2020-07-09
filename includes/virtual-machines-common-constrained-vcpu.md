@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
-author: jonbeck7
+author: mimckitt
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: mimckitt
 ms.custom: include file
-ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5c898721102177a0d796db3b8b0f194c4ec3efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67183226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84793667"
 ---
 Niektóre obciążenia baz danych, takie jak SQL Server lub Oracle, wymagają dużej ilości pamięci, magazynu i przepustowości we/wy, ale nie dużej liczby rdzeni. Wiele obciążeń związanych z bazami danych nie jest intensywnie obciążających procesora CPU. System Azure oferuje pewne rozmiary maszyn wirtualnych, w których można ograniczyć liczbę vCPU maszyny wirtualnej w celu zmniejszenia kosztu licencjonowania oprogramowania przy zachowaniu tej samej pojemności pamięci, magazynu i przepustowości we/wy.
 
@@ -45,6 +45,24 @@ Opłaty licencyjne za SQL Server lub Oracle są ograniczone do nowej liczby vCPU
 | Standard_E32 — 8s_v3  | 8    | Taki sam jak E32s_v3 |
 | Standard_E64 — 32s_v3 | 32   | Taki sam jak E64s_v3 |
 | Standard_E64 — 16s_v3 | 16   | Taki sam jak E64s_v3 |
+| Standard_E4 — 2s_v4   | 2    | Taki sam jak E4s_v4  |
+| Standard_E8 — 4s_v4   | 4    | Taki sam jak E8s_v4  |
+| Standard_E8 — 2s_v4   | 2    | Taki sam jak E8s_v4  |
+| Standard_E16 — 8s_v4  | 8    | Taki sam jak E16s_v4 |
+| Standard_E16 — 4s_v4  | 4    | Taki sam jak E16s_v4 |
+| Standard_E32 — 16s_v4 | 16   | Taki sam jak E32s_v4 |
+| Standard_E32 — 8s_v4  | 8    | Taki sam jak E32s_v4 |
+| Standard_E64 — 32s_v4 | 32   | Taki sam jak E64s_v4 |
+| Standard_E64 — 16s_v4 | 16   | Taki sam jak E64s_v4 |
+| Standard_E4 — 2ds_v4  | 2    | Taki sam jak E4ds_v4 |
+| Standard_E8 — 4ds_v4  | 4    | Taki sam jak E8ds_v4 |
+| Standard_E8 — 2ds_v4  | 2    | Taki sam jak E8ds_v4 |
+| Standard_E16 — 8ds_v4 | 8    | Taki sam jak E16ds_v4|
+| Standard_E16 — 4ds_v4 | 4    | Taki sam jak E16ds_v4|
+| Standard_E32 — 16ds_v4| 16   | Taki sam jak E32ds_v4|
+| Standard_E32 — 8ds_v4 | 8    | Taki sam jak E32ds_v4|
+| Standard_E64 — 32ds_v4| 32   | Taki sam jak E64ds_v4|
+| Standard_E64 — 16ds_v4| 16   | Taki sam jak E64ds_v4|
 | Standard_GS4-8      | 8    | Analogicznie jak GS4     |
 | Standard_GS4-4      | 4    | Analogicznie jak GS4     |
 | Standard_GS5-16     | 16   | Analogicznie jak GS5     |

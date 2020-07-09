@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66427571"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Wdrażanie nowego symulowanego urządzenia
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 Aby wykonać czynności opisane w tym przewodniku:
 
 - Wdrożone wystąpienie [akceleratora rozwiązania do monitorowania zdalnego](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2).
-- Lokalna powłoka **bash** do uruchamiania poleceń `ssh` i `scp` . W systemie Windows prostym sposobem instalacji usługi **bash** jest zainstalowanie usługi [git](https://git-scm.com/download/win).
+- Lokalna powłoka **bash** do uruchamiania `ssh` poleceń i `scp` . W systemie Windows prostym sposobem instalacji usługi **bash** jest zainstalowanie usługi [git](https://git-scm.com/download/win).
 - Niestandardowe pliki modelu urządzenia, takie jak opisane w temacie [Tworzenie i testowanie nowego symulowanego urządzenia](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 [!INCLUDE [iot-solution-accelerators-access-vm](../../includes/iot-solution-accelerators-access-vm.md)]
@@ -136,7 +136,7 @@ Teraz możesz używać niestandardowych modeli urządzeń w rozwiązaniu do zdal
 
 1. Możesz użyć pulpitu nawigacyjnego, aby wyświetlić dane telemetryczne urządzenia i wywoływać metody urządzenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz dowiedzieć się więcej, pozostaw wdrożony Akcelerator rozwiązania do monitorowania zdalnego.
 

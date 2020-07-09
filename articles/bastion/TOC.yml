@@ -33,7 +33,7 @@
     - name: Łączenie z zestawem skalowania maszyn wirtualnych
       href: bastion-connect-vm-scale-set.md
     - name: Nawiązywanie połączenia z maszynami wirtualnymi usługi DevTest Labs
-      href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+      href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
     - name: Praca z sesją maszyny wirtualnej
       items:
         - name: Kopiowanie i wklejanie

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602520"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -45,9 +45,9 @@ Przepływ pracy modelu uczenia maszynowego jest zwykle następujący:
 Użyj tych narzędzi dla Azure Machine Learning:
 
 +  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
 + Automatyzuj działania uczenia maszynowego za pomocą [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Użyj programu [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) , aby wykonać etapy przepływu pracy bez pisania kodu.
++ Użyj programu [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) , aby wykonać etapy przepływu pracy bez pisania kodu. ( [Obszar roboczy przedsiębiorstwa](concept-workspace.md#upgrade)) jest wymagany do korzystania z projektanta.
 + [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
 
 > [!NOTE]
@@ -60,15 +60,15 @@ Użyj tych narzędzi dla Azure Machine Learning:
     * [Eksperymenty](#experiments)
         * [Uruchom](#runs) 
             * [Uruchom konfigurację](#run-configurations)
-            * [Migawka](#snapshots)
+            * [Snapshot](#snapshots)
             * [Śledzenie git](#github-tracking-and-integration)
-            * [Rejestrowanie](#logging)
+            * [Rejestrować](#logging)
     * [Potoki uczenia maszynowego](#ml-pipelines)
     * [Modele](#models)
         * [Środowiska](#environments)
         * [Skrypt szkoleniowy](#training-scripts)
         * [Szacowania](#estimators)
-    * [Punkty końcowe](#endpoints)
+    * [Punktów końcowych](#endpoints)
         * [Usługa sieci Web](#web-service-endpoint)
         * [Moduły IoT](#iot-module-endpoints)
     * [& magazynów danych](#datasets-and-datastores)
@@ -212,7 +212,7 @@ Jeśli włączono monitorowanie, platforma Azure zbiera dane telemetryczne z mod
 Azure IoT Edge zapewnia, że moduł jest uruchomiony, i monitoruje urządzenie, które je obsługuje.
 
 
-### <a name="compute-instance-preview"></a><a name="compute-instance"></a>Wystąpienie obliczeniowe (wersja zapoznawcza)
+### <a name="compute-instance"></a><a name="compute-instance"></a>Wystąpienie obliczeniowe
 
 **Wystąpienie obliczeniowe Azure Machine Learning** (dawniej jest maszyną wirtualną) to w pełni zarządzana stacja robocza oparta na chmurze, która obejmuje wiele narzędzi i środowisk zainstalowanych na potrzeby uczenia maszynowego. Wystąpienia obliczeniowe mogą służyć jako element docelowy obliczeń dla zadań szkoleniowych i inferencing. W przypadku dużych zadań [Azure Machine Learning klastrów obliczeniowych](how-to-set-up-training-targets.md#amlcompute) z możliwościami skalowania wielu węzłów jest lepszym rozwiązaniem docelowym obliczeń.
 

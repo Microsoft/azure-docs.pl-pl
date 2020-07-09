@@ -4,20 +4,19 @@ titlesuffix: Azure Virtual Network
 description: Dowiedz się, jak utworzyć sieć wirtualną sieci równorzędnej między sieciami wirtualnymi utworzonymi za pomocą Menedżer zasobów, które istnieją w różnych subskrypcjach platformy Azure w tej samej lub innej dzierżawie Azure Active Directory.
 services: virtual-network
 documentationcenter: ''
-author: anavinahar
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
-ms.author: anavin
-ms.openlocfilehash: 242115ae454340fd0a8439b7b3c79b713409acc2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 26d82d4381649bc86950b1898c5c5351a97ec697
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774485"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688817"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — Menedżer zasobów, różne subskrypcje i dzierżawy Azure Active Directory
 
@@ -246,7 +245,7 @@ W tym samouczku są stosowane różne konta dla każdej subskrypcji. Jeśli uży
 ## <a name="create-peering---resource-manager-template"></a><a name="template"></a>Tworzenie komunikacji równorzędnej — szablon Menedżer zasobów
 
 1. Aby utworzyć sieć wirtualną i przypisać odpowiednie [uprawnienia](virtual-network-manage-peering.md#permissions), wykonaj kroki opisane w sekcji [Portal](#portal), [interfejsu wiersza polecenia platformy Azure](#cli)lub programie [PowerShell](#powershell) .
-2. Zapisz poniższy tekst w pliku na komputerze lokalnym. Zamień `<subscription ID>` na identyfikator subskrypcji usera. Plik można na przykład zapisać jako vnetpeeringA. JSON.
+2. Zapisz poniższy tekst w pliku na komputerze lokalnym. Zamień `<subscription ID>` na identyfikator subskrypcji usera. Plik można zapisać jako vnetpeeringA.jsna przykład.
 
    ```json
    {
@@ -305,7 +304,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    ```
 
 2. Wyloguj się z platformy Azure jako UserA i zaloguj się jako UserB.
-3. Wykonaj następujące polecenie:
+3. Uruchom następujące polecenie:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
@@ -320,7 +319,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    ```
 
 2. Wyloguj się z platformy Azure jako UserA i zaloguj się jako UserB.
-3. Wykonaj następujące polecenie:
+3. Uruchom następujące polecenie:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

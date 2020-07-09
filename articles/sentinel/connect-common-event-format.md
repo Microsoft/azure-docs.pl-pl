@@ -1,6 +1,6 @@
 ---
 title: Połącz dane CEF z podglądem platformy Azure — Wersja zapoznawcza | Microsoft Docs
-description: Dowiedz się, jak połączyć dane CEF z platformą Azure — wskaźnikiem.
+description: Połącz rozwiązanie zewnętrzne, które wysyła komunikaty Common Event format (CEF) do funkcji wskaźnikowej platformy Azure przy użyciu maszyny z systemem Linux jako serwera proxy.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 8314614616c6b8969832d52fc684d47ba1bf0fe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34091e0c9f18cb87a240054f534f474710eb421d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588352"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563933"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Łączenie rozwiązania zewnętrznego przy użyciu typowego formatu zdarzeń
 
@@ -42,7 +42,7 @@ Ta konfiguracja będzie również dostępna w przypadku korzystania z maszyny wi
  ![CEF lokalnie](./media/connect-cef/cef-syslog-onprem.png)
 
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Upewnij się, że skonfigurowano zabezpieczenia maszyny zgodnie z zasadami zabezpieczeń organizacji. Można na przykład skonfigurować sieć do dopasowania do zasad zabezpieczeń sieci firmowej i zmienić porty i protokoły w demoum, aby dostosować je do swoich wymagań. Aby ulepszyć konfigurację zabezpieczeń komputera, można użyć następujących instrukcji:  [bezpieczna maszyna wirtualna na platformie Azure](../virtual-machines/linux/security-policy.md), [najlepsze rozwiązania dotyczące zabezpieczeń sieci](../security/fundamentals/network-best-practices.md).
 
@@ -52,7 +52,7 @@ Aby można było korzystać z komunikacji TLS między rozwiązaniem zabezpiecze�
 ## <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że maszyna z systemem Linux używaną jako serwer proxy ma jeden z następujących systemów operacyjnych:
 
-- 64-bitowy
+- 64-bitowa
   - CentOS 6 i 7
   - Amazon Linux 2017,09
   - Oracle Linux 6 i 7

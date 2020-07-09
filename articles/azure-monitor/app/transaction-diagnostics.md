@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671141"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Ujednolicona Diagnostyka transakcji między składnikami
@@ -66,13 +65,13 @@ To okienko zwijane pokazuje inne wyniki, które spełniają kryteria filtrowania
 
 [Application Insights profilerem](../../azure-monitor/app/profiler.md) lub [debugerem migawek](snapshot-debugger.md) pomoc w diagnostyce na poziomie kodu problemów z wydajnością i błędami. Korzystając z tego środowiska, można wyświetlać ślady profilera lub migawki z dowolnego składnika za pomocą jednego kliknięcia.
 
-Jeśli nie możesz uzyskać pracy profilera, skontaktuj się z **firmą\@serviceprofilerhelp Microsoft.com**
+Jeśli nie możesz uzyskać pracy profilera, skontaktuj się z firmą **serviceprofilerhelp \@ Microsoft.com**
 
-Jeśli nie możesz uzyskać Snapshot Debugger pracy, skontaktuj się z **firmą\@snapshothelp Microsoft.com**
+Jeśli nie możesz uzyskać Snapshot Debugger pracy, skontaktuj się z firmą **snapshothelp \@ Microsoft.com**
 
 ![Integracja profilera](media/transaction-diagnostics/profilerTraces.png)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 *Widzę pojedynczy składnik na wykresie, a inne są wyświetlane tylko jako zależności zewnętrzne, bez żadnych szczegółowych informacji o tym, co się stało w tych składnikach.*
 

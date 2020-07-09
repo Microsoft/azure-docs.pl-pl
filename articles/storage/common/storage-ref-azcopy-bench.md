@@ -8,22 +8,21 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8570bce87aeea5473b4aadf9bd30bc0a648a6f0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72518306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485187"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>wzorzec AzCopy
 
 Uruchamia wzorzec wydajności, przekazując dane testowe do określonego miejsca docelowego. Dane testowe są generowane automatycznie.
 
 Polecenie testu porównawczego uruchamia ten sam proces przekazywania co "Copy", z tą różnicą, że:
 
-  - Brak parametru źródłowego.  Polecenie wymaga tylko docelowego adresu URL. W bieżącej wersji ten docelowy adres URL musi odwoływać się do kontenera obiektów BLOB.
+  - Brak parametru źródłowego.  Polecenie wymaga tylko docelowego adresu URL. 
   
-  - Ładunek jest opisywany przez parametry wiersza polecenia, które kontrolują, ile plików jest generowanych automatycznie i jak duże są. Proces generacji odbywa się w całości w pamięci. Dysk nie jest używany.
+  - Ładunek jest opisany przez parametry wiersza polecenia, które kontrolują, ile plików jest generowanych automatycznie i ich rozmiar. Proces generacji odbywa się w całości w pamięci. Dysk nie jest używany.
   
   - Obsługiwane jest tylko kilka opcjonalnych parametrów, które są dostępne dla polecenia copy.
   
@@ -38,20 +37,20 @@ Obsługiwane są wszystkie standardowe typy uwierzytelniania. Jednak najbardziej
 ## <a name="examples"></a>Przykłady
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Uruchom test testu porównawczego z domyślnymi parametrami (odpowiednie dla sieci testowych do 1 GB/s):
 
-- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS>"
+- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS> "
 
-Uruchom test testu porównawczego, który przekazuje 100 plików, każdy 2 GiB w rozmiarze: (odpowiednie dla tworzenia wzorców w szybkiej sieci, np. 10 GB/s): "
+Uruchom test testu porównawczego, który przekazuje 100 plików, każdy 2 GiB w rozmiarze: (odpowiednie dla tworzenia wzorców w szybkiej sieci, na przykład 10 GB/s): "
 
-- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS>" --File-Count 100--size-na-File 2G
+- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS> " --File-Count 100--size-na-File 2G
 
-Tak samo jak powyżej, ale używaj plików 50 000, każdy 8 MiB w rozmiarze i obliczy ich skróty MD5 (w taki sam sposób, że flaga--Put-MD5 wykonuje to w poleceniu Copy). Przeznaczenie---MD5, gdy test porównawczy ma na celu sprawdzenie, czy obliczanie MD5 wpływa na przepływność dla wybranej liczby plików i rozmiaru:
+Uruchom test testu porównawczego, ale Użyj 50 000 plików, każdy 8 baz MiB w rozmiarze i Oblicz skróty MD5 (w taki sam sposób, jak `--put-md5` w przypadku polecenia copy). Celem przeprowadzania `--put-md5` testów porównawczych jest sprawdzenie, czy obliczenia MD5 wpływają na przepływność dla wybranej liczby plików i rozmiaru:
 
-- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS>" --File-Count 50000--size-na-File 8 M--Put-MD5
+- AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS> " --File-Count 50000--size-na-File 8 M--Put-MD5
 
 ## <a name="options"></a>Opcje
 
@@ -77,6 +76,8 @@ Tak samo jak powyżej, ale używaj plików 50 000, każdy 8 MiB w rozmiarze i ob
 
 **--** format ciągu typu danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text". (domyślny "tekst").
 
+**--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
+
 ## <a name="see-also"></a>Zobacz także
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

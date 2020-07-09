@@ -6,19 +6,18 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84731507"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Usuwanie zbiorcze użytkowników w Azure Active Directory
 
@@ -35,7 +34,7 @@ Pobierz i wypełnij szablon CSV, aby pomóc w zbiorczym pomyślnym usunięciu u�
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `User name [userPrincipalName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `User name [userPrincipalName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki
@@ -48,7 +47,7 @@ Wiersze pobranego szablonu CSV są następujące:
 ## <a name="to-bulk-delete-users"></a>Aby usunąć zbiorczo użytkowników
 
 1. [Zaloguj się do swojej organizacji usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
-1. W usłudze Azure AD wybierz pozycję **Użytkownicy** > **zbiorczo usuwać**.
+1. W usłudze Azure AD wybierz pozycję **Użytkownicy**  >  **zbiorczo usuwać**.
 1. Na stronie **usuwania zbiorczego użytkownika** wybierz pozycję **Pobierz** , aby otrzymać prawidłowy plik CSV właściwości użytkownika.
 
    ![Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników do usunięcia](./media/users-bulk-delete/bulk-delete.png)
@@ -76,7 +75,7 @@ Następnie możesz sprawdzić, czy usunięte użytkownicy znajdują się w organ
 
 1. Zaloguj się do Azure Portal przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. W obszarze **Pokaż**zaznacz opcję tylko **Wszyscy użytkownicy** i sprawdź, czy usunięte użytkownicy nie są już wyświetlani.
 
 ### <a name="verify-deleted-users-with-powershell"></a>Weryfikowanie usuniętych użytkowników przy użyciu programu PowerShell

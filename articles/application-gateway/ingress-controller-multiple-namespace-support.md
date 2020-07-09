@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje dotyczące włączania obsługi wie
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 83650e7cf46ec1dede5f25e32114d6469bab24be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279925"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556157"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Włączanie obsługi wielu przestrzeni nazw w klastrze AKS przy użyciu kontrolera Application Gateway transferu danych przychodzących
 
@@ -28,7 +28,7 @@ Aby włączyć obsługę wielu przestrzeni nazw:
 1. Zmodyfikuj plik [Helm-config. YAML](#sample-helm-config-file) w jeden z następujących sposobów:
    - Usuń `watchNamespace` klucz całkowicie z [Helm-config. YAML](#sample-helm-config-file) -AGIC zaobserwuje wszystkie przestrzenie nazw
    - Ustaw `watchNamespace` na pusty ciąg — AGIC będzie obserwować wszystkie przestrzenie nazw
-   - Dodaj wiele przestrzeni nazw rozdzielonych przecinkami`watchNamespace: default,secondNamespace`() — AGIC będzie obserwować te obszary nazw wyłącznie
+   - Dodaj wiele przestrzeni nazw rozdzielonych przecinkami ( `watchNamespace: default,secondNamespace` ) — AGIC będzie obserwować te obszary nazw wyłącznie
 2. Zastosuj zmiany szablonu Helm z:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Po wdrożeniu z możliwością obserwowania wielu przestrzeni nazw AGIC będzie:
@@ -44,7 +44,8 @@ W górnej części hierarchii- **detektory** (adres IP, port i Host) oraz **regu
 
 W przypadku innych ścieżek ręcznych pule zaplecza, ustawienia protokołu HTTP i certyfikaty TLS mogą być tworzone tylko przez jedną przestrzeń nazw, a duplikaty zostaną usunięte.
 
-Rozważmy na przykład następujące zduplikowane przestrzenie nazw `staging` zasobów przychodzących i `production` dla: `www.contoso.com`
+Rozważmy na przykład następujące zduplikowane przestrzenie nazw zasobów przychodzących `staging` i `production` dla `www.contoso.com` :
+
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -81,7 +82,7 @@ spec:
               servicePort: 80
 ```
 
-Pomimo tego, że oba zasoby związane `www.contoso.com` z ruchem przychodzącym, które mają być kierowane do odpowiednich przestrzeni nazw Kubernetes, mogą obsłużyć ruch. AGIC utworzy konfigurację dla jednego z zasobów na podstawie "pierwsze, pierwsze obsłużone". Jeśli dwa zasoby ingresses są tworzone w tym samym czasie, pierwszeństwo ma ten sam w alfabecie. Z powyższego przykładu będzie można tworzyć ustawienia dotyczące `production` transferu danych przychodzących. Application Gateway zostaną skonfigurowane przy użyciu następujących zasobów:
+Pomimo tego, że oba zasoby związane z ruchem przychodzącym `www.contoso.com` , które mają być kierowane do odpowiednich przestrzeni nazw Kubernetes, mogą obsłużyć ruch. AGIC utworzy konfigurację dla jednego z zasobów na podstawie "pierwsze, pierwsze obsłużone". Jeśli dwa zasoby ingresses są tworzone w tym samym czasie, pierwszeństwo ma ten sam w alfabecie. Z powyższego przykładu będzie można tworzyć ustawienia dotyczące transferu danych przychodzących `production` . Application Gateway zostaną skonfigurowane przy użyciu następujących zasobów:
 
   - Odbiornika`fl-www.contoso.com-80`
   - Reguła routingu:`rr-www.contoso.com-80`
@@ -89,18 +90,19 @@ Pomimo tego, że oba zasoby związane `www.contoso.com` z ruchem przychodzącym,
   - Ustawienia protokołu HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
   - Sonda kondycji:`pb-production-contoso-web-service-80-websocket-ingress`
 
-Należy pamiętać, że oprócz reguły *odbiornika* i *routingu*, utworzone zasoby Application Gateway obejmują nazwę przestrzeni nazw (`production`), dla której zostały utworzone.
+Należy pamiętać, że oprócz *reguły* *odbiornika* i routingu, utworzone zasoby Application Gateway obejmują nazwę przestrzeni nazw (), `production` dla której zostały utworzone.
 
-Jeśli dwa zasoby związane z ruchem przychodzącym są wprowadzane do klastra AKS w różnych punktach w czasie, prawdopodobnie AGIC się w scenariuszu, w którym ponownie skonfiguruje Application Gateway i przekierowuje ruch z `namespace-B` do. `namespace-A`
+Jeśli dwa zasoby związane z ruchem przychodzącym są wprowadzane do klastra AKS w różnych punktach w czasie, prawdopodobnie AGIC się w scenariuszu, w którym ponownie skonfiguruje Application Gateway i przekierowuje ruch z `namespace-B` do `namespace-A` .
 
-Na przykład jeśli został dodany `staging` pierwszy, AGIC Application Gateway skonfiguruje ruch do tymczasowej puli zaplecza. Na późniejszym etapie wprowadzeniem `production` transferu danych przychodzących spowoduje AGIC do ponownego zaprogramowania Application Gateway, co umożliwi kierowanie ruchu do puli `production` zaplecza.
+Na przykład jeśli został dodany `staging` pierwszy, AGIC Application Gateway skonfiguruje ruch do tymczasowej puli zaplecza. Na późniejszym etapie wprowadzeniem transferu `production` danych przychodzących spowoduje AGIC do ponownego zaprogramowania Application Gateway, co umożliwi kierowanie ruchu do `production` puli zaplecza.
 
 ## <a name="restrict-access-to-namespaces"></a>Ograniczanie dostępu do przestrzeni nazw
 Domyślnie AGIC skonfiguruje Application Gateway na podstawie adnotacji przychodzących w dowolnej przestrzeni nazw. Jeśli chcesz ograniczyć to zachowanie, możesz korzystać z następujących opcji:
-  - Ogranicz przestrzenie nazw, jawnie definiując przestrzenie nazw AGIC powinny być `watchNamespace` przestrzegane za pośrednictwem klucza YAML w [Helm-config. YAML](#sample-helm-config-file)
+  - Ogranicz przestrzenie nazw, jawnie definiując przestrzenie nazw AGIC powinny być przestrzegane za pośrednictwem `watchNamespace` klucza YAML w [Helm-config. YAML](#sample-helm-config-file)
   - Użyj [roli/](https://docs.microsoft.com/azure/aks/azure-ad-rbac) rolibinding, aby ograniczyć AGIC do określonych przestrzeni nazw
 
 ## <a name="sample-helm-config-file"></a>Przykładowy plik konfiguracji Helm
+
 ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
@@ -152,5 +154,5 @@ Domyślnie AGIC skonfiguruje Application Gateway na podstawie adnotacji przychod
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
-    ```
+```
 

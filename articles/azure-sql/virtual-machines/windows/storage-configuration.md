@@ -1,10 +1,9 @@
 ---
 title: Konfiguracja magazynu dla maszyn wirtualnych SQL Server | Microsoft Docs
-description: W tym temacie opisano, jak platforma Azure konfiguruje magazyn dla SQL Server maszyn wirtualnych podczas aprowizacji (Menedżer zasobów model wdrażania). Wyjaśniono również, jak można skonfigurować magazyn dla istniejących maszyn wirtualnych SQL Server.
+description: W tym temacie opisano, jak platforma Azure konfiguruje magazyn dla SQL Server maszyn wirtualnych podczas aprowizacji (Azure Resource Manager model wdrażania). Wyjaśniono również, jak można skonfigurować magazyn dla istniejących maszyn wirtualnych SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,17 +12,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044269"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667373"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguracja usługi Storage dla maszyn wirtualnych programu SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W przypadku konfigurowania SQL Server obrazu maszyny wirtualnej na platformie Azure portal pomaga zautomatyzować konfigurację magazynu. Obejmuje to dołączenie magazynu do maszyny wirtualnej, dzięki czemu można uzyskać dostęp do tego magazynu SQL Server i skonfigurować go do optymalizacji pod kątem konkretnych wymagań dotyczących wydajności.
+W przypadku skonfigurowania SQL Server obrazu maszyny wirtualnej (VM) na platformie Azure Azure Portal pomaga zautomatyzować konfigurację magazynu. Obejmuje to dołączenie magazynu do maszyny wirtualnej, dzięki czemu można uzyskać dostęp do tego magazynu SQL Server i skonfigurować go do optymalizacji pod kątem konkretnych wymagań dotyczących wydajności.
 
 W tym temacie wyjaśniono, jak platforma Azure konfiguruje magazyn dla maszyn wirtualnych SQL Server zarówno podczas aprowizacji, jak i dla istniejących maszyn wirtualnych. Ta konfiguracja jest oparta na [najlepszych rozwiązaniach dotyczących wydajności](performance-guidelines-best-practices.md) dla maszyn wirtualnych platformy Azure z systemem SQL Server.
 
@@ -57,7 +55,7 @@ Ponadto można ustawić buforowanie dla dysków. Maszyny wirtualne platformy Azu
 
 Buforowanie dysków dla SSD w warstwie Premium może być *tylko do odczytu*, *ReadWrite* lub *none*. 
 
-- Buforowanie *tylko do odczytu* jest wysoce korzystne dla SQL Server plików danych przechowywanych w Premium Storage. Buforowanie w trybie *tylko* do odczytu umożliwia opóźnienie w przypadku małych odczytów, dużą liczbę operacji we/wy odczytu i przepływność, co oznacza, że operacje odczytu są wykonywane z pamięci podręcznej, która jest w pamięci Te odczyty są znacznie szybsze niż odczyt z dysku danych, który pochodzi z magazynu obiektów blob platformy Azure. Usługa Premium Storage nie zlicza odczytów obsługiwanych z pamięci podręcznej do operacji we/wy na dysku. W związku z tym, Twoje zastosowanie ma możliwość osiągnięcia wyższej całkowitej liczby operacji we/wy na sekundę. 
+- Buforowanie *tylko do odczytu* jest wysoce korzystne dla SQL Server plików danych przechowywanych w Premium Storage. Buforowanie w trybie *tylko* do odczytu umożliwia opóźnienie w przypadku małych odczytów, dużą liczbę operacji we/wy odczytu i przepływność, co oznacza, że operacje odczytu są wykonywane z pamięci podręcznej, która jest w pamięci Te odczyty są znacznie szybsze niż odczyt z dysku danych, który pochodzi z usługi Azure Blob Storage. Usługa Premium Storage nie zlicza odczytów obsługiwanych z pamięci podręcznej do operacji we/wy na dysku. W związku z tym, Twoje zastosowanie ma możliwość osiągnięcia wyższej całkowitej liczby operacji we/wy na sekundę. 
 - *Nie należy* używać konfiguracji pamięci podręcznej dla dysków hostującym SQL Server pliku dziennika, ponieważ plik dziennika jest pisany sekwencyjnie i nie korzysta z buforowania *tylko do odczytu* . 
 - Buforowanie *ReadWrite* nie powinno być używane do hostowania plików SQL Server, ponieważ SQL Server nie obsługuje spójności danych z pamięcią podręczną *ReadWrite* . Zapisy pojemności pamięci podręcznej obiektów BLOB *tylko do odczytu* i opóźnień nieco zwiększają się, jeśli zapisy przechodzą *przez warstwy* pamięci podręcznej obiektów BLOB. 
 
@@ -76,7 +74,7 @@ Na podstawie wybranych opcji platforma Azure wykonuje następujące zadania konf
 
 Aby uzyskać więcej informacji na temat konfigurowania ustawień magazynu przez platformę Azure, zobacz [sekcję Konfiguracja magazynu](#storage-configuration). Aby zapoznać się z pełnym przewodnikiem dotyczącym tworzenia SQL Server maszyny wirtualnej w Azure Portal, zobacz [samouczek aprowizacji](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### <a name="resource-manage-templates"></a>Zarządzanie szablonami zasobów
+### <a name="resource-manager-templates"></a>Szablony usługi Resource Manager
 
 W przypadku używania następujących szablonów Menedżer zasobów są domyślnie dołączone dwa dyski z danymi Premium bez konfiguracji puli magazynu. Można jednak dostosować te szablony, aby zmienić liczbę dysków danych w warstwie Premium dołączonych do maszyny wirtualnej.
 
@@ -113,7 +111,7 @@ Można zmodyfikować ustawienia dysku dla dysków, które zostały skonfigurowan
 
 ## <a name="storage-configuration"></a>Konfiguracja usługi Storage
 
-Ta sekcja zawiera informacje o zmianach konfiguracji magazynu, które usługa Azure automatycznie wykonuje podczas aprowizacji lub konfiguracji maszyny wirtualnej SQL w Azure Portal.
+Ta sekcja zawiera informacje o zmianach konfiguracji magazynu, które usługa Azure automatycznie wykonuje podczas SQL Server aprowizacji lub konfiguracji maszyny wirtualnej w Azure Portal.
 
 * Platforma Azure konfiguruje pulę magazynów z magazynu wybranego z maszyny wirtualnej. Następna sekcja tego tematu zawiera szczegółowe informacje o konfiguracji puli magazynu.
 * Funkcja automatycznej konfiguracji magazynu zawsze używa dysków danych w [warstwie Premium dysków SSD](../../../virtual-machines/windows/disks-types.md) P30. W związku z tym istnieje 1:1 mapowanie między wybraną liczbą terabajtów a liczbą dysków danych podłączonych do maszyny wirtualnej.
@@ -148,7 +146,7 @@ W poniższej tabeli opisano trzy dostępne opcje typu obciążenia oraz ich odpo
 | **Magazynowanie danych** |Optymalizuje magazyn do obciążeń analitycznych i sprawozdawczych |Flaga śledzenia 610<br/>Flaga śledzenia 1117 |
 
 > [!NOTE]
-> Typ obciążenia można określić tylko podczas inicjowania obsługi administracyjnej maszyny wirtualnej SQL, wybierając ją w kroku konfiguracji magazynu.
+> Typ obciążenia można określić tylko podczas inicjowania obsługi administracyjnej maszyny wirtualnej SQL Server, wybierając ją w kroku konfiguracji magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 

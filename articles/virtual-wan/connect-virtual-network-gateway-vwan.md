@@ -4,15 +4,15 @@ description: Ten artykuł pomaga połączyć bramę sieci wirtualnej platformy A
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 688183bc07aa14d5e5df182d7de0897cec93f0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749694"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Łączenie VPN Gateway (Brama sieci wirtualnej) z wirtualną siecią WAN
 
@@ -24,7 +24,7 @@ Aby zminimalizować możliwe pomyłki między dwoma funkcjami, firma Microsoft p
 
 Przed rozpoczęciem Utwórz następujące zasoby:
 
-Wirtualna sieć WAN platformy Azure
+Azure Virtual WAN
 
 * [Utwórz wirtualną sieć WAN](virtual-wan-site-to-site-portal.md#openvwan).
 * [Utwórz centrum](virtual-wan-site-to-site-portal.md#hub). Koncentrator wirtualny zawiera wirtualną bramę sieci VPN w sieci WAN.
@@ -118,7 +118,7 @@ W tej sekcji utworzysz połączenie między bramami sieci lokalnej VPN Gateway i
 3. Kliknij przycisk **OK**, aby utworzyć połączenie.
 4. Połączenie będzie widoczne na stronie **Połączenia** bramy sieci wirtualnej.
 
-   ![Połączenia](./media/connect-virtual-network-gateway-vwan/connect.png "połączenie")
+   ![Połączenie](./media/connect-virtual-network-gateway-vwan/connect.png "połączenie")
 5. Powtórz powyższe kroki, aby utworzyć drugie połączenie. W przypadku drugiego połączenia wybierz inną utworzoną bramę sieci lokalnej.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. Testowanie połączeń

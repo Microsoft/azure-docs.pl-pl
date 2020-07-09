@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870568"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Przykłady podzapytań SQL dla Azure Cosmos DB
@@ -79,7 +78,7 @@ Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i istnieje
 
 Podzapytania mogą pomóc zoptymalizować zapytania z kosztownymi wyrażeniami, takimi jak funkcje zdefiniowane przez użytkownika (UDF), ciągi złożone lub wyrażenia arytmetyczne. Możesz użyć podzapytania wraz z wyrażeniem SPRZĘŻENIa, aby obliczyć wyrażenie jeden raz, ale odwołują się do niego wiele razy.
 
-Następujące zapytanie uruchamia dwa razy klawisz `GetMaxNutritionValue` UDF:
+Następujące zapytanie uruchamia `GetMaxNutritionValue` dwa razy klawisz UDF:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +108,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-Podejście nie jest ograniczone do UDF. Ma to zastosowanie do dowolnego potencjalnego wyrażenia. Na przykład można zastosować takie samo podejście z funkcją `avg`matematyczną:
+Podejście nie jest ograniczone do UDF. Ma to zastosowanie do dowolnego potencjalnego wyrażenia. Na przykład można zastosować takie samo podejście z funkcją matematyczną `avg` :
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -366,7 +365,7 @@ Jeśli słowo kluczowe VALUE w powyższym podzapytaniu zostanie pominięte, kwer
 SELECT EXISTS (SELECT undefined) 
 ```
 
-Podzapytanie będzie zawierać listę wartości z wybranej listy w obiekcie. Jeśli wybrana lista nie ma żadnych wartości, podzapytanie zwróci pojedynczą wartość "{}". Ta wartość jest zdefiniowana, a zatem istnieje wartość true.
+Podzapytanie będzie zawierać listę wartości z wybranej listy w obiekcie. Jeśli wybrana lista nie ma żadnych wartości, podzapytanie zwróci pojedynczą wartość " {} ". Ta wartość jest zdefiniowana, a zatem istnieje wartość true.
 
 ### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Przykład: zapisywanie ARRAY_CONTAINS i dołączanie jako istnieje
 
@@ -388,7 +387,7 @@ WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 
 Ponadto ARRAY_CONTAINS można sprawdzić tylko wtedy, gdy wartość jest równa każdemu elementowi w tablicy. Jeśli potrzebujesz bardziej złożonych filtrów dla właściwości tablicy, użyj SPRZĘŻENIa.
 
-Rozważmy następujące zapytanie, które jest oparte na jednostkach `nutritionValue` i właściwościach tablicy: 
+Rozważmy następujące zapytanie, które jest oparte na jednostkach i `nutritionValue` właściwościach tablicy: 
 
 ```sql
 SELECT VALUE c.description

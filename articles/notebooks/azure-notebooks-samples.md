@@ -3,23 +3,23 @@ title: Przykładowe notesy Jupyter na potrzeby wersji zapoznawczej usługi Azure
 description: Przykłady to doskonały sposób na korzystanie z Jupyter notesów uruchomionych w ramach bezpłatnych Azure Notebooks usług w chmurze.
 ms.topic: sample
 ms.date: 01/11/2019
-ms.openlocfilehash: f67c37d0ffe0e90e13e05bb50ed6c523e0b3a14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646317"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85833999"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Odkrywanie i używanie przykładowych notesów w wersji zapoznawczej Azure Notebooks
 
-Internet zawiera wiele kolekcji interesujących i przydatnych notesów Jupyter, które można łatwo przenieść do Azure Notebooks. Ten artykuł zawiera listę istotnych przykładów.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Internet zawiera wiele kolekcji interesujących i przydatnych notesów Jupyter, które można łatwo przenieść do Azure Notebooks. Ten artykuł zawiera listę istotnych przykładów.
 
 Po zidentyfikowaniu notesu, który chcesz poznać, Oto kilka szczegółów, które warto zrozumieć:
 
 - Jeśli Notes jest już w Azure Notebooks, użyj przycisku **Klonuj** na pulpicie nawigacyjnym projektu, aby utworzyć kopię projektu na swoim koncie.
-- Niektóre notesy wymagają uruchomienia określonych pakietów. Chociaż można używać `!pip install` języka (Python) lub `install.packages` (R) do instalowania pakietów z poziomu notesu, można również [skonfigurować projekt Azure Notebooks przy użyciu odpowiedniego środowiska](configure-manage-azure-notebooks-projects.md).
+- Niektóre notesy wymagają uruchomienia określonych pakietów. Chociaż można używać języka `!pip install` (Python) lub `install.packages` (R) do instalowania pakietów z poziomu notesu, można również [skonfigurować projekt Azure Notebooks przy użyciu odpowiedniego środowiska](configure-manage-azure-notebooks-projects.md).
 
 ## <a name="great-sample-notebooks"></a>Wspaniałe przykładowe notesy
 

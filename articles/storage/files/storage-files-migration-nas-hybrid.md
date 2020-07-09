@@ -3,16 +3,16 @@ title: Migracja lokalnego serwera NAS do Azure File Sync
 description: Dowiedz się, jak migrować pliki z lokalizacji magazynu w sieci lokalnej (NAS) do wdrożenia w chmurze hybrydowej z Azure File Sync i udziałami plików platformy Azure.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7b0c7a30580d3863a78e85b8b45287a598bbf394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85510309"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z magazynu dołączanego do sieci (NAS) do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
@@ -124,7 +124,7 @@ Tle
 :::row-end:::
 :::row:::
    :::column span="1":::
-      /UNILOG:\<nazwa pliku\>
+      /UNILOG:\<file name\>
    :::column-end:::
    :::column span="1":::
       Wyprowadza stan do pliku dziennika jako UNICODE (Zastępuje istniejący dziennik).

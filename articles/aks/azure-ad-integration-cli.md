@@ -4,18 +4,18 @@ description: Dowiedz się, jak Azure Active Directory utworzyć klaster usługi 
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: dba6590daf5c64dd1e53663e71a0cc27941b1470
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 85441b53b22b4d33ee2ff967d777cc3267e171da
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779947"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106105"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrowanie Azure Active Directory z usługą Azure Kubernetes przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Usługę Azure Kubernetes Service (AKS) można skonfigurować do korzystania z Azure Active Directory (AD) do uwierzytelniania użytkowników. W tej konfiguracji można zalogować się do klastra AKS przy użyciu tokenu uwierzytelniania usługi Azure AD. Operatory klastra mogą również skonfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów.
 
-W tym artykule pokazano, jak utworzyć wymagane składniki usługi Azure AD, a następnie wdrożyć klaster z obsługą usługi Azure AD i utworzyć podstawową rolę RBAC w klastrze AKS. [Te kroki można również wykonać przy użyciu Azure Portal][azure-ad-portal].
+W tym artykule pokazano, jak utworzyć wymagane składniki usługi Azure AD, a następnie wdrożyć klaster z obsługą usługi Azure AD i utworzyć podstawową rolę RBAC w klastrze AKS.
 
 Aby zapoznać się z kompletnym przykładowym skryptem używanym w tym artykule, zobacz [przykłady interfejsu wiersza polecenia platformy Azure — integracja AKS z usługą Azure AD][complete-script].
 
@@ -97,7 +97,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Tworzenie składnika klienta usługi Azure AD
 
-Druga aplikacja usługi Azure AD jest używana, gdy użytkownik loguje się do klastra AKS przy użyciu interfejsu wiersza`kubectl`polecenia Kubernetes (). Ta aplikacja kliencka pobiera żądanie uwierzytelnienia od użytkownika i weryfikuje ich poświadczenia i uprawnienia. Utwórz aplikację usługi Azure AD dla składnika klienta za pomocą polecenia [AZ AD App Create][az-ad-app-create] :
+Druga aplikacja usługi Azure AD jest używana, gdy użytkownik loguje się do klastra AKS przy użyciu interfejsu wiersza polecenia Kubernetes ( `kubectl` ). Ta aplikacja kliencka pobiera żądanie uwierzytelnienia od użytkownika i weryfikuje ich poświadczenia i uprawnienia. Utwórz aplikację usługi Azure AD dla składnika klienta za pomocą polecenia [AZ AD App Create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -196,7 +196,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 
 ## <a name="access-cluster-with-azure-ad"></a>Dostęp do klastra przy użyciu usługi Azure AD
 
-Teraz Przetestujmy integrację uwierzytelniania usługi Azure AD dla klastra AKS. Ustaw kontekst `kubectl` konfiguracji w celu używania zwykłych poświadczeń użytkownika. Ten kontekst przekazuje wszystkie żądania uwierzytelniania z powrotem za pomocą usługi Azure AD.
+Teraz Przetestujmy integrację uwierzytelniania usługi Azure AD dla klastra AKS. Ustaw `kubectl` kontekst konfiguracji w celu używania zwykłych poświadczeń użytkownika. Ten kontekst przekazuje wszystkie żądania uwierzytelniania z powrotem za pomocą usługi Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
@@ -208,7 +208,7 @@ Teraz Użyj [polecenia kubectl GetBinding][kubectl-get] , aby wyświetlić wszys
 kubectl get pods --all-namespaces
 ```
 
-Zostanie wyświetlony monit logowania służący do uwierzytelniania przy użyciu poświadczeń usługi Azure AD przy użyciu przeglądarki sieci Web. Po pomyślnym uwierzytelnieniu `kubectl` polecenie wyświetla zasobniki w klastrze AKS, jak pokazano w następujących przykładowych danych wyjściowych:
+Zostanie wyświetlony monit logowania służący do uwierzytelniania przy użyciu poświadczeń usługi Azure AD przy użyciu przeglądarki sieci Web. Po pomyślnym uwierzytelnieniu `kubectl` polecenie wyświetla zasobniki w KLASTRZE AKS, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```console
 kubectl get pods --all-namespaces
@@ -276,6 +276,6 @@ Najlepsze rozwiązania dotyczące tożsamości i kontroli zasobów można znale�
 [azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
-[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 4c9a664e335880f6e71f5b69477fce72c2af79ab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d205f3ccc0adef7e2390274bb7f4511c6f994027
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654729"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86038008"
 ---
 # <a name="azure-ea-pricing"></a>Cennik umowy EA platformy Azure
 
@@ -24,7 +24,7 @@ Ta sekcja zawiera szczegółowe informacje na temat sposobu obliczania użycia. 
 
 ### <a name="price-protection"></a>Ochrona cen
 
-Klienci i partnerzy handlowi mają gwarancję otrzymania cen nie wyższych niż określone w cenniku dla klienta lub obowiązujące w dniu wejścia w życie zakupu na platformie Azure. Cena ta jest określana jako cena bazowa. W przypadku usług wprowadzonych po dokonaniu zakupu na platformie Azure naliczana jest cena obowiązująca z rabatem odpowiedniego poziomu w momencie pierwszego wprowadzenia usługi. Ochrona cen ma zastosowanie w okresie obowiązywania zobowiązania, który może trwać od jednego do trzech lat w zależności od danej umowy Enterprise Agreement.
+Klienci i partnerzy handlowi mają gwarancję otrzymania cen nie wyższych niż określone w cenniku dla klienta lub obowiązujące w dniu wejścia w życie zakupu na platformie Azure. Cena ta jest określana jako cena bazowa. W przypadku usług wprowadzonych po dokonaniu zakupu na platformie Azure naliczana jest cena obowiązująca z rabatem odpowiedniego poziomu w momencie pierwszego wprowadzenia usługi. Ochrona cen ma zastosowanie w okresie obowiązywania przedpłaty, który może trwać od jednego do trzech lat w zależności od danej umowy Enterprise Agreement.
 
 ### <a name="price-changes"></a>Zmiany cen
 

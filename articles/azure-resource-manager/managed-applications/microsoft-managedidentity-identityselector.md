@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77087546"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft. ManagedIdentity. IdentitySelector — element interfejsu użytkownika
@@ -69,7 +68,7 @@ Wybrane tożsamości są wyświetlane w tabeli. Użytkownik może dodawać lub u
 
 ## <a name="remarks"></a>Uwagi
 
-- Użyj elementu **DefaultValue. systemAssignedIdentity** , aby ustawić wartość początkową dla kontrolki opcji tożsamości przypisanej do systemu. Wartość domyślna to **off**. Dozwolone są następujące wartości:
+- Użyj **defaultValue.systemAssignedIdentity** , aby ustawić początkową wartość kontrolki opcji tożsamości przypisanej do systemu. Wartość domyślna to **off**. Dozwolone są następujące wartości:
   - **On** — skojarzona z systemem tożsamość jest przypisana do zasobu.
   - **Wyłączone** — tożsamość przypisana do systemu nie jest przypisana do zasobu.
   - **Tylko** on— skojarzona z systemem tożsamość jest przypisywana do zasobu. Użytkownicy nie mogą edytować tej wartości podczas wdrażania.

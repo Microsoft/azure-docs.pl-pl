@@ -3,15 +3,14 @@ title: Dodawanie magazynu do pamięci podręcznej platformy Azure HPC
 description: Jak zdefiniować cele magazynu, aby pamięć podręczna platformy Azure HPC mogła używać lokalnego systemu plików NFS lub kontenerów obiektów blob platformy Azure do przechowywania długoterminowych plików
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c3ef79806d29b188eb2738919bf912cfedc8ef1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195047"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513880"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -22,6 +21,10 @@ Można zdefiniować do dziesięciu różnych miejsc docelowych magazynu dla jedn
 Należy pamiętać, że eksporty magazynu muszą być dostępne z sieci wirtualnej pamięci podręcznej. W przypadku lokalnego magazynu sprzętu może być konieczne skonfigurowanie serwera DNS, który może rozpoznawać nazwy hostów dla dostępu do magazynu NFS. Więcej informacji można znaleźć w temacie [dostęp do usługi DNS](hpc-cache-prereqs.md#dns-access).
 
 Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej. Procedura jest nieco inna w zależności od tego, czy dodawana jest usługa Azure Blob Storage, czy eksport systemu plików NFS. Poniżej znajdują się szczegółowe informacje dotyczące każdego z nich.
+
+Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) przedstawiający tworzenie pamięci podręcznej i Dodawanie miejsca docelowego magazynu.
+
+[![Miniatura wideo: Azure HPC cache: Setup (kliknij, aby odwiedzić stronę wideo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Otwórz stronę miejsc docelowych magazynu
 
@@ -70,7 +73,7 @@ Procedura dodawania ról RBAC:
 
 1. Otwórz stronę **kontroli dostępu (IAM)** dla konta magazynu. (Link na stronie **Dodaj miejsce docelowe magazynu** automatycznie otwiera Tę stronę dla wybranego konta).
 
-1. **+** Kliknij w górnej części strony i wybierz polecenie **Dodaj przypisanie roli**.
+1. Kliknij w **+** górnej części strony i wybierz polecenie **Dodaj przypisanie roli**.
 
 1. Wybierz z listy rolę "Współautor konta magazynu".
 
@@ -157,7 +160,7 @@ Ta tabela zawiera podsumowanie różnic między modelami użycia:
 
 Po utworzeniu obiektów docelowych magazynu należy wziąć pod uwagę jedno z następujących zadań:
 
-* [Instalowanie pamięci podręcznej platformy Azure HPC](hpc-cache-mount.md)
+* [Instalowanie pamięci podręcznej usługi Azure HPC Cache](hpc-cache-mount.md)
 * [Przenoszenie danych do usługi Azure Blob Storage](hpc-cache-ingest.md)
 
 Jeśli trzeba zaktualizować dowolne ustawienia, można [edytować miejsce docelowe magazynu](hpc-cache-edit-storage.md).

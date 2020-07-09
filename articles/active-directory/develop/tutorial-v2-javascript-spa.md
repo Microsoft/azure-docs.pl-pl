@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6f0253490d39e69d491dd5fd3ab0d0d0a32d47bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181566"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338928"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji JavaScript jednostronicowej (SPA)
 
@@ -56,13 +56,26 @@ W tym przewodniku jest stosowana następująca Biblioteka:
 
 * Instrukcje zawarte w tym przewodniku są oparte na serwerze sieci Web skompilowanym w języku Node. js. Zalecamy używanie [Visual Studio Code](https://code.visualstudio.com/download) jako zintegrowanego środowiska programistycznego (IDE).
 
+* Nowoczesnej przeglądarki sieci Web. Ten przykładowy kod JavaScript używa konwencji [ES6](http://www.ecma-international.org/ecma-262/6.0/) , w związku z czym nie **obsługuje** programu **Internet Explorer**.
+
 ## <a name="create-your-project"></a>Tworzenie projektu
 
-Upewnij się, że masz zainstalowany program [Node. js](https://nodejs.org/en/download/) , a następnie utwórz folder do hostowania aplikacji. W tym miejscu zostanie wdrożony prosty serwer sieci Web [Express](https://expressjs.com/) , który `index.html` będzie obsługiwał plik.
+Upewnij się, że masz zainstalowany program [Node. js](https://nodejs.org/en/download/) , a następnie utwórz folder do hostowania aplikacji. W tym miejscu zostanie wdrożony prosty serwer sieci Web [Express](https://expressjs.com/) , który będzie obsługiwał `index.html` plik.
 
-1. Najpierw przy użyciu Visual Studio Code zintegrowany terminal Znajdź folder projektu, a następnie zainstaluj Express przy użyciu NPM.
+1. Korzystając z terminalu (takiego jak Visual Studio Code zintegrowany terminal), zlokalizuj folder projektu, a następnie wpisz:
 
-1. Następnie utwórz plik. js o nazwie `server.js`, a następnie Dodaj następujący kod:
+   ```console
+   npm init
+   ```
+
+2. Następnie zainstaluj wymagane zależności:
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. Teraz Utwórz plik. js o nazwie `index.js` , a następnie Dodaj następujący kod:
 
    ```JavaScript
    const express = require('express');
@@ -179,7 +192,7 @@ Masz teraz prosty serwer, który będzie obsługiwał Twoje SPA. Zaplanowana str
    > [!TIP]
    > Wersję MSAL. js w powyższym skrypcie można zastąpić najnowszymi wersjami w sekcji [releases MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-2. Teraz Utwórz plik. js o nazwie `ui.js`, który będzie uzyskiwać dostęp do elementów Dom i aktualizować je, a następnie Dodaj następujący kod:
+2. Teraz Utwórz plik. js o nazwie `ui.js` , który będzie uzyskiwać dostęp do elementów Dom i aktualizować je, a następnie Dodaj następujący kod:
 
    ```JavaScript
    // Select DOM elements to work with
@@ -269,19 +282,19 @@ Przed kontynuowaniem uwierzytelniania Zarejestruj swoją aplikację na **Azure A
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Ustawianie adresu URL przekierowania dla środowiska Node. js
 >
-> W przypadku środowiska Node. js można ustawić port serwera sieci Web w pliku *Server. js* . W tym samouczku jest używany port 3000, ale można użyć dowolnego innego dostępnego portu.
+> W przypadku środowiska Node. js można ustawić port serwera sieci Web w pliku *index. js* . W tym samouczku jest używany port 3000, ale można użyć dowolnego innego dostępnego portu.
 >
 > Aby skonfigurować adres URL przekierowania w informacjach rejestracyjnych aplikacji, Wróć do okienka **rejestracji aplikacji** i wykonaj jedną z następujących czynności:
 >
 > - Ustaw *`http://localhost:3000/`* jako **adres URL przekierowania**.
-> - Jeśli używasz niestandardowego portu TCP, użyj *`http://localhost:<port>/`* (gdzie * \<port>* jest niestandardowym numerem portu TCP).
+> - Jeśli używasz niestandardowego portu TCP, użyj *`http://localhost:<port>/`* (gdzie *\<port>* jest niestandardowym numerem portu TCP).
 >   1. Skopiuj wartość **adresu URL** .
 >   1. Wróć do okienka **rejestracji aplikacji** i wklej skopiowaną wartość jako **adres URL przekierowania**.
 >
 
 ### <a name="configure-your-javascript-spa"></a>Konfigurowanie protokołu JavaScript SPA
 
-Utwórz nowy plik js o nazwie `authConfig.js`, który będzie zawierać parametry konfiguracji do uwierzytelniania, i Dodaj następujący kod:
+Utwórz nowy plik js o nazwie `authConfig.js` , który będzie zawierać parametry konfiguracji do uwierzytelniania, i Dodaj następujący kod:
 
 ```javascript
   const msalConfig = {
@@ -308,9 +321,9 @@ Utwórz nowy plik js o nazwie `authConfig.js`, który będzie zawierać parametr
 ```
 
  Gdzie:
- - Enter_the_Application_Id_Here>to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji. * \<*
- - Enter_the_Cloud_Instance_Id_Here>jest wystąpieniem chmury platformy Azure. * \<* W przypadku głównej lub globalnej chmury platformy Azure po prostu *https://login.microsoftonline.com*wprowadź. W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
- - >Enter_the_Tenant_info_here jest ustawiona na jedną z następujących opcji: * \<*
+ - *\<Enter_the_Application_Id_Here>* to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
+ - *\<Enter_the_Cloud_Instance_Id_Here>* jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź *https://login.microsoftonline.com* . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Tenant_info_here>* jest ustawiona na jedną z następujących opcji:
    - Jeśli aplikacja obsługuje *konta w tym katalogu organizacyjnym*, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład *contoso.Microsoft.com*).
    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**.
    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**.
@@ -318,7 +331,7 @@ Utwórz nowy plik js o nazwie `authConfig.js`, który będzie zawierać parametr
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Logowanie użytkownika przy użyciu biblioteki Microsoft Authentication Library (MSAL)
 
-Utwórz nowy plik js o nazwie `authPopup.js`, który będzie zawierać logikę uwierzytelniania i tokenów pozyskiwania, a następnie Dodaj następujący kod:
+Utwórz nowy plik js o nazwie `authPopup.js` , który będzie zawierać logikę uwierzytelniania i tokenów pozyskiwania, a następnie Dodaj następujący kod:
 
    ```JavaScript
    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
@@ -396,13 +409,13 @@ Utwórz nowy plik js o nazwie `authPopup.js`, który będzie zawierać logikę u
 
 ### <a name="more-information"></a>Więcej informacji
 
-Gdy użytkownik wybierze przycisk **Zaloguj** po raz pierwszy, wywołuje `signIn` `loginPopup` metodę logowania użytkownika. Ta metoda umożliwia otwarcie okna podręcznego z *punktem końcowym platformy tożsamości firmy Microsoft* w celu wyświetlenia monitu i zweryfikowania poświadczeń użytkownika. Po pomyślnym zalogowaniu użytkownik zostanie przekierowany z powrotem do oryginalnej strony *index. html* . Token jest odbierany, przetwarzany `msal.js`przez i informacje zawarte w tokenie są buforowane. Token ten jest znany jako *token ID* i zawiera podstawowe informacje o użytkowniku, takie jak nazwa wyświetlana użytkownika. Jeśli planujesz używać dowolnych danych z tego tokenu do dowolnych celów, musisz upewnić się, że ten token jest zweryfikowany przez serwer wewnętrznej bazy danych, aby zagwarantować, że token został wystawiony dla prawidłowego użytkownika aplikacji.
+Gdy użytkownik wybierze przycisk **Zaloguj** po raz pierwszy, `signIn` wywołuje metodę `loginPopup` logowania użytkownika. Ta metoda umożliwia otwarcie okna podręcznego z *punktem końcowym platformy tożsamości firmy Microsoft* w celu wyświetlenia monitu i zweryfikowania poświadczeń użytkownika. Po pomyślnym zalogowaniu użytkownik zostanie przekierowany z powrotem do oryginalnej strony *index. html* . Token jest odbierany, przetwarzany przez `msal.js` i informacje zawarte w tokenie są buforowane. Token ten jest znany jako *token ID* i zawiera podstawowe informacje o użytkowniku, takie jak nazwa wyświetlana użytkownika. Jeśli planujesz używać dowolnych danych z tego tokenu do dowolnych celów, musisz upewnić się, że ten token jest zweryfikowany przez serwer wewnętrznej bazy danych, aby zagwarantować, że token został wystawiony dla prawidłowego użytkownika aplikacji.
 
 SPA wygenerowane przez ten przewodnik wywołuje `acquireTokenSilent` i/lub `acquireTokenPopup` uzyskuje *token dostępu* używany do wykonywania zapytań dotyczących interfejsu API Microsoft Graph informacji o profilu użytkownika. Jeśli potrzebujesz przykładu, który sprawdza poprawność tokenu identyfikatora, zapoznaj się z [tą](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Przykład usługi GitHub Active-Directory-JavaScript-singlepageapp-dotnet-WebAPI-v2") przykładową aplikacją w serwisie GitHub. Przykład używa interfejsu API sieci Web ASP.NET do sprawdzania poprawności tokenu.
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu nie chcesz poprosić użytkowników o ponowne uwierzytelnienie przy każdym zażądaniu tokenu w celu uzyskania dostępu do zasobu. Dlatego *acquireTokenSilent* powinien być używany w większości czasu do uzyskania tokenów. Istnieją jednak sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykłady:
+Po wstępnym logowaniu nie chcesz poprosić użytkowników o ponowne uwierzytelnienie przy każdym zażądaniu tokenu w celu uzyskania dostępu do zasobu. Dlatego *acquireTokenSilent* powinien być używany w większości czasu do uzyskania tokenów. Istnieją jednak sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykłady obejmują:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.
@@ -412,18 +425,18 @@ Wywołanie *acquireTokenPopup* otwiera okno podręczne (lub *acquireTokenRedirec
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
-`acquireTokenSilent` Metoda obsługuje pozyskiwanie i odnawianie tokenów bez żadnej interakcji z użytkownikiem. Gdy `loginPopup` (lub `loginRedirect`) jest wykonywane po raz pierwszy, `acquireTokenSilent` jest to metoda często używana do uzyskiwania tokenów używanych w celu uzyskiwania dostępu do chronionych zasobów dla kolejnych wywołań. (Wywołania żądania lub odnawiania tokenów są wykonywane w trybie dyskretnym). `acquireTokenSilent` może zakończyć się niepowodzeniem w niektórych przypadkach. Na przykład hasło użytkownika mogło wygasnąć. Aplikacja może obsłużyć ten wyjątek na dwa sposoby:
+`acquireTokenSilent`Metoda obsługuje pozyskiwanie i odnawianie tokenów bez żadnej interakcji z użytkownikiem. Gdy `loginPopup` (lub `loginRedirect` ) jest wykonywane po raz pierwszy, `acquireTokenSilent` jest to metoda często używana do uzyskiwania tokenów używanych w celu uzyskiwania dostępu do chronionych zasobów dla kolejnych wywołań. (Wywołania żądania lub odnawiania tokenów są wykonywane w trybie dyskretnym). `acquireTokenSilent`może zakończyć się niepowodzeniem w niektórych przypadkach. Na przykład hasło użytkownika mogło wygasnąć. Aplikacja może obsłużyć ten wyjątek na dwa sposoby:
 
-1. Wykonaj wywołanie natychmiast, `acquireTokenPopup` aby wyzwolić monit logowania użytkownika. Ten wzorzec jest często używany w aplikacjach online, w których aplikacja nie ma dostępnej nieuwierzytelnionej zawartości. Przykład generowany przez tę konfigurację z przewodnikiem używa tego wzorca.
+1. Wykonaj wywołanie `acquireTokenPopup` natychmiast, aby wyzwolić monit logowania użytkownika. Ten wzorzec jest często używany w aplikacjach online, w których aplikacja nie ma dostępnej nieuwierzytelnionej zawartości. Przykład generowany przez tę konfigurację z przewodnikiem używa tego wzorca.
 
 1. Aplikacje mogą także wprowadzać wizualizację do użytkownika, że wymagane jest logowanie interaktywne, aby użytkownik mógł wybrać odpowiedni czas na zalogowanie się, a aplikacja może ponowić próbę `acquireTokenSilent` w późniejszym czasie. Jest to często używane, gdy użytkownik może korzystać z innych funkcji aplikacji bez zakłócania pracy. Na przykład w aplikacji może być dostępna nieuwierzytelniona zawartość. W takiej sytuacji użytkownik może zdecydować się na zalogowanie się w celu uzyskania dostępu do chronionego zasobu lub odświeżenie nieaktualnych informacji.
 
 > [!NOTE]
-> Ten przewodnik Szybki Start `loginPopup` domyślnie `acquireTokenPopup` używa metod i. Jeśli używasz programu Internet Explorer jako przeglądarki, zaleca się korzystanie `loginRedirect` z nich i `acquireTokenRedirect` metod ze względu na [znany problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) związany z sposobem obsługi wyskakujących okienek przez program Internet Explorer. Jeśli chcesz dowiedzieć się, jak osiągnąć ten sam wynik przy użyciu `Redirect methods`, [Zobacz](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
+> Ten przewodnik Szybki Start `loginPopup` `acquireTokenPopup` domyślnie używa metod i. Jeśli używasz programu Internet Explorer jako przeglądarki, zaleca się korzystanie z nich `loginRedirect` i `acquireTokenRedirect` metod ze względu na [znany problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) związany z sposobem obsługi wyskakujących okienek przez program Internet Explorer. Jeśli chcesz dowiedzieć się, jak osiągnąć ten sam wynik przy użyciu `Redirect methods` , [Zobacz](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-acquired"></a>Wywoływanie interfejsu API Microsoft Graph przy użyciu właśnie uzyskanego tokenu
 
-1. Najpierw utwórz plik. js o nazwie `graphConfig.js`, który będzie przechowywać punkty końcowe Rest. Dodaj następujący kod:
+1. Najpierw utwórz plik. js o nazwie `graphConfig.js` , który będzie przechowywać punkty końcowe Rest. Dodaj następujący kod:
 
    ```JavaScript
       const graphConfig = {
@@ -433,9 +446,9 @@ Wywołanie *acquireTokenPopup* otwiera okno podręczne (lub *acquireTokenRedirec
    ```
 
    Gdzie:
-   - Enter_the_Graph_Endpoint_Here>jest wystąpieniem programu MS interfejs API programu Graph. * \<* W przypadku globalnego punktu końcowego MS interfejs API programu Graph należy po prostu zastąpić ten `https://graph.microsoft.com`ciąg ciągiem. W przypadku wdrożeń w chmurze krajowej zapoznaj się z [dokumentacją interfejs API programu Graph](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* jest wystąpieniem programu MS interfejs API programu Graph. W przypadku globalnego punktu końcowego MS interfejs API programu Graph należy po prostu zastąpić ten ciąg ciągiem `https://graph.microsoft.com` . W przypadku wdrożeń w chmurze krajowej zapoznaj się z [dokumentacją interfejs API programu Graph](https://docs.microsoft.com/graph/deployments).
 
-1. Następnie utwórz plik. js o nazwie `graph.js`, który spowoduje wywołanie REST do Microsoft Graph API i Dodaj następujący kod:
+1. Następnie utwórz plik. js o nazwie `graph.js` , który spowoduje wywołanie REST do Microsoft Graph API i Dodaj następujący kod:
 
    ```javascript
    function callMSGraph(endpoint, token, callback) {
@@ -460,7 +473,7 @@ Wywołanie *acquireTokenPopup* otwiera okno podręczne (lub *acquireTokenRedirec
 
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Więcej informacji na temat tworzenia wywołania REST w ramach chronionego interfejsu API
 
-W przykładowej aplikacji utworzonej przez ten przewodnik `callMSGraph()` Metoda jest używana do wykonania żądania HTTP `GET` względem chronionego zasobu, który wymaga tokenu. Żądanie zwraca zawartość do obiektu wywołującego. Ta metoda dodaje token uzyskany w *nagłówku autoryzacji http*. W przypadku przykładowej aplikacji utworzonej w tym przewodniku zasób jest punktem końcowym usługi Microsoft Graph API *Me* , który wyświetla informacje o profilu użytkownika.
+W przykładowej aplikacji utworzonej przez ten przewodnik `callMSGraph()` Metoda jest używana do wykonania `GET` żądania HTTP względem chronionego zasobu, który wymaga tokenu. Żądanie zwraca zawartość do obiektu wywołującego. Ta metoda dodaje token uzyskany w *nagłówku autoryzacji http*. W przypadku przykładowej aplikacji utworzonej w tym przewodniku zasób jest punktem końcowym usługi Microsoft Graph API *Me* , który wyświetla informacje o profilu użytkownika.
 
 ## <a name="test-your-code"></a>testowanie kodu
 
@@ -470,7 +483,7 @@ W przykładowej aplikacji utworzonej przez ten przewodnik `callMSGraph()` Metoda
    npm install
    npm start
    ```
-1. W przeglądarce wpisz **http://localhost:3000** lub **http://localhost:{port}**, gdzie *port* jest portem, z którym nasłuchuje serwer sieci Web. Powinna zostać wyświetlona zawartość pliku *index. html* i przycisku **Zaloguj** .
+1. W przeglądarce wpisz **http://localhost:3000** lub **http://localhost:{port}** , gdzie *port* jest portem, z którym nasłuchuje serwer sieci Web. Powinna zostać wyświetlona zawartość pliku *index. html* i przycisku **Zaloguj** .
 
 ## <a name="test-your-application"></a>Testowanie aplikacji
 
@@ -496,7 +509,5 @@ Interfejs API Microsoft Graph wymaga, aby *użytkownik. Read* miał zakres do od
 
 > [!NOTE]
 > Użytkownik może zostać poproszony o dodatkowe przesłanie w miarę zwiększania liczby zakresów.
-
-Jeśli interfejs API zaplecza nie wymaga zakresu (niezalecane), można użyć *clientId* jako zakresu w wywołaniach w celu uzyskania tokenów.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

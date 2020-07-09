@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7540c5a82220eef61b8f1cf470697315496cd6bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127603"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85194794"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informacje na temat IoT Edge wdrożeń automatycznych dla pojedynczych urządzeń lub na dużą skalę
 
@@ -61,7 +61,7 @@ Warunek docelowy jest stale oceniany przez cały okres istnienia wdrożenia. Wsz
 
 Na przykład istnieje wdrożenie z tagami warunku docelowego. Environment = "prod". Po rozmieszczeniu wdrożenia programu dostępne są 10 urządzeń produkcyjnych. Moduły zostały pomyślnie zainstalowane na tych 10 urządzeniach. Stan agenta IoT Edge przedstawia 10 wszystkich urządzeń, 10 udanych odpowiedzi, 0 odpowiedzi na błędy i 0 oczekujących odpowiedzi. Teraz dodasz pięć więcej urządzeń ze znacznikami. Environment = "prod". Usługa wykrywa zmianę i stan agenta IoT Edge stanie się 15 łączna liczba urządzeń, 10 udanych odpowiedzi, 0 odpowiedzi na błędy i 5 odpowiedzi oczekujących podczas wdrażania na pięć nowych urządzeń.
 
-Aby wybrać urządzenia docelowe, użyj dowolnego warunku logicznego dla tagów sznurka urządzenia, zgłaszanych właściwości lub urządzenia deviceId. Jeśli chcesz użyć warunku ze znacznikami, musisz dodać "Tagi":{} sekcję w sznurze urządzenia pod tym samym poziomem co właściwości. [Dowiedz się więcej o tagach w bliźniaczych urządzeniach](../iot-hub/iot-hub-devguide-device-twins.md)
+Aby wybrać urządzenia docelowe, użyj dowolnego warunku logicznego dla tagów sznurka urządzenia, zgłaszanych właściwości lub urządzenia deviceId. Jeśli chcesz użyć warunku ze znacznikami, musisz dodać "Tagi": {} sekcję w sznurze urządzenia pod tym samym poziomem co właściwości. [Dowiedz się więcej o tagach w bliźniaczych urządzeniach](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Przykłady warunków docelowych:
 
@@ -69,15 +69,15 @@ Przykłady warunków docelowych:
 * Tagi. Environment = "prod"
 * Tagi. Environment = "prod" i Tags. Location = "zachodnie"
 * Tagi. Environment = "prod" lub Tags. Location = "zachodnie"
-* Tags. operator = "Jan" i Tagi. Environment = "prod" nie deviceId = "linuxprod1"
+* Tags. operator = "Jan" i Tagi. Environment = "prod" i NOT deviceId = "linuxprod1"
 * Properties. devicemodel = "4000x"
 
 Te ograniczenia należy wziąć pod uwagę podczas konstruowania warunku docelowego:
 
 * W przypadku sznurka urządzenia można utworzyć warunek docelowy tylko przy użyciu tagów, raportowanych właściwości lub deviceId.
 * Podwójne cudzysłowy nie są dozwolone w żadnej części warunku docelowego. Użyj apostrofów.
-* Pojedyncze cudzysłowy reprezentują wartości warunku docelowego. W związku z tym należy wymusić pojedyncze cudzysłowy z innym pojedynczym cudzysłowem, jeśli jest ono częścią nazwy urządzenia. Na przykład, aby określić urządzenie jako `operator'sDevice`docelowe, Zapisz `deviceId='operator''sDevice'`.
-* W wartościach warunku docelowego są dozwolone liczby, litery i następujące znaki: `-:.+%_#*?!(),=@;$`.
+* Pojedyncze cudzysłowy reprezentują wartości warunku docelowego. W związku z tym należy wymusić pojedyncze cudzysłowy z innym pojedynczym cudzysłowem, jeśli jest ono częścią nazwy urządzenia. Na przykład, aby określić urządzenie jako docelowe `operator'sDevice` , Zapisz `deviceId='operator''sDevice'` .
+* W wartościach warunku docelowego są dozwolone liczby, litery i następujące znaki: `-:.+%_#*?!(),=@;$` .
 
 ### <a name="priority"></a>Priorytet
 
@@ -142,7 +142,7 @@ Na przykład w standardowym wdrożeniu można dodać moduł symulowanego czujnik
 }
 ```
 
-W przypadku wdrożenia warstwowego, które jest przeznaczone dla niektórych lub wszystkich urządzeń, można dodać właściwość informującą, że czujnik symulowany wysyła komunikaty 1000, a następnie zatrzymuje. Nie chcesz zastąpić istniejących właściwości, więc Utwórz nową sekcję w ramach żądanych właściwości `layeredProperties`, które zawierają nową właściwość:
+W przypadku wdrożenia warstwowego, które jest przeznaczone dla niektórych lub wszystkich urządzeń, można dodać właściwość informującą, że czujnik symulowany wysyła komunikaty 1000, a następnie zatrzymuje. Nie chcesz zastąpić istniejących właściwości, więc Utwórz nową sekcję w ramach żądanych właściwości `layeredProperties` , które zawierają nową właściwość:
 
 ```json
 "SimulatedTemperatureSensor": {
@@ -174,7 +174,7 @@ Etapowe wdrażanie to ogólny proces, w którym operator wdraża zmiany w rozsze
 
 Etapowe wdrażanie jest wykonywane w następujących fazach i krokach:
 
-1. Ustanów środowisko testowe IoT Edge urządzeń, udostępniając je i ustawiając tag sznurka urządzenia, taki jak `tag.environment='test'`.Środowisko testowe powinno dublować środowisko produkcyjne, w którym wdrożenie będzie ostatecznie docelowe.
+1. Ustanów środowisko testowe IoT Edge urządzeń, udostępniając je i ustawiając tag sznurka urządzenia, taki jak `tag.environment='test'` .Środowisko testowe powinno dublować środowisko produkcyjne, w którym wdrożenie będzie ostatecznie docelowe.
 2. Utwórz wdrożenie, w tym wymagane moduły i konfiguracje. Warunek określania wartości docelowej powinien dotyczyć środowiska testowego IoT Edge urządzenia.
 3. Sprawdź poprawność konfiguracji nowego modułu w środowisku testowym.
 4. Zaktualizuj wdrożenie, aby uwzględnić podzestaw IoT Edge produkcyjnych urządzeń przez dodanie nowego tagu do warunku określania wartości docelowej. Upewnij się również, że priorytet wdrożenia jest wyższy niż inne wdrożenia, które są obecnie przeznaczone dla tych urządzeń.

@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196924"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85448768"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -38,7 +38,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 |Europa Zachodnia     |Trzy strefy          |
 |Południowe Zjednoczone Królestwo     |Trzy strefy          |
 |Japonia Wschodnia     |Dwie strefy         |
-
+|Francja Środkowa    |Dwie strefy        |
 
 
 - Są obsługiwane tylko przez następującą serię maszyn wirtualnych:
@@ -53,6 +53,7 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 - Można utworzyć tylko jako puste dyski  
 - Obecnie nie obsługuje migawek dysków, obrazów maszyn wirtualnych, zestawów dostępności, dedykowanych hostów platformy Azure ani usługi Azure Disk Encryption
 - Program nie obsługuje obecnie integracji z Azure Backup ani Azure Site Recovery
+- Obsługuje tylko odczyty z pamięci podręcznej i zapisywanie w pamięci podręcznej
 - Bieżący maksymalny limit liczby operacji we/wy na maszynach wirtualnych "GA" to 80 000.
 
 Usługa Azure Ultra disks domyślnie oferuje do 16 TiB na region dla każdej subskrypcji, ale niezwykle wysokie pojemności są obsługiwane przez żądanie. Aby zażądać zwiększenia wydajności, skontaktuj się z pomocą techniczną platformy Azure.

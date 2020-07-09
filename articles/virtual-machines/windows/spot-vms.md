@@ -5,15 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c453e8a70a6cd4b9d33a6d40bebd2ac0a804e5e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e4e80048453b7d6e0804bbef670f0544efaca49
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100587"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514847"
 ---
 # <a name="use-spot-vms-in-azure"></a>Korzystanie z maszyn wirtualnych na platformie Azure
 
@@ -21,7 +20,7 @@ ms.locfileid: "82100587"
 
 
 ## <a name="next-steps"></a>Następne kroki
-Użyj [portalu](spot-portal.md), [interfejsu wiersza polecenia](../linux/spot-cli.md) lub [programu PowerShell](spot-powershell.md) , aby wdrożyć maszyny wirtualne.
+Użyj [portalu](spot-portal.md), [interfejsu wiersza polecenia](../linux/spot-cli.md), [szablonu ARM](../linux/spot-template.md)lub [programu PowerShell](spot-powershell.md) , aby wdrożyć maszyny wirtualne.
 
 Możesz również wdrożyć [zestaw skalowania z wystąpieniami maszyn wirtualnych](../../virtual-machine-scale-sets/use-spot.md).
 

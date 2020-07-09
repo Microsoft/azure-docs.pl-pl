@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
 ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649076"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Pobierz zdarzenia zasobów w Azure App Service

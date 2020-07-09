@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informacje o znanych ograniczeniach w przypadku uruchamiania pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208010"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339873"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Bieżące ograniczenia dotyczące pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,19 @@ Węzły systemu Windows Server w AKS muszą zostać *uaktualnione* w celu pobran
 > Zaktualizowany obraz systemu Windows Server będzie używany tylko wtedy, gdy uaktualnienie klastra (uaktualnienie płaszczyzny kontroli) zostało wykonane przed uaktualnieniem puli węzłów
 >
 
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>Dlaczego widzę błąd podczas próby utworzenia nowej puli agentów systemu Windows?
+
+Jeśli klaster został utworzony przed luty 2020 i nigdy nie przeszedł żadnych operacji uaktualniania klastra, klaster nadal używa starego obrazu systemu Windows. Mógł wystąpić błąd podobny do następującego:
+
+"Nie znaleziono następującej listy obrazów, do których odwołuje się szablon wdrożenia: Publisher: MicrosoftWindowsServer, oferta: WindowsServer, SKU: 2019-Datacenter-Core-smalldisk-2004, wersja: Najnowsza. Zapoznaj się z instrukcjami dotyczącymi https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage znajdowania dostępnych obrazów.
+
+Aby rozwiązać ten problem:
+
+1. Uaktualnij [płaszczyznę kontroli klastra][upgrade-cluster-cp]. Spowoduje to zaktualizowanie oferty obrazu i wydawcy.
+1. Utwórz nowe pule agentów systemu Windows.
+1. Przenieś zestawy Windows z istniejących pul agentów systemu Windows na nowe pule agentów systemu Windows.
+1. Usuń stare pule agentów systemu Windows.
+
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Jak mogę obrócić jednostki usługi dla puli węzłów systemu Windows?
 
 Pule węzłów systemu Windows nie obsługują rotacji jednostki usługi. Aby zaktualizować jednostkę usługi, należy utworzyć nową pulę węzłów systemu Windows i przeprowadzić migrację z starszej puli do nowej. Po zakończeniu tej czynności usuń starszą pulę węzłów.
@@ -72,7 +85,7 @@ Należy zachować nazwę maksymalnie 6 (sześć znaków). Jest to bieżące ogra
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Czy wszystkie funkcje są obsługiwane z węzłami systemu Windows?
 
-Zasady sieciowe i korzystającą wtyczki kubenet nie są obecnie obsługiwane w węzłach systemu Windows. 
+Zasady sieciowe i korzystającą wtyczki kubenet nie są obecnie obsługiwane w węzłach systemu Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Czy można uruchamiać kontrolery transferu danych przychodzących w węzłach systemu Windows?
 
@@ -88,7 +101,7 @@ Obsługa kont usług zarządzanych przez grupę (gMSA) nie jest obecnie dostępn
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Czy mogę używać Azure Monitor do kontenerów z węzłami i kontenerami systemu Windows?
 
-Tak, jednak Azure Monitor nie zbiera dzienników (stdout) z kontenerów systemu Windows. Nadal możesz dołączyć strumień strumieni strumienia stdout z kontenera systemu Windows.
+Tak, jednak Azure Monitor jest w publicznej wersji zapoznawczej na potrzeby zbierania dzienników (stdout, stderr) i metryk z kontenerów systemu Windows. Można również dołączyć strumień strumieni strumienia stdout z kontenera systemu Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Co zrobić, jeśli potrzebuję funkcji, która nie jest obsługiwana?
 
@@ -112,7 +125,10 @@ Aby rozpocząć pracę z kontenerami systemu Windows Server w programie AKS, nal
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

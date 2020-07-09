@@ -2,20 +2,20 @@
 title: Odczytywanie danych tabeli interfejs API Cassandra przy użyciu platformy Spark
 titleSufix: Azure Cosmos DB
 description: W tym artykule opisano sposób odczytywania danych z tabel interfejs API Cassandra w Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60893404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85257418"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Odczytywanie danych z Azure Cosmos DB interfejs API Cassandra tabelach przy użyciu platformy Spark
 
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Stosowanie filtrów
 
-Obecnie przekazywanie predykatu nie jest obsługiwane, poniższe przykłady odzwierciedlają filtrowanie po stronie klienta. 
+Można wypchnąć predykaty do bazy danych, aby umożliwić lepsze zoptymalizowane zapytania Spark. Predykat to warunek zapytania, który zwraca wartość true lub false, zazwyczaj znajduje się w klauzuli WHERE. Predykat wypchnij w dół filtruje dane w kwerendzie bazy danych, zmniejszając liczbę wpisów pobieranych z bazy danych i zwiększając wydajność zapytań. Domyślnie interfejs API usługi Spark DataSet automatycznie wypycha prawidłowe klauzule WHERE do bazy danych. 
 
 ```scala
 val readBooksDF = spark
@@ -102,6 +102,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+Sekcja PushedFilters planu fizycznego zawiera filtr wypychania GreaterThan. 
+
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="Partition":::
 
 ## <a name="rdd-api"></a>INTERFEJS API RDD
 

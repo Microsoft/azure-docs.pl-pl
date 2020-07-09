@@ -4,10 +4,9 @@ description: Dodaj znaczniki wdrożenia lub kompilacji do wykresów Eksploratora
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81010735"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Adnotacje na wykresach metryk w Application Insights
@@ -63,7 +62,7 @@ Utwórz oddzielny klucz interfejsu API dla każdego z Azure Pipelines szablonów
    
 1. W oknie szablon zlecenia na karcie **zmienne** wybierz pozycję **Dodaj** , aby utworzyć definicję zmiennej dla nowego klucza interfejsu API.
 
-1. W polu **Nazwa**wprowadź `ApiKey`i w obszarze **wartość**Wklej klucz interfejsu API skopiowany z karty dostęp do **interfejsu API** .
+1. W polu **Nazwa**wprowadź `ApiKey` i w obszarze **wartość**Wklej klucz interfejsu API skopiowany z karty dostęp do **interfejsu API** .
    
    ![Na karcie zmienne usługi Azure DevOps wybierz pozycję Dodaj, nazwij zmienną ApiKey i Wklej klucz interfejsu API w polu wartość.](./media/annotations/7-paste-api-key.png)
    
@@ -94,11 +93,11 @@ Wybierz dowolny znacznik adnotacji, aby otworzyć szczegółowe informacje o wyd
 ## <a name="create-custom-annotations-from-powershell"></a>Tworzenie adnotacji niestandardowych w programie PowerShell
 Możesz użyć skryptu programu [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell z usługi GitHub, aby utworzyć adnotacje z dowolnego procesu, który ma być używany, bez używania platformy Azure DevOps. 
 
-1. Utwórz lokalną kopię [CreateReleaseAnnotation. ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Wykonaj kopię lokalną [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Wykonaj kroki opisane w poprzedniej procedurze, aby pobrać identyfikator Application Insights i utworzyć klucz interfejsu API z karty Application Insights **dostęp do interfejsu API** .
    
-1. Wywołaj skrypt programu PowerShell przy użyciu następującego kodu, zastępując symbole zastępcze w nawiasach kwadratowych wartościami. `-releaseProperties` Są opcjonalne. 
+1. Wywołaj skrypt programu PowerShell przy użyciu następującego kodu, zastępując symbole zastępcze w nawiasach kwadratowych wartościami. `-releaseProperties`Są opcjonalne. 
    
    ```powershell
    

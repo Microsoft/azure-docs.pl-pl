@@ -2,62 +2,52 @@
 title: Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure przy użyciu migracji Azure Migrate Server
 description: Dowiedz się, jak przeprowadzić migrację lokalnych maszyn wirtualnych funkcji Hyper-V na platformę Azure przy użyciu migracji Azure Migrate serwera
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 3b50c11f43d29de354f04e1a4296818c5bd8cbab
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 0e909a91d610c032bc1d9d003efae7c555afd8bc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773530"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86108230"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
-W tym artykule opisano sposób migrowania lokalnych maszyn wirtualnych funkcji Hyper-V na platformę Azure przy użyciu migracji bez wykorzystania agentów z narzędziem do migracji Azure Migrate: Server.
+W tym artykule opisano sposób migrowania lokalnych maszyn wirtualnych funkcji Hyper-V na platformę Azure za pomocą narzędzia do [migracji serwera Azure Migrate:](migrate-services-overview.md#azure-migrate-server-migration-tool) .
 
-[Azure Migrate](migrate-services-overview.md) udostępnia centralne centrum do śledzenia odnajdywania, oceny i migracji lokalnych aplikacji i obciążeń oraz maszyn wirtualnych chmur prywatnych/publicznych na platformie Azure. Centrum udostępnia Azure Migrate narzędzia do oceny i migracji, a także oferty niezależnych dostawców oprogramowania (ISV) innych firm.
+Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i migrować maszyny na platformę Azure. 
 
-Ten samouczek jest trzecią częścią serii, która przedstawia sposób oceny i migracji funkcji Hyper-V do platformy Azure przy użyciu Azure Migrate oceny serwera i migracji serwera. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+> [!NOTE]
+> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. 
 
+ Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Przygotowywanie platformy Azure i lokalnego środowiska funkcji Hyper-V
-> * Skonfiguruj środowisko źródłowe.
-> * Skonfiguruj środowisko docelowe.
-> * Włącz replikację.
+> * Dodaj narzędzie migracji platformy Azure: serwer.
+> * Odnajdź maszyny wirtualne, które chcesz zmigrować.
+> * Rozpocznij replikację maszyn wirtualnych.
 > * Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami.
-> * Uruchom pełną migrację na platformę Azure.
+> * Uruchom pełną migrację maszyny wirtualnej.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+
 Przed rozpoczęciem tego samouczka należy:
 
 1. [Przejrzyj](hyper-v-migration-architecture.md) architekturę migracji funkcji Hyper-V.
-2. [Przegląd](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Wymagania dotyczące hosta funkcji Hyper-V i adresy URL platformy Azure, do których mają dostęp hosty funkcji Hyper-V.
-3. [Zapoznaj](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) się z wymaganiami dotyczącymi maszyn wirtualnych funkcji Hyper-V, które chcesz zmigrować. Maszyny wirtualne funkcji Hyper-V muszą spełniać [wymagania dotyczące maszyny wirtualnej platformy Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
-2. Zalecamy zakończenie pracy z poprzednimi samouczkami w tej serii. W [pierwszym samouczku](tutorial-prepare-hyper-v.md) pokazano, jak skonfigurować platformę Azure i funkcję Hyper-V do migracji. W drugim samouczku pokazano, jak [oceniać maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md) przed migracją przy użyciu Azure Migrate: Ocena serwera. 
-    > [!NOTE]
-    > Chociaż zalecamy wypróbowanie oceny, nie trzeba wykonywać oceny przed migracją maszyn wirtualnych.
-    > W przypadku migrowania maszyn wirtualnych funkcji Hyper-V Azure Migrate: Migracja serwera uruchamia agentów oprogramowania (Microsoft Azure Site Recovery dostawcy i Microsoft Azure agenta usługi odzyskiwania) na hostach lub węzłach klastra funkcji Hyper-V, aby organizować i replikować dane do Azure Migrate. [Urządzenie Azure Migrate](migrate-appliance.md) nie jest używane na potrzeby migracji funkcji Hyper-V.
+2. [Przegląd](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Wymagania hosta funkcji Hyper-V dotyczące migracji oraz adresy URL platformy Azure, do których hosty i klastry funkcji Hyper-V potrzebują dostępu do migracji maszyn wirtualnych.
+3. [Zapoznaj](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) się z wymaganiami dotyczącymi maszyn wirtualnych funkcji Hyper-V, które chcesz zmigrować na platformę Azure.
+4. Zalecamy, aby [oceniać maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md) przed ich migracją na platformę Azure, ale nie musisz.
 
-3. Upewnij się, że Twoje konto platformy Azure ma przypisaną rolę współautor maszyny wirtualnej, dzięki czemu masz uprawnienia do:
-
-    - Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
-    - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
-    - Zapisz na dysku zarządzanym platformy Azure.
-4. [Skonfiguruj sieć platformy Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Podczas migracji na platformę Azure utworzone maszyny wirtualne platformy Azure są przyłączone do sieci platformy Azure, którą określisz podczas konfigurowania migracji.
-
+   
 ## <a name="add-the-azure-migrateserver-migration-tool"></a>Dodawanie Azure Migrate: Narzędzia migracji serwera
 
-Dodaj Azure Migrate: Narzędzia migracji serwera.
-
-- Jeśli wykonano drugi samouczek do [oceny maszyn wirtualnych funkcji Hyper-V](tutorial-assess-hyper-v.md), już skonfigurowano projekt Azure Migrate i można go teraz dodać.
-- Jeśli nie korzystasz z drugiego samouczka[, postępuj zgodnie z poniższymi instrukcjami,](how-to-add-tool-first-time.md) aby skonfigurować projekt Azure Migrate. Podczas tworzenia projektu należy dodać Azure Migrate: Narzędzie migracji serwera.
+Dodaj Azure Migrate: Narzędzia migracji serwera. Jeśli nie masz jeszcze projektu Azure Migrate [, najpierw należy go utworzyć,](how-to-add-tool-first-time.md) aby skonfigurować Azure Migrate projekt. Podczas tworzenia projektu należy dodać Azure Migrate: Narzędzie migracji serwera.
 
 Jeśli masz skonfigurowany projekt, Dodaj narzędzie w następujący sposób:
 
@@ -71,8 +61,9 @@ Jeśli masz skonfigurowany projekt, Dodaj narzędzie w następujący sposób:
 
     ![Narzędzie do migracji serwera](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-## <a name="prepare-hyper-v-hosts"></a>Przygotuj hosty funkcji Hyper-V
+## <a name="download-and-install-the-provider"></a>Pobieranie i Instalowanie dostawcy
 
+W przypadku migrowania maszyn wirtualnych funkcji Hyper-V Azure Migrate: Migracja serwera instaluje dostawców oprogramowania (Microsoft Azure dostawca Site Recovery i Microsoft Azure agenta usługi odzyskiwania) na hostach funkcji Hyper-V lub w węzłach klastra. Należy pamiętać, że [urządzenie Azure Migrate](migrate-appliance.md) nie jest używane do migracji funkcji Hyper-V.
 
 1. Na **serwerach**Azure Migrate Project >, w **Azure Migrate: Migracja serwera**, kliknij przycisk **odkryj**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
@@ -149,7 +140,7 @@ Po ukończeniu odnajdywania można rozpocząć replikację maszyn wirtualnych fu
 > [!NOTE]
 > Ustawienia replikacji można aktualizować w dowolnym momencie przed rozpoczęciem replikacji w obszarze **Zarządzanie**  >  **maszynami replikowanymi**. Ustawień nie można zmienić po rozpoczęciu replikacji.
 
-## <a name="provisioning-for-the-first-time"></a>Inicjowanie obsługi po raz pierwszy
+## <a name="provision-for-the-first-time"></a>Udostępnianie po raz pierwszy
 
 Jeśli jest to pierwsza maszyna wirtualna, która jest replikowana w projekcie Azure Migrate, Azure Migrate: Migracja serwera automatycznie udostępnia te zasoby w tej samej grupie zasobów co projekt.
 
@@ -222,7 +213,7 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
     - Wyłącza replikację maszyny lokalnej.
     - Usuwa maszynę z liczby **serwerów replikowania** w Azure Migrate: Migracja serwera.
     - Czyści informacje o stanie replikacji maszyny wirtualnej.
-2. Zainstaluj agenta maszyny wirtualnej platformy Azure dla [systemu Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) lub [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) na zmigrowanych maszynach.
+2. Zainstaluj agenta maszyny wirtualnej platformy Azure dla [systemu Windows](../virtual-machines/extensions/agent-windows.md) lub [Linux](../virtual-machines/extensions/agent-linux.md) na zmigrowanych maszynach.
 3. Po zakończeniu migracji wykonaj wszystkie potrzebne czynności konfiguracyjne, takie jak aktualizacja parametrów połączenia bazy danych i serwera sieci Web.
 4. Wykonaj dla zmigrowanej aplikacji uruchomionej na platformie Azure testy końcowe aplikacji i akceptacji migracji.
 5. Obcinaj ruch do zmigrowanego wystąpienia maszyny wirtualnej platformy Azure.
@@ -236,14 +227,14 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
     - Zapewnij bezpieczeństwo danych – utwórz kopie zapasowe maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup. [Dowiedz się więcej](../backup/quick-backup-vm-portal.md).
     - Zadbaj, aby pakiety robocze były uruchomione i stale dostępne, replikując maszyny wirtualne platformy Azure do regionu pomocniczego za pomocą usługi Site Recovery. [Dowiedz się więcej](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Aby zwiększyć bezpieczeństwo:
-    - Zablokuj i Ogranicz dostęp do ruchu przychodzącego za pomocą [administracji Azure Security Center w czasie](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Wdróż usługę [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
+    - Zablokuj i Ogranicz dostęp do ruchu przychodzącego za pomocą [administracji Azure Security Center w czasie](../security-center/security-center-just-in-time.md).
+    - Ogranicz ruch sieciowy do punktów końcowych zarządzania za pomocą [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
+    - Wdróż usługę [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), aby ułatwić zabezpieczenie dysków i zabezpieczyć dane przed kradzieżą lub nieautoryzowanym dostępem.
     - Przeczytaj więcej na temat [zabezpieczania zasobów IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) i skorzystaj z usługi [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Na potrzeby monitorowania i zarządzania:
--  Rozważ wdrożenie usługi [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview), aby monitorować użycie zasobu i wydatki.
+-  Rozważ wdrożenie usługi [Azure Cost Management](../cost-management-billing/cloudyn/overview.md), aby monitorować użycie zasobu i wydatki.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zbadaj [podróż migracji w chmurze](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) w strukturze wdrażania w chmurze platformy Azure.
+Zbadaj [podróż migracji w chmurze](/azure/architecture/cloud-adoption/getting-started/migrate) w strukturze wdrażania w chmurze platformy Azure.

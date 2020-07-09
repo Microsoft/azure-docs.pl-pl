@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: ac51b77e1ffc2b476b0a73dac9b6917552a86ce4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ec0bf460a73f95e18e2e9221e8cbd8d4e14ff77
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74807157"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086215"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Tworzenie Apache Spark zadań przesyłania strumieniowego o wysokiej dostępności przy użyciu PRZĘDZy
 
@@ -71,8 +71,8 @@ Jeśli jednak **Sterownik** ulegnie awarii, wszystkie powiązane z nim Moduły w
 
 Aby odzyskać sterowniki z DStream Checkpoint:
 
-* Skonfiguruj automatyczne ponowne uruchamianie sterowników w PRZĘDZe z ustawieniem `yarn.resourcemanager.am.max-attempts`konfiguracji.
-* Ustaw katalog punktów kontrolnych w systemie plików zgodnym z systemem `streamingContext.checkpoint(hdfsDirectory)`HDFS przy użyciu programu.
+* Skonfiguruj automatyczne ponowne uruchamianie sterowników w PRZĘDZe z ustawieniem konfiguracji `yarn.resourcemanager.am.max-attempts` .
+* Ustaw katalog punktów kontrolnych w systemie plików zgodnym z systemem HDFS przy użyciu programu `streamingContext.checkpoint(hdfsDirectory)` .
 * Restrukturyzacja kodu źródłowego do używania punktów kontrolnych do odzyskiwania, na przykład:
 
     ```scala
@@ -88,7 +88,7 @@ Aby odzyskać sterowniki z DStream Checkpoint:
         context.start()
     ```
 
-* Skonfiguruj odzyskiwanie utraconych danych, włączając dziennik zapisu (WAL) w programie `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`, i Wyłącz replikację w pamięci dla danych wejściowych DStreams z `StorageLevel.MEMORY_AND_DISK_SER`.
+* Skonfiguruj odzyskiwanie utraconych danych, włączając dziennik zapisu (WAL) w programie `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")` , i Wyłącz replikację w pamięci dla danych wejściowych DStreams z `StorageLevel.MEMORY_AND_DISK_SER` .
 
 Aby podsumować przy użyciu punktów kontrolnych + WAL i niezawodnych odbiorców, można dostarczyć "co najmniej raz" odzyskiwanie danych:
 
@@ -106,7 +106,7 @@ Aby podsumować przy użyciu punktów kontrolnych + WAL i niezawodnych odbiorcó
     spark.yarn.am.attemptFailuresValidityInterval=1h
     ```
 
-* Platforma Spark i interfejs użytkownika funkcji przesyłania strumieniowego Spark mają konfigurowalny system metryk. Możesz również użyć dodatkowych bibliotek, takich jak grafit/Grafana, aby pobrać metryki pulpitu nawigacyjnego, takie jak "liczba rekordów przetworzonych", "użycie pamięci/GC na sterowniku & wykonywania", "całkowitego opóźnienia", "użycie klastra" i tak dalej. W przypadku przesyłania strumieniowego ze strukturą w wersji 2,1 `StreamingQueryListener` lub nowszej można użyć programu, aby zebrać dodatkowe metryki.
+* Platforma Spark i interfejs użytkownika funkcji przesyłania strumieniowego Spark mają konfigurowalny system metryk. Możesz również użyć dodatkowych bibliotek, takich jak grafit/Grafana, aby pobrać metryki pulpitu nawigacyjnego, takie jak "liczba rekordów przetworzonych", "użycie pamięci/GC na sterowniku & wykonywania", "całkowitego opóźnienia", "użycie klastra" i tak dalej. W przypadku przesyłania strumieniowego ze strukturą w wersji 2,1 lub nowszej można użyć `StreamingQueryListener` programu, aby zebrać dodatkowe metryki.
 
 * Należy dzielić długotrwałe zadania.  Gdy aplikacja do przesyłania strumieniowego Spark jest przesyłana do klastra, należy zdefiniować kolejkę PRZĘDZy, w której uruchomiono zadanie. Można użyć [harmonogramu pojemności przędzy](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) do przesyłania długotrwałych zadań do oddzielnych kolejek.
 

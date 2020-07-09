@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: e241657186582955d21981f7dfe18856724aa692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75894409"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Scenariusz: błąd Jupyter serwera 404 "nie znaleziono" z powodu "blokowania interfejsu API między źródłami" w usłudze Azure HDInsight
@@ -36,7 +35,7 @@ Ten błąd może być spowodowany przez kilka rzeczy:
 
 - Jeśli skonfigurowano reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia dostępu do klastra. Ograniczanie dostępu za pomocą reguł sieciowej grupy zabezpieczeń nadal umożliwia bezpośredni dostęp do platformy Apache Ambari i innych usług przy użyciu adresu IP, a nie nazwy klastra. Jednak podczas uzyskiwania dostępu do Jupyter może zostać wyświetlony komunikat o błędzie "nie znaleziono" 404.
 
-- Jeśli masz przyznanym bramie HDInsight niestandardową nazwę DNS inną niż `xxx.azurehdinsight.net`standardowa.
+- Jeśli masz przyznanym bramie HDInsight niestandardową nazwę DNS inną niż standardowa `xxx.azurehdinsight.net` .
 
 ## <a name="resolution"></a>Rozwiązanie
 
@@ -47,7 +46,7 @@ Ten błąd może być spowodowany przez kilka rzeczy:
     /var/lib/ambari-agent/cache/common-services/JUPYTER/1.0.0/package/scripts/jupyter.py
     ```
 
-1. Znajdź wiersz, który brzmi: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` i zmień go na: `NotebookApp.allow_origin='\"*\"'`.
+1. Znajdź wiersz, który brzmi: `NotebookApp.allow_origin='\"https://{2}.{3}\"'` i zmień go na: `NotebookApp.allow_origin='\"*\"'` .
 
 1. Uruchom ponownie usługę Jupyter z Ambari.
 
@@ -61,6 +60,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) za pomocą — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się za pomocą [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

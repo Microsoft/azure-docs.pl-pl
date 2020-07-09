@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73888862"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Łączenie urządzenia IoT DevKit z akceleratorem rozwiązania do zdalnego monitorowania
@@ -51,7 +50,7 @@ Aby skonfigurować IoT Hub parametry połączenia urządzenia na urządzeniu Dev
     * Przytrzymaj przycisk **A**.
     * Wypchnij i zwolnij przycisk **Resetuj** .
 
-1. Na ekranie zostanie wyświetlony Identyfikator DevKit i `Configuration`.
+1. Na ekranie zostanie wyświetlony Identyfikator DevKit i `Configuration` .
 
     ![Tryb konfiguracji DevKit IoT](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
@@ -63,7 +62,7 @@ Aby skonfigurować IoT Hub parametry połączenia urządzenia na urządzeniu Dev
 
 Aby skompilować i przekazać kod urządzenia:
 
-1. Naciśnij `F1` klawisz, aby otworzyć paletę poleceń, wpisz i wybierz pozycję **Azure IoT Device Workbench: Przekaż kod urządzenia**:
+1. Naciśnij klawisz `F1` , aby otworzyć paletę poleceń, wpisz i wybierz pozycję **Azure IoT Device Workbench: Przekaż kod urządzenia**:
 
 1. VS Code kompiluje i przekazuje kod na urządzenie DevKit:
 
@@ -109,7 +108,7 @@ Aby zmienić kolor jednego z diod LED DevKit, użyj metody **LedColor** :
 
     ![Czerwona dioda DevKit IoT](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do samouczków, nie usuwaj wdrożenia akceleratora rozwiązania do monitorowania zdalnego.
 

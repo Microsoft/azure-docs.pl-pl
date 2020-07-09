@@ -7,10 +7,9 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81272682"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Obsłuż problemy związane z ograniczaniem (429-"zbyt wiele żądań") w Azure Logic Apps
@@ -101,7 +100,7 @@ Aby obsłużyć ograniczenie przepustowości na tym poziomie, dostępne są nast
 
       `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
-    * Wyrażenie 2: `skip()` funkcja usuwa przód kolekcji i zwraca wszystkie pozostałe elementy. Aby uzyskać więcej informacji, zobacz [ **`skip()`** funkcję](workflow-definition-language-functions-reference.md#skip).
+    * Wyrażenie 2: `skip()` Funkcja usuwa przód kolekcji i zwraca wszystkie pozostałe elementy. Aby uzyskać więcej informacji, zobacz [ **`skip()`** funkcję](workflow-definition-language-functions-reference.md#skip).
 
       `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
@@ -166,7 +165,7 @@ Aby obsłużyć ograniczenie przepustowości na tym poziomie, dostępne są nast
 
   Dlaczego? Wyzwalacz sondowania kontynuuje sprawdzanie docelowej usługi lub systemu w określonych odstępach czasu. Bardzo częste interwały, na przykład co sekundę, mogą tworzyć problemy z ograniczeniami. Jednak wyzwalacz elementu webhook lub Akcja, taka jak [element webhook protokołu HTTP](../connectors/connectors-native-webhook.md), tworzy tylko jedno wywołanie do docelowej usługi lub systemu, które odbywa się w czasie subskrypcji i żądania, że miejsce docelowe powiadamia wyzwalacz lub akcję tylko wtedy, gdy wystąpi zdarzenie. Dzięki temu wyzwalacz lub akcja nie musi stale sprawdzać lokalizacji docelowej.
   
-  Dlatego jeśli usługa lub system docelowy obsługuje elementy webhook lub udostępnia łącznik, który ma wersję elementu webhook, ta opcja jest lepsza niż przy użyciu wersji sondowania. Aby zidentyfikować wyzwalacze i akcje elementu webhook, upewnij się, `ApiConnectionWebhook` że mają one typ lub że nie wymagają określenia cyklu. Aby uzyskać więcej informacji, zobacz [APIConnectionWebhook wyzwalacz](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i [APIConnectionWebhook akcji](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
+  Dlatego jeśli usługa lub system docelowy obsługuje elementy webhook lub udostępnia łącznik, który ma wersję elementu webhook, ta opcja jest lepsza niż przy użyciu wersji sondowania. Aby zidentyfikować wyzwalacze i akcje elementu webhook, upewnij się, że mają one `ApiConnectionWebhook` Typ lub że nie wymagają określenia cyklu. Aby uzyskać więcej informacji, zobacz [APIConnectionWebhook wyzwalacz](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i [APIConnectionWebhook akcji](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## <a name="next-steps"></a>Następne kroki
 

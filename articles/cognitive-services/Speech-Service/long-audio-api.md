@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ca6bff4c1e99bb8e63db212ca57693870afc30e7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587344"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080642"
 ---
 # <a name="long-audio-api-preview"></a>Long audio API (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Podczas przygotowywania pliku tekstowego upewnij się, że:
   * W przypadku zwykłego tekstu każdy akapit jest oddzielony przez naciśnięcie **klawisza ENTER/Return** -View — [przykład wprowadzania tekstu](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * W przypadku tekstu SSML każdy element SSML jest traktowany jako akapit. Elementy SSML są oddzielane różnymi akapitami — [przykładem wyświetlania tekstu SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
-> W języku chińskim (kontynent), chińskim (Hongkong), chińskim (Tajwan), japońskim i koreańskim, jeden wyraz będzie liczony jako dwa znaki. 
+> W języku chińskim (kontynent), chińskim (Hongkong SAR), chińskim (Tajwan), japońskim i koreańskim, jeden wyraz będzie liczony jako dwa znaki. 
 
 ## <a name="submit-synthesis-requests"></a>Prześlij żądania syntezy
 
@@ -66,7 +66,7 @@ Po przygotowaniu zawartości wejściowej postępuj zgodnie z [długim formularze
 |        | 400 | Synteza głosowa obsługuje tylko plik tekstowy w kodowaniu UTF-8 ze znacznikiem kolejności bajtów. | Upewnij się, że pliki wejściowe są w kodowaniu UTF-8 przy użyciu znacznika kolejności bajtów. |
 |        | 400 | W żądaniu syntezy głosowej są dozwolone tylko prawidłowe dane wejściowe SSML. | Upewnij się, że wejściowe wyrażenia SSML są poprawne. |
 |        | 400 | Nie znaleziono nazwy głosu {voicename} w pliku wejściowym. | Nazwa głosu SSML wejściowego nie jest wyrównana do identyfikatora modelu. |
-|        | 400 | Ilość akapitu w pliku wejściowym powinna być mniejsza niż 10 000. | Upewnij się, że akapit w pliku jest mniejszy niż 10 000. |
+|        | 400 | Liczba akapitów w pliku wejściowym powinna być mniejsza niż 10 000. | Upewnij się, że liczba akapitów w pliku jest mniejsza niż 10 000. |
 |        | 400 | Plik wejściowy powinien zawierać więcej niż 400 znaków. | Upewnij się, że plik wejściowy przekracza 400 znaków. |
 |        | 404 | Nie można znaleźć modelu zadeklarowanego w definicji syntezy głosu: {modelID}. | Upewnij się, że wartość {modelID} jest poprawna. |
 |        | 429 | Przekracza limit aktywnego syntezy głosu. Zaczekaj na zakończenie niektórych żądań. | Serwer może działać i kolejkować do 120 żądań dla każdego konta platformy Azure. Zaczekaj i unikaj przesyłania nowych żądań, dopóki niektóre żądania nie zostaną ukończone. |

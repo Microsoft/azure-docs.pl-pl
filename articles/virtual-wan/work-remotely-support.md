@@ -4,15 +4,15 @@ description: Na tej stronie opisano, jak korzystać z wirtualnej sieci WAN platf
 services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: ce212b5da90906966025674b58884d0e2f5bb064
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337126"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753766"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Wirtualna sieć WAN platformy Azure i obsługa zdalna
 
@@ -51,9 +51,9 @@ Podstawowa wirtualna sieć WAN zapewnia tylko sieć VPN typu lokacja-lokacja. Ab
 
 ## <a name="additional-information"></a><a name="other considerations"></a>Dodatkowe informacje
 
-Wirtualna sieć WAN obsługuje jeden koncentrator na region/lokalizację. Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) . Każde centrum obsługuje do 10 000 połączeń użytkowników zdalnych, połączenie z gałęzią 1 000, cztery obwody usługi ExpressRoute oraz do 500 połączeń Virtual Network. Podczas skalowania w górę użytkowników zdalnych, jeśli masz jakieś pytania, nie niechętnie zezwalają, aby uzyskać pomoc, wysyłając wiadomość e-mail na azurevirtualwan@microsoft.comadres. Jeśli wymagana jest pomoc techniczna, pamiętaj, aby otworzyć bilet pomocy technicznej z Azure Portal i uzyskać pomoc.
+Wirtualna sieć WAN obsługuje jeden koncentrator na region/lokalizację. Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) . Każde centrum obsługuje do 10 000 połączeń użytkowników zdalnych, połączenie z gałęzią 1 000, cztery obwody usługi ExpressRoute oraz do 500 połączeń Virtual Network. Podczas skalowania w górę użytkowników zdalnych, jeśli masz jakieś pytania, nie niechętnie zezwalają, aby uzyskać pomoc, wysyłając wiadomość e-mail na adres azurevirtualwan@microsoft.com . Jeśli wymagana jest pomoc techniczna, pamiętaj, aby otworzyć bilet pomocy technicznej z Azure Portal i uzyskać pomoc.
 
-## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

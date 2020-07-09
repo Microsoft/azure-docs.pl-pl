@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628797"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Omówienie lokalnej pamięci podręcznej Azure App Service
@@ -83,12 +83,12 @@ Lokalna pamięć podręczna jest włączana dla poszczególnych aplikacji dla si
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Zmień ustawienie rozmiaru w lokalnej pamięci podręcznej
-Domyślnie rozmiar lokalnej pamięci podręcznej wynosi **1 GB**. Obejmuje to foldery/konfiguracja i/siteextensions, które są kopiowane z magazynu zawartości, a także wszystkie utworzone lokalnie dzienniki i foldery danych. Aby zwiększyć ten limit, użyj ustawienia `WEBSITE_LOCAL_CACHE_SIZEINMB`aplikacji. Można zwiększyć rozmiar do **2 GB** (2000 MB) na aplikację. Należy pamiętać, że ładowanie lokalnej pamięci podręcznej będzie trwać dłużej w miarę wzrostu rozmiaru.
+Domyślnie rozmiar lokalnej pamięci podręcznej wynosi **1 GB**. Obejmuje to foldery/konfiguracja i/siteextensions, które są kopiowane z magazynu zawartości, a także wszystkie utworzone lokalnie dzienniki i foldery danych. Aby zwiększyć ten limit, użyj ustawienia aplikacji `WEBSITE_LOCAL_CACHE_SIZEINMB` . Można zwiększyć rozmiar do **2 GB** (2000 MB) na aplikację. Należy pamiętać, że ładowanie lokalnej pamięci podręcznej będzie trwać dłużej w miarę wzrostu rozmiaru.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Najlepsze rozwiązania dotyczące korzystania z App Service lokalnej pamięci podręcznej
 Zalecamy używanie lokalnej pamięci podręcznej w połączeniu z funkcją [środowisk przejściowych](../app-service/deploy-staging-slots.md) .
 
-* Dodaj ustawienie `WEBSITE_LOCAL_CACHE_OPTION` aplikacji *Sticky Notes* z wartością `Always` do miejsca **produkcyjnego** . Jeśli używasz programu `WEBSITE_LOCAL_CACHE_SIZEINMB`, Dodaj go również jako ustawienie programu Sticky Notes do miejsca produkcyjnego.
+* Dodaj ustawienie aplikacji *Sticky Notes* `WEBSITE_LOCAL_CACHE_OPTION` z wartością `Always` do miejsca **produkcyjnego** . Jeśli używasz programu `WEBSITE_LOCAL_CACHE_SIZEINMB` , Dodaj go również jako ustawienie programu Sticky Notes do miejsca produkcyjnego.
 * Utwórz miejsce **przejściowe** i Opublikuj je w miejscu przejściowym. Zazwyczaj nie ustawia się miejsca przejściowego na używanie lokalnej pamięci podręcznej, aby umożliwić bezproblemowe cykle kompilowania wdrożeń na potrzeby testowania dla miejsca przejściowego, jeśli masz zalety lokalnej pamięci podręcznej w miejscu produkcyjnym.
 * Przetestuj lokację względem miejsca przejściowego.  
 * Gdy wszystko będzie gotowe, wystaw [operację wymiany między miejscami](../app-service/deploy-staging-slots.md#Swap) przejściowymi i produkcyjnymi.  
@@ -100,7 +100,7 @@ Zalecamy używanie lokalnej pamięci podręcznej w połączeniu z funkcją [śro
 Jeśli aplikacja wymaga magazynu o wysokiej wydajności i niezawodnej zawartości, program nie będzie używać magazynu zawartości do zapisywania krytycznych danych w czasie wykonywania i jest mniejszy niż 2 GB w łącznym rozmiarze, a następnie odpowiedź ma wartość "yes". Aby uzyskać łączny rozmiar folderów/konfiguracja i/siteextensions, można użyć rozszerzenia witryny "Azure Web Apps Disk Usage".
 
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Jak sprawdzić, czy moja witryna przełączyła się w celu korzystania z lokalnej pamięci podręcznej?
-Jeśli używasz funkcji lokalnej pamięci podręcznej w środowiskach przejściowych, operacja wymiany nie zostanie zakończona do momentu wyczerpania lokalnej pamięci podręcznej. Aby sprawdzić, czy lokacja jest uruchomiona względem lokalnej pamięci podręcznej, można sprawdzić zmienną `WEBSITE_LOCALCACHE_READY`środowiskową procesu roboczego. Użyj instrukcji na stronie [zmienna środowiskowa procesu roboczego](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) , aby uzyskać dostęp do zmiennej środowiskowej procesu roboczego w wielu wystąpieniach.  
+Jeśli używasz funkcji lokalnej pamięci podręcznej w środowiskach przejściowych, operacja wymiany nie zostanie zakończona do momentu wyczerpania lokalnej pamięci podręcznej. Aby sprawdzić, czy lokacja jest uruchomiona względem lokalnej pamięci podręcznej, można sprawdzić zmienną środowiskową procesu roboczego `WEBSITE_LOCALCACHE_READY` . Użyj instrukcji na stronie [zmienna środowiskowa procesu roboczego](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) , aby uzyskać dostęp do zmiennej środowiskowej procesu roboczego w wielu wystąpieniach.  
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Właśnie opublikowano nowe zmiany, ale moja aplikacja nie wygląda na to. Dlaczego?
 Jeśli aplikacja korzysta z lokalnej pamięci podręcznej, należy ponownie uruchomić lokację, aby uzyskać najnowsze zmiany. Nie chcesz publikować zmian w lokacji produkcyjnej? Zobacz Opcje gniazda w sekcji poprzednie najlepsze rozwiązania.

@@ -4,10 +4,10 @@ description: Dowiedz się, jak zabezpieczyć wartości tajne w aplikacji Service
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583239"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Zarządzanie zaszyfrowanymi wpisami tajnymi w aplikacjach Service Fabric
@@ -24,9 +24,9 @@ Skonfigurowanie certyfikatu szyfrowania i użycie go do szyfrowania wpisów tajn
 * [Skonfiguruj certyfikat szyfrowania i Szyfruj wpisy tajne w klastrach systemu Linux.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Określanie szyfrowanych wpisów tajnych w aplikacji
-W poprzednim kroku opisano sposób szyfrowania wpisu tajnego za pomocą certyfikatu i tworzenia zakodowanego ciągu Base-64 do użycia w aplikacji. Ten ciąg zakodowany Base-64 może być określony jako zaszyfrowany [parametr][parameters-link] w pliku Settings. XML usługi lub jako zaszyfrowanej [zmiennej środowiskowej][environment-variables-link] w elemencie servicemanifest. XML usługi.
+W poprzednim kroku opisano sposób szyfrowania wpisu tajnego za pomocą certyfikatu i tworzenia zakodowanego ciągu Base-64 do użycia w aplikacji. Ten zakodowany ciąg Base-64 może być określony jako zaszyfrowany [parametr][parameters-link] w Settings.xml usługi lub jako [zmienna środowiskowa][environment-variables-link] zaszyfrowana w ServiceManifest.xml usługi.
 
-Określ zaszyfrowany [parametr][parameters-link] w pliku konfiguracyjnym XML ustawień usługi z `IsEncrypted` atrybutem ustawionym na: `true`
+Określ zaszyfrowany [parametr][parameters-link] w pliku konfiguracji Settings.xml usługi z `IsEncrypted` atrybutem ustawionym na `true` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -36,7 +36,7 @@ Określ zaszyfrowany [parametr][parameters-link] w pliku konfiguracyjnym XML ust
   </Section>
 </Settings>
 ```
-Określ zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pliku servicemanifest. XML usługi z `Type` atrybutem ustawionym na `Encrypted`:
+Określ zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pliku ServiceManifest.xml usługi z `Type` atrybutem ustawionym na `Encrypted` :
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -45,7 +45,7 @@ Określ zaszyfrowaną [zmienną środowiskową][environment-variables-link] w pl
 </CodePackage>
 ```
 
-Wpisy tajne powinny być również zawarte w aplikacji Service Fabric przez określenie certyfikatu w manifeście aplikacji. Dodaj element **SecretsCertificate** do **ApplicationManifest. XML** i Dołącz odcisk palca żądanego certyfikatu.
+Wpisy tajne powinny być również zawarte w aplikacji Service Fabric przez określenie certyfikatu w manifeście aplikacji. Dodaj element **SecretsCertificate** do **ApplicationManifest.xml** i Uwzględnij odcisk palca żądanego certyfikatu.
 
 ```xml
 <ApplicationManifest … >
@@ -64,8 +64,8 @@ Wpisy tajne powinny być również zawarte w aplikacji Service Fabric przez okre
 ### <a name="inject-application-secrets-into-application-instances"></a>Wsuń wpisy tajne aplikacji do wystąpień aplikacji
 W idealnym przypadku wdrożenie w różnych środowiskach powinno być tak zautomatyzowane jak to możliwe. Można to osiągnąć przez przeprowadzenie tajnego szyfrowania w środowisku kompilacji i dostarczenie zaszyfrowanych kluczy tajnych jako parametrów podczas tworzenia wystąpień aplikacji.
 
-#### <a name="use-overridable-parameters-in-settingsxml"></a>Użyj parametrów, które mają zostać zastąpione w pliku Settings. XML
-Plik konfiguracji Settings. XML umożliwia określenie parametrów, które mogą być dostarczane podczas tworzenia aplikacji. Użyj `MustOverride` atrybutu zamiast podawania wartości dla parametru:
+#### <a name="use-overridable-parameters-in-settingsxml"></a>Użyj parametrów do zastąpienia w Settings.xml
+Plik konfiguracji Settings.xml umożliwia zastąpienia parametrów, które mogą być dostarczane podczas tworzenia aplikacji. Użyj `MustOverride` atrybutu zamiast podawania wartości dla parametru:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -76,7 +76,7 @@ Plik konfiguracji Settings. XML umożliwia określenie parametrów, które mogą
 </Settings>
 ```
 
-Aby zastąpić wartości w pliku Settings. XML, zadeklaruj parametr przesłonięcia dla usługi w ApplicationManifest. XML:
+Aby przesłonić wartości w Settings.xml, zadeklaruj parametr przesłonięcia dla usługi w ApplicationManifest.xml:
 
 ```xml
 <ApplicationManifest ... >
@@ -105,7 +105,7 @@ Przy użyciu programu PowerShell parametr jest dostarczany do `New-ServiceFabric
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Przy użyciu języka C# parametry aplikacji są określone w `ApplicationDescription` `NameValueCollection`:
+Przy użyciu języka C# parametry aplikacji są określone w `ApplicationDescription` `NameValueCollection` :
 
 ```csharp
 FabricClient fabricClient = new FabricClient();

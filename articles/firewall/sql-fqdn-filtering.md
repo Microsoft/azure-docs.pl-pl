@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak skonfigurować nazwy FQDN SQL w re
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 05/18/2020
+ms.topic: how-to
+ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 1195bb2676634dd3e7c9310da4e8855c4ff814f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610510"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Konfigurowanie reguł aplikacji zapory platformy Azure przy użyciu nazw FQDN programu SQL
 
@@ -24,7 +24,7 @@ Za pomocą nazw FQDN programu SQL można filtrować ruch:
 - Z usług lokalnych do usługi Azure SQL Managed Instances lub SQL IaaS uruchomionych w sieci wirtualnych.
 - Od satelity do współdziałania z wystąpieniami zarządzanymi usługi Azure SQL lub SQL IaaS uruchomionymi w sieci wirtualnych.
 
-Filtrowanie nazwy FQDN SQL jest obsługiwane tylko w [trybie proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Jeśli używasz SQL w domyślnym trybie przekierowywania, możesz filtrować dostęp przy użyciu znacznika usługi SQL jako części [reguł sieci](overview.md#network-traffic-filtering-rules).
+Filtrowanie nazwy FQDN SQL jest obsługiwane tylko w [trybie proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Jeśli używasz SQL w domyślnym trybie przekierowywania, możesz filtrować dostęp przy użyciu znacznika usługi SQL jako części [reguł sieci](features.md#network-traffic-filtering-rules).
 Jeśli używasz portów innych niż domyślne dla ruchu SQL IaaS, możesz skonfigurować te porty w regułach aplikacji zapory.
 
 ## <a name="configure-using-azure-cli"></a>Konfigurowanie przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -63,4 +63,4 @@ Jeśli używasz portów innych niż domyślne dla ruchu SQL IaaS, możesz skonfi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o usłudze SQL proxy i trybach przekierowywania, zobacz [Architektura łączności usługi Azure SQL Database](../azure-sql/database/connectivity-architecture.md).
+Aby dowiedzieć się więcej o usłudze SQL proxy i trybach przekierowywania, zobacz [Azure SQL Database architektura łączności](../azure-sql/database/connectivity-architecture.md).

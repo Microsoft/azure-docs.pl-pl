@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195251"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Podstawa zabezpieczeń platformy Azure dla Cosmos DB
@@ -131,7 +131,7 @@ Aby uzyskać więcej informacji na temat używania tagów usługi:https://docs.m
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: Obsługa standardowych konfiguracji zabezpieczeń dla urządzeń sieciowych
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla zasobów sieciowych za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. DocumentDB" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci wystąpień Azure Cosmos DB. Możesz również używać wbudowanych definicji zasad dla Azure Cosmos DB, takich jak:
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla zasobów sieciowych za pomocą Azure Policy. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft.DocumentDB" i "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Azure Cosmos DB. Możesz również używać wbudowanych definicji zasad dla Azure Cosmos DB, takich jak:
 
 - Wdróż zaawansowaną ochronę przed zagrożeniami dla kont Cosmos DB
 
@@ -294,7 +294,7 @@ Ponadto niektóre akcje w Azure Cosmos DB mogą być kontrolowane za pomocą klu
 
 Informacje na temat kontroli dostępu opartej na rolach w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
-Utwórz własne role niestandardowe przy użyciu akcji Azure Cosmos DB (przestrzeń nazw Microsoft. DocumentDB):https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
+Tworzenie własnych ról niestandardowych przy użyciu akcji Azure Cosmos DB (przestrzeń nazw Microsoft.DocumentDB):https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
 Utwórz nową rolę w Azure Active Directory:https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
@@ -504,7 +504,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: wszystkie połączenia do Azure Cosmos DB obsługują protokół https. Azure Cosmos DB obsługuje również protokół TLS 1.2. Istnieje możliwość wymuszenia minimalnej wersji protokołu TLS po stronie serwera. Aby to zrobić, skontaktuj się [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)z firmą.
+**Wskazówki**: wszystkie połączenia do Azure Cosmos DB obsługują protokół https. Azure Cosmos DB obsługuje również protokół TLS 1.2. Istnieje możliwość wymuszenia minimalnej wersji protokołu TLS po stronie serwera. Aby to zrobić, skontaktuj się z firmą [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) .
 
 Omówienie zabezpieczeń Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/database-security
 
@@ -518,7 +518,7 @@ Omówienie zabezpieczeń Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/da
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-Indeksowanie Azure Cosmos DB danych za pomocą platformy https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&ampAzure wyszukiwanie poznawcze:, BC =/Azure/Cosmos-DB/breadcrumb/TOC.JSON
+Indeksuj Azure Cosmos DB dane przy użyciu platformy Azure Wyszukiwanie poznawcze: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp ; BC =/azure/cosmos-db/breadcrumb/toc.jsna
 
 Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -786,7 +786,7 @@ Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resourc
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
-**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla wystąpień Cosmos dB przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. DocumentDB", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień Cosmos DB. Możesz również używać wbudowanych definicji zasad dla Azure Cosmos DB, takich jak:
+**Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla wystąpień Cosmos dB przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft.DocumentDB", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień Cosmos DB. Możesz również używać wbudowanych definicji zasad dla Azure Cosmos DB, takich jak:
 
 - Wdróż zaawansowaną ochronę przed zagrożeniami dla kont Cosmos DB
 
@@ -850,7 +850,7 @@ Dokumentacja Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?vi
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Wdrażanie narzędzi do zarządzania konfiguracją systemu
 
-**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. DocumentDB", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
+**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft.DocumentDB", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
 Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -868,7 +868,7 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: Zaimplementuj automatyczne monitorowanie konfiguracji dla usług platformy Azure
 
-**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. DocumentDB", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla wystąpień Azure Cosmos DB i powiązanych zasobów. 
+**Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft.DocumentDB", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla wystąpień Azure Cosmos DB i powiązanych zasobów. 
 
 Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

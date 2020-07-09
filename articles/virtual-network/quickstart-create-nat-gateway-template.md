@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych'
+title: 'Samouczek: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych'
 titleSuffix: Azure Virtual Network NAT
 description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu szablonu Azure Resource Manager.
 services: load-balancer
@@ -8,27 +8,28 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 3850f3f22e730e46f6d278b6cef0e17d357b126d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81618053"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703574"
 ---
-# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Szybki Start: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
+# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Samouczek: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
 
 Rozpocznij pracę z Virtual Network translatora adresów sieciowych przy użyciu szablonu Azure Resource Manager.  Ten szablon służy do wdrażania sieci wirtualnej, zasobu bramy translatora adresów sieciowych i Ubuntu maszyny wirtualnej. Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy translatora adresów sieciowych.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-nat-gateway-and-supporting-resources"></a>Tworzenie bramy translatora adresów sieciowych i obsługa zasobów
 
@@ -40,7 +41,7 @@ Ten szablon jest skonfigurowany do tworzenia
 
 Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy translatora adresów sieciowych.
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json)
 
@@ -116,7 +117,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
     ![Grupa zasobów Virtual Network translator adresów sieciowych](./media/quick-create-template/nat-gateway-template-rg.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 **Interfejs wiersza polecenia platformy Azure**
 
@@ -153,4 +154,4 @@ Aby dowiedzieć się więcej na temat Virtual Network translatora adresów sieci
 
 * Zapoznaj się [z omówieniem Virtual Network translatora adresów sieciowych](nat-overview.md)
 * Przeczytaj informacje o [zasobie bramy translatora adresów sieciowych](nat-gateway-resource.md)
-* Dowiedz się więcej o [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+* Dowiedz się więcej o usłudze [Azure Resource Manager](../azure-resource-manager/management/overview.md)

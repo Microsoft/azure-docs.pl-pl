@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 18e1ab1d01394d585cfb06ced8c5fbac04114177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431958"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85476771"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej ogólnych informacji na temat Azure Key Vault, zobacz [co t
 
 ## <a name="public-previews"></a>Publiczne podglądy
 
-Okresowo firma Microsoft udostępnia publiczną wersję zapoznawczą nowej funkcji Key Vault. Wypróbuj je i daj nam znać, co myślisz, azurekeyvault@microsoft.comza pośrednictwem adresu e-mail z opiniami.
+Okresowo firma Microsoft udostępnia publiczną wersję zapoznawczą nowej funkcji Key Vault. Wypróbuj je i daj nam znać, co myślisz, za pośrednictwem azurekeyvault@microsoft.com adresu e-mail z opiniami.
 
 ## <a name="creating-and-managing-key-vaults"></a>Tworzenie magazynów kluczy i zarządzanie nimi
 
@@ -43,7 +43,7 @@ Przed rozpoczęciem pracy z kluczami, wpisami tajnymi lub certyfikatami w magazy
 - [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą portu platformy Azure](../secrets/quick-create-portal.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu języka Python](../secrets/quick-create-python.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu języka Java](../secrets/quick-create-java.md)
-- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą środowiska Node. js](../secrets/quick-create-node.md)
+- [Tworzenie magazynów kluczy i zarządzanie nimi za pomocą Node.js](../secrets/quick-create-node.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu platformy .NET (zestaw SDK v4)](../secrets/quick-create-net.md)
 - [Tworzenie magazynu kluczy i Dodawanie wpisu tajnego za pomocą szablonu Azure Resource Manager](../secrets/quick-create-template.md)
 - [Tworzenie magazynów kluczy i zarządzanie nimi przy użyciu interfejsu REST](/rest/api/keyvault/)
@@ -73,9 +73,9 @@ Aby uzyskać więcej informacji na temat wersji 2. x zestawu SDK platformy .NET,
 
 #### <a name="nodejs"></a>Node.js
 
-W programie Node. js interfejs API zarządzania Key Vault i interfejs API obiektów Key Vault są oddzielone. Poniższy artykuł omówienia zapewnia dostęp do obu tych programów. 
+W Node.js interfejs API zarządzania Key Vault i interfejs API obiektu Key Vault są oddzielone. Poniższy artykuł omówienia zapewnia dostęp do obu tych programów. 
 
-[Moduły Azure Key Vault dla środowiska Node. js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Moduły Azure Key Vault dla Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
@@ -106,7 +106,6 @@ Poniższe artykuły i scenariusze zapewniają wskazówki dotyczące zadań zwią
 - [Jak przekazać bezpieczne wartości (takie jak hasła) podczas wdrażania](../../azure-resource-manager/templates/key-vault-parameter.md) — Jeśli chcesz przekazać bezpieczną wartość (na przykład hasło) jako parametr podczas wdrażania, możesz zapisać tę wartość jako klucz tajny w Azure Key Vault i odwołać się do wartości w innych szablonach Menedżer zasobów.
 - [Jak używać Key Vault do rozszerzonego zarządzania kluczami z SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -SQL Server Connector dla Azure Key Vault umożliwia SQL Server i SQL-in-a-VM korzystanie z usługi Azure Key Vault jako dostawcy rozszerzalnego zarządzania kluczami (EKM) w celu ochrony kluczy szyfrowania dla aplikacji. Transparent Data Encryption, szyfrowanie kopii zapasowej i szyfrowanie na poziomie kolumny.
 - [Jak wdrażać certyfikaty na maszynach wirtualnych z Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) — aplikacja w chmurze działająca na maszynie wirtualnej na platformie Azure wymaga certyfikatu. Jak uzyskać ten certyfikat na tę maszynę wirtualną dzisiaj?
-- [Jak skonfigurować Key Vault z kompleksowym rotacją i inspekcją kluczy](../secrets/key-rotation-log-monitoring.md) — w tym przewodniku opisano sposób konfigurowania rotacji kluczy i inspekcji przy użyciu Azure Key Vault.
 - [Wdrażanie certyfikatu aplikacji sieci Web platformy Azure za pomocą Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) zawiera instrukcje krok po kroku dotyczące wdrażania certyfikatów przechowywanych w Key Vault w ramach oferty [certyfikat usługi App Service](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) .
 - [Przyznaj uprawnienia do wielu aplikacjom dostępu do magazynu kluczy](group-permissions-for-apps.md) Zasady kontroli dostępu Key Vault obsługują do 1024 wpisów. Można jednak utworzyć Azure Active Directory grupę zabezpieczeń. Dodaj wszystkie skojarzone jednostki usługi do tej grupy zabezpieczeń, a następnie Udziel dostępu do tej grupy zabezpieczeń, aby Key Vault.
 - Aby uzyskać więcej wskazówek dotyczących zadań związanych z integracją i użyciem magazynów kluczy z platformą Azure, zobacz artykuł [Ryan Kowalski "Azure Resource Manager Template przykłady for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
@@ -128,7 +127,7 @@ W tych artykułach przedstawiono inne scenariusze i usługi, które korzystają 
 - [Informacje o kluczach konta usługi Key Vault Storage](../secrets/overview-storage-keys.md)) Opisuje Key Vault integracji kluczy kont usługi Azure Storage.
 - [Key Vault światy zabezpieczeń](overview-security-worlds.md) opisuje relacje między regionami i obszarami zabezpieczeń.
 
-## <a name="social"></a>Społeczności
+## <a name="social"></a>Funkcje społecznościowe
 
 - [Blog Key Vault](https://aka.ms/kvblog)
 - [Forum Key Vault](https://aka.ms/kvforum)

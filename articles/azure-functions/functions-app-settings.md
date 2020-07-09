@@ -3,12 +3,11 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6f42c411263575040d4392b85542920e8f2463d4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 5a0201eeed1678299ec16ff268062463b9c75e5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690759"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84235348"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -16,23 +15,23 @@ Ustawienia aplikacji w aplikacji funkcji zawierają globalne opcje konfiguracji,
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-W pliku [host. JSON](functions-host-json.md) znajdują się inne opcje konfiguracji globalnej oraz plik [Local. Settings. JSON](functions-run-local.md#local-settings-file) .
+Istnieją inne opcje konfiguracji globalnej w [host.js](functions-host-json.md) plik i w [local.settings.js](functions-run-local.md#local-settings-file) pliku.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Klucz Instrumentacji dla Application Insights. Użyj tylko jednego z `APPINSIGHTS_INSTRUMENTATIONKEY` lub `APPLICATIONINSIGHTS_CONNECTIONSTRING`. Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). 
+Klucz Instrumentacji dla Application Insights. Użyj tylko jednego z `APPINSIGHTS_INSTRUMENTATIONKEY` lub `APPLICATIONINSIGHTS_CONNECTION_STRING` . Aby uzyskać więcej informacji, zobacz [Monitor Azure Functions](functions-monitoring.md). 
 
 |Klucz|Wartość przykładowa|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
 
-## <a name="applicationinsights_connectionstring"></a>APPLICATIONINSIGHTS_CONNECTIONSTRING
+## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Parametry połączenia dla Application Insights. Użyj `APPLICATIONINSIGHTS_CONNECTIONSTRING` zamiast tego `APPINSIGHTS_INSTRUMENTATIONKEY` , gdy aplikacja funkcji wymaga dodanych dostosowań obsługiwanych przy użyciu parametrów połączenia. Aby uzyskać więcej informacji, zobacz [Parametry połączenia](../azure-monitor/app/sdk-connection-string.md). 
+Parametry połączenia dla Application Insights. Użyj `APPLICATIONINSIGHTS_CONNECTION_STRING` zamiast tego `APPINSIGHTS_INSTRUMENTATIONKEY` , gdy aplikacja funkcji wymaga dodanych dostosowań obsługiwanych przy użyciu parametrów połączenia. Aby uzyskać więcej informacji, zobacz [Parametry połączenia](../azure-monitor/app/sdk-connection-string.md). 
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey = [Key]; IngestionEndpoint = [URL]; LiveEndpoint = [URL]; ProfilerEndpoint = [URL]; SnapshotEndpoint = [URL];|
+|APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey = [Key]; IngestionEndpoint = [URL]; LiveEndpoint = [URL]; ProfilerEndpoint = [URL]; SnapshotEndpoint = [URL];|
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
@@ -40,7 +39,7 @@ W wersji 2. x i nowszych wersjach środowiska uruchomieniowego funkcji program s
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
-W wersji 2. x i nowszych wersjach środowiska uruchomieniowego funkcji ustawienia aplikacji mogą zastąpić ustawienia pliku [host. JSON](functions-host-json.md) w bieżącym środowisku. Te zastąpienia są wyrażane jako ustawienia aplikacji `AzureFunctionsJobHost__path__to__setting`o nazwie. Aby uzyskać więcej informacji, zobacz [przesłanianie wartości hosta. JSON](functions-host-json.md#override-hostjson-values).
+W wersji 2. x i nowszych wersjach środowiska uruchomieniowego funkcji ustawienia aplikacji mogą zastąpić [host.jsw](functions-host-json.md) ustawieniach w bieżącym środowisku. Te zastąpienia są wyrażane jako ustawienia aplikacji o nazwie `AzureFunctionsJobHost__path__to__setting` . Aby uzyskać więcej informacji, zobacz [Zastąp host.jswartościami](functions-host-json.md#override-hostjson-values).
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -48,10 +47,10 @@ Opcjonalne parametry połączenia konta magazynu służące do przechowywania dz
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = <name> ; AccountKey =<key>|
 
 > [!NOTE]
-> Aby uzyskać lepszą wydajność i doświadczenie, środowisko uruchomieniowe w wersji 2. x i nowszych wersjach korzysta z `AzureWebJobsDashboard`usługi APPINSIGHTS_INSTRUMENTATIONKEY i App Insights do monitorowania, a nie.
+> Aby uzyskać lepszą wydajność i doświadczenie, środowisko uruchomieniowe w wersji 2. x i nowszych wersjach korzysta z usługi APPINSIGHTS_INSTRUMENTATIONKEY i App Insights do monitorowania, a nie `AzureWebJobsDashboard` .
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -61,13 +60,13 @@ Opcjonalne parametry połączenia konta magazynu służące do przechowywania dz
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
-Gdy to ustawienie aplikacji zostanie pominięte lub ustawione na `false`wartość, zostanie wyświetlona strona podobna do poniższego przykładu w odpowiedzi `<functionappname>.azurewebsites.net`na adres URL.
+Gdy to ustawienie aplikacji zostanie pominięte lub ustawione na wartość `false` , zostanie wyświetlona strona podobna do poniższego przykładu w odpowiedzi na adres URL `<functionappname>.azurewebsites.net` .
 
 ![Strona docelowa aplikacji funkcji](media/functions-app-settings/function-app-landing-page.png)
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`oznacza użycie trybu wydania podczas kompilowania kodu platformy .NET; `false` oznacza użycie trybu debugowania. Wartość domyślna to `true`.
+`true`oznacza użycie trybu wydania podczas kompilowania kodu platformy .NET; `false`oznacza użycie trybu debugowania. Wartość domyślna to `true`.
 
 |Klucz|Wartość przykładowa|
 |---|------------|
@@ -87,7 +86,7 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Pliki|
+|AzureWebJobsSecretStorageType|Files|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -105,51 +104,51 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%HOME%\typescript|
 
-## <a name="function_app_edit_mode"></a>tryb\_edycji\_\_aplikacji funkcji
+## <a name="function_app_edit_mode"></a>\_ \_ tryb edycji aplikacji \_ funkcji
 
 Określa, czy Edycja w Azure Portal jest włączona. Prawidłowe wartości to "ReadWrite" i "ReadOnly".
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|tryb\_edycji\_\_aplikacji funkcji|readonly|
+|\_ \_ tryb edycji aplikacji \_ funkcji|readonly|
 
-## <a name="functions_extension_version"></a>wersja\_rozszerzenia\_Functions
+## <a name="functions_extension_version"></a>\_wersja rozszerzenia Functions \_
 
 Wersja środowiska uruchomieniowego funkcji, która ma być używana w tej aplikacji funkcji. Tylda z wersją główną oznacza użycie najnowszej wersji tej wersji głównej (na przykład "~ 2"). Gdy dostępne są nowe wersje dla tej samej wersji głównej, są one automatycznie instalowane w aplikacji funkcji. Aby przypiąć aplikację do określonej wersji, użyj pełnego numeru wersji (na przykład "2.0.12345"). Wartość domyślna to "~ 2". Wartość `~1` przypinania aplikacji do wersji 1. x środowiska uruchomieniowego.
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|wersja\_rozszerzenia\_Functions|~ 2|
+|\_wersja rozszerzenia Functions \_|~ 2|
 
-## <a name="functions_v2_compatibility_mode"></a>Tryb\_zgodności\_\_funkcji w wersji 2
+## <a name="functions_v2_compatibility_mode"></a>Tryb zgodności funkcji w \_ wersji 2 \_ \_
 
 To ustawienie umożliwia uruchamianie aplikacji funkcji w trybie zgodności w wersji 2. x w wersji 3. x środowiska uruchomieniowego. Tego ustawienia należy używać tylko w przypadku napotkania problemów podczas [uaktualniania aplikacji funkcji z wersji 2. x do 3. x środowiska uruchomieniowego](functions-versions.md#migrating-from-2x-to-3x). 
 
 >[!IMPORTANT]
 > To ustawienie jest przeznaczone tylko jako krótkoterminowe obejście podczas aktualizowania aplikacji tak, aby działała prawidłowo w wersji 3. x. To ustawienie jest obsługiwane, o ile jest [obsługiwane środowisko uruchomieniowe 2. x](functions-versions.md). Jeśli wystąpią problemy uniemożliwiające uruchomienie aplikacji w wersji 3. x bez użycia tego ustawienia, [Zgłoś problem](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Wymaga ustawienia [wersji\_rozszerzenia\_Functions](functions-app-settings.md#functions_extension_version) na `~3`.
+Wymaga ustawienia [ \_ \_ wersji rozszerzenia Functions](functions-app-settings.md#functions_extension_version) na `~3` .
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|Tryb\_zgodności\_\_funkcji w wersji 2|true|
+|Tryb zgodności funkcji w \_ wersji 2 \_ \_|true|
 
-## <a name="functions_worker_process_count"></a>liczba\_procesów\_\_roboczych funkcji
+## <a name="functions_worker_process_count"></a>\_ \_ liczba procesów roboczych \_ funkcji
 
-Określa maksymalną liczbę procesów roboczych języka z wartością domyślną `1`. Maksymalna dozwolona wartość to `10`. Wywołania funkcji są równomiernie dystrybuowane między procesami roboczymi języka. Procesy robocze języka są duplikowane co 10 sekund do momentu osiągnięcia liczby ustawionej\_przez\_liczbę procesów\_roboczych. Używanie wielu procesów roboczych z wieloma językami nie jest takie samo jak [skalowanie](functions-scale.md). Należy rozważyć użycie tego ustawienia, jeśli obciążenie ma połączenie z wywołaniami związanymi z PROCESORem i we/wy. To ustawienie ma zastosowanie do wszystkich języków non-.NET.
+Określa maksymalną liczbę procesów roboczych języka z wartością domyślną `1` . Maksymalna dozwolona wartość to `10` . Wywołania funkcji są równomiernie dystrybuowane między procesami roboczymi języka. Procesy robocze języka są duplikowane co 10 sekund do momentu osiągnięcia liczby ustawionej przez \_ \_ liczbę procesów roboczych \_ . Używanie wielu procesów roboczych z wieloma językami nie jest takie samo jak [skalowanie](functions-scale.md). Należy rozważyć użycie tego ustawienia, jeśli obciążenie ma połączenie z wywołaniami związanymi z PROCESORem i we/wy. To ustawienie ma zastosowanie do wszystkich języków non-.NET.
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|liczba\_procesów\_\_roboczych funkcji|2|
+|\_ \_ liczba procesów roboczych \_ funkcji|2|
 
 
-## <a name="functions_worker_runtime"></a>środowisko\_uruchomieniowe procesu roboczego\_
+## <a name="functions_worker_runtime"></a>\_ \_ środowisko uruchomieniowe procesu roboczego
 
 Środowisko uruchomieniowe procesów roboczych języka do załadowania w aplikacji funkcji.  Będzie to zgodne z językiem używanym w aplikacji (na przykład "dotnet"). W przypadku funkcji w wielu językach należy opublikować je w wielu aplikacjach z odpowiednimi wartościami środowiska wykonawczego procesu roboczego.  Prawidłowe wartości to `dotnet` (C#/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) i `python` (Python).
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|środowisko\_uruchomieniowe procesu roboczego\_|dotnet|
+|\_ \_ środowisko uruchomieniowe procesu roboczego|dotnet|
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -159,7 +158,7 @@ Do użycia tylko w planach Premium &. Parametry połączenia dla konta magazynu,
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [klucz]|
 
-## <a name="website_contentshare"></a>CONTENTSHARE\_witryny sieci Web
+## <a name="website_contentshare"></a>CONTENTSHARE witryny sieci Web \_
 
 Do użycia tylko w planach Premium &. Ścieżka pliku do kodu i konfiguracji aplikacji funkcji. Używany z WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Wartość domyślna to unikatowy ciąg, który rozpoczyna się od nazwy aplikacji funkcji. Zobacz [Tworzenie aplikacji funkcji](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -167,7 +166,7 @@ Do użycia tylko w planach Premium &. Ścieżka pliku do kodu i konfiguracji apl
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="website_max_dynamic_application_scale_out"></a>Maksymalna\_\_SKALOWANIe\_aplikacji\_sieci\_Web w poziomie
+## <a name="website_max_dynamic_application_scale_out"></a>\_Maksymalna \_ \_ \_ SKALOWANIe aplikacji \_ sieci Web w poziomie
 
 Maksymalna liczba wystąpień, do których aplikacja funkcji może skalować w poziomie. Wartość domyślna nie jest ograniczona.
 
@@ -176,26 +175,26 @@ Maksymalna liczba wystąpień, do których aplikacja funkcji może skalować w p
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|Maksymalna\_\_SKALOWANIe\_aplikacji\_sieci\_Web w poziomie|5|
+|\_Maksymalna \_ \_ \_ SKALOWANIe aplikacji \_ sieci Web w poziomie|5|
 
-## <a name="website_node_default_version"></a>DEFAULT_VERSION\_węzła\_witryny sieci Web
+## <a name="website_node_default_version"></a>\_DEFAULT_VERSION węzła witryny sieci Web \_
 
 _Tylko system Windows._  
-Ustawia wersję środowiska Node. js do użycia podczas uruchamiania aplikacji funkcji w systemie Windows. Należy użyć tyldy (~), aby środowisko uruchomieniowe używało najnowszej dostępnej wersji wersji głównej. Na przykład gdy jest ustawiona na `~10`, używana jest Najnowsza wersja środowiska Node. js 10. W przypadku wersji głównej, której celem jest tylda, nie trzeba ręcznie aktualizować wersji pomocniczej. 
+Ustawia wersję Node.js, która ma być używana podczas uruchamiania aplikacji funkcji w systemie Windows. Należy użyć tyldy (~), aby środowisko uruchomieniowe używało najnowszej dostępnej wersji wersji głównej. Na przykład po ustawieniu na wartość `~10` zostanie użyta Najnowsza wersja Node.js 10. W przypadku wersji głównej, której celem jest tylda, nie trzeba ręcznie aktualizować wersji pomocniczej. 
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|DEFAULT_VERSION\_węzła\_witryny sieci Web|~ 10|
+|\_DEFAULT_VERSION węzła witryny sieci Web \_|~ 10|
 
-## <a name="website_run_from_package"></a>Witryna\_sieci\_Web\_uruchamiana z pakietu
+## <a name="website_run_from_package"></a>Witryna sieci Web \_ uruchamiana \_ z \_ pakietu
 
 Umożliwia uruchamianie aplikacji funkcji z zainstalowanego pliku pakietu.
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|Witryna\_sieci\_Web\_uruchamiana z pakietu|1|
+|Witryna sieci Web \_ uruchamiana \_ z \_ pakietu|1|
 
-Prawidłowe wartości to adres URL, który jest rozpoznawany jako lokalizacja pliku pakietu wdrożeniowego lub `1`. Po ustawieniu na `1`, pakiet musi znajdować się w `d:\home\data\SitePackages` folderze. W przypadku korzystania z tego ustawienia podczas wdrażania zip pakiet jest automatycznie przekazywany do tej lokalizacji. W wersji zapoznawczej to ustawienie `WEBSITE_RUN_FROM_ZIP`miało nazwę. Aby uzyskać więcej informacji, zobacz [Uruchamianie funkcji z pliku pakietu](run-functions-from-deployment-package.md).
+Prawidłowe wartości to adres URL, który jest rozpoznawany jako lokalizacja pliku pakietu wdrożeniowego lub `1` . Po ustawieniu na `1` , pakiet musi znajdować się w `d:\home\data\SitePackages` folderze. W przypadku korzystania z tego ustawienia podczas wdrażania zip pakiet jest automatycznie przekazywany do tej lokalizacji. W wersji zapoznawczej to ustawienie miało nazwę `WEBSITE_RUN_FROM_ZIP` . Aby uzyskać więcej informacji, zobacz [Uruchamianie funkcji z pliku pakietu](run-functions-from-deployment-package.md).
 
 ## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
@@ -218,7 +217,7 @@ To ustawienie określa, czy% 2F jest dekodowane jako ukośniki w parametrach tra
 
 ### <a name="example"></a>Przykład
 
-Oto przykład proxy. JSON w aplikacji funkcji pod adresem URL myfunction.com
+Oto przykład proxies.jsw aplikacji funkcji pod adresem URL myfunction.com
 
 ```JSON
 {
@@ -243,6 +242,6 @@ Oto przykład proxy. JSON w aplikacji funkcji pod adresem URL myfunction.com
 
 [Dowiedz się, jak zaktualizować ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[Zobacz ustawienia globalne w pliku host. JSON](functions-host-json.md)
+[Zobacz ustawienia globalne w host.jspliku](functions-host-json.md)
 
 [Zobacz inne ustawienia aplikacji dla aplikacji App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184779"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118971"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — dodawanie funkcji CRUD do aplikacji
 
@@ -40,7 +40,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
     Zauważ, że wiersz 7 pliku routes.js wywołuje funkcję `getHeroes` w wierszu 5 pliku **hero.service.js**.  Musimy utworzyć to samo parowanie dla funkcji post, put i delete. 
 
-    ![Pliki routes.js i hero.service.js w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code":::
     
     Zacznijmy od kodowania usługi hero. 
 
@@ -88,11 +88,11 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 6. Teraz wróć do przeglądarki internetowej i otwórz kartę Narzędzia programistyczne > Sieć, naciskając klawisz F12 w przypadku większości komputerów. Przejdź do adresu `http://localhost:3000`, aby obejrzeć wywołania wykonywane w sieci.
 
-    ![Karta Sieć w przeglądarce Chrome z widoczną aktywnością sieci](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Karta Sieć w przeglądarce Chrome z widoczną aktywnością sieci":::
 
 7. Dodaj nowy element hero, wybierając przycisk **Add New Hero** (Dodaj nowy element hero). Wprowadź identyfikator „999”, nazwę „Fred” i powiedzenie „Hello”, a następnie wybierz przycisk **Save** (Zapisz). Na karcie Sieć powinno pojawić się wysłane żądanie POST dotyczące nowego elementu hero. 
 
-    ![Karta Sieć w przeglądarce Chrome z aktywnością sieci dla funkcji Get i Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Karta Sieć w przeglądarce Chrome z aktywnością sieci dla funkcji Get i Post":::
 
     Teraz przejdź wstecz i dodaj funkcje Put i Delete do aplikacji.
 
@@ -177,11 +177,11 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
     Teraz możesz wybrać identyfikator na karcie Sieć w celu wyświetlenia ładunku. W ładunku widać powiedzenie ustawione na „Bye”.
 
-    ![Aplikacja Heroes i karta Sieć z przedstawionym ładunkiem](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="Aplikacja Heroes i karta Sieć z przedstawionym ładunkiem"::: 
 
     Możesz również usunąć jeden z elementów hero w interfejsie użytkownika i sprawdzić, ile czasu pozostało do ukończenia operacji usuwania. Wypróbuj tę funkcję, wybierz przycisk „Delete” (Usuń) dla elementu hero o nazwie „Fred”.
 
-    ![Aplikacja Heroes i karta Sieć pokazująca czas potrzebny do ukończenia działania funkcji](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="Aplikacja Heroes i karta Sieć pokazująca czas potrzebny do ukończenia działania funkcji"::: 
 
     Po odświeżeniu strony na karcie sieci zostanie wyświetlony czas potrzebny do pobrania elementów hero. Czasy te są krótkie, ale wiele zależy od lokalizacji danych na świecie i możliwości ich replikacji geograficznej w obszarze znajdującym się w pobliżu użytkowników. Więcej informacji na temat replikacji geograficznej będzie można znaleźć w następnym samouczku, który udostępnimy wkrótce.
 

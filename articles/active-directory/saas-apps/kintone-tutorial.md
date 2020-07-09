@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b473502f740717fb0426d09261c1f1107144d047
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74227583"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85799845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Samouczek: integracja Azure Active Directory z usługą usługi Kintone
 
@@ -109,10 +109,10 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi Kin
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: 
     
-    | |
-    |--|
-    | `https://<companyname>.cybozu.com` |
-    | `https://<companyname>.kintone.com` |
+    ```http
+    https://<companyname>.cybozu.com
+    https://<companyname>.kintone.com
+    ```
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta usługi Kintone](https://www.kintone.com/contact/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -143,9 +143,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi Kin
 
     ![Użytkownicy & administracją systemu](./media/kintone-tutorial/ic785880.png "Użytkownicy & administracją systemu")
 
-1. W obszarze **Administracja \> systemu zabezpieczenia** kliknij przycisk **Zaloguj**.
+1. W obszarze **Administracja systemu \> zabezpieczenia** kliknij przycisk **Zaloguj**.
 
-    ![Logowanie](./media/kintone-tutorial/ic785881.png "Logowanie")
+    ![Zaloguj się](./media/kintone-tutorial/ic785881.png "Zaloguj się")
 
 1. Kliknij pozycję **Włącz uwierzytelnianie SAML**.
 
@@ -161,7 +161,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi Kin
 
     c. Kliknij przycisk **Przeglądaj** , aby przekazać pobrany plik certyfikatu z Azure Portal.
 
-    d. Kliknij przycisk **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -186,7 +186,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -244,7 +244,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze usługi
 
     a. Wpisz **nazwę wyświetlaną**, **nazwę logowania**, **nowe hasło**, **Potwierdź hasło**, **adres E-mail**i inne szczegóły dotyczące prawidłowego konta usługi Azure AD, które chcesz udostępnić w powiązanych polach tekstowych.
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 > Do aprowizacji kont użytkowników usługi Azure AD można używać innych narzędzi do tworzenia kont użytkowników usługi Kintone i interfejsów API udostępnionych przez usługę usługi Kintone.
@@ -261,4 +261,4 @@ Po kliknięciu kafelka usługi Kintone w panelu dostępu należy automatycznie z
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

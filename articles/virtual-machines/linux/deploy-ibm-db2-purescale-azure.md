@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
 ms.openlocfilehash: 98e912894a4d93a057a2f6a2153d0690deaed250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78968896"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Wdrażanie programu IBM DB2 pureScale na platformie Azure
@@ -19,7 +18,7 @@ W tym artykule opisano, jak wdrożyć [przykładową architekturę](ibm-db2-pure
 
 Aby wykonać kroki używane do migracji, zobacz Skrypty instalacji w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub. Skrypty te są oparte na architekturze typowego, średniego obciążenia przetwarzania transakcji online (OLTP).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby wdrożyć tę architekturę, Pobierz i uruchom skrypt deploy.sh znaleziony w repozytorium [DB2onAzure](https://aka.ms/db2onazure) w witrynie GitHub.
 
@@ -75,13 +74,13 @@ Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), 
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Powitanie                   |                                              | Nowa instalacja                                                                                           |
 | Wybierz produkt          |                                              | 11.1.3.3 wersja programu DB2. Wersje serwera z programem DB2 pureScale                                              |
-| Konfiguracja             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
+| Konfigurowanie             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Wybierz typ instalacji                 | Normalne                                                                                               |
 |                           | Akceptuję warunki firmy IBM                     | Zaznaczono                                                                                               |
 | Właściciel wystąpienia            | Istniejący użytkownik na przykład, nazwa użytkownika        | DB2sdin1                                                                                              |
 | Użytkownik z ogranicznikiem               | Istniejący użytkownik, nazwa użytkownika                     | DB2sdfe1                                                                                              |
 | System plików klastra       | Ścieżka urządzenia udostępnionego partycji dysku            | /dev/dm-2                                                                                             |
-|                           | Punkt instalacji                                  | /DB2sd\_1804a                                                                                         |
+|                           | Punkt instalacji                                  | /DB2sd \_ 1804a                                                                                         |
 |                           | Dysk udostępniony dla danych                         | /dev/dm-1                                                                                             |
 |                           | Punkt instalacji (dane)                           | /DB2fs/datafs1                                                                                        |
 |                           | Udostępniony dysk do dziennika                          | /dev/dm-0                                                                                             |
@@ -111,7 +110,7 @@ Repozytorium GitHub zawiera plik odpowiedzi DB2server. rsp, odpowiedź (. RSP), 
 
 - Skrypty Instalatora używają aliasów dysków iSCSI, aby można było łatwo znaleźć rzeczywiste nazwy.
 
-- Gdy skrypt Instalatora jest uruchamiany w d0, wartości **/dev/DM-\* ** mogą być różne w odniesieniu do D1, cf0 i CF1. Różnica w wartości nie ma wpływu na konfigurację programu DB2 pureScale.
+- Gdy skrypt Instalatora jest uruchamiany w d0, wartości **/dev/DM- \* ** mogą być różne w odniesieniu do D1, cf0 i CF1. Różnica w wartości nie ma wpływu na konfigurację programu DB2 pureScale.
 
 ## <a name="troubleshooting-and-known-issues"></a>Znane problemy i rozwiązywanie problemów
 

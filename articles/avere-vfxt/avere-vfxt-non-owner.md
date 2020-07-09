@@ -3,15 +3,15 @@ title: Avere vFXT niebędącego właścicielem — Azure
 description: Obejście, aby umożliwić użytkownikom bez uprawnień właściciela subskrypcji wdrażanie avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d9b1060ee35af6cbc2e1b95b0f7813072c52d2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505379"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autoryzowanie osób niebędących właścicielami do wdrożenia systemu Avere vFXT
 
@@ -26,7 +26,7 @@ Właściciel subskrypcji musi również [zaakceptować warunki użytkowania](ave
 > [!IMPORTANT]
 > Wszystkie te kroki muszą zostać wykonane przez użytkownika z uprawnieniami właściciela do subskrypcji, która będzie używana w klastrze.
 
-1. Skopiuj te wiersze i Zapisz je w pliku (na przykład `averecreatecluster.json`). Użyj identyfikatora subskrypcji w `AssignableScopes` instrukcji.
+1. Skopiuj te wiersze i Zapisz je w pliku (na przykład `averecreatecluster.json` ). Użyj identyfikatora subskrypcji w `AssignableScopes` instrukcji.
 
    ```json
    {

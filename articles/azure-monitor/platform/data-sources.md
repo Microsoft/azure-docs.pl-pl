@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
 ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79479845"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Źródła danych monitorowania dla Azure Monitor
@@ -202,7 +201,7 @@ Inne usługi na platformie Azure zapisują dane na platformie danych Azure Monit
 | Usługa | Element docelowy | Opis | Dokumentacja |
 |:---|:---|:---|:---|
 | [Azure Security Center](/azure/security-center/) | Dzienniki usługi Azure Monitor | Azure Security Center przechowuje dane dotyczące zabezpieczeń zbierane w Log Analytics obszarze roboczym, co umożliwia przeanalizowanie ich przy użyciu innych danych dziennika zebranych przez Azure Monitor.  | [Zbieranie danych w usłudze Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Usługa Azure Sentinel](/azure/sentinel/) | Dzienniki usługi Azure Monitor | Na platformie Azure wskaźnikowe dane są przechowywane z różnych źródeł danych w obszarze roboczym Log Analytics, co umożliwia ich analizowanie z innymi danymi dziennika zbieranymi przez Azure Monitor.  | [Łączenie ze źródłami danych](/azure/sentinel/quickstart-onboard) |
+| [Azure Sentinel](/azure/sentinel/) | Dzienniki usługi Azure Monitor | Na platformie Azure wskaźnikowe dane są przechowywane z różnych źródeł danych w obszarze roboczym Log Analytics, co umożliwia ich analizowanie z innymi danymi dziennika zbieranymi przez Azure Monitor.  | [Łączenie ze źródłami danych](/azure/sentinel/quickstart-onboard) |
 
 
 ## <a name="next-steps"></a>Następne kroki

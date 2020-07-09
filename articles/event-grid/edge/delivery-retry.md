@@ -10,10 +10,9 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841716"
 ---
 # <a name="delivery-and-retry"></a>Dostarczanie i ponawianie prób
@@ -29,9 +28,9 @@ W przypadku odpowiedzi po dostarczeniu komunikatu Event Grid czekaj do 60 sekund
 
 Istnieją dwie wstępnie skonfigurowane kolejki z przywróceniem z powrotem, które określają harmonogram, w którym zostanie podjęta próba ponowienia próby. Oto one:
 
-| Harmonogram | Opis |
+| Zaplanuj | Opis |
 | ---------| ------------ |
-| 1 min | Komunikaty kończące się w tym miejscu są podejmowane co minutę.
+| 1 minuta | Komunikaty kończące się w tym miejscu są podejmowane co minutę.
 | 10 minut | Komunikaty kończące się w tym miejscu są podejmowane co 10 minut.
 
 ### <a name="how-it-works"></a>Jak to działa

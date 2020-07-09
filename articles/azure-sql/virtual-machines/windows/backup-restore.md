@@ -4,7 +4,6 @@ description: Opisuje zagadnienia dotyczące tworzenia kopii zapasowych i przywra
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -14,29 +13,28 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ac857d42ba0d886ff696fdd0fd53473b2f2141bf
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049120"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669206"
 ---
-# <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Tworzenie kopii zapasowej i przywracanie na potrzeby programu SQL Server na maszynach wirtualnych platformy Azure
+# <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Ten artykuł zawiera wskazówki dotyczące opcji tworzenia kopii zapasowych i przywracania dostępnych dla SQL Server działających na maszynie wirtualnej z systemem Windows na platformie Azure. Usługa Azure Storage przechowuje trzy kopie każdego dysku maszyny wirtualnej platformy Azure w celu zagwarantowania ochrony przed utratą danych lub uszkodzeniem danych fizycznych. Tak więc, w przeciwieństwie do lokalnego, nie trzeba skupić się na awariach sprzętu. Należy jednak nadal tworzyć kopie zapasowe baz danych SQL Server, aby chronić je przed błędami aplikacji lub użytkowników, na przykład nieumyślne wstawienia lub usunięcia danych. W takiej sytuacji ważne jest, aby można było przywrócić do określonego punktu w czasie.
+Ten artykuł zawiera wskazówki dotyczące opcji tworzenia kopii zapasowych i przywracania dostępnych dla SQL Server uruchomionych na maszynie wirtualnej z systemem Windows na platformie Azure. Usługa Azure Storage przechowuje trzy kopie każdego dysku maszyny wirtualnej platformy Azure w celu zagwarantowania ochrony przed utratą danych lub uszkodzeniem danych fizycznych. Tak więc, w przeciwieństwie do SQL Server lokalnych, nie trzeba skupić się na awariach sprzętu. Należy jednak nadal tworzyć kopie zapasowe baz danych SQL Server, aby chronić je przed błędami aplikacji lub użytkowników, na przykład nieumyślne wstawienia lub usunięcia danych. W takiej sytuacji ważne jest, aby można było przywrócić do określonego punktu w czasie.
 
 Pierwsza część tego artykułu zawiera omówienie dostępnych opcji tworzenia kopii zapasowych i przywracania. Poniżej znajdują się sekcje, które zawierają więcej informacji na temat każdej strategii.
 
 ## <a name="backup-and-restore-options"></a>Opcje tworzenia kopii zapasowej i przywracania
 
-Poniższa tabela zawiera informacje dotyczące różnych opcji tworzenia kopii zapasowych i przywracania dla SQL Server uruchomionych na maszynach wirtualnych platformy Azure:
+Poniższa tabela zawiera informacje dotyczące różnych opcji tworzenia kopii zapasowych i przywracania SQL Server na maszynach wirtualnych platformy Azure:
 
 | Strategia | Wersje SQL | Opis |
 |---|---|---|
 | [Automatyczne usługa Backup](#automated) | 2014<br/> 2016<br/> 2017 | Automatyczne tworzenie kopii zapasowych umożliwia planowanie regularnych kopii zapasowych dla wszystkich baz danych na maszynie wirtualnej SQL Server. Kopie zapasowe są przechowywane w usłudze Azure Storage przez maksymalnie 30 dni. Począwszy od SQL Server 2016, automatyczna kopia zapasowa v2 oferuje dodatkowe opcje, takie jak Konfigurowanie harmonogramu ręcznego oraz częstotliwość pełnych i dzienników kopii zapasowych. |
-| [Usługa Azure Backup dla maszyn wirtualnych SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server działających na maszynach wirtualnych platformy Azure. Za pomocą tej usługi można centralnie zarządzać kopiami zapasowymi dla wielu serwerów i tysięcy baz danych. Bazy danych można przywrócić do określonego punktu w czasie w portalu. Oferuje to dostosowywalne zasady przechowywania, które mogą obsługiwać kopie zapasowe przez lata. |
-| [Ręczna kopia zapasowa](#manual) | Wszystko | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server uruchomione na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
+| [Usługa Azure Backup dla maszyn wirtualnych SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Za pomocą tej usługi można centralnie zarządzać kopiami zapasowymi dla wielu serwerów i tysięcy baz danych. Bazy danych można przywrócić do określonego punktu w czasie w portalu. Oferuje to dostosowywalne zasady przechowywania, które mogą obsługiwać kopie zapasowe przez lata. |
+| [Ręczna kopia zapasowa](#manual) | Wszystko | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
 
 W poniższych sekcjach opisano każdą opcję bardziej szczegółowo. Ostatnia sekcja tego artykułu zawiera podsumowanie w formie macierzy funkcji.
 
@@ -61,7 +59,7 @@ Aby uzyskać więcej informacji na temat konfigurowania zautomatyzowanej kopii z
 
 ## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a>Azure Backup dla maszyn wirtualnych SQL
 
-[Azure Backup](/azure/backup/) zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server działających na maszynach wirtualnych platformy Azure. Wszystkie kopie zapasowe są przechowywane i zarządzane w magazynie Recovery Services. Istnieje kilka korzyści, które zapewnia to rozwiązanie, szczególnie w przypadku przedsiębiorstw:
+[Azure Backup](/azure/backup/) zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Wszystkie kopie zapasowe są przechowywane i zarządzane w magazynie Recovery Services. Istnieje kilka korzyści, które zapewnia to rozwiązanie, szczególnie w przypadku przedsiębiorstw:
 
 - **Tworzenie kopii zapasowej bez infrastruktury**: nie ma potrzeby zarządzania serwerami kopii zapasowych ani lokalizacjami magazynu.
 - **Skalowanie**: Ochrona wielu maszyn wirtualnych SQL i tysięcy baz danych.
@@ -94,7 +92,7 @@ W poniższych sekcjach szczegółowo opisano kilka opcji ręcznego tworzenia kop
 
 ### <a name="backup-to-attached-disks"></a>Tworzenie kopii zapasowych na podłączonych dyskach
 
-W przypadku SQL Server uruchomionych na maszynach wirtualnych platformy Azure można używać natywnych technik tworzenia kopii zapasowych i przywracania przy użyciu dołączonych dysków na maszynie wirtualnej w celu utworzenia plików kopii zapasowej. Istnieje jednak ograniczenie liczby dysków, które można dołączyć do maszyny wirtualnej platformy Azure, na podstawie [rozmiaru maszyny wirtualnej](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Należy również wziąć pod uwagę koszty zarządzania dyskami.
+Aby uzyskać SQL Server na maszynach wirtualnych platformy Azure, można użyć natywnych technik tworzenia kopii zapasowych i przywracania przy użyciu dołączonych dysków na maszynie wirtualnej w celu utworzenia plików kopii zapasowej. Istnieje jednak ograniczenie liczby dysków, które można dołączyć do maszyny wirtualnej platformy Azure, na podstawie [rozmiaru maszyny wirtualnej](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Należy również wziąć pod uwagę koszty zarządzania dyskami.
 
 Przykład ręcznego tworzenia pełnej kopii zapasowej bazy danych przy użyciu programu SQL Server Management Studio (SSMS) lub Transact-SQL można znaleźć w temacie [Tworzenie pełnej kopii zapasowej bazy danych](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
@@ -130,26 +128,26 @@ Poniższa tabela zawiera podsumowanie możliwości poszczególnych opcji tworzen
 
 || **Automatyczne usługa Backup** | **Azure Backup dla SQL** | **Ręczna kopia zapasowa** |
 |---|---|---|---|
-| Wymaga dodatkowej usługi platformy Azure |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Konfigurowanie zasad tworzenia kopii zapasowych w Azure Portal | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |   |
-| Przywracanie baz danych w Azure Portal |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Zarządzanie wieloma serwerami na jednym pulpicie nawigacyjnym |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Przywracanie do określonego momentu | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| 15-minutowy cel punktu odzyskiwania (RPO) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| Krótkoterminowe zasady przechowywania kopii zapasowych (dni) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |   |
-| Zasady długoterminowego przechowywania kopii zapasowych (miesiące, lata) |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Wbudowana obsługa SQL Server zawsze włączona |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Tworzenie kopii zapasowej na kontach usługi Azure Storage | ![Yes](./media/backup-restore/yes.png)Automatyczna | ![Yes](./media/backup-restore/yes.png)Automatyczna | ![Yes](./media/backup-restore/yes.png)(zarządzane przez klienta) |
-| Zarządzanie plikami magazynu i kopii zapasowych | | ![Yes](./media/backup-restore/yes.png) |  |
-| Tworzenie kopii zapasowych na dyskach dołączonych na maszynie wirtualnej |   |   | ![Yes](./media/backup-restore/yes.png) |
-| Centralne dostosowywalne raporty kopii zapasowych |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Skonsolidowane alerty e-mail dotyczące niepowodzeń |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Dostosowywanie monitorowania na podstawie dzienników Azure Monitor |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Monitoruj zadania tworzenia kopii zapasowej za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
+| Wymaga dodatkowej usługi platformy Azure |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Konfigurowanie zasad tworzenia kopii zapasowych w Azure Portal | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |   |
+| Przywracanie baz danych w Azure Portal |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Zarządzanie wieloma serwerami na jednym pulpicie nawigacyjnym |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Przywracanie do określonego momentu | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |
+| 15-minutowy cel punktu odzyskiwania (RPO) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |
+| Krótkoterminowe zasady przechowywania kopii zapasowych (dni) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |   |
+| Zasady długoterminowego przechowywania kopii zapasowych (miesiące, lata) |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Wbudowana obsługa SQL Server zawsze włączona |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Tworzenie kopii zapasowej na kontach usługi Azure Storage | ![Tak](./media/backup-restore/yes.png)Automatyczna | ![Tak](./media/backup-restore/yes.png)Automatyczna | ![Tak](./media/backup-restore/yes.png)(zarządzane przez klienta) |
+| Zarządzanie plikami magazynu i kopii zapasowych | | ![Tak](./media/backup-restore/yes.png) |  |
+| Tworzenie kopii zapasowych na dyskach dołączonych na maszynie wirtualnej |   |   | ![Tak](./media/backup-restore/yes.png) |
+| Centralne dostosowywalne raporty kopii zapasowych |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Skonsolidowane alerty e-mail dotyczące niepowodzeń |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Dostosowywanie monitorowania na podstawie dzienników Azure Monitor |   | ![Tak](./media/backup-restore/yes.png) |   |
+| Monitoruj zadania tworzenia kopii zapasowej za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |
 | Przywracanie baz danych za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Yes](./media/backup-restore/yes.png) |   | ![Tak](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Planując wdrożenie SQL Server na maszynie wirtualnej platformy Azure, można znaleźć wskazówki dotyczące aprowizacji w następującym przewodniku: [jak zainicjować maszynę wirtualną z systemem Windows SQL Server w Azure Portal](create-sql-vm-portal.md).
+Jeśli planujesz wdrożenie SQL Server na maszynie wirtualnej platformy Azure, możesz znaleźć wskazówki dotyczące aprowizacji w następującym przewodniku: [jak zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows SQL Server w Azure Portal](create-sql-vm-portal.md).
 
-Podczas migrowania danych za pomocą funkcji tworzenia kopii zapasowych i przywracania można łatwiej SQL Server ścieżki migracji danych na maszynie wirtualnej platformy Azure. Pełne Omówienie opcji migracji i zaleceń znajduje się w temacie [Migrowanie bazy danych do SQL Server na maszynie wirtualnej platformy Azure](migrate-to-vm-from-sql-server.md).
+Podczas migrowania danych przy użyciu funkcji tworzenia kopii zapasowych i przywracania można łatwiej SQL Server ścieżki migracji danych na maszynie wirtualnej. Pełne Omówienie opcji migracji i zaleceń znajduje się w temacie [Migrowanie bazy danych do SQL Server na maszynie wirtualnej platformy Azure](migrate-to-vm-from-sql-server.md).

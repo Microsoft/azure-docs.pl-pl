@@ -15,10 +15,9 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77913008"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Wykrywaj ruchy przy użyciu Azure Media Analytics
@@ -45,7 +44,7 @@ Podczas tworzenia zadania z **Azure Media Motion Detector**należy określić us
 ### <a name="parameters"></a>Parametry
 Można użyć następujących parametrów:
 
-| Nazwa | Opcje | Opis | Domyślny |
+| Nazwa | Opcje | Opis | Domyślne |
 | --- | --- | --- | --- |
 | sensitivityLevel |Ciąg: "Low", "medium", "High" |Ustawia poziom czułości, przy którym są raportowane ruchy. Dostosuj ten sposób, aby dopasować liczbę fałszywie dodatnich. |średniookresow |
 | frameSamplingValue |Dodatnia liczba całkowita |Ustawia częstotliwość uruchamiania algorytmu. 1 równa się każdej klatce, 2 oznacza każdą klatkę i tak dalej. |1 |
@@ -100,7 +99,7 @@ W poniższej tabeli opisano elementy wyjściowego pliku JSON.
 
 | Element | Opis |
 | --- | --- |
-| Wersja |Odnosi się to do wersji interfejsu API wideo. Bieżąca wersja to 2. |
+| version |Odnosi się to do wersji interfejsu API wideo. Bieżąca wersja to 2. |
 | Dział |"Ticks" na sekundę filmu wideo. |
 | przesunięcie |Przesunięcie czasu dla sygnatur czasowych w "Takty". W wersji 1,0 interfejsów API wideo zawsze będzie równa 0. W przyszłych scenariuszach dział IT może zmienić tę wartość. |
 | szybkości |Liczba klatek na sekundę w wideo. |
@@ -109,7 +108,7 @@ W poniższej tabeli opisano elementy wyjściowego pliku JSON.
 | czas trwania |Długość zdarzenia w "taktach". |
 | interval |Interwał każdego wpisu w zdarzeniu w "Takty". |
 | zdarzenia |Każdy fragment zdarzenia zawiera ruch wykryty w tym czasie. |
-| type |W bieżącej wersji jest to zawsze "2" dla ruchu ogólnego. Ta etykieta umożliwia interfejsom API wideo elastyczność kategoryzowania ruchu w przyszłych wersjach. |
+| typ |W bieżącej wersji jest to zawsze "2" dla ruchu ogólnego. Ta etykieta umożliwia interfejsom API wideo elastyczność kategoryzowania ruchu w przyszłych wersjach. |
 | regionId |Zgodnie z powyższym opisem, ta wersja będzie zawsze równa 0. Ta etykieta daje interfejsowi API wideo elastyczność umożliwiającą znalezienie ruchu w różnych regionach w przyszłych wersjach. |
 | regionach |Odnosi się do obszaru w Twoim wideo, w którym zawarto informacje o ruchu. <br/><br/>-"ID" reprezentuje obszar regionu — w tej wersji istnieje tylko jeden identyfikator 0. <br/>-"Type" reprezentuje kształt regionu, który ma być związany z ruchem. Aktualnie "prostokąt" i "Wielokąt" są obsługiwane.<br/> Jeśli określono "prostokąt", region ma wymiary w X, Y, Szerokość i wysokość. Współrzędne X i Y reprezentują górne współrzędne XY w regionie w znormalizowanej skali od 0,0 do 1,0. Szerokość i wysokość przedstawiają rozmiar regionu w znormalizowanej skali od 0,0 do 1,0. W bieżącej wersji, X, Y, Szerokość i wysokość są zawsze stałe na 0, 0 i 1, 1. <br/>Jeśli określono "Wielokąt", region ma wymiary w punktach. <br/> |
 | elementy |Metadane są podzielone na różne segmenty o nazwie fragmenty. Każdy fragment zawiera rozpoczęcie, czas trwania, wartość interwału i zdarzenia. Fragment bez zdarzeń oznacza, że nie wykryto żadnego ruchu w czasie i czasie trwania. |
@@ -384,10 +383,10 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Powiązane linki
+## <a name="related-links"></a>Linki pokrewne
 [Blog wykrywania ruchu Azure Media Services](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)

@@ -2,14 +2,16 @@
 title: Koncepcje — zabezpieczenia w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się więcej o zabezpieczeniach w usłudze Azure Kubernetes Service (AKS), w tym o komunikacji głównej i węzłach, zasadach sieciowych i wpisach tajnych Kubernetes.
 services: container-service
+author: mlearned
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 07/01/2020
+ms.author: mlearned
+ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831543"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -78,6 +80,8 @@ Aby ograniczyć ruch sieciowy między zasobnikami w klastrze, AKS oferuje obsłu
 
 Użycie wpisów tajnych zmniejsza poufne informacje, które są zdefiniowane w manifeście "YAML" lub "Service". Zamiast tego należy zażądać wpisu tajnego przechowywanego na serwerze interfejsu API Kubernetes jako część manifestu YAML. Takie podejście zapewnia tylko szczególny dostęp do klucza tajnego. Uwaga: pliki manifestu RAW Secret zawierają dane tajne w formacie base64 (szczegółowe informacje znajdują się w [oficjalnej dokumentacji][secret-risks] ). W związku z tym ten plik powinien być traktowany jako informacje poufne i nigdy nie został przekazany do kontroli źródła.
 
+Wpisy tajne Kubernetes są przechowywane w etcd, rozproszonym magazynie klucza i wartości. Magazyn Etcd jest w pełni zarządzany przez AKS, a [dane są szyfrowane w ramach platformy Azure][encryption-atrest]. 
+
 ## <a name="next-steps"></a>Następne kroki
 
 Aby rozpocząć Zabezpieczanie klastrów AKS, zobacz [Uaktualnianie klastra AKS][aks-upgrade-cluster].
@@ -96,6 +100,7 @@ Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Ku
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
+[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

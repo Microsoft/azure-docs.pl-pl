@@ -4,16 +4,16 @@ description: Jak wyeksportować dane z aplikacji IoT Central platformy Azure do 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: c83c97aab43b6978922202cc96ff92e1e046a7e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483928"
 ---
 # <a name="export-iot-data-to-destinations-in-azure"></a>Eksportowanie danych IoT do miejsc docelowych na platformie Azure
 
@@ -64,9 +64,9 @@ Jeśli nie masz istniejącego konta usługi Azure Storage do eksportowania, wyko
 
     |Warstwa wydajności|Typ konta|
     |-|-|
-    |Standardowa|Ogólnego przeznaczenia v2|
-    |Standardowa|Ogólnego przeznaczenia v1|
-    |Standardowa|Blob Storage|
+    |Standardowa (Standard)|Ogólnego przeznaczenia v2|
+    |Standardowa (Standard)|Ogólnego przeznaczenia v1|
+    |Standardowa (Standard)|Blob Storage|
     |Premium|Blokuj Magazyn obiektów BLOB|
 
 2. Utwórz kontener na koncie magazynu. Przejdź do swojego konta magazynu. W obszarze **BLOB Service**wybierz pozycję **Przeglądaj obiekty blob**. Wybierz pozycję **+ kontener** u góry, aby utworzyć nowy kontener.
@@ -82,27 +82,31 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, wykonaj następuj�
     > [!Tip]
     > Jeśli nie widzisz **eksportu danych** w okienku po lewej stronie, nie masz uprawnień do konfigurowania eksportu danych w aplikacji. Skontaktuj się z administratorem, aby skonfigurować eksportowanie danych.
 
-3. Wybierz przycisk **+ Nowy** w prawym górnym rogu. Wybierz jedną z **Event Hubs platformy Azure**, **Azure Service Bus**lub **Azure Blob Storage** jako lokalizację docelową eksportu. Maksymalna liczba eksportów dla aplikacji wynosi pięć.
+3. Wybierz przycisk **+ Nowy** . Wybierz jedną z **BLOB Storage platformy Azure**, **platformy Azure Event Hubs**, **kolejki Azure Service Bus**lub **tematu Azure Service Bus** jako miejsce docelowe eksportu. Maksymalna liczba eksportów dla aplikacji wynosi pięć.
 
-    ![Utwórz nowy eksport danych](media/howto-export-data/new-export-definition.png)
+4. Wprowadź nazwę eksportu. W polu listy rozwijanej wybierz swoją **przestrzeń nazw**lub **wprowadź parametry połączenia**.
 
-4. W polu listy rozwijanej wybierz **przestrzeń nazw Event Hubs**, **Service Bus przestrzeń nazw**, **przestrzeń nazw konta magazynu**lub **wprowadź parametry połączenia**.
-
-    - Widoczne są tylko konta magazynu, Event Hubs przestrzenie nazw i Service Bus przestrzenie nazw w ramach tej samej subskrypcji, w której znajduje się aplikacja IoT Central. Jeśli chcesz wyeksportować do lokalizacji docelowej poza tą subskrypcją, wybierz pozycję **wprowadź parametry połączenia** i zobacz następny krok.
+    - Widoczne są tylko konta magazynu, Event Hubs przestrzenie nazw i Service Bus przestrzenie nazw w ramach tej samej subskrypcji, w której znajduje się aplikacja IoT Central. Jeśli chcesz wyeksportować do lokalizacji docelowej poza tą subskrypcją, wybierz pozycję **wprowadź parametry połączenia** i zobacz krok 6.
     - W przypadku aplikacji utworzonych przy użyciu bezpłatnego planu cenowego jedynym sposobem konfiguracji eksportu danych jest użycie parametrów połączenia. Aplikacje w ramach bezpłatnego planu cenowego nie mają skojarzonej subskrypcji platformy Azure.
 
     ![Utwórz nowe centrum zdarzeń](media/howto-export-data/export-event-hub.png)
 
-5. Obowiązkowe W przypadku wybrania opcji **wprowadź parametry połączenia**pojawi się nowe pole umożliwiające wklejenie parametrów połączenia. Aby uzyskać parametry połączenia dla:
-    - Event Hubs lub Service Bus, przejdź do przestrzeni nazw w Azure Portal:
-        - W obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego** .
-        - Wybierz domyślną **RootManageSharedAccessKey** lub Utwórz nową
-        - Skopiuj podstawowe lub pomocnicze parametry połączenia
-    - Konto magazynu przejdź do konta magazynu w Azure Portal:
-        - W obszarze **Ustawienia**wybierz pozycję **klucze dostępu** .
-        - Skopiuj parametry połączenia Klucz1 lub parametry połączenia klucz2
+5. W polu listy rozwijanej wybierz centrum zdarzeń, kolejkę, temat lub kontener.
 
-6. W polu listy rozwijanej wybierz centrum zdarzeń, kolejkę, temat lub kontener.
+6. Obowiązkowe W przypadku wybrania opcji **wprowadź parametry połączenia**pojawi się nowe pole umożliwiające wklejenie parametrów połączenia. Aby uzyskać parametry połączenia dla:
+
+    - Event Hubs lub Service Bus, przejdź do przestrzeni nazw w Azure Portal:
+        - Aby użyć parametrów połączenia dla całej przestrzeni nazw:
+            1. W obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego** .
+            2. Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
+            3. Skopiuj podstawowe lub pomocnicze parametry połączenia
+        - Aby użyć parametrów połączenia dla określonego wystąpienia centrum zdarzeń lub kolejki Service Bus lub tematu, przejdź do pozycji **jednostki > Event Hubs** lub **jednostki > kolejki** lub **jednostki > tematy**. Wybierz konkretne wystąpienie i postępuj zgodnie z tymi samymi krokami, aby uzyskać parametry połączenia.
+    - Konto magazynu przejdź do konta magazynu w Azure Portal:
+        - Obsługiwane są tylko parametry połączenia dla całego konta magazynu. Parametry połączenia mające zakres jednego kontenera nie są obsługiwane.
+          1. W obszarze **Ustawienia**wybierz pozycję **klucze dostępu** .
+          2. Skopiuj parametry połączenia Klucz1 lub parametry połączenia klucz2
+
+    Wklej w parametrach połączenia. Wpisz nazwę wystąpienia lub **kontenera**, pamiętając o tym, że jest uwzględniana wielkość liter.
 
 7. W obszarze **dane do wyeksportowania**wybierz typy danych do wyeksportowania, ustawiając typ na wartość **włączone**.
 
@@ -131,7 +135,7 @@ W przypadku Event Hubs i Service Bus IoT Central wyeksportować nowy komunikat s
 W przypadku usługi BLOB Storage komunikaty są przetwarzane wsadowo i eksportowane raz na minutę. Eksportowane pliki używają tego samego formatu co pliki komunikatów wyeksportowane przez [IoT Hub Routing komunikatów](../../iot-hub/tutorial-routing.md) do magazynu obiektów BLOB.
 
 > [!NOTE]
-> W przypadku usługi BLOB Storage upewnij się, że urządzenia wysyłają komunikaty `contentType: application/JSON` , `contentEncoding:utf-8` które mają `utf-16`i `utf-32`(lub). Przykład można znaleźć w [dokumentacji IoT Hub](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) .
+> W przypadku usługi BLOB Storage upewnij się, że urządzenia wysyłają komunikaty, które mają `contentType: application/JSON` i `contentEncoding:utf-8` (lub `utf-16` `utf-32` ). Przykład można znaleźć w [dokumentacji IoT Hub](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) .
 
 Urządzenie, które wysłało dane telemetryczne, jest reprezentowane przez identyfikator urządzenia (zobacz następujące sekcje). Aby uzyskać nazwy urządzeń, wyeksportuj dane urządzenia i skorelowania poszczególnych komunikatów przy użyciu **connectionDeviceId** , który odpowiada identyfikatorowi **deviceId** komunikatu urządzenia.
 
@@ -295,9 +299,9 @@ Ta migawka jest przykładowym komunikatem, który pokazuje urządzenia i właśc
 
 Każdy rekord wiadomości lub migawki reprezentuje co najmniej jedną zmianę w opublikowanym szablonie urządzenia od ostatniego wyeksportowanego komunikatu. Informacje wysyłane w każdym komunikacie lub rekordzie obejmują:
 
-- `id`szablonu urządzenia, który jest zgodny `instanceOf` ze strumieniem urządzeń powyżej
+- `id`szablonu urządzenia, który jest zgodny ze `instanceOf` strumieniem urządzeń powyżej
 - `displayName`szablonu urządzenia
-- Urządzenie `capabilityModel` , w tym `interfaces`jego definicje telemetrii, właściwości i poleceń
+- Urządzenie `capabilityModel` , w tym jego `interfaces` definicje telemetrii, właściwości i poleceń
 - `cloudProperties`definicje
 - Przesłonięcia i początkowe wartości, wbudowane przy użyciu`capabilityModel`
 
@@ -553,7 +557,7 @@ Jeśli masz istniejący eksport danych w aplikacji w wersji zapoznawczej przy w�
 Od 3 lutego 2020 wszystkie nowe Eksporty w aplikacjach z włączonymi urządzeniami i szablonami urządzeń będą miały format danych opisany powyżej. Wszystkie eksporty utworzone przed tą datą pozostają w starym formacie danych do 30 czerwca 2020, podczas gdy te eksporty zostaną automatycznie zmigrowane do nowego formatu danych. Nowy format danych jest zgodny z [urządzeniem](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [właściwością](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties)urządzenia, [właściwością chmury urządzenia](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)i obiektami [szablonu urządzenia](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) w IoT Central publicznym interfejsie API.
 
 W przypadku **urządzeń**istotne różnice między starym formatem danych a nowym formatem danych obejmują:
-- `@id`w przypadku urządzenia zostanie usunięta `deviceId` nazwa`id` 
+- `@id`w przypadku urządzenia zostanie usunięta `deviceId` Nazwa`id` 
 - `provisioned`dodano flagę opisującą stan aprowizacji urządzenia
 - `approved`dodano flagę w celu opisania stanu zatwierdzenia urządzenia
 - `properties`uwzględnianie jednostek w publicznym interfejsie API, w tym dotyczących urządzeń i właściwości chmury
@@ -561,7 +565,7 @@ W przypadku **urządzeń**istotne różnice między starym formatem danych a now
 W przypadku **szablonów urządzeń**istotne różnice między starym formatem danych a nowym formatem danych obejmują:
 
 - `@id`Nazwa szablonu urządzenia została zmieniona na`id`
-- `@type`dla szablonu urządzenia zmieniono nazwę na `types`, a teraz jest tablicą
+- `@type`dla szablonu urządzenia zmieniono nazwę na `types` , a teraz jest tablicą
 
 ### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Urządzenia (format jest przestarzały z 3 lutego 2020)
 
@@ -748,4 +752,4 @@ W przypadku **szablonów urządzeń**istotne różnice między starym formatem d
 Teraz, gdy wiesz już, jak wyeksportować dane do usługi Azure Event Hubs, Azure Service Bus i usługi Azure Blob Storage, przejdź do następnego kroku:
 
 > [!div class="nextstepaction"]
-> [Jak tworzyć elementy webhook](./howto-create-webhooks.md)
+> [Jak uruchomić analizę niestandardową z kostkami](./howto-create-custom-analytics.md)

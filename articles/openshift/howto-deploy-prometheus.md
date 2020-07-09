@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, ARO, OpenShift, Metrics, Red Hat
 ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80886892"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Wdrażanie autonomicznego wystąpienia Prometheus w klastrze Red Hat OpenShift platformy Azure
@@ -30,7 +29,7 @@ Pliki konfiguracji Prometheus należy przygotować lokalnie. Utwórz nowy folder
 
 ## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Logowanie do klastra przy użyciu narzędzia OC
 
-1. Otwórz przeglądarkę internetową, a następnie przejdź do konsoli sieci Web klastra (https://openshift.* Identyfikator losowy*. *region*. azmosa.IO).
+1. Otwórz przeglądarkę internetową, a następnie przejdź do konsoli sieci Web klastra ( https://openshift .* Identyfikator losowy*. *region*. azmosa.IO).
 2. Zaloguj się przy użyciu poświadczeń platformy Azure.
 3. Wybierz swoją nazwę użytkownika w prawym górnym rogu, a następnie wybierz **polecenie Kopiuj login**.
 4. Wklej nazwę użytkownika do terminala, który będzie używany.
@@ -49,7 +48,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> Możesz użyć parametru `-n` lub `--namespace` albo wybrać aktywny projekt, uruchamiając `oc project` polecenie.
+> Możesz użyć `-n` parametru lub albo `--namespace` wybrać aktywny projekt, uruchamiając `oc project` polecenie.
 
 ## <a name="prepare-the-prometheus-configuration-file"></a>Przygotuj plik konfiguracji Prometheus
 Utwórz plik Prometheus. yml, wprowadzając następującą zawartość:
@@ -118,7 +117,7 @@ https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometh
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-Plik Prometheus-Standalone. YAML to szablon OpenShift. Spowoduje to utworzenie wystąpienia Prometheus z serwerem proxy OAuth przed nim i wystąpieniem programu Alertmanager również zabezpieczony przy użyciu protokołu OAuth-proxy. W tym szablonie serwer proxy uwierzytelniania OAuth jest skonfigurowany tak, aby zezwalał każdemu użytkownikowi, który może "uzyskać" Przestrzeń nazw Prometheus- `-openshift-sar` Project (zobacz flagę).
+Plik Prometheus-Standalone. YAML to szablon OpenShift. Spowoduje to utworzenie wystąpienia Prometheus z serwerem proxy OAuth przed nim i wystąpieniem programu Alertmanager również zabezpieczony przy użyciu protokołu OAuth-proxy. W tym szablonie serwer proxy uwierzytelniania OAuth jest skonfigurowany tak, aby zezwalał każdemu użytkownikowi, który może "uzyskać" Przestrzeń nazw Prometheus-Project (zobacz `-openshift-sar` flagę).
 
 > [!NOTE]
 > Aby sprawdzić, czy prom StatefulSet ma równe i bieżące repliki liczb, uruchom `oc get statefulset -n prometheus-project` polecenie. Aby sprawdzić wszystkie zasoby w projekcie, uruchom `oc get all -n prometheus-project` polecenie.
@@ -178,11 +177,11 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 ```
 
 > [!NOTE]
-> Aby sprawdzić, czy rola i Rolabinding zostały utworzone prawidłowo, uruchom `oc get role` polecenia `oc get rolebinding` i.
+> Aby sprawdzić, czy rola i Rolabinding zostały utworzone prawidłowo, uruchom `oc get role` `oc get rolebinding` polecenia i.
 
 ## <a name="optional-deploy-example-application"></a>Opcjonalne: Wdróż przykładową aplikację
 
-Wszystko działa, ale nie ma źródeł metryk. Przejdź do adresu URL Prometheus (https://prom-prometheus-project.apps.* Identyfikator losowy*. *region*. azmosa.IO/). Można go znaleźć za pomocą następującego polecenia:
+Wszystko działa, ale nie ma źródeł metryk. Przejdź do adresu URL Prometheus ( https://prom-prometheus-project.apps .* Identyfikator losowy*. *region*. azmosa.IO/). Można go znaleźć za pomocą następującego polecenia:
 
 ```
 oc get route prom -n prometheus-project
@@ -200,7 +199,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Nowe aplikacje powinny być wyświetlane jako prawidłowe elementy docelowe na stronie odnajdowania usługi w ciągu 30 sekund od wdrożenia.
 
-Aby uzyskać więcej szczegółów, wybierz pozycję**cele** **stanu** > .
+Aby uzyskać więcej szczegółów, **Status**wybierz pozycję  >  **cele**stanu.
 
 > [!NOTE]
 > Dla każdego pomyślnie wypadków, Prometheus dodaje punkt danych w metryce w górę. W lewym górnym rogu wybierz pozycję **Prometheus** **, wprowadź wartość w polu** wyrażenie, a następnie wybierz pozycję **Execute (wykonaj**).

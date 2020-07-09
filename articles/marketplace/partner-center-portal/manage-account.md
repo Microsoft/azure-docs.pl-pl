@@ -1,18 +1,18 @@
 ---
 title: Jak zarządzać komercyjnym kontem witryny Marketplace w centrum partnerskim firmy Microsoft
 description: Dowiedz się, jak zarządzać komercyjnym kontem witryny Marketplace w centrum partnerskim firmy Microsoft.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/27/2020
-ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 90ce9e48515213460fdb3db4fed57fd6f5d2688a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800217"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112854"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -24,7 +24,7 @@ W tym artykule szczegółowemy, jak zarządzać kontem Centrum partnerskiego, w 
 - [Znajdź identyfikator wydawcy, identyfikator firmy Symantec, identyfikator sprzedającego, identyfikator użytkownika, identyfikator MPN i dzierżawy usługi Azure AD](#account-details)
 - [Aktualizowanie informacji kontaktowych](#contact-info)
 - [Konfigurowanie identyfikatorów GUID śledzenia do monitorowania użycia klienta](#tracking-guids)
-- [Zarządzaj użytkownikami](#manage-users)
+- [Zarządzanie użytkownikami](#manage-users)
 - [Zarządzanie grupami](#manage-groups)
 - [Zarządzanie aplikacjami usługi Azure AD](#manage-azure-ad-applications)
 - [Definiowanie uprawnień i ról użytkowników](#define-user-roles-and-permissions)
@@ -128,7 +128,7 @@ Jeśli produkt zostanie wdrożony przy użyciu szablonu, który jest dostępny z
 
 Raportowanie jest wykonywane przez wartość partnera (identyfikator partnera firmy Microsoft) i identyfikatory GUID. Możesz także śledzić identyfikatory GUID na bardziej szczegółowym poziomie wyrównanym do każdego planu w ramach oferty.
 
-Aby uzyskać więcej informacji, zobacz [Śledzenie użycia klientów platformy Azure z identyfikatorami GUID często zadawane pytania](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+Aby uzyskać więcej informacji, zobacz [Śledzenie użycia klientów platformy Azure z identyfikatorami GUID często zadawanych pytań](../azure-partner-customer-usage-attribution.md#faq)i odpowiedzi.
 
 ## <a name="create-a-billing-profile"></a>Tworzenie profilu rozliczeń
 
@@ -138,7 +138,7 @@ Adres rozliczeniowy jest wstępnie wypełniony przez firmę prawną i można go 
 
 ## <a name="multi-user-account-management"></a>Zarządzanie kontami przez wiele użytkowników
 
-Centrum partnerskie wykorzystuje [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) do dostępu do konta i zarządzania przez wiele użytkowników. Usługa Azure AD Twojej organizacji jest automatycznie skojarzona z kontem Centrum partnerskiego w ramach procesu rejestracji.
+Centrum partnerskie wykorzystuje [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) do dostępu do konta i zarządzania przez wiele użytkowników. Usługa Azure AD Twojej organizacji jest automatycznie skojarzona z kontem Centrum partnerskiego w ramach procesu rejestracji.
 
 ## <a name="manage-users"></a>Zarządzanie użytkownikami
 
@@ -168,7 +168,7 @@ Aby dodać użytkowników do konta Centrum partnerskiego, które już istnieje n
 
 ### <a name="create-new-users"></a>Utwórz nowych użytkowników
 
-Aby utworzyć nowe konta użytkowników, musisz mieć konto z uprawnieniami [**administratora globalnego**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) . 
+Aby utworzyć nowe konta użytkowników, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) . 
 
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**), wybierz pozycję **Dodaj użytkowników**, a następnie wybierz pozycję **Utwórz nowych użytkowników**.
 1. Wprowadź imię i nazwisko oraz nazwę użytkownika dla każdego nowego użytkownika. 
@@ -182,7 +182,7 @@ Utworzenie nowego użytkownika w centrum partnerskim spowoduje również utworze
 
 ### <a name="invite-new-users-by-email"></a>Zaproś nowych użytkowników pocztą e-mail
 
-Aby zapraszać użytkowników, którzy nie są obecnie częścią firmowego konta służbowego (Azure AD dzierżawcą) za pośrednictwem poczty e-mail, musisz mieć konto z uprawnieniami [**administratora globalnego**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
+Aby zapraszać użytkowników, którzy nie są obecnie częścią firmowego konta służbowego (Azure AD dzierżawcą) za pośrednictwem poczty e-mail, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) .
 
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**), wybierz pozycję **Dodaj użytkowników**, a następnie wybierz opcję **Zapraszanie użytkowników za pośrednictwem poczty e-mail**.
 2. Wprowadź co najmniej jeden adres e-mail (do dziesięciu), rozdzielony przecinkami lub średnikami.
@@ -202,7 +202,7 @@ Aby usunąć użytkownika z konta służbowego (dzierżawy usługi Azure AD), pr
 
 ### <a name="change-a-user-password"></a>Zmiana hasła użytkownika
 
-Jeśli jeden z użytkowników musi zmienić hasło, może to zrobić, jeśli podczas tworzenia konta użytkownika podano **wiadomość e-mail z odzyskiwaniem haseł** . Możesz również zaktualizować hasło użytkownika, wykonując poniższe kroki. Aby zmienić hasło użytkownika na koncie służbowym firmy (dzierżawy usługi Azure AD), użytkownik musi być zalogowany na koncie z uprawnieniami [**administratora globalnego**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) . Należy pamiętać, że spowoduje to zmianę hasła użytkownika w dzierżawie usługi Azure AD wraz z hasłem używanym do uzyskiwania dostępu do Centrum partnerskiego.
+Jeśli jeden z użytkowników musi zmienić hasło, może to zrobić, jeśli podczas tworzenia konta użytkownika podano **wiadomość e-mail z odzyskiwaniem haseł** . Możesz również zaktualizować hasło użytkownika, wykonując poniższe kroki. Aby zmienić hasło użytkownika na koncie służbowym firmy (dzierżawy usługi Azure AD), użytkownik musi być zalogowany na koncie z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Należy pamiętać, że spowoduje to zmianę hasła użytkownika w dzierżawie usługi Azure AD wraz z hasłem używanym do uzyskiwania dostępu do Centrum partnerskiego.
 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz nazwę konta użytkownika, które chcesz edytować.
 2. Wybierz przycisk **resetowania hasła** w dolnej części strony.
@@ -264,7 +264,7 @@ Jeśli chcesz udzielić Centrum partnerskiego dostępu do nowego konta aplikacji
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz pozycję **Dodaj aplikacje usługi Azure AD**.
 2. Na następnej stronie wybierz pozycję **Nowa aplikacja usługi Azure AD**.
 3. Wprowadź **adres URL odpowiedzi** dla nowej aplikacji usługi Azure AD. Jest to adres URL, pod którym użytkownicy mogą się logować i korzystać z aplikacji usługi Azure AD (czasami także znanego również jako adres URL aplikacji lub adres URL logowania). **Adres URL odpowiedzi** nie może mieć więcej niż 256 znaków i musi być unikatowy w obrębie katalogu.
-4. Wprowadź **Identyfikator URI aplikacji** dla nowej aplikacji usługi Azure AD. Jest to identyfikator logiczny dla aplikacji usługi Azure AD, który jest prezentowany podczas wysyłania żądania logowania jednokrotnego do usługi Azure AD. Należy pamiętać, że **Identyfikator URI aplikacji** musi być unikatowy dla każdej aplikacji usługi Azure AD w katalogu. Ten identyfikator nie może zawierać więcej niż 256 znaków. Aby uzyskać więcej informacji o IDENTYFIKATORze URI aplikacji, zobacz [Integrowanie aplikacji z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Wprowadź **Identyfikator URI aplikacji** dla nowej aplikacji usługi Azure AD. Jest to identyfikator logiczny dla aplikacji usługi Azure AD, który jest prezentowany podczas wysyłania żądania logowania jednokrotnego do usługi Azure AD. Należy pamiętać, że **Identyfikator URI aplikacji** musi być unikatowy dla każdej aplikacji usługi Azure AD w katalogu. Ten identyfikator nie może zawierać więcej niż 256 znaków. Aby uzyskać więcej informacji o IDENTYFIKATORze URI aplikacji, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. W sekcji **role** Określ role lub dostosowane uprawnienia dla aplikacji usługi Azure AD.
 6. Wybierz pozycję **Zapisz**.
 
@@ -328,7 +328,7 @@ Aby utworzyć nową dzierżawę usługi Azure AD przy użyciu konta Centrum part
 3. Wybierz pozycję **Utwórz** , aby potwierdzić nowe informacje o domenie i koncie.
 4. Zaloguj się przy użyciu nowej nazwy użytkownika i hasła administratora globalnego usługi Azure AD, aby rozpocząć [Dodawanie użytkowników i zarządzanie nimi](#manage-users).
 
-Aby uzyskać więcej informacji na temat tworzenia nowych dzierżawców w ramach Azure Portal, a nie za pośrednictwem portalu Centrum partnerskiego, zobacz artykuł [Tworzenie nowej dzierżawy w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+Aby uzyskać więcej informacji na temat tworzenia nowych dzierżawców w ramach Azure Portal, a nie za pośrednictwem portalu Centrum partnerskiego, zobacz artykuł [Tworzenie nowej dzierżawy w Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 ### <a name="remove-a-tenant"></a>Usuwanie dzierżawy
 

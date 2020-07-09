@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 601af3a5e642b4bbda54f461b3139e72b01b21d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70101411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193502"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One na maszynach wirtualnych platformy Azure
 Ten dokument zawiera wskazówki dotyczące wdrażania oprogramowania SAP Business One na platformie Azure Virtual Machines. Dokumentacja programu nie zastępuje dokumentacji dotyczącej instalacji dla oprogramowania SAP. Dokumentacja powinna obejmować podstawowe wytyczne dotyczące planowania i wdrażania infrastruktury platformy Azure w celu uruchamiania aplikacji firmowych.
@@ -67,17 +67,17 @@ Firma to aplikacja, która ma dwie warstwy:
 - Warstwa klienta z klientem "Fat"
 - Warstwa bazy danych, która zawiera schemat bazy danych dla dzierżawy
 
-Lepszy przegląd składników uruchomionych w części klienta i części, które są uruchomione w części serwera, został udokumentowany w [podręczniku administratora oprogramowania SAP Business](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf) . 
+Lepszy przegląd składników uruchomionych w części klienta i części, które są uruchomione w części serwera, został udokumentowany w [podręczniku administratora oprogramowania SAP Business](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf) . 
 
 Ponieważ występuje duże opóźnienie krytyczne między warstwą klienta i warstwą DBMS, obie warstwy muszą znajdować się na platformie Azure podczas wdrażania na platformie Azure. zwykle jest to, że użytkownicy będą następnie RDS w jednej lub wielu maszynach wirtualnych z uruchomioną usługą RDS dla firmowego składnika klienta.
 
 ### <a name="sizing-vms-for-sap-business-one"></a>Ustalanie wielkości maszyn wirtualnych dla oprogramowania SAP Business One
 
-W odniesieniu do wielkości maszyn wirtualnych klienta wymagania dotyczące zasobów są udokumentowane przez SAP w dokumencie [SAP Business — wymagania sprzętowe](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). W przypadku platformy Azure należy skoncentrować się i obliczać zgodnie z wymaganiami podanymi w rozdziale 2,4 dokumentu.
+W odniesieniu do wielkości maszyn wirtualnych klienta wymagania dotyczące zasobów są udokumentowane przez SAP w dokumencie [SAP Business — wymagania sprzętowe](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). W przypadku platformy Azure należy skoncentrować się i obliczać zgodnie z wymaganiami podanymi w rozdziale 2,4 dokumentu.
 
 Jako że usługa Azure Virtual Machines na potrzeby hostowania firmowych składników klienta i hosta DBMS, dozwolone są tylko maszyny wirtualne, które są obsługiwane przez SAP NetWeaver. Aby znaleźć listę obsługiwanych maszyn wirtualnych platformy SAP NetWeaver, przeczytaj temat [SAP uwagi #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-Uruchamianie SAP HANA jako bazy danych DBMS dla firm jeden, tylko maszyny wirtualne, które są wymienione dla firm na platformie HANA na [liście platform Hana Certifeid IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) , są obsługiwane w przypadku platformy Hana. Te silniejsze ograniczenia dotyczące SAP HANA jako systemu DBMS nie mają wpływ na działalność biznesową jednego klienta.
+Uruchamianie SAP HANA jako bazy danych DBMS dla firm, tylko maszyny wirtualne, które są wymienione dla firm na platformie HANA na [liście platform certyfikowanej IaaS platformy Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) , są obsługiwane w programie Hana. Te silniejsze ograniczenia dotyczące SAP HANA jako systemu DBMS nie mają wpływ na działalność biznesową jednego klienta.
 
 ### <a name="operating-system-releases-to-use-for-sap-business-one"></a>Wersje systemu operacyjnego do użycia w oprogramowaniu SAP Business One
 

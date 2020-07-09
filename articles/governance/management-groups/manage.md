@@ -3,12 +3,11 @@ title: Jak korzystać z grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwać hierarchię grup zarządzania.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747470"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259409"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
 
@@ -93,7 +92,7 @@ Aby można było usunąć grupę zarządzania, muszą zostać spełnione następ
 
    :::image type="content" source="./media/delete_confirm.png" alt-text="Okno potwierdzania usuwania grupy" border="false":::
 
-1. Wybierz pozycję **tak**.
+1. Wybierz pozycję **Tak**.
 
 ### <a name="delete-in-powershell"></a>Usuwanie w programie PowerShell
 
@@ -205,7 +204,7 @@ Podczas przeniesienia grupy zarządzania lub subskrypcji jako elementu podrzędn
 Jeśli wykonujesz akcję Przenieś, potrzebujesz: 
 
 - Uprawnienia Zapis grup zarządzania i przypisywanie ról w podrzędnej subskrypcji lub grupie zarządzania.
-  - **Właściciel** przykładu wbudowanej roli
+  - Przykładowy **właściciel** roli wbudowanej
 - Dostęp do zapisu grupy zarządzania w docelowej nadrzędnej grupie zarządzania.
   - Wbudowana rola — przykład: **właściciel**, **współautor**, **współautor grupy zarządzania**
 - Dostęp do zapisu grupy zarządzania w istniejącej nadrzędnej grupie zarządzania.

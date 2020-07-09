@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195064"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Pozyskiwanie danych i zrozumienie etapu procesu nauki o danych zespołowych
 
@@ -55,7 +54,7 @@ PRZETWARZANIA TDSP zapewnia zautomatyzowane narzędzie, nazywane [pomysłem](htt
 Po spełnieniu jakości oczyszczonych danych, następnym krokiem jest lepsze zrozumienie wzorców, które są związane z danymi. Ta analiza danych pomaga w wyborze i opracowaniu odpowiedniego modelu predykcyjnego dla celu. Poszukaj dowodów na to, jak dobrze połączono dane z elementem docelowym. Następnie określ, czy masz wystarczające dane, aby przejść do następnej procedury modelowania. Ten proces jest często iteracyjny. Może być konieczne znalezienie nowych źródeł danych z dokładniejszymi lub bardziej odpowiednimi danymi, aby rozszerzyć zestaw danych początkowo zidentyfikowany na poprzednim etapie. 
 
 ### <a name="set-up-a-data-pipeline"></a>Konfigurowanie potoku danych
-Oprócz wstępnego pozyskiwania i czyszczenia danych zazwyczaj trzeba skonfigurować proces do oceny nowych danych lub regularnie odświeżać dane w ramach trwającego procesu nauki. Ocenianie może być wykonywane przy użyciu potoku danych lub przepływu pracy. Przykład [przenoszenia danych z wystąpienia lokalnego SQL Server, aby Azure SQL Database z artykułem Azure Data Factorym](move-sql-azure-adf.md) , zawiera przykładowy sposób konfigurowania potoku za pomocą [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Oprócz wstępnego pozyskiwania i czyszczenia danych zazwyczaj trzeba skonfigurować proces do oceny nowych danych lub regularnie odświeżać dane w ramach trwającego procesu nauki. Ocenianie może być wykonywane przy użyciu potoku danych lub przepływu pracy. Przykład [przenoszenia danych z wystąpienia SQL serverowego do Azure SQL Database z](move-sql-azure-adf.md) artykułem Azure Data Factory zawiera przykładowy sposób konfigurowania potoku za pomocą [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 Na tym etapie opracowujesz architekturę rozwiązania potoku danych. Potok jest opracowywany równolegle z następnym etapem projektu analizy danych. W zależności od potrzeb firmy i ograniczeń istniejących systemów, do których to rozwiązanie jest zintegrowane, potok może być jedną z następujących opcji: 
 
@@ -63,7 +62,7 @@ Na tym etapie opracowujesz architekturę rozwiązania potoku danych. Potok jest 
    * Przesyłanie strumieniowe lub w czasie rzeczywistym 
    * Hybrydowa 
 
-## <a name="artifacts"></a>Artefakty
+## <a name="artifacts"></a>Artifacts
 Poniżej znajdują się elementy dostarczane na tym etapie:
 
    * [Raport dotyczący jakości danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): ten raport zawiera podsumowania danych, relacje między poszczególnymi atrybutami i elementem docelowym, klasyfikację zmiennych i inne. Narzędzie [pomysł](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) udostępniane jako część przetwarzania TDSP może szybko wygenerować ten raport na dowolnym zestawie danych tabelarycznych, na przykład w pliku CSV lub w tabeli relacyjnej. 

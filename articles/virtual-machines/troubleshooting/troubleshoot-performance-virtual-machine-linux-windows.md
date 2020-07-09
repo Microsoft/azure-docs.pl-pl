@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75772622"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Rozwiązywanie problemów z wydajnością maszyny wirtualnej platformy Azure w systemie Linux lub Windows
@@ -139,7 +138,7 @@ Powiększanie i stałe/stałe — duże użycie pamięci może nie być przyczyn
 
 Stałe zwiększenie zużycia — możliwą aplikację "rozgrzewanie", to zużycie jest wspólne między aparatami bazy danych. Jednak może to również być oznaką przecieku pamięci w aplikacji. Zidentyfikuj aplikację i sprawdź, czy zachowanie jest oczekiwane.
 
-Użycie strony lub pliku wymiany — Sprawdź, czy używasz pliku stronicowania systemu Windows (znajdującego się w\) pliku z rozszerzeniem D: lub Linux `/dev/sdb`(znajdującego się na). Jeśli na tych woluminach nie ma niczego z wyjątkiem tych plików, sprawdź, czy na tych dyskach są dostępne duże operacje odczytu i zapisu. Ten problem jest wskaźnikiem niewielkich warunków pamięci.
+Użycie strony lub pliku wymiany — Sprawdź, czy używasz pliku stronicowania systemu Windows (znajdującego się w \) pliku z rozszerzeniem D: lub Linux (znajdującego się na `/dev/sdb` ). Jeśli na tych woluminach nie ma niczego z wyjątkiem tych plików, sprawdź, czy na tych dyskach są dostępne duże operacje odczytu i zapisu. Ten problem jest wskaźnikiem niewielkich warunków pamięci.
 
 ### <a name="high-memory-utilization-remediation"></a>Duże korygowanie wykorzystania pamięci
 
@@ -210,7 +209,7 @@ Dzięki nowym oferowanym dyskom w ramach magazynu w warstwie Standardowa przepus
 
 * [Elementy docelowe skalowalności i wydajności dla dysków maszyn wirtualnych w systemie Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
-#### <a name="references"></a>Dokumentacja
+#### <a name="references"></a>Odwołania
 
 * [Cele skalowalności i wydajności dla kont usługi BLOB Storage na stronie Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 

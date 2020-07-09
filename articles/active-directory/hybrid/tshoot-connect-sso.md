@@ -8,17 +8,16 @@ manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759748124893a8f906a4bc336f835546202b0b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049488"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355917"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -35,7 +34,7 @@ Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotycz�
 - Bezproblemowe logowanie jednokrotne nie działa w przeglądarkach mobilnych w systemach iOS i Android.
 - Jeśli użytkownik jest częścią zbyt wielu grup w Active Directory, bilet protokołu Kerberos użytkownika będzie prawdopodobnie zbyt duży do przetworzenia i spowoduje to niepowodzenie bezproblemowego logowania jednokrotnego. Żądania HTTPS usługi Azure AD mogą mieć nagłówki o maksymalnym rozmiarze 50 KB; Bilety protokołu Kerberos muszą być mniejsze niż ten limit, aby pomieścić inne artefakty usługi Azure AD (zazwyczaj 2-5 KB), takie jak pliki cookie. Naszym zaleceniem jest zredukowanie członkostwa w grupach użytkowników i spróbuj ponownie.
 - W przypadku synchronizacji co najmniej 30 Active Directory lasów nie można włączyć bezproblemowego logowania jednokrotnego za pomocą Azure AD Connect. Aby obejść ten element, można [ręcznie włączyć](#manual-reset-of-the-feature) tę funkcję w dzierżawie.
-- Dodanie adresu URL usługi Azure AD (`https://autologon.microsoftazuread-sso.com`) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*się.
+- Dodanie adresu URL usługi Azure AD ( `https://autologon.microsoftazuread-sso.com` ) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*się.
 - Bezproblemowe logowanie jednokrotne obsługuje typy szyfrowania AES256_HMAC_SHA1, AES128_HMAC_SHA1 i RC4_HMAC_MD5 dla protokołu Kerberos. Zaleca się, aby w celu zwiększenia bezpieczeństwa typ szyfrowania dla konta AzureADSSOAcc $ miał wartość AES256_HMAC_SHA1 lub jeden z typów AES a RC4. Typ szyfrowania jest przechowywany w atrybucie msDS-Supportedencryptiontypes konta konta w Active Directory.  Jeśli typ szyfrowania AzureADSSOAcc $ Account jest ustawiony na RC4_HMAC_MD5 i chcesz zmienić go na jeden z typów szyfrowania AES, upewnij się, że najpierw przeniesiesz klucz odszyfrowujący protokołu Kerberos konta AzureADSSOAcc $ zgodnie z opisem w [dokumencie często zadawane pytania](how-to-connect-sso-faq.md) , w przeciwnym razie bezproblemowe logowanie jednokrotne nie następuje.
 
 ## <a name="check-status-of-feature"></a>Sprawdź stan funkcji
@@ -54,7 +53,7 @@ Jeśli dzierżawa ma skojarzoną licencję Azure AD — wersja Premium, możesz 
 
 ![Azure Active Directory centrum administracyjnego: Raport logowania](./media/tshoot-connect-sso/sso9.png)
 
-Przejdź do **Azure Active Directory** > **logowania** w [centrum administracyjnym Azure Active Directory](https://aad.portal.azure.com/), a następnie wybierz działanie logowania określonego użytkownika. Poszukaj pola **Kod błędu logowania** . Zamapuj wartość tego pola na przyczynę niepowodzenia i rozdzielczość, korzystając z następującej tabeli:
+Przejdź do **Azure Active Directory**  >  **logowania** w [centrum administracyjnym Azure Active Directory](https://aad.portal.azure.com/), a następnie wybierz działanie logowania określonego użytkownika. Poszukaj pola **Kod błędu logowania** . Zamapuj wartość tego pola na przyczynę niepowodzenia i rozdzielczość, korzystając z następującej tabeli:
 
 |Kod błędu logowania|Przyczyna niepowodzenia logowania|Rozwiązanie
 | --- | --- | ---
@@ -75,14 +74,14 @@ Użyj poniższej listy kontrolnej, aby rozwiązać problemy z logowaniem jednokr
 
 - Upewnij się, że funkcja bezproblemowego logowania jednokrotnego jest włączona w Azure AD Connect. Jeśli nie możesz włączyć funkcji (na przykład ze względu na zablokowany port), upewnij się, że zostały spełnione wszystkie [wymagania wstępne](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) .
 - Jeśli włączono [usługę Azure AD Join](../active-directory-azureadjoin-overview.md) i bezproblemową rejestrację jednokrotną w dzierżawie, upewnij się, że problem nie jest przyłączany do usługi Azure AD. Logowanie jednokrotne z usługi Azure AD ma wyższy priorytet niż bezproblemowe logowanie jednokrotne, jeśli urządzenie jest zarejestrowane w usłudze Azure AD i przyłączone do domeny. W przypadku logowania jednokrotnego z usługi Azure AD użytkownik widzi kafelek logowania "połączony z systemem Windows".
-- Upewnij się, że adres URL usługi`https://autologon.microsoftazuread-sso.com`Azure AD () jest częścią ustawień strefy intranetowej użytkownika.
+- Upewnij się, że adres URL usługi Azure AD ( `https://autologon.microsoftazuread-sso.com` ) jest częścią ustawień strefy intranetowej użytkownika.
 - Upewnij się, że urządzenie firmowe jest przyłączone do domeny Active Directory. Aby bezproblemowe logowanie jednokrotne działało, urządzenie _nie_ musi być [przyłączone do usługi Azure AD](../active-directory-azureadjoin-overview.md) .
 - Upewnij się, że użytkownik jest zalogowany na urządzeniu za pomocą konta domeny Active Directory.
 - Upewnij się, że konto użytkownika pochodzi z lasu Active Directory, w którym skonfigurowano bezproblemowe logowanie jednokrotne.
 - Upewnij się, że urządzenie jest połączone z siecią firmową.
 - Upewnij się, że czas urządzenia jest zsynchronizowany z upływem czasu zarówno w Active Directory, jak i na kontrolerach domeny, i że są one w ciągu pięciu minut od siebie.
-- Upewnij się, `AZUREADSSOACC` że konto komputera jest obecne i włączone w każdym lesie usługi AD, dla którego chcesz bezproblemowo włączyć logowanie jednokrotne. Jeśli konto komputera zostało usunięte lub nie istnieje, możesz je utworzyć ponownie za pomocą [poleceń cmdlet programu PowerShell](#manual-reset-of-the-feature) .
-- Utwórz listę istniejących biletów protokołu Kerberos na urządzeniu przy użyciu `klist` polecenia z wiersza polecenia. Upewnij się, że bilety dla konta `AZUREADSSOACC` komputera są obecne. Bilety protokołu Kerberos użytkowników są zwykle ważne przez 10 godzin. Możesz mieć różne ustawienia w Active Directory.
+- Upewnij się, że `AZUREADSSOACC` konto komputera jest obecne i włączone w każdym lesie usługi AD, dla którego chcesz bezproblemowo włączyć logowanie jednokrotne. Jeśli konto komputera zostało usunięte lub nie istnieje, możesz je utworzyć ponownie za pomocą [poleceń cmdlet programu PowerShell](#manual-reset-of-the-feature) .
+- Utwórz listę istniejących biletów protokołu Kerberos na urządzeniu przy użyciu `klist` polecenia z wiersza polecenia. Upewnij się, że bilety dla `AZUREADSSOACC` konta komputera są obecne. Bilety protokołu Kerberos użytkowników są zwykle ważne przez 10 godzin. Możesz mieć różne ustawienia w Active Directory.
 - Jeśli użytkownik wyłączył i włączył bezproblemowe logowanie jednokrotne w dzierżawie, użytkownicy nie będą mogli korzystać z logowania jednokrotnego do czasu wygaśnięcia biletów w buforze Kerberos.
 - Przeczyść istniejące bilety protokołu Kerberos z urządzenia przy użyciu `klist purge` polecenia i spróbuj ponownie.
 - Aby określić, czy występują problemy związane z językiem JavaScript, Przejrzyj dzienniki konsoli w przeglądarce (w obszarze **Narzędzia deweloperskie**).
@@ -108,16 +107,16 @@ Jeśli Rozwiązywanie problemów nie powiodło się, można ręcznie zresetować
 
 1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Zaimportuj bezproblemowy moduł programu PowerShell dla logowania `Import-Module .\AzureADSSO.psd1`jednokrotnego za pomocą tego polecenia:.
+3. Zaimportuj bezproblemowy moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
 
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Krok 2. Pobieranie listy Active Directory lasów, w których włączono bezproblemowe logowanie jednokrotne
 
-1. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj `New-AzureADSSOAuthenticationContext`polecenie. Po wyświetleniu monitu wprowadź poświadczenia administratora globalnego dzierżawy.
-2. Wywołanie `Get-AzureADSSOStatus`. To polecenie umożliwia wyświetlenie listy Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję.
+1. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . Po wyświetleniu monitu wprowadź poświadczenia administratora globalnego dzierżawy.
+2. Wywołanie `Get-AzureADSSOStatus` . To polecenie umożliwia wyświetlenie listy Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję.
 
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Krok 3. wyłączenie bezproblemowego logowania jednokrotnego dla każdego lasu Active Directory, w którym skonfigurowano funkcję
 
-1. Wywołanie `$creds = Get-Credential`. Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
+1. Wywołanie `$creds = Get-Credential` . Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
 
    > [!NOTE]
    >Należy podać nazwę użytkownika poświadczeń administratora domeny w formacie nazwy konta SAM (contoso\johndoe lub contoso. com\johndoe). Używamy części nazwy użytkownika do lokalizowania kontrolera domeny administratora domeny przy użyciu systemu DNS.
@@ -125,12 +124,12 @@ Jeśli Rozwiązywanie problemów nie powiodło się, można ręcznie zresetować
    >[!NOTE]
    >Użyte konto administratora domeny nie może być członkiem grupy Chronieni użytkownicy. Jeśli tak, operacja zakończy się niepowodzeniem.
 
-2. Wywołanie `Disable-AzureADSSOForest -OnPremCredentials $creds`. To polecenie usuwa konto `AZUREADSSOACC` komputera z lokalnego kontrolera domeny dla danego lasu Active Directory.
+2. Wywołanie `Disable-AzureADSSOForest -OnPremCredentials $creds` . To polecenie usuwa `AZUREADSSOACC` konto komputera z lokalnego kontrolera domeny dla danego lasu Active Directory.
 3. Powtórz powyższe kroki dla każdego lasu Active Directory, w którym skonfigurowano funkcję.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Krok 4. Włączanie bezproblemowego logowania jednokrotnego dla każdego lasu Active Directory
 
-1. Wywołanie `Enable-AzureADSSOForest`. Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
+1. Wywołanie `Enable-AzureADSSOForest` . Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
 
    > [!NOTE]
    >Należy podać nazwę użytkownika poświadczeń administratora domeny w formacie nazwy konta SAM (contoso\johndoe lub contoso. com\johndoe). Używamy części nazwy użytkownika do lokalizowania kontrolera domeny administratora domeny przy użyciu systemu DNS.
@@ -142,4 +141,4 @@ Jeśli Rozwiązywanie problemów nie powiodło się, można ręcznie zresetować
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Krok 5. Włączanie funkcji w dzierżawie
 
-Aby włączyć funkcję w dzierżawie, wywołaj `Enable-AzureADSSO -Enable $true`polecenie.
+Aby włączyć funkcję w dzierżawie, wywołaj polecenie `Enable-AzureADSSO -Enable $true` .

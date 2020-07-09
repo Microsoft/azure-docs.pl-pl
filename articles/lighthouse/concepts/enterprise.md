@@ -1,14 +1,14 @@
 ---
 title: Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 description: Możliwości usługi Azure Lighthouse umożliwiają uproszczenie zarządzania różnymi dzierżawcami w przedsiębiorstwie, które korzystają z wielu dzierżawców usługi Azure AD.
-ms.date: 09/25/2019
+ms.date: 07/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f9a7aa81772a1edda5fd1915918b547a3066455
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75749210"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114146"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
 
@@ -18,7 +18,7 @@ Najbardziej typowym scenariuszem dla [usługi Azure Lighthouse](../overview.md) 
 
 W przypadku większości organizacji zarządzanie jest łatwiejsze w przypadku pojedynczej dzierżawy usługi Azure AD. Posiadanie wszystkich zasobów w ramach jednej dzierżawy umożliwia scentralizowanie zadań zarządzania według wyznaczonych użytkowników, grup użytkowników lub jednostek usługi w ramach tej dzierżawy. Jeśli to możliwe, zalecamy używanie jednej dzierżawy dla organizacji.
 
-W tym samym czasie istnieją sytuacje, w których organizacja może wymagać utrzymania wielu dzierżawców usługi Azure AD. W niektórych przypadkach może to być sytuacja tymczasowa, tak jak w przypadku pozyskiwania i długotrwała strategia konsolidacji dzierżawców zajmie trochę czasu. Organizacja może również wymagać regularnego utrzymania wielu dzierżawców (ze względu na całkowite niezależne jednostki zależne, wymagania geograficzne lub prawne itd.). W przypadkach, gdy wymagana jest architektura z wieloma dzierżawcami, zarządzanie zasobami delegowanymi przez platformę Azure może służyć do scentralizowania i usprawnienia operacji zarządzania. Subskrypcje z wielu dzierżawców można dołączać do [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), umożliwiając Wyznaczeni użytkownikom w dzierżawie zarządzającej wykonywanie [funkcji zarządzania między dzierżawcami](cross-tenant-management-experience.md) w scentralizowany i skalowalny sposób.
+W tym samym czasie istnieją sytuacje, w których organizacja może wymagać utrzymania wielu dzierżawców usługi Azure AD. W niektórych przypadkach może to być sytuacja tymczasowa, tak jak w przypadku pozyskiwania i długotrwała strategia konsolidacji dzierżawców zajmie trochę czasu. Organizacja może również wymagać regularnego utrzymania wielu dzierżawców (ze względu na całkowite niezależne jednostki zależne, wymagania geograficzne lub prawne itd.). W przypadkach, gdy wymagana jest architektura z wieloma dzierżawcami, usługa Azure Lighthouse może służyć do scentralizowania i usprawniania operacji zarządzania. Subskrypcje z wielu dzierżawców można dołączać do [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md), umożliwiając Wyznaczeni użytkownikom w dzierżawie zarządzającej wykonywanie [funkcji zarządzania między dzierżawcami](cross-tenant-management-experience.md) w scentralizowany i skalowalny sposób.
 
 ## <a name="tenant-management-architecture"></a>Architektura zarządzania dzierżawcą
 
@@ -32,17 +32,17 @@ Organizacja chce używać tych samych definicji zasad, metod tworzenia kopii zap
 
 ## <a name="security-and-access-considerations"></a>Zagadnienia dotyczące zabezpieczeń i dostępu
 
-W większości scenariuszy przedsiębiorstwa należy delegować pełną subskrypcję zarządzania zasobami delegowanymi przez platformę Azure, chociaż można delegować tylko określone grupy zasobów w ramach subskrypcji.
+W większości scenariuszy przedsiębiorstwa należy delegować pełną subskrypcję usługi Azure Lighthouse, chociaż można także delegować tylko określone grupy zasobów w ramach subskrypcji.
 
 W obu przypadkach należy [przestrzegać zasad najniższych uprawnień podczas definiowania użytkowników, którzy będą mieli dostęp do zasobów](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Dzięki temu użytkownicy mają uprawnienia wymagane do wykonywania wymaganych zadań i zmniejszają ryzyko przypadkowych błędów.
 
-Usługa Azure Lighthouse i delegowane zarządzanie zasobami platformy Azure udostępniają tylko linki logiczne między dzierżawą zarządzającą i zarządzanymi dzierżawcami, a nie fizycznym przeniesieniem danych lub zasobów. Ponadto dostęp do usługi zawsze odbywa się tylko w jednym kierunku — od dzierżawy zarządzającej do zarządzanych dzierżawców.  Użytkownicy i grupy w dzierżawie zarządzającej powinny nadal korzystać z uwierzytelniania wieloskładnikowego podczas wykonywania operacji zarządzania na zarządzanych zasobach dzierżawy.
+Usługa Azure Lighthouse udostępnia jedynie logiczne linki między zarządzaną dzierżawą i zarządzanymi dzierżawcami, a nie fizycznym przeniesieniem danych ani zasobów. Ponadto dostęp do usługi zawsze odbywa się tylko w jednym kierunku — od dzierżawy zarządzającej do zarządzanych dzierżawców.  Użytkownicy i grupy w dzierżawie zarządzającej powinny nadal korzystać z uwierzytelniania wieloskładnikowego podczas wykonywania operacji zarządzania na zarządzanych zasobach dzierżawy.
 
 Przedsiębiorstwa z wewnętrznym lub zewnętrznym zarządzaniem i zgodnością guardrails mogą korzystać z [dzienników aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) w celu spełnienia wymagań dotyczących przejrzystości. Gdy dzierżawy przedsiębiorstwa ustanowiły zarządzanie relacjami i zarządzasz nimi, użytkownicy w poszczególnych dzierżawców mogą monitorować i uzyskiwać wgląd w akcje podejmowane przez użytkowników w innej dzierżawie, wyświetlając zarejestrowane działanie.
 
 ## <a name="onboarding-process-considerations"></a>Zagadnienia dotyczące procesu dołączania
 
-Subskrypcje (lub grupy zasobów w ramach subskrypcji) można dołączać do zarządzania zasobami delegowanymi przez platformę Azure, wdrażając szablony Azure Resource Manager lub za pomocą usług zarządzanych, które są publikowane w witrynie Azure Marketplace, prywatnie lub publicznie.
+Subskrypcje (lub grupy zasobów w ramach subskrypcji) można dołączać do usługi Azure Lighthouse, wdrażając szablony Azure Resource Manager lub korzystając z usług zarządzanych, ofert opublikowanych w portalu Azure Marketplace — prywatnie lub publicznie.
 
 Ze względu na to, że użytkownicy korporacyjni zwykle będą mogli uzyskać bezpośredni dostęp do dzierżawców przedsiębiorstwa i nie ma potrzeby wprowadzenia na rynek ani promowania oferty zarządzania, jest to zwykle szybsze i bardziej bezpośrednie do wdrożenia przy użyciu szablonów Azure Resource Manager. W odniesieniu do dostawców usług i klientów w [wytycznych dotyczących](../how-to/onboard-customer.md)dołączania przedsiębiorstwa mogą korzystać z tych samych procesów.
 

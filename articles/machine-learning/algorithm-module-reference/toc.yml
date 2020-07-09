@@ -106,6 +106,8 @@
       href: train-clustering-model.md
     - name: Trenowanie modelu
       href: train-model.md
+    - name: Trenowanie modelu Pytorch
+      href: train-pytorch-model.md
     - name: Dostrajanie hiperparametrów modelu
       href: tune-model-hyperparameters.md
 - name: Ocenianie i ewaluacja modelu
@@ -118,6 +120,8 @@
       href: cross-validate-model.md
     - name: Ocena modelu
       href: evaluate-model.md
+    - name: Ocenianie modelu obrazów
+      href: score-image-model.md
     - name: Klasyfikacja modelu
       href: score-model.md
 - name: Język Python
@@ -142,14 +146,36 @@
       href: preprocess-text.md
     - name: Alokacja ukrytej zmiennej Dirichleta
       href: latent-dirichlet-allocation.md
+    - name: Ocenianie modelu Vowpal Wabbit
+      href: score-vowpal-wabbit-model.md
+    - name: Trenowanie modelu Vowpal Wabbit
+      href: train-vowpal-wabbit-model.md
+- name: Przetwarzanie obrazów
+  items:
+    - name: Stosowanie transformacji obrazów
+      href: apply-image-transformation.md
+    - name: Konwertowanie na katalog obrazów
+      href: convert-to-image-directory.md
+    - name: Inicjowanie transformacji obrazów
+      href: init-image-transformation.md
+    - name: Dzielenie katalogu obrazów
+      href: split-image-directory.md
+    - name: Model DenseNet
+      href: densenet.md
+    - name: Model ResNet
+      href: resnet.md
 - name: Zalecenie
   items:
     - name: Ocena modułu poleceń
       href: evaluate-recommender.md
     - name: Wynik modułu poleceń SVD
       href: score-svd-recommender.md
+    - name: Wyniki modułu poleceń Wide and Deep
+      href: score-wide-and-deep-recommender.md
     - name: Trenowanie modułu poleceń SVD
       href: train-svd-recommender.md
+    - name: Trenowanie modułu poleceń Wide and Deep
+      href: train-wide-and-deep-recommender.md
 - name: Wykrywanie anomalii
   items:
     - name: Wykrywanie anomalii oparte na analizie głównych składowych

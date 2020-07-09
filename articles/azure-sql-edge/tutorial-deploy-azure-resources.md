@@ -2,19 +2,19 @@
 title: Konfigurowanie zasobów na potrzeby wdrażania modelu ML w usłudze Azure SQL Edge
 description: W pierwszej części tego samouczka dotyczącego usługi Azure SQL Edge na potrzeby przewidywania zanieczyszczeń żelaza należy zainstalować wstępnie wymagane oprogramowanie i skonfigurować wymagane zasoby platformy Azure na potrzeby wdrażania modelu uczenia maszynowego w usłudze Azure SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772849"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887452"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalowanie oprogramowania i Konfigurowanie zasobów dla samouczka
 
@@ -30,6 +30,7 @@ W tym samouczku z trzema częściami utworzysz model uczenia maszynowego służ�
 4. Zainstaluj [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Otwórz Azure Data Studio i skonfiguruj Język Python dla notesów.Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie języka Python dla notesów](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Ten krok może potrwać kilka minut.
 6. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Następujące skrypty wymagają, aby AZ PowerShell był najnowszą wersją (3.5.0, luty 2020).
+7. Pobierz [pliki obrazów platformy Docker dacpac i AMD/ARM](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) , które zostaną wykorzystane w samouczku. [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC)
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Wdrażanie zasobów platformy Azure przy użyciu skryptu programu PowerShell
 

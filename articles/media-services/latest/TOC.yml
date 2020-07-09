@@ -16,6 +16,11 @@
     - name: Wydarzenie na żywo za pośrednictwem portalu i programu OBS
       displayName: 'live, event, portal, obs'
       href: live-events-obs-quickstart.md
+    - name: 'Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu'
+      href: manage-assets-quickstart.md
+    - name: Szyfrowanie zawartości przy użyciu portalu
+      displayName: 'protect, drm, aes'
+      href: encrypt-content-quickstart.md
 - name: Samouczki
   items:
     - name: Kodowanie pliku zdalnego i strumieniowe przesyłanie wideo
@@ -71,7 +76,7 @@
           displayName: 'name, naming, file name, upload, output, download'
     - name: Przetwarzanie plików
       items:
-        - name: Przekształcenia i zadania
+        - name: Transformacje i zadania
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
     - name: Kodowanie zawartości
@@ -91,13 +96,13 @@
         - name: Omówienie
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Przekształcenia i zadania
+        - name: Transformacje i zadania
           href: transforms-jobs-concept.md
     - name: Transmisja strumieniowa na żywo
       items:
         - name: Omówienie
           href: live-streaming-overview.md
-        - name: Wydarzenia i dane wyjściowe na żywo
+        - name: Zdarzenia na żywo i dane wyjściowe na żywo
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Przetestowane lokalne kodery na żywo
@@ -193,6 +198,19 @@
         - name: Przesyłanie strumieniowe
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Często zadawane pytania
+          displayName: faqs
+          href: frequently-asked-questions.md
+        - name: Kody błędów
+          items:
+            - name: Kody błędów punktu końcowego przesyłania strumieniowego
+              href: streaming-endpoint-error-codes.md
+            - name: Kody błędów zdarzeń na żywo
+              href: live-event-error-codes.md
+            - name: Kody błędów zadań
+              href: job-error-codes.md
     - name: Migracja z wersji 2 do 3
       items:
         - name: Porównanie wersji 2 i 3
@@ -338,19 +356,6 @@
           href: download-results-howto.md
         - name: Dźwięk opisowy sygnału
           href: signal-descriptive-audio-howto.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Często zadawane pytania
-          displayName: faqs
-          href: frequently-asked-questions.md
-        - name: Kody błędów
-          items:
-            - name: Kody błędów punktu końcowego przesyłania strumieniowego
-              href: streaming-endpoint-error-codes.md
-            - name: Kody błędów zdarzeń na żywo
-              href: live-event-error-codes.md
-            - name: Kody błędów zadań
-              href: job-error-codes.md
 - name: Dokumentacja
   items:
     - name: Specyfikacja interfejsu OpenAPI (Swagger)
@@ -369,11 +374,17 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-ref'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
         - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Schematy kodera w warstwie Standardowa
+      items:
+        - name: Metadane wejściowe
+          href: input-metadata-schema.md
+        - name: Metadane wyjściowe
+          href: output-metadata-schema.md
 - name: Zasoby
   items:
     - name: Społeczność usługi Azure Media Services

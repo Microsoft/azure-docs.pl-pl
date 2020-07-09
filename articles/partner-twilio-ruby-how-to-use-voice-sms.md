@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69637198"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Jak używać funkcji Twilio do obsługi głosu i SMS w języku Ruby
@@ -28,7 +28,7 @@ Twilio to internetowy interfejs API usługi telefonii, który umożliwia używan
 **Twilio Voice** umożliwia aplikacjom tworzenie i odbieranie połączeń telefonicznych. **Program SMS Twilio** umożliwia aplikacjom wykonywanie i odbieranie wiadomości SMS. **Klient Twilio** umożliwia aplikacjom włączenie komunikacji głosowej przy użyciu istniejących połączeń internetowych, w tym połączeń mobilnych.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Ceny Twilio i oferty specjalne
-Informacje o cenach Twilio są dostępne w [cenniku Twilio][twilio_pricing]. Klienci korzystający z platformy Azure otrzymują [specjalną ofertę][special_offer]: bezpłatne środki w wysokości 1000 tekstów lub 1000 minut przychodzących. Aby zarejestrować się w tej ofercie lub uzyskać więcej informacji, odwiedź [https://ahoy.twilio.com/azure][special_offer]stronę.  
+Informacje o cenach Twilio są dostępne w [cenniku Twilio][twilio_pricing]. Klienci korzystający z platformy Azure otrzymują [specjalną ofertę][special_offer]: bezpłatne środki w wysokości 1000 tekstów lub 1000 minut przychodzących. Aby zarejestrować się w tej ofercie lub uzyskać więcej informacji, odwiedź stronę [https://ahoy.twilio.com/azure][special_offer] .  
 
 ## <a name="concepts"></a><a id="Concepts"></a>Pojęcia
 Interfejs API Twilio jest interfejsem API RESTful, który zapewnia funkcje głosu i programu SMS dla aplikacji. Biblioteki klienckie są dostępne w wielu językach; Aby uzyskać listę, zobacz [biblioteki interfejsu API Twilio][twilio_libraries].
@@ -46,20 +46,20 @@ Na przykład następujące TwiML spowodują przekonwertowanie tekstu **Hello Wor
 Wszystkie dokumenty TwiML mają `<Response>` jako element główny. W tym miejscu możesz zdefiniować zachowanie aplikacji przy użyciu zleceń Twilio.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Zlecenia TwiML
-Zlecenia Twilio są tagami XML, które informują Twilio, co należy **zrobić**. Na przykład czasownik ** &lt;powiedzie&gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu. 
+Zlecenia Twilio są tagami XML, które informują Twilio, co należy **zrobić**. Na przykład czasownik ** &lt; powiedzie &gt; ** nakazuje Twilio audibly dostarczenie komunikatu w wywołaniu. 
 
 Poniżej znajduje się lista zleceń Twilio.
 
-* Wybierz: łączy obiekt wywołujący z innym telefonem. ** &lt;&gt;**
-* Zbieranie: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej. ** &lt;&gt;**
-* Rozłączenie: przerywa wywołanie. ** &lt;&gt;**
-* Odtwórz: odtwarza plik audio. ** &lt;&gt;**
-* **Wstrzymaj&gt;: czeka w trybie cichym przez określoną liczbę &lt;** sekund.
-* Rekord: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie. ** &lt;&gt;**
-* Przekierowanie: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL. ** &lt;&gt;**
-* Odrzuć: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczeń ** &lt;&gt;**
-* Załóżmy: konwertuje tekst na mowę, która jest wykonywana w wywołaniu. ** &lt;&gt;**
-* SMS: wysyła wiadomość SMS. ** &lt;&gt;**
+* ** &lt; Wybierz &gt; **: łączy obiekt wywołujący z innym telefonem.
+* ** &lt; Zbieranie &gt; **: zbiera cyfry liczbowe wprowadzone na klawiaturze telefonicznej.
+* Rozłączenie: przerywa wywołanie. ** &lt; &gt; **
+* ** &lt; Odtwórz &gt; **: odtwarza plik audio.
+* ** &lt; Wstrzymaj &gt; **: czeka w trybie cichym przez określoną liczbę sekund.
+* ** &lt; Rekord &gt; **: rejestruje głos obiektu wywołującego i zwraca adres URL pliku, który zawiera nagranie.
+* ** &lt; Przekierowanie &gt; **: przenosi kontrolę nad wywołaniem lub wiadomością SMS do TwiML pod innym adresem URL.
+* ** &lt; Odrzuć &gt; **: odrzuca wywołanie przychodzące do numeru Twilio bez rozliczeń
+* ** &lt; Załóżmy &gt; **: konwertuje tekst na mowę, która jest wykonywana w wywołaniu.
+* ** &lt; SMS &gt; **: wysyła wiadomość SMS.
 
 Aby uzyskać więcej informacji na temat czasowników Twilio, ich atrybutów i TwiML, zobacz [TwiML][twiml]. Aby uzyskać dodatkowe informacje o interfejsie API Twilio, zobacz [TWILIO API][twilio_api].
 
@@ -86,7 +86,7 @@ Użyj protokołu SSH do nowej maszyny wirtualnej i Utwórz katalog dla nowej apl
     gem 'sinatra'
     gem 'thin'
 
-W wierszu polecenia Uruchom `bundle install`polecenie. Spowoduje to zainstalowanie powyższych zależności. Następnie utwórz plik o nazwie `web.rb`. Będzie to miejsce, w którym znajduje się kod aplikacji sieci Web. Wklej do niego następujący kod:
+W wierszu polecenia Uruchom polecenie `bundle install` . Spowoduje to zainstalowanie powyższych zależności. Następnie utwórz plik o nazwie `web.rb` . Będzie to miejsce, w którym znajduje się kod aplikacji sieci Web. Wklej do niego następujący kod:
 
     require 'sinatra'
 
@@ -94,14 +94,14 @@ W wierszu polecenia Uruchom `bundle install`polecenie. Spowoduje to zainstalowan
         "Hello Monkey!"
     end
 
-W tym momencie powinno być możliwe uruchomienie polecenia `ruby web.rb -p 5000`. Spowoduje to pomniejszenie poziomu serwera sieci Web na porcie 5000. Aby móc przejść do tej aplikacji w przeglądarce, należy odwiedzić adres URL skonfigurowany dla maszyny wirtualnej platformy Azure. Gdy będziesz mieć dostęp do aplikacji sieci Web w przeglądarce, możesz rozpocząć tworzenie aplikacji Twilio.
+W tym momencie powinno być możliwe uruchomienie polecenia `ruby web.rb -p 5000` . Spowoduje to pomniejszenie poziomu serwera sieci Web na porcie 5000. Aby móc przejść do tej aplikacji w przeglądarce, należy odwiedzić adres URL skonfigurowany dla maszyny wirtualnej platformy Azure. Gdy będziesz mieć dostęp do aplikacji sieci Web w przeglądarce, możesz rozpocząć tworzenie aplikacji Twilio.
 
 ## <a name="configure-your-application-to-use-twilio"></a><a id="configure_app"></a>Konfigurowanie aplikacji do korzystania z Twilio
-Aplikację sieci Web można skonfigurować tak, aby korzystała z biblioteki Twilio przez `Gemfile` aktualizację w celu uwzględnienia tego wiersza:
+Aplikację sieci Web można skonfigurować tak, aby korzystała z biblioteki Twilio przez aktualizację `Gemfile` w celu uwzględnienia tego wiersza:
 
     gem 'twilio-ruby'
 
-W wierszu polecenia Uruchom `bundle install`polecenie. Teraz otwarty `web.rb` i obejmujący ten wiersz u góry:
+W wierszu polecenia Uruchom polecenie `bundle install` . Teraz otwarty `web.rb` i obejmujący ten wiersz u góry:
 
     require 'twilio-ruby'
 
@@ -110,7 +110,7 @@ Teraz wszystko jest ustawione do korzystania z biblioteki pomocnika Twilio dla j
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Instrukcje: wykonywanie wywołania wychodzącego
 Poniżej pokazano, jak wykonać połączenie wychodzące. Kluczowe koncepcje obejmują używanie biblioteki pomocnika Twilio dla języka Ruby do wykonywania wywołań interfejsu API REST i renderowania TwiML. Zastąp wartości parametrów **od** i **do** numeru telefonu, a następnie upewnij się, że przed uruchomieniem kodu sprawdzisz **numer telefonu dla** konta usługi Twilio.
 
-Dodaj tę funkcję do `web.md`:
+Dodaj tę funkcję do `web.md` :
 
     # Set your account ID and authentication token.
     sid = "your_twilio_account_sid";
@@ -140,16 +140,16 @@ Dodaj tę funkcję do `web.md`:
        </Response>"
     end
 
-`http://yourdomain.cloudapp.net/make_call` W przypadku otwierania w przeglądarce, która wywoła wywołanie interfejsu API Twilio w celu nawiązać połączenia telefonicznego. Pierwsze dwa parametry w `client.account.calls.create` są dość oczywistym objaśnieniem: numer wywołania jest `from` i numer telefonu. `to` 
+W przypadku otwierania `http://yourdomain.cloudapp.net/make_call` w przeglądarce, która wywoła wywołanie interfejsu API Twilio w celu nawiązać połączenia telefonicznego. Pierwsze dwa parametry w `client.account.calls.create` są dość oczywistym objaśnieniem: numer wywołania jest `from` i numer telefonu `to` . 
 
-Trzeci parametr (`url`) jest adresem URL, który Twilio żąda instrukcji, co należy zrobić po powiązaniu połączenia. W tym przypadku skonfigurujemy adres URL (`http://yourdomain.cloudapp.net`), który zwraca prosty dokument TwiML i używa `<Say>` zlecenia do wykonania niektórych zamiany tekstu na mowę i powiedzieć "Hello małp" osobie otrzymującej wywołanie.
+Trzeci parametr ( `url` ) jest adresem URL, który Twilio żąda instrukcji, co należy zrobić po powiązaniu połączenia. W tym przypadku skonfigurujemy adres URL ( `http://yourdomain.cloudapp.net` ), który zwraca prosty dokument TwiML i używa `<Say>` zlecenia do wykonania niektórych zamiany tekstu na mowę i powiedzieć "Hello małp" osobie otrzymującej wywołanie.
 
 ## <a name="how-to-receive-an-sms-message"></a><a id="howto_receive_sms"></a>Instrukcje: odbieranie wiadomości SMS
 W poprzednim przykładzie zainicjowano **wychodzące** połączenie telefoniczne. Tym razem Użyjmy numeru telefonu, który Twilio nam podczas tworzenia konta, aby przetwarzać **przychodzące** wiadomości SMS.
 
 Najpierw Zaloguj się do [pulpitu nawigacyjnego Twilio][twilio_account]. Kliknij pozycję "liczby" w górnej części nawigacyjnej, a następnie kliknij podany numer Twilio. Zobaczysz dwa adresy URL, które można skonfigurować. Adres URL żądania głosowego i adres URL żądania SMS. Są to adresy URL, które Twilioą wywołania za każdym razem, gdy nastąpi połączenie telefoniczne lub wiadomość SMS jest wysyłana do liczby. Adresy URL są również znane jako "elementy webhook".
 
-Chcemy przetwarzać przychodzące wiadomości SMS, więc zaktualizujmy adres URL do `http://yourdomain.cloudapp.net/sms_url`. Przejdź dalej i kliknij pozycję Zapisz zmiany w dolnej części strony. Teraz, Wróć `web.rb` do programu, aby obsłużyć tę aplikację:
+Chcemy przetwarzać przychodzące wiadomości SMS, więc zaktualizujmy adres URL do `http://yourdomain.cloudapp.net/sms_url` . Przejdź dalej i kliknij pozycję Zapisz zmiany w dolnej części strony. Teraz, Wróć do `web.rb` programu, aby obsłużyć tę aplikację:
 
     post '/sms_url' do
       "<Response>

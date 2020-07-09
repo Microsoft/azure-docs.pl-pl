@@ -1,17 +1,17 @@
 ---
 title: Tworzenie alertów metryk dla dzienników w Azure Monitor
 description: Samouczek dotyczący tworzenia alertów metryk niemal w czasie rzeczywistym na popularnych danych usługi log Analytics.
-author: yanivlavi
-ms.author: yalavi
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80055180"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945328"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Tworzenie alertów metryk dla dzienników w Azure Monitor
 
@@ -19,7 +19,7 @@ ms.locfileid: "80055180"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor obsługuje [Typ alertu metryki](../../azure-monitor/platform/alerts-metric-near-real-time.md) z korzyściami z [klasycznych alertów](../../azure-monitor/platform/alerts-classic-portal.md). Metryki są dostępne dla [dużej listy usług platformy Azure](../../azure-monitor/platform/metrics-supported.md). W tym artykule opisano użycie podzestawu (czyli) dla zasobu- `Microsoft.OperationalInsights/workspaces`.
+Azure Monitor obsługuje [Typ alertu metryki](../../azure-monitor/platform/alerts-metric-near-real-time.md) z korzyściami z [klasycznych alertów](../../azure-monitor/platform/alerts-classic-portal.md). Metryki są dostępne dla [dużej listy usług platformy Azure](../../azure-monitor/platform/metrics-supported.md). W tym artykule opisano użycie podzestawu (czyli) dla zasobu- `Microsoft.OperationalInsights/workspaces` .
 
 Można używać alertów metryk dla popularnych dzienników Log Analytics wyodrębnionych jako metryki w ramach metryk z dzienników, w tym zasobów na platformie Azure lub lokalnie. Poniżej wymieniono obsługiwane rozwiązania Log Analytics:
 
@@ -163,7 +163,7 @@ Aby osiągnąć ten sam, jeden może użyć przykładowego szablonu Azure Resour
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -299,7 +299,7 @@ Aby osiągnąć ten sam, jeden może użyć przykładowego szablonu Azure Resour
 }
 ```
 
-Załóżmy, że powyższy kod JSON jest zapisywany jako metricfromLogsAlertStatic. JSON, a następnie można go połączyć z plikiem JSON parametru dla tworzenia opartego na szablonie zasobów. Poniżej znajduje się przykładowy plik JSON parametru:
+Załóżmy, że powyższy kod JSON jest zapisywany jako metricfromLogsAlertStatic.js, a następnie można go połączyć z plikiem JSON parametru dla tworzenia opartego na szablonie zasobów. Poniżej znajduje się przykładowy plik JSON parametru:
 
 ```json
 {
@@ -355,7 +355,7 @@ Załóżmy, że powyższy kod JSON jest zapisywany jako metricfromLogsAlertStati
 }
 ```
 
-Zakładając, że powyższy plik parametrów jest zapisywany jako metricfromLogsAlertStatic. Parameters. JSON; następnie jeden może utworzyć alert dotyczący metryk dla dzienników przy użyciu [szablonu zasobu do utworzenia w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+Przy założeniu, że powyższy plik parametrów jest zapisywany jako metricfromLogsAlertStatic.parameters.js; następnie jeden może utworzyć alert dotyczący metryk dla dzienników przy użyciu [szablonu zasobu do utworzenia w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternatywnie można użyć poniższego polecenia programu Azure PowerShell:
 
@@ -452,7 +452,7 @@ Aby osiągnąć ten sam, jeden może użyć przykładowego szablonu Azure Resour
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -609,7 +609,7 @@ Aby osiągnąć ten sam, jeden może użyć przykładowego szablonu Azure Resour
 }
 ```
 
-Załóżmy, że powyższy kod JSON jest zapisywany jako metricfromLogsAlertDynamic. JSON, a następnie można go połączyć z plikiem JSON parametru dla tworzenia opartego na szablonie zasobów. Poniżej znajduje się przykładowy plik JSON parametru:
+Załóżmy, że powyższy kod JSON jest zapisywany jako metricfromLogsAlertDynamic.js, a następnie można go połączyć z plikiem JSON parametru dla tworzenia opartego na szablonie zasobów. Poniżej znajduje się przykładowy plik JSON parametru:
 
 ```json
 {
@@ -671,7 +671,7 @@ Załóżmy, że powyższy kod JSON jest zapisywany jako metricfromLogsAlertDynam
 }
 ```
 
-Zakładając, że powyższy plik parametrów jest zapisywany jako metricfromLogsAlertDynamic. Parameters. JSON; następnie jeden może utworzyć alert dotyczący metryk dla dzienników przy użyciu [szablonu zasobu do utworzenia w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
+Przy założeniu, że powyższy plik parametrów jest zapisywany jako metricfromLogsAlertDynamic.parameters.js; następnie jeden może utworzyć alert dotyczący metryk dla dzienników przy użyciu [szablonu zasobu do utworzenia w Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternatywnie można użyć poniższego polecenia programu Azure PowerShell:
 

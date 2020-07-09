@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77188717"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Czas wygaśnięcia (TTL) w usłudze Azure Cosmos DB 
@@ -24,7 +23,7 @@ Usuwanie wygasłych elementów to zadanie w tle, które wykorzystuje [jednostki]
 
 Wartość czasu wygaśnięcia jest ustawiana w sekundach i interpretowana jako Delta od momentu ostatniej modyfikacji elementu. Można ustawić czas wygaśnięcia dla kontenera lub elementu w kontenerze:
 
-1. **Czas wygaśnięcia w kontenerze** (ustawienie using `DefaultTimeToLive`):
+1. **Czas wygaśnięcia w kontenerze** (ustawienie using `DefaultTimeToLive` ):
 
    - Jeśli nie ma (lub ma wartość null), elementy nie są automatycznie wygasłe.
 
@@ -32,7 +31,7 @@ Wartość czasu wygaśnięcia jest ustawiana w sekundach i interpretowana jako D
 
    - Jeśli jest obecny, a wartość jest równa liczbie *"n"* — elementy wygaśnie *"n"* sek. po ich ostatniej modyfikacji.
 
-2. **Czas wygaśnięcia elementu** (zestaw przy użyciu `ttl`):
+2. **Czas wygaśnięcia elementu** (zestaw przy użyciu `ttl` ):
 
    - Ta właściwość ma zastosowanie tylko wtedy `DefaultTimeToLive` , gdy jest obecny i nie jest ustawiona na wartość null dla kontenera nadrzędnego.
 

@@ -1,23 +1,22 @@
 ---
-title: Python
+title: Wykonaj skrypt języka Python w projektancie
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak przekształcać dane przy użyciu języka Python w programie Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer
-ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.custom: designer, tracking-python
+ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644467"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86041017"
 ---
-# <a name="execute-python-code-in-azure-machine-learning-designer"></a>Wykonaj kod języka Python w projektancie Azure Machine Learning
+# <a name="run-python-code-in-azure-machine-learning-designer"></a>Uruchamianie kodu w języku Python w programie Azure Machine Learning Designer
 
 W tym artykule dowiesz się, jak dodać logikę niestandardową do programu Azure Machine Learning Designer przy użyciu modułu [uruchamiania skryptu języka Python](algorithm-module-reference/execute-python-script.md) . Korzystając z poniższej procedury, można użyć biblioteki Pandas do wykonania prostej inżynierii funkcji.
 

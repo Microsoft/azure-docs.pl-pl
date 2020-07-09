@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535404"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121643"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Rozwiązywanie problemów z projektami usługi Azure Migrate
 
@@ -52,7 +52,7 @@ Jeśli spróbujesz utworzyć projekt i napotkasz błąd wdrożenia:
 - Jeśli zostanie wyświetlony komunikat o błędzie "żądania muszą zawierać nagłówki tożsamości użytkownika", może to wskazywać, że nie masz dostępu do dzierżawy usługi Azure Active Directory (Azure AD) w organizacji. W takim przypadku:
     - Gdy po raz pierwszy dodasz do dzierżawy usługi Azure AD, otrzymasz wiadomość e-mail z zaproszeniem do dołączenia do dzierżawy.
     - Zaakceptuj zaproszenie, które ma zostać dodane do dzierżawy.
-    - Jeśli nie widzisz wiadomości e-mail, skontaktuj się z użytkownikiem w celu uzyskania dostępu do dzierżawy i poproś o [ponowne wysłanie zaproszenia](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) do Ciebie.
+    - Jeśli nie widzisz wiadomości e-mail, skontaktuj się z użytkownikiem w celu uzyskania dostępu do dzierżawy i poproś o [ponowne wysłanie zaproszenia](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) do Ciebie.
     - Po odebraniu wiadomości e-mail z zaproszeniem Otwórz ją i wybierz link, aby zaakceptować zaproszenie. Następnie wyloguj się z Azure Portal i zaloguj się ponownie. (odświeżanie przeglądarki nie będzie działało). Następnie można rozpocząć tworzenie projektu migracji.
 
 ## <a name="how-do-i-delete-a-project"></a>Jak mogę usunąć projektu

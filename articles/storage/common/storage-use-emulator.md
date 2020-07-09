@@ -6,13 +6,12 @@ ms.author: mhopkins
 ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398012"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512176"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
 
@@ -42,7 +41,7 @@ Istnieją pewne różnice w działaniu między emulatorem magazynu a usługami A
 Aby uruchomić emulator usługi Azure Storage:
 
 1. Wybierz przycisk **Start** lub naciśnij klawisz **systemu Windows** .
-2. Zacznij pisać `Azure Storage Emulator`.
+2. Zacznij pisać `Azure Storage Emulator` .
 3. Wybierz emulator z listy wyświetlanych aplikacji.
 
 Po uruchomieniu emulatora magazynu zostanie wyświetlone okno wiersza polecenia. To okno konsoli służy do uruchamiania i zatrzymywania emulatora magazynu. Możesz również wyczyścić dane, pobrać stan i zainicjować emulator z poziomu wiersza polecenia. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [narzędzia wiersza polecenia emulatora magazynu](#storage-emulator-command-line-tool-reference) w dalszej części tego artykułu.
@@ -56,7 +55,7 @@ Po zamknięciu okna wiersza polecenia emulatora magazynu będzie nadal można ur
 
 Przy pierwszym uruchomieniu emulatora magazynu jest inicjowane lokalne środowisko magazynu. Proces inicjalizacji tworzy bazę danych w LocalDB i rezerwuje porty HTTP dla każdej lokalnej usługi magazynu.
 
-Emulator magazynu jest instalowany domyślnie w `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`programie.
+Emulator magazynu jest instalowany domyślnie w programie `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator` .
 
 > [!TIP]
 > [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com) można użyć do pracy z zasobami emulatora magazynu lokalnego. Poszukaj pozycji "(domyślne porty emulatora) (klucz)" w obszarze "lokalne & dołączone" w drzewie zasobów Eksplorator usługi Storage po zainstalowaniu i uruchomieniu emulatora magazynu.
@@ -103,7 +102,7 @@ Niektóre biblioteki klienta usługi Azure Storage, takie jak biblioteka Xamarin
 Token sygnatury dostępu współdzielonego można również wygenerować przy użyciu Azure PowerShell. Poniższy przykład generuje token SAS z pełnymi uprawnieniami do kontenera obiektów blob:
 
 1. Zainstaluj Azure PowerShell, jeśli nie zostało to jeszcze zrobione (zaleca się użycie najnowszej wersji Azure PowerShell poleceń cmdlet). Instrukcje instalacji znajdują się w temacie [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
-2. Otwórz Azure PowerShell i uruchom następujące polecenia, zastępując `CONTAINER_NAME` je wybraną nazwą:
+2. Otwórz Azure PowerShell i uruchom następujące polecenia, zastępując je `CONTAINER_NAME` wybraną nazwą:
 
 ```powershell
 $context = New-AzStorageContext -Local
@@ -184,7 +183,7 @@ Aby wyświetlić listę opcji, wpisz ciąg `/help` w wierszu polecenia.
 | **Początek** |Uruchamia emulator magazynu. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: uruchamia emulator w bieżącym procesie zamiast tworzenia nowego procesu. |
 | **Zatrzymaj** |Powoduje zatrzymanie emulatora magazynu. |`AzureStorageEmulator.exe stop` | |
 | **Stan** |Drukuje stan emulatora magazynu. |`AzureStorageEmulator.exe status` | |
-| **Clear** |Czyści dane we wszystkich usługach określonych w wierszu polecenia. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: czyści dane obiektów BLOB. <br/>*Queue*: czyści dane kolejki. <br/>*tabela*: czyści dane tabeli. <br/>*wszystkie*: czyści wszystkie dane we wszystkich usługach. |
+| **Czyste** |Czyści dane we wszystkich usługach określonych w wierszu polecenia. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*BLOB*: czyści dane obiektów BLOB. <br/>*Queue*: czyści dane kolejki. <br/>*tabela*: czyści dane tabeli. <br/>*wszystkie*: czyści wszystkie dane we wszystkich usługach. |
 | **Init** |Wykonuje jednorazowe inicjowanie w celu skonfigurowania emulatora. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Server serverName\instanceName*: Określa serwer hostujący wystąpienie programu SQL Server. <br/>*-SQLInstance InstanceName*: Określa nazwę wystąpienia SQL, które ma być używane w domyślnym wystąpieniu serwera. <br/>*-forceCreate*: wymusza tworzenie bazy danych SQL, nawet jeśli już istnieje. <br/>*-skipcreate*: pomija Tworzenie bazy danych SQL. Ma to pierwszeństwo przed forceCreate.<br/>*-reserveports*: próbuje zarezerwować porty http skojarzone z usługami.<br/>*-unreserveports*: próbuje usunąć rezerwacje dla portów http skojarzonych z usługami. Ma to pierwszeństwo przed reserveports.<br/>*-unprocess*: wykonuje inicjalizację w bieżącym procesie zamiast duplikowania nowego procesu. W przypadku zmiany rezerwacji portów bieżący proces musi zostać uruchomiony z podwyższonym poziomem uprawnień. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Różnice między emulatorem magazynu a usługą Azure Storage
@@ -194,7 +193,7 @@ Ponieważ emulator magazynu jest lokalnym emulowanym środowiskiem, istnieją r�
 * Emulator magazynu obsługuje tylko pojedyncze stałe konto i dobrze znane klucze uwierzytelniania.
 * Emulator magazynu nie jest skalowalną usługą magazynu i nie obsługuje dużej liczby równoczesnych klientów.
 * Zgodnie z opisem w temacie [Addressing Resources w emulatorze magazynu](#addressing-resources-in-the-storage-emulator)zasoby są rozwiązywane inaczej w emulatorze magazynu, a konto usługi Azure Storage. Różnica polega na tym, że rozpoznawanie nazw domen jest dostępne w chmurze, ale nie na komputerze lokalnym.
-* Począwszy od wersji 3,1, konto emulatora magazynu obsługuje replikację Geograficznie nadmiarowy do odczytu (RA-GRS). W emulatorze wszystkie konta mają włączoną funkcję RA-GRS i nigdy nie ma zwłoki między repliką podstawową i pomocniczą. Statystyki usługi Get BLOB Service, get Queue Service i Get Table Service są obsługiwane na serwerze pomocniczym i zawsze zwracają wartość elementu `LastSyncTime` Response jako bieżący czas zależny od podstawowej bazy danych SQL.
+* Począwszy od wersji 3,1, konto emulatora magazynu obsługuje replikację Geograficznie nadmiarowy do odczytu (RA-GRS). W emulatorze wszystkie konta mają włączoną funkcję RA-GRS i nigdy nie ma zwłoki między repliką podstawową i pomocniczą. Statystyki usługi Get BLOB Service, get Queue Service i Get Table Service są obsługiwane na serwerze pomocniczym i zawsze zwracają wartość `LastSyncTime` elementu Response jako bieżący czas zależny od podstawowej bazy danych SQL.
 * Punkty końcowe usługi plików i protokołu SMB nie są obecnie obsługiwane w emulatorze magazynu.
 * Jeśli używasz wersji usług magazynu, która nie jest obsługiwana przez emulator, Emulator zwróci błąd VersionNotSupportedByEmulator (kod stanu HTTP 400-złe żądanie).
 
@@ -216,7 +215,7 @@ Poniższe różnice dotyczą magazynu tabel w emulatorze:
 * Właściwości Date w Table service w emulatorze magazynu obsługują tylko zakres obsługiwany przez SQL Server 2005 (wymagane jest późniejsze od 1 stycznia 1753). Wszystkie daty przed 1 stycznia 1753 są zmieniane na tę wartość. Precyzja dat jest ograniczona do dokładności SQL Server 2005, co oznacza, że daty są precyzyjne do 1/300th sekundy.
 * Emulator magazynu obsługuje wartości właściwości klucza partycji i klucza wiersza mniejsze niż 512 bajtów. Łączny rozmiar nazwy konta, nazwy tabeli i nazwy właściwości klucza nie może przekraczać 900 bajtów.
 * Łączny rozmiar wiersza w tabeli w emulatorze magazynu jest ograniczony do mniej niż 1 MB.
-* `Edm.Guid` W emulatorze magazynu właściwości typu danych lub `Edm.Binary` obsługują tylko `Equal (eq)` operatory `NotEqual (ne)` porównania w ciągach filtru zapytań.
+* W emulatorze magazynu właściwości typu danych `Edm.Guid` lub `Edm.Binary` obsługują tylko `Equal (eq)` `NotEqual (ne)` Operatory porównania w ciągach filtru zapytań.
 
 ### <a name="differences-for-queue-storage"></a>Różnice dotyczące usługi queue storage
 
@@ -264,7 +263,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 
 ### <a name="version-51"></a>Wersja 5,1
 
-* Rozwiązano problem polegający na tym, że emulator `DataServiceVersion` magazynu zwrócił nagłówek w niektórych odpowiedziach, gdzie usługa nie została.
+* Rozwiązano problem polegający na tym, że emulator magazynu zwrócił `DataServiceVersion` nagłówek w niektórych odpowiedziach, gdzie usługa nie została.
 
 ### <a name="version-50"></a>Wersja 5,0
 
@@ -272,7 +271,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 * Instalator emulatora magazynu nie tworzy już bazy danych w ramach instalacji. Baza danych będzie w razie konieczności tworzona w ramach uruchomienia.
 * Tworzenie bazy danych nie wymaga już podniesienia uprawnień.
 * Rezerwacje portów nie są już potrzebne do uruchomienia.
-* Dodaje następujące opcje `init`do: `-reserveports` (wymaga podniesienia uprawnień) `-unreserveports` , (wymaga podniesienia `-skipcreate`uprawnień),.
+* Dodaje następujące opcje do `init` : `-reserveports` (wymaga podniesienia uprawnień), `-unreserveports` (wymaga podniesienia uprawnień), `-skipcreate` .
 * Opcja interfejsu użytkownika emulatora magazynu w ikonie zasobnika systemu teraz uruchamia interfejs wiersza polecenia. Stary interfejs GUI nie jest już dostępny.
 * Niektóre biblioteki DLL zostały usunięte lub zmieniono ich nazwy.
 
@@ -307,7 +306,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 
 ### <a name="version-40"></a>Wersja 4,0
 
-* Nazwa pliku wykonywalnego emulatora magazynu została zmieniona na *AzureStorageEmulator. exe*.
+* Nazwa pliku wykonywalnego emulatora magazynu została zmieniona na *AzureStorageEmulator.exe*.
 
 ### <a name="version-32"></a>Wersja 3,2
 
@@ -315,7 +314,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 
 ### <a name="version-31"></a>Wersja 3,1
 
-* Magazyn Geograficznie nadmiarowy dostępny do odczytu (RA-GRS) jest teraz obsługiwany w emulatorze magazynu. Interfejsy `Get Blob Service Stats`API `Get Queue Service Stats`, i `Get Table Service Stats` są obsługiwane dla pomocniczego konta i zawsze zwracają wartość elementu odpowiedzi LastSyncTime jako bieżący czas zgodnie z podstawową bazą danych SQL. Aby uzyskać programistyczny dostęp do pomocniczego elementu z emulatorem magazynu, użyj biblioteki klienta usługi Storage dla programu .NET w wersji 3,2 lub nowszej. Szczegółowe informacje znajdują się w temacie Microsoft Azure Storage Client Library for .NET Reference.
+* Magazyn Geograficznie nadmiarowy dostępny do odczytu (RA-GRS) jest teraz obsługiwany w emulatorze magazynu. `Get Blob Service Stats` `Get Queue Service Stats` Interfejsy API, i `Get Table Service Stats` są obsługiwane dla pomocniczego konta i zawsze zwracają wartość elementu odpowiedzi LastSyncTime jako bieżący czas zgodnie z podstawową bazą danych SQL. Aby uzyskać programistyczny dostęp do pomocniczego elementu z emulatorem magazynu, użyj biblioteki klienta usługi Storage dla programu .NET w wersji 3,2 lub nowszej. Szczegółowe informacje znajdują się w temacie Microsoft Azure Storage Client Library for .NET Reference.
 
 ### <a name="version-30"></a>Wersja 3,0
 

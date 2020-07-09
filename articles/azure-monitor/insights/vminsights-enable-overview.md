@@ -5,23 +5,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/08/2020
-ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982314"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507079"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
-Ten artykuł zawiera omówienie opcji umożliwiających Azure Monitor dla maszyn wirtualnych na maszynach wirtualnych w celu monitorowania kondycji i wydajności. Wykrywaj zależności aplikacji, które są uruchamiane na maszynach wirtualnych platformy Azure i w zestawach skalowania maszyn wirtualnych, lokalnych maszynach wirtualnych lub maszynach wirtualnych hostowanych w innym środowisku chmury.  
+Ten artykuł zawiera omówienie opcji dostępnych w celu umożliwienia Azure Monitor dla maszyn wirtualnych monitorowania kondycji i wydajności następujących elementów:
+
+- Maszyny wirtualne platformy Azure 
+- Zestawy skalowania maszyn wirtualnych platformy Azure
+- Hybrydowe maszyny wirtualne połączone z usługą Azure Arc
+- Lokalne maszyny wirtualne
+- Maszyny wirtualne hostowane w innym środowisku chmury.  
 
 Aby skonfigurować Azure Monitor dla maszyn wirtualnych:
 
-* Włącz pojedynczą maszynę wirtualną platformy Azure lub zestaw skalowania maszyn wirtualnych, wybierając pozycję **szczegółowe** dane bezpośrednio z maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych.
-* Włącz co najmniej dwie maszyny wirtualne platformy Azure i zestawy skalowania maszyn wirtualnych za pomocą Azure Policy. Ta metoda zapewnia, że dla istniejących i nowych maszyn wirtualnych i zestawów skalowania wymagane zależności są zainstalowane i poprawnie skonfigurowane. Zgłoszono niezgodne maszyny wirtualne i zestawy skalowania, dzięki czemu można zdecydować, czy włączyć je i skorygować.
-* Włącz co najmniej dwie maszyny wirtualne platformy Azure lub zestawy skalowania maszyn wirtualnych w ramach określonej subskrypcji lub grupy zasobów przy użyciu programu PowerShell.
+* Włącz pojedynczą maszynę wirtualną platformy Azure, usługę Azure VMSS lub maszynę Azure ARC, wybierając pozycję **szczegółowe** dane bezpośrednio z ich menu w Azure Portal.
+* Włącz obsługę wielu maszyn wirtualnych platformy Azure, Azure VMSS lub Azure ARC przy użyciu Azure Policy. Ta metoda zapewnia, że dla istniejących i nowych maszyn wirtualnych i zestawów skalowania wymagane zależności są zainstalowane i poprawnie skonfigurowane. Zgłoszono niezgodne maszyny wirtualne i zestawy skalowania, dzięki czemu można zdecydować, czy włączyć je i skorygować.
+* Włącz obsługę wielu maszyn wirtualnych platformy Azure, maszyn wirtualnych usługi Azure ARC, platformy Azure VMSS lub maszyn usługi Azure Arc w ramach określonej subskrypcji lub grupy zasobów przy użyciu programu PowerShell.
 * Umożliwia Azure Monitor dla maszyn wirtualnych monitorowania maszyn wirtualnych lub komputerów fizycznych hostowanych w sieci firmowej lub w innym środowisku chmury.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -43,6 +49,8 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 - Wschodnie stany USA 2
 - Środkowe stany USA
 - Północno-środkowe stany USA
+- US Gov AZ
+- US Gov VA
 - Kanada Środkowa
 - Południowe Zjednoczone Królestwo
 - Europa Północna
@@ -60,21 +68,19 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 
 Jeśli nie masz obszaru roboczego Log Analytics, możesz go utworzyć przy użyciu jednego z zasobów:
 * [Interfejs wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [Narzędzia](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [Program PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
 * [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 Możesz również utworzyć obszar roboczy podczas włączania monitorowania dla jednej maszyny wirtualnej platformy Azure lub zestawu skalowania maszyn wirtualnych w Azure Portal.
 
-Aby skonfigurować scenariusz skalowania w poziomie, który używa szablonów Azure Policy, Azure PowerShell lub Azure Resource Manager, w obszarze roboczym Log Analytics:
-
-* Zainstaluj rozwiązania *ServiceMap* i *InfrastructureInsights* . Instalację można wykonać przy użyciu dostarczonego szablonu Azure Resource Manager. Na karcie **wprowadzenie** w Azure Portal wybierz pozycję **Konfiguruj obszar roboczy**.
-* Skonfiguruj obszar roboczy Log Analytics do zbierania liczników wydajności.
-
-Aby skonfigurować obszar roboczy na potrzeby scenariusza w skali, użyj jednej z następujących metod:
+Aby skonfigurować scenariusz skalowania w poziomie, który używa szablonów Azure Policy, Azure PowerShell lub Azure Resource Manager, należy zainstalować rozwiązanie *VMInsights* . Można to zrobić za pomocą jednej z następujących metod:
 
 * Użyj [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * Na stronie [**pokrycie zasad**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) Azure monitor dla maszyn wirtualnych wybierz pozycję **Konfiguruj obszar roboczy**. 
+
+### <a name="azure-arc-machines"></a>Maszyny usługi Azure Arc
+Azure Monitor dla maszyn wirtualnych jest dostępna dla serwerów z obsługą usługi Azure Arc w regionach, w których jest dostępna usługa rozszerzenia Arc. Aby umożliwić Azure Monitor dla maszyn wirtualnych na serwerach z włączonym łukiem, użytkownicy muszą mieć uruchomiony program w wersji 0,9 lub nowszej.
 
 ### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -85,9 +91,9 @@ W poniższej tabeli wymieniono systemy operacyjne Windows i Linux obsługiwane p
 |Windows Server 2019 | X | X |
 |System Windows Server 2016 1803 | X | X |
 |Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 z dodatkiem R2 | X | X |
 |Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
+|Windows Server 2008 z dodatkiem R2 | X | X|
 |System Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
 |Windows 8 | X | X |
@@ -134,7 +140,7 @@ W poniższej tabeli wymieniono systemy operacyjne Windows i Linux obsługiwane p
 
 | Wersja systemu operacyjnego | Wersja jądra |
 |:--|:--|
-| 18,04 | 5,0 (obejmuje jądro dostosowane do platformy Azure)<br>4,18*<br>4,15* |
+| 18,04 | 5.3.0-1020<br>5,0 (obejmuje jądro dostosowane do platformy Azure)<br>4,18* <br> 4,15* |
 | 16.04.3 | 4,15. * |
 | 16,04 | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
 
@@ -175,8 +181,8 @@ Agenta zależności można pobrać z następujących lokalizacji:
 
 | Plik | System operacyjny | Wersja | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9E7BCC17D917F5CE995F2F5A4633D8B733F3BE143921  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD293968F02A9EF821F9639406AA1BDF1F67925DB9EE00D54AA7F0B |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
@@ -190,16 +196,16 @@ Włącz Azure Monitor dla maszyn wirtualnych przy użyciu jednej z metod opisany
 
 | Stan wdrożenia | Metoda | Opis |
 |------------------|--------|-------------|
-| Pojedyncza maszyna wirtualna platformy Azure lub zestaw skalowania maszyn wirtualnych | [Włącz z poziomu maszyny wirtualnej](vminsights-enable-single-vm.md) | Pojedynczą maszynę wirtualną platformy Azure można włączyć, wybierając pozycję **szczegółowe informacje** bezpośrednio z maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. |
-| Wiele maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych | [Włącz przez Azure Policy](vminsights-enable-at-scale-policy.md) | Możesz włączyć wiele maszyn wirtualnych platformy Azure przy użyciu Azure Policy i dostępnych definicji zasad. |
-| Wiele maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych | [Włącz za poorednictwem szablonów Azure PowerShell lub Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Za pomocą szablonów Azure PowerShell lub Azure Resource Manager można włączyć wiele maszyn wirtualnych platformy Azure lub zestawów skalowania maszyn wirtualnych w ramach określonej subskrypcji lub grupy zasobów. |
-| Chmura hybrydowa | [Włącz dla środowiska hybrydowego](vminsights-enable-hybrid-cloud.md) | Można je wdrożyć na maszynach wirtualnych lub komputerach fizycznych hostowanych w centrum danych lub w innych środowiskach chmurowych. |
+| Pojedyncza maszyna wirtualna platformy Azure, usługa Azure VMSS lub maszyna Azure Arc | [Włącz z portalu](vminsights-enable-single-vm.md) | Wybierz pozycję **szczegółowe** dane bezpośrednio z menu w Azure Portal. |
+| Wiele maszyn wirtualnych platformy Azure, Azure VMSS lub Azure Arc Machine | [Włącz przez Azure Policy](vminsights-enable-at-scale-policy.md) | Użyj Azure Policy, aby automatycznie włączyć po utworzeniu maszyny wirtualnej lub VMSS. |
+| | [Włącz za poorednictwem szablonów Azure PowerShell lub Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Za pomocą szablonów Azure PowerShell lub Azure Resource Manager można włączyć wiele maszyn wirtualnych platformy Azure, maszyn wirtualnych usługi Azure ARC lub VMSS na platformie Azure w ramach określonej subskrypcji lub grupy zasobów. |
+| Chmura hybrydowa | [Włącz dla środowiska hybrydowego](vminsights-enable-hybrid-cloud.md) | Wdrażaj maszyny wirtualne lub komputery fizyczne hostowane w centrum danych lub w innych środowiskach w chmurze. |
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
 Gdy Azure Monitor dla maszyn wirtualnych jest włączona i skonfigurowana z obszarem roboczym Log Analytics, pakiet administracyjny zostanie przekazany do wszystkich komputerów z systemem Windows, które są raportowane do tego obszaru roboczego. Jeśli [Grupa zarządzania System Center Operations Manager została zintegrowana](../../azure-monitor/platform/om-agents.md) z obszarem roboczym log Analytics, pakiet administracyjny Service map zostanie wdrożony z grupy zarządzania na komputerach z systemem Windows zgłaszanych do grupy zarządzania.  
 
-Pakiet administracyjny ma nazwę *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Zapisano do `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` folderu. Źródłem danych, którego używa pakiet administracyjny, jest `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
+Pakiet administracyjny ma nazwę *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Zapisano do `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` folderu. Źródłem danych, którego używa pakiet administracyjny, jest `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll` .
 
 ## <a name="diagnostic-and-usage-data"></a>Dane diagnostyczne i użycia
 

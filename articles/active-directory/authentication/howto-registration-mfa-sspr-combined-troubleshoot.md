@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81450942"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Rozwiązywanie problemów z rejestracją połączonych informacji o zabezpieczeniach
@@ -60,7 +60,7 @@ Gdy użytkownik rejestruje numer telefonu i/lub aplikację mobilną w nowym poł
 
 Jeśli administrator włączy Podgląd, użytkownicy rejestrują się za pomocą nowego środowiska, a następnie administrator wyłącza wersję zapoznawczą, użytkownicy mogą nieświadomie rejestrować się do Multi-Factor Authentication.
 
-Jeśli użytkownik, który ukończył rejestrację, przejdzie do bieżącej strony rejestracji samoobsługowego resetowania hasła (SSPR) [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)w programie, użytkownik zostanie poproszony o wykonanie Multi-Factor Authentication przed uzyskaniem dostępu do tej strony. Ten krok jest oczekiwany z technicznego punktu widzenia, ale jest nowy dla użytkowników, którzy zostali wcześniej zarejestrowani wyłącznie do SSPR. Mimo że ten dodatkowy krok ulepsza stan zabezpieczeń użytkownika, zapewniając inny poziom zabezpieczeń, Administratorzy mogą chcieć wycofać swoich użytkowników, aby nie mieli już możliwości wykonywania Multi-Factor Authentication.  
+Jeśli użytkownik, który ukończył rejestrację, przejdzie do bieżącej strony rejestracji samoobsługowego resetowania hasła (SSPR) w programie [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) , użytkownik zostanie poproszony o wykonanie Multi-Factor Authentication przed uzyskaniem dostępu do tej strony. Ten krok jest oczekiwany z technicznego punktu widzenia, ale jest nowy dla użytkowników, którzy zostali wcześniej zarejestrowani wyłącznie do SSPR. Mimo że ten dodatkowy krok ulepsza stan zabezpieczeń użytkownika, zapewniając inny poziom zabezpieczeń, Administratorzy mogą chcieć wycofać swoich użytkowników, aby nie mieli już możliwości wykonywania Multi-Factor Authentication.  
 
 ### <a name="how-to-roll-back-users"></a>Jak wycofać użytkowników
 
@@ -150,7 +150,7 @@ W oknie programu PowerShell uruchom następujące polecenie, podając plik skryp
 Aby wyłączyć zaktualizowane środowisko dla użytkowników, wykonaj następujące czynności:
 
 1. Zaloguj się do Azure Portal jako administrator użytkownika.
-2. Przejdź do pozycji **Azure Active Directory** > **Ustawienia** > użytkownika**Zarządzaj ustawieniami funkcji w wersji zapoznawczej panelu dostępu**.
+2. Przejdź do pozycji **Azure Active Directory**  >  **Ustawienia użytkownika**  >  **Zarządzaj ustawieniami funkcji w wersji zapoznawczej panelu dostępu**.
 3. W obszarze **Użytkownicy mogą używać funkcji w wersji zapoznawczej na potrzeby rejestrowania i zarządzania informacjami o zabezpieczeniach**, ustawić dla selektora wartość **Brak**, a następnie wybrać pozycję **Zapisz**.
 
 Użytkownicy nie będą już monitowani o rejestrację przy użyciu zaktualizowanego środowiska.

@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 0287e5a965710ea5c3b1ada73fc32dda49c05819
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047706"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954248"
 ---
-# <a name="configure-always-encrypted-using-windows-certificate-store"></a>Konfigurowanie Always Encrypted przy użyciu magazynu certyfikatów systemu Windows
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurowanie Always Encrypted przy użyciu magazynu certyfikatów systemu Windows
 
-W tym samouczku przedstawiono sposób zabezpieczania poufnych danych w bazie danych programu Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL z szyfrowaniem bazy danych za pomocą [kreatora Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-wizard) w [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Przedstawiono w nim również sposób przechowywania kluczy szyfrowania w magazynie certyfikatów systemu Windows.
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+W tym artykule opisano sposób zabezpieczania poufnych danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL z szyfrowaniem bazy danych za pomocą [kreatora Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-wizard) w [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Przedstawiono w nim również sposób przechowywania kluczy szyfrowania w magazynie certyfikatów systemu Windows.
 
 Always Encrypted to technologia szyfrowania danych, która pomaga chronić poufne dane przechowywane na serwerze podczas przenoszenia między klientem i serwerem, a gdy dane są używane, zapewniając, że poufne dane nigdy nie pojawiają się jako zwykły tekst w systemie bazy danych. Po zaszyfrowaniu danych tylko aplikacje klienckie lub serwery aplikacji, które mają dostęp do kluczy, mogą uzyskiwać dostęp do danych w postaci zwykłego tekstu. Aby uzyskać szczegółowe informacje, zobacz [Always Encrypted (aparat bazy danych)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -56,7 +56,7 @@ Aby uzyskać *Identyfikator aplikacji* i *klucz*, wykonaj kroki opisane w temaci
 
 ## <a name="connect-with-ssms"></a>Nawiązywanie połączenia z programem SSMS
 
-Otwórz SQL Server Managed Studio (SSMS) i Połącz się z serwerem lub z bazą danych.
+Otwórz program SQL Server Management Studio (SSMS) i Połącz się z serwerem lub z bazą danych.
 
 1. Otwórz program SSMS. (Kliknij przycisk **Połącz**  >  **Aparat bazy danych** , aby otworzyć okno **łączenie z serwerem** , jeśli nie jest otwarty.
 2. Wprowadź nazwę serwera i poświadczenia.
@@ -72,20 +72,22 @@ W tej sekcji utworzysz tabelę do przechowywania danych pacjenta. Będzie to nor
 1. Rozwiń węzeł **bazy danych**.
 2. Kliknij prawym przyciskiem myszy bazę danych **kliniki** , a następnie kliknij pozycję **nowe zapytanie**.
 3. Wklej następujący język Transact-SQL (T-SQL) do nowego okna zapytania i **Wykonaj** go.
-
-        CREATE TABLE [dbo].[Patients](
-         [PatientId] [int] IDENTITY(1,1),
-         [SSN] [char](11) NOT NULL,
-         [FirstName] [nvarchar](50) NULL,
-         [LastName] [nvarchar](50) NULL,
-         [MiddleName] [nvarchar](50) NULL,
-         [StreetAddress] [nvarchar](50) NULL,
-         [City] [nvarchar](50) NULL,
-         [ZipCode] [char](5) NULL,
-         [State] [char](2) NULL,
-         [BirthDate] [date] NOT NULL
-         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-         GO
+    
+    ```tsql
+    CREATE TABLE [dbo].[Patients](
+    [PatientId] [int] IDENTITY(1,1),
+    [SSN] [char](11) NOT NULL,
+    [FirstName] [nvarchar](50) NULL,
+    [LastName] [nvarchar](50) NULL,
+    [MiddleName] [nvarchar](50) NULL,
+    [StreetAddress] [nvarchar](50) NULL,
+    [City] [nvarchar](50) NULL,
+    [ZipCode] [char](5) NULL,
+    [State] [char](2) NULL,
+    [BirthDate] [date] NOT NULL
+    PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+    GO
+    ```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Szyfruj kolumny (Konfigurowanie Always Encrypted)
 
@@ -163,19 +165,21 @@ Można ustawić tę wartość bezpośrednio w parametrach połączenia lub ustaw
 
 Dodaj następujące słowo kluczowe do parametrów połączenia:
 
-    Column Encryption Setting=Enabled
+`Column Encryption Setting=Enabled`
 
 ### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Włączanie Always Encrypted przy użyciu SqlConnectionStringBuilder
 
 Poniższy kod pokazuje, jak włączyć Always Encrypted, ustawiając wartość [SqlConnectionStringBuilder. ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) na [włączone](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-    // Instantiate a SqlConnectionStringBuilder.
-    SqlConnectionStringBuilder connStringBuilder =
-       new SqlConnectionStringBuilder("replace with your connection string");
+```csharp
+// Instantiate a SqlConnectionStringBuilder.
+SqlConnectionStringBuilder connStringBuilder =
+    new SqlConnectionStringBuilder("replace with your connection string");
 
-    // Enable Always Encrypted.
-    connStringBuilder.ColumnEncryptionSetting =
-       SqlConnectionColumnEncryptionSetting.Enabled;
+// Enable Always Encrypted.
+connStringBuilder.ColumnEncryptionSetting =
+    SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>Always Encrypted Przykładowa aplikacja konsolowa
 
@@ -499,7 +503,9 @@ Możesz szybko sprawdzić, czy rzeczywiste dane na serwerze są szyfrowane, wyko
 
 Uruchom następujące zapytanie w bazie danych kliniki.
 
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```tsql
+SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 Można zobaczyć, że zaszyfrowane kolumny nie zawierają żadnych danych w postaci zwykłego tekstu.
 
@@ -514,7 +520,9 @@ Aby używać narzędzia SSMS do uzyskiwania dostępu do danych w postaci zwykłe
     ![Nowa aplikacja konsolowa](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Uruchom następujące zapytanie w bazie danych **kliniki** .
 
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```tsql
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```
 
      Teraz można zobaczyć dane w postaci zwykłego tekstu w zaszyfrowanych kolumnach.
 

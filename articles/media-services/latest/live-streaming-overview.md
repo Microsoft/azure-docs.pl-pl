@@ -13,12 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: ee9dfc11cad61d6190ae4a2382f0124207c32c4c
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84418147"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
 
@@ -30,12 +29,14 @@ Azure Media Services pozwala na dostarczanie na żywo wydarzeń klientom w chmur
 - Koder wideo na żywo, który konwertuje sygnały z aparatu (lub innego urządzenia, takiego jak laptop) do kanału informacyjnego, który jest wysyłany do Media Services. Kanał informacyjny udziału może obejmować sygnały związane z reklamą, takie jak znaczniki SCTE-35.<br/>Aby zapoznać się z listą zalecanych koderów przesyłania strumieniowego na żywo, zobacz [kodery przesyłania strumieniowego na żywo](recommended-on-premises-live-encoders.md). Zapoznaj się również z tym blogiem: [produkcja przesyłania strumieniowego na żywo z obs](https://link.medium.com/ttuwHpaJeT).
 - Składniki w Media Services, które umożliwiają pozyskiwanie, przeglądanie, pakowanie, nagrywanie, szyfrowanie i emitowanie wydarzenia na żywo do klientów lub do usługi CDN w celu dalszej dystrybucji.
 
+W przypadku klientów chcących dostarczyć zawartość do dużych odbiorców internetowych zalecamy włączenie usługi CDN w [punkcie końcowym przesyłania strumieniowego](streaming-endpoint-concept.md).
+
 Ten artykuł zawiera omówienie i wskazówki dotyczące przesyłania strumieniowego na żywo z Media Services i linki do innych odpowiednich artykułów.
  
 > [!NOTE]
 > Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
-## <a name="dynamic-packaging"></a>Pakowanie dynamiczne
+## <a name="dynamic-packaging-and-delivery"></a>Dynamiczne pakowanie i dostarczanie
 
 Za pomocą Media Services można korzystać z funkcji [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md), co pozwala na wyświetlanie podglądu i emitowanie strumieni na żywo w [FORMATACH MPEG, HLS i Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) z kanału informacyjnego, który jest wysyłany do usługi. Osoby przeglądające mogą odtworzyć strumień na żywo za pomocą dowolnych HLS, ŁĄCZNIKów lub Smooth Streaming zgodnych graczy. Możesz użyć [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) w aplikacjach sieci Web lub aplikacji mobilnych, aby dostarczyć strumień do dowolnego z tych protokołów.
 
@@ -46,13 +47,13 @@ Szyfrowanie dynamiczne umożliwia dynamiczne szyfrowanie zawartości na żywo lu
 > [!NOTE]
 > Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="dynamic-manifest"></a>Manifest dynamiczny
+## <a name="dynamic-filtering"></a>Filtrowanie dynamiczne
 
 Filtrowanie dynamiczne służy do kontrolowania liczby ścieżek, formatów, szybkości transmisji bitów i okien czasu prezentacji wysyłanych do graczy. Aby uzyskać więcej informacji, zobacz [filtry i manifesty dynamiczne](filters-dynamic-manifest-overview.md).
 
 ## <a name="live-event-types"></a>Typy zdarzeń na żywo
 
-[Wydarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) odpowiadają za pozyskiwanie i przetwarzanie strumieni wideo na żywo. Wydarzenie na żywo można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Aby uzyskać szczegółowe informacje na temat przesyłania strumieniowego na żywo w Media Services v3, zobacz [zdarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md).
+[Zdarzenia na żywo](https://docs.microsoft.com/rest/api/media/liveevents) są odpowiedzialne za pozyskiwanie i przetwarzanie kanałów wideo na żywo. Wydarzenie na żywo można ustawić na *przekazywanie* (lokalny koder na żywo wysyła strumień o wielokrotnej szybkości transmisji bitów) lub *kodowanie na żywo* (lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów). Aby uzyskać szczegółowe informacje na temat przesyłania strumieniowego na żywo w Media Services v3, zobacz [zdarzenia na żywo i wyjście na żywo](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Przekazywanie
 
@@ -78,13 +79,13 @@ Transkrypcja dynamiczna to funkcja, której można używać w przypadku wydarze�
 Aby zrozumieć przepływ pracy przesyłania strumieniowego na żywo w Media Services v3, należy najpierw przejrzeć i zrozumieć następujące pojęcia: 
 
 - [Punkty końcowe przesyłania strumieniowego](streaming-endpoint-concept.md)
-- [Wydarzenia i dane wyjściowe na żywo](live-events-outputs-concept.md)
+- [Zdarzenia na żywo i dane wyjściowe na żywo](live-events-outputs-concept.md)
 - [Lokalizatory przesyłania strumieniowego](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Ogólne kroki
 
 1. Na koncie Media Services upewnij się, że **punkt końcowy przesyłania strumieniowego** (Źródło) jest uruchomiony. 
-2. Utwórz [wydarzenie na żywo](live-events-outputs-concept.md). <br/>Podczas tworzenia zdarzenia możesz określić, aby uruchomić je ponownie. Możesz też uruchomić zdarzenie, gdy wszystko jest gotowe do rozpoczęcia przesyłania strumieniowego.<br/> Gdy Autostart ma wartość true, zdarzenie na żywo zostanie uruchomione bezpośrednio po utworzeniu. Rozliczanie zaczyna się zaraz po rozpoczęciu uruchamiania zdarzenia na żywo. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia. Aby uzyskać więcej informacji, zobacz [Live Event states and billing](live-event-states-billing.md) (Stany i rozliczenia dotyczące wydarzenia na żywo).
+2. Utwórz [wydarzenie na żywo](live-events-outputs-concept.md). <br/>Podczas tworzenia zdarzenia możesz określić, aby uruchomić je ponownie. Możesz też uruchomić zdarzenie, gdy wszystko jest gotowe do rozpoczęcia przesyłania strumieniowego.<br/> Gdy Autostart ma wartość true, zdarzenie na żywo zostanie uruchomione bezpośrednio po utworzeniu. Rozliczanie zaczyna się zaraz po rozpoczęciu uruchamiania zdarzenia na żywo. Należy jawnie wywołać zatrzymywanie zasobu zdarzenia na żywo, aby zatrzymać dalsze rozliczanie. Aby uzyskać więcej informacji, zobacz [Stany wydarzeń na żywo i rozliczenia](live-event-states-billing.md).
 3. Pobierz adresy URL pozyskiwania i skonfiguruj lokalny koder, aby użyć adresu URL do wysłania kanału informacyjnego udziału.<br/>Zobacz [zalecane kodery na żywo](recommended-on-premises-live-encoders.md).
 4. Uzyskaj adres URL wersji zapoznawczej i użyj go do sprawdzenia, czy dane wejściowe kodera są faktycznie odbierane.
 5. Utwórz nowy obiekt **zasobów** . 
@@ -103,8 +104,8 @@ Aby zrozumieć przepływ pracy przesyłania strumieniowego na żywo w Media Serv
 12. Aby po zakończeniu strumieniowego przesyłania zdarzeń, wyczyścić udostępnione wcześniej zasoby, postępuj zgodnie z poniższą procedurą.
 
     * Zatrzymaj wypychanie strumienia z kodera.
-    * Zatrzymaj wydarzenie na żywo. Po zatrzymaniu wydarzenia na żywo opłaty nie będą za nie naliczane. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
-    * Można zatrzymać punkt końcowy przesyłania strumieniowego, chyba że chcesz nadal udostępniać archiwum zdarzenia na żywo w formie przesyłania strumieniowego na żądanie. Jeśli wydarzenie na żywo będzie w stanie zatrzymanym, żadne opłaty nie będą naliczane.
+    * Zatrzymaj wydarzenie na żywo. Po zatrzymaniu wydarzenia na żywo nie zostaną naliczone żadne opłaty. W razie potrzeby ponownego uruchomienia kanał będzie miał ten sam adres URL pozyskiwania, więc nie trzeba będzie ponownie konfigurować kodera.
+    * Możesz zatrzymać punkt końcowy przesyłania strumieniowego, chyba że chcesz kontynuować udostępnianie archiwum zdarzenia na żywo jako strumienia na żądanie. Jeśli wydarzenie na żywo jest w stanie zatrzymania, nie spowoduje to ponoszenia żadnych opłat.
 
 Element zawartości, do której jest archiwizowany na żywo danych wyjściowych, automatycznie będzie zasobem na żądanie po usunięciu danych wyjściowych na żywo. Przed zatrzymaniem zdarzenia na żywo należy usunąć wszystkie dane wyjściowe na żywo. Można użyć opcjonalnej flagi [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) , aby automatycznie usuwać wyjścia na żywo po zatrzymaniu. 
 

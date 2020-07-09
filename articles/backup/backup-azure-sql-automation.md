@@ -4,12 +4,12 @@ description: Tworzenie kopii zapasowych i przywracanie baz danych SQL na maszyna
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 9608b02869b1d41d901ec77a42cfaa6d882040e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255147"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Tworzenie kopii zapasowych i przywracanie baz danych SQL na maszynach wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -335,7 +335,7 @@ W przypadku przywracania bazy danych SQL obsługiwane są następujące scenariu
 * Przywracanie bazy danych SQL jako nowej bazy danych w innym wystąpieniu SQL w innej maszynie wirtualnej SQL — AlternateWorkloadRestore
 * Przywracanie bazy danych SQL jako plików BAK — RestoreAsFiles
 
-Po pobraniu odpowiedniego punktu odzyskiwania (oddzielnego lub dziennika w czasie) Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS, aby pobrać obiekt konfiguracji odzyskiwania zgodnie z żądanym planem odzyskiwania.
+Po pobraniu odpowiedniego punktu odzyskiwania (oddzielny lub punkt dziennika) Użyj polecenia cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS, aby pobrać obiekt konfiguracji odzyskiwania zgodnie z żądanym planem odzyskiwania.
 
 #### <a name="original-workload-restore"></a>Oryginalne przywracanie obciążenia
 
@@ -499,7 +499,7 @@ Jeśli dane wyjściowe zostaną utracone lub chcesz uzyskać odpowiedni identyfi
 
 ### <a name="change-policy-for-backup-items"></a>Zmień zasady dla elementów kopii zapasowej
 
-Użytkownik może zmodyfikować istniejące zasady lub zmienić zasady kopii zapasowej elementu z Policy1 na Policy2. Aby przełączyć zasady dla elementu kopii zapasowej, należy pobrać odpowiednie zasady i wykonać kopię zapasową, a następnie użyć polecenia [enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) z elementem kopii zapasowej jako parametru.
+Użytkownik może zmienić zasady kopii zapasowej elementu z Policy1 na Policy2. Aby przełączyć zasady dla elementu kopii zapasowej, należy pobrać odpowiednie zasady i wykonać kopię zapasową, a następnie użyć polecenia [enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) z elementem kopii zapasowej jako parametru.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -513,6 +513,19 @@ Polecenie czeka na zakończenie konfigurowania kopii zapasowej i zwraca następu
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
+```
+
+### <a name="edit-an-existing-backup-policy"></a>Edytuj istniejące zasady tworzenia kopii zapasowych
+
+Aby edytować istniejące zasady, użyj polecenia [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0) .
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
+```
+Sprawdź zadania tworzenia kopii zapasowej po upływie pewnego czasu, aby śledzić wszystkie błędy. W razie potrzeby należy rozwiązać problemy. Następnie ponownie uruchom polecenie Edytuj zasady z parametrem **FixForInconsistentItems** , aby ponowić próbę edycji zasad we wszystkich elementach kopii zapasowych, dla których operacja zakończyła się niepowodzeniem.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -FixForInconsistentItems
 ```
 
 ### <a name="re-register-sql-vms"></a>Ponowne rejestrowanie maszyn wirtualnych SQL
@@ -597,4 +610,4 @@ Załóżmy na przykład, że w przypadku usługi SQL AG istnieją dwa węzły: "
 
 SQL-Server-0, SQL-Server-1 również będzie wyświetlana jako "AzureVMAppContainer", gdy [są wyświetlane kontenery kopii zapasowych](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Po prostu pobierz odpowiednią bazę danych SQL, aby [włączyć tworzenie kopii zapasowych](#configuring-backup) , a [restore PS cmdlets](#restore-sql-dbs) [kopie zapasowe i przywracanie na żądanie](#on-demand-backup) są identyczne.
+Po prostu pobierz odpowiednią bazę danych, aby [włączyć tworzenie kopii zapasowej](#configuring-backup) , a [polecenia cmdlet](#restore-sql-dbs) programu [kopia zapasowa na żądanie](#on-demand-backup) i przywracanie danych PS są identyczne.

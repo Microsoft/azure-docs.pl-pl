@@ -2,21 +2,21 @@
 title: Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 description: W tym artykule omówiono różnice w języku Transact-SQL (T-SQL) między wystąpieniem zarządzanym usługi Azure SQL i SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 89b33f22cf5e6f08b42fca0e8966a36001bdb29f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298451"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84116750"
 Ten artykuł zawiera podsumowanie i wyjaśnienie różnic między wystąpieniem zarządzanym usługi Azure SQL i SQL Server. 
 
 
-Wystąpienie zarządzane SQL zapewnia wysoką zgodność z lokalnym aparatem bazy danych SQL Server i większość funkcji jest obsługiwanych w wystąpieniu zarządzanym SQL.
+Wystąpienie zarządzane SQL zapewnia wysoką zgodność z aparatem bazy danych SQL Server i większość funkcji jest obsługiwanych w wystąpieniu zarządzanym SQL.
 
 ![Migracja](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
@@ -54,7 +54,7 @@ Tymczasowe znane problemy, które zostały odnalezione w wystąpieniu zarządzan
 
 ### <a name="backup"></a>Backup
 
-Wystąpienia zarządzane SQL mają automatyczne kopie zapasowe, dlatego użytkownicy mogą tworzyć pełne `COPY_ONLY` kopie zapasowe bazy danych. Kopie zapasowe, dzienniki i migawki plików nie są obsługiwane.
+Wystąpienie zarządzane SQL ma automatyczne kopie zapasowe, dlatego użytkownicy mogą tworzyć pełne `COPY_ONLY` kopie zapasowe bazy danych. Kopie zapasowe, dzienniki i migawki plików nie są obsługiwane.
 
 - W przypadku wystąpienia zarządzanego SQL można utworzyć kopię zapasową bazy danych wystąpienia tylko na koncie usługi Azure Blob Storage:
   - `BACKUP TO URL`Obsługiwane są tylko.
@@ -130,7 +130,7 @@ Zobacz [Tworzenie poświadczeń](/sql/t-sql/statements/create-credential-transac
 
 ### <a name="cryptographic-providers"></a>Dostawcy usług kryptograficznych
 
-Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, dlatego nie można utworzyć dostawców usług kryptograficznych:
+Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie można utworzyć dostawców usług kryptograficznych:
 
 - `CREATE CRYPTOGRAPHIC PROVIDER`nie jest obsługiwana. Zobacz [Tworzenie dostawcy usług kryptograficznych](/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER`nie jest obsługiwana. Zobacz [ALTER Cryptographic Provider](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
@@ -159,13 +159,13 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, dlatego nie
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
-- Eksportowanie/Importowanie bazy danych przy użyciu plików BACPAC jest obsługiwane dla użytkowników usługi Azure AD w wystąpieniu zarządzanym SQL przy użyciu programu [SSMS v 18.4 lub nowszego](/sql/ssms/download-sql-server-management-studio-ssms)lub pliku [sqlpackage. exe](/sql/tools/sqlpackage-download).
+- Eksportowanie/Importowanie bazy danych przy użyciu plików BACPAC jest obsługiwane dla użytkowników usługi Azure AD w wystąpieniu zarządzanym SQL przy użyciu programu [SSMS v 18.4 lub nowszego](/sql/ssms/download-sql-server-management-studio-ssms)albo [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Następujące konfiguracje są obsługiwane za pomocą pliku BACPAC bazy danych: 
     - Eksportuj/importuj bazę danych między różnymi wystąpieniami zarządzania w ramach tej samej domeny usługi Azure AD.
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj ją do SQL Database w ramach tej samej domeny usługi Azure AD. 
     - Wyeksportuj bazę danych z SQL Database i zaimportuj do wystąpienia zarządzanego SQL w ramach tej samej domeny usługi Azure AD.
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj do SQL Server (wersja 2012 lub nowsza).
-      - W tej konfiguracji wszyscy użytkownicy usługi Azure AD są utworzeni jako podmioty zabezpieczeń bazy danych SQL (Użytkownicy) bez logowania. Typ użytkowników jest wymieniony jako SQL (widoczny jako SQL_USER w tabeli sys. database_principals). Ich uprawnienia i role pozostają w metadanych bazy danych SQL Server i mogą być używane do personifikacji. Nie można ich jednak używać do uzyskiwania dostępu do SQL Server i logowania się do nich przy użyciu swoich poświadczeń.
+      - W tej konfiguracji wszyscy użytkownicy usługi Azure AD są utworzeni jako SQL Server podmioty zabezpieczeń bazy danych (Użytkownicy) bez logowania. Typy użytkowników są wyświetlane jako `SQL` i widoczne jako `SQL_USER` w tabeli sys. database_principals). Ich uprawnienia i role pozostają w metadanych bazy danych SQL Server i mogą być używane do personifikacji. Nie można ich jednak używać do uzyskiwania dostępu do SQL Server i logowania się do nich przy użyciu swoich poświadczeń.
 
 - Tylko główna nazwa logowania na poziomie serwera, która jest tworzona przez proces aprowizacji wystąpienia zarządzanego przez usługę SQL, członkowie ról serwera, takie jak `securityadmin` lub `sysadmin` , lub inne logowania z uprawnieniami do zmiany nazwy logowania na poziomie serwera mogą tworzyć nazwy główne serwera usługi Azure AD (nazwy logowania) w bazie danych Master dla wystąpienia zarządzanego SQL.
 - Jeśli nazwa logowania jest podmiotem SQL, tylko nazwy logowania należące do `sysadmin` roli mogą używać polecenia CREATE do tworzenia logowań dla konta usługi Azure AD.
@@ -276,7 +276,7 @@ Nie można modyfikować następujących opcji:
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>Program SQL Server Agent
+### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Włączanie i wyłączanie agenta SQL Server nie jest obecnie obsługiwane w wystąpieniu zarządzanym SQL. Agent SQL zawsze działa.
 - Ustawienia agenta SQL Server są tylko do odczytu. Procedura `sp_set_agent_properties` nie jest obsługiwana w wystąpieniu zarządzanym SQL. 
@@ -284,15 +284,15 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
   - Obsługiwane są czynności zadania T-SQL.
   - Obsługiwane są następujące zadania replikacji:
     - Dziennik transakcji
-    - Migawka
+    - Snapshot
     - Dystrybutor
   - Obsługiwane są etapy zadania SSIS.
   - Inne typy kroków zadań nie są obecnie obsługiwane:
     - Etap zadania replikacji scalającej nie jest obsługiwany. 
     - Czytnik kolejki nie jest obsługiwany. 
     - Powłoka poleceń nie jest jeszcze obsługiwana.
-  - Wystąpienia zarządzane SQL nie mogą uzyskać dostępu do zasobów zewnętrznych, na przykład udziałów sieciowych za pośrednictwem Robocopy. 
-  - SQL Server Analysis Services nie są obsługiwane.
+  - Wystąpienie zarządzane SQL nie może uzyskać dostępu do zasobów zewnętrznych, na przykład udziałów sieciowych za pośrednictwem Robocopy. 
+  - SQL Server Analysis Services nie jest obsługiwana.
 - Powiadomienia są częściowo obsługiwane.
 - Powiadomienie e-mail jest obsługiwane, chociaż wymaga skonfigurowania profilu Poczta bazy danych. Agent SQL Server może używać tylko jednego profilu Poczta bazy danych i musi zostać wywołany `AzureManagedInstance_dbmail_profile` . 
   - Moduł stronicowania nie jest obsługiwany.
@@ -329,7 +329,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do udziałów plików i
 
 - `DATASOURCE`jest wymagany w `BULK INSERT` poleceniu podczas importowania plików z usługi Azure Blob Storage. Zobacz [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE`jest wymagany w `OPENROWSET` funkcji podczas odczytywania zawartości pliku z usługi Azure Blob Storage. Zobacz [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET`może służyć do odczytywania danych z innych baz danych SQL Azure, wystąpień zarządzanych SQL lub wystąpień SQL Server. Inne źródła, takie jak bazy danych Oracle lub pliki programu Excel, nie są obsługiwane.
+- `OPENROWSET`może służyć do odczytywania danych z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub wystąpienia SQL Server. Inne źródła, takie jak bazy danych Oracle lub pliki programu Excel, nie są obsługiwane.
 
 ### <a name="clr"></a>CLR
 
@@ -345,7 +345,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do udziałów plików i
  
 ### <a name="dbcc"></a>DBCC
 
-Nieudokumentowane instrukcje DBCC, które są włączone w SQL Server nie są obsługiwane w wystąpieniach zarządzanych SQL.
+Nieudokumentowane instrukcje DBCC, które są włączone w SQL Server nie są obsługiwane w wystąpieniu zarządzanym SQL.
 
 - Obsługiwana jest tylko ograniczona liczba globalnych flag śledzenia. Poziom sesji `Trace flags` nie jest obsługiwany. Zobacz [flagi śledzenia](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [Polecenia DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) i [DBCC TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) współpracują z ograniczoną liczbą globalnych flag śledzenia.
@@ -353,9 +353,9 @@ Nieudokumentowane instrukcje DBCC, które są włączone w SQL Server nie są ob
 
 ### <a name="distributed-transactions"></a>Transakcje rozproszone
 
-Usługi MSDTC i [transakcje elastyczne](../database/elastic-transactions-overview.md) obecnie nie są obsługiwane w wystąpieniach zarządzanych SQL.
+Usługi MSDTC i [transakcje elastyczne](../database/elastic-transactions-overview.md) obecnie nie są obsługiwane w wystąpieniu zarządzanym SQL.
 
-### <a name="extended-events"></a>Rozszerzone zdarzenia
+### <a name="extended-events"></a>Zdarzenia rozszerzone
 
 Niektóre elementy docelowe specyficzne dla systemu Windows dla zdarzeń rozszerzonych (XEvents) nie są obsługiwane:
 
@@ -387,9 +387,9 @@ Aby uzyskać więcej informacji, zobacz [FILESTREAM](/sql/relational-databases/b
 
 ### <a name="linked-servers"></a>Serwery połączone
 
-Połączone serwery w wystąpieniach zarządzanych SQL obsługują ograniczoną liczbę elementów docelowych:
+Połączone serwery w wystąpieniu zarządzanym SQL obsługują ograniczoną liczbę elementów docelowych:
 
-- Obsługiwane elementy docelowe to wystąpienia zarządzane SQL, SQL Database i wystąpienia SQL Server. 
+- Obsługiwane elementy docelowe to wystąpienia zarządzane SQL, SQL Database, Azure Synapse SQL i wystąpienia SQL Server. 
 - Połączone serwery nie obsługują dystrybuowanych transakcji zapisywalnych (MS DTC).
 - Elementy docelowe, które nie są obsługiwane to pliki, Analysis Services i inne RDBMS. Spróbuj użyć natywnego importu CSV z platformy Azure Blob Storage przy użyciu `BULK INSERT` lub `OPENROWSET` jako alternatywy dla importu pliku.
 
@@ -409,8 +409,8 @@ Tabele zewnętrzne odwołujące się do plików w systemie HDFS lub Azure Blob S
 
 - Obsługiwane są migawki i dwukierunkowe typy replikacji. Replikacja scalająca, replikacja równorzędna i aktualizowalne subskrypcje nie są obsługiwane.
 - [Replikacja transakcyjna](replication-transactional-overview.md) jest dostępna w publicznej wersji zapoznawczej w wystąpieniu zarządzanym SQL z pewnymi ograniczeniami:
-    - Wszystkie typy uczestników replikacji (wydawcy, dystrybutora, subskrybenta ściągania i wypychania) mogą być umieszczane w wystąpieniach zarządzanych SQL, ale Wydawca i dystrybutor muszą być zarówno w chmurze, jak i lokalnie.
-    - Wystąpienia zarządzane SQL mogą komunikować się z najnowszymi wersjami SQL Server. Aby uzyskać więcej informacji, zobacz [macierz obsługiwane wersje](replication-transactional-overview.md#supportability-matrix) .
+    - Wszystkie typy uczestników replikacji (wydawcy, dystrybutora, subskrybenta ściągania i wypychania) mogą być umieszczane w wystąpieniu zarządzanym SQL, ale Wydawca i dystrybutor muszą być zarówno w chmurze, jak i lokalnie.
+    - Wystąpienie zarządzane SQL może komunikować się z najnowszymi wersjami SQL Server. Aby uzyskać więcej informacji, zobacz [macierz obsługiwane wersje](replication-transactional-overview.md#supportability-matrix) .
     - Replikacja transakcyjna ma [dodatkowe wymagania dotyczące sieci](replication-transactional-overview.md#requirements).
 
 Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej, zobacz następujące samouczki:
@@ -432,7 +432,7 @@ Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej
   - `FROM URL`(Magazyn obiektów blob platformy Azure) jest jedyną obsługiwaną opcją.
   - `FROM DISK`/`TAPE`/Backup urządzenie nie jest obsługiwane.
   - Zestawy kopii zapasowych nie są obsługiwane.
-- `WITH`Opcje nie są obsługiwane, takie jak No `DIFFERENTIAL` lub `STATS` .
+- `WITH`Opcje nie są obsługiwane. Próby przywracania, takie `WITH` jak `DIFFERENTIAL` ,, `STATS` `REPLACE` itp., zakończą się niepowodzeniem.
 - `ASYNC RESTORE`: Przywracanie jest kontynuowane nawet w przypadku przerwania połączenia z klientem. Jeśli połączenie zostało porzucone, można sprawdzić `sys.dm_operation_status` stan operacji przywracania oraz utworzyć i usunąć bazę danych. Zobacz sekcję [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Następujące opcje bazy danych są ustawiane lub zastępowane i nie można ich zmienić później: 
@@ -490,7 +490,7 @@ Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 - `@@SERVERNAME`Zwraca pełną nazwę DNS "Connected", na przykład my-managed-instance.wcus17662feb9ce98.database.windows.net. Zobacz [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS`Zwraca pełną nazwę DNS "Connected", `myinstance.domain.database.windows.net` na przykład dla właściwości "name" i "data_source". Zobacz sekcję [sys. SERWERY](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME`Zwraca wartość NULL, ponieważ koncepcja usługi, która istnieje dla SQL Server nie ma zastosowania do wystąpienia zarządzanego SQL. Zobacz [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`jest obsługiwana. Zwraca wartość NULL, jeśli logowanie za pomocą usługi Azure AD nie znajduje się w pliku sys. syslogins. Zobacz [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_ID`jest obsługiwana. Zwraca wartość NULL, jeśli logowanie za pomocą usługi Azure AD nie znajduje się w sys.syslogowaniach. Zobacz [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID`nie jest obsługiwana. Zwracane są błędne dane, które są tymczasowym znanym problemem. Zobacz [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>Ograniczenia środowiska
@@ -502,10 +502,16 @@ Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 - Liczba rdzeni wirtualnych i typy wystąpień, które można wdrożyć w regionie, mają pewne [ograniczenia i](resource-limits.md#regional-resource-limitations)ograniczenia.
 - Istnieją pewne [reguły zabezpieczeń, które należy zastosować w podsieci](connectivity-architecture-overview.md#network-requirements).
 
-### <a name="vnet"></a>Environment
+### <a name="vnet"></a>Sieć wirtualna
 - Sieć wirtualną można wdrożyć przy użyciu modelu zasobów — model klasyczny dla sieci wirtualnej nie jest obsługiwany.
 - Po utworzeniu wystąpienia zarządzanego SQL przeniesienie wystąpienia zarządzanego SQL lub sieci wirtualnej do innej grupy zasobów lub subskrypcji nie jest obsługiwane.
-- Niektóre usługi, takie jak środowiska App Service, Aplikacje logiki i wystąpienia zarządzane SQL (używane na potrzeby replikacji geograficznej, replikacji transakcyjnej lub połączonych serwerów) nie mogą uzyskać dostępu do wystąpień zarządzanych SQL w różnych regionach, jeśli ich sieci wirtualnych są połączone przy użyciu [globalnej komunikacji równorzędnej](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
+- Niektóre usługi, takie jak środowiska App Service, Aplikacje logiki i wystąpienie zarządzane SQL (używane na potrzeby replikacji geograficznej, replikacji transakcyjnej lub połączonych serwerów) nie mogą uzyskać dostępu do wystąpienia zarządzanego SQL w różnych regionach, jeśli ich sieci wirtualnych są połączone przy użyciu [globalnej komunikacji równorzędnej](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
+
+### <a name="failover-groups"></a>Grupy trybu failover
+Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.
+
+### <a name="failover-groups"></a>Grupy trybu failover
+Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.
 
 ### <a name="tempdb"></a>TEMPDB
 
@@ -537,7 +543,7 @@ Wystąpienie zarządzane SQL umieszcza pełne informacje w dziennikach błędów
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji o wystąpieniach zarządzanych przez program SQL, zobacz [co to jest wystąpienie zarządzane SQL?](sql-managed-instance-paas-overview.md)
+- Aby uzyskać więcej informacji o wystąpieniu zarządzanym SQL, zobacz [co to jest wystąpienie zarządzane SQL?](sql-managed-instance-paas-overview.md)
 - Aby poznać funkcje i listę porównania, zobacz [porównanie funkcji wystąpienia zarządzanego Azure SQL](../database/features-comparison.md).
 - Aby uzyskać informacje o aktualizacjach wersji i stanie znanych problemów, zobacz [Informacje o wersji wystąpienia zarządzanego SQL](../database/doc-changes-updates-release-notes.md)
 - Aby zapoznać się z przewodnikiem Szybki Start, który pokazuje, jak utworzyć nowe wystąpienie zarządzane SQL, zobacz [Tworzenie wystąpienia zarządzanego SQL](instance-create-quickstart.md).

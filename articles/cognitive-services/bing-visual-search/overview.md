@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 14acebb71538dddfd2421fbb27794f456b6c9c8f
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446657"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611513"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Co to jest interfejs API wyszukiwania wizualnego Bing?
 
@@ -26,7 +26,7 @@ Jeśli używasz [interfejs API wyszukiwania obrazów Bing](../bing-image-search/
 > [!IMPORTANT]
 > Jeśli uzyskujesz szczegółowe informacje o obrazach za pomocą interfejsu API wyszukiwania obrazów Bing, rozważ przejście do interfejsu API wyszukiwania wizualnego Bing, który zapewnia bardziej kompleksowe szczegółowe informacje.
 
-## <a name="insights"></a>Szczegółowe informacje
+## <a name="insights"></a>Insights
 
 Poniższe informacje można odnaleźć przy użyciu wyszukiwanie wizualne Bing:
 
@@ -48,7 +48,7 @@ Wyniki wyszukiwanie wizualne Bing zawierają również pola ograniczenia dotycz�
 
 Interfejs API wyszukiwania wizualnego Bing jest usługą internetową zgodną z wzorcem REST, łatwą do wywołania z dowolnego języka programowania, który może wysyłać żądania HTTP i analizować format JSON. Dla usługi można użyć interfejsu API REST lub zestawu SDK.
 
-1. Utwórz [konto Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby uzyskać dostęp do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [bezpłatnie utworzyć konto](https://azure.microsoft.com/free/). Klucz subskrypcji możesz uzyskać z [Azure Portal](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) po utworzeniu konta lub [witrynie sieci Web systemu Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) po aktywowaniu bezpłatnej wersji próbnej.
+1. Utwórz [konto Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby uzyskać dostęp do interfejsy API wyszukiwania Bing. Jeśli nie masz subskrypcji platformy Azure, możesz [bezpłatnie utworzyć konto](https://azure.microsoft.com/free/cognitive-services/).
 2. Wyślij żądanie do interfejsu API z prawidłowym zapytaniem wyszukiwania.
 3. Przetwórz odpowiedź interfejsu API, analizując zwrócony komunikat JSON.
 
@@ -57,9 +57,9 @@ Interfejs API wyszukiwania wizualnego Bing jest usługą internetową zgodną z 
 Najpierw wypróbuj interfejs API wyszukiwania wizualnego Bing [Interactive](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/).
 Demonstracja pokazuje, jak można szybko dostosować zapytanie wyszukiwania i wyszukuj sieć Web dla obrazów.
 
-Aby szybko zacząć korzystać z pierwszego żądania, zobacz Przewodnik Szybki Start: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Aby szybko rozpocząć pracę z pierwszym żądaniem, zobacz Przewodniki Szybki Start: [C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Informacje o [obrazach Wyszukiwanie wizualne](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) zawierają opis definicji i informacji na temat punktów końcowych, nagłówków żądań, odpowiedzi i parametrów zapytania, których można użyć do żądania wyników wyszukiwania na podstawie obrazu.
 

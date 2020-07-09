@@ -7,10 +7,9 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76908165"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Przenoszenie aplikacji siatki Service Fabric do innego regionu platformy Azure
@@ -22,7 +21,7 @@ W tym artykule opisano sposób przenoszenia aplikacji siatki Service Fabric i je
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Kontroler transferu danych przychodzących (na przykład [Application Gateway](https://docs.microsoft.com/azure/application-gateway/)), który będzie używany jako pośrednik do routingu ruchu między klientami a aplikacją Service Fabric siatką
-* Dostępność siatki Service Fabric (wersja zapoznawcza) w docelowym regionie`westus`platformy `eastus`Azure ( `westeurope`, lub)
+* Dostępność siatki Service Fabric (wersja zapoznawcza) w docelowym regionie platformy Azure ( `westus` , `eastus` lub `westeurope` )
 
 ## <a name="prepare"></a>Przygotowanie
 

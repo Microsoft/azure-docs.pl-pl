@@ -4,6 +4,8 @@
       href: networking-overview.md
     - name: Architektura
       items:
+        - name: Platforma Azure dla inżynierów sieci
+          href: azure-for-network-engineers.md
         - name: Wirtualne centra danych
           href: /azure/architecture/vdc/networking-virtual-datacenter
         - name: Routing asymetryczny z wieloma ścieżkami sieciowymi

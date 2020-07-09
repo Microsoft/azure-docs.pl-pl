@@ -17,10 +17,9 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77657167"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Omówienie zabezpieczeń usługi Azure Virtual Machines
@@ -38,7 +37,7 @@ Na platformie Azure można tworzyć rozwiązania zgodne z ulepszonymi zabezpiecz
 * Identyfikowanie i wykrywanie zagrożeń.
 * Spełnianie wymagań dotyczących zgodności.  
 
-## <a name="antimalware"></a>Antimalware
+## <a name="antimalware"></a>Oprogramowanie chroniące przed złośliwym kodem
 
 Na platformie Azure możesz używać oprogramowania chroniącego przed złośliwym kodem od dostawców zabezpieczeń, takich jak Microsoft, Symantec, Trend Micro i Kaspersky pomogą. To oprogramowanie pomaga chronić maszyny wirtualne przed złośliwymi plikami, programami reklamujące i innymi zagrożeniami.
 
@@ -57,14 +56,14 @@ Dowiedz się więcej o oprogramowaniu chroniącym przed złośliwym kodem, aby p
 
 W celu zapewnienia jeszcze bardziej zaawansowanej ochrony należy rozważyć użycie funkcji [zaawansowanej ochrony przed zagrożeniami w usłudze Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Usługa Windows Defender ATP zapewnia następujące korzyści:
 
-* [Zmniejszenie obszaru ataków](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Zmniejszanie obszaru ataków](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Ochrona nowej generacji](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint Protection i odpowiedź](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Zautomatyzowane badanie i korygowanie](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
 * [Wskaźnik bezpieczeństwa](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Zaawansowany łowiectwo](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Zarządzanie i interfejsy API](/windows/security/threat-protection/windows-defender-atp/management-apis)
-* [Ochrona przed zagrożeniami firmy Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+* [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
 Więcej informacji:
 
@@ -160,7 +159,7 @@ Więcej informacji:
 
 Chociaż dane poufne nie są technicznie częścią zabezpieczeń maszyn wirtualnych, temat zabezpieczeń maszyn wirtualnych należy do podmiotu zabezpieczeń "COMPUTE" wyższego poziomu. Przetwarzanie poufne należy do kategorii zabezpieczeń "obliczeniowe".
 
-Ochrona danych poufnych gwarantuje, że gdy dane są "jasne", co jest wymagane do wydajnego przetwarzania, dane są chronione wewnątrz zaufanego środowiska https://en.wikipedia.org/wiki/Trusted_execution_environment wykonawczego (tee-znanego również jako enklawy), przykładem, który pokazano na poniższym rysunku.  
+Ochrona danych poufnych gwarantuje, że gdy dane są "jasne", co jest wymagane do wydajnego przetwarzania, dane są chronione wewnątrz zaufanego środowiska wykonawczego https://en.wikipedia.org/wiki/Trusted_execution_environment (tee-znanego również jako enklawy), przykładem, który pokazano na poniższym rysunku.  
 
 TEEs upewnij się, że nie ma sposobu wyświetlania danych lub wykonywania operacji wewnątrz poza programem, nawet z debugerem. Nawet zapewniają, że dostęp do danych jest dozwolony tylko w autoryzowanym kodzie. Jeśli kod zostanie zmieniony lub naruszony, operacje są odrzucane i środowisko wyłączone. TEE wymusza te zabezpieczenia w czasie wykonywania kodu.
 

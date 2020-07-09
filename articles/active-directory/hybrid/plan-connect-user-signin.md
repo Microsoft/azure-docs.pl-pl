@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331270"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opcje logowania użytkownika
@@ -112,7 +112,7 @@ Aby uzyskać więcej informacji, zobacz [listę zgodności Federacji usługi Azu
 ### <a name="understanding-user-principal-name"></a>Informacje o głównej nazwie użytkownika
 W Active Directory domyślny sufiks głównej nazwy użytkownika (UPN) jest nazwą DNS domeny, w której utworzono konto użytkownika. W większości przypadków jest to nazwa domeny, która jest zarejestrowana jako domena przedsiębiorstwa w Internecie. Można jednak dodać więcej sufiksów nazw UPN przy użyciu domen Active Directory i relacji zaufania.
 
-Nazwa UPN użytkownika ma format username@domain. Na przykład dla domeny Active Directory o nazwie "contoso.com" użytkownik o nazwie Jan może mieć nazwę UPN "john@contoso.com". Nazwa UPN użytkownika jest oparta na dokumencie RFC 822. Mimo że nazwa UPN i adres e-mail mają ten sam format, wartość nazwy UPN dla użytkownika może być taka sama jak adres e-mail użytkownika.
+Nazwa UPN użytkownika ma format username@domain . Na przykład dla domeny Active Directory o nazwie "contoso.com" użytkownik o nazwie Jan może mieć nazwę UPN " john@contoso.com ". Nazwa UPN użytkownika jest oparta na dokumencie RFC 822. Mimo że nazwa UPN i adres e-mail mają ten sam format, wartość nazwy UPN dla użytkownika może być taka sama jak adres e-mail użytkownika.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Główna nazwa użytkownika w usłudze Azure AD
 Kreator Azure AD Connect używa atrybutu userPrincipalName lub umożliwia określenie atrybutu (w instalacji niestandardowej), który ma być używany z lokalnego jako głównej nazwy użytkownika w usłudze Azure AD. Jest to wartość, która jest używana do logowania się do usługi Azure AD. Jeśli wartość atrybutu userPrincipalName nie jest zgodna z zweryfikowaną domeną w usłudze Azure AD, usługa Azure AD zastępuje ją wartością default. onmicrosoft.com.
@@ -151,15 +151,15 @@ Zdecydowanie zalecamy zachowanie domyślnego atrybutu userPrincipalName. Jeśli 
 #### <a name="different-custom-domain-states-and-their-effect-on-the-azure-sign-in-experience"></a>Różne niestandardowe Stany domeny i ich wpływ na środowisko logowania platformy Azure
 Bardzo ważne jest zrozumienie relacji między Stanami domeny niestandardowej w katalogu usługi Azure AD a sufiksami nazw UPN zdefiniowanymi lokalnie. Przyjrzyjmy się różnym możliwościom logowania platformy Azure podczas konfigurowania synchronizacji przy użyciu Azure AD Connect.
 
-Aby uzyskać poniższe informacje, Załóżmy, że będziemy zainteresowani contoso.com sufiksu UPN, który jest używany w katalogu lokalnym jako część nazwy UPN — na przykład user@contoso.com.
+Aby uzyskać poniższe informacje, Załóżmy, że będziemy zainteresowani contoso.com sufiksu UPN, który jest używany w katalogu lokalnym jako część nazwy UPN — na przykład user@contoso.com .
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Ustawienia ekspresowe/synchronizacja skrótów haseł
 
 | Stan | Wpływ na środowisko logowania użytkownika platformy Azure |
 |:---:|:--- |
-| Nie dodano |W takim przypadku żadna domena niestandardowa dla contoso.com nie została dodana do katalogu usługi Azure AD. Użytkownicy posiadający nazwę UPN lokalną z sufiksem @contoso.com nie będą mogli korzystać z lokalnej nazwy UPN do logowania się do platformy Azure. Zamiast tego będą musieli używać nowej nazwy UPN udostępnionej przez usługę Azure AD, dodając sufiks dla domyślnego katalogu usługi Azure AD. Na przykład Jeśli synchronizujesz użytkowników z katalogiem usługi Azure AD azurecontoso.onmicrosoft.com, wówczas użytkownik user@contoso.com lokalny otrzyma nazwę UPN. user@azurecontoso.onmicrosoft.com |
+| Nie dodano |W takim przypadku żadna domena niestandardowa dla contoso.com nie została dodana do katalogu usługi Azure AD. Użytkownicy posiadający nazwę UPN lokalną z sufiksem @contoso.com nie będą mogli korzystać z lokalnej nazwy UPN do logowania się do platformy Azure. Zamiast tego będą musieli używać nowej nazwy UPN udostępnionej przez usługę Azure AD, dodając sufiks dla domyślnego katalogu usługi Azure AD. Na przykład Jeśli synchronizujesz użytkowników z katalogiem usługi Azure AD azurecontoso.onmicrosoft.com, wówczas użytkownik lokalny user@contoso.com otrzyma nazwę UPN user@azurecontoso.onmicrosoft.com . |
 | Niezweryfikowane |W tym przypadku mamy niestandardową contoso.com domeny, która jest dodawana do katalogu usługi Azure AD. Nie jest on jednak jeszcze zweryfikowany. Jeśli przejdziesz do synchronizacji użytkowników bez weryfikowania domeny, użytkownicy otrzymają nową nazwę UPN przez usługę Azure AD, podobnie jak w przypadku scenariusza "nie dodano". |
-| Sprawdzić |W tym przypadku mamy niestandardową contoso.com domeny, która została już dodana i zweryfikowana w usłudze Azure AD dla sufiksu nazwy UPN. Użytkownicy będą mogli korzystać z lokalnej głównej nazwy użytkownika, na przykład user@contoso.comw celu zalogowania się do platformy Azure po synchronizacji z usługą Azure AD. |
+| Sprawdzić |W tym przypadku mamy niestandardową contoso.com domeny, która została już dodana i zweryfikowana w usłudze Azure AD dla sufiksu nazwy UPN. Użytkownicy będą mogli korzystać z lokalnej głównej nazwy użytkownika, na przykład w user@contoso.com celu zalogowania się do platformy Azure po synchronizacji z usługą Azure AD. |
 
 ###### <a name="ad-fs-federation"></a>AD FS Federacja
 Nie można utworzyć Federacji z domyślną domeną. onmicrosoft.com w usłudze Azure AD lub niezweryfikowaną domeną niestandardową w usłudze Azure AD. Gdy uruchamiasz kreatora Azure AD Connect, w przypadku wybrania niezweryfikowanej domeny w celu utworzenia Federacji z programem Azure AD Connect wyświetli monit o wprowadzenie wymaganych rekordów, w których serwer DNS jest hostowany dla domeny. Aby uzyskać więcej informacji, zobacz temat [Weryfikowanie domeny usługi Azure AD wybranej dla Federacji](how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation).
@@ -168,7 +168,7 @@ W przypadku wybrania Federacji opcji logowania użytkownika **z AD FS**należy m
 
 | Stan | Wpływ na środowisko logowania użytkownika platformy Azure |
 |:---:|:--- |
-| Nie dodano |W takim przypadku Azure AD Connect nie znalazł pasującej domeny niestandardowej dla sufiksu UPN contoso.com w katalogu usługi Azure AD. Aby użytkownicy mogli się zalogować przy użyciu AD FS z lokalną nazwą UPN (na przykład user@contoso.com), należy dodać niestandardową domenę contoso.com. |
+| Nie dodano |W takim przypadku Azure AD Connect nie znalazł pasującej domeny niestandardowej dla sufiksu UPN contoso.com w katalogu usługi Azure AD. Aby użytkownicy mogli się zalogować przy użyciu AD FS z lokalną nazwą UPN (na przykład), należy dodać niestandardową domenę contoso.com user@contoso.com . |
 | Niezweryfikowane |W takim przypadku Azure AD Connect wyświetli odpowiednie informacje o tym, jak można zweryfikować domenę na późniejszym etapie. |
 | Sprawdzić |W takim przypadku można przejść do konfiguracji bez żadnych dalszych akcji. |
 

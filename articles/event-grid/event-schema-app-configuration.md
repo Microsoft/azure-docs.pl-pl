@@ -1,18 +1,14 @@
 ---
 title: Konfiguracja aplikacji platformy Azure jako źródło Event Grid
 description: W tym artykule opisano sposób korzystania z usługi Azure App Configuration jako źródła zdarzeń Event Grid. Zawiera schemat i linki do samouczka oraz artykuły z artykułami.
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/07/2020
+ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393427"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117002"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Konfiguracja aplikacji platformy Azure jako źródło Event Grid
 Ten artykuł zawiera właściwości i schemat zdarzeń konfiguracji aplikacji platformy Azure. Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md). Zawiera również listę przewodników Szybki Start i samouczków umożliwiających korzystanie z konfiguracji aplikacji platformy Azure jako źródła zdarzeń.
@@ -79,7 +75,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | ID | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia konfiguracji aplikacji. |
+| dane | object | Dane zdarzenia konfiguracji aplikacji. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
@@ -89,7 +85,7 @@ Obiekt danych ma następujące właściwości:
 | -------- | ---- | ----------- |
 | key | ciąg | Klucz wartości, który został zmodyfikowany lub usunięty. |
 | label | ciąg | Etykieta (jeśli istnieje) wartości klucz-wartość, która została zmodyfikowana lub usunięta. |
-| element ETag | ciąg | Dla `KeyValueModified` elementu ETag nowej wartości klucz-wartość. Dla `KeyValueDeleted` elementu ETag, który został usunięty. |
+| element ETag | ciąg | Dla elementu `KeyValueModified` ETag nowej wartości klucz-wartość. Dla elementu `KeyValueDeleted` ETag, który został usunięty. |
 
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 

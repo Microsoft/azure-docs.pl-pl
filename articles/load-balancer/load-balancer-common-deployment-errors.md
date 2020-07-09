@@ -10,12 +10,11 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658646"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84221012"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Rozwiązywanie typowych błędów wdrażania platformy Azure za pomocą Azure Load Balancer
 
@@ -28,6 +27,7 @@ W tym artykule opisano niektóre typowe błędy wdrażania Azure Load Balancer i
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Jednostka SKU publicznego adresu IP i jednostka SKU Load Balancer muszą być zgodne. Upewnij się, że Azure Load Balancer i jednostki SKU publicznego adresu IP są zgodne. Standardowa jednostka SKU jest zalecana w przypadku obciążeń produkcyjnych. Dowiedz się więcej o [różnicach w](./skus.md) jednostkach SKU  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Usługa Virtual Machine Scale Sets domyślnie ma podstawowe usługi równoważenia obciążenia, gdy jednostka SKU nie została określona lub wdrożona bez standardowych publicznych adresów IP. Wdróż ponownie zestaw skalowania maszyn wirtualnych z lokalnymi publicznymi adresami IP w poszczególnych wystąpieniach, aby upewnić się, że usługa Load Balancer w warstwie Standardowa jest zaznaczone, lub po prostu wybierz Standard LB podczas wdrażania zestawu skalowania maszyn wirtualnych z Azure Portal. |
 |MaxAvailabilitySetsInLoadBalancerReached | Pula zaplecza Load Balancer może zawierać maksymalnie 150 zestawów dostępności. Jeśli nie masz jawnie zdefiniowanych zestawów dostępności dla maszyn wirtualnych w puli zaplecza, każda pojedyncza maszyna wirtualna przejdzie w swój własny zestaw dostępności. Dlatego wdrożenie autonomicznych maszyn wirtualnych 150 będzie oznaczać, że mają one zestaw dostępności 150, co spowoduje przekroczenie limitu. W ramach obejścia można wdrożyć zestaw dostępności i dodać do niego dodatkowe maszyny wirtualne. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | W przypadku usługi równoważenia obciążenia w warstwie Podstawowa SKU interfejs sieciowy i moduł równoważenia obciążenia muszą znajdować się w tym samym zestawie dostępności. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Nie można mieć więcej niż jednej reguły dla danego typu usługi równoważenia obciążenia (wewnętrzny, publiczny) z tym samym portem zaplecza i protokołem, do którego odwołuje się ten sam zestaw skalowania maszyn wirtualnych. Zaktualizuj regułę, aby zmienić to duplikowanie tworzenia reguł. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Nie można mieć więcej niż jednej reguły dla danego typu usługi równoważenia obciążenia (wewnętrzny, publiczny) z tym samym portem zaplecza i protokołem, do którego odwołuje się ten sam zestaw skalowania maszyn wirtualnych. Zaktualizuj parametry reguły, aby zmienić to duplikowanie tworzenia reguł. |
 |AnotherInternalLoadBalancerExists| Można mieć tylko jeden Load Balancer typu odwołanie wewnętrzne tego samego zestawu maszyn wirtualnych/interfejsów sieciowych w zapleczu Load Balancer. Zaktualizuj wdrożenie, aby upewnić się, że tworzysz tylko jeden Load Balancer tego samego typu. |

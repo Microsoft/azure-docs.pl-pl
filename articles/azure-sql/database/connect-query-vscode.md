@@ -1,5 +1,5 @@
 ---
-title: Używanie VS Code do nawiązywania połączeń i zapytań
+title: Używanie Visual Studio Code do nawiązywania połączeń i zapytań
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Dowiedz się, jak nawiązać połączenie z usługą Azure SQL Database lub wystąpieniem zarządzanym SQL na platformie Azure przy użyciu Visual Studio Code. Następnie uruchom instrukcje Transact-SQL (T-SQL), aby wykonać zapytanie i edytować dane.
 keywords: nawiązywanie połączenia z bazą danych SQL
@@ -12,30 +12,30 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: b67748a9bfb22eed4afb76c960f992a56c10e546
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054359"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267260"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Szybki Start: używanie Visual Studio Code do nawiązywania połączeń i zapytań 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[Visual Studio Code](https://code.visualstudio.com/docs) jest graficznym edytorem kodu dla systemów Linux, macOS i Windows. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics. W tym przewodniku szybki start będziesz używać Visual Studio Code do nawiązywania połączenia z Azure SQL Database lub wystąpienia zarządzanego Azure SQL, a następnie uruchamiamy instrukcje języka Transact-SQL w celu wykonywania zapytań, wstawiania, aktualizowania i usuwania danych.
+[Visual Studio Code](https://code.visualstudio.com/docs) jest graficznym edytorem kodu dla systemów Linux, macOS i Windows. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) służące do wysyłania zapytań do wystąpienia SQL Server, Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i bazy danych w usłudze Azure Synapse Analytics. W tym przewodniku szybki start będziesz używać Visual Studio Code do nawiązywania połączenia z Azure SQL Database lub wystąpienia zarządzanego Azure SQL, a następnie uruchamiamy instrukcje języka Transact-SQL w celu wykonywania zapytań, wstawiania, aktualizowania i usuwania danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wystąpienie zarządzane Azure SQL Database lub SQL. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
+- Baza danych programu Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
 
-  || Azure SQL Database | Wystąpienie zarządzane SQL |
+  || Azure SQL Database | Wystąpienie zarządzane Azure SQL |
   |:--- |:--- |:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [Program PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) |
-  | Konfigurowanie | [Reguła zapory adresów IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md))| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Łączność ze środowiska lokalnego](../managed-instance/point-to-site-p2s-configure.md)
+  | Konfigurowanie | [Reguła zapory adresów IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md))| [Łączność z maszyny wirtualnej (VM)](../managed-instance/connect-vm-instance-configure.md)|
+  |||[Łączność z lokalnego](../managed-instance/point-to-site-p2s-configure.md)
   |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md)
   |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
@@ -45,7 +45,7 @@ ms.locfileid: "84054359"
 
 ## <a name="install-visual-studio-code"></a>Instalowanie programu Visual Studio Code
 
-Upewnij się, że masz zainstalowaną najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowane [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalacji rozszerzenia mssql, zobacz artykuły [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) (Instalacja programu VS Code) i [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) (Rozszerzenie mssql dla programu Visual Studio Code).
+Upewnij się, że masz zainstalowaną najnowszą wersję programu [Visual Studio Code](https://code.visualstudio.com/Download) i załadowane [rozszerzenie mssql](https://aka.ms/mssql-marketplace). Aby uzyskać wskazówki dotyczące instalowania rozszerzenia MSSQL, zobacz [Install Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [MSSQL for Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## <a name="configure-visual-studio-code"></a>Konfigurowanie programu Visual Studio Code
 
@@ -70,7 +70,7 @@ Nie jest potrzebna specjalna konfiguracja.
 
 Nie jest potrzebna specjalna konfiguracja.
 
-## <a name="get-sql-server-connection-information"></a>Uzyskiwanie informacji o połączeniu z serwerem SQL
+## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
@@ -193,6 +193,6 @@ Uruchom następującą instrukcję [DELETE](https://docs.microsoft.com/sql/t-sql
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby nawiązać połączenie i wykonać zapytanie przy użyciu SQL Server Management Studio, zobacz [Szybki Start: użyj SQL Server Management Studio, aby nawiązać połączenie z danymi Azure SQL Database i zapytań](connect-query-ssms.md).
+- Aby nawiązać połączenie i wykonać zapytanie przy użyciu SQL Server Management Studio, zobacz [Szybki Start: użyj SQL Server Management Studio, aby nawiązać połączenie z bazą danych w Azure SQL Database i dane zapytań](connect-query-ssms.md).
 - Aby nawiązać połączenie i wykonać zapytanie przy użyciu Azure Portal, zobacz [Szybki Start: Użyj edytora zapytań SQL w Azure Portal, aby nawiązać połączenie i wykonać zapytania dotyczące danych](connect-query-portal.md).
 - Aby zapoznać się z artykułem w magazynie MSDN dotyczącym programu Visual Studio Code, zobacz temat [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115) (Tworzenie bazy danych w środowisku IDE, korzystając z wpisu na blogu dotyczącym rozszerzenia MSSQL).

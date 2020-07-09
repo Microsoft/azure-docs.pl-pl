@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80891513"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informacje o działaniach inspekcji usługi Azure AD
@@ -135,11 +134,11 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie aplikacjami|AdminPolicyDatas-SetResources|
 |Zarządzanie aplikacjami|AdminUserJourneys-GetResources|
 |Zarządzanie aplikacjami|AdminUserJourneys-RemoveResources|
-|Uwierzytelnianie|AdminUserJourneys-SetResources|
-|Uwierzytelnianie|Tworzenie dostawcy IdentityProvider|
-|Uwierzytelnianie|Tworzenie aplikacji w wersji 1|
-|Uwierzytelnianie|Tworzenie aplikacji w wersji 2|
-|Uwierzytelnianie|Tworzenie domen niestandardowych w ramach dzierżawy|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Tworzenie dostawcy IdentityProvider|
+|Authentication|Tworzenie aplikacji w wersji 1|
+|Authentication|Tworzenie aplikacji w wersji 2|
+|Authentication|Tworzenie domen niestandardowych w ramach dzierżawy|
 |Autoryzacja|Tworzenie nowego elementu AdminUserJourney|
 |Autoryzacja|Tworzenie zlokalizowanego pliku JSON zasobu|
 |Autoryzacja|Tworzenie nowego niestandardowego dostawcy tożsamości|
@@ -256,17 +255,17 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie katalogami|Pobieranie informacji o dzierżawie|
 |Zarządzanie katalogami|Pobieranie dozwolonych funkcji dzierżawy|
 |Zarządzanie katalogami|Pobieranie domen dzierżaw|
-|Key|Pobiera typ dzierżawy|
-|Key|Weryfikowanie, czy funkcja B2C jest włączona|
-|Key|Sprawdź, czy funkcja jest włączona|
-|Key|Dodawanie partnera do firmy|
-|Key|Dodawanie niezweryfikowanej domeny|
-|Key|Dodawanie zweryfikowanej domeny|
-|Key|Tworzenie firmy|
-|Key|Tworzenie ustawień firmy|
-|Key|Usuwanie ustawień firmy|
-|Key|Obniżanie poziomu partnera|
-|Key|Usunięto katalog|
+|Klucz|Pobiera typ dzierżawy|
+|Klucz|Weryfikowanie, czy funkcja B2C jest włączona|
+|Klucz|Sprawdź, czy funkcja jest włączona|
+|Klucz|Dodawanie partnera do firmy|
+|Klucz|Dodawanie niezweryfikowanej domeny|
+|Klucz|Dodawanie zweryfikowanej domeny|
+|Klucz|Tworzenie firmy|
+|Klucz|Tworzenie ustawień firmy|
+|Klucz|Usuwanie ustawień firmy|
+|Klucz|Obniżanie poziomu partnera|
+|Klucz|Usunięto katalog|
 |Inne|Trwale usunięto katalog|
 |Inne|Katalog zaplanowany do usunięcia|
 |Zasób|Podwyższanie poziomu firmy do partnera|
@@ -469,12 +468,12 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie użytkownikami|ActivationCanceled|
 |Zarządzanie użytkownikami|ActivationRequested|
 |Zarządzanie użytkownikami|Dodawanie kwalifikujących się elementów członkowskich do roli|
-|Zarządzanie użytkownikami|Dodawanie elementu członkowskiego do roli|
+|Zarządzanie użytkownikami|Dodawanie członka do roli|
 |Zarządzanie użytkownikami|Dodawanie przypisania roli do definicji roli|
 |Zarządzanie użytkownikami|Dodawanie roli z szablonu|
 |Zarządzanie użytkownikami|Dodawanie członka w zakresie do roli|
-|Zarządzanie użytkownikami|Dodano|
-|Zarządzanie użytkownikami|Przypisywanie|
+|Zarządzanie użytkownikami|Dodane|
+|Zarządzanie użytkownikami|Przypisanie|
 |Zarządzanie użytkownikami|Tworzenie zbiorcze użytkowników — rozpoczęto|
 |Zarządzanie użytkownikami|Tworzenie zbiorczo użytkowników — zakończono|
 |Zarządzanie użytkownikami|Usuwanie zbiorcze użytkowników — rozpoczęto|
@@ -500,12 +499,12 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 
 
 
-## <a name="identity-protection"></a>Ochrona tożsamości
+## <a name="identity-protection"></a>Identity Protection
 
 |Kategorii inspekcji|Działanie|
 |---|---|
 |Zarządzanie katalogami|Podnoszenie poziomu uprawnień|
-|Zarządzanie katalogami|Usunięto|
+|Zarządzanie katalogami|Zostaną usunięte|
 |Zarządzanie katalogami|Zmiany ustawienia roli|
 |Inne|ScanAlertsNow|
 |Inne|Rejestracja|
@@ -556,13 +555,13 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |PIM|ActivationCanceled|
 |PIM|ActivationDenied|
 |PIM|ActivationRequested|
-|PIM|Dodano|
+|PIM|Dodane|
 |PIM|AddedOutsidePIM|
-|PIM|Przypisywanie|
+|PIM|Przypisanie|
 |PIM|DismissAlert|
 |PIM|Podnoszenie poziomu uprawnień|
 |PIM|ReactivateAlert|
-|PIM|Usunięto|
+|PIM|Zostaną usunięte|
 |PIM|RemovedOutsidePIM|
 |PIM|Żądanie zatrzymania przeglądu|
 |PIM|Zmiany ustawienia roli|

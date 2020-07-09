@@ -6,17 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742675"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213928"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partycjonowanie tabel w puli SQL Synapse
 
@@ -157,7 +156,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
 ```
 
-Poniższe zapytanie umożliwia znalezienie liczby wierszy przy użyciu widoku `sys.partitions` wykazu:
+Poniższe zapytanie umożliwia znalezienie liczby wierszy przy użyciu `sys.partitions` widoku wykazu:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -182,7 +181,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Msg 35346, poziom 15, stan 1, klauzula line 44 SPLIT instrukcji ALTER PARTITION nie powiodła się, ponieważ partycja nie jest pusta. W przypadku istnienia indeksu magazynu kolumn w tabeli można podzielić tylko puste partycje. Rozważ wyłączenie indeksu magazynu kolumn przed wygenerowaniem instrukcji ALTER PARTITION, a następnie odbudowanie indeksu magazynu kolumn po ukończeniu operacji ALTER PARTITION.
 
-Można jednak użyć `CTAS` programu, aby utworzyć nową tabelę do przechowywania danych.
+Można jednak użyć programu, `CTAS` Aby utworzyć nową tabelę do przechowywania danych.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -208,7 +207,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Wszystko, co pozostało, jest wyrównanie danych do nowej granicy partycji przy `CTAS`użyciu, a następnie przełączenie danych z powrotem do głównej tabeli.
+Wszystko, co pozostało, jest wyrównanie danych do nowej granicy partycji przy użyciu `CTAS` , a następnie przełączenie danych z powrotem do głównej tabeli.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -237,7 +236,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Ładowanie nowych danych do partycji zawierających dane w jednym kroku
 
-Ładowanie danych do partycji z przełączaniem do partycji jest wygodnym sposobem przemieszczania nowych danych w tabeli, która nie jest widoczna dla użytkowników przełączenia w nowych danych.  Może to być trudne w przypadku zajętych systemów, aby zaradzić sobie z zablokowaniem zawartości skojarzonej z przełączeniem partycji.  Aby wyczyścić istniejące dane w partycji, należy `ALTER TABLE` użyć do przełączenia danych.  Następnie do `ALTER TABLE` przełączenia nowych danych jest wymagane inne.  W puli SQL Synapse `TRUNCATE_TARGET` opcja jest obsługiwana w `ALTER TABLE` poleceniu.  `TRUNCATE_TARGET` Polecenie zastępuje istniejące dane w partycji nowymi `ALTER TABLE` danymi.  Poniżej znajduje się przykład, który `CTAS` używa do tworzenia nowej tabeli z istniejącymi danymi, wstawiania nowych danych, a następnie przełączania wszystkich danych z powrotem do tabeli docelowej, zastępując istniejące dane.
+Ładowanie danych do partycji z przełączaniem do partycji jest wygodnym sposobem przemieszczania nowych danych w tabeli, która nie jest widoczna dla użytkowników przełączenia w nowych danych.  Może to być trudne w przypadku zajętych systemów, aby zaradzić sobie z zablokowaniem zawartości skojarzonej z przełączeniem partycji.  Aby wyczyścić istniejące dane w partycji, należy `ALTER TABLE` użyć do przełączenia danych.  Następnie `ALTER TABLE` do przełączenia nowych danych jest wymagane inne.  W puli SQL Synapse `TRUNCATE_TARGET` opcja jest obsługiwana w `ALTER TABLE` poleceniu.  `TRUNCATE_TARGET` `ALTER TABLE` Polecenie zastępuje istniejące dane w partycji nowymi danymi.  Poniżej znajduje się przykład, który używa `CTAS` do tworzenia nowej tabeli z istniejącymi danymi, wstawiania nowych danych, a następnie przełączania wszystkich danych z powrotem do tabeli docelowej, zastępując istniejące dane.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

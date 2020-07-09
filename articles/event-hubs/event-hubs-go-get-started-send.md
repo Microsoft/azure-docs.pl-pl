@@ -1,21 +1,14 @@
 ---
 title: 'Szybki Start: wysyłanie i odbieranie zdarzeń przy użyciu języka go-Azure Event Hubs'
 description: 'Szybki Start: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji języka go, która wysyła zdarzenia z usługi Azure Event Hubs.'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: kamalb
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720585"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320356"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Szybki Start: wysyłanie zdarzeń do i odbieranie zdarzeń z Event Hubs przy użyciu języka go
 Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
@@ -30,7 +23,7 @@ W tym samouczku opisano, jak zapisywać aplikacje w programie w celu wysyłania 
 Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
 - Zainstalowano lokalnie. W razie potrzeby postępuj zgodnie z [tymi instrukcjami](https://golang.org/doc/install) .
-- Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][] .
+- Aktywne konto platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][].
 - **Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń**. Użyj [Azure Portal](https://portal.azure.com) , aby utworzyć przestrzeń nazw typu Event Hubs i uzyskać poświadczenia zarządzania wymagane przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md).
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń
@@ -38,7 +31,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji języka go w celu wysyła
 
 ### <a name="install-go-package"></a>Zainstaluj pakiet języka go
 
-Pobierz pakiet języka go dla Event Hubs z `go get` lub `dep`. Przykład:
+Pobierz pakiet języka go dla Event Hubs z `go get` lub `dep` . Przykład:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -139,7 +132,7 @@ Przykłady tworzenia artefaktów magazynu za pomocą zestawu SDK języka go są 
 
 ### <a name="go-packages"></a>Pakiety języka go
 
-Aby odbierać komunikaty, Pobierz pakiety go dla Event Hubs z `go get` lub: `dep`
+Aby odbierać komunikaty, Pobierz pakiety go dla Event Hubs z `go get` lub `dep` :
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go/...
@@ -269,9 +262,9 @@ if err != nil {
 
 ### <a name="write-code-to-receive-messages"></a>Pisanie kodu w celu odbierania komunikatów
 
-Za pomocą wszystkich konfiguracji można uruchomić hosta procesora zdarzeń za pomocą `Start(context)` programu, aby zachować jego trwałą pracę, lub `StartNonBlocking(context)` z systemem, tak długo, jak są dostępne komunikaty.
+Za pomocą wszystkich konfiguracji można uruchomić hosta procesora zdarzeń za pomocą programu `Start(context)` , aby zachować jego trwałą pracę, lub z systemem, `StartNonBlocking(context)` tak długo, jak są dostępne komunikaty.
 
-Ten samouczek jest uruchamiany i uruchamiany w następujący sposób: Zapoznaj się z przykładem usługi GitHub `StartNonBlocking`, korzystając z:
+Ten samouczek jest uruchamiany i uruchamiany w następujący sposób: Zapoznaj się z przykładem usługi GitHub, korzystając z `StartNonBlocking` :
 
 ```go
 ctx := context.Background()

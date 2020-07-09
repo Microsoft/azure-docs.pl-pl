@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80348786"
 ---
 # <a name="azure-app-configuration-faq"></a>Konfiguracja aplikacji platformy Azure — często zadawane pytania
@@ -103,7 +103,7 @@ Nie można obniżyć poziomu sklepu z warstwy Standardowa do warstwy Bezpłatna.
 
 Magazyny konfiguracji w warstwie Bezpłatna są ograniczone do 1 000 żądań dziennie. W przypadku magazynów konfiguracji w warstwie Standardowa może wystąpić tymczasowe ograniczenie przepustowości, gdy częstotliwość żądań przekracza 20 000 żądań na godzinę.
 
-Po osiągnięciu limitu magazyn zwróci kod stanu HTTP 429 dla wszystkich żądań zrealizowanych do czasu wygaśnięcia okresu. `retry-after-ms` Nagłówek w odpowiedzi zawiera sugerowany czas oczekiwania (w milisekundach) przed podjęciem próby wykonania żądania.
+Po osiągnięciu limitu magazyn zwróci kod stanu HTTP 429 dla wszystkich żądań zrealizowanych do czasu wygaśnięcia okresu. `retry-after-ms`Nagłówek w odpowiedzi zawiera sugerowany czas oczekiwania (w milisekundach) przed podjęciem próby wykonania żądania.
 
 Jeśli aplikacja regularnie korzysta z kodu stanu HTTP 429 odpowiedzi, rozważ przeprojektowanie go w celu zmniejszenia liczby wykonanych żądań. Aby uzyskać więcej informacji, zobacz [ograniczanie żądań do konfiguracji aplikacji](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 

@@ -1,18 +1,18 @@
 ---
 title: Określanie opcji publikowania — Microsoft Commercial Marketplace
 description: W tym artykule opisano kryteria kwalifikujące i wymagania dotyczące publikowania ofert do Microsoft AppSource i witryny Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+author: keferna
+ms.author: keferna
+ms.date: 06/22/2020
+ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103657"
 ---
 # <a name="determine-your-publishing-option"></a>Określanie opcji publikowania
 
@@ -56,7 +56,7 @@ Aplikacje **Microsoft AppSource** są rozwiązaniami biznesowymi, które mogą b
 Aplikacje w **portalu Azure Marketplace** są technicznymi rozwiązaniami "konstrukcyj-Block" opartymi na platformie Azure i przeznaczonymi dla odbiorców IT lub deweloperów. Usługi doradcze w witrynie Azure Marketplace to profesjonalne oferty usług, które ułatwiają klientom rozpoczęcie pracy z platformą Azure lub przyspieszenie korzystania z niej.
 
 >[!Note]
->Wiele list (tylko w przypadku aplikacji SaaS): gdy lista lub oferta oparta na wersji próbnej spełnia kryteria dla użytkowników technicznych i dla odbiorców, oferta zostanie wyświetlona w obu witrynach. Dowiedz się więcej na temat opcji publikowania poniżej.
+>"Wiele list" (tylko w przypadku aplikacji SaaS): Jeśli oferta SaaS jest przeznaczona dla odbiorców technicznych (Azure Marketplace) i Business odbiorca (AppSource), możesz wybrać kategorię i/lub podkategorię, które mają zastosowanie do witryn. Należy się zastanowić, że oferta oferty "cross-list" powinna być oparta na propozycji wartości, która rozciąga się na obu odbiorców. Kliknij [tutaj](./gtm-offer-listing-best-practices.md#categories) , aby wyświetlić kategorie mające zastosowanie do każdego sklepu.
 
 ## <a name="choose-a-publishing-option"></a>Wybierz opcję publikowania
 
@@ -64,7 +64,7 @@ Dostępne opcje publikowania oferują zróżnicowane zaangażowanie klientów, z
 
 | **Opcja publikowania**    | **Opis**  |
 | :------------------- | :-------------------|
-| **Staw** | Prosta lista aplikacji lub usług, które umożliwiają komercyjnemu użytkownikowi portalu Marketplace zażądać połączenia z klientem za pośrednictwem wywołania do akcji **kontaktowania się ze mną** . |
+| **Lista** | Prosta lista aplikacji lub usług, które umożliwiają komercyjnemu użytkownikowi portalu Marketplace zażądać połączenia z klientem za pośrednictwem wywołania do akcji **kontaktowania się ze mną** . |
 | **Wersja próbna** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania, dzięki czemu potencjalni użytkownicy mogą bezpłatnie korzystać z usługi SaaS, IaaS lub firmy Microsoft bez opłat przez ograniczony czas przed zakupem. Opcja wywołania do akcji używana dla opcji publikowania wersji próbnej to **bezpłatna wersja próbna** lub **testowa**. |
 | **BYOL** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansowo. Typy ofert BYOL doskonale sprawdzają się w przypadku migracji do chmury. Wywołanie do akcji jest **teraz odbierane**.
 | **Transact** | Oferty Transact są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Wywołanie do akcji jest **teraz odbierane**.|

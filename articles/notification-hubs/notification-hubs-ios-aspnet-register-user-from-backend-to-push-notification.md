@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3fec04a1a45f8b154e27a1e5303e44111f4cb421
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71211876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253872"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Rejestrowanie bieżącego użytkownika na potrzeby powiadomień wypychanych przy użyciu ASP.NET
 
@@ -61,7 +59,7 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych za p
 
     - (IBAction)login:(id)sender;
     ```
-3. Utwórz klasę o nazwie `DeviceInfo`i skopiuj następujący kod do sekcji Interface pliku DEVICEINFO. h:
+3. Utwórz klasę o nazwie `DeviceInfo` i skopiuj następujący kod do sekcji Interface pliku DEVICEINFO. h:
 
     ```objc
     @property (readonly, nonatomic) NSString* installationId;
@@ -124,7 +122,7 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych za p
     Spowoduje to ustawienie tokenu urządzenia dla żądania.
 
    > [!NOTE]
-   > W tym momencie nie powinno być żadnych innych kodów w tej metodzie. Jeśli masz już wywołanie `registerNativeWithDeviceToken` metody, która została dodana po zakończeniu [pracy z](notification-hubs-ios-apple-push-notification-apns-get-started.md) samouczkiem wprowadzenie do Notification Hubs, musisz dodać komentarz lub usunąć to wywołanie.
+   > W tym momencie nie powinno być żadnych innych kodów w tej metodzie. Jeśli masz już wywołanie `registerNativeWithDeviceToken` metody, która została dodana po zakończeniu wykonywania [powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md) , musisz dodać komentarz lub usunąć to wywołanie.
 
 8. W `PushToUserAppDelegate.m` pliku Dodaj następującą metodę obsługi:
 
@@ -158,7 +156,7 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych za p
     Self.installationId.text = deviceInfo.installationId;
     ```
 
-11. Dodaj następujące właściwości w interfejsie w `PushToUserViewController.m`:
+11. Dodaj następujące właściwości w interfejsie w `PushToUserViewController.m` :
 
     ```objc
     @property (readonly) NSOperationQueue* downloadQueue;
@@ -211,7 +209,7 @@ W tym temacie pokazano, jak zażądać rejestracji powiadomień wypychanych za p
     }
     ```
 
-13. Skopiuj następujący kod do metody `login` obsługi utworzonej przez Xcode:
+13. Skopiuj następujący kod do `login` metody obsługi utworzonej przez Xcode:
 
     ```objc
     DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
@@ -258,4 +256,4 @@ Teraz, gdy aplikacja kliencka została zaktualizowana, Wróć do okna [Powiadami
 
 <!-- URLs. -->
 [Powiadamianie użytkowników za pomocą Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Wprowadzenie do Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Wprowadzenie do Notification Hubs]: ios-sdk-get-started.md

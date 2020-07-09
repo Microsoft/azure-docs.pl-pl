@@ -3,15 +3,15 @@ title: Uwierzytelnianie użytkowników końcowych — platforma .NET z Data Lake
 description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory z zestawem SDK dla platformy .NET
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 37507f686ad2cf3fc66087b89ae77242ec79afdd
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 12f6e0fd34de96677693b7f0d159c7cf9032ca1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85511299"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Ten artykuł zawiera informacje na temat używania zestawu .NET SDK do uwierzyte
 ## <a name="create-a-net-application"></a>Tworzenie aplikacji .NET
 1. W programie Visual Studio wybierz menu **plik** , **Nowy**i **projekt**.
 2. Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
-3. W polu **Nazwa projektu**wprowadź `CreateADLApplication`, a następnie wybierz pozycję **Utwórz**.
+3. W polu **Nazwa projektu**wprowadź, `CreateADLApplication` a następnie wybierz pozycję **Utwórz**.
 
 4. Dodaj pakiety NuGet do swojego projektu.
 
@@ -69,7 +69,7 @@ Ten artykuł zawiera informacje na temat używania zestawu .NET SDK do uwierzyte
 ## <a name="end-user-authentication"></a>Uwierzytelnianie użytkowników końcowych
 Dodaj ten fragment kodu w aplikacji klienckiej platformy .NET. Zastąp wartości symboli zastępczych wartościami pobranymi z aplikacji natywnych usługi Azure AD (wymienionym jako warunek wstępny). Ten fragment kodu umożliwia **interakcyjne** uwierzytelnianie aplikacji przy użyciu Data Lake Storage Gen1, co oznacza, że zostanie wyświetlony monit o wprowadzenie poświadczeń platformy Azure.
 
-Aby ułatwić korzystanie z programu, Poniższy fragment kodu używa wartości domyślnych dla identyfikatora klienta i identyfikatora URI przekierowania, które są prawidłowe dla każdej subskrypcji platformy Azure. W poniższym fragmencie kodu należy podać wartość identyfikatora dzierżawy. Identyfikator dzierżawy można pobrać przy użyciu instrukcji podanych w [polu Uzyskaj identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+Aby ułatwić korzystanie z programu, Poniższy fragment kodu używa wartości domyślnych dla identyfikatora klienta i identyfikatora URI przekierowania, które są prawidłowe dla każdej subskrypcji platformy Azure. W poniższym fragmencie kodu należy podać wartość identyfikatora dzierżawy. Identyfikator dzierżawy można pobrać przy użyciu instrukcji podanych w [polu Uzyskaj identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
     
 - Zastąp funkcję Main () następującym kodem:
 
@@ -91,7 +91,7 @@ Aby ułatwić korzystanie z programu, Poniższy fragment kodu używa wartości d
 
 Kilka rzeczy, które należy znać w poprzednim fragmencie kodu:
 
-* Poprzedni fragment kodu używa funkcji `GetTokenCache` pomocnika i `GetCreds_User_Popup`. Kod dla tych funkcji pomocnika jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* Poprzedni fragment kodu używa funkcji pomocnika `GetTokenCache` i `GetCreds_User_Popup` . Kod dla tych funkcji pomocnika jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Aby ułatwić ukończenie tego samouczka, wstawka używa natywnego identyfikatora klienta aplikacji, który jest domyślnie dostępny dla wszystkich subskrypcji platformy Azure. Dzięki temu można **użyć tego fragmentu w aplikacji w niezmienionej formie**.
 * Jeśli jednak chcesz użyć własnej domeny usługi Azure AD i własnego identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD, a następnie użyć identyfikatora dzierżawy usługi Azure AD, identyfikatora klienta i identyfikatora URI przekierowania utworzonej aplikacji. Aby uzyskać instrukcje [, zobacz Tworzenie aplikacji Active Directory na potrzeby uwierzytelniania użytkowników końcowych z Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) .
 

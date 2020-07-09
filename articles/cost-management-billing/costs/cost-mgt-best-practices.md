@@ -3,17 +3,17 @@ title: Optymalizowanie inwestycji w chmurę za pomocą usługi Azure Cost Manage
 description: Ten artykuł pomaga zmaksymalizować korzyści z inwestycji w chmurę, ograniczyć koszty i ocenić, na co wydawane są pieniądze.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f328f17b1d64bc9b8f0be35321aecaba0cb85fa6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791616"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142422"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Jak zoptymalizować inwestycję w chmurę za pomocą usługi Azure Cost Management
 
@@ -131,14 +131,39 @@ Aby uzyskać więcej informacji, zobacz [Azure Migrate](https://docs.microsoft.c
 
 Śledź na bieżąco zmiany kosztów organizacji w czasie. Użyj następujących technik, aby właściwie zrozumieć swoje wydatki i zarządzać nimi.
 
-### <a name="organize-and-tag-your-resources"></a>Organizowanie i tagowanie zasobów
+### <a name="organize-resources-to-maximize-cost-insights-and-accountability"></a>Organizowanie zasobów w celu maksymalizowania szczegółowych informacji o kosztach i odpowiedzialności
 
-Organizuj zasoby z uwzględnieniem kosztów. Podczas tworzenia subskrypcji i grup zasobów weź pod uwagę zespoły odpowiedzialne za powiązane koszty. Upewnij się, że w raportowaniu uwzględniana jest Twoja organizacja. Subskrypcje i grupy zasobów stanowią dobre zasobniki do organizowania wydatków i przyporządkowywania ich w całej organizacji. Tagi stanowią dobrą metodę przyporządkowywania kosztów. Możesz używać tagów jako filtrów. Dodatkowo możesz używać ich jako kryterium grupowania podczas analizowania danych i badania kosztów. Klienci z umową Enterprise Agreement mogą również tworzyć działy i umieszczać w nich subskrypcje. Organizacja oparta na kosztach na platformie Azure pomaga zapewnić odpowiedzialność właściwych osób w organizacji za zmniejszanie wydatków ich zespołów.
+Dobrze zaplanowana struktura organizacyjna hierarchii rozliczeń i zasobów platformy Azure pomaga zapewnić dobrą wiedzę i kontrolę nad kosztami podczas tworzenia infrastruktury chmury. Obejrzyj klip wideo [Konfigurowanie hierarchii jednostek](https://www.youtube.com/watch?v=n3TLRaYJ1NY), aby lepiej zrozumieć dostępne narzędzia organizacyjne oraz sposób ich używania. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
 
-Obejrzyj klip wideo [Jak przeglądać zasady tagów za pomocą usługi Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw), aby poznać narzędzia dostępne do wymuszania skalowalnego tagowania zasobów w organizacji. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+Podczas obliczania i tworzenia hierarchii, która spełnia Twoje wymagania, należy zadać sobie poniższe pytania.
+
+*Która hierarchia rozliczeń jest dla mnie dostępna i jakie są różne zakresy, których można użyć?*
+
+Ustal sposób rozliczeń dla swojej organizacji, określając typ oferty platformy Azure. Dostępne zakresy dla każdego sposobu rozliczeń platformy Azure są udokumentowane na stronie [Opis zakresów i praca z nimi](understand-work-scopes.md).
+
+*Jeśli mam wiele zespołów, jak mam organizować subskrypcje i grupy zasobów?*
+
+Tworzenie subskrypcji lub grupy zasobów dla każdego zespołu jest powszechną procedurą. Mogą one pomóc w rozróżnieniu kosztów i zapewnieniu odpowiedzialności zespołów. Koszty są jednak powiązane z subskrypcją lub grupą zasobów.
+
+Jeśli masz już zespoły z wieloma subskrypcjami, rozważ zgrupowanie subskrypcji w grupach zarządzania w celu przeanalizowania kosztów razem. Grupy zarządzania, subskrypcje i grupy zasobów są częścią hierarchii kontroli dostępu opartej na rolach platformy Azure. Użyj ich zbiorczo w celu kontroli dostępu w zespołach.
+
+Zasoby mogą obejmować wiele zakresów, zwłaszcza gdy są współużytkowane przez wiele zespołów lub obciążeń. Rozważ zidentyfikowanie zasobów z tagami. Tagi zostały omówione w następnej sekcji.
+
+*Czy istnieją środowiska deweloperskie i produkcyjne?*
+
+Rozważ utworzenie subskrypcji tworzenia i testowania dla środowisk deweloperskich, aby korzystać z niższych cen. Jeśli obciążenia obejmują wiele zespołów lub zakresów platformy Azure, rozważ użycie tagów, aby je zidentyfikować.
+
+### <a name="tag-shared-resources"></a>Dodawanie tagów do współdzielonych zasobów
+
+Tagi są skutecznym sposobem na zrozumienie kosztów obejmujących wiele zespołów i zakresów platformy Azure. Przykładem może być taki zasób jak serwer poczty e-mail, który jest używany przez wiele zespołów. Zasób udostępniony, taki jak serwer poczty e-mail, można umieścić w subskrypcji, która jest przeznaczona dla zasobów udostępnionych, lub w istniejącej subskrypcji. Jeśli umieścisz ją w istniejącej subskrypcji, właściciel subskrypcji może nie chcieć, aby koszt był generowany w jego zespole co miesiąc. Na potrzeby tego przykładu można użyć tagu do zidentyfikowania zasobu jako udostępnionego.
+
+Możesz także korzystać z aplikacji internetowych lub środowisk, takich jak testowe lub produkcyjne, które używają zasobów w wielu subskrypcjach należących do różnych zespołów. Aby lepiej zrozumieć całkowity koszt obciążeń, dodaj tagi do zasobów, których używają. Gdy tagi są stosowane prawidłowo, można je zastosować jako filtr w analizie kosztów, aby lepiej zrozumieć trendy.
+
+Po zaplanowaniu dodawania tagów do zasobów można skonfigurować zasady platformy Azure w celu wymuszania tagów zasobów. Obejrzyj klip wideo [Jak przeglądać zasady tagów za pomocą usługi Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw), aby poznać narzędzia dostępne do wymuszania skalowalnego tagowania zasobów. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### <a name="use-cost-analysis"></a>Używanie analizy kosztów
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610731"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Jak pokazano w poniższej tabeli, w zależności od wyboru interfejsu API, możn
 |Interfejs API|W przypadku **udostępnionej** przepływności Skonfiguruj |W przypadku **dedykowanej** przepływności Skonfiguruj |
 |----|----|----|
 |Interfejs API SQL|baza danych|Kontener|
-|Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB|baza danych|Collection|
+|Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB|baza danych|Kolekcja|
 |Interfejs API rozwiązania Cassandra|Przestrzeń kluczy|Tabela|
 |Interfejs API języka Gremlin|Konto bazy danych|Graph|
 |Interfejs API tabel|Konto bazy danych|Tabela|
@@ -65,7 +65,7 @@ Dzięki aprowizacji przepływności na różnych poziomach można zoptymalizowa�
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Optymalizacja z szybkością ograniczania żądań
 
-W przypadku obciążeń, które nie są zależne od opóźnienia, można zapewnić mniejszą przepływność i pozwolić aplikacji na ograniczenie szybkości obsługi, gdy rzeczywista przepływność przekracza zainicjowaną przepływność. Serwer zapobiegawczo żądanie z `RequestRateTooLarge` żądaniem (kod stanu HTTP 429) i zwraca `x-ms-retry-after-ms` nagłówek wskazujący ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowieniem próby wykonania żądania. 
+W przypadku obciążeń, które nie są zależne od opóźnienia, można zapewnić mniejszą przepływność i pozwolić aplikacji na ograniczenie szybkości obsługi, gdy rzeczywista przepływność przekracza zainicjowaną przepływność. Serwer zapobiegawczo żądanie z żądaniem `RequestRateTooLarge` (kod stanu HTTP 429) i zwraca `x-ms-retry-after-ms` nagłówek wskazujący ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowieniem próby wykonania żądania. 
 
 ```html
 HTTP Status 429, 
@@ -75,9 +75,9 @@ HTTP Status 429,
 
 ### <a name="retry-logic-in-sdks"></a>Logika ponawiania w zestawach SDK 
 
-Natywne zestawy SDK (.NET/.NET Core, Java, Node. js i Python) niejawnie przechwytuje tę odpowiedź, przestrzegając określonego przez serwer nagłówka retry-After i ponów próbę wykonania żądania. O ile Twoje konto nie jest dostępne współbieżnie przez wielu klientów, następna próba powiodła się.
+Natywne zestawy SDK (.NET/.NET Core, Java, Node.js i Python) niejawnie przechwytuje tę odpowiedź, przestrzegając określonego przez serwer nagłówka retry-After i ponów próbę żądania. O ile Twoje konto nie jest dostępne współbieżnie przez wielu klientów, następna próba powiodła się.
 
-Jeśli masz więcej niż jeden klient, który działa w sposób ciągły nad częstotliwością żądań, domyślna liczba ponownych prób, która jest obecnie ustawiona na 9, może być niewystarczająca. W takich przypadkach klient zgłasza kod stanu `RequestRateTooLargeException` o stanie 429 do aplikacji. Domyślną liczbę ponownych prób można zmienić, ustawiając wartość `RetryOptions` w wystąpieniu ConnectionPolicy. Domyślnie kod stanu `RequestRateTooLargeException` z 429 jest zwracany po upływie skumulowanego czasu oczekiwania 30 sekund, jeśli żądanie będzie nadal działać powyżej stawki żądania. Dzieje się tak nawet wtedy, gdy bieżąca liczba ponownych prób jest mniejsza niż maksymalna liczba ponownych prób, być wartością domyślną 9 lub wartości zdefiniowanej przez użytkownika. 
+Jeśli masz więcej niż jeden klient, który działa w sposób ciągły nad częstotliwością żądań, domyślna liczba ponownych prób, która jest obecnie ustawiona na 9, może być niewystarczająca. W takich przypadkach klient zgłasza `RequestRateTooLargeException` kod stanu o stanie 429 do aplikacji. Domyślną liczbę ponownych prób można zmienić, ustawiając wartość `RetryOptions` w wystąpieniu ConnectionPolicy. Domyślnie `RequestRateTooLargeException` kod stanu z 429 jest zwracany po upływie skumulowanego czasu oczekiwania 30 sekund, jeśli żądanie będzie nadal działać powyżej stawki żądania. Dzieje się tak nawet wtedy, gdy bieżąca liczba ponownych prób jest mniejsza niż maksymalna liczba ponownych prób, być wartością domyślną 9 lub wartości zdefiniowanej przez użytkownika. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) jest ustawiona na 3, więc w tym przypadku, jeśli operacja żądania jest naliczana proporcjonalnie do przekroczenia zarezerwowanej przepływności dla kontenera, operacja żądania jest ponawiana trzy razy przed przekazaniem wyjątku do aplikacji. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) jest ustawiona na 60, więc w tym przypadku, jeśli łączny czas oczekiwania ponowienia próby (w sekundach) od momentu pierwszego żądania przekracza 60 sekund, zostanie zgłoszony wyjątek.
 
@@ -117,7 +117,7 @@ Domyślnie Azure Cosmos DB automatycznie indeksuje każdą właściwość każde
 
 Można monitorować łączną liczbę zainicjowanych jednostek ru, liczbę żądań z ograniczoną szybkością oraz liczbę jednostek ru używanych w Azure Portal. Na poniższej ilustracji przedstawiono przykładową metrykę użycia:
 
-![Monitoruj jednostki żądań w Azure Portal](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Monitoruj jednostki żądań w Azure Portal":::
 
 Możesz również ustawić alerty, aby sprawdzić, czy liczba żądań o ograniczonej szybkości przekracza określony próg. Aby uzyskać więcej informacji, zobacz artykuł [Jak monitorować Azure Cosmos DB](use-metrics.md) artykułu. Te alerty mogą wysyłać wiadomości e-mail do administratorów kont lub wywoływać niestandardowy element webhook protokołu HTTP lub funkcję platformy Azure w celu automatycznego zwiększenia zainicjowanej przepływności. 
 
@@ -139,7 +139,7 @@ Aby określić zainicjowaną przepływność dla nowego obciążenia, można wyk
 
 2. Zaleca się utworzenie kontenerów o wyższej przepływności niż oczekiwano, a następnie skalowanie w dół w razie potrzeby. 
 
-3. Zaleca się użycie jednego z natywnych zestawów SDK Azure Cosmos DB, aby skorzystać z automatycznych ponownych prób w przypadku żądań pobrania z ograniczeniami. Jeśli pracujesz na platformie, która nie jest obsługiwana, i użyj interfejsu API REST Cosmos DB, zaimplementuj własne zasady ponawiania prób `x-ms-retry-after-ms` przy użyciu nagłówka. 
+3. Zaleca się użycie jednego z natywnych zestawów SDK Azure Cosmos DB, aby skorzystać z automatycznych ponownych prób w przypadku żądań pobrania z ograniczeniami. Jeśli pracujesz na platformie, która nie jest obsługiwana, i użyj interfejsu API REST Cosmos DB, zaimplementuj własne zasady ponawiania prób przy użyciu `x-ms-retry-after-ms` nagłówka. 
 
 4. Upewnij się, że kod aplikacji bezpiecznie obsługuje przypadek, gdy wszystkie próby zakończą się niepowodzeniem. 
 
@@ -155,7 +155,7 @@ Poniższe kroki pomagają zapewnić wysoką skalowalność i opłacalność rozw
 
 1. Jeśli znacznie przekraczasz zainicjowaną przepływność w kontenerach i bazach danych, zapoznaj się z tematem jednostek ru zainicjowanymi a jednostek ru i Dostosuj obciążenia.  
 
-2. Jedną z metod oszacowania ilości zarezerwowanej przepływności wymaganej przez aplikację jest zarejestrowanie opłaty za jednostkę żądania RU skojarzoną z uruchamianiem typowych operacji względem reprezentatywnego kontenera usługi Azure Cosmos lub bazy danych używanej przez aplikację, a następnie oszacowanie liczby przewidywanych operacji wykonywanych w każdej sekundzie. Pamiętaj, aby mierzyć i uwzględniać typowe zapytania oraz ich użycie. Aby dowiedzieć się, jak oszacować koszty usługi RU dla zapytań programowo lub za pomocą portalu [, zobacz Optymalizacja kosztów zapytań](online-backup-and-restore.md). 
+2. Jedną z metod oszacowania ilości zarezerwowanej przepływności wymaganej przez aplikację jest zarejestrowanie opłaty za jednostkę żądania RU skojarzoną z uruchamianiem typowych operacji względem reprezentatywnego kontenera usługi Azure Cosmos lub bazy danych używanej przez aplikację, a następnie oszacowanie liczby przewidywanych operacji wykonywanych w każdej sekundzie. Pamiętaj, aby mierzyć i uwzględniać typowe zapytania oraz ich użycie. Aby dowiedzieć się, jak oszacować koszty usługi RU dla zapytań programowo lub za pomocą portalu [, zobacz Optymalizacja kosztów zapytań](optimize-cost-queries.md). 
 
 3. Innym sposobem na uzyskanie operacji i ich kosztów w programie jednostek ru jest włączenie dzienników Azure Monitor, co zapewnia podział operacji na czas trwania i opłaty za żądania. Azure Cosmos DB zapewnia opłaty za żądania dla każdej operacji, więc każda opłata za operacje może zostać zapisana z powrotem z odpowiedzi, a następnie użyta do analizy. 
 

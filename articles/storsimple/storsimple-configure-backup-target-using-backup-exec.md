@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 699df6ab44a08645c9f46e95cd2ad279de75ea70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75561647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509663"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple jako miejsce docelowe kopii zapasowej przy użyciu programu Backup Exec
 
@@ -55,8 +55,8 @@ Podobnie jak w przypadku dowolnego rozwiązania magazynu, staranna ocena wydajno
 
 StorSimple zaprojektowano w celu zapewnienia magazynu dla aplikacji, które działają na dobrze zdefiniowanym zestawie roboczym danych (gorącą dane). W tym modelu zestaw roboczy danych jest przechowywany w warstwach lokalnych, a pozostała część danych niepracujących/zimnych/zarchiwizowanych jest warstwą w chmurze. Ten model jest reprezentowany na poniższej ilustracji. Prawie płaski zielony wiersz reprezentuje dane przechowywane w warstwach lokalnych urządzenia StorSimple. Czerwona linia reprezentuje łączną ilość danych przechowywanych w rozwiązaniu StorSimple we wszystkich warstwach. Odstęp między płaską zieloną linią a wykładniczą czerwoną krzywą reprezentuje łączną ilość danych przechowywanych w chmurze.
 
-**StorSimple tiering**
-![Diagram warstwowy StorSimple warstw StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
+Obsługa **warstw StorSimple** 
+ ![ Diagram warstwowy StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 W tej architekturze należy zauważyć, że StorSimple idealnie nadaje się do działania jako miejsce docelowe kopii zapasowej. Możesz użyć StorSimple, aby:
 -   Wykonaj najczęstsze przywracanie z lokalnego zestawu roboczego danych.
@@ -185,7 +185,7 @@ W tej sekcji przedstawiono przykłady konfiguracji. Poniższe przykłady i zalec
 | StorSimple zadania wdrażania  | Dodatkowe komentarze |
 |---|---|
 | Wdróż lokalne urządzenie StorSimple. | Obsługiwane wersje: Update 3 i nowsze wersje. |
-| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable`. </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable`. </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej `Get-HCSBackupApplianceMode`:. |
+| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
 | Utwórz wspólny kontener woluminów dla woluminu, który przechowuje dane kopii zapasowej. Wszystkie dane w kontenerze woluminów są deduplikowane. | Kontenery woluminów StorSimple definiują domeny deduplikacji.  |
 | Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarach jak najbliżej przewidywanego użycia, ponieważ rozmiar woluminu wpływa na czas trwania migawki w chmurze. Aby uzyskać informacje o sposobie rozmiaru woluminu, Przeczytaj o [zasadach przechowywania](#retention-policies).</br> </br> Użyj StorSimple woluminów warstwowych i zaznacz pole wyboru **Użyj tego woluminu dla rzadziej używanych danych archiwalnych** . </br> Używanie tylko woluminów przypiętych lokalnie nie jest obsługiwane. |
 | Utwórz unikatowe zasady tworzenia kopii zapasowych StorSimple dla wszystkich woluminów docelowych kopii zapasowych. | Zasady tworzenia kopii zapasowych StorSimple definiują grupę spójności woluminu. |
@@ -233,7 +233,7 @@ Skonfiguruj swoje rozwiązanie zgodnie z wytycznymi w poniższych sekcjach.
 -   StorSimple obsługuje pełne i przyrostowe kopie zapasowe. Zalecamy, aby nie używać syntetycznych i różnicowych kopii zapasowych.
 -   Pliki danych kopii zapasowej powinny zawierać tylko dane dla określonego zadania. Na przykład nie można dołączać nośników między różnymi zadaniami.
 -   Wyłącz weryfikację zadania. W razie potrzeby weryfikacja powinna zostać zaplanowana po zakończeniu ostatniego zadania tworzenia kopii zapasowej. Ważne jest, aby zrozumieć, że to zadanie ma wpływ na okno kopii zapasowej.
--   Wybierz pozycję **Magazyn** > **Your disk** > **Details** > **Właściwości**szczegóły dysku. Wyłącz **wstępnie przydzielone miejsce na dysku**.
+-   Wybierz pozycję **Magazyn**  >  **Your disk**  >  **Details**  >  **Właściwości**szczegóły dysku. Wyłącz **wstępnie przydzielone miejsce na dysku**.
 
 Aby zapoznać się z najnowszymi ustawieniami tworzenia kopii zapasowych i najlepszymi rozwiązaniami dotyczącymi wdrażania tych wymagań, zobacz [witrynę sieci Web firmy Veritas](https://www.veritas.com).
 
@@ -267,7 +267,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
 ### <a name="to-set-up-backup-exec-storage"></a>Aby skonfigurować magazyn tworzenia kopii zapasowych
 
-1.  W konsoli zarządzania Backup Exec wybierz pozycję **Magazyn** > **Skonfiguruj** > **Magazyn na** > dysku magazynu**dalej**.
+1.  W konsoli zarządzania Backup Exec wybierz pozycję **Magazyn**  >  **Skonfiguruj**magazyn  >  **na dysku**magazynu  >  **dalej**.
 
     ![Konsola zarządzania Backup Exec, Konfigurowanie strony magazynu](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -323,7 +323,7 @@ W następującej kolejności przyjęto założenie, że program Backup Exec i ho
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Aby przypisać woluminy StorSimple do zadania tworzenia kopii zapasowej wykonywania kopii zapasowej
 
-1.  W konsoli zarządzania Backup **exec wybierz pozycję** > **Backup** > Utwórz kopię zapasową**na dysku**.
+1.  W konsoli zarządzania Backup **exec wybierz pozycję Utwórz**kopię zapasową  >  **Backup**  >  **na dysku**.
 
     ![Tworzenie kopii zapasowej konsoli zarządzania programu, wybieranie hosta, kopii zapasowej i tworzenie kopii zapasowej na dysku](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -368,7 +368,7 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Wymagania dotyczące konfiguracji i pojemności kopii zapasowych
 
-| Typ i przechowywanie kopii zapasowych | Skonfigurowany magazyn | Rozmiar (TiB) | Mnożnik GFS | Całkowita pojemność\* (TIB) |
+| Typ i przechowywanie kopii zapasowych | Skonfigurowany magazyn | Rozmiar (TiB) | Mnożnik GFS | Całkowita pojemność \* (TIB) |
 |---|---|---|---|---|
 | Tydzień 1 (pełny i przyrostowy) |Dysk lokalny (krótkoterminowy)| 1 | 1 | 1 |
 | StorSimple tygodni 2-4 |Dysk StorSimple (długoterminowy) | 1 | 4 | 4 |
@@ -395,11 +395,11 @@ W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uru
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Aby przypisać woluminy StorSimple do archiwum tworzenia kopii zapasowych i zadania duplikowania
 
-1.  W konsoli zarządzania Backup Exec kliknij prawym przyciskiem myszy zadanie, które chcesz zarchiwizować na woluminie StorSimple, a następnie wybierz pozycję >  **właściwości definicji kopii zapasowej****Edytuj**.
+1.  W konsoli zarządzania Backup Exec kliknij prawym przyciskiem myszy zadanie, które chcesz zarchiwizować na woluminie StorSimple, a następnie wybierz pozycję **właściwości definicji kopii zapasowej**  >  **Edytuj**.
 
     ![Konsola zarządzania programu Backup Exec, karta właściwości definicji kopii zapasowej](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Wybierz **pozycję Dodaj** > **powielony etap do** > **edycji**dysku.
+2.  Wybierz pozycję **Dodaj**  >  **powielony etap do**  >  **edycji**dysku.
 
     ![Konsola zarządzania Backup Exec, Dodawanie etapu](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
@@ -448,9 +448,9 @@ W poniższej sekcji opisano, jak utworzyć krótki skrypt do uruchamiania i usuw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Aby rozpocząć lub usunąć migawkę w chmurze
 
-1. [Zainstaluj Azure PowerShell](/powershell/azure/overview).
-2. Pobierz i zainstaluj skrypt programu PowerShell [Manage-CloudSnapshots. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) .
-3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony `-WhatIf $true` za pomocą programu, aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false`. Uruchom następujące polecenie:
+1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/overview).
+2. Pobierz i skonfiguruj [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) skrypt programu PowerShell.
+3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony za pomocą programu, `-WhatIf $true` Aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false` . Uruchom następujące polecenie:
    ```powershell
    .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
    ```

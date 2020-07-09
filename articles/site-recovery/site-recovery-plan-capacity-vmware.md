@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257617"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135450"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planowanie pojemności i skalowanie na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure
 
@@ -92,11 +92,13 @@ Po użyciu [Planista wdrażania Site Recovery](site-recovery-deployment-planner.
 
     ![Zrzut ekranu przedstawiający okno dialogowe właściwości Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-Możesz też użyć polecenia cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx), aby ustawić ograniczanie przepływności. Przykład:
+Możesz też użyć polecenia cmdlet [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)), aby ustawić ograniczanie przepływności. Przykład:
 
-    $mon = [System.DayOfWeek]::Monday
-    $tue = [System.DayOfWeek]::Tuesday
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```azurepowershell-interactive
+$mon = [System.DayOfWeek]::Monday
+$tue = [System.DayOfWeek]::Tuesday
+Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```
 
 **Set-OBMachineSetting -NoThrottle** wskazuje, że ograniczanie przepływności nie jest wymagane.
 
@@ -124,7 +126,7 @@ W przypadku skalowania wdrożenia poza 200 maszynami źródłowymi lub w przypad
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrowanie maszyn w celu korzystania z nowego serwera przetwarzania
 
-1. Wybierz pozycję **Ustawienia** > **Site Recovery serwery**. Wybierz serwer konfiguracji, a następnie rozwiń węzeł **serwery przetwarzania**.
+1. Wybierz pozycję **Ustawienia**  >  **Site Recovery serwery**. Wybierz serwer konfiguracji, a następnie rozwiń węzeł **serwery przetwarzania**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe serwer przetwarzania](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Kliknij prawym przyciskiem myszy aktualnie używany serwer przetwarzania, a następnie wybierz polecenie **Przełącz**.
@@ -144,12 +146,12 @@ Aby dowiedzieć się, jak dodać główny serwer docelowy dla maszyny wirtualnej
 
 Aby dodać główny serwer docelowy dla maszyny wirtualnej z systemem Windows:
 
-1. Przejdź do **magazynu** > Recovery Services**Site Recovery** > **serwery konfiguracji**infrastruktury.
+1. Przejdź do **magazynu Recovery Services**  >  **Site Recovery**  >  **serwery konfiguracji**infrastruktury.
 2. Wybierz wymagany serwer konfiguracji, a następnie wybierz opcję **główny serwer docelowy**.
 
     ![Zrzut ekranu przedstawiający przycisk Dodaj główny serwer docelowy](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Pobierz plik ujednoliconej konfiguracji, a następnie uruchom plik na maszynie wirtualnej, aby skonfigurować główny serwer docelowy.
-4. Wybierz pozycję **Zainstaluj główny serwer docelowy** > **dalej**.
+4. Wybierz pozycję **Zainstaluj główny serwer docelowy**  >  **dalej**.
 
     ![Zrzut ekranu, który pokazuje Wybieranie opcji instalacji głównego serwera docelowego](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Wybierz domyślną lokalizację instalacji, a następnie wybierz pozycję **Zainstaluj**.
@@ -163,7 +165,7 @@ Aby dodać główny serwer docelowy dla maszyny wirtualnej z systemem Windows:
     ![Zrzut ekranu pokazujący, gdzie wprowadzić adres IP i hasło dla serwera konfiguracji](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Wybierz pozycję **Zarejestruj**. Po zakończeniu rejestracji wybierz pozycję **Zakończ**.
 
-Po pomyślnym zakończeniu rejestracji serwer jest wymieniony w Azure Portal w **magazynie** > Recovery Services**Site Recovery** > **serwery konfiguracji**infrastruktury na głównych serwerach docelowych serwera konfiguracji.
+Po pomyślnym zakończeniu rejestracji serwer jest wymieniony w Azure Portal w **magazynie Recovery Services**  >  **Site Recovery**  >  **serwery konfiguracji**infrastruktury na głównych serwerach docelowych serwera konfiguracji.
 
  > [!NOTE]
  > Pobierz najnowszą wersję [ujednoliconego pliku instalacji głównego serwera docelowego dla systemu Windows](https://aka.ms/latestmobsvc).

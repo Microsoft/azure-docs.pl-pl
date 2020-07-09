@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 334f239ea8382a67add9655d4a25f98d254567d3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743953"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
 
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby otworzyć ustawienia roli usługi Azure AD.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu użytkownika z rolą [administrator ról uprzywilejowanych](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 gt
-1. Otwórz &gt; **Ustawienia roli** **role usługi Azure AD** **Azure AD Privileged Identity Management** &gt; .
+1. Otwórz **Azure AD Privileged Identity Management** &gt; Ustawienia roli **role usługi Azure AD** Azure AD Privileged Identity Management &gt; **Role settings**.
 
     ![Strona ustawień roli lista ról usługi Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)
 
@@ -167,7 +167,7 @@ Użyj przełącznika **bilet zdarzeń/żądania** , aby wymagać od uprawnionych
 
 Użyj przełącznika **Multi-Factor Authentication** , aby określić, czy użytkownicy muszą weryfikować swoją tożsamość za pomocą usługi MFA, zanim będą mogli aktywować swoje role. Muszą oni tylko weryfikować swoją tożsamość tylko raz na sesję, a nie za każdym razem, gdy aktywują rolę. Po włączeniu usługi MFA należy wziąć pod uwagę dwie wskazówki:
 
-- Użytkownicy, którzy mają konta Microsoft dla swoich adresów e-mail ( @outlook.comzazwyczaj ale nie zawsze), nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication. Jeśli chcesz przypisać role do użytkowników z kontami Microsoft, należy udostępnić im trwałych administratorów lub wyłączyć uwierzytelnianie wieloskładnikowe dla tej roli.
+- Użytkownicy, którzy mają konta Microsoft dla swoich adresów e-mail (zazwyczaj @outlook.com ale nie zawsze), nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication. Jeśli chcesz przypisać role do użytkowników z kontami Microsoft, należy udostępnić im trwałych administratorów lub wyłączyć uwierzytelnianie wieloskładnikowe dla tej roli.
 - Nie można wyłączyć usługi Azure Multi-Factor Authentication dla ról o wysokim poziomie uprawnień dla usług Azure AD i Office 365. Ta funkcja zabezpieczeń pomaga chronić następujące role:  
   
   - Azure Information Protection administrator

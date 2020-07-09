@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 552f974b99b9430d82596a5a25265bb916cb4e25
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780610"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262195"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -21,7 +21,7 @@ W górę do tego momentu w naszej serii samouczków wyniki są zwracane i wyświ
 
 Aby można było łatwo porównać zwracanych wyników, ten projekt jest kompilowany do nieskończonego projektu przewijania utworzonego w [samouczku języka C#: wyniki wyszukiwania stronicowanie — Samouczek platformy Azure wyszukiwanie poznawcze](tutorial-csharp-paging.md) .
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Kolejność wyników na podstawie jednej właściwości
 > * Kolejność wyników na podstawie wielu właściwości
@@ -128,7 +128,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Otwórz widok (index. cshtml) i Zastąp pętlę renderowania (**&lt;!--pokazać dane hotelu.--&gt;**) z poniższym kodem.
+5. Otwórz widok (index. cshtml) i Zastąp pętlę renderowania (** &lt; !--pokazać dane hotelu.-- &gt; **) z poniższym kodem.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -544,7 +544,7 @@ Przyjrzyjmy się trzem przykładom profilów oceniania i Rozważmy, jak każdy _
 
 ### <a name="add-code-to-the-view-to-compare-profiles"></a>Dodawanie kodu do widoku w celu porównania profilów
 
-1. Otwórz plik index. cshtml i Zastąp sekcję &lt;Body&gt; poniższym kodem.
+1. Otwórz plik index. cshtml i Zastąp &lt; &gt; sekcję Body poniższym kodem.
 
     ```cs
     <body>

@@ -10,10 +10,9 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402820"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integracja z usługą git dla Azure Machine Learning
@@ -26,7 +25,7 @@ Podczas przesyłania zadania do Azure Machine Learning, jeśli pliki źródłowe
 
 Ponieważ Azure Machine Learning śledzi informacje z lokalnego repozytorium git, nie jest ono powiązane z żadnym określonym centralnym repozytorium. Repozytorium można sklonować z witryny GitHub, GitLab, BitBucket, Azure DevOps lub dowolnej innej usługi zgodnej z Git.
 
-## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Klonowanie repozytoriów Git w systemie plików obszaru roboczego
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Klonowanie repozytoriów Git do systemu plików obszaru roboczego
 Azure Machine Learning udostępnia współużytkowany system plików dla wszystkich użytkowników w obszarze roboczym.
 Aby sklonować repozytorium git do tego udziału plików, zalecamy utworzenie wystąpienia obliczeniowego & otwarcie terminalu.
 Po otwarciu terminalu masz dostęp do pełnego klienta git i można klonować i współdziałać z usługą Git za pośrednictwem interfejsu wiersza polecenia usługi git.
@@ -49,7 +48,7 @@ Po przesłaniu szkolenia z zestawu SDK języka Python lub interfejsu wiersza pol
 | `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | Aktywna gałąź podczas przesyłania przebiegu. |
 | `azureml.git.commit` | `git rev-parse HEAD` | Skrót zatwierdzenia kodu, który został przesłany dla uruchomienia. |
 | `mlflow.source.git.commit` | `git rev-parse HEAD` | Skrót zatwierdzenia kodu, który został przesłany dla uruchomienia. |
-| `azureml.git.dirty` | `git status --porcelain .` | `True`, jeśli gałąź/zatwierdzenie są zanieczyszczone; w przeciwnym `false`razie. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, jeśli gałąź/zatwierdzenie są zanieczyszczone; w przeciwnym razie `false` . |
 
 Te informacje są wysyłane do przebiegów korzystających z szacowania, potoku uczenia maszynowego lub uruchamiania skryptów.
 
@@ -62,7 +61,7 @@ Jeśli pliki szkoleniowe nie znajdują się w repozytorium Git w środowisku dew
 > git --version
 > ```
 >
-> Jeśli jest zainstalowany, a w ścieżce otrzymujesz odpowiedź podobną do `git version 2.4.1`. Aby uzyskać więcej informacji na temat instalowania usługi Git w środowisku deweloperskim, zobacz [witrynę sieci Web usługi git](https://git-scm.com/).
+> Jeśli jest zainstalowany, a w ścieżce otrzymujesz odpowiedź podobną do `git version 2.4.1` . Aby uzyskać więcej informacji na temat instalowania usługi Git w środowisku deweloperskim, zobacz [witrynę sieci Web usługi git](https://git-scm.com/).
 
 ## <a name="view-the-logged-information"></a>Wyświetlanie zarejestrowanych informacji
 
@@ -73,7 +72,7 @@ Informacje dotyczące usługi git są przechowywane we właściwościach przebie
 1. Na [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy.
 1. Wybierz pozycję __eksperymenty__, a następnie wybierz jedno z eksperymentów.
 1. Wybierz jeden z przebiegów z kolumny __numer uruchomienia__ .
-1. Wybierz pozycję __dzienniki__, a następnie rozwiń pozycje __dzienniki__ i __Azure__ . Wybierz łącze zaczynające się od __ ### \_platformy Azure__.
+1. Wybierz pozycję __dzienniki__, a następnie rozwiń pozycje __dzienniki__ i __Azure__ . Wybierz łącze zaczynające się od __ ### \_ platformy Azure__.
 
     ![Wpis # # #_azure w portalu](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
@@ -98,7 +97,7 @@ Zarejestrowane informacje zawierają tekst podobny do następującego:
 
 ### <a name="python-sdk"></a>Zestaw SDK dla języka Python
 
-Po przesłaniu przebiegu szkoleniowego zwracany jest obiekt [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) . `properties` Atrybut tego obiektu zawiera zarejestrowane informacje usługi git. Na przykład poniższy kod pobiera skrót zatwierdzenia:
+Po przesłaniu przebiegu szkoleniowego zwracany jest obiekt [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) . `properties`Atrybut tego obiektu zawiera zarejestrowane informacje usługi git. Na przykład poniższy kod pobiera skrót zatwierdzenia:
 
 ```python
 run.properties['azureml.git.commit']
@@ -106,7 +105,7 @@ run.properties['azureml.git.commit']
 
 ### <a name="cli"></a>Interfejs wiersza polecenia
 
-Polecenie `az ml run` CLI może służyć do pobierania właściwości z przebiegu. Na przykład następujące polecenie zwraca właściwości dla ostatniego uruchomienia w eksperymentie o nazwie `train-on-amlcompute`:
+`az ml run`Polecenie CLI może służyć do pobierania właściwości z przebiegu. Na przykład następujące polecenie zwraca właściwości dla ostatniego uruchomienia w eksperymentie o nazwie `train-on-amlcompute` :
 
 ```azurecli-interactive
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'

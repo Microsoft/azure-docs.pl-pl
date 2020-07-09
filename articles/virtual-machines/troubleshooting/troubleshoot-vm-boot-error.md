@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77561953"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Rozruch maszyny wirtualnej z systemem Linux w usłudze grub
@@ -43,11 +42,11 @@ Postępuj zgodnie z poniższą procedurą zaradczą w zależności od otrzymaneg
 
     * Dla brakującego pliku `/boot/grub2/grub.cfg` lub `initrd/initramfs` Kontynuuj przy użyciu następującego procesu:
 
-    1. Upewnij `/etc/default/grub` się, że istnieją poprawne/odpowiednie ustawienia. Jeśli nie wiesz, które są ustawienia domyślne, możesz zaewidencjonować działającą maszynę wirtualną.
+    1. Upewnij się `/etc/default/grub` , że istnieją poprawne/odpowiednie ustawienia. Jeśli nie wiesz, które są ustawienia domyślne, możesz zaewidencjonować działającą maszynę wirtualną.
 
     2. Następnie uruchom następujące polecenie, aby ponownie wygenerować jego konfigurację:`grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-   * Jeśli `/boot/grub/menu.lst`brakuje pliku, ten błąd jest przeznaczony dla starszych wersji systemu operacyjnego (**RHEL 6. x**, **CentOS 6. x** i **Ubuntu 14,04**), aby polecenia mogły się różnić. Aby upewnić się, że zostaną podane poprawne polecenia, musisz uruchomić stary serwer i przetestować go.
+   * Jeśli brakuje pliku `/boot/grub/menu.lst` , ten błąd jest przeznaczony dla starszych wersji systemu operacyjnego (**RHEL 6. x**, **CentOS 6. x** i **Ubuntu 14,04**), aby polecenia mogły się różnić. Aby upewnić się, że zostaną podane poprawne polecenia, musisz uruchomić stary serwer i przetestować go.
 
 ### <a name="error---no-such-partition"></a>Błąd — Brak partycji
 
@@ -59,11 +58,11 @@ Postępuj zgodnie z poniższą procedurą zaradczą w zależności od otrzymaneg
 
     * Dla brakującego pliku `/boot/grub2/grub.cfg` lub `initrd/initramfs` Kontynuuj przy użyciu następującego procesu:
 
-    1. Upewnij `/etc/default/grub` się, że istnieją poprawne/odpowiednie ustawienia. Jeśli nie wiesz, które są ustawienia domyślne, możesz zaewidencjonować działającą maszynę wirtualną.
+    1. Upewnij się `/etc/default/grub` , że istnieją poprawne/odpowiednie ustawienia. Jeśli nie wiesz, które są ustawienia domyślne, możesz zaewidencjonować działającą maszynę wirtualną.
 
-    2. Następnie uruchom następujące polecenie, aby ponownie wygenerować jego konfigurację: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
+    2. Następnie uruchom następujące polecenie, aby ponownie wygenerować jego konfigurację: `grub2-mkconfig -o /boot/grub2/grub.cfg` .
 
-   * Jeśli `/boot/grub/menu.lst`brakuje pliku, ten błąd jest przeznaczony dla starszych wersji systemu operacyjnego (**RHEL 6. x**, **CentOS 6. x** i **Ubuntu 14,04**), aby polecenia mogły odroczyć. Uruchom stary serwer i przetestuj go, aby upewnić się, że podano prawidłowe polecenia.
+   * Jeśli brakuje pliku `/boot/grub/menu.lst` , ten błąd jest przeznaczony dla starszych wersji systemu operacyjnego (**RHEL 6. x**, **CentOS 6. x** i **Ubuntu 14,04**), aby polecenia mogły odroczyć. Uruchom stary serwer i przetestuj go, aby upewnić się, że podano prawidłowe polecenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

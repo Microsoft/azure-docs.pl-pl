@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970270"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Tworzenie maszyny wirtualnej z systemem Linux korzystającej z uwierzytelniania SSH przy użyciu interfejsu API REST
@@ -25,9 +24,9 @@ W tym artykule pokazano, jak za pomocą interfejsu API REST utworzyć maszynę w
 
 Przed utworzeniem i przesłaniem żądania należy:
 
-* `{subscription-id}` Dla subskrypcji
+* `{subscription-id}`Dla subskrypcji
   * Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
-* `{resourceGroupName}` Utworzony wcześniej czas
+* `{resourceGroupName}`Utworzony wcześniej czas
 * [Interfejs sieci wirtualnej](../../virtual-network/virtual-network-network-interface.md) w tej samej grupie zasobów
 * Para kluczy SSH (możesz [wygenerować nowe](mac-create-ssh-keys.md) , jeśli nie masz takiego)
 
@@ -39,7 +38,7 @@ Aby utworzyć lub zaktualizować maszynę wirtualną, należy użyć następują
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-Oprócz parametrów `{subscription-id}` i `{resourceGroupName}` należy określić `{vmName}` (`api-version` jest opcjonalne, ale ten artykuł został przetestowany przy użyciu) `api-version=2017-12-01`
+Oprócz `{subscription-id}` parametrów i należy `{resourceGroupName}` określić `{vmName}` ( `api-version` jest opcjonalne, ale ten artykuł został przetestowany przy użyciu `api-version=2017-12-01` )
 
 Wymagane są następujące nagłówki:
 
@@ -63,7 +62,7 @@ Następujące typowe definicje są używane do kompilowania treści żądania:
 | Właściwości. osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Określa ustawienia systemu operacyjnego dla maszyny wirtualnej. |
 | Właściwości. networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Określa interfejsy sieciowe maszyny wirtualnej. |
 
-Przykładowa treść żądania jest poniżej. Upewnij się, że nazwa maszyny wirtualnej została określona `{computerName}` w `{name}` parametrach i, nazwa interfejsu sieciowego utworzonego w sekcji `networkInterfaces`, nazwa użytkownika w `adminUsername` i `path`i *publiczna* część pary kluczy SSH (na przykład `~/.ssh/id_rsa.pub`) w. `keyData` Inne parametry, które warto zmodyfikować, obejmują `location` i `vmSize`.  
+Przykładowa treść żądania jest poniżej. Upewnij się, że nazwa maszyny wirtualnej została określona `{computerName}` w `{name}` parametrach i, nazwa interfejsu sieciowego utworzonego w sekcji, nazwa `networkInterfaces` użytkownika w `adminUsername` i `path` i *publiczna* część pary kluczy SSH (na przykład `~/.ssh/id_rsa.pub` ) w `keyData` . Inne parametry, które warto zmodyfikować, obejmują `location` i `vmSize` .  
 
 ```json
 {

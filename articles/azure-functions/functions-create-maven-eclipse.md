@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 42e9ed7c080c9274fad7eda8e4c8af3631ed41f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756484"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86054733"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Tworzenie pierwszej funkcji przy użyciu języka Java i przezaćmienie 
 
@@ -37,14 +37,10 @@ Zdecydowanie zaleca się także zainstalowanie [Azure Functions Core Tools w wer
 
 ## <a name="create-a-functions-project"></a>Tworzenie projektu funkcji
 
-1. W obszarze zaćmienie wybierz menu **plik** , a następnie wybierz polecenie **New&gt; -Maven Project**. 
+1. W obszarze zaćmienie wybierz menu **plik** , a następnie wybierz polecenie **New- &gt; Maven Project**. 
 1. Zaakceptuj wartości domyślne w oknie dialogowym **Nowy projekt Maven** i wybierz pozycję **dalej**.
-1. Wybierz pozycję **Dodaj Archetype** i Dodaj wpisy dla [funkcji Azure-Functions-Archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
-    - Identyfikator grupy Archetype: com. Microsoft. Azure
-    - Identyfikator artefaktu Archetype: Azure-Functions-Archetype
-    - Wersja: Sprawdź i użyj najnowszej wersji z [repozytorium](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![centralnego przezaćmienie Maven Create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Kliknij przycisk **OK** , a następnie kliknij przycisk **dalej**.  Pamiętaj, aby wypełnić wartości dla wszystkich `resourceGroup`pól, takich jak, `appName`i `appRegion` (Użyj innego argumentu inna niż **Fabrikam-Function-20170920120101928**) i ostatecznie **zakończyć**.
+1. Znajdź i wybierz pozycję [Azure-Functions-Archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) , a następnie kliknij przycisk **dalej**.
+1. Pamiętaj, aby wypełnić wartości dla wszystkich pól, takich jak `resourceGroup` , `appName` i `appRegion` (Użyj innego argumentu inna niż **fabrikam-Function-20170920120101928**) i ostatecznie **zakończyć**.
     ![Zaćmienie Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Narzędzie Maven tworzy pliki projektu w nowym folderze o nazwie wartości _artifactId_. Wygenerowany kod w projekcie jest prostą funkcją [wyzwalaną przez protokół http](/azure/azure-functions/functions-bindings-http-webhook) , która umożliwia echo treści wyzwalanego żądania HTTP.
@@ -55,7 +51,7 @@ Narzędzie Maven tworzy pliki projektu w nowym folderze o nazwie wartości _arti
 > [Azure Functions Core Tools należy zainstalować wersję 2,](functions-run-local.md#v2) aby uruchamiać i debugować funkcje lokalnie.
 
 1. Kliknij prawym przyciskiem myszy wygenerowany projekt, a następnie wybierz polecenie **Uruchom jako** i **Maven kompilację**.
-1. W oknie **dialogowym Edytowanie konfiguracji** wprowadź `package` wartość w polach **cele** i **Nazwa** , a następnie wybierz pozycję **Uruchom**. Spowoduje to skompilowanie i spakowanie kodu funkcji.
+1. W oknie dialogowym **Edytowanie konfiguracji** wprowadź `package` wartość w polach **cele** i **Nazwa** , a następnie wybierz pozycję **Uruchom**. Spowoduje to skompilowanie i spakowanie kodu funkcji.
 1. Po zakończeniu kompilacji Utwórz inną konfigurację uruchomieniową jak powyżej, używając `azure-functions:run` jako celu i nazwy. Wybierz pozycję **Uruchom** , aby uruchomić funkcję w środowisku IDE.
 
 Przerwij środowisko uruchomieniowe w oknie konsoli po zakończeniu testowania funkcji. Tylko jeden host funkcji może być aktywny i uruchamiany lokalnie.
@@ -64,7 +60,7 @@ Przerwij środowisko uruchomieniowe w oknie konsoli po zakończeniu testowania f
 
 W ramach konfiguracji **Uruchom jako** skonfigurowanej w poprzednim kroku Zmień `azure-functions:run` na `azure-functions:run -DenableDebug` i uruchom zaktualizowaną konfigurację, aby uruchomić aplikację funkcji w trybie debugowania.
 
-Wybierz menu **Uruchom** i Otwórz aplet **konfiguracje debugowania**. Wybierz pozycję **zdalna aplikacja Java** i Utwórz nową. Nadaj nazwę konfiguracji i wprowadź ustawienia. Port powinien być zgodny z portem debugowania otwartym przez hosta funkcji, który domyślnie jest `5005`. Po zakończeniu instalacji kliknij przycisk `Debug` Włącz, aby rozpocząć debugowanie.
+Wybierz menu **Uruchom** i Otwórz aplet **konfiguracje debugowania**. Wybierz pozycję **zdalna aplikacja Java** i Utwórz nową. Nadaj nazwę konfiguracji i wprowadź ustawienia. Port powinien być zgodny z portem debugowania otwartym przez hosta funkcji, który domyślnie jest `5005` . Po zakończeniu instalacji kliknij przycisk Włącz, `Debug` Aby rozpocząć debugowanie.
 
 ![Funkcje debugowania w programie zaćmienie](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
@@ -78,7 +74,7 @@ Proces wdrażania w usłudze Azure Functions korzysta z poświadczeń konta z in
 az login
 ```
 
-Wdróż swój kod w nowej aplikacji funkcji przy użyciu celu `azure-functions:deploy` Maven w nowej konfiguracji **Uruchom jako** .
+Wdróż swój kod w nowej aplikacji funkcji przy użyciu `azure-functions:deploy` celu Maven w nowej konfiguracji **Uruchom jako** .
 
 Po zakończeniu wdrażania zostanie wyświetlony adres URL umożliwiający uzyskanie dostępu do aplikacji funkcji platformy Azure:
 

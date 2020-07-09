@@ -8,10 +8,9 @@ ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062153"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalowanie i konfigurowanie bramy danych lokalnych
@@ -44,7 +43,7 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 * Zaloguj się do platformy Azure przy użyciu konta w usłudze Azure AD dla tej samej [dzierżawy](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) , która jest zarejestrowana w ramach subskrypcji. Konta B2B (gość) platformy Azure nie są obsługiwane podczas instalowania i rejestrowania bramy.
 * Jeśli źródła danych znajdują się w usłudze Azure Virtual Network (VNet), należy skonfigurować właściwość serwera [AlwaysUseGateway](analysis-services-vnet-gateway.md) .
 
-## <a name="download"></a><a name="download"></a>Pliki do pobrania
+## <a name="download"></a><a name="download"></a>Pobierz
 
  [Pobierz bramę](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
@@ -54,7 +53,7 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 
 2. Wybierz pozycję **lokalna Brama danych**.
 
-   ![Wybierz](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![Wybierz pozycję](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. Wybierz lokalizację, zaakceptuj warunki, a następnie kliknij przycisk **Instaluj**.
 
@@ -125,7 +124,7 @@ Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platf
 
     ![Pomyślne połączenie serwera z bramą](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-Gotowe. Jeśli konieczne jest otwarcie portów lub Rozwiązywanie problemów, należy sprawdzić, czy [lokalna Brama danych](analysis-services-gateway.md)jest Wyewidencjonuj.
+To wszystko. Jeśli konieczne jest otwarcie portów lub Rozwiązywanie problemów, należy sprawdzić, czy [lokalna Brama danych](analysis-services-gateway.md)jest Wyewidencjonuj.
 
 ## <a name="next-steps"></a>Następne kroki
 

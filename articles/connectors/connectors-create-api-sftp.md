@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74789277"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą usługi Azure Logic Apps
@@ -57,8 +56,8 @@ Wyzwalacze SFTP działają przez sondowanie systemu plików SFTP i wyszukiwanie 
 
 | Klient SFTP | Akcja |
 |-------------|--------|
-| WinSCP | Przejdź do pozycji **Opcje** > **Preferencje** > **transfer** > **Edycja** > **Zachowaj sygnaturę czasową** > **Wyłącz** |
-| FileZilla | Przejdź do **transferu** > **Zachowaj sygnatury czasowe transferowanych plików** > **wyłączone** |
+| WinSCP | Przejdź do pozycji **Opcje**  >  **Preferencje**  >  **transfer**  >  **Edycja**  >  **Zachowaj sygnaturę czasową**  >  **Wyłącz** |
+| FileZilla | Przejdź do **transferu**  >  **Zachowaj sygnatury czasowe transferowanych plików**  >  **wyłączone** |
 |||
 
 Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakończony i nie jest częściowo zapisany. Na przykład plik może mieć zmiany w toku, gdy wyzwalacz sprawdza serwer plików. Aby uniknąć powrotu częściowo zapisywanego pliku, wyzwalacz odnotowuje sygnaturę czasową dla pliku, który ma ostatnio wprowadzone zmiany, ale nie zwraca natychmiast tego pliku. Wyzwalacz zwraca plik tylko wtedy, gdy ponownie sonduje serwer. Czasami takie zachowanie może spowodować opóźnienie, który jest maksymalnie dwa razy interwał sondowania wyzwalacza.
@@ -71,11 +70,11 @@ Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakoń
 
 1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź ciąg "SFTP" jako filtr. Na liście Wyzwalacze wybierz wyzwalacz, który chcesz.
 
-   — lub —
+   -lub-
 
    W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. W polu wyszukiwania wprowadź ciąg "SFTP" jako filtr. Na liście Akcje wybierz żądaną akcję.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. Podaj niezbędne szczegóły dotyczące połączenia.
 
@@ -84,13 +83,13 @@ Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakoń
    > Po wprowadzeniu klucza prywatnego SSH we właściwości **prywatnego klucza SSH** wykonaj te dodatkowe kroki, aby upewnić się, że podajesz pełną i poprawną wartość dla tej właściwości. 
    > Nieprawidłowy klucz powoduje niepowodzenie połączenia.
 
-   Mimo że można użyć dowolnego edytora tekstu, poniżej przedstawiono przykładowe kroki pokazujące sposób prawidłowego kopiowania i wklejania klucza przy użyciu programu Notepad. exe jako przykładu.
+   Mimo że można użyć dowolnego edytora tekstu, poniżej przedstawiono przykładowe kroki, które pokazują, jak poprawnie skopiować i wkleić klucz przy użyciu Notepad.exe na przykład.
 
    1. Otwórz plik klucza prywatnego SSH w edytorze tekstu. W tych krokach użyto Notatnika jako przykładu.
 
    1. W menu **Edycja** Notatnik wybierz pozycję **Zaznacz wszystko**.
 
-   1. Wybierz pozycję **Edytuj** > **kopię**.
+   1. Wybierz pozycję **Edytuj**  >  **kopię**.
 
    1. W wyzwalaczu SFTP lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , który obsługuje wiele wierszy. ***Upewnij się, że wkleisz*** klucz. ***Nie wprowadzaj ręcznie ani nie edytuj klucza***.
 

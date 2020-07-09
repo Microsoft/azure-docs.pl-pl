@@ -1,19 +1,14 @@
 ---
 title: Azure Event Grid zabezpieczenia i uwierzytelnianie
 description: Opis usługi Azure Event Grid i pojęć z nią związanych.
-services: event-grid
-author: banisadr
-manager: timlt
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: babanisa
-ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 07/07/2020
+ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629511"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119093"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
 Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych operacji zarządzania, takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
@@ -112,7 +107,7 @@ Jeśli musisz określić uprawnienia, które są inne niż wbudowane role, może
 
 Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwiają użytkownikom podejmowanie różnych akcji. Te role niestandardowe różnią się od wbudowanych ról, ponieważ udzielają szerszego dostępu niż tylko subskrypcje zdarzeń.
 
-**EventGridReadOnlyRole. JSON**: Zezwalaj tylko na operacje tylko do odczytu.
+**EventGridReadOnlyRole.js**: Zezwalaj tylko na operacje tylko do odczytu.
 
 ```json
 {
@@ -131,7 +126,7 @@ Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwia
 }
 ```
 
-**EventGridNoDeleteListKeysRole. JSON**: Zezwalaj na ograniczone akcje post, ale nie Zezwalaj na akcje usuwania.
+**EventGridNoDeleteListKeysRole.js**: Zezwalaj na ograniczone akcje post, ale nie Zezwalaj na akcje usuwania.
 
 ```json
 {
@@ -154,7 +149,7 @@ Poniżej przedstawiono Event Grid przykładowe definicje ról, które umożliwia
 }
 ```
 
-**EventGridContributorRole. JSON**: zezwala na wszystkie akcje związane z siatką zdarzeń.
+**EventGridContributorRole.js**: zezwala na wszystkie akcje związane z siatką zdarzeń.
 
 ```json
 {

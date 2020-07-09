@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80333946"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps pokrycie ruchu
@@ -21,7 +21,7 @@ Azure Maps zapewnia rozbudowane informacje o ruchu w postaci **przepływu** ruch
 
 Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystkich krajów lub regionów. Poniższa tabela zawiera informacje o rodzaju informacji o ruchu, które można zażądać z każdego kraju lub regionu: 
 
-## <a name="americas"></a>Ameryki
+## <a name="americas"></a>Ameryka Północna i Południowa
 
 |Kraj/region  |Zdarzenia  |Ruch  |
 |---------|:---------:|:---------:|
@@ -68,7 +68,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 |Bośnia i Hercegowina    |✓         |✓         |
 |Bułgaria     |✓         |✓         |
 |Chorwacja     |✓         |✓         |
-|Czechy     |✓         |✓         |
+|Republika Czeska     |✓         |✓         |
 |Dania     |✓         |✓         |
 |Estonia     |         | ✓        |
 |Finlandia     |✓         |✓         |
@@ -108,7 +108,7 @@ Mapy nie mają jednak tego samego poziomu informacji i dokładności dla wszystk
 |Szwajcaria     |✓         |✓        |
 |Turcja     |✓         |✓         |
 |Ukraina     |✓         |✓         |
-|Wielka Brytania     |✓         |✓         |
+|Zjednoczone Królestwo     |✓         |✓         |
 |+ Gibraltar     |✓         |✓         |
 |+ Guernsey & Jersey     |✓         |✓         |
 |+ Wyspa Man     |✓         |✓         |

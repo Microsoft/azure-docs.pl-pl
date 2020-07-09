@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14634fac5d4501572a54f80f01a37e440d69d09b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075539"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Zarządzanie dziennikami klastra usługi HDInsight
 
@@ -87,11 +87,11 @@ Za pomocą interfejsu użytkownika Ambari można pobrać konfigurację dla dowol
 
 ### <a name="view-the-script-action-logs"></a>Wyświetlanie dzienników akcji skryptu
 
-[Akcje skryptu](hdinsight-hadoop-customize-cluster-linux.md) usługi HDInsight uruchamiają skrypty w klastrze ręcznie lub po ich określeniu. Na przykład akcje skryptu mogą służyć do instalowania dodatkowego oprogramowania w klastrze lub do zmiany ustawień konfiguracji z wartości domyślnych. Dzienniki akcji skryptu mogą zapewniać wgląd w błędy, które wystąpiły podczas instalacji klastra, a także zmiany ustawień konfiguracji, które mogą mieć wpływ na wydajność i dostępność klastra.  Aby wyświetlić stan akcji skryptu, wybierz przycisk **Ops** w interfejsie użytkownika Ambari lub uzyskaj dostęp do dzienników stanu na domyślnym koncie magazynu. Dzienniki magazynu są dostępne pod adresem `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
+[Akcje skryptu](hdinsight-hadoop-customize-cluster-linux.md) usługi HDInsight uruchamiają skrypty w klastrze ręcznie lub po ich określeniu. Na przykład akcje skryptu mogą służyć do instalowania dodatkowego oprogramowania w klastrze lub do zmiany ustawień konfiguracji z wartości domyślnych. Dzienniki akcji skryptu mogą zapewniać wgląd w błędy, które wystąpiły podczas instalacji klastra, a także zmiany ustawień konfiguracji, które mogą mieć wpływ na wydajność i dostępność klastra.  Aby wyświetlić stan akcji skryptu, wybierz przycisk **Ops** w interfejsie użytkownika Ambari lub uzyskaj dostęp do dzienników stanu na domyślnym koncie magazynu. Dzienniki magazynu są dostępne pod adresem `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE` .
 
 ### <a name="view-ambari-alerts-status-logs"></a>Wyświetlanie dzienników stanu alertów Ambari
 
-Usługa Apache Ambari zapisuje zmiany stanu alertu `ambari-alerts.log`. Pełna ścieżka to `/var/log/ambari-server/ambari-alerts.log`. Aby włączyć debugowanie dziennika, Zmień właściwość w `/etc/ambari-server/conf/log4j.properties.` pozycji Zmień, a następnie pozycję `# Log alert state changes` od:
+Usługa Apache Ambari zapisuje zmiany stanu alertu `ambari-alerts.log` . Pełna ścieżka to `/var/log/ambari-server/ambari-alerts.log` . Aby włączyć debugowanie dziennika, Zmień właściwość w `/etc/ambari-server/conf/log4j.properties.` pozycji Zmień, a następnie pozycję `# Log alert state changes` od:
 
 ```
 log4j.logger.alerts=INFO,alerts
@@ -131,7 +131,7 @@ Zagregowane dzienniki nie są odczytywane bezpośrednio, ponieważ są zapisywan
 
 #### <a name="yarn-cli-tools"></a>Narzędzia interfejsu wiersza polecenia dla PRZĘDZy
 
-Aby korzystać z narzędzi interfejsu wiersza polecenia, należy najpierw połączyć się z klastrem usługi HDInsight przy użyciu protokołu SSH. Określ `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`, i `<worker-node-address>` informacje podczas uruchamiania tych poleceń. Dzienniki można wyświetlić jako zwykły tekst przy użyciu jednego z następujących poleceń:
+Aby korzystać z narzędzi interfejsu wiersza polecenia, należy najpierw połączyć się z klastrem usługi HDInsight przy użyciu protokołu SSH. Określ `<applicationId>` , `<user-who-started-the-application>` , `<containerId>` , i `<worker-node-address>` informacje podczas uruchamiania tych poleceń. Dzienniki można wyświetlić jako zwykły tekst przy użyciu jednego z następujących poleceń:
 
 ```bash
 yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
@@ -171,7 +171,7 @@ Zestawu .NET SDK dla usługi Hadoop można użyć do sprawdzenia plików dzienni
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Kontroluj rozmiar i liczbę indeksów kopii zapasowych dla starych plików dziennika
 
-Aby kontrolować rozmiar i liczbę przechowywanych plików dziennika, ustaw następujące właściwości `RollingFileAppender`:
+Aby kontrolować rozmiar i liczbę przechowywanych plików dziennika, ustaw następujące właściwości `RollingFileAppender` :
 
 * `maxFileSize`jest krytycznym rozmiarem pliku, powyżej którego plik jest rzutowany. Wartość domyślna to 10 MB.
 * `maxBackupIndex`Określa liczbę plików kopii zapasowej, które mają zostać utworzone; wartość domyślna to 1.

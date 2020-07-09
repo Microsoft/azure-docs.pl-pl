@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258749"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851258"
 ---
 # <a name="transform-and-protect-your-api"></a>Przekształcanie i ochrona interfejsu API
 
@@ -75,15 +75,17 @@ Oryginalna odpowiedź powinna wyglądać następująco:
 2. W górnej części ekranu wybierz kartę **Projektowanie**.
 3. Wybierz opcję **Wszystkie operacje**.
 4. W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
-5. Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** .
+5. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** .
 6. W okienku po prawej stronie w obszarze **Zasady przekształcania** kliknij dwukrotnie opcję **+ Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
 
    ![Zasady](./media/transform-api/transform-api.png)
 
-7. Zmodyfikuj kod ** \<>wychodzącego** , aby wyglądać następująco:
+7. Zmodyfikuj swój **\<outbound>** kod, aby wyglądać następująco:
 
-       <set-header name="X-Powered-By" exists-action="delete" />
-       <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
+   <set-header name="X-Powered-By" exists-action="delete" />
+   <set-header name="X-AspNet-Version" exists-action="delete" />
+   ```
 
    ![Zasady](./media/transform-api/set-policy.png)
 
@@ -112,11 +114,8 @@ Aby zobaczyć oryginalną odpowiedź:
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
 4.  W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** , a następnie kliknij przycisk **Wstaw zasady** w prawym górnym rogu.
-6.  W oknie po prawej stronie w obszarze **Zasady przekształcania** kliknij opcję **+ Znajdź i zastąp ciąg w treści**.
-7.  Zmodyfikuj kod **find-and-replace** (w elemencie **\<outbound\>**), aby zastąpić adres URL i dopasować go do bramy APIM. Przykład:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** , a następnie kliknij przycisk **Pokaż fragmenty kodu** w prawym górnym rogu.
+6.  W oknie po prawej stronie w obszarze **zasady przekształcania**kliknij pozycję **Maskuj adresy URL w obszarze zawartość**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Ochrona interfejsu API poprzez dodanie zasad limitu szybkości (ograniczanie przepustowości)
 
@@ -128,35 +127,39 @@ W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zap
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
 4.  W sekcji **Przetwarzanie danych przychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt;przychodzącego&gt; ** .
+5.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** .
 6.  W oknie po prawej stronie w obszarze **Zasady ograniczeń dostępu** kliknij opcję **+ Ogranicz liczbę wywołań na klucz**.
-7.  Zmodyfikuj kod **rate-limit-by-key** (w elemencie **\<inbound\>**) do następującego:
+7.  Zmodyfikuj kod **Rate-limit-by-Key** (w **\<inbound\>** elemencie) do następującego kodu:
 
-        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
+    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
 
 ## <a name="test-the-transformations"></a>Testowanie przekształceń
 
 Na tym etapie zasady w edytorze kodu powinny wyglądać następująco:
 
-    <policies>
-        <inbound>
-            <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-            <base />
-        </inbound>
-        <backend>
-            <base />
-        </backend>
-        <outbound>
-            <set-header name="X-Powered-By" exists-action="delete" />
-            <set-header name="X-AspNet-Version" exists-action="delete" />
-            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
-            <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
-            <base />
-        </outbound>
-        <on-error>
-            <base />
-        </on-error>
-    </policies>
+   ```
+   <policies>
+      <inbound>
+        <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+        <base />
+      </inbound>
+      <backend>
+        <base />
+      </backend>
+      <outbound>
+        <set-header name="X-Powered-By" exists-action="delete" />
+        <set-header name="X-AspNet-Version" exists-action="delete" />
+        <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
+        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+        <base />
+      </outbound>
+      <on-error>
+        <base />
+      </on-error>
+   </policies>
+   ```
 
 Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym artykule.
 
@@ -195,7 +198,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
     ![Ograniczanie przepływności](./media/transform-api/test-throttling.png)
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 

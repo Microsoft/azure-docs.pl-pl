@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71212191"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs rozbudowane wypychanie
@@ -105,7 +105,7 @@ Na wysokim poziomie:
    > [!NOTE]
    > obowiązkowe Aby uzyskać więcej informacji na temat dodawania i uzyskiwania zasobów projektu, zobacz [temat jak osadzić i uzyskać dostęp do zasobów za pomocą języka Visual C#](https://support.microsoft.com/kb/319292) .
 
-7. W `NotificationsController.cs`programie ponownie zdefiniuj polecenie "NotificationsController z poniższymi fragmentami kodu. Spowoduje to wysłanie początkowego, dyskretnego identyfikatora powiadomienia do urządzenia i umożliwia pobieranie obrazu po stronie klienta:
+7. W programie `NotificationsController.cs` ponownie zdefiniuj polecenie "NotificationsController z poniższymi fragmentami kodu. Spowoduje to wysłanie początkowego, dyskretnego identyfikatora powiadomienia do urządzenia i umożliwia pobieranie obrazu po stronie klienta:
 
     ```csharp
     // Return http response with image binary
@@ -147,7 +147,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
 2. Kliknij pozycję **możliwości**, Włącz **tryb tła**i zaznacz pole wyboru **powiadomienia zdalne** .
 
     ![][IOS3]
-3. Otwórz `Main.storyboard`program i upewnij się, że masz kontroler widoku (nazywany kontrolerem widoku głównego w tym samouczku) z samouczka [Powiadamiaj użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Otwórz `Main.storyboard` program i upewnij się, że masz kontroler widoku (nazywany kontrolerem widoku głównego w tym samouczku) z samouczka [Powiadamiaj użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
 4. Dodaj **kontroler nawigacyjny** do scenorysu i przeciągnij go do kontrolera widoku głównego, aby był **widokiem głównym** nawigacji. Upewnij się, że jest wybrana wartość **kontroler widoku początkowego** w Inspektorze atrybutów tylko dla kontrolera nawigacji.
 5. Dodaj **kontroler widoku** do scenorysu i Dodaj **widok obrazu**. Ta strona zostanie wyświetlona, gdy zdecydują się, aby dowiedzieć się więcej, klikając powiadomienie. Scenorys powinien wyglądać następująco:
 
@@ -161,13 +161,13 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
-10. W `imageViewController.m`programie Dodaj następujące elementy na końcu `viewDidload`:
+10. W programie `imageViewController.m` Dodaj następujące elementy na końcu `viewDidload` :
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
-11. W `AppDelegate.m`programie Zaimportuj utworzony kontroler obrazu:
+11. W programie `AppDelegate.m` Zaimportuj utworzony kontroler obrazu:
 
     ```objc
     #import "imageViewController.h"
@@ -189,7 +189,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
 
     @end
     ```
-13. W `AppDelegate`programie upewnij się, że aplikacja rejestruje się w celu `application: didFinishLaunchingWithOptions`otrzymywania powiadomień dyskretnych w programie:
+13. W programie upewnij `AppDelegate` się, że aplikacja rejestruje się w celu otrzymywania powiadomień dyskretnych w programie `application: didFinishLaunchingWithOptions` :
 
     ```objc
     // Software version
@@ -233,7 +233,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
     return YES;
     ```
 
-14. Przed wprowadzeniem zmian w interfejsie użytkownika scenorysu Zastąp w następującej implementacji `application:didRegisterForRemoteNotificationsWithDeviceToken` :
+14. Przed wprowadzeniem `application:didRegisterForRemoteNotificationsWithDeviceToken` zmian w interfejsie użytkownika scenorysu Zastąp w następującej implementacji:
 
     ```objc
     // Access navigation controller which is at the root of window
@@ -242,7 +242,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
     homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
     hvc.deviceToken = deviceToken;
     ```
-15. Następnie Dodaj następujące metody do `AppDelegate.m` pobrania obrazu z punktu końcowego i Wyślij powiadomienie lokalne po zakończeniu pobierania. Upewnij się, że symbol zastępczy `{backend endpoint}` został zastąpiony przez punkt końcowy zaplecza:
+15. Następnie Dodaj następujące metody do `AppDelegate.m` pobrania obrazu z punktu końcowego i Wyślij powiadomienie lokalne po zakończeniu pobierania. Upewnij się, że symbol zastępczy został zastąpiony przez `{backend endpoint}` punkt końcowy zaplecza:
 
     ```objc
     NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";

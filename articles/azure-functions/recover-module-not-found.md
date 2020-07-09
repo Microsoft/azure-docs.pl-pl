@@ -5,12 +5,12 @@ author: Hazhzeng
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: hazeng
-ms.openlocfilehash: 191cde0f90b4968ca230db72bad68cca8b1db3fd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: b2582caf407b3983b32c40482fa0f0275f00fb8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691229"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84554751"
 ---
 # <a name="troubleshoot-python-module-errors-in-azure-functions"></a>Rozwiązywanie problemów z błędami modułu języka Python w Azure Functions
 
@@ -85,9 +85,9 @@ Zobacz [Aktualizowanie pakietu do najnowszej wersji](#update-your-package-to-the
 
 Otwórz `requirements.txt` Edytor tekstów i sprawdź pakiet w temacie `https://pypi.org/project/<package-name>` . Niektóre pakiety są uruchamiane tylko na platformach Windows lub macOS. Na przykład pywin32 działa tylko w systemie Windows.
 
-Ten `Module Not Found` błąd może nie wystąpić, gdy używasz systemu Windows lub macOS do lokalnego tworzenia oprogramowania. Nie można jednak zaimportować pakietu na Azure Functions, który używa systemu Linux w czasie wykonywania. Jest to prawdopodobnie spowodowane użyciem `pip freeze` do eksportowania środowiska wirtualnego do programu Requirements. txt z komputera z systemem Windows lub macOS podczas inicjowania projektu.
+Ten `Module Not Found` błąd może nie wystąpić, gdy używasz systemu Windows lub macOS do lokalnego tworzenia oprogramowania. Nie można jednak zaimportować pakietu na Azure Functions, który używa systemu Linux w czasie wykonywania. Jest to prawdopodobnie spowodowane użyciem `pip freeze` do eksportowania środowiska wirtualnego do requirements.txt z komputera z systemem Windows lub macOS podczas inicjowania projektu.
 
-Zobacz artykuł [Zastąp pakiet odpowiednikiem](#replace-the-package-with-equivalents) lub [Handcraft Requirements. txt](#handcraft-requirementstxt) w celu ograniczenia.
+Zobacz [Zastąp pakiet równoważnymi](#replace-the-package-with-equivalents) lub [Handcraft requirements.txt](#handcraft-requirementstxt) na potrzeby ograniczenia.
 
 ## <a name="mitigate-modulenotfounderror"></a>Ograniczanie ModuleNotFoundError
 
@@ -118,19 +118,19 @@ Upewnij się, że zainstalowano najnowszą wersję obu programów **Docker** i [
 
 Przejrzyj najnowszą wersję pakietu w `https://pypi.org/project/<package-name>` temacie i sprawdź **klasyfikatory:** . Pakiet powinien być `OS Independent` lub zgodny z `POSIX` lub `POSIX :: Linux` w **systemie operacyjnym**. Ponadto język programowania powinien zawierać `Python :: 3` , `Python :: 3.6` , `Python :: 3.7` , lub `Python :: 3.8` .
 
-Jeśli są poprawne, można zaktualizować pakiet do najnowszej wersji, zmieniając wiersz `<package-name>~=<latest-version>` w programie Requirements. txt.
+Jeśli są poprawne, można zaktualizować pakiet do najnowszej wersji, zmieniając wiersz `<package-name>~=<latest-version>` w requirements.txt.
 
-### <a name="handcraft-requirementstxt"></a>Handcraft Requirements. txt
+### <a name="handcraft-requirementstxt"></a>Handcraft requirements.txt
 
 Niektórzy Deweloperzy używają `pip freeze > requirements.txt` do generowania listy pakietów języka Python dla ich środowisk tworzenia. Chociaż ta wygoda powinna działać w większości przypadków, mogą występować problemy z wieloplatformowymi scenariuszami wdrażania, takimi jak tworzenie funkcji lokalnie w systemie Windows lub macOS, ale publikowanie w aplikacji funkcji, która działa w systemie Linux. W tym scenariuszu program `pip freeze` może wprowadzać nieoczekiwane zależności specyficzne dla systemu operacyjnego lub zależności dla lokalnego środowiska deweloperskiego. Te zależności mogą spowodować przerwanie działania aplikacji funkcji w języku Python w systemie Linux.
 
-Najlepszym rozwiązaniem jest sprawdzenie instrukcji import z każdego pliku. PR w kodzie źródłowym projektu i tylko zaewidencjonowanie tych modułów w pliku Requirements. txt. Gwarantuje to, że rozpoznawanie pakietów może być obsługiwane prawidłowo w różnych systemach operacyjnych.
+Najlepszym rozwiązaniem jest sprawdzenie instrukcji import z każdego pliku. PR w kodzie źródłowym projektu i tylko zaewidencjonowanie tych modułów w requirements.txt pliku. Gwarantuje to, że rozpoznawanie pakietów może być obsługiwane prawidłowo w różnych systemach operacyjnych.
 
 ### <a name="replace-the-package-with-equivalents"></a>Zamień pakiet na odpowiedniki
 
 Najpierw zapoznaj się z najnowszą wersją pakietu w temacie `https://pypi.org/project/<package-name>` . Zazwyczaj ten pakiet ma własną stronę usługi GitHub, przejdź do sekcji **problemy** w witrynie GitHub i Wyszukaj, czy problem został rozwiązany. W takim przypadku należy zaktualizować pakiet do najnowszej wersji.
 
-Czasami pakiet mógł zostać zintegrowany do [standardowej biblioteki języka Python](https://docs.python.org/3/library/) (na przykład pathlib). Jeśli tak, ponieważ udostępniamy pewną dystrybucję w języku Python w Azure Functions (Python 3,6, Python 3,7 i Python 3,8), należy usunąć pakiet z wymagań. txt.
+Czasami pakiet mógł zostać zintegrowany do [standardowej biblioteki języka Python](https://docs.python.org/3/library/) (na przykład pathlib). Jeśli tak, ponieważ udostępniamy pewną dystrybucję w języku Python w Azure Functions (Python 3,6, Python 3,7 i Python 3,8), należy usunąć pakiet z requirements.txt.
 
 Jeśli jednak wystąpi problem, którego nie Naprawiono, i jesteś terminem ostatecznym. Zachęcam do wykonywania niektórych badań i znajdowania podobnego pakietu dla projektu. Zazwyczaj społeczność języka Python zapewni szeroką gamę podobnych bibliotek, których można użyć.
 

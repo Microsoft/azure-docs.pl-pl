@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ms.subservice: blobs
-ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856131"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553199"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 
@@ -58,7 +58,7 @@ W celu ukończenia tego samouczka:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
@@ -76,14 +76,14 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    | **ResourceGroup** | *myResourceGroup* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
    | **Nazwa** | *mystorageaccount* | Unikatowa nazwa konta magazynu. |
    | **Lokalizacja** | *Wschodnie stany USA* | Wybierz lokalizację. |
-   | **Wydajność** | *Standardowa* | Standardowa wydajność jest dobrą opcją dla przykładowego scenariusza. |
+   | **Wydajność** | *Standardowa (Standard)* | Standardowa wydajność jest dobrą opcją dla przykładowego scenariusza. |
    | **Rodzaj konta** | *StorageV2* | Zalecane jest użycie konta magazynu ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji na temat typów kont usługi Azure Storage, zobacz [Omówienie konta magazynu](../common/storage-account-overview.md). |
    | **Replikacja**| *Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS)* | Region podstawowy jest strefowo nadmiarowy i jest replikowany do regionu pomocniczego, z włączonym dostępem do odczytu do regionu pomocniczego. |
    | **Warstwa dostępu**| *Gorąca* | Użyj warstwy gorąca dla często używanych danych. |
 
     ![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -117,7 +117,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 W aplikacji należy wprowadzić parametry połączenia konta magazynu. Te parametry połączenia można przechowywać w zmiennej środowiskowej na maszynie lokalnej z uruchomioną aplikacją. Postępuj zgodnie z jednym z poniższych przykładów w zależności od używanego systemu operacyjnego, aby utworzyć zmienną środowiskową.
 
-W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Skopiuj **parametry połączenia** z klucza podstawowego lub pomocniczego. Uruchom jedno z następujących poleceń w zależności od używanego systemu operacyjnego, zastępując \<yourconnectionstring\> z rzeczywistymi parametrami połączenia. To polecenie zapisuje zmienną środowiskową na maszynie lokalnej. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
+W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Skopiuj **parametry połączenia** z klucza podstawowego lub pomocniczego. Uruchom jedno z następujących poleceń w zależności od używanego systemu operacyjnego, zastępując je \<yourconnectionstring\> rzeczywistymi parametrami połączenia. To polecenie zapisuje zmienną środowiskową na maszynie lokalnej. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
 
 ### <a name="linux"></a>Linux
 
@@ -135,7 +135,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 W aplikacji należy podać poświadczenia konta magazynu. Te informacje można przechowywać w zmiennych środowiskowych na komputerze lokalnym, na którym działa aplikacja. Wykonaj jedną z poniższych przykładów w zależności od używanego systemu operacyjnego, aby utworzyć zmienne środowiskowe.
 
-W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Wklej **nazwę konta magazynu** i wartości **klucza** do następujących poleceń, zastępując symbole zastępcze \<youraccountname\> i \<youraccountkey\> . To polecenie zapisuje zmienne środowiskowe na komputerze lokalnym. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
+W witrynie Azure Portal przejdź do swojego konta magazynu. Wybierz pozycję **Klucze dostępu** w obszarze **Ustawienia** konta magazynu. Wklej **nazwę konta magazynu** i wartości **klucza** do następujących poleceń, zastępując \<youraccountname\> \<youraccountkey\> symbole zastępcze i. To polecenie zapisuje zmienne środowiskowe na komputerze lokalnym. W systemie Windows zmienna środowiskowa nie jest dostępna do czasu ponownego załadowania używanej powłoki lub **wiersza polecenia**.
 
 ### <a name="linux"></a>Linux
 
@@ -153,7 +153,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Aby uruchomić ten przykład, należy dodać do `.env.example` pliku poświadczenia konta magazynu, a następnie zmienić jego nazwę na. `.env`
+Aby uruchomić ten przykład, należy dodać do pliku poświadczenia konta magazynu, `.env.example` a następnie zmienić jego nazwę na `.env` .
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
@@ -162,7 +162,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Te informacje można znaleźć w Azure Portal, przechodząc do konta magazynu i wybierając pozycję **klucze dostępu** w sekcji **Ustawienia** .
 
-Zainstaluj wymagane zależności. Aby to zrobić, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `npm install`.
+Zainstaluj wymagane zależności. Aby to zrobić, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `npm install` .
 
 ---
 
@@ -192,7 +192,7 @@ Przed pobraniem zostanie zdefiniowany obiekt usługi [retry_callback](https://do
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Aby uruchomić przykład, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `node index.js`.
+Aby uruchomić przykład, Otwórz wiersz polecenia, przejdź do folderu przykład, a następnie wprowadź `node index.js` .
 
 Przykład tworzy kontener na koncie magazynu obiektów blob, przekazuje plik **HelloWorld. png** do kontenera, a następnie wielokrotnie sprawdza, czy kontener i obraz zostały zreplikowane do regionu pomocniczego. Po replikacji zostanie wyświetlony komunikat z prośbą o wprowadzenie **D** lub **Q** (a następnie klawisz ENTER) w celu pobrania lub zamknięcia. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
 

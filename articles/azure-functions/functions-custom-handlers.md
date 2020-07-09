@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: cdbb5bbde1e5efef9bef992a62a54f1525a16df7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85052580"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
 
@@ -37,14 +36,14 @@ Na poniższym diagramie przedstawiono relację między hostem funkcji a serwerem
 - Serwer sieci Web wykonuje pojedynczą funkcję i zwraca [ładunek odpowiedzi](#response-payload) do hosta funkcji.
 - Serwer proxy usługi Functions jest odpowiedzią jako ładunek powiązania wyjściowego z elementem docelowym.
 
-Aplikacja Azure Functions zaimplementowana jako procedura obsługi niestandardowej musi skonfigurować pliki *host. JSON* i *Function. JSON* zgodnie z kilkoma konwencjami.
+Aplikacja Azure Functions zaimplementowana jako procedura obsługi niestandardowej musi skonfigurować *host.jsna* plikach i *function.jsdla* plików zgodnie z kilkoma konwencjami.
 
 ## <a name="application-structure"></a>Struktura aplikacji
 
 Aby zaimplementować obsługę niestandardową, potrzebne są następujące aspekty aplikacji:
 
-- Plik *host. JSON* w katalogu głównym aplikacji
-- Plik *Function. JSON* dla każdej funkcji (wewnątrz folderu, który jest zgodny z nazwą funkcji)
+- *host.jsw* pliku w katalogu głównym aplikacji
+- *function.jsw* pliku dla każdej funkcji (wewnątrz folderu, który jest zgodny z nazwą funkcji)
 - Polecenie, skrypt lub plik wykonywalny, który uruchamia serwer sieci Web
 
 Na poniższym diagramie przedstawiono, jak te pliki wyglądają w systemie plików dla funkcji o nazwie "Order".
@@ -58,9 +57,9 @@ Na poniższym diagramie przedstawiono, jak te pliki wyglądają w systemie plik�
 
 ### <a name="configuration"></a>Konfigurowanie
 
-Aplikacja jest konfigurowana za pośrednictwem pliku *host. JSON* . Ten plik informuje hosta funkcji, gdzie wysyłać żądania, wskazując na serwer sieci Web, który może przetwarzać zdarzenia HTTP.
+Aplikacja jest konfigurowana za pośrednictwem *host.js* pliku. Ten plik informuje hosta funkcji, gdzie wysyłać żądania, wskazując na serwer sieci Web, który może przetwarzać zdarzenia HTTP.
 
-Niestandardowa procedura obsługi jest definiowana przez skonfigurowanie pliku *host. JSON* ze szczegółowymi informacjami na temat sposobu uruchamiania serwera sieci Web za pośrednictwem `httpWorker` sekcji.
+Niestandardowa procedura obsługi jest definiowana przez skonfigurowanie *host.jsw* pliku ze szczegółowymi informacjami na temat sposobu uruchamiania serwera sieci Web za pośrednictwem `httpWorker` sekcji.
 
 ```json
 {
@@ -75,7 +74,7 @@ Niestandardowa procedura obsługi jest definiowana przez skonfigurowanie pliku *
 
 `httpWorker`Sekcja wskazuje element docelowy określony przez `defaultExecutablePath` . Obiektem docelowym wykonywania może być polecenie, plik wykonywalny lub plik, w którym jest zaimplementowany serwer sieci Web.
 
-W przypadku aplikacji ze skryptami `defaultExecutablePath` wskazuje środowisko uruchomieniowe języka skryptu i `defaultWorkerPath` wskazuje lokalizację pliku skryptu. Poniższy przykład pokazuje, jak aplikacja JavaScript w języku Node. js jest skonfigurowana jako procedura obsługi niestandardowej.
+W przypadku aplikacji ze skryptami `defaultExecutablePath` wskazuje środowisko uruchomieniowe języka skryptu i `defaultWorkerPath` wskazuje lokalizację pliku skryptu. Poniższy przykład pokazuje, jak aplikacja JavaScript w Node.js jest skonfigurowana jako procedura obsługi niestandardowej.
 
 ```json
 {
@@ -107,15 +106,15 @@ Można również przekazywać argumenty przy użyciu `arguments` tablicy:
 Dla wielu konfiguracji debugowania są wymagane argumenty. Zobacz sekcję [debugowanie](#debugging) , aby uzyskać więcej szczegółów.
 
 > [!NOTE]
-> Plik *host. JSON* musi znajdować się na tym samym poziomie w strukturze katalogów co uruchomiony serwer sieci Web. Niektóre języki i łańcuchy narzędzi nie mogą domyślnie umieścić tego pliku w katalogu głównym aplikacji.
+> *host.jsna* pliku musi znajdować się na tym samym poziomie w strukturze katalogów co uruchomiony serwer sieci Web. Niektóre języki i łańcuchy narzędzi nie mogą domyślnie umieścić tego pliku w katalogu głównym aplikacji.
 
 #### <a name="bindings-support"></a>Obsługa powiązań
 
-Standardowe wyzwalacze wraz z powiązaniami wejściowymi i wyjściowymi są dostępne przez odwołanie do [pakietów rozszerzeń](./functions-bindings-register.md) w pliku *host. JSON* .
+Standardowe wyzwalacze wraz z powiązaniami wejściowymi i wyjściowymi są dostępne przez odwoływanie się do [pakietów rozszerzeń](./functions-bindings-register.md) w *host.js* pliku.
 
 ### <a name="function-metadata"></a>Metadane funkcji
 
-W przypadku użycia z niestandardową obsługą zawartość pliku *Function. JSON* nie różni się od sposobu definiowania funkcji w dowolnym innym kontekście. Jedynym wymaganiem jest, że pliki *Function. JSON* muszą znajdować się w folderze o nazwie, aby odpowiadała nazwie funkcji.
+W przypadku użycia z niestandardową obsługą *function.jsna* zawartości nie różnią się od sposobu definiowania funkcji w dowolnym innym kontekście. Jedyny wymóg polega na tym, że *function.js* plików musi znajdować się w folderze o nazwie, aby odpowiadał nazwie funkcji.
 
 ### <a name="request-payload"></a>Ładunek żądania
 
@@ -125,11 +124,11 @@ Każdy inny typ funkcji, który zawiera dane wejściowe, powiązania wyjściowe 
 
 Poniższy kod przedstawia przykładowy ładunek żądania. Ładunek zawiera strukturę JSON z dwoma elementami członkowskimi: `Data` i `Metadata` .
 
-`Data`Element członkowski zawiera klucze, które pasują do nazw wejściowych i wyzwalaczy, zgodnie z definicją w tablicy powiązań w pliku *Function. JSON* .
+`Data`Element członkowski zawiera klucze, które pasują do nazw wejściowych i wyzwalaczy, zgodnie z definicją w tablicy powiązań w *function.jsna* pliku.
 
 `Metadata`Element członkowski zawiera [metadane wygenerowane ze źródła zdarzeń](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
-Dane powiązania zdefiniowane w następującym pliku *Function. JSON* :
+Uwzględniając powiązania zdefiniowane w następującym *function.jsw* pliku:
 
 ```json
 {
@@ -181,18 +180,18 @@ Zgodnie z Konwencją, odpowiedzi funkcji są formatowane jako pary klucz/wartoś
 
 | <nobr>Klucz ładunku</nobr>   | Typ danych | Uwagi                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Przechowuje wartości odpowiedzi zdefiniowane przez `bindings` tablicę w pliku *Function. JSON* .<br /><br />Na przykład jeśli funkcja jest skonfigurowana za pomocą powiązania danych wyjściowych usługi BLOB Storage o nazwie "BLOB", a następnie `Outputs` zawiera klucz o nazwie `blob` , który jest ustawiony na wartość obiektu BLOB. |
+| `Outputs`     | JSON      | Przechowuje wartości odpowiedzi zdefiniowane przez `bindings` tablicę *function.jsna* pliku.<br /><br />Na przykład jeśli funkcja jest skonfigurowana za pomocą powiązania danych wyjściowych usługi BLOB Storage o nazwie "BLOB", a następnie `Outputs` zawiera klucz o nazwie `blob` , który jest ustawiony na wartość obiektu BLOB. |
 | `Logs`        | tablica     | Komunikaty są wyświetlane w dziennikach wywołania funkcji.<br /><br />W przypadku uruchamiania na platformie Azure komunikaty są wyświetlane w Application Insights. |
-| `ReturnValue` | ciąg    | Służy do dostarczania odpowiedzi w przypadku skonfigurowania danych wyjściowych jako `$return` w pliku *Function. JSON* . |
+| `ReturnValue` | ciąg    | Służy do dostarczania odpowiedzi w przypadku skonfigurowania danych wyjściowych, jak `$return` w *function.js* pliku. |
 
 Zapoznaj się z [przykładowym ładunkiem](#bindings-implementation).
 
 ## <a name="examples"></a>Przykłady
 
-Niestandardowe programy obsługi można zaimplementować w dowolnym języku, który obsługuje zdarzenia HTTP. Chociaż Azure Functions w [pełni obsługuje język JavaScript i środowisko Node. js](./functions-reference-node.md), w poniższych przykładach pokazano, jak zaimplementować procedurę obsługi niestandardowej przy użyciu języka JavaScript w języku Node. js na potrzeby instrukcji.
+Niestandardowe programy obsługi można zaimplementować w dowolnym języku, który obsługuje zdarzenia HTTP. Mimo że Azure Functions w [pełni obsługuje język JavaScript i Node.js](./functions-reference-node.md), w poniższych przykładach pokazano, jak zaimplementować procedurę obsługi niestandardowej przy użyciu języka JavaScript w Node.js na potrzeby instrukcji.
 
 > [!TIP]
-> Korzystając z przewodnika po zapoznaniu się ze sposobem wdrożenia niestandardowego programu obsługi w innych językach, przykładowe przykłady na platformie Node. js mogą być przydatne, jeśli chcesz uruchomić aplikację usługi Functions w nieobsługiwanej wersji środowiska Node. js.
+> Przewodnik dotyczący uczenia się, jak zaimplementować obsługę niestandardową w innych językach, przykładowe przykłady oparte na Node.js mogą być przydatne, jeśli chcesz uruchomić aplikację Functions w nieobsługiwanej wersji Node.js.
 
 ## <a name="http-only-function"></a>Funkcja tylko HTTP
 
@@ -213,7 +212,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementacja
 
-W folderze o nazwie *http*plik *Function. JSON* konfiguruje funkcję wyzwalaną przez protokół http.
+W folderze o nazwie *http* *function.jsw* pliku konfiguruje funkcję wyzwalaną przez protokół http.
 
 ```json
 {
@@ -235,7 +234,7 @@ W folderze o nazwie *http*plik *Function. JSON* konfiguruje funkcję wyzwalaną 
 
 Funkcja jest skonfigurowana tak, aby akceptowała zarówno `GET` `POST` żądania, jak i wartość wynik, jest podawana za pośrednictwem argumentu o nazwie `res` .
 
-W katalogu głównym aplikacji plik *host. JSON* jest skonfigurowany do uruchamiania środowiska Node. js i wskazuje `server.js` plik.
+W katalogu głównym aplikacji *host.jsw* pliku jest skonfigurowany do uruchamiania Node.js i wskazywania `server.js` pliku.
 
 ```json
 {
@@ -249,7 +248,7 @@ W katalogu głównym aplikacji plik *host. JSON* jest skonfigurowany do uruchami
 }
 ```
 
-Plik *Server. js* implementuje serwer sieci Web i funkcję http.
+Plik *server.js* pliku implementuje serwer sieci Web i funkcję http.
 
 ```javascript
 const express = require("express");
@@ -302,7 +301,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementacja
 
-W folderze o nazwie *Order*plik *Function. JSON* konfiguruje funkcję wyzwalaną przez protokół http.
+W folderze o nazwie *order* *function.jsw* pliku konfiguruje funkcję wyzwalaną przez protokół http.
 
 ```json
 {
@@ -333,7 +332,7 @@ W folderze o nazwie *Order*plik *Function. JSON* konfiguruje funkcję wyzwalaną
 
 Ta funkcja jest definiowana jako [Funkcja wyzwalana przez protokół http](./functions-bindings-http-webhook-trigger.md) , która zwraca [odpowiedź HTTP](./functions-bindings-http-webhook-output.md) i wyprowadza komunikat [magazynu kolejki](./functions-bindings-storage-queue-output.md) .
 
-W katalogu głównym aplikacji plik *host. JSON* jest skonfigurowany do uruchamiania środowiska Node. js i wskazuje `server.js` plik.
+W katalogu głównym aplikacji *host.jsw* pliku jest skonfigurowany do uruchamiania Node.js i wskazywania `server.js` pliku.
 
 ```json
 {
@@ -347,7 +346,7 @@ W katalogu głównym aplikacji plik *host. JSON* jest skonfigurowany do uruchami
 }
 ```
 
-Plik *Server. js* implementuje serwer sieci Web i funkcję http.
+Plik *server.js* pliku implementuje serwer sieci Web i funkcję http.
 
 ```javascript
 const express = require("express");
@@ -388,7 +387,7 @@ Po `POST` wysłaniu żądań do tej funkcji dane są udostępniane za pomocą ki
 - Treść żądania jest dostępna za pośrednictwem`req.body`
 - Dane ogłoszone do funkcji są dostępne za pośrednictwem`req.body.Data.req.Body`
 
-Odpowiedź funkcji jest formatowana do pary klucz/wartość, gdzie `Outputs` składowa zawiera wartość JSON, gdzie klucze są zgodne z wynikami zdefiniowanymi w pliku *Function. JSON* .
+Odpowiedź funkcji jest formatowana do pary klucz/wartość, gdzie `Outputs` składowa zawiera wartość JSON, gdzie klucze pasują do danych wyjściowych, zgodnie z definicją w *function.js* pliku.
 
 Zgodnie z ustawieniem `message` równym komunikatowi, który został dostarczony z żądania, i `res` do oczekiwanej odpowiedzi HTTP, ta funkcja wyprowadza komunikat do queue storage i zwraca odpowiedź HTTP.
 
@@ -396,7 +395,7 @@ Zgodnie z ustawieniem `message` równym komunikatowi, który został dostarczony
 
 Aby debugować aplikację obsługi niestandardowej funkcji, musisz dodać argumenty odpowiednie dla języka i środowiska uruchomieniowego, aby włączyć debugowanie.
 
-Na przykład w celu debugowania aplikacji node. js `--inspect` flaga jest przenoszona jako argument w pliku *host. JSON* .
+Na przykład w celu debugowania aplikacji Node.js `--inspect` flaga jest przenoszona jako argument w *host.js* pliku.
 
 ```json
 {
@@ -412,7 +411,7 @@ Na przykład w celu debugowania aplikacji node. js `--inspect` flaga jest przeno
 ```
 
 > [!NOTE]
-> Konfiguracja debugowania jest częścią pliku *host. JSON* , co oznacza, że może być konieczne usunięcie niektórych argumentów przed wdrożeniem w środowisku produkcyjnym.
+> Konfiguracja debugowania jest częścią *host.jsw* pliku, co oznacza, że może być konieczne usunięcie niektórych argumentów przed wdrożeniem w środowisku produkcyjnym.
 
 Za pomocą tej konfiguracji można uruchomić proces hosta funkcji przy użyciu następującego polecenia:
 
@@ -424,9 +423,9 @@ Po rozpoczęciu procesu możesz dołączyć debuger i trafień punktów przerwan
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-W poniższym przykładzie przedstawiono przykładową konfigurację, która pokazuje, jak można skonfigurować plik *Launch. JSON* w celu połączenia aplikacji z debugerem Visual Studio Code.
+W poniższym przykładzie przedstawiono przykładową konfigurację, która pokazuje, jak można skonfigurować *launch.jsw* pliku, aby połączyć aplikację z debugerem Visual Studio Code.
 
-Ten przykład dotyczy środowiska Node. js, więc może być konieczne zmodyfikowanie tego przykładu dla innych języków lub środowisk uruchomieniowych.
+Ten przykład dotyczy Node.js, więc może być konieczne zmodyfikowanie tego przykładu dla innych języków lub środowisk uruchomieniowych.
 
 ```json
 {
@@ -447,9 +446,14 @@ Ten przykład dotyczy środowiska Node. js, więc może być konieczne zmodyfiko
 
 Niestandardową obsługę można wdrożyć do niemal każdej Azure Functions opcji hostingu (zobacz [ograniczenia](#restrictions)). Jeśli program obsługi wymaga niestandardowych zależności (takich jak środowisko uruchomieniowe języka), może być konieczne użycie [niestandardowego kontenera](./functions-create-function-linux-custom-image.md).
 
+Aby wdrożyć aplikację obsługi niestandardowej przy użyciu Azure Functions Core Tools, uruchom następujące polecenie.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
+
 ## <a name="restrictions"></a>Ograniczenia
 
-- Niestandardowe programy obsługi nie są obsługiwane w planach zużycia systemu Linux.
 - Serwer sieci Web musi zostać uruchomiony w ciągu 60 sekund.
 
 ## <a name="samples"></a>Samples

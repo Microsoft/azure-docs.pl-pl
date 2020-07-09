@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650528"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Dodawanie niestandardowych zasobów do interfejsu API REST platformy Azure
@@ -18,7 +17,7 @@ W tym artykule opisano wymagania i najlepsze rozwiązania dotyczące tworzenia p
 
 ## <a name="how-to-define-a-resource-endpoint"></a>Jak zdefiniować punkt końcowy zasobu
 
-**Punkt końcowy** jest adresem URL, który wskazuje na usługę, która implementuje podstawowy kontrakt między działem IT i platformą Azure. Punkt końcowy jest zdefiniowany w dostawcy zasobów niestandardowych i może być dowolnym publicznie dostępnym adresem URL. Poniższy przykład ma element **ResourceType** o nazwie `myCustomResource` zaimplementowane przez `endpointURL`.
+**Punkt końcowy** jest adresem URL, który wskazuje na usługę, która implementuje podstawowy kontrakt między działem IT i platformą Azure. Punkt końcowy jest zdefiniowany w dostawcy zasobów niestandardowych i może być dowolnym publicznie dostępnym adresem URL. Poniższy przykład ma element **ResourceType** o nazwie `myCustomResource` zaimplementowane przez `endpointURL` .
 
 Przykład **ResourceProvider**:
 
@@ -42,39 +41,39 @@ Przykład **ResourceProvider**:
 
 ## <a name="building-a-resource-endpoint"></a>Kompilowanie punktu końcowego zasobu
 
-**Punkt końcowy** , który implementuje element **ResourceType** , musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. Po utworzeniu niestandardowego dostawcy zasobów z obiektem **resourceer** zostanie wygenerowany nowy zestaw interfejsów API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT`, `GET`i, `DELETE` aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby:
+**Punkt końcowy** , który implementuje element **ResourceType** , musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. Po utworzeniu niestandardowego dostawcy zasobów z obiektem **resourceer** zostanie wygenerowany nowy zestaw interfejsów API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT` , `GET` i, `DELETE` Aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby:
 
-Manipulowanie pojedynczym`PUT`zasobem `GET`( `DELETE`, i):
+Manipulowanie pojedynczym zasobem ( `PUT` , `GET` i `DELETE` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-Pobierz wszystkie zasoby (`GET`):
+Pobierz wszystkie zasoby ( `GET` ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-W przypadku zasobów niestandardowych dostawcy zasobów niestandardowych oferują dwa typy **routingTypes**: "`Proxy`" i "`Proxy, Cache`".
+W przypadku zasobów niestandardowych dostawcy zasobów niestandardowych oferują dwa typy **routingTypes**: " `Proxy` " i " `Proxy, Cache` ".
 
 ### <a name="proxy-routing-type"></a>Typ routingu serwera proxy
 
-Metody "`Proxy`" **routingtype** "wszystkie żądania metod do **punktu końcowego** określonego w dostawcy zasobów niestandardowych. Kiedy używać "`Proxy`":
+Metody " `Proxy` " **routingtype** "wszystkie żądania metod do **punktu końcowego** określonego w dostawcy zasobów niestandardowych. Kiedy używać " `Proxy` ":
 
 - Wymagana jest pełna kontrola nad odpowiedzią.
 - Integrowanie systemów z istniejącymi zasobami.
 
-Aby dowiedzieć się więcej`Proxy`o zasobach, zobacz informacje [na temat niestandardowego serwera proxy zasobów](proxy-resource-endpoint-reference.md)
+Aby dowiedzieć się więcej o `Proxy` zasobach, zobacz informacje [na temat niestandardowego serwera proxy zasobów](proxy-resource-endpoint-reference.md)
 
 ### <a name="proxy-cache-routing-type"></a>Typ routingu pamięci podręcznej serwera proxy
 
-`PUT` Tylko serwery`Proxy, Cache`proxy " **routingtype** " i `DELETE` metody żądania do **punktu końcowego** określonego w dostawcy zasobów niestandardowych. Dostawca zasobów niestandardowych automatycznie zwróci `GET` żądania na podstawie tego, co zostało zapisane w pamięci podręcznej. Jeśli zasób niestandardowy jest oznaczony za pomocą pamięci podręcznej, dostawca zasobów niestandardowych doda również/Zastąp pola w odpowiedzi, aby udostępnić interfejsy API platformy Azure. Kiedy używać "`Proxy, Cache`":
+`Proxy, Cache`Tylko serwery proxy " **routingtype** " `PUT` i `DELETE` metody żądania do **punktu końcowego** określonego w dostawcy zasobów niestandardowych. Dostawca zasobów niestandardowych automatycznie zwróci `GET` żądania na podstawie tego, co zostało zapisane w pamięci podręcznej. Jeśli zasób niestandardowy jest oznaczony za pomocą pamięci podręcznej, dostawca zasobów niestandardowych doda również/Zastąp pola w odpowiedzi, aby udostępnić interfejsy API platformy Azure. Kiedy używać " `Proxy, Cache` ":
 
 - Tworzenie nowego systemu, który nie ma istniejących zasobów.
 - Pracuj z istniejącym ekosystemem platformy Azure.
 
-Aby dowiedzieć się więcej`Proxy, Cache`o zasobach, zobacz [odwołanie do pamięci podręcznej zasobów niestandardowych](proxy-cache-resource-endpoint-reference.md)
+Aby dowiedzieć się więcej o `Proxy, Cache` zasobach, zobacz [odwołanie do pamięci podręcznej zasobów niestandardowych](proxy-cache-resource-endpoint-reference.md)
 
 ## <a name="creating-a-custom-resource"></a>Tworzenie zasobu niestandardowego
 
@@ -102,10 +101,10 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parametr | Wymagany | Opis
+Parametr | Wymagane | Opis
 ---|---|---
 is-full-Object | *opcję* | Wskazuje, że obiekt właściwości zawiera inne opcje, takie jak lokalizacja, Tagi, jednostka SKU i/lub plan.
-id | *opcję* | Identyfikator zasobu niestandardowego. Ta wartość powinna być wyłączona z **ResourceProvider**
+identyfikator | *opcję* | Identyfikator zasobu niestandardowego. Ta wartość powinna być wyłączona z **ResourceProvider**
 properties | *opcję* | Treść żądania, która zostanie wysłana do **punktu końcowego**.
 
 Usuń zasób niestandardowy platformy Azure:
@@ -114,9 +113,9 @@ Usuń zasób niestandardowy platformy Azure:
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parametr | Wymagany | Opis
+Parametr | Wymagane | Opis
 ---|---|---
-id | *opcję* | Identyfikator zasobu niestandardowego. Ta wartość powinna się znajdować poza **ResourceProvider**.
+identyfikator | *opcję* | Identyfikator zasobu niestandardowego. Ta wartość powinna się znajdować poza **ResourceProvider**.
 
 Pobierz zasób niestandardowy platformy Azure:
 
@@ -124,16 +123,16 @@ Pobierz zasób niestandardowy platformy Azure:
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parametr | Wymagany | Opis
+Parametr | Wymagane | Opis
 ---|---|---
-id | *opcję* | Identyfikator zasobu niestandardowego. Ta wartość powinna być wyłączona z **ResourceProvider**
+identyfikator | *opcję* | Identyfikator zasobu niestandardowego. Ta wartość powinna być wyłączona z **ResourceProvider**
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
 > [!NOTE]
-> Zasoby wymagają, aby odpowiedź zawierała odpowiednie `id`, `name`i `type` z **punktu końcowego**.
+> Zasoby wymagają, aby odpowiedź zawierała odpowiednie `id` , `name` i `type` z **punktu końcowego**.
 
-Szablony Azure Resource Manager wymagają, `id` `name`że i `type` są zwracane prawidłowo z punktu końcowego podrzędnego. Zwrócona odpowiedź zasobu powinna mieć postać:
+Szablony Azure Resource Manager wymagają `id` , że `name` i `type` są zwracane prawidłowo z punktu końcowego podrzędnego. Zwrócona odpowiedź zasobu powinna mieć postać:
 
 Przykładowa odpowiedź **punktu końcowego** :
 
@@ -174,7 +173,7 @@ Przykładowy szablon Azure Resource Manager:
 }
 ```
 
-Parametr | Wymagany | Opis
+Parametr | Wymagane | Opis
 ---|---|---
 resourceTypeName | *opcję* | **Nazwa** typu **zasobów** zdefiniowanego w dostawcy niestandardowym.
 resourceProviderName | *opcję* | Nazwa niestandardowego wystąpienia dostawcy zasobów.

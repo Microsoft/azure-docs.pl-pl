@@ -13,17 +13,16 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d59c022d72269e0e353f52727d36e18f1c321598
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 58f2b1828bcc63ce11c234847bc20f90944aba18
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051136"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960388"
 ---
-# <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie zbiorcze maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+# <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule opisano, jak przeprowadzić zbiorczą rejestrację SQL Server maszyny wirtualnej na platformie Azure za pomocą dostawcy zasobów maszyny wirtualnej SQL przy użyciu `Register-SqlVMs` polecenia cmdlet programu PowerShell.
+W tym artykule opisano sposób samoSQL Serverowego rejestrowania maszyn wirtualnych na platformie Azure za pomocą dostawcy zasobów maszyny wirtualnej SQL przy użyciu `Register-SqlVMs` polecenia cmdlet programu PowerShell.
 
 `Register-SqlVMs`Polecenia cmdlet można użyć do zarejestrowania wszystkich maszyn wirtualnych na danej liście subskrypcji, grup zasobów lub listy określonych maszyn wirtualnych. Polecenie cmdlet spowoduje zarejestrowanie maszyn wirtualnych w trybie _uproszczonego_ zarządzania, a następnie wygenerowanie zarówno [raportu, jak i pliku dziennika](#output-description). 
 
@@ -40,15 +39,15 @@ Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów
 - Najnowsza wersja polecenia [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Najnowsza wersja [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Przed kontynuowaniem należy najpierw utworzyć kopię lokalną skryptu, zaimportować ją jako moduł programu PowerShell i nawiązać połączenie z platformą Azure. 
 
-### <a name="create-script"></a>Utwórz skrypt
+### <a name="create-the-script"></a>Utwórz skrypt
 
 Aby utworzyć skrypt, skopiuj [pełny skrypt](#full-script) z końca tego artykułu i Zapisz go lokalnie jako `RegisterSqlVMs.psm1` . 
 
-### <a name="import-script"></a>Importuj skrypt
+### <a name="import-the-script"></a>Zaimportuj skrypt
 
 Po utworzeniu skryptu można go zaimportować jako moduł w terminalu programu PowerShell. 
 
@@ -67,7 +66,7 @@ Connect-AzAccount
 ```
 
 
-## <a name="all-vms-in-list-of-subscriptions"></a>Wszystkie maszyny wirtualne na liście subskrypcji 
+## <a name="register-all-vms-in-a-list-of-subscriptions"></a>Zarejestruj wszystkie maszyny wirtualne na liście subskrypcji 
 
 Użyj następującego polecenia cmdlet, aby zarejestrować wszystkie SQL Server maszyny wirtualne na liście subskrypcji:
 
@@ -78,7 +77,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Przykładowe dane wyjściowe: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -91,7 +90,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-a-single-subscription"></a>Wszystkie maszyny wirtualne w jednej subskrypcji
+## <a name="register-all-vms-in-a-single-subscription"></a>Zarejestruj wszystkie maszyny wirtualne w jednej subskrypcji
 
 Użyj następującego polecenia cmdlet, aby zarejestrować wszystkie SQL Server maszyny wirtualne w ramach jednej subskrypcji: 
 
@@ -113,7 +112,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-multiple-resource-groups"></a>Wszystkie maszyny wirtualne w wielu grupach zasobów
+## <a name="register-all-vms-in-multiple-resource-groups"></a>Zarejestruj wszystkie maszyny wirtualne w wielu grupach zasobów
 
 Użyj następującego polecenia cmdlet, aby zarejestrować wszystkie SQL Server maszyny wirtualne w wielu grupach zasobów w ramach jednej subskrypcji:
 
@@ -134,7 +133,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-a-resource-group"></a>Wszystkie maszyny wirtualne w grupie zasobów
+## <a name="resister-all-vms-in-a-resource-group"></a>Przetworzyć wszystkie maszyny wirtualne w grupie zasobów
 
 Użyj następującego polecenia cmdlet, aby zarejestrować wszystkie SQL Server maszyny wirtualne w pojedynczej grupie zasobów: 
 
@@ -155,7 +154,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="specific-vms-in-single-resource-group"></a>Określone maszyny wirtualne w pojedynczej grupie zasobów
+## <a name="register-specific-vms-in-a-single-resource-group"></a>Rejestrowanie określonych maszyn wirtualnych w pojedynczej grupie zasobów
 
 Użyj następującego polecenia cmdlet, aby zarejestrować określone SQL Server maszyny wirtualne w ramach jednej grupy zasobów:
 
@@ -176,7 +175,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="specific-vm"></a>Określona maszyna wirtualna
+## <a name="register-a-specific-vm"></a>Zarejestruj konkretną maszynę wirtualną
 
 Aby zarejestrować określoną SQL Server maszynę wirtualną, użyj następującego polecenia cmdlet: 
 
@@ -217,11 +216,11 @@ Raport jest generowany jako `.txt` plik o nazwie `RegisterSqlVMScriptReport<Time
 
 ### <a name="log"></a>Log 
 
-Błędy są rejestrowane w pliku dziennika o nazwie `VMsNotRegisteredDueToError<Timestamp>.log` gdzie sygnatura czasowa jest momentu uruchomienia skryptu. Jeśli błąd znajduje się na poziomie subskrypcji, dziennik zawiera identyfikator subskrypcji rozdzieloną przecinkami i komunikat o błędzie. Jeśli błąd dotyczy rejestracji maszyny wirtualnej, dziennik zawiera identyfikator subskrypcji, nazwę grupy zasobów, nazwę maszyny wirtualnej, kod błędu i komunikat rozdzielony przecinkami. 
+Błędy są rejestrowane w pliku dziennika o nazwie `VMsNotRegisteredDueToError<Timestamp>.log` , gdzie sygnatura czasowa jest momentu uruchomienia skryptu. Jeśli błąd znajduje się na poziomie subskrypcji, dziennik zawiera identyfikator subskrypcji rozdzielany przecinkami i komunikat o błędzie. Jeśli błąd dotyczy rejestracji maszyny wirtualnej, dziennik zawiera identyfikator subskrypcji, nazwę grupy zasobów, nazwę maszyny wirtualnej, kod błędu i komunikat rozdzielony przecinkami. 
 
 ## <a name="remarks"></a>Uwagi
 
-Po zarejestrowaniu SQL Server maszyn wirtualnych z dostawcą zasobów przy użyciu dostarczonego skryptu należy wziąć pod uwagę następujące kwestie:
+Podczas rejestrowania SQL Server maszyn wirtualnych z dostawcą zasobów przy użyciu dostarczonego skryptu należy wziąć pod uwagę następujące kwestie:
 
 - Rejestracja w ramach dostawcy zasobów wymaga agenta gościa działającego na maszynie wirtualnej SQL Server. Obrazy systemu Windows Server 2008 nie mają agenta gościa, dlatego te maszyny wirtualne będą kończyć się niepowodzeniem i muszą zostać zarejestrowane ręcznie przy użyciu [trybu zarządzania bez agenta](sql-vm-resource-provider-register.md#management-modes).
 - W celu przezwyciężenia przezroczystych błędów logika ponawiania jest wbudowana. Jeśli maszyna wirtualna została pomyślnie zarejestrowana, jest to szybka operacja. Jeśli jednak rejestracja nie powiedzie się, każda maszyna wirtualna zostanie ponowiona.  W związku z tym należy zapewnić znaczny czas na ukończenie procesu rejestracji — chociaż rzeczywiste wymaganie czasu zależy od typu i liczby błędów. 

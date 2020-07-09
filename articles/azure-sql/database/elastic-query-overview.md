@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: ab104463ad0bd3db88af47176d541dd4074037d7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557858"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database Elastic Query — omówienie (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Funkcja zapytania elastycznego (w wersji zapoznawczej) umożliwia uruchomienie z
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
-Wykonaj zapytania między bazami danych w Azure SQL Database całkowicie w języku T-SQL. Pozwala to na wykonywanie zapytań tylko do odczytu zdalnych baz danych i udostępnia opcję dla bieżących lokalnych SQL Server klientów do migrowania aplikacji przy użyciu nazw składających się z trzech i czterech części lub połączonego serwera w celu SQL Database.
+Wykonaj zapytania między bazami danych w Azure SQL Database całkowicie w języku T-SQL. Pozwala to na wykonywanie zapytań tylko do odczytu zdalnych baz danych i udostępnia opcję dla bieżących SQL Server klientów do migrowania aplikacji przy użyciu nazw składających się z trzech i czterech części lub połączonego serwera w celu SQL Database.
 
 ### <a name="available-on-standard-tier"></a>Dostępne w warstwie Standardowa
 
@@ -146,9 +146,9 @@ Koszt zapytania elastycznego jest uwzględniany w koszcie Azure SQL Database. Na
 * Typy obiektów LOB (w tym typy przestrzenne) nie są obsługiwane w definicjach tabel zewnętrznych. Aby obejść ten element, można utworzyć w zdalnej bazie danych widok, który rzutuje typ LOB na nvarchar (max), zdefiniować tabelę zewnętrzną w widoku zamiast tabeli bazowej, a następnie rzutować ją z powrotem na oryginalny typ LOB w zapytaniach.
 * Kolumny typu danych nvarchar (max) w zestawie wyników Wyłącz zaawansowane Technics wsadowe używane w implementacji zapytania elastycznego, które mogą wpływać na wydajność zapytania dla kolejności wielkości, a nawet dwa zamówienia wielkości w przypadku niekanonicznych przypadków użycia, w których duża ilość danych niezagregowanych jest transferowana w wyniku zapytania.
 * Statystyki kolumn dla tabel zewnętrznych nie są obecnie obsługiwane. Statystyki tabeli są obsługiwane, ale należy je utworzyć ręcznie.
-* Zapytanie elastyczne działa tylko z Azure SQL Database. Nie można jej używać do wykonywania zapytań dotyczących lokalnych SQL Server lub SQL Server na maszynie wirtualnej.
+* Zapytanie elastyczne działa tylko z Azure SQL Database. Nie można jej użyć do wykonywania zapytań o wystąpienie SQL Server.
 
-## <a name="feedback"></a>Opinia
+## <a name="share-your-feedback"></a>Podziel się swoją opinią
 
 Zapoznaj się ze swoją opinią, korzystając z elastycznych zapytań z poniższymi przykładami, na forach MSDN lub na Stack Overflow. Interesuję się wszystkimi rodzajami opinii na temat usługi (wady, przybliżone krawędzie, luki w funkcji).
 

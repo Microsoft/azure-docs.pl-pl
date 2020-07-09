@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 02cbf64261bbfbf50561e1b7466b46b27b688e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b49752eeca6a3600830d71a029b6d93c9390b13
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67148285"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560055"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów dotyczących odblokowywania dysków w Azure Data Box Disk
 
@@ -47,7 +47,7 @@ W tej sekcji przedstawiono niektóre najczęstsze problemy występujące podczas
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problem: nie można odblokować dysku na podstawie funkcji BitLocker
  
-**Może** 
+**Przyczyna** 
 
 W oknie dialogowym funkcji BitLocker użyto hasła i próba odblokowania dysku za pośrednictwem okna dialogowego dysków odblokowywania funkcją BitLocker. Nie będzie to zadziałało.
 
@@ -57,7 +57,7 @@ Aby odblokować dyski urządzenie Data Box, należy użyć narzędzia odblokowyw
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problem: nie można odblokować lub zweryfikować niektórych woluminów. Contact Microsoft Support.
  
-**Może**
+**Przyczyna**
 
 W dzienniku błędów może zostać wyświetlony następujący błąd i nie będzie można odblokować ani zweryfikować niektórych woluminów.
 

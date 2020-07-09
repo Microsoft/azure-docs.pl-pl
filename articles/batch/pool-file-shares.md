@@ -4,10 +4,9 @@ description: Jak zainstalować udział Azure Files z węzłów obliczeniowych w 
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83780282"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Korzystanie z udziału plików platformy Azure z pulą usługi Batch
@@ -39,8 +38,8 @@ W usłudze Batch należy zainstalować udział za każdym razem, gdy zadanie jes
 
 Na przykład Dołącz polecenie, `net use` Aby zainstalować udział plików w ramach każdego wiersza polecenia zadania. Aby można było zainstalować udział plików, potrzebne są następujące poświadczenia:
 
-* **Nazwa użytkownika**: Azure \\ \< STORAGEACCOUNTNAME \> , na przykład Azure \\ *mystorageaccountname*
-* **Hasło**: \< StorageAccountKeyWhichEnds in = =>, na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nazwa użytkownika**: Azure \\ \<storageaccountname\> , na przykład Azure \\ *mystorageaccountname*
+* **Hasło**: \<StorageAccountKeyWhichEnds in==> , na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Następujące polecenie instaluje udział plików *myfileshare* na koncie magazynu *mystorageaccountname* jako dysk *S:*
 
@@ -116,8 +115,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Następnie uruchom polecenie, `mount` Aby zainstalować udział plików, podając następujące poświadczenia:
 
-* **Nazwa użytkownika**: \< storageaccountname \> , na przykład *mystorageaccountname*
-* **Hasło**: \< StorageAccountKeyWhichEnds in = =>, na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nazwa użytkownika**: \<storageaccountname\> , na przykład *mystorageaccountname*
+* **Hasło**: \<StorageAccountKeyWhichEnds in==> , na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Następujące polecenie instaluje udział plików *myfileshare* na koncie magazynu *mystorageaccountname* o godzinie */mnt/MyAzureFileShare*: 
 

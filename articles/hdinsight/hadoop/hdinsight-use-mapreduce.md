@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b683f12a17d6aabbcdce3190a34675951567f64
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075845"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Korzystanie z technologii MapReduce na platformie Apache Hadoop w usłudze HDInsight
 
@@ -21,11 +21,11 @@ Dowiedz się, jak uruchamiać zadania MapReduce w klastrach usługi HDInsight.
 
 ## <a name="example-data"></a>Przykładowe dane
 
-Usługa HDInsight oferuje różne przykładowe zestawy danych, które są przechowywane w `/example/data` katalogu `/HdiSamples` i. Te katalogi znajdują się w domyślnym magazynie klastra. W tym dokumencie używany jest `/example/data/gutenberg/davinci.txt` plik. Ten plik zawiera notesy Leonardo da Vinci.
+Usługa HDInsight oferuje różne przykładowe zestawy danych, które są przechowywane w `/example/data` `/HdiSamples` katalogu i. Te katalogi znajdują się w domyślnym magazynie klastra. W tym dokumencie używany jest `/example/data/gutenberg/davinci.txt` plik. Ten plik zawiera notesy Leonardo da Vinci.
 
 ## <a name="example-mapreduce"></a>Przykład MapReduce
 
-Przykładowa aplikacja MapReduce Count Word jest dołączona do klastra usługi HDInsight. Ten przykład `/example/jars/hadoop-mapreduce-examples.jar` znajduje się w domyślnym magazynie klastra.
+Przykładowa aplikacja MapReduce Count Word jest dołączona do klastra usługi HDInsight. Ten przykład znajduje się w `/example/jars/hadoop-mapreduce-examples.jar` domyślnym magazynie klastra.
 
 Następujący kod Java jest źródłem aplikacji MapReduce zawartej w `hadoop-mapreduce-examples.jar` pliku:
 

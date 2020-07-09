@@ -4,22 +4,22 @@ description: Jak skonfigurować kontener profilu FSLogix dla puli hostów usług
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 96b593f544aa4bbf126c06747a01902581f5ffb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250922"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211837"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Tworzenie kontenera profilu dla puli hostów za pomocą udziału plików
 
 Usługa pulpitu wirtualnego systemu Windows oferuje kontenery profilu FSLogix jako zalecane rozwiązanie profilu użytkownika. Nie zalecamy korzystania z rozwiązania profilu użytkownika (UPD), które będzie przestarzałe w przyszłych wersjach pulpitu wirtualnego systemu Windows.
 
-W tym artykule opisano sposób konfigurowania udziału kontenera FSLogix profile dla puli hostów przy użyciu udziału plików opartego na maszynach wirtualnych. Więcej dokumentacji FSLogix można znaleźć w [witrynie FSLogix](https://docs.fslogix.com/).
+W tym artykule opisano sposób konfigurowania udziału kontenera FSLogix profile dla puli hostów przy użyciu udziału plików opartego na maszynach wirtualnych. Zdecydowanie zalecamy używanie Azure Files zamiast udziałów plików. Więcej dokumentacji FSLogix można znaleźć w [witrynie FSLogix](https://docs.fslogix.com/).
 
 >[!NOTE]
 >Jeśli szukasz materiału do porównania o różnych opcjach magazynu kontenera profilu FSLogix na platformie Azure, zobacz [Opcje magazynu dla kontenerów profilów FSLogix](store-fslogix-profile.md).
@@ -60,9 +60,9 @@ Aby skonfigurować maszyny wirtualne przy użyciu oprogramowania FSLogix, wykona
 
 1. [Połącz się z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) przy użyciu poświadczeń podanych podczas tworzenia maszyny wirtualnej.
 2. Uruchom przeglądarkę internetową i przejdź do [tego linku](https://go.microsoft.com/fwlink/?linkid=2084562) , aby pobrać agenta FSLogix.
-3. Przejdź do wersji \\ \\Win32\\lub \\ \\x64\\w pliku zip, a następnie uruchom program **FSLogixAppsSetup** w celu zainstalowania agenta FSLogix.  Aby dowiedzieć się więcej na temat sposobu instalowania programu FSLogix, zobacz [pobieranie i Instalowanie FSLogix](/fslogix/install-ht/).
-4. Przejdź do **pliku Program Files** > **FSLogix** > **Apps** , aby potwierdzić, że Agent jest zainstalowany.
-5. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **komputera\\HKEY_LOCAL_MACHINE\\oprogramowania\\FSLogix**.
+3. Przejdź do wersji \\ \\ Win32 \\ lub \\ \\ x64 \\ w pliku zip, a następnie uruchom program **FSLogixAppsSetup** w celu zainstalowania agenta FSLogix.  Aby dowiedzieć się więcej na temat sposobu instalowania programu FSLogix, zobacz [pobieranie i Instalowanie FSLogix](/fslogix/install-ht/).
+4. Przejdź do **pliku Program Files**  >  **FSLogix**  >  **Apps** , aby potwierdzić, że Agent jest zainstalowany.
+5. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **komputera \\ HKEY_LOCAL_MACHINE \\ oprogramowania \\ FSLogix**.
 6. Utwórz klucz o nazwie **Profile**.
 7. Utwórz następujące wartości dla klucza profile:
 

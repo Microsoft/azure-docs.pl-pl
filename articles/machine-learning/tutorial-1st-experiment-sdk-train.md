@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 2a65579ea7ea1a8e1611b604fa64f6b108c88784
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80546056"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025152"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Samouczek: uczenie swojego pierwszego modelu ML
 
@@ -23,7 +23,7 @@ ms.locfileid: "80546056"
 
 Ten samouczek jest **drugą częścią dwuczęściowej serii samouczków**. W poprzednim samouczku [utworzono obszar roboczy i wybrano środowisko programistyczne](tutorial-1st-experiment-sdk-setup.md). W ramach tego samouczka nauczysz się podstawowe wzorce projektowe w Azure Machine Learning i uczenie prostego modelu uczenia scikitego na podstawie zestawu danych cukrzycą. Po ukończeniu tego samouczka będziesz mieć praktyczną wiedzę na temat zestawu SDK w celu skalowania w górę w celu opracowywania bardziej złożonych eksperymentów i przepływów pracy.
 
-W tym samouczku nauczysz się wykonywać następujące zadania:
+W tym samouczku zapoznasz się z następującymi zadaniami:
 
 > [!div class="checklist"]
 > * Łączenie obszaru roboczego i tworzenie eksperymentu
@@ -55,7 +55,7 @@ W tej części samouczka uruchamiasz kod w przykładowym samouczku notesu Jupyte
 > Przełącz się do notesu Jupyter teraz, jeśli chcesz czytać wraz z uruchamianiem kodu. 
 > Aby uruchomić pojedynczą komórkę kodu w notesie, kliknij komórkę kod i naciśnij **klawisze SHIFT + ENTER**. Lub Uruchom cały Notes, wybierając pozycję **Uruchom wszystkie** z górnego paska narzędzi.
 
-Zaimportuj `Workspace` klasę i Załaduj informacje o subskrypcji z pliku `config.json` przy użyciu funkcji `from_config().` ta funkcja szuka domyślnego pliku JSON w bieżącym katalogu, ale możesz również określić parametr ścieżki, aby wskazać plik przy użyciu `from_config(path="your/file/path")`. W przypadku serwera notesu w chmurze plik jest automatycznie w katalogu głównym.
+Zaimportuj `Workspace` klasę i Załaduj informacje o subskrypcji z pliku `config.json` przy użyciu funkcji `from_config().` Ta funkcja szuka domyślnego pliku JSON w bieżącym katalogu, ale możesz również określić parametr ścieżki, aby wskazać plik przy użyciu `from_config(path="your/file/path")` . W przypadku serwera notesu w chmurze plik jest automatycznie w katalogu głównym.
 
 Jeśli Poniższy kod pyta o dodatkowe uwierzytelnianie, wystarczy wkleić link w przeglądarce i wprowadzić token uwierzytelniania.
 
@@ -74,7 +74,7 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>Ładowanie danych i przygotowanie do szkolenia
 
-W tym samouczku użyjesz zestawu danych cukrzycą, który korzysta z funkcji, takich jak wiek, płeć i BMI, aby przewidzieć postęp chorób cukrzycą. Załaduj dane z klasy [otwarte zestawy danych platformy Azure](https://azure.microsoft.com/services/open-datasets/) i podziel je na zestawy szkoleniowe i testowe przy `train_test_split()`użyciu. Ta funkcja dzieli dane, aby model miał niewidoczne dane, które są używane do testowania po szkoleniu.
+W tym samouczku użyjesz zestawu danych cukrzycą, który korzysta z funkcji, takich jak wiek, płeć i BMI, aby przewidzieć postęp chorób cukrzycą. Załaduj dane z klasy [otwarte zestawy danych platformy Azure](https://azure.microsoft.com/services/open-datasets/) i podziel je na zestawy szkoleniowe i testowe przy użyciu `train_test_split()` . Ta funkcja dzieli dane, aby model miał niewidoczne dane, które są używane do testowania po szkoleniu.
 
 
 ```python
@@ -125,7 +125,7 @@ Powyższy kod wykonuje następujące czynności:
 1. Dla każdej wartości parametru alfa w `alphas` tablicy zostanie utworzony nowy przebieg w ramach eksperymentu. Wartość alfa jest zarejestrowana w celu rozróżnienia między każdym przebiegiem.
 1. W każdym przebiegu model pierścieniowy jest skonkretyzowany, szkolony i używany do uruchamiania prognoz. Element główny-średni-kwadratowy jest obliczany dla wartości rzeczywistych i przewidywanych, a następnie rejestrowanych w ramach uruchomienia. W tym momencie przebieg ma metadane dołączone zarówno do wartości alfa, jak i dokładności RMSE.
 1. Następnie model każdego przebiegu jest serializowany i przekazywany do przebiegu. Dzięki temu można pobrać plik modelu z przebiegu w programie Studio.
-1. Po zakończeniu każdej iteracji przebieg jest wykonywany przez wywołanie `run.complete()`.
+1. Po zakończeniu każdej iteracji przebieg jest wykonywany przez wywołanie `run.complete()` .
 
 Po zakończeniu szkolenia Wywołaj `experiment` zmienną, aby pobrać link do eksperymentu w programie Studio.
 
@@ -137,14 +137,14 @@ experiment
 
 ## <a name="view-training-results-in-studio"></a>Wyświetlanie wyników szkoleniowych w programie Studio
 
-Po **przyłączeniu do Azure Machine Learning Studio** zostanie przetworzona Strona główna eksperyment. W tym miejscu zobaczysz wszystkie uruchomienia indywidualne w eksperymentie. Wszystkie wartości zarejestrowane przez użytkownika (`alpha_value` i `rmse`w tym przypadku) stają się polami dla każdego przebiegu, a także stają się dostępne dla wykresów i kafelków w górnej części strony eksperymentu. Aby dodać zarejestrowanej metrykę do wykresu lub kafelka, umieść kursor nad nim, kliknij przycisk Edytuj i Znajdź metrykę zarejestrowaną niestandardowo.
+Po **przyłączeniu do Azure Machine Learning Studio** zostanie przetworzona Strona główna eksperyment. W tym miejscu zobaczysz wszystkie uruchomienia indywidualne w eksperymentie. Wszystkie wartości zarejestrowane przez użytkownika ( `alpha_value` i `rmse` w tym przypadku) stają się polami dla każdego przebiegu, a także stają się dostępne dla wykresów. Aby wykreślić nowy wykres z zarejestrowaną metryką, kliknij pozycję "Dodaj wykres" i wybierz metrykę, którą chcesz wykreolić.
 
 Gdy szkolenia modeli są przeprowadzane na dużą skalę i tysiące różnych uruchomień, ta strona ułatwia przeglądanie każdego modelu, który jest przeszkolony, a w odróżnieniu od czasu, w jaki zostały one przeszkolone, oraz sposobu zmiany unikatowych metryk w czasie.
 
 :::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Strona główna eksperymentu w programie Studio.":::
 
 
-Wybierz link numer uruchomienia w `RUN NUMBER` kolumnie, aby wyświetlić stronę dla pojedynczego uruchomienia. Na **karcie domyślne znajdują** się szczegółowe informacje dotyczące poszczególnych przebiegów. Przejdź do karty dane **wyjściowe + dzienniki** i zobaczysz `.pkl` plik dla modelu, który został przekazany do przebiegu podczas każdej iteracji szkoleniowej. W tym miejscu możesz pobrać plik modelu, zamiast konieczności ręcznego ponownego uczenia go.
+Wybierz link numer uruchomienia w kolumnie, `RUN NUMBER` Aby wyświetlić stronę dla pojedynczego uruchomienia. Na **karcie domyślne znajdują** się szczegółowe informacje dotyczące poszczególnych przebiegów. Przejdź do karty dane **wyjściowe + dzienniki** i zobaczysz `.pkl` plik dla modelu, który został przekazany do przebiegu podczas każdej iteracji szkoleniowej. W tym miejscu możesz pobrać plik modelu, zamiast konieczności ręcznego ponownego uczenia go.
 
 :::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Strona szczegółów uruchamiania w programie Studio.":::
 
@@ -175,8 +175,10 @@ print("Best run_id: " + minimum_rmse_runid)
 print("Best run_id rmse: " + str(minimum_rmse))
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
+```output
+Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
+Best run_id rmse: 57.234760283951765
+```
 
 Użyj najlepszego identyfikatora przebiegu, aby pobrać pojedynczy przebieg przy użyciu `Run` konstruktora wraz z obiektem eksperymentu. Następnie Wywołaj `get_file_names()` , aby zobaczyć wszystkie pliki dostępne do pobrania z tego przebiegu. W takim przypadku przekazano tylko jeden plik dla każdego przebiegu podczas szkolenia.
 
@@ -186,7 +188,9 @@ best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
 print(best_run.get_file_names())
 ```
 
-    ['model_alpha_0.1.pkl']
+```output
+['model_alpha_0.1.pkl']
+```
 
 Wywołaj `download()` obiekt Run, określając nazwę pliku modelu do pobrania. Domyślnie ta funkcja jest pobierana do bieżącego katalogu.
 
@@ -194,7 +198,7 @@ Wywołaj `download()` obiekt Run, określając nazwę pliku modelu do pobrania. 
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Nie wykonuj tej sekcji, jeśli planujesz Uruchamianie innych samouczków Azure Machine Learning.
 

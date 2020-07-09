@@ -1,18 +1,18 @@
 ---
 title: Obsługa dostępności geograficznej i waluty dla portalu komercyjnego firmy Microsoft
 description: Obsługa dostępności geograficznej i waluty dla transakcji w portalu komercyjnym
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/29/2020
-ms.author: dsindona
-ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657874"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120011"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -107,7 +107,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Mongolia                            | MN        | USD          |
 | Czarnogóra                          | ME        | USD          |
 | Maroko                             | MA        | USD          |
-| Namibia                             | NA        | USD          |
+| Namibia                             | Nie dotyczy        | USD          |
 | Nepal                               | NP        | USD          |
 | Holandia                         | NL        | EUR          |
 | Nikaragua                           | NI        | USD          |

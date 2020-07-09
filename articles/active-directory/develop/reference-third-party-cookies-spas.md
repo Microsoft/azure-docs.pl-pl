@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cf385ef9af152308bcd96f25df49aebddd25b059
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1478ee1396390e26d333230b0254578ec748ef6c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477264"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Obsługa ITP w przeglądarce Safari i innych przeglądarkach, w których są blokowane pliki cookie innych firm
 
@@ -36,7 +36,7 @@ Rozwiązanie opisane w tym artykule działa we wszystkich tych przeglądarkach l
 
 ## <a name="overview-of-the-solution"></a>Przegląd rozwiązania
 
-Aby kontynuować uwierzytelnianie użytkowników w usłudze aplikacji jednostronicowych, deweloperzy aplikacji muszą używać [przepływu kodu autoryzacji](v2-oauth2-auth-code-flow.md). W przepływie kodu uwierzytelniania dostawca tożsamości wystawia kod, a SPA używa kodu dla tokenu dostępu i tokenu odświeżania. Gdy aplikacja wymaga dodatkowych tokenów, może użyć [przepływu tokenu odświeżania](v2-oauth2-auth-code-flow.md#refresh-the-access-token) , aby uzyskać nowe tokeny. MSAL. js 2,0, biblioteka platform Identity firmy Microsoft dla aplikacji jednostronicowych, implementuje przepływ kodu autoryzacji dla aplikacji jednostronicowych i, z drobnymi aktualizacjami, to zamiennik dla MSAL. js 1. x.
+Aby kontynuować uwierzytelnianie użytkowników w usłudze aplikacji jednostronicowych, deweloperzy aplikacji muszą używać [przepływu kodu autoryzacji](v2-oauth2-auth-code-flow.md). W przepływie kodu uwierzytelniania dostawca tożsamości wystawia kod, a SPA używa kodu dla tokenu dostępu i tokenu odświeżania. Gdy aplikacja wymaga dodatkowych tokenów, może użyć [przepływu tokenu odświeżania](v2-oauth2-auth-code-flow.md#refresh-the-access-token) , aby uzyskać nowe tokeny. MSAL.js 2,0, Biblioteka Microsoft Identity platform Library for aplikacji jednostronicowych, implementuje przepływ kodu autoryzacji dla aplikacji jednostronicowych i, z drobnymi aktualizacjami, jest zamiennikiem dla MSAL.js 1. x.
 
 W przypadku platformy tożsamości firmy Microsoft aplikacji jednostronicowych i natywnych klientów postępuj zgodnie z podobnymi wskazówkami dotyczącymi protokołów:
 
@@ -63,7 +63,7 @@ Istnieją dwa sposoby realizacji logowania:
     * Rozważ przeprowadzenie sekwencji wstępnego ładowania w aplikacji, która sprawdza, czy sesja logowania i przekierowuje do strony logowania, zanim aplikacja w pełni rozpakuje i wykona ładunek JavaScript.
 * **Okna podręczne**
     * Jeśli środowisko użytkownika (UX) przekierowania pełnego strony nie działa dla aplikacji, rozważ użycie menu podręcznego do obsługi uwierzytelniania.
-    * Gdy menu podręczne zakończy przekierowywanie do aplikacji po uwierzytelnieniu, kod w programie obsługi przekierowania będzie przechowywał kod i tokeny w magazynie lokalnym do użycia przez aplikację. MSAL. js obsługuje okienka podręczne do uwierzytelniania, tak jak większość bibliotek.
+    * Gdy menu podręczne zakończy przekierowywanie do aplikacji po uwierzytelnieniu, kod w programie obsługi przekierowania będzie przechowywał kod i tokeny w magazynie lokalnym do użycia przez aplikację. MSAL.js obsługuje okienka podręczne do uwierzytelniania, tak jak w przypadku większości bibliotek.
     * Przeglądarki zmniejszają obsługę okien podręcznych, dlatego mogą nie być najbardziej niezawodne. Interakcja użytkownika z SPA przed utworzeniem okna podręcznego może być wymagana w celu spełnienia wymagań przeglądarki.
 
 >[!NOTE]
@@ -83,4 +83,4 @@ Ten wzorzec tokenów odświeżania o ograniczonym okresie istnienia został wybr
 
 Dowiedz się więcej o [przepływie kodu autoryzacji](v2-oauth2-auth-code-flow.md).
 
-Wypróbuj przepływ kodu autoryzacji za pomocą [przewodnika Szybki Start MSAL. js 2,0](quickstart-v2-javascript-auth-code.md).
+Wypróbuj przepływ kodu autoryzacji za pomocą [przewodnika Szybki Start dlaMSAL.js 2,0](quickstart-v2-javascript-auth-code.md).

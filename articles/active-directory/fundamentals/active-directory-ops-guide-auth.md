@@ -12,10 +12,9 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80876296"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania uwierzytelnianiem Azure Active Directory
@@ -128,7 +127,7 @@ Podobnie jak w przypadku użytkownika w organizacji, urządzenie to podstawowa t
 W tym celu można przenieść tożsamości urządzeń i zarządzać nimi w usłudze Azure AD za pomocą jednej z następujących metod:
 
 - Organizacje mogą używać [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) do zarządzania urządzeniem i wymuszania zasad zgodności, zaświadczania kondycji urządzenia i ustawienia zasad dostępu warunkowego w zależności od tego, czy urządzenie jest zgodne. Microsoft Intune mogą zarządzać urządzeniami z systemem iOS, komputerami Mac (za pośrednictwem integracji JAMF), komputerami stacjonarnymi z systemem Windows (natywnie przy użyciu zarządzania urządzeniami przenośnymi w systemie Windows 10 i współzarządzaniem z programem Microsoft Endpoint Configuration Manager) oraz urządzeniami przenośnymi z systemem Android.
-- [Hybrydowe dołączanie usługi Azure AD](../devices/hybrid-azuread-join-managed-domains.md) zapewnia zarządzanie za pomocą zasad grupy lub Configuration Manager Microsoft Endpoint w środowisku z Active Directory urządzeniami przyłączonymi do domeny. Organizacje mogą wdrażać środowisko zarządzane za pomocą PHS lub PTA z bezproblemowym logowaniem jednokrotnym. Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność użytkowników przez logowanie jednokrotne w chmurze i zasobach lokalnych, umożliwiając jednocześnie bezpieczny dostęp do zasobów w chmurze i lokalnych przy użyciu  [dostępu warunkowego](../conditional-access/overview.md).
+- [Hybrydowe dołączanie usługi Azure AD](../devices/hybrid-azuread-join-managed-domains.md) zapewnia zarządzanie za pomocą zasad grupy lub Configuration Manager Microsoft Endpoint w środowisku z Active Directory urządzeniami przyłączonymi do domeny. Organizacje mogą wdrażać środowisko zarządzane za pomocą PHS lub PTA z bezproblemowym logowaniem jednokrotnym. Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność użytkowników przez logowanie jednokrotne w chmurze i zasobach lokalnych, umożliwiając jednocześnie bezpieczny dostęp do zasobów w chmurze i lokalnych przy użyciu [dostępu warunkowego](../conditional-access/overview.md)   .
 
 W przypadku urządzeń z systemem Windows przyłączonych do domeny, które nie są zarejestrowane w chmurze, lub urządzeń z systemem Windows przyłączonych do domeny, które są zarejestrowane w chmurze, ale bez zasad dostępu warunkowego, należy zarejestrować niezarejestrowane urządzenia i w obu przypadkach [używać sprzężenia hybrydowego usługi Azure AD jako formantu](../conditional-access/require-managed-devices.md) w zasadach dostępu warunkowego.
 
@@ -141,9 +140,9 @@ Jeśli zarządzasz urządzeniami za pomocą rozwiązania MDM lub Microsoft Intun
 #### <a name="device-trust-access-policies-recommended-reading"></a>Zalecane odczytywanie zasad dostępu zaufania urządzeń
 
 - [Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory](../devices/hybrid-azuread-join-plan.md)
-- [Konfiguracje obsługi tożsamości i uzyskiwania dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfiguracje tożsamości i dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-### <a name="windows-hello-for-business"></a>Windows Hello for Business
+### <a name="windows-hello-for-business"></a>Windows Hello dla firm
 
 W systemie Windows 10 funkcja [Windows Hello dla firm](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) zastępuje hasła silnym uwierzytelnianiem dwuskładnikowym na komputerach. Funkcja Windows Hello dla firm umożliwia korzystanie z bardziej usprawnień usługi MFA dla użytkowników i zmniejsza zależność od haseł. Jeśli nie rozpoczęto wdrażania urządzeń z systemem Windows 10 lub zostały one tylko częściowo wdrożone, zalecamy uaktualnienie do systemu Windows 10 i [włączenie usługi Windows Hello dla firm](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) na wszystkich urządzeniach.
 
@@ -205,7 +204,7 @@ Z [nazwanymi lokalizacjami](https://docs.microsoft.com/azure/active-directory/re
 
 Na podstawie priorytetu Skorzystaj z poniższej tabeli, aby znaleźć zalecane rozwiązanie, które najlepiej spełnia wymagania organizacji:
 
-| **Priorytet** | **Scenariusz** | **Zalecenie** |
+| **Priority** | **Scenariusz** | **Zalecenie** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Jeśli używasz PHS lub PTA i nazwane lokalizacje nie zostały zdefiniowane | Definiowanie nazwanych lokalizacji w celu usprawnienia wykrywania zdarzeń o podwyższonym ryzyku |
 | 2 | Jeśli jesteś federacyjnym i nie używasz żądania "insideCorporateNetwork" i nazwanych lokalizacji nie zostały zdefiniowane | Definiowanie nazwanych lokalizacji w celu usprawnienia wykrywania zdarzeń o podwyższonym ryzyku |
@@ -256,7 +255,7 @@ Dostęp warunkowy jest ważnym narzędziem do ulepszania stan zabezpieczeń orga
 #### <a name="conditional-access-recommended-reading"></a>Zalecane odczytywanie dostępu warunkowego
 
 - [Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Konfiguracje obsługi tożsamości i uzyskiwania dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfiguracje tożsamości i dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory informacje o ustawieniach dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Typowe zasady dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -296,7 +295,7 @@ W przypadku ataku z nielegalną zgodą osoba atakująca tworzy aplikację zareje
 
 Poniżej znajduje się lista aplikacji z uprawnieniami, które mogą być Scrutinize dla usług w chmurze firmy Microsoft:
 
-- Aplikacje z aplikacją lub delegowane \*. Uprawnienia ReadWrite
+- Aplikacje z aplikacją lub delegowane \* . Uprawnienia ReadWrite
 - Aplikacje z delegowanymi uprawnieniami mogą odczytywać, wysyłać i zarządzać pocztą e-mail w imieniu użytkownika
 - Aplikacje, którym przyznano następujące uprawnienia:
 
@@ -305,7 +304,7 @@ Poniżej znajduje się lista aplikacji z uprawnieniami, które mogą być Scruti
 | Pakiet Office 365 Exchange Online | Posiada. AccessAsUser. All |
 | | Interfejs. AccessAsUser. All |
 | | Poczta. Przeczytaj |
-| Interfejs API programu Microsoft Graph | Poczta. Przeczytaj |
+| Microsoft Graph API | Poczta. Przeczytaj |
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
@@ -313,7 +312,7 @@ Poniżej znajduje się lista aplikacji z uprawnieniami, które mogą być Scruti
 
 |Zasób | Uprawnienie |
 | :- | :- |
-| Interfejs API programu Microsoft Graph| Katalog. AccessAsUser. All |
+| Microsoft Graph API| Katalog. AccessAsUser. All |
 | Interfejs API REST platformy Azure | user_impersonation |
 
 Aby uniknąć tego scenariusza, należy odnieść się do [wykrywania i korygowania nielegalnych dotacji do zgody w pakiecie Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) w celu identyfikowania i rozwiązywania wszelkich aplikacji z nielegalnymi dotacjami lub aplikacjami, które mają więcej dotacji niż jest to konieczne. Następnie [Usuń](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) samoobsługowe i [Ustal procedury ładu](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Na koniec Zaplanuj regularne przeglądy uprawnień aplikacji i usuń je, gdy nie są potrzebne.

@@ -4,10 +4,9 @@ description: Liczniki wydajności platformy Docker, zdarzenia i wyjątki mogą b
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669611"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorowanie aplikacji platformy Docker w Application Insights (przestarzałe)
@@ -54,7 +53,7 @@ Teraz, gdy masz już miejsce na wyświetlenie telemetrii, możesz skonfigurować
 Na hoście platformy Docker wymagany jest tylko jeden obraz Application Insights. Jeśli aplikacja jest wdrażana na wielu hostach platformy Docker, należy powtórzyć polecenie na każdym hoście.
 
 ## <a name="update-your-app"></a>Aktualizowanie aplikacji
-Jeśli aplikacja jest Instrumentacją [Application INSIGHTS SDK dla języka Java](../../azure-monitor/app/java-get-started.md), Dodaj następujący wiersz do pliku ApplicationInsights. XML w projekcie, pod `<TelemetryInitializers>` elementem:
+Jeśli aplikacja jest Instrumentacją [Application INSIGHTS SDK dla języka Java](../../azure-monitor/app/java-get-started.md), Dodaj następujący wiersz do pliku ApplicationInsights.xml w projekcie, pod `<TelemetryInitializers>` elementem:
 
 ```xml
 
@@ -92,7 +91,7 @@ Dane telemetryczne żądania wysyłane z aplikacji z zestawem SDK AI są wzbogac
 
 * Zainstaluj zestaw SDK Application Insights w aplikacji. Dowiedz się, jak: [aplikacje sieci Web Java](../../azure-monitor/app/java-get-started.md), [aplikacje sieci Web systemu Windows](../../azure-monitor/app/asp-net.md).
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 

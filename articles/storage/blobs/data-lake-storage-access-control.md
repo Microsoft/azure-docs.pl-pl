@@ -8,18 +8,17 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84193518"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 implementuje model kontroli dostępu, który obsługuje kontrolę dostępu opartą na rolach (RBAC) na platformie Azure oraz listę kontroli dostępu (ACL). W tym artykule zestawiono podstawowe informacje o modelu kontroli dostępu dla Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
@@ -76,7 +75,7 @@ Aby ustawić uprawnienia na poziomie plików i katalogów, zobacz dowolny z nast
 |Interfejs API REST |[Ścieżka — aktualizacja](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Jeśli podmiot zabezpieczeń jest jednostką *usługi* , ważne jest użycie identyfikatora obiektu nazwy głównej usługi, a nie identyfikatora obiektu powiązanej rejestracji aplikacji. Aby uzyskać identyfikator obiektu jednostki usługi, Otwórz interfejs wiersza polecenia platformy Azure, a następnie użyj następujące polecenie: `az ad sp show --id <Your App ID> --query objectId`. Pamiętaj, `<Your App ID>` aby zastąpić symbol ZASTĘPCZy identyfikatorem aplikacji rejestracji aplikacji.
+> Jeśli podmiot zabezpieczeń jest jednostką *usługi* , ważne jest użycie identyfikatora obiektu nazwy głównej usługi, a nie identyfikatora obiektu powiązanej rejestracji aplikacji. Aby uzyskać identyfikator obiektu jednostki usługi, Otwórz interfejs wiersza polecenia platformy Azure, a następnie użyj następujące polecenie: `az ad sp show --id <Your App ID> --query objectId` . Pamiętaj, aby zastąpić `<Your App ID>` symbol zastępczy identyfikatorem aplikacji rejestracji aplikacji.
 
 ### <a name="types-of-access-control-lists"></a>Typy list kontroli dostępu
 
@@ -123,12 +122,12 @@ W modelu w stylu POSIX, który jest używany przez Data Lake Storage Gen2, upraw
 
 W poniższej tabeli przedstawiono niektóre typowe scenariusze, które ułatwiają zrozumienie, które uprawnienia są potrzebne do wykonania niektórych operacji na koncie magazynu.
 
-|    Operacja             |    /    | Oregon | Biura | Data. txt     |
+|    Operacja             |    /    | Oregon | Biura | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Odczytaj dane. txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Dołącz do danych. txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Usuń dane. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Utwórz dane. txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Odczytaj Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Dołącz do Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Usuń Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Utwórz Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Staw                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | /Oregon/listy           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | /Oregon/Portland/listy  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -245,7 +244,7 @@ Po utworzeniu nowego pliku lub katalogu w istniejącym katalogu, domyślna lista
 - Domyślna lista ACL i dostęp do listy ACL katalogu podrzędnego.
 - Lista ACL dostępu pliku podrzędnego (pliki nie mają domyślnej listy ACL).
 
-#### <a name="umask"></a>maska umask
+#### <a name="umask"></a>umask
 
 Podczas tworzenia pliku lub katalogu maska umask jest używany do modyfikowania sposobu ustawiania domyślnych list ACL dla elementu podrzędnego. Maska umask jest wartością 9-bitową w katalogach nadrzędnych, które zawierają wartość RWX dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem**i **innych**.
 
@@ -348,6 +347,6 @@ Listy ACL nie są dziedziczone. Jednak domyślne listy ACL mogą być używane d
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Omówienie Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

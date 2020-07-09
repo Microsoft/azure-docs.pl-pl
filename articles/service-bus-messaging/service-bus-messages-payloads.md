@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus komunikatów, ładunków i serializacji | Microsoft Docs
 description: Ten artykuł zawiera omówienie Azure Service Bus komunikatów, ładunków, routingu wiadomości i serializacji.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 11e56ae2483a254fb00e3593da7841f3f3d844f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759401"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341685"
 ---
 # <a name="messages-payloads-and-serialization"></a>Komunikaty, ładunki i serializacja
 
@@ -34,7 +23,7 @@ Równoważne nazwy używane na poziomie protokołu AMQP są wyświetlane w nawia
 
 | Nazwa właściwości                         | Opis                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (typ zawartości)           | Opcjonalnie opisuje ładunek wiadomości z deskryptorem następującym po formacie RFC2045, sekcja 5; na przykład `application/json`.                                                                                                                                                                                                                                                                                             |
+|  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (typ zawartości)           | Opcjonalnie opisuje ładunek wiadomości z deskryptorem następującym po formacie RFC2045, sekcja 5; na przykład `application/json` .                                                                                                                                                                                                                                                                                             |
 |  Identyfikator [korelacji (](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) korelacja)       | Umożliwia aplikacji określenie kontekstu wiadomości na potrzeby korelacji; na przykład odzwierciedlanie **MessageID** komunikatu, do którego odwołuje się odpowiedź.                                                                                                                                                                                                                                                                  |
 | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | Ustawia się tylko w wiadomościach, które zostały utracone i następnie przesyłane z kolejki utraconych wiadomości do innej jednostki. Wskazuje jednostkę, w której wiadomość była utracona. Ta właściwość jest tylko do odczytu.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | Liczba prób dostarczenia dla tej wiadomości. Licznik jest zwiększany po wygaśnięciu blokady wiadomości lub komunikat został jawnie porzucony przez odbiornik. Ta właściwość jest tylko do odczytu.                                                                                                                                                                                                                                                  |
@@ -73,11 +62,11 @@ Routing wewnątrz przestrzeni nazw Service Bus można zrealizować przy użyciu 
 
 ## <a name="payload-serialization"></a>Serializacja ładunku
 
-Gdy podczas przesyłania lub przechowywania wewnątrz Service Bus, ładunek jest zawsze nieprzezroczystym blokiem binarnym. Właściwość [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) umożliwia aplikacjom opisywanie ładunku przy użyciu sugerowanego formatu wartości właściwości w opisie typu zawartości MIME zgodnie z IETF RFC2045; na przykład `application/json;charset=utf-8`.
+Gdy podczas przesyłania lub przechowywania wewnątrz Service Bus, ładunek jest zawsze nieprzezroczystym blokiem binarnym. Właściwość [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) umożliwia aplikacjom opisywanie ładunku przy użyciu sugerowanego formatu wartości właściwości w opisie typu zawartości MIME zgodnie z IETF RFC2045; na przykład `application/json;charset=utf-8` .
 
 W przeciwieństwie do wariantów Java lub .NET Standard, wersja .NET Framework interfejsu API Service Bus obsługuje tworzenie wystąpień **BrokeredMessage** przez przekazanie dowolnego obiektu .NET do konstruktora. 
 
-W przypadku korzystania ze starszego protokołu SBMP te obiekty są następnie serializowane przy użyciu domyślnego serializatora binarnego lub z serializatorem, który jest dostarczany zewnętrznie. W przypadku korzystania z protokołu AMQP obiekt jest serializowany do obiektu AMQP. Odbiornik może pobrać te obiekty za pomocą metody [GetBody\<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) , dostarczając oczekiwany typ. W przypadku AMQP obiekty są serializowane do grafu AMQP **ArrayList** i **IDictionary<ciągu, obiektów>** obiekty i dowolnego klienta AMQP można zdekodować. 
+W przypadku korzystania ze starszego protokołu SBMP te obiekty są następnie serializowane przy użyciu domyślnego serializatora binarnego lub z serializatorem, który jest dostarczany zewnętrznie. W przypadku korzystania z protokołu AMQP obiekt jest serializowany do obiektu AMQP. Odbiornik może pobrać te obiekty za pomocą metody [GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) , dostarczając oczekiwany typ. W przypadku AMQP obiekty są serializowane do grafu AMQP **ArrayList** i **IDictionary<ciągu, obiektów>** obiekty i dowolnego klienta AMQP można zdekodować. 
 
 Mimo że ukryty magiczny serializacji jest wygodny, aplikacje powinny przejąć jawną kontrolę serializacji obiektu i przekształcić wykresy obiektów w strumienie przed dołączeniem ich do wiadomości, a następnie wykonać odwracanie po stronie odbiornika. Zapewnia to nieobsługiwane wyniki. Należy również zauważyć, że podczas gdy AMQP ma zaawansowany model kodowania binarny, jest on powiązany z ekosystemem obsługi komunikatów AMQP i klienci HTTP będą mogli rozkodować takie ładunki. 
 

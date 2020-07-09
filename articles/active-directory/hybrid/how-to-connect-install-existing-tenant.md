@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 001706d63b22899016cc2c45e384597db3d6747f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71336820"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358832"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Jeśli masz istniejącą dzierżawę
 W większości tematów dotyczących używania Azure AD Connect założono, że zaczynasz od nowej dzierżawy usługi Azure AD i nie ma żadnych użytkowników ani innych obiektów. Ale jeśli rozpoczęłasz korzystanie z dzierżawy usługi Azure AD, wypełnisz ją użytkownikami i innymi obiektami, a teraz chcesz korzystać z programu Connect, ten temat jest dla Ciebie.
@@ -34,7 +34,7 @@ Niektórymi użytkownikami można zarządzać lokalnie i w chmurze. Typowym scen
 Jeśli rozpoczęto zarządzanie użytkownikami w usłudze Azure AD, które znajdują się również w lokalnej usłudze AD, a później chcesz korzystać z programu Connect, należy wziąć pod uwagę pewne dodatkowe zagadnienia.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchronizuj z istniejącymi użytkownikami w usłudze Azure AD
-Po zainstalowaniu Azure AD Connect i uruchomieniu synchronizacji usługa Azure AD Sync (w usłudze Azure AD) sprawdza każdy nowy obiekt i próbuje znaleźć istniejący obiekt do dopasowania. Dla tego procesu są używane trzy atrybuty: **userPrincipalName**, **proxyAddresses**i **sourceAnchor**/**immutableID**. Dopasowanie elementu **userPrincipalName** i **proxyAddresses** jest znane jako niezrównane **dopasowanie**. Dopasowanie **sourceAnchor** jest znane jako **twarde dopasowanie**. Dla atrybutu **proxyAddresses** należy użyć tylko wartości przy użyciu **protokołu SMTP:**, czyli podstawowego adresu e-mail.
+Po zainstalowaniu Azure AD Connect i uruchomieniu synchronizacji usługa Azure AD Sync (w usłudze Azure AD) sprawdza każdy nowy obiekt i próbuje znaleźć istniejący obiekt do dopasowania. Dla tego procesu są używane trzy atrybuty: **userPrincipalName**, **proxyAddresses**i **sourceAnchor** / **immutableID**. Dopasowanie elementu **userPrincipalName** i **proxyAddresses** jest znane jako niezrównane **dopasowanie**. Dopasowanie **sourceAnchor** jest znane jako **twarde dopasowanie**. Dla atrybutu **proxyAddresses** należy użyć tylko wartości przy użyciu **protokołu SMTP:**, czyli podstawowego adresu e-mail.
 
 Dopasowanie jest oceniane tylko dla nowych obiektów pochodzących z połączenia. Jeśli zmienisz istniejący obiekt tak, aby był dopasowany do któregokolwiek z tych atrybutów, zobaczysz błąd zamiast.
 

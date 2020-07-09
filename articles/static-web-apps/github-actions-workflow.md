@@ -2,17 +2,16 @@
 title: Przepływy pracy akcji GitHub dla Web Apps statycznej platformy Azure
 description: Dowiedz się, jak za pomocą repozytoriów usługi GitHub skonfigurować ciągłe wdrażanie w usłudze Azure static Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
-ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.author: cshoe
+ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655210"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340941"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -50,7 +49,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: Build And Deploy
       id: builddeploy
       uses: Azure/static-web-apps-deploy@v0.0.1-preview
@@ -105,7 +106,7 @@ W pliku statycznego przepływu pracy Web Apps są dostępne dwa zadania.
 | Nazwa  | Opis |
 |---------|---------|
 |`build_and_deploy_job` | Wykonuje się w przypadku wypychania zatwierdzeń lub otwarcia żądania ściągnięcia względem gałęzi wymienionej we `on` właściwości. |
-|`close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia. |
+|`close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia, które usuwa środowisko przejściowe utworzone na podstawie żądań ściągnięcia. |
 
 ## <a name="steps"></a>Kroki
 
@@ -136,7 +137,7 @@ with:
 
 | Właściwość | Opis | Wymagane |
 |---|---|---|
-| `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Yes |
+| `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Tak |
 | `api_location` | Lokalizacja kodu Azure Functions.<br><br>Na przykład wprowadź, `/api` czy kod aplikacji znajduje się w folderze o nazwie `api` . Jeśli w folderze nie zostanie wykryta żadna aplikacja Azure Functions, kompilacja nie powiedzie się, a przepływ pracy zakłada, że nie potrzebujesz interfejsu API. | Nie |
 | `app_artifact_location` | Lokalizacja katalogu wyjściowego kompilacji względem `app_location` .<br><br>Na przykład, jeśli kod źródłowy aplikacji znajduje się w lokalizacji `/app` i skrypt kompilacji wyprowadza pliki do `/app/build` folderu, a następnie ustawi `build` jako `app_artifact_location` wartość. | Nie |
 
@@ -155,13 +156,13 @@ Wdrożenie zawsze wywołuje `npm install` przed dowolnym poleceniem niestandardo
 
 ## <a name="route-file-location"></a>Lokalizacja pliku tras
 
-Możesz dostosować przepływ pracy w celu wyszukania pliku [Routes. JSON](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
+Możesz dostosować przepływ pracy, aby wyszukać [routes.js](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
 
 | Właściwość            | Opis |
 |---------------------|-------------|
-| `routes_location` | Określa lokalizację katalogu, w którym znajduje się plik _Routes. JSON_ . Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
+| `routes_location` | Określa lokalizację katalogu, w którym znajduje się _routes.js_ pliku. Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
 
- Jawne informacje o lokalizacji pliku _Routes. JSON_ są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `app_artifact_location` domyślnego.
+ Jawne informacje o lokalizacji _routes.jsw_ pliku są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `app_artifact_location` domyślnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

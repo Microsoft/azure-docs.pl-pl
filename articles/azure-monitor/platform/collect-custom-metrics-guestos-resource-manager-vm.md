@@ -8,10 +8,9 @@ ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
 ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83650548"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla maszyny wirtualnej z systemem Windows
@@ -38,22 +37,22 @@ Rozszerzenie Diagnostyka Azure używa funkcji o nazwie "ujścia danych" do kiero
 ## <a name="author-resource-manager-template"></a>Tworzenie szablonu Menedżer zasobów
 Na potrzeby tego przykładu można użyć publicznie dostępnego przykładowego szablonu. Szablony uruchamiania znajdują się pod adresem https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows .
 
-- **Azuredeploy. JSON** jest wstępnie skonfigurowanym szablonem Menedżer zasobów na potrzeby wdrożenia maszyny wirtualnej.
+- **Azuredeploy.json** jest wstępnie skonfigurowanym szablonem Menedżer zasobów do wdrożenia maszyny wirtualnej.
 
-- **Azuredeploy. Parameters. JSON** to plik parametrów, który przechowuje informacje takie jak nazwa użytkownika i hasło, które chcesz ustawić dla maszyny wirtualnej. Podczas wdrażania szablon Menedżer zasobów używa parametrów ustawionych w tym pliku.
+- **Azuredeploy.parameters.json** to plik parametrów, który przechowuje informacje takie jak nazwa użytkownika i hasło, które chcesz ustawić dla maszyny wirtualnej. Podczas wdrażania szablon Menedżer zasobów używa parametrów ustawionych w tym pliku.
 
 Pobierz i Zapisz oba pliki lokalnie.
 
-### <a name="modify-azuredeployparametersjson"></a>Modyfikuj azuredeploy. Parameters. JSON
-Otwórz plik *azuredeploy. Parameters. JSON*
+### <a name="modify-azuredeployparametersjson"></a>Modyfikuj azuredeploy.parameters.jsna
+Otwórz *azuredeploy.parameters.jsw* pliku
 
 1. Wprowadź wartości dla **adminUsername** i **adminPassword** dla maszyny wirtualnej. Te parametry są używane na potrzeby dostępu zdalnego do maszyny wirtualnej. Aby uniknąć przejęcia maszyny wirtualnej, nie używaj wartości z tego szablonu. Botów Skanuj Internet pod kątem nazw użytkowników i haseł w publicznych repozytoriach usługi GitHub. Te wartości domyślne mogą testować maszyny wirtualne.
 
 1. Utwórz unikatowy dnsname dla maszyny wirtualnej.
 
-### <a name="modify-azuredeployjson"></a>Modyfikuj plik azuredeploy. JSON
+### <a name="modify-azuredeployjson"></a>Modyfikuj azuredeploy.jsna
 
-Otwórz plik *azuredeploy. JSON*
+Otwórz *azuredeploy.jsw* pliku
 
 Dodaj identyfikator konta magazynu do sekcji **zmienne** szablonu po wpisie dla **storageAccountName.**
 
@@ -263,7 +262,7 @@ Aby wdrożyć szablon Menedżer zasobów, wykorzystujemy Azure PowerShell.
 1. Po pomyślnym wdrożeniu maszyna wirtualna powinna znajdować się w Azure Portal, emitując metryki Azure Monitor.
 
    > [!NOTE]
-   > Można napotkać błędy dotyczące wybranych vmSkuSize. W takim przypadku Wróć do pliku azuredeploy. JSON i zaktualizuj wartość domyślną parametru vmSkuSize. W tym przypadku zalecamy podjęcie próby "Standard_DS1_v2").
+   > Można napotkać błędy dotyczące wybranych vmSkuSize. W takim przypadku Wróć do azuredeploy.jsw pliku i zaktualizuj wartość domyślną parametru vmSkuSize. W tym przypadku zalecamy podjęcie próby "Standard_DS1_v2").
 
 ## <a name="chart-your-metrics"></a>Tworzenie wykresów metryk
 

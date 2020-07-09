@@ -18,11 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253886"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698601"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: koncepcje projektowania
 Celem tego dokumentu jest opisywanie obszarów, które muszą być rozważane podczas projektowania implementacji Azure AD Connect. Ten dokument to głębokie szczegółowe w niektórych obszarach. te pojęcia są również krótko opisane w innych dokumentach.
@@ -62,7 +61,7 @@ Jeśli masz wiele lasów i nie przenosisz użytkowników między lasami i domena
 
 Jeśli przenosisz użytkowników między lasami i domenami, musisz znaleźć atrybut, który nie zmienia się ani nie może zostać przeniesiony do użytkowników podczas przenoszenia. Zalecanym podejściem jest wprowadzenie atrybutu syntetycznego. Atrybut, który może zawierać coś, który wygląda jak identyfikator GUID, będzie odpowiedni. Podczas tworzenia obiektu tworzony jest nowy identyfikator GUID i jest on stemplowany na użytkowniku. Niestandardowa reguła synchronizacji można utworzyć na serwerze aparatu synchronizacji, aby utworzyć tę wartość na podstawie właściwości **objectGUID** i zaktualizować wybrany atrybut w obszarze Dodawanie. Podczas przenoszenia obiektu upewnij się, że kopiujesz również zawartość tej wartości.
 
-Innym rozwiązaniem jest wybranie istniejącego atrybutu, który nie zmienia się. Najczęściej używane atrybuty obejmują **IDPracownika**. Jeśli rozważasz atrybut, który zawiera litery, upewnij się, że przypadek (wielkie litery a małe litery) może zmienić wartość atrybutu. Złe atrybuty, które nie powinny być używane, zawierają te atrybuty z nazwą użytkownika. W przypadku małżeństwa lub rozwodu nazwa powinna ulec zmianie, co nie jest dozwolone dla tego atrybutu. Jest to również powód, dlaczego atrybuty, takie jak **userPrincipalName**, **mail**i **targetAddress** , nie są jeszcze dostępne do wyboru w Kreatorze instalacji Azure AD Connect. Te atrybuty również zawierają znak "\@", który jest niedozwolony w sourceAnchor.
+Innym rozwiązaniem jest wybranie istniejącego atrybutu, który nie zmienia się. Najczęściej używane atrybuty obejmują **IDPracownika**. Jeśli rozważasz atrybut, który zawiera litery, upewnij się, że przypadek (wielkie litery a małe litery) może zmienić wartość atrybutu. Złe atrybuty, które nie powinny być używane, zawierają te atrybuty z nazwą użytkownika. W przypadku małżeństwa lub rozwodu nazwa powinna ulec zmianie, co nie jest dozwolone dla tego atrybutu. Jest to również powód, dlaczego atrybuty, takie jak **userPrincipalName**, **mail**i **targetAddress** , nie są jeszcze dostępne do wyboru w Kreatorze instalacji Azure AD Connect. Te atrybuty również zawierają znak " \@ ", który jest niedozwolony w sourceAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Zmiana atrybutu sourceAnchor
 Nie można zmienić wartości atrybutu sourceAnchor po utworzeniu obiektu w usłudze Azure AD, a tożsamość jest zsynchronizowana.
@@ -180,7 +179,7 @@ Podczas integrowania katalogu lokalnego z usługą Azure AD ważne jest, aby zro
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Wybieranie atrybutu dla elementu userPrincipalName
 Podczas wybierania atrybutu w celu podania wartości nazwy UPN używanej na platformie Azure należy zapewnić
 
-* Wartości atrybutów są zgodne z składnią UPN (RFC 822), która powinna mieć format nazwa_użytkownika\@domena
+* Wartości atrybutów są zgodne z składnią UPN (RFC 822), która powinna mieć format nazwa_użytkownika \@ domena
 * Sufiks w wartości jest zgodny z jedną z zweryfikowanych domen niestandardowych w usłudze Azure AD
 
 W ustawieniach ekspresowych założono wybór dla atrybutu jest userPrincipalName. Jeśli atrybut userPrincipalName nie zawiera wartości, na które użytkownicy mają logować się na platformie Azure, należy wybrać opcję **Instalacja niestandardowa**.
@@ -188,7 +187,7 @@ W ustawieniach ekspresowych założono wybór dla atrybutu jest userPrincipalNam
 ### <a name="custom-domain-state-and-upn"></a>Niestandardowy stan domeny i nazwa UPN
 Ważne jest, aby upewnić się, że istnieje zweryfikowana domena dla sufiksu nazwy UPN.
 
-Jan jest użytkownikiem w contoso.com. Chcesz, aby Jan używał lokalnej nazwy UPN Jan\@contoso.com do logowania się do platformy Azure po zsynchronizowaniu użytkowników z katalogiem usługi azure AD contoso.onmicrosoft.com. Aby to zrobić, należy dodać i zweryfikować contoso.com jako domenę niestandardową w usłudze Azure AD przed rozpoczęciem synchronizowania użytkowników. Jeśli sufiks nazwy UPN Jan, na przykład contoso.com, nie pasuje do zweryfikowanej domeny w usłudze Azure AD, usługa Azure AD zamieni sufiks nazwy UPN na contoso.onmicrosoft.com.
+Jan jest użytkownikiem w contoso.com. Chcesz, aby Jan używał lokalnej nazwy UPN Jan \@ contoso.com do logowania się do platformy Azure po zsynchronizowaniu użytkowników z katalogiem usługi Azure AD contoso.onmicrosoft.com. Aby to zrobić, należy dodać i zweryfikować contoso.com jako domenę niestandardową w usłudze Azure AD przed rozpoczęciem synchronizowania użytkowników. Jeśli sufiks nazwy UPN Jan, na przykład contoso.com, nie pasuje do zweryfikowanej domeny w usłudze Azure AD, usługa Azure AD zamieni sufiks nazwy UPN na contoso.onmicrosoft.com.
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domeny lokalne bez routingu i nazwa UPN dla usługi Azure AD
 Niektóre organizacje mają domeny bez obsługi routingu, takie jak contoso. Local, lub proste domeny z pojedynczą etykietą, takie jak contoso. Nie można zweryfikować domeny bez obsługi routingu w usłudze Azure AD. Azure AD Connect można synchronizować tylko z zweryfikowaną domeną w usłudze Azure AD. Podczas tworzenia katalogu usługi Azure AD tworzy domenę routingu, która jest domeną domyślną dla usługi Azure AD na przykład contoso.onmicrosoft.com. W związku z tym, konieczna jest weryfikacja wszelkich innych domen routingu w taki scenariusz, jeśli nie chcesz synchronizować się z domyślną domeną onmicrosoft.com.

@@ -12,10 +12,9 @@ ms.custom:
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81684005"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializowanie telemetrii przy użyciu buforów protokołu
@@ -65,14 +64,14 @@ Pobierz i rozpakuj [mikrousługę symulacji urządzenia z usługi](https://githu
 
 W Visual Studio Code Otwórz folder **Remote-Monitoring-Services-dotnet-master\storage-adapter** . Kliknij dowolne przyciski **przywracania** , aby naprawić nierozwiązane zależności.
 
-Otwórz plik **. programu vscode/Launch. JSON** i przypisz Cosmos DB parametry połączenia do zmiennej środowiskowej **\_\_STORAGEADAPTER DOCUMENTDB\_CONNSTRING** .
+Otwórz plik **. programu vscode/launch.jsw** pliku i przypisz parametry połączenia Cosmos DB do zmiennej środowiskowej ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
 > [!NOTE]
 > Po uruchomieniu mikrousługi lokalnie na maszynie nadal wymagane jest wystąpienie Cosmos DB na platformie Azure.
 
-Aby uruchomić mikrousługę dla karty magazynu lokalnie, kliknij **pozycję \> Debuguj Rozpocznij debugowanie**.
+Aby uruchomić mikrousługę dla karty magazynu lokalnie, kliknij pozycję **Debuguj \> Rozpocznij debugowanie**.
 
-W oknie **terminalu** w Visual Studio Code są wyświetlane dane wyjściowe z uruchomionej mikrousługi, w tym adres URL sprawdzania kondycji <http://127.0.0.1:9022/v1/status>usługi sieci Web:. Po przejściu na ten adres stan powinien mieć wartość "OK: Alive i".
+W oknie **terminalu** w Visual Studio Code są wyświetlane dane wyjściowe z uruchomionej mikrousługi, w tym adres URL sprawdzania kondycji usługi sieci Web: <http://127.0.0.1:9022/v1/status> . Po przejściu na ten adres stan powinien mieć wartość "OK: Alive i".
 
 Podczas wykonywania poniższych kroków należy pozostawić działającą w tym wystąpieniu mikrousługę kart pamięci Visual Studio Code.
 
@@ -82,9 +81,9 @@ Otwórz folder **"symulacja urządzenia-dotnet"** , który został pobrany z us�
 
 W tym przewodniku krok po kroku utworzysz nowy model urządzenia dla narzędzia do śledzenia zasobów:
 
-1. Utwórz nowy plik modelu urządzenia o nazwie **assettracker-01. JSON** w folderze **Services\data\devicemodels** .
+1. Utwórz nowy plik modelu urządzenia o nazwie **assettracker-01.js** w folderze **Services\data\devicemodels** .
 
-1. Zdefiniuj funkcje urządzenia w pliku **JSON modelu assettracker-01.** Sekcja telemetrii modelu urządzenia protobuf musi:
+1. Zdefiniuj funkcje urządzenia w modelu urządzenia **assettracker-01.jsw** pliku. Sekcja telemetrii modelu urządzenia protobuf musi:
 
    * Dołącz nazwę klasy protobuf, która została wygenerowana dla urządzenia. W poniższej sekcji pokazano, jak wygenerować tę klasę.
    * Określ protobuf jako format wiadomości.
@@ -168,7 +167,7 @@ Jeśli masz model urządzenia i określisz Format wiadomości, możesz utworzyć
     }
     ```
 
-Znaczniki `=1`, `=2` dla każdego elementu określają unikatowy tag, którego pole używa w kodowaniu binarnym. Liczby 1-15 wymagają jednego mniejszego bajtu do kodowania niż większe liczby.
+`=1`Znaczniki, `=2` dla każdego elementu określają unikatowy tag, którego pole używa w kodowaniu binarnym. Liczby 1-15 wymagają jednego mniejszego bajtu do kodowania niż większe liczby.
 
 ## <a name="generate-the-protobuf-class"></a>Generuj klasę protobuf
 
@@ -190,17 +189,17 @@ W tej sekcji przetestujesz urządzenie do śledzenia zasobów utworzone w poprze
 
 ### <a name="run-the-device-simulation-microservice"></a>Uruchamianie mikrousługi symulacji urządzenia
 
-Otwórz plik **. programu vscode/Launch. JSON** i przypisz:
+Otwórz plik **. programu vscode/launch.jsw** pliku i przypisz:
 
-* IoT Hub parametry połączenia z zmienną środowiskową **\_IOTHUB\_CONNSTRING** .
-* Parametry połączenia konta magazynu z zmienną środowiskową **konta\_usługi Azure\_Storage\_** .
-* Cosmos DB parametry połączenia z zmienną środowiskową **\_\_STORAGEADAPTER\_DOCUMENTDB CONNSTRING** .
+* IoT Hub parametry połączenia z zmienną środowiskową ** \_ IOTHUB \_ CONNSTRING** .
+* Parametry połączenia konta magazynu z zmienną środowiskową ** \_ \_ \_ konta usługi Azure Storage** .
+* Cosmos DB parametry połączenia z zmienną środowiskową ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
-Otwórz plik **WebService/Properties/profilu launchsettings. JSON** i przypisz:
+Otwórz plik **WebService/Properties/launchSettings.jsw** pliku i przypisz:
 
-* IoT Hub parametry połączenia z zmienną środowiskową **\_IOTHUB\_CONNSTRING** .
-* Parametry połączenia konta magazynu z zmienną środowiskową **konta\_usługi Azure\_Storage\_** .
-* Cosmos DB parametry połączenia z zmienną środowiskową **\_\_STORAGEADAPTER\_DOCUMENTDB CONNSTRING** .
+* IoT Hub parametry połączenia z zmienną środowiskową ** \_ IOTHUB \_ CONNSTRING** .
+* Parametry połączenia konta magazynu z zmienną środowiskową ** \_ \_ \_ konta usługi Azure Storage** .
+* Cosmos DB parametry połączenia z zmienną środowiskową ** \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING** .
 
 Otwórz plik **WebService\appsettings.ini** i zmodyfikuj ustawienia w następujący sposób:
 
@@ -251,7 +250,7 @@ Aby skonfigurować notkę:
 
 1. Kliknij **pozycję \> Importuj plik**. Następnie kliknij pozycję **Wybierz pliki**.
 
-1. Wybierz **Akcelerator rozwiązania do symulacji urządzeń Azure IoT\_. kolekcja ogłoszeń** i narzędzie **Azure IoT Device symulacja rozwiązania.\_** **Open**
+1. Wybierz **Akcelerator rozwiązania do symulacji urządzeń Azure IoT. \_ Kolekcja ogłoszeń** i narzędzie **Azure IoT Device symulacja rozwiązania. \_ ** **Open**
 
 1. Rozwiń **Akcelerator rozwiązania do symulacji urządzeń Azure IoT** , aby wyświetlić możliwe do wysłania żądania.
 
@@ -267,7 +266,7 @@ Aby skonfigurować i uruchomić symulację:
 
 Aby zatrzymać symulację, wybierz żądanie **zatrzymania symulacji** w programie Poster i kliknij pozycję **Wyślij**.
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Można zatrzymać dwa lokalnie działające mikrousługi w Visual Studio Code wystąpieniach (debugowanie** \> Zatrzymaj debugowanie**).
 

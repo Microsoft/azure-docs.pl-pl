@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4f026a6a0155f9d4add15adb26951b4913d11685
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077443"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -23,7 +23,7 @@ ms.locfileid: "84019813"
 |Źródło danych  |W pamięci  |DirectQuery  |Uwagi |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Tak      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Analiza usługi Azure Synapse (SQL Data Warehouse)      |   Tak      |   Yes       |<sup>[dwóch](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Tak      |   Yes       |<sup>[2](#azprovider)</sup>|
 |Azure Blob Storage      |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup> |
 |Azure Table Storage     |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Yes        |  Nie        |<sup>[jedno](#tab1400a)</sup> |
@@ -33,11 +33,11 @@ ms.locfileid: "84019813"
 |Azure HDInsight Spark     |   Yes       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
-**O**
+**Uwagi:**
 
 tylko <a name="tab1400a">1</a> -tabelaryczny model 1400 i wyższe.  
 <a name="azprovider">2</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, zarówno modele w pamięci, jak i zapytania bezpośredniego wymagają sterownika OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
-<a name="azsqlmanaged">3</a> -Azure SQL Database wystąpienie zarządzane jest obsługiwane. Ponieważ wystąpienie zarządzane działa w sieci wirtualnej platformy Azure z prywatnym adresem IP, w tym wystąpieniu musi być włączony publiczny punkt końcowy. Jeśli ta funkcja nie jest włączona, wymagana jest [lokalna Brama danych](analysis-services-gateway.md) .  
+<a name="azsqlmanaged">3</a> — obsługiwane jest wystąpienie zarządzane Azure SQL. Ponieważ wystąpienie zarządzane SQL działa w sieci wirtualnej platformy Azure z prywatnym adresem IP, w tym wystąpieniu musi być włączony publiczny punkt końcowy. Jeśli ta funkcja nie jest włączona, wymagana jest [lokalna Brama danych](analysis-services-gateway.md) .  
 <a name="databricks">4</a> Azure Databricks używanie łącznika Spark nie jest obecnie obsługiwane.  
 Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, jednak łącznik usługi Azure Blob Storage może być używany ze źródłem danych ADLS Gen2.
 
@@ -53,7 +53,7 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |Dynamics 365     |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Skoroszyt programu Excel     |  Yes | Nie |  |
 |Exchange      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
-|Folder      |Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|Folder      |Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 |IBM Informix  |Yes | Nie |  |
 |Dokument JSON      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Wiersze z pliku binarnego      | Yes | Nie | <sup>[ust](#tab1400b)</sup> |
@@ -71,12 +71,12 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Magazyn danych SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Baza danych Sybase     |  Yes | Nie |  |
-|Teradata | Tak  | Yes  | <sup>[dziesięć](#teradata)</sup> |
+|Teradata | Tak  | Yes  | <sup>[10](#teradata)</sup> |
 |Plik TXT  |Yes | Nie |  |
 |Tabela XML    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 | | | |
 
-**O**  
+**Uwagi:**  
 <a name="tab1400b">6</a> -tabelaryczne 1400 i wyższe modele.  
 <a name="sqlim">7</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, określ Sterownik OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
 <a name="instgw">8</a> — Jeśli określono MSOLEDBSQL jako dostawcę danych, może być konieczne pobranie i zainstalowanie [sterownika OLE DB firmy Microsoft w celu SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) na tym samym komputerze, na którym znajduje się lokalna Brama danych.  
@@ -88,7 +88,7 @@ Połączenie z lokalnymi źródłami danych z serwera Azure Analysis Services wy
 
 ## <a name="understanding-providers"></a>Informacje o dostawcach
 
-Podczas tworzenia tabelarycznych projektów 1400 i wyższych modeli w programie Visual Studio domyślnie nie jest określany dostawca danych podczas nawiązywania połączenia ze źródłem danych przy użyciu polecenia **Pobierz dane**. Tabelaryczne 1400 i wyższe modele używają [Power Query](/power-query/power-query-what-is-power-query) łączników do zarządzania połączeniami, kwerendami danych i mashupy między źródłem danych i Analysis Services. Są one czasami określane jako połączenia ze źródłem danych ze *strukturą* w ramach tych ustawień właściwości połączenia. Można jednak włączyć starsze źródła danych dla projektu modelu w programie Visual Studio. Po włączeniu programu można użyć **Kreatora importu tabeli** do łączenia się z niektórymi źródłami danych tradycyjnie obsługiwanymi w tabelarycznych 1200 i niższych modelach jako *starszych*lub źródeł danych *dostawcy* . W przypadku określenia źródła danych dostawcy można określić określonego dostawcę danych i inne zaawansowane właściwości połączenia. Można na przykład połączyć się z lokalnym magazynem danych SQL Server, a nawet Azure SQL Database jako starszym źródłem danych. Następnie można wybrać sterownik OLE DB dla dostawcy danych programu SQL Server MSOLEDBSQL. W takim przypadku wybranie dostawcy danych OLE DB może zapewnić lepszą wydajność w przypadku łącznika Power Query. 
+Podczas tworzenia tabelarycznych projektów 1400 i wyższych modeli w programie Visual Studio domyślnie nie jest określany dostawca danych podczas nawiązywania połączenia ze źródłem danych przy użyciu polecenia **Pobierz dane**. Tabelaryczne 1400 i wyższe modele używają [Power Query](/power-query/power-query-what-is-power-query) łączników do zarządzania połączeniami, kwerendami danych i mashupy między źródłem danych i Analysis Services. Są one czasami określane jako połączenia ze źródłem danych ze *strukturą* w ramach tych ustawień właściwości połączenia. Można jednak włączyć starsze źródła danych dla projektu modelu w programie Visual Studio. Po włączeniu programu można użyć **Kreatora importu tabeli** do łączenia się z niektórymi źródłami danych tradycyjnie obsługiwanymi w tabelarycznych 1200 i niższych modelach jako *starszych*lub źródeł danych *dostawcy* . W przypadku określenia źródła danych dostawcy można określić określonego dostawcę danych i inne zaawansowane właściwości połączenia. Można na przykład połączyć się z wystąpieniem magazynu danych SQL Server, a nawet Azure SQL Database jako starszym źródłem danych. Następnie można wybrać sterownik OLE DB dla dostawcy danych programu SQL Server MSOLEDBSQL. W takim przypadku wybranie dostawcy danych OLE DB może zapewnić lepszą wydajność w przypadku łącznika Power Query. 
 
 W przypadku korzystania z Kreatora importu tabeli w programie Visual Studio połączenia z dowolnym źródłem danych wymagają dostawcy danych. Wybrano domyślnego dostawcę danych. W razie konieczności można zmienić dostawcę danych. Wybrany typ dostawcy może zależeć od wydajności, bez względu na to, czy model używa magazynu w pamięci lub zapytania bezpośredniego, a który Analysis Services platformę, do której zostanie wdrożony model.
 

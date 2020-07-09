@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
 ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797596"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Ciągłe monitorowanie za pomocą Azure Monitor
@@ -28,7 +27,7 @@ Aby uzyskać wgląd w całe środowisko, należy włączyć monitorowanie wszyst
 - [Azure DevOps projects](../devops-project/overview.md) zapewnić uproszczone środowisko pracy z istniejącym kodem i repozytorium Git lub wybrać jedną z przykładowych aplikacji, aby utworzyć potok ciągłej integracji i ciągłego dostarczania na platformie Azure.
 - [Ciągłe monitorowanie w potoku wydania DevOps](../azure-monitor/app/continuous-monitoring.md) umożliwia bramowanie lub wycofywanie wdrożenia na podstawie danych monitorowania.
 - [Monitor stanu](../azure-monitor/app/monitor-performance-live-website-now.md) umożliwia instrumentację na żywo aplikacji .NET w systemie Windows przy użyciu usługi Azure Application Insights, bez konieczności modyfikowania ani ponownego wdrażania kodu.
-- Jeśli masz dostęp do kodu aplikacji, Włącz pełne monitorowanie za pomocą [Application Insights](../azure-monitor/app/app-insights-overview.md) , instalując zestaw SDK Azure Monitor Application Insights dla [platformy .NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [Node. js](../azure-monitor/learn/nodejs-quick-start.md)lub [innych języków programowania](../azure-monitor/app/platforms.md). Pozwala to określić niestandardowe zdarzenia, metryki lub widoki stron, które są istotne dla Twojej aplikacji i Twojej firmy.
+- Jeśli masz dostęp do kodu aplikacji, Włącz pełne monitorowanie za pomocą [Application Insights](../azure-monitor/app/app-insights-overview.md) , instalując zestaw SDK Azure Monitor Application Insights dla [platformy .NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md)lub [innych języków programowania](../azure-monitor/app/platforms.md). Pozwala to określić niestandardowe zdarzenia, metryki lub widoki stron, które są istotne dla Twojej aplikacji i Twojej firmy.
 
 
 

@@ -6,7 +6,7 @@
     - name: Co to jest usługa Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: Usługa Azure Machine Learning a Studio
+    - name: Usługa Azure Machine Learning a usługa Studio (klasyczna)
       displayName: 'AML, Studio, designer'
       href: compare-azure-ml-to-studio-classic.md
     - name: Architektura i warunki
@@ -67,15 +67,18 @@
         - name: Tworzenie pierwszego eksperymentu uczenia maszynowego (R)
           href: tutorial-1st-r-experiment.md
     - name: Interfejs wiersza polecenia uczenia maszynowego
-      href: tutorial-train-deploy-model-cli.md
+      items:
+        - name: Uczenie i wdrażanie przy użyciu interfejsu wiersza polecenia
+          href: tutorial-train-deploy-model-cli.md
+        - name: Tworzenie obszarów roboczych przy użyciu szablonu usługi ARM
+          displayName: Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Konfigurowanie rozszerzenia usługi Azure Machine Learning
           href: tutorial-setup-vscode-extension.md
         - name: Trenowanie i wdrażanie modelu klasyfikacji obrazów biblioteki TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Tworzenie obszaru roboczego przy użyciu szablonu usługi Resource Manager
-      href: tutorial-resource-manager-workspace.md
 - name: Samples
   items:
     - name: Notesy programu Jupyter
@@ -90,6 +93,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Pojęcia
   items:
+    - name: Wersja Enterprise a wersja podstawowa
+      href: concept-editions.md
     - name: Planowanie kosztów i zarządzanie nimi
       href: concept-plan-manage-cost.md
     - name: Projektant (uczenie maszynowe metodą przeciągania i upuszczania)
@@ -125,6 +130,8 @@
           href: concept-data.md
         - name: Wprowadzanie danych
           href: concept-data-ingestion.md
+        - name: Przetwarzanie danych
+          href: concept-optimize-data-processing.md
     - name: Trenowanie modelu
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
@@ -143,7 +150,7 @@
       href: concept-ml-pipelines.md
     - name: Gotowość i zabezpieczenia przedsiębiorstwa
       items:
-        - name: Zabezpieczenia przedsiębiorstwa
+        - name: Ład i zabezpieczenia w przedsiębiorstwie
           items:
             - name: Przegląd zabezpieczeń przedsiębiorstwa
               displayName: authorization authentication encryption aad azure active directory
@@ -157,14 +164,17 @@
               displayName: private endpoint
               href: how-to-configure-private-link.md
             - name: Zabezpieczanie usług internetowych przy użyciu protokołu TLS
-              href: how-to-secure-web-service.md
               displayName: ssl
+              href: how-to-secure-web-service.md
             - name: Korzystanie z tożsamości usługi Azure AD we wdrożeniach usługi AKS
               href: how-to-use-azure-ad-identity.md
             - name: Ponowne generowanie kluczy dostępu do magazynu
               href: how-to-change-storage-access-key.md
             - name: Korzystanie z usługi Azure Firewall
               href: how-to-access-azureml-behind-firewall.md
+            - name: Bezpieczne kodowanie
+              href: concept-secure-code-best-practice.md
+              displayName: security threat
         - name: Konfigurowanie uwierzytelniania
           displayName: 'authentication, auth, oauth'
           href: how-to-setup-authentication.md
@@ -267,19 +277,16 @@
               href: how-to-differential-privacy.md
     - name: Szkolenie modeli
       items:
+        - name: Konfigurowanie środowisk szkoleniowych
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
         - name: Używanie narzędzi do szacowania w uczeniu maszynowym
           items:
             - name: Tworzenie estymatorów na potrzeby trenowania
               href: how-to-train-ml-models.md
-            - name: Konfigurowanie środowisk szkoleniowych
-              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-              href: how-to-set-up-training-targets.md
             - name: Dostrajanie hiperparametrów
               displayName: parameter
               href: how-to-tune-hyperparameters.md
-            - name: Używanie usługi Key Vault podczas trenowania
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -288,18 +295,36 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Śledzenie i monitorowanie trenowania
+          items:
+            - name: 'Uruchamianie, monitorowanie i anulowanie przebiegów'
+              displayName: 'cancel, fail, status, child run'
+              href: how-to-manage-runs.md
+            - name: Rejestrowanie metryk dla przebiegów treningowych
+              href: how-to-track-experiments.md
+            - name: Śledzenie eksperymentów za pomocą platformy MLflow
+              displayName: 'log, monitor, metrics, Databricks'
+              href: how-to-use-mlflow.md
+            - name: Wizualizacja przebiegów za pomocą narzędzia TensorBoard
+              displayName: 'log, monitor, metrics'
+              href: how-to-monitor-tensorboard.md
+        - name: Interpretowanie i wyjaśnianie modeli
+          displayName: interpretability
+          items:
+            - name: Interpretowanie modeli uczenia maszynowego
+              displayName: 'SDK, interpret, explain, explanability, interpretability'
+              href: how-to-machine-learning-interpretability-aml.md
+            - name: Wyjaśnienie modeli zautomatyzowanego uczenia maszynowego
+              displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
+              href: how-to-machine-learning-interpretability-automl.md
+        - name: Ocenianie i łagodzenie atrakcyjności modelu
+          href: how-to-machine-learning-fairness-aml.md
+        - name: Używanie usługi Key Vault podczas trenowania
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
         - name: Uczenie przez wzmacnianie
           href: how-to-use-reinforcement-learning.md
-    - name: Interpretowanie i wyjaśnianie modeli
-      displayName: interpretability
-      items:
-        - name: Interpretowanie modeli uczenia maszynowego
-          displayName: 'SDK, interpret, explain, explanability, interpretability'
-          href: how-to-machine-learning-interpretability-aml.md
-        - name: Wyjaśnienie modeli zautomatyzowanego uczenia maszynowego
-          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
-          href: how-to-machine-learning-interpretability-automl.md
-    - name: Automatyzacja uczenia maszynowego
+    - name: Zautomatyzowane uczenie maszynowe
       displayName: 'automl, auto ml'
       items:
         - name: Używanie automatycznego uczenia maszynowego (Python)
@@ -310,30 +335,20 @@
         - name: Używanie miejsc docelowych obliczania zdalnego
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
-        - name: Definiowanie zadań uczenia maszynowego
-          displayName: 'machine learning, task type'
-          href: how-to-define-task-type.md
         - name: Automatyczne trenowanie modelu prognozy
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Podziały danych i krzyżowe sprawdzanie poprawności (Python)
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-cross-validation-data-splits.md
+        - name: Cechowanie w zautomatyzowanym uczeniu maszynowym (Python)
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-auto-features.md
         - name: Używanie zautomatyzowanego uczenia maszynowego w potokach uczenia maszynowego (Python)
           displayName: machine learning automl
           href: how-to-use-automlstep-in-pipelines.md
         - name: Opis wykresów i metryk
           href: how-to-understand-automated-ml.md
-    - name: Śledzenie i monitorowanie eksperymentów
-      items:
-        - name: 'Uruchamianie, monitorowanie i anulowanie przebiegów'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: Rejestrowanie metryk dla przebiegów treningowych
-          href: how-to-track-experiments.md
-        - name: Śledzenie eksperymentów za pomocą platformy MLflow
-          displayName: 'log, monitor, metrics, Databricks'
-          href: how-to-use-mlflow.md
-        - name: Wizualizacja przebiegów za pomocą narzędzia TensorBoard
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
     - name: Wdrażanie i obsługa modeli
       items:
         - name: Gdzie i jak wdrażać modele
@@ -357,6 +372,8 @@
             - name: Azure Functions
               displayName: functions app
               href: how-to-deploy-functions.md
+            - name: Azure Cognitive Search
+              href: how-to-deploy-model-cognitive-search.md
             - name: Urządzenia usługi Azure IoT Edge
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Wnioskowanie FPGA
@@ -398,7 +415,6 @@
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Debugowanie potoków w usłudze Application Insights
-          displayname: 'pipelines, log, monitor'
           href: how-to-debug-pipelines-application-insights.md
         - name: Projektant — przekształcanie danych
           displayName: pipeline
@@ -449,8 +465,6 @@
     - name: Odwołanie do modułu projektanta
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
-    - name: Uczenie maszynowe na dużą skalę
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Monitorowanie odwołań do danych
       href: monitor-resource-reference.md
     - name: Dokumentacja języka YAML potoku uczenia maszynowego
@@ -470,7 +484,7 @@
       displayName: 'bugs, errors, troubleshoot'
       href: resource-known-issues.md
     - name: Forum użytkowników
-      href: 'https://aka.ms/aml-forum-service'
+      href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Porównanie naszych produktów do uczenia maszynowego

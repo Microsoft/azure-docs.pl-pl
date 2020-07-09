@@ -1,6 +1,6 @@
 ---
 title: Zbadaj zdarzenia za pomocą usługi Azure wskaźnikowej | Microsoft Docs
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zbadać zdarzenia za pomocą platformy Azure.
+description: W tym samouczku dowiesz się, jak za pomocą usługi Azure wskaźnikowej utworzyć zaawansowane reguły alertów, które generują zdarzenia, które można przypisać i zbadać.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565235"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Samouczek: badanie zdarzeń za pomocą platformy Azure — wskaźnik
 
@@ -97,7 +97,7 @@ Aby użyć grafu badania:
 
     ![Wyświetl powiązane alerty](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Dla każdej kwerendy eksploracji można wybrać opcję otwarcia nieprzetworzonych wyników zdarzeń i zapytania używanego w Log Analytics, wybierając pozycję **zdarzenia\>**.
+1. Dla każdej kwerendy eksploracji można wybrać opcję otwarcia nieprzetworzonych wyników zdarzeń i zapytania używanego w Log Analytics, wybierając pozycję **zdarzenia \> **.
 
 1. Aby zrozumieć zdarzenie, wykres zawiera równoległą oś czasu.
 
@@ -107,7 +107,21 @@ Aby użyć grafu badania:
 
     ![Użyj osi czasu na mapie, aby zbadać alerty](media/tutorial-investigate-cases/use-timeline.png)
 
+## <a name="closing-an-incident"></a>Zamykanie zdarzenia
 
+Po rozwiązaniu konkretnego zdarzenia (na przykład po osiągnięciu jego wniosku) należy ustawić stan zdarzenia na **zamknięte**. Gdy to zrobisz, zostanie wyświetlony monit o sklasyfikowanie zdarzenia przez określenie przyczyny zamknięcia. Ten krok jest obowiązkowy. Kliknij pozycję **Wybierz klasyfikację** i wybierz z listy rozwijanej jedną z następujących opcji:
+
+- Prawdziwe, pozytywne — podejrzane działanie
+- Niegroźne dodatnie — podejrzane, ale oczekiwane
+- Fałszywie dodatnia — nieprawidłowa logika alertu
+- Fałszywie dodatnie — nieprawidłowe dane
+- Nieokreślony
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{Alt-text}":::
+
+Po wybraniu odpowiedniej klasyfikacji Dodaj tekst opisowy w polu **komentarz** . Będzie to przydatne w przypadku, gdy należy odwołać się do tego zdarzenia. Po zakończeniu kliknij pozycję **Zastosuj** , a zdarzenie zostanie zamknięte.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{Alt-text}":::
 
 ## <a name="next-steps"></a>Następne kroki
 W ramach tego samouczka nauczysz się rozpocząć badanie zdarzeń przy użyciu platformy Azure — wskaźnik. Przejdź do samouczka dotyczącego [sposobu reagowania na zagrożenia przy użyciu zautomatyzowanego elementy PlayBook](tutorial-respond-threats-playbook.md).

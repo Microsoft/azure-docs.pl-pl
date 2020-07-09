@@ -1,17 +1,17 @@
 ---
-title: TLS-Azure Database for PostgreSQL — pojedynczy serwer
+title: SSL/TLS-Azure Database for PostgreSQL-pojedynczy serwer
 description: Instrukcje i informacje dotyczące sposobu konfigurowania łączności TLS dla Azure Database for PostgreSQL-pojedynczego serwera.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: d0482e5205b97b5c57c41e0ba98fb9ca819e5d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 6660c5d40ffb8ecb338dd9cdf53f24cfe2911713
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141741"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043839"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Konfigurowanie łączności TLS w Azure Database for PostgreSQL-pojedynczym serwerze
 
@@ -39,7 +39,7 @@ Ustawienie można potwierdzić, wyświetlając stronę **Przegląd** , aby wyśw
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-W interfejsie wiersza polecenia platformy Azure można włączyć lub wyłączyć `Enabled` parametr `Disabled` **wymuszania protokołu SSL** lub wartości.
+W interfejsie wiersza polecenia platformy Azure można włączyć lub wyłączyć parametr **wymuszania protokołu SSL** `Enabled` lub `Disabled` wartości.
 
 ```azurecli
 az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
@@ -51,11 +51,11 @@ Niektóre struktury aplikacji korzystające z PostgreSQL dla usług baz danych n
 
 ## <a name="applications-that-require-certificate-verification-for-tls-connectivity"></a>Aplikacje, które wymagają weryfikacji certyfikatu na potrzeby łączności TLS
 
-W niektórych przypadkach aplikacje wymagają lokalnego pliku certyfikatu wygenerowanego na podstawie pliku certyfikatu zaufanego urzędu certyfikacji (. cer), aby bezpiecznie nawiązać połączenie. Certyfikat do połączenia z serwerem Azure Database for PostgreSQL znajduje się w lokalizacji https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Pobierz plik certyfikatu i Zapisz go w preferowanej lokalizacji.
+W niektórych przypadkach aplikacje wymagają lokalnego pliku certyfikatu wygenerowanego na podstawie pliku certyfikatu zaufanego urzędu certyfikacji w celu bezpiecznego nawiązywania połączenia. Certyfikat do połączenia z serwerem Azure Database for PostgreSQL znajduje się w lokalizacji https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . Pobierz plik certyfikatu i Zapisz go w preferowanej lokalizacji. (Zobacz następujące linki dla certyfikatów serwerów w ramach suwerennych chmur: [Azure Government](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), [Azure Chiny](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)i [Azure (Niemcy](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt)). 
 
 ### <a name="connect-using-psql"></a>Nawiązywanie połączenia przy użyciu PSQL
 
-Poniższy przykład pokazuje, jak nawiązać połączenie z serwerem PostgreSQL za pomocą narzędzia wiersza polecenia PSQL. Użyj ustawienia `sslmode=verify-full` parametrów połączenia, aby wymusić weryfikację certyfikatu TLS/SSL. Przekaż ścieżkę pliku certyfikatu lokalnego do `sslrootcert` parametru.
+Poniższy przykład pokazuje, jak nawiązać połączenie z serwerem PostgreSQL za pomocą narzędzia wiersza polecenia PSQL. Użyj `sslmode=verify-full` Ustawienia parametrów połączenia, aby wymusić weryfikację certyfikatu TLS/SSL. Przekaż ścieżkę pliku certyfikatu lokalnego do `sslrootcert` parametru.
 
 Następujące polecenie jest przykładem parametrów połączenia PSQL:
 
@@ -66,6 +66,33 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 > [!TIP]
 > Upewnij się, że wartość jest `sslrootcert` zgodna z ścieżką pliku dla zapisywanych certyfikatów.
 
+## <a name="tls-enforcement-in-azure-database-for-postgresql-single-server"></a>Wymuszanie protokołu TLS w Azure Database for PostgreSQL pojedynczym serwerze
+
+Azure Database for PostgreSQL — pojedynczy serwer obsługuje szyfrowanie dla klientów nawiązujących połączenie z serwerem bazy danych przy użyciu usługi Transport Layer Security (TLS). TLS jest standardowym protokołem, który zapewnia bezpieczne połączenia sieciowe między serwerem bazy danych i aplikacjami klienckimi, co pozwala na przestrzeganie wymagań dotyczących zgodności.
+
+### <a name="tls-settings"></a>Ustawienia protokołu TLS
+
+Azure Database for PostgreSQL pojedynczy serwer umożliwia wymuszanie wersji protokołu TLS dla połączeń klientów. Aby wymusić wersję protokołu TLS, użyj ustawienia opcji **minimalnej wersji protokołu TLS** . Dla tego ustawienia opcji można używać następujących wartości:
+
+|  Minimalne ustawienie protokołu TLS             | Obsługiwana wersja protokołu TLS klienta                |
+|:---------------------------------|-------------------------------------:|
+| TLSEnforcementDisabled (domyślnie) | Nie jest wymagany protokół TLS                      |
+| TLS1_0                           | TLS 1,0, TLS 1,1, TLS 1,2 i nowsze |
+| TLS1_1                           | TLS 1,1, TLS 1,2 i nowsze          |
+| TLS1_2                           | TLS w wersji 1,2 lub nowszej           |
+
+
+Na przykład ustawienie minimalnej wersji protokołu TLS na TLS 1,0 oznacza, że serwer będzie zezwalał na połączenia od klientów przy użyciu protokołu TLS 1,0, 1,1 i 1.2 +. Alternatywnie ustawienie tego ustawienia na 1,2 oznacza, że zezwalasz tylko na połączenia od klientów korzystających z protokołu TLS 1.2 + i wszystkie połączenia z protokołem TLS 1,0 i TLS 1,1 zostaną odrzucone.
+
+> [!Note] 
+> Domyślnie Azure Database for PostgreSQL nie wymusza minimalnej wersji protokołu TLS (ustawienie `TLSEnforcementDisabled` ).
+>
+> Po wymuszeniu minimalnej wersji protokołu TLS nie można później wyłączyć wymuszania wersji minimalnej.
+
+Aby dowiedzieć się, jak ustawić ustawienie protokołu TLS dla Azure Database for PostgreSQL pojedynczego serwera, zobacz [jak skonfigurować ustawienie protokołu TLS](howto-tls-configurations.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z różnymi opcjami łączności aplikacji w [bibliotekach połączeń dla Azure Database for PostgreSQL](concepts-connection-libraries.md).
+
+- Dowiedz się, jak [skonfigurować protokół TLS](howto-tls-configurations.md)

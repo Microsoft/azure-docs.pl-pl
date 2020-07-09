@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677601"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proces nauki danych zespołu w akcji — Używanie klastra Azure HDInsight Hadoop w zestawie danych o pojemności 1 TB
@@ -75,13 +74,13 @@ Dostęp do zestawu danych [Criteo](https://labs.criteo.com/downloads/download-te
 
 Kliknij przycisk **Kontynuuj, aby pobrać** , aby dowiedzieć się więcej na temat zestawu danych i jego dostępności.
 
-Dane znajdują się w lokalizacji [magazynu obiektów blob platformy Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "Wasb" odwołuje się do lokalizacji Blob Storage platformy Azure.
+Dane znajdują się w lokalizacji [magazynu obiektów blob platformy Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . "Wasb" odwołuje się do lokalizacji Blob Storage platformy Azure.
 
 1. Dane w tym magazynie obiektów blob platformy Azure składają się z trzech podfolderów niespakowanego danych.
 
-   1. Podfolder *RAW/Count/* zawiera pierwsze 21 dni danych — od dnia\_00 do dnia 20\_
-   2. Podfolder *RAW/pociąg/* składa się z pojedynczego dnia danych, dzień\_21
-   3. Podfolder *RAW/test/* składa się z dwóch dni danych, dzień\_22 i dzień 23\_
+   1. Podfolder *RAW/Count/* zawiera pierwsze 21 dni danych — od dnia \_ 00 do dnia \_ 20
+   2. Podfolder *RAW/pociąg/* składa się z pojedynczego dnia danych, dzień \_ 21
+   3. Podfolder *RAW/test/* składa się z dwóch dni danych, dzień \_ 22 i dzień \_ 23
 2. Surowe dane gzip są również dostępne w folderze głównym *RAW/* as day_NN. gz, gdzie nn ma wartość od 00 do 23.
 
 Alternatywna metoda uzyskiwania dostępu do tych danych, eksplorowania ich i modelowania, które nie wymagają pobrania plików lokalnych, została omówiona w dalszej części tego instruktażu podczas tworzenia tabel programu Hive.
@@ -115,9 +114,9 @@ Gdy REPL Hive zostanie wyświetlony ze znakiem "Hive >", po prostu Wytnij i wkle
 
 Poniższy kod tworzy bazę danych "Criteo", a następnie generuje cztery tabele:
 
-* *tabela służąca do generowania liczników* utworzonych na dzień\_od 00 do dnia\_20,
-* tabela, która *ma być używana jako zestaw danych szkolenia* zbudowanych dnia\_21.
-* dwie *tabele do użycia jako testowe zestawy danych,* które zostały odpowiednio\_zaprojektowane w dniu\_22 i dnia 23.
+* *tabela służąca do generowania liczników* utworzonych na dzień od \_ 00 do dnia \_ 20,
+* tabela, która *ma być używana jako zestaw danych szkolenia* zbudowanych dnia \_ 21.
+* dwie *tabele do użycia jako testowe zestawy danych,* które zostały odpowiednio zaprojektowane w dniu \_ 22 i dnia \_ 23.
 
 Podziel zestaw danych testu na dwie różne tabele, ponieważ jeden z dni jest świętem. Celem jest określenie, czy model może wykrywać różnice między dniami wolnymi i nieświątecznymi od stawki kliknięcia.
 
@@ -222,7 +221,7 @@ Jak zwykle, można również wywołać skrypt w wierszu bin/Directory programu H
 
         hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-Na koniec sprawdź liczbę przykładów testowych w zestawie danych testowych na podstawie dnia\_23.
+Na koniec sprawdź liczbę przykładów testowych w zestawie danych testowych na podstawie dnia \_ 23.
 
 To polecenie jest podobne do pokazanego (zobacz [przykładowe&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;przykłady. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
@@ -247,7 +246,7 @@ Daje to rozkład etykiet:
 Wartość procentowa etykiet dodatnich jest około 3,3% (spójna z oryginalnym zestawem danych).
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Rozkłady histogramów niektórych zmiennych liczbowych w zestawie danych pociągu
-Można użyć natywnej funkcji "histogram\_", aby dowiedzieć się, jak wygląda rozkład zmiennych liczbowych. Poniżej przedstawiono zawartość [przykładu&#95;hive&#95;criteo&#95;histogram&#95;wartość numeric. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Można użyć natywnej funkcji "histogram", \_ Aby dowiedzieć się, jak wygląda rozkład zmiennych liczbowych. Poniżej przedstawiono zawartość [przykładu&#95;hive&#95;criteo&#95;histogram&#95;wartość numeric. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -284,7 +283,7 @@ Daje to następujące kwestie:
 Połączenie POPRZECZNe — rozłożenie w programie Hive służy do generowania danych wyjściowych przypominających kod SQL zamiast zwykłej listy. W tej tabeli pierwsza kolumna odnosi się do centrum pojemników, a druga do częstotliwości pojemnika.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Przybliżone percentyle niektórych zmiennych liczbowych w zestawie danych pociągu
-Również znaczenie dla zmiennych liczbowych to obliczenie przybliżonych percentylów. Natywne "percentyle\_" w firmie Hive robi to dla nas. Zawartość [przykładowej&#95;hive&#95;criteo&#95;przybliżone&#95;percentyle. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) :
+Również znaczenie dla zmiennych liczbowych to obliczenie przybliżonych percentylów. Natywne "percentyle" \_ w firmie Hive robi to dla nas. Zawartość [przykładowej&#95;hive&#95;criteo&#95;przybliżone&#95;percentyle. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) :
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -365,7 +364,7 @@ To daje:
         Time taken: 12.22 seconds
         Time taken: 298.98 seconds
 
-Przykładowy skrypt [&#95;hive&#95;criteo&#95;próbkowania w dół&#95;test&#95;dzień&#95;22&#95;zestaw danych. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) wykonuje go dla danych testowych\_, dzień 22:
+Przykładowy skrypt [&#95;hive&#95;criteo&#95;próbkowania w dół&#95;test&#95;dzień&#95;22&#95;zestaw danych. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) wykonuje go dla danych testowych, dzień \_ 22:
 
         --- Now for test data (day_22)
 
@@ -383,7 +382,7 @@ To daje:
         Time taken: 317.66 seconds
 
 
-Na koniec przykład skryptu [&#95;hive&#95;criteo&#95;&#95;próbkowania w&#95;&#95;23&#95;zestaw danych. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) wykonuje go dla danych testowych, dzień\_23:
+Na koniec przykład skryptu [&#95;hive&#95;criteo&#95;&#95;próbkowania w&#95;&#95;23&#95;zestaw danych. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) wykonuje go dla danych testowych, dzień \_ 23:
 
         --- Finally test data day_23
         CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -418,13 +417,13 @@ Nasz proces kompilowania modelu w Azure Machine Learning wykonuje następujące 
 1. [Pobierz dane z tabel programu Hive do Azure Machine Learning](#step1)
 2. [Utwórz eksperyment: Wyczyść dane i uczyń je funkcją z tabelami liczników](#step2)
 3. [Kompilowanie, uczenie i Ocena modelu](#step3)
-4. [Ocena modelu](#step4)
+4. [Ocenianie modelu](#step4)
 5. [Publikowanie modelu jako usługi sieci Web](#step5)
 
 Teraz możesz przystąpić do kompilowania modeli w programie Azure Machine Learning Studio. Nasze przykładowe dane są zapisywane jako tabele Hive w klastrze. Użyj modułu Azure Machine Learning **Importuj dane** , aby odczytać te dane. Poświadczenia dostępu do konta magazynu tego klastra są podane w poniższych tematach.
 
 ### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a>Krok 1. Pobieranie danych z tabel programu Hive do Azure Machine Learning przy użyciu modułu Importuj dane i wybieranie go dla eksperymentu uczenia maszynowego
-Zacznij od wybrania **+ nowego** -> **eksperymentu** -> **.** Następnie w polu **wyszukiwania** w lewym górnym rogu Wyszukaj pozycję "Importuj dane". Przeciągnij i upuść moduł **Importuj dane** na kanwę eksperymentu (środkową część ekranu), aby użyć modułu do uzyskiwania dostępu do danych.
+Zacznij od wybrania **+ nowego**  ->  **eksperymentu**  ->  **Blank Experiment**. Następnie w polu **wyszukiwania** w lewym górnym rogu Wyszukaj pozycję "Importuj dane". Przeciągnij i upuść moduł **Importuj dane** na kanwę eksperymentu (środkową część ekranu), aby użyć modułu do uzyskiwania dostępu do danych.
 
 Oto, jak wyglądają **dane importu** podczas pobierania danych z tabeli programu Hive:
 
@@ -433,8 +432,8 @@ Oto, jak wyglądają **dane importu** podczas pobierania danych z tabeli program
 W przypadku modułu **Import danych** wartości parametrów, które są podane w grafice, to tylko przykłady sortowania wartości, które należy podać. Poniżej przedstawiono ogólne wskazówki dotyczące sposobu wypełniania zestawu parametrów dla modułu **Importuj dane** .
 
 1. Wybierz pozycję "zapytanie Hive" dla **źródła danych**
-2. W polu **zapytania bazy danych programu Hive** proste wybieranie\_* z <nazwy bazy danych\_. nazwa\_tabeli\_>-jest wystarczająca.
-3. **Identyfikator URI serwera Hcatalog**: Jeśli klaster ma wartość "ABC", to po prostu: https:\//ABC.azurehdinsight.NET
+2. W polu **zapytania bazy danych programu Hive** proste wybieranie * z <\_ nazwy bazy danych \_ . \_ \_ Nazwa tabeli>-jest wystarczająca.
+3. **Identyfikator URI serwera Hcatalog**: Jeśli klaster ma wartość "ABC", to po prostu: https: \/ /ABC.azurehdinsight.NET
 4. **Nazwa konta użytkownika usługi Hadoop**: Nazwa użytkownika wybrana w momencie wypróbowania klastra. (Nie jest to nazwa użytkownika dostępu zdalnego!)
 5. **Hasło konta użytkownika usługi Hadoop**: hasło dla nazwy użytkownika wybranej podczas pracy z klastrem. (Nie jest to hasło dostępu zdalnego!)
 6. **Lokalizacja danych wyjściowych**: wybierz pozycję "Azure"
@@ -477,8 +476,8 @@ Niektóre funkcje kategorii dużych zestawów danych mogą mieć miliony unikato
 ##### <a name="building-counting-transforms"></a>Kompilowanie transformacji inwentaryzacyjnych
 Aby kompilować funkcje zliczania, należy użyć modułu **transformacji zliczania kompilacji** , który jest dostępny w Azure Machine Learning. Moduł wygląda następująco:
 
-![Kompilacja właściwości](./media/hive-criteo-walkthrough/e0eqKtZ.png)
-![modułu przekształcania obliczeń — moduł przekształcenia obliczeń](./media/hive-criteo-walkthrough/OdDN0vw.png)
+![Kompilacja właściwości modułu przekształcania obliczeń — ](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+ ![ moduł przekształcenia obliczeń](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT]
 > W polu **Liczba kolumn** wprowadź te kolumny, dla których chcesz wykonywać obliczenia. Zazwyczaj są to (jak wspomniane) kolumny kategorii. Należy pamiętać, że zestaw danych Criteo ma 26 kategorii kolumn: od Col15 do Col40. W tym miejscu Policz wszystkie z nich i przekaż ich indeksy (od 15 do 40 oddzielone przecinkami, jak pokazano).
@@ -518,7 +517,7 @@ Drugi skrypt języka R równoważy rozkład między klasami dodatnimi i negatywn
 
 ![Drugi skrypt języka R](./media/hive-criteo-walkthrough/91wvcwN.png)
 
-W tym prostym skrypcie języka R, "\_współczynnik\_ujemna" w punkcie sprzedaży służy do ustawiania wielkości równowagi między dodatnią i ujemną klasą. Jest to ważne, ponieważ zwiększenie nierównowagi klasy zazwyczaj ma zalety wydajności w przypadku problemów klasyfikacji, gdy dystrybucja klas jest skośna (należy odwołać się do klasy pozytywnej o 3,3% i 96,7% klasy negatywnej).
+W tym prostym skrypcie języka R, "współczynnik ujemna" w punkcie sprzedaży \_ \_ służy do ustawiania wielkości równowagi między dodatnią i ujemną klasą. Jest to ważne, ponieważ zwiększenie nierównowagi klasy zazwyczaj ma zalety wydajności w przypadku problemów klasyfikacji, gdy dystrybucja klas jest skośna (należy odwołać się do klasy pozytywnej o 3,3% i 96,7% klasy negatywnej).
 
 ##### <a name="applying-the-count-transformation-on-our-data"></a>Zastosowanie przekształcenia Count na naszych danych
 Na koniec można użyć modułu **przekształcenie** , aby zastosować transformacje liczników do naszych testów i zestawów danych testowych. Ten moduł przyjmuje zapisane przekształcenia Count jako jedną wartość wejściową, a pociąg lub test zestawy danych jako inne dane wejściowe i zwraca dane z funkcjami Count. Przedstawiono tutaj:

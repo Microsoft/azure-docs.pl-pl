@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415348"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiowanie danych z usługi ServiceNow za pomocą Azure Data Factory
@@ -44,10 +44,10 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi usługi ServiceNow są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **usługi ServiceNow** | Tak |
-| endpoint | Punkt końcowy serwera usługi ServiceNow (`http://<instance>.service-now.com`).  | Tak |
+| typ | Właściwość Type musi mieć wartość: **usługi ServiceNow** | Tak |
+| endpoint | Punkt końcowy serwera usługi ServiceNow ( `http://<instance>.service-now.com` ).  | Tak |
 | authenticationType | Typ uwierzytelniania do użycia. <br/>Dozwolone wartości to: **Basic**, **OAuth2** | Tak |
 | nazwa użytkownika | Nazwa użytkownika używana do nawiązywania połączenia z serwerem usługi ServiceNow na potrzeby uwierzytelniania podstawowego i OAuth2.  | Tak |
 | hasło | Hasło odpowiadające nazwie użytkownika uwierzytelniania podstawowego i OAuth2. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
@@ -83,12 +83,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi ServiceNow, ustaw właściwość Type zestawu danych na **ServiceNowObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **ServiceNowObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **ServiceNowObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -113,18 +113,18 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi ServiceNow, ustaw typ źródła w działaniu Copy na **ServiceNowSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ServiceNowSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ServiceNowSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Actual.alm_asset"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 Należy pamiętać o następujących kwestiach podczas określania schematu i kolumny dla usługi ServiceNow w kwerendzie i **zapoznaj się z [poradami dotyczącymi wydajności](#performance-tips) kopiowania**.
 
-- **Schemat:** `Actual` Określ schemat jako `Display` lub w zapytaniu usługi ServiceNow, który można sprawdzić jako parametr `sysparm_display_value` jako wartość true lub false podczas wywoływania [interfejsów API usługi ServiceNow RESTful](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Kolumna:** nazwa kolumny dla wartości rzeczywistej w `Actual` obszarze schemat `[column name]_value`to, a dla wartości wyświetlanej `Display` w `[column name]_display_value`obszarze schemat znajduje się wartość. Zwróć uwagę na to, że nazwa kolumny musi być mapowana na schemat używany w zapytaniu.
+- **Schemat:** Określ schemat jako `Actual` lub `Display` w zapytaniu usługi ServiceNow, który można sprawdzić jako parametr `sysparm_display_value` jako wartość true lub false podczas wywoływania [interfejsów API usługi ServiceNow RESTful](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Kolumna:** nazwa kolumny dla wartości rzeczywistej w obszarze `Actual` schemat to `[column name]_value` , a dla wartości wyświetlanej w obszarze `Display` schemat znajduje się wartość `[column name]_display_value` . Zwróć uwagę na to, że nazwa kolumny musi być mapowana na schemat używany w zapytaniu.
 
 **Przykładowe zapytanie:** 
- `SELECT col_value FROM Actual.alm_asset` lub 
+ `SELECT col_value FROM Actual.alm_asset` ORAZ 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Przykład:**

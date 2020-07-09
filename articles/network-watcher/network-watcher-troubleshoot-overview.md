@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb7ff5c0862ceff8c73eaca92cc7000220eca41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840693"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738655"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów z zasobami w usłudze Azure Network Watcher
 
@@ -73,7 +73,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "rozłączone" |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Uwierzytelnianie | Niezgodność klucza wstępnego | Tak|
+| Authentication | Niezgodność klucza wstępnego | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|
@@ -107,12 +107,12 @@ Pliki dziennika rozwiązywania problemów z zasobami są przechowywane na koncie
 
 Aby uzyskać instrukcje dotyczące pobierania plików z kont usługi Azure Storage, zobacz Rozpoczynanie [pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Inne narzędzie, które może być używane, jest Eksplorator usługi Storage. Więcej informacji na temat Eksplorator usługi Storage można znaleźć tutaj przy użyciu następującego linku: [Eksplorator usługi Storage](https://storageexplorer.com/)
 
-### <a name="connectionstatstxt"></a>ConnectionStats. txt
+### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-Plik **ConnectionStats. txt** zawiera ogólne statystyki połączenia, w tym bajty przychodzące i wychodzące, stan połączenia oraz czas nawiązywania połączenia.
+Plik **ConnectionStats.txt** zawiera ogólne statystyki połączenia, w tym bajty przychodzące i wychodzące, stan połączenia oraz czas nawiązywania połączenia.
 
 > [!NOTE]
-> Jeśli wywołanie interfejsu API rozwiązywania problemów zwróci dobrą kondycję, jedyną czynnością zwróconą w pliku zip jest plik **ConnectionStats. txt** .
+> Jeśli wywołanie interfejsu API rozwiązywania problemów zwróci dobrą kondycję, jedyną czynnością zwróconą w pliku zip jest plik **ConnectionStats.txt** .
 
 Zawartość tego pliku jest podobna do poniższego przykładu:
 
@@ -124,19 +124,19 @@ Egress Bytes (Since last connected) : 288 B
 Connected Since : 2/1/2017 8:22:06 PM
 ```
 
-### <a name="cpustatstxt"></a>CPUStats. txt
+### <a name="cpustatstxt"></a>CPUStats.txt
 
-Plik **CPUStats. txt** zawiera użycie procesora CPU i ilość pamięci dostępnej w czasie testowania.  Zawartość tego pliku jest podobna do poniższego przykładu:
+Plik **CPUStats.txt** zawiera użycie procesora CPU i pamięci dostępne w czasie testowania.  Zawartość tego pliku jest podobna do poniższego przykładu:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
 ```
 
-### <a name="ikeerrorstxt"></a>IKEErrors. txt
+### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-Plik **IKEErrors. txt** zawiera wszystkie błędy IKE, które zostały znalezione podczas monitorowania.
+Plik **IKEErrors.txt** zawiera wszystkie błędy IKE, które zostały znalezione podczas monitorowania.
 
-Poniższy przykład pokazuje zawartość pliku IKEErrors. txt. Błędy mogą się różnić w zależności od problemu.
+Poniższy przykład pokazuje zawartość pliku IKEErrors.txt. Błędy mogą się różnić w zależności od problemu.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -145,11 +145,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag. txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
-Plik dziennika **Scrubbed-wfpdiag. txt** zawiera dziennik WFP. Ten dziennik zawiera rejestrowanie błędów porzucenia pakietów i IKE/AuthIP.
+Plik dziennika **Scrubbed-wfpdiag.txt** zawiera dziennik WFP. Ten dziennik zawiera rejestrowanie błędów porzucenia pakietów i IKE/AuthIP.
 
-Poniższy przykład pokazuje zawartość pliku Scrubbed-wfpdiag. txt. W tym przykładzie klucz współużytkowany połączenia jest niepoprawny, ponieważ może być widoczny z trzeciego wiersza od dołu. Poniższy przykład jest tylko fragmentem całego dziennika, ponieważ dziennik może być długi w zależności od problemu.
+Poniższy przykład pokazuje zawartość pliku Scrubbed-wfpdiag.txt. W tym przykładzie klucz współużytkowany połączenia jest niepoprawny, ponieważ może być widoczny z trzeciego wiersza od dołu. Poniższy przykład jest tylko fragmentem całego dziennika, ponieważ dziennik może być długi w zależności od problemu.
 
 ```
 ...
@@ -178,11 +178,11 @@ Poniższy przykład pokazuje zawartość pliku Scrubbed-wfpdiag. txt. W tym przy
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag. txt. sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt. sum
 
-Plik **wfpdiag. txt. sum** jest dziennikiem przedstawiającym przetworzone bufory i zdarzenia.
+Plik **wfpdiag.txt. sum** jest dziennikiem przedstawiającym przetworzone bufory i zdarzenia.
 
-Poniższy przykład to zawartość pliku wfpdiag. txt. sum.
+Poniższy przykład to zawartość pliku wfpdiag.txt. sum.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl

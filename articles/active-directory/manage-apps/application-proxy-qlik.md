@@ -3,23 +3,23 @@ title: aplikacja usługi Azure AD serwera proxy i wykrywania Qlik | Microsoft Do
 description: Włącz serwer proxy aplikacji w Azure Portal i zainstaluj łączniki dla zwrotnego serwera proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036996"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760052"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Serwer proxy aplikacji i wykrywanie Qlik 
 Serwer proxy aplikacji usługi Azure Active Directory i Qlik ze sobą współpracowały, aby zapewnić możliwość korzystania z serwera proxy aplikacji w celu zapewnienia dostępu zdalnego do wdrożenia Qlik.  
@@ -38,7 +38,7 @@ Wykonaj następujące kroki, aby opublikować aplikację. Aby zapoznać się z b
 
 
 1. Zaloguj się w witrynie Azure Portal jako administrator globalny. 
-2. Wybierz pozycję **Azure Active Directory** > **aplikacje dla przedsiębiorstw**. 
+2. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. 
 3. Wybierz pozycję **Dodaj** w górnej części bloku. 
 4. Wybierz **aplikację lokalną**. 
 5. Wypełnij pola wymagane informacjami o nowej aplikacji. Skorzystaj z następujących wskazówek dotyczących ustawień: 

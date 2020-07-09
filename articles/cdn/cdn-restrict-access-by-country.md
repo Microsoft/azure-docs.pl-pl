@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/19/2018
 ms.author: allensu
-ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba1f0b1f8160dece41c312b61cbc8ae9571436d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260160"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887029"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Ogranicz zawartość Azure CDN według kraju/regionu
 
@@ -42,7 +42,7 @@ Aby uzyskać dostęp do funkcji filtrowania geograficznego, wybierz punkt końco
 
 W polu **ścieżka** określ ścieżkę względną do lokalizacji, do której użytkownicy będą mogli uzyskać dostęp lub którym odmówiono dostępu. 
 
-Można zastosować filtrowanie geograficzne dla wszystkich plików z ukośnikiem (/) lub wybrać określone foldery, określając ścieżki katalogów (na przykład */Pictures/*). Można również zastosować filtrowanie geograficzne do pojedynczego pliku (na przykład */Pictures/City.png*). Dozwolone są wiele reguł; Po wprowadzeniu reguły zostanie wyświetlony pusty wiersz, aby wprowadzić następną regułę.
+Można zastosować filtrowanie geograficzne dla wszystkich plików z ukośnikiem (/) lub wybrać określone foldery, określając ścieżki katalogów (na przykład */Pictures/*). Można również zastosować filtrowanie geograficzne do pojedynczego pliku (na przykład */pictures/city.png*). Dozwolone są wiele reguł; Po wprowadzeniu reguły zostanie wyświetlony pusty wiersz, aby wprowadzić następną regułę.
 
 Na przykład wszystkie następujące filtry ścieżki katalogu są prawidłowe:   
 */*                                 
@@ -59,8 +59,8 @@ Z listy **Akcja** wybierz pozycję **Zezwalaj** lub **Blokuj**:
 - **Blokuj**: Użytkownicy z określonych krajów/regionów mają odmowę dostępu do zasobów żądanych ze ścieżki cyklicznej. Jeśli nie skonfigurowano żadnych innych opcji filtrowania kraju/regionu dla tej lokalizacji, wszyscy inni użytkownicy będą mogli uzyskać dostęp.
 
 Na przykład reguła filtrowania geograficznego do blokowania ścieżki */Photos/Strasbourg/* filtruje następujące pliki:     
-*http\//:\<punkt końcowy>. azureedge.NET/Photos/Strasbourg/1000.jpg*
-*http\//\<: punkt końcowy>. azureedge.NET/Photos/Strasbourg/Cathedral/1000.jpg*
+*http: \/ / \<endpoint> . azureedge.NET/Photos/Strasbourg/1000.jpg* 
+ *http: \/ / \<endpoint> . azureedge.NET/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Zdefiniuj kraje/regiony
 Z listy **Kody krajów** wybierz kraje/regiony, które mają być blokowane lub dozwolone dla ścieżki. 
@@ -69,7 +69,7 @@ Po wybraniu krajów/regionów wybierz pozycję **Zapisz** , aby aktywować nową
 
 ![Reguły filtrowania geograficznego](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby usunąć regułę, wybierz ją z listy na stronie **filtrowania geograficznego** , a następnie wybierz **Usuń**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Azure CDN Premium z profilów Verizon
@@ -95,10 +95,10 @@ Dla **programu Azure CDN Premium z profilów Verizon** interfejs użytkownika s�
 
     ![Reguły filtrowania geograficznego](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 W tabeli reguł filtrowania kraju/regionu wybierz ikonę Usuń obok reguły, aby ją usunąć, lub ikonę edycji, aby ją zmodyfikować.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 * Zmiany w konfiguracji filtrowania geograficznego nie zaczynają obowiązywać natychmiast:
    * W przypadku profili usługi **Azure CDN Standard from Microsoft** propagacja zwykle trwa do 10 minut. 
    * W przypadku profili usługi **Azure CDN Standard from Akamai** propagacja zwykle trwa mniej niż jedną minutę. 

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: JulieMSFT
 ms.service: synapse-analytics
 services: synapse-analytics

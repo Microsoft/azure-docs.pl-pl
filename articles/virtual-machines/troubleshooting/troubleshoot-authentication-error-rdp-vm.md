@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80420818"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Rozwiązywanie problemów z uwierzytelnianiem podczas używania protokołu RDP w celu połączenia z maszyną wirtualną platformy Azure
@@ -161,9 +161,9 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Jeśli komunikacja między kontrolerem domeny a maszyną wirtualną jest dobra, ale kontroler domeny nie ma wystarczającej kondycji, aby otworzyć sesję RDP, możesz spróbować ponownie uruchomić kontroler domeny.
 
-Jeśli powyższe polecenia nie rozwiążą problemu z komunikacją z domeną, można ponownie dołączyć tę maszynę wirtualną do domeny. W tym celu wykonaj następujące czynności:
+Jeśli powyższe polecenia nie rozwiążą problemu z komunikacją z domeną, można ponownie dołączyć tę maszynę wirtualną do domeny. W tym celu wykonaj następujące kroki:
 
-1. Utwórz skrypt o nazwie unjoin. ps1, używając następującej zawartości, a następnie wdróż skrypt jako rozszerzenie niestandardowego skryptu na Azure Portal:
+1. Utwórz skrypt o nazwie Unjoin.ps1 przy użyciu następującej zawartości, a następnie wdróż skrypt jako rozszerzenie niestandardowego skryptu na Azure Portal:
 
     ```cmd
     cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
@@ -171,7 +171,7 @@ Jeśli powyższe polecenia nie rozwiążą problemu z komunikacją z domeną, mo
     
     Ten skrypt powoduje wymuszanie maszyny wirtualnej z domeny i ponowne uruchomienie jej ponownie 10 sekund. Następnie należy wyczyścić obiekt komputera po stronie domeny.
 
-2.  Po zakończeniu oczyszczania ponownie Dołącz tę maszynę wirtualną do domeny. W tym celu należy utworzyć skrypt o nazwie JoinDomain. ps1 przy użyciu następującej zawartości, a następnie wdrożyć skrypt jako rozszerzenie niestandardowego skryptu na Azure Portal: 
+2.  Po zakończeniu oczyszczania ponownie Dołącz tę maszynę wirtualną do domeny. W tym celu należy utworzyć skrypt o nazwie JoinDomain.ps1 przy użyciu następującej zawartości, a następnie wdrożyć skrypt jako rozszerzenie niestandardowego skryptu na Azure Portal: 
 
     ```cmd
     cmd /c "netdom join <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10"

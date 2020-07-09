@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639268"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207128"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu Azure App Service
 
@@ -30,7 +30,7 @@ Możliwość ograniczenia dostępu do aplikacji sieci Web z usługi Azure Virtua
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Dodawanie i edytowanie reguł ograniczeń dostępu w portalu ##
 
-Aby dodać regułę ograniczeń dostępu do aplikacji, użyj menu, aby otworzyć**ograniczenia dostępu** do **sieci**>i kliknij przycisk **Konfiguruj ograniczenia dostępu**
+Aby dodać regułę ograniczeń dostępu do aplikacji, użyj menu, aby otworzyć **Network** > **ograniczenia dostępu** do sieci i kliknij przycisk **Konfiguruj ograniczenia dostępu**
 
 ![Opcje sieci App Service](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -59,6 +59,10 @@ Punkty końcowe usługi umożliwiają ograniczenie dostępu do wybranych podsiec
 Punkty końcowe usługi nie mogą być używane do ograniczania dostępu do aplikacji, które działają w App Service Environment. Gdy aplikacja jest w App Service Environment, możesz kontrolować dostęp do aplikacji za pomocą reguł dostępu do adresów IP. 
 
 Za pomocą punktów końcowych usługi można skonfigurować aplikację przy użyciu bram aplikacji lub innych urządzeń WAF. Możesz również skonfigurować wielowarstwowe aplikacje z bezpiecznymi punktami końcowymi. Aby uzyskać więcej informacji na temat niektórych możliwości, Odczytaj [funkcje sieciowe i App Service](networking-features.md) i [Application Gateway integrację z punktami końcowymi usługi](networking/app-gateway-with-service-endpoints.md).
+
+> [!NOTE]
+> Punkty końcowe usługi są obecnie nieobsługiwane w przypadku aplikacji sieci Web, które używają Połączenie SSL z adresu IP wirtualnego adresu IP (VIP). 
+>
 
 ## <a name="managing-access-restriction-rules"></a>Zarządzanie regułami ograniczeń dostępu
 

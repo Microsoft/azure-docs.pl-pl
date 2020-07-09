@@ -5,15 +5,15 @@ description: Dowiedz się więcej na temat łączenia prywatnych SD-WAN z wirtua
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: sukishen
-ms.openlocfilehash: 9b935c1f612e7634bad86818cd8331fba0078a9d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 7b134e8ef4e09f1506f1d548ffb7579dcf65fbdd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860583"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753330"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architektura łączności między SIECIami wirtualnymi z usługą Azure Virtual WAN
 

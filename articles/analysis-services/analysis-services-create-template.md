@@ -8,39 +8,41 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4dd7906ed32faa630ba074cb29e7987a64205cb5
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697449"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042105"
 ---
-# <a name="quickstart-create-a-server---azure-resource-manager-template"></a>Szybki Start: Tworzenie szablonu Azure Resource Manager serwera
+# <a name="quickstart-create-a-server---arm-template"></a>Szybki Start: Tworzenie szablonu serwera ARM
 
-W tym przewodniku szybki start opisano sposób tworzenia zasobu serwera Analysis Services w ramach subskrypcji platformy Azure przy użyciu szablonu Menedżer zasobów.
+W tym przewodniku szybki start opisano sposób tworzenia zasobu serwera Analysis Services w ramach subskrypcji platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**: odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), aby utworzyć konto.
 * **Azure Active Directory**: subskrypcja musi być skojarzona z dzierżawą usługi Azure Active Directory. Ponadto musisz zalogować się na platformie Azure przy użyciu konta należącego do tej dzierżawy usługi Azure Active Directory. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 
-## <a name="create-a-server"></a>Tworzenie serwera
-
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
 :::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
-Pojedynczy zasób [Microsoft. AnalysisServices/Server](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) z regułą zapory jest zdefiniowany w szablonie. 
+Pojedynczy zasób [Microsoft. AnalysisServices/Server](/azure/templates/microsoft.analysisservices/servers) z regułą zapory jest zdefiniowany w szablonie.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz następujące polecenie Wdróż w usłudze Azure link, aby zalogować się do platformy Azure i otworzyć szablon. Szablon służy do tworzenia zasobu serwera Analysis Services i określania wymaganych i opcjonalnych właściwości.
 
-   [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 2. Wybierz lub wprowadź następujące wartości.
 
@@ -56,11 +58,11 @@ Pojedynczy zasób [Microsoft. AnalysisServices/Server](https://docs.microsoft.co
     * **Pojemność**: wprowadź łączną liczbę wystąpień w poziomie repliki zapytań. Skalowanie w poziomie więcej niż jednego wystąpienia jest obsługiwane tylko w wybranych regionach.
     * **Ustawienia zapory**: wprowadź reguły zapory dla ruchu przychodzącego, które mają zostać zdefiniowane dla serwera. Jeśli nie zostanie określony, Zapora jest wyłączona.
     * **Identyfikator URI kontenera obiektów BLOB kopii zapasowej**: Wprowadź identyfikator URI sygnatury dostępu współdzielonego do prywatnego kontenera BLOB Storage platformy Azure z uprawnieniami odczyt, zapis i lista. Wymagane tylko wtedy, gdy zamierzasz używać funkcji [tworzenia kopii zapasowej/przywracania](analysis-services-backup.md).
-    * **Wyrażam zgodę na powyższe warunki i postanowienia**: zaznacz.
+    * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.
 
 3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu serwera otrzymujesz powiadomienie:
 
-   ![Menedżer zasobów szablon, wdrażanie powiadomienia portalu](./media/analysis-services-create-template/notification.png)
+   ![Szablon ARM, powiadomienie portalu wdrożenia](./media/analysis-services-create-template/notification.png)
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
@@ -101,7 +103,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start użyto szablonu Azure Resource Manager, aby utworzyć nową grupę zasobów i zasób serwera Azure Analysis Services. Po utworzeniu zasobu serwera przy użyciu szablonu należy wziąć pod uwagę następujące kwestie:
+W tym przewodniku szybki start użyto szablonu ARM do utworzenia nowej grupy zasobów i zasobu serwera Azure Analysis Services. Po utworzeniu zasobu serwera przy użyciu szablonu należy wziąć pod uwagę następujące kwestie:
+
 - [Szybki start: tworzenie serwera — PowerShell](analysis-services-create-powershell.md)
 - [Dodawanie przykładowego modelu z portalu](analysis-services-create-sample-model.md)
 - [Konfigurowanie ról administratora i użytkowników serwera](tutorials/analysis-services-tutorial-roles.md)

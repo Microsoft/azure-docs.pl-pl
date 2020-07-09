@@ -123,6 +123,8 @@
     - name: Planowanie i implementowanie oprogramowania SAP NetWeaver na platformie Azure
       href: planning-guide.md
       items:
+        - name: Typy usługi Azure Storage dla obciążeń SAP
+          href: planning-guide-storage.md
         - name: Obsługiwane scenariusze obciążenia SAP na maszynie wirtualnej na platformie Azure
           href: sap-planning-supported-configurations.md
         - name: Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
@@ -230,7 +232,7 @@
             - name: System RHEL z programem Pacemaker w konfiguracji z wieloma identyfikatorami SID na potrzeby wystąpienia A(SCS)
               href: high-availability-guide-rhel-multi-sid.md
     - name: Odzyskiwanie po awarii oprogramowania SAP za pomocą usługi Azure Site Recovery
-      href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
+      href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Grupy umieszczania w pobliżu na platformie Azure w celu zapewnienia optymalnego opóźnienia sieci dla aplikacji SAP
       href: sap-proximity-placement-scenarios.md
 - name: Integracja tożsamości usługi AAD i oprogramowania SAP oraz logowanie jednokrotne
@@ -259,6 +261,18 @@
       href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
     - name: Usługa Azure Data Factory oferuje integrację danych oprogramowania SAP HANA i Business Warehouse
       href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
+- name: Usługa Azure Monitor dla rozwiązań SAP
+  items:
+    - name: Omówienie usługi Azure Monitor dla rozwiązań SAP
+      href: azure-monitor-overview.md
+    - name: Dostawcy usługi Azure Monitor dla rozwiązań SAP
+      href: azure-monitor-providers.md
+    - name: Usługa Azure Monitor dla rozwiązań SAP — często zadawane pytania
+      href: azure-monitor-faq.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/sap-hana/hanainstance
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

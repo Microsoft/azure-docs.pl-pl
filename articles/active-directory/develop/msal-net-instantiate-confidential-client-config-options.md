@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1a520c5a1002e401f880fba84f8fc02a0a678133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a76935c5b826f8aa686167f702f7170522744155
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084739"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477468"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Tworzenie wystąpienia poufnej aplikacji klienckiej z opcjami konfiguracji przy użyciu MSAL.NET
 
@@ -35,7 +35,7 @@ Przed zainicjowaniem aplikacji należy najpierw ją [zarejestrować](quickstart-
 ## <a name="configure-the-application-from-the-config-file"></a>Skonfiguruj aplikację z pliku konfiguracji
 Nazwa właściwości opcji w MSAL.NET jest zgodna z nazwą właściwości `AzureADOptions` w ASP.NET Core, więc nie trzeba pisać kodu łączenia.
 
-Konfiguracja aplikacji ASP.NET Core jest opisana w pliku *appSettings. JSON* :
+Konfiguracja aplikacji ASP.NET Core jest opisana w *appsettings.js* pliku:
 
 ```json
 {
@@ -60,7 +60,7 @@ Konfiguracja aplikacji ASP.NET Core jest opisana w pliku *appSettings. JSON* :
 
 Począwszy od MSAL.NET v3. x, możesz skonfigurować poufną aplikację kliencką z pliku konfiguracyjnego.
 
-W klasie, w której chcesz skonfigurować i utworzyć wystąpienie aplikacji, należy zadeklarować `ConfidentialClientApplicationOptions` obiekt.  Powiąż konfigurację odczytaną ze źródła (w tym plik AppConfig. JSON) z wystąpieniem opcji aplikacji przy użyciu `IConfigurationRoot.Bind()` metody z [pakietu NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+W klasie, w której chcesz skonfigurować i utworzyć wystąpienie aplikacji, należy zadeklarować `ConfidentialClientApplicationOptions` obiekt.  Powiąż konfigurację odczytaną ze źródła (w tym appconfig.jsw pliku) z wystąpieniem opcji aplikacji przy użyciu `IConfigurationRoot.Bind()` metody z [Microsoft.Extensions.Configwersja. Pakiet NuGet spinacza](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Dzięki temu zawartość sekcji "AzureAD" pliku *appSettings. JSON* zostanie powiązana z odpowiednimi właściwościami `ConfidentialClientApplicationOptions` obiektu.  Następnie Skompiluj `ConfidentialClientApplication` obiekt:
+Dzięki temu zawartość sekcji "AzureAD" *appsettings.jsw* pliku będzie powiązana z odpowiednimi właściwościami `ConfidentialClientApplicationOptions` obiektu.  Następnie Skompiluj `ConfidentialClientApplication` obiekt:
 
 ```csharp
 IConfidentialClientApplication app;

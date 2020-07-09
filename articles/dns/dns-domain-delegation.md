@@ -8,10 +8,9 @@ ms.date: 2/19/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76939051"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegowanie stref DNS za pomocą usługi Azure DNS
@@ -54,12 +53,12 @@ Na poniższej ilustracji przedstawiono przykładowe zapytanie DNS. Contoso.net i
 1. Klient żąda adresu `www.partners.contoso.net` z lokalnego serwera DNS.
 2. Lokalny serwer DNS nie ma tego rekordu, dlatego wysyła żądanie do swojego głównego serwera nazw.
 3. Główny serwer nazw nie ma tego rekordu, ale dysponuje informacjami o adresie serwera nazw `.net`, udostępnia więc ten adres serwerowi DNS.
-4. Lokalny serwer DNS wysyła żądanie do serwera `.net` nazw.
-5. Serwer `.net` nazw nie ma rekordu, ale zna adres serwera `contoso.net` nazw. W tym przypadku odpowiada adres serwera nazw dla strefy DNS hostowanej w Azure DNS.
+4. Lokalny serwer DNS wysyła żądanie do `.net` serwera nazw.
+5. `.net`Serwer nazw nie ma rekordu, ale zna adres `contoso.net` serwera nazw. W tym przypadku odpowiada adres serwera nazw dla strefy DNS hostowanej w Azure DNS.
 6. Lokalny serwer DNS wysyła żądanie do serwera nazw dla `contoso.net` strefy hostowanej w Azure DNS.
-7. Strefa `contoso.net` nie ma tego rekordu, ale zna serwer nazw dla `partners.contoso.net` i odpowiada na adres. W tym przypadku jest to strefa DNS hostowana w Azure DNS.
+7. Strefa nie `contoso.net` ma tego rekordu, ale zna serwer nazw dla `partners.contoso.net` i odpowiada na adres. W tym przypadku jest to strefa DNS hostowana w Azure DNS.
 8. Lokalny serwer DNS wysyła żądanie do serwera nazw dla `partners.contoso.net` strefy.
-9. `partners.contoso.net` Strefa zawiera rekord a i odpowiada na adres IP.
+9. `partners.contoso.net`Strefa zawiera rekord a i odpowiada na adres IP.
 10. Lokalny serwer DNS udostępnia adres IP klientowi
 11. Klient łączy się z witryną sieci Web `www.partners.contoso.net`.
 

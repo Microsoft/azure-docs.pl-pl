@@ -3,25 +3,24 @@ title: Dostęp do aplikacja usługi Azure AD aplikacji serwera proxy w programie
 description: Użyj usługi Azure serwer proxy aplikacji usługi Azure AD, aby uzyskać dostęp do aplikacji lokalnej za pomocą programu Microsoft Teams.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/05/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7afcd3bfe16775d5c99100278eda81da739b8d22
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67807773"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764489"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Uzyskiwanie dostępu do aplikacji lokalnych przy użyciu zespołów Microsoft Teams
 
@@ -33,13 +32,13 @@ Użytkownicy mogą dodawać aplikacje w chmurze do swoich kanałów zespołów [
 
 Jeśli jeszcze tego nie zrobiono, [Skonfiguruj serwer proxy aplikacji dla dzierżawy i Zainstaluj łącznik](application-proxy-add-on-premises-application.md). Następnie [Opublikuj aplikację lokalną](application-proxy-add-on-premises-application.md) pod kątem dostępu zdalnego. Gdy publikujesz aplikację, zanotuj zewnętrzny adres URL, ponieważ jest on używany do dodawania aplikacji do zespołów.
 
-Jeśli masz już opublikowane aplikacje, ale nie pamiętasz zewnętrznych adresów URL, zapoznaj się z nimi w [Azure Portal](https://portal.azure.com). Zaloguj się, a następnie przejdź do **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > wybierz aplikację > **serwerze proxy aplikacji**.
+Jeśli masz już opublikowane aplikacje, ale nie pamiętasz zewnętrznych adresów URL, zapoznaj się z nimi w [Azure Portal](https://portal.azure.com). Zaloguj się, a następnie przejdź do **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje** > wybierz aplikację > **serwerze proxy aplikacji**.
 
 ## <a name="add-your-app-to-teams"></a>Dodawanie aplikacji do zespołów
 
 Po opublikowaniu aplikacji za pomocą serwera proxy aplikacji Powiadom użytkowników, że mogą dodać ją jako kartę bezpośrednio w swoich kanałach zespołów, a następnie aplikacja jest dostępna dla wszystkich członków zespołu. Wykonaj następujące trzy kroki:
 
-1. Przejdź do kanału Teams, w którym chcesz dodać tę aplikację, a **+** następnie wybierz pozycję, aby dodać kartę.
+1. Przejdź do kanału Teams, w którym chcesz dodać tę aplikację, a następnie wybierz pozycję, **+** Aby dodać kartę.
 
    ![Wybierz pozycję +, aby dodać kartę w zespołach](./media/application-proxy-integrate-with-teams/add-tab.png)
 

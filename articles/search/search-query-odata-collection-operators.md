@@ -20,19 +20,18 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113238"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory kolekcji OData na platformie Azure Wyszukiwanie poznawcze `any` — i`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory kolekcji OData na platformie Azure Wyszukiwanie poznawcze — `any` i`all`
 
-Podczas pisania [wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) do użycia z usługą Azure wyszukiwanie poznawcze często warto odfiltrować pola kolekcji. Można to osiągnąć przy użyciu operatorów `any` i `all` .
+Podczas pisania [wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) do użycia z usługą Azure wyszukiwanie poznawcze często warto odfiltrować pola kolekcji. Można to osiągnąć przy użyciu `any` operatorów i `all` .
 
 ## <a name="syntax"></a>Składnia
 
-Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę wyrażenia OData, które używa `any` lub. `all`
+Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę wyrażenia OData, które używa `any` lub `all` .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -58,29 +57,29 @@ Istnieją trzy formy wyrażeń, które filtrują kolekcje.
 - Pierwsze dwie iteracje w polu kolekcji, stosując predykat określony w formie wyrażenia lambda do każdego elementu kolekcji.
   - Wyrażenie używające `all` zwraca `true` , jeśli predykat ma wartość true dla każdego elementu kolekcji.
   - Wyrażenie używające `any` zwraca `true` , jeśli predykat ma wartość true dla co najmniej jednego elementu kolekcji.
-- Trzecia forma filtru kolekcji używa `any` bez wyrażenia lambda, aby sprawdzić, czy pole kolekcji jest puste. Jeśli kolekcja zawiera jakiekolwiek elementy, zwraca `true`. Jeśli kolekcja jest pusta, zwraca wartość `false`.
+- Trzecia forma filtru kolekcji używa `any` bez wyrażenia lambda, aby sprawdzić, czy pole kolekcji jest puste. Jeśli kolekcja zawiera jakiekolwiek elementy, zwraca `true` . Jeśli kolekcja jest pusta, zwraca wartość `false` .
 
 **Wyrażenie lambda** w filtrze kolekcji jest takie jak treść pętli w języku programowania. Definiuje zmienną, nazywaną **zmienną zakresu**, która przechowuje bieżący element kolekcji podczas iteracji. Definiuje również inne wyrażenie logiczne, które jest kryteria filtru, które mają być zastosowane do zmiennej zakresu dla każdego elementu kolekcji.
 
 ## <a name="examples"></a>Przykłady
 
-Dopasowuje dokumenty `tags` , których pole zawiera dokładnie ciąg "Wi-Fi":
+Dopasowuje dokumenty, których `tags` pole zawiera dokładnie ciąg "Wi-Fi":
 
     tags/any(t: t eq 'wifi')
 
-Dopasowuje dokumenty, w których każdy `ratings` element pola mieści się w zakresie od 3 do 5 włącznie:
+Dopasowuje dokumenty, w których każdy element `ratings` pola mieści się w zakresie od 3 do 5 włącznie:
 
     ratings/all(r: r ge 3 and r le 5)
 
-Dopasuj dokumenty, w których każda ze współrzędnych `locations` geograficznych w polu znajduje się w obrębie danego wielokątu:
+Dopasuj dokumenty, w których każda ze współrzędnych geograficznych w `locations` polu znajduje się w obrębie danego wielokątu:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 
-Dopasuj dokumenty, w `rooms` których pole jest puste:
+Dopasuj dokumenty, w których `rooms` pole jest puste:
 
     not rooms/any()
 
-Dopasuj dokumenty, `rooms/amenities` w przypadku których wszystkie pokoje zawierają wartość "TV" i `rooms/baseRate` jest mniejsza niż 100:
+Dopasuj dokumenty, w przypadku których wszystkie pokoje `rooms/amenities` zawierają wartość "TV" i `rooms/baseRate` jest mniejsza niż 100:
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 

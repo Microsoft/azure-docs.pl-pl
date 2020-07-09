@@ -1,9 +1,9 @@
 ---
 title: Zaawansowana ochrona przed zagrożeniami
-titleSuffix: Azure SQL Database, SQL Managed Instance, & Azure Synapse
-description: Zaawansowana ochrona przed zagrożeniami wykrywa nietypowe działania bazy danych, które wskazują potencjalne zagrożenia bezpieczeństwa w Azure SQL Database, wystąpieniu zarządzanym usługi Azure SQL i usługą Azure Synapse.
+titleSuffix: Azure SQL Database, SQL Managed Instance, & Azure Synapse Analytics
+description: Zaawansowana ochrona przed zagrożeniami wykrywa nietypowe działania bazy danych, które wskazują potencjalne zagrożenia bezpieczeństwa w Azure SQL Database, wystąpieniu zarządzanym usługi Azure SQL i analizą usługi Azure Synapse.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: ''
 ms.custom: sqldbrb=2
@@ -13,17 +13,17 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: 27d44ba8be56839f248312e1bdb4b0e4b7761110
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 822d4267d5b163ddda50302e2caea5c3ade3b7c4
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047020"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985375"
 ---
-# <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance--azure-synapse"></a>Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database i wystąpienia zarządzanego SQL & Azure Synapse
+# <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Zaawansowana ochrona przed zagrożeniami dla [Azure SQL Database](sql-database-paas-overview.md), [wystąpienie zarządzane SQL Azure](../managed-instance/sql-managed-instance-paas-overview.md) i [usługa Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) wykrywają anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby dostępu do baz danych lub korzystania z nich.
+Zaawansowana ochrona przed zagrożeniami dla [Azure SQL Database](sql-database-paas-overview.md), [wystąpienie zarządzane SQL Azure](../managed-instance/sql-managed-instance-paas-overview.md) i [usługa Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) wykrywają anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
 Zaawansowana ochrona przed zagrożeniami jest częścią [zaawansowanej oferty zabezpieczeń danych](advanced-data-security.md) , która jest ujednoliconym pakietem zaawansowanych funkcji zabezpieczeń SQL. Aby uzyskiwać dostęp do funkcji Advanced Threat Protection i zarządzać nią, można korzystać centralnego portalu pakietu SQL ADS.
 
@@ -47,13 +47,13 @@ Po wykryciu nietypowych działań bazy danych otrzymasz powiadomienie e-mail. Wi
 
    ![Zagrożenia aktywności](./media/threat-detection-overview/active_threats.png)
 
-2. Kliknij konkretny alert, aby uzyskać dodatkowe szczegóły i akcje związane z badaniem tego zagrożenia i korygowaniem przyszłe zagrożenia.
+1. Kliknij konkretny alert, aby uzyskać dodatkowe szczegóły i akcje związane z badaniem tego zagrożenia i korygowaniem przyszłe zagrożenia.
 
    Na przykład iniekcja SQL to jeden z najczęstszych problemów z zabezpieczeniami aplikacji sieci Web w Internecie, który jest używany do ataku na aplikacje oparte na danych. Osoby atakujące wykorzystują luki w zabezpieczeniach, aby wstrzyknąć złośliwe instrukcje SQL do pól wprowadzania aplikacji, naruszania lub modyfikowania danych w bazie danych. W przypadku alertów o iniekcji SQL szczegóły alertu obejmują wykorzystaną przez lukę instrukcję SQL.
 
    ![Konkretny alert](./media/threat-detection-overview/specific_alert.png)
 
-## <a name="explore-alerts-in-azure-portal"></a>Eksplorowanie alertów w Azure Portal
+## <a name="explore-alerts-in-the-azure-portal"></a>Eksplorowanie alertów w Azure Portal
 
 Zaawansowana ochrona przed zagrożeniami integruje swoje alerty z [usługą Azure Security Center](https://azure.microsoft.com/services/security-center/). Kafelki SQL Advanced Threat Protection na żywo w ramach bazy danych i bloki usługi SQL AD w Azure Portal śledzą stan aktywnych zagrożeń.
 

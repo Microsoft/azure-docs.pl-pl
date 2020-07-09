@@ -9,16 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ec74b9391c780cf673fe47bd82cc6d92534eb56d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67109519"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234069"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Jak usługa Azure AD zapewnia zarządzanie zarządzane przez chmurę dla obciążeń lokalnych
 
@@ -93,7 +92,7 @@ W przypadku organizacji, która korzysta już z lokalnego dostawcy tożsamości,
 
 ![Ewolucja usługi Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 
-Aby rozpocząć Migrowanie aplikacji federacyjnych do usługi Azure AD jako dostawcy tożsamości, zapoznaj się z https://aka.ms/migrateapps tematem zawierającym linki do:
+Aby rozpocząć Migrowanie aplikacji federacyjnych do usługi Azure AD jako dostawcy tożsamości, zapoznaj się z tematem https://aka.ms/migrateapps zawierającym linki do:
 
 * Oficjalny dokument [dotyczący migrowania aplikacji do Azure Active Directory](https://aka.ms/migrateapps/whitepaper), który przedstawia zalety migracji i opisuje sposób planowania migracji w czterech jasno dostępnych fazach: odnajdywanie, klasyfikacja, migracja i bieżące zarządzanie. Zapoznaj się z informacjami o tym, jak myśleć o procesie i podzielić projekt na łatwe w użyciu elementy. W dokumencie znajdują się linki do ważnych zasobów, które pomogą Ci w tym czasie.
 
@@ -117,4 +116,4 @@ W środowiskach hybrydowych, strategia firmy Microsoft polega na włączeniu wdr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rozpoczynania tej podróży, zobacz Plany wdrażania usługi Azure AD znajdujące się w <https://aka.ms/deploymentplans> temacie. Zapewniają kompleksowe wskazówki dotyczące wdrażania możliwości usługi Azure Active Directory (Azure AD). Każdy plan wyjaśnia wartość biznesową, zagadnienia związane z planowaniem, projektowanie i procedury operacyjne, które są konieczne do pomyślnego przeprowadzenia wspólnych możliwości usługi Azure AD. Firma Microsoft stale aktualizuje plany wdrażania, korzystając z najlepszych rozwiązań uzyskanych na podstawie wdrożeń klientów i innych informacji zwrotnych, gdy dodamy nowe możliwości zarządzania z chmury za pomocą usługi Azure AD.
+Aby uzyskać więcej informacji na temat rozpoczynania tej podróży, zobacz Plany wdrażania usługi Azure AD znajdujące się w temacie <https://aka.ms/deploymentplans> . Zapewniają kompleksowe wskazówki dotyczące wdrażania możliwości usługi Azure Active Directory (Azure AD). Każdy plan wyjaśnia wartość biznesową, zagadnienia związane z planowaniem, projektowanie i procedury operacyjne, które są konieczne do pomyślnego przeprowadzenia wspólnych możliwości usługi Azure AD. Firma Microsoft stale aktualizuje plany wdrażania, korzystając z najlepszych rozwiązań uzyskanych na podstawie wdrożeń klientów i innych informacji zwrotnych, gdy dodamy nowe możliwości zarządzania z chmury za pomocą usługi Azure AD.

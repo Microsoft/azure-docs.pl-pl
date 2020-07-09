@@ -5,22 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/02/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ca11af061e37cf4f804ce2d7ceed72a9448294
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 608c8206227a129a320a560e752cf31a4843dca3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84321686"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Wymagania dotyczące licencjonowania Azure Active Directory samoobsługowego resetowania hasła
 
-Aby zmniejszyć liczbę wezwań pomocy technicznej i zwiększyć produktywność, gdy użytkownik nie może zalogować się na swoje urządzenie lub aplikację, konta użytkowników w Azure Active Directory (Azure AD) można włączyć do samoobsługowego resetowania hasła (SSPR). Funkcje wchodzące w skład SSPR obejmują zmianę hasła, zresetowanie, odblokowanie i zapisanie zwrotne do katalogu lokalnego. Podstawowe funkcje SSPR są dostępne dla pakietu Office 365 i wszystkich użytkowników usługi Azure AD bez żadnych kosztów.
+Aby zmniejszyć liczbę wezwań pomocy technicznej i zwiększyć produktywność, gdy użytkownik nie może zalogować się na swoje urządzenie lub aplikację, konta użytkowników w Azure Active Directory (Azure AD) można włączyć do samoobsługowego resetowania hasła (SSPR). Funkcje wchodzące w skład SSPR obejmują zmianę hasła, zresetowanie, odblokowanie i zapisanie zwrotne do katalogu lokalnego. Podstawowe funkcje SSPR są dostępne w Microsoft 365 Business standardowym lub wyższym i we wszystkich Azure AD — wersja Premium jednostkach SKU bez ponoszenia kosztów.
 
 W tym artykule szczegółowo opisano różne sposoby licencjonowania i używania funkcji samoobsługowego resetowania hasła. Aby uzyskać szczegółowe informacje na temat cen i rozliczeń, zobacz [stronę z cennikiem usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -30,14 +29,14 @@ SSPR jest licencjonowany na użytkownika. Aby zapewnić zgodność, organizacje 
 
 W poniższej tabeli opisano różne scenariusze SSPR dotyczące zmiany haseł, resetowania lub lokalnego zapisywania zwrotnego, a także jednostki SKU, które udostępniają funkcję.
 
-| Funkcja | Usługa Azure AD — warstwa Bezpłatna | Office 365 Business Premium | Microsoft 365 Business | Azure AD — wersja Premium P1 lub P2 |
+| Cecha | Usługa Azure AD — warstwa Bezpłatna | Microsoft 365 Business Standard | Microsoft 365 Business Premium | Azure AD — wersja Premium P1 lub P2 |
 | --- |:---:|:---:|:---:|:---:|
 | **Zmiana hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD wie swoje hasło i chce zmienić go na nowy. | ● | ● | ● | ● |
 | **Resetowanie hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD zapomniał hasło i musi je zresetować. | | ● | ● | ● |
 | **Zmienianie lub Resetowanie hasła użytkownika hybrydowego przy użyciu funkcji zapisywania zwrotnego Premium**<br />Gdy użytkownik w usłudze Azure AD, który jest synchronizowany z katalogu lokalnego przy użyciu Azure AD Connect chce zmienić lub zresetować swoje hasło, a także napisać nowe hasło z powrotem do Premium. | | | ● | ● |
 
 > [!WARNING]
-> Autonomiczne plany licencjonowania pakietu Office 365 nie obsługują SSPR z lokalnym zapisem zwrotnym. Te plany licencjonowania pakietu Office 365 wymagają Azure AD — wersja Premium P1, Premium P2 lub Microsoft 365 Business, aby ta funkcja działała.
+> Autonomiczne plany licencjonowania Microsoft 365 podstawowe i standardowe nie obsługują SSPR z lokalnym zapisem zwrotnym. Funkcja lokalnego zapisywania zwrotnego wymaga Azure AD — wersja Premium P1, Premium P2 lub Microsoft 365 Business Premium.
 
 Dodatkowe informacje o licencjonowaniu, w tym koszty, można znaleźć na następujących stronach:
 
@@ -51,7 +50,7 @@ Dodatkowe informacje o licencjonowaniu, w tym koszty, można znaleźć na nastę
 
 Usługa Azure AD obsługuje Licencjonowanie oparte na grupach. Administratorzy mogą przypisywać licencje zbiorczo do grupy użytkowników, a nie przypisywać ich pojedynczo. Aby uzyskać więcej informacji, zobacz [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. Przypisanie licencji można wykonać w sekcji**ustawień** **profilu** >  **użytkownika** > w Azure Portal. *W przypadku korzystania z przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu.*
+Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** dla użytkownika. Przypisanie licencji można wykonać w **User**  >  **Profile**  >  sekcji**ustawień** profilu użytkownika w Azure Portal. *W przypadku korzystania z przypisania licencji grupy Wszyscy użytkownicy bez określonej lokalizacji użycia dziedziczą lokalizację katalogu.*
 
 ## <a name="next-steps"></a>Następne kroki
 

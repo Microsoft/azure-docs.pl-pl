@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: lbosq
 ms.openlocfilehash: 76ad787990c355d29613c05ca9fce31885a2eccc
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72029851"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Limity środowiska Gremlin w usłudze Azure Cosmos DB
@@ -23,10 +23,10 @@ Cosmos DB Gremlin jest oparty na infrastrukturze Cosmos DB. Z tego powodu wszyst
 
 Po osiągnięciu limitu Gremlin funkcja przechodzenia zostanie anulowana z **kodem x-MS-status-** 429 wskazującym na błąd ograniczania. Aby uzyskać więcej informacji, zobacz [nagłówki odpowiedzi serwera Gremlin](gremlin-limits.md) .
 
-**Zasób**    | **Limit domyślny** | **Wyjaśnienie**
+**Zasób**    | **Limit domyślny** | **Objaśnienie**
 --- | --- | ---
 *Długość skryptu* | **64 KB** | Maksymalna długość skrypt przechodzenia języka Gremlin na żądanie.
-*Głębokość operatora* | **400** |  Całkowita liczba unikatowych kroków przechodzenia. Na przykład ```g.V().out()``` ma liczbę operatorów równą 2: v () i out (), ma ```g.V('label').repeat(out()).times(100)``` głębokość operatora 3: v (), Repeat () i out (), ponieważ ```.times(100)``` jest parametrem do ```.repeat()``` operatora.
+*Głębokość operatora* | **400** |  Całkowita liczba unikatowych kroków przechodzenia. Na przykład ```g.V().out()``` ma liczbę operatorów równą 2: v () i out (), ```g.V('label').repeat(out()).times(100)``` ma głębokość operatora 3: v (), Repeat () i out (), ponieważ ```.times(100)``` jest parametrem do ```.repeat()``` operatora.
 *Stopień równoległości* | **32** | Maksymalna liczba partycji magazynu, dla których wykonano zapytania w jednym żądaniu skierowanym do warstwy magazynu. Ten limit będzie miał wpływ na wykresy z setkami partycji.
 *Limit powtarzania* | **32** | Maksymalna liczba iteracji, które może wykonywać operator ```.repeat()```. Każda iteracja ```.repeat()``` kroku w większości przypadków uruchamia przechodzenie w pierwszej kolejności, co oznacza, że każde przechodzenie jest ograniczone do maksymalnie 32 przeskoków między wierzchołkami.
 *Limit czasu przechodzenia* | **30 sekund** | Przechodzenie zostanie anulowane, gdy przekroczy ten czas. Graf usługi Cosmos DB to baza danych OLTP z większością przejść ukończonych w ciągu milisekund. Aby uruchamiać zapytania OLAP na Cosmos DB grafie, należy użyć [Apache Spark](https://azure.microsoft.com/services/cosmos-db/) z [ramkami danych grafów](https://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes) i [łącznikiem Cosmos DB Spark](https://github.com/Azure/azure-cosmosdb-spark).

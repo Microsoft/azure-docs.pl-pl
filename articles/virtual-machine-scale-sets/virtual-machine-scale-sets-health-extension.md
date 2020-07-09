@@ -9,12 +9,11 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124112"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783048"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Używanie rozszerzenia kondycji aplikacji z zestawami skalowania maszyn wirtualnych
 Monitorowanie kondycji aplikacji jest ważnym sygnałem do zarządzania wdrożeniem i uaktualniania go. Zestawy skalowania maszyn wirtualnych platformy Azure zapewniają obsługę [uaktualnień stopniowych](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , takich jak [automatyczne uaktualnienia obrazu systemu operacyjnego](virtual-machine-scale-sets-automatic-upgrade.md), które polegają na monitorowaniu kondycji poszczególnych wystąpień w celu uaktualnienia wdrożenia. Można również użyć rozszerzenia kondycji do monitorowania kondycji aplikacji każdego wystąpienia w zestawie skalowania i wykonywania napraw wystąpień przy użyciu [automatycznych napraw wystąpień](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -59,9 +58,9 @@ Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerz
 
 | Nazwa | Wartość/przykład | Typ danych
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | data |
+| apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | ciąg |
-| type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (system Windows) | ciąg |
+| typ | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (system Windows) | ciąg |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Ustawienia
@@ -154,7 +153,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-Zawartość pliku rozszerzenia. JSON.
+extension.jszawartości pliku.
 
 ```json
 {
@@ -173,7 +172,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 Dzienniki również okresowo przechwytują stan kondycji aplikacji.

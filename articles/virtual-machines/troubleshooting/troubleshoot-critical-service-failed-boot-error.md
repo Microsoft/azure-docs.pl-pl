@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921457"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129860"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>System Windows wyświetla "KRYTYCZNa usługa nie powiodła się" na niebieskim ekranie podczas uruchamiania maszyny wirtualnej platformy Azure
 W tym artykule opisano błąd "niepowodzenie usługi KRYTYCZNEj", która może wystąpić w przypadku uruchamiania maszyny wirtualnej z systemem Windows w Microsoft Azure. Zawiera kroki rozwiązywania problemów, aby pomóc w rozwiązaniu problemów. 
@@ -27,7 +27,7 @@ W tym artykule opisano błąd "niepowodzenie usługi KRYTYCZNEj", która może w
 
 Nie uruchomiono maszyny wirtualnej z systemem Windows. Po sprawdzeniu zrzutów ekranu rozruchowego w ramach [diagnostyki rozruchu](./boot-diagnostics.md)na niebieskim ekranie zostanie wyświetlony jeden z następujących komunikatów o błędach:
 
-- "Komputer napotkał problem i wymaga ponownego uruchomienia. Można uruchomić ponownie. Aby uzyskać więcej informacji na temat tego problemu i możliwych poprawek https://windows.com/stopcode, odwiedź stronę. Jeśli skontaktujesz się z pomocą techniczną, przekaż im te informacje: zatrzymywanie kodu: usługa KRYTYCZNa nie powiodła się. 
+- "Komputer napotkał problem i wymaga ponownego uruchomienia. Można uruchomić ponownie. Aby uzyskać więcej informacji na temat tego problemu i możliwych poprawek, odwiedź stronę https://windows.com/stopcode . Jeśli skontaktujesz się z pomocą techniczną, przekaż im te informacje: zatrzymywanie kodu: usługa KRYTYCZNa nie powiodła się. 
 - "Komputer napotkał problem i wymaga ponownego uruchomienia. Właśnie zbieramy pewne informacje o błędzie, a następnie będziemy ponownie uruchamiać dane. Jeśli chcesz dowiedzieć się więcej, możesz przeszukać w trybie online w późniejszym czasie dla tego błędu: CRITICAL_SERVICE_FAILED "
 
 ## <a name="cause"></a>Przyczyna
@@ -54,7 +54,7 @@ Dziennik zrzutu i [konsola szeregowa](./serial-console-windows.md) ułatwią nam
 Aby włączyć dzienniki zrzutów i konsolę seryjną, uruchom następujący skrypt.
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator).
-2. Uruchom następujący skrypt:
+2. Uruchom poniższy skrypt:
 
     W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Należy zastąpić ją odpowiednią wartością dla maszyny wirtualnej.
 
@@ -84,11 +84,15 @@ Aby włączyć dzienniki zrzutów i konsolę seryjną, uruchom następujący skr
 
 1. Na maszynie wirtualnej odzyskiwania Uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień. To polecenie ustawia dysk systemu operacyjnego, który ma zostać uruchomiony w trybie awaryjnym podczas następnego rozruchu:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     Na przykład jeśli dołączony dysk systemu operacyjnego to dysk F, uruchom następujące polecenie:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Odłącz dysk systemu operacyjnego, a następnie ponownie Dołącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](troubleshoot-recovery-disks-portal-windows.md). Maszyna wirtualna zostanie przeuruchamiana w trybie awaryjnym. Jeśli problem będzie nadal występować, przejdź do opcjonalnego kroku.
 3. Otwórz pole **Uruchom** i uruchom **weryfikatorer** , aby uruchomić narzędzie Menedżer weryfikatora sterowników.
@@ -98,7 +102,10 @@ Aby włączyć dzienniki zrzutów i konsolę seryjną, uruchom następujący skr
 
 7. Usuń ustawienia bezpiecznego rozruchu:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.  Uruchom ponownie maszynę wirtualną. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcjonalnie: Analizuj dzienniki zrzutów w trybie awaryjnego zrzutu
@@ -107,15 +114,15 @@ Aby samodzielnie analizować dzienniki zrzutów, wykonaj następujące czynnośc
 
 1. Dołącz dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania.
 2. Na dołączonym dysku systemu operacyjnego przejdź do **\Windows\System32\Config**. Skopiuj wszystkie pliki jako kopię zapasową w przypadku, gdy wymagane jest wycofanie.
-3. Uruchom **Edytor rejestru** (regedit. exe).
-4. Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz opcję**Załaduj** **plik** > Hive.
+3. Uruchom **Edytor rejestru** (regedit.exe).
+4. Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz opcję **File**  >  **Załaduj plik Hive**.
 5. Przejdź do folderu **\windows\system32\config\SYSTEM** na dysku systemu operacyjnego, który został podłączony. W polu Nazwa gałęzi wpisz **BROKENSYSTEM**. W kluczu **HKEY_LOCAL_MACHINE** zostanie wyświetlona nowa gałąź rejestru.
 6. Przejdź do **HKEY_LOCAL_MACHINE \brokensystem\controlset00x\control\crashcontrol** i wprowadź następujące zmiany:
 
     Autoboot = 0
 
     CrashDumpEnabled = 2
-7.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję**Zwolnij** **plik** > Hive.
+7.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję **File**  >  **Zwolnij plik Hive**.
 8.  Zmodyfikuj konfigurację BCD, aby przeprowadzić rozruch w trybie debugowania. Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
     ```cmd
@@ -135,7 +142,7 @@ Aby samodzielnie analizować dzienniki zrzutów, wykonaj następujące czynnośc
 9. [Odłącz dysk systemu operacyjnego, a następnie ponownie Dołącz dysk systemu operacyjnego do maszyny wirtualnej, której to dotyczy](troubleshoot-recovery-disks-portal-windows.md).
 10. Uruchom maszynę wirtualną, aby sprawdzić, czy jest wyświetlana analiza zrzutów. Znajdź plik, którego nie można załadować. Należy zastąpić ten plik plikiem z działającej maszyny wirtualnej. 
 
-    Poniżej znajduje się przykład analizy zrzutu. Można zobaczyć, że **błąd** jest w filecrypt. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt. sys".
+    Poniżej znajduje się przykład analizy zrzutu. Można sprawdzić, czy **Wystąpił błąd** filecrypt.sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

@@ -11,12 +11,11 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 60df6597d13ea5c8ca265959b0dba5cb83bcdcba
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044738"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84196365"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Best practices for Azure SQL Data Sync (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync) 
 
@@ -34,7 +33,7 @@ Omówienie usługi SQL Data Sync zawiera temat [Sync data across multiple cloud 
 ### <a name="client-agent"></a>Agent klienta
 
 -   Zainstaluj agenta klienta przy użyciu konta użytkownika z najniższymi uprawnieniami, które ma dostęp do usługi sieciowej.  
--   Zainstaluj agenta klienta programu na komputerze, który nie jest lokalnym komputerem SQL Server.  
+-   Zainstaluj agenta klienta programu na komputerze, który nie jest komputerem SQL Server.  
 -   Nie należy rejestrować lokalnej bazy danych z więcej niż jednym agentem.    
     -   Unikaj tego, nawet jeśli synchronizujesz różne tabele dla różnych grup synchronizacji.  
     -   Zarejestrowanie lokalnej bazy danych za pomocą wielu agentów klienta powoduje problemy po usunięciu jednej z grup synchronizacji.
@@ -197,7 +196,7 @@ W niektórych okolicznościach Wyrejestrowanie bazy danych z agentem klienta mo�
 
 #### <a name="scenario"></a>Scenariusz
 
-1. Grupa synchronizacji A została utworzona przy użyciu wystąpienia SQL Database i lokalnej bazy danych SQL Server, która jest skojarzona z agentem lokalnym 1.
+1. Grupa synchronizacji A została utworzona przy użyciu wystąpienia SQL Database i bazy danych SQL Server, która jest skojarzona z agentem lokalnym 1.
 2. Ta sama lokalna baza danych jest zarejestrowana w lokalnym agencie 2 (ten Agent nie jest skojarzony z żadną grupą synchronizacji).
 3. Wyrejestrowanie lokalnej bazy danych z agenta lokalnego 2 powoduje usunięcie śledzenia i meta tabel dla grupy synchronizacji A dla lokalnej bazy danych.
 4. Operacja grupy synchronizacji nie powiodła się z powodu błędu: "nie można ukończyć bieżącej operacji, ponieważ baza danych nie została zainicjowana do synchronizacji lub nie masz uprawnień do tabel konfiguracji synchronizacji".
@@ -232,8 +231,8 @@ Aby rozwiązać ten problem, należy przeskalować bazę danych metadanych synch
 Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz:
 
 -   Omówienie — [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md) (Synchronizowanie danych między wieloma bazami danych w chmurze i lokalnie za pomocą usługi Azure SQL Data Sync)
--   Skonfiguruj SQL Data Sync
-    - W portalu — [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md) (Samouczek: konfigurowanie usługi SQL Data Sync w celu synchronizowania danych między usługą Azure SQL Database i lokalnym programem SQL Server)
+-   Konfiguracja funkcji SQL Data Sync
+    - W portalu — [Samouczek: skonfiguruj SQL Data Sync, aby synchronizować dane między Azure SQL Database i SQL Server](sql-data-sync-sql-server-configure.md)
     - Z programem PowerShell
         -  [Synchronizowanie wielu baz danych w Azure SQL Database przy użyciu programu PowerShell](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Używanie programu PowerShell do synchronizowania bazy danych w SQL Database i bazy danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

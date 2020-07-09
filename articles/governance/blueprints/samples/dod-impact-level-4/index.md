@@ -1,18 +1,20 @@
 ---
 title: Omówienie przykładu strategii DoD Impact Level 4
 description: Omówienie przykładu DoD Impact Level 4. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli DoD Impact Level 4.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
-ms.openlocfilehash: a67dae5399d3e2e24c226c53f915b91e2524e735
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
-ms.translationtype: HT
+ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "79415380"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800396"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Omówienie przykładu strategii DoD Impact Level 4
 
 Przykład strategii Department of Defense Impact Level 4 (DoD IL4) udostępnia wytyczne dotyczące ładu w usłudze [Azure Policy](../../../policy/overview.md), które ułatwiają ocenę określonych mechanizmów kontroli DoD Impact Level 4. Ta strategia ułatwia klientom wdrażanie podstawowego zestawu zasad dla dowolnej architektury wdrożonej przez platformę Azure, która musi implementować mechanizmy kontroli DoD Impact Level 4. Aby uzyskać najnowsze informacje o usługach i chmurach platformy Azure autoryzowanych na poziomie DoD Impact Level 4, zobacz [usługi platformy Azure według zakresu inspekcji FedRAMP i DoD CC SRG](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+> [!NOTE]
+> Ten przykład strategii jest dostępny w usłudze Azure Government.
 
 ## <a name="control-mapping"></a>Mapowanie kontrolek
 

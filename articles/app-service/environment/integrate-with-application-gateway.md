@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80476895"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrate your ILB App Service Environment with the Azure Application Gateway (Integrowanie środowiska App Service Environment wewnętrznego modułu równoważenia obciążenia z usługą Azure Application Gateway) #
@@ -40,7 +40,7 @@ Aby zintegrować Application Gateway z usługą ILB App Service Environment, pot
 * ILB App Service Environment.
 * Aplikacja działająca w App Service Environment ILB.
 * Nazwa domeny z obsługą Internetu, która będzie używana z aplikacją w App Service Environment ILB.
-* Adres ILB używany przez App Service Environment ILBa. Te informacje są w portalu App Service Environment w obszarze **Ustawienia** > **adresy IP**:
+* Adres ILB używany przez App Service Environment ILBa. Te informacje są w portalu App Service Environment w obszarze **Ustawienia**  >  **adresy IP**:
 
     ![Przykładowa lista adresów IP używanych przez ILB App Service Environment][9]
     
@@ -56,7 +56,7 @@ Nie można również umieścić bramy w podsieci używanej przez ILB App Service
 
 ## <a name="configuration-steps"></a>Kroki konfiguracji ##
 
-1. W Azure Portal przejdź do pozycji **Nowy** > **Network** > **Application Gateway**sieci.
+1. W Azure Portal przejdź do pozycji **Nowy**  >  **Network**  >  **Application Gateway**sieci.
 
 2. W obszarze **podstawy** :
 

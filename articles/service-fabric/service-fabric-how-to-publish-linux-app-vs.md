@@ -6,10 +6,9 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614353"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Tworzenie i publikowanie .Net Core aplikacji przeznaczonych dla zdalnego klastra Service Fabric systemu Linux przy użyciu programu Visual Studio
@@ -38,7 +37,7 @@ Za pomocą narzędzi Visual Studio można tworzyć i publikować Service Fabric 
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
 > [!Note]
-> Ustawienie UpdateServiceFabricManifestEnabled na false powoduje wyłączenie aktualizacji pliku servicemanifest. XML podczas kompilacji. Wszelkie zmiany, takie jak dodawanie, usuwanie lub zmiana nazwy do usługi, nie zostaną odzwierciedlone w pliku servicemanifest. XML. W przypadku wprowadzenia jakichkolwiek zmian należy ręcznie zaktualizować element servicemanifest lub tymczasowo ustawić UpdateServiceFabricManifestEnabled na wartość true i skompilować usługę, która będzie aktualizować plik servicemanifest. XML, a następnie przywrócić go z powrotem do wartości false.
+> Ustawienie UpdateServiceFabricManifestEnabled na false powoduje wyłączenie aktualizacji ServiceManifest.xml podczas kompilacji. Wszelkie zmiany, takie jak dodawanie, usuwanie lub zmiana nazwy usługi, nie zostaną odzwierciedlone w ServiceManifest.xml. W przypadku wprowadzenia jakichkolwiek zmian należy ręcznie zaktualizować element servicemanifest lub tymczasowo ustawić UpdateServiceFabricManifestEnabled na wartość true i skompilować usługę, która zaktualizuje ServiceManifest.xml, a następnie przywraca ją z powrotem do wartości false.
 >
 
 4. Zaktualizuj RuntimeIndetifier z platformy Win7 – x64 na platformę docelową w projekcie usługi.

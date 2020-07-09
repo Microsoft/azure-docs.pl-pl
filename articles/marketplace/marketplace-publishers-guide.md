@@ -1,25 +1,25 @@
 ---
 title: Komercyjny Podręcznik publikowania w witrynie Microsoft Marketplace
 description: Przegląd komercyjnej witryny Marketplace dla partnerów firmy Microsoft, którzy chcą publikować oferty do Microsoft AppSource i witryny Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/12/2020
-ms.author: dsindona
-ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2ce8767092fb1b93f743e8a5b81a9fbfb01468bf
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120827"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Komercyjny Podręcznik publikowania w portalu Marketplace
 
 Ten przewodnik publikowania został zaprojektowany z założeniami, aby pomóc nowym i istniejącym wydawcom dowiedzieć się, jak wyświetlać aplikacje i usługi w portalu komercyjnej witryny Marketplace, [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com) i [Microsoft AppSource](https://appsource.microsoft.com), aby rozwijać swoją firmę w partnerstwie z firmą Microsoft.
 
 >[!Note]
->Witryna Marketplace dotyczy zarówno platformy Azure Marketplace, jak i AppSource.  Aby uzyskać więcej informacji [, zobacz jeden z rynków Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) .
+>Witryna Marketplace dotyczy zarówno platformy Azure Marketplace, jak i AppSource.  Aby uzyskać więcej informacji [, zobacz jeden z rynków Marketplace](comparing-appsource-azure-marketplace.md) .
 
 Ten przewodnik obejmuje następujące tematy: 
 *   Co to jest portal Marketplace i jak to działa 
@@ -62,7 +62,7 @@ Nowe aukcje w portalu Marketplace kwalifikują się do korzystania z różnorodn
 
 *   Sprzedawanie: Rozpocznij lub Przyspiesz swoją podróż, aby sprzedawać firmę Microsoft w portalu Marketplace. Uzyskiwanie dostępu do programów i pomocy technicznej w celu zapewnienia wspólnego sprzedaży za pomocą zespołów Microsoft Teams.
 
-Po [przesłaniu rozwiązania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) do portalu Marketplace nasz zespół ds. dołączania skontaktuje się z pomocą techniczną, aby obsłużyć proces publikowania.  Aby uzyskać więcej informacji [, zobacz jak utworzyć konto Centrum partnerskiego](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .
+Po [przesłaniu rozwiązania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) do portalu Marketplace nasz zespół ds. dołączania skontaktuje się z pomocą techniczną, aby obsłużyć proces publikowania.  Aby uzyskać więcej informacji [, zobacz jak utworzyć konto Centrum partnerskiego](partner-center-portal/create-account.md) .
 
 Dowiedz się więcej o [korzyściach z używania komercyjnego portalu Marketplace](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 

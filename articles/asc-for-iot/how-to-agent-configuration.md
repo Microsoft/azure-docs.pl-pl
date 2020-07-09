@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: e41b7222ca89976674973e1eb700d62765b306f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311327"
 ---
 # <a name="tutorial-configure-security-agents"></a>Samouczek: Konfigurowanie agentów zabezpieczeń
@@ -107,7 +107,7 @@ Aby użyć domyślnej wartości właściwości, Usuń właściwość z obiektu k
     }
     ```
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="using-a-default-value"></a>Używanie wartości domyślnej
 
@@ -136,12 +136,12 @@ Wartości domyślne są dostępne w odpowiednim schemacie w serwisie [GitHub](ht
 |Błąd konfiguracji |eventPriorityConfigurationError |Małe |Fałsz |Agent nie może przeanalizować konfiguracji. Sprawdź konfigurację względem schematu.|
 |Dane statystyczne dotyczące porzuconego zdarzenia |eventPriorityDroppedEventsStatistics |Małe |Prawda|Statystyki zdarzeń związanych z agentem. |
 |Podłączony sprzęt|eventPriorityConnectedHardware |Małe |Prawda |Migawka wszystkich urządzeń podłączonych do urządzenia.|
-|Nasłuchiwanie portów|eventPriorityListeningPorts |Wysoka |Prawda |Migawka wszystkich otwartych portów nasłuchiwania na urządzeniu.|
+|Nasłuchiwanie portów|eventPriorityListeningPorts |Wysoki |Prawda |Migawka wszystkich otwartych portów nasłuchiwania na urządzeniu.|
 |Tworzenie procesu |eventPriorityProcessCreate |Małe |Fałsz |Przeprowadza inspekcję tworzenia procesu na urządzeniu.|
 |Zakończenie procesu|eventPriorityProcessTerminate |Małe |Fałsz |Przeprowadza inspekcję zakończenia procesu na urządzeniu.|
 |Informacje o systemie |eventPrioritySystemInformation |Małe |Prawda |Migawka informacji o systemie (na przykład: system operacyjny lub procesor CPU).|
-|Użytkownicy lokalni| eventPriorityLocalUsers |Wysoka |Prawda|Migawka zarejestrowanych użytkowników lokalnych w systemie. |
-|Logowanie|  eventPriorityLogin |Wysoka|Fałsz|Przeprowadź inspekcję zdarzeń logowania na urządzeniu (logowanie lokalne i zdalne).|
+|Użytkownicy lokalni| eventPriorityLocalUsers |Wysoki |Prawda|Migawka zarejestrowanych użytkowników lokalnych w systemie. |
+|Zaloguj się|  eventPriorityLogin |Wysoki|Fałsz|Przeprowadź inspekcję zdarzeń logowania na urządzeniu (logowanie lokalne i zdalne).|
 |Tworzenie połączenia |eventPriorityConnectionCreate|Małe|Fałsz|Przeprowadza inspekcję połączeń TCP utworzonych do i z urządzenia. |
 |Konfiguracja zapory| eventPriorityFirewallConfiguration|Małe|Prawda|Migawka konfiguracji zapory urządzenia (reguły zapory). |
 |Linia bazowa systemu operacyjnego| eventPriorityOSBaseline| Małe|Prawda|Migawka kontroli linii bazowej systemu operacyjnego urządzenia.|

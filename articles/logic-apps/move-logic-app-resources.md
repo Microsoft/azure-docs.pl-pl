@@ -1,17 +1,17 @@
 ---
-title: Migrowanie aplikacji logiki między subskrypcjami, grupami zasobów lub regionami
+title: Przenoszenie aplikacji logiki między subskrypcjami, grupami zasobów lub regionami
 description: Migrowanie aplikacji logiki lub kont integracji do innych subskrypcji platformy Azure, grup zasobów lub lokalizacji (regionów)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 065bbc62d65d7e91728b10cd9f95b2e73ea03abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564275"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Przenoszenie zasobów aplikacji logiki do innych grup zasobów platformy Azure, regionów lub subskrypcji
 
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji na temat szablonów wdrażania dla usługi Logic
 * [Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Znajdowanie, otwieranie i pobieranie aplikacji logiki z Azure Portal do programu Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Tworzenie Azure Resource Manager szablonów dla Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Wdróż szablony Azure Resource Manager dla Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Wdrażanie szablonów usługi Azure Resource Manager dla usługi Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
 ### <a name="related-resources"></a>Powiązane zasoby
 

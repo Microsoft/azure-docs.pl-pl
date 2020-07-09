@@ -9,10 +9,9 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77190251"
 ---
 # <a name="consumption-model"></a>Model użycia
@@ -29,7 +28,7 @@ W obu modelach użycia istnieją pewne zależności podczas określania parametr
 * Jeśli **accelerationEfficiency** i **decelerationEfficiency** są określone, iloczyn ich wartości nie może być większy niż 1 (w celu uniknięcia bezterminowego ruchu).
 * elementy **uphillEfficiency** i **downhillEfficiency** muszą być zawsze określone jako para (takie jak lub None).
 * Jeśli **uphillEfficiency** i **downhillEfficiency** są określone, iloczyn ich wartości nie może być większy niż 1 (w celu uniknięcia bezterminowego ruchu).
-* \*Jeśli parametry __wydajności__ są określone przez użytkownika, należy również określić **vehicleWeight** . Gdy **vehicleEngineType** jest _spalany_, należy również określić **fuelEnergyDensityInMJoulesPerLiter** .
+* Jeśli parametry \* __wydajności__ są określone przez użytkownika, należy również określić **vehicleWeight** . Gdy **vehicleEngineType** jest _spalany_, należy również określić **fuelEnergyDensityInMJoulesPerLiter** .
 * elementy **maxChargeInkWh** i **currentChargeInkWh** muszą być zawsze określone jako para (to jest lub None).
 
 > [!NOTE]

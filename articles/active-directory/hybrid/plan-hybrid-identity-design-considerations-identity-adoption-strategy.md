@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67109330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555376"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie hybrydowej strategii wdrażania tożsamości
 W tym zadaniu zdefiniujemy hybrydową strategię wdrażania tożsamości dla hybrydowego rozwiązania do obsługi tożsamości, aby spełnić wymagania biznesowe omówione w temacie:
@@ -63,7 +63,7 @@ Stosowana strategia spowoduje wydyktowanie środowiska logowania użytkownika.  
 
 **Domenowe — połączone i prywatne aplikacje sieciowe**:
 
-|  | Tożsamość zsynchronizowana | Tożsamość federacyjna |
+| Aplikacja | Tożsamość zsynchronizowana | Tożsamość federacyjna |
 | --- | --- | --- |
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |Logowanie jednokrotne, czasami wymagane do podania identyfikatora organizacji |
 | Outlook |Monituj o poświadczenia |Monituj o poświadczenia |
@@ -73,7 +73,7 @@ Stosowana strategia spowoduje wydyktowanie środowiska logowania użytkownika.  
 
 **Źródła zewnętrzne lub niezaufane**:
 
-|  | Tożsamość zsynchronizowana | Tożsamość federacyjna |
+| Aplikacja | Tożsamość zsynchronizowana | Tożsamość federacyjna |
 | --- | --- | --- |
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |Uwierzytelnianie oparte na formularzach |
 | Outlook, Skype dla firm (Lync), OneDrive dla firm i subskrypcja pakietu Office |Monituj o poświadczenia |Monituj o poświadczenia |
@@ -111,7 +111,7 @@ W ciągu lat wiele narzędzi synchronizacji istniało i używanych w różnych s
 ### <a name="supported-topologies"></a>Obsługiwane topologie
 Podczas definiowania strategii synchronizacji należy określić topologię, która jest używana. W zależności od informacji, które zostały określone w kroku 2 można określić topologię, która jest odpowiednia do użycia. Pojedynczy las, pojedyncza topologia usługi Azure AD jest najpopularniejszy i składa się z jednego lasu Active Directory i jednego wystąpienia usługi Azure AD.  Ta wartość jest używana w większości scenariuszy i jest oczekiwaną topologią w przypadku korzystania z instalacji Azure AD Connect Express, jak pokazano na poniższej ilustracji.
 
-![Scenariusz obsługiwane](./media/plan-hybrid-identity-design-considerations/single-forest.png) topologie Single Forest jest często stosowany w dużych i nawet małych organizacjach, które mają wiele lasów, jak pokazano na rysunku 5.
+![Scenariusz obsługiwane topologie ](./media/plan-hybrid-identity-design-considerations/single-forest.png) Single Forest jest często stosowany w dużych i nawet małych organizacjach, które mają wiele lasów, jak pokazano na rysunku 5.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat różnych lokalnych i topologii usługi Azure AD z synchronizacją Azure AD Connect, zapoznaj się z [topologiami artykułu Azure AD Connect](plan-connect-topologies.md).
@@ -158,7 +158,7 @@ W tym celu należy wykonać następujące czynności:
 * Domenę DNS można zarejestrować tylko w jednym katalogu usługi Azure AD, aby nazwy UPN użytkowników w lokalnej usłudze AD musiały używać oddzielnych przestrzeni nazw
 * Użytkownicy w jednym wystąpieniu usługi Azure AD będą mogli zobaczyć użytkowników z ich wystąpienia.  Nie będą oni mogli zobaczyć użytkowników w innych wystąpieniach
 * Tylko jeden z katalogów usługi Azure AD może włączyć funkcję hybrydową programu Exchange z lokalną usługą AD
-* Wzajemne Wykluczanie ma zastosowanie również do zapisu zwrotnego.  Powoduje to, że niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną.  Obejmuje to:
+* Wzajemne Wykluczanie ma zastosowanie również do zapisu zwrotnego.  Powoduje to, że niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną.  Obejmuje on:
   * Grupuj kopie zapasowe z konfiguracją domyślną
   * Zapisywanie zwrotne urządzeń
 
@@ -213,6 +213,6 @@ Uwierzytelnianie wieloskładnikowe jest domyślnie dostępne dla administratoró
 ## <a name="next-steps"></a>Następne kroki
 [Określanie wymagań dotyczących ochrony danych](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -4,12 +4,13 @@ description: Tworzenie aplikacji funkcji środowiska Python bezserwerowej przy u
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 3bcefe59bfec5f3d76ecbc04a5b46a9285fc381b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922626"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561205"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Tworzenie aplikacji funkcji środowiska Python bezserwerowej przy użyciu interfejsu wiersza polecenia platformy Azure
 

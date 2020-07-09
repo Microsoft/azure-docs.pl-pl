@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e33cd64da32dcb918d30cd44f413748f719023b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810475"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771295"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -175,33 +174,17 @@ Omówienie usługi Security Center zapewnia spójny widok zabezpieczeń dla wszy
 > [!NOTE]
 > Usługa Security Center nie zakłóca zwykłych procedur operacyjnych, pasywnie monitoruje wdrożenia i zapewnia zalecenia na podstawie włączonych zasad zabezpieczeń.
 
-Po podjęciu decyzji o pierwszym użyciu usługi Security Center dla bieżącego środowiska platformy Azure pamiętaj, aby przejrzeć wszystkie zalecenia. Można to zrobić na kafelku **Zalecenia** lub względem poszczególnych zasobów (**Obliczenia**, **Sieci**, **Magazyn i dane** oraz **Aplikacja**).
-
-Po wykonaniu wszystkich zaleceń sekcja **Zapobieganie** powinna być zielona dla wszystkich przejrzanych zasobów. Na tym etapie monitorowanie ciągłe staje się łatwiejsze, ponieważ działania są podejmowane tylko w oparciu o zmiany kondycji zabezpieczeń zasobów oraz kafelki zaleceń.
-
-Sekcja **Wykrywanie** jest bardziej reaktywna. Zawiera ona alerty dotyczące problemów, które występują teraz lub wystąpiły w przeszłości, wykrytych przez kontrolki usługi Security Center i systemy innych firm. Kafelek alerty zabezpieczeń pokazuje wykresy słupkowe przedstawiające liczbę alertów, które zostały znalezione w poszczególnych dniach, i ich dystrybucję do różnych kategorii ważności (niski, średni, wysoki). Więcej informacji na temat alertów zabezpieczeń znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md).
+Podczas pierwszego korzystania z Security Center dla bieżącego środowiska platformy Azure należy zapoznać się ze wszystkimi zaleceniami, które można wykonać na stronie **zalecenia** .
 
 Zaplanuj odwiedzenie opcji analizy zagrożeń jako część codziennych operacji zabezpieczeń. Możesz tam zidentyfikować zagrożenia bezpieczeństwa środowiska, takie jak ustalenie, czy dany komputer jest częścią botnetu.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitorowanie nowych lub zmodyfikowanych zasobów
+
 Większość środowisk platformy Azure jest dynamiczna, a zasoby są regularnie tworzone, można je w górę lub w dół, ponownie skonfigurować i zmienić. Usługa Security Center pomaga zagwarantować widoczność stanu zabezpieczeń nowych zasobów.
 
 Po dodaniu nowych zasobów (maszyn wirtualnych, baz danych SQL) do środowiska Azure usługa Security Center wykrywa je automatycznie i rozpoczyna monitorowanie ich zabezpieczeń. Obejmuje to także role procesu roboczego i role sieci Web usługi PaaS. Jeśli w [zasadach zabezpieczeń](tutorial-security-policy.md)włączono funkcję zbierania danych, w przypadku maszyn wirtualnych zostaną automatycznie włączone dodatkowe funkcje monitorowania.
 
-![Kluczowe obszary](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
-
-1. W przypadku maszyn wirtualnych kliknij pozycję **obliczeniowe & aplikacje**w sekcji **higiena zabezpieczeń zasobów** . Wszystkie problemy z włączaniem danych lub powiązane zalecenia zostaną wyświetlone na karcie **Omówienie** i w sekcji **Zalecenia dotyczące monitorowania**.
-2. Wyświetl **zalecenia**, aby sprawdzić, jakie zagrożenia dla bezpieczeństwa, jeśli w ogóle wystąpiły, zostały zidentyfikowane dla nowego zasobu.
-3. Często zdarza się, że podczas dodawania do środowiska nowych maszyn wirtualnych na początku zostaje zainstalowany tylko system operacyjny. Właściciel zasobu może potrzebować trochę czasu, aby wdrożyć inne aplikacje, które będą używane przez te maszyny wirtualne.  Najlepiej byłoby znać stan docelowy danego obciążenia. Czy będzie to serwer aplikacji? W zależności od tego, jaką rolę będzie pełnić nowe obciążenie, możesz włączyć odpowiednie **zasady zabezpieczeń**, co stanowi trzeci krok w tym przepływie pracy.
-4. W miarę dodawania nowych zasobów do środowiska platformy Azure nowe alerty mogą pojawić się na kafelku **alerty zabezpieczeń** . Poszukaj nowych alertów na tym kafelku i postępuj zgodnie z zaleceniami.
-
-Należy również regularnie monitorować istniejące zasoby w celu wprowadzenia zmian w konfiguracji, które mogłyby spowodować ryzyko związane z bezpieczeństwem, odniesieniu od zalecanych linii bazowych i alertów zabezpieczeń. Rozpocznij na pulpicie nawigacyjnym usługi Security Center. Z tego miejsca masz trzy główne obszary, które można sprawdzić spójnie.
-
-![Operacje](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
-
-1. Panel **Zapobieganie** zapewnia szybki dostęp do kluczowych zasobów. Opcja ta służy do monitorowania zasobów Obliczenia, Sieci, Magazyn i dane oraz Aplikacje.
-2. Panel **Zalecenia** umożliwia przeglądanie zaleceń usługi Security Center. W trakcie ciągłego monitorowania może się okazać, że nie masz żadnych zaleceń codziennie, co jest normalne, ponieważ zostały uwzględnione wszystkie zalecenia dotyczące wstępnej konfiguracji Security Center. Z tego powodu nowe informacje w tej sekcji mogą nie występować codziennie i trzeba uzyskiwać do nich dostęp w zależności od potrzeb.
-3. Na panelu **Wykrywanie** zmiany mogą pojawiać się bardzo często lub bardzo rzadko. Zawsze czytaj alerty zabezpieczeń i podejmuj działania na podstawie zaleceń usługi Security Center.
+Należy również regularnie monitorować istniejące zasoby w celu wprowadzenia zmian w konfiguracji, które mogłyby spowodować ryzyko związane z bezpieczeństwem, odniesieniu od zalecanych linii bazowych i alertów zabezpieczeń. 
 
 ### <a name="hardening-access-and-applications"></a>Wzmacnianie ochrony dostępu i aplikacji
 

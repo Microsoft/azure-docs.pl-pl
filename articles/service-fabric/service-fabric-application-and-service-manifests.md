@@ -4,19 +4,18 @@ description: Opisuje, w jaki sposób manifesty są używane do opisywania Servic
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75349963"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric manifesty aplikacji i usług
-W tym artykule opisano sposób, w jaki Service Fabric aplikacje i usługi są zdefiniowane i używane do obsługi wersji przy użyciu plików ApplicationManifest. XML i servicemanifest. XML.  Aby uzyskać bardziej szczegółowe przykłady, zobacz [przykłady manifestów aplikacji i usług](service-fabric-manifest-examples.md).  Schemat XML dla tych plików manifestu jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
+W tym artykule opisano sposób, w jaki Service Fabric aplikacje i usługi są zdefiniowane i używane do obsługi wersji przy użyciu plików ApplicationManifest.xml i ServiceManifest.xml.  Aby uzyskać bardziej szczegółowe przykłady, zobacz [przykłady manifestów aplikacji i usług](service-fabric-manifest-examples.md).  Schemat XML dla tych plików manifestu jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 > [!WARNING]
 > Schemat pliku XML manifestu wymusza prawidłową kolejność elementów podrzędnych.  Jako częściowe obejście, Otwórz "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" w programie Visual Studio podczas tworzenia lub modyfikowania dowolnych manifestów Service Fabric. Umożliwi to sprawdzenie kolejności elementów podrzędnych i zapewnia korzystać projekcjami.
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>Opisywanie usługi w pliku servicemanifest. XML
+## <a name="describe-a-service-in-servicemanifestxml"></a>Opisywanie usługi w ServiceManifest.xml
 Manifest usługi deklaratywnie definiuje typ i wersję usługi. Określa on metadane usługi, takie jak typ usługi, właściwości kondycji, metryki równoważenia obciążenia, pliki binarne usługi i plików konfiguracyjnych.  Można to zrobić w inny sposób, opisując kod, konfigurację i pakiety danych tworzące pakiet usługi do obsługi jednego lub kilku typów usług. Manifest usługi może zawierać wiele pakietów kodu, konfiguracji i danych, które mogą być niezależnie od wersji. Oto manifest usługi dla usługi ASP.NET Core Internet frontonu [przykładowej aplikacji do głosowania](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (i przedstawiono kilka [bardziej szczegółowych przykładów](service-fabric-manifest-examples.md)):
 
 ```xml
@@ -65,16 +64,16 @@ Plik wykonywalny określony przez **punkt wejścia** jest zwykle długotrwałym 
 
 Typowymi scenariuszami używania **SetupEntryPoint** są uruchamianie plików wykonywalnych przed uruchomieniem usługi lub wykonywanie operacji z podniesionymi uprawnieniami. Przykład:
 
-* Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest to ograniczone tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm. exe wymaga pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node. js.
+* Konfigurowanie i Inicjowanie zmiennych środowiskowych wymaganych przez plik wykonywalny usługi. Nie jest to ograniczone tylko do plików wykonywalnych pisanych za pośrednictwem modeli programowania Service Fabric. Na przykład npm.exe potrzebuje pewnych zmiennych środowiskowych skonfigurowanych do wdrażania aplikacji node.js.
 * Konfigurowanie kontroli dostępu przez zainstalowanie certyfikatów zabezpieczeń.
 
 Aby uzyskać więcej informacji na temat konfigurowania SetupEntryPoint, zobacz [Konfigurowanie zasad dla punktu wejścia Instalatora usługi](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** (nie ustawiono w poprzednim przykładzie) zawiera listę zmiennych środowiskowych ustawionych dla tego pakietu kodu. Zmienne środowiskowe można przesłaniać w `ApplicationManifest.xml` programie, aby zapewnić różne wartości dla różnych wystąpień usługi. 
+**EnvironmentVariables** (nie ustawiono w poprzednim przykładzie) zawiera listę zmiennych środowiskowych ustawionych dla tego pakietu kodu. Zmienne środowiskowe można przesłaniać w programie, `ApplicationManifest.xml` Aby zapewnić różne wartości dla różnych wystąpień usługi. 
 
 **Pakiet** danych (nie został ustawiony w poprzednim przykładzie) deklaruje folder **o nazwie,** który zawiera dowolne dane statyczne do użycia przez proces w czasie wykonywania.
 
-**ConfigPackage** deklaruje folder **o nazwie,** który zawiera plik *Settings. XML* . Plik ustawień zawiera sekcje ustawień zdefiniowanych przez użytkownika, pary klucz-wartość, które proces odczytuje z powrotem w czasie wykonywania. W trakcie uaktualniania, jeśli tylko wersja **ConfigPackage** **version** została zmieniona, uruchomiony proces nie zostanie ponownie uruchomiony. Zamiast tego wywołanie zwrotne powiadamia proces, że ustawienia konfiguracji zostały zmienione, aby można je było ponownie załadować dynamicznie. Oto przykładowy plik *Settings. XML* :
+**ConfigPackage** deklaruje folder **o nazwie,** który zawiera plik *Settings.xml* . Plik ustawień zawiera sekcje ustawień zdefiniowanych przez użytkownika, pary klucz-wartość, które proces odczytuje z powrotem w czasie wykonywania. W trakcie uaktualniania, jeśli tylko wersja **ConfigPackage** **version** została zmieniona, uruchomiony proces nie zostanie ponownie uruchomiony. Zamiast tego wywołanie zwrotne powiadamia proces, że ustawienia konfiguracji zostały zmienione, aby można je było ponownie załadować dynamicznie. Oto przykładowy plik *Settings.xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -101,7 +100,7 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>Opisz aplikację w ApplicationManifest. XML
+## <a name="describe-an-application-in-applicationmanifestxml"></a>Opisywanie aplikacji w ApplicationManifest.xml
 Manifest aplikacji deklaratywnie opisuje typ i wersję aplikacji. Określa metadane kompozycji usługi, takie jak nazwy stabilne, schemat partycjonowania, liczba wystąpień/współczynnik replikacji, zasady zabezpieczeń/izolacji, ograniczenia umieszczania, zastąpień konfiguracji i typy usług składowych. Opisano również domeny równoważenia obciążenia, w których znajduje się aplikacja.
 
 W ten sposób manifest aplikacji opisuje elementy na poziomie aplikacji i odwołuje się do co najmniej jednego manifestu usługi do redagowania typu aplikacji. Oto manifest aplikacji dla [przykładowej aplikacji do głosowania](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (i Oto kilka [bardziej szczegółowych przykładów](service-fabric-manifest-examples.md)):
@@ -151,7 +150,7 @@ Podobnie jak w przypadku manifestów usługi, atrybuty **wersji** są ciągami b
 
 **Parametry** definiują parametry używane w ramach manifestu aplikacji. Wartości tych parametrów można podać podczas tworzenia wystąpienia aplikacji i mogą zastąpić ustawienia konfiguracji aplikacji lub usługi.  Wartość domyślna parametru jest używana, jeśli wartość nie zostanie zmieniona podczas tworzenia wystąpienia aplikacji. Aby dowiedzieć się, jak zarządzać różnymi parametrami aplikacji i usług dla poszczególnych środowisk, zobacz [Zarządzanie parametrami aplikacji w wielu środowiskach](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**ServiceManifestImport** zawiera odwołania do manifestów usługi tworzących ten typ aplikacji. Manifest aplikacji może zawierać wiele importów manifestu usługi, każdy z nich może być niezależnie w wersji. Zaimportowane manifesty usług określają, jakie typy usług są prawidłowe w ramach tego typu aplikacji. W ramach ServiceManifestImport zastąpisz wartości konfiguracyjne w pliku Settings. XML i zmienne środowiskowe w plikach servicemanifest. XML. **Zasady** (nie ustawiane w poprzednim przykładzie) dla powiązania punktu końcowego, zabezpieczeń i dostępu oraz udostępniania pakietów można ustawić dla zaimportowanych manifestów usługi.  Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad zabezpieczeń dla aplikacji](service-fabric-application-runas-security.md).
+**ServiceManifestImport** zawiera odwołania do manifestów usługi tworzących ten typ aplikacji. Manifest aplikacji może zawierać wiele importów manifestu usługi, każdy z nich może być niezależnie w wersji. Zaimportowane manifesty usług określają, jakie typy usług są prawidłowe w ramach tego typu aplikacji. W ramach ServiceManifestImport zastąpisz wartości konfiguracyjne w Settings.xml i zmiennych środowiskowych w plikach ServiceManifest.xml. **Zasady** (nie ustawiane w poprzednim przykładzie) dla powiązania punktu końcowego, zabezpieczeń i dostępu oraz udostępniania pakietów można ustawić dla zaimportowanych manifestów usługi.  Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad zabezpieczeń dla aplikacji](service-fabric-application-runas-security.md).
 
 **DefaultServices** deklaruje wystąpienia usługi, które są tworzone automatycznie za każdym razem, gdy aplikacja zostanie utworzona na podstawie tego typu aplikacji. Usługi domyślne są tylko wygodą i zachowują się jak normalne usługi w każdym przypadku, gdy zostały utworzone. Są one uaktualniane wraz z innymi usługami w wystąpieniu aplikacji i można je również usunąć. Manifest aplikacji może zawierać wiele domyślnych usług.
 

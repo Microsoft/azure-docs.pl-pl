@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478154"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478488"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 
@@ -30,7 +30,17 @@ Ten dokument zawiera szczegółowe informacje dotyczące używania niestandardow
 
 ### <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie niestandardowego skryptu dla systemu Windows zostanie uruchomione na obsługiwanym rozszerzeniu OSs. Aby uzyskać więcej informacji, zobacz te [systemy operacyjne obsługiwane przez rozszerzenie platformy Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+Rozszerzenie niestandardowego skryptu dla systemu Windows zostanie uruchomione na obsługiwanym rozszerzeniu OSs.
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 z dodatkiem R2
+* Windows Server 2012
+* Windows Server 2012 z dodatkiem R2
+* Windows 10
+* Windows Server 2016
+* System Windows Server 2016 Core
+* Windows Server 2019
+* System Windows Server 2019 Core
 
 ### <a name="script-location"></a>Lokalizacja skryptu
 
@@ -56,6 +66,7 @@ Jeśli skrypt znajduje się na serwerze lokalnym, może być konieczne otwarcie 
 * Niestandardowe rozszerzenie skryptu nie obsługuje natywnie serwerów proxy, jednak można użyć narzędzia transferu plików, które obsługuje serwery proxy w skrypcie, na przykład *zwinięcie*
 * Pamiętaj, że skrypt lub polecenia mogą polegać na lokalizacjach katalogów innych niż domyślne. Przygotuj logikę obsługującą taką sytuację.
 * Rozszerzenie niestandardowego skryptu zostanie uruchomione na koncie LocalSystem
+* Jeśli planujesz używać właściwości *storageAccountName* i *storageAccountKey* , te właściwości muszą być umieszczone w *protectedSettings*.
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
@@ -114,11 +125,11 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | ciąg |
-| type | CustomScriptExtension | ciąg |
+| typ | CustomScriptExtension | ciąg |
 | typeHandlerVersion | 1.10 | int |
 | fileUris (np.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | tablica |
 | Sygnatura czasowa (np.) | 123456789 | 32-bitowa liczba całkowita |
-| Sekcji commandtoexecute (np.) | PowerShell-ExecutionPolicy unstricted-File Configure-Music-App. ps1 | ciąg |
+| Sekcji commandtoexecute (np.) | PowerShell — ExecutionPolicy nieograniczony-plik configure-music-app.ps1 | ciąg |
 | storageAccountName (np.) | examplestorageacct | ciąg |
 | storageAccountKey (np.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | ciąg |
 | managedIdentity (np.) | {} lub {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} lub {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | Obiekt JSON |
@@ -196,7 +207,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 
 ## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
 
-`Set-AzVMCustomScriptExtension` Polecenie może służyć do dodawania niestandardowego rozszerzenia skryptu do istniejącej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
+`Set-AzVMCustomScriptExtension`Polecenie może służyć do dodawania niestandardowego rozszerzenia skryptu do istniejącej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
 Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
@@ -211,7 +222,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Korzystanie z wielu skryptów
 
-W tym przykładzie masz trzy skrypty, które są używane do tworzenia serwera. **Sekcji commandtoexecute** wywołuje pierwszy skrypt, a następnie dysponuje się opcjami dotyczącymi wywoływania innych metod. Na przykład można mieć skrypt główny, który kontroluje wykonywanie, z odpowiednią obsługą błędów, rejestrowaniem i zarządzaniem stanem. Skrypty są pobierane na komputer lokalny na potrzeby uruchamiania programu. Na przykład w `1_Add_Tools.ps1` przypadku wywołania `2_Add_Features.ps1` przez dodanie `.\2_Add_Features.ps1` do skryptu i powtórz ten proces dla innych skryptów zdefiniowanych w programie. `$settings`
+W tym przykładzie masz trzy skrypty, które są używane do tworzenia serwera. **Sekcji commandtoexecute** wywołuje pierwszy skrypt, a następnie dysponuje się opcjami dotyczącymi wywoływania innych metod. Na przykład można mieć skrypt główny, który kontroluje wykonywanie, z odpowiednią obsługą błędów, rejestrowaniem i zarządzaniem stanem. Skrypty są pobierane na komputer lokalny na potrzeby uruchamiania programu. Na przykład w `1_Add_Tools.ps1` przypadku wywołania `2_Add_Features.ps1` przez dodanie `.\2_Add_Features.ps1` do skryptu i powtórz ten proces dla innych skryptów zdefiniowanych w programie `$settings` .
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -265,12 +276,12 @@ Alternatywnie można ustawić **wartość true**dla właściwości [ForceUpdateT
 
 ### <a name="using-invoke-webrequest"></a>Korzystanie z metody Invoke-WebRequest
 
-Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) w skrypcie, musisz określić parametr `-UseBasicParsing` lub w przeciwnym razie zostanie wyświetlony następujący komunikat o błędzie podczas sprawdzania szczegółowego stanu:
+Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) w skrypcie, musisz określić parametr lub w przeciwnym razie `-UseBasicParsing` zostanie wyświetlony następujący komunikat o błędzie podczas sprawdzania szczegółowego stanu:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Zestawy skali maszyn wirtualnych
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
@@ -328,17 +339,17 @@ Określone pliki zostaną pobrane do następującego folderu na docelowej maszyn
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 
-gdzie `<n>` jest dziesiętną liczbą całkowitą, która może ulec zmianie między wykonaniami rozszerzenia.  Wartość `1.*` jest zgodna z rzeczywistą, `typeHandlerVersion` bieżącą wartością rozszerzenia.  Na przykład faktyczny katalog może być `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+gdzie `<n>` jest dziesiętną liczbą całkowitą, która może ulec zmianie między wykonaniami rozszerzenia.  `1.*`Wartość jest zgodna z rzeczywistą, bieżącą `typeHandlerVersion` wartością rozszerzenia.  Na przykład faktyczny katalog może być `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2` .  
 
-Po wykonaniu `commandToExecute` polecenia rozszerzenie ustawia ten katalog (na przykład `...\Downloads\2`) jako bieżący katalog roboczy. Ten proces umożliwia lokalizowanie plików pobranych za pośrednictwem `fileURIs` właściwości przy użyciu ścieżek względnych. Przykłady można znaleźć w poniższej tabeli.
+Po wykonaniu `commandToExecute` polecenia rozszerzenie ustawia ten katalog (na przykład `...\Downloads\2` ) jako bieżący katalog roboczy. Ten proces umożliwia lokalizowanie plików pobranych za pośrednictwem właściwości przy użyciu ścieżek względnych `fileURIs` . Przykłady można znaleźć w poniższej tabeli.
 
-Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać `commandToExecute` względne ścieżki skryptów/plików w ciągu, jeśli jest to możliwe. Przykład:
+Ze względu na to, że absolutna ścieżka pobierania może się różnić w miarę upływu czasu, lepiej jest wybrać względne ścieżki skryptów/plików w `commandToExecute` ciągu, jeśli jest to możliwe. Przykład:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Informacje o ścieżce po pierwszym segmencie identyfikatora URI są przechowywane dla plików pobranych za `fileUris` pośrednictwem listy właściwości.  Jak pokazano w poniższej tabeli, pobrane pliki są mapowane do podkatalogów pobierania, aby odzwierciedlały strukturę `fileUris` wartości.  
+Informacje o ścieżce po pierwszym segmencie identyfikatora URI są przechowywane dla plików pobranych za pośrednictwem `fileUris` listy właściwości.  Jak pokazano w poniższej tabeli, pobrane pliki są mapowane do podkatalogów pobierania, aby odzwierciedlały strukturę `fileUris` wartości.  
 
 #### <a name="examples-of-downloaded-files"></a>Przykłady pobranych plików
 

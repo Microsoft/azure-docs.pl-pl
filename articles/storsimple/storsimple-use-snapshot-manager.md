@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933972"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513745"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Korzystanie z StorSimple Snapshot Manager interfejsu użytkownika do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych
 
@@ -114,13 +114,13 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 | Konfigurowanie urządzenia |Kliknij prawym przyciskiem myszy węzeł **urządzenia** . |Kliknij pozycję **Konfiguruj urządzenie** , aby skonfigurować jedno urządzenie lub wiele urządzeń w celu nawiązania połączenia z hostem systemu Windows. |
 | Tworzenie zasad kopii zapasowych |Wykonaj jedną z następujących czynności:<ul><li>Kliknij prawym przyciskiem myszy pozycję **zasady tworzenia kopii zapasowych**.</li><li>Kliknij lub rozwiń pozycję **grupy woluminów**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li><li>Kliknij lub rozwiń pozycję **wykaz kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li></ul> |Kliknij pozycję **Utwórz zasady tworzenia kopii zapasowych** , aby skonfigurować zaplanowaną kopię zapasową dla grupy woluminów. |
 | Utwórz grupę woluminów |Wykonaj jedną z następujących czynności:<ul><li>Kliknij węzeł **woluminy** , a następnie kliknij prawym przyciskiem myszy wolumin w okienku **wyników** .</li><li>Kliknij prawym przyciskiem myszy węzeł **grupy woluminów** .</li></ul> |Kliknij pozycję **Utwórz grupę woluminów** , aby przypisać woluminy do grupy woluminów. |
-| Usuwanie |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
+| Usuń |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
 | Szczegóły |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **szczegóły** , aby wyświetlić szczegóły konfiguracji urządzenia. |
 | Edytuj |Kliknij pozycję **zasady tworzenia kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy zasady w okienku **wyników** . |Kliknij przycisk **Edytuj** , aby zmienić harmonogram tworzenia kopii zapasowych dla grupy woluminów. |
 | Eksportuj listę |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Eksportuj listę** , aby zapisać listę w pliku z wartościami rozdzielanymi przecinkami (CSV). Następnie można zaimportować ten plik do aplikacji arkusza kalkulacyjnego do analizy. |
 | Pomoc |Kliknij dowolny węzeł lub wynik. (Ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Pomoc** , aby otworzyć Pomoc online w osobnym oknie przeglądarki. |
 | Nowe okno w tym miejscu |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij pozycję **nowe okno w tym miejscu** , aby otworzyć nowe okno Snapshot Manager StorSimple. |
-| Odświeżanie |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Odśwież** , aby zaktualizować aktualnie wyświetlane okno StorSimple Snapshot Manager. |
+| Odśwież |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Odśwież** , aby zaktualizować aktualnie wyświetlane okno StorSimple Snapshot Manager. |
 | Odśwież urządzenie |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **Odśwież urządzenie** , aby zsynchronizować określone podłączone urządzenie z StorSimple Snapshot Manager. |
 | Odświeżanie urządzeń |Kliknij prawym przyciskiem myszy węzeł **urządzenia** . |Kliknij przycisk **Odśwież urządzenia** , aby zsynchronizować listę połączonych urządzeń z StorSimple Snapshot Manager. |
 | Skanuj ponownie woluminy |Kliknij prawym przyciskiem myszy węzeł **woluminy** . |Kliknij pozycję **Skanuj ponownie woluminy** , aby zaktualizować listę woluminów, które pojawiają się w okienku **wyników** . |
@@ -356,7 +356,7 @@ W poniższej tabeli opisano kombinacje klawiszy skrótów dla paska menu. Po nac
 
 | Skrót | Wynik | Klawisz skrótu menu | Wynik |
 |:--- |:--- |:--- |:--- |
-| ALT + F |Otwiera menu **plik** . |Nie |Otwiera nowe wystąpienie konsoli. |
+| ALT + F |Otwiera menu **plik** . |N |Otwiera nowe wystąpienie konsoli. |
 |  |O |Otwiera stronę **Narzędzia administracyjne** . | |
 |  |S |Zapisuje konsolę Snapshot Manager StorSimple. | |
 |  |A |Otwiera stronę **Zapisz jako** . | |
@@ -372,7 +372,7 @@ W poniższej tabeli opisano kombinacje klawiszy skrótów dla paska menu. Po nac
 |  |U |Otwiera stronę **Dostosowywanie widoku** . | |
 | ALT+O |Otwiera menu **Ulubione** . |A |Otwiera stronę **Dodawanie do ulubionych** . |
 |  |O |Otwiera stronę **Organizuj ulubione** . | |
-| ALT + W |Otwiera menu **okno** . |Nie |Otwiera inne okno StorSimple Snapshot Manager. |
+| ALT + W |Otwiera menu **okno** . |N |Otwiera inne okno StorSimple Snapshot Manager. |
 |  |C |Wyświetla wszystkie otwarte okna konsoli w stylu kaskadowym. | |
 |  |T |Wyświetla wszystkie otwarte okna konsoli w deseniu siatki. | |
 |  |I |Rozmieszcza ikony w poziomie wiersza w dolnej części ekranu. | |
@@ -428,7 +428,7 @@ W poniższych tabelach przedstawiono kombinacje klawiszy skrótów dla każdego 
 | V |Otwiera menu **Widok** . |
 | W |Otwiera nową konsolę Snapshot Manager StorSimple, która koncentruje się na węźle **grupy woluminów** . |
 | F |Aktualizuje konsolę Snapshot Manager StorSimple. |
-| L |Otwiera stronę * * Export list * *. |
+| L |Otwiera stronę **Eksportuj listę** . |
 | H |Otwiera pomoc online. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Klawisze skrótów dla węzła wykazu kopii zapasowych

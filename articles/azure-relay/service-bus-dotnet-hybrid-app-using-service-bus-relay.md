@@ -1,25 +1,14 @@
 ---
 title: Azure Windows Communication Foundation (WCF) — hybrydowa aplikacja lokalna/w chmurze (.NET) | Microsoft Docs
 description: Dowiedz się, jak uwidocznić lokalną usługę WCF dla aplikacji internetowej w chmurze za pomocą usługi Azure Relay
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211595"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314408"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Uwidacznianie lokalnej usługi WCF dla aplikacji internetowej w chmurze za pomocą usługi Azure Relay
 
@@ -197,7 +186,7 @@ Wprowadź następujące zmiany kodu w rozwiązaniu:
     }
     ```
 
-1. W **Eksplorator rozwiązań**kliknij dwukrotnie plik **App. config** , aby otworzyć go w edytorze programu Visual Studio. W dolnej części `<system.ServiceModel>` elementu, ale nadal w `<system.ServiceModel>` , Dodaj następujący kod XML. Pamiętaj, aby zamienić na `yourServiceNamespace` nazwę przestrzeni nazw oraz `yourKey` z kluczem sygnatury dostępu współdzielonego pobranym wcześniej z portalu:
+1. W **Eksplorator rozwiązań**kliknij dwukrotnie pozycję **App.config** , aby otworzyć plik w edytorze programu Visual Studio. W dolnej części `<system.ServiceModel>` elementu, ale nadal w `<system.ServiceModel>` , Dodaj następujący kod XML. Pamiętaj, aby zamienić na `yourServiceNamespace` nazwę przestrzeni nazw oraz `yourKey` z kluczem sygnatury dostępu współdzielonego pobranym wcześniej z portalu:
 
     ```xml
     <system.serviceModel>
@@ -224,7 +213,7 @@ Wprowadź następujące zmiany kodu w rozwiązaniu:
     > [!NOTE]
     > Błąd spowodowany przez `transportClientEndpointBehavior` to ostrzeżenie i nie jest problemem blokującym dla tego przykładu.
 
-1. W *pliku App. config*w `<appSettings>` elemencie Zastąp wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
+1. W *App.config*w `<appSettings>` elemencie Zastąp wartość parametrów połączenia parametrami połączenia, które zostały wcześniej uzyskane z portalu.
 
     ```xml
     <appSettings>

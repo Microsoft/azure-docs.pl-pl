@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 3405a322b8498b0b1a29399811ddf188ea766ca8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84888067"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replikacja obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -44,7 +44,7 @@ Po skonfigurowaniu replikacji obiektów usługa Azure Storage sprawdza źródło
 
 Podczas konfigurowania replikacji obiektów zasady replikacji są tworzone zarówno na koncie źródłowym, jak i na koncie docelowym za pośrednictwem dostawcy zasobów usługi Azure Storage. Zasady replikacji są identyfikowane przez identyfikator zasad. Zasady na kontach źródłowych i docelowych muszą mieć ten sam identyfikator zasad, aby replikacja była przeprowadzana.
 
-Konto magazynu może stanowić konto źródłowe dla maksymalnie dwóch kont docelowych. Wszystkie konta źródłowe i docelowe mogą znajdować się w różnych regionach. W celu replikowania danych do każdego z kont docelowych można skonfigurować oddzielne zasady replikacji.
+Konto magazynu może stanowić konto źródłowe dla maksymalnie dwóch kont docelowych. A konto docelowe może zawierać nie więcej niż dwa konta źródłowe. Konta źródłowe i docelowe mogą znajdować się w różnych regionach. W celu replikowania danych do każdego z kont docelowych można skonfigurować oddzielne zasady replikacji.
 
 ### <a name="replication-rules"></a>Reguły replikacji
 
@@ -73,7 +73,9 @@ W ramach wersji zapoznawczej nie ma dodatkowych kosztów związanych z replikacj
 
 ### <a name="prerequisites-for-object-replication"></a>Wymagania wstępne dotyczące replikacji obiektów
 
-Replikacja obiektów wymaga włączenia następujących funkcji usługi Azure Storage:
+Replikacja obiektów wymaga włączenia następujących funkcji usługi Azure Storage: 
+- [Źródło zmian](storage-blob-change-feed.md)
+- [Przechowywanie wersji](versioning-overview.md)
 
 Przed skonfigurowaniem replikacji obiektów należy włączyć jej wymagania wstępne. Źródło zmian musi być włączone na koncie źródłowym, a wersja obiektu BLOB musi być włączona zarówno na koncie źródłowym, jak i docelowym. Aby uzyskać więcej informacji na temat włączania tych funkcji, zobacz następujące artykuły:
 
@@ -157,3 +159,5 @@ Aby zadawać pytania dotyczące wersji zapoznawczej replikacji obiektów lub prz
 ## <a name="next-steps"></a>Następne kroki
 
 - [Konfiguruj replikację obiektów (wersja zapoznawcza)](object-replication-configure.md)
+- [Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md)
+- [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)

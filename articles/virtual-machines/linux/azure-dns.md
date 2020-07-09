@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641717"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135312"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opcje rozpoznawania nazw DNS dla maszyn wirtualnych z systemem Linux na platformie Azure
 System Azure domyślnie udostępnia rozpoznawanie nazw DNS dla wszystkich maszyn wirtualnych, które znajdują się w jednej sieci wirtualnej. Możesz zaimplementować własne rozwiązanie rozpoznawania nazw DNS, konfigurując własne usługi DNS na maszynach wirtualnych hostowanych przez platformę Azure. Poniższe scenariusze powinny pomóc w wyborze tego, który działa w przypadku danej sytuacji.
@@ -23,13 +23,13 @@ Typ rozpoznawania nazw, którego używasz, zależy od tego, jak maszyny wirtualn
 
 W poniższej tabeli przedstawiono scenariusze i odpowiednie rozwiązania rozpoznawania nazw:
 
-| **Scenariusz** | **Narzędzie** | **Przedrostk** |
+| **Scenariusz** | **Rozwiązanie** | **Przedrostk** |
 | --- | --- | --- |
 | Rozpoznawanie nazw między wystąpieniami roli lub maszynami wirtualnymi w tej samej sieci wirtualnej |Rozpoznawanie nazw zapewniane przez platformę Azure |nazwy hosta lub w pełni kwalifikowana nazwa domeny (FQDN) |
 | Rozpoznawanie nazw między wystąpieniami roli lub maszynami wirtualnymi w różnych sieciach wirtualnych |Serwery DNS zarządzane przez klienta, które przesyłają dalej zapytania między sieciami wirtualnymi w celu rozpoznania ich przez platformę Azure (DNS proxy). Zobacz [rozpoznawanie nazw przy użyciu własnego serwera DNS](#name-resolution-using-your-own-dns-server). |Tylko nazwa FQDN |
 | Rozpoznawanie lokalnych komputerów i nazw usług z wystąpień ról lub maszyn wirtualnych na platformie Azure |Zarządzane przez klienta serwery DNS (na przykład kontroler domeny lokalnej, lokalny kontroler domeny tylko do odczytu lub pomocniczy serwer DNS z zastosowaniem transferów stref). Zobacz [rozpoznawanie nazw przy użyciu własnego serwera DNS](#name-resolution-using-your-own-dns-server). |Tylko nazwa FQDN |
 | Rozpoznawanie nazw hostów platformy Azure z komputerów lokalnych |Przekazuj zapytania do serwera proxy DNS zarządzanego przez klienta w odpowiedniej sieci wirtualnej. Serwer proxy przekazuje zapytania do platformy Azure w celu rozwiązania problemu. Zobacz [rozpoznawanie nazw przy użyciu własnego serwera DNS](#name-resolution-using-your-own-dns-server). |Tylko nazwa FQDN |
-| Zwrotny serwer DNS dla wewnętrznych adresów IP |[Rozpoznawanie nazw przy użyciu własnego serwera DNS](#name-resolution-using-your-own-dns-server) |n/d |
+| Zwrotny serwer DNS dla wewnętrznych adresów IP |[Rozpoznawanie nazw przy użyciu własnego serwera DNS](#name-resolution-using-your-own-dns-server) |nie dotyczy |
 
 ## <a name="name-resolution-that-azure-provides"></a>Rozpoznawanie nazw zapewniane przez platformę Azure
 Podobnie jak w przypadku nazw publicznych DNS, platforma Azure udostępnia wewnętrzne rozpoznawanie nazw dla maszyn wirtualnych i wystąpień ról, które znajdują się w tej samej sieci wirtualnej. W przypadku sieci wirtualnych opartych na Azure Resource Manager sufiks DNS jest spójny w sieci wirtualnej. Nazwa FQDN nie jest wymagana. Nazwy DNS można przypisać do obu kart interfejsu sieciowego (nic) i maszyn wirtualnych. Chociaż rozpoznawanie nazw zapewniane przez platformę Azure nie wymaga żadnej konfiguracji, nie jest to odpowiedni wybór dla wszystkich scenariuszy wdrażania, jak pokazano w powyższej tabeli.
@@ -92,7 +92,9 @@ System DNS jest przede wszystkim protokołem UDP. Ponieważ protokół UDP nie g
 
 Aby sprawdzić bieżące ustawienia na maszynie wirtualnej z systemem Linux, "Cat/etc/resolv.conf" i zajrzeć do wiersza "Options", na przykład:
 
-    options timeout:1 attempts:5
+```config-conf
+options timeout:1 attempts:5
+```
 
 Plik plik resolv. conf został wygenerowany automatycznie i nie powinien być edytowany. Określone kroki, które dodają wiersz "Options", różnią się w zależności od dystrybucji:
 
@@ -119,7 +121,7 @@ Przesyłanie dalej DNS umożliwia również rozpoznawanie nazw DNS między sieci
 
 W przypadku korzystania z rozpoznawania nazw udostępnianej przez platformę Azure, wewnętrzny sufiks DNS jest dostarczany dla każdej maszyny wirtualnej przy użyciu protokołu DHCP. W przypadku korzystania z własnego rozwiązania rozpoznawania nazw ten sufiks nie jest dostarczany do maszyn wirtualnych, ponieważ ten sufiks zakłóca inne architektury DNS. Aby odwołać się do maszyn przy użyciu nazwy FQDN lub skonfigurować sufiks na maszynach wirtualnych, można użyć programu PowerShell lub interfejsu API do określenia sufiksu:
 
-* W przypadku sieci wirtualnych zarządzanych przez Azure Resource Manager sufiks jest dostępny za pośrednictwem zasobu [karty interfejsu sieciowego](https://msdn.microsoft.com/library/azure/mt163668.aspx) . Możesz również uruchomić `azure network public-ip show <resource group> <pip name>` polecenie, aby wyświetlić szczegóły publicznego adresu IP, w tym nazwę FQDN karty sieciowej.
+* W przypadku sieci wirtualnych zarządzanych przez Azure Resource Manager sufiks jest dostępny za pośrednictwem zasobu [karty interfejsu sieciowego](https://msdn.microsoft.com/library/azure/mt163668.aspx) . Możesz również uruchomić polecenie, `azure network public-ip show <resource group> <pip name>` Aby wyświetlić szczegóły publicznego adresu IP, w tym nazwę FQDN karty sieciowej.
 
 Jeśli przekazywanie zapytań do platformy Azure nie odpowiada Twoim potrzebom, należy podać własne rozwiązanie DNS.  Rozwiązanie DNS musi:
 

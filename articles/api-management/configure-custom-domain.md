@@ -13,15 +13,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83004742"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurowanie niestandardowej nazwy domeny
 
-Gdy tworzysz wystąpienie usługi Azure API Management, platforma Azure przypisze ją poddomenie `azure-api.net` (na przykład `apim-service-name.azure-api.net`). Można jednak uwidocznić API Management punkty końcowe przy użyciu własnej niestandardowej nazwy domeny, takiej jak **contoso.com**. W tym samouczku przedstawiono sposób mapowania istniejącej niestandardowej nazwy DNS na punkty końcowe udostępniane przez wystąpienie API Management.
+Gdy tworzysz wystąpienie usługi Azure API Management, platforma Azure przypisze ją poddomenie `azure-api.net` (na przykład `apim-service-name.azure-api.net` ). Można jednak uwidocznić API Management punkty końcowe przy użyciu własnej niestandardowej nazwy domeny, takiej jak **contoso.com**. W tym samouczku przedstawiono sposób mapowania istniejącej niestandardowej nazwy DNS na punkty końcowe udostępniane przez wystąpienie API Management.
 
 > [!IMPORTANT]
 > API Management akceptuje tylko żądania zawierające wartości [nagłówka hosta](https://tools.ietf.org/html/rfc2616#section-14.23) zgodne z domyślną nazwą domeny lub dowolnymi skonfigurowanymi niestandardowymi nazwami domen.
@@ -49,11 +48,11 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
 
     Istnieje kilka punktów końcowych, do których można przypisać niestandardową nazwę domeny. Obecnie dostępne są następujące punkty końcowe:
 
-    - **Brama** (domyślnie: `<apim-service-name>.azure-api.net`),
-    - **Portal** (domyślnie: `<apim-service-name>.portal.azure-api.net`),
-    - **Zarządzanie** (domyślnie: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (domyślnie: `<apim-service-name>.scm.azure-api.net`),
-    - **NewPortal** (domyślnie: `<apim-service-name>.developer.azure-api.net`).
+    - **Brama** (domyślnie: `<apim-service-name>.azure-api.net` ),
+    - **Portal** (domyślnie: `<apim-service-name>.portal.azure-api.net` ),
+    - **Zarządzanie** (domyślnie: `<apim-service-name>.management.azure-api.net` ),
+    - **SCM** (domyślnie: `<apim-service-name>.scm.azure-api.net` ),
+    - **NewPortal** (domyślnie: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Tylko punkt końcowy **bramy** jest dostępny do konfiguracji w warstwie zużycia.
@@ -68,7 +67,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
     - W obszarze **certyfikat**wybierz certyfikat z Key Vault. Można również przekazać prawidłowy. Plik PFX i podaj jego **hasło**, jeśli certyfikat jest chroniony hasłem.
 
     > [!NOTE]
-    > Nazwy domen wieloznacznych, `*.contoso.com` np., są obsługiwane we wszystkich warstwach poza warstwą zużycia.
+    > Nazwy domen wieloznacznych, np., `*.contoso.com` są obsługiwane we wszystkich warstwach poza warstwą zużycia.
 
     > [!TIP]
     > Zalecamy używanie [Azure Key Vault do zarządzania certyfikatami](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) i ustawiania ich do autoodnawiania.

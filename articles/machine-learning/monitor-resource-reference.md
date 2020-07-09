@@ -11,10 +11,9 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82856032"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Machine Learning
@@ -73,7 +72,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine
 | MinimumNodeCount | Minimalna liczba węzłów klastra |
 | MaximumNodeCount | Maksymalna liczba węzłów klastra |
 | NodeDeallocationOption | Jak ma zostać cofnięty przydział węzła |
-| Wydawca | Wydawca typu klastra |
+| Publisher | Wydawca typu klastra |
 | Oferta | Oferta, w której tworzony jest klaster |
 | SKU | Jednostka SKU utworzonego węzła/maszyny wirtualnej w klastrze |
 | Wersja | Wersja obrazu używana podczas tworzenia węzła/maszyny wirtualnej |
@@ -109,7 +108,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine
 | VmSize | Rozmiar maszyny wirtualnej węzła |
 | VmFamilyName | Rodzina maszyn wirtualnych, do której należy węzeł |
 | VmPriority | Priorytet utworzonego węzła/LowPriority |
-| Wydawca | Wydawca obrazu maszyny wirtualnej, np. Microsoft-dsvm |
+| Publisher | Wydawca obrazu maszyny wirtualnej, np. Microsoft-dsvm |
 | Oferta | Oferta skojarzona z tworzeniem maszyny wirtualnej |
 | SKU | Utworzono jednostkę SKU węzła/maszyny wirtualnej |
 | Wersja | Wersja obrazu używana podczas tworzenia węzła/maszyny wirtualnej |
@@ -126,7 +125,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów Azure Machine
 
 W poniższych tabelach przedstawiono metryki platformy zebrane dla Azure Machine Learning wszystkie metryki są przechowywane w **obszar roboczy usługi Azure Machine Learning**przestrzeni nazw.
 
-**Wzorów**
+**Model**
 
 | Metryka | Jednostka | Opis |
 | ----- | ----- | ----- |
@@ -136,7 +135,7 @@ W poniższych tabelach przedstawiono metryki platformy zebrane dla Azure Machine
 | Nie można zarejestrować modelu | Liczba | Liczba rejestracji modelu zakończonych niepowodzeniem. |
 | Rejestrowanie modelu powiodło się | Liczba | Liczba rejestracji modelu zakończonych powodzeniem. |
 
-**Limit przydziału**
+**limit przydziału**
 
 Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learning obliczeń.
 
@@ -150,7 +149,7 @@ Informacje o limicie przydziału są przeznaczone tylko dla Azure Machine Learni
 | Opuszczanie węzłów | Liczba | Liczba pozostałych węzłów. |
 | Występujące rdzenie | Liczba | Liczba przeniesiona rdzeni. |
 | Zastępujące węzły | Liczba | Liczba przeniesiona węzłów. |
-| Procent wykorzystania przydziałów | Wartość procentowa | Procent użytego przydziału. |
+| Procent wykorzystania przydziałów | Procent | Procent użytego przydziału. |
 | Całkowita liczba rdzeni | Liczba | Łączna liczba rdzeni. |
 | Łączna liczba węzłów | Liczba | Łączna liczba węzłów. |
 | Rdzenie, których nie można używać | Liczba | Liczba rdzeni, których nie można używać. |
@@ -168,8 +167,8 @@ Poniżej znajdują się wymiary, których można użyć do filtrowania metryk pr
 
 | Metryka | Jednostka | Opis |
 | ----- | ----- | ----- |
-| CpuUtilization | Wartość procentowa | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
-| GpuUtilization | Wartość procentowa | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
+| CpuUtilization | Procent | Procent użycia procesora CPU dla danego węzła podczas uruchamiania/zadania. Ta Metryka jest publikowana tylko wtedy, gdy zadanie jest uruchomione w węźle. Jedno zadanie może korzystać z co najmniej jednego węzła. Ta Metryka jest publikowana na węzeł. |
+| GpuUtilization | Procent | Stopień użycia procesora GPU dla danego węzła podczas uruchamiania/zadania. Jeden węzeł może mieć jeden lub więcej procesorów GPU. Ta Metryka jest publikowana na procesor GPU na węzeł. |
 
 Poniżej znajdują się wymiary, których można użyć do filtrowania metryk zasobów:
 
@@ -180,7 +179,7 @@ Poniżej znajdują się wymiary, których można użyć do filtrowania metryk za
 | NodeId | IDENTYFIKATOR węzła utworzonego w przypadku, gdy zadanie jest uruchomione. |
 | RunId | Identyfikator uruchomienia/zadania. |
 
-**Run**
+**Uruchom**
 
 Informacje o przebiegach szkoleniowych.
 

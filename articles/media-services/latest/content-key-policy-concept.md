@@ -13,10 +13,10 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80585989"
 ---
 # <a name="content-key-policies"></a>Zasady kluczy zawartości
@@ -47,7 +47,7 @@ Zazwyczaj należy skojarzyć Zasady kluczy zawartości z [lokalizatorem przesył
 
 ## <a name="example"></a>Przykład
 
-Aby przejść do klucza, użyj `GetPolicyPropertiesWithSecretsAsync`, jak pokazano w przykładzie [Pobieranie klucza podpisywania z istniejącego zasad](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
+Aby przejść do klucza, użyj `GetPolicyPropertiesWithSecretsAsync` , jak pokazano w przykładzie [Pobieranie klucza podpisywania z istniejącego zasad](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
 
 ## <a name="filtering-ordering-paging"></a>Filtrowanie, porządkowanie, stronicowanie
 

@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: b8a5f6543bc265605361b7875fad5232d428e27e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82208996"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Utwórz maszynę wirtualną z systemem Windows w strefie dostępności przy użyciu Azure Portal
@@ -40,7 +40,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
     ![Wybierz rozmiar maszyny wirtualnej](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. W obszarze **Ustawienia** > **wysoka dostępność**wybierz jedną z numerowanych stref na liście rozwijanej **strefa dostępności** , Zachowaj pozostałe wartości domyślne i kliknij przycisk **OK**.
+5. W obszarze **Ustawienia**  >  **wysoka dostępność**wybierz jedną z numerowanych stref na liście rozwijanej **strefa dostępności** , Zachowaj pozostałe wartości domyślne i kliknij przycisk **OK**.
 
     ![Wybierz strefę dostępności](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 

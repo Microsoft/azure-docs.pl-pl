@@ -18,10 +18,9 @@ ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be265eee32a739bdfc2d4c3b746e01cd0c5ec06a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82129997"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory
@@ -51,7 +50,7 @@ Aby znaleźć więcej samouczków, użyj spisu treści po lewej stronie.
 | ![znaku](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Konsola Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console — Inicjowanie obsługi administracyjnej](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![znaku](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Usługa w chmurze Alibaba (klasy role SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![znaku](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform — Inicjowanie obsługi użytkowników](google-apps-provisioning-tutorial.md) |
-| ![znaku](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [SalesForce](salesforce-tutorial.md)| [Salesforce — Inicjowanie obsługi użytkowników](salesforce-provisioning-tutorial.md) |
+| ![znaku](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce — Inicjowanie obsługi użytkowników](salesforce-provisioning-tutorial.md) |
 | ![znaku](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [Platforma SAP Cloud Identity platform](saphana-tutorial.md)|[Platforma tożsamości w chmurze SAP — Inicjowanie obsługi](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
 
 ## <a name="oneclick-sso"></a>OneClick Logowanie jednokrotne

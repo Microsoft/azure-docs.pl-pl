@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 07/06/2020
 ms.author: genli
-ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77920862"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983231"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Zainstaluj agenta maszyny wirtualnej platformy Azure w trybie offline 
 
@@ -39,7 +39,7 @@ Wykonaj następujące kroki, aby zainstalować agenta maszyny wirtualnej w trybi
 
 1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną, Stwórz dysk na podstawie migawki, a następnie Dołącz dysk do maszyny wirtualnej rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](troubleshoot-recovery-disks-portal-windows.md). W przypadku klasycznej maszyny wirtualnej Usuń maszynę wirtualną i Zachowaj dysk systemu operacyjnego, a następnie Dołącz dysk systemu operacyjnego do maszyny wirtualnej Rozwiązywanie problemów.
 
-2.  Połącz się z maszyną wirtualną narzędzia do rozwiązywania problemów. Otwórz przystawkę Zarządzanie > **dyskami** **Zarządzanie komputerem**. Upewnij się, że dysk systemu operacyjnego jest w trybie online i że litery dysku są przypisane do partycji dysku.
+2.  Połącz się z maszyną wirtualną narzędzia do rozwiązywania problemów. Otwórz **Computer management**przystawkę Zarządzanie  >  **dyskami**Zarządzanie komputerem. Upewnij się, że dysk systemu operacyjnego jest w trybie online i że litery dysku są przypisane do partycji dysku.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Krok 2. Modyfikowanie dysku systemu operacyjnego w celu zainstalowania agenta maszyny wirtualnej platformy Azure
 
@@ -47,9 +47,9 @@ Wykonaj następujące kroki, aby zainstalować agenta maszyny wirtualnej w trybi
 
 2.  Na maszynie wirtualnej narzędzia do rozwiązywania problemów przejdź do dołączonego dysku systemu operacyjnego, Otwórz folder \Windows\System32\Config. Skopiuj wszystkie pliki w tym folderze jako kopię zapasową, w przypadku gdy wymagane jest wycofanie.
 
-3.  Uruchom **Edytor rejestru** (regedit. exe).
+3.  Uruchom **Edytor rejestru** (regedit.exe).
 
-4.  Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz pozycję**Załaduj** **plik** > Hive:
+4.  Wybierz klucz **HKEY_LOCAL_MACHINE** . Z menu wybierz pozycję **File**  >  **Załaduj plik Hive**:
 
     ![Ładowanie gałęzi](./media/install-vm-agent-offline/load-hive.png)
 
@@ -63,14 +63,12 @@ Wykonaj następujące kroki, aby zainstalować agenta maszyny wirtualnej w trybi
 
     2. Wyeksportuj następujące rejestry:
         - HKEY_LOCAL_MACHINE \BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE \BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE \BROKENSYSTEM\ControlSet001\Services\RdAgent
 
 8.  Użyj istniejących plików na maszynie wirtualnej narzędzia do rozwiązywania problemów jako repozytorium instalacji agenta maszyny wirtualnej. Wykonaj następujące czynności:
 
     1. Na maszynie wirtualnej narzędzia do rozwiązywania problemów wyeksportuj następujące podklucze w formacie rejestru (reg): 
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Eksportowanie podkluczy rejestru](./media/install-vm-agent-offline/backup-reg.png)
@@ -81,9 +79,8 @@ Wykonaj następujące kroki, aby zainstalować agenta maszyny wirtualnej w trybi
 
     3. Zaimportuj pliki rejestru do repozytorium, dwukrotnie klikając każdy plik rejestru.
 
-    4. Upewnij się, że następujące trzy podklucze zostały pomyślnie zaimportowane do **BROKENSYSTEM** Hive:
+    4. Upewnij się, że następujące dwa podklucze zostały pomyślnie zaimportowane do **BROKENSYSTEM** Hive:
         - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
         - RdAgent
 
     5. Skopiuj folder instalacyjny bieżącego agenta maszyny wirtualnej na dołączony dysk systemu operacyjnego: 
@@ -94,9 +91,9 @@ Wykonaj następujące kroki, aby zainstalować agenta maszyny wirtualnej w trybi
 
              ![Kopiuj folder GuestAgent](./media/install-vm-agent-offline/copy-files.png)
 
-9.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję**Zwolnij** **plik** > Hive.
+9.  Wybierz pozycję **BROKENSYSTEM**. Z menu wybierz pozycję **File**  >  **Zwolnij plik Hive**.
 
-10.  Wybierz pozycję **BROKENSOFTWARE**. Z menu wybierz pozycję**Zwolnij** **plik** > Hive.
+10.  Wybierz pozycję **BROKENSOFTWARE**. Z menu wybierz pozycję **File**  >  **Zwolnij plik Hive**.
 
 11.  Odłącz dysk systemu operacyjnego, a następnie [Zmień dysk systemu operacyjnego dla maszyny wirtualnej, której to dotyczy](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Dla klasycznej maszyny wirtualnej Utwórz nową maszynę wirtualną przy użyciu naprawionego dysku systemu operacyjnego.
 

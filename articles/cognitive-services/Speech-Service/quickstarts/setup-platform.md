@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: f5ab2202dde1bfa830f5952dd5c6e77e2fb7fd41
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a2370d7a79ea54adf9d12ecb645019aec348f8c7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980172"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85834152"
 ---
 # <a name="quickstart-setup-development-environment"></a>Szybki Start: Konfigurowanie środowiska deweloperskiego
 

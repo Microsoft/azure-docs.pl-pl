@@ -7,10 +7,9 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81114302"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Informacje o sposobie działania narzędzia do migracji
@@ -121,12 +120,12 @@ Są to klasyczne reguły alertów dotyczące metryk, które były wcześniej obs
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Jak są tworzone równoważne nowe reguły alertów i grupy akcji
 
-Narzędzie migracji umożliwia konwertowanie klasycznych reguł alertów na równoważne nowe reguły alertów i grupy akcji. W przypadku większości klasycznych reguł alertów równoważne nowe reguły alertów mają tę samą metrykę z tymi samymi właściwościami, takimi jak `windowSize` i `aggregationType`. Istnieje jednak kilka klasycznych reguł alertów dotyczących metryk, które mają inną równoważną metrykę w nowym systemie. Następujące zasady mają zastosowanie do migracji klasycznych alertów, chyba że określono w poniższej sekcji:
+Narzędzie migracji umożliwia konwertowanie klasycznych reguł alertów na równoważne nowe reguły alertów i grupy akcji. W przypadku większości klasycznych reguł alertów równoważne nowe reguły alertów mają tę samą metrykę z tymi samymi właściwościami, takimi jak `windowSize` i `aggregationType` . Istnieje jednak kilka klasycznych reguł alertów dotyczących metryk, które mają inną równoważną metrykę w nowym systemie. Następujące zasady mają zastosowanie do migracji klasycznych alertów, chyba że określono w poniższej sekcji:
 
-- **Częstotliwość**: definiuje, jak często klasyczna lub Nowa reguła alertu sprawdza warunek. `frequency` Reguły alertów klasycznych nie zostały konfigurowalne przez użytkownika i zawsze zostały 5 minut dla wszystkich typów zasobów, z wyjątkiem składników Application Insights, dla których miało 1 min. Tak więc częstotliwość równoważnych reguł jest również ustawiona na odpowiednio 5 minut i 1 min.
-- **Typ agregacji**: definiuje sposób agregowania metryki w oknie zainteresowań. `aggregationType` Jest również taka sama między klasycznymi alertami i nowymi alertami dla większości metryk. W niektórych przypadkach, ponieważ Metryka różni się od alertów klasycznych, a nowe `aggregationType` alerty, `primary Aggregation Type` są równoważne lub zdefiniowane dla metryki.
+- **Częstotliwość**: definiuje, jak często klasyczna lub Nowa reguła alertu sprawdza warunek. `frequency`Reguły alertów klasycznych nie zostały konfigurowalne przez użytkownika i zawsze zostały 5 minut dla wszystkich typów zasobów, z wyjątkiem składników Application Insights, dla których miało 1 min. Tak więc częstotliwość równoważnych reguł jest również ustawiona na odpowiednio 5 minut i 1 min.
+- **Typ agregacji**: definiuje sposób agregowania metryki w oknie zainteresowań. `aggregationType`Jest również taka sama między klasycznymi alertami i nowymi alertami dla większości metryk. W niektórych przypadkach, ponieważ Metryka różni się od alertów klasycznych, a nowe alerty, `aggregationType` są równoważne lub `primary Aggregation Type` zdefiniowane dla metryki.
 - **Units**: Właściwość metryki, w której tworzony jest alert. Niektóre równoważne metryki mają różne jednostki. Próg jest odpowiednio dostosowany zgodnie z wymaganiami. Na przykład jeśli oryginalna Metryka zawiera sekundy jako jednostki, ale równoważna Nowa Metryka ma liczbę milisekund jako jednostki, pierwotny próg jest mnożony przez 1000 w celu zapewnienia tego samego zachowania.
-- **Rozmiar okna**: definiuje okno, nad którym dane metryk są agregowane w celu porównania z progiem. W przypadku `windowSize` wartości standardowych, takich jak 5mins, 15mins, 30mins, 1-godzinnego, 3hours, 6 godzin, 12 godzin, 1 dzień, nie wprowadzono zmian w przypadku równoważnej nowej reguły alertu. W przypadku innych wartości jest wybierany najbliższy `windowSize` , który ma być używany. W przypadku większości klientów nie ma to wpływu na tę zmianę. W przypadku niewielkiej części klientów może być konieczne dostosowanie progu w celu uzyskania dokładnego zachowania.
+- **Rozmiar okna**: definiuje okno, nad którym dane metryk są agregowane w celu porównania z progiem. W przypadku `windowSize` wartości standardowych, takich jak 5mins, 15mins, 30mins, 1-godzinnego, 3hours, 6 godzin, 12 godzin, 1 dzień, nie wprowadzono zmian w przypadku równoważnej nowej reguły alertu. W przypadku innych wartości `windowSize` jest wybierany najbliższy, który ma być używany. W przypadku większości klientów nie ma to wpływu na tę zmianę. W przypadku niewielkiej części klientów może być konieczne dostosowanie progu w celu uzyskania dokładnego zachowania.
 
 W poniższych sekcjach podano szczegółowe informacje o metrykach, które mają inną równoważną metrykę w nowym systemie. Wszystkie metryki, które pozostają takie same dla klasycznych i nowych reguł alertów, nie są wymienione na liście. Listę metryk obsługiwanych w nowym systemie można znaleźć [tutaj](metrics-supported.md).
 
@@ -197,7 +196,7 @@ W przypadku Application Insights równoważne metryki są przedstawione poniżej
 | requestFailed. Count | żądania/niepowodzenie| Użyj `aggregationType` elementu "Count" zamiast elementu "Sum".   |
 | widok. Count | pageViews/liczba| Użyj `aggregationType` elementu "Count" zamiast elementu "Sum".   |
 
-### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 W przypadku Cosmos DB równoważne metryki są przedstawione poniżej:
 

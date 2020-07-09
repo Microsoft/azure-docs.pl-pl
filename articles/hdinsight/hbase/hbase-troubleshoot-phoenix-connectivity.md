@@ -8,10 +8,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: b886f51bcb2bb7308c49c76563dcb70148bbc583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75887295"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenariusz: Apache Phoenix problemy z łącznością w usłudze Azure HDInsight
@@ -28,19 +27,19 @@ Nieprawidłowy adres IP aktywnego węzła dozorcy.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Adres IP aktywnego węzła dozorcy można zidentyfikować z poziomu interfejsu użytkownika Ambari, postępując zgodnie z linkami do **HBase** > **szybkie linki** > **ZK (Active)** > **dozorcy info**. W razie konieczności popraw adres IP.
+Adres IP aktywnego węzła dozorcy można zidentyfikować z poziomu interfejsu użytkownika Ambari, postępując zgodnie z linkami do **HBase**  >  **szybkie linki**  >  **ZK (Active)**  >  **dozorcy info**. W razie konieczności popraw adres IP.
 
 ---
 
 ## <a name="cause-systemcatalog-table-offline"></a>Przyczyna: SYSTEM. Tabela wykazu w trybie offline
 
-Podczas uruchamiania poleceń, takich `!tables`jak, pojawia się komunikat o błędzie podobny do:
+Podczas uruchamiania poleceń, takich jak `!tables` , pojawia się komunikat o błędzie podobny do:
 
 ```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
-Podczas uruchamiania poleceń, takich `count 'SYSTEM.CATALOG'`jak, pojawia się komunikat o błędzie podobny do:
+Podczas uruchamiania poleceń, takich jak `count 'SYSTEM.CATALOG'` , pojawia się komunikat o błędzie podobny do:
 
 ```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
@@ -50,7 +49,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 W interfejsie użytkownika Apache Ambari wykonaj następujące kroki, aby ponownie uruchomić usługę serwera hmaster na wszystkich węzłach dozorcy:
 
-1. W sekcji **Podsumowanie** HBase przejdź do pozycji **HBase** > **Active HBase Master**.
+1. W sekcji **Podsumowanie** HBase przejdź do pozycji **HBase**  >  **Active HBase Master**.
 
 1. W sekcji **składniki** Uruchom ponownie usługę HBase Master.
 
@@ -64,6 +63,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

@@ -11,10 +11,9 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733469"
 ---
 # <a name="get-started-with-device-management-net"></a>Wprowadzenie do zarządzania urządzeniami (.NET)
@@ -65,7 +64,7 @@ W tej sekcji utworzysz aplikację konsolową .NET przy użyciu języka C#, któr
 
 1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz szablon projektu **aplikacja konsoli (.NET Framework)** , a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę *TriggerReboot*i wybierz pozycję .NET Framework w wersji 4.5.1 lub nowszej. Wybierz przycisk **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę *TriggerReboot*i wybierz pozycję .NET Framework w wersji 4.5.1 lub nowszej. Wybierz pozycję **Utwórz**.
 
     ![Nowy projekt Visual C# Windows Classic Desktop](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
@@ -129,7 +128,7 @@ W tej sekcji utworzysz aplikację konsolową .NET przy użyciu języka C#, któr
    Console.ReadLine();
    ```
 
-1. Wybierz pozycję **kompilacja** > Kompiluj**rozwiązanie**.
+1. Wybierz pozycję **kompilacja**Kompiluj  >  **rozwiązanie**.
 
 > [!NOTE]
 > W tym samouczku wykonywane jest tylko jedno zapytanie dotyczące raportowanych właściwości urządzenia. W kodzie produkcyjnym zalecamy sondowanie w celu wykrywania zmian raportowanych właściwości.
@@ -146,9 +145,9 @@ W tej sekcji omówiono następujące zagadnienia:
 
 Aby utworzyć aplikację symulowanego urządzenia, wykonaj następujące kroki:
 
-1. W programie Visual Studio w już utworzonym rozwiązaniu TriggerReboot wybierz pozycję **plik** > **Nowy** > **projekt**. W obszarze **Utwórz nowy projekt**Znajdź i wybierz szablon projektu **aplikacja konsoli (.NET Framework)** , a następnie wybierz przycisk **dalej**.
+1. W programie Visual Studio w już utworzonym rozwiązaniu TriggerReboot wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**Znajdź i wybierz szablon projektu **aplikacja konsoli (.NET Framework)** , a następnie wybierz przycisk **dalej**.
 
-1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt *SimulateManagedDevice*, a w polu **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Wybierz przycisk **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt *SimulateManagedDevice*, a w polu **rozwiązanie**wybierz pozycję **Dodaj do rozwiązania**. Wybierz pozycję **Utwórz**.
 
     ![Nazwa i Dodawanie projektu do rozwiązania](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 
@@ -237,9 +236,9 @@ Aby utworzyć aplikację symulowanego urządzenia, wykonaj następujące kroki:
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Ustaw projekty startowe**.
 
-1. W polu**projekt startowy** **typowych właściwości** > wybierz pozycję **pojedynczy projekt startowy**, a następnie wybierz projekt **SimulateManagedDevice** . Aby zapisać zmiany, wybierz pozycję **OK**.
+1. W **Common Properties**polu  >  **projekt startowy**typowych właściwości wybierz pozycję **pojedynczy projekt startowy**, a następnie wybierz projekt **SimulateManagedDevice** . Wybierz przycisk **OK**, aby zapisać zmiany.
 
-1. Wybierz pozycję **kompilacja** > Kompiluj**rozwiązanie**.
+1. Wybierz pozycję **kompilacja**Kompiluj  >  **rozwiązanie**.
 
 > [!NOTE]
 > Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wykładniczy wycofywania), zgodnie z sugestią w [obsłudze błędów przejściowych](/azure/architecture/best-practices/transient-faults).

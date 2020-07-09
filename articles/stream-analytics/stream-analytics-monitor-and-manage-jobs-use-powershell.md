@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 58908b690464396f716801338cb22514ae4b5a66
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 74d3f154f9965e44c9fba42ec094b9240972b40d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831266"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044349"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitoruj Stream Analytics zadania i zarządzaj nimi za pomocą poleceń cmdlet Azure PowerShell
 Dowiedz się, jak monitorować zasoby Stream Analytics i zarządzać nimi za pomocą poleceń cmdlet Azure PowerShell i skryptów programu PowerShell, które wykonują podstawowe Stream Analyticse zadania.
@@ -242,7 +242,7 @@ Azure PowerShell 1,0:
 New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob -File "C:\Input.json" 
 ```
 
-To polecenie programu PowerShell tworzy nowe dane wejściowe z pliku Input. JSON. Jeśli istniejące dane wejściowe o nazwie określonej w pliku definicji wejściowej są już zdefiniowane, polecenie cmdlet wyświetli monit z pytaniem, czy zastąpić go.
+To polecenie programu PowerShell tworzy nowe dane wejściowe z pliku Input.jsna. Jeśli istniejące dane wejściowe o nazwie określonej w pliku definicji wejściowej są już zdefiniowane, polecenie cmdlet wyświetli monit z pytaniem, czy zastąpić go.
 
 **Przykład 2**
 
@@ -301,7 +301,7 @@ Azure PowerShell 1,0:
 New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -File "C:\JobDefinition.json" 
 ```
 
-To polecenie programu PowerShell tworzy nowe zadanie z definicji w pliku JobDefinition. JSON. Jeśli istniejące zadanie o nazwie określonej w pliku definicji zadania jest już zdefiniowane, polecenie cmdlet wyświetli komunikat z pytaniem, czy zastąpić go.
+To polecenie programu PowerShell tworzy nowe zadanie z definicji w JobDefinition.json. Jeśli istniejące zadanie o nazwie określonej w pliku definicji zadania jest już zdefiniowane, polecenie cmdlet wyświetli komunikat z pytaniem, czy zastąpić go.
 
 **Przykład 2**
 

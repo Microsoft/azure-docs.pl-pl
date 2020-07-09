@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z usługą 
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: 749d7125c013f419197ef8243d2475e612dc81b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619163"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85831934"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Rozwiązywanie problemów z usługą Azure Bastion
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób rozwiązywania problemów z usługą Azure bastio
 
 ## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>Nie można utworzyć elementu sieciowej grupy zabezpieczeń na AzureBastionSubnet
 
-**P:** Podczas próby utworzenia sieciowej grupy zabezpieczeń w podsieci Azure bastionu otrzymuję następujący błąd: *"sieciowa Grupa <NSG name> zabezpieczeń nie ma niezbędnych reguł dla usługi Azure bastionu Subnet AzureBastionSubnet"*.
+**P:** Podczas próby utworzenia sieciowej grupy zabezpieczeń w podsieci Azure bastionu otrzymuję następujący błąd: *"sieciowa Grupa zabezpieczeń nie <NSG name> ma niezbędnych reguł dla usługi Azure bastionu Subnet AzureBastionSubnet"*.
 
 Odp **.:** Jeśli utworzysz i zastosujesz sieciowej grupy zabezpieczeń do *AzureBastionSubnet*, upewnij się, że dodano następujące reguły w sieciowej grupy zabezpieczeń. Jeśli nie dodasz tych reguł, tworzenie sieciowej grupy zabezpieczeń/aktualizacja zakończy się niepowodzeniem.
 
@@ -28,7 +28,7 @@ Odp **.:** Jeśli utworzysz i zastosujesz sieciowej grupy zabezpieczeń do *Azur
 2. Rejestrowanie diagnostyczne i inne — ruch wychodzący w dniu 443 do AzureCloud (Tagi regionalne w tym tagu usługi nie są jeszcze obsługiwane).
 3. Docelowa maszyna wirtualna — ruch wychodzący dla 3389 i 22 do VirtualNetwork
 
-Przykład reguł sieciowej grupy zabezpieczeń jest dostępny dla celów referencyjnych w [szablonie szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Przykład reguł sieciowej grupy zabezpieczeń jest dostępny dla celów referencyjnych w [szablonie szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące sieciowej grupy zabezpieczeń dla usługi Azure bastionu](bastion-nsg.md).
 
 ## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>Nie można użyć mojego klucza SSH z usługą Azure bastionu
@@ -39,7 +39,7 @@ Odp **.:** Usługa Azure bastionu obsługuje tylko klucze SSH RSA, w tym momenci
 
 Na przykład można użyć następującego polecenia, aby utworzyć nowy klucz SSH RSA:
 
-**ssh-keygen-t RSA-b 4096-C "email@domain.com"**
+**ssh-keygen-t RSA-b 4096-C " email@domain.com "**
 
 Dane wyjściowe:
 
@@ -71,7 +71,7 @@ The key's randomart image is:
 
 **P:** Nie mogę nawiązać połączenia z maszyną wirtualną z systemem Windows, która jest przyłączona do domeny.
 
-Odp **.:** Usługa Azure bastionu obsługuje logowanie za pomocą maszyny wirtualnej przyłączonej do domeny w przypadku logowania za pomocą hasła użytkownika w domenie. Podczas określania poświadczeń domeny w Azure Portal należy zalogować się przy użyciu formatuusername@domainUPN () zamiast formatu *DOMENA\nazwa* użytkownika. Jest to obsługiwane w przypadku maszyn wirtualnych przyłączonych do domeny lub przyłączonych do hybryd (zarówno przyłączonych do domeny, jak i przyłączonych do usługi Azure AD). Nie jest obsługiwana w przypadku maszyn wirtualnych obsługujących tylko usługę Azure AD.
+Odp **.:** Usługa Azure bastionu obsługuje logowanie za pomocą maszyny wirtualnej przyłączonej do domeny w przypadku logowania za pomocą hasła użytkownika w domenie. Podczas określania poświadczeń domeny w Azure Portal należy zalogować się przy użyciu formatu UPN ( username@domain ) zamiast formatu *DOMENA\nazwa* użytkownika. Jest to obsługiwane w przypadku maszyn wirtualnych przyłączonych do domeny lub przyłączonych do hybryd (zarówno przyłączonych do domeny, jak i przyłączonych do usługi Azure AD). Nie jest obsługiwana w przypadku maszyn wirtualnych obsługujących tylko usługę Azure AD.
 
 ## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemy dotyczące transferu plików
 

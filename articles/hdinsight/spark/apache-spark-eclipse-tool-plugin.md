@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b0e18e7bcc85dace93962c557d05d114df215d7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732996"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082220"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Tworzenie aplikacji Apache Spark dla klastra usługi HDInsight za pomocą Azure Toolkit for Eclipse
 
@@ -45,21 +45,21 @@ Po otwarciu okna zaćmienie narzędzia usługi HDInsight automatycznie wykrywaj�
 
 ### <a name="confirm-plug-ins"></a>Potwierdź wtyczki
 
-1. Przejdź do witryny **help** > **zaćmienie Marketplace.**..
+1. Przejdź do **Help**  >  **witryny help zaćmienie Marketplace.**..
 
 1. Wybierz kartę **Zainstalowano**.
 
 1. Powinna zostać wyświetlona co najmniej:
-    * > \<wersji Azure Toolkit for Eclipse.
-    * Scala> \<środowiska IDE.
+    * Azure Toolkit for Eclipse \<version> .
+    * Scala IDE \<version> .
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Zaloguj się do subskrypcji platformy Azure
 
 1. Rozpocznij przezaćmienie środowiska IDE.
 
-1. Przejdź do **okna** >  **Pokaż widok** > **inne...**  >  **Zaloguj się..**.
+1. Przejdź do **okna**  >   **Pokaż widok**  >  **inne...**  >  **Zaloguj się..**.
 
-1. W oknie **dialogowym Pokaż widok** przejdź do Eksploratora **Azure** > **Azure Explorer**Azure, a następnie wybierz pozycję **Otwórz**.
+1. W oknie dialogowym **Pokaż widok** przejdź do Eksploratora **Azure**Azure  >  **Azure Explorer**, a następnie wybierz pozycję **Otwórz**.
 
    ![Apache Spark zaćmienie — Pokaż widok](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
 
@@ -73,7 +73,7 @@ Po otwarciu okna zaćmienie narzędzia usługi HDInsight automatycznie wykrywaj�
 
    ![Okno dialogowe Wybieranie subskrypcji](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 
-1. W **Eksploratorze Azure**przejdź do **usługi Azure** >  **HDInsight** , aby zobaczyć klastry HDInsight Spark w ramach subskrypcji.
+1. W **Eksploratorze Azure**przejdź do **usługi Azure**  >   **HDInsight** , aby zobaczyć klastry HDInsight Spark w ramach subskrypcji.
 
    ![Klastry HDInsight Spark na platformie Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer3.png)
 
@@ -83,7 +83,7 @@ Po otwarciu okna zaćmienie narzędzia usługi HDInsight automatycznie wykrywaj�
 
 ## <a name="link-a-cluster"></a>Łączenie klastra
 
-Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytkownika. Podobnie w przypadku klastra usługi HDInsight przyłączonego do domeny można łączyć się za pomocą domeny i nazwy użytkownika, takich jak `user1@contoso.com`.
+Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytkownika. Podobnie w przypadku klastra usługi HDInsight przyłączonego do domeny można łączyć się za pomocą domeny i nazwy użytkownika, takich jak `user1@contoso.com` .
 
 1. W programie **Azure Explorer**kliknij prawym przyciskiem myszy pozycję **HDInsight**, a następnie wybierz pozycję **Połącz klaster**.
 
@@ -109,9 +109,9 @@ Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytko
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Konfigurowanie projektu Spark Scala dla klastra usługi HDInsight Spark
 
-1. W obszarze roboczym zaćmienie IDE wybierz pozycję **plik** > **Nowy** > **projekt..**..
+1. W obszarze roboczym zaćmienie IDE wybierz pozycję **plik**  >  **Nowy**  >  **projekt..**..
 
-1. W kreatorze **nowego projektu** wybierz pozycję **projekt** > HDInsight**Spark w usłudze HDInsight (Scala)**. Następnie wybierz pozycję **Dalej**.
+1. W kreatorze **nowego projektu** wybierz pozycję **projekt HDInsight**  >  **Spark w usłudze HDInsight (Scala)**. Następnie wybierz pozycję **Dalej**.
 
    ![Wybieranie projektu platformy Spark w usłudze HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -126,9 +126,9 @@ Normalny klaster można połączyć za pomocą Ambari zarządzanej nazwy użytko
 
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Tworzenie aplikacji Scala dla klastra usługi HDInsight Spark
 
-1. W **Eksploratorze pakietów**rozwiń utworzony wcześniej projekt. Kliknij prawym przyciskiem myszy pozycję **src**, wybierz pozycję **Nowy** > **inne...**.
+1. W **Eksploratorze pakietów**rozwiń utworzony wcześniej projekt. Kliknij prawym przyciskiem myszy pozycję **src**, wybierz pozycję **Nowy**  >  **inne...**.
 
-1. W oknie dialogowym **Wybierz kreatora** wybierz pozycję **Scala kreatorzy** > **Scala obiekt**. Następnie wybierz pozycję **Dalej**.
+1. W oknie dialogowym **Wybierz kreatora** wybierz pozycję **Scala kreatorzy**  >  **Scala obiekt**. Następnie wybierz pozycję **Dalej**.
 
    ![Wybieranie Kreatora tworzenia obiektu Scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -218,7 +218,7 @@ Możesz wykonywać różne operacje przy użyciu narzędzi usługi HDInsight, w 
 
 1. W Eksploratorze Azure kliknij prawym przyciskiem myszy nazwę klastra Spark, a następnie wybierz pozycję **Otwórz interfejs użytkownika historii platformy Spark**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra. Określono je podczas aprowizacji klastra.
 
-1. Na pulpicie nawigacyjnym serwera historii platformy Spark Użyj nazwy aplikacji, aby wyszukać aplikację, która właśnie została uruchomiona. W powyższym kodzie, należy ustawić nazwę aplikacji przy użyciu `val conf = new SparkConf().setAppName("MyClusterApp")`. Dlatego nazwa aplikacji Spark została **MyClusterApp**.
+1. Na pulpicie nawigacyjnym serwera historii platformy Spark Użyj nazwy aplikacji, aby wyszukać aplikację, która właśnie została uruchomiona. W powyższym kodzie, należy ustawić nazwę aplikacji przy użyciu `val conf = new SparkConf().setAppName("MyClusterApp")` . Dlatego nazwa aplikacji Spark została **MyClusterApp**.
 
 ### <a name="start-the-apache-ambari-portal"></a>Uruchamianie portalu Apache Ambari
 
@@ -238,17 +238,17 @@ Domyślnie narzędzie HDInsight w Azure Toolkit for Eclipse wyświetla listę kl
 
 Za pomocą narzędzi usługi HDInsight w Azure Toolkit for Eclipse można uruchamiać aplikacje platformy Spark Scala lokalnie na stacji roboczej. Zazwyczaj te aplikacje nie potrzebują dostępu do zasobów klastra, takich jak kontener magazynu, i można je uruchamiać i testować lokalnie.
 
-### <a name="prerequisite"></a>Wymagania wstępne
+### <a name="prerequisite"></a>Wymaganie wstępne
 
-Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek opisany w temacie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Ten wyjątek występuje, ponieważ w systemie Windows brakuje pliku **WinUtils. exe** .
+Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek opisany w temacie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Ten wyjątek występuje z powodu braku **WinUtils.exe** w systemie Windows.
 
-Aby rozwiązać ten problem, należy [Winutils. exe](https://github.com/steveloughran/winutils) do lokalizacji takiej jak **C:\WinUtils\bin**, a następnie dodać zmienną środowiskową **HADOOP_HOME** i ustawić wartość zmiennej na **C\WinUtils**.
+Aby rozwiązać ten problem, należy [Winutils.exe](https://github.com/steveloughran/winutils) do lokalizacji takiej jak **C:\WinUtils\bin**, a następnie dodać zmienną środowiskową **HADOOP_HOME** i ustawić wartość zmiennej na **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Uruchamianie lokalnej aplikacji platformy Spark Scala
 
 1. Zacznij przezaćmienie i Utwórz projekt. W oknie dialogowym **Nowy projekt** wprowadź następujące opcje, a następnie wybierz przycisk **dalej**.
 
-1. W kreatorze **nowego projektu** wybierz pozycję **projekt** > HDInsight**Spark w usłudze HDInsight Local Run Sample (Scala)**. Następnie wybierz pozycję **Dalej**.
+1. W kreatorze **nowego projektu** wybierz pozycję **projekt HDInsight**  >  **Spark w usłudze HDInsight Local Run Sample (Scala)**. Następnie wybierz pozycję **Dalej**.
 
    ![Nowy projekt wybierz okno dialogowe kreatora](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -258,7 +258,7 @@ Aby rozwiązać ten problem, należy [Winutils. exe](https://github.com/stevelou
 
    ![Lokalizacja aplikacji LogQuery Local Scala](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
 
-1. Kliknij prawym przyciskiem myszy **LogQuery. scala** i wybierz polecenie **Uruchom jako** > **1 aplikację Scala**. Dane wyjściowe podobne do tego pojawiają się na karcie **konsoli** :
+1. Kliknij prawym przyciskiem myszy **LogQuery. scala** i wybierz polecenie **Uruchom jako**  >  **1 aplikację Scala**. Dane wyjściowe podobne do tego pojawiają się na karcie **konsoli** :
 
    ![Wynik uruchomienia lokalnego aplikacji platformy Spark](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 

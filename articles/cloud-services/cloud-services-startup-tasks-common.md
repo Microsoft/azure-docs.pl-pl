@@ -8,12 +8,11 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273061"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920070"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Typowe zadania uruchamiania usługi w chmurze
 W tym artykule przedstawiono kilka przykładów typowych zadań uruchamiania, które można wykonać w usłudze w chmurze. Zadania uruchamiania umożliwiają wykonywanie operacji przed rozpoczęciem roli. Operacje, które można wykonać, obejmują zainstalowanie składnika, zarejestrowanie składników modelu COM, ustawienie kluczy rejestru lub uruchomienie długotrwałego procesu. 
@@ -51,23 +50,23 @@ Zmienne mogą również używać [prawidłowej wartości XPath platformy Azure](
 ```
 
 
-## <a name="configure-iis-startup-with-appcmdexe"></a>Konfigurowanie uruchamiania usług IIS za pomocą narzędzia AppCmd. exe
-Narzędzia wiersza polecenia [Appcmd. exe](https://technet.microsoft.com/library/jj635852.aspx) można użyć do zarządzania ustawieniami usług IIS podczas uruchamiania na platformie Azure. Program *Appcmd. exe* zapewnia wygodny, w wierszu polecenia dostęp do ustawień konfiguracji, które mogą być używane w zadaniach uruchamiania na platformie Azure. Za pomocą programu *Appcmd. exe*ustawienia witryny sieci Web można dodawać, modyfikować lub usuwać dla aplikacji i lokacji.
+## <a name="configure-iis-startup-with-appcmdexe"></a>Skonfiguruj uruchamianie usług IIS przy użyciu AppCmd.exe
+[AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) narzędzia wiersza polecenia można użyć do zarządzania ustawieniami usług IIS podczas uruchamiania na platformie Azure. *AppCmd.exe* zapewnia wygodny, w wierszu polecenia dostęp do ustawień konfiguracji, które mogą być używane w zadaniach uruchamiania na platformie Azure. Za pomocą *AppCmd.exe*można dodawać, modyfikować lub usuwać ustawienia witryny sieci Web dla aplikacji i lokacji.
 
-Istnieje jednak kilka rzeczy, które należy obejrzeć w przypadku korzystania z programu *Appcmd. exe* jako zadania uruchamiania:
+Istnieje jednak kilka rzeczy, które należy obserwować w przypadku używania *AppCmd.exe* jako zadania uruchamiania:
 
 * Zadania uruchamiania można uruchomić więcej niż jeden raz między ponownymi uruchomieniami. Na przykład podczas odtwarzania roli.
-* Jeśli akcja *Appcmd. exe* jest wykonywana więcej niż raz, może to spowodować wystąpienie błędu. Na przykład przy próbie dodania sekcji do *pliku Web. config* dwa razy może zostać wygenerowany błąd.
-* Zadania uruchamiania kończą się niepowodzeniem, jeśli zwracają kod zakończenia inny niż zero lub **ERRORLEVEL**. Na przykład, gdy program *Appcmd. exe* generuje błąd.
+* Jeśli akcja *AppCmd.exe* jest wykonywana więcej niż raz, może ona wygenerować błąd. Przykładowo próba dodania sekcji do *Web.config* dwa razy może spowodować wygenerowanie błędu.
+* Zadania uruchamiania kończą się niepowodzeniem, jeśli zwracają kod zakończenia inny niż zero lub **ERRORLEVEL**. Na przykład, gdy *AppCmd.exe* generuje błąd.
 
-Dobrym sposobem jest sprawdzenie, czy jest to **zmienna ERRORLEVEL** po wywołaniu *Appcmd. exe*, co jest łatwe do wykonania w przypadku zawijania wywołania programu *Appcmd. exe* z plikiem *. cmd* . Jeśli wykryjesz znaną odpowiedź **ERRORLEVEL** , możesz ją zignorować lub przekazać ponownie.
+Dobrym sposobem jest sprawdzenie, czy **zmienna ERRORLEVEL** po wywołaniu *AppCmd.exe*, co jest łatwe do wykonania w przypadku zawijania wywołania do *AppCmd.exe* za pomocą pliku *. cmd* . Jeśli wykryjesz znaną odpowiedź **ERRORLEVEL** , możesz ją zignorować lub przekazać ponownie.
 
-Zmienna ERRORLEVEL zwrócona przez *Appcmd. exe* jest wymieniona w pliku Winerror. h i może być również widoczna w [witrynie MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
+Zmienna ERRORLEVEL zwracana przez *AppCmd.exe* jest wymieniona w pliku Winerror. h i może być również widoczna w [witrynie MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Przykład zarządzania poziomem błędu
-Ten przykład dodaje sekcję kompresji i wpis kompresji dla formatu JSON do pliku *Web. config* , z obsługą błędów i rejestrowaniem.
+Ten przykład dodaje sekcję kompresji i wpis kompresji dla formatu JSON do pliku *Web.config* , z obsługą błędów i rejestrowaniem.
 
-W tym miejscu są wyświetlane odpowiednie sekcje pliku [ServiceDefinition. csdef] , które obejmują ustawienie `elevated` atrybutu [kontekście wykonywania](/previous-versions/azure/reference/gg557552(v=azure.100)#task) , aby nadać programowi *Appcmd. exe* wystarczające uprawnienia do zmiany ustawień w pliku *Web. config* :
+Poniżej przedstawiono odpowiednie sekcje pliku [ServiceDefinition. csdef] , które obejmują ustawienie atrybutu [kontekście wykonywania](/previous-versions/azure/reference/gg557552(v=azure.100)#task) w `elevated` celu udzielenia *AppCmd.exe* wystarczających uprawnień, aby zmienić ustawienia w pliku *Web.config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -80,7 +79,7 @@ W tym miejscu są wyświetlane odpowiednie sekcje pliku [ServiceDefinition. csde
 </ServiceDefinition>
 ```
 
-Plik wsadowy *Start. cmd* używa narzędzia *Appcmd. exe* w celu dodania sekcji kompresji i wpisu kompresji dla formatu JSON do pliku *Web. config* . Oczekiwana liczba **ERRORLEVEL** z 183 jest ustawiona na zero przy użyciu weryfikacji. Program wiersza polecenia EXE. Nieoczekiwane ERRORLEVEL są rejestrowane w StartupErrorLog. txt.
+Plik wsadowy *Start. cmd* używa *AppCmd.exe* do dodawania sekcji kompresji i wpisu kompresji dla formatu JSON do pliku *Web.config* . Oczekiwana liczba **ERRORLEVEL** z 183 jest ustawiona na zero przy użyciu programu wiersza polecenia VERIFY.EXE. Nieoczekiwane ERRORLEVEL są rejestrowane w StartupErrorLog.txt.
 
 ```cmd
 REM   *** Add a compression section to the Web.config file. ***
@@ -151,9 +150,9 @@ EXIT /B %errorlevel%
 ```
 
 ## <a name="block-a-specific-ip-address"></a>Blokuj określony adres IP
-Możesz ograniczyć dostęp roli sieci Web platformy Azure do zestawu określonych adresów IP, modyfikując plik **Web. config** usług IIS. Należy również użyć pliku polecenia, który odblokowuje sekcję **ipSecurity** pliku **ApplicationHost. config** .
+Możesz ograniczyć dostęp roli sieci Web platformy Azure do zestawu określonych adresów IP, modyfikując plik **web.config** IIS. Należy również użyć pliku polecenia, który odblokowuje sekcję **ipSecurity** pliku **ApplicationHost.config** .
 
-Aby odblokować sekcję **ipSecurity** pliku **ApplicationHost. config** , Utwórz plik poleceń, który jest uruchamiany podczas uruchamiania roli. Utwórz folder na poziomie głównym roli sieci Web o nazwie **Startup** i, w tym folderze, Utwórz plik wsadowy o nazwie **Startup. cmd**. Dodaj ten plik do projektu programu Visual Studio i ustaw właściwości tak, aby **zawsze** były dostępne w pakiecie.
+Aby odblokować sekcję **ipSecurity** pliku **ApplicationHost.config** , Utwórz plik poleceń, który jest uruchamiany podczas uruchamiania roli. Utwórz folder na poziomie głównym roli sieci Web o nazwie **Startup** i, w tym folderze, Utwórz plik wsadowy o nazwie **Startup. cmd**. Dodaj ten plik do projektu programu Visual Studio i ustaw właściwości tak, aby **zawsze** były dostępne w pakiecie.
 
 Dodaj następujące zadanie uruchamiania do pliku [ServiceDefinition. csdef] .
 
@@ -180,7 +179,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 To zadanie powoduje, że plik wsadowy **Start. cmd** ma być uruchamiany za każdym razem, gdy rola sieci Web zostanie zainicjowana, co oznacza, że wymagana sekcja **ipSecurity** jest odblokowana.
 
-Na koniec zmodyfikuj [sekcję system. WebServer](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) w pliku **Web. config** roli sieci Web, aby dodać listę adresów IP, którym udzielono dostępu, jak pokazano w następującym przykładzie:
+Na koniec zmodyfikuj [sekcję system. WebServer](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) **web.config** pliku roli sieci Web, aby dodać listę adresów IP, którym udzielono dostępu, jak pokazano w następującym przykładzie:
 
 Ta Przykładowa konfiguracja **zezwala** wszystkim adresom IP na dostęp do serwera z wyjątkiem dwóch zdefiniowanych
 
@@ -272,7 +271,7 @@ Odpowiednie sekcje pliku **ServiceDefinition. csdef** są przedstawione tutaj:
 </ServiceDefinition>
 ```
 
-Przykładowo plik wsadowy **Start. cmd** używa zmiennej środowiskowej **PathToStartupStorage** , aby utworzyć plik **. txt** w lokalizacji magazynu lokalnego.
+Przykładowo plik wsadowy **Start. cmd** używa zmiennej środowiskowej **PathToStartupStorage** , aby utworzyć plik **MyTest.txt** w lokalizacji magazynu lokalnego.
 
 ```cmd
 REM   Create a simple text file.
@@ -300,7 +299,7 @@ Zadanie uruchamiania może wykonywać różne kroki, gdy działa w chmurze w por
 
 Możliwość wykonywania różnych akcji na emulatorze obliczeniowym i w chmurze można osiągnąć przez utworzenie zmiennej środowiskowej w pliku [ServiceDefinition. csdef] . Następnie należy przetestować tę zmienną środowiskową dla wartości w zadaniu startowym.
 
-Aby utworzyć zmienną środowiskową, Dodaj element [Variable]/[RoleInstanceValue] i utwórz wartość XPath `/RoleEnvironment/Deployment/@emulated`. Wartość zmiennej środowiskowej **% ComputeEmulatorRunning%** jest `true` uruchamiana w emulatorze obliczeniowym i `false` w przypadku uruchamiania w chmurze.
+Aby utworzyć zmienną środowiskową, Dodaj element [Variable] / [RoleInstanceValue] i utwórz wartość XPath `/RoleEnvironment/Deployment/@emulated` . Wartość zmiennej środowiskowej **% ComputeEmulatorRunning%** jest `true` uruchamiana w emulatorze obliczeniowym i `false` w przypadku uruchamiania w chmurze.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,15 +376,13 @@ EXIT /B 0
 Poniżej przedstawiono niektóre najlepsze rozwiązania, które należy wykonać podczas konfigurowania zadania dla roli sieci Web lub procesu roboczego.
 
 ### <a name="always-log-startup-activities"></a>Zawsze Rejestruj działania uruchamiania
-Program Visual Studio nie oferuje debugera, który umożliwia przechodzenie do kolejnych plików wsadowych, dlatego warto uzyskać tyle danych na potrzeby operacji plików wsadowych, jak to możliwe. Rejestrowanie danych wyjściowych plików wsadowych, zarówno **stdout** , jak i **stderr**, może dać ważne informacje podczas próby debugowania i naprawiania plików wsadowych. Aby zalogować zarówno **stdout** , jak i **stderr** do pliku StartupLog. txt w katalogu wskazywanym przez zmienną środowiskową **% temp%** , Dodaj tekst `>>  "%TEMP%\\StartupLog.txt" 2>&1` do końca określonych wierszy, które mają być rejestrowane. Na przykład, aby wykonać plik Setup. exe w katalogu **% PathToApp1Install%** :
-
-    "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
+Program Visual Studio nie oferuje debugera, który umożliwia przechodzenie do kolejnych plików wsadowych, dlatego warto uzyskać tyle danych na potrzeby operacji plików wsadowych, jak to możliwe. Rejestrowanie danych wyjściowych plików wsadowych, zarówno **stdout** , jak i **stderr**, może dać ważne informacje podczas próby debugowania i naprawiania plików wsadowych. Aby zalogować zarówno **stdout** , jak i **stderr** do pliku StartupLog.txt w katalogu wskazywanym przez zmienną środowiskową **% temp%** , należy dodać tekst `>>  "%TEMP%\\StartupLog.txt" 2>&1` na końcu określonych wierszy, które mają być rejestrowane. Na przykład, aby wykonać setup.exe w katalogu **% PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Aby uprościć kod XML, można utworzyć plik *cmd* otoki, który wywołuje wszystkie zadania uruchamiania programu wraz z rejestrowaniem i zapewnia, że każde zadanie podrzędne udostępnia te same zmienne środowiskowe.
 
-Może się okazać, że jest to irytujące użycie `>> "%TEMP%\StartupLog.txt" 2>&1` na końcu każdego zadania uruchamiania. Rejestrowanie zadań można wymusić, tworząc otokę, która obsługuje logowanie. Ta otoka wywołuje rzeczywisty plik wsadowy, który ma zostać uruchomiony. Wszystkie dane wyjściowe z docelowego pliku wsadowego zostaną przekierowane do pliku *Startuplog. txt* .
+Może się okazać, że jest to irytujące użycie `>> "%TEMP%\StartupLog.txt" 2>&1` na końcu każdego zadania uruchamiania. Rejestrowanie zadań można wymusić, tworząc otokę, która obsługuje logowanie. Ta otoka wywołuje rzeczywisty plik wsadowy, który ma zostać uruchomiony. Wszystkie dane wyjściowe z docelowego pliku wsadowego zostaną przekierowane do pliku *Startuplog.txt* .
 
-Poniższy przykład pokazuje, jak przekierować wszystkie dane wyjściowe z pliku wsadowego uruchamiania. W tym przykładzie plik ServerDefinition. csdef tworzy zadanie uruchamiania wywołujące *logwrap. cmd*. *logwrap. cmd* wywołuje *Startup2. cmd*, przekierowując wszystkie dane wyjściowe do **% temp%\\StartupLog. txt**.
+Poniższy przykład pokazuje, jak przekierować wszystkie dane wyjściowe z pliku wsadowego uruchamiania. W tym przykładzie plik ServerDefinition. csdef tworzy zadanie uruchamiania wywołujące *logwrap. cmd*. *logwrap. cmd* wywołuje *Startup2. cmd*, przekierowując wszystkie dane wyjściowe do **% temp% \\StartupLog.txt**.
 
 ServiceDefinition. cmd:
 
@@ -447,7 +444,7 @@ ECHO [%date% %time%] Some more log information about this task
 EXIT %ERRORLEVEL%
 ```
 
-Przykładowe dane wyjściowe w pliku **StartupLog. txt** :
+Przykładowe dane wyjściowe w pliku **StartupLog.txt** :
 
 ```txt
 [Mon 10/17/2016 20:24:46.75] == START logwrap.cmd ============================================== 
@@ -459,7 +456,7 @@ Przykładowe dane wyjściowe w pliku **StartupLog. txt** :
 ```
 
 > [!TIP]
-> Plik **StartupLog. txt** znajduje się w folderze *C:\Resources\temp\\{rolename} \RoleTemp* .
+> Plik **StartupLog.txt** znajduje się w folderze *C:\Resources\temp \\ {rolename} \RoleTemp* .
 > 
 > 
 
@@ -468,7 +465,7 @@ Ustaw uprawnienia odpowiednio dla zadania uruchamiania. Czasami zadania uruchami
 
 Atrybut [executionContext][zadania] kontekście wykonywania ustawia poziom uprawnień zadania uruchamiania. Użycie `executionContext="limited"` oznacza, że zadanie uruchamiania ma ten sam poziom uprawnień co rola. Użycie `executionContext="elevated"` oznacza, że zadanie uruchamiania ma uprawnienia administratora, co umożliwia zadanie uruchamiania wykonywanie zadań administratora bez nadawania uprawnień administratora do roli.
 
-Przykładem zadania uruchamiania, które wymaga podniesionych uprawnień, jest zadanie uruchamiania, które używa narzędzia **Appcmd. exe** w celu skonfigurowania usług IIS. **Plik Appcmd. exe** wymaga `executionContext="elevated"`.
+Przykładem zadania uruchamiania, które wymaga podniesionych uprawnień, jest zadanie uruchamiania, które używa **AppCmd.exe** do konfigurowania usług IIS. **AppCmd.exe** wymaga `executionContext="elevated"` .
 
 ### <a name="use-the-appropriate-tasktype"></a>Użyj odpowiedniego zadania
 Atrybut [taskType][zadania] TaskType określa sposób wykonywania zadania uruchamiania. Istnieją trzy wartości: **proste**, **tła**i **pierwszego planu**. Zadania tła i pierwszego planu są uruchamiane asynchronicznie, a następnie proste zadania są wykonywane synchronicznie po jednym naraz.
@@ -483,7 +480,7 @@ Rola zostanie uruchomiona tylko wtedy, gdy **zmienna ERRORLEVEL** z każdego pro
 Brak `EXIT /B 0` na końcu pliku wsadowego uruchamiania jest powszechną przyczyną ról, które nie są uruchamiane.
 
 > [!NOTE]
-> Zauważyliśmy, że zagnieżdżone pliki wsadowe czasami zawieszają się podczas `/B` korzystania z parametru. Warto upewnić się, że ten problem zawieszający nie występuje, jeśli inny plik wsadowy wywoła bieżący plik wsadowy, na przykład w przypadku użycia [otoki dzienników](#always-log-startup-activities). W tym przypadku można `/B` pominąć parametr.
+> Zauważyliśmy, że zagnieżdżone pliki wsadowe czasami przestają odpowiadać przy użyciu `/B` parametru. Warto upewnić się, że ten problem nie występuje, jeśli inny plik wsadowy wywołuje bieżący plik wsadowy, na przykład jeśli używasz [otoki dziennika](#always-log-startup-activities). `/B`W tym przypadku można pominąć parametr.
 > 
 > 
 
@@ -508,10 +505,7 @@ Dowiedz się więcej na temat działania [zadań](cloud-services-startup-tasks.m
 [Zmienna]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Punkty końcowe]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Punktów końcowych]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Konfigurowanie aktywnej replikacji geograficznej dla Azure SQL Database'
-description: Azure PowerShell przykładowy skrypt służący do konfigurowania aktywnej replikacji geograficznej dla Azure SQL Database i przełączania jej w tryb failover.
+description: Użyj przykładowego skryptu Azure PowerShell, aby skonfigurować aktywną replikację geograficzną dla Azure SQL Database i przełączyć ją w tryb failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,18 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4dbe896211e03a068975df8aabdce78632ab7fd7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d63e6a58caf218022e3ebf7423e2495e98d9485c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053303"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196757"
 ---
-# <a name="use-powershell-to-configure-active-geo-replication---azure-sql-database"></a>Korzystanie z programu PowerShell do konfigurowania aktywnej replikacji geograficznej — Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-database-in-azure-sql-database"></a>Używanie programu PowerShell do konfigurowania aktywnej replikacji geograficznej dla bazy danych w Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell umożliwia skonfigurowanie aktywnej replikacji geograficznej dla Azure SQL Database i przełączenie jej w tryb failover do repliki pomocniczej bazy danych.
+Ten Azure PowerShell przykład skryptu służy do konfigurowania aktywnej replikacji geograficznej bazy danych w Azure SQL Database i przełączenia jej w tryb failover do repliki pomocniczej bazy danych.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -62,6 +63,6 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat Azure PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/overview).
 
 Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../powershell-script-content-guide.md).

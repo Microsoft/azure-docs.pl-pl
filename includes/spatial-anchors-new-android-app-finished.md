@@ -2,20 +2,20 @@
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
-ms.date: 04/03/2019
+ms.date: 06/22/2020
 ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8bef7b12f4d9d9a63e41441ef22b029b2ee5afd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d20b7dee533dae17cfb1c6138e336b91c7e2b0c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74276942"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296189"
 ---
 ## <a name="putting-everything-together"></a>Umieszczanie wszystkich siebie
 
-Poniżej przedstawiono sposób, w `MainActivity` jaki powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
+Poniżej przedstawiono sposób, w jaki `MainActivity` powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
 
 ```java
 package com.example.myfirstapp;
@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.cloudSession.getConfiguration().setAccountId(/* Copy your account Identifier in here */);
         this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
+        this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
     }
     // </initializeSession>

@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14591f334801329e78000a007783c3d6c4c3b5ae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75435493"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082543"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix w usłudze Azure HDInsight
 
@@ -70,7 +70,7 @@ Aby później dodać więcej kolumn, użyj `ALTER VIEW` instrukcji.
 
 Funkcja pomijania skanowania używa co najmniej jednej kolumny indeksu złożonego, aby znaleźć różne wartości. W przeciwieństwie do skanowania zakresu, pomijanie skanowania implementuje skanowanie wewnątrz wierszy, co [zwiększa wydajność](https://phoenix.apache.org/performance.html#Skip-Scan). Podczas skanowania pierwsza dopasowana wartość jest pomijana wraz z indeksem do momentu znalezienia następnej wartości.
 
-Pomijanie skanowania używa `SEEK_NEXT_USING_HINT` wyliczenia filtru HBase. Przy `SEEK_NEXT_USING_HINT`użyciu, pomijanie skanowania śledzi zbiór kluczy lub zakresów kluczy, które są wyszukiwane w każdej kolumnie. Funkcja pomijania skanowania Pobiera klucz, który został przesłany do niego podczas obliczania filtru, i określa, czy jest to jedna z kombinacji. W przeciwnym razie pomijanie skanowania szacuje następny najwyższy klucz, aby przejść do.
+Pomijanie skanowania używa `SEEK_NEXT_USING_HINT` wyliczenia filtru HBase. Przy użyciu `SEEK_NEXT_USING_HINT` , pomijanie skanowania śledzi zbiór kluczy lub zakresów kluczy, które są wyszukiwane w każdej kolumnie. Funkcja pomijania skanowania Pobiera klucz, który został przesłany do niego podczas obliczania filtru, i określa, czy jest to jedna z kombinacji. W przeciwnym razie pomijanie skanowania szacuje następny najwyższy klucz, aby przejść do.
 
 ### <a name="transactions"></a>Transakcje
 
@@ -80,7 +80,7 @@ Podobnie jak w przypadku tradycyjnych transakcji SQL, transakcje udostępniane z
 
 Aby włączyć transakcje w Phoenix, zapoznaj się z [dokumentacją Apache Phoenix transakcji](https://phoenix.apache.org/transactions.html).
 
-Aby utworzyć nową tabelę z włączonymi transakcjami, `TRANSACTIONAL` ustaw właściwość `true` na w `CREATE` instrukcji:
+Aby utworzyć nową tabelę z włączonymi transakcjami, ustaw `TRANSACTIONAL` Właściwość na `true` w `CREATE` instrukcji:
 
 ```sql
 CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
@@ -124,7 +124,7 @@ CREATE TABLE Saltedweblogs (
 
 HDInsight An klaster HBase zawiera [interfejs użytkownika Ambari](hdinsight-hadoop-manage-ambari.md) do wprowadzania zmian w konfiguracji.
 
-1. Aby włączyć lub wyłączyć Phoenix oraz kontrolować ustawienia limitu czasu zapytania w Phoenix, zaloguj się do interfejsu użytkownika sieci Web Ambari (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) przy użyciu poświadczeń użytkownika usługi Hadoop.
+1. Aby włączyć lub wyłączyć Phoenix oraz kontrolować ustawienia limitu czasu zapytania w Phoenix, zaloguj się do interfejsu użytkownika sieci Web Ambari ( `https://YOUR_CLUSTER_NAME.azurehdinsight.net` ) przy użyciu poświadczeń użytkownika usługi Hadoop.
 
 2. Wybierz pozycję **HBase** z listy usług w menu po lewej stronie, a następnie **Wybierz kartę konfiguracje** .
 
@@ -134,7 +134,7 @@ HDInsight An klaster HBase zawiera [interfejs użytkownika Ambari](hdinsight-had
 
     ![Sekcja konfiguracji SQL w Ambari Phoenix](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Używanie Apache Phoenix z klastrami HBase opartymi na systemie Linux w usłudze HDInsight](hbase/apache-hbase-query-with-phoenix.md)
 

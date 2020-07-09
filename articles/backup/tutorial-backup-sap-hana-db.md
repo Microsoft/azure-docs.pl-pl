@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747231"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770734"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -22,21 +22,24 @@ W tym samouczku pokazano, jak utworzyć kopię zapasową SAP HANA baz danych dzi
 
 [Oto](sap-hana-backup-support-matrix.md#scenario-support) wszystkie scenariusze, które obecnie są obsługiwane.
 
+>[!NOTE]
+>[Wprowadzenie](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 lub 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed skonfigurowaniem kopii zapasowych upewnij się, że wykonano następujące czynności:
 
+* Zidentyfikuj lub Utwórz [magazyn Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) w tym samym regionie i w ramach subskrypcji co maszyna wirtualna, na której działa SAP HANA.
 * Zezwól na połączenie z maszyną wirtualną z Internetem, aby można było uzyskać dostęp do platformy Azure, zgodnie z opisem w poniższej procedurze [Konfigurowanie łączności sieciowej](#set-up-network-connectivity) .
+* Upewnij się, że łączna długość nazwy maszyny wirtualnej serwera SAP HANA i nazwy grupy zasobów nie przekracza 84 znaków dla Menedżera zasobów platformy Azure (ARM_ maszyn wirtualnych (i 77 znaków dla klasycznych maszyn wirtualnych). To ograniczenie wynika z faktu, że niektóre znaki są zarezerwowane przez usługę.
 * Klucz powinien istnieć w **hdbuserstore** , który spełnia następujące kryteria:
-  * Powinien być obecny w domyślnym **hdbuserstore**
+  * Powinien być obecny w domyślnym **hdbuserstore**. Wartość domyślna to `<sid>adm` konto, pod którym zainstalowano SAP HANA.
   * W przypadku MDC klucz powinien wskazywać port SQL **serwer nazw**. W przypadku SDC powinna wskazywać port SQL of **INDEXSERVER**
   * Należy mieć poświadczenia, aby dodawać i usuwać użytkowników
 * Uruchom skrypt konfiguracji kopii zapasowej SAP HANA (skrypt przed rejestracją) na maszynie wirtualnej, na której jest zainstalowany program HANA, jako użytkownik główny. [Ten skrypt](https://aka.ms/scriptforpermsonhana) Pobiera System Hana do utworzenia kopii zapasowej. Zapoznaj się z sekcją co to jest [skrypt przed rejestracją](#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat skryptu przed rejestracją.
 
 >[!NOTE]
->Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.
->
->Zmodyfikuj zasady ręcznie w razie konieczności.
+>Skrypt przed rejestracją instaluje **unixODBC234** SAP HANA dla obciążeń, które działają w RHEL (7,4, 7,6 i 7,7) i **unixODBC** dla RHEL 8,1. [Ten pakiet znajduje się w repozytorium RHEL for SAP HANA (w przypadku serwera RHEL 7) usługi Update Services for SAP Solutions (pakiety RPM)](https://access.redhat.com/solutions/5094721).  W przypadku obrazu RHEL w portalu Azure Marketplace repozytorium będzie **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-e4s-pakiety RPM**.
 
 ## <a name="set-up-network-connectivity"></a>Konfigurowanie łączności sieciowej
 
@@ -99,7 +102,7 @@ Używanie serwera proxy HTTP | Szczegółowa kontrola w serwerze proxy za pośre
 
 Uruchamianie skryptu przed rejestracją wykonuje następujące funkcje:
 
-* Instaluje lub aktualizuje wszelkie niezbędne pakiety wymagane przez agenta Azure Backup w dystrybucji.
+* W oparciu o dystrybucję systemu Linux skrypt instaluje lub aktualizuje wszelkie niezbędne pakiety wymagane przez agenta Azure Backup.
 * Przeprowadza ona kontrolę łączności sieciowej wychodzącej za pomocą serwerów Azure Backup i usług zależnych, takich jak Azure Active Directory i Azure Storage.
 * Loguje się do systemu HANA przy użyciu klucza użytkownika podanego w ramach [wymagań wstępnych](#prerequisites). Klucz użytkownika służy do tworzenia kopii zapasowej użytkownika (AZUREWLBACKUPHANAUSER) w systemie HANA, a klucz użytkownika można usunąć po pomyślnym uruchomieniu skryptu przed rejestracją.
 * Do AZUREWLBACKUPHANAUSER są przypisane następujące wymagane role i uprawnienia:

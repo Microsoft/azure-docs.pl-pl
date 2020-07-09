@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416418"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Używanie Azure Data Factory do migrowania danych z usługi Amazon S3 do magazynu Azure 
@@ -94,7 +94,7 @@ Jeśli którekolwiek z zadań kopiowania zakończy się niepowodzeniem z powodu 
 
 ### <a name="delta-data-migration"></a>Migracja danych różnicowych 
 
-Najbardziej wydajnym sposobem identyfikowania nowych lub zmienionych plików z AWS S3 jest użycie konwencji nazewnictwa z podziałem czasowym — Jeśli dane w AWS S3 zostały podzielone na partycje czasowo w nazwie pliku lub folderu (na przykład/yyyy/mm/dd/File.csv), potok może łatwo identyfikować, które pliki/foldery mają być kopiowane przyrostowo. 
+Najbardziej wydajnym sposobem identyfikowania nowych lub zmienionych plików z AWS S3 jest użycie konwencji nazewnictwa z podziałem czasowym — Jeśli dane w AWS S3 zostały podzielone na partycje czasowo w nazwie pliku lub folderu (na przykład/yyyy/mm/dd/file.csv), potok może łatwo identyfikować, które pliki/foldery mają być kopiowane przyrostowo. 
 
 Alternatywnie, jeśli dane w AWS S3 nie są podzielone na partycje, ADF może identyfikować nowe lub zmienione pliki przez ich LastModifiedDate.   W ten sposób jest to, że zestaw ADF przeskanuje wszystkie pliki z AWS S3 i skopiuje nowy i zaktualizowany plik, którego Ostatnia modyfikowana sygnatura czasowa jest większa niż określona wartość.  Należy pamiętać, że jeśli w usłudze S3 istnieje duża liczba plików, początkowe skanowanie plików może zająć dużo czasu, niezależnie od liczby plików pasujących do warunku filtru.  W takim przypadku sugerowane jest Partycjonowanie danych przy użyciu tego samego ustawienia "prefix" dla początkowej migracji migawek, dzięki czemu skanowanie plików może być wykonywane równolegle.  
 

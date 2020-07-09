@@ -10,12 +10,11 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 705b2464285b747ea7999b112733b7e99f761f22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c640adb0758c8dfd9dcdae3e26fd023afd5499f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252274"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Przykłady Azure PowerShell dla Azure Data Factory
 
@@ -25,10 +24,10 @@ Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla 
 
 | |  |
 |---|---|
-|**Kopiowanie danych**||
+|**Kopiuj dane**||
 |[Kopiowanie obiektów blob z folderu do innego folderu w usłudze Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell kopiuje obiekty blob z folderu na platformie Azure Blob Storage do innego folderu w tej samej Blob Storage. |
-|[Kopiowanie danych z SQL Server lokalnego na platformę Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell kopiuje dane z lokalnej bazy danych SQL Server do magazynu obiektów blob platformy Azure. |
-|[Kopia Zbiorcza](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten przykładowy skrypt programu PowerShell kopiuje dane z wielu tabel w bazie danych SQL Azure do usługi Azure SQL Data Warehouse. |
+|[Kopiowanie danych z SQL Server na platformę Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell kopiuje dane z bazy danych SQL Server do magazynu obiektów blob platformy Azure. |
+|[Kopia Zbiorcza](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten przykładowy skrypt programu PowerShell kopiuje dane z wielu tabel w bazie danych w Azure SQL Database do usługi Azure SQL Data Warehouse. |
 |[Kopia przyrostowa](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten przykładowy skrypt programu PowerShell ładuje tylko nowe lub zaktualizowane rekordy z magazynu danych źródłowych do magazynu danych ujścia po początkowej pełnej kopii danych ze źródła do ujścia. |
 |**Przekształcanie danych**||
 |[Przekształcanie danych przy użyciu klastra Spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ten skrypt programu PowerShell przekształca dane przez uruchomienie programu w klastrze Spark. |

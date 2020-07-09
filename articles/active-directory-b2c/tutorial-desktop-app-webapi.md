@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183390"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298855"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Samouczek — udzielanie dostępu do internetowego interfejsu API platformy Node.js z aplikacji klasycznej przy użyciu usługi Azure Active Directory B2C
 
 W tym samouczku pokazano, jak wywołać interfejs API sieci Web w środowisku Node. js chronionych przez program Azure Active Directory B2C (Azure AD B2C) z aplikacji klasycznej Windows Presentation Foundation (WPF), a także chronić ją przez Azure AD B2C.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Dodawanie aplikacji internetowego interfejsu API
@@ -43,7 +43,7 @@ Zakresy umożliwiają zarządzanie dostępem do chronionych zasobów. Zakresy s�
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Zapisz wartość w obszarze **zakresy** dla zakresu `demo.read` , który ma być używany w późniejszym kroku podczas konfigurowania aplikacji klasycznej. Pełny zakres wartości jest podobny do `https://contosob2c.onmicrosoft.com/api/demo.read`.
+Zapisz wartość w obszarze **zakresy** dla `demo.read` zakresu, który ma być używany w późniejszym kroku podczas konfigurowania aplikacji klasycznej. Pełny zakres wartości jest podobny do `https://contosob2c.onmicrosoft.com/api/demo.read` .
 
 ## <a name="grant-permissions"></a>Udzielenie uprawnień
 
@@ -51,17 +51,11 @@ Aby wywołać chroniony internetowy interfejs API z natywnej aplikacji klienckie
 
 W samouczku wymagań wstępnych zarejestrowano natywną aplikację kliencką o nazwie *nativeapp1*. Poniższe kroki umożliwiają skonfigurowanie natywnej rejestracji aplikacji przy użyciu zakresów interfejsu API, które zostały uwidocznione dla *webapi1* w poprzedniej sekcji. Dzięki temu aplikacja klasyczna może uzyskać token dostępu z Azure AD B2C, z którego korzysta interfejs API sieci Web w celu sprawdzenia i zapewnienia dostępu do zakresu zasobów. W dalszej części tego samouczka konfigurujesz i uruchamiasz zarówno przykład kodu aplikacji klasycznych, jak i interfejsu API sieci Web.
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
+Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
-1. Wybierz pozycję **Aplikacje**, a następnie wybierz pozycję *nativeapp1*.
-1. Wybierz pozycję **Dostęp do interfejsu API**, a następnie wybierz polecenie **Dodaj**.
-1. Na liście rozwijanej **Wybierz interfejs API** wybierz pozycję *webapi1*.
-1. Z listy rozwijanej **Wybierz zakresy** wybierz zdefiniowane wcześniej zakresy. Na przykład *Demonstracja. odczyt* i *Demonstracja. Write*.
-1. Wybierz przycisk **OK**.
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
-
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz natywną aplikację kliencką, która powinna mieć dostęp do interfejsu API. Na przykład *nativeapp1*.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz natywną aplikację kliencką, która powinna mieć dostęp do interfejsu API. Na przykład *nativeapp1*.
 1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**.
 1. W obszarze **skonfigurowane uprawnienia**wybierz pozycję **Dodaj uprawnienie**.
 1. Wybierz kartę **Moje interfejsy API** .
@@ -72,6 +66,14 @@ W samouczku wymagań wstępnych zarejestrowano natywną aplikację kliencką o n
 1. Wybierz obecnie zalogowane konto administratora lub Zaloguj się przy użyciu konta w dzierżawie Azure AD B2C, do którego przypisano co najmniej rolę *administratora aplikacji w chmurze* .
 1. Wybierz pozycję **Zaakceptuj**.
 1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." pojawia się w obszarze **stan** dla obu zakresów. Propagowanie uprawnień może potrwać kilka minut.
+
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
+
+1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz pozycję *nativeapp1*.
+1. Wybierz pozycję **Dostęp do interfejsu API**, a następnie wybierz polecenie **Dodaj**.
+1. Na liście rozwijanej **Wybierz interfejs API** wybierz pozycję *webapi1*.
+1. Z listy rozwijanej **Wybierz zakresy** wybierz zdefiniowane wcześniej zakresy. Na przykład *Demonstracja. odczyt* i *Demonstracja. Write*.
+1. Wybierz przycisk **OK**.
 
 * * *
 
@@ -85,12 +87,12 @@ Teraz, gdy internetowy interfejs API jest zarejestrowany i masz dostępne zakres
 
 W ramach wymagań wstępnych dotyczących tego artykułu zmodyfikowano [aplikację klasyczną WPF](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) , aby umożliwić logowanie się przy użyciu przepływu użytkowników w dzierżawie Azure AD B2C. W tej sekcji zostanie zaktualizowana ta sama aplikacja, aby odwołać się do internetowego interfejsu API, który został zarejestrowany wcześniej, *webapi1*.
 
-1. Otwórz rozwiązanie **Active-Directory-B2C-WPF** (`active-directory-b2c-wpf.sln`) w programie Visual Studio.
+1. Otwórz rozwiązanie **Active-Directory-B2C-WPF** ( `active-directory-b2c-wpf.sln` ) w programie Visual Studio.
 1. W projekcie **Active-Directory-B2C-WPF** otwórz plik *App.XAML.cs* i Znajdź następujące definicje zmiennych.
-    1. Zastąp wartość `ApiScopes` zmiennej wartością zanotowaną wcześniej podczas definiowania **demonstracji. zakres odczytu** .
+    1. Zastąp wartość zmiennej wartością `ApiScopes` zanotowaną wcześniej podczas definiowania **demonstracji. zakres odczytu** .
     1. Zastąp wartość `ApiEndpoint` zmiennej **adresem URI przekierowania** , który został zarejestrowany wcześniej podczas rejestrowania internetowego interfejsu API (na przykład *webapi1*) w dzierżawie.
 
-    Przykład:
+    Oto przykład:
 
     ```csharp
     public static string[] ApiScopes = { "https://contosob2c.onmicrosoft.com/api/demo.read" };
@@ -118,7 +120,7 @@ Przykładowy internetowy interfejs API platformy Node.js korzysta z biblioteki P
     var tenantIdGuid = "<your-b2c-tenant>.onmicrosoft.com";
     var policyName = "B2C_1_signupsignin1";
     ```
-1. Ponieważ korzystasz z interfejsu API lokalnie, zaktualizuj ścieżkę w marszrucie dla metody GET `/` zamiast lokalizacji aplikacji demonstracyjnej: `/hello`
+1. Ponieważ korzystasz z interfejsu API lokalnie, zaktualizuj ścieżkę w marszrucie dla metody GET `/` zamiast lokalizacji aplikacji demonstracyjnej `/hello` :
 
     ```nodejs
     app.get("/",

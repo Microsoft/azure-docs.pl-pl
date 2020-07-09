@@ -13,6 +13,9 @@
       href: quick-create-portal.md
     - name: Tworzenie maszyny wirtualnej — program Azure PowerShell
       href: quick-create-powershell.md
+    - name: Tworzenie maszyny wirtualnej — szablon usługi Resource Manager
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Samouczki
   items:
     - name: 1 — Tworzenie maszyn wirtualnych/zarządzanie nimi
@@ -53,12 +56,8 @@
       href: tutorial-azure-devops-blue-green-strategy.md
     - name: 15d — Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16a — Tworzenie stosu LAMP
+    - name: 16 — Tworzenie stosu LAMP
       href: tutorial-lamp-stack.md
-    - name: 16b — Tworzenie stosu LEMP
-      href: tutorial-lemp-stack.md
-    - name: 16c — Tworzenie stosu MEAN
-      href: tutorial-mean-stack.md
     - name: 17 — Zabezpieczanie serwera internetowego przy użyciu protokołu SSL
       href: tutorial-secure-web-server.md
 - name: Samples
@@ -158,8 +157,16 @@
       href: ../policy-samples.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Pojęcia
   items:
-    - name: Obrazy
-      href: shared-image-galleries.md
+    - name: Obrazowanie
+      items:
+        - name: Omówienie
+          href: imaging.md
+        - name: Inicjowanie obsługi
+          href: provisioning.md
+        - name: Udostępnione galerie obrazów
+          href: shared-image-galleries.md
+        - name: Kreator obrazów
+          href: image-builder-overview.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regiony
@@ -202,6 +209,10 @@
               href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Serie Dav4 i Dasv4
               href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Serie Ddv4 i Ddsv4
+              href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Serie Dv4 i Dsv4
+              href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Optymalizacja pod kątem obliczeń
           items:
             - name: Omówienie
@@ -219,6 +230,10 @@
               href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Serie Eav4 i Easv4
               href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Serie Edv4 i Edsv4
+              href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Serie Ev4 i Esv4
+              href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Seria M
               href: ../m-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Seria Mv2
@@ -281,6 +296,8 @@
         - name: Maszyny wirtualne typu spot
           href: spot-vms.md
           displayName: 'pre-empt, preempt'
+        - name: Maszyny wirtualne platformy Azure bez dysku tymczasowego
+          href: ../azure-vms-no-temp-disk.md
         - name: Poprzednie generacje
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Rozmiary izolowane
@@ -350,9 +367,9 @@
     - name: Tworzenie i przywracanie kopii zapasowych
       href: backup-recovery.md
     - name: Struktura wdrażania chmury
-      href: 'https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/'
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/'
     - name: Centrum architektury
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/'
+      href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Wytyczne dotyczące infrastruktury
       href: infrastructure-example.md
 - name: Przewodniki z instrukcjami
@@ -406,6 +423,50 @@
     - name: Korzystanie z obrazów
       displayName: 'SIG, AMI, image'
       items:
+        - name: Wymagania specyficzne dla dystrybucji
+          items:
+            - name: Ogólne kroki
+              href: create-upload-generic.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+        - name: Używanie pakietu cloud-init
+          items:
+            - name: Omówienie pakietu cloud-init
+              href: using-cloud-init.md
+            - name: Szczegółowe omówienie
+              href: cloud-init-deep-dive.md
+            - name: Rozwiązywanie problemów
+              href: cloud-init-troubleshooting.md
+            - name: Konfigurowanie nazwy hosta maszyny wirtualnej
+              href: cloudinit-update-vm-hostname.md
+            - name: Aktualizowanie pakietów na maszynie wirtualnej
+              href: cloudinit-update-vm.md
+            - name: Dodawanie użytkownika do maszyny wirtualnej
+              href: cloudinit-add-user.md
+            - name: Konfigurowanie pliku wymiany
+              href: cloudinit-configure-swapfile.md
+            - name: Uruchamianie istniejącego skryptu powłoki systemowej
+              href: cloudinit-bash-script.md
+            - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
+              href: cloudinit-prepare-custom-image.md
+        - name: Tworzenie obrazów bez
+          href: no-agent.md
+        - name: Wyłączanie aprowizacji agenta systemu Linux
+          href: disable-provisioning.md
         - name: Galerie obrazów udostępnionych
           items:
             - name: Interfejs wiersza polecenia
@@ -422,6 +483,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Tworzenie maszyny wirtualnej
                   items:
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Uogólniony
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aktualizowanie zasobów obrazów
@@ -469,8 +532,6 @@
               href: ../image-version-encryption.md
         - name: Konstruktor obrazów (wersja zapoznawcza)
           items:
-            - name: Omówienie
-              href: image-builder-overview.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: image-builder.md
             - name: Dokumentacja szablonu usługi Resource Manager
@@ -484,27 +545,7 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Znajdowanie obrazów i korzystanie z nich
           href: cli-ps-findimage.md
-        - name: Tworzenie obrazu niestandardowego
-          items:
-            - name: Ogólne kroki
-              href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
-            - name: CentOS
-              href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
-            - name: Oracle Linux
-              href: oracle-create-upload-vhd.md
-            - name: OpenBSD
-              href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
-        - name: Przechwytywanie maszyny wirtualnej do obrazu
+        - name: Przechwytywanie maszyny wirtualnej do obrazu zarządzanego
           href: capture-image.md
         - name: Tworzenie obrazu za pomocą usługi Packer
           href: build-image-with-packer.md
@@ -684,7 +725,7 @@
             - name: Omówienie agentów
               href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Często zadawane pytania
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
             - name: Rozszerzenie Diagnostyki Azure
               items:
                 - name: Omówienie
@@ -741,7 +782,7 @@
             - name: Ogólna dostępność — często zadawane pytania
               href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Często zadawane pytania
-              href: '../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#azure-monitor-for-vms'
+              href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#azure-monitor-for-vms
             - name: Włączanie monitorowania
               items:
                 - name: Omówienie włączania monitorowania
@@ -802,22 +843,6 @@
               href: /azure/developer/terraform/install-configure
             - name: Tworzenie pełnej maszyny wirtualnej
               href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
-        - name: Cloud-init
-          items:
-            - name: Omówienie pakietu cloud-init
-              href: using-cloud-init.md
-            - name: Konfigurowanie nazwy hosta maszyny wirtualnej
-              href: cloudinit-update-vm-hostname.md
-            - name: Aktualizowanie pakietów na maszynie wirtualnej
-              href: cloudinit-update-vm.md
-            - name: Dodawanie użytkownika do maszyny wirtualnej
-              href: cloudinit-add-user.md
-            - name: Konfigurowanie pliku wymiany
-              href: cloudinit-configure-swapfile.md
-            - name: Uruchamianie istniejącego skryptu powłoki systemowej
-              href: cloudinit-bash-script.md
-            - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
-              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: /azure/developer/jenkins/overview
           items:
@@ -840,11 +865,7 @@
     - name: Uruchamianie aplikacji
       items:
         - name: Cloud Foundry
-          items:
-            - name: Omówienie
-              href: cloudfoundry-get-started.md
-            - name: Wdrażanie pierwszej aplikacji
-              href: cloudfoundry-deploy-your-first-app.md
+          href: 'https://docs.microsoft.com/azure/cloudfoundry/'
         - name: Cassandra
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json'
         - name: OpenShift
@@ -926,6 +947,8 @@
           items:
             - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery
               href: migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Konwertowanie na szyfrowanie po stronie serwera
+              href: disks-ade-sse-conversion-cli.md
             - name: Konwertowanie do funkcji Dyski zarządzane
               href: convert-unmanaged-to-managed-disks.md
             - name: Konwertowanie dysku między warstwami Standardowa i Premium
@@ -946,8 +969,10 @@
               href: configure-raid.md
             - name: Konfigurowanie maszyny wirtualnej z systemem Linux
               href: configure-lvm.md
-        - name: Znajdowanie niedołączonych dysków
+        - name: Znajdowanie niedołączonych dysków — interfejs wiersza polecenia
           href: find-unattached-disks.md
+        - name: Znajdowanie niedołączonych dysków — portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Korzystanie z usługi File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Często zadawane pytania dotyczące dysków

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1254a2998a0acbf86b3689c66b83502c0334282
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894975"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134479"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Usuwanie magazynu usług Site Recovery
 
@@ -43,14 +43,14 @@ Aby można było usunąć magazyn, należy usunąć zarejestrowane serwery i ele
 ## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Usuwanie magazynu — maszyny wirtualnej funkcji Hyper-V (z programem VMM) do platformy Azure
 
 1. Wykonaj następujące [kroki](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) , aby usunąć maszyny wirtualne funkcji Hyper-V zarządzane przez program System Center VMM.
-2. Usuń skojarzenie i usunąć wszystkie zasady replikacji. Zrób to w magazynie > **Site Recovery infrastruktura** > dla**zasad replikacji****programu System Center VMM** > .
+2. Usuń skojarzenie i usunąć wszystkie zasady replikacji. Zrób to w magazynie > **Site Recovery infrastruktura**  >  **dla zasad replikacji programu System Center VMM**  >  **Replication Policies**.
 3. Wykonaj następujące [kroki](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) , aby wyrejestrować połączony serwer programu VMM.
 4. Następnie usuń magazyn.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Usuwanie magazynu z maszyną wirtualną funkcji Hyper-V do platformy Azure
 
 1. Wykonaj następujące [kroki](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) , aby usunąć wszystkie chronione maszyny wirtualne.
-2. Usuń skojarzenie i usunąć wszystkie zasady replikacji. Zrób to w magazynie > **Site Recovery infrastrukturze** > dla**zasad replikacji** > **lokacji funkcji Hyper-V**.
+2. Usuń skojarzenie i usunąć wszystkie zasady replikacji. Zrób to w magazynie > **Site Recovery infrastrukturze**  >  **dla zasad replikacji lokacji funkcji Hyper-V**  >  **Replication Policies**.
 3. Postępuj zgodnie z [tymi instrukcjami](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) , aby wyrejestrować hosta funkcji Hyper-V.
 4. Usuń lokację funkcji Hyper-V.
 5. Następnie usuń magazyn.
@@ -72,4 +72,4 @@ Aby usunąć magazyn Site Recovery, nawet jeśli są chronione elementy, użyj n
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-Dowiedz się więcej na temat [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)i [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Dowiedz się więcej na temat [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)i [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 06/11/2020
 ms.author: aahi
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: b51dcc214e099ed573fa297d979cfc55ba1513b9
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: c475c17e5d196c0eedf38df83f782309143ad979
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140747"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735574"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -32,7 +33,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja biblioteki klienta analiza tekstu `3.0` .
+> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
 >    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
 
@@ -43,7 +44,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja biblioteki klienta analiza tekstu `3.0` .
+> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -53,7 +54,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja biblioteki klienta analiza tekstu `3.0` .
+> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
 >    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej.
 > * Tę wersję biblioteki klienta analiza tekstu można również uruchomić [w przeglądarce](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -65,7 +66,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Najnowsza stabilna wersja biblioteki klienta analiza tekstu `3.0` .
+> * Najnowsza stabilna wersja interfejs API analizy tekstu to `3.0` .
 >    * Pamiętaj, aby postępować zgodnie z instrukcjami dotyczącymi używanej wersji.
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. W przypadku scenariuszy produkcyjnych zaleca się użycie wsadowych metod asynchronicznych w celu zapewnienia wydajności i skalowalności. Zapoznaj się z dokumentacją referencyjną poniżej. 
 

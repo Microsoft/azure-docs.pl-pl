@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82191740"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisy w zakresie spójności, dostępności i wydajności
@@ -67,10 +67,10 @@ W poniższej tabeli zdefiniowano relacje między modelem spójności i trwałoś
 |---------|---------|---------|---------|---------|
 |1|Jeden lub wiele wzorców|Dowolny poziom spójności|< 240 minut|<1 tydzień|
 |>1|Pojedynczy wzorzec|Sesja, spójny prefiks, ostateczna|< 15 minut|< 15 minut|
-|>1|Pojedynczy wzorzec|Powiązana nieaktualność|*K* & *T*|< 15 minut|
+|>1|Pojedynczy wzorzec|Powiązana nieaktualność|*K*  &  *T*|< 15 minut|
 |>1|Pojedynczy wzorzec|Silna|0|< 15 minut|
 |>1|Wiele wzorców|Sesja, spójny prefiks, ostateczna|< 15 minut|0|
-|>1|Wiele wzorców|Powiązana nieaktualność|*K* & *T*|0|
+|>1|Wiele wzorców|Powiązana nieaktualność|*K*  &  *T*|0|
 
 *K* = liczba wersji *"K"* (tj. aktualizacji) elementu.
 

@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77153778"
 ---
 # <a name="select-columns-in-dataset-module"></a>Wybierz kolumny w module DataSet
@@ -40,7 +39,7 @@ W module istnieje wiele opcji umożliwiających wybranie kolumn według nazwy:
 
     Jeśli masz połączony zestaw danych, który został już wypełniony, powinna zostać wyświetlona lista dostępnych kolumn. Jeśli żadna kolumna nie zostanie wyświetlona, może być konieczne uruchomienie modułów nadrzędnych w celu wyświetlenia listy kolumn.
 
-    Aby odfiltrować listę, wpisz w polu wyszukiwania. Na przykład, jeśli wpiszesz literę `w` w polu wyszukiwania, lista zostanie przefiltrowana w celu wyświetlenia nazw kolumn zawierających literę `w`.
+    Aby odfiltrować listę, wpisz w polu wyszukiwania. Na przykład, jeśli wpiszesz literę `w` w polu wyszukiwania, lista zostanie przefiltrowana w celu wyświetlenia nazw kolumn zawierających literę `w` .
 
     Wybierz kolumny, a następnie kliknij przycisk strzałki w prawo, aby przenieść wybrane kolumny do listy w okienku po prawej stronie.
 
@@ -87,7 +86,7 @@ Indeks kolumny odwołuje się do kolejności kolumny w oryginalnym zestawie dany
 
 + Kolumny są numerowane sekwencyjnie, począwszy od 1.  
 + Aby uzyskać zakres kolumn, użyj łącznika. 
-+ Specyfikacje typu Open-zakończony, `1-` takie `-3` jak lub, są niedozwolone.
++ Specyfikacje typu Open-zakończony, takie jak `1-` lub, `-3` są niedozwolone.
 + Zduplikowane wartości indeksu (lub nazwy kolumn) nie są dozwolone i mogą spowodować wystąpienie błędu.
 
 Na przykład, zakładając, że zestaw danych ma co najmniej osiem kolumn, można wkleić w jednym z poniższych przykładów, aby zwrócić wiele kolumn nieciągłych: 
@@ -96,7 +95,7 @@ Na przykład, zakładając, że zestaw danych ma co najmniej osiem kolumn, możn
 + `1,3-8`
 + `1,3-6,4` 
 
-Ostatni przykład nie powoduje błędu; zwraca jednak pojedyncze wystąpienie kolumny `4`.
+Ostatni przykład nie powoduje błędu; zwraca jednak pojedyncze wystąpienie kolumny `4` .
 
 
 

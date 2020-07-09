@@ -14,10 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74666379"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregacja schematu i danych w Analiza ruchu
@@ -116,8 +115,8 @@ Poniżej wymieniono pola w schemacie i znaczenie
 | L7Protocol_s  | Nazwa protokołu | Pochodny od portu docelowego |
 | FlowDirection_s | * I = przychodzące<br> * O = wychodzące | Kierunek przepływu do/z sieciowej grupy zabezpieczeń jako dziennik dla przepływu |
 | FlowStatus_s  | * A = dozwolone przez regułę sieciowej grupy zabezpieczeń <br> * D = odmowa przez regułę sieciowej grupy zabezpieczeń  | Stan przepływu dozwolony/nblocked przez sieciowej grupy zabezpieczeń zgodnie z dziennikiem przepływu |
-| NSGList_s | \<>\/ subskrypcji<RESOURCEGROUP_NAME>\/<NSG_NAME> | Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) skojarzona z przepływem |
-| NSGRules_s | \<Wartość indeksu 0) >\| \<NSG_RULENAME>\| \<kierunek przepływu>\| \<stan przepływu>\| \<FlowCount ProcessedByRule> |  Reguła sieciowej grupy zabezpieczeń, która zezwala lub nie odrzuciła tego przepływu |
+| NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) skojarzona z przepływem |
+| NSGRules_s | \<Index value 0)>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> |  Reguła sieciowej grupy zabezpieczeń, która zezwala lub nie odrzuciła tego przepływu |
 | NSGRule_s | NSG_RULENAME |  Reguła sieciowej grupy zabezpieczeń, która zezwala lub nie odrzuciła tego przepływu |
 | NSGRuleType_s | * Zdefiniowane przez użytkownika * domyślne |   Typ reguły sieciowej grupy zabezpieczeń używanej przez przepływ |
 | MACAddress_s | Adres MAC | Adres MAC karty sieciowej, na której przechwycono przepływ |
@@ -127,23 +126,23 @@ Poniżej wymieniono pola w schemacie i znaczenie
 | Region_s | Region świadczenia usługi Azure Virtual Network/interfejs sieciowy/maszyna wirtualna, do której należy adres IP w przepływie | Dotyczy tylko typów przepływów typu Flow = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow i UnknownPrivate (typy przepływów, w których jest tylko jedna strona Azure) |
 | Region1_s | Region świadczenia usługi Azure | Region platformy Azure sieci wirtualnej/interfejsu sieciowego/maszyny wirtualnej, do której należy źródłowy adres IP w przepływie |
 | Region2_s | Region świadczenia usługi Azure | Region platformy Azure sieci wirtualnej, do którego należy docelowy adres IP w przepływie |
-| NIC_s | \<resourcegroup_Name>\/ \<NetworkInterfaceName> |  Karta sieciowa skojarzona z maszyną wirtualną wysyłająca lub odbierający ruch |
-| NIC1_s | <resourcegroup_Name>\<NetworkInterfaceName> | Karta sieciowa skojarzona ze źródłowym adresem IP w przepływie |
-| NIC2_s | <resourcegroup_Name>\<NetworkInterfaceName> | Karta sieciowa skojarzona z docelowym adresem IP w przepływie |
-| VM_s | <resourcegroup_Name>\/ \<NetworkInterfaceName> | Maszyna wirtualna skojarzona z interfejsem sieciowym NIC_s |
-| VM1_s | <resourcegroup_Name>\<VirtualMachineName> | Maszyna wirtualna skojarzona ze źródłowym adresem IP w przepływie |
-| VM2_s | <resourcegroup_Name>\<VirtualMachineName> | Maszyna wirtualna skojarzona z docelowym adresem IP w przepływie |
-| Subnet_s | <ResourceGroup_Name>/<VNET_Name>/\<subnetname> | Podsieć skojarzona z NIC_s |
-| Subnet1_s | <ResourceGroup_Name>/<VNET_Name>/\<subnetname> | Podsieć skojarzona ze źródłowym adresem IP w przepływie |
-| Subnet2_s | <ResourceGroup_Name>/<VNET_Name>/\<subnetname>    | Podsieć skojarzona z docelowym adresem IP w przepływie |
-| ApplicationGateway1_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</'applicationgatewayname> | Brama aplikacji skojarzona ze źródłowym adresem IP w przepływie |
-| ApplicationGateway2_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</'applicationgatewayname> | Brama aplikacji skojarzona z docelowym adresem IP w przepływie |
-| LoadBalancer1_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</LoadBalancerName> | Moduł równoważenia obciążenia skojarzony ze źródłowym adresem IP w przepływie |
-| LoadBalancer2_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</LoadBalancerName> | Moduł równoważenia obciążenia skojarzony z docelowym adresem IP w przepływie |
-| LocalNetworkGateway1_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</LocalNetworkGatewayName> | Brama sieci lokalnej skojarzona ze źródłowym adresem IP w przepływie |
-| LocalNetworkGateway2_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</LocalNetworkGatewayName> | Brama sieci lokalnej skojarzona z docelowym adresem IP w przepływie |
+| NIC_s | \<resourcegroup_Name>\/\<NetworkInterfaceName> |  Karta sieciowa skojarzona z maszyną wirtualną wysyłająca lub odbierający ruch |
+| NIC1_s | <resourcegroup_Name>/\<NetworkInterfaceName> | Karta sieciowa skojarzona ze źródłowym adresem IP w przepływie |
+| NIC2_s | <resourcegroup_Name>/\<NetworkInterfaceName> | Karta sieciowa skojarzona z docelowym adresem IP w przepływie |
+| VM_s | <resourcegroup_Name>\/\<NetworkInterfaceName> | Maszyna wirtualna skojarzona z interfejsem sieciowym NIC_s |
+| VM1_s | <resourcegroup_Name>/\<VirtualMachineName> | Maszyna wirtualna skojarzona ze źródłowym adresem IP w przepływie |
+| VM2_s | <resourcegroup_Name>/\<VirtualMachineName> | Maszyna wirtualna skojarzona z docelowym adresem IP w przepływie |
+| Subnet_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Podsieć skojarzona z NIC_s |
+| Subnet1_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Podsieć skojarzona ze źródłowym adresem IP w przepływie |
+| Subnet2_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName>    | Podsieć skojarzona z docelowym adresem IP w przepływie |
+| ApplicationGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Brama aplikacji skojarzona ze źródłowym adresem IP w przepływie |
+| ApplicationGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Brama aplikacji skojarzona z docelowym adresem IP w przepływie |
+| LoadBalancer1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Moduł równoważenia obciążenia skojarzony ze źródłowym adresem IP w przepływie |
+| LoadBalancer2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Moduł równoważenia obciążenia skojarzony z docelowym adresem IP w przepływie |
+| LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Brama sieci lokalnej skojarzona ze źródłowym adresem IP w przepływie |
+| LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Brama sieci lokalnej skojarzona z docelowym adresem IP w przepływie |
 | ConnectionType_s | Możliwe wartości to VNetPeering, bramy vpngateway i ExpressRoute |    Typ połączenia |
-| ConnectionName_s | \<Identyfikator subskrypcji>\</ResourceGroupName>\</ConnectionName> | Nazwa połączenia. Dla elementu flowtype P2S zostanie on sformatowany jako <gateway name>_<VPN Client IP> |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nazwa połączenia. Dla elementu flowtype P2S zostanie on sformatowany jako <gateway name> _<VPN Client IP> |
 | ConnectingVNets_s | Rozdzielana spacjami lista nazw sieci wirtualnych | W przypadku topologii gwiazdy i koncentratora sieci wirtualne będą umieszczane w tym miejscu |
 | Country_s | Dwuliterowy kod kraju (ISO 3166-1 Alpha-2) | Wypełniono dla typu przepływu ExternalPublic. Wszystkie adresy IP w polu PublicIPs_s będą współużytkować ten sam kod kraju |
 | AzureRegion_s | Lokalizacje regionów platformy Azure | Wypełniono dla typu przepływu AzurePublic. Wszystkie adresy IP w polu PublicIPs_s będą współużytkować region platformy Azure |
@@ -157,9 +156,9 @@ Poniżej wymieniono pola w schemacie i znaczenie
 | InboundBytes_d |  Bajty odebrane jako przechwycone w interfejsie sieciowym, gdzie została zastosowana reguła sieciowej grupy zabezpieczeń | Jest to wypełniane tylko w wersji 2 schematu dziennika przepływu sieciowej grupy zabezpieczeń |
 | OutboundBytes_d | Bajty wysłane jako przechwycone w interfejsie sieciowym, gdzie została zastosowana reguła sieciowej grupy zabezpieczeń | Jest to wypełniane tylko w wersji 2 schematu dziennika przepływu sieciowej grupy zabezpieczeń |
 | CompletedFlows_d  |  | Ta wartość jest wypełniana wartością różną od zera tylko dla schematu dziennika przepływu sieciowej grupy zabezpieczeń w wersji 2 |
-| PublicIPs_s | <PUBLIC_IP>\| \<FLOW_STARTED_COUNT>\| \<FLOW_ENDED_COUNT \| \<>OUTBOUND_PACKETS>\| \<INBOUND_PACKETS>\| \<OUTBOUND_BYTES>\| \<INBOUND_BYTES> | Wpisy rozdzielone słupkami |
-| SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\| \<FLOW_STARTED_COUNT>\| \<FLOW_ENDED_COUNT \| \<>OUTBOUND_PACKETS>\| \<INBOUND_PACKETS>\| \<OUTBOUND_BYTES>\| \<INBOUND_BYTES> | Wpisy rozdzielone słupkami |
-| DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\| \<FLOW_STARTED_COUNT>\| \<FLOW_ENDED_COUNT \| \<>OUTBOUND_PACKETS>\| \<INBOUND_PACKETS>\| \<OUTBOUND_BYTES>\| \<INBOUND_BYTES> | Wpisy rozdzielone słupkami |
+| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Wpisy rozdzielone słupkami |
+| SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Wpisy rozdzielone słupkami |
+| DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Wpisy rozdzielone słupkami |
 
 ### <a name="notes"></a>Uwagi
 
@@ -174,7 +173,7 @@ Poniżej wymieniono pola w schemacie i znaczenie
 1. MaliciousFlow — jeden z adresów IP należy do usługi Azure Virtual Network, a drugi adres IP jest publicznym adresem IP, który nie znajduje się na platformie Azure i jest raportowany jako złośliwy w źródłach ASC, które Analiza ruchu zużywać dla interwału przetwarzania między "FlowIntervalStartTime_t" i "FlowIntervalEndTime_t".
 1. UnknownPrivate — jeden z adresów IP należy do usługi Azure Virtual Network, podczas gdy drugi adres IP należy do zakresu prywatnych adresów IP zgodnie z definicją w dokumencie RFC 1918 i nie można go zmapować Analiza ruchu do witryny należącej do klienta lub Virtual Network platformy Azure.
 1. Nieznane — nie można zamapować jednego z adresów IP w przepływie na platformę Azure, a także lokalnie (lokacja).
-1. Niektóre nazwy pól są dołączane \_do s \_lub d. Nie oznaczają one źródła i miejsca docelowego, ale wskazują odpowiednio ciąg typów danych i wartość dziesiętną.
+1. Niektóre nazwy pól są dołączane do \_ s lub \_ d. Nie oznaczają one źródła i miejsca docelowego, ale wskazują odpowiednio ciąg typów danych i wartość dziesiętną.
 
 ### <a name="next-steps"></a>Następne kroki
 Aby uzyskać odpowiedzi na często zadawane pytania, zobacz temat [Analiza ruchu — często zadawane](traffic-analytics-faq.md) pytania, aby zobaczyć szczegóły dotyczące funkcjonalności, zobacz [Dokumentacja usługi Traffic Analytics](traffic-analytics.md)

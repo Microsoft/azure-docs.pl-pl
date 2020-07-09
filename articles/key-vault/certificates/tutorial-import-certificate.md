@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: abf7e864398d48742e0cbf99a9a7b7dae56b9c5d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82105577"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100930"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Samouczek: Importowanie certyfikatu w Azure Key Vault
 
@@ -26,13 +26,14 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie magazynu kluczy.
-> * Zaimportuj certyfikat w magazynie kluczy przy użyciu portalu.
-> * Zaimportuj certyfikat w magazynie kluczy przy użyciu interfejsu wiersza polecenia.
+> * Zaimportuj certyfikat w Key Vault przy użyciu portalu.
+> * Zaimportuj certyfikat w Key Vault przy użyciu interfejsu wiersza polecenia.
+> * Zaimportuj certyfikat w Key Vault przy użyciu programu PowerShell.
 
 
 Przed rozpoczęciem Przeczytaj [Key Vault podstawowe pojęcia](../general/basic-concepts.md). 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -66,7 +67,7 @@ Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonyw
 Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub PFX na dysku. W takim przypadku zostanie zaimportowany certyfikat z nazwą pliku o nazwie **ExampleCertificate**.
 
 > [!IMPORTANT]
-> W Azure Key Vault obsługiwane formaty certyfikatów to PFX i PEM. 
+> W usłudze Azure Key Vault obsługiwane są certyfikaty w formatach PFX i PEM. 
 > - Format pliku PEM zawiera co najmniej jeden plik certyfikatu x509.
 > - Format pliku PFX to format pliku archiwum służący do przechowywania kilku obiektów kryptograficznych w jednym pliku, tj. certyfikat serwera (wystawiony dla Twojej domeny), odpowiadający mu klucz prywatny i opcjonalnie może zawierać pośredni urząd certyfikacji.  
 
@@ -77,7 +78,7 @@ Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub
     - **Nazwa certyfikatu**: ExampleCertificate.
     - **Przekaż plik certyfikatu**: Wybierz plik certyfikatu z dysku
     - **Hasło** : w przypadku przekazywania pliku certyfikatu chronionego hasłem Podaj tutaj hasło. W przeciwnym razie pozostaw to pole puste. Po pomyślnym zaimportowaniu pliku certyfikatu Magazyn kluczy usunie to hasło.
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 
 ![Właściwości certyfikatu](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -102,7 +103,8 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-Dowiedz się więcej na [temat parametrów](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+
+Dowiedz się więcej o [parametrach](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
 Po zaimportowaniu certyfikatu można wyświetlić certyfikat przy użyciu polecenia [Pokaż certyfikat](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
 
@@ -116,11 +118,27 @@ az keyvault certificate show [--id]
                              [--version]
 ```
 
-
-
 Teraz utworzono Magazyn kluczy, zaimportowano certyfikat i Wyświetlono właściwości certyfikatu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="import-a-certificate-using-azure-powershell"></a>Importowanie certyfikatu przy użyciu Azure PowerShell
+
+```
+Import-AzureKeyVaultCertificate
+      [-VaultName] <String>
+      [-Name] <String>
+      -FilePath <String>
+      [-Password <SecureString>]
+      [-Tag <Hashtable>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+
+Dowiedz się więcej o [parametrach](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne przewodniki Szybki start i samouczki usługi Key Vault bazują na tym przewodniku. Jeśli planujesz korzystać z kolejnych przewodników Szybki start i samouczków, pozostaw te zasoby na swoim miejscu.
 Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie także usunięta usługa Key Vault i powiązane zasoby. Aby usunąć grupę zasobów za pośrednictwem portalu:

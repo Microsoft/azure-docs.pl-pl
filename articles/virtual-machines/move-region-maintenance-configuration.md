@@ -1,19 +1,17 @@
 ---
 title: Przenoszenie konfiguracji konserwacji do innego regionu platformy Azure
 description: Dowiedz się, jak przenieść konfigurację obsługi maszyny wirtualnej do innego regionu platformy Azure
-services: virtual-machines
 author: shants123
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: fe03bead238d3fb7bda3ee685bd5587c3e0dbc58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 86343e10f10b51f65764e16bbc1e485136bca162
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676816"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Przenoszenie konfiguracji kontroli konserwacji do innego regionu
 

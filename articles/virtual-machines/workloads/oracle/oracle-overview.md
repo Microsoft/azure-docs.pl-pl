@@ -10,14 +10,13 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/05/2020
 ms.author: borisb
-ms.openlocfilehash: 649d96a158682752e0d4a31bf7ec73eb7c442f0f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 7c15c96305cc1220d9ca3cdb9062d7ea7acb4e86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660545"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85098937"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Omówienie aplikacji i rozwiązań firmy Oracle na platformie Azure
 
@@ -29,7 +28,9 @@ Uruchamiaj bazy danych Oracle w infrastrukturze platformy Azure, korzystając z 
 
 * Oracle Database 12,1, 12,2 i 18,3 Enterprise Edition 
 
-* Oracle Database 12,1, 12,2 i 18,3 Standard Edition 
+* Oracle Database 12,1, 12,2 i 18,3 Standard Edition
+
+* Oracle Database 19,3
 
 Możesz również skonfigurować Oracle Database na obrazie nieOracle Linux dostępnym na platformie Azure, oprzeć rozwiązanie na obrazie niestandardowym tworzonym od podstaw na platformie Azure lub Przekaż obraz niestandardowy ze środowiska lokalnego.
 
@@ -41,17 +42,17 @@ Wybieraj z wielu aplikacji platformy Azure WebLogic Server, aby przyspieszyć po
 
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Aplikacje na serwerach Oracle Linux i WebLogic
 
-Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure w obsługiwanych systemach operacyjnych Oracle. Następujące obrazy maszyn wirtualnych są dostępne w portalu Azure Marketplace:
+Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure na obsługiwanych obrazach Oracle Linux. Następujące obrazy maszyn wirtualnych są dostępne w portalu Azure Marketplace:
 
 * Oracle webWebLogicc Server 12.1.2
 
-* Oracle Linux z nieprzerwanym jądrem przedsiębiorstwa (UEK) 6,8, 6,9, 6,10, 7,3, 7,4, 7,5 i 7,6 
+* Oracle Linux z nieprzerwanym jądrem przedsiębiorstwa (UEK) 6,8, 6,9, 6,10, 7,3, 7,7, 8,0, 8,1. 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opcje wysokiej dostępności i odzyskiwania po awarii
 
 * Skonfiguruj funkcję [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [aktywną ochronę danych przy użyciu usługi FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [fragmentowania](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) lub [złota bramę](https://www.oracle.com/middleware/technologies/goldengate.html) platformy Azure w połączeniu z [strefy dostępności](../../../availability-zones/az-overview.md) w celu zapewnienia wysokiej dostępności w regionie. Konfiguracje te można również skonfigurować w wielu regionach świadczenia usługi Azure, aby zwiększyć dostępność i odzyskiwanie po awarii.
 
-* Użyj [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) , aby organizować i zarządzać odzyskiwaniem po awarii dla maszyn wirtualnych Oracle Linux na platformie Azure oraz na serwerach lokalnych lub fizycznych. 
+* Użyj [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) , aby organizować i zarządzać odzyskiwaniem po awarii dla maszyn wirtualnych Oracle Linux na platformie Azure i serwerach fizycznych. 
 
 * Włącz obsługę platformy Oracle dla klastrów (RAC) na platformie Azure przy użyciu [rozwiązania Azure VMware](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) lub [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
@@ -72,8 +73,7 @@ Uruchom aplikacje Oracle w infrastrukturze platformy Azure, połączone z bazami
 
 Użyj szablonów Terraform, aby skonfigurować infrastrukturę platformy Azure i zainstalować aplikacje firmy Oracle. 
 
-> [!IMPORTANT]
-> Firma Oracle poświadczy te aplikacje do uruchamiania na platformie Azure w przypadku korzystania z rozwiązania Azure Cloud Interconnect w chmurze na 2020.
+Firma Oracle potwierdziła, że te aplikacje są uruchamiane na platformie Azure podczas łączenia się z bazą danych Oracle za pośrednictwem rozwiązania Azure Cloud Interconnect:
 
 * Pakiet E-Business
 * JD Edwards EnterpriseOne
@@ -85,7 +85,7 @@ Wdrażaj także aplikacje niestandardowe na platformie Azure, które łączą si
 
 ### <a name="set-up-oracle-databases-in-oci"></a>Konfigurowanie baz danych Oracle w systemie OCI
 
-Użyj Oracle Database Cloud Services (autonomiczna baza danych, certyfikat RAC, Exadata, DBaaS, pojedynczy węzeł) w połączeniu z aplikacjami Oracle działającymi na platformie Azure. Dowiedz się więcej na temat [opcji bazy danych OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
+Użyj Oracle Database Cloud Services (autonomiczna baza danych, RAC, Exadata, DBaaS, pojedynczy węzeł) w połączeniu z oprogramowaniem Oracle działającym na platformie Azure. Dowiedz się więcej na temat [opcji bazy danych OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
 ## <a name="licensing"></a>Licencjonowanie

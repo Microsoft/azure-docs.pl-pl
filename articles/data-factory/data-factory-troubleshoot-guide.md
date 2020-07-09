@@ -9,13 +9,12 @@ ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
 ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83836162"
 ---
-# <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów Azure Data Factory
+# <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule przedstawiono typowe metody rozwiązywania problemów z zewnętrznymi działaniami związanymi z kontrolą w Azure Data Factory.
@@ -442,7 +441,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna**:`Can't launch command, or the program returned an error code.`
 
-- **Zalecenie**: Upewnij się, że plik wykonywalny istnieje. Jeśli program został uruchomiony, sprawdź, czy do konta magazynu zostały przekazane strumienie *stdout. txt* i *stderr. txt* . Dobrym sposobem jest uwzględnienie dzienników w kodzie na potrzeby debugowania.
+- **Zalecenie**: Upewnij się, że plik wykonywalny istnieje. Jeśli program został uruchomiony, sprawdź, czy *stdout.txt* i *stderr.txt* zostały przekazane do konta magazynu. Dobrym sposobem jest uwzględnienie dzienników w kodzie na potrzeby debugowania.
 
 ### <a name="error-code-2501"></a>Kod błędu: 2501
 
@@ -1054,5 +1053,5 @@ Aby uzyskać więcej informacji dotyczących rozwiązywania problemów, wypróbu
 * [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

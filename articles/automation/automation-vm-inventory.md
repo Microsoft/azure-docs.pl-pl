@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób zarządzania kolekcją spisu z maszy
 services: automation
 ms.subservice: change-inventory-management
 keywords: spis, automatyzacja, zmiana, śledzenie
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830620"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85603115"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Zarządzanie zbieraniem spisu z maszyn wirtualnych
 
@@ -87,7 +87,7 @@ Poniższe sekcje zawierają informacje dotyczące poszczególnych właściwości
 |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **/etc/*. conf**.       |
 |Typ ścieżki     | Typ elementu, który ma być śledzony. Wartości to plik i katalog.        |
 |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |
-|Użyj polecenia Sudo     | Wartość true, jeśli sudo jest używany podczas sprawdzania elementu i w przeciwnym razie zwraca wartość false.         |
+|Użyj sudo     | Wartość true, jeśli sudo jest używany podczas sprawdzania elementu i w przeciwnym razie zwraca wartość false.         |
 |Linki     | Wartość wskazująca, w jaki sposób są rozwiązywane linki symboliczne podczas przechodzenia z katalogów. Możliwe wartości: <br> Ignoruj — ignoruje linki symboliczne i nie uwzględnia plików/katalogów, do których się odwołują<br>Śledź — śledzi linki symboliczne podczas rekursji i uwzględnia również pliki/katalogi, do których się odwołują<br>Zarządzaj — śledzi linki symboliczne i umożliwia obsługę zwracanej zawartości      |
 
 ## <a name="manage-machine-groups"></a>Zarządzanie grupami maszyn
@@ -100,7 +100,7 @@ Aby wyświetlić grupy maszyn, wybierz kartę **grupy maszyn** na stronie spisu.
 
 ![Wyświetlanie grup maszyn na stronie spisu](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Wybranie grupy maszyn z listy spowoduje otwarcie strony grupy maszyn. Na tej stronie są wyświetlane szczegółowe informacje o grupie maszyn. Te szczegóły obejmują zapytanie usługi log Analytics, które jest używane do definiowania grupy. W dolnej części strony jest stronicowaną listę maszyn, które są częścią tej grupy.
+Wybranie grupy maszyn z listy spowoduje otwarcie strony grupy maszyn. Na tej stronie są wyświetlane szczegółowe informacje o grupie maszyn. Te szczegóły obejmują zapytanie dziennika Azure Monitor, które jest używane do definiowania grupy. W dolnej części strony jest stronicowaną listę maszyn, które są częścią tej grupy.
 
 ![Wyświetl stronę grupy maszyn](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,15 +115,18 @@ Jeśli chcesz utworzyć nową grupę maszyn, kliknij pozycję **+ Utwórz grupę
 Aby usunąć maszynę wirtualną z Change Tracking i zarządzania spisem:
 
 1. W lewym okienku Azure Portal wybierz pozycję **log Analytics**, a następnie wybierz obszar roboczy, który był używany podczas włączania maszyny wirtualnej na potrzeby Change Tracking i spisu.
-2. Na stronie Log Analytics Otwórz menu **zasobów** .
+2. Na stronie **log Analytics** Otwórz menu **zasobów** .
 3. Wybierz **Virtual Machines** w obszarze **źródła danych obszaru roboczego**.
 4. Z listy wybierz maszynę wirtualną, którą chcesz odłączyć. Komputer ma zielony znacznik wyboru obok **tego obszaru roboczego** w kolumnie połączenie pakietu **OMS** .
 
    >[!NOTE]
    >Pakiet Operations Management Suite (OMS) jest teraz nazywany dziennikami Azure Monitor.
-   
+
 5. W górnej części następnej strony kliknij pozycję **Rozłącz**.
 6. W oknie potwierdzenia kliknij przycisk **tak** , aby odłączyć maszynę od zarządzania.
+
+>[!NOTE]
+>Po wyrejestrowaniu maszyn nadal są one wyświetlane, ponieważ zgłaszamy wszystkie maszyny w spisie w ciągu ostatnich 24 godzin. Po rozłączeniu komputera należy odczekać 24 godziny, zanim nie będą już wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki
 

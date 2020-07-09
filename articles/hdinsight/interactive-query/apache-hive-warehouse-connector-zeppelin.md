@@ -5,14 +5,14 @@ author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f9d2d9bd2a58fa4c6f14db8ffd067bb39fc1553
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.topic: how-to
+ms.date: 05/28/2020
+ms.openlocfilehash: 6ee1c70ec02af2a24f7867a6e6b06593361612b2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083121"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie platformy Apache Zeppelin z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -48,7 +48,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. Przejdź do **zaawansowanej**  >  **niestandardowej lokacji głównej**. Wybierz pozycję **Dodaj właściwość...** , aby dodać następujące konfiguracje:
 
-    | Konfigurowanie                 | Wartość |
+    | Konfiguracja                 | Wartość |
     | ----------------------------- |-------|
     | Hadoop. PROXYUSER. usługi Livy. Groups  | *     |
     | Hadoop. PROXYUSER. usługi Livy. hosty   | *     |
@@ -61,7 +61,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. Rozwiń pozycję **Custom livy2-conf**. Wybierz pozycję **Dodaj właściwość...** , aby dodać następującą konfigurację:
 
-    | Konfigurowanie                 | Wartość                                      |
+    | Konfiguracja                 | Wartość                                      |
     | ----------------------------- |------------------------------------------  |
     | usługi Livy. plik. Local-dir-dozwolonych | /usr/HDP/Current/hive_warehouse_connector/ |
 
@@ -75,7 +75,7 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. Dodaj następujące konfiguracje:
 
-    | Konfigurowanie                 | Wartość                                      |
+    | Konfiguracja                 | Wartość                                      |
     | ----------------------------- |:------------------------------------------:|
     | usługi Livy. Spark. Hadoop. Hive. llap. Demon. Service. hosts | @llap0 |
     | usługi Livy. Spark. Security. Credentials. serwera hiveserver2. Enabled | true |
@@ -89,12 +89,19 @@ Do uzyskiwania dostępu do tabel programu Hive z Zeppelin za pomocą interpreter
 
 1. W przypadku klastrów ESP Dodaj następującą konfigurację:
 
-    | Konfigurowanie| Wartość|
+    | Konfiguracja| Wartość|
     |---|---|
-    | usługi Livy. Spark. SQL. Hive. serwera hiveserver2. JDBC. URL. Principal | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | usługi Livy. Spark. SQL. Hive. serwera hiveserver2. JDBC. URL. Principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    Zamień na w `<headnode-FQDN>` pełni kwalifikowaną nazwę domeny węzła głównego klastra zapytań interaktywnych.
-    Zamień na `<AAD-DOMAIN>` nazwę Azure Active Directory (AAD), do której jest dołączony klaster. Użyj ciągu z wielką literą dla `<AAD-DOMAIN>` wartości, w przeciwnym razie nie zostanie znalezione poświadczenie. `/etc/krb5.conf`W razie potrzeby Sprawdź nazwy obszarów.
+    * W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` lokalizacji, gdzie ClusterName jest nazwą klastra interakcyjnych zapytań. Kliknij pozycję **serwera hiveserver2 Interactive**. Zostanie wyświetlona w pełni kwalifikowana nazwa domeny (FQDN) węzła głównego, na którym działa LLAP, jak pokazano na zrzucie ekranu. Zamień `<llap-headnode>` na tę wartość.
+
+        ![Węzeł główny łącznika magazynu Hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem interakcyjnych zapytań. Wyszukaj `default_realm` parametr w `/etc/krb5.conf` pliku. Zamień `<AAD-DOMAIN>` na tę wartość jako ciąg pisany wielkimi literami, w przeciwnym razie nie znaleziono poświadczeń.
+
+        ![Domena usługi AAD magazynu usługi Hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Na przykład `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
 
 1. Zapisz zmiany i ponownie uruchom interpreter usługi Livy.
 
@@ -134,6 +141,6 @@ hive.executeQuery("select * from testers").show()
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Operacje obsługiwane i Apache Spark](./apache-hive-warehouse-connector-operations.md)
-* [Integracja obsługiwane z usługami Apache Spark i Apache Hive](./apache-hive-warehouse-connector.md)
+* [Operacje biblioteki HWC i platformy Apache Spark](./apache-hive-warehouse-connector-operations.md)
+* [Integracja biblioteki HWC z platformą Apache Spark i programem Apache Hive](./apache-hive-warehouse-connector.md)
 * [Używanie zapytań interakcyjnych w usłudze HDInsight](./apache-interactive-query-get-started.md)

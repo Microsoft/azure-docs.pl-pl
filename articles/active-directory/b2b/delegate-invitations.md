@@ -4,21 +4,21 @@ description: Dowiedz się, jak włączyć Active Directory zewnętrznej współp
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c6a2c1a9b908503ee5afc2687ebef473ffed626a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387185"
 ---
-# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włącz zewnętrzną współpracę B2B i Zarządzaj osobami, które mogą zapraszać Gości
+# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włączanie zewnętrznej współpracy B2B i zarządzanie osobami, które mogą zapraszać gości
 
 W tym artykule opisano sposób włączania współpracy B2B Azure Active Directory (Azure AD) i określania osób, które mogą zapraszać Gości. Domyślnie wszyscy użytkownicy i Goście w katalogu mogą zapraszać Gości, nawet jeśli nie są przypisani do roli administratora. Ustawienia współpracy zewnętrznej pozwalają włączać lub wyłączać zaproszenia gościa dla różnych typów użytkowników w organizacji. Możesz również delegować zaproszenia do poszczególnych użytkowników, przypisując role zezwalające im na zapraszanie Gości.
 
@@ -48,6 +48,9 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
    - **Goście mogą zapraszać**: aby umożliwić Gościom Zapraszanie innych Gości, ustaw dla tych zasad wartość **tak**.
    - **Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości (wersja zapoznawcza)**: Aby uzyskać więcej informacji na temat funkcji jednorazowego kodu dostępu, zobacz [poczta e-mail jednorazowe uwierzytelnianie kodu dostępu (wersja zapoznawcza)](one-time-passcode.md).
    - **Ograniczenia dotyczące współpracy**: Aby uzyskać więcej informacji na temat zezwalania lub blokowania zaproszeń do określonych domen, zobacz [Zezwalanie lub blokowanie zaproszeń dla użytkowników B2B z określonych organizacji](allow-deny-list.md).
+   
+   > [!NOTE]
+   > Jeśli **Członkowie mogą zaprosić** jest ustawiona na wartość **nie** , a **Administratorzy i użytkownicy w roli osoby zapraszające gościa** mają ustawioną wartość **tak**, użytkownicy w roli **zapraszania gościa** nadal będą mogli zapraszać Gości.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Przypisywanie roli osoby zapraszające gościa do użytkownika
 
@@ -66,5 +69,4 @@ Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usł
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
 - [Dodawanie użytkowników-Gości współpracy B2B bez zaproszenia](add-user-without-invite.md)
 - [Dodawanie użytkownika współpracy B2B do roli](add-guest-to-role.md)
-
 

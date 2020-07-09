@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82189466"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Rozwiązywanie problemów & ograniczenia Azure Cloud Shell
@@ -31,7 +31,7 @@ Znane rozwiązania dotyczące rozwiązywania problemów w Azure Cloud Shell obej
 
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>Błąd uruchamiania poleceń cmdlet AzureAD w programie PowerShell
 
-- **Szczegóły**: po uruchomieniu poleceń cmdlet AzureAD, takich `Get-AzureADUser` jak w Cloud Shell, może zostać wyświetlony komunikat o `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`błędzie:. 
+- **Szczegóły**: po uruchomieniu poleceń cmdlet AzureAD, takich jak `Get-AzureADUser` w Cloud Shell, może zostać wyświetlony komunikat o błędzie: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` . 
 - **Rozwiązanie**: Uruchom `Connect-AzureAD` polecenie cmdlet. Wcześniej polecenie cmdlet Cloud Shell uruchamiane automatycznie podczas uruchamiania programu PowerShell. Aby przyspieszyć czas rozpoczęcia, polecenie cmdlet nie jest już uruchamiane automatycznie. Można przywrócić poprzednie zachowanie, dodając `Connect-AzureAD` plik $profile w programie PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Wczesne przekroczenia limitu czasu w programie FireFox
@@ -41,8 +41,8 @@ Znane rozwiązania dotyczące rozwiązywania problemów w Azure Cloud Shell obej
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Wyłączanie Cloud Shell w zablokowanym środowisku sieciowym
 
-- **Szczegóły**: Administratorzy mogą chcieć wyłączyć dostęp do Cloud Shell dla swoich użytkowników. Cloud Shell wykorzystuje dostęp do `ux.console.azure.com` domeny, co można odmówić, zatrzymywać dowolny dostęp do punktu wejścia Cloud Shell, w tym portal.azure.com, shell.azure.com, Visual Studio Code rozszerzenia konta platformy azure i docs.Microsoft.com. W chmurze dla instytucji rządowych USA punkt wejścia `ux.console.azure.us`to; nie ma odpowiednich shell.azure.us.
-- **Rozwiązanie**: Ogranicz dostęp do `ux.console.azure.com` programu `ux.console.azure.us` lub za pośrednictwem ustawień sieciowych do środowiska. Ikona Cloud Shell nadal istnieje w Azure Portal, ale nie nawiąże połączenia z usługą.
+- **Szczegóły**: Administratorzy mogą chcieć wyłączyć dostęp do Cloud Shell dla swoich użytkowników. Cloud Shell wykorzystuje dostęp do `ux.console.azure.com` domeny, co można odmówić, zatrzymywać dowolny dostęp do punktu wejścia Cloud Shell, w tym Portal.Azure.com, Shell.Azure.com, Visual Studio Code rozszerzenia konta platformy Azure i docs.Microsoft.com. W chmurze dla instytucji rządowych USA punkt wejścia to `ux.console.azure.us` ; nie ma odpowiednich Shell.Azure.us.
+- **Rozwiązanie**: Ogranicz dostęp do programu `ux.console.azure.com` lub `ux.console.azure.us` za pośrednictwem ustawień sieciowych do środowiska. Ikona Cloud Shell nadal istnieje w Azure Portal, ale nie nawiąże połączenia z usługą.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Okno dialogowe magazynu — błąd: 403 RequestDisallowedByPolicy
 
@@ -54,7 +54,7 @@ Znane rozwiązania dotyczące rozwiązywania problemów w Azure Cloud Shell obej
 - **Szczegóły**: w przypadku korzystania z subskrypcji Azure Active Directory nie można utworzyć magazynu.
 - **Rozwiązanie**: Użyj subskrypcji platformy Azure, która może tworzyć zasoby magazynu. Subskrypcje usługi Azure AD nie mogą tworzyć zasobów platformy Azure.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Dane wyjściowe terminalu — błąd: nie można nawiązać połączenia z terminalem: nie można ustanowić protokołu WebSocket. Naciśnij `Enter` klawisz, aby ponownie nawiązać połączenie.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Dane wyjściowe terminalu — błąd: nie można nawiązać połączenia z terminalem: nie można ustanowić protokołu WebSocket. Naciśnij klawisz `Enter` , aby ponownie nawiązać połączenie.
 - **Szczegóły**: Cloud Shell wymaga możliwości nawiązania połączenia protokołu WebSocket z infrastrukturą Cloud Shell.
 - **Rozwiązanie**: Sprawdź, czy ustawienia sieciowe zostały skonfigurowane w taki sposób, aby umożliwiały wysyłanie żądań HTTPS i żądań protokołu WebSocket do domen w lokalizacji *. Console.Azure.com.
 
@@ -86,7 +86,7 @@ Znane rozwiązania dotyczące rozwiązywania problemów w Azure Cloud Shell obej
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`nie aktualizuje wyniku na dysku platformy Azure
 
 - **Szczegóły**: domyślnie, aby zoptymalizować środowisko użytkownika, wyniki `dir` są przechowywane w pamięci podręcznej na dysku platformy Azure.
-- **Rozwiązanie**: po utworzeniu, aktualizacji lub usunięciu zasobu platformy Azure Uruchom `dir -force` polecenie, aby zaktualizować wyniki na dysku platformy Azure.
+- **Rozwiązanie**: po utworzeniu, aktualizacji lub usunięciu zasobu platformy Azure Uruchom polecenie, `dir -force` Aby zaktualizować wyniki na dysku platformy Azure.
 
 ## <a name="general-limitations"></a>Ogólne ograniczenia
 
@@ -102,9 +102,9 @@ Cloud Shell jest świadczona jako bezpłatna usługa i jest przeznaczona do uży
 
 Komputer, na którym jest dostępna sesja Cloud Shell, jest tymczasowy i jest odtwarzany po upływie 20 minut aktywności. Cloud Shell wymaga zainstalowania udziału plików platformy Azure. W związku z tym subskrypcja musi mieć możliwość skonfigurowania zasobów magazynu w celu uzyskania dostępu do Cloud Shell. Inne zagadnienia obejmują:
 
-- W przypadku zainstalowanego magazynu utrwalane są tylko `clouddrive` modyfikacje znajdujące się w katalogu. W bash, `$HOME` katalog jest również utrwalany.
+- W przypadku zainstalowanego magazynu utrwalane są tylko modyfikacje znajdujące `clouddrive` się w katalogu. W bash, `$HOME` katalog jest również utrwalany.
 - Udziały plików platformy Azure można instalować tylko z poziomu [przypisanego regionu](persisting-shell-storage.md#mount-a-new-clouddrive).
-  - W programie bash Uruchom `env` polecenie, aby znaleźć swój region `ACC_LOCATION`ustawiony jako.
+  - W programie bash Uruchom polecenie, `env` Aby znaleźć swój region ustawiony jako `ACC_LOCATION` .
 - Azure Files obsługuje tylko Magazyn lokalnie nadmiarowy i konta magazynu geograficznie nadmiarowego.
 
 ### <a name="browser-support"></a>Obsługa przeglądarki
@@ -140,11 +140,11 @@ Należy zachować ostrożność podczas edytowania. bashrc, co może spowodować
 
 ### <a name="preview-version-of-azuread-module"></a>Wersja zapoznawcza modułu AzureAD
 
-`AzureAD.Standard.Preview`Obecnie dostępna jest wersja zapoznawcza modułu opartego na .NET Standard. Ten moduł zapewnia te same funkcje co `AzureAD`.
+Obecnie `AzureAD.Standard.Preview` dostępna jest wersja zapoznawcza modułu opartego na .NET Standard. Ten moduł zapewnia te same funkcje co `AzureAD` .
 
 ### <a name="sqlserver-module-functionality"></a>`SqlServer`funkcje modułu
 
-`SqlServer` Moduł zawarty w Cloud Shell ma tylko wstępne wsparcie dla programu PowerShell Core. W szczególności nie `Invoke-SqlCmd` jest jeszcze dostępna.
+`SqlServer`Moduł zawarty w Cloud Shell ma tylko wstępne wsparcie dla programu PowerShell Core. W szczególności `Invoke-SqlCmd` nie jest jeszcze dostępna.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Domyślna lokalizacja pliku podczas tworzenia z dysku platformy Azure
 
@@ -160,7 +160,7 @@ Jeśli akcja polecenia lub użytkownika wyświetla pasek postępu, na przykład 
 
 ### <a name="random-characters-appear-inline"></a>Znaki losowe pojawiają się w tekście
 
-Kody sekwencji położenia kursora, na przykład `5;13R`, mogą pojawić się w danych wejściowych użytkownika. Znaki można usunąć ręcznie.
+Kody sekwencji położenia kursora, na przykład `5;13R` , mogą pojawić się w danych wejściowych użytkownika. Znaki można usunąć ręcznie.
 
 ## <a name="personal-data-in-cloud-shell"></a>Dane osobowe w Cloud Shell
 
@@ -188,7 +188,7 @@ Program PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Usuwanie
+### <a name="delete"></a>Usuń
 Aby **usunąć** ustawienia użytkownika Cloud Shell zapisywanych danych, takich jak preferowana powłoka, rozmiar czcionki i typ czcionki, uruchom następujące polecenia. Przy następnym uruchomieniu Cloud Shell zostanie wyświetlony monit o ponowne dołączenie udziału plików. 
 
 >[!Note]

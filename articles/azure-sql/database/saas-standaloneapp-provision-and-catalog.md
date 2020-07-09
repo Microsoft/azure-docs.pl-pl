@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: b3d886186d26c398a83643c93b98192fca16df6d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042169"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Inicjowanie obsługi administracyjnej i katalogowanie nowych dzierżawców przy użyciu wzorca aplikacji dla dzierżawców SaaS
@@ -90,7 +89,7 @@ W tym zadaniu dowiesz się, jak udostępnić katalog używany do rejestracji wsz
     ![Ustawianie punktu przerwania na potrzeby śledzenia](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
 1. Uruchom skrypt, naciskając klawisz **F5**.
-1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog. ps1.
+1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog.ps1.
 1.  Śledź wykonywanie skryptu przy użyciu opcji menu Debuguj, F10 i F11, aby przekroczyć lub użyć funkcji o nazwie.
     *   Aby uzyskać więcej informacji na temat debugowania skryptów programu PowerShell, zobacz [porady dotyczące pracy z skryptami programu PowerShell i ich debugowania](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
@@ -123,11 +122,11 @@ W tym zadaniu dowiesz się, jak zainicjować obsługę administracyjną pojedync
 * **Zainicjuj bazę danych z podstawowymi informacjami o dzierżawie**. Ta akcja obejmuje określenie typu miejsca, który określa fotografię używaną jako tło w witrynie sieci Web zdarzeń.
 * **Zarejestruj bazę danych w bazie danych wykazu**.
 
-1. W programie PowerShell ISE Otwórz *..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 2**. Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy
+1. W programie PowerShell ISE Otwórz polecenie *. ..\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* i ustaw **$Scenario = 2**. Wdróż katalog dzierżawy i zarejestruj wstępnie zdefiniowane dzierżawy
 
 1. Dodaj punkt przerwania w skrypcie, umieszczając kursor w dowolnym miejscu w wierszu 49, `& $PSScriptRoot\New-TenantApp.ps1` a następnie naciśnij klawisz **F9**.
 1. Uruchom skrypt, naciskając klawisz **F5**.
-1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog. ps1.
+1.  Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby przejść do skryptu New-Catalog.ps1.
 1.  Śledź wykonywanie skryptu przy użyciu opcji menu Debuguj, F10 i F11, aby przekroczyć lub użyć funkcji o nazwie.
 
 Po zainicjowaniu obsługi dzierżawy zostanie otwarta witryna sieci Web zdarzenia nowej dzierżawy.

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81253513"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Azure CDN z wyrażeń warunkowych aparatu reguł Verizon Premium
@@ -26,7 +25,7 @@ IF | Wyrażenie IF jest zawsze częścią pierwszej instrukcji w regule. Podobni
 I JEŚLI | Wyrażenie AND IF może być dodane tylko po następujących typach wyrażeń warunkowych: Jeśli i. Wskazuje, że istnieje inny warunek, który musi być spełniony dla początkowej instrukcji IF.
 ELSE IF| Wyrażenie ELSE IF określa alternatywny warunek, który musi zostać spełniony przed zestaw funkcji specyficznych dla tego ELSE, jeśli instrukcja zostanie wykonana. Obecność instrukcji ELSE IF wskazuje koniec poprzedniej instrukcji. Jedyne wyrażenie warunkowe, które może być umieszczone po instrukcji ELSE IF, jest kolejną inną instrukcją IF. Oznacza to, że Instrukcja ELSE IF może być używana tylko w celu określenia pojedynczego warunku, który musi zostać spełniony.
 
-**Przykład**: ![warunek dopasowania sieci CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
+**Przykład**: ![ warunek dopasowania sieci CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
    > Kolejna reguła może zastąpić akcje określone przez poprzednią regułę.
@@ -36,6 +35,6 @@ ELSE IF| Wyrażenie ELSE IF określa alternatywny warunek, który musi zostać s
 
 - [Przegląd Azure CDN](cdn-overview.md)
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)
-- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Funkcje aparatu reguł](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-verizon-premium-rules-engine.md)

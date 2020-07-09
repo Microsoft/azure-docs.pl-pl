@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83995194"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Dostęp warunkowy: Blokuj starsze uwierzytelnianie
@@ -33,14 +32,14 @@ Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz wszystkie konta, które muszą mieć możliwość korzystania z starszego uwierzytelniania. Wyklucz co najmniej jedno konto, aby zapobiec blokowaniu. Jeśli nie wykluczasz żadnego konta, nie będziesz w stanie utworzyć tych zasad.
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **wszystkie aplikacje w chmurze**.
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **Konfiguruj** na **tak**.
    1. Sprawdź tylko pola **aplikacje mobilne i klienci stacjonarni**  >  **inni klienci**.
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz opcję **Blokuj dostęp**.
-   1. Wybierz przycisk **Wybierz**.
+   1. Wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** **tylko na raport**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75378453"
 ---
 # <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorowanie repozytorium GitHub i zarządzanie nim za pomocą Azure Logic Apps
@@ -24,7 +23,7 @@ Aby rozpocząć pracę z łącznikiem usługi GitHub, [najpierw Utwórz aplikacj
 
 Aby skorzystać z łącznika usługi GitHub w aplikacji logiki, należy najpierw utworzyć *połączenie* , a następnie podać szczegóły tych właściwości: 
 
-| Właściwość | Wymagany | Opis | 
+| Właściwość | Wymagane | Opis | 
 | -------- | -------- | ----------- | 
 | Token | Tak | Podaj swoje poświadczenia usługi GitHub. |
 

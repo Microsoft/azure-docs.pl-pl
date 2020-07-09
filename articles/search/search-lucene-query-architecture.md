@@ -8,14 +8,14 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565917"
 ---
-# <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search
+# <a name="full-text-search-in-azure-cognitive-search"></a>Wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze
 
 Ten artykuł jest przeznaczony dla deweloperów, którzy potrzebują bardziej szczegółowego wglądu w sposób działania wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze. W przypadku zapytań tekstowych usługa Azure Cognitive Search zwraca oczekiwane wyniki w większości scenariuszy, okazjonalnie jednak możesz otrzymywać wyniki, które wydają się w jakiś sposób „nieprawidłowe”. W takiej sytuacji wiedza na temat czterech etapów wykonywania zapytań Lucene (analizowanie zapytania, analiza leksykalna, dopasowywanie dokumentów i ocenianie) może pomóc w określeniu, jakie zmiany parametrów zapytania lub konfiguracji indeksu umożliwią uzyskanie oczekiwanych wyników. 
 
@@ -52,7 +52,7 @@ Na poniższym diagramie przedstawiono składniki używane do przetwarzania żąd
 Poniższy przykład to żądanie wyszukiwania, które może zostać wysłane do usługi Azure Wyszukiwanie poznawcze przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -66,10 +66,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 W przypadku tego żądania aparat wyszukiwania wykonuje następujące czynności:
 
 1. Filtruje dokumenty, w których cena jest równa co najmniej $60 i mniejszej niż $300.
-2. Wykonuje zapytanie. W tym przykładzie zapytanie wyszukiwania składa się z fraz i terminów: `"Spacious, air-condition* +\"Ocean view\""` (zwykle nie są one wprowadzane do interpunkcji, ale z uwzględnieniem ich w przykładzie pozwala nam wyjaśnić, jak obsługiwane są analizatory). W przypadku tego zapytania aparat wyszukiwania skanuje pola Description i title określone w `searchFields` dla dokumentów, które zawierają "Ocean View", a także w przypadku terminu "spacious" lub warunków, które zaczynają się od prefiksu "warunki powietrza". `searchMode` Parametr jest używany do dopasowania w dowolnym okresie (wartość domyślna) lub wszystkie z nich, w przypadkach, gdy termin nie jest jawnie wymagany (`+`).
+2. Wykonuje zapytanie. W tym przykładzie zapytanie wyszukiwania składa się z fraz i terminów: `"Spacious, air-condition* +\"Ocean view\""` (zwykle nie są one wprowadzane do interpunkcji, ale z uwzględnieniem ich w przykładzie pozwala nam wyjaśnić, jak obsługiwane są analizatory). W przypadku tego zapytania aparat wyszukiwania skanuje pola Description i title określone w `searchFields` dla dokumentów, które zawierają "Ocean View", a także w przypadku terminu "spacious" lub warunków, które zaczynają się od prefiksu "warunki powietrza". `searchMode`Parametr jest używany do dopasowania w dowolnym okresie (wartość domyślna) lub wszystkie z nich, w przypadkach, gdy termin nie jest jawnie wymagany ( `+` ).
 3. Porządkuje wynikowy zestaw hoteli przez bliskość do danej lokalizacji geograficznej, a następnie zwraca do aplikacji wywołującej. 
 
-Większość tego artykułu dotyczy przetwarzania *zapytania wyszukiwania*: `"Spacious, air-condition* +\"Ocean view\""`. Filtrowanie i porządkowanie są poza zakresem. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Większość tego artykułu dotyczy przetwarzania *zapytania wyszukiwania*: `"Spacious, air-condition* +\"Ocean view\""` . Filtrowanie i porządkowanie są poza zakresem. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>Etap 1. analizowanie zapytań 
@@ -84,11 +84,11 @@ Analizator zapytań oddziela operatory (takie jak `*` i `+` w przykładzie) z wy
 
 + *zapytanie warunkowe* dla warunków autonomicznych (takich jak Spacious)
 + *zapytanie zwrotne* dla cytowanych terminów (na przykład widoku Ocean)
-+ *zapytanie dotyczące prefiksu* dla warunków, po których `*` następuje operator prefiksu (np. warunek powietrza)
++ *zapytanie dotyczące prefiksu* dla warunków, po których następuje operator prefiksu `*` (np. warunek powietrza)
 
 Aby zapoznać się z pełną listą obsługiwanych typów zapytań, zobacz [składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
-Operatory skojarzone z podzapytaniem określają, czy zapytanie "musi być" lub "powinno być" spełnione, aby dokument mógł zostać uznany za zgodny. Na przykład, `+"Ocean view"` jest "musi" ze względu `+` na operatora. 
+Operatory skojarzone z podzapytaniem określają, czy zapytanie "musi być" lub "powinno być" spełnione, aby dokument mógł zostać uznany za zgodny. Na przykład, `+"Ocean view"` jest "musi" ze względu na `+` operatora. 
 
 Analizator zapytań przekształca podzapytania w *drzewo zapytań* (wewnętrzną strukturę reprezentującą zapytanie), które przekazuje do aparatu wyszukiwania. W pierwszym etapie analizy zapytania drzewo zapytania wygląda następująco.  
 
@@ -96,23 +96,23 @@ Analizator zapytań przekształca podzapytania w *drzewo zapytań* (wewnętrzną
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Obsługiwane analizatory: proste i pełne Lucene 
 
- Na `simple` platformie Azure wyszukiwanie poznawcze są uwidaczniane dwa różne języki zapytań ( `full`domyślne) i. Ustawiając `queryType` parametr z żądaniem wyszukiwania, możesz poinformować analizatora zapytań o wybranym języku zapytania, aby wie, jak interpretować operatory i składnię. [Prosty język zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) jest intuicyjny i niezawodny, często odpowiedni do interpretowania danych wprowadzanych przez użytkownika bez przetwarzania po stronie klienta. Obsługuje operatory zapytań znane z wyszukiwarek sieci Web. [Pełny język zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), który można uzyskać przez ustawienie `queryType=full`, rozszerza domyślny prosty język zapytań, dodając obsługę większej liczby operatorów i typów zapytań, takich jak symbole wieloznaczne, rozmyte, wyrażenia regularnego i zapytania o zakres pól. Na przykład wyrażenie regularne wysyłane w prostej składni zapytania jest interpretowane jako ciąg zapytania, a nie wyrażenie. Przykładowe żądanie w tym artykule używa pełnego języka zapytań Lucene.
+ Na platformie Azure Wyszukiwanie poznawcze są uwidaczniane dwa różne języki zapytań `simple` (domyślne) i `full` . Ustawiając `queryType` parametr z żądaniem wyszukiwania, możesz poinformować analizatora zapytań o wybranym języku zapytania, aby wie, jak interpretować operatory i składnię. [Prosty język zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) jest intuicyjny i niezawodny, często odpowiedni do interpretowania danych wprowadzanych przez użytkownika bez przetwarzania po stronie klienta. Obsługuje operatory zapytań znane z wyszukiwarek sieci Web. [Pełny język zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), który można uzyskać przez ustawienie `queryType=full` , rozszerza domyślny prosty język zapytań, dodając obsługę większej liczby operatorów i typów zapytań, takich jak symbole wieloznaczne, rozmyte, wyrażenia regularnego i zapytania o zakres pól. Na przykład wyrażenie regularne wysyłane w prostej składni zapytania jest interpretowane jako ciąg zapytania, a nie wyrażenie. Przykładowe żądanie w tym artykule używa pełnego języka zapytań Lucene.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Wpływ przeszukiwania na analizator składni 
 
-Innym parametrem żądania wyszukiwania, który ma wpływ `searchMode` na analizowanie, jest parametr. Steruje operatorem domyślnym dla zapytań logicznych: dowolne (domyślne) lub wszystkie.  
+Innym parametrem żądania wyszukiwania, który ma wpływ na analizowanie, jest `searchMode` parametr. Steruje operatorem domyślnym dla zapytań logicznych: dowolne (domyślne) lub wszystkie.  
 
-Gdy `searchMode=any`jest to domyślny, ogranicznik odstępu między Spacious i warunkiem obpowietrzanym jest lub (`||`), co oznacza, że przykładowy tekst zapytania odpowiada: 
+Gdy `searchMode=any` jest to domyślny, ogranicznik odstępu między Spacious i warunkiem obpowietrzanym jest lub ( `||` ), co oznacza, że przykładowy tekst zapytania odpowiada: 
 
 ~~~~
 Spacious,||air-condition*+"Ocean view" 
 ~~~~
 
-Jawne operatory, takie jak `+` w `+"Ocean view"`, są niejednoznaczne w konstrukcji zapytania logicznego (termin *musi* być zgodny). Mniej oczywiste to sposób interpretacji pozostałych warunków: Spacious i stanu powietrza. Czy aparat wyszukiwania powinien znaleźć dopasowania w widoku oceanu *i* Spacious *i* warunkach powietrza? Lub powinien znaleźć widok oceanu i *jedno* z pozostałych warunków? 
+Jawne operatory, takie jak `+` w `+"Ocean view"` , są niejednoznaczne w konstrukcji zapytania logicznego (termin *musi* być zgodny). Mniej oczywiste to sposób interpretacji pozostałych warunków: Spacious i stanu powietrza. Czy aparat wyszukiwania powinien znaleźć dopasowania w widoku oceanu *i* Spacious *i* warunkach powietrza? Lub powinien znaleźć widok oceanu i *jedno* z pozostałych warunków? 
 
-Domyślnie (`searchMode=any`) aparat wyszukiwania przyjmuje szersze interpretacje. Każde pole *powinno* być dopasowane, odzwierciedlające semantykę "lub". Początkowe drzewo zapytań przedstawione wcześniej, z dwoma operacjami "powinien", pokazuje wartość domyślną.  
+Domyślnie ( `searchMode=any` ) aparat wyszukiwania przyjmuje szersze interpretacje. Każde pole *powinno* być dopasowane, odzwierciedlające semantykę "lub". Początkowe drzewo zapytań przedstawione wcześniej, z dwoma operacjami "powinien", pokazuje wartość domyślną.  
 
-Załóżmy, że teraz ustawimy `searchMode=all`. W takim przypadku miejsce jest interpretowane jako operacja "i". Każdy z pozostałych warunków musi być obecny w dokumencie, aby można go było zakwalifikować jako odpowiednik. Wyniki przykładowego zapytania byłyby interpretowane w następujący sposób: 
+Załóżmy, że teraz ustawimy `searchMode=all` . W takim przypadku miejsce jest interpretowane jako operacja "i". Każdy z pozostałych warunków musi być obecny w dokumencie, aby można go było zakwalifikować jako odpowiednik. Wyniki przykładowego zapytania byłyby interpretowane w następujący sposób: 
 
 ~~~~
 +Spacious,+air-condition*+"Ocean view"
@@ -123,7 +123,7 @@ Zmodyfikowane drzewo zapytań dla tego zapytania byłoby następujące, gdzie pa
  ![Wartość Boolean przeszukiwania zapytań logicznych][3]
 
 > [!Note] 
-> Wybór `searchMode=any` powyżej `searchMode=all` stanowi decyzję, która najlepiej dotarła do uruchamiania reprezentatywnych zapytań. Użytkownicy, którzy mogą dołączać operatory (typowi podczas wyszukiwania w sklepie dokumentów), mogą znaleźć `searchMode=all` wyniki bardziej intuicyjne, jeśli są informować konstrukcje zapytania logicznego. Aby uzyskać więcej informacji na temat `searchMode` współpraca między operatorami i, zobacz [prostą składnię zapytania](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+> Wybór `searchMode=any` powyżej `searchMode=all` stanowi decyzję, która najlepiej dotarła do uruchamiania reprezentatywnych zapytań. Użytkownicy, którzy mogą dołączać operatory (typowi podczas wyszukiwania w sklepie dokumentów), mogą znaleźć wyniki bardziej intuicyjne, jeśli są `searchMode=all` informować konstrukcje zapytania logicznego. Aby uzyskać więcej informacji na temat współpraca między `searchMode` operatorami i, zobacz [prostą składnię zapytania](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Etap 2: Analiza leksykalna 
@@ -184,7 +184,7 @@ Analizator standardowy dzieli tekst wejściowy na następujące dwa tokeny, doda
 
 ### <a name="exceptions-to-lexical-analysis"></a>Wyjątki dla analizy leksykalnej 
 
-Analiza leksykalna dotyczy tylko typów zapytań, które wymagają pełnych warunków — zapytania warunkowego lub zapytania zwrotnego. Nie ma zastosowania do typów zapytań z niekompletnymi terminami — zapytania prefiksowego, zapytania wieloznacznego, zapytania wyrażenia regularnego lub zapytania rozmytego. Te typy zapytań, w tym zapytanie prefiksu z `air-condition*` terminem w naszym przykładzie, są dodawane bezpośrednio do drzewa zapytań, pomijając etap analizy. Jedynym przekształceniem wykonywanym na warunkach zapytań tych typów jest lowercasing.
+Analiza leksykalna dotyczy tylko typów zapytań, które wymagają pełnych warunków — zapytania warunkowego lub zapytania zwrotnego. Nie ma zastosowania do typów zapytań z niekompletnymi terminami — zapytania prefiksowego, zapytania wieloznacznego, zapytania wyrażenia regularnego lub zapytania rozmytego. Te typy zapytań, w tym zapytanie prefiksu z terminem `air-condition*` w naszym przykładzie, są dodawane bezpośrednio do drzewa zapytań, pomijając etap analizy. Jedynym przekształceniem wykonywanym na warunkach zapytań tych typów jest lowercasing.
 
 <a name="stage3"></a>
 
@@ -239,7 +239,7 @@ Aby zrozumieć pobieranie, pomocne jest zapoznanie się z kilkoma podstawowymi i
 Aby utworzyć warunki w odwróconym indeksie, aparat wyszukiwania wykonuje analizę leksykalną nad zawartością dokumentów, podobnie jak w przypadku przetwarzania zapytań:
 
 1. *Dane wejściowe tekstu* są przesyłane do analizatora, małe litery, usunięte z interpunkcji i tak dalej, w zależności od konfiguracji analizatora. 
-2. *Tokeny* są danymi wyjściowymi analizy tekstu.
+2. *Tokeny* są danymi wyjściowymi analizy leksykalnej.
 3. *Warunki* są dodawane do indeksu.
 
 Jest to typowy, ale nie jest wymagany, aby używać tych samych analizatorów dla operacji wyszukiwania i indeksowania, tak aby terminy zapytania wyglądały tak, jak terminy w indeksie.
@@ -268,7 +268,7 @@ W przypadku pola **Description** indeks jest następujący:
 | Termin | Lista dokumentów |
 |------|---------------|
 | dmuchaw | 3
-| i | 4
+| oraz | 4
 | sekwencje | 1
 | przygotować | 3
 | potrafisz | 3
@@ -309,7 +309,7 @@ Podczas wykonywania zapytania poszczególne zapytania są wykonywane niezależni
 + PhraseQuery, "widok oceanu", wyszukuje terminy "Ocean" i "View" i sprawdza bliskość terminów w oryginalnym dokumencie. Dokumenty 1, 2 i 3 pasują do tego zapytania w polu Opis. Dokument Uwaga 4 ma termin Ocean w tytule, ale nie jest uważany za dopasowanie, ponieważ szukasz frazy "Ocean View", a nie poszczególnych wyrazów. 
 
 > [!Note]
-> Zapytanie wyszukiwania jest wykonywane niezależnie dla wszystkich pól z możliwością wyszukiwania w indeksie usługi Azure Wyszukiwanie poznawcze, chyba że zostaną ograniczone pola `searchFields` ustawione za pomocą parametru, jak pokazano w przykładowym żądaniu wyszukiwania. Zwracane są dokumenty pasujące do któregokolwiek z wybranych pól. 
+> Zapytanie wyszukiwania jest wykonywane niezależnie dla wszystkich pól z możliwością wyszukiwania w indeksie usługi Azure Wyszukiwanie poznawcze, chyba że zostaną ograniczone pola ustawione za pomocą `searchFields` parametru, jak pokazano w przykładowym żądaniu wyszukiwania. Zwracane są dokumenty pasujące do któregokolwiek z wybranych pól. 
 
 W odniesieniu do zapytania, w przypadku którego jest to zgodne z danymi, mają one wartość 1, 2, 3. 
 
@@ -360,7 +360,7 @@ Przykład ilustruje to zagadnienia. Wyszukiwanie przy użyciu symboli wieloznacz
 Istnieją dwa sposoby dostrajania ocen przydatności na platformie Azure Wyszukiwanie poznawcze:
 
 1. **Profile oceniania** promują dokumenty na uporządkowanej liście wyników na podstawie zestawu reguł. W naszym przykładzie możemy rozważyć, że dokumenty dopasowane w polu title są bardziej odpowiednie niż dokumenty pasujące do pola Description. Ponadto, jeśli nasz indeks miał pole ceny dla każdego hotelu, możemy wspierać dokumenty o niższej cenie. Dowiedz się więcej, jak [dodać profile oceniania do indeksu wyszukiwania.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Podwyższanie poziomu terminu** (dostępne tylko w pełnej składni zapytań Lucene) zawiera operator `^` zwiększania poziomu, który można zastosować do dowolnej części drzewa zapytań. W naszym przykładzie zamiast wyszukiwania na powyższym *stanie*\*powietrza, jeden może wyszukać dokładny *warunek powietrza* lub prefiks, ale dokumenty, które pasują do dokładnego terminu, są klasyfikowane przez zastosowanie podwyższania poziomu zapytania warunkowego: * warunek powietrza ^ 2 | | warunki powietrza * *. Dowiedz się więcej o [zwiększaniu warunków](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Podwyższanie poziomu terminu** (dostępne tylko w pełnej składni zapytań Lucene) zawiera operator zwiększania poziomu `^` , który można zastosować do dowolnej części drzewa zapytań. W naszym przykładzie zamiast wyszukiwania na powyższym *stanie powietrza* \* , jeden może wyszukać dokładny *warunek powietrza* lub prefiks, ale dokumenty, które pasują do dokładnego terminu, są klasyfikowane przez zastosowanie podwyższania poziomu zapytania warunkowego: * warunek powietrza ^ 2 | | warunki powietrza * *. Dowiedz się więcej o [zwiększaniu warunków](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Ocenianie w rozproszonym indeksie

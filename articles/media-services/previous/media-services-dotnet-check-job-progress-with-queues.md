@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "64868099"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962683"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Używanie usługi Azure queue storage do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET 
 
@@ -34,7 +34,7 @@ Typowym scenariuszem nasłuchiwania Media Services powiadomień jest opracowanie
 
 W tym artykule przedstawiono sposób pobierania komunikatów powiadomień z usługi queue storage.  
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 Podczas tworzenia aplikacji Media Services korzystających z magazynu kolejek należy wziąć pod uwagę następujące kwestie:
 
 * Usługa queue storage nie gwarantuje, że jest zamówione zamówienie First-In-First-Out (FIFO). Aby uzyskać więcej informacji, zobacz temat [kolejki platformy Azure i kolejki Azure Service Bus w porównaniu z kontrastem](https://msdn.microsoft.com/library/azure/hh767287.aspx).
@@ -47,13 +47,16 @@ Podczas tworzenia aplikacji Media Services korzystających z magazynu kolejek na
 Przykład kodu w tej sekcji wykonuje następujące czynności:
 
 1. Definiuje klasę **EncodingJobMessage** , która jest mapowana na format wiadomości powiadomienia. Kod deserializacji komunikaty odebrane z kolejki do obiektów typu **EncodingJobMessage** .
-2. Ładuje informacje o Media Services i koncie magazynu z pliku App. config. W przykładzie kodu są wykorzystywane te informacje do tworzenia obiektów **CloudMediaContext** i **CloudQueue** .
+2. Ładuje informacje o Media Services i koncie magazynu z pliku app.config. W przykładzie kodu są wykorzystywane te informacje do tworzenia obiektów **CloudMediaContext** i **CloudQueue** .
 3. Tworzy kolejkę, która odbiera komunikaty powiadomień o zadaniu kodowania.
 4. Tworzy punkt końcowy powiadomienia mapowany do kolejki.
 5. Dołącza punkt końcowy powiadomienia do zadania i przesyła zadanie kodowania. Do zadania można dołączyć wiele punktów końcowych powiadomień.
 6. Przekazuje **NotificationJobState. FinalStatesOnly** do metody **AddNew** . (W tym przykładzie interesuje tylko Stany końcowe przetwarzania zadania).
 
-        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```csharp
+    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```
+
 7. Jeśli przejdziesz do **NotificationJobState. All**, uzyskasz wszystkie następujące powiadomienia o zmianie stanu: w kolejce, zaplanowane, przetwarzane i zakończone. Jednak jak wspomniano wcześniej, usługa queue storage nie gwarantuje uporządkowanej dostawy. Aby zamówić komunikaty, użyj właściwości **timestamp** (zdefiniowanej w podanym przykładzie typu **EncodingJobMessage** ). Możliwe jest duplikowanie komunikatów. Aby sprawdzić duplikaty, należy użyć **Właściwości ETag** (zdefiniowanej dla typu **EncodingJobMessage** ). Istnieje również możliwość, że niektóre powiadomienia o zmianie stanu zostaną pominięte.
 8. Czeka na ukończenie zadania do stanu ukończenia, sprawdzając kolejkę co 10 sekund. Usuwa komunikaty po ich przetworzeniu.
 9. Usuwa kolejkę i punkt końcowy powiadomienia.
@@ -71,7 +74,7 @@ Przykład kodu w tej sekcji wykonuje następujące czynności:
 2. Utwórz nowy folder (folder może znajdować się w dowolnym miejscu na dysku lokalnym) i skopiuj plik MP4, który ma zostać zakodowany i przesłany strumieniowo lub progresywnie. W tym przykładzie użyto ścieżki "C:\Media".
 3. Dodaj odwołanie do biblioteki **System. Runtime. Serialization** .
 
-### <a name="code"></a>Code
+### <a name="code"></a>Kod
 
 ```csharp
 using System;
@@ -344,36 +347,37 @@ namespace JobNotification
 
 Poprzedni przykład wygenerował następujące dane wyjściowe: wartości będą się różnić.
 
-    Created assetFile BigBuckBunny.mp4
-    Upload BigBuckBunny.mp4
-    Done uploading of BigBuckBunny.mp4
+```output
+Created assetFile BigBuckBunny.mp4
+Upload BigBuckBunny.mp4
+Done uploading of BigBuckBunny.mp4
 
-    EventType: NotificationEndPointRegistration
-    MessageVersion: 1.0
-    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-    TimeStamp: 2013-05-14T20:22:37
-        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-        State: Registered
-        Name: dde957b2-006e-41f2-9869-a978870ac620
-        Created: 2013-05-14T20:22:35
+EventType: NotificationEndPointRegistration
+MessageVersion: 1.0
+ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+TimeStamp: 2013-05-14T20:22:37
+    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+    State: Registered
+    Name: dde957b2-006e-41f2-9869-a978870ac620
+    Created: 2013-05-14T20:22:35
 
-    EventType: JobStateChange
-    MessageVersion: 1.0
-    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-    TimeStamp: 2013-05-14T20:24:40
-        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
-        NewState: Finished
-        OldState: Processing
-        AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
-    State: Finished
-
+EventType: JobStateChange
+MessageVersion: 1.0
+ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+TimeStamp: 2013-05-14T20:24:40
+    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+    JobName: My MP4 to Smooth Streaming encoding job
+    NewState: Finished
+    OldState: Processing
+    AccountName: westeuropewamsaccount
+job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+State: Finished
+```
 
 ## <a name="next-step"></a>Następny krok
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

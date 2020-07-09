@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84148348"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Rozwiązywanie problemów z włączaniem lub wyświetlaniem Application Insights Profiler
@@ -169,7 +168,7 @@ Aby sprawdzić ustawienia, które zostały użyte do skonfigurowania Diagnostyka
 
 1. Upewnij się, że iKey w wierszu polecenia profilera jest prawidłowy. 
 
-1. Przy użyciu ścieżki znalezionej w poprzednim pliku *config. JSON* Sprawdź plik dziennika profilera o nazwie **BootstrapN. log**. Wyświetla informacje o debugowaniu, które wskazują ustawienia, które są używane przez profiler. Wyświetla również komunikaty o stanie i błędach z profilera.  
+1. Używając ścieżki znalezionej w poprzednim *config.jsw* pliku, sprawdź plik dziennika profilera o nazwie **BootstrapN. log**. Wyświetla informacje o debugowaniu, które wskazują ustawienia, które są używane przez profiler. Wyświetla również komunikaty o stanie i błędach z profilera.  
 
     W przypadku maszyn wirtualnych plik jest zwykle tutaj:
     ```

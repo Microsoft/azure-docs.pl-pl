@@ -4,10 +4,10 @@ description: Zawiera opis deklaratywnej składni JSON dla szablonów Azure Resou
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82203832"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Składnia i wyrażenia w szablonach Azure Resource Manager
@@ -29,7 +29,7 @@ Azure Resource Manager udostępnia [funkcje](template-functions.md) , których m
 },
 ```
 
-W wyrażeniu składnia `resourceGroup()` wywołuje jedną z funkcji, które Menedżer zasobów zapewnia do użycia w ramach szablonu. W tym przypadku jest to funkcja obiektu [resources](template-functions-resource.md#resourcegroup) . Podobnie jak w języku JavaScript, wywołania funkcji są sformatowane `functionName(arg1,arg2,arg3)`jako. Składnia `.location` pobiera jedną właściwość z obiektu zwróconego przez tę funkcję.
+W wyrażeniu składnia `resourceGroup()` wywołuje jedną z funkcji, które Menedżer zasobów zapewnia do użycia w ramach szablonu. W tym przypadku jest to funkcja obiektu [resources](template-functions-resource.md#resourcegroup) . Podobnie jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)` . Składnia `.location` Pobiera jedną właściwość z obiektu zwróconego przez tę funkcję.
 
 W funkcjach szablonów i ich parametrach nie jest rozróżniana wielkość liter. Na przykład Menedżer zasobów rozpoznaje **zmienne ("var1")** i **zmienne ("var1")** jako takie same. W przypadku oceny, chyba że funkcja wyraźnie modyfikuje wielkość liter (na przykład toUpper lub toLower), funkcja zachowuje wielkość liter. Niektóre typy zasobów mogą mieć wymagania dotyczące wielkości liter, które są niezależne od sposobu oceniania funkcji.
 
@@ -47,13 +47,13 @@ Większość funkcji działa tak samo, niezależnie od tego, czy zostały wdroż
 
 ## <a name="escape-characters"></a>Znaki ucieczki
 
-Aby ciąg literału rozpoczynał się od lewego nawiasu `[` i kończyć się nawiasem `]`klamrowym, ale nie powinien być interpretowany jako wyrażenie, Dodaj dodatkowy nawias klamrowy, aby `[[`uruchomić ciąg. Na przykład zmienna:
+Aby ciąg literału rozpoczynał się od lewego nawiasu `[` i kończyć się nawiasem klamrowym `]` , ale nie powinien być interpretowany jako wyrażenie, Dodaj dodatkowy nawias klamrowy, aby uruchomić ciąg `[[` . Na przykład zmienna:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Jest rozpoznawany jako `[test value]`.
+Jest rozpoznawany jako `[test value]` .
 
 Jeśli jednak ciąg literału nie kończy się nawiasem, nie należy określać pierwszego nawiasu. Na przykład zmienna:
 
@@ -61,7 +61,7 @@ Jeśli jednak ciąg literału nie kończy się nawiasem, nie należy określać 
 "demoVar2": "[test] value"
 ```
 
-Jest rozpoznawany jako `[test] value`.
+Jest rozpoznawany jako `[test] value` .
 
 Aby wypróbować podwójne cudzysłowy w wyrażeniu, takie jak dodanie obiektu JSON w szablonie, użyj ukośnika odwrotnego.
 
@@ -93,7 +93,7 @@ Podczas przekazywania wartości parametrów użycie znaków ucieczki zależy od 
 }
 ```
 
-Jeśli zostanie użyta wartość domyślna, szablon zwraca `[test value]`.
+Jeśli zostanie użyta wartość domyślna, szablon zwraca `[test value]` .
 
 Jednak w przypadku przekazania wartości parametru za pomocą wiersza polecenia znaki są interpretowane dosłownie. Wdrażanie poprzedniego szablonu przy użyciu:
 
@@ -107,7 +107,7 @@ Zwraca wartość `[[test value]`. Zamiast tego należy użyć:
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-To samo formatowanie jest stosowane podczas przekazywania wartości z pliku parametrów. Znaki są interpretowane dosłownie. Gdy jest używany z poprzednim szablonem, następujący plik parametrów zwraca `[test value]`:
+To samo formatowanie jest stosowane podczas przekazywania wartości z pliku parametrów. Znaki są interpretowane dosłownie. Gdy jest używany z poprzednim szablonem, następujący plik parametrów zwraca `[test value]` :
 
 ```json
 {

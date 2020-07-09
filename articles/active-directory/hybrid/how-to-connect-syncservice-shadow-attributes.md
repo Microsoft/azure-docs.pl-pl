@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60384723"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356665"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atrybuty cienia usługi synchronizacji Azure AD Connect
 Większość atrybutów jest reprezentowana w ten sam sposób w usłudze Azure AD, ponieważ znajdują się one w Active Directory lokalnej. Ale niektóre atrybuty mają specjalne traktowanie i wartość atrybutu w usłudze Azure AD może różnić się od tego, co Azure AD Connect synchronizacja.
@@ -32,7 +32,7 @@ Niektóre atrybuty mają dwie reprezentacje w usłudze Azure AD. Są przechowywa
 Nie można wyświetlić atrybutów cienia przy użyciu Azure Portal lub programu PowerShell. Jednak zrozumienie koncepcji pomaga w rozwiązywaniu problemów z niektórymi scenariuszami, w których atrybut ma różne wartości w środowisku lokalnym i w chmurze.
 
 Aby lepiej zrozumieć zachowanie, zapoznaj się z tym przykładem firmy Fabrikam:  
-![Domeny](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 Mają one wiele sufiksów nazw UPN w Active Directory lokalnych, ale tylko je zweryfikowano.
 
 ### <a name="userprincipalname"></a>userPrincipalName
@@ -58,7 +58,7 @@ W przypadku użytkownika skrzynki pocztowej lokalnego lub w usłudze Exchange On
 | lokalne proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Usługa Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-W tym przypadku **SMTP: Abbie. spencer\@fabrikam.com** został usunięty od czasu, gdy ta domena nie została zweryfikowana. Jednak Exchange dodano również **SIP: Abbie. spencer\@fabrikamonline.com**. Firma Fabrikam nie użyła programu Lync/Skype lokalnie, ale usługa Azure AD i usługi Exchange Online są dla niego przygotowywane.
+W tym przypadku **SMTP: Abbie. spencer \@ fabrikam.com** został usunięty od czasu, gdy ta domena nie została zweryfikowana. Jednak Exchange dodano również **SIP: Abbie. spencer \@ fabrikamonline.com**. Firma Fabrikam nie użyła programu Lync/Skype lokalnie, ale usługa Azure AD i usługi Exchange Online są dla niego przygotowywane.
 
 Ta logika dla proxyAddresses jest określana jako **ProxyCalc**. ProxyCalc jest wywoływana z każdą zmianą na użytkowniku, gdy:
 

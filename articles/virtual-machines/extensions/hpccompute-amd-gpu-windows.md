@@ -3,22 +3,20 @@ title: Rozszerzenie sterownika procesora GPU AMD — maszyny wirtualne platformy
 description: Microsoft Azure rozszerzenie do instalowania sterowników procesora GPU AMD na maszynach wirtualnych z serii NVv4 z systemem Windows.
 services: virtual-machines-windows
 documentationcenter: ''
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 0819eec5275fa9783fff363cabbd8c3ed22b7cd6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736972"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Rozszerzenie sterownika procesora GPU AMD dla systemu Windows
 
@@ -36,8 +34,8 @@ To rozszerzenie obsługuje następujące elementy OSs:
 |---|---|
 | Windows 10 EMS | Kompilacja 1903 |
 | Windows 10 | Kompilacja 1809 |
-| Windows Server 2016 | Podstawowe |
-| Windows Server 2019 | Podstawowe |
+| Windows Server 2016 | Core |
+| Windows Server 2019 | Core |
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
@@ -71,7 +69,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | AmdGpuDriverWindows | ciąg |
 | typeHandlerVersion | 1.0 | int |

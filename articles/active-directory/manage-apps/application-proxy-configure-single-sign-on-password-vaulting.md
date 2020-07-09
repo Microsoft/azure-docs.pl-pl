@@ -3,23 +3,22 @@ title: Logowanie jednokrotne do aplikacji przy użyciu usługi Azure serwer prox
 description: Włącz logowanie jednokrotne dla opublikowanych aplikacji lokalnych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD w Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764778"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Przechowywanie haseł dla logowania jednokrotnego przy użyciu serwera proxy aplikacji
 
@@ -32,7 +31,7 @@ Twoja aplikacja powinna już być opublikowana i przetestowana z serwerem proxy 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Konfigurowanie magazynu haseł dla aplikacji
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
-1. Wybierz pozycję **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 1. Z listy wybierz aplikację, którą chcesz skonfigurować przy użyciu logowania jednokrotnego.  
 1. Wybierz pozycję **serwer proxy aplikacji**. 
 1. Zmień **Typ uwierzytelniania wstępnego** na **Passthrough** i wybierz pozycję **Zapisz**. Później możesz ponownie wrócić do typu **Azure Active Directory** . 
@@ -51,7 +50,7 @@ Twoja aplikacja powinna już być opublikowana i przetestowana z serwerem proxy 
 1. Wybierz pozycję **Użytkownicy i grupy**.
 1. Przypisz użytkowników do aplikacji, wybierając pozycję **Dodaj użytkownika**. 
 1. Jeśli chcesz wstępnie zdefiniować poświadczenia dla użytkownika, zaznacz pole wyboru Nazwa użytkownika i wybierz pozycję **Aktualizuj poświadczenia**.
-1. Wybierz pozycję **Azure Active Directory** > **rejestracje aplikacji** > **wszystkie aplikacje**.
+1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **wszystkie aplikacje**.
 1. Z listy wybierz aplikację, którą skonfigurowano z logowaniem jednokrotnym przy użyciu hasła.
 1. Wybierz **znakowanie**. 
 1. Zaktualizuj **adres URL strony głównej** przy użyciu **adresu URL logowania na** stronie Logowanie jednokrotne, a następnie wybierz pozycję **Zapisz**.  

@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84886101"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -52,7 +52,8 @@ Aby można było korzystać z Privileged Identity Management, katalog musi mieć
 
 - Usługa Azure AD — warstwa Premium P2
 - Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+- Microsoft 365 Education A5
+- Microsoft 365 Enterprise E5
 
 Aby uzyskać więcej informacji, zobacz [wymagania licencyjne do używania Privileged Identity Management](subscription-requirements.md).
 
@@ -240,7 +241,7 @@ Przed zaimplementowaniem rozwiązania Privileged Identity Management warto podwy
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Ustawienia Privileged Identity Management dla ról usługi Azure AD
 
-| Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Bilet zdarzenia | Wymagaj zatwierdzenia | Approver | Czas trwania aktywacji | Administrator trwały |
+| Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Bilet zdarzenia | Wymagaj zatwierdzenia | Osoby zatwierdzającej | Czas trwania aktywacji | Administrator trwały |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrator globalny | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni administratorzy globalni | 1 godzina | Konta dostępu awaryjnego |
 | Administrator programu Exchange | :heavy_check_mark: | :heavy_check_mark: | y | y | Brak | 2 godziny | Brak |
@@ -248,11 +249,11 @@ Przed zaimplementowaniem rozwiązania Privileged Identity Management warto podwy
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Privileged Identity Management ustawienia dla ról zasobów platformy Azure
 
-| Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Wymagaj zatwierdzenia | Approver | Czas trwania aktywacji | Administrator aktywny | Aktywne wygaśnięcie | Kwalifikujące się wygaśnięcie |
+| Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Wymagaj zatwierdzenia | Osoby zatwierdzającej | Czas trwania aktywacji | Administrator aktywny | Aktywne wygaśnięcie | Kwalifikujące się wygaśnięcie |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Właściciel krytycznych subskrypcji | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni właściciele subskrypcji | 1 godzina | Brak | n/d | 3 miesiące |
-| Administrator dostępu użytkowników z mniej krytycznymi subskrypcjami | :heavy_check_mark: | :heavy_check_mark: | y | Brak | 1 godzina | Brak | n/d | 3 miesiące |
-| Współautor maszyny wirtualnej | y | :heavy_check_mark: | y | Brak | 3 godziny | Brak | n/d | 6 miesięcy |
+| Właściciel krytycznych subskrypcji | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni właściciele subskrypcji | 1 godzina | Brak | nie dotyczy | 3 miesiące |
+| Administrator dostępu użytkowników z mniej krytycznymi subskrypcjami | :heavy_check_mark: | :heavy_check_mark: | y | Brak | 1 godzina | Brak | nie dotyczy | 3 miesiące |
+| Współautor maszyny wirtualnej | y | :heavy_check_mark: | y | Brak | 3 godziny | Brak | nie dotyczy | 6 miesięcy |
 
 W poniższej tabeli opisano poszczególne ustawienia.
 
@@ -263,7 +264,7 @@ W poniższej tabeli opisano poszczególne ustawienia.
 | Powiadomienie | Jeśli wartość jest równa true, Administrator globalny, administrator ról uprzywilejowanych i administrator zabezpieczeń w organizacji otrzyma powiadomienie e-mail, gdy uprawniony użytkownik aktywuje rolę.<br/><br/>**Uwaga:** Niektóre organizacje nie mają adresu e-mail powiązanego z kontami administratorów, aby otrzymywać powiadomienia e-mail, należy ustawić alternatywny adres e-mail, aby administratorzy otrzymywali te wiadomości e-mail. |
 | Bilet zdarzenia | Czy uprawniony użytkownik musi zarejestrować numer biletu zdarzenia podczas aktywowania ich roli. To ustawienie pomaga organizacji identyfikować każdą aktywację z wewnętrznym numerem zdarzenia w celu ograniczenia niepożądanej aktywacji.<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** korzystanie z numerów biletów zdarzeń, aby powiązać Privileged Identity Management z systemem wewnętrznym. Jest to szczególnie przydatne w przypadku osób zatwierdzających, które wymagają kontekstu aktywacji. |
 | Wymagaj zatwierdzenia | Czy uprawniony użytkownik musi uzyskać zatwierdzenie, aby aktywować rolę.<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** skonfigurowanie zatwierdzenia dla ról z największymi uprawnieniami. W oparciu o wzorce użycia wszystkich Privileged Identity Management klientów, administratorów globalnych, administratorów użytkowników, administratorów programu Exchange, administratora zabezpieczeń i administratora hasła są najczęściej używane role z konfiguracją zatwierdzania. |
-| Approver | Jeśli wymagane jest zatwierdzenie w celu aktywowania kwalifikującej się roli, należy podać osoby, które powinny zatwierdzić żądanie. Domyślnie Privileged Identity Management ustawia osoby zatwierdzającej na wszystkich użytkowników, którzy są administratorami ról uprzywilejowanych, niezależnie od tego, czy są one trwałe, czy kwalifikujące się.<br/><br/>**Uwaga:** Jeśli użytkownik jest uprawniony do roli usługi Azure AD i osoby zatwierdzającej rolę, nie będzie w stanie zatwierdzić siebie.<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** , aby wybrać osoby zatwierdzające, które są najbardziej znające konkretną rolę i jej częste użytkowników, a nie administratora globalnego. |
+| Osoby zatwierdzającej | Jeśli wymagane jest zatwierdzenie w celu aktywowania kwalifikującej się roli, należy podać osoby, które powinny zatwierdzić żądanie. Domyślnie Privileged Identity Management ustawia osoby zatwierdzającej na wszystkich użytkowników, którzy są administratorami ról uprzywilejowanych, niezależnie od tego, czy są one trwałe, czy kwalifikujące się.<br/><br/>**Uwaga:** Jeśli użytkownik jest uprawniony do roli usługi Azure AD i osoby zatwierdzającej rolę, nie będzie w stanie zatwierdzić siebie.<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** , aby wybrać osoby zatwierdzające, które są najbardziej znające konkretną rolę i jej częste użytkowników, a nie administratora globalnego. |
 | Czas trwania aktywacji | Długość czasu aktywacji użytkownika w roli przed jego wygaśnięciem. |
 | Administrator trwały | Lista użytkowników, którzy będą administratorami stałymi dla roli (nigdy nie trzeba aktywować).<br/><br/> : heavy_check_mark: **firma Microsoft zaleca** , aby nie mieć stałego administratora dla wszystkich ról, z wyjątkiem administratorów globalnych. Przeczytaj więcej na temat tego, kto powinien zostać uprawniony i kto powinien być trwale aktywny w tym planie. |
 | Administrator aktywny | W przypadku zasobów platformy Azure Active administrator jest listą użytkowników, którzy nigdy nie będą musieli aktywować, aby korzystać z roli. Nie jest to nazywane stałymi administratorami, takimi jak role usługi Azure AD, ponieważ można ustawić czas wygaśnięcia dla momentu utraty tej roli przez użytkownika. |

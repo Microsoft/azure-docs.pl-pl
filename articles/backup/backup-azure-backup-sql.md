@@ -3,12 +3,11 @@ title: Tworzenie kopii zapasowych SQL Server na platformie Azure jako obciążen
 description: Wprowadzenie do tworzenia kopii zapasowych baz danych SQL Server przy użyciu usługi Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 01504fcfd81040d75e57ce62a9f77a5bb248d59b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183793"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195781"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Tworzenie kopii zapasowych SQL Server na platformie Azure jako obciążenia programu DPM
 
@@ -43,7 +42,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
 1. Wybierz pozycję **serwery**.
 
     ![Wybierz typ grupy ochrony serwerów](./media/backup-azure-backup-sql/pg-servers.png)
-1. Rozwiń maszynę SQL Server, na której znajdują się bazy danych, których kopię zapasową chcesz utworzyć. Zostaną wyświetlone źródła danych, których kopię zapasową można utworzyć z tego serwera. Rozwiń **wszystkie udziały SQL** , a następnie wybierz bazy danych, dla których chcesz utworzyć kopię zapasową. W tym przykładzie wybieramy polecenie ReportServer $ MSDPM2012 i ReportServer $ MSDPM2012TempDB. Następnie wybierz pozycję **Dalej**.
+1. Rozwiń węzeł SQL Server maszynę wirtualną, w której znajdują się bazy danych, których kopię zapasową chcesz utworzyć. Zostaną wyświetlone źródła danych, których kopię zapasową można utworzyć z tego serwera. Rozwiń **wszystkie udziały SQL** , a następnie wybierz bazy danych, dla których chcesz utworzyć kopię zapasową. W tym przykładzie wybieramy polecenie ReportServer $ MSDPM2012 i ReportServer $ MSDPM2012TempDB. Następnie wybierz pozycję **Dalej**.
 
     ![Wybierz bazę danych SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nadaj nazwę grupie ochrony, a następnie wybierz opcję **Chcę chronić w trybie online**.
@@ -72,7 +71,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
 
     ![Wybierz metodę tworzenia repliki](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database). Dane kopii zapasowej są przenoszone z serwera produkcyjnego (SQL Server maszyny) na serwer programu DPM. Jeśli ta kopia zapasowa jest duża, przeniesienie danych przez sieć może spowodować Przeciążenie przepustowości. Z tego powodu Administratorzy mogą zdecydować się na **Ręczne**przetransferowanie początkowej kopii zapasowej za pomocą nośnika wymiennego. Lub mogą automatycznie przesyłać dane **przez sieć** w określonym czasie.
+    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database). Dane kopii zapasowej są przenoszone z serwera produkcyjnego (SQL Server komputera) na serwer programu DPM. Jeśli ta kopia zapasowa jest duża, przeniesienie danych przez sieć może spowodować Przeciążenie przepustowości. Z tego powodu Administratorzy mogą zdecydować się na **Ręczne**przetransferowanie początkowej kopii zapasowej za pomocą nośnika wymiennego. Lub mogą automatycznie przesyłać dane **przez sieć** w określonym czasie.
 
     Po zakończeniu początkowej kopii zapasowej kopie zapasowe będą wykonywane przyrostowo na początkowej kopii zapasowej. Przyrostowe kopie zapasowe mają być małe i łatwo przesyłane przez sieć.
 
@@ -80,7 +79,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
 
     ![Wybierz, kiedy ma zostać uruchomione sprawdzanie spójności](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Program DPM może uruchomić sprawdzanie spójności na integralność punktu kopii zapasowej. Oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (w tym przykładzie maszynę SQL Server) oraz dane kopii zapasowej dla tego pliku w programie DPM. Jeśli zaznaczenie spowoduje znalezienie konfliktu, zakłada się, że plik kopii zapasowej w programie DPM jest uszkodzony. Program DPM naprawia dane kopii zapasowej, wysyłając bloki, które odpowiadają niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności jest operacją intensywnie wykorzystującą wydajność, Administratorzy mogą zdecydować się na zaplanowanie kontroli spójności lub uruchomić ją automatycznie.
+    Program DPM może uruchomić sprawdzanie spójności na integralność punktu kopii zapasowej. Oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (w tym przykładzie komputer SQL Server) oraz kopię zapasową danych tego pliku w programie DPM. Jeśli zaznaczenie spowoduje znalezienie konfliktu, zakłada się, że plik kopii zapasowej w programie DPM jest uszkodzony. Program DPM naprawia dane kopii zapasowej, wysyłając bloki, które odpowiadają niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności jest operacją intensywnie wykorzystującą wydajność, Administratorzy mogą zdecydować się na zaplanowanie kontroli spójności lub uruchomić ją automatycznie.
 
 1. Wybierz źródła danych, które mają być chronione na platformie Azure. Następnie wybierz pozycję **Dalej**.
 

@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4b87008f4172e58440c32e4ff92a3ee1f4d5efae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759136"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565873"
 ---
 # <a name="textures"></a>Tekstury
 
-Tekstury są niezmiennym [zasobem udostępnionym](../concepts/lifetime.md). Tekstury można ładować z [magazynu obiektów BLOB](../how-tos/conversion/blob-storage.md) i bezpośrednio stosować do modeli, jak pokazano w [samouczku: zmiana środowiska i materiałów](../tutorials/unity/changing-environment-and-materials.md). Najczęściej, chociaż tekstury będą częścią [konwertowanego modelu](../how-tos/conversion/model-conversion.md), w którym odwołują się do niego [materiały](materials.md).
+Tekstury są niezmiennym [zasobem udostępnionym](../concepts/lifetime.md). Tekstury można ładować z [magazynu obiektów BLOB](../how-tos/conversion/blob-storage.md) i bezpośrednio stosować do modeli, jak pokazano w [samouczku: zmiana środowiska i materiałów](../tutorials/unity/materials-lighting-effects/materials-lighting-effects.md). Najczęściej, chociaż tekstury będą częścią [konwertowanego modelu](../how-tos/conversion/model-conversion.md), w którym odwołują się do niego [materiały](materials.md).
 
 ## <a name="texture-types"></a>Typy tekstury
 

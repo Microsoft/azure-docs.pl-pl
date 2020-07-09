@@ -5,13 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/25/2020
+ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131218"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392815"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Dzienniki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -82,6 +81,7 @@ Wyszukaj wszystkie dzienniki Postgres dla określonego serwera w ostatnim dniu
 ```
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
+| where Category == "PostgreSQLLogs"
 | where TimeGenerated > ago(1d) 
 ```
 
@@ -112,9 +112,9 @@ W poniższej tabeli opisano pola dla typu **PostgreSQLLogs** . W zależności od
 | Kategoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | Zmienna | Poziom rejestrowania, przykład: LOG, błąd, Uwaga |
-| Wiadomość | Podstawowy komunikat dziennika | 
+| Komunikat | Podstawowy komunikat dziennika | 
 | Domain | Wersja serwera, przykład: Postgres-10 |
-| Szczegół | Dodatkowy komunikat dziennika (jeśli dotyczy) |
+| Szczegóły | Dodatkowy komunikat dziennika (jeśli dotyczy) |
 | nazwa_kolumny | Nazwa kolumny (jeśli dotyczy) |
 | SchemaName | Nazwa schematu (jeśli dotyczy) |
 | Typ danych | Nazwa typu danych (jeśli dotyczy) |

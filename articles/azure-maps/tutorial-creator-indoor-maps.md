@@ -3,17 +3,16 @@ title: Tworzenie map wewnętrznych przy użyciu kreatora
 description: Użyj Kreatora Azure Maps, aby utworzyć mapy wewnętrzne.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745939"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027877"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -39,6 +38,9 @@ Aby utworzyć mapy wewnętrzne:
 
 W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.com/) , ale można wybrać inne środowisko deweloperskie interfejsu API.
 
+>[!IMPORTANT]
+> Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services](how-to-manage-creator.md#access-to-creator-services).
+
 ## <a name="upload-a-drawing-package"></a>Przekaż pakiet rysowania
 
 Użyj [interfejsu API przekazywania danych](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) , aby przekazać pakiet rysowania do zasobów Azure Maps.
@@ -61,25 +63,30 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
 5. Kliknij niebieski przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź na kartę **nagłówki** odpowiedzi. Skopiuj wartość klucza **lokalizacji** , czyli `status URL` .
 
-6. Aby sprawdzić stan wywołania interfejsu API, Utwórz żądanie GET HTTP na stronie `status URL` . Musisz dołączyć podstawowy klucz subskrypcji do adresu URL na potrzeby uwierzytelniania.
+6. Aby sprawdzić stan wywołania interfejsu API, Utwórz żądanie **Get** http na stronie `status URL` . Musisz dołączyć podstawowy klucz subskrypcji do adresu URL na potrzeby uwierzytelniania. Żądanie **Get** powinno wyglądać następująco:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationsId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Po pomyślnym zakończeniu żądania **Get** http możesz użyć `resourceLocation` adresu URL, aby pobrać metadane z tego zasobu w następnym kroku.
+7. Pomyślne zakończenie żądania **Get** http spowoduje zwrócenie elementu `resourceLocation` . `resourceLocation`Zawiera unikatowy `udid` dla przekazanej zawartości. Opcjonalnie możesz użyć `resourceLocation` adresu URL, aby pobrać metadane z tego zasobu w następnym kroku.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{upload-udid}?api-version=1.0"
+        "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. Aby pobrać metadane zawartości, Utwórz żądanie **Get** http dla `resourceLocation` adresu URL skopiowanego w kroku 7. Treść odpowiedzi zawiera unikatową wartość `udid` dla przekazanej zawartości, lokalizację dostępu/pobieranie zawartości w przyszłości oraz inne metadane dotyczące zawartości, takie jak Data utworzenia/zaktualizowana, rozmiar itd. Przykładem ogólnej odpowiedzi jest:
+8. Aby pobrać metadane zawartości, Utwórz żądanie **Get** http na `resourceLocation` adresie URL, który został pobrany w kroku 7. Pamiętaj o dołączeniu podstawowego klucza subskrypcji do adresu URL na potrzeby uwierzytelniania. Żądanie **Get** powinno wyglądać następująco:
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. Po pomyślnym zakończeniu żądania **Get** http treść odpowiedzi będzie zawierać `udid` określone w `resourceLocation` kroku 7, lokalizację dostępu/pobrać zawartość w przyszłości oraz inne metadane dotyczące zawartości, takie jak Data utworzenia/zaktualizowana, rozmiar itd. Przykładem ogólnej odpowiedzi jest:
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
@@ -94,13 +101,15 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
  Teraz, gdy pakiet do rysowania zostanie przekazany, zostanie użyty `udid` dla przekazanego pakietu do przekonwertowania pakietu na dane mapy. Interfejs API konwersji używa długotrwałej transakcji implementującej wzorzec zdefiniowany w [tym miejscu](creator-long-running-operation.md). Po zakończeniu operacji będziemy korzystać z programu `conversionId` w celu uzyskania dostępu do przekonwertowanych danych. Wykonaj poniższe kroki, aby uzyskać `conversionId` .
 
-1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekonwertować przekazany pakiet rysowania na dane mapy. Użyj `udid` do przekazanego pakietu.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={upload-udid}&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+    >[!IMPORTANT]
+    > Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 3. Kliknij przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź do karty **nagłówki** w odpowiedzi i Wyszukaj klucz **lokalizacji** . Skopiuj wartość klucza **lokalizacji** , która jest `status URL` dla żądania konwersji.
 
@@ -143,7 +152,7 @@ Przykładowy pakiet rysowania powinien zostać skonwertowany bez błędów lub o
 }
 ```
 
-## <a name="create-a-dataset"></a>Tworzenie zestawu danych
+## <a name="create-a-dataset"></a>Utwórz zestaw danych
 
 Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby utworzyć zestaw danych, użyj [interfejsu API tworzenia zestawu danych](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Interfejs API tworzenia zestawu danych przyjmuje `conversionId` dla przekonwertowanego pakietu rysowania i zwraca `datasetId` z utworzonego zestawu danych. Poniższe kroki pokazują, jak utworzyć zestaw danych.
 
@@ -160,7 +169,7 @@ Zestaw danych to zbiór funkcji mapy, takich jak budynki, poziomy i pokoje. Aby 
 4. Utwórz żądanie **Get** w usłudze, `statusURL` Aby uzyskać `datasetId` . Dołącz podstawowy klucz subskrypcji Azure Maps na potrzeby uwierzytelniania. Żądanie powinno wyglądać następująco:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 5. Po pomyślnym zakończeniu żądania **Get** http nagłówek odpowiedzi będzie zawierać `datasetId` dla utworzonego zestawu danych. Skopiuj `datasetId` . Musisz użyć `datasetId` elementu, aby utworzyć tileset.
@@ -189,7 +198,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 3. Utwórz żądanie **Get** w `statusURL` tileset. Dołącz podstawowy klucz subskrypcji Azure Maps na potrzeby uwierzytelniania. Żądanie powinno wyglądać następująco:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Po pomyślnym zakończeniu żądania **Get** http nagłówek odpowiedzi będzie zawierać `tilesetId` dla utworzonego tileset. Skopiuj `tilesetId` .

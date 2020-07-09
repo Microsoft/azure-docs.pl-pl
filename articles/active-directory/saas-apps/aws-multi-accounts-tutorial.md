@@ -16,10 +16,9 @@ ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81603825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Samouczek: integracja Azure Active Directory z Amazon Web Services (AWS) (starszy samouczek)
@@ -122,7 +121,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
 5. Aplikacja usług Amazon Web Services (AWS) oczekuje asercji SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty i oświadczenia użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe **atrybuty użytkownika & oświadczenia** .
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej, i wykonaj następujące czynności:
 
@@ -134,9 +133,9 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image](common/new-save-attribute.png)
+    ![image (obraz)](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image (obraz)](common/new-attribute-details.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -148,7 +147,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     f. Kliknij przycisk **OK** .
 
-    g. Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** i zapisać go na komputerze.
 
@@ -212,7 +211,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     a. W polu tekstowym **klucz** wpisz nazwę klucza dla przykładu: Azureadtest.
 
-    b. W polu tekstowym **wartość (opcjonalnie)** wprowadź wartość klucza przy użyciu następującego formatu `accountname-aws-admin`. Nazwa konta powinna zawierać tylko małe litery.
+    b. W polu tekstowym **wartość (opcjonalnie)** wprowadź wartość klucza przy użyciu następującego formatu `accountname-aws-admin` . Nazwa konta powinna zawierać tylko małe litery.
 
     c. Kliknij przycisk **Dalej: przegląd**.
 
@@ -220,7 +219,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     ![Konfigurowanie logowania jednokrotnego — przegląd][34]
 
-    a. W polu tekstowym **Nazwa roli** wprowadź wartość w poniższym wzorcu `accountname-aws-admin`.
+    a. W polu tekstowym **Nazwa roli** wprowadź wartość w poniższym wzorcu `accountname-aws-admin` .
 
     b. W polu tekstowym **Opis roli** wprowadź tę samą wartość, która była używana jako nazwa roli.
 
@@ -283,7 +282,7 @@ W tej sekcji włączasz Logowanie jednokrotne w usłudze Azure AD w Azure Portal
 
     ![Eksplorator Microsoft Graph — okno dialogowe](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    g. Wyodrębnij Właściwość appRoles z obiektu jednostki usługi.
+    przykład Wyodrębnij Właściwość appRoles z obiektu jednostki usługi.
 
     ![Eksplorator Microsoft Graph — okno dialogowe](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
@@ -369,7 +368,7 @@ Możesz również zweryfikować odpowiedź SAML, aby zobaczyć role przekazywane
 
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Jak skonfigurować Inicjowanie obsługi przy użyciu interfejsów API programu MS Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](tutorial-list.md)

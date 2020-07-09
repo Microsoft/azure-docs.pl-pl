@@ -4,13 +4,13 @@ description: Dowiedz się, w jaki sposób używać Azure Container Instances do 
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80131494"
 ---
-# <a name="run-containerized-tasks-with-restart-policies"></a>Uruchamianie zadań kontenera z zasadami ponownego uruchamiania
+# <a name="run-containerized-tasks-with-restart-policies"></a>Uruchamianie zadań konteneryzowanych przy użyciu zasad ponownego uruchamiania
 
 Łatwość i szybkość wdrażania kontenerów w usłudze Azure Container Instances zapewnia atrakcyjną platformę do wykonywania jednorazowych zadań, takich jak kompilacje, testy i renderowanie obrazów w wystąpieniu kontenera.
 
@@ -30,7 +30,7 @@ Podczas tworzenia [grupy kontenerów](container-instances-container-groups.md) w
 
 ## <a name="specify-a-restart-policy"></a>Określ zasady ponownego uruchamiania
 
-Sposób określania zasad ponownego uruchamiania zależy od sposobu tworzenia wystąpień kontenera, takich jak w przypadku interfejsu wiersza polecenia platformy Azure, poleceń cmdlet Azure PowerShell lub Azure Portal. W interfejsie wiersza polecenia platformy Azure `--restart-policy` określ parametr podczas wywoływania polecenia [AZ Container Create][az-container-create].
+Sposób określania zasad ponownego uruchamiania zależy od sposobu tworzenia wystąpień kontenera, takich jak w przypadku interfejsu wiersza polecenia platformy Azure, poleceń cmdlet Azure PowerShell lub Azure Portal. W interfejsie wiersza polecenia platformy Azure Określ `--restart-policy` parametr podczas wywoływania polecenia [AZ Container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -42,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Przykład przebiegu do ukończenia
 
-Aby wyświetlić zasady ponownego uruchamiania w działaniu, Utwórz wystąpienie kontenera z obrazu Microsoft [ACI-WORDCOUNT][aci-wordcount-image] i określ zasady `OnFailure` ponownego uruchamiania. Ten przykładowy kontener uruchamia skrypt języka Python, który domyślnie analizuje tekst [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)Szekspira, zapisuje 10 najpopularniejszych słów do stdout, a następnie kończy pracę.
+Aby wyświetlić zasady ponownego uruchamiania w działaniu, Utwórz wystąpienie kontenera z obrazu Microsoft [ACI-WORDCOUNT][aci-wordcount-image] i określ `OnFailure` zasady ponownego uruchamiania. Ten przykładowy kontener uruchamia skrypt języka Python, który domyślnie analizuje tekst [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)Szekspira, zapisuje 10 najpopularniejszych słów do stdout, a następnie kończy pracę.
 
 Uruchom przykładowy kontener za pomocą następującego polecenia [AZ Container Create][az-container-create] :
 
@@ -54,7 +54,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Usługa Azure Container Instances uruchamia kontener, a następnie zatrzymuje go, gdy znajdująca się w nim aplikacja (lub, jak w tym przypadku, skrypt) kończy działanie. Gdy Azure Container Instances zatrzyma kontener, którego zasady ponownego `Never` uruchamiania `OnFailure`to lub, stan kontenera to **zakończony**. Stan kontenera można sprawdzić za pomocą polecenia [AZ Container show][az-container-show] :
+Usługa Azure Container Instances uruchamia kontener, a następnie zatrzymuje go, gdy znajdująca się w nim aplikacja (lub, jak w tym przypadku, skrypt) kończy działanie. Gdy Azure Container Instances zatrzyma kontener, którego zasady ponownego uruchamiania to `Never` lub `OnFailure` , stan kontenera to **zakończony**. Stan kontenera można sprawdzić za pomocą polecenia [AZ Container show][az-container-show] :
 
 ```azurecli-interactive
 az container show \

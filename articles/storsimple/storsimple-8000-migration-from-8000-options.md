@@ -4,15 +4,14 @@ description: Zawiera omówienie opcji migracji danych z serii StorSimple 8000.
 services: storsimple
 author: priestlg
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: v-grpr
-ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 39c78e1dc579f74207ba828f2f6a49ad44dd4a43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767056"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514712"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opcje migracji danych z serii StorSimple 8000
 
@@ -40,6 +39,12 @@ Aby uzyskać więcej informacji na temat migrowania danych do Azure File Sync, p
 Klienci serii StorSimple 5000-7000 i StorSimple 8000 mogą zdecydować się na migrację do Panzura swobody NAS, aby zachować swoje dane na platformie Azure. Panzura Wolnościing to rozwiązanie NAS, które obejmuje centra danych, biura, chmurę publiczną i prywatną. Rozwiązanie umożliwia wykonywanie lokalnych, hybrydowych i w chmurze przepływów danych dla klientów systemu plików NFS, SMB i urządzeń przenośnych.
 
 Ta migracja jest obsługiwana przez Panzura i klienci mogą rozpocząć pracę, żądając obsługi migracji z [witryny sieci Web Panzura](https://panzura.com/migrate-storsimple-panzura/).
+
+#### <a name="migrate-to-nasuni"></a>Migrowanie do nasuni
+
+Przeniesienie całego środowiska StorSimple na stabilną i bezpieczną platformę usług plików o wysokiej wydajności jest proste z nasuni. Nasuni oferuje zabezpieczenia i wydajność lokalnego magazynu plików podczas łączenia go z skalowalnością i trwałością platformy Azure.  Jako wiodący dostawca niezależnego oprogramowania platformy Azure nasuni udostępnia wszystkie narzędzia niezbędne do przenoszenia danych StorSimple do nowoczesnej platformy umożliwiającej udostępnianie plików i współpracę z nimi w wielu lokalizacjach.
+
+Zacznij już dzisiaj: [nasuni witrynę sieci Web](https://info.nasuni.com/storsimple8000-webinar).
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

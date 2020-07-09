@@ -4,15 +4,15 @@ description: Opisuje sposób rozwiązywania problemów z kondycją zaplecza dla 
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648441"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808189"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Rozwiązywanie problemów z kondycją zaplecza w Application Gateway
 ==================================================
@@ -81,7 +81,7 @@ Po otrzymaniu stanu serwera wewnętrznej bazy danych w złej kondycji dla wszyst
 Komunikat wyświetlany w kolumnie **szczegóły** zawiera bardziej szczegółowe informacje o problemie i na podstawie tych informacji można rozpocząć rozwiązywanie problemu.
 
 > [!NOTE]
-> Domyślne żądanie sondowania jest wysyłane w formacie \< protokołu \> ://127.0.0.1: \< port \> /. Na przykład w http://127.0.0.1:80 przypadku sondy http na porcie 80. Tylko kody stanu HTTP od 200 do 399 są uznawane za zdrowe. Protokół i port docelowy są dziedziczone z ustawień HTTP. Jeśli chcesz, aby Application Gateway sondować różne protokoły, nazwy hostów lub ścieżki i rozpoznawać inny kod stanu jako dobry, skonfiguruj sondę niestandardową i skojarz ją z ustawieniami protokołu HTTP.
+> Domyślne żądanie sondowania jest wysyłane w formacie \<protocol\> ://127.0.0.1: \<port\> /. Na przykład w http://127.0.0.1:80 przypadku sondy http na porcie 80. Tylko kody stanu HTTP od 200 do 399 są uznawane za zdrowe. Protokół i port docelowy są dziedziczone z ustawień HTTP. Jeśli chcesz, aby Application Gateway sondować różne protokoły, nazwy hostów lub ścieżki i rozpoznawać inny kod stanu jako dobry, skonfiguruj sondę niestandardową i skojarz ją z ustawieniami protokołu HTTP.
 
 <a name="error-messages"></a>Komunikaty o błędach
 ------------------------
@@ -157,7 +157,7 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
     a.  Otwórz wiersz polecenia (Win + R- \> cmd), wprowadź `netstat` i wybierz ENTER.
 
-    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Na przykład:
+    b.  Sprawdź, czy serwer nasłuchuje na skonfigurowanym porcie. Przykład:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -170,7 +170,7 @@ Sprawdź również, czy jakakolwiek sieciowej grupy zabezpieczeń/UDR/zapora blo
 
 **Komunikat:** Kod stanu \' odpowiedzi HTTP zaplecza nie jest zgodny z ustawieniem sondy. Oczekiwano: {HTTPStatusCode0} odebrano: {HTTPStatusCode1}.
 
-**Przyczyna:** Po nawiązaniu połączenia TCP i zakończeniu uzgadniania TLS (Jeśli protokół TLS jest włączony), Application Gateway wyśle sondę jako żądanie HTTP GET do serwera wewnętrznej bazy danych. Zgodnie z wcześniejszym opisem, domyślną sondą będzie \< Protokół \> ://127.0.0.1: \< port \> /i traktuje kody stanu odpowiedzi w próg 200 do 399 jako dobra kondycja. Jeśli serwer zwróci inny kod stanu, zostanie oznaczony jako nieprawidłowy dla tej wiadomości.
+**Przyczyna:** Po nawiązaniu połączenia TCP i zakończeniu uzgadniania TLS (Jeśli protokół TLS jest włączony), Application Gateway wyśle sondę jako żądanie HTTP GET do serwera wewnętrznej bazy danych. Jak opisano wcześniej, domyślną sondą będzie \<protocol\> ://127.0.0.1: \<port\> /, a w przypadku próg 200 do 399 w dobrej kondycji są brane pod uwagę kody stanu odpowiedzi. Jeśli serwer zwróci inny kod stanu, zostanie oznaczony jako nieprawidłowy dla tej wiadomości.
 
 **Rozwiązanie:** W zależności od kodu odpowiedzi serwera wewnętrznej bazy danych można wykonać następujące czynności. Poniżej przedstawiono kilka typowych kodów stanu:
 
@@ -209,7 +209,7 @@ Dowiedz się więcej na temat [dopasowywania sond Application Gateway](https://d
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Nieprawidłowy urząd certyfikacji dla certyfikatu serwera wewnętrznej bazy danych
 
-**Komunikat:** Certyfikat serwera używany przez zaplecze nie jest podpisany przez dobrze znany urząd certyfikacji (CA). Dozwolonych zaplecze na Application Gateway, przekazując certyfikat główny certyfikatu serwera używanego przez zaplecze.
+**Komunikat:** Certyfikat serwera używany przez zaplecze nie jest podpisany przez dobrze znany urząd certyfikacji (CA). Zezwól na zaplecze na Application Gateway, przekazując certyfikat główny certyfikatu serwera używanego przez zaplecze.
 
 **Przyczyna:** Kompleksowy protokół SSL z Application Gateway v2 wymaga zweryfikowania certyfikatu serwera wewnętrznej bazy danych w celu uznania kondycji serwera.
 Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych musi być wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie Application Gateway. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji (na przykład jeśli został użyty certyfikat z podpisem własnym), użytkownicy powinni przekazać certyfikat wystawcy do Application Gateway.
@@ -257,7 +257,7 @@ Aby uzyskać więcej informacji na temat wyodrębniania i przekazywania zaufanyc
 > [!NOTE]
 > Ten błąd może również wystąpić, jeśli serwer wewnętrznej bazy danych nie wymienia kompletnego łańcucha certyfikatu, łącznie z głównym > pośrednią (jeśli dotyczy) > liścia podczas uzgadniania TLS. Aby sprawdzić, można użyć poleceń OpenSSL z dowolnego klienta i połączyć się z serwerem zaplecza przy użyciu skonfigurowanych ustawień sondy Application Gateway.
 
-Na przykład:
+Przykład:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```

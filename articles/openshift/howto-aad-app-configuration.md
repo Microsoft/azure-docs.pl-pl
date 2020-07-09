@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81382915"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory integrację z usługą Azure Red Hat OpenShift
@@ -23,7 +23,7 @@ Microsoft Azure Red Hat OpenShift potrzebuje uprawnień do wykonywania zadań w 
 
 W [Azure Portal](https://portal.azure.com)upewnij się, że dzierżawa jest wyświetlana pod nazwą użytkownika w prawym górnym rogu portalu:
 
-![Zrzut ekranu portalu z dzierżawą wymienioną w](./media/howto-create-tenant/tenant-callout.png) prawym górnym rogu, jeśli zostanie wyświetlona niewłaściwa dzierżawa, kliknij nazwę użytkownika w prawym górnym rogu, a następnie kliknij pozycję **Przełącz katalog**i wybierz poprawną dzierżawę z listy **wszystkie katalogi** .
+![Zrzut ekranu portalu z dzierżawą wymienioną w prawym górnym rogu ](./media/howto-create-tenant/tenant-callout.png) , jeśli zostanie wyświetlona niewłaściwa dzierżawa, kliknij nazwę użytkownika w prawym górnym rogu, a następnie kliknij pozycję **Przełącz katalog**i wybierz poprawną dzierżawę z listy **wszystkie katalogi** .
 
 Utwórz nowego użytkownika Azure Active Directory "właściciel", aby zalogować się do klastra Red Hat OpenShift platformy Azure.
 
@@ -54,7 +54,7 @@ Aby udzielić dostępu administratora klastra, członkostwa w grupie zabezpiecze
     Zapisz wartość identyfikatora grupy.
 
 9. Po utworzeniu grupy zobaczysz ją na liście wszystkich grup. Kliknij nową grupę.
-10. Na wyświetlonej stronie Skopiuj **Identyfikator obiektu**. Ta wartość zostanie odwołująca się `GROUPID` do tej wartości w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+10. Na wyświetlonej stronie Skopiuj **Identyfikator obiektu**. Ta wartość zostanie odwołująca się do tej wartości `GROUPID` w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 > [!IMPORTANT]
 > Aby zsynchronizować tę grupę z grupą OSA-OpenShift-admins, Utwórz klaster przy użyciu interfejsu wiersza polecenia platformy Azure. Azure Portal aktualnie nie ma pola, aby ustawić tę grupę.
@@ -69,7 +69,7 @@ Jeśli Twoja organizacja nie ma jeszcze rejestracji aplikacji Azure Active Direc
 2. W okienku **zarejestruj aplikację** wprowadź nazwę rejestracji aplikacji.
 3. Upewnij się, że w obszarze **obsługiwane typy kont** są zaznaczone **tylko konta w tym katalogu organizacyjnym** . Jest to najbardziej bezpieczny wybór.
 4. Po poznaniu identyfikatora URI klastra zostanie dodany identyfikator URI przekierowania. Kliknij przycisk **zarejestruj** , aby utworzyć rejestrację aplikacji usługi Azure AD.
-5. Na wyświetlonej stronie Skopiuj **Identyfikator aplikacji (klienta)**. Ta wartość zostanie odwołująca się `APPID` do tej wartości w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+5. Na wyświetlonej stronie Skopiuj **Identyfikator aplikacji (klienta)**. Ta wartość zostanie odwołująca się do tej wartości `APPID` w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 ![Zrzut ekranu przedstawiający stronę obiektu aplikacji](./media/howto-create-tenant/get-app-id.png)
 
@@ -82,7 +82,7 @@ Wygeneruj klucz tajny klienta na potrzeby uwierzytelniania aplikacji w Azure Act
 3. Podaj **Opis**.
 4. Ustawienie **wygasa** na preferowany czas, na przykład przez **2 lata**.
 5. Kliknij przycisk **Dodaj** . wartość klucza zostanie wyświetlona w sekcji wpisy **tajne klienta** strony.
-6. Skopiuj wartość klucza. Ta wartość zostanie odwołująca się `SECRET` do tej wartości w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+6. Skopiuj wartość klucza. Ta wartość zostanie odwołująca się do tej wartości `SECRET` w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 ![Zrzut ekranu przedstawiający okienko certyfikaty i wpisy tajne](./media/howto-create-tenant/create-key.png)
 

@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725248"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informacje o rozszerzonych możliwościach trybu offline dla urządzeń IoT Edge, modułów i urządzeń podrzędnych
@@ -95,7 +94,7 @@ Możesz zmodyfikować [zapytanie](../iot-hub/iot-hub-devguide-query-language.md)
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Opcja 3: korzystanie z zestawu SDK usługi IoT Hub
 
-Na koniec można zarządzać nadrzędnymi relacjami podrzędnymi przy użyciu zestawu SDK usługi IoT Hub C#, Java lub Node. js. Oto [przykład przypisywania urządzenia podrzędnego](https://aka.ms/set-child-iot-device-c-sharp) przy użyciu zestawu C# SDK.
+Na koniec można zarządzać nadrzędnymi relacjami podrzędnymi za pomocą języka C#, Java lub Node.js IoT Hub usługi SDK. Oto [przykład przypisywania urządzenia podrzędnego](https://aka.ms/set-child-iot-device-c-sharp) przy użyciu zestawu C# SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Skonfiguruj urządzenie nadrzędne jako bramę
 

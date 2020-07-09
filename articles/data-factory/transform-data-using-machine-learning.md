@@ -11,10 +11,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
 ms.openlocfilehash: 26ba4c3da0bcfa36874e7b31241839c138809cec
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84019898"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Tworzenie potoków predykcyjnych przy użyciu usług Azure Machine Learning i Azure Data Factory
@@ -127,10 +126,10 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Ma
 
 | Właściwość          | Opis                              | Wymagane |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nazwa działania w potoku     | Yes      |
+| name              | Nazwa działania w potoku     | Tak      |
 | description       | Tekst opisujący działanie działania.  | Nie       |
-| typ              | W przypadku Data Lake Analytics działania U-SQL typ działania to **AzureMLBatchExecution**. | Yes      |
-| linkedServiceName | Połączone usługi z połączoną usługą Azure Machine Learning. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Yes      |
+| typ              | W przypadku Data Lake Analytics działania U-SQL typ działania to **AzureMLBatchExecution**. | Tak      |
+| linkedServiceName | Połączone usługi z połączoną usługą Azure Machine Learning. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
 | webServiceInputs  | Klucz, pary wartości, Mapowanie nazw danych wejściowych usługi sieci Web Azure Machine Learning. Klucz musi być zgodny z parametrami wejściowymi zdefiniowanymi w opublikowanej usłudze sieci Web Azure Machine Learning. Wartość to para właściwości usług połączonych i FilePath usługi Azure Storage określających wejściowe lokalizacje obiektów BLOB. | Nie       |
 | webServiceOutputs | Klucz, pary wartości, Mapowanie nazw danych wyjściowych usługi sieci Web Azure Machine Learning. Klucz musi być zgodny z parametrami wyjściowymi zdefiniowanymi w opublikowanej usłudze sieci Web Azure Machine Learning. Wartość to para właściwości usług połączonych i FilePath usługi Azure Storage określających wyjściowe lokalizacje obiektów BLOB. | Nie       |
 | globalParameters  | Klucz i pary wartości, które mają zostać przesłane do punktu końcowego usługi wykonywania wsadowego w Azure Machine Learning Studio (klasycznym). Klucze muszą być zgodne z nazwami parametrów usługi sieci Web zdefiniowanych w opublikowanej usłudze sieci Web Azure Machine Learning Studio (klasycznej). Wartości są przesyłane we Azure Machine Learning Studio właściwości GlobalParameters (klasyczne) żądania wykonania partii | Nie       |

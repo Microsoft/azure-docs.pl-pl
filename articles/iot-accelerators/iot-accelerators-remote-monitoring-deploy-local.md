@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890887"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Wdrażanie akceleratora rozwiązań zdalnego monitorowania lokalnie — Visual Studio
@@ -35,9 +34,9 @@ Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainst
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Program Visual Studio](https://visualstudio.microsoft.com/)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node. js V8](https://nodejs.org/) — to oprogramowanie jest wymaganiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj środowiska Node. js v10.
+* [Node.js V8](https://nodejs.org/) — to oprogramowanie jest warunkiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj Node.js v10.
 
 > [!NOTE]
 > Program Visual Studio jest dostępny dla systemów Windows i Mac.
@@ -96,7 +95,7 @@ npm install
 npm start
 ```
 
-Po zakończeniu, przeglądarka wyświetla stronę **\/http:/localhost: 3000/pulpit nawigacyjny**. Błędy na tej stronie są oczekiwane. Aby wyświetlić aplikację bez błędów, wykonaj następujące czynności.
+Po zakończeniu, przeglądarka wyświetla stronę **http: \/ /localhost: 3000/pulpit nawigacyjny**. Błędy na tej stronie są oczekiwane. Aby wyświetlić aplikację bez błędów, wykonaj następujące czynności.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurowanie i uruchamianie NGINX
 
@@ -109,7 +108,7 @@ Aby uzyskać więcej informacji na temat uruchamiania programu **Nginx**, zobacz
 
 ### <a name="connect-to-the-dashboard"></a>Nawiązywanie połączenia z pulpitem nawigacyjnym
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego,\/przejdź do protokołu http:/localhost: 9000 w przeglądarce.
+Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego, przejdź do protokołu http: \/ /localhost: 9000 w przeglądarce.
 
 ## <a name="clean-up"></a>Czyszczenie
 

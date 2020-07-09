@@ -5,14 +5,29 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: bf8b9370abc58902d9c751505f633dee852210a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200189"
 ---
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/) 
+
+1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**.
+1. W obszarze **skonfigurowane uprawnienia**wybierz pozycję **Dodaj uprawnienie**.
+1. Wybierz kartę **interfejsy API firmy Microsoft** , a następnie wybierz pozycję **Microsoft Graph**.
+1. Wybierz pozycję **Uprawnienia aplikacji**.
+1. Rozwiń odpowiednią grupę uprawnień i zaznacz pole wyboru uprawnienia do udzielenia aplikacji zarządzania. Przykład:
+    * **Wyauditlog**  >  **AuditLog. Read. All**: na potrzeby odczytywania dzienników inspekcji katalogu.
+    * **Katalog**  >  **Directory. ReadWrite. All**: na potrzeby migracji użytkowników lub scenariuszy zarządzania użytkownikami.
+    * **Zasady**  >  **Policy. ReadWrite. TrustFramework**: w scenariuszach ciągłej integracji/ciągłego dostarczania (Ci/CD). Na przykład niestandardowe wdrożenie zasad z Azure Pipelines.
+1. Wybierz pozycję **Dodaj uprawnienia**. Poczekaj kilka minut, zanim przejdziesz do kolejnego kroku.
+1. Wybierz pozycję **Udziel zgody administratora (nazwa dzierżawy)**.
+1. Jeśli obecnie nie zalogowano się za pomocą konta administratora globalnego, zaloguj się przy użyciu konta w dzierżawie usługi Azure AD B2C, do którego przypisano co najmniej rolę *administratora aplikacji w chmurze* , a następnie wybierz pozycję **Udziel zgody administratora na (nazwę dzierżawy)**.
+1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." pojawia się w obszarze **stan**. Propagowanie uprawnień może potrwać kilka minut.
+
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
 1. Na stronie Przegląd **zarejestrowanej aplikacji** wybierz pozycję **Ustawienia**.
 1. W obszarze **dostęp do interfejsu API**wybierz pozycję **wymagane uprawnienia**.
@@ -23,19 +38,3 @@ ms.locfileid: "78184360"
     * **Odczytuj i zapisuj zasady struktury zaufania organizacji**: wybierz to uprawnienie do scenariuszy ciągłej integracji/ciągłego dostarczania (Ci/CD). Na przykład niestandardowe wdrożenie zasad z Azure Pipelines.
 1. Wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Udziel uprawnień**, a następnie wybierz pozycję **tak**. Pełne propagowanie uprawnień może potrwać kilka minut.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
-
-1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**.
-1. W obszarze **skonfigurowane uprawnienia**wybierz pozycję **Dodaj uprawnienie**.
-1. Wybierz kartę **interfejsy API firmy Microsoft** , a następnie wybierz pozycję **Microsoft Graph**.
-1. Wybierz pozycję **Uprawnienia aplikacji**.
-1. Rozwiń odpowiednią grupę uprawnień i zaznacz pole wyboru uprawnienia do udzielenia aplikacji zarządzania. Przykład:
-    * **Auditlog** > **auditlog. Read. All**: na potrzeby odczytywania dzienników inspekcji katalogu.
-    * **Katalog katalogu** > **. ReadWrite. All**: dla migracji użytkowników lub scenariuszy zarządzania użytkownikami.
-    * **Policy**Zasady zasad **. ReadWrite. TrustFramework**: w scenariuszach ciągłej integracji/ciągłego dostarczania (Ci/CD). >  Na przykład niestandardowe wdrożenie zasad z Azure Pipelines.
-1. Wybierz pozycję **Dodaj uprawnienia**. Poczekaj kilka minut, zanim przejdziesz do kolejnego kroku.
-1. Wybierz pozycję **Udziel zgody administratora (nazwa dzierżawy)**.
-1. Wybierz obecnie zalogowane konto administratora lub Zaloguj się przy użyciu konta w dzierżawie Azure AD B2C, do którego przypisano co najmniej rolę *administratora aplikacji w chmurze* .
-1. Wybierz pozycję **Zaakceptuj**.
-1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." pojawia się w obszarze **stan**. Propagowanie uprawnień może potrwać kilka minut.

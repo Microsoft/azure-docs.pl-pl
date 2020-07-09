@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80334200"
 ---
 # <a name="connect-to-a-wfs-service"></a>Nawiązywanie połączenia z usługą WFS
 
-Usługa funkcji sieci Web (WFS) to usługa sieci Web służąca do wykonywania zapytań dotyczących danych przestrzennych, które mają ustandaryzowany interfejs API zdefiniowany przez Open Geospatial Consortium (OGC). `WfsClient` Klasa w module we/wy przestrzennym umożliwia deweloperom łączenie się z usługą WFS i wykonywanie zapytań dotyczących danych z usługi.
+Usługa funkcji sieci Web (WFS) to usługa sieci Web służąca do wykonywania zapytań dotyczących danych przestrzennych, które mają ustandaryzowany interfejs API zdefiniowany przez Open Geospatial Consortium (OGC). `WfsClient`Klasa w module we/wy przestrzennym umożliwia deweloperom łączenie się z usługą WFS i wykonywanie zapytań dotyczących danych z usługi.
 
-`WfsClient` Klasa obsługuje następujące funkcje:
+Klasa obsługuje następujące funkcje `WfsClient` :
 
-- Obsługiwane wersje: `1.0.0`, `1.1.0`i`2.0.0`
-- Obsługiwane operatory filtrów: porównania binarne, logika, Math, wartość i `bbox`.
-- Żądania są wykonywane tylko `HTTP GET` przy użyciu programu.
+- Obsługiwane wersje: `1.0.0` , `1.1.0` i`2.0.0`
+- Obsługiwane operatory filtrów: porównania binarne, logika, Math, wartość i `bbox` .
+- Żądania są wykonywane tylko przy użyciu programu `HTTP GET` .
 - Obsługiwane operacje:
 
     | | |
@@ -34,13 +34,13 @@ Usługa funkcji sieci Web (WFS) to usługa sieci Web służąca do wykonywania z
 
 ## <a name="using-the-wfs-client"></a>Korzystanie z klienta WFS
 
-`atlas.io.ogc.WfsClient` Klasa w module we/wy przestrzennym ułatwia wykonywanie zapytań do usługi WFS i konwertowanie odpowiedzi na obiekty GEOJSON. Tego obiektu GEOJSON można następnie użyć do innych celów mapowania.
+`atlas.io.ogc.WfsClient`Klasa w module we/wy przestrzennym ułatwia wykonywanie zapytań do usługi WFS i konwertowanie odpowiedzi na obiekty GEOJSON. Tego obiektu GEOJSON można następnie użyć do innych celów mapowania.
 
 Poniższy kod wysyła zapytanie do usługi WFS i renderuje zwrócone funkcje na mapie.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Prosty przykład WFS' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz prosty Azure Maps <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>przykład WFS</a> piórem (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Prosty przykład WFS' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz prosty Azure Maps <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>przykład WFS</a> piórem ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="supported-filters"></a>Obsługiwane filtry
@@ -82,7 +82,7 @@ Poniższy kod ilustruje użycie różnych filtrów z klientem WFS.
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'Przykłady filtrów WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>przykładami filtru WFS</a> piórem Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title= 'Przykłady filtrów WFS' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>przykładami filtru WFS</a> piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>Eksplorator usługi WFS
@@ -91,7 +91,7 @@ Poniższy kod używa klienta WFS do eksplorowania usług WFS Services. Wybierz w
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= 'Eksplorator usługi WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Eksploratorem WFS usługi</a> piórem<a href='https://codepen.io/azuremaps'>@azuremaps</a>, Azure Maps () na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'Eksplorator usługi WFS' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>Eksploratorem WFS usługi</a> piórem, Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Aby uzyskać dostęp do usług WFS hostowanych przez punkty końcowe z obsługą mechanizmu CORS, usługa serwera proxy z obsługą mechanizmu CORS może zostać przekazana do `proxyService` opcji klienta WFS, jak pokazano poniżej. 

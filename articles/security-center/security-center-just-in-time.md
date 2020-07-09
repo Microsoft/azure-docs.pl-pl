@@ -8,12 +8,11 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b24e0487aef73ed7852cb4a64766a1f8d92aff94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887337"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677439"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time
 
@@ -74,7 +73,7 @@ W Security Center można skonfigurować zasady JIT i zażądać dostępu do masz
 
      1. Kliknij przycisk **OK**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 > [!NOTE]
 >Gdy dla maszyny wirtualnej jest włączony dostęp JIT dla maszyny wirtualnej, Azure Security Center tworzy reguły "Odmów wszystkim ruchem przychodzącym" dla wybranych portów w grupach zabezpieczeń sieci skojarzonych i z tą zaporą platformy Azure. Jeśli zostały utworzone inne reguły dla wybranych portów, istniejące reguły mają pierwszeństwo przed nowym regułą "odmowa całego ruchu przychodzącego". Jeśli nie ma żadnych istniejących reguł na wybranych portach, nowy reguły "Odrzuć cały ruch przychodzący" mają najwyższy priorytet w grupach zabezpieczeń sieci i zaporze platformy Azure.
@@ -115,7 +114,7 @@ Aby edytować istniejące zasady just in Time maszyny wirtualnej:
 
 1. Na karcie **Konfiguracja** w obszarze **maszyny wirtualne**wybierz maszynę wirtualną, do której chcesz dodać port, klikając trzy kropki w wierszu dla tej maszyny wirtualnej. 
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. W obszarze **Konfiguracja dostępu JIT do maszyny wirtualnej**można edytować istniejące ustawienia już chronionego portu lub dodać nowy port niestandardowy. 
   ![dostęp JIT do maszyny wirtualnej](./media/security-center-just-in-time/edit-policy.png)
@@ -198,7 +197,7 @@ Funkcja dostępu just in Time do maszyny wirtualnej może być używana za pośr
 
 ### <a name="jit-vm-access-via-powershell"></a>Dostęp JIT do maszyny wirtualnej za pośrednictwem programu PowerShell
 
-Aby korzystać z rozwiązania dostępu just in Time do maszyny wirtualnej za pośrednictwem programu PowerShell, należy użyć oficjalnych poleceń cmdlet programu `Set-AzJitNetworkAccessPolicy`PowerShell Azure Security Center i w ten sposób.
+Aby korzystać z rozwiązania dostępu just in Time do maszyny wirtualnej za pośrednictwem programu PowerShell, należy użyć oficjalnych poleceń cmdlet programu PowerShell Azure Security Center i w ten sposób `Set-AzJitNetworkAccessPolicy` .
 
 Poniższy przykład ustawia zasady dostępu just-in-Time dla określonej maszyny wirtualnej i ustawia następujące elementy:
 
@@ -211,7 +210,7 @@ Uruchom następujące polecenia w programie PowerShell, aby to zrobić:
 
 1.    Przypisz zmienną, która zawiera zasady dostępu just in Time do maszyny wirtualnej:
 
-        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" Ports = (@ {Number = 22;        Protokół = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        Protokół = "\*";        allowedSourceAddressPrefix = @ ("\*");        maxRequestAccessDuration = "PT3H"})
+        $JitPolicy = (@ {ID = "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   porty = (@ {Number = 22;        Protokół = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"}, @ {Number = 3389;        Protokół = " \* ";        allowedSourceAddressPrefix = @ (" \* ");        maxRequestAccessDuration = "PT3H"})
 
 2.    Wstaw zasady dostępu just in Time do maszyny wirtualnej do tablicy:
     
@@ -228,7 +227,7 @@ W poniższym przykładzie można zobaczyć żądanie dostępu just in Time do ok
 Uruchom następujące polecenia w programie PowerShell:
 1.    Konfigurowanie właściwości dostępu żądania maszyny wirtualnej
 
-        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" Ports = (@ {Number = 22;      endTimeUtc = "2018 r-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("IPV4ADDRESS")})})
+        $JitPolicyVm 1 = (@ {ID = "/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";   porty = (@ {Number = 22;      endTimeUtc = "2018 r-09-17T17:00:00.3658798 Z";      allowedSourceAddressPrefix = @ ("IPV4ADDRESS")})})
 2.    Wstawianie parametrów żądania dostępu do maszyny wirtualnej w tablicy:
 
         $JitPolicyArr = @ ($JitPolicyVm 1)

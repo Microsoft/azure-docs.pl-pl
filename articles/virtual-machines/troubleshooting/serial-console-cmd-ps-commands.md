@@ -14,21 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77167028"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Polecenia systemu Windows — CMD i PowerShell
 
 Ta sekcja zawiera przykładowe polecenia służące do wykonywania typowych zadań w scenariuszach, w których może być konieczne użycie konsoli SAC do uzyskiwania dostępu do maszyny wirtualnej z systemem Windows, na przykład w przypadku konieczności rozwiązywania problemów z błędami połączeń RDP.
 
-Konsola SAC została uwzględniona we wszystkich wersjach systemu Windows od systemu Windows Server 2003, ale jest domyślnie wyłączona. Konsola SAC korzysta ze sterownika `sacdrv.sys` jądra, `Special Administration Console Helper` usługi (`sacsvr`) i `sacsess.exe` procesu. Aby uzyskać więcej informacji, zobacz [Narzędzia i ustawienia usług zarządzania awaryjnego](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+Konsola SAC została uwzględniona we wszystkich wersjach systemu Windows od systemu Windows Server 2003, ale jest domyślnie wyłączona. Konsola SAC korzysta ze `sacdrv.sys` sterownika jądra, `Special Administration Console Helper` usługi ( `sacsvr` ) i `sacsess.exe` procesu. Aby uzyskać więcej informacji, zobacz [Narzędzia i ustawienia usług zarządzania awaryjnego](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
-Konsola SAC umożliwia nawiązanie połączenia z uruchomionym systemem operacyjnym za pośrednictwem portu szeregowego. Po uruchomieniu programu CMD z konsoli SAC `sacsess.exe` uruchamia `cmd.exe` się w uruchomionym systemie operacyjnym. Możesz zobaczyć, że w Menedżerze zadań, jeśli istnieje połączenie RDP z maszyną wirtualną w tym samym czasie, gdy użytkownik jest połączony z konsolą SAC za pośrednictwem funkcji konsoli szeregowej. Dostęp do programu CMD za pośrednictwem konsoli SAC `cmd.exe` jest taki sam, jak w przypadku połączenia za pośrednictwem protokołu RDP. Wszystkie te same polecenia i narzędzia są dostępne, w tym możliwość uruchamiania programu PowerShell z tego wystąpienia. Jest to główna różnica między konsolą SAC a środowiskiem odzyskiwania systemu Windows (WinRE) w tej konsoli SAC umożliwia zarządzanie systemem operacyjnym, w którym WinRE jest uruchamiany w innym, minimalnym systemie operacyjnym. Chociaż maszyny wirtualne platformy Azure nie obsługują możliwości uzyskiwania dostępu do środowiska WinRE, za pomocą konsoli szeregowej można zarządzać maszynami wirtualnymi platformy Azure za pośrednictwem konsoli SAC.
+Konsola SAC umożliwia nawiązanie połączenia z uruchomionym systemem operacyjnym za pośrednictwem portu szeregowego. Po uruchomieniu programu CMD z konsoli SAC `sacsess.exe` uruchamia się `cmd.exe` w URUCHOMIONYM systemie operacyjnym. Możesz zobaczyć, że w Menedżerze zadań, jeśli istnieje połączenie RDP z maszyną wirtualną w tym samym czasie, gdy użytkownik jest połączony z konsolą SAC za pośrednictwem funkcji konsoli szeregowej. Dostęp do programu CMD za pośrednictwem konsoli SAC jest taki sam, jak w `cmd.exe` przypadku połączenia za pośrednictwem protokołu RDP. Wszystkie te same polecenia i narzędzia są dostępne, w tym możliwość uruchamiania programu PowerShell z tego wystąpienia. Jest to główna różnica między konsolą SAC a środowiskiem odzyskiwania systemu Windows (WinRE) w tej konsoli SAC umożliwia zarządzanie systemem operacyjnym, w którym WinRE jest uruchamiany w innym, minimalnym systemie operacyjnym. Chociaż maszyny wirtualne platformy Azure nie obsługują możliwości uzyskiwania dostępu do środowiska WinRE, za pomocą konsoli szeregowej można zarządzać maszynami wirtualnymi platformy Azure za pośrednictwem konsoli SAC.
 
-Ponieważ konsola SAC jest ograniczona do 80x24ego buforu ekranu bez przewijania z powrotem, `| more` Dodaj do poleceń, aby wyświetlić dane wyjściowe po jednej stronie w danym momencie. Użyj `<spacebar>` , aby zobaczyć następną stronę lub `<enter>` zobaczyć następny wiersz.
+Ponieważ konsola SAC jest ograniczona do 80x24ego buforu ekranu bez przewijania z powrotem, Dodaj `| more` do poleceń, aby wyświetlić dane wyjściowe po jednej stronie w danym momencie. Użyj `<spacebar>` , aby zobaczyć następną stronę lub `<enter>` zobaczyć następny wiersz.
 
 `SHIFT+INSERT`jest skrótem wklejania okna konsoli szeregowej.
 
@@ -62,7 +61,7 @@ Po znaku równości jest wymagane miejsce.
 ### <a name="set-service-start-type"></a>Ustaw typ uruchomienia usługi
 `sc config termservice start= demand`
 
-Po znaku równości jest wymagane miejsce. Możliwe wartości początkowe to `boot`include `system`, `auto`, `demand`, `disabled`, `delayed-auto`,.
+Po znaku równości jest wymagane miejsce. Możliwe wartości początkowe to include `boot` , `system` ,,, `auto` `demand` `disabled` , `delayed-auto` .
 ### <a name="set-service-dependencies"></a>Ustawianie zależności usługi
 `sc config termservice depend= RPCSS`
 
@@ -91,7 +90,7 @@ lub
 ### <a name="set-nic-to-use-dhcp"></a>Ustawianie karty sieciowej do korzystania z protokołu DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-Aby uzyskać więcej informacji `netsh`na temat, [kliknij tutaj](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
+Aby uzyskać więcej informacji na temat `netsh` , [kliknij tutaj](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Maszyny wirtualne platformy Azure należy zawsze skonfigurować w systemie operacyjnym gościa, aby można było uzyskać adres IP przy użyciu protokołu DHCP. Ustawienie statycznego adresu IP platformy Azure nadal używa protokołu DHCP do nadawania statycznego adresu IP do maszyny wirtualnej.
 ### <a name="ping"></a>Ping
@@ -128,7 +127,7 @@ Tego polecenia można użyć podczas rozwiązywania problemów z tymczasową reg
 ### <a name="verify-user-account-is-enabled"></a>Sprawdź, czy konto użytkownika jest włączone
 `net user <username> | find /i "active"`
 
-Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie `Administrator`będzie.
+Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie będzie `Administrator` .
 ### <a name="enable-user-account"></a>Włącz konto użytkownika
 `net user <username> /active:yes`
 ### <a name="view-user-account-properties"></a>Wyświetl właściwości konta użytkownika
@@ -169,17 +168,17 @@ Użyj `604800000` , aby odszukać 7 dni zamiast 24 godzin.
 ### <a name="list-installed-applications"></a>Wyświetlanie listy zainstalowanych aplikacji
 `wmic product get Name,InstallDate | sort /r | more`
 
-`sort /r` Sortuje Malejąco według daty instalacji, aby ułatwić sprawdzenie, co zostało niedawno zainstalowane. Użyj `<spacebar>` polecenia, aby przejść do następnej strony danych wyjściowych `<enter>` lub aby uzyskać więcej niż jeden wiersz.
+`sort /r`Sortuje Malejąco według daty instalacji, aby ułatwić sprawdzenie, co zostało niedawno zainstalowane. Użyj polecenia `<spacebar>` , aby przejść do następnej strony danych wyjściowych lub `<enter>` Aby uzyskać więcej niż jeden wiersz.
 ### <a name="uninstall-an-application"></a>Odinstalowywanie aplikacji
 `wmic path win32_product where name="<name>" call uninstall`
 
-Zamień `<name>` na nazwę zwracaną w powyższym poleceniu dla aplikacji, którą chcesz usunąć.
+Zamień na `<name>` nazwę zwracaną w powyższym poleceniu dla aplikacji, którą chcesz usunąć.
 
 ## <a name="file-system-management"></a>Zarządzanie systemem plików
 ### <a name="get-file-version"></a>Pobierz wersję pliku
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
-Ten przykład zwraca wersję pliku sterownika wirtualnej karty sieciowej, który jest netvsc. sys, netvsc63. sys lub netvsc60. sys w zależności od wersji systemu Windows.
+Ten przykład zwraca wersję pliku sterownika wirtualnej karty sieciowej, który jest netvsc.sys, netvsc63.sys lub netvsc60.sys w zależności od wersji systemu Windows.
 ### <a name="scan-for-system-file-corruption"></a>Skanuj pod kątem uszkodzenia pliku systemowego
 `sfc /scannow`
 
@@ -195,7 +194,7 @@ Zobacz też [Naprawa obrazu systemu Windows](https://docs.microsoft.com/windows-
 ### <a name="restore-file-permissions-from-acl-file"></a>Przywróć uprawnienia do pliku z pliku listy ACL
 `icacls %programdata%\Microsoft\Crypto\RSA /save %temp%\MachineKeys_permissions_before.aclfile /t`
 
-Ścieżka używana podczas korzystania `/restore` z programu musi być folderem nadrzędnym folderu określonego podczas korzystania `/save`z programu. W tym przykładzie `\RSA` jest elementem nadrzędnym `\MachineKeys` folderu określonego w powyższym `/save` przykładzie.
+Ścieżka używana podczas korzystania z programu `/restore` musi być folderem nadrzędnym folderu określonego podczas korzystania z programu `/save` . W tym przykładzie `\RSA` jest elementem nadrzędnym `\MachineKeys` folderu określonego w `/save` powyższym przykładzie.
 ### <a name="take-ntfs-ownership-of-a-folder"></a>Przełącz własność systemu plików NTFS do folderu
 `takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r`
 ### <a name="grant-ntfs-permissions-to-a-folder-recursively"></a>Przyznawanie uprawnień NTFS do folderu rekursywnie
@@ -280,11 +279,11 @@ Drugi klucz (w obszarze \Policies) byłby wymagany tylko wtedy, gdy skonfigurowa
 ### <a name="set-service-logon-account"></a>Ustaw konto logowania do usługi
 `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')`
 
-W przypadku korzystania z konta usługi innego `NT AUTHORITY\LocalService`niż `NT AUTHORITY\NetworkService`, lub `LocalSystem`należy określić hasło konta jako ostatni (ósmy) argument po nazwie konta.
+W przypadku korzystania z konta usługi innego niż `NT AUTHORITY\LocalService` , `NT AUTHORITY\NetworkService` lub należy `LocalSystem` określić hasło konta jako ostatni (ósmy) argument po nazwie konta.
 ### <a name="set-service-startup-type"></a>Ustaw typ uruchomienia usługi
 `set-service termservice -startuptype Manual`
 
-`Set-service`akceptuje `Automatic`, `Manual`lub `Disabled` dla typu uruchomienia.
+`Set-service`akceptuje `Automatic` , `Manual` lub `Disabled` dla typu uruchomienia.
 ### <a name="set-service-dependencies"></a>Ustawianie zależności usługi
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Uruchom usługę
@@ -299,7 +298,7 @@ lub
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
-`Get-NetAdapter`jest dostępny w 2012 +, do użycia `Get-WmiObject`w programie 2008R2.
+`Get-NetAdapter`jest dostępny w 2012 +, do użycia w programie 2008R2 `Get-WmiObject` .
 ### <a name="show-ip-properties"></a>Pokaż właściwości IP
 `get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'" |  format-list DNSHostName,IPAddress,DHCPEnabled,IPSubnet,DefaultIPGateway,MACAddress,DHCPServer,DNSServerSearchOrder`
 ### <a name="enable-nic"></a>Włącz kartę sieciową
@@ -309,24 +308,24 @@ lub
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
-`Get-NetAdapter`jest dostępny w 2012 +, do użycia `Get-WmiObject`w programie 2008R2.
+`Get-NetAdapter`jest dostępny w 2012 +, do użycia w programie 2008R2 `Get-WmiObject` .
 ### <a name="set-nic-to-use-dhcp"></a>Ustawianie karty sieciowej do korzystania z protokołu DHCP
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | Set-NetIPInterface -DHCP Enabled`
 
 `(get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'").EnableDHCP()`
 
-`Get-NetAdapter`jest dostępny w 2012 +. Do użycia `Get-WmiObject`w 2008R2. Maszyny wirtualne platformy Azure należy zawsze skonfigurować w systemie operacyjnym gościa, aby można było uzyskać adres IP przy użyciu protokołu DHCP. Ustawienie statycznego adresu IP platformy Azure nadal używa protokołu DHCP do nadawania adresu IP do maszyny wirtualnej.
+`Get-NetAdapter`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . Maszyny wirtualne platformy Azure należy zawsze skonfigurować w systemie operacyjnym gościa, aby można było uzyskać adres IP przy użyciu protokołu DHCP. Ustawienie statycznego adresu IP platformy Azure nadal używa protokołu DHCP do nadawania adresu IP do maszyny wirtualnej.
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
 > [!NOTE]
-> Polecenie cmdlet Write-Progress może nie współpracować z tym poleceniem. Jako środek zaradczy, można uruchomić `$ProgressPreference = "SilentlyContinue"` polecenie w programie PowerShell, aby wyłączyć pasek postępu.
+> Polecenie cmdlet Write-Progress może nie współpracować z tym poleceniem. Jako środek zaradczy, można uruchomić polecenie `$ProgressPreference = "SilentlyContinue"` w programie PowerShell, aby wyłączyć pasek postępu.
 
 lub
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
-`Test-Netconnection`bez żadnych parametrów spróbuje wysłać polecenie `internetbeacon.msedge.net`ping. Jest on dostępny w 2012 +. W przypadku 2008R2 `Get-WmiObject` Użyj jak w drugim przykładzie.
+`Test-Netconnection`bez żadnych parametrów spróbuje wysłać polecenie ping `internetbeacon.msedge.net` . Jest on dostępny w 2012 +. W przypadku 2008R2 Użyj `Get-WmiObject` jak w drugim przykładzie.
 ### <a name="port-ping"></a>Port ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
@@ -342,7 +341,7 @@ lub
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
-`Resolve-DnsName`jest dostępny w 2012 +. Do użycia `System.Net.DNS`w 2008R2.
+`Resolve-DnsName`jest dostępny w 2012 +. Do użycia w 2008R2 `System.Net.DNS` .
 ### <a name="show-windows-firewall-rule-by-name"></a>Pokaż regułę zapory systemu Windows według nazwy
 `get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP`
 ### <a name="show-windows-firewall-rule-by-port"></a>Pokaż regułę zapory systemu Windows według portu
@@ -352,11 +351,11 @@ lub
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
-`Get-NetFirewallPortFilter`jest dostępny w 2012 +. Dla 2008R2 Użyj obiektu `hnetcfg.fwpolicy2` com.
+`Get-NetFirewallPortFilter`jest dostępny w 2012 +. Dla 2008R2 Użyj `hnetcfg.fwpolicy2` obiektu com.
 ### <a name="disable-windows-firewall"></a>Wyłącz zaporę systemu Windows
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
-`Set-NetFirewallProfile`jest dostępny w 2012 +. Do użycia `netsh advfirewall` 2008R2 jako odwołania w powyższej sekcji cmd.
+`Set-NetFirewallProfile`jest dostępny w 2012 +. Do użycia 2008R2 `netsh advfirewall` jako odwołania w powyższej sekcji cmd.
 ## <a name="manage-users-and-groups"></a>Zarządzanie użytkownikami i grupami
 ### <a name="create-local-user-account"></a>Utwórz konto użytkownika lokalnego
 `new-localuser <name>`
@@ -367,13 +366,13 @@ lub
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
-`Get-LocalUser`jest dostępny w 2012 +. Do użycia `Get-WmiObject`w 2008R2. W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500`. Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie `Administrator`będzie.
+`Get-LocalUser`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` . Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie będzie `Administrator` .
 ### <a name="add-local-user-to-local-group"></a>Dodaj użytkownika lokalnego do grupy lokalnej
 `add-localgroupmember -group Administrators -member <username>`
 ### <a name="enable-local-user-account"></a>Włącz konto użytkownika lokalnego
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser`
 
-W tym przykładzie włączono wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500`. Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie `Administrator`będzie.
+W tym przykładzie włączono wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` . Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie będzie `Administrator` .
 ### <a name="view-user-account-properties"></a>Wyświetl właściwości konta użytkownika
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
@@ -381,11 +380,11 @@ lub
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
-`Get-LocalUser`jest dostępny w 2012 +. Do użycia `Get-WmiObject`w 2008R2. W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500`.
+`Get-LocalUser`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` .
 ### <a name="view-local-groups"></a>Wyświetlanie grup lokalnych
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
-`Get-LocalUser`jest dostępny w 2012 +. Do użycia `Get-WmiObject`w 2008R2.
+`Get-LocalUser`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` .
 ## <a name="manage-the-windows-event-log"></a>Zarządzanie dziennikiem zdarzeń systemu Windows
 ### <a name="query-event-log-errors"></a>Rejestruj błędy dziennika zdarzeń
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
@@ -410,11 +409,11 @@ Użyj `604800000` , aby odszukać 7 dni zamiast 24 godzin. |
 ### <a name="get-file-version"></a>Pobierz wersję pliku
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
-Ten przykład zwraca wersję pliku sterownika wirtualnej karty sieciowej o nazwie netvsc. sys, netvsc63. sys lub netvsc60. sys w zależności od wersji systemu Windows.
+Ten przykład zwraca wersję pliku sterownika wirtualnej karty sieciowej o nazwie netvsc.sys, netvsc63.sys lub netvsc60.sys w zależności od wersji systemu Windows.
 ### <a name="download-and-extract-file"></a>Pobierz i wyodrębnij plik
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
-W tym przykładzie tworzony `c:\bin` jest folder, a następnie pobiera i wyodrębnia pakiet narzędzi Sysinternals do `c:\bin`programu.
+W tym przykładzie tworzony jest `c:\bin` folder, a następnie pobiera i wyodrębnia pakiet narzędzi Sysinternals do programu `c:\bin` .
 ## <a name="miscellaneous-tasks"></a>Różne zadania
 ### <a name="show-os-version"></a>Pokaż wersję systemu operacyjnego
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
@@ -425,7 +424,7 @@ W tym przykładzie tworzony `c:\bin` jest folder, a następnie pobiera i wyodrę
 ### <a name="view-windows-uptime"></a>Wyświetl czas działania systemu Windows
 `"{0:dd}:{0:hh}:{0:mm}:{0:ss}.{0:ff}" -f ((get-date)-(get-wmiobject win32_operatingsystem).converttodatetime((get-wmiobject win32_operatingsystem).lastbootuptime))`
 
-Zwraca czas działania `<days>:<hours>:<minutes>:<seconds>:<milliseconds>`jak na przykład `49:16:48:00.00`.
+Zwraca czas działania jak `<days>:<hours>:<minutes>:<seconds>:<milliseconds>` na przykład `49:16:48:00.00` .
 ### <a name="restart-windows"></a>Ponowne uruchamianie systemu Windows
 `restart-computer`
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478288"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86131340"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji sieci Web opartej na usługach IIS
 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób ochrony aplikacji sieci Web opartej na Internet I
 Przed rozpoczęciem upewnij się, że wiesz, jak wykonać następujące zadania:
 
 * [Replikowanie maszyny wirtualnej na platformę Azure](vmware-azure-tutorial.md)
-* [Projektowanie sieci odzyskiwania](site-recovery-network-design.md)
+* [Projektowanie sieci odzyskiwania](./concepts-on-premises-to-azure-networking.md)
 * [Wykonaj test pracy w trybie failover na platformie Azure](site-recovery-test-failover-to-azure.md)
 * [Przełączenie w tryb failover na platformie Azure](site-recovery-failover.md)
 * [Replikowanie kontrolera domeny](site-recovery-active-directory.md)
@@ -62,14 +62,14 @@ Scenariusz | Do lokacji dodatkowej | Na platformę Azure
 --- | --- | ---
 Funkcja Hyper-V | Tak | Tak
 VMware | Tak | Tak
-Serwer fizyczny | Nie | Tak
+Serwer fizyczny | Nie | Yes
 Azure|Nie dotyczy|Tak
 
 ## <a name="replicate-virtual-machines"></a>Replikowanie maszyn wirtualnych
 
 Aby rozpocząć replikację wszystkich maszyn wirtualnych farmy sieci Web usług IIS do platformy Azure, postępuj zgodnie ze wskazówkami w temacie [Testowanie pracy w trybie failover na platformie Azure w Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Jeśli używasz statycznego adresu IP, możesz określić adres IP, który ma być pobierany przez maszynę wirtualną. Aby ustawić adres IP, przejdź do pozycji **obliczenia i ustawienia** > sieci**docelowy adres IP**.
+Jeśli używasz statycznego adresu IP, możesz określić adres IP, który ma być pobierany przez maszynę wirtualną. Aby ustawić adres IP, przejdź do pozycji **obliczenia i ustawienia sieci**  >  **docelowy adres IP**.
 
 ![Zrzut ekranu, który pokazuje, jak ustawić docelowy adres IP w okienku Site Recovery obliczenia i sieć](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -92,12 +92,12 @@ Aby uzyskać więcej informacji, zobacz [Dostosowywanie planu odzyskiwania](site
 
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>Dodawanie skryptu do planu odzyskiwania
-Aby Farma sieci Web usług IIS działała prawidłowo, może być konieczne wykonanie pewnych operacji na maszynach wirtualnych platformy Azure po zakończeniu pracy w trybie failover lub w trakcie testu pracy w trybie failover. Można zautomatyzować niektóre operacje wykonywane po przejściu w tryb failover. Można na przykład zaktualizować wpis DNS, zmienić powiązanie witryny lub zmienić parametry połączenia przez dodanie odpowiednich skryptów do planu odzyskiwania. [Dodawanie skryptu programu VMM do planu odzyskiwania](site-recovery-how-to-add-vmmscript.md) zawiera opis sposobu konfigurowania zautomatyzowanych zadań przy użyciu skryptu.
+Aby Farma sieci Web usług IIS działała prawidłowo, może być konieczne wykonanie pewnych operacji na maszynach wirtualnych platformy Azure po zakończeniu pracy w trybie failover lub w trakcie testu pracy w trybie failover. Można zautomatyzować niektóre operacje wykonywane po przejściu w tryb failover. Można na przykład zaktualizować wpis DNS, zmienić powiązanie witryny lub zmienić parametry połączenia przez dodanie odpowiednich skryptów do planu odzyskiwania. [Dodawanie skryptu programu VMM do planu odzyskiwania](./hyper-v-vmm-recovery-script.md) zawiera opis sposobu konfigurowania zautomatyzowanych zadań przy użyciu skryptu.
 
 #### <a name="dns-update"></a>Aktualizacja systemu DNS
 Jeśli serwer DNS jest skonfigurowany do dynamicznej aktualizacji DNS, maszyny wirtualne zazwyczaj zaktualizują system DNS przy użyciu nowego adresu IP podczas uruchamiania. Jeśli chcesz dodać jawny krok w celu zaktualizowania systemu DNS przy użyciu nowych adresów IP maszyn wirtualnych, Dodaj skrypt, [Aby zaktualizować adres IP w systemie DNS](https://aka.ms/asr-dns-update) jako akcję po przejściu w tryb failover w grupach planu odzyskiwania.  
 
-#### <a name="connection-string-in-an-applications-webconfig"></a>Parametry połączenia w pliku Web. config aplikacji
+#### <a name="connection-string-in-an-applications-webconfig"></a>Parametry połączenia w web.config aplikacji
 Parametry połączenia określają bazę danych, z którą witryna sieci Web komunikuje się. Jeśli parametry połączenia mają nazwę maszyny wirtualnej bazy danych, nie są wymagane żadne dalsze kroki po zakończeniu pracy w trybie failover. Aplikacja może automatycznie komunikować się z bazą danych. Ponadto, jeśli adres IP maszyny wirtualnej bazy danych jest zachowywany, nie trzeba aktualizować parametrów połączenia. 
 
 Jeśli parametry połączenia odwołują się do maszyny wirtualnej bazy danych przy użyciu adresu IP, należy zaktualizować po zakończeniu pracy w trybie failover. Na przykład następujące parametry połączenia wskazują bazę danych z adresem IP 127.0.1.2:

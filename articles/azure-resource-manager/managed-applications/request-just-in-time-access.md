@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
 ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651386"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Włącz i Żądaj dostępu just in Time do Azure Managed Applications
@@ -34,9 +33,9 @@ Ten artykuł koncentruje się na akcjach podejmowanych przez wydawców w celu w�
 
 ## <a name="add-jit-access-step-to-ui"></a>Dodaj krok dostępu JIT do interfejsu użytkownika
 
-Plik CreateUiDefinition. JSON jest dokładnie taki sam jak plik interfejsu użytkownika tworzony na potrzeby stałego dostępu, z wyjątkiem tego, że należy uwzględnić krok, który umożliwia klientom włączenie dostępu JIT. Aby dowiedzieć się więcej o publikowaniu pierwszej oferty zarządzanej aplikacji w portalu Azure Marketplace, zobacz [Azure Managed Applications w portalu Marketplace](publish-marketplace-app.md).
+CreateUiDefinition.jsw pliku jest dokładnie taki sam jak plik interfejsu użytkownika tworzony na potrzeby stałego dostępu, z wyjątkiem tego, że należy uwzględnić krok, który umożliwia klientom włączenie dostępu JIT. Aby dowiedzieć się więcej o publikowaniu pierwszej oferty zarządzanej aplikacji w portalu Azure Marketplace, zobacz [Azure Managed Applications w portalu Marketplace](publish-marketplace-app.md).
 
-Aby zapewnić obsługę funkcji JIT dla oferty, Dodaj następującą zawartość do pliku CreateUiDefinition. JSON:
+Aby zapewnić obsługę funkcji JIT dla oferty, Dodaj następującą zawartość do CreateUiDefinition.jsw pliku:
 
 W obszarze "kroki":
 

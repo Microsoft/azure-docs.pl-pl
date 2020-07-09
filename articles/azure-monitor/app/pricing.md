@@ -6,19 +6,19 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 82ea6a27d5bd75c180928f6a8b5c9742c54ea5a1
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac1129db05c7b492e209478446f69fe48ea9fffd
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834428"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111120"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
 > [!NOTE]
 > W tym artykule opisano sposób zrozumienia i kontrolowania kosztów Application Insights.  W powiązanym artykule, [monitorowaniu użycia i szacowanych kosztów](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) opisano sposób wyświetlania użycia i szacowane koszty w wielu funkcjach monitorowania platformy Azure dla różnych modeli cen.
 
-Application Insights zaprojektowano w celu uzyskania wszystkiego, czego potrzebujesz, aby monitorować dostępność, wydajność i użycie aplikacji sieci Web, niezależnie od tego, czy są one hostowane na platformie Azure, czy lokalnie. Application Insights obsługuje popularne języki i struktury, takie jak .NET, Java i Node. js, i integruje się z procesami DevOps i narzędziami, takimi jak Azure DevOps, JIRA i usługi PagerDuty. Ważne jest, aby zrozumieć, co określa koszty monitorowania aplikacji. W tym artykule opisano, jakie dyski są monitorowane przez aplikację oraz jak można je aktywnie monitorować i kontrolować.
+Application Insights zaprojektowano w celu uzyskania wszystkiego, czego potrzebujesz, aby monitorować dostępność, wydajność i użycie aplikacji sieci Web, niezależnie od tego, czy są one hostowane na platformie Azure, czy lokalnie. Application Insights obsługuje popularne języki i struktury, takie jak .NET, Java i Node.js, i integruje się z procesami DevOps i narzędziami, takimi jak Azure DevOps, JIRA i usługi PagerDuty. Ważne jest, aby zrozumieć, co określa koszty monitorowania aplikacji. W tym artykule opisano, jakie dyski są monitorowane przez aplikację oraz jak można je aktywnie monitorować i kontrolować.
 
 Jeśli masz pytania dotyczące sposobu działania cen dla Application Insights, możesz ogłosić pytanie na naszej stronie pytań i odpowiedzi [Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-monitor.html)i odpowiedzi.
 
@@ -187,7 +187,7 @@ Ilość wysyłanych danych może być zarządzana przy użyciu następujących t
 
 * **Ogranicz wywołania AJAX**: można [ograniczyć liczbę wywołań AJAX, które mogą być zgłaszane](../../azure-monitor/app/javascript.md#configuration) w każdym widoku strony, lub wyłączyć raportowanie AJAX.
 
-* **Wyłącz niepotrzebne moduły**: [Edytuj plik ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , aby wyłączyć niepotrzebne moduły kolekcji. Na przykład można zdecydować, że liczniki wydajności lub dane zależności są nieistotne.
+* **Wyłącz niepotrzebne moduły**: [Edytuj ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , aby wyłączyć niepotrzebne moduły kolekcji. Na przykład można zdecydować, że liczniki wydajności lub dane zależności są nieistotne.
 
 * **Metryki przed agregacją**: w przypadku umieszczenia wywołań TrackMetric w aplikacji można zredukować ruch przy użyciu przeciążenia, które akceptuje Obliczanie średniej i odchylenia standardowego partii pomiarów. Lub można użyć [wstępnie agregowanego pakietu](https://www.myget.org/gallery/applicationinsights-sdk-labs).
  
@@ -197,7 +197,7 @@ Ilość wysyłanych danych może być zarządzana przy użyciu następujących t
     
     Ostrzegawcze wiadomości e-mail dotyczące dziennego limitu są wysyłane do konta, które są członkami tych ról dla Application Insights zasobu: "serviceadmin", "AccountAdmin", "Administrator", "Owner".
 
-    Należy zachować ostrożność podczas ustawiania dziennego limitu. Zamiarem powinna być *nigdy nie trafiać dziennego limitu*. Po osiągnięciu dziennego limitu utracisz dane przez pozostałą część dnia i nie będzie można monitorować aplikacji. Aby zmienić dzienny limit, użyj opcji **dzienny limit ilości** . Możesz uzyskać dostęp do tej opcji w okienku **użycie i szacowane koszty** (jest to opisane w dalszej części artykułu).
+    Podczas ustawiania dziennego limitu należy zachować ostrożność. Zamiarem powinna być *nigdy nie trafiać dziennego limitu*. Po osiągnięciu dziennego limitu utracisz dane z pozostałej części dnia i nie będzie można monitorować aplikacji. Aby zmienić dzienny limit, użyj opcji **dzienny limit ilości** . Możesz uzyskać dostęp do tej opcji w okienku **użycie i szacowane koszty** (jest to opisane w dalszej części artykułu).
     
     Usunięto ograniczenie dla niektórych typów subskrypcji, które mają środki kredytowe, których nie można użyć dla Application Insights. Wcześniej, jeśli subskrypcja ma limit wydatków, w oknie dialogowym dzienne zakończenie znajdują się instrukcje usuwania limitu wydatków i włączania codziennych limitów ponad 32,3 MB/dzień.
     
@@ -249,9 +249,11 @@ Aby ustawić próbkowanie pozyskiwania, przejdź do okienka **Cennik** :
 
 Aby wykryć rzeczywistą częstotliwość próbkowania bez względu na to, gdzie została zastosowana, użyj [zapytania analizy](analytics.md). Zapytanie wygląda następująco:
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h)
-    | render areachart
+```kusto
+requests | where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h)
+| render areachart
+```
 
 W każdym zachowanym rekordzie `itemCount` wskazuje liczbę oryginalnych rekordów, które reprezentuje. Jest równa 1 + liczba poprzednich odrzuconych rekordów.
 
@@ -333,7 +335,7 @@ Ponieważ ta warstwa ma zastosowanie tylko do klientów z subskrypcją pakietu O
 
 ## <a name="automation"></a>Automation
 
-Można napisać skrypt do ustawienia warstwy cenowej za pomocą usługi Azure Resource Management. [Dowiedz się, jak to zrobić](powershell.md#price).
+Można napisać skrypt do ustawienia warstwy cenowej za pomocą usługi Azure Resource Management. [Dowiedz się, jak](powershell.md#price).
 
 ## <a name="next-steps"></a>Następne kroki
 

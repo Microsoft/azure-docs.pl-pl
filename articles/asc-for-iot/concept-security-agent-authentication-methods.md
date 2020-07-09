@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d9d51292c3cae9634af917819b558cdfd2fa04b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311513"
 ---
 # <a name="security-agent-authentication-methods"></a>Metody uwierzytelniania agenta zabezpieczeń
@@ -77,7 +77,7 @@ Aby zmienić metody uwierzytelniania po wdrożeniu, wymagane jest ręczne edytow
 
 ### <a name="c-based-security-agent"></a>Agent zabezpieczeń oparty na języku C#
 
-Edytuj _plik Authentication. config_ przy użyciu następujących parametrów:
+Edytuj _Authentication.config_ przy użyciu następujących parametrów:
 
 ```xml
 <Authentication>
@@ -92,7 +92,7 @@ Edytuj _plik Authentication. config_ przy użyciu następujących parametrów:
 
 ### <a name="c-based-security-agent"></a>Agent zabezpieczeń oparty na języku C
 
-Edytuj plik _LocalConfiguration. JSON_ przy użyciu następujących parametrów:
+Edytuj _LocalConfiguration.js_ przy użyciu następujących parametrów:
 
 ```json
 "Authentication" : {

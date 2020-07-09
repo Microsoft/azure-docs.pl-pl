@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714563"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117917"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z kwerendą podczas korzystania z Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Przed przeczytaniem tego przewodnika warto rozważyć typowe problemy z zestawem
 
 - Aby uzyskać najlepszą wydajność, postępuj zgodnie z tymi [wskazówkami dotyczącymi wydajności](performance-tips.md).
     > [!NOTE]
-    > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną bibliotekę serviceinterop. dll umożliwiającą analizowanie i optymalizowanie zapytań lokalnie. Usługa serviceinterop. dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, na których nie jest dostępna usługa serviceinterop. dll, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
+    > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
 - Zestaw SDK umożliwia ustawienie `MaxItemCount` dla zapytań, ale nie można określić minimalnej liczby elementów.
     - Kod powinien obsługiwać dowolny rozmiar strony od zera do `MaxItemCount` .
     - Liczba elementów na stronie będzie zawsze mniejsza lub równa podanej liczbie `MaxItemCount` . Jednak `MaxItemCount` jest ściśle maksimum i może być mniej wyników niż ta kwota.
@@ -47,7 +47,7 @@ Przed przeczytaniem tego przewodnika warto rozważyć typowe problemy z zestawem
 
 Podczas optymalizowania zapytania w Azure Cosmos DB, pierwszym krokiem jest zawsze [pobieranie metryk zapytania](profile-sql-api-query.md) dla zapytania. Te metryki są również dostępne za pomocą Azure Portal. Po uruchomieniu zapytania w Eksplorator danych metryki zapytania są widoczne obok karty **wyniki** :
 
-[![Pobieranie metryk ](./media/troubleshoot-query-performance/obtain-query-metrics.png) zapytania](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+:::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Pobieranie metryk zapytania" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Po otrzymaniu metryk zapytania Porównaj **liczbę pobranych dokumentów** z **liczbą dokumentów wyjściowych** dla zapytania. To porównanie służy do identyfikowania odpowiednich sekcji do przejrzenia w tym artykule.
 

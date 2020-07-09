@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f6049a69b88c85f4e1bdf1c2400866739a6718d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944325"
 ---
 # <a name="azure-service-fabric-security"></a>Zabezpieczenia usługi Azure Service Fabric 
 
@@ -70,7 +70,7 @@ Aby zastosować listę ACL do certyfikatów dla procesów klastra Service Fabric
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Zabezpiecz certyfikat klastra Service Fabric według nazwy pospolitej
 
-Aby zabezpieczyć klaster Service Fabric przy użyciu certyfikatu `Common Name`, należy użyć właściwości szablonu Menedżer zasobów [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)w następujący sposób:
+Aby zabezpieczyć klaster Service Fabric przy użyciu certyfikatu `Common Name` , należy użyć właściwości szablonu Menedżer zasobów [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)w następujący sposób:
 
 ```json
 "certificateCommonNames": {
@@ -87,16 +87,16 @@ Aby zabezpieczyć klaster Service Fabric przy użyciu certyfikatu `Common Name`,
 > [!NOTE]
 > Klastry Service Fabric będą używać pierwszego ważnego certyfikatu, który znajduje się w magazynie certyfikatów hosta. W systemie Windows będzie to certyfikat z najnowszą datą wygaśnięcia zgodną z nazwą pospolitą i odciskiem palca wystawcy.
 
-Domeny platformy Azure, takie jak\<* Twoja poddomena\>. \<cloudapp.Azure.com lub Twoja\>poddomena. trafficmanager.NET, należą do firmy Microsoft. Urzędy certyfikacji nie będą wystawiać certyfikatów dla domen dla nieautoryzowanych użytkowników. Większość użytkowników będzie musiał zakupić domenę od rejestratora lub być uprawnionym administratorem domeny, aby Urząd certyfikacji wystawiał certyfikat z tą nazwą pospolitą.
+Domeny platformy Azure, takie jak * \<YOUR SUBDOMAIN\> . cloudapp.Azure.com lub \<YOUR SUBDOMAIN\> . trafficmanager.NET, należą do firmy Microsoft. Urzędy certyfikacji nie będą wystawiać certyfikatów dla domen dla nieautoryzowanych użytkowników. Większość użytkowników będzie musiał zakupić domenę od rejestratora lub być uprawnionym administratorem domeny, aby Urząd certyfikacji wystawiał certyfikat z tą nazwą pospolitą.
 
 Aby uzyskać dodatkowe informacje na temat konfigurowania usługi DNS w celu rozpoznania domeny w adresie IP firmy Microsoft, zapoznaj się z tematem Konfigurowanie [Azure DNS do hostowania domeny](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
 > Po delegowaniu serwerów nazw domen do Azure DNS serwerów nazw strefy, Dodaj następujące dwa rekordy do strefy DNS:
 > - Rekord "A" dla WIERZCHOŁKa domeny, który nie jest `Alias record set` do wszystkich adresów IP, które zostaną rozpoznane przez domenę niestandardową.
-> - Rekord "C" dla nieobsługiwanych domen podrzędnych Microsoft, które nie są `Alias record set`. Można na przykład użyć nazwy DNS Traffic Manager lub Load Balancer.
+> - Rekord "C" dla nieobsługiwanych domen podrzędnych Microsoft, które nie są `Alias record set` . Można na przykład użyć nazwy DNS Traffic Manager lub Load Balancer.
 
-Aby zaktualizować Portal tak, aby wyświetlał niestandardową nazwę DNS klastra `"managementEndpoint"`Service Fabric, zaktualizuj następujące właściwości szablonu Service Fabric klastra Menedżer zasobów:
+Aby zaktualizować Portal tak, aby wyświetlał niestandardową nazwę DNS klastra Service Fabric `"managementEndpoint"` , zaktualizuj następujące właściwości szablonu Service Fabric klastra Menedżer zasobów:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
@@ -157,12 +157,12 @@ Aby zapewnić aplikacji dostęp do wpisów tajnych, Uwzględnij certyfikat przez
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Uwierzytelnianie aplikacji Service Fabric w zasobach platformy Azure przy użyciu tożsamość usługi zarządzanej (MSI)
 
-Aby dowiedzieć się więcej o tożsamościach zarządzanych dla zasobów platformy Azure, zobacz [co to jest tożsamość zarządzana dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+Aby dowiedzieć się więcej o tożsamościach zarządzanych dla zasobów platformy Azure, zobacz [co to jest tożsamość zarządzana dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md).
 Klastry usługi Azure Service Fabric są hostowane na Virtual Machine Scale Sets, które obsługują [tożsamość usługi zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 Aby uzyskać listę usług, których można użyć do uwierzytelniania za pomocą pliku MSI, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie Azure Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
-Aby włączyć tożsamość zarządzaną przypisaną przez system podczas tworzenia zestawu skalowania maszyn wirtualnych lub istniejącego zestawu skalowania maszyn wirtualnych, zadeklaruj `"Microsoft.Compute/virtualMachinesScaleSets"` następującą właściwość:
+Aby włączyć tożsamość zarządzaną przypisaną przez system podczas tworzenia zestawu skalowania maszyn wirtualnych lub istniejącego zestawu skalowania maszyn wirtualnych, zadeklaruj następującą `"Microsoft.Compute/virtualMachinesScaleSets"` Właściwość:
 
 ```json
 "identity": { 
@@ -171,7 +171,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system podczas tworze
 ```
 Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity)
 
-Jeśli utworzono [tożsamość zarządzaną przypisaną przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity), zadeklaruj następujący zasób w szablonie, aby przypisać go do zestawu skalowania maszyn wirtualnych. Zamień `\<USERASSIGNEDIDENTITYNAME\>` na nazwę utworzonej tożsamości zarządzanej przez użytkownika:
+Jeśli utworzono [tożsamość zarządzaną przypisaną przez użytkownika](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity), zadeklaruj następujący zasób w szablonie, aby przypisać go do zestawu skalowania maszyn wirtualnych. Zamień na `\<USERASSIGNEDIDENTITYNAME\>` nazwę utworzonej tożsamości zarządzanej przez użytkownika:
 
 ```json
 "identity": {
@@ -217,7 +217,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 Te reguły zapory uzupełniają dozwolone grupy zabezpieczeń sieci wychodzącej, które będą obejmować usługi servicefabric i magazyn, jako dozwolone miejsca docelowe z sieci wirtualnej.
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+[Platforma Microsoft Azure zaleca](https://azure.microsoft.com/updates/azuretls12/) , aby wszyscy klienci ukończyli migrację do rozwiązań, które obsługują protokół TLS (Transport Layer security) 1,2 i aby upewnić się, że protokół TLS 1,2 jest używany domyślnie.
+
+Usługi platformy Azure, w tym [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493), ukończyły pracę inżynierową, aby usunąć zależność od protokołów TLS 1.0/1.1 i zapewnić klientom pełną pomoc techniczną, którzy chcą mieć skonfigurowane obciążenia, aby akceptować i inicjować tylko połączenia TLS 1,2.
+
+Klienci powinni skonfigurować obciążenia obsługiwane przez platformę Azure i aplikacje lokalne, które współdziałają z usługami platformy Azure, aby domyślnie korzystać z protokołu TLS 1,2. Poniżej przedstawiono sposób [konfigurowania Service Fabric węzłów klastra i aplikacji](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) do korzystania z określonej wersji protokołu TLS.
 
 ## <a name="windows-defender"></a>Windows Defender 
 

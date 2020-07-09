@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
-ms.openlocfilehash: 6dc94cca66370daa307a21daa6c96a778baed08c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.topic: how-to
+ms.reviewer: dineshm
+ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808837"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -50,7 +50,7 @@ W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. 
 1. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**
 2. Wybierz **Platform**  >  **okna** platformy
 3. Wybierz pozycję **Aplikacja konsoli (.NET Framework)**
-4. Wybierz pozycję **dalej**
+4. Wybierz pozycję **Dalej**
 5. W polu **Nazwa projektu** wprowadź nazwę aplikacji
 6. Wybierz pozycję **Utwórz**
 
@@ -74,7 +74,7 @@ Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące k
 1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**i wybierz polecenie **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**
 1. Wyszukaj w trybie online pozycję "Azure. Storage. Queues" i wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę klienta magazynu i jej zależności. Spowoduje to również zainstalowanie bibliotek Azure. Storage. Common i Azure. Core, które są zależnościami biblioteki kolejki.
-1. Wyszukaj w trybie online pozycję "System. Configuration. ConfigurationManager" i wybierz pozycję **Zainstaluj** , aby zainstalować Configuration Manager.
+1. Wyszukaj w trybie online pozycję "System.Configuration.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować Configuration Manager.
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
@@ -89,7 +89,7 @@ Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące k
 1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**i wybierz polecenie **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**
 1. Wyszukaj w trybie online pozycję "Microsoft. Azure. Storage. queue" i wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę klienta magazynu i jej zależności. Spowoduje to również zainstalowanie biblioteki Microsoft. Azure. Storage. Common, która jest zależna od biblioteki kolejki.
-1. Wyszukaj w trybie online pozycję "Microsoft. Azure. ConfigurationManager" i wybierz pozycję **Zainstaluj** , aby zainstalować Configuration Manager platformy Azure.
+1. Wyszukaj w trybie online pozycję "Microsoft.Azure.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować usługę Azure Configuration Manager.
 
 ---
 
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [K
 > [!NOTE]
 > Klucz konta magazynu jest podobny do hasła głównego konta magazynu. Zawsze chroń klucz konta magazynu. Nie udostępniaj go innym użytkownikom, nie koduj go trwale ani nie zapisuj w zwykłym pliku tekstowym, do którego mają dostęp inne osoby. Wygeneruj ponownie klucz za pośrednictwem witryny Azure Portal, jeśli uważasz, że jego zabezpieczenia mogły zostać naruszone.
 
-Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. Aby skonfigurować parametry połączenia, Otwórz plik *App. config* z Eksplorator rozwiązań w programie Visual Studio. Dodaj zawartość elementu `\<appSettings\>` widocznego poniżej. Zamień *ciąg połączenia* na wartość skopiowaną z konta magazynu w portalu:
+Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. Aby skonfigurować parametry połączenia, Otwórz plik *app.config* z Eksplorator rozwiązań w programie Visual Studio. Dodaj zawartość elementu `\<appSettings\>` widocznego poniżej. Zamień *ciąg połączenia* na wartość skopiowaną z konta magazynu w portalu:
 
 ```xml
 <configuration>

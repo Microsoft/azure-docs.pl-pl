@@ -4,12 +4,12 @@ description: Dowiedz się, jak Agent MARS obsługuje scenariusze tworzenia kopii
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611487"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134972"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informacje o agencie Microsoft Azure Recovery Services (MARS)
 
@@ -53,7 +53,7 @@ Agent MARS obsługuje następujące scenariusze przywracania:
 
 - **Przyrostowe kopie zapasowe** (kolejne kopie zapasowe) działają zgodnie z określonym harmonogramem. Podczas przyrostowych kopii zapasowych zostaną zidentyfikowane zmienione pliki i zostanie utworzony nowy wirtualny dysk twardy. Wirtualny dysk twardy jest kompresowany i szyfrowany, a następnie wysyłany do magazynu. Po zakończeniu przyrostowej kopii zapasowej nowy wirtualny dysk twardy zostanie scalony z dyskiem VHD utworzonym po replikacji początkowej. Ten scalony wirtualny dysk twardy zawiera najnowszy stan, który będzie używany do porównywania ciągłej kopii zapasowej.
 
-- Agent MARS może uruchomić zadanie tworzenia kopii zapasowej w **trybie zoptymalizowanym** przy użyciu numeru USN (numer sekwencji aktualizacji) lub w **trybie niezoptymalizowanym** , sprawdzając zmiany w katalogach lub plikach przez skanowanie całego woluminu. Tryb niezoptymalizowany jest wolniejszy, ponieważ Agent programu musi skanować każdy plik w woluminie i porównywać go z metadanymi w celu określenia zmienionych plików.  **Początkowa kopia zapasowa** będzie zawsze uruchamiana w trybie niezoptymalizowanym. Jeśli Poprzednia kopia zapasowa nie powiodła się, następne zaplanowane zadanie tworzenia kopii zapasowej zostanie uruchomione w trybie niezoptymalizowanym.
+- Agent MARS może uruchomić zadanie tworzenia kopii zapasowej w **trybie zoptymalizowanym** przy użyciu numeru USN (numer sekwencji aktualizacji) lub w **trybie niezoptymalizowanym** , sprawdzając zmiany w katalogach lub plikach przez skanowanie całego woluminu. Tryb niezoptymalizowany jest wolniejszy, ponieważ Agent programu musi skanować każdy plik w woluminie i porównywać go z metadanymi w celu określenia zmienionych plików.  **Początkowa kopia zapasowa** będzie zawsze uruchamiana w trybie niezoptymalizowanym. Jeśli Poprzednia kopia zapasowa nie powiodła się, następne zaplanowane zadanie tworzenia kopii zapasowej zostanie uruchomione w trybie niezoptymalizowanym. Aby dowiedzieć się więcej o tych trybach i sposobach ich weryfikowania, zapoznaj się z [tym artykułem](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
 ### <a name="additional-scenarios"></a>Dodatkowe scenariusze
 

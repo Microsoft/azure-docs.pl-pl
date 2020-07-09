@@ -8,12 +8,11 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85355662"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -36,11 +35,11 @@ Prefiksy nazw kontenerów i obiektów BLOB to Jednowymiarowa Kategoryzacja przec
 
 Rozważ następujące pięć obiektów BLOB na koncie magazynu:
 >
-> container1/Transaction. csv  
-> container2/kampania. docx  
-> fotografie/bannerphoto. png  
-> Archiwa/ukończone/2019review. PDF  
-> Dzienniki/2020/01/01/plik_dziennika. txt  
+> container1/transaction.csv  
+> container2/campaign.docx  
+> fotografie/bannerphoto.png  
+> Archiwa/ukończone/2019review.pdf  
+> Dzienniki/2020/01/01/logfile.txt  
 >
 
 Te obiekty blob są obecnie oddzielone przy użyciu prefiksu kontenera/nazwy obiektu BLOB. Za pomocą indeksu obiektów BLOB można ustawić atrybut znacznika indeksu dla `Project = Contoso` tych pięciu obiektów blob, aby wspólnie klasyfikować je przy zachowaniu ich bieżącej organizacji. Eliminuje to konieczność przenoszenia danych przez ujawnienie możliwości filtrowania i znajdowania danych przy użyciu wielowymiarowego indeksu platformy magazynu.
@@ -63,7 +62,7 @@ Możesz zastosować wiele tagów w obiekcie blob, aby uzyskać bardziej opisowe 
 > "Priorytet" = "01" 
 >
 
-Aby zmodyfikować istniejące atrybuty tagu indeksu, należy najpierw pobrać istniejące atrybuty tagu, zmodyfikować atrybuty tagu i zastąpić operacją SetBlobTags. Aby usunąć wszystkie Tagi indeksu z obiektu BLOB, wywołaj operację SetBlobTags bez określonych atrybutów tagu. Ponieważ Tagi indeksów obiektów BLOB są podzbiorem zawartości danych obiektów blob, SetBlobTags nie modyfikuje żadnej zawartości źródłowej i nie zmienia czasu ostatniego modyfikowania obiektu BLOB.
+Aby zmodyfikować istniejące atrybuty tagu indeksu, należy najpierw pobrać istniejące atrybuty tagu, zmodyfikować atrybuty tagu i zastąpić operacją SetBlobTags. Aby usunąć wszystkie Tagi indeksu z obiektu BLOB, wywołaj operację SetBlobTags bez określonych atrybutów tagu. Jako że Tagi indeksów obiektów BLOB są podzbiorem zawartości danych obiektów blob, SetBlobTags nie modyfikuje żadnej źródłowej zawartości i nie zmienia obiektu BLOB Last-Modified-Time ani ETag (tag jednostki). Możesz tworzyć lub modyfikować Tagi indeksów dla wszystkich bieżących podstawowych obiektów blob i poprzednich wersji; nie można jednak modyfikować tagów migawek ani nietrwałych usuniętych obiektów BLOB. 
 
 Do tagów indeksów obiektów BLOB mają zastosowanie następujące ograniczenia:
 - Każdy obiekt BLOB może mieć do 10 tagów indeksów obiektów BLOB
@@ -208,7 +207,7 @@ Wywołania przy użyciu [tożsamości usługi AAD](../common/storage-auth-aad.md
 
 |   Operacje obiektu BLOB   |  Akcja RBAC   |
 |---------------------|----------------|
-| Znajdź obiekty blob według tagów  | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/filtr |
+| Znajdź obiekty blob według tagów  | Microsoft. Storage/storageAccounts/blobServices/Containers/Blobs/Filter/Action |
 | Ustaw Tagi obiektów BLOB         | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/Tagi/zapis | 
 | Pobierz Tagi obiektów BLOB         | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/Tagi/odczyt |
 

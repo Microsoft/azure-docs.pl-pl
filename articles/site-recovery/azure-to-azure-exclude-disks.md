@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
-ms.openlocfilehash: 7355233bb7241571e3f3820aafac6952af245654
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75973672"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135802"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Wykluczanie dysków z replikacji programu PowerShell na maszynach wirtualnych platformy Azure
 
@@ -25,14 +25,14 @@ Przed rozpoczęciem:
 
 - Upewnij się, że rozumiesz [architekturę i składniki odzyskiwania po awarii](azure-to-azure-architecture.md).
 - Zapoznaj się z [wymaganiami dotyczącymi obsługi](azure-to-azure-support-matrix.md) wszystkich składników.
-- Upewnij się, że masz moduł AzureRm programu PowerShell "AZ". Aby zainstalować lub zaktualizować program PowerShell, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Upewnij się, że masz moduł AzureRm programu PowerShell "AZ". Aby zainstalować lub zaktualizować program PowerShell, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps).
 - Upewnij się, że utworzono magazyn usługi Recovery Services i chronione maszyny wirtualne co najmniej raz. Jeśli te czynności nie zostały wykonane, postępuj zgodnie z procesem w obszarze [Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych platformy Azure przy użyciu Azure PowerShell](azure-to-azure-powershell.md).
 - Jeśli szukasz informacji na temat dodawania dysków do maszyny wirtualnej platformy Azure z włączoną replikacją, [zapoznaj się z tym artykułem](azure-to-azure-enable-replication-added-disk.md).
 
 ## <a name="why-exclude-disks-from-replication"></a>Dlaczego wykluczanie dysków z replikacji
 Może być konieczne wykluczenie dysków z replikacji, ponieważ:
 
-- Maszyna wirtualna osiągnęła [Azure Site Recovery limity, aby replikować szybkości zmian danych](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+- Maszyna wirtualna osiągnęła [Azure Site Recovery limity, aby replikować szybkości zmian danych](./azure-to-azure-support-matrix.md).
 
 - Dane, które zostały zmienione na wykluczonym dysku nie są istotne lub nie muszą być replikowane.
 

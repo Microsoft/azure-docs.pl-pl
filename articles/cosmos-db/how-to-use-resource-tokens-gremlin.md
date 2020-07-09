@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78897849"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263565"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Używanie tokenów zasobów Azure Cosmos DB z zestawem SDK Gremlin
 
@@ -24,13 +24,13 @@ Zestaw Apache TinkerPop Gremlin SDK nie ma interfejsu API, który służy do two
 
 Hierarchia modelu obiektów powyżej tokenów zasobów jest zilustrowana w następującym konspekcie:
 
-- **Konto Azure Cosmos DB** — jednostka najwyższego poziomu, z którą jest skojarzony system DNS (na przykład `contoso.gremlin.cosmos.azure.com`).
+- **Konto Azure Cosmos DB** — jednostka najwyższego poziomu, z którą jest skojarzony system DNS (na przykład `contoso.gremlin.cosmos.azure.com` ).
   - **Baza danych Azure Cosmos DB**
     - **Użytkownik**
       - **Uprawnienie**
         - **Token** -właściwość obiektu uprawnienia, która oznacza, jakie akcje są dozwolone lub odrzucane.
 
-Token zasobu używa następującego formatu: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Ten ciąg jest nieprzezroczysty dla klientów i powinien być używany bez modyfikacji ani interpretacji.
+Token zasobu używa następującego formatu: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"` . Ten ciąg jest nieprzezroczysty dla klientów i powinien być używany bez modyfikacji ani interpretacji.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.

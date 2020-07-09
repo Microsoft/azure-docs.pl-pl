@@ -8,24 +8,21 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 742d716ecdfff6ab67dedc281aa6134020f57add
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d9738d3abfdf30e133ae241c497823be349d25da
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655049"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040082"
 ---
-# <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrowanie zasady grupy w Azure AD Domain Servicesej domenie zarządzanej
+# <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrowanie zasady grupy w Azure Active Directory Domain Servicesej domenie zarządzanej
 
 Ustawienia obiektów użytkowników i komputerów w Azure Active Directory Domain Services (AD DS platformy Azure) są często zarządzane przy użyciu obiektów zasady grupy. Usługa Azure AD DS obejmuje wbudowane obiekty zasad grupy dla kontenerów *użytkowników AADDC* i *AADDC* . Można dostosować te wbudowane obiekty zasad grupy w celu skonfigurowania zasady grupy, zgodnie z potrzebami środowiska. Członkowie grupy *administratorzy kontrolera domeny usługi Azure AD* zasady grupy mają uprawnienia do administrowania w domenie AD DS platformy Azure, a także mogą tworzyć niestandardowe obiekty zasad grupy i jednostki organizacyjne (OU). Więcej informacji na temat tego, co zasady grupy jest i jak to działa, można znaleźć w temacie [zasady grupy Overview][group-policy-overview].
 
 W środowisku hybrydowym zasady grupy skonfigurowane w środowisku lokalnym AD DS nie są synchronizowane z usługą Azure AD DS. Aby zdefiniować ustawienia konfiguracji dla użytkowników lub komputerów w usłudze Azure AD DS, Edytuj jeden z domyślnych obiektów zasad grupy lub Utwórz niestandardowy obiekt zasad grupy.
 
 W tym artykule opisano sposób instalowania narzędzi do zarządzania zasady grupy, a następnie edytowania wbudowanych obiektów zasad grupy i tworzenia niestandardowych obiektów zasad grupy.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -36,17 +33,17 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć i skonfigurować domenę zarządzaną Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Maszyna wirtualna zarządzania systemem Windows Server, która jest dołączona do domeny zarządzanej AD DS platformy Azure.
     * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć maszynę wirtualną z systemem Windows Server i dołączyć ją do domeny zarządzanej][create-join-windows-vm].
 * Konto użytkownika, które jest członkiem grupy *administratorów DC usługi Azure AD* w dzierżawie usługi Azure AD.
 
 > [!NOTE]
-> Możesz użyć Szablony administracyjne zasady grupy, kopiując nowe szablony do stacji roboczej zarządzania. Skopiuj pliki *ADMX* do `%SYSTEMROOT%\PolicyDefinitions` i skopiuj pliki *. adml* specyficzne dla ustawień regionalnych do `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`programu, gdzie `Language-CountryRegion` pasuje do języka i regionu plików *. adml* .
+> Możesz użyć Szablony administracyjne zasady grupy, kopiując nowe szablony do stacji roboczej zarządzania. Skopiuj pliki *ADMX* do `%SYSTEMROOT%\PolicyDefinitions` i skopiuj pliki *. adml* specyficzne dla ustawień regionalnych do programu `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]` , gdzie `Language-CountryRegion` pasuje do języka i regionu plików *. adml* .
 >
 > Na przykład skopiuj angielską Stany Zjednoczone wersję plików *. adml* do `\en-us` folderu.
 >
-> Alternatywnie można centralnie przechowywać szablon administracyjny zasady grupy na kontrolerach domeny, które są częścią domeny zarządzanej AD DS platformy Azure. Aby uzyskać więcej informacji, zobacz [jak utworzyć magazyn centralny dla zasady grupy Szablony administracyjne w systemie Windows i zarządzać](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)nim.
+> Alternatywnie można centralnie przechowywać szablon administracyjny zasady grupy na kontrolerach domeny będących częścią domeny zarządzanej. Aby uzyskać więcej informacji, zobacz [jak utworzyć magazyn centralny dla zasady grupy Szablony administracyjne w systemie Windows i zarządzać](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)nim.
 
 ## <a name="install-group-policy-management-tools"></a>Instalowanie zasady grupy narzędzia do zarządzania
 
@@ -68,17 +65,17 @@ Aby utworzyć i skonfigurować zasady grupy obiektów (GPO), należy zainstalowa
 
 ## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Otwórz Konsola zarządzania zasadami grupy i edytuj obiekt
 
-Istnieją domyślne obiekty zasad grupy (GPO) dla użytkowników i komputerów w domenie zarządzanej AD DS platformy Azure. Dzięki funkcji zarządzania zasady grupy zainstalowanej w poprzedniej sekcji można wyświetlić i edytować istniejący obiekt zasad grupy. W następnej sekcji utworzysz niestandardowy obiekt zasad grupy.
+Istnieją domyślne obiekty zasad grupy dla użytkowników i komputerów w domenie zarządzanej. Dzięki funkcji zarządzania zasady grupy zainstalowanej w poprzedniej sekcji można wyświetlić i edytować istniejący obiekt zasad grupy. W następnej sekcji utworzysz niestandardowy obiekt zasad grupy.
 
 > [!NOTE]
-> Aby administrować zasadami grupy w domenie zarządzanej AD DS platformy Azure, użytkownik musi być zalogowany na koncie użytkownika, który jest członkiem grupy *administratorów kontrolera domeny usługi AAD* .
+> Aby administrować zasadami grupy w domenie zarządzanej, użytkownik musi być zalogowany na koncie użytkownika, który jest członkiem grupy *Administratorzy domeny usługi AAD* .
 
 1. Na ekranie startowym wybierz pozycję **Narzędzia administracyjne**. Zostanie wyświetlona lista dostępnych narzędzi do zarządzania, w tym **zasady grupy zarządzania** zainstalowaną w poprzedniej sekcji.
 1. Aby otworzyć Konsola zarządzania zasadami grupy (GPMC), wybierz pozycję **zarządzanie zasady grupy**.
 
     ![Konsola zarządzania zasadami grupy otwiera się gotowy do edytowania obiektów zasad grupy](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
-Istnieją dwa wbudowane obiekty zasady grupy (GPO) w domenie zarządzanej AD DS platformy Azure — jeden dla kontenera *komputery AADDC* i jeden dla kontenera *Użytkownicy AADDC* . Te obiekty zasad grupy można dostosować w taki sposób, aby w ramach domeny zarządzanej na platformie Azure AD DS konfigurację zasad grup.
+Istnieją dwa wbudowane obiekty zasady grupy (GPO) w domenie zarządzanej — jeden dla kontenera *komputery AADDC* i jeden dla kontenera *Użytkownicy AADDC* . Te obiekty zasad grupy można dostosować w taki sposób, aby w ramach domeny zarządzanej zostały skonfigurowane zasady grup.
 
 1. W konsoli **zarządzania zasady grupy** rozwiń węzeł **Las: aaddscontoso.com** . Następnie rozwiń węzły **domeny** .
 
@@ -86,7 +83,7 @@ Istnieją dwa wbudowane obiekty zasady grupy (GPO) w domenie zarządzanej AD DS 
 
     ![Wbudowane obiekty zasad grupy stosowane do domyślnych kontenerów "AADDC komputery" i "AADDC użytkowników"](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Te wbudowane obiekty zasad grupy można dostosować w celu skonfigurowania określonych zasad grup w domenie zarządzanej AD DS platformy Azure. Kliknij prawym przyciskiem myszy jeden z obiektów zasad grupy, na przykład *AADDC komputery obiektów zasad grupy*, a następnie wybierz polecenie **Edytuj...**.
+1. Te wbudowane obiekty zasad grupy można dostosować w celu skonfigurowania określonych zasad grup w domenie zarządzanej. Kliknij prawym przyciskiem myszy jeden z obiektów zasad grupy, na przykład *AADDC komputery obiektów zasad grupy*, a następnie wybierz polecenie **Edytuj...**.
 
     ![Wybierz opcję "Edytuj" jeden z wbudowanych obiektów zasad grupy](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 
@@ -98,7 +95,7 @@ Istnieją dwa wbudowane obiekty zasady grupy (GPO) w domenie zarządzanej AD DS 
 
 ## <a name="create-a-custom-group-policy-object"></a>Tworzenie niestandardowego obiektu zasady grupy
 
-Aby zgrupować podobne ustawienia zasad, często tworzysz dodatkowe obiekty zasad grupy zamiast stosowania wszystkich wymaganych ustawień w jednym domyślnym obiekcie zasad grupy. Za pomocą usługi Azure AD DS można utworzyć lub zaimportować własne niestandardowe obiekty zasad grupy i połączyć je z niestandardową jednostką organizacyjną. Jeśli musisz najpierw utworzyć niestandardową jednostkę organizacyjną, zobacz [Tworzenie niestandardowej jednostki organizacyjnej w domenie zarządzanej AD DS platformy Azure](create-ou.md).
+Aby zgrupować podobne ustawienia zasad, często tworzysz dodatkowe obiekty zasad grupy zamiast stosowania wszystkich wymaganych ustawień w jednym domyślnym obiekcie zasad grupy. Za pomocą usługi Azure AD DS można utworzyć lub zaimportować własne niestandardowe obiekty zasad grupy i połączyć je z niestandardową jednostką organizacyjną. Jeśli musisz najpierw utworzyć niestandardową jednostkę organizacyjną, zobacz [Tworzenie niestandardowej jednostki organizacyjnej w domenie zarządzanej](create-ou.md).
 
 1. W konsoli **zarządzania zasady grupy** wybierz swoją niestandardową jednostkę organizacyjną (OU), taką jak *MyCustomOU*. Wybierz jednostkę organizacyjną, a następnie wybierz pozycję **Utwórz obiekt zasad grupy w tej domenie i umieść tu link...**:
 

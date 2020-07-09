@@ -3,15 +3,15 @@ title: Zastąp baterię na urządzeniu z serii Microsoft Azure StorSimple 8000
 description: Opisuje sposób usuwania, zastępowania i konserwowania modułu baterii tworzenia kopii zapasowych na urządzeniu StorSimple.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255017"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508983"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Wymiana modułu baterii zapasowej w urządzeniu StorSimple
 
@@ -32,7 +32,7 @@ W tym samouczku wyjaśniono:
 Moduł baterii kopii zapasowej dla urządzenia StorSimple jest jednostką, którą należy umieścić w polu. Przed zainstalowaniem w module PCM moduł baterii powinien być przechowywany w oryginalnym pakiecie. Wykonaj następujące kroki, aby usunąć baterię tworzenia kopii zapasowych.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Aby usunąć moduł baterii tworzenia kopii zapasowej
-1. W Azure Portal przejdź do bloku usługi StorSimple Menedżer urządzeń. Przejdź do pozycji **urządzenia** , a następnie wybierz urządzenie z listy urządzeń. Przejdź do **monitorowania** > **kondycji sprzętu**. W obszarze **udostępnione składniki**Sprawdź stan baterii.
+1. W Azure Portal przejdź do bloku usługi StorSimple Menedżer urządzeń. Przejdź do pozycji **urządzenia** , a następnie wybierz urządzenie z listy urządzeń. Przejdź do **monitorowania**  >  **kondycji sprzętu**. W obszarze **udostępnione składniki**Sprawdź stan baterii.
 2. Zidentyfikuj moduł PCM, w którym bateria nie powiodła się. Rysunek 1 przedstawia tył urządzenia StorSimple.
    
     ![Planowanie planu podstawowego modułów obudowy urządzenia](./media/storsimple-battery-replacement/IC740994.png)
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby zainstalować wymienny moduł baterii w module 
 1. Umieść moduł baterii kopii zapasowej w odpowiedniej orientacji w module PCM.
 2. Naciśnij klawisz w dół w celu dołączenia modułu baterii do łącznika.
 3. Zastąp moduł PCM w obudowie podstawowej, postępując zgodnie ze wskazówkami w temacie [zastępowanie modułu zasilacza i chłodzenia na urządzeniu StorSimple](storsimple-8000-power-cooling-module-replacement.md).
-4. Po zakończeniu wymiany przejdź do urządzenia, a następnie przejdź do pozycji **Monitoruj** > **kondycję sprzętu** w Azure Portal. Sprawdź stan baterii, aby upewnić się, że instalacja zakończyła się pomyślnie. Zielony stan oznacza, że bateria jest w dobrej kondycji.
+4. Po zakończeniu wymiany przejdź do urządzenia, a następnie przejdź do pozycji **Monitoruj**  >  **kondycję sprzętu** w Azure Portal. Sprawdź stan baterii, aby upewnić się, że instalacja zakończyła się pomyślnie. Zielony stan oznacza, że bateria jest w dobrej kondycji.
 
 ## <a name="maintain-the-backup-battery-module"></a>Obsługa modułu baterii tworzenia kopii zapasowych
 Na urządzeniu z systemem StorSimple moduł baterii tworzenia kopii zapasowych zapewnia zasilanie kontrolera podczas zdarzenia utraty zasilania. Dzięki temu urządzenie StorSimple może zapisywać krytyczne dane przed zamykaniem w kontrolowany sposób. W przypadku dwóch w pełni obciążonych baterii w PCMs system może obsłużyć dwa kolejne zdarzenia utraty.

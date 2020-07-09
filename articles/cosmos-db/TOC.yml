@@ -123,7 +123,7 @@
           href: partitioning-overview.md
         - name: Partycjonowanie i skalowanie w poziomie
           href: partition-data.md
-        - name: Tworzenie syntetycznego klucza partycji
+        - name: Syntetyczny klucz partycji
           href: synthetic-partition-keys.md
     - name: Aprowizowana przepływność
       items:
@@ -592,8 +592,12 @@
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
-            - name: Java
+            - name: .NET Core
+              href: create-cassandra-dotnet-core.md
+            - name: Java v3
               href: create-cassandra-java.md
+            - name: Java v4
+              href: create-cassandra-java-v4.md
             - name: Node.js
               href: create-cassandra-nodejs.md
             - name: Python
@@ -615,6 +619,8 @@
               href: cassandra-faq.md
             - name: Elastyczne skalowanie
               href: manage-scale-cassandra.md
+            - name: Partycjonowanie
+              href: cassandra-partitioning.md
             - name: Indeksy pomocnicze
               href: cassandra-secondary-index.md
         - name: Przewodniki z instrukcjami
@@ -857,7 +863,7 @@
               href: table-storage-how-to-use-c-plus.md
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
-            - name: 'F#'
+            - name: F#
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
         - name: Pojęcia
@@ -971,41 +977,40 @@
           href: how-to-manage-indexing-policy.md
         - name: Definiowanie unikatowych kluczy
           href: how-to-define-unique-keys.md
-    - name: Najlepsze rozwiązania
+    - name: Wydajność i rozwiązywanie problemów
       items:
-        - name: Porady dotyczące wydajności
+        - name: Zapytanie
           items:
             - name: Pobieranie metryk wykonywania zapytań
-              displayName: 'query profile, profile'
               href: profile-sql-api-query.md
             - name: Dostosowywanie wydajności zapytań
               href: sql-api-query-metrics.md
-            - name: Porady dotyczące wydajności dla zestawu.NET SDK
+            - name: Rozwiązywanie problemów z wydajnością zapytań
+              href: troubleshoot-query-performance.md
+        - name: .NET
+          items:
+            - name: Porady dotyczące wydajności dla zestawu .NET SDK 3
+              href: performance-tips-dotnet-sdk-v3-sql.md
+            - name: Porady dotyczące wydajności dla zestawu .NET SDK 2
               href: performance-tips.md
+            - name: Rozwiązywanie problemów z zestawem .NET SDK
+              href: troubleshoot-dot-net-sdk.md
+        - name: Java
+          items:
             - name: Porady dotyczące wydajności dla zestawu Java SDK w wersji 4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Porady dotyczące wydajności dla starszych zestawów Java SDK
-              items:
-                - name: Async Java SDK 2
-                  href: performance-tips-async-java.md
-                - name: Sync Java SDK 2
-                  href: performance-tips-java.md
-            - name: Test wydajnościowy — przykładowa aplikacja
-              href: performance-testing.md
+            - name: Rozwiązywanie problemów z zestawem Java SDK w wersji 4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: Async Java SDK 2
+              href: performance-tips-async-java.md
+            - name: Sync Java SDK 2
+              href: performance-tips-java.md
+            - name: Rozwiązywanie problemów — Async Java SDK 2
+              href: troubleshoot-java-async-sdk.md
+        - name: Test wydajnościowy — przykładowa aplikacja
+          href: performance-testing.md
         - name: Ekonomiczne odczyty i zapisy
           href: key-value-store-cost.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Rozwiązywanie problemów z wydajnością zapytań
-          href: troubleshoot-query-performance.md
-        - name: Rozwiązywanie problemów z zestawem Java SDK w wersji 4
-          href: troubleshoot-java-sdk-v4-sql.md
-        - name: Rozwiązywanie problemów ze starszymi zestawami Java SDK
-          items:
-            - name: Async Java SDK 2
-              href: troubleshoot-java-async-sdk.md
-        - name: Rozwiązywanie problemów z zestawem .NET SDK
-          href: troubleshoot-dot-net-sdk.md
     - name: Migracja do nowszych zestawów SDK
       items:
         - name: Migracja do zestawu SDK języka Java w wersji 4
@@ -1050,7 +1055,7 @@
           href: import-github-notebooks.md
         - name: Korzystanie z wbudowanych poleceń notesu języka Python
           href: use-python-notebook-features-and-commands.md
-        - name: 'Korzystanie z wbudowanych poleceń notesu języka C#'
+        - name: Korzystanie z wbudowanych poleceń notesu języka C#
           href: use-csharp-notebook-features-and-commands.md
     - name: Programowanie po stronie serwera
       items:
@@ -1150,6 +1155,8 @@
           href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Usługa Azure Stream Analytics
           href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Azure Data Explorer
+          href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
         - name: Usługi Azure Event Hubs i Azure Storage
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Używanie programu Spring Boot Starter
@@ -1188,28 +1195,30 @@
           href: how-to-migrate-from-bulk-executor-library.md
         - name: Funkcja wykonywania zbiorczego — biblioteka Java
           href: bulk-executor-java.md
-- name: Dokumentacja
+- name: Dokumentacja dla zestawów SDK interfejsów SQL API
   items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: Biblioteka .NET zestawienia zmian
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: Biblioteka .NET funkcji wykonywania zbiorczego
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Biblioteka Java funkcji wykonywania zbiorczego
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Zestaw SDK języka Java 4 dla platformy Core
-      href: sql-api-sdk-java-v4.md
-    - name: Starsze zestawy Java SDK dla platformy Core
+    - name: Zestawy SDK platformy .NET
       items:
+        - name: .NET SDK 3
+          href: sql-api-sdk-dotnet-standard.md
+        - name: .NET SDK 2
+          href: sql-api-sdk-dotnet.md
+        - name: .NET Core SDK 2
+          href: sql-api-sdk-dotnet-core.md
+        - name: Biblioteka .NET zestawienia zmian w wersji 2
+          href: sql-api-sdk-dotnet-changefeed.md
+        - name: Biblioteka .NET funkcji wykonywania zbiorczego w wersji 2
+          href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: Zestawy SDK języka Java
+      items:
+        - name: Java SDK 4
+          href: sql-api-sdk-java-v4.md
         - name: Async Java SDK 2
           href: sql-api-sdk-async-java.md
         - name: Sync Java SDK 2
           href: sql-api-sdk-java.md
+        - name: Biblioteka Java funkcji wykonywania zbiorczego w wersji 2
+          href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
@@ -1237,6 +1246,8 @@
       href: whitepapers.md
     - name: Partnerzy
       href: partners-migration-cosmosdb.md
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-cosmos-db.html'
     - name: Filmy wideo
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Harmonogram działania dla platformy Azure

@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: cd7aae05b064657c7b9072402f4bc4d4d7fef7a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057893"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie stada na potrzeby automatycznego aprowizacji użytkowników
@@ -56,7 +55,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 Przed skonfigurowaniem stada na potrzeby automatycznego aprowizacji użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim na Stadie.
 
-1. Zaloguj się do [stada](https://web.flock.com/?). Kliknij pozycję **Ustawienia ikona** > **Zarządzanie zespołem**.
+1. Zaloguj się do [stada](https://web.flock.com/?). Kliknij pozycję **Ustawienia ikona**  >  **Zarządzanie zespołem**.
 
     ![Flock](media/flock-provisioning-tutorial/icon.png)
 
@@ -116,7 +115,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji poświadczenia administratora wprowadź odpowiednio wartości `https://api.flock-staging.com/v2/scim` **tokenów interfejsu API** i, które zostały pobrane wcześniej w **adresie URL dzierżawy** i w **tokenie tajnym** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się ze stadem. Jeśli połączenie nie powiedzie się, upewnij się, że konto hodowlane ma uprawnienia administratora, i spróbuj ponownie.
+5. W sekcji poświadczenia administratora wprowadź `https://api.flock-staging.com/v2/scim` odpowiednio wartości **tokenów interfejsu API** i, które zostały pobrane wcześniej w **adresie URL dzierżawy** i w **tokenie tajnym** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się ze stadem. Jeśli połączenie nie powiedzie się, upewnij się, że konto hodowlane ma uprawnienia administratora, i spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -124,7 +123,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do stada**.
 
@@ -154,7 +153,7 @@ Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępo
 
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

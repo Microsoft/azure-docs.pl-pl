@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2018
 ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03a8d1f3e541d61d515b28bf56964c0add3b390e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830642"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Dodaj informacje o ochronie prywatności w organizacji za pomocą Azure Active Directory
 W tym artykule wyjaśniono, jak Administrator dzierżawy może dodać do dzierżawy usługi Azure Active Directory (Azure AD) informacje związane z prywatnością, korzystając z Azure Portal.
@@ -32,15 +32,15 @@ Informacje o ochronie prywatności organizacji są dodawane w obszarze **Właśc
 
 ### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Aby uzyskać dostęp do obszaru właściwości i dodać informacje o prywatności
 
-1.    Zaloguj się do Azure Portal jako Administrator dzierżawy.
+1. Zaloguj się do Azure Portal jako Administrator dzierżawy.
 
-2.    Na lewym pasku nawigacyjnym wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Właściwości**.
+2. Na lewym pasku nawigacyjnym wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Właściwości**.
 
     Zostanie wyświetlony obszar **Właściwości** .
 
     ![Obszar właściwości usługi Azure AD podświetlanie obszaru informacji o prywatności](media/active-directory-properties-area/properties-area.png)
 
-3.    Dodaj informacje o prywatności dla swoich pracowników:
+3. Dodaj informacje o prywatności dla swoich pracowników:
 
     - **Kontakt techniczny.** Wpisz adres e-mail osoby, aby skontaktować się z pomocą techniczną w organizacji.
     
@@ -49,11 +49,11 @@ Informacje o ochronie prywatności organizacji są dodawane w obszarze **Właśc
     - **Adres URL zasad zachowania poufności informacji.** Wpisz link do dokumentu organizacji, który opisuje, jak Twoja organizacja obsługuje zarówno prywatność danych wewnętrznych, jak i zewnętrznych.
 
         >[!Important]
-        >Jeśli nie dołączysz własnych zasad zachowania poufności informacji lub kontaktu z prywatnością, zobaczysz tekst w polu **uprawnienia przeglądu** , które informuje, ** <że _Nazwa organizacji_> nie podano linków do ich terminów do przejrzenia**. Na przykład użytkownik-Gość zobaczy ten komunikat, gdy otrzyma zaproszenie do uzyskania dostępu do organizacji za pomocą współpracy B2B.
+        >Jeśli nie dołączysz własnych zasad zachowania poufności informacji lub kontaktu z prywatnością, zobaczysz tekst w polu **uprawnienia przeglądu** , które informuje, że ** < _Nazwa organizacji_> nie podano linków do ich terminów do przejrzenia**. Na przykład użytkownik-Gość zobaczy ten komunikat, gdy otrzyma zaproszenie do uzyskania dostępu do organizacji za pomocą współpracy B2B.
 
         ![Pole uprawnień przeglądu współpracy B2B z komunikatem](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.    Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Azure Active Directory realizacji zaproszeń do współpracy B2B](../b2b/redemption-experience.md)

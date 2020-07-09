@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 8a704c3891c687edbb7c5aac206f4b6c7766fa8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84263894"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiowanie danych z Xero za pomocą Azure Data Factory
 
@@ -35,7 +34,7 @@ Dane z Xero można skopiować do dowolnego obsługiwanego magazynu danych ujści
 
 Ten łącznik Xero obsługuje:
 
-- Xero [aplikację prywatną](https://developer.xero.com/documentation/getting-started/api-application-types) , ale nie aplikację publiczną.
+- Xero [aplikację prywatną](https://developer.xero.com/documentation/getting-started/getting-started-guide) , ale nie aplikację publiczną.
 - Wszystkie tabele Xero (punkty końcowe interfejsu API) z wyjątkiem "Reports". 
 
 Azure Data Factory udostępnia wbudowany sterownik umożliwiający połączenie, dlatego nie trzeba ręcznie instalować żadnego sterownika przy użyciu tego łącznika.
@@ -50,12 +49,12 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Xero są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Xero** | Tak |
-| host | Punkt końcowy serwera Xero (`api.xero.com`).  | Tak |
+| typ | Właściwość Type musi mieć wartość: **Xero** | Tak |
+| host | Punkt końcowy serwera Xero ( `api.xero.com` ).  | Tak |
 | consumerKey | Klucz klienta skojarzony z aplikacją Xero. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
-| privateKey | Klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Uwaga: **generowanie PrivateKey. pem z numbitsem 512** przy użyciu `openssl genrsa -out privatekey.pem 512`polecenia; 1024 nie jest obsługiwana. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| privateKey | Klucz prywatny z pliku PEM, który został wygenerowany dla aplikacji prywatnej Xero, zobacz [Tworzenie pary kluczy publicznych/prywatnych](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Uwaga: **generowanie PrivateKey. pem z numbitsem 512** przy użyciu polecenia `openssl genrsa -out privatekey.pem 512` ; 1024 nie jest obsługiwane. Dołącz cały tekst z pliku PEM włącznie z zakończeniami wierszy systemu UNIX (\n), zobacz przykład poniżej.<br/><br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartością domyślną jest true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta jest wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
@@ -96,12 +95,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Xero, ustaw właściwość Type zestawu danych na **XeroObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **XeroObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **XeroObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -126,9 +125,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z Xero, ustaw typ źródła w działaniu Copy na **XeroSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **XeroSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **XeroSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Contacts"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
@@ -165,9 +164,9 @@ Aby skopiować dane z Xero, ustaw typ źródła w działaniu Copy na **XeroSourc
 
 Podczas określania zapytania Xero należy zwrócić uwagę na następujące kwestie:
 
-- Tabele ze złożonymi elementami zostaną podzielone na wiele tabel. Na przykład transakcje bankowe mają złożoną strukturę danych "LineItems", więc dane transakcji bankowej są mapowane na tabelę `Bank_Transaction` i `Bank_Transaction_Line_Items`, za `Bank_Transaction_ID` pomocą klucza obcego, aby połączyć je ze sobą.
+- Tabele ze złożonymi elementami zostaną podzielone na wiele tabel. Na przykład transakcje bankowe mają złożoną strukturę danych "LineItems", więc dane transakcji bankowej są mapowane na tabelę `Bank_Transaction` i `Bank_Transaction_Line_Items` , za pomocą `Bank_Transaction_ID` klucza obcego, aby połączyć je ze sobą.
 
-- Dane Xero są dostępne w dwóch schematach `Minimal` : (domyślnie) `Complete`i. Kompletny schemat zawiera tabele wywołań wymaganych wstępnie, które wymagają dodatkowych danych (np. kolumny identyfikatora) przed wykonaniem żądanego zapytania.
+- Dane Xero są dostępne w dwóch schematach: `Minimal` (domyślnie) i `Complete` . Kompletny schemat zawiera tabele wywołań wymaganych wstępnie, które wymagają dodatkowych danych (np. kolumny identyfikatora) przed wykonaniem żądanego zapytania.
 
 Poniższe tabele zawierają te same informacje w schemacie minimalnej i kompletnej. Aby zmniejszyć liczbę wywołań interfejsu API, użyj minimalnego schematu (domyślnie).
 

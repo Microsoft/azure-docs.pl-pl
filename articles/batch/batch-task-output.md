@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat różnych opcji utrwalania danych wyj
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726302"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965114"
 ---
 # <a name="persist-job-and-task-output"></a>Utrwalanie danych wyjściowych zadań i zadań podrzędnych
 
@@ -35,7 +35,7 @@ W poniższych sekcjach krótko opisano każde podejście, a także ogólne zagad
 
 ### <a name="use-the-batch-service-api"></a>Korzystanie z interfejsu API usługi Batch
 
-Usługa Batch obsługuje określanie plików wyjściowych w usłudze Azure Storage na potrzeby danych zadań po [dodaniu zadania do zadania](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) lub [dodaniu kolekcji zadań do zadania](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+Usługa Batch obsługuje określanie plików wyjściowych w usłudze Azure Storage na potrzeby danych zadań po [dodaniu zadania do zadania](/rest/api/batchservice/add-a-task-to-a-job) lub [dodaniu kolekcji zadań do zadania](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 Aby uzyskać więcej informacji na temat utrwalania danych wyjściowych zadań za pomocą interfejsu API usługi Batch, zobacz [trwałe dane zadania do usługi Azure Storage za pomocą interfejsu API usług Batch](batch-task-output-files.md).
 

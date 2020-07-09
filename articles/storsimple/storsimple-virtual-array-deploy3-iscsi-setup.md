@@ -15,11 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254497"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704594"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Wdróż macierz wirtualną StorSimple — Skonfiguruj jako serwer iSCSI za pośrednictwem Azure Portal
 
@@ -81,7 +80,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 6. Na stronie **Ustawienia urządzenia** :
    
    1. Przypisz unikatową **nazwę** do urządzenia. Nazwa może składać się z 1-15 znaków i może zawierać litery, cyfry i łączniki.
-   2. Kliknij ikonę **serwera** iSCSI ikona ![serwera iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) dla tworzonego **typu** urządzenia. Serwer iSCSI umożliwi udostępnienie magazynu blokowego.
+   2. Kliknij ikonę **serwera** iSCSI ikona ![ serwera iSCSI ](./media/storsimple-virtual-array-deploy3-iscsi-setup/image7.png) dla tworzonego **typu** urządzenia. Serwer iSCSI umożliwi udostępnienie magazynu blokowego.
    3. Określ, czy to urządzenie ma zostać przyłączone do domeny. Jeśli urządzenie jest serwerem iSCSI, przyłączenie do domeny jest opcjonalne. Jeśli zdecydujesz się nie przyłączyć serwera iSCSI do domeny, kliknij przycisk **Zastosuj**, zaczekaj na zastosowanie ustawień, a następnie przejdź do następnego kroku.
       
        Jeśli chcesz przyłączyć urządzenie do domeny. Wprowadź **nazwę domeny**, a następnie kliknij przycisk **Zastosuj**.
@@ -100,7 +99,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    
     Na stronie **serwer proxy sieci Web** :
    
-   1. Podaj **adres URL serwera proxy sieci Web** w tym formacie: *http:\//Host-IP adres* lub *FQDN: numer portu*. Należy zauważyć, że adresy URL HTTPS nie są obsługiwane.
+   1. Podaj **adres URL serwera proxy sieci Web** w tym formacie: *http: \/ /host-IP adres* lub *FQDN: numer portu*. Należy zauważyć, że adresy URL HTTPS nie są obsługiwane.
    2. Określ **uwierzytelnianie** jako **podstawowa** lub **Brak**.
    3. W przypadku korzystania z uwierzytelniania należy również podać **nazwę użytkownika** i **hasło**.
    4. Kliknij przycisk **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień serwera proxy sieci Web.
@@ -118,7 +117,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    
    1. Wprowadź **klucz rejestracji usługi** uzyskany w **kroku 2. Pobieranie klucza rejestracji usługi** w temacie [wdrażanie StorSimple Virtual Array — przygotowanie portalu](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
    2. Jeśli nie jest to pierwsze urządzenie, które jest zarejestrowana w ramach tej usługi, musisz podać **klucz szyfrowania danych usługi**. Ten klucz jest wymagany w przypadku klucza rejestracji usługi w celu zarejestrowania dodatkowych urządzeń w usłudze StorSimple Menedżer urządzeń. Aby uzyskać więcej informacji, zobacz [Pobieranie klucza szyfrowania danych usługi](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) w lokalnym interfejsie użytkownika sieci Web.
-   3. Kliknij pozycję **zarejestruj**. Spowoduje to ponowne uruchomienie urządzenia. Przed pomyślnym zarejestrowaniem urządzenia może być konieczne odczekanie przez 2-3 minut. Po ponownym uruchomieniu urządzenia nastąpi przekierowanie do strony logowania.
+   3. Kliknij pozycję **Zarejestruj**. Spowoduje to ponowne uruchomienie urządzenia. Przed pomyślnym zarejestrowaniem urządzenia może być konieczne odczekanie przez 2-3 minut. Po ponownym uruchomieniu urządzenia nastąpi przekierowanie do strony logowania.
       
       ![Zarejestruj urządzenie](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Wróć do witryny Azure Portal.

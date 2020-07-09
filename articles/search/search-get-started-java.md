@@ -8,27 +8,27 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/25/2020
-ms.openlocfilehash: 0b07e934625b09e7f6249dc00865465147f6f0ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ebf7d35529a9bf0f6d9caca35b7429a803fed2f
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624018"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85562207"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
-> * [S #](search-get-started-dotnet.md)
+> * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [Program PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
 Tworzenie aplikacji konsolowej Java, która tworzy, ładuje i wysyła zapytanie do indeksu wyszukiwania za pomocą [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)i [interfejsu API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia aplikacji. Alternatywnie można [pobrać i uruchomić kompletną aplikację](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,7 +48,7 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-2. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
    Utwórz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
@@ -68,18 +68,18 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
     ![Tworzenie projektu Maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
 
-1. Dla **identyfikatora GroupID** i **ArtifactId**wprowadź `AzureSearchQuickstart`.
+1. Dla **identyfikatora GroupID** i **ArtifactId**wprowadź `AzureSearchQuickstart` .
 1. Zaakceptuj pozostałe wartości domyślne, aby otworzyć projekt.
 
 ### <a name="specify-maven-dependencies"></a>Określ zależności Maven
 
-1. Wybierz pozycję**Ustawienia** **pliku** > .
-1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,** > **Narzędzia** > kompilacji wdrożenia**Maven** > **Importowanie**.
-1. Zaznacz pole wyboru **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności zostaną teraz automatycznie zsynchronizowane po zaktualizowaniu pliku pliku pom. XML w następnym kroku.
+1. Wybierz **File**pozycję  >  **Ustawienia**pliku.
+1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji**wdrożenia  >  **Maven**  >  **Importowanie**.
+1. Zaznacz pole wyboru **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
 
     ![Maven opcji importowania w ustawieniach IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
-1. Otwórz plik pliku pom. XML i Zastąp jego zawartość poniższymi szczegółami konfiguracji Maven. Obejmują one odwołania do [wtyczki exec Maven](https://www.mojohaus.org/exec-maven-plugin/) oraz interfejsu [API interfejsu JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Otwórz plik pom.xml i Zastąp jego zawartość następującymi szczegółami konfiguracji Maven. Obejmują one odwołania do [wtyczki exec Maven](https://www.mojohaus.org/exec-maven-plugin/) oraz interfejsu [API interfejsu JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -132,10 +132,10 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="set-up-the-project-structure"></a>Skonfiguruj strukturę projektu
 
-1. Wybierz pozycję**Struktura projektu** **pliku** > .
+1. Wybierz **File**pozycję  >  **Struktura projektu**pliku.
 1. Wybierz pozycję **moduły**i rozwiń drzewo źródłowe, aby uzyskać dostęp do zawartości `src`  >   `main` folderu.
-1. `src` `java` W folderze `app` Dodaj foldery `service` i.  >   `main`  >  Aby to zrobić, wybierz `java` folder, naciśnij klawisze ALT + INSERT, a następnie wprowadź nazwę folderu.
-1. `src` `resources` W folderze `app` Dodaj foldery `service` i.  >   `main`  >
+1. W `src`  >   `main`  >  `java` folderze Dodaj `app` `service` foldery i. Aby to zrobić, wybierz `java` folder, naciśnij klawisze ALT + INSERT, a następnie wprowadź nazwę folderu.
+1. W `src`  >   `main`  > `resources` folderze Dodaj `app` `service` foldery i.
 
     Gdy skończysz, drzewo projektu powinno wyglądać jak na poniższej ilustracji.
 
@@ -145,21 +145,21 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="add-azure-cognitive-search-service-information"></a>Dodawanie informacji o usłudze Wyszukiwanie poznawcze platformy Azure
 
-1. W oknie **projekt** `src`  >   `main`  > `resources`  >  `app` rozwiń drzewo źródłowe, aby uzyskać dostęp do folderu, a następnie Dodaj `config.properties` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `app` folderu, a następnie Dodaj `config.properties` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
 
-1. Skopiuj następujące ustawienia do nowego pliku i Zastąp `<YOUR-SEARCH-SERVICE-NAME>` `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` je nazwą i kluczami usługi. Jeśli punkt końcowy usługi to `https://mydemo.search.windows.net`, nazwa usługi to "Moja demonstracja".
+1. Skopiuj następujące ustawienia do nowego pliku i zastąp je `<YOUR-SEARCH-SERVICE-NAME>` `<YOUR-ADMIN-KEY>` `<YOUR-QUERY-KEY>` nazwą i kluczami usługi. Jeśli punkt końcowy usługi to `https://mydemo.search.windows.net` , nazwa usługi to "Moja demonstracja".
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
         SearchServiceAdminKey=<YOUR-ADMIN-KEY>
         SearchServiceQueryKey=<YOUR-QUERY-KEY>
         IndexName=hotels-quickstart
-        ApiVersion=2019-05-06
+        ApiVersion=2020-06-30
     ```
 
 ### <a name="add-the-main-method"></a>Dodaj metodę Main
 
-1. `src`  >   `App` W folderze `app` Dodaj klasę. `main`  >  `java`  >  Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java**, a następnie wprowadź nazwę klasy.
+1. W `src`  >   `main`  >  `java`  >  `app` folderze Dodaj `App` klasę. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java**, a następnie wprowadź nazwę klasy.
 1. Otwórz `App` klasę i Zastąp zawartość następującym kodem. Ten kod zawiera `main` metodę. 
 
     Kod niekomentowany odczytuje parametry usługi wyszukiwania i używa ich do utworzenia wystąpienia klienta usługi wyszukiwania. Kod klienta usługi Search zostanie dodany w następnej sekcji.
@@ -258,7 +258,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 ### <a name="add-the-http-operations"></a>Dodawanie operacji HTTP
 
-1. `src`  >   `SearchServiceClient` W folderze `service` Dodaj klasę. `main`  >  `java`  >  Aby to zrobić, wybierz `service` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java**, a następnie wprowadź nazwę klasy.
+1. W `src`  >   `main`  >  `java`  >  `service` folderze Dodaj `SearchServiceClient` klasę. Aby to zrobić, wybierz `service` folder, naciśnij klawisze ALT + INSERT, wybierz opcję **Klasa Java**, a następnie wprowadź nazwę klasy.
 1. Otwórz `SearchServiceClient` klasę i Zastąp zawartość następującym kodem. Ten kod zawiera operacje HTTP wymagane do korzystania z interfejsu API REST usługi Azure Wyszukiwanie poznawcze. Dodatkowe metody tworzenia indeksu, przekazywania dokumentów i wysyłania zapytań do indeksu zostaną dodane w dalszej części.
 
     ```java
@@ -375,7 +375,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
     ![Struktura katalogu projektu](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java` 
- ![wykonaj Maven cel: Verify exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+ ![ Wykonaj Maven cel: Verify exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
 Po zakończeniu przetwarzania Wyszukaj komunikat o POWODZENIU kompilacji, po którym następuje kod zakończenia równy zero (0).
 
@@ -383,7 +383,7 @@ Po zakończeniu przetwarzania Wyszukaj komunikat o POWODZENIU kompilacji, po kt�
 
 Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładami prostego pola są "Hotelname" lub "Description". Pole "Address" jest polem złożonym, ponieważ ma podpola, takie jak "ulica" i "miasto". W tym przewodniku szybki start Definicja indeksu jest określana za pomocą formatu JSON.
 
-1. W oknie **projekt** `src`  >   `main`  > `resources`  >  `service` rozwiń drzewo źródłowe, aby uzyskać dostęp do folderu, a następnie Dodaj `index.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `index.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
 
 1. Otwórz `index.json` plik i Wstaw następującą definicję indeksu.
 
@@ -512,7 +512,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
 
     Nazwa indeksu będzie "Hotele-Szybki Start". Atrybuty pól indeksu określają, jak indeksowane dane mogą być przeszukiwane w aplikacji. Na przykład, `IsSearchable` atrybut musi być przypisany do każdego pola, które powinny być uwzględnione w wyszukiwaniu pełnotekstowym. Aby dowiedzieć się więcej na temat atrybutów, zobacz [kolekcje pól i atrybuty pól](search-what-is-an-index.md#fields-collection).
     
-    `Description` Pole w tym indeksie używa opcjonalnej `analyzer` właściwości do przesłania domyślnego analizatora języka Lucene. W `Description_fr` polu jest używany francuski Analizator `fr.lucene` Lucene, ponieważ jest on przechowywany w języku francuskim. `Description` Używa opcjonalnego narzędzia Microsoft Language Analyzer en. Lucene. Aby dowiedzieć się więcej na temat analizatorów, zobacz [analizatory do przetwarzania tekstu na platformie Azure wyszukiwanie poznawcze](search-analyzers.md).
+    `Description`Pole w tym indeksie używa opcjonalnej `analyzer` właściwości do przesłania domyślnego analizatora języka Lucene. W `Description_fr` polu jest używany francuski Analizator Lucene, `fr.lucene` ponieważ jest on przechowywany w języku francuskim. `Description`Używa opcjonalnego narzędzia Microsoft Language Analyzer en. Lucene. Aby dowiedzieć się więcej na temat analizatorów, zobacz [analizatory do przetwarzania tekstu na platformie Azure wyszukiwanie poznawcze](search-analyzers.md).
 
 1. Dodaj następujący kod do `SearchServiceClient` klasy. Te metody kompilują adresy URL usługi Azure Wyszukiwanie poznawcze REST, które tworzą i usuwają indeks, i określają, czy indeks istnieje. Metody również tworzą żądanie HTTP.
 
@@ -554,7 +554,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
     }
     ```
 
-1. Usuń komentarz z poniższego kodu w `App` klasie. Ten kod usuwa indeks "Hotele-szybki", jeśli istnieje, i tworzy nowy indeks na podstawie definicji indeksu w pliku "index. JSON". 
+1. Usuń komentarz z poniższego kodu w `App` klasie. Ten kod usuwa indeks "Hotele-szybki", jeśli istnieje, i tworzy nowy indeks na podstawie definicji indeksu w pliku "index.json". 
 
     Po żądaniu utworzenia indeksu zostanie wstawiona druga przerwa. To wstrzymanie zapewnia, że indeks zostanie utworzony przed przekazaniem dokumentów.
 
@@ -570,7 +570,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
     
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-1. W oknie **projekt** `src`  >   `main`  > `resources`  >  `service` rozwiń drzewo źródłowe, aby uzyskać dostęp do folderu, a następnie Dodaj `hotels.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
+1. W oknie **projekt** rozwiń drzewo źródłowe, aby uzyskać dostęp do `src`  >   `main`  > `resources`  >  `service` folderu, a następnie Dodaj `hotels.json` plik. Aby to zrobić, wybierz `app` folder, naciśnij klawisze ALT + INSERT, wybierz pozycję **plik**, a następnie wprowadź nazwę pliku.
 1. Wstaw następujące dokumenty hotelu do pliku.
 
     ```json
@@ -675,7 +675,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
     }
     ```
 
-1. Usuń komentarz z poniższego kodu w `App` klasie. Ten kod przekazuje dokumenty w pliku "Hotele. JSON" do indeksu.
+1. Usuń komentarz z poniższego kodu w `App` klasie. Ten kod przekazuje dokumenty z "hotels.json" do indeksu.
 
     ```java
     client.uploadDocuments("/service/hotels.json");
@@ -696,9 +696,9 @@ Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiw
 
 1. Dodaj następujący kod do `SearchServiceClient` klasy. Ten kod kompiluje adresy URL usługi Azure Wyszukiwanie poznawcze REST, aby przeszukać indeksowane dane i wydrukował wyniki wyszukiwania.
 
-    `SearchOptions` Klasa i `createSearchOptions` Metoda pozwalają określić podzestaw dostępnych opcji zapytania interfejsu API REST platformy Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat opcji zapytania interfejsu API REST, zobacz [Wyszukiwanie dokumentów (Azure wyszukiwanie POZNAWCZE REST API)](/rest/api/searchservice/search-documents).
+    `SearchOptions`Klasa i `createSearchOptions` Metoda pozwalają określić podzestaw dostępnych opcji zapytania interfejsu API REST platformy Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat opcji zapytania interfejsu API REST, zobacz [Wyszukiwanie dokumentów (Azure wyszukiwanie POZNAWCZE REST API)](/rest/api/searchservice/search-documents).
 
-    `SearchPlus` Metoda tworzy adres URL zapytania wyszukiwania, wykonuje żądanie wyszukiwania, a następnie drukuje wyniki do konsoli. 
+    `SearchPlus`Metoda tworzy adres URL zapytania wyszukiwania, wykonuje żądanie wyszukiwania, a następnie drukuje wyniki do konsoli. 
 
     ```java
     public SearchOptions createSearchOptions() { return new SearchOptions();}
@@ -811,7 +811,7 @@ Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiw
 
 
 
-    Istnieją dwa [sposoby dopasowywania terminów do zapytania](search-query-overview.md#types-of-queries): wyszukiwanie pełnotekstowe i filtry. Zapytanie wyszukiwania pełnotekstowego wyszukuje co najmniej jeden termin w `IsSearchable` polach w indeksie. Filtr jest wyrażeniem logicznym, które jest oceniane `IsFilterable` względem pól w indeksie. Możesz użyć wyszukiwania pełnotekstowego i filtrów razem lub oddzielnie.
+    Istnieją dwa [sposoby dopasowywania terminów do zapytania](search-query-overview.md#types-of-queries): wyszukiwanie pełnotekstowe i filtry. Zapytanie wyszukiwania pełnotekstowego wyszukuje co najmniej jeden termin w `IsSearchable` polach w indeksie. Filtr jest wyrażeniem logicznym, które jest oceniane względem `IsFilterable` pól w indeksie. Możesz użyć wyszukiwania pełnotekstowego i filtrów razem lub oddzielnie.
 
 1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel:`verify exec:java`
 

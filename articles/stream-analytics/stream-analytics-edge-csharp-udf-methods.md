@@ -7,12 +7,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921860"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Opracowywanie .NET Standard funkcji zdefiniowanych przez użytkownika dla zadań Azure Stream Analytics (wersja zapoznawcza)
 
@@ -39,7 +38,7 @@ Istnieją trzy sposoby implementowania funkcji zdefiniowanych przez użytkownika
 
 ## <a name="package-path"></a>Ścieżka pakietu
 
-Format dowolnego pakietu UDF ma ścieżkę `/UserCustomCode/CLR/*`. Biblioteki dołączane dynamicznie (dll) i zasoby są kopiowane `/UserCustomCode/CLR/*` do folderu, co ułatwia izolowanie bibliotek DLL użytkowników z systemów i Azure Stream Analytics bibliotek DLL. Ta ścieżka pakietu jest używana dla wszystkich funkcji niezależnie od metody używanej do ich używania.
+Format dowolnego pakietu UDF ma ścieżkę `/UserCustomCode/CLR/*` . Biblioteki dołączane dynamicznie (dll) i zasoby są kopiowane do `/UserCustomCode/CLR/*` folderu, co ułatwia izolowanie bibliotek DLL użytkowników z systemów i Azure Stream Analytics bibliotek DLL. Ta ścieżka pakietu jest używana dla wszystkich funkcji niezależnie od metody używanej do ich używania.
 
 ## <a name="supported-types-and-mapping"></a>Obsługiwane typy i mapowanie
 Aby wartości Azure Stream Analytics, które mają być używane w języku C#, muszą być organizowane z jednego środowiska do drugiego. Kierowanie odbywa się dla wszystkich parametrów wejściowych UDF. Każdy typ Azure Stream Analytics ma odpowiadający mu typ w języku C# przedstawionym w poniższej tabeli:
@@ -50,7 +49,7 @@ Aby wartości Azure Stream Analytics, które mają być używane w języku C#, m
 |float | double |
 |nvarchar (max) | ciąg |
 |datetime | DateTime |
-|Rekord | Ciąg\<słownika,> obiektu |
+|Rekord | Słownik\<string, object> |
 |Tablica | Obiekt [] |
 
 To samo jest prawdziwe, gdy dane muszą być organizowane z języka C# do Azure Stream Analytics, co odbywa się na wartości wyjściowej UDF. W poniższej tabeli pokazano, jakie typy są obsługiwane:
@@ -61,10 +60,10 @@ To samo jest prawdziwe, gdy dane muszą być organizowane z języka C# do Azure 
 |double  |  float   |
 |ciąg  |  nvarchar (max)   |
 |DateTime  |  Data i godzina   |
-|struktura   |  Rekord   |
+|struktura  |  Rekord   |
 |object  |  Rekord   |
 |Obiekt []  |  Tablica   |
-|Ciąg\<słownika,> obiektu  |  Rekord   |
+|Słownik\<string, object>  |  Rekord   |
 
 ## <a name="codebehind"></a>CodeBehind
 Funkcje zdefiniowane przez użytkownika można napisać w **skrypcie. ASQL** Codebehind. Narzędzia programu Visual Studio automatycznie kompilują plik CodeBehind do pliku zestawu. Zestawy są spakowane jako plik zip i przekazywane do konta magazynu podczas przesyłania zadania do platformy Azure. Możesz dowiedzieć się, jak napisać UDF języka C# przy użyciu CodeBehind, postępując zgodnie z samouczkiem [UDF języka c# for Stream Analytics Edge](stream-analytics-edge-csharp-udf.md) . 
@@ -79,7 +78,7 @@ Aby odwołać się do projektu lokalnego:
 3. Skompilowanie projektu. Narzędzia będą pakować wszystkie artefakty w folderze bin do pliku zip i przekazać plik zip na konto magazynu. W przypadku odwołań zewnętrznych należy użyć odwołania do zestawu zamiast pakietu NuGet.
 4. Odwołuje się do nowej klasy w projekcie Azure Stream Analytics.
 5. Dodaj nową funkcję w projekcie Azure Stream Analytics.
-6. Skonfiguruj ścieżkę zestawu w pliku konfiguracji zadania, `JobConfig.json`. Ustaw ścieżkę zestawu na **odwołanie do projektu lokalnego lub CodeBehind**.
+6. Skonfiguruj ścieżkę zestawu w pliku konfiguracji zadania, `JobConfig.json` . Ustaw ścieżkę zestawu na **odwołanie do projektu lokalnego lub CodeBehind**.
 7. Kompiluj zarówno projekt funkcji, jak i projekt Azure Stream Analytics.  
 
 ### <a name="example"></a>Przykład
@@ -108,7 +107,7 @@ W tym przykładzie **UDFTest** jest projektem biblioteki klas języka C#, a **AS
 
    ![Dodaj nowy element do funkcji w rozwiązaniu Azure Stream Analytics Edge](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
-6. Dodaj funkcję języka C# **SquareFunction. JSON** do projektu Azure Stream Analytics.
+6. Dodaj funkcję języka C# **SquareFunction.js** do projektu Azure Stream Analytics.
 
    ![Wybierz funkcję CSharp z elementów krawędzi Stream Analytics w programie Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
@@ -122,11 +121,11 @@ W tym przykładzie **UDFTest** jest projektem biblioteki klas języka C#, a **AS
 
 ## <a name="existing-packages"></a>Istniejące pakiety
 
-Możesz tworzyć .NET Standard UDF w dowolnym dowolnym środowisku IDE i wywoływać je z poziomu zapytania Azure Stream Analytics. Najpierw Skompiluj swój kod i Spakuj wszystkie biblioteki DLL. Format pakietu ma ścieżkę `/UserCustomCode/CLR/*`. Następnie Przekaż `UserCustomCode.zip` do katalogu głównego kontenera na koncie usługi Azure Storage.
+Możesz tworzyć .NET Standard UDF w dowolnym dowolnym środowisku IDE i wywoływać je z poziomu zapytania Azure Stream Analytics. Najpierw Skompiluj swój kod i Spakuj wszystkie biblioteki DLL. Format pakietu ma ścieżkę `/UserCustomCode/CLR/*` . Następnie Przekaż `UserCustomCode.zip` do katalogu głównego kontenera na koncie usługi Azure Storage.
 
 Po przekazaniu pakietów zip zestawu do konta usługi Azure Storage można użyć funkcji w Azure Stream Analytics zapytaniach. Wszystko, co należy zrobić, obejmuje informacje o magazynie w konfiguracji zadania Stream Analytics. Nie można przetestować funkcji lokalnie przy użyciu tej opcji, ponieważ narzędzia Visual Studio Tools nie pobierają pakietu. Ścieżka pakietu jest analizowana bezpośrednio w usłudze. 
 
-Aby skonfigurować ścieżkę zestawu w pliku konfiguracji zadania `JobConfig.json`:
+Aby skonfigurować ścieżkę zestawu w pliku konfiguracji zadania `JobConfig.json` :
 
 Rozwiń sekcję **Konfiguracja kodu skonfigurowana przez użytkownika**, a następnie wypełnij konfigurację za pomocą następujących sugerowanych wartości:
 
@@ -139,12 +138,12 @@ Rozwiń sekcję **Konfiguracja kodu skonfigurowana przez użytkownika**, a nast�
    |Konto magazynu ustawień niestandardowych magazynu kodu|< konta magazynu >|
    |Kontener ustawień niestandardowego magazynu kodu|< kontener magazynu >|
    |Źródło niestandardowego zestawu kodu|Istniejące pakiety zestawu z chmury|
-   |Źródło niestandardowego zestawu kodu|UserCustomCode. zip|
+   |Źródło niestandardowego zestawu kodu|UserCustomCode.zip|
 
 ## <a name="user-logging"></a>Rejestrowanie użytkowników
 Mechanizm rejestrowania umożliwia przechwytywanie informacji niestandardowych, gdy zadanie jest uruchomione. Za pomocą danych dzienników można debugować lub oceniać poprawność niestandardowego kodu w czasie rzeczywistym.
 
-`StreamingContext` Klasa umożliwia publikowanie informacji diagnostycznych za pomocą `StreamingDiagnostics.WriteError` funkcji. Poniższy kod przedstawia interfejs uwidoczniony przez Azure Stream Analytics.
+`StreamingContext`Klasa umożliwia publikowanie informacji diagnostycznych za pomocą `StreamingDiagnostics.WriteError` funkcji. Poniższy kod przedstawia interfejs uwidoczniony przez Azure Stream Analytics.
 
 ```csharp
 public abstract class StreamingContext
@@ -158,7 +157,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`jest przenoszona jako parametr wejściowy do metody UDF i może być używany w formacie UDF do publikowania informacji o dzienniku niestandardowym. W poniższym `MyUdfMethod` przykładzie definiuje **dane wejściowe,** które są dostarczane przez zapytanie oraz dane wejściowe **kontekstu** jako `StreamingContext`, dostarczone przez aparat środowiska uruchomieniowego. 
+`StreamingContext`jest przenoszona jako parametr wejściowy do metody UDF i może być używany w formacie UDF do publikowania informacji o dzienniku niestandardowym. W poniższym przykładzie definiuje dane `MyUdfMethod` wejściowe, **data** które są dostarczane przez zapytanie oraz dane wejściowe **kontekstu** jako `StreamingContext` , dostarczone przez aparat środowiska uruchomieniowego. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -170,7 +169,7 @@ public static long MyUdfMethod(long data, StreamingContext context)
 }
 ```
 
-`StreamingContext` Wartość nie musi być przesyłana przez zapytanie SQL. Azure Stream Analytics udostępnia obiekt kontekstu automatycznie, jeśli parametr wejściowy jest obecny. Użycie `MyUdfMethod` nie zmienia się, jak pokazano w następującej kwerendzie:
+`StreamingContext`Wartość nie musi być przesyłana przez zapytanie SQL. Azure Stream Analytics udostępnia obiekt kontekstu automatycznie, jeśli parametr wejściowy jest obecny. Użycie `MyUdfMethod` nie zmienia się, jak pokazano w następującej kwerendzie:
 
 ```sql
 SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
@@ -186,6 +185,10 @@ Wersja zapoznawcza UDF ma obecnie następujące ograniczenia:
 * Edytor zapytań Azure Portal zawiera błąd podczas korzystania z .NET Standard UDF w portalu. 
 
 * Ponieważ niestandardowy kod udostępnia kontekst z aparatem Azure Stream Analytics, kod niestandardowy nie może odwoływać się do wszystkich elementów, które mają sprzeczną przestrzeń nazw/dll_name z kodem Azure Stream Analytics. Na przykład nie można odwołać się do *Newtonsoft JSON*.
+
+* Pliki pomocnicze zawarte w projekcie są kopiowane do pliku zip niestandardowego kodu użytkownika, który jest używany podczas publikowania zadania w chmurze. Wszystkie pliki w podfolderach są kopiowane bezpośrednio do katalogu głównego folderu niestandardowego kodu użytkownika w chmurze, gdy jest on niespakowany. Archiwum zip jest "spłaszczone" podczas dekompresji.
+
+* Niestandardowy kod użytkownika nie obsługuje pustych folderów. Nie dodawaj pustych folderów do plików pomocniczych w projekcie.
 
 ## <a name="next-steps"></a>Następne kroki
 

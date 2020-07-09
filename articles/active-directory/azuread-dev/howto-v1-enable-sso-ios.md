@@ -9,18 +9,18 @@ ms.subservice: azuread-dev
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154784"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383703"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Instrukcje: Włączanie logowania jednokrotnego dla aplikacji w systemie iOS przy użyciu biblioteki ADAL
 
@@ -214,7 +214,7 @@ Poniżej wyjaśniono format tych identyfikatorów URI przekierowania. Możesz u�
 
 Włączenie udostępniania łańcucha kluczy wykracza poza zakres tego dokumentu i jest objęte przez firmę Apple przy [dodawaniu funkcji](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). Ważne jest, aby zdecydować, jak ma być wywoływana łańcucha kluczy, i dodać tę możliwość do wszystkich aplikacji.
 
-Po poprawnym skonfigurowaniu uprawnień powinien zostać wyświetlony plik w katalogu projektu zatytułowany `entitlements.plist` , który wygląda następująco:
+Po poprawnym skonfigurowaniu uprawnień powinien zostać wyświetlony plik w katalogu projektu zatytułowany, który wygląda następująco `entitlements.plist` :
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -260,7 +260,7 @@ Możliwość korzystania z brokera przez aplikację jest włączana podczas twor
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-`AD_CREDENTIALS_AUTO` Ustawienie umożliwi zestawowi SDK próba wywołania do brokera, `AD_CREDENTIALS_EMBEDDED` uniemożliwiając wywołanie zestawu SDK do brokera.
+`AD_CREDENTIALS_AUTO`Ustawienie umożliwi zestawowi SDK próba wywołania do brokera, `AD_CREDENTIALS_EMBEDDED` uniemożliwiając wywołanie zestawu SDK do brokera.
 
 #### <a name="step-2-registering-a-url-scheme"></a>Krok 2. rejestrowanie schematu adresu URL
 
@@ -309,7 +309,7 @@ np.: *msauth://Code/x-msauth-mytestiosapp%3A%2F%2Fcom.MyApp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Krok 4. Dodawanie parametru konfiguracji do aplikacji
 
-Użycie biblioteki ADAL — canOpenURL: Aby sprawdzić, czy na urządzeniu zainstalowano brokera. W systemie iOS 9 na platformie Apple zablokowano, które schematy mogą wykonywać zapytania dotyczące aplikacji. Musisz dodać "msauth" do sekcji LSApplicationQueriesSchemes `info.plist file`.
+Użycie biblioteki ADAL — canOpenURL: Aby sprawdzić, czy na urządzeniu zainstalowano brokera. W systemie iOS 9 na platformie Apple zablokowano, które schematy mogą wykonywać zapytania dotyczące aplikacji. Musisz dodać "msauth" do sekcji LSApplicationQueriesSchemes `info.plist file` .
 
 ```
     <key>LSApplicationQueriesSchemes</key>

@@ -4,10 +4,9 @@ description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80757095"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Przywracanie udziałów plików platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
@@ -138,7 +137,7 @@ Określ następujące parametry dla elementów, które mają zostać odzyskane:
 
 Użyj polecenia [AZ Backup Restore Restore-migracji pamięci](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) z trybem przywracania ustawionym na *originallocation* w celu przywrócenia określonych plików lub folderów do ich oryginalnej lokalizacji.
 
-Poniższy przykład przywraca plik *RestoreTest. txt* w jego pierwotnej lokalizacji: udział plików *migracji pamięci* .
+Poniższy przykład przywraca plik *RestoreTest.txt* w jego pierwotnej lokalizacji: udział plików *migracji pamięci* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
@@ -160,7 +159,7 @@ Aby przywrócić określone pliki lub foldery do innej lokalizacji, użyj polece
 * **--docelowy udział plików**: udział plików w docelowym koncie magazynu, do którego zostanie przywrócona zawartość kopii zapasowej.
 * **--Target-folder**: folder w udziale plików, do którego przywracane są dane. Jeśli kopia zapasowa ma zostać przywrócona do folderu głównego, nadaj jej wartość jako pusty ciąg.
 
-Poniższy przykład przywraca plik *RestoreTest. txt* znajdujący się pierwotnie w udziale plików *migracji pamięci* do lokalizacji alternatywnej: folder *restoredata* w udziale plików *azurefiles1* hostowanym na koncie magazynu *afaccount1* .
+Poniższy przykład przywraca plik *RestoreTest.txt* pierwotnie obecny w udziale plików *migracji pamięci* do lokalizacji alternatywnej: folder *restoredata* w udziale plików *azurefiles1* hostowanym na koncie magazynu *afaccount1* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
@@ -178,7 +177,7 @@ Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest two
 
 Aby wykonać przywracanie dla wielu elementów, należy przekazać wartość parametru **Source-File-Path** jako ścieżki **oddzielone spacjami** wszystkich plików lub folderów, które mają zostać przywrócone.
 
-Poniższy przykład przywraca pliki. *docx testów* *Restore. txt* i AFS w ich oryginalnej lokalizacji.
+Poniższy przykład przywraca pliki Report.docx*Restore.txt* i *testów AFS* w ich oryginalnej lokalizacji.
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table

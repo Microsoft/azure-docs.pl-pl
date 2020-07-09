@@ -1,18 +1,16 @@
 ---
 title: Przenosimy obrazy maszyn wirtualnych do magazynu dysków zarządzanych w portalu Azure Marketplace
 description: Aby zapewnić szybszy, bardziej niezawodny magazyn i obsługę nowych funkcji i możliwości witryny Marketplace, przenosimy obrazy maszyn wirtualnych z witryny Marketplace do magazynu Managed Disks.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 17b418ab82cc88b4368efe247b06c0c8bbb27453
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d64bb176f79a0c15c15e425df18a22c9c4f423e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285116"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120623"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Przenosimy obrazy maszyn wirtualnych (VM) w witrynie Azure Marketplace do magazynu dyskowego zarządzanego
 

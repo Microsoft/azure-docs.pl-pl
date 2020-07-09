@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203813"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predykaty i PredicateValidations
 
@@ -30,7 +30,7 @@ Na poniższym diagramie przedstawiono relację między elementami:
 
 ## <a name="predicates"></a>Predykaty
 
-Element **predykatu** definiuje podstawową walidację, aby sprawdzić wartość typu i zwraca `true` lub. `false` Walidacja jest wykonywana przy użyciu określonego elementu **metody** i zestawu elementów **parametrów** odpowiednich dla metody. Na przykład predykat może sprawdzić, czy długość wartości żądania ciągu mieści się w zakresie minimalnym i maksymalnym określonym parametrem lub czy wartość żądania ciągu zawiera zestaw znaków. Element **UserHelpText** zawiera komunikat o błędzie dla użytkowników, jeśli sprawdzenie zakończy się niepowodzeniem. Wartość elementu **UserHelpText** można lokalizować przy użyciu [dostosowywania języka](localization.md).
+Element **predykatu** definiuje podstawową walidację, aby sprawdzić wartość typu i zwraca `true` lub `false` . Walidacja jest wykonywana przy użyciu określonego elementu **metody** i zestawu elementów **parametrów** odpowiednich dla metody. Na przykład predykat może sprawdzić, czy długość wartości żądania ciągu mieści się w zakresie minimalnym i maksymalnym określonym parametrem lub czy wartość żądania ciągu zawiera zestaw znaków. Element **UserHelpText** zawiera komunikat o błędzie dla użytkowników, jeśli sprawdzenie zakończy się niepowodzeniem. Wartość elementu **UserHelpText** można lokalizować przy użyciu [dostosowywania języka](localization.md).
 
 Element **predykatów** musi występować bezpośrednio po elemencie **ClaimsSchema** w elemencie [BuildingBlocks](buildingblocks.md) .
 
@@ -42,7 +42,7 @@ Element **predykatów** zawiera następujący element:
 
 Element **predykatu** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Tak | Identyfikator, który jest używany dla predykatu. Inne elementy mogą używać tego identyfikatora w zasadach. |
 | Metoda | Tak | Typ metody do użycia na potrzeby walidacji. Możliwe wartości: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)lub [IsDateRange](#isdaterange).  |
@@ -73,15 +73,15 @@ Element **Parameter** zawiera następujące atrybuty:
 
 Metoda IsLengthRange sprawdza, czy długość wartości żądania ciągu mieści się w zakresie określonych parametrów minimum i maksimum. Element predykatu obsługuje następujące parametry:
 
-| Parametr | Wymagany | Opis |
+| Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
 | Maksimum | Tak | Maksymalna liczba znaków, które można wprowadzić. |
 | Minimalne | Tak | Minimalna liczba znaków, które muszą zostać wprowadzone. |
 
 
-Poniższy przykład przedstawia metodę IsLengthRange z parametrami `Minimum` , `Maximum` które określają zakres długości ciągu:
+Poniższy przykład przedstawia metodę IsLengthRange z parametrami, `Minimum` `Maximum` które określają zakres długości ciągu:
 
-```XML
+```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
   <Parameters>
     <Parameter Id="Minimum">8</Parameter>
@@ -94,13 +94,13 @@ Poniższy przykład przedstawia metodę IsLengthRange z parametrami `Minimum` , 
 
 Metoda MatchesRegex sprawdza, czy wartość żądania ciągu pasuje do wyrażenia regularnego. Element predykatu obsługuje następujące parametry:
 
-| Parametr | Wymagany | Opis |
+| Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
 | RegularExpression | Tak | Wzorzec wyrażenia regularnego do dopasowania. |
 
 Poniższy przykład przedstawia `MatchesRegex` metodę z parametrem `RegularExpression` , który określa wyrażenie regularne:
 
-```XML
+```xml
 <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be numbers only.">
   <Parameters>
     <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
@@ -112,13 +112,13 @@ Poniższy przykład przedstawia `MatchesRegex` metodę z parametrem `RegularExpr
 
 Metoda IncludesCharacters sprawdza, czy wartość żądania ciągu zawiera zestaw znaków. Element predykatu obsługuje następujące parametry:
 
-| Parametr | Wymagany | Opis |
+| Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
-| CharacterSet | Tak | Zestaw znaków, które można wprowadzić. Na `a-z`przykład małe litery, wielkie litery `A-Z`, cyfry `0-9`lub Lista symboli, takich jak. `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` |
+| CharacterSet | Tak | Zestaw znaków, które można wprowadzić. Na przykład małe litery `a-z` , wielkie litery `A-Z` , cyfry `0-9` lub Lista symboli, takich jak `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 Poniższy przykład przedstawia `IncludesCharacters` metodę z parametrem `CharacterSet` , który określa zestaw znaków:
 
-```XML
+```xml
 <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
   <Parameters>
     <Parameter Id="CharacterSet">a-z</Parameter>
@@ -130,14 +130,14 @@ Poniższy przykład przedstawia `IncludesCharacters` metodę z parametrem `Chara
 
 Metoda IsDateRange sprawdza, czy wartość żądania daty należy do zakresu od określonych parametrów minimum i maksimum. Element predykatu obsługuje następujące parametry:
 
-| Parametr | Wymagany | Opis |
+| Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
-| Maksimum | Tak | Największa możliwa data, którą można wprowadzić. Format daty jest zgodny `yyyy-mm-dd` z Konwencją lub. `Today` |
-| Minimalne | Tak | Najmniejsza możliwa data, którą można wprowadzić. Format daty jest zgodny `yyyy-mm-dd` z Konwencją lub. `Today`|
+| Maksimum | Tak | Największa możliwa data, którą można wprowadzić. Format daty jest zgodny z `yyyy-mm-dd` Konwencją lub `Today` . |
+| Minimalne | Tak | Najmniejsza możliwa data, którą można wprowadzić. Format daty jest zgodny z `yyyy-mm-dd` Konwencją lub `Today` .|
 
-Poniższy przykład przedstawia `IsDateRange` metodę z parametrami `Minimum` , `Maximum` które określają zakres dat z formatem `yyyy-mm-dd` i. `Today`
+Poniższy przykład przedstawia `IsDateRange` metodę z parametrami, `Minimum` `Maximum` które określają zakres dat z formatem `yyyy-mm-dd` i `Today` .
 
-```XML
+```xml
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
   <Parameters>
     <Parameter Id="Minimum">1970-01-01</Parameter>
@@ -152,7 +152,7 @@ Podczas gdy predykaty definiują walidację w celu sprawdzenia typu, Grupa **Pre
 
 Element **PredicateValidations** musi występować bezpośrednio po elemencie **predykatów** w elemencie [BuildingBlocks](buildingblocks.md) .
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="">
     <PredicateGroups>
@@ -178,7 +178,7 @@ Element **PredicateValidations** zawiera następujący element:
 
 Element **PredicateValidation** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Tak | Identyfikator, który jest używany na potrzeby walidacji predykatu. Element **ClaimType** może używać tego identyfikatora w zasadach. |
 
@@ -196,7 +196,7 @@ Element **PredicateGroups** zawiera następujący element:
 
 Element grupy **predykatów** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Tak | Identyfikator, który jest używany dla grupy predykatu.  |
 
@@ -209,7 +209,7 @@ Element grupy **predykatów** zawiera następujące elementy:
 
 Element **PredicateReferences** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Nie | Określa, że wartość musi być zgodna co najmniej z wieloma definicjami predykatów dla danych wejściowych, które mają zostać zaakceptowane. Jeśli nie zostanie określony, wartość musi być zgodna ze wszystkimi definicjami predykatu. |
 
@@ -221,7 +221,7 @@ Element **PredicateReferences** zawiera następujące elementy:
 
 Element **PredicateReference** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Tak | Identyfikator, który jest używany na potrzeby walidacji predykatu.  |
 
@@ -231,15 +231,15 @@ Element **PredicateReference** zawiera następujące atrybuty:
 Przy użyciu **predykatów** i **PredicateValidationsInput** można kontrolować wymagania dotyczące złożoności dla haseł dostarczonych przez użytkownika podczas tworzenia konta. Domyślnie Azure AD B2C używa silnych haseł. Azure AD B2C obsługuje również opcje konfiguracji w celu kontrolowania złożoności haseł, które mogą być używane przez klientów. Złożoność hasła można zdefiniować przy użyciu następujących elementów predykatu:
 
 - **IsLengthBetween8And64** przy użyciu `IsLengthRange` metody, sprawdza, czy hasło musi zawierać od 8 do 64 znaków.
-- **Małe** litery przy `IncludesCharacters` użyciu metody, sprawdza, czy hasło zawiera małą literę.
-- **Wielkie litery** przy `IncludesCharacters` użyciu metody, sprawdza, czy hasło zawiera wielką literę.
+- **Małe** litery przy użyciu `IncludesCharacters` metody, sprawdza, czy hasło zawiera małą literę.
+- **Wielkie litery** przy użyciu `IncludesCharacters` metody, sprawdza, czy hasło zawiera wielką literę.
 - **Liczba** przy użyciu `IncludesCharacters` metody, sprawdza, czy hasło zawiera cyfrę.
 - **Symbol** przy użyciu `IncludesCharacters` metody, sprawdza, czy hasło zawiera jeden z kilku znaków symbolicznych.
 - **Przypnij** przy użyciu `MatchesRegex` metody, sprawdza, czy hasło zawiera tylko cyfry.
 - **AllowedAADCharacters** przy użyciu `MatchesRegex` metody, sprawdza, czy podano tylko nieprawidłowy znak.
 - **DisallowedWhitespace** przy użyciu `MatchesRegex` metody, sprawdza, czy hasło nie zaczyna się ani nie kończy znakiem odstępu.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
     <Parameters>
@@ -297,7 +297,7 @@ Po zdefiniowaniu podstawowych walidacji można połączyć je ze sobą i utworzy
 - **Strongpassword** sprawdza poprawność DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64. Ostatnia Grupa `CharacterClasses` uruchamia dodatkowy zestaw predykatów z `MatchAtLeast` ustawioną na 3. Hasło użytkownika musi mieć długość od 8 do 16 znaków i trzy z następujących znaków: małe litery, wielkie litery, cyfry lub symbole.
 - **CustomPassword** weryfikuje tylko DisallowedWhitespace, AllowedAADCharacters. W takim przypadku użytkownik może podać dowolne hasło o dowolnej długości, o ile znaki są prawidłowe.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="SimplePassword">
     <PredicateGroups>
@@ -367,7 +367,7 @@ Po zdefiniowaniu podstawowych walidacji można połączyć je ze sobą i utworzy
 
 W polu Typ zgłoszenia Dodaj element **PredicateValidationReference** i określ identyfikator jako jedną z walidacji predykatów, takich jak SimplePassword, strongpassword lub CustomPassword.
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -384,9 +384,9 @@ Poniżej pokazano, jak elementy są zorganizowane, gdy Azure AD B2C wyświetla k
 
 ## <a name="configure-a-date-range"></a>Konfigurowanie zakresu dat
 
-Za pomocą **predykatów** i elementów **PredicateValidations** można kontrolować minimalną i maksymalną wartość daty **UserInputType** przy użyciu `DateTimeDropdown`. W tym celu należy utworzyć **predykat** z `IsDateRange` metodą i podać parametry minimalne i maksymalne.
+Za pomocą **predykatów** i elementów **PredicateValidations** można kontrolować minimalną i maksymalną wartość daty **UserInputType** przy użyciu `DateTimeDropdown` . W tym celu należy utworzyć **predykat** z `IsDateRange` metodą i podać parametry minimalne i maksymalne.
 
-```XML
+```xml
 <Predicates>
   <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
@@ -399,7 +399,7 @@ Za pomocą **predykatów** i elementów **PredicateValidations** można kontrolo
 
 Dodaj element **PredicateValidation** z odwołaniem do `DateRange` predykatu.
 
-```XML
+```xml
 <PredicateValidations>
   <PredicateValidation Id="CustomDateRange">
     <PredicateGroups>
@@ -413,9 +413,9 @@ Dodaj element **PredicateValidation** z odwołaniem do `DateRange` predykatu.
 </PredicateValidations>
 ```
 
-W polu Typ zgłoszenia Dodaj element **PredicateValidationReference** i określ identyfikator jako `CustomDateRange`.
+W polu Typ zgłoszenia Dodaj element **PredicateValidationReference** i określ identyfikator jako `CustomDateRange` .
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>
   <DataType>date</DataType>

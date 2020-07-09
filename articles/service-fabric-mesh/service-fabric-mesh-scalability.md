@@ -6,11 +6,10 @@ ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712245"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Skalowanie aplikacji Service Fabric siatki
 

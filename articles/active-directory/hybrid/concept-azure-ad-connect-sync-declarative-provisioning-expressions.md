@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60245501"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect Sync: wyjaśnienie wyrażeń aprowizacji deklaracyjnej
@@ -72,19 +72,19 @@ Oto przykład, który wypełnia domenę atrybutu Metaverse nazwą NetBIOS domeny
 Można użyć następujących operatorów:
 
 * **Porównanie**: <, <=,  <>, =, >, >=
-* **Matematyka**: +,-, \*,-
+* **Matematyka**: +,-, \* ,-
 * **String**: & (łączenie)
 * **Logiczne**:  &&  (i), | | oraz
 * **Kolejność oceny**: ()
 
-Operatory są szacowane od lewej do prawej i mają ten sam priorytet oceny. Oznacza to, że \* (mnożnik) nie jest oceniane przed-(Odejmowanie). 2\*(5 + 3) nie jest taka sama jak 2\*5 + 3. Nawiasy () służą do zmiany kolejności oceny, gdy kolejność od lewej do prawej nie jest odpowiednia.
+Operatory są szacowane od lewej do prawej i mają ten sam priorytet oceny. Oznacza to, że \* (mnożnik) nie jest oceniane przed-(Odejmowanie). 2 \* (5 + 3) nie jest taka sama jak 2 \* 5 + 3. Nawiasy () służą do zmiany kolejności oceny, gdy kolejność od lewej do prawej nie jest odpowiednia.
 
 ## <a name="multi-valued-attributes"></a>Atrybuty wielowartościowe
 Funkcje mogą działać na atrybutach o wartości pojedynczej i wielowartościowej. W przypadku atrybutów wielowartościowych funkcja działa nad każdą wartością i stosuje tę samą funkcję do każdej wartości.
 
-Przykład:  
+Na przykład:  
 `Trim([proxyAddresses])`Wykonaj przycinanie każdej wartości w atrybucie proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Dla każdej wartości z @-sign, Zastąp domenę wartością. @contoso.com  
+`Word([proxyAddresses],1,"@") & "@contoso.com"`Dla każdej wartości z @-sign , Zastąp domenę wartością @contoso.com .  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Wyszukaj wartość SIP-Address i usuń ją z wartości.
 
 ## <a name="next-steps"></a>Następne kroki

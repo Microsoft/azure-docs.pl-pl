@@ -9,10 +9,9 @@ ms.author: jasondel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
 ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727641"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
@@ -262,7 +261,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) wdrożony klaster.
 
-Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zastąp ** \< hasło kubeadmin>** hasłem, które właśnie zostało pobrane.
+Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zamień na **\<kubeadmin password>** hasło, które zostało właśnie pobrane.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f6af5e8e1cfadd302eadfedf189a6710ac4aeca
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966599"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385267"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Aby zarządzać sesjami aplikacji sieci Web, można użyć następujących wła�
 
 Aby zmienić zachowanie sesji i konfiguracje rejestracji jednokrotnej, należy dodać element **UserJourneyBehaviors** wewnątrz elementu [RelyingParty](relyingparty.md) .  Element **UserJourneyBehaviors** musi występować bezpośrednio po **DefaultUserJourney**. Element **UserJourneyBehavors** powinien wyglądać podobnie do tego przykładu:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -48,7 +48,7 @@ Aby zmienić zachowanie sesji i konfiguracje rejestracji jednokrotnej, należy d
 
 ### <a name="configure-the-applications"></a>Konfigurowanie aplikacji
 
-Po przekierowaniu użytkownika do punktu końcowego wylogowania Azure AD B2C (dla protokołów OAuth2 i SAML) Azure AD B2C czyści sesję użytkownika z przeglądarki.  Aby zezwolić na [rejestrację jednokrotną](session-overview.md#single-sign-out), `LogoutUrl` Ustaw aplikację z Azure Portal:
+Po przekierowaniu użytkownika do punktu końcowego wylogowania Azure AD B2C (dla protokołów OAuth2 i SAML) Azure AD B2C czyści sesję użytkownika z przeglądarki.  Aby zezwolić na [rejestrację jednokrotną](session-overview.md#single-sign-out), ustaw `LogoutUrl` aplikację z Azure Portal:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 1. Wybierz katalog Azure AD B2C, klikając swoje konto w prawym górnym rogu strony.
@@ -60,7 +60,7 @@ Po przekierowaniu użytkownika do punktu końcowego wylogowania Azure AD B2C (dl
 Aby zapewnić obsługę logowania jednokrotnego, profile techniczne wystawców tokenów dla tokenu JWT i SAML muszą określać:
 
 - Nazwa protokołu, taka jak`<Protocol Name="OpenIdConnect" />`
-- Odwołanie do profilu technicznego sesji, na przykład `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- Odwołanie do profilu technicznego sesji, na przykład `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 Poniższy przykład ilustruje wystawców tokenów JWT i SAML z logowaniem jednokrotnym:
 
@@ -74,7 +74,7 @@ Poniższy przykład ilustruje wystawców tokenów JWT i SAML z logowaniem jednok
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->

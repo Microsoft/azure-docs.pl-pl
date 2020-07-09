@@ -9,10 +9,9 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77915041"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Rozwiązywanie problemów z błędami usuwania zasobów klasycznego magazynu
@@ -97,8 +96,8 @@ W portalu mogą znajdować się dwa środowiska w zależności od listy obiektó
 
 
 2. Jeśli wybrano kombinację "dzierżawionych" i "dostępne" obiektów blob, zostanie wyświetlony przycisk "Usuń". Natomiast operacja "Delete" pozostawi za stronicowymi obiektami BLOB, które mają na nich dzierżawę. 
-![Zrzut ekranu portalu z otwartym](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
-![okienkiem obiektów BLOB kontenera "Lista" powoduje otwarcie zrzutu ekranu portalu z otwartym okienkiem "Usuń" wybranego obiektu BLOB](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![Zrzut ekranu portalu z otwartym okienkiem obiektów BLOB kontenera "Lista" ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+ ![ powoduje otwarcie zrzutu ekranu portalu z otwartym okienkiem "Usuń" wybranego obiektu BLOB](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Jeśli użytkownik zdecyduje się na usunięcie przy użyciu programu PowerShell, spowoduje to wyświetlenie następującego błędu. 
@@ -108,13 +107,13 @@ Jeśli użytkownik zdecyduje się na usunięcie przy użyciu programu PowerShell
 > <span style="color:red">Remove-AzureStorageBlob: serwer zdalny zwrócił błąd: (412) obecnie istnieje dzierżawa obiektu BLOB i w żądaniu nie określono identyfikatora dzierżawy. Kod stanu HTTP: 412 — komunikat o błędzie HTTP: obecnie istnieje dzierżawa obiektu BLOB i w żądaniu nie określono identyfikatora dzierżawy.</span>
 
 
-## <a name="resolution-steps"></a>Kroki rozwiązywania problemów
+## <a name="resolution-steps"></a>Kroki rozwiązania
 
 ### <a name="to-remove-classic-disks"></a>Aby usunąć dyski klasyczne
 Wykonaj następujące kroki na Azure Portal:
 1.  Przejdź do [Azure Portal](https://portal.azure.com).
 2.  Przejdź do dysków (klasyczne). 
-3.  Kliknij kartę dyski. ![zrzut ekranu przedstawiający Portal z otwartym okienkiem obiektu BLOB kontenera "list"](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Kliknij kartę dyski. ![ Zrzut ekranu przedstawiający Portal z otwartym okienkiem obiektu BLOB kontenera "list"](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Wybierz dysk danych, a następnie kliknij polecenie Usuń dysk.
  ![Zrzut ekranu przedstawiający Portal z otwartym okienkiem obiektu BLOB kontenera "list"](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

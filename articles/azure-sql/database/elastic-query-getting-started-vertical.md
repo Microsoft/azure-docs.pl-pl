@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d76559c4a01c8c6e5d319df463970cbc8d6d6620
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2e133228f04cacdc14278abb8b6ee6303b820e7b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045690"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956852"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Wprowadzenie do zapytań między bazami danych (partycjonowanie pionowe) (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,27 +37,31 @@ Aby rozpocząć pracę z programem, Utwórz dwie bazy danych, **klientów** i **
 
 Wykonaj następujące zapytania w bazie danych **Orders** , aby utworzyć tabelę **OrderInformation** i wprowadzić przykładowe dane.
 
-    CREATE TABLE [dbo].[OrderInformation](
-        [OrderID] [int] NOT NULL,
-        [CustomerID] [int] NOT NULL
-        )
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
-    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
+```tsql
+CREATE TABLE [dbo].[OrderInformation](
+    [OrderID] [int] NOT NULL,
+    [CustomerID] [int] NOT NULL
+    )
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
+INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
+```
 
 Teraz wykonaj następujące zapytanie w bazie danych **Customers** , aby utworzyć tabelę **CustomerInformation** i wprowadzić przykładowe dane.
 
-    CREATE TABLE [dbo].[CustomerInformation](
-        [CustomerID] [int] NOT NULL,
-        [CustomerName] [varchar](50) NULL,
-        [Company] [varchar](50) NULL
-        CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
-    )
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC')
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ')
-    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO')
+```tsql
+CREATE TABLE [dbo].[CustomerInformation](
+    [CustomerID] [int] NOT NULL,
+    [CustomerName] [varchar](50) NULL,
+    [Company] [varchar](50) NULL
+    CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
+)
+INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC')
+INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ')
+INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO')
+```
 
 ## <a name="create-database-objects"></a>Tworzenie obiektów bazy danych
 
@@ -66,10 +70,12 @@ Teraz wykonaj następujące zapytanie w bazie danych **Customers** , aby utworzy
 1. Otwórz SQL Server Management Studio lub SQL Server narzędzia danych w programie Visual Studio.
 2. Nawiąż połączenie z bazą danych Orders i wykonaj następujące polecenia T-SQL:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
-        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
-        WITH IDENTITY = '<username>',
-        SECRET = '<password>';  
+    ```tsql
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
+    CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+    WITH IDENTITY = '<username>',
+    SECRET = '<password>';  
+    ```
 
     "Username" i "Password" powinna być nazwą użytkownika i hasłem używanym do logowania się do bazy danych Customers.
     Uwierzytelnianie przy użyciu Azure Active Directory z elastycznymi zapytaniami nie jest obecnie obsługiwane.
@@ -78,32 +84,38 @@ Teraz wykonaj następujące zapytanie w bazie danych **Customers** , aby utworzy
 
 Aby utworzyć zewnętrzne źródło danych, wykonaj następujące polecenie w bazie danych Orders:
 
-    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
-        (TYPE = RDBMS,
-        LOCATION = '<server_name>.database.windows.net',
-        DATABASE_NAME = 'Customers',
-        CREDENTIAL = ElasticDBQueryCred,
-    ) ;
+```tsql
+CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+    (TYPE = RDBMS,
+    LOCATION = '<server_name>.database.windows.net',
+    DATABASE_NAME = 'Customers',
+    CREDENTIAL = ElasticDBQueryCred,
+) ;
+```
 
 ### <a name="external-tables"></a>Tabele zewnętrzne
 
 Utwórz zewnętrzną tabelę w bazie danych Orders, która jest zgodna z definicją tabeli CustomerInformation:
 
-    CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
-    ( [CustomerID] [int] NOT NULL,
-      [CustomerName] [varchar](50) NOT NULL,
-      [Company] [varchar](50) NOT NULL)
-    WITH
-    ( DATA_SOURCE = MyElasticDBQueryDataSrc)
+```tsql
+CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
+( [CustomerID] [int] NOT NULL,
+    [CustomerName] [varchar](50) NOT NULL,
+    [Company] [varchar](50) NOT NULL)
+WITH
+( DATA_SOURCE = MyElasticDBQueryDataSrc)
+```
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Wykonywanie przykładowego zapytania T-SQL Elastic Database
 
 Po zdefiniowaniu zewnętrznego źródła danych i tabel zewnętrznych możesz użyć języka T-SQL do wykonywania zapytań dotyczących tabel zewnętrznych. Wykonaj to zapytanie w bazie danych Orders:
 
-    SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company
-    FROM OrderInformation
-    INNER JOIN CustomerInformation
-    ON CustomerInformation.CustomerID = OrderInformation.CustomerID
+```tsql
+SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company
+FROM OrderInformation
+INNER JOIN CustomerInformation
+ON CustomerInformation.CustomerID = OrderInformation.CustomerID
+```
 
 ## <a name="cost"></a>Koszty
 

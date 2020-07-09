@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5608d71c4a91c9b46b8ed7de13c9d4c06a3f195f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194605"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961799"
 ---
 # <a name="azure-signalr-service-authentication"></a>Uwierzytelnianie w usłudze Azure SignalR Service
 
@@ -54,7 +54,7 @@ Do ukończenia tego samouczka niezbędne są:
 
 1. Otwórz przeglądarkę internetową, przejdź do witryny `https://github.com` i zaloguj się na swoje konto.
 
-2. W przypadku konta **Przejdź do** > pozycji ustawienia**Ustawienia dewelopera** i kliknij pozycję **zarejestruj nową aplikację**lub **nową aplikację OAuth** w obszarze *aplikacje uwierzytelniania OAuth*.
+2. W przypadku konta przejdź do pozycji **Ustawienia**  >  **Ustawienia dewelopera** i kliknij pozycję **zarejestruj nową aplikację**lub **nową aplikację OAuth** w obszarze *aplikacje uwierzytelniania OAuth*.
 
 3. Użyj następujących ustawień dla nowej aplikacji OAuth, a następnie kliknij pozycję **Register application** (Zarejestruj aplikację):
 
@@ -67,8 +67,10 @@ Do ukończenia tego samouczka niezbędne są:
 
 4. Po zakończeniu rejestracji nowej aplikacji OAuth dodaj wartości *Client ID* i *Client Secret* do narzędzia Secret Manager za pomocą następujących poleceń. Zastąp wartości *Your_GitHub_Client_Id* i *Your_GitHub_Client_Secret* wartościami dla Twojej aplikacji OAuth.
 
-        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
-        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```dotnetcli
+    dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+    dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```
 
 ## <a name="implement-the-oauth-flow"></a>Implementowanie przepływu OAuth
 
@@ -76,9 +78,11 @@ Do ukończenia tego samouczka niezbędne są:
 
 1. Dodaj odwołanie do najnowszych pakietów *Microsoft.AspNetCore.Authentication.Cookies* i *AspNet.Security.OAuth.GitHub*, a następnie przywróć wszystkie pakiety.
 
-        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
-        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
-        dotnet restore
+    ```dotnetcli
+    dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+    dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
+    dotnet restore
+    ```
 
 1. Otwórz plik *Startup.cs* i dodaj instrukcje `using` dla następujących przestrzeni nazw:
 
@@ -345,19 +349,25 @@ W tej sekcji włączysz prawdziwe uwierzytelnianie, dodając atrybut `Authorize`
 
 2. Skompiluj aplikację przy użyciu interfejsu wiersza polecenia platformy .NET Core, wykonując następujące polecenie w powłoce poleceń:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 3. Po pomyślnym zakończeniu kompilacji wykonaj następujące polecenie w celu lokalnego uruchomienia aplikacji internetowej:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     Domyślnie aplikacja będzie hostowana lokalnie na porcie 5000:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Production
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Production
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+                    Application started. Press Ctrl+C to shut down.
+    ```
 
 4. Uruchom okno przeglądarki i przejdź pod adres `http://localhost:5000`. Kliknij link **here** (tutaj) u góry, aby zalogować się za pomocą usługi GitHub.
 
@@ -539,7 +549,7 @@ Aby wdrożyć swój kod, należy wykonać następujące polecenia w powłoce Git
 
 Ostatnim zadaniem, które należy wykonać, jest aktualizacja **adresu URL strony głównej** i **adresu URL wywołania zwrotnego autoryzacji** aplikacji OAuth usługi GitHub, aby wskazywał nową hostowaną aplikację.
 
-1. Otwórz [https://github.com](https://github.com) w przeglądarce i przejdź do **ustawień** > ustawienia**dewelopera** > **aplikacje OAuth**.
+1. Otwórz [https://github.com](https://github.com) w przeglądarce i przejdź do **ustawień**ustawienia  >  **dewelopera**  >  **aplikacje OAuth**.
 
 2. Kliknij aplikację uwierzytelniania oraz zaktualizuj **adres URL strony głównej** i **adres URL wywołania zwrotnego autoryzacji** w sposób przedstawiony poniżej:
 
@@ -552,7 +562,7 @@ Ostatnim zadaniem, które należy wykonać, jest aktualizacja **adresu URL stron
 
     ![Gotowa aplikacja OAuth hostowana na platformie Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie w następnym samouczku.
 
@@ -565,7 +575,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-![Usuwanie](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Usuń](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

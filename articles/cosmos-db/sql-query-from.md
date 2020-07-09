@@ -7,23 +7,22 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83005870"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Klauzula FROM w Azure Cosmos DB
 
-Klauzula FROM (`FROM <from_specification>`) jest opcjonalna, chyba że źródło zostanie odfiltrowane lub zaprojektować w dalszej części zapytania. Zapytanie, takie `SELECT * FROM Families` jak Wyliczenie w całym `Families` kontenerze. Zamiast używać nazwy kontenera, można także użyć głównego identyfikatora dla kontenera.
+Klauzula FROM ( `FROM <from_specification>` ) jest opcjonalna, chyba że źródło zostanie odfiltrowane lub zaprojektować w dalszej części zapytania. Zapytanie, takie jak `SELECT * FROM Families` Wyliczenie w całym `Families` kontenerze. Zamiast używać nazwy kontenera, można także użyć głównego identyfikatora dla kontenera.
 
-`FROM` Klauzula wymusza następujące reguły dla każdego zapytania:
+`FROM`Klauzula wymusza następujące reguły dla każdego zapytania:
 
-* Kontener może mieć alias, taki jak `SELECT f.id FROM Families AS f` lub po prostu `SELECT f.id FROM Families f`. Poniżej `f` znajduje się alias `Families`. JAKO opcjonalne słowo kluczowe [aliasu](sql-query-working-with-json.md#aliasing) identyfikatora.  
+* Kontener może mieć alias, taki jak `SELECT f.id FROM Families AS f` lub po prostu `SELECT f.id FROM Families f`. Poniżej `f` znajduje się alias `Families` . JAKO opcjonalne słowo kluczowe [aliasu](sql-query-working-with-json.md#aliasing) identyfikatora.  
 
-* Po usunięciu aliasu oryginalna nazwa źródła nie może być powiązana. Na przykład składnia `SELECT Families.id FROM Families f` jest nieprawidłowa, ponieważ identyfikator `Families` został alias i nie można go rozpoznać.  
+* Po usunięciu aliasu oryginalna nazwa źródła nie może być powiązana. Na przykład `SELECT Families.id FROM Families f` składnia jest nieprawidłowa, ponieważ identyfikator został `Families` alias i nie można go rozpoznać.  
 
-* Wszystkie właściwości, do których istnieją odwołania, muszą być w pełni kwalifikowane, aby uniknąć niejednoznacznych powiązań w przypadku braku ścisłego przestrzegania schematu. Na przykład składnia `SELECT id FROM Families f` jest nieprawidłowa, ponieważ właściwość `id` nie jest powiązana.
+* Wszystkie właściwości, do których istnieją odwołania, muszą być w pełni kwalifikowane, aby uniknąć niejednoznacznych powiązań w przypadku braku ścisłego przestrzegania schematu. Na przykład `SELECT id FROM Families f` składnia jest nieprawidłowa, ponieważ właściwość `id` nie jest powiązana.
 
 ## <a name="syntax"></a>Składnia
   
@@ -53,7 +52,7 @@ FROM <from_specification>
   
 -  Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
   
--  Jeśli wyrażenie ma wartość `<container_expression>`, PROPERTY_NAME, wówczas property_name zostanie użyte jako alias. Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
+-  Jeśli wyrażenie ma wartość `<container_expression>` , PROPERTY_NAME, wówczas property_name zostanie użyte jako alias. Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
   
 - DEFINICJ`input_alias`  
   
@@ -81,15 +80,15 @@ FROM <from_specification>
   
 - `<container_expression> '.' property_name`  
   
-  Określa, że dokument ma być pobierany przez `property_name` uzyskanie dostępu do właściwości.  
+  Określa, że dokument ma być pobierany przez uzyskanie dostępu do `property_name` właściwości.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Określa, że dokument ma być pobierany przez `property_name` uzyskanie dostępu do właściwości lub array_index elementu tablicy dla wszystkich dokumentów pobranych przez określone wyrażenie kontenera.  
+  Określa, że dokument ma być pobierany przez uzyskanie dostępu do `property_name` właściwości lub array_index elementu tablicy dla wszystkich dokumentów pobranych przez określone wyrażenie kontenera.  
   
 ## <a name="remarks"></a>Uwagi
   
-Wszystkie aliasy dostarczone lub wywnioskowane w `<from_source>(`s) muszą być unikatowe. Składnia `<container_expression>.`PROPERTY_NAME jest taka sama jak `<container_expression>' ['"property_name"']'`. Jednakże Ostatnia składnia może być użyta, jeśli nazwa właściwości zawiera znak inny niż identyfikator.  
+Wszystkie aliasy dostarczone lub wywnioskowane w `<from_source>(` s) muszą być unikatowe. Składnia `<container_expression>.` PROPERTY_NAME jest taka sama jak `<container_expression>' ['"property_name"']'` . Jednakże Ostatnia składnia może być użyta, jeśli nazwa właściwości zawiera znak inny niż identyfikator.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Obsługa brakujących właściwości, brak elementów tablicy i niezdefiniowane wartości
   
@@ -99,7 +98,7 @@ Jeśli wyrażenie kontenera uzyskuje dostęp do właściwości lub elementów ta
   
 Wyrażenie kontenera może być w zakresie kontenera lub w zakresie dokumentu:  
   
-- Wyrażenie jest w zakresie kontenera, jeśli źródłowe Źródło wyrażenia kontenera jest elementem głównym lub `container_name`. Takie wyrażenie reprezentuje zestaw dokumentów pobranych bezpośrednio z kontenera i nie zależy od przetwarzania innych wyrażeń kontenera.  
+- Wyrażenie jest w zakresie kontenera, jeśli źródłowe Źródło wyrażenia kontenera jest elementem głównym lub `container_name` . Takie wyrażenie reprezentuje zestaw dokumentów pobranych bezpośrednio z kontenera i nie zależy od przetwarzania innych wyrażeń kontenera.  
   
 - Wyrażenie jest w zakresie dokumentu, jeśli bazowe Źródło wyrażenia kontenera jest `input_alias` wprowadzane wcześniej w zapytaniu. Takie wyrażenie reprezentuje zestaw dokumentów uzyskanych przez ocenę wyrażenia kontenera w zakresie każdego dokumentu należącego do zestawu skojarzonego z kontenerem aliasów. Wynikiem zestawu będzie związek zestawów uzyskanych przez obliczenie wyrażenia kontenera dla każdego z dokumentów w zestawie bazowym.
 
@@ -165,6 +164,6 @@ Wyniki są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pierwsze kroki](sql-query-getting-started.md)
+- [Rozpoczęcie pracy](sql-query-getting-started.md)
 - [SELECT — klauzula](sql-query-select.md)
 - [Klauzula WHERE](sql-query-where.md)

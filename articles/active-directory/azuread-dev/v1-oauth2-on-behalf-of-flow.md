@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 192c91f700dd82f453d52f6891f8aaaaeef8c7ef
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551672"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Wywołania między usługami, które korzystają z delegowanej tożsamości użytkownika w ramach przepływu w imieniu
 
@@ -79,7 +79,7 @@ Zarejestruj zarówno usługę warstwy środkowej, jak i aplikację kliencką w u
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Skonfiguruj uprawnienia dla aplikacji. W obszarze **uprawnienia interfejsu API**wybierz pozycję **Dodaj uprawnienie** , a następnie **Moje interfejsy API**.
 1. W polu tekstowym wpisz nazwę usługi warstwy środkowej.
-1. Wybierz **pozycję Wybierz uprawnienia** , a następnie wybierz pozycję **dostęp \<>nazwa usługi **.
+1. Wybierz **pozycję Wybierz uprawnienia** , a następnie wybierz pozycję **dostęp \<service name> **.
 
 ### <a name="configure-known-client-applications"></a>Skonfiguruj znane aplikacje klienckie
 
@@ -105,7 +105,7 @@ Aplikacja kliencka jest zabezpieczona przez wspólny klucz tajny lub certyfikat.
 
 Gdy jest używany wspólny klucz tajny, żądanie tokenu dostępu między usługami zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | grant_type |wymagane | Typ żądania tokenu. Żądanie OBO używa tokenu sieci Web JSON (JWT), dlatego musi mieć wartość **urn: IETF: params: OAuth: Grant-Type: JWT**. |
 | twierdz |wymagane | Wartość tokenu dostępu używanego w żądaniu. |
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Żądanie tokenu dostępu między usługami i certyfikatem zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | grant_type |wymagane | Typ żądania tokenu. Żądanie OBO używa tokenu dostępu JWT, dlatego musi mieć wartość **urn: IETF: params: OAuth: Grant-Type: JWT**. |
 | twierdz |wymagane | Wartość tokenu użytego w żądaniu. |
@@ -249,7 +249,7 @@ Niektóre usługi sieci Web oparte na protokole OAuth muszą uzyskiwać dostęp 
 
 Żądanie Service-Service dla potwierdzenia SAML zawiera następujące parametry:
 
-| Parametr |  | Opis |
+| Parametr | Typ | Opis |
 | --- | --- | --- |
 | grant_type |wymagane | Typ żądania tokenu. Dla żądania, które używa tokenu JWT, wartość musi być **urn: IETF: params: OAuth: Grant-Type: JWT**. |
 | twierdz |wymagane | Wartość tokenu dostępu używanego w żądaniu.|
@@ -283,9 +283,9 @@ Odpowiedź zawiera token języka SAML zakodowany w formacie UTF8 i Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - zasoby`https://api.contoso.com`
-- access_token: \< potwierdzenie SAML\>
+- access_token:\<SAML assertion\>
 - issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
-- refresh_token: \< Odśwież token\>
+- refresh_token:\<Refresh token\>
 
 ## <a name="client-limitations"></a>Ograniczenia klienta
 

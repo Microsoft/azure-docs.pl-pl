@@ -12,10 +12,9 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: faba9eaf59f5d1c941bacb58ba1faf9f817d39cf
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84046985"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy buforu pierścieniowego dla zdarzeń rozszerzonych w Azure SQL Database
@@ -47,8 +46,8 @@ W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 * Dowolna baza danych, w której można utworzyć tabelę.
   
   * Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT** ](single-database-create-quickstart.md) w ciągu kilku minut.
-* SQL Server Management Studio (SSMS. exe), najlepiej jej najnowszej wersji aktualizacji miesięcznej.
-  Najnowszą wersję programu SSMS. exe można pobrać z:
+* SQL Server Management Studio (ssms.exe), najlepiej jej Najnowsza wersja aktualizacji miesięcznych.
+  Najnowszą ssms.exe można pobrać z:
   
   * Temat [SQL Server Management Studio pobierania](https://msdn.microsoft.com/library/mt238290.aspx).
   * [Bezpośredni link do pobierania.](https://go.microsoft.com/fwlink/?linkid=616025)
@@ -220,7 +219,7 @@ Użyto `ssms.exe` do uruchomienia przykładu kodu.
 
 Aby wyświetlić wyniki, należy kliknąć komórkę poniżej nagłówka kolumny **target_data_XML**.
 
-Następnie w okienku wyników kliknięto komórkę pod nagłówkiem kolumny **target_data_XML**. W tym celu kliknij pozycję utworzono inną kartę pliku w programie SSMS. exe, w której zawartość komórki wynikowej była wyświetlana jako XML.
+Następnie w okienku wyników kliknięto komórkę pod nagłówkiem kolumny **target_data_XML**. W tym celu kliknij pozycję utworzono inną kartę pliku w ssms.exe, w której zawartość komórki wynikowej była wyświetlana jako XML.
 
 Dane wyjściowe są wyświetlane w następującym bloku. Wygląda na to, że jest on długi, ale jest tylko dwa **\<event>** elementy.
 

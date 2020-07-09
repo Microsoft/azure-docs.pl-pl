@@ -5,17 +5,16 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75457498"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Jak Serializacja danych ma wpływ na uaktualnienie aplikacji
 Podczas [stopniowego uaktualniania aplikacji](service-fabric-application-upgrade.md)uaktualnienie jest stosowane do podzbioru węzłów, jednej domeny uaktualnienia w danym momencie. W trakcie tego procesu niektóre domeny uaktualnienia znajdują się w nowszej wersji aplikacji, a niektóre domeny uaktualnień znajdują się w starszej wersji aplikacji. Podczas wdrażania Nowa wersja aplikacji musi mieć możliwość odczytywania starej wersji danych, a stara wersja aplikacji musi mieć możliwość odczytywania nowej wersji danych. Jeśli format danych nie jest zgodny z poprzednimi wersjami, uaktualnienie może się nie powieść lub gorszenie może spowodować utratę lub uszkodzenie danych. W tym artykule omówiono sposób działania formatu danych i przedstawiono najlepsze rozwiązania w zakresie zapewniania, że dane są zgodne z poprzednimi wersjami.
 
 ## <a name="what-makes-up-your-data-format"></a>Co robi format danych?
-Na platformie Azure Service Fabric dane, które są utrwalane i replikowane, pochodzą z klas języka C#. W przypadku aplikacji korzystających z [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md)te dane są obiektami w niezawodnych słownikach i kolejkach. W przypadku aplikacji, które używają [Reliable Actors](service-fabric-reliable-actors-introduction.md), to jest stan zapasowy aktora. Aby można było utrwalić i zreplikować te klasy języka C#, należy je serializować. W związku z tym format danych jest definiowany przez pola i właściwości, które są serializowane, a także jak są serializowane. Na przykład, w `IReliableDictionary<int, MyClass>` danych jest serializowana `int` i serializowana. `MyClass`
+Na platformie Azure Service Fabric dane, które są utrwalane i replikowane, pochodzą z klas języka C#. W przypadku aplikacji korzystających z [niezawodnych kolekcji](service-fabric-reliable-services-reliable-collections.md)te dane są obiektami w niezawodnych słownikach i kolejkach. W przypadku aplikacji, które używają [Reliable Actors](service-fabric-reliable-actors-introduction.md), to jest stan zapasowy aktora. Aby można było utrwalić i zreplikować te klasy języka C#, należy je serializować. W związku z tym format danych jest definiowany przez pola i właściwości, które są serializowane, a także jak są serializowane. Na przykład, w `IReliableDictionary<int, MyClass>` danych jest serializowana `int` i serializowana `MyClass` .
 
 ### <a name="code-changes-that-result-in-a-data-format-change"></a>Zmiany w kodzie powodujące zmianę formatu danych
 Ponieważ format danych jest określany przez klasy języka C#, zmiany w klasach mogą spowodować zmianę formatu danych. Należy zadbać o to, aby uaktualnienie stopniowe obsługiwało zmianę formatu danych. Przykłady, które mogą spowodować zmiany w formacie danych:

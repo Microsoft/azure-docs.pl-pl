@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687122"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Automatycznie zidentyfikuj język mówiony przy użyciu modelu identyfikacji języka
@@ -35,7 +34,7 @@ Gdy korzystasz z portalu, przejdź do swoich **filmów wideo** na stronie głów
 
 ## <a name="model-output"></a>Dane wyjściowe modelu
 
-Video Indexer przekształca wideo zgodnie z najbardziej prawdopodobnym językiem, jeśli jest `> 0.6`to wiarygodność danego języka. Jeśli nie można zidentyfikować języka z pewnością, założono, że język mówiony jest angielski. 
+Video Indexer przekształca wideo zgodnie z najbardziej prawdopodobnym językiem, jeśli jest to wiarygodność danego języka `> 0.6` . Jeśli nie można zidentyfikować języka z pewnością, założono, że język mówiony jest angielski. 
 
 Język dominujący modelu jest dostępny w formacie JSON usługi Insights jako `sourceLanguage` atrybut (w obszarze głównym/wideo/Insights). Odpowiedni wynik zaufania jest również dostępny w `sourceLanguageConfidence` atrybucie.
 
@@ -58,7 +57,7 @@ Język dominujący modelu jest dostępny w formacie JSON usługi Insights jako `
     Angielski, hiszpański, francuski, niemiecki, włoski, mandarynki chines, japoński, rosyjski i portugalski (Brazylia).
 * Mimo że Video Indexer obsługuje arabski (nowoczesny Standard i Levantine), hindi i koreański, te języki nie są obsługiwane w POKRYWie.
 * Jeśli dźwięk zawiera języki inne niż lista obsługiwanych powyżej, wynik jest nieoczekiwany.
-* Jeśli Video Indexer nie może zidentyfikować języka o wysokim stopniu pewności (`>0.6`), język rezerwowy jest w języku angielskim.
+* Jeśli Video Indexer nie może zidentyfikować języka o wysokim stopniu pewności ( `>0.6` ), język rezerwowy jest w języku angielskim.
 * Nie istnieje bieżąca obsługa plików z dźwiękiem w językach mieszanych. Jeśli dźwięk zawiera różne języki, wynik jest nieoczekiwany. 
 * Jakość audio o niskiej jakości może mieć wpływ na wyniki modelu.
 * Model wymaga co najmniej jednej minuty mowy w dźwięku.

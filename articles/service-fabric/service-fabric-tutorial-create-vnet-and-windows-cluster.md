@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak wdrożyć klaster Service Fabric 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d170057a85a8e223fa9d1bc2bfc17e0c284afcd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756036"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611666"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Samouczek: Wdrażanie klastra Service Fabric z systemem Windows w sieci wirtualnej platformy Azure
 
@@ -48,7 +48,7 @@ Przed rozpoczęciem tego samouczka:
 
 * Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Zainstaluj [zestaw Service Fabric SDK i moduł programu PowerShell](service-fabric-get-started.md).
-* Zainstaluj program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 * Zapoznaj się z najważniejszymi pojęciami dotyczącymi [klastrów platformy Azure](service-fabric-azure-clusters-overview.md).
 * [Planowanie i przygotowywanie](service-fabric-cluster-azure-deployment-preparation.md) wdrożenia klastra produkcyjnego.
 
@@ -61,7 +61,7 @@ Pobierz następujące pliki szablonów Azure Resource Manager:
 * [azuredeploy.JSON][template]
 * [azuredeploy.parameters.JSON][parameters]
 
-Ten szablon umożliwia wdrożenie zabezpieczonego klastra siedmiu maszyn wirtualnych z trzema typami węzła w sieci wirtualnej i sieciowej grupie zabezpieczeń.  Inne przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [Azuredeploy. JSON][template] wdraża wiele zasobów, w tym następujące.
+Ten szablon umożliwia wdrożenie zabezpieczonego klastra siedmiu maszyn wirtualnych z trzema typami węzła w sieci wirtualnej i sieciowej grupie zabezpieczeń.  Inne przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [azuredeploy.jsw][template] programie wdraża wiele zasobów, w tym następujące.
 
 ### <a name="service-fabric-cluster"></a>Klaster usługi Service Fabric
 
@@ -73,8 +73,8 @@ W zasobie **Microsoft.ServiceFabric/clusters** skonfigurowano klaster systemu Wi
 * Certyfikat zabezpieczony (konfigurowalny w parametrach szablonu).
 * [Zwrotny serwer proxy](service-fabric-reverseproxy.md) jest włączony.
 * [Usługa DNS](service-fabric-dnsservice.md) jest włączona.
-* [Poziom trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronze (konfigurowalny w parametrach szablonu).
-* [Poziom niezawodności](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (konfigurowalny w parametrach szablonu).
+* [Poziom trwałości](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Bronze (konfigurowalny w parametrach szablonu).
+* [Poziom niezawodności](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) Silver (konfigurowalny w parametrach szablonu).
 * Punkt końcowy połączenia klienta: 19000 (konfigurowalny w parametrach szablonu).
 * Punkt końcowy bramy HTTP: 19080 (konfigurowalne w parametrach szablonu).
 
@@ -143,14 +143,14 @@ Domyślnie [program antywirusowy Windows Defender](/windows/security/threat-prot
 
 Plik parametrów [azuredeploy.parameters.json][parameters] deklaruje wiele wartości służących do wdrażania klastra i skojarzonych zasobów. Poniżej przedstawiono parametry, które należy zmodyfikować dla danego wdrożenia:
 
-**Konstruktora** | **Przykładowa wartość** | **Uwagi** 
+**Parametr** | **Przykładowa wartość** | **Uwagi** 
 |---|---|---|
 |adminUserName|vmadmin| Nazwa użytkownika będącego administratorem maszyn wirtualnych klastra. [Wymagania dotyczące nazwy użytkownika dla maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Haslo#1234| Hasło administratora maszyn wirtualnych klastra. [Wymagania dotyczące hasła dla maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mojklastersf123| Nazwa klastra. Może zawierać tylko litery i cyfry. Długość powinna wynosić od 3 do 23 znaków.|
 |location|southcentralus| Lokalizacja klastra. |
 |certificateThumbprint|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź wartość odcisku palca SHA1 certyfikatu. Na przykład „6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
-|certificateUrlValue|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta. </p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź adres URL certyfikatu. Na przykład "https:\//mykeyvault.Vault.Azure.NET:443/Secrets/MyCertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta. </p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź adres URL certyfikatu. Na przykład "https: \/ /mykeyvault.Vault.Azure.NET:443/Secrets/MyCertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>W przypadku tworzenia certyfikatu z podpisem własnym lub podania pliku certyfikatu ta wartość powinna być pusta.</p><p>Aby użyć istniejącego certyfikatu, który został wcześniej przekazany do magazynu kluczy, wprowadź wartość magazynu źródłowego. Na przykład „/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Konfigurowanie uwierzytelniania klienta za pomocą usługi Azure Active Directory
@@ -181,9 +181,9 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 ```
 
 > [!NOTE]
-> W przypadku chmur narodowych (na przykład Azure Government Azure Chiny, Azure (Niemcy), `-Location` określ parametr.
+> W przypadku chmur narodowych (na przykład Azure Government Azure Chiny, Azure (Niemcy), określ `-Location` parametr.
 
-Wartość *TenantId*, czyli identyfikator katalogu, możesz znaleźć w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Azure Active Directory** > **Właściwości** i skopiuj wartość **Identyfikator katalogu** .
+Wartość *TenantId*, czyli identyfikator katalogu, możesz znaleźć w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Azure Active Directory**  >  **Właściwości** i skopiuj wartość **Identyfikator katalogu** .
 
 Wartość *ClusterName* służy jako prefiks aplikacji usługi Azure AD tworzonych przez skrypt. Nie musi dokładnie pasować do rzeczywistej nazwy klastra. Ułatwia on mapowanie artefaktów usługi Azure AD do klastra Service Fabric w użyciu.
 
@@ -193,8 +193,8 @@ https://&lt;domena_klastra&gt;:19080/Explorer
 
 Zostanie wyświetlony monit o zalogowanie się do konta z uprawnieniami administracyjnymi dla dzierżawy usługi Azure AD. Po zalogowaniu skrypt utworzy aplikacje internetową i natywną mające reprezentować klaster usługi Service Fabric. W aplikacjach dzierżawy w [Azure Portal](https://portal.azure.com)powinny zostać wyświetlone dwa nowe wpisy:
 
-   * *Klaster klastra*\_
-   * *ClusterName*\_Client
+   * *ClusterName* \_ Hosta
+   * *ClusterName* \_ Klient
 
 Skrypt drukuje kod JSON wymagany przez szablon Menedżer zasobów podczas tworzenia klastra. dobrym pomysłem jest pozostawienie otwartego okna programu PowerShell.
 
@@ -271,7 +271,7 @@ Jednym ze sposobów przekazywania i zbierania dzienników jest użycie rozszerze
 
 Jeśli korzystasz z tego samouczka, zbieranie danych diagnostycznych jest już skonfigurowane w [szablonie][template].
 
-Jeśli masz istniejący klaster, który nie ma wdrożonej diagnostyki, możesz go dodać lub zaktualizować za pomocą szablonu klastra. Zmodyfikuj szablon Menedżer zasobów używany do tworzenia istniejącego klastra lub Pobierz szablon z portalu. Zmodyfikuj plik Template. JSON, wykonując następujące zadania:
+Jeśli masz istniejący klaster, który nie ma wdrożonej diagnostyki, możesz go dodać lub zaktualizować za pomocą szablonu klastra. Zmodyfikuj szablon Menedżer zasobów używany do tworzenia istniejącego klastra lub Pobierz szablon z portalu. Zmodyfikuj template.jspliku, wykonując następujące zadania:
 
 Dodaj nowy zasób magazynu do sekcji zasobów w szablonie:
 ```json
@@ -597,7 +597,7 @@ Dodaj rozszerzenie agenta Log Analytics do każdego zestawu skalowania maszyn wi
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Wdrażanie sieci wirtualnej i klastra
 
-Następnym etapem jest skonfigurowanie topologii sieci i wdrożenie klastra usługi Service Fabric. Szablon Menedżer zasobów [azuredeploy. JSON][template] tworzy sieć wirtualną, podsieć i grupę zabezpieczeń sieci dla Service Fabric. Szablon pozwala również wdrożyć klaster z włączonymi zabezpieczeniami opartymi na certyfikacie. W przypadku klastrów produkcyjnych Użyj certyfikatu z urzędu certyfikacji jako certyfikatu klastra. Do zabezpieczenia klastrów testowych może służyć certyfikat z podpisem własnym.
+Następnym etapem jest skonfigurowanie topologii sieci i wdrożenie klastra usługi Service Fabric. [azuredeploy.jsna][template] Menedżer zasobów szablon tworzy sieć wirtualną, podsieć i sieciową grupę zabezpieczeń dla Service Fabric. Szablon pozwala również wdrożyć klaster z włączonymi zabezpieczeniami opartymi na certyfikacie. W przypadku klastrów produkcyjnych Użyj certyfikatu z urzędu certyfikacji jako certyfikatu klastra. Do zabezpieczenia klastrów testowych może służyć certyfikat z podpisem własnym.
 
 Szablon w tym artykule umożliwia wdrożenie klastra, który używa odcisku palca certyfikatu do identyfikowania certyfikatu klastra. Żadne dwa certyfikaty nie mogą mieć tego samego odcisku palca, co sprawia, że zarządzanie certyfikatami jest trudniejsze. Przełączenie wdrożonego klastra z odcisków palców certyfikatów do nazw pospolitych certyfikatów upraszcza zarządzanie certyfikatami. Aby dowiedzieć się, jak zaktualizować klaster tak, aby używał wspólnych nazw certyfikatów do zarządzania certyfikatami, przeczytaj artykuł [zmiana klastra do wspólnego zarządzania nazwami](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 

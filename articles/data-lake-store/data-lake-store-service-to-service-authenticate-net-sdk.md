@@ -3,15 +3,15 @@ title: Uwierzytelnianie między usługami — Data Lake Storage Gen1
 description: Dowiedz się, jak uzyskać uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu zestawu .NET SDK
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: bac5fa95ca5ce4e289d4dd18cba9238da7b8a2e2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 19b4ac619ec3e72c787efc8e9f043f42dbd8b09b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691633"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85505158"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Ten artykuł zawiera informacje na temat korzystania z zestawu SDK platformy .NE
 ## <a name="create-a-net-application"></a>Tworzenie aplikacji .NET
 1. W programie Visual Studio wybierz menu **plik** , **Nowy**i **projekt**.
 2. Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
-3. W polu **Nazwa projektu**wprowadź `CreateADLApplication`, a następnie wybierz pozycję **Utwórz**.
+3. W polu **Nazwa projektu**wprowadź, `CreateADLApplication` a następnie wybierz pozycję **Utwórz**.
 
 4. Dodaj pakiety NuGet do swojego projektu.
 
@@ -84,7 +84,7 @@ private static void Main(string[] args)
 }
 ```
 
-Poprzedni fragment kodu używa funkcji `GetCreds_SPI_SecretKey`pomocnika. Kod dla tej funkcji pomocnika jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+Poprzedni fragment kodu używa funkcji pomocnika `GetCreds_SPI_SecretKey` . Kod dla tej funkcji pomocnika jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Uwierzytelnianie między usługami i certyfikatem
 
@@ -105,7 +105,7 @@ private static void Main(string[] args)
 }
 ```
 
-Poprzedni fragment kodu używa funkcji `GetCreds_SPI_Cert`pomocnika. Kod dla tej funkcji pomocnika jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+Poprzedni fragment kodu używa funkcji pomocnika `GetCreds_SPI_Cert` . Kod dla tej funkcji pomocnika jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przedstawiono sposób użycia uwierzytelniania między usługami w celu uwierzytelniania za pomocą usługi Data Lake Storage Gen1 przy użyciu zestawu .NET SDK. Teraz możesz zapoznać się z następującymi artykułami dotyczącymi używania zestawu .NET SDK do pracy z Data Lake Storage Gen1.

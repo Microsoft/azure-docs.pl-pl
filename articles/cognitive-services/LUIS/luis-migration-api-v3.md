@@ -1,15 +1,15 @@
 ---
 title: Zmiany przewidywanych punktów końcowych w interfejsie API v3
 description: Interfejsy API funkcji przewidywania zapytań w wersji 3 zostały zmienione. Skorzystaj z tego przewodnika, aby zrozumieć, jak przeprowadzić migrację do interfejsów API punktu końcowego w wersji 3.
-ms.topic: conceptual
-ms.date: 05/15/2020
+ms.topic: how-to
+ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849335"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610884"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Zmiany przewidywanych punktów końcowych dla wersji 3
 
@@ -86,17 +86,7 @@ Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować z
 
 ### <a name="query-string-changes"></a>Zmiany ciągu zapytania
 
-Interfejs API v3 ma inne parametry ciągu zapytania.
-
-|Nazwa parametru|Typ|Wersja|Domyślne|Przeznaczenie|
-|--|--|--|--|--|
-|`log`|wartość logiczna|WERSJA 2 & V3|fałsz|Zapisz zapytanie w pliku dziennika. Wartość domyślna to false.|
-|`query`|ciąg|Tylko wersja 3|Brak domyślnej — jest to wymagane w żądaniu GET|**W wersji 2**wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3**funkcja jest przenoszona do `query` parametru.|
-|`show-all-intents`|wartość logiczna|Tylko wersja 3|fałsz|Zwróć wszystkie intencje z odpowiednim wynikiem w obiekcie **przewidywania. intencje** . Intencje są zwracane jako obiekty w obiekcie nadrzędnym `intents` . Pozwala to na dostęp programistyczny bez konieczności wyszukiwania zamiaru w tablicy: `prediction.intents.give` . W wersji 2 te zostały zwrócone w tablicy. |
-|`verbose`|wartość logiczna|WERSJA 2 & V3|fałsz|**W wersji 2**, gdy ustawiono wartość true, wszystkie przewidywane intencje zostały zwrócone. Jeśli potrzebujesz wszystkich przewidywanych intencji, użyj parametru v3 `show-all-intents` .<br><br>**W wersji 3**ten parametr zawiera tylko szczegóły metadanych jednostki przewidywania jednostek.  |
-|`timezoneOffset`|ciąg|Wersja 2|-|Strefa czasowa zastosowana do jednostek datetimeV2.|
-|`datetimeReference`|ciąg|Czytanie|-|[Strefa czasowa](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) zastosowana do jednostek datetimeV2. Zamienia `timezoneOffset` z wersji 2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### <a name="v3-post-body"></a>Treść wpisu v3
 
@@ -112,7 +102,7 @@ Interfejs API v3 ma inne parametry ciągu zapytania.
 }
 ```
 
-|Właściwość|Typ|Wersja|Domyślne|Przeznaczenie|
+|Właściwość|Typ|Wersja|Domyślny|Przeznaczenie|
 |--|--|--|--|--|
 |`dynamicLists`|tablica|Tylko wersja 3|Niewymagane.|[Listy dynamiczne](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) umożliwiają rozbudowa istniejącej, przeszkolonej i opublikowanej jednostki listy, już w aplikacji Luis.|
 |`externalEntities`|tablica|Tylko wersja 3|Niewymagane.|[Jednostki zewnętrzne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) zapewniają aplikacji Luis możliwość identyfikowania i etykietowania jednostek podczas środowiska uruchomieniowego, które mogą być używane jako funkcje istniejących jednostek. |

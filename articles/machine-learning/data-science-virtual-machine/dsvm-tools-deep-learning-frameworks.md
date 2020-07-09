@@ -6,16 +6,16 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d8a5cf428f41b130e6faf68ac87a075c15211099
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84557485"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Głębokie uczenie i platformy AI dla Data Science VM platformy Azure
 Poniżej wymieniono platformy uczenia głębokiego na DSVM.
@@ -26,8 +26,8 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | ------------- | ------------- |
 | Obsługiwane wersje | |
 | Obsługiwane wersje DSVM      | Linux (Ubuntu)     |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | Caffe jest zainstalowany w `/opt/caffe`.   Przykłady znajdują `/opt/caffe/examples`się w.|
-| Jak uruchomić go      | Użyj X2Go, aby zalogować się do maszyny wirtualnej, a następnie uruchomić nowy terminal, a następnie wprowadź następujące polecenie:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Zostanie otwarte nowe okno przeglądarki z przykładowymi notesami. Pliki binarne są instalowane w/opt/Caffe/Build/Install/bin.<br/><br/>Zainstalowana wersja programu Caffe wymaga języka Python 2,7 i nie będzie współdziałać z językiem Python 3,5, który jest domyślnie aktywowany. Aby przełączyć się do języka Python 2,7 `source activate root` , uruchom polecenie, aby przełączyć się do środowiska Anaconda.|    
+| Jak jest on skonfigurowany/instalowany w DSVM?  | Caffe jest zainstalowany w `/opt/caffe` .   Przykłady znajdują się w `/opt/caffe/examples` .|
+| Jak uruchomić go      | Użyj X2Go, aby zalogować się do maszyny wirtualnej, a następnie uruchomić nowy terminal, a następnie wprowadź następujące polecenie:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Zostanie otwarte nowe okno przeglądarki z przykładowymi notesami. Pliki binarne są instalowane w/opt/Caffe/Build/Install/bin.<br/><br/>Zainstalowana wersja programu Caffe wymaga języka Python 2,7 i nie będzie współdziałać z językiem Python 3,5, który jest domyślnie aktywowany. Aby przełączyć się do języka Python 2,7, uruchom polecenie, `source activate root` Aby przełączyć się do środowiska Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
@@ -45,7 +45,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | Obsługiwane wersje | 5.2 |
 | Obsługiwane wersje DSVM      | Linux (Ubuntu)     |
 | Jak jest on skonfigurowany/instalowany w DSVM?  | Moduł łańcucha jest instalowany w języku Python 3,5. |
-| Jak uruchomić go      | Terminal: Aktywuj środowisko Python 3,5, uruchom `python`polecenie, a następnie `import chainer`polecenie. <br/> * JupyterHub: [Połącz się z JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), a następnie przejdź do katalogu łańcucha, aby znaleźć przykładowe notesy.| 
+| Jak uruchomić go      | Terminal: Aktywuj środowisko Python 3,5, uruchom `python` polecenie, a następnie polecenie `import chainer` . <br/> * JupyterHub: [Połącz się z JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), a następnie przejdź do katalogu łańcucha, aby znaleźć przykładowe notesy.| 
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[Sterownik CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
@@ -89,8 +89,8 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.3.0 |
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | MXNet jest zainstalowany w `C:\dsvm\tools\mxnet` systemie Windows i `/dsvm/tools/mxnet` na Ubuntu. Powiązania języka Python są instalowane w języku Python 3,6 w [systemie Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) i w języku Python 3,5 on [Linux](./dsvm-tools-languages.md#python-linux-edition)) powiązania R są również zawarte w Ubuntu DSVM. |
-| Jak uruchomić go      | Terminal: Aktywuj poprawne środowisko Conda, a następnie uruchom `import mxnet`polecenie. <br/>Jupyter: Połącz się z [Jupyter](provision-vm.md#access-the-dsvm) lub [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), a następnie otwórz `mxnet` katalog dla przykładów. |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | MXNet jest zainstalowany w systemie `C:\dsvm\tools\mxnet` Windows i `/dsvm/tools/mxnet` na Ubuntu. Powiązania języka Python są instalowane w języku Python 3,6 w [systemie Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) i w języku Python 3,5 on [Linux](./dsvm-tools-languages.md#python-linux-edition)) powiązania R są również zawarte w Ubuntu DSVM. |
+| Jak uruchomić go      | Terminal: Aktywuj poprawne środowisko Conda, a następnie uruchom polecenie `import mxnet` . <br/>Jupyter: Połącz się z [Jupyter](provision-vm.md#access-the-dsvm) lub [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), a następnie otwórz `mxnet` katalog dla przykładów. |
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
@@ -109,7 +109,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | Obsługiwane wersje DSVM      | System Windows i Linux   |
 | Co to jest? | Narzędzie NVIDIA do wykonywania zapytań dotyczących aktywności procesora GPU |
 | Jak jest on skonfigurowany/instalowany w DSVM?  | `nvidia-smi`znajduje się na ścieżce systemowej. |
-| Jak uruchomić go      | Na maszynie wirtualnej **z procesorem GPU**Otwórz wiersz polecenia (w systemie Windows) lub terminal (na komputerze z systemem Linux), a następnie `nvidia-smi`Uruchom polecenie. |
+| Jak uruchomić go      | Na maszynie wirtualnej **z procesorem GPU**Otwórz wiersz polecenia (w systemie Windows) lub terminal (na komputerze z systemem Linux), a następnie uruchom polecenie `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 

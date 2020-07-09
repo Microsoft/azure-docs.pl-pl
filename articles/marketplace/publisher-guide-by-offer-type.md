@@ -1,24 +1,24 @@
 ---
 title: Przewodnik publikowania według typu oferty — Microsoft Commercial Marketplace
 description: W tym artykule opisano typy ofert, które są dostępne w komercyjnym portalu Microsoft Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-ms.openlocfilehash: 9b39cbab71808aaf09f7dc38b3be77f6f35ab598
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982687"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119722"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Podręcznik publikowania dla różnych typów ofert
 
 W tym artykule opisano typy ofert, które są dostępne w portalu komercyjnym. *Typ oferty* definiuje strukturę oferty, która obejmuje metadane, artefakty i inną zawartość używaną do prezentowania oferty w portalu Marketplace.
 
-Przed utworzeniem oferty i po wybraniu [opcji publikowania](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)należy wybrać typ oferty, który zostanie użyty do zaprezentowania oferty. Typ oferty będzie odpowiadać typowi rozwiązania, aplikacji lub oferty usługi, którą chcesz opublikować, a także jego wyrównaniem do produktów i usług firmy Microsoft.
+Przed utworzeniem oferty i po wybraniu [opcji publikowania](determine-your-listing-type.md)należy wybrać typ oferty, który zostanie użyty do zaprezentowania oferty. Typ oferty będzie odpowiadać typowi rozwiązania, aplikacji lub oferty usługi, którą chcesz opublikować, a także jego wyrównaniem do produktów i usług firmy Microsoft.
 
 Typ oferty pojedynczej można skonfigurować na różne sposoby, aby włączyć różne opcje publikowania, wywołania do akcji, aprowizacji lub cennika. Opcja publikowania i konfiguracja typu oferty są również zgodne z wymaganiami dotyczącymi ofert i wymaganiami technicznymi.
 

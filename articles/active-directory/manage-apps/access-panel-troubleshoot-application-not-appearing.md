@@ -3,25 +3,25 @@ title: Przypisana aplikacja nie jest wyświetlana na panelu dostępu | Microsoft
 description: Rozwiązywanie problemów z niewyświetlaniem aplikacji w panelu dostępu
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69f5196484b841e8f0de72ce52ae48e00963f6f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67272748"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760999"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Przypisana aplikacja nie jest wyświetlana na panelu dostępu
 
@@ -135,7 +135,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji, wykonaj następujące cz
 
     2. Kliknij przycisk **Zapisz.** Nowy atrybut zostanie wyświetlony w tabeli.
 
-13. Kliknij **pozycję &lt;Konfiguruj nazwę&gt; aplikacji** , aby uzyskać dostęp do dokumentacji dotyczącej sposobu konfigurowania logowania jednokrotnego w aplikacji. Ponadto masz adresy URL metadanych i certyfikat wymagany do skonfigurowania logowania jednokrotnego w aplikacji.
+13. Kliknij pozycję **Konfiguruj &lt; nazwę &gt; aplikacji** , aby uzyskać dostęp do dokumentacji dotyczącej sposobu konfigurowania logowania jednokrotnego w aplikacji. Ponadto masz adresy URL metadanych i certyfikat wymagany do skonfigurowania logowania jednokrotnego w aplikacji.
 
 14. Kliknij przycisk **Zapisz** , aby zapisać konfigurację.
 
@@ -252,7 +252,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji, która nie znajduje się
 
     2. Kliknij przycisk **Zapisz.** Nowy atrybut zostanie wyświetlony w tabeli.
 
-14. Kliknij **pozycję &lt;Konfiguruj nazwę&gt; aplikacji** , aby uzyskać dostęp do dokumentacji dotyczącej sposobu konfigurowania logowania jednokrotnego w aplikacji. Ponadto masz adresy URL i certyfikaty usługi Azure AD wymagane dla aplikacji.
+14. Kliknij pozycję **Konfiguruj &lt; nazwę &gt; aplikacji** , aby uzyskać dostęp do dokumentacji dotyczącej sposobu konfigurowania logowania jednokrotnego w aplikacji. Ponadto masz adresy URL i certyfikaty usługi Azure AD wymagane dla aplikacji.
 
 #### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Wybierz identyfikator użytkownika i Dodaj atrybuty użytkownika do wysłania do aplikacji
 

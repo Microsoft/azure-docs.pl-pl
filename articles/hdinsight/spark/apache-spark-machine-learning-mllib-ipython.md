@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.topic: how-to
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, tracking-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 48bd53160c3d2e76dccd1f22723c30c2c7e00d7a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: fc5b4843d54c4edd8f0a29393fb6b41468d6a595
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559936"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084600"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Apache Spark MLlib, aby skompilować aplikację uczenia maszynowego i analizować zestaw danych
 
@@ -38,7 +38,7 @@ Podsumowując, proces regresji logistycznej produkuje *funkcję logistyczną*. F
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>Przykład analizy predykcyjnej na danych inspekcji żywności
 
-W tym przykładzie użyto platformy Spark do przeprowadzenia analizy predykcyjnej danych inspekcji żywności (**Food_Inspections1. csv**). Dane nabyte w [mieście portalu danych w Chicago](https://data.cityofchicago.org/). Ten zestaw danych zawiera informacje o inspekcjach związanych z działalnością żywnościową, które zostały przeprowadzone w Chicago. W tym informacje dotyczące każdego zakładu, wykryte naruszenia (jeśli istnieją) oraz wyniki inspekcji. Plik danych CSV jest już dostępny na koncie magazynu skojarzonym z klastrem w **/hdisamples/hdisamples/foodinspectiondata/Food_Inspections1. csv**.
+W tym przykładzie używasz platformy Spark do analizy predykcyjnej danych inspekcji żywności (**Food_Inspections1.csv**). Dane nabyte w [mieście portalu danych w Chicago](https://data.cityofchicago.org/). Ten zestaw danych zawiera informacje o inspekcjach związanych z działalnością żywnościową, które zostały przeprowadzone w Chicago. W tym informacje dotyczące każdego zakładu, wykryte naruszenia (jeśli istnieją) oraz wyniki inspekcji. Plik danych CSV jest już dostępny na koncie magazynu skojarzonym z klastrem w **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 W poniższych krokach opracowujesz model, aby zobaczyć, co jest potrzebne do przekazania lub niepowodzenia inspekcji żywności.
 
@@ -174,13 +174,13 @@ Zacznijmy od tego, co zawiera zestaw danych.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    `%%sql` Magiczna `-o countResultsdf` Metoda polega na tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **countResultsdf**. Aby uzyskać więcej informacji na `%%sql` temat Magic i innych magicznych PySpark jądra, zobacz [jądra dostępne w notesach Jupyter z klastrami usługi HDInsight Apache Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    Magiczna Metoda polega na `%%sql` `-o countResultsdf` tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **countResultsdf**. Aby uzyskać więcej informacji na temat `%%sql` Magic i innych magicznych PySpark jądra, zobacz [jądra dostępne w notesach Jupyter z klastrami usługi HDInsight Apache Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Dane wyjściowe wyglądają następująco:
 
     ![Dane wyjściowe zapytania SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Dane wyjściowe zapytania SQL")
 
-3. Możesz również użyć matplotlib, biblioteki używanej do konstruowania wizualizacji danych, aby utworzyć wykres. Ponieważ wykres musi być tworzony na podstawie lokalnie utrwalonej ramki Dataframe **countResultsdf** , fragment kodu musi rozpoczynać się `%%local` od Magic. Ta akcja zapewnia, że kod jest uruchamiany lokalnie na serwerze Jupyter.
+3. Możesz również użyć matplotlib, biblioteki używanej do konstruowania wizualizacji danych, aby utworzyć wykres. Ponieważ wykres musi być tworzony na podstawie lokalnie utrwalonej ramki Dataframe **countResultsdf** , fragment kodu musi rozpoczynać się od `%%local` Magic. Ta akcja zapewnia, że kod jest uruchamiany lokalnie na serwerze Jupyter.
 
     ```PySpark
     %%local
@@ -207,7 +207,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
 
      Dane z innymi wynikami ("firma nie znajduje się" lub "poza firmą") nie są przydatne i składają się na niewielką część wyników.
 
-4. Uruchom Poniższy kod, aby przekonwertować istniejący element Dataframe (`df`) do nowej ramki danych, w której każda inspekcja jest reprezentowana jako para naruszenia etykiet. W tym przypadku etykieta `0.0` reprezentuje błąd, etykieta `1.0` reprezentuje sukces, a etykieta `-1.0` przedstawia niektóre wyniki oprócz tych dwóch wyników.
+4. Uruchom Poniższy kod, aby przekonwertować istniejący element Dataframe ( `df` ) do nowej ramki danych, w której każda inspekcja jest reprezentowana jako para naruszenia etykiet. W tym przypadku etykieta `0.0` reprezentuje błąd, etykieta `1.0` reprezentuje sukces, a etykieta `-1.0` przedstawia niektóre wyniki oprócz tych dwóch wyników.
 
     ```PySpark
     def labelForResults(s):
@@ -239,7 +239,7 @@ Ostatnim zadaniem jest Konwertowanie danych z etykietami. Przekonwertuj dane do 
 
 Jedną z standardowych podejścia do uczenia maszynowego do przetwarzania języka naturalnego jest przypisanie każdego wyrazu DISTINCT "index". Następnie Przekaż wektor do algorytmu uczenia maszynowego. W taki sposób, że każdy indeks zawiera względną częstotliwość tego wyrazu w ciągu tekstowym.
 
-MLlib zapewnia łatwy sposób wykonania tej operacji. Najpierw "tokenize" każdy ciąg naruszeń, aby pobrać pojedyncze słowa w każdym ciągu. Następnie należy użyć funkcji `HashingTF` , aby skonwertować każdy zestaw tokenów do wektora funkcji, który można następnie przesłać do algorytmu regresji logistycznej w celu skonstruowania modelu. Wszystkie te kroki są wykonywane w sekwencji przy użyciu "potoku".
+MLlib zapewnia łatwy sposób wykonania tej operacji. Najpierw "tokenize" każdy ciąg naruszeń, aby pobrać pojedyncze słowa w każdym ciągu. Następnie należy użyć funkcji, `HashingTF` Aby skonwertować każdy zestaw tokenów do wektora funkcji, który można następnie przesłać do algorytmu regresji logistycznej w celu skonstruowania modelu. Wszystkie te kroki są wykonywane w sekwencji przy użyciu "potoku".
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -252,7 +252,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>Oceń model przy użyciu innego zestawu danych
 
-Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony w zestawie danych **Food_Inspections1. csv**. Możesz użyć drugiego zestawu danych, **Food_Inspections2. csv**, aby *oszacować* siłę tego modelu dla nowych danych. Ten drugi zestaw danych (**Food_Inspections2. csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
+Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych inspekcji. Przewidywania opierają się na naruszeniach naruszeń. Ten model został przeszkolony na **Food_Inspections1.csv**zestawu danych. Aby *oszacować* siłę tego modelu dla nowych danych, można użyć drugiego zestawu danych **Food_Inspections2.csv**. Ten drugi zestaw danych (**Food_Inspections2.csv**) znajduje się w domyślnym kontenerze magazynu skojarzonym z klastrem.
 
 1. Uruchom następujący kod, aby utworzyć nową ramkę danych, **predictionsDf** , która zawiera prognozę wygenerowaną przez model. Fragment kodu tworzy również tabelę tymczasową o nazwie **przewidywania** na podstawie ramki Dataframe.
 
@@ -288,7 +288,7 @@ Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych i
 
    Istnieje Prognoza dotycząca pierwszego wpisu w zestawie danych testowych.
 
-1. `model.transform()` Metoda stosuje te same przekształcenia do nowych danych z tym samym schematem i dociera do prognozowania sposobu klasyfikowania danych. Aby uzyskać informacje na temat tego, jak przewidywania były następujące:
+1. `model.transform()`Metoda stosuje te same przekształcenia do nowych danych z tym samym schematem i dociera do prognozowania sposobu klasyfikowania danych. Aby uzyskać informacje na temat tego, jak przewidywania były następujące:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -313,7 +313,7 @@ Możesz użyć utworzonego wcześniej modelu, aby *przewidzieć* wyniki nowych i
 
 Teraz możesz skonstruować ostateczną wizualizację, aby pomóc Ci w podaniu wyników testu.
 
-1. Zacznij od wyodrębnienia różnych prognoz i **wyników z tabeli tymczasowej** utworzone wcześniej. Poniższe zapytania oddzielają dane wyjściowe jako *true_positive*, *false_positive*, *true_negative*i *false_negative*. W poniższych zapytaniach można wyłączyć wizualizację za pomocą `-q` programu, a także zapisać dane wyjściowe ( `-o`przy użyciu) jako ramki danych, które mogą być następnie używane `%%local` z magiczną.
+1. Zacznij od wyodrębnienia różnych prognoz i **wyników z tabeli tymczasowej** utworzone wcześniej. Poniższe zapytania oddzielają dane wyjściowe jako *true_positive*, *false_positive*, *true_negative*i *false_negative*. W poniższych zapytaniach można wyłączyć wizualizację za pomocą programu `-q` , a także zapisać dane wyjściowe (przy użyciu `-o` ) jako ramki danych, które mogą być następnie używane z `%%local` magiczną.
 
     ```PySpark
     %%sql -q -o true_positive

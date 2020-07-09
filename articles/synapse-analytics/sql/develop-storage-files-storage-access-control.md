@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
-ms.date: 04/15/2020
+ms.subservice: sql
+ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7df4d917ce25d644003a60b34bc0683ea75299f3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835839"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204884"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -29,7 +29,18 @@ W tym artykule opisano typy poświadczeń, których można użyć oraz sposób p
 Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby uzyskać dostęp do plików w usłudze Azure Storage i wysyłać do nich zapytania, jeśli pliki nie są publicznie dostępne. Możesz użyć trzech typów autoryzacji, aby uzyskać dostęp do [tożsamości użytkownika](?tabs=user-identity)niepublicznego, [sygnatury dostępu współdzielonego](?tabs=shared-access-signature)i [tożsamości zarządzanej](?tabs=managed-identity).
 
 > [!NOTE]
-> [Usługa Azure AD Pass-through](#force-azure-ad-pass-through) to domyślne zachowanie podczas tworzenia obszaru roboczego. Jeśli używasz tego programu, nie musisz tworzyć poświadczeń dla każdego konta magazynu, do którego można uzyskać dostęp za pomocą nazw logowania usługi Azure AD. [To zachowanie można wyłączyć](#disable-forcing-azure-ad-pass-through).
+> **Usługa Azure AD Pass-through** to domyślne zachowanie podczas tworzenia obszaru roboczego.
+
+### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
+
+**Tożsamość użytkownika**, znana również jako "usługa Azure AD Pass-through", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która jest zalogowana na żądanie SQL, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Zgodnie z poniższą tabelą, nie jest obsługiwana w przypadku typu użytkownika SQL.
+
+> [!IMPORTANT]
+> Aby móc uzyskiwać dostęp do danych, musisz mieć rolę właściciel danych obiektów BLOB/współautor/czytelnik.
+> Nawet jeśli jesteś właścicielem konta magazynu, nadal musisz dodać siebie do jednej z ról danych obiektów blob magazynu.
+>
+> Aby dowiedzieć się więcej na temat kontroli dostępu w Azure Data Lake Store Gen2, zapoznaj się z informacjami na temat [kontroli dostępu w Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artykule.
+>
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
@@ -43,49 +54,6 @@ Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **ko
 > Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
 Należy utworzyć poświadczenia z zakresem bazy danych lub serwera, aby umożliwić dostęp przy użyciu tokenu SAS.
-
-### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
-
-**Tożsamość użytkownika**, znana również jako "pass-through", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która jest zalogowana na żądanie SQL, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Jak wskazano w powyższej tabeli, nie jest to obsługiwane w przypadku typu użytkownika SQL.
-
-> [!IMPORTANT]
-> Aby móc uzyskiwać dostęp do danych, musisz mieć rolę właściciel danych obiektów BLOB/współautor/czytelnik.
-> Nawet jeśli jesteś właścicielem konta magazynu, nadal musisz dodać siebie do jednej z ról danych obiektów blob magazynu.
->
-> Aby dowiedzieć się więcej na temat kontroli dostępu w Azure Data Lake Store Gen2, zapoznaj się z informacjami na temat [kontroli dostępu w Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artykule.
->
-
-Należy jawnie włączyć uwierzytelnianie przekazywane przez usługę Azure AD, aby umożliwić użytkownikom usługi Azure AD dostęp do magazynu przy użyciu ich tożsamości.
-
-#### <a name="force-azure-ad-pass-through"></a>Wymuś przekazywanie usługi Azure AD
-
-Wymuszanie przekazywania usługi Azure AD jest domyślnym zachowaniem uzyskanym przez specjalną nazwę poświadczenia, `UserIdentity` która jest tworzona automatycznie podczas aprowizacji obszaru roboczego usługi Azure Synapse. Wymusza użycie usługi Azure AD Pass-through dla każdego zapytania dotyczącego każdego identyfikatora logowania usługi Azure AD, co nastąpi pomimo istnienia innych poświadczeń.
-
-> [!NOTE]
-> Usługa Azure AD Pass-through jest zachowaniem domyślnym. Nie musisz tworzyć poświadczeń dla każdego konta magazynu, do którego uzyskuje się dostęp przy użyciu nazw logowania usługi AD.
-
-W przypadku [wyłączenia dla każdej kwerendy usługi Azure AD Pass-through](#disable-forcing-azure-ad-pass-through), a następnie chcesz ją ponownie włączyć, wykonaj następujące kroki:
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
-Aby włączyć przekazywanie usługi Azure AD dla określonego użytkownika, można przyznać uprawnienia odwołania dla danego `UserIdentity` użytkownika. Poniższy przykład umożliwia wymuszenie przekazywania usługi Azure AD dla user_name:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
-```
-
-#### <a name="disable-forcing-azure-ad-pass-through"></a>Wyłączenie wymuszania usługi Azure AD Pass-through
-
-Można wyłączyć funkcję [wymuszania przekazywania usługi Azure AD dla każdego zapytania](#force-azure-ad-pass-through). Aby go wyłączyć, Porzuć `Userdentity` poświadczenia przy użyciu:
-
-```sql
-DROP CREDENTIAL [UserIdentity];
-```
-
-Jeśli chcesz ponownie włączyć tę funkcję, zapoznaj się z sekcją [przekazanie do usługi Azure AD](#force-azure-ad-pass-through) .
 
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
@@ -152,7 +120,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 Poświadczenia z zakresem serwera są używane, gdy logowanie SQL wywołuje `OPENROWSET` funkcję bez `DATA_SOURCE` odczytywania plików na niektórych kontach magazynu. Nazwa poświadczenia z zakresem serwera **musi** być zgodna z adresem URL usługi Azure Storage. Poświadczenie jest dodawane przez uruchomienie [Create Credential](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Musisz podać argument nazwy poświadczenia. Musi być zgodna z każdą częścią ścieżki lub pełną ścieżką do danych w magazynie (patrz poniżej).
 
 > [!NOTE]
-> Argument dla dostawcy usług KRYPTOGRAFICZNYch nie jest obsługiwany.
+> `FOR CRYPTOGRAPHIC PROVIDER`Argument nie jest obsługiwany.
 
 Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do konta magazynu (i opcjonalnie kontenera) w następującym formacie: `<prefix>://<storage_account_path>/<storage_path>` . Ścieżki kont magazynu są opisane w poniższej tabeli:
 
@@ -162,10 +130,13 @@ Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do
 | Usługa Azure Data Lake Storage 1. generacji | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Usługa Azure Data Lake Storage 2. generacji | https  | <storage_account>. dfs.core.windows.net              |
 
-> [!NOTE]
-> Istnieje specjalne poświadczenie na poziomie serwera `UserIdentity` , które [wymusza przekazywanie usługi Azure AD](?tabs=user-identity#force-azure-ad-pass-through).
-
 Poświadczenia o zakresie serwera umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
+
+### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
+
+Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli ma `Storage Blob Data Owner` `Storage Blob Data Contributor` rolę, lub `Storage Blob Data Reader` . Użytkownicy usługi Azure AD nie potrzebują poświadczeń w celu uzyskania dostępu do magazynu. 
+
+Użytkownicy SQL nie mogą uzyskać dostępu do magazynu przy użyciu uwierzytelniania usługi Azure AD.
 
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
@@ -180,15 +151,6 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
-
-Poniższy skrypt tworzy poświadczenia na poziomie serwera, które umożliwiają użytkownikowi personifikację przy użyciu tożsamości usługi Azure AD.
-
-```sql
-CREATE CREDENTIAL [UserIdentity]
-WITH IDENTITY = 'User Identity';
-```
-
 ### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
 Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję w celu uzyskania dostępu do dowolnych plików w usłudze Azure Storage przy użyciu tożsamości zarządzanej w obszarze roboczym.
@@ -200,16 +162,8 @@ WITH IDENTITY='Managed Identity'
 
 ### <a name="public-access"></a>[Dostęp publiczny](#tab/public-access)
 
-Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję w celu uzyskania dostępu do dowolnych plików z publicznie dostępnego magazynu Azure. Utwórz to poświadczenie, aby włączyć podmiot zabezpieczeń SQL, który wykonuje `OPENROWSET` funkcję do odczytu publicznie dostępnych plików w usłudze Azure Storage, które pasują do adresu URL w nazwie poświadczenia.
+Poświadczenia w zakresie bazy danych nie są wymagane, aby zezwolić na dostęp do publicznie dostępnych plików. Utwórz [Źródło danych bez poświadczeń w zakresie bazy danych](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) , aby uzyskać dostęp do publicznie dostępnych plików w usłudze Azure Storage.
 
-Należy *mieć <programu* Exchange> z rzeczywistą nazwą konta magazynu i <*mystorageaccountcontainername*> z rzeczywistą nazwą kontenera:
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='SHARED ACCESS SIGNATURE'
-, SECRET = '';
-GO
-```
 ---
 
 ## <a name="database-scoped-credential"></a>Poświadczenia w zakresie bazy danych
@@ -218,23 +172,20 @@ Poświadczenia w zakresie bazy danych są używane, gdy każda `OPENROWSET` funk
 
 Poświadczenia w zakresie bazy danych umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
 
+### <a name="azure-ad-identity"></a>[Tożsamość usługi Azure AD](#tab/user-identity)
+
+Użytkownicy usługi Azure AD mogą uzyskać dostęp do dowolnego pliku w usłudze Azure Storage, jeśli ma ona co najmniej jedną `Storage Blob Data Owner` `Storage Blob Data Contributor` `Storage Blob Data Reader` rolę. Użytkownicy usługi Azure AD nie potrzebują poświadczeń w celu uzyskania dostępu do magazynu.
+
+Użytkownicy SQL nie mogą uzyskać dostępu do magazynu przy użyciu uwierzytelniania usługi Azure AD.
+
 ### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
 Poniższy skrypt tworzy poświadczenie, które jest używane do uzyskiwania dostępu do plików w magazynie przy użyciu tokenu SAS określonego w poświadczeniu.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
-GO
-```
-
-### <a name="azure-ad-identity"></a>[Tożsamość usługi Azure AD](#tab/user-identity)
-
-Poniższy skrypt tworzy poświadczenia w zakresie bazy danych używane przez [tabelę zewnętrzną](develop-tables-external-tables.md) i `OPENROWSET` funkcje, które używają źródła danych z poświadczeniami do uzyskiwania dostępu do plików magazynu przy użyciu własnej tożsamości usługi Azure AD.
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
-WITH IDENTITY = 'User Identity';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
@@ -272,14 +223,17 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 Użyj poniższego skryptu, aby utworzyć tabelę, która uzyskuje dostęp do publicznie dostępnego źródła danych.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+       WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
 WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [publicData],
+       FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
 Użytkownik bazy danych może odczytać zawartość plików ze źródła danych przy użyciu tabeli zewnętrznej lub funkcji [OPENROWSET](develop-openrowset.md) , która odwołuje się do źródła danych:
@@ -287,7 +241,9 @@ Użytkownik bazy danych może odczytać zawartość plików ze źródła danych 
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
+                                DATA_SOURCE = [mysample],
+                                FORMAT=PARQUET) as rows;
 GO
 ```
 
@@ -300,13 +256,13 @@ Zmodyfikuj Poniższy skrypt, aby utworzyć zewnętrzną tabelę, która uzyskuje
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use User Identity, Managed Identity, or SAS. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
 
-CREATE DATABASE SCOPED CREDENTIAL MyIdentity WITH IDENTITY = 'User Identity'
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
+WITH IDENTITY = 'Managed Identity'
 GO
-CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
-GO
-CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+CREATE DATABASE SCOPED CREDENTIAL SasCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
 
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
@@ -316,13 +272,14 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
---,CREDENTIAL = MyIdentity 
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [mysample],
+       FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
 

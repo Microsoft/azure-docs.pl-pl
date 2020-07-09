@@ -1,0 +1,80 @@
+- name: Dokumentacja platformy Live Video Analytics w usłudze IoT Edge (wersja zapoznawcza)
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o platformie Live Video Analytics w usłudze IoT Edge
+      href: overview.md
+    - name: Terminologia
+      href: terminology.md
+    - name: Co nowego
+      items:
+        - name: Informacje o wersji
+          href: release-notes.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Wprowadzenie — platforma Live Video Analytics w usłudze IoT Edge
+      href: get-started-detect-motion-emit-events-quickstart.md
+    - name: 'Wykrywanie ruchu, nagrywanie wideo na platformie Media Services'
+      href: detect-motion-record-video-clips-media-services-quickstart.md
+    - name: Wykrywanie ruchu i emitowanie zdarzeń
+      href: detect-motion-emit-events-quickstart.md
+    - name: 'Wykrywanie ruchu, nagrywanie wideo na urządzeniach brzegowych'
+      href: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - name: Uruchamianie platformy Live Video Analytics z własnym modelem
+      href: use-your-model-quickstart.md
+- name: Samouczki
+  items:
+    - name: Ciągłe nagrywanie wideo
+      href: continuous-video-recording-tutorial.md
+    - name: Nagrywanie wideo oparte na zdarzeniach
+      href: event-based-video-recording-tutorial.md
+    - name: Odtwarzanie zapisów wielodniowych
+      href: playback-multi-day-recordings-tutorial.md
+- name: Samples
+  items:
+    - name: Platforma Live Video Analytics w usłudze IoT Edge — próbki kodu C#
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+- name: Pojęcia
+  items:
+    - name: Graf multimedialny
+      href: media-graph-concept.md
+    - name: Nagrywanie wideo
+      href: video-recording-concept.md
+    - name: Odtwarzanie wideo
+      href: video-playback-concept.md
+    - name: Scenariusze
+      items:
+        - name: Ciągłe nagrywanie wideo
+          href: continuous-video-recording-concept.md
+        - name: Nagrywanie wideo oparte na zdarzeniach
+          href: event-based-video-recording-concept.md
+        - name: Platforma Live Video Analytics bez nagrania wideo
+          href: analyze-live-video-concept.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Tworzenie niestandardowej roli usługi Azure Resource Manager
+      href: create-custom-azure-resource-manager-role-how-to.md
+    - name: Wdrażanie na urządzeniu usługi IoT Edge
+      href: deploy-iot-edge-device.md
+    - name: Monitorowanie i rejestrowanie
+      href: monitoring-logging.md
+    - name: Odtwarzanie nagrania
+      href: playback-recordings-how-to.md
+    - name: Zarządzanie zasadami nagrywania
+      href: manage-recording-policy-how-to.md
+    - name: Analizowanie wideo na żywo przy użyciu wybranej sztucznej inteligencji
+      href: analyze-with-ai-your-choice-how-to.md
+    - name: Rozwiązywanie problemów
+      href: troubleshoot-how-to.md
+- name: Dokumentacja
+  items:
+    - name: Metody bezpośrednie
+      href: direct-methods.md
+    - name: Schemat konfiguracji bliźniaczej reprezentacji modułu
+      href: module-twin-configuration-schema.md
+    - name: Limity przydziału i ograniczenia
+      href: quotas-limitations.md
+    - name: Często zadawane pytania
+      href: faq.md
+    - name: Gotowość do produkcji i najlepsze rozwiązania
+      href: production-readiness.md

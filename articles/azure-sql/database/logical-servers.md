@@ -1,7 +1,7 @@
 ---
-title: Co to jest serwer w Azure SQL Database i Azure Synapse?
+title: Co to jest serwer w Azure SQL Database i usługa Azure Synapse Analytics?
 titleSuffix: ''
-description: Dowiedz się więcej na temat logicznych serwerów SQL używanych przez Azure SQL Database i Azure Synapse oraz jak zarządzać nimi.
+description: Dowiedz się więcej na temat logicznych serwerów SQL używanych przez Azure SQL Database i usługę Azure Synapse Analytics oraz jak zarządzać nimi.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6df3cd82413f9a1c352be4349006accd52c24490
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048420"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367579"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Co to jest logiczny serwer SQL w Azure SQL Database i Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-W Azure SQL Database i na platformie Azure Synapse serwer jest konstrukcyjną logiczną, która działa jako centralny punkt administracyjny dla kolekcji baz danych. Na poziomie serwera można administrować nazwami [logowania](logins-create-manage.md), [regułami zapory](firewall-configure.md), [regułami inspekcji](../../azure-sql/database/auditing-overview.md), [zasadami wykrywania zagrożeń](threat-detection-configure.md)i [grupami automatycznego trybu failover](auto-failover-group-overview.md). Serwer może znajdować się w innym regionie niż jego grupa zasobów. Serwer musi istnieć, aby można było utworzyć bazę danych w Azure SQL Database lub bazie danych magazynu danych w usłudze Azure Synapse. Wszystkie bazy danych zarządzane przez pojedynczy serwer są tworzone w tym samym regionie, w którym znajduje się serwer.
+W Azure SQL Database i Azure Synapse Analytics serwer jest konstrukcyjną logiczną, która działa jako centralny punkt administracyjny dla kolekcji baz danych. Na poziomie serwera można administrować nazwami [logowania](logins-create-manage.md), [regułami zapory](firewall-configure.md), [regułami inspekcji](../../azure-sql/database/auditing-overview.md), [zasadami wykrywania zagrożeń](threat-detection-configure.md)i [grupami automatycznego trybu failover](auto-failover-group-overview.md). Serwer może znajdować się w innym regionie niż jego grupa zasobów. Serwer musi istnieć, aby można było utworzyć bazę danych w Azure SQL Database lub bazie danych magazynu danych w usłudze Azure Synapse Analytics. Wszystkie bazy danych zarządzane przez pojedynczy serwer są tworzone w tym samym regionie, w którym znajduje się serwer.
 
 Ten serwer różni się od wystąpienia SQL Server, które może być znane w lokalnym świecie. W związku z tym nie ma gwarancji dotyczących lokalizacji baz danych lub bazy danych magazynu danych w odniesieniu do serwera, który zarządza nimi. Ponadto żadna Azure SQL Database ani usługa Azure Synapse nie uwidaczniają żadnego dostępu lub funkcji na poziomie wystąpienia. W przeciwieństwie do bazy danych wystąpienia w zarządzanym wystąpieniu są fizycznie wspólnie zlokalizowane w taki sam sposób, jak w przypadku SQL Server w środowisku lokalnym lub na świecie maszyn wirtualnych.
 
-Podczas tworzenia serwera należy podać konto logowania do serwera i hasło z uprawnieniami administracyjnymi do bazy danych Master na tym serwerze i wszystkich baz danych utworzonych na tym serwerze. To początkowe konto jest kontem logowania SQL. Azure SQL Database i Synapse Analytics obsługuje uwierzytelnianie SQL i Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania. Informacje o logowaniach i uwierzytelnianiu znajdują się [w temacie Zarządzanie bazami danych i nazwami logowania w Azure SQL Database](logins-create-manage.md). Uwierzytelnianie systemu Windows nie jest obsługiwane.
+Podczas tworzenia serwera należy podać konto logowania do serwera i hasło z uprawnieniami administracyjnymi do bazy danych Master na tym serwerze i wszystkich baz danych utworzonych na tym serwerze. To początkowe konto jest kontem logowania SQL. Azure SQL Database i Synapse Analytics obsługują uwierzytelnianie SQL i Azure Active Directory uwierzytelniania na potrzeby uwierzytelniania. Informacje o logowaniach i uwierzytelnianiu znajdują się [w temacie Zarządzanie bazami danych i nazwami logowania w Azure SQL Database](logins-create-manage.md). Uwierzytelnianie systemu Windows nie jest obsługiwane.
 
 Serwer w SQL Database i Azure Synapse:
 
@@ -53,9 +53,9 @@ Można utworzyć grupę zasobów dla serwera przed czasem lub podczas tworzenia 
 
 ### <a name="create-a-blank-server"></a>Utwórz pusty serwer
 
-Aby utworzyć serwer (bez bazy danych, puli elastycznej lub bazy danych magazynu danych) przy użyciu [Azure Portal](https://portal.azure.com), przejdź do pustego formularza programu SQL Server (serwera logicznego).
+Aby utworzyć serwer (bez bazy danych, puli elastycznej lub bazy danych magazynu danych) przy użyciu [Azure Portal](https://portal.azure.com), przejdź do pustego formularza programu SQL Server (logicznego serwera SQL).
 
-### <a name="create-a-blank-or-sample-sql-database-in-azure-sql-database"></a>Tworzenie pustej lub przykładowej bazy danych SQL w Azure SQL Database
+### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Utwórz pustą lub przykładową bazę danych w Azure SQL Database
 
 Aby utworzyć bazę danych w SQL Database przy użyciu [Azure Portal](https://portal.azure.com), przejdź do pustego formularza SQL Database i podaj żądane informacje. Można utworzyć grupę zasobów i serwer przed czasem lub podczas tworzenia samej bazy danych. Możesz utworzyć pustą bazę danych lub utworzyć przykładową bazę danych na podstawie firmy Adventure Works LT.
 
@@ -105,7 +105,7 @@ Do tworzenia serwerów, baz danych i zapór oraz zarządzania nimi za pomocą Az
 | New-AzSqlServerVirtualNetworkRule | Tworzy [*regułę sieci wirtualnej*](vnet-service-endpoint-rule-overview.md)na podstawie podsieci, która jest punktem końcowym usługi Virtual Network. |
 
 > [!TIP]
-> Przewodnik Szybki Start dla programu PowerShell zawiera temat [Tworzenie pojedynczej bazy danych usługi Azure SQL przy użyciu programu PowerShell](single-database-create-quickstart.md). Przykładowe skrypty programu PowerShell można znaleźć [w temacie Używanie programu PowerShell do tworzenia pojedynczej bazy danych usługi Azure SQL i konfigurowania reguły zapory](scripts/create-and-configure-database-powershell.md) oraz [monitorowania i skalowania pojedynczej bazy danych Azure SQL Database przy użyciu programu PowerShell](scripts/monitor-and-scale-database-powershell.md).
+> Aby zapoznać się z przewodnikiem Szybki Start dla programu PowerShell, zobacz [Tworzenie bazy danych w Azure SQL Database przy użyciu programu PowerShell](single-database-create-quickstart.md). Przykładowe skrypty programu PowerShell można znaleźć [w temacie Używanie programu PowerShell do tworzenia bazy danych w Azure SQL Database i konfigurowania reguły zapory](scripts/create-and-configure-database-powershell.md) oraz [monitorowania i skalowania bazy danych w Azure SQL Database przy użyciu programu PowerShell](scripts/monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Zarządzanie serwerami, bazami danych i zaporami przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -135,7 +135,7 @@ Aby utworzyć serwery, bazy danych i zapory za pomocą [interfejsu wiersza polec
 |[AZ SQL Server firewall-Rule Delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Usuwa regułę zapory|
 
 > [!TIP]
-> Przewodnik Szybki Start dotyczący interfejsu wiersza polecenia platformy Azure zawiera temat [Tworzenie pojedynczej bazy danych usługi Azure SQL przy użyciu interfejsu wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md). Przykładowe skrypty interfejsu wiersza polecenia platformy Azure można znaleźć [w temacie Używanie interfejsu wiersza polecenia do tworzenia pojedynczej bazy danych usługi Azure SQL i konfigurowania reguły zapory](scripts/create-and-configure-database-cli.md) oraz [do monitorowania i skalowania pojedynczej bazy danych SQL Azure przy użyciu interfejsu wiersza polecenia](scripts/monitor-and-scale-database-cli.md).
+> Przewodnik Szybki Start dotyczący interfejsu wiersza polecenia platformy Azure znajduje się [w temacie Tworzenie bazy danych w Azure SQL Database przy użyciu interfejsu wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md). Przykładowe skrypty interfejsu wiersza polecenia platformy Azure można znaleźć [w temacie Używanie interfejsu wiersza polecenia do tworzenia bazy danych w Azure SQL Database i konfigurowania reguły zapory](scripts/create-and-configure-database-cli.md) i [używania interfejsu wiersza polecenia do monitorowania i skalowania bazy danych w programie Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-servers-databases-and-firewalls-using-transact-sql"></a>Zarządzanie serwerami, bazami danych i zaporami przy użyciu języka Transact-SQL
@@ -150,19 +150,19 @@ Aby utworzyć serwery, bazy danych i zapory w języku Transact-SQL i zarządzać
 |[Utwórz bazę danych (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Tworzy nową bazę danych w Azure SQL Database. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 |[Tworzenie bazy danych (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Tworzy nową bazę danych magazynu danych w usłudze Azure Synapse. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modyfikuje bazę danych lub pulę elastyczną. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)|Modyfikuje bazę danych magazynu danych w usłudze Azure Synapse.|
+|[ALTER DATABASE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modyfikuje bazę danych magazynu danych w usłudze Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
 |[sys. database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usługi), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla bazy danych. Jeśli użytkownik jest zalogowany do bazy danych Master dla serwera, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse musisz mieć połączenie z bazą danych Master.|
 |[sys. dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zwraca użycie procesora CPU, operacji we/wy i pamięci dla bazy danych w Azure SQL Database. Jeden wiersz istnieje przez co 15 sekund, nawet jeśli w bazie danych nie ma żadnych działań.|
-|[sys. resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Zwraca dane użycia procesora CPU i magazynu dla Azure SQL Database. Dane są zbierane i agregowane w ciągu pięciu minut.|
+|[sys. resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Zwraca dane użycia procesora CPU i magazynu dla bazy danych w Azure SQL Database. Dane są zbierane i agregowane w ciągu pięciu minut.|
 |[sys. database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Zawiera statystyki zdarzeń związanych z łącznością bazy danych dla Azure SQL Database, co zapewnia przegląd udanych i niepowodzeń połączeń z bazą danych. |
 |[sys. event_log (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Zwraca pomyślne Azure SQL Database połączenia z bazą danych, błędy połączeń i zakleszczenie dla Azure SQL Database. Te informacje służą do śledzenia i rozwiązywania problemów związanych z bazą danych.|
 |[sp_set_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database)|Tworzy lub aktualizuje ustawienia zapory na poziomie serwera dla serwera. Ta procedura składowana jest dostępna tylko w bazie danych Master do nazwy logowania podmiotu zabezpieczeń na poziomie serwera. Regułę zapory na poziomie serwera można utworzyć tylko przy użyciu języka Transact-SQL po utworzeniu pierwszej reguły zapory na poziomie serwera przez użytkownika z uprawnieniami na poziomie platformy Azure.|
 |[sys. firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database)|Zwraca informacje o ustawieniach zapory na poziomie serwera skojarzonych z serwerem.|
 |[sp_delete_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Usuwa z serwera ustawienia zapory na poziomie serwera. Ta procedura składowana jest dostępna tylko w bazie danych Master do nazwy logowania podmiotu zabezpieczeń na poziomie serwera.|
-|[sp_set_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Tworzy lub aktualizuje reguły zapory na poziomie bazy danych dla bazy danych w Azure SQL Database. Reguły zapory bazy danych można skonfigurować dla bazy danych Master oraz dla baz danych użytkowników na SQL Database. Reguły zapory bazy danych są przydatne w przypadku korzystania z użytkowników zawartej bazy danych. Reguły zapory bazy danych nie są obsługiwane w usłudze Azure Synapse.|
+|[sp_set_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Tworzy lub aktualizuje reguły zapory na poziomie bazy danych dla bazy danych w Azure SQL Database. Reguły zapory bazy danych można skonfigurować dla bazy danych Master oraz dla baz danych użytkowników w SQL Database. Reguły zapory bazy danych są przydatne w przypadku korzystania z użytkowników zawartej bazy danych. Reguły zapory bazy danych nie są obsługiwane w usłudze Azure Synapse.|
 |[sys. database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Zwraca informacje o ustawieniach zapory na poziomie bazy danych dla bazy danych w Azure SQL Database. |
-|[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Usuwa z Azure SQL Database ustawienie zapory na poziomie bazy danych. |
+|[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Usuwa ustawienie zapory na poziomie bazy danych dla bazy danych w Azure SQL Database. |
 
 > [!TIP]
 > Aby uzyskać szybki Start przy użyciu SQL Server Management Studio w systemie Microsoft Windows, zobacz [Azure SQL Database: używanie SQL Server Management Studio do nawiązywania połączenia i wykonywania zapytań dotyczących danych](connect-query-ssms.md). Aby uzyskać szybki Start przy użyciu Visual Studio Code w macOS, Linux lub Windows, zobacz [Azure SQL Database: używanie Visual Studio Code do nawiązywania połączenia i wykonywania zapytań dotyczących danych](connect-query-vscode.md).

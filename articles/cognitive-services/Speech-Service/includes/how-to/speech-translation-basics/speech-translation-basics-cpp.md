@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 09f08e314a634de13a683440ad9fead97ad8a260
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9b5d1421c36fa5d0568985b7792715533d2540ee
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399604"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86035706"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -17,7 +17,7 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypc
 
 ## <a name="install-the-speech-sdk"></a>Instalowanie zestawu SDK usługi Mowa
 
-Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK. W zależności od używanej platformy postępuj zgodnie z instrukcjami w sekcji <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">pobieranie zestawu <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> artykułu zestawu Speech SDK.
+Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK. W zależności od używanej platformy postępuj zgodnie z instrukcjami w sekcji <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">pobieranie zestawu <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> w artykule _Informacje o zestawie mowy SDK_ .
 
 ## <a name="import-dependencies"></a>Importowanie zależności
 
@@ -39,7 +39,7 @@ using namespace Microsoft::CognitiveServices::Speech::Translation;
 
 ## <a name="sensitive-data-and-environment-variables"></a>Dane poufne i zmienne środowiskowe
 
-Przykładowy kod źródłowy opisany w tym artykule zależy od zmiennych środowiskowych w celu przechowywania poufnych danych, takich jak klucz subskrypcji zasobów mowy i region. Plik kodu C++ zawiera dwie wartości ciągów, które są przypisane ze zmiennych środowiskowych komputerów-hostów, `SPEECH__SUBSCRIPTION__KEY` a `SPEECH__SERVICE__REGION`mianowicie i. Oba te pola znajdują się w zakresie klasy, dzięki czemu są dostępne w treści metody klasy. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [zmienne środowiskowe i konfiguracja aplikacji](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+Przykładowy kod źródłowy opisany w tym artykule zależy od zmiennych środowiskowych w celu przechowywania poufnych danych, takich jak klucz subskrypcji zasobów mowy i region. Plik kodu C++ zawiera dwie wartości ciągów, które są przypisane ze zmiennych środowiskowych komputerów-hostów, `SPEECH__SUBSCRIPTION__KEY` a mianowicie i `SPEECH__SERVICE__REGION` . Oba te pola znajdują się w zakresie klasy, dzięki czemu są dostępne w treści metody klasy. Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [zmienne środowiskowe i konfiguracja aplikacji](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```cpp
 auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
@@ -48,12 +48,12 @@ auto SPEECH__SERVICE__REGION = getenv("SPEECH__SERVICE__REGION");
 
 ## <a name="create-a-speech-translation-configuration"></a>Tworzenie konfiguracji tłumaczenia mowy
 
-Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechTranslationConfig`][config]. Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
+Aby wywołać usługę mowy przy użyciu zestawu Speech SDK, należy utworzyć [`SpeechTranslationConfig`][config] . Ta klasa zawiera informacje o subskrypcji, takie jak klucz i skojarzony region, punkt końcowy, Host lub Token autoryzacji.
 
 > [!TIP]
 > Bez względu na to, czy wykonujesz rozpoznawanie mowy, synteza mowy, tłumaczenie czy rozpoznawanie intencji, zawsze utworzysz konfigurację.
 
-Istnieje kilka sposobów na zainicjowanie [`SpeechTranslationConfig`][config]:
+Istnieje kilka sposobów na zainicjowanie [`SpeechTranslationConfig`][config] :
 
 * Z subskrypcją: Przekaż klucz i skojarzony region.
 * Z punktem końcowym: Pass w punkcie końcowym usługi mowy. Klucz lub Token autoryzacji jest opcjonalny.
@@ -92,11 +92,11 @@ void translateSpeech() {
 }
 ```
 
-[`SpeechRecognitionLanguage`][recognitionlang] Właściwość oczekuje ciągu formatu ustawień regionalnych. Na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md)można podać dowolną wartość w kolumnie **Ustawienia regionalne** .
+[`SpeechRecognitionLanguage`][recognitionlang]Właściwość oczekuje ciągu formatu ustawień regionalnych. Na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md)można podać dowolną wartość w kolumnie **Ustawienia regionalne** .
 
 ## <a name="add-translation-language"></a>Dodawanie języka tłumaczenia
 
-Innym typowym zadaniem tłumaczenia mowy jest określenie docelowych języków tłumaczenia, ale co najmniej jeden jest wymagany, ale obsługiwane są różne. W poniższym fragmencie kodu zarówno francuski, jak i niemiecki jako elementy docelowe języka tłumaczenia.
+Innym typowym zadaniem tłumaczenia mowy jest określenie docelowych języków tłumaczenia, ale co najmniej jeden jest wymagany, ale obsługiwane są różne. Poniższy fragment kodu ustawia francuski i niemiecki jako cele języka tłumaczenia.
 
 ```cpp
 void translateSpeech() {
@@ -111,11 +111,11 @@ void translateSpeech() {
 }
 ```
 
-W przypadku każdego wywołania [`AddTargetLanguage`][addlang]do programu określony jest nowy docelowy język tłumaczenia. Innymi słowy, gdy rozpoznawanie mowy jest rozpoznawane w języku źródłowym, każde docelowe tłumaczenie jest dostępne jako część wyniku operacji tłumaczenia.
+W przypadku każdego wywołania do programu [`AddTargetLanguage`][addlang] określony jest nowy docelowy język tłumaczenia. Innymi słowy, gdy rozpoznawanie mowy jest rozpoznawane w języku źródłowym, każde docelowe tłumaczenie jest dostępne jako część wyniku operacji tłumaczenia.
 
 ## <a name="initialize-a-translation-recognizer"></a>Inicjowanie aparatu rozpoznawania tłumaczenia
 
-Po utworzeniu [`SpeechTranslationConfig`][config], następnym krokiem jest zainicjowanie [`TranslationRecognizer`][recognizer]. Po zainicjowaniu [`TranslationRecognizer`][recognizer]elementu należy przekazać go `translationConfig`. Obiekt Configuration zawiera poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
+Po utworzeniu [`SpeechTranslationConfig`][config] , następnym krokiem jest zainicjowanie [`TranslationRecognizer`][recognizer] . Po zainicjowaniu elementu należy [`TranslationRecognizer`][recognizer] przekazać go `translationConfig` . Obiekt Configuration zawiera poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
 
 Jeśli rozpoznajesz mowę przy użyciu domyślnego mikrofonu urządzenia, Oto jak [`TranslationRecognizer`][recognizer] powinien wyglądać:
 
@@ -135,7 +135,7 @@ void translateSpeech() {
 }
 ```
 
-Jeśli chcesz określić urządzenie wejściowe audio, należy utworzyć [`AudioConfig`][audioconfig] i podać `audioConfig` parametr podczas inicjowania. [`TranslationRecognizer`][recognizer]
+Jeśli chcesz określić urządzenie wejściowe audio, należy utworzyć [`AudioConfig`][audioconfig] i podać `audioConfig` parametr podczas inicjowania [`TranslationRecognizer`][recognizer] .
 
 > [!TIP]
 > [Dowiedz się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
@@ -159,7 +159,7 @@ void translateSpeech() {
 }
 ```
 
-Jeśli chcesz podać plik audio zamiast używać mikrofonu, nadal musisz podać `audioConfig`. Jednak podczas [`AudioConfig`][audioconfig]tworzenia, zamiast `FromDefaultMicrophoneInput`wywoływania, należy wywołać `FromWavFileInput` i przekazać `filename` parametr.
+Jeśli chcesz podać plik audio zamiast używać mikrofonu, nadal musisz podać `audioConfig` . Jednak podczas tworzenia [`AudioConfig`][audioconfig] , zamiast wywoływania `FromDefaultMicrophoneInput` , należy wywołać `FromWavFileInput` i przekazać `filename` parametr.
 
 ```cpp
 void translateSpeech() {
@@ -215,14 +215,14 @@ Aby uzyskać więcej informacji na temat zamiany mowy na tekst, zobacz [podstawy
 
 ## <a name="synthesize-translations"></a>Synteza tłumaczeń
 
-Po pomyślnym przeprowadzeniu rozpoznawania mowy i tłumaczeniu, wynik zawiera wszystkie tłumaczenia w słowniku. Klucz [`Translations`][translations] słownika to docelowy język tłumaczenia, a wartość to przetłumaczony tekst. Rozpoznaną mowę można przetłumaczyć, a następnie wyróżnić w innym języku (zamiana mowy na mowę).
+Po pomyślnym przeprowadzeniu rozpoznawania mowy i tłumaczeniu, wynik zawiera wszystkie tłumaczenia w słowniku. [`Translations`][translations]Klucz słownika to docelowy język tłumaczenia, a wartość to przetłumaczony tekst. Rozpoznaną mowę można przetłumaczyć, a następnie wyróżnić w innym języku (zamiana mowy na mowę).
 
 ### <a name="event-based-synthesis"></a>Synteza oparta na zdarzeniach
 
-`TranslationRecognizer` Obiekt ujawnia `Synthesizing` zdarzenie. Zdarzenie zostanie wyzwolone kilka razy i udostępnia mechanizm umożliwiający pobranie dźwięku z tłumaczenia z wyniku rozpoznawania. W przypadku tłumaczenia na wiele języków, zobacz [synteza ręczna](#manual-synthesis). Określ głos syntezy, przypisując [`SetVoiceName`][voicename] i podając procedurę obsługi zdarzeń dla `Synthesizing` zdarzenia, Pobierz dźwięk. Poniższy przykład zapisuje przetłumaczony dźwięk jako plik *. wav* .
+`TranslationRecognizer`Obiekt ujawnia `Synthesizing` zdarzenie. Zdarzenie zostanie wyzwolone kilka razy i udostępnia mechanizm umożliwiający pobranie dźwięku z tłumaczenia z wyniku rozpoznawania. W przypadku tłumaczenia na wiele języków, zobacz [synteza ręczna](#manual-synthesis). Określ głos syntezy, przypisując [`SetVoiceName`][voicename] i podając procedurę obsługi zdarzeń dla `Synthesizing` zdarzenia, Pobierz dźwięk. Poniższy przykład zapisuje przetłumaczony dźwięk jako plik *. wav* .
 
 > [!IMPORTANT]
-> Synteza oparta na zdarzeniach działa tylko w przypadku jednego tłumaczenia **, nie należy dodawać** wielu docelowych języków tłumaczenia. Ponadto [`SetVoiceName`][voicename] powinien być to ten sam język, w którym znajduje się docelowy język tłumaczenia, na przykład. `"de"` można zamapować `"de-DE-Hedda"`na.
+> Synteza oparta na zdarzeniach działa tylko w przypadku jednego tłumaczenia **, nie należy dodawać** wielu docelowych języków tłumaczenia. Ponadto [`SetVoiceName`][voicename] powinien być to ten sam język, w którym znajduje się docelowy język tłumaczenia, na przykład `"de"` może być mapowany na `"de-DE-Hedda"` .
 
 ```cpp
 void translateSpeech() {
@@ -270,7 +270,7 @@ void translateSpeech() {
 
 ### <a name="manual-synthesis"></a>Synteza ręczna
 
-[`Translations`][translations] Słownik może służyć do syntezowania dźwięku z tekstu tłumaczenia. Wykonaj iterację każdego tłumaczenia i wytłumacz tłumaczenie. Podczas tworzenia `SpeechSynthesizer` wystąpienia `SpeechConfig` obiekt musi mieć ustawioną [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] właściwość na żądany głos. W poniższym przykładzie przekładają się na pięć języków, a każde tłumaczenie jest następnie wydane do pliku audio w odpowiednim języku neuronowych.
+[`Translations`][translations]Słownik może służyć do syntezowania dźwięku z tekstu tłumaczenia. Wykonaj iterację każdego tłumaczenia i wytłumacz tłumaczenie. Podczas tworzenia `SpeechSynthesizer` wystąpienia `SpeechConfig` obiekt musi mieć [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] ustawioną właściwość na żądany głos. W poniższym przykładzie przekładają się na pięć języków, a każde tłumaczenie jest następnie wydane do pliku audio w odpowiednim języku neuronowych.
 
 ```cpp
 void translateSpeech() {

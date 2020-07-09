@@ -1,25 +1,14 @@
 ---
 title: 'Szybki Start: odczytywanie przechwyconych danych z aplikacji w języku Python — Event Hubs platformy Azure'
 description: 'Szybki Start: skrypty używające zestawu Azure Python SDK do zademonstrowania funkcji przechwytywania Event Hubs.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-editor: ''
-ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 01/15/2020
-ms.author: shvija
-ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 8e6174970a6821f7541387f91b226cdebe555625
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77187288"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323057"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Przewodnik Szybki Start: Event Hubs Przechwytywanie: Python (Azure-eventhub wersja 1)
 
@@ -80,7 +69,7 @@ Ten skrypt wysyła zdarzenia 200 do centrum zdarzeń. Zdarzenia to proste odczyt
 
 1. Otwórz swój ulubiony Edytor Python, taki jak [Visual Studio Code][Visual Studio Code].
 2. Utwórz nowy plik o nazwie *Sender.py*. 
-3. Wklej poniższy kod do *Sender.py*. Zastąp własne wartości \<Event Hubs przestrzeni nazw>, \<AccessKeyName>, \<wartość klucza podstawowego> i \<eventhub>.
+3. Wklej poniższy kod do *Sender.py*. Zastąp własne wartości Event Hubs \<namespace> , \<AccessKeyName> , \<primary key value> i \<eventhub> .
    
    ```python
    import uuid
@@ -108,7 +97,7 @@ Ten skrypt wysyła zdarzenia 200 do centrum zdarzeń. Zdarzenia to proste odczyt
 Ten skrypt odczytuje przechwycone pliki i tworzy plik dla każdego urządzenia, aby zapisać dane tylko dla tego urządzenia.
 
 1. W edytorze języka Python Utwórz nowy plik o nazwie *capturereader.py*. 
-2. Wklej poniższy kod do *capturereader.py*. Zastąp zapisane wartości>, \< \<> klucza dostępu do konta magazynu i \<> storagecontainer.
+2. Wklej poniższy kod do *capturereader.py*. Zastąp zapisane wartości dla \<storageaccount> , \<storage account access key> i \<storagecontainer> .
    
    ```python
    import os
@@ -164,7 +153,7 @@ Ten skrypt odczytuje przechwycone pliki i tworzy plik dla każdego urządzenia, 
    pip install avro-python3
    ```
    
-   Jeśli masz wcześniejszą wersję programu `azure-storage` lub `azure`, może być konieczne użycie tej `--upgrade` opcji.
+   Jeśli masz wcześniejszą wersję programu `azure-storage` lub `azure` , może być konieczne użycie tej `--upgrade` opcji.
    
    Może być również konieczne uruchomienie następującego polecenia. Uruchomienie tego polecenia nie jest konieczne w większości systemów. 
    

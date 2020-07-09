@@ -4,7 +4,6 @@ description: W tym samouczku wyjaśniono, jak równoważyć obciążenie ruchu p
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: rohink
-ms.openlocfilehash: 8bdc710b36cae70d29d32333f431b8a9dda154cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b06df3814661b64f7fa46cd5e3b8f4dea9d51710
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76938708"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711670"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Samouczek: Konfigurowanie metody routingu ruchu ważonego w Traffic Manager
 
@@ -35,7 +34,7 @@ Typowym wzorcem metody routingu ruchu jest zapewnienie zestawu identycznych punk
     1. W przypadku **ustawień metody routingu ruchu**Sprawdź, czy metoda routingu ruchu jest **ważona**. Jeśli nie, kliknij przycisk **ważone** z listy rozwijanej.
     2. Ustaw **Ustawienia monitora punktu końcowego** identyczne dla wszystkich punktów końcowych w ramach tego profilu w następujący sposób:
         1. Wybierz odpowiedni **Protokół**i określ numer **portu** . 
-        2. Dla **ścieżki** wpisz ukośnik */*. Aby monitorować punkty końcowe, należy określić ścieżkę i nazwę pliku. Ukośnik "/" jest prawidłowym wpisem ścieżki względnej i oznacza, że plik znajduje się w katalogu głównym (domyślnie).
+        2. Dla **ścieżki** wpisz ukośnik */* . Aby monitorować punkty końcowe, należy określić ścieżkę i nazwę pliku. Ukośnik "/" jest prawidłowym wpisem ścieżki względnej i oznacza, że plik znajduje się w katalogu głównym (domyślnie).
         3. W górnej części strony kliknij pozycję **Zapisz**.
 5. Przetestuj zmiany w konfiguracji w następujący sposób:
     1.  Na pasku wyszukiwania portalu Wyszukaj nazwę profilu Traffic Manager i kliknij profil Traffic Manager w wyświetlonych wynikach.

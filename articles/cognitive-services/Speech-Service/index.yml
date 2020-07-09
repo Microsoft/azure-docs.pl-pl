@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 87190c5cab772e4b8dc04672066e575b10c14533
-  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+  ms.openlocfilehash: 455f71c7fd9defd7a1187f6b5df6b5b3b9c3131b
+  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/22/2020
-  ms.locfileid: "83800781"
+  ms.lasthandoff: 06/30/2020
+  ms.locfileid: "85563760"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -123,10 +123,13 @@ conceptualContent:
     links:
     - itemType: how-to-guide
       text: Informacje na temat funkcji rozpoznawania osoby mówiącej
-      url: ../Speaker-recognition/Home.md
+      url: speaker-recognition-overview.md
+    - itemType: how-to-guide
+      text: Podstawy rozpoznawania osoby mówiącej
+      url: speaker-recognition-basics.md
     - itemType: how-to-guide
       text: Dokumentacja interfejsu API rozpoznawania osoby mówiącej
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
+      url: https://docs.microsoft.com/rest/api/speakerrecognition/
   - title: narzędzia
     links:
     - itemType: overview
@@ -211,6 +214,8 @@ additionalContent:
         url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
     - title: Zasoby
       links:
+      - text: Co nowego w dokumentacji?
+        url: whats-new.md
       - text: Cennik
         url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
       - text: Regiony

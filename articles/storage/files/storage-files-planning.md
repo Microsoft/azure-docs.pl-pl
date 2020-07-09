@@ -7,12 +7,11 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659638"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -94,7 +93,7 @@ Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługa
     - Standardowe udziały plików są dostępne w każdym regionie świadczenia usługi Azure.
 - Usługa Azure Kubernetes Service (AKS) obsługuje udziały plików w warstwie Premium w wersji 1,13 i nowszych.
 
-Gdy udział plików zostanie utworzony jako udział plików w warstwie Premium lub standardowa, nie można go automatycznie przekonwertować na drugą warstwę. Jeśli chcesz przełączyć się do innej warstwy, musisz utworzyć nowy udział plików w tej warstwie i ręcznie skopiować dane z oryginalnego udziału do utworzonego nowego udziału. Aby wykonać tę `robocopy` kopię, `rsync` zalecamy użycie dla systemu Windows lub dla systemów macOS i Linux.
+Gdy udział plików zostanie utworzony jako udział plików w warstwie Premium lub standardowa, nie można go automatycznie przekonwertować na drugą warstwę. Jeśli chcesz przełączyć się do innej warstwy, musisz utworzyć nowy udział plików w tej warstwie i ręcznie skopiować dane z oryginalnego udziału do utworzonego nowego udziału. `robocopy` `rsync` Aby wykonać tę kopię, zalecamy użycie dla systemu Windows lub dla systemów MacOS i Linux.
 
 ### <a name="understanding-provisioning-for-premium-file-shares"></a>Informacje o aprowizacji dla udziałów plików w warstwie Premium
 Udziały plików w warstwie Premium są udostępniane na podstawie stałego współczynnika GiB/IOPS/przepływności. Dla każdego zainicjowanej GiB udział zostanie wystawiony przez wiele operacji we/wy i 0,1 MiB/s do maksymalnej liczby limitów na udział. Minimalną dozwoloną alokacją jest 100 GiB z minimalnymi operacjami IOPS/przepływności.
@@ -127,7 +126,7 @@ W poniższej tabeli przedstawiono kilka przykładów tych wzorów dla rozmiarów
 |10 240      | 10 240  | Do 30 720  | 675 | 450   |
 |33 792      | 33 792  | Do 100 000 | 2 088 | 1 392   |
 |51 200      | 51 200  | Do 100 000 | 3 132 | 2 088   |
-|102 400     | 100 000 | Do 100 000 | 6 204 | 4 136   |
+|102 400     | 100 000 | Do 100 000 | 6 204 | 4 136   |
 
 > [!NOTE]
 > Wydajność udziałów plików zależy od ograniczeń sieci maszynowych, dostępnej przepustowości sieci, rozmiarów we/wy, równoległości, między wieloma innymi czynnikami. Na przykład w oparciu o testowanie wewnętrzne z 8 KiB rozmiaru we/wy odczytu/zapisu, Pojedyncza maszyna wirtualna z systemem Windows, *standardowa F16s_v2*, połączona z udziałem plików w warstwie Premium za pośrednictwem protokołu SMB, może osiągnąć 20 000 odczyt operacji wejścia/wyjścia (IOPS) i 15 000 W przypadku rozmiaru operacji we/wy odczytu i zapisu na 512 MiB ta sama maszyna wirtualna może osiągnąć 1,1 GiB/s ruch wychodzący i 370 przepływność transferu danych (MiB/s). Aby osiągnąć maksymalną skalę wydajności, należy rozłożyć obciążenie na wiele maszyn wirtualnych. Zapoznaj się [z przewodnikiem rozwiązywania problemów](storage-troubleshooting-files-performance.md) w przypadku niektórych typowych problemów z wydajnością i obejść.
@@ -160,17 +159,12 @@ Nowe udziały plików zaczynają się od pełnej liczby kredytów w swoim zasobn
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## <a name="migration"></a>Migracja
-W wielu przypadkach nie zostanie nadany nowy udział plików w sieci dla organizacji, ale zamiast tego zostanie przemigrowany istniejący udział plików z lokalnego serwera plików lub urządzenia NAS do Azure Files. Istnieje wiele narzędzi, które zostały udostępnione przez firmę Microsoft i inne firmy, aby przeprowadzić migrację do udziału plików, ale można je podzielić na dwie kategorie:
+W wielu przypadkach nie zostanie nadany nowy udział plików w sieci dla organizacji, ale zamiast tego zostanie przemigrowany istniejący udział plików z lokalnego serwera plików lub urządzenia NAS do Azure Files. Wybranie odpowiedniej strategii migracji i narzędzia dla danego scenariusza jest istotne dla sukcesu migracji. 
 
-- **Narzędzia, które utrzymują atrybuty systemu plików, takie jak listy ACL i sygnatury czasowe**:
-    - **[Azure File Sync](storage-sync-files-planning.md)**: Azure File Sync można użyć jako metody do pozyskiwania danych w udziale plików platformy Azure, nawet jeśli nie ma potrzeby obsługi obecności w środowisku lokalnym. Azure File Sync można zainstalować w miejscu istniejących wdrożeń systemu Windows Server 2012 R2, Windows Server 2016 i Windows Server 2019. Korzystanie z Azure File Sync jako mechanizmu pozyskiwania polega na tym, że użytkownicy końcowi mogą nadal korzystać z istniejącego udziału plików. Przecinanie do udziału plików platformy Azure może wystąpić po zakończeniu przekazywania wszystkich danych w tle.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z systemami Windows i Windows Server. Robocopy może służyć do transferowania danych do Azure Files przez zainstalowanie udziału plików lokalnie, a następnie użycie zainstalowanej lokalizacji jako miejsca docelowego w poleceniu Robocopy.
-
-- **Narzędzia, które nie zachowują atrybutów systemu plików**:
-    - **Urządzenie Data Box**: urządzenie Data Box udostępnia mechanizm transferu danych w trybie offline na potrzeby fizycznego dostarczania danych do platformy Azure. Ta metoda została zaprojektowana w celu zwiększenia przepływności i oszczędzania przepustowości, ale obecnie nie obsługuje atrybutów systemu plików, takich jak sygnatury czasowe i listy ACL.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych do i z Azure Files, a także do usługi Azure Blob Storage przy użyciu prostych poleceń z optymalną wydajnością.
+[Artykuł Omówienie migracji](storage-files-migration-overview.md) krótko dotyczy podstaw i zawiera tabelę zawierającą wskazówki dotyczące migracji, które mogą obejmować twój scenariusz.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md)
 * [Wdrażanie Azure Files](storage-files-deployment-guide.md)
 * [Wdrażanie Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Zapoznaj się z artykułem Omówienie migracji, aby znaleźć przewodnik migracji dla danego scenariusza](storage-files-migration-overview.md)

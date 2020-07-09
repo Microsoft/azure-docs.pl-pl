@@ -4,16 +4,16 @@ description: Dowiedz się, jak rejestrować żądania obsługi dla problemów zw
 services: storsimple
 author: alkohli
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67621051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514422"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Otwórz bilet pomocy technicznej dla zadania importu/eksportu
 
@@ -28,7 +28,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
 1. Przejdź do zadania importowania/eksportowania. Przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie kliknij pozycję **nowe żądanie obsługi**.
      
-    ![Podstawy](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Informacje podstawowe](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. W obszarze **nowe żądanie obsługi**wybierz pozycję **podstawowe**. W obszarze **podstawowe**wykonaj następujące czynności:
     
@@ -39,7 +39,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
             ![Wybierz pozycję Zarządzanie kontem magazynu](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
         - W przypadku wybrania **obiektu BLOB**wybierz pozycję **zasób**, **nazwy kontenerów** (opcjonalnie) i **Plan pomocy technicznej**.
             ![Wybierz obiekt BLOB](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - W przypadku wybrania opcji **plik**wybierz pozycję **zasób**, **nazwy udziałów plików** (opcjonalnie), a następnie wybierz pozycję plik ![ **planu pomocy technicznej** .](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+        - W przypadku wybrania opcji **plik**wybierz pozycję **zasób**, **nazwy udziałów plików** (opcjonalnie), a następnie wybierz pozycję plik **planu pomocy technicznej** . ![](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Kliknij przycisk **Dalej**.
 
 3. W obszarze **nowe żądanie obsługi**wybierz pozycję **krok 2**. W obszarze **problem**wykonaj następujące czynności:
@@ -59,7 +59,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
    1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
    2. W informacjach kontaktowych Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Zaznacz pole wyboru **Zapisz zmiany kontaktu w przyszłych żądaniach pomocy technicznej** .
-   3. Kliknij przycisk **Utwórz**.
+   3. Kliknij pozycję **Utwórz**.
    
        ![Informacje kontaktowe](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 

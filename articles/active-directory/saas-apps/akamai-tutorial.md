@@ -11,17 +11,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 042dd242285081001ca48c9f17e4d42c2294c0ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74979595"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026835"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Akamai
 
@@ -32,6 +30,61 @@ W tym samouczku dowiesz się, jak zintegrować usługę Akamai z usługą Azure 
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Integracja dostępu do aplikacji dla przedsiębiorstw Azure Active Directory i Akamai umożliwia bezproblemowe dostęp do starszych aplikacji hostowanych w chmurze lub lokalnie. Zintegrowane rozwiązanie korzysta ze wszystkich nowoczesnych możliwości Azure Active Directory takich jak [dostęp warunkowy usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) i [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) w przypadku starszych aplikacji dostęp bez modyfikacji aplikacji ani agentów.
+
+Na poniższym obrazie opisano, gdzie Akamai EAA mieści się w szerszym scenariuszu bezpiecznego dostępu hybrydowego
+
+![Akamai EAA mieści się w szerszym scenariuszu bezpiecznego dostępu hybrydowego](./media/header-akamai-tutorial/introduction01.png)
+
+### <a name="key-authentication-scenarios"></a>Scenariusze uwierzytelniania kluczy
+
+Poza Azure Active Directory natywną integracją z obsługą nowoczesnych protokołów uwierzytelniania, takich jak Open ID Connect, SAML i WS-karmione, Akamai EAA rozszerza bezpieczny dostęp do aplikacji uwierzytelniania opartych na starszych wersjach dla dostępu wewnętrznego i zewnętrznego z usługą Azure AD, umożliwiając nowoczesne scenariusze (na przykład dostęp bez hasła) do tych aplikacji. Obejmuje on:
+
+* Aplikacje uwierzytelniania oparte na nagłówkach
+* Pulpit zdalny
+* SSH (Secure Shell)
+* Aplikacje uwierzytelniania Kerberos
+* VNC (Virtual Network Computing)
+* Uwierzytelnianie anonimowe lub brak nieskompilowanych aplikacji uwierzytelniania
+* Aplikacje uwierzytelniania NTLM (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
+* Aplikacja oparta na formularzach (ochrona przy użyciu podwójnych wskazówek dla użytkownika)
+
+### <a name="integration-scenarios"></a>Scenariusze integracji
+
+Partnerstwo firmy Microsoft i Akamai EAA pozwala elastycznie spełnić wymagania biznesowe dzięki obsłudze wielu scenariuszy integracji na podstawie wymagań firmy. Mogą one służyć do zapewnienia pokrycia zero dni dla wszystkich aplikacji i stopniowego klasyfikowania i konfigurowania odpowiednich klasyfikacji zasad.
+
+#### <a name="integration-scenario-1"></a>Scenariusz integracji 1
+
+Akamai EAA jest skonfigurowany jako pojedyncza aplikacja w usłudze Azure AD. Administrator może skonfigurować zasady urzędu certyfikacji w aplikacji, a gdy warunki są spełnione, użytkownicy będą mogli uzyskać dostęp do portalu Akamai EAA.
+
+**Specjaliści**:
+
+• Trzeba tylko skonfigurować dostawcy tożsamości raz
+
+**Wady**:
+
+• Użytkownicy kończący dwa portale aplikacji
+
+• Pokryciu pojedynczego wspólnego urzędu certyfikacji dla wszystkich aplikacji.
+
+![Scenariusz integracji 1](./media/header-akamai-tutorial/scenario1.png)
+
+#### <a name="integration-scenario-2"></a>Scenariusz integracji 2
+
+Aplikacja Akamai EAA jest skonfigurowana indywidualnie w portalu usługi Azure AD. Administrator może skonfigurować zasady dotyczące poszczególnych urzędów certyfikacji w aplikacjach, a gdy warunki są spełnione, użytkownicy będą mogli bezpośrednio przekierowywać do określonej aplikacji.
+
+**Specjaliści**:
+
+• Możesz definiować poszczególne zasady urzędu certyfikacji
+
+• Wszystkie aplikacje są reprezentowane w panelu usługi O365 Gofr i myApps.microsoft.com.
+
+**Wady**:
+
+• Musisz skonfigurować wiele dostawcy tożsamości.
+
+![Scenariusz integracji 2](./media/header-akamai-tutorial/scenario2.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -44,7 +97,13 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-- Zapasy czasu obsługuje dostawcy tożsamości zainicjowane Logowanie jednokrotne
+- Usługa Akamai obsługuje dostawcy tożsamości zainicjowane przez logowanie jednokrotne
+
+#### <a name="important"></a>Ważne
+
+Wszystkie wymienione poniżej ustawienia są takie same dla **scenariusza integracji 1** i **scenariusza 2**. W **scenariuszu integracji 2** trzeba skonfigurować indywidualne dostawcy tożsamości w Akamai EAA i Właściwość adresu URL musi zostać zmodyfikowana, aby WSKAZYWAŁA adres URL aplikacji.
+
+![Ważne](./media/header-akamai-tutorial/important.png)
 
 ## <a name="adding-akamai-from-the-gallery"></a>Dodawanie Akamai z galerii
 
@@ -67,6 +126,11 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
     * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
 1. **[Skonfiguruj Logowanie jednokrotne](#configure-akamai-sso)** w usłudze Akamai, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    * **[Konfigurowanie dostawcy tożsamości](#setting-up-idp)**
+    * **[Uwierzytelnianie na podstawie nagłówka](#header-based-authentication)**
+    * **[Pulpit zdalny](#remote-desktop)**
+    * **[Protokół SSH](#ssh)**
+    * **[Uwierzytelnianie Kerberos](#kerberos-authentication)**
     * **[Utwórz użytkownika testowego Akamai](#create-akamai-test-user)** , aby dysponować odpowiednikiem B. Simon w Akamai, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
@@ -82,9 +146,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<Yourapp>.login.go.akamai-access.com/sp/response`
+    a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
-    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https:// <Yourapp>.login.go.akamai-access.com/sp/response`
+    b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta Akamai](https://www.akamai.com/us/en/contact-us/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
@@ -105,9 +169,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -131,17 +195,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="setting-up-idp"></a>Konfigurowanie dostawcy tożsamości
 
-1. Zaloguj się do **Akamai konsoli dostępu do aplikacji przedsiębiorstwa** .
-1. W **konsoli Akamai EAA**wybierz pozycję**dostawcy tożsamości** **tożsamości** > .
+**Konfiguracja AKAMAI EAA dostawcy tożsamości**
+
+1. Zaloguj się do **Akamai konsoli dostępu aplikacji przedsiębiorstwa** .
+1. W **konsoli Akamai EAA**wybierz pozycję **Identity**  >  **dostawcy tożsamości** tożsamości i kliknij pozycję **Dodaj dostawcę tożsamości**.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure01.png)
 
-1. Kliknij pozycję **Dodaj dostawcę tożsamości**.
+1. Na stronie **Tworzenie nowego dostawcy tożsamości** wykonaj następujące czynności:
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure02.png)
 
     a. Określ **unikatową nazwę**.
-    
+
     b. Wybierz element **SAML innej firmy** , a następnie kliknij pozycję **Utwórz dostawcę tożsamości i skonfiguruj**.
 
 ### <a name="general-settings"></a>Ustawienia ogólne
@@ -165,6 +231,38 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure04.png)
 
+### <a name="session-settings"></a>Ustawienia sesji
+
+Pozostaw ustawienia domyślne.
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/sessionsettings.png)
+
+### <a name="directories"></a>Katalogi
+
+Pomiń konfigurację katalogu.
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/directories.png)
+
+### <a name="customization-ui"></a>Interfejs użytkownika dostosowywania
+
+Można dodać dostosowanie do dostawcy tożsamości.
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/customizationui.png)
+
+### <a name="advanced-settings"></a>Ustawienia zaawansowane
+
+Pomiń ustawienia zaawansowane/odwołaj się do dokumentacji Akamai, aby uzyskać więcej szczegółów.
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/advancesettings.png)
+
+### <a name="deployment"></a>Wdrożenie
+
+1. Kliknij pozycję Wdróż dostawcę tożsamości.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/deployment.png)
+
+2. Sprawdzenie, czy wdrożenie zakończyło się pomyślnie
+
 ### <a name="header-based-authentication"></a>Uwierzytelnianie na podstawie nagłówka
 
 Uwierzytelnianie na podstawie nagłówka Akamai
@@ -172,6 +270,8 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 1. Wybierz pozycję **niestandardowy protokół http** w Kreatorze dodawania aplikacji.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure05.png)
+
+2. Wprowadź **nazwę** i **Opis**aplikacji.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure06.png)
 
@@ -181,13 +281,17 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
 #### <a name="authentication"></a>Authentication
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure09.png)
+1. Wybierz kartę **uwierzytelnianie** .
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure10.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure09.png)
+
+2. Przypisywanie **dostawcy tożsamości**
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure10.png)
 
 #### <a name="services"></a>Usługi
 
-1. Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
+Kliknij przycisk Zapisz i przejdź do uwierzytelniania.
 
 ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure11.png)
 
@@ -211,13 +315,25 @@ Uwierzytelnianie na podstawie nagłówka Akamai
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure15.png)
 
-### <a name="kerberos-authentication"></a>Uwierzytelnianie Kerberos
+1. Środowisko użytkownika końcowego.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser01.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser02.png)
+
+1. Dostęp warunkowy.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess01.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess02.png)
 
 #### <a name="remote-desktop"></a>Pulpit zdalny
 
 1. Wybierz pozycję **RDP** w Kreatorze dodawania aplikacji.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure16.png)
+
+1. Wprowadź **nazwę** i **Opis**aplikacji.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure17.png)
 
@@ -241,21 +357,37 @@ Kliknij przycisk **Zapisz i przejdź do pozycji Ustawienia zaawansowane**.
 
 #### <a name="advanced-settings"></a>Ustawienia zaawansowane
 
-Kliknij przycisk **Zapisz i przejdź do wdrożenia**.
+1. Kliknij przycisk **Zapisz i przejdź do wdrożenia**.
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure22.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure22.png)
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure23.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure23.png)
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure24.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure24.png)
 
-### <a name="deployment"></a>Wdrożenie
+1. Środowisko użytkownika końcowego
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser03.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser02.png)
+
+1. Dostęp warunkowy
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess05.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess06.png)
+
+1. Alternatywnie można również bezpośrednio wpisać adres URL aplikacji RDP.
 
 #### <a name="ssh"></a>Protokół SSH
 
 1. Przejdź do pozycji Dodaj aplikacje, wybierz pozycję **SSH**.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure25.png)
+
+1. Wprowadź **nazwę** i **Opis**aplikacji.
 
     ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure26.png)
 
@@ -295,25 +427,165 @@ Kliknij pozycję Zapisz i przejdź do wdrożenia
 
 #### <a name="deployment"></a>Wdrożenie
 
-Kliknij pozycję **Wdróż aplikację**.
+1. Kliknij pozycję **Wdróż aplikację**.
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure32.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure32.png)
 
-### <a name="kerberos-applications"></a>Aplikacje protokołu Kerberos
+1. Środowisko użytkownika końcowego
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser03.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser04.png)
+
+1. Dostęp warunkowy
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess07.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess08.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess09.png)
+
+### <a name="kerberos-authentication"></a>Uwierzytelnianie Kerberos
+
+W poniższym przykładzie opublikujemy wewnętrzny serwer sieci Web [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) i włączysz logowanie jednokrotne za pomocą KCD
+
+#### <a name="general-tab"></a>Karta Ogólne
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/generaltab.png)
+
+#### <a name="authentication-tab"></a>Karta Uwierzytelnianie
+
+Przypisywanie dostawcy tożsamości
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/authenticationtab.png)
+
+#### <a name="services-tab"></a>Karta usługi
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/servicestab.png)
+
+#### <a name="advanced-settings"></a>Ustawienia zaawansowane
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/advancesettings02.png)
+
+> [!NOTE]
+> Nazwa SPN serwera sieci Web ma SPN@Domain Format ex: `HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE` dla tego pokazu. Pozostaw pozostałe ustawienia domyślne.
+
+#### <a name="deployment-tab"></a>Karta wdrożenie
+
+![Konfigurowanie Akamai](./media/header-akamai-tutorial/deploymenttab.png)
 
 #### <a name="adding-directory"></a>Dodawanie katalogu
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure33.png)
+1. Wybierz pozycję **AD** z listy rozwijanej.
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure34.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure33.png)
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure35.png)
+1. Podaj niezbędne dane.
 
-![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure36.png)
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/configure34.png)
+
+1. Sprawdź Tworzenie katalogów.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/directorydomain.png)
+
+1. Dodaj grupy/jednostki organizacyjne, które będą wymagały dostępu.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/addgroup.png)
+
+1. W poniższej tabeli Grupa nosi nazwę EAAGroup i ma 1 element członkowski.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/eaagroup.png)
+
+1. Dodaj katalog do dostawcy tożsamości **, klikając pozycje tożsamość**  >  **dostawcy** i kliknij kartę **katalogi** , a następnie kliknij pozycję **Przypisz katalog**.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/assigndirectory.png)
+
+### <a name="configure-kcd-delegation-for-eaa-walkthrough"></a>Skonfiguruj delegowanie KCD dla przewodnika EAA
+
+#### <a name="step-1-create-an-account"></a>Krok 1. Tworzenie konta 
+
+1. W przykładzie zostanie użyte konto o nazwie **EAADelegation**. Można to wykonać przy użyciu przyciągania **użytkowników i komputerów Active Directory** .
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/assigndirectory.png)
+
+    > [!NOTE]
+    > Nazwa użytkownika musi znajdować się w określonym formacie na podstawie **nazwy przechwycenia tożsamości**. Na rysunku 1 zobaczymy, że jest **corpapps.Login.go.Akamai-Access.com**
+
+1. Nazwa logowania użytkownika będzie:`HTTP/corpapps.login.go.akamai-access.com`
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/eaadelegation.png)
+
+#### <a name="step-2-configure-the-spn-for-this-account"></a>Krok 2. Konfigurowanie nazwy SPN dla tego konta
+
+1. Na podstawie tego przykładu Nazwa SPN będzie niższa.
+
+2. SetSPN-s **http/corpapps. Login. Przejdź. Akamai-Access. com eaadelegation**
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/spn.png)
+
+#### <a name="step-3-configure-delegation"></a>Krok 3. Konfigurowanie delegowania
+
+1. W przypadku konta EAADelegation kliknij kartę Delegowanie.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/spn.png)
+
+    * Określ użycie dowolnego protokołu uwierzytelniania
+    * Kliknij przycisk Dodaj i Dodaj konto puli aplikacji dla witryny sieci Web Kerberos. Jeśli poprawnie skonfigurowano, należy automatycznie rozwiązać ten problem.
+
+#### <a name="step-4-create-a-keytab-file-for-akamai-eaa"></a>Krok 4. Tworzenie pliku plik KEYTAB dla AKAMAI EAA
+
+1. Oto Składnia ogólna.
+
+1. ktpass/out ActiveDirectorydomain. plik KEYTAB/Princ `HTTP/yourloginportalurl@ADDomain.com` /mapuser serviceaccount@ADdomain.com /Pass + RdnPass/Crypto All/pType KRB5_NT_PRINCIPAL
+
+1. Przykład został wyjaśniony
+
+    | Fragment kodu | Objaśnienie |
+    | - | - |
+    | Ktpass/out EAADemo. plik KEYTAB | Nazwa pliku wyjściowego plik KEYTAB |
+    | /princHTTP/corpapps.login.go.akamai-access.com@superdemo.live | // HTTP/yourIDPName@YourdomainName |
+    | /mapusereaadelegation@superdemo.live | Konto delegowania EAA |
+    | /pass RANDOMPASS | Hasło konta delegowania EAA |
+    | /Crypto wszystkie pType KRB5_NT_PRINCIPAL | Zapoznaj się z dokumentacją Akamai EAA |
+    | | |
+
+1. Ktpass/out EAADemo. plik KEYTAB/Princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live /mapuser/Pass RANDOMPASS eaadelegation@superdemo.live /Crypto All pType KRB5_NT_PRINCIPAL
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/administrator.png)
+
+#### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>Krok 5. Importowanie plik KEYTAB w konsoli AKAMAI EAA
+
+1. Kliknij **System**pozycję  >  **karty**systemowe.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/keytabs.png)
+
+1. W polu Typ plik KEYTAB wybierz opcję **delegowanie protokołu Kerberos**.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/keytabdelegation.png)
+
+1. Upewnij się, że plik KEYTAB jest wyświetlany jako wdrożony i zweryfikowany.
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/keytabs02.png)
+
+1. Doświadczenie użytkownika
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser03.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/enduser04.png)
+
+1. Dostęp warunkowy
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess04.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess10.png)
+
+    ![Konfigurowanie Akamai](./media/header-akamai-tutorial/conditionalaccess11.png)
 
 ### <a name="create-akamai-test-user"></a>Utwórz użytkownika testowego Akamai
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Akamai. Współpracuj z [zespołem obsługi klienta Akamai](https://www.akamai.com/us/en/contact-us/) , aby dodać użytkowników z platformy Akamai. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Akamai. Współpracuj z [zespołem obsługi klienta Akamai](https://www.akamai.com/us/en/contact-us/) , aby dodać użytkowników z platformy Akamai. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -321,12 +593,12 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Akamai w panelu dostępu należy automatycznie zalogować się do Akamai, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj Akamai z usługą Azure AD](https://aad.portal.azure.com/)

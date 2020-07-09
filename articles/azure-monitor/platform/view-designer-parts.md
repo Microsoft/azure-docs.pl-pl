@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658561"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Przewodnik referencyjny do wyświetlania części wizualizacji projektanta w Azure Monitor
@@ -53,7 +52,7 @@ Lista zapytań zawiera listę kwerend dzienników. Możesz wybrać każde zapyta
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Wstępnie wybrane filtry |Rozdzielana przecinkami lista właściwości do uwzględnienia w lewym okienku filtru podczas wybierania zapytania. |
 | Tryb renderowania |Początkowy widok, który jest wyświetlany po wybraniu zapytania. Po otwarciu zapytania można wybrać dowolne dostępne widoki. |
-| **Kwerendy** | |
+| **Zapytania** | |
 | Zapytanie wyszukiwania |Zapytanie do uruchomienia. |
 | Przyjazna nazwa | Wyświetlana nazwa opisowa. |
 
@@ -69,21 +68,21 @@ W nagłówku zostanie wyświetlona jedna liczba, która pokazuje liczbę rekord�
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Tytuły** | |
+| **Tytuł** | |
 | Legenda |Tekst wyświetlany w górnej części nagłówka. |
 | Zapytanie |Zapytanie do uruchomienia dla nagłówka. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** | |
+| **Lista** | |
 | Zapytanie |Zapytanie do uruchomienia dla listy. Zostaną wyświetlone pierwsze dwie właściwości pierwszych dziesięciu rekordów w wynikach. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. Słupki są tworzone automatycznie na podstawie względnej wartości kolumny liczbowej.<br><br>Użyj `Sort` polecenia w zapytaniu, aby posortować rekordy na liście. Aby uruchomić zapytanie i zwrócić wszystkie rekordy, można wybrać pozycję **Zobacz wszystko**. |
 | Ukryj wykres |Wybierz ten link, aby wyłączyć wykres po prawej stronie kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie, a nie poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Kolor |Kolor słupków lub wykresów przebiegu w czasie. |
 | Separator nazw i wartości |Ogranicznik pojedynczego znaku, który ma być używany do analizowania właściwości Text w wielu wartościach. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu elementu na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** |**> tytuły kolumn** |
+| **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Staw** |**Progi>** |
+| **Lista** |**Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dwie liczby i część listy
@@ -100,10 +99,10 @@ Nagłówek ma dwie liczby, które wyświetlają liczbę rekordów z oddzielnych 
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
 | **Nawigacja po tytule** | |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Tytuły** | |
+| **Tytuł** | |
 | Legenda |Tekst wyświetlany w górnej części nagłówka. |
 | Zapytanie |Zapytanie do uruchomienia dla nagłówka. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
-| **Staw** | |
+| **Lista** | |
 | Zapytanie |Zapytanie do uruchomienia dla listy. Zostaną wyświetlone pierwsze dwie właściwości pierwszych dziesięciu rekordów w wynikach. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. Słupki są tworzone automatycznie na podstawie względnej wartości kolumny liczbowej.<br><br>Użyj `Sort` polecenia w zapytaniu, aby posortować rekordy na liście. Aby uruchomić zapytanie i zwrócić wszystkie rekordy, można wybrać pozycję **Zobacz wszystko**. |
 | Ukryj wykres |Wybierz ten link, aby wyłączyć wykres po prawej stronie kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie, a nie poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
@@ -111,10 +110,10 @@ Nagłówek ma dwie liczby, które wyświetlają liczbę rekordów z oddzielnych 
 | Operacja |Operacja do wykonania dla wykresu przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Separator nazw i wartości |Ogranicznik pojedynczego znaku, który ma być używany do analizowania właściwości Text w wielu wartościach. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu elementu na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** |**> tytuły kolumn** |
+| **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Staw** |**Progi>** |
+| **Lista** |**Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Pierścień i część listy
@@ -132,10 +131,10 @@ Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości
 | **Nagłówki** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
-| **Pierścieniowy** | |
+| **Pierścień** | |
 | Zapytanie |Zapytanie, które ma zostać uruchomione dla pierścienia. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Pierścieniowy** |**Centrum>** |
+| **Pierścień** |**Centrum>** |
 | Tekst |Tekst wyświetlany w obszarze wartości w pierścieniu. |
 | Operacja |Operacja do wykonania na właściwości Value, która podsumowuje ją jako pojedynczą wartość.<ul><li>Sum: dodaje wartości wszystkich rekordów.</li><li>Wartość procentowa: stosunek rekordów zwracanych przez wartości w **wartościach wynikowych używanych w środku operacji** do łącznej liczby rekordów w zapytaniu.</li></ul> |
 | Wartości wynikowe używane w środku operacji |Opcjonalnie wybierz znak plus (+), aby dodać jedną lub więcej wartości. Wyniki zapytania są ograniczone do rekordów o określonych wartościach właściwości. Jeśli nie zostaną dodane żadne wartości, wszystkie rekordy zostaną uwzględnione w zapytaniu. |
@@ -144,7 +143,7 @@ Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości
 | **Opcje dodatkowe** |**Zaawansowane mapowanie kolorów>** |
 | Wartość pola |Wpisz nazwę pola, aby wyświetlić je jako inny kolor, jeśli jest ono zawarte w pierścieniu. |
 | Kolor |Wybierz kolor unikatowego pola. |
-| **Staw** | |
+| **Lista** | |
 | Zapytanie |Zapytanie do uruchomienia dla listy. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
 | Ukryj wykres |Wybierz ten link, aby wyłączyć wykres po prawej stronie kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie, a nie poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
@@ -152,10 +151,10 @@ Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości
 | Operacja |Operacja do wykonania dla wykresu przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Separator nazw i wartości |Ogranicznik pojedynczego znaku, który ma być używany do analizowania właściwości Text w wielu wartościach. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu elementu na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** |**> tytuły kolumn** |
+| **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Staw** |**Progi>** |
+| **Lista** |**Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Dwie osie czasu i część listy
@@ -172,22 +171,22 @@ W nagłówku są wyświetlane wyniki dwóch zapytań dzienników w miarę upływ
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
 | **Nawigacja po tytule** | |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Pierwszy wykres<br>drugiego wykresu** | |
+| **Pierwszy wykres <br> drugiego wykresu** | |
 | Legenda |Tekst wyświetlany w objaśnieniu dla pierwszej serii. |
 | Kolor |Kolor, który ma być używany w odniesieniu do kolumn w serii. |
 | Zapytanie |Zapytanie do uruchomienia dla pierwszej serii. Liczba rekordów w każdym przedziale czasu jest reprezentowana przez kolumny wykresu. |
 | Operacja |Operacja do wykonania na właściwości Value, która podsumowuje ją jako pojedynczą wartość dla objaśnienia.<ul><li>Sum: suma wartości ze wszystkich rekordów.</li><li>Średnia: średnia wartości ze wszystkich rekordów.</li><li>Ostatnia próbka: wartość z ostatniego interwału, który znajduje się na wykresie.</li><li>Pierwsza próbka: wartość z pierwszego interwału, która jest uwzględniona na wykresie.</li><li>Liczba: liczba wszystkich rekordów zwracanych przez zapytanie.</li></ul> |
-| **Staw** | |
+| **Lista** | |
 | Zapytanie |Zapytanie do uruchomienia dla listy. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
 | Ukryj wykres |Wybierz ten link, aby wyłączyć wykres po prawej stronie kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie, a nie poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Kolor |Kolor słupków lub wykresów przebiegu w czasie. |
 | Operacja |Operacja do wykonania dla wykresu przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu elementu na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** |**> tytuły kolumn** |
+| **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Staw** |**Progi>** |
+| **Lista** |**Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="information-part"></a>Część informacji
@@ -235,9 +234,9 @@ W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zap
 | Operacja |Operacja do wykonania na właściwości Value, która podsumowuje ją jako pojedynczą wartość dla objaśnienia.<ul><li>Średnia: średnia wartości ze wszystkich rekordów.</li><li>Liczba: liczba wszystkich rekordów zwracanych przez zapytanie.</li><li>Ostatnia próbka: wartość z ostatniego interwału, który znajduje się na wykresie.</li><li>Max: wartość maksymalna z interwałów uwzględnionych na wykresie.</li><li>Min: wartość minimalna z interwałów uwzględnionych na wykresie.</li><li>Sum: suma wartości ze wszystkich rekordów.</li></ul> |
 | **Wykres liniowy** |**> oś Y** |
 | Użyj skali logarytmicznej |Wybierz ten link, aby użyć skali logarytmicznej dla osi y. |
-| Jednostki |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
+| Lekcji |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
 | Etykieta niestandardowa |Tekst wyświetlany dla osi y obok etykiety dla typu *jednostki* . Jeśli etykieta nie zostanie określona, zostanie wyświetlony tylko typ *jednostki* . |
-| **Staw** | |
+| **Lista** | |
 | Zapytanie |Zapytanie do uruchomienia dla listy. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
 | Ukryj wykres |Wybierz ten link, aby wyłączyć wykres po prawej stronie kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie, a nie poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
@@ -245,10 +244,10 @@ W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zap
 | Operacja |Operacja do wykonania dla wykresu przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Separator nazw i wartości |Ogranicznik pojedynczego znaku, który ma być używany do analizowania właściwości Text w wielu wartościach. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu elementu na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** |**> tytuły kolumn** |
+| **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Staw** |**Progi>** |
+| **Lista** |**Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Wykres liniowy i składnik listy
@@ -271,9 +270,9 @@ W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Wykres liniowy** |**> oś Y** |
 | Użyj skali logarytmicznej |Wybierz ten link, aby użyć skali logarytmicznej dla osi y. |
-| Jednostki |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
+| Lekcji |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
 | Etykieta niestandardowa |Tekst wyświetlany dla osi y obok etykiety dla typu *jednostki* . Jeśli etykieta nie zostanie określona, zostanie wyświetlony tylko typ *jednostki* . |
-| **Staw** | |
+| **Lista** | |
 | Zapytanie |Zapytanie do uruchomienia dla listy. Zostanie wyświetlona liczba rekordów zwracanych przez zapytanie. |
 | Ukryj wykres |Wybierz ten link, aby wyłączyć wykres po prawej stronie kolumny liczbowej. |
 | Włącz wykresy przebiegu w czasie |Wybierz ten link, aby wyświetlić wykres przebiegu w czasie, a nie poziomy pasek. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
@@ -281,10 +280,10 @@ W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie
 | Operacja |Operacja do wykonania dla wykresu przebiegu w czasie. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Separator nazw i wartości |Ogranicznik pojedynczego znaku, który ma być używany do analizowania właściwości Text w wielu wartościach. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#sparklines). |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu elementu na liście.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Staw** |**> tytuły kolumn** |
+| **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Staw** |**Progi>** |
+| **Lista** |**Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Stos części wykresów liniowych
@@ -298,15 +297,15 @@ Na stosie wykresu liniowego są wyświetlane trzy oddzielne wykresy liniowe z wi
 | Tytuł grupy |Tekst wyświetlany w górnej części kafelka. |
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
-| **Wykres 1<br>wykres 2<br>wykres 3** |**Nagłówek>** |
+| **Wykres 1 wykres <br> 2 wykres <br> 3** |**Nagłówek>** |
 | Tytuł |Tekst wyświetlany w górnej części wykresu. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części wykresu. |
-| **Wykres 1<br>wykres 2<br>wykres 3** |**Wykres liniowy** |
+| **Wykres 1 wykres <br> 2 wykres <br> 3** |**Wykres liniowy** |
 | Zapytanie |Zapytanie, które ma zostać uruchomione dla wykresu liniowego. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. To zapytanie zwykle używa słowa kluczowego *Measure* do podsumowywania wyników. Jeśli zapytanie używa słowa kluczowego *Interval* , oś x wykresu używa tego przedziału czasowego. Jeśli zapytanie nie zawiera słowa kluczowego *Interval* , na osi x stosowane są interwały godzinowe. |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
 | **Wykres** |**> oś Y** |
 | Użyj skali logarytmicznej |Wybierz ten link, aby użyć skali logarytmicznej dla osi y. |
-| Jednostki |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
+| Lekcji |Określ jednostki wartości, które mają być zwracane przez zapytanie. Te informacje służą do wyświetlania etykiet wykresu wskazujących typy wartości i, opcjonalnie, do konwersji wartości. Typ *jednostki* Określa kategorię jednostki i definiuje dostępne bieżące wartości typu *jednostki* . W przypadku wybrania wartości w *konwersji na*, wartości liczbowe są konwertowane z bieżącego typu *jednostki* na typ *konwersji na* . |
 | Etykieta niestandardowa |Tekst wyświetlany dla osi y obok etykiety dla typu *jednostki* . Jeśli etykieta nie zostanie określona, zostanie wyświetlony tylko typ *jednostki* . |
 
 ## <a name="common-settings"></a>Typowe ustawienia

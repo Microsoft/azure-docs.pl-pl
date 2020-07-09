@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb6c540573ecd3163e9200be66edb58ed2ca4751
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672127"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079211"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Korzystanie z usługi Apache świni z usługą Apache Hadoop w usłudze HDInsight
 
@@ -44,11 +44,13 @@ Aby uzyskać więcej informacji na temat wieprzowiny, zobacz artykuł dotyczący
 
 ## <a name="example-data"></a><a id="data"></a>Przykładowe dane
 
-Usługa HDInsight oferuje różne przykładowe zestawy danych, które są przechowywane w `/example/data` katalogach i `/HdiSamples` . Te katalogi znajdują się w domyślnym magazynie klastra. Przykładowa świnia w tym dokumencie używa pliku *Log4J* z `/example/data/sample.log`.
+Usługa HDInsight oferuje różne przykładowe zestawy danych, które są przechowywane w `/example/data` `/HdiSamples` katalogach i. Te katalogi znajdują się w domyślnym magazynie klastra. Przykładowa świnia w tym dokumencie używa pliku *Log4J* z `/example/data/sample.log` .
 
 Każdy dziennik wewnątrz pliku składa się z wierszy pól, które zawierają `[LOG LEVEL]` pole, aby wyświetlić typ i ważność, na przykład:
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```output
+2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```
 
 W poprzednim przykładzie poziom dziennika jest błąd.
 
@@ -57,17 +59,17 @@ W poprzednim przykładzie poziom dziennika jest błąd.
 
 ## <a name="example-job"></a><a id="job"></a>Przykładowe zadanie
 
-Następujące zadanie łacińskie (świnie) `sample.log` ładuje plik z domyślnego magazynu dla klastra usługi HDInsight. Następnie wykonuje serię transformacji, które powodują, ile razy każdy poziom dziennika miał miejsce w danych wejściowych. Wyniki są zapisywane w strumieniu STDOUT.
+Następujące zadanie łacińskie (świnie) ładuje `sample.log` plik z domyślnego magazynu dla klastra usługi HDInsight. Następnie wykonuje serię transformacji, które powodują, ile razy każdy poziom dziennika miał miejsce w danych wejściowych. Wyniki są zapisywane w strumieniu STDOUT.
 
-    ```
-    LOGS = LOAD 'wasb:///example/data/sample.log';
-    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-    RESULT = order FREQUENCIES by COUNT desc;
-    DUMP RESULT;
-    ```
+```output
+LOGS = LOAD 'wasb:///example/data/sample.log';
+LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+RESULT = order FREQUENCIES by COUNT desc;
+DUMP RESULT;
+```
 
 Na poniższej ilustracji przedstawiono podsumowanie poszczególnych transformacji danych.
 

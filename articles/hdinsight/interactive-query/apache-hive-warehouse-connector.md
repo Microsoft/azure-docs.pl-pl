@@ -5,14 +5,14 @@ author: nis-goel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fdc90ffaf3cef3c594e7d84e32af9ef78fe08b0d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.topic: how-to
+ms.date: 05/28/2020
+ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849454"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085858"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive w usłudze Azure HDInsight
 
@@ -70,7 +70,7 @@ Niektóre operacje obsługiwane przez łącznik magazynu Hive są następujące:
 
 1. Wybierz pozycję **Dodaj właściwość...** , aby dodać następujące konfiguracje:
 
-    | Konfigurowanie | Wartość |
+    | Konfiguracja | Wartość |
     |----|----|
     |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Ustaw odpowiedni katalog przemieszczania zgodny z systemem plików HDFS. Jeśli istnieją dwa różne klastry, katalog przemieszczania powinien być folderem w katalogu przemieszczania konta magazynu klastra LLAP, dzięki czemu serwera hiveserver2 ma do niego dostęp.  Zastąp ciąg `STORAGE_ACCOUNT_NAME` nazwą konta magazynu używanego przez klaster i `STORAGE_CONTAINER_NAME` nazwą kontenera magazynu. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| Wartość uzyskana wcześniej od **serwera hiveserver2 Interactive JDBC URL** |
@@ -91,11 +91,19 @@ Poza konfiguracjami wymienionymi w poprzedniej sekcji Dodaj następującą konfi
 
 1. Zaktualizuj poniższą właściwość.
 
-    | Konfigurowanie | Wartość |
+    | Konfiguracja | Wartość |
     |----|----|
-    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
-    Zamień na w `<headnode-FQDN>` pełni kwalifikowaną nazwę domeny węzła głównego klastra zapytań interaktywnych. Zamień na `<AAD-DOMAIN>` nazwę Azure Active Directory (AAD), do której jest dołączony klaster. Użyj ciągu z wielką literą dla `<AAD-DOMAIN>` wartości, w przeciwnym razie nie zostanie znalezione poświadczenie. W razie potrzeby Sprawdź/etc/krb5.conf nazw obszarów.
+    * W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` lokalizacji, gdzie ClusterName jest nazwą klastra interakcyjnych zapytań. Kliknij pozycję **serwera hiveserver2 Interactive**. Zostanie wyświetlona w pełni kwalifikowana nazwa domeny (FQDN) węzła głównego, na którym działa LLAP, jak pokazano na zrzucie ekranu. Zamień `<llap-headnode>` na tę wartość.
+
+        ![Węzeł główny łącznika magazynu Hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem interakcyjnych zapytań. Wyszukaj `default_realm` parametr w `/etc/krb5.conf` pliku. Zamień `<AAD-DOMAIN>` na tę wartość jako ciąg pisany wielkimi literami, w przeciwnym razie nie znaleziono poświadczeń.
+
+        ![Domena usługi AAD magazynu usługi Hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Na przykład `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
     
 1. Zapisz zmiany i ponownie uruchom składniki zgodnie z wymaganiami.
 
@@ -215,7 +223,7 @@ kinit USERNAME
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Operacje obsługiwane i Apache Spark](./apache-hive-warehouse-connector-operations.md)
+* [Operacje biblioteki HWC i platformy Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Używanie zapytań interakcyjnych w usłudze HDInsight](./apache-interactive-query-get-started.md)
-* [Integracja obsługiwane z usługą Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [Integracja biblioteki HWC z rozwiązaniem Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
 * [Przykłady współpracy z łącznikiem magazynu Hive przy użyciu Zeppelin, usługi Livy, Spark-Submit i pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

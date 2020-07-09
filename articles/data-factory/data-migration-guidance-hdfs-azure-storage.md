@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81417133"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Używanie Azure Data Factory do migrowania danych z lokalnego klastra Hadoop do usługi Azure Storage 
@@ -53,7 +53,7 @@ Aby uzyskać więcej informacji, zobacz [Przewodnik po wydajności działania ko
 
 ## <a name="resilience"></a>Odporności
 
-W Data Factory trybie pomocą distcp można użyć różnych parametrów wiersza polecenia pomocą distcp (na przykład `-i`ignorowanie błędów lub `-update`zapisanie danych, gdy plik źródłowy i docelowy różnią się wielkością) dla różnych poziomów odporności.
+W Data Factory trybie pomocą distcp można użyć różnych parametrów wiersza polecenia pomocą distcp (na przykład `-i` ignorowanie błędów lub `-update` zapisanie danych, gdy plik źródłowy i docelowy różnią się wielkością) dla różnych poziomów odporności.
 
 Data Factory w trybie natywnego środowiska Integration Runtime w ramach jednego przebiegu działania kopiowania Data Factory ma wbudowany mechanizm ponawiania prób. Może obsłużyć określony poziom przejściowych błędów w magazynach danych lub w sieci podstawowej. 
 
@@ -108,9 +108,9 @@ Jeśli którekolwiek z zadań kopiowania zakończy się niepowodzeniem z powodu 
 
 ### <a name="delta-data-migration"></a>Migracja danych różnicowych 
 
-W Data Factory trybie pomocą distcp można użyć parametru `-update`wiersza polecenia pomocą distcp, zapisać dane, gdy plik źródłowy i plik docelowy różnią się w rozmiarze na potrzeby migracji danych różnicowych.
+W Data Factory trybie pomocą distcp można użyć parametru wiersza polecenia pomocą distcp `-update` , zapisać dane, gdy plik źródłowy i plik docelowy różnią się w rozmiarze na potrzeby migracji danych różnicowych.
 
-W trybie integracji natywnej Data Factory najbardziej wydajny sposób identyfikowania nowych lub zmienionych plików z systemu plików HDFS jest przy użyciu konwencji nazewnictwa z podziałem czasowym. Gdy dane w systemie plików HDFS zostały podzielone na partycje czasowo z informacjami o wycinku czasowym w nazwie pliku lub folderu (na przykład */yyyy/mm/dd/File.csv*), potok może łatwo identyfikować, które pliki i foldery mają być kopiowane przyrostowo.
+W trybie integracji natywnej Data Factory najbardziej wydajny sposób identyfikowania nowych lub zmienionych plików z systemu plików HDFS jest przy użyciu konwencji nazewnictwa z podziałem czasowym. Gdy dane w systemie HDFS zostały podzielone na partycje czasowo z informacjami o wycinku czasowym w nazwie pliku lub folderu (na przykład */yyyy/mm/dd/file.csv*), potok może łatwo identyfikować, które pliki i foldery mają być kopiowane przyrostowo.
 
 Alternatywnie, jeśli dane w systemie plików HDFS nie są podzielone na partycje, Data Factory mogą identyfikować nowe lub zmienione pliki przy użyciu ich wartości **LastModifiedDate** . Data Factory skanuje wszystkie pliki z systemu plików HDFS i kopiuje tylko nowe i zaktualizowane pliki, które mają sygnaturę czasową, która jest większa niż określona wartość. 
 

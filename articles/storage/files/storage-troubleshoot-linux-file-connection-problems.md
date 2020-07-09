@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z Azure Files w systemie Linux | Microsoft Docs
 description: Rozwiązywanie problemów z Azure Files w systemie Linux
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159493"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512005"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów z Azure Files w systemie Linux
 
@@ -80,7 +80,7 @@ Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na 
 
 W systemie Linux pojawia się komunikat o błędzie podobny do następującego:
 
-**\<Nazwa pliku> [uprawnienie odmowa] Przekroczono limit przydziału dysku**
+**\<filename>[odmowa uprawnień] Przekroczono limit przydziału dysku**
 
 ### <a name="cause"></a>Przyczyna
 
@@ -106,14 +106,14 @@ Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy 
 - Użyj odpowiedniej metody copy:
     - Użyj [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
     - Użycie opcji CP lub DD z równoległością może zwiększyć szybkość kopiowania, a liczba wątków zależy od przypadku użycia i obciążenia. W poniższych przykładach użyto sześciu: 
-    - przykład CP (CP użyje domyślnego rozmiaru bloku systemu plików jako rozmiaru fragmentu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - przykład CP (CP użyje domyślnego rozmiaru bloku systemu plików jako rozmiaru fragmentu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - DD przykład (to polecenie jawnie ustawia rozmiar fragmentu na 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Narzędzia firm trzecich typu open source, takie jak:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) — sortuje pliki i pakuje je na partycje.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) — używa narzędzi Fpart i Copy do duplikowania wielu wystąpień w celu migrowania danych z src_dir do dst_url.
         - [Wiele](https://github.com/pkolano/mutil) wielowątkowych CP i md5sum opartych na GNU Coreutils.
-- Ustawienie rozmiaru pliku z wyprzedzeniem, zamiast każdorazowego zapisu rozszerzającego zapis, pomaga zwiększyć szybkość kopiowania w scenariuszach, w których rozmiar pliku jest znany. Jeśli należy unikać rozszerzania zapisów, można ustawić docelowy rozmiar pliku za pomocą `truncate - size <size><file>` polecenia. Następnie `dd if=<source> of=<target> bs=1M conv=notrunc`polecenie skopiuje plik źródłowy bez konieczności wielokrotnego aktualizowania rozmiaru pliku docelowego. Na przykład można ustawić rozmiar pliku docelowego dla każdego pliku, który ma zostać skopiowany (Załóżmy, że udział jest zainstalowany w ramach/mnt/Share):
+- Ustawienie rozmiaru pliku z wyprzedzeniem, zamiast każdorazowego zapisu rozszerzającego zapis, pomaga zwiększyć szybkość kopiowania w scenariuszach, w których rozmiar pliku jest znany. Jeśli należy unikać rozszerzania zapisów, można ustawić docelowy rozmiar pliku za pomocą `truncate - size <size><file>` polecenia. Następnie `dd if=<source> of=<target> bs=1M conv=notrunc` polecenie skopiuje plik źródłowy bez konieczności wielokrotnego aktualizowania rozmiaru pliku docelowego. Na przykład można ustawić rozmiar pliku docelowego dla każdego pliku, który ma zostać skopiowany (Załóżmy, że udział jest zainstalowany w ramach/mnt/Share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - a następnie skopiuj pliki bez rozszerzania zapisów równolegle:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
@@ -210,26 +210,26 @@ Flaga Force **f** w COPYFILE powoduje wykonanie **wiersza CP-p-f** w systemie UN
 
 ### <a name="workaround"></a>Obejście
 
-Użyj użytkownika konta magazynu do kopiowania plików:
+Użyj użytkownika konta magazynu w celu skopiowania plików:
 
 - `Useadd : [storage account name]`
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nie można uzyskać&lt;dostępu&gt;do "Path": błąd wejścia/wyjścia
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nie można uzyskać dostępu do " &lt; Path &gt; ": błąd wejścia/wyjścia
 
 Podczas próby wyświetlenia listy plików w udziale plików platformy Azure przy użyciu polecenia ls polecenie zawiesza się podczas tworzenia listy plików. Zostanie wyświetlony następujący błąd:
 
-**ls: nie można uzyskać&lt;dostępu&gt;do "Path": błąd wejścia/wyjścia**
+**ls: nie można uzyskać dostępu do " &lt; Path &gt; ": błąd wejścia/wyjścia**
 
 
 ### <a name="solution"></a>Rozwiązanie
 Uaktualnij jądro systemu Linux do następujących wersji, które mają rozwiązanie tego problemu:
 
-- 4.4.87 +
-- 4.9.48 +
-- 4.12.11 +
+- 4.4.87 i nowsze
+- 4.9.48 i nowsze
+- 4.12.11 i nowsze
 - Wszystkie wersje, które są większe niż lub równe 4,13
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Nie można utworzyć linków symbolicznych — ln: nie można utworzyć linku symbolicznego ": operacja nie jest obsługiwana
@@ -277,7 +277,7 @@ Ten problem z ponownym nawiązywaniem połączenia w jądrze systemu Linux jest 
 
 - [Poprawka ponownego nawiązywania połączenia w celu nie odraczania ponownego łączenia sesji protokołu smb3 długo po ponownym połączeniu gniazda](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Wywoływanie usługi echo natychmiast po ponownym połączeniu gniazda](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: naprawianie potencjalnego uszkodzenia pamięci podczas ponownego nawiązywania połączenia](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Naprawienie potencjalnego uszkodzenia pamięci podczas ponownego nawiązywania połączenia](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: naprawianie możliwego podwójnego blokowania obiektu mutex podczas ponownego nawiązywania połączenia (dla jądra v 4.9 i nowszego)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 Te zmiany mogą jednak nie być jeszcze przeniesione do wszystkich dystrybucji systemu Linux. Jeśli używasz popularnej dystrybucji systemu Linux, możesz zaewidencjonować [Azure Files użycia z systemem Linux](storage-how-to-use-files-linux.md) , aby zobaczyć, która wersja dystrybucji ma niezbędne zmiany jądra.

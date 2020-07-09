@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 66f80c79219090c27da37dfc1d9149df5604961f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68841394"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135945"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurowanie dystrybucji kontrolowanej przez deweloperów aplikacji (ADCD) w programie IBM zD&T v1
 
@@ -76,21 +76,21 @@ Teraz, gdy masz pakiety, musisz przekazać je na maszynę wirtualną na platform
 
 4. Po zalogowaniu Utwórz katalog, aby przekazać pakiety firmy IBM. Należy pamiętać, że system Linux uwzględnia wielkość liter. Na przykład w tym pokazie założono, że pakiety są przekazywane do:
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. Przekaż pliki przy użyciu klienta SSH, takiego jak[WinSCP](https://winscp.net/eng/index.php). Ponieważ punkt połączenia usługi jest częścią protokołu SSH, używa portu 22, który jest używany przez protokół SSH. Jeśli komputer lokalny nie jest systemem Windows, możesz wpisać [polecenie SCP](http://man7.org/linux/man-pages/man1/scp.1.html) w sesji SSH.
 
 6. Zainicjuj przekazywanie do utworzonego katalogu maszyn wirtualnych platformy Azure, który stanowi magazyn obrazów dla zD&T.
 
     > [!NOTE]
-    > Upewnij się, że **ADCDTOOLS. KOD XML** znajduje się w przekazaniu do katalogu **macierzystego/webuserid/ZDT/adcd/nov2017** . Będzie potrzebny później.
+    > Upewnij się, że **ADCDTOOLS.XML** znajduje się w przekazaniu do katalogu macierzystego/mój **UserID/ZDT/adcd/nov2017** . Będzie potrzebny później.
 
 7. Poczekaj na przekazanie plików, co może zająć trochę czasu w zależności od połączenia z platformą Azure.
 
 8. Po zakończeniu przekazywania przejdź do katalogu woluminów i zdekompresuj wszystkie woluminy **GZ** :
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![Eksplorator plików z odkompresowanymi woluminami GZ](media/01-gunzip.png)
@@ -100,12 +100,12 @@ Teraz, gdy masz pakiety, musisz przekazać je na maszynę wirtualną na platform
 Następnym krokiem jest skonfigurowanie zD&T w celu używania przekazanych pakietów. Proces magazynu obrazów w programie zD&T pozwala na instalowanie obrazów i korzystanie z nich. Może korzystać z protokołu SSH lub FTP.
 
 1. Uruchom **zDTServer**. Aby to zrobić, musisz być na poziomie głównym. Wprowadź dwa następujące polecenia w kolejności:
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Zwróć uwagę na adres URL danych wyjściowych przez polecenie i Użyj tego adresu URL w celu uzyskania dostępu do serwera sieci Web. Wygląda podobnie do:
-     > https://(nazwa lub adres IP maszyny wirtualnej): 9443/ZDTMC/index. html
+     > https://(nazwa lub adres IP maszyny wirtualnej): 9443/ZDTMC/index.html
      >
      > Pamiętaj, że dostęp do sieci Web jest używany przez port 9443. Użyj tego, aby zalogować się do serwera sieci Web. Identyfikator użytkownika dla ZD&T jest **zdtadmin** , a hasło to **hasło**.
 
@@ -186,7 +186,7 @@ Obraz można teraz wdrożyć i będzie gotowy do zainstalowania przez emulator t
 
 Gratulacje! Teraz działa środowisko mainframe firmy IBM na platformie Azure.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Migracja komputera mainframe: mitów i fakty](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

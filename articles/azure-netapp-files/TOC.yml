@@ -37,7 +37,7 @@
       items:
         - name: Architektury rozwiązań używające usługi Azure NetApp Files
           href: azure-netapp-files-solution-architectures.md
-        - name: Konkretne rozwiązania
+        - name: Zalety korzystania z usługi Azure NetApp Files
           items:
             - name: Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database
               href: solutions-benefits-azure-netapp-files-oracle-database.md
@@ -73,8 +73,10 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Programowanie
       items:
-        - name: REST
+        - name: Interfejs API REST
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: Interfejs API REST korzystający z programu PowerShell
+          href: develop-rest-api-powershell.md
         - name: Narzędzia interfejsu wiersza polecenia i zestawy SDK usługi Azure NetApp Files
           href: azure-netapp-files-sdk-cli.md
         - name: Rozwiązywanie problemów związanych z błędami dostawcy zasobów usługi Azure NetApp Files

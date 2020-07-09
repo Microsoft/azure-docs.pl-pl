@@ -3,12 +3,12 @@ title: Szybki Start — Tworzenie obrazu kontenera uruchamiania &
 description: Szybko uruchamiaj zadania z Azure Container Registry, aby kompilować i uruchamiać obraz kontenera platformy Docker na żądanie w chmurze.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680648"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753701"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Szybki Start: kompilowanie i uruchamianie obrazu kontenera za pomocą zadań Azure Container Registry
 
@@ -37,20 +37,21 @@ az group create --name myResourceGroup --location eastus
 Utwórz rejestr kontenerów za pomocą polecenia [AZ ACR Create][az-acr-create] . Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie używany jest *myContainerRegistry008* . Zaktualizuj ją do unikatowej wartości.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
 W tym przykładzie jest tworzony rejestr *podstawowy* , opcja zoptymalizowana pod kątem kosztów dla deweloperów, która uczy się Azure Container Registry. Aby uzyskać szczegółowe informacje o dostępnych warstwach usług, zobacz temat [warstwy usługi Container Registry][container-registry-skus].
 
-## <a name="build-an-image-from-a-dockerfile"></a>Tworzenie obrazu z pliku dockerfile
+## <a name="build-and-push-image-from-a-dockerfile"></a>Kompilowanie i wypychanie obrazu z pliku dockerfile
 
-Teraz Użyj Azure Container Registry do skompilowania obrazu. Najpierw Utwórz katalog roboczy, a następnie utwórz pliku dockerfile o nazwie *pliku dockerfile* z następującą zawartością. Jest to prosty przykład, aby utworzyć obraz kontenera systemu Linux, ale możesz utworzyć własne, standardowe pliku dockerfile i obrazy kompilacji dla innych platform. Przykłady poleceń w tym artykule są sformatowane dla powłoki bash.
+Teraz Użyj Azure Container Registry do kompilowania i wypychania obrazu. Najpierw Utwórz katalog roboczy, a następnie utwórz pliku dockerfile o nazwie *pliku dockerfile* z pojedynczym wierszem: `FROM hello-world` . Jest to prosty przykład, aby skompilować obraz kontenera systemu Linux z `hello-world` obrazu w usłudze Docker Hub. Możesz tworzyć własne obrazy pliku dockerfile i kompilacje dla innych platform. Jeśli pracujesz z powłoką bash, Utwórz pliku dockerfile za pomocą następującego polecenia:
 
 ```bash
 echo FROM hello-world > Dockerfile
 ```
 
-Uruchom polecenie [AZ ACR Build][az-acr-build] , aby skompilować obraz. Po pomyślnym skompilowaniu obraz jest wypychany do rejestru. Poniższy przykład wypchnięcie `sample/hello-world:v1` obrazu. Na `.` końcu polecenia ustawia lokalizację pliku dockerfile, w tym przypadku bieżący katalog.
+Uruchom polecenie [AZ ACR Build][az-acr-build] , które kompiluje obraz, a po pomyślnym skompilowaniu obrazu wypchnij go do rejestru. Poniższy przykład kompiluje i wypycha `sample/hello-world:v1` obraz. Na `.` końcu polecenia ustawia lokalizację pliku dockerfile, w tym przypadku bieżący katalog.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \

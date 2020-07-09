@@ -1,18 +1,18 @@
 ---
 title: Oferty dotyczące najlepszych rozwiązań — Microsoft Commercial Marketplace
 description: Dowiedz się więcej na temat najlepszych rozwiązań dotyczących Microsoft AppSource i ofert w portalu Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.author: dsindona
-ms.openlocfilehash: 33effe0bbc566880b147c377b3bb130cd81999c8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+author: keferna
+ms.author: keferna
+ms.date: 07/06/2020
+ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740777"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118396"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -22,47 +22,173 @@ Ten artykuł zawiera sugestie dotyczące tworzenia i angażowania komercyjnych o
 
 | Ustawienie witryny sklepu | Najlepsze rozwiązania |
 |:--- |:--- |  
-| Offer Name | Podaj silny tytuł:<br> <ul> <li> Nazwa aplikacji powinna komunikować się z podstawową wartością dla klientów. </li> <li> Dołącz słowa kluczowe wyszukiwania w tytule aplikacji, aby uzyskać wyższą klasyfikację w wynikach wyszukiwania. </li> </ul> Postępuj zgodnie z formatem ustawiania tytułu dla aukcji usługi konsultingowej:<br>[Nazwa oferty: [Duration] [typ oferty] (na przykład *Contoso: implementacja 2-tygodniowa*) <br><br> Przestrzeganie wytycznych dotyczących marki:<br>Po odniesieniu do znaków towarowych firmy Microsoft i nazw oprogramowania, produktów i usług firmy Microsoft postępuj zgodnie z informacjami o znakach [towarowych firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) i innych istotnych wytycznych dotyczących produktów. |
-| Opis oferty | Podaj opis niejawnej oferty:<br> <ul> <li> Jasno opisz swoją wartość oferty w pierwszych kilku zdaniach opisu. </li> <li> Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania. </li> <li> Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości. </li> <li> Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.</li> <li> Ponadto aukcje usług konsultingowych muszą jasno określać usługę profesjonalną, którą zapewniasz. </li></ul> Podstawowe składniki Twojej pozycji wartości powinny zawierać następujące informacje:<ul><li>Opis produktu.</li><li>Typ użytkownika, który korzysta z produktu.</li><li>Klienci muszą lub cierpili adresy produktów.</li></ul> |
+| Offer Name | W przypadku aplikacji podaj czytelny tytuł zawierający słowa kluczowe wyszukiwania, aby pomóc klientom w znalezieniu oferty. <br> <br> W przypadku usług doradczych postępuj zgodnie z tym formatem: [nazwa oferty: [Duration] [typ oferty] (na przykład Contoso: implementacja 2-tygodniowa) <br> <br> Przestrzeganie wytycznych dotyczących marki: należy przestrzegać wytycznych dotyczących znaków [towarowych firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) i innych istotnych wytycznych dotyczących produktu w przypadku odwoływania się do znaków towarowych firmy Microsoft oraz nazw oprogramowania, produktów i usług firmy Microsoft. |
+| Opis oferty | Podaj jasny opis, który opisuje swoją pozycję oferty w pierwszych kilku zdaniach.  Należy pamiętać, że te zdania mogą być używane w wynikach wyszukiwarki. Podstawowe składniki Twojej pozycji wartości powinny obejmować: <ul> <li>Opis produktu lub rozwiązania. </li> <li> Użytkownik korzystający z produktu lub rozwiązania. </li> <li> Klient wymaga lub nie korzysta z adresów produktów lub rozwiązań. </li> </ul> <br> Jeśli to możliwe, korzystaj z słów w standardzie branżowym lub w oparciu o korzyści.  Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt.  Zamiast tego należy skoncentrować się na dostarczanej wartości. <br> <br> Aby zapoznać się z listą usług doradczych, zastanów się w tym miejscu. |
 
 Tabele w tej sekcji zawierają sugestie dotyczące tworzenia i angażowania ofert w portalu Marketplace. Aby napisać i skonfigurować materiały marketingowe, przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
 
 ## <a name="storefront-listing-details"></a>Szczegóły listy witryny sklepu
 
-| Ustawienie witryny sklepu | Najlepsze rozwiązania |
-|:--- |:--- |  
-| Branże: tylko Microsoft AppSource aplikacje i usługi doradcze | Wybierz pozycję branże, jeśli Twoja oferta dotyczy potrzeb specyficznych dla branż: <ul><li> Wywołaj specyficzne dla branży funkcje w opisie oferty.</li> </ul> **Uwaga**: Maksymalna liczba opcji jest różna w zależności od typu oferty i jest wskazana w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/). |
-| Kategorie | Wybierz kategorie, które są dostosowane do oferty:<br> <ul> <li> Starannie wybieraj kategorie, ponieważ klienci używają ich do wyszukiwania odpowiednich aplikacji. </li> <li> Pamiętaj, aby dowiedzieć się, w jaki sposób oferta obsługuje wymagania specyficzne dla kategorii w opisie oferty. </li> </ul> **Uwaga**: Maksymalna liczba opcji jest różna w zależności od typu oferty i jest wskazana w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/). |
-| Produkty działające z aplikacją (3 maks.): tylko aplikacje AppSource | Utwórz listę dodatkowych produktów i technologii, które są używane lub rozszerzane przez rozwiązanie. Na przykład platforma Azure IoT Hub lub Azure Machine Learning. |
-| Słowa kluczowe wyszukiwania (3 maks.) | Słowa kluczowe wyszukiwania mogą pomóc użytkownikom biznesowym w znalezieniu oferty podczas wyszukiwania <ul>  <li>na Microsoft AppSource</li> <li>w witrynie Azure Marketplace</li><li>używanie aparatów wyszukiwania</li> </ul> Aby Twoje aukcje pojawiły się w tych wyszukiwaniach, musisz: <ul> <li> Zidentyfikuj trzy pierwsze słowa kluczowe wyszukiwania dla swojej oferty; </li> <li> Uwzględnij słowa kluczowe wyszukiwania w podsumowaniu oferty i opisie. </li> <li> Tutaj umieść listę słów kluczowych wyszukiwania. </li> </ul> |
+Kategorie i branże dla innego sklepu będą miały zastosowanie do różnych typów ofert.
 
-### <a name="category"></a>Kategoria
+| Musisz | Kategorie <br>według witryny sklepu | Kategorie <br>według witryny sklepu | Branże <br> dla AppSource |
+| :------------------- |:----------------:|:------:|:-------------:|
+| **Typ oferty**   |  **Azure Marketplace**  | **AppSource**  |
+| Aplikacja platformy Azure | X | |
+| Kontener | X | |
+| Usługi konsultingowe | | | X |
+| Dynamics 365 Customer Engagement & platformę energetyczną | | X | X |
+| Dynamics 365 finanse & Zarządzanie łańcuchem dostaw | | X | X | 
+| Dynamics 365 Business Central | | X | X |
+| Moduły IoT Edge | X | |
+| Power BI | | X | X |
+| SaaS | X | X | X |
+| Maszyna wirtualna platformy Azure |  X |    |
 
-Microsoft AppSource i Azure Marketplace to witryny, które obsługują różne i unikatowe wymagania klientów. Wybierz odpowiednie witryny i kategorie dla każdej oferty przeznaczonej dla klientów według ról. 
+### <a name="categories"></a>Kategorie
 
-Możesz wybrać maksymalnie dwie kategorie i dwie podkategorie dla oferty. Kategorie i podkategorie wymienione poniżej są dostępne w obu firmach.  Upewnij się, że wybór kategorii jest wyrównany do zamierzonych odbiorców, opis oferty i propozycja oferty.
+Microsoft AppSource i Azure Marketplace to dwie różne witryny sklepu, które obsługują unikatowe wymagania klientów. Portal Azure Marketplace jest przeznaczony dla informatyków i deweloperów tworzących rozwiązania na platformie Azure.  Microsoft AppSource ukierunkowani użytkownicy biznesowi poszukujący aplikacji firmowych i/lub branżowych SaaS, dodatków do usługi Dynamics 365, dodatków Microsoft 365 i aplikacji platformy PowerShell.
 
-| **Branża**    | **Podbranża**  | 
-| :------------------- | :-------------------|
-| * Motoryzacyjne     | * Motoryzacyjne |
-| Rolnictwo     | * Inne — niesegmentacja |
-| Dystrybucja    | * Sprzedaż hurtowa <br> * Wysyłka pakietu & paczki |
-| Education     | * Wyższe Edukacja <br> * Podstawowe & Edukacja dodatkowa/K-12 <br> * Biblioteki & muzea |
-| Usługi finansowe     | * Rynki kapitałowe & Bank <br> * Ubezpieczenie |
-| Instytucje rządowe    | * Podwyższenie & obrony (używane do nazywania bezpieczeństwa narodowego i publicznego) <br> * Bezpieczeństwo publiczne & sprawiedliwości <br> * Rząd cywilny |
-| Opieka zdrowotna (używana do nazywania kondycji)   | * Płatnik kondycji <br> * Dostawca kondycji <br> * Środki farmaceutyczne |
-| Produkcyjny & zasoby (używane do wywoływania produkcji)   | * Chemical & Agrochemical <br> * Produkcja dyskretna <br> * Energia |
-| Towary konsumenckie detaliczne & (używane do nazywania detalicznego)  | * Towary konsumenckie <br> * Sprzedawcy detaliczni |
-| * Media & Communications (używane do nazywania multimediów i rozrywki)  | * Media & Entertainment <br> * Telekomunikacja |
-| Usługi specjalistyczne  | * Legal <br> * Profesjonalne usługi partnerskie |
-| * Architektura & konstrukcja (używana do nazywania inżynierii architektury)  | * Inne — niesegmentacja |
-| * Hotelarstwo & podróży  | * Hotele & wypoczynek <br> * Podróż & transport <br> * Restauracje & usług żywnościowych |
-| * Inne branże sektora publicznego  | * Rybołówstwo & w leśnictwie <br> * Non Profits |
-| * Nieruchomości  | * Inne — niesegmentacja |
+Kategorie i podkategorie są mapowane na poszczególne witryny sklepu w oparciu o docelową grupę odbiorców. Twoja oferta zostanie opublikowana w witrynie Microsoft AppSource lub Azure Marketplace w zależności od typu oferty, możliwości transakcji dla wyboru oferty i kategorii/podkategorii. 
+
+Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i Twoich zamierzonych odbiorców. Dostępne są następujące opcje:
+
+* Do dwóch (2) kategorii, w tym podstawowej i pomocniczej kategorii (opcjonalnie).
+* Do dwóch (2) podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna tylko w wybranej kategorii.
+
+| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (informatyków i deweloperów)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (użytkownicy biznesowi)|
+| :------------------- |:----------------|
+|**Analiza** | **Analiza** |
+| &nbsp;&nbsp;Wgląd w dane | &nbsp;&nbsp;Analiza zaawansowana  |
+| &nbsp;&nbsp;Analiza danych |  &nbsp;&nbsp;Wizualizacja & raporty |
+| &nbsp;&nbsp;Dane Big Data | **SI i uczenie maszynowe**  |
+| &nbsp;&nbsp;Analiza predykcyjna | &nbsp;&nbsp;AI dla firm |
+| &nbsp;&nbsp;Analiza czasu rzeczywistego/przesyłania strumieniowego | &nbsp;&nbsp;Aplikacje bot |
+| **SI i uczenie maszynowe** | **Współpraca** |
+| &nbsp;&nbsp;Usługa bot | &nbsp;&nbsp;Kontakt & osób |
+| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Zarządzanie spotkaniami |
+| &nbsp;&nbsp;Usługa ML | &nbsp;&nbsp;Zarządzanie & projektu lokacji |
+| &nbsp;&nbsp;Automatyczna ML | &nbsp;&nbsp;Zarządzanie projektem & zadań |
+| &nbsp;&nbsp;Automatyzacja procesów biznesowych/zautomatyzowanych | &nbsp;&nbsp;Konferencje wideo & głosu |
+| &nbsp;&nbsp;Etykietowanie danych | **Zgodność & prawny** |
+| &nbsp;&nbsp;Przygotowywanie danych | &nbsp;&nbsp;Inspekcja & podatkowych |
+| &nbsp;&nbsp;Wyszukiwanie merytoryczne | &nbsp;&nbsp;Prawidłowe |
+| &nbsp;&nbsp;Operacje ML | &nbsp;&nbsp;Dane, nadzór & prywatność |
+| **Łańcuch bloków**  | &nbsp;&nbsp;Kondycja & |
+| &nbsp;&nbsp;Akceleratory aplikacji | **Customer Service**  |
+| &nbsp;&nbsp;Księga z jednym węzłem | &nbsp;&nbsp;Centrum kontaktów |
+| &nbsp;&nbsp;Księga wielowęzłowa | &nbsp;&nbsp;Usługa do rozpoznawania |
+| &nbsp;&nbsp;Narzędzi | &nbsp;&nbsp;Zaplecze usługi Office & Employee |
+| **Obliczanie**  | &nbsp;&nbsp;Zarządzanie sprawami & wiedzy |
+| &nbsp;&nbsp;Infrastruktura aplikacji | &nbsp;&nbsp;Media społecznościowe & omnichannel Engagement |
+| &nbsp;&nbsp;Systemy operacyjne | **Finanse** |
+| &nbsp;&nbsp;Chow | &nbsp;&nbsp;Sprawozdań |
+| **Containers**  | &nbsp;&nbsp;Zarządzanie zasobami |
+| &nbsp;&nbsp;Wprowadzenie do kontenerów | &nbsp;&nbsp;Analiza, konsolidacja & raportowanie |
+| &nbsp;&nbsp;Aplikacje kontenera | &nbsp;&nbsp;Kredyty &owe |
+| &nbsp;&nbsp;Obrazy kontenerów | &nbsp;&nbsp;Zgodność & zarządzanie ryzykiem |
+| **Bazy danych**  | **Geolokalizacja** |
+| &nbsp;&nbsp;Bazy danych NoSQL | &nbsp;&nbsp;Odwzorowywan |
+| &nbsp;&nbsp;Relacyjne bazy danych | &nbsp;&nbsp;Wiadomości & Pogoda |
+| &nbsp;&nbsp;Bazy danych księgi/łańcucha bloków | **Human Resources** |
+| &nbsp;&nbsp;Jeziora dotyczące danych | &nbsp;&nbsp;Talent pozyskiwanie |
+| &nbsp;&nbsp;Magazyn danych | &nbsp;&nbsp;Talent Management |
+| **Narzędzia programistyczne**  | &nbsp;&nbsp;Operacje na HR |
+| &nbsp;&nbsp;Narzędzi | &nbsp;&nbsp;Planowanie pracowników & Analytics |
+| &nbsp;&nbsp;Znajduj | **Narzędzia do zarządzania & IT** |
+| &nbsp;&nbsp;Usługa dla deweloperów | &nbsp;&nbsp;Rozwiązania do zarządzania |
+| **DevOps**  | &nbsp;&nbsp;Business Applications |
+| **Integracja**  | **Internet rzeczy** |
+| &nbsp;&nbsp;Przesyłanie | &nbsp;&nbsp;Operacje & zarządzania zasobami |
+| **Narzędzia do zarządzania & IT**  | &nbsp;&nbsp;Połączone produkty |
+| &nbsp;&nbsp;Rozwiązania do zarządzania | &nbsp;&nbsp;Inteligentny łańcuch dostaw |
+| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Konserwacja predykcyjna |
+| **Tożsamość**  | &nbsp;&nbsp;Zdalne monitorowanie |
+| &nbsp;&nbsp;Zarządzanie dostępem | &nbsp;&nbsp;Bezpieczeństwo & zabezpieczenia |
+| **Internet rzeczy**  | &nbsp;&nbsp;Infrastruktura inteligentna & zasoby |
+| &nbsp;&nbsp;Łączność IoT | &nbsp;&nbsp;Pojazdy & Mobility |
+| &nbsp;&nbsp;Usługi IoT Core | **Marketing** |
+| &nbsp;&nbsp;Moduły IoT Edge | &nbsp;&nbsp;Nagłówek |
+| &nbsp;&nbsp;Rozwiązania IoT | &nbsp;&nbsp;Wersję |
+| &nbsp;&nbsp;Wizualizacja & analizy danych | &nbsp;&nbsp;Automatyzacja & zarządzania kampaniami |
+| **Media**  | &nbsp;&nbsp;Marketing poczty e-mail |
+| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Zdarzenia & zarządzanie zasobami |
+| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Analiza & Research |
+| &nbsp;&nbsp;Przesyłanie strumieniowe na żywo & na żądanie | &nbsp;&nbsp;Media społecznościowe |
+| **Monitorowanie diagnostyki &**  | **Łańcuch dostaw & operacji** |
+| **Migracja**  | &nbsp;&nbsp;Zarządzanie zasobami & produkcji |
+| &nbsp;&nbsp;Migracja danych | &nbsp;&nbsp;Prognozowanie popytu |
+| **Rzeczywistość mieszana**  | &nbsp;&nbsp;Zarządzanie informacjami & łączności |
+| **Sieć**  | &nbsp;&nbsp;Planowanie, kupowanie & raportowania |
+| &nbsp;&nbsp;Menedżerowie urządzeń | &nbsp;&nbsp;& zarządzanie usługami |
+| &nbsp;&nbsp;Łączność | &nbsp;&nbsp;Zarządzanie zamówieniami & sprzedaży |
+| &nbsp;&nbsp;Zapory | &nbsp;&nbsp;Transport & Zarządzanie magazynem |
+| &nbsp;&nbsp;Moduły równoważenia obciążenia | **Zwiększając** |
+| **Bezpieczeństwo**  | &nbsp;&nbsp;Tworzenie zawartości & zarządzanie |
+| &nbsp;&nbsp;Zarządzanie dostępem & tożsamości | &nbsp;&nbsp;Zarządzanie dokumentami |
+| &nbsp;&nbsp;Ochrona przed zagrożeniami | &nbsp;&nbsp;Zarządzanie pocztą e-mail |
+| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Tłumaczenie & języka |
+| **Storage**  | &nbsp;&nbsp;Wyszukaj informacje & |
+| &nbsp;&nbsp;Odzyskiwanie & kopii zapasowej | &nbsp;&nbsp;Grywalizacji |
+| &nbsp;&nbsp;Magazyn hybrydowy przedsiębiorstwa | **Sales** |
+| &nbsp;&nbsp;Udostępnianie plików | &nbsp;&nbsp;Sprzedaż |
+| &nbsp;&nbsp;Zarządzanie cyklem życia danych | &nbsp;&nbsp;Konfigurowanie, Cena, oferta (CPQ) |
+| **Sieć Web**  | &nbsp;&nbsp;Zarządzanie kontraktami |
+| &nbsp;&nbsp;Blogi & CMS | &nbsp;&nbsp;CRM |
+| &nbsp;&nbsp;Web Apps Starter | &nbsp;&nbsp;Handel elektroniczny |
+| &nbsp;&nbsp;Handel elektroniczny | &nbsp;&nbsp;Wzbogacanie danych firmowych  |
+| &nbsp;&nbsp;Struktury aplikacji sieci Web | &nbsp;&nbsp;Włączenie sprzedaży  |
+| &nbsp;&nbsp;Web Apps |  |
+
+**Ważne: SaaSe oferty i dodatki Microsoft 365**
+
+Zapoznaj się z [przewodnikiem według typu oferty,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki funkcje Transact mogą mieć wpływ na sposób wyświetlania i kupowania oferty przez klientów w portalu Marketplace. W przypadku ofert SaaS oferta oferty oraz wybór kategorii będą określać lokalizację, w której zostanie opublikowana oferta:
+
+| Oferta SaaS    | Oferta SaaS   | Oferta SaaS  | Oferta SaaS   | Oferta SaaS   | Oferta SaaS   | Oferta SaaS    | Odpowiednie witryny sklepu | Odpowiednie witryny sklepu |
+|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
+| Naliczanie opłat | Dodatki Microsoft 365 | Skontaktuj się z nami | Transact (co najmniej 1 plan) | Plan tylko prywatny | Plan tylko publiczny | Publiczne plany prywatne & | AppSource | Azure Marketplace |
+|  | X |  |  |  |  |  | X |  |
+| X |  |  | X | X |  |  |  | X |
+| X |  |  | X |  | X |  |  | X |
+| X |  |  | X |  |  | X |  | X<sup>2</sup> |
+|  |  |  | X | X |  |  |  | X |
+|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
+|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1, 2</sup> |
+|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+
+1. W zależności od kategorii/podkategorii i wyboru branżowego
+2. Oferty z planami prywatnymi zostaną opublikowane w Azure Portal
+
 
 ### <a name="industries"></a>Branże
 
-Wybór branżowy ma zastosowanie tylko w przypadku ofert opublikowanych w usługach AppSource i konsultingowych opublikowanych w witrynie Azure Marketplace. Wybierz pozycję branże i/lub pionowe, jeśli Twoja oferta dotyczy potrzeb specyficznych dla branż, wywołując specyficzne dla branży funkcje w opisie oferty. Można wybrać maksymalnie dwie (2) branże i dwie (2) pionowe dla wybranych branż.
+Wybór branżowy ma zastosowanie tylko w przypadku ofert opublikowanych w usługach AppSource i konsultingowych opublikowanych w witrynie Azure Marketplace.  Wybierz pozycję branże i/lub pionowe, jeśli Twoja oferta dotyczy potrzeb specyficznych dla branż, wywołując specyficzne dla branży funkcje w opisie oferty. Można wybrać maksymalnie dwie (2) branże i dwie (2) pionowe dla wybranych branż.
+
+>[!Note]
+>W przypadku ofert dotyczących usług konsultacyjnych w portalu Azure Marketplace nie ma żadnych pionowych w branży.
+
+| **Branże** |  **Pionowe** |
+| :------------------- | :----------------|
+| **Rolnictwo** | |
+| **Architektura & konstrukcja** | |
+| **Motoryzacja** | |
+| **Dystrybucja** | Handel hurtowy <br> Wysyłka pakietu & Parcel |  
+| **Education** | Szkolnictwo wyższe <br> Podstawowa & dodatkowej platformy edu/K-12 <br> Biblioteki & muzea |
+| **Usługi finansowe** | Bankowość & — rynki kapitałowe <br> Zakład | 
+| **Instytucje rządowe** |  Inteligencja & obrony <br> Rząd cywilny <br> Bezpieczeństwo publiczne & sprawiedliwości |
+| **Opieka zdrowotna** | Płatnik kondycji <br> Dostawca kondycji <br> Pharmaceuticals | 
+| **Hotelarstwo & podróży** | Transport & podróże <br> Hotele & wypoczynek <br> Restauracje & żywność Services | 
+| **Zasoby & produkcyjnego** | Chemical & Agrochemical <br> Produkcja dyskretna <br> Energetyczna | 
+| **Komunikacja & Media** | Multimedia & rozrywki <br> Telekomunikacja | 
+| **Inne branże sektora publicznego** | Leśnictwo & rybołówstwo <br> Non profit | 
+| **Profesjonalne usługi** | Profesjonalne usługi partnerskie <br> Informacje prawne | 
+| **Nieruchomości** | |
+
+Tylko Microsoft AppSource branży:
+
+| **Branża** |  **Pionowe** |
+| :------------------- | :----------------|
+| **Towary konsumenckie detaliczne &** | Detalicznych <br> Towary konsumenckie |
 
 ### <a name="applicable-products"></a>Odpowiednie produkty
 

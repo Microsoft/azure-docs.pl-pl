@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 10/04/2019
-  ms.openlocfilehash: f0f47c8d997a3d02ad3bae1bc4634f4c7ad2155c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1feb34dd87f61dc04365afeeca0eec7b8b511480
+  ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "72529690"
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85193247"
 landingContent:
 - title: Informacje o rozszerzeniu Durable Functions
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     links:
     - text: Likwidowanie barier w środowisku bezserwerowym
       url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -40,6 +40,8 @@ landingContent:
       url: durable-functions-create-first-csharp.md
     - text: Tworzenie pierwszej funkcji (JavaScript)
       url: quickstart-js-vscode.md
+    - text: Tworzenie pierwszej funkcji (Python)
+      url: quickstart-python-vscode.md
   - linkListType: learn
     links:
     - text: Tworzenie długotrwałego, bezserwerowego przepływu pracy
@@ -94,7 +96,7 @@ landingContent:
       url: ../functions-monitoring.md
     - text: Zagadnienia dotyczące pracy w sieci
       url: ../functions-networking-options.md
-- title: Przykłady
+- title: Samples
   linkLists:
   - linkListType: download
     links:

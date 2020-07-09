@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 01/24/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 2001d0621a340cbdb04c0bb5eea1166ce8b88eab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5015371afc67574a214097f8d3eef661df29c22f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77212724"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115046"
 ---
 1. W nowym oknie przeglądarki zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 2. W menu po lewej stronie wybierz pozycję **Utwórz zasób**.
    
-   ![Utwórz zasób w Azure Portal](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png" alt-text="Utwórz zasób w Azure Portal":::
    
-3. Na stronie **Nowy** wybierz pozycję **bazy danych** > **Azure Cosmos DB**.
+3. Na stronie **Nowy** wybierz pozycję **bazy danych**  >  **Azure Cosmos DB**.
    
-   ![Okienko Bazy danych w witrynie Azure Portal](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="Okienko Bazy danych w witrynie Azure Portal":::
    
 3. Na stronie **Tworzenie konta Azure Cosmos DB** wprowadź ustawienia dla nowego konta Azure Cosmos DB. 
  
@@ -39,9 +39,9 @@ ms.locfileid: "77212724"
 
 5. Wybierz pozycję **Przeglądanie+tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby utworzyć konto. 
  
-   ![Strona nowego konta usługi Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="Strona nowego konta usługi Azure Cosmos DB":::
 
 6. Utworzenie konta trwa kilka minut. Zobaczysz komunikat informujący o tym, że **wdrożenie jest w toku**. Poczekaj na zakończenie wdrożenia, a następnie wybierz pozycję **Przejdź do zasobu**.
 
-    ![Okienko powiadomienia Azure Portal](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png)
+    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="Okienko powiadomienia Azure Portal":::
 

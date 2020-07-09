@@ -7,10 +7,9 @@ ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
 ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77083504"
 ---
 # <a name="reliable-services-overview"></a>Omówienie usług Reliable Services
@@ -74,7 +73,7 @@ W przypadku wywołania z klienta odpowiednia metoda jest wywoływana i usługa K
 
 Nieprzechowywanie żadnego stanu wewnętrznego sprawia, że ten przykładowy Kalkulator jest prosty. Jednak większość usług nie bezstanowo. Zamiast tego Externalize swój stan do innego magazynu. (Na przykład jakakolwiek aplikacja sieci Web, która opiera się na zachowaniu stanu sesji w magazynie zapasowym lub pamięci podręcznej, nie jest bezstanowa).
 
-Typowym przykładem sposobu używania usług bezstanowych w Service Fabric jest jako fronton, który uwidacznia publiczny interfejs API dla aplikacji sieci Web. Usługa frontonu komunikuje się z usługami stanowymi, aby zakończyć żądanie użytkownika. W takim przypadku wywołania od klientów są kierowane do znanego portu, na przykład 80, gdzie usługa bezstanowa nasłuchuje. Ta usługa bezstanowa odbiera wywołanie i określa, czy wywołanie pochodzi od zaufanej strony, a do której usługi jest ona przeznaczona.  Następnie usługa bezstanowa przekazuje wywołanie do poprawnej partycji usługi stanowej i czeka na odpowiedź. Gdy usługa bezstanowa odbierze odpowiedź, odpowiada pierwotnemu klientowi. Przykładem takiej usługi jest *Service Fabric wprowadzenie* przykład ([C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), między innymi Service Fabric przykładów w tym repozytorium.
+Typowym przykładem sposobu używania usług bezstanowych w Service Fabric jest jako fronton, który uwidacznia publiczny interfejs API dla aplikacji sieci Web. Usługa frontonu komunikuje się z usługami stanowymi, aby zakończyć żądanie użytkownika. W takim przypadku wywołania od klientów są kierowane do znanego portu, na przykład 80, gdzie usługa bezstanowa nasłuchuje. Ta usługa bezstanowa odbiera wywołanie i określa, czy wywołanie pochodzi od zaufanej strony, a do której usługi jest ona przeznaczona.  Następnie usługa bezstanowa przekazuje wywołanie do poprawnej partycji usługi stanowej i czeka na odpowiedź. Gdy usługa bezstanowa odbierze odpowiedź, odpowiada pierwotnemu klientowi. Przykładem takiej usługi jest *Service Fabric wprowadzenie* przykład ([C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)), między innymi Service Fabric przykładów w tym repozytorium.
 
 ### <a name="stateful-reliable-services"></a>Stanowe Reliable Services
 
@@ -82,11 +81,11 @@ Typowym przykładem sposobu używania usług bezstanowych w Service Fabric jest 
 
 Większość usług dzisiaj przechowuje swoje Stany zewnętrznie, ponieważ magazyn zewnętrzny zapewnia niezawodność, dostępność, skalowalność i spójność tego stanu. W Service Fabric usługi nie są wymagane do przechowywania ich stanu zewnętrznego. W Service Fabric są brane pod uwagę te wymagania dotyczące kodu usługi i stanu usługi.
 
-Załóżmy, że chcemy napisać usługę, która przetwarza obrazy. W tym celu usługa przyjmuje obraz i serię konwersji do wykonania na tym obrazie. Ta usługa zwraca odbiornik komunikacyjny (Załóżmy, że jest to WebAPI), który uwidacznia interfejs API, taki jak `ConvertImage(Image i, IList<Conversion> conversions)`. Po odebraniu żądania usługa zapisuje je w i zwraca identyfikator klienta `IReliableQueue`, aby można było śledzić żądanie.
+Załóżmy, że chcemy napisać usługę, która przetwarza obrazy. W tym celu usługa przyjmuje obraz i serię konwersji do wykonania na tym obrazie. Ta usługa zwraca odbiornik komunikacyjny (Załóżmy, że jest to WebAPI), który uwidacznia interfejs API, taki jak `ConvertImage(Image i, IList<Conversion> conversions)` . Po odebraniu żądania usługa zapisuje je w `IReliableQueue` i zwraca identyfikator klienta, aby można było śledzić żądanie.
 
 W tej usłudze `RunAsync()` może być bardziej skomplikowany. W usłudze znajduje się pętla `RunAsync()` , w której są wykonywane żądania ściągnięcia z `IReliableQueue` i wykonywane są wymagane konwersje. Wyniki są przechowywane w `IReliableDictionary` tak, że gdy klient wróci do nich, mogą uzyskać skonwertowane obrazy. Aby upewnić się, że nawet w przypadku wystąpienia awarii obraz nie zostanie utracony, ta niezawodna usługa spowodowałaby wyjęcie z kolejki, przeprowadzenie konwersji i przechowanie wyniku wszystkie w pojedynczej transakcji. W takim przypadku wiadomość zostanie usunięta z kolejki, a wyniki są przechowywane w słowniku wynikowym tylko wtedy, gdy konwersje są kompletne. Alternatywnie usługa może pobrać obraz z kolejki i natychmiast go zapisać w magazynie zdalnym. Zmniejsza to ilość Stanów, którymi usługa musi zarządzać, ale zwiększa złożoność, ponieważ usługa musi przechowywać niezbędne metadane do zarządzania magazynem zdalnym. W obu przypadkach, jeśli coś nie powiodło się w środku, żądanie pozostaje w kolejce oczekujące na przetworzenie.
 
-Mimo że ta usługa jest taka sama jak typowa usługa .NET, różnica polega na tym, że używane`IReliableQueue` struktury `IReliableDictionary`danych (i) są udostępniane przez Service Fabric i są wysoce niezawodne, dostępne i spójne.
+Mimo że ta usługa jest taka sama jak typowa usługa .NET, różnica polega na tym, że używane struktury danych ( `IReliableQueue` i `IReliableDictionary` ) są udostępniane przez Service Fabric i są wysoce niezawodne, dostępne i spójne.
 
 ## <a name="when-to-use-reliable-services-apis"></a>Kiedy używać interfejsów API Reliable Services
 

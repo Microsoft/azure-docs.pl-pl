@@ -1,14 +1,14 @@
 ---
 title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
-ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097374"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044196"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
@@ -82,7 +82,7 @@ Jeśli żadna z wbudowanych ról nie ma wymaganych uprawnień, należy utworzyć
 
 ### <a name="resources-covered-by-azure-policy"></a>Zasoby objęte Azure Policy
 
-Azure Policy szacuje wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/key-vault-overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
+Azure Policy szacuje wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/general/overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Zalecenia dotyczące zarządzania zasadami
 
@@ -158,6 +158,8 @@ W tym scenariuszu podczas definiowania parametrów inicjatywy **initiativeC** do
 
 W przypadku tworzenia opcji wartości w definicji inicjatywy nie można wprowadzić innej wartości w trakcie przypisywania inicjatywy, ponieważ nie jest ona częścią listy.
 
+Aby dowiedzieć się więcej o strukturach definicji inicjatywy, przejrzyj [strukturę definicji inicjatywy](./concepts/initiative-definition-structure.md).
+
 ### <a name="assignments"></a>Przypisania
 
 Przypisanie jest definicją lub inicjatywą zasad, która została przypisana w określonym zakresie. Ten zakres może się wahać od [grupy zarządzania](../management-groups/overview.md) do pojedynczego zasobu. _Termin ten odnosi się do_ wszystkich zasobów, grup zasobów, subskrypcji lub grup zarządzania, do których jest przypisana definicja. Przypisania są dziedziczone przez wszystkie zasoby podrzędne. Ten projekt oznacza, że definicja zastosowana do grupy zasobów jest również stosowana do zasobów w tej grupie zasobów. Można jednak wykluczyć Podzakres z przypisania.
@@ -166,7 +168,7 @@ Na przykład w zakresie subskrypcji można przypisać definicję, która uniemo�
 
 W innym przykładzie możesz chcieć przypisać do definicji listy dozwolonych typów zasobów na poziomie grupy zarządzania. Następnie można przypisać bardziej ograniczające zasady (co pozwala na więcej typów zasobów) w podrzędnej grupie zarządzania lub nawet bezpośrednio w subskrypcjach. Jednak ten przykład nie działa, ponieważ Azure Policy jest jawnym systemem odmowy. Zamiast tego należy wykluczyć podrzędną grupę zarządzania lub subskrypcję z przypisań na poziomie grupy zarządzania. Następnie należy przypisać bardziej ograniczającą definicję w podrzędnej grupie zarządzania lub na poziomie subskrypcji. Jeśli jakiekolwiek przypisanie powoduje odmowa zasobu, jedynym sposobem na umożliwienie zasobu jest zmodyfikowanie przypisania odmowy.
 
-Aby uzyskać więcej informacji na temat ustawiania przypisań za pomocą portalu, zobacz [Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów w środowisku platformy Azure](assign-policy-portal.md). Dostępne są również instrukcje dotyczące korzystania z programu [PowerShell](assign-policy-powershell.md) i [interfejsu wiersza polecenia platformy Azure](assign-policy-azurecli.md).
+Aby uzyskać więcej informacji na temat ustawiania przypisań za pomocą portalu, zobacz [Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów w środowisku platformy Azure](./assign-policy-portal.md). Dostępne są również instrukcje dotyczące korzystania z programu [PowerShell](./assign-policy-powershell.md) i [interfejsu wiersza polecenia platformy Azure](./assign-policy-azurecli.md). Aby uzyskać informacje na temat struktury przypisania, zobacz [Struktura przydziałów](./concepts/assignment-structure.md).
 
 ## <a name="maximum-count-of-azure-policy-objects"></a>Maksymalna liczba obiektów Azure Policy
 

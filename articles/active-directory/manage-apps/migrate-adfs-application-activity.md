@@ -2,23 +2,22 @@
 title: Użyj raportu działania, aby przenieść AD FS aplikacje do Azure Active Directory | Microsoft Docs "
 description: Raport działania aplikacji Active Directory Federation Services (AD FS) umożliwia szybkie Migrowanie aplikacji z AD FS do Azure Active Directory (Azure AD). To narzędzie do migracji AD FS identyfikuje zgodność z usługą Azure AD i zapewnia wskazówki dotyczące migracji.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 01/14/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339162"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Korzystanie z raportu działania aplikacji AD FS (wersja zapoznawcza) w celu migrowania aplikacji do usługi Azure AD
 
@@ -36,8 +35,9 @@ AD FS dane działania aplikacji są dostępne dla użytkowników, którym przypi
 
 * Twoja organizacja musi obecnie używać AD FS, aby uzyskiwać dostęp do aplikacji.
 * Należy włączyć Azure AD Connect Health w dzierżawie usługi Azure AD.
+* Azure AD Connect Health agenta AD FS musi być zainstalowany.
    * [Dowiedz się więcej o Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Wprowadzenie do konfigurowania Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Wprowadzenie do konfigurowania Azure AD Connect Health i instalowania agenta AD FS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Odkryj AD FS aplikacje, które można migrować 
 

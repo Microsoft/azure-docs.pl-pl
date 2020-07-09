@@ -3,15 +3,14 @@ title: Azure HPC — skrypt do kopiowania danych w pamięci podręcznej
 description: Jak używać skryptu kopiowania równoległego do przenoszenia danych do docelowego magazynu obiektów BLOB w pamięci podręcznej Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 90e05ad3d42b1009b631630fe476669a9f418d33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5db04b3ee89ab5a0a4f85f3b833ea513310dce18
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74166900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514798"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Pobieranie danych z pamięci podręcznej platformy Azure HPC — Metoda skryptu kopiowania równoległego
 
@@ -21,7 +20,7 @@ Aby dowiedzieć się więcej na temat przenoszenia danych do magazynu obiektów 
 
 ## <a name="create-the-parallelcp-script"></a>Tworzenie skryptu parallelcp
 
-Poniższy skrypt doda plik wykonywalny `parallelcp`. (Ten skrypt jest przeznaczony dla Ubuntu; w przypadku korzystania z innej dystrybucji należy zainstalować ``parallel`` osobno).
+Poniższy skrypt doda plik wykonywalny `parallelcp` . (Ten skrypt jest przeznaczony dla Ubuntu; w przypadku korzystania z innej dystrybucji należy zainstalować ``parallel`` osobno).
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -75,7 +74,7 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Przykład kopiowania równoległego
 
-W tym przykładzie użyto skryptu kopiowania równoległego do ``glibc`` kompilowania przy użyciu plików źródłowych w pamięci podręcznej platformy Azure HPC.
+W tym przykładzie użyto skryptu kopiowania równoległego do kompilowania ``glibc`` przy użyciu plików źródłowych w pamięci podręcznej platformy Azure HPC.
 
 Pliki źródłowe są buforowane w punkcie instalacji pamięci podręcznej platformy Azure HPC, a pliki obiektów są przechowywane na lokalnym dysku twardym.
 

@@ -3,15 +3,15 @@ title: Użyj kanału informacyjnego zmiany szacowania Azure Cosmos DB
 description: Dowiedz się, jak za pomocą szacowaniania zmian przeanalizować postęp procesora źródła zmian
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90ae7951196d424b59d3780469cb7e01519c51f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585292"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263582"
 ---
 # <a name="use-the-change-feed-estimator"></a>Korzystanie ze źródła zmian szacowania
 
@@ -35,11 +35,11 @@ Przykładowo, jeśli procesor źródła zmian został zdefiniowany w następują
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
-Prawidłowy sposób zainicjowania szacowania do mierzenia tego procesora mógłby być używany `GetChangeFeedEstimatorBuilder` w następujący sposób:
+Prawidłowy sposób zainicjowania szacowania do mierzenia tego procesora mógłby być używany w `GetChangeFeedEstimatorBuilder` następujący sposób:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
-Miejsce, w którym zarówno procesor, jak i szacowania `leaseContainer` mają tę samą nazwę.
+Miejsce, w którym zarówno procesor, jak i szacowania mają tę samą `leaseContainer` nazwę.
 
 Pozostałe dwa parametry są delegatem, który będzie zawierać numer, który reprezentuje liczbę **oczekujących zmian, które mają zostać odczytane** przez procesor, oraz przedział czasu, w którym ma zostać wykonana ta miara.
 
@@ -52,7 +52,7 @@ Można wysłać to oszacowanie do rozwiązania monitorowania i użyć go do zroz
 > [!NOTE]
 > Nie trzeba wdrażać szacowania źródła zmian w ramach procesora kanału informacyjnego zmian ani nie jest częścią tego samego projektu. Może być niezależna i działać w zupełnie innym wystąpieniu. Wystarczy użyć tej samej konfiguracji nazwy i dzierżawy.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Przykłady użycia w witrynie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

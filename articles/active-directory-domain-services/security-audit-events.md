@@ -9,14 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ce910b553e14d09eefa35efc5f2973337dfa1309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c86f98fb20af2cd5ac969867cabfdc5dcb62db54
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654673"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039895"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services
 
@@ -25,7 +24,7 @@ Inspekcje zabezpieczeń w programie Azure Active Directory Domain Services (Azur
 Zdarzenia można archiwizować do usługi Azure Storage i przesyłać strumieniowo zdarzenia do oprogramowania do zarządzania informacjami i zdarzeniami zabezpieczeń (SIEM) (lub równoważne) przy użyciu usługi Azure Event Hubs lub do własnej analizy oraz przy użyciu obszarów roboczych usługi Azure Log Analytics z Azure Portal.
 
 > [!IMPORTANT]
-> Inspekcje zabezpieczeń AD DS platformy Azure są dostępne tylko dla wystąpień opartych na Azure Resource Manager. Aby uzyskać informacje na temat migracji, zobacz [migrowanie AD DS platformy Azure z klasycznego modelu sieci wirtualnej do Menedżer zasobów][migrate-azure-adds].
+> Inspekcje zabezpieczeń AD DS platformy Azure są dostępne tylko dla domen zarządzanych opartych na Azure Resource Manager. Aby uzyskać informacje na temat migracji, zobacz [migrowanie AD DS platformy Azure z klasycznego modelu sieci wirtualnej do Menedżer zasobów][migrate-azure-adds].
 
 ## <a name="security-audit-destinations"></a>Miejsca docelowe inspekcji zabezpieczeń
 
@@ -62,7 +61,7 @@ Aby włączyć zdarzenia inspekcji usługi Azure AD DS Security przy użyciu Azu
 
     ![Włącz wymagane miejsce docelowe i typ zdarzeń inspekcji do przechwycenia](./media/security-audit-events/diagnostic-settings-page.png)
 
-    * **Azure Storage**
+    * **Usługa Azure Storage**
         * Wybierz pozycję **Archiwizuj na koncie magazynu**, a następnie wybierz pozycję **Konfiguruj**.
         * Wybierz **subskrypcję** i **konto magazynu** , którego chcesz użyć do archiwizacji zdarzeń inspekcji zabezpieczeń.
         * Gdy wszystko będzie gotowe, wybierz **przycisk OK**.
@@ -94,13 +93,13 @@ Aby włączyć zdarzenia inspekcji usługi Azure AD DS Security przy użyciu Azu
 
 1. Utwórz zasób docelowy dla zdarzeń inspekcji zabezpieczeń.
 
-    * **Magazyn platformy Azure** - —[Tworzenie konta magazynu przy użyciu Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Centra zdarzeń platformy Azure** - [tworzą centrum zdarzeń przy użyciu Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Może być również konieczne użycie polecenia cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) w celu utworzenia reguły autoryzacji, która przyznaje uprawnienia AD DS platformy Azure do *przestrzeni nazw*centrum zdarzeń. Reguła autoryzacji musi zawierać prawa do **zarządzania**, **nasłuchiwania**i **wysyłania** .
+    * **Usługa Azure Storage**  -  [Tworzenie konta magazynu przy użyciu Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
+    * Centra zdarzeń platformy **Azure**  -  [Utwórz centrum zdarzeń przy użyciu Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Może być również konieczne użycie polecenia cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) w celu utworzenia reguły autoryzacji, która przyznaje uprawnienia AD DS platformy Azure do *przestrzeni nazw*centrum zdarzeń. Reguła autoryzacji musi zawierać prawa do **zarządzania**, **nasłuchiwania**i **wysyłania** .
 
         > [!IMPORTANT]
         > Upewnij się, że zasada autoryzacji jest ustawiona w przestrzeni nazw centrum zdarzeń, a nie w centrum zdarzeń.
 
-    * **Obszary robocze** - analityczne dzienników platformy Azure[tworzą log Analytics obszar roboczy z Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+    * **Obszary robocze**  -  analityczne dzienników platformy Azure [Utwórz obszar roboczy log Analytics z Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 1. Pobierz identyfikator zasobu dla domeny zarządzanej platformy Azure AD DS za pomocą polecenia cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) . Utwórz zmienną o nazwie *$aadds. ResourceId* do przechowywania wartości:
 
@@ -159,11 +158,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Przykładowe zapytanie 2
 
-Wyświetl wszystkie zdarzenia blokady konta (*4740*) od 3 lutego 2020 o godzinie 9 i 10 lutego 2020 północy, posortowane rosnąco według daty i godziny:
+Wyświetl wszystkie zdarzenia blokady konta (*4740*) od 3 czerwca 2020 o godzinie 9. i 10 czerwca 2020 północy, posortowane rosnąco według daty i godziny:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
@@ -220,7 +219,7 @@ Dostępne są następujące kategorie zdarzeń inspekcji:
 | Nazwa kategorii inspekcji | Opis |
 |:---|:---|
 | Konto logowania|Inspekcje próbują uwierzytelnić dane konta na kontrolerze domeny lub w lokalnym Menedżerze kont zabezpieczeń (SAM).</p>Ustawienia zasad logowania i wylogowywania oraz zdarzenia śledzą próby dostępu do określonego komputera. Ustawienia i zdarzenia w tej kategorii koncentrują się na używanej bazie danych kont. Ta kategoria zawiera następujące podkategorie:<ul><li>[Inspekcja weryfikacji poświadczeń](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Inspekcja usługi uwierzytelniania Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Inspekcja operacji biletów usługi Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Inspekcja innych zdarzeń logowania/wylogowywania](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
-| Zarządzanie kontami|Inspekcja zmian kont użytkowników i komputerów oraz grup. Ta kategoria zawiera następujące podkategorie:<ul><li>[Inspekcja zarządzania grupami aplikacji](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Inspekcja zarządzania kontami komputerów](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Inspekcja zarządzania grupami dystrybucyjnymi](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Inspekcja zarządzania innymi kontami](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Inspekcja zarządzania grupami zabezpieczeń](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Inspekcja zarządzania kontami użytkowników](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
+| Zarządzanie kontem|Inspekcja zmian kont użytkowników i komputerów oraz grup. Ta kategoria zawiera następujące podkategorie:<ul><li>[Inspekcja zarządzania grupami aplikacji](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Inspekcja zarządzania kontami komputerów](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Inspekcja zarządzania grupami dystrybucyjnymi](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Inspekcja zarządzania innymi kontami](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Inspekcja zarządzania grupami zabezpieczeń](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Inspekcja zarządzania kontami użytkowników](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
 | Śledzenie szczegółów|Przeprowadza inspekcję działań poszczególnych aplikacji i użytkowników na tym komputerze oraz zrozumienie sposobu korzystania z komputera. Ta kategoria zawiera następujące podkategorie:<ul><li>[Inspekcja działań DPAPI](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-dpapi-activity)</li><li>[Inspekcja aktywności PNP](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-pnp-activity)</li><li>[Tworzenie procesu inspekcji](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-process-creation)</li><li>[Inspekcja kończenia procesu](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-process-termination)</li><li>[Inspekcja zdarzeń RPC](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-rpc-events)</li></ul>|
 | Dostęp do usług katalogowych|Inspekcje próbują uzyskać dostęp i zmodyfikować obiekty w Active Directory Domain Services (AD DS). Te zdarzenia inspekcji są rejestrowane tylko na kontrolerach domeny. Ta kategoria zawiera następujące podkategorie:<ul><li>[Inspekcja szczegółowej replikacji usługi katalogowej](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-directory-service-replication)</li><li>[Przeprowadź inspekcję dostępu do usługi katalogowej](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-access)</li><li>[Inspekcja zmian usługi katalogowej](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes)</li><li>[Inspekcja replikacji usługi katalogowej](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-replication)</li></ul>|
 | Logowanie-wylogowywanie|Inspekcje próbują zalogować się na komputerze interaktywnie lub za pośrednictwem sieci. Te zdarzenia są przydatne do śledzenia aktywności użytkownika i identyfikowania potencjalnych ataków na zasoby sieciowe. Ta kategoria zawiera następujące podkategorie:<ul><li>[Inspekcja blokady konta](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-account-lockout)</li><li>[Inspekcja oświadczeń użytkowników/urządzeń](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-device-claims)</li><li>[Inspekcja trybu rozszerzonego protokołu IPsec](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-extended-mode)</li><li>[Inspekcja członkostwa w grupie](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-group-membership)</li><li>[Inspekcja trybu głównego protokołu IPsec](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-main-mode)</li><li>[Inspekcja trybu szybkiego protokołu IPsec](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-quick-mode)</li><li>[Inspekcja wylogowania](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-logoff)</li><li>[Inspekcja logowania](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-logon)</li><li>[Inspekcja serwera zasad sieciowych](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-network-policy-server)</li><li>[Inspekcja innych zdarzeń logowania/wylogowywania](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li><li>[Inspekcja logowania specjalnego](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-special-logon)</li></ul>|

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82892214"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Jak używać wykryto do przekształcania danych JSON w skoroszytach
@@ -27,7 +26,7 @@ Za pomocą transformacji wykryto, autorzy skoroszytu mogą konwertować kod JSON
 ## <a name="using-jsonpath"></a>Korzystanie z wykryto
 
 1. Przełącz skoroszyt do trybu edycji, klikając element paska narzędzi *Edytowanie* .
-2. Użyj linku *Dodaj* > *zapytanie Dodaj* , aby dodać kontrolkę zapytania do skoroszytu.
+2. Użyj linku *Dodaj*  >  *zapytanie Dodaj* , aby dodać kontrolkę zapytania do skoroszytu.
 3. Wybierz źródło danych jako dane *JSON*.
 4. Użyj edytora JSON, aby wprowadzić następujący fragment kodu JSON
     ```json
@@ -69,7 +68,7 @@ Załóżmy, że podano powyższy obiekt JSON jako reprezentację spisu magazynu.
 1. Wybierz kartę *Ustawienia wyników* i Zmień format wyniku na *ścieżkę JSON*.
 2. Zastosuj następujące ustawienia ścieżki JSON:
 
-    Tabela ścieżki JSON: `$.store.books`. To pole reprezentuje ścieżkę katalogu głównego tabeli. W takim przypadku należy zadbać o spis księgowy sklepu. Ścieżka tabeli filtruje plik JSON do informacji o książce.
+    Tabela ścieżki JSON: `$.store.books` . To pole reprezentuje ścieżkę katalogu głównego tabeli. W takim przypadku należy zadbać o spis księgowy sklepu. Ścieżka tabeli filtruje plik JSON do informacji o książce.
 
    | Identyfikatory kolumn | Ścieżka JSON kolumny |
    |:-----------|:-----------------|

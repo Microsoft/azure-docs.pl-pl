@@ -6,10 +6,9 @@ author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
 ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82836817"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Korzystanie z analizy zmian aplikacji (wersja zapoznawcza) w Azure Monitor
@@ -79,7 +78,7 @@ Kliknij zasób, aby wyświetlić wszystkie jego zmiany. W razie potrzeby przecho
 
 ![Zrzut ekranu przedstawiający szczegóły zmiany](./media/change-analysis/change-details.png)
 
-Aby dowolna opinia, użyj przycisku Wyślij opinię w bloku lub wiadomości e-mail changeanalysisteam@microsoft.com.
+Aby dowolna opinia, użyj przycisku Wyślij opinię w bloku lub wiadomości e-mail changeanalysisteam@microsoft.com .
 
 ![Zrzut ekranu przycisku opinii w bloku Analiza zmian](./media/change-analysis/change-analysis-feedback.png)
 
@@ -109,7 +108,7 @@ Analiza zmian aplikacji to autonomiczny detektor w aplikacji sieci Web diagnozow
 
     ![Zrzut ekranu przedstawiający interfejs użytkownika "Włącz analizę zmian"](./media/change-analysis/change-analysis-on.png)
 
-5. Aby uzyskać dostęp do analizy zmian, wybierz opcję **diagnozowanie i rozwiązywanie problemów dotyczących** > **dostępności i wydajności** > **aplikacji**. Zobaczysz Wykres podsumowujący typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane, aby ułatwić natychmiastowe Rozwiązywanie problemów.
+5. Aby uzyskać dostęp do analizy zmian, wybierz opcję **diagnozowanie i rozwiązywanie problemów dotyczących**  >  **dostępności i wydajności**  >  **aplikacji**. Zobaczysz Wykres podsumowujący typ zmian w czasie wraz ze szczegółami dotyczącymi tych zmian. Domyślnie zmiany w ciągu ostatnich 24 godzin są wyświetlane, aby ułatwić natychmiastowe Rozwiązywanie problemów.
 
      ![Zrzut ekranu przedstawiający widok różnic między zmianami](./media/change-analysis/change-view.png)
 
@@ -121,7 +120,7 @@ Wymagania wstępne:
 
 - PowerShell AZ module. Postępuj zgodnie z instrukcjami w [instalacji modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-Uruchom następujący skrypt:
+Uruchom poniższy skrypt:
 
 ```PowerShell
 # Log in to your Azure subscription

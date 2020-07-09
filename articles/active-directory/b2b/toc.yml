@@ -23,6 +23,8 @@
           href: b2b-tutorial-require-mfa.md
     - name: Samples
       items:
+        - name: Przykłady rejestracji samoobsługowej
+          href: code-samples-self-service-sign-up.md
         - name: Przykłady kodu i programu Azure PowerShell
           href: code-samples.md
     - name: Pojęcia
@@ -52,6 +54,8 @@
           href: identity-providers.md
         - name: Przepływy samoobsługowej rejestracji użytkowników (wersja zapoznawcza)
           href: self-service-sign-up-overview.md
+        - name: Łączniki interfejsu API do rejestracji samoobsługowej (wersja zapoznawcza)
+          href: api-connectors-overview.md
         - name: Zarządzanie upoważnieniami w usłudze Azure AD
           href: self-service-portal.md
         - name: Bieżące ograniczenia
@@ -95,6 +99,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Dostosowywanie języka przepływu użytkowników
               href: user-flow-customize-language.md
+            - name: Dodawanie łącznika interfejsu API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Dodawanie niestandardowego systemu zatwierdzania
+              href: self-service-sign-up-add-approvals.md
         - name: Zarządzanie kontami gościa
           items:
             - name: Dodawanie użytkownika B2B do roli
@@ -125,8 +133,8 @@
       items:
         - name: Często zadawane pytania
           href: faq.md
-        - name: Uzyskiwanie pomocy technicznej dla modelu B2B
-          href: get-support.md
+        - name: Uzyskiwanie pomocy technicznej
+          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
         - name: Forum z opiniami na temat platformy Azure
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Harmonogram działania dla platformy Azure

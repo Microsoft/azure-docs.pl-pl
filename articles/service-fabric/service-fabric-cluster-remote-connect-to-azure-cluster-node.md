@@ -4,10 +4,9 @@ description: Dowiedz się, jak zdalnie połączyć się z wystąpieniem zestawu 
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458321"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Połączenie zdalne z wystąpieniem zestawu skalowania maszyn wirtualnych lub węzłem klastra
@@ -19,7 +18,7 @@ Aby znaleźć adres IP i port, których można użyć do zdalnego łączenia si�
 
     Zazwyczaj każdy typ węzła zdefiniowany w klastrze ma swój własny wirtualny adres IP i dedykowany moduł równoważenia obciążenia. Domyślnie moduł równoważenia obciążenia dla typu węzła ma nazwę o następującym formacie: *lb-{Cluster-Name}-{Node-Type}*; na przykład *lb-moja klaster-fronton*. 
     
-    Na stronie modułu równoważenia obciążenia w Azure Portal wybierz pozycję **Ustawienia** > **reguły NAT dla ruchu przychodzącego**: 
+    Na stronie modułu równoważenia obciążenia w Azure Portal wybierz pozycję **Ustawienia**  >  **reguły NAT dla ruchu przychodzącego**: 
 
     ![Reguły NAT dla ruchu przychodzącego modułu równoważenia obciążenia](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 

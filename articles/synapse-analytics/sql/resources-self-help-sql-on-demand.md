@@ -1,20 +1,20 @@
 ---
-title: Wersja zapoznawcza na żądanie SQL) Samopomoc
+title: SQL na żądanie (wersja zapoznawcza) samoobsługowa pomoc
 description: Ta sekcja zawiera informacje, które mogą pomóc w rozwiązywaniu problemów z programem SQL na żądanie (wersja zapoznawcza).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658878"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213129"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Samoobsługowa pomoc dla SQL na żądanie (wersja zapoznawcza)
 

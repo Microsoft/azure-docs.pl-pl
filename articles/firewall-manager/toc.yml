@@ -7,12 +7,12 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Bezpieczny koncentrator wirtualny
+    - name: Bezpieczny koncentrator wirtualny — szablon usługi Resource Manager
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
 - name: Samouczki
   items:
-    - name: Zabezpieczanie wirtualnej sieci WAN — portal
+    - name: Zabezpieczanie wirtualnego koncentratora — portal
       href: secure-cloud-network.md
     - name: Zabezpieczanie sieci wirtualnej koncentratora — portal
       href: secure-hybrid-network.md
@@ -24,18 +24,26 @@
       href: secured-virtual-hub.md
     - name: Ogólny proces wdrażania
       href: deployment-overview.md
-    - name: Zaufani partnerzy w zakresie zabezpieczeń
+    - name: Dostawcy partnerów w zakresie zabezpieczeń
       href: trusted-security-partners.md
+    - name: Grupy adresów IP
+      href: ip-groups.md
     - name: Logika przetwarzająca reguły
       href: rule-processing.md
     - name: Opcje architektury
       href: vhubs-and-vnets.md
+    - name: Ustawienia analizy zagrożeń
+      href: threat-intelligence-settings.md
+    - name: Nazwa FQDN w regułach sieci
+      href: fqdn-filtering-network-rules.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Wdrażanie zaufanych partnerów w zakresie zabezpieczeń
+    - name: Wdrażanie dostawców partnerów w zakresie zabezpieczeń
       href: deploy-trusted-security-partner.md
     - name: Migrowanie do zasad zapory — PowerShell
       href: migrate-to-policy.md
+    - name: Ustawienia DNS
+      href: dns-settings.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

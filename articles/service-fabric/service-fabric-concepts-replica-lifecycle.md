@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710749"
 ---
 # <a name="replicas-and-instances"></a>Repliki i wystąpienia 
 Ten artykuł zawiera omówienie cyklu życia replik usług stanowych i wystąpień usług bezstanowych.
@@ -37,7 +36,7 @@ W stanie zamykania usługa Azure Service Fabric jest w trakcie zamykania wystąp
 W stanie opuszczone wystąpienie nie jest już uruchomione w węźle. W tym momencie Service Fabric utrzymuje metadane dotyczące tego wystąpienia, które ostatecznie również zostały usunięte.
 
 > [!NOTE]
-> Istnieje możliwość przejścia z dowolnego stanu do stanu porzuconego przy użyciu opcji **ForceRemove** w systemie `Remove-ServiceFabricReplica`.
+> Istnieje możliwość przejścia z dowolnego stanu do stanu porzuconego przy użyciu opcji **ForceRemove** w systemie `Remove-ServiceFabricReplica` .
 >
 
 ## <a name="replicas-of-stateful-services"></a>Repliki usług stanowych
@@ -101,7 +100,7 @@ Rola repliki nie jest odpowiednia w stanie wstrzymania.
 >
 
 > [!NOTE]
-> Istnieje możliwość przejścia z dowolnego stanu do stanu porzuconego przy użyciu opcji **ForceRemove** w systemie `Remove-ServiceFabricReplica`.
+> Istnieje możliwość przejścia z dowolnego stanu do stanu porzuconego przy użyciu opcji **ForceRemove** w systemie `Remove-ServiceFabricReplica` .
 >
 
 ## <a name="replica-role"></a>Rola repliki 

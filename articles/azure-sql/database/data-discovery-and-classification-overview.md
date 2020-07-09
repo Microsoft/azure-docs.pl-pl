@@ -2,7 +2,7 @@
 title: Odnajdowanie i klasyfikacja danych
 description: Funkcja odnajdywania danych & Klasyfikacja dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 387ec3f792b5d61b6c909b4955a588146aa258f5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050681"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85987269"
 ---
 # <a name="data-discovery--classification"></a>Odnajdowanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane o
 Funkcja odnajdywania danych & jest częścią [zaawansowanej oferty zabezpieczeń danych](advanced-data-security.md) , która jest jednolitym pakietem zaawansowanych funkcji zabezpieczeń usługi Azure SQL. Możesz uzyskać dostęp do klasyfikacji & odnajdywania danych i zarządzać nią za pośrednictwem centralnej sekcji **zaawansowanego dostępu do danych SQL** w Azure Portal.
 
 > [!NOTE]
-> Aby uzyskać informacje na temat SQL Server (lokalnie), zobacz [odnajdywanie i Klasyfikacja danych SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Aby uzyskać informacje na temat SQL Server lokalnych, zobacz temat [klasyfikacja & SQL Data Discovery](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Co to jest funkcja odnajdywania danych & Klasyfikacja?
 
@@ -42,7 +42,7 @@ Funkcja odnajdywania danych & Klasyfikacja zawiera zestaw zaawansowanych usług 
 
 - **Odnajdywanie i zalecenia:** Aparat klasyfikacji skanuje bazę danych i identyfikuje kolumny zawierające potencjalnie wrażliwe dane. Dzięki temu można łatwo przejrzeć i zastosować zalecaną klasyfikację za pośrednictwem Azure Portal.
 
-- **Etykietowanie:** Etykiety klasyfikacji czułości można stosować trwale do kolumn przy użyciu nowych atrybutów metadanych, które zostały dodane do aparatu bazy danych SQL. Te metadane mogą następnie służyć do zaawansowanego, opartego na czułości scenariuszy inspekcji i ochrony.
+- **Etykietowanie:** Etykiety klasyfikacji czułości można stosować trwale do kolumn przy użyciu nowych atrybutów metadanych, które zostały dodane do aparatu bazy danych SQL Server. Te metadane mogą następnie służyć do zaawansowanego, opartego na czułości scenariuszy inspekcji i ochrony.
 
 - **Czułość zestawu wyników zapytania:** Czułość zestawu wyników zapytania jest obliczana w czasie rzeczywistym na potrzeby inspekcji.
 
@@ -66,9 +66,9 @@ Funkcja odnajdywania danych & Klasyfikacja zawiera wbudowany zestaw etykiet czu�
 
 Możesz definiować i dostosowywać taksonomię klasyfikacji w jednym centralnym miejscu dla całej organizacji platformy Azure. Ta lokalizacja znajduje się w [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)w ramach zasad zabezpieczeń. To zadanie może wykonać tylko osoba z uprawnieniami administracyjnymi w głównej grupie zarządzania w organizacji.
 
-W ramach zarządzania zasadami dotyczącymi usługi SQL Information Protection można definiować etykiety niestandardowe, klasyfikować je i kojarzyć z wybranym zestawem typów informacji. Możesz również dodać własne typy informacji niestandardowych i skonfigurować je za pomocą wzorców ciągów. Wzorce są dodawane do logiki odnajdywania w celu identyfikowania tego typu danych w bazach danych.
+W ramach zarządzania zasadami dotyczącymi ochrony informacji można definiować etykiety niestandardowe, klasyfikować je i kojarzyć z wybranym zestawem typów informacji. Możesz również dodać własne typy informacji niestandardowych i skonfigurować je za pomocą wzorców ciągów. Wzorce są dodawane do logiki odnajdywania w celu identyfikowania tego typu danych w bazach danych.
 
-Dowiedz się więcej na temat dostosowywania zasad i zarządzania nimi za pomocą [zasad programu SQL Information Protection](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+Aby uzyskać więcej informacji, zobacz [Dostosowywanie zasad usługi SQL Information Protection w Azure Security Center (wersja zapoznawcza)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie poszczególnych baz danych przy użyciu zasad niestandardowych.
 
@@ -117,7 +117,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Inspekcja dostępu do poufnych danych
 
-Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja usługi Azure SQL](../../azure-sql/database/auditing-overview.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Oto przykład:
+Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja usługi Azure SQL](../../azure-sql/database/auditing-overview.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Przykład:
 
 ![Dziennik inspekcji](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -193,4 +193,4 @@ Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i za
 
 - Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych](advanced-data-security.md).
 - Należy rozważyć skonfigurowanie [inspekcji usługi Azure SQL](../../azure-sql/database/auditing-overview.md) na potrzeby monitorowania i inspekcji dostępu do danych poufnych.
-- Aby poznać prezentację obejmującą odnajdywanie i klasyfikację danych, zobacz [odnajdywanie, klasyfikowanie, etykietowanie & ochrony danych SQL | Dane uwidocznione](https://www.youtube.com/watch?v=itVi9bkJUNc).
+- Aby poznać prezentację obejmującą &ą klasyfikację, zobacz [odnajdywanie, klasyfikowanie, etykietowanie & Ochrona danych SQL | Dane uwidocznione](https://www.youtube.com/watch?v=itVi9bkJUNc).

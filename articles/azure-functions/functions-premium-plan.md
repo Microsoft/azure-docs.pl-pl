@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276909"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298518"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-W tym przykładzie Zastąp `<RESOURCE_GROUP>` wartość grupą zasobów i `<PLAN_NAME>` nazwą planu, która jest unikatowa w grupie zasobów. Określ [obsługiwane `<REGION>` ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Aby utworzyć plan Premium, który obsługuje system Linux, należy `--is-linux` uwzględnić opcję.
+W tym przykładzie Zastąp `<RESOURCE_GROUP>` wartość grupą zasobów i `<PLAN_NAME>` nazwą planu, która jest unikatowa w grupie zasobów. Określ [obsługiwane `<REGION>` ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Aby utworzyć plan Premium, który obsługuje system Linux, należy uwzględnić `--is-linux` opcję.
 
 Po utworzeniu planu możesz użyć [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) , aby utworzyć aplikację funkcji. W portalu zarówno plan, jak i aplikacja są tworzone w tym samym czasie. Aby zapoznać się z przykładem kompletnego skryptu interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie aplikacji funkcji w planie Premium](scripts/functions-cli-create-premium-plan.md).
 
@@ -61,11 +61,13 @@ Aby uzyskać więcej informacji, zobacz [Integrowanie aplikacji funkcji z sieci�
 
 ### <a name="rapid-elastic-scale"></a>Szybka Skala elastycznych
 
-Dodatkowe wystąpienia obliczeniowe są automatycznie dodawane do aplikacji przy użyciu tej samej logiki szybkiego skalowania jako planu zużycia.  Aby dowiedzieć się więcej o tym, jak działa skalowanie, zobacz [Funkcja skalowanie i hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+Dodatkowe wystąpienia obliczeniowe są automatycznie dodawane do aplikacji przy użyciu tej samej logiki szybkiego skalowania jako planu zużycia. Aplikacje w tej samej App Service planuje się niezależnie od siebie w zależności od potrzeb poszczególnych aplikacji. Jednak aplikacje działające w tym samym App Service planuje udostępnianie zasobów maszyn wirtualnych, aby pomóc w obniżeniu kosztów, gdy jest to możliwe. Liczba aplikacji skojarzonych z maszyną wirtualną zależy od wielkości poszczególnych aplikacji i rozmiaru maszyny wirtualnej.
+
+Aby dowiedzieć się więcej o tym, jak działa skalowanie, zobacz [Funkcja skalowanie i hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 ### <a name="longer-run-duration"></a>Dłuższy czas trwania
 
-Azure Functions w planie zużycia są ograniczone do 10 minut w przypadku pojedynczego wykonania.  W planie Premium wartość czasu trwania przebiegu jest domyślnie równa 30 minut, aby uniemożliwić przemijające wykonania. Można jednak [zmodyfikować konfigurację pliku host. JSON](./functions-host-json.md#functiontimeout) w taki sposób, aby nie były one powiązane z aplikacjami planu Premium (gwarantowane 60 minut).
+Azure Functions w planie zużycia są ograniczone do 10 minut w przypadku pojedynczego wykonania.  W planie Premium wartość czasu trwania przebiegu jest domyślnie równa 30 minut, aby uniemożliwić przemijające wykonania. Można jednak [zmodyfikować host.jsw konfiguracji](./functions-host-json.md#functiontimeout) , aby nie było to powiązane z aplikacjami planu Premium (gwarantowane 60 minut).
 
 ## <a name="plan-and-sku-settings"></a>Ustawienia planu i jednostki SKU
 
@@ -97,7 +99,7 @@ Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów 
 ### <a name="memory-utilization-considerations"></a>Zagadnienia dotyczące wykorzystania pamięci
 Uruchamianie na komputerze z większą ilością pamięci nie zawsze oznacza, że aplikacja funkcji będzie używać całej dostępnej pamięci.
 
-Na przykład aplikacja funkcji JavaScript jest ograniczona przez domyślny limit pamięci w programie Node. js. Aby zwiększyć ten limit pamięci ustalonej, Dodaj ustawienie `languageWorkers:node:arguments` aplikacji z wartością. `--max-old-space-size=<max memory in MB>`
+Na przykład aplikacja funkcji JavaScript jest ograniczona przez domyślny limit pamięci w Node.js. Aby zwiększyć ten limit pamięci ustalonej, Dodaj ustawienie aplikacji `languageWorkers:node:arguments` z wartością `--max-old-space-size=<max memory in MB>` .
 
 ## <a name="region-max-scale-out"></a>Maksymalny rozmiar regionu w poziomie
 

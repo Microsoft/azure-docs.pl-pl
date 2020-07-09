@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252560"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847346"
 ---
 # <a name="get-help-with-your-system"></a>Uzyskaj pomoc dotyczącą systemu
 
@@ -27,7 +27,7 @@ Jeśli wystąpią problemy podczas wdrażania lub korzystania z avere vFXT, popr
 
 Wykonaj następujące kroki, aby upewnić się, że bilet pomocy technicznej jest oznaczony przy użyciu zasobu z klastra. Tagowanie biletu pomaga nam kierować go do poprawnego zasobu pomocy technicznej.
 
-1. Z [https://portal.azure.com](https://portal.azure.com)programu wybierz pozycję **grupy zasobów**. Przejdź do grupy zasobów zawierającej klaster vFXT, w którym wystąpił problem, a następnie kliknij jedną z maszyn wirtualnych klastra avere.
+1. Z programu [https://portal.azure.com](https://portal.azure.com) Wybierz pozycję **grupy zasobów**. Przejdź do grupy zasobów zawierającej klaster vFXT, w którym wystąpił problem, a następnie kliknij jedną z maszyn wirtualnych klastra avere.
 
     ![zrzut ekranu przedstawiający panel "przegląd" Azure Portal grupy zasobów z określoną maszyną wirtualną](media/avere-vfxt-ticket-vm.png)
 

@@ -4,16 +4,16 @@ description: Dowiedz się, jak skonfigurować narzędzie do przygotowywania i na
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: f65220a04a709bae5a6892bfd4105195cee35741
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd74caf391fcf1538bf920f41638b23672b47015
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512221"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurowanie narzędzia Azure Import/Export
 Narzędzie Microsoft Azure Import/Export to narzędzie do przygotowywania i naprawiania dysku, które może być używane z usługą Microsoft Azure Import/Export. Za pomocą tego narzędzia można korzystać z następujących funkcji:  
@@ -60,19 +60,19 @@ Jeśli próbujesz naprawić import, który częściowo zakończył się niepowod
 ## <a name="installing-the-azure-importexport-tool"></a>Instalowanie narzędzia Azure Import/Export  
  Narzędzie Import/Export platformy Azure składa się z następujących plików:  
 
-- WAImportExport. exe  
+- WAImportExport.exe  
 
-- WAImportExport. exe. config  
+- WAImportExport.exe.config  
 
-- WAImportExportCore. dll  
+- WAImportExportCore.dll  
 
-- WAImportExportRepair. dll  
+- WAImportExportRepair.dll  
 
-- Microsoft. WindowsAzure. Storage. dll  
+- Microsoft.WindowsAzure.Storage.dll  
 
-- Hddid. dll  
+- Hddid.dll  
 
-  Skopiuj te pliki do katalogu roboczego, na przykład `c:\WAImportExport`. Następnie otwórz okno wiersza polecenia w trybie administratora i ustaw powyższy katalog jako bieżący katalog.  
+  Skopiuj te pliki do katalogu roboczego, na przykład `c:\WAImportExport` . Następnie otwórz okno wiersza polecenia w trybie administratora i ustaw powyższy katalog jako bieżący katalog.  
 
   Aby uzyskać pomoc dotyczącą polecenia, uruchom narzędzie bez parametrów:  
 

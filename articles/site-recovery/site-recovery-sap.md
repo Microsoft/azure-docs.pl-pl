@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 29acd1b00d23e4f1c2f241027dadbbb406e5e049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190793"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133701"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia aplikacji SAP NetWeaver
 
@@ -28,9 +28,9 @@ Wdrożenia aplikacji SAP NetWeaver można chronić za pomocą [Azure Site Recove
 
 Przed rozpoczęciem upewnij się, że wiesz, jak wykonać następujące zadania:
 
-* [Replikowanie maszyny wirtualnej na platformę Azure](azure-to-azure-walkthrough-enable-replication.md)
-* [Projektowanie sieci odzyskiwania](site-recovery-azure-to-azure-networking-guidance.md)
-* [Wykonaj test pracy w trybie failover na platformie Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Replikowanie maszyny wirtualnej na platformę Azure](./azure-to-azure-tutorial-enable-replication.md)
+* [Projektowanie sieci odzyskiwania](./azure-to-azure-about-networking.md)
+* [Wykonaj test pracy w trybie failover na platformie Azure](./azure-to-azure-tutorial-dr-drill.md)
 * [Przełączenie w tryb failover na platformie Azure](site-recovery-failover.md)
 * [Replikowanie kontrolera domeny](site-recovery-active-directory.md)
 * [Replikowanie wystąpienia SQL Server](site-recovery-sql.md)
@@ -111,7 +111,7 @@ Poniżej znajduje się zalecenie dotyczące odzyskiwania po awarii dla każdej w
 
 ## <a name="replicate-virtual-machines"></a>Replikowanie maszyn wirtualnych
 
-Aby rozpocząć replikowanie wszystkich maszyn wirtualnych aplikacji SAP do centrum danych odzyskiwania po awarii platformy Azure, postępuj zgodnie ze wskazówkami zawartymi w artykule [replikowanie maszyny wirtualnej na platformę Azure](azure-to-azure-walkthrough-enable-replication.md).
+Aby rozpocząć replikowanie wszystkich maszyn wirtualnych aplikacji SAP do centrum danych odzyskiwania po awarii platformy Azure, postępuj zgodnie ze wskazówkami zawartymi w artykule [replikowanie maszyny wirtualnej na platformę Azure](./azure-to-azure-tutorial-enable-replication.md).
 
 * Aby uzyskać wskazówki dotyczące ochrony Active Directory i systemu DNS, Dowiedz się, [jak chronić Active Directory i system DNS](site-recovery-active-directory.md).
 
@@ -119,7 +119,7 @@ Aby rozpocząć replikowanie wszystkich maszyn wirtualnych aplikacji SAP do cent
 
 ## <a name="networking-configuration"></a>Konfiguracja sieci
 
-Jeśli używasz statycznego adresu IP, możesz określić adres IP, który ma być pobierany przez maszynę wirtualną. Aby ustawić adres IP, przejdź do > **karty sieciowe** **Ustawienia obliczeń i sieci**.
+Jeśli używasz statycznego adresu IP, możesz określić adres IP, który ma być pobierany przez maszynę wirtualną. Aby ustawić adres IP, przejdź do karty **sieciowe ustawienia obliczeń i sieci**  >  **Network interface card**.
 
 ![Zrzut ekranu pokazujący sposób ustawiania prywatnego adresu IP w okienku karty sieciowej Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 

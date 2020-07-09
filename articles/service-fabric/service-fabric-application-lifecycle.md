@@ -4,10 +4,9 @@ description: Opisuje tworzenie, wdrażanie, testowanie, uaktualnianie, konserwow
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75378008"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric application lifecycle (Cykl życia aplikacji usługi Service Fabric)
@@ -69,7 +68,7 @@ Przykłady można znaleźć w [samouczku dotyczącym uaktualniania aplikacji](se
 4. *Operator* dodaje i usuwa węzły określone przez *administratora aplikacji*.
 5. Gdy nowe węzły są dodawane do lub istniejące węzły są usuwane z klastra, Service Fabric automatycznie równoważyć obciążenie uruchomionych aplikacji we wszystkich węzłach w klastrze, aby osiągnąć optymalną wydajność.
 
-## <a name="remove"></a>Remove
+## <a name="remove"></a>Usuń
 1. *Operator* może usunąć określone wystąpienie uruchomionej usługi w klastrze bez usuwania całej aplikacji przy użyciu [metody **DeleteServiceAsync** ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient), [polecenia cmdlet **Remove-ServiceFabricService** ](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice)ani [operacji **usuwania REST usługi** ](https://docs.microsoft.com/rest/api/servicefabric/delete-a-service).  
 2. *Operator* może również usunąć wystąpienie aplikacji i wszystkie jego usługi przy użyciu [metody **DeleteApplicationAsync** ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [polecenia cmdlet **Remove-ServiceFabricApplication** ](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricapplication)lub [operacji **usuwania REST aplikacji** ](https://docs.microsoft.com/rest/api/servicefabric/delete-an-application).
 3. Po zatrzymaniu aplikacji i usług *operator* może anulować obsługę administracyjną typu aplikacji przy użyciu [metody **UnprovisionApplicationAsync** ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [polecenia cmdlet **Unregister-ServiceFabricApplicationType** ](https://docs.microsoft.com/powershell/module/servicefabric/unregister-servicefabricapplicationtype)lub cofnięcia aprowizacji [ **aplikacji** REST](https://docs.microsoft.com/rest/api/servicefabric/unprovision-an-application). Cofnięcie aprowizacji typu aplikacji nie powoduje usunięcia pakietu aplikacji z magazynu ImageStore. Pakiet aplikacji należy usunąć ręcznie.

@@ -1,24 +1,21 @@
 ---
-title: Wyświetlanie magazynu wiedzy (wersja zapoznawcza) za pomocą Eksplorator usługi Storage
+title: Wyświetlanie sklepu z bazami danych za pomocą Eksplorator usługi Storage
 titleSuffix: Azure Cognitive Search
-description: Przeglądaj i Analizuj Wyszukiwanie poznawcze sklepu z bazami danych platformy Azure, korzystając z Eksplorator usługi Storage Azure Portal. Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej.
+description: Przeglądaj i Analizuj Wyszukiwanie poznawcze sklepu z bazami danych platformy Azure, korzystając z Eksplorator usługi Storage Azure Portal.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: ba0b02067c032f9038051c169866588ded44af73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85566016"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Wyświetlanie sklepu z bazami danych za pomocą Eksplorator usługi Storage
-
-> [!IMPORTANT] 
-> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
 
 W tym artykule przedstawiono przykład sposobu nawiązywania połączenia z magazynem wiedzy i eksplorowania go przy użyciu Eksplorator usługi Storage w Azure Portal.
 
@@ -61,5 +58,5 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 Połącz ten magazyn wiedzy, aby Power BI w celu uzyskania dokładniejszej analizy lub przechodź do przodu przy użyciu kodu, korzystając z interfejsu API REST i programu Poster, aby utworzyć inny magazyn wiedzy.
 
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia przy użyciu Power BI](knowledge-store-connect-power-bi.md)
-> [Tworzenie sklepu z bazami danych w usłudze REST](knowledge-store-create-rest.md)
+> [Połącz z Power BI](knowledge-store-connect-power-bi.md) 
+>  [Tworzenie sklepu merytorycznego w usłudze REST](knowledge-store-create-rest.md)

@@ -7,14 +7,13 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 64e2787aa282e75893fa34e6de1373e6afed09fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800566"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Uruchom Azure IoT Edge na Ubuntu Virtual Machines
 
@@ -63,7 +62,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
 
     Gdy wypełniono wszystkie pola, zaznacz pole wyboru u dołu strony, aby zaakceptować warunki i wybierz pozycję **Kup** , aby rozpocząć wdrażanie.
 
-1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000`. Należy również zanotować skojarzoną **nazwę DNS**, która powinna mieć format `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Należy również zanotować skojarzoną **nazwę DNS**, która powinna mieć format `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
 
     **Nazwę DNS** można uzyskać z sekcji **Przegląd** nowo wdrożonej maszyny wirtualnej w ramach Azure Portal.
 
@@ -108,11 +107,10 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
 
 1. Utwórz nową maszynę wirtualną:
 
-    Aby użyć typu **AuthenticationType** z `password`, zobacz Poniższy przykład:
+    Aby użyć typu **AuthenticationType** z `password` , zobacz Poniższy przykład:
 
    ```azurecli-interactive
-   az group deployment create \
-   --name edgeVm \
+   az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -122,15 +120,14 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-    Aby uwierzytelnić się przy użyciu klucza SSH, można to zrobić `sshPublicKey`, określając element **AuthenticationType** , a następnie podać wartość klucza SSH w parametrze **adminPasswordOrKey** .  Przykład przedstawiono poniżej.
+    Aby uwierzytelnić się przy użyciu klucza SSH, można to zrobić, określając element **AuthenticationType** `sshPublicKey` , a następnie podać wartość klucza SSH w parametrze **adminPasswordOrKey** .  Przykład przedstawiono poniżej.
 
     ```azurecli-interactive
     #Generate the SSH Key
     ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
 
     #Create a VM using the iotedge-vm-deploy script
-    az group deployment create \
-    --name edgeVm \
+    az deployment group create \
     --resource-group IoTEdgeResources \
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
@@ -138,10 +135,9 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
     --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-     
     ```
 
-1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000`. Należy również zanotować skojarzoną **nazwę DNS**, która powinna mieć format `<dnsLabelPrefix>`. `<location>`. cloudapp.Azure.com.
+1. Sprawdź, czy wdrożenie zakończyło się pomyślnie.  Zasób maszyny wirtualnej powinien zostać wdrożony w wybranej grupie zasobów.  Zanotuj nazwę maszyny, która powinna mieć format `vm-0000000000000` . Należy również zanotować skojarzoną **nazwę DNS**, która powinna mieć format `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
 
     **Nazwę DNS** można uzyskać z formatu danych wyjściowych w formacie JSON poprzedniego kroku w sekcji dane **wyjściowe** w ramach **publicznego wpisu SSH** .  Wartość tego wpisu może być używana do użycia protokołu SSH w przypadku nowo wdrożonej maszyny.
 

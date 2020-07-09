@@ -2,22 +2,21 @@
 title: Wybieranie odpowiedniego protokołu federacyjnego dla aplikacji wielodostępnych
 description: Wskazówki dla niezależnych dostawców oprogramowania w ramach integracji z usługą Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e7dc40d0e4736b4fef8012b08737cbd07bc36bf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443371"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763299"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Wybieranie odpowiedniego protokołu federacyjnego dla aplikacji wielodostępnej
 
@@ -30,7 +29,7 @@ Poniższa tabela zawiera porównanie
 * SAML (SAML)
 * Federacja usług sieci Web (WSFed)
 
-| Możliwości| OAuth/OIDC| SAML/WSFed |
+| Możliwość| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Logowanie jednokrotne oparte na sieci Web| √| √ |
 | Logowanie jednokrotne oparte na sieci Web| √| √ |
@@ -46,7 +45,7 @@ Poniższa tabela zawiera porównanie
 
 Uwierzytelnianie OAuth 2,0 jest [standardowym](https://oauth.net/2/) protokołem do autoryzacji. OIDC (OpenID Connect Connect) to [standardowa](https://openid.net/connect/) warstwa uwierzytelniania tożsamości oparta na protokole OAuth 2,0.
 
-### <a name="benefits"></a>Korzyści
+### <a name="benefits"></a>Zalety
 
 Firma Microsoft zaleca używanie OIDC/OAuth 2,0, ponieważ mają one uwierzytelnianie i autoryzację wbudowaną w protokoły. W przypadku protokołu SAML należy dodatkowo zaimplementować autoryzację.
 
@@ -74,7 +73,7 @@ SAML (SAML) jest zwykle używany dla aplikacji sieci Web. Zobacz [, w jaki spos�
 
 Web Services Federation (WSFed) jest [standardem branżowym](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) zwykle używanym przez aplikacje sieci Web, które są opracowywane przy użyciu platformy .NET.
 
-### <a name="benefits"></a>Korzyści
+### <a name="benefits"></a>Zalety
 
 SAML 2,0 to wersja najbardziej dojrzałej i większość platform technologicznych obsługuje biblioteki typu open source dla protokołu SAML 2,0. Możesz udostępnić klientom interfejs administracyjny, aby skonfigurować Logowanie jednokrotne SAML. Mogą konfigurować Logowanie jednokrotne SAML dla Microsoft Azure AD i wszystkich innych dostawców tożsamości, które obsługują protokół SAML 2
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60246334"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync: wyjaśnienie aprowizacji deklaracyjnej
@@ -105,7 +105,7 @@ W polu przepływy atrybutu istnieje ustawienie umożliwiające ustalenie, czy at
 
 Istnieje również **scalanie** i **MergeCaseInsensitive**. Te opcje umożliwiają scalanie wartości z różnych źródeł. Na przykład może służyć do scalania elementu członkowskiego lub atrybutu proxyAddresses z kilku różnych lasów. W przypadku korzystania z tej opcji wszystkie reguły synchronizacji w zakresie dla obiektu muszą używać tego samego typu scalania. Nie można zdefiniować **aktualizacji** z jednego łącznika i **scalić** z innego. Jeśli spróbujesz, zostanie wyświetlony komunikat o błędzie.
 
-Różnica między **scalaniem** i **MergeCaseInsensitive** polega na tym, jak przetwarzać zduplikowane wartości atrybutów. Aparat synchronizacji sprawdza, czy zduplikowane wartości nie są wstawiane do atrybutu docelowego. W przypadku **MergeCaseInsensitive**należy duplikować wartości z tylko różnicą w przypadku, gdy nie będą one obecne. Na przykład nie powinno być widoczne "SMTP:bob@contoso.com" i "smtp:bob@contoso.com" w atrybucie Target. **Scalanie** sprawdza tylko dokładne wartości i wiele wartości, w przypadku których może istnieć tylko różnica w przypadku wystąpienia.
+Różnica między **scalaniem** i **MergeCaseInsensitive** polega na tym, jak przetwarzać zduplikowane wartości atrybutów. Aparat synchronizacji sprawdza, czy zduplikowane wartości nie są wstawiane do atrybutu docelowego. W przypadku **MergeCaseInsensitive**należy duplikować wartości z tylko różnicą w przypadku, gdy nie będą one obecne. Na przykład nie powinno być widoczne " SMTP:bob@contoso.com " i " smtp:bob@contoso.com " w atrybucie Target. **Scalanie** sprawdza tylko dokładne wartości i wiele wartości, w przypadku których może istnieć tylko różnica w przypadku wystąpienia.
 
 Opcja **Zamień** jest taka sama jak **Aktualizacja**, ale nie jest używana.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60457270"
 ---
 # <a name="storage-explorer-accessibility"></a>Ułatwienia dostępu Eksploratora usługi Storage
@@ -68,7 +68,7 @@ Polecenie                | Skrót klawiaturowy
 Fokus następnego panelu       | **F6**
 Fokus — poprzedni panel   | **Shift+F6**
 Eksplorator               | **Control + Shift + E**
-Zarządzanie kontami     | **Control + Shift + A**
+Zarządzanie kontem     | **Control + Shift + A**
 Przełącz pasek boczny        | **Kontrolka + B**
 Dziennik aktywności           | **Control + Shift + L**
 Akcje i właściwości | **Control + Shift + P**
@@ -87,7 +87,7 @@ Pomniejsz | **Control +-**
 
 Polecenie | Skrót klawiaturowy
 --------|--------------------
-Back    | **Alt+Strzałka w lewo**
+Wstecz    | **Alt+Strzałka w lewo**
 do przodu | **Alt+Strzałka w prawo**
 W górę      | **Alt+Strzałka w górę**
 
@@ -95,10 +95,10 @@ W górę      | **Alt+Strzałka w górę**
 
 Polecenie | Skrót klawiaturowy
 --------|------------------
-Copy    | **Control + C**
+Kopiuj    | **Control + C**
 Wytnij     | **Kontrolka + X**
 Wklej   | **Kontrolka + V**
-Odświeżanie  | **Kontrolka + R**
+Odśwież  | **Kontrolka + R**
 
 ### <a name="other-commands"></a>Inne polecenia
 

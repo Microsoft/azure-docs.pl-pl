@@ -7,13 +7,12 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 1/27/2020
-ms.openlocfilehash: f21200bc6f5b25f3330f5bb87c0843caa5a84e56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: bec993c2b59aa03195b78a02668baf3f5fac6695
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298880"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080754"
 ---
 #    <a name="pii-detection-cognitive-skill"></a>Umiejętność wykrywania przez dane OSOBowe
 
@@ -25,14 +24,14 @@ Umiejętność **wykrywania** danych osobowych wyodrębnia dane osobowe z tekstu
 > [!NOTE]
 > Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
 >
-> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft. umiejętności. Text. PIIDetectionSkill
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -40,25 +39,25 @@ W parametrach jest rozróżniana wielkość liter i wszystkie są opcjonalne.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| defaultLanguageCode |    Kod języka tekstu wejściowego. Na razie tylko `en` jest obsługiwane. |
-| minimumPrecision | Wartość z zakresu od 0,0 do 1,0. Jeśli wynik pewności (w `piiEntities` danych wyjściowych) jest mniejszy niż wartość ustawiona `minimumPrecision` , jednostka nie jest zwracana ani zamaskowane. Wartość domyślna to 0,0. |
-| maskingMode | Parametr, który zapewnia różne sposoby maskowania wykryte dane OSOBowe w tekście wejściowym. Obsługiwane są następujące opcje: <ul><li>`none`(ustawienie domyślne): oznacza to, że maskowanie nie zostanie wykonane i `maskedText` wyjście nie zostanie zwrócone. </li><li> `redact`: Ta opcja spowoduje usunięcie wykrytych jednostek z tekstu wejściowego i nie zastępowanie ich żadnymi. Należy zauważyć, że w tym przypadku przesunięcie w `piiEntities` danych wyjściowych będzie w odniesieniu do oryginalnego tekstu, a nie do zamaskowanego tekstu. </li><li> `replace`: Ta opcja spowoduje zamianę wykrytych jednostek na znak określony w `maskingCharacter` parametrze.  Znak zostanie powtórzony do długości wykrytej jednostki, aby przesunięcia odpowiednio odpowiadały zarówno dane wejściowe, jak i dane wyjściowe `maskedText`.</li></ul> |
-| maskingCharacter | Znak, który będzie używany do zamaskowania tekstu, jeśli `maskingMode` parametr jest ustawiony na. `replace` Obsługiwane są następujące opcje: `*` (domyślne), `#`,. `X` Ten parametr może mieć `null` wartość tylko `maskingMode` wtedy, gdy nie `replace`jest ustawiony na. |
+| `defaultLanguageCode` |    Kod języka tekstu wejściowego. Na razie tylko `en` jest obsługiwane. |
+| `minimumPrecision` | Wartość z zakresu od 0,0 do 1,0. Jeśli wynik pewności (w `piiEntities` danych wyjściowych) jest mniejszy niż wartość ustawiona `minimumPrecision` , jednostka nie jest zwracana ani zamaskowane. Wartość domyślna to 0,0. |
+| `maskingMode` | Parametr, który zapewnia różne sposoby maskowania wykryte dane OSOBowe w tekście wejściowym. Obsługiwane są następujące opcje: <ul><li>`none`(ustawienie domyślne): oznacza to, że maskowanie nie zostanie wykonane i `maskedText` wyjście nie zostanie zwrócone. </li><li> `redact`: Ta opcja spowoduje usunięcie wykrytych jednostek z tekstu wejściowego i nie zastępowanie ich żadnymi. Należy zauważyć, że w tym przypadku przesunięcie w `piiEntities` danych wyjściowych będzie w odniesieniu do oryginalnego tekstu, a nie do zamaskowanego tekstu. </li><li> `replace`: Ta opcja spowoduje zamianę wykrytych jednostek na znak określony w `maskingCharacter` parametrze.  Znak zostanie powtórzony do długości wykrytej jednostki, aby przesunięcia odpowiednio odpowiadały zarówno dane wejściowe, jak i dane wyjściowe `maskedText` .</li></ul> |
+| `maskingCharacter` | Znak, który będzie używany do zamaskowania tekstu, jeśli `maskingMode` parametr jest ustawiony na `replace` . Obsługiwane są następujące opcje: `*` (domyślne), `#` , `X` . Ten parametr może mieć `null` wartość tylko wtedy `maskingMode` , gdy nie jest ustawiony na `replace` . |
 
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa wejściowa      | Opis                   |
 |---------------|-------------------------------|
-| languageCode    | Opcjonalny. Wartość domyślna to `en`.  |
-| tekst          | Tekst do analizy.          |
+| `languageCode`    | Opcjonalny. Wartość domyślna to `en`.  |
+| `text`          | Tekst do analizy.          |
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
 | Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
-| piiEntities | Tablica typów złożonych, które zawierają następujące pola: <ul><li>tekst (rzeczywiste dane OSOBowe jako wyodrębnione)</li> <li>type</li><li>Podtyp</li><li>wynik (wyższa wartość oznacza, że bardziej prawdopodobnie jest to rzeczywista jednostka)</li><li>Przesunięcie (do tekstu wejściowego)</li><li>length</li></ul> </br> [Możliwe typy i podtypy można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
-| maskedText | Jeśli `maskingMode` jest ustawiona na wartość inną niż `none`, dane wyjściowe będą wynikiem przeprowadzenia maskowania dla tekstu wejściowego, zgodnie z opisem wybranej opcji. `maskingMode`  Jeśli `maskingMode` jest ustawiona na `none`, dane wyjściowe nie będą obecne. |
+| `piiEntities` | Tablica typów złożonych, które zawierają następujące pola: <ul><li>tekst (rzeczywiste dane OSOBowe jako wyodrębnione)</li> <li>typ</li><li>Podtyp</li><li>wynik (wyższa wartość oznacza, że bardziej prawdopodobnie jest to rzeczywista jednostka)</li><li>Przesunięcie (do tekstu wejściowego)</li><li>length</li></ul> </br> [Możliwe typy i podtypy można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `maskedText` | Jeśli `maskingMode` jest ustawiona na wartość inną niż `none` , dane wyjściowe będą wynikiem przeprowadzenia maskowania dla tekstu wejściowego, zgodnie z opisem wybranej opcji `maskingMode` .  Jeśli `maskingMode` jest ustawiona na `none` , dane wyjściowe nie będą obecne. |
 
 ##    <a name="sample-definition"></a>Definicja Przykładowa
 

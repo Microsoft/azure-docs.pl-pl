@@ -4,18 +4,17 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 7943ea13d93fa68b76d333bda5438fb5738f5cd1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67183309"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050493"
 ---
 ## <a name="c-program-example"></a>Przykład programu w języku C#
 
-W kolejnych sekcjach tego artykułu zaprezentowano program w języku C#, który wysyła instrukcje języka Transact-SQL (T-SQL) do bazy danych SQL przy użyciu platformy ADO.NET. Program w języku C# prezentuje następujące akcje:
+Kolejne sekcje tego artykułu zawierają program języka C#, który używa ADO.NET do wysyłania instrukcji Transact-SQL (T-SQL) do SQL Database. Program w języku C# prezentuje następujące akcje:
 
-- [Połączenie z bazą danych SQL za pomocą platformy ADO.NET](#cs_1_connect)
+- [Nawiązywanie połączenia z SQL Database przy użyciu ADO.NET](#cs_1_connect)
 - [Metody, które zwracają instrukcje języka T-SQL](#cs_2_return)
     - Tworzenie tabel
     - Wypełnianie tabel danymi
@@ -82,7 +81,7 @@ Program w języku C# jest logicznie jednym plikiem cs, ale fizycznie jest podzie
 
 <a name="cs_1_connect"/>
 
-### <a name="connect-to-sql-database-using-adonet"></a>Połączenie z bazą danych SQL za pomocą platformy ADO.NET
+### <a name="connect-to-sql-database-using-adonet"></a>Nawiązywanie połączenia z SQL Database przy użyciu ADO.NET
 
 ```csharp
 using System;

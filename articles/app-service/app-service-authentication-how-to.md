@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205649"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -33,9 +33,9 @@ Najpierw na stronie **uwierzytelnianie/autoryzacja** w Azure Portal Skonfiguruj 
 
 W obszarze **Akcja do wykonania, gdy żądanie nie zostanie uwierzytelnione**, wybierz opcję **Zezwalaj na żądania anonimowe (bez akcji)**.
 
-Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców (`/.auth/login/<provider>`). Przykład:
+Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji aplikacji Dodaj łącze logowania do każdego z włączonych dostawców ( `/.auth/login/<provider>` ). Przykład:
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -45,9 +45,9 @@ Na stronie logowania lub na pasku nawigacyjnym lub w dowolnej innej lokalizacji 
 
 Gdy użytkownik kliknie jedno z linków, na odpowiedniej stronie logowania zostanie otwarta strona logowania użytkownika.
 
-Aby przekierować użytkownika po zalogowaniu się do niestandardowego adresu URL, użyj parametru ciągu `post_login_redirect_url` zapytania (nie należy mylić z identyfikatorem URI przekierowania w konfiguracji dostawcy tożsamości). Na przykład, aby nawigować do użytkownika `/Home/Index` po zalogowaniu, użyj następującego kodu HTML:
+Aby przekierować użytkownika po zalogowaniu się do niestandardowego adresu URL, użyj `post_login_redirect_url` parametru ciągu zapytania (nie należy mylić z identyfikatorem URI przekierowania w konfiguracji dostawcy tożsamości). Na przykład, aby nawigować do użytkownika `/Home/Index` po zalogowaniu, użyj następującego kodu HTML:
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -69,13 +69,13 @@ Format tokenu jest nieco różny w zależności od dostawcy. Szczegółowe infor
 | Wartość dostawcy | Wymagane w treści żądania | Komentarze |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
-| `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` Właściwość jest opcjonalna. <br/>Żądając tokenu od usług Live, zawsze Żądaj `wl.basic` zakresu. |
-| `google` | `{"id_token":"<id_token>"}` | `authorization_code` Właściwość jest opcjonalna. Po określeniu można również opcjonalnie dołączyć do `redirect_uri` właściwości. |
+| `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in`Właściwość jest opcjonalna. <br/>Żądając tokenu od usług Live, zawsze Żądaj `wl.basic` zakresu. |
+| `google` | `{"id_token":"<id_token>"}` | `authorization_code`Właściwość jest opcjonalna. Po określeniu można również opcjonalnie dołączyć do `redirect_uri` właściwości. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Użyj prawidłowego [tokenu dostępu użytkownika](https://developers.facebook.com/docs/facebook-login/access-tokens) z serwisu Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
 | | | |
 
-`authenticationToken` W przypadku pomyślnego zweryfikowania tokenu dostawcy interfejs API zwraca wartość z w treści odpowiedzi, która jest tokenem sesji. 
+W przypadku pomyślnego zweryfikowania tokenu dostawcy interfejs API zwraca wartość z `authenticationToken` w treści odpowiedzi, która jest tokenem sesji. 
 
 ```json
 {
@@ -95,7 +95,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 
 ## <a name="sign-out-of-a-session"></a>Wyloguj się z sesji
 
-Użytkownicy mogą inicjować wylogowywanie, wysyłając `GET` żądanie do `/.auth/logout` punktu końcowego aplikacji. `GET` Żądanie wykonuje następujące czynności:
+Użytkownicy mogą inicjować wylogowywanie, wysyłając `GET` żądanie do `/.auth/logout` punktu końcowego aplikacji. `GET`Żądanie wykonuje następujące czynności:
 
 - Czyści pliki cookie uwierzytelniania z bieżącej sesji.
 - Usuwa z magazynu tokenów tokeny bieżącego użytkownika.
@@ -103,17 +103,17 @@ Użytkownicy mogą inicjować wylogowywanie, wysyłając `GET` żądanie do `/.a
 
 Oto prosty link na stronie internetowej służący do wylogowywania:
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Domyślnie pomyślne wylogowanie przekierowuje klienta do adresu URL `/.auth/logout/done`. Można zmienić stronę przekierowywanie po wylogowaniu, dodając parametr `post_logout_redirect_uri` zapytania. Przykład:
+Domyślnie pomyślne wylogowanie przekierowuje klienta do adresu URL `/.auth/logout/done` . Można zmienić stronę przekierowywanie po wylogowaniu, dodając `post_logout_redirect_uri` parametr zapytania. Przykład:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-Zaleca się [zakodowanie](https://wikipedia.org/wiki/Percent-encoding) wartości `post_logout_redirect_uri`.
+Zaleca się [zakodowanie](https://wikipedia.org/wiki/Percent-encoding) wartości `post_logout_redirect_uri` .
 
 W przypadku korzystania z w pełni kwalifikowanych adresów URL musi być hostowana w tej samej domenie lub skonfigurowana jako dozwolony zewnętrzny adres URL przekierowania dla aplikacji. W poniższym przykładzie, aby przekierować do `https://myexternalurl.com` tego elementu nie są hostowane w tej samej domenie:
 
@@ -129,9 +129,9 @@ az webapp auth update --name <app_name> --resource-group <group_name> --allowed-
 
 ## <a name="preserve-url-fragments"></a>Zachowaj fragmenty adresów URL
 
-Gdy użytkownicy logują się do aplikacji, zazwyczaj chcą być przekierowani do tej samej sekcji na tej samej stronie, na przykład `/wiki/Main_Page#SectionZ`. Jednak ze względu na to, że [fragmenty adresów URL](https://wikipedia.org/wiki/Fragment_identifier) (na przykład `#SectionZ`) nigdy nie są wysyłane do serwera, nie są domyślnie zachowywane po zakończeniu logowania OAuth i przekierowania z powrotem do aplikacji. Następnie użytkownicy uzyskują nieoptymalny komfort, gdy chcą ponownie przejść do żądanego zakotwiczenia. To ograniczenie dotyczy wszystkich rozwiązań uwierzytelniania po stronie serwera.
+Gdy użytkownicy logują się do aplikacji, zazwyczaj chcą być przekierowani do tej samej sekcji na tej samej stronie, na przykład `/wiki/Main_Page#SectionZ` . Jednak ze względu na to, że [fragmenty adresów URL](https://wikipedia.org/wiki/Fragment_identifier) (na przykład `#SectionZ` ) nigdy nie są wysyłane do serwera, nie są domyślnie zachowywane po zakończeniu logowania OAuth i przekierowania z powrotem do aplikacji. Następnie użytkownicy uzyskują nieoptymalny komfort, gdy chcą ponownie przejść do żądanego zakotwiczenia. To ograniczenie dotyczy wszystkich rozwiązań uwierzytelniania po stronie serwera.
 
-W ramach uwierzytelniania App Service można zachować fragmenty adresów URL w ramach logowania za pomocą protokołu OAuth. W tym celu należy ustawić ustawienie aplikacji o nazwie `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` do `true`. Można to zrobić w [Azure Portal](https://portal.azure.com)lub po prostu uruchomić następujące polecenie w [Azure Cloud Shell](../cloud-shell/quickstart.md):
+W ramach uwierzytelniania App Service można zachować fragmenty adresów URL w ramach logowania za pomocą protokołu OAuth. W tym celu należy ustawić ustawienie aplikacji o nazwie `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` do `true` . Można to zrobić w [Azure Portal](https://portal.azure.com)lub po prostu uruchomić następujące polecenie w [Azure Cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
@@ -146,7 +146,7 @@ App Service przekazuje oświadczenia użytkownika do aplikacji przy użyciu spec
 
 Kod, który jest pisany w dowolnym języku lub platformie, może uzyskać informacje potrzebne z tych nagłówków. W przypadku aplikacji ASP.NET 4,6, **ClaimsPrincipal** jest automatycznie ustawiany z odpowiednimi wartościami. ASP.NET Core jednak nie oferuje oprogramowania pośredniczącego uwierzytelniania, które integruje się z App Service oświadczenia użytkownika. Aby obejść ten temat, zobacz [MaximeRouiller. Azure. appService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-Aplikacja może również uzyskać dodatkowe szczegóły dotyczące uwierzytelnionego użytkownika przez wywołanie `/.auth/me`. Zestawy SDK serwera Mobile Apps zapewniają metody pomocnika do pracy z tymi danymi. Aby uzyskać więcej informacji, zobacz [jak używać zestawu SDK platformy azure Mobile Apps Node. js](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)i [współdziałać z zestawem SDK serwera zaplecza platformy .NET dla usługi Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Aplikacja może również uzyskać dodatkowe szczegóły dotyczące uwierzytelnionego użytkownika przez wywołanie `/.auth/me` . Zestawy SDK serwera Mobile Apps zapewniają metody pomocnika do pracy z tymi danymi. Aby uzyskać więcej informacji, zobacz [jak używać zestawu SDK platformy azure Mobile Apps Node.js](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)i [współdziałać z zestawem SDK serwera zaplecza platformy .NET dla platformy Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Pobieranie tokenów w kodzie aplikacji
 
@@ -154,14 +154,14 @@ W kodzie serwera tokeny specyficzne dla dostawcy są wstawiane do nagłówka ż�
 
 | Dostawca | Nazwy nagłówków |
 |-|-|
-| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
+| Usługa Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Konto Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-Z kodu klienta (takiego jak aplikacja mobilna lub JavaScript w przeglądarce) Wyślij żądanie HTTP `GET` do `/.auth/me`programu. Zwrócony kod JSON ma tokeny specyficzne dla dostawcy.
+Z kodu klienta (takiego jak aplikacja mobilna lub JavaScript w przeglądarce) Wyślij `GET` żądanie HTTP do programu `/.auth/me` . Zwrócony kod JSON ma tokeny specyficzne dla dostawcy.
 
 > [!NOTE]
 > Tokeny dostępu są przeznaczone do uzyskiwania dostępu do zasobów dostawcy, dlatego są dostępne tylko w przypadku skonfigurowania dostawcy przy użyciu klucza tajnego klienta. Aby dowiedzieć się, jak uzyskać tokeny odświeżania, zobacz Odświeżanie tokenów dostępu.
@@ -170,15 +170,15 @@ Z kodu klienta (takiego jak aplikacja mobilna lub JavaScript w przeglądarce) Wy
 
 Gdy token dostępu dostawcy (nie [token sesji](#extend-session-token-expiration-grace-period)) wygaśnie, należy ponownie uwierzytelnić użytkownika przed ponownym użyciem tego tokenu. Możesz uniknąć wygaśnięcia tokenu, wykonując `GET` wywołanie do `/.auth/refresh` punktu końcowego aplikacji. Gdy jest wywoływana, App Service automatycznie odświeża tokeny dostępu w magazynie tokenów dla uwierzytelnionego użytkownika. Kolejne żądania dotyczące tokenów przez kod aplikacji otrzymują odświeżone tokeny. Jednak aby odświeżanie tokenów działało, magazyn tokenów musi zawierać [tokeny odświeżania](https://auth0.com/learn/refresh-tokens/) dla dostawcy. Sposób uzyskania tokenów odświeżania jest udokumentowany przez każdego dostawcę, ale Poniższa lista zawiera krótkie podsumowanie:
 
-- **Google**: Dołącz parametr `access_type=offline` ciągu zapytania do wywołania `/.auth/login/google` interfejsu API. Jeśli używasz zestawu SDK Mobile Apps, możesz dodać parametr do jednego z `LogicAsync` przeciążeń (zobacz [tokeny usługi Google Refresh](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Google**: Dołącz `access_type=offline` parametr ciągu zapytania do `/.auth/login/google` wywołania interfejsu API. Jeśli używasz zestawu SDK Mobile Apps, możesz dodać parametr do jednego z `LogicAsync` przeciążeń (zobacz [tokeny usługi Google Refresh](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: nie udostępnia tokenów odświeżania. Tokeny długotrwałe wygasają w ciągu 60 dni (zobacz temat [wygaśnięcie i rozszerzanie tokenów dostępu w serwisie Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: tokeny dostępu nie wygasną (zobacz [często zadawane pytania dotyczące usługi Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
 - **Konto Microsoft**: podczas [konfigurowania ustawień uwierzytelniania konta Microsoft](configure-authentication-provider-microsoft.md)wybierz `wl.offline_access` zakres.
-- **Azure Active Directory**: w [https://resources.azure.com](https://resources.azure.com), wykonaj następujące czynności:
+- **Azure Active Directory**: w [https://resources.azure.com](https://resources.azure.com) , wykonaj następujące czynności:
     1. W górnej części strony wybierz pozycję **Odczyt/zapis**.
-    2. W przeglądarce po lewej stronie przejdź do **subskrypcji subskrypcji** > **_\<\_nazwa_** > **resourceGroups** > **_\<grupy\_\_zasobów,>_**  >  **dostawcy** > **Microsoft. Web** > **sites** > **_\<nazwa\_aplikacji>_**  >  **config** > **authsettings**. 
+    2. W lewej przeglądarce przejdź do **subskrypcji** > * *_ \<subscription\_name_** > **resourceGroups** > * *_ \<resource\_group\_name> _* * > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
     3. Kliknij pozycję **Edytuj**.
-    4. Zmodyfikuj następującą właściwość. Zastąp _ \<identyfikator App\_>_ identyfikatorem aplikacji Azure Active Directory usługi, do której chcesz uzyskać dostęp.
+    4. Zmodyfikuj następującą właściwość. Zamień na _\<app\_id>_ Identyfikator aplikacji Azure Active Directory usługi, do której chcesz uzyskać dostęp.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
@@ -188,9 +188,9 @@ Gdy token dostępu dostawcy (nie [token sesji](#extend-session-token-expiration-
 
 Po skonfigurowaniu dostawcy można [znaleźć token odświeżania i czas wygaśnięcia tokenu dostępu](#retrieve-tokens-in-app-code) w magazynie tokenów. 
 
-Aby odświeżyć token dostępu w dowolnym momencie, po prostu `/.auth/refresh` Wywołaj w dowolnym języku. Poniższy fragment kodu używa platformy jQuery do odświeżania tokenów dostępu z klienta JavaScript.
+Aby odświeżyć token dostępu w dowolnym momencie, po prostu wywołaj `/.auth/refresh` w dowolnym języku. Poniższy fragment kodu używa platformy jQuery do odświeżania tokenów dostępu z klienta JavaScript.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -221,20 +221,20 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Ogranicz domenę kont logowania
 
-Zarówno konto Microsoft, jak i Azure Active Directory umożliwiają logowanie się z wielu domen. Na przykład konto Microsoft umożliwia korzystanie z kont _Outlook.com_, _Live.com_i _hotmail.com_ . Usługa Azure AD umożliwia dowolna liczba domen niestandardowych dla kont logowania. Można jednak przyspieszyć użytkowników bezpośrednio do własnej, oznakowanej strony logowania usługi Azure AD (np. `contoso.com`). Aby zasugerować nazwę domeny kont logowania, wykonaj następujące kroki.
+Zarówno konto Microsoft, jak i Azure Active Directory umożliwiają logowanie się z wielu domen. Na przykład konto Microsoft umożliwia korzystanie z kont _Outlook.com_, _Live.com_i _hotmail.com_ . Usługa Azure AD umożliwia dowolna liczba domen niestandardowych dla kont logowania. Można jednak przyspieszyć użytkowników bezpośrednio do własnej, oznakowanej strony logowania usługi Azure AD (np `contoso.com` .). Aby zasugerować nazwę domeny kont logowania, wykonaj następujące kroki.
 
-W [https://resources.azure.com](https://resources.azure.com)programie **Przejdź do** > **_\<subskrypcji Subscription\_Name_****resourceGroups** >   >  **providers** >   >  **config****sites** > **authsettings****_\_resourceGroups nazwa grupy\_zasobów>dostawcy Microsoft. Web Sites Nazwa aplikacji>config authsettings.\< _** >  > **Microsoft.Web****_\<\_ _** >  
+W programie [https://resources.azure.com](https://resources.azure.com) Przejdź do **subskrypcji** > * *_ \<subscription\_name_** > **resourceGroups** > * *_* \<resource\_group\_name> _* > **dostawcy**  >  **Microsoft. Web**  >  **sites** > * *_ \<app\_name> _ * * > **config**  >  **authsettings**. 
 
-Kliknij przycisk **Edytuj**, zmodyfikuj następującą właściwość, a następnie kliknij przycisk **Put**. Pamiętaj, aby zastąpić _ \<nazwę\_domeny>_ domeną, której chcesz użyć.
+Kliknij przycisk **Edytuj**, zmodyfikuj następującą właściwość, a następnie kliknij przycisk **Put**. Pamiętaj, aby zamienić na _\<domain\_name>_ wybraną domenę.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
 
-To ustawienie dołącza parametr ciągu `domain_hint` zapytania do adresu URL przekierowania logowania. 
+To ustawienie dołącza `domain_hint` parametr ciągu zapytania do adresu URL przekierowania logowania. 
 
 > [!IMPORTANT]
-> Możliwe jest, aby klient usunął `domain_hint` parametr po ODEBRANIU adresu URL przekierowania, a następnie zalogować się w innej domenie. Dlatego chociaż ta funkcja jest wygodna, nie jest funkcją zabezpieczeń.
+> Możliwe jest, aby klient usunął `domain_hint` parametr po odebraniu adresu URL przekierowania, a następnie zalogować się w innej domenie. Dlatego chociaż ta funkcja jest wygodna, nie jest funkcją zabezpieczeń.
 >
 
 ## <a name="authorize-or-deny-users"></a>Autoryzuj lub Odmów użytkownikom
@@ -247,13 +247,13 @@ Chociaż App Service zajmuje się najprostszym przypadkiem autoryzacji (tj. odrz
 
 ### <a name="server-level-windows-apps-only"></a>Poziom serwera (tylko aplikacje systemu Windows)
 
-W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie autoryzacji serwera sieci Web usług IIS, edytując plik *Web. config* . Aplikacje systemu Linux nie używają usług IIS i nie można ich konfigurować za pomocą *pliku Web. config*.
+W przypadku dowolnej aplikacji systemu Windows można zdefiniować zachowanie autoryzacji serwera sieci Web usług IIS, edytując plik *Web.config* . Aplikacje systemu Linux nie używają usług IIS i nie można ich skonfigurować za pomocą *Web.config*.
 
-1. Przejdź do`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+1. Przejdź do strony `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. W Eksploratorze przeglądarki plików App Service przejdź do *lokalizacji site/wwwroot*. Jeśli plik *Web. config* nie istnieje, utwórz go, wybierając **+**  > pozycję **nowy plik**. 
+1. W Eksploratorze przeglądarki plików App Service przejdź do *lokalizacji site/wwwroot*. Jeśli *Web.config* nie istnieje, utwórz ją, wybierając pozycję **+**  >  **nowy plik**. 
 
-1. Wybierz ołówek dla *pliku Web. config* , aby go edytować. Dodaj następujący kod konfiguracji i kliknij przycisk **Zapisz**. Jeśli *plik Web. config* już istnieje, po prostu `<authorization>` Dodaj element ze wszystkimi elementami. Dodaj konta, które mają być dozwolone w `<allow>` elemencie.
+1. Wybierz ołówek do *Web.config* , aby go edytować. Dodaj następujący kod konfiguracji i kliknij przycisk **Zapisz**. Jeśli *Web.config* już istnieje, po prostu Dodaj `<authorization>` element ze wszystkimi elementami. Dodaj konta, które mają być dozwolone w `<allow>` elemencie.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -281,5 +281,5 @@ Jeśli jeden z pozostałych poziomów nie zapewnia autoryzacji lub dostawca toż
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników kompleksowe (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na całym końcu (Linux)](containers/tutorial-auth-aad.md)
+> [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na całym końcu (Windows)](app-service-web-tutorial-auth-aad.md) 
+>  [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na całym końcu (Linux)](containers/tutorial-auth-aad.md)

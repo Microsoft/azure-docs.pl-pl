@@ -5,16 +5,16 @@ description: Dowiedz się, jak tworzyć i uruchamiać projekty etykietowania w c
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171565"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86025186"
 ---
-# <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
+# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Tworzenie projektu etykietowania danych (wersja zapoznawcza) i eksportowanie etykiet 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -39,7 +39,6 @@ W tym artykule dowiesz się, jak:
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
 
 * Dane, które chcesz oznaczyć, w plikach lokalnych lub w usłudze Azure Blob Storage.
 * Zestaw etykiet, które mają zostać zastosowane.
@@ -67,6 +66,8 @@ Wybierz pozycję **dalej** , gdy wszystko będzie gotowe do kontynuowania.
 
 Jeśli utworzono już zestaw danych, który zawiera dane, wybierz go z listy rozwijanej **Wybierz istniejący zestaw danych** . Lub wybierz pozycję **Utwórz zestaw danych** , aby użyć istniejącego magazynu usługi Azure datastore lub do przekazywania plików lokalnych.
 
+> [!NOTE]
+> Projekt nie może zawierać więcej niż 500 000 obrazów.  Jeśli zestaw danych zawiera więcej, zostaną załadowane tylko pierwsze obrazy 500 000.  
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Tworzenie zestawu danych na podstawie usługi Azure datastore
 
@@ -82,11 +83,9 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
-> [!NOTE]
-> Wybrane dane są ładowane do projektu.  Dodawanie większej ilości danych do magazynu danych nie zostanie wyświetlone w projekcie po utworzeniu projektu.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Tworzenie zestawu danych na podstawie przekazanych danych
 
@@ -98,10 +97,23 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
+
+## <a name="configure-incremental-refresh"></a><a name="incremental-refresh"> </a> Skonfiguruj odświeżanie przyrostowe
+
+Jeśli planujesz dodać nowe obrazy do zestawu danych, użyj odświeżania przyrostowego, aby dodać nowe obrazy do projektu.   Po włączeniu **odświeżania przyrostowego** zestaw danych jest okresowo sprawdzany w celu dodania nowych obrazów do projektu w oparciu o wskaźnik ukończenia etykietowania.   Sprawdzanie, czy nowe dane są zatrzymane, gdy projekt zawiera maksymalną 500 000 obrazów.
+
+Aby dodać więcej obrazów do projektu, użyj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do przekazania do odpowiedniego folderu w magazynie obiektów BLOB. 
+
+Zaznacz pole wyboru **Włącz odświeżanie przyrostowe** , jeśli chcesz, aby projekt stale monitorował się pod kątem nowych danych w magazynie danych.
+
+Usuń zaznaczenie tego pola, jeśli nie chcesz, aby nowe obrazy, które pojawiają się w magazynie danych, były dodawane do projektu.
+
+Sygnaturę czasową ostatniego odświeżenia można znaleźć w sekcji **odświeżanie przyrostowe** karty **szczegóły** dla projektu.
+
 
 ## <a name="specify-label-classes"></a>Określanie klas etykiet
 
@@ -164,7 +176,10 @@ Po przeszkoleniu modelu uczenia maszynowego na ręcznie etykietowanych danych mo
 
 ## <a name="initialize-the-labeling-project"></a>Inicjowanie projektu etykietowania
 
-Po zainicjowaniu projektu etykietowania niektóre aspekty projektu są niezmienne. Nie można zmienić typu zadania lub zestawu danych. *Możesz* zmodyfikować etykiety i adres URL opisu zadania. Uważnie przejrzyj ustawienia przed utworzeniem projektu. Po przesłaniu projektu nastąpi powrót do strony głównej **etykietowania danych** , co spowoduje wyświetlenie projektu jako **inicjującego**. Ta strona nie jest automatycznie odświeżana. Dlatego po wstrzymaniu ręcznie Odśwież stronę, aby zobaczyć stan projektu jako **utworzony**.
+Po zainicjowaniu projektu etykietowania niektóre aspekty projektu są niezmienne. Nie można zmienić typu zadania lub zestawu danych. *Możesz* zmodyfikować etykiety i adres URL opisu zadania. Uważnie przejrzyj ustawienia przed utworzeniem projektu. Po przesłaniu projektu nastąpi powrót do strony głównej **etykietowania danych** , co spowoduje wyświetlenie projektu jako **inicjującego**.
+
+> [!NOTE]
+> Ta strona może nie być odświeżana automatycznie. Dlatego po wstrzymaniu ręcznie Odśwież stronę, aby zobaczyć stan projektu jako **utworzony**.
 
 ## <a name="run-and-monitor-the-project"></a>Uruchamianie i monitorowanie projektu
 

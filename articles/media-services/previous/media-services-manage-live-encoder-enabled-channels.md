@@ -16,10 +16,9 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81641102"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
@@ -51,7 +50,7 @@ Począwszy od wersji 2,10 Media Services, podczas tworzenia kanału można okre�
 > 
 
 ## <a name="billing-implications"></a>Implikacje rozliczeń
-Kanał kodowania na żywo rozpoczyna rozliczanie od razu po zmianie stanu na "uruchomiony" za pośrednictwem interfejsu API.   Możesz również wyświetlić stan w Azure Portal lub w narzędziu Eksplorator Azure Media Services (https://aka.ms/amse).
+Kanał kodowania na żywo rozpoczyna rozliczanie od razu po zmianie stanu na "uruchomiony" za pośrednictwem interfejsu API.   Możesz również wyświetlić stan w Azure Portal lub w narzędziu Eksplorator Azure Media Services ( https://aka.ms/amse) .
 
 W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się na Stany rozliczeń w interfejsie API i Azure Portal. Stany różnią się nieco między interfejsem użytkownika interfejsu API i portalu. Gdy tylko kanał jest w stanie "uruchomiony" za pośrednictwem interfejsu API lub w stanie "gotowe" lub "streaming" w Azure Portal, rozliczenia będą aktywne.
 Aby zatrzymać rozliczanie kanału od Ciebie, należy zatrzymać kanał za pośrednictwem interfejsu API lub Azure Portal.
@@ -219,12 +218,12 @@ Określa ustawienie wstępne, które ma być używane przez koder na żywo w ram
 
 | Multimedia | impulsów | Właściwość Height | MaxFPS | Profil | Nazwa strumienia wyjściowego |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Wysoka |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Wysoka |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Wysoka |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Wysoka |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Wysoka |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Wysoka |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Wysoki |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Wysoki |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Wysoki |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Wysoki |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Wysoki |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Wysoki |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Wyjściowy strumień audio
 
@@ -322,7 +321,7 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 > 
 > 
 
-## <a name="considerations"></a><a id="Considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a><a id="Considerations"></a>Istotne zagadnienia
 * W przypadku kanału **standardowego** typu kodowania w przypadku utraty źródła danych wejściowych/kanału informacyjnego, jest on kompensowany przez zastępowanie źródłowego wideo/audio błędem i wysunięciem. Kanał będzie w dalszym ciągu emitować do momentu wznowienia kanału wejścia/wyjścia. Zalecamy, aby kanał na żywo nie pozostawał w stanie dłuższym niż 2 godziny. Po tym momencie zachowanie kanału na potrzeby ponownego połączenia danych wejściowych nie jest gwarantowane, ani nie jest zachowaniem w odpowiedzi na polecenie resetowania. Należy zatrzymać kanał, usunąć go i utworzyć nowy.
 * Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
 * Za każdym razem, gdy ponownie konfigurujesz koder na żywo, wywołaj metodę **resetowania** kanału. Przed zresetowaniem kanału należy zatrzymać program. Po zresetowaniu kanału należy ponownie uruchomić program.
@@ -350,7 +349,7 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Powiązane tematy

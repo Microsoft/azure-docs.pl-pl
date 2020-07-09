@@ -1,6 +1,6 @@
 ---
 title: Wszystkie tematy dotyczące usługi SQL Server Stretch Database | Microsoft Docs
-description: Tabela wszystkich tematów dla usługi platformy Azure o nazwie SQL Server Stretch Database, która istnieje https://azure.microsoft.com/documentation/articles/w, tytule i opisie.
+description: Tabela wszystkich tematów dla usługi platformy Azure o nazwie SQL Server Stretch Database, która istnieje w https://azure.microsoft.com/documentation/articles/ , tytule i opisie.
 services: sql-server-stretch-database
 documentationcenter: ''
 ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
@@ -14,16 +14,16 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "66003025"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Wszystkie tematy dotyczące usługi SQL Server Stretch Database platformy Azure
 Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośrednio do usługi **SQL Server stretch Database** platformy Azure. Możesz przeszukać Tę stronę sieci Web pod kątem słów kluczowych przy użyciu **kombinacji klawiszy Ctrl + F**, aby znaleźć tematy bieżącego zainteresowania.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 | &nbsp; | Tytuł | Opis |
 | ---:|:--- |:--- |
 | 1 |[Identyfikowanie baz danych i tabel dla Stretch Database przez uruchomienie usługi Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) |Dowiedz się, jak identyfikować bazy danych i tabele, które są kandydatami do Stretch Database. |
@@ -31,7 +31,7 @@ Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośr
 | 3 |[Przegląd Stretch Database](sql-server-stretch-database-overview.md) |Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure. |
 | 4 |[Rozpoczynanie pracy przez uruchomienie kreatora włączania bazy danych Stretch](sql-server-stretch-database-wizard.md) |Dowiedz się, jak skonfigurować bazę danych dla bazy danych Stretch przy użyciu kreatora włączania bazy danych Stretch. |
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włączenie
 | &nbsp; | Tytuł | Opis |
 | ---:|:--- |:--- |
 | 5 |[Włączanie bazy danych Stretch dla bazy danych](sql-server-stretch-database-enable-database.md) |Dowiedz się, jak skonfigurować bazę danych dla Stretch Database. |
@@ -55,6 +55,6 @@ Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośr
 ## <a name="backup-and-recovery"></a>Tworzenie i przywracanie kopii zapasowych
 | &nbsp; | Tytuł | Opis |
 | ---:|:--- |:--- |
-| 14 |[Tworzenie kopii zapasowych baz danych z obsługą usługi Stretch](sql-server-stretch-database-backup.md) |Dowiedz się, jak utworzyć\-kopię zapasową rozproszonych baz danych. |
-| 15 |[Przywracanie baz danych z obsługą rozciągania](sql-server-stretch-database-restore.md) |Dowiedz się, jak\-przywrócić rozproszone bazy danych. |
+| 14 |[Tworzenie kopii zapasowych baz danych z obsługą usługi Stretch](sql-server-stretch-database-backup.md) |Dowiedz się, jak utworzyć kopię zapasową rozproszonych \- baz danych. |
+| 15 |[Przywracanie baz danych z obsługą rozciągania](sql-server-stretch-database-restore.md) |Dowiedz się, jak przywrócić rozproszone \- bazy danych. |
 

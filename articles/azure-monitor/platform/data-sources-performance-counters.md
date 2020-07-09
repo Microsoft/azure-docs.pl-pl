@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739368"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955492"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Źródła danych wydajności systemów Windows i Linux w Azure Monitor
 Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności w częstych odstępach czasu dla analizy prawie w czasie rzeczywistym (NRT), a także do agregowania danych dotyczących wydajności na potrzeby analizy i raportowania w dłuższym okresie.
@@ -39,7 +38,7 @@ Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu 
 
 1. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter*.  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  Możesz również zwrócić wszystkie wystąpienia dla określonego licznika, określając *object\counter*.  
 
-    Podczas zbierania SQL Server liczników wydajności z nazwanych wystąpień wszystkie liczniki nazwanego wystąpienia zaczynają się od *MSSQL $* i po nim nazwa wystąpienia.  Na przykład, aby zebrać licznik Współczynnik trafień pamięci podręcznej dzienników dla wszystkich baz danych z obiektu wydajności bazy danych dla nazwanego `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`wystąpienia SQL INST2, określ.
+    Podczas zbierania SQL Server liczników wydajności z nazwanych wystąpień wszystkie liczniki nazwanego wystąpienia zaczynają się od *MSSQL $* i po nim nazwa wystąpienia.  Na przykład, aby zebrać licznik Współczynnik trafień pamięci podręcznej dzienników dla wszystkich baz danych z obiektu wydajności bazy danych dla nazwanego wystąpienia SQL INST2, określ `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio` .
 
 2. Kliknij **+** lub naciśnij klawisz **Enter** , aby dodać licznik do listy.
 3. Po dodaniu licznika zostanie użyta wartość domyślna wynosząca 10 sekund dla **interwału próbkowania**.  Można zmienić tę wartość na wyższą niż 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
@@ -58,26 +57,28 @@ Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu 
 5. Po zakończeniu dodawania liczników kliknij przycisk **Zapisz** znajdujący się u góry ekranu, aby zapisać konfigurację.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurowanie liczników wydajności systemu Linux w pliku konfiguracyjnym
-Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu Azure Portal istnieje możliwość edytowania plików konfiguracji w agencie systemu Linux.  Metryki wydajności do zebrania są kontrolowane przez konfigurację **w\<obszarze roboczym/etc/opt/Microsoft/omsagent/\>identyfikator/conf/omsagent.conf**.
+Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu Azure Portal istnieje możliwość edytowania plików konfiguracji w agencie systemu Linux.  Metryki wydajności do zebrania są kontrolowane przez konfigurację w **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.
 
 Każdy obiekt lub kategoria metryk wydajności do zebrania należy zdefiniować w pliku konfiguracji jako pojedynczy `<source>` element. Składnia jest zgodna z wzorcem poniżej.
 
-    <source>
-      type oms_omi  
-      object_name "Processor"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 Parametry w tym elemencie są opisane w poniższej tabeli.
 
 | Parametry | Opis |
 |:--|:--|
-| Nazwa\_obiektu | Nazwa obiektu dla kolekcji. |
-| wyrażenie\_regularne wystąpienia |  *Wyrażenie regularne* definiujące, które wystąpienia mają być zbierane. Wartość: `.*` określa wszystkie wystąpienia. Aby zbierać metryki procesora tylko dla \_wystąpienia całkowitego, można określić `_Total`. Aby zbierać metryki procesów tylko dla wystąpień z identyfikatorem "lub" SSHD, można `(crond\|sshd)`określić:. |
-| wyrażenie\_regularne\_nazwy licznika | *Wyrażenie regularne* definiujące, które liczniki (dla obiektu) mają być zbierane. Aby zebrać wszystkie liczniki dla obiektu, określ: `.*`. Aby zebrać tylko liczniki przestrzeni wymiany dla obiektu pamięci, można na przykład określić:`.+Swap.+` |
+| \_Nazwa obiektu | Nazwa obiektu dla kolekcji. |
+| \_wyrażenie regularne wystąpienia |  *Wyrażenie regularne* definiujące, które wystąpienia mają być zbierane. Wartość: `.*` określa wszystkie wystąpienia. Aby zbierać metryki procesora tylko dla \_ wystąpienia całkowitego, można określić `_Total` . Aby zbierać metryki procesów tylko dla wystąpień z identyfikatorem "lub" SSHD, można określić: `(crond\|sshd)` . |
+| \_ \_ wyrażenie regularne nazwy licznika | *Wyrażenie regularne* definiujące, które liczniki (dla obiektu) mają być zbierane. Aby zebrać wszystkie liczniki dla obiektu, określ: `.*` . Aby zebrać tylko liczniki przestrzeni wymiany dla obiektu pamięci, można na przykład określić:`.+Swap.+` |
 | interval | Częstotliwość, z jaką są zbierane liczniki obiektu. |
 
 
@@ -142,37 +143,39 @@ W poniższej tabeli wymieniono obiekty i liczniki, które można określić w pl
 
 Poniżej przedstawiono domyślną konfigurację metryk wydajności.
 
-    <source>
-      type oms_omi
-      object_name "Physical Disk"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+```xml
+<source>
+    type oms_omi
+    object_name "Physical Disk"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Logical Disk"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 5m
-    </source>
+<source>
+    type oms_omi
+    object_name "Logical Disk"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 5m
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Processor"
-      instance_regex ".*
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Processor"
+    instance_regex ".*
+    counter_name_regex ".*"
+    interval 30s
+</source>
 
-    <source>
-      type oms_omi
-      object_name "Memory"
-      instance_regex ".*"
-      counter_name_regex ".*"
-      interval 30s
-    </source>
+<source>
+    type oms_omi
+    object_name "Memory"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 ## <a name="data-collection"></a>Zbieranie danych
 Azure Monitor zbiera wszystkie określone liczniki wydajności w określonym interwale próbkowania na wszystkich agentach, na których zainstalowano ten licznik.  Dane nie są agregowane i dane pierwotne są dostępne we wszystkich widokach zapytania dziennika przez czas trwania określony przez obszar roboczy usługi log Analytics.
@@ -184,7 +187,7 @@ Rekordy wydajności mają typ **wydajności** i mają właściwości opisane w p
 |:--- |:--- |
 | Computer (Komputer) |Komputer, z którego zostało zebrane zdarzenie. |
 | CounterName |Nazwa licznika wydajności |
-| CounterPath |\\ \\ \<Pełna ścieżka licznika w postaci licznik>\\obiektu komputera (wystąpienie).\\ |
+| CounterPath |Pełna ścieżka licznika w \\ \\ \<Computer> \\ obiekcie form (wystąpienie) \\ . |
 | CounterValue |Wartość liczbowa licznika. |
 | InstanceName |Nazwa wystąpienia zdarzenia.  Puste, jeśli żadne wystąpienie nie jest. |
 | ObjectName |Nazwa obiektu wydajności |
@@ -194,7 +197,7 @@ Rekordy wydajności mają typ **wydajności** i mają właściwości opisane w p
 ## <a name="sizing-estimates"></a>Ustalanie wielkości oszacowań
  Przybliżone oszacowanie dla zbierania określonego licznika w 10-sekundowych odstępach wynosi około 1 MB dziennie na wystąpienie.  Wymagania dotyczące magazynu określonego licznika można oszacować przy użyciu następującej formuły.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (liczba liczników) x (liczba agentów) x (liczba wystąpień)
 
 ## <a name="log-queries-with-performance-records"></a>Rejestruj zapytania z rekordami wydajności
 W poniższej tabeli przedstawiono różne przykłady zapytań dzienników, które pobierają rekordy wydajności.

@@ -1,6 +1,6 @@
 ---
-title: 'Interfejs wiersza polecenia platformy Azure: monitorowanie & skalowania bazy danych w Azure SQL Database'
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
+title: 'Interfejs wiersza polecenia platformy Azure: monitorowanie i skalowanie pojedynczej bazy danych w Azure SQL Database'
+description: Użyj przykładowego skryptu interfejsu wiersza polecenia platformy Azure do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,19 +11,20 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: be57309e4b327027ed0185c8eabf783a18cc957e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e6fc57a1e0d8988666dd4fe1391e157a2a15f682
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053723"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196818"
 ---
-# <a name="use-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Używanie interfejsu wiersza polecenia do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
+# <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Używanie interfejsu wiersza polecenia platformy Azure do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure skaluje pojedynczą bazę danych w Azure SQL Database do innego rozmiaru obliczeniowego po wykonaniu zapytania o informacje o rozmiarze bazy danych.
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -39,10 +40,10 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a single database in Azure SQL Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> Użyj [AZ SQL DB op list](/cli/azure/sql/db/op?#az-sql-db-op-list) , aby uzyskać listę operacji wykonywanych w bazie danych i [AZ SQL DB op Cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) , aby anulować operację aktualizacji w bazie danych.
+> Użyj [AZ SQL DB op list](/cli/azure/sql/db/op?#az-sql-db-op-list) , aby uzyskać listę operacji wykonywanych w bazie danych, i Użyj [AZ SQL DB op Cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) , aby anulować operację aktualizacji w bazie danych.
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
@@ -59,7 +60,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | | |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Polecenia serwera. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Pokazuje informacje o użyciu rozmiaru dla pojedynczej bazy danych lub bazy danych w puli. |
+| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Pokazuje informacje o użyciu rozmiaru dla bazy danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 

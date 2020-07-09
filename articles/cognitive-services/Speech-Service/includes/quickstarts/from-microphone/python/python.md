@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 3613d190ef079d0e477d42b426a224d8e4dda7e6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f26f0ab6da398dcdee307f89b27cca780d08af85
+ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400658"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85838959"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,7 +34,9 @@ Utwórz plik o nazwie *quickstart.py* i wklej do niego następujący kod języka
 
 ## <a name="build-and-run-app"></a>Kompilowanie i uruchamianie aplikacji
 
-Teraz wszystko jest gotowe do przetestowania aplikacji i sprawdzenia funkcji rozpoznawania mowy przy użyciu usługi Speech.
+Teraz wszystko jest gotowe do testowania rozpoznawania mowy przy użyciu usługi Speech. 
+
+Jeśli uruchamiasz ten program na macOS i jest to pierwsza utworzona aplikacja w języku Python, która korzysta z mikrofonu, prawdopodobnie trzeba będzie zapewnić dostęp terminalu do mikrofonu. Otwórz okno **Ustawienia systemu** i wybierz pozycję **zabezpieczenia & prywatność**. Następnie wybierz pozycję **prywatność** i Znajdź **mikrofon** na liście. Na koniec wybierz pozycję **Terminal** i Zapisz. 
 
 1. **Uruchom aplikację** — w wierszu polecenia wpisz:
     ```bash
@@ -45,4 +47,3 @@ Teraz wszystko jest gotowe do przetestowania aplikacji i sprawdzenia funkcji roz
 ## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
-

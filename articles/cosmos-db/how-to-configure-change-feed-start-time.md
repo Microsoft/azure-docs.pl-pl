@@ -3,15 +3,15 @@ title: Jak skonfigurować czas rozpoczęcia procesora dla kanału informacyjnego
 description: Dowiedz się, jak skonfigurować procesor kanału informacyjnego w celu rozpoczęcia odczytywania z określonego dnia i godziny
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3d9af1b8cbda3f0fa2ff4650fef4602f7812f79
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77586278"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261719"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Jak skonfigurować czas rozpoczęcia procesora kanału informacyjnego zmiany
 
@@ -23,7 +23,7 @@ Gdy procesor źródła zmian zostanie uruchomiony po raz pierwszy, zostanie zain
 
 ## <a name="reading-from-a-previous-date-and-time"></a>Odczytywanie od podanej daty i godziny
 
-Możliwe jest zainicjowanie procesora kanału informacyjnego, aby odczytywać zmiany, rozpoczynając od **określonej daty i godziny**, przekazując wystąpienie `DateTime` do rozszerzenia `WithStartTime` konstruktora:
+Możliwe jest zainicjowanie procesora kanału informacyjnego, aby odczytywać zmiany, rozpoczynając od **określonej daty i godziny**, przekazując wystąpienie `DateTime` do `WithStartTime` rozszerzenia konstruktora:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
@@ -31,7 +31,7 @@ Procesor kanału informacyjnego zmian zostanie zainicjowany dla tej konkretnej d
 
 ## <a name="reading-from-the-beginning"></a>Odczytywanie od początku
 
-W innych scenariuszach, takich jak migracja danych lub analizowanie całej historii kontenera, musimy przeczytać Źródło zmian od **początku okresu istnienia tego kontenera**. Aby to zrobić, można użyć `WithStartTime` na rozszerzeniu konstruktora, ale przekazywać `DateTime.MinValue.ToUniversalTime()`, które generują reprezentację UTC wartości minimalnej `DateTime` , na przykład:
+W innych scenariuszach, takich jak migracja danych lub analizowanie całej historii kontenera, musimy przeczytać Źródło zmian od **początku okresu istnienia tego kontenera**. Aby to zrobić, można użyć `WithStartTime` na rozszerzeniu konstruktora, ale przekazywać `DateTime.MinValue.ToUniversalTime()` , które generują reprezentację UTC wartości minimalnej `DateTime` , na przykład:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 
@@ -43,7 +43,7 @@ Procesor kanału informacyjnego zmian zostanie zainicjowany i rozpocznie się od
 > [!NOTE]
 > Podczas określania punktu w czasie odczytywane będą tylko zmiany elementów, które aktualnie istnieją w kontenerze. Jeśli element został usunięty, jego historia w kanale zmian również zostanie usunięta.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Przykłady użycia w witrynie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

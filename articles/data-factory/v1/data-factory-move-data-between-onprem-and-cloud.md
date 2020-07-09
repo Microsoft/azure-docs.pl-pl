@@ -12,12 +12,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195991"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między źródłami lokalnymi i chmurą przy użyciu bramy Zarządzanie danymi
 > [!NOTE]
@@ -47,7 +46,7 @@ Przed rozpoczęciem tego instruktażu należy spełnić następujące wymagania 
 
 * **Subskrypcja platformy Azure**.  Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Szczegółowe informacje można znaleźć w artykule dotyczącym [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
 * **Konto usługi Azure Storage**. Magazyn obiektów BLOB jest używany jako magazyn danych **docelowych/ujścia** w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
-* **SQL Server**. Użyj lokalnej bazy danych programu SQL Server jako **źródła** magazynu danych w tym samouczku.
+* **SQL Server**. W tym samouczku używasz bazy danych SQL Server jako **źródła** magazynu danych.
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
 W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory o nazwie **ADFTutorialOnPremDF**.
@@ -104,7 +103,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
 
     ![Brama — Konfigurowanie strony](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    W ten sposób najłatwiejszym sposobem (jednym kliknięciem) jest pobranie, zainstalowanie, skonfigurowanie i zarejestrowanie bramy w jednym kroku. Na komputerze jest zainstalowana aplikacja **Configuration Manager Microsoft zarządzanie danymi Gateway** . Plik wykonywalny **ConfigManager. exe** można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**.
+    W ten sposób najłatwiejszym sposobem (jednym kliknięciem) jest pobranie, zainstalowanie, skonfigurowanie i zarejestrowanie bramy w jednym kroku. Na komputerze jest zainstalowana aplikacja **Configuration Manager Microsoft zarządzanie danymi Gateway** . **ConfigManager.exe** pliku wykonywalnego można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**.
 
     Możesz również ręcznie pobrać i zainstalować bramę, korzystając z linków na tej stronie i rejestrując je przy użyciu klucza podanego w polu tekstowym **nowy klucz** .
 
@@ -117,7 +116,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
 5. Poczekaj kilka minut lub zaczekaj, aż zobaczysz następujący komunikat powiadomienia:
 
     ![Pomyślnie zainstalowano bramę](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Uruchom aplikację **Zarządzanie danymi Gateway Configuration Manager** na swoim komputerze. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia. Plik wykonywalny **ConfigManager. exe** można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**
+6. Uruchom aplikację **Zarządzanie danymi Gateway Configuration Manager** na swoim komputerze. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia. **ConfigManager.exe** pliku wykonywalnego można również znaleźć w folderze: **C:\Program Files\Microsoft zarządzanie danymi Gateway\2.0\Shared**
 
     ![Configuration Manager bramy](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Potwierdź, że zobaczysz `adftutorialgateway is connected to the cloud service` komunikat. Na dolnej liście wyświetlany jest pasek stanu **połączony z usługą w chmurze** z **zielonym znacznikiem wyboru**.
@@ -138,7 +137,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
    * Wyświetl lub wyeksportuj certyfikat używany przez bramę.
    * Zmień punkt końcowy HTTPS używany przez bramę.    
    * Ustaw serwer proxy HTTP, który ma być używany przez bramę.     
-9. obowiązkowe Przejdź do karty **Diagnostyka** , zaznacz opcję **Włącz pełne rejestrowanie** , jeśli chcesz włączyć pełne rejestrowanie, którego można użyć do rozwiązywania problemów z bramą. Informacje o rejestrowaniu można znaleźć w **Podgląd zdarzeń** w obszarze ->  **Dzienniki aplikacji i usług****Zarządzanie danymi węźle bramy** .
+9. obowiązkowe Przejdź do karty **Diagnostyka** , zaznacz opcję **Włącz pełne rejestrowanie** , jeśli chcesz włączyć pełne rejestrowanie, którego można użyć do rozwiązywania problemów z bramą. Informacje o rejestrowaniu można znaleźć w **Podgląd zdarzeń** w obszarze **Dzienniki aplikacji i usług**  ->  **Zarządzanie danymi węźle bramy** .
 
     ![Karta Diagnostyka](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -152,9 +151,9 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
 12. W widoku drzewa po lewej stronie powinien być widoczny **adftutorialgateway** w obszarze **bramy danych** .  Jeśli klikniesz ją, zobaczysz skojarzony kod JSON.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-W tym kroku utworzysz dwie połączone usługi: **AzureStorageLinkedService** i **SqlServerLinkedService**. **SqlServerLinkedService** łączy lokalną bazę danych SQL Server, a połączona usługa **AzureStorageLinkedService** łączy magazyn obiektów blob platformy Azure z fabryką danych. W tym instruktażu utworzysz potok, który kopiuje dane z lokalnej bazy danych SQL Server do magazynu obiektów blob platformy Azure.
+W tym kroku utworzysz dwie połączone usługi: **AzureStorageLinkedService** i **SqlServerLinkedService**. **SqlServerLinkedService** łączy SQL Server bazą danych, a połączona usługa **AzureStorageLinkedService** łączy magazyn obiektów blob platformy Azure z fabryką danych. W tym instruktażu utworzysz potok, który kopiuje dane z bazy danych SQL Server do magazynu obiektów blob platformy Azure.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Dodawanie połączonej usługi do lokalnej bazy danych SQL Server
+#### <a name="add-a-linked-service-to-a-sql-server-database"></a>Dodawanie połączonej usługi do bazy danych SQL Server
 1. W **edytorze Data Factory**kliknij pozycję **nowy magazyn danych** na pasku narzędzi i wybierz pozycję **SQL Server**.
 
    ![Nowa SQL Server połączona usługa](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
@@ -189,7 +188,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
 * Utwórz kontener obiektów blob o nazwie **adftutorial** na koncie usługi Azure Blob Storage dodanym jako połączona usługa do fabryki danych.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Przygotowywanie SQL Server lokalnych dla samouczka
-1. W bazie danych określonej dla lokalnej połączonej usługi SQL Server (**SqlServerLinkedService**) użyj następującego skryptu SQL w celu utworzenia tabeli **emp** w bazie danych.
+1. W bazie danych określonej dla SQL Server połączonej usługi (**SqlServerLinkedService**) Użyj poniższego skryptu SQL, aby utworzyć tabelę **EMP** w bazie danych.
 
     ```SQL   
     CREATE TABLE dbo.emp
@@ -279,7 +278,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
    * **folderPath** jest ustawiona na **adftutorial/outfromonpremdf** , gdzie outfromonpremdf jest folderem w kontenerze adftutorial. Utwórz kontener **adftutorial** , jeśli jeszcze nie istnieje.
    * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługa Data Factory generuje wycinek danych wyjściowych co godzinę w tabeli **EMP** w Azure SQL Database.
 
-   Jeśli nie określisz **nazwy pliku** dla **tabeli wyjściowej**, wygenerowane pliki w **folderPath** są nazywane w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt).
+   Jeśli nie określisz **nazwy pliku** dla **tabeli wyjściowej**, wygenerowane pliki w **folderPath** są nazywane w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Aby ustawić parametry **folderPath** i **fileName** dynamicznie w oparciu o czas **SliceStart**, użyj właściwości partitionedBy. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2014-10-20T08:00:00, parametr folderName zostaje ustawiony na wikidatagateway/wikisampledataout/2014/10/20, a parametr fileName zostaje ustawiony na wartość 08.csv.
 
@@ -359,7 +358,7 @@ W tym kroku utworzysz **potok** z jednym **działaniem kopiowania** , który uż
    * W sekcji działania jest tylko działanie, którego **Typ** jest ustawiony na **Kopiuj**.
    * **Dane wejściowe** dla działania są ustawione na wartość **EmpOnPremSQLTable** , a **dane wyjściowe** dla działania są ustawione na **OutputBlobTable**.
    * W sekcji **typeProperties** , **sqlsource** jest określony jako **Typ źródła** , a **wartość blobsink** jest określony jako **Typ ujścia**.
-   * Zapytanie `select * from emp` SQL jest określone dla właściwości **SqlReaderQuery** elementu **sqlsource**.
+   * Zapytanie SQL `select * from emp` jest określone dla właściwości **sqlReaderQuery** elementu **sqlsource**.
 
    Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty.
 

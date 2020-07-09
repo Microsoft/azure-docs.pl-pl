@@ -4,7 +4,6 @@ description: Instrukcje krok po kroku dotyczące tworzenia odbiornika dla zawsze
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -14,26 +13,26 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: df02458703b5ae82b2c5c19f7a2d32f512d715e9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: a2eb6278a9e796c33178f895eede6fd8f2144e9a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921694"
 ---
-# <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Konfigurowanie modułu równoważenia obciążenia dla grupy dostępności na maszynach wirtualnych usługi Azure SQL Server
+# <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurowanie modułu równoważenia obciążenia dla SQL Server zawsze włączone grupy dostępności na platformie Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-W tym artykule wyjaśniono, jak utworzyć moduł równoważenia obciążenia dla SQL Server zawsze włączona Grupa dostępności w usłudze Azure Virtual Machines z programem Azure Resource Manager. Grupa dostępności wymaga modułu równoważenia obciążenia, gdy wystąpienia SQL Server znajdują się na maszynach wirtualnych platformy Azure. Moduł równoważenia obciążenia przechowuje adres IP dla odbiornika grupy dostępności. Jeśli grupa dostępności obejmuje wiele regionów, każdy region wymaga modułu równoważenia obciążenia.
+W tym artykule wyjaśniono, jak utworzyć moduł równoważenia obciążenia dla SQL Server zawsze włączona Grupa dostępności na platformie Azure Virtual Machines z programem Azure Resource Manager. Grupa dostępności wymaga modułu równoważenia obciążenia, gdy wystąpienia SQL Server znajdują się na platformie Azure Virtual Machines. Moduł równoważenia obciążenia przechowuje adres IP dla odbiornika grupy dostępności. Jeśli grupa dostępności obejmuje wiele regionów, każdy region wymaga modułu równoważenia obciążenia.
 
-Aby wykonać to zadanie, należy mieć SQL Server grupę dostępności wdrożoną na maszynach wirtualnych platformy Azure z systemem Menedżer zasobów. Obie SQL Server maszyny wirtualne muszą należeć do tego samego zestawu dostępności. Możesz użyć [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md) , aby automatycznie utworzyć grupę dostępności w Menedżer zasobów. Ten szablon automatycznie tworzy wewnętrzny moduł równoważenia obciążenia. 
+Aby wykonać to zadanie, należy mieć zainstalowaną zawsze SQL Server grupę dostępności na maszynach wirtualnych platformy Azure z systemem Menedżer zasobów. Obie SQL Server maszyny wirtualne muszą należeć do tego samego zestawu dostępności. Możesz użyć [szablonu Microsoft](availability-group-azure-marketplace-template-configure.md) , aby automatycznie utworzyć grupę dostępności w Menedżer zasobów. Ten szablon automatycznie tworzy wewnętrzny moduł równoważenia obciążenia. 
 
 Jeśli wolisz, możesz [ręcznie skonfigurować grupę dostępności](availability-group-manually-configure-tutorial.md).
 
 Ten artykuł wymaga, aby grupy dostępności zostały już skonfigurowane.  
 
-Tematy pokrewne obejmują:
+Wyświetl powiązane artykuły:
 
 * [Konfigurowanie zawsze włączonych grup dostępności na maszynie wirtualnej platformy Azure (graficzny interfejs użytkownika)](availability-group-manually-configure-tutorial.md)   
 * [Konfigurowanie połączenia sieci wirtualnych przy użyciu usługi Azure Resource Manager i programu PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
@@ -41,6 +40,7 @@ Tematy pokrewne obejmują:
 Instruktaż tego artykułu, jak utworzyć i skonfigurować moduł równoważenia obciążenia w Azure Portal. Po zakończeniu procesu skonfiguruj klaster tak, aby używał adresu IP z modułu równoważenia obciążenia dla odbiornika grupy dostępności.
 
 ## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Utwórz i skonfiguruj moduł równoważenia obciążenia w Azure Portal
+
 W tej części zadania wykonaj następujące czynności:
 
 1. W Azure Portal Utwórz moduł równoważenia obciążenia i skonfiguruj adres IP.
@@ -51,18 +51,18 @@ W tej części zadania wykonaj następujące czynności:
 > [!NOTE]
 > Jeśli wystąpienia SQL Server znajdują się w wielu grupach zasobów i regionach, wykonaj każdy krok dwa razy, raz w każdej grupie zasobów.
 > 
-> 
 
 ### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Krok 1. utworzenie modułu równoważenia obciążenia i skonfigurowanie adresu IP
+
 Najpierw Utwórz moduł równoważenia obciążenia. 
 
 1. W Azure Portal Otwórz grupę zasobów zawierającą SQL Server maszyn wirtualnych. 
 
-2. W grupie zasobów kliknij przycisk **Dodaj**.
+2. W grupie zasobów wybierz pozycję **Dodaj**.
 
-3. Wyszukaj **moduł równoważenia obciążenia** , a następnie w wynikach wyszukiwania wybierz pozycję **Load Balancer**, która jest publikowana przez **firmę Microsoft**.
+3. Wyszukaj **moduł równoważenia obciążenia**. Wybierz **Load Balancer** (opublikowane przez **firmę Microsoft**) w wynikach wyszukiwania.
 
-4. W bloku **Load Balancer** kliknij pozycję **Utwórz**.
+4. W bloku **Load Balancer** wybierz pozycję **Utwórz**.
 
 5. W oknie dialogowym **Tworzenie usługi równoważenia obciążenia** Skonfiguruj moduł równoważenia obciążenia w następujący sposób:
 
@@ -74,41 +74,43 @@ Najpierw Utwórz moduł równoważenia obciążenia.
    | **Podsieci** |Wybierz podsieć, w której znajdują się wystąpienia SQL Server. |
    | **Przypisanie adresu IP** |**Ruchom** |
    | **Prywatny adres IP** |Określ dostępny adres IP z podsieci. Użyj tego adresu IP podczas tworzenia odbiornika w klastrze. W skrypcie programu PowerShell w dalszej części tego artykułu Użyj tego adresu dla `$ILBIP` zmiennej. |
-   | **Subskrypcja** |Jeśli masz wiele subskrypcji, to pole może się pojawić. Wybierz subskrypcję, którą chcesz skojarzyć z tym zasobem. Zwykle jest to taka sama subskrypcja, jak wszystkie zasoby dla grupy dostępności. |
+   | **Subskrypcja** |Jeśli masz wiele subskrypcji, to pole może się pojawić. Wybierz subskrypcję, którą chcesz skojarzyć z tym zasobem. Zwykle jest to taka sama subskrypcja jak wszystkie zasoby dla grupy dostępności. |
    | **Grupa zasobów** |Wybierz grupę zasobów, w której znajdują się wystąpienia SQL Server. |
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
 
-6. Kliknij przycisk **Utwórz**. 
+6. Wybierz pozycję **Utwórz**. 
 
 Platforma Azure tworzy moduł równoważenia obciążenia. Moduł równoważenia obciążenia należy do określonej sieci, podsieci, grupy zasobów i lokalizacji. Po zakończeniu zadania przez platformę Azure Sprawdź ustawienia modułu równoważenia obciążenia na platformie Azure. 
 
 ### <a name="step-2-configure-the-back-end-pool"></a>Krok 2. Konfigurowanie puli zaplecza
+
 Platforma Azure wywołuje *pulę zaplecza*puli adresów zaplecza. W takim przypadku Pula zaplecza to adresy dwóch SQL Server wystąpień w grupie dostępności. 
 
-1. W grupie zasobów kliknij utworzony moduł równoważenia obciążenia. 
+1. W grupie zasobów wybierz utworzony moduł równoważenia obciążenia. 
 
-2. W obszarze **Ustawienia**kliknij pozycję **Pule zaplecza**.
+2. W obszarze **Ustawienia**wybierz pozycję **Pule zaplecza**.
 
-3. W obszarze **Pule zaplecza**kliknij przycisk **Dodaj** , aby utworzyć pulę adresów zaplecza. 
+3. W obszarze **Pule zaplecza**wybierz pozycję **Dodaj** , aby utworzyć pulę adresów zaplecza. 
 
 4. W obszarze **Dodaj pulę zaplecza**w polu **Nazwa**wpisz nazwę puli zaplecza.
 
-5. W obszarze **maszyny wirtualne**kliknij pozycję **Dodaj maszynę wirtualną**. 
+5. W obszarze **maszyny wirtualne**wybierz pozycję **Dodaj maszynę wirtualną**. 
 
-6. W obszarze **Wybieranie maszyn wirtualnych**kliknij pozycję **Wybierz zestaw dostępności**, a następnie określ zestaw dostępności, do którego należą maszyny wirtualne SQL Server.
+6. W obszarze **Wybieranie maszyn wirtualnych**wybierz pozycję **Wybierz zestaw dostępności**, a następnie określ zestaw dostępności, do którego należą maszyny wirtualne SQL Server.
 
-7. Po wybraniu zestawu dostępności kliknij pozycję **Wybierz Maszyny wirtualne**, wybierz dwie maszyny wirtualne obsługujące wystąpienia SQL Server w grupie dostępności, a następnie kliknij przycisk **Wybierz**. 
+7. Po wybraniu zestawu dostępności wybierz pozycję **Wybierz Maszyny wirtualne**, wybierz dwie maszyny wirtualne obsługujące wystąpienia SQL Server w grupie dostępności, a następnie wybierz **pozycję Wybierz**. 
 
-8. Kliknij przycisk **OK** , aby zamknąć bloki dla **wybranych maszyn wirtualnych**i **dodać pulę zaplecza**. 
+8. Wybierz **przycisk OK** , aby zamknąć bloki dla **wybranych maszyn wirtualnych**i **dodać pulę zaplecza**. 
 
 Platforma Azure aktualizuje ustawienia dla puli adresów zaplecza. Teraz zestaw dostępności ma pulę dwóch SQL Server wystąpień.
 
 ### <a name="step-3-create-a-probe"></a>Krok 3. Tworzenie sondy
+
 Sonda definiuje, w jaki sposób platforma Azure weryfikuje, które wystąpienia SQL Server są obecnie własnością odbiornika grupy dostępności. Platforma Azure sonduje usługę na podstawie adresu IP na porcie zdefiniowanym podczas tworzenia sondy.
 
-1. W bloku **Ustawienia** usługi równoważenia obciążenia kliknij pozycję **sondy kondycji**. 
+1. W bloku **Ustawienia** usługi równoważenia obciążenia wybierz pozycję **sondy kondycji**. 
 
-2. W bloku **sondy kondycji** kliknij pozycję **Dodaj**.
+2. W bloku **sondy kondycji** wybierz pozycję **Dodaj**.
 
 3. Skonfiguruj sondę w bloku **Dodawanie sondy** . Użyj następujących wartości, aby skonfigurować sondę:
 
@@ -116,25 +118,25 @@ Sonda definiuje, w jaki sposób platforma Azure weryfikuje, które wystąpienia 
    | --- | --- |
    | **Nazwa** |Nazwa tekstowa reprezentująca sondę. Na przykład **SQLAlwaysOnEndPointProbe**. |
    | **Protokół** |**TCP** |
-   | **Przewożąc** |Możesz użyć dowolnego dostępnego portu. Na przykład *59999*. |
+   | **Port** |Możesz użyć dowolnego dostępnego portu. Na przykład *59999*. |
    | **Dat** |*5* |
    | **Próg złej kondycji** |*2* |
 
-4.  Kliknij przycisk **OK**. 
+4.  Wybierz przycisk **OK**. 
 
 > [!NOTE]
 > Upewnij się, że określony port jest otwarty na zaporze obu wystąpień SQL Server. Oba wystąpienia wymagają reguły ruchu przychodzącego dla używanego portu TCP. Aby uzyskać więcej informacji, zobacz [Dodawanie lub Edytowanie reguły zapory](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
-> 
 
 Platforma Azure tworzy sondę, a następnie używa jej do testowania, które wystąpienie SQL Server ma odbiornik dla grupy dostępności.
 
-### <a name="step-4-set-the-load-balancing-rules"></a>Krok 4. Ustawianie reguł równoważenia obciążenia
-Reguły równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki moduł równoważenia obciążenia kieruje ruch do wystąpień SQL Server. W przypadku tego modułu równoważenia obciążenia można włączyć bezpośredni zwrot serwera, ponieważ w danym momencie tylko jeden z dwóch wystąpień SQL Server jest właścicielem zasobu odbiornika grupy dostępności.
+### <a name="step-4-set-the-load-balancing-rules"></a>Krok 4. Ustawianie zasad równoważenia obciążenia
 
-1. W bloku **Ustawienia** usługi równoważenia obciążenia kliknij pozycję **reguły równoważenia obciążenia**. 
+Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki moduł równoważenia obciążenia kieruje ruch do wystąpień SQL Server. W przypadku tego modułu równoważenia obciążenia można włączyć bezpośredni zwrot serwera, ponieważ w danym momencie tylko jeden z dwóch wystąpień SQL Server jest właścicielem zasobu odbiornika grupy dostępności.
 
-2. W bloku **reguły równoważenia obciążenia** kliknij pozycję **Dodaj**.
+1. W bloku **Ustawienia** usługi równoważenia obciążenia wybierz pozycję **reguły równoważenia obciążenia**. 
+
+2. W bloku **reguły równoważenia obciążenia** wybierz pozycję **Dodaj**.
 
 3. W bloku **Dodaj reguły równoważenia obciążenia** Skonfiguruj regułę równoważenia obciążenia. Użyj następujących ustawień: 
 
@@ -142,7 +144,7 @@ Reguły równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jak
    | --- | --- |
    | **Nazwa** |Nazwa tekstowa reprezentująca reguły równoważenia obciążenia. Na przykład **SQLAlwaysOnEndPointListener**. |
    | **Protokół** |**TCP** |
-   | **Przewożąc** |*1433* |
+   | **Port** |*1433* |
    | **Port zaplecza** |*1433*. Ta wartość jest ignorowana, ponieważ ta reguła używa **zmiennoprzecinkowego adresu IP (bezpośredni zwrot serwera)**. |
    | **Badane** |Użyj nazwy sondy utworzonej dla tego modułu równoważenia obciążenia. |
    | **Trwałość sesji** |**Brak** |
@@ -153,7 +155,8 @@ Reguły równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jak
    > Może być konieczne przewinięcie w dół bloku, aby wyświetlić wszystkie ustawienia.
    > 
 
-4. Kliknij przycisk **OK**. 
+4. Wybierz przycisk **OK**. 
+
 5. Platforma Azure konfiguruje regułę równoważenia obciążenia. Teraz moduł równoważenia obciążenia jest skonfigurowany do kierowania ruchu do wystąpienia SQL Server, które hostuje odbiornik dla grupy dostępności. 
 
 W tym momencie Grupa zasobów ma moduł równoważenia obciążenia łączący się z obydwoma maszynami SQL Server. Moduł równoważenia obciążenia zawiera również adres IP dla SQL Server zawsze włączony odbiornik grupy dostępności, dzięki czemu każdy komputer może odpowiedzieć na żądania dla grup dostępności.
@@ -161,9 +164,9 @@ W tym momencie Grupa zasobów ma moduł równoważenia obciążenia łączący s
 > [!NOTE]
 > Jeśli wystąpienia SQL Server znajdują się w dwóch oddzielnych regionach, powtórz kroki w drugim regionie. Każdy region wymaga modułu równoważenia obciążenia. 
 > 
-> 
 
 ## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>Skonfiguruj klaster tak, aby używał adresu IP usługi równoważenia obciążenia
+
 Następnym krokiem jest skonfigurowanie odbiornika w klastrze i przełączenie go w tryb online. Wykonaj następujące czynności: 
 
 1. Utwórz odbiornik grupy dostępności w klastrze trybu failover. 
@@ -171,6 +174,7 @@ Następnym krokiem jest skonfigurowanie odbiornika w klastrze i przełączenie g
 2. Przełączenie odbiornika w tryb online.
 
 ### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Krok 5. Tworzenie odbiornika grupy dostępności w klastrze trybu failover
+
 W tym kroku ręcznie utworzysz odbiornik grupy dostępności w Menedżer klastra trybu failover i SQL Server Management Studio.
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
@@ -182,22 +186,26 @@ Jeśli zasoby klastra i zależności są prawidłowo skonfigurowane, powinno by�
 1. Rozpocznij SQL Server Management Studio, a następnie połącz się z repliką podstawową.
 
 2. Przejdź do obszaru odbiorniki grup dostępności funkcji **AlwaysOn o wysokiej dostępności**  >  **Availability Groups**  >  **Availability Group Listeners**.  
+
     Powinna zostać wyświetlona nazwa odbiornika utworzona w Menedżer klastra trybu failover. 
 
-3. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie kliknij polecenie **Właściwości**.
+3. Kliknij prawym przyciskiem myszy nazwę odbiornika, a następnie wybierz polecenie **Właściwości**.
 
-4. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie kliknij przycisk **OK**.
+4. W polu **port** Określ numer portu dla odbiornika grupy dostępności przy użyciu użytej wcześniej $EndpointPort (1433 była domyślna), a następnie wybierz **przycisk OK**.
 
 Teraz masz grupę dostępności w usłudze Azure Virtual Machines działającą w trybie Menedżer zasobów. 
 
 ## <a name="test-the-connection-to-the-listener"></a>Testowanie połączenia z odbiornikiem
+
 Przetestuj połączenie, wykonując następujące czynności:
 
-1. Protokół RDP jest SQL Server wystąpieniem znajdującym się w tej samej sieci wirtualnej, ale nie jest jego repliką. Ten serwer może być innym wystąpieniem SQL Server w klastrze.
+1. Użyj protokołu RDP (Remote Desktop Protocol), aby nawiązać połączenie z wystąpieniem SQL Server, które znajduje się w tej samej sieci wirtualnej, ale nie jest to replika. Ten serwer może być innym wystąpieniem SQL Server w klastrze.
 
 2. Przetestuj połączenie przy użyciu narzędzia **sqlcmd** . Na przykład poniższy skrypt ustanawia połączenie **sqlcmd** z repliką podstawową za pomocą odbiornika z uwierzytelnianiem systemu Windows:
-   
-        sqlcmd -S <listenerName> -E
+
+    ```console
+    sqlcmd -S <listenerName> -E
+    ```
 
 Połączenie SQLCMD automatycznie łączy się z wystąpieniem SQL Server, które obsługuje replikę podstawową. 
 
@@ -207,9 +215,9 @@ Każda grupa dostępności używa osobnego odbiornika. Każdy odbiornik ma włas
 
 Aby dodać adres IP do modułu równoważenia obciążenia z Azure Portal, wykonaj następujące czynności:
 
-1. W Azure Portal Otwórz grupę zasobów zawierającą usługę równoważenia obciążenia, a następnie kliknij moduł równoważenia obciążenia. 
+1. W Azure Portal Otwórz grupę zasobów zawierającą usługę równoważenia obciążenia, a następnie wybierz moduł równoważenia obciążenia. 
 
-2. W obszarze **Ustawienia**kliknij pozycję **Pula adresów IP frontonu**, a następnie kliknij przycisk **Dodaj**. 
+2. W obszarze **Ustawienia**wybierz pozycję **Pula adresów IP frontonu**, a następnie wybierz pozycję **Dodaj**. 
 
 3. W obszarze **Dodaj adres IP frontonu**Przypisz nazwę frontonu. 
 
@@ -228,13 +236,13 @@ Aby dodać adres IP do modułu równoważenia obciążenia z Azure Portal, wykon
    |:-----|:----
    |**Nazwa** |Nazwa identyfikująca sondę.
    |**Protokół** |TCP
-   |**Przewożąc** |Nieużywany port TCP, który musi być dostępny na wszystkich maszynach wirtualnych. Nie może być używany do żadnego innego celu. Dwa odbiorniki nie mogą korzystać z tego samego portu sondowania. 
+   |**Port** |Nieużywany port TCP, który musi być dostępny na wszystkich maszynach wirtualnych. Nie może być używany do żadnego innego celu. Dwa odbiorniki nie mogą korzystać z tego samego portu sondowania. 
    |**Dat** |Czas między próbami sondy. Użyj domyślnego (5).
    |**Próg złej kondycji** |Liczba kolejnych progów, które powinny zakończyć się niepowodzeniem, zanim maszyna wirtualna zostanie uznana za złą.
 
-8. Kliknij przycisk **OK** , aby zapisać sondę. 
+8. Wybierz **przycisk OK** , aby zapisać sondę. 
 
-9. Utwórz regułę równoważenia obciążenia. Kliknij przycisk **reguły równoważenia obciążenia**, a następnie kliknij przycisk **Dodaj**.
+9. Utwórz regułę równoważenia obciążenia. Wybierz pozycję **reguły równoważenia obciążenia**, a następnie wybierz pozycję **Dodaj**.
 
 10. Skonfiguruj nową regułę równoważenia obciążenia, używając następujących ustawień:
 
@@ -243,7 +251,7 @@ Aby dodać adres IP do modułu równoważenia obciążenia z Azure Portal, wykon
     |**Nazwa** |Nazwa identyfikująca regułę równoważenia obciążenia. 
     |**Adres IP frontonu** |Wybierz utworzony adres IP. 
     |**Protokół** |TCP
-    |**Przewożąc** |Użyj portu używanego przez wystąpienia SQL Server. Wystąpienie domyślne używa portu 1433, chyba że został zmieniony. 
+    |**Port** |Użyj portu używanego przez wystąpienia SQL Server. Wystąpienie domyślne używa portu 1433, chyba że został zmieniony. 
     |**Port zaplecza** |Użyj tej samej wartości co **port**.
     |**Pula zaplecza** |Pula zawierająca maszyny wirtualne z wystąpieniami SQL Server. 
     |**Sonda kondycji** |Wybierz utworzoną sondę.
@@ -283,7 +291,7 @@ Jeśli grupa dostępności uczestniczy w rozproszonej grupie dostępności, modu
 
 1. Na każdym serwerze, który uczestniczy w rozproszonej grupie dostępności, Utwórz regułę ruchu przychodzącego na porcie TCP odbiornika rozproszonej grupy dostępności. W wielu przykładach dokumentacja korzysta z 5022. 
 
-1. W Azure Portal kliknij moduł równoważenia obciążenia, a następnie kliknij pozycję **reguły równoważenia obciążenia**, a następnie kliknij pozycję **+ Dodaj**. 
+1. W Azure Portal wybierz moduł równoważenia obciążenia i wybierz pozycję **reguły równoważenia obciążenia**, a następnie wybierz pozycję **+ Dodaj**. 
 
 1. Utwórz regułę równoważenia obciążenia z następującymi ustawieniami:
 
@@ -292,7 +300,7 @@ Jeśli grupa dostępności uczestniczy w rozproszonej grupie dostępności, modu
    |**Nazwa** |Nazwa identyfikująca regułę równoważenia obciążenia dla grupy dostępności rozproszonej. 
    |**Adres IP frontonu** |Użyj tego samego adresu IP frontonu co grupa dostępności.
    |**Protokół** |TCP
-   |**Przewożąc** |5022 — port [odbiornika punktu końcowego grupy dostępności rozproszonej](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Może to być dowolny dostępny port.  
+   |**Port** |5022 — port [odbiornika punktu końcowego grupy dostępności rozproszonej](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Może to być dowolny dostępny port.  
    |**Port zaplecza** | 5022 — Użyj tej samej wartości co **port**.
    |**Pula zaplecza** |Pula zawierająca maszyny wirtualne z wystąpieniami SQL Server. 
    |**Sonda kondycji** |Wybierz utworzoną sondę.
@@ -302,7 +310,10 @@ Jeśli grupa dostępności uczestniczy w rozproszonej grupie dostępności, modu
 
 Powtórz te kroki dla modułu równoważenia obciążenia dla innych grup dostępności, które uczestniczą w grupach dostępności rozproszonej.
 
-W przypadku ograniczania dostępu za pomocą grupy zabezpieczeń sieci platformy Azure upewnij się, że reguły zezwalania zawierają SQL Server adresy IP maszyny wirtualnej, a moduł równoważenia obciążenia — adresy IP dla odbiornika AG i podstawowy adres IP klastra, jeśli ma zastosowanie.
+Jeśli masz grupę zabezpieczeń sieci platformy Azure, aby ograniczyć dostęp, upewnij się, że reguły zezwalania obejmują:
+- Zaplecze SQL Server adresy IP maszyny wirtualnej
+- Przestawne adresy IP modułu równoważenia obciążenia dla odbiornika AG
+- Podstawowy adres IP klastra, jeśli ma zastosowanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

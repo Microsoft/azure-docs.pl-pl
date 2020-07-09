@@ -4,10 +4,10 @@ description: Podsumowanie ofert zgodności dla Azure Backup
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: da25c6b9b8206ebd2e7ca1a3d90ec88a6efe04b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80423121"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Azure Backup oferty zgodności
@@ -16,7 +16,7 @@ Aby ułatwić organizacjom zgodność z krajowymi, regionalnymi i branżowymi wy
 
 Poniżej znajdziesz oferty zgodności dla Azure Backup, aby upewnić się, że usługa jest regulowana w przypadku korzystania z usługi Azure Backup.
 
-## <a name="global"></a>Globalny
+## <a name="global"></a>Globalnie
 
 * [CSA-GWIAZDka — zaświadczanie](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-attestation)
 * [CSA-gwiazdka-certyfikacja](https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-certification)
@@ -41,10 +41,10 @@ Poniżej znajdziesz oferty zgodności dla Azure Backup, aby upewnić się, że u
 * [HITRUST](https://docs.microsoft.com/microsoft-365/compliance/offering-hitrust)
 * [PCI DSS](https://docs.microsoft.com/microsoft-365/compliance/offering-pci-dss)
 
-## <a name="regional"></a>Regionalny
+## <a name="regional"></a>Regionalne
 
 * [CCSL/IRAP (Australia)](https://docs.microsoft.com/microsoft-365/compliance/offering-ccsl-irap-australia)
-* [RODO (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
+* [GDPR (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 
 ## <a name="next-steps"></a>Następne kroki
 

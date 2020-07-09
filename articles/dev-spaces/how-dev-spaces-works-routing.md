@@ -5,12 +5,11 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Zawiera opis procesów Azure Dev Spaces i sposobu działania routingu
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: e9bc1875c053335da6a8e2603406bcdb34a6dd04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 126a534cec2ee4b07aa3a127fb3f47f9931f0031
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84307422"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Jak działa Routing przy użyciu Azure Dev Spaces
 
@@ -20,13 +19,13 @@ W tym artykule opisano sposób działania routingu z miejscami deweloperskimi.
 
 ## <a name="how-routing-works"></a>Jak działa Routing
 
-Przestrzeń dev jest oparta na AKS i używa tych samych [koncepcji sieci](../aks/concepts-network.md). Azure Dev Spaces ma także scentralizowaną usługę *ingressmanager* i wdraża swój własny kontroler transferu danych w klastrze AKS. Usługa *ingressmanager* monitoruje klastry AKS z miejscami deweloperskimi i rozszerza Azure dev Spaces w klastrze za pomocą obiektów przychodzących do routingu do aplikacji. Kontener devspaces-proxy w każdym z nich dodaje nagłówek `azds-route-as` http dla ruchu HTTP do obszaru dev na podstawie adresu URL. Na przykład żądanie do adresu URL *http://azureuser.s.default.serviceA.fedcba09...azds.io* może otrzymać nagłówek HTTP z. `azds-route-as: azureuser` Kontener devspaces-proxy nie zostanie dodany, jeśli `azds-route-as` taki nagłówek już istnieje.
+Przestrzeń dev jest oparta na AKS i używa tych samych [koncepcji sieci](../aks/concepts-network.md). Azure Dev Spaces ma także scentralizowaną usługę *ingressmanager* i wdraża swój własny kontroler transferu danych w klastrze AKS. Usługa *ingressmanager* monitoruje klastry AKS z miejscami deweloperskimi i rozszerza Azure dev Spaces w klastrze za pomocą obiektów przychodzących do routingu do aplikacji. Kontener devspaces-proxy w każdym z nich dodaje `azds-route-as` nagłówek HTTP dla ruchu HTTP do obszaru dev na podstawie adresu URL. Na przykład żądanie do adresu URL *http://azureuser.s.default.serviceA.fedcba09...azds.io* może otrzymać nagłówek HTTP z `azds-route-as: azureuser` . Kontener devspaces-proxy nie zostanie dodany, `azds-route-as` Jeśli taki nagłówek już istnieje.
 
 Gdy żądanie HTTP zostanie wysłane do usługi spoza klastra, żądanie przechodzi do kontrolera transferu danych przychodzących. Kontroler transferu danych przychodzących kieruje żądanie bezpośrednio do odpowiedniego w oparciu o jego obiekty i reguły dotyczące transferu danych przychodzących. Kontener devspaces-proxy w obszarze pod odbiera żądanie, dodaje `azds-route-as` nagłówek na podstawie adresu URL, a następnie kieruje żądanie do kontenera aplikacji.
 
 Gdy żądanie HTTP zostanie wysłane do usługi z innej usługi w ramach klastra, żądanie najpierw przechodzi przez kontener devspaces-proxy usługi wywołującej. Kontener devspaces-proxy sprawdza żądanie HTTP i sprawdza `azds-route-as` nagłówek. Na podstawie nagłówka devspaces-proxy kontener będzie wyszukiwać adres IP usługi skojarzonej z wartością nagłówka. W przypadku znalezienia adresu IP kontener devspaces-proxy kieruje żądanie do tego adresu IP. Jeśli adres IP nie zostanie znaleziony, kontener devspaces-proxy kieruje żądanie do kontenera aplikacji nadrzędnej.
 
-Na przykład aplikacje *Service* i *serviceB* są wdrażane w nadrzędnym obszarze deweloperskim o nazwie *default*. *Usługa* jest zależna od *serviceB* i wysyła do niej wywołania http. Użytkownik platformy Azure tworzy przestrzeń podrzędną dev na podstawie *domyślnego* obszaru o nazwie *azureuser*. Użytkownik platformy Azure wdraża także własną wersję *usługi* do ich obszaru podrzędnego. Gdy zostanie wysłane żądanie *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Na przykład aplikacje *Service* i *serviceB* są wdrażane w nadrzędnym obszarze deweloperskim o nazwie *default*. *Usługa* jest zależna od *serviceB* i wysyła do niej wywołania http. Użytkownik platformy Azure tworzy przestrzeń podrzędną dev na podstawie *domyślnego* obszaru o nazwie *azureuser*. Użytkownik platformy Azure wdraża także własną wersję *usługi* do ich obszaru podrzędnego. Gdy zostanie wysłane żądanie *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Routing Azure Dev Spaces](media/how-dev-spaces-works/routing.svg)
 
@@ -34,7 +33,7 @@ Na przykład aplikacje *Service* i *serviceB* są wdrażane w nadrzędnym obszar
 1. Kontroler transferu danych przychodzących znajduje adres IP pod względem obszaru dev użytkownika platformy Azure i kieruje żądanie do *usługi Service. azureuser* pod.
 1. Kontener devspaces-proxy w usłudze a *. azureuser* pod odbiera żądanie i dodaje `azds-route-as: azureuser` jako nagłówek HTTP.
 1. Kontener devspaces-proxy w usłudze a *. azureuser* pod względem trasy żądania do kontenera aplikacji *usługi* Service. *azureuser* pod.
-1. Aplikacja *usługi* w *usłudze Service. azureuser* pod wywołuje wywołanie *serviceB*. Aplikacja *usługi* również zawiera kod, który zachowuje istniejący `azds-route-as` nagłówek, w tym przypadku. `azds-route-as: azureuser`
+1. Aplikacja *usługi* w *usłudze Service. azureuser* pod wywołuje wywołanie *serviceB*. Aplikacja *usługi* również zawiera kod, który zachowuje istniejący `azds-route-as` nagłówek, w tym przypadku `azds-route-as: azureuser` .
 1. Kontener devspaces-proxy w usłudze a *. azureuser* pod odbiera żądanie i wyszukuje adres IP *serviceB* na podstawie wartości `azds-route-as` nagłówka.
 1. Kontener devspaces-proxy w usłudze a *. azureuser* pod nie znalazł adresu IP dla *serviceB. azureuser*.
 1. Kontener devspaces-proxy w usłudze a *. azureuser* pod Szukam adresu IP dla *serviceB* w obszarze nadrzędnym, który jest *serviceB. default*.
@@ -64,12 +63,12 @@ W przypadku korzystania z programu *azureuser*wszystkie żądania do *usługi Se
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z przykładami, jak Azure Dev Spaces używa routingu, aby zapewnić szybką iterację i programowanie, zobacz [jak połączyć maszynę deweloperskią z miejscem deweloperskim][how-it-works-connect], [jak zdalne debugowanie kodu za pomocą Azure dev Spaces Works][how-it-works-remote-debugging]i [Akcje GitHub & usłudze Azure Kubernetes Service][pr-flow].
+Aby zapoznać się z przykładami, jak Azure Dev Spaces używa routingu, aby zapewnić szybką iterację i programowanie, zobacz [jak działa proces lokalny z Kubernetes][how-it-works-local-process-kubernetes], [jak zdalne debugowanie kodu za pomocą Azure dev Spaces Works][how-it-works-remote-debugging]i [Akcje GitHub & usłudze Azure Kubernetes Service][pr-flow].
 
 Aby rozpocząć korzystanie z usługi Routing z Azure Dev Spaces na potrzeby rozwoju zespołu, zobacz [programowanie zespołowe w Azure dev Spaces][quickstart-team] przewodniku Szybki Start.
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[how-it-works-local-process-kubernetes]: how-dev-spaces-works-local-process-kubernetes.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [pr-flow]: how-to/github-actions.md
 [quickstart-team]: quickstart-team-development.md

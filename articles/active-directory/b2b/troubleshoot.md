@@ -15,10 +15,10 @@ ms.custom:
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f8bafb04d0a5d9c6d25a7ed7e155888d492e9fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80050780"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Rozwiązywanie problemów Azure Active Directory współpracy B2B
@@ -62,9 +62,9 @@ Jeśli używasz uwierzytelniania federacyjnego, a użytkownik nie istnieje jeszc
 
 Aby rozwiązać ten problem, administrator użytkownika zewnętrznego musi zsynchronizować konto użytkownika, aby Azure Active Directory.
 
-## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Jak "\#", który nie jest zwykle prawidłowym znakiem, jest synchronizowany z usługą Azure AD?
+## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Jak " \# ", który nie jest zwykle prawidłowym znakiem, jest synchronizowany z usługą Azure AD?
 
-"\#" jest zastrzeżonym znakiem w UPN dla współpracy z usługą Azure AD B2B lub użytkownikami zewnętrznymi, ponieważ user@contoso.com zaproszone konto zostanie USER_CONTOSO. com@fabrikam.onmicrosoft.com# EXT #. \# Z tego względu nazwy UPN pochodzące z lokalnego nie mogą zalogować się do Azure Portal. 
+" \# " jest zastrzeżonym znakiem w UPN dla współpracy z usługą Azure AD B2B lub użytkownikami zewnętrznymi, ponieważ zaproszone konto user@contoso.com zostanie user_contoso. com # EXT # @fabrikam.onmicrosoft.com . Z tego względu \# nazwy UPN pochodzące z lokalnego nie mogą zalogować się do Azure Portal. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Wystąpił błąd podczas dodawania użytkowników zewnętrznych do zsynchronizowanej grupy
 

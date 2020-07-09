@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: da034479f110607e878a0ed26b9d487e41438e16
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f93eb55b888c58ad111bd67b2011ba9c996b16bb
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666288"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960269"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli SQL Synapse (wersja zapoznawcza) przy użyciu programu Synapse Studio
 
@@ -41,7 +41,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
 ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
-## <a name="launch-synapse-studio"></a>Uruchom Synapse Studio
+## <a name="launch-synapse-studio"></a>Uruchamianie programu Synapse Studio
 
 1. W obszarze roboczym przegląd wybierz pozycję **Uruchom program Synapse Studio** , aby otworzyć lokalizację, w której zostanie utworzona Pula SQL. Wpisz nazwę usługi lub nazwę zasobu bezpośrednio na pasku wyszukiwania.
 ![Azure Portal Omówienie obszaru roboczego Synapse z wyróżnioną opcją Uruchom Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)

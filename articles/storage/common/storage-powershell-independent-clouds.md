@@ -10,10 +10,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82176213"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Zarządzanie magazynem w chmurach niezależnych platformy Azure przy użyciu programu PowerShell
@@ -34,7 +34,7 @@ Aby korzystać z usługi Azure Storage w jednej z chmur niezależnych, możesz p
 * Można określić i użyć dostępnych regionów.
 * Używasz poprawnego sufiksu punktu końcowego, który jest inny niż publiczny na platformie Azure.
 
-Przykłady wymagają modułu Azure PowerShell AZ w wersji 0,7 lub nowszej. W oknie programu PowerShell uruchom `Get-Module -ListAvailable Az` polecenie, aby znaleźć wersję. Jeśli niczego nie ma na liście lub musisz przeprowadzić uaktualnienie, zobacz [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+Przykłady wymagają modułu Azure PowerShell AZ w wersji 0,7 lub nowszej. W oknie programu PowerShell uruchom polecenie, `Get-Module -ListAvailable Az` Aby znaleźć wersję. Jeśli niczego nie ma na liście lub musisz przeprowadzić uaktualnienie, zobacz [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -154,7 +154,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Teraz można używać programu PowerShell do zarządzania kontami magazynu i dostępu do danych obiektów blob, kolejek, plików i tabel. Aby uzyskać więcej informacji, zobacz [AZ. Storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli utworzono nową grupę zasobów i konto magazynu dla tego ćwiczenia, można usunąć oba elementy zawartości, usuwając grupę zasobów. Usunięcie grupy zasobów spowoduje usunięcie wszystkich zasobów w tej grupie.
 

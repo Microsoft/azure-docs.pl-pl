@@ -11,18 +11,23 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987232"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Media Services wersji 3.
 
 ## <a name="general"></a>Ogólne
+
+### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Jakie są ograniczenia Azure Portal dla Media Services v3?
+
+Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać zdarzeniami na żywo v3, wyświetlać zasoby v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. <br/>W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami lub analizowania zawartości v3) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+
+Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj**ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Jakie role platformy Azure mogą wykonywać akcje na Azure Media Services zasobach? 
 
@@ -95,7 +100,7 @@ Systemy DRM, takie jak PlayReady, Widevine i FairPlay, zapewniają dodatkowy poz
 
 Nie musisz używać żadnego określonego dostawcy tokenów, takiego jak Azure Active Directory (Azure AD). Za pomocą szyfrowania klucza asymetrycznego można utworzyć własnego dostawcę [JWT](https://jwt.io/) (tzw. Secure Token Service lub STS). W niestandardowej usłudze STS można dodawać oświadczenia na podstawie logiki biznesowej.
 
-Upewnij się, że wystawcy, odbiorcy i oświadczenia wszystkie pasują dokładnie do tych, które są używane `ContentKeyPolicyRestriction` w TOKENach `ContentKeyPolicy`JWT, i wartość użyta w.
+Upewnij się, że wystawcy, odbiorcy i oświadczenia wszystkie pasują dokładnie do tych, które są używane w tokenach JWT, i `ContentKeyPolicyRestriction` Wartość użyta w `ContentKeyPolicy` .
 
 Aby uzyskać więcej informacji, zobacz [Ochrona zawartości przy użyciu Media Services szyfrowania dynamicznego](content-protection-overview.md).
 
@@ -140,7 +145,7 @@ Można użyć dokładnie tego samego projektu i implementacji, aby chronić prze
 Często klienci zainwestowali w farmę serwerów licencji we własnym centrum danych lub w jednym hostowanym przez dostawców usług DRM. Za pomocą Media Services Content Protection można działać w trybie hybrydowym. Zawartość może być hostowana i dynamicznie chroniona w Media Services, natomiast licencje DRM są dostarczane przez serwery poza Media Services. W takim przypadku należy wziąć pod uwagę następujące zmiany:
 
 * Usługa STS musi wydać tokeny, które są akceptowalne i mogą być weryfikowane przez farmę serwerów licencji. Na przykład serwery licencji Widevine udostępniane przez Axinom wymagają określonego tokenu JWT, który zawiera komunikat o uprawnieniach. Musisz mieć usługę STS, aby wystawić taki token JWT. 
-* Nie trzeba już konfigurować usługi dostarczania licencji w Media Services. Podczas konfigurowania `ContentKeyPolicy`programu należy podać adresy URL pozyskiwania licencji (dla oprogramowania PlayReady, Widevine i FairPlay).
+* Nie trzeba już konfigurować usługi dostarczania licencji w Media Services. Podczas konfigurowania programu należy podać adresy URL pozyskiwania licencji (dla oprogramowania PlayReady, Widevine i FairPlay) `ContentKeyPolicy` .
 
 > [!NOTE]
 > Widevine to usługa świadczona przez firmę Google, która podlega postanowieniom dotyczącym usług i zasadom zachowania poufności informacji w firmie Google.
@@ -159,7 +164,7 @@ W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Czy istnieje koncepcja AssetFile w wersji 3?
 
-`AssetFile` Koncepcja została usunięta z interfejsu API Media Services, aby oddzielić Media Services od zależności zestawu SDK magazynu. Teraz usługa Azure Storage, nie Media Services, utrzymuje informacje, które należą do zestawu SDK magazynu. 
+`AssetFile`Koncepcja została usunięta z interfejsu API Media Services, aby oddzielić Media Services od zależności zestawu SDK magazynu. Teraz usługa Azure Storage, nie Media Services, utrzymuje informacje, które należą do zestawu SDK magazynu. 
 
 Aby uzyskać więcej informacji, zobacz [Migrowanie do Media Services v3](media-services-v2-vs-v3.md).
 
@@ -191,13 +196,13 @@ Ponieważ zestaw FPS SDK serwera w wersji 4, ten dokument został scalony w prze
 
 #### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Co to jest struktura plików pobierana/w trybie offline na urządzeniach z systemem iOS?
 
-Pobrana struktura plików na urządzeniu z systemem iOS wygląda podobnie do poniższego zrzutu ekranu. `_keys` Folder przechowuje pobrane licencje FPS z jednym plikiem magazynu dla każdego hosta usługi licencjonowania. `.movpkg` Folder przechowuje zawartość audio i wideo. 
+Pobrana struktura plików na urządzeniu z systemem iOS wygląda podobnie do poniższego zrzutu ekranu. `_keys`Folder przechowuje pobrane licencje FPS z jednym plikiem magazynu dla każdego hosta usługi licencjonowania. `.movpkg`Folder przechowuje zawartość audio i wideo. 
 
-Pierwszy folder o nazwie kończącej się znakiem łącznika, po którym następuje cyfra, zawiera zawartość wideo. Wartość liczbowa to Szczytowa przepustowość odwzorowania wideo. Drugi folder o nazwie kończącej się znakiem łącznika, po którym następuje 0, zawiera zawartość audio. Trzeci folder o nazwie `Data` zawiera główną listę odtwarzania zawartości fps. Na koniec plik Boot. xml zawiera pełny opis zawartości `.movpkg` folderu. 
+Pierwszy folder o nazwie kończącej się znakiem łącznika, po którym następuje cyfra, zawiera zawartość wideo. Wartość liczbowa to Szczytowa przepustowość odwzorowania wideo. Drugi folder o nazwie kończącej się znakiem łącznika, po którym następuje 0, zawiera zawartość audio. Trzeci folder o nazwie `Data` zawiera główną listę odtwarzania zawartości fps. Na koniec boot.xml zawiera pełny opis `.movpkg` zawartości folderu. 
 
 ![Struktura plików trybu offline dla przykładowej aplikacji FairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-Oto przykładowy plik Boot. XML:
+Oto przykładowy plik boot.xml:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -233,8 +238,8 @@ Oto przykładowy plik Boot. XML:
 
 Ponieważ Media Services wersja 3 umożliwia zasobom posiadanie wielu `StreamingLocator` wystąpień, można:
 
-* Jedno `ContentKeyPolicy` wystąpienie z `license_type = "persistent"`, `ContentKeyPolicyRestriction` z funkcją Claim `"persistent"`on i jego `StreamingLocator`.
-* Inne `ContentKeyPolicy` wystąpienie z `license_type="nonpersistent"`, `ContentKeyPolicyRestriction` z elementem Claim `"nonpersistent`on "i" `StreamingLocator`.
+* Jedno `ContentKeyPolicy` wystąpienie z `license_type = "persistent"` , `ContentKeyPolicyRestriction` z funkcją Claim on `"persistent"` i jego `StreamingLocator` .
+* Inne `ContentKeyPolicy` wystąpienie z `license_type="nonpersistent"` , `ContentKeyPolicyRestriction` z elementem Claim on `"nonpersistent` "i" `StreamingLocator` .
 * Dwa `StreamingLocator` wystąpienia o różnych `ContentKey` wartościach.
 
 W zależności od logiki biznesowej niestandardowej usługi STS różne oświadczenia są wystawiane w tokenie JWT. Za pomocą tokenu można uzyskać tylko odpowiednią licencję i można odtworzyć tylko odpowiedni adres URL.
@@ -243,7 +248,7 @@ W zależności od logiki biznesowej niestandardowej usługi STS różne oświadc
 
 "Przegląd architektury DRM" Widevine "definiuje trzy poziomy zabezpieczeń. Jednak [dokumentacja Azure Media Services na szablonie licencji Widevine](widevine-license-template-overview.md) zawiera pięć poziomów zabezpieczeń (wymagania dotyczące niezawodności klientów na potrzeby odtwarzania). W tej sekcji opisano sposób mapowania poziomów zabezpieczeń.
 
-Oba zestawy poziomów zabezpieczeń są definiowane przez firmę Google Widevine. Różnica jest na poziomie użycia: architektura lub interfejs API. W interfejsie API Widevine są używane pięć poziomów zabezpieczeń. `content_key_specs` Obiekt, który zawiera `security_level`, jest deserializowany i przeszedł do usługi dostarczania globalnego Widevine przez usługę licencji Widevine Azure Media Services. W poniższej tabeli przedstawiono mapowanie między dwoma zestawami poziomów zabezpieczeń.
+Oba zestawy poziomów zabezpieczeń są definiowane przez firmę Google Widevine. Różnica jest na poziomie użycia: architektura lub interfejs API. W interfejsie API Widevine są używane pięć poziomów zabezpieczeń. `content_key_specs`Obiekt, który zawiera `security_level` , jest deserializowany i przeszedł do usługi dostarczania globalnego Widevine przez usługę licencji Widevine Azure Media Services. W poniższej tabeli przedstawiono mapowanie między dwoma zestawami poziomów zabezpieczeń.
 
 | **Poziomy zabezpieczeń zdefiniowane w architekturze Widevine** |**Poziomy zabezpieczeń używane w interfejsie API Widevine**|
 |---|---| 

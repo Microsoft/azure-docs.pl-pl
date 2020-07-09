@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 052223f69fc1c1d59ec5f1bcbeb3746ef7122c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79087036"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie RingCentral na potrzeby automatycznego aprowizacji użytkowników
@@ -58,7 +57,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
     ![RingCentral Dodaj Standard scim](media/ringcentral-provisioning-tutorial/scim.png)
 
-3.  Skontaktuj się z zespołem matthew.hunt@ringcentral.com pomocy technicznej RingCentral pod kątem **tokenu uwierzytelniania Standard scim**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji RingCentral w Azure Portal.
+3.  Skontaktuj się z zespołem pomocy technicznej RingCentral pod matthew.hunt@ringcentral.com kątem **tokenu uwierzytelniania Standard scim**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji RingCentral w Azure Portal.
 
 > [!NOTE]
 > Aby przypisać licencje do użytkowników, w [tym miejscu](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language)Skorzystaj z linku wideo.
@@ -118,7 +117,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |externalId|String|
    |aktywne|Boolean|
    |displayName|String|
-   |title|String|
+   |tytuł|String|
    |wiadomości e-mail [Type EQ "Work"]. Value|String|
    |addresss [Type EQ "Work"]. Country|String|
    |addresss [Type EQ "Work"]. region|String|
@@ -154,7 +153,7 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

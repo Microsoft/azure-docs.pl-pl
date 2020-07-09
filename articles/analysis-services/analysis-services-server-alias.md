@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć aliasy nazw serwerów Azure Analysis Se
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b416a25fd0befa91076fed5f9bf5df23ea30844
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 435649c5431ff14461245fee88cebe4a2c571663
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698986"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85361442"
 ---
 # <a name="alias-server-names"></a>Nazwy serwerów aliasów
 
@@ -37,7 +37,7 @@ Podczas nawiązywania połączenia z poziomu klienta nazwa serwera aliasu jest w
 
 Aby utworzyć alias punktu końcowego, można użyć dowolnej metody, która zwraca prawidłową nazwę serwera Azure Analysis Services. Na przykład odwołanie do pliku na platformie Azure Blob Storage zawierające rzeczywistą nazwę serwera lub tworzenie i publikowanie aplikacji ASP.NET Web Forms.
 
-W tym przykładzie aplikacja formularzy sieci Web ASP.NET jest tworzona w programie Visual Studio. Odwołanie do strony głównej i kontrolka użytkownika są usuwane ze strony Default. aspx. Zawartość default. aspx jest po prostu następująca Dyrektywa Page:
+W tym przykładzie aplikacja formularzy sieci Web ASP.NET jest tworzona w programie Visual Studio. Odwołanie do strony i kontrolka użytkownika zostaną usunięte ze strony Default. aspx. Zawartość default. aspx jest po prostu następująca Dyrektywa Page:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Zobacz także
 
-[Biblioteki klienckie](analysis-services-data-providers.md)   
+[Biblioteki klienckie](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Łączenie z programu Power BI Desktop](analysis-services-connect-pbi.md)

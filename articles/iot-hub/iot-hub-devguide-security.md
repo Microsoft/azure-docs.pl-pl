@@ -11,12 +11,12 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f1f6f4a6a1d48a0f409d5e5aba644a26653aa7df
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726064"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252138"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -147,7 +147,7 @@ Poniżej przedstawiono oczekiwane wartości:
 
 **Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
 
-Poniższy fragment kodu środowiska Node. js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token z danych wejściowych `resourceUri, signingKey, policyName, expiresInMins` . W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
+Poniższy fragment kodu Node.js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token na podstawie danych wejściowych `resourceUri, signingKey, policyName, expiresInMins` . W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -198,11 +198,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
 
-Poniżej przedstawiono instrukcje instalacji dotyczące wymagań wstępnych.
-
-[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
-
 Funkcja języka C# do generowania tokenu zabezpieczającego:
 
 ```csharp
@@ -235,7 +230,6 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 ```
 
-
 > [!NOTE]
 > Ponieważ okres ważności tokenu jest weryfikowany na maszynach IoT Hub, odchylenie zegara maszyny generującej token musi być minimalne.
 
@@ -266,7 +260,7 @@ Na przykład token utworzony w celu uzyskania dostępu do wszystkich funkcji urz
 * Brak nazwy zasad,
 * dowolny czas wygaśnięcia.
 
-Przykład przy użyciu poprzedniej funkcji Node. js:
+Przykład przy użyciu poprzedniej funkcji Node.js:
 
 ```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
@@ -300,7 +294,7 @@ Przykładowo usługa tokenu korzystająca z wstępnie utworzonych zasad dostępu
 * Nazwa zasad: `device` ,
 * dowolny czas wygaśnięcia.
 
-Przykład przy użyciu poprzedniej funkcji Node. js:
+Przykład przy użyciu poprzedniej funkcji Node.js:
 
 ```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";

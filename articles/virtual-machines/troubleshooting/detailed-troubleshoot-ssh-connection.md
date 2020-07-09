@@ -16,10 +16,9 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920131"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Szczegółowe procedury rozwiązywania problemów dotyczących połączenia SSH z maszyną wirtualną z systemem Linux na platformie Azure
@@ -33,7 +32,7 @@ Na poniższym diagramie przedstawiono składniki, które są objęte pomocą.
 Poniższe kroki ułatwiają wyizolowanie źródła awarii i ustalenie rozwiązań lub obejścia tego problemu.
 
 1. Sprawdź stan maszyny wirtualnej w portalu.
-   W [Azure Portal](https://portal.azure.com)wybierz opcję*Nazwa maszyny* **wirtualnej maszyn** > wirtualnych.
+   W [Azure Portal](https://portal.azure.com)wybierz opcję Nazwa **maszyny wirtualnej maszyn wirtualnych**  >  *VM name*.
 
    W okienku stanu dla maszyny wirtualnej powinny być wyświetlane **działania**. Przewiń w dół, aby wyświetlić ostatnie działania dotyczące zasobów obliczeniowych, magazynu i sieci.
 
@@ -71,7 +70,7 @@ W przypadku zastosowania jednego z tych warunków należy tymczasowo wyłączyć
 Jeśli używasz uwierzytelniania przy użyciu certyfikatu, sprawdź, czy masz uprawnienia do folderu. SSH w katalogu macierzystym:
 
 * Chmod 700 ~/.SSH
-* Chmod 644 ~/.SSH/\*. pub
+* Chmod 644 ~/.SSH/ \* . pub
 * Chmod 600 ~/.ssh/id_rsa (lub innych plików, w których przechowywane są Twoje klucze prywatne)
 * Chmod 644 ~/.ssh/known_hosts (zawiera hosty, z którymi nawiązano połączenie za pośrednictwem protokołu SSH)
 
@@ -105,7 +104,7 @@ Jeśli nie masz innej maszyny wirtualnej w tej samej sieci wirtualnej, możesz �
 
 Jeśli możesz utworzyć połączenie SSH z MASZYNą wirtualną w tej samej sieci wirtualnej, sprawdź następujące obszary:
 
-* **Konfiguracja punktu końcowego dla ruchu SSH na docelowej maszynie wirtualnej.** Prywatny port TCP punktu końcowego powinien być zgodny z portem TCP, na którym nasłuchuje usługa SSH na maszynie wirtualnej. (Domyślny numer portu to 22). Sprawdź numer portu TCP SSH w Azure Portal, wybierając pozycję **maszyny** > wirtualne**Ustawienia** > **Endpoints***nazw* > maszyn wirtualnych.
+* **Konfiguracja punktu końcowego dla ruchu SSH na docelowej maszynie wirtualnej.** Prywatny port TCP punktu końcowego powinien być zgodny z portem TCP, na którym nasłuchuje usługa SSH na maszynie wirtualnej. (Domyślny numer portu to 22). Sprawdź numer portu TCP SSH w Azure Portal, wybierając pozycję **maszyny wirtualne**  >  *VM name*  >  **Ustawienia**nazw maszyn wirtualnych  >  **Endpoints**.
 * **Lista ACL dla punktu końcowego ruchu SSH na docelowej maszynie wirtualnej.** Lista ACL pozwala określić dozwolony lub zabroniony ruch przychodzący z Internetu, na podstawie jego źródłowego adresu IP. Nieprawidłowo skonfigurowane listy ACL mogą zapobiegać przychodzącemu ruchowi SSH do punktu końcowego. Sprawdź listy kontroli dostępu, aby upewnić się, że ruch przychodzący z publicznych adresów IP serwera proxy lub innego serwera granicznego jest dozwolony. Aby uzyskać więcej informacji, zobacz [Informacje o listach kontroli dostępu do sieci (ACL)](../../virtual-network/virtual-networks-acl.md).
 
 Aby wyeliminować punkt końcowy jako źródło problemu, Usuń bieżący punkt końcowy, Utwórz inny punkt końcowy i określ nazwę SSH (port TCP 22 dla numeru portu publicznego i prywatnego). Aby uzyskać więcej informacji, zobacz [Konfigurowanie punktów końcowych na maszynie wirtualnej na platformie Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -132,5 +131,5 @@ Spróbuj ponownie nawiązać połączenie z komputera. Jeśli nadal nie powiedzi
 * Lokalna Zapora na docelowej maszynie wirtualnej ma reguły uniemożliwiające ruch w ruchu SSH lub wychodzącym.
 * Wykrywanie intruza lub oprogramowanie do monitorowania sieci działające na maszynie wirtualnej platformy Azure uniemożliwia połączenia SSH.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 Aby uzyskać więcej informacji na temat rozwiązywania problemów z dostępem do aplikacji, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md)

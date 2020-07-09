@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: mvc
-ms.openlocfilehash: e5292f5166e739264e9cf969480b70f415fcc75a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 41d52eff2dc2d9fc1e4c956c893a2f14c91d9f92
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333494"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560377"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python)
 
@@ -180,7 +180,7 @@ Poniższe wykresy przedstawiają wizualizację danych prognoz. Aby zmienić szyb
 
 <center>
 
-![](./media/weather-service-tutorial/speed-date-plot.png) ![Kierunek wiatru — wykres kierunku wiatru](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![Kierunek wiatru — wykres ](./media/weather-service-tutorial/speed-date-plot.png) ![ kierunku wiatru](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
 ## <a name="next-steps"></a>Następne kroki

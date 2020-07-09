@@ -8,18 +8,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 92674ed9d39ea9e84d477d19aadbaeda6da6f32c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78206116"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728269"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Wyszukaj grupy i członków (wersja zapoznawcza) w Azure Active Directory
 
@@ -45,7 +44,7 @@ Jeśli masz jakieś problemy, możesz przełączyć się ze starszego środowisk
 
 ## <a name="group-search-and-sorting"></a>Wyszukiwanie i sortowanie grup
 
-Przeszukiwanie listy grup zostało ulepszone, dzięki czemu w przypadku wprowadzenia ciągu wyszukiwania, wyszukiwanie automatycznie wykonuje wyszukiwanie `startswith` i podciągi na liście nazw grup. Wyszukiwanie podciągów jest wykonywane tylko na całych słowach i nie zawiera znaków specjalnych. W wyszukiwaniu podciągów jest rozróżniana wielkość liter.
+Przeszukiwanie listy grup zostało ulepszone, dzięki czemu w przypadku wprowadzenia ciągu wyszukiwania, wyszukiwanie automatycznie wykonuje `startswith` Wyszukiwanie i podciągi na liście nazw grup. Wyszukiwanie podciągów jest wykonywane tylko na całych słowach i nie zawiera znaków specjalnych. W wyszukiwaniu podciągów jest rozróżniana wielkość liter.
 
 ![nowe przeszukiwania podciągów na stronie wszystkie grupy](./media/groups-members-owners-search/groups-search-preview.png)
 

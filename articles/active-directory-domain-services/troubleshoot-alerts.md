@@ -11,12 +11,11 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: ed791ea10c072308c16baac9fa469a46b19ec648
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734065"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Znane problemy: typowe alerty i rozwiązania w Azure Active Directory Domain Services
 
@@ -34,7 +33,7 @@ Ten artykuł zawiera informacje dotyczące rozwiązywania problemów dotyczącyc
 
 Ten błąd jest zwykle spowodowany przeniesieniem subskrypcji platformy Azure do nowego katalogu usługi Azure AD, a stary katalog usługi Azure AD skojarzony z usługą Azure AD DS zostanie usunięty.
 
-Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą domenę zarządzaną platformy Azure AD DS](delete-aadds.md) i utwórz ją ponownie w nowym katalogu. Jeśli masz problem z usunięciem domeny zarządzanej AD DS platformy Azure, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
+Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą domenę zarządzaną platformy Azure AD DS](delete-aadds.md) i utwórz ją ponownie w nowym katalogu. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C jest uruchomiony w tym katalogu
 
@@ -48,11 +47,11 @@ Usługa Azure AD DS automatycznie synchronizuje się z katalogiem usługi Azure 
 
 Aby korzystać z usługi Azure AD DS, należy ponownie utworzyć domenę zarządzaną w katalogu innym niż Azure AD B2C, wykonując następujące czynności:
 
-1. [Usuń domenę zarządzaną AD DS platformy Azure](delete-aadds.md) z istniejącego katalogu usługi Azure AD.
+1. [Usuń domenę zarządzaną](delete-aadds.md) z istniejącego katalogu usługi Azure AD.
 1. Utwórz nowy katalog usługi Azure AD, który nie jest katalogiem Azure AD B2C.
-1. [Utwórz zastępczą domenę zarządzaną platformy Azure AD DS](tutorial-create-instance.md).
+1. [Utwórz zastępczą domenę zarządzaną](tutorial-create-instance.md).
 
-Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: adres należy do publicznego zakresu adresów IP
 
@@ -69,18 +68,18 @@ W sieci wirtualnej maszyny wirtualne mogą wykonywać żądania do zasobów plat
 > [!NOTE]
 > Jeśli masz własny zakres adresów IP w Internecie skonfigurowanym w sieci wirtualnej, ten alert może zostać zignorowany. Jednak w przypadku tej konfiguracji Azure AD Domain Services nie można zatwierdzić [umowy SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)], ponieważ może to prowadzić do nieprzewidywalnego błędu.
 
-Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną platformy Azure AD DS i utwórz ją ponownie w sieci wirtualnej z zakresem prywatnych adresów IP. Ten proces jest zakłócany, ponieważ domena zarządzana AD DS platformy Azure jest niedostępna, a wszystkie zasoby niestandardowe, które zostały utworzone, takie jak jednostki organizacyjne lub konta usług, są tracone.
+Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną i utwórz ją ponownie w sieci wirtualnej z zakresem prywatnych adresów IP. Ten proces jest zakłócany, ponieważ domena zarządzana jest niedostępna, a wszystkie zasoby niestandardowe, które zostały utworzone, takie jak jednostki organizacyjne lub konta usług, są tracone.
 
-1. [Usuń domenę zarządzaną AD DS platformy Azure](delete-aadds.md) z katalogu.
+1. [Usuń domenę zarządzaną](delete-aadds.md) z katalogu.
 1. Aby zaktualizować zakres adresów IP sieci wirtualnej, Wyszukaj i wybierz pozycję *Sieć wirtualna* w Azure Portal. Wybierz sieć wirtualną dla usługi Azure AD DS, która ma nieprawidłowo ustawiony zakres publicznych adresów IP.
 1. W obszarze **Ustawienia**wybierz pozycję *przestrzeń adresowa*.
 1. Zaktualizuj zakres adresów, wybierając istniejący zakres adresów i edytując go lub dodając dodatkowy zakres adresów. Upewnij się, że nowy zakres adresów IP należy do zakresu prywatnego adresów IP. Gdy wszystko będzie gotowe, **Zapisz** zmiany.
 1. W lewym okienku nawigacji wybierz pozycję **podsieci** .
 1. Wybierz podsieć, którą chcesz edytować, lub Utwórz dodatkową podsieć.
 1. Zaktualizuj lub określ prywatny zakres adresów IP, a następnie **Zapisz** zmiany.
-1. [Utwórz zastępczą domenę zarządzaną platformy Azure AD DS](tutorial-create-instance.md). Upewnij się, że wybrano zaktualizowaną podsieć sieci wirtualnej z zakresem prywatnych adresów IP.
+1. [Utwórz zastępczą domenę zarządzaną](tutorial-create-instance.md). Upewnij się, że wybrano zaktualizowaną podsieć sieci wirtualnej z zakresem prywatnych adresów IP.
 
-Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: nie znaleziono subskrypcji platformy Azure
 
@@ -90,11 +89,11 @@ Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Usługa Azure AD DS wymaga aktywnej subskrypcji i nie można jej przenieść do innej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana przez usługę Azure AD DS, zostanie usunięta, należy ponownie utworzyć subskrypcję platformy Azure i domenę zarządzaną platformy Azure AD DS.
+Usługa Azure AD DS wymaga aktywnej subskrypcji i nie można jej przenieść do innej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana, jest usuwana, należy ponownie utworzyć subskrypcję platformy Azure i domenę zarządzaną.
 
 1. [Utwórz subskrypcję platformy Azure](../cost-management-billing/manage/create-subscription.md).
-1. [Usuń domenę zarządzaną AD DS platformy Azure](delete-aadds.md) z istniejącego katalogu usługi Azure AD.
-1. [Utwórz zastępczą domenę zarządzaną platformy Azure AD DS](tutorial-create-instance.md).
+1. [Usuń domenę zarządzaną](delete-aadds.md) z istniejącego katalogu usługi Azure AD.
+1. [Utwórz zastępczą domenę zarządzaną](tutorial-create-instance.md).
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: subskrypcja platformy Azure jest wyłączona
 
@@ -104,12 +103,12 @@ Usługa Azure AD DS wymaga aktywnej subskrypcji i nie można jej przenieść do 
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Usługa Azure AD DS wymaga aktywnej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana przez platformę Azure AD DS, nie jest aktywna, należy ją odnowić, aby ponownie aktywować subskrypcję.
+Usługa Azure AD DS wymaga aktywnej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana, nie jest aktywna, należy ją odnowić, aby ponownie aktywować subskrypcję.
 
 1. [Odnów subskrypcję platformy Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Po odnowieniu subskrypcji powiadomienie AD DS platformy Azure umożliwi ponowne włączenie domeny zarządzanej.
 
-Gdy domena zarządzana zostanie ponownie włączona, kondycja domeny zarządzanej przez platformę Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Po ponownym włączeniu ochrony domeny zarządzanej kondycja domeny zarządzanej jest automatycznie aktualizowana w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="aadds108-subscription-moved-directories"></a>AADDS108: przeniesiono katalogi subskrypcji
 
@@ -119,7 +118,7 @@ Gdy domena zarządzana zostanie ponownie włączona, kondycja domeny zarządzane
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Usługa Azure AD DS wymaga aktywnej subskrypcji i nie można jej przenieść do innej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana przez platformę Azure AD DS, została przeniesiona, przenieś ją z powrotem do poprzedniego katalogu lub [Usuń domenę zarządzaną](delete-aadds.md) z istniejącego katalogu i [Utwórz zastępczą domenę zarządzaną platformy Azure AD DS w wybranej subskrypcji](tutorial-create-instance.md).
+Usługa Azure AD DS wymaga aktywnej subskrypcji i nie można jej przenieść do innej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana, jest przenoszona, przenieś ją z powrotem do poprzedniego katalogu lub [Usuń domenę zarządzaną](delete-aadds.md) z istniejącego katalogu i [Utwórz zastępczą domenę zarządzaną w wybranej subskrypcji](tutorial-create-instance.md).
 
 ## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: nie można odnaleźć zasobów dla domeny zarządzanej
 
@@ -133,12 +132,12 @@ Usługa Azure AD DS tworzy dodatkowe zasoby do poprawnego działania, takie jak 
 
 Ten alert jest generowany, gdy jeden z tych wymaganych zasobów zostanie usunięty. Jeśli zasób został usunięty mniej niż 4 godziny temu, istnieje możliwość, że platforma Azure może automatycznie odtworzyć usunięty zasób. Poniższe kroki przedstawiają sposób sprawdzania stanu kondycji i sygnatury czasowej usunięcia zasobu:
 
-1. W Azure Portal Wyszukaj i wybierz pozycję **usługi domenowe**. Wybierz domenę zarządzaną platformy Azure AD DS, na przykład *aaddscontoso.com*.
+1. W Azure Portal Wyszukaj i wybierz pozycję **usługi domenowe**. Wybierz domenę zarządzaną, taką jak *aaddscontoso.com*.
 1. W okienku nawigacji po lewej stronie wybierz pozycję **kondycja**.
 1. Na stronie kondycja wybierz alert z IDENTYFIKATORem *AADDS109*.
 1. Alert ma sygnaturę czasową dla momentu jego pierwszego znalezienia. Jeśli sygnatura czasowa jest krótsza niż 4 godziny temu, platforma Azure może być w stanie automatycznie ponownie utworzyć zasób i rozwiązać alert przez siebie.
 
-    Jeśli alert jest wcześniejszy niż 4 godziny, domena zarządzana AD DS platformy Azure jest w stanie nieodwracalnym. [Usuń domenę zarządzaną AD DS platformy Azure](delete-aadds.md) , a następnie [Utwórz zastępczą domenę zarządzaną](tutorial-create-instance.md).
+    Jeśli alert jest wcześniejszy niż 4 godziny, domena zarządzana jest w stanie nieodwracalnym. [Usuń domenę zarządzaną](delete-aadds.md) , a następnie [Utwórz zastępczą domenę zarządzaną](tutorial-create-instance.md).
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: podsieć skojarzona z domeną zarządzaną jest pełna
 
@@ -150,7 +149,7 @@ Ten alert jest generowany, gdy jeden z tych wymaganych zasobów zostanie usunię
 
 Podsieć sieci wirtualnej dla usługi Azure AD DS wymaga odpowiednich adresów IP dla automatycznie utworzonych zasobów. Ta przestrzeń adresów IP obejmuje konieczność tworzenia zasobów zastępczych w przypadku wystąpienia zdarzenia konserwacji. Aby zminimalizować ryzyko braku dostępnych adresów IP, nie Wdrażaj dodatkowych zasobów, takich jak własne maszyny wirtualne, w tej samej podsieci sieci wirtualnej co usługa Azure AD DS.
 
-Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą domenę zarządzaną platformy Azure AD DS](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej AD DS platformy Azure, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
+Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domenę zarządzaną](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Nazwa główna usługi nie jest autoryzowana
 
@@ -160,7 +159,7 @@ Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą do
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Niektóre automatycznie generowane jednostki usługi są używane do zarządzania i tworzenia zasobów dla domeny zarządzanej AD DS platformy Azure. Jeśli uprawnienia dostępu dla jednej z tych jednostek usługi zostaną zmienione, domena nie będzie mogła prawidłowo zarządzać zasobami. Poniższe kroki pokazują, jak zrozumieć, a następnie udzielić uprawnień dostępu do jednostki usługi:
+Niektóre automatycznie generowane jednostki usługi są używane do zarządzania zasobami i tworzenia ich dla domeny zarządzanej. Jeśli uprawnienia dostępu dla jednej z tych jednostek usługi zostaną zmienione, domena nie będzie mogła prawidłowo zarządzać zasobami. Poniższe kroki pokazują, jak zrozumieć, a następnie udzielić uprawnień dostępu do jednostki usługi:
 
 1. Przeczytaj o [kontroli dostępu opartej na rolach i sposobach udzielania dostępu do aplikacji w Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Przejrzyj dostęp, który jednostka usługi o IDENTYFIKATORze *abba844e-bc0e-44b0-947a-dc74e5d09022* , i Udziel dostępu, który został odrzucony w wcześniejszym terminie.
@@ -175,18 +174,18 @@ Niektóre automatycznie generowane jednostki usługi są używane do zarządzani
 
 Podsieć sieci wirtualnej dla usługi Azure AD DS wymaga wystarczającej liczby adresów IP dla automatycznie utworzonych zasobów. Ta przestrzeń adresów IP obejmuje konieczność tworzenia zasobów zastępczych w przypadku wystąpienia zdarzenia konserwacji. Aby zminimalizować ryzyko braku dostępnych adresów IP, nie Wdrażaj dodatkowych zasobów, takich jak własne maszyny wirtualne, w tej samej podsieci sieci wirtualnej co usługa Azure AD DS.
 
-Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną platformy Azure AD DS i utwórz ją ponownie w sieci wirtualnej z dużym zakresem adresów IP. Ten proces jest zakłócany, ponieważ domena zarządzana AD DS platformy Azure jest niedostępna, a wszystkie zasoby niestandardowe, które zostały utworzone, takie jak jednostki organizacyjne lub konta usług, są tracone.
+Aby rozwiązać ten alert, Usuń istniejącą domenę zarządzaną i utwórz ją ponownie w sieci wirtualnej z dużym zakresem adresów IP. Ten proces jest zakłócany, ponieważ domena zarządzana jest niedostępna, a wszystkie zasoby niestandardowe, które zostały utworzone, takie jak jednostki organizacyjne lub konta usług, są tracone.
 
-1. [Usuń domenę zarządzaną AD DS platformy Azure](delete-aadds.md) z katalogu.
+1. [Usuń domenę zarządzaną](delete-aadds.md) z katalogu.
 1. Aby zaktualizować zakres adresów IP sieci wirtualnej, Wyszukaj i wybierz pozycję *Sieć wirtualna* w Azure Portal. Wybierz sieć wirtualną dla AD DS platformy Azure, która ma mały zakres adresów IP.
 1. W obszarze **Ustawienia**wybierz pozycję *przestrzeń adresowa*.
 1. Zaktualizuj zakres adresów, wybierając istniejący zakres adresów i edytując go lub dodając dodatkowy zakres adresów. Upewnij się, że nowy zakres adresów IP jest wystarczająco duży dla zakresu podsieci AD DS platformy Azure. Gdy wszystko będzie gotowe, **Zapisz** zmiany.
 1. W lewym okienku nawigacji wybierz pozycję **podsieci** .
 1. Wybierz podsieć, którą chcesz edytować, lub Utwórz dodatkową podsieć.
 1. Zaktualizuj lub określ wystarczająco duży zakres adresów IP, a następnie **Zapisz** zmiany.
-1. [Utwórz zastępczą domenę zarządzaną platformy Azure AD DS](tutorial-create-instance.md). Upewnij się, że wybrano zaktualizowaną podsieć sieci wirtualnej z dużym zakresem adresów IP.
+1. [Utwórz zastępczą domenę zarządzaną](tutorial-create-instance.md). Upewnij się, że wybrano zaktualizowaną podsieć sieci wirtualnej z dużym zakresem adresów IP.
 
-Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: zasoby są nieodwracalne
 
@@ -196,7 +195,7 @@ Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą domenę zarządzaną platformy Azure AD DS](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej AD DS platformy Azure, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
+Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domenę zarządzaną](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114: nieprawidłowa podsieć
 
@@ -206,7 +205,7 @@ Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą do
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Ten błąd jest nieodwracalny. Aby rozwiązać ten alert, [Usuń istniejącą domenę zarządzaną platformy Azure AD DS](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej AD DS platformy Azure, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
+Ten błąd jest nieodwracalny. Aby rozwiązać alert, [Usuń istniejącą domenę zarządzaną](delete-aadds.md) i utwórz ją ponownie. Jeśli masz problem z usunięciem domeny zarządzanej, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby uzyskać dodatkową pomoc dotyczącą rozwiązywania problemów.
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115: zasoby są zablokowane
 
@@ -248,10 +247,10 @@ Aby sprawdzić zastosowane zasady dla składników usługi Azure AD DS i zaktual
 
 [Sprawdź kondycję usługi Azure AD DS](check-health.md) pod kątem alertów wskazujących na problemy z konfiguracją domeny zarządzanej. Problemy z konfiguracją sieci mogą blokować synchronizację z usługi Azure AD. Jeśli możesz rozwiązać alerty wskazujące problem z konfiguracją, zaczekaj dwie godziny i sprawdź, czy synchronizacja została pomyślnie ukończona.
 
-Następujące typowe przyczyny powodują zatrzymanie synchronizacji w domenach zarządzanych AD DS platformy Azure:
+Następujące typowe przyczyny powodują zatrzymanie synchronizacji w domenach zarządzanych:
 
 * Wymagana łączność sieciowa jest zablokowana. Aby dowiedzieć się więcej o tym, jak sprawdzić, czy usługa Azure Virtual Network rozwiązuje problemy i jakie są wymagane, zobacz [Rozwiązywanie problemów z sieciowymi grupami zabezpieczeń](alert-nsg.md) i [wymagania sieciowe dotyczące Azure AD Domain Services](network-considerations.md).
-*  Synchronizacja haseł nie została skonfigurowana lub zakończyła się pomyślnie podczas wdrażania domeny zarządzanej AD DS platformy Azure. Synchronizację haseł można skonfigurować dla [użytkowników tylko w chmurze](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) lub dla [użytkowników hybrydowych z Premium](tutorial-configure-password-hash-sync.md).
+*  Synchronizacja haseł nie została skonfigurowana lub zakończyła się pomyślnie, gdy została wdrożona domena zarządzana. Synchronizację haseł można skonfigurować dla [użytkowników tylko w chmurze](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) lub dla [użytkowników hybrydowych z Premium](tutorial-configure-password-hash-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: nie wykonano kopii zapasowej w czasie
 
@@ -272,14 +271,14 @@ Następujące typowe przyczyny powodują zatrzymanie synchronizacji w domenach z
 ### <a name="resolution"></a>Rozwiązanie
 
 > [!WARNING]
-> Jeśli domena zarządzana AD DS platformy Azure jest zawieszona przez dłuższy czas, wystąpi niebezpieczeństwo jego usunięcia. Rozwiąż powód zawieszenia tak szybko, jak to możliwe. Aby uzyskać więcej informacji, zobacz temat [Omówienie zawieszonych Stanów usługi Azure AD DS](suspension.md).
+> Jeśli zarządzana domena jest zawieszona przez dłuższy czas, wystąpi niebezpieczeństwo jego usunięcia. Rozwiąż powód zawieszenia tak szybko, jak to możliwe. Aby uzyskać więcej informacji, zobacz temat [Omówienie zawieszonych Stanów usługi Azure AD DS](suspension.md).
 
-Usługa Azure AD DS wymaga aktywnej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana przez platformę Azure AD DS, nie jest aktywna, należy ją odnowić, aby ponownie aktywować subskrypcję.
+Usługa Azure AD DS wymaga aktywnej subskrypcji. Jeśli subskrypcja platformy Azure, z którą skojarzona jest domena zarządzana, nie jest aktywna, należy ją odnowić, aby ponownie aktywować subskrypcję.
 
 1. [Odnów subskrypcję platformy Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Po odnowieniu subskrypcji powiadomienie AD DS platformy Azure umożliwi ponowne włączenie domeny zarządzanej.
 
-Gdy domena zarządzana zostanie ponownie włączona, kondycja domeny zarządzanej przez platformę Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Po ponownym włączeniu ochrony domeny zarządzanej kondycja domeny zarządzanej jest automatycznie aktualizowana w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: zawieszenie z powodu nieprawidłowej konfiguracji
 
@@ -290,9 +289,9 @@ Gdy domena zarządzana zostanie ponownie włączona, kondycja domeny zarządzane
 ### <a name="resolution"></a>Rozwiązanie
 
 > [!WARNING]
-> Jeśli domena zarządzana AD DS platformy Azure jest zawieszona przez dłuższy czas, wystąpi niebezpieczeństwo jego usunięcia. Rozwiąż powód zawieszenia tak szybko, jak to możliwe. Aby uzyskać więcej informacji, zobacz temat [Omówienie zawieszonych Stanów usługi Azure AD DS](suspension.md).
+> Jeśli zarządzana domena jest zawieszona przez dłuższy czas, wystąpi niebezpieczeństwo jego usunięcia. Rozwiąż powód zawieszenia tak szybko, jak to możliwe. Aby uzyskać więcej informacji, zobacz temat [Omówienie zawieszonych Stanów usługi Azure AD DS](suspension.md).
 
-[Sprawdź kondycję usługi Azure AD DS](check-health.md) pod kątem alertów wskazujących na problemy z konfiguracją domeny zarządzanej. Jeśli możesz rozwiązać alerty wskazujące problem z konfiguracją, zaczekaj dwie godziny i sprawdź, czy synchronizacja została ukończona. Gdy wszystko będzie gotowe, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby ponownie włączyć domenę zarządzaną platformy Azure AD DS.
+[Sprawdź kondycję usługi Azure AD DS](check-health.md) pod kątem alertów wskazujących na problemy z konfiguracją domeny zarządzanej. Jeśli możesz rozwiązać alerty wskazujące problem z konfiguracją, zaczekaj dwie godziny i sprawdź, czy synchronizacja została ukończona. Gdy wszystko będzie gotowe, [Otwórz żądanie pomocy technicznej platformy Azure][azure-support] , aby ponownie włączyć domenę zarządzaną.
 
 ## <a name="next-steps"></a>Następne kroki
 

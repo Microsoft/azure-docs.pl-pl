@@ -5,17 +5,17 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176400"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514437"
 ---
-# <a name="choose-an-azure-solution-for-data-transfer"></a>Wybieranie rozwiązania platformy Azure do transferu danych
+# <a name="choose-an-azure-solution-for-data-transfer"></a>Wybierz rozwiązanie platformy Azure na potrzeby transferu danych
 
 Ten artykuł zawiera omówienie niektórych typowych rozwiązań do transferu danych na platformie Azure. Artykuł zawiera również instrukcje dotyczące zalecanych opcji w zależności od przepustowości sieci w danym środowisku oraz wielkości danych, które mają być transferowane.
 
@@ -35,7 +35,7 @@ Przenoszenie danych może mieć następujące typy:
 
     - **Interfejs graficzny** — Jeśli okresowo przesyłasz zaledwie kilka plików i nie musisz zautomatyzować transferu danych, możesz wybrać narzędzie interfejsu graficznego, takie jak Eksplorator usługi Azure Storage lub narzędzie eksploracji oparte na sieci Web w programie Azure Portal.
     - **Skryptowy lub przenoszony przez skrypty** — możesz używać zoptymalizowanych narzędzi programistycznych udostępnianych przez nas lub bezpośrednio wywoływać interfejsy API REST/zestawy SDK. Dostępne narzędzia skryptowe to AzCopy, Azure PowerShell i interfejs wiersza polecenia platformy Azure. Dla interfejsu programistycznego Użyj jednego z zestawów SDK dla platformy .NET, Java, Python, Node/JS, C++, go, PHP lub Ruby.
-    - **Urządzenia lokalne** — udostępniamy urządzenia fizyczne lub wirtualne, które znajdują się w centrum danych, a następnie optymalizują transfer przy użyciu sieci. Te urządzenia zapewniają również lokalną pamięć podręczną często używanych plików. Urządzenie fizyczne jest Data Box Edge, a urządzenie wirtualne jest Data Box Gateway. Obie działają trwale w Twoim środowisku lokalnym i łączą się z platformą Azure za pośrednictwem sieci.
+    - **Urządzenia lokalne** — udostępniamy urządzenia fizyczne lub wirtualne, które znajdują się w centrum danych, a następnie optymalizują transfer przy użyciu sieci. Te urządzenia zapewniają również lokalną pamięć podręczną często używanych plików. Urządzenie fizyczne jest Azure Stack krawędzią, a urządzenie wirtualne jest Data Box Gateway. Obie działają trwale w Twoim środowisku lokalnym i łączą się z platformą Azure za pośrednictwem sieci.
     - **Potok danych zarządzanych** — można skonfigurować potok w chmurze do regularnego transferu plików między kilkoma usługami platformy Azure, lokalnymi lub kombinacją dwóch. Użyj Azure Data Factory, aby skonfigurować potoki danych i zarządzać nimi, oraz przenosić i przekształcać dane w celu analizy.
 
 W poniższej wizualizacji przedstawiono wskazówki pozwalające wybrać różne narzędzia transferu danych platformy Azure w zależności od przepustowości sieci dostępnej do transferu, rozmiaru danych przeznaczonego do transferu oraz częstotliwości transferu.
@@ -77,7 +77,7 @@ Możesz również przejść do konta usługi Azure Storage w Azure Portal i wybr
 - Dowiedz się więcej:
 
     - [Azure Data Box, Azure Data Box Disk i Azure Data Box Heavy do transferów w trybie offline](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway i Azure Data Box Edge do transferów online](https://docs.microsoft.com/azure/databox-online/).
+    - [Azure Data Box Gateway i Azure Stack Edge do transferów online](https://docs.microsoft.com/azure/databox-online/).
 - [Dowiedz się, co to jest Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - Transferowanie danych za pomocą interfejsów API REST
 

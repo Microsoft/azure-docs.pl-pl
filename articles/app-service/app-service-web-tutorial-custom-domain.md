@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559891"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986834"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Samouczek: mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service
 
@@ -95,9 +95,7 @@ Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalow
 
 ## <a name="get-domain-verification-id"></a>Pobierz identyfikator weryfikacji domeny
 
-Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własność domeny, dodając identyfikator weryfikacyjny jako rekord TXT z dostawcą domeny. W lewym panelu nawigacyjnym strony aplikacji kliknij pozycję **Eksplorator zasobów** w obszarze **Narzędzia deweloperskie**, a następnie kliknij pozycję **Przejdź**.
-
-W widoku JSON właściwości aplikacji Wyszukaj `customDomainVerificationId`i skopiuj jej wartość wewnątrz podwójnych cudzysłowów. Ten identyfikator weryfikacyjny jest potrzebny do następnego kroku.
+Aby dodać domenę niestandardową do aplikacji, musisz zweryfikować własność domeny, dodając identyfikator weryfikacyjny jako rekord TXT z dostawcą domeny. W lewym panelu nawigacyjnym strony aplikacji kliknij pozycję **domeny niestandardowe** w obszarze **Ustawienia**. W tym miejscu skopiuj wartość identyfikatora weryfikacyjnej domeny niestandardowej. Ten identyfikator weryfikacyjny jest potrzebny do następnego kroku.
 
 ## <a name="map-your-domain"></a>Mapowanie domeny
 
@@ -114,18 +112,20 @@ Do mapowania niestandardowej nazwy DNS na usługę App Service możesz użyć **
 
 W przykładzie znajdującym się w tym samouczku dodasz rekord CNAME dla poddomeny `www` (na przykład `www.contoso.com`).
 
+Jeśli masz poddomenę inną niż `www` , Zastąp ją `www` poddomeną (na przykład, `sub` Jeśli domena niestandardowa to `sub.constoso.com` ).
+
 #### <a name="access-dns-records-with-domain-provider"></a>Uzyskiwanie dostępu do rekordów DNS u dostawcy domen
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 #### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Zamapuj poddomenę na domyślną nazwę domeny aplikacji (`<app_name>.azurewebsites.net`gdzie `<app_name>` jest nazwą aplikacji). Aby utworzyć mapowanie CNAME dla `www` domeny podrzędnej, Utwórz dwa rekordy:
+Zamapuj poddomenę na domyślną nazwę domeny aplikacji ( `<app_name>.azurewebsites.net` gdzie `<app_name>` jest nazwą aplikacji). Aby utworzyć mapowanie CNAME dla domeny podrzędnej `www` , Utwórz dwa rekordy:
 
 | Typ rekordu | Host | Wartość | Komentarze |
 | - | - | - |
 | CNAME | `www` | `<app_name>.azurewebsites.net` | Mapowanie domeny. |
-| TXT | `asuid.www` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp `asuid.<subdomain>` do rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
+| TXT | `asuid.www` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. |
 
 Po dodaniu rekordów CNAME i TXT Strona rekordów DNS wygląda następująco:
 
@@ -149,7 +149,7 @@ Wybierz przycisk **Weryfikuj**.
 
 Zostanie wyświetlona strona **Dodaj domenę niestandardową** .
 
-Upewnij się, że **Typ rekordu nazwy hosta** ma wartość **CNAME (\.example.com www lub dowolna poddomena)**.
+Upewnij się, że **Typ rekordu nazwy hosta** ma wartość **CNAME ( \. example.com www lub dowolna poddomena)**.
 
 Wybierz pozycję **Dodaj domenę niestandardową**.
 
@@ -196,8 +196,8 @@ Aby zmapować Rekord A do aplikacji, zwykle do domeny głównej, Utwórz dwa rek
 
 | Typ rekordu | Host | Wartość | Komentarze |
 | - | - | - |
-| A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) | Samo mapowanie domeny (`@` zazwyczaj reprezentuje domenę główną). |
-| TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp `asuid.<subdomain>` do rekordu TXT w celu zweryfikowania własności domeny niestandardowej. W przypadku domeny głównej Użyj `asuid`. |
+| A | `@` | Adres IP z sekcji [Kopiowanie adresu IP aplikacji](#info) | Samo mapowanie domeny ( `@` zazwyczaj reprezentuje domenę główną). |
+| TXT | `asuid` | [Wcześniej identyfikator weryfikacyjny](#get-domain-verification-id) | App Service uzyskuje dostęp do `asuid.<subdomain>` rekordu TXT w celu zweryfikowania własności domeny niestandardowej. W przypadku domeny głównej Użyj `asuid` . |
 
 > [!NOTE]
 > Aby dodać poddomeny (takie jak `www.contoso.com`) przy użyciu rekordu A zamiast zalecanego [rekordu CNAME](#map-a-cname-record), Twój rekord A i rekord TXT powinny zamiast tego wyglądać podobnie jak w poniższej tabeli:
@@ -257,7 +257,7 @@ W przykładzie znajdującym się w tym samouczku zmapujesz [wieloznaczną nazwę
 
 #### <a name="create-the-cname-record"></a>Tworzenie rekordu CNAME
 
-Dodaj rekord CNAME, aby zamapować nazwę wieloznaczną na domyślną nazwę domeny aplikacji (`<app_name>.azurewebsites.net`).
+Dodaj rekord CNAME, aby zamapować nazwę wieloznaczną na domyślną nazwę domeny aplikacji ( `<app_name>.azurewebsites.net` ).
 
 Dla przykładowej domeny `*.contoso.com` rekord CNAME zmapuje nazwę `*` na nazwę `<app_name>.azurewebsites.net`.
 
@@ -281,7 +281,7 @@ Wpisz w pełni kwalifikowany nazwę domeny, która pasuje do domeny z symbolami 
 
 Przycisk **Dodaj domenę niestandardową** jest aktywowany.
 
-Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na **rekord CNAME\.(example.com www lub dowolna poddomena)**.
+Upewnij się, że **Typ rekordu nazwy hosta** jest ustawiony na **rekord CNAME ( \. example.com www lub dowolna poddomena)**.
 
 Wybierz pozycję **Dodaj domenę niestandardową**.
 
@@ -289,7 +289,7 @@ Wybierz pozycję **Dodaj domenę niestandardową**.
 
 Może upłynąć trochę czasu, zanim nowa domena niestandardowa zostanie odzwierciedlona na stronie **domeny niestandardowe** aplikacji. Spróbuj odświeżyć przeglądarkę, aby zaktualizować dane.
 
-Wybierz ponownie **+** ikonę, aby dodać kolejną domenę niestandardową, która pasuje do domeny z symbolami wieloznacznymi. Na przykład dodaj nazwę `sub2.contoso.com`.
+Wybierz **+** ponownie ikonę, aby dodać kolejną domenę niestandardową, która pasuje do domeny z symbolami wieloznacznymi. Na przykład dodaj `sub2.contoso.com`.
 
 ![Dodany rekord CNAME](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
@@ -325,7 +325,7 @@ W dolnej części strony widać, że główny katalog wirtualny `/` domyślnie w
 
 ![Dostosowywanie katalogu wirtualnego](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Po zakończeniu operacji aplikacja powinna zwrócić odpowiednią stronę w ścieżce katalogu głównego (na przykład `http://contoso.com`).
+Po zakończeniu operacji aplikacja powinna zwrócić odpowiednią stronę w ścieżce katalogu głównego (na przykład `http://contoso.com` ).
 
 ## <a name="automate-with-scripts"></a>Automatyzowanie przy użyciu skryptów
 

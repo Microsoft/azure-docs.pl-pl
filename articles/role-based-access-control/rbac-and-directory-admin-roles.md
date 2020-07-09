@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 70baddf86207c490d3b85e0f584525592f8a7ad7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735819"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087830"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Role administratora klasycznej subskrypcji, role platformy Azure i role usługi Azure AD
 
@@ -120,7 +120,7 @@ Na wysokim poziomie role platformy Azure kontrolują uprawnienia do zarządzania
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Czy role platformy Azure i role usługi Azure AD nakładają się?
 
-Domyślnie role platformy Azure i role usługi Azure AD nie obejmują platformy Azure i usługi Azure AD. Jeśli jednak Administrator globalny Podnieś poziom dostępu, wybierając administrator **globalny może zarządzać subskrypcjami platformy Azure i grupy zarządzania** przełączać się w Azure Portal, Administrator globalny otrzyma rolę [administratora dostępu użytkowników](built-in-roles.md#user-access-administrator) (rolę platformy Azure) we wszystkich subskrypcjach dla danej dzierżawy. Rola administratora dostępu użytkowników pozwala użytkownikom udzielać innym użytkownikom dostępu do zasobów platformy Azure. Ten przełącznik może być przydatny w odzyskaniu dostępu do subskrypcji. Aby uzyskać więcej informacji, zobacz [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](elevate-access-global-admin.md).
+Domyślnie role platformy Azure i role usługi Azure AD nie obejmują platformy Azure i usługi Azure AD. Jeśli jednak Administrator globalny Podnieś poziom dostępu, wybierając w Azure Portal przełącznik **Zarządzanie dostępem dla zasobów platformy Azure** , Administrator globalny otrzyma rolę [administratora dostępu użytkowników](built-in-roles.md#user-access-administrator) (rolę platformy Azure) we wszystkich subskrypcjach dla danej dzierżawy. Rola administratora dostępu użytkowników pozwala użytkownikom udzielać innym użytkownikom dostępu do zasobów platformy Azure. Ten przełącznik może być przydatny w odzyskaniu dostępu do subskrypcji. Aby uzyskać więcej informacji, zobacz [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](elevate-access-global-admin.md).
 
 Kilka ról usługi Azure AD obejmuje usługę Azure AD i Microsoft Office 365, takie jak role administratora globalnego i administratora użytkowników. Jeśli na przykład należysz do roli administratora globalnego, masz możliwości administratora globalnego w usłudze Azure AD oraz w usłudze Office 365 i możesz m.in. dokonywać zmian w programach Microsoft Exchange i Microsoft SharePoint. Jednak domyślnie administrator globalny nie ma dostępu do zasobów platformy Azure.
 

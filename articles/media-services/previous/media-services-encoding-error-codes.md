@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "64709531"
 ---
 # <a name="encoding-error-codes"></a>Kody błędów kodowania
@@ -30,7 +30,7 @@ Poniższa tabela zawiera listę kodów błędów, które mogą zostać zwrócone
 | Nieznane |Nieznany błąd podczas wykonywania zadania |
 | ErrorDownloadingInputAssetMalformedContent |Kategoria błędów obejmująca błędy podczas pobierania wejściowego zasobu, takie jak nieprawidłowe nazwy plików, pliki o zerowej długości, niepoprawne formaty itd. |
 | ErrorDownloadingInputAssetServiceFailure |Kategoria błędów obejmująca problemy po stronie usługi — na przykład błędy sieci lub magazynu podczas pobierania. |
-| ErrorParsingConfiguration |Kategoria błędów, w których \<zadanie See cref = "MediaTask. PrivateData"/> (Configuration) jest nieprawidłowe, na przykład konfiguracja nie jest prawidłowym ustawieniem wstępnym systemu lub zawiera nieprawidłowe dane XML. |
+| ErrorParsingConfiguration |Kategoria błędów, w której zadanie \<see cref="MediaTask.PrivateData"/> (Konfiguracja) jest nieprawidłowe, na przykład konfiguracja nie jest prawidłowym ustawieniem wstępnym systemu lub zawiera nieprawidłowe dane XML. |
 | ErrorExecutingTaskMalformedContent |Kategoria błędów podczas wykonywania zadania, w którym problemy w plikach multimediów wejściowych powodują awarię. |
 | ErrorExecutingTaskUnsupportedFormat |Kategoria błędów, w których procesor multimediów nie może przetworzyć dostarczonych plików — format nośnika nie jest obsługiwany lub nie jest zgodny z konfiguracją. Na przykład próba wygenerowania danych wyjściowych z tylko dźwiękiem z elementu zawartości, który ma tylko wideo |
 | ErrorProcessingTask |Kategoria innych błędów napotykanych przez procesor multimediów podczas przetwarzania zadania, które nie są związane z zawartością. |
@@ -43,7 +43,7 @@ Aby uzyskać pomoc od zespołu **Media Services** , Otwórz [bilet pomocy techni
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Pokrewne artykuły:

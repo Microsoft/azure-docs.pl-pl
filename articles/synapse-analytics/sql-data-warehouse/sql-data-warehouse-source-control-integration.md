@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: afb1108bacadd16007e1f53186107ea8458d96e9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415098"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205122"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integracja kontroli źródła dla puli SQL
 
@@ -55,7 +55,7 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
 
 3. W programie Team Explorer w programie Visual Studio Zatwierdź wszystkie zmiany w lokalnym repozytorium git
 
-   ![Zatwierdzenie](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Zatwierdzenie")  
+   ![Zleca](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Zatwierdzenie")  
 
 4. Teraz, gdy zmiany zostały zatwierdzone lokalnie w sklonowanym repozytorium, zsynchronizuj i wypchnij zmiany do repozytorium repozytorium platformy Azure w projekcie usługi Azure DevOps.
 
@@ -81,4 +81,4 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Opracowywanie aplikacji dla puli SQL](sql-data-warehouse-overview-develop.md)
+- [Programowanie dla puli SQL](sql-data-warehouse-overview-develop.md)

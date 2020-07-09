@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 40d49d156b76db5e02ec48defbb82ed60819c478
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 021bfc0b87b0da800728eda26d9f5222bd52bc1e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651116"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086963"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Opis błędów i rozwiązywanie problemów dotyczących interfejsu API WebHCat w usłudze HDInsight)
 
@@ -34,7 +34,7 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 | Ustawienie | Wyniki działania | Wartość domyślna |
 | --- | --- | --- |
 | [przędzy. Scheduler. pojemność. Maximum — aplikacje][maximum-applications] |Maksymalna liczba zadań, które mogą być aktywne współbieżnie (oczekujące lub uruchomione) |10 000 |
-| [Templeton. exec. Max-procs][max-procs] |Maksymalna liczba żądań, które mogą być obsługiwane współbieżnie |20 |
+| [templeton.exec. Max-procs][max-procs] |Maksymalna liczba żądań, które mogą być obsługiwane współbieżnie |20 |
 | [MapReduce. jobhistory. max-age-MS][max-age-ms] |Liczba dni zachowywania historii zadań |7 dni |
 
 ## <a name="too-many-requests"></a>Zbyt wiele żądań

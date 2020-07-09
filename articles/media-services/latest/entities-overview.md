@@ -14,19 +14,19 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80584531"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
 
 W tym temacie omówiono opcje zapytania OData i obsługa podziału na strony dostępne podczas wyświetlania listy jednostek Azure Media Services v3.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
-* Właściwości jednostek, które są `Datetime` typu, są zawsze w formacie UTC.
+* Właściwości jednostek, które są typu, `Datetime` są zawsze w formacie UTC.
 * Biały znak w ciągu zapytania powinien być kodowany przy użyciu adresu URL przed wysłaniem żądania.
 
 ## <a name="comparison-operators"></a>Operatory porównania
@@ -45,7 +45,7 @@ Operatory zakresu:
 - `ge`: Sprawdź, czy pole jest *większe niż lub równe* wartości stałej.
 - `le`: Sprawdź, czy pole jest *mniejsze niż lub równe* wartości stałej.
 
-## <a name="filter"></a>Filtr
+## <a name="filter"></a>Filtruj
 
 Użyj `$filter` , aby podać parametr filtru OData, aby znaleźć tylko te obiekty, które Cię interesują.
 
@@ -64,7 +64,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Porządkuj według
 
-Służy `$orderby` do sortowania zwracanych obiektów przez określony parametr. Przykład:  
+Służy `$orderby` do sortowania zwracanych obiektów przez określony parametr. Na przykład:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -74,7 +74,7 @@ Aby posortować wyniki w kolejności rosnącej lub malejącej, Dołącz `asc` al
 
 ## <a name="skip-token"></a>Pomiń token
 
-Jeśli odpowiedź na zapytanie zawiera wiele elementów, usługa zwraca wartość `$skiptoken` (`@odata.nextLink`), która jest używana do uzyskania następnej strony wyników. Użyj go do strony za pomocą całego zestawu wyników.
+Jeśli odpowiedź na zapytanie zawiera wiele elementów, usługa zwraca `$skiptoken` `@odata.nextLink` wartość (), która jest używana do uzyskania następnej strony wyników. Użyj go do strony za pomocą całego zestawu wyników.
 
 W Media Services V3 nie można skonfigurować rozmiaru strony. Rozmiar strony jest różny w zależności od typu jednostki. Przeczytaj poszczególne sekcje, które obserwują, aby uzyskać szczegółowe informacje.
 
@@ -83,7 +83,7 @@ Jeśli obiekty są tworzone lub usuwane podczas stronicowania w kolekcji, zmiany
 > [!TIP]
 > Zawsze używaj `nextLink` do wyliczania kolekcji i nie zależą od określonego rozmiaru strony.
 >
-> `nextLink` Wartość będzie obecna tylko wtedy, gdy istnieje więcej niż jedna strona jednostek.
+> `nextLink`Wartość będzie obecna tylko wtedy, gdy istnieje więcej niż jedna strona jednostek.
 
 Rozważmy następujący przykład `$skiptoken` użycia. Upewnij się, że zastąpisz *amstestaccount* z nazwą konta i ustawisz wartość *interfejsu API-Version* w najnowszej wersji.
 
@@ -156,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porządkowania do różnych jednostek:
 
-|Nazwa jednostki|Nazwa właściwości|Filtr|Zamówienie|
+|Nazwa jednostki|Nazwa właściwości|Filtruj|Zamówienie|
 |---|---|---|---|
 |[Elementy zawartości](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` i `desc`|
 ||Właściwości. alternateId |`eq`||
@@ -167,7 +167,7 @@ W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porząd
 ||Properties. Description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||Właściwości. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` i `desc`|
 ||Właściwości. policyId|`eq`, `ne`||
-|[Stanowiska](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` i `desc`|
+|[Zadania](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` i `desc`|
 ||Properties. State        | `eq`, `ne`        |                         |
 ||Właściwości. utworzone      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 ||Właściwości. lastModified | `gt`, `ge`, `lt`, `le` | `asc` i `desc`| 

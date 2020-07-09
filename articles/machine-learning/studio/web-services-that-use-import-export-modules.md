@@ -9,20 +9,20 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 3da51d1e08676d2794c6e95e7ffb359aff26084a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076661"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
 
 Podczas tworzenia eksperymentu predykcyjnego zazwyczaj dodawane są dane wejściowe i wyjściowe usługi sieci Web. Podczas wdrażania eksperymentu klienci mogą wysyłać i odbierać dane z usługi sieci Web za pośrednictwem danych wejściowych i wyjściowych. W przypadku niektórych aplikacji dane użytkownika mogą być dostępne ze strumieniowego źródła danych lub już znajdują się w zewnętrznym źródle danych, takim jak Azure Blob Storage. W takich przypadkach nie potrzebują danych odczytu i zapisu przy użyciu wejściowych i wyjściowych usług sieci Web. Mogą zamiast tego używać usługi wykonywania wsadowego (BES) do odczytywania danych ze źródła danych przy użyciu modułu Importuj dane i zapisywania wyników oceniania w innej lokalizacji danych przy użyciu modułu eksport danych.
 
-Moduły import danych i eksportowanie danych umożliwiają odczytywanie i zapisywanie w różnych lokalizacjach danych, takich jak adres URL sieci Web za pośrednictwem protokołu HTTP, zapytanie programu Hive, baza danych SQL Azure, Azure Table Storage, Azure Blob Storage, dostarczanie strumieniowe danych lub lokalna baza danych SQL.
+Moduły import danych i eksport danych umożliwiają odczytywanie i zapisywanie w różnych lokalizacjach danych, takich jak adres URL sieci Web za pośrednictwem protokołu HTTP, zapytanie programu Hive, baza danych w Azure SQL Database, Azure Table Storage, Azure Blob Storage, dostarczanie strumieniowe danych lub SQL Server Database.
 
 W tym temacie użyto przykładu "Przykładowe 5: pociąg, test, szacuje się, że klasyfikacja binarna: zestaw danych dla dorosłych" i przyjęto założenie, że zestaw danych został już załadowany do tabeli Azure SQL o nazwie censusdata.
 
@@ -41,8 +41,8 @@ Aby odczytać dane z tabeli Azure SQL:
 6. W polach **Nazwa serwera bazy danych**, **Nazwa bazy danych**, **Nazwa użytkownika**i **hasło** wprowadź odpowiednie informacje dotyczące bazy danych.
 7. W polu kwerenda bazy danych wprowadź następujące zapytanie.
 
-     Wybierz pozycję [wiek],
-
+    ```tsql
+     select [age],
         [workclass],
         [fnlwgt],
         [education],
@@ -57,7 +57,8 @@ Aby odczytać dane z tabeli Azure SQL:
         [hours-per-week],
         [native-country],
         [income]
-     z dbo. censusdata;
+     from dbo.censusdata;
+    ```
 8. W dolnej części kanwy eksperymentu kliknij pozycję **Uruchom**.
 
 ## <a name="create-the-predictive-experiment"></a>Utwórz eksperyment predykcyjny
@@ -105,13 +106,15 @@ Aby wdrożyć jako klasyczną usługę sieci Web i utworzyć aplikację w celu j
 8. Zaktualizuj wartość zmiennej *apiKey* z kluczem interfejsu API zapisanym wcześniej.
 9. Znajdź deklarację żądania i zaktualizuj wartości parametrów usługi sieci Web, które są przesyłane do modułów *Importuj dane* i *Eksportuj dane* . W takim przypadku należy użyć oryginalnego zapytania, ale zdefiniować nową nazwę tabeli.
 
-        var request = new BatchExecutionRequest()
-        {
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable2" },
-            }
-        };
+    ```csharp
+    var request = new BatchExecutionRequest()
+    {
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable2" },
+        }
+    };
+    ```
 10. Uruchom aplikację.
 
 Po zakończeniu przebiegu zostanie dodana nowa tabela zawierająca wyniki oceniania.
@@ -133,15 +136,17 @@ Aby wdrożyć program jako nową usługę sieci Web i utworzyć aplikację do u�
 8. Zaktualizuj wartość zmiennej *apiKey* przy użyciu **klucza podstawowego** znajdującego się w sekcji **podstawowe informacje o zużyciu** .
 9. Znajdź deklarację *scoreRequest* i zaktualizuj wartości parametrów usługi sieci Web, które są przesyłane do modułów *Importuj dane* i *Eksportuj dane* . W takim przypadku należy użyć oryginalnego zapytania, ale zdefiniować nową nazwę tabeli.
 
-        var scoreRequest = new
+    ```csharp
+    var scoreRequest = new
+    {
+        Inputs = new Dictionary<string, StringTable>()
         {
-            Inputs = new Dictionary<string, StringTable>()
-            {
-            },
-            GlobalParameters = new Dictionary<string, string>() {
-                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-                { "Table", "dbo.ScoredTable3" },
-            }
-        };
+        },
+        GlobalParameters = new Dictionary<string, string>() {
+            { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+            { "Table", "dbo.ScoredTable3" },
+        }
+    };
+    ```
 10. Uruchom aplikację.
 

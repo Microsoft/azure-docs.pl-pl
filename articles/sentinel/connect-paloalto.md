@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych Palo Alto Networks z platformą Azure Microsoft Docs
-description: Dowiedz się, jak łączyć dane Palo Alto Networks z platformą Azure.
+description: Dowiedz się, w jaki sposób używać łącznika danych Palo Alto Networks do łatwego łączenia dzienników Palo Alto Networks z platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: a79b7a1448e1decb377aa0072261df068c366567
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 245db436fc3216fe5c8c8f51c50c0ac03190f9eb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588131"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564558"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Łączenie Palo Alto z platformą Azure — wskaźnik
 
@@ -34,7 +34,7 @@ W tym artykule wyjaśniono, jak połączyć urządzenie z programem Palo Alto Ne
 Skonfiguruj Palo Alto Networks do przesyłania dalej komunikatów dziennika systemowego w formacie CEF do obszaru roboczego platformy Azure za pośrednictwem agenta dziennika systemu:
 1.  Przejdź do [przewodnika konfiguracji usługi Common Event format (CEF)](https://docs.paloaltonetworks.com/resources/cef) i Pobierz plik PDF dla danego typu urządzenia. Postępuj zgodnie ze wszystkimi instrukcjami w przewodniku, aby skonfigurować urządzenie Palo Alto Networks do zbierania zdarzeń CEF. 
 
-1.  Przejdź do sekcji [konfigurowanie monitorowania dziennika](https://aka.ms/asi-syslog-paloalto-forwarding) systemowego i wykonaj kroki 2 i 3, aby skonfigurować przekazywanie zdarzeń CEF z urządzenia Palo Alto Networks do usługi Azure wskaźnikowej.
+1.  Przejdź do sekcji [konfigurowanie monitorowania dziennika](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring) systemowego i wykonaj kroki 2 i 3, aby skonfigurować przekazywanie zdarzeń CEF z urządzenia Palo Alto Networks do usługi Azure wskaźnikowej.
 
     1. Upewnij się, że **Format serwera dziennika** systemu jest ustawiony na **BSD**.
 

@@ -3,16 +3,16 @@ title: Azure Cosmos DB bulk executor library overview (Omówienie biblioteki fun
 description: Wykonywanie operacji zbiorczych w Azure Cosmos DB za pomocą importu zbiorczego i interfejsów API aktualizacji zbiorczych oferowanych przez bibliotekę wykonawców zbiorczych.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985596"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260614"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB bulk executor library overview (Omówienie biblioteki funkcji wykonawczej operacji zbiorczych w usłudze Azure Cosmos DB)
  
@@ -42,7 +42,7 @@ Biblioteka funkcji wykonawczej operacji zbiorczych ułatwia korzystanie z tej og
 
 Gdy operacja zbiorcza do importowania lub aktualizowania dokumentów jest wyzwalana przy użyciu partii jednostek, są one początkowo przestają przedziałem, odpowiadające ich zakresowi kluczy partycji Azure Cosmos DB. W każdym zasobniku, który odnosi się do zakresu kluczy partycji, są one podzielone na dane typu mini-Batch, a każda z nich działa jako ładunek, który jest zatwierdzany po stronie serwera. Biblioteka wykonawców zbiorczych została wbudowana w optymalizacje w celu jednoczesnego wykonania tych miniowych partii zarówno w ramach zakresów kluczy partycji, jak i między nimi. Na poniższej ilustracji przedstawiono, jak programowy moduł wykonujący zbiorczo dane wsadowe w różnych kluczach partycji:  
 
-![Architektura wykonawców zbiorczych](./media/bulk-executor-overview/bulk-executor-architecture.png)
+:::image type="content" source="./media/bulk-executor-overview/bulk-executor-architecture.png" alt-text="Architektura wykonawców zbiorczych" :::
 
 Biblioteka wykonawców zbiorczych gwarantuje, że Maximally wykorzystać przepływność przydzieloną do kolekcji. Używa [mechanizmu kontroli przeciążenia w stylu AIMD](https://tools.ietf.org/html/rfc5681) dla każdego zakresu kluczy partycji Azure Cosmos DB, aby skutecznie obsłużyć ograniczenie szybkości i przekroczenia limitu czasu. 
 

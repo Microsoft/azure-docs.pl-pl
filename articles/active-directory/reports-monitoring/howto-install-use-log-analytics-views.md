@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 116c0d5becaea1ca6d488bbf7c94674934d4f7c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608198"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory
 
@@ -59,7 +59,7 @@ Aby można było korzystać z widoków usługi log Analytics, potrzebne są:
     ![Szczegóły](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Wybierz pozycję **Ustaw Alert**, a następnie wybierz pozycję za każdym razem, gdy w sekcji **kryteria alertu** ** &lt;jest zdefiniowana&gt; logika wyszukiwanie w dzienniku niestandardowym** . Ponieważ chcemy alertować zawsze, gdy wystąpi błąd logowania, ustaw **próg** domyślnej logiki alertu na **1** , a następnie wybierz pozycję **gotowe**. 
+4. Wybierz pozycję **Ustaw Alert**, a następnie wybierz pozycję za każdym razem, gdy w sekcji **kryteria alertu** **jest &lt; &gt; zdefiniowana logika wyszukiwanie w dzienniku niestandardowym** . Ponieważ chcemy alertować zawsze, gdy wystąpi błąd logowania, ustaw **próg** domyślnej logiki alertu na **1** , a następnie wybierz pozycję **gotowe**. 
 
     ![Konfigurowanie logiki sygnału](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 

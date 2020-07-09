@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711293"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Tworzenie obiektów blob i zarządzanie nimi w usłudze Azure Blob Storage przy użyciu Azure Logic Apps
 
@@ -89,7 +88,7 @@ W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concep
 
    ![Dodawanie nowego kroku do przepływu pracy aplikacji logiki](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 3. W polu wyszukiwania wprowadź ciąg "Azure Blob" jako filtr. Z listy Akcje wybierz żądaną akcję.
 
@@ -194,7 +193,7 @@ Aby skonfigurować wyjątek i obsługę tożsamości zarządzanej, wykonaj nast�
 1. W przepływie pracy aplikacji logiki Dodaj i skonfiguruj akcję lub wyzwalacz HTTP w celu uzyskania dostępu do konta magazynu lub jednostki.
 
    > [!IMPORTANT]
-   > W przypadku wychodzących akcji HTTP lub wyzwalania wywołań do kont usługi Azure Storage upewnij się, że nagłówek żądania `x-ms-version` zawiera właściwość i wersję interfejsu API dla operacji, która ma być uruchamiana na koncie magazynu. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie dostępu z zarządzaną tożsamością](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) i [przechowywaniem wersji dla usług Azure Storage](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > W przypadku wychodzących akcji HTTP lub wyzwalania wywołań do kont usługi Azure Storage upewnij się, że nagłówek żądania zawiera `x-ms-version` Właściwość i wersję interfejsu API dla operacji, która ma być uruchamiana na koncie magazynu. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie dostępu z zarządzaną tożsamością](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) i [przechowywaniem wersji dla usług Azure Storage](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. Na tej akcji [Wybierz zarządzaną tożsamość](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) , która ma być używana do uwierzytelniania.
 

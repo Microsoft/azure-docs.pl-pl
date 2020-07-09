@@ -4,15 +4,15 @@ description: Ta strona zawiera informacje na temat monitorowania ExpressRoute
 services: expressroute
 author: mialdrid
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 268a7e7c94285d3c4fdcb0c5fb91b685c09b58c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6622a6e9f6865dbbafa145d6773440599b0c2777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436912"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738910"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorowanie, metryki i alerty usługi ExpressRoute
 
@@ -37,10 +37,10 @@ Po wybraniu metryki zostanie zastosowana domyślna agregacja. Opcjonalnie można
 |BitsOutPerSecond|Ruch| <ui><li>Typ komunikacji równorzędnej (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>Usługa ExpressRoute Direct</ui></li> |
 |GlobalReachBitsInPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
-|AdminState|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
-|LineProtocol|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
-|RxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
-|TxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|AdminState|Łączność fizyczna|Link|Usługa ExpressRoute Direct|
+|LineProtocol|Łączność fizyczna|Link|Usługa ExpressRoute Direct|
+|RxLightLevel|Łączność fizyczna|<ui><li>Link</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|TxLightLevel|Łączność fizyczna|<ui><li>Link</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
 >[!NOTE]
 >Użycie *GlobalGlobalReachBitsInPerSecond* i *GlobalGlobalReachBitsOutPerSecond* będzie widoczne tylko wtedy, gdy zostanie nawiązane co najmniej jedno połączenie Global REACH.
 >

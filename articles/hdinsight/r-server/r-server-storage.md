@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d3568e3869415a3223154af30b22d85c8104199
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75660243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087626"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Rozwiązania usługi Azure Storage dla usług ML w usłudze Azure HDInsight
 
@@ -41,7 +41,7 @@ Jeśli podczas tworzenia klastra usług ML określono więcej niż jedno konto m
 
 1. Za pomocą klienta SSH Połącz się z węzłem brzegowym klastra. Aby uzyskać informacje na temat używania protokołu SSH z klastrami usługi HDInsight, zobacz [Używanie protokołu SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
   
-2. Skopiuj przykładowy plik mysamplefile. CSV do katalogu/Share.
+2. Skopiuj przykładowy plik mysamplefile.csv do katalogu/Share.
 
     ```bash
     hadoop fs –mkdir /share
@@ -70,11 +70,11 @@ Jeśli podczas tworzenia klastra usług ML określono więcej niż jedno konto m
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
     ```
 
-Wszystkie odwołania do katalogu i pliku wskazują konto `wasbs://container1@storage1.blob.core.windows.net`magazynu. Jest to **domyślne konto magazynu** skojarzone z klastrem usługi HDInsight.
+Wszystkie odwołania do katalogu i pliku wskazują konto magazynu `wasbs://container1@storage1.blob.core.windows.net` . Jest to **domyślne konto magazynu** skojarzone z klastrem usługi HDInsight.
 
 ### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>Korzystanie z dodatkowego magazynu za pomocą usługi ML w usłudze HDInsight
 
-Teraz Załóżmy, że chcesz przetworzyć plik o nazwie mysamplefile1. csv, który znajduje się w katalogu/Private **container2** w **storage2**.
+Teraz Załóżmy, że chcesz przetworzyć plik o nazwie mysamplefile1.csv znajdujący się w katalogu/Private **container2** w **storage2**.
 
 W kodzie R wskaż węzeł nazwa odwołanie do konta magazynu **storage2** .
 
@@ -98,7 +98,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-Wszystkie katalogi i pliki odwołują się teraz do konta `wasbs://container2@storage2.blob.core.windows.net`magazynu. Jest to określony **węzeł nazwy** .
+Wszystkie katalogi i pliki odwołują się teraz do konta magazynu `wasbs://container2@storage2.blob.core.windows.net` . Jest to określony **węzeł nazwy** .
 
 Skonfiguruj `/user/RevoShare/<SSH username>` katalog na **storage2** w następujący sposób:
 
@@ -178,4 +178,4 @@ Główną zaletą Azure Files jest to, że udziały plików można instalować i
 
 - [Omówienie klastra usług ML w usłudze HDInsight](r-server-overview.md)
 - [Compute context options for ML Services cluster on HDInsight (Opcje kontekstu obliczeniowego dla klastra usług ML w usłudze HDInsight)](r-server-compute-contexts.md)
-- [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

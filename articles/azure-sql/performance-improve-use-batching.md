@@ -11,19 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 0b0ece8adf58d894d9ccafbbc97dea9fba2b3c5d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84343833"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Korzystanie z usługi Batch w celu usprawnienia Azure SQL Database i wydajności aplikacji wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Przetwarzanie wsadowe operacji na Azure SQL Database i wystąpienie zarządzane usługi Azure SQL znacznie zwiększa wydajność i skalowalność aplikacji. Aby zrozumieć korzyści, w pierwszej części tego artykułu omówiono niektóre przykładowe wyniki testów, które porównują sekwencyjne i wsadowe żądania do bazy danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL. W pozostałej części artykułu przedstawiono techniki, scenariusze i zagadnienia, które ułatwią pomyślne użycie usługi Batch w aplikacjach platformy Azure.
 
-## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Dlaczego usługa Batch jest ważna dla Azure SQL Database i wystąpienia zarządzanego Azure SQL
+## <a name="why-is-batching-important-for-azure-sql-database-and-azure-sql-managed-instance"></a>Dlaczego usługa Batch jest ważna dla Azure SQL Database i wystąpienia zarządzanego Azure SQL?
 
 Tworzenie wsadowe wywołań usługi zdalnej jest dobrze znaną strategią w celu zwiększenia wydajności i skalowalności. Istnieją stałe koszty przetwarzania w przypadku interakcji z usługą zdalną, takie jak Serializacja, transfer sieciowy i deserializacja. Pakowanie wielu oddzielnych transakcji w ramach jednej partii minimalizuje te koszty.
 
@@ -212,7 +211,7 @@ Aby uzyskać więcej informacji na temat parametrów z wartościami przechowywan
 
 ### <a name="sql-bulk-copy"></a>Kopia Zbiorcza SQL
 
-Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **bcp. exe**lub instrukcji języka Transact-SQL **BULK INSERT**. Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable**do tabeli docelowej, MyTable.
+Kopiowanie masowe SQL to inny sposób wstawiania dużych ilości danych do docelowej bazy danych. Aplikacje platformy .NET mogą używać klasy **SqlBulkCopy** do wykonywania operacji wstawiania zbiorczego. **SqlBulkCopy** jest podobna do narzędzia wiersza polecenia, **Bcp.exe**lub instrukcji języka Transact-SQL, **BULK INSERT**. Poniższy przykład kodu pokazuje, jak zbiorczo kopiować wiersze ze źródłowej tabeli **DataTable**do tabeli docelowej, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -331,7 +330,7 @@ W naszych testach zwykle nie ma możliwości dzielenia dużych partii na mniejsz
 > [!NOTE]
 > Wyniki nie są wzorcem. Zobacz [uwagi dotyczące chronometrażu w tym artykule](#note-about-timing-results-in-this-article).
 
-Aby zobaczyć, że Najlepsza wydajność dla wierszy 1000, można przesłać wszystkie jednocześnie. W przypadku innych testów (nieprzedstawionych w tym miejscu) nastąpił mały wzrost wydajności, aby przerwać wsadową partie 10000 wierszy w dwóch partiach 5000. Jednak schemat tabeli dla tych testów jest stosunkowo prosty, dlatego należy wykonać testy dotyczące konkretnych rozmiarów danych i partii, aby sprawdzić te wyniki.
+Aby zobaczyć, że Najlepsza wydajność dla wierszy 1000, można przesłać wszystkie jednocześnie. W przypadku innych testów (nieprzedstawionych w tym miejscu) wystąpił mały wzrost wydajności, aby przerwać partię 10000-wierszową do dwóch partii 5000. Jednak schemat tabeli dla tych testów jest stosunkowo prosty, dlatego należy wykonać testy dotyczące konkretnych rozmiarów danych i partii, aby sprawdzić te wyniki.
 
 Innym czynnikiem, który należy wziąć pod uwagę, jest to, że jeśli całkowita partia stanie się zbyt duża, Azure SQL Database lub wystąpienie zarządzane SQL Azure może ograniczać i odmawiać zatwierdzić partię. Aby uzyskać najlepsze wyniki, przetestuj konkretny scenariusz, aby określić, czy jest idealnym rozmiarem partii. Wprowadź rozmiar wsadu konfigurowalny w czasie wykonywania, aby włączyć szybkie korekty na podstawie wydajności lub błędów.
 

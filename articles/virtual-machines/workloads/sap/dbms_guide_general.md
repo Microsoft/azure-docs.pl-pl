@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 581efde3128294a326bdfd08e622a8dcabe5784d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70101367"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84232652"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -77,7 +76,7 @@ W całym dokumencie są używane następujące warunki:
 
 Niektóre dokumenty firmy Microsoft opisują scenariusze obejmujące wiele lokalizacji inaczej, szczególnie w przypadku konfiguracji o wysokiej dostępności w systemie DBMS. W przypadku dokumentów związanych z systemem SAP scenariusz obejmujący wiele lokalizacji jest zachodzący do połączenia typu lokacja-lokacja lub prywatnego [ExpressRoute](https://azure.microsoft.com/services/expressroute/) oraz oprogramowania SAP, które jest dystrybuowane między środowiskiem lokalnym i platformą Azure.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 Dostępne są inne artykuły dotyczące obciążeń SAP na platformie Azure. Zacznij od [obciążenia SAP na platformie Azure: Zacznij pracę](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) , a następnie wybierz interesujący Cię obszar.
 
 Poniższe uwagi dotyczące oprogramowania SAP są powiązane z oprogramowaniem SAP na platformie Azure w odniesieniu do obszaru objętego tym dokumentem.
@@ -280,7 +279,7 @@ Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 
 - Sieci wirtualne, w których wdrażana jest aplikacja SAP, nie mają dostępu do Internetu.
 - Maszyny wirtualne bazy danych działają w tej samej sieci wirtualnej co warstwa aplikacji.
-- Maszyny wirtualne w sieci wirtualnej mają statyczną alokację prywatnego adresu IP. Aby uzyskać więcej informacji, zobacz [typy adresów IP i metody alokacji na platformie Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
+- Maszyny wirtualne w sieci wirtualnej mają statyczną alokację prywatnego adresu IP. Aby uzyskać więcej informacji, zobacz [typy adresów IP i metody alokacji na platformie Azure](../../../virtual-network/public-ip-addresses.md).
 - Ograniczenia routingu do i z maszyn wirtualnych systemu DBMS *nie* są ustawiane za pomocą zapór zainstalowanych na lokalnych maszynach wirtualnych systemu DBMS. Zamiast tego Routing ruchu jest definiowany przy użyciu [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - Aby oddzielić ruch do maszyny wirtualnej systemu DBMS i go odizolować, przypisz do niej różne karty sieciowe. Każda karta sieciowa pobiera inny adres IP, a każda karta sieciowa jest przypisana do innej podsieci sieci wirtualnej. Każda podsieć ma inne reguły sieciowej grupy zabezpieczeń. Izolacja lub separacja ruchu sieciowego jest miarą routingu. Nie jest on używany do ustawiania przydziałów dla przepływności sieci.
 

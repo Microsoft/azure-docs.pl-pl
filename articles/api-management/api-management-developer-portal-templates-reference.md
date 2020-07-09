@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73176791"
 ---
 # <a name="developer-portal-templates"></a>Szablony portalu dla deweloperów
@@ -37,7 +37,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
     -   [Operacja](api-management-api-templates.md#Product)  
     -   [Przykłady kodu](api-management-api-templates.md#CodeSamples)  
         -   [Odsłon](api-management-api-templates.md#Curl)  
-        -   [S #](api-management-api-templates.md#CSharp)  
+        -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
         -   [Cel C](api-management-api-templates.md#ObjectiveC)  
@@ -46,7 +46,7 @@ Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [How to dost
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produkty](api-management-product-templates.md)  
     -   [Lista produktów](api-management-product-templates.md#ProductList)  
-    -   [Product (Produkt)](api-management-product-templates.md#Product)  
+    -   [Product](api-management-product-templates.md#Product)  
 -   [Aplikacje](api-management-application-templates.md)  
     -   [Lista aplikacji](api-management-application-templates.md#ProductList)  
     -   [Aplikacja](api-management-application-templates.md#Application)  

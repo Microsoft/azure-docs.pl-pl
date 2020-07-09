@@ -1,18 +1,18 @@
 ---
 title: Typowe problemy podczas tworzenia dysku VHD (FAQ)
 description: Często zadawane pytania dotyczące typowych problemów związanych z tworzeniem wirtualnego dysku twardego (VHD).
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2b6ab5d36cd5a1f66badc79d1b2d42e464d028f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110746"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Typowe problemy podczas tworzenia wirtualnego dysku twardego
 
@@ -20,7 +20,7 @@ Te często zadawane pytania obejmują typowe problemy, które można napotkać p
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Jak mogę utworzyć maszynę wirtualną na podstawie Azure Portal przy użyciu dysku VHD w usłudze Premium Storage?
 
-Portal Azure Marketplace obecnie nie obsługuje tworzenia ofert maszyn wirtualnych z obrazów w zarządzanym magazynie lub na platformie Azure Premium Storage. Aby uzyskać szczegółowe informacje, zobacz [Omówienie usługi Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Portal Azure Marketplace obecnie nie obsługuje tworzenia ofert maszyn wirtualnych z obrazów w zarządzanym magazynie lub na platformie Azure Premium Storage. Aby uzyskać szczegółowe informacje, zobacz [Omówienie usługi Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>Czy mogę używać maszyn wirtualnych generacji 2 dla ofert?
 
@@ -45,9 +45,9 @@ Generowanie certyfikatów jest wyjaśnione w [certyfikatach obrazu maszyny wirtu
 
 Jeśli używasz modelu wdrażania Azure Resource Manager, masz trzy opcje:
 
-* [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Tworzenie bramy sieci VPN opartej na trasach za pomocą interfejsu wiersza polecenia](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Tworzenie bramy sieci VPN opartej na trasach za pomocą interfejsu wiersza polecenia](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Co to są zasady pomocy technicznej firmy Microsoft dotyczące uruchamiania oprogramowania serwerowego firmy Microsoft na maszynach wirtualnych opartych na platformie Azure?
 
@@ -65,7 +65,7 @@ Aby uzyskać szczegółowe informacje na temat używania niestandardowego rozsze
 
 Ogólnie rzecz biorąc — nie. Obsługiwane systemy operacyjne i standardowe usługi dla maszyn wirtualnych platformy Azure to wszystkie 64-bitowe. Chociaż większość 64-bitowych systemów operacyjnych obsługuje 32-bitowe wersje aplikacji w celu zapewnienia zgodności z poprzednimi wersjami, używanie aplikacji 32-bitowych jako części rozwiązania maszyny wirtualnej jest nieobsługiwane i zdecydowanie odradzane. Utwórz ponownie aplikację jako projekt 64-bitowy.
 
-Więcej informacji można znaleźć w tych artykułach:
+Więcej informacji można znaleźć w następujących artykułach:
 
 * [Uruchamianie aplikacji 32-bitowych](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 * [Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
@@ -75,4 +75,4 @@ Więcej informacji można znaleźć w tych artykułach:
 
 Za każdym razem, gdy próbuję utworzyć obraz z moich wirtualnych dysków twardych, otrzymuję komunikat o błędzie "wirtualny dysk twardy jest już zarejestrowany w repozytorium obrazów jako zasób" w Azure PowerShell. Nie utworzono żadnego obrazu wcześniej ani nie znaleziono żadnego obrazu o tej nazwie na platformie Azure. Jak rozwiązać ten problem?
 
-Ten problem zwykle występuje, gdy utworzono maszynę wirtualną z dysku VHD, który ma blokadę. Upewnij się, że maszyna wirtualna nie została przypisana z tego wirtualnego dysku twardego, a następnie spróbuj ponownie wykonać operację. Jeśli ten problem będzie się powtarzać, Otwórz bilet pomocy technicznej. Zobacz [Pomoc techniczna dla Centrum partnerskiego](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+Ten problem zwykle występuje, gdy utworzono maszynę wirtualną z dysku VHD, który ma blokadę. Upewnij się, że maszyna wirtualna nie została przypisana z tego wirtualnego dysku twardego, a następnie spróbuj ponownie wykonać operację. Jeśli ten problem będzie się powtarzać, Otwórz bilet pomocy technicznej. Zobacz [Pomoc techniczna dla Centrum partnerskiego](support.md).

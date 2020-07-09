@@ -5,16 +5,16 @@ description: Dowiedz się, jak używać Azure Portal do tworzenia bramy aplikacj
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6f86f32e64bbbe79ea5a403d04f7d6c29ee6b980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80133008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808035"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Konfigurowanie kompleksowego protokołu TLS przy użyciu Application Gateway z portalem
 
@@ -23,7 +23,7 @@ W tym artykule opisano, jak używać Azure Portal do konfigurowania kompleksoweg
 > [!NOTE]
 > Jednostka SKU Application Gateway v2 wymaga zaufanych certyfikatów głównych do włączenia konfiguracji kompleksowej.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

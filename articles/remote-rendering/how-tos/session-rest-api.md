@@ -6,17 +6,16 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681248"
 ---
 # <a name="use-the-session-management-rest-api"></a>Korzystanie z interfejsu API REST zarządzania sesją
 
 Aby korzystać z funkcji renderowania zdalnego platformy Azure, należy utworzyć *sesję*. Każda sesja odpowiada maszynie wirtualnej (VM), która jest przypisana na platformie Azure i oczekuje na połączenie urządzenia klienckiego. Gdy urządzenie zostanie połączone, maszyna wirtualna renderuje żądane dane i zachowuje wynik jako strumień wideo. Podczas tworzenia sesji wybierasz rodzaj serwera, na którym chcesz pracować, co określa Cennik. Gdy sesja nie jest już wymagana, powinna zostać zatrzymana. Jeśli nie zostanie zatrzymana ręcznie, zostanie ona ZAMKNIĘTA automatycznie po wygaśnięciu *czasu dzierżawy* sesji.
 
-Udostępniamy skrypt programu PowerShell w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) w folderze *scripts* o nazwie *RenderingSession. ps1*, który ilustruje korzystanie z naszej usługi. Skrypt i jego konfigurację są opisane tutaj: [przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)
+Udostępniamy skrypt programu PowerShell w [repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) w folderze *scripts* o nazwie *RenderingSession.ps1*, który demonstruje korzystanie z naszej usługi. Skrypt i jego konfigurację są opisane tutaj: [przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)
 
 > [!TIP]
 > Polecenia programu PowerShell wymienione na tej stronie są przeznaczone do uzupełniania siebie nawzajem. Jeśli w tym samym wierszu polecenia programu PowerShell zostanie uruchomione wszystkie skrypty, zostaną one skompilowane na początku.
@@ -46,7 +45,7 @@ $accountKey = "*******************************************="
 
 ## <a name="common-request-headers"></a>Typowe nagłówki żądań
 
-* Nagłówek *autoryzacji* musi mieć wartość "`Bearer TOKEN`", gdzie "`TOKEN`" jest tokenem uwierzytelniania [zwracanym przez usługę bezpiecznego tokenu](tokens.md).
+* Nagłówek *autoryzacji* musi mieć wartość " `Bearer TOKEN` ", gdzie " `TOKEN` " jest tokenem uwierzytelniania [zwracanym przez usługę bezpiecznego tokenu](tokens.md).
 
 ### <a name="example-script-request-a-token"></a>Przykładowy skrypt: żądanie tokenu
 

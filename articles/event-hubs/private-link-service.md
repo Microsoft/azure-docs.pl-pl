@@ -1,18 +1,14 @@
 ---
 title: Integrowanie Event Hubs platformy Azure z usługą prywatnych linków platformy Azure
 description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą Azure Private Link Service
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649900"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85312826"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrowanie Event Hubs platformy Azure z prywatnym łączem platformy Azure
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
@@ -22,7 +18,7 @@ Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie pr
 Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Ta funkcja jest obsługiwana tylko w przypadku warstwy **dedykowanej** . Aby uzyskać więcej informacji na temat warstwy dedykowanej, zobacz [omówienie Event Hubs — warstwa dedykowana](event-hubs-dedicated-overview.md). 
+> Ta funkcja jest obsługiwana dla warstw **standardowa** i **dedykowana** . 
 
 >[!WARNING]
 > Włączenie prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Event Hubs.
@@ -62,7 +58,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
 4. Wybierz kartę **Sieć** w obszarze **Ustawienia**.
-5. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony. Jeśli nie korzystasz z dedykowanej warstwy Event Hubs, zobaczysz komunikat: **połączenia prywatnego punktu końcowego na Event Hubs są obsługiwane tylko przez obszary nazw utworzone w ramach dedykowanego klastra**.
+5. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony. 
 6. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
     ![Obraz](./media/private-link-service/private-link-service-3.png)
@@ -207,7 +203,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 4. Wybierz kartę **Sieć** .

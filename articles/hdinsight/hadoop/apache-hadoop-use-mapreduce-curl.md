@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: abc3cc8c526e37e18f1e67b109a9a8e15ff8c989
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78302716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076372"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce za pomocą Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
 
@@ -57,7 +57,7 @@ Dostępne opcje:
    * **-u**: wskazuje nazwę użytkownika i hasło używane do uwierzytelniania żądania
    * **-G**: wskazuje, że ta operacja jest żądaniem Get
 
-   Początek identyfikatora URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, jest taki sam dla wszystkich żądań.
+   Początek identyfikatora URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1` , jest taki sam dla wszystkich żądań.
 
     Otrzymasz odpowiedź podobną do następującej:
 
@@ -98,7 +98,7 @@ Dostępne opcje:
 
 ### <a name="powershell"></a>PowerShell
 
-1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne poniżej. Zastąp `CLUSTERNAME` wartość rzeczywistą nazwą klastra. Wykonaj polecenie i wprowadź hasło logowania klastra po wyświetleniu monitu.
+1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne poniżej. Zastąp wartość `CLUSTERNAME` rzeczywistą nazwą klastra. Wykonaj polecenie i wprowadź hasło logowania klastra po wyświetleniu monitu.
 
     ```powershell
     $clusterName="CLUSTERNAME"
@@ -167,9 +167,9 @@ Dostępne opcje:
 
 ### <a name="both-methods"></a>Obie metody
 
-1. Jeśli zadanie zostało zakończone, zwróconym stanem jest `SUCCEEDED`.
+1. Jeśli zadanie zostało zakończone, zwróconym stanem jest `SUCCEEDED` .
 
-1. Gdy stan zadania został zmieniony na `SUCCEEDED`, można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir` Parametr, który jest przesyłany przy użyciu zapytania, zawiera lokalizację pliku wyjściowego. W tym przykładzie lokalizacja to `/example/curl`. Ten adres przechowuje dane wyjściowe zadania w domyślnym magazynie klastrów w lokalizacji `/example/curl`.
+1. Gdy stan zadania został zmieniony na `SUCCEEDED` , można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir`Parametr, który jest przesyłany przy użyciu zapytania, zawiera lokalizację pliku wyjściowego. W tym przykładzie lokalizacja to `/example/curl` . Ten adres przechowuje dane wyjściowe zadania w domyślnym magazynie klastrów w lokalizacji `/example/curl` .
 
 Możesz wyświetlić i pobrać te pliki przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia platformy Azure do pracy z usługą Azure Blob Storage, zobacz [Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure](../../storage/blobs/storage-quickstart-blobs-cli.md).
 

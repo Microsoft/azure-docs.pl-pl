@@ -4,20 +4,22 @@ description: Szybko naucz się uruchamiać zadanie usługi Batch za pomocą inte
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 535c8c34ea7af8e6bc56c3ecfe564de4c1b2bc54
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d92751d1463a20c8fb0cb83fe678789860957189
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694229"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086130"
 ---
-# <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Szybki Start: Tworzenie konta usługi Batch przy użyciu szablonu Azure Resource Manager
+# <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Szybki Start: Tworzenie konta usługi Batch przy użyciu szablonu usługi ARM
 
-Do tworzenia zasobów obliczeniowych (pul węzłów obliczeniowych) i zadań wsadowych jest potrzebne konto w usłudze Batch. Konto magazynu platformy Azure można połączyć z kontem usługi Batch, co jest przydatne do wdrażania aplikacji i przechowywania danych wejściowych i wyjściowych dla większości obciążeń rzeczywistych.
-
-Ten przewodnik Szybki Start przedstawia sposób tworzenia konta w usłudze Batch, w tym magazynu, przy użyciu szablonu Azure Resource Manager. Po ukończeniu tego przewodnika Szybki start będziesz rozumieć kluczowe pojęcia związane z usługą Batch, co pozwoli na wypróbowanie tej usługi z bardziej realistycznymi obciążeniami na większą skalę.
+Do tworzenia zasobów obliczeniowych (pul węzłów obliczeniowych) i zadań wsadowych jest potrzebne konto w usłudze Batch. Konto magazynu platformy Azure można połączyć z kontem usługi Batch, co jest przydatne do wdrażania aplikacji i przechowywania danych wejściowych i wyjściowych dla większości obciążeń rzeczywistych. W tym przewodniku szybki start pokazano, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia konta w usłudze Batch, w tym magazynu. Po ukończeniu tego przewodnika Szybki start będziesz rozumieć kluczowe pojęcia związane z usługą Batch, co pozwoli na wypróbowanie tej usługi z bardziej realistycznymi obciążeniami na większą skalę.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,24 +27,22 @@ Musisz mieć aktywną subskrypcję platformy Azure.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
+## <a name="review-the-template"></a>Przegląd szablonu
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-batchaccount-with-storage).
-
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
-- [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): tworzy konto magazynu.
-- [Microsoft. Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): tworzy konto w usłudze Batch.
+- [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): tworzy konto magazynu.
+- [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts): tworzy konto w usłudze Batch.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy konto Azure Batch i konto magazynu.
 
-   [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-batchaccount-with-storage%2Fazuredeploy.json)
 
 1. Wybierz lub wprowadź następujące wartości.
 

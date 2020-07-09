@@ -2,20 +2,19 @@
 title: Integracja usługi Azure Automation z usługą Event Grid | Microsoft Docs
 description: Dowiedz się, jak automatycznie dodać tag po utworzeniu nowej maszyny wirtualnej i wysłać powiadomienie do usługi Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
-services: automation
+services: automation,event-grid
 author: eamonoreilly
-manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 07/07/2020
 ms.author: eamono
-ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79f3d83417a99d40ea0d4bd101a89300bc85a393
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "65521427"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114520"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Samouczek: integracja Azure Automation z usługami Event Grid i Microsoft Teams
 
@@ -28,7 +27,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzy subskrypcję usługi Event Grid.
 > * Tworzenie maszyny wirtualnej, która wyzwala element runbook.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,7 +52,7 @@ Do ukończenia tego samouczka potrzebujesz [konta usługi Azure Automation](../a
 4. Wybierz polecenie **Importuj** i wprowadź nazwę **Watch-VMWrite**.
 
 5. Po zaimportowaniu elementu runbook wybierz polecenie **Edytuj**, aby wyświetlić jego źródło. 
-6. Zaktualizuj wiersz 74 w skrypcie, który ma zostać `Tag` użyty zamiast `Tags`.
+6. Zaktualizuj wiersz 74 w skrypcie, który ma zostać użyty `Tag` zamiast `Tags` .
 
     ```powershell
     Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose

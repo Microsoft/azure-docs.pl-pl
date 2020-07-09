@@ -1,18 +1,18 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: " — plik"
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 515e64c3c70cc496d5af9761d1561a375f727a55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+author: anbene
+ms.author: mingshen
+ms.openlocfilehash: 95edc9ae621cb7e62729d529c1c43c355ddc7e63
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800591"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109676"
 ---
 Oto kilka porad dotyczących pisania opisu:
 

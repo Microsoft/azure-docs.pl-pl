@@ -4,10 +4,9 @@ description: Service Fabric obsługuje używanie Azure Files do tworzenia kopii 
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750042"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Azure Files sterownik woluminu dla Service Fabric
@@ -29,7 +28,7 @@ Sterownik woluminu Azure Files to [wtyczka woluminu platformy Docker](https://do
 
 * Wymagany jest program [PowerShell z zainstalowanym modułem Service Fabric](/azure/service-fabric/service-fabric-get-started) lub [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) .
 
-* W przypadku korzystania z kontenerów funkcji Hyper-V następujące fragmenty kodu muszą zostać dodane w sekcji ClusterManifest (klaster lokalny) lub fabricSettings w szablonie Azure Resource Manager (klaster platformy Azure) lub ClusterConfig. JSON (autonomiczny klaster).
+* W przypadku korzystania z kontenerów funkcji Hyper-V następujące fragmenty kodu muszą zostać dodane w sekcji ClusterManifest (klaster lokalny) lub fabricSettings w szablonie Azure Resource Manager (klaster platformy Azure) lub ClusterConfig.jsw programie (autonomiczny klaster).
 
 W ClusterManifest w sekcji hosting należy dodać następujące elementy. W tym przykładzie nazwa woluminu to **sfazurefile** , a port, do którego nasłuchuje w klastrze, to **19100**. Zastąp je wartościami prawidłowymi dla klastra.
 
@@ -39,7 +38,7 @@ W ClusterManifest w sekcji hosting należy dodać następujące elementy. W tym 
 </Section>
 ```
 
-W sekcji fabricSettings szablonu Azure Resource Manager (dla wdrożeń platformy Azure) lub ClusterConfig. JSON (w przypadku wdrożeń autonomicznych) należy dodać poniższy fragment kodu. Ponownie Zastąp wartości Nazwa woluminu i port własnymi.
+W sekcji fabricSettings szablonu Azure Resource Manager (dla wdrożeń platformy Azure) lub ClusterConfig.js(w przypadku wdrożeń autonomicznych) należy dodać poniższy fragment kodu. Ponownie Zastąp wartości Nazwa woluminu i port własnymi.
 
 ```json
 "fabricSettings": [
@@ -235,7 +234,7 @@ Podczas określania wtyczki woluminu Service Fabric automatycznie tworzy wolumin
 </Volume>
 ```
 
-Parametry aplikacji są obsługiwane w przypadku woluminów, jak pokazano w powyższym fragmencie kodu `MyStorageVar` manifestu (wyszukiwanie w celu użycia przykładu).
+Parametry aplikacji są obsługiwane w przypadku woluminów, jak pokazano w powyższym fragmencie kodu manifestu (wyszukiwanie w `MyStorageVar` celu użycia przykładu).
 
 W przypadku określenia sterownika dziennika platformy Docker należy wdrożyć agentów (lub kontenery) w celu obsługi dzienników w klastrze. Tag **DriverOption** może służyć do określania opcji dla sterownika dziennika.
 

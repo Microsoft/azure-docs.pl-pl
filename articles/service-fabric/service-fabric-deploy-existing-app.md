@@ -4,10 +4,10 @@ description: Dowiedz się, jak spakować istniejącą aplikację jako plik wykon
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80520484"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric
@@ -22,18 +22,18 @@ Przy pakowaniu istniejącego pliku wykonywalnego jako [plik wykonywalny gościa]
 
 Program Visual Studio zawiera Service Fabric szablon usługi ułatwiający wdrożenie pliku wykonywalnego gościa w klastrze Service Fabric.
 
-1. Wybierz pozycję **plik** > **Nowy projekt**i Utwórz aplikację Service Fabricową.
+1. Wybierz pozycję **plik**  >  **Nowy projekt**i Utwórz aplikację Service Fabricową.
 2. Wybierz **plik wykonywalny gościa** jako szablon usługi.
 3. Kliknij przycisk **Przeglądaj** , aby wybrać folder z plikiem wykonywalnym i uzupełnić pozostałe parametry w celu utworzenia usługi.
    * *Zachowanie pakietu kodu*. Można ustawić, aby skopiować całą zawartość folderu do projektu programu Visual Studio, co jest przydatne, jeśli plik wykonywalny nie zmienia się. Jeśli oczekujesz, że plik wykonywalny zostanie zmieniony i chcesz mieć możliwość dynamicznego pobierania nowych kompilacji, możesz połączyć się z folderem. Podczas tworzenia projektu aplikacji w programie Visual Studio można użyć folderów połączonych. Spowoduje to połączenie z lokalizacją źródłową z projektu, co umożliwia zaktualizowanie pliku wykonywalnego gościa w jego źródłowym miejscu docelowym. Te aktualizacje stają się częścią pakietu aplikacji podczas kompilacji.
    * *Program* określa plik wykonywalny, który powinien zostać uruchomiony w celu uruchomienia usługi.
    * *Argumenty* określa argumenty, które powinny być przekazane do pliku wykonywalnego. Może to być lista parametrów z argumentami.
    * *Element workingfolder* określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
-     * `CodeBase`Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji (`Code` katalog przedstawiony w poprzedniej strukturze plików).
-     * `CodePackage`Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji (`GuestService1Pkg` pokazany w poprzedniej strukturze plików).
+     * `CodeBase`Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji ( `Code` katalog przedstawiony w poprzedniej strukturze plików).
+     * `CodePackage`Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` pokazany w poprzedniej strukturze plików).
      * `Work`Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
 4. Nadaj nazwę usłudze i kliknij przycisk **OK**.
-5. Jeśli usługa wymaga punktu końcowego na potrzeby komunikacji, można teraz dodać protokół, port i typ do pliku servicemanifest. XML. Na przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Jeśli usługa wymaga punktu końcowego na potrzeby komunikacji, możesz teraz dodać protokół, port i typ do pliku ServiceManifest.xml. Na przykład: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Teraz można używać akcji Package i Publish względem lokalnego klastra przez debugowanie rozwiązania w programie Visual Studio. Gdy wszystko będzie gotowe, można opublikować aplikację w klastrze zdalnym lub zaewidencjonować rozwiązanie do kontroli źródła.
 7. Przeczytaj temat [Sprawdzanie działającej aplikacji](#check-your-running-application) , aby dowiedzieć się, jak wyświetlić usługę plików wykonywalnych gościa działającą w Service Fabric Explorer.
 
@@ -82,7 +82,7 @@ Możesz rozpocząć od utworzenia struktury katalogów, zgodnie z opisem w artyk
 
 Po utworzeniu struktury katalogów można dodać kod i pliki konfiguracji aplikacji w katalogach Code i config. Możesz również utworzyć dodatkowe katalogi lub podkatalogi w katalogach kodu lub konfiguracji.
 
-`xcopy` Service Fabric ma zawartość katalogu głównego aplikacji, więc nie istnieje wstępnie zdefiniowana struktura do użycia poza tworzeniem dwóch najpopularniejszych katalogów, kodu i ustawień. (Jeśli chcesz, możesz wybrać różne nazwy. Więcej szczegółów znajduje się w następnej sekcji.
+Service Fabric ma `xcopy` zawartość katalogu głównego aplikacji, więc nie istnieje wstępnie zdefiniowana struktura do użycia poza tworzeniem dwóch najpopularniejszych katalogów, kodu i ustawień. (Jeśli chcesz, możesz wybrać różne nazwy. Więcej szczegółów znajduje się w następnej sekcji.
 
 > [!NOTE]
 > Upewnij się, że zostały uwzględnione wszystkie pliki i zależności, których potrzebuje aplikacja. Service Fabric kopiuje zawartość pakietu aplikacji na wszystkich węzłach w klastrze, w którym zostaną wdrożone usługi aplikacji. Pakiet powinien zawierać cały kod, który musi zostać uruchomiony przez aplikację. Nie należy zakładać, że zależności są już zainstalowane.
@@ -137,7 +137,7 @@ W poniższych sekcjach znajdują się różne części pliku, które należy zak
 </ServiceTypes>
 ```
 
-* Możesz wybrać dowolną nazwę, której chcesz użyć `ServiceTypeName`. Ta wartość jest używana w `ApplicationManifest.xml` pliku do identyfikowania usługi.
+* Możesz wybrać dowolną nazwę, której chcesz użyć `ServiceTypeName` . Ta wartość jest używana w `ApplicationManifest.xml` pliku do identyfikowania usługi.
 * Podaj wartość `UseImplicitHost="true"`. Ten atrybut informuje Service Fabric, że usługa jest oparta na samodzielnej aplikacji, Service Fabric więc należy ją uruchomić w ramach procesu i monitorować jej kondycję.
 
 #### <a name="update-codepackage"></a>Aktualizacja CodePackage
@@ -147,7 +147,7 @@ Element CodePackage określa lokalizację (i wersję) kodu usługi.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name` Element jest używany do określenia nazwy katalogu w pakiecie aplikacji, który zawiera kod usługi. `CodePackage`ma także `version` atrybut. Można go użyć do określenia wersji kodu i może być również używany do uaktualnienia kodu usługi przy użyciu infrastruktury zarządzania cyklem życia aplikacji w Service Fabric.
+`Name`Element jest używany do określenia nazwy katalogu w pakiecie aplikacji, który zawiera kod usługi. `CodePackage`ma także `version` atrybut. Można go użyć do określenia wersji kodu i może być również używany do uaktualnienia kodu usługi przy użyciu infrastruktury zarządzania cyklem życia aplikacji w Service Fabric.
 
 #### <a name="optional-update-setupentrypoint"></a>Opcjonalnie: Aktualizacja SetupEntrypoint
 
@@ -176,15 +176,15 @@ W poprzednim przykładzie SetupEntryPoint uruchamia plik wsadowy o nazwie `Launc
 </EntryPoint>
 ```
 
-`EntryPoint` Element w pliku manifestu usługi jest używany do określenia sposobu uruchamiania usługi.
+`EntryPoint`Element w pliku manifestu usługi jest używany do określenia sposobu uruchamiania usługi.
 
-`ExeHost` Element Określa plik wykonywalny (i argumenty), który ma zostać użyty do uruchomienia usługi. Opcjonalnie możesz dodać `IsExternalExecutable="true"` atrybut do `ExeHost` , aby wskazać, że program jest zewnętrznym plikiem wykonywalnym poza pakietem kodu. Na przykład `<ExeHost IsExternalExecutable="true">`.
+`ExeHost`Element Określa plik wykonywalny (i argumenty), który ma zostać użyty do uruchomienia usługi. Opcjonalnie możesz dodać `IsExternalExecutable="true"` atrybut do, `ExeHost` Aby wskazać, że program jest zewnętrznym plikiem wykonywalnym poza pakietem kodu. Na przykład `<ExeHost IsExternalExecutable="true">`.
 
 * `Program`Określa nazwę pliku wykonywalnego, który powinien uruchomić usługę.
 * `Arguments`określa argumenty, które powinny być przekazane do pliku wykonywalnego. Może to być lista parametrów z argumentami.
 * `WorkingFolder`Określa katalog roboczy dla procesu, który ma zostać uruchomiony. Można określić trzy wartości:
-  * `CodeBase`Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji (`Code` katalog w poprzedniej strukturze plików).
-  * `CodePackage`Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji (`GuestService1Pkg` w poprzedniej strukturze plików).
+  * `CodeBase`Określa, że katalog roboczy ma być ustawiony na katalog kodu w pakiecie aplikacji ( `Code` katalog w poprzedniej strukturze plików).
+  * `CodePackage`Określa, że katalog roboczy ma być ustawiony na katalog główny pakietu aplikacji ( `GuestService1Pkg` w poprzedniej strukturze plików).
     * `Work`Określa, że pliki są umieszczane w podkatalogu o nazwie Work.
 
 Element workingfolder jest przydatne do ustawiania prawidłowego katalogu roboczego, dzięki czemu ścieżki względne mogą być używane przez skrypty aplikacji lub inicjalizacji.
@@ -198,12 +198,12 @@ Element workingfolder jest przydatne do ustawiania prawidłowego katalogu robocz
 
 ```
 
-W poprzednim przykładzie `Endpoint` element określa punkty końcowe, w których aplikacja może nasłuchiwać. W tym przykładzie aplikacja Node. js nasłuchuje na protokole HTTP na porcie 3000.
+W poprzednim przykładzie `Endpoint` element określa punkty końcowe, w których aplikacja może nasłuchiwać. W tym przykładzie aplikacja Node.js nasłuchuje przy użyciu protokołu HTTP na porcie 3000.
 
 Ponadto możesz polecić Service Fabric opublikować ten punkt końcowy w Usługa nazewnictwa, tak aby inne usługi mogły odnaleźć adres punktu końcowego dla tej usługi. Dzięki temu można komunikować się między usługami, które są plikami wykonywalnymi gościa.
-Adres punktu końcowego publikowany ma postać `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme`i `PathSuffix` są opcjonalne atrybuty. `IPAddressOrFQDN`to adres IP lub w pełni kwalifikowana nazwa domeny węzła, w którym znajduje się ten plik wykonywalny, i jest obliczana dla Ciebie.
+Adres punktu końcowego publikowany ma postać `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme`i `PathSuffix` są opcjonalne atrybuty. `IPAddressOrFQDN`to adres IP lub w pełni kwalifikowana nazwa domeny węzła, w którym znajduje się ten plik wykonywalny, i jest obliczana dla Ciebie.
 
-W poniższym przykładzie po wdrożeniu usługi w Service Fabric Explorer zobaczysz punkt końcowy podobny do `http://10.1.4.92:3000/myapp/` opublikowanego dla wystąpienia usługi. Lub jeśli jest to komputer lokalny, zobaczysz `http://localhost:3000/myapp/`.
+W poniższym przykładzie po wdrożeniu usługi w Service Fabric Explorer zobaczysz punkt końcowy podobny do `http://10.1.4.92:3000/myapp/` opublikowanego dla wystąpienia usługi. Lub jeśli jest to komputer lokalny, zobaczysz `http://localhost:3000/myapp/` .
 
 ```xml
 <Endpoints>
@@ -215,7 +215,7 @@ Możesz użyć tych adresów z [zwrotnym serwerem proxy](service-fabric-reversep
 
 ### <a name="edit-the-application-manifest-file"></a>Edytuj plik manifestu aplikacji
 
-Po skonfigurowaniu `Servicemanifest.xml` pliku należy wprowadzić pewne zmiany w `ApplicationManifest.xml` pliku, aby upewnić się, że jest używany poprawny typ usługi i nazwa.
+Po skonfigurowaniu pliku należy `Servicemanifest.xml` wprowadzić pewne zmiany w `ApplicationManifest.xml` pliku, aby upewnić się, że jest używany poprawny typ usługi i nazwa.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -228,7 +228,7 @@ Po skonfigurowaniu `Servicemanifest.xml` pliku należy wprowadzić pewne zmiany 
 
 #### <a name="servicemanifestimport"></a>ServiceManifestImport
 
-W `ServiceManifestImport` elemencie można określić co najmniej jedną usługę, która ma zostać uwzględniona w aplikacji. Usługi są przywoływane przez `ServiceManifestName`, która określa nazwę katalogu, w którym `ServiceManifest.xml` znajduje się plik.
+W `ServiceManifestImport` elemencie można określić co najmniej jedną usługę, która ma zostać uwzględniona w aplikacji. Usługi są przywoływane przez `ServiceManifestName` , która określa nazwę katalogu, w którym `ServiceManifest.xml` znajduje się plik.
 
 ```xml
 <ServiceManifestImport>
@@ -291,7 +291,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 Usługę Service Fabric można wdrożyć w różnych konfiguracjach. Na przykład można je wdrożyć jako jedno lub wiele wystąpień lub można je wdrożyć w taki sposób, że na każdym węźle klastra Service Fabric istnieje jedno wystąpienie usługi.
 
-`InstanceCount` Parametr `New-ServiceFabricService` polecenia cmdlet służy do określenia, ile wystąpień usługi należy uruchomić w klastrze Service Fabric. `InstanceCount` Wartość można ustawić w zależności od typu wdrażanej aplikacji. Dwa najczęstsze scenariusze to:
+`InstanceCount`Parametr `New-ServiceFabricService` polecenia cmdlet służy do określenia, ile wystąpień usługi należy uruchomić w klastrze Service Fabric. Wartość można ustawić w `InstanceCount` zależności od typu wdrażanej aplikacji. Dwa najczęstsze scenariusze to:
 
 * `InstanceCount = "1"`. W takim przypadku w klastrze wdrożone jest tylko jedno wystąpienie usługi. Service Fabric Scheduler określa węzeł, w którym ma zostać wdrożona usługa.
 * `InstanceCount ="-1"`. W takim przypadku jedno wystąpienie usługi jest wdrażane na każdym węźle w klastrze Service Fabric. Wynik ma jeden (i tylko jedno) wystąpienie usługi dla każdego węzła w klastrze.

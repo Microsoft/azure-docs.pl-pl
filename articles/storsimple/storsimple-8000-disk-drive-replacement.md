@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267913"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513121"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Wymiana dysku w urządzeniu StorSimple z serii 8000
 
@@ -103,7 +102,7 @@ Po awarii dysku na urządzeniu StorSimple i usunięciu go, wykonaj poniższą pr
     **Rysunek 6** .  Przesuwanie nośnej stacji dysków do obudowy
 3. Po włożeniu nośnika stacji Zamknij uchwyt nośnej stacji, gdy kontynuuje wypychanie nośnej stacji dysków do obudowy, aż do momentu przyłączenia uchwytu nośnego do zablokowanego położenia.
 4. Użyj klawisza blokady dostarczonego przez firmę Microsoft (Tamperproof TORX), aby zabezpieczyć dojście do miejsca, przełączając blokadę w prawo.
-5. Sprawdź, czy zastąpienie zakończyło się pomyślnie, a dysk działa. Uzyskaj dostęp do Azure Portal i przejdź do **ustawień** > urządzenia**kondycja sprzętu**. W obszarze **składniki udostępnione** lub **EBOD udostępnione składniki**stan dysku powinien być zielony, co oznacza, że jest w dobrej kondycji.
+5. Sprawdź, czy zastąpienie zakończyło się pomyślnie, a dysk działa. Uzyskaj dostęp do Azure Portal i przejdź do **ustawień urządzenia**  >  **kondycja sprzętu**. W obszarze **składniki udostępnione** lub **EBOD udostępnione składniki**stan dysku powinien być zielony, co oznacza, że jest w dobrej kondycji.
 
    
    > [!NOTE]

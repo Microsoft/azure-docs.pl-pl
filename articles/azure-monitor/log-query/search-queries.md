@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660244"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Wyszukiwanie zapytań w dziennikach Azure Monitor
@@ -51,7 +50,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Jeśli używasz `==` zamiast programu `:`, wyniki mogą zawierać rekordy, w których kolumna *źródłowa* ma dokładną wartość "Error" i w tym konkretnym przypadku. Użycie ":" spowoduje uwzględnienie rekordów, w których *Źródło* ma wartości takie jak "kod błędu 404" lub "błąd".
+> Jeśli używasz `==` zamiast programu `:` , wyniki mogą zawierać rekordy, w których kolumna *źródłowa* ma dokładną wartość "Error" i w tym konkretnym przypadku. Użycie ":" spowoduje uwzględnienie rekordów, w których *Źródło* ma wartości takie jak "kod błędu 404" lub "błąd".
 
 ## <a name="case-sensitivity"></a>Uwzględnianie wielkości liter
 Domyślnie wyszukiwanie warunkowe nie uwzględnia wielkości liter, dlatego wyszukiwanie "DNS" może dać wyniki, takie jak "DNS", "DNS" lub "DNS". Aby wyszukać wielkość liter, użyj `kind` opcji:
@@ -89,10 +88,10 @@ search in (Event) "corp*.com"
 | take 100
 ```
 
-Możesz również uzyskać wszystko w tabeli, używając tylko symbolu wieloznacznego: `search in (Event) *`, ale tak samo jak w przypadku pisania. `Event`
+Możesz również uzyskać wszystko w tabeli, używając tylko symbolu wieloznacznego: `search in (Event) *` , ale tak samo jak w przypadku pisania `Event` .
 
 > [!TIP]
-> `search *` W celu uzyskania każdej kolumny z każdej tabeli zaleca się, aby zawsze określać zakres zapytań do określonych tabel. Wykonywanie zapytań w zakresie nienależących do zakresu może potrwać trochę czasu i może zwracać zbyt wiele wyników.
+> `search *`W celu uzyskania każdej kolumny z każdej tabeli zaleca się, aby zawsze określać zakres zapytań do określonych tabel. Wykonywanie zapytań w zakresie nienależących do zakresu może potrwać trochę czasu i może zwracać zbyt wiele wyników.
 
 ## <a name="add-and--or-to-search-queries"></a>Dodawanie *i* / *or* wyszukiwanie zapytań
 Użyj programu **i** , aby wyszukać rekordy zawierające wiele warunków:

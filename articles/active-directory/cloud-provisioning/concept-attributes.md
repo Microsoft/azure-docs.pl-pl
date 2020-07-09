@@ -16,10 +16,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78299333"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informacje o schemacie usługi Azure AD
@@ -42,13 +41,13 @@ Na przykład użytkownik może być częścią działu marketingu. Atrybut dzia�
 
 Synchronizacja atrybutów może być bezpośrednia, gdzie wartość w usłudze Azure AD jest ustawiona bezpośrednio na wartość atrybutu lokalnego. Lub wyrażenie programistyczne może obsłużyć synchronizację. Wyrażenie programowe jest wymagane w przypadkach, gdy konieczne jest wykonanie pewnych logiki lub określenia w celu wypełnienia wartości.
 
-Na przykład, jeśli masz atrybut poczty "john.smith@contoso.com" i jest wymagany do oddzielenia części "@contoso.com" i przeniesieniu tylko wartości "Jan. Smith", używasz podobnej do tego:
+Na przykład, jeśli masz atrybut poczty " john.smith@contoso.com " i jest wymagany do oddzielenia części " @contoso.com " i przeniesieniu tylko wartości "Jan. Smith", używasz podobnej do tego:
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
 **Przykładowe dane wejściowe/wyjściowe:** <br>
 
-* **Dane wejściowe** (poczta):john.smith@contoso.com""
+* **Dane wejściowe** (poczta): " john.smith@contoso.com "
 * **Dane wyjściowe**: "Jan. Kowalski"
 
 Aby uzyskać więcej informacji na temat pisania wyrażeń niestandardowych i składni, zobacz [Pisanie wyrażeń pod kątem mapowań atrybutów w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
@@ -75,8 +74,8 @@ Aby wyświetlić schemat i sprawdzić go, wykonaj następujące kroki.
 1.  Przejdź do [Eksploratora grafów](https://developer.microsoft.com/graph/graph-explorer).
 1.  Zaloguj się przy użyciu konta administratora globalnego.
 1.  Po lewej stronie wybierz pozycję **Modyfikuj uprawnienia** i upewnij się, że jest *wyrażana zgoda*na **katalog. ReadWrite. All** .
-1.  Uruchom zapytanie `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. To zapytanie zwraca przefiltrowaną listę jednostek usługi.
-1.  Znajdź `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` i zanotuj wartość parametru `"id"`.
+1.  Uruchom zapytanie `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')` . To zapytanie zwraca przefiltrowaną listę jednostek usługi.
+1.  Znajdź `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` i zanotuj wartość parametru `"id"` .
     ```
     "value": [
             {
@@ -149,8 +148,8 @@ Aby wyświetlić schemat i sprawdzić go, wykonaj następujące kroki.
                 "passwordCredentials": []
             },
     ```
-1. Zamień `{Service Principal id}` na wartość i uruchom zapytanie `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
-1. Znajdź `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` i zanotuj wartość parametru `"id"`.
+1. Zamień `{Service Principal id}` na wartość i uruchom zapytanie `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/` .
+1. Znajdź `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` i zanotuj wartość parametru `"id"` .
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -241,11 +240,11 @@ Aby wyświetlić schemat i sprawdzić go, wykonaj następujące kroki.
                 ]
             }
     ```
-1. Teraz uruchom zapytanie `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
+1. Teraz uruchom zapytanie `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema` .
  
     Przykład: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
-   `{Service Principal Id}` Zastąp `{AD2ADD Provisioning Id}` wartości i wartościami.
+   Zastąp `{Service Principal Id}` `{AD2ADD Provisioning Id}` wartości i wartościami.
 
 1. To zapytanie zwraca schemat.
 

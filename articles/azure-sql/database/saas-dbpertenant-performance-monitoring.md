@@ -1,6 +1,6 @@
 ---
 title: 'Aplikacja SaaS: monitorowanie wydajności wielu baz danych'
-description: Monitorowanie wydajności baz danych i pul usługi Azure SQL w wielodostępnej aplikacji SaaS oraz zarządzanie nią
+description: Monitorowanie i zarządzanie wydajnością Azure SQL Database w wielodostępnej aplikacji SaaS
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 458349ec666de7cdb94fca5422143738fea50a26
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 714ddf69bd8bca70019487576830b319bd25a7c0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042848"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042819"
 ---
-# <a name="monitor-and-manage-performance-of-azure-sql-database-and-pools-in-a-multi-tenant-saas-app"></a>Monitorowanie wydajności Azure SQL Database i pul w wielodostępnej aplikacji SaaS oraz zarządzanie nimi
+# <a name="monitor-and-manage-performance-of-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorowanie i zarządzanie wydajnością Azure SQL Database w wielodostępnej aplikacji SaaS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym samouczku przedstawiono kilka kluczowych scenariuszy zarządzania wydajnością używanych w aplikacjach SaaS. W celu symulowania aktywności wszystkich baz danych dzierżaw przy użyciu generatora obciążenia są zademonstrowane wbudowane funkcje monitorowania i alertów SQL Database i pul elastycznych.
@@ -69,7 +69,7 @@ Pule stają się opłacalne nawet w przypadku zaledwie dwóch baz danych nas poz
 
 Jeśli masz już zainicjowaną partię dzierżawców w poprzednim samouczku, przejdź do sekcji [symulowanie użycia we wszystkich bazach danych dzierżaw](#simulate-usage-on-all-tenant-databases) .
 
-1. W **ISE programu PowerShell**Otwórz pozycję... \\ Monitorowanie wydajności modułów szkoleniowych \\ i zarządzanie \\ *demo-PerformanceMonitoringAndManagement. ps1*. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
+1. W **ISE programu PowerShell**Otwórz pozycję... \\ \\Demo-PerformanceMonitoringAndManagement.ps1monitorowania wydajności modułów szkoleniowych i zarządzania nimi \\ * *. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
 1. Ustawianie **$DemoScenario**  =  **1**, **Inicjowanie obsługi partii dzierżawców**
 1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
@@ -79,7 +79,7 @@ Skrypt *New-TenantBatch* używa zagnieżdżonego lub połączonego zestawu [Mene
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Symulowanie użycia we wszystkich baz danych dzierżaw
 
-Został udostępniony skrypt *demo-PerformanceMonitoringAndManagement. ps1* , który symuluje obciążenie uruchomione dla wszystkich baz danych dzierżaw. Obciążenie jest generowane przy użyciu jednego z dostępnych scenariuszy ładowania:
+Zostanie udostępniony skrypt *Demo-PerformanceMonitoringAndManagement.ps1* , który symuluje obciążenie uruchomione dla wszystkich baz danych dzierżawy. Obciążenie jest generowane przy użyciu jednego z dostępnych scenariuszy ładowania:
 
 | Demonstracja | Scenariusz |
 |:--|:--|
@@ -91,7 +91,7 @@ Został udostępniony skrypt *demo-PerformanceMonitoringAndManagement. ps1* , kt
 
 Generator obciążenia stosuje obciążenie *syntetyczne* wyłącznie do procesorów dla każdej bazy danych dzierżawy. Generator uruchamia zadanie dla każdej bazy danych dzierżawy, co powoduje cykliczne wywołanie procedury składowanej, która generuje obciążenie. Poziomy obciążenia (mierzone w jednostkach eDTU), czas trwania i interwały są zróżnicowane dla wszystkich baz danych, co symuluje nieprzewidywalną aktywność dzierżawy.
 
-1. W **ISE programu PowerShell**Otwórz pozycję... \\ Monitorowanie wydajności modułów szkoleniowych \\ i zarządzanie \\ *demo-PerformanceMonitoringAndManagement. ps1*. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
+1. W **ISE programu PowerShell**Otwórz pozycję... \\ \\Demo-PerformanceMonitoringAndManagement.ps1monitorowania wydajności modułów szkoleniowych i zarządzania nimi \\ * *. Nie zamykaj tego skryptu, gdyż w ramach tego samouczka będzie konieczne uruchomienie kilku scenariuszy.
 1. Ustaw **$DemoScenario**  =  **2**, *generując normalne obciążenie intensywnie*.
 1. Naciśnij klawisz **F5**, aby zastosować obciążenie do wszystkich baz danych dzierżaw.
 
@@ -195,7 +195,7 @@ Jeśli poszczególna baza danych w puli ma duże obciążenie, w zależności od
 
 W tym ćwiczeniu zostanie zasymulowane zwiększone obciążenie dotyczące miejsca Contoso Concert Hall wywołane wzmożonym pobytem na bilety na popularny koncert.
 
-1. W **ISE programu PowerShell**Otwórz pozycję... \\ Skrypt *demo-PerformanceMonitoringAndManagement. ps1* .
+1. W **ISE programu PowerShell**Otwórz pozycję... \\ Skrypt *Demo-PerformanceMonitoringAndManagement.ps1* .
 1. Ustaw **$DemoScenario = 5, wygeneruj normalne obciążenie i wysokie obciążenie dla pojedynczej dzierżawy (około 95 jednostek DTU).**
 1. Ustaw wartość zmiennej **$SingleTenantDatabaseName = contosoconcerthall**
 1. Wykonaj skrypt, używając klawisza **F5**.

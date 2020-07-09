@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6bd93f9062f8446ce20436a7a04e2054aaf5be71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189977"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386135"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Włącz kontroli wieku w Azure Active Directory B2C
 
@@ -27,13 +27,13 @@ Kontroli wieku w Azure Active Directory B2C (Azure AD B2C) umożliwia zidentyfik
 
 Po włączeniu kontroli wieku w [przepływie użytkownika](user-flow-overview.md)użytkownicy są monitowani o ich pourodzenie i kraj/region, w którym się znajdują. Jeśli użytkownik zaloguje się do programu, który nie wprowadził wcześniej informacji, będzie musiał wprowadzić go przy następnym logowaniu. Reguły są stosowane za każdym razem, gdy użytkownik loguje się.
 
-Azure AD B2C korzysta z informacji wprowadzonych przez użytkownika w celu ustalenia, czy są one małoletnim. Pole **grupy wiekowej** zostanie następnie zaktualizowane na swoim koncie. Wartość może być `null`, `Undefined`, `Minor` `Adult`,, i. `NotAdult`  Pola **grupy wiekowej** i **consentProvidedForMinor** są następnie używane do obliczania wartości **legalAgeGroupClassification**.
+Azure AD B2C korzysta z informacji wprowadzonych przez użytkownika w celu ustalenia, czy są one małoletnim. Pole **grupy wiekowej** zostanie następnie zaktualizowane na swoim koncie. Wartość może być `null` ,,,, `Undefined` `Minor` `Adult` i `NotAdult` .  Pola **grupy wiekowej** i **consentProvidedForMinor** są następnie używane do obliczania wartości **legalAgeGroupClassification**.
 
 Wiek kontroli obejmuje dwie wartości wiekowe: wiek, którego ktoś nie jest już traktowany jako drobny, a okres ważności musi mieć zgodę rodzicielską. W poniższej tabeli wymieniono reguły dotyczące wieku, które są używane do definiowania drobnych i drobnych wyrazów wymagających zgody.
 
 | Kraj/region | Nazwa kraju/regionu | Niewielki wiek zgody | Wiek pomocniczy |
 | -------------- | ------------------- | ----------------- | --------- |
-| Domyślny | Brak | Brak | 18 |
+| Domyślne | Brak | Brak | 18 |
 | AE | Zjednoczone Emiraty Arabskie | Brak | 21 |
 | AT | Austria | 14 | 18 |
 | BE | Belgia | 14 | 18 |
@@ -41,14 +41,14 @@ Wiek kontroli obejmuje dwie wartości wiekowe: wiek, którego ktoś nie jest ju�
 | BH | Bahrajn | Brak | 21 |
 | CM | Kamerun | Brak | 21 |
 | CY | Cypr | 16 | 18 |
-| CZ | Czechy | 16 | 18 |
+| CZ | Republika Czeska | 16 | 18 |
 | DE | Niemcy | 16 | 18 |
 | DK | Dania | 16 | 18 |
 | EE | Estonia | 16 | 18 |
 | EG | Egipt | Brak | 21 |
 | ES | Hiszpania | 13 | 18 |
 | PW | Francja | 16 | 18 |
-| GB | Wielka Brytania | 13 | 18 |
+| GB | Zjednoczone Królestwo | 13 | 18 |
 | GR | Grecja | 16 | 18 |
 | HR | Chorwacja | 16 | 18 |
 | HU | Węgry | 16 | 18 |
@@ -103,7 +103,7 @@ Po skonfigurowaniu dzierżawy do korzystania z kontroli wieku można użyć tej 
 1. Utwórz przepływ użytkownika z włączonym kontroli wieku.
 2. Po utworzeniu przepływu użytkownika wybierz pozycję **Właściwości** w menu.
 3. W sekcji **kontroli wieku** wybierz pozycję **włączone**.
-4. Następnie zdecyduj, w jaki sposób chcesz zarządzać użytkownikami, które identyfikują jako małoletnie. W przypadku **rejestracji lub logowania**należy wybrać `Allow minors to access your application` lub. `Block minors from accessing your application` W przypadku wybrania opcji blokowania drobnych `Send a JSON back to the application` zaznaczania `Show an error message`lub.
+4. Następnie zdecyduj, w jaki sposób chcesz zarządzać użytkownikami, które identyfikują jako małoletnie. W przypadku **rejestracji lub logowania**należy wybrać `Allow minors to access your application` lub `Block minors from accessing your application` . W przypadku wybrania opcji blokowania drobnych zaznaczania `Send a JSON back to the application` lub `Show an error message` .
 
 
 

@@ -4,21 +4,21 @@ description: Dowiedz się, jak projektować zasady dostępu warunkowego i efekty
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 09/17/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d4ae1c9926c7ea1d18bf5c87fbed837edc2a5d5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339727"
 ---
-# <a name="plan--a-conditional-access-deployment"></a>Planowanie wdrożenia dostępu warunkowego
+# <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
 Planowanie wdrożenia dostępu warunkowego ma kluczowe znaczenie dla osiągnięcia strategii dostępu w organizacji dla aplikacji i zasobów.
 
@@ -28,19 +28,19 @@ Azure Active Directory (Azure AD) analizy dostępu warunkowego (CA) są sygnała
 
 ![Omówienie dostępu warunkowego](./media/plan-conditional-access/conditional-access-overview-how-it-works.png)
 
-Firma Microsoft udostępnia standardowe zasady warunkowe o nazwie [zabezpieczenia domyślne](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) , które zapewniają podstawowy poziom zabezpieczeń. Jednak organizacja może potrzebować większej elastyczności niż domyślna oferta zabezpieczeń. Za pomocą dostępu warunkowego można dostosować ustawienia domyślne zabezpieczeń z większą szczegółowością i skonfigurować nowe zasady spełniające Twoje wymagania.
+Firma Microsoft udostępnia standardowe zasady warunkowe o nazwie [zabezpieczenia domyślne](../fundamentals/concept-fundamentals-security-defaults.md) , które zapewniają podstawowy poziom zabezpieczeń. Jednak organizacja może potrzebować większej elastyczności niż domyślna oferta zabezpieczeń. Za pomocą dostępu warunkowego można dostosować ustawienia domyślne zabezpieczeń z większą szczegółowością i skonfigurować nowe zasady spełniające Twoje wymagania.
 
 ## <a name="learn"></a>Learn
 
-Przed rozpoczęciem upewnij się, że rozumiesz, jak działa [dostęp warunkowy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) , oraz kiedy należy go używać.
+Przed rozpoczęciem upewnij się, że rozumiesz, jak działa [dostęp warunkowy](overview.md) , oraz kiedy należy go używać.
 
-### <a name="benefits"></a>Korzyści
+### <a name="benefits"></a>Zalety
 
 Korzyści wynikające z wdrożenia dostępu warunkowego są następujące:
 
 * Zwiększ produktywność. Przerywaj użytkowników tylko przy użyciu stanu logowania, takiego jak MFA, gdy co najmniej jeden z tych sygnałów gwarantuje. Zasady dotyczące urzędów certyfikacji umożliwiają kontrolowanie czasu, w którym użytkownicy są monitowani o uwierzytelnianie wieloskładnikowe, gdy dostęp jest zablokowany, a kiedy muszą korzystać z zaufanego urządzenia.
 
-* Zarządzanie ryzykiem. Automatyzacja oceny ryzyka z warunkami zasad oznacza, że ryzykowne logowania są już zidentyfikowane i skorygowane lub zablokowane. Sprzężenie dostępu warunkowego z usługą [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview), które wykrywa anomalie i podejrzane zdarzenia, umożliwia kierowanie w przypadku zablokowania lub warunkowego dostępu do zasobów. 
+* Zarządzanie ryzykiem. Automatyzacja oceny ryzyka z warunkami zasad oznacza, że ryzykowne logowania są już zidentyfikowane i skorygowane lub zablokowane. Sprzężenie dostępu warunkowego z usługą [Identity Protection](../identity-protection/overview-identity-protection.md), które wykrywa anomalie i podejrzane zdarzenia, umożliwia kierowanie w przypadku zablokowania lub warunkowego dostępu do zasobów. 
 
 * Adresowanie zgodności i zarządzania. Dostęp warunkowy umożliwia inspekcję dostępu do aplikacji, obecne warunki użytkowania i ograniczanie dostępu na podstawie zasad zgodności.
 
@@ -48,7 +48,7 @@ Korzyści wynikające z wdrożenia dostępu warunkowego są następujące:
 
 ### <a name="license-requirements"></a>Wymagania licencyjne
 
-Zobacz [wymagania licencyjne dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+Zobacz [wymagania licencyjne dostępu warunkowego](overview.md).
 
 Jeśli wymagane są dodatkowe funkcje, mogą również być potrzebne powiązane licencje. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -58,76 +58,73 @@ Jeśli wymagane są dodatkowe funkcje, mogą również być potrzebne powiązane
 
 * Konto z uprawnieniami administratora dostępu warunkowego.
 
-* Użytkownik niebędący administratorem z hasłem znanym, takim jak użytkownik testowy. Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+* Użytkownik niebędący administratorem z hasłem znanym, takim jak użytkownik testowy. Jeśli musisz utworzyć użytkownika, zobacz [Szybki Start: Dodawanie nowych użytkowników do Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
-* Grupa, której członkiem jest użytkownik niebędący administratorem. Jeśli musisz utworzyć grupę, zobacz [Tworzenie grupy i Dodawanie członków w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal).
+* Grupa, której członkiem jest użytkownik niebędący administratorem. Jeśli musisz utworzyć grupę, zobacz [Tworzenie grupy i Dodawanie członków w Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ### <a name="training-resources"></a>Zasoby szkoleniowe
 
 Następujące zasoby mogą być przydatne podczas nauki na temat dostępu warunkowego:
 
 
-**Filmy wideo**
+#### <a name="videos"></a>Filmy wideo
+
 * [Co to jest dostęp warunkowy?](https://youtu.be/ffMAw2IVO7A)
 * [Jak wdrożyć dostęp warunkowy?](https://youtu.be/c_izIRNJNuk)
 * [Jak wdrożyć zasady urzędu certyfikacji dla użytkowników końcowych?](https://youtu.be/0_Fze7Zpyvc)
 * [Dostęp warunkowy przy użyciu kontrolek urządzeń](https://youtu.be/NcONUf-jeS4)
 * [Dostęp warunkowy przy użyciu usługi Azure MFA](https://youtu.be/Tbc-SU97G-w)
 * [Dostęp warunkowy w Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
-* [Dostęp warunkowy oparty na urządzeniach](https://in.video.search.yahoo.com/search/video;_ylt=AwrPiBX0yHRcZiMAhFa7HAx.;_ylu=X3oDMTB0N2poMXRwBGNvbG8Dc2czBHBvcwMxBHZ0aWQDBHNlYwNwaXZz?p=conditional+access+videos+microsoft&fr2=piv-web&fr=mcafee)
 
-**Kursy online w witrynie PluralSight**
+
+#### <a name="online-courses-on-pluralsight"></a>Kursy online w witrynie PluralSight
+
 * [Projektowanie zarządzania tożsamościami w Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
 * [Uwierzytelnianie projektu dla Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
 * [Zaprojektuj autoryzację dla Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
 
-**Często zadawane pytania**
-
-[Często zadawane pytania dotyczące dostępu warunkowego usługi Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/faqs)
 ## <a name="plan-the-deployment-project"></a>Planowanie projektu wdrożenia
 
 Podczas określania strategii tego wdrożenia w danym środowisku należy wziąć pod uwagę potrzeby organizacyjne.
+
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
+
 Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans) Cię odpowiednie osoby zainteresowane i że role projektu są jasne.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
+
 Komunikacja jest niezwykle ważna dla sukcesu każdej nowej usługi. Proaktywnie Komunikuj się z użytkownikami, w jaki sposób ich środowisko zostanie zmienione, gdy ulegnie zmianie, i jak uzyskać pomoc techniczną, jeśli wystąpią problemy.
 
 ### <a name="plan-a-pilot"></a>Planowanie pilotażu
-Jeśli nowe zasady są gotowe dla danego środowiska, wdróż je w fazach w środowisku produkcyjnym. Najpierw Zastosuj zasady do małego zestawu użytkowników w środowisku testowym i sprawdź, czy zasady zachowują się zgodnie z oczekiwaniami. Zapoznaj [się z najlepszymi rozwiązaniami dla pilotażu](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
+
+Jeśli nowe zasady są gotowe dla danego środowiska, wdróż je w fazach w środowisku produkcyjnym. Najpierw Zastosuj zasady do małego zestawu użytkowników w środowisku testowym i sprawdź, czy zasady zachowują się zgodnie z oczekiwaniami. Zapoznaj [się z najlepszymi rozwiązaniami dla pilotażu](../fundamentals/active-directory-deployment-plans.md).
 
 > [!NOTE]
 > W przypadku wdrażania nowych zasad, które nie są specyficzne dla administratorów, Wyklucz wszystkich administratorów. Dzięki temu administratorzy mogą nadal uzyskiwać dostęp do zasad i wprowadzać zmiany lub odwoływać je, jeśli wystąpi znaczący wpływ. Przed zastosowaniem do wszystkich użytkowników należy zawsze sprawdzać poprawność zasad z mniejszymi grupami użytkowników.
 
 ## <a name="understand-ca-policy-components"></a>Informacje o składnikach zasad urzędu certyfikacji
-
-Zasady urzędu certyfikacji są instrukcjami if-then: Jeśli zostanie spełniony przypisany warunek, Zastosuj te kontrole dostępu. 
-
-![Omówienie dostępu warunkowego](media/plan-conditional-access/10.png)
+Zasady urzędu certyfikacji są instrukcjami if-then: Jeśli zostanie spełnione przypisanie, Zastosuj te kontrole dostępu.
 
 W przypadku konfigurowania zasad urzędu certyfikacji warunki są nazywane *przypisaniami*. Zasady dotyczące urzędów certyfikacji umożliwiają wymuszanie kontroli dostępu w aplikacjach organizacji na podstawie określonych przypisań.
 
-![przypisania i kontrola dostępu ](media/plan-conditional-access/ca-policy-access.png)
 
-
-Aby uzyskać więcej informacji, zobacz [Kompilowanie zasad urzędu certyfikacji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies).
-
-[Przypisania](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) definiują
-
-* [Użytkownicy i grupy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups) , na które mają wpływ zasady
-
-* [aplikacje w chmurze lub akcje](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps) , do których zostaną zastosowane zasady 
-
-* [warunki](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions) , zgodnie z którymi zasady będą stosowane. 
-<p>
+Aby uzyskać więcej informacji, zobacz [Kompilowanie zasad urzędu certyfikacji](concept-conditional-access-policies.md).
 
 ![ekran tworzenia zasad](media/plan-conditional-access/create-policy.png)
 
-Ustawienia [kontroli dostępu](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) określają sposób wymuszania zasad:
+[Przypisania](concept-conditional-access-policies.md#assignments) definiują
 
-* [Udziel lub Blokuj](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) dostęp do aplikacji w chmurze.
+* [Użytkownicy i grupy](concept-conditional-access-users-groups.md) , na które mają wpływ zasady
 
-* [Kontrolki sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) umożliwiają ograniczoną liczbę środowisk w określonych aplikacjach w chmurze.
+* [Aplikacje w chmurze lub akcje](concept-conditional-access-cloud-apps.md) , do których zostaną zastosowane zasady 
+
+* [Warunki](concept-conditional-access-conditions.md) , zgodnie z którymi zasady będą stosowane.
+
+Ustawienia [kontroli dostępu](concept-conditional-access-policies.md) określają sposób wymuszania zasad:
+
+* [Udziel lub Blokuj](concept-conditional-access-grant.md) dostęp do aplikacji w chmurze.
+
+* [Kontrolki sesji](concept-conditional-access-session.md) umożliwiają ograniczoną liczbę środowisk w określonych aplikacjach w chmurze.
 
 ### <a name="ask-the-right-questions-to-build-your-policies"></a>Zadawaj odpowiednie pytania, aby skompilować swoje zasady
 
@@ -137,19 +134,19 @@ Udokumentowanie odpowiedzi na pytania dotyczące poszczególnych zasad przed ich
 
 #### <a name="common-questions-about-assignments"></a>Często zadawane pytania dotyczące przypisań
 
-[Użytkownicy i grupy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups)
+[Użytkownicy i grupy](concept-conditional-access-users-groups.md)
 
 * Których użytkowników i grup zostaną dołączone lub wykluczone z zasad?
 
 * Czy te zasady obejmują wszystkich użytkowników, konkretną grupę użytkowników, role katalogów lub użytkowników zewnętrznych?
 
-[Aplikacje w chmurze lub akcje](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps)
+[Aplikacje w chmurze lub akcje](concept-conditional-access-cloud-apps.md)
 
 * Jakie aplikacje będą stosowane dla zasad?
 
 * Jakie akcje użytkownika będą podlegać tym zasadom?
 
-[Warunki](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions)
+[Warunki](concept-conditional-access-conditions.md)
 
 * Które platformy urządzeń zostaną dołączone lub wykluczone z zasad?
 
@@ -161,11 +158,11 @@ Udokumentowanie odpowiedzi na pytania dotyczące poszczególnych zasad przed ich
 
 * Czy masz zasady, które mogą obejmować wykluczenie urządzeń przyłączonych do usługi Azure AD lub hybrydowe urządzenia z usługą Azure AD z zasad? 
 
-* Czy w przypadku korzystania z usługi [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)chcesz uwzględnić ochronę przed ryzykiem związanym z logowaniem?
+* Czy w przypadku korzystania z usługi [Identity Protection](../identity-protection/concept-identity-protection-risks.md)chcesz uwzględnić ochronę przed ryzykiem związanym z logowaniem?
 
 #### <a name="common-questions-about-access-controls"></a>Często zadawane pytania dotyczące kontroli dostępu
 
-[Udziel lub Blokuj](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-grant) 
+[Udziel lub Blokuj](concept-conditional-access-grant.md) 
 
 Czy chcesz udzielić dostępu do zasobów, wymagając co najmniej jednego z następujących elementów?
 
@@ -179,7 +176,7 @@ Czy chcesz udzielić dostępu do zasobów, wymagając co najmniej jednego z nast
 
 * Wymaganie zasad ochrony aplikacji
 
-[Kontrola sesji](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session)
+[Kontrola sesji](concept-conditional-access-session.md)
 
 Czy chcesz wymusić dowolne z następujących kontroli dostępu w aplikacjach w chmurze?
 
@@ -197,7 +194,8 @@ Ważne jest, aby zrozumieć, jak są wydawane tokeny dostępu.
 
 ![Diagram wystawiania tokenów dostępu](media/plan-conditional-access/CA-policy-token-issuance.png)
 
-**W szczególności należy zauważyć, że jeśli nie jest wymagane żadne przypisanie, a zasady urzędu certyfikacji nie są stosowane, to domyślne zachowanie ma na celu wystawienie tokenu dostępu**. 
+> [!NOTE]
+> Jeśli przypisanie nie jest wymagane, a zasady urzędu certyfikacji nie obowiązują, to domyślne zachowanie ma na celu wystawienie tokenu dostępu. 
 
 Rozważmy na przykład zasady, w których:
 
@@ -218,11 +216,11 @@ Tokeny dostępu są domyślnie wysyłane, jeśli warunek zasad urzędu certyfika
 
 ### <a name="minimize-the-number-of-ca-policies"></a>Minimalizacja liczby zasad urzędu certyfikacji
 
-Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej administracji. Dostęp warunkowy obejmuje tylko pierwsze zasady 195 dla każdego użytkownika. Zalecamy analizowanie aplikacji i grupowanie ich w aplikacje, które mają takie same wymagania dotyczące zasobów dla tych samych użytkowników. Jeśli na przykład wszystkie aplikacje pakietu Office 365 lub wszystkie aplikacje usługi kadr mają takie same wymagania dla tych samych użytkowników, należy utworzyć pojedynczą zasadę i uwzględnić wszystkie aplikacje, do których ma zastosowanie. 
+Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej administracji. Dostęp warunkowy obejmuje tylko pierwsze zasady 195 dla każdego użytkownika. Zalecamy analizowanie aplikacji i grupowanie ich w aplikacje, które mają takie same wymagania dotyczące zasobów dla tych samych użytkowników. Na przykład jeśli wszystkie aplikacje Microsoft 365 lub wszystkie aplikacje kadr mają takie same wymagania dla tych samych użytkowników, należy utworzyć pojedynczą zasadę i uwzględnić wszystkie aplikacje, do których ma zastosowanie. 
 
 ### <a name="set-up-emergency-access-accounts"></a>Konfigurowanie kont dostępu awaryjnego
 
-Jeśli zasady zostały nieprawidłowo skonfigurowane, można zablokować organizacje z Azure Portal. Aby wyeliminować wpływ przypadkowego blokowania administratora, należy utworzyć co najmniej dwa [konta dostępu awaryjnego](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) w organizacji.
+Jeśli zasady zostały nieprawidłowo skonfigurowane, można zablokować organizacje z Azure Portal. Aby wyeliminować wpływ przypadkowego blokowania administratora, należy utworzyć co najmniej dwa [konta dostępu awaryjnego](../users-groups-roles/directory-emergency-access.md) w organizacji.
 
 * Utwórz konto użytkownika przeznaczone do administrowania zasadami i wykluczone ze wszystkich zasad.
 
@@ -242,13 +240,13 @@ Może być trudne do przewidywania liczby i nazw użytkowników, których dotycz
 * wymaganie uwierzytelniania wieloskładnikowego
 * Implementowanie zasad dotyczących ryzyka związanego z logowaniem
 
-[Tryb tylko do raportowania](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) pozwala administratorom na ocenę wpływu zasad urzędu certyfikacji przed włączeniem ich w środowisku.
+[Tryb tylko do raportowania](concept-conditional-access-report-only.md) pozwala administratorom na ocenę wpływu zasad urzędu certyfikacji przed włączeniem ich w środowisku.
 
-Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad urzędu certyfikacji](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only).
+Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad urzędu certyfikacji](howto-conditional-access-report-only.md).
 
 ### <a name="plan-for-disruption"></a>Planowanie przerw w działaniu
 
-Jeśli korzystasz z pojedynczej kontroli dostępu, takiej jak MFA lub lokalizacji sieciowej, aby zabezpieczyć systemy INFORMATYCZNe, musisz mieć dostęp do błędów, jeśli taka kontrola dostępu będzie niedostępna lub nieprawidłowo skonfigurowana. Aby zmniejszyć ryzyko związane z blokadą w przypadku nieprzewidzianych zakłóceń, należy [zaplanować strategie](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) do zastosowania w organizacji.
+Jeśli korzystasz z pojedynczej kontroli dostępu, takiej jak MFA lub lokalizacji sieciowej, aby zabezpieczyć systemy INFORMATYCZNe, musisz mieć dostęp do błędów, jeśli taka kontrola dostępu będzie niedostępna lub nieprawidłowo skonfigurowana. Aby zmniejszyć ryzyko związane z blokadą w przypadku nieprzewidzianych zakłóceń, należy [zaplanować strategie](../authentication/concept-resilient-controls.md) do zastosowania w organizacji.
 
 ### <a name="set-naming-standards-for-your-policies"></a>Ustawianie standardów nazewnictwa dla zasad
 
@@ -274,7 +272,7 @@ Opisowa nazwa pomaga zachować przegląd implementacji dostępu warunkowego. Num
 
 #### <a name="naming-standards-for-emergency-access-controls"></a>Normy nazewnictwa dla kontroli dostępu awaryjnego
 
-Oprócz aktywnych zasad należy zaimplementować wyłączone zasady, które działają jako pomocnicze, [odporne na awarie i w sytuacjach awaryjnych](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls). Standard nazewnictwa dla zasad awaryjnych powinien obejmować:
+Oprócz aktywnych zasad należy zaimplementować wyłączone zasady, które działają jako pomocnicze, [odporne na awarie i w sytuacjach awaryjnych](../authentication/concept-resilient-controls.md). Standard nazewnictwa dla zasad awaryjnych powinien obejmować:
 * Włącz na początku, aby nawiązać nazwę między innymi zasadami.
 
 * Nazwa zakłócenia, do której należy zastosować.
@@ -289,55 +287,61 @@ EM01 — Włącz w sytuacjach AWARYJNych: zakłócenia MFA [1/4] — Exchange Sh
 
 ### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Wyklucz kraje, z których nigdy nie oczekuje się logowania.
 
-Usługa Azure Active Directory umożliwia tworzenie [nazwanych lokalizacji](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition). Utwórz nazwę lokalizacji, która zawiera wszystkie kraje, z których nie oczekuje się logowania. Następnie utwórz zasady dla wszystkich aplikacji, które blokują logowanie z tej nazwy lokalizacji. **Upewnij się, że Administratorzy są wykluczeni z tych zasad**.
+Usługa Azure Active Directory umożliwia tworzenie [nazwanych lokalizacji](location-condition.md). Utwórz nazwę lokalizacji, która zawiera wszystkie kraje, z których nie oczekuje się logowania. Następnie utwórz zasady dla wszystkich aplikacji, które blokują logowanie z tej nazwy lokalizacji. **Upewnij się, że Administratorzy są wykluczeni z tych zasad**.
 
 ### <a name="plan-your-policy-deployment"></a>Planowanie wdrożenia zasad
 
 Jeśli nowe zasady są gotowe dla danego środowiska, przed jego zwolnieniem upewnij się, że zostały one przejrzane, aby uniknąć niepożądanych wyników. Zapoznaj się z poniższą dokumentacją, aby zrozumieć ważne informacje dotyczące sposobu stosowania zasad i rozwiązywania problemów
 
-* [Co należy wiedzieć](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+* [Co należy wiedzieć](best-practices.md)
 
-* [Co należy unikać](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
+* [Co należy unikać](best-practices.md)
 
 ## <a name="common-policies"></a>Wspólne zasady
 
 Planując rozwiązanie zasad urzędu certyfikacji, należy ocenić, czy należy utworzyć zasady, aby osiągnąć poniższe wyniki.
 
+* [Wymaganie uwierzytelniania wieloskładnikowego](#require-mfa)
+* [Reagowanie na potencjalnie naruszone konta](#respond-to-potentially-compromised-accounts)
+* [Wymaganie urządzeń zarządzanych](#require-managed-devices)
+* [Wymagaj zatwierdzonych aplikacji klienckich](#require-approved-client-apps)
+* [Blokuj dostęp](#block-access)
+
 ### <a name="require-mfa"></a>Wymaganie uwierzytelniania wieloskładnikowego
 
 Typowe przypadki użycia w celu wymagania dostępu MFA:
 
-* [Według administratorów](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
+* [Według administratorów](howto-conditional-access-policy-admin-mfa.md)
 
-* [Do określonych aplikacji](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa)
+* [Do określonych aplikacji](app-based-mfa.md)
 
-* [Dla wszystkich użytkowników](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa)
+* [Dla wszystkich użytkowników](howto-conditional-access-policy-all-users-mfa.md)
 
-* [Z lokalizacji sieciowych nie ufasz](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)
+* [Z lokalizacji sieciowych nie ufasz](untrusted-networks.md)
 
-* [Zarządzanie platformą Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-azure-management)
+* [Zarządzanie platformą Azure](howto-conditional-access-policy-azure-management.md)
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Reagowanie na potencjalnie naruszone konta
 
 Korzystając z zasad urzędu certyfikacji, można zaimplementować automatyczne odpowiedzi na potrzeby logowania przez potencjalnie naruszone tożsamości. Prawdopodobieństwo naruszenia zabezpieczeń konta jest wyrażone w formie poziomów ryzyka. Istnieją dwa poziomy ryzyka obliczone przez ochronę tożsamości: ryzyko związane z logowaniem i ryzykiem użytkownika. Następujące trzy domyślne zasady, które można włączyć.
 
-* [Wymagaj, aby wszyscy użytkownicy rejestrowali się w usłudze MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
+* [Wymagaj, aby wszyscy użytkownicy rejestrowali się w usłudze MFA](howto-conditional-access-policy-risk.md)
 
-* [Wymagaj zmiany hasła dla użytkowników, którzy są o wysokim ryzyku](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
+* [Wymagaj zmiany hasła dla użytkowników, którzy są o wysokim ryzyku](howto-conditional-access-policy-risk.md)
 
-* [Wymagaj uwierzytelniania wieloskładnikowego dla użytkowników z średnim lub wysokim ryzykiem logowania](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk)
+* [Wymagaj uwierzytelniania wieloskładnikowego dla użytkowników z średnim lub wysokim ryzykiem logowania](howto-conditional-access-policy-risk.md)
 
 ### <a name="require-managed-devices"></a>Wymaganie urządzeń zarządzanych
 
-Rozprzestrzenianie się obsługiwanych urządzeń w celu uzyskania dostępu do zasobów w chmurze ułatwia zwiększenie produktywności użytkowników. Prawdopodobnie nie chcesz, aby niektóre zasoby w danym środowisku były dostępne dla urządzeń z nieznanym poziomem ochrony. Dla tych zasobów należy [wymagać, aby użytkownicy mieli do nich dostęp tylko przy użyciu urządzenia zarządzanego](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
+Rozprzestrzenianie się obsługiwanych urządzeń w celu uzyskania dostępu do zasobów w chmurze ułatwia zwiększenie produktywności użytkowników. Prawdopodobnie nie chcesz, aby niektóre zasoby w danym środowisku były dostępne dla urządzeń z nieznanym poziomem ochrony. Dla tych zasobów należy [wymagać, aby użytkownicy mieli do nich dostęp tylko przy użyciu urządzenia zarządzanego](require-managed-devices.md).
 
 ### <a name="require-approved-client-apps"></a>Wymaganie zatwierdzonych aplikacji klienckich
 
-Pracownicy używają urządzeń przenośnych zarówno do zadań osobistych, jak i służbowych. W przypadku scenariuszy BYOD należy zdecydować, czy zarządzać całym urządzeniem, czy tylko danymi na nim. w przypadku zarządzania tylko danymi i dostępem można [wymagać zatwierdzonych aplikacji w chmurze](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) , które mogą chronić dane firmowe. można na przykład wymagać dostępu do poczty e-mail tylko za pośrednictwem programu Outlook Mobile, a nie za pośrednictwem ogólnego programu poczty.
+Pracownicy używają urządzeń przenośnych zarówno do zadań osobistych, jak i służbowych. W przypadku scenariuszy BYOD należy zdecydować, czy zarządzać całym urządzeniem, czy tylko danymi na nim. w przypadku zarządzania tylko danymi i dostępem można [wymagać zatwierdzonych aplikacji w chmurze](app-based-conditional-access.md) , które mogą chronić dane firmowe. można na przykład wymagać dostępu do poczty e-mail tylko za pośrednictwem programu Outlook Mobile, a nie za pośrednictwem ogólnego programu poczty.
 
 ### <a name="block-access"></a>Blokowanie dostępu
 
-Opcja [blokowania całego dostępu](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-access) jest zaawansowana. Można go użyć, na przykład podczas migrowania aplikacji do usługi Azure AD, ale nie jest to jeszcze gotowe do zalogowania się do niej. Blokuj dostęp: 
+Opcja [blokowania całego dostępu](howto-conditional-access-policy-block-access.md) jest zaawansowana. Można go użyć, na przykład podczas migrowania aplikacji do usługi Azure AD, ale nie jest to jeszcze gotowe do zalogowania się do niej. Blokuj dostęp: 
 
 * Zastępuje wszystkie inne przypisania dla użytkownika
 
@@ -348,9 +352,9 @@ Opcja [blokowania całego dostępu](https://docs.microsoft.com/azure/active-dire
 
 Inne typowe scenariusze, w których można zablokować dostęp dla użytkowników, to:
 
-* [Blokuj niektóre lokalizacje sieciowe](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location) , aby uzyskać dostęp do aplikacji w chmurze. Za pomocą tych zasad można blokować niektóre kraje, w których wiadomo, że ruch nie powinien pochodzić z usługi.
+* [Blokuj niektóre lokalizacje sieciowe](howto-conditional-access-policy-location.md) , aby uzyskać dostęp do aplikacji w chmurze. Za pomocą tych zasad można blokować niektóre kraje, w których wiadomo, że ruch nie powinien pochodzić z usługi.
 
-* Usługa Azure AD obsługuje starsze uwierzytelnianie. Starsza wersja uwierzytelniania nie obsługuje jednak usługi MFA, a wiele środowisk wymaga, aby zająć się zabezpieczeniami tożsamości. W takim przypadku można [zablokować aplikacjom korzystającym ze starszego uwierzytelniania](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication) dostęp do zasobów dzierżawy.
+* Usługa Azure AD obsługuje starsze uwierzytelnianie. Starsza wersja uwierzytelniania nie obsługuje jednak usługi MFA, a wiele środowisk wymaga, aby zająć się zabezpieczeniami tożsamości. W takim przypadku można [zablokować aplikacjom korzystającym ze starszego uwierzytelniania](block-legacy-authentication.md) dostęp do zasobów dzierżawy.
 
 ## <a name="build-and-test-policies"></a>Zasady kompilacji i testowania
 
@@ -378,16 +382,14 @@ Plan testu jest istotny do porównania między oczekiwanymi wynikami i rzeczywis
 
 | Zasady| Scenariusz| Oczekiwany wynik |
 | - | - | - |
-| [Wymagaj uwierzytelniania wieloskładnikowego, gdy nie jest w pracy](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| Autoryzowany użytkownik loguje się do aplikacji w ramach zaufanej lokalizacji/pracy| Użytkownik nie jest monitowany o uwierzytelnianie wieloskładnikowe |
-| [Wymagaj uwierzytelniania wieloskładnikowego, gdy nie jest w pracy](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)| Autoryzowany użytkownik loguje się do aplikacji, gdy nie znajduje się w zaufanej lokalizacji/pracy| Użytkownik jest monitowany o uwierzytelnianie wieloskładnikowe i może zalogować się pomyślnie |
-| [Wymagaj uwierzytelniania wieloskładnikowego (dla administratora)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)| Administrator globalny loguje się do aplikacji| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
-| [Ryzykowne logowania](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| Użytkownik loguje się do aplikacji przy użyciu [przeglądarki sieci Tor](https://microsoft.sharepoint.com/azure/active-directory/active-directory-identityprotection-playbook)| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
-| [Zarządzanie urządzeniami](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| Autoryzowany użytkownik próbuje zalogować się z autoryzowanego urządzenia| Udzielony dostęp |
-| [Zarządzanie urządzeniami](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)| Autoryzowany użytkownik próbuje zalogować się z nieautoryzowanego urządzenia| Dostęp zablokowany |
+| [Wymagaj uwierzytelniania wieloskładnikowego, gdy nie jest w pracy](untrusted-networks.md)| Autoryzowany użytkownik loguje się do aplikacji w ramach zaufanej lokalizacji/pracy| Użytkownik nie jest monitowany o uwierzytelnianie wieloskładnikowe |
+| [Wymagaj uwierzytelniania wieloskładnikowego, gdy nie jest w pracy](untrusted-networks.md)| Autoryzowany użytkownik loguje się do aplikacji, gdy nie znajduje się w zaufanej lokalizacji/pracy| Użytkownik jest monitowany o uwierzytelnianie wieloskładnikowe i może zalogować się pomyślnie |
+| [Wymagaj uwierzytelniania wieloskładnikowego (dla administratora)](howto-baseline-protect-administrators.md)| Administrator globalny loguje się do aplikacji| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
+| [Ryzykowne logowania](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| Użytkownik loguje się do aplikacji za pomocą niezatwierdzonej przeglądarki| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
+| [Zarządzanie urządzeniami](require-managed-devices.md)| Autoryzowany użytkownik próbuje zalogować się z autoryzowanego urządzenia| Udzielony dostęp |
+| [Zarządzanie urządzeniami](require-managed-devices.md)| Autoryzowany użytkownik próbuje zalogować się z nieautoryzowanego urządzenia| Dostęp zablokowany |
 | [Zmiana hasła dla ryzykownych użytkowników](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| Autoryzowany użytkownik próbuje zalogować się przy użyciu złamanych poświadczeń (logowanie wysokiego ryzyka)| Użytkownik jest monitowany o zmianę hasła lub dostęp jest zablokowany na podstawie zasad |
 
-
- 
 
 ### <a name="configure-the-test-policy"></a>Konfigurowanie zasad testów
 
@@ -401,7 +403,7 @@ Jeśli chcesz dowiedzieć się więcej o sposobie tworzenia zasad urzędu certyf
 
 ### <a name="enable-the-policy-in-report-only-mode"></a>Włącz zasady w trybie tylko do raportowania
 
-Aby ocenić wpływ zasad, Zacznij od włączenia zasad w [trybie tylko do raportowania](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only). Zasady dotyczące tylko raportów są oceniane podczas logowania, ale nie są wymuszane kontrolki Grant i Controls. Po zapisaniu zasad w trybie tylko do raportowania będzie można zobaczyć wpływ logowania w czasie rzeczywistym w dziennikach logowania. Z dzienników logowania wybierz zdarzenie i przejdź do karty tylko raport, aby zobaczyć wynik poszczególnych zasad dotyczących tylko raportów.
+Aby ocenić wpływ zasad, Zacznij od włączenia zasad w [trybie tylko do raportowania](concept-conditional-access-report-only.md). Zasady dotyczące tylko raportów są oceniane podczas logowania, ale nie są wymuszane kontrolki Grant i Controls. Po zapisaniu zasad w trybie tylko do raportowania będzie można zobaczyć wpływ logowania w czasie rzeczywistym w dziennikach logowania. Z dzienników logowania wybierz zdarzenie i przejdź do karty tylko raport, aby zobaczyć wynik poszczególnych zasad dotyczących tylko raportów.
 
 
 ![tryb tylko raporty ](media/plan-conditional-access/report-only-mode.png)
@@ -410,11 +412,11 @@ Wybranie zasad pozwala także sprawdzić, jak zadania i kontroli dostępu zasad 
 
 ### <a name="understand-the-impact-of-your-policies-using-the-insights-and-reporting-workbook"></a>Zapoznaj się z wpływem zasad przy użyciu szczegółowych informacji i skoroszytu raportów
 
-Zagregowany wpływ zasad dostępu warunkowego można wyświetlić w podglądzie szczegółowe dane i raporty. Aby uzyskać dostęp do skoroszytu, potrzebna jest subskrypcja Azure Monitor i konieczne będzie [przesyłanie strumieniowe dzienników logowania do log Analytics obszaru roboczego](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). 
+Zagregowany wpływ zasad dostępu warunkowego można wyświetlić w podglądzie szczegółowe dane i raporty. Aby uzyskać dostęp do skoroszytu, potrzebna jest subskrypcja Azure Monitor i konieczne będzie [przesyłanie strumieniowe dzienników logowania do log Analytics obszaru roboczego](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
 
 ### <a name="simulate-sign-ins-using-the-what-if-tool"></a>Symulowanie logowania przy użyciu narzędzia do wykonania
 
-Innym sposobem weryfikacji zasad dostępu warunkowego jest użycie [Narzędzia warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if), które symuluje, które zasady byłyby stosowane do logowania użytkownika w hipotetycznych warunkach. Wybierz atrybuty logowania, które chcesz przetestować (takie jak użytkownik, aplikacja, platforma urządzenia i lokalizacja) i zobacz, które zasady będą stosowane.
+Innym sposobem weryfikacji zasad dostępu warunkowego jest użycie [Narzędzia warunkowego](troubleshoot-conditional-access-what-if.md), które symuluje, które zasady byłyby stosowane do logowania użytkownika w hipotetycznych warunkach. Wybierz atrybuty logowania, które chcesz przetestować (takie jak użytkownik, aplikacja, platforma urządzenia i lokalizacja) i zobacz, które zasady będą stosowane.
 
 > [!NOTE] 
 > Gdy symulowane uruchomienie daje dobrym pomysłom wpływ zasad urzędu certyfikacji, nie zastępuje rzeczywistego przebiegu testu.
@@ -451,19 +453,19 @@ Poniższe opcje zarządzania umożliwiają kontrolowanie zasad urzędu certyfika
 
 ### <a name="named-locations"></a>Nazwane lokalizacje
 
-Warunek lokalizacji zasad urzędu certyfikacji umożliwia powiązanie ustawień kontroli dostępu z lokalizacjami sieciowymi użytkowników. Przy użyciu [nazwanych lokalizacji](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)można tworzyć logiczne grupowania zakresów adresów IP lub krajów i regionów.
+Warunek lokalizacji zasad urzędu certyfikacji umożliwia powiązanie ustawień kontroli dostępu z lokalizacjami sieciowymi użytkowników. Przy użyciu [nazwanych lokalizacji](location-condition.md)można tworzyć logiczne grupowania zakresów adresów IP lub krajów i regionów.
 
 ### <a name="custom-controls"></a>Kontrolki niestandardowe
 
-[Niestandardowe kontrolki](https://docs.microsoft.com/azure/active-directory/conditional-access/controls) przekierowują użytkowników do zgodnej usługi, aby spełnić wymagania dotyczące uwierzytelniania poza usługą Azure AD. W celu zapewnienia zgodności z tym formantem przeglądarka użytkownika zostanie przekierowana do usługi zewnętrznej, program wykonuje wymagane uwierzytelnianie, a następnie nastąpi przekierowanie z powrotem do usługi Azure AD. Usługa Azure AD weryfikuje odpowiedź i, jeśli użytkownik został pomyślnie uwierzytelniony lub zweryfikowany, użytkownik będzie kontynuował pracę w przepływie dostępu warunkowego.
+[Niestandardowe kontrolki](controls.md) przekierowują użytkowników do zgodnej usługi, aby spełnić wymagania dotyczące uwierzytelniania poza usługą Azure AD. W celu zapewnienia zgodności z tym formantem przeglądarka użytkownika zostanie przekierowana do usługi zewnętrznej, program wykonuje wymagane uwierzytelnianie, a następnie nastąpi przekierowanie z powrotem do usługi Azure AD. Usługa Azure AD weryfikuje odpowiedź i, jeśli użytkownik został pomyślnie uwierzytelniony lub zweryfikowany, użytkownik będzie kontynuował pracę w przepływie dostępu warunkowego.
 
 ### <a name="terms-of-use"></a>Warunki użytkowania
 
-Przed uzyskaniem dostępu do niektórych aplikacji w chmurze w Twoim środowisku możesz uzyskać zgodę od użytkowników, akceptując Warunki użytkowania (warunków użytkowania). Postępuj zgodnie [z tym przewodnikiem Szybki Start, aby utworzyć warunki użytkowania](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou).
+Przed uzyskaniem dostępu do niektórych aplikacji w chmurze w Twoim środowisku możesz uzyskać zgodę od użytkowników, akceptując Warunki użytkowania (warunków użytkowania). Postępuj zgodnie [z tym przewodnikiem Szybki Start, aby utworzyć warunki użytkowania](require-tou.md).
 
 ### <a name="classic-policies"></a>Zasady klasyczne
 
-W [Azure Portal](https://portal.azure.com/)można znaleźć zasady dotyczące urzędu certyfikacji w obszarze Azure Active Directory > zabezpieczenia > dostęp warunkowy. Organizacja może również mieć starsze zasady urzędu certyfikacji, które nie zostały utworzone przy użyciu tej strony. Te zasady są znane jako zasady klasyczne. Zalecamy [Migrowanie zasad klasycznych w Azure Portal](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices).
+W [Azure Portal](https://portal.azure.com/)można znaleźć zasady dotyczące urzędu certyfikacji w obszarze Azure Active Directory > zabezpieczenia > dostęp warunkowy. Organizacja może również mieć starsze zasady urzędu certyfikacji, które nie zostały utworzone przy użyciu tej strony. Te zasady są znane jako zasady klasyczne. Zalecamy [Migrowanie zasad klasycznych w Azure Portal](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Rozwiązywanie problemów z dostępem warunkowym
 
@@ -489,14 +491,14 @@ Jeśli użytkownik odebrał komunikat z linkiem więcej szczegółów, może zbi
 
 Po zebraniu informacji zapoznaj się z następującymi zasobami:
 
-* [Problemy z logowaniem przy użyciu dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) — informacje o nieoczekiwanych próbach logowania związane z dostępem warunkowym przy użyciu komunikatów o błędach i dziennika logowania usługi Azure AD.
+* [Problemy z logowaniem przy użyciu dostępu warunkowego](troubleshoot-conditional-access.md) — informacje o nieoczekiwanych próbach logowania związane z dostępem warunkowym przy użyciu komunikatów o błędach i dziennika logowania usługi Azure AD.
 
-* [Korzystanie z narzędzia do analizy warunkowej — informacje](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access-what-if) o tym, dlaczego zasady były lub nie zostały zastosowane do użytkownika w konkretnym przypadku lub w przypadku, gdy zasady byłyby stosowane w znanym stanie.
+* [Korzystanie z narzędzia do analizy warunkowej — informacje](troubleshoot-conditional-access-what-if.md) o tym, dlaczego zasady były lub nie zostały zastosowane do użytkownika w konkretnym przypadku lub w przypadku, gdy zasady byłyby stosowane w znanym stanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej o uwierzytelnianiu wieloskładnikowym](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+[Dowiedz się więcej o uwierzytelnianiu wieloskładnikowym](../authentication/concept-mfa-howitworks.md)
 
-[Dowiedz się więcej na temat ochrony tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+[Dowiedz się więcej na temat ochrony tożsamości](../identity-protection/overview-identity-protection.md)
 
-[Zarządzanie zasadami urzędu certyfikacji za pomocą interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)
+[Zarządzanie zasadami urzędu certyfikacji za pomocą interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

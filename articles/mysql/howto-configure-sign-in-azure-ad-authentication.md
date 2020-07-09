@@ -4,16 +4,16 @@ description: Dowiedz się więcej na temat konfigurowania Azure Active Directory
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2019
-ms.openlocfilehash: 8ef16f581a4b945d3a5e6ef58166eeed900f3bb3
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140892"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101430"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
+# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
 W tym artykule opisano kroki konfigurowania Azure Active Directory dostępu za pomocą Azure Database for MySQL i sposobu nawiązywania połączenia przy użyciu tokenu usługi Azure AD.
 
@@ -57,21 +57,19 @@ Przetestowano również najpopularniejsze sterowniki aplikacji, na końcu tej st
 
 Poniżej przedstawiono kroki, które należy wykonać, aby użytkownik/aplikacja wymagały uwierzytelniania za pomocą usługi Azure AD opisanej poniżej:
 
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Możesz wykonać czynności opisane w Azure Cloud Shell, na maszynie wirtualnej platformy Azure lub na komputerze lokalnym. Upewnij się, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Krok 1. uwierzytelnianie przy użyciu usługi Azure AD
 
-Upewnij się, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-Wywołaj narzędzie interfejsu wiersza polecenia platformy Azure w celu uwierzytelnienia w usłudze Azure AD. Wymaga to podania identyfikatora użytkownika i hasła usługi Azure AD.
+Zacznij od uwierzytelnienia w usłudze Azure AD przy użyciu narzędzia interfejsu wiersza polecenia platformy Azure. Ten krok nie jest wymagany w Azure Cloud Shell.
 
 ```
 az login
 ```
 
-To polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelniania usługi Azure AD.
-
-> [!NOTE]
-> Aby wykonać te kroki, można również użyć Azure Cloud Shell.
-> Należy pamiętać, że podczas pobierania tokenu dostępu usługi Azure AD w Azure Cloud Shell należy jawnie wywołać `az login` i zalogować się ponownie (w osobnym oknie z kodem). Po tym zalogowaniu `get-access-token` polecenie będzie działało zgodnie z oczekiwaniami.
+Polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelniania usługi Azure AD. Wymaga to podania identyfikatora użytkownika i hasła usługi Azure AD.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Krok 2. Pobieranie tokenu dostępu usługi Azure AD
 
@@ -79,19 +77,19 @@ Wywołaj narzędzie interfejsu wiersza polecenia platformy Azure, aby uzyskać t
 
 Przykład (dla chmury publicznej):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 Powyższa wartość zasobu musi być określona dokładnie tak, jak pokazano. W przypadku innych chmur wartość zasobu może być wyszukiwana przy użyciu:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 W przypadku interfejsu wiersza polecenia platformy Azure w wersji 2.0.71 lub nowszej polecenie można określić w następującej bardziej wygodnej wersji dla wszystkich chmur:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
@@ -125,6 +123,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Ważne zagadnienia dotyczące nawiązywania połączenia:
+
+* `user@tenant.onmicrosoft.com`jest nazwą użytkownika lub grupy usługi Azure AD, z którą próbujesz nawiązać połączenie
+* Zawsze dołączaj nazwę serwera po nazwie użytkownika/grupy usługi Azure AD (np. `@mydb` )
+* Upewnij się, że używasz dokładnego sposobu, w jaki nazwa użytkownika lub grupy usługi Azure AD jest wpisana
+* Nazwy użytkowników i grup usługi Azure AD uwzględniają wielkość liter
+* Podczas nawiązywania połączenia jako grupy należy użyć tylko nazwy grupy (np. `GroupName@mydb` )
+* Jeśli nazwa zawiera spacje, użyj `\` przed każdym miejscem, aby ją wypróbować
 
 Zwróć uwagę na ustawienie "Enable-zwykły tekst-wtyczka" — należy użyć podobnej konfiguracji z innymi klientami, aby upewnić się, że token jest wysyłany do serwera bez mieszania.
 
@@ -198,7 +205,7 @@ Większość sterowników jest obsługiwanych, jednak Pamiętaj, aby użyć usta
 * Języku
   * DBD:: MySQL: obsługiwane
   * NET:: MySQL: nieobsługiwane
-* Przejdź
+* Go
   * go-SQL-Driver: obsługiwane, Dodaj `?tls=true&allowCleartextPasswords=true` do parametrów połączenia
 
 ## <a name="next-steps"></a>Następne kroki

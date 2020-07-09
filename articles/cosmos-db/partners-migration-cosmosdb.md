@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791735"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB migracji NoSQL i partnerów programistycznych aplikacji
@@ -25,7 +25,7 @@ Od NoSQL migracji do tworzenia aplikacji możesz wybrać spośród wielu doświa
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, sprzedaż detaliczna (spis), analiza operacyjna (Spark), architektura bezserwerowa, opracowywanie aplikacji | Stany Zjednoczone |
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, sprzedaż detaliczna (spis), architektury bezserwerowe NoSQL migracji, opracowywanie aplikacji|   Stany Zjednoczone |
 |[Avanade](https://www.avanade.com/) | IoT, sprzedaż detaliczna (spis), architektura bezserwerowa, opracowywanie aplikacji | Austria, Niemcy, Szwajcaria, Włochy, Norwegia, Hiszpania, Zjednoczone Królestwo, Kanada |
-|[Accenture](https://www.accenture.com/) | IoT, sprzedaż detaliczna (spis), architektura bezserwerowa, opracowywanie aplikacji |Globalny|
+|[Accenture](https://www.accenture.com/) | IoT, sprzedaż detaliczna (spis), architektura bezserwerowa, opracowywanie aplikacji |Globalnie|
 |[BlueMetal](https://www.bluemetal.com/)     |  Rzeczy, Personalizacja detaliczna (spis), analiza operacyjna dla przedsiębiorstwa & SMC, adnotacja obrazu AI, kontrola zasobów, migracja NoSQL, programowanie aplikacji     |    Ameryka Północna, Azja i Pacyfik     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), architektura bezserwerowa, opracowywanie aplikacji|    Stany Zjednoczone     |  
 | [Capgemini](https://www.capgemini.com/) | Handel detaliczny, IoT, analiza operacyjna (Spark), programowanie aplikacji | USA, Francja, Zjednoczone Królestwo, Holandia, Finlandia  |

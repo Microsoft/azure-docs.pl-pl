@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645586"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Konfigurowanie ustawień FabricTransport dla Reliable Actors
@@ -49,9 +48,9 @@ Aby zmodyfikować konfigurację domyślną, można użyć [pakietu konfiguracyjn
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Konfigurowanie ustawień FabricTransport dla usługi aktora
 
-Dodaj sekcję TransportSettings w pliku Settings. XML.
+Dodaj sekcję TransportSettings w pliku settings.xml.
 
-Domyślnie kod aktora wyszukuje Sekcjęname jako "&lt;aktorname&gt;TransportSettings". Jeśli ta wartość nie zostanie znaleziona, sprawdza obecność Sekcjiname jako "TransportSettings".
+Domyślnie kod aktora wyszukuje Sekcjęname jako " &lt; aktorname &gt; TransportSettings". Jeśli ta wartość nie zostanie znaleziona, sprawdza obecność Sekcjiname jako "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -70,7 +69,7 @@ Domyślnie kod aktora wyszukuje Sekcjęname jako "&lt;aktorname&gt;TransportSett
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Konfigurowanie ustawień FabricTransport dla zestawu klienta aktora
 
-Jeśli klient nie jest uruchomiony jako część usługi, można utworzyć plik "&lt;Client exe Name&gt;. Settings. xml" w tej samej lokalizacji, w której znajduje się plik Client. exe. Następnie Dodaj sekcję TransportSettings w tym pliku. Sekcjaname powinna mieć wartość "TransportSettings".
+Jeśli klient nie jest uruchomiony jako część usługi, można utworzyć &lt; plik "Nazwa exe klienta &gt;.settings.xml" w tej samej lokalizacji, w której znajduje się plik Client. exe. Następnie Dodaj sekcję TransportSettings w tym pliku. Sekcjaname powinna mieć wartość "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>

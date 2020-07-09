@@ -11,10 +11,9 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79499669"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Zarządzanie kontem Video Indexer połączonym z platformą Azure
@@ -58,8 +57,8 @@ W oknie dialogowym **Aktualizowanie połączenia do Azure Media Services** stron
 |---|---|
 |Identyfikator subskrypcji platformy Azure|Identyfikator subskrypcji można pobrać z Azure Portal. Kliknij pozycję **wszystkie usługi** w lewym panelu i wyszukaj frazę "subskrypcje". Wybierz pozycję **subskrypcje** i wybierz żądany identyfikator z listy subskrypcji.|
 |Nazwa grupy zasobów Azure Media Services|Nazwa grupy zasobów, w której utworzono konto Media Services.|
-|Identyfikator aplikacji|Identyfikator aplikacji usługi Azure AD (z uprawnieniami dla określonego konta Media Services) utworzonym dla tego konta Video Indexer. <br/><br/>Aby uzyskać identyfikator aplikacji, przejdź do Azure Portal. W obszarze konto Media Services wybierz swoje konto i przejdź do pozycji **dostęp do interfejsu API**. Wybierz pozycję **Połącz z interfejsem API Media Services przy użyciu jednostki usługi** -> **aplikacja usługi Azure AD**. Skopiuj odpowiednie parametry.|
-|Klucz aplikacji|Klucz aplikacji usługi Azure AD skojarzony z Twoim kontem Media Services określonym powyżej. <br/><br/>Aby uzyskać klucz aplikacji, przejdź do Azure Portal. W obszarze konto Media Services wybierz swoje konto i przejdź do pozycji **dostęp do interfejsu API**. Wybierz pozycję **Połącz z interfejsem API Media Services przy użyciu nazwy głównej** -> usługi**Zarządzaj** -> **certyfikatami aplikacji &** Secret. Skopiuj odpowiednie parametry.|
+|Identyfikator aplikacji|Identyfikator aplikacji usługi Azure AD (z uprawnieniami dla określonego konta Media Services) utworzonym dla tego konta Video Indexer. <br/><br/>Aby uzyskać identyfikator aplikacji, przejdź do Azure Portal. W obszarze konto Media Services wybierz swoje konto i przejdź do pozycji **dostęp do interfejsu API**. Wybierz pozycję **Połącz z interfejsem API Media Services przy użyciu jednostki usługi**  ->  **aplikacja usługi Azure AD**. Skopiuj odpowiednie parametry.|
+|Klucz aplikacji|Klucz aplikacji usługi Azure AD skojarzony z Twoim kontem Media Services określonym powyżej. <br/><br/>Aby uzyskać klucz aplikacji, przejdź do Azure Portal. W obszarze konto Media Services wybierz swoje konto i przejdź do pozycji **dostęp do interfejsu API**. Wybierz pozycję **Połącz z interfejsem API Media Services przy użyciu nazwy głównej usługi**  ->  **Zarządzaj**  ->  **certyfikatami aplikacji &** Secret. Skopiuj odpowiednie parametry.|
 
 ## <a name="autoscale-reserved-units"></a>Jednostki zarezerwowane automatycznego skalowania
 
@@ -75,7 +74,7 @@ Jeśli Twoje konto wymaga pewnych dostosowań, zobaczysz odpowiednie błędy i o
 
 * EventGrid
 
-    Należy zarejestrować dostawcę zasobów EventGrid za pomocą Azure Portal. W [Azure Portal](https://portal.azure.com/)przejdź do pozycji **subskrypcje** > [subskrypcja] > **ResourceProviders** > **Microsoft. EventGrid**. Jeśli nie jest w **zarejestrowanym** stanie, wybierz pozycję **zarejestruj**. Rejestracja może potrwać kilka minut.
+    Należy zarejestrować dostawcę zasobów EventGrid za pomocą Azure Portal. W [Azure Portal](https://portal.azure.com/)przejdź do pozycji **subskrypcje** > [subskrypcja] > **ResourceProviders**  >  **Microsoft. EventGrid**. Jeśli nie jest w **zarejestrowanym** stanie, wybierz pozycję **zarejestruj**. Rejestracja może potrwać kilka minut.
 
 * Punkt końcowy przesyłania strumieniowego
 

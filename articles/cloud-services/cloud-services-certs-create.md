@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82024612"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Omówienie certyfikatów usług Azure Cloud Services)
@@ -60,9 +59,9 @@ Możesz użyć dowolnego dostępnego narzędzia do utworzenia certyfikatu z podp
 * Minimum 2048-bitowe szyfrowanie.
 * **Tylko certyfikat usługi**: certyfikat po stronie klienta musi znajdować się w *osobistym* magazynie certyfikatów.
 
-Istnieją dwa proste metody tworzenia certyfikatu w systemie Windows przy użyciu `makecert.exe` narzędzia lub usług IIS.
+Istnieją dwa proste metody tworzenia certyfikatu w systemie Windows przy użyciu `makecert.exe` Narzędzia lub usług IIS.
 
-### <a name="makecertexe"></a>MakeCert. exe
+### <a name="makecertexe"></a>Makecert.exe
 To narzędzie jest przestarzałe i nie jest już udokumentowane w tym miejscu. Aby uzyskać więcej informacji, zobacz [ten artykuł w witrynie MSDN](/windows/desktop/SecCrypto/makecert).
 
 ### <a name="powershell"></a>PowerShell

@@ -13,10 +13,9 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: cf66757d28a3883664aaacd85baad9cc0dea6956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81537206"
 ---
 # <a name="scenario-protected-web-api"></a>Scenariusz: chroniony internetowy interfejs API
@@ -39,4 +38,4 @@ Poniżej przedstawiono szczegółowe informacje, które należy znać, aby chron
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Rejestracja aplikacji](scenario-protected-web-api-app-registration.md)
+> [Rejestrowanie aplikacji](scenario-protected-web-api-app-registration.md)

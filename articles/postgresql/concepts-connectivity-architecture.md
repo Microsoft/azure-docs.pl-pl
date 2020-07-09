@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d23a59e97ee3fc935a0d0954bc70b547b727fddc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ac15317fe45573805ff7f6395884f7cb101fec3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546596"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86112837"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architektura łączności w Azure Database for PostgreSQL
 W tym artykule opisano architekturę Azure Database for PostgreSQL łączności oraz sposób kierowania ruchu do wystąpienia bazy danych Azure Database for PostgreSQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -41,9 +41,10 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Chiny Północne | 139.219.15.17    |
 | Chiny Północne 2 | 40.73.50.0     |
 | Azja Wschodnia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| Wschodnie stany USA | 40.121.158.30, 191.238.6.43  |
+| Wschodnie stany USA | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113   |
 | Wschodnie stany USA 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Francja Środkowa | 40.79.137.0, 40.79.129.1  |
+| Francja Południowa | 40.79.177.0     |
 | Niemcy Środkowe | 51.4.144.100     |
 | Niemcy Północne wschód | 51.5.144.179  |
 | Indie Środkowe | 104.211.96.159     |

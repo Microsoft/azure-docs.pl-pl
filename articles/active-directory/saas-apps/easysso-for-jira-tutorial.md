@@ -12,22 +12,22 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 05/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3226ef8d739df6902a96cff336762ce4425c5de
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f7c1b34329e93789c4093c74038759d5e26957e6
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740356"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608759"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-jira"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą EasySSO dla JIRA
 
 W tym samouczku dowiesz się, jak zintegrować usługę EasySSO for JIRA z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi EasySSO for JIRA z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do EasySSO dla JIRA.
-* Zezwól użytkownikom na automatyczne logowanie do usługi EasySSO dla JIRA przy użyciu swoich kont w usłudze Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do JIRA.
+* Zezwól użytkownikom na automatyczne logowanie się do usługi JIRA przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -57,6 +57,7 @@ Aby skonfigurować integrację EasySSO dla JIRA z usługą Azure AD, musisz doda
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **EasySSO dla JIRA** w polu wyszukiwania.
 1. Wybierz pozycję **EasySSO for JIRA** from the Results panel, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-jira"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla EasySSO dla JIRA
 
@@ -89,10 +90,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<server-base-url>/jirasso/login.jsp`
+    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<server-base-url>/login.jsp`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej EasySSO for JIRA](mailto:support@techtime.co.nz) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej EasySSO](mailto:support@techtime.co.nz) , aby uzyskać te wartości w razie wątpliwości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. EasySSO for JIRA oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -100,19 +101,24 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Oprócz powyższych, EasySSO for JIRA oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
     
-    | Nazwa |  |  Atrybut źródłowy|
-    | ---------------| --------------- | --------- |
-    | urn: identyfikator OID: 0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | | user.userprincipalname |
-    | urn: identyfikator OID: 2.16.840.1.113730.3.1.241 | | user.displayname |
-    | urn:oid:2.5.4.4 | | user.surname |
-    | urn:oid:2.5.4.42 | | user.givenname |
+    | Nazwa | Atrybut źródłowy|
+    | ---------------| --------- |
+    | urn: identyfikator OID: 0.9.2342.19200300.100.1.1 | user.userprincipalname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn: identyfikator OID: 2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:2.5.4.42 | user.givenname |
+    
+    W przypadku, gdy użytkownicy usługi Azure AD mają skonfigurowaną opcję **sAMAccountName** , należy zamapować **nazwę urn: OID: 0.9.2342.19200300.100.1.1** na atrybut **sAMAccountName** .
+    
+1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij pozycję **Pobierz** linki dla opcji **certyfikat (base64)** lub **XML metadanych Federacji** i Zapisz lub wszystkie na komputerze. Będzie ona potrzebna później, aby skonfigurować JIRA EasySSO.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+    ![Link do pobierania certyfikatu](media/easysso-for-jira-tutorial/azure-ad-SAML-certificate.png)
+    
+    Jeśli planujesz ręcznie wykonać EasySSO konfigurację JIRA z certyfikatem, musisz także skopiować **adres URL logowania** i identyfikator usługi **Azure AD** z poniższej sekcji i zapisać je na komputerze.
 
-    ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-
+    
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
@@ -121,7 +127,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -143,62 +149,82 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-easysso-for-jira-sso"></a>Konfigurowanie EasySSO na potrzeby logowania jednokrotnego JIRA
 
-1. Zaloguj się do swojego wystąpienia programu Atlassian JIRA z uprawnieniami administratora i przejdź do sekcji **Zarządzanie aplikacjami** .
+1. Zaloguj się do swojego wystąpienia programu Atlassian JIRA z uprawnieniami administratora i przejdź do sekcji **Zarządzanie aplikacjami** . 
 
-    ![Zarządzanie aplikacjami](./media/easysso-for-jira-tutorial/jira-admin-1.png)
+    ![Zarządzanie aplikacjami](media/easysso-for-jira-tutorial/jira-admin-1.png)
 
-1. Kliknij pozycję **EasySSO**.
+2. Po lewej stronie Znajdź **EasySSO** i kliknij go.
 
-    ![Łatwe logowanie jednokrotne](./media/easysso-for-jira-tutorial/jira-admin-2.png)
+    ![Łatwe logowanie jednokrotne](media/easysso-for-jira-tutorial/jira-admin-2.png)
 
-1. Wybierz opcję **SAML** . Spowoduje to przejście do sekcji Konfiguracja protokołu SAML.
+3. Wybierz opcję **SAML** . Spowoduje to przejście do sekcji Konfiguracja protokołu SAML.
 
-    ![SAML](./media/easysso-for-jira-tutorial/jira-admin-3.png)
+    ![SAML](media/easysso-for-jira-tutorial/jira-admin-3.png)
 
-1. Wybierz **kartę certyfikaty** u góry, a zobaczysz poniższy ekran i Zlokalizuj **plik** **certyfikatu (base64)** , który został zapisany we wcześniejszych krokach konfiguracji **rejestracji jednokrotnej usługi Azure AD** . Dostępne są następujące opcje:
+4. Wybierz kartę **Certyfikaty** u góry, a zostanie wyświetlony następujący ekran:
 
-    ![Adres URL metadanych](./media/easysso-for-jira-tutorial/jira-admin-4.png)
+    ![Adres URL metadanych](media/easysso-for-jira-tutorial/jira-admin-4.png)
 
-    a. Użyj pobranego **pliku metadanych** Federacji aplikacji do pliku lokalnego na komputerze. Wybierz przycisk radiowy **Przekaż** i postępuj zgodnie z oknem dialogowym przekazywania pliku określonym dla danego systemu operacyjnego
+5. Teraz Zlokalizuj **certyfikat (base64)** lub **plik metadanych** zapisany we wcześniejszych krokach konfiguracji **rejestracji jednokrotnej usługi Azure AD** . Dostępne są następujące opcje:
+
+    a. Użyj pobranego **pliku metadanych** Federacji aplikacji do pliku lokalnego na komputerze. Wybierz przycisk radiowy **Przekaż** i postępuj zgodnie z oknem dialogowym przekazywania pliku określonym dla danego systemu operacyjnego.
 
     **ORAZ**
 
     b. Otwórz **plik metadanych** Federacji aplikacji, aby zobaczyć zawartość (w dowolnym edytorze tekstu) i skopiować ją do Schowka. Wybierz opcję **dane wejściowe** i wklej zawartość schowka do pola tekstowego.
 
-    **ORAZ**
+     **ORAZ**
 
     c. Konfiguracja w pełni ręczna. Otwórz certyfikat Federacji aplikacji **(base64)** , aby zobaczyć zawartość (w dowolnym edytorze tekstu) i skopiować ją do Schowka. Wklej ją do pola tekstowego **certyfikaty podpisywania tokenu dostawcy tożsamości** . Następnie przejdź do karty **Ogólne** i wypełnij **pola adres URL** i **Identyfikator jednostki** z odpowiednimi wartościami dla **adresu URL logowania** i **identyfikatora usługi Azure AD** , które zostały zapisane wcześniej.
+ 
+6. Kliknij przycisk **Zapisz** u dołu strony. Zostanie wyświetlona zawartość metadanych lub plików certyfikatów przeanalizowanych w pola konfiguracji. Konfiguracja EasySSO dla JIRA została ukończona.
 
-1. Kliknij przycisk **Zapisz** u dołu strony. Zostanie wyświetlona zawartość metadanych lub plików certyfikatów przeanalizowanych w pola konfiguracji. Konfiguracja EasySSO dla JIRA została ukończona.
+7. W celu uzyskania najlepszego środowiska testowania przejdź do karty **& działanie** i zaznacz opcję **przycisk Zaloguj SAML** . Spowoduje to włączenie osobnego przycisku na ekranie logowania JIRA w celu przetestowania kompleksowej integracji protokołu SAML usługi Azure AD. Ten przycisk można opuścić i skonfigurować jego położenie, kolor oraz tłumaczenie dla trybu produkcji.
 
-1. W celu uzyskania najlepszego środowiska testowania przejdź do karty **& działanie** i zaznacz opcję **przycisk Zaloguj SAML** . Spowoduje to włączenie osobnego przycisku na ekranie logowania JIRA w celu przetestowania kompleksowej integracji protokołu SAML usługi Azure AD. Ten przycisk można opuścić i skonfigurować jego położenie, kolor oraz tłumaczenie dla trybu produkcji.
-
-    ![Wygląd &](./media/easysso-for-jira-tutorial/jira-admin-5.png)
+    ![Wygląd &](media/easysso-for-jira-tutorial/jira-admin-5.png)
 
     > [!NOTE]
     > Jeśli masz jakieś problemy, skontaktuj się z [zespołem pomocy technicznej EasySSO](mailto:support@techtime.co.nz).
 
 ### <a name="create-easysso-for-jira-test-user"></a>Utwórz EasySSO dla użytkownika testowego JIRA
 
-W tej sekcji użytkownik o nazwie B. Simon został utworzony w JIRA. EasySSO dla JIRA obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie **wyłączona** . Aby włączyć Inicjowanie obsługi użytkowników, należy jawnie zaznaczyć opcję **Utwórz użytkownika przy pomyślnym logowaniu** w sekcji Ogólne konfiguracji wtyczki EasySSO. Jeśli użytkownik nie istnieje jeszcze w usłudze JIRA, zostanie utworzony nowy po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w JIRA. EasySSO dla JIRA obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie **wyłączona** . Aby włączyć Inicjowanie obsługi użytkowników, należy jawnie zaznaczyć opcję **Utwórz użytkownika przy pomyślnym logowaniu** w sekcji Ogólne konfiguracji wtyczki EasySSO. Jeśli użytkownik nie istnieje jeszcze w usłudze JIRA, zostanie utworzony nowy po uwierzytelnieniu.
 
 Jeśli jednak użytkownik nie chce włączać automatycznego inicjowania obsługi użytkowników przy pierwszym logowaniu użytkownika, musi istnieć w katalogach użytkowników zaplecza wystąpienie JIRA wykorzystuje, takie jak LDAP lub Atlassian.
 
-![Aprowizowanie użytkowników](./media/easysso-for-jira-tutorial/jira-admin-6.png)
+![Aprowizowanie użytkowników](media/easysso-for-jira-tutorial/jira-admin-6.png)
 
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+
+### <a name="idp-initiated-workflow"></a>Dostawcy tożsamości — przepływ pracy zainicjowany
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka EasySSO dla JIRA w panelu dostępu należy automatycznie zalogować się do EasySSO dla JIRA, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka EasySSO dla JIRA w panelu dostępu należy automatycznie zalogować się do wystąpienia JIRA, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+### <a name="sp-initiated-workflow"></a>Przepływ pracy zainicjowany przez program SP
+
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą przycisku JIRA **SAML login** .
+
+![Logowanie użytkownika w języku SAML](media/easysso-for-jira-tutorial/jira-admin-7.png)
+
+W tym scenariuszu przyjęto, że **przycisk Zaloguj SAML** został włączony na karcie **& wygląd** na stronie Konfiguracja JIRA EasySSO (Zobacz powyżej). Otwórz adres URL logowania do JIRA w trybie incognito przeglądarki, aby uniknąć zakłóceń w istniejących sesjach. Kliknij przycisk **zalogowanie SAML** i nastąpi przekierowanie do przepływu uwierzytelniania użytkownika usługi Azure AD. Po pomyślnym zakończeniu nastąpi przekierowanie z powrotem do wystąpienia JIRA jako uwierzytelniony użytkownik za pośrednictwem protokołu SAML.
+
+Istnieje możliwość, że po przekierowaniu z powrotem z usługi Azure AD może wystąpić Poniższy ekran
+
+![Ekran niepowodzeń EasySSO](media/easysso-for-jira-tutorial/jira-admin-8.png)
+
+W takim przypadku musisz postępować zgodnie z [instrukcjami na tej stronie]( https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) , aby uzyskać dostęp do pliku **Atlassian-JIRA. log** . Szczegóły błędu będą dostępne przez identyfikator odwołania znaleziony na stronie błędu EasySSO.
+
+Jeśli masz problemy z tworzeniem komunikatów dziennika, skontaktuj się z [zespołem pomocy technicznej EasySSO](mailto:support@techtime.co.nz).
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj EasySSO dla JIRA z usługą Azure AD](https://aad.portal.azure.com/)
 

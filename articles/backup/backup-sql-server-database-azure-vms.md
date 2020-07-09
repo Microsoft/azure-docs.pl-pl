@@ -1,15 +1,14 @@
 ---
 title: Tworzenie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Server baz danych w usłudze Azure Virtual Machines z Azure Backup.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817549"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -34,9 +33,10 @@ W tym artykule dowiesz się, jak:
 Przed wykonaniem kopii zapasowej bazy danych SQL Server należy sprawdzić następujące kryteria:
 
 1. Zidentyfikuj lub Utwórz [magazyn Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) w tym samym regionie i w ramach subskrypcji co maszyna wirtualna hostującym wystąpienie SQL Server.
-2. Sprawdź, czy maszyna wirtualna ma [łączność sieciową](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Upewnij się, że bazy danych SQL Server są zgodne z [wytycznymi nazewnictwa bazy danych dla Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Sprawdź, czy nie masz włączonych rozwiązań do tworzenia kopii zapasowych dla bazy danych. Przed utworzeniem kopii zapasowej bazy danych Wyłącz wszystkie inne SQL Server kopie zapasowe.
+1. Sprawdź, czy maszyna wirtualna ma [łączność sieciową](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Upewnij się, że bazy danych SQL Server są zgodne z [wytycznymi nazewnictwa bazy danych dla Azure Backup](#database-naming-guidelines-for-azure-backup).
+1. Upewnij się, że łączna długość nazwy maszyny wirtualnej SQL Server i nazwy grupy zasobów nie przekracza 84 znaków dla maszyn wirtualnych Azure Resource Manager (ARM) (lub 77 znaków dla klasycznych maszyn wirtualnych). To ograniczenie wynika z faktu, że niektóre znaki są zarezerwowane przez usługę.
+1. Sprawdź, czy nie masz włączonych rozwiązań do tworzenia kopii zapasowych dla bazy danych. Przed utworzeniem kopii zapasowej bazy danych Wyłącz wszystkie inne SQL Server kopie zapasowe.
 
 > [!NOTE]
 > Możesz włączyć Azure Backup dla maszyny wirtualnej platformy Azure, a także dla SQL Serverj bazy danych działającej na maszynie wirtualnej bez konfliktu.
@@ -47,7 +47,7 @@ Dla wszystkich operacji maszyna wirtualna SQL Server wymaga łączności z usłu
 
 W poniższej tabeli wymieniono różne alternatywy, których można użyć do ustanowienia łączności:
 
-| **Zaznaczyć**                        | **Zalety**                                               | **Wady**                                            |
+| **Opcja**                        | **Zalety**                                               | **Wady**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Prywatne punkty końcowe                 | Zezwalaj na wykonywanie kopii zapasowych za pośrednictwem prywatnych adresów IP w sieci wirtualnej  <br><br>   Zapewnianie szczegółowej kontroli po stronie sieci i magazynu | Odnosi się do standardowych [kosztów](https://azure.microsoft.com/pricing/details/private-link/) prywatnych punktów końcowych |
 | Tagi usługi sieciowej grupy zabezpieczeń                  | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane   <br><br>   Brak dodatkowych kosztów | Może być używany tylko z sieciowych grup zabezpieczeń  <br><br>    Zapewnia dostęp do całej usługi |
@@ -264,7 +264,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
 Można włączyć automatyczną ochronę, aby automatycznie tworzyć kopie zapasowe wszystkich istniejących i przyszłych baz danych w autonomicznym wystąpieniu SQL Server lub do zawsze włączonej grupy dostępności.
 
-* Nie ma żadnego limitu liczby baz danych, które można wybrać do ochrony w tym samym czasie.
+* Nie ma żadnego limitu liczby baz danych, które można wybrać do ochrony w danym momencie. Odnajdywanie jest zazwyczaj uruchamiane co osiem godzin. Można jednak odnajdywać i chronić nowe bazy danych natychmiast po ręcznym uruchomieniu odnajdywania, wybierając opcję ponownie **odkryj baz danych** .
 * Nie można wybiórczo chronić ani wykluczać baz danych z ochrony w wystąpieniu w momencie włączenia ochrony autoprotection.
 * Jeśli wystąpienie zawiera już pewne chronione bazy danych, pozostaną one chronione w ramach odpowiednich zasad nawet po włączeniu ochrony autoprotection. Wszystkie niechronione bazy danych dodane później będą mieć tylko pojedyncze zasady zdefiniowane w momencie włączania ochrony automatycznie, wymienione w obszarze **Konfiguruj kopię zapasową**. Można jednak później zmienić zasady skojarzone z chronioną bazą danych.  
 

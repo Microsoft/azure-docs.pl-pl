@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660008"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201162"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych dla puli SQL Synapse
 
@@ -46,15 +46,13 @@ Podstawowe kroki implementacji ELT są następujące:
 5. Przekształć dane.
 6. Wstaw dane do tabel produkcyjnych.
 
-Aby zapoznać się z samouczkiem dotyczącym ładowania wieloczęściowego, zobacz [Korzystanie z bazy danych w celu załadowania z usługi Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
-
-Aby uzyskać więcej informacji, zobacz Blog dotyczący [ładowania wzorców](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
+Aby zapoznać się z samouczkiem ładowania, zobacz [ładowanie danych z usługi Azure Blob Storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Wyodrębnij dane źródłowe do plików tekstowych
 
-Pobieranie danych z systemu źródłowego zależy od lokalizacji magazynu.  Celem jest przeniesienie danych do formatu Base i SKOPIOWAnie obsługiwanego tekstu lub plików CSV.
+Pobieranie danych z systemu źródłowego zależy od lokalizacji magazynu. Celem jest przeniesienie danych do obsługiwanej rozdzielonej plików tekstowych lub CSV.
 
-### <a name="polybase-and-copy-external-file-formats"></a>Zewnętrzne i kopiowanie formatów plików zewnętrznych
+### <a name="supported-file-formats"></a>Obsługiwane formaty plików
 
 Korzystając z instrukcji Base i COPY, można ładować dane z rozdzielonych plików tekstowych lub CSV z kodowaniem UTF-8 i UTF-16. Oprócz rozdzielonych plików tekstowych lub CSV, są one ładowane z formatów plików Hadoop, takich jak ORC i Parquet. Instrukcje Base i COPY mogą również ładować dane z skompresowanych plików gzip i przyciągania.
 
@@ -74,11 +72,11 @@ Narzędzia i usługi, których można użyć do przenoszenia danych do usługi A
 
 Przed załadowaniem programu może być konieczne przygotowanie i oczyszczenie danych na koncie magazynu. Przygotowanie danych można wykonać, gdy dane są przechowywane w źródle, podczas eksportowania danych do plików tekstowych lub po utworzeniu danych w usłudze Azure Storage.  Najłatwiej pracujesz z danymi tak wcześnie w procesie, jak to możliwe.  
 
-### <a name="define-external-tables"></a>Definiowanie tabel zewnętrznych
+### <a name="define-the-tables"></a>Definiowanie tabel
 
-Jeśli używasz bazy danych Base, musisz zdefiniować tabele zewnętrzne w puli SQL przed załadowaniem. Tabele zewnętrzne nie są wymagane przez instrukcję COPY. Baza danych używa tabel zewnętrznych w celu definiowania i uzyskiwania dostępu do nich w usłudze Azure Storage.
+W przypadku używania instrukcji COPY należy najpierw zdefiniować tabele ładowane do programu w puli SQL.
 
-Tabela zewnętrzna jest podobna do widoku bazy danych. Tabela zewnętrzna zawiera schemat tabeli i wskazuje dane przechowywane poza pulą SQL.
+Jeśli używasz bazy danych Base, musisz zdefiniować tabele zewnętrzne w puli SQL przed załadowaniem. Baza danych używa tabel zewnętrznych w celu definiowania i uzyskiwania dostępu do nich w usłudze Azure Storage. Tabela zewnętrzna jest podobna do widoku bazy danych. Tabela zewnętrzna zawiera schemat tabeli i wskazuje dane przechowywane poza pulą SQL.
 
 Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu plików tekstowych i definicji tabeli. Informacje o składni języka T-SQL, które są potrzebne, są następujące:
 
@@ -86,7 +84,7 @@ Definiowanie tabel zewnętrznych obejmuje określenie źródła danych, formatu 
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-Podczas ładowania Parquet mapowanie typu danych SQL jest następujące:
+Podczas ładowania plików Parquet Użyj następującego mapowania typu danych SQL:
 
 |                         Typ Parquet                         |   Parquet — typ logiczny (Adnotacja)   |  Typ danych SQL   |
 | :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
@@ -98,7 +96,7 @@ Podczas ładowania Parquet mapowanie typu danych SQL jest następujące:
 |                            INT64                             |                                       |      bigint      |
 |                            INT96                             |                                       |    datetime2     |
 |                     FIXED_LEN_BYTE_ARRAY                     |                                       |      binarny      |
-|                            BINARNY                            |                 KODOWANIA                  |     nvarchar     |
+|                            BINARNY                            |                 UTF8                  |     nvarchar     |
 |                            BINARNY                            |                PARAMETRY                 |     nvarchar     |
 |                            BINARNY                            |                 PODSTAWOWE                  |     nvarchar     |
 |                            BINARNY                            |                 INTERFEJSU                  | uniqueidentifier |
@@ -113,7 +111,7 @@ Podczas ładowania Parquet mapowanie typu danych SQL jest następujące:
 |                            ELEMENTEM                             |            INT (8, FAŁSZ)            |     tinyint      |
 |                            ELEMENTEM                             |            INT (16, FAŁSZ)             |       int        |
 |                            ELEMENTEM                             |           INT (32, false)            |      bigint      |
-|                            ELEMENTEM                             |                 DATE                  |       data       |
+|                            ELEMENTEM                             |                 DATE                  |       date       |
 |                            ELEMENTEM                             |                DOKŁADNOŚCI                |     decimal      |
 |                            ELEMENTEM                             |            CZAS (MŁYNER)             |       time       |
 |                            INT64                             |            INT (64, true)            |      bigint      |
@@ -126,7 +124,7 @@ Podczas ładowania Parquet mapowanie typu danych SQL jest następujące:
 
 
 
-Aby zapoznać się z przykładem tworzenia obiektów zewnętrznych, zobacz krok [Tworzenie tabel zewnętrznych](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) w samouczku ładowania.
+Aby zapoznać się z przykładem tworzenia obiektów zewnętrznych, zobacz [Tworzenie tabel zewnętrznych](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 
 ### <a name="format-text-files"></a>Formatowanie plików tekstowych
 
@@ -139,17 +137,16 @@ Aby sformatować pliki tekstowe:
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Załaduj dane przy użyciu bazy danych lub instrukcji COPY
 
-Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania pracy z tabelami produkcyjnymi. Tabela przemieszczania daje również możliwość użycia funkcji MPP puli SQL na potrzeby przekształceń danych przed wstawieniem danych do tabel produkcyjnych.
+Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania pracy z tabelami produkcyjnymi. Tabela przemieszczania daje również możliwość użycia architektury przetwarzania równoległego puli SQL na potrzeby transformacji danych przed wstawieniem danych do tabel produkcyjnych.
 
-Tabela musi być wstępnie utworzona podczas ładowania do tabeli przemieszczania z KOPIą.
+### <a name="options-for-loading"></a>Opcje ładowania
 
-### <a name="options-for-loading-with-polybase-and-copy-statement"></a>Opcje ładowania z użyciem instrukcji Base i COPY
+Aby załadować dane, można użyć dowolnej z następujących opcji ładowania:
 
-Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z następujących opcji ładowania:
-
-- Baza danych w języku [T-SQL](load-data-from-azure-blob-storage-using-polybase.md) działa prawidłowo, gdy dane są przechowywane w usłudze Azure Blob storage lub Azure Data Lake Store. Zapewnia ona największą kontrolę nad procesem ładowania, ale wymaga również zdefiniowania zewnętrznych obiektów danych. Inne metody definiują te obiekty w tle podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć Azure Data Factory, SSIS lub Azure Functions.
-- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa dobrze, gdy dane źródłowe są w SQL Server, SQL Server lokalnie lub w chmurze. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
+- [Instrukcja Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) jest zalecanym narzędziem ładowania, ponieważ pozwala bezproblemowo i elastycznie ładować dane. Instrukcja ma wiele dodatkowych możliwości ładowania, których baza nie zapewnia. 
+- [Baza Base with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) wymaga zdefiniowania zewnętrznych obiektów danych.
 - [Instrukcja "Base" i "Copy" z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
+- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
 - [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przesyła dane z tabeli do ramki danych datakosteks i/lub zapisuje dane z ramki Databases do tabeli przy użyciu bazy danych.
 
 ### <a name="other-loading-options"></a>Inne opcje ładowania

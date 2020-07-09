@@ -10,20 +10,19 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76841814"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Konfigurowanie protokołów interfejsu API Event Grid
 
 W tym przewodniku przedstawiono przykłady możliwych konfiguracji protokołów modułu Event Grid. Moduł Event Grid udostępnia interfejs API dla jego operacji zarządzania i środowiska uruchomieniowego. W poniższej tabeli przedstawiono protokoły i porty.
 
-| Protocol (Protokół) | Port | Opis |
+| Protokół | Port | Opis |
 | ---------------- | ------------ | ------------ |
 | HTTP | 5888 | Domyślnie wyłączona. Przydatne tylko podczas testowania. Nieodpowiednie dla obciążeń produkcyjnych.
-| HTTPS | 4438 | Domyślny
+| HTTPS | 4438 | Domyślne
 
 Wszystkie możliwe konfiguracje można znaleźć w przewodniku dotyczącym [zabezpieczeń i uwierzytelniania](security-authentication.md) .
 

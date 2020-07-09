@@ -3,15 +3,15 @@ title: Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure C
 description: Dowiedz się, jak skonfigurować link prywatny platformy Azure, aby uzyskać dostęp do konta usługi Azure Cosmos przy użyciu prywatnego adresu IP w sieci wirtualnej.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/27/2020
+ms.topic: how-to
+ms.date: 06/11/2020
 ms.author: thweiss
-ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261634"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
 
@@ -31,7 +31,7 @@ Wykonaj następujące kroki, aby utworzyć prywatny punkt końcowy dla istnieją
 
 1. Wybierz pozycję **połączenia prywatne punktów końcowych** z listy ustawień, a następnie wybierz pozycję **prywatny punkt końcowy**:
 
-   ![Wybory dla tworzenia prywatnego punktu końcowego w Azure Portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Wybory dla tworzenia prywatnego punktu końcowego w Azure Portal":::
 
 1. W okienku **Utwórz prywatny punkt końcowy — podstawowe** wprowadź lub wybierz następujące szczegóły:
 
@@ -65,8 +65,8 @@ Wykonaj następujące kroki, aby utworzyć prywatny punkt końcowy dla istnieją
     | Sieć wirtualna| Wybierz sieć wirtualną. |
     | Podsieć | Wybierz podsieć. |
     |**Integracja Prywatna strefa DNS**||
-    |Integracja z prywatną strefą DNS |Wybierz pozycję **tak**. <br><br/> Aby połączyć się prywatnie z prywatnym punktem końcowym, potrzebny jest rekord DNS. Zalecamy integrację prywatnego punktu końcowego z prywatną strefą DNS. Możesz również użyć własnych serwerów DNS lub utworzyć rekordy DNS przy użyciu plików hosta na maszynach wirtualnych. |
-    |Strefa Prywatna strefa DNS |Wybierz pozycję **privatelink.Documents.Azure.com**. <br><br/> Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.|
+    |Integracja z prywatną strefą DNS |Wybierz pozycję **Tak**. <br><br/> Aby połączyć się prywatnie z prywatnym punktem końcowym, potrzebny jest rekord DNS. Zalecamy integrację prywatnego punktu końcowego z prywatną strefą DNS. Możesz również użyć własnych serwerów DNS lub utworzyć rekordy DNS przy użyciu plików hosta na maszynach wirtualnych. |
+    |Strefa Prywatna strefa DNS |Wybierz pozycję **privatelink.documents.Azure.com**. <br><br/> Prywatna strefa DNS jest określana automatycznie. Nie można go zmienić za pomocą Azure Portal.|
     |||
 
 1. Wybierz pozycję **Przegląd + utwórz**. Na stronie **Recenzja i tworzenie** zweryfikuje swoją konfigurację.
@@ -94,7 +94,7 @@ Po aprowizacji prywatnego punktu końcowego możesz wysyłać zapytania dotyczą
 1. Wyszukaj utworzony wcześniej prywatny punkt końcowy. W tym przypadku jest to **cdbPrivateEndpoint3**.
 1. Wybierz kartę **Przegląd** , aby wyświetlić ustawienia DNS i adresy IP.
 
-![Prywatne adresy IP w Azure Portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Prywatne adresy IP w Azure Portal":::
 
 Utworzono wiele adresów IP dla prywatnego punktu końcowego:
 
@@ -263,7 +263,7 @@ az network private-dns record-set a add-record --record-set-name recordSet2 --zo
 
 Połączenie prywatne można skonfigurować przez utworzenie prywatnego punktu końcowego w podsieci sieci wirtualnej. Można to osiągnąć przy użyciu szablonu Azure Resource Manager.
 
-Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "PrivateEndpoint_template. JSON". Ten szablon służy do tworzenia prywatnego punktu końcowego dla istniejącego konta interfejsu API usługi Azure Cosmos w istniejącej sieci wirtualnej.
+Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "PrivateEndpoint_template.json". Ten szablon służy do tworzenia prywatnego punktu końcowego dla istniejącego konta interfejsu API usługi Azure Cosmos w istniejącej sieci wirtualnej.
 
 ```json
 {
@@ -324,7 +324,7 @@ Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "Priva
 
 **Zdefiniuj plik parametrów dla szablonu**
 
-Utwórz plik parametrów dla szablonu i nadaj mu nazwę "PrivateEndpoint_parameters. JSON". Dodaj następujący kod do pliku parametrów:
+Utwórz plik parametrów dla szablonu i nadaj mu nazwę "PrivateEndpoint_parameters.json". Dodaj następujący kod do pliku parametrów:
 
 ```json
 {
@@ -407,13 +407,13 @@ Dla tych kont należy utworzyć jeden prywatny punkt końcowy dla każdego typu 
 
 Po pomyślnym wdrożeniu szablonu można zobaczyć dane wyjściowe podobne do poniższej ilustracji. `provisioningState`Wartość to `Succeeded` czy prywatne punkty końcowe są poprawnie skonfigurowane.
 
-![Dane wyjściowe wdrożenia dla szablonu Menedżer zasobów](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Dane wyjściowe wdrożenia dla szablonu Menedżer zasobów":::
 
 Po wdrożeniu szablonu prywatne adresy IP są zastrzeżone w podsieci. Reguła zapory dla konta usługi Azure Cosmos jest skonfigurowana do akceptowania połączeń tylko z prywatnego punktu końcowego.
 
 ### <a name="integrate-the-private-endpoint-with-a-private-dns-zone"></a>Integrowanie prywatnego punktu końcowego ze strefą Prywatna strefa DNS
 
-Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "PrivateZone_template. JSON". Ten szablon tworzy prywatną strefę DNS dla istniejącego konta interfejsu API SQL Cosmos platformy Azure w istniejącej sieci wirtualnej.
+Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "PrivateZone_template.json". Ten szablon tworzy prywatną strefę DNS dla istniejącego konta interfejsu API SQL Cosmos platformy Azure w istniejącej sieci wirtualnej.
 
 ```json
 {
@@ -455,7 +455,7 @@ Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "Priva
 }
 ```
 
-Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "PrivateZoneRecords_template. JSON".
+Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "PrivateZoneRecords_template.json".
 
 ```json
 {
@@ -489,7 +489,7 @@ Użyj poniższego kodu, aby utworzyć szablon Menedżer zasobów o nazwie "Priva
 
 **Zdefiniuj plik parametrów dla szablonu**
 
-Utwórz następujący dwa pliki parametrów dla szablonu. Utwórz plik "PrivateZone_parameters. JSON". przy użyciu następującego kodu:
+Utwórz następujący dwa pliki parametrów dla szablonu. Utwórz "PrivateZone_parameters.json". przy użyciu następującego kodu:
 
 ```json
 {
@@ -506,7 +506,7 @@ Utwórz następujący dwa pliki parametrów dla szablonu. Utwórz plik "PrivateZ
 }
 ```
 
-Utwórz plik "PrivateZoneRecords_parameters. JSON". przy użyciu następującego kodu:
+Utwórz "PrivateZoneRecords_parameters.json". przy użyciu następującego kodu:
 
 ```json
 {
@@ -628,6 +628,10 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 Zgodnie z opisem w poprzedniej sekcji i o ile nie zostały ustawione określone reguły zapory, dodanie prywatnego punktu końcowego sprawia, że konto platformy Azure Cosmos jest dostępne tylko za pomocą prywatnych punktów końcowych. Oznacza to, że można nawiązać połączenie z kontem usługi Azure Cosmos z ruchu publicznego po jego utworzeniu i przed dodaniem prywatnego punktu końcowego. Aby upewnić się, że dostęp do sieci publicznej jest wyłączony nawet przed utworzeniem prywatnych punktów końcowych, można ustawić `publicNetworkAccess` flagę na `Disabled` podczas tworzenia konta. [Ten Azure Resource Manager szablon](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) zawiera przykład przedstawiający sposób użycia tej flagi.
 
+## <a name="port-range-when-using-direct-mode"></a>Zakres portów w trybie bezpośrednim
+
+Jeśli używasz prywatnego linku z kontem usługi Azure Cosmos za pośrednictwem połączenia trybu bezpośredniego, musisz upewnić się, że jest otwarty pełny zakres portów TCP (0-65535).
+
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Aktualizowanie prywatnego punktu końcowego po dodaniu lub usunięciu regionu
 
 Dodawanie lub usuwanie regionów na koncie usługi Azure Cosmos wymaga dodania lub usunięcia wpisów DNS dla tego konta. Po dodaniu lub usunięciu regionów można zaktualizować prywatną strefę DNS podsieci w celu odzwierciedlenia dodanych lub usuniętych wpisów DNS oraz odpowiednich prywatnych adresów IP.
@@ -642,7 +646,9 @@ Po usunięciu regionu można użyć tych samych kroków. Po usunięciu regionu n
 
 W przypadku korzystania z prywatnego linku do konta usługi Azure Cosmos stosowane są następujące ograniczenia:
 
-* Jeśli używasz prywatnego linku z kontem usługi Azure Cosmos przy użyciu połączenia trybu bezpośredniego, możesz użyć tylko protokołu TCP. Protokół HTTP nie jest obecnie obsługiwany.
+* Na jednym koncie usługi Azure Cosmos nie można mieć więcej niż 200 prywatnych punktów końcowych.
+
+* Jeśli używasz prywatnego linku z kontem usługi Azure Cosmos za pośrednictwem połączenia trybu bezpośredniego, możesz użyć tylko protokołu TCP. Protokół HTTP nie jest obecnie obsługiwany.
 
 * W przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB prywatny punkt końcowy jest obsługiwany tylko dla kont na serwerze w wersji 3,6 (to oznacza, że konta korzystają z punktu końcowego w formacie `*.mongo.cosmos.azure.com` ). Link prywatny nie jest obsługiwany dla kont na serwerze w wersji 3,2 (oznacza to, że konta korzystają z punktu końcowego w formacie `*.documents.azure.com` ). Aby użyć linku prywatnego, należy przeprowadzić migrację starych kont do nowej wersji.
 

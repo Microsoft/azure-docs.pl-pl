@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74014287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608113"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Rozwiązywanie problemów: Brak danych w dziennikach aktywności usługi Azure Active Directory 
 
@@ -38,10 +37,10 @@ W witrynie Azure Portal wykonano pewne akcje, które powinny zostać odzwiercied
 
 Akcje nie pojawiają się natychmiast w dziennikach aktywności. W poniższej tabeli wyliczono wartości opóźnień dla dzienników aktywności. 
 
-| Raport | &nbsp; | Opóźnienie (P95) | Opóźnienie (P99) |
-|--------|--------|---------------|---------------|
-| Inspekcja katalogu | &nbsp; | 2 min | 5 min |
-| Aktywność związana z logowaniem | &nbsp; | 2 min | 5 min | 
+| Raport | Opóźnienie (P95) | Opóźnienie (P99) |
+|--------|---------------|---------------|
+| Inspekcja katalogu | 2 min | 5 min |
+| Aktywność związana z logowaniem | 2 min | 5 min |
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -59,10 +58,10 @@ Po ostatnim zalogowaniu się do witryny Azure Portal oczekiwano wyświetlenia dz
 
 Akcje nie pojawiają się natychmiast w dziennikach aktywności. W poniższej tabeli wyliczono wartości opóźnień dla dzienników aktywności. 
 
-| Raport | &nbsp; | Opóźnienie (P95) | Opóźnienie (P99) |
-|--------|--------|---------------|---------------|
-| Inspekcja katalogu | &nbsp; | 2 min | 5 min |
-| Aktywność związana z logowaniem | &nbsp; | 2 min | 5 min | 
+| Raport | Opóźnienie (P95) | Opóźnienie (P99) |
+|--------|---------------|---------------|
+| Inspekcja katalogu | 2 min | 5 min |
+| Działanie logowania 2 minuty | 5 min |
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -80,10 +79,10 @@ Nie mogę wyświetlić danych logowania i inspekcji obejmujących więcej niż 3
 
 W zależności od licencji w obszarze akcji usługi Azure Active Directory raporty aktywności są przechowywane przez następujący okres:
 
-| Raport           | &nbsp; |  Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Inspekcja katalogu  | &nbsp; |   7 dni     | 30 dni             | 30 dni             |
-| Aktywność związana z logowaniem | &nbsp; | Niedostępne. Możesz uzyskać dostęp do własnych logowań przez 7 dni z poziomu bloku profilu użytkownika | 30 dni | 30 dni             |
+| Raport           | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
+| ---              | ---           | ---                 | ---                 |
+| Inspekcja katalogu  |  7 dni       | 30 dni             | 30 dni             |
+| Aktywność związana z logowaniem | Niedostępne. Możesz uzyskać dostęp do własnych logowań przez 7 dni z poziomu bloku profilu użytkownika | 30 dni | 30 dni             |
 
 Aby uzyskać więcej informacji, zobacz [Azure Active Directory report retention policies (Zasady przechowywania raportów w usłudze Azure Active Directory)](reference-reports-data-retention.md).  
 

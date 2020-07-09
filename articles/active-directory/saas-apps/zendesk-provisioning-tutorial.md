@@ -17,10 +17,9 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a480119ee88521b920be88669f6d80e3754d24d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062753"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie systemu Zendesk na potrzeby automatycznego aprowizacji użytkowników
@@ -83,7 +82,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Konfigurowanie automatycznej aprowizacji użytkowników dla systemu Zendesk w usłudze Azure AD
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz **pozycję aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **systemu Zendesk**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **systemu Zendesk**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -105,9 +104,9 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
    * W polu **token Secret** Wypełnij token tajny, zgodnie z opisem w kroku 6.
 
-   * W polu **domena** Wypełnij poddomenę dzierżawy systemu Zendesk. Na przykład w przypadku konta z adresem URL `https://my-tenant.zendesk.com`dzierżawy dla domeny podrzędnej jest **moja dzierżawa**.
+   * W polu **domena** Wypełnij poddomenę dzierżawy systemu Zendesk. Na przykład w przypadku konta z adresem URL dzierżawy dla `https://my-tenant.zendesk.com` domeny podrzędnej jest **moja dzierżawa**.
 
-6. Token tajny dla konta usługi systemu Zendesk znajduje się w obszarze**Ustawienia****interfejsu API** >  **administratora** > . Upewnij się, że **dostęp do tokenu** jest ustawiony na **włączone**.
+6. Token tajny dla konta usługi systemu Zendesk znajduje się w **Admin**obszarze  >  **Ustawienia interfejsu API**administratora  >  **Settings**. Upewnij się, że **dostęp do tokenu** jest ustawiony na **włączone**.
 
     ![Ustawienia administratora systemu Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
@@ -165,7 +164,7 @@ Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji us
 
 * Gdy rola niestandardowa zostanie przypisana do użytkownika lub grupy, usługa automatycznego aprowizacji użytkowników w usłudze Azure AD przypisze również domyślnego **agenta**roli. Tylko agenci mogą mieć przypisaną rolę niestandardową. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API systemu Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

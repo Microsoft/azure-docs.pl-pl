@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014370"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358246"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory głębokiego uwierzytelniania przekazującego zabezpieczeń szczegółowe
 
@@ -106,7 +106,7 @@ Agenci uwierzytelniania używają następujących kroków, aby zarejestrować si
     - Urząd certyfikacji jest używany tylko przez funkcję uwierzytelniania przekazywanego. Urząd certyfikacji jest używany tylko do podpisywania tych przedstawicieli w trakcie rejestracji agenta uwierzytelniania.
     -  Żadna z pozostałych usług Azure AD nie korzysta z tego urzędu certyfikacji.
     - Podmiot certyfikatu (nazwa wyróżniająca lub DN) ma ustawiony identyfikator dzierżawy. Ta nazwa wyróżniająca jest identyfikatorem GUID, który jednoznacznie identyfikuje dzierżawcę. Ta nazwa DN zakresów certyfikatu do użycia tylko z dzierżawcą.
-6. Usługa Azure AD przechowuje klucz publiczny agenta uwierzytelniania w bazie danych SQL Azure, do której ma dostęp tylko usługa Azure AD.
+6. Usługa Azure AD przechowuje klucz publiczny agenta uwierzytelniania w bazie danych programu Azure SQL Database, do której ma dostęp tylko usługa Azure AD.
 7. Certyfikat (wydany w kroku 5) jest przechowywany na serwerze lokalnym w magazynie certyfikatów systemu Windows (w zależności od lokalizacji [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) ). Jest on używany zarówno przez agenta uwierzytelniania, jak i aplikacje Aktualizator.
 
 ### <a name="authentication-agent-initialization"></a>Inicjowanie agenta uwierzytelniania
@@ -139,7 +139,7 @@ Uwierzytelnianie przekazywane obsługuje żądanie logowania użytkownika w nast
 4. Użytkownik wprowadza swoją nazwę użytkownika na stronie **logowania użytkownika** , a następnie wybiera przycisk **dalej** .
 5. Użytkownik wprowadza hasło do strony **logowania użytkownika** , a następnie wybiera przycisk **Zaloguj** .
 6. Nazwa użytkownika i hasło są przesyłane do usługi Azure AD STS w żądaniu POST protokołu HTTPS.
-7. Usługa Azure AD STS pobiera klucze publiczne dla wszystkich agentów uwierzytelniania zarejestrowanych w dzierżawie z usługi Azure SQL Database i szyfruje hasło przy użyciu tych funkcji.
+7. Usługa Azure AD STS pobiera klucze publiczne dla wszystkich agentów uwierzytelniania zarejestrowanych w dzierżawie z Azure SQL Database i szyfruje hasło przy ich użyciu.
     - Tworzy "N" zaszyfrowane wartości haseł dla agentów uwierzytelniania "N" zarejestrowanych w dzierżawie.
 8. Usługa Azure AD STS umieszcza żądanie weryfikacji hasła, które składa się z nazwy użytkownika i zaszyfrowanej wartości hasła, do kolejki Service Bus określonej dla Twojej dzierżawy.
 9. Ponieważ zainicjowane agenci uwierzytelniania są trwale połączeni z kolejką Service Bus, jeden z dostępnych agentów uwierzytelniania pobiera żądanie weryfikacji hasła.
@@ -178,7 +178,7 @@ Aby odnowić zaufanie agenta uwierzytelniania za pomocą usługi Azure AD:
 6. Jeśli istniejący certyfikat wygasł, usługa Azure AD usunie agenta uwierzytelniania z listy zarejestrowanych agentów uwierzytelniania. Następnie Administrator globalny musi ręcznie zainstalować i zarejestrować nowego agenta uwierzytelniania.
     - Aby podpisać certyfikat, użyj głównego urzędu certyfikacji usługi Azure AD.
     - Ustaw podmiot certyfikatu (nazwę wyróżniającą lub DN) na identyfikator dzierżawy, identyfikator GUID, który jednoznacznie identyfikuje dzierżawcę. Nazwa DN zakresy certyfikatu tylko dla dzierżawy.
-6. Usługa Azure AD przechowuje nowy klucz publiczny agenta uwierzytelniania w bazie danych Azure SQL Database, do której ma dostęp. Unieważnia także stary klucz publiczny skojarzony z agentem uwierzytelniania.
+6. Usługa Azure AD przechowuje nowy klucz publiczny agenta uwierzytelniania w bazie danych programu Azure SQL Database, do której ma dostęp tylko do programu. Unieważnia także stary klucz publiczny skojarzony z agentem uwierzytelniania.
 7. Nowy certyfikat (wydany w kroku 5) jest następnie przechowywany na serwerze w magazynie certyfikatów systemu Windows (w zależności od lokalizacji [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) ).
     - Ponieważ procedura odnawiania zaufania nie jest interaktywna (bez obecności administratora globalnego), Agent uwierzytelniania nie ma już dostępu do aktualizowania istniejącego certyfikatu w lokalizacji CERT_SYSTEM_STORE_LOCAL_MACHINE. 
     

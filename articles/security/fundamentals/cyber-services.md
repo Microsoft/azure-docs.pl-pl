@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 997bd480fd8b552d7cff61d7a4798e0a3d4db5bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa873baa2d2006164536dd26e040ffbf5cdd51cb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548641"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85123987"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Usługi firmy Microsoft w cyberbezpieczeństwa
 
@@ -32,12 +32,12 @@ Nasz zespół specjalistów technicznych składa się z wysoce przeszkolonych ek
 
 Dowiedz się więcej na temat usług oferowanych przez usługi firmy Microsoft:
 
-* [Ocena ryzyka związanego z zabezpieczeniami](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
+* [Ocena ryzyka związanego z zabezpieczeniami](https://download.microsoft.com/download/5/D/0/5D06F4EA-EAA1-4224-99E2-0C0F45E941D0/Microsoft%20Security%20Risk%20Asessment%20Datasheet.pdf)
 * [Ocena dynamicznej struktury tożsamości](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
-* [Ocena w trybie offline dla usług Active Directory Services](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
-* [Ulepszone środowisko administracyjne zabezpieczeń](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
+* [Ocena w trybie offline dla usług Active Directory Services](https://download.microsoft.com/download/1/C/1/1C15BA51-840E-498D-86C6-4BD35D33C79E/Prerequisites_Offline_AD.pdf)
+* [Ulepszone środowisko administracyjne zabezpieczeń](https://download.microsoft.com/download/A/C/5/AC5D21A6-E04B-4DC4-B1F2-AE060319A4D7/Premier_Support_for_Security/Popis/Enhanced-Security-Admin-Environment-Solution-Datasheet-%5BEN%5D.pdf)
 * [Usługi implementacji usługi Azure AD](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-* [Zabezpieczanie przed przenoszeniem na konto boczne](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Reagowanie na zdarzenia i odzyskiwanie](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
+* [Zabezpieczanie przed przenoszeniem na konto boczne](https://docs.microsoft.com/azure-advanced-threat-protection/use-case-lateral-movement-path)
+* [Reagowanie na zdarzenia i odzyskiwanie](/microsoft-365/compliance/gdpr-breach-microsoft-support-professional-services#data-protection-incident-response-overview)
 
 [Dowiedz się więcej](https://aka.ms/cyberserv) na temat usług doradczych dotyczących zabezpieczeń usług firmy Microsoft.

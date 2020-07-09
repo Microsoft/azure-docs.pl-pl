@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656822"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
@@ -110,7 +109,7 @@ Aby zrozumieć sposób pobierania dzienników, przejdź do sekcji ["zbieranie dz
 > [!NOTE]
 > Identyfikator partnera partnera, który Cię interesuje.
 
-3. Wróć do interfejsu API partnera i wybierz pozycję **Pobierz/ \< Identyfikator>**.
+3. Wróć do interfejsu API partnera i wybierz pozycję **Pobierz/ \<ID> **.
 4. Określ identyfikator partnera z kroku 3, a następnie wybierz pozycję **Wykonaj**.
 
    Odpowiedź interfejsu API powinna mieć Event Hubs parametry połączenia.
@@ -205,7 +204,7 @@ Jeśli masz już udzielony dostęp i wystąpił ten błąd, spróbuj ponownie, o
 
     1. Zaloguj się do [Azure Portal](https://portal.azure.com).
     2. W polu **wyszukiwania** Wyszukaj grupę zasobów FarmBeats Datahub.
-    3. Wybierz pozycję Magazyn konta magazynu * * * * * > **kontenery**tworzenie  >  **wsadowe plików**  >  **to_vm**  >  **config. ini**
+    3. Wybierz pozycję Magazyn konta magazynu * * * * * > **kontenery**tworzenie  >  **wsadowe plików**  >  **to_vm**  >  **config.ini**
     4. Wybierz pozycję **Edytuj**
     5. Aktualizowanie nazwy użytkownika w sekcji sentinel_account
 
@@ -250,7 +249,7 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Wskaźnik kontrolny: osiągnięto maksymalną liczbę połączeń
 
-**Komunikat o niepowodzeniu zadania**: "Maksymalna liczba dwóch współbieżnych przepływów osiągniętych przez użytkownika" \< username> "."
+**Komunikat o niepowodzeniu zadania**: "Maksymalna liczba dwóch współbieżnych przepływów osiągniętych przez użytkownika" \<username> ".
 
 **Znaczenie**: Jeśli zadanie nie powiedzie się, ponieważ osiągnięto maksymalną liczbę połączeń, to samo konto wskaźnikowe jest używane w wielu zadaniach.
 

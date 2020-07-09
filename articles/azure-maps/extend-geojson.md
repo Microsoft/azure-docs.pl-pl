@@ -9,11 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84687501"
 ---
 # <a name="extended-geojson-geometries"></a>Rozszerzony geometrie GEOJSON
 
@@ -27,7 +26,7 @@ Azure Maps zawiera listę zaawansowanych interfejsów API do wyszukiwania w funk
 * Usług
 * MultiPolygon
 * Moment
-* Tworząc
+* Wielokąt
 
 Niektóre Azure Maps interfejsy API akceptują geometrie, które nie są częścią [specyfikacji GEOJSON][1]. Na przykład [Wyszukiwanie w](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) interfejsie API geometry akceptuje okrąg i wielokąty.
 
@@ -35,21 +34,21 @@ Ten artykuł zawiera szczegółowy opis sposobu, w jaki Azure Maps rozszerza [sp
 
 ## <a name="circle"></a>Okrąg
 
-`Circle` Geometria nie jest obsługiwana przez [specyfikację GEOJSON][1]. Używamy `GeoJSON Point Feature` obiektu do reprezentowania okręgu.
+`Circle`Geometria nie jest obsługiwana przez [specyfikację GEOJSON][1]. Używamy `GeoJSON Point Feature` obiektu do reprezentowania okręgu.
 
-`Circle` Geometria reprezentowana przy użyciu `GeoJSON Feature` obiektu __musi__ zawierać następujące współrzędne i właściwości:
+`Circle`Geometria reprezentowana przy użyciu `GeoJSON Feature` obiektu __musi__ zawierać następujące współrzędne i właściwości:
 
 - Wyśrodkuj
 
     Środek okręgu jest reprezentowany przy użyciu `GeoJSON Point` obiektu.
 
-- Promień
+- Radius
 
-    Okrąg `radius` jest przedstawiany przy użyciu `GeoJSON Feature`właściwości. Wartość promienia jest w _metrach_ i musi być typu `double`.
+    Okrąg `radius` jest przedstawiany przy użyciu `GeoJSON Feature` właściwości. Wartość promienia jest w _metrach_ i musi być typu `double` .
 
 - SubType
 
-    Geometria okręgu musi również zawierać `subType` właściwość. Ta właściwość musi być częścią `GeoJSON Feature`właściwości, a jej wartością powinna być _koło_
+    Geometria okręgu musi również zawierać `subType` Właściwość. Ta właściwość musi być częścią `GeoJSON Feature` właściwości, a jej wartością powinna być _koło_
 
 #### <a name="example"></a>Przykład
 
@@ -71,9 +70,9 @@ Poniżej przedstawiono sposób reprezentowania okręgu przy użyciu `GeoJSON Fea
 
 ## <a name="rectangle"></a>Prostokąt
 
-`Rectangle` Geometria nie jest obsługiwana przez [specyfikację GEOJSON][1]. Używamy `GeoJSON Polygon Feature` obiektu do reprezentowania prostokąta. Rozszerzenie prostokąta jest używane głównie przez moduł narzędzi do rysowania zestawu SDK sieci Web.
+`Rectangle`Geometria nie jest obsługiwana przez [specyfikację GEOJSON][1]. Używamy `GeoJSON Polygon Feature` obiektu do reprezentowania prostokąta. Rozszerzenie prostokąta jest używane głównie przez moduł narzędzi do rysowania zestawu SDK sieci Web.
 
-`Rectangle` Geometria reprezentowana przy użyciu `GeoJSON Polygon Feature` obiektu __musi__ zawierać następujące współrzędne i właściwości:
+`Rectangle`Geometria reprezentowana przy użyciu `GeoJSON Polygon Feature` obiektu __musi__ zawierać następujące współrzędne i właściwości:
 
 - Rogi
 
@@ -81,7 +80,7 @@ Poniżej przedstawiono sposób reprezentowania okręgu przy użyciu `GeoJSON Fea
 
 - SubType
 
-    Geometria prostokąta musi również zawierać `subType` właściwość. Ta właściwość musi być częścią `GeoJSON Feature`właściwości, a jej wartością powinna być _prostokąt_
+    Geometria prostokąta musi również zawierać `subType` Właściwość. Ta właściwość musi być częścią `GeoJSON Feature` właściwości, a jej wartością powinna być _prostokąt_
 
 ### <a name="example"></a>Przykład
 

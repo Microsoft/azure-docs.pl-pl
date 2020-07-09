@@ -1,24 +1,22 @@
 ---
-title: 'Samouczek: Zabezpieczanie wirtualnej sieci WAN przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure'
-description: W tym samouczku dowiesz się, jak zabezpieczyć wirtualną sieć WAN za pomocą Menedżera zapory platformy Azure przy użyciu Azure Portal.
+title: 'Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure'
+description: W tym samouczku dowiesz się, jak zabezpieczyć koncentrator wirtualny za pomocą Menedżera zapory platformy Azure przy użyciu Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c44daa67b4029c73c57ca82d72ee0a9759dd4c2d
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691036"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563655"
 ---
-# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Samouczek: Zabezpieczanie wirtualnej sieci WAN przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure 
+# <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Korzystając z wersji zapoznawczej Menedżera zapory platformy Azure, można utworzyć zabezpieczone centra wirtualne, aby zabezpieczyć ruch sieciowy w chmurze przeznaczony dla prywatnych adresów IP, platformy Azure PaaS i Internetu. Routing ruchu do zapory jest zautomatyzowany, dlatego nie ma potrzeby tworzenia tras zdefiniowanych przez użytkownika (UDR).
+Korzystając z Menedżera zapory platformy Azure, można utworzyć zabezpieczone centra wirtualne, aby zabezpieczyć ruch sieciowy w chmurze przeznaczony dla prywatnych adresów IP, platformy Azure PaaS i Internetu. Routing ruchu do zapory jest zautomatyzowany, dlatego nie ma potrzeby tworzenia tras zdefiniowanych przez użytkownika (UDR).
 
 ![Zabezpieczanie sieci w chmurze](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -95,7 +93,7 @@ Teraz możesz połączyć się za pomocą elementu równorzędnego z koncentrato
 5. W przypadku **centrów**wybierz pozycję **Hub-01**.
 6. W obszarze **Grupa zasobów**wybierz pozycję **PD-Manager**.
 7. W obszarze **Sieć wirtualna**wybierz opcję **szprych-01**.
-8. Wybierz przycisk **OK**.
+8. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Tworzenie zasad zapory i zabezpieczanie centrum
 
@@ -111,16 +109,18 @@ Zasady zapory definiują kolekcje reguł, aby kierować ruchem do co najmniej je
 8. Dla **priorytetu**wpisz **100**.
 9. Upewnij się, że **Akcja kolekcji reguł** to **Zezwalaj**.
 10. Dla **nazwy** reguły wpisz **Allow-MSFT**.
-11. Dla **adresu źródłowego**wpisz **\***.
-12. W obszarze **Protokół**wpisz **http i https**.
-13. Upewnij się, że * * docelowy typ to **nazwa FQDN**.
-14. W obszarze **docelowy**wpisz ** \*. Microsoft.com**.
-15. Wybierz pozycję **Dodaj**.
-16. Wybierz pozycję **Dalej: centra**.
-17. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
-18. Wybierz pozycję **Hub-01** , a następnie wybierz pozycję **Dodaj**.
-1. Wybierz pozycję **Przegląd + utwórz**.
-2. Wybierz przycisk **Utwórz**.
+11. W polu **Typ źródła**wybierz pozycję **adres IP**.
+12. Dla elementu **Source**wpisz **\*** .
+13. W obszarze **Protokół**wpisz **http i https**.
+14. Upewnij się, że **Typ docelowy** to **nazwa FQDN**.
+15. W obszarze **docelowy**wpisz ** \* . Microsoft.com**.
+16. Wybierz pozycję **Dodaj**.
+17. Wybierz pozycję **Dalej: analiza zagrożeń**.
+18. Wybierz pozycję **Dalej: centra**.
+19. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
+20. Wybierz pozycję **Hub-01** , a następnie wybierz pozycję **Dodaj**.
+21. Wybierz pozycję **Przegląd + utwórz**.
+22. Wybierz przycisk **Utwórz**.
 
 Ukończenie tego procesu może potrwać około pięciu minut.
 
@@ -130,13 +130,11 @@ Teraz należy zadbać o to, aby ruch sieciowy był kierowany przez zaporę.
 
 1. W Menedżerze zapory wybierz pozycję **zabezpieczone centra wirtualne**.
 2. Wybierz pozycję **Hub-01**.
-3. W obszarze **Ustawienia**wybierz pozycję **Ustawienia trasy**.
-4. W obszarze **ruch internetowy**, **ruch z sieci wirtualnych**, wybierz pozycję **Wyślij za pośrednictwem zapory platformy Azure**.
-5. W obszarze **ruch prywatny na platformie Azure** **ruch do sieci wirtualnych**, wybierz pozycję **Wyślij za pośrednictwem zapory platformy Azure**.
-6. Wybierz pozycję **Edytuj prefiksy adresów IP**.
-8. Wpisz **10.0.1.0/24** jako adres podsieci obciążenia i wybierz pozycję **Zapisz**.
-9. W obszarze **Ustawienia**wybierz pozycję **połączenia**.
+3. W obszarze **Ustawienia**wybierz pozycję **Konfiguracja zabezpieczeń**.
+4. W obszarze **ruch internetowy**wybierz pozycję **Zapora platformy Azure**.
+5. W obszarze **ruch prywatny**wybierz pozycję **Wyślij za pośrednictwem zapory platformy Azure**.
 10. Upewnij **się, że połączenie gwiazdy** ukazuje **ruch internetowy** jako **zabezpieczony**.
+11. Wybierz pozycję **Zapisz**.
 
 
 ## <a name="test-your-firewall"></a>Testowanie zapory
@@ -204,7 +202,7 @@ Teraz Przetestuj reguły zapory, aby upewnić się, że działa zgodnie z oczeki
 2. Połącz pulpit zdalny z maszyną **wirtualną i zaloguj się.** W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** .
 
 3. Otwórz program Internet Explorer i przejdź do https://www.microsoft.com.
-4. Wybierz pozycję **OK** > **Zamknij** na stronie Alerty zabezpieczeń programu Internet Explorer.
+4. Wybierz pozycję **OK**  >  **Zamknij** na stronie Alerty zabezpieczeń programu Internet Explorer.
 
    Powinna zostać wyświetlona strona główna firmy Microsoft.
 

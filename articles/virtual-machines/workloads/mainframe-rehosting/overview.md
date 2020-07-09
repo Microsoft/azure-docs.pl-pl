@@ -11,10 +11,9 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76289802"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehostowanie komputera mainframe na maszynach wirtualnych platformy Azure
@@ -72,11 +71,11 @@ Aby rozpocząć:
 
 Aby rozpocząć, zobacz temat [IBM DB2 pureScale na platformie Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Podczas migrowania obciążeń programu mainframe do infrastruktury platformy Azure jako usługi (IaaS) można wybrać spośród kilku typów skalowalnych zasobów obliczeniowych na żądanie, w tym maszyn wirtualnych platformy Azure. Platforma Azure oferuje wiele maszyn wirtualnych z [systemami](/azure/virtual-machines/windows/overview) [Linux](/azure/virtual-machines/linux/overview) i Windows.
 
-### <a name="compute"></a>Wystąpienia obliczeniowe
+### <a name="compute"></a>Compute
 
 Usługa Azure COMPUTE pobór porównuje favorably z pojemnością komputera mainframe. Jeśli zastanawiasz się nad przeniesieniem obciążenia komputera mainframe na platformę Azure, porównaj metrykę komputera mainframe z 1 000 000 instrukcjami na sekundę (MIPS) do wirtualnych procesorów CPU. 
 

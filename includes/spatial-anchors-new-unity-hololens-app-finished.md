@@ -1,21 +1,21 @@
 ---
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.date: 05/14/2019
+ms.date: 06/22/2020
 ms.topic: include
-ms.author: pmorgan
+ms.author: crtreasu
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: baf9abae9ce2f823df304f2dcee983439a3ac8a7
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67722947"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297974"
 ---
 ## <a name="putting-everything-together"></a>Umieszczanie wszystkich siebie
 
-Poniżej przedstawiono sposób, w `AzureSpatialAnchorsScript` jaki powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
+Poniżej przedstawiono sposób, w jaki `AzureSpatialAnchorsScript` powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
@@ -42,6 +42,11 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// Set this string to the Spatial Anchors account key provided in the Spatial Anchors resource.
     /// </summary>
     protected string SpatialAnchorsAccountKey = "Set me";
+
+    /// <summary>
+    /// Set this string to the Spatial Anchors account domain provided in the Spatial Anchors resource.
+    /// </summary>
+    protected string SpatialAnchorsAccountDomain = "Set me";
 
     /// <summary>
     /// Our queue of actions that will be executed on the main thread.
@@ -197,6 +202,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
         cloudSpatialAnchorSession.Configuration.AccountId = SpatialAnchorsAccountId.Trim();
         cloudSpatialAnchorSession.Configuration.AccountKey = SpatialAnchorsAccountKey.Trim();
+        cloudSpatialAnchorSession.Configuration.AccountDomain = SpatialAnchorsAccountDomain.Trim();
 
         cloudSpatialAnchorSession.LogLevel = SessionLogLevel.All;
 
@@ -399,4 +405,4 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 W tym samouczku dowiesz się więcej na temat korzystania z kotwic przestrzennych platformy Azure w nowej aplikacji HoloLens Unity. Aby dowiedzieć się więcej na temat korzystania z kotwic przestrzennych platformy Azure w nowej aplikacji systemu Android, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
-> [Uruchamianie nowej aplikacji systemu Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)
+> [Uruchamianie nowej aplikacji dla systemu Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658034"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor wizualizacje skoroszytu
@@ -59,7 +58,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 
 #### <a name="log-chart-parameters"></a>Parametry wykresu dziennika
 
-| Parametr | Wyjaśnienie | Przykład |
+| Parametr | Objaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `Query Type` | Typ zapytania do użycia | Dziennik, wykres zasobów platformy Azure itd. |
 | `Resource Type` | Typ zasobu docelowego | Application Insights, Log Analytics lub Azure — najpierw |
@@ -69,7 +68,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 | `Size` | Rozmiar w pionie kontrolki | Małe, średnie, duże lub pełne |
 | `Color palette` | Paleta kolorów, która ma być używana na wykresie. Zignorowano w trybie z obsługą metryki lub z segmentacją. | Niebieski, zielony, czerwony itd. |
 | `Legend` | Funkcja agregacji do użycia w legendzie | Suma lub średnia wartości lub maks., minimalna, pierwsza, Ostatnia wartość |
-| `Query` | Dowolne zapytanie KQL zwracające dane w formacie oczekiwanym przez wizualizację wykresu | _\| żąda żądań wykonania serii = Count () domyślnie = 0 w sygnaturze czasowej z temu (1D) do Now () Step 1 godz_ |
+| `Query` | Dowolne zapytanie KQL zwracające dane w formacie oczekiwanym przez wizualizację wykresu | _żąda \| żądań wykonania serii = Count () domyślnie = 0 w sygnaturze czasowej z temu (1D) do Now () Step 1 godz_ |
 
 ### <a name="adding-a-metric-chart"></a>Dodawanie wykresu metryki
 
@@ -82,7 +81,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 
 #### <a name="metric-chart-parameters"></a>Parametry wykresu metryki
 
-| Parametr | Wyjaśnienie | Przykład |
+| Parametr | Objaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | Typ zasobu docelowego | Magazyn lub maszyna wirtualna. |
 | `Resources` | Zestaw zasobów, z którego ma zostać uzyskana wartość metryki | MyStorage1 |
@@ -93,7 +92,7 @@ Skoroszyty obsługują wykresy zarówno dla dzienników, jak i źródeł danych 
 | `Visualization` | Wizualizacja do użycia | Obszar, słupek, linia, punktowy, Siatka |
 | `Split By` | Opcjonalnie Podziel metrykę na wymiar | Transakcje według typu geograficznego |
 | `Size` | Rozmiar w pionie kontrolki | Małe, średnie lub duże |
-| `Color palette` | Paleta kolorów, która ma być używana na wykresie. Ignorowane, `Split by` Jeśli parametr jest używany | Niebieski, zielony, czerwony itd. |
+| `Color palette` | Paleta kolorów, która ma być używana na wykresie. Ignorowane, jeśli `Split by` parametr jest używany | Niebieski, zielony, czerwony itd. |
 
 ## <a name="grids"></a>Siatki
 
@@ -138,7 +137,7 @@ Kafelki skoroszytu obsługują wyświetlanie tytułu, podtytuł, duże tekstu, i
 7. Kliknij przycisk **Ustawienia kafelka** , aby otworzyć okienko ustawienia
 8. W polu **kafelków**Ustaw:
     * Tytuły`name`
-    * Left: `Requests`, Render: `Big Number`, paleta kolorów `Green to Red`:, wartość minimalna:`0`
+    * Left: `Requests` , Render: `Big Number` , paleta kolorów: `Green to Red` , wartość minimalna:`0`
     * Stop`appName`
 9. Kliknij przycisk **Zapisz i Zamknij** w dolnej części okienka.
 
@@ -182,14 +181,14 @@ W poniższym przykładzie przedstawiono wizualizacje metryk (rozmiar zestawu rob
 8. W sekcji _kolumny_ w górnej części Ustaw:
     * Renderowanie kolumny _identyfikatora_ :`Hidden`
     * Moduł renderowania kolumn _nadrzędnych_ :`Hidden`
-    * _Żądania_ -Column renderujące `Bar`:, Color `Blue`:, wartość minimalna:`0`
+    * _Żądania_ -Column renderujące: `Bar` , Color: `Blue` , wartość minimalna:`0`
 9. Kliknij przycisk _Zapisz i Zamknij_ w dolnej części okienka.    
 
 ![Zrzut ekranu przedstawiający Widok podsumowania kafelków](./media/workbooks-visualizations/tree-settings.png)
 
 ### <a name="tree-settings"></a>Ustawienia drzewa
 
-| Ustawienie | Wyjaśnienie |
+| Ustawienie | Objaśnienie |
 |:------------- |:-------------|
 | `Id Field` | Unikatowy identyfikator każdego wiersza w siatce |
 | `Parent Id Field` | Identyfikator elementu nadrzędnego bieżącego wiersza |
@@ -243,9 +242,9 @@ Wykres poniżej przedstawia dane przepływające z komputera lub z niego za poś
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
 10. W obszarze _Ustawienia formatu węzła_ u góry Ustaw:
-    * _Górna zawartość_— Użyj kolumny: `Name`, modułu renderowania kolumn:`Text`
-    * _Wyśrodkuj zawartość_— Użyj kolumny: `Calls`, modułu renderowania kolumn `Big Number`:, paleta kolorów:`None`
-    * _Dolna zawartość_— Użyj kolumny `Kind`:, modułu renderowania kolumn:`Text`
+    * _Górna zawartość_— Użyj kolumny: `Name` , modułu renderowania kolumn:`Text`
+    * _Wyśrodkuj zawartość_— Użyj kolumny: `Calls` , modułu renderowania kolumn: `Big Number` , paleta kolorów:`None`
+    * _Dolna zawartość_— Użyj kolumny: `Kind` , modułu renderowania kolumn:`Text`
 10. Kliknij przycisk _Zapisz i Zamknij_ w dolnej części okienka.
 
 ![Zrzut ekranu przedstawiający Widok podsumowania kafelków](./media/workbooks-visualizations/graph-settings.png)

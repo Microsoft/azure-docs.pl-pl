@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253498"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Czynniki wpływające na wydajność programu Azure AD Connect
 
@@ -29,7 +29,7 @@ Azure AD Connect synchronizuje Active Directory z usługą Azure AD. Ten serwer 
 | Topologia| Dystrybucja punktów końcowych i składników Azure AD Connect musi zarządzać w sieci. |
 | Skalowanie| Liczba obiektów, takich jak użytkownicy, grupy i jednostki organizacyjne, które mają być zarządzane przez Azure AD Connect. |
 | Sprzęt| Sprzęt (fizyczny lub wirtualny) dla Azure AD Connect i zależna pojemność wydajności każdego składnika sprzętowego, w tym Konfiguracja procesora CPU, pamięci, sieci i dysku twardego. |
-| Konfiguracja| Jak Azure AD Connect przetwarza katalogi i informacje. |
+| Konfigurowanie| Jak Azure AD Connect przetwarza katalogi i informacje. |
 | Ładowanie| Częstotliwość zmian obiektów. Obciążenia mogą się różnić w ciągu godziny, dnia lub tygodnia. W zależności od składnika może być konieczne zaprojektowanie obciążenia szczytowego lub średniego obciążenia. |
 
 Celem tego dokumentu jest opisywanie czynników wpływających na wydajność aparatu aprowizacji Azure AD Connect. Duże lub złożone organizacje (obsługa administracyjna więcej niż 100 000 obiektów) może korzystać z zaleceń w celu optymalizacji ich implementacji Azure AD Connect, jeśli występują jakiekolwiek problemy z wydajnością opisane tutaj. Inne składniki Azure AD Connect, takie jak [Azure AD Connect kondycja](how-to-connect-health-agent-install.md) i agenci, nie zostały omówione w tym miejscu.
@@ -172,7 +172,7 @@ Rozmiar topologii Active Directory źródłowej będzie miał wpływ na wydajno�
 
 - Organizacje mające ponad 100 000 użytkowników mogą ograniczyć opóźnienia sieci dzięki umieszczeniu bazy danych SQL i aparatu aprowizacji na tym samym serwerze.
 - Ze względu na wymagania dotyczące dużej ilości danych wejściowych i wyjściowych (we/wy) procesu synchronizacji należy użyć dysków półprzewodnikowych (SSD) dla bazy danych SQL aparatu aprowizacji, aby uzyskać optymalne wyniki, jeśli nie jest to możliwe, należy rozważyć konfiguracje RAID 0 lub RAID 1.
-- Nie wykonuj pełnej synchronizacji przed emptively; powoduje to niepotrzebne zmiany i wolniejsze czasy odpowiedzi.
+- Nie wykonuj pełnej synchronizacji zapobiegawczo; powoduje to niepotrzebne zmiany i wolniejsze czasy odpowiedzi.
 
 ## <a name="conclusion"></a>Podsumowanie
 

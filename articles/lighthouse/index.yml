@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: e62db32a20c4124f64e7c77d626099905a960815
-  ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+  ms.openlocfilehash: 8599ddc8a4216b97be6d5bf183eea68654ff65a4
+  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "83871799"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86111545"
 landingContent:
 - title: Azure Lighthouse — informacje
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Dołączanie klienta do zarządzania zasobami delegowanymi na platformie Azure
+    - text: Dołączanie klienta do usługi Azure Lighthouse
       url: ./how-to/onboard-customer.md
   - linkListType: concept
     links:
@@ -71,15 +71,17 @@ landingContent:
       url: ./how-to/view-manage-customers.md
     - text: Wyświetlanie dostawców usług i zarządzanie nimi
       url: ./how-to/view-manage-service-providers.md
-- title: Praca z usługami platformy Azure
+- title: Praca z usługami platformy Azure na dużą skalę
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Używanie dzienników usługi Azure Monitor na dużą skalę
+    - text: Zarządzanie obszarami roboczymi usługi Azure Sentinel
+      url: ./how-to/manage-sentinel-workspaces.md
+    - text: Korzystanie z dzienników usługi Azure Monitor
       url: ./how-to/monitor-at-scale.md
     - text: Monitorowanie zmian delegacji
       url: ./how-to/monitor-at-scale.md
-    - text: Wdrażanie usługi Azure Policy na dużą skalę
+    - text: Wdrażanie usługi Azure Policy
       url: ./how-to/policy-at-scale.md
     - text: Wdrażanie zasad, które można skorygować
       url: ./how-to/deploy-policy-remediation.md
@@ -112,6 +114,6 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Lighthouse
-      url: https://docs.microsoft.com/answers/topics/azure-lighthouse.html
+      url: /answers/topics/azure-lighthouse.html
     - text: Zażądaj funkcji produktu
       url: https://feedback.azure.com/forums/922753

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 4/6/2020
-ms.openlocfilehash: a2c376ec2bd1f03b626c11b0d6a6c3850c9ef8c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 7/1/2020
+ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804592"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964519"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opcje konfiguracji Azure Database for PostgreSQL — Citus)
 
@@ -20,7 +20,7 @@ ms.locfileid: "80804592"
  
 Ustawienia obliczeń i magazynu można wybrać niezależnie dla węzłów procesu roboczego i węzła koordynatora w grupie serwerów Citus.  Zasoby obliczeniowe są udostępniane jako rdzeni wirtualnych, które reprezentują logicznego procesora bazowego sprzętu. Rozmiar magazynu dla aprowizacji odnosi się do pojemności dostępnej dla koordynatora i węzłów procesu roboczego w grupie serwerów Citus. Magazyn obejmuje pliki bazy danych, pliki tymczasowe, dzienniki transakcji i Dzienniki serwera Postgres.
  
-|                       | Węzeł procesu roboczego           | Węzeł koordynatora      |
+| Zasób              | Węzeł procesu roboczego           | Węzeł koordynatora      |
 |-----------------------|-----------------------|-----------------------|
 | Obliczenia, rdzeni wirtualnych       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Pamięć na rdzeń wirtualny, GiB | 8                     | 4                     |
@@ -73,7 +73,7 @@ W przypadku całego klastra z przedziałem (Citus) zagregowana liczba operacji w
 ## <a name="regions"></a>Regiony
 Grupy serwerów ze skalowaniem (Citus) są dostępne w następujących regionach platformy Azure:
 
-* Ameryka Północna i Południowa: 
+* Południowej
     * Kanada Środkowa
     * Środkowe stany USA
     * Wschodnie stany USA
@@ -91,6 +91,33 @@ Grupy serwerów ze skalowaniem (Citus) są dostępne w następujących regionach
     * Europa Zachodnia
 
 Niektóre z tych regionów mogą nie być początkowo aktywowane we wszystkich subskrypcjach platformy Azure. Jeśli chcesz użyć regionu z powyższej listy i nie widzisz go w Twojej subskrypcji, lub jeśli chcesz użyć regionu, którego nie ma na tej liście, Otwórz [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="limits-and-limitations"></a>Limity i ograniczenia
+
+W poniższej sekcji opisano możliwości i limity funkcjonalne w usłudze Citus.
+
+### <a name="maximum-connections"></a>Maksymalna liczba połączeń
+
+Każde połączenie PostgreSQL (nawet bezczynne) korzysta z co najmniej 10 MB pamięci, dlatego ważne jest ograniczenie jednoczesnych połączeń. Poniżej przedstawiono limity, które zostały wybrane, aby zachować kondycję węzłów:
+
+* Węzeł koordynatora
+   * Maksymalna liczba połączeń: 300
+   * Maksymalna liczba połączeń użytkowników: 297
+* Węzeł procesu roboczego
+   * Maksymalna liczba połączeń: 600
+   * Maksymalna liczba połączeń użytkowników: 597
+
+Próba nawiązania połączenia poza tymi limitami zakończy się niepowodzeniem z powodu błędu. System rezerwuje trzy połączenia dla węzłów monitorowania, co oznacza, że dla zapytań użytkowników jest dostępnych trzy mniejsze połączenia niż całkowita liczba połączeń.
+
+Nawiązywanie nowych połączeń trwa. Działa to z większością aplikacji, które żądają wielu krótkich połączeń. Zalecamy używanie pulę połączeń, zarówno w celu ograniczenia bezczynnych transakcji, jak i ponownego użycia istniejących połączeń. Aby dowiedzieć się więcej, odwiedź nasz [wpis w blogu](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+
+### <a name="storage-scaling"></a>Skalowanie magazynu
+
+Magazyn w ramach koordynatora i węzłów procesu roboczego można skalować w górę, ale nie może być skalowany w dół (zmniejszył się).
+
+### <a name="storage-size"></a>Rozmiar magazynu
+
+Do 2 TiB magazynu jest obsługiwana na węzłach koordynator i proces roboczy. Zapoznaj się z dostępnymi opcjami magazynu [i obliczeniami](#compute-and-storage) IOPS dla rozmiaru węzła i klastra.
 
 ## <a name="pricing"></a>Cennik
 Najbardziej aktualne informacje o cenach można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/postgresql/)usługi.

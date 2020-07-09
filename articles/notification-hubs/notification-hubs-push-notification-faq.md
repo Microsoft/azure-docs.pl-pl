@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: Powiadomienie wypychane, powiadomienia wypychane, powiadomienia wypychane systemu iOS, powiadomienia wypychane systemu Android, wypychanie systemu iOS, wypychanie systemu Android
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263833"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255130"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -56,7 +54,7 @@ W przypadku warstw Podstawowa i Standardowa Notification Hubs prawidłowo skonfi
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Jak mogę uaktualnić lub obniżyć poziom mojego centrum lub przestrzeni nazw do innej warstwy?
 
-Przejdź do obszaru **[Azure portal]** > **nazw Notification Hubs** Azure Portal lub **Notification Hubs**. Wybierz zasób, który chcesz zaktualizować, i przejdź do **warstwy cenowej**. Należy pamiętać o następujących wymaganiach:
+Przejdź do obszaru **[Azure portal]**  >  **nazw Notification Hubs** Azure Portal lub **Notification Hubs**. Wybierz zasób, który chcesz zaktualizować, i przejdź do **warstwy cenowej**. Należy pamiętać o następujących wymaganiach:
 
 * Zaktualizowana warstwa cenowa ma zastosowanie do *wszystkich* centrów w przestrzeni nazw, z którymi pracujesz.
 * Jeśli liczba urządzeń przekracza limit warstwy, do której należysz, należy usunąć urządzenia przed obniżeniem poziomu.
@@ -65,11 +63,11 @@ Przejdź do obszaru **[Azure portal]** > **nazw Notification Hubs** Azure Portal
 
 ### <a name="which-server-side-platforms-do-you-support"></a>Które platformy po stronie serwera są obsługiwane?
 
-Zestawy SDK serwera są dostępne dla platform .NET, Java, Node. js, PHP i Python. Interfejsy API Notification Hubs są oparte na interfejsach REST, dzięki czemu możesz współpracować bezpośrednio z interfejsami API REST, jeśli używasz różnych platform lub nie potrzebujesz dodatkowej zależności. Aby uzyskać więcej informacji, przejdź do strony [Notification Hubs interfejsów API REST] .
+Zestawy SDK serwera są dostępne dla platform .NET, Java, Node.js, PHP i Python. Interfejsy API Notification Hubs są oparte na interfejsach REST, dzięki czemu możesz współpracować bezpośrednio z interfejsami API REST, jeśli używasz różnych platform lub nie potrzebujesz dodatkowej zależności. Aby uzyskać więcej informacji, przejdź do strony [Notification Hubs interfejsów API REST] .
 
 ### <a name="which-client-platforms-do-you-support"></a>Które platformy klienckie są obsługiwane?
 
-Powiadomienia wypychane są obsługiwane [dla systemów iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (za pośrednictwem Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) i Android oraz [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)). Aby uzyskać więcej informacji, przejdź na stronę [samouczków Wprowadzenie Notification Hubs] .
+Powiadomienia wypychane są obsługiwane [dla systemów iOS](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (za pośrednictwem Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) i [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)oraz [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Aby uzyskać więcej informacji, zapoznaj się ze stroną [samouczków Wprowadzenie Notification Hubs](ios-sdk-get-started.md) .
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Czy są obsługiwane wiadomości tekstowe, wiadomości e-mail lub powiadomienia w sieci Web?
 
@@ -79,7 +77,7 @@ Notification Hubs wysyła powiadomienia do urządzeń, na których działają ap
 
 Zapoznaj się ze stroną [cennika Notification Hubs] , aby uzyskać szczegółowe informacje o liczbie obsługiwanych urządzeń.
 
-Jeśli potrzebujesz pomocy technicznej dotyczącej ponad 10 000 000 zarejestrowanych urządzeń, musisz podzielić urządzenia na wiele centrów.
+Jeśli wymagana jest obsługa ponad 10 000 000 zarejestrowanych urządzeń, należy podzielić urządzenia na partycje w wielu obszarach nazw.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Ile powiadomień wypychanych mogę wysyłać?
 
@@ -121,7 +119,7 @@ Ze względu na charakter powiadomień wypychanych (są one dostarczane przez zew
 
 Gdy aplikacja mobilna jest zarejestrowana w portalu dla deweloperów platformy (na przykład Apple lub Google), wysyłany jest identyfikator aplikacji i tokeny zabezpieczające. Zaplecze aplikacji udostępnia te tokeny PNS platformy, aby można było wysyłać powiadomienia wypychane do urządzeń. Tokeny zabezpieczające mogą mieć postać certyfikatów (na przykład Apple iOS lub Windows Phone) lub kluczy zabezpieczeń (np. Google Android lub Windows). Muszą być skonfigurowane w centrach powiadomień. Konfiguracja zazwyczaj odbywa się na poziomie centrum powiadomień, ale można ją również wykonać na poziomie przestrzeni nazw w scenariuszu obejmującym wiele dzierżawców.
 
-#### <a name="namespaces"></a>Namespaces
+#### <a name="namespaces"></a>Przestrzenie nazw
 
 Przestrzenie nazw mogą być używane do grupowania wdrożenia. Mogą one również służyć do reprezentowania wszystkich centrów powiadomień dla wszystkich dzierżawców tej samej aplikacji w scenariuszu obejmującym wiele dzierżawców.
 
@@ -193,7 +191,7 @@ Usługa Azure Notification Hubs udostępnia kilka funkcji rozwiązywania problem
 
 Usługa Azure Notification Hubs umożliwia wyświetlanie danych telemetrycznych w [Azure Portal]. Szczegóły metryk są dostępne na stronie [metryki Notification Hubs] .
 
-Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Pobierz metryki Azure monitor przy użyciu platformy .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Ten przykład używa nazwy użytkownika i hasła. Aby użyć certyfikatu, przeciąż metodę FromServicePrincipal, aby dostarczyć certyfikat, jak pokazano w [tym przykładzie](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Pobieranie metryk i dzienników aktywności dla zasobu](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
@@ -206,7 +204,6 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 [Cennik Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Interfejsy API REST Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Samouczki Notification Hubs Wprowadzenie]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Wskazówki dotyczące rejestracji zaplecza]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Wskazówki dotyczące rejestracji zaplecza 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

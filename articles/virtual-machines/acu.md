@@ -1,24 +1,19 @@
 ---
-title: Przegląd jednostki obliczeniowej platformy Azure | Microsoft Docs
+title: Przegląd jednostki obliczeniowej platformy Azure
 description: Przegląd koncepcji jednostek obliczeniowych platformy Azure. ACU umożliwia porównanie wydajności procesora CPU w jednostkach SKU platformy Azure.
-services: virtual-machines
-documentationcenter: ''
 author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.reviewer: davberg
+ms.openlocfilehash: 74c0f5be7998450b0fb868ff4969e412fdaa4788
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629103"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414474"
 ---
 # <a name="azure-compute-unit-acu"></a>Jednostka obliczeniowa platformy Azure (ACU)
 
@@ -48,8 +43,20 @@ Funkcja Hyper-Threading i możliwość uruchamiania wirtualizacji zagnieżdżone
 | [DS1_v2 — DS15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [D_v3](dv3-dsv3-series.md) |160 – 190 * | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 – 190 * | 2:1\*\*\* |
+| [Dav4](dav4-dasv4-series.md) |230 – 260 * * | 2:1 |
+| [Dasv4](dav4-dasv4-series.md) |230 – 260 * * | 2:1 |
+| [Dv4](dv4-dsv4-series.md) | 195 – 210 | 2:1\*\*\* |
+| [Dsv4](dv4-dsv4-series.md) | 195 – 210 | 2:1\*\*\* |
+| [Ddv4](ddv4-ddsv4-series.md) | 195 – 210 * | 2:1\*\*\* |
+| [Ddsv4](ddv4-ddsv4-series.md) | 195 – 210 * | 2:1\*\*\* |
 | [E_v3](ev3-esv3-series.md) |160 – 190 * | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 – 190 * | 2:1\*\*\* |
+| [Eav4](eav4-easv4-series.md) |230 – 260 * * | 2:1 |
+| [Easv4](eav4-easv4-series.md) | 230 – 260 * * | 2:1 |
+| [Ev4](ev4-esv4-series.md) | 195 – 210 | 2:1\*\*\* |
+| [Esv4](ev4-esv4-series.md) | 195 – 210 | 2:1\*\*\* |
+| [Edv4](edv4-edsv4-series.md) | 195 – 210 * | 2:1\*\*\* |
+| [Edsv4](edv4-edsv4-series.md) | 195 – 210 * | 2:1\*\*\* |
 | [F2s_v2 — F72s_v2](fsv2-series.md) |195 – 210 * | 2:1\*\*\* |
 | [F1 — F16](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [F1s — F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |

@@ -9,12 +9,11 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: e2ecdb6f436806f93610325b4d5adf28cb3253e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234626"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Przekaż uogólniony wirtualny dysk twardy do platformy Azure, aby utworzyć nową maszynę wirtualną
 
@@ -75,7 +74,7 @@ Jeśli nie masz jeszcze zainstalowanego programu PowerShell w wersji 1,4 lub now
     ```powershell
     Get-AzSubscription
     ```
-3. Ustaw poprawną subskrypcję przy użyciu identyfikatora subskrypcji. Zamień `<subscriptionID>` na identyfikator poprawnej subskrypcji.
+3. Ustaw poprawną subskrypcję przy użyciu identyfikatora subskrypcji. Zamień na `<subscriptionID>` Identyfikator poprawnej subskrypcji.
    
     ```powershell
     Select-AzSubscription -SubscriptionId "<subscriptionID>"
@@ -115,7 +114,7 @@ Jeśli musisz utworzyć konto magazynu, wykonaj następujące czynności:
  
 ### <a name="start-the-upload"></a>Rozpocznij przekazywanie 
 
-Użyj polecenia cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) , aby przekazać obraz do kontenera na koncie magazynu. Ten przykład przekazuje plik **myVHD. VHD** z `"C:\Users\Public\Documents\Virtual hard disks\"` do konta magazynu o nazwie **mojekontomagazynu** w **grupie zasobów zasobu** . Plik zostanie umieszczony w kontenerze o nazwie Moja **kontener, a nowa** nazwa pliku będzie **myUploadedVHD. VHD**.
+Użyj polecenia cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) , aby przekazać obraz do kontenera na koncie magazynu. Ten przykład przekazuje plik **myVHD. VHD** z `"C:\Users\Public\Documents\Virtual hard disks\"` do konta magazynu o nazwie **mojekontomagazynu** w grupie zasobów zasobu. **myResourceGroup** Plik zostanie umieszczony w kontenerze o nazwie Moja **kontener, a nowa** nazwa pliku będzie **myUploadedVHD. VHD**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -148,7 +147,7 @@ Możesz teraz użyć przekazanego wirtualnego dysku twardego do utworzenia nowej
 
 ### <a name="set-the-uri-of-the-vhd"></a>Ustawianie identyfikatora URI wirtualnego dysku twardego
 
-Identyfikator URI używanego wirtualnego dysku twardego ma format: https://**mojekontomagazynu****. blob.Core.Windows.NET/er**/**MyVhdName**. VHD. W tym przykładzie wirtualny dysk twardy o nazwie **myVHD** znajduje się na koncie magazynu **mojekontomagazynu** w **kontenerze**.
+Identyfikator URI używanego wirtualnego dysku twardego ma format: https://**mojekontomagazynu****. blob.Core.Windows.NET/er** / **MyVhdName**. VHD. W tym przykładzie wirtualny dysk twardy o nazwie **myVHD** znajduje się na koncie magazynu **mojekontomagazynu** w **kontenerze**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -175,7 +174,7 @@ Utworzyć sieć wirtualną i podsieć [sieci wirtualnej](../../virtual-network/v
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Tworzenie publicznego adresu IP i interfejsu sieciowego
-Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejsu sieciowego.
+Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/public-ip-addresses.md) i interfejsu sieciowego.
 
 1. Utwórz publiczny adres IP. Ten przykład tworzy publiczny adres IP o nazwie **myPip**. 
    
@@ -276,7 +275,7 @@ Poniższy skrypt programu PowerShell pokazuje, jak skonfigurować konfiguracje m
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Po zakończeniu powinna zostać wyświetlona nowo utworzona maszyna wirtualna w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie** > **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell:
+Po zakończeniu powinna zostać wyświetlona nowo utworzona maszyna wirtualna w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie**  >  **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

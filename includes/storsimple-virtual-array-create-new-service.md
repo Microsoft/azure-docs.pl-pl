@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,17 +9,17 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183418"
 ---
 #### <a name="to-create-a-new-service"></a>Aby utworzyć nową usługę
 
-1.  Korzystając z poświadczeń konto Microsoft, zaloguj się do Azure Portal pod tym adresem URL: <https://portal.azure.com/>. W przypadku wdrażania urządzenia w portalu dla instytucji rządowych Zaloguj się pod adresem:<https://portal.azure.us/>
+1.  Korzystając z poświadczeń konto Microsoft, zaloguj się do Azure Portal pod tym adresem URL: <https://portal.azure.com/> . W przypadku wdrażania urządzenia w portalu dla instytucji rządowych Zaloguj się pod adresem:<https://portal.azure.us/>
 
-2.  W Azure Portal kliknij pozycję **+ Utwórz** &gt; **Magazyn** &gt; zasobów **StorSimple serii wirtualnej**.
+2.  W Azure Portal kliknij pozycję **+ Utwórz** &gt; **Magazyn** zasobów &gt; **StorSimple serii wirtualnej**.
 
     ![Utwórz nową usługę](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

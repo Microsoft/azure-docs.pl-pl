@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 06412a1f08f1f242a3f3bd9be17b795ee09fcf9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651880"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Element interfejsu użytkownika Microsoft. Storage. MultiStorageAccountCombo
@@ -60,11 +59,11 @@ Grupa kontrolek do tworzenia kilku kont magazynu z nazwami, które zaczynają si
 
 ## <a name="remarks"></a>Uwagi
 
-- Wartość dla `defaultValue.prefix` jest łączona z co najmniej jedną liczbą całkowitą w celu wygenerowania sekwencji nazw kont magazynu. Na `defaultValue.prefix` przykład jeśli jest to **sa** i `count` ma **2**, generowane są nazwy kont magazynu **SA1** i **SA2** . Nazwy wygenerowanego konta magazynu są sprawdzane automatycznie w celu zapewnienia unikatowości.
-- Nazwy kont magazynu są generowane na podstawie lexicographically `count`. Na przykład, jeśli `count` wynosi 10, wówczas nazwy kont magazynu kończą się dwiema cyframi liczb całkowitych (01, 02, 03).
-- Wartość domyślna dla `defaultValue.prefix` jest **równa null**, a `defaultValue.type` w przypadku **Premium_LRS**.
-- Dowolny typ, który nie `constraints.allowedTypes` jest określony w elemencie jest ukryty, i dowolny `constraints.excludedTypes` typ, który nie jest określony w, jest pokazywany. `constraints.allowedTypes`i `constraints.excludedTypes` są opcjonalne, ale nie mogą być używane jednocześnie.
-- Oprócz generowania nazw kont magazynu, `count` służy do ustawiania odpowiedniego mnożnika dla elementu. Obsługuje ona wartość statyczną, taką jak **2**, lub wartość dynamiczną z innego elementu, `[steps('step1').storageAccountCount]`na przykład. Wartość domyślna to **1**.
+- Wartość dla `defaultValue.prefix` jest łączona z co najmniej jedną liczbą całkowitą w celu wygenerowania sekwencji nazw kont magazynu. Na przykład jeśli `defaultValue.prefix` jest to **sa** i `count` ma **2**, generowane są nazwy kont magazynu **SA1** i **SA2** . Nazwy wygenerowanego konta magazynu są sprawdzane automatycznie w celu zapewnienia unikatowości.
+- Nazwy kont magazynu są generowane na podstawie lexicographically `count` . Na przykład, jeśli `count` wynosi 10, wówczas nazwy kont magazynu kończą się dwiema cyframi liczb całkowitych (01, 02, 03).
+- Wartość domyślna dla `defaultValue.prefix` jest **równa null**, a w przypadku `defaultValue.type` **Premium_LRS**.
+- Dowolny typ, który nie jest określony w elemencie `constraints.allowedTypes` jest ukryty, i dowolny typ, który nie jest określony w, `constraints.excludedTypes` jest pokazywany. `constraints.allowedTypes`i `constraints.excludedTypes` są opcjonalne, ale nie mogą być używane jednocześnie.
+- Oprócz generowania nazw kont magazynu, `count` służy do ustawiania odpowiedniego mnożnika dla elementu. Obsługuje ona wartość statyczną, taką jak **2**, lub wartość dynamiczną z innego elementu, na przykład `[steps('step1').storageAccountCount]` . Wartość domyślna to **1**.
 
 ## <a name="next-steps"></a>Następne kroki
 

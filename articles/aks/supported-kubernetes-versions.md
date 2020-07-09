@@ -6,12 +6,11 @@ author: sauryadas
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5f396ba6ec1ecc6bd111e048ce34e3546c7364dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593448"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345057"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -95,10 +94,10 @@ New Supported Version List
 * Nowe wersje **pomocnicze** programu Kubernetes
   * Wszyscy użytkownicy są powiadamiani publicznie o nowej wersji i o wersji, która zostanie usunięta.
   * Po wydaniu nowej wersji poprawki najstarsza wersja poprawki jest usuwana w tym samym czasie.
-  * Klienci mają **30 dni** od publicznej daty powiadomienia, aby przeprowadzić uaktualnienie do obsługiwanej wersji pomocniczej.
+  * Pomoc techniczna systemu Azure zapewnia klientom **30 dni** od publicznego powiadomienia o konieczności uaktualnienia do obsługiwanej wersji pomocniczej. Po upływie 30 dni musisz zaktualizować wersję pomocniczą, aby nadal otrzymywać pomoc techniczną.
 * Nowe wersje **poprawek** Kubernetes
   * Wszyscy użytkownicy otrzymają powiadomienie o wydaniu nowej wersji poprawki i przeprowadź uaktualnienie do najnowszej wersji poprawki.
-  * Użytkownicy mają **30 dni** , aby przeprowadzić uaktualnienie do nowszej obsługiwanej wersji poprawki przed usunięciem najstarszego.
+  * Pomoc techniczna systemu Azure zapewnia klientom **30 dni** uaktualnienie do obsługiwanej wersji poprawki po usunięciu starszej wersji poprawki. Po upływie 30 dni musisz zaktualizować wersję poprawki, aby nadal otrzymywać pomoc techniczną.
 
 AKS definiuje "wydaną wersję" jako ogólnie dostępne wersje, włączone we wszystkich pomiarach SLO/Quality of Service i dostępne we wszystkich regionach. AKS mogą również obsługiwać wersje w wersji zapoznawczej, które są jawnie oznaczone etykietami i podlegają zapewnieniu warunków i postanowień.
 
@@ -155,7 +154,7 @@ W przypadku wersji pomocniczych nieobsługiwanych przez AKS skalowanie w poziomi
 
 **Czy klient może nadal korzystać z wersji Kubernetes?**
 
-Tak. Jeśli jednak klaster nie znajduje się w jednej z wersji obsługiwanej przez AKS, klaster jest spoza zasad obsługi AKS. Platforma Azure nie uaktualnia automatycznie klastra ani nie usuwa go.
+Jeśli klaster nie obsługuje więcej niż 3 wersji pomocniczych i został uznany za zagrożenie bezpieczeństwa, platforma Azure skontaktuje się z administratorem w celu aktywnego uaktualnienia klastra. Jeśli nie podejmujesz dalszych działań, platforma Azure zastrzega sobie prawo do wymuszenia uaktualnienia klastra w Twoim imieniu.
 
 **Jaka wersja jest obsługiwana przez płaszczyznę kontroli, jeśli Pula węzłów nie znajduje się w jednej z obsługiwanych wersji AKS?**
 

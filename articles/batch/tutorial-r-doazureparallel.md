@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117101"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418181"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Samouczek: równoległe uruchamianie symulacji języka R w usłudze Azure Batch 
 
@@ -220,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-Symulacja rozdziela zadania podrzędne do węzłów w puli usługi Batch. Możesz zobaczyć tę aktywność na mapie cieplnej puli w witrynie Azure Portal. Przejdź do pozycji >  **konta wsadowe***myBatchAccount*. Kliknij pozycję **Pule** > moja*Pula*. 
+Symulacja rozdziela zadania podrzędne do węzłów w puli usługi Batch. Działanie jest widoczne na mapie cieplnej dla puli w Azure Portal. Przejdź do pozycji **konta wsadowe**  >  *myBatchAccount*. Kliknij pozycję **Pule**moja  >  *Pula*. 
 
 ![Mapa cieplna puli z uruchomionymi równoległymi zadaniami języka R](media/tutorial-r-doazureparallel/pool.png)
 

@@ -9,18 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/30/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a939eece83b94043f750d6f7f63db290f827da4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85077975"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Przeglądanie dostępu do grup i aplikacji w przeglądach dostępu do usługi Azure AD
 
@@ -33,7 +32,7 @@ Proces przeglądu dostępu można uruchomić z powiadomienia e-mail lub bezpośr
 - **Adres e-mail**:
 
 >[!IMPORTANT]
-> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych azure-noreply@microsoft.com się, aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
+> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych się azure-noreply@microsoft.com , aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
 
 1. Poszukaj wiadomości e-mail od firmy Microsoft z prośbą o przegląd dostępu. Oto przykładowa wiadomość e-mail, aby przejrzeć dostęp do grupy.
 
@@ -43,7 +42,7 @@ Proces przeglądu dostępu można uruchomić z powiadomienia e-mail lub bezpośr
 
 - **Jeśli nie masz wiadomości e-mail**, możesz znaleźć oczekujące przeglądy dostępu, wykonując następujące kroki.
 
-    1. Zaloguj się do portalu Moje aplikacje pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com).
+    1. Zaloguj się do portalu Moje aplikacje pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
         ![Portal moje aplikacje zawiera listę aplikacji, do których masz uprawnienia](./media/perform-access-review/myapps-access-panel.png)
 
@@ -113,7 +112,7 @@ Możesz przejść do nowego środowiska recenzenta przy użyciu zaktualizowanego
 
 ### <a name="my-apps-portal"></a>Portal moje aplikacje
 
-1. Zaloguj się do moich aplikacji pod [https://myapps.microsoft.com](https://myapps.microsoft.com)adresem.
+1. Zaloguj się do moich aplikacji pod adresem [https://myapps.microsoft.com](https://myapps.microsoft.com) .
 
     ![Portal moje aplikacje zawiera listę aplikacji, do których masz uprawnienia](./media/perform-access-review/myapps-access-panel.png)
 
@@ -129,7 +128,7 @@ Możesz przejść do nowego środowiska recenzenta przy użyciu zaktualizowanego
 ### <a name="email"></a>Poczta e-mail
 
   >[!IMPORTANT]
-> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych azure-noreply@microsoft.com się, aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
+> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych się azure-noreply@microsoft.com , aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
 
    1. Poszukaj wiadomości e-mail od firmy Microsoft z prośbą o przegląd dostępu. Poniżej znajduje się Przykładowa wiadomość e-mail:
 

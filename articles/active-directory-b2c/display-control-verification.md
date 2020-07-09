@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188787"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85202318"
 ---
 # <a name="verification-display-control"></a>Kontrolka wyświetlania weryfikacji
 
@@ -40,12 +40,12 @@ Kontrolka wyświetlania weryfikacji składa się z dwóch kroków (czynności):
 
 **VerificationControl** musi zawierać następujące elementy:
 
-- Typ elementu `DisplayControl` to `VerificationControl`.
+- Typ elementu `DisplayControl` to `VerificationControl` .
 - `DisplayClaims`
   - **Wyślij do** -co najmniej jedno oświadczenie określające miejsce, do którego ma zostać wysłany kod weryfikacyjny. Na przykład *adres e-mail* lub *kod kraju* i *numer telefonu*.
-  - **Kod weryfikacyjny** — Kontrola kodu weryfikacyjnego, którą użytkownik udostępnia po wysłaniu kodu. To żądanie musi być ustawione jako wymagane i `ControlClaimType` musi mieć ustawioną wartość. `VerificationCode`
+  - **Kod weryfikacyjny** — Kontrola kodu weryfikacyjnego, którą użytkownik udostępnia po wysłaniu kodu. To żądanie musi być ustawione jako wymagane i `ControlClaimType` musi mieć ustawioną wartość `VerificationCode` .
 - Zgłoszenie wyjściowe (opcjonalne) do zwrócenia do strony z własnym poproszonym po zakończeniu procesu weryfikacji przez użytkownika. Na przykład *adres e-mail* lub *kod kraju* i *numer telefonu*. Profil techniczny z własnym potwierdzeniem używa oświadczeń do utrwalania danych lub przechodzenia do następnego kroku aranżacji.
-- Dwa `Action`s z następującymi nazwami:
+- Dwa `Action` s z następującymi nazwami:
   - **Kontrolka sendcode** — wysyła kod do użytkownika. Ta akcja zwykle zawiera dwa sprawdzanie poprawności profilu technicznego w celu wygenerowania kodu i wysłania go.
   - **Kontrolka verifycode** — weryfikuje kod. Ta akcja zwykle zawiera profil techniczny weryfikacji pojedynczej.
 
@@ -53,7 +53,7 @@ W poniższym przykładzie pole tekstowe **wiadomości e-mail** jest wyświetlane
 
 Następnie użytkownik wprowadza **verificationCode** i wybiera **kontrolka verifycode** , aby wyzwolić akcję **kontrolka verifycode** w zapleczu. Jeśli wszystkie walidacje zakończyły się powodzeniem, **VerificationControl** jest uznawany za kompletne i użytkownik może przejść do następnego kroku.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

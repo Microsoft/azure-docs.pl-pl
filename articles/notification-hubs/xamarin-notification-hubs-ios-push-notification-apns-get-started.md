@@ -6,24 +6,21 @@ keywords: powiadomienia wypychane w systemie ios, wiadomości wypychane, powiado
 documentationcenter: xamarin
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 07/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6b3c56734261c47b17b2fc4e65555aea9004eee2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127009"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057946"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. iOS przy użyciu usługi Azure Notification Hubs
 
@@ -73,11 +70,11 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
     ![Visual Studio — konfiguracja aplikacji systemu iOS][32]
 
-4. W widoku rozwiązania kliknij dwukrotnie przycisk `Entitlements.plist` i upewnij się, że włączono opcję **Włącz powiadomienia wypychane** .
+4. W widoku rozwiązania kliknij dwukrotnie przycisk i upewnij się, że włączono opcję `Entitlements.plist` **Włącz powiadomienia wypychane** .
 
     ![Visual Studio — konfigurowanie uprawnień systemu iOS][33]
 
-5. Dodaj pakiet składnika Azure Messaging. W widoku rozwiązania kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **Dodaj pakiety NuGet**. Wyszukaj pakiet **Xamarin.Azure.NotificationHubs.iOS** i dodaj go do projektu.
+5. Dodaj pakiet składnika Azure Messaging. W widoku rozwiązania kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **Dodaj pakiety NuGet**. Wyszukaj pakiet **Xamarin.Azure.NotificationHubs.iOS** i dodaj go do projektu.
 
 6. Dodaj nowy plik do klasy, nadaj mu nazwę `Constants.cs`, dodaj następujące zmienne i zastąp symbole zastępcze literału ciągu przy użyciu zanotowanych wcześniej wartości `hubname` i `DefaultListenSharedAccessSignature`.
 
@@ -109,10 +106,8 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
         {
             UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
-            {
-                if (granted)
                     InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
-            });
+        }
         } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
             var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                     UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
@@ -191,8 +186,9 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
                 //Manually show an alert
                 if (!string.IsNullOrEmpty(alert))
                 {
-                    UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
-                    avAlert.Show();
+                    var myAlert = UIAlertController.Create("Notification", alert, UIAlertControllerStyle.Alert);
+                    myAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+                    UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(myAlert, true, null);
                 }
             }
         }

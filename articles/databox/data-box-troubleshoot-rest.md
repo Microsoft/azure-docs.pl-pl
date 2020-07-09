@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 7fe5afbc4984c430cbf393e4e2b44122bdd43983
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297125"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85558561"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box BLOB Storage
 
@@ -26,7 +26,7 @@ W tej sekcji przedstawiono niektóre problemy związane z używaniem Eksplorator
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
 |Nie można pobrać zasobów podrzędnych. Wartość jednego z nagłówków HTTP nie ma poprawnego formatu.|Z menu **Edycja** wybierz pozycję **docelowa Azure Stack interfejsy API**. <br>Uruchom ponownie Eksplorator usługi Azure Storage.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Sprawdź, czy nazwa `<accountname>.blob.<serialnumber>.microsoftdatabox.com` punktu końcowego została dodana do pliku hosts w tej ścieżce: <li>`C:\Windows\System32\drivers\etc\hosts`w systemie Windows lub </li><li> `/etc/hosts`w systemie Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w tej ścieżce: <li>`C:\Windows\System32\drivers\etc\hosts`w systemie Windows lub </li><li> `/etc/hosts`w systemie Linux.</li>|
 |Nie można pobrać zasobów podrzędnych. <br>Szczegóły: certyfikat z podpisem własnym |Zaimportuj certyfikat TLS/SSL dla urządzenia do Eksplorator usługi Azure Storage: <li>Pobierz certyfikat z Azure Portal. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Z menu **Edycja** wybierz pozycję **Certyfikaty SSL** , a następnie wybierz pozycję **Importuj certyfikaty**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Błędy widoczne w AzCopy dla systemu Windows
@@ -35,8 +35,8 @@ W tej sekcji przedstawiono niektóre problemy związane z korzystaniem z program
 
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
-|AzCopy polecenie wydaje się odwiesić przez minutę przed wyświetleniem tego błędu: <br>Nie można wyliczyć https://katalogu... Nie można rozpoznać nazwy zdalnej`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Sprawdź, czy nazwa `<accountname>.blob.<serialnumber>.microsoftdatabox.com` punktu końcowego została dodana do pliku hosts w `C:\Windows\System32\drivers\etc\hosts`lokalizacji:.|
-|AzCopy polecenie wydaje się odwiesić przez minutę przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas analizowania lokalizacji źródłowej. Połączenie podstawowe zostało zamknięte: nie można ustanowić relacji zaufania dla bezpiecznego kanału SSL/TLS.|Zaimportuj certyfikat TLS/SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu: <br>Nie można wyliczyć https://katalogu... Nie można rozpoznać nazwy zdalnej`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `C:\Windows\System32\drivers\etc\hosts` .|
+|AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas analizowania lokalizacji źródłowej. Połączenie podstawowe zostało zamknięte: nie można ustanowić relacji zaufania dla bezpiecznego kanału SSL/TLS.|Zaimportuj certyfikat TLS/SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
 ## <a name="errors-seen-in-azcopy-for-linux"></a>Błędy widoczne w AzCopy dla systemu Linux
@@ -45,8 +45,8 @@ W tej sekcji przedstawiono niektóre problemy związane z korzystaniem z AzCopy 
 
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
-|AzCopy polecenie wydaje się odwiesić przez 20 minut przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`analizowania lokalizacji źródłowej. Nie ma takiego urządzenia lub adresu|Sprawdź, czy nazwa `<accountname>.blob.<serialnumber>.microsoftdatabox.com` punktu końcowego została dodana do pliku hosts w `/etc/hosts`lokalizacji:.|
-|AzCopy polecenie wydaje się odwiesić przez 20 minut przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas analizowania lokalizacji źródłowej... Nie można nawiązać połączenia SSL.|Zaimportuj certyfikat TLS/SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas analizowania lokalizacji źródłowej `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>` . Nie ma takiego urządzenia lub adresu|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
+|Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas analizowania lokalizacji źródłowej... Nie można nawiązać połączenia SSL.|Zaimportuj certyfikat TLS/SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 ## <a name="errors-seen-in-azure-storage-library-for-python"></a>Błędy widoczne w bibliotece usługi Azure Storage dla języka Python
 

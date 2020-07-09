@@ -3,15 +3,15 @@ title: Przenoszenie zewnętrznych Load Balancer platformy Azure do innego region
 description: Użyj szablonu Azure Resource Manager, aby przenieść zewnętrzny Load Balancer platformy Azure z jednego regionu świadczenia usługi Azure do innego przy użyciu Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be1971c9184d0b2b406b669ae9d1ea61598b201f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75644821"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84809427"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Przenoszenie zewnętrznych Load Balancer platformy Azure do innego regionu przy użyciu Azure PowerShell
 
@@ -60,7 +60,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<Resource-Group-Name>. JSON** i otwórz go w wybranym edytorze:
+4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<resource-group-name> . JSON** i otwórz go w wybranym edytorze:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -116,7 +116,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
     ```
 8. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
 
-    * **Jednostka SKU** — można zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na Standard, zmieniając właściwość**Nazwa** **jednostki SKU** > w pliku ** \<Resource-Group-Name>. JSON** :
+    * **Jednostka SKU** — można zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na Standard, zmieniając właściwość Nazwa **jednostki SKU**  >  **name** w pliku ** \<resource-group-name> JSON** :
 
          ```json
             "resources": [
@@ -161,14 +161,14 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
         Aby uzyskać więcej informacji na temat metod alokacji i wartości limitu czasu bezczynności, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-9. Zapisz plik ** \<Resource-Group-Name>. JSON** .
+9. Zapisz plik ** \<resource-group-name> JSON** .
 
 10. Utwórz grupę zasobów w regionie docelowym dla docelowego publicznego adresu IP do wdrożenia przy użyciu polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Wdróż edytowany ** \<plik Resource-Group-Name>. JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Wdróż edytowany plik ** \<resource-group-name> JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
@@ -209,7 +209,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
    ```
-4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<Resource-Group-Name>. JSON** i otwórz go w wybranym edytorze:
+4. Pobrany plik zostanie nazwany po grupie zasobów, z której został wyeksportowany zasób.  Znajdź plik, który został wyeksportowany z polecenia o nazwie ** \<resource-group-name> . JSON** i otwórz go w wybranym edytorze:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json
@@ -232,7 +232,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
 
     ```
 
-6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować i wkleić go do pliku ** \<Resource-Group-Name>. JSON** .  Aby uzyskać identyfikator, użyj polecenie [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony powyżej, należy najpierw uzyskać identyfikator zasobu, a następnie skopiować go i wkleić do pliku ** \<resource-group-name> JSON** .  Aby uzyskać identyfikator, użyj polecenie [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -244,7 +244,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
     /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupLB-Move/providers/Microsoft.Network/publicIPAddresses/myPubIP-in-move
     ```
 
-7.  W pliku ** \<Resource-Group-Name>. JSON** wklej **Identyfikator zasobu** ze zmiennej zamiast elementu **DefaultValue** w drugim parametrze dla zewnętrznego identyfikatora IP, upewnij się, że ścieżka została umieszczona w cudzysłowie:
+7.  W pliku ** \<resource-group-name> JSON** wklej **Identyfikator zasobu** ze zmiennej zamiast elementu **DefaultValue** w drugim parametrze dla zewnętrznego identyfikatora IP, upewnij się, że ścieżka została umieszczona w cudzysłowie:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -261,7 +261,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
 
     ```
 
-8.  W przypadku skonfigurowania wychodzącego NAT i reguł ruchu wychodzącego dla modułu równoważenia obciążenia trzeci wpis będzie obecny w tym pliku dla zewnętrznego identyfikatora dla wychodzącego publicznego adresu IP.  Powtórz powyższe kroki w **regionie docelowym** , aby uzyskać identyfikator wychodzącego publicznego adresu IP i wkleić ten wpis do pliku ** \<Resource-Group-Name>. JSON** :
+8.  W przypadku skonfigurowania wychodzącego NAT i reguł ruchu wychodzącego dla modułu równoważenia obciążenia trzeci wpis będzie obecny w tym pliku dla zewnętrznego identyfikatora dla wychodzącego publicznego adresu IP.  Powtórz powyższe kroki w **regionie docelowym** , aby uzyskać identyfikator wychodzącego publicznego adresu IP i wkleić ten wpis do pliku ** \<resource-group-name> JSON** :
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -282,7 +282,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
         },
     ```
 
-10. Aby edytować region docelowy, w którym zostanie przeniesiona konfiguracja zewnętrznego modułu równoważenia obciążenia, Zmień właściwość **Location** w obszarze **zasoby** w pliku ** \<Resource-Group-Name>. JSON** :
+10. Aby edytować region docelowy, w którym zostanie przeniesiona konfiguracja zewnętrznego modułu równoważenia obciążenia, Zmień właściwość **Location** w obszarze **zasoby** w pliku ** \<resource-group-name> JSON** :
 
     ```json
         "resources": [
@@ -306,7 +306,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
     ```
 12. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
     
-    * **Jednostka SKU** — można zmienić jednostkę SKU zewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość**Nazwa** **jednostki SKU** > w pliku ** \<Resource-Group-Name>. JSON** :
+    * **Jednostka SKU** — można zmienić jednostkę SKU zewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość Nazwa **jednostki SKU**  >  **name** w pliku ** \<resource-group-name> JSON** :
 
         ```json
         "resources": [
@@ -322,7 +322,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
         ```
       Aby uzyskać więcej informacji na temat różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Reguły równoważenia obciążenia** — można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **loadBalancingRules** w ** \<pliku Resource-Group-Name>. JSON** :
+    * **Reguły równoważenia obciążenia** — można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **loadBalancingRules** pliku ** \<resource-group-name> JSON** :
 
         ```json
         "loadBalancingRules": [
@@ -354,7 +354,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
         ```
        Aby uzyskać więcej informacji o regułach równoważenia obciążenia, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Sondy** — można dodać lub usunąć sondę modułu równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **sondy** w pliku ** \<Resource-Group-Name>. JSON** :
+    * **Sondy** — można dodać lub usunąć sondę modułu równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów do sekcji **sondy** w pliku ** \<resource-group-name> JSON** :
 
         ```json
         "probes": [
@@ -374,7 +374,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
         ```
        Aby uzyskać więcej informacji na Azure Load Balancer sond kondycji, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów do sekcji **inboundNatRules** w ** \<pliku Resource-Group-Name>. JSON** :
+    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów do sekcji **inboundNatRules** pliku ** \<resource-group-name> JSON** :
 
         ```json
         "inboundNatRules": [
@@ -396,7 +396,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
                     }
                 ]
         ```
-        Aby ukończyć Dodawanie lub usuwanie reguły NAT dla ruchu przychodzącego, reguła musi być obecna lub usunięta jako właściwość **typu** na końcu pliku ** \<Resource-Group-Name>. JSON** :
+        Aby ukończyć Dodawanie lub usuwanie reguły NAT dla ruchu przychodzącego, reguła musi być obecna lub usunięta jako właściwość **typu** na końcu pliku ** \<resource-group-name> JSON** :
 
         ```json
         {
@@ -422,7 +422,7 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
         ```
         Aby uzyskać więcej informacji na temat reguł NAT dla ruchu przychodzącego, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
-    * **Reguły ruchu wychodzącego** — można dodawać lub usuwać reguły wychodzące w konfiguracji, edytując Właściwość **outboundRules** w pliku ** \<Resource-Group-Name>. JSON** :
+    * **Reguły ruchu wychodzącego** — można dodawać lub usuwać reguły wychodzące w konfiguracji, edytując Właściwość **outboundRules** w pliku ** \<resource-group-name> JSON** :
 
         ```json
         "outboundRules": [
@@ -450,14 +450,14 @@ Poniższe kroki pokazują, jak przygotować zewnętrzny moduł równoważenia ob
 
          Aby uzyskać więcej informacji na temat reguł ruchu wychodzącego, zobacz [Load Balancer reguły wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
-13. Zapisz plik ** \<Resource-Group-Name>. JSON** .
+13. Zapisz plik ** \<resource-group-name> JSON** .
     
 10. Utwórz lub grupę zasobów w regionie docelowym dla docelowego zewnętrznego modułu równoważenia obciążenia, który ma zostać wdrożony przy użyciu polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). W ramach tego procesu można także ponownie użyć istniejącej grupy zasobów z powyższych elementów:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Wdróż edytowany ** \<plik Resource-Group-Name>. JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Wdróż edytowany plik ** \<resource-group-name> JSON** w grupie zasobów utworzonej w poprzednim kroku przy użyciu polecenia [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

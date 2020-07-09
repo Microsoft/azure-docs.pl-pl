@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: ad4ffa71480a5af06c31872cbafcaab7719c55e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253767"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w usłudze Azure Data Factory
 
@@ -28,7 +28,7 @@ Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure
 ## <a name="overview"></a>Omówienie
 Fabryka danych może obejmować jeden lub wiele potoków. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Na przykład potok może zawierać zestaw działań, które pozyskują i czyściją dane dziennika, a następnie uruchamiają blok danych mapowania w celu przeanalizowania danych dziennika. Potok umożliwia zarządzanie działaniami jako zestaw zamiast każdego z nich osobno. Należy wdrożyć i zaplanować potok zamiast działań niezależnie.
 
-Działania w potoku definiują akcje do wykonania na danych. Możesz na przykład użyć działania kopiowania w celu skopiowania danych z lokalnego programu SQL Server do usługi Azure Blob Storage. Następnie można przetwarzać i przekształcać dane z magazynu obiektów BLOB do puli analiz usługi Azure Synapse w oparciu o utworzone rozwiązania do raportowania analizy biznesowej przy użyciu działania przepływu danych lub działania notesu.
+Działania w potoku definiują akcje do wykonania na danych. Na przykład możesz użyć działania kopiowania, aby skopiować dane z SQL Server do Blob Storage platformy Azure. Następnie można przetwarzać i przekształcać dane z magazynu obiektów BLOB do puli analiz usługi Azure Synapse w oparciu o utworzone rozwiązania do raportowania analizy biznesowej przy użyciu działania przepływu danych lub działania notesu.
 
 Data Factory ma trzy grupy działań: [działania przenoszenia danych](copy-activity-overview.md), [działania przekształcania danych](transform-data.md)i [działania sterowania](control-flow-web-activity.md). Dane działanie może — ale nie musi — korzystać z wejściowych [zestawów danych](concepts-datasets-linked-services.md) i generować co najmniej jeden wyjściowy [zestaw danych](concepts-datasets-linked-services.md). Na poniższym diagramie przedstawiono relację między potokiem, działaniem i zestawem danych w usłudze Data Factory:
 
@@ -55,7 +55,7 @@ Działanie przekształcania danych | Środowisko obliczeniowe
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Połączenia strumieniowe usługi Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
-[platforma Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
+[Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](transform-data-using-machine-learning.md) | Maszyna wirtualna platformy Azure
 [Procedura składowana](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse lub SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
@@ -106,12 +106,12 @@ Poniżej przedstawiono sposób definiowania potoku w formacie JSON:
 }
 ```
 
-Tag | Opis | Typ | Wymagany
+Tag | Opis | Typ | Wymagane
 --- | ----------- | ---- | --------
-name | Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 140</li><li>Musi zaczynać się literą, cyfrą lub podkreśleniem\_()</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | String | Tak
+name | Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 140</li><li>Musi zaczynać się literą, cyfrą lub podkreśleniem ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | String | Tak
 description | Wprowadź tekst opisujący przeznaczenie potoku. | String | Nie
 activities | W sekcji **activities** można zdefiniować jedno lub więcej działań. Sprawdź sekcję [Format JSON działania](#activity-json), aby uzyskać szczegółowe informacje na temat elementu JSON activities. | Tablica | Tak
-parameters | Sekcja **parameters** może zawierać jeden lub kilka parametrów zdefiniowanych w potoku, co zwiększa elastyczność i możliwość ponownego zastosowania potoku. | List | Nie
+parameters | Sekcja **parameters** może zawierać jeden lub kilka parametrów zdefiniowanych w potoku, co zwiększa elastyczność i możliwość ponownego zastosowania potoku. | Lista | Nie
 współbieżność | Maksymalna liczba współbieżnych uruchomień potoku. Domyślnie nie ma żadnych wartości maksymalnej. W przypadku osiągnięcia limitu współbieżności dodatkowe uruchomienia potoku są umieszczane w kolejce do momentu ukończenia wcześniejszych | Liczba | Nie 
 adnotacj | Lista tagów skojarzonych z potokiem | Tablica | Nie
 
@@ -141,11 +141,11 @@ Działania wykonywania obejmują [działania przenoszenia danych](#data-movement
 
 Poniższa tabela zawiera opis właściwości w definicji JSON działania:
 
-Tag | Opis | Wymagany
+Tag | Opis | Wymagane
 --- | ----------- | ---------
-name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie. <br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się literą lub znakiem podkreślenia (\_)</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Tak</li></ul>
+name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie. <br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się literą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Tak</li></ul>
 description | Tekst opisujący przeznaczenie działania | Tak
-type | Typ działania. W sekcjach [działania przenoszenia danych](#data-movement-activities), [działania przekształcania danych](#data-transformation-activities)i [działania sterowania](#control-flow-activities) dla różnych typów działań. | Tak
+typ | Typ działania. W sekcjach [działania przenoszenia danych](#data-movement-activities), [działania przekształcania danych](#data-transformation-activities)i [działania sterowania](#control-flow-activities) dla różnych typów działań. | Tak
 linkedServiceName | Nazwa połączonej usługi używana na potrzeby działania.<br/><br/>Działanie może wymagać określenia połączonej usługi, która stanowi łącze do wymaganego środowiska obliczeniowego. | Tak dla działań HDInsight, oceny partii Azure Machine Learning i procedury składowanej. <br/><br/>Nie dla wszystkich innych
 typeProperties | Właściwości w sekcji typeProperties zależą od typu działania. Aby wyświetlić właściwości typu dla działania, kliknij linki do działań w poprzedniej sekcji. | Nie
 policy | Zasady, które mają wpływ na zachowanie działania w czasie wykonania. Ta właściwość obejmuje limit czasu i sposób ponawiania próby. Jeśli nie zostanie określony, są używane wartości domyślne. Więcej informacji można znaleźć w sekcji [Zasady działania](#activity-policy). | Nie
@@ -182,11 +182,11 @@ Zasady wpływają na zachowanie działania w czasie wykonania, określając opcj
 }
 ```
 
-Nazwa JSON | Opis | Dozwolone wartości | Wymagany
+Nazwa JSON | Opis | Dozwolone wartości | Wymagane
 --------- | ----------- | -------------- | --------
 timeout | Określa limit czasu pracy działania. | Zakres czasu | Nie. Domyślny limit czasu wynosi 7 dni.
-retry | Maksymalna liczba ponownych prób | Liczba całkowita | Nie. Wartość domyślna to 0
-retryIntervalInSeconds | Opóźnienie między ponownymi próbami w sekundach | Liczba całkowita | Nie. Wartość domyślna to 30 sekund
+retry | Maksymalna liczba ponownych prób | Integer | Nie. Wartość domyślna to 0
+retryIntervalInSeconds | Opóźnienie między ponownymi próbami w sekundach | Integer | Nie. Wartość domyślna to 30 sekund
 secureOutput | Po ustawieniu na wartość true dane wyjściowe z działania są uznawane za bezpieczne i nie są rejestrowane do monitorowania. | Boolean | Nie. Wartość domyślna to false.
 
 ### <a name="control-activity"></a>Działanie sterowania
@@ -206,11 +206,11 @@ Działania sterowania mają następującą strukturę najwyższego poziomu:
 }
 ```
 
-Tag | Opis | Wymagany
+Tag | Opis | Wymagane
 --- | ----------- | --------
-name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie.<br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia (\_)</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Tak</li><ul>
+name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie.<br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Tak</li><ul>
 description | Tekst opisujący przeznaczenie działania | Tak
-type | Typ działania. Poszczególne typy działań opisano w sekcjach [Działania przenoszenia danych](#data-movement-activities), [Działania przekształcania danych](#data-transformation-activities) i [Działania sterowania](#control-flow-activities). | Tak
+typ | Typ działania. Poszczególne typy działań opisano w sekcjach [Działania przenoszenia danych](#data-movement-activities), [Działania przekształcania danych](#data-transformation-activities) i [Działania sterowania](#control-flow-activities). | Tak
 typeProperties | Właściwości w sekcji typeProperties zależą od typu działania. Aby wyświetlić właściwości typu dla działania, kliknij linki do działań w poprzedniej sekcji. | Nie
 dependsOn | Ta właściwość jest używana do definiowania zależności działania oraz sposobu, w jaki kolejne działania zależą od poprzednich działań. Aby uzyskać więcej informacji, zobacz [zależność działania](#activity-dependency). | Nie
 
@@ -268,7 +268,7 @@ Na przykład jeśli potok zawiera zależność Działanie A -> Działanie B, ró
 `"
 
 ## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
 
 ```json
 {
@@ -358,7 +358,7 @@ W poniższym przykładowym potoku występuje jedno działanie typu **HDInsightHi
 Pamiętaj o następujących kwestiach:
 
 - W sekcji działań jest tylko jedno działanie, którego parametr **type** został ustawiony na wartość **HDInsightHive**.
-- Plik skryptu Hive, **partitionweblogs. HQL**, jest przechowywany na koncie usługi Azure Storage (określonym przez elementu scriptlinkedservice, o nazwie AzureStorageLinkedService) i w folderze skryptów w kontenerze `adfgetstarted`.
+- Plik skryptu Hive, **partitionweblogs. HQL**, jest przechowywany na koncie usługi Azure Storage (określonym przez elementu scriptlinkedservice, o nazwie AzureStorageLinkedService) i w folderze skryptów w kontenerze `adfgetstarted` .
 - Sekcja `defines` służy do określania ustawień środowiska uruchomieniowego, które są przekazywane do skryptu Hive jako wartości konfiguracyjne magazynu Hive (np. $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Sekcja **typeProperties** jest inna dla każdego działania przekształcania. Aby uzyskać informacje na temat właściwości typu obsługiwanych dla działania przekształcania, kliknij działanie przekształcania w sekcji [Działania przekształcania danych](#data-transformation-activities).

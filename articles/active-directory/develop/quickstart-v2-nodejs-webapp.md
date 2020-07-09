@@ -1,6 +1,6 @@
 ---
-title: Dodawanie OIDC Zaloguj się do aplikacji sieci Web w języku Node. js — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak zaimplementować uwierzytelnianie w aplikacji sieci Web Node. js za pomocą OpenID Connect Connect.
+title: Dodawanie OIDC Zaloguj się do aplikacji internetowej Node.js — platforma tożsamości firmy Microsoft | Azure
+description: Dowiedz się, jak zaimplementować uwierzytelnianie w aplikacji sieci Web Node.js przy użyciu programu OpenID Connect Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +11,24 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5522d35faf1888c862e0c42328f08067e7b9be26
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536067"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339905"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect łączenie się z aplikacją sieci Web w języku Node. js
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki Start: Dodawanie logowania za pomocą usługi OpenID Connect nawiązywanie połączenia z aplikacją sieci Web Node.js
 
-W tym przewodniku szybki start dowiesz się, jak skonfigurować uwierzytelnianie OpenID Connect Connect w aplikacji sieci Web skompilowanej przy użyciu środowiska Node. js z programem Express. Przykład jest przeznaczony do uruchamiania na dowolnej platformie.
+W tym przewodniku szybki start dowiesz się, jak skonfigurować uwierzytelnianie OpenID Connect Connect w aplikacji sieci Web skompilowanej za pomocą Node.js w języku Express. Przykład jest przeznaczony do uruchamiania na dowolnej platformie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do uruchomienia tego przykładu potrzebne są:
 
-* Zainstaluj program Node. js zhttp://nodejs.org/
+* Zainstaluj Node.js zhttp://nodejs.org/
 
-* Program dla deweloperów [konto Microsoft](https://www.outlook.com) lub [pakietu Office 365](/office/developer-program/office-365-developer-program)
+* [Konto Microsoft](https://www.outlook.com) lub [Microsoft 365 programu dla deweloperów](/office/developer-program/office-365-developer-program)
 
 ## <a name="register-your-application"></a>Rejestrowanie aplikacji
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta służbowego lub konto Microsoft prywatnego.
@@ -82,23 +82,23 @@ W katalogu głównym projektu uruchom polecenie:
 
 ## <a name="configure-the-application"></a>Konfigurowanie aplikacji
 
-Podaj parametry w `exports.creds` pliku config. js zgodnie z instrukcją.
+Podaj parametry w config.js zgodnie z `exports.creds` instrukcją.
 
-* Zaktualizuj `<tenant_name>` `exports.identityMetadata` program przy użyciu nazwy DZIERŻAWy usługi Azure AD w \*formacie. onmicrosoft.com.
+* Zaktualizuj `<tenant_name>` `exports.identityMetadata` program przy użyciu nazwy dzierżawy usługi Azure AD w formacie \* . onmicrosoft.com.
 * Zaktualizuj `exports.clientID` przy użyciu identyfikatora aplikacji zanotowanego w obszarze Rejestracja aplikacji.
 * Zaktualizuj `exports.clientSecret` klucz tajny aplikacji zapisany w obszarze Rejestracja aplikacji.
 * Zaktualizuj `exports.redirectUrl` przy użyciu identyfikatora URI przekierowania zanotowanego w obszarze Rejestracja aplikacji.
 
 **Opcjonalna konfiguracja dla aplikacji produkcyjnych:**
 
-* Jeśli `exports.destroySessionUrl` chcesz użyć innego `post_logout_redirect_uri`programu, zaktualizuj plik w pliku config. js.
+* Zaktualizuj `exports.destroySessionUrl` w config.js, jeśli chcesz użyć innego `post_logout_redirect_uri` .
 
-* W `exports.useMongoDBSessionStore` pliku config. JS Ustaw wartość true, jeśli chcesz używać [MongoDB](https://www.mongodb.com) lub innych [zgodnych magazynów sesji](https://github.com/expressjs/session#compatible-session-stores).
-Domyślnym magazynem sesji w tym przykładzie jest `express-session`. Domyślny magazyn sesji nie jest odpowiedni dla środowiska produkcyjnego.
+* Ustaw `exports.useMongoDBSessionStore` w config.js na wartość true, jeśli chcesz używać [MongoDB](https://www.mongodb.com) lub innych [zgodnych magazynów sesji](https://github.com/expressjs/session#compatible-session-stores).
+Domyślnym magazynem sesji w tym przykładzie jest `express-session` . Domyślny magazyn sesji nie jest odpowiedni dla środowiska produkcyjnego.
 
-* Zaktualizuj `exports.databaseUri`, jeśli chcesz użyć magazynu sesji MongoDB i innego identyfikatora URI bazy danych.
+* Zaktualizuj `exports.databaseUri` , jeśli chcesz użyć magazynu sesji MongoDB i innego identyfikatora URI bazy danych.
 
-* Aktualizacja `exports.mongoDBSessionMaxAge`. W tym miejscu możesz określić, jak długo ma być przechowywane sesja w mongoDB. Jednostka jest sekunda.
+* Aktualizacja `exports.mongoDBSessionMaxAge` . W tym miejscu możesz określić, jak długo ma być przechowywane sesja w mongoDB. Jednostka jest sekunda.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
@@ -120,7 +120,7 @@ $ node app.js | bunyan
 
 ### <a name="youre-done"></a>Wszystko gotowe!
 
-Serwer programu będzie działał pomyślnie `http://localhost:3000`.
+Serwer programu będzie działał pomyślnie `http://localhost:3000` .
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

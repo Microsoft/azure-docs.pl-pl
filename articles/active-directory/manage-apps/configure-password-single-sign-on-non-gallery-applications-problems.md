@@ -3,24 +3,23 @@ title: Problemy z konfigurowaniem rejestracji jednokrotnej hasła dla aplikacji 
 description: Typowe problemy występujące podczas konfigurowania logowania jednokrotnego (SSO) hasła dla aplikacji niestandardowych, które nie znajdują się w galerii aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 9620a6ad584f20a0956e6a29c89609d79832f4d2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74274148"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763452"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemy z konfigurowaniem logowania jednokrotnego przy użyciu hasła dla aplikacji spoza galerii
 
@@ -42,7 +41,7 @@ Ogólnie rzecz biorąc, jeśli automatyczne przechwytywanie pól logowania nie d
 
 Aby skonfigurować Logowanie jednokrotne oparte na haśle przy użyciu automatycznego przechwytywania pól logowania, wykonaj następujące czynności:
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com/). Zaloguj się jako Administrator globalny lub współadministrator.
+1. Otwórz [witrynę Azure Portal](https://portal.azure.com/). Zaloguj się jako Administrator globalny lub współadministrator.
 
 2. W okienku nawigacji po lewej stronie wybierz pozycję **wszystkie usługi** , aby otworzyć rozszerzenie usługi Azure AD.
 
@@ -75,7 +74,7 @@ Aby zainstalować rozszerzenie, zobacz sekcję [Instalowanie rozszerzenia przegl
 
 Aby skonfigurować Logowanie jednokrotne na podstawie hasła dla aplikacji przy użyciu funkcji ręcznego rejestrowania pól logowania, wykonaj następujące czynności:
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com/). Zaloguj się jako Administrator globalny lub współadministrator.
+1. Otwórz [witrynę Azure Portal](https://portal.azure.com/). Zaloguj się jako Administrator globalny lub współadministrator.
 
 2. W okienku nawigacji po lewej stronie wybierz pozycję **wszystkie usługi** , aby otworzyć rozszerzenie usługi Azure AD.
 
@@ -96,7 +95,7 @@ Aby skonfigurować Logowanie jednokrotne na podstawie hasła dla aplikacji przy 
 
 9. Wprowadź **adres URL logowania**, który jest stroną, w której użytkownicy wprowadzają nazwę użytkownika i hasło w celu zalogowania się. *Upewnij się, że pola logowania są widoczne na stronie dla podania adresu URL*.
 
-10. Wybierz **pozycję * &lt;&gt; * Konfiguruj ustawienia logowanie**jednokrotne hasła.
+10. Wybierz **pozycję * &lt; &gt; * Konfiguruj ustawienia logowanie**jednokrotne hasła.
 
 11. Wybierz pozycję **ręcznie Wykryj pola logowania**.
 
@@ -140,7 +139,7 @@ Jeśli występują jakieś problemy, wykonaj następujące czynności:
 
 - Spróbuj ponownie wykonać ręczną procedurę przechwytywania. Upewnij się, że czerwone znaczniki znajdują się nad poprawnymi polami.
 
-- Jeśli proces przechwytywania ręcznego wydaje się przestać odpowiadać lub strona logowania nie odpowiada, spróbuj ponownie wykonać ręczną procedurę przechwytywania. Ale tym razem po zakończeniu procesu naciśnij klawisz F12, aby otworzyć konsolę dewelopera przeglądarki. Wybierz kartę **konsola** . Wpisz **window. Location = "*&lt;adres URL logowania, który został określony podczas konfigurowania aplikacji&gt;*"**, a następnie naciśnij klawisz ENTER. Powoduje to wymuszenie przekierowania strony kończącego proces przechwytywania i przechowywania przechwyconych pól.
+- Jeśli proces przechwytywania ręcznego wydaje się przestać odpowiadać lub strona logowania nie odpowiada, spróbuj ponownie wykonać ręczną procedurę przechwytywania. Ale tym razem po zakończeniu procesu naciśnij klawisz F12, aby otworzyć konsolę dewelopera przeglądarki. Wybierz kartę **konsola** . Wpisz **window. Location = "* &lt; adres URL logowania, który został określony podczas konfigurowania &gt; aplikacji*"**, a następnie naciśnij klawisz ENTER. Powoduje to wymuszenie przekierowania strony kończącego proces przechwytywania i przechowywania przechwyconych pól.
 
 ### <a name="contact-support"></a>Kontakt z pomocą techniczną
 
@@ -219,7 +218,7 @@ Poniższe informacje wyjaśniają, co oznacza każdy element powiadomienia i zaw
 
 - **Nazwa UPN**: użytkownik, który uruchomił operację.
 
-    Przykład: *tperkins\@f128.info*
+    Przykład: *tperkins \@ f128.info*
 
 - **Identyfikator dzierżawy**: unikatowy identyfikator dzierżawy, do której należy użytkownik, który uruchomił operację.
 
@@ -245,7 +244,7 @@ Poniższe informacje wyjaśniają, co oznacza każdy element powiadomienia i zaw
 
 - **Szczegóły**: szczegółowy opis tego, co się stało w wyniku operacji.
 
-    Przykład: *wewnętrzny adres URL<https://bing.com/>"" jest nieprawidłowy, ponieważ jest już używany.*
+    Przykład: *wewnętrzny adres URL " <https://bing.com/> " jest nieprawidłowy, ponieważ jest już używany.*
 
 - **Błąd kopiowania**: umożliwia wybranie **ikony kopiowania** z prawej strony pola tekstowego **błąd kopiowania** , aby skopiować szczegóły powiadomień w celu uzyskania pomocy technicznej.
 

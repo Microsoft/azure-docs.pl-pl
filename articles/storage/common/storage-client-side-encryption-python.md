@@ -9,14 +9,14 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74895366"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804901"
 ---
 # <a name="client-side-encryption-with-python"></a>Szyfrowanie po stronie klienta przy użyciu języka Python
 
@@ -92,7 +92,7 @@ Szyfrowanie danych tabeli działa w następujący sposób:
 
 1. Użytkownicy określają właściwości, które mają być szyfrowane.
 2. Biblioteka klienta generuje losowy wektor inicjacji (IV) z 16 bajtów wraz z losowym kluczem szyfrowania zawartości (CEK) wynoszącym 32 bajtów dla każdej jednostki i wykonuje szyfrowanie kopert dla poszczególnych właściwości, aby były szyfrowane przez wygenerowanie nowej wartości IV na właściwość. Zaszyfrowana właściwość jest przechowywana jako dane binarne.
-3. Opakowany CEK i niektóre dodatkowe metadane szyfrowania są następnie przechowywane jako dwie dodatkowe zastrzeżone właściwości. Pierwsza zastrzeżona Właściwość (\_ClientEncryptionMetadata1) jest właściwością ciągu, która zawiera informacje o IV, wersji i kluczu opakowanym. Druga Właściwość zastrzeżona (\_ClientEncryptionMetadata2) jest właściwością binarną, która zawiera informacje o zaszyfrowanych właściwościach. Informacje zawarte w tej drugiej właściwości (\_ClientEncryptionMetadata2) są zaszyfrowane.
+3. Opakowany CEK i niektóre dodatkowe metadane szyfrowania są następnie przechowywane jako dwie dodatkowe zastrzeżone właściwości. Pierwsza zastrzeżona Właściwość ( \_ ClientEncryptionMetadata1) jest właściwością ciągu, która zawiera informacje o IV, wersji i kluczu opakowanym. Druga Właściwość zastrzeżona ( \_ ClientEncryptionMetadata2) jest właściwością binarną, która zawiera informacje o zaszyfrowanych właściwościach. Informacje zawarte w tej drugiej właściwości ( \_ ClientEncryptionMetadata2) są zaszyfrowane.
 4. Ze względu na te dodatkowe właściwości zastrzeżone wymagane do szyfrowania, użytkownicy mogą teraz mieć tylko 250 właściwości niestandardowe zamiast 252. Łączny rozmiar jednostki musi być mniejszy niż 1 MB.
 
    Należy pamiętać, że tylko właściwości ciągu mogą być szyfrowane. Jeśli inne typy właściwości mają być szyfrowane, muszą być konwertowane na ciągi. Zaszyfrowane ciągi są przechowywane w usłudze jako właściwości binarne i są konwertowane z powrotem do ciągów (nieprzetworzone ciągi, nie EntityProperties z typem obiektu EdmType. STRING) Po odszyfrowaniu.
@@ -104,12 +104,12 @@ Jedna zasada szyfrowania ma zastosowanie do wszystkich wierszy w partii. Bibliot
 Jeśli partia jest tworzona jako Menedżer kontekstu za pomocą metody tableservice Batch (), zasady szyfrowania tableservice zostaną automatycznie zastosowane do zadania wsadowego. Jeśli partia jest tworzona jawnie przez wywołanie konstruktora, zasady szyfrowania muszą zostać przesłane jako parametr i pozostawione niemodyfikowane przez okres istnienia partii.
 Należy pamiętać, że jednostki są szyfrowane w miarę ich wstawiania do partii przy użyciu zasad szyfrowania partii (jednostki nie są szyfrowane w chwili zatwierdzania partii przy użyciu zasad szyfrowania tableservice).
 
-### <a name="queries"></a>Kwerendy
+### <a name="queries"></a>Zapytania
 > [!NOTE]
 > Ponieważ jednostki są zaszyfrowane, nie można uruchamiać zapytań, które filtrują zaszyfrowaną właściwość.  Jeśli spróbujesz, wyniki będą nieprawidłowe, ponieważ usługa próbuje porównać zaszyfrowane dane z niezaszyfrowanymi danymi.
 > 
 > 
-> Aby wykonać operacje zapytania, należy określić program rozpoznawania kluczy, który może rozpoznać wszystkie klucze w zestawie wyników. Jeśli nie można rozpoznać jednostki zawartej w wyniku zapytania jako dostawcy, Biblioteka klienta zgłosi błąd. Dla każdego zapytania, które wykonuje projekcje po stronie serwera, Biblioteka klienta doda do wybranych kolumn specjalne właściwości specjalnych\_metadanych ( \_ClientEncryptionMetadata1 i ClientEncryptionMetadata2).
+> Aby wykonać operacje zapytania, należy określić program rozpoznawania kluczy, który może rozpoznać wszystkie klucze w zestawie wyników. Jeśli nie można rozpoznać jednostki zawartej w wyniku zapytania jako dostawcy, Biblioteka klienta zgłosi błąd. Dla każdego zapytania, które wykonuje projekcje po stronie serwera, Biblioteka klienta doda do wybranych kolumn specjalne właściwości specjalnych metadanych ( \_ ClientEncryptionMetadata1 i \_ ClientEncryptionMetadata2).
 > 
 > [!IMPORTANT]
 > Należy pamiętać o tych ważnych kwestiach podczas korzystania z szyfrowania po stronie klienta:

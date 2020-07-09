@@ -3,17 +3,17 @@ title: Samouczek — tworzenie budżetów platformy Azure i zarządzanie nimi
 description: Ten samouczek ułatwia planowanie i uwzględnianie kosztów używanych usług platformy Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 384be4599abadaada31cfc5b4993fff6705ec71d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101760"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559319"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Samouczek: Tworzenie budżetów platformy Azure i zarządzanie nimi
 
@@ -115,6 +115,15 @@ Utworzony budżet jest widoczny w obszarze analizy kosztów. Wyświetlenie budż
 
 W poprzednim przykładzie utworzono budżet dla subskrypcji. Budżet można utworzyć również dla grupy zasobów. Jeśli chcesz utworzyć budżet dla grupy zasobów, wybierz kolejno **Zarządzanie kosztami i rozliczenia** &gt; **Subskrypcje** &gt; wybierz subskrypcję > **Grupy zasobów** > wybierz grupę zasobów > **Budżety** >, a następnie wybierz pozycję **Dodaj**, aby dodać budżet.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Tworzenie budżetu dla połączonych kosztów platform Azure i AWS
+
+Możesz grupować koszty platform Azure i AWS razem, przypisując grupę zarządzania do łącznika wraz ze skonsolidowanymi i połączonymi kontami. Przypisz subskrypcje platformy Azure do tej samej grupy zarządzania. Następnie utwórz budżet dla połączonych kosztów.
+
+1. W obszarze Zarządzanie kosztami wybierz pozycję **Budżety**.
+1. Wybierz pozycję **Dodaj**.
+1. Wybierz pozycję **Zmień zakres**, a następnie wybierz grupę zarządzania.
+1. Kontynuuj tworzenie budżetu do momentu ukończenia.
+
 ## <a name="costs-in-budget-evaluations"></a>Koszty w ocenach budżetu
 
 Oceny kosztów w budżecie obejmują teraz dane wystąpień zarezerwowanych i zakupów. Jeśli są naliczane opłaty, możesz zacząć otrzymywać alerty, gdy opłaty będą uwzględniane w ocenach. Zalecamy zalogowanie się do witryny [Azure Portal](https://portal.azure.com), aby sprawdzić, czy progi budżetowe zostały prawidłowo skonfigurowane pod kątem uwzględniania nowych kosztów. Wysokość opłat za korzystanie z platformy Azure pozostaje niezmieniona. Od tej pory budżety będą oceniane na podstawie pełniejszego zestawu kosztów. Jeśli opłaty nie mają zastosowania, działanie budżetu pozostaje niezmienione.
@@ -124,8 +133,7 @@ Jeśli chcesz odfiltrować nowe koszty, tak aby budżety były oceniane tylko na
 - Typ wydawcy: Azure
 - Typ opłaty: Sposób użycia
 
-Oceny kosztów budżetowych bazują na rzeczywistych kosztach. Nie obejmują one amortyzacji. Aby uzyskać więcej informacji na temat opcji filtrowania dostępnych w budżetach, zobacz [Omówienie opcji grupowania i filtrowania](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
-
+Oceny kosztów budżetowych bazują na rzeczywistych kosztach. Nie obejmują one amortyzacji. Aby uzyskać więcej informacji na temat opcji filtrowania dostępnych w budżetach, zobacz [Omówienie opcji grupowania i filtrowania](group-filter.md).
 
 ## <a name="trigger-an-action-group"></a>Wyzwalanie grupy akcji
 

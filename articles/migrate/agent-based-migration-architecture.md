@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77425865"
 ---
 # <a name="agent-based-migration-architecture"></a>Architektura migracji z użyciem agentów
@@ -73,7 +72,7 @@ Usługa mobilności komunikuje się z urządzeniem replikacji i replikowanymi ma
 
 ## <a name="ports"></a>Porty
 
-**Urządzenie** | **Połączenia**
+**Urządzenie** | **Połączenie**
 --- | --- 
 **Replikowanie maszyn** | Usługa mobilności działająca na maszynach wirtualnych komunikuje się z lokalnym urządzeniem do replikacji na porcie HTTPS 443 ruchu przychodzącego na potrzeby zarządzania replikacją.<br/><br/> Maszyny wysyłają dane replikacji do serwera przetwarzania na porcie HTTPS 9443 w ruchu przychodzącym. Ten port może być modyfikowany.
 **Urządzenie replikacji** | Urządzenie replikacji organizuje replikację za pomocą platformy Azure przez port HTTPS 443.
@@ -95,7 +94,7 @@ Użyj wartości w tej tabeli, aby ustalić, czy potrzebujesz dodatkowego serwera
 - Jeśli dzienny współczynnik zmian (tempo zmiany) przekracza 2 TB, wdróż dodatkowy serwer przetwarzania.
 - W przypadku replikowania więcej niż 200 maszyn należy wdrożyć dodatkowe urządzenie do replikacji.
 
-**TESTY** | **Rozmiar** | **Wolne miejsce — buforowanie danych** | **Współczynnik zmian** | **Limity replikacji**
+**Procesor CPU** | **Memory (Pamięć)** | **Wolne miejsce — buforowanie danych** | **Współczynnik zmian** | **Limity replikacji**
 --- | --- | --- | --- | ---
 8 procesorów wirtualnych vCPU (2 gniazda * 4 rdzenie \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB lub mniej | Maszyny < 100 
 12 procesorów wirtualnych vCPU (2 gniazda * 6 rdzeni \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB do 1 TB | 100-150 maszyn.

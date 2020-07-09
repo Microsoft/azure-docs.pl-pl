@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335559"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Dodawanie warstwy kafelków do mapy przy użyciu Azure Maps Android SDK
@@ -23,16 +23,16 @@ Warstwa kafelków jest ładowana na kafelkach z serwera. Te obrazy mogą być ws
 
 * X, Y, z notacją powiększenia w oparciu o poziom powiększenia, x to kolumna, a Y to pozycja w wierszu kafelka w siatce kafelków.
 * Quadkey-kombinacja x, y, Powiększ informacje w postaci pojedynczej wartości ciągu, która jest unikatowym identyfikatorem dla kafelka.
-* Współrzędne pola ograniczenia obwiedni mogą służyć do określania obrazu w formacie `{west},{south},{east},{north}` , który jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* Współrzędne pola ograniczenia obwiedni mogą służyć do określania obrazu w formacie, `{west},{south},{east},{north}` który jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > TileLayer to doskonały sposób wizualizacji dużych zestawów danych na mapie. Nie tylko można wygenerować warstwy kafelków z obrazu, ale dane wektorowe mogą być również renderowane jako warstwa kafelków. Przez renderowanie danych wektorowych jako warstwy kafelków, formant mapy musi ładować tylko kafelki, które mogą być znacznie mniejsze w rozmiarze pliku niż dane wektorowe, które reprezentują. Ta technika jest używana przez wiele osób, które muszą renderować miliony wierszy danych na mapie.
 
 Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL protokołu HTTP/HTTPS do zasobu TileJSON lub szablonem adresu URL kafelka, który używa następujących parametrów: 
 
-* `{x}`-X pozycja kafelka. Również wymagają `{y}` i `{z}`.
-* `{y}`-Y pozycja kafelka. Również wymagają `{x}` i `{z}`.
-* `{z}`— Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}`.
+* `{x}`-X pozycja kafelka. Również wymagają `{y}` i `{z}` .
+* `{y}`-Y pozycja kafelka. Również wymagają `{x}` i `{z}` .
+* `{z}`— Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}` .
 * `{quadkey}`-Kafelek quadkey identyfikator oparty na konwencji nazewnictwa systemu kafelków mapy Bing.
 * `{bbox-epsg-3857}`-Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
 * `{subdomain}`— Symbol zastępczy wartości poddomeny, jeśli określono wartość poddomeny.
@@ -48,7 +48,7 @@ Aby ukończyć proces w tym artykule, należy zainstalować [Azure Maps Android 
 
 Do mapy można dodać warstwę kafelków, wykonując poniższe kroki.
 
-1. Edytuj **> układ zasobów > activity_main. XML** , tak aby wyglądał wyglądać następująco:
+1. Edytuj **układ > zasobów > activity_main.xml** tak, aby wyglądał następująco:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>

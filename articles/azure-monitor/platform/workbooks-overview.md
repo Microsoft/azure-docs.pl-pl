@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658238"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560154"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 
@@ -31,9 +31,9 @@ Skoroszyty są obecnie zgodne z następującymi źródłami danych:
 * [Metryki](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alerty (wersja zapoznawcza)](workbooks-data-sources.md#alerts-preview)
-* [Kondycja obciążenia (wersja zapoznawcza)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (wersja zapoznawcza)](workbooks-data-sources.md#azure-resource-health)
-* [Azure Eksplorator danych (wersja zapoznawcza)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Kondycja obciążenia](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
 
 ## <a name="visualizations"></a>Wizualizacje
 
@@ -42,7 +42,7 @@ Skoroszyty zapewniają bogaty zestaw funkcji wizualizacji danych. Aby uzyskać s
 * [Tekst](workbooks-visualizations.md#text)
 * [Wykresy](workbooks-visualizations.md#charts)
 * [Siatki](workbooks-visualizations.md#grids)
-* [Okładzin](workbooks-visualizations.md#tiles)
+* [Kafelki](workbooks-visualizations.md#tiles)
 * [Drzewo](workbooks-visualizations.md#trees)
 * [Diagram](workbooks-visualizations.md#graphs)
 

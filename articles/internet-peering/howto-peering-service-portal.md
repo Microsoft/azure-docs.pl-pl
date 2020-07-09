@@ -5,15 +5,14 @@ description: Włącz usługę komunikacji równorzędnej platformy Azure w bezpo
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: 625a17e5acff00f78c5a19725653eec629936f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687044"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84700046"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Włącz usługę komunikacji równorzędnej platformy Azure w bezpośredniej komunikacji równorzędnej przy użyciu Azure Portal
 
@@ -46,6 +45,6 @@ Aby zmodyfikować ustawienia połączenia, zapoznaj się z sekcją "Modyfikowani
 * [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](howto-exchange-portal.md)
 * [Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu portalu](howto-legacy-exchange-portal.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 W przypadku często zadawanych pytań zobacz [często zadawane pytania dotyczące usługi komunikacji równorzędnej](service-faqs.md).

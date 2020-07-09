@@ -11,10 +11,9 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680044"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Wypełnianie wartości UserPrincipalName w usłudze Azure AD
@@ -28,17 +27,17 @@ W tym artykule jest używana następująca terminologia:
 |Termin|Opis|
 |-----|-----|
 |Domena początkowa|Domena domyślna (onmicrosoft.com) w dzierżawie usługi Azure AD. Na przykład contoso.onmicrosoft.com.|
-|Adres E-mail usługi Microsoft Online (MOERA)|Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure &lt;AD&gt; jako &lt;domeny&gt;początkowej MailNickName&#64;.|
+|Adres E-mail usługi Microsoft Online (MOERA)|Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD jako &lt; &gt; &lt; domeny początkowej MailNickName&#64;&gt; .|
 |Lokalny atrybut mailNickName|Atrybut w Active Directory, wartość reprezentująca alias użytkownika w organizacji programu Exchange.|
 |Lokalny atrybut poczty|Atrybut w Active Directory, wartość reprezentująca adres e-mail użytkownika.|
-|Podstawowy adres SMTP|Podstawowy adres e-mail obiektu odbiorcy programu Exchange. Na przykład SMTP: User\@contoso.com.|
+|Podstawowy adres SMTP|Podstawowy adres e-mail obiektu odbiorcy programu Exchange. Na przykład SMTP: User \@ contoso.com.|
 |Alternatywny identyfikator logowania|Atrybut lokalny inny niż UserPrincipalName, taki jak atrybut mail używany do logowania.|
 
 ## <a name="what-is-userprincipalname"></a>Co to jest UserPrincipalName?
 UserPrincipalName to atrybut, który jest nazwą logowania w formacie internetowym dla użytkownika w oparciu o internetowy standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>Format nazwy UPN
-Nazwa UPN składa się z prefiksu UPN (nazwy konta użytkownika) i sufiksu UPN (nazwy domeny DNS). Prefiks jest przyłączony do sufiksu przy użyciu symbolu\@"". Na przykład "ktoś\@example.com". Nazwa UPN musi być unikatowa wśród wszystkich obiektów podmiotu zabezpieczeń w lesie katalogu. 
+Nazwa UPN składa się z prefiksu UPN (nazwy konta użytkownika) i sufiksu UPN (nazwy domeny DNS). Prefiks jest przyłączony do sufiksu przy użyciu \@ symbolu "". Na przykład "ktoś \@ example.com". Nazwa UPN musi być unikatowa wśród wszystkich obiektów podmiotu zabezpieczeń w lesie katalogu. 
 
 ## <a name="upn-in-azure-ad"></a>Nazwa UPN w usłudze Azure AD 
 Nazwa UPN jest używana przez usługę Azure AD, aby umożliwić użytkownikom logowanie się.  Nazwa UPN, która może być używana przez użytkownika, zależy od tego, czy domena została zweryfikowana.  Jeśli domena została zweryfikowana, użytkownik mający ten sufiks będzie mógł zalogować się do usługi Azure AD.  
@@ -59,7 +58,7 @@ Aby włączyć alternatywny identyfikator logowania w usłudze Azure AD, podczas
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie alternatywnego identyfikatora logowania](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) i [konfiguracji logowania usługi Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Niezweryfikowany sufiks nazwy UPN
-Jeśli lokalny atrybut UserPrincipalName/alternatywny sufiks identyfikatora logowania nie jest weryfikowany przez dzierżawę usługi Azure AD, wartość atrybutu UserPrincipalName usługi Azure AD jest ustawiona na MOERA. Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD &lt;jako&gt; domeny &lt;&gt;początkowej MailNickName&#64;.
+Jeśli lokalny atrybut UserPrincipalName/alternatywny sufiks identyfikatora logowania nie jest weryfikowany przez dzierżawę usługi Azure AD, wartość atrybutu UserPrincipalName usługi Azure AD jest ustawiona na MOERA. Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD &lt; jako &gt; &lt; domeny początkowej MailNickName&#64;&gt; .
 
 ## <a name="verified-upn-suffix"></a>Zweryfikowano sufiks nazwy UPN
 Jeśli lokalny atrybut UserPrincipalName/alternatywny sufiks identyfikatora logowania zostanie zweryfikowany za pomocą dzierżawy usługi Azure AD, wartość atrybutu UserPrincipalName usługi Azure AD będzie taka sama jak wartość lokalnego atrybutu UserPrincipalName/alternatywny identyfikator logowania.
@@ -90,14 +89,14 @@ Poniżej przedstawiono przykładowe scenariusze obliczania nazwy UPN w oparciu o
 ![Scenario1](./media/plan-connect-userprincipalname/example1.png)
 
 Lokalny obiekt użytkownika:
-- mailNickName: &lt;nie ustawiono&gt;
-- proxyAddresses: {SMTP:us1@contoso.com}
+- mailNickName: &lt; nie ustawiono&gt;
+- proxyAddresses: { SMTP:us1@contoso.com }
 - pocztus2@contoso.com
 - userPrincipalNameus3@contoso.com
 
 Synchronizowanie obiektu użytkownika z dzierżawą usługi Azure AD po raz pierwszy
 - Ustaw atrybut MailNickName usługi Azure AD na podstawowy prefiks adresu SMTP.
-- Ustaw MOERA na &lt;MailNickName&gt;&#64;&lt;początkowej domeny&gt;.
+- Ustaw MOERA na &lt; MailNickName &gt;&#64;&lt; początkowej domeny &gt; .
 - Ustaw atrybut UserPrincipalName usługi Azure AD na MOERA.
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
@@ -111,7 +110,7 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 
 Lokalny obiekt użytkownika:
 - mailNickName: US4
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses: { SMTP:us1@contoso.com }
 - pocztus2@contoso.com
 - userPrincipalNameus3@contoso.com
 
@@ -129,13 +128,13 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 
 Lokalny obiekt użytkownika:
 - mailNickName: US4
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses: { SMTP:us1@contoso.com }
 - pocztus2@contoso.com
 - userPrincipalNameus5@contoso.com
 
 Synchronizowanie aktualizacji lokalnego atrybutu userPrincipalName z dzierżawą usługi Azure AD
 - Aktualizacja lokalnego atrybutu userPrincipalName wyzwala ponowne obliczenie MOERA i atrybutu UserPrincipalName usługi Azure AD.
-- Ustaw MOERA na &lt;MailNickName&gt;&#64;&lt;początkowej domeny&gt;.
+- Ustaw MOERA na &lt; MailNickName &gt;&#64;&lt; początkowej domeny &gt; .
 - Ustaw atrybut UserPrincipalName usługi Azure AD na MOERA.
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
@@ -148,7 +147,7 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 
 Lokalny obiekt użytkownika:
 - mailNickName: US4
-- proxyAddresses: {SMTP:us6@contoso.com}
+- proxyAddresses: { SMTP:us6@contoso.com }
 - pocztus7@contoso.com
 - userPrincipalNameus5@contoso.com
 
@@ -165,7 +164,7 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 
 Lokalny obiekt użytkownika:
 - mailNickName: US4
-- proxyAddresses: {SMTP:us6@contoso.com}
+- proxyAddresses: { SMTP:us6@contoso.com }
 - pocztus7@contoso.com
 - userPrincipalNameus5@verified.contoso.com
 

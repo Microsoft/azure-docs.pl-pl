@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3d3aeecb66ba332d9c32c944d527ac3a07f2fe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 13be33843172f505ed8f12293137c0808e9bd2a0
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014319"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920369"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure SQL
 
@@ -38,7 +38,7 @@ W tym samouczku pokazano, jak uzyskać dostęp do Azure SQL Database za pomocą 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włączenie
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
@@ -66,10 +66,10 @@ Istnieją dwa kroki związane z udzielaniem maszynie wirtualnej dostępu do bazy
 
 W tej sekcji przedstawiono sposób tworzenia zawartego użytkownika w bazie danych, który reprezentuje tożsamość przypisanej do systemu maszyny wirtualnej. Ten krok wymaga [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Przed rozpoczęciem pomocne może być sprawdzenie następujących artykułów, aby uzyskać podstawowe informacje o integracji usługi Azure AD:
 
-* [Uniwersalne uwierzytelnianie przy użyciu usługi SQL Database i SQL Data Warehouse (obsługa SSMS w przypadku uwierzytelniania wieloskładnikowego)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-* [Konfigurowanie i zarządzanie uwierzytelnianiem usługi Azure Active Directory przy użyciu usługi SQL Database lub SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Uniwersalne uwierzytelnianie przy użyciu usług SQL Database i Azure Synapse Analytics (Obsługa programu SSMS dla usługi MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Konfigurowanie i Zarządzanie uwierzytelnianiem Azure Active Directory przy użyciu SQL Database lub usługi Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL Database wymaga unikatowych nazw wyświetlanych usługi AAD. Zatem konta usługi AAD, takie jak użytkownicy, grupy, jednostki usługi (aplikacje) i nazwy maszyn wirtualnych włączone dla tożsamości zarządzanej muszą mieć unikatowe definicje w usłudze AAD w odniesieniu do ich nazw wyświetlanych. SQL Database sprawdza nazwę wyświetlaną usługi AAD podczas tworzenia dla nich użytkowników przy użyciu języka T-SQL, a jeśli nie jest unikatowa, polecenie nie powiedzie się, aby podać unikatową nazwę wyświetlaną usługi AAD dla danego konta.
+Usługa SQL Database wymaga unikatowych nazw wyświetlanych usługi AAD. W związku z tym konta usługi AAD, takie jak użytkownicy, grupy i jednostki usług (aplikacje) i nazwy maszyn wirtualnych z włączoną tożsamością zarządzaną, muszą być jednoznacznie zdefiniowane w usłudze AAD w odniesieniu do ich nazw wyświetlanych. Baza danych SQL sprawdza nazwę wyświetlaną usługi AAD podczas tworzenia tych użytkowników przez T-SQL, a jeśli nie jest unikatowa, polecenie nie powiedzie się, aby podać unikatową nazwę wyświetlaną usługi AAD dla danego konta.
 
 **Aby utworzyć zawartego użytkownika:**
 
@@ -109,7 +109,7 @@ Kod uruchomiony na maszynie wirtualnej może teraz uzyskać token przy użyciu t
 
 W tej sekcji pokazano, jak uzyskać token dostępu przy użyciu tożsamości zarządzanej przypisanej przez system do maszyny wirtualnej i użyć jej do wywołania usługi Azure SQL. Usługa Azure SQL natywnie obsługuje uwierzytelnianie usługi Azure AD, więc może bezpośrednio akceptować tokeny dostępu pozyskane przy użyciu tożsamości zarządzanych dla zasobów platformy Azure. Możesz użyć metody **tokena dostępu** dla tworzenia połączeń z serwerem SQL. Jest to część integracji usługi Azure SQL z usługą Azure AD. Takie rozwiązanie różni się od podawania poświadczeń w parametrach połączenia.
 
-Oto przykład kodu platformy .NET służący do otwierania połączenia z programem SQL przy użyciu tokenu dostępu. Ten kod należy uruchomić na maszynie wirtualnej, aby mógł uzyskać dostęp do punktu końcowego przypisanej przez system tożsamości zarządzanej maszyny wirtualnej. Do korzystania z metody tokenu dostępu jest wymagany **.NET Framework 4,6** lub nowszy lub **.NET Core 2,2** lub nowszy. Zastąp odpowiednio wartości AZURE-SQL-SERVERNAME i DATABASE. Zwróć uwagę na to, że identyfikator zasobu usługi Azure SQL to `https://database.windows.net/` .
+Oto przykład kodu platformy .NET służący do otwierania połączenia z programem SQL przy użyciu tokenu dostępu. Kod musi działać na maszynie wirtualnej, aby można było uzyskać dostęp do punktu końcowego tożsamości zarządzanej przypisanej przez system do maszyny wirtualnej. Do korzystania z metody tokenu dostępu jest wymagany **.NET Framework 4,6** lub nowszy lub **.NET Core 2,2** lub nowszy. Zastąp odpowiednio wartości AZURE-SQL-SERVERNAME i DATABASE. Zwróć uwagę na to, że identyfikator zasobu usługi Azure SQL to `https://database.windows.net/` .
 
 ```csharp
 using System.Net;

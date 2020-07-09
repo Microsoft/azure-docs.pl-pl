@@ -5,12 +5,11 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75561871"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676135"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions przetwarzanie niezawodnego zdarzenia
 
@@ -91,7 +90,7 @@ Istnieją dwa sztuki wymagane do zaimplementowania wyłącznika w procesie zdarz
 
 Szczegóły implementacji mogą się różnić, ale w celu udostępnienia stanu między wystąpieniami potrzebujesz mechanizmu magazynu. Możesz wybrać opcję przechowywania stanu w usłudze Azure Storage, pamięci podręcznej Redis lub dowolnego innego konta, które jest dostępne dla kolekcji funkcji.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) lub [trwałe jednostki](./durable/durable-functions-overview.md) są naturalnymi dopasowaniami do zarządzania przepływem pracy i stanem obwodu. Inne usługi mogą działać równie dobrze, ale w tym przykładzie są używane aplikacje logiki. Za pomocą usługi Logic Apps można wstrzymywać i ponownie uruchamiać wykonywanie funkcji, dając kontrolkę wymaganą do zaimplementowania wzorca wyłącznika.
+Funkcje [Azure Logic Apps](../logic-apps/logic-apps-overview.md) lub [trwałe](./durable/durable-functions-overview.md) są naturalnym dopasowaniem do zarządzania przepływem pracy i stanem obwodu. Inne usługi mogą działać równie dobrze, ale w tym przykładzie są używane aplikacje logiki. Za pomocą usługi Logic Apps można wstrzymywać i ponownie uruchamiać wykonywanie funkcji, dając kontrolkę wymaganą do zaimplementowania wzorca wyłącznika.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>Zdefiniuj próg błędu w różnych wystąpieniach
 
@@ -123,7 +122,7 @@ Korzystając z tego podejścia, żadne komunikaty nie są tracone, wszystkie kom
 ## <a name="resources"></a>Zasoby
 
 - [Przykłady przetwarzania niezawodnych zdarzeń](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Wyłącznik Durable Functions platformy Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Wyłącznik jednostki trwałej platformy Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Następne kroki
 

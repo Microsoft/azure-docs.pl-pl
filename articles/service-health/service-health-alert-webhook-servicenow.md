@@ -4,10 +4,9 @@ description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usłu
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77654107"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi ServiceNow przy użyciu elementów webhook
@@ -26,7 +25,7 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
  
     ![Przycisk "nowy interfejs API REST w skrypcie" w usługi ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-1.  Dodaj **nazwę** do interfejsu API REST i ustaw **identyfikator interfejsu API** na `azureservicehealth`.
+1.  Dodaj **nazwę** do interfejsu API REST i ustaw **identyfikator interfejsu API** na `azureservicehealth` .
 
 1.  Wybierz pozycję **Prześlij**.
 
@@ -36,12 +35,12 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
 
     !["Karta zasobów" w usługi ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-1.  **Nazwij** nowy zasób `event` i Zmień **metodę http** na `POST`.
+1.  **Nazwij** nowy zasób `event` i Zmień **metodę http** na `POST` .
 
 1.  W sekcji **skrypt** Dodaj następujący kod JavaScript:
 
     >[!NOTE]
-    >Należy zaktualizować wartości `<secret>`,`<group>`i `<email>` w poniższym skrypcie.
+    >Należy zaktualizować `<secret>` `<group>` wartości, i `<email>` w poniższym skrypcie.
     >* `<secret>`powinien być ciągiem losowym, takim jak identyfikator GUID
     >* `<group>`powinna być grupą usługi ServiceNow, do której chcesz przypisać zdarzenie
     >* `<email>`musi być określoną osobą, do której ma zostać przypisane zdarzenie (opcjonalnie)
@@ -131,7 +130,7 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
     })(request, response);
     ```
 
-1.  Na karcie Zabezpieczenia Usuń zaznaczenie pola wyboru **wymaga uwierzytelniania** i wybierz pozycję **Prześlij**. `<secret>` Ustawiono ochronę tego interfejsu API.
+1.  Na karcie Zabezpieczenia Usuń zaznaczenie pola wyboru **wymaga uwierzytelniania** i wybierz pozycję **Prześlij**. `<secret>`Ustawiono ochronę tego interfejsu API.
 
     ![Pole wyboru "wymaga uwierzytelniania" w usługi ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 

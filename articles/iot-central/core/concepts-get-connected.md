@@ -11,12 +11,11 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710443"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Połącz z usługą Azure IoT Central
 
@@ -50,7 +49,7 @@ Takie podejście jest przydatne w przypadku eksperymentowania z IoT Central lub 
 
 ![Klucze SAS dla poszczególnych urządzeń](./media/concepts-get-connected/single-device-sas.png)
 
-Aby dowiedzieć się więcej, zobacz samouczek [Tworzenie i łączenie aplikacji klienckiej Node. js z samouczkiem aplikacji platformy Azure IoT Central](./tutorial-connect-device-nodejs.md) .
+Aby dowiedzieć się więcej, zobacz samouczek [Tworzenie i łączenie aplikacji klienckiej Node.js w samouczku aplikacji platformy Azure IoT Central](./tutorial-connect-device-nodejs.md) .
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Łączenie urządzeń na dużą skalę przy użyciu sygnatury dostępu współdzielonego
 
@@ -97,7 +96,7 @@ Generuj certyfikaty liścia X. 509 dla urządzeń przy użyciu przekazanego cert
 
 #### <a name="sample-device-code"></a>Przykładowy kod urządzenia
 
-Poniższy przykład z [zestawu SDK środowiska Node. js usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) pokazuje, w jaki sposób klient urządzenia Node. js używa certyfikatu liścia X. 509 i usługi DPS do zarejestrowania się w aplikacji IoT Central:
+Poniższy przykład z [zestawu SDK usługi Azure IoT Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) pokazuje, w jaki sposób klient urządzenia Node.js używa certyfikatu liścia X. 509 i usługi DPS do zarejestrowania się w aplikacji IoT Central:
 
 :::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
 
@@ -107,7 +106,7 @@ Aby uzyskać odpowiedni przykład C, zobacz [prov_dev_client_sample. C](https://
 
 Do celów testowych można użyć następujących narzędzi do generowania certyfikatów głównych, pośrednich i urządzeń:
 
-- [Narzędzia dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): kolekcja narzędzi Node. js, których można użyć do generowania i weryfikowania certyfikatów i kluczy X. 509.
+- [Narzędzia dla zestawu SDK urządzeń Azure IoT Device Provisioning](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): kolekcja narzędzi Node.js, których można użyć do generowania i weryfikowania certyfikatów X. 509.
 - W przypadku korzystania z urządzenia DevKit to [Narzędzie wiersza polecenia](https://aka.ms/iotcentral-docs-dicetool) generuje certyfikat urzędu certyfikacji, który można dodać do aplikacji IoT Central w celu zweryfikowania certyfikatów.
 - [Zarządzanie certyfikatami testów urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): Kolekcja skryptów programu PowerShell i bash do:
   - Utwórz łańcuch certyfikatów.
@@ -148,7 +147,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 1. [Dodaj i Sprawdź główny lub pośredni certyfikat X. 509](#connect-devices-using-x509-certificates) do aplikacji IoT Central.
 
-1. Wygeneruj certyfikaty liści dla urządzeń przy użyciu certyfikatu głównego lub pośredniego dodanego do aplikacji IoT Central. `CNAME` W przypadku certyfikatów liścia należy używać identyfikatorów urządzeń z małymi literami.
+1. Wygeneruj certyfikaty liści dla urządzeń przy użyciu certyfikatu głównego lub pośredniego dodanego do aplikacji IoT Central. W przypadku certyfikatów liścia należy używać identyfikatorów urządzeń z małymi literami `CNAME` .
 
 1. Producent OEM błyskuje każde urządzenie przy użyciu identyfikatora urządzenia, wygenerowanego certyfikatu X. 509 liścia oraz wartości **zakresu identyfikatora** aplikacji.
 
@@ -180,7 +179,7 @@ IoT Central obsługuje następujące mechanizmy zaświadczania dotyczące poszcz
 - **Certyfikaty X. 509:** Aby utworzyć rejestrację indywidualną za pomocą certyfikatów X. 509, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia oraz **Certyfikaty (X. 509)** jako mechanizm. Certyfikaty urządzeń używane z indywidualnym wpisem rejestracji mają wymaganie, aby wystawca i CN podmiotu zostały ustawione na identyfikator urządzenia.
 
     > [!TIP]
-    > W celu przetestowania można użyć [narzędzi dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning dla środowiska Node. js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) w celu wygenerowania certyfikatu z podpisem własnym:`node create_test_cert.js device "mytestdevice"`
+    > Do testowania można użyć [narzędzi dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning dla Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) w celu wygenerowania certyfikatu z podpisem własnym:`node create_test_cert.js device "mytestdevice"`
 
 - **Zaświadczanie moduł TPM (TPM):** [Moduł TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
 
@@ -261,7 +260,7 @@ Poniższa tabela zawiera podsumowanie sposobu mapowania funkcji usługi Azure Io
 | Właściwość (zapisywalny) | Wymagane i zgłoszone właściwości dotyczące sznurka urządzenia |
 | Polecenie | Metody bezpośrednie |
 
-Aby dowiedzieć się więcej o korzystaniu z zestawów SDK urządzeń, zobacz temat [łączenie urządzenia z systemem DevDiv Kit z aplikacją IoT Central platformy Azure](howto-connect-devkit.md) na przykład Code.
+Aby dowiedzieć się więcej o korzystaniu z zestawów SDK urządzeń, zobacz [łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją IoT Central platformy Azure](howto-connect-devkit.md) w celu uzyskania przykładowego kodu.
 
 ### <a name="protocols"></a>Protokoły
 

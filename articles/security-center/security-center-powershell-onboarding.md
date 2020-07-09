@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80435476"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963363"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatyzowanie dołączania Azure Security Center przy użyciu programu PowerShell
 
@@ -45,54 +45,55 @@ W tym przykładzie włączmy Security Center w ramach subskrypcji o IDENTYFIKATO
 
 Te kroki należy wykonać przed uruchomieniem Security Center poleceń cmdlet:
 
-1.  Uruchom program PowerShell jako administrator.
-2.  Uruchom następujące polecenia w programie PowerShell:
+1. Uruchom program PowerShell jako administrator.
+
+1. Uruchom następujące polecenia w programie PowerShell:
       
-        Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Install-Module -Name Az.Security -Force
+    ```Set-ExecutionPolicy -ExecutionPolicy AllSigned```
+
+    ```Install-Module -Name Az.Security -Force```
 
 ## <a name="onboard-security-center-using-powershell"></a>Dołączanie Security Center przy użyciu programu PowerShell
 
-1.  Zarejestruj subskrypcje dla dostawcy zasobów Security Center:
+1. Zarejestruj subskrypcje dla dostawcy zasobów Security Center:
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-2.  Opcjonalne: Ustaw poziom pokrycia (warstwa cenowa) subskrypcji (jeśli nie jest zdefiniowany, warstwa cenowa jest ustawiona na wartość bezpłatna):
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+1. Opcjonalne: Ustaw poziom pokrycia (warstwa cenowa) subskrypcji (jeśli nie jest zdefiniowany, warstwa cenowa jest ustawiona na wartość bezpłatna):
 
-3.  Skonfiguruj obszar roboczy Log Analytics, do którego będą zgłaszane agenci. Musisz mieć już utworzony obszar roboczy Log Analytics, do którego będą raportowane maszyny wirtualne subskrypcji. Można zdefiniować wiele subskrypcji do raportowania w tym samym obszarze roboczym. Jeśli nie zostanie zdefiniowany, zostanie użyty domyślny obszar roboczy.
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
-        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
-        "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
+    ```Set-AzSecurityPricing -Name "default" -PricingTier "Standard"```
 
-4.  Zainicjuj obsługę administracyjną agenta Log Analytics na maszynach wirtualnych platformy Azure:
+1. Skonfiguruj obszar roboczy Log Analytics, do którego będą zgłaszane agenci. Musisz mieć już utworzony obszar roboczy Log Analytics, do którego będą raportowane maszyny wirtualne subskrypcji. Można zdefiniować wiele subskrypcji do raportowania w tym samym obszarze roboczym. Jeśli nie zostanie zdefiniowany, zostanie użyty domyślny obszar roboczy.
+
+    ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
+
+1. Zainicjuj obsługę administracyjną agenta Log Analytics na maszynach wirtualnych platformy Azure:
     
-        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
     
-        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+    ```Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision```
 
     > [!NOTE]
     > Zaleca się włączenie automatycznej obsługi administracyjnej, aby upewnić się, że maszyny wirtualne platformy Azure są automatycznie chronione przez Azure Security Center.
     >
 
-5.  Opcjonalne: zdecydowanie zaleca się zdefiniowanie szczegółowych informacji o kontakcie z zabezpieczeniami dla subskrypcji, które zostaną użyte jako adresaci alertów i powiadomień generowanych przez Security Center:
+1. Opcjonalne: zdecydowanie zaleca się zdefiniowanie szczegółowych informacji o kontakcie z zabezpieczeniami dla subskrypcji, które zostaną użyte jako adresaci alertów i powiadomień generowanych przez Security Center:
 
-        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
 
-6.  Przypisz domyślną inicjatywę zasad Security Center:
+1. Przypisz domyślną inicjatywę zasad Security Center:
 
-        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
 
-Pomyślnie dołączono Azure Security Center za pomocą programu PowerShell!
+    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Enable Monitoring in Azure Security Center'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+
+Pomyślnie dołączono Azure Security Center za pomocą programu PowerShell.
 
 Teraz można używać tych poleceń cmdlet programu PowerShell ze skryptami automatyzacji do programistycznego iteracji między subskrypcjami i zasobami. Pozwala to zaoszczędzić czas i zmniejsza prawdopodobieństwo wystąpienia błędu przez człowieka. Tego [przykładowego skryptu](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) można użyć jako odwołania.
-
-
 
 
 
@@ -100,7 +101,7 @@ Teraz można używać tych poleceń cmdlet programu PowerShell ze skryptami auto
 ## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat sposobu automatyzowania dołączania do Security Center za pomocą programu PowerShell, zobacz następujący artykuł:
 
-* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security).
+* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
 
 Aby dowiedzieć się więcej na temat Security Center, zobacz następujący artykuł:
 

@@ -1,19 +1,13 @@
 ---
 title: Omówienie ograniczania Azure Service Bus | Microsoft Docs
 description: Omówienie Service Bus ograniczania przepustowości — warstwy Standardowa i Premium.
-services: service-bus-messaging
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: aschhab
-ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598293"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340946"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Ograniczanie operacji na Azure Service Bus
 

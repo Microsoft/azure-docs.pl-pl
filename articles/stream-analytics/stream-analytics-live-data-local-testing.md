@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840489"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044468"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Lokalne testowanie danych na żywo przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio (wersja zapoznawcza)
 
@@ -26,8 +26,8 @@ Obsługiwane są następujące opcje testowania lokalnego:
 |**Dane wejściowe**  |**Dane wyjściowe**  |**Typ zadania**  |
 |---------|---------|---------|
 |Lokalne dane statyczne   |  Lokalne dane statyczne   |   Chmura/krawędź |
-|Dane wejściowe na żywo   |  Lokalne dane statyczne   |   Chmurowa |
-|Dane wejściowe na żywo   |  Dane wyjściowe na żywo   |   Chmurowa |
+|Dane wejściowe na żywo   |  Lokalne dane statyczne   |   Chmura |
+|Dane wejściowe na żywo   |  Dane wyjściowe na żywo   |   Chmura |
 
 ## <a name="local-testing-with-live-data"></a>Testowanie lokalne z danymi dynamicznymi
 

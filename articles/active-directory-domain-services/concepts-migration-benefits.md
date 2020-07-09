@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: iainfou
-ms.openlocfilehash: 29d7772ef688134e8fc9009ec32cffacc3f23ca7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 837ca3afaf014c41fded09fa8342eed1c13e5dcf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734932"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Zalety migracji z klasycznego do Menedżer zasobów modelu wdrażania w programie Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) umożliwia Migrowanie istniejącej domeny zarządzanej, która korzysta z klasycznego modelu wdrażania do modelu wdrażania Menedżer zasobów. Domeny zarządzane AD DS platformy Azure korzystające z modelu wdrażania Menedżer zasobów oferują dodatkowe funkcje, takie jak szczegółowe zasady haseł, dzienniki inspekcji i ochrona blokady konta.
+Azure Active Directory Domain Services (Azure AD DS) umożliwia Migrowanie istniejącej domeny zarządzanej, która korzysta z klasycznego modelu wdrażania do modelu wdrażania Menedżer zasobów. Domeny zarządzane AD DS platformy Azure korzystające z modelu wdrażania Menedżer zasobów oferują dodatkowe funkcje, takie jak szczegółowe zasady haseł, dzienniki inspekcji i ochrona blokady konta.
 
 W tym artykule przedstawiono zalety migracji. Aby rozpocząć, zobacz [migrowanie Azure AD Domain Services z klasycznego modelu sieci wirtualnej do Menedżer zasobów][howto-migrate].
 
@@ -30,7 +30,7 @@ W tym artykule przedstawiono zalety migracji. Aby rozpocząć, zobacz [migrowani
 
 ## <a name="migration-benefits"></a>Zalety migracji
 
-Proces migracji obejmuje istniejące wystąpienie usługi Azure AD DS, które korzysta z klasycznego modelu wdrażania, i przechodzi do korzystania z modelu wdrażania Menedżer zasobów. Po przeprowadzeniu migracji domeny zarządzanej AD DS platformy Azure z modelu wdrożenia klasycznego do Menedżer zasobów można uniknąć konieczności ponownego przyłączania maszyn do domeny zarządzanej lub usunięcia wystąpienia AD DS platformy Azure i utworzenia go od podstaw. Maszyny wirtualne nadal są przyłączone do domeny zarządzanej usługi Azure AD DS na końcu procesu migracji.
+Proces migracji obejmuje istniejącą domenę zarządzaną, która korzysta z klasycznego modelu wdrażania i przenosi do korzystania z Menedżer zasobów model wdrażania. Podczas migrowania domeny zarządzanej z modelu wdrażania klasycznego do Menedżer zasobów można uniknąć konieczności ponownego przyłączania maszyn do domeny zarządzanej lub usuwania domeny zarządzanej i utworzenia jej od podstaw. Maszyny wirtualne nadal są przyłączone do domeny zarządzanej po zakończeniu procesu migracji.
 
 Po migracji usługa Azure AD DS udostępnia wiele funkcji, które są dostępne tylko dla domen korzystających z Menedżer zasobów modelu wdrażania, takich jak następujące:
 
@@ -46,7 +46,7 @@ Po migracji usługa Azure AD DS udostępnia wiele funkcji, które są dostępne 
 * Pomoc techniczna ma dostęp do większej ilości danych telemetrycznych i może szybciej rozwiązywać problemy.
 * Szyfrowanie w spoczynku przy użyciu [usługi Azure Managed disks][managed-disks] dla danych na zarządzanych kontrolerach domeny.
 
-Domeny zarządzane AD DS platformy Azure korzystające z modelu wdrażania Menedżer zasobów pomagają zapewnić aktualność przy użyciu najnowszych nowych funkcji. Nowe funkcje nie są dostępne dla domeny zarządzanej AD DS platformy Azure, która korzysta z klasycznego modelu wdrażania.
+Domeny zarządzane, które używają Menedżer zasobów model wdrażania, ułatwiają aktualny dostęp do najnowszych nowych funkcji. Nowe funkcje nie są dostępne dla domen zarządzanych, które korzystają z klasycznego modelu wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 

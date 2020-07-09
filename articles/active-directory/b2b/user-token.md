@@ -12,15 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74271774"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Zrozumienie tokenów użytkowników w współpracy B2B usługi Azure AD
 
-Jeśli chcesz wiedzieć, jak wygląda token dla użytkownika współpracy B2B, poniżej przedstawiono szczegóły tokenu okaziciela oraz zawartość tokenu dla gościa Azure Active Directory (Azure AD) i konto Microsoft gościa w dzierżawie zasobów (dla tenantid 04dcc6ab-388A-4559-b527-fbec656300ea). Aby wyświetlić zawartość tokenu sieci Web JSON (JWT), użyj [https://jwt.io/](https://jwt.io/) lub [https://jwt.ms/](https://jwt.ms/).
+Jeśli chcesz wiedzieć, jak wygląda token dla użytkownika współpracy B2B, poniżej przedstawiono szczegóły tokenu okaziciela oraz zawartość tokenu dla gościa Azure Active Directory (Azure AD) i konto Microsoft gościa w dzierżawie zasobów (dla tenantid 04dcc6ab-388A-4559-b527-fbec656300ea). Aby wyświetlić zawartość tokenu sieci Web JSON (JWT), użyj [https://jwt.io/](https://jwt.io/) lub [https://jwt.ms/](https://jwt.ms/) .
 
 ## <a name="azure-ad-guest-token"></a>Token gościa usługi Azure AD
 ```

@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80656998"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Wyślij wiadomość e-mail z konta SMTP przy użyciu Azure Logic Apps
@@ -43,13 +42,13 @@ Za pomocą Azure Logic Apps i łącznika Simple Mail Transfer Protocol (SMTP) mo
 1. W ostatnim kroku, w którym chcesz dodać akcję SMTP, wybierz pozycję **nowy krok**. 
 
    Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. 
-   Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź wartość "SMTP" jako filtr. Na liście Akcje wybierz żądaną akcję.
 
 1. Po wyświetleniu monitu podaj następujące informacje o połączeniu:
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa połączenia** | Tak | Nazwa połączenia z serwerem SMTP | 
    | **Adres serwera SMTP** | Tak | Adres serwera SMTP | 

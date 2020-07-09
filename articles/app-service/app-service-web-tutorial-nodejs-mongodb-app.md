@@ -1,19 +1,19 @@
 ---
-title: 'Samouczek: aplikacja Node. js z usługą MongoDB'
-description: Dowiedz się, jak pobrać aplikację Node. js działającą na platformie Azure z połączeniem z bazą danych MongoDB na platformie Azure (Cosmos DB). W samouczku użyto ŚREDNIka. js.
+title: 'Samouczek: Node.js aplikacji za pomocą MongoDB'
+description: Dowiedz się, jak pobrać aplikację Node.js działającą na platformie Azure z połączeniem z bazą danych MongoDB na platformie Azure (Cosmos DB). MEAN.js jest używany w samouczku.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5dd99d9aa7e63066ac4801282e548f2995e57e67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a33065674f1acf43e276c5dc9d2a15cca52c9ef
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085604"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208063"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Samouczek: Tworzenie aplikacji node. js i MongoDB na platformie Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Samouczek: Tworzenie aplikacji Node.js i MongoDB na platformie Azure
 
 > [!NOTE]
 > W tym artykule opisano wdrażanie aplikacji w usłudze App Service w systemie Windows. Aby wdrożyć aplikację w usłudze App Service w systemie _Linux_, zobacz [Tworzenie aplikacji środowiska Node.js i usługi MongoDB w usłudze Azure App Service dla systemu Linux](./containers/tutorial-nodejs-mongodb-app.md).
@@ -89,9 +89,9 @@ Po całkowitym załadowaniu aplikacji zostanie wyświetlony komunikat podobny do
 
 <pre>
 --
-Zależność. Środowisko programistyczne JS
+Środowisko deweloperskie MEAN.JS
 
-Środowisko: serwer programistyczny http://0.0.0.0:3000 : baza danych: wersja aplikacji MongoDB://localhost/Mean-dev: 0.5.0. Wersja JS: 0.5.0--
+Środowisko: serwer programistyczny: http://0.0.0.0:3000 baza danych: wersja aplikacji MongoDB://localhost/Mean-dev: 0.5.0 MEAN.JS wersja: 0.5.0--
 </pre>
 
 W przeglądarce przejdź do adresu `http://localhost:3000`. Kliknij pozycję **Utwórz konto** w górnym menu i utwórz użytkownika testowego. 
@@ -127,7 +127,7 @@ W przypadku bazy danych MongoDB w tym samouczku jest używana baza danych [Azure
 
 W Cloud Shell Utwórz konto Cosmos DB za pomocą [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) polecenia.
 
-W poniższym poleceniu Zastąp unikatową nazwę Cosmos DB dla symbolu zastępczego * \<cosmosdb_name>* . Ta nazwa jest używana jako część punktu końcowego usługi Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, więc musi być unikatowa w obrębie wszystkich kont usługi Cosmos DB na platformie Azure. Nazwa może zawierać tylko małe litery, cyfry oraz znak łącznika (-) i musi się składać z 3–50 znaków.
+W poniższym poleceniu Zastąp unikatową nazwę Cosmos DB *\<cosmosdb_name>* symbolu zastępczego. Ta nazwa jest używana jako część punktu końcowego usługi Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, więc musi być unikatowa w obrębie wszystkich kont usługi Cosmos DB na platformie Azure. Nazwa może zawierać tylko małe litery, cyfry oraz znak łącznika (-) i musi się składać z 3–50 znaków.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -183,7 +183,7 @@ Skopiuj wartość `primaryMasterKey`. Ta informacja będzie potrzebna w następn
 
 W lokalnym repozytorium MEAN.js utwórz w folderze _config/env/_ plik o nazwie _local-production.js_. Domyślnie plik _gitignore_ skonfigurowano w celu przechowywania tego pliku poza repozytorium. 
 
-Skopiuj do niego poniższy kod. Pamiętaj, aby zamienić dwa * \<cosmosdb_name>* symbole zastępcze na nazwę bazy danych Cosmos DB i Zastąp symbol zastępczy * \<primary_master_key>* kluczem skopiowanym w poprzednim kroku.
+Skopiuj do niego poniższy kod. Pamiętaj, aby zastąpić dwa *\<cosmosdb_name>* symbole zastępcze nazwą bazy danych Cosmos DB i zastąpić *\<primary_master_key>* symbol zastępczy kluczem skopiowanym w poprzednim kroku.
 
 ```javascript
 module.exports = {
@@ -222,9 +222,9 @@ Po załadowaniu aplikacji upewnij się, że została ona uruchomiona w środowis
 
 <pre>
 --
-Zależność. JS
+MEAN.JS
 
-Środowisko: serwer produkcyjny http://0.0.0.0:8443 : Database:&lt;MongoDB://&gt;cosmosdb_name&lt;:&gt;@&lt;primary_master_key&gt;cosmosdb_name. Documents.Azure.com:10250/Mean?SSL=true&sslverifycertificate = false App Version: 0.5.0. Wersja JS: 0.5.0
+Środowisko: serwer produkcyjny: http://0.0.0.0:8443 Database: MongoDB:// &lt; cosmosdb_name &gt; : &lt; primary_master_key &gt; @ &lt; cosmosdb_name &gt; . Documents.Azure.com:10250/Mean?SSL=true&sslverifycertificate = false App Version: 0.5.0 MEAN.JS Version: 0.5.0
 </pre>
 
 W przeglądarce przejdź do adresu `http://localhost:8443`. Kliknij pozycję **Utwórz konto** w górnym menu i utwórz użytkownika testowego. Jeśli uda Ci się pomyślnie utworzyć użytkownika i zalogować, to znaczy, że aplikacja zapisuje dane w bazie danych Cosmos DB na platformie Azure. 
@@ -254,7 +254,7 @@ Domyślnie w projekcie MEAN.js plik _config/env/local-production.js_ jest przech
 
 Aby ustawić ustawienia aplikacji, użyj [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. 
 
-W poniższym przykładzie pokazano konfigurowanie ustawienia aplikacji `MONGODB_URI` w aplikacji platformy Azure. Zastąp * \<APP_NAME>*, * \<cosmosdb_name>* i * \<primary_master_key>* symbole zastępcze.
+W poniższym przykładzie pokazano konfigurowanie ustawienia aplikacji `MONGODB_URI` w aplikacji platformy Azure. Zastąp *\<app_name>* *\<cosmosdb_name>* *\<primary_master_key>* symbole zastępcze, i.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -371,7 +371,7 @@ Otwórz plik _modules/articles/client/views/view-article.client.view.html_.
 
 Tuż nad tagiem zamykającym `</section>` dodaj poniższy wiersz, aby wyświetlić typ `comment` i resztę danych artykułu:
 
-```HTML
+```html
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
@@ -379,7 +379,7 @@ Otwórz plik _modules/articles/client/views/list-articles.client.view.html_.
 
 Tuż nad tagiem zamykającym `</a>` dodaj poniższy wiersz, aby wyświetlić typ `comment` i resztę danych artykułu:
 
-```HTML
+```html
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
@@ -387,7 +387,7 @@ Otwórz plik _modules/articles/client/views/admin/list-articles.client.view.html
 
 Wewnątrz elementu `<div class="list-group">` i tuż nad tagiem zamykającym `</a>` dodaj poniższy wiersz, aby wyświetlić typ `comment` i resztę danych artykułu:
 
-```HTML
+```html
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
@@ -395,7 +395,7 @@ Otwórz plik _modules/articles/client/views/admin/form-article.client.view.html_
 
 Znajdź element `<div class="form-group">` zawierający przycisk przesyłania, który wygląda następująco:
 
-```HTML
+```html
 <div class="form-group">
   <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
 </div>
@@ -403,7 +403,7 @@ Znajdź element `<div class="form-group">` zawierający przycisk przesyłania, k
 
 Tuż nad tym tagiem dodaj kolejny element `<div class="form-group">` umożliwiający użytkownikom edytowanie pola `comment`. Nowy element powinien wyglądać następująco:
 
-```HTML
+```html
 <div class="form-group">
   <label class="control-label" for="comment">Comment</label>
   <textarea name="comment" data-ng-model="vm.article.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
@@ -456,7 +456,7 @@ Jeśli dodano wcześniej artykuły, nadal będą widoczne. Istniejące dane w ba
 
 Gdy aplikacja Node.js działa w usłudze Azure App Service, dzienniki konsoli można przesłać potokiem do terminala. W ten sposób można użyć komunikatów diagnostycznych w celu ułatwienia debugowania błędów aplikacji.
 
-Aby rozpocząć przesyłanie strumieniowe dzienników, [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) Użyj polecenia znajdującego się w Cloud Shell.
+Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
@@ -497,3 +497,8 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak zmapować niestanda
 
 > [!div class="nextstepaction"] 
 > [Mapowanie istniejącej niestandardowej nazwy DNS na Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+Więcej zasobów:
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie aplikacji Node.js](configure-language-nodejs.md)

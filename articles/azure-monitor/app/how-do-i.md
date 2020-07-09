@@ -3,12 +3,12 @@ title: Jak mogę... na platformie Azure Application Insights | Microsoft Docs
 description: Często zadawane pytania w Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701942"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110236"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
 ## <a name="get-an-email-when-"></a>Otrzymuj wiadomość e-mail, gdy...
@@ -33,17 +33,23 @@ Załóżmy, że chcesz otrzymać wiadomość e-mail po wystąpieniu określonego
 
 Alerty można ustawiać w [niestandardowych metrykach](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), chociaż nie zdarzeniach niestandardowych. Napisz kod, aby zwiększyć metrykę w przypadku wystąpienia zdarzenia:
 
-    telemetry.TrackMetric("Alarm", 10);
+```csharp
+telemetry.TrackMetric("Alarm", 10);
+```
 
 lub:
 
-    var measurements = new Dictionary<string,double>();
-    measurements ["Alarm"] = 10;
-    telemetry.TrackEvent("status", null, measurements);
+```csharp
+var measurements = new Dictionary<string,double>();
+measurements ["Alarm"] = 10;
+telemetry.TrackEvent("status", null, measurements);
+```
 
 Ponieważ alerty mają dwa stany, należy wysłać wartość niską, gdy zostanie zgłoszony alert, który zakończył się:
 
-    telemetry.TrackMetric("Alarm", 0.5);
+```csharp
+telemetry.TrackMetric("Alarm", 0.5);
+```
 
 Utwórz wykres w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md) , aby zobaczyć alarm:
 
@@ -74,7 +80,7 @@ Oto niektóre ważne kwestie:
 ## <a name="separate-telemetry-from-different-versions"></a>Oddzielna Telemetria od różnych wersji
 
 * Wiele ról w aplikacji: Użyj pojedynczego zasobu Application Insights i odfiltruj [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Rozdzielenie wersji deweloperskich, testowych i wydań: Użyj różnych zasobów Application Insights. Pobierz klucze Instrumentacji z pliku Web. config. [Dowiedz się więcej](../../azure-monitor/app/separate-resources.md)
+* Rozdzielenie wersji deweloperskich, testowych i wydań: Użyj różnych zasobów Application Insights. Pobierz klucze Instrumentacji z web.config. [Dowiedz się więcej](../../azure-monitor/app/separate-resources.md)
 * Wersje kompilacji raportowania: Dodaj właściwość przy użyciu inicjatora telemetrii. [Dowiedz się więcej](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorowanie serwerów zaplecza i aplikacji klasycznych
@@ -118,7 +124,7 @@ Jeśli chcesz, aby lista użytkowników z danymi, takich jak strony, na których
 * Jeśli masz tylko niewielką liczbę użytkowników, Wyślij zdarzenia niestandardowe lub metryki, używając danych interesujących jako wartość metryki lub nazwa zdarzenia i ustawiając identyfikator użytkownika jako właściwość. Aby analizować widoki stron, Zastąp standardowe wywołanie JavaScript trackPageView. Aby analizować dane telemetryczne po stronie serwera, użyj inicjatora telemetrii w celu dodania identyfikatora użytkownika do wszystkich danych telemetrycznych serwera. Następnie można filtrować i segmentować metryki oraz wyszukiwania według identyfikatora użytkownika.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Zmniejsz ruch z mojej aplikacji do Application Insights
-* W [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)Wyłącz wszystkie moduły, które nie są potrzebne, takie jak moduł zbierający dane licznika wydajności.
+* W [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)Wyłącz wszystkie moduły, które nie są potrzebne, takie jak moduł zbierający dane licznika wydajności.
 * Użyj [próbkowania i filtrowania](../../azure-monitor/app/api-filtering-sampling.md) w zestawie SDK.
 * Na stronach sieci Web Ogranicz liczbę wywołań AJAX raportowanych dla każdego widoku strony. W fragmencie kodu skryptu po `instrumentationKey:...` wstawieniu: `,maxAjaxCallsPerView:3` (lub odpowiedniej liczbie).
 * Jeśli używasz [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), Oblicz zagregowane dane partii wartości metryk przed wysłaniem wyniku. Istnieje Przeciążenie TrackMetric (), które zapewnia dla tego.
@@ -131,9 +137,9 @@ Aby **dynamicznie zatrzymać i uruchomić** zbieranie danych telemetrycznych z s
 ### <a name="aspnet-classic-applications"></a>ASP.NET klasyczne aplikacje
 
 ```csharp
-    using  Microsoft.ApplicationInsights.Extensibility;
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 ### <a name="other-applications"></a>Inne aplikacje
@@ -145,7 +151,7 @@ W przypadku aplikacji ASP.NET Core można uzyskać dostęp do `TelemetryConfigur
 ## <a name="disable-selected-standard-collectors"></a>Wyłącz wybrane moduły standardowe
 Można wyłączyć moduły zbierające standardowe (na przykład liczniki wydajności, żądania HTTP lub zależności).
 
-* **ASP.NET aplikacje** — Usuń lub Dodaj komentarz do odpowiednich wierszy w [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET aplikacje** — Usuń lub Dodaj komentarz do odpowiednich wierszy w [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
 * **ASP.NET Core Applications** — Użyj opcji konfiguracji modułów telemetrycznych w programie [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Wyświetlanie liczników wydajności systemu

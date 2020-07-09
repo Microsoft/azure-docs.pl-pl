@@ -15,10 +15,9 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676769"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux 
@@ -71,7 +70,7 @@ az vm availability-set create \
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). 
 
-Poniższy przykład tworzy dwie maszyny wirtualne o `myVM1` nazwach i `myVM2`. Program tworzy również klucze SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
+Poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2` . Program tworzy również klucze SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
 Utwórz myVM1 (podstawowy):
 ```azurecli
@@ -85,7 +84,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do poniższego przykładu. Zwróć uwagę na wartość `publicIpAddress`. Ten adres jest używany do uzyskiwania dostępu do maszyny wirtualnej.
+Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do poniższego przykładu. Zwróć uwagę na wartość `publicIpAddress` . Ten adres jest używany do uzyskiwania dostępu do maszyny wirtualnej.
 
 ```output
 {
@@ -282,7 +281,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Włącz usługę Flashback (dzięki czemu odzyskiwanie jest łatwiejsze) i ustaw funkcję zarządzania\_plikami\_w trybie wstrzymania na wartość Auto. Wyjdź z programu SQL * Plus.
+Włącz usługę Flashback (dzięki czemu odzyskiwanie jest łatwiejsze) i ustaw \_ funkcję zarządzania plikami w trybie wstrzymania \_ na wartość Auto. Wyjdź z programu SQL * Plus.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -554,7 +553,7 @@ Konfiguracja funkcji Oracle Data Guard została ukończona. W następnej sekcji 
 
 Zaktualizuj lub Utwórz plik pliku tnsnames. ora na komputerze klienckim. Ten plik jest zwykle w $ORACLE _HOME \network\admin.
 
-Zastąp adresy IP `publicIpAddress` wartościami dla MyVM1 i myVM2:
+Zastąp adresy IP `publicIpAddress` wartościami dla myVM1 i myVM2:
 
 ```bash
 cdb1=

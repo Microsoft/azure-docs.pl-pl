@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 760f5c6c929aa082993683d7a466a71c6484289a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67148350"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85849180"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów z kopiowaniem danych w Azure Data Box Disk
 
@@ -26,13 +26,15 @@ W tej sekcji szczegółowo przedstawiono niektóre z najważniejszych problemów
 
 ### <a name="issue-drive-getting-mounted-as-read-only"></a>Problem: dysk jest instalowany jako tylko do odczytu
  
-**Może** 
+**Przyczyna** 
 
 Może to być spowodowane nieczystym systemem plików.
 
 Ponowne zainstalowanie dysku przy użyciu funkcji odczytu i zapisu nie działa z dyskami urządzenie Data Box. Ten scenariusz nie jest obsługiwany w przypadku dysków odszyfrowanych przez program Unlocker. Być może pomyślnie zainstalowano urządzenie przy użyciu następującego polecenia:
 
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
+```
+# mount -o remount, rw /mnt/DataBoxDisk/mountVol1
+```
 
 Mimo że ponowne zainstalowanie zakończyło się pomyślnie, dane nie zostaną zachowane.
 
@@ -72,7 +74,7 @@ W systemie Linux wykonaj następujące czynności:
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problem: błąd związany z danymi, które nie są utrwalane po skopiowaniu
  
-**Może** 
+**Przyczyna** 
 
 Jeśli widzisz, że dysk nie ma danych po odinstalowaniu (Jeśli dane zostały skopiowane do niego), możliwe jest ponowne zainstalowanie dysku jako do odczytu i zapisu po zainstalowaniu dysku jako tylko do odczytu.
 
@@ -91,7 +93,7 @@ Problemy występujące podczas korzystania z narzędzia Split Copy do dzielenia 
 |---------|---------|
 |Informacje Pobieranie hasła funkcji BitLocker dla woluminu: m <br>Porn Przechwycono wyjątek podczas pobierania klucza funkcji BitLocker dla woluminu m:<br> Sekwencja nie zawiera elementów.|Ten błąd jest zwracany, jeśli docelowe dyski Data Box Disk są w trybie offline. <br> W przypadku dysków w trybie online należy użyć narzędzia `diskmgmt.msc`.|
 |[Błąd] Zgłoszono wyjątek: operacja usługi WMI zakończyła się niepowodzeniem:<br> Method = UnlockWithNumericalPassword, ReturnValue = 2150694965, <br>Win32Message = format podanego hasła odzyskiwania jest nieprawidłowy. <br>Hasła odzyskiwania funkcji BitLocker są 48-cyfrowe. <br>Sprawdź, czy hasło odzyskiwania ma poprawny format, a następnie spróbuj ponownie.|Użyj narzędzia do odblokowywania dysków Data Box Disk, aby odblokować dyski i ponowić próbę wykonania polecenia. Aby uzyskać więcej informacji, przejdź na stronę <li> [Odblokowywanie dysków Data Box Disk dla klientów systemu Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Odblokowywanie dysków Data Box Disk dla klientów systemu Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
-|[Błąd] Zgłoszono wyjątek: plik DriveManifest.xml znajduje się na dysku docelowym. <br> Oznacza to, że dysk docelowy został prawdopodobnie przygotowany przy użyciu innego pliku dziennika. <br>Aby dodać więcej danych do tego samego dysku, użyj poprzedniego pliku dziennika. Aby usunąć istniejące dane i ponownie użyć dysku docelowego dla nowego zadania importu, Usuń *DriveManifest. XML* na dysku. Ponownie uruchom to polecenie, używając nowego pliku dziennika.| Ten błąd zostanie wyświetlony podczas próby użycia tego samego zestawu dysków w wielu sesjach importowania. <br> Z jedną sesją dzielenia i kopiowania można użyć tylko jednego zestawu dysków.|
+|[Błąd] Zgłoszono wyjątek: plik DriveManifest.xml znajduje się na dysku docelowym. <br> Oznacza to, że dysk docelowy został prawdopodobnie przygotowany przy użyciu innego pliku dziennika. <br>Aby dodać więcej danych do tego samego dysku, użyj poprzedniego pliku dziennika. Aby usunąć istniejące dane i ponownie użyć dysku docelowego dla nowego zadania importu, Usuń *DriveManifest.xml* na dysku. Ponownie uruchom to polecenie, używając nowego pliku dziennika.| Ten błąd zostanie wyświetlony podczas próby użycia tego samego zestawu dysków w wielu sesjach importowania. <br> Z jedną sesją dzielenia i kopiowania można użyć tylko jednego zestawu dysków.|
 |[Błąd] Zgłoszono wyjątek: CopySessionId importdata-sept-test-1 odwołuje się do poprzedniej sesji kopiowania i nie może zostać użyty ponownie w nowej sesji kopiowania.|Ten błąd jest zgłaszany w przypadku próby użycia tej samej nazwy zadania dla nowego zadania, które zostało poprzednio pomyślnie ukończone.<br> Należy przypisać unikatową nazwę dla nowego zadania.|
 |[Informacje] Nazwa pliku lub katalogu docelowego przekracza limit długości dla systemu plików NTFS. |Ten komunikat jest zgłaszany, gdy nazwa pliku docelowego została zmieniona z powodu długiej ścieżki pliku.<br> Aby sterować tym zachowaniem, należy zmodyfikować opcję dyspozycji w pliku `config.json`.|
 |[Błąd] Zgłoszono wyjątek: nieprawidłowa sekwencja ucieczki pliku JSON. |Ten komunikat jest zgłaszany, gdy format pliku config.json jest nieprawidłowy. <br> Przed zapisaniem pliku `config.json` zweryfikuj go przy użyciu narzędzia [JSONlint](https://jsonlint.com/).|

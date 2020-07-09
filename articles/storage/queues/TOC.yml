@@ -37,6 +37,8 @@
       href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: JavaScript
       href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Inne języki
+      href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Pojęcia
   items:
     - name: Konta magazynu
@@ -71,8 +73,18 @@
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Odzyskiwanie po awarii i tryb failover
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Lista kontrolna wydajności i skalowalności
-      href: storage-performance-checklist.md
+    - name: 'Wydajność, skalowanie i optymalizacja kosztów'
+      items:
+        - name: Cele dotyczące skalowalności i wydajności
+          items:
+            - name: Queue Storage
+              href: scalability-targets.md
+            - name: Konta usługi Storage w warstwie Standardowa
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Dostawca zasobów magazynu
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Lista kontrolna wydajności i skalowalności
+          href: storage-performance-checklist.md
     - name: Współbieżność
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Monitorowanie i rozwiązywanie problemów
@@ -214,54 +226,8 @@
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Dokumentacja
   items:
-    - name: Cele dotyczące skalowalności i wydajności
-      items:
-        - name: Queue Storage
-          href: scalability-targets.md
-        - name: Konta usługi Storage w warstwie Standardowa
-          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Dostawca zasobów magazynu
-          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Azure PowerShell
-      href: /powershell/module/az.storage
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: Kolejki (wersja 11.x)
-          href: /dotnet/api/microsoft.azure.storage.queue
-        - name: Kolejki (wersja 12.x)
-          href: /dotnet/api/azure.storage.queues
-        - name: Dostawca zasobów magazynu
-          href: /dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-        - name: Kolejki (wersja 8.x)
-          href: /java/api/com.microsoft.azure.storage.queue
-        - name: Kolejki (wersja 12.x)
-          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html'
-        - name: Dostawca zasobów magazynu
-          href: /java/api/overview/azure/storage/management
-    - name: JavaScript (wersja 12.x)
-      href: /javascript/api/@azure/storage-queue
-    - name: Python (wersja 12.x)
-      href: /python/api/azure-storage-queue/?view=azure-python
-    - name: REST
-      items:
-        - name: 'Obiekty blob, kolejki, tabele i pliki'
-          href: /rest/api/storageservices
-        - name: Dostawca zasobów magazynu
-          href: /rest/api/storagerp
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+    - name: Dokumentacja usługi Azure Queue Storage
+      href: ../queues/reference.md
     - name: Szablon usługi Resource Manager
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions

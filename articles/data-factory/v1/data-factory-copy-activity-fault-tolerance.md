@@ -12,10 +12,9 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74926149"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Dodaj odporność na uszkodzenia w działaniu kopiowania, pomijając niezgodne wiersze
@@ -50,7 +49,7 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
 >[!NOTE]
 >Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania zewnętrznego mechanizmu ładowania danych, w tym [Azure SQL Data Warehouse Base](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) lub [Amazon RedShift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Aby załadować dane do SQL Data Warehouse przy użyciu bazy danych Base, należy użyć natywnej obsługi odporności na uszkodzenia podstawowej, określając wartość "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" w działaniu kopiowania.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json
@@ -69,9 +68,9 @@ Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgo
 }
 ```
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Włącz pomijanie niezgodnych wierszy podczas kopiowania lub nie. | True<br/>False (domyślnie) | Nie |
+| **enableSkipIncompatibleRow** | Włącz pomijanie niezgodnych wierszy podczas kopiowania lub nie. | Prawda<br/>False (domyślnie) | Nie |
 | **redirectIncompatibleRowSettings** | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie |
 | **linkedServiceName** | Połączona usługa usługi Azure Storage do przechowywania dziennika zawierającego pominięte wiersze. | Nazwa połączonej usługi [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) , która odwołuje się do wystąpienia magazynu, które ma być używane do przechowywania pliku dziennika. | Nie |
 | **ścieżka** | Ścieżka pliku dziennika zawierającego pominięte wiersze. | Określ ścieżkę magazynu obiektów blob, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie |

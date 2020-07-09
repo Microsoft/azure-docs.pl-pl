@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cd852d19b284f97995855fe06c97ea0ea69be293
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 648de447a08e593af28d11a3be206a2cfee80902
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733966"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790096"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure PowerShell
 

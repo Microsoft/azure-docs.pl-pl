@@ -4,23 +4,23 @@ description: W tym samouczku pokazano, jak można użyć maszyny deweloperskiej 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dca903591c5d6805108d55163aaedc2435d9297e
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74706909"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610084"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
 
 > [!NOTE]
 > Ten artykuł jest częścią serii samouczka dotyczącego używania Azure Machine Learning w IoT Edge. Jeśli ten artykuł został osiągnięty bezpośrednio, zachęcamy do rozpoczęcia od [pierwszego artykułu](tutorial-machine-learning-edge-01-intro.md) z serii w celu uzyskania najlepszych wyników.
 
-W tym artykule ponownie używamy maszyny deweloperskiej jako urządzenia symulowanego, ale zamiast wysyłać dane bezpośrednio do IoT Hub urządzenie wysyła dane do urządzenia IoT Edge skonfigurowanego jako niejawną bramę.
+W tym artykule wielokrotnie korzystamy z maszyny wirtualnej tworzenia jako symulowanego urządzenia. Jednak zamiast bezpośredniego przesyłania danych do IoT Hub urządzenie wysyła dane do urządzenia IoT Edge skonfigurowanego jako nieprzezroczysta brama.
 
 Monitorujemy działanie urządzenia IoT Edge, gdy symulowane urządzenie wysyła dane. Po zakończeniu działania urządzenia zapoznaj się z danymi na naszym koncie magazynu, aby sprawdzić, czy wszystko działa zgodnie z oczekiwaniami.
 
@@ -30,22 +30,22 @@ Ten krok jest zwykle wykonywany przez programistę lub dewelopera urządzenia.
 
 Ponownie Użyj [projektu DeviceHarness](tutorial-machine-learning-edge-03-generate-data.md) w celu zasymulowania urządzenia podrzędnego (lub liścia). Połączenie z nieprzezroczystą bramą wymaga dwóch dodatkowych czynności:
 
-* Zarejestruj certyfikat, aby utworzyć urządzenie podrzędne (w tym przypadku nasze maszyny deweloperskie) ufają urzędowi certyfikacji używanym przez środowisko uruchomieniowe IoT Edge.
+* Zarejestruj certyfikat, aby udostępnić podrzędnym urządzeniu IoT urząd certyfikacji używany przez środowisko uruchomieniowe IoT Edge. W naszym przypadku urządzenie podrzędne jest maszyną wirtualną programistyczną.
 * Dodaj w pełni kwalifikowaną nazwę domeny (FQDN) bramy usługi Edge do parametrów połączenia urządzenia.
 
 Spójrz na kod, aby zobaczyć, jak te dwa elementy są implementowane.
 
 1. Na komputerze deweloperskim Otwórz Visual Studio Code.
 
-2. Użyj **File** > **folderu Otwórz folder...** , aby otworzyć plik\\C\\:\\Source IoTEdgeAndMlSample DeviceHarness.
+1. Użyj **File**  >  **folderu Otwórz folder...** , aby otworzyć plik C: \\ Source \\ IoTEdgeAndMlSample \\ DeviceHarness.
 
-3. Spójrz na metodę InstallCertificate () w Program.cs.
+1. Spójrz na metodę InstallCertificate () w Program.cs.
 
-4. Należy pamiętać, że jeśli kod odnajdzie ścieżkę certyfikatu, wywołuje metodę CertificateManager. InstallCACert, aby zainstalować certyfikat na komputerze.
+1. Należy pamiętać, że jeśli kod odnajdzie ścieżkę certyfikatu, wywołuje metodę CertificateManager. InstallCACert, aby zainstalować certyfikat na komputerze.
 
-5. Teraz przyjrzyjmy się metodzie GetIotHubDevice klasy TurbofanDevice.
+1. Teraz przyjrzyjmy się metodzie GetIotHubDevice klasy TurbofanDevice.
 
-6. Jeśli użytkownik określi nazwę FQDN bramy przy użyciu opcji "-g", ta wartość jest przenoszona do tej metody jako gatewayFqdn, która jest dołączana do parametrów połączenia urządzenia.
+1. Jeśli użytkownik określi nazwę FQDN bramy przy użyciu opcji "-g", ta wartość jest przenoszona do tej metody jako `gatewayFqdn` zmienna, która jest dołączana do parametrów połączenia urządzenia.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
@@ -53,21 +53,23 @@ Spójrz na kod, aby zobaczyć, jak te dwa elementy są implementowane.
 
 ## <a name="build-and-run-leaf-device"></a>Kompiluj i uruchom urządzenie liścia
 
-1. Gdy projekt DeviceHarness jest wciąż otwarty w Visual Studio Code, Skompiluj projekt (Ctrl + Shift + B lub > **zadanie kompilacji przebiegu końcowego...**) i wybierz opcję **Kompiluj** z okna dialogowego. **Terminal**
+1. Gdy projekt DeviceHarness jest wciąż otwarty w Visual Studio Code, Skompiluj projekt. Z menu **Terminal** wybierz polecenie **Uruchom zadanie kompilacji** i wybierz opcję **Kompiluj**.
 
-2. Znajdź w pełni kwalifikowaną nazwę domeny (FQDN) dla bramy granicznej, przechodząc do maszyny wirtualnej IoT Edge urządzenia w portalu i kopiując wartość **nazwy DNS** z przeglądu.
+1. Znajdź w pełni kwalifikowaną nazwę domeny (FQDN) dla bramy granicznej, przechodząc do urządzenia IoT Edge (maszyna wirtualna z systemem Linux) w Azure Portal i kopiując wartość **nazwy DNS** z strony przegląd.
 
-3. Otwórz Terminal Visual Studio Code (**Terminal** > **New**Terminal) i uruchom następujące polecenie, zastępując `<edge_device_fqdn>` nazwę DNS skopiowaną z maszyny wirtualnej:
+1. Uruchom urządzenie IoT (maszyna wirtualna z systemem Linux), jeśli nie zostało jeszcze uruchomione.
+
+1. Otwórz Terminal Visual Studio Code. Z menu **Terminal** wybierz pozycję **Nowy terminal** i uruchom następujące polecenie, zastępując `<edge_device_fqdn>` nazwę DNS skopiowaną z urządzenia IoT Edge (maszyna wirtualna z systemem Linux):
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
    ```
 
-4. Aplikacja próbuje zainstalować certyfikat na komputerze deweloperskim. Gdy tak się robi, zaakceptuj ostrzeżenie o zabezpieczeniach.
+1. Aplikacja próbuje zainstalować certyfikat na komputerze deweloperskim. Gdy tak się robi, zaakceptuj ostrzeżenie o zabezpieczeniach.
 
-5. Po wyświetleniu monitu o parametry połączenia IoT Hub kliknij przycisk wielokropka (**...**) w panelu urządzenia Azure IoT Hub i wybierz polecenie **Kopiuj IoT Hub parametry połączenia**. Wklej wartość do terminalu.
+1. Po wyświetleniu monitu o parametry połączenia IoT Hub kliknij przycisk wielokropka (**...**) w panelu urządzenia platformy Azure IoT Hub i wybierz polecenie **Kopiuj IoT Hub parametry połączenia**. Wklej wartość do terminalu.
 
-6. Zobaczysz dane wyjściowe podobne do:
+1. Zobaczysz dane wyjściowe podobne do:
 
    ```output
    Found existing device: Client_001
@@ -89,13 +91,13 @@ Dane wyjściowe modułu avroFileWriter można łatwo zaobserwować, przeglądaj�
 
 1. Użyj protokołu SSH do maszyny wirtualnej IoT Edge.
 
-2. Wyszukaj pliki zapisywane na dysku.
+1. Wyszukaj pliki zapisywane na dysku.
 
    ```bash
    find /data/avrofiles -type f
    ```
 
-3. Dane wyjściowe polecenia będą wyglądać podobnie jak w poniższym przykładzie:
+1. Dane wyjściowe polecenia będą wyglądać podobnie jak w poniższym przykładzie:
 
    ```output
    /data/avrofiles/2019/4/18/22/10.avro
@@ -103,9 +105,9 @@ Dane wyjściowe modułu avroFileWriter można łatwo zaobserwować, przeglądaj�
 
    Może istnieć więcej niż jeden plik w zależności od czasu uruchomienia.
 
-4. Zwróć uwagę na sygnatury czasowe. Moduł avroFileWriter przekazuje pliki do chmury po ostatniej modyfikacji w przeszłości ponad 10 minut (zobacz zmodyfikowany\_limit czasu pliku\_w Uploader.py w module avroFileWriter).
+1. Zwróć uwagę na sygnatury czasowe. Moduł avroFileWriter przekazuje pliki do chmury po ostatniej modyfikacji w przeszłości ponad 10 minut (zobacz zmodyfikowany \_ \_ limit czasu pliku w Uploader.py w module avroFileWriter).
 
-5. Po upływie 10 minut moduł powinien przekazać pliki. Jeśli przekazywanie zakończy się pomyślnie, program usunie pliki z dysku.
+1. Po upływie 10 minut moduł powinien przekazać pliki. Jeśli przekazywanie zakończy się pomyślnie, program usunie pliki z dysku.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -113,39 +115,39 @@ Można obserwować wyniki wysyłania danych z urządzenia typu liść, przegląd
 
 1. Na maszynie deweloperskiej Otwórz Visual Studio Code.
 
-2. W panelu "AZURE STORAGE" w oknie Eksplorowanie przejdź do drzewa, aby znaleźć konto magazynu.
+1. W panelu "AZURE STORAGE" w oknie Eksplorowanie przejdź do drzewa, aby znaleźć konto magazynu.
 
-3. Rozwiń węzeł **kontenery obiektów BLOB** .
+1. Rozwiń węzeł **kontenery obiektów BLOB** .
 
-4. Z pracy wykonanej w poprzedniej części samouczka oczekujemy, że kontener **ruldata** powinien zawierać komunikaty z pozostałego czasu eksploatacji. Rozwiń węzeł **ruldata** .
+1. Z pracy wykonanej w poprzedniej części samouczka oczekujemy, że kontener **ruldata** powinien zawierać komunikaty z pozostałego czasu eksploatacji. Rozwiń węzeł **ruldata** .
 
-5. Zobaczysz jeden lub więcej plików obiektów BLOB o nazwie like `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`:.
+1. Zobaczysz jeden lub więcej plików obiektów BLOB o nazwie like: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>` .
 
-6. Kliknij prawym przyciskiem myszy jeden z plików, a następnie wybierz pozycję **Pobierz obiekt BLOB** , aby zapisać plik na komputerze deweloperskim.
+1. Kliknij prawym przyciskiem myszy jeden z plików, a następnie wybierz pozycję **Pobierz obiekt BLOB** , aby zapisać plik na komputerze deweloperskim.
 
-7. Następnie rozwiń węzeł **uploadturbofanfiles** . W poprzednim artykule ustawimy tę lokalizację jako element docelowy dla plików przekazanych przez moduł avroFileWriter.
+1. Następnie rozwiń węzeł **uploadturbofanfiles** . W poprzednim artykule ustawimy tę lokalizację jako element docelowy dla plików przekazanych przez moduł avroFileWriter.
 
-8. Kliknij prawym przyciskiem myszy pliki i wybierz polecenie **Pobierz obiekt BLOB** , aby zapisać go na komputerze deweloperskim.
+1. Kliknij prawym przyciskiem myszy pliki i wybierz polecenie **Pobierz obiekt BLOB** , aby zapisać go na komputerze deweloperskim.
 
 ### <a name="read-avro-file-contents"></a>Odczytaj zawartość pliku Avro
 
 Dodaliśmy proste narzędzie wiersza polecenia do odczytywania pliku Avro i zwracania ciągu JSON komunikatów w pliku. W tej sekcji zostanie zainstalowana i uruchomiona.
 
-1. Otwórz terminal w**Visual Studio Code (** > **Nowy terminal**terminalu).
+1. Otwórz terminal w**Visual Studio Code (**  >  **Nowy terminal**terminalu).
 
-2. Zainstaluj hubavroreader:
+1. Zainstaluj hubavroreader:
 
    ```cmd
    pip install c:\source\IoTEdgeAndMlSample\HubAvroReader
    ```
 
-3. Użyj hubavroreader, aby odczytać plik Avro pobrany z usługi **ruldata**.
+1. Użyj hubavroreader, aby odczytać plik Avro pobrany z usługi **ruldata**.
 
    ```cmd
    hubavroreader <avro file with ath> | more
    ```
 
-4. Należy zauważyć, że treść komunikatu wygląda zgodnie z oczekiwaniami z IDENTYFIKATORem urządzenia i przewidywaną pozostałego czasu eksploatacji.
+1. Należy zauważyć, że treść komunikatu wygląda zgodnie z oczekiwaniami z IDENTYFIKATORem urządzenia i przewidywaną pozostałego czasu eksploatacji.
 
    ```json
    {
@@ -176,9 +178,9 @@ Dodaliśmy proste narzędzie wiersza polecenia do odczytywania pliku Avro i zwra
    }
    ```
 
-5. Uruchom to samo polecenie, przekazując plik Avro pobrany z **uploadturbofanfiles**.
+1. Uruchom to samo polecenie, przekazując plik Avro pobrany z **uploadturbofanfiles**.
 
-6. Zgodnie z oczekiwaniami te komunikaty zawierają wszystkie dane czujnika i ustawienia operacyjne z oryginalnej wiadomości. Te dane mogą służyć do ulepszania modelu pozostałego czasu eksploatacji na naszym urządzeniu brzegowym.
+1. Zgodnie z oczekiwaniami te komunikaty zawierają wszystkie dane czujnika i ustawienia operacyjne z oryginalnej wiadomości. Te dane mogą służyć do ulepszania modelu pozostałego czasu eksploatacji na naszym urządzeniu brzegowym.
 
    ```json
    {
@@ -219,19 +221,19 @@ Dodaliśmy proste narzędzie wiersza polecenia do odczytywania pliku Avro i zwra
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz Eksplorowanie zasobów używanych przez ten kompleksowy samouczek, zaczekaj na ukończenie czyszczenia utworzonych zasobów. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby je usunąć:
+Jeśli planujesz Eksplorowanie zasobów używanych przez ten kompleksowy samouczek, zaczekaj na ukończenie czyszczenia utworzonych zasobów. W przeciwnym razie wykonaj następujące kroki, aby je usunąć:
 
-1. Usuń grupy zasobów utworzone w celu przechowywania maszyny wirtualnej deweloperskiej, IoT Edge maszyny wirtualnej, IoT Hub, konta magazynu, usługi obszaru roboczego uczenia maszynowego (i utworzonych zasobów: Rejestr kontenerów, Application Insights, Magazyn kluczy, konto magazynu).
+1. Usuń grupy zasobów utworzone w celu przechowywania maszyny wirtualnej deweloperskiej, IoT Edge maszyny wirtualnej, IoT Hub, konta magazynu, usługi obszaru roboczego uczenia maszynowego (i utworzonych zasobów: Registry Container, Application Insights, Magazyn kluczy, konto magazynu).
 
-2. Usuń projekt uczenia maszynowego w [notesach platformy Azure](https://notebooks.azure.com).
+1. Usuń projekt uczenia maszynowego w [notesach platformy Azure](https://notebooks.azure.com).
 
-3. Jeśli repozytorium zostało sklonowane lokalnie, zamknij wszystkie środowiska programu PowerShell lub VS Code systemu Windows odwołujące się do lokalnego repozytorium, a następnie usuń katalog repozytorium.
+1. Jeśli repozytorium zostało sklonowane lokalnie, zamknij wszystkie środowiska programu PowerShell lub VS Code systemu Windows odwołujące się do lokalnego repozytorium, a następnie usuń katalog repozytorium.
 
-4. Jeśli certyfikaty zostały utworzone lokalnie, Usuń folder c:\\edgeCertificates.
+1. Jeśli certyfikaty zostały utworzone lokalnie, Usuń folder c: \\ edgeCertificates.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule użyto naszego komputera deweloperskiego, aby symulować dane czujnika i danych operacyjnych urządzenia liścia na naszym urządzeniu brzegowym. Sprawdzono, że moduły na urządzeniu przekierowane, sklasyfikowane i utrwalone oraz przekazały dane po raz pierwszy poprzez zbadanie działania urządzenia brzegowego w czasie rzeczywistym, a następnie przejrzenie plików przekazanych do konta magazynu.
+W tym artykule użyto naszej maszyny wirtualnej do programowania, aby symulować dane dotyczące czujnika i danych operacyjnych urządzenia liścia na naszym urządzeniu IoT Edge. Sprawdzono, że moduły na urządzeniu są kierowane, sklasyfikowane i utrwalane oraz przekazane do danych przez badanie działania urządzenia brzegowego w czasie rzeczywistym i przeglądanie plików przekazanych do konta magazynu.
 
 Więcej informacji można znaleźć na następujących stronach:
 

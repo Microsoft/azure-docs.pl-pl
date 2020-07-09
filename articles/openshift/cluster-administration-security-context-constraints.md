@@ -8,10 +8,10 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80063171"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Zarządzanie ograniczeniami kontekstu zabezpieczeń na platformie Azure Red Hat OpenShift 
@@ -37,7 +37,7 @@ restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs 
 
 ## <a name="examine-an-object-for-security-context-constraints"></a>Badanie obiektu pod kątem ograniczeń kontekstu zabezpieczeń
 
-Aby zapoznać się z konkretnym SCC `oc get`, `oc describe`Użyj, `oc edit`, lub.  Aby na przykład przeanalizować **ograniczoną** wartość SCC, użyj tego polecenia:
+Aby zapoznać się z konkretnym SCC, użyj `oc get` , `oc describe` , lub `oc edit` .  Aby na przykład przeanalizować **ograniczoną** wartość SCC, użyj tego polecenia:
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

@@ -1,25 +1,16 @@
 ---
 title: Jak używać kolejek Azure Service Bus przy użyciu języka Ruby
 description: W ramach tego samouczka nauczysz się tworzyć aplikacje Ruby do wysyłania komunikatów do i odbierania komunikatów z kolejki Service Bus.
-services: service-bus-messaging
 documentationcenter: ruby
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: a699543bb442e7c57d57e72acb2cdf6ac40159c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 16dda6fc4637f052514a0e78a0804bf4702ed20b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76760593"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336644"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Szybki Start: jak używać kolejek Service Bus przy użyciu języka Ruby
 
@@ -62,9 +53,9 @@ queue = azure_service_bus_service.create_queue(queue)
 ```
 
 ## <a name="how-to-send-messages-to-a-queue"></a>Jak wysyłać komunikaty do kolejki
-Aby wysłać komunikat do kolejki Service Bus, aplikacja wywołuje `send_queue_message()` metodę w obiekcie **Azure:: ServiceBusService** . Komunikaty wysyłane do (i odbieranych z) Service Bus kolejki są typu **Azure:: ServiceBus:: BrokeredMessage** i mają zestaw właściwości standardowych (takich jak `label` i `time_to_live`), słownik używany do przechowywania niestandardowych właściwości specyficznych dla aplikacji oraz treść dowolnych danych aplikacji. Aplikacja może ustawić treść komunikatu przez przekazanie wartości ciągu jako komunikat i wszystkie wymagane właściwości standardowe są wypełniane wartościami domyślnymi.
+Aby wysłać komunikat do kolejki Service Bus, aplikacja wywołuje `send_queue_message()` metodę w obiekcie **Azure:: ServiceBusService** . Komunikaty wysyłane do (i odbieranych z) Service Bus kolejki są typu **Azure:: ServiceBus:: BrokeredMessage** i mają zestaw właściwości standardowych (takich jak `label` i `time_to_live` ), słownik używany do przechowywania niestandardowych właściwości specyficznych dla aplikacji oraz treść dowolnych danych aplikacji. Aplikacja może ustawić treść komunikatu przez przekazanie wartości ciągu jako komunikat i wszystkie wymagane właściwości standardowe są wypełniane wartościami domyślnymi.
 
-W poniższym przykładzie pokazano, jak wysłać wiadomość testową do kolejki o nazwie `test-queue` using `send_queue_message()`:
+W poniższym przykładzie pokazano, jak wysłać wiadomość testową do kolejki o nazwie `test-queue` using `send_queue_message()` :
 
 ```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
@@ -77,11 +68,11 @@ Kolejki usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [
 ## <a name="how-to-receive-messages-from-a-queue"></a>Jak odbierać komunikaty z kolejki
 Komunikaty są odbierane z kolejki przy użyciu `receive_queue_message()` metody w obiekcie **Azure:: ServiceBusService** . Domyślnie komunikaty są odczytywane i blokowane bez usuwania z kolejki. Można jednak usuwać wiadomości z kolejki w miarę ich odczytywania, ustawiając `:peek_lock` opcję na **false**.
 
-Zachowanie domyślne polega na odczycie i usunięciu operacji dwuetapowej, co również umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania przez wywołanie `delete_queue_message()` metody i podanie komunikatu, który ma zostać usunięty jako parametr. `delete_queue_message()` Metoda oznaczy komunikat jako używany i usuń go z kolejki.
+Zachowanie domyślne polega na odczycie i usunięciu operacji dwuetapowej, co również umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania przez wywołanie `delete_queue_message()` metody i podanie komunikatu, który ma zostać usunięty jako parametr. `delete_queue_message()`Metoda oznaczy komunikat jako używany i usuń go z kolejki.
 
 Jeśli `:peek_lock` parametr ma wartość **false**, odczytywanie i usuwanie wiadomości stanie się najprostszym modelem i najlepiej sprawdza się w scenariuszach, w których aplikacja może tolerować nieprzetwarzanie komunikatu w przypadku awarii. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem. Ponieważ Service Bus oznaczył komunikat jako używany, gdy aplikacja jest ponownie uruchamiana i zaczyna zużywać komunikaty, zostanie pominięty komunikat, który został zużyty przed awarią.
 
-W poniższym przykładzie pokazano, jak odbierać i przetwarzać `receive_queue_message()`komunikaty przy użyciu programu. Przykład najpierw odbiera i usuwa komunikat przy użyciu `:peek_lock` opcji Ustaw na **wartość false**, następnie otrzymuje kolejny komunikat, a następnie usuwa komunikat przy użyciu `delete_queue_message()`:
+W poniższym przykładzie pokazano, jak odbierać i przetwarzać komunikaty przy użyciu programu `receive_queue_message()` . Przykład najpierw odbiera i usuwa komunikat przy użyciu opcji `:peek_lock` Ustaw na **wartość false**, następnie otrzymuje kolejny komunikat, a następnie usuwa komunikat przy użyciu `delete_queue_message()` :
 
 ```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
@@ -95,7 +86,7 @@ Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w r
 
 Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce i jeśli aplikacja nie może przetworzyć komunikatu przed upływem limitu czasu blokady (na przykład jeśli awaria aplikacji), Service Bus odblokowywanie komunikatu automatycznie i udostępnienie go do ponownego odebrania.
 
-W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed wywołaniem `delete_queue_message()` metody, komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Ten proces jest często wywoływany *co najmniej raz podczas przetwarzania*; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach może zostać ponownie dostarczony ten sam komunikat. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy `message_id` użyciu właściwości komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
+W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed `delete_queue_message()` wywołaniem metody, komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Ten proces jest często wywoływany *co najmniej raz podczas przetwarzania*; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach może zostać ponownie dostarczony ten sam komunikat. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu `message_id` Właściwości komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 > [!NOTE]
 > Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bdb76954b1db8135d8a36d6658bb7fff274ac126
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c25e48bd46f0d37330f693cb4d6538e7bc29c4b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588454"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85367244"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>Krok 2. Konfigurowanie rozwiązania zabezpieczeń do wysyłania komunikatów CEF
 
@@ -29,10 +29,11 @@ W tym kroku zostaną wykonane niezbędne zmiany konfiguracji dotyczące samego r
 
 Jeśli rozwiązanie zabezpieczeń ma już istniejący łącznik, użyj instrukcji specyficznych dla łącznika w następujący sposób:
 
+- [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco](connect-cisco.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)
-- [F5](connect-f5.md)  
+- [F5 ASM](connect-f5.md)  
 - [Fortinet](connect-fortinet.md)
 - [Łączenie z rozwiązaniem One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
@@ -40,6 +41,7 @@ Jeśli rozwiązanie zabezpieczeń ma już istniejący łącznik, użyj instrukcj
 - [Zscaler](connect-zscaler.md)   
 
 ## <a name="configure-any-other-solution"></a>Skonfiguruj inne rozwiązanie
+
 Jeśli łącznik nie istnieje dla określonego rozwiązania zabezpieczającego, należy użyć poniższych ogólnych instrukcji dotyczących przekazywania dzienników do agenta CEF.
 
 1. Przejdź do określonego artykułu konfiguracyjnego, aby zapoznać się z instrukcjami dotyczącymi sposobu konfigurowania rozwiązania do wysyłania komunikatów CEF. Jeśli Twoje rozwiązanie nie znajduje się na liście, na urządzeniu należy ustawić te wartości tak, aby urządzenie wysyła niezbędne dzienniki w niezbędnym formacie do agenta dziennika systemu Azure wskaźnikowego na podstawie agenta Log Analytics. Te parametry można modyfikować w urządzeniu, o ile są one również modyfikowane w demona dziennika systemowego w ramach agenta wskaźnikowego platformy Azure.
@@ -51,13 +53,12 @@ Jeśli łącznik nie istnieje dla określonego rozwiązania zabezpieczającego, 
    > [!NOTE]
    > To rozwiązanie obsługuje dziennik systemowy RFC 3164 lub RFC 5424.
 
-
-1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń CEF, wyszukaj ciąg `CommonSecurityLog`.
+1. Aby użyć odpowiedniego schematu w Log Analytics dla zdarzeń CEF, wyszukaj ciąg `CommonSecurityLog` .
 
 1. Przejdź do kroku 3: [Weryfikowanie łączności](connect-cef-verify.md).
 
 ## <a name="next-steps"></a>Następne kroki
+
 W tym dokumencie przedstawiono sposób łączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
-

@@ -8,13 +8,12 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 73aeef24fde9fe58b89f1aa7789970e77e985d50
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83834836"
 ---
-# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorowanie i tworzenie zasobów usług Salesforce oraz zarządzanie nimi za pomocą Azure Logic Apps
+# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorowanie i tworzenie zasobów usługi Salesforce oraz zarządzanie nimi za pomocą usługi Azure Logic Apps
 
 Za pomocą Azure Logic Apps i łącznika usługi Salesforce można tworzyć automatyczne zadania i przepływy pracy dla zasobów usługi Salesforce, takie jak rekordy, zadania i obiekty, na przykład:
 

@@ -8,17 +8,17 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79036979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85359759"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Naprawianie zmodyfikowanych reguł domyślnych w Azure AD Connect
 
@@ -49,7 +49,7 @@ Poniżej przedstawiono typowe dostosowania reguł domyślnych:
 
 Przed zmianą jakichkolwiek reguł:
 
-- Wyłączenie harmonogramu synchronizacji. Harmonogram jest domyślnie uruchamiany co 30 minut. Upewnij się, że nie jest on uruchamiany podczas wprowadzania zmian i rozwiązywania problemów z nowymi regułami. Aby tymczasowo wyłączyć harmonogram, uruchom program PowerShell i uruchom `Set-ADSyncScheduler -SyncCycleEnabled $false`polecenie.
+- Wyłączenie harmonogramu synchronizacji. Harmonogram jest domyślnie uruchamiany co 30 minut. Upewnij się, że nie jest on uruchamiany podczas wprowadzania zmian i rozwiązywania problemów z nowymi regułami. Aby tymczasowo wyłączyć harmonogram, uruchom program PowerShell i uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $false` .
  ![Polecenia programu PowerShell umożliwiające wyłączenie harmonogramu synchronizacji](media/how-to-connect-fix-default-rules/default3.png)
 
 - Zmiana w filtrze zakresu może spowodować usunięcie obiektów w katalogu docelowym. Należy zachować ostrożność przed wprowadzeniem jakichkolwiek zmian w zakresie określania zakresu obiektów. Przed wprowadzeniem zmian na aktywnym serwerze zalecamy wprowadzenie zmian do serwera przejściowego.
@@ -105,7 +105,7 @@ Zachowaj puste ustawienia **filtru zakresu** i **sprzężenia** . Wypełnij tran
 Teraz wiesz, jak utworzyć nowy atrybut przepływu obiektu użytkownika z Active Directory, aby Azure Active Directory. Za pomocą tych kroków można mapować dowolny atrybut z dowolnego obiektu na źródłowy i docelowy. Aby uzyskać więcej informacji, zobacz [Tworzenie niestandardowych reguł synchronizacji](how-to-connect-create-custom-sync-rule.md) i [przygotowanie do aprowizacji użytkowników](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Zastąp wartość istniejącego atrybutu
-Możesz chcieć przesłonić wartość atrybutu, który został już zamapowany. Na przykład, jeśli zawsze chcesz ustawić wartość null dla atrybutu w usłudze Azure AD, wystarczy utworzyć tylko regułę ruchu przychodzącego. Wprowadź wartość stałą, `AuthoritativeNull`a następnie pozycję Flow do atrybutu Target. 
+Możesz chcieć przesłonić wartość atrybutu, który został już zamapowany. Na przykład, jeśli zawsze chcesz ustawić wartość null dla atrybutu w usłudze Azure AD, wystarczy utworzyć tylko regułę ruchu przychodzącego. Wprowadź wartość stałą, a następnie `AuthoritativeNull` pozycję Flow do atrybutu Target. 
 
 >[!NOTE] 
 > Użyj `AuthoritativeNull` zamiast tego `Null` w tym przypadku. Wynika to z faktu, że wartość o wartości innej niż null zastępuje wartość null, nawet jeśli ma ona niższy priorytet (wyższą wartość liczbową w regule). `AuthoritativeNull`z drugiej strony nie jest zastępowana wartością inną niż null przez inne zasady. 
@@ -141,7 +141,7 @@ Nie można ustawić tego atrybutu w Active Directory. Ustaw wartość tego atryb
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Najpierw przeprowadzono konwersję działu ze źródła (Active Directory) na małe litery. Następnie korzystając z `Left` funkcji, mamy tylko trzy pierwsze znaki i porównano ją z `hrd`. Jeśli jest dopasowany, wartość jest ustawiona na `True`, w `NULL`przeciwnym razie. W przypadku ustawiania wartości null inna reguła o niższym priorytecie (wyższa wartość liczbowa) może zapisywać w tym samym stanie z innym warunkiem. Uruchom podgląd na jednym obiekcie, aby sprawdzić poprawność reguły synchronizacji, jak wspomniano w sekcji [Weryfikowanie reguły synchronizacji](#validate-sync-rule) .
+Najpierw przeprowadzono konwersję działu ze źródła (Active Directory) na małe litery. Następnie korzystając z `Left` funkcji, mamy tylko trzy pierwsze znaki i porównano ją z `hrd` . Jeśli jest dopasowany, wartość jest ustawiona na `True` , w przeciwnym razie `NULL` . W przypadku ustawiania wartości null inna reguła o niższym priorytecie (wyższa wartość liczbowa) może zapisywać w tym samym stanie z innym warunkiem. Uruchom podgląd na jednym obiekcie, aby sprawdzić poprawność reguły synchronizacji, jak wspomniano w sekcji [Weryfikowanie reguły synchronizacji](#validate-sync-rule) .
 
 ![Utwórz Opcje reguły synchronizacji ruchu przychodzącego](media/how-to-connect-fix-default-rules/default7a.png)
 

@@ -6,15 +6,15 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e918740c884f377048febfe2177e2fe956b1d552
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73044768"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085059"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Wprowadzenie do Apache Hadoop piaskownicy, emulatora na maszynie wirtualnej
 
@@ -44,14 +44,14 @@ Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze 
 
     ![normalne uruchomienie programu VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
-1. Otwórz przeglądarkę internetową i przejdź do wyświetlanego adresu URL ( `http://127.0.0.1:8888`zazwyczaj).
+1. Otwórz przeglądarkę internetową i przejdź do wyświetlanego adresu URL (zazwyczaj `http://127.0.0.1:8888` ).
 
 ## <a name="set-sandbox-passwords"></a>Ustaw hasła piaskownicy
 
 1. **W kroku wprowadzenie** na stronie piaskownicy Hortonworks wybierz pozycję **Wyświetl opcje zaawansowane**. Skorzystaj z informacji na tej stronie, aby zalogować się do piaskownicy przy użyciu protokołu SSH. Użyj podanej nazwy i hasła.
 
    > [!NOTE]
-   > Jeśli nie zainstalowano klienta SSH, można użyć protokołu SSH opartego na sieci Web, który jest udostępniony przez maszynę wirtualną **http://localhost:4200/** pod adresem.
+   > Jeśli nie zainstalowano klienta SSH, można użyć protokołu SSH opartego na sieci Web, który jest udostępniony przez maszynę wirtualną pod adresem **http://localhost:4200/** .
 
     Przy pierwszym połączeniu przy użyciu protokołu SSH zostanie wyświetlony monit o zmianę hasła dla konta głównego. Wprowadź nowe hasło, które będzie używane podczas logowania przy użyciu protokołu SSH.
 
@@ -69,7 +69,7 @@ Aby pobrać starszą piaskownicę wersji HDP, zobacz linki w obszarze **starsze 
 2. Po rozpoczęciu powłoki Użyj następujących danych, aby wyświetlić tabele dostarczone z piaskownicą:
 
         show tables;
-3. Aby pobrać 10 wierszy z tabeli, `sample_07` Użyj następujących danych:
+3. Aby pobrać 10 wierszy z tabeli, użyj następujących danych `sample_07` :
 
         select * from sample_07 limit 10;
 

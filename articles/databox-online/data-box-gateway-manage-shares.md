@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 3df7ca90b81b697c72ba8f36bfff56c70cc090f2
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561290"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079155"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Zarządzanie udziałami w usłudze Azure Data Box Gateway przy użyciu witryny Azure Portal 
 
@@ -72,7 +72,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć udział.
 
     ![Wybieranie udziału](media/data-box-gateway-manage-shares/delete-1.png)
 
-2. Kliknij przycisk **Usuń**. 
+2. Kliknij polecenie **Usuń**. 
 
     ![Klikanie polecenia Usuń](media/data-box-gateway-manage-shares/delete-2.png)
 
@@ -92,23 +92,23 @@ Funkcja odświeżania umożliwia odświeżenie zawartości udziału lokalnego. P
 
 Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udział.
 
-1.   W witrynie Azure Portal przejdź do sekcji **Udziały**. Kliknij udział, który chcesz odświeżyć.
+1. W witrynie Azure Portal przejdź do sekcji **Udziały**. Kliknij udział, który chcesz odświeżyć.
 
-    ![Wybieranie udziału](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Wybieranie udziału](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.   Kliknij przycisk **Odśwież**. 
+2. Kliknij przycisk **Odśwież**. 
 
-    ![Klikanie przycisku Odśwież](media/data-box-gateway-manage-shares/refresh-2.png)
+   ![Klikanie przycisku Odśwież](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. Zadanie rozpoczyna odświeżanie zawartości udziału lokalnego. 
+3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. Zadanie rozpoczyna odświeżanie zawartości udziału lokalnego. 
 
-    ![Potwierdzanie odświeżania](media/data-box-gateway-manage-shares/refresh-3.png)
+   ![Potwierdzanie odświeżania](media/data-box-gateway-manage-shares/refresh-3.png)
  
 4.   W trakcie odświeżania opcja odświeżania jest wyszarzona w menu kontekstowym. Kliknij powiadomienie o zadaniu, aby wyświetlić stan zadania odświeżania.
 
-5.   Czas odświeżania zależy od liczby plików w kontenerze platformy Azure, a także od liczby plików znajdujących się na urządzeniu. Po pomyślnym zakończeniu odświeżania znacznik czasu udziału zostanie zaktualizowany. Nawet w przypadku częściowego niepowodzenia odświeżania operacja zostanie uznana za zakończoną, a znacznik czasu zostanie zaktualizowany. 
+5. Czas odświeżania zależy od liczby plików w kontenerze platformy Azure, a także od liczby plików znajdujących się na urządzeniu. Po pomyślnym zakończeniu odświeżania znacznik czasu udziału zostanie zaktualizowany. Nawet w przypadku częściowego niepowodzenia odświeżania operacja zostanie uznana za zakończoną, a znacznik czasu zostanie zaktualizowany. 
 
-    ![Zaktualizowany znacznik czasu](media/data-box-gateway-manage-shares/refresh-4.png)
+   ![Zaktualizowany znacznik czasu](media/data-box-gateway-manage-shares/refresh-4.png)
  
 W przypadku awarii zostanie zgłoszony alert. Alert zawiera szczegółowe informacje o przyczynie awarii oraz zalecenia dotyczące rozwiązania problemu. Alert wskazuje również plik, który zawiera pełne podsumowanie awarii — w tym pliki, których nie udało się zaktualizować lub usunąć.
 

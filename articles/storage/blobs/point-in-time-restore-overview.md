@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 38f6cfef60cf3bfe66742cba204d74db1c22ca77
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169291"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675656"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -84,7 +84,7 @@ Poniższe regiony obsługują przywracanie do punktu w czasie w wersji zapoznawc
 Wersja zapoznawcza obejmuje następujące ograniczenia:
 
 - Przywracanie blokowych obiektów BLOB w warstwie Premium nie jest obsługiwane.
-- Przywracanie obiektów BLOB w warstwie archiwum nie jest obsługiwane. Na przykład jeśli obiekt BLOB w warstwie gorąca został przeniesiony do warstwy archiwum dwa dni temu, a operacja przywracania zostanie przywrócona do punktu trzy dni temu, obiekt BLOB nie zostanie przywrócony do warstwy gorąca.
+- Przywracanie obiektów blob w warstwie Archiwum nie jest obsługiwane. Na przykład jeśli obiekt blob z warstwy Gorąca został przeniesiony do warstwy Archiwum dwa dni temu, a operacja przywracania spowodowała jego przywrócenie do punktu sprzed trzech dni, obiekt blob nie zostanie przywrócony do warstwy Gorąca.
 - Przywracanie Azure Data Lake Storage Gen2 płaskich i hierarchicznych przestrzeni nazw nie jest obsługiwane.
 - Przywracanie kont magazynu przy użyciu kluczy dostarczonych przez klienta nie jest obsługiwane.
 
@@ -93,7 +93,9 @@ Wersja zapoznawcza obejmuje następujące ograniczenia:
 
 ### <a name="register-for-the-preview"></a>Zarejestruj się w wersji zapoznawczej
 
-Aby zarejestrować się w celu korzystania z wersji zapoznawczej, uruchom następujące polecenia w Azure PowerShell:
+Aby zarejestrować się w celu korzystania z wersji zapoznawczej, uruchom następujące polecenia:
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 # Register for the point-in-time restore preview
@@ -103,16 +105,28 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
 # Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
+Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli
+az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
+az feature register --namespace Microsoft.Storage --name Changefeed
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
+
 ### <a name="check-registration-status"></a>Sprawdź stan rejestracji
 
-Aby sprawdzić stan rejestracji, uruchom następujące polecenia:
+Operacja przywracania do punktu w czasie jest automatyczna i powinna trwać krócej niż 10 minut. Aby sprawdzić stan rejestracji, uruchom następujące polecenia:
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
@@ -120,7 +134,20 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
+
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName Versioning
 ```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
+```
+
+---
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 

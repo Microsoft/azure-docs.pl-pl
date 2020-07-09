@@ -6,11 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258514"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84701204"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitor and diagnose services in a local machine development setup (Monitorowanie i diagnozowanie usług w konfiguracji środowiska deweloperskiego na maszynie lokalnej)
 > [!div class="op_single_selector"]
@@ -40,9 +39,9 @@ Service Fabric emituje zdarzenia ETW, aby pomóc deweloperom aplikacji zrozumie�
 ## <a name="add-your-own-custom-traces-to-the-application-code"></a>Dodawanie własnych niestandardowych śladów do kodu aplikacji
 Szablony projektów programu Service Fabric Visual Studio zawierają przykładowy kod. Kod przedstawia sposób dodawania niestandardowych śladów ETW kodu aplikacji, które są wyświetlane w podglądzie ETW programu Visual Studio, obok śladów systemu z Service Fabric. Zaletą tej metody jest to, że metadane są automatycznie dodawane do śladów, a Podgląd zdarzeń diagnostycznych programu Visual Studio jest już skonfigurowany do ich wyświetlania.
 
-W przypadku projektów utworzonych na podstawie **szablonów usług** (bezstanowe lub stanowe) `RunAsync` można wyszukać implementację:
+W przypadku projektów utworzonych na podstawie **szablonów usług** (bezstanowe lub stanowe) można wyszukać `RunAsync` implementację:
 
-1. Wywołanie `ServiceEventSource.Current.ServiceMessage` `RunAsync` metody w metodzie pokazuje przykład niestandardowego śledzenia ETW z kodu aplikacji.
+1. Wywołanie `ServiceEventSource.Current.ServiceMessage` `RunAsync` metody w metodzie pokazuje przykład NIESTANDARDOWEGO śledzenia ETW z kodu aplikacji.
 2. W pliku **ServiceEventSource.cs** znajduje się Przeciążenie `ServiceEventSource.ServiceMessage` metody, która powinna być używana dla zdarzeń o wysokiej częstotliwości ze względu na wydajność.
 
 W przypadku projektów utworzonych na podstawie **szablonów aktora** (bezstanowe lub stanowe):

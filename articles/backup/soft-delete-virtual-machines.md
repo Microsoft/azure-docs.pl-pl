@@ -4,10 +4,10 @@ description: Dowiedz się, jak usuwanie nietrwałe dla maszyn wirtualnych sprawi
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82765775"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Usuwanie nietrwałe dla maszyn wirtualnych
@@ -61,7 +61,7 @@ Usuwanie nietrwałe jest obecnie obsługiwane w zachodnich środkowe stany USA, 
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Usuwanie nietrwałe dla maszyn wirtualnych przy użyciu Azure PowerShell
 
 > [!IMPORTANT]
-> Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu narzędzia Azure PS to minimalna 2.2.0. Użyj ```Install-Module -Name Az.RecoveryServices -Force``` , aby uzyskać najnowszą wersję.
+> Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu narzędzia Azure PS to minimalna 2.2.0. Użyj, ```Install-Module -Name Az.RecoveryServices -Force``` Aby uzyskać najnowszą wersję.
 
 Jak opisano powyżej dla Azure Portal, sekwencja kroków jest taka sama, ale również przy użyciu Azure PowerShell.
 

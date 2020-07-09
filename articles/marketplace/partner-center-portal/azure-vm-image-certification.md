@@ -1,18 +1,18 @@
 ---
 title: Certyfikacja maszyn wirtualnych platformy Azure — Azure Marketplace
 description: Dowiedz się, jak testować i przesyłać ofertę maszyny wirtualnej w komercyjnej witrynie Marketplace.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d3b89945c077b9c26bab1709bd6d1def20959e33
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726149"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110049"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certyfikat obrazu maszyny wirtualnej platformy Azure
 
@@ -42,7 +42,7 @@ Do tej pracy można użyć nowej lub istniejącej grupy zasobów platformy Azure
 
 Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Konstruktora** | **Opis** |
+| **Parametr** | **Opis** |
 | --- | --- |
 | $certroopath | Folder lokalny, w którym ma zostać zapisany plik PFX. |
 | $location | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa. |
@@ -183,12 +183,12 @@ Skopiuj zawartość szablonu poniżej do pliku na komputerze lokalnym. W poniżs
 
 Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć Azure Key Vault i skojarzoną grupę zasobów. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Konstruktora** | **Opis** |
+| **Parametr** | **Opis** |
 | --- | --- |
 | $postfix | Losowy ciąg liczbowy dołączony do identyfikatorów wdrożenia. |
 | $rgName | Nazwa grupy zasobów platformy Azure (RG) do utworzenia. |
 | $location | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa. |
-| $kvTemplateJson | Ścieżka pliku (. JSON) zawierającego szablon Menedżer zasobów dla magazynu kluczy. |
+| $kvTemplateJson | Ścieżka pliku (keyvault.json) zawierającego szablon Menedżer zasobów dla magazynu kluczy. |
 | $kvname | Nazwa nowego magazynu kluczy.|
 |   |   |
 
@@ -320,7 +320,7 @@ W tej sekcji opisano sposób wdrażania uogólnionego obrazu wirtualnego dysku t
 
 ### <a name="prepare-an-azure-resource-manager-template"></a>Przygotowywanie szablonu Azure Resource Manager
 
-Skopiuj następujący szablon Azure Resource Manager dla wdrożenia dysku VHD do pliku lokalnego o nazwie VHDtoImage. JSON. Następny skrypt wyśle żądanie lokalizacji na komputerze lokalnym w celu użycia tego pliku JSON.
+Skopiuj następujący szablon Azure Resource Manager dla wdrożenia wirtualnego dysku twardego do pliku lokalnego o nazwie VHDtoImage.jsna. Następny skrypt wyśle żądanie lokalizacji na komputerze lokalnym w celu użycia tego pliku JSON.
 
 ```JSON
 {
@@ -557,10 +557,10 @@ Skopiuj następujący szablon Azure Resource Manager dla wdrożenia dysku VHD do
 
 Edytuj ten plik, aby podać wartości tych parametrów:
 
-| **Konstruktora** | **Opis** |
+| **Parametr** | **Opis** |
 | --- | --- |
 | ResourceGroupName | Istniejąca nazwa grupy zasobów platformy Azure. Zazwyczaj należy używać tego samego RG, co Magazyn kluczy. |
-| TemplateFile | Pełna nazwa ścieżki do pliku VHDtoImage. JSON. |
+| TemplateFile | Pełna nazwa ścieżki do pliku VHDtoImage.jsna. |
 | userStorageAccountName | Nazwa konta magazynu. |
 | sNameForPublicIP | Nazwa DNS publicznego adresu IP; musi być małymi literami. |
 | subscriptionId | Identyfikator subskrypcji platformy Azure. |
@@ -649,4 +649,4 @@ Na koniec wybierz pozycję **Generuj raport** , aby pobrać wyniki testów i pli
 
 ## <a name="next-step"></a>Następny krok
 
-- [Generuj identyfikatory URI (Uniform Resource Identifier) dla każdego wirtualnego dysku twardego](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Typowe problemy dotyczące identyfikatorów URI sygnatury dostępu współdzielonego i poprawki](common-sas-uri-issues.md)

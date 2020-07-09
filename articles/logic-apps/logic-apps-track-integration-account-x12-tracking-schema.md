@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905308"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Tworzenie schematów śledzenia komunikatów X12 w Azure Logic Apps
@@ -64,7 +63,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | receiverQualifier | Tak | String | Odbierz kwalifikator partnera |
 | receiverIdentifier | Tak | String | Identyfikator partnera odbierania |
 | umowaname | Nie | String | Nazwa umowy X12, do której komunikaty są rozpoznawane |
-| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | interchangeControlNumber | Nie | String | Numer kontrolny wymiany |
 | functionalGroupControlNumber | Nie | String | Numer kontroli funkcjonalnej |
 | transactionSetControlNumber | Nie | String | Numer kontrolny zestawu transakcji |
@@ -74,7 +73,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | isTechnicalAcknowledgmentExpected | Tak | Boolean | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12 |
 | isFunctionalAcknowledgmentExpected | Tak | Boolean | Czy potwierdzenie funkcjonalności jest skonfigurowane w umowie X12 |
 | needAk2LoopForValidMessages | Tak | Boolean | Czy pętla AK2 jest wymagana dla prawidłowego komunikatu |
-| segmentsCount | Nie | Liczba całkowita | Liczba segmentów w zestawie transakcji X12 |
+| segmentsCount | Nie | Integer | Liczba segmentów w zestawie transakcji X12 |
 |||||
 
 ## <a name="x12-transaction-set-acknowledgment-tracking-schema"></a>Schemat śledzenia potwierdzenia zestawu transakcji X12
@@ -120,7 +119,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | receiverQualifier | Tak | String | Odbierz kwalifikator partnera |
 | receiverIdentifier | Tak | String | Identyfikator partnera odbierania |
 | umowaname | Nie | String | Nazwa umowy X12, do której komunikaty są rozpoznawane |
-| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | interchangeControlNumber | Nie | String | Numer kontrolny wymiany potwierdzenia funkcjonalności. Wartość jest wypełniana tylko dla strony wysyłającej, w której odbierane są potwierdzenia funkcjonalne dla wiadomości wysyłanych do partnera. |
 | functionalGroupControlNumber | Nie | String | Numer kontroli grupy funkcjonalnej potwierdzenia funkcjonalności. Wartość jest wypełniana tylko dla strony wysyłającej, w której odbierane są potwierdzenia funkcjonalne dla wiadomości wysyłanych do partnera |
 | isaSegment | Nie | String | Segment ISA wiadomości. Wartość jest wypełniana tylko dla strony wysyłającej, w której odbierane są potwierdzenia funkcjonalne dla wiadomości wysyłanych do partnera |
@@ -130,8 +129,8 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | respondingtransactionSetControlNumber | Nie | String | Numer kontrolny zestawu transakcji odpowiadający |
 | respondingTransactionSetId | Nie | String | Identyfikator zestawu transakcji odpowiadający, który mapuje do AK201 w potwierdzeniu |
 | Stanu | Tak | Boolean | Kod stanu potwierdzenia zestawu transakcji |
-| segmentsCount | Tak | Wyliczenie | Kod stanu potwierdzenia z tymi dozwolonymi wartościami `Accepted`: `Rejected`, i`AcceptedWithErrors` |
-| processingStatus | Tak | Wyliczenie | Przetwarzanie stanu potwierdzenia przy użyciu tych dozwolonych wartości: `Received`, `Generated`, i`Sent` |
+| segmentsCount | Tak | Wyliczenie | Kod stanu potwierdzenia z tymi dozwolonymi wartościami: `Accepted` , `Rejected` i`AcceptedWithErrors` |
+| processingStatus | Tak | Wyliczenie | Przetwarzanie stanu potwierdzenia przy użyciu tych dozwolonych wartości: `Received` , `Generated` , i`Sent` |
 | CorrelationMessageId | Nie | String | Identyfikator komunikatu korelacji, który jest połączeniem {Agreementname} {*GroupControlNumber*} {TransactionSetControlNumber} |
 | isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
 | ak2Segment | Nie | String | Potwierdzenie dla zestawu transakcji w odebranej grupie funkcjonalnej |
@@ -178,7 +177,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | receiverQualifier | Tak | String | Odbierz kwalifikator partnera |
 | receiverIdentifier | Tak | String | Identyfikator partnera odbierania |
 | umowaname | Nie | String | Nazwa umowy X12, do której komunikaty są rozpoznawane |
-| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | interchangeControlNumber | Nie | String | Numer kontrolny wymiany |
 | isaSegment | Nie | String | Segment ISA komunikatu |
 | isTechnicalAcknowledgmentExpected | Boolean | Czy potwierdzenie techniczne jest skonfigurowane w umowie X12  |
@@ -229,13 +228,13 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | receiverQualifier | Tak | String | Odbierz kwalifikator partnera |
 | receiverIdentifier | Tak | String | Identyfikator partnera odbierania |
 | umowaname | Nie | String | Nazwa umowy X12, do której komunikaty są rozpoznawane |
-| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | interchangeControlNumber | Nie | String | Numer kontroli wymiany dla potwierdzenia technicznego otrzymanego od partnerów |
 | isaSegment | Nie | String | Segment ISA dla potwierdzenia technicznego otrzymanego od partnerów |
 | respondingInterchangeControlNumber | Nie | String | Numer kontroli wymiany dla potwierdzenia technicznego otrzymanego od partnerów |
 | isMessageFailed | Tak | Boolean | Czy komunikat X12 nie powiódł się |
-| Stanu | Tak | Wyliczenie | Kod stanu potwierdzenia wymiany z tymi dozwolonymi wartościami `Accepted`: `Rejected`, i`AcceptedWithErrors` |
-| processingStatus | Tak | Wyliczenie | Stan potwierdzenia z tymi dozwolonymi wartościami `Received`: `Generated`, i`Sent` |
+| Stanu | Tak | Wyliczenie | Kod stanu potwierdzenia wymiany z tymi dozwolonymi wartościami: `Accepted` , `Rejected` i`AcceptedWithErrors` |
+| processingStatus | Tak | Wyliczenie | Stan potwierdzenia z tymi dozwolonymi wartościami: `Received` , `Generated` i`Sent` |
 | ta102 | Nie | String | Data wymiany |
 | ta103 | Nie | String | Czas wymiany |
 | ta105 | Nie | String | Kod notatki wymiany |
@@ -338,7 +337,7 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | receiverQualifier | Tak | String | Odbierz kwalifikator partnera |
 | receiverIdentifier | Tak | String | Identyfikator partnera odbierania |
 | umowaname | Nie | String | Nazwa umowy X12, do której komunikaty są rozpoznawane |
-| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który jest albo `receive``send` |
+| kierunek | Tak | Wyliczenie | Kierunek przepływu wiadomości, który `receive` jest albo`send` |
 | interchangeControlNumber | Nie | String | Numer kontrolny wymiany, który jest wypełniany po stronie wysyłania po otrzymaniu potwierdzenia technicznego od partnerów |
 | functionalGroupControlNumber | Nie | String | Numer kontroli grupy funkcjonalnej potwierdzenia technicznego, który jest wypełniany po stronie nadawcy w przypadku otrzymania potwierdzenia technicznego od partnerów |
 | isaSegment | Nie | String | Analogicznie jak numer kontrolny wymiany, ale wypełniane tylko w określonych przypadkach |
@@ -346,8 +345,8 @@ Aby ułatwić monitorowanie sukcesu, błędów i właściwości komunikatów dla
 | respondingfunctionalGroupControlNumber | Nie | String | Numer kontrolny oryginalnej grupy funkcjonalnej |
 | respondingFunctionalGroupId | Nie | String | Mapuje do AK101 w identyfikator grupy funkcjonalnej potwierdzenia |
 | isMessageFailed | Boolean | Czy komunikat X12 nie powiódł się |
-| Stanu | Tak | Wyliczenie | Kod stanu potwierdzenia z tymi dozwolonymi wartościami `Accepted`: `Rejected`, i`AcceptedWithErrors` |
-| processingStatus | Tak | Wyliczenie | Przetwarzanie stanu potwierdzenia przy użyciu tych dozwolonych wartości: `Received`, `Generated`, i`Sent` |
+| Stanu | Tak | Wyliczenie | Kod stanu potwierdzenia z tymi dozwolonymi wartościami: `Accepted` , `Rejected` i`AcceptedWithErrors` |
+| processingStatus | Tak | Wyliczenie | Przetwarzanie stanu potwierdzenia przy użyciu tych dozwolonych wartości: `Received` , `Generated` , i`Sent` |
 | ak903 | Nie | String | Liczba odebranych zestawów transakcji |
 | ak904 | Nie | String | Liczba zestawów transakcji zaakceptowanych w określonej grupie funkcjonalnej |
 | ak9Segment | Nie | String | Czy grupa funkcjonalna identyfikowana w segmencie AK1 jest akceptowana, czy odrzucana i dlaczego |

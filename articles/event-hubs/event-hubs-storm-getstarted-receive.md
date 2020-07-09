@@ -1,26 +1,14 @@
 ---
 title: 'Szybki Start: otrzymywanie zdarzeń przy użyciu Apache Storm — Azure Event Hubs'
 description: 'Szybki Start: Ten artykuł zawiera informacje na temat odbierania zdarzeń z platformy Azure Event Hubs przy użyciu Apache Storm.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73717612"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315352"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Szybki Start: otrzymywanie zdarzeń z Event Hubs przy użyciu Apache Storm
 
@@ -48,7 +36,7 @@ Ten samouczek używa instalacji [burzy usługi HDInsight][HDInsight Storm] , kt�
 5. Wybierz opcję **Użyj domyślnej lokalizacji obszaru roboczego**, a następnie kliknij przycisk **dalej** .
 6. Wybierz pozycję **Maven-Archetype-Start** Archetype, a następnie kliknij przycisk **dalej** .
 7. Wstaw identyfikator **GroupID** i **ArtifactId**, a następnie kliknij przycisk **Zakończ** .
-8. W **pliku pom. XML**Dodaj następujące zależności w `<dependency>` węźle.
+8. W **pom.xml**Dodaj następujące zależności w `<dependency>` węźle.
 
     ```xml  
     <dependency>
@@ -80,7 +68,7 @@ Ten samouczek używa instalacji [burzy usługi HDInsight][HDInsight Storm] , kt�
     </dependency>
     ```
 
-9. W folderze **src** Utwórz plik o nazwie **config. Properties** i skopiuj poniższą zawartość, zastępując wartości `receive rule key` i: `event hub name`
+9. W folderze **src** Utwórz plik o nazwie **config. Properties** i skopiuj poniższą zawartość, zastępując `receive rule key` `event hub name` wartości i:
 
     ```java
     eventhubspout.username = ReceiveRule

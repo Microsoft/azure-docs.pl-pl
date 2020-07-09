@@ -4,10 +4,9 @@ description: Wdróż pakiet ZIP aplikacji z niepodzielną. Popraw przewidywalno�
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77920726"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Uruchom aplikację w Azure App Service bezpośrednio z pakietu ZIP
@@ -31,7 +30,7 @@ Natomiast w przypadku uruchamiania bezpośrednio z pakietu pliki w pakiecie nie 
 
 ## <a name="enable-running-from-package"></a>Włącz uruchamianie z pakietu
 
-Ustawienie `WEBSITE_RUN_FROM_PACKAGE` aplikacji umożliwia uruchamianie z pakietu. Aby je ustawić, uruchom następujące polecenie w interfejsie wiersza polecenia platformy Azure.
+`WEBSITE_RUN_FROM_PACKAGE`Ustawienie aplikacji umożliwia uruchamianie z pakietu. Aby je ustawić, uruchom następujące polecenie w interfejsie wiersza polecenia platformy Azure.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
@@ -47,7 +46,7 @@ Najprostszym sposobem uruchomienia pakietu w App Service jest interfejs wiersza 
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Ponieważ ustawienie `WEBSITE_RUN_FROM_PACKAGE` aplikacji jest ustawione, to polecenie nie wyodrębnia zawartości pakietu do katalogu *D:\home\site\wwwroot* aplikacji. Zamiast tego przekazuje plik ZIP jako-is do *D:\home\data\SitePackages*i tworzy *pakietname. txt* w tym samym katalogu, który zawiera nazwę pakietu zip do załadowania w czasie wykonywania. Jeśli pakiet ZIP zostanie przekazany w inny sposób (na przykład [FTP](deploy-ftp.md)), należy ręcznie utworzyć katalog *D:\home\data\SitePackages* i plik *PackageName. txt* .
+Ponieważ `WEBSITE_RUN_FROM_PACKAGE` ustawienie aplikacji jest ustawione, to polecenie nie wyodrębnia zawartości pakietu do katalogu *D:\home\site\wwwroot* aplikacji. Zamiast tego przekazuje plik ZIP jako-is do *D:\home\data\SitePackages*i tworzy *packagename.txt* w tym samym katalogu, który zawiera nazwę pakietu zip do załadowania w czasie wykonywania. Jeśli pakiet ZIP zostanie przekazany w inny sposób (na przykład [FTP](deploy-ftp.md)), należy ręcznie utworzyć katalog *D:\home\data\SitePackages* i plik *packagename.txt* .
 
 Polecenie spowoduje również ponowne uruchomienie aplikacji. Ponieważ `WEBSITE_RUN_FROM_PACKAGE` jest ustawiona, App Service instaluje przekazany pakiet jako katalog katalogu *wwwroot* tylko do odczytu i uruchamia aplikację bezpośrednio z tego zainstalowanego katalogu.
 
@@ -55,7 +54,7 @@ Polecenie spowoduje również ponowne uruchomienie aplikacji. Ponieważ `WEBSITE
 
 Możesz również uruchomić pakiet z zewnętrznego adresu URL, takiego jak Azure Blob Storage. Aby przekazać pliki pakietu do konta magazynu obiektów blob, można użyć [Eksplorator usługi Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) . Należy użyć prywatnego kontenera magazynu z [sygnaturą dostępu współdzielonego (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) , aby umożliwić środowisko uruchomieniowe App Service, aby bezpiecznie uzyskać dostęp do pakietu. 
 
-Po przekazaniu pliku do usługi BLOB Storage i uzyskaniu adresu URL sygnatury dostępu współdzielonego dla pliku ustaw wartość ustawienia `WEBSITE_RUN_FROM_PACKAGE` aplikacji na adres URL. W poniższym przykładzie jest to możliwe za pomocą interfejsu wiersza polecenia platformy Azure:
+Po przekazaniu pliku do usługi BLOB Storage i uzyskaniu adresu URL sygnatury dostępu współdzielonego dla pliku ustaw wartość `WEBSITE_RUN_FROM_PACKAGE` Ustawienia aplikacji na adres URL. W poniższym przykładzie jest to możliwe za pomocą interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="https://myblobstorage.blob.core.windows.net/content/SampleCoreMVCApp.zip?st=2018-02-13T09%3A48%3A00Z&se=2044-06-14T09%3A48%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=bNrVrEFzRHQB17GFJ7boEanetyJ9DGwBSV8OM3Mdh%2FM%3D"
@@ -65,12 +64,12 @@ Jeśli publikujesz zaktualizowany pakiet o tej samej nazwie w usłudze BLOB Stor
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-- Uruchamianie bezpośrednio z pakietu sprawia, `wwwroot` że tylko do odczytu. Aplikacja otrzyma błąd, jeśli spróbuje zapisać pliki w tym katalogu.
+- Uruchamianie bezpośrednio z pakietu sprawia, że `wwwroot` tylko do odczytu. Aplikacja otrzyma błąd, jeśli spróbuje zapisać pliki w tym katalogu.
 - Formaty TAR i GZIP nie są obsługiwane.
 - Ta funkcja jest niezgodna z [lokalną pamięcią podręczną](overview-local-cache.md).
-- W celu zwiększenia wydajności zimnej lokalizacji Użyj opcji zip (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- W celu zwiększenia wydajności zimnej lokalizacji Użyj opcji zip ( `WEBSITE_RUN_FROM_PACKAGE` = 1).
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 - [Ciągłe wdrażanie dla Azure App Service](deploy-continuous-deployment.md)
 - [Wdróż kod z plikiem ZIP lub WAR](deploy-zip.md)

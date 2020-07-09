@@ -4,10 +4,9 @@ description: Kody błędów i możliwe rozwiązania problemów odnalezionych prz
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82978318"
 ---
 # <a name="health-check-error-reference"></a>Informacje o błędach sprawdzania kondycji
@@ -22,13 +21,13 @@ Ten błąd oznacza, że nie można odnaleźć klienta platformy Docker dla inter
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-Ten błąd oznacza, że stan demona platformy Docker jest niedostępny lub nie można go osiągnąć przy użyciu interfejsu wiersza polecenia. W efekcie operacje platformy Docker (takie jak `docker login` i `docker pull`) są niedostępne za pomocą interfejsu wiersza polecenia.
+Ten błąd oznacza, że stan demona platformy Docker jest niedostępny lub nie można go osiągnąć przy użyciu interfejsu wiersza polecenia. W efekcie operacje platformy Docker (takie jak `docker login` i `docker pull` ) są niedostępne za pomocą interfejsu wiersza polecenia.
 
 *Potencjalne rozwiązania*: ponownie uruchom demona platformy Docker lub sprawdź, czy jest ona prawidłowo zainstalowana.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-Ten błąd oznacza, że interfejs wiersza polecenia nie był w stanie `docker --version`uruchomić polecenie.
+Ten błąd oznacza, że interfejs wiersza polecenia nie był w stanie uruchomić polecenie `docker --version` .
 
 *Potencjalne rozwiązania*: Spróbuj uruchomić polecenie ręcznie, upewnij się, że masz najnowszą wersję interfejsu wiersza polecenia i Sprawdź komunikat o błędzie.
 
@@ -58,7 +57,7 @@ Ten błąd oznacza, że serwer DNS dla danego serwera logowania rejestru został
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Ten błąd oznacza, że punkt końcowy wyzwania dla danego rejestru odpowiedział z niedozwolonym stanem HTTP 403. Ten błąd oznacza, że użytkownicy nie mają dostępu do rejestru, najprawdopodobniej ze względu na konfigurację sieci wirtualnej lub że dostęp do publicznego punktu końcowego rejestru jest niedozwolony. Aby wyświetlić aktualnie skonfigurowane reguły zapory, uruchom `az acr show --query networkRuleSet --name <registry>`polecenie.
+Ten błąd oznacza, że punkt końcowy wyzwania dla danego rejestru odpowiedział z niedozwolonym stanem HTTP 403. Ten błąd oznacza, że użytkownicy nie mają dostępu do rejestru, najprawdopodobniej ze względu na konfigurację sieci wirtualnej lub że dostęp do publicznego punktu końcowego rejestru jest niedozwolony. Aby wyświetlić aktualnie skonfigurowane reguły zapory, uruchom polecenie `az acr show --query networkRuleSet --name <registry>` .
 
 *Potencjalne rozwiązania*: Usuń reguły sieci wirtualnej lub Dodaj bieżący adres IP klienta do listy dozwolonych.
 
@@ -66,13 +65,13 @@ Ten błąd oznacza, że punkt końcowy wyzwania dla danego rejestru odpowiedzia�
 
 Ten błąd oznacza, że punkt końcowy wyzwania rejestru docelowego nie wystawia wyzwania.
 
-*Potencjalne rozwiązania*: spróbuj ponownie za jakiś czas. Jeśli błąd będzie się powtarzać, Otwórz problem pod https://aka.ms/acr/issuesadresem.
+*Potencjalne rozwiązania*: spróbuj ponownie za jakiś czas. Jeśli błąd będzie się powtarzać, Otwórz problem pod adresem https://aka.ms/acr/issues .
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
 Ten błąd oznacza, że punkt końcowy wyzwania rejestru docelowego wygenerował wyzwanie, ale rejestr nie obsługuje uwierzytelniania Azure Active Directory.
 
-*Potencjalne rozwiązania*: wypróbuj inny sposób uwierzytelniania, na przykład z poświadczeniami administratora. Jeśli użytkownicy muszą uwierzytelniać się przy użyciu Azure Active Directory, należy otworzyć https://aka.ms/acr/issuesproblem o.
+*Potencjalne rozwiązania*: wypróbuj inny sposób uwierzytelniania, na przykład z poświadczeniami administratora. Jeśli użytkownicy muszą uwierzytelniać się przy użyciu Azure Active Directory, należy otworzyć problem o https://aka.ms/acr/issues .
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
@@ -100,7 +99,7 @@ Ten błąd oznacza, że interfejs wiersza polecenia nie może znaleźć serwera 
 
 ## <a name="notary_version_error"></a>NOTARY_VERSION_ERROR
 
-Ten błąd oznacza, że interfejs wiersza polecenia nie jest zgodny z aktualnie zainstalowaną wersją platformy Docker/notariusz. Aby rozwiązać ten problem, Wypróbuj wersję programu notariusz. exe w wersji starszej niż 0.6.0, zastępując ręcznie program Docker Installation Client.
+Ten błąd oznacza, że interfejs wiersza polecenia nie jest zgodny z aktualnie zainstalowaną wersją platformy Docker/notariusz. Aby rozwiązać ten problem, Wypróbuj wersję notary.exe wersji starszej niż 0.6.0 przez zastąpienie klienta programu Docker Installation.
 
 ## <a name="next-steps"></a>Następne kroki
 

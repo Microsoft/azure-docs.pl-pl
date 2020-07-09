@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 64caa1228cd073358bef496721c22b17554031d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3aa33efa9aa416ad1dfefd2fe957ce04b2b14432
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189287"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027464"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight
 
@@ -93,22 +92,33 @@ Dane o podróży z NYC taksówkami dotyczą około 20 GB skompresowanych plików
 
 1. Pliki CSV "trip_data" zawierają szczegóły dotyczące podróży, takie jak liczba pasażerów, punkty pobierania i Dropoff, czas trwania podróży i długość podróży. Oto kilka przykładowych rekordów:
 
-        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+   `medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude`
+
+   `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171`
+
+   `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066`
+
+   `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002`
+
+   `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388`
+
+   `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
+
 2. Pliki CSV "trip_fare" zawierają szczegóły dotyczące opłat za każdą podróż, takie jak typ płatności, kwota opłaty, opłata dodatkowa i podatki, porady i opłaty, a także łączną kwotę płatną. Oto kilka przykładowych rekordów:
 
-        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
-        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
-        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
-        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
+   `medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
 
-Pobrano 0,1% próbek tych plików i dołączono\_pliki CVS opłaty za przejazd i\_podróż do jednego zestawu danych, który będzie używany jako zestaw danych wejściowych dla tego przewodnika. Unikatowy klucz do przyłączenia\_danych podróży i\_opłaty za podróż są złożone z pól: Medallion,\_licencja na hakera i Data i godzina pobrania\_. Każdy rekord zestawu danych zawiera następujące atrybuty reprezentujące podróż NYCą z taksówką:
+   `89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7`
+
+   `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7`
+
+   `0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7`
+
+   `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6`
+
+   `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5`
+
+Pobrano 0,1% próbek tych plików i dołączono \_ \_ Pliki CVS opłaty za przejazd i podróż do jednego zestawu danych, który będzie używany jako zestaw danych wejściowych dla tego przewodnika. Unikatowy klucz do przyłączenia \_ danych podróży i \_ opłaty za podróż są złożone z pól: Medallion, \_ licencja na hakera i \_ Data i godzina pobrania. Każdy rekord zestawu danych zawiera następujące atrybuty reprezentujące podróż NYCą z taksówką:
 
 | Pole | Krótki opis |
 | --- | --- |
@@ -141,11 +151,11 @@ Pobrano 0,1% próbek tych plików i dołączono\_pliki CVS opłaty za przejazd i
 | tip_class |Klasa TIP (0: $0, 1: $0-5, 2: $6-10, 3: $11-20, 4: > $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Wykonywanie kodu z notesu Jupyter w klastrze Spark
-Jupyter Notebook można uruchomić z Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym i kliknij go, aby wprowadzić stronę zarządzania dla klastra. Aby otworzyć Notes skojarzony z klastrem Spark, kliknij pozycję **pulpity nawigacyjne** -> klastra**Jupyter Notebook**.
+Jupyter Notebook można uruchomić z Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym i kliknij go, aby wprowadzić stronę zarządzania dla klastra. Aby otworzyć Notes skojarzony z klastrem Spark, kliknij pozycję **pulpity nawigacyjne klastra**  ->  **Jupyter Notebook**.
 
 ![Pulpity nawigacyjne klastra](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Możesz również przejść do okna ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** , aby uzyskać dostęp do notesów Jupyter. Zastąp część CLUSTERname tego adresu URL nazwą własnego klastra. Aby uzyskać dostęp do notesów, musisz mieć hasło do konta administratora.
+Możesz również przejść do ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** okna, aby uzyskać dostęp do notesów Jupyter. Zastąp część CLUSTERname tego adresu URL nazwą własnego klastra. Aby uzyskać dostęp do notesów, musisz mieć hasło do konta administratora.
 
 ![Przeglądaj notesy Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
@@ -164,7 +174,7 @@ Co możesz teraz zrobić:
 
 * Zobacz kod, klikając Notes.
 * Wykonaj każdą komórkę, naciskając **klawisze SHIFT-ENTER**.
-* Uruchom cały Notes, klikając pozycję przebieg **komórki** -> **Run**.
+* Uruchom cały Notes, klikając pozycję przebieg **komórki**  ->  **Run**.
 * Użyj automatycznej wizualizacji zapytań.
 
 > [!TIP]

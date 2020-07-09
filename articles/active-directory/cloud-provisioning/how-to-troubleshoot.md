@@ -5,15 +5,15 @@ author: billmath
 ms.author: billmath
 manager: daveba
 ms.date: 12/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: e41be4b76245f2567015eb0ede317830120ee61a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75549489"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85360796"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Rozwiązywanie problemów z obsługą chmury
 
@@ -44,7 +44,7 @@ Te elementy można zweryfikować w Azure Portal i na serwerze lokalnym, na któr
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure i jest w dobrej kondycji, wykonaj następujące kroki.
 
 1. Zaloguj się do witryny Azure Portal.
-1. Po lewej stronie wybierz pozycję **Azure Active Directory** > **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1. Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** wybierz pozycję **Przejrzyj wszystkich agentów**.
 
    ![Przejrzyj wszystkich agentów](media/how-to-install/install7.png)</br>
@@ -67,7 +67,7 @@ Ten test sprawdza, czy agenci mogą komunikować się z platformą Azure przez p
 
 Aby sprawdzić, czy agent działa, wykonaj następujące kroki.
 
-1. Na serwerze z zainstalowanym agentem Otwórz pozycję **usługi** , przechodząc do**Run** > niej lub klikając >  **polecenie Uruchom program****Services. msc**.
+1. Na serwerze z zainstalowanym agentem Otwórz pozycję **usługi** , przechodząc do niej lub klikając **polecenie Uruchom program**  >  **Run**  >  **Services. msc**.
 1. W obszarze **usługi**upewnij się, że **Microsoft Azure AD Connect agent Aktualizator** i **Microsoft Azure AD Connect Agent aprowizacji** jest tam i ich stan jest *uruchomiony*.
 
    ![Ekran usług](media/how-to-troubleshoot/troubleshoot1.png)
@@ -87,7 +87,7 @@ Ten problem jest zwykle spowodowany przez zasady grupy, które uniemożliwiły z
 Aby rozwiązać ten problem, wykonaj następujące kroki.
 
 1. Zaloguj się na serwerze przy użyciu konta administratora.
-1. Otwórz **usługi** , przechodząc do niej lub**Run** > naciskając **Start** > pozycję Uruchom**Services. msc**.
+1. Otwórz **usługi** , przechodząc do niej lub naciskając **pozycję Uruchom**  >  **Run**  >  **Services. msc**.
 1. W obszarze **usługi**kliknij dwukrotnie pozycję **Microsoft Azure AD Połącz agenta aprowizacji**.
 1. Na karcie **Logowanie** Zmień **to konto** na administratora domeny. Następnie uruchom ponownie usługę. 
 
@@ -99,7 +99,7 @@ Podczas próby zarejestrowania agenta może zostać wyświetlony następujący k
 
 ![Komunikat o błędzie limitu czasu](media/how-to-troubleshoot/troubleshoot4.png)
 
-Ten problem jest zwykle spowodowany tym, że Agent nie może nawiązać połączenia z usługą tożsamości hybrydowej i wymaga skonfigurowania serwera proxy HTTP. Aby rozwiązać ten problem, skonfiguruj wychodzący serwer proxy. 
+Ten problem zwykle występuje, ponieważ agent nie może nawiązać połączenia z usługą zarządzania tożsamościami hybrydowymi i wymaga skonfigurowania serwera proxy HTTP. Aby rozwiązać ten problem, skonfiguruj serwer proxy ruchu wychodzącego. 
 
 Agent aprowizacji obsługuje korzystanie z wychodzącego serwera proxy. Można ją skonfigurować, edytując plik konfiguracji agenta *C:\Program Files\Microsoft Azure AD Connect aprowizacji Agent\AADConnectProvisioningAgent.exe.config*. Dodaj do niego następujące wiersze, w kierunku końca pliku tuż przed tagiem zamykającym `</configuration>` .
 Zastąp zmienne `[proxy-server]` i `[proxy-port]` wartościami nazw i portów serwera proxy.
@@ -126,7 +126,7 @@ Aby rozwiązać ten problem, Zmień zasady wykonywania programu PowerShell na se
 
 ### <a name="log-files"></a>Pliki dziennika
 
-Domyślnie agent emituje minimalne komunikaty o błędach i informacje śledzenia stosu. Te dzienniki śledzenia można znaleźć w folderze *C:\ProgramData\Microsoft\Azure usługi AD Connect Provisioning Agent\Trace*.
+Domyślnie agent generuje minimalną liczbę komunikatów o błędach i ilość informacji śledzenia stosu. Te dzienniki śledzenia można znaleźć w folderze *C:\ProgramData\Microsoft\Azure usługi AD Connect Provisioning Agent\Trace*.
 
 Aby zebrać dodatkowe szczegóły dotyczące rozwiązywania problemów związanych z agentem, wykonaj następujące czynności.
 

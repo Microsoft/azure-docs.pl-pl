@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d61600801286126ea6ffb9a97bc5655b6f233816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77562194"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenariusz na zewnątrz/wentylator w Durable Functions — przykład kopii zapasowej w chmurze
@@ -31,7 +30,7 @@ Podejście Durable Functions zapewnia wszystkie wymienione korzyści z bardzo ni
 
 W tym artykule wyjaśniono następujące funkcje w przykładowej aplikacji:
 
-* `E2_BackupSiteContent`: [Funkcja programu Orchestrator](durable-functions-bindings.md#orchestration-trigger) , która `E2_GetFileList` wywołuje program, aby uzyskać listę plików do utworzenia kopii zapasowej `E2_CopyFileToBlob` , a następnie wywołuje kopię zapasową każdego pliku.
+* `E2_BackupSiteContent`: [Funkcja programu Orchestrator](durable-functions-bindings.md#orchestration-trigger) , która wywołuje program `E2_GetFileList` , aby uzyskać listę plików do utworzenia kopii zapasowej, a następnie wywołuje `E2_CopyFileToBlob` kopię zapasową każdego pliku.
 * `E2_GetFileList`: [Funkcja działania](durable-functions-bindings.md#activity-trigger) zwracająca listę plików w katalogu.
 * `E2_CopyFileToBlob`: Funkcja działania, która tworzy kopię zapasową pojedynczego pliku na platformie Azure Blob Storage.
 
@@ -40,24 +39,24 @@ W tym artykule wyjaśniono następujące funkcje w przykładowej aplikacji:
 Ta funkcja programu Orchestrator wykonuje następujące czynności:
 
 1. Przyjmuje `rootDirectory` wartość jako parametr wejściowy.
-2. Wywołuje funkcję, aby uzyskać cykliczną listę plików w `rootDirectory`.
+2. Wywołuje funkcję, aby uzyskać cykliczną listę plików w `rootDirectory` .
 3. Wykonuje wiele wywołań funkcji równoległych, aby przekazać każdy plik do Blob Storage platformy Azure.
 4. Czeka na zakończenie wszystkich operacji przekazywania.
 5. Zwraca łączną sumę bajtów przesłanych do usługi Azure Blob Storage.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Oto kod implementujący funkcję programu Orchestrator:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=16-42)]
 
-Zwróć uwagę `await Task.WhenAll(tasks);` na wiersz. Wszystkie poszczególne wywołania `E2_CopyFileToBlob` funkcji *nie* zostały oczekiwane, co umożliwia ich równoległe uruchamianie. Gdy przeniesiemy tę tablicę zadań `Task.WhenAll`do, uzyskamy zadanie, które nie zostanie ukończone, *dopóki nie zostaną ukończone wszystkie operacje kopiowania*. Jeśli znasz bibliotekę zadań równoległych (TPL) w programie .NET, to nie jest to nowa. Różnica polega na tym, że te zadania mogą być uruchamiane na wielu maszynach wirtualnych współbieżnie, a rozszerzenie Durable Functions zapewnia odporność na zakończenie procesu odtwarzania.
+Zwróć uwagę na `await Task.WhenAll(tasks);` wiersz. Wszystkie poszczególne wywołania `E2_CopyFileToBlob` funkcji *nie* zostały oczekiwane, co umożliwia ich równoległe uruchamianie. Gdy przeniesiemy tę tablicę zadań do `Task.WhenAll` , uzyskamy zadanie, które nie zostanie ukończone, *dopóki nie zostaną ukończone wszystkie operacje kopiowania*. Jeśli znasz bibliotekę zadań równoległych (TPL) w programie .NET, to nie jest to nowa. Różnica polega na tym, że te zadania mogą być uruchamiane na wielu maszynach wirtualnych współbieżnie, a rozszerzenie Durable Functions zapewnia odporność na zakończenie procesu odtwarzania.
 
-Po oczekiwaniu od `Task.WhenAll`, wiemy, że wszystkie wywołania funkcji zostały ukończone i z powrotem zwracają wartości. Każde wywołanie `E2_CopyFileToBlob` zwraca liczbę przekazanych bajtów, więc obliczenie łącznej liczby bajtów sum jest kwestią dodawania wszystkich zwracanych wartości.
+Po oczekiwaniu od `Task.WhenAll` , wiemy, że wszystkie wywołania funkcji zostały ukończone i z powrotem zwracają wartości. Każde wywołanie `E2_CopyFileToBlob` zwraca liczbę przekazanych bajtów, więc obliczenie łącznej liczby bajtów sum jest kwestią dodawania wszystkich zwracanych wartości.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Funkcja używa standardowego pliku *Function. JSON* dla funkcji programu Orchestrator.
+Funkcja używa standardowej *function.jsna* potrzeby funkcji programu Orchestrator.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/function.json)]
 
@@ -65,12 +64,12 @@ Oto kod implementujący funkcję programu Orchestrator:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
-Zwróć uwagę `yield context.df.Task.all(tasks);` na wiersz. Wszystkie poszczególne wywołania `E2_CopyFileToBlob` funkcji *nie były obsługiwane* , co umożliwia ich równoległe uruchamianie. Gdy przeniesiemy tę tablicę zadań `context.df.Task.all`do, uzyskamy zadanie, które nie zostanie ukończone, *dopóki nie zostaną ukończone wszystkie operacje kopiowania*. Jeśli znasz [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) język JavaScript, to nie jest to możliwe. Różnica polega na tym, że te zadania mogą być uruchamiane na wielu maszynach wirtualnych współbieżnie, a rozszerzenie Durable Functions zapewnia odporność na zakończenie procesu odtwarzania.
+Zwróć uwagę na `yield context.df.Task.all(tasks);` wiersz. Wszystkie poszczególne wywołania `E2_CopyFileToBlob` funkcji *nie były obsługiwane* , co umożliwia ich równoległe uruchamianie. Gdy przeniesiemy tę tablicę zadań do `context.df.Task.all` , uzyskamy zadanie, które nie zostanie ukończone, *dopóki nie zostaną ukończone wszystkie operacje kopiowania*. Jeśli znasz [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) język JavaScript, to nie jest to możliwe. Różnica polega na tym, że te zadania mogą być uruchamiane na wielu maszynach wirtualnych współbieżnie, a rozszerzenie Durable Functions zapewnia odporność na zakończenie procesu odtwarzania.
 
 > [!NOTE]
-> Chociaż zadania `context.df.Task.all` są koncepcyjnie podobne do języka JavaScript niesie obietnice zwiększenia, należy używać funkcji programu `context.df.Task.any` `Promise.all` `Promise.race` Orchestrator i zamiast nich zarządzać przetwarzanie równoległe zadań.
+> Chociaż zadania są koncepcyjnie podobne do języka JavaScript niesie obietnice zwiększenia, należy używać funkcji `context.df.Task.all` programu Orchestrator i `context.df.Task.any` zamiast nich `Promise.all` `Promise.race` zarządzać przetwarzanie równoległe zadań.
 
-Po uzyskaniu z `context.df.Task.all`programu wiemy, że wszystkie wywołania funkcji zostały zakończone i zwrócone wartości są z powrotem. Każde wywołanie `E2_CopyFileToBlob` zwraca liczbę przekazanych bajtów, więc obliczenie łącznej liczby bajtów sum jest kwestią dodawania wszystkich zwracanych wartości.
+Po uzyskaniu z programu `context.df.Task.all` wiemy, że wszystkie wywołania funkcji zostały zakończone i zwrócone wartości są z powrotem. Każde wywołanie `E2_CopyFileToBlob` zwraca liczbę przekazanych bajtów, więc obliczenie łącznej liczby bajtów sum jest kwestią dodawania wszystkich zwracanych wartości.
 
 ---
 
@@ -80,13 +79,13 @@ Działania pomocnika, podobnie jak inne przykłady, są tylko regularnymi funkcj
 
 #### <a name="e2_getfilelist-activity-function"></a>Funkcja działania E2_GetFileList
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=44-54)]
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Plik *Function. JSON* `E2_GetFileList` wygląda następująco:
+*function.jsw* pliku dla wygląda następująco `E2_GetFileList` :
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/function.json)]
 
@@ -103,18 +102,18 @@ Funkcja używa `readdirp` modułu (wersja 2. x) do rekursywnego odczytywania str
 
 #### <a name="e2_copyfiletoblob-activity-function"></a>Funkcja działania E2_CopyFileToBlob
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=56-81)]
 
 > [!NOTE]
-> Musisz zainstalować pakiet NuGet, `Microsoft.Azure.WebJobs.Extensions.Storage` aby uruchomić przykładowy kod.
+> Musisz zainstalować `Microsoft.Azure.WebJobs.Extensions.Storage` pakiet NuGet, aby uruchomić przykładowy kod.
 
 Funkcja używa niektórych zaawansowanych funkcji powiązań Azure Functions (to jest użycie [ `Binder` parametru](../functions-dotnet-class-library.md#binding-at-runtime)), ale nie trzeba martwić się o te szczegóły na potrzeby tego przewodnika.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Plik *Function. JSON* dla `E2_CopyFileToBlob` jest podobnie prosty:
+*function.jsw* pliku dla `E2_CopyFileToBlob` jest podobnie proste:
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/function.json)]
 
@@ -142,7 +141,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> `HttpStart` Funkcja, która jest wywoływana, działa tylko z zawartością sformatowaną w formacie JSON. Z `Content-Type: application/json` tego powodu nagłówek jest wymagany, a ścieżka katalogu jest zaszyfrowana jako ciąg JSON. Ponadto fragment kodu HTTP zakłada, że w `host.json` pliku znajduje się wpis, który usuwa prefiks `api/` domyślny ze wszystkich adresów URL funkcji wyzwalacza http. Znaczniki tej konfiguracji można znaleźć w `host.json` pliku w przykładach.
+> `HttpStart`Funkcja, która jest wywoływana, działa tylko z zawartością sformatowaną w formacie JSON. Z tego powodu `Content-Type: application/json` nagłówek jest wymagany, a ścieżka katalogu jest zaszyfrowana jako ciąg JSON. Ponadto fragment kodu HTTP zakłada, że w pliku znajduje się wpis, `host.json` który usuwa `api/` prefiks domyślny ze wszystkich adresów URL funkcji wyzwalacza http. Znaczniki tej konfiguracji można znaleźć w `host.json` pliku w przykładach.
 
 To żądanie HTTP wyzwala `E2_BackupSiteContent` koordynatora i przekazuje ciąg `D:\home\LogFiles` jako parametr. Odpowiedź zawiera link umożliwiający uzyskanie stanu operacji tworzenia kopii zapasowej:
 
@@ -170,7 +169,7 @@ Location: http://{host}/runtime/webhooks/durabletask/instances/b4e9bdcc435d460f8
 {"runtimeStatus":"Running","input":"D:\\home\\LogFiles","output":null,"createdTime":"2019-06-29T18:50:55Z","lastUpdatedTime":"2019-06-29T18:51:16Z"}
 ```
 
-W takim przypadku funkcja jest nadal uruchomiona. Możesz zobaczyć dane wejściowe, które zostały zapisane w stanie programu Orchestrator i czas ostatniej aktualizacji. Można nadal używać wartości `Location` nagłówka do sondowania w celu ukończenia. Gdy stan to "ukończono", zobaczysz wartość odpowiedzi HTTP podobną do następującej:
+W takim przypadku funkcja jest nadal uruchomiona. Możesz zobaczyć dane wejściowe, które zostały zapisane w stanie programu Orchestrator i czas ostatniej aktualizacji. Można nadal używać `Location` wartości nagłówka do sondowania w celu ukończenia. Gdy stan to "ukończono", zobaczysz wartość odpowiedzi HTTP podobną do następującej:
 
 ```
 HTTP/1.1 200 OK

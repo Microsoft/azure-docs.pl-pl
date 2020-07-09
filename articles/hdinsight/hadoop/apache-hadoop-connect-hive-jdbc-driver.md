@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 87350bae282d9d0dccef9cb2121000f7a0473762
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 258dfec20644ee29368de075673dfc7798bee28a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195489"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083546"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Apache Hive through the JDBC driver in HDInsight (Wysyłanie zapytań do usługi Apache Hive za pośrednictwem sterownika JDBC w usłudze HDInsight)
 
@@ -65,7 +65,7 @@ SQuirreL SQL to klient JDBC, za pomocą którego można zdalnie uruchamiać zapy
 
 1. Utwórz katalog zawierający pliki do skopiowania z klastra.
 
-2. W poniższym skrypcie Zastąp `sshuser` ciąg nazwą konta użytkownika SSH dla klastra.  Zamień `CLUSTERNAME` na nazwę klastra usługi HDInsight.  W wierszu polecenia Zmień katalog roboczy na taki, który został utworzony w poprzednim kroku, a następnie wprowadź następujące polecenie, aby skopiować pliki z klastra usługi HDInsight:
+2. W poniższym skrypcie Zastąp ciąg `sshuser` nazwą konta użytkownika SSH dla klastra.  Zamień na `CLUSTERNAME` nazwę klastra usługi HDInsight.  W wierszu polecenia Zmień katalog roboczy na taki, który został utworzony w poprzednim kroku, a następnie wprowadź następujące polecenie, aby skopiować pliki z klastra usługi HDInsight:
 
     ```cmd
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/{hadoop-auth.jar,hadoop-common.jar,lib/log4j-*.jar,lib/slf4j-*.jar,lib/curator-*.jar} .
@@ -94,7 +94,7 @@ SQuirreL SQL to klient JDBC, za pomocą którego można zdalnie uruchamiać zapy
 
    Wybierz **przycisk OK** , aby zapisać te ustawienia.
 
-6. Po lewej stronie okna SQuirreL SQL Wybierz pozycję **aliasy**. Następnie wybierz ikonę **+** , aby utworzyć alias połączenia.
+6. Po lewej stronie okna SQuirreL SQL Wybierz pozycję **aliasy**. Następnie wybierz **+** ikonę, aby utworzyć alias połączenia.
 
     ![Okno dialogowe "SQuirreL Dodawanie nowego aliasu SQL"](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
 
@@ -129,7 +129,7 @@ SQuirreL SQL to klient JDBC, za pomocą którego można zdalnie uruchamiać zapy
 
 ## <a name="connect-from-an-example-java-application"></a>Nawiązywanie połączenia z przykładową aplikacją Java
 
-Przykład użycia klienta Java do wykonywania zapytań w usłudze HDInsight jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Postępuj zgodnie z instrukcjami w repozytorium, aby skompilować i uruchomić przykład.
+Przykład użycia klienta Java do wykonywania zapytań w usłudze HDInsight jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc) . Postępuj zgodnie z instrukcjami w repozytorium, aby skompilować i uruchomić przykład.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -147,7 +147,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Rozwiązanie**: Aby rozwiązać ten problem, wykonaj następujące czynności:
 
-1. Zamknij SQuirreL, a następnie przejdź do katalogu, w którym SQuirreL jest zainstalowany w systemie, na `C:\Program Files\squirrel-sql-4.0.0\lib`przykład. W katalogu SquirreL w `lib` katalogu Zastąp istniejący plik Commons-Codec. jar, który został pobrany z klastra usługi HDInsight.
+1. Zamknij SQuirreL, a następnie przejdź do katalogu, w którym SQuirreL jest zainstalowany w systemie, na przykład `C:\Program Files\squirrel-sql-4.0.0\lib` . W katalogu SquirreL w `lib` katalogu Zastąp istniejący plik Commons-Codec. jar, który został pobrany z klastra usługi HDInsight.
 
 1. Uruchom ponownie SQuirreL. Błąd nie powinien już występować podczas nawiązywania połączenia z usługą Hive w usłudze HDInsight.
 

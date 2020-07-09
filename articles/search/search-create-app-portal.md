@@ -1,49 +1,53 @@
 ---
-title: Tworzenie aplikacji wyszukiwania w Azure Portal
+title: Tworzenie aplikacji demonstracyjnej w Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Uruchom Kreatora tworzenia aplikacji (wersja zapoznawcza), aby wygenerować strony HTML i skrypt dla działającej aplikacji sieci Web. Strona zawiera pasek wyszukiwania, obszar wyników, pasek boczny i pomoc techniczną typeahead.
+description: Uruchom Kreatora tworzenia aplikacji demonstracyjnej (wersja zapoznawcza), aby wygenerować strony HTML i skrypt dla działającej aplikacji sieci Web. Strona zawiera pasek wyszukiwania, obszar wyników, pasek boczny i pomoc techniczną typeahead.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
-ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/01/2020
+ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369709"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955696"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji wyszukiwania w portalu (Azure Wyszukiwanie poznawcze)
+# <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji demonstracyjnej w portalu (Azure Wyszukiwanie poznawcze)
 
-Użyj kreatora **tworzenia aplikacji wyszukiwania** w portalu, aby wygenerować aplikację sieci Web typu "localhost", która jest uruchamiana w przeglądarce. W zależności od konfiguracji wygenerowana aplikacja działa przy pierwszym użyciu z połączeniem na żywo z zdalnym indeksem. Aplikacja domyślna może obejmować pasek wyszukiwania, obszar wyników, filtry paska bocznego i obsługę typeahead.
+Użyj kreatora **tworzenia aplikacji demonstracyjnej** Azure Portal, aby wygenerować aplikację sieci Web typu "localhost", która jest uruchamiana w przeglądarce. W zależności od konfiguracji wygenerowana aplikacja działa przy pierwszym użyciu z aktywnym połączeniem tylko do odczytu z zdalnym indeksem. Aplikacja domyślna może obejmować pasek wyszukiwania, obszar wyników, filtry paska bocznego i obsługę typeahead.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Aplikacja demonstracyjna może ułatwić wizualizację sposobu działania indeksu w aplikacji klienckiej, ale nie jest przeznaczona do scenariuszy produkcyjnych. Aplikacje klienckie powinny obejmować zabezpieczenia, obsługę błędów i logikę hostingu, które nie są dostępne w wygenerowanej stronie HTML. Gdy wszystko będzie gotowe do utworzenia aplikacji klienckiej, zobacz [Tworzenie pierwszej aplikacji do wyszukiwania przy użyciu zestawu .NET SDK](tutorial-csharp-create-first-app.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przejdź do [najnowszej wersji programu Microsoft Edge](https://www.microsoft.com/edge) lub użyj przeglądarki Chrome firmy Google dla tego przewodnika Szybki Start.
+Przed rozpoczęciem należy wykonać następujące czynności:
 
-[Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 
-[Utwórz indeks](search-create-index-portal.md) , który ma być używany jako podstawa aplikacji. 
++ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-Ten przewodnik Szybki Start używa wbudowanego przykładowych danych i indeksu nieruchomości, ponieważ ma obrazy miniatur (Kreator obsługuje dodawanie obrazów do strony wyniki). Aby utworzyć indeks używany w tym ćwiczeniu, uruchom kreatora **importowania danych** , wybierając źródło danych *realestate-US-Sample* .
++ [Microsoft Edge (Najnowsza wersja)](https://www.microsoft.com/edge) lub Google Chrome.
 
-![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/import-data-realestate.png)
++ [Indeks wyszukiwania](search-create-index-portal.md) , który ma być używany jako podstawa wygenerowanej aplikacji. 
+
+  Ten przewodnik Szybki Start używa wbudowanego przykładowych danych i indeksu nieruchomości, ponieważ ma obrazy miniatur (Kreator obsługuje dodawanie obrazów do strony wyniki). Aby utworzyć indeks używany w tym ćwiczeniu, uruchom kreatora **importowania danych** , wybierając źródło danych *realestate-US-Sample* .
+
+  ![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/import-data-realestate.png)
 
 Gdy indeks jest gotowy do użycia, przejdź do następnego kroku.
 
 ## <a name="start-the-wizard"></a>Uruchom Kreatora
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
 
-1. Na stronie Przegląd w obszarze linki w środku strony wybierz pozycję **indeksy**. 
+1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd w obszarze linki w środku strony wybierz pozycję **indeksy**. 
 
 1. Wybierz pozycję *realestate-US-Sample-index* z listy istniejących indeksów.
 
-1. Na stronie indeks w górnej części wybierz pozycję **Utwórz aplikację wyszukiwania (wersja zapoznawcza)** , aby uruchomić kreatora.
+1. Na stronie indeks w górnej części wybierz pozycję **Utwórz aplikację demonstracyjną (wersja zapoznawcza)** , aby uruchomić kreatora.
 
 1. Na pierwszej stronie kreatora wybierz pozycję **Włącz udostępnianie zasobów między źródłami (CORS)** , aby dodać obsługę mechanizmu CORS do definicji indeksu. Ten krok jest opcjonalny, ale Lokalna aplikacja internetowa nie będzie łączyć się ze zdalnym indeksem bez tego.
 
@@ -57,7 +61,7 @@ Kreator udostępnia podstawowy układ dla renderowanych wyników wyszukiwania, k
 
 1. W polu Opis wybierz pole, które zawiera szczegółowe informacje, które mogą pomóc komuś zdecydować, czy klikać ten dokument.
 
-![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/configure-results.png)
+   ![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Dodaj pasek boczny
 
@@ -83,7 +87,7 @@ Poniższy zrzut ekranu przedstawia opcje w kreatorze, juxtaposed z renderowaną 
 
 ## <a name="create-download-and-execute"></a>Tworzenie, pobieranie i wykonywanie
 
-1. Wybierz pozycję **Utwórz aplikację wyszukiwania** , aby wygenerować plik HTML.
+1. Wybierz pozycję **Utwórz aplikację demonstracyjną** , aby wygenerować plik HTML.
 
 1. Po wyświetleniu monitu wybierz pozycję **Pobierz aplikację** , aby pobrać plik.
 
@@ -94,7 +98,7 @@ Indeks podstawowy składa się z fikcyjnych, wygenerowanych danych, które zosta
 ![Uruchomienie aplikacji](media/search-create-app-portal/run-app.png)
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

@@ -7,10 +7,9 @@ description: Przejrzyj i przetestuj zmiany z żądania ściągnięcia bezpośred
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery, akcje GitHub, Helm, Siatka usług, routing w sieci usług, polecenia kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637943"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Akcje GitHub & usługi Azure Kubernetes (wersja zapoznawcza)
@@ -116,7 +115,7 @@ cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-Edytuj [Bikes/Server. js][bikes-server-js] , aby usunąć wiersze 232 i 233:
+Edytuj [rowery/server.js][bikes-server-js] , aby usunąć wiersze 232 i 233:
 
 ```javascript
     // Hard code image url *FIX ME*
@@ -131,7 +130,7 @@ Sekcja powinna teraz wyglądać następująco:
     delete theBike._id;
 ```
 
-Zapisz plik, a następnie `git add` Użyj `git commit` i w celu przygotowania zmian.
+Zapisz plik, a następnie użyj `git add` i `git commit` w celu przygotowania zmian.
 
 ```cmd
 git add Bikes/server.js 
@@ -140,7 +139,7 @@ git commit -m "Removing hard coded imageUrl from /bikes/:id route"
 
 ## <a name="push-your-changes"></a>Wypchnij zmiany
 
-Użyj `git push` polecenia, aby wypchnąć nową gałąź do repozytorium z rozwidleniem:
+Użyj polecenia `git push` , aby wypchnąć nową gałąź do repozytorium z rozwidleniem:
 
 ```cmd
 git push origin bike-images

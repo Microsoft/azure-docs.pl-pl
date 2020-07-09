@@ -9,12 +9,11 @@ ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609507"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Nawiązywanie połączenia z serwerem IBM MQ z poziomu usługi Azure Logic Apps
 
@@ -71,7 +70,7 @@ Jeśli nie masz jeszcze połączenia MQ po dodaniu akcji MQ, zostanie wyświetlo
 
    1. Z listy **brama połączeń** wybierz zasób bramy platformy Azure, którego chcesz użyć.
 
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
 <a name="connection-problems"></a>
 
@@ -94,7 +93,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
      > [!IMPORTANT]
      > Upewnij się, że certyfikat jest instalowany w **Certificates - Local Computer**  >  magazynie**zaufanych głównych** urzędów certyfikacji komputera lokalnego.
 
-* Serwer MQ wymaga zdefiniowania specyfikacji szyfrowania, która ma być używana dla połączeń SSL. Jednak SsLStream w programie .NET nie pozwala na określenie kolejności szyfrowania. Aby obejść to ograniczenie, można zmienić konfigurację serwera MQ w taki sposób, aby była zgodna z pierwszą specyfikacją szyfrowania w pakiecie wysyłanym przez łącznik w negocjacji protokołu SSL.
+* Serwer MQ wymaga zdefiniowania specyfikacji szyfrowania, która ma być używana dla połączeń TLS/SSL. Jednak SslStream w programie .NET nie pozwala na określenie kolejności szyfrowania. Aby obejść to ograniczenie, można zmienić konfigurację serwera MQ w taki sposób, aby była zgodna z pierwszą specyfikacją szyfrowania w zestawie, który wysyła łącznik w negocjacji TLS/SSL.
 
   Podczas próby nawiązania połączenia serwer MQ rejestruje komunikat zdarzenia wskazujący, że połączenie nie powiodło się, ponieważ inne zakończenie użyto niepoprawnej specyfikacji szyfru. Komunikat zdarzenia zawiera specyfikację szyfrowania, która pojawia się na liście jako pierwsza. Zaktualizuj specyfikację szyfrowania w konfiguracji kanału, aby pasowała do specyfikacji szyfru w komunikacie o zdarzeniu.
 
@@ -118,7 +117,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
    | **Limit czasu** | Wprowadź wartość, aby określić czas oczekiwania na nadejście komunikatu w pustej kolejce. Jeśli nic nie zostanie wprowadzone, zostanie pobrany pierwszy komunikat w kolejce i nie ma czasu oczekiwania na wyświetlenie komunikatu. |
    |||
 
-   Na przykład:
+   Przykład:
 
    ![Właściwości akcji "Przeglądaj wiadomość"](media/connectors-create-api-mq/browse-message-properties.png)
 

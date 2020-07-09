@@ -6,13 +6,13 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
-ms.custom: mvc
-ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773189"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851735"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Zainstalowana dystrybucja języka [Python](https://www.python.org/downloads/) do testowania lokalnego.
 * Pakiet [platformy Azure](https://pypi.org/project/azure/) `pip` .
-* [Zestaw danych Iris. csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
+* [Zestaw danychiris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Konto usługi Azure Batch i połączone konto usługi Azure Storage. Zobacz [Tworzenie konta usługi Batch](quick-create-portal.md#create-a-batch-account) , aby uzyskać więcej informacji na temat tworzenia i łączenia kont usługi Batch z kontami magazynu.
 * Konto Azure Data Factory. Aby uzyskać więcej informacji na temat tworzenia fabryki danych za pomocą Azure Portal, zobacz temat [Tworzenie fabryki danych](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) .
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -116,27 +116,27 @@ W tej sekcji utworzysz potok i zweryfikujesz go za pomocą skryptu języka Pytho
 1. W polu **zasoby fabryki** wybierz przycisk + (plus), a następnie wybierz pozycję **potok**
 1. Na karcie **Ogólne** Ustaw nazwę potoku jako "Uruchom Python".
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![Na karcie Ogólne ustaw nazwę potoku jako "Uruchom Python".](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. W polu **działania** rozwiń pozycję **Usługa Batch**. Przeciągnij działanie niestandardowe z przybornika **działania** na powierzchnię projektanta potoku.
 1. Na karcie **Ogólne** Określ **testPipeline** dla nazwy
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![Na karcie Ogólne Określ testPipeline dla nazwy](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. Na karcie **Azure Batch** Dodaj **konto wsadowe** , które zostało utworzone w poprzednich krokach, i **Test connection** , aby upewnić się, że zakończyło się pomyślnie
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![Na karcie Azure Batch Dodaj konto usługi Batch, które zostało utworzone w poprzednich krokach, a następnie Testuj połączenie](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. Na karcie **Ustawienia** wprowadź polecenie `python main.py` .
 1. W przypadku **połączonej usługi zasobów**Dodaj konto magazynu, które zostało utworzone w poprzednich krokach. Przetestuj połączenie, aby upewnić się, że zakończyło się pomyślnie.
 1. W **ścieżce folderu**wybierz nazwę kontenera **BLOB Storage platformy Azure** , który zawiera skrypt języka Python i skojarzone dane wejściowe. Spowoduje to pobranie wybranych plików z kontenera do wystąpień węzłów puli przed wykonaniem skryptu języka Python.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![W ścieżce folderu wybierz nazwę kontenera Blob Storage platformy Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Aby sprawdzić poprawność ustawień potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi potoku powyżej kanwy. Sprawdź, czy potok został pomyślnie zweryfikowany. Wybierz przycisk &gt;&gt; (strzałka w prawo), aby zamknąć dane wyjściowe weryfikacji.
 1. Kliknij pozycję **Debuguj** , aby przetestować potok i upewnić się, że działa prawidłowo.
 1. Kliknij przycisk **Opublikuj** , aby opublikować potok.
 1. Kliknij przycisk **Wyzwól** , aby uruchomić skrypt języka Python w ramach procesu wsadowego.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![Kliknij przycisk Wyzwól, aby uruchomić skrypt języka Python w ramach procesu wsadowego](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>Monitorowanie plików dziennika
 

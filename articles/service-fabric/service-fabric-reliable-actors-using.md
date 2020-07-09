@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79502288"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementowanie funkcji na poziomie usług w usłudze aktora
 
-Jak opisano w [warstwach usług](service-fabric-reliable-actors-platform.md#service-layering), sama usługa aktora jest niezawodna. Można napisać własną usługę, która pochodzi od `ActorService`. Funkcje poziomu usługi można również zaimplementować w taki sam sposób, jak w przypadku dziedziczenia usługi stanowej, na przykład:
+Jak opisano w [warstwach usług](service-fabric-reliable-actors-platform.md#service-layering), sama usługa aktora jest niezawodna. Można napisać własną usługę, która pochodzi od `ActorService` . Funkcje poziomu usługi można również zaimplementować w taki sam sposób, jak w przypadku dziedziczenia usługi stanowej, na przykład:
 
 - Kopia zapasowa i przywracanie usługi.
 - Funkcje udostępnione dla wszystkich aktorów, na przykład wyłącznika.
@@ -89,12 +89,12 @@ static class Program
 
 ## <a name="actor-service-methods"></a>Metody usługi aktora
 
-Usługa aktora implementuje `IActorService` (c#) lub `ActorService` (Java), które z kolei implementują `IService` (c#) `Service` lub (Java). Ten interfejs jest używany przez Reliable Services komunikacji zdalnej, co umożliwia zdalne wywoływanie procedur w metodach usługi. Zawiera metody poziomu usług, które można wywołać zdalnie za pośrednictwem komunikacji zdalnej usługi. Można jej użyć do [wyliczania](service-fabric-reliable-actors-enumerate.md) i [usuwania](service-fabric-reliable-actors-delete-actors.md) aktorów.
+Usługa aktora implementuje `IActorService` (c#) lub `ActorService` (Java), które z kolei implementują `IService` (c#) lub `Service` (Java). Ten interfejs jest używany przez Reliable Services komunikacji zdalnej, co umożliwia zdalne wywoływanie procedur w metodach usługi. Zawiera metody poziomu usług, które można wywołać zdalnie za pośrednictwem komunikacji zdalnej usługi. Można jej użyć do [wyliczania](service-fabric-reliable-actors-enumerate.md) i [usuwania](service-fabric-reliable-actors-delete-actors.md) aktorów.
 
 
 ## <a name="custom-actor-service"></a>Niestandardowa usługa aktora
 
-Za pomocą wyrażenia lambda rejestracji aktora można zarejestrować własną niestandardową usługę aktora, która `ActorService` pochodzi z (C# `FabricActorService` ) i (Java). Następnie można zaimplementować własne funkcje poziomu usług, pisząc klasę usługi, która dziedziczy `ActorService` (C#) lub `FabricActorService` (Java). Niestandardowa usługa aktora dziedziczy wszystkie funkcje środowiska uruchomieniowego aktora `ActorService` z `FabricActorService` (C#) lub (Java). Może służyć do implementowania własnych metod usług.
+Za pomocą wyrażenia lambda rejestracji aktora można zarejestrować własną niestandardową usługę aktora, która pochodzi z `ActorService` (C#) i `FabricActorService` (Java). Następnie można zaimplementować własne funkcje poziomu usług, pisząc klasę usługi, która dziedziczy `ActorService` (C#) lub `FabricActorService` (Java). Niestandardowa usługa aktora dziedziczy wszystkie funkcje środowiska uruchomieniowego aktora z `ActorService` (C#) lub `FabricActorService` (Java). Może służyć do implementowania własnych metod usług.
 
 ```csharp
 class MyActorService : ActorService
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementowanie tworzenia i przywracania kopii zapasowych aktora
 
-Niestandardowa usługa aktora może uwidaczniać metodę tworzenia kopii zapasowych danych aktora, wykorzystując odbiornik komunikacji zdalnej już obecny `ActorService`w. Aby zapoznać się z przykładem, zobacz [Tworzenie kopii zapasowych i przywracanie aktorów](service-fabric-reliable-actors-backup-and-restore.md).
+Niestandardowa usługa aktora może uwidaczniać metodę tworzenia kopii zapasowych danych aktora, wykorzystując odbiornik komunikacji zdalnej już obecny w `ActorService` . Aby zapoznać się z przykładem, zobacz [Tworzenie kopii zapasowych i przywracanie aktorów](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Aktor używający stosu z obsługą zdalną v2 (zgodnego z interfejsem)
 

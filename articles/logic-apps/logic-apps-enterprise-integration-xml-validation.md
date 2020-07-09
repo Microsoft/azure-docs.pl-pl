@@ -9,13 +9,12 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792161"
 ---
-# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Sprawdzanie poprawności kodu XML dla integracji B2B Enterprise w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Weryfikacja kodu XML na potrzeby integracji przedsiębiorstw B2B w usłudze Azure Logic Apps z Pakietem integracyjnym dla przedsiębiorstw
 
 Często w scenariuszach B2B partnerzy handlowi w umowie muszą upewnić się, że wymieniane komunikaty są prawidłowe przed rozpoczęciem przetwarzania danych. Można sprawdzać poprawność dokumentów względem wstępnie zdefiniowanego schematu przy użyciu akcji walidacji XML, która jest dostępna w Pakiet integracyjny dla przedsiębiorstw.
 
@@ -31,11 +30,11 @@ Często w scenariuszach B2B partnerzy handlowi w umowie muszą upewnić się, ż
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Jeśli masz pustą aplikację logiki, w Projektancie aplikacji logiki w polu wyszukiwania wprowadź `HTTP request` wartość jako filtr, a następnie wybierz wyzwalacz **po odebraniu żądania HTTP** . W przeciwnym razie przejdź do następnego kroku.
+1. Jeśli masz pustą aplikację logiki, w Projektancie aplikacji logiki w polu wyszukiwania wprowadź wartość `HTTP request` jako filtr, a następnie wybierz wyzwalacz **po odebraniu żądania HTTP** . W przeciwnym razie przejdź do następnego kroku.
 
 1. W ostatnim kroku w przepływie pracy wybierz pozycję **nowy krok**.
 
-   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy nad strzałkę, która łączy te kroki, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy nad strzałkę, która łączy te kroki, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `xml validation` jako filtr. Z listy Akcje wybierz pozycję **Walidacja kodu XML**.
 

@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1046dc64fed3edb6c9d04f76a96f488769ff42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726802"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358348"
 ---
 # <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Wyłącz PTA w przypadku korzystania z Azure AD Connect "nie Konfiguruj"
 
@@ -34,7 +34,7 @@ Wymagane są następujące wymagania wstępne:
 > [!IMPORTANT]
 > Jeśli używasz chmury Azure Government, musisz przekazać parametr ENVIRONMENTname o następującej wartości. 
 >
->| Nazwa środowiska | Chmurowa |
+>| Nazwa środowiska | Chmura |
 >| - | - |
 >| AzureUSGovernment | US Gov|
 

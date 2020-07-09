@@ -3,12 +3,12 @@ title: Używanie maszyn wirtualnych platformy Azure intensywnie korzystających 
 description: Jak korzystać z systemu HPC i rozmiaru maszyny wirtualnej procesora GPU w pulach Azure Batch. Dowiedz się więcej o zależnościach systemu operacyjnego i zobacz kilka przykładów scenariusza.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779745"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962513"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
 
@@ -92,7 +92,7 @@ Aby skonfigurować wyspecjalizowany rozmiar maszyny wirtualnej dla puli usługi 
 
 Aby uruchamiać aplikacje CUDA w puli węzłów systemu Windows NC, należy zainstalować sterowniki procesora GPU NVDIA. W poniższych przykładowych krokach użyto pakietu aplikacji do zainstalowania sterowników procesora GPU firmy NVIDIA. Możesz wybrać tę opcję, jeśli obciążenie zależy od określonej wersji sterownika procesora GPU.
 
-1. Pobierz pakiet instalacyjny dla sterowników procesora GPU w systemie Windows Server 2016 z [witryny NVIDIA](https://www.nvidia.com/Download/index.aspx) , na przykład, [wersja 411,82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Zapisz plik lokalnie przy użyciu krótkiej nazwy, takiej jak *GPUDriverSetup. exe*.
+1. Pobierz pakiet instalacyjny dla sterowników procesora GPU w systemie Windows Server 2016 z [witryny NVIDIA](https://www.nvidia.com/Download/index.aspx) , na przykład, [wersja 411,82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Zapisz plik lokalnie przy użyciu krótkiej nazwy, takiej jak *GPUDriverSetup.exe*.
 2. Utwórz plik zip pakietu.
 3. Przekaż pakiet na konto w usłudze Batch. Aby uzyskać instrukcje, zobacz Wskazówki dotyczące [pakietów aplikacji](batch-application-packages.md) . Określ identyfikator aplikacji, taki jak *GPUDriver*, oraz wersję, taką jak *411,82*.
 1. Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę w konfiguracji maszyny wirtualnej z żądaną liczbą węzłów i skalowania. W poniższej tabeli przedstawiono przykładowe ustawienia, które umożliwiają ciche Instalowanie sterowników procesora GPU firmy NVIDIA przy użyciu zadania uruchamiania:
@@ -105,7 +105,7 @@ Aby uruchamiać aplikacje CUDA w puli węzłów systemu Windows NC, należy zain
 | **Magazyn** | 2016 — centrum danych |
 | **Rozmiar węzła** | Standard NC6 |
 | **Odwołania do pakietu aplikacji** | GPUDriver, wersja 411,82 |
-| **Uruchamianie zadania włączone** | True<br>**Wiersz polecenia** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Tożsamość użytkownika** — autoużytkownik puli, administrator<br/>**Oczekiwanie na powodzenie** — prawda
+| **Uruchamianie zadania włączone** | Prawda<br>**Wiersz polecenia** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Tożsamość użytkownika** — autoużytkownik puli, administrator<br/>**Oczekiwanie na powodzenie** — prawda
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Przykład: Sterowniki procesora GPU NVIDIA w puli maszyn wirtualnych z systemem Linux NC
 
@@ -127,12 +127,12 @@ Aby uruchamiać aplikacje CUDA w puli węzłów systemu Linux NC, należy zainst
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Przykład: Microsoft MPI w puli maszyn wirtualnych z systemem Windows H16r
 
-Aby uruchamiać aplikacje MPI systemu Windows w puli węzłów maszyny wirtualnej Azure H16r, należy skonfigurować rozszerzenie HpcVmDrivers i zainstalować [program Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Poniżej przedstawiono przykładowe kroki służące do wdrażania niestandardowego obrazu systemu Windows Server 2016 przy użyciu niezbędnych sterowników i oprogramowania:
+Aby uruchamiać aplikacje MPI systemu Windows w puli węzłów maszyny wirtualnej Azure H16r, należy skonfigurować rozszerzenie HpcVmDrivers i zainstalować [program Microsoft MPI](/message-passing-interface/microsoft-mpi). Poniżej przedstawiono przykładowe kroki służące do wdrażania niestandardowego obrazu systemu Windows Server 2016 przy użyciu niezbędnych sterowników i oprogramowania:
 
 1. Wdróż maszynę wirtualną usługi Azure H16r z systemem Windows Server 2016. Na przykład utwórz maszynę wirtualną w regionie zachodnie stany USA. 
 2. Dodaj rozszerzenie HpcVmDrivers do maszyny wirtualnej, [uruchamiając polecenie Azure PowerShell](../virtual-machines/sizes-hpc.md) z komputera klienckiego, który nawiązuje połączenie z subskrypcją platformy Azure lub korzystając z Azure Cloud Shell. 
 1. Nawiązywanie połączenia Pulpit zdalny z maszyną wirtualną.
-1. Pobierz [pakiet instalacyjny](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup. exe) dla najnowszej wersji programu Microsoft MPI i zainstaluj program Microsoft MPI.
+1. Pobierz [pakiet instalacyjny](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) dla najnowszej wersji programu Microsoft MPI i zainstaluj program Microsoft MPI.
 1. Postępuj zgodnie z instrukcjami, aby utworzyć [obraz udostępnionej galerii obrazów](batch-sig-images.md) dla usługi Batch.
 1. Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę [przy użyciu galerii obrazów udostępnionych](batch-sig-images.md) i żądaną liczbę węzłów i skalowania. W poniższej tabeli przedstawiono przykładowe ustawienia puli dla obrazu:
 
@@ -142,7 +142,7 @@ Aby uruchamiać aplikacje MPI systemu Windows w puli węzłów maszyny wirtualne
 | **Obraz niestandardowy** | *Nazwa obrazu* |
 | **Jednostka SKU agenta węzła** | Batch. Node. Windows amd64 |
 | **Rozmiar węzła** | Standard H16r |
-| **Komunikacja między węzłami włączona** | True |
+| **Komunikacja między węzłami włączona** | Prawda |
 | **Maksymalna liczba zadań na węzeł** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Przykład: Intel MPI w puli maszyn wirtualnych z systemem Linux H16r
@@ -158,11 +158,11 @@ Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę pr
 | **Oferta** | CentOS — HPC |
 | **Magazyn** | 7.4 |
 | **Rozmiar węzła** | Standard H16r |
-| **Komunikacja między węzłami włączona** | True |
+| **Komunikacja między węzłami włączona** | Prawda |
 | **Maksymalna liczba zadań na węzeł** | 1 |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uruchamiać zadania MPI w puli Azure Batch, zobacz przykłady dla [systemu Windows](batch-mpi.md) lub [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) .
+* Aby uruchamiać zadania MPI w puli Azure Batch, zobacz przykłady dla [systemu Windows](batch-mpi.md) lub [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch) .
 
 * Aby zapoznać się z przykładami obciążeń procesora GPU w usłudze Batch, zobacz przepisy dotyczące [stoczni usługi Batch](https://github.com/Azure/batch-shipyard/) .

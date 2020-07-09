@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d03a201711488b1c0a3f4f2bab0981f83374a5d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74806664"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085586"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Korzystanie z zestawu .NET SDK dla Apache HBase
 
@@ -25,11 +25,13 @@ W przypadku aplikacji C# i .NET [Biblioteka klienta REST programu Microsoft HBas
 
 Zestaw SDK HBase dla platformy .NET jest dostarczany jako pakiet NuGet, który można zainstalować z **konsoli Menedżera pakietów NuGet** programu Visual Studio za pomocą następującego polecenia:
 
-    Install-Package Microsoft.HBase.Client
+```console
+Install-Package Microsoft.HBase.Client
+```
 
 ## <a name="instantiate-a-new-hbaseclient-object"></a>Tworzenie wystąpienia nowego obiektu HBaseClient
 
-Aby użyć zestawu SDK, Utwórz wystąpienie nowego `HBaseClient` obiektu, przekazując `ClusterCredentials` je `Uri` do klastra i nazwę użytkownika i hasło usługi Hadoop.
+Aby użyć zestawu SDK, Utwórz wystąpienie nowego `HBaseClient` obiektu, przekazując je `ClusterCredentials` `Uri` do klastra i nazwę użytkownika i hasło usługi Hadoop.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
@@ -44,7 +46,7 @@ HBase przechowuje dane w tabelach. Tabela składa się z *Rowkey*, klucza podsta
 
 Dane są fizycznie przechowywane w *HFiles*. Pojedynczy HFile zawiera dane dla jednej tabeli, jednego regionu i jednej rodziny kolumn. Wiersze w HFile są przechowywane posortowane na Rowkey. Każdy HFile ma indeks *drzewa B +* w celu przyspieszenia pobierania wierszy.
 
-Aby utworzyć nową tabelę, określ kolumny `TableSchema` i. Poniższy kod sprawdza, czy tabela "RestSDKTable" już istnieje — Jeśli nie, tabela jest tworzona.
+Aby utworzyć nową tabelę, określ `TableSchema` kolumny i. Poniższy kod sprawdza, czy tabela "RestSDKTable" już istnieje — Jeśli nie, tabela jest tworzona.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
@@ -70,7 +72,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 ## <a name="insert-data"></a>Wstawianie danych
 
-Aby wstawić dane, należy określić unikatowy klucz wiersza jako identyfikator wiersza. Wszystkie dane są przechowywane w `byte[]` tablicy. Poniższy kod definiuje i dodaje kolumny `title`, `director`, i `release_date` do rodziny kolumn T1, jak te kolumny są najczęściej używane. Kolumny `description` i `tagline` są dodawane do rodziny kolumn T2. W razie konieczności można podzielić dane na rodziny kolumn.
+Aby wstawić dane, należy określić unikatowy klucz wiersza jako identyfikator wiersza. Wszystkie dane są przechowywane w `byte[]` tablicy. Poniższy kod definiuje i dodaje `title` `director` kolumny,, i `release_date` do rodziny kolumn T1, jak te kolumny są najczęściej używane. `description`Kolumny i `tagline` są dodawane do rodziny kolumn T2. W razie konieczności można podzielić dane na rodziny kolumn.
 
 ```csharp
 var key = "fifth_element";
@@ -118,7 +120,7 @@ HBase implementuje [chmurę BigTable](https://cloud.google.com/bigtable/), więc
 
 ## <a name="select-data"></a>Wybieranie danych
 
-Aby odczytać dane z tabeli HBase, przekaż nazwę tabeli i klucz wiersza do `GetCellsAsync` metody w celu zwrócenia. `CellSet`
+Aby odczytać dane z tabeli HBase, przekaż nazwę tabeli i klucz wiersza do `GetCellsAsync` metody w celu zwrócenia `CellSet` .
 
 ```csharp
 var key = "fifth_element";
@@ -132,7 +134,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 // With the previous insert, it should yield: "The Fifth Element"
 ```
 
-W tym przypadku kod zwraca tylko pierwszy pasujący wiersz, ponieważ dla unikatowego klucza powinien istnieć tylko jeden wiersz. Zwrócona wartość jest zmieniana `string` na format z `byte[]` tablicy. Możesz również przekonwertować wartość na inne typy, na przykład liczbę całkowitą dla daty wydania filmu:
+W tym przypadku kod zwraca tylko pierwszy pasujący wiersz, ponieważ dla unikatowego klucza powinien istnieć tylko jeden wiersz. Zwrócona wartość jest zmieniana na `string` format z `byte[]` tablicy. Możesz również przekonwertować wartość na inne typy, na przykład liczbę całkowitą dla daty wydania filmu:
 
 ```csharp
 var releaseDateField = cells.rows[0].values

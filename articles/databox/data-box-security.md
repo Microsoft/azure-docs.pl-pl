@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77911737"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84817715"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Zabezpieczenia i ochrona danych w usłudze Azure Data Box
 
@@ -45,7 +45,6 @@ Data Box to bezpieczne rozwiązanie do ochrony danych, które gwarantuje, że wy
 Urządzenie Data Box jest chronione przez następujące funkcje:
 
 - Wytrzymała obudowa urządzenia odporna na wstrząsy, negatywny wpływ transportu i warunki otoczenia. 
-- Plomby umożliwiające wykrycie manipulacji, do których mogło dojść w czasie transportu.
 - Wykrywanie naruszeń sprzętu i oprogramowania, które uniemożliwiają dalsze operacje związane z urządzeniem.
 - Uruchamia się tylko oprogramowanie urządzenia Data Box.
 - Urządzenie uruchamia się w stanie zablokowanym.
@@ -57,7 +56,7 @@ Urządzenie Data Box jest chronione przez następujące funkcje:
 Dane przesyłane do i z rozwiązania Data Box są chronione przez następujące funkcje:
 
 - 256-bitowe szyfrowanie AES magazynowanych danych.
-- W przypadku transmitowanych danych można używać zaszyfrowanych protokołów.
+- W przypadku transmitowanych danych można używać zaszyfrowanych protokołów. Zalecamy użycie protokołu SMB 3,0 z szyfrowaniem w celu ochrony danych podczas kopiowania ich z serwerów danych.
 - Bezpieczne usunięcie danych z urządzenia po zakończeniu przekazywania danych na platformę Azure. Wymazywane dane są zgodne z wytycznymi zawartymi w [dodatku A dla dysków twardych usługi ATA w standardach NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). Zdarzenie wymazywania danych jest rejestrowane w [historii kolejności](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Ochrona usługi Data Box
@@ -78,7 +77,7 @@ W usłudze Azure Data Box dane osobowe są zbierane i wyświetlane w następują
 
 - **Szczegóły zamówienia** — po utworzeniu zamówienia na platformie Azure zostaną zapisane dane kontaktowe użytkowników, adres wysyłki, adres e-mail. Zapisane informacje obejmują:
 
-  - Nazwisko osoby kontaktowej
+  - Nazwa kontaktu
   - Numer telefonu
   - Poczta e-mail
   - Adres

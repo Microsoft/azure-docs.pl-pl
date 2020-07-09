@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858601"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
@@ -21,7 +20,7 @@ Jeśli napotykasz problemy z uruchamianiem Azure IoT Edge w środowisku, użyj t
 
 ## <a name="run-the-check-command"></a>Uruchom polecenie "Check"
 
-Pierwszy krok podczas rozwiązywania problemów IoT Edge powinien używać `check` polecenia, które uruchamia kolekcję testów konfiguracji i łączności dla typowych problemów. `check` Polecenie jest dostępne w [wersji 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) lub nowszej.
+Pierwszy krok podczas rozwiązywania problemów IoT Edge powinien używać `check` polecenia, które uruchamia kolekcję testów konfiguracji i łączności dla typowych problemów. `check`Polecenie jest dostępne w [wersji 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) lub nowszej.
 
 >[!NOTE]
 >Narzędzie do rozwiązywania problemów nie może uruchomić sprawdzania łączności, jeśli urządzenie IoT Edge znajduje się za serwerem proxy.
@@ -50,9 +49,9 @@ Aby uzyskać informacje o każdym z testów diagnostycznych wykonywanych przez t
 
 ## <a name="gather-debug-information-with-support-bundle-command"></a>Zbierz informacje debugowania za pomocą polecenia "support-Binding"
 
-Gdy zachodzi potrzeba zebrania dzienników z urządzenia IoT Edge, Najwygodniejszym sposobem jest użycie `support-bundle` polecenia. Domyślnie to polecenie zbiera dane modułów, IoT Edge Security Manager oraz dzienników aparatu kontenerów, `iotedge check` danych wyjściowych JSON i inne przydatne informacje debugowania. Kompresuje je do jednego pliku, aby można było je łatwo udostępnić. `support-bundle` Polecenie jest dostępne w [wersji 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) lub nowszej.
+Gdy zachodzi potrzeba zebrania dzienników z urządzenia IoT Edge, Najwygodniejszym sposobem jest użycie `support-bundle` polecenia. Domyślnie to polecenie zbiera dane modułów, IoT Edge Security Manager oraz dzienników aparatu kontenerów, `iotedge check` danych wyjściowych JSON i inne przydatne informacje debugowania. Kompresuje je do jednego pliku, aby można było je łatwo udostępnić. `support-bundle`Polecenie jest dostępne w [wersji 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) lub nowszej.
 
-Uruchom `support-bundle` polecenie z flagą `--since` , aby określić, jak długo od dawna chcesz pobrać dzienniki. Na przykład `6h` otrzymasz dzienniki od ostatnich sześciu godzin `6d` od ostatniego szóstego dnia `6m` od ostatniego 6 minut i tak dalej. Dołącz `--help` flagę, aby wyświetlić pełną listę opcji.
+Uruchom `support-bundle` polecenie z `--since` flagą, aby określić, jak długo od dawna chcesz pobrać dzienniki. Na przykład `6h` otrzymasz dzienniki od ostatnich sześciu godzin od ostatniego `6d` szóstego dnia od ostatniego 6 `6m` minut i tak dalej. Dołącz `--help` flagę, aby wyświetlić pełną listę opcji.
 
 W systemie Linux:
 
@@ -71,7 +70,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>Sprawdź wersję IoT Edge
 
-Jeśli używasz starszej wersji IoT Edge, uaktualnienie może rozwiązać problem. `iotedge check` Narzędzie sprawdza, czy IoT Edge Security DAEMON to Najnowsza wersja, ale nie sprawdza wersji centrów IoT Edge i modułów agentów. Aby sprawdzić wersję modułów środowiska uruchomieniowego na urządzeniu, Użyj poleceń `iotedge logs edgeAgent` i. `iotedge logs edgeHub` Numer wersji jest zadeklarowany w dziennikach podczas uruchamiania modułu.
+Jeśli używasz starszej wersji IoT Edge, uaktualnienie może rozwiązać problem. `iotedge check`Narzędzie sprawdza, czy IoT Edge Security DAEMON to Najnowsza wersja, ale nie sprawdza wersji centrów IoT Edge i modułów agentów. Aby sprawdzić wersję modułów środowiska uruchomieniowego na urządzeniu, Użyj poleceń `iotedge logs edgeAgent` i `iotedge logs edgeHub` . Numer wersji jest zadeklarowany w dziennikach podczas uruchamiania modułu.
 
 Aby uzyskać instrukcje dotyczące sposobu aktualizowania urządzenia, zobacz [Aktualizacja demona i środowisko uruchomieniowe IoT Edge Security](how-to-update-iot-edge.md).
 
@@ -255,7 +254,7 @@ Azure IoT Edge umożliwia komunikację między serwerem lokalnym a chmurą platf
 
 Chociaż IoT Edge zapewnia rozszerzoną konfigurację do zabezpieczania Azure IoT Edge środowiska uruchomieniowego i wdrożonych modułów, nadal zależy od konfiguracji komputera i sieci. Z tego względu należy upewnić się, że skonfigurowano odpowiednie reguły sieci i zapory na potrzeby bezpiecznej krawędzi komunikacji z chmurą. Poniższa tabela może służyć jako wytyczna, gdy reguły zapory konfiguracyjnej dla serwerów źródłowych, na których jest hostowana Azure IoT Edge środowisko uruchomieniowe:
 
-|Protocol (Protokół)|Port|Dane|Przeznaczony|Wskazówki|
+|Protokół|Port|Dane|Przeznaczony|Wskazówki|
 |--|--|--|--|--|
 |MQTT|8883|ZABLOKOWANE (domyślnie)|ZABLOKOWANE (domyślnie)|<ul> <li>Skonfiguruj wychodzące (wychodzące) do otwarcia w przypadku używania MQTT jako protokołu komunikacyjnego.<li>1883 dla MQTT nie jest obsługiwane przez IoT Edge. <li>Połączenia przychodzące (przychodzące) powinny być blokowane.</ul>|
 |AMQP|5671|ZABLOKOWANE (domyślnie)|Otwórz (domyślnie)|<ul> <li>Domyślny protokół komunikacyjny dla IoT Edge. <li> Musi być skonfigurowany do otwierania, jeśli Azure IoT Edge nie jest skonfigurowana dla innych obsługiwanych protokołów lub AMQP jest żądanym protokołem komunikacyjnym.<li>5672 dla AMQP nie jest obsługiwane przez IoT Edge.<li>Blokuj ten port, gdy Azure IoT Edge używa innego obsługiwanego IoT Hub protokołu.<li>Połączenia przychodzące (przychodzące) powinny być blokowane.</ul></ul>|

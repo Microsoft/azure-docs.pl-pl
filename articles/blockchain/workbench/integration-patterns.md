@@ -4,12 +4,12 @@ description: Omówienie wzorców integracji kontraktu inteligentnego w usłudze 
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254637"
 ---
 # <a name="smart-contract-integration-patterns"></a>Wzorce integracji kontraktów inteligentnych
 
@@ -31,7 +31,7 @@ Możliwości w ramach aplikacji sieci Web wygenerowanej przez usługę Azure ła
 
 Interfejs API REST jest używany głównie dla klientów interaktywnych, takich jak aplikacje internetowe, mobilne i bot.
 
-Ta sekcja analizuje wzorce ukierunkowane na aspekty interfejsu API REST, które wysyłają transakcje do rozproszonej księgi i wzorców, które wykonują zapytania dotyczące danych o transakcjach z usługi Azure łańcucha bloków Workbench *off* Database.
+W tej sekcji przedstawiono wzorce ukierunkowane na aspekty interfejsu API REST, które wysyłają transakcje do rozproszonej księgi i wzorców, które wykonują zapytania dotyczące danych o transakcjach z bazy danych *łańcucha* usługi Azure łańcucha bloków Workbench.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>Wysyłanie transakcji do księgi rozproszonej z systemu zewnętrznego
 
@@ -204,7 +204,7 @@ Integracja danych jest dobrze znana:
 
 -   Usługa Azure łańcucha bloków Workbench przechowuje metadane dotyczące aplikacji, przepływów pracy, kontraktów i transakcji w ramach normalnego działania operacyjnego.
 -   Systemy zewnętrzne lub narzędzia udostępniają co najmniej jedno okno dialogowe, które ułatwia zbieranie informacji o bazie danych, takich jak nazwa serwera bazy danych, nazwa bazy danych, typ uwierzytelniania, poświadczenia logowania i widoki bazy danych do użycia.
--   Zapytania są zapisywane w widokach usługi SQL Database w celu ułatwienia użycia przez systemy zewnętrzne, usług, raportowania, narzędzi programistycznych i narzędzi do tworzenia wydajności w przedsiębiorstwie.
+-   Zapytania są zapisywane w oparciu o widoki bazy danych, aby ułatwić wykorzystanie przez systemy zewnętrzne, usługi, raportowanie, narzędzia deweloperskie i narzędzia do pracy w przedsiębiorstwie.
 
 ## <a name="storage-integration"></a>Integracja z magazynem
 

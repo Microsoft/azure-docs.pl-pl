@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614166"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Bezpieczna komunikacja oparta na WCF dla usługi
@@ -17,7 +16,7 @@ Bezpieczeństwo jest jednym z najważniejszych aspektów komunikacji. Platforma 
 
 Korzystamy z istniejącego [przykładu](service-fabric-reliable-services-communication-wcf.md) , w którym wyjaśniono, jak skonfigurować oparty na WCF stos komunikacji dla niezawodnych usług. Aby zabezpieczyć usługę w przypadku korzystania ze stosu komunikacji opartego na WCF, wykonaj następujące kroki:
 
-1. W przypadku usługi należy pomóc w zabezpieczeniu utworzonego odbiornika komunikacji WCF (`WcfCommunicationListener`). W tym celu należy zmodyfikować `CreateServiceReplicaListeners` metodę.
+1. W przypadku usługi należy pomóc w zabezpieczeniu utworzonego odbiornika komunikacji WCF ( `WcfCommunicationListener` ). W tym celu należy zmodyfikować `CreateServiceReplicaListeners` metodę.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -54,7 +53,7 @@ Korzystamy z istniejącego [przykładu](service-fabric-reliable-services-communi
         return b;
     }
     ```
-2. W przypadku klienta `WcfCommunicationClient` Klasa, która została utworzona w poprzednim [przykładzie](service-fabric-reliable-services-communication-wcf.md) , pozostaje niezmieniona. Ale należy zastąpić `CreateClientAsync` metodę `WcfCommunicationClientFactory`:
+2. W przypadku klienta Klasa, `WcfCommunicationClient` która została utworzona w poprzednim [przykładzie](service-fabric-reliable-services-communication-wcf.md) , pozostaje niezmieniona. Ale należy zastąpić `CreateClientAsync` metodę `WcfCommunicationClientFactory` :
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -104,7 +103,7 @@ Korzystamy z istniejącego [przykładu](service-fabric-reliable-services-communi
     }
     ```
 
-    Służy `SecureWcfCommunicationClientFactory` do tworzenia klienta komunikacyjnego WCF (`WcfCommunicationClient`). Użyj klienta, aby wywołać metody usługi.
+    Służy `SecureWcfCommunicationClientFactory` do tworzenia klienta komunikacyjnego WCF ( `WcfCommunicationClient` ). Użyj klienta, aby wywołać metody usługi.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: b8c4fd3804bfa02b86f62912641eb936ff8cd15e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664431"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116812"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Jak wybrać między standardowym (ręcznym) i automatycznym skalowaniem przepływności 
 
@@ -61,7 +61,7 @@ W miarę upływu czasu, po wybraniu typu przepływności należy monitorować ap
 
 W przypadku korzystania z funkcji automatycznego skalowania należy użyć Azure Monitor, aby zobaczyć, że zainicjowano maksymalną skalowalność skalowania automatycznego/s (**Automatyczne skalowanie w poziomie**) i ru/s system jest obecnie skalowany do (**zainicjowana przepływność**). Poniżej znajduje się przykład zmiennej lub nieprzewidywalnego obciążenia przy użyciu funkcji automatycznego skalowania. Należy pamiętać, że w przypadku braku ruchu, system skaluje RU/s do minimum 10% maksymalnej wartości RU/s, która w tym przypadku jest odpowiednio 5000 RU/s i 50 000 RU/s. 
 
-![Przykład obciążenia przy użyciu funkcji automatycznego skalowania](media/how-to-choose-offer/autoscale-metrics-azure-monitor.png)
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Przykład obciążenia przy użyciu funkcji automatycznego skalowania":::
 
 > [!NOTE]
 > W przypadku korzystania z standardowej (ręcznej) przepływności zapewnianej przez zainicjowaną **przepływność** jest określana przez użytkownika. Gdy używana jest przepływność automatycznego skalowania, ta Metryka odnosi się do jednostki RU/s, do której system jest obecnie skalowany.

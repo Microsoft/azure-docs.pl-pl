@@ -1,24 +1,14 @@
 ---
 title: Azure Event Hubs — zdarzenia programu Exchange korzystające z różnych protokołów
 description: W tym artykule pokazano, jak konsumenci i producenci korzystający z różnych protokołów (AMQP, Apache Kafka i HTTPS) mogą wymieniać zdarzenia podczas korzystania z usługi Azure Event Hubs.
-services: event-hubs
-documentationcenter: ''
-author: femila
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: femila
-ms.openlocfilehash: 368cc568c40e878338e6b45205e74cba1d0b6378
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ec3122dcf151fe3e7b7b9578725e810ddca22bdf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372214"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320608"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Wymieniaj zdarzenia między konsumentami a producentami, którzy korzystają z różnych protokołów: AMQP, Kafka i HTTPS
 Usługa Azure Event Hubs obsługuje trzy protokoły dla klientów i producentów: AMQP, Kafka i HTTPS. Każdy z tych protokołów ma własny sposób reprezentowania komunikatów, więc w naturalny sposób wystąpią następujące pytania: Jeśli aplikacja wysyła zdarzenia do centrum zdarzeń z jednym protokołem i zużywa je za pomocą innego protokołu, co sprawia, że różne części i wartości zdarzenia wyglądają jak w przypadku nadejścia do konsumenta? W tym artykule omówiono najlepsze rozwiązania dla producentów i konsumentów, aby zapewnić, że wartości w ramach zdarzenia są poprawnie interpretowane przez aplikację, która zużywa.

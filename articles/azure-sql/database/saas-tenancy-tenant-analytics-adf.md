@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84048805"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Eksploruj SaaS Analytics, korzystając z Azure SQL Database, Azure Synapse Analytics, Data Factory i Power BI
@@ -89,7 +88,7 @@ W aplikacji bilety Wingtip dane transakcyjne dzierżawców są dystrybuowane za 
 
 Ten krok polega na wdrożeniu dodatkowych zasobów używanych w samouczku: SQL Data Warehouse o nazwie _tenantanalytics_, Azure Data Factory o nazwie _dbtodwload- \<user\> _i koncie usługi Azure Storage o nazwie _wingtipstaging \<user\> _. Konto magazynu jest używane do tymczasowego przechowywania wyodrębnionych plików danych jako obiektów BLOB przed ich załadowaniem do magazynu danych. Ten krok umożliwia również wdrożenie schematu magazynu danych i Definiowanie potoków ADF, które organizują proces ELT.
 
-1. W programie PowerShell ISE Otwórz pozycję *. ..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* i ustaw:
+1. W programie PowerShell ISE Otwórz pozycję *..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* i ustaw:
     - **$DemoScenario**  =  **2** wdrażanie magazynu danych analizy dzierżawy, usługi BLOB Storage i usługi Data Factory
 1. Naciśnij klawisz **F5** , aby uruchomić skrypt demonstracyjny i wdrożyć zasoby platformy Azure.
 
@@ -122,7 +121,7 @@ W Eksplorator obiektów:
 1. Kliknij pozycję konto magazynu **wingtipstaging \<user\> ** , aby poznać obiekty obecne.
 1. Kliknij kafelek **obiektów BLOB**
 1. Kliknij kontener **ConfigFile**
-1. Sprawdź, czy **ConfigFile** zawiera plik JSON o nazwie **TableConfig. JSON**. Ten plik zawiera nazwy tabel źródłowych i docelowych, nazwy kolumn i nazwy kolumn śledzenia.
+1. Sprawdź, czy **ConfigFile** zawiera plik JSON o nazwie **TableConfig.json**. Ten plik zawiera nazwy tabel źródłowych i docelowych, nazwy kolumn i nazwy kolumn śledzenia.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
 

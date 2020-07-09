@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c2f0fbe66b26c6eca6e0c0b2530efacba9bae958
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8f94f2ed810204d739dfd2e6d5e88ef0977ad9a4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75380596"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391523"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Szybki Start: Rozpoznawanie mowy w celu macOS przy użyciu zestawu Speech SDK
 
@@ -38,7 +38,7 @@ Zestaw SDK mowy Cognitive Services dla komputerów Mac jest dystrybuowany jako p
 
 ## <a name="create-an-xcode-project"></a>Tworzenie projektu Xcode
 
-Rozpocznij Xcode i Rozpocznij nowy projekt, wybierając pozycję **plik** > **Nowy** > **projekt**. W oknie dialogowym Wybieranie szablonu wybierz szablon **aplikacji kakao** .
+Rozpocznij Xcode i Rozpocznij nowy projekt, wybierając pozycję **plik**  >  **Nowy**  >  **projekt**. W oknie dialogowym Wybieranie szablonu wybierz szablon **aplikacji kakao** .
 
 W poniższych oknach dialogowych wybierz następujące opcje.
 
@@ -72,7 +72,7 @@ W poniższych oknach dialogowych wybierz następujące opcje.
 1. Przejdź do katalogu aplikacji przykładowej, czyli HelloWorld. Umieść plik tekstowy o nazwie *plik podfile* i następującej zawartości w tym katalogu:
 
    [!code-ruby[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/macos/from-microphone/helloworld/Podfile)]
-1. Przejdź do katalogu HelloWorld w terminalu i uruchom polecenie `pod install`. To polecenie generuje obszar `helloworld.xcworkspace` roboczy Xcode, który zawiera zarówno przykładową aplikację, jak i zestaw mowy SDK jako zależność. Ten obszar roboczy jest używany w poniższych krokach.
+1. Przejdź do katalogu HelloWorld w terminalu i uruchom polecenie `pod install` . To polecenie generuje `helloworld.xcworkspace` obszar roboczy Xcode, który zawiera zarówno przykładową aplikację, jak i zestaw mowy SDK jako zależność. Ten obszar roboczy jest używany w poniższych krokach.
 
 ## <a name="add-the-sample-code"></a>Dodawanie przykładowego kodu
 
@@ -81,12 +81,12 @@ W poniższych oknach dialogowych wybierz następujące opcje.
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/macos/from-microphone/helloworld/helloworld/AppDelegate.m#code)]
 1. Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
-1. Zamień ciąg `YourServiceRegion` na [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
 
 ## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
-1. Aby wyświetlić dane wyjściowe debugowania, wybierz opcję **Wyświetl** > **obszar** > debugowania**Aktywuj konsolę**.
-1. Kompiluj i uruchamiaj przykładowy kod, wybierając **pozycję** > **Uruchom** jako z menu. Możesz również wybrać opcję **Odtwórz**.
+1. Aby wyświetlić dane wyjściowe debugowania, wybierz opcję **Wyświetl**  >  **obszar debugowania**  >  **Aktywuj konsolę**.
+1. Kompiluj i uruchamiaj przykładowy kod, wybierając **pozycję**  >  **Uruchom** jako z menu. Możesz również wybrać opcję **Odtwórz**.
 1. Po wybraniu przycisku i rozpoczęciu kilku wyrazów powinien zostać wyświetlony tekst mówiony w dolnej części ekranu. Po uruchomieniu aplikacji po raz pierwszy powinien zostać wyświetlony monit o przyznanie aplikacji dostępu do mikrofonu na komputerze.
 
 ## <a name="next-steps"></a>Następne kroki

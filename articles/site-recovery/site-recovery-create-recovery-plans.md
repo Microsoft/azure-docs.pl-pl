@@ -3,12 +3,11 @@ title: Utwórz/Dostosuj plany odzyskiwania w Azure Site Recovery
 description: Dowiedz się, jak tworzyć i dostosowywać plany odzyskiwania na potrzeby odzyskiwania po awarii przy użyciu usługi Azure Site Recovery.
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705840"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485341"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Tworzenie i dostosowywanie planów odzyskiwania
 
@@ -16,7 +15,7 @@ W tym artykule opisano sposób tworzenia i dostosowywania planu odzyskiwania dla
 
 ## <a name="create-a-recovery-plan"></a>Tworzenie planu odzyskiwania
 
-1. W magazynie Recovery Services wybierz pozycję **plany odzyskiwania (Site Recovery)** > **+ plan odzyskiwania**.
+1. W magazynie Recovery Services wybierz pozycję **plany odzyskiwania (Site Recovery)**  >  **+ plan odzyskiwania**.
 2. W obszarze **Utwórz plan odzyskiwania**Określ nazwę planu.
 3. Wybierz źródło i cel na podstawie maszyn w planie, a następnie wybierz **Menedżer zasobów** dla modelu wdrażania. Lokalizacja źródłowa musi mieć maszyny, na których włączono tryb failover i odzyskiwanie. 
 
@@ -28,10 +27,10 @@ W tym artykule opisano sposób tworzenia i dostosowywania planu odzyskiwania dla
    Z funkcji Hyper-V do platformy Azure | Wybierz nazwę lokacji funkcji Hyper-V | Wybierz platformę Azure
    Funkcja Hyper-V (zarządzana przez program VMM) na platformie Azure  | Wybierz serwer programu VMM | Wybierz platformę Azure
   
-    Pamiętaj o następujących kwestiach:
-    -  W celu przełączenia w tryb failover z lokalizacji źródłowej do platformy Azure można użyć planu odzyskiwania. Nie można użyć planu odzyskiwania na potrzeby powrotu po awarii z platformy Azure.
-    - Lokalizacja źródłowa musi mieć maszyny, na których włączono tryb failover i odzyskiwanie. 
-    - Plan odzyskiwania może zawierać maszyny z tym samym źródłem i elementem docelowym. 
+    . Weź pod uwagę następujące kwestie:
+    - Można użyć planu odzyskiwania zarówno w przypadku trybu failover na platformie Azure, jak i powrotu po awarii z platformy Azure.
+    - Lokalizacja źródłowa musi mieć maszyny, na których włączono tryb failover i odzyskiwanie.
+    - Plan odzyskiwania może zawierać maszyny z tym samym źródłem i elementem docelowym.
     - W tym samym planie można dołączyć maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V zarządzane przez program VMM.
     - Maszyny wirtualne VMware i serwery fizyczne mogą znajdować się w tym samym planie.
 
@@ -76,7 +75,7 @@ Możesz dostosować plan odzyskiwania, dodając skrypt lub akcję ręczną. Nale
     1. Wpisz nazwę akcji i wpisz instrukcje akcji. Osoba, na której działa przejście w tryb failover, zobaczy te instrukcje.
     1. Określ, czy chcesz dodać akcję ręczną dla wszystkich typów trybu failover (test, tryb failover, planowana praca w trybie failover (jeśli dotyczy)). Następnie kliknij przycisk **OK**.
 4. Jeśli chcesz dodać skrypt, wykonaj następujące czynności:
-    1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**, a w polu **ścieżka skryptu** wpisz ścieżkę względną do udziału. Na przykład, jeśli udział znajduje się w lokalizacji \\ \<nazwa> \msscvmmlibrary\rpscripts, określ ścieżkę: \RPScripts\RPScript.ps1.
+    1. W przypadku dodawania skryptu programu VMM wybierz pozycję **tryb failover do skryptu programu VMM**, a w polu **ścieżka skryptu** wpisz ścieżkę względną do udziału. Na przykład, jeśli udział znajduje się w \\ \<VMMServerName> \MSSCVMMLibrary\RPScripts, określ ścieżkę: \RPScripts\RPScript.PS1.
     1. Jeśli dodajesz książkę uruchamiania usługi Azure Automation, określ **konto Azure Automation** , w którym znajduje się element Runbook, a następnie wybierz odpowiedni **skrypt elementu Runbook platformy Azure**.
 5. Uruchom test pracy w trybie failover planu odzyskiwania, aby upewnić się, że skrypt działa zgodnie z oczekiwaniami.
 

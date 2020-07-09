@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783235"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Używanie zaleceń usługi Azure Security Center w celu ulepszania zabezpieczeń
 Aby zmniejszyć prawdopodobieństwo wystąpienia poważnych zdarzeń zabezpieczeń, można skonfigurować zasady zabezpieczeń, a następnie zaimplementować zalecenia udostępniane przez Azure Security Center. W tym artykule pokazano, jak używać zasad zabezpieczeń i zaleceń w Security Center, aby pomóc w ograniczeniu ataku zabezpieczeń. 
@@ -57,7 +56,7 @@ W ramach codziennych działań monitorowania Jan loguje się do platformy Azure 
 
 2. Jan sprawdza **bezpieczny wynik** , aby uzyskać ogólny obraz tego, jak zabezpieczy się subskrypcje i widzi, że wynik to 548.
 
-3. Jan musi zdecydować, które zalecenia należy obsłużyć w pierwszej kolejności. Dlatego Jan klika polecenie Secure Score i zaczyna obsługiwać zalecenia w zależności od tego, jak znacznie zwiększa on [bezpieczny wpływ na ocenę](security-center-secure-score.md).
+3. Jan musi zdecydować, które zalecenia należy obsłużyć w pierwszej kolejności. Dlatego Jan klika polecenie Secure Score i zaczyna obsługiwać zalecenia w zależności od tego, jak dużo poprawia swój [bezpieczny wynik](secure-score-security-controls.md).
 
 4. Ze względu na to, że program Jan ma wiele połączonych maszyn wirtualnych i serwerów, Marcin decyduje się skoncentrować na **obliczeniach i aplikacjach**.
 

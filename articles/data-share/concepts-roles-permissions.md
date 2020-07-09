@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111001"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -30,21 +30,19 @@ Aby udostępnić lub odebrać dane z magazynu danych platformy Azure, użytkowni
 
 Poniżej znajduje się Podsumowanie ról przypisanych do zarządzanej tożsamości zasobu udział danych:
 
-| |  |  |
-|---|---|---|
 |**Typ magazynu danych**|**Źródłowy magazyn danych Dostawca danych**|**Docelowy magazyn danych odbiorcy danych**|
+|---|---|---|
 |Azure Blob Storage| Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
 |Azure Data Lake Gen1 | Właściciel | Nieobsługiwane
 |Azure Data Lake Gen2 | Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
 |Serwer usługi SQL Azure | Współautor bazy danych SQL | Współautor bazy danych SQL
-|Klaster Eksplorator danych platformy Azure | Współautor | Współautor
+|Klaster usługi Azure Data Explorer | Współautor | Współautor
 |
 
-W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utworzony przez zewnętrznego dostawcę w bazie danych SQL o takiej samej nazwie jak zasób udziału danych platformy Azure. Poniżej znajduje się Podsumowanie uprawnień wymaganych przez użytkownika programu SQL.
+W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utworzony przez dostawcę zewnętrznego w Azure SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Poniżej znajduje się Podsumowanie uprawnień wymaganych przez użytkownika programu SQL.
 
-| |  |  |
-|---|---|---|
 |**Typ SQL Database**|**Dostawca danych uprawnienie użytkownika SQL**|**Uprawnienie użytkownika SQL dla danych klienta**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (dawniej SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -64,9 +62,9 @@ Aby utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udział dany
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 1. W obszarze *rola*wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
 1. W obszarze *Wybierz*wpisz nazwę zasobu udziału danych platformy Azure.
-1. Kliknij przycisk *Zapisz*.
+1. Kliknij pozycję *Zapisz*.
 
-W przypadku źródeł opartych na języku SQL oprócz powyższych kroków użytkownik musi zostać utworzony przez zewnętrznego dostawcę w bazie danych SQL o takiej samej nazwie jak zasób udziału danych platformy Azure. Ten użytkownik musi mieć przyznane uprawnienie *db_datareader* . Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania opartego na języku SQL można znaleźć w samouczku [udostępnianie danych](share-your-data.md) . 
+W przypadku źródeł opartych na języku SQL oprócz powyższych kroków należy utworzyć użytkownika SQL z zewnętrznego dostawcy w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Ten użytkownik musi mieć przyznane uprawnienie *db_datareader* . Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania opartego na języku SQL można znaleźć w samouczku [udostępnianie danych](share-your-data.md) . 
 
 ### <a name="data-consumer"></a>Odbiorca danych
 Aby otrzymywać dane, tożsamość zarządzana zasobu udziału danych klienta musi mieć przyznane dostęp do docelowego magazynu danych platformy Azure. Na przykład w przypadku konta magazynu zarządzana tożsamość zasobu udziału danych jest przyznana roli współautor danych obiektu blob magazynu. 
@@ -82,9 +80,9 @@ Aby ręcznie utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udz
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 1. W obszarze *rola*wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
 1. W obszarze *Wybierz*wpisz nazwę zasobu udziału danych platformy Azure.
-1. Kliknij przycisk *Zapisz*.
+1. Kliknij pozycję *Zapisz*.
 
-W przypadku obiektów docelowych opartych na języku SQL, oprócz powyższych kroków, należy utworzyć użytkownika SQL z zewnętrznego dostawcy w bazie danych SQL o tej samej nazwie co zasób udziału danych platformy Azure. Ten użytkownik musi mieć przyznane *db_datareader, db_datawriter db_ddladmin* uprawnienia. Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania opartego na języku SQL można znaleźć w samouczku [akceptowanie i odbieranie danych](subscribe-to-data-share.md) . 
+W przypadku obiektów docelowych opartych na języku SQL, oprócz powyższych kroków, należy utworzyć użytkownika SQL z zewnętrznego dostawcy w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Ten użytkownik musi mieć przyznane *db_datareader, db_datawriter db_ddladmin* uprawnienia. Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania opartego na języku SQL można znaleźć w samouczku [akceptowanie i odbieranie danych](subscribe-to-data-share.md) . 
 
 Jeśli udostępniasz dane przy użyciu interfejsów API REST, musisz ręcznie utworzyć te przypisania ról. 
 
@@ -103,4 +101,3 @@ Aby wyświetlić zaproszenie do udziału danych platformy Azure po raz pierwszy 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o rolach na platformie Azure — [Omówienie definicji ról](../role-based-access-control/role-definitions.md)
-

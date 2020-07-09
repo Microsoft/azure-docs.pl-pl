@@ -10,11 +10,11 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241696"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711225"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Szybki Start: rejestrowanie urządzenia TPM w IoT Hub Device Provisioning Service przy użyciu zestawu SDK usługi Java
 
@@ -130,7 +130,7 @@ W tej sekcji przedstawiono sposób dodawania szczegółów aprowizacji urządzen
     mvn install -DskipTests
     ```
 
-   To polecenie pobiera pakiet [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven na maszynę. Ten pakiet zawiera pliki binarne dla [zestawu SDK usługi Java](https://azure.github.io/azure-iot-sdk-java/service/), których przykładowy kod musi skompilować. 
+   To polecenie pobiera pakiet Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) na maszynę. Ten pakiet zawiera pliki binarne dla [zestawu SDK usługi Java](https://azure.github.io/azure-iot-sdk-java/service/), których przykładowy kod musi skompilować. 
 
 3. Uruchom przykładowy kod przy użyciu tych poleceń w oknie polecenia:
 

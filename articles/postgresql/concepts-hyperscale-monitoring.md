@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: fb24100eaebc54b98adf2f09fa3e557e4d6fa0be
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580659"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-ze skalowaniem (Citus)
@@ -28,15 +28,15 @@ Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyska�
 
 Te metryki są dostępne dla węzłów ze skalowaniem (Citus):
 
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
+|Metric|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
 |active_connections|Aktywne połączenia|Liczba|Liczba aktywnych połączeń z serwerem.|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Procent użycia procesora CPU.|
+|cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|
 |Wejścia|Liczba operacji we/wy na sekundę|Liczba|Zobacz [definicję IOPS](../virtual-machines/linux/premium-storage-performance.md#iops) i [przepływność w ramach skalowania](concepts-hyperscale-configuration-options.md)|
-|memory_percent|Procent pamięci|Wartość procentowa|Procent używanej pamięci.|
+|memory_percent|Procent pamięci|Procent|Procent używanej pamięci.|
 |network_bytes_ingress|Sieć — wejście|Bajty|Sieć w ramach aktywnych połączeń.|
 |network_bytes_egress|Sieć — wyjście|Bajty|Nawiązywanie połączeń sieciowych między aktywnymi połączeniami.|
-|storage_percent|Procent miejsca do magazynowania|Wartość procentowa|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
+|storage_percent|Procent miejsca do magazynowania|Procent|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
 |storage_used|Używany magazyn|Bajty|Ilość używanej pamięci masowej. Magazyn używany przez usługę może obejmować pliki bazy danych, dzienniki transakcji i Dzienniki serwera.|
 
 Platforma Azure nie udostępnia zagregowanych metryk dla klastra jako całości, ale metryki dla wielu węzłów można umieścić na tym samym grafie.

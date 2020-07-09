@@ -3,12 +3,12 @@ title: Wyklucz dyski z replikacji za pomocą Azure Site Recovery
 description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5a8d52bd0cc40b45f92039c537a1b3b63f0bec61
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740522"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135687"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
 
@@ -30,7 +30,7 @@ Tak | Tak | Tak | Tak
 
 ## <a name="exclude-limitations"></a>Wyklucz ograniczenia
 
-**Ograniczenia** | **Maszyny wirtualne platformy Azure** | **Maszyny wirtualne VMware** | **Maszyny wirtualne funkcji Hyper-V**
+**Ograniczenie** | **Maszyny wirtualne platformy Azure** | **Maszyny wirtualne VMware** | **Maszyny wirtualne funkcji Hyper-V**
 --- | --- | ---
 **Typy dysków** | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie można wykluczać dysków systemu operacyjnego ani dysków dynamicznych. Dyski tymczasowe są domyślnie wykluczone. | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie można wykluczać dysków systemu operacyjnego ani dysków dynamicznych. | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie możesz wykluczać dysków systemu operacyjnego. Nie zalecamy wykluczania dysków dynamicznych. Site Recovery nie może zidentyfikować, która VHS jest podstawowa lub dynamiczna na maszynie wirtualnej gościa. Jeśli wszystkie zależne dyski woluminu dynamicznego nie zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku są niedostępne.
 **Replikowanie dysku** | Nie można wykluczyć dysku, który jest replikowany.<br/><br/> Wyłącz i ponownie Włącz replikację maszyny wirtualnej. |  Nie można wykluczyć dysku, który jest replikowany. |  Nie można wykluczyć dysku, który jest replikowany.
@@ -44,7 +44,7 @@ Tak | Tak | Tak | Tak
 
 ## <a name="typical-scenarios"></a>Typowe scenariusze
 
-Przykłady zmian danych, które są doskonałymi kandydatami do wykluczenia, obejmują zapis do pliku stronicowania (Pagefile. sys) i zapisuje w pliku tempdb Microsoft SQL Server. W zależności od obciążenia i podsystemu magazynowania Pliki stronicowania i tempdb mogą rejestrować znaczną ilość zmian. Replikowanie tego typu danych na platformę Azure jest czasochłonne.
+Przykłady zmian danych, które są doskonałymi kandydatami do wykluczenia, obejmują zapis do pliku stronicowania (pagefile.sys) i zapisuje w pliku tempdb Microsoft SQL Server. W zależności od obciążenia i podsystemu magazynowania Pliki stronicowania i tempdb mogą rejestrować znaczną ilość zmian. Replikowanie tego typu danych na platformę Azure jest czasochłonne.
 
 - Aby zoptymalizować replikację maszyny wirtualnej z pojedynczym dyskiem wirtualnym zawierającym zarówno system operacyjny, jak i plik stronicowania, można:
     1. Podziel pojedynczy dysk wirtualny na dwa dyski wirtualne. Na jednym dysku wirtualnym umieść system operacyjny, a na drugim — plik stronicowania.
@@ -185,7 +185,7 @@ DB-Disk4 | Dysk4 | G:\ | Baza danych użytkownika 2
 
 ## <a name="example-2-exclude-the-paging-file-disk"></a>Przykład 2: wykluczanie dysku pliku stronicowania
 
-Przyjrzyjmy się sposobom obsługi wykluczenia dysku, trybu failover i trybu failover dla źródłowej maszyny wirtualnej z systemem Windows, dla której chcemy wykluczyć dysk pliku Pagefile. sys na dysku D i alternatywny dysk.
+Przyjrzyjmy się sposobom obsługi wykluczenia dysku, trybu failover i trybu failover dla źródłowej maszyny wirtualnej z systemem Windows, dla której chcemy wykluczyć dysk plików pagefile.sys na dysku D i alternatywny dysk.
 
 
 ### <a name="paging-file-on-the-d-drive"></a>Plik stronicowania na dysku D
@@ -213,7 +213,7 @@ Po przejściu do trybu failover na maszynie wirtualnej platformy Azure zostały 
 **Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Dysk systemu operacyjnego
-DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy/plik stronicowania sys <br/><br/> Ponieważ DB-disk1 (D:) został wykluczony, D: jest pierwszą literą dysku z listy dostępnych.<br/><br/> Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego.<br/><br/> Ponieważ D: jest dostępny, ustawienie pliku stronicowania maszyny wirtualnej pozostaje takie samo.
+DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy/pagefile.sys <br/><br/> Ponieważ DB-disk1 (D:) został wykluczony, D: jest pierwszą literą dysku z listy dostępnych.<br/><br/> Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego.<br/><br/> Ponieważ D: jest dostępny, ustawienie pliku stronicowania maszyny wirtualnej pozostaje takie samo.
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
@@ -260,7 +260,6 @@ Nasze ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure są 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat wytycznych dotyczących tymczasowego dysku magazynu:
-    - [Dowiedz się więcej o](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) korzystaniu z dysków SSD na maszynach wirtualnych platformy Azure do przechowywania SQL Server tempdb i rozszerzeń puli buforów
-    - [Przejrzyj](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance) najlepsze rozwiązania dotyczące wydajności SQL Server na maszynach wirtualnych platformy Azure.
+    - [Dowiedz się więcej o](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) korzystaniu z dysków SSD na maszynach wirtualnych platformy Azure do przechowywania SQL Server tempdb i rozszerzeń puli buforów
+    - [Przejrzyj](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) najlepsze rozwiązania dotyczące wydajności SQL Server na maszynach wirtualnych platformy Azure.
 - Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](failover-failback-overview.md) o różnych typach trybu failover.
-

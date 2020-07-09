@@ -1,22 +1,22 @@
 ---
 title: Monitorowanie zmian maszyn wirtualnych — Azure Event Grid & Logic Apps
 description: Sprawdź zmiany w maszynach wirtualnych za pomocą Azure Event Grid i Logic Apps
-services: logic-apps
+services: logic-apps, event-grid
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 10/11/2019
-ms.openlocfilehash: 045f6d50846092820014ccc7f11a81f1e2234311
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/07/2020
+ms.openlocfilehash: 4edac3237f2eefaa98a6463bb0e720c0d884f0ca
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144096"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119416"
 ---
-# <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Samouczek: monitorowanie zmian maszyny wirtualnej przy użyciu Azure Event Grid i Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Samouczek: Monitorowanie zmian maszyn wirtualnych przy użyciu usług Azure Event Grid i Logic Apps
 
 Aby monitorować konkretne zdarzenia występujące w zasobach platformy Azure lub zasobach innych firm i odpowiadać na nie, można automatyzować i uruchamiać zadania jako przepływ pracy przez utworzenie [aplikacji logiki](../logic-apps/logic-apps-overview.md) korzystającej z minimalnej ilości kodu. Te zasoby mogą publikować zdarzenia w usłudze [Azure Event Grid](../event-grid/overview.md). Z kolei usługa Event Grid wypycha te zdarzenia do subskrybentów, którzy mają kolejki, elementy webhook lub [centra zdarzeń](../event-hubs/event-hubs-what-is-event-hubs.md) jako punkty końcowe. Jako subskrybent aplikacja logiki może oczekiwać na te zdarzenia z usługi Event Grid przed uruchomieniem zautomatyzowanych przepływów pracy w celu wykonania zadań.
 
@@ -58,11 +58,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu poświadczeń konta Azure.
 
-1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób** > **Integration** > **aplikacja logiki**.
+1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
 
    ![Tworzenie aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-1. W obszarze **aplikacja logiki**podaj informacje o zasobie aplikacji logiki. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. W obszarze **aplikacja logiki**podaj informacje o zasobie aplikacji logiki. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
    ![Podawanie szczegółów aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
@@ -95,7 +95,7 @@ Teraz Dodaj wyzwalacz Event Grid, który służy do monitorowania grupy zasobów
    ![Logowanie przy użyciu poświadczeń platformy Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Jeśli logujesz się za pomocą osobistego konta Microsoft, takiego jak @outlook.com lub @hotmail.com, wyzwalacz usługi Event Grid może nie być wyświetlany poprawnie. Aby obejść ten krok, wybierz pozycję [Połącz z](../active-directory/develop/howto-create-service-principal-portal.md)jednostką usługi lub Uwierzytelnij się jako członek Azure Active Directory, który jest skojarzony z subskrypcją platformy Azure, na przykład *User-Name*@emailoutlook.onmicrosoft.com.
+   > Jeśli logujesz się za pomocą osobistego konta Microsoft, takiego jak @outlook.com lub @hotmail.com, wyzwalacz usługi Event Grid może nie być wyświetlany poprawnie. Aby obejść ten krok, wybierz pozycję [Połącz z](../active-directory/develop/howto-create-service-principal-portal.md)jednostką usługi lub Uwierzytelnij się jako członek Azure Active Directory, który jest skojarzony z subskrypcją platformy Azure, na przykład *User-Name* @emailoutlook.onmicrosoft.com .
 
 1. Teraz Zasubskrybuj aplikację logiki do zdarzeń od wydawcy. Podaj szczegółowe informacje o subskrypcji zdarzeń zgodnie z opisem w poniższej tabeli, na przykład:
 
@@ -134,11 +134,11 @@ Jeśli chcesz, aby aplikacja logiki działała tylko wtedy, gdy wystąpi określ
 
    ![Zostanie wyświetlony pusty warunek](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
-1. Zmień nazwę tytułu warunku `If a virtual machine in your resource group has changed`na. Na pasku tytułu warunku wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Zmień nazwę**.
+1. Zmień nazwę tytułu warunku na `If a virtual machine in your resource group has changed` . Na pasku tytułu warunku wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Zmień nazwę**.
 
    ![Zmień nazwę warunku](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
-1. Utwórz warunek, który sprawdza `body` zdarzenie dla `data` obiektu, w `operationName` którym właściwość jest równa `Microsoft.Compute/virtualMachines/write` operacji. Dowiedz się więcej o [schemacie zdarzeń usługi Event Grid](../event-grid/event-schema.md).
+1. Utwórz warunek, który sprawdza zdarzenie `body` dla obiektu, `data` w którym `operationName` Właściwość jest równa `Microsoft.Compute/virtualMachines/write` operacji. Dowiedz się więcej o [schemacie zdarzeń usługi Event Grid](../event-grid/event-schema.md).
 
    1. W pierwszym wierszu w obszarze **I** kliknij wewnątrz pola po lewej stronie. Na wyświetlonej liście zawartości dynamicznej wybierz pozycję **wyrażenie**.
 
@@ -201,7 +201,7 @@ Teraz Dodaj [*akcję*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
    | Właściwość | Wymagany | Wartość | Opis |
    | -------- | -------- | ----- | ----------- |
-   | **Do** | Tak | <*Domena\@odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Do** | Tak | <*\@domena odbiorcy*> | Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat** | Tak | `Resource updated:` **Temat** | Wprowadź zawartość w polu tematu wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst, a następnie wybierz pole **podmiotu** zdarzenia. Tutaj temat wiadomości e-mail zawiera nazwę zaktualizowanego zasobu (maszyny wirtualnej). |
    | **Treść** | Tak | `Resource:` **Temat** <p>`Event type:`**Typ zdarzenia**<p>`Event ID:` **ID**<p>`Time:`**Czas zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. Na potrzeby tego samouczka wprowadź określony tekst i wybierz pola **temat**zdarzenia, **Typ zdarzenia**, **Identyfikator**i **czas zdarzenia** , tak aby poczta e-mail zawierała zasób, który wygenerował zdarzenie, typ zdarzenia, sygnaturę czasową zdarzenia i identyfikator zdarzenia dla aktualizacji. W tym samouczku zasób jest grupą zasobów platformy Azure wybraną w wyzwalaczu. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. |
    ||||
@@ -248,7 +248,7 @@ Za pomocą usług Event Grid i Logic Apps możesz także monitorować inne zmian
 * Dodanie lub usunięcie dysków dla maszyny wirtualnej.
 * Przypisanie publicznego adresu IP do karty sieciowej maszyny wirtualnej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Ten samouczek używa zasobów i wykonuje akcje, które mogą spowodować naliczenie opłat w ramach Twojej subskrypcji platformy Azure. Gdy ukończysz pracę z samouczkiem i testowanie, upewnij się, że zostały wyłączone lub usunięte wszelkie zasoby, dla których nie chcesz naliczenia opłat.
 

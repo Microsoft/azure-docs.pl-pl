@@ -9,11 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84706685"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Jak utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu wielu kart interfejsu sieciowego
 
@@ -79,7 +78,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Tworzenie maszyny wirtualnej i dołączanie kart sieciowych
-Podczas tworzenia maszyny wirtualnej należy określić karty sieciowe, które zostały utworzone `--nics`za pomocą programu. Należy również zadbać o to, aby wybrać rozmiar maszyny wirtualnej. Istnieją limity dla łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux](sizes.md).
+Podczas tworzenia maszyny wirtualnej należy określić karty sieciowe, które zostały utworzone za pomocą programu `--nics` . Należy również zadbać o to, aby wybrać rozmiar maszyny wirtualnej. Istnieją limity dla łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux](sizes.md).
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM*:
 
@@ -169,7 +168,7 @@ Szablony Azure Resource Manager używają deklaratywnych plików JSON do definio
 
 Przeczytaj więcej na temat [tworzenia wielu wystąpień przy użyciu *kopii*](../../resource-group-create-multiple.md). 
 
-Można również użyć `copyIndex()` do dołączenia liczby do nazwy zasobu, co pozwala na tworzenie `myNic1`, `myNic2`itp. Poniżej przedstawiono przykład dołączania wartości indeksu:
+Można również użyć `copyIndex()` do dołączenia liczby do nazwy zasobu, co pozwala na tworzenie `myNic1` , `myNic2` itp. Poniżej przedstawiono przykład dołączania wartości indeksu:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -222,7 +221,7 @@ Aby wysłać do lub z pomocniczego interfejsu sieciowego, należy ręcznie doda�
 
 W przypadku dodawania trasy do systemu operacyjnego adres bramy jest w przypadku każdej podsieci, w której *znajduje się interfejs* sieciowy. Na przykład jeśli do interfejsu sieciowego przypisano adres *10.0.2.4*, Brama określona dla trasy to *10.0.2.1*. Można zdefiniować konkretną sieć dla docelowej trasy lub określić miejsce docelowe o wartości *0.0.0.0*, jeśli chcesz, aby cały ruch interfejsu przeszedł przez określoną bramę. Brama dla każdej podsieci jest zarządzana przez sieć wirtualną.
 
-Po dodaniu trasy dla interfejsu pomocniczego upewnij się, że trasa znajduje się w tabeli tras `route -n`. Następujące przykładowe dane wyjściowe dotyczą tabeli tras, która ma dwa interfejsy sieciowe dodawane do maszyny wirtualnej w tym artykule:
+Po dodaniu trasy dla interfejsu pomocniczego upewnij się, że trasa znajduje się w tabeli tras `route -n` . Następujące przykładowe dane wyjściowe dotyczą tabeli tras, która ma dwa interfejsy sieciowe dodawane do maszyny wirtualnej w tym artykule:
 
 ```bash
 Kernel IP routing table

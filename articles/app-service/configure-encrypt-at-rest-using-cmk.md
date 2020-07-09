@@ -4,10 +4,9 @@ description: Szyfruj dane aplikacji w usłudze Azure Storage i wdróż je jako p
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79408747"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Szyfrowanie w spoczynku przy użyciu kluczy zarządzanych przez klienta
@@ -31,7 +30,7 @@ Następnie użyj Eksplorator usługi Storage do [wygenerowania sygnatury dostęp
 
 ### <a name="configure-running-from-a-package-from-your-storage-account"></a>Konfigurowanie uruchamiania z pakietu na koncie magazynu
   
-Po przekazaniu pliku do usługi BLOB Storage i uzyskaniu adresu URL sygnatury dostępu współdzielonego dla pliku, należy ustawić ustawienie `WEBSITE_RUN_FROM_PACKAGE` aplikacji na adres URL sygnatury dostępu współdzielonego. W poniższym przykładzie jest to możliwe za pomocą interfejsu wiersza polecenia platformy Azure:
+Po przekazaniu pliku do usługi BLOB Storage i uzyskaniu adresu URL sygnatury dostępu współdzielonego dla pliku, należy ustawić `WEBSITE_RUN_FROM_PACKAGE` ustawienie aplikacji na adres URL sygnatury dostępu współdzielonego. W poniższym przykładzie jest to możliwe za pomocą interfejsu wiersza polecenia platformy Azure:
 
 ```
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
@@ -41,7 +40,7 @@ Dodanie tego ustawienia aplikacji powoduje ponowne uruchomienie aplikacji sieci 
 
 ### <a name="encrypt-the-application-setting-using-key-vault-references"></a>Szyfrowanie ustawienia aplikacji przy użyciu Key Vault odwołań
 
-Teraz można zastąpić wartość ustawienia `WEBSITE_RUN_FROM_PACKAGE` aplikacji Key Vault odwołaniem do adresu URL zakodowanego za pomocą sygnatury dostępu współdzielonego. Dzięki temu adres URL sygnatury dostępu współdzielonego jest szyfrowany w Key Vault, co zapewnia dodatkową warstwę zabezpieczeń.
+Teraz można zastąpić wartość `WEBSITE_RUN_FROM_PACKAGE` Ustawienia aplikacji Key Vault odwołaniem do adresu URL zakodowanego za pomocą sygnatury dostępu współdzielonego. Dzięki temu adres URL sygnatury dostępu współdzielonego jest szyfrowany w Key Vault, co zapewnia dodatkową warstwę zabezpieczeń.
 
 1. Użyj następującego [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) polecenia, aby utworzyć wystąpienie Key Vault.       
 
@@ -57,13 +56,13 @@ Teraz można zastąpić wartość ustawienia `WEBSITE_RUN_FROM_PACKAGE` aplikacj
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Użyj następującego [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) polecenia, aby utworzyć ustawienie `WEBSITE_RUN_FROM_PACKAGE` aplikacji z wartością jako odwołanie Key Vault do zewnętrznego adresu URL:
+1.  Użyj następującego [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) polecenia, aby utworzyć `WEBSITE_RUN_FROM_PACKAGE` ustawienie aplikacji z wartością jako odwołanie Key Vault do zewnętrznego adresu URL:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    Wartość `<secret-version>` będzie znajdować się w danych wyjściowych `az keyvault secret set` poprzedniego polecenia.
+    Wartość `<secret-version>` będzie znajdować się w danych wyjściowych poprzedniego `az keyvault secret set` polecenia.
 
 Aktualizacja tego ustawienia aplikacji powoduje ponowne uruchomienie aplikacji sieci Web. Po ponownym uruchomieniu aplikacji przejdź do niej, aby upewnić się, że została uruchomiona poprawnie przy użyciu odwołania Key Vault.
 
@@ -71,7 +70,7 @@ Aktualizacja tego ustawienia aplikacji powoduje ponowne uruchomienie aplikacji s
 
 Najlepszym rozwiązaniem jest okresowe obracanie klucza sygnatury dostępu współdzielonego konta magazynu. Aby upewnić się, że aplikacja sieci Web nie ma przypadkowo swobodnego dostępu, musisz również zaktualizować adres URL sygnatury SAS w Key Vault.
 
-1. Obróć klucz SAS, przechodząc do konta magazynu w Azure Portal. W obszarze **Ustawienia** > **klucze dostępu**kliknij ikonę, aby obrócić klucz SAS.
+1. Obróć klucz SAS, przechodząc do konta magazynu w Azure Portal. W obszarze **Ustawienia**  >  **klucze dostępu**kliknij ikonę, aby obrócić klucz SAS.
 
 1. Skopiuj nowy adres URL sygnatury dostępu współdzielonego i użyj następującego polecenia, aby ustawić zaktualizowany adres URL sygnatury dostępu współdzielonego w magazynie kluczy:
 
@@ -85,7 +84,7 @@ Najlepszym rozwiązaniem jest okresowe obracanie klucza sygnatury dostępu wspó
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-    Wartość `<secret-version>` będzie znajdować się w danych wyjściowych `az keyvault secret set` poprzedniego polecenia.
+    Wartość `<secret-version>` będzie znajdować się w danych wyjściowych poprzedniego `az keyvault secret set` polecenia.
 
 ## <a name="how-to-revoke-the-web-apps-data-access"></a>Jak odwołać dostęp do danych aplikacji sieci Web
 
@@ -113,11 +112,11 @@ Tylko koszt skojarzony z kontem usługi Azure Storage i wszelkimi obowiązujący
 
 ### <a name="how-does-running-from-the-deployment-package-affect-my-web-app"></a>Jak działa z pakietu wdrożeniowego, ma wpływ na moją aplikację sieci Web?
 
-- Uruchamianie aplikacji z pakietu wdrożeniowego powoduje, `wwwroot/` że tylko do odczytu. Aplikacja otrzymuje błąd podczas próby zapisu w tym katalogu.
+- Uruchamianie aplikacji z pakietu wdrożeniowego powoduje, że `wwwroot/` tylko do odczytu. Aplikacja otrzymuje błąd podczas próby zapisu w tym katalogu.
 - Formaty TAR i GZIP nie są obsługiwane.
 - Ta funkcja jest niezgodna z lokalną pamięcią podręczną.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Key Vault odwołań dla App Service](app-service-key-vault-references.md)
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)

@@ -1,18 +1,19 @@
 ---
-title: Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych
-description: Obrazy niestandardowe są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
+title: Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
+description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/01/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844492"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85851725"
 ---
-# <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych
+# <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
-Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej należy określić obraz maszyny wirtualnej, który dostarcza system operacyjny dla każdego węzła obliczeniowego w puli. Można utworzyć pulę maszyn wirtualnych z obsługiwanym obrazem witryny Azure Marketplace lub utworzyć niestandardowy obraz za pomocą [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md).
+Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej należy określić obraz maszyny wirtualnej, który dostarcza system operacyjny dla każdego węzła obliczeniowego w puli. Pulę maszyn wirtualnych można utworzyć za pomocą obsługiwanego obrazu witryny Azure Marketplace lub utworzyć obraz niestandardowy z [obrazem udostępnionej galerii obrazów](../virtual-machines/windows/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Zalety galerii obrazów udostępnionych
 
@@ -29,7 +30,7 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 - **Aplikacje przed instalacją.** Wstępne Instalowanie aplikacji na dysku systemu operacyjnego jest wydajniejsze i mniej podatne na błędy niż instalowanie aplikacji po zainicjowaniu obsługi administracyjnej węzłów obliczeniowych za pomocą zadania podrzędnego.
 - **Kopiuj duże ilości danych raz.** Utwórz statyczny element danych w zarządzanym obrazie udostępnionym, kopiując go do dysków danych w zarządzanym obrazie. Należy to zrobić tylko raz i udostępnić dane dla każdego węzła puli.
 - **Zwiększaj pule do większych rozmiarów.** Za pomocą galerii obrazów udostępnionych można tworzyć większe pule przy użyciu dostosowanych obrazów wraz z bardziej udostępnionymi replikami obrazu.
-- **Lepsza wydajność niż obraz niestandardowy.** Przy użyciu obrazów udostępnionych czas trwania puli do osiągnięcia stanu stałego jest do 25% szybszy, a opóźnienie maszyny wirtualnej jest krótsze niż 30%.
+- **Lepsza wydajność niż użycie tylko obrazu zarządzanego jako obrazu niestandardowego.** W przypadku niestandardowej puli obrazów dla udostępnionego obrazu czas osiągnięcia stanu ustalonego wynosi do 25% fasterm, a opóźnienie bezczynności maszyny wirtualnej jest krótsze niż 30%.
 - **Przechowywanie wersji obrazów i grupowanie w celu łatwiejszego zarządzania.** Definicja grupowania obrazów zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Grupowanie obrazów umożliwia łatwiejsze zarządzanie obrazami. Aby uzyskać więcej informacji, zobacz [definicje obrazu](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -44,9 +45,11 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 > [!NOTE]
 > Udostępniony obraz musi znajdować się w tej samej subskrypcji co konto usługi Batch. Obraz może znajdować się w różnych regionach, o ile ma repliki w tym samym regionie, co konto w usłudze Batch.
 
-## <a name="prepare-a-custom-image"></a>Przygotowywanie obrazu niestandardowego
+Jeśli używasz aplikacji usługi Azure AD do tworzenia niestandardowej puli obrazów przy użyciu obrazu z galerii obrazów udostępnionych, ta aplikacja musi mieć przydzieloną [wbudowaną rolę platformy Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) , która zapewnia dostęp do udostępnionego obrazu. Ten dostęp można udzielić w Azure Portal, przechodząc do udostępnionego obrazu, wybierając pozycję **Kontrola dostępu (IAM)** i dodając przypisanie roli do aplikacji.
 
-Na platformie Azure można przygotować obraz niestandardowy z:
+## <a name="prepare-a-shared-image"></a>Przygotowywanie udostępnionego obrazu
+
+Na platformie Azure można przygotować udostępniony obraz z zarządzanego obrazu, który można utworzyć na podstawie:
 
 - Migawki systemu operacyjnego i dysków danych maszyny wirtualnej platformy Azure
 - Uogólniona maszyna wirtualna platformy Azure z dyskami zarządzanymi

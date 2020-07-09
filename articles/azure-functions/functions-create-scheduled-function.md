@@ -6,10 +6,9 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83123499"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Tworzenie funkcji wyzwalanej czasomierzem na platformie Azure
@@ -20,7 +19,7 @@ Dowiedz się, jak za pomocą Azure Functions utworzyć funkcję [bezserwerową](
 
 W celu ukończenia tego samouczka:
 
-+ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
++ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-an-azure-function-app"></a>Tworzenie aplikacji funkcji platformy Azure
 
@@ -48,8 +47,8 @@ Twoja nowa aplikacja funkcji jest gotowa do użycia. Następnie utworzysz funkcj
     
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
-    | **Nazwa** | Domyślny | Określa nazwę funkcji wyzwalanej czasomierzem. |
-    | **Harmonogram** | 0 \* /1 \* \* \*\* | Składające się z 6 pól [wyrażenie CRON](functions-bindings-timer.md#ncrontab-expressions) planujące uruchamianie funkcji co minutę. |
+    | **Nazwa** | Domyślne | Określa nazwę funkcji wyzwalanej czasomierzem. |
+    | **Zaplanuj** | 0 \* /1 \* \* \*\* | Składające się z 6 pól [wyrażenie CRON](functions-bindings-timer.md#ncrontab-expressions) planujące uruchamianie funkcji co minutę. |
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
@@ -77,7 +76,7 @@ Teraz możesz zmienić harmonogram funkcji tak, aby była uruchamiana co godzin�
 
 Teraz masz funkcję, która jest uruchamiana co godzinę, w ciągu godziny.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

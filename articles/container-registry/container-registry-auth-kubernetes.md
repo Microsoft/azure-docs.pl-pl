@@ -5,13 +5,12 @@ ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
-ms.date: 02/10/2020
-ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/28/2020
+ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77154896"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309819"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Ściąganie obrazów z usługi Azure Container Registry do klastra Kubernetes
 
@@ -20,7 +19,7 @@ Usługi Azure Container Registry można użyć jako źródła obrazów kontener�
 > [!TIP]
 > Jeśli używasz zarządzanej [usługi Azure Kubernetes](../aks/intro-kubernetes.md), możesz także [zintegrować klaster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) z docelowym rejestrem kontenerów platformy Azure na potrzeby ściągania obrazów. 
 
-W tym artykule przyjęto założenie, że został już utworzony prywatny rejestr kontenerów platformy Azure. Należy również mieć uruchomiony klaster Kubernetes, który jest dostępny za pomocą narzędzia `kubectl` wiersza polecenia.
+W tym artykule przyjęto założenie, że został już utworzony prywatny rejestr kontenerów platformy Azure. Należy również mieć uruchomiony klaster Kubernetes, który jest dostępny za pomocą `kubectl` narzędzia wiersza polecenia.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -40,10 +39,10 @@ Utwórz klucz tajny obrazu za pomocą następującego `kubectl` polecenia:
 
 ```console
 kubectl create secret docker-registry <secret-name> \
-  --namespace <namespace> \
-  --docker-server=https://<container-registry-name>.azurecr.io \
-  --docker-username=<service-principal-ID> \
-  --docker-password=<service-principal-password>
+    --namespace <namespace> \
+    --docker-server=<container-registry-name>.azurecr.io \
+    --docker-username=<service-principal-ID> \
+    --docker-password=<service-principal-password>
 ```
 gdzie:
 
@@ -51,30 +50,30 @@ gdzie:
 | :--- | :--- |
 | `secret-name` | Nazwa hasła ściągania obrazu, na przykład *ACR-Secret* |
 | `namespace` | Kubernetes przestrzeń nazw, w której ma zostać umieszczony klucz tajny <br/> Wymagane tylko, jeśli chcesz umieścić klucz tajny w przestrzeni nazw innej niż domyślna przestrzeń nazw |
-| `container-registry-name` | Nazwa usługi Azure Container Registry |
+| `container-registry-name` | Nazwa rejestru kontenerów platformy Azure, na przykład, *Rejestr*<br/><br/>`--docker-server`Jest to w pełni kwalifikowana nazwa serwera logowania rejestru.  |
 | `service-principal-ID` | Identyfikator jednostki usługi, która będzie używana przez Kubernetes do uzyskiwania dostępu do rejestru |
 | `service-principal-password` | Hasło nazwy głównej usługi |
 
 ## <a name="use-the-image-pull-secret"></a>Korzystanie z klucza tajnego ściągania obrazu
 
-Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego `imagePullSecrets` w pliku wdrożenia. Przykład:
+Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego w `imagePullSecrets` pliku wdrożenia. Przykład:
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: your-awesome-app-pod
+  name: my-awesome-app-pod
   namespace: awesomeapps
 spec:
   containers:
     - name: main-app-container
-      image: your-awesome-app:v1
+      image: myregistry.azurecr.io/my-awesome-app:v1
       imagePullPolicy: IfNotPresent
   imagePullSecrets:
     - name: acr-secret
 ```
 
-W poprzednim przykładzie jest nazwą `your-awesome-app:v1` obrazu, który ma zostać pobrany z usługi Azure Container Registry, a `acr-secret` to nazwa klucza tajnego ściągnięcia utworzonego w celu uzyskania dostępu do rejestru. Po wdrożeniu programu pod warunkiem program Kubernetes automatycznie pobiera obraz z rejestru, jeśli nie jest jeszcze obecny w klastrze.
+W poprzednim przykładzie `my-awesome-app:v1` jest nazwą obrazu, który ma zostać pobrany z usługi Azure Container Registry, a `acr-secret` to nazwa klucza tajnego ściągnięcia utworzonego w celu uzyskania dostępu do rejestru. Po wdrożeniu programu pod warunkiem program Kubernetes automatycznie pobiera obraz z rejestru, jeśli nie jest jeszcze obecny w klastrze.
 
 
 ## <a name="next-steps"></a>Następne kroki

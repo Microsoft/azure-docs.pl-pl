@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
 ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61074058"
 ---
 # <a name="terminology"></a>Terminologia
@@ -25,7 +25,7 @@ Ten artykuł zawiera definicje terminów specyficznych dla API Management (APIM)
 ## <a name="term-definitions"></a>Definicje terminów
 
 * **Interfejs API zaplecza** — usługa http IMPLEMENTUJĄCA interfejs API i jego operacje. 
-* **Frontend API**Interfejs API APIM interfejsu API frontonu — interfejs API APIM nie obsługuje interfejsów API, tworzy fasad dla interfejsów API, aby dostosować elewację zgodnie z potrzebami bez dotykania interfejsu API zaplecza.**APIM API** / Aby uzyskać więcej informacji, zobacz [Importowanie i publikowanie interfejsu API](import-and-publish.md).
+* **Interfejs API** / frontonu **Interfejs API usługi APIM** — interfejs API APIM nie obsługuje interfejsów API, ale tworzy fasad dla interfejsów API, aby dostosować elewację zgodnie z potrzebami bez dotykania interfejsu API zaplecza. Aby uzyskać więcej informacji, zobacz [Importowanie i publikowanie interfejsu API](import-and-publish.md).
 * **Produkt APIM** — produkt zawiera jeden lub więcej interfejsów API, a także limit przydziału użycia i warunki użytkowania. Możesz dołączyć wiele interfejsów API i zaoferować je deweloperom za pomocą portalu dla deweloperów. Aby uzyskać więcej informacji, zobacz [Tworzenie i publikowanie produktu](api-management-howto-add-products.md).
 * **Operacja interfejsu API APIM** — każdy interfejs API APIM reprezentuje zestaw operacji dostępnych dla deweloperów. Każdy interfejs API APIM zawiera odwołanie do usługi zaplecza implementującej interfejs API, a jej operacje są mapowane na operacje implementowane przez usługę zaplecza. Aby uzyskać więcej informacji, zobacz [symulacja odpowiedzi interfejsu API](mock-api-responses.md).
 * **Wersja** — Czasami chcesz opublikować nowe lub inne funkcje interfejsu API dla niektórych użytkowników, podczas gdy inne chcą nawiązać z INTERFEJSem API, który jest aktualnie dla nich dostępny. Aby uzyskać więcej informacji, zobacz [Publikowanie wielu wersji interfejsu API](api-management-get-started-publish-versions.md).

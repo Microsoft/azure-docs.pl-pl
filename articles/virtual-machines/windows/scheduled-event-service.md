@@ -8,10 +8,10 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
 ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82099601"
 ---
 # <a name="monitoring-scheduled-events"></a>Scheduled Events monitorowania
@@ -58,7 +58,7 @@ New-AzVm `
 
 Pobierz plik zip instalacji projektu z usługi [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Połącz się z usługą **myCollectorVM** i skopiuj plik zip na maszynę wirtualną i Wyodrębnij wszystkie pliki. Na maszynie wirtualnej Otwórz wiersz polecenia programu PowerShell. Przenieś monit do folderu zawierającego `SchService.ps1`, na przykład: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, i skonfiguruj usługę.
+Połącz się z usługą **myCollectorVM** i skopiuj plik zip na maszynę wirtualną i Wyodrębnij wszystkie pliki. Na maszynie wirtualnej Otwórz wiersz polecenia programu PowerShell. Przenieś monit do folderu zawierającego `SchService.ps1` , na przykład: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` , i skonfiguruj usługę.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -78,7 +78,7 @@ Sprawdź stan usługi i upewnij się, że jest uruchomiona.
 .\SchService.ps1 -status  
 ```
 
-Powinno to zwrócić `Running`.
+Powinno to zwrócić `Running` .
 
 Usługa zacznie teraz sondować co 10 sekund w przypadku wszelkich zaplanowanych zdarzeń i zatwierdzić zdarzenia w celu przyspieszenia konserwacji.  Zablokuj, przeprowadź ponowny rozruch, ponownie Wdróż i Zastąp zdarzenia przechwycone przez zdarzenia harmonogramu. Możesz zwiększyć skrypt, aby wyzwolił pewne środki zaradcze przed zatwierdzeniem zdarzenia.
 
@@ -95,7 +95,7 @@ Gdy zdarzenia są przechwytywane przez usługę zdarzenia harmonogramu, zostanie
 >
 > W naszej konfiguracji wybieramy system Windows, ale można zaprojektować podobne rozwiązanie w systemie Linux.
 
-W dowolnym momencie możesz zatrzymać/usunąć zaplanowaną usługę zdarzeń przy użyciu przełączników `–stop` i `–remove`.
+W dowolnym momencie możesz zatrzymać/usunąć zaplanowaną usługę zdarzeń przy użyciu przełączników `–stop` i `–remove` .
 
 ## <a name="connect-to-the-workspace"></a>Łączenie z obszarem roboczym
 
@@ -156,7 +156,7 @@ Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapyt
 
 1. Wybierz przycisk **Nowa reguła alertu**. 
 1. Na stronie **Tworzenie reguły** pozostaw `collectorworkspace` jako **zasób**.
-1. W obszarze **warunek**wybierz wpis *za każdym razem, gdy przeszukiwane są <login undefined>dzienniki klienta *. Zostanie otwarta strona **Konfigurowanie logiki sygnału** .
+1. W obszarze **warunek**wybierz wpis *za każdym razem, gdy przeszukiwane są <login undefined> dzienniki klienta *. Zostanie otwarta strona **Konfigurowanie logiki sygnału** .
 1. W obszarze **wartość progowa**wprowadź *0* , a następnie wybierz pozycję **gotowe**.
 1. W obszarze **Akcje**wybierz pozycję **Utwórz grupę akcji**. Zostanie otwarta strona **Dodaj grupę akcji** .
 1. W polu **Nazwa grupy akcji**wpisz *Akcja*.

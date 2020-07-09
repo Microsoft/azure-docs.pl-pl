@@ -8,18 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 46fdd72842db790a8f4ecadfc875069962dcf449
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728150"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Wymuś zasady nazewnictwa w grupach pakietu Office 365 w Azure Active Directory
 
@@ -36,23 +35,23 @@ Gdy zasady nazewnictwa grup są skonfigurowane, zasady zostaną zastosowane do n
 
 Zasady nazewnictwa dla grup można wymusić na dwa różne sposoby:
 
-- **Zasady nazewnictwa sufiksu prefiksu** Można zdefiniować prefiksy lub sufiksy, które są następnie automatycznie dodawane do wymuszania konwencji nazewnictwa w grupach (na przykład\_w nazwie grupy "GRP Japonia\_my Group\_Engineering", GRP\_Japonia\_ jest prefiksem, a \_Inżynieria jest sufiksem). 
+- **Zasady nazewnictwa sufiksu prefiksu** Można zdefiniować prefiksy lub sufiksy, które są następnie automatycznie dodawane do wymuszania konwencji nazewnictwa w grupach (na przykład w nazwie grupy "GRP \_ Japonia \_ My Group \_ Engineering", GRP \_ Japonia \_ jest prefiksem, a \_ Inżynieria jest sufiksem). 
 
 - **Niestandardowe słowa zablokowane** Można przekazać zestaw zablokowanych słów specyficznych dla Twojej organizacji, aby można go było zablokować w grupach tworzonych przez użytkowników (na przykład "dyrektor generalny, płace, HR").
 
 ### <a name="prefix-suffix-naming-policy"></a>Zasady nazewnictwa sufiksu prefiksu
 
-Ogólna struktura konwencji nazewnictwa to "prefix [nazwa grupy] sufiks". Chociaż można zdefiniować wiele prefiksów i sufiksów, w ustawieniach można mieć tylko jedno wystąpienie elementu [groupname]. Prefiksy lub sufiksy mogą być stałymi ciągami lub atrybutami użytkownika, \[takimi jak dział\] , które są zastępowane na podstawie użytkownika, który tworzy grupę. Całkowita dozwolona liczba znaków dla prefiksu i ciągów sufiksu, łącznie z nazwą grupy, to 53 znaków. 
+Ogólna struktura konwencji nazewnictwa to "prefix [nazwa grupy] sufiks". Chociaż można zdefiniować wiele prefiksów i sufiksów, w ustawieniach można mieć tylko jedno wystąpienie elementu [groupname]. Prefiksy lub sufiksy mogą być stałymi ciągami lub atrybutami użytkownika, takimi jak \[ dział \] , które są zastępowane na podstawie użytkownika, który tworzy grupę. Całkowita dozwolona liczba znaków dla prefiksu i ciągów sufiksu, łącznie z nazwą grupy, to 53 znaków. 
 
 Prefiksy i sufiksy mogą zawierać znaki specjalne, które są obsługiwane w nazwach grup i aliasie grup. Wszystkie znaki prefiksu lub sufiksu, które nie są obsługiwane w aliasie grupy, są nadal stosowane w nazwie grupy, ale usuwane z aliasu grupy. Ze względu na to ograniczenie prefiksy i sufiksy stosowane do nazwy grupy mogą się różnić od tych, które są stosowane do aliasu grupy. 
 
 #### <a name="fixed-strings"></a>Stałe ciągi
 
-Za pomocą ciągów można ułatwić skanowanie i odróżnianie grup na globalnej liście adresów oraz w lewym łączu nawigacyjnym obciążeń grup. Niektóre często występujące prefiksy są słowami kluczowymi\_, takimi jak\#"GRP Name"\_, "name", "name"
+Za pomocą ciągów można ułatwić skanowanie i odróżnianie grup na globalnej liście adresów oraz w lewym łączu nawigacyjnym obciążeń grup. Niektóre często występujące prefiksy są słowami kluczowymi, takimi jak "GRP \_ name", " \# name", " \_ name"
 
 #### <a name="user-attributes"></a>Atrybuty użytkownika
 
-Można używać atrybutów, które mogą pomóc użytkownikom, a użytkownicy identyfikują dział, biuro lub region geograficzny, dla którego Grupa została utworzona. Na przykład, jeśli zdefiniujesz zasady nazewnictwa jako `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, a `User’s department = Engineering`następnie nazwa grupy wymuszana może być "GRP moją grupę inżynierów". Obsługiwane atrybuty usługi Azure AD \[to\]dział \[,\]firma \[,\]Office \[,\]StateOrProvince \[,\]CountryorRegion \[,\]title. Nieobsługiwane atrybuty użytkownika są traktowane jako ciągi stałe; na przykład "\[KodPocztowy\]". Atrybuty rozszerzenia i atrybuty niestandardowe nie są obsługiwane.
+Można używać atrybutów, które mogą pomóc użytkownikom, a użytkownicy identyfikują dział, biuro lub region geograficzny, dla którego Grupa została utworzona. Na przykład, jeśli zdefiniujesz zasady nazewnictwa jako `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"` , a `User’s department = Engineering` następnie nazwa grupy wymuszana może być "GRP moją grupę inżynierów". Obsługiwane atrybuty usługi Azure AD to \[ dział \] , \[ firma \] , \[ Office \] , \[ StateOrProvince \] , \[ CountryorRegion \] , \[ title \] . Nieobsługiwane atrybuty użytkownika są traktowane jako ciągi stałe; na przykład " \[ KodPocztowy \] ". Atrybuty rozszerzenia i atrybuty niestandardowe nie są obsługiwane.
 
 Zalecamy używanie atrybutów, które mają wartości wypełnione dla wszystkich użytkowników w organizacji i nie używają atrybutów, które mają długie wartości.
 
@@ -174,7 +173,7 @@ Pamiętaj, aby odinstalować starszą wersję modułu Azure Active Directory Pow
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-Gotowe. Ustawisz zasady nazewnictwa i dodałeś zablokowane słowa.
+To wszystko. Ustawisz zasady nazewnictwa i dodałeś zablokowane słowa.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Eksportowanie lub importowanie niestandardowych słów zablokowanych
 
@@ -242,7 +241,7 @@ Portale Azure Active Directory | W portalu usługi Azure AD i w portalu panelu d
 Dostęp w sieci Web Outlook (OWA) | Program Outlook Dostęp w sieci Web Wyświetla nazwę wymuszone zasady nazewnictwa, gdy użytkownik wpisze nazwę grupy lub alias grupy. Gdy użytkownik przejdzie do niestandardowego zablokowanego słowa, zostanie wyświetlony komunikat o błędzie w interfejsie użytkownika wraz z zablokowanym słowem, dzięki czemu użytkownik może go usunąć.
 Program Outlook Desktop | Grupy utworzone w programie Outlook Desktop są zgodne z ustawieniami zasad nazewnictwa. Aplikacja klasyczna Outlook nie pokazuje jeszcze wersji zapoznawczej wymuszonej nazwy grupy i nie zwraca niestandardowych błędów zablokowanych wyrazów, gdy użytkownik wprowadzi nazwę grupy. Jednak zasady nazewnictwa są automatycznie stosowane podczas tworzenia lub edytowania grupy, a użytkownicy widzą komunikaty o błędach, jeśli w nazwie grupy lub aliasie są używane niestandardowe słowa.
 Microsoft Teams | W programie Microsoft Teams są wyświetlane nazwy grup wymuszane przez zasady nazewnictwa, gdy użytkownik wprowadzi nazwę zespołu. Gdy użytkownik przejdzie do niestandardowego zablokowanego wyrazu, zostanie wyświetlony komunikat o błędzie wraz z zablokowanym słowem, aby użytkownik mógł go usunąć.
-Sharepoint  |  Program SharePoint wyświetla nazwę wymuszone zasady nazewnictwa, gdy użytkownik wpisze nazwę witryny lub adres e-mail grupy. Gdy użytkownik przejdzie do niestandardowego zablokowanego wyrazu, zostanie wyświetlony komunikat o błędzie wraz z zablokowanym słowem, aby użytkownik mógł go usunąć.
+SharePoint  |  Program SharePoint wyświetla nazwę wymuszone zasady nazewnictwa, gdy użytkownik wpisze nazwę witryny lub adres e-mail grupy. Gdy użytkownik przejdzie do niestandardowego zablokowanego wyrazu, zostanie wyświetlony komunikat o błędzie wraz z zablokowanym słowem, aby użytkownik mógł go usunąć.
 Usługa Microsoft Stream | Microsoft Stream pokazuje, że zasady nazewnictwa grup są wymuszane, gdy użytkownik wpisze nazwę grupy lub alias e-mail grupy. Gdy użytkownik przejdzie do niestandardowego zablokowanego wyrazu, zostanie wyświetlony komunikat o błędzie z zablokowanym słowem, aby użytkownik mógł go usunąć.
 Aplikacja Outlook dla systemów iOS i Android | Grupy utworzone w aplikacjach Outlook są zgodne ze skonfigurowanymi zasadami nazewnictwa. Aplikacja mobilna Outlook nie pokazuje jeszcze wersji zapoznawczej wymuszonej nazwy zasad nazewnictwa i nie zwraca niestandardowych błędów zablokowanego słowa, gdy użytkownik wprowadzi nazwę grupy. Zasady nazewnictwa są jednak automatycznie stosowane po kliknięciu pozycji Utwórz/Edytuj i użytkownicy zobaczą komunikaty o błędach, jeśli w nazwie grupy lub aliasie są używane niestandardowe słowa.
 Aplikacja mobilna grup | Grupy utworzone w aplikacji mobilnej grup są zgodne z zasadami nazewnictwa. Aplikacja mobilna grup nie pokazuje wersji zapoznawczej zasad nazewnictwa i nie zwraca niestandardowych błędów zablokowanego słowa, gdy użytkownik wprowadzi nazwę grupy. Jednak zasady nazewnictwa są automatycznie stosowane podczas tworzenia lub edytowania grupy, a użytkownicy są prezentowane z odpowiednimi błędami, jeśli w nazwie grupy lub aliasie są używane niestandardowe słowa.

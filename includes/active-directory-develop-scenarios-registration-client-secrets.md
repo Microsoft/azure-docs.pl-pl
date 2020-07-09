@@ -15,10 +15,10 @@ ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76773385"
 ---
 ## <a name="register-secrets-or-certificates"></a>Rejestrowanie wpisów tajnych lub certyfikatów
@@ -42,5 +42,5 @@ Aby uzyskać szczegółowe informacje, zobacz [Szybki Start: Konfigurowanie apli
 
 Alternatywnie możesz zarejestrować swoją aplikację w usłudze Azure AD przy użyciu narzędzi wiersza polecenia. Przykład " [Active-Directory-dotnetcore-demo-v2"](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) pokazuje, jak zarejestrować klucz tajny aplikacji lub certyfikat z aplikacją usługi Azure AD:
 
-- Aby uzyskać szczegółowe informacje na temat rejestrowania wpisu tajnego aplikacji, zobacz [AppCreationScripts/Configure. ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
-- Aby uzyskać szczegółowe informacje na temat rejestrowania certyfikatu w aplikacji, zobacz [AppCreationScripts-withCert/Configure. ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).
+- Aby uzyskać szczegółowe informacje na temat rejestrowania wpisu tajnego aplikacji, zobacz [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Aby uzyskać szczegółowe informacje na temat rejestrowania certyfikatu w aplikacji, zobacz [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

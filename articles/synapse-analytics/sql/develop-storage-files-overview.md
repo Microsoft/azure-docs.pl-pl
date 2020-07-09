@@ -1,228 +1,180 @@
 ---
-title: Wykonywanie zapytań dotyczących plików magazynu przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
+title: Uzyskiwanie dostępu do plików w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 description: Opisuje wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c251b70d1988be82821f1e133151dae1ac6d1bc9
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921303"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
+# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Uzyskiwanie dostępu do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
 
-SQL na żądanie (wersja zapoznawcza) umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury.
+W tym dokumencie opisano, jak użytkownik może odczytywać dane z plików przechowywanych w usłudze Azure Storage w programie Synapse SQL (na żądanie). Użytkownicy mają następujące opcje dostępu do magazynu:
 
-Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
+- Funkcja [OPENROWSET](develop-openrowset.md) , która umożliwia wykonywanie zapytań ad hoc w plikach w usłudze Azure Storage.
+- [Zewnętrzna tabela](develop-tables-external-tables.md) , która jest wstępnie zdefiniowaną strukturą danych utworzoną na podstawie zestawu plików zewnętrznych.
 
-- Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) obszaru powierzchni, w tym większość funkcji SQL, operatorów i tak dalej.
-- Utwórz tabelę ZEWNĘTRZną jako SELECT ([CETAS](develop-tables-cetas.md)) tworzy [tabelę zewnętrzną](develop-tables-external-tables.md) , a następnie eksportuje, równolegle, wyniki instrukcji SELECT języka Transact-SQL do usługi Azure Storage.
+Użytkownik może używać [różnych metod uwierzytelniania](develop-storage-files-storage-access-control.md) , takich jak uwierzytelnianie w usłudze Azure AD Passthrough (domyślnie dla podmiotów zabezpieczeń usługi Azure AD) i uwierzytelniania SAS (domyślnie dla podmiotów zabezpieczeń SQL).
 
-Aby uzyskać więcej informacji na temat tego, co to jest program vs. co nie jest obecnie obsługiwane, przeczytaj artykuł [Omówienie usługi SQL na żądanie](on-demand-workspace-overview.md) .
+## <a name="openrowset"></a>OPENROWSET
 
-Gdy użytkownicy usługi Azure AD uruchamiają zapytania, wartością domyślną jest dostęp do kont magazynu przy użyciu protokołu uwierzytelniania przekazującego usługi Azure AD. W związku z tym użytkownicy będą personifikowani, a uprawnienia są sprawdzane na poziomie magazynu. Dostęp do [magazynu można kontrolować](develop-storage-files-storage-access-control.md) odpowiednio do własnych potrzeb.
+Funkcja [OPENROWSET](develop-openrowset.md) umożliwia użytkownikowi odczytywanie plików z usługi Azure Storage.
 
-## <a name="extensions"></a>Rozszerzenia
+### <a name="query-files-using-openrowset"></a>Wykonywanie zapytań dotyczących plików przy użyciu funkcji OPENROWSET
 
-Aby zapewnić bezproblemowe środowisko wykonywania zapytań dotyczących danych znajdujących się w plikach usługi Azure Storage, usługa SQL na żądanie używa funkcji [OPENROWSET](develop-openrowset.md) z dodatkowymi możliwościami:
+Funkcja OPENROWSET umożliwia użytkownikom wysyłanie zapytań do zewnętrznych plików w usłudze Azure Storage, jeśli mają dostęp do magazynu. Aby można było odczytać zawartość plików w usłudze Azure Storage, użytkownik, który jest połączony z punktem końcowym usługi Synapse SQL na żądanie, powinien użyć następującego zapytania:
 
-- [Kwerenda wielu plików lub folderów](#query-multiple-files-or-folders)
-- [Format pliku PARQUET](#parquet-file-format)
-- [Dodatkowe opcje pracy z rozdzielonym tekstem (terminator pola, terminator wiersza, znak ucieczki)](#additional-options-for-working-with-delimited-text)
-- [Odczytaj wybrany podzestaw kolumn](#read-a-chosen-subset-of-columns)
-- [Wnioskowanie schematu](#schema-inference)
-- [Funkcja filename](#filename-function)
-- [FilePath — funkcja](#filepath-function)
-- [Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych](#work-with-complex-types-and-nested-or-repeated-data-structures)
-
-### <a name="query-multiple-files-or-folders"></a>Kwerenda wielu plików lub folderów
-
-Aby uruchomić zapytanie T-SQL dotyczące zestawu plików w folderze lub w zestawie folderów podczas traktowania ich jako pojedynczej jednostki lub zestawu wierszy, podaj ścieżkę do folderu lub wzorca (przy użyciu symboli wieloznacznych) w zestawie plików lub folderów.
-
-Mają zastosowanie następujące zasady:
-
-- Wzorce mogą pojawić się w części ścieżki katalogu lub pliku.
-- Kilka wzorców może pojawić się w tym samym kroku katalogu lub nazwie pliku.
-- Jeśli istnieje wiele symboli wieloznacznych, pliki we wszystkich zgodnych ścieżkach zostaną uwzględnione w wyznaczonym zestawie plików.
-
-```
-N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
+```sql
+SELECT * FROM
+ OPENROWSET(BULK 'http://storage...com/container/file/path/*.csv', format= 'parquet') as rows
 ```
 
-Przykłady użycia znajdują się w [folderach zapytań i wielu plikach](query-folders-multiple-csv-files.md) .
+Użytkownik może uzyskać dostęp do magazynu przy użyciu następujących reguł dostępu:
 
-### <a name="parquet-file-format"></a>Format pliku PARQUET
+- Użytkownik usługi Azure AD — funkcja OPENROWSET będzie używać tożsamości elementu wywołującego usługi Azure AD do uzyskiwania dostępu do usługi Azure Storage lub dostępu do magazynu z dostępem anonimowym.
+- Użytkownik SQL — funkcja OPENROWSET będzie uzyskiwać dostęp do magazynu z dostępem anonimowym.
 
-Aby wykonać zapytanie dotyczące danych źródłowych Parquet, użyj formatu = "PARQUET"
+Podmioty zabezpieczeń SQL mogą również używać funkcji OPENROWSET do bezpośredniego zapytania o pliki chronione za pomocą tokenów SAS lub zarządzanej tożsamości obszaru roboczego. Jeśli użytkownik SQL wykona tę funkcję, użytkownik zaawansowany z uprawnieniem ALTER ANY CREDENTIAL musi utworzyć poświadczenia z zakresem serwera, które pasują do adresu URL w funkcji (przy użyciu nazwy magazynu i kontenera) i udzielone uprawnienia do odwołań dla tego poświadczenia do obiektu wywołującego funkcji OPENROWSET:
 
-```syntaxsql
-OPENROWSET
-(
-    { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
-)
-AS table_alias(column_alias,...n)
-<bulk_options> ::=
-...
-[ , FORMAT = {'CSV' | 'PARQUET'} ]
+```sql
+EXECUTE AS somepoweruser
+
+CREATE CREDENTIAL [http://storage.dfs.com/container]
+ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
+
+GRANT REFERENCES CREDENTIAL::[http://storage.dfs.com/container] TO sqluser
 ```
 
-Zapoznaj się z artykułem [pliki Parquet zapytania](query-parquet-files.md) , aby zapoznać się z przykładami użycia.
-
-### <a name="additional-options-for-working-with-delimited-text"></a>Dodatkowe opcje pracy z rozdzielonym tekstem
-
-Te dodatkowe parametry są wprowadzane do pracy z plikami CSV (rozdzielanymi tekstem):
-
-```syntaxsql
-<bulk_options> ::=
-...
-[ , FIELDTERMINATOR = 'char' ]
-[ , ROWTERMINATOR = 'char' ]
-[ , ESCAPE_CHAR = 'char' ]
-...
-```
-
-- ESCAPE_CHAR = "char" określa znak w pliku, który jest używany do wyprowadzania siebie i wszystkich wartości ograniczników w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości.
-ESCAPE_CHAR parametr zostanie zastosowany, niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu jest wyprowadzany z podwójnym cudzysłówem w równaniu z zachowaniem CSV programu Excel.
-- FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem ("**,**")
-- ROWTERMINATOR = "row_terminator" Określa terminator wiersza, który ma być używany. Domyślnym terminatorem wiersza jest znak nowego wiersza: **\r\n**.
-
-### <a name="read-a-chosen-subset-of-columns"></a>Odczytaj wybrany podzestaw kolumn
-
-Aby określić kolumny, które mają zostać odczytane, możesz podać opcjonalną klauzulę WITH w instrukcji OPENROWSET.
-
-- Jeśli istnieją pliki danych CSV, odczytywanie wszystkich kolumn, podawanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym.
-- Jeśli istnieją pliki danych Parquet, Podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy.
-
-```syntaxsql
-OPENROWSET
-...
-| BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
-) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
-```
-
-Aby zapoznać się z przykładami, zobacz [odczytywanie plików CSV bez określania wszystkich kolumn](query-single-csv-file.md#returning-subset-of-columns).
-
-### <a name="schema-inference"></a>Wnioskowanie schematu
-
-Pomijając klauzulę WITH z instrukcji OPENROWSET, można nakazać usłudze automatyczne wykrywanie (wnioskowanie) schematu z plików źródłowych.
+Jeśli nie ma poświadczeń na poziomie serwera pasujących do adresu URL lub użytkownik SQL nie ma uprawnień odwołuje się do tego poświadczenia, zostanie zwrócony błąd. Podmioty zabezpieczeń SQL nie mogą personifikować się przy użyciu tożsamości usługi Azure AD.
 
 > [!NOTE]
-> Obecnie działa tylko w przypadku formatu pliku PARQUET.
+> Ta wersja usługi OPENROWSET została zaprojektowana z myślą o szybkiej i łatwej eksploracji danych przy użyciu domyślnego uwierzytelniania. Aby wykorzystać personifikację lub tożsamość zarządzaną, użyj funkcji OPENROWSET ze źródłem danych opisanym w następnej sekcji.
+
+### <a name="querying-data-sources-using-openrowset"></a>Wykonywanie zapytań względem źródeł danych przy użyciu funkcji OPENROWSET
+
+Funkcja OPENROWSET umożliwia użytkownikowi wykonywanie zapytań dotyczących plików umieszczonych w niezależnym zewnętrznym źródle danych:
 
 ```sql
-OPENROWSET(
-BULK N'path_to_file(s)', FORMAT='PARQUET');
+SELECT * FROM
+ OPENROWSET(BULK 'file/path/*.parquet',
+ DATASOURCE = MyAzureInvoices,
+ FORMAT= 'parquet') as rows
 ```
 
-Upewnij się, że [odpowiednie wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) są używane w celu uzyskania optymalnej wydajności. 
-
-### <a name="filename-function"></a>Funkcja filename
-
-Ta funkcja zwraca nazwę pliku, z którego pochodzi wiersz. 
-
-Aby wykonać zapytanie dotyczące określonych plików, przeczytaj sekcję filename w artykule [dotyczącej określonych plików](query-specific-files.md#filename) .
-
-Zwracany typ danych to nvarchar (1024). W celu uzyskania optymalnej wydajności zawsze należy rzutować wynik funkcji filename na odpowiedni typ danych. Jeśli używasz znaku typu danych, upewnij się, że jest używana odpowiednia długość.
-
-### <a name="filepath-function"></a>FilePath — funkcja
-
-Ta funkcja zwraca pełną ścieżkę lub część ścieżki:
-
-- Gdy wywoływana bez parametru zwraca pełną ścieżkę do pliku, z którego pochodzi wiersz.
-- Gdy jest wywoływana z parametrem, zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
-
-Aby uzyskać dodatkowe informacje, zapoznaj się z sekcją FilePath artykułu dotyczącego [określonych plików zapytania](query-specific-files.md#filepath) .
-
-Zwracany typ danych to nvarchar (1024). W celu uzyskania optymalnej wydajności zawsze należy rzutować wynik funkcji FilePath na odpowiedni typ danych. Jeśli używasz znaku typu danych, upewnij się, że jest używana odpowiednia długość.
-
-### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych
-
-Aby zapewnić bezproblemowe środowisko podczas pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzanych typach danych, na przykład w plikach [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) , w usłudze SQL na żądanie dodano poniższe rozszerzenia.
-
-#### <a name="project-nested-or-repeated-data"></a>Dane zagnieżdżone lub powtórzone projektu
-
-Aby uzyskać dane projektu, uruchom instrukcję SELECT na pliku Parquet, który zawiera kolumny zagnieżdżonych typów danych. W danych wyjściowych zagnieżdżone wartości zostaną zserializowane do formatu JSON i zwracane jako typ danych SQL varchar (8000).
+Użytkownik zaawansowany z KONTROLKą bazy danych musi utworzyć poświadczenie o zakresie bazy danych, które będzie używane w celu uzyskania dostępu do magazynu i zewnętrznego źródła danych, które określa adres URL źródła danych i poświadczenia, które powinny być używane:
 
 ```sql
-    SELECT * FROM
-    OPENROWSET
-    (   BULK 'unstructured_data_path' ,
-        FORMAT = 'PARQUET' )
-    [AS alias]
+CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
+ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
+
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3' ,
+ CREDENTIAL = AccessAzureInvoices) ;
 ```
 
-Aby uzyskać bardziej szczegółowe informacje, zapoznaj się z sekcją dane zagnieżdżonych lub powtarzanych danych w artykule " [typy zagnieżdżone zapytania Parquet](query-parquet-nested-types.md#project-nested-or-repeated-data) ".
+Poświadczenie o zakresie bazy danych określa, jak uzyskać dostęp do plików w źródle danych, do którego się odwołuje (obecnie jest to tożsamość SAS i zarządzana).
 
-#### <a name="access-elements-from-nested-columns"></a>Dostęp do elementów z zagnieżdżonych kolumn
+Obiekt wywołujący musi mieć jedno z następujących uprawnień, aby wykonać funkcję OPENROWSET:
 
-Aby uzyskać dostęp do zagnieżdżonych elementów z zagnieżdżonej kolumny, takiej jak struktura, użyj "notacji kropkowej" do łączenia nazw pól ze ścieżką. Podaj ścieżkę jako column_name w klauzuli WITH funkcji OPENROWSET.
+- Jedno z uprawnień do wykonania funkcji OPENROWSET:
+  - Operacja ADMINISTRUJ ZBIORCZo umożliwia logowanie do wykonywania funkcji OPENROWSET.
+  - Operacja zarządzania ZBIORCZego bazy danych umożliwia użytkownikowi z zakresem bazy danych wykonywanie funkcji OPENROWSET.
+- Odwołuje się do poświadczenia w zakresie bazy danych do poświadczeń, do których odwołuje się zewnętrzne źródło danych
 
-Przykład fragmentu składni jest następujący:
+#### <a name="accessing-anonymous-data-sources"></a>Uzyskiwanie dostępu do anonimowych źródeł danych
 
-```syntaxsql
-    OPENROWSET
-    (   BULK 'unstructured_data_path' ,
-        FORMAT = 'PARQUET' )
-    WITH ({'column_name' 'column_type',})
-    [AS alias]
-    'column_name' ::= '[field_name.] field_name'
+Użytkownik może utworzyć zewnętrzne źródło danych bez poświadczeń, które odwołują się do magazynu dostępu publicznego lub uwierzytelniania przy użyciu usługi Azure AD Passthrough:
+
+```sql
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
 ```
 
-Domyślnie funkcja OPENROWSET jest zgodna z nazwą pola źródłowego i ścieżką z nazwami kolumn podanymi w klauzuli WITH. Do elementów zawartych na różnych poziomach zagnieżdżenia w tym samym pliku źródłowym Parquet można uzyskać dostęp za pośrednictwem klauzuli WITH.
+## <a name="external-table"></a>TABELA ZEWNĘTRZNA
 
-**Zwracane wartości**
+Użytkownik z uprawnieniami do odczytu tabeli może uzyskać dostęp do zewnętrznych plików przy użyciu zewnętrznej tabeli utworzonej w oparciu o zestaw plików i folderów usługi Azure Storage.
 
-- Funkcja zwraca wartość skalarną, taką jak int, Decimal i varchar, z określonego elementu i w określonej ścieżce dla wszystkich typów Parquet, które nie należą do grupy typów zagnieżdżonych.
-- Jeśli ścieżka wskazuje element, który jest typu zagnieżdżonego, funkcja zwraca fragment JSON, zaczynając od górnego elementu w określonej ścieżce. Fragment JSON jest typu varchar (8000).
-- Jeśli nie można odnaleźć właściwości w określonym column_name, funkcja zwróci błąd.
-- Jeśli nie można odnaleźć właściwości w określonym column_path, w zależności od [trybu ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)funkcja zwraca błąd w trybie Strict lub null w trybie swobodny.
+Użytkownik, który ma [uprawnienia do tworzenia tabeli zewnętrznej](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (na przykład CREATE TABLE i zmiany poświadczeń lub odwołania do bazy danych), może użyć następującego skryptu, aby utworzyć tabelę na podstawie źródła danych usługi Azure Storage:
 
-Aby zapoznać się z przykładami zapytań, zapoznaj się z sekcją elementy dostępu z zagnieżdżonych kolumn w artykule [Parquet typów zagnieżdżonych](query-parquet-nested-types.md#access-elements-from-nested-columns) .
-
-#### <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtórzonych kolumn
-
-Aby uzyskać dostęp do elementów z powtórzonej kolumny, takich jak element tablicy lub mapy, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego elementu skalarnego, który jest potrzebny do projektu i zapewnia:
-
-- Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
-
-Aby uzyskać dostęp do nieskalarnych elementów z powtórzonej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego nieskalarnego elementu, który jest potrzebny do projektu i zapewnia:
-
-- Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
-
-Zobacz fragment składni poniżej:
-
-```syntaxsql
-    SELECT
-       { JSON_VALUE (column_name, path_to_sub_element), }
-       { JSON_QUERY (column_name [ , path_to_sub_element ]), )
-    FROM
-    OPENROWSET
-    (   BULK 'unstructured_data_path' ,
-        FORMAT = 'PARQUET' )
-    [AS alias]
+```sql
+CREATE EXTERNAL TABLE [dbo].[DimProductexternal]
+( ProductKey int, ProductLabel nvarchar, ProductName nvarchar )
+WITH
+(
+LOCATION='/DimProduct/year=*/month=*' ,
+DATA_SOURCE = AzureDataLakeStore ,
+FILE_FORMAT = TextFileFormat
+) ;
 ```
 
-Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtórzonych kolumn w artykule [Parquet typów zagnieżdżonych zapytania](query-parquet-nested-types.md#access-elements-from-repeated-columns) .
+Użytkownik z uprawnieniami do sterowania BAZAmi danych musi utworzyć poświadczenie o zakresie bazy danych, które będzie używane w celu uzyskania dostępu do magazynu i zewnętrznego źródła danych, które określa adres URL źródła danych i poświadczenia, które powinny być używane:
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL cred
+ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
+
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
+ WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
+ CREDENTIAL = cred
+ ) ;
+```
+
+Poświadczenie o zakresie bazy danych określa, jak uzyskać dostęp do plików w źródle danych, którego dotyczy odwołanie.
+
+### <a name="reading-external-files-with-external-table"></a>Odczytywanie zewnętrznych plików z TABELą ZEWNĘTRZną
+
+TABELA zewnętrzna umożliwia odczytywanie danych z plików, do których odwołuje się źródło danych za pomocą standardowej instrukcji SELECT języka SQL:
+
+```sql
+SELECT *
+FROM dbo.DimProductsExternal
+```
+
+Obiekt wywołujący musi mieć następujące uprawnienia do odczytu danych:
+- `SELECT`uprawnienie do tabeli zewnętrznej
+- `REFERENCES DATABASE SCOPED CREDENTIAL`uprawnienie, jeśli `DATA SOURCE` ma`CREDENTIAL`
+
+## <a name="permissions"></a>Uprawnienia
+
+Poniższa tabela zawiera listę wymaganych uprawnień do operacji wymienionych powyżej.
+
+| Zapytanie | Wymagane uprawnienia|
+| --- | --- |
+| OPENROWSET (BULK) bez źródła danych | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` lub logowanie SQL musi zawierać poświadczenie odwołania:: \<URL> dla magazynu chronionego przez sygnaturę dostępu współdzielonego |
+| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | `ADMINISTER BULK ADMIN`lub `ADMINISTER DATABASE BULK ADMIN` , |
+| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` lub`REFERENCES DATABASE SCOPED CREDENTIAL` |
+| UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH | `ALTER ANY EXTERNAL DATA SOURCE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| TWORZENIE TABELI ZEWNĘTRZNEJ | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` i`ALTER ANY EXTERNAL DATA SOURCE` |
+| WYBIERZ Z TABELI ZEWNĘTRZNEJ | `SELECT TABLE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CETAS | Aby utworzyć tabelę, `CREATE TABLE` , `ALTER ANY SCHEMA` , `ALTER ANY DATA SOURCE` i `ALTER ANY EXTERNAL FILE FORMAT` . Aby odczytywać dane: `ADMIN BULK OPERATIONS` lub `REFERENCES CREDENTIAL` lub `SELECT TABLE` dla każdej tabeli/widoku/funkcji w programie Query + R/w pozwoleniu na magazyn |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących różnych typów plików i tworzenia i używania widoków, zobacz następujące artykuły:
+Teraz można przystąpić do dalszej pracy z następującymi artykułami:
 
-- [Kwerenda pojedynczego pliku CSV](query-single-csv-file.md)
+- [Wykonywanie zapytań dotyczących danych w magazynie](query-data-storage.md)
+
+- [Wykonywanie zapytań względem pliku CSV](query-single-csv-file.md)
+
+- [Wykonywanie zapytań względem folderów i wielu plików](query-folders-multiple-csv-files.md)
+
+- [Kwerenda określonych plików](query-specific-files.md)
+
 - [Wykonywanie zapytań względem plików Parquet](query-parquet-files.md)
+
+- [Typy zagnieżdżone zapytania](query-parquet-nested-types.md)
+
 - [Wykonywanie zapytań względem plików JSON](query-json-files.md)
-- [Wykonywanie zapytań względem typów zagnieżdżonych Parquet](query-parquet-nested-types.md)
-- [Foldery zapytań i wiele plików CSV](query-folders-multiple-csv-files.md)
-- [Korzystanie z metadanych plików w zapytaniach](query-specific-files.md)
+
 - [Tworzenie widoków i korzystanie z nich](create-use-views.md)

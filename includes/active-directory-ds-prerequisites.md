@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: Uwzględnij plik z wymaganiami wstępnymi
 services: active-directory-ds
 documentationcenter: ''

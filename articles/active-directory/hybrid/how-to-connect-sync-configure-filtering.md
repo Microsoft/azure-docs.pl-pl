@@ -11,22 +11,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357770"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
 Korzystając z funkcji filtrowania, można kontrolować, które obiekty są wyświetlane w Azure Active Directory (Azure AD) z katalogu lokalnego. Konfiguracja domyślna pobiera wszystkie obiekty we wszystkich domenach w skonfigurowanych lasach. Ogólnie rzecz biorąc jest to zalecana konfiguracja. Użytkownicy korzystający z obciążeń pakietu Office 365, takich jak Exchange Online i Skype dla firm, korzystają z kompletnej globalnej listy adresów, aby mogli wysyłać wiadomości e-mail i wywoływać wszystkich użytkowników. W przypadku konfiguracji domyślnej mogą one korzystać z tego samego środowiska z lokalną implementacją programu Exchange lub Lync.
 
-W niektórych przypadkach wymagane jest wprowadzenie pewnych zmian w konfiguracji domyślnej. Oto kilka przykładów:
+W niektórych przypadkach wymagane jest wprowadzenie pewnych zmian w konfiguracji domyślnej. Poniżej przedstawiono kilka przykładów:
 
 * Planujesz użycie [topologii katalogu usługi AD systemu Azure](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Następnie należy zastosować filtr w celu kontrolowania, które obiekty są synchronizowane z określonym katalogiem usługi Azure AD.
 * Uruchamiasz program pilotażowy dla platformy Azure lub pakietu Office 365 i potrzebujesz tylko podzbioru użytkowników w usłudze Azure AD. W małych pilotażach nie ma konieczności posiadania kompletnej globalnej listy adresów, aby zademonstrować tę funkcjonalność.
@@ -61,9 +61,9 @@ Jeśli masz więcej niż jeden las, należy zastosować konfiguracje filtrowania
 Aby wyłączyć wbudowany harmonogram wyzwalający cykl synchronizacji co 30 minut, wykonaj następujące czynności:
 
 1. Przejdź do wiersza polecenia programu PowerShell.
-2. Uruchom `Set-ADSyncScheduler -SyncCycleEnabled $False` , aby wyłączyć harmonogram.
+2. Uruchom, `Set-ADSyncScheduler -SyncCycleEnabled $False` Aby wyłączyć harmonogram.
 3. Wprowadź zmiany, które zostały opisane w tym artykule.
-4. Uruchom `Set-ADSyncScheduler -SyncCycleEnabled $True` , aby ponownie włączyć harmonogram.
+4. Uruchom, `Set-ADSyncScheduler -SyncCycleEnabled $True` Aby ponownie włączyć harmonogram.
 
 **Jeśli używasz kompilacji Azure AD Connect przed 1.1.105.0**  
 Aby wyłączyć zaplanowane zadanie wyzwalające cykl synchronizacji co trzy godziny, wykonaj następujące czynności:
@@ -177,7 +177,7 @@ Aby skonfigurować filtrowanie na podstawie jednostki organizacyjnej, wykonaj na
    * Jeśli włączono funkcję zapisywania zwrotnego urządzeń, należy wybrać jednostkę organizacyjną **RegisteredDevices** . Jeśli używasz innej funkcji zapisywania zwrotnego, takiej jak zapisywanie zwrotne grup, upewnij się, że te lokalizacje są zaznaczone.
    * Wybierz dowolną inną jednostkę organizacyjną, w której znajdują się użytkownicy, obiekty iNetOrgPerson, grupy, kontakty i komputery. Na obrazie wszystkie te jednostki organizacyjne znajdują się w jednostce organizacyjnej ManagedObjects.
    * Jeśli używasz filtrowania opartego na grupach, jednostka organizacyjna, w której znajduje się grupa, musi być uwzględniona.
-   * Należy pamiętać, że można określić, czy nowe jednostki organizacyjne, które są dodawane po zakończeniu konfiguracji filtrowania, są synchronizowane lub niezsynchronizowane. Zobacz następną sekcję, aby uzyskać szczegółowe informacje.
+   * Należy pamiętać, że można określić, czy nowe jednostki organizacyjne, które są dodawane po zakończeniu konfiguracji filtrowania, są synchronizowane lub niezsynchronizowane. Szczegółowe informacje są podane w następnej sekcji.
 7. Gdy skończysz, Zamknij okno dialogowe **Właściwości** , klikając przycisk **OK**.
 8. Aby ukończyć konfigurację, należy uruchomić **pełny import** i **synchronizację Delta**. Kontynuuj odczytywanie sekcji [stosowanie i weryfikowanie zmian](#apply-and-verify-changes).
 
@@ -270,7 +270,7 @@ Jeśli zachodzi taka potrzeba, można utworzyć więcej reguł pierwszego typu, 
 ### <a name="outbound-filtering"></a>Filtrowanie wychodzące
 W niektórych przypadkach należy wykonać filtrowanie dopiero po przyłączeniu obiektów do Metaverse. Na przykład może być konieczne wyszukanie atrybutu mail z lasu zasobów i atrybutu userPrincipalName z lasu kont, aby określić, czy obiekt powinien być synchronizowany. W takich przypadkach można utworzyć filtrowanie dla reguły ruchu wychodzącego.
 
-W tym przykładzie zmienisz filtrowanie tak, aby były synchronizowane tylko użytkownicy, którzy mają zarówno wiadomość e-mail, jak @contoso.com i element userPrincipalName kończący się na:
+W tym przykładzie zmienisz filtrowanie tak, aby były synchronizowane tylko użytkownicy, którzy mają zarówno wiadomość e-mail, jak i element userPrincipalName kończący @contoso.com się na:
 
 1. Zaloguj się na serwerze z uruchomioną Azure AD Connect synchronizacji przy użyciu konta, które jest członkiem grupy zabezpieczeń **ADSyncAdmins** .
 2. Uruchom **Edytor reguł synchronizacji** z menu **Start** .
@@ -278,8 +278,8 @@ W tym przykładzie zmienisz filtrowanie tak, aby były synchronizowane tylko uż
 4. W zależności od używanej wersji programu Connect można znaleźć regułę o nazwie do usługi **AAD — przyłączanie użytkownika** lub **do zewnątrz do usługi AAD-User Join SOAInAD**, a następnie kliknąć pozycję **Edytuj**.
 5. W oknie podręcznym odpowiedź **tak** , aby utworzyć kopię reguły.
 6. Na stronie **Opis** Zmień **pierwszeństwo** na nieużywaną wartość, na przykład 50.
-7. Kliknij pozycję **Filtr zakresu** w obszarze nawigacji po lewej stronie, a następnie kliknij pozycję **Dodaj klauzulę**. W polu **atrybut**wybierz opcję **poczta**. W **operatorze**wybierz pozycję **ENDSWITH**. W **wartość**, wpisz ** \@contoso.com**, a następnie kliknij przycisk **Dodaj klauzulę**. W polu **atrybut**wybierz element **userPrincipalName**. W **operatorze**wybierz pozycję **ENDSWITH**. W polu **wartość**wpisz ** \@contoso.com**.
-8. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Filtr zakresu** w obszarze nawigacji po lewej stronie, a następnie kliknij pozycję **Dodaj klauzulę**. W polu **atrybut**wybierz opcję **poczta**. W **operatorze**wybierz pozycję **ENDSWITH**. W **wartość**, wpisz ** \@ contoso.com**, a następnie kliknij przycisk **Dodaj klauzulę**. W polu **atrybut**wybierz element **userPrincipalName**. W **operatorze**wybierz pozycję **ENDSWITH**. W polu **wartość**wpisz ** \@ contoso.com**.
+8. Kliknij pozycję **Zapisz**.
 9. Aby ukończyć konfigurację, należy przeprowadzić **pełną synchronizację**. Kontynuuj odczytywanie sekcji [stosowanie i weryfikowanie zmian](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Zastosuj i Weryfikuj zmiany
@@ -298,11 +298,11 @@ Wykonaj następujące czynności:
 
 Po synchronizacji wszystkie zmiany zostaną przygotowane do wyeksportowania. Przed faktycznym wprowadzeniem zmian w usłudze Azure AD należy sprawdzić, czy wszystkie te zmiany są poprawne.
 
-1. Uruchom wiersz polecenia i przejdź do `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
+1. Uruchom wiersz polecenia i przejdź do `%ProgramFiles%\Microsoft Azure AD Sync\bin` .
 2. Uruchom polecenie `csexport "Name of Connector" %temp%\export.xml /f:x`.  
    Nazwa łącznika znajduje się w usłudze synchronizacji. Ma nazwę podobną do "contoso.com — AAD" dla usługi Azure AD.
 3. Uruchom polecenie `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
-4. Masz teraz plik w katalogu% Temp% o nazwie Export. csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
+4. Masz teraz plik w katalogu% Temp% o nazwie export.csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
 5. Wprowadź niezbędne zmiany w danych lub konfiguracji, a następnie ponownie wykonaj te kroki (zaimportuj, zsynchronizuj i sprawdź), aż zmiany, które mają zostać wyeksportowane, są oczekiwane.
 
 Gdy skończysz, Eksportuj zmiany do usługi Azure AD.

@@ -14,10 +14,9 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82890571"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializacja pamięci podręcznej tokenów w MSAL.NET
@@ -39,14 +38,14 @@ Należy pamiętać, że Serializacja niestandardowa nie jest dostępna na platfo
 Następujące klasy i interfejsy są używane w serializacji pamięci podręcznej tokenu:
 
 - `ITokenCache`, który definiuje zdarzenia subskrybowania żądań serializacji pamięci podręcznej tokenów, a także metody serializacji lub deserializacji pamięci podręcznej w różnych formatach (ADAL v 3.0, MSAL 2. x i MSAL 3. x = ADAL v 5.0).
-- `TokenCacheCallback`to wywołanie zwrotne przesłane do zdarzeń, aby można było obsłużyć serializacji. Zostaną one wywołane z argumentami typu `TokenCacheNotificationArgs`.
-- `TokenCacheNotificationArgs`udostępnia `ClientId` tylko aplikację i odwołanie do użytkownika, dla którego token jest dostępny.
+- `TokenCacheCallback`to wywołanie zwrotne przesłane do zdarzeń, aby można było obsłużyć serializacji. Zostaną one wywołane z argumentami typu `TokenCacheNotificationArgs` .
+- `TokenCacheNotificationArgs`udostępnia tylko `ClientId` aplikację i odwołanie do użytkownika, dla którego token jest dostępny.
 
   ![Diagram klas](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
 > MSAL.NET tworzy pamięć podręczną tokenów i udostępnia `IToken` pamięć podręczną, gdy wywołasz aplikację `UserTokenCache` i `AppTokenCache` właściwości. Nie zaleca się zaimplementowania interfejsu samodzielnie. Podczas implementowania serializacji pamięci podręcznej tokenów niestandardowych należy wykonać następujące zadanie:
-> - Reagowanie `BeforeAccess` na `AfterAccess` i "zdarzenia" (lub ich ich typy asynchroniczne). `BeforeAccess` Delegat jest odpowiedzialny za deserializacja pamięci podręcznej `AfterAccess` , podczas gdy jest on odpowiedzialny za Serializowanie pamięci podręcznej.
+> - Reagowanie na `BeforeAccess` i `AfterAccess` "zdarzenia" (lub ich ich typy asynchroniczne). `BeforeAccess`Delegat jest odpowiedzialny za deserializacja pamięci podręcznej, podczas gdy `AfterAccess` jest on odpowiedzialny za Serializowanie pamięci podręcznej.
 > - Część tych zdarzeń przechowuje lub ładuje obiekty blob, które są przesyłane przez argument zdarzenia do dowolnego potrzebnego miejsca.
 
 Strategie są różne w zależności od tego, czy piszesz serializacji pamięci podręcznej tokenów dla [publicznej aplikacji klienckiej](msal-client-applications.md) (klasycznej), czy [poufnej aplikacji klienckiej](msal-client-applications.md)) (aplikacja sieci Web/internetowy interfejs API, aplikacja demona).
@@ -64,7 +63,7 @@ Dostosowanie serializacji pamięci podręcznej tokenów w celu udostępnienia st
 
 Poniżej znajduje się przykład implementacji algorytmie niestandardowej serializacji pamięci podręcznej tokenów dla aplikacji klasycznych. W tym miejscu pamięć podręczna tokenów użytkownika to plik w tym samym folderze, w którym znajduje się aplikacja.
 
-Po skompilowaniu aplikacji należy włączyć serializację, wywołując `TokenCacheHelper.EnableSerialization()` metodę i przekazując aplikację. `UserTokenCache`
+Po skompilowaniu aplikacji należy włączyć serializację, wywołując `TokenCacheHelper.EnableSerialization()` metodę i przekazując aplikację `UserTokenCache` .
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -72,7 +71,7 @@ app = PublicClientApplicationBuilder.Create(ClientId)
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 ```
 
-Klasa `TokenCacheHelper` pomocnika jest definiowana jako:
+`TokenCacheHelper`Klasa pomocnika jest definiowana jako:
 
 ```csharp
 static class TokenCacheHelper
@@ -282,7 +281,7 @@ Biblioteka [Microsoft. Identity. Web](https://github.com/AzureAD/microsoft-ident
 | ---------------- | --------- | ------------ |
 | `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | W serializacji pamięci podręcznej tokenu pamięci. Ta implementacja doskonale nadaje się do przykładów. Jest to również dobre w aplikacjach produkcyjnych, pod warunkiem, że pamięć podręczna tokenu zostanie utracona po ponownym uruchomieniu aplikacji sieci Web. `AddInMemoryTokenCaches`przyjmuje opcjonalny parametr typu `MsalMemoryTokenCacheOptions` , który umożliwia określenie czasu, po którym wpis pamięci podręcznej zostanie wygaśnie, chyba że jest używany.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | Pamięć podręczna tokenów jest powiązana z sesją użytkownika. Ta opcja nie jest idealnym rozwiązaniem, jeśli token identyfikatora zawiera wiele oświadczeń, ponieważ plik cookie staje się zbyt duży.
-| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Pamięć podręczna tokenów jest kartą z implementacją ASP.NET Core `IDistributedCache` , co umożliwia wybranie między pamięcią podręczną pamięci rozproszonej, pamięci podręcznej Redis, rozproszonego NCache lub pamięci podręcznej SQL Server. Aby uzyskać szczegółowe informacje `IDistributedCache` na temat implementacji https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache, zobacz.
+| `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Pamięć podręczna tokenów jest kartą z `IDistributedCache` implementacją ASP.NET Core, co umożliwia wybranie między pamięcią podręczną pamięci rozproszonej, pamięci podręcznej Redis, rozproszonego NCache lub pamięci podręcznej SQL Server. Aby uzyskać szczegółowe informacje na temat `IDistributedCache` implementacji, zobacz https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
 Prosty przypadek przy użyciu pamięci podręcznej w pamięci:
 

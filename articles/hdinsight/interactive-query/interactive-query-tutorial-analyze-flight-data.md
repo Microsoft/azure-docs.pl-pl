@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: operacje ETL przy użyciu zapytania interaktywnego — Azure HDInsight'
-description: Samouczek — informacje na temat wyodrębniania danych z nieprzetworzonego zestawu danych udostępnionych woluminów klastra. Przekształć je za pomocą interakcyjnego zapytania w usłudze HDInsight. Następnie załaduj przekształcone dane do usługi Azure SQL Database przy użyciu platformy Apache Sqoop.
+description: Samouczek — informacje na temat wyodrębniania danych z nieprzetworzonego zestawu danych udostępnionych woluminów klastra. Przekształć je za pomocą interakcyjnego zapytania w usłudze HDInsight. Następnie załaduj przekształcone dane do Azure SQL Database przy użyciu platformy Apache Sqoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021742"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319195"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight
 
-W ramach tego samouczka pobierasz Nieprzetworzony plik danych CSV z publicznie dostępnych danych lotu. Zaimportuj go do magazynu klastra usługi HDInsight, a następnie Przekształć dane przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight. Przekształcone dane można załadować do bazy danych Azure SQL Database przy użyciu narzędzia [Apache Sqoop](https://sqoop.apache.org/).
+W ramach tego samouczka pobierasz Nieprzetworzony plik danych CSV z publicznie dostępnych danych lotu. Zaimportuj go do magazynu klastra usługi HDInsight, a następnie Przekształć dane przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight. Po przeprowadzeniu danych dane są ładowane do bazy danych w Azure SQL Database przy użyciu platformy [Apache Sqoop](https://sqoop.apache.org/).
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -25,14 +25,14 @@ Ten samouczek obejmuje następujące zadania:
 > * Pobieranie przykładowych danych lotów
 > * Przekazywanie danych do klastra usługi HDInsight
 > * Przekształć dane przy użyciu zapytania interaktywnego
-> * Tworzenie tabeli w bazie danych SQL Azure
-> * Eksportowanie danych do usługi Azure SQL Database za pomocą Sqoop
+> * Tworzenie tabeli w bazie danych w Azure SQL Database
+> * Użyj Sqoop do eksportowania danych do bazy danych w Azure SQL Database
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Interaktywny klaster zapytań w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybieranie **zapytania interaktywnego** dla **typu klastra**.
 
-* Azure SQL Database. Używasz bazy danych Azure SQL Database jako docelowego magazynu danych. Jeśli nie masz bazy danych SQL, zobacz [Tworzenie bazy danych Azure SQL Database w witrynie Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
+* Baza danych w Azure SQL Database. Baza danych jest używana jako docelowy magazyn danych. Jeśli nie masz bazy danych w Azure SQL Database, zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -250,9 +250,9 @@ Istnieje wiele sposobów nawiązywania połączenia z bazą danych SQL i tworzen
 
 4. Wprowadź ciąg `exit` w wierszu `1>`, aby zakończyć działanie narzędzia tsql.
 
-## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Eksportowanie danych do bazy danych SQL przy użyciu narzędzia Apache Sqoop
+## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Eksportowanie danych do SQL Database przy użyciu oprogramowania Apache Sqoop
 
-W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `/tutorials/flightdelays/output`. W tej sekcji użyjesz narzędzia Sqoop, aby wyeksportować dane z lokalizacji `/tutorials/flightdelays/output` do tabeli utworzonej w bazie danych Azure SQL Database.
+W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `/tutorials/flightdelays/output`. W tej sekcji użyto Sqoop do wyeksportowania danych z `/tutorials/flightdelays/output` do tabeli utworzonej w Azure SQL Database.
 
 1. Sprawdź, czy Sqoop może zobaczyć swoją bazę danych SQL, wprowadzając następujące polecenie:
 
@@ -287,7 +287,7 @@ W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `/tutorials
 
     Wpisz `exit`, aby zakończyć działanie narzędzia tsql.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po ukończeniu korzystania z samouczka warto usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane.
 

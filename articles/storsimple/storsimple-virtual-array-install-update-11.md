@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254484"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85507929"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 1,1 w macierzy wirtualnej StorSimple
 
@@ -66,7 +66,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację 1,1 z wykazu Microsoft Up
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Aby pobrać aktualizację lub poprawkę
 
-1. Uruchom program Internet Explorer i przejdź [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
+1. Uruchom program Internet Explorer i przejdź do [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Jeśli używasz wykazu Microsoft Update po raz pierwszy na tym komputerze, kliknij przycisk **Zainstaluj** po wyświetleniu monitu, aby zainstalować dodatek katalogu Microsoft Update.
 
@@ -85,8 +85,8 @@ Wykonaj następujące kroki, aby pobrać aktualizację 1,1 z wykazu Microsoft Up
     ![Pliki w pakiecie](./media/storsimple-virtual-array-install-update-11/update01folder.png)
 
     Zobaczysz dwa pliki:
-    -  Microsoft Update autonomiczny plik `WindowsTH-KB3011067-x64`pakietu. Ten plik jest używany do aktualizacji oprogramowania urządzenia.
-    - Plik zawierający aktualizacje zbiorcze dla czerwca `Windows8.1-KB4284815-x64`. Aby uzyskać więcej informacji na temat tego, co jest zawarte w tym pakiecie zbiorczym, przejdź do [miesięcznego zestawienia zabezpieczeń](https://support.microsoft.com/help/4284815/windows-81-update-kb4284815).
+    -  Microsoft Update autonomiczny plik pakietu `WindowsTH-KB3011067-x64` . Ten plik jest używany do aktualizacji oprogramowania urządzenia.
+    - Plik zawierający aktualizacje zbiorcze dla czerwca `Windows8.1-KB4284815-x64` . Aby uzyskać więcej informacji na temat tego, co jest zawarte w tym pakiecie zbiorczym, przejdź do [miesięcznego zestawienia zabezpieczeń](https://support.microsoft.com/help/4284815/windows-81-update-kb4284815).
 
 ### <a name="install-the-update-or-the-hotfix"></a>Zainstaluj aktualizację lub poprawkę
 
@@ -99,7 +99,7 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Aby zainstalować aktualizację lub poprawkę
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. **Kontynuuj tę aktualizację tylko wtedy, gdy korzystasz z aktualizacji Update 1 (10.0.10296.0). Jeśli używasz aktualizacji 0,6, najpierw [Zainstaluj aktualizację Update 1](storsimple-virtual-array-install-update-1.md) na urządzeniu, a następnie zastosuj aktualizację 1,1.**
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. **Kontynuuj tę aktualizację tylko wtedy, gdy korzystasz z aktualizacji Update 1 (10.0.10296.0). Jeśli używasz aktualizacji 0,6, najpierw [Zainstaluj aktualizację Update 1](storsimple-virtual-array-install-update-1.md) na urządzeniu, a następnie zastosuj aktualizację 1,1.**
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
@@ -115,14 +115,14 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-11/update5m.png)
 
-5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10307** dla aktualizacji 1,1.
+5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10307** dla aktualizacji 1,1.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10307** oraz Azure Portal raporty **10.0.10307.0** dla tej samej wersji.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-11/update6m.png)
 
-6. Powtórz kroki 2-4, aby zainstalować poprawkę zabezpieczeń systemu Windows przy `Windows8.1-KB4284815-x64`użyciu pliku. Macierz wirtualna jest uruchamiana ponownie po instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
+6. Powtórz kroki 2-4, aby zainstalować poprawkę zabezpieczeń systemu Windows przy użyciu pliku `Windows8.1-KB4284815-x64` . Macierz wirtualna jest uruchamiana ponownie po instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
 
 
 ## <a name="next-steps"></a>Następne kroki

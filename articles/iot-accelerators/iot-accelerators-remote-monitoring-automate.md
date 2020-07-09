@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239518"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712517"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Samouczek: wykrywanie problemów z urządzeniami połączonymi z rozwiązaniem do monitorowania
 
@@ -33,7 +33,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Edytowanie istniejącej reguły
 > * Włączanie i wyłącznie reguł
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -56,7 +56,7 @@ Aby utworzyć regułę, która wygeneruje ostrzeżenie, gdy ciśnienie w chłodn
 | Nazwa reguły        | Ostrzeżenie o chłodni                       |
 | Opis      | Ciśnienie w chłodni przekroczyło wartość 150 PSI |
 | Grupa urządzeń     | Grupa urządzeń **Chillers** (Chłodnie)             |
-| Obliczenia      | Natychmiastowe                               |
+| Obliczenia      | Błyskawiczne                               |
 | Warunek 1 — pole| pressure                              |
 | Warunek 1 — operator | Większe niż                      |
 | Warunek 1 — wartość    | 150                               |
@@ -84,7 +84,7 @@ Aby utworzyć regułę z wieloma warunkami, która wygeneruje alert krytyczny, g
 | Warunek 1 — pole| humidity                              |
 | Warunek 1 — operator | Większe niż                      |
 | Warunek 1 — wartość    | 80                                |
-| Poziom ważności  | Krytyczny                              |
+| Poziom ważności  | Krytyczne                              |
 
 [![Utwórz jedną część reguły z wieloma warunkami](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 

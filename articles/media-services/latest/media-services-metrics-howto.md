@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382940"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorowanie metryk usług Media Services
@@ -40,7 +40,7 @@ Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów 
     Po prawej stronie zostanie wyświetlone okno **Wybierz zasób** z listą dostępnych zasobów. W takim przypadku zobaczysz:
 
     * &lt;Nazwa konta Media Services&gt;
-    * &lt;Nazwa konta&gt;/&lt;programu Media Services nazwa punktu końcowego przesyłania strumieniowego&gt;
+    * &lt;Nazwa konta programu Media Services nazwa &gt; / &lt; punktu końcowego przesyłania strumieniowego&gt;
     * &lt;Nazwa konta magazynu&gt;
 
     Wybierz zasób i naciśnij przycisk **Zastosuj**. Aby uzyskać szczegółowe informacje o obsługiwanych zasobach i metrykach, zobacz [monitorowanie Media Services metryki](media-services-metrics-diagnostic-logs.md).
@@ -57,7 +57,7 @@ Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów 
 
 ## <a name="view-metrics-with-azure-cli"></a>Wyświetlanie metryk przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby uzyskać metryki "wychodzące" przy użyciu interfejsu wiersza polecenia platformy Azure `az monitor metrics` , uruchom następujące polecenie:
+Aby uzyskać metryki "wychodzące" przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom następujące `az monitor metrics` polecenie:
 
 ```azurecli-interactive
 az monitor metrics list --resource \

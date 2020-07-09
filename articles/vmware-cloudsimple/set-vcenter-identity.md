@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564027"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Skonfiguruj źródła tożsamości vCenter do użycia Active Directory
@@ -51,16 +50,16 @@ Aby skonfigurować Active Directory lokalne jako źródło tożsamości logowani
 
 Podczas konfigurowania domeny Active Directory należy skorzystać z informacji podanych w poniższej tabeli.
 
-| **Zaznaczyć** | **Opis** |
+| **Opcja** | **Opis** |
 |------------|-----------------|
 | **Nazwa** | Nazwa źródła tożsamości. |
 | **Podstawowa nazwa wyróżniająca dla użytkowników** | Podstawowa nazwa wyróżniająca dla użytkowników. |
 | **Nazwa domeny** | Nazwa FQDN domeny, na przykład example.com. W tym polu tekstowym nie należy podawać adresu IP. |
 | **Alias domeny** | Nazwa NetBIOS domeny. Dodaj nazwę NetBIOS domeny Active Directory jako alias źródła tożsamości, jeśli używasz uwierzytelniania SSPI. |
 | **Podstawowa nazwa wyróżniająca dla grup** | Podstawowa nazwa wyróżniająca dla grup. |
-| **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu `ldap://hostname:port` lub `ldaps://hostname:port`. Port jest zazwyczaj 389 dla połączeń LDAP i 636 dla połączeń LDAPs. W przypadku Active Directory wdrożeń wielodomenowych, port jest zwykle 3268 dla LDAP i 3269 dla LDAPs.<br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPS serwera Active Directory, jest wymagany w przypadku użycia `ldaps://` w podstawowym lub pomocniczym adresie URL LDAP. |
+| **Podstawowy adres URL serwera** | Serwer LDAP podstawowego kontrolera domeny dla domeny.<br><br>Użyj formatu  `ldap://hostname:port`   lub  `ldaps://hostname:port` . Port jest zazwyczaj 389 dla połączeń LDAP i 636 dla połączeń LDAPs. W przypadku Active Directory wdrożeń wielodomenowych, port jest zwykle 3268 dla LDAP i 3269 dla LDAPs.<br><br>Certyfikat, który ustanawia zaufanie dla punktu końcowego LDAPs serwera Active Directory, jest wymagany w przypadku użycia  `ldaps://`   w podstawowym lub pomocniczym adresie URL LDAP. |
 | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
-| **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPS z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu `ldaps://` w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
+| **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
 | **Uż** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
 | **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
@@ -118,7 +117,7 @@ Po nawiązaniu połączenia sieciowego wykonaj kroki opisane w sekcji [Dodawanie
 
     ![Logowanie jednokrotne](media/OnPremAD02.png)
 
-5. Otwórz kartę **źródła tożsamości** i kliknij **+** , aby dodać nowe źródło tożsamości.
+5. Otwórz kartę **źródła tożsamości** i kliknij, **+** Aby dodać nowe źródło tożsamości.
 
     ![Źródła tożsamości](media/OnPremAD03.png)
 

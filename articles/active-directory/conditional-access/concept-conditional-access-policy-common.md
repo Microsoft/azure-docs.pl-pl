@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b699f0672b49dd2f947e0cf00d0ffcef7961e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295308"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024387"
 ---
 # <a name="common-conditional-access-policies"></a>Typowe zasady dostępu warunkowego
 
-[Wartości domyślne zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) są wspaniałe w przypadku niektórych organizacji, które wymagają większej elastyczności niż oferta. Na przykład wiele potrzeb umożliwia wykluczenie określonych kont, takich jak ich dostęp awaryjny lub konta administracyjne w ramach awarii z zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego. W przypadku tych organizacji typowe zasady, do których odwołuje się ten artykuł, mogą być używane.
+[Wartości domyślne zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) są wspaniałe w przypadku niektórych organizacji, które wymagają większej elastyczności niż oferta. Na przykład w wielu organizacjach wymagana jest możliwość wykluczenia określonych kont, takich jak ich dostęp awaryjny lub konta administracyjne w przypadku awarii z zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego. W przypadku tych organizacji typowe zasady, do których odwołuje się ten artykuł, mogą być używane.
 
 ![Zasady dostępu warunkowego w Azure Portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
@@ -38,13 +38,14 @@ Więcej informacji o kontach dostępu awaryjnego i o tym, dlaczego są ważne, m
 * [Wymagaj uwierzytelniania wieloskładnikowego na potrzeby zarządzania na platformie Azure](howto-conditional-access-policy-azure-management.md)\*
 * [Wymagaj uwierzytelniania wieloskładnikowego dla wszystkich użytkowników](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*Te cztery zasady, które zostały skonfigurowane razem, spowodują naśladowanie funkcjonalności włączonej przez [domyślne ustawienia zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md).
+\*Te cztery zasady po połączeniu ze sobą funkcje podśladu włączone przy użyciu [ustawień domyślnych zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Dodatkowe zasady
 
-* [Dostęp warunkowy oparty na ryzyku (wymaga usługi Azure AD w warstwie Premium P2)](howto-conditional-access-policy-risk.md)
+* [Logowanie warunkowe oparte na ryzyku (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk.md)
+* [Dostęp warunkowy oparty na ryzyku (wymaga Azure AD — wersja Premium P2)](howto-conditional-access-policy-risk-user.md)
 * [Wymaganie zaufanej lokalizacji na potrzeby rejestracji uwierzytelniania wieloskładnikowego](howto-conditional-access-policy-registration.md)
-* [Blokowanie dostępu według lokalizacji](howto-conditional-access-policy-location.md)
+* [Blokuj dostęp według lokalizacji](howto-conditional-access-policy-location.md)
 * [Wymaganie zgodnego urządzenia](howto-conditional-access-policy-compliant-device.md)
 * [Blokuj dostęp poza określonymi aplikacjami](howto-conditional-access-policy-block-access.md)
 

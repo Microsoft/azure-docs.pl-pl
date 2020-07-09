@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 06/24/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 151e7d286dac91ddd0e988027968f2e44a83e35e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239574"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362649"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
 
@@ -26,7 +26,9 @@ Jednym ze sposobów kontrolowania dostępu do sieciowego ruchu wychodzącego z p
 
 Ruch sieciowy podlega skonfigurowanym regułom zapory podczas kierowania ruchu sieciowego do zapory jako bramy domyślnej podsieci.
 
-W tym samouczku utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrażania. W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
+W tym samouczku utworzysz uproszczoną pojedynczą sieć wirtualną z trzema podsieciami w celu łatwego wdrażania.
+
+W przypadku wdrożeń produkcyjnych zaleca się [model Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , gdzie Zapora znajduje się w własnej sieci wirtualnej. Serwery obciążenia znajdują się w sieci wirtualnych komunikacji równorzędnej w tym samym regionie co co najmniej jedna podsieć.
 
 * **AzureFirewallSubnet** — w tej podsieci znajduje się zapora.
 * **Workload-SN** — w tej podsieci znajduje się serwer obciążeń. Ruch sieciowy tej podsieci przechodzi przez zaporę.
@@ -46,7 +48,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Jeśli chcesz, możesz wykonać kroki tego samouczka przy użyciu [programu Azure PowerShell](deploy-ps.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="set-up-the-network"></a>Konfigurowanie sieci
 
@@ -71,7 +73,7 @@ Ta sieć wirtualna będzie zawierać trzy podsieci.
 > Rozmiar podsieci AzureFirewallSubnet to/26. Aby uzyskać więcej informacji o rozmiarze podsieci, zobacz [często zadawane pytania dotyczące zapory platformy Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
-1.  > Wybierz **pozycję Sieć****Sieć wirtualna**.
+1. Wybierz **pozycję Sieć**  >  **Sieć wirtualna**.
 1. W polu **Nazwa** wpisz wartość **Test-FW-VN**.
 1. W polu **Przestrzeń adresowa** wpisz wartość **10.0.0.0/16**.
 1. W polu **Subskrypcja** wybierz subskrypcję.
@@ -87,7 +89,7 @@ Następnie należy utworzyć podsieci dla serwera przesiadkowego oraz podsieci d
 
 1. W menu Azure Portal wybierz pozycję **grupy zasobów** lub Wyszukaj, a następnie wybierz pozycję *grupy zasobów* z dowolnej strony. Następnie wybierz pozycję **test-PD-RG**.
 2. Wybierz sieć wirtualną **test-PD-VN** .
-3. Wybierz kolejno pozycje **podsieci** > **+ podsieć**.
+3. Wybierz kolejno pozycje **podsieci**  >  **+ podsieć**.
 4. W polu **Nazwa** wpisz wartość **Workload-SN**.
 5. W polu **Zakres adresów** wpisz wartość **10.0.2.0/24**.
 6. Wybierz przycisk **OK**.
@@ -140,7 +142,7 @@ Wdróż zaporę w sieci wirtualnej.
 
    |Ustawienie  |Wartość  |
    |---------|---------|
-   |Subskrypcja     |\<Twoja subskrypcja\>|
+   |Subskrypcja     |\<your subscription\>|
    |Grupa zasobów     |**Test-PD-RG** |
    |Nazwa     |**Test-FW01**|
    |Lokalizacja     |Wybierz tę samą lokalizację, której użyto poprzednio|
@@ -168,7 +170,7 @@ Na potrzeby podsieci **Workload-SN** skonfiguruj trasę domyślną ruchu wychodz
 8. Wybierz przycisk **Utwórz**.
 9. Wybierz pozycję **Odśwież**, a następnie wybierz tabelę **Zapora trasy tras** .
 10. Wybierz pozycję **podsieci** , a następnie wybierz pozycję **Skojarz**.
-11. Wybierz pozycję **Virtual Network** > **test-PD-VN**.
+11. Wybierz pozycję **Virtual Network**  >  **test-PD-VN**.
 12. W obszarze **podsieć**wybierz pozycję **obciążenie — SN**. Upewnij się, że dla tej trasy jest zaznaczona tylko podsieć **obciążenia-SN** , w przeciwnym razie Zapora nie będzie działała poprawnie.
 
 13. Wybierz przycisk **OK**.
@@ -239,7 +241,7 @@ Teraz Przetestuj zaporę, aby upewnić się, że działa zgodnie z oczekiwaniami
 1. W witrynie Azure Portal sprawdź ustawienia sieci dla maszyny wirtualnej **Srv-Work** i zanotuj prywatny adres IP.
 2. Połącz pulpit zdalny z maszyną wirtualną z **przeskokiem SRV** i zaloguj się. W tym miejscu Otwórz połączenie pulpitu zdalnego z prywatnym adresem IP **SRV** .
 3. Otwórz program Internet Explorer i przejdź do https://www.google.com.
-4. Wybierz pozycję **OK** > **Zamknij** na stronie Alerty zabezpieczeń programu Internet Explorer.
+4. Wybierz pozycję **OK**  >  **Zamknij** na stronie Alerty zabezpieczeń programu Internet Explorer.
 
    Powinna zostać wyświetlona strona główna Google.
 

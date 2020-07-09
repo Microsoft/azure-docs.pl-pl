@@ -8,18 +8,18 @@ manager: twooley
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461552"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707858"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurowanie prywatnego adresu IP dla maszyny wirtualnej przy użyciu Azure Portal
 
@@ -45,17 +45,17 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
 1. Z menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Utwórz zasób**.
 
     ![Utwórz zasób, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. Wybierz pozycję **Oblicz** > **maszynę wirtualną**.
+2. Wybierz pozycję **Oblicz**  >  **maszynę wirtualną**.
 
     ![Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. W obszarze **podstawowe**Określ wartości dla elementów zgodnie z opisem w poniższej tabeli. Następnie wybierz kolejno pozycje **&nbsp;dalej:&nbsp;dyski** , a następnie **dalej&nbsp;:&nbsp;sieci**.
+3. W obszarze **podstawowe**Określ wartości dla elementów zgodnie z opisem w poniższej tabeli. Następnie wybierz kolejno pozycje **dalej &nbsp; : &nbsp; dyski** , a następnie **dalej &nbsp; : &nbsp; sieci**.
 
     | Element | Wartość |
     | --- | --- |
     | **Subskrypcja** | Twoja bieżąca subskrypcja |
     | **Grupa zasobów** | **TestRG** (wybierz z listy rozwijanej) |
     | **Nazwa maszyny wirtualnej** | *DNS01* |
-    | **Region** | **Prześlij Wschodnie stany USA** |
+    | **Okolicy** | **Prześlij Wschodnie stany USA** |
     | **Obraz** | **Windows Server 2019 Datacenter** |
     | **Rozmiar** | **Rozmiar maszyny wirtualnej** **B1ls**, **Oferta** **standardu** |
     | **Uż** | Nazwa użytkownika konta administratora |
@@ -71,7 +71,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
     | **Podsieci** | **Frontonu** |
 
     ![Karta Sieć, Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. W obszarze **Zarządzanie**w obszarze **konto magazynu diagnostyki**wybierz pozycję **vnetstorage**. Jeśli konto magazynu nie pojawia się na liście, wybierz opcję **Utwórz nową**, określ **nazwę** *vnetstorage*i wybierz **przycisk OK**. Na koniec wybierz **pozycję&nbsp;+&nbsp;przegląd Utwórz**.
+5. W obszarze **Zarządzanie**w obszarze **konto magazynu diagnostyki**wybierz pozycję **vnetstorage**. Jeśli konto magazynu nie pojawia się na liście, wybierz opcję **Utwórz nową**, określ **nazwę** *vnetstorage*i wybierz **przycisk OK**. Na koniec wybierz pozycję **Przegląd &nbsp; + &nbsp; Utwórz**.
 
     ![Karta Zarządzanie, Tworzenie maszyny wirtualnej, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
 6. W oknie **Recenzja + tworzenie**Przejrzyj informacje przeglądowe, a następnie wybierz pozycję **Utwórz**.

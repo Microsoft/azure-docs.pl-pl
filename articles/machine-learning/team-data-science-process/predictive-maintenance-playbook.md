@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686753"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84267972"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Przewodnik po platformie Azure dla rozwiązań do konserwacji predykcyjnej
 
@@ -231,7 +230,7 @@ Specyfikacje techniczne sprzętu, takie jak data produkcji, numer modelu, lokali
 
 Wysiłki do przygotowania danych omówione do tej pory powinny prowadzić do organizowania danych, jak pokazano poniżej. Dane szkoleniowe, testowe i walidacji powinny mieć ten logiczny schemat (w tym przykładzie pokazano czas w jednostkach dni).
 
-| Identyfikator elementu zawartości | Time | \<> kolumn funkcji | Etykieta |
+| Identyfikator elementu zawartości | Godzina | \<Feature Columns> | Etykieta |
 | ---- | ---- | --- | --- |
 | A123 |Dzień 1 | . . . | . |
 | A123 |Dzień 2 | . . . | . |
@@ -427,12 +426,11 @@ Ostatnia sekcja tego przewodnika zawiera listę szablonów rozwiązań PdM, samo
 |--:|:------|-------------|
 | 2 | [Szablon rozwiązania do konserwacji predykcyjnej platformy Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Szablon rozwiązania typu "open source", który demonstruje modelowanie Azure ML i kompletną infrastrukturę platformy Azure, która może obsługiwać scenariusze konserwacji predykcyjnej w kontekście monitorowania zdalnego usługi IoT. |
 | 3 | [Uczenie głębokie dla konserwacji predykcyjnej](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notes platformy Azure z rozwiązaniem demonstracyjnym dotyczącym korzystania z sieci LSTM (Long Short-Term Memory) (klasy reneuronowychych sieci) do konserwacji predykcyjnej z [wpisem w blogu w tym przykładzie](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
-| 4 | [Przewodnik modelowania konserwacji predykcyjnej w języku R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | PdM Przewodnik modelowania ze skryptami w języku R.|
-| 5 | [Konserwacja predykcyjna na platformie Azure dla platformy Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Jeden z pierwszych szablonów rozwiązań PdM w oparciu o konserwację platformy Azure w wersji 1.0. Ten przewodnik pochodzi z tego projektu. |
-| 6 | [Zestaw narzędzi platformy Azure AI dla IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI w IoT Edge przy użyciu TensorFlow; Pakiet Toolkit udostępnia modele uczenia głębokiego w Azure IoT Edge zgodnych kontenerach platformy Docker i uwidacznia te modele jako interfejsy API REST.
-| 7 | [Konserwacja predykcyjna usługi Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite komputerów — wstępnie skonfigurowane rozwiązanie. Szablon PdM konserwacji samolotów z IoT Suite. [Inny dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) i [Przewodnik](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) dotyczący tego samego projektu. |
-| 8 | [Szablon konserwacji predykcyjnej używający SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstracja pozostałego scenariusza użytkowania w oparciu o usługi R. |
-| 9 | [Przewodnik modelowania konserwacji predykcyjnej](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Funkcja zestawu danych obsługi technicznej dla samolotów została zaprojektowana przy użyciu języka R z [eksperymentami](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) i [zestawami](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) danych oraz programem [Azure Notes](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) i [eksperymentami](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) na platformie Azure|
+| 4 | [Konserwacja predykcyjna na platformie Azure dla platformy Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Jeden z pierwszych szablonów rozwiązań PdM w oparciu o konserwację platformy Azure w wersji 1.0. Ten przewodnik pochodzi z tego projektu. |
+| 5 | [Zestaw narzędzi platformy Azure AI dla IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI w IoT Edge przy użyciu TensorFlow; Pakiet Toolkit udostępnia modele uczenia głębokiego w Azure IoT Edge zgodnych kontenerach platformy Docker i uwidacznia te modele jako interfejsy API REST.
+| 6 | [Konserwacja predykcyjna usługi Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite komputerów — wstępnie skonfigurowane rozwiązanie. Szablon PdM konserwacji samolotów z IoT Suite. [Inny dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) i [Przewodnik](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) dotyczący tego samego projektu. |
+| 7 | [Szablon konserwacji predykcyjnej używający SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstracja pozostałego scenariusza użytkowania w oparciu o usługi R. |
+| 8 | [Przewodnik modelowania konserwacji predykcyjnej](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Funkcja zestawu danych obsługi technicznej dla samolotów została zaprojektowana przy użyciu języka R z [eksperymentami](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) i [zestawami](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) danych oraz programem Azure Notes i [eksperymentami](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) na platformie Azure|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Szkoleniowe zasoby na potrzeby konserwacji predykcyjnej
 

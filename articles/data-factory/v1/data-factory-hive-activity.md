@@ -13,10 +13,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74703353"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania programu Hive w Azure Data Factory 
@@ -72,11 +71,11 @@ Działanie programu Hive w [usłudze](data-factory-compute-linked-services.md#az
 }
 ```
 ## <a name="syntax-details"></a>Szczegóły składni
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa działania |Tak |
 | description |Tekst opisujący działanie używanego działania |Nie |
-| type |HDinsightHive |Tak |
+| typ |HDinsightHive |Tak |
 | danych wejściowych |Dane wejściowe używane przez działanie Hive |Nie |
 | wydajności |Dane wyjściowe generowane przez działanie Hive |Tak |
 | linkedServiceName |Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory |Tak |
@@ -87,7 +86,7 @@ Działanie programu Hive w [usłudze](data-factory-compute-linked-services.md#az
 ## <a name="example"></a>Przykład
 Rozważmy przykładową analizę dzienników gier, w której chcesz zidentyfikować czas spędzony przez użytkowników, którzy odgrywają gry uruchomione przez firmę. 
 
-Następujący dziennik to Przykładowy dziennik gier, który jest rozdzielony przecinkami`,`() i zawiera następujące pola — ProfileID, SessionStart, Duration, SrcIPAddress i GameType.
+Następujący dziennik to Przykładowy dziennik gier, który jest rozdzielony przecinkami ( `,` ) i zawiera następujące pola — ProfileID, SessionStart, Duration, SrcIPAddress i GameType.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag

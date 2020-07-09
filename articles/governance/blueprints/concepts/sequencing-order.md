@@ -3,12 +3,12 @@ title: Zrozumienie kolejności kolejności wdrażania
 description: Informacje o domyślnej kolejności, w której artefakty są wdrażane w trakcie przypisywania strategii i dostosowywania kolejności wdrażania.
 ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864525"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970624"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Zrozumienie sekwencji wdrożenia w planach platformy Azure
 
@@ -28,21 +28,21 @@ Jeśli definicja planu nie zawiera dyrektywy dotyczącej kolejności wdrażania 
 
 - Artefakty **przypisania roli** poziomu subskrypcji posortowane według nazwy artefaktu
 - Artefakty **przydziału zasad** na poziomie subskrypcji posortowane według nazwy artefaktu
-- Artefakty **szablonu Azure Resource Manager** poziomu subskrypcji posortowane według nazwy artefaktu
+- **Szablon Azure Resource Manager** poziomu subskrypcji (szablony ARM) artefakty posortowane według nazwy artefaktu
 - Artefakty **grupy zasobów** (w tym artefakty podrzędne) posortowane według nazwy symbolu zastępczego
 
 W ramach każdego artefaktu **grupy zasobów** następująca kolejność sekwencji jest używana w przypadku artefaktów, które mają zostać utworzone w ramach tej grupy zasobów:
 
 - Artefakty **przypisania roli** podrzędnej grupy zasobów posortowane według nazwy artefaktu
 - Artefakty **przydziału zasad** podrzędnych grupy zasobów posortowane według nazwy artefaktu
-- Artefakty **szablonu Azure Resource Manager** podrzędnego grupy zasobów posortowane według nazwy artefaktu
+- Szablon podrzędnej **Azure Resource Manager** grupy zasobów (szablony ARM) artefakty posortowane według nazwy artefaktu
 
 > [!NOTE]
 > Użycie [artefaktów ()](../reference/blueprint-functions.md#artifacts) tworzy niejawną zależność od artefaktu, do którego się odwołuje.
 
 ## <a name="customizing-the-sequencing-order"></a>Dostosowywanie kolejności sekwencjonowania
 
-Podczas redagowania dużych definicji planów może być konieczne utworzenie zasobów w określonej kolejności. Najbardziej typowym wzorcem użycia tego scenariusza jest, gdy definicja strategii zawiera kilka Azure Resource Manager szablonów. Plany platformy Azure obsługują ten wzorzec, umożliwiając zdefiniowanie kolejności sekwencjonowania.
+Podczas redagowania dużych definicji planów może być konieczne utworzenie zasobów w określonej kolejności. Najbardziej typowym wzorcem użycia tego scenariusza jest, gdy definicja strategii obejmuje kilka szablonów ARM. Plany platformy Azure obsługują ten wzorzec, umożliwiając zdefiniowanie kolejności sekwencjonowania.
 
 Kolejność jest realizowana przez zdefiniowanie `dependsOn` właściwości w formacie JSON. Ta właściwość obsługuje definicje strategii, dla grup zasobów i obiektów artefaktów. `dependsOn`jest tablicą ciągów nazw artefaktów, które należy utworzyć przed utworzeniem określonego artefaktu.
 
@@ -51,7 +51,7 @@ Kolejność jest realizowana przez zdefiniowanie `dependsOn` właściwości w fo
 
 ### <a name="example---ordered-resource-group"></a>Przykładowa Grupa zasobów uporządkowana
 
-Ta przykładowa definicja planu ma grupę zasobów, która definiuje niestandardową kolejność sekwencjonowania, deklarując wartość `dependsOn`dla, wraz z grupą zasobów w warstwie Standardowa. W takim przypadku artefakt o nazwie **assignPolicyTags** zostanie przetworzony przed grupą zasobów Order **-RG** .
+Ta przykładowa definicja planu ma grupę zasobów, która definiuje niestandardową kolejność sekwencjonowania, deklarując wartość dla `dependsOn` , wraz z grupą zasobów w warstwie Standardowa. W takim przypadku artefakt o nazwie **assignPolicyTags** zostanie przetworzony przed grupą zasobów Order **-RG** .
 **Standard-RG** będzie przetwarzany według domyślnej kolejności sekwencjonowania.
 
 ```json
@@ -81,7 +81,7 @@ Ta przykładowa definicja planu ma grupę zasobów, która definiuje niestandard
 
 ### <a name="example---artifact-with-custom-order"></a>Przykład — artefakt z kolejnością niestandardową
 
-Ten przykład jest artefaktem zasad, który zależy od szablonu Azure Resource Manager. Domyślnie podczas określania kolejności zostanie utworzony artefakt zasad przed szablonem Azure Resource Manager. To porządkowanie umożliwia artefaktowi zasad oczekiwanie na utworzenie szablonu Azure Resource Manager.
+Ten przykład jest artefaktem zasad, który zależy od szablonu ARM. Domyślnie podczas określania kolejności zostanie utworzony artefakt zasad przed szablonem ARM. To porządkowanie umożliwia artefaktowi zasad oczekiwanie na utworzenie szablonu ARM.
 
 ```json
 {
@@ -100,7 +100,7 @@ Ten przykład jest artefaktem zasad, który zależy od szablonu Azure Resource M
 
 ### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>Przykład — artefakt szablonu poziomu subskrypcji w zależności od grupy zasobów
 
-Ten przykład dotyczy szablonu Menedżer zasobów wdrożonego na poziomie subskrypcji, aby zależał od grupy zasobów. W kolejności domyślnej, artefakty poziomu subskrypcji zostaną utworzone przed dowolnymi grupami zasobów i artefaktami podrzędnymi w tych grupach zasobów. Grupa zasobów jest zdefiniowana w definicji strategii podobnej do:
+Ten przykład dotyczy szablonu usługi ARM wdrożonego na poziomie subskrypcji, który jest zależny od grupy zasobów. W kolejności domyślnej, artefakty poziomu subskrypcji zostaną utworzone przed dowolnymi grupami zasobów i artefaktami podrzędnymi w tych grupach zasobów. Grupa zasobów jest zdefiniowana w definicji strategii podobnej do:
 
 ```json
 "resourceGroups": {

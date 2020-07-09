@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658289"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965053"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parametry listy rozwijanej skoroszytu
 
@@ -31,7 +31,7 @@ Najprostszym sposobem określenia listy rozwijanej jest podawanie statycznej lis
     1. Nazwa parametru:`Environment`
     2. Typ parametru:`Drop down`
     3. Wymagane:`checked`
-    4. Zezwalaj `multiple selection`:`unchecked`
+    4. Zezwalaj `multiple selection` :`unchecked`
     5. Pobierz dane z:`JSON`
 5. W bloku tekstu wejściowego JSON Wstaw ten fragment kodu JSON:
     ```json
@@ -48,7 +48,9 @@ Najprostszym sposobem określenia listy rozwijanej jest podawanie statycznej lis
     ![Obraz przedstawiający tworzenie statycznej Drown w dół](./media/workbook-dropdowns/dropdown-create.png)
 
 ## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Tworzenie statycznego listy rozwijanej z grupami elementów
+
 Jeśli wynik zapytania/JSON zawiera pole "Grupa", na liście rozwijanej zostaną wyświetlone grupy wartości. Postępuj zgodnie z powyższym przykładem, ale zamiast tego użyj następującego kodu JSON:
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -59,7 +61,8 @@ Jeśli wynik zapytania/JSON zawiera pole "Grupa", na liście rozwijanej zostaną
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![Obraz przedstawiający przykład zgrupowanego listy rozwijanej](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## <a name="creating-a-dynamic-drop-down-parameter"></a>Tworzenie dynamicznego parametru rozwijanego
@@ -70,7 +73,7 @@ Jeśli wynik zapytania/JSON zawiera pole "Grupa", na liście rozwijanej zostaną
     1. Nazwa parametru:`RequestName`
     2. Typ parametru:`Drop down`
     3. Wymagane:`checked`
-    4. Zezwalaj `multiple selection`:`unchecked`
+    4. Zezwalaj `multiple selection` :`unchecked`
     5. Pobierz dane z:`Query`
 5. W bloku tekstu wejściowego JSON Wstaw ten fragment kodu JSON:
 
@@ -86,6 +89,7 @@ Jeśli wynik zapytania/JSON zawiera pole "Grupa", na liście rozwijanej zostaną
     ![Obraz przedstawiający tworzenie dynamicznego listy rozwijanej](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## <a name="referencing-drop-down-parameter"></a>Parametr listy rozwijanej odwołującego się
+
 ### <a name="in-kql"></a>W KQL
 1. Dodaj kontrolkę zapytania do skoroszytu i wybierz zasób Application Insights.
 2. W edytorze KQL wprowadź ten fragment kodu
@@ -122,20 +126,21 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![Obraz przedstawiający parametr listy rozwijanej przy użyciu opcji Value, Label, Selection i Group](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## <a name="drop-down-parameter-options"></a>Opcje parametru listy rozwijanej
-| Parametr | Wyjaśnienie | Przykład |
+| Parametr | Objaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `{DependencyName}` | Wybrana wartość | Pobierz fabrikamaccount |
 | `{DependencyName:label}` | Zaznaczona etykieta | 🌐 GET fabrikamaccount |
 | `{DependencyName:value}` | Wybrana wartość | Pobierz fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Wybór wielokrotny
-Przykładowo jawnie ustaw parametr, aby wybrać tylko jedną wartość z listy rozwijanej. Parametry listy rozwijanej obsługują `multiple selection` również obsługę — włączenie tej `Allow multiple selection` opcji jest proste, ponieważ jest to możliwe. 
+Przykładowo jawnie ustaw parametr, aby wybrać tylko jedną wartość z listy rozwijanej. Parametry listy rozwijanej obsługują również obsługę `multiple selection` — włączenie tej opcji jest proste, ponieważ jest to możliwe `Allow multiple selection` . 
 
-Użytkownik ma także opcję określania formatu zestawu wyników za pośrednictwem ustawień `delimiter` i. `quote with` Wartość domyślna po prostu zwraca wartości jako kolekcję w tej formie: "a", "b", "c". Mogą także ograniczyć liczbę wybranych opcji.
+Użytkownik ma także opcję określania formatu zestawu wyników za pośrednictwem `delimiter` `quote with` ustawień i. Wartość domyślna po prostu zwraca wartości jako kolekcję w tej formie: "a", "b", "c". Mogą także ograniczyć liczbę wybranych opcji.
 
 KQL odwoływania się do parametru musi się zmienić, aby działał z formatem wyniku. Najbardziej typowym sposobem na włączenie go jest za pośrednictwem `in` operatora.
 

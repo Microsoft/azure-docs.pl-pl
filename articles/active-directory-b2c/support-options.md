@@ -11,10 +11,9 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78183724"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: żądania obsługi plików
@@ -52,7 +51,7 @@ ms.locfileid: "78183724"
 
      ![Strona problemu z wyróżnionym przyciskiem dalej w Azure Portal](./media/support-options/support-problem.png)
 
-1. W bloku **informacje kontaktowe** Dodaj swoje informacje kontaktowe. Kliknij przycisk **Utwórz**.
+1. W bloku **informacje kontaktowe** Dodaj swoje informacje kontaktowe. Kliknij pozycję **Utwórz**.
 
     ![Strona informacje kontaktowe z wyróżnionym przyciskiem Utwórz w portalu](./media/support-options/support-contact.png)
 

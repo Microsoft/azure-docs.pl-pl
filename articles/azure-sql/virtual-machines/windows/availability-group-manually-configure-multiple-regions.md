@@ -1,10 +1,9 @@
 ---
-title: Konfigurowanie grupy dostępności w różnych regionach
-description: W tym artykule wyjaśniono, jak skonfigurować SQL Server grupę dostępności na maszynach wirtualnych platformy Azure z repliką w innym regionie.
+title: SQL Server Konfigurowanie zawsze włączonych grup dostępności w różnych regionach
+description: W tym artykule wyjaśniono, jak skonfigurować grupę dostępności programu SQL Server zawsze włączona na maszynach wirtualnych platformy Azure z repliką w innym regionie.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -15,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 996b5a59c5c79a045cd396a24778fe0928682c5a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044290"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669311"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Konfigurowanie grupy dostępności na platformie Azure SQL Server maszyny wirtualne w różnych regionach
+# <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule wyjaśniono, jak skonfigurować usługę SQL Server zawsze włączona replika grupy dostępności na maszynach wirtualnych platformy Azure w zdalnej lokalizacji platformy Azure. Ta konfiguracja służy do obsługi odzyskiwania po awarii.
@@ -107,7 +106,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. Dodaj adres IP jako zależność dla głównej nazwy klastra.
 
-   Otwórz właściwości klastra jeszcze raz, a następnie wybierz kartę **zależności** . Skonfiguruj zależność dla dwóch adresów IP lub: 
+   Otwórz właściwości klastra jeszcze raz i wybierz kartę **zależności** . Skonfiguruj zależność dla dwóch adresów IP lub: 
 
    ![Właściwości klastra](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
@@ -133,7 +132,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. [Ustaw parametry klastra w programie PowerShell](availability-group-manually-configure-tutorial.md#setparam).
 
-Uruchom skrypt programu PowerShell z nazwą sieci klastra, adresem IP i portem sondy skonfigurowanym w module równoważenia obciążenia w nowym regionie.
+   Uruchom skrypt programu PowerShell z nazwą sieci klastra, adresem IP i portem sondy skonfigurowanym w module równoważenia obciążenia w nowym regionie.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -167,25 +166,25 @@ Jeśli nie można zmodyfikować parametrów połączenia, można skonfigurować 
 
 ## <a name="fail-over-to-remote-region"></a>Przechodzenie w tryb failover do zdalnego regionu
 
-Aby przetestować łączność odbiornika z regionem zdalnym, można przełączyć replikę w tryb failover do regionu zdalnego. Gdy replika jest asynchroniczna, tryb failover jest narażony na potencjalną utratę danych. Aby przełączyć się do trybu failover bez utraty danych, Zmień tryb dostępności na synchroniczny i ustaw tryb pracy awaryjnej na automatyczny. Wykonaj następujące czynności:
+Aby przetestować łączność odbiornika z regionem zdalnym, można przełączyć replikę w tryb failover do regionu zdalnego. Gdy replika jest asynchroniczna, tryb failover jest narażony na potencjalną utratę danych. Aby przełączyć się do trybu failover bez utraty danych, Zmień tryb dostępności na synchroniczny i ustaw tryb pracy awaryjnej na automatyczny. Wykonaj następujące kroki:
 
 1. W **Eksplorator obiektów**Połącz się z wystąpieniem SQL Server, które obsługuje replikę podstawową.
-1. W obszarze **zawsze włączone grupy dostępności**, **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie kliknij pozycję **Właściwości**.
+1. W obszarze **zawsze włączone grupy dostępności**, **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Właściwości**.
 1. Na stronie **Ogólne** w obszarze **repliki dostępności**Ustaw replikę pomocniczą w lokacji odzyskiwania w taki sposób, aby korzystała z **synchronicznego trybu dostępności zatwierdzania** i trybu **automatycznego** trybu failover.
 1. Jeśli istnieje replika pomocnicza w tej samej lokacji co replika podstawowa w celu zapewnienia wysokiej dostępności, ustaw tę replikę na **asynchroniczne zatwierdzenie** i **ręcznie**.
-1. Kliknij przycisk OK.
-1. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy grupę dostępności, a następnie kliknij pozycję **Pokaż pulpit nawigacyjny**.
+1. Wybierz przycisk OK.
+1. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **Pokaż pulpit nawigacyjny**.
 1. Na pulpicie nawigacyjnym Sprawdź, czy replika w witrynie DR jest synchronizowana.
-1. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy grupę dostępności, a następnie kliknij pozycję **tryb failover...**. SQL Server Management Studios otwiera kreatora w celu przełączenia w tryb failover SQL Server.  
-1. Kliknij przycisk **dalej**, a następnie wybierz wystąpienie SQL Server w witrynie Dr. Kliknij ponownie przycisk **Next** (Dalej).
-1. Połącz się z wystąpieniem SQL Server w lokacji DR i kliknij przycisk **dalej**.
-1. Na stronie **Podsumowanie** Sprawdź ustawienia i kliknij przycisk **Zakończ**.
+1. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz pozycję **tryb failover...**. SQL Server Management Studios otwiera kreatora w celu przełączenia w tryb failover SQL Server.  
+1. Wybierz pozycję **dalej**, a następnie wybierz wystąpienie SQL Server w witrynie Dr. Ponownie wybierz pozycję **dalej** .
+1. Połącz się z wystąpieniem SQL Server w witrynie DR i wybierz pozycję **dalej**.
+1. Na stronie **Podsumowanie** Sprawdź ustawienia i wybierz pozycję **Zakończ**.
 
 Po przetestowaniu łączności należy przenieść replikę podstawową z powrotem do głównego centrum danych i ustawić tryb dostępności z powrotem na normalne ustawienia operacyjne. W poniższej tabeli przedstawiono normalne ustawienia operacyjne dla architektury opisanej w tym dokumencie:
 
 | Lokalizacja | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
 | ----- | ----- | ----- | ----- | -----
-| Podstawowe centrum danych | SQL — 1 | Podstawowy | Synchroniczny | Automatyczny
+| Podstawowe centrum danych | SQL — 1 | Podstawowe | Synchroniczny | Automatyczny
 | Podstawowe centrum danych | SQL — 2 | Pomocniczy | Synchroniczny | Automatyczny
 | Pomocnicze lub zdalne centrum danych | SQL — 3 | Pomocniczy | Asynchroniczny | Ręcznie
 
@@ -197,9 +196,9 @@ Aby uzyskać więcej informacji, zobacz następujące tematy:
 - [Wykonaj zaplanowaną ręczną pracę awaryjną grupy dostępności (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Wykonaj wymuszoną ręczną pracę awaryjną grupy dostępności (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Dodatkowe linki
+## <a name="next-steps"></a>Następne kroki
 
 * [Zawsze włączone grupy dostępności](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Virtual Machines platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Moduły równoważenia obciążenia platformy Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
 * [Zestawy dostępności platformy Azure](../../../virtual-machines/linux/manage-availability.md)

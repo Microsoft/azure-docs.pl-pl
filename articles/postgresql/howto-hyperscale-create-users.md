@@ -5,14 +5,14 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 684116f92544e61a892b3653f8539f9f8f03e0c9
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584085"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116968"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie użytkowników w Azure Database for PostgreSQL-Citus
 
@@ -28,29 +28,29 @@ Aparat PostgreSQL używa [ról](https://www.postgresql.org/docs/current/sql-crea
 * `postgres`
 * `citus`
 
-Ze względu na to, że jest to zarządzana usługa PaaS, tylko firma `postgres` Microsoft może zalogować się przy użyciu roli administratora. W przypadku ograniczonego dostępu administracyjnego funkcja przedskalowania udostępnia `citus` rolę.
+Ze względu na to, że jest to zarządzana usługa PaaS, tylko firma Microsoft może zalogować się przy użyciu `postgres` roli administratora. W przypadku ograniczonego dostępu administracyjnego funkcja przedskalowania udostępnia `citus` rolę.
 
 Uprawnienia dla `citus` roli:
 
 * Odczytaj wszystkie zmienne konfiguracyjne, nawet zmienne zwykle widoczne tylko dla użytkowników.
-* Odczytywanie wszystkich\_\_ \* widoków informacji o widoku PG i korzystanie z różnych rozszerzeń związanych z statystyką — nawet widoki lub rozszerzenia są zwykle widoczne tylko dla użytkowników.
+* Odczytywanie wszystkich \_ \_ \* widoków informacji o widoku PG i korzystanie z różnych rozszerzeń związanych z statystyką — nawet widoki lub rozszerzenia są zwykle widoczne tylko dla użytkowników.
 * Wykonywanie funkcji monitorowania, które mogą mieć dostęp do blokad udostępniania w tabelach, potencjalnie przez długi czas.
-* [Utwórz rozszerzenia PostgreSQL](concepts-hyperscale-extensions.md) (ponieważ rola jest członkiem `azure_pg_admin`).
+* [Utwórz rozszerzenia PostgreSQL](concepts-hyperscale-extensions.md) (ponieważ rola jest członkiem `azure_pg_admin` ).
 
-W `citus` szczególności rola ma pewne ograniczenia:
+W szczególności `citus` rola ma pewne ograniczenia:
 
 * Nie można utworzyć ról
 * Nie można utworzyć baz danych
 
 ## <a name="how-to-create-additional-user-roles"></a>Jak utworzyć dodatkowe role użytkowników
 
-Jak wspomniano wcześniej `citus` , konto administratora nie ma uprawnień do tworzenia dodatkowych użytkowników. Aby dodać użytkownika, użyj interfejsu Azure Portal.
+Jak wspomniano wcześniej, `citus` konto administratora nie ma uprawnień do tworzenia dodatkowych użytkowników. Aby dodać użytkownika, użyj interfejsu Azure Portal.
 
 1. Przejdź do strony **role** dla swojej grupy serwerów w ramach skalowania i kliknij pozycję **+ Dodaj**:
 
    ![Strona role](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. Wprowadź nazwę i hasło roli. Kliknij przycisk **Zapisz**.
+2. Wprowadź nazwę i hasło roli. Kliknij pozycję **Zapisz**.
 
    ![Dodaj rolę](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
@@ -60,22 +60,17 @@ Użytkownik zostanie utworzony w węźle koordynatora grupy serwerów i rozpropa
 
 Nowe role użytkowników są często używane do zapewniania dostępu do bazy danych z ograniczonymi uprawnieniami. Aby zmodyfikować uprawnienia użytkownika, użyj standardowych poleceń PostgreSQL przy użyciu narzędzia, takiego jak PgAdmin lub PSQL. (Zobacz [nawiązywanie połączenia z usługą PSQL](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) na stronie Szybki Start skalowania (Citus).
 
-Na przykład, aby zezwolić `db_user` na odczytywanie `mytable`, Udziel uprawnienia:
+Na przykład, aby zezwolić `db_user` na odczytywanie `mytable` , Udziel uprawnienia:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Funkcja wieloskal (Citus) propaguje instrukcje GRANTu jednej tabeli w całym klastrze, stosując je we wszystkich węzłach procesu roboczego. Jednak dotacje dla całego systemu (na przykład dla wszystkich tabel w schemacie) muszą być uruchamiane w każdym węźle daty.  Użyj funkcji `run_command_on_workers()` pomocnika:
+Funkcja wieloskal (Citus) propaguje instrukcje GRANTu jednej tabeli w całym klastrze, stosując je we wszystkich węzłach procesu roboczego. Propaguje także dotacje dla całego systemu (np. dla wszystkich tabel w schemacie):
 
 ```sql
--- applies to the coordinator node
+-- applies to the coordinator node and propagates to workers
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
-
--- make it apply to workers as well
-SELECT run_command_on_workers(
-  'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
-);
 ```
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Jak usunąć rolę użytkownika lub zmienić hasło
@@ -84,7 +79,7 @@ Aby zaktualizować użytkownika, odwiedź stronę **role** dla swojej grupy serw
 
    ![Edytowanie roli](media/howto-hyperscale-create-users/edit-role.png)
 
-`citus` Rola jest uprzywilejowana i nie można jej usunąć.
+`citus`Rola jest uprzywilejowana i nie można jej usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
 

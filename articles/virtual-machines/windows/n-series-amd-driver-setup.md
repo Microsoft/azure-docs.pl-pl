@@ -1,19 +1,19 @@
 ---
 title: Konfiguracja sterowników procesora GPU AMD na platformie Azure dla systemu Windows
 description: Jak skonfigurować sterowniki AMD GPU dla maszyn wirtualnych serii N z systemem Windows Server lub Windows na platformie Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: c4ab6f8dd1c2484ca560fd570f88476f31897b28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975195"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows
 
@@ -38,9 +38,11 @@ Aby zapoznać się z podstawowymi danymi, pojemnościami magazynu i szczegółam
 
 1. Połącz się Pulpit zdalny z każdą maszyną wirtualną serii NVv4.
 
-2. Pobierz i zainstaluj najnowszą wersję sterownika.
+2. Jeśli chcesz odinstalować poprzednią wersję sterownika, Pobierz narzędzie do oczyszczania AMD w [tym miejscu](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) , nie używaj narzędzia dołączonego do poprzedniej wersji sterownika.
 
-3. Uruchom ponownie maszynę wirtualną.
+3. Pobierz i zainstaluj najnowszą wersję sterownika.
+
+4. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="verify-driver-installation"></a>Weryfikuj instalację sterownika
 
@@ -50,7 +52,7 @@ Instalację sterownika można sprawdzić w Menedżer urządzeń. W poniższym pr
 
 Możesz użyć programu dxdiag do zweryfikowania właściwości wyświetlania procesora GPU, w tym pamięci RAM wideo. Poniższy przykład przedstawia partycję 1/2 karty Instinct Radeon MI25 na maszynie wirtualnej Azure NVv4.
 <br />
-![Właściwości sterownika procesora GPU](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![Właściwości sterownika procesora GPU](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Jeśli korzystasz z systemu Windows 10 Build 1903 lub nowszego, program DxDiag nie wyświetli żadnych informacji na karcie "Display" (wyświetlanie). Użyj opcji "Zapisz wszystkie informacje" u dołu, a w pliku wyjściowym zostaną wyświetlone informacje związane z procesorem GPU AMD MI25.
 

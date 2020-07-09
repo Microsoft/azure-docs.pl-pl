@@ -1,6 +1,6 @@
 ---
 title: Łączenie Azure Information Protection z platformą Azure — wskaźnikiem
-description: Dowiedz się, jak połączyć Azure Information Protection dane na platformie Azure — wskaźnik.
+description: Przesyłanie strumieniowe informacji o rejestrowaniu z Azure Information Protection do usługi Azure wskaźnikowej przez skonfigurowanie łącznika danych Azure Information Protection. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 396fd7c4289c9d02d451b26f5fb6299acd31e2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588556"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559144"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Łączenie danych z Azure Information Protection
 

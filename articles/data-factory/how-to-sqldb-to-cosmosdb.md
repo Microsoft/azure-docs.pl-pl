@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82691897"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrowanie znormalizowanego schematu bazy danych z Azure SQL Database do nieznormalizowanego kontenera usługi Azure CosmosDB
@@ -23,7 +23,7 @@ Schematy języka SQL są zwykle modelowane przy użyciu trzeciej formy normalnej
 
 Korzystając z Azure Data Factory, utworzymy potok, który używa pojedynczego przepływu danych mapowania do odczytywania z dwóch Azure SQL Database znormalizowanych tabel zawierających klucze podstawowe i obce jako relacje jednostek. Moduł ADF dołączy te tabele do jednego strumienia przy użyciu aparatu Spark przepływu danych, zbiera dołączone wiersze do tablic i tworzy pojedyncze oczyszczone dokumenty do wstawienia do nowego kontenera usługi Azure CosmosDB.
 
-Ten przewodnik spowoduje skompilowanie nowego kontenera o nazwie "Orders", który będzie używał tabel ```SalesOrderHeader``` i ```SalesOrderDetail``` ze standardowej przykładowej bazy danych AdventureWorks SQL Server. Te tabele reprezentują transakcje sprzedaży przyłączone ```SalesOrderID```przez. Każdy unikatowy rekord szczegółowy ma swój własny klucz podstawowy ```SalesOrderDetailID```. Relacja między nagłówkiem a szczegółem jest ```1:M```. Dołączymy się ```SalesOrderID``` w usłudze ADF, a następnie przywrócisz każdy powiązany rekord szczegółowy do tablicy o nazwie "Detail".
+Ten przewodnik spowoduje skompilowanie nowego kontenera o nazwie "Orders", który będzie używał ```SalesOrderHeader``` tabel i ```SalesOrderDetail``` ze standardowej przykładowej bazy danych AdventureWorks SQL Server. Te tabele reprezentują transakcje sprzedaży przyłączone przez ```SalesOrderID``` . Każdy unikatowy rekord szczegółowy ma swój własny klucz podstawowy ```SalesOrderDetailID``` . Relacja między nagłówkiem a szczegółem jest ```1:M``` . Dołączymy ```SalesOrderID``` się w usłudze ADF, a następnie przywrócisz każdy powiązany rekord szczegółowy do tablicy o nazwie "Detail".
 
 Reprezentatywne zapytanie SQL dla tego przewodnika:
 
@@ -42,7 +42,7 @@ FROM SalesLT.SalesOrderHeader o;
 
 W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokument i będzie wyglądać następująco:
 
-![Collection](media/data-flow/cosmosb3.png)
+![Kolekcja](media/data-flow/cosmosb3.png)
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 
@@ -60,15 +60,15 @@ W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokume
 
 6. Zdefiniuj Źródło dla "SourceOrderHeader". Dla zestawu danych Utwórz nowy Azure SQL Database zestaw danych, który wskazuje na ```SalesOrderHeader``` tabelę.
 
-7. W górnym źródle Dodaj transformację kolumn pochodnych po "SourceOrderDetails". Wywołaj nową transformację "rzutowanie". Musimy zaokrąglić ```UnitPrice``` kolumnę i rzutować ją na podwójny typ danych dla CosmosDB. Ustaw formułę na: ```toDouble(round(UnitPrice,2))```.
+7. W górnym źródle Dodaj transformację kolumn pochodnych po "SourceOrderDetails". Wywołaj nową transformację "rzutowanie". Musimy zaokrąglić ```UnitPrice``` kolumnę i rzutować ją na podwójny typ danych dla CosmosDB. Ustaw formułę na: ```toDouble(round(UnitPrice,2))``` .
 
-8. Dodaj kolejną kolumnę pochodną i Wywołaj ją "MakeStruct". W tym miejscu utworzysz strukturę hierarchiczną, która będzie przechowywać wartości z tabeli szczegółów. Pamiętaj, że ```M:1``` szczegóły są relacjami z nagłówkiem. Nazwij nową strukturę ```orderdetailsstruct``` i Utwórz hierarchię w ten sposób, ustawiając każdą podkolumnę na nazwę kolumny przychodzącej:
+8. Dodaj kolejną kolumnę pochodną i Wywołaj ją "MakeStruct". W tym miejscu utworzysz strukturę hierarchiczną, która będzie przechowywać wartości z tabeli szczegółów. Pamiętaj, że szczegóły są ```M:1``` relacjami z nagłówkiem. Nazwij nową strukturę ```orderdetailsstruct``` i Utwórz hierarchię w ten sposób, ustawiając każdą podkolumnę na nazwę kolumny przychodzącej:
 
 ![Utwórz strukturę](media/data-flow/cosmosb9.png)
 
 9. Teraz przejdźmy do źródła nagłówka Sales. Dodaj transformację sprzężenia. Po prawej stronie wybierz pozycję "MakeStruct". Pozostaw ustawienie do sprzężenia wewnętrznego i wybierz ```SalesOrderID``` obie strony warunku sprzężenia.
 
-10. Kliknij kartę Podgląd danych w nowym dodanym dołączeniu, aby zobaczyć wyniki do tego momentu. Powinny być widoczne wszystkie wiersze nagłówka dołączone do wierszy szczegółów. Jest to wynik tworzenia sprzężenia z ```SalesOrderID```. Następnie połączymy szczegóły z wspólnych wierszy do struktury Details i agregują wspólne wiersze.
+10. Kliknij kartę Podgląd danych w nowym dodanym dołączeniu, aby zobaczyć wyniki do tego momentu. Powinny być widoczne wszystkie wiersze nagłówka dołączone do wierszy szczegółów. Jest to wynik tworzenia sprzężenia z ```SalesOrderID``` . Następnie połączymy szczegóły z wspólnych wierszy do struktury Details i agregują wspólne wiersze.
 
 ![Join](media/data-flow/cosmosb4.png)
 
@@ -78,11 +78,11 @@ W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokume
 
 ![Przenaciskanie kolumny](media/data-flow/cosmosb5.png)
 
-13. Teraz ponownie przetworzymy kolumnę waluta, tym razem ```TotalDue```. Podobnie jak w kroku 7, ustaw formułę na: ```toDouble(round(TotalDue,2))```.
+13. Teraz ponownie przetworzymy kolumnę waluta, tym razem ```TotalDue``` . Podobnie jak w kroku 7, ustaw formułę na: ```toDouble(round(TotalDue,2))``` .
 
-14. W tym miejscu zostanie wykorzystana funkcja grupowania wierszy według wspólnego klucza ```SalesOrderID```. Dodaj transformację zagregowaną i ustaw dla niej grupę ```SalesOrderID```.
+14. W tym miejscu zostanie wykorzystana funkcja grupowania wierszy według wspólnego klucza ```SalesOrderID``` . Dodaj transformację zagregowaną i ustaw dla niej grupę ```SalesOrderID``` .
 
-15. W formule agregującej Dodaj nową kolumnę o nazwie "Details" i Użyj tej formuły, aby zebrać wartości ze struktury utworzonej wcześniej o nazwie ```orderdetailsstruct```: ```collect(orderdetailsstruct)```.
+15. W formule agregującej Dodaj nową kolumnę o nazwie "Details" i Użyj tej formuły, aby zebrać wartości ze struktury utworzonej wcześniej o nazwie ```orderdetailsstruct``` : ```collect(orderdetailsstruct)``` .
 
 16. Przekształcenie agregacji będzie dotyczyć tylko kolumn wyjściowych, które są częścią agregacji lub Grupuj według formuł. Dlatego musimy również uwzględnić kolumny w nagłówku sprzedaży. Aby to zrobić, Dodaj wzorzec kolumny w tej samej transformacji agregowanej. Ten wzorzec będzie zawierać wszystkie pozostałe kolumny w danych wyjściowych:
 
@@ -94,7 +94,7 @@ W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokume
 
 18. Jesteśmy gotowi do zakończenia przepływu migracji, dodając transformację ujścia. Kliknij pozycję "nowy" obok pozycji zestaw danych i Dodaj zestaw danych CosmosDB, który wskazuje bazę danych CosmosDB. W przypadku kolekcji zostanie wywołana "Orders" (zamówienia), która nie będzie zawierać schematu ani dokumentów, ponieważ zostanie utworzona na bieżąco.
 
-19. W obszarze Ustawienia ujścia do akcji " ```\SalesOrderID``` Utwórz ponownie" należy wykonać akcję z kluczami partycji do i kolekcji. Upewnij się, że karta mapowanie wygląda następująco:
+19. W obszarze Ustawienia ujścia do akcji "Utwórz ponownie" należy wykonać akcję z kluczami partycji do ```\SalesOrderID``` i kolekcji. Upewnij się, że karta mapowanie wygląda następująco:
 
 ![Ustawienia ujścia](media/data-flow/cosmosb7.png)
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2c62dd2591ca9ccfc4266862578279573598d0c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82137777"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Wieloklasowy moduł regresji logistycznej
@@ -48,7 +48,7 @@ W przypadku regresji logistycznej z wieloma klasami Klasyfikator może służyć
 
     Uregulowanie to metoda zapobiegania zastępowaniu poprzez nakładanie się modeli o wartości skrajnego współczynnika. Uregulowanie działa przez dodanie kary, która jest skojarzona z wartościami współczynnika, do błędu hipotezy. Dokładny model z wartościami współczynnika skrajnie byłby bardziej karany, ale mniej dokładny model z bardziej bardziej bardziej nieprawidłowymi wartościami byłyby mniejsze.
 
-     Uregulowanie L1 i L2 mają różne efekty i używa. L1 można zastosować do modeli rozrzedzonych, co jest przydatne podczas pracy z danymi o dużym wymiarze. Z kolei w przypadku danych, które nie są rozrzedzone, preferowane jest uregulowanie L2.  Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: oznacza to, `x = L1` że `y = L2`Jeśli `ax + by = c` i, definiuje liniowy zakres warunków uregulowania.
+     Uregulowanie L1 i L2 mają różne efekty i używa. L1 można zastosować do modeli rozrzedzonych, co jest przydatne podczas pracy z danymi o dużym wymiarze. Z kolei w przypadku danych, które nie są rozrzedzone, preferowane jest uregulowanie L2.  Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: oznacza to, że jeśli `x = L1` i `y = L2` , `ax + by = c` definiuje liniowy zakres warunków uregulowania.
 
      Dla modeli regresji logistycznej opracowano różne liniowe kombinacje warunków L1 i L2, takie jak [elastyczne uregulowanie netto](https://wikipedia.org/wiki/Elastic_net_regularization).
 

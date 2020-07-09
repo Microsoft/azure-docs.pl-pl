@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7941748f7f917847e551b0cf5cd0a7bf926d31a9
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655190"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086980"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
 
@@ -28,9 +28,9 @@ W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami us�
 
 | Rodzaj konta magazynu | Obsługiwane usługi | Obsługiwane warstwy wydajności |Nieobsługiwane warstwy wydajności| Obsługiwane warstwy dostępu |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (ogólnego przeznaczenia wersja 2)  | Obiekt blob     | Standardowa                    |Premium| Gorąca, chłodna, archiwalna\*   |
-| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa                    |Premium| Nie dotyczy                    |
-| BlobStorage                    | Obiekt blob     | Standardowa                    |Premium| Gorąca, chłodna, archiwalna\*   |
+| StorageV2 (ogólnego przeznaczenia wersja 2)  | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
+| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa (Standard)                    |Premium| Nie dotyczy                    |
+| BlobStorage                    | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
 
 Nie zaleca się używania domyślnego kontenera obiektów BLOB do przechowywania danych firmowych. Dobrym rozwiązaniem jest usunięcie domyślnego kontenera obiektów blob po każdym użyciu, aby obniżyć koszty magazynowania. Kontener domyślny zawiera Dzienniki aplikacji i systemu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
 

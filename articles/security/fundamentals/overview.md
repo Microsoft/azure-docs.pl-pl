@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731704"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85125672"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -29,7 +29,7 @@ Wiemy, że zabezpieczenia to zadanie jedno w chmurze i jak ważne jest, aby znal
 Ten artykuł zawiera szczegółowy opis zabezpieczeń dostępnych w systemie Azure.
 
 ### <a name="azure-platform"></a>Platforma Azure
-Azure to platforma usług w chmurze publicznej, która obsługuje szeroką gamę systemów operacyjnych, języków programowania, struktur, narzędzi, baz danych i urządzeń. Może uruchamiać kontenery systemu Linux z integracją platformy Docker; Twórz aplikacje w językach JavaScript, Python, .NET, PHP, Java i Node. js; Twórz zaplecza dla urządzeń z systemem iOS, Android i Windows.
+Azure to platforma usług w chmurze publicznej, która obsługuje szeroką gamę systemów operacyjnych, języków programowania, struktur, narzędzi, baz danych i urządzeń. Może uruchamiać kontenery systemu Linux z integracją platformy Docker; Twórz aplikacje w językach JavaScript, Python, .NET, PHP, Java i Node.js; Twórz zaplecza dla urządzeń z systemem iOS, Android i Windows.
 
 Usługi w chmurze publicznej platformy Azure obsługują te same technologie, które miliony deweloperów i specjalistów IT są już zależne i ufają. Podczas kompilowania lub migrowania zasobów IT do programu dostawca usług w chmurze publicznej korzysta z możliwości organizacji w zakresie ochrony Twoich aplikacji i danych za pomocą usług i kontroli, które zapewniają Zarządzanie zabezpieczeniami zasobów opartych na chmurze.
 
@@ -218,12 +218,12 @@ Sieć platformy Azure obsługuje różne scenariusze bezpiecznego dostępu zdaln
 ### <a name="vpn-gateway"></a>VPN Gateway
 Aby wysyłać ruch sieciowy między usługą Azure Virtual Network i lokacją lokalną, musisz utworzyć bramę sieci VPN dla Virtual Network platformy Azure. [Brama VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to typ bramy sieci wirtualnej, który wysyła zaszyfrowany ruch sieciowy przez połączenie publiczne. Za pomocą bram sieci VPN można także wysyłać ruch sieciowy między sieciami wirtualnymi platformy Azure za pośrednictwem sieci szkieletowej platformy Azure.
 
-### <a name="express-route"></a>ExpressRoute
+### <a name="express-route"></a>Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) to dedykowany link sieci WAN, który umożliwia poszerzanie sieci lokalnych w chmurze firmy Microsoft przez dedykowane połączenie prywatne obsługiwane przez dostawcę połączenia.
 
-![ExpressRoute](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-fig1.png)
 
-Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i CRM Online. Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji.
+Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure, Microsoft 365 i CRM Online. Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji.
 
 Połączenia ExpressRoute nie przechodzą do publicznej sieci Internet i w ten sposób mogą być uważane za bezpieczniejsze od rozwiązań opartych na sieci VPN. Dzięki temu oferują one większą niezawodność i szybkość oraz mniejsze opóźnienia i lepsze zabezpieczenia niż typowe połączenia przez Internet.
 
@@ -239,10 +239,10 @@ Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między r
 
 Aplikacja oferuje wiele funkcji kontrolera dostarczania aplikacji (ADC), w tym Równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, [odciążanie protokołu TLS](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), niestandardowe sondy kondycji, obsługę wielu witryn i wiele innych.
 
-### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a>Web Application Firewall
 Zapora aplikacji sieci Web to funkcja [platformy Azure Application Gateway](../../application-gateway/overview.md) , która zapewnia ochronę aplikacji sieci Web, które używają usługi Application Gateway do standardowych funkcji kontroli dostarczania aplikacji (ADC). Zapora aplikacji internetowej realizuje ten cel, chroniąc je przed większością z 10 najpopularniejszych luk w zabezpieczeniach w Internecie OWASP.
 
-![Zapora aplikacji internetowej](./media/overview/azure-security-fig1.png)
+![Web Application Firewall](./media/overview/azure-security-fig1.png)
 
 -   Ochrona przed atakami polegającymi na iniekcji SQL
 
@@ -288,7 +288,7 @@ Następujące kategorie dzienników diagnostycznych można włączyć dla siecio
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-intro.md) stale analizuje stan zabezpieczeń zasobów platformy Azure pod kątem najlepszych rozwiązań z zakresu zabezpieczeń sieci. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy [zalecenia](../../security-center/security-center-recommendations.md) , które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 Sekcja zawiera dodatkowe informacje dotyczące najważniejszych funkcji w tym obszarze oraz informacje podsumowujące dotyczące tych możliwości.
 
 ### <a name="antimalware--antivirus"></a>Złośliwe oprogramowanie & antywirusowe
@@ -308,7 +308,7 @@ Szyfrowanie [danych przezroczystych (TDE)](../../virtual-machines/windows/sqlcla
 
 Usługa Azure Key Vault (AKV) została zaprojektowana w celu poprawy bezpieczeństwa i zarządzania tymi kluczami w bezpiecznej i wysoce dostępnej lokalizacji. SQL Server Connector umożliwia SQL Server Korzystanie z tych kluczy z Azure Key Vault.
 
-W przypadku uruchamiania SQL Server z maszynami lokalnymi istnieją kroki, które można wykonać, aby uzyskać dostęp do Azure Key Vault z lokalnej maszyny SQL Server. Jednak w przypadku SQL Server na maszynach wirtualnych platformy Azure można zaoszczędzić czas, korzystając z funkcji integracji Azure Key Vault. Aby włączyć tę funkcję za pomocą kilku poleceń cmdlet Azure PowerShell, można zautomatyzować konfigurację niezbędną do uzyskania dostępu do magazynu kluczy w maszynie wirtualnej SQL.
+W przypadku uruchamiania SQL Server z maszynami lokalnymi istnieją kroki, które można wykonać, aby uzyskać dostęp do Azure Key Vault z lokalnego wystąpienia SQL Server. Jednak w przypadku SQL Server na maszynach wirtualnych platformy Azure można zaoszczędzić czas, korzystając z funkcji integracji Azure Key Vault. Aby włączyć tę funkcję za pomocą kilku poleceń cmdlet Azure PowerShell, można zautomatyzować konfigurację niezbędną do uzyskania dostępu do magazynu kluczy w maszynie wirtualnej SQL.
 
 ### <a name="vm-disk-encryption"></a>Szyfrowanie dysku maszyny wirtualnej
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) to nowa funkcja, która ułatwia szyfrowanie dysków maszyn wirtualnych z systemem Windows i Linux IaaS. Stosuje on standardową funkcję funkcji BitLocker systemu Windows i funkcję DM-Crypt w systemie Linux, aby zapewnić szyfrowanie woluminów dla systemu operacyjnego i dysków danych. Rozwiązanie jest zintegrowane z Azure Key Vault, które ułatwiają kontrolowanie kluczy szyfrowania dysków i wpisów tajnych w subskrypcji Key Vault oraz zarządzanie nimi. Rozwiązanie gwarantuje również, że wszystkie dane na dyskach maszyn wirtualnych są szyfrowane w usłudze Azure Storage.

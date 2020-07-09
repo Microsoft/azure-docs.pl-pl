@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74085265"
 ---
 Diagnozowanie problemów z usługą Microsoft Azure w chmurze wymaga zebrania plików dziennika usługi na maszynach wirtualnych, gdy wystąpią problemy. Możesz użyć rozszerzenia AzureLogCollector na żądanie, aby wykonać jednorazowe zbieranie dzienników z co najmniej jednej maszyny wirtualnej usługi w chmurze (z ról sieci Web i procesów roboczych) i przenieść zebrane pliki na konto usługi Azure Storage — bez zdalnego logowania do żadnej z maszyn wirtualnych.
@@ -33,7 +33,7 @@ W obu trybach kolekcji można określić dodatkowe foldery zbierania danych przy
 
 * **Name**: Nazwa kolekcji używana jako nazwa podfolderu w pliku zip z zebranymi plikami.
 * **Lokalizacja**: ścieżka do folderu na maszynie wirtualnej, w której znajdują się pliki do zebrania.
-* **SearchPattern**: wzorzec nazw plików do zebrania. Wartość domyślna to\*""
+* **SearchPattern**: wzorzec nazw plików do zebrania. Wartość domyślna to " \* "
 * **Rekursywnie**: Jeśli pliki do zebrania znajdują się rekursywnie w określonej lokalizacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -129,7 +129,7 @@ Aby dodać AzureLogCollector do jednego lub większej liczby wystąpień usługi
    ```
 
    > [!NOTE]
-   > Możesz użyć tokenu `%roleroot%` , aby określić dysk główny roli, ponieważ nie używa dysku stałego.
+   > Możesz użyć tokenu, `%roleroot%` Aby określić dysk główny roli, ponieważ nie używa dysku stałego.
    > 
    > 
 4. Podaj nazwę i klucz konta usługi Azure Storage, do którego zostaną przekazane zebrane pliki.
@@ -139,7 +139,7 @@ Aby dodać AzureLogCollector do jednego lub większej liczby wystąpień usługi
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-5. Wywołaj SetAzureServiceLogCollector. ps1 (uwzględniony na końcu artykułu) w następujący sposób, aby włączyć rozszerzenie AzureLogCollector dla usługi w chmurze. Po zakończeniu wykonywania można znaleźć przekazany plik w obszarze`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. Wywołaj SetAzureServiceLogCollector.ps1 (uwzględniony na końcu artykułu) w następujący sposób, aby włączyć rozszerzenie AzureLogCollector dla usługi w chmurze. Po zakończeniu wykonywania można znaleźć przekazany plik w obszarze`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
    ```powershell
    .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -231,7 +231,7 @@ Postępuj zgodnie z instrukcjami, aby połączyć Azure PowerShell z subskrypcj�
    $StorageAccountKey  = 'YourStorageAccountKey'
    ```
 
-3. Wywołaj SetAzureVMLogCollector. ps1 (uwzględniony na końcu artykułu) w następujący sposób, aby włączyć rozszerzenie AzureLogCollector dla usługi w chmurze. Po zakończeniu wykonywania można znaleźć przekazany plik w obszarze`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. Wywołaj SetAzureVMLogCollector.ps1 (uwzględniony na końcu artykułu) w następujący sposób, aby włączyć rozszerzenie AzureLogCollector dla usługi w chmurze. Po zakończeniu wykonywania można znaleźć przekazany plik w obszarze`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
 Poniżej przedstawiono definicje parametrów przesłanych do skryptu. (Jest to również kopiowane poniżej).
 
@@ -276,7 +276,7 @@ param (
   ```
 
 ## <a name="extention-powershell-script-files"></a>Pliki skryptów programu PowerShell w zakresie
-### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector. ps1
+### <a name="setazureservicelogcollectorps1"></a>SetAzureServiceLogCollector.ps1
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -385,7 +385,7 @@ $SasUri = $SasUri + "&restype=container&comp=list"
 Write-Output "The container for uploaded file can be accessed using this link:`r`n$sasuri"
 ```
 
-### <a name="setazurevmlogcollectorps1"></a>SetAzureVMLogCollector. ps1
+### <a name="setazurevmlogcollectorps1"></a>SetAzureVMLogCollector.ps1
 
 ```powershell
 [CmdletBinding(SupportsShouldProcess = $true)]

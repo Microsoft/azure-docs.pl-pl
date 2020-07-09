@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548717"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Omówienie modułów usługi Azure IoT Edge
@@ -43,7 +42,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 Gdy nowe wystąpienie modułu jest tworzone przez środowisko uruchomieniowe IoT Edge, pobiera odpowiednią tożsamość modułu. Tożsamość modułu jest przechowywana w IoT Hub i jest używana jako zakres adresów i zabezpieczeń dla całej komunikacji lokalnej i w chmurze dla tego wystąpienia modułu.
 
-Tożsamość skojarzona z wystąpieniem modułu zależy od tożsamości urządzenia, na którym uruchomiono wystąpienie, oraz nazwy podanych dla tego modułu w rozwiązaniu. Na przykład, jeśli wywołasz `insight` moduł, który używa Azure Stream Analytics i zostanie on wdrożony na urządzeniu o nazwie `Hannover01`, środowisko uruchomieniowe IoT Edge tworzy odpowiednią tożsamość modułu o nazwie `/devices/Hannover01/modules/insight`.
+Tożsamość skojarzona z wystąpieniem modułu zależy od tożsamości urządzenia, na którym uruchomiono wystąpienie, oraz nazwy podanych dla tego modułu w rozwiązaniu. Na przykład, jeśli wywołasz `insight` moduł, który używa Azure Stream Analytics i zostanie on wdrożony na urządzeniu o nazwie `Hannover01` , środowisko uruchomieniowe IoT Edge tworzy odpowiednią tożsamość modułu o nazwie `/devices/Hannover01/modules/insight` .
 
 Jasno, w sytuacjach, gdy konieczne jest wielokrotne wdrożenie jednego obrazu modułu na tym samym urządzeniu, można wdrożyć ten sam obraz wielokrotnie przy użyciu różnych nazw.
 

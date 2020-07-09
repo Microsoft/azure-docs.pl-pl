@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431919"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2,0 — informacje o wersji i przewodnik migracji
@@ -36,7 +36,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * **.NET Framework 4.5.2** jest obsługiwany przez wersję 2,0 biblioteki Azure Key Vault .NET
 * **.NET Standard 1,4** jest obsługiwana w wersji 2,0 biblioteki Azure Key Vault .NET
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>Przestrzenie nazw
 
 * Przestrzeń nazw dla **modeli** została zmieniona z **Microsoft. Azure. z magazynu** kluczy na **Microsoft. Azure. kluczy. models**.
 * **Magazyn Microsoft. Azure. kluczy. wewnętrzna** przestrzeń nazw została porzucona.
@@ -49,12 +49,12 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 
 * *Wpis tajny* został zmieniony na *SecretBundle*
 * *Słownik* został zmieniony na *IDictionary*
-* *Lista\<t>, ciąg []* zmieniono na *IList\<T>*
+* *List \<T> , String []* zmieniono na *IList \<T> *
 * *NextList* zmieniony na *NextPageLink*
 
 ## <a name="return-types"></a>Typy zwracane
 
-* **Lista** i **SecretList** teraz zwracają *iPage\<T>* zamiast *ListKeysResponseMessage*
+* **Lista** i **SecretList** teraz zwracają *iPage \<T> * zamiast *ListKeysResponseMessage*
 * Wygenerowany **BackupKeyAsync** teraz zwraca *BackupKeyResult*, który zawiera *wartość* (obiekt BLOB tworzenia kopii zapasowej). Wcześniej Metoda została opakowana i zwróciła tylko wartość.
 
 ## <a name="exceptions"></a>Wyjątki
@@ -63,7 +63,7 @@ Key Vault certyfikaty zarządzają certyfikatami x509 i obsługują następując
 * Błąd usługi został zmieniony z *wyjątku. Błąd* do *wyjątku. Treść. Error. Message*.
 * Usunięto dodatkowe informacje z komunikatu o błędzie dla **[JsonExtensionData]**.
 
-## <a name="constructors"></a>Konstruktorów
+## <a name="constructors"></a>Konstruktory
 
 * Zamiast zaakceptowania *HttpClient* jako argumentu konstruktora, Konstruktor akceptuje tylko *HttpClientHandler* lub *DelegatingHandler []*.
 

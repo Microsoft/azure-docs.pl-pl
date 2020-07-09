@@ -4,15 +4,15 @@ description: Lista metryk dostępnych dla każdego typu zasobu z Azure Monitor.
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7ed55200db72879f7ec7323b5c165998944688a5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196630"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906789"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -65,7 +65,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MemoryLimitHigh|Pamięć: limit pamięci jest wysoki|Bajty|Średnia|Górny limit pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitLow|Pamięć: limit pamięci — niski|Bajty|Średnia|Limit braku pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitVertiPaq|Pamięć: limit pamięci — tryb VertiPaq|Bajty|Średnia|Limit w pamięci z pliku konfiguracji.|ServerResourceType|
-|Limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
+|limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
 |QuotaBlocked|Pamięć: zablokowany limit przydziału|Liczba|Średnia|Bieżąca liczba żądań przydziałów blokowanych do momentu zwolnienia innych limitów przydziału pamięci.|ServerResourceType|
 |VertiPaqNonpaged|Pamięć: VertiPaq niestronicowana|Bajty|Średnia|Bajty pamięci zablokowane w zestawie roboczym do użycia przez aparat w pamięci.|ServerResourceType|
 |VertiPaqPaged|Pamięć: stronicowana na stronie VertiPaq|Bajty|Średnia|Bajty stronicowanej pamięci w użyciu dla danych w pamięci.|ServerResourceType|
@@ -87,7 +87,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |ShortParsingBusyThreads|Wątki: zajęte wątki z krótkim analizowaniem|Liczba|Średnia|Liczba zajętych wątków w puli wątków o krótkiej analizie.|ServerResourceType|
 |ShortParsingIdleThreads|Wątki: bezczynne wątki z krótkim analizowaniem|Liczba|Średnia|Liczba bezczynnych wątków w puli wątków o krótkiej analizie.|ServerResourceType|
 |ShortParsingJobQueueLength|Wątki: Długość kolejki zadań o krótkiej analizie|Liczba|Średnia|Liczba zadań w kolejce puli wątków o krótkiej analizie.|ServerResourceType|
-|memory_thrashing_metric|Przeładowywanie pamięci|Wartość procentowa|Średnia|Średnia pamięć migotanie.|ServerResourceType|
+|memory_thrashing_metric|Przeładowywanie pamięci|Procent|Średnia|Średnia pamięć migotanie.|ServerResourceType|
 |mashup_engine_qpu_metric|M QPU aparatu|Liczba|Średnia|QPU użycie przez procesy aparatu mashupów|ServerResourceType|
 |mashup_engine_memory_metric|Pamięć aparatu M|Bajty|Średnia|Użycie pamięci przez procesy aparatu mashupów|ServerResourceType|
 |mashup_engine_private_bytes_metric|Liczba prywatnych bajtów aparatu M|Bajty|Średnia|Użycie bajtów prywatnych przez procesy aparatu mashupów.|ServerResourceType|
@@ -105,7 +105,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |OtherRequests|Inne żądania bramy (przestarzałe)|Liczba|Łącznie|Liczba innych żądań bramy — zamiast tego użyj metryki żądania wielowymiarowego z wymiarem GatewayResponseCodeCategory|Lokalizacja, nazwa hosta|
 |Czas trwania|Całkowity czas trwania żądań bramy|)|Średnia|Całkowity czas trwania żądań bramy w milisekundach|Lokalizacja, nazwa hosta|
 |BackendDuration|Czas trwania żądań wewnętrznej bazy danych|)|Średnia|Czas trwania żądań zaplecza w milisekundach|Lokalizacja, nazwa hosta|
-|Pojemność|Pojemność|Wartość procentowa|Średnia|Metryka wykorzystania dla usługi ApiManagement|Lokalizacja|
+|Pojemność|Pojemność|Procent|Średnia|Metryka wykorzystania dla usługi ApiManagement|Lokalizacja|
 |EventHubTotalEvents|Łączna liczba zdarzeń EventHub|Liczba|Łącznie|Liczba zdarzeń wysyłanych do centrum EventHub|Lokalizacja|
 |EventHubSuccessfulEvents|Pomyślne zdarzenia EventHub|Liczba|Łącznie|Liczba pomyślnych zdarzeń EventHub|Lokalizacja|
 |EventHubTotalFailedEvents|Niepowodzenie zdarzeń EventHub|Liczba|Łącznie|Liczba zakończonych niepowodzeniem zdarzeń EventHub|Lokalizacja|
@@ -130,8 +130,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|SystemCpuUsagePercentage|Procent użycia procesora systemu|Wartość procentowa|Średnia|Ostatnie użycie procesora CPU całego systemu|Nazwa_aplikacji, pod|
-|AppCpuUsagePercentage|Procent użycia procesora aplikacji|Wartość procentowa|Średnia|Procent użycia procesora CPU JVM aplikacji|Nazwa_aplikacji, pod|
+|SystemCpuUsagePercentage|Procent użycia procesora systemu|Procent|Średnia|Ostatnie użycie procesora CPU całego systemu|Nazwa_aplikacji, pod|
+|AppCpuUsagePercentage|Procent użycia procesora aplikacji|Procent|Średnia|Procent użycia procesora CPU JVM aplikacji|Nazwa_aplikacji, pod|
 |AppMemoryCommitted|Przypisana pamięć aplikacji|Bajty|Średnia|Pamięć przypisana do JVM w bajtach|Nazwa_aplikacji, pod|
 |AppMemoryUsed|Użyta pamięć aplikacji|Bajty|Średnia|Pamięć aplikacji użyta w bajtach|Nazwa_aplikacji, pod|
 |AppMemoryMax|Maksymalna ilość pamięci aplikacji|Bajty|Maksimum|Maksymalna ilość pamięci w bajtach, która może być używana do zarządzania pamięcią|Nazwa_aplikacji, pod|
@@ -165,7 +165,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |TotalUpdateDeploymentMachineRuns|Łączna liczba przebiegów wdrażania aktualizacji maszyny|Liczba|Łącznie|Łączna liczba uruchomień maszyn wdrożenia aktualizacji oprogramowania w ramach wdrożenia aktualizacji oprogramowania|. Softwareupdateconfigurationname, status, TargetComputer,. Softwareupdateconfigurationrunid|
 
 
-## <a name="microsoftbatchbatchaccounts"></a>Microsoft. Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
@@ -202,7 +202,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |JobTerminateStartEvent|Zdarzenia rozpoczęcia zakończenia zadania|Liczba|Łącznie|Całkowita liczba zadań, które zostały zażądane do zakończenia.|Zadanie|
 
 
-## <a name="microsoftbatchaiworkspaces"></a>Microsoft. Batchai Job/obszary robocze
+## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/obszary robocze
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
@@ -226,10 +226,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|CpuUsagePercentageInDouble|Procent użycia procesora CPU|Wartość procentowa|Maksimum|Procent użycia procesora CPU|Węzeł|
+|CpuUsagePercentageInDouble|Procent użycia procesora CPU|Procent|Maksimum|Procent użycia procesora CPU|Węzeł|
 |MemoryUsage|Użycie pamięci|Bajty|Średnia|Użycie pamięci|Węzeł|
 |MemoryLimit|Limit pamięci|Bajty|Średnia|Limit pamięci|Węzeł|
-|MemoryUsagePercentageInDouble|Procent użycia pamięci|Wartość procentowa|Średnia|Procent użycia pamięci|Węzeł|
+|MemoryUsagePercentageInDouble|Procent użycia pamięci|Procent|Średnia|Procent użycia pamięci|Węzeł|
 |StorageUsage|Użycie magazynu|Bajty|Średnia|Użycie magazynu|Węzeł|
 |IOReadBytes|Bajty odczytu we/wy|Bajty|Łącznie|Bajty odczytu we/wy|Węzeł|
 |IOWriteBytes|Bajty zapisu we/wy|Bajty|Łącznie|Bajty zapisu we/wy|Węzeł|
@@ -252,7 +252,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |totalcommandsprocessed|Łączna liczba operacji|Liczba|Łącznie||ShardId|
 |cachehits|Trafienia w pamięci podręcznej|Liczba|Łącznie||ShardId|
 |cachemisses|Chybienia w pamięci podręcznej|Liczba|Łącznie||ShardId|
-|cachemissrate|Współczynnik chybień w pamięci podręcznej|Wartość procentowa|cachemissrate||ShardId|
+|cachemissrate|Współczynnik chybień w pamięci podręcznej|Procent|cachemissrate||ShardId|
 |GetCommands|Pobrania|Liczba|Łącznie||ShardId|
 |SetCommands|Zestawy|Liczba|Łącznie||ShardId|
 |operationsPerSecond|Liczba operacji na sekundę|Liczba|Maksimum||ShardId|
@@ -260,12 +260,12 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |totalkeys|Łączna liczba kluczy|Liczba|Maksimum||ShardId|
 |expiredkeys|Wygasłe klucze|Liczba|Łącznie||ShardId|
 |usedmemory|Użyta pamięć|Bajty|Maksimum||ShardId|
-|usedmemorypercentage|Wartość procentowa używanej pamięci|Wartość procentowa|Maksimum||ShardId|
+|usedmemorypercentage|Procentowe użycie pamięci|Procent|Maksimum||ShardId|
 |usedmemoryRss|Używana pamięć RSS|Bajty|Maksimum||ShardId|
-|serverLoad|Obciążenie serwera|Wartość procentowa|Maksimum||ShardId|
-|cacheWrite|Zapis pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
+|serverLoad|Obciążenie serwera|Procent|Maksimum||ShardId|
+|cacheWrite|Zapis w pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
 |cacheRead|Odczyt pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
-|percentProcessorTime|Procesor CPU|Wartość procentowa|Maksimum||ShardId|
+|percentProcessorTime|Procesor CPU|Procent|Maksimum||ShardId|
 |cacheLatency|Mikrosekundy opóźnienia pamięci podręcznej (wersja zapoznawcza)|Liczba|Średnia||ShardId|
 |błędy|Errors|Liczba|Maksimum||ShardId, ErrorType|
 |connectedclients0|Połączeni klienci (fragmentu 0)|Liczba|Maksimum||Brak|
@@ -280,10 +280,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys0|Wygasłe klucze (fragmentu 0)|Liczba|Łącznie||Brak|
 |usedmemory0|Używana pamięć (fragmentu 0)|Bajty|Maksimum||Brak|
 |usedmemoryRss0|Używana pamięć RSS (fragmentu 0)|Bajty|Maksimum||Brak|
-|serverLoad0|Ładowanie serwera (fragmentu 0)|Wartość procentowa|Maksimum||Brak|
+|serverLoad0|Ładowanie serwera (fragmentu 0)|Procent|Maksimum||Brak|
 |cacheWrite0|Zapis pamięci podręcznej (fragmentu 0)|BytesPerSecond|Maksimum||Brak|
 |cacheRead0|Odczyt pamięci podręcznej (fragmentu 0)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime0|Procesor CPU (fragmentu 0)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime0|Procesor CPU (fragmentu 0)|Procent|Maksimum||Brak|
 |connectedclients1|Połączeni klienci (fragmentu 1)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed1|Łączna liczba operacji (fragmentu 1)|Liczba|Łącznie||Brak|
 |cachehits1|Trafienia pamięci podręcznej (fragmentu 1)|Liczba|Łącznie||Brak|
@@ -296,10 +296,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys1|Wygasłe klucze (fragmentu 1)|Liczba|Łącznie||Brak|
 |usedmemory1|Używana pamięć (fragmentu 1)|Bajty|Maksimum||Brak|
 |usedmemoryRss1|Używana pamięć RSS (fragmentu 1)|Bajty|Maksimum||Brak|
-|serverLoad1|Ładowanie serwera (fragmentu 1)|Wartość procentowa|Maksimum||Brak|
+|serverLoad1|Ładowanie serwera (fragmentu 1)|Procent|Maksimum||Brak|
 |cacheWrite1|Zapisywanie pamięci podręcznej (fragmentu 1)|BytesPerSecond|Maksimum||Brak|
 |cacheRead1|Odczyt pamięci podręcznej (fragmentu 1)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime1|Procesor CPU (fragmentu 1)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime1|Procesor CPU (fragmentu 1)|Procent|Maksimum||Brak|
 |connectedclients2|Połączeni klienci (fragmentu 2)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed2|Łączna liczba operacji (fragmentu 2)|Liczba|Łącznie||Brak|
 |cachehits2|Trafienia pamięci podręcznej (fragmentu 2)|Liczba|Łącznie||Brak|
@@ -312,10 +312,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys2|Wygasłe klucze (fragmentu 2)|Liczba|Łącznie||Brak|
 |usedmemory2|Używana pamięć (fragmentu 2)|Bajty|Maksimum||Brak|
 |usedmemoryRss2|Używana pamięć RSS (fragmentu 2)|Bajty|Maksimum||Brak|
-|serverLoad2|Ładowanie serwera (fragmentu 2)|Wartość procentowa|Maksimum||Brak|
+|serverLoad2|Ładowanie serwera (fragmentu 2)|Procent|Maksimum||Brak|
 |cacheWrite2|Zapisywanie pamięci podręcznej (fragmentu 2)|BytesPerSecond|Maksimum||Brak|
 |cacheRead2|Odczyt pamięci podręcznej (fragmentu 2)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime2|Procesor CPU (fragmentu 2)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime2|Procesor CPU (fragmentu 2)|Procent|Maksimum||Brak|
 |connectedclients3|Połączeni klienci (fragmentu 3)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed3|Łączna liczba operacji (fragmentu 3)|Liczba|Łącznie||Brak|
 |cachehits3|Trafienia pamięci podręcznej (fragmentu 3)|Liczba|Łącznie||Brak|
@@ -328,10 +328,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys3|Wygasłe klucze (fragmentu 3)|Liczba|Łącznie||Brak|
 |usedmemory3|Używana pamięć (fragmentu 3)|Bajty|Maksimum||Brak|
 |usedmemoryRss3|Używana pamięć RSS (fragmentu 3)|Bajty|Maksimum||Brak|
-|serverLoad3|Ładowanie serwera (fragmentu 3)|Wartość procentowa|Maksimum||Brak|
+|serverLoad3|Ładowanie serwera (fragmentu 3)|Procent|Maksimum||Brak|
 |cacheWrite3|Zapis w pamięci podręcznej (fragmentu 3)|BytesPerSecond|Maksimum||Brak|
 |cacheRead3|Odczyt pamięci podręcznej (fragmentu 3)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime3|Procesor CPU (fragmentu 3)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime3|Procesor CPU (fragmentu 3)|Procent|Maksimum||Brak|
 |connectedclients4|Połączeni klienci (fragmentu 4)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed4|Łączna liczba operacji (fragmentu 4)|Liczba|Łącznie||Brak|
 |cachehits4|Trafienia pamięci podręcznej (fragmentu 4)|Liczba|Łącznie||Brak|
@@ -344,10 +344,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys4|Wygasłe klucze (fragmentu 4)|Liczba|Łącznie||Brak|
 |usedmemory4|Używana pamięć (fragmentu 4)|Bajty|Maksimum||Brak|
 |usedmemoryRss4|Używana pamięć RSS (fragmentu 4)|Bajty|Maksimum||Brak|
-|serverLoad4|Ładowanie serwera (fragmentu 4)|Wartość procentowa|Maksimum||Brak|
+|serverLoad4|Ładowanie serwera (fragmentu 4)|Procent|Maksimum||Brak|
 |cacheWrite4|Zapis pamięci podręcznej (fragmentu 4)|BytesPerSecond|Maksimum||Brak|
 |cacheRead4|Odczyt pamięci podręcznej (fragmentu 4)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime4|Procesor CPU (fragmentu 4)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime4|Procesor CPU (fragmentu 4)|Procent|Maksimum||Brak|
 |connectedclients5|Połączeni klienci (fragmentu 5)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed5|Łączna liczba operacji (fragmentu 5)|Liczba|Łącznie||Brak|
 |cachehits5|Trafienia pamięci podręcznej (fragmentu 5)|Liczba|Łącznie||Brak|
@@ -360,10 +360,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys5|Wygasłe klucze (fragmentu 5)|Liczba|Łącznie||Brak|
 |usedmemory5|Używana pamięć (fragmentu 5)|Bajty|Maksimum||Brak|
 |usedmemoryRss5|Używana pamięć RSS (fragmentu 5)|Bajty|Maksimum||Brak|
-|serverLoad5|Ładowanie serwera (fragmentu 5)|Wartość procentowa|Maksimum||Brak|
+|serverLoad5|Ładowanie serwera (fragmentu 5)|Procent|Maksimum||Brak|
 |cacheWrite5|Zapis w pamięci podręcznej (fragmentu 5)|BytesPerSecond|Maksimum||Brak|
 |cacheRead5|Odczyt pamięci podręcznej (fragmentu 5)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime5|Procesor CPU (fragmentu 5)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime5|Procesor CPU (fragmentu 5)|Procent|Maksimum||Brak|
 |connectedclients6|Połączeni klienci (fragmentu 6)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed6|Łączna liczba operacji (fragmentu 6)|Liczba|Łącznie||Brak|
 |cachehits6|Trafienia pamięci podręcznej (fragmentu 6)|Liczba|Łącznie||Brak|
@@ -376,10 +376,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys6|Wygasłe klucze (fragmentu 6)|Liczba|Łącznie||Brak|
 |usedmemory6|Używana pamięć (fragmentu 6)|Bajty|Maksimum||Brak|
 |usedmemoryRss6|Używana pamięć RSS (fragmentu 6)|Bajty|Maksimum||Brak|
-|serverLoad6|Ładowanie serwera (fragmentu 6)|Wartość procentowa|Maksimum||Brak|
+|serverLoad6|Ładowanie serwera (fragmentu 6)|Procent|Maksimum||Brak|
 |cacheWrite6|Zapis w pamięci podręcznej (fragmentu 6)|BytesPerSecond|Maksimum||Brak|
 |cacheRead6|Odczyt pamięci podręcznej (fragmentu 6)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime6|Procesor CPU (fragmentu 6)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime6|Procesor CPU (fragmentu 6)|Procent|Maksimum||Brak|
 |connectedclients7|Połączeni klienci (fragmentu 7)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed7|Łączna liczba operacji (fragmentu 7)|Liczba|Łącznie||Brak|
 |cachehits7|Trafienia pamięci podręcznej (fragmentu 7)|Liczba|Łącznie||Brak|
@@ -392,10 +392,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys7|Wygasłe klucze (fragmentu 7)|Liczba|Łącznie||Brak|
 |usedmemory7|Używana pamięć (fragmentu 7)|Bajty|Maksimum||Brak|
 |usedmemoryRss7|Używana pamięć RSS (fragmentu 7)|Bajty|Maksimum||Brak|
-|serverLoad7|Ładowanie serwera (fragmentu 7)|Wartość procentowa|Maksimum||Brak|
+|serverLoad7|Ładowanie serwera (fragmentu 7)|Procent|Maksimum||Brak|
 |cacheWrite7|Zapis w pamięci podręcznej (fragmentu 7)|BytesPerSecond|Maksimum||Brak|
 |cacheRead7|Odczyt pamięci podręcznej (fragmentu 7)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime7|Procesor CPU (fragmentu 7)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime7|Procesor CPU (fragmentu 7)|Procent|Maksimum||Brak|
 |connectedclients8|Połączeni klienci (fragmentu 8)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed8|Łączna liczba operacji (fragmentu 8)|Liczba|Łącznie||Brak|
 |cachehits8|Trafienia pamięci podręcznej (fragmentu 8)|Liczba|Łącznie||Brak|
@@ -408,10 +408,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys8|Wygasłe klucze (fragmentu 8)|Liczba|Łącznie||Brak|
 |usedmemory8|Używana pamięć (fragmentu 8)|Bajty|Maksimum||Brak|
 |usedmemoryRss8|Używana pamięć RSS (fragmentu 8)|Bajty|Maksimum||Brak|
-|serverLoad8|Ładowanie serwera (fragmentu 8)|Wartość procentowa|Maksimum||Brak|
+|serverLoad8|Ładowanie serwera (fragmentu 8)|Procent|Maksimum||Brak|
 |cacheWrite8|Zapis w pamięci podręcznej (fragmentu 8)|BytesPerSecond|Maksimum||Brak|
 |cacheRead8|Odczyt pamięci podręcznej (fragmentu 8)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime8|Procesor CPU (fragmentu 8)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime8|Procesor CPU (fragmentu 8)|Procent|Maksimum||Brak|
 |connectedclients9|Połączeni klienci (fragmentu 9)|Liczba|Maksimum||Brak|
 |totalcommandsprocessed9|Łączna liczba operacji (fragmentu 9)|Liczba|Łącznie||Brak|
 |cachehits9|Trafienia pamięci podręcznej (fragmentu 9)|Liczba|Łącznie||Brak|
@@ -424,10 +424,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |expiredkeys9|Wygasłe klucze (fragmentu 9)|Liczba|Łącznie||Brak|
 |usedmemory9|Używana pamięć (fragmentu 9)|Bajty|Maksimum||Brak|
 |usedmemoryRss9|Używana pamięć RSS (fragmentu 9)|Bajty|Maksimum||Brak|
-|serverLoad9|Ładowanie serwera (fragmentu 9)|Wartość procentowa|Maksimum||Brak|
+|serverLoad9|Ładowanie serwera (fragmentu 9)|Procent|Maksimum||Brak|
 |cacheWrite9|Zapis w pamięci podręcznej (fragmentu 9)|BytesPerSecond|Maksimum||Brak|
 |cacheRead9|Odczyt pamięci podręcznej (fragmentu 9)|BytesPerSecond|Maksimum||Brak|
-|percentProcessorTime9|Procesor CPU (fragmentu 9)|Wartość procentowa|Maksimum||Brak|
+|percentProcessorTime9|Procesor CPU (fragmentu 9)|Procent|Maksimum||Brak|
 
 
 
@@ -443,7 +443,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Wartość procentowa|Średnia|Wartość procentowa przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne.|Brak|
+|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Procent|Średnia|Wartość procentowa przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne.|Brak|
 |Sieć — wejście|Sieć — wejście|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący).|Brak|
 |Sieć — wyjście|Sieć — wyjście|Bajty|Łącznie|Liczba bajtów wysłanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący).|Brak|
 |Bajty odczytu dysku/s|Odczyt dysku|BytesPerSecond|Średnia|Średnia liczba bajtów odczytanych z dysku w okresie monitorowania.|Brak|
@@ -456,7 +456,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Wartość procentowa|Średnia|Wartość procentowa przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne.|RoleInstanceId|
+|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Procent|Średnia|Wartość procentowa przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne.|RoleInstanceId|
 |Sieć — wejście|Sieć — wejście|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący).|RoleInstanceId|
 |Sieć — wyjście|Sieć — wyjście|Bajty|Łącznie|Liczba bajtów wysłanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący).|RoleInstanceId|
 |Bajty odczytu dysku/s|Odczyt dysku|BytesPerSecond|Średnia|Średnia liczba bajtów odczytanych z dysku w okresie monitorowania.|RoleInstanceId|
@@ -476,7 +476,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 ## <a name="microsoftclassicstoragestorageaccountsblobservices"></a>Microsoft. ClassicStorage/storageAccounts/blobServices
 
@@ -491,7 +491,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 ## <a name="microsoftclassicstoragestorageaccountstableservices"></a>Microsoft. ClassicStorage/storageAccounts/tableServices
 
@@ -505,24 +505,24 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 ## <a name="microsoftclassicstoragestorageaccountsfileservices"></a>Microsoft. ClassicStorage/storageAccounts/fileServices
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udziału|
-|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udziału|
+|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udział plików|
+|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udział plików|
 |FileShareCount|Liczba udziałów plików|Liczba|Średnia|Liczba udziałów plików w usłudze plików konta magazynu.|Brak|
-|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udziału|
-|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udziału|
-|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udziału|
+|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udział plików|
+|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udział plików|
+|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 
 ## <a name="microsoftclassicstoragestorageaccountsqueueservices"></a>Microsoft. ClassicStorage/storageAccounts/queueServices
 
@@ -536,7 +536,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci określonego przez wartość Opóźnienie E2E dla powodzenia.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Kompleksowe opóźnienie pomyślnych żądań kierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. CognitiveServices/konta
@@ -545,7 +545,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |TotalCalls|Łączna liczba wywołań|Liczba|Łącznie|Łączna liczba wywołań.|ApiName, OperationName, region|
 |SuccessfulCalls|Pomyślne wywołania|Liczba|Łącznie|Liczba pomyślnych wywołań.|ApiName, OperationName, region|
-|TotalErrors|Łączna liczba błędów|Liczba|Łącznie|Łączna liczba wywołań z odpowiedzią na błąd (kod odpowiedzi HTTP 4xx lub 5xx).|ApiName, OperationName, region|
+|TotalErrors|Całkowita liczba błędów|Liczba|Łącznie|Łączna liczba wywołań z odpowiedzią na błąd (kod odpowiedzi HTTP 4xx lub 5xx).|ApiName, OperationName, region|
 |BlockedCalls|Zablokowane wywołania|Liczba|Łącznie|Liczba wywołań, które przekroczyły limit szybkości lub limitu przydziału.|ApiName, OperationName, region|
 |Błędy servererrors|Błędy serwera|Liczba|Łącznie|Liczba wywołań z błędem wewnętrznym usługi (5xx kodu odpowiedzi HTTP).|ApiName, OperationName, region|
 |ClientErrors|Błędy klienta|Liczba|Łącznie|Liczba wywołań z błędem po stronie klienta (4xx kodu odpowiedzi HTTP).|ApiName, OperationName, region|
@@ -563,7 +563,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Wartość procentowa|Średnia|Procent przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne|Brak|
+|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Procent|Średnia|Procent przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne|Brak|
 |Sieć — wejście|Sieć jest rozliczana (przestarzałe)|Bajty|Łącznie|Liczba bajtów rozliczanych odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący) (przestarzałe)|Brak|
 |Sieć — wyjście|Sieć — do rozliczania (przestarzałe)|Bajty|Łącznie|Liczba bajtów rozliczanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący) (przestarzałe)|Brak|
 |Bajty odczytu dysku|Bajty odczytu dysku|Bajty|Łącznie|Bajty odczytane z dysku w okresie monitorowania|Brak|
@@ -596,10 +596,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Przepływy wychodzące|Przepływy wychodzące|Liczba|Średnia|Przepływy wychodzące to liczba bieżących przepływów w kierunku ruchu wychodzącego (ruch wychodzący z maszyny wirtualnej)|Brak|
 |Maksymalny współczynnik tworzenia przepływów przychodzących|Maksymalny współczynnik tworzenia przepływów przychodzących|CountPerSecond|Średnia|Maksymalna szybkość tworzenia przepływów przychodzących (ruch przychodzący do maszyny wirtualnej)|Brak|
 |Maksymalny współczynnik tworzenia przepływów wychodzących|Maksymalny współczynnik tworzenia przepływów wychodzących|CountPerSecond|Średnia|Maksymalna szybkość tworzenia przepływów wychodzących (ruch wychodzący z maszyny wirtualnej)|Brak|
-|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
-|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
-|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Brak|
-|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak|
+|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)|Procent|Średnia|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
+|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)|Procent|Średnia|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
+|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Procent|Średnia|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Brak|
+|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Procent|Średnia|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak|
 |Sieć łącznie|Sieć łącznie|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący)|Brak|
 |Całkowita liczba sieci|Całkowita liczba sieci|Bajty|Łącznie|Liczba bajtów wysłanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący)|Brak|
 
@@ -608,7 +608,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Wartość procentowa|Średnia|Procent przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne|VMName|
+|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Procent|Średnia|Procent przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne|VMName|
 |Sieć — wejście|Sieć jest rozliczana (przestarzałe)|Bajty|Łącznie|Liczba bajtów rozliczanych odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący) (przestarzałe)|VMName|
 |Sieć — wyjście|Sieć — do rozliczania (przestarzałe)|Bajty|Łącznie|Liczba bajtów rozliczanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący) (przestarzałe)|VMName|
 |Bajty odczytu dysku|Bajty odczytu dysku|Bajty|Łącznie|Bajty odczytane z dysku w okresie monitorowania|VMName|
@@ -641,10 +641,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Przepływy wychodzące|Przepływy wychodzące|Liczba|Średnia|Przepływy wychodzące to liczba bieżących przepływów w kierunku ruchu wychodzącego (ruch wychodzący z maszyny wirtualnej)|VMName|
 |Maksymalny współczynnik tworzenia przepływów przychodzących|Maksymalny współczynnik tworzenia przepływów przychodzących|CountPerSecond|Średnia|Maksymalna szybkość tworzenia przepływów przychodzących (ruch przychodzący do maszyny wirtualnej)|VMName|
 |Maksymalny współczynnik tworzenia przepływów wychodzących|Maksymalny współczynnik tworzenia przepływów wychodzących|CountPerSecond|Średnia|Maksymalna szybkość tworzenia przepływów wychodzących (ruch wychodzący z maszyny wirtualnej)|VMName|
-|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Jednostka LUN, VMName|
-|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Jednostka LUN, VMName|
-|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|VMName|
-|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|VMName|
+|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)|Procent|Średnia|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Jednostka LUN, VMName|
+|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)|Procent|Średnia|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Jednostka LUN, VMName|
+|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Procent|Średnia|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|VMName|
+|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Procent|Średnia|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|VMName|
 |Sieć łącznie|Sieć łącznie|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący)|VMName|
 |Całkowita liczba sieci|Całkowita liczba sieci|Bajty|Łącznie|Liczba bajtów wysłanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący)|VMName|
 
@@ -653,7 +653,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Wartość procentowa|Średnia|Procent przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne|Brak|
+|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Procent|Średnia|Procent przyznanych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne|Brak|
 |Sieć — wejście|Sieć jest rozliczana (przestarzałe)|Bajty|Łącznie|Liczba bajtów rozliczanych odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący) (przestarzałe)|Brak|
 |Sieć — wyjście|Sieć — do rozliczania (przestarzałe)|Bajty|Łącznie|Liczba bajtów rozliczanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący) (przestarzałe)|Brak|
 |Bajty odczytu dysku|Bajty odczytu dysku|Bajty|Łącznie|Bajty odczytane z dysku w okresie monitorowania|Brak|
@@ -686,10 +686,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Przepływy wychodzące|Przepływy wychodzące|Liczba|Średnia|Przepływy wychodzące to liczba bieżących przepływów w kierunku ruchu wychodzącego (ruch wychodzący z maszyny wirtualnej)|Brak|
 |Maksymalny współczynnik tworzenia przepływów przychodzących|Maksymalny współczynnik tworzenia przepływów przychodzących|CountPerSecond|Średnia|Maksymalna szybkość tworzenia przepływów przychodzących (ruch przychodzący do maszyny wirtualnej)|Brak|
 |Maksymalny współczynnik tworzenia przepływów wychodzących|Maksymalny współczynnik tworzenia przepływów wychodzących|CountPerSecond|Średnia|Maksymalna szybkość tworzenia przepływów wychodzących (ruch wychodzący z maszyny wirtualnej)|Brak|
-|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
-|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
-|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Brak|
-|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Wartość procentowa|Średnia|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak|
+|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|Trafienie odczytu pamięci podręcznej dysku danych Premium (wersja zapoznawcza)|Procent|Średnia|Trafienie odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
+|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|Chybienia odczytu pamięci podręcznej dysku z danymi Premium (wersja zapoznawcza)|Procent|Średnia|Chybienia odczytu pamięci podręcznej dysku danych w warstwie Premium|TWORZONA|
+|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Procent|Średnia|Trafienie odczytu pamięci podręcznej systemu operacyjnego Premium|Brak|
+|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak chybień w pamięci podręcznej systemu operacyjnego Premium (wersja zapoznawcza)|Procent|Średnia|Brak odczytu pamięci podręcznej dysku systemu operacyjnego w warstwie Premium|Brak|
 |Sieć łącznie|Sieć łącznie|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący)|Brak|
 |Całkowita liczba sieci|Całkowita liczba sieci|Bajty|Łącznie|Liczba bajtów wysłanych we wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący)|Brak|
 
@@ -729,7 +729,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|SuccessfullRequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Pomyślne żądania wykonywane przez niestandardowego dostawcę|HttpMethod, CallPath, StatusCode|
+|SuccessfullRequests|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania wykonywane przez niestandardowego dostawcę|HttpMethod, CallPath, StatusCode|
 |FailedRequests|Żądania zakończone niepowodzeniem|Liczba|Łącznie|Pobiera dostępne dzienniki dla niestandardowych dostawców zasobów|HttpMethod, CallPath, StatusCode|
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft. DataBoxEdge/dataBoxEdgeDevices
@@ -746,8 +746,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |CloudUploadThroughput|Przepływność przekazywania w chmurze|BytesPerSecond|Średnia|W chmurze przekazano przepływność na platformę Azure w okresie raportowania.|Brak|
 |CloudReadThroughput|Przepływność pobierania w chmurze|BytesPerSecond|Średnia|Chmura pobiera przepływność na platformę Azure w okresie raportowania.|Brak|
 |BytesUploadedToCloud|Przekazane bajty w chmurze (urządzenie)|Bajty|Średnia|Całkowita liczba bajtów przekazana na platformę Azure z urządzenia w okresie raportowania.|Brak|
-|HyperVVirtualProcessorUtilization|Obliczenia brzegowe — procentowy procesor CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|InstanceName|
-|HyperVMemoryUtilization|Obliczenia brzegowe — użycie pamięci|Wartość procentowa|Średnia|Ilość pamięci RAM w użyciu|InstanceName|
+|HyperVVirtualProcessorUtilization|Obliczenia brzegowe — procentowy procesor CPU|Procent|Średnia|Procent użycia procesora CPU|InstanceName|
+|HyperVMemoryUtilization|Obliczenia brzegowe — użycie pamięci|Procent|Średnia|Ilość pamięci RAM w użyciu|InstanceName|
 
 
 ## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft. datacatalog/wykazy
@@ -786,7 +786,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |TriggerFailedRuns|Metryki uruchomienia wyzwalacza zakończonego niepowodzeniem|Liczba|Łącznie||Nazwa, Niepowodzenie|
 |TriggerSucceededRuns|Wyzwalacze uruchomienia wyzwalają metryki|Liczba|Łącznie||Nazwa, Niepowodzenie|
 |TriggerCancelledRuns|Anulowane metryki uruchamiania wyzwalacza|Liczba|Łącznie||Nazwa, Niepowodzenie|
-|IntegrationRuntimeCpuPercentage|Użycie procesora Integration Runtime|Wartość procentowa|Średnia||IntegrationRuntimeName, nodename|
+|IntegrationRuntimeCpuPercentage|Użycie procesora Integration Runtime|Procent|Średnia||IntegrationRuntimeName, nodename|
 |IntegrationRuntimeAvailableMemory|Dostępna pamięć środowiska Integration Runtime|Bajty|Średnia||IntegrationRuntimeName, nodename|
 |IntegrationRuntimeAverageTaskPickupDelay|Czas trwania kolejki Integration Runtime|Sekundy|Średnia||IntegrationRuntimeName|
 |IntegrationRuntimeQueueLength|Długość kolejki środowiska Integration Runtime|Liczba|Średnia||IntegrationRuntimeName|
@@ -836,13 +836,13 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|memory_percent|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Brak|
-|io_consumption_percent|Procent operacji we/wy|Wartość procentowa|Średnia|Procent operacji we/wy|Brak|
-|storage_percent|Procent magazynu|Wartość procentowa|Średnia|Procent magazynu|Brak|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|memory_percent|Procent pamięci|Procent|Średnia|Procent pamięci|Brak|
+|io_consumption_percent|Procent operacji we/wy|Procent|Średnia|Procent operacji we/wy|Brak|
+|storage_percent|Procent magazynu|Procent|Średnia|Procent magazynu|Brak|
 |storage_used|Używany magazyn|Bajty|Średnia|Używany magazyn|Brak|
 |storage_limit|Limit magazynu|Bajty|Maksimum|Limit magazynu|Brak|
-|serverlog_storage_percent|Procent magazynu dzienników serwera|Wartość procentowa|Średnia|Procent magazynu dzienników serwera|Brak|
+|serverlog_storage_percent|Procent magazynu dzienników serwera|Procent|Średnia|Procent magazynu dzienników serwera|Brak|
 |serverlog_storage_usage|Używany magazyn dzienników serwera|Bajty|Średnia|Używany magazyn dzienników serwera|Brak|
 |serverlog_storage_limit|Limit magazynowania dziennika serwera|Bajty|Średnia|Limit magazynowania dziennika serwera|Brak|
 |active_connections|Aktywne połączenia|Liczba|Średnia|Aktywne połączenia|Brak|
@@ -857,13 +857,13 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|memory_percent|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Brak|
-|io_consumption_percent|Procent operacji we/wy|Wartość procentowa|Średnia|Procent operacji we/wy|Brak|
-|storage_percent|Procent magazynu|Wartość procentowa|Średnia|Procent magazynu|Brak|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|memory_percent|Procent pamięci|Procent|Średnia|Procent pamięci|Brak|
+|io_consumption_percent|Procent operacji we/wy|Procent|Średnia|Procent operacji we/wy|Brak|
+|storage_percent|Procent magazynu|Procent|Średnia|Procent magazynu|Brak|
 |storage_used|Używany magazyn|Bajty|Średnia|Używany magazyn|Brak|
 |storage_limit|Limit magazynu|Bajty|Maksimum|Limit magazynu|Brak|
-|serverlog_storage_percent|Procent magazynu dzienników serwera|Wartość procentowa|Średnia|Procent magazynu dzienników serwera|Brak|
+|serverlog_storage_percent|Procent magazynu dzienników serwera|Procent|Średnia|Procent magazynu dzienników serwera|Brak|
 |serverlog_storage_usage|Używany magazyn dzienników serwera|Bajty|Średnia|Używany magazyn dzienników serwera|Brak|
 |serverlog_storage_limit|Limit magazynowania dziennika serwera|Bajty|Maksimum|Limit magazynowania dziennika serwera|Brak|
 |active_connections|Aktywne połączenia|Liczba|Średnia|Aktywne połączenia|Brak|
@@ -878,13 +878,13 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|memory_percent|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Brak|
-|io_consumption_percent|Procent operacji we/wy|Wartość procentowa|Średnia|Procent operacji we/wy|Brak|
-|storage_percent|Procent magazynu|Wartość procentowa|Średnia|Procent magazynu|Brak|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|memory_percent|Procent pamięci|Procent|Średnia|Procent pamięci|Brak|
+|io_consumption_percent|Procent operacji we/wy|Procent|Średnia|Procent operacji we/wy|Brak|
+|storage_percent|Procent magazynu|Procent|Średnia|Procent magazynu|Brak|
 |storage_used|Używany magazyn|Bajty|Średnia|Używany magazyn|Brak|
 |storage_limit|Limit magazynu|Bajty|Maksimum|Limit magazynu|Brak|
-|serverlog_storage_percent|Procent magazynu dzienników serwera|Wartość procentowa|Średnia|Procent magazynu dzienników serwera|Brak|
+|serverlog_storage_percent|Procent magazynu dzienników serwera|Procent|Średnia|Procent magazynu dzienników serwera|Brak|
 |serverlog_storage_usage|Używany magazyn dzienników serwera|Bajty|Średnia|Używany magazyn dzienników serwera|Brak|
 |serverlog_storage_limit|Limit magazynowania dziennika serwera|Bajty|Maksimum|Limit magazynowania dziennika serwera|Brak|
 |active_connections|Aktywne połączenia|Liczba|Średnia|Aktywne połączenia|Brak|
@@ -900,10 +900,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|memory_percent|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Brak|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|memory_percent|Procent pamięci|Procent|Średnia|Procent pamięci|Brak|
 |Wejścia|Liczba operacji we/wy na sekundę|Liczba|Średnia|Operacje we/wy na sekundę|Brak|
-|storage_percent|Procent magazynu|Wartość procentowa|Średnia|Procent magazynu|Brak|
+|storage_percent|Procent magazynu|Procent|Średnia|Procent magazynu|Brak|
 |storage_used|Używany magazyn|Bajty|Średnia|Używany magazyn|Brak|
 |active_connections|Aktywne połączenia|Liczba|Średnia|Aktywne połączenia|Brak|
 |network_bytes_egress|Sieć — wyjście|Bajty|Łącznie|Sieć poza aktywnymi połączeniami|Brak|
@@ -914,10 +914,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|memory_percent|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Brak|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|memory_percent|Procent pamięci|Procent|Średnia|Procent pamięci|Brak|
 |Wejścia|Liczba operacji we/wy na sekundę|Liczba|Średnia|Operacje we/wy na sekundę|Brak|
-|storage_percent|Procent magazynu|Wartość procentowa|Średnia|Procent magazynu|Brak|
+|storage_percent|Procent magazynu|Procent|Średnia|Procent magazynu|Brak|
 |storage_used|Używany magazyn|Bajty|Średnia|Używany magazyn|Brak|
 |active_connections|Aktywne połączenia|Liczba|Średnia|Aktywne połączenia|Brak|
 |network_bytes_egress|Sieć — wyjście|Bajty|Łącznie|Sieć poza aktywnymi połączeniami|Brak|
@@ -1014,7 +1014,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 
 
-## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft. DocumentDB/databaseAccounts
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
@@ -1055,13 +1055,13 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MongoRequestsInsert|Liczba żądań wstawienia Mongo|CountPerSecond|Średnia|Liczba operacji wstawiania Mongo na sekundę|DatabaseName, CollectionName, region, CommandName, ErrorCode|
 |MongoRequestsQuery|Częstotliwość żądań zapytań Mongo|CountPerSecond|Średnia|Żądania zapytania Mongo na sekundę|DatabaseName, CollectionName, region, CommandName, ErrorCode|
 |MongoRequestsUpdate|Częstotliwość żądań aktualizacji Mongo|CountPerSecond|Średnia|Żądanie aktualizacji Mongo na sekundę|DatabaseName, CollectionName, region, CommandName, ErrorCode|
-|NormalizedRUConsumption|Znormalizowane użycie RU|Wartość procentowa|Maksimum|Maksymalna wartość procentowa zużycia RU na minutę|CollectionName, DatabaseName, region|
+|NormalizedRUConsumption|Znormalizowane użycie RU|Procent|Maksimum|Maksymalna wartość procentowa zużycia RU na minutę|CollectionName, DatabaseName, region|
 |ProvisionedThroughput|Aprowizowana przepływność|Liczba|Maksimum|Aprowizowana przepływność|DatabaseName, CollectionName|
 |RegionFailover|Region w trybie failover|Liczba|Liczba|Region w trybie failover|Brak|
 |RemoveRegion|Usunięto region|Liczba|Liczba|Usunięto region|Region|
 |ReplicationLatency|Opóźnienie replikacji poziomie P99|)|Średnia|Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną|SourceRegion,TargetRegion|
 |ServerSideLatency|Opóźnienie po stronie serwera|)|Średnia|Opóźnienie po stronie serwera|DatabaseName, CollectionName, region, Connectionmode, OperationType, PublicAPIType|
-|Dostępność|Dostępność usługi|Wartość procentowa|Średnia|Dostępność żądania konta o jednej godzinie, dniu lub o dokładności|Brak|
+|Dostępność|Dostępność usługi|Procent|Średnia|Dostępność żądania konta o jednej godzinie, dniu lub o dokładności|Brak|
 |SqlContainerDelete|Usunięto kontener SQL|Liczba|Liczba|Usunięto kontener SQL|ResourceName, ChildResourceName, rodzaju interfejsu API, ApiKindResourceType, OperationType|
 |SqlContainerThroughputUpdate|Zaktualizowano przepływność kontenera SQL|Liczba|Liczba|Zaktualizowano przepływność kontenera SQL|ResourceName, ChildResourceName, rodzaju interfejsu API, ApiKindResourceType, IsThroughputRequest|
 |SqlContainerUpdate|Zaktualizowano kontener SQL|Liczba|Liczba|Zaktualizowano kontener SQL|ResourceName, ChildResourceName, rodzaju interfejsu API, ApiKindResourceType, IsThroughputRequest|
@@ -1160,19 +1160,19 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Żądania successfulrequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
+|Żądania successfulrequests|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Błędy servererrors|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Błędy usererrors|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Błędy quotaexceedederrors|Błędy przekroczenia limitu przydziału.|Liczba|Łącznie|Przekroczono limit przydziału dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
-|ThrottledRequests|Żądania z ograniczeniami.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
+|ThrottledRequests|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|EntityName, klasy OperationResult|
 |Żądania incomingrequests|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla elementu Microsoft. EventHub.|EntityName|
 |Komunikaty incomingmessages|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. EventHub.|EntityName|
 |Komunikaty outgoingmessages|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. EventHub.|EntityName|
 |Bajty incomingbytes|Bajty przychodzące.|Bajty|Łącznie|Przychodzące bajty dla elementu Microsoft. EventHub.|EntityName|
 |Bajty outgoingbytes|Bajty wychodzące.|Bajty|Łącznie|Bajty wychodzące dla elementu Microsoft. EventHub.|EntityName|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
 |Połączenia connectionsopened|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. EventHub.|EntityName|
-|Połączenia connectionsclosed|Połączenia zamknięte.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|EntityName|
+|Połączenia connectionsclosed|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|EntityName|
 |CaptureBacklog|Zaległości przechwytywania.|Liczba|Łącznie|Zaległości przechwytywania dla elementu Microsoft. EventHub.|EntityName|
 |CapturedMessages|Przechwycone komunikaty.|Liczba|Łącznie|Przechwycone komunikaty dla elementu Microsoft. EventHub.|EntityName|
 |CapturedBytes|Przechwycone bajty.|Bajty|Łącznie|Przechwycone bajty dla elementu Microsoft. EventHub.|EntityName|
@@ -1199,24 +1199,24 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Żądania successfulrequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|Klasy OperationResult|
+|Żądania successfulrequests|Żądania pomyślne|Liczba|Łącznie|Pomyślne żądania dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Błędy servererrors|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Błędy usererrors|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Błędy quotaexceedederrors|Błędy przekroczenia limitu przydziału.|Liczba|Łącznie|Przekroczono limit przydziału dla elementu Microsoft. EventHub.|Klasy OperationResult|
-|ThrottledRequests|Żądania z ograniczeniami.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|Klasy OperationResult|
+|ThrottledRequests|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. EventHub.|Klasy OperationResult|
 |Żądania incomingrequests|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla elementu Microsoft. EventHub.|Brak|
 |Komunikaty incomingmessages|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. EventHub.|Brak|
 |Komunikaty outgoingmessages|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. EventHub.|Brak|
 |Bajty incomingbytes|Bajty przychodzące.|Bajty|Łącznie|Przychodzące bajty dla elementu Microsoft. EventHub.|Brak|
 |Bajty outgoingbytes|Bajty wychodzące.|Bajty|Łącznie|Bajty wychodzące dla elementu Microsoft. EventHub.|Brak|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Średnia|Łączna liczba aktywnych połączeń dla elementu Microsoft. EventHub.|Brak|
 |Połączenia connectionsopened|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. EventHub.|Brak|
-|Połączenia connectionsclosed|Połączenia zamknięte.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|Brak|
+|Połączenia connectionsclosed|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. EventHub.|Brak|
 |CaptureBacklog|Zaległości przechwytywania.|Liczba|Łącznie|Zaległości przechwytywania dla elementu Microsoft. EventHub.|Brak|
 |CapturedMessages|Przechwycone komunikaty.|Liczba|Łącznie|Przechwycone komunikaty dla elementu Microsoft. EventHub.|Brak|
 |CapturedBytes|Przechwycone bajty.|Bajty|Łącznie|Przechwycone bajty dla elementu Microsoft. EventHub.|Brak|
-|Procesor CPU|Procesor CPU|Wartość procentowa|Maksimum|Użycie procesora CPU przez klaster centrum zdarzeń jako wartość procentowa|Rola|
-|AvailableMemory|Dostępna pamięć|Wartość procentowa|Maksimum|Dostępna pamięć dla klastra centrum zdarzeń jako procent całkowitej ilości pamięci.|Rola|
+|Procesor CPU|Procesor CPU|Procent|Maksimum|Użycie procesora CPU przez klaster centrum zdarzeń jako wartość procentowa|Rola|
+|AvailableMemory|Dostępna pamięć|Procent|Maksimum|Dostępna pamięć dla klastra centrum zdarzeń jako procent całkowitej ilości pamięci.|Rola|
 |Rozmiar|Rozmiar centrum EventHub w bajtach.|Bajty|Średnia|Rozmiar centrum EventHub w bajtach.|Rola|
 
 
@@ -1242,7 +1242,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|availabilityResults/availabilityPercentage|Dostępność|Wartość procentowa|Średnia|Procent pomyślnie ukończonych testów dostępności|availabilityResult/nazwa, availabilityResult/lokalizacja|
+|availabilityResults/availabilityPercentage|Dostępność|Procent|Średnia|Procent pomyślnie ukończonych testów dostępności|availabilityResult/nazwa, availabilityResult/lokalizacja|
 |availabilityResults/liczba|Testy dostępności|Liczba|Liczba|Liczba testów dostępności|availabilityResult/nazwa, availabilityResult/lokalizacja, availabilityResult/sukces|
 |availabilityResults/czas trwania|Czas trwania testu dostępności|)|Średnia|Czas trwania testu dostępności|availabilityResult/nazwa, availabilityResult/lokalizacja, availabilityResult/sukces|
 |browserTimings/networkDuration|Czas połączenia sieciowego ładowania strony|)|Średnia|Czas między żądaniem użytkownika a połączeniem sieciowym. Obejmuje wyszukiwanie DNS i połączenie transportowe.|Brak|
@@ -1260,8 +1260,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Liczniki wydajności/requestsPerSecond|Częstotliwość żądań HTTP|CountPerSecond|Średnia|Szybkość wszystkich żądań wysyłanych do aplikacji w ciągu sekundy od ASP.NET.|Chmura/roleInstance|
 |Liczniki wydajności/exceptionsPerSecond|Częstotliwość wyjątków|CountPerSecond|Średnia|Liczba obsłużonych i nieobsłużonych wyjątków zgłoszonych w systemie Windows, łącznie z wyjątkami platformy .NET i niezarządzanymi wyjątkami przekonwertowanymi na wyjątki platformy .NET.|Chmura/roleInstance|
 |Liczniki wydajności/processIOBytesPerSecond|Szybkość operacji we/wy procesu|BytesPerSecond|Średnia|Łączna liczba bajtów odczytanych i zapisywana w plikach, sieci i urządzeniach.|Chmura/roleInstance|
-|Liczniki wydajności/processCpuPercentage|Procesor CPU procesu|Wartość procentowa|Średnia|Wyrażony w procentach czas, przez jaki wszystkie wątki procesów używały procesora do wykonywania instrukcji. Może się to różnić od od 0 do 100. Ta Metryka wskazuje na wydajność samego procesu w3wp.|Chmura/roleInstance|
-|Liczniki wydajności/processorCpuPercentage|Czas procesora|Wartość procentowa|Średnia|Procent czasu spędzanego przez procesor w wątkach, które nie są bezczynne.|Chmura/roleInstance|
+|Liczniki wydajności/processCpuPercentage|Procesor CPU procesu|Procent|Średnia|Wyrażony w procentach czas, przez jaki wszystkie wątki procesów używały procesora do wykonywania instrukcji. Może się to różnić od od 0 do 100. Ta Metryka wskazuje na wydajność samego procesu w3wp.|Chmura/roleInstance|
+|Liczniki wydajności/processorCpuPercentage|Czas procesora|Procent|Średnia|Procent czasu spędzanego przez procesor w wątkach, które nie są bezczynne.|Chmura/roleInstance|
 |Liczniki wydajności/memoryAvailableBytes|Dostępna pamięć|Bajty|Średnia|Pamięć fizyczna natychmiast dostępna do przydzielenia do procesu lub do użycia przez system.|Chmura/roleInstance|
 |Liczniki wydajności/processPrivateBytes|Prywatne bajty procesu|Bajty|Średnia|Pamięć przypisana wyłącznie do procesów monitorowanej aplikacji.|Chmura/roleInstance|
 |żądania/czas trwania|Czas odpowiedzi serwera|)|Średnia|Czas między odebraniem żądania HTTP i zakończeniem wysyłania odpowiedzi.|żądanie/performanceBucket, żądanie/resultCode, Operation/syntetyczne, Cloud/roleInstance, żądanie/powodzenie, Chmura/rolename|
@@ -1296,24 +1296,24 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |ServiceApiHit|Całkowita liczba trafień interfejsu API usługi|Liczba|Liczba|Łączna liczba trafień interfejsu API usługi|ActivityType, ActivityName|
 |ServiceApiLatency|Ogólne opóźnienie interfejsu API usługi|)|Średnia|Ogólne opóźnienie żądań interfejsu API usługi|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |ServiceApiResult|Łączna liczba wyników interfejsu API usługi|Liczba|Liczba|Łączna liczba wyników interfejsu API usługi|ActivityType, ActivityName, StatusCode, StatusCodeClass|
-|SaturationShoebox|Ogólne nasycenie magazynu|Wartość procentowa|Średnia|Używane pojemność magazynu|ActivityType, ActivityName, TransactionType|
-|Dostępność|Ogólna dostępność magazynu|Wartość procentowa|Średnia|Dostępność żądań magazynu|ActivityType, ActivityName, StatusCode, StatusCodeClass|
+|SaturationShoebox|Ogólne nasycenie magazynu|Procent|Średnia|Używane pojemność magazynu|ActivityType, ActivityName, TransactionType|
+|Dostępność|Ogólna dostępność magazynu|Procent|Średnia|Dostępność żądań magazynu|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 
 ## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/klastry
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|CacheUtilization|Użycie pamięci podręcznej|Wartość procentowa|Średnia|Poziom użycia w zakresie klastra|Brak|
+|CacheUtilization|Użycie pamięci podręcznej|Procent|Średnia|Poziom użycia w zakresie klastra|Brak|
 |QueryDuration|Czas trwania zapytania|)|Średnia|Czas trwania zapytań (w sekundach)|QueryStatus|
-|IngestionUtilization|Wykorzystanie pozyskiwania|Wartość procentowa|Średnia|Współczynnik używania miejsc pozyskiwania w klastrze|Brak|
+|IngestionUtilization|Wykorzystanie pozyskiwania|Procent|Średnia|Współczynnik używania miejsc pozyskiwania w klastrze|Brak|
 |Utrzymywani|Utrzymywanie aktywności|Liczba|Średnia|Sprawdzenie Sanity wskazuje, że klaster reaguje na zapytania|Brak|
 |IngestionVolumeInMB|Wolumin pozyskiwania (w MB)|Liczba|Łącznie|Ogólna ilość danych pozyskiwanych w klastrze (w MB)|baza danych|
 |IngestionLatencyInSeconds|Opóźnienie pozyskiwania (w sekundach)|Sekundy|Średnia|Czas pozyskiwania ze źródła (np. komunikat jest w centrum EventHub) do klastra w ciągu kilku sekund|Brak|
 |EventsProcessedForEventHubs|Zdarzenia przetwarzane (dla centrów zdarzeń/IoT)|Liczba|Łącznie|Liczba zdarzeń przetwarzanych przez klaster podczas pozyskiwania ze zdarzenia/IoT Hub|EventStatus|
 |IngestionResult|Wynik pozyskiwania|Liczba|Liczba|Liczba operacji pozyskiwania|IngestionResultDetails|
-|Procesor CPU|Procesor CPU|Wartość procentowa|Średnia|Poziom użycia procesora CPU|Brak|
+|Procesor CPU|Procesor CPU|Procent|Średnia|Poziom użycia procesora CPU|Brak|
 |ContinuousExportNumOfRecordsExported|Eksport ciągły — liczba eksportowanych rekordów|Liczba|Łącznie|Liczba wyeksportowanych rekordów, które są generowane dla każdego artefaktu magazynu zapisanego podczas operacji eksportowania|ContinuousExportName, baza danych|
-|ExportUtilization|Użycie eksportu|Wartość procentowa|Maksimum|Użycie eksportu|Brak|
+|ExportUtilization|Wykorzystanie eksportu|Procent|Maksimum|Użycie eksportu|Brak|
 |ContinuousExportPendingCount|Liczba oczekujących eksportu ciągłego|Liczba|Maksimum|Liczba oczekujących zadań eksportu ciągłego gotowych do wykonania|Brak|
 |ContinuousExportMaxLatenessMinutes|Maksymalna liczba opóźnień eksportu ciągłego|Liczba|Maksimum|Opóźnienie (w minutach) raportowane przez zadania eksportu ciągłego w klastrze|Brak|
 |ContinuousExportResult|Wynik eksportu ciągłego|Liczba|Liczba|Wskazuje, czy ciągły eksport zakończył się powodzeniem, czy niepowodzeniem|ContinuousExportName, wynik, baza danych|
@@ -1341,7 +1341,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |RunSuccessLatency|Opóźnienie sukcesu przebiegu|Sekundy|Średnia|Opóźnienie przebiegów przepływu pracy zakończonych powodzeniem.|Brak|
 |RunThrottledEvents|Uruchamianie zdarzeń z ograniczeniami|Liczba|Łącznie|Liczba zdarzeń związanych ze zdarzeniami przepływu pracy lub wyzwalaczem.|Brak|
 |RunStartThrottledEvents|Uruchom zdarzenia uruchamiania z ograniczeniami|Liczba|Łącznie|Liczba uruchomionych zdarzeń ograniczających przepływ pracy.|Brak|
-|RunFailurePercentage|Procent niepowodzeń przebiegu|Wartość procentowa|Łącznie|Procent przebiegów przepływu pracy zakończonych niepowodzeniem.|Brak|
+|RunFailurePercentage|Procent niepowodzeń przebiegu|Procent|Łącznie|Procent przebiegów przepływu pracy zakończonych niepowodzeniem.|Brak|
 |ActionsStarted|Akcje uruchomione |Liczba|Łącznie|Liczba rozpoczętych akcji przepływu pracy.|Brak|
 |ActionsCompleted|Wykonane akcje |Liczba|Łącznie|Liczba ukończonych akcji przepływu pracy.|Brak|
 |ActionsSucceeded|Akcje zakończone powodzeniem |Liczba|Łącznie|Liczba akcji przepływu pracy zakończonych powodzeniem.|Brak|
@@ -1380,7 +1380,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |RunSuccessLatency|Opóźnienie sukcesu przebiegu|Sekundy|Średnia|Opóźnienie przebiegów przepływu pracy zakończonych powodzeniem.|Brak|
 |RunThrottledEvents|Uruchamianie zdarzeń z ograniczeniami|Liczba|Łącznie|Liczba zdarzeń związanych ze zdarzeniami przepływu pracy lub wyzwalaczem.|Brak|
 |RunStartThrottledEvents|Uruchom zdarzenia uruchamiania z ograniczeniami|Liczba|Łącznie|Liczba uruchomionych zdarzeń ograniczających przepływ pracy.|Brak|
-|RunFailurePercentage|Procent niepowodzeń przebiegu|Wartość procentowa|Łącznie|Procent przebiegów przepływu pracy zakończonych niepowodzeniem.|Brak|
+|RunFailurePercentage|Procent niepowodzeń przebiegu|Procent|Łącznie|Procent przebiegów przepływu pracy zakończonych niepowodzeniem.|Brak|
 |ActionsStarted|Akcje uruchomione |Liczba|Łącznie|Liczba rozpoczętych akcji przepływu pracy.|Brak|
 |ActionsCompleted|Wykonane akcje |Liczba|Łącznie|Liczba ukończonych akcji przepływu pracy.|Brak|
 |ActionsSucceeded|Akcje zakończone powodzeniem |Liczba|Łącznie|Liczba akcji przepływu pracy zakończonych powodzeniem.|Brak|
@@ -1399,10 +1399,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |TriggerFireLatency|Opóźnienie wyzwalania wyzwalacza |Sekundy|Średnia|Opóźnienie wyzwalanych wyzwalaczy przepływu pracy.|Brak|
 |TriggerSuccessLatency|Opóźnienie sukcesu wyzwalacza |Sekundy|Średnia|Opóźnienie wyzwalaczy przepływu pracy zakończonych powodzeniem.|Brak|
 |TriggerThrottledEvents|Wyzwalaj zdarzenia ograniczające|Liczba|Łącznie|Liczba zdarzeń ograniczenia wyzwalacza przepływu pracy.|Brak|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Użycie procesora przepływu pracy dla środowisko usługi integracji|Wartość procentowa|Średnia|Użycie procesora przez przepływ pracy dla środowiska usługi integracji.|Brak|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Użycie pamięci przez przepływ pracy dla środowisko usługi integracji|Wartość procentowa|Średnia|Użycie pamięci przez przepływ pracy dla środowiska usługi integracji.|Brak|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Użycie procesora przez łącznik dla środowisko usługi integracji|Wartość procentowa|Średnia|Użycie procesora przez łącznik dla środowiska usługi integracji.|Brak|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Użycie pamięci przez łącznik dla środowisko usługi integracji|Wartość procentowa|Średnia|Użycie pamięci przez łącznik dla środowiska usługi integracji.|Brak|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Użycie procesora przepływu pracy dla środowisko usługi integracji|Procent|Średnia|Użycie procesora przez przepływ pracy dla środowiska usługi integracji.|Brak|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Użycie pamięci przez przepływ pracy dla środowisko usługi integracji|Procent|Średnia|Użycie pamięci przez przepływ pracy dla środowiska usługi integracji.|Brak|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Użycie procesora przez łącznik dla środowisko usługi integracji|Procent|Średnia|Użycie procesora przez łącznik dla środowiska usługi integracji.|Brak|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Użycie pamięci przez łącznik dla środowisko usługi integracji|Procent|Średnia|Użycie pamięci przez łącznik dla środowiska usługi integracji.|Brak|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft. MachineLearningServices/obszary robocze
 
@@ -1448,8 +1448,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Sposób użycia|Sposób użycia|Liczba|Liczba|Liczba wywołań interfejsu API|ApiCategory, ApiName, ResultType, ResponseCode|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Dostępność interfejsów API|ApiCategory, ApiName|
+|Użycie|Użycie|Liczba|Liczba|Liczba wywołań interfejsu API|ApiCategory, ApiName, ResultType, ResponseCode|
+|Dostępność|Dostępność|Procent|Średnia|Dostępność interfejsów API|ApiCategory, ApiName|
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft. Media/MediaServices/streamingEndpoints
 
@@ -1466,13 +1466,13 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |AssetQuota|Przydział zasobów|Liczba|Średnia|Ile zasobów jest dozwolonych dla bieżącego konta usługi multimediów|Brak|
 |AssetCount|Liczba zasobów|Liczba|Średnia|Ile zasobów zostało już utworzonych na bieżącym koncie usługi multimediów|Brak|
-|AssetQuotaUsedPercentage|Procent użycia przydziału zasobów|Wartość procentowa|Średnia|Procent użycia zasobów w bieżącym koncie usługi multimediów|Brak|
+|AssetQuotaUsedPercentage|Procent użycia przydziału zasobów|Procent|Średnia|Procent użycia zasobów w bieżącym koncie usługi multimediów|Brak|
 |ContentKeyPolicyQuota|Przydział zasad dotyczących kluczy zawartości|Liczba|Średnia|Ile zasad kluczy zawartości jest dozwolonych dla bieżącego konta usługi multimediów|Brak|
 |ContentKeyPolicyCount|Liczba zasad dotyczących kluczy zawartości|Liczba|Średnia|Ile zasad kluczy zawartości zostało już utworzonych na bieżącym koncie usługi multimediów|Brak|
-|ContentKeyPolicyQuotaUsedPercentage|Procent użycia przydziału zasad klucza zawartości|Wartość procentowa|Średnia|Procent użycia zasad klucza zawartości w bieżącym koncie usługi multimediów|Brak|
+|ContentKeyPolicyQuotaUsedPercentage|Procent użycia przydziału zasad klucza zawartości|Procent|Średnia|Procent użycia zasad klucza zawartości w bieżącym koncie usługi multimediów|Brak|
 |StreamingPolicyQuota|Limit przydziału zasad przesyłania strumieniowego|Liczba|Średnia|Ile zasad przesyłania strumieniowego jest dozwolonych dla bieżącego konta usługi multimediów|Brak|
 |StreamingPolicyCount|Liczba zasad przesyłania strumieniowego|Liczba|Średnia|Ile zasad przesyłania strumieniowego zostało już utworzonych na bieżącym koncie usługi multimediów|Brak|
-|StreamingPolicyQuotaUsedPercentage|Procent użycia limitu przydziału zasad przesyłania strumieniowego|Wartość procentowa|Średnia|Procent użycia zasad przesyłania strumieniowego w bieżącym koncie usługi multimediów|Brak|
+|StreamingPolicyQuotaUsedPercentage|Procent użycia limitu przydziału zasad przesyłania strumieniowego|Procent|Średnia|Procent użycia zasad przesyłania strumieniowego w bieżącym koncie usługi multimediów|Brak|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft. MixedReality/remoteRenderingAccounts
@@ -1528,7 +1528,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |QueryVolume|Wolumin zapytania|Liczba|Łącznie|Liczba zapytań obsłużonych dla strefy DNS|Brak|
 |RecordSetCount|Liczba zestawów rekordów|Liczba|Maksimum|Liczba zestawów rekordów w strefie DNS|Brak|
-|RecordSetCapacityUtilization|Wykorzystanie pojemności zestawu rekordów|Wartość procentowa|Maksimum|Procent pojemności zestawu rekordów używany przez strefę DNS|Brak|
+|RecordSetCapacityUtilization|Wykorzystanie pojemności zestawu rekordów|Procent|Maksimum|Procent pojemności zestawu rekordów używany przez strefę DNS|Brak|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft. Network/adresów publicipaddress
@@ -1569,7 +1569,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |PingMeshAverageRoundtripMs|Czas błądzenia dla poleceń ping dla maszyny wirtualnej|)|Średnia|Czas błądzenia dla poleceń ping wysyłanych do docelowej maszyny wirtualnej|SourceCustomerAddress,DestinationCustomerAddress|
-|PingMeshProbesFailedPercent|Nieudane polecenia ping do maszyny wirtualnej|Wartość procentowa|Średnia|Procent liczby zakończonych niepowodzeniem poleceń ping do całkowitego wysłania poleceń ping dla docelowej maszyny wirtualnej|SourceCustomerAddress,DestinationCustomerAddress|
+|PingMeshProbesFailedPercent|Nieudane polecenia ping do maszyny wirtualnej|Procent|Średnia|Procent liczby zakończonych niepowodzeniem poleceń ping do całkowitego wysłania poleceń ping dla docelowej maszyny wirtualnej|SourceCustomerAddress,DestinationCustomerAddress|
 
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft. Network/azurefirewalls
@@ -1578,9 +1578,9 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Liczba trafień reguł aplikacji|Liczba|Łącznie|Liczba trafień reguł aplikacji|Stan, powód, protokół|
 |NetworkRuleHit|Liczba trafień reguł sieci|Liczba|Łącznie|Liczba trafień reguł sieci|Stan, powód, protokół|
-|FirewallHealth|Stan kondycji zapory|Wartość procentowa|Średnia|Stan kondycji zapory|Stan, Przyczyna|
+|FirewallHealth|Stan kondycji zapory|Procent|Średnia|Stan kondycji zapory|Stan, Przyczyna|
 |Przetwarzanie dataprocessed|Przetworzone dane|Bajty|Łącznie|Łączna ilość danych przetworzonych przez zaporę|Brak|
-|SNATPortUtilization|Wykorzystanie portów przez przytranslatora adresów sieciowych|Wartość procentowa|Średnia|Wykorzystanie portów przez przytranslatora adresów sieciowych|Brak|
+|SNATPortUtilization|Wykorzystanie portów przez przytranslatora adresów sieciowych|Procent|Średnia|Wykorzystanie portów przez przytranslatora adresów sieciowych|Brak|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. Network/applicationGateways
@@ -1596,7 +1596,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |ResponseStatus|Stan odpowiedzi|Liczba|Łącznie|Stan odpowiedzi HTTP zwrócony przez Application Gateway|HttpStatusGroup|
 |Wartości CurrentConnections|Bieżące połączenia|Liczba|Łącznie|Liczba bieżących połączeń ustanowionych z Application Gateway|Brak|
 |NewConnectionsPerSecond|Nowe połączenia na sekundę|CountPerSecond|Średnia|Nowe połączenia na sekundę ustanowione przy użyciu Application Gateway|Brak|
-|CpuUtilization|Wykorzystanie procesora|Wartość procentowa|Średnia|Bieżące wykorzystanie procesora CPU Application Gateway|Brak|
+|CpuUtilization|Wykorzystanie procesora|Procent|Średnia|Bieżące wykorzystanie procesora CPU Application Gateway|Brak|
 |CapacityUnits|Bieżące jednostki wydajności|Liczba|Średnia|Zużyte jednostki wydajności|Brak|
 |FixedBillableCapacityUnits|Jednostki stałej wydajności rozliczanej|Liczba|Średnia|Minimalna jednostka pojemności, która zostanie obciążona|Brak|
 |EstimatedBilledCapacityUnits|Szacowane jednostki pojemności|Liczba|Średnia|Szacowane jednostki wydajności, które będą obciążane|Brak|
@@ -1621,14 +1621,14 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |AverageBandwidth|Przepustowość S2S bramy|BytesPerSecond|Średnia|Średnia przepustowość lokacja-lokacja bramy w bajtach na sekundę|Brak|
 |P2SBandwidth|Przepustowość P2S bramy|BytesPerSecond|Średnia|Średnia przepustowość typu punkt-lokacja bramy w bajtach na sekundę|Brak|
-|P2SConnectionCount|Liczba połączeń P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protocol (Protokół)|
+|P2SConnectionCount|Liczba połączeń typu P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protokół|
 |TunnelAverageBandwidth|Przepustowość tunelu|BytesPerSecond|Średnia|Średnia przepustowość tunelu w bajtach na sekundę|ConnectionName, RemoteIP|
-|TunnelEgressBytes|Bajty wychodzące tunelu|Bajty|Łącznie|Wychodzące bajty tunelu|ConnectionName, RemoteIP|
-|TunnelIngressBytes|Bajty transferu danych wejściowych tunelu|Bajty|Łącznie|Przychodzące bajty tunelu|ConnectionName, RemoteIP|
-|TunnelEgressPackets|Pakiety wychodzące tuneli|Liczba|Łącznie|Liczba wychodzących pakietów tunelu|ConnectionName, RemoteIP|
-|TunnelIngressPackets|Pakiety przychodzące tunelu|Liczba|Łącznie|Liczba przychodzących pakietów tunelu|ConnectionName, RemoteIP|
-|TunnelEgressPacketDropTSMismatch|Porzucanie pakietów wychodzących przez tunelowanie|Liczba|Łącznie|Liczba porzucenia pakietów wychodzących z niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
-|TunnelIngressPacketDropTSMismatch|Wyrzucanie niezgodności pakietów przez tunelowanie|Liczba|Łącznie|Liczba porzucenia pakietów przychodzących z niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
+|TunnelEgressBytes|Liczba bajtów ruchu wychodzącego dla tunelu|Bajty|Łącznie|Bajty wychodzące tunelu|ConnectionName, RemoteIP|
+|TunnelIngressBytes|Liczba bajtów ruchu przychodzącego dla tunelu|Bajty|Łącznie|Liczba bajtów przychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelEgressPackets|Liczba pakietów ruchu wychodzącego dla tunelu|Liczba|Łącznie|Liczba pakietów wychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelIngressPackets|Pakiety przychodzące tunelu|Liczba|Łącznie|Liczba pakietów przychodzących tunelu|ConnectionName, RemoteIP|
+|TunnelEgressPacketDropTSMismatch|Porzucone pakiety ruchu wychodzącego tunelu z powodu niezgodności TS|Liczba|Łącznie|Liczba porzuconych pakietów wychodzących z powodu niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
+|TunnelIngressPacketDropTSMismatch|Porzucone pakiety ruchu przychodzącego tunelu z powodu niezgodności TS|Liczba|Łącznie|Liczba porzuconych pakietów przychodzących z powodu niezgodności selektora ruchu tunelu|ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft. Network/expressRoutePorts
@@ -1637,10 +1637,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |RxLightLevel|RxLightLevel|Liczba|Średnia|Poziom oświetlenia odbierania w dBm|Link, tor|
 |TxLightLevel|TxLightLevel|Liczba|Średnia|Poziom oświetlenia TX w dBm|Link, tor|
-|AdminState|AdminState|Liczba|Średnia|Stan administratora portu|Łącze|
-|LineProtocol|LineProtocol|Liczba|Średnia|Stan protokołu wiersza portu|Łącze|
-|PortBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|Łącze|
-|PortBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|Łącze|
+|AdminState|AdminState|Liczba|Średnia|Stan administratora portu|Link|
+|LineProtocol|LineProtocol|Liczba|Średnia|Stan protokołu wiersza portu|Link|
+|PortBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Link|
+|PortBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Link|
 
 
 
@@ -1648,12 +1648,12 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|PeeringType|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|PeeringType|
-|GlobalReachBitsInPerSecond|GlobalReachBitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|PeeredCircuitSKey|
-|GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|PeeredCircuitSKey|
-|BgpAvailability|Dostępność protokołu BGP|Wartość procentowa|Średnia|Dostępność protokołu BGP od MSEE do wszystkich elementów równorzędnych.|PeeringType, element równorzędny|
-|ArpAvailability|Dostępność protokołu ARP|Wartość procentowa|Średnia|Dostępność protokołu ARP od MSEE do wszystkich elementów równorzędnych.|PeeringType, element równorzędny|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|PeeringType|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|PeeringType|
+|GlobalReachBitsInPerSecond|GlobalReachBitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|PeeredCircuitSKey|
+|GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|PeeredCircuitSKey|
+|BgpAvailability|Dostępność protokołu BGP|Procent|Średnia|Dostępność protokołu BGP od MSEE do wszystkich elementów równorzędnych.|PeeringType, element równorzędny|
+|ArpAvailability|Dostępność protokołu ARP|Procent|Średnia|Dostępność protokołu ARP od MSEE do wszystkich elementów równorzędnych.|PeeringType, element równorzędny|
 |QosDropBitsInPerSecond|DroppedInBitsPerSecond|CountPerSecond|Średnia|Liczba porzuconych bitów danych przychodzących na sekundę|Brak|
 |QosDropBitsOutPerSecond|DroppedOutBitsPerSecond|CountPerSecond|Średnia|Liczba porzuconych bitów danych wyjściowych na sekundę|Brak|
 
@@ -1661,22 +1661,22 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|Brak|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|Brak|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Brak|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Brak|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft. Network/Connections
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|Brak|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|Brak|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|Brak|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|Brak|
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft. Network/expressRouteGateways
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Usługa BITS na sekundę na platformie Azure|ConnectionName|
-|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Ruch przychodzący z platformy Azure na sekundę|ConnectionName|
+|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu przychodzącego platformy Azure na sekundę|ConnectionName|
+|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Średnia|Liczba bitów ruchu wychodzącego platformy Azure na sekundę|ConnectionName|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficManagerProfiles
 
@@ -1691,9 +1691,9 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% Sond nie powiodło się|Wartość procentowa|Średnia|% sond monitorowania łączności nie powiodło się|Brak|
+|ProbesFailedPercent|% Sond nie powiodło się|Procent|Średnia|% sond monitorowania łączności nie powiodło się|Brak|
 |AverageRoundtripMs|Średni czas błądzenia (MS)|)|Średnia|Średni czas błądzenia sieci (MS) dla sond monitorowania łączności przesyłanych między źródłem a miejscem docelowym|Brak|
-|ChecksFailedPercent|Sprawdza procent niepowodzenia (wersja zapoznawcza)|Wartość procentowa|Średnia|% testów monitorowania łączności nie powiodło się|SourceAddress, SourceName, identyfikator sourceresourceid, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
+|ChecksFailedPercent|Sprawdza procent niepowodzenia (wersja zapoznawcza)|Procent|Średnia|% testów monitorowania łączności nie powiodło się|SourceAddress, SourceName, identyfikator sourceresourceid, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
 |RoundTripTimeMs|Czas błądzenia (MS) (wersja zapoznawcza)|)|Średnia|Czas błądzenia w milisekundach dla kontroli monitorowania łączności|SourceAddress, SourceName, identyfikator sourceresourceid, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName|
 
 
@@ -1708,7 +1708,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |BackendRequestCount|Liczba żądań wewnętrznej bazy danych|Liczba|Łącznie|Liczba żądań wysyłanych z serwera proxy HTTP/S do frontonu|Wartości httpStatus, HttpStatusGroup, zaplecze|
 |BackendRequestLatency|Opóźnienie żądania wewnętrznej bazy danych|)|Średnia|Czas obliczony od momentu wysłania żądania przez serwer proxy HTTP/S do zaplecza do momentu odebrania przez serwer proxy HTTP/S ostatniego bajtu odpowiedzi z zaplecza|Zaplecze|
 |TotalLatency|Łączne opóźnienie|)|Średnia|Czas obliczony od momentu odebrania żądania klienta przez serwer proxy HTTP/S do momentu potwierdzenia przez klienta ostatniego bajtu odpowiedzi z serwera proxy HTTP/S|Wartości httpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Procent kondycji zaplecza|Wartość procentowa|Średnia|Procent pomyślnych sond kondycji z serwera proxy HTTP/S do frontonu|Zaplecze, ustawień httpsettings elementu|
+|BackendHealthPercentage|Procent kondycji zaplecza|Procent|Średnia|Procent pomyślnych sond kondycji z serwera proxy HTTP/S do frontonu|Zaplecze, ustawień httpsettings elementu|
 |WebApplicationFirewallRequestCount|Liczba żądań zapory aplikacji sieci Web|Liczba|Łącznie|Liczba żądań klientów przetworzonych przez zaporę aplikacji sieci Web|PolicyName, RuleName, Akcja|
 
 
@@ -1718,11 +1718,11 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |QueryVolume|Wolumin zapytania|Liczba|Łącznie|Liczba zapytań obsłużonych dla strefy Prywatna strefa DNS|Brak|
 |RecordSetCount|Liczba zestawów rekordów|Liczba|Maksimum|Liczba zestawów rekordów w strefie Prywatna strefa DNS|Brak|
-|RecordSetCapacityUtilization|Wykorzystanie pojemności zestawu rekordów|Wartość procentowa|Maksimum|Procent pojemności zestawu rekordów używany przez strefę Prywatna strefa DNS|Brak|
+|RecordSetCapacityUtilization|Wykorzystanie pojemności zestawu rekordów|Procent|Maksimum|Procent pojemności zestawu rekordów używany przez strefę Prywatna strefa DNS|Brak|
 |VirtualNetworkLinkCount|Liczba linków Virtual Network|Liczba|Maksimum|Liczba sieci wirtualnych połączonych ze strefą Prywatna strefa DNS|Brak|
-|VirtualNetworkLinkCapacityUtilization|Wykorzystanie pojemności Virtual Network linku|Wartość procentowa|Maksimum|Procent pojemności Virtual Network łącz wykorzystany przez strefę Prywatna strefa DNS|Brak|
+|VirtualNetworkLinkCapacityUtilization|Wykorzystanie pojemności Virtual Network linku|Procent|Maksimum|Procent pojemności Virtual Network łącz wykorzystany przez strefę Prywatna strefa DNS|Brak|
 |VirtualNetworkWithRegistrationLinkCount|Liczba linków rejestracji Virtual Network|Liczba|Maksimum|Liczba sieci wirtualnych połączonych ze strefą Prywatna strefa DNS z włączoną funkcją autorejestracji|Brak|
-|VirtualNetworkWithRegistrationCapacityUtilization|Wykorzystanie pojemności łącza rejestracji Virtual Network|Wartość procentowa|Maksimum|Procent linku Virtual Network z pojemnością autorejestracji używaną przez strefę Prywatna strefa DNS|Brak|
+|VirtualNetworkWithRegistrationCapacityUtilization|Wykorzystanie pojemności łącza rejestracji Virtual Network|Procent|Maksimum|Procent linku Virtual Network z pojemnością autorejestracji używaną przez strefę Prywatna strefa DNS|Brak|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft. NotificationHubs/przestrzenie nazw/NotificationHubs
 
@@ -1856,7 +1856,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Average_Bytes całkowita/s|Całkowita liczba bajtów/s|Liczba|Średnia|Average_Bytes całkowita/s|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Długość kolejki Average_Processor|Długość kolejki procesora|Liczba|Średnia|Długość kolejki Average_Processor|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Puls|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
-|Aktualizowanie|Aktualizowanie|Liczba|Średnia|Aktualizowanie|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
+|Aktualizacja|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
 |Wydarzenie|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. Komunikacja równorzędna/peeringServices
@@ -1869,8 +1869,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|SessionAvailabilityV4|Dostępność sesji v4|Wartość procentowa|Średnia|Dostępność sesji v4|ConnectionId|
-|SessionAvailabilityV6|Dostępność sesji w wersji 6|Wartość procentowa|Średnia|Dostępność sesji V6|ConnectionId|
+|SessionAvailabilityV4|Dostępność sesji v4|Procent|Średnia|Dostępność sesji v4|ConnectionId|
+|SessionAvailabilityV6|Dostępność sesji w wersji 6|Procent|Średnia|Dostępność sesji V6|ConnectionId|
 |IngressTrafficRate|Szybkość ruchu przychodzącego|BitsPerSecond|Średnia|Szybkość ruchu przychodzącego w bitach na sekundę|ConnectionId|
 |EgressTrafficRate|Szybkość ruchu wychodzącego|BitsPerSecond|Średnia|Szybkość ruchu wychodzącego w bitach na sekundę|ConnectionId|
 
@@ -1883,7 +1883,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |QueryPoolJobQueueLength|Wątki: Długość kolejki zadań puli zapytań|Liczba|Średnia|Liczba zadań w kolejce puli wątków zapytań.|Brak wymiarów|
 |qpu_high_utilization_metric|Wysokie wykorzystanie jednostek QPU|Liczba|Łącznie|QPU wysokie użycie w ciągu ostatnich minut, 1 do dużego użycia QPU, w przeciwnym razie 0|Brak wymiarów|
 |memory_metric|Memory (Pamięć)|Bajty|Średnia|Memory (pamięć). Zakres 0-3 GB dla a1, 0-5 GB dla a2, 0-10 GB dla a3, 0-25 GB dla A4, 0-50 GB dla A5 i 0-100 GB dla A6|Brak wymiarów|
-|memory_thrashing_metric|Przeładowywanie pamięci|Wartość procentowa|Średnia|Średnia pamięć migotanie.|Brak wymiarów|
+|memory_thrashing_metric|Przeładowywanie pamięci|Procent|Średnia|Średnia pamięć migotanie.|Brak wymiarów|
 
 
 ## <a name="microsoftprojectbabylonaccounts"></a>Microsoft. ProjectBabylon/konta
@@ -1915,7 +1915,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |SenderConnections — błąd servererror|SenderConnections — błąd servererror|Liczba|Łącznie|Błąd servererror on SenderConnections dla elementu Microsoft. Relay.|EntityName, klasy OperationResult|
 |ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Liczba|Łącznie|Łącznie ListenerConnections dla elementu Microsoft. Relay.|EntityName|
 |SenderConnections — TotalRequests|SenderConnections — TotalRequests|Liczba|Łącznie|Łączna liczba żądań SenderConnections dla elementu Microsoft. Relay.|EntityName|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Łącznie|Łącznie połączeń ActiveConnections dla elementu Microsoft. Relay.|EntityName|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Łącznie|Łącznie połączeń ActiveConnections dla elementu Microsoft. Relay.|EntityName|
 |ActiveListeners|ActiveListeners|Liczba|Łącznie|Łącznie ActiveListeners dla elementu Microsoft. Relay.|EntityName|
 |BytesTransferred|BytesTransferred|Liczba|Łącznie|Łącznie BytesTransferred dla elementu Microsoft. Relay.|EntityName|
 |ListenerDisconnects|ListenerDisconnects|Liczba|Łącznie|Łącznie ListenerDisconnects dla elementu Microsoft. Relay.|EntityName|
@@ -1928,32 +1928,32 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |SearchLatency|Opóźnienie wyszukiwania|Sekundy|Średnia|Średnie opóźnienie wyszukiwania dla usługi wyszukiwania|Brak|
 |SearchQueriesPerSecond|Zapytania wyszukiwania na sekundę|CountPerSecond|Średnia|Zapytania wyszukiwania na sekundę dla usługi wyszukiwania|Brak|
-|ThrottledSearchQueriesPercentage|Procent zapytań wyszukiwania z ograniczeniami|Wartość procentowa|Średnia|Procent zapytań wyszukiwania, które zostały ograniczone dla usługi wyszukiwania|Brak|
+|ThrottledSearchQueriesPercentage|Procent zapytań wyszukiwania z ograniczeniami|Procent|Średnia|Procent zapytań wyszukiwania, które zostały ograniczone dla usługi wyszukiwania|Brak|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft. ServiceBus/przestrzenie nazw
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Żądania successfulrequests|Żądania zakończone powodzeniem|Liczba|Łącznie|Łączna liczba pomyślnych żądań dla przestrzeni nazw|EntityName, klasy OperationResult|
+|Żądania successfulrequests|Żądania pomyślne|Liczba|Łącznie|Łączna liczba pomyślnych żądań dla przestrzeni nazw|EntityName, klasy OperationResult|
 |Błędy servererrors|Błędy serwera.|Liczba|Łącznie|Błędy serwera dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
 |Błędy usererrors|Błędy użytkownika.|Liczba|Łącznie|Błędy użytkowników dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
-|ThrottledRequests|Żądania z ograniczeniami.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
+|ThrottledRequests|Żądania ograniczone.|Liczba|Łącznie|Żądania ograniczone dla elementu Microsoft. ServiceBus.|EntityName, klasy OperationResult|
 |Żądania incomingrequests|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla Microsoft. ServiceBus.|EntityName|
 |Komunikaty incomingmessages|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. ServiceBus.|EntityName|
 |Komunikaty outgoingmessages|Komunikaty wychodzące|Liczba|Łącznie|Komunikaty wychodzące dla elementu Microsoft. ServiceBus.|EntityName|
-|Połączeń ActiveConnections|Połączeń ActiveConnections|Liczba|Łącznie|Całkowita liczba aktywnych połączeń dla elementu Microsoft. ServiceBus.|Brak|
+|Aktywne połączenia|Aktywne połączenia|Liczba|Łącznie|Całkowita liczba aktywnych połączeń dla elementu Microsoft. ServiceBus.|Brak|
 |Połączenia connectionsopened|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. ServiceBus.|EntityName|
-|Połączenia connectionsclosed|Połączenia zamknięte.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. ServiceBus.|EntityName|
+|Połączenia connectionsclosed|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. ServiceBus.|EntityName|
 |Rozmiar|Rozmiar|Bajty|Średnia|Rozmiar kolejki/tematu w bajtach.|EntityName|
 |Komunikaty|Liczba komunikatów w kolejce/temacie.|Liczba|Średnia|Liczba komunikatów w kolejce/temacie.|EntityName|
 |ActiveMessages|Liczba aktywnych komunikatów w kolejce/temacie.|Liczba|Średnia|Liczba aktywnych komunikatów w kolejce/temacie.|EntityName|
 |DeadletteredMessages|Liczba utraconych wiadomości w kolejce/temacie.|Liczba|Średnia|Liczba utraconych wiadomości w kolejce/temacie.|EntityName|
 |ScheduledMessages|Liczba zaplanowanych komunikatów w kolejce/temacie.|Liczba|Średnia|Liczba zaplanowanych komunikatów w kolejce/temacie.|EntityName|
-|NamespaceCpuUsage|Procesor CPU|Wartość procentowa|Maksimum|Metryka użycia procesora przestrzeni nazw w warstwie Premium usługi Service Bus.|Replika|
-|NamespaceMemoryUsage|Użycie pamięci|Wartość procentowa|Maksimum|Metryka użycia pamięci przestrzeni nazw Premium usługi Service Bus.|Replika|
-|CPUXNS|PROCESOR (przestarzałe)|Wartość procentowa|Maksimum|Metryka użycia procesora przestrzeni nazw w warstwie Premium usługi Service Bus. Ta Metryka to przestarzałe. Użyj zamiast tego metryki procesora (NamespaceCpuUsage).|Replika|
-|WSXNS|Użycie pamięci (przestarzałe)|Wartość procentowa|Maksimum|Metryka użycia pamięci przestrzeni nazw Premium usługi Service Bus. Ta Metryka jest przestarzała. Użyj zamiast tego metryki użycie pamięci (NamespaceMemoryUsage).|Replika|
+|NamespaceCpuUsage|Procesor CPU|Procent|Maksimum|Metryka użycia procesora przestrzeni nazw w warstwie Premium usługi Service Bus.|Replika|
+|NamespaceMemoryUsage|Użycie pamięci|Procent|Maksimum|Metryka użycia pamięci przestrzeni nazw Premium usługi Service Bus.|Replika|
+|CPUXNS|PROCESOR (przestarzałe)|Procent|Maksimum|Metryka użycia procesora przestrzeni nazw w warstwie Premium usługi Service Bus. Ta Metryka to przestarzałe. Użyj zamiast tego metryki procesora (NamespaceCpuUsage).|Replika|
+|WSXNS|Użycie pamięci (przestarzałe)|Procent|Maksimum|Metryka użycia pamięci przestrzeni nazw Premium usługi Service Bus. Ta Metryka jest przestarzała. Użyj zamiast tego metryki użycie pamięci (NamespaceMemoryUsage).|Replika|
 
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft. ServiceFabricMesh/aplikacje
@@ -1964,8 +1964,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |AllocatedMemory|AllocatedMemory|Bajty|Średnia|Pamięć przypisana do tego kontenera w MB|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
 |ActualCpu|ActualCpu|Liczba|Średnia|Rzeczywiste użycie procesora CPU w rdzeniach Milli|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
 |ActualMemory|ActualMemory|Bajty|Średnia|Rzeczywiste użycie pamięci w MB|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
-|CpuUtilization|CpuUtilization|Wartość procentowa|Średnia|Użycie procesora CPU dla tego kontenera jako wartości procentowej AllocatedCpu|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
-|MemoryUtilization|MemoryUtilization|Wartość procentowa|Średnia|Użycie procesora CPU dla tego kontenera jako wartości procentowej AllocatedCpu|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
+|CpuUtilization|CpuUtilization|Procent|Średnia|Użycie procesora CPU dla tego kontenera jako wartości procentowej AllocatedCpu|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
+|MemoryUtilization|MemoryUtilization|Procent|Średnia|Użycie procesora CPU dla tego kontenera jako wartości procentowej AllocatedCpu|ApplicationName, ServiceName, CodePackageName, servicereplicaname|
 |ApplicationStatus|ApplicationStatus|Liczba|Średnia|Stan aplikacji siatki Service Fabric|ApplicationName, status|
 |Stan servicestatus|Stan servicestatus|Liczba|Średnia|Stan kondycji usługi w aplikacji Service Fabric siatki|ApplicationName, status, ServiceName|
 |ServiceReplicaStatus|ServiceReplicaStatus|Liczba|Średnia|Stan kondycji repliki usługi w aplikacji Service Fabric siatki|ApplicationName, status, ServiceName, servicereplicaname|
@@ -1980,8 +1980,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MessageCount|Liczba komunikatów|Liczba|Łącznie|Całkowita ilość komunikatów.|Brak|
 |InboundTraffic|Ruch przychodzący|Bajty|Łącznie|Ruch przychodzący usługi|Brak|
 |OutboundTraffic|Ruch wychodzący|Bajty|Łącznie|Ruch wychodzący usługi|Brak|
-|Błędy usererrors|Błędy użytkownika|Wartość procentowa|Maksimum|Procent błędów użytkownika|Brak|
-|SystemErrors|Błędy systemu|Wartość procentowa|Maksimum|Procent błędów systemu|Brak|
+|Błędy usererrors|Błędy użytkownika|Procent|Maksimum|Procent błędów użytkownika|Brak|
+|SystemErrors|Błędy systemu|Procent|Maksimum|Procent błędów systemu|Brak|
 
 
 
@@ -1989,51 +1989,51 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|physical_data_read_percent|Procent użycia operacji we/wy na danych|Wartość procentowa|Średnia|Procent użycia operacji we/wy na danych|Brak|
-|log_write_percent|Procent operacji we/wy dziennika|Wartość procentowa|Średnia|Procent operacji we/wy dziennika. Nie dotyczy hurtowni danych.|Brak|
-|dtu_consumption_percent|Procent użycia jednostek DTU|Wartość procentowa|Średnia|Procent jednostek DTU. Dotyczy baz danych opartych na jednostkach DTU.|Brak|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|physical_data_read_percent|Procent użycia operacji we/wy na danych|Procent|Średnia|Procent użycia operacji we/wy na danych|Brak|
+|log_write_percent|Procent operacji we/wy dziennika|Procent|Średnia|Procent operacji we/wy dziennika. Nie dotyczy hurtowni danych.|Brak|
+|dtu_consumption_percent|Procent użycia jednostek DTU|Procent|Średnia|Procent jednostek DTU. Dotyczy baz danych opartych na jednostkach DTU.|Brak|
 |magazyn|Używane miejsce na dane|Bajty|Maksimum|Używane miejsce na dane. Nie dotyczy hurtowni danych.|Brak|
 |connection_successful|Udane połączenia|Liczba|Łącznie|Udane połączenia|Brak|
 |connection_failed|Połączenia zakończone niepowodzeniem|Liczba|Łącznie|Połączenia zakończone niepowodzeniem|Brak|
 |blocked_by_firewall|Zablokowane przez zaporę|Liczba|Łącznie|Zablokowane przez zaporę|Brak|
 |stanu|Zakleszczenia|Liczba|Łącznie|Zakleszczenia. Nie dotyczy hurtowni danych.|Brak|
-|storage_percent|Procent użytego miejsca na danych|Wartość procentowa|Maksimum|Procent użytego miejsca na danych. Nie dotyczy magazynów danych ani baz danych w skali.|Brak|
-|xtp_storage_percent|Procent magazynu OLTP w pamięci|Wartość procentowa|Średnia|Procent magazynu OLTP w pamięci. Nie dotyczy hurtowni danych.|Brak|
-|workers_percent|Procent pracowników|Wartość procentowa|Średnia|Procent pracowników. Nie dotyczy hurtowni danych.|Brak|
-|sessions_percent|Procent sesji|Wartość procentowa|Średnia|Procent sesji. Nie dotyczy hurtowni danych.|Brak|
+|storage_percent|Procent użytego miejsca na danych|Procent|Maksimum|Procent użytego miejsca na danych. Nie dotyczy magazynów danych ani baz danych w skali.|Brak|
+|xtp_storage_percent|Procent magazynu OLTP w pamięci|Procent|Średnia|Procent magazynu OLTP w pamięci. Nie dotyczy hurtowni danych.|Brak|
+|workers_percent|Procent pracowników|Procent|Średnia|Procent pracowników. Nie dotyczy hurtowni danych.|Brak|
+|sessions_percent|Procent sesji|Procent|Średnia|Procent sesji. Nie dotyczy hurtowni danych.|Brak|
 |dtu_limit|Limit jednostek DTU|Liczba|Średnia|Limit jednostek DTU. Dotyczy baz danych opartych na jednostkach DTU.|Brak|
 |dtu_used|Używane jednostki DTU|Liczba|Średnia|Użyto jednostek DTU. Dotyczy baz danych opartych na jednostkach DTU.|Brak|
 |cpu_limit|Limit CPU|Liczba|Średnia|Limit czasu procesora CPU. Dotyczy baz danych opartych na rdzeń wirtualny.|Brak|
 |cpu_used|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU. Dotyczy baz danych opartych na rdzeń wirtualny.|Brak|
 |dwu_limit|Limit jednostek dwu|Liczba|Maksimum|Limit jednostek dwu. Dotyczy tylko magazynów danych.|Brak|
-|dwu_consumption_percent|JEDNOSTEK dwu procent|Wartość procentowa|Maksimum|Procent jednostek dwu. Dotyczy tylko magazynów danych.|Brak|
+|dwu_consumption_percent|JEDNOSTEK dwu procent|Procent|Maksimum|Procent jednostek dwu. Dotyczy tylko magazynów danych.|Brak|
 |dwu_used|JEDNOSTEK dwu używane|Liczba|Maksimum|JEDNOSTEK dwu. Dotyczy tylko magazynów danych.|Brak|
-|cache_hit_percent|Procent trafień w pamięci podręcznej|Wartość procentowa|Maksimum|Procent trafień w pamięci podręcznej. Dotyczy tylko magazynów danych.|Brak|
-|cache_used_percent|Procent użycia pamięci podręcznej|Wartość procentowa|Maksimum|Procent użycia pamięci podręcznej. Dotyczy tylko magazynów danych.|Brak|
-|sqlserver_process_core_percent<sup>1</sup> |Procent podstawowych procesów SQL Server|Wartość procentowa|Maksimum|Procent użycia procesora CPU dla procesu SQL Server, mierzony przez system operacyjny.|Brak|
-|sqlserver_process_memory_percent<sup>1</sup> |Procent pamięci procesu SQL Server|Wartość procentowa|Maksimum|Procent użycia pamięci dla procesu SQL Server, mierzony przez system operacyjny.|Brak|
+|cache_hit_percent|Procent trafień w pamięci podręcznej|Procent|Maksimum|Procent trafień w pamięci podręcznej. Dotyczy tylko magazynów danych.|Brak|
+|cache_used_percent|Procent użycia pamięci podręcznej|Procent|Maksimum|Procent użycia pamięci podręcznej. Dotyczy tylko magazynów danych.|Brak|
+|sqlserver_process_core_percent<sup>1</sup> |Procent podstawowych procesów SQL Server|Procent|Maksimum|Procent użycia procesora CPU dla procesu SQL Server, mierzony przez system operacyjny.|Brak|
+|sqlserver_process_memory_percent<sup>1</sup> |Procent pamięci procesu SQL Server|Procent|Maksimum|Procent użycia pamięci dla procesu SQL Server, mierzony przez system operacyjny.|Brak|
 |tempdb_data_size<sup>2</sup> |Rozmiar pliku danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku danych tempdb kilobajtów.|Brak|
 |tempdb_log_size<sup>2</sup> |Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów.|Brak|
-|tempdb_log_used_percent<sup>2</sup> |Użyto dziennika% tempdb|Wartość procentowa|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
-|local_tempdb_usage_percent|Procent lokalnej bazy danych tempdb|Wartość procentowa|Średnia|Procent lokalnej bazy danych tempdb. Dotyczy tylko magazynów danych.|Brak|
+|tempdb_log_used_percent<sup>2</sup> |Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
+|local_tempdb_usage_percent|Procent lokalnej bazy danych tempdb|Procent|Średnia|Procent lokalnej bazy danych tempdb. Dotyczy tylko magazynów danych.|Brak|
 |app_cpu_billed|Rozliczane użycie procesora przez aplikację|Liczba|Łącznie|Rozliczane użycie procesora przez aplikację. Dotyczy bezserwerowych baz danych.|Brak|
-|app_cpu_percent|Procent użycia procesora CPU aplikacji|Wartość procentowa|Średnia|Procent użycia procesora CPU aplikacji. Dotyczy bezserwerowych baz danych.|Brak|
-|app_memory_percent|Procent pamięci aplikacji|Wartość procentowa|Średnia|Procent pamięci aplikacji. Dotyczy bezserwerowych baz danych.|Brak|
+|app_cpu_percent|Procent użycia procesora CPU aplikacji|Procent|Średnia|Procent użycia procesora CPU aplikacji. Dotyczy bezserwerowych baz danych.|Brak|
+|app_memory_percent|Procent pamięci aplikacji|Procent|Średnia|Procent pamięci aplikacji. Dotyczy bezserwerowych baz danych.|Brak|
 |allocated_data_storage|Przydzielono miejsce na danych|Bajty|Średnia|Przydzielony magazyn danych. Nie dotyczy hurtowni danych.|Brak|
-|memory_usage_percent|Procent pamięci|Wartość procentowa|Maksimum|Procent pamięci. Dotyczy tylko magazynów danych.|Brak|
+|memory_usage_percent|Procent pamięci|Procent|Maksimum|Procent pamięci. Dotyczy tylko magazynów danych.|Brak|
 |dw_backup_size_gb|Rozmiar magazynu danych|Liczba|Łącznie|Rozmiar magazynu danych składa się z rozmiaru danych i dziennika transakcji. Metryka jest uwzględniana w części "magazyn" rachunku. Dotyczy tylko magazynów danych.|Brak|
 |dw_snapshot_size_gb|Rozmiar magazynu migawek|Liczba|Łącznie|Rozmiar magazynu migawek to rozmiar przyrostowych zmian przechwytywanych przez migawki w celu utworzenia zdefiniowanych przez użytkownika i automatycznych punktów przywracania. Metryka jest uwzględniana w części "magazyn" rachunku. Dotyczy tylko magazynów danych.|Brak|
 |dw_geosnapshot_size_gb|Rozmiar magazynu odzyskiwania po awarii|Liczba|Łącznie|Rozmiar magazynu odzyskiwania po awarii jest odzwierciedlany na rachunku jako magazyn odzyskiwania po awarii. Dotyczy tylko magazynów danych.|Brak|
-|wlg_allocation_relative_to_system_percent|Alokacja grupy obciążeń według wartości procentowej systemu|Wartość procentowa|Maksimum|Przydzielono procent zasobów względem całego systemu na grupę obciążeń. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
-|wlg_allocation_relative_to_wlg_effective_cap_percent|Alokacja grupy obciążeń według procentu zasobów zakończenia|Wartość procentowa|Maksimum|Przydzielono procent zasobów względem określonych zasobów Cap dla każdej grupy obciążeń. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
+|wlg_allocation_relative_to_system_percent|Alokacja grupy obciążeń według wartości procentowej systemu|Procent|Maksimum|Przydzielono procent zasobów względem całego systemu na grupę obciążeń. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
+|wlg_allocation_relative_to_wlg_effective_cap_percent|Alokacja grupy obciążeń według procentu zasobów zakończenia|Procent|Maksimum|Przydzielono procent zasobów względem określonych zasobów Cap dla każdej grupy obciążeń. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
 |wlg_active_queries|Aktywne zapytania grupy obciążenia|Liczba|Łącznie|Aktywne zapytania w grupie obciążenia. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
 |wlg_queued_queries|Zakolejkowane zapytania grupy obciążenia|Liczba|Łącznie|Zakolejkowane zapytania w grupie obciążenia. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
 |active_queries|Aktywne zapytania|Liczba|Łącznie|Aktywne zapytania dla wszystkich grup obciążeń. Dotyczy tylko magazynów danych.|Brak|
 |queued_queries|Zakolejkowane zapytania|Liczba|Łącznie|Zakolejkowane zapytania we wszystkich grupach obciążeń. Dotyczy tylko magazynów danych.|Brak|
 |wlg_active_queries_timeouts|Limity czasu zapytania grupy obciążeń|Liczba|Łącznie|Zapytania, które przekroczyły limit czasu dla grupy obciążenia. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
-|wlg_effective_min_resource_percent|Efektywny minimalny procent zasobów|Wartość procentowa|Maksimum|Minimalny procent zasobów zarezerwowanych i odizolowanych dla grupy obciążenia, biorąc pod uwagę minimalny poziom usług. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
-|wlg_effective_cap_resource_percent|Procent zasobów obowiązujących dla limitu|Wartość procentowa|Maksimum|Stały limit procentu zasobów dozwolonych dla grupy obciążenia, biorąc pod uwagę efektywną minimalną stawkę procentową zasobów przydzieloną dla innych grup obciążeń. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
+|wlg_effective_min_resource_percent|Efektywny minimalny procent zasobów|Procent|Maksimum|Minimalny procent zasobów zarezerwowanych i odizolowanych dla grupy obciążenia, biorąc pod uwagę minimalny poziom usług. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
+|wlg_effective_cap_resource_percent|Procent zasobów obowiązujących dla limitu|Procent|Maksimum|Stały limit procentu zasobów dozwolonych dla grupy obciążenia, biorąc pod uwagę efektywną minimalną stawkę procentową zasobów przydzieloną dla innych grup obciążeń. Dotyczy tylko magazynów danych.|WorkloadGroupName,IsUserDefined|
 |full_backup_size_bytes|Rozmiar magazynu pełnej kopii zapasowej|Bajty|Maksimum|Łączny rozmiar magazynu pełnej kopii zapasowej. Dotyczy baz danych opartych na rdzeń wirtualny. Nie dotyczy baz danych w skali.|Brak|
 |diff_backup_size_bytes|Różnicowy rozmiar magazynu kopii zapasowych|Bajty|Maksimum|Skumulowany, zróżnicowany rozmiar magazynu kopii zapasowych. Dotyczy baz danych opartych na rdzeń wirtualny. Nie dotyczy baz danych w skali.|Brak|
 |log_backup_size_bytes|Rozmiar magazynu kopii zapasowej dziennika|Bajty|Maksimum|Rozmiar magazynu kopii zapasowej dziennika zbiorczego. Dotyczy baz danych opartych na rdzeń wirtualny i w skali.|Brak|
@@ -2048,60 +2048,49 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Brak|
-|database_cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|DatabaseResourceId|
-|physical_data_read_percent|Procent użycia operacji we/wy na danych|Wartość procentowa|Średnia|Procent użycia operacji we/wy na danych|Brak|
-|database_physical_data_read_percent|Procent użycia operacji we/wy na danych|Wartość procentowa|Średnia|Procent użycia operacji we/wy na danych|DatabaseResourceId|
-|log_write_percent|Procent operacji we/wy dziennika|Wartość procentowa|Średnia|Procent operacji we/wy dziennika|Brak|
-|database_log_write_percent|Procent operacji we/wy dziennika|Wartość procentowa|Średnia|Procent operacji we/wy dziennika|DatabaseResourceId|
-|dtu_consumption_percent|Procent użycia jednostek DTU|Wartość procentowa|Średnia|Procent jednostek DTU. Dotyczy pul elastycznych opartych na jednostkach DTU.|Brak|
-|database_dtu_consumption_percent|Procent użycia jednostek DTU|Wartość procentowa|Średnia|Procent użycia jednostek DTU|DatabaseResourceId|
-|storage_percent|Procent użytego miejsca na danych|Wartość procentowa|Średnia|Procent użytego miejsca na danych|Brak|
-|workers_percent|Procent pracowników|Wartość procentowa|Średnia|Procent pracowników|Brak|
-|database_workers_percent|Procent pracowników|Wartość procentowa|Średnia|Procent pracowników|DatabaseResourceId|
-|sessions_percent|Procent sesji|Wartość procentowa|Średnia|Procent sesji|Brak|
-|database_sessions_percent|Procent sesji|Wartość procentowa|Średnia|Procent sesji|DatabaseResourceId|
+|cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Brak|
+|database_cpu_percent|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|DatabaseResourceId|
+|physical_data_read_percent|Procent użycia operacji we/wy na danych|Procent|Średnia|Procent użycia operacji we/wy na danych|Brak|
+|database_physical_data_read_percent|Procent użycia operacji we/wy na danych|Procent|Średnia|Procent użycia operacji we/wy na danych|DatabaseResourceId|
+|log_write_percent|Procent operacji we/wy dziennika|Procent|Średnia|Procent operacji we/wy dziennika|Brak|
+|database_log_write_percent|Procent operacji we/wy dziennika|Procent|Średnia|Procent operacji we/wy dziennika|DatabaseResourceId|
+|dtu_consumption_percent|Procent użycia jednostek DTU|Procent|Średnia|Procent jednostek DTU. Dotyczy pul elastycznych opartych na jednostkach DTU.|Brak|
+|database_dtu_consumption_percent|Procent użycia jednostek DTU|Procent|Średnia|Procent użycia jednostek DTU|DatabaseResourceId|
+|storage_percent|Procent użytego miejsca na danych|Procent|Średnia|Procent użytego miejsca na danych|Brak|
+|workers_percent|Procent pracowników|Procent|Średnia|Procent pracowników|Brak|
+|database_workers_percent|Procent pracowników|Procent|Średnia|Procent pracowników|DatabaseResourceId|
+|sessions_percent|Procent sesji|Procent|Średnia|Procent sesji|Brak|
+|database_sessions_percent|Procent sesji|Procent|Średnia|Procent sesji|DatabaseResourceId|
 |eDTU_limit|limit liczby jednostek eDTU|Liczba|Średnia|limit liczby jednostek eDTU. Dotyczy pul elastycznych opartych na jednostkach DTU.|Brak|
 |storage_limit|Maksymalny rozmiar danych|Bajty|Średnia|Maksymalny rozmiar danych|Brak|
 |eDTU_used|użyta wartość eDTU|Liczba|Średnia|użyta wartość eDTU. Dotyczy pul elastycznych opartych na jednostkach DTU.|Brak|
 |database_eDTU_used|użyta wartość eDTU|Liczba|Średnia|użyta wartość eDTU|DatabaseResourceId|
 |storage_used|Używane miejsce na dane|Bajty|Średnia|Używane miejsce na dane|Brak|
 |database_storage_used|Używane miejsce na dane|Bajty|Średnia|Używane miejsce na dane|DatabaseResourceId|
-|xtp_storage_percent|Procent magazynu OLTP w pamięci|Wartość procentowa|Średnia|Procent magazynu OLTP w pamięci|Brak|
+|xtp_storage_percent|Procent magazynu OLTP w pamięci|Procent|Średnia|Procent magazynu OLTP w pamięci|Brak|
 |cpu_limit|Limit CPU|Liczba|Średnia|Limit czasu procesora CPU. Dotyczy pul elastycznych opartych na rdzeń wirtualny.|Brak|
 |database_cpu_limit|Limit CPU|Liczba|Średnia|Limit CPU|DatabaseResourceId|
 |cpu_used|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU. Dotyczy pul elastycznych opartych na rdzeń wirtualny.|Brak|
 |database_cpu_used|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU|DatabaseResourceId|
-|sqlserver_process_core_percent<sup>1</sup>|Procent podstawowych procesów SQL Server|Wartość procentowa|Maksimum|Procent użycia procesora CPU dla procesu SQL Server, mierzony przez system operacyjny. Dotyczy pul elastycznych. |Brak|
-|sqlserver_process_memory_percent<sup>1</sup>|Procent pamięci procesu SQL Server|Wartość procentowa|Maksimum|Procent użycia pamięci dla procesu SQL Server, mierzony przez system operacyjny. Dotyczy pul elastycznych. |Brak|
+|sqlserver_process_core_percent<sup>1</sup>|Procent podstawowych procesów SQL Server|Procent|Maksimum|Procent użycia procesora CPU dla procesu SQL Server, mierzony przez system operacyjny. Dotyczy pul elastycznych. |Brak|
+|sqlserver_process_memory_percent<sup>1</sup>|Procent pamięci procesu SQL Server|Procent|Maksimum|Procent użycia pamięci dla procesu SQL Server, mierzony przez system operacyjny. Dotyczy pul elastycznych. |Brak|
 |tempdb_data_size<sup>2</sup>|Rozmiar pliku danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku danych tempdb kilobajtów.|Brak|
 |tempdb_log_size<sup>2</sup>|Rozmiar pliku dziennika bazy danych tempdb kilobajtów|Liczba|Maksimum|Rozmiar pliku dziennika bazy danych tempdb kilobajtów. |Brak|
-|tempdb_log_used_percent<sup>2</sup>|Użyto dziennika% tempdb|Wartość procentowa|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
+|tempdb_log_used_percent<sup>2</sup>|Użyto dziennika% tempdb|Procent|Maksimum|Użyto dziennika bazy danych tempdb.|Brak|
 |allocated_data_storage|Przydzielono miejsce na danych|Bajty|Średnia|Przydzielono miejsce na danych|Brak|
 |database_allocated_data_storage|Przydzielono miejsce na danych|Bajty|Średnia|Przydzielono miejsce na danych|DatabaseResourceId|
-|allocated_data_storage_percent|Procent przydzielonych przestrzeni danych|Wartość procentowa|Maksimum|Procent przydzielonych przestrzeni danych|Brak|
+|allocated_data_storage_percent|Procent przydzielonych przestrzeni danych|Procent|Maksimum|Procent przydzielonych przestrzeni danych|Brak|
 
 <sup>1</sup> ta Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modeli zakupów opartych na jednostkach DTU. 
 
 <sup>Ta</sup> Metryka jest dostępna dla baz danych korzystających z modelu zakupów rdzeń wirtualny o wartości 2 rdzeni wirtualnych i wyższych lub 200 jednostek DTU i wyższych dla modeli zakupów opartych na jednostkach DTU. Ta Metryka jest obecnie niedostępna dla baz danych w skali.
-
-
-## <a name="microsoftsqlservers"></a>Microsoft. SQL/serwery
-
-|Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|Procent użycia jednostek DTU|Wartość procentowa|Średnia|Procent użycia jednostek DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Procent użycia jednostek DTU|Wartość procentowa|Średnia|Procent użycia jednostek DTU|DatabaseResourceId,ElasticPoolResourceId|
-|storage_used|Używane miejsce na dane|Bajty|Średnia|Używane miejsce na dane|ElasticPoolResourceId|
-|database_storage_used|Używane miejsce na dane|Bajty|Średnia|Używane miejsce na dane|DatabaseResourceId,ElasticPoolResourceId|
-|dtu_used|Używane jednostki DTU|Liczba|Średnia|Używane jednostki DTU|DatabaseResourceId|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft. SQL/managedInstances
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |virtual_core_count|Liczba rdzeni wirtualnych|Liczba|Średnia|Liczba rdzeni wirtualnych|Brak|
-|avg_cpu_percent|Średni procent procesora CPU|Wartość procentowa|Średnia|Średni procent procesora CPU|Brak|
+|avg_cpu_percent|Średni procent procesora CPU|Procent|Średnia|Średni procent procesora CPU|Brak|
 |reserved_storage_mb|Zarezerwowane miejsce w magazynie|Liczba|Średnia|Zarezerwowane miejsce w magazynie|Brak|
 |storage_space_used_mb|Używane miejsce do magazynowania|Liczba|Średnia|Używane miejsce do magazynowania|Brak|
 |io_requests|Liczba żądań we/wy|Liczba|Średnia|Liczba żądań we/wy|Brak|
@@ -2120,7 +2109,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
 
@@ -2135,7 +2124,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft. Storage/storageAccounts/tableServices
 
@@ -2149,24 +2138,24 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft. Storage/storageAccounts/fileServices
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udziału|
-|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udziału|
+|FileCapacity|Pojemność plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez usługę plików konta magazynu w bajtach.|Udział plików|
+|FileCount|Liczba plików|Liczba|Średnia|Liczba plików w usłudze plików konta magazynu.|Udział plików|
 |FileShareCount|Liczba udziałów plików|Liczba|Średnia|Liczba udziałów plików w usłudze plików konta magazynu.|Brak|
-|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udziału|
-|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udziału|
-|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udziału|
+|FileShareSnapshotCount|Liczba migawek udziału plików|Liczba|Średnia|Liczba migawek znajdujących się w udziale w usłudze plików konta magazynu.|Udział plików|
+|FileShareSnapshotSize|Rozmiar migawki udziału plików|Bajty|Średnia|Ilość miejsca do magazynowania używanego przez migawki w usłudze plików konta magazynu w bajtach.|Udział plików|
+|FileShareQuota|Rozmiar przydziału udziału plików|Bajty|Średnia|Górny limit ilości miejsca do magazynowania, który może być używany przez usługę Azure Files w bajtach.|Udział plików|
 |Transakcje|Transakcje|Liczba|Łącznie|Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy. Użyj wymiaru responsetype dla liczby różnych typów odpowiedzi.|Responsetype, geotype, ApiName, Authentication, przeudziale|
 |Ruch przychodzący|Ruch przychodzący|Bajty|Łącznie|Ilość danych wejściowych w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotyp, ApiName, uwierzytelnianie, przeudziale|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft. Storage/storageAccounts/queueServices
 
@@ -2180,7 +2169,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Ruch wychodzący|Ruch wychodzący|Bajty|Łącznie|Ilość danych wyjściowych w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.|Geotype, ApiName, uwierzytelnianie|
 |SuccessServerLatency|Opóźnienie serwera dla powodzenia|)|Średnia|Średnie opóźnienie używane przez usługę Azure Storage do przetworzenia pomyślnego żądania w milisekundach. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.|Geotype, ApiName, uwierzytelnianie|
 |SuccessE2ELatency|Opóźnienie E2E dla powodzenia|)|Średnia|Średni czas oczekiwania na zakończenie pomyślnych żądań skierowanych do usługi magazynu lub określonej operacji interfejsu API (w milisekundach). Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.|Geotype, ApiName, uwierzytelnianie|
-|Dostępność|Dostępność|Wartość procentowa|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
+|Dostępność|Dostępność|Procent|Średnia|Procent dostępności usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.|Geotype, ApiName, uwierzytelnianie|
 
 
 
@@ -2257,7 +2246,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|ResourceUtilization|Użycie SU%|Wartość procentowa|Maksimum|Użycie SU%|Logicznaname, PartitionId|
+|ResourceUtilization|Użycie SU%|Procent|Maksimum|Użycie SU%|Logicznaname, PartitionId|
 |InputEvents|Zdarzenia wejściowe|Liczba|Łącznie|Zdarzenia wejściowe|Logicznaname, PartitionId|
 |InputEventBytes|Bajty zdarzeń wejściowych|Bajty|Łącznie|Bajty zdarzeń wejściowych|Logicznaname, PartitionId|
 |LateInputEvents|Opóźnione zdarzenia wejściowe|Liczba|Łącznie|Opóźnione zdarzenia wejściowe|Logicznaname, PartitionId|
@@ -2299,19 +2288,19 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |DWULimit|Limit jednostek dwu|Liczba|Maksimum|Cel poziomu usługi puli SQL|Brak|
 |DWUUsed|JEDNOSTEK dwu używane|Liczba|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w puli SQL. Mierzone przez limit jednostek dwu * jednostek dwu procent|Brak|
-|DWUUsedPercent|JEDNOSTEK dwu procent użycia|Wartość procentowa|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w puli SQL. Mierzone przez przejęcie wartości procentowej procentu procesora CPU i operacji we/wy danych|Brak|
+|DWUUsedPercent|JEDNOSTEK dwu procent użycia|Procent|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w puli SQL. Mierzone przez przejęcie wartości procentowej procentu procesora CPU i operacji we/wy danych|Brak|
 |ConnectionsBlockedByFirewall|Połączenia zablokowane przez zaporę|Liczba|Łącznie|Liczba połączeń blokowanych przez reguły zapory. Odwiedzaj ponownie zasady kontroli dostępu dla puli SQL i monitoruj te połączenia, jeśli liczba jest wysoka|Brak|
-|AdaptiveCacheHitPercent|Odsetek trafień adaptacyjnej pamięci podręcznej|Wartość procentowa|Maksimum|Mierzy, jak dobre obciążenia korzystają z adaptacyjnej pamięci podręcznej. Użyj tej metryki z metryką procentu trafień w pamięci podręcznej, aby określić, czy skalować w celu uzyskania dodatkowej pojemności czy ponownie uruchamiać obciążenia, aby podręczna|Brak|
-|AdaptiveCacheUsedPercent|Procent użycia adaptacyjnej pamięci podręcznej|Wartość procentowa|Maksimum|Mierzy, jak dobre obciążenia korzystają z adaptacyjnej pamięci podręcznej. Użyj tej metryki z metryką procentową wykorzystania pamięci podręcznej, aby określić, czy skalowanie ma być skalowane w celu uzyskania dodatkowej pojemności czy ponownego uruchomienia obciążeń w celu uzyskania|Brak|
-|LocalTempDBUsedPercent|Procent użycia lokalnej bazy danych tempdb|Wartość procentowa|Maksimum|Użycie lokalnej bazy danych tempdb we wszystkich węzłach obliczeniowych — wartości są emitowane co pięć minut.|Brak|
-|MemoryUsedPercent|Procent wykorzystania pamięci|Wartość procentowa|Maksimum|Użycie pamięci we wszystkich węzłach w puli SQL|Brak|
+|AdaptiveCacheHitPercent|Odsetek trafień adaptacyjnej pamięci podręcznej|Procent|Maksimum|Mierzy, jak dobre obciążenia korzystają z adaptacyjnej pamięci podręcznej. Użyj tej metryki z metryką procentu trafień w pamięci podręcznej, aby określić, czy skalować w celu uzyskania dodatkowej pojemności czy ponownie uruchamiać obciążenia, aby podręczna|Brak|
+|AdaptiveCacheUsedPercent|Procent użycia adaptacyjnej pamięci podręcznej|Procent|Maksimum|Mierzy, jak dobre obciążenia korzystają z adaptacyjnej pamięci podręcznej. Użyj tej metryki z metryką procentową wykorzystania pamięci podręcznej, aby określić, czy skalowanie ma być skalowane w celu uzyskania dodatkowej pojemności czy ponownego uruchomienia obciążeń w celu uzyskania|Brak|
+|LocalTempDBUsedPercent|Procent użycia lokalnej bazy danych tempdb|Procent|Maksimum|Użycie lokalnej bazy danych tempdb we wszystkich węzłach obliczeniowych — wartości są emitowane co pięć minut.|Brak|
+|MemoryUsedPercent|Procent wykorzystania pamięci|Procent|Maksimum|Użycie pamięci we wszystkich węzłach w puli SQL|Brak|
 |Połączenia|Połączenia|Liczba|Łącznie|Łączna Liczba logowań do puli SQL|Wynik|
 |WLGActiveQueries|Aktywne zapytania grupy obciążenia|Liczba|Łącznie|Aktywne zapytania w grupie obciążenia. Użycie tej metryki nie zostało odfiltrowane i rozdzielenie spowoduje wyświetlenie wszystkich aktywnych zapytań uruchomionych w systemie.|IsUserDefined, obciążenie|
 |WLGActiveQueriesTimeouts|Limity czasu zapytania grupy obciążeń|Liczba|Łącznie|Zapytania dotyczące grupy obciążeń, które przekroczyły limit czasu. Limity czasu zapytania zgłoszone przez tę metrykę są wykonywane dopiero po rozpoczęciu wykonywania zapytania (nie obejmują czasu oczekiwania z powodu blokady lub oczekiwania na zasoby)|IsUserDefined, obciążenie|
-|WLGAllocationBySystemPercent|Alokacja grupy obciążeń według wartości procentowej systemu|Wartość procentowa|Maksimum|Procent alokacji zasobów względem całego systemu|IsUserDefined, obciążenie|
-|WLGAllocationByMaxResourcePercent|Alokacja grupy obciążeń według maksymalnego procentu zasobów|Wartość procentowa|Maksimum|Wyświetla procentową alokację zasobów względem procentu zasobów obowiązujących dla grupy obciążenia. Ta Metryka zapewnia efektywne wykorzystanie grupy obciążeń|IsUserDefined, obciążenie|
-|WLGEffectiveCapResourcePercent|Procent zasobów obowiązujących dla limitu|Wartość procentowa|Maksimum|Procent zasobów obowiązujących dla grupy obciążenia. Jeśli istnieją inne grupy obciążeń z min_percentage_resource > 0, effective_cap_percentage_resource jest obniżane proporcjonalnie|IsUserDefined, obciążenie|
-|wlg_effective_min_resource_percent|Efektywny minimalny procent zasobów|Wartość procentowa|Minimalne|Ustawienie efektywnej minimalnej wartości procentowej zasobu może uwzględniać ustawienia poziomu usług i grupy obciążeń. Efektywne min_percentage_resource można zwiększyć na niższych poziomach usługi|IsUserDefined, obciążenie|
+|WLGAllocationBySystemPercent|Alokacja grupy obciążeń według wartości procentowej systemu|Procent|Maksimum|Procent alokacji zasobów względem całego systemu|IsUserDefined, obciążenie|
+|WLGAllocationByMaxResourcePercent|Alokacja grupy obciążeń według maksymalnego procentu zasobów|Procent|Maksimum|Wyświetla procentową alokację zasobów względem procentu zasobów obowiązujących dla grupy obciążenia. Ta Metryka zapewnia efektywne wykorzystanie grupy obciążeń|IsUserDefined, obciążenie|
+|WLGEffectiveCapResourcePercent|Procent zasobów obowiązujących dla limitu|Procent|Maksimum|Procent zasobów obowiązujących dla grupy obciążenia. Jeśli istnieją inne grupy obciążeń z min_percentage_resource > 0, effective_cap_percentage_resource jest obniżane proporcjonalnie|IsUserDefined, obciążenie|
+|wlg_effective_min_resource_percent|Efektywny minimalny procent zasobów|Procent|Minimalne|Ustawienie efektywnej minimalnej wartości procentowej zasobu może uwzględniać ustawienia poziomu usług i grupy obciążeń. Efektywne min_percentage_resource można zwiększyć na niższych poziomach usługi|IsUserDefined, obciążenie|
 |WLGQueuedQueries|Zakolejkowane zapytania grupy obciążenia|Liczba|Łącznie|Skumulowana liczba żądań umieszczonych w kolejce po osiągnięciu maksymalnego limitu współbieżności|IsUserDefined, obciążenie|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft. TimeSeriesInsights/środowiska
@@ -2365,15 +2354,15 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MemoryUsed|Używana pamięć|Bajty|Średnia|Ilość pamięci maszyny używanej przez maszynę wirtualną.|Brak|
 |MemoryGranted|Przydzielone pamięci|Bajty|Średnia|Ilość pamięci przydzielonej maszynie wirtualnej przez hosta. Pamięć nie jest przydzielana do hosta, dopóki nie zostanie ona nałożona jeden raz, a przyznana pamięć może zostać zamieniony lub zaznaczono w dymku, jeśli VMkernel wymaga pamięci.|Brak|
 |MemoryActive|Pamięć aktywna|Bajty|Średnia|Ilość pamięci używanej przez maszynę wirtualną w minionym małym oknie czasu. Jest to wartość "prawda" ilości pamięci wymaganej przez maszynę wirtualną. Dodatkowa niewykorzystana pamięć może zostać zastąpiona lub zaprowadzona bez wpływu na wydajność gościa.|Brak|
-|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Wartość procentowa|Średnia|Użycie procesora CPU. Ta wartość jest raportowana przy użyciu 100% reprezentujących wszystkie rdzenie procesora w systemie. Przykładowo 2-kierunkowa maszyna wirtualna używająca 50% systemu z czterema rdzeniem korzysta całkowicie z dwóch rdzeni.|Brak|
+|Procentowe użycie procesora CPU|Procentowe użycie procesora CPU|Procent|Średnia|Użycie procesora CPU. Ta wartość jest raportowana przy użyciu 100% reprezentujących wszystkie rdzenie procesora w systemie. Przykładowo 2-kierunkowa maszyna wirtualna używająca 50% systemu z czterema rdzeniem korzysta całkowicie z dwóch rdzeni.|Brak|
 |PercentageCpuReady|Procent gotowych do użycia procesora|)|Łącznie|Czas gotowości to czas oczekiwania, aż procesor CPU stanie się dostępny w okresie ostatniej aktualizacji.|Brak|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft. Web/dopuszczalna
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|CpuPercentage|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Wystąpienie|
-|MemoryPercentage|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Wystąpienie|
+|CpuPercentage|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Wystąpienie|
+|MemoryPercentage|Procent pamięci|Procent|Średnia|Procent pamięci|Wystąpienie|
 |DiskQueueLength|Długość kolejki dysku|Liczba|Średnia|Długość kolejki dysku|Wystąpienie|
 |HttpQueueLength|Długość kolejki http|Liczba|Średnia|Długość kolejki http|Wystąpienie|
 |BytesReceived|Dane w|Bajty|Łącznie|Dane w|Wystąpienie|
@@ -2526,8 +2515,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Http4xx|Http 4xx|Liczba|Łącznie|Http 4xx|Wystąpienie|
 |Http5xx|Błędy serwera http|Liczba|Łącznie|Błędy serwera http|Wystąpienie|
 |AverageResponseTime|Średni czas odpowiedzi|Sekundy|Średnia|Średni czas odpowiedzi|Wystąpienie|
-|CpuPercentage|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Wystąpienie|
-|MemoryPercentage|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Wystąpienie|
+|CpuPercentage|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Wystąpienie|
+|MemoryPercentage|Procent pamięci|Procent|Średnia|Procent pamięci|Wystąpienie|
 |DiskQueueLength|Długość kolejki dysku|Liczba|Średnia|Długość kolejki dysku|Wystąpienie|
 |HttpQueueLength|Długość kolejki http|Liczba|Średnia|Długość kolejki http|Wystąpienie|
 |ActiveRequests|Aktywne żądania|Liczba|Łącznie|Aktywne żądania|Wystąpienie|
@@ -2543,8 +2532,8 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Łączna|Łączna liczba procesów roboczych|Liczba|Średnia|Łączna liczba procesów roboczych|Brak|
 |WorkersAvailable|Dostępni pracownicy|Liczba|Średnia|Dostępni pracownicy|Brak|
 |WorkersUsed|Używani pracownicy|Liczba|Średnia|Używani pracownicy|Brak|
-|CpuPercentage|Procent użycia procesora CPU|Wartość procentowa|Średnia|Procent użycia procesora CPU|Wystąpienie|
-|MemoryPercentage|Procent pamięci|Wartość procentowa|Średnia|Procent pamięci|Wystąpienie|
+|CpuPercentage|Procent użycia procesora CPU|Procent|Średnia|Procent użycia procesora CPU|Wystąpienie|
+|MemoryPercentage|Procent pamięci|Procent|Średnia|Procent pamięci|Wystąpienie|
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj informacje o metrykach w Azure Monitor](data-platform.md)
 * [Tworzenie alertów dotyczących metryk](alerts-overview.md)

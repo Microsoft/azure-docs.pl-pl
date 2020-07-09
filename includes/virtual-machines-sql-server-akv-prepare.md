@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines-windows
 author: rothja
 manager: craigg
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2c7d312910c6d38c54b291da34bfb827246c7dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79504309"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86050303"
 ---
 ## <a name="prepare-for-akv-integration"></a>Przygotowanie do integracji z programem AKV
 Aby skonfigurować SQL Serverą maszynę wirtualną za pomocą integracji Azure Key Vault, istnieje kilka wymagań wstępnych: 
@@ -56,9 +56,11 @@ Następnie zarejestruj aplikację przy użyciu usługi AAD. Spowoduje to nadanie
 ### <a name="create-a-key-vault"></a><a id="createkeyvault"></a>Tworzenie magazynu kluczy
 Aby można było używać Azure Key Vault do przechowywania kluczy używanych do szyfrowania na maszynie wirtualnej, wymagany jest dostęp do magazynu kluczy. Jeśli magazyn kluczy nie został jeszcze skonfigurowany, utwórz go, wykonując kroki opisane w [wprowadzenie z Azure Key Vault](../articles/key-vault/key-vault-overview.md) artykule. Przed wykonaniem tych kroków należy zebrać pewne informacje, które są potrzebne w dalszej części tego ustawienia, gdy włączysz Azure Key Vault integrację na maszynie wirtualnej SQL.
 
-    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```azurepowershell
+New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```
 
-Po przepoczęciu pracy z etapem tworzenia magazynu kluczy Zwróć uwagę na zwróconą Właściwość **vaultUri** , która jest adresem URL magazynu kluczy. W przykładzie podanym w tym kroku pokazano poniżej, nazwa magazynu kluczy to ContosoKeyVault, w związku z czym adres URL magazynu kluczy https://contosokeyvault.vault.azure.net/.
+Po przepoczęciu pracy z etapem tworzenia magazynu kluczy Zwróć uwagę na zwróconą Właściwość **vaultUri** , która jest adresem URL magazynu kluczy. W przykładzie podanym w tym kroku pokazano poniżej, nazwa magazynu kluczy to ContosoKeyVault, w związku z czym adres URL magazynu kluczy https://contosokeyvault.vault.azure.net/ .
 
 Adres URL magazynu kluczy zostanie przypisany później do parametru **$akvURL** w skrypcie programu PowerShell w celu włączenia Azure Key Vault integracji.
 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62d4e26d5a0d3d86cc58421dab4167d5d9d2562d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727244"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961783"
 ---
 # <a name="azure-media-player-full-setup"></a>Pełna konfiguracja usługi Azure Media Player #
 
@@ -20,20 +20,23 @@ Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarza
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Krok 1. Uwzględnij pliki JavaScript i CSS w nagłówku strony ##
 
-Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zaleca się umieszczenie kodu JavaScript przed tagiem `<body>` treści końcowej zamiast `<head>`, ale Azure Media Player zawiera "HTML5 Shiv", który musi znajdować się w nagłówku w przypadku starszych wersji programu IE w celu uwzględnienia znacznika wideo jako prawidłowego elementu.
+Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zaleca się umieszczenie kodu JavaScript przed tagiem treści końcowej `<body>` zamiast `<head>` , ale Azure Media Player zawiera "HTML5 Shiv", który musi znajdować się w nagłówku w przypadku starszych wersji programu IE w celu uwzględnienia znacznika wideo jako prawidłowego elementu.
 
 > [!NOTE]
-> Jeśli korzystasz już z Shiv HTML5, takiego jak [modernizacja](http://modernizr.com/) , możesz w dowolnym miejscu umieścić Azure Media Player JavaScript. Upewnij się jednak, że Twoja wersja programu unowocześnienie obejmuje Shiv do wideo.
+> Jeśli korzystasz już z Shiv HTML5, takiego jak [modernizacja](https://modernizr.com/) , możesz w dowolnym miejscu umieścić Azure Media Player JavaScript. Upewnij się jednak, że Twoja wersja programu unowocześnienie obejmuje Shiv do wideo.
 
 ### <a name="cdn-version"></a>Wersja usługi CDN ###
+
+```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+```
 
 > [!IMPORTANT]
-> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player. Na przykład Zastąp `latest` ciąg `2.1.1`opcją. W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
+> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player. Na przykład Zastąp ciąg `latest` opcją `2.1.1` . W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
 
 > [!NOTE]
-> Ponieważ `1.2.0` wersja nie jest już wymagana do uwzględnienia lokalizacji powrotu do rezerwy, zostanie automatycznie wybrana lokalizacja ze ścieżki względnej pliku azuremediaplayer. min. js. Lokalizację powrotu można zmienić, dodając następujący skrypt w `<head>` powyższym skrypcie.
+> Ponieważ `1.2.0` wersja nie jest już wymagana do uwzględnienia lokalizacji powrotu do rezerwy, (automatycznie wybiera lokalizację ze ścieżki względnej pliku azuremediaplayer.min.js). Lokalizację powrotu można zmienić, dodając następujący skrypt w `<head>` powyższym skrypcie.
 
 > [!NOTE]
 > Ze względu na charakter wtyczek Flash i Silverlight, pliki SWF i XAP powinny być hostowane w domenie bez poufnych informacji lub danych — jest to automatycznie brane pod uwagę w przypadku Azure CDN hostowanej wersji.
@@ -49,12 +52,12 @@ Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej 
 
 Za pomocą Azure Media Player można osadzić wideo za pomocą tagu wideo HTML5. Azure Media Player odczytuje tag i sprawia, że będzie działać we wszystkich przeglądarkach, a nie tylko w przypadku obsługi wideo HTML5. Poza znacznikiem Basic Azure Media Player potrzebuje kilku dodatkowych fragmentów.
 
-1. `<data-setup>` Atrybut na stronie `<video>` instruuje Azure Media Player, aby automatycznie skonfigurować wideo, gdy strona jest gotowa, i odczytać dowolne (w formacie JSON) z atrybutu.
-1. `id` Atrybut: powinien być używany i unikatowy dla każdego filmu wideo na tej samej stronie.
+1. `<data-setup>`Atrybut na `<video>` stronie instruuje Azure Media Player, aby automatycznie skonfigurować wideo, gdy strona jest gotowa, i odczytać dowolne (w formacie JSON) z atrybutu.
+1. `id`Atrybut: powinien być używany i unikatowy dla każdego filmu wideo na tej samej stronie.
 1. Ten `class` atrybut zawiera dwie klasy:
     - `azuremediaplayer`stosuje style, które są wymagane do Azure Media Player funkcji interfejsu użytkownika
     - `amp-default-skin`stosuje domyślną skórkę do formantów HTML5
-1. `<source>` Zawiera dwa wymagane atrybuty
+1. `<source>`Zawiera dwa wymagane atrybuty
     - `src`atrybut może zawierać plik **. ISM/manifest* z Azure Media Services zostanie dodany, Azure Media Player automatycznie dodaje adresy URL dla łącznika, gładkie i HLS do odtwarzacza
     - `type`atrybut jest wymaganym typem MIME strumienia. Typ MIME skojarzony z elementem *". ISM/manifest"* to *"application/vnd. MS-SStR + XML"*
 1. *Opcjonalny* `<data-setup>` atrybut na stronie `<source>` informuje Azure Media Player, jeśli istnieją jakieś unikatowe zasady dostarczania dla strumienia z Azure Media Services, w tym, ale nie jest ograniczony do, typ szyfrowania (AES, PlayReady, Widevine lub FairPlay) i token.

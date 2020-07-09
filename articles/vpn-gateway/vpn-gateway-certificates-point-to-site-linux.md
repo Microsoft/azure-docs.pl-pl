@@ -5,15 +5,15 @@ titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: alzam
-ms.openlocfilehash: a0f996ff2805da4dd5af400642eef2506c228d33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89f6014b548bd3dd66622d15149051e6b28e94b0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75779760"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84984607"
 ---
 # <a name="generate-and-export-certificates"></a>Generowanie i eksportowanie certyfikatów
 

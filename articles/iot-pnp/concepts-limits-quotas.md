@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80518168"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limity, przydziały i ograniczenia dotyczące Plug and Play IoT
 
 W tym artykule wyjaśniono limity, przydziały i ograniczenia dotyczące Plug and Play IoT, które są stosowane w publicznej wersji zapoznawczej. Istnieją także [przydziały IoT Hub i ograniczanie przepustowości](../iot-hub/iot-hub-devguide-quotas-throttling.md) .
 
-## <a name="iot-hub"></a>Usługa IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 
 W publicznej wersji zapoznawczej do centrum IoT są stosowane następujące limity i przydziały:
 
@@ -29,7 +29,7 @@ W publicznej wersji zapoznawczej do centrum IoT są stosowane następujące limi
 | Maksymalna liczba DCMs, które można zarejestrować na urządzenie | 1 ||
 | Maksymalny rozmiar pliku interfejsu/DCM | 512 KB ||
 | Maksymalny rozmiar nazwy interfejsu | 256 znaków ||
-| Maksymalny rozmiar nazwy właściwości  | 64 bajtów, 7 poziomów na głębokości (a pierwszy poziom jest zarezerwowany dla `$iotin`) | Dozwolone znaki: a-z, A-Z, 0-9 (nie jako pierwszy znak) i podkreślenia. |
+| Maksymalny rozmiar nazwy właściwości  | 64 bajtów, 7 poziomów na głębokości (a pierwszy poziom jest zarezerwowany dla `$iotin` ) | Dozwolone znaki: a-z, A-Z, 0-9 (nie jako pierwszy znak) i podkreślenia. |
 | Maksymalny rozmiar wartości właściwości | 512 bajtów ||
 | Maksymalny rozmiar nazwy polecenia | 100 bajtów ||
 | Rozmiar przędzy urządzenia | Analogicznie jak [limity IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||

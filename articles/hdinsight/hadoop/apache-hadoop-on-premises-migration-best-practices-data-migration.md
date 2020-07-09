@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 41112359408497d84243ed9bb06f396acf008dc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b48a2ef65aeb6e8de784c7443cf4be527197464a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74666005"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081812"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — najlepsze rozwiązania dotyczące migracji danych
 
@@ -45,8 +45,8 @@ Poniższa tabela ma przybliżony czas trwania transferu danych oparty na wolumin
 |80 TB|173 dni|78 dni|8 dni|19 godzin|
 |100 TB|216 dni|97 dni|10 dni|1 dzień|
 |200 TB|1 rok|194 dni|19 dni|2 dni|
-|500 TB|3 lata|1 rok|49 dni|5 dni|
-|1 PB|6 lat|3 lata|97 dni|10 dni|
+|500 TB|3 lata|1 rok|49 dni|5 dni|
+|1 PB|6 lat|3 lata|97 dni|10 dni|
 |2 PB|12 lat|5 lat|194 dni|19 dni|
 
 Narzędzia natywne dla platformy Azure, takie jak Apache Hadoop pomocą distcp, Azure Data Factory i AzureCp, mogą służyć do transferowania danych za pośrednictwem sieci. WANDisco narzędzi innych firm można także użyć w tym samym celu. Apache Kafka narzędzia MirrorMaker i Apache Sqoop mogą służyć do ciągłego transferu danych z systemów lokalnych do systemu Azure Storage.
@@ -61,7 +61,7 @@ Pomocą distcp próbuje utworzyć zadania mapy, tak aby każda kopia była w prz
 
 * Najniższy poziom szczegółowości pomocą distcp jest pojedynczym plikiem. Określenie liczby odwzorowania więcej niż liczba plików źródłowych nie jest pomocna i spowoduje marnowanie dostępnych zasobów klastra.
 
-* Aby określić liczbę odwzorowań, należy wziąć pod uwagę dostępną pamięć przędzy w klastrze. Każde zadanie mapy jest uruchamiane jako kontener przędzy. Przy założeniu, że żadne inne duże obciążenia nie są uruchomione w klastrze, liczba odwzorowań może być określona przez następującą formułę: m = (liczba węzłów \* procesu roboczego przędzy pamięć dla każdego węzła procesu roboczego)/rozmiar kontenera przędzy. Jeśli jednak inne aplikacje używają pamięci, należy wybrać opcję użycia tylko części pamięci PRZĘDZy dla zadań pomocą distcp.
+* Aby określić liczbę odwzorowań, należy wziąć pod uwagę dostępną pamięć przędzy w klastrze. Każde zadanie mapy jest uruchamiane jako kontener przędzy. Przy założeniu, że żadne inne duże obciążenia nie są uruchomione w klastrze, liczba odwzorowań może być określona przez następującą formułę: m = (liczba węzłów procesu roboczego \* przędzy pamięć dla każdego węzła procesu roboczego)/rozmiar kontenera przędzy. Jeśli jednak inne aplikacje używają pamięci, należy wybrać opcję użycia tylko części pamięci PRZĘDZy dla zadań pomocą distcp.
 
 ### <a name="use-more-than-one-distcp-job"></a>Użyj więcej niż jednego zadania pomocą distcp
 
@@ -73,11 +73,11 @@ Jeśli istnieje niewielka liczba dużych plików, rozważ ich rozdzielenie na fr
 
 ### <a name="use-the-strategy-command-line-parameter"></a>Użyj parametru wiersza polecenia "Strategia"
 
-Rozważ użycie `strategy = dynamic` parametru w wierszu polecenia. Wartość domyślna `strategy` parametru to, w którym `uniform size`przypadku każda kopia mapy jest w przybliżeniu równa tej samej liczbie bajtów. Gdy ten parametr zostanie zmieniony na `dynamic`, plik listy jest podzielony na kilka "fragmentów plików". Liczba plików fragmentów jest wielokrotnością liczby map. Każde zadanie mapy ma przypisany jeden z plików fragmentów. Po przetworzeniu wszystkich ścieżek w fragmencie zostaje usunięty bieżący fragment i zostanie pobrany nowy fragment. Proces jest kontynuowany, dopóki nie będzie dostępnych więcej fragmentów. To podejście "dynamiczne" pozwala szybszym zadaniom mapy na korzystanie z większej liczby ścieżek niż wolniejsze i przyspieszanie zadań pomocą distcp.
+Rozważ użycie `strategy = dynamic` parametru w wierszu polecenia. Wartość domyślna `strategy` parametru to `uniform size` , w którym przypadku każda kopia mapy jest w przybliżeniu równa tej samej liczbie bajtów. Gdy ten parametr zostanie zmieniony na `dynamic` , plik listy jest podzielony na kilka "fragmentów plików". Liczba plików fragmentów jest wielokrotnością liczby map. Każde zadanie mapy ma przypisany jeden z plików fragmentów. Po przetworzeniu wszystkich ścieżek w fragmencie zostaje usunięty bieżący fragment i zostanie pobrany nowy fragment. Proces jest kontynuowany, dopóki nie będzie dostępnych więcej fragmentów. To podejście "dynamiczne" pozwala szybszym zadaniom mapy na korzystanie z większej liczby ścieżek niż wolniejsze i przyspieszanie zadań pomocą distcp.
 
 ### <a name="increase-the-number-of-threads"></a>Zwiększ liczbę wątków
 
-Sprawdź, `-numListstatusThreads` czy zwiększenie parametru zwiększa wydajność. Ten parametr określa liczbę wątków do użycia na potrzeby kompilowania listy plików, a 40 jest wartością maksymalną.
+Sprawdź, czy zwiększenie `-numListstatusThreads` parametru zwiększa wydajność. Ten parametr określa liczbę wątków do użycia na potrzeby kompilowania listy plików, a 40 jest wartością maksymalną.
 
 ### <a name="use-the-output-committer-algorithm"></a>Użyj algorytmu programu przekazującego dane wyjściowe
 

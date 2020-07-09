@@ -1,14 +1,13 @@
 ---
 title: Korygowanie niezgodnych zasobów
 description: Ten przewodnik przeprowadzi Cię przez korygowanie zasobów, które są niezgodne z zasadami w Azure Policy.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849964"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636312"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Koryguj niezgodne zasoby za pomocą Azure Policy
 
@@ -17,7 +16,7 @@ Zasoby, które są niezgodne z zasadami **deployIfNotExistsymi** lub **modyfikac
 ## <a name="how-remediation-security-works"></a>Jak działa zabezpieczenia korygujące
 
 Gdy Azure Policy uruchamia szablon w definicji zasad **deployIfNotExists** , robi to przy użyciu [tożsamości zarządzanej](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy tworzy tożsamość zarządzaną dla każdego przydziału, ale musi mieć szczegółowe informacje o rolach, które mają udzielić zarządzanej tożsamości. Jeśli zarządzana tożsamość nie zawiera ról, ten błąd jest wyświetlany podczas przypisywania zasad lub inicjatywy. W przypadku korzystania z portalu Azure Policy automatycznie przyznaje zarządzane tożsamości po rozpoczęciu przypisywania. _Lokalizacja_ zarządzanej tożsamości nie ma wpływu na operację z Azure Policy.
+Azure Policy tworzy tożsamość zarządzaną dla każdego przydziału, ale musi mieć szczegółowe informacje o rolach, które mają udzielić zarządzanej tożsamości. Jeśli zarządzana tożsamość nie zawiera ról, ten błąd jest wyświetlany podczas przypisywania zasad lub inicjatywy. W przypadku korzystania z portalu Azure Policy automatycznie przyznaje zarządzane tożsamości po rozpoczęciu przypisywania. _Lokalizacja_ zarządzanej tożsamości nie ma wpływu na jej działanie z Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Zarządzana tożsamość — brak roli" border="false":::
 
@@ -51,9 +50,6 @@ Podczas tworzenia przypisania przy użyciu portalu, Azure Policy zarówno generu
 - Podczas korzystania z zestawu SDK (takiego jak Azure PowerShell)
 - Gdy zasób poza zakresem przypisania jest modyfikowany przez szablon
 - Gdy zasób poza zakresem przypisania jest odczytywany przez szablon
-
-> [!NOTE]
-> Azure PowerShell i .NET są jedynymi zestawami SDK, które obecnie obsługują tę funkcję.
 
 ### <a name="create-managed-identity-with-powershell"></a>Tworzenie tożsamości zarządzanej przy użyciu programu PowerShell
 
@@ -183,7 +179,7 @@ Inne polecenia cmdlet służące do korygowania i przykłady można znaleźć w 
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Utwórz zadanie korygowania podczas przypisywania zasad w Azure Portal
 
-Ulepszony sposób tworzenia zadania korygowania polega na Azure Portal podczas przypisywania zasad. Jeśli definicja zasad do przypisania jest efektem **deployIfNotExists** lub **modyfikacji** , Kreator na karcie **korygowanie** oferuje opcję _tworzenia zadania remedation_ . W przypadku wybrania tej opcji zadanie remedation jest tworzone w tym samym czasie co przypisanie zasady.
+Ulepszony sposób tworzenia zadania korygowania polega na Azure Portal podczas przypisywania zasad. Jeśli definicja zasad, która ma zostać przypisana, to efekt **deployIfNotExists** lub **modyfikacji** , Kreator na karcie **korygowanie** oferuje opcję _tworzenia zadania korygującego_ . W przypadku wybrania tej opcji zadanie korygowania jest tworzone jednocześnie z przypisaniem zasad.
 
 ## <a name="next-steps"></a>Następne kroki
 

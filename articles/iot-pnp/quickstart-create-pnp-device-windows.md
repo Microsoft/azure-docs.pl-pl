@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b02455c153c6205b87a64a388d5588c3c431e0c9
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700885"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963516"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Szybki Start: korzystanie z modelu możliwości urządzenia do tworzenia urządzenia w wersji zapoznawczej IoT Plug and Play (Windows)
 
@@ -78,7 +78,7 @@ W tym przewodniku szybki start użyjesz Menedżera bibliotek [Vcpkg](https://git
 1. Zainstaluj zestaw SDK urządzeń usługi Azure IoT C Vcpkg:
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## <a name="author-your-model"></a>Tworzenie modelu
@@ -87,7 +87,7 @@ W tym przewodniku szybki start użyjesz istniejącego modelu możliwości przyk�
 
 1. Utwórz `pnp_app` folder na dysku lokalnym. Ten folder służy do plików modelu urządzenia i szczątkowego kodu urządzenia.
 
-1. Pobierz [model możliwości urządzenia i przykładowe pliki interfejsu](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) oraz [przykład interfejsu](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) i Zapisz pliki w `pnp_app` folderze.
+1. Pobierz [model możliwości urządzenia](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) i [przykładowe pliki interfejsu](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json) i Zapisz je w `pnp_app` folderze.
 
     > [!TIP]
     > Aby pobrać plik z usługi GitHub, przejdź do pliku, kliknij prawym przyciskiem myszy pozycję **RAW**, a następnie wybierz pozycję **Zapisz łącze jako**.
@@ -107,7 +107,7 @@ Teraz, gdy masz już DCM i skojarzone z nią interfejsy, możesz wygenerować ko
     > [!NOTE]
     > Przy pierwszym użyciu interfejsu wiersza polecenia IoT Plug and Play CodeGen można pobrać i zainstalować automatycznie kilka sekund.
 
-1. Wybierz plik **SampleDevice. capabilitymodel. JSON** , który ma być używany do generowania szczątkowego kodu urządzenia.
+1. Wybierz **SampleDevice.capabilitymodel.jsw** pliku, który ma zostać użyty do wygenerowania szczątkowego kodu urządzenia.
 
 1. Wprowadź nazwę projektu **sample_device**. Jest to nazwa aplikacji urządzenia.
 

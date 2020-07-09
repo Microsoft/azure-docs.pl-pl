@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76548938"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86079296"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Użyj rozszerzonych funkcji serwera historii Apache Spark, aby debugować i diagnozować aplikacje Spark
 
@@ -32,7 +32,7 @@ Serwer historii platformy Spark jest interfejsem użytkownika sieci Web dla uko�
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Otwórz interfejs użytkownika sieci Web serwera historii platformy Spark według adresu URL
 
-Otwórz serwer historii platformy Spark, przechodząc `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`do lokalizacji, gdzie **ClusterName** jest nazwą klastra Spark.
+Otwórz serwer historii platformy Spark, przechodząc do `https://CLUSTERNAME.azurehdinsight.net/sparkhistory` lokalizacji, gdzie **ClusterName** jest nazwą klastra Spark.
 
 Interfejs użytkownika sieci Web serwera historii platformy Spark może wyglądać podobnie do tego obrazu:
 
@@ -99,9 +99,9 @@ Wybierz identyfikator zadania, a następnie wybierz pozycję **dane** w menu Nar
 
     |Kolor |Opis |
     |---|---|
-    |Zielony|Zadanie zostało ukończone pomyślnie.|
+    |Green|Zadanie zostało ukończone pomyślnie.|
     |Orange|Zadanie nie powiodło się, ale nie ma wpływu na końcowy wynik zadania. Te zadania mają zduplikowane lub ponawiane wystąpienia, które mogą się powieść później.|
-    |Blue|Zadanie jest uruchomione.|
+    |Niebieski|Zadanie jest uruchomione.|
     |Biały|Zadanie oczekuje na uruchomienie lub etap został pominięty.|
     |Red|Zadanie nie powiodło się.|
 
@@ -208,7 +208,7 @@ Wybierz ikonę koloru, aby wybrać lub usunąć zaznaczenie odpowiedniej zawarto
 Aby powrócić do wersji społeczności, wykonaj następujące czynności.
 
 1. Otwórz klaster w Ambari.
-1. Przejdź do **Spark2** > **configs**.
+1. Przejdź do **Spark2**  >  **configs**.
 1. Wybierz pozycję **niestandardowe spark2 — ustawienia domyślne**.
 1. Wybierz pozycję **Dodaj właściwość.**...
 1. Dodaj element **Spark. UI. ulepszenie. Enabled = false**, a następnie zapisz go.
@@ -245,7 +245,7 @@ Jeśli wystąpi błąd na serwerze historii platformy Spark, wykonaj następują
 
 ### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Jak mogę uaktualnić plik JAR w scenariuszu poprawek?
 
-Jeśli chcesz uaktualnić przy użyciu poprawki, użyj następującego skryptu, który zostanie uaktualniony `spark-enhancement.jar*`.
+Jeśli chcesz uaktualnić przy użyciu poprawki, użyj następującego skryptu, który zostanie uaktualniony `spark-enhancement.jar*` .
 
 **upgrade_spark_enhancement. sh**:
 
@@ -294,7 +294,7 @@ Jeśli chcesz uaktualnić przy użyciu poprawki, użyj następującego skryptu, 
     fi
    ```
 
-#### <a name="usage"></a>Sposób użycia
+#### <a name="usage"></a>Użycie
 
 `upgrade_spark_enhancement.sh https://${jar_path}`
 
@@ -328,6 +328,6 @@ Jeśli chcesz uaktualnić przy użyciu poprawki, użyj następującego skryptu, 
 + [Zarządzanie zasobami klastra Apache Spark w usłudze HDInsight](apache-spark-resource-manager.md)
 + [Konfigurowanie ustawień platformy Apache Spark](apache-spark-settings.md)
 
-## <a name="feedback"></a>Opinia
+## <a name="suggestions"></a>Sugestie
 
-Jeśli podczas korzystania z tego narzędzia masz jakiekolwiek Opinie lub problemy, Wyślij wiadomość e-mail na adres ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).
+Jeśli podczas korzystania z tego narzędzia masz jakiekolwiek Opinie lub problemy, Wyślij wiadomość e-mail na adres ( [hdivstool@microsoft.com](mailto:hdivstool@microsoft.com) ).

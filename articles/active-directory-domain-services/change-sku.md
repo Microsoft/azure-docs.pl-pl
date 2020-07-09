@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 32f8f157abaf5076911c3908a83be4a644e09656
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655585"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734966"
 ---
-# <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Zmień jednostkę SKU dla istniejącej Azure AD Domain Services domeny zarządzanej
+# <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Zmień jednostkę SKU dla istniejącej Azure Active Directory Domain Services domeny zarządzanej
 
 W Azure Active Directory Domain Services (Azure AD DS) dostępna wydajność i funkcje są oparte na typie jednostki SKU. Te różnice między funkcjami obejmują częstotliwość tworzenia kopii zapasowych lub maksymalną liczbę jednokierunkowych relacji zaufania między lasami (obecnie w wersji zapoznawczej). Podczas tworzenia domeny zarządzanej można wybrać jednostkę SKU, a jednostki SKU można zmienić w górę lub w dół, gdy zostanie wdrożona domena zarządzana. Zmiany wymagań firmy mogą obejmować konieczność wykonywania kilku często wykonywanych kopii zapasowych lub tworzenia dodatkowych relacji zaufania lasów. Aby uzyskać więcej informacji na temat limitów i cen różnych jednostek SKU, zobacz temat [azure AD DS SKU — koncepcje][concepts-sku] i [cennik usługi Azure AD DS][pricing] .
 
@@ -32,11 +32,11 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie potrzeby Ukończ samouczek, aby [utworzyć i skonfigurować domenę zarządzaną][create-azure-ad-ds-instance].
 
 ## <a name="sku-change-limitations"></a>Ograniczenia zmiany jednostki SKU
 
-Po wdrożeniu domeny zarządzanej usługi Azure AD DS można zmienić jednostki SKU w górę lub w dół. Jeśli jednak korzystasz z lasu zasobów (obecnie w wersji zapoznawczej) i utworzono jednokierunkowe zaufania lasu wychodzącego z usługi Azure AD DS do środowiska lokalnego AD DS, istnieją pewne ograniczenia dotyczące operacji zmiany jednostki SKU. Jednostki SKU w *warstwie Premium* i *Enterprise* definiują limit liczby relacji zaufania, które można utworzyć. Nie można zmienić jednostki SKU z niższym maksymalnym limitem niż aktualnie skonfigurowany.
+Po wdrożeniu domeny zarządzanej można zmienić jednostki SKU w górę lub w dół. Jeśli jednak korzystasz z lasu zasobów (obecnie w wersji zapoznawczej) i utworzono jednokierunkowe zaufania lasu wychodzącego z usługi Azure AD DS do środowiska lokalnego AD DS, istnieją pewne ograniczenia dotyczące operacji zmiany jednostki SKU. Jednostki SKU w *warstwie Premium* i *Enterprise* definiują limit liczby relacji zaufania, które można utworzyć. Nie można zmienić jednostki SKU z niższym maksymalnym limitem niż aktualnie skonfigurowany.
 
 Przykład:
 
@@ -47,14 +47,14 @@ Aby uzyskać więcej informacji na temat tych limitów, zobacz [funkcje i limity
 
 ## <a name="select-a-new-sku"></a>Wybierz nową jednostkę SKU
 
-Aby zmienić jednostkę SKU dla domeny zarządzanej AD DS platformy Azure przy użyciu Azure Portal, wykonaj następujące czynności:
+Aby zmienić jednostkę SKU dla domeny zarządzanej przy użyciu Azure Portal, wykonaj następujące czynności:
 
 1. W górnej części Azure Portal Wyszukaj i wybierz pozycję **Azure AD Domain Services**. Wybierz domenę zarządzaną z listy, na przykład *aaddscontoso.com*.
 1. W menu po lewej stronie strony AD DS platformy Azure wybierz pozycję **ustawienia > jednostka SKU**.
 
     ![Wybierz opcję menu SKU dla domeny zarządzanej platformy Azure AD DS w Azure Portal](media/change-sku/overview-change-sku.png)
 
-1. Z menu rozwijanego wybierz jednostkę SKU dla domeny zarządzanej platformy Azure AD DS. Jeśli masz Las zasobów, nie możesz wybrać opcji *standardowa* jednostka SKU, ponieważ zaufania lasów są dostępne tylko w jednostce SKU *przedsiębiorstwa* lub wyższej.
+1. Z menu rozwijanego wybierz jednostkę SKU dla domeny zarządzanej. Jeśli masz Las zasobów, nie możesz wybrać opcji *standardowa* jednostka SKU, ponieważ zaufania lasów są dostępne tylko w jednostce SKU *przedsiębiorstwa* lub wyższej.
 
     Wybierz żądaną jednostkę SKU z menu rozwijanego, a następnie wybierz pozycję **Zapisz**.
 

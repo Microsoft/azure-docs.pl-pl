@@ -3,12 +3,11 @@ title: 'Samouczek: wyodrębnianie danych strukturalnych za pomocą jednostki ucz
 description: Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostki Uczenie maszynowe. Aby zwiększyć dokładność wyodrębniania, Dodaj podjednostki z funkcjami.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676170"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045607"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Samouczek: wyodrębnianie danych strukturalnych z wypowiedź użytkownika przy użyciu jednostek uczenia maszynowego w Language Understanding (LUIS)
 
@@ -16,7 +15,7 @@ W tym samouczku Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostk
 
 Jednostka uczenia maszynowego obsługuje [koncepcję rozkładu modelu](luis-concept-model.md#v3-authoring-model-decomposition) przez zapewnienie jednostkowych jednostek z [funkcjami](luis-concept-feature.md).
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Importowanie aplikacji przykładowej
@@ -98,7 +97,7 @@ Poprzednie kroki tworzą jednostkę i podjednostkę. Aby ulepszyć wyodrębniani
 
 1. Wybierz pozycję **Utwórz nową listę fraz** z menu rozwijanego.
 
-1. W polu **Utwórz nową frazę** wprowadź nazwę, a `SizePhraselist` następnie wprowadź wartości: `small` , `medium` , i `large` . Po wypełnieniu pola **sugestie** wybierz pozycję `extra large` i `xl` . Wybierz pozycję **Zapisz** , aby utworzyć nową listę fraz.
+1. W polu **Utwórz nową frazę** wprowadź nazwę, a `SizePhraselist` następnie wprowadź wartości: `small` , `medium` , i `large` . Po wypełnieniu pola **sugestie** wybierz pozycję `extra large` i `xl` . Wybierz pozycję **Utwórz** , aby utworzyć nową listę fraz.
 
     Ta funkcja listy frazy ułatwia `Size` znalezienie wyrazów związanych z rozmiarem, podając Przykładowe słowa. Ta lista fraz nie musi zawierać każdego wyrazu o rozmiarze, ale powinna zawierać słowa, które powinny wskazywać rozmiar.
 
@@ -108,7 +107,7 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
 1. Wybierz pozycję **jednostki** w menu po lewej stronie, a następnie wybierz pozycję **+ Utwórz**.
 
-1. Ustaw nazwę jednostki tak, aby `SizeListentity` można ją było łatwo identyfikować w porównaniu do `SizePhraselist` utworzonej w poprzedniej sekcji.
+1. Ustaw nazwę jednostki jako `SizeListentity` i ustaw typ jako **listę** , tak aby można ją było łatwo identyfikować w porównaniu z definicją `SizePhraselist` utworzoną w poprzedniej sekcji.
 
 1. Dodaj rozmiary oczekiwane przez aplikację kliencką: `Small` , `Medium` ,, `Large` a `XLarge` następnie Dodaj synonimy dla każdego z nich. Synonimami powinny być warunki wprowadzane przez użytkownika w bot rozmowy. Jednostka jest wyodrębniana z jednostki listy, gdy pasuje do znormalizowanej wartości lub synonimów.
 
@@ -131,7 +130,7 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
 1. Na karcie **schemat i funkcje** wybierz jednostkę **rozmiaru** , a następnie wybierz pozycję **+ Dodaj funkcję**.
 
-1. Z listy rozwijanej wybierz pozycję **@ SizeList** .
+1. Z listy rozwijanej wybierz pozycję **@ SizeListentity** .
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

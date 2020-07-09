@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 048161ec13edbd0cf474fb6598fdd9ff981077ae
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376634"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85611683"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: monitorowanie klastra Service Fabric na platformie Azure
 
@@ -41,7 +41,7 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 Przed rozpoczęciem tego samouczka:
 
 * Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Zainstaluj program [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * Tworzenie bezpiecznego [klastra systemu Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * Konfiguracja [zbierania danych diagnostycznych](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) dla klastra
 * Włączanie [usługi EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) w klastrze
@@ -124,7 +124,7 @@ ServiceFabricOperationalEvent
 | project EventId, EventName = 'NodeUpOperational', TaskName, Computer, EventMessage, TimeGenerated
 | sort by TimeGenerated 
 ``` 
- 
+
 Zwraca raporty kondycji z atrybutem HealthState = = 3 (error) i wyodrębnienie dodatkowych właściwości z pola EventMessage:
 
 ```kusto
@@ -191,7 +191,7 @@ ServiceFabricReliableServiceEvent
 | sort by TimeGenerated desc
 ```
 
-Można zobaczyć różne zdarzenia dla momentu rozpoczęcia i ukończenia usługi RunAsync, która zwykle odbywa się w przypadku wdrożeń i uaktualnień.
+Można zobaczyć różne zdarzenia dla momentu `runasync` uruchomienia i ukończenia usługi, która zwykle odbywa się w przypadku wdrożeń i uaktualnień.
 
 ![Reliable Services Service Fabric rozwiązania](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
@@ -210,7 +210,7 @@ Niezawodne zdarzenia aktora można wyświetlać w podobny sposób:
 ServiceFabricReliableActorEvent
 | sort by TimeGenerated desc
 ```
-Aby skonfigurować bardziej szczegółowe zdarzenia dla niezawodnych aktorów, można `scheduledTransferKeywordFilter` zmienić w pliku config dla rozszerzenia diagnostyki w szablonie klastra. Szczegółowe informacje na temat tych wartości znajdują się w [odniesieniu do zdarzeń niezawodnych aktorów](service-fabric-reliable-actors-diagnostics.md#keywords).
+Aby skonfigurować bardziej szczegółowe zdarzenia dla niezawodnych aktorów, można zmienić `scheduledTransferKeywordFilter` w pliku config dla rozszerzenia diagnostyki w szablonie klastra. Szczegółowe informacje na temat tych wartości znajdują się w [odniesieniu do zdarzeń niezawodnych aktorów](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -487,5 +487,5 @@ Następnie przejdź do następującego samouczka, aby dowiedzieć się, jak skal
 > [!div class="nextstepaction"]
 > [Skalowanie klastra](service-fabric-tutorial-scale-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

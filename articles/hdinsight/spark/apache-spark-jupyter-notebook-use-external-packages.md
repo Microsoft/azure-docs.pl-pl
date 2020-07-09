@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: cec94b2ecb18bc9e8cceb24a21967a3c829d78a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6587a055d672bc309c89ff2a37fabb273a4c4621
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74561722"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084685"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Korzystanie z zewnętrznych pakietów z notesami Jupyter w klastrach Apache Spark w usłudze HDInsight
 
@@ -33,7 +33,7 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
 * Znajomość zagadnień dotyczących używania notesów Jupyter za pomocą platformy Spark w usłudze HDInsight. Aby uzyskać więcej informacji, zobacz [ładowanie danych i uruchamianie zapytań za pomocą Apache Spark w usłudze HDInsight](./apache-spark-load-data-run-query.md).
 
-* [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. Będzie to możliwe `wasb://` w przypadku usługi Azure `abfs://` Storage, Azure Data Lake Storage Gen2 `adl://` lub Azure Data Lake Storage Gen1. W przypadku włączenia bezpiecznego transferu dla usługi Azure Storage lub Data Lake Storage Gen2, identyfikator URI może `wasbs://` być `abfss://`lub, odpowiednio, zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
+* [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. Będzie to możliwe `wasb://` w przypadku usługi Azure Storage, `abfs://` Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. W przypadku włączenia bezpiecznego transferu dla usługi Azure Storage lub Data Lake Storage Gen2, identyfikator URI może być `wasbs://` lub `abfss://` , odpowiednio, zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Korzystanie z zewnętrznych pakietów z notesami Jupyter
 
@@ -47,7 +47,7 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
     ![Wprowadzanie nazwy notesu](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Wprowadzanie nazwy notesu")
 
-1. Użyjemy Magic, `%%configure` aby skonfigurować Notes do korzystania z pakietu zewnętrznego. W notesach korzystających z pakietów zewnętrznych upewnij się, że `%%configure` w pierwszej komórce kodu jest wywoływana magiczna. Dzięki temu jądro jest skonfigurowane do korzystania z pakietu przed rozpoczęciem sesji.
+1. Użyjemy Magic, `%%configure` Aby skonfigurować Notes do korzystania z pakietu zewnętrznego. W notesach korzystających z pakietów zewnętrznych upewnij się, że `%%configure` w pierwszej komórce kodu jest wywoływana magiczna. Dzięki temu jądro jest skonfigurowane do korzystania z pakietu przed rozpoczęciem sesji.
 
     >[!IMPORTANT]  
     >Jeśli zapomnisz skonfigurować jądro w pierwszej komórce, możesz użyć `%%configure` z `-f` parametrem, ale to spowoduje ponowne uruchomienie sesji i cały postęp zostanie utracony.
@@ -67,27 +67,35 @@ W tym artykule dowiesz się, jak używać pakietu [Spark-CSV](https://search.mav
 
     c. Połącz trzy wartości rozdzielone dwukropkiem (**:**).
 
-        com.databricks:spark-csv_2.11:1.5.0
+    ```scala
+    com.databricks:spark-csv_2.11:1.5.0
+    ```
 
 1. Uruchom komórkę kodu z `%%configure` magiczną. Spowoduje to skonfigurowanie bazowej sesji usługi Livy do korzystania z dostarczonego pakietu. W kolejnych komórkach w notesie możesz teraz użyć pakietu, jak pokazano poniżej.
 
-        val df = spark.read.format("com.databricks.spark.csv").
-        option("header", "true").
-        option("inferSchema", "true").
-        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```scala
+    val df = spark.read.format("com.databricks.spark.csv").
+    option("header", "true").
+    option("inferSchema", "true").
+    load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```
 
     W przypadku usługi HDInsight 3,4 i poniżej należy użyć poniższego fragmentu kodu.
 
-        val df = sqlContext.read.format("com.databricks.spark.csv").
-        option("header", "true").
-        option("inferSchema", "true").
-        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```scala
+    val df = sqlContext.read.format("com.databricks.spark.csv").
+    option("header", "true").
+    option("inferSchema", "true").
+    load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```
 
 1. Następnie można uruchomić fragmenty kodu, jak pokazano poniżej, aby wyświetlić dane z ramki danych utworzonej w poprzednim kroku.
 
-        df.show()
+    ```scala
+    df.show()
    
-        df.select("Time").count()
+    df.select("Time").count()
+    ```
 
 ## <a name="see-also"></a><a name="seealso"></a>Zobacz także
 

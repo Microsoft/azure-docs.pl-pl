@@ -4,10 +4,10 @@ description: Dowiedz się, jak usuwanie nietrwałe dla programu SQL Server na ma
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: f1e3ecae5d643b8e32f8f4f07808d56cdc421163
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82791378"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure
@@ -93,7 +93,7 @@ Azure Backup teraz zapewnia nietrwałe usuwanie programu SQL Server na maszynie 
 ## <a name="soft-delete-for-sql-server-in-vm-using-azure-powershell"></a>Usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej przy użyciu Azure PowerShell
 
 >[!NOTE]
->Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu Azure PowerShell jest minimalna 2.2.0. Użyj `Install-Module -Name Az.RecoveryServices -Force` , aby uzyskać najnowszą wersję.
+>Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu Azure PowerShell jest minimalna 2.2.0. Użyj, `Install-Module -Name Az.RecoveryServices -Force` Aby uzyskać najnowszą wersję.
 
 Sekwencja kroków do użycia Azure PowerShell jest taka sama jak w przypadku Azure Portal, pokreślonych powyżej.
 

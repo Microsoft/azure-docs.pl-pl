@@ -6,19 +6,18 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609778"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurowanie Reliable Actors--dostawcy KVSActorStateProvider
-Domyślną konfigurację dostawcy KVSActorStateProvider można zmodyfikować, zmieniając plik Settings. XML, który jest generowany w katalogu głównym pakietu Microsoft Visual Studio w folderze config dla określonego aktora.
+Domyślną konfigurację dostawcy KVSActorStateProvider można zmodyfikować, zmieniając plik settings.xml, który jest generowany w katalogu głównym pakietu Microsoft Visual Studio w folderze config dla określonego aktora.
 
-Środowisko uruchomieniowe Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku Settings. XML i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
+Środowisko uruchomieniowe Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku settings.xml i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
 
 > [!NOTE]
-> Nie usuwaj ani **nie** Modyfikuj nazw sekcji następujących konfiguracji w pliku Settings. XML, który jest generowany w rozwiązaniu programu Visual Studio.
+> Nie usuwaj ani **nie** Modyfikuj nazw sekcji następujących konfiguracji w pliku settings.xml, który jest generowany w rozwiązaniu programu Visual Studio.
 > 
 > 
 
@@ -31,14 +30,14 @@ Domyślnie pusta sekcja konfiguracji zabezpieczeń uniemożliwia zabezpieczenia 
 > 
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;&gt;ServiceReplicatorSecurityConfig aktora
+&lt;ServiceReplicatorSecurityConfig aktora &gt;
 
 ## <a name="replicator-configuration"></a>Konfiguracja replikatora
 Konfiguracje replikatora konfiguruje Replikator, który jest odpowiedzialny za zapewnianie niezawodnego stanu dostawcy stanu aktora.
 Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i powinna być wystarczająca. W tej sekcji omówiono dodatkowe konfiguracje, które są dostępne w celu dostrojenia replikatora.
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;&gt;ServiceReplicatorConfig aktora
+&lt;ServiceReplicatorConfig aktora &gt;
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
@@ -55,7 +54,7 @@ Konfiguracje magazynu są używane do konfigurowania lokalnego magazynu, który 
 Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i powinna być wystarczająca. W tej sekcji omówiono dodatkowe konfiguracje, które są dostępne do dostrajania magazynu lokalnego.
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;&gt;ServiceLocalStoreConfig aktora
+&lt;ServiceLocalStoreConfig aktora &gt;
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |

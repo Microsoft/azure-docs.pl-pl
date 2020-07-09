@@ -8,13 +8,13 @@ ms.date: 05/18/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.openlocfilehash: b79ab513950f14cda98fc3113bb062b431ebd69e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.topic: how-to
+ms.custom: tracking-python
+ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664921"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560184"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing
 

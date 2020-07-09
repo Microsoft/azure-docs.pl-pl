@@ -4,21 +4,21 @@ description: Dostosuj konfigurację sesji uwierzytelniania usługi Azure AD, w t
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba37b5d72bd9dca2e10c699f4ba259319a6c71
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552117"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
 W złożonych wdrożeniach organizacje mogą wymagać ograniczenia sesji uwierzytelniania. Niektóre scenariusze mogą obejmować:
 
@@ -51,13 +51,17 @@ Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdroż
 - Dynamics CRM Online
 - Azure Portal
 
+Ustawienie częstotliwości logowania działa również z aplikacjami SAML, o ile nie porzucają własnych plików cookie i są przekierowywane z powrotem do usługi Azure AD w celu regularnego uwierzytelniania.
+
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Częstotliwość logowania użytkownika i uwierzytelnianie wieloskładnikowe
 
 Częstotliwość logowania została wcześniej zastosowana tylko do uwierzytelniania pierwszego czynnika na urządzeniach, które zostały dołączone do usługi Azure AD, dołączona hybrydowa usługa Azure AD i zarejestrowana usługa Azure AD. W przypadku naszych klientów nie ma łatwego sposobu na ponowne Wymuszanie uwierzytelniania wieloskładnikowego (MFA) na tych urządzeniach. W oparciu o opinie klientów, częstotliwość logowania będzie również dotyczyć usługi MFA.
 
+[![Częstotliwość logowania i uwierzytelnianie wieloskładnikowe](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
+
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Częstotliwość logowania użytkownika i tożsamości urządzeń
 
-W przypadku przyłączenia do usługi Azure AD hybrydowej usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, gdy użytkownik odblokowuje urządzenie lub loguje się interaktywnie, to zdarzenie będzie również spełniało zasady częstotliwości logowania. W następującej 2 Przykładowa częstotliwość logowania użytkownika jest ustawiona na 1 godzinę:
+Jeśli masz przyłączoną usługę Azure AD, dołączono hybrydową usługę Azure AD lub zarejestrowane urządzenia usługi Azure AD, gdy użytkownik odblokowuje swoje urządzenie lub loguje się interaktywnie, to zdarzenie będzie również spełniało zasady częstotliwości logowania. W poniższych dwóch przykładach częstotliwość logowania użytkownika jest ustawiona na 1 godzinę:
 
 Przykład 1:
 

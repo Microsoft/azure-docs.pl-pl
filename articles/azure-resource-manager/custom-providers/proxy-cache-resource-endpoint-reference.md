@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650385"
 ---
 # <a name="custom-resource-cache-reference"></a>Niestandardowe odwołanie do pamięci podręcznej zasobów
@@ -42,11 +41,11 @@ Przykładowy dostawca zasobów niestandardowych:
 
 ## <a name="building-proxy-resource-endpoint"></a>Tworzenie punktu końcowego zasobu serwera proxy
 
-**Punkt końcowy** , który implementuje **punkt końcowy** zasobu "proxy" w pamięci podręcznej, musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT`, `GET`i, `DELETE` aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby:
+**Punkt końcowy** , który implementuje **punkt końcowy** zasobu "proxy" w pamięci podręcznej, musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT` , `GET` i, `DELETE` Aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby:
 
 > [!NOTE]
-> `PUT`Interfejs API platformy Azure będzie generować metody żądań, `GET`, i `DELETE`, ale **punkt końcowy** pamięci podręcznej musi `PUT` obsługiwać `DELETE`i.
-> Zalecamy, aby **punkt końcowy** został również `GET`zaimplementowany.
+> Interfejs API platformy Azure będzie generować metody żądań `PUT` , `GET` , i `DELETE` , ale **punkt końcowy** pamięci podręcznej musi obsługiwać `PUT` i `DELETE` .
+> Zalecamy, aby **punkt końcowy** został również zaimplementowany `GET` .
 
 ### <a name="create-a-custom-resource"></a>Tworzenie zasobu niestandardowego
 
@@ -87,8 +86,8 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
-- Dostawca zasobów niestandardowych spowoduje zastąpienie pól `name`, `type`, i `id` dla żądania.
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- Dostawca zasobów niestandardowych spowoduje zastąpienie `name` `type` pól,, i `id` dla żądania.
 - Dostawca zasobów niestandardowych zwróci tylko pola pod `properties` obiektem dla punktu końcowego pamięci podręcznej.
 
 **Punkt końcowy** Reakcji
@@ -107,7 +106,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Pola `name`, `id`i `type` zostaną automatycznie wygenerowane dla zasobu niestandardowego przez niestandardowego dostawcę zasobów.
+`name`Pola, `id` i `type` zostaną automatycznie wygenerowane dla zasobu niestandardowego przez niestandardowego dostawcę zasobów.
 
 Odpowiedź niestandardowego dostawcy zasobów platformy Azure:
 
@@ -149,7 +148,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 - Dostawca zasobów niestandardowych platformy Azure usunie element z jego pamięci podręcznej, jeśli zostanie zwrócona odpowiedź na poziomie 200. Nawet jeśli zasób nie istnieje, **punkt końcowy** powinien zwrócić 204.
 
 **Punkt końcowy** Reakcji

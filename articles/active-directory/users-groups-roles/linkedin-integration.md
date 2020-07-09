@@ -7,18 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84727198"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integracja połączeń konta LinkedIn w Azure Active Directory
 
@@ -91,13 +90,13 @@ Aby użyć grupy z kroku dwa jako wybranej grupy w ustawieniach połączeń kont
 1. Pobierz [pliki szablonów administracyjnych pakietu Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Wyodrębnij pliki **ADMX** i skopiuj je do magazynu centralnego.
 1. Otwórz przystawkę Zarządzanie zasadami grupy.
-1. Utwórz obiekt zasady grupy przy użyciu następującego ustawienia: **Konfiguracja** > użytkownika**Szablony administracyjne** > **Microsoft Office 2016** > **różne** > **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office**.
+1. Utwórz obiekt zasady grupy przy użyciu następującego ustawienia: **Konfiguracja użytkownika**  >  **Szablony administracyjne**  >  **Microsoft Office 2016**  >  **różne**  >  **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office**.
 1. Wybierz opcję **włączone** lub **wyłączone**.
   
    Stan | Efekt
    ------ | ------
    **Włączone** | Opcja **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w programie Office 2016 jest włączona. Użytkownicy w organizacji mogą korzystać z funkcji serwisu LinkedIn w aplikacjach pakietu Office 2016.
-   **Wyłączone** | Ustawienie **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w pakiecie Office 2016 jest wyłączone, a użytkownicy końcowi nie mogą zmieniać tego ustawienia. Użytkownicy w organizacji nie mogą korzystać z funkcji LinkedIn w swoich aplikacjach pakietu Office 2016.
+   **Disabled (Wyłączone)** | Ustawienie **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w pakiecie Office 2016 jest wyłączone, a użytkownicy końcowi nie mogą zmieniać tego ustawienia. Użytkownicy w organizacji nie mogą korzystać z funkcji LinkedIn w swoich aplikacjach pakietu Office 2016.
 
 Te zasady grupy mają wpływ tylko na aplikacje pakietu Office 2016 dla komputera lokalnego. Jeśli użytkownicy wyłączają serwis LinkedIn w swoich aplikacjach pakietu Office 2016, nadal będą mogli wyświetlać funkcje serwisu LinkedIn w pakiecie Office 365.
 

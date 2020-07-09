@@ -5,30 +5,30 @@ description: Kontroluj dostęp do obszarów roboczych Azure Machine Learning prz
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981969"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080234"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning
 
 W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure do użycia z obszarem roboczym Azure Machine Learning.
 
-Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego.
+Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego. Istnieją różne nazwy hostów, które są używane w obszarze roboczym Azure Machine Learning, które są opisane w tym artykule.
 
 ## <a name="network-rules"></a>Reguły sieci
 
 Na zaporze Utwórz regułę sieci zezwalającą na ruch do i z adresów w tym artykule.
 
 > [!TIP]
-> Podczas dodawania reguły sieci należy ustawić __Protokół__ na dowolny, a porty do `*`.
+> Podczas dodawania reguły sieci należy ustawić __Protokół__ na dowolny, a porty do `*` .
 >
 > Aby uzyskać więcej informacji na temat konfigurowania zapory platformy Azure, zobacz [wdrażanie i Konfigurowanie zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
@@ -40,16 +40,18 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | Klastry szkoleniowe |
 | **ml.azure.com** | Studio uczenia maszynowego Azure |
+| **default.exp-tas.com** | Używane przez Azure Machine Learning Studio |
 | **\*. azureml.ms** | Używane przez interfejsy API Azure Machine Learning |
-| **\*. experiments.azureml.net** | Używane przez eksperymenty działające w Azure Machine Learning|
+| **\*. experiments.azureml.net** | Używane przez eksperymenty działające w Azure Machine Learning |
 | **\*. modelmanagement.azureml.net** | Służy do rejestrowania i wdrażania modeli|
 | **mlworkspace.azure.ai** | Używane przez Azure Portal podczas wyświetlania obszaru roboczego |
 | **\*. aether.ms** | Używane podczas uruchamiania potoków Azure Machine Learning |
 | **\*. instances.azureml.net** | Wystąpienia obliczeniowe Azure Machine Learning |
+| **\*. instances.azureml.ms** | Wystąpienia obliczeniowe Azure Machine Learning, gdy w obszarze roboczym jest włączone łącze prywatne |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | W usłudze Azure Key Vault |
-| **microsoft.com** | Podstawowe obrazy platformy Docker |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 
 ## <a name="python-hosts"></a>Hosty języka Python
 

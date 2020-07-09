@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564648"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrowanie usługi Azure Time Series Insights za pomocą zdalnego monitorowania
@@ -51,7 +50,7 @@ Następnie wdróż Time Series Insights jako dodatkowy zasób w rozwiązaniu do 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz pozycję **Utwórz zasób** > **Internet rzeczy** > **Time Series Insights**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Time Series Insights**.
 
     ![Nowe Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -68,7 +67,7 @@ Następnie wdróż Time Series Insights jako dodatkowy zasób w rozwiązaniu do 
 
     ![Utwórz Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Kliknij przycisk **Utwórz**. Utworzenie środowiska może chwilę potrwać.
+1. Kliknij pozycję **Utwórz**. Utworzenie środowiska może chwilę potrwać.
 
 ## <a name="create-event-source"></a>Tworzenie źródła zdarzeń
 
@@ -89,7 +88,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa źródła zdarzeń | Poniższy zrzut ekranu używa nazwy **contosorm-IoT-Hub**. Po wykonaniu tego kroku Użyj własnej unikatowej nazwy. |
-    | Element źródłowy | **Usługa IoT Hub** |
+    | Element źródłowy | **IoT Hub** |
     | Opcja importu | **Korzystanie z IoT Hub z dostępnych subskrypcji** |
     | Identyfikator subskrypcji | Z listy rozwijanej wybierz subskrypcję platformy Azure. |
     | Nazwa Centrum IoT Hub | **contosorma57a6**. Użyj nazwy Centrum IoT Hub z rozwiązania do zdalnego monitorowania. |
@@ -101,7 +100,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
 
     ![Utwórz źródło zdarzenia](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="configure-the-data-access-policy"></a>Konfigurowanie zasad dostępu do danych
 
@@ -213,13 +212,13 @@ Skonfiguruj środowisko `basic` wdrożenia zaktualizowanych mikrousług.
 
 1. Wyszukaj aplikację **ContosoRM** i kliknij ją.
 
-1. Przejdź do **ustawień** > **klucze** , a następnie utwórz nowy klucz dla aplikacji. Skopiuj wartość klucza do bezpiecznej lokalizacji.
+1. Przejdź do **ustawień**  >  **klucze** , a następnie utwórz nowy klucz dla aplikacji. Skopiuj wartość klucza do bezpiecznej lokalizacji.
 
 1. Pobierz [najnowszy plik YAML platformy Docker](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) z repozytorium GitHub przy użyciu najnowszego tagu. 
 
 1. Aby włączyć protokół SSH do maszyny wirtualnej, wykonaj kroki opisane w sekcji [jak utworzyć klucze SSH i korzystać](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)z nich.
 
-1. Po nawiązaniu połączenia `cd /app`wpisz polecenie.
+1. Po nawiązaniu połączenia wpisz polecenie `cd /app` .
 
 1. Dodaj następujące zmienne środowiskowe do każdej mikrousługi w pliku YAML platformy Docker i `env-setup` skryptu na maszynie wirtualnej:
 
@@ -233,9 +232,9 @@ Skonfiguruj środowisko `basic` wdrożenia zaktualizowanych mikrousług.
 
 1. Przejdź do **usługi telemetrii** , a także Edytuj plik redagowania platformy Docker, dodając te same zmienne środowiskowe powyżej.
 
-1. Przejdź do **usługi ASA Manager** i edytuj plik redagowania platformy Docker przez dodanie `PCS_TELEMETRY_STORAGE_TYPE`.
+1. Przejdź do **usługi ASA Manager** i edytuj plik redagowania platformy Docker przez dodanie `PCS_TELEMETRY_STORAGE_TYPE` .
 
-1. Uruchom ponownie kontenery platformy Docker przy użyciu `sudo ./start.sh` programu z maszyny wirtualnej.
+1. Uruchom ponownie kontenery platformy Docker przy użyciu programu `sudo ./start.sh` z maszyny wirtualnej.
 
 > [!NOTE]
 > Powyższa konfiguracja zmiennych środowiskowych jest prawidłowa dla wersji monitorowania zdalnego przed 1.0.2
@@ -244,7 +243,7 @@ Skonfiguruj środowisko `basic` wdrożenia zaktualizowanych mikrousług.
 
 Skonfiguruj środowisko `standard` wdrożenia dla zaktualizowanych Micro usług powyżej
 
-1. W wierszu polecenia Uruchom `kubectl proxy`polecenie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. W wierszu polecenia Uruchom polecenie `kubectl proxy` . Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do interfejsu API Kubernetes](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
 
 1. Otwórz konsolę zarządzania Kubernetes.
 

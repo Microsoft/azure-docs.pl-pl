@@ -6,11 +6,10 @@ ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259099"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84692686"
 ---
 # <a name="state-management-with-service-fabric"></a>Zarządzanie stanem za pomocą Service Fabric
 

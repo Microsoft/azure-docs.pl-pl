@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084551"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134846"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowego wdrożenia Citrix XenApp i XenDesktop
 
@@ -30,8 +30,8 @@ Ten dokument zawiera wskazówki krok po kroku dotyczące tworzenia rozwiązania 
 
 Przed rozpoczęciem upewnij się, że rozumiesz następujące kwestie:
 
-1. [Replikowanie maszyny wirtualnej na platformę Azure](site-recovery-vmware-to-azure.md)
-1. [Projektowanie sieci odzyskiwania](site-recovery-network-design.md)
+1. [Replikowanie maszyny wirtualnej na platformę Azure](./vmware-azure-tutorial.md)
+1. [Projektowanie sieci odzyskiwania](./concepts-on-premises-to-azure-networking.md)
 1. [Testowanie pracy w trybie failover na platformie Azure](site-recovery-test-failover-to-azure.md)
 1. [Przełączenie w tryb failover na platformie Azure](site-recovery-failover.md)
 1. Jak [replikować kontroler domeny](site-recovery-active-directory.md)
@@ -96,7 +96,7 @@ Zapoznaj się z artykułem [ochrona Active Directory i usługi DNS z Azure Site 
 
 Zapoznaj się z artykułem [ochrona SQL Server z SQL Server odzyskiwaniem po awarii i Azure Site Recovery,](site-recovery-sql.md) Aby uzyskać szczegółowe wskazówki techniczne na temat zalecanych opcji ochrony serwerów SQL.
 
-Postępuj zgodnie z [tymi wskazówkami](site-recovery-vmware-to-azure.md) , aby rozpocząć replikację innych składników maszyn wirtualnych do platformy Azure.
+Postępuj zgodnie z [tymi wskazówkami](./vmware-azure-tutorial.md) , aby rozpocząć replikację innych składników maszyn wirtualnych do platformy Azure.
 
 ![Ochrona składników XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-enablereplication.png)
 
@@ -106,7 +106,7 @@ Po włączeniu ochrony maszyn (stan jest wyświetlany jako "chroniony" w obszarz
 We właściwościach obliczeniowych obliczeniowych i > sieciowych można określić nazwę i docelowy rozmiar maszyny wirtualnej platformy Azure.
 Zmodyfikuj nazwę, aby była zgodna z wymaganiami platformy Azure, jeśli zachodzi taka potrzeba. Możesz również wyświetlić i dodać informacje o sieci docelowej, podsieci i adresie IP, które zostaną przypisane do maszyny wirtualnej platformy Azure.
 
-Pamiętaj o następujących kwestiach:
+. Weź pod uwagę następujące kwestie:
 
 * Możesz ustawić docelowy adres IP. Jeśli nie podasz adresu, maszyna w trybie failover będzie używać protokołu DHCP. Jeśli ustawisz adres, który nie jest dostępny w trybie failover, przełączenie w tryb failover nie będzie możliwe. Ten sam docelowy adres IP może być użyty do testowania trybu failover, jeśli adres jest dostępny w testowej sieci trybu failover.
 

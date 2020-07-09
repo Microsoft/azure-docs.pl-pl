@@ -11,12 +11,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 77bfd9d5bcae7bedd673354e32464d5f59bdc9b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322859"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Przenoszenie danych do i z usługi Azure Blob Storage przy użyciu łączników usług SSIS
 [Pakiet SQL Server Integration Services Feature Pack dla platformy Azure](https://msdn.microsoft.com/library/mt146770.aspx) udostępnia składniki umożliwiające łączenie się z platformą Azure, przenoszenie danych między platformą Azure i lokalnymi źródłami danych oraz przetwarzanie danych przechowywanych na platformie Azure.
@@ -27,7 +26,7 @@ Po przeniesieniu danych lokalnych do chmury klienci mogą uzyskać dostęp do sw
 
 Przykłady dotyczące korzystania z tych zasobów platformy Azure znajdują się w przewodnikach [SQL](sql-walkthrough.md) i [HDInsight](hive-walkthrough.md) .
 
-Omówienie scenariuszy kanonicznych, które używają usług SSIS do realizacji potrzeb firmy wspólnych w scenariuszach integracji danych hybrydowych, można znaleźć [w temacie więcej dzięki SQL Server Integration Services Feature Pack for Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
+Omówienie scenariuszy kanonicznych, które używają usług SSIS do realizacji potrzeb firmy wspólnych w scenariuszach integracji danych hybrydowych, można znaleźć [w temacie więcej dzięki SQL Server Integration Services Feature Pack for Azure](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238) blog.
 
 > [!NOTE]
 > Pełny Wprowadzenie do usługi Azure Blob Storage można znaleźć w [temacie Podstawowe informacje](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) dotyczące usługi Azure BLOB i [usłudze Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
@@ -70,7 +69,7 @@ Parametry używane przez zadanie są opisane tutaj:
 | **BlobContainer** |Określa nazwę kontenera obiektów blob, który przechowuje przekazane pliki jako obiekty blob. |
 | **BlobDirectory** |Określa katalog obiektów blob, w którym załadowany plik jest przechowywany jako blokowy obiekt BLOB. Katalog obiektów BLOB jest wirtualną strukturą hierarchiczną. Jeśli obiekt BLOB już istnieje, zastępuje go. |
 | **LocalDirectory** |Określa katalog lokalny, który zawiera pliki do przekazania. |
-| **Nazwa pliku** |Określa filtr nazw w celu wybrania plików o określonym wzorcu nazwy. Na przykład plik\*. xls\* zawiera pliki, takie jak MySheet001. xls i MySheetABC. xlsx |
+| **Nazwa pliku** |Określa filtr nazw w celu wybrania plików o określonym wzorcu nazwy. Na przykład \* plik. xls \* zawiera pliki, takie jak MySheet001.xls i MySheetABC.xlsx |
 | **TimeRangeFrom/TimeRangeTo** |Określa filtr zakresu czasu. Pliki zmodyfikowane po *TimeRangeFrom* i przed *TimeRangeTo* są uwzględniane. |
 
 > [!NOTE]

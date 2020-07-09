@@ -13,10 +13,9 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83196388"
 ---
 # <a name="blocking-legacy-authentication"></a>Blokowanie starszego uwierzytelniania
@@ -100,4 +99,4 @@ Kroki umożliwiające włączenie nowoczesnego uwierzytelniania można znaleźć
 
 - [Jak skonfigurować lokalny serwer Exchange Server do korzystania z nowoczesnego uwierzytelniania hybrydowego](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [Jak używać nowoczesnego uwierzytelniania (ADAL) w usłudze Skype dla firm](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
-- [Blokowanie starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md)
+- [Blokuj starsze uwierzytelnianie](../conditional-access/block-legacy-authentication.md)

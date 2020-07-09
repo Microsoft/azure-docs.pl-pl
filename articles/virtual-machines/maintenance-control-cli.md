@@ -3,16 +3,15 @@ title: Kontrola konserwacji maszyn wirtualnych platformy Azure przy użyciu inte
 description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu funkcji sterowania konserwacją i interfejsu wiersza polecenia.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675863"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Sterowanie aktualizacjami przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure
 
@@ -39,7 +38,7 @@ Użycie `--maintenanceScope host` gwarantuje, że konfiguracja konserwacji słu�
 
 Jeśli spróbujesz utworzyć konfigurację o tej samej nazwie, ale w innej lokalizacji, zostanie wyświetlony komunikat o błędzie. Nazwy konfiguracji muszą być unikatowe dla Twojej subskrypcji.
 
-Można wykonać zapytanie o dostępne konfiguracje konserwacji przy `az maintenance configuration list`użyciu programu.
+Można wykonać zapytanie o dostępne konfiguracje konserwacji przy użyciu programu `az maintenance configuration list` .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -51,7 +50,7 @@ Służy `az maintenance assignment create` do przypisywania konfiguracji do izol
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ `--resource-type virtualMachines` i podaj nazwę maszyny wirtualnej dla programu `--resource-name`oraz grupę zasobów dla maszyny wirtualnej w programie `--resource-group`oraz lokalizację maszyny wirtualnej dla programu. `--location` 
+Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ `--resource-type virtualMachines` i podaj nazwę maszyny wirtualnej dla programu `--resource-name` oraz grupę zasobów dla maszyny wirtualnej w programie `--resource-group` oraz lokalizację maszyny wirtualnej dla programu `--location` . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -66,7 +65,7 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Aby zastosować konfigurację do dedykowanego hosta, należy dołączyć `--resource-type hosts`, `--resource-parent-name` z nazwą grupy hostów, i. `--resource-parent-type hostGroups` 
+Aby zastosować konfigurację do dedykowanego hosta, należy dołączyć `--resource-type hosts` , `--resource-parent-name` z nazwą grupy hostów, i `--resource-parent-type hostGroups` . 
 
 Parametr `--resource-id` jest identyfikatorem hosta. Aby uzyskać identyfikator dedykowanego hosta, można użyć [AZ VM Host Get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) .
 
@@ -85,7 +84,7 @@ az maintenance assignment create \
 
 ## <a name="check-configuration"></a>Sprawdź konfigurację
 
-Można sprawdzić, czy konfiguracja została zastosowana prawidłowo, lub sprawdzić, jaka konfiguracja jest aktualnie stosowana `az maintenance assignment list`.
+Można sprawdzić, czy konfiguracja została zastosowana prawidłowo, lub sprawdzić, jaka konfiguracja jest aktualnie stosowana `az maintenance assignment list` .
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
@@ -118,7 +117,7 @@ az maintenance assignment list \
 
 Użyj `az maintenance update list` , aby sprawdzić, czy istnieją oczekujące aktualizacje. Update--Subscription to identyfikator subskrypcji zawierającej maszynę wirtualną.
 
-Jeśli nie ma żadnych aktualizacji, polecenie zwróci komunikat o błędzie, który będzie zawierać tekst: `Resource not found...StatusCode: 404`.
+Jeśli nie ma żadnych aktualizacji, polecenie zwróci komunikat o błędzie, który będzie zawierać tekst: `Resource not found...StatusCode: 404` .
 
 Jeśli są dostępne aktualizacje, zostanie zwrócony tylko jeden, nawet jeśli istnieje wiele oczekujących aktualizacji. Dane dla tej aktualizacji zostaną zwrócone w obiekcie:
 
@@ -199,9 +198,9 @@ az maintenance applyupdate create \
 
 ## <a name="check-the-status-of-applying-updates"></a>Sprawdź stan zastosowania aktualizacji 
 
-Postęp aktualizacji można sprawdzić za pomocą programu `az maintenance applyupdate get`. 
+Postęp aktualizacji można sprawdzić za pomocą programu `az maintenance applyupdate get` . 
 
-Możesz użyć `default` jako nazwy aktualizacji, aby zobaczyć wyniki dla ostatniej aktualizacji lub zamienić `myUpdateName` na nazwę aktualizacji, która została zwrócona podczas uruchomienia. `az maintenance applyupdate create`
+Możesz użyć `default` jako nazwy aktualizacji, aby zobaczyć wyniki dla ostatniej aktualizacji lub zamienić na `myUpdateName` nazwę aktualizacji, która została zwrócona podczas uruchomienia `az maintenance applyupdate create` .
 
 ```text
 Status         : Completed

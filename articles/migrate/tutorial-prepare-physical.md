@@ -4,18 +4,18 @@ description: Dowiedz się, jak przygotować się do oceny/migracji serwerów fiz
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901424"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113255"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Przygotowanie do oceny i migracji serwerów fizycznych na platformę Azure
 
 W tym artykule opisano sposób przygotowania do oceny lokalnych serwerów fizycznych za pomocą [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
+[Azure Migrate](./migrate-services-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
 Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać serwery fizyczne przy użyciu Azure Migrate. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -28,7 +28,7 @@ Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać ser
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z informacjami na temat oceny serwerów fizycznych.
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="prepare-azure-for-server-assessment"></a>Przygotuj platformę Azure do oceny serwera
@@ -69,17 +69,17 @@ Można przypisać uprawnienia dla Azure Migrate, aby utworzyć aplikację usług
 
 Dzierżawy/Administrator globalny mogą udzielić uprawnień w następujący sposób:
 
-1. W usłudze Azure AD dzierżawca/Administrator globalny powinien przejść do**ustawień użytkownika** **Azure Active Directory** > **Użytkownicy** > .
+1. W usłudze Azure AD dzierżawca/Administrator globalny powinien przejść do **Azure Active Directory**  >  **Users**  >  **ustawień użytkownika**Azure Active Directory użytkownicy.
 2. Administrator powinien ustawić **rejestracje aplikacji** na **wartość tak**.
 
     ![Uprawnienia usługi Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Jest to ustawienie domyślne, które nie jest poufne. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Jest to ustawienie domyślne, które nie jest poufne. [Dowiedz się więcej](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 #### <a name="assign-application-developer-role"></a>Przypisywanie roli Deweloper aplikacji
 
-Dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 
 ## <a name="prepare-azure-for-physical-server-migration"></a>Przygotowanie platformy Azure do migracji serwera fizycznego
@@ -138,7 +138,7 @@ Przed skonfigurowaniem urządzenia Azure Migrate i rozpoczęciem oceny w następ
 
 Azure Migrate wymaga uprawnień do odnajdywania serwerów lokalnych.
 
-- **System Windows:** Skonfiguruj konto użytkownika lokalnego na wszystkich serwerach z systemem Windows, które mają zostać uwzględnione w odnajdywaniu. Należy dodać konto użytkownika do następujących grup: — Użytkownicy zarządzania zdalnego — użytkownicy monitora wydajności — Użytkownicy dzienników wydajności
+- **System Windows:** Musisz być administratorem domeny lub administratorem lokalnym na wszystkich serwerach z systemem Windows, które mają zostać odnajdywane. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności.
 - System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne.
 
 ## <a name="prepare-for-physical-server-migration"></a>Przygotowanie do migracji serwera fizycznego
@@ -148,12 +148,14 @@ Zapoznaj się z wymaganiami dotyczącymi migracji serwerów fizycznych.
 > [!NOTE]
 > Podczas migrowania maszyn fizycznych Azure Migrate: Migracja serwera korzysta z tej samej architektury replikacji co w przypadku odzyskiwania po awarii opartego na agencie w usłudze Azure Site Recovery, a niektóre składniki mają tę samą bazę kodu. Część zawartości może zostać połączona z dokumentacją Site Recovery.
 
-- [Przejrzyj](migrate-support-matrix-physical-migration.md#physical-server-requirements) wymagania dotyczące serwera fizycznego na potrzeby migracji.
-- Azure Migrate: Migracja serwera używa serwera replikacji do migracji serwera fizycznego:
+1. [Przejrzyj](migrate-support-matrix-physical-migration.md#physical-server-requirements) wymagania dotyczące serwera fizycznego na potrzeby migracji.
+2. Azure Migrate: Migracja serwera używa serwera replikacji do migracji serwera fizycznego:
     - [Zapoznaj](migrate-replication-appliance.md#appliance-requirements) się z wymaganiami dotyczącymi wdrożenia urządzenia replikacji i [opcjami](migrate-replication-appliance.md#mysql-installation) instalacji bazy danych MySQL na urządzeniu.
     - Przejrzyj [adresy URL platformy Azure](migrate-appliance.md#url-access) wymagane przez urządzenie replikacji, aby uzyskać dostęp do chmur publicznych i instytucji rządowych.
     - Zapoznaj się z tematem [port] (Migrowanie-replikacja-urządzenie. MD # port-dostęp) wymagania dostępu dla urządzenia replikacji.
-
+3. Przed przeprowadzeniem migracji na platformę Azure potrzebne są pewne zmiany na maszynach wirtualnych.
+    - Ważne jest, aby wprowadzić te zmiany przed rozpoczęciem migracji. W przypadku migrowania maszyny wirtualnej przed wprowadzeniem zmiany, maszyna wirtualna może nie zostać uruchomiona na platformie Azure.
+    - Przejrzyj zmiany w [systemach Windows](prepare-for-migration.md#windows-machines) i [Linux](prepare-for-migration.md#linux-machines) , które należy wprowadzić.
 
 
 

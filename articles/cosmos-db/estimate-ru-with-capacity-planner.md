@@ -3,15 +3,15 @@ title: Oszacuj koszty przy użyciu Azure Cosmos DB planista pojemności
 description: Planista wydajności Azure Cosmos DB pozwala oszacować przepływność (RU/s) wymagany i koszt dla obciążenia. W tym artykule opisano, jak używać nowej wersji planisty wydajności do oszacowania przepływności i wymaganego kosztu.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: f10ace47f774e31b586f7736f5fb8e5dfea0c948
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6a30535ac3aaa90dc3553f6901a83ab300546fb5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68707632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261855"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Szacowanie RU/s przy użyciu Azure Cosmos DB planista pojemności
 
@@ -24,7 +24,7 @@ Planista pojemności może być używana w dwóch trybach.
 |**Tryb**  |**Opis**  |
 |---------|---------|
 |Podstawowy|Zapewnia szybkie, wysokiego poziomu RU/s i oszacowanie kosztów. W tym trybie założono domyślne ustawienia Azure Cosmos DB dla zasad indeksowania, spójności i innych parametrów. <br/><br/>Użyj trybu podstawowego, aby szybko oszacować wysoki poziom oszacowania podczas oceniania potencjalnych obciążeń do uruchomienia na Azure Cosmos DB.|
-|Zaawansowane|Zapewnia bardziej szczegółowy zakres RU/s i oszacowanie kosztów, z możliwością dostrajania dodatkowych ustawień — zasad indeksowania, poziomu spójności i innych parametrów, które wpływają na koszt i przepływność. <br/><br/>Użyj trybu zaawansowanego, gdy szacujesz RU/s dla nowego projektu lub chcesz bardziej szczegółowo oszacować. |
+|Zaawansowany|Zapewnia bardziej szczegółowy zakres RU/s i oszacowanie kosztów, z możliwością dostrajania dodatkowych ustawień — zasad indeksowania, poziomu spójności i innych parametrów, które wpływają na koszt i przepływność. <br/><br/>Użyj trybu zaawansowanego, gdy szacujesz RU/s dla nowego projektu lub chcesz bardziej szczegółowo oszacować. |
 
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-basic-mode"></a>Szacowanie alokowanej przepływności i kosztów przy użyciu trybu podstawowego
@@ -41,7 +41,7 @@ Aby szybko oszacować obciążenie dla obciążenia przy użyciu trybu Basic, pr
 
 Po wypełnieniu wymaganych szczegółów wybierz pozycję **Oblicz**. Na karcie **szacowanie kosztów** jest wyświetlany łączny koszt magazynu i przepływność aprowizacji. Można rozwinąć link **Pokaż szczegóły** na tej karcie, aby uzyskać informacje o przepływności wymaganej do odczytu i zapisu żądania. Za każdym razem, gdy zmieniasz wartość dowolnego pola, wybierz pozycję **Oblicz** , aby ponownie obliczyć szacowany koszt. 
 
-![Planista wydajności — Tryb podstawowy](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Planista wydajności — Tryb podstawowy":::
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-advanced-mode"></a>Szacowanie alokowanej przepływności i kosztów przy użyciu trybu zaawansowanego
 
@@ -62,7 +62,7 @@ Po zalogowaniu można zobaczyć dodatkowe pola w porównaniu do pól w trybie po
 
 Możesz również użyć przycisku **Zapisz oszacowanie** , aby pobrać plik CSV zawierający bieżące oszacowanie. 
 
-![Zaawansowany tryb planowania wydajności](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Zaawansowany tryb planowania wydajności":::
 
 Ceny przedstawione w terminarzu wydajności Azure Cosmos DB są oszacowaniami opartymi na publicznych stawkach cenowych dotyczących przepływności i magazynu. Wszystkie ceny są podane w dolarach amerykańskich. Zapoznaj się ze [stroną cennika Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby wyświetlić wszystkie stawki według regionów.  
 
@@ -70,7 +70,7 @@ Ceny przedstawione w terminarzu wydajności Azure Cosmos DB są oszacowaniami op
 
 Kalkulator pojemności usługi Azure Cosmos zakłada odczyty punktów (odczyt pojedynczego elementu, np. dokument, według identyfikatora i wartość klucza partycji) i zapisuje dla obciążenia. Aby oszacować przepustowość potrzebną dla zapytań, należy uruchomić zapytanie na reprezentatywnym zestawie danych w kontenerze Cosmos i [uzyskać opłatę ru](find-request-unit-charge.md). Pomnóż opłatę RU przez liczbę zapytań, które zamierzasz uruchomić na sekundę w celu uzyskania łącznej liczby wymaganych jednostek RU/s. 
 
-Na przykład, jeśli obciążenie wymaga zapytania, ``SELECT * FROM c WHERE c.id = 'Alice'`` który jest uruchamiany 100 razy na sekundę, a opłata za obiekt ru jest równa 10 jednostek ru, wymagana jest wartość 100 zapytania/s * 10 ru/query = 1000 ru/s łącznie, aby obsłużyć te żądania. Należy dodać te RU/s do jednostek RU/s wymaganych do dowolnych operacji odczytu lub zapisu w obciążeniu.
+Na przykład, jeśli obciążenie wymaga zapytania, ``SELECT * FROM c WHERE c.id = 'Alice'`` który jest uruchamiany 100 razy na sekundę, a opłata za obiekt ru jest równa 10 jednostek ru, wymagana jest wartość 100 zapytania/s * 10 ru/Query = 1000 ru/s łącznie, aby obsłużyć te żądania. Należy dodać te RU/s do jednostek RU/s wymaganych do dowolnych operacji odczytu lub zapisu w obciążeniu.
 
 ## <a name="next-steps"></a>Następne kroki
 

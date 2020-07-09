@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83649198"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Jak używać nazwanych wartości w zasadach usługi Azure API Management
@@ -38,9 +37,9 @@ Nazwane wartości mogą zawierać ciągi literałów i [wyrażenia zasad](/azure
 
 | Nazwa       | Wartość                      | Wpis tajny | Tagi          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Wartość      | 42                         | False  | Najważniejsze wartości |
-| Poświadczenie | ••••••••••••••••••••••     | True   | security      |
-| Wyrażenie | @ (DateTime. Now. ToString ()) | False  |               |
+| Wartość      | 42                         | Fałsz  | Najważniejsze wartości |
+| Poświadczenie | ••••••••••••••••••••••     | Prawda   | security      |
+| Wyrażenie | @ (DateTime. Now. ToString ()) | Fałsz  |               |
 
 > [!NOTE]
 > Zamiast nazwanych wartości przechowywanych w ramach usługi API Management, można użyć wartości przechowywanych w usłudze [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) , jak pokazano w tym [przykładzie](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
@@ -55,7 +54,7 @@ Nazwane wartości mogą zawierać ciągi literałów i [wyrażenia zasad](/azure
 
     Wartości Name i value są wymagane. Jeśli wartość jest kluczem tajnym, zaznacz pole wyboru _to jest wpis tajny_ . Wprowadź jeden lub więcej tagów opcjonalnych, aby pomóc w organizowaniu nazwanych wartości, a następnie kliknij przycisk Zapisz.
 
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 
 Po utworzeniu nazwanej wartości można ją edytować, klikając ją. W przypadku zmiany nazwy nazwanej wartości wszystkie zasady odwołujące się do tej nazwanej wartości są automatycznie aktualizowane w celu użycia nowej nazwy.
 

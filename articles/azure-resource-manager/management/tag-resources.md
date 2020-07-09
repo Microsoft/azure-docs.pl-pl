@@ -2,13 +2,13 @@
 title: Dodawanie tagów do zasobów, grup zasobów i subskrypcji dla organizacji logicznej
 description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy Azure na potrzeby rozliczeń i zarządzania nimi.
 ms.topic: conceptual
-ms.date: 05/06/2020
-ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.date: 07/01/2020
+ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864491"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86056926"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -17,7 +17,9 @@ Możesz zastosować znaczniki do zasobów platformy Azure, grup zasobów i subsk
 Aby zapoznać się z zaleceniami dotyczącymi sposobu implementowania strategii tagowania, zobacz [Przewodnik po nazewnictwu i znakowaniu zasobów](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> W nazwach tagów nie jest rozróżniana wielkość liter. W wartościach tagów jest rozróżniana wielkość liter.
+> W nazwach tagów nie jest rozróżniana wielkość liter w operacjach. Tag o nazwie znacznika, niezależnie od wielkości liter, jest aktualizowany lub pobierany. Jednak dostawca zasobów może przechowywać wielkość liter podaną dla nazwy tagu. Zostanie wyświetlona wielkość liter w raportach kosztów.
+> 
+> W wartościach tagów jest rozróżniana wielkość liter.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -31,7 +33,7 @@ Rola [współautor](../../role-based-access-control/built-in-roles.md#contributo
 
 ### <a name="apply-tags"></a>Zastosuj Tagi
 
-Azure PowerShell oferuje dwa polecenia do stosowania tagów- [New-AzTag](/powershell/module/az.resources/new-aztag) i [Update-AzTag](/powershell/module/az.resources/update-aztag). Musisz mieć moduł AZ. resources 1.12.0 lub nowszy. Możesz sprawdzić swoją wersję za pomocą `Get-Module Az.Resources`programu. Możesz zainstalować ten moduł lub [zainstalować Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 lub nowszy.
+Azure PowerShell oferuje dwa polecenia do stosowania tagów- [New-AzTag](/powershell/module/az.resources/new-aztag) i [Update-AzTag](/powershell/module/az.resources/update-aztag). Musisz mieć moduł AZ. resources 1.12.0 lub nowszy. Możesz sprawdzić swoją wersję za pomocą programu `Get-Module Az.Resources` . Możesz zainstalować ten moduł lub [zainstalować Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 lub nowszy.
 
 Polecenie **New-AzTag** zastępuje wszystkie Tagi dla zasobu, grupy zasobów lub subskrypcji. Podczas wywoływania polecenia, należy przekazać identyfikator zasobu jednostki, którą chcesz oznaczyć.
 
@@ -263,7 +265,7 @@ Aby dołączyć tag do istniejących tagów w grupie zasobów, użyj:
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Obecnie interfejs wiersza polecenia platformy Azure nie obsługuje stosowania tagów do subskrypcji.
+Obecnie w interfejsie wiersza polecenia platformy Azure nie jest dostępne polecenie do stosowania tagów do subskrypcji. Można jednak użyć interfejsu wiersza polecenia, aby wdrożyć szablon ARM, który stosuje Tagi do subskrypcji. Zobacz [stosowanie tagów do grup zasobów lub subskrypcji](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### <a name="list-tags"></a>Tworzenie listy tagów
 
@@ -290,13 +292,13 @@ Ten skrypt zwraca następujący format:
 
 ### <a name="list-by-tag"></a>Lista według tagu
 
-Aby uzyskać wszystkie zasoby, które mają określony tag i wartość, użyj `az resource list`:
+Aby uzyskać wszystkie zasoby, które mają określony tag i wartość, użyj `az resource list` :
 
 ```azurecli-interactive
 az resource list --tag Dept=Finance
 ```
 
-Aby uzyskać grupy zasobów, które mają określony tag, użyj `az group list`:
+Aby uzyskać grupy zasobów, które mają określony tag, użyj `az group list` :
 
 ```azurecli-interactive
 az group list --tag Dept=IT
@@ -326,7 +328,7 @@ Podczas wdrażania za pomocą szablonu Menedżer zasobów można oznaczać zasob
 
 ### <a name="apply-values"></a>Zastosuj wartości
 
-Poniższy przykład wdraża konto magazynu z trzema tagami. Dwa Tagi (`Dept` i `Environment`) są ustawione na wartości literału. Jeden tag (`LastDeployed`) jest ustawiony na parametr, który jest wartością domyślną bieżącej daty.
+Poniższy przykład wdraża konto magazynu z trzema tagami. Dwa Tagi ( `Dept` i `Environment` ) są ustawione na wartości literału. Jeden tag ( `LastDeployed` ) jest ustawiony na parametr, który jest wartością domyślną bieżącej daty.
 
 ```json
 {
@@ -523,6 +525,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+Aby uzyskać więcej informacji na temat wdrożeń subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](../templates/deploy-to-subscription.md).
+
 Poniższy szablon dodaje Tagi z obiektu do grupy zasobów lub subskrypcji.
 
 ```json
@@ -574,7 +578,7 @@ Tagi zastosowane do grupy zasobów lub subskrypcji nie są dziedziczone przez za
 
 Tagów można użyć do grupowania danych dotyczących rozliczeń. Na przykład jeśli jest uruchomionych wiele maszyn wirtualnych różnych organizacji, możesz użyć tagów do grupowania użycia według centrum kosztu. Tagi umożliwiają również kategoryzowanie kosztów według środowiska uruchomieniowego, na przykład na potrzeby rozliczania użycia maszyn uruchomionych w środowisku produkcyjnym.
 
-Informacje o tagach można uzyskać za pomocą [interfejsów API użycia zasobów platformy Azure i RateCard](../../billing/billing-usage-rate-card-overview.md) lub pliku z wartościami rozdzielanymi przecinkami (CSV). Plik użycia można pobrać z [centrum konta platformy Azure](https://account.azure.com/Subscriptions) lub Azure Portal. Aby uzyskać więcej informacji, zobacz [pobieranie lub wyświetlanie faktury rozliczeń na platformie Azure oraz danych dziennego użycia](../../billing/billing-download-azure-invoice-daily-usage-date.md). Podczas pobierania pliku użycia z Centrum konta platformy Azure wybierz pozycję **wersja 2**. W przypadku usług, które obsługują Tagi z rozliczeniami, Tagi są wyświetlane w kolumnie **Tagi** .
+Informacje o tagach można uzyskać za pomocą [interfejsów API użycia zasobów platformy Azure i RateCard](../../cost-management-billing/manage/usage-rate-card-overview.md) lub pliku z wartościami rozdzielanymi przecinkami (CSV). Plik użycia można pobrać z [centrum konta platformy Azure](https://account.azure.com/Subscriptions) lub Azure Portal. Aby uzyskać więcej informacji, zobacz [pobieranie lub wyświetlanie faktury rozliczeń na platformie Azure oraz danych dziennego użycia](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Podczas pobierania pliku użycia z Centrum konta platformy Azure wybierz pozycję **wersja 2**. W przypadku usług, które obsługują Tagi z rozliczeniami, Tagi są wyświetlane w kolumnie **Tagi** .
 
 Aby uzyskać informacje na temat operacji interfejsu API REST, zobacz [Dokumentacja interfejsu API REST rozliczeń platformy Azure](/rest/api/billing/).
 
@@ -583,12 +587,10 @@ Aby uzyskać informacje na temat operacji interfejsu API REST, zobacz [Dokumenta
 Tagi mają następujące ograniczenia:
 
 * Nie wszystkie typy zasobów obsługują Tagi. Aby określić, czy można zastosować tag do typu zasobu, zobacz [obsługa tagów dla zasobów platformy Azure](tag-support.md).
-* Grupy zarządzania obecnie nie obsługują tagów.
 * Dla każdego zasobu, grupy zasobów i subskrypcji może być maksymalnie 50 par nazwa/wartość tagu. Jeśli musisz zastosować więcej tagów niż maksymalna dozwolona liczba, użyj ciągu JSON dla wartości tagu. Ciąg JSON może zawierać wiele wartości, które są stosowane do jednej nazwy tagu. Grupa zasobów lub subskrypcja może zawierać wiele zasobów, dla których każda z nich ma 50 par nazwa/wartość.
 * Nazwa tagu może zawierać maksymalnie 512 znaków, a wartość tagu jest ograniczona do 256 znaków. W przypadku kont magazynu nazwa tagu jest ograniczona do 128 znaków, a wartość tagu jest ograniczona do 256 znaków.
-* Uogólnione maszyny wirtualne nie obsługują tagów.
 * Nie można zastosować tagów do zasobów klasycznych, takich jak Cloud Services.
-* Nazwy tagów nie mogą zawierać następujących znaków `<`: `>`, `%`, `&` `\`,, `?`,,`/`
+* Nazwy tagów nie mogą zawierać następujących znaków:,,,,, `<` `>` `%` `&` `\` `?` ,`/`
 
    > [!NOTE]
    > Obecnie strefy Azure DNS i usługi Traffic Manager również nie zezwalają na używanie spacji w tagu.

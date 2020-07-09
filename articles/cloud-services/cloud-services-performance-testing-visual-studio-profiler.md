@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "70094104"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testowanie wydajności usługi w chmurze lokalnie w emulatorze obliczeń platformy Azure przy użyciu profilera programu Visual Studio
@@ -30,7 +30,7 @@ Możesz również utworzyć profil aplikacji lokalnie w emulatorze obliczeniowym
 W tym artykule opisano metodę profilowania próbkowania procesora, którą można wykonać lokalnie w emulatorze. Próbkowanie procesora to metoda profilowania, która nie jest bardzo inwazyjna. W wyznaczeniu interwału próbkowania Profiler tworzy migawkę stosu wywołań. Dane są zbierane w określonym czasie i wyświetlane w raporcie. Ta metoda profilowania umożliwia wskazanie, gdzie w aplikacji intensywnie korzystających z obliczeń większość pracy procesora CPU jest realizowana.  Dzięki temu można skoncentrować się na "ścieżce gorącej", gdzie Twoja aplikacja jest najbardziej czasochłonna.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Skonfiguruj program Visual Studio do profilowania
-Po pierwsze istnieje kilka opcji konfiguracji programu Visual Studio, które mogą być przydatne podczas profilowania. Aby poznać raporty profilowania, potrzebne są symbole (pliki. pdb) dla aplikacji, a także symbole dla bibliotek systemowych. Upewnij się, że odwołujesz się do dostępnych serwerów symboli. W tym celu w menu **Narzędzia** w programie Visual Studio wybierz pozycję **Opcje**, a następnie wybierz pozycję **debugowanie**, a następnie pozycję **symbole**. Upewnij się, że serwery symboli firmy Microsoft znajdują się w **lokalizacji pliku symboli (. pdb)**.  Można również odwołać https://referencesource.microsoft.com/symbolssię do, które mogą mieć dodatkowe pliki symboli.
+Po pierwsze istnieje kilka opcji konfiguracji programu Visual Studio, które mogą być przydatne podczas profilowania. Aby poznać raporty profilowania, potrzebne są symbole (pliki. pdb) dla aplikacji, a także symbole dla bibliotek systemowych. Upewnij się, że odwołujesz się do dostępnych serwerów symboli. W tym celu w menu **Narzędzia** w programie Visual Studio wybierz pozycję **Opcje**, a następnie wybierz pozycję **debugowanie**, a następnie pozycję **symbole**. Upewnij się, że serwery symboli firmy Microsoft znajdują się w **lokalizacji pliku symboli (. pdb)**.  Można również odwołać https://referencesource.microsoft.com/symbols się do, które mogą mieć dodatkowe pliki symboli.
 
 ![Opcje symboli][4]
 
@@ -83,13 +83,13 @@ Aby dołączyć Profiler do procesu, w menu **Analizuj** wybierz pozycję **Prof
 
 ![Opcja dołączania profilu][6]
 
-W przypadku roli proces roboczy Znajdź proces WaWorkerHost. exe.
+W przypadku roli proces roboczy Znajdź proces WaWorkerHost.exe.
 
 ![Proces WaWorkerHost][7]
 
 Jeśli folder projektu znajduje się na dysku sieciowym, profiler zostanie poproszony o podanie innej lokalizacji w celu zapisania raportów profilowania.
 
- Możesz również dołączyć do roli sieci Web, dołączając do WaIISHost. exe.
+ Możesz również dołączyć do roli sieci Web, dołączając do WaIISHost.exe.
 Jeśli w aplikacji istnieje wiele procesów roli procesu roboczego, należy je rozróżnić przy użyciu identyfikatora procesu. Możesz programowo zbadać identyfikator procesu, uzyskując dostęp do obiektu procesu. Na przykład, jeśli dodasz ten kod do metody Run klasy pochodnej RoleEntryPoint w roli, możesz sprawdzić dziennik w interfejsie użytkownika emulatora obliczeń, aby dowiedzieć się, z jakim procesem nawiązać połączenie.
 
 ```csharp
@@ -160,7 +160,7 @@ Gratulacje! Już zaczynasz pracę z profilerem.
 * Jeśli opcja Dołącz/Odłącz nie jest włączona w menu profilera, uruchom Kreatora wydajności.
 * Użyj interfejsu użytkownika emulatora obliczeń, aby wyświetlić stan aplikacji. 
 * Jeśli masz problemy z uruchamianiem aplikacji w emulatorze lub dołączeniem profilera, Zamknij emulator obliczeń i uruchom go ponownie. Jeśli to nie rozwiąże problemu, spróbuj ponownie uruchomić. Ten problem może wystąpić w przypadku zawieszania i usuwania uruchomionych wdrożeń przy użyciu emulatora obliczeń.
-* Jeśli użyto dowolnego polecenia profilowania z wiersza polecenia, szczególnie ustawienia globalne, upewnij się, że VSPerfClrEnv/GlobalOff został wywołany i że VsPerfMon. exe został wyłączony.
+* Jeśli użyto dowolnego polecenia profilowania z wiersza polecenia, szczególnie ustawienia globalne, upewnij się, że VSPerfClrEnv/GlobalOff został wywołany i że VsPerfMon.exe został zamknięty.
 * Jeśli podczas próbkowania zostanie wyświetlony komunikat "PRF0025: nie zebrano żadnych danych", sprawdź, czy załączony proces ma aktywność procesora. Aplikacje, które nie wykonuje żadnej pracy obliczeniowej, mogą nie generować danych próbkowania.  Istnieje również możliwość, że proces zakończył działanie przed wykonaniem pobierania próbek. Sprawdź, czy metoda run dla profilowania roli nie kończy się.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,13 +7,13 @@ ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81453527"
 ---
-# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdróż do Azure Container Instances z Azure Container Registry
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do usługi Azure Container Instances z usługi Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) to oparta na platformie Azure, zarządzana usługa rejestru kontenerów służąca do przechowywania prywatnych obrazów kontenerów platformy Docker. W tym artykule opisano sposób ściągania obrazów kontenerów przechowywanych w usłudze Azure Container Registry podczas wdrażania programu w celu Azure Container Instances. Zalecaną metodą skonfigurowania dostępu do rejestru jest utworzenie nazwy głównej usługi Azure Active Directory i hasła oraz zapisanie poświadczeń logowania w magazynie kluczy platformy Azure.
 
@@ -40,7 +40,7 @@ Jeśli nie masz jeszcze magazynu w usłudze [Azure Key Vault](../key-vault/gener
 
 Zaktualizuj `RES_GROUP` zmienną o nazwę istniejącej grupy zasobów, w której ma zostać utworzony magazyn kluczy, oraz `ACR_NAME` nazwę rejestru kontenerów. W przypadku zwięzłości w poleceniach w tym artykule przyjęto założenie, że rejestr, Magazyn kluczy i wystąpienia kontenera zostały utworzone w tej samej grupie zasobów.
 
- Określ nazwę nowego magazynu kluczy w `AKV_NAME`. Nazwa magazynu musi być unikatowa w ramach platformy Azure i musi mieć 3-24 znaków alfanumerycznych, zaczynać się od litery, kończyć się literą lub cyfrą i nie może zawierać kolejnych łączników.
+ Określ nazwę nowego magazynu kluczy w `AKV_NAME` . Nazwa magazynu musi być unikatowa w ramach platformy Azure i musi mieć 3-24 znaków alfanumerycznych, zaczynać się od litery, kończyć się literą lub cyfrą i nie może zawierać kolejnych łączników.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -92,13 +92,13 @@ Teraz możesz odwoływać się do tych wpisów tajnych według nazwy, gdy Ty lub
 
 Teraz, gdy poświadczenia jednostki usługi są przechowywane w kluczach tajnych Azure Key Vault, Twoje aplikacje i usługi mogą korzystać z nich w celu uzyskania dostępu do rejestru prywatnego.
 
-Najpierw Pobierz nazwę serwera logowania rejestru przy użyciu polecenia [AZ ACR show][az-acr-show] . Nazwa serwera logowania jest mała i podobna do `myregistry.azurecr.io`.
+Najpierw Pobierz nazwę serwera logowania rejestru przy użyciu polecenia [AZ ACR show][az-acr-show] . Nazwa serwera logowania jest mała i podobna do `myregistry.azurecr.io` .
 
 ```azurecli
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-Wykonaj polecenie [az container create][az-container-create] w celu wdrożenia wystąpienia kontenera. Polecenie używa poświadczeń jednostki usługi przechowywanych w Azure Key Vault do uwierzytelniania w rejestrze kontenerów i zakłada, że wcześniej wypychał obraz [ACI-HelloWorld](container-instances-quickstart.md) do rejestru. Zaktualizuj wartość `--image` , jeśli chcesz użyć innego obrazu z rejestru.
+Wykonaj polecenie [az container create][az-container-create] w celu wdrożenia wystąpienia kontenera. Polecenie używa poświadczeń jednostki usługi przechowywanych w Azure Key Vault do uwierzytelniania w rejestrze kontenerów i zakłada, że wcześniej wypychał obraz [ACI-HelloWorld](container-instances-quickstart.md) do rejestru. Zaktualizuj `--image` wartość, jeśli chcesz użyć innego obrazu z rejestru.
 
 ```azurecli
 az container create \
@@ -112,7 +112,7 @@ az container create \
     --query ipAddress.fqdn
 ```
 
-`--dns-name-label` Wartość musi być unikatowa w ramach platformy Azure, dlatego poprzednie polecenie dołącza liczbę losową do etykiety nazwy DNS kontenera. Dane wyjściowe polecenia wyświetlają w pełni kwalifikowaną nazwę domeny (FQDN) kontenera, na przykład:
+`--dns-name-label`Wartość musi być unikatowa w ramach platformy Azure, dlatego poprzednie polecenie dołącza liczbę losową do etykiety nazwy DNS kontenera. Dane wyjściowe polecenia wyświetlają w pełni kwalifikowaną nazwę domeny (FQDN) kontenera, na przykład:
 
 ```output
 "aci-demo-25007.eastus.azurecontainer.io"
@@ -122,7 +122,7 @@ Po pomyślnym rozpoczęciu pracy kontenera możesz przejść do jego nazwy FQDN 
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Wdrażanie przy użyciu szablonu Azure Resource Manager
 
-Właściwości usługi Azure Container Registry można określić w szablonie Azure Resource Manager, dołączając `imageRegistryCredentials` właściwość w definicji grupy kontenerów. Na przykład można określić bezpośrednio poświadczenia rejestru:
+Właściwości usługi Azure Container Registry można określić w szablonie Azure Resource Manager, dołączając `imageRegistryCredentials` Właściwość w definicji grupy kontenerów. Na przykład można określić bezpośrednio poświadczenia rejestru:
 
 ```JSON
 [...]

@@ -4,10 +4,9 @@ description: Dowiedz się, jak jednostkowe Durable Functions testowe.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74231224"
 ---
 # <a name="durable-functions-unit-testing"></a>Testowanie jednostkowe Durable Functions
@@ -39,7 +38,7 @@ Symulacja jest obsługiwana przez trzy klasy abstrakcyjne w Durable Functions 1.
 
 * `DurableActivityContextBase`
 
-Te klasy są klasami `DurableOrchestrationClient`podstawowymi `DurableOrchestrationContext`dla, `DurableActivityContext` i, które definiują klienta aranżacji, program Orchestrator i metody działania. Makiety spowodują ustawienie oczekiwanego zachowania dla metod klasy bazowej, aby test jednostkowy mógł zweryfikować logikę biznesową. Istnieje dwuetapowy przepływ pracy służący do testowania jednostek logiki biznesowej w kliencie aranżacji i w programie Orchestrator:
+Te klasy są klasami podstawowymi dla `DurableOrchestrationClient` , `DurableOrchestrationContext` i, `DurableActivityContext` które definiują klienta aranżacji, program Orchestrator i metody działania. Makiety spowodują ustawienie oczekiwanego zachowania dla metod klasy bazowej, aby test jednostkowy mógł zweryfikować logikę biznesową. Istnieje dwuetapowy przepływ pracy służący do testowania jednostek logiki biznesowej w kliencie aranżacji i w programie Orchestrator:
 
 1. Użyj klas bazowych zamiast konkretnej implementacji podczas definiowania sygnatury funkcji klienta aranżacji i programu Orchestrator.
 2. W testach jednostkowych Zanotuj zachowanie klas podstawowych i sprawdź logikę biznesową.
@@ -52,9 +51,9 @@ W tej sekcji test jednostkowy będzie sprawdzał logikę następującej funkcji 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-Zadanie testów jednostkowych będzie służyć do weryfikowania wartości `Retry-After` nagłówka podanego w ładunku odpowiedzi. Dlatego test jednostkowy zanotuje `DurableOrchestrationClientBase` niektóre metody, aby zapewnić przewidywalne zachowanie.
+Zadanie testów jednostkowych będzie służyć do weryfikowania wartości `Retry-After` nagłówka podanego w ładunku odpowiedzi. Dlatego test jednostkowy zanotuje niektóre `DurableOrchestrationClientBase` metody, aby zapewnić przewidywalne zachowanie.
 
-Najpierw jest wymagana makieta klasy bazowej `DurableOrchestrationClientBase`. Makieta może być nową klasą, która `DurableOrchestrationClientBase`implementuje. Jednak użycie struktury imitacji, takiej jak [MOQ](https://github.com/moq/moq4) upraszcza proces:
+Najpierw jest wymagana makieta klasy bazowej `DurableOrchestrationClientBase` . Makieta może być nową klasą, która implementuje `DurableOrchestrationClientBase` . Jednak użycie struktury imitacji, takiej jak [MOQ](https://github.com/moq/moq4) upraszcza proces:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -127,7 +126,7 @@ Po połączeniu wszystkich kroków test jednostkowy będzie miał następujący 
 
 Funkcje programu Orchestrator są jeszcze bardziej interesujące w przypadku testów jednostkowych, ponieważ zazwyczaj mają znacznie większą logikę biznesową.
 
-W tej sekcji testy jednostkowe będą sprawdzać poprawność `E1_HelloSequence` danych wyjściowych funkcji programu Orchestrator:
+W tej sekcji testy jednostkowe będą sprawdzać poprawność danych wyjściowych `E1_HelloSequence` funkcji programu Orchestrator:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
@@ -168,7 +167,7 @@ Po połączeniu wszystkich kroków test jednostkowy będzie miał następujący 
 
 Funkcje działania mogą być testowane jednostkowo w taki sam sposób jak w przypadku funkcji nietrwałych.
 
-W tej sekcji test jednostkowy sprawdzi zachowanie funkcji `E1_SayHello` działania:
+W tej sekcji test jednostkowy sprawdzi zachowanie `E1_SayHello` funkcji działania:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 

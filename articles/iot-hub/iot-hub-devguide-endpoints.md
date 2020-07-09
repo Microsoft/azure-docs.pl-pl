@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85314038"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Punkty końcowe IoT Hub odwołania
 
@@ -24,7 +24,7 @@ ms.locfileid: "82996954"
 
 ## <a name="iot-hub-names"></a>Nazwy IoT Hub
 
-Nazwę hosta Centrum IoT Hub, który hostuje punkty końcowe w portalu, można znaleźć na stronie **omówienia** centrum. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net`.
+Nazwę hosta Centrum IoT Hub, który hostuje punkty końcowe w portalu, można znaleźć na stronie **omówienia** centrum. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net` .
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista wbudowanych punktów końcowych IoT Hub
 
@@ -38,11 +38,11 @@ Na poniższej liście opisano punkty końcowe:
 
 * **Zarządzanie tożsamościami urządzeń**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych protokołu HTTPS do zarządzania tożsamościami urządzeń (tworzenia, pobierania, aktualizowania i usuwania). [Tożsamości urządzeń](iot-hub-devguide-identity-registry.md) są używane do uwierzytelniania urządzeń i kontroli dostępu.
 
-* **Zarządzanie bliźniaczymi urządzeniami**. Każde Centrum IoT Hub udostępnia zestaw punktu końcowego REST protokołu HTTPS, który umożliwia wysyłanie zapytań i aktualizowanie [urządzeń bliźniaczych reprezentacji](iot-hub-devguide-device-twins.md) (aktualizowanie tagów i właściwości).
+* **Zarządzanie bliźniaczymi urządzeniami**. Każde Centrum IoT Hub udostępnia zestaw punktu końcowego REST protokołu HTTPS, który umożliwia wysyłanie zapytań i aktualizowanie [urządzeń bliźniaczych reprezentacji](iot-hub-devguide-device-twins.md) (aktualizowanie tagów i właściwości). 
 
 * **Zarządzanie zadaniami**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych protokołu HTTPS opartych na usłudze w celu wykonywania zapytań dotyczących [zadań](iot-hub-devguide-jobs.md)i zarządzania nimi.
 
-* **Punkty końcowe urządzeń**. Dla każdego urządzenia w rejestrze tożsamości usługa IoT Hub uwidacznia zestaw punktów końcowych:
+* **Punkty końcowe urządzeń**. Dla każdego urządzenia w rejestrze tożsamości IoT Hub uwidacznia zestaw punktów końcowych. Z wyjątkiem sytuacji, w których te punkty końcowe są ujawniane przy użyciu protokołów [MQTT v 3.1.1](https://mqtt.org/), https 1,1 i [AMQP 1,0](https://www.amqp.org/) . AMQP i MQTT są również dostępne za pośrednictwem obiektów [WebSockets](https://tools.ietf.org/html/rfc6455) na porcie 443.
 
   * *Wysyłanie komunikatów z urządzenia do chmury*. Urządzenie używa tego punktu końcowego do [wysyłania komunikatów z urządzenia do chmury](iot-hub-devguide-messages-d2c.md).
 
@@ -50,11 +50,9 @@ Na poniższej liście opisano punkty końcowe:
 
   * *Inicjuj operacje przekazywania plików*. Urządzenie używa tego punktu końcowego do odbierania identyfikatora URI SAS usługi Azure Storage z IoT Hub, aby [przekazać plik](iot-hub-devguide-file-upload.md).
 
-  * *Pobierz i zaktualizuj właściwości sznurka urządzenia*. Urządzenie używa tego punktu końcowego do uzyskiwania dostępu do właściwości [sznurka urządzenia](iot-hub-devguide-device-twins.md).
+  * *Pobierz i zaktualizuj właściwości sznurka urządzenia*. Urządzenie używa tego punktu końcowego do uzyskiwania dostępu do właściwości [sznurka urządzenia](iot-hub-devguide-device-twins.md). Protokół HTTPS nie jest obsługiwany.
 
-  * *Odbieraj żądania metody bezpośredniej*. Urządzenie używa tego punktu końcowego do nasłuchiwania żądań [bezpośredniej metody](iot-hub-devguide-direct-methods.md).
-
-    Punkty końcowe są ujawniane przy użyciu protokołów [MQTT v 3.1.1](https://mqtt.org/), https 1,1 i [AMQP 1,0](https://www.amqp.org/) . AMQP i MQTT są również dostępne za pośrednictwem obiektów [WebSockets](https://tools.ietf.org/html/rfc6455) na porcie 443.
+  * *Odbieraj żądania metody bezpośredniej*. Urządzenie używa tego punktu końcowego do nasłuchiwania żądań [bezpośredniej metody](iot-hub-devguide-direct-methods.md). Protokół HTTPS nie jest obsługiwany.
 
 * **Punkty końcowe usługi**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych dla zaplecza rozwiązania do komunikowania się z urządzeniami. Z jednym wyjątkiem te punkty końcowe są ujawniane tylko przy użyciu protokołów [AMQP](https://www.amqp.org/) i AMQP over WebSockets. Punkt końcowy wywołania metody bezpośredniej jest udostępniany za pośrednictwem protokołu HTTPS.
   
@@ -85,14 +83,9 @@ IoT Hub obecnie obsługuje następujące usługi platformy Azure jako dodatkowe 
 
 Aby uzyskać limity liczby punktów końcowych, które można dodać, zobacz [przydziały i ograniczanie przepustowości](iot-hub-devguide-quotas-throttling.md).
 
-Aby uzyskać stan kondycji punktów końcowych, można użyć interfejsu API REST [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) . Zalecamy używanie [metryk IoT Hub](iot-hub-metrics.md) związanych z opóźnieniem komunikatów routingu w celu identyfikowania i debugowania błędów, gdy kondycja punktu końcowego jest martwa lub zła, ponieważ oczekuje się, że opóźnienie ma być wyższe, gdy punkt końcowy jest w jednym z tych stanów.
+## <a name="endpoint-health"></a>Kondycja punktu końcowego
 
-|Stan kondycji|Opis|
-|---|---|
-|dobrej kondycji|Punkt końcowy akceptuje komunikaty zgodnie z oczekiwaniami.|
-|złej kondycji|Punkt końcowy nie akceptuje komunikatów zgodnie z oczekiwaniami, a IoT Hub ponawia próbę wysłania danych do tego punktu końcowego. Stan punktu końcowego w złej kondycji zostanie zaktualizowany w dobrej kondycji, gdy IoT Hub ustanowił ostatecznie spójny stan kondycji.|
-|unknown|IoT Hub nie nawiązać połączenia z punktem końcowym. Z tego punktu końcowego nie dostarczono żadnych komunikatów ani nie zostały one odrzucone.|
-|martwy|Punkt końcowy nie akceptuje komunikatów, po IoT Hub ponowieniu próby wysłania komunikatów przez okres próbny.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## <a name="field-gateways"></a>Bramy pól
 

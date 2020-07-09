@@ -24,27 +24,6 @@
       items:
         - name: Tworzenie przy użyciu zestawu Helm
           href: quickstart-helm.md
-        - name: Azure Dev Spaces
-          expanded: true
-          items:
-            - name: Programowanie zespołowe za pomocą usługi Azure Dev Spaces
-              href: ../dev-spaces/quickstart-team-development.md
-              maintainContext: true
-            - name: Korzystanie z programu Visual Studio Code
-              href: ../dev-spaces/quickstart-netcore.md
-              maintainContext: true
-            - name: Korzystanie z programu Visual Studio
-              href: ../dev-spaces/quickstart-netcore-visualstudio.md
-              maintainContext: true
-            - name: Korzystanie z interfejsu wiersza polecenia
-              href: ../dev-spaces/quickstart-cli.md
-              maintainContext: true
-            - name: Korzystanie z usługi Azure Dev Spaces przy użyciu języka Java
-              href: ../dev-spaces/quickstart-java.md
-              maintainContext: true
-            - name: Korzystanie z usługi Azure Dev Spaces przy użyciu środowiska Node.js
-              href: ../dev-spaces/quickstart-nodejs.md
-              maintainContext: true
 - name: Samouczki
   items:
     - name: 1 — Przygotowywanie aplikacji dla usługi AKS
@@ -116,7 +95,27 @@
     - name: Limity przydziału i limity regionalne
       href: quotas-skus-regions.md
     - name: Migrowanie do usługi AKS
-      href: aks-migration.md
+      items:
+        - name: Planowanie i wykonywanie migracji
+          href: aks-migration.md
+        - name: Spring Boot
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service
+          maintainContext: false
+        - name: Tomcat
+          href: /azure/developer/java/migration/migrate-tomcat-to-containers-on-azure-kubernetes-service
+          maintainContext: false
+        - name: Wildfly
+          href: /azure/developer/java/migration/migrate-wildfly-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
+        - name: WebLogic
+          href: /azure/developer/java/migration/migrate-weblogic-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
+        - name: WebSphere
+          href: /azure/developer/java/migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
+        - name: JBoss EAP
+          href: /azure/developer/java/migration/migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service
+          maintainContext: false
     - name: Obsługiwana wersja platformy Kubernetes
       href: supported-kubernetes-versions.md
     - name: Wzmacnianie zabezpieczeń w systemie operacyjnym hosta
@@ -133,6 +132,10 @@
           href: upgrade-cluster.md
         - name: Używanie umowy SLA dotyczącej czasu dostępności
           href: uptime-sla.md
+        - name: Korzystanie z grup umieszczania w pobliżu (wersja zapoznawcza)
+          href: reduce-latency-ppg.md
+        - name: Uaktualnij obraz węzła (wersja zapoznawcza)
+          href: node-image-upgrade.md
         - name: Przetwarzanie aktualizacji systemu operacyjnego węzła
           href: node-updates-kured.md
         - name: Konfigurowanie klastra AKS
@@ -200,6 +203,9 @@
               href: http-application-routing.md
             - name: Korzystanie z sieci wewnętrznej
               href: ingress-internal-ip.md
+            - name: Włączanie dodatku AGIC dla istniejącego klastra usługi AKS
+              href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+              maintainContext: true
             - name: Korzystanie z protokołu TLS z własnymi certyfikatami
               href: ingress-own-tls.md
             - name: Korzystanie z protokołu TLS z urzędem certyfikacji Let's Encrypt
@@ -222,6 +228,8 @@
           href: control-kubeconfig-access.md
         - name: Zabezpieczanie ruchu związanego z zasobnikiem za pomocą zasad sieciowych
           href: use-network-policies.md
+        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy (wersja zapoznawcza)
+          href: use-pod-security-on-azure-policy.md
         - name: Używanie zasad zabezpieczeń zasobnika (wersja zapoznawcza)
           href: use-pod-security-policies.md
         - name: Definiowanie zakresów autoryzowanych adresów IP dla serwera interfejsu API
@@ -234,12 +242,12 @@
           href: limit-egress-traffic.md
         - name: Włączanie integracji z usługą Azure Active Directory
           items:
-            - name: Integrowanie usługi Azure AD (wersja zapoznawcza)
+            - name: Usługa AAD zarządzana przez usługę AKS (wersja zapoznawcza)
               href: managed-aad.md
             - name: Używanie interfejsu wiersza polecenia platformy Azure
               href: azure-ad-integration-cli.md
-            - name: Korzystanie z witryny Azure Portal
-              href: azure-ad-integration.md
+        - name: Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
+          href: manage-azure-rbac.md
         - name: Używanie kontroli dostępu opartej na rolach w usłudze Kubernetes w integracji z usługą Azure AD
           href: azure-ad-rbac.md
           maintainContext: true
@@ -279,54 +287,10 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Opracowywanie i uruchamianie aplikacji
       items:
-        - name: Programowanie za pomocą usługi Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-          items:
-            - name: Java (VS Code i interfejs wiersza polecenia)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-java.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-java.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-java.md
-                  maintainContext: true
-            - name: .NET Core (VS Code oraz interfejs wiersza polecenia)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-netcore.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-netcore.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-netcore.md
-                  maintainContext: true
-            - name: .NET Core (Visual Studio 2017)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-netcore-visualstudio.md
-                  maintainContext: true
-            - name: Node.js (VS Code oraz interfejs wiersza polecenia)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-nodejs.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-nodejs.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-nodejs.md
-                  maintainContext: true
+        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
+          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
+          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Instalowanie istniejących aplikacji za pomocą zestawu Helm
           href: kubernetes-helm.md
         - name: Korzystanie z usługi OpenFaaS
@@ -396,7 +360,7 @@
     - name: REST
       href: /rest/api/aks
     - name: PowerShell
-      href: '/powershell/module/az.aks#aks'
+      href: /powershell/module/az.aks#aks
     - name: .NET
       href: /dotnet/api/overview/azure/containerservice
     - name: Python

@@ -7,15 +7,14 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81727257"
 ---
 # <a name="error-codes"></a>Kody błędów #
 
-Gdy odtwarzanie nie można uruchomić lub zostało zatrzymane, zostanie wyzwolone zdarzenie błędu, `error()` a funkcja zwróci kod i opcjonalny komunikat, aby pomóc deweloperowi aplikacji uzyskać więcej szczegółów. `error().message`nie jest wyświetlany komunikat dla użytkownika.  Komunikat wyświetlany dla użytkownika jest oparty na `error().code` bitach 27-20, zobacz poniższą tabelę.
+Gdy odtwarzanie nie można uruchomić lub zostało zatrzymane, zostanie wyzwolone zdarzenie błędu, a `error()` funkcja zwróci kod i opcjonalny komunikat, aby pomóc deweloperowi aplikacji uzyskać więcej szczegółów. `error().message`nie jest wyświetlany komunikat dla użytkownika.  Komunikat wyświetlany dla użytkownika jest oparty na `error().code` bitach 27-20, zobacz poniższą tabelę.
 
 ```javascript
 
@@ -49,7 +48,7 @@ Opisz szczegóły błędu, bity 27-20 zapewniają wysoki poziom, bity 19-0 podaj
 | **Zakres błędów MEDIA_ERR_ABORTED (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | Ogólny błąd przerwania |
 | abortedErrNotImplemented | 0x0100001 | Błąd przerwania, niezaimplementowany |
-| abortedErrHttpMixedContentBlocked | 0x0100002 | Błąd przerwania, zablokowana zawartość mieszana — ogólnie występuje podczas `http://` ładowania strumienia ze `https://` strony |
+| abortedErrHttpMixedContentBlocked | 0x0100002 | Błąd przerwania, zablokowana zawartość mieszana — ogólnie występuje podczas ładowania `http://` strumienia ze `https://` strony |
 | **Wartość początkowa błędów MEDIA_ERR_NETWORK (0x0200000-0x02FFFFF)** | | |
 | networkErrUnknown | 0x0200000 | Ogólny błąd sieci |
 | networkErrHttpBadUrlFormat | 0x0200190 | Odpowiedź na błąd HTTP 400 |

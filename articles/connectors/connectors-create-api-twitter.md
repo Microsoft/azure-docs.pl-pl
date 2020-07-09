@@ -8,13 +8,12 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: f2db6d614c3c12cb1be87724e79d79a16769d6b8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829600"
 ---
-# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitoruj usługi Twitter i zarządzaj nimi za pomocą Azure Logic Apps
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitorowanie i zarządzanie kontem Twitter za pomocą usługi Azure Logic Apps
 
 Za pomocą Azure Logic Apps i łącznika usługi Twitter można tworzyć automatyczne zadania i przepływy pracy, które monitorują i zarządzają danymi, które są potrzebne w serwisie Twitter, takich jak tweety, obserwatorzy, użytkownicy i zaobserwowane użytkownicy, osie czasu i inne, a także inne akcje, na przykład:
 

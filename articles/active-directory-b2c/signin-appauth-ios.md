@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85384944"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logowanie przy użyciu aplikacji systemu iOS
 
@@ -62,19 +62,19 @@ Ten przykład został utworzony przez następujące instrukcje Readme dotyczące
 > AppAuth obsługuje system iOS 7 lub nowszy.  Jednak w celu zapewnienia obsługi logowań społecznościowych w usłudze Google wymagane jest SFSafariViewController, które wymagają systemu iOS 9 lub nowszego.
 >
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Komunikację z Azure AD B2C można skonfigurować, określając punkt końcowy autoryzacji i identyfikatory URI punktu końcowego tokenu.  Aby wygenerować te identyfikatory URI, potrzebne są następujące informacje:
 * Identyfikator dzierżawy (na przykład contoso.onmicrosoft.com)
-* Nazwa przepływu użytkownika (na przykład B2C\_1)\_
+* Nazwa przepływu użytkownika (na przykład B2C \_ 1 \_ )
 
-Identyfikator URI punktu końcowego tokenu można wygenerować, zastępując identyfikator dzierżawy\_i nazwę zasady\_następującym adresem URL:
+Identyfikator URI punktu końcowego tokenu można wygenerować, zastępując identyfikator dzierżawy \_ i nazwę zasady \_ następującym adresem URL:
 
 ```objc
 static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-Identyfikator URI punktu końcowego autoryzacji można wygenerować, zastępując identyfikator dzierżawy\_i nazwę zasady\_następującym adresem URL:
+Identyfikator URI punktu końcowego autoryzacji można wygenerować, zastępując identyfikator dzierżawy \_ i nazwę zasady \_ następującym adresem URL:
 
 ```objc
 static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
@@ -123,7 +123,7 @@ appDelegate.currentAuthorizationFlow =
 
 Aby skonfigurować aplikację do obsługi przekierowania do identyfikatora URI przy użyciu niestandardowego schematu, należy zaktualizować listę "schematy adresów URL" w info. pList:
 * Otwórz info. pList.
-* Umieść kursor nad wierszem, taki jak "kod typu systemu operacyjnego" \+ i kliknij symbol.
+* Umieść kursor nad wierszem, taki jak "kod typu systemu operacyjnego" i kliknij \+ symbol.
 * Zmień nazwę nowego wiersza "typy adresów URL".
 * Kliknij strzałkę po lewej stronie "typy adresów URL", aby otworzyć drzewo.
 * Kliknij strzałkę po lewej stronie elementu "Item 0", aby otworzyć drzewo.

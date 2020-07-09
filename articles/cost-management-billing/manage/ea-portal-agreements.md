@@ -3,16 +3,16 @@ title: Umowy EA platformy Azure i poprawki
 description: W tym artykule wyjaśniono, w jaki sposób umowy EA platformy Azure i ich poprawki wpływają na Twoje korzystanie z witryny Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 50f7a1bab17b9a98b7ca282387def52b24d448c4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648182"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044910"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
@@ -20,7 +20,7 @@ W tym artykule opisano możliwy wpływ umów EA platformy Azure i ich poprawek n
 
 ## <a name="enrollment-provisioning-status"></a>Stan aprowizacji rejestracji
 
-Data rozpoczęcia nowego zobowiązania pieniężnego zależy od daty przetworzenia go w regionalnym centrum operacyjnym. Ponieważ zobowiązania finansowe wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoje zobowiązanie pieniężne wynikające z zamówień zakupów zostało przetworzone w innym regionie. Data rozpoczęcia obsługi w zamówieniu dostępnym pod adresem https://www.explore.ms wskazuje datę rozpoczęcia zobowiązania pieniężnego. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia zobowiązania pieniężnego w witrynie Azure EA Portal.
+Data rozpoczęcia nowej przedpłaty za platformę Azure zależy od daty przetworzenia jej w regionalnym centrum operacyjnym. Ponieważ przedpłaty za platformę Azure wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoja przedpłata za platformę Azure wynikająca z zamówień zakupów została przetworzona w innym regionie. Data rozpoczęcia obsługi w zamówieniu dostępnym pod adresem https://www.explore.ms wskazuje datę rozpoczęcia przedpłaty za platformę Azure. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia przedpłaty za platformę Azure w witrynie Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Pomoc techniczna dla klientów korporacyjnych
 
@@ -36,14 +36,14 @@ Rejestracja może mieć jedną z następujących wartości stanu. Każda wartoś
 
 **Przedłużenie na czas nieokreślony** — ten stan występuje po terminie zakończenia umowy Enterprise Agreement. Przed upływem terminu zakończenia umowy Enterprise Agreement związanej z rejestracją administrator rejestracji powinien:
 
-- Odnowić rejestrację przez dodanie kolejnego zobowiązania pieniężnego.
+- Odnowienie rejestracji przez dodanie kolejnej przedpłaty za platformę Azure
 - Przenieść istniejącą rejestrację do nowej rejestracji.
 - Przeprowadzić migrację do programu subskrypcji online firmy Microsoft (MOSP).
 - Potwierdzić wyłączenie wszystkich usług skojarzonych z rejestracją.
 
 **Wygasły** — rejestracja EA wygasa w dniu zakończenia umowy Enterprise Agreement. Klient z umową EA zrezygnował z przedłużenia umowy i wszystkie usługi zostały wyłączone.
 
-Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku komercyjnych klientów platformy Azure. Zamiast tego wszystkie rejestracje są przedłużane na czas nieokreślony. Jeśli chcesz zakończyć korzystanie z usług platformy Azure, zamknij subskrypcję w [witrynie Azure EA Portal](https://portal.azure.com). Innym sposobem jest przesłanie żądania zakończenia przez Twojego partnera pod adresem https://www.explore.ms. Klienci z umowami dla instytucji rządowych nie zostaną obciążeni żadną opłatą.
+Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku komercyjnych klientów platformy Azure. Zamiast tego wszystkie rejestracje są przedłużane na czas nieokreślony. Jeśli chcesz zakończyć korzystanie z usług platformy Azure, zamknij subskrypcję w witrynie [Azure Portal](https://portal.azure.com). Innym sposobem jest przesłanie żądania zakończenia przez Twojego partnera pod adresem https://www.explore.ms. Klienci z umowami dla instytucji rządowych nie zostaną obciążeni żadną opłatą.
 
 **Przeniesiona** — ten stan jest stosowany do rejestracji, z których konta i usługi zostały przeniesione do nowej rejestracji. Rejestracje nie są przenoszone automatycznie w przypadku wygenerowania nowego numeru rejestracji podczas odnawiania. Aby nastąpiło automatyczne przeniesienie, należy uwzględnić poprzedni numer rejestracji w żądaniu odnowienia klienta.
 
@@ -51,7 +51,7 @@ Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku
 
 Marża partnera dostępna w witrynie Azure EA Portal zapewnia lepsze raportowanie kosztów dla klientów. W witrynie Azure EA Portal można wyświetlić użycie oraz ceny skonfigurowane przez partnerów dla ich klientów.
 
-Funkcja narzutu umożliwia administratorom partnerów dodanie określonego procentowo narzutu do umów Enterprise Agreement zawieranych za ich pośrednictwem. Narzut procentowy jest stosowany do wszystkich informacji o usługach firmy Microsoft w witrynie Azure EA Portal, takich jak stawki mierników, zobowiązania pieniężne i zamówienia. Po opublikowaniu narzutu przez partnera klient zobaczy koszty platformy Azure w witrynie Azure EA Portal. Na przykład w podsumowaniu użycia,cennikach i pobranych raportach użycia.
+Funkcja narzutu umożliwia administratorom partnerów dodanie określonego procentowo narzutu do umów Enterprise Agreement zawieranych za ich pośrednictwem. Narzut procentowy jest stosowany do wszystkich informacji o usługach firmy Microsoft w witrynie Azure EA Portal, takich jak stawki mierników, przedpłata za platformę Azure i zamówienia. Po opublikowaniu narzutu przez partnera klient zobaczy koszty platformy Azure w witrynie Azure EA Portal. Na przykład w podsumowaniu użycia,cennikach i pobranych raportach użycia.
 
 Od września 2019 r. partnerzy mogą dodać marżę w dowolnym czasie w danym okresie. Nie muszą czekać do kolejnej rocznicy umowy w celu dodania marży.
 
@@ -61,7 +61,7 @@ Firma Microsoft nie będzie mieć dostępu do podanego narzutu ani skojarzonych 
 
 Dostawca rozwiązań licencjonowania udostępnia pojedynczą procentową liczbę w witrynie EA Portal.  Wszystkie informacje handlowe dostępne w portalu zostaną podniesione o wartość procentową określoną przez dostawcę LSP. Przykład:
 
-- Klient podpisuje umowę EA z zobowiązaniami pieniężnymi w kwocie 100 000 USD.
+- Klient podpisuje umowę EA z przedpłatą za platformę Azure w kwocie 100 000 USD.
 - Stawka miernika dla usługi A wynosi 10 USD/godzinę.
 - W witrynie EA Portal dostawca rozwiązań licencjonowania ustawia narzut w wysokości 10%.
 - W poniższym przykładzie przedstawiono sposób, w jaki klient zobaczy informacje handlowe:
@@ -72,10 +72,10 @@ Dostawca rozwiązań licencjonowania udostępnia pojedynczą procentową liczbę
 
 ### <a name="when-to-use-a-markup"></a>Kiedy korzystać z narzutu
 
-Ta funkcja jest przydatna w przypadku ustawiania tej samej wartości procentowej narzutu na WSZYSTKIE transakcje handlowe zawierane w ramach umowy EA. Oznacza to, że narzut powinien zostać ustawiony na informacje dotyczące zobowiązań pieniężnych, stawki miernika, informacje o zamówieniach itd.
+Ta funkcja jest przydatna w przypadku ustawiania tej samej wartości procentowej narzutu na WSZYSTKIE transakcje handlowe zawierane w ramach umowy EA. Oznacza to, że narzut powinien zostać ustawiony na informacje dotyczące przedpłaty za platformę Azure, stawki miernika, informacje o zamówieniach itd.
 
 Nie używaj funkcji narzutu, jeśli:
-- Korzystasz z różnych stawek na zobowiązania pieniężne i stawki miernika.
+- Korzystasz z różnych stawek na przedpłatę za platformę Azure i stawki miernika.
 - Korzystasz z różnych stawek dla różnych mierników.
 
 Jeśli korzystasz z różnych stawek dla różnych mierników, zalecamy utworzenie niestandardowego rozwiązania bazującego na kluczu interfejsu API, który po wprowadzeniu przez klienta spowoduje ściągnięcie danych dotyczących zużycia i udostępnienie raportów.
@@ -97,11 +97,11 @@ Pamiętaj, aby przejrzeć informacje handlowe — informacje o saldzie środków
 
 **Krok drugi: Przegląd i sprawdzanie poprawności**
 
-Przejrzyj ceny z narzutem w obszarze _Podsumowanie użycia_ dla terminu zobowiązania w widoku klienta. Cena firmy Microsoft będzie nadal dostępna w widoku partnera. Widoki można przełączać za pomocą przełącznika „osoby” narzutu partnera w prawym górnym rogu.
+Przejrzyj ceny z narzutem w obszarze _Podsumowanie użycia_ dla terminu przedpłaty w widoku klienta. Cena firmy Microsoft będzie nadal dostępna w widoku partnera. Widoki można przełączać za pomocą przełącznika „osoby” narzutu partnera w prawym górnym rogu.
 
 1. Przejrzyj ceny w arkuszu cen.
 1. Przed opublikowaniem można wprowadzać zmiany, wybierając pozycję **Edytuj** na karcie _Wyświetl podsumowanie użycia > Widok klienta_.  
-  Ta sama wartość procentowa narzutu zostanie naliczona zarówno dla cen usług, jak i salda zobowiązań. Nie używaj tej funkcji, jeśli masz różne wartości procentowe dla salda środków pieniężnych i stawek mierników lub różne wartości procentowe dla różnych usług.
+  Ta sama wartość procentowa narzutu zostanie naliczona zarówno dla cen usług, jak i salda przedpłat. Nie używaj tej funkcji, jeśli masz różne wartości procentowe dla salda środków pieniężnych i stawek mierników lub różne wartości procentowe dla różnych usług.
 
 **Krok trzeci: Publikowanie**
 
@@ -121,7 +121,7 @@ Po opublikowaniu narzutu partnera klient pośredni będzie miał dostęp do twor
 Partnerzy mogą korzystać z funkcji narzutu (w witrynie Azure EA) po przetworzeniu zmiany partnera handlowego. Nie trzeba czekać do następnego cyklu rocznego.
 
 
-## <a name="resource-commitment-and-requesting-quota-increases"></a>Zwiększanie zobowiązania dostarczenia zasobów i limitu przydziału
+## <a name="resource-prepayment-and-requesting-quota-increases"></a>Zwiększanie przedpłaty dostarczenia zasobów i limitu przydziału
 
 **System wymusza następujące domyślne przydziały dla każdej subskrypcji:**
 
@@ -135,11 +135,11 @@ Partnerzy mogą korzystać z funkcji narzutu (w witrynie Azure EA) po przetworze
 | Kontrola dostępu | 50 przestrzeni nazw na konto. 100 milionów transakcji kontroli dostępu na miesiąc |   |
 | Service Bus | 50 przestrzeni nazw na konto. 40 połączeń usługi Service Bus | Klienci, którzy kupują połączenia usługi Service Bus za pośrednictwem pakietów połączeń, będą mieć limity przydziału równe punktowi środkowemu między zakupionym pakietem połączeń a następną najwyższą wartością pakietu połączeń. Klienci, którzy wybiorą pakiet 500, będą mieli limit przydziału równy 750. |
 
-## <a name="resource-commitment"></a>Zobowiązanie dostarczenia zasobów
+## <a name="resource-prepayment"></a>Przedpłata za zasoby
 
-Firma Microsoft będzie zapewniać usługi co najmniej na poziomie powiązanego użycia, które obejmują zakupione zobowiązanie miesięczne (zobowiązanie do świadczenia usług), ale każde zwiększenie poziomu użycia zasobów usługi (np. zwiększenie liczby uruchomionych wystąpień obliczeniowych lub ilości używanego miejsca) jest zależne od dostępności tych zasobów usługi.
+Firma Microsoft będzie zapewniać usługi co najmniej na poziomie powiązanego użycia, które obejmują zakupioną przedpłatę miesięczną (przedpłata za świadczenie usług), ale każde zwiększenie poziomu użycia zasobów usługi (np. zwiększenie liczby uruchomionych wystąpień obliczeniowych lub ilości używanego miejsca) jest zależne od dostępności tych zasobów usługi.
 
-Opisane powyżej przydziały nie są zobowiązaniami usługi. W celu określenia liczby jednoczesnych małych wystąpień obliczeniowych (lub ich odpowiednika) zapewnianych w ramach zobowiązania do świadczenia usług zatwierdzona liczba godzin małego wystąpienia obliczeniowego w miesiącu jest dzielona przez liczbę godzin w najkrótszym miesiącu roku (tj. lutym — 672 godziny).
+Opisane powyżej przydziały nie są przedpłatą za usługi. W celu określenia liczby jednoczesnych małych wystąpień obliczeniowych (lub ich odpowiednika) zapewnianych w ramach przedpłaty za świadczenie usług zatwierdzona liczba godzin małego wystąpienia obliczeniowego w miesiącu jest dzielona przez liczbę godzin w najkrótszym miesiącu roku (tj. lutym — 672 godziny).
 
 ## <a name="requesting-a-quota-increase"></a>Żądanie zwiększenia limitu przydziału
 

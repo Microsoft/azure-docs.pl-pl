@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80654020"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
@@ -59,9 +58,9 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 1. Otwórz przystawkę zarządzania usługami AD FS.
 2. Po lewej stronie wybierz pozycję **relacje zaufania jednostek uzależnionych**.
 3. Kliknij prawym przyciskiem myszy **Microsoft Office platformę tożsamości 365** i wybierz pozycję **Edytuj reguły dotyczące roszczeń...** 
-   Konsola usług ADFS — edytowanie reguł ![dotyczących roszczeń](./media/howto-mfa-adfs/trustedip1.png)
+    ![ Konsola usług ADFS — edytowanie reguł dotyczących roszczeń](./media/howto-mfa-adfs/trustedip1.png)
 4. W obszarze reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę.** 
-    ![](./media/howto-mfa-adfs/trustedip2.png)
+    ![ Dodawanie reguły dotyczącej roszczeń](./media/howto-mfa-adfs/trustedip2.png)
 5. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Przekazywanie lub filtrowanie oświadczenia przychodzącego**, a następnie kliknij przycisk **Dalej**.
    ![Kreator dodawania reguły przekształcania dotyczącej oświadczeń](./media/howto-mfa-adfs/trustedip3.png)
 6. W polu Nazwa reguły oświadczenia wpisz nazwę reguły, np. WewnSiećFirm.
@@ -86,7 +85,7 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 Po skonfigurowaniu oświadczeń można przystąpić do konfigurowania zaufanych adresów IP.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Azure Active Directory** > **Security** > **dostęp warunkowy do** > zabezpieczeń**nazwanych lokalizacji**.
+2. Wybierz pozycję **Azure Active Directory**  >  **Security**  >  **dostęp warunkowy do**zabezpieczeń  >  **nazwanych lokalizacji**.
 3. W bloku **dostęp warunkowy — lokalizacje z nazwą** wybierz opcję **Konfiguruj Zaufane adresy IP usługi MFA**
 
    ![Dostęp warunkowy usługi Azure AD nazwane lokalizacje Konfigurowanie zaufanych adresów IP MFA](./media/howto-mfa-adfs/trustedip6.png)

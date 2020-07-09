@@ -4,12 +4,12 @@ description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablo
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731938"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118923"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Tworzenie potoku platformy Azure
 > * Weryfikowanie wdrożenia potoku
 > * Zaktualizuj szablon i Wdróż ponownie
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -37,10 +37,10 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* **Konto usługi GitHub**, za pomocą którego można utworzyć repozytorium dla szablonów. Jeśli go nie masz, możesz [utworzyć go bezpłatnie](https://github.com). Aby uzyskać więcej informacji o korzystaniu z repozytoriów usługi GitHub, zobacz [Tworzenie repozytoriów GitHub](/azure/devops/pipelines/repos/github).
+* **Konto usługi GitHub**, za pomocą którego można utworzyć repozytorium dla szablonów. Jeśli nie masz takiego konta, możesz [je utworzyć bezpłatnie](https://github.com). Aby uzyskać więcej informacji o korzystaniu z repozytoriów usługi GitHub, zobacz [Tworzenie repozytoriów GitHub](/azure/devops/pipelines/repos/github).
 * **Zainstaluj narzędzie git**. W tej instrukcji samouczka jest stosowana funkcja *git bash* lub *powłoka git*. Aby uzyskać instrukcje, zobacz [Instalowanie usługi git]( https://www.atlassian.com/git/tutorials/install-git).
-* **Organizacja usługi Azure DevOps**. Jeśli go nie masz, możesz utworzyć go bezpłatnie. Zobacz [Tworzenie organizacji lub kolekcji projektów]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. [Aby utworzyć szablony Azure Resource Manager, zobacz temat używanie Visual Studio Code](use-vs-code-to-create-template.md).
+* **Organizacja usługi Azure DevOps**. Jeśli nie masz takiego konta, możesz je utworzyć bezpłatnie. Zobacz [Tworzenie organizacji lub kolekcji projektów](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* obowiązkowe **Visual Studio Code z rozszerzeniem Menedżer zasobów Tools**. Zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Przygotowywanie repozytorium GitHub
 
@@ -57,7 +57,7 @@ Jeśli nie masz konta usługi GitHub, zapoznaj się z tematem [wymagania wstępn
 
 1. Wybierz pozycję **Nowy**, zielony przycisk.
 1. W polu **Nazwa repozytorium**wprowadź nazwę repozytorium.  Na przykład **AzureRmPipeline-repozytorium**. Pamiętaj, aby zastąpić dowolną **AzureRmPipeline** nazwą projektu. Możesz wybrać opcję **publiczny** lub **prywatny** do przechodzenia przez ten samouczek. A następnie wybierz pozycję **Utwórz repozytorium**.
-1. Zapisz adres URL. Adres URL repozytorium ma następujący format: **`https://github.com/[YourAccountName]/[YourRepositoryName]`**.
+1. Zapisz adres URL. Adres URL repozytorium ma następujący format: **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
 
 To repozytorium jest określane jako *zdalne repozytorium*. Każdy deweloper tego samego projektu może sklonować własne *repozytorium lokalne*i scalić zmiany w repozytorium zdalnym.
 
@@ -90,11 +90,11 @@ Nazwa folderu i nazwy plików są używane, ponieważ znajdują się w potoku.  
 
 ### <a name="push-the-template-to-the-remote-repository"></a>Wypychanie szablonu do repozytorium zdalnego
 
-Plik azuredeploy. JSON został dodany do repozytorium lokalnego. Następnie Przekaż szablon do zdalnego repozytorium.
+azuredeploy.jszostała dodana do repozytorium lokalnego. Następnie Przekaż szablon do zdalnego repozytorium.
 
 1. Otwórz *powłokę git* lub *git bash*, jeśli nie jest ona otwarta.
 1. Zmień katalog na folder CreateWebApp w lokalnym repozytorium.
-1. Sprawdź, czy plik **azuredeploy. JSON** znajduje się w folderze.
+1. Sprawdź, czy **azuredeploy.jsw** pliku znajduje się w folderze.
 1. Uruchom następujące polecenie:
 
     ```bash
@@ -104,8 +104,8 @@ Plik azuredeploy. JSON został dodany do repozytorium lokalnego. Następnie Prze
     ```
 
     Może pojawić się ostrzeżenie dotyczące LF. Możesz zignorować to ostrzeżenie. **główny** jest gałęzią główną.  Tworzona jest zwykle gałąź dla każdej aktualizacji. Aby uprościć samouczek, należy bezpośrednio użyć gałęzi głównej.
-1. Przejdź do repozytorium GitHub z przeglądarki.  Adres URL to **`https://github.com/[YourAccountName]/[YourGitHubRepository]`**. Zobaczysz folder **CreateWebApp** i trzy pliki znajdujące się w folderze.
-1. Wybierz pozycję **linkedStorageAccount. JSON** , aby otworzyć szablon.
+1. Przejdź do repozytorium GitHub z przeglądarki.  Adres URL to **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** . Zobaczysz folder **CreateWebApp** i trzy pliki znajdujące się w folderze.
+1. Wybierz pozycję **linkedStorageAccount.js** , aby otworzyć szablon.
 1. Wybierz przycisk **RAW** . Adres URL jest uruchamiany z **RAW.githubusercontent.com**.
 1. Utwórz kopię adresu URL.  Należy podać tę wartość podczas konfigurowania potoku w dalszej części tego samouczka.
 
@@ -127,7 +127,7 @@ Aby można było wykonać następną procedurę, wymagana jest organizacja DevOp
     * **Kontrola wersji**: wybierz pozycję **git**. Może być konieczne rozszerzenie **Zaawansowane** , aby zobaczyć **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Utwórz połączenie usługi używane do wdrażania projektów na platformie Azure.
 
@@ -174,7 +174,7 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
     * **Grupa zasobów**: wprowadź nową nazwę grupy zasobów. Na przykład **AzureRmPipeline-RG**.
     * **Lokalizacja**: Wybierz lokalizację dla grupy zasobów, na przykład **środkowe stany USA**.
     * **Lokalizacja szablonu**: wybierz pozycję **połączone artefakty**, co oznacza, że zadanie szuka pliku szablonu bezpośrednio z połączonego repozytorium.
-    * **Szablon**: wprowadź **CreateWebApp/azuredeploy. JSON**. Jeśli zmieniono nazwę folderu i nazwę pliku, należy zmienić tę wartość.
+    * **Szablon**: wprowadź **CreateWebApp/azuredeploy.json**. Jeśli zmieniono nazwę folderu i nazwę pliku, należy zmienić tę wartość.
     * **Parametry szablonu**: pozostaw to pole puste. Należy określić wartości parametrów w parametrach szablonu * * override.
     * **overrideParameters**: ENTER **-projectName [EnterAProjectName]-linkedTemplateUri [EnterTheLinkedTemplateURL]**. Zastąp nazwę projektu i adres URL połączonego szablonu. Adres URL połączonego szablonu jest zapisany na końcu [tworzenia repozytorium GitHub](#create-a-github-repository).
     * **Tryb wdrożenia**: wybierz pozycję **przyrostowe**.
@@ -207,7 +207,7 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
 
 Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok automatycznie zaktualizuje zasoby, konto magazynu w tym przypadku.
 
-1. Otwórz plik **linkedStorageAccount. JSON** z lokalnego repozytorium w Visual Studio Code lub dowolnym edytorze tekstu.
+1. Otwórz **linkedStorageAccount.jsna** podstawie lokalnego repozytorium w Visual Studio Code lub dowolnym edytorze tekstu.
 1. Zaktualizuj wartość **DefaultValue** elementu **storageAccountType** do **Standard_GRS**. Zobacz poniższy zrzut ekranu:
 
     ![Azure Resource Manager usługi Azure DevOps Azure Pipelines Update YAML](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
@@ -224,11 +224,11 @@ Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok aut
 
     Pierwsze polecenie (pull) synchronizuje repozytorium lokalne ze zdalnym repozytorium. Plik YAML potoku został dodany tylko do zdalnego repozytorium. Uruchomienie polecenia ściągania spowoduje pobranie kopii pliku YAML do gałęzi lokalnej.
 
-    Czwarte polecenie przekaże poprawiony plik linkedStorageAccount. JSON do repozytorium zdalnego. Po zaktualizowaniu głównej gałęzi repozytorium zdalnego potok jest uruchamiany ponownie.
+    Czwarte polecenie przekazuje poprawione linkedStorageAccount.jsw pliku do repozytorium zdalnego. Po zaktualizowaniu głównej gałęzi repozytorium zdalnego potok jest uruchamiany ponownie.
 
 Aby sprawdzić zmiany, można sprawdzić Właściwość replikacji konta magazynu.  Zobacz [weryfikacja wdrożenia](#verify-the-deployment).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
@@ -241,7 +241,7 @@ Możesz również chcieć usunąć repozytorium GitHub i projekt usługi Azure D
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gratulacje, ukończono ten samouczek wdrażania szablonu Menedżer zasobów. Daj nam znać, jeśli masz jakieś komentarze i sugestie w sekcji Opinie. Dziękujemy.
+Gratulacje, ukończono ten samouczek wdrażania szablonu Menedżer zasobów. Daj nam znać, jeśli masz jakieś komentarze i sugestie w sekcji Opinie. Dziękujemy!
 Możesz teraz przejść do bardziej zaawansowanych koncepcji dotyczących szablonów. Następny samouczek zawiera więcej szczegółów dotyczących korzystania z dokumentacji szablonów referencyjnych, aby ułatwić Definiowanie zasobów do wdrożenia.
 
 > [!div class="nextstepaction"]

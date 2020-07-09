@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80300981"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Błąd rozruchu — to nie jest dysk rozruchowy
@@ -59,7 +59,7 @@ Ten komunikat o błędzie oznacza, że proces rozruchu systemu operacyjnego nie 
 
 Maszyny wirtualne generacji 1 powinny najpierw sprawdzić, czy partycja systemu operacyjnego, która zawiera magazyn BCD, jest oznaczona jako *aktywna*. Jeśli masz maszynę wirtualną generacji 2, przejdź z wyprzedzeniem, aby [naprawić partycję dysku](#fix-the-disk-partition), ponieważ flaga *stanu* była przestarzała w późniejszej generacji.
 
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień *(cmd. exe)*.
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień *(cmd.exe)*.
 2. Wprowadź polecenie *diskpart* , aby uruchomić narzędzie Diskpart.
 3. Wprowadź *dysk listy* , aby wyświetlić listę dysków w systemie i zidentyfikować dołączony wirtualny dysk twardy systemu operacyjnego.
 4. Po zlokalizowaniu wirtualnego dysku twardego systemu operacyjnego wprowadź *wartość SEL Disk #* , aby wybrać dysk.  Zobacz rysunek 2, gdzie dysk 1 jest dołączonym wirtualnym dyskiem systemu operacyjnego.
@@ -96,12 +96,12 @@ Maszyny wirtualne generacji 1 powinny najpierw sprawdzić, czy partycja systemu 
 
 ### <a name="fix-the-disk-partition"></a>Napraw partycję dysku
 
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień (cmd. exe).
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień (cmd.exe).
 2. Użyj następującego polecenia, aby uruchomić *program CHKDSK* na dyskach i naprawić błędy:
 
    `chkdsk <DRIVE LETTER>: /f`
 
-   Dodanie opcji polecenia "/f" spowoduje naprawienie wszelkich błędów na dysku. Pamiętaj o zamianie <DRIVE LETTER> na literę dołączonego wirtualnego dysku twardego systemu operacyjnego.
+   Dodanie opcji polecenia "/f" spowoduje naprawienie wszelkich błędów na dysku. Pamiętaj o zamianie na <DRIVE LETTER> literę dołączonego wirtualnego dysku twardego systemu operacyjnego.
 
 ### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Zalecane: przed odbudowaniem maszyny wirtualnej Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30ca3bb86426b144fa6cbf5c63888d9546919ebf
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76514225"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85954693"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Poprawka protokołu Smooth Streaming Protocol (MS-SSTR) dla HEVC 
 
@@ -242,10 +242,12 @@ Aby można było zastosować Common Encryption (CENC) do strumieni wideo lub aud
 > 
 >   Składnia pól zdefiniowanych w tej sekcji określona w ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) jest następująca:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Uwaga**: znaki zgodności "ccff" i "ISO8" wskazują, że fragmenty są zgodne z "typowym formatem pliku kontenera" i Common Encryption [ISO/IEC 23001-7] i ISO Base File Format Edition 4 [ISO/IEC 14496-12].
 
@@ -288,14 +290,18 @@ Aby można było zastosować Common Encryption (CENC) do strumieni wideo lub aud
 > 
 >   Prezentacje zawierające strumienie HEVC mają ustawioną wartość:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Uwaga: pola przestarzałe)
 > 
 >   Prezentacje należy również ustawić:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Kolekcja strumieni: Kolekcja elementów danych opisu strumienia, jak określono w sekcji *3.1.1.1.2*.
 > 
@@ -385,7 +391,7 @@ Następujące pola mogą być obecne w odpowiedziach na fragmenty, gdy Common En
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

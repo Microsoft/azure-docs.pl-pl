@@ -9,10 +9,10 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422418"
 ---
 # <a name="linux-support"></a>Obsługa systemu Linux
@@ -70,7 +70,7 @@ Przed rozpoczęciem opracowywania klienta systemu Linux dla pulpitu wirtualnego 
 Zapoznaj się z naszą dokumentacją dla następujących klientów:
 
 - [Klient klasyczny systemu Windows](connect-windows-7-and-10.md)
-- [Klient sieci Web](connect-web.md)
+- [Klient internetowy](connect-web.md)
 - [Klient systemu Android](connect-android.md)
-- [Klient macOS](connect-macos.md)
+- [Klient systemu macOS](connect-macos.md)
 - [Klient systemu iOS](connect-ios.md)

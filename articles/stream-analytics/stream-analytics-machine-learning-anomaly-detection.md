@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525536"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044383"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Wykrywanie anomalii w Azure Stream Analytics
 
@@ -117,7 +117,7 @@ Wydajność tych modeli zależy od rozmiaru historii, czasu trwania okna, obcią
 * **Rozmiar historii** — te modele są wykonywane liniowo z **rozmiarem historii**. Im dłuższy rozmiar historii, tym dłużej modele trwają do oceny nowego zdarzenia. Wynika to z faktu, że modele porównują nowe zdarzenie z każdym z ostatnich zdarzeń w buforze historii.
 * **Czas trwania okna** — **czas trwania okna** powinien odzwierciedlać, jak długo trwa odbieranie jak wielu zdarzeń określonych przez rozmiar historii. Bez tego, czy w oknie nie ma wielu zdarzeń, Azure Stream Analytics będzie mieć przypisane wartości. W związku z tym użycie procesora CPU jest funkcją rozmiaru historii.
 * **Obciążenie zdarzeniami** — im większa **obciążenie zdarzeń**, tym większa jest szybkość działania wykonywanego przez modele, która ma wpływ na użycie procesora CPU. Zadanie można skalować w poziomie, dzięki czemu zaskakująco się równolegle, zakładając, że logika biznesowa będzie używać większej liczby partycji wejściowych.
-* **Function level partitioning** - Partycjonowanie**poziomu** funkcji partycjonowanie jest wykonywane przy użyciu ```PARTITION BY``` w ramach wywołania funkcji wykrywania anomalii. Ten typ partycjonowania dodaje obciążenie, ponieważ stan musi być utrzymywany jednocześnie dla wielu modeli. Partycjonowanie na poziomie funkcji jest używane w scenariuszach takich jak partycjonowanie na poziomie urządzenia.
+* **Partycjonowanie**  -  poziomu funkcji **Partycjonowanie poziomu funkcji** odbywa się przy użyciu ```PARTITION BY``` w ramach wywołania funkcji wykrywania anomalii. Ten typ partycjonowania dodaje obciążenie, ponieważ stan musi być utrzymywany jednocześnie dla wielu modeli. Partycjonowanie na poziomie funkcji jest używane w scenariuszach takich jak partycjonowanie na poziomie urządzenia.
 
 ### <a name="relationship"></a>Relacja
 Rozmiar historii, czas trwania okna oraz całkowite obciążenie zdarzeniami są powiązane w następujący sposób:

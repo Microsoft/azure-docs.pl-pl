@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580664"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Przypadki użycia usługi Azure Time Series Insights w wersji zapoznawczej
@@ -60,7 +60,7 @@ Istnieją trzy podstawowe sposoby współpracy z danymi przechowywanymi w Time S
 
   * Dowiedz się więcej o udostępnianiu adresów URL i nowym interfejsie użytkownika, przeglądając temat [Wizualizacja danych w eksploratorze Azure Time Series Insights w wersji zapoznawczej](time-series-insights-update-explorer.md).
 
-* Trzecim sposobem na rozpoczęcie pracy jest użycie zaawansowanych interfejsów API do wykonywania zapytań dotyczących danych przechowywanych w Time Series Insights. Time Series Insights ma operatory czasowe, `from`takie `to`jak `first`,, `last`, i. Ma agregacje i przekształcenia, takie jak `average`, `min`, `max`, `split by` `order by`, i `DateHistogram`. Zawiera również operatory filtrowania, takie jak `has`, `in`, `and`, `or` `greater than`, i `REGEX`. Wszystkie te operatory umożliwiają aplikacjom podrzędnym szybkie znajdowanie interesujących trendów i wzorców w danych. Służą one do wypełniania wizualizacji Homegrown na potrzeby wykrywania anomalii.
+* Trzecim sposobem na rozpoczęcie pracy jest użycie zaawansowanych interfejsów API do wykonywania zapytań dotyczących danych przechowywanych w Time Series Insights. Time Series Insights ma operatory czasowe, takie jak `from` ,, `to` `first` , i `last` . Ma agregacje i przekształcenia, takie jak `average` , `min` , `max` , `split by` , `order by` i `DateHistogram` . Zawiera również operatory filtrowania, takie jak `has` , `in` , `and` , `or` , `greater than` i `REGEX` . Wszystkie te operatory umożliwiają aplikacjom podrzędnym szybkie znajdowanie interesujących trendów i wzorców w danych. Służą one do wypełniania wizualizacji Homegrown na potrzeby wykrywania anomalii.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Analiza operacyjna i wydajność procesu tworzenia
 

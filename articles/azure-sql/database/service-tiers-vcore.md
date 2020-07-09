@@ -1,23 +1,23 @@
 ---
 title: Przegląd modelu zakupu rdzeń wirtualny
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Model zakupów rdzeń wirtualny umożliwia niezależne skalowanie zasobów obliczeniowych i magazynu, dopasowanie wydajności lokalnej oraz optymalizację cen dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a6546ad587fa308ab5559d04814191c503ecdc3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044094"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985554"
 ---
-# <a name="vcore-model-overview---azure-sql-database--sql-managed-instance"></a>Przegląd modelu rdzeń wirtualny — Azure SQL Database & wystąpienie zarządzane SQL 
+# <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Model zakupu wirtualnego rdzenia (rdzeń wirtualny) używany przez Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewnia kilka korzyści:
@@ -29,9 +29,9 @@ Model zakupu wirtualnego rdzenia (rdzeń wirtualny) używany przez Azure SQL Dat
 
 ## <a name="service-tiers"></a>Warstwy usług
 
-Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia, Krytyczne dla działania firmy i skalowanie. Warstwa usługi zwykle definiuje architekturę magazynu, limity przestrzeni i operacji we/wy oraz opcje ciągłości działania związane z dostępnością i odzyskiwaniem po awarii.
+Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia, Krytyczne dla działania firmy i skalowanie. Warstwa usługi zwykle definiuje architekturę magazynu, przestrzeń i limity we/wy oraz opcje ciągłości działania związane z dostępnością i odzyskiwaniem po awarii.
 
-||**Zastosowania ogólne**|**Krytyczne dla działania firmy**|**Hiperskala**|
+|-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
 |Najlepsze dla|Większość obciążeń firmowych. Oferuje zorientowane na budżety, zrównoważone i skalowalne Opcje obliczeniowe i magazynowe. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
 |Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
@@ -46,7 +46,7 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 
 Aby uzyskać informacje na temat wybierania warstwy usług dla konkretnego obciążenia, zobacz następujące artykuły:
 
-- [Kiedy należy wybrać warstwę usług ogólnego przeznaczenia](service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [Kiedy należy wybrać warstwę usługi Ogólnego przeznaczenia](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [Kiedy należy wybrać warstwę usługi Krytyczne dla działania firmy](service-tier-business-critical.md#when-to-choose-this-service-tier)
 - [Kiedy należy wybrać warstwę usługi do skalowania](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
@@ -91,15 +91,16 @@ Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia.  W przypa
 - Seria M to zoptymalizowana pod kątem pamięci opcja sprzętowa dla obciążeń wymagających większej ilości pamięci i wyższych limitów obliczeń niż zapewniana przez 5 rdzeń.
 - Seria M zapewnia 29 GB na rdzeń wirtualny i 128 rdzeni wirtualnych, co zwiększa limit pamięci względem 5 rdzeń przez 8x do niemal 4 TB.
 
-Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.
+Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.  Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
 
-Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żądanie obsługi. Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  Jeśli żądanie pomocy technicznej zostanie zatwierdzone, wybór i środowisko aprowizacji serii M są zgodne z tym samym wzorcem, co w przypadku innych generacji sprzętowych. W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
-
+<!--
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+-->
 
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
-|Generowanie sprzętu  |Wystąpienia obliczeniowe  |Memory (Pamięć)  |
+|Generowanie sprzętu  |Compute  |Memory (Pamięć)  |
 |:---------|:---------|:---------|
 |Obliczenia     |-Procesory Intel E5-2673 v3 (Haswell) 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 16 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 48 GB|
@@ -112,7 +113,7 @@ Aby uzyskać więcej informacji na temat limitów zasobów, zobacz [limity zasob
 
 ### <a name="selecting-a-hardware-generation"></a>Wybieranie generowania sprzętu
 
-W Azure Portal można wybrać generowanie sprzętu dla SQL Database lub puli w momencie tworzenia lub można zmienić generowanie sprzętu istniejącej bazy danych lub puli SQL.
+W Azure Portal można wybrać generowanie sprzętu dla bazy danych lub puli w SQL Database w momencie tworzenia lub można zmienić generowanie sprzętu istniejącej bazy danych lub puli.
 
 **Aby wybrać generowanie sprzętu podczas tworzenia SQL Database lub puli**
 
@@ -147,7 +148,7 @@ Na karcie **podstawowe** wybierz łącze **Konfiguruj bazę danych** w sekcji **
   
 **Aby zmienić generowanie sprzętu istniejącego wystąpienia zarządzanego SQL**
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link do sekcji Ustawienia.
 
@@ -165,7 +166,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Aby uzyskać więcej szczegółów, zobacz polecenie [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Wykonaj następujące polecenie interfejsu wiersza polecenia:
 
@@ -193,32 +194,33 @@ Seria Fsv2 jest dostępna w następujących regionach: Australia Środkowa, Aust
 #### <a name="m-series"></a>Seria M
 
 Seria M jest dostępna w następujących regionach: Wschodnie stany USA, Europa Północna, Europa Zachodnia, zachodnie stany USA 2.
-Seria M może również mieć ograniczoną dostępność w dodatkowych regionach. Możesz zażądać innego regionu niż wymienione tutaj, ale realizacja w innym regionie może nie być możliwa.
+<!--
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-Aby włączyć dostępność serii M w ramach subskrypcji, musisz uzyskać dostęp do żądania, podając [nowe żądanie pomocy technicznej](#create-a-support-request-to-enable-m-series).
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Utwórz żądanie obsługi, aby włączyć serię M: 
+##### Create a support request to enable M-series: 
 
-1. Wybierz pozycję **Pomoc i obsługa techniczna** w portalu.
-2. Wybierz pozycję **Nowe żądanie obsługi**.
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
 
-Na stronie **podstawowe** podaj następujące informacje:
+On the **Basics** page, provide the following:
 
-1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
-2. W przypadku **subskrypcji** = wybierz subskrypcję, aby włączyć serie M.
-3. W obszarze **Typ limitu przydziału**wybierz pozycję **baza danych SQL**.
-4. Wybierz pozycję **dalej** , aby przejść do strony **szczegółów** .
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
 
-Na stronie **szczegóły** podaj następujące informacje:
+On the **Details** page, provide the following:
 
-1. W sekcji **Szczegóły problemu** wybierz łącze **Podaj szczegóły** . 
-2. W obszarze **typ przydziału SQL Database** wybierz pozycję **Seria M**.
-3. W polu **region**wybierz region, w którym ma zostać włączona Seria M.
-    W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
 
-Zatwierdzone żądania pomocy technicznej są zwykle spełnione w ciągu 5 dni roboczych.
-
+Approved support requests are typically fulfilled within 5 business days.
+-->
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -228,7 +230,7 @@ Aby rozpocząć, zobacz:
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-Aby uzyskać szczegółowe informacje o określonych rozmiarach obliczeniowych i magazynowych dostępnych w warstwach usług ogólnych i krytycznych dla działania firmy, zobacz: 
+Aby uzyskać szczegółowe informacje o określonych rozmiarach obliczeniowych i magazynowych dostępnych w warstwach usług ogólnych i krytycznych dla działania firmy, zobacz:
 
 - [limity zasobów opartych na rdzeń wirtualny Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [limity zasobów opartych na rdzeń wirtualny dla Azure SQL Database w puli](resource-limits-vcore-elastic-pools.md).

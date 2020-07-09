@@ -4,21 +4,21 @@ description: Przykłady interfejsu wiersza polecenia platformy Azure dla Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: sample
-ms.date: 9/25/2019
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: efee7262c0568e269613af26dd7518117d81ead9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8c6456074e29efe47819e4f31235d957bde81cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71275619"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560620"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-table-api"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB interfejs API tabel
 
 Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB interfejs API tabel. W [dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Wszystkie przykłady skryptów interfejsu wiersza polecenia Azure Cosmos DB można znaleźć w [repozytorium GitHub Azure Cosmos DB interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Zadanie | Opis |
 |---|---|
 | [Tworzenie konta i tabeli platformy Azure Cosmos](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy konto Azure Cosmos DB i tabelę dla interfejs API tabel. |
 | [Zmień przepływność](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Zaktualizuj RU/s w tabeli.|
@@ -27,4 +27,5 @@ Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza po
 | [Zabezpieczanie za pomocą zapory IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Utwórz konto Cosmos z skonfigurowaną zaporą IP.|
 | [Zabezpiecz nowe konto za pomocą punktów końcowych usługi](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Utwórz konto Cosmos i zabezpiecz je za pomocą punktów końcowych usługi.|
 | [Zabezpiecz istniejące konto za pomocą punktów końcowych usługi](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Zaktualizuj konto usługi Cosmos, aby zabezpieczyć za pomocą punktów końcowych, gdy podsieć jest ostatecznie skonfigurowana.|
+| [Zablokuj zasoby przed usunięciem](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów.|
 |||

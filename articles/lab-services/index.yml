@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Dokumentacja usługi Azure DevTest Labs
-summary: Dowiedz się, jak użyć usługi Azure DevTest Labs do szybkiego skonfigurowania laboratorium badawczego lub testowego bądź laboratorium na potrzeby maratonu programistycznego lub zajęć dla Twojego zespołu lub uczniów w chmurze.
+title: Dokumentacja usługi Azure Lab Services
+summary: Dowiedz się, jak użyć usługi Azure Lab Services do szybkiego skonfigurowania laboratorium badawczego lub testowego bądź laboratorium na potrzeby maratonu programistycznego lub zajęć dla Twojego zespołu lub studentów w chmurze.
 metadata:
-  title: Dokumentacja usługi Azure DevTest Labs
-  description: Dowiedz się, jak użyć usługi Azure DevTest Labs do szybkiego skonfigurowania laboratorium badawczego lub testowego bądź laboratorium na potrzeby maratonu programistycznego lub zajęć dla Twojego zespołu lub uczniów w chmurze.
+  title: Dokumentacja usługi Azure Lab Services
+  description: Dowiedz się, jak użyć usługi Azure Lab Services do szybkiego skonfigurowania laboratorium badawczego lub testowego bądź laboratorium na potrzeby maratonu programistycznego lub zajęć dla Twojego zespołu lub studentów w chmurze.
   services: lab-services
   ms.service: lab-services
   ms.subservice: 
@@ -11,79 +11,69 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 09/26/2019
-  ms.openlocfilehash: 1cfb86a37068d4cd928081446e6bf9ad381bbd86
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 06/26/2020
+  ms.openlocfilehash: 9101d40182f3321dbe791bd700a26a782f6c697c
+  ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "72790961"
+  ms.lasthandoff: 06/26/2020
+  ms.locfileid: "85445121"
 landingContent:
-- title: Rozpoczęcie pracy
+- title: Ogólne omówienie
   linkLists:
   - linkListType: overview
     links:
-    - text: Informacje o usłudze DevTest Labs
-      url: devtest-lab-overview.md
-    - text: Informacje o usługach DevTest Labs i Lab Services
-      url: lab-services-overview.md
+    - text: Informacje o usługach Lab Services i DevTest Labs
+      url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json
+    - text: Informacje na temat laboratoriów na potrzeby zajęć
+      url: classroom-labs-overview.md
   - linkListType: concept
     links:
-    - text: DevTest Labs — pojęcia
-      url: devtest-lab-concepts.md
-    - text: Popularne scenariusze
-      url: devtest-lab-guidance-get-started.md
+    - text: Pojęcia związane z laboratoriami na potrzeby zajęć
+      url: classroom-labs-concepts.md
+- title: Konta laboratorium
+  linkLists:
   - linkListType: tutorial
     links:
-    - text: Konfigurowanie laboratorium
-      url: tutorial-create-custom-lab.md
-    - text: Dostęp do laboratorium
-      url: tutorial-use-custom-lab.md
-- title: Artefakty
-  linkLists:
+    - text: Konfigurowanie konta laboratorium
+      url: tutorial-setup-lab-account.md
   - linkListType: how-to-guide
     links:
-    - text: Dodawanie artefaktu do maszyny wirtualnej
-      url: add-artifact-vm.md
-    - text: Tworzenie niestandardowych artefaktów
-      url: devtest-lab-artifact-author.md
-    - text: Określanie obowiązkowych artefaktów
-      url: devtest-lab-mandatory-artifacts.md
-    - text: Rozwiązywanie problemów z artefaktami
-      url: devtest-lab-troubleshoot-artifact-failure.md
-- title: Środowiska
+    - text: Tworzenie kont laboratoriów i zarządzanie nimi
+      url: how-to-manage-lab-accounts.md
+    - text: Konfigurowanie kont laboratoriów
+      url: how-to-configure-lab-accounts.md
+- title: Konfigurowanie laboratoriów na potrzeby zajęć
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurowanie laboratorium na potrzeby zajęć
+      url: tutorial-setup-classroom-lab.md
   - linkListType: how-to-guide
     links:
-    - text: Konfigurowanie i używanie środowisk publicznych
-      url: devtest-lab-configure-use-public-environments.md
-    - text: Tworzenie środowiska
-      url: devtest-lab-create-environment-from-arm.md
-    - text: Korzystanie z usług typu platforma jako usługa
-      url: use-paas-services.md
-    - text: Łączenie z siecią wirtualną laboratorium
-      url: connect-environment-lab-virtual-network.md
-    - text: Rozwiązywanie problemów z awariami środowiska
-      url: troubleshoot-vm-environment-creation-failures.md
+    - text: Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi
+      url: how-to-manage-lab-accounts.md
+    - text: Konfigurowanie, dostosowywanie i publikowanie szablonów
+      url: how-to-create-manage-template.md
+    - text: Konfigurowanie puli maszyn wirtualnych i zarządzanie nią
+      url: how-to-set-virtual-machine-passwords.md
+    - text: Dodawanie użytkowników laboratorium i zarządzanie nimi
+      url: how-to-configure-student-usage.md
+    - text: Tworzenie harmonogramów i zarządzanie nimi
+      url: how-to-create-schedules.md
+- title: Korzystanie z laboratoriów na potrzeby zajęć
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Dostęp do laboratorium na potrzeby zajęć
+      url: tutorial-connect-virtual-machine-classroom-lab.md
+  - linkListType: how-to-guide
+    links:
+    - text: Używanie połączenia pulpitu zdalnego dla maszyn wirtualnych z systemem Linux
+      url: how-to-use-remote-desktop-linux-student.md
 - title: Eksplorowanie zawartości referencyjnej
   linkLists:
   - linkListType: reference
     links:
-    - text: Interfejs wiersza polecenia platformy Azure
-      url: /cli/azure/lab
-    - text: PowerShell
-      url: /powershell/module/az.devtestlabs/#devtest_labs
     - text: REST
-      url: /rest/api/dtl
-- title: Szablony
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Obraz niestandardowy a Formuła
-      url: devtest-lab-comparing-vm-base-image-types.md
-  - linkListType: how-to-guide
-    links:
-    - text: Tworzenie obrazu niestandardowego z poziomu maszyny wirtualnej
-      url: devtest-lab-create-custom-image-from-vm-using-portal.md
-    - text: Zarządzanie formułami
-      url: devtest-lab-manage-formulas.md
+      url: /rest/api/labservices/

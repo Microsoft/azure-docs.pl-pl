@@ -7,10 +7,9 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77658748"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Wyświetlanie typowych zadań konwersji projektanta na skoroszyty
@@ -118,7 +117,7 @@ Zaktualizuj listę rozwijaną **renderowania kolumn** , aby była *obszarem plat
 
 Zapisz ustawienia i ponownie uruchom zapytanie, aby zaktualizować tabelę w celu uwzględnienia wykresu przebiegu w czasie.
 
-Siatka wyników będzie wyglądać podobnie do następującej: ![przykład wykresu przebiegu w czasie](media/view-designer-conversion-tasks/sparkline-example.png)
+Siatka wyników będzie wyglądać podobnie do następującej: ![ przykład wykresu przebiegu w czasie](media/view-designer-conversion-tasks/sparkline-example.png)
 
 ## <a name="advanced-cell-settings"></a>Zaawansowane ustawienia komórki
 Aby wyświetlić widok duplikatów, można wykonywać zadania, takie jak zmiana rozmiaru komórek skoroszytu lub Dodawanie kodów PIN i linków zewnętrznych do dzienników.

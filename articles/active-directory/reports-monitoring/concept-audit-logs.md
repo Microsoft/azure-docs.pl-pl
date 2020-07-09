@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85846967"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
 
@@ -89,7 +89,7 @@ Dane inspekcji można filtrować w następujących polach:
 
 Filtr **usługi** umożliwia wybranie z listy rozwijanej następujących usług:
 
-- Wszystkie
+- Wszystko
 - ŚRODOWISKO użytkownika zarządzania usługą AAD
 - Przeglądy dostępu
 - Aprowizacja kont
@@ -111,10 +111,10 @@ Filtr **usługi** umożliwia wybranie z listy rozwijanej następujących usług:
 
 Filtr **Kategoria** umożliwia wybranie jednego z następujących filtrów:
 
-- Wszystkie
+- Wszystko
 - AdministrativeUnit
 - ApplicationManagement
-- Uwierzytelnianie
+- Authentication
 - Autoryzacja
 - Kontakt
 - Urządzenie
@@ -138,7 +138,7 @@ Listę wszystkich działań związanych z inspekcją można uzyskać przy użyci
 
 Filtr **stanu** umożliwia filtrowanie na podstawie stanu operacji inspekcji. Może to być jeden z następujących stanów:
 
-- Wszystkie
+- Wszystko
 - Powodzenie
 - Niepowodzenie
 

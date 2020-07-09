@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: ef961fe37b9906d3b7be44a8ee99876394104455
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: include file, references_regions
+ms.openlocfilehash: 59df8bef902d5068ceafaf90c530e8b636b40af9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651045"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84346336"
 ---
 W przypadku wersji Premium dysków SSD, standard dysków SSD i Standard HDD tylko poniższe regiony obsługują obecnie klucze zarządzane przez klienta:
 

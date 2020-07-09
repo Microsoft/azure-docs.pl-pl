@@ -7,20 +7,18 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 16534343a831f0802a60a9214f567742153360e0
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4e77b167f00e2cfa3838439143c6074bd4122976
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478996"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191427"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Wyświetlanie i pobieranie faktury platformy Microsoft Azure
 
 Fakturę możesz pobrać w [witrynie Azure Portal](https://portal.azure.com/) lub zażądać jej wysłania w wiadomości e-mail. Jeśli jesteś klientem platformy Azure z umową Enterprise Agreement (umową EA), nie możesz pobrać faktur swojej organizacji. Zamiast tego faktury są wysyłane do osoby skonfigurowanej jako odbiorca faktur dla rejestracji.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="when-invoices-are-generated"></a>Czas generowania faktur
 
@@ -58,7 +56,7 @@ Do pobrania faktury jest wymagana rola administratora konta dla subskrypcji. Uż
 1. Wybierz pozycję **Faktury** w sekcji rozliczeń.  
     ![Zrzut ekranu przedstawiający użytkownika wybierającego opcję faktur dla subskrypcji](./media/download-azure-invoice/select-subscription-invoice.png)
 1. Wybierz pozycję **Pobierz**, aby pobrać fakturę jako plik PDF, a następnie wybierz pozycję **Pobierz** w sekcji faktury.  
-    [![Zrzut ekranu pokazujący okresy rozliczeniowe, opcję pobierania i łączne opłaty za każdy okres rozliczeniowy](./media/download-azure-invoice/download-invoice-subscription.png)](./media/download-azure-invoice/download-invoice-subscription-zoomed.png#lightbox)
+    ![Zrzut ekranu pokazujący okresy rozliczeniowe, opcję pobierania i łączne opłaty za każdy okres rozliczeniowy](./media/download-azure-invoice/downloadinvoice-subscription.png)
 1. Możesz również pobrać dzienne zestawienie ilości zużytych zasobów i opłat, wybierając pozycję **Pobierz** w sekcji szczegółów użycia. Przygotowanie pliku CSV może potrwać kilka minut.  
     ![Zrzut ekranu przedstawiający stronę Pobieranie faktur i danych użycia](./media/download-azure-invoice/usage-and-invoice-subscription.png)
 
@@ -66,39 +64,33 @@ Aby uzyskać więcej informacji na temat faktury, zobacz [Informacje o rachunku 
 
 ## <a name="download-your-mosp-support-plan-invoice"></a>Pobieranie faktury dla planu pomocy technicznej programu MOSP
 
-Faktura jest generowana tylko dla subskrypcji planu pomocy technicznej należącej do konta rozliczeniowego programu MOSP. [Sprawdzanie dostępu do konta programu MOSP](../manage/view-all-accounts.md#check-the-type-of-your-account). 
+Faktura jest generowana tylko dla subskrypcji planu pomocy technicznej należącej do konta rozliczeniowego programu MOSP. [Sprawdzanie dostępu do konta programu MOSP](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 Do pobrania faktury jest wymagana rola administratora konta dla subskrypcji planu pomocy technicznej.
 
-1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
     ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/download-azure-invoice/search-cmb.png)
-1.  Wybierz pozycję **Faktury** po lewej stronie.
-1.  Wybierz subskrypcję planu pomocy technicznej, a następnie wybierz pozycję **Pobierz**.  
+1. Wybierz pozycję **Faktury** po lewej stronie.
+1. Wybierz subskrypcję planu pomocy technicznej, a następnie wybierz pozycję **Pobierz**.  
     [![Zrzut ekranu przedstawiający listę profilów rozliczeniowych](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
-1.  Wybierz pozycję **Pobierz**, aby pobrać fakturę w postaci pliku PDF.  
+1. Wybierz pozycję **Pobierz**, aby pobrać fakturę w postaci pliku PDF.  
     ![Zrzut ekranu pokazujący okresy rozliczeniowe, opcję pobierania i łączne opłaty za każdy okres rozliczeniowy](./media/download-azure-invoice/download-invoice-support-plan.png)
 
-## <a name="allow-others-to-download-an-mosp-subscription-invoice"></a>Zezwalanie innym osobom na pobieranie faktury dla subskrypcji programu MOSP
-
-Plik PDF faktury zawiera informacje osobiste dotyczące administratora konta, dlatego administrator konta subskrypcji musi udzielić innym użytkownikom uprawnienia do pobierania faktury. Po udzieleniu uprawnienia następujące osoby i użytkownicy z odpowiednimi rolami mogą pobierać faktury dla subskrypcji:
-
-- Użytkownicy
-- Grupy
-- Jednostki usługi z właścicielem
-- Współautor
-- Czytelnik
-- Administrator dostępu użytkownika
-- Czytelnik rozliczeń
-- Współadministrator
-- Administrator usługi
+## <a name="allow-others-to-download-the-your-subscription-invoice"></a>Zezwalanie innym osobom na pobieranie faktury dla subskrypcji
 
 Aby pobrać fakturę:
 
 1.  Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta dla subskrypcji.
-1.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-1.  Wybierz pozycję **Faktury** po lewej stronie.
-1.  Wybierz subskrypcję platformy Azure, a następnie wybierz pozycję **Dostęp do faktury**.  
+
+2.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/download-azure-invoice/search-cmb.png)
+
+3.  Wybierz pozycję **Faktury** po lewej stronie.
+
+4.  Wybierz subskrypcję platformy Azure, a następnie kliknij pozycję **Zezwól innym osobom na pobranie faktury**.
+
     [![Zrzut ekranu przedstawiający wybieranie dostępu do faktury](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 1.  Wybierz pozycję **Włączone**, a następnie **Zapisz** w górnej części strony.  
     ![Zrzut ekranu przedstawiający włączanie dostępu do faktury](./media/download-azure-invoice/cmb-access-to-invoice.png)
@@ -108,16 +100,16 @@ Aby pobrać fakturę:
 Musisz mieć rolę administratora konta dla subskrypcji lub planu pomocy technicznej, aby zgodzić się na otrzymywania faktur pocztą e-mail. Faktury e-mail są dostępne tylko dla subskrypcji i planów pomocy technicznej, a nie są dostępne dla rezerwacji ani zakupów w portalu Azure Marketplace. Po udzieleniu zgody możesz dodać kolejnych adresatów, którzy także będą otrzymywać fakturę pocztą e-mail.
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-1.  Wybierz pozycję **Faktury** po lewej stronie.
-1.  Wybierz subskrypcję platformy Azure lub subskrypcję planu pomocy technicznej, a następnie wybierz pozycję **Wyślij fakturę pocztą e-mail**.  
+2.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+3.  Wybierz pozycję **Faktury** po lewej stronie.
+4.  Wybierz subskrypcję platformy Azure lub subskrypcję planu pomocy technicznej, a następnie wybierz pozycję **Otrzymuj faktury pocztą e-mail**.  
     [![Zrzut ekranu przedstawiający listę profilów rozliczeniowych](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
-1. Wybierz pozycję **Wyraź zgodę** i zaakceptuj warunki.  
-    ![Zrzut ekranu pokazujący 2. krok przepływu z wyrażeniem zgody](./media/download-azure-invoice/invoice-article-step02.png)
-1. Faktura jest wysyłana na preferowany adres e-mail komunikacji. Adres e-mail można zaktualizować w [informacjach kontaktowych konta rozliczeniowego](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
-    ![Zrzut ekranu pokazujący 3. krok przepływu z wyrażeniem zgody](./media/download-azure-invoice/invoice-article-step03-verify-email.png)
+5. Kliknij pozycję **Wysyłaj faktury pocztą e-mail** i zaakceptuj warunki.  
+    ![Zrzut ekranu pokazujący 2. krok przepływu z wyrażeniem zgody](./media/download-azure-invoice/invoicearticlestep02.png)
+6. Faktura jest wysyłana na preferowany adres e-mail komunikacji. Wybierz pozycję **Aktualizuj profil**, aby zaktualizować adres e-mail.  
+    ![Zrzut ekranu pokazujący 3. krok przepływu z wyrażeniem zgody](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## <a name="share-your-mosp-invoices-with-others-by-email"></a>Udostępnianie faktur dla programu MOSP innym osobom za pośrednictwem wiadomości e-mail
+## <a name="share-subscription-and-support-plan-invoices"></a>Udostępnianie faktur dla subskrypcji i planu pomocy technicznej
 
 Comiesięczne faktury dla subskrypcji i planu pomocy technicznej możesz udostępniać zespołowi księgowemu lub wysłać je na swój inny adres e-mail.
 
@@ -140,13 +132,22 @@ Dla każdego profilu rozliczeniowego na koncie na początku miesiąca jest gener
 Aby pobierać faktury z witryny Azure Portal, musisz być właścicielem, współautorem, czytelnikiem lub menedżerem faktur dla profilu rozliczeniowego. Użytkownicy z rolą właściciela, współautora lub czytelnika dla konta rozliczeniowego mogą pobierać faktury dla wszystkich profilów rozliczeniowych w ramach konta.
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
-1. Wybierz pozycję **Faktury** po lewej stronie.
-    [![Zrzut ekranu przedstawiający stronę faktur dla konta rozliczeniowego umowy MCA](./media/download-azure-invoice/mca-billing-profile-invoices.png)](./media/download-azure-invoice/mca-billing-profile-invoices-zoomed.png#lightbox)
-1. W tabeli faktur wybierz fakturę, którą chcesz pobrać.
-1. Wybierz pozycję **Pobierz fakturę jako plik pdf** w górnej części strony.  
-    ![Zrzut ekranu przedstawiający pobieranie faktury w postaci pliku pdf](./media/download-azure-invoice/mca-billing-profile-download-invoice.png)
-1. Możesz także pobrać plik CSV z dziennym zestawieniem ilości zużytych zasobów i szacowanymi opłatami, wybierając pozycję **Pobierz użycie platformy Azure**. Przygotowanie pliku CSV może potrwać kilka minut.
+
+2.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/download-azure-invoice/search-cmb.png)
+
+3. Wybierz pozycję **Faktury** po lewej stronie.
+
+    [![Zrzut ekranu przedstawiający stronę faktur dla konta rozliczeniowego umowy MCA](./media/download-azure-invoice/mca-billingprofile-invoices.png)](./media/download-azure-invoice/mca-billingprofile-invoices-zoomed-in.png#lightbox)
+
+4. W tabeli faktur wybierz fakturę, którą chcesz pobrać.
+
+5. Kliknij przycisk **Pobierz plik PDF z fakturą** w górnej części strony.
+
+    [![Zrzut ekranu przedstawiający pobieranie faktury w postaci pliku pdf](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)](./media/download-azure-invoice/mca-billingprofile-download-invoice-zoomed-in.png#lightbox)
+
+6. Możesz również pobrać dzienne zestawienie ilości zużytych zasobów i szacowanych opłat, klikając pozycję **Pobierz użycie platformy Azure**. Przygotowanie pliku CSV może potrwać kilka minut.
 
 ## <a name="get-your-billing-profiles-invoice-in-email"></a>Pobieranie faktury dla profilu rozliczeniowego za pomocą wiadomości e-mail
 
@@ -160,7 +161,15 @@ Aby zaktualizować preferencje wiadomości e-mail dla faktury, musisz mieć rol�
     ![Zrzut ekranu przedstawiający stronę faktur dla konta rozliczeniowego umowy MCA](./media/download-azure-invoice/mca-billing-profile-email-invoice.png)
 1.  Wybierz pozycję **Update** (Aktualizuj).
 
-## <a name="give-others-access-to-mca-or-mpa-invoices"></a>Nadawanie innym osobom dostępu do faktur dla umowy MCA lub MPA
+2.  Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/download-azure-invoice/search-cmb.png)
+
+3.  Wybierz pozycję **Faktury** po lewej stronie, a następnie wybierz pozycję **Wyślij fakturę pocztą e-mail** w górnej części strony.
+
+    [![Zrzut ekranu przedstawiający stronę faktur dla konta rozliczeniowego umowy MCA](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed-in.png)
+
+4.  Jeśli masz wiele profilów rozliczeniowych, wybierz profil rozliczeniowy, a następnie pozycję **Wyraź zgodę**.
 
 Możesz nadać innym osobom dostęp do wyświetlania, pobierania i opłacania faktur, przypisując im rolę menedżera faktur dla profilu rozliczeniowego umowy MCA lub MPA. Jeśli wybrano opcję otrzymywania faktury w wiadomości e-mail, użytkownicy ci będą także otrzymywać faktury w wiadomości e-mail.
 
@@ -173,15 +182,68 @@ Możesz nadać innym osobom dostęp do wyświetlania, pobierania i opłacania fa
 1. Z listy rozwijanej Rola wybierz pozycję **Menedżer faktur**. Wprowadź adres e-mail użytkownika, któremu chcesz nadać dostęp. Wybierz przycisk **Zapisz**, aby przypisać rolę.  
    ![Zrzut ekranu pokazujący dodawanie użytkownika jako menedżera faktur](./media/download-azure-invoice/mca-added-invoice-manager.png)
 
-## <a name="why-you-might-not-see-an-invoice"></a><a name="noinvoice"></a> Dlaczego możesz nie widzieć faktury
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+
+   ![Zrzut ekranu przedstawiający wyszukiwanie subskrypcji w portalu](./media/download-azure-invoice/search-cmb.png)
+
+1. Po lewej stronie wybierz pozycję **Profile rozliczeniowe**. Z listy profilów rozliczeniowych wybierz profil rozliczeniowy, dla którego chcesz przypisać rolę menedżera faktur.
+
+   ![Zrzut ekranu przedstawiający listę profilów rozliczeniowych](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
+
+1. Wybierz pozycję **Kontrola dostępu (IAM)** po lewej stronie, a następnie wybierz pozycję **Dodaj** w górnej części strony.
+
+   [![Zrzut ekranu przedstawiający stronę kontroli dostępu](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
+
+1. Z listy rozwijanej Rola wybierz pozycję **Menedżer faktur**. Wprowadź adres e-mail użytkownika, któremu chcesz nadać dostęp. Wybierz przycisk **Zapisz**, aby przypisać rolę.
+
+   [![Zrzut ekranu pokazujący dodawanie użytkownika jako menedżera faktur](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+   
+   
+##  <a name="why-you-might-not-see-an-invoice"></a>Dlaczego możesz nie widzieć faktury
+
+<a name="noinvoice"></a>
 
 Może istnieć kilka przyczyn, dla których faktura nie jest widoczna:
 
-- Od dnia zasubskrybowania platformy Azure upłynęło mniej niż 30 dni. 
-- Platforma Azure tworzy rozliczenia kilka dni po upływie okresu rozliczeniowego. W związku z tym faktura mogła jeszcze nie zostać wygenerowana.
-- Nie masz uprawnień do wyświetlania faktur.
-    W przypadku konta rozliczeniowego umowy MCA lub MPA, aby wyświetlić faktury profilu rozliczeniowego, musisz mieć rolę właściciela, współautora, czytelnika lub menedżera faktur dla profilu rozliczeniowego albo właściciela, współautora lub czytelnika dla konta rozliczeniowego. W przypadku innych subskrypcji faktury mogą nie być widoczne, jeśli nie jesteś administratorem konta. Aby dowiedzieć się więcej na temat uzyskiwania dostępu do informacji dotyczących rozliczeń, zobacz [Manage access to Azure billing using roles (Zarządzanie dostępem do rozliczeń platformy Azure przy użyciu ról)](../manage/manage-billing-access.md).
-- W przypadku konta rozliczeniowego programu MOSP i zarejestrowania się w celu uzyskania bezpłatnego konta platformy Azure lub subskrypcji z miesięczną kwotą środków, otrzymasz fakturę tylko wtedy, gdy miesięczna kwota środków zostanie przekroczona. W przypadku konta rozliczeniowego dla umowy MCA lub MPA zawsze otrzymujesz fakturę.
+- Faktura nie jest jeszcze gotowa
+    
+    - Od dnia zasubskrybowania platformy Azure upłynęło mniej niż 30 dni. 
+
+    - Platforma Azure tworzy rozliczenia kilka dni po upływie okresu rozliczeniowego. W związku z tym faktura mogła jeszcze nie zostać wygenerowana.
+
+- Nie masz uprawnień do wyświetlania faktur. 
+    
+    - W przypadku konta rozliczeniowego umowy MCA lub MPA, aby wyświetlić faktury profilu rozliczeniowego, musisz mieć rolę właściciela, współautora, czytelnika lub menedżera faktur dla profilu rozliczeniowego albo właściciela, współautora lub czytelnika dla konta rozliczeniowego. 
+    
+    - W przypadku innych kont rozliczeniowych faktury mogą nie być widoczne, jeśli nie jesteś administratorem konta.
+
+- Twoje konto nie obsługuje faktury.
+
+    - W przypadku konta rozliczeniowego programu Microsoft Online Services Program (MOSP) i zarejestrowania się w celu uzyskania bezpłatnego konta platformy Azure lub subskrypcji z miesięczną kwotą środków, otrzymasz fakturę tylko wtedy, gdy miesięczna kwota środków zostanie przekroczona.
+
+    - Użytkownicy z kontem rozliczeniowym w ramach umowy klienta firmy Microsoft (MCA) lub umową partnerską firmy Microsoft (MPA) zawsze otrzymują fakturę.
+
+- Masz dostęp do faktury za pomocą jednego z innych kont.
+
+    - Ta sytuacja zwykle występuje po kliknięciu linku w wiadomości e-mail z prośbą o wyświetlenie faktury w portalu. Kliknij link i zobaczysz komunikat o błędzie — `We can't display your invoices. Please try again`. Sprawdź, czy zalogowano się przy użyciu adresu e-mail, który ma uprawnienia do wyświetlania faktur.
+
+- Masz dostęp do faktury za pomocą innej tożsamości. 
+
+    - Niektórzy klienci mają dwie tożsamości o tym samym adresie e-mail — konto służbowe i konto Microsoft. Zazwyczaj tylko jedna z tożsamości ma uprawnienia do wyświetlania faktur. Jeśli użytkownik loguje się przy użyciu tożsamości, która nie ma uprawnień, nie zobaczy faktur. Sprawdź, czy używasz prawidłowej tożsamości do logowania.
+
+- Zalogowano się do nieprawidłowej dzierżawy usługi Azure Active Directory (AAD). 
+
+    - Twoje konto rozliczeniowe jest skojarzone z dzierżawą usługi AAD. Jeśli logujesz się do nieprawidłowej dzierżawy, nie zobaczysz faktury dla subskrypcji na koncie rozliczeniowym. Sprawdź, czy zalogowano się do prawidłowej dzierżawy usługi Azure Active Directory (AAD). Jeśli nie zalogowano się w poprawnej dzierżawie, użyj następujących opcji, aby przełączyć dzierżawę w witrynie Azure Portal:
+
+        1. Wybierz swój adres e-mail w prawym górnym rogu strony.
+
+        2. Wybierz pozycję **Przełącz katalog**.
+
+           ![Zrzut ekranu przedstawiający wybieranie przełączenia katalogu w portalu](./media/download-azure-invoice/select-switch-directory.png)
+
+        3. Wybierz katalog z sekcji **Wszystkie katalogi**.
+
+           ![Zrzut ekranu przedstawiający wybieranie katalogu w portalu](./media/download-azure-invoice/select-directory.png)
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 
@@ -200,5 +262,3 @@ Jeśli masz umowę MCA, zobacz:
 - [Omówienie opłat na fakturze dla profilu rozliczeniowego](review-customer-agreement-bill.md)
 - [Omówienie terminów na fakturze dla profilu rozliczeniowego](mca-understand-your-invoice.md)
 - [Omówienie pliku użycia i opłat dotyczących platformy Azure dla profilu rozliczeniowego](mca-understand-your-usage.md)
-
-

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67080485"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Dostosuj sposób wyświetlania danych z serwerów OPC UA przez rozwiązanie połączonej fabryki
@@ -71,9 +71,9 @@ Aby uzyskać więcej informacji na temat mapowania i agregowania danych w celu s
 
 ## <a name="deploy-the-changes"></a>Wdróż zmiany
 
-Po wprowadzeniu zmian w pliku **ContosoTopologyDescription. JSON** należy ponownie wdrożyć rozwiązanie połączonej fabryki na koncie platformy Azure.
+Po zakończeniu wprowadzania zmian w **ContosoTopologyDescription.js** pliku należy ponownie wdrożyć rozwiązanie połączonej fabryki na koncie platformy Azure.
 
-Repozytorium **Azure-IoT-Connected-Factory** obejmuje skrypt **Build. ps1** PowerShell, którego można użyć do odbudowania i wdrożenia rozwiązania.
+Repozytorium **Azure-IoT-Connected-Factory** obejmuje skrypt **build.ps1** PowerShell, którego można użyć do odbudowania i wdrożenia rozwiązania.
 
 ## <a name="next-steps"></a>Następne kroki
 

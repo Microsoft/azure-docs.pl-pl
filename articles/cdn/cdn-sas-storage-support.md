@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: c2580aa4ee22996c1bf0fe5c86064a6543450071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1deffe36df081908294d3c7fe58a17c8a454687
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887051"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Używanie Azure CDN z sygnaturą dostępu współdzielonego
 
@@ -35,7 +35,7 @@ Poniższe trzy opcje są zalecane w przypadku używania sygnatury dostępu wspó
 ### <a name="prerequisites"></a>Wymagania wstępne
 Aby rozpocząć, Utwórz konto magazynu, a następnie Wygeneruj sygnaturę dostępu współdzielonego dla zasobu. Można generować dwa typy sygnatur dostępu: SAS lub SAS usługi. Aby uzyskać więcej informacji, zobacz [typy sygnatur dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
-Po wygenerowaniu tokenu SAS można uzyskać dostęp `?sv=<SAS token>` do pliku magazynu obiektów BLOB przez dołączenie go do adresu URL. Ten adres URL ma następujący format: 
+Po wygenerowaniu tokenu SAS można uzyskać dostęp do pliku magazynu obiektów BLOB przez dołączenie `?sv=<SAS token>` go do adresu URL. Ten adres URL ma następujący format: 
 
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
@@ -86,8 +86,8 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Reguła ponownego zapisywania adresu URL usługi CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![— pozostała reguła ponownego zapisywania adresu URL sieci CDN — uprawnienie](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Reguła ponownego zapisywania adresu URL usługi CDN — pozostała ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+    ![ reguła ponownego zapisywania adresu URL sieci CDN — uprawnienie](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. Gdy Nowa reguła stanie się aktywna, każdy może uzyskać dostęp do plików w określonym kontenerze w punkcie końcowym usługi CDN, niezależnie od tego, czy używali tokenu SAS w adresie URL. Oto format:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
@@ -124,8 +124,8 @@ Aby można było korzystać z uwierzytelniania Azure CDN tokenów zabezpieczają
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Reguła ponownego zapisywania adresu URL usługi CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![— pozostała reguła ponownego zapisywania adresu URL sieci CDN — uprawnienie](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Reguła ponownego zapisywania adresu URL usługi CDN — pozostała ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+    ![ reguła ponownego zapisywania adresu URL sieci CDN — uprawnienie](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. W przypadku odnowienia sygnatury dostępu współdzielonego należy zaktualizować regułę ponownego zapisywania adresów URL przy użyciu nowego tokenu sygnatury dostępu współdzielonego. 
 
@@ -135,7 +135,7 @@ Ponieważ parametry sygnatury dostępu współdzielonego nie są widoczne dla Az
 
 | Nazwa parametru SAS | Opis |
 | --- | --- |
-| Uruchamianie | Czas, który Azure CDN może rozpocząć dostęp do pliku obiektu BLOB. Ze względu na pochylenie zegara (gdy sygnał zegara dociera do różnych składników), wybierz czas 15 minut wcześniej, jeśli chcesz, aby zasób był dostępny od razu. |
+| Rozpocznij | Czas, który Azure CDN może rozpocząć dostęp do pliku obiektu BLOB. Ze względu na pochylenie zegara (gdy sygnał zegara dociera do różnych składników), wybierz czas 15 minut wcześniej, jeśli chcesz, aby zasób był dostępny od razu. |
 | End | Czas, po upływie którego Azure CDN nie może uzyskać dostępu do pliku obiektu BLOB. Poprzednio buforowane pliki w Azure CDN są nadal dostępne. Aby kontrolować czas wygaśnięcia pliku, ustaw odpowiedni czas wygaśnięcia w tokenie zabezpieczającym Azure CDN lub Przeczyść element zawartości. |
 | Dozwolone adresy IP | Opcjonalny. Jeśli używasz **Azure CDN z Verizon**, możesz ustawić ten parametr na zakresy zdefiniowane w [Azure CDN z zakresów adresów IP Verizon Edge](/azure/cdn/cdn-pop-list-api). Jeśli używasz **Azure CDN z Akamai**, nie można ustawić parametru zakresy adresów IP, ponieważ adresy IP nie są statyczne.|
 | Dozwolone protokoły | Protokoły dozwolone dla żądania wysłanego za pomocą sygnatury dostępu współdzielonego konta. Ustawienie HTTPS jest zalecane.|

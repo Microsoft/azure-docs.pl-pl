@@ -1,18 +1,13 @@
 ---
 title: Kontrolki zabezpieczeń dla Azure Service Bus Messaging
 description: Lista kontrolna kontroli zabezpieczeń służąca do oceniania Azure Service Bus komunikatów
-services: service-bus-messaging
-ms.service: service-bus-messaging
-author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 3130150a227076befae3f58f65e00a36578b68d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75903248"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341638"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Kontrolki zabezpieczeń dla Azure Service Bus Messaging
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78206864"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082645"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurowanie harmonogramu poprawek systemu operacyjnego dla klastrów usługi HDInsight opartych na systemie Linux
 
@@ -28,7 +28,7 @@ Usługa HDInsight zapewnia obsługę typowych zadań w klastrze, takich jak inst
 > [!NOTE]  
 > Akcje skryptu nie będą automatycznie stosowały aktualizacji dla wszystkich przyszłych cykli aktualizacji. Uruchom skrypty za każdym razem, gdy trzeba zastosować nowe aktualizacje, aby zainstalować aktualizacje, a następnie uruchom ponownie maszynę wirtualną.
 
-## <a name="preparation"></a>Przygotowywanie
+## <a name="preparation"></a>Przygotowanie
 
 Przed wdrożeniem w środowisku produkcyjnym należy zastosować poprawkę do reprezentatywnego środowiska nieprodukcyjnego. Opracowywanie planu w celu odpowiedniego przetestowania systemu przed rzeczywistą poprawką.
 
@@ -45,7 +45,7 @@ Stosowanie poprawek jest opcjonalne i według własnego uznania.
   
 Harmonogram skryptów [—](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh)ponowny rozruch, ustawia typ ponownego uruchomienia, który będzie wykonywany na maszynach w klastrze. Podczas przesyłania akcji skryptu ustaw jej wartość na wszystkie trzy typy węzłów: węzeł główny, węzeł procesu roboczego i dozorcy. Jeśli skrypt nie zostanie zastosowany do typu węzła, maszyny wirtualne dla tego typu węzła nie zostaną zaktualizowane ani uruchomione ponownie.
 
-`schedule-reboots script` Akceptuje jeden parametr liczbowy:
+`schedule-reboots script`Akceptuje jeden parametr liczbowy:
 
 | Parametr | Dopuszczalne wartości | Definicja |
 | --- | --- | --- |
@@ -55,7 +55,7 @@ Harmonogram skryptów [—](https://hdiconfigactions.blob.core.windows.net/linux
 
 Skrypt [Install-Updates-Schedule-Reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) zawiera opcje instalowania różnych typów aktualizacji i ponownego uruchamiania maszyny wirtualnej.
 
-`install-updates-schedule-reboots` Skrypt akceptuje dwa parametry liczbowe, zgodnie z opisem w poniższej tabeli:
+`install-updates-schedule-reboots`Skrypt akceptuje dwa parametry liczbowe, zgodnie z opisem w poniższej tabeli:
 
 | Parametr | Dopuszczalne wartości | Definicja |
 | --- | --- | --- |

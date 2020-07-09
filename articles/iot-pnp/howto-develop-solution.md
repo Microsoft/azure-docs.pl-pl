@@ -10,10 +10,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159221"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Łączenie się z urządzeniem Plug and Play IoT w wersji zapoznawczej i korzystanie z niego
@@ -30,21 +30,21 @@ npm install
 
 ## <a name="run-the-service-samples"></a>Uruchamianie przykładów usługi
 
-Skorzystaj z poniższych przykładów, aby poznać możliwości zestawu SDK usługi Node. js. Upewnij się, że `IOTHUB_CONNECTION_STRING` zmienna środowiskowa jest ustawiona w używanej powłoce:
+Poniższe przykłady umożliwiają zapoznanie się z możliwościami usługi Node.js Service SDK. Upewnij się, że `IOTHUB_CONNECTION_STRING` zmienna środowiskowa jest ustawiona w używanej powłoce:
 
 ### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Pobierz dwuosiową cyfrę i Utwórz listę interfejsów
 
-**get_digital_twin. js** pobiera cyfrowe sznurki skojarzone z urządzeniem i drukuje jego składnik w wierszu polecenia. Nie wymaga to pomyślnego uruchomienia przykładowego urządzenia.
+**get_digital_twin.js** pobiera cyfrowe sznurki skojarzone z urządzeniem i drukuje jego składnik w wierszu polecenia. Nie wymaga to pomyślnego uruchomienia przykładowego urządzenia.
 
-**get_digital_twin_interface_instance. js** pobiera jedno wystąpienie interfejsu dwucyfrowego, skojarzonego z urządzeniem i drukuje w wierszu polecenia. Nie wymaga to uruchomienia próbki urządzenia.
+**get_digital_twin_interface_instance.js** pobiera jedno wystąpienie interfejsu dwuosiowego skojarzone z urządzeniem i drukuje je w wierszu polecenia. Nie wymaga to uruchomienia próbki urządzenia.
 
 ### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Pobieranie i Ustawianie właściwości przy użyciu zestawu SDK usługi Node
 
-**update_digital_twin. js** aktualizuje właściwość z możliwością zapisu na cyfrowym bliźniaczym urządzeniu przy użyciu pełnej poprawki. Jeśli chcesz, możesz zaktualizować wiele właściwości w wielu interfejsach. Aby pomyślnie zadziałała, próbka urządzenia musi być uruchomiona w tym samym czasie. Pomyślna informacja o tym, że przykład urządzenia drukuje coś o aktualizowaniu właściwości, przykładowa usługa drukuje zaktualizowaną dwuosiową cyfrę w terminalu.
+**update_digital_twin.js** aktualizuje zapisywalną Właściwość urządzenia Digital bliźniaczy przy użyciu pełnej poprawki. Jeśli chcesz, możesz zaktualizować wiele właściwości w wielu interfejsach. Aby pomyślnie zadziałała, próbka urządzenia musi być uruchomiona w tym samym czasie. Pomyślna informacja o tym, że przykład urządzenia drukuje coś o aktualizowaniu właściwości, przykładowa usługa drukuje zaktualizowaną dwuosiową cyfrę w terminalu.
 
 ### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Wyślij polecenie i Pobierz odpowiedź przy użyciu zestawu SDK usługi Node Service
 
-**invoke_command. js** wywołuje synchroniczne polecenie na cyfrowym bliźniaczym urządzeniu. Aby pomyślnie zadziałała, próbka urządzenia musi być uruchomiona w tym samym czasie. Pomyślnym wyglądem urządzenia jest wydrukowanie czegoś o potwierdzenie polecenia, a klient usługi drukuje wynik polecenia w terminalu.
+**invoke_command.js** wywołuje synchroniczne polecenie na cyfrowym bliźniaczym urządzeniu. Aby pomyślnie zadziałała, próbka urządzenia musi być uruchomiona w tym samym czasie. Pomyślnym wyglądem urządzenia jest wydrukowanie czegoś o potwierdzenie polecenia, a klient usługi drukuje wynik polecenia w terminalu.
 
 ### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Nawiązywanie połączenia z repozytorium publicznym i pobieranie definicji modelu przy użyciu zestawu SDK usługi Node Service
 

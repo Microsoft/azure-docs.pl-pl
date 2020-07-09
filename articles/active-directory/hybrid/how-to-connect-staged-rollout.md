@@ -5,21 +5,21 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/12/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85357855"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
-Przy użyciu podejścia etapowego wdrażania można migrować z uwierzytelniania federacyjnego do uwierzytelniania w chmurze. W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
+Przy użyciu podejścia etapowego wdrażania można uniknąć uruchomienie produkcyjne całej domeny.  Pozwala to na selektywne testowanie grup użytkowników z możliwościami uwierzytelniania w chmurze, takimi jak Azure Multi-Factor Authentication (MFA), dostęp warunkowy, Ochrona tożsamości na potrzeby przecieków poświadczeń, zarządzania tożsamościami i innych.  W tym artykule omówiono sposób tworzenia przełącznika. Przed rozpoczęciem wdrożenia przemieszczanego należy jednak wziąć pod uwagę konsekwencje, jeśli co najmniej jeden z następujących warunków jest spełniony:
     
 -  Obecnie używasz lokalnego serwera Multi-Factor Authentication. 
 -  Do uwierzytelniania są używane karty inteligentne. 
@@ -38,8 +38,8 @@ Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co
 -   Masz dzierżawę usługi Azure Active Directory (Azure AD) z domenami federacyjnymi.
 
 -   Podjęto decyzję o przejściu do jednej z dwóch opcji:
-    - **Opcja A**  -  *Synchronizacja skrótów haseł (synchronizacja)*  +  *bezproblemowe logowanie jednokrotne (SSO)*
-    - **Opcja B**  -  *uwierzytelnianie przekazywane*  +  *bezproblemowe logowanie jednokrotne*
+    - **Opcja A**  -  *Synchronizacja skrótów haseł (synchronizacja)*  +  *bezproblemowe logowanie jednokrotne (SSO)*.  Aby uzyskać więcej informacji, zobacz [co to jest synchronizacja skrótów haseł](whatis-phs.md) i [co to jest bezproblemowe logowanie jednokrotne](how-to-connect-sso.md)
+    - **Opcja B**  -  *uwierzytelnianie przekazywane*  +  *bezproblemowe logowanie jednokrotne*.  Aby uzyskać więcej informacji, zobacz [co to jest uwierzytelnianie przekazywane](how-to-connect-pta.md)  
     
     Chociaż *bezproblemowe logowanie jednokrotne* jest opcjonalne, zalecamy włączenie dla użytkowników, którzy uruchamiają komputery przyłączone do domeny z wewnątrz sieci firmowej.
 
@@ -76,12 +76,12 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
     - Grupy dynamiczne *nie są obsługiwane* w przypadku wdrażania etapowego.
     - Obiekty Contact wewnątrz grupy blokują Dodawanie grupy.
 
-- Nadal musisz wprowadzić ostateczną uruchomienie produkcyjne z Federacji do uwierzytelniania w chmurze przy użyciu Azure AD Connect lub programu PowerShell. Wdrażanie etapowe nie przełącza domen z federacyjnego na zarządzane.
+- Nadal musisz wprowadzić ostateczną uruchomienie produkcyjne z Federacji do uwierzytelniania w chmurze przy użyciu Azure AD Connect lub programu PowerShell. Wdrażanie etapowe nie przełącza domen z federacyjnego na zarządzane.  Aby uzyskać więcej informacji na temat uruchomienie produkcyjne domeny, zobacz [Migrowanie z Federacji do synchronizacji skrótów haseł](plan-migrate-adfs-password-hash-sync.md) i [Migrowanie z Federacji do uwierzytelniania przekazywanego](plan-migrate-adfs-pass-through-authentication.md)
+
+
 
 - Przy pierwszym dodawaniu grupy zabezpieczeń do wdrożenia przemieszczanego można ograniczyć do 200 użytkowników, aby uniknąć przekroczenia limitu czasu środowiska. Po dodaniu grupy można do niej dodać kilku użytkowników bezpośrednio, zgodnie z potrzebami.
 
->[!NOTE]
-> Ponieważ punkty końcowe dzierżawców nie wysyłają wskazówek logowania, nie są obsługiwane w przypadku wdrażania etapowego.  Aplikacje SAML korzystają z punktów końcowych dzierżawców i nie obsługują wdrażania etapowego.
 
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego
 

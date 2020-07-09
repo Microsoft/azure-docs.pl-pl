@@ -5,16 +5,16 @@ services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: acfe367033d1553f5ee408ad0f4170e5d981377e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c093a424ecf085c59501ee3d480838cc30c2ebf4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021827"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963040"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Pozyskiwanie danych w puli SQL
 

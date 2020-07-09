@@ -1,6 +1,6 @@
 ---
-title: Moje drzwi platformy Azure | Microsoft Docs
-description: Ten artykuł zawiera omówienie usługi Azure Front Door. Sprawdź, czy jest to właściwy wybór dla ruchu użytkowników z równoważeniem obciążenia dla aplikacji.
+title: Azure Front Door
+description: Ten artykuł zawiera omówienie funkcji aparatu reguł dla drzwi platformy Azure.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -12,27 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 19deb763c8e750490854892c90d0293d3e209c09
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ee981d08e53765003e88870d35b291a5802e6848
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515552"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322007"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>Co to jest aparat reguł dla drzwi frontonu platformy Azure? 
 
 Aparat reguł umożliwia dostosowywanie sposobu obsługi żądań HTTP na brzegu i zapewnia większą kontrolę nad zachowaniem aplikacji sieci Web. Aparat reguł dla drzwi frontonu platformy Azure składa się z kilku kluczowych funkcji, w tym:
 
-- Routing oparty na nagłówkach — kierowanie żądań na podstawie wzorców w zawartości nagłówków żądań, plików cookie i ciągów zapytań.
-- Routing oparty na parametrach — korzystaj z serii warunków zgodności, takich jak post args, ciągi zapytań, pliki cookie i metody żądań, aby kierować żądania na podstawie parametrów żądania HTTP. 
-- Ustawienia zastąpień konfiguracji tras: 
-    - Użyj funkcji przekierowania, aby zwrócić 301/302/307/308 przekierowania do klienta w celu przekierowania do nowych nazw hostów, ścieżek i protokołów. 
-    - Użyj funkcji przekazywania, aby ponownie napisać ścieżkę URL żądania bez wykonywania tradycyjnego przekierowania i przekazywać żądanie do odpowiedniego zaplecza w skonfigurowanej puli zaplecza. 
-    - Dostosuj konfigurację buforowania i dynamicznie Zmień trasę z przekazywania na buforowanie na podstawie warunków dopasowania. 
-
-> [!IMPORTANT]
-> Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+- Wymuś protokół HTTPS, upewnij się, że wszyscy użytkownicy końcowi pracują z zawartością za pośrednictwem bezpiecznego połączenia.
+- Zaimplementuj nagłówki zabezpieczeń, aby zapobiec występowaniu luk w zabezpieczeniach przeglądarki, takich jak HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, a także nagłówków dostępu-Control-Allow-Origin dla scenariuszy udostępniania zasobów między źródłami (CORS). Atrybuty oparte na zabezpieczeniach można także definiować za pomocą plików cookie.
+- Kierowanie żądań do wersji mobilnych lub klasycznych aplikacji na podstawie wzorców w zawartości nagłówków żądań, plików cookie lub ciągów zapytań.
+- Funkcja przekierowania umożliwia zwracanie 301, 302, 307 i 308 przekierowań do klienta w celu przekierowania do nowych nazw hostów, ścieżek lub protokołów.
+- Dynamicznie Modyfikuj konfigurację buforowania trasy na podstawie żądań przychodzących.
+- Zapisz ponownie ścieżkę URL żądania i prześlij żądanie do odpowiedniego zaplecza w skonfigurowanej puli zaplecza.
 
 ## <a name="architecture"></a>Architektura 
 
@@ -52,7 +48,7 @@ W obu tych przykładach, gdy żaden z warunków dopasowania nie jest spełniony,
 
 Aparat reguł AFD umożliwia tworzenie serii reguł konfiguracji aparatu, z których każdy składa się z zestawu reguł. Poniżej przedstawiono najbardziej przydatną terminologię wykonywaną podczas konfigurowania aparatu reguł. 
 
-- *Konfiguracja aparatu reguł*: zestaw reguł, które są stosowane do reguły pojedynczej trasy. Każda konfiguracja jest ograniczona do 5 reguł. Można utworzyć maksymalnie 10 konfiguracji. 
+- *Konfiguracja aparatu reguł*: zestaw reguł, które są stosowane do reguły pojedynczej trasy. Każda konfiguracja jest ograniczona do 25 reguł. Można utworzyć maksymalnie 10 konfiguracji. 
 - *Reguła aparatu reguł*: reguła składająca się z maksymalnie 10 warunków zgodności i 5 akcji.
 - *Warunek dopasowania*: istnieje wiele warunków dopasowania, których można użyć do analizowania żądań przychodzących. Reguła może zawierać maksymalnie 10 warunków dopasowywania. Warunki dopasowania są oceniane przy użyciu operatora **i** . Pełną listę warunków dopasowania można znaleźć [tutaj](front-door-rules-engine-match-conditions.md). 
 - *Akcja*: akcje wskazują, co się dzieje z żądaniami przychodzącymi — akcje w nagłówku żądania/odpowiedzi, przekazywanie, przekierowania i ponowne zapisywanie są obecnie dostępne. Reguła może zawierać maksymalnie 5 akcji; jednak reguła może zawierać tylko 1 przesłonięcie konfiguracji trasy.  Pełną listę akcji można znaleźć [tutaj](front-door-rules-engine-actions.md).

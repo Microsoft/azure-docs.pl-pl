@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68717346"
 ---
 # <a name="monitor-site-recovery"></a>Monitorowanie usługi Site Recovery
@@ -50,7 +49,7 @@ W obszarze **zreplikowane elementy**Monitoruj kondycję wszystkich maszyn w maga
 --- | ---
 Dobra kondycja | Replikacja postępuje normalnie. Nie wykryto błędów ani ostrzeżeń ostrzegawczych.
 Ostrzeżenie | Wykryto co najmniej jeden objaw ostrzegawczy, który może mieć wpływ na replikację.
-Krytyczny | Wykryto co najmniej jeden krytyczny błąd replikacji.<br/><br/> Te objawy błędów są zwykle wskaźnikami, które zablokowały replikację lub nie postępują tak szybko, jak szybkość zmiany danych.
+Krytyczne | Wykryto co najmniej jeden krytyczny błąd replikacji.<br/><br/> Te objawy błędów są zwykle wskaźnikami, które zablokowały replikację lub nie postępują tak szybko, jak szybkość zmiany danych.
 Nie dotyczy | Serwery, które nie są aktualnie oczekiwane na replikację. Mogą to być maszyny, które zostały przełączone w tryb failover.
 
 ## <a name="monitor-test-failovers"></a>Monitoruj test pracy w trybie failover

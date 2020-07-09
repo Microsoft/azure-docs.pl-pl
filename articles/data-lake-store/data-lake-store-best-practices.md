@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638939"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85981439"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "75638939"
 
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związanych z pracą z usługą Azure Data Lake Storage Gen1. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania Data Lake Storage Gen1. Przed Data Lake Storage Gen1, praca z naprawdę dużą ilością danych w usługach, takich jak usługa Azure HDInsight, została złożona. Fragmentu dane na wielu kontach magazynu obiektów blob, dzięki czemu można osiągnąć magazyn petabajtów i optymalną wydajność w tej skali. W przypadku Data Lake Storage Gen1 większość stałych limitów rozmiaru i wydajności jest usuwana. Jednak nadal istnieją pewne zagadnienia, które opisano w tym artykule, aby uzyskać najlepszą wydajność dzięki Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Azure Data Lake Storage Gen1 oferuje kontrolki dostępu POSIX i szczegółową inspekcję dla Azure Active Directory (Azure AD) użytkowników, grup i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i foldery. Kontroli dostępu można także użyć do tworzenia wartości domyślnych, które mogą być stosowane do nowych plików lub folderów. Gdy uprawnienia są ustawione na istniejące foldery i obiekty podrzędne, uprawnienia muszą być rekursywnie rozpropagowane dla każdego obiektu. W przypadku dużej liczby plików propagowanie uprawnień może zająć dużo czasu. Czas trwania może mieć zakres od 30-50 do przetworzenia obiektów na sekundę. W związku z tym należy odpowiednio zaplanować strukturę folderów i grupy użytkowników. W przeciwnym razie może to spowodować nieoczekiwane opóźnienia i problemy podczas pracy z danymi.
 
@@ -45,7 +45,7 @@ Nazwy główne usług Azure Active Directory są zwykle używane przez usługi, 
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Włączanie zapory Data Lake Storage Gen1 z dostępem do usługi platformy Azure
 
-Data Lake Storage Gen1 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane w przypadku mniejszych wektorów ataków z zewnątrz. Zaporę można włączyć na koncie Data Lake Storage Gen1 w Azure Portal za pomocą **zapory** > **Włącz zaporę (włączona)** > **Zezwalaj na dostęp do opcji usług platformy Azure** .
+Data Lake Storage Gen1 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane w przypadku mniejszych wektorów ataków z zewnątrz. Zaporę można włączyć na koncie Data Lake Storage Gen1 w Azure Portal za pomocą **zapory**  >  **Włącz zaporę (włączona)**  >  **Zezwalaj na dostęp do opcji usług platformy Azure** .
 
 ![Ustawienia zapory w Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Ustawienia zapory w Data Lake Storage Gen1")
 
@@ -126,7 +126,9 @@ Podobnie jak w przypadku pomocą distcp, AdlCopy musi być zorganizowany przez c
 
 Data Lake Storage Gen1 udostępnia szczegółowe dzienniki i inspekcje diagnostyczne. Data Lake Storage Gen1 zawiera podstawowe metryki w Azure Portal pod kontem Data Lake Storage Gen1 i w Azure Monitor. W Azure Portal zostanie wyświetlona dostępność Data Lake Storage Gen1. Ta Metryka jest jednak odświeżana co siedem minut i nie można wykonać zapytania za pomocą publicznie uwidocznionego interfejsu API. Aby uzyskać aktualną dostępność konta Data Lake Storage Gen1, musisz uruchomić własne testy syntetyczne w celu sprawdzenia dostępności. Inne metryki, takie jak łączne wykorzystanie magazynu, żądania odczytu/zapisu i ruch przychodzący/wychodzący mogą trwać do 24 godzin. Dlatego bardziej aktualne metryki muszą być obliczane ręcznie za poorednictwem narzędzi wiersza polecenia usługi Hadoop lub agregowania informacji o dziennikach. Najszybszym sposobem na uzyskanie najnowszego wykorzystania magazynu jest uruchomienie tego polecenia HDFS z węzła klastra usługi Hadoop (na przykład węzła głównego):
 
-    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```console
+hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Eksportowanie Data Lake Storage Gen1 diagnostyki
 
@@ -136,11 +138,11 @@ Aby uzyskać więcej alertów w czasie rzeczywistym i więcej kontroli nad miejs
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Włączanie rejestrowania na poziomie debugowania w usłudze HDInsight
 
-Jeśli wysyłanie dziennika Data Lake Storage Gen1 nie jest włączone, usługa Azure HDInsight umożliwia również włączenie [rejestrowania po stronie klienta dla Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) za pośrednictwem Log4J. Należy ustawić następującą właściwość**w konfiguracji** > **przędzy** >  **Ambari** > **Advanced przędz-Log4J Configurations**:
+Jeśli wysyłanie dziennika Data Lake Storage Gen1 nie jest włączone, usługa Azure HDInsight umożliwia również włączenie [rejestrowania po stronie klienta dla Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) za pośrednictwem Log4J. Należy ustawić następującą właściwość w konfiguracji **Ambari**  >  **przędzy**Ambari  >  **Config**  >  **Advanced przędz-Log4J Configurations**:
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
-Po ustawieniu właściwości, a węzły są ponownie uruchamiane, Data Lake Storage Gen1 Diagnostyka jest zapisywana w dziennikach PRZĘDZy w węzłach (/tmp/\<User\>/Yarn.log), a także ważne szczegóły, takie jak błędy lub ograniczanie przepustowości (kod błędu HTTP 429). Te same informacje mogą być również monitorowane w dziennikach Azure Monitor lub wszędzie tam, gdzie dzienniki są wysyłane do programu w bloku [Diagnostyka](data-lake-store-diagnostic-logs.md) konta Data Lake Storage Gen1. Zaleca się włączenie co najmniej rejestrowania po stronie klienta lub użycie opcji wysyłania dziennika przy użyciu Data Lake Storage Gen1 do wglądu operacyjnego i łatwiejszego debugowania.
+Po ustawieniu właściwości i ponownym uruchomieniu węzłów Data Lake Storage Gen1 Diagnostyka jest zapisywana w dziennikach PRZĘDZy w węzłach (/tmp/ \<user\> /Yarn.log), a także ważne szczegóły, takie jak błędy lub ograniczanie przepustowości (kod błędu HTTP 429). Te same informacje mogą być również monitorowane w dziennikach Azure Monitor lub wszędzie tam, gdzie dzienniki są wysyłane do programu w bloku [Diagnostyka](data-lake-store-diagnostic-logs.md) konta Data Lake Storage Gen1. Zaleca się włączenie co najmniej rejestrowania po stronie klienta lub użycie opcji wysyłania dziennika przy użyciu Data Lake Storage Gen1 do wglądu operacyjnego i łatwiejszego debugowania.
 
 ### <a name="run-synthetic-transactions"></a>Uruchamianie transakcji syntetycznych
 
@@ -154,11 +156,15 @@ Podczas wypełniania danych do programu Data Lake należy wstępnie zaplanować 
 
 W przypadku obciążeń IoT może istnieć duża ilość danych przechowywanych w magazynie danych obejmujących wiele produktów, urządzeń, organizacji i klientów. Ważne jest wstępne zaplanowanie układu katalogu dla organizacji, zabezpieczeń i wydajnego przetwarzania danych dla odbiorców w dół. Ogólny szablon, który ma zostać rozważenia, może być następujący:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Na przykład dane telemetryczne dla aparatu samolotowego w Wielkiej Brytanii mogą wyglądać następująco:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+```console
+UK/Planes/BA1293/Engine1/2017/08/11/12/
+```
 
 Istnieje istotny powód, aby umieścić datę na końcu struktury folderów. Jeśli chcesz zablokować określone regiony lub zagadnienia dotyczące użytkowników/grup, możesz łatwo to zrobić przy użyciu uprawnień POSIX. W przeciwnym razie, jeśli istnieje potrzeba ograniczenia pewnej grupy zabezpieczeń do wyświetlania tylko danych z Wielkiej Brytanii lub określonych płaszczyzn, w przypadku dużej ilości folderów w każdej godzinie musi być wymagana struktura daty. Ponadto, jeśli struktura daty na początku zwiększy liczbę folderów jako czas oczekiwania.
 
@@ -168,14 +174,18 @@ Na wysokim poziomie często stosowane podejście do przetwarzania wsadowego pole
 
 Czasami przetwarzanie plików nie powiedzie się z powodu uszkodzenia danych lub nieoczekiwanych formatów. W takich przypadkach struktura katalogów może korzystać z folderu **/Bad** , aby przenieść pliki do dalszej inspekcji. Zadanie usługi Batch może także obsłużyć raportowanie lub powiadomienie o tych *nieprawidłowych* plikach w ramach interwencji ręcznej. Weź pod uwagę następującą strukturę szablonów:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 Na przykład firma marketingowa otrzymuje codzienne wyodrębnianie danych aktualizacji klientów od klientów w Ameryka Północna. Może wyglądać podobnie do poniższego fragmentu kodu przed i po jego przetworzeniu:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```console
+NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
+NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```
 
 W przypadku częstego przetwarzania danych wsadowych bezpośrednio do baz danych, takich jak Hive lub tradycyjne bazy danych SQL, nie istnieje potrzeba **/in** lub **/out** folderu, ponieważ dane wyjściowe znajdują się już w oddzielnym folderze tabeli programu Hive lub zewnętrznej bazy danych. Na przykład codzienne wyodrębnienia od klientów będzie miało miejsce w odpowiednich folderach, a aranżacja według takich elementów, jak Azure Data Factory, Apache Oozie lub Apache Flow, wywoła codzienne zadanie Hive lub Spark w celu przetworzenia i zapisania danych w tabeli programu Hive.
 

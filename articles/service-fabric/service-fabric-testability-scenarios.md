@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/1/2019
 ms.author: motanv
 ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75465539"
 ---
 # <a name="testability-scenarios"></a>Scenariusze testowania
@@ -159,7 +158,7 @@ Test trybu failover polega na wybranym błędzie, a następnie uruchamia weryfik
 * **WaitTimeBetweenFaults**: ilość czasu oczekiwania między każdym cyklem błędu i walidacji.
 
 ### <a name="how-to-run-the-failover-test"></a>Jak uruchomić test pracy w trybie failover
-**S #**
+**C#**
 
 ```csharp
 using System;
@@ -234,7 +233,7 @@ class Test
 ```
 
 
-**PowerShell**
+**Program PowerShell**
 
 ```powershell
 $connection = "localhost:19000"

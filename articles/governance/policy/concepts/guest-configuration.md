@@ -3,16 +3,17 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684280"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971100"
 ---
-# <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa Azure Policy
+# <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
-Poza inspekcją i [korygowaniem](../how-to/remediate-resources.md) zasobów platformy Azure, Azure Policy może przeprowadzać inspekcję ustawień wewnątrz maszyny. Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
+Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zarówno w przypadku maszyn działających na platformie Azure, jak i na [urządzeniach połączonych](../../../azure-arc/servers/overview.md)z usługą Arc.
+Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
 
 - Konfiguracja systemu operacyjnego
 - Konfiguracja lub obecność aplikacji
@@ -21,13 +22,17 @@ Poza inspekcją i [korygowaniem](../how-to/remediate-resources.md) zasobów plat
 W tej chwili większość Azure Policy zasad konfiguracji gościa tylko ustawienia inspekcji na tym komputerze.
 Nie dotyczą one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
+## <a name="enable-guest-configuration"></a>Włącz konfigurację gościa
+
+Aby przeprowadzić inspekcję stanu maszyn w środowisku, w tym maszyn na platformie Azure i w połączonych maszynach, zapoznaj się z poniższymi szczegółami.
+
 ## <a name="resource-provider"></a>Dostawca zasobów
 
 Aby można było korzystać z konfiguracji gościa, należy zarejestrować dostawcę zasobów. Dostawca zasobów jest automatycznie rejestrowany w przypadku przypisywania zasad konfiguracji gościa za pomocą portalu. Możesz zarejestrować się ręcznie za pomocą [portalu](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)lub [interfejsu wiersza polecenia platformy Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Rozszerzenie i klient
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Wdróż wymagania dotyczące usługi Azure Virtual Machines
 
-Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji.
+Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone, a komputer musi mieć tożsamość zarządzaną przez system. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji. Tożsamość służy do uwierzytelniania maszyny podczas odczytywania i zapisywania w usłudze konfiguracji gościa. Rozszerzenie nie jest wymagane dla maszyn połączonych z łukiem, ponieważ znajduje się w agencie połączonej maszyny.
 
 > [!IMPORTANT]
 > Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące definicje zasad: 
@@ -36,18 +41,18 @@ Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny
 
 ### <a name="limits-set-on-the-extension"></a>Limity ustawione dla rozszerzenia
 
-Aby ograniczyć rozszerzenie do wpływu aplikacji uruchomionych na maszynie, konfiguracja gościa nie może przekroczyć więcej niż 5% procesora CPU. To ograniczenie istnieje dla wbudowanych i niestandardowych definicji.
+Aby ograniczyć rozszerzenie do wpływu aplikacji uruchomionych na maszynie, konfiguracja gościa nie może przekroczyć więcej niż 5% procesora CPU. To ograniczenie istnieje dla wbudowanych i niestandardowych definicji. Ta sama wartość dotyczy usługi konfiguracji gościa w agencie połączonej maszyny.
 
 ### <a name="validation-tools"></a>Narzędzia sprawdzania poprawności
 
 W ramach maszyny klient konfiguracji gościa używa lokalnych narzędzi do uruchomienia inspekcji.
 
-W poniższej tabeli przedstawiono listę narzędzi lokalnych używanych w poszczególnych obsługiwanych systemach operacyjnych:
+W poniższej tabeli przedstawiono listę narzędzi lokalnych używanych w każdym obsługiwanym systemie operacyjnym. W przypadku zawartości wbudowanej konfiguracja gościa obsługuje automatyczne ładowanie tych narzędzi.
 
 |System operacyjny|Narzędzie walidacji|Uwagi|
 |-|-|-|
-|Windows|[Konfiguracja żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview) w wersji 2| |
-|Linux|[Chef — Specyfikacja](https://www.chef.io/inspec/)| Jeśli na komputerze nie ma języka Ruby i Python, są one instalowane przez rozszerzenie konfiguracji gościa. |
+|Windows|[Konfiguracja żądanego stanu programu PowerShell](/powershell/scripting/dsc/overview/overview) w wersji 2| Załadowany bezpośrednio do folderu, który jest używany przez Azure Policy. Nie powoduje konfliktu z konfiguracją DSC programu Windows PowerShell. Program PowerShell Core nie został dodany do ścieżki systemowej.|
+|Linux|[Chef — Specyfikacja](https://www.chef.io/inspec/)| Instaluje Chef IN2.2.61 w domyślnej lokalizacji i dodaje ją do ścieżki systemowej. Należy również zainstalować zależności dla pakietu INSPEC, w tym Ruby i Python. |
 
 ### <a name="validation-frequency"></a>Częstotliwość walidacji
 
@@ -65,14 +70,10 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w
 |Microsoft|Windows Server|2012 i nowsze|
 |Microsoft|Klient systemu Windows|Windows 10|
 |OpenLogic|CentOS|7,3 i nowsze|
-|Red Hat|Red Hat Enterprise Linux|7,4 i nowsze|
+|Red Hat|Red Hat Enterprise Linux|7,4 – 7,8, 9,0 i nowsze|
 |Szło|SLES|12 SP3 i nowsze|
 
 Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez zasady konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
-
-### <a name="unsupported-client-types"></a>Nieobsługiwane typy klientów
-
-System Windows Server nano Server nie jest obsługiwany w żadnej wersji.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Wymagania dotyczące sieci rozszerzenia konfiguracji gościa
 
@@ -87,7 +88,7 @@ Zasady **DeployIfNotExists** , które dodają rozszerzenie do maszyn wirtualnych
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 
-Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** .
+Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** . Definicje zasad **DeployIfNotExists** zarządzają zależnościami dla przeprowadzania inspekcji na poszczególnych komputerach.
 
 Definicja zasad **DeployIfNotExists** weryfikuje i koryguje następujące elementy:
 
@@ -116,7 +117,7 @@ Dopasuj zasady do swoich wymagań lub zamapuj zasady na informacje innych firm, 
 
 Niektóre parametry obsługują zakres wartości całkowitych. Na przykład ustawienie maksymalnego wieku hasła może prowadzić inspekcję obowiązującego ustawienia zasady grupy. Zakres "1, 70" potwierdzi, że użytkownicy muszą zmieniać hasła co najmniej co 70 dni, ale nie mniej niż jeden dzień.
 
-W przypadku przypisywania zasad przy użyciu szablonu wdrażania Azure Resource Manager należy użyć pliku parametrów do zarządzania wyjątkami. Zaewidencjonuj pliki do systemu kontroli wersji, takiego jak Git. Komentarze dotyczące zmian plików zawierają informacje o tym, dlaczego przypisanie jest wyjątkiem od oczekiwanej wartości.
+Jeśli zasady są przypisywane przy użyciu szablonu Azure Resource Manager (szablon ARM), należy użyć pliku parametrów do zarządzania wyjątkami. Zaewidencjonuj pliki do systemu kontroli wersji, takiego jak Git. Komentarze dotyczące zmian plików zawierają informacje o tym, dlaczego przypisanie jest wyjątkiem od oczekiwanej wartości.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Stosowanie konfiguracji przy użyciu konfiguracji gościa
 

@@ -4,10 +4,9 @@ description: Dowiedz się, które języki są obsługiwane (wersja zapoznawcza) 
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83994905"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Obsługiwane języki w Azure Functions

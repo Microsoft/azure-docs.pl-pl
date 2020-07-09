@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: e890289230b3215bd102d8c5a78dca4f1b7b90f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085739"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Wdrażanie topologii Apache Storm w usłudze Azure HDInsight i zarządzanie nimi
 
@@ -42,7 +42,7 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
 
 1. W oknie **uruchamiania** wybierz pozycję **Utwórz nowy projekt**.
 
-1. W oknie **Tworzenie nowego projektu** wybierz pole wyszukiwania, a następnie wprowadź `Storm`. Następnie wybierz z listy wyników pozycję **przykład burzy** , a następnie wybierz pozycję **dalej**.
+1. W oknie **Tworzenie nowego projektu** wybierz pole wyszukiwania, a następnie wprowadź `Storm` . Następnie wybierz z listy wyników pozycję **przykład burzy** , a następnie wybierz pozycję **dalej**.
 
 1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
 
@@ -74,9 +74,9 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
     To polecenie uruchamia w klastrze przykładową topologię WordCount. Ta topologia losowo generuje zdania, a następnie zlicza wystąpienia każdego wyrazu w zdaniach.
 
     > [!NOTE]  
-    > Podczas przesyłania topologii do klastra należy najpierw skopiować plik JAR zawierający klaster przed użyciem `storm` polecenia. Aby skopiować plik do klastra, można użyć `scp` polecenia. Na przykład wprowadź wartość `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
+    > Podczas przesyłania topologii do klastra należy najpierw skopiować plik JAR zawierający klaster przed użyciem `storm` polecenia. Aby skopiować plik do klastra, można użyć `scp` polecenia. Na przykład wprowadź `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
     >
-    > Przykład *WORDCOUNT* i inne przykładowe przykłady burzy są już zawarte w klastrze w lokalizacji `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > Przykład *WORDCOUNT* i inne przykładowe przykłady burzy są już zawarte w klastrze w lokalizacji `/usr/hdp/current/storm-client/contrib/storm-starter/` .
 
 ## <a name="submit-a-topology-programmatically"></a>Programistyczne przesyłanie topologii
 
@@ -89,7 +89,7 @@ W przypadku przesyłania topologii przy użyciu programu Visual Studio zostanie 
 ![Topologia monitora, okno widoku topologii burzy, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
-> Można również wyświetlić **topologie burzy** w **Eksplorator serwera**. Rozwiń **węzeł Azure** > **HDInsight**, kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz pozycję **Wyświetl topologie burzy**.
+> Można również wyświetlić **topologie burzy** w **Eksplorator serwera**. Rozwiń węzeł **Azure**  >  **HDInsight**, kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz pozycję **Wyświetl topologie burzy**.
 
 Wybierz kształt elementy Spout lub piorunów, aby wyświetlić informacje o tych składnikach. Zostanie wyświetlona etykietka narzędzia zawierająca informacje o składniku dla wybranego elementu.
 
@@ -112,7 +112,7 @@ Topologie burzy są nadal uruchomione, dopóki nie zostaną zatrzymane lub klast
 
 ## <a name="monitor-and-manage-a-topology-using-ssh-and-the-storm-command"></a>Monitorowanie topologii i zarządzanie nią przy użyciu protokołu SSH oraz polecenia burza
 
-`storm` Narzędzie pozwala pracować z uruchamianiem topologii z poziomu wiersza polecenia. Użyj `storm -h` , aby uzyskać pełną listę poleceń.
+`storm`Narzędzie pozwala pracować z uruchamianiem topologii z poziomu wiersza polecenia. Użyj `storm -h` , aby uzyskać pełną listę poleceń.
 
 ### <a name="list-topologies"></a>Wyświetl topologie
 
@@ -163,7 +163,7 @@ storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-a-topology-using-the-storm-ui"></a>Monitorowanie topologii i zarządzanie nią przy użyciu interfejsu użytkownika burzy
 
-Interfejs użytkownika burzy udostępnia interfejs sieci Web służący do pracy z uruchomionymi topologiami i znajduje się w klastrze usługi HDInsight. Aby wyświetlić interfejs użytkownika burzy, użyj przeglądarki sieci Web `https://CLUSTERNAME.azurehdinsight.net/stormui`, gdzie *ClusterName* jest nazwą klastra.
+Interfejs użytkownika burzy udostępnia interfejs sieci Web służący do pracy z uruchomionymi topologiami i znajduje się w klastrze usługi HDInsight. Aby wyświetlić interfejs użytkownika burzy, użyj przeglądarki sieci Web `https://CLUSTERNAME.azurehdinsight.net/stormui` , gdzie *ClusterName* jest nazwą klastra.
 
 > [!NOTE]  
 > Jeśli zostanie wyświetlony monit o podanie nazwy użytkownika i hasła, wprowadź nazwę i hasło administratora klastra, które zostały użyte podczas tworzenia klastra.
@@ -245,17 +245,17 @@ Aby uzyskać więcej informacji, zobacz Interfejs [API REST interfejsu użytkown
 
 ### <a name="base-uri"></a>Podstawowy identyfikator URI
 
-Podstawowy identyfikator URI interfejsu API REST w klastrach usługi HDInsight opartych na systemie Linux jest dostępny `https://HEADNODEFQDN:8744/api/v1/`pod adresem URL, w którym zastąpisz *HEADNODEFQDN* z węzłem głównym. Nazwa domeny węzła głównego jest generowana podczas tworzenia klastra i nie jest statyczna.
+Podstawowy identyfikator URI interfejsu API REST w klastrach usługi HDInsight opartych na systemie Linux jest dostępny pod adresem URL `https://HEADNODEFQDN:8744/api/v1/` , w którym zastąpisz *HEADNODEFQDN* z węzłem głównym. Nazwa domeny węzła głównego jest generowana podczas tworzenia klastra i nie jest statyczna.
 
 W pełni kwalifikowaną nazwę domeny (FQDN) węzła głównego klastra można znaleźć na kilka sposobów:
 
 | Metoda odnajdywania nazwy FQDN | Opis |
 | --- | --- |
 | Sesja SSH | Użyj polecenia `headnode -f` z sesji SSH do klastra. |
-| Sieć Web Ambari | Na stronie sieci Web klastra Ambari (`https://CLUSTERNAME.azurehdinsight.net`) wybierz pozycję **usługi** w górnej części strony, a następnie wybierz pozycję **burza**. Na karcie **Podsumowanie** wybierz pozycję **serwer interfejsu użytkownika burzy**. W górnej części strony jest wyświetlana nazwa FQDN węzła, który hostuje interfejs użytkownika burzy i interfejs API REST. |
-| Interfejs API REST usługi Ambari | Użyj polecenia `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` , aby pobrać informacje o węźle, w którym działają interfejs użytkownika burzy i interfejs API REST. Zastąp dwa wystąpienia elementu *ClusterName* nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta użytkownika (administratora). W odpowiedzi wpis "host_name" danych wyjściowych JSON zawiera nazwę FQDN węzła. |
+| Sieć Web Ambari | Na stronie sieci Web klastra Ambari ( `https://CLUSTERNAME.azurehdinsight.net` ) wybierz pozycję **usługi** w górnej części strony, a następnie wybierz pozycję **burza**. Na karcie **Podsumowanie** wybierz pozycję **serwer interfejsu użytkownika burzy**. W górnej części strony jest wyświetlana nazwa FQDN węzła, który hostuje interfejs użytkownika burzy i interfejs API REST. |
+| Interfejs API REST usługi Ambari | Użyj polecenia, `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` Aby pobrać informacje o węźle, w którym działają interfejs użytkownika burzy i interfejs API REST. Zastąp dwa wystąpienia elementu *ClusterName* nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta użytkownika (administratora). W odpowiedzi wpis "host_name" danych wyjściowych JSON zawiera nazwę FQDN węzła. |
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Żądania kierowane do interfejsu API REST muszą używać *uwierzytelniania podstawowego*, dlatego należy użyć nazwy administratora i hasła dla klastra usługi HDInsight.
 

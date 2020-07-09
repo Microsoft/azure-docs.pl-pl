@@ -7,17 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389382"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -104,7 +104,7 @@ Następnie Przekaż potwierdzenie SAML i certyfikat podpisywania odpowiedzi do A
 1. Wprowadź **nazwę**, na przykład *SamlIdpCert*. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
 1. Przekaż certyfikat przy użyciu kontrolki przekazywania pliku.
 1. Wprowadź hasło certyfikatu.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Sprawdź, czy klucz jest wyświetlany zgodnie z oczekiwaniami. Na przykład *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Przygotuj zasady
@@ -119,7 +119,7 @@ Znajdź `<ClaimsProviders>` sekcję i Dodaj następujący fragment kodu XML.
 
 Można zmienić wartość `IssuerUri` metadanych. Jest to identyfikator URI wystawcy, który jest zwracany w odpowiedzi SAML z Azure AD B2C. Aplikacja jednostki uzależnionej powinna być skonfigurowana w taki sposób, aby akceptowała identyfikator URI wystawcy podczas walidacji potwierdzenia SAML.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -159,13 +159,13 @@ Teraz, gdy Dzierżawca może wystawiać potwierdzenia SAML, należy utworzyć za
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3,1 Tworzenie zasad tworzenia konta lub logowania
 
-1. Utwórz kopię pliku *SignUpOrSignin. XML* w katalogu roboczym pakietu startowego i Zapisz go przy użyciu nowej nazwy. Na przykład *SignUpOrSigninSAML. XML*. Jest to plik zasad jednostki uzależnionej.
+1. Utwórz kopię pliku *SignUpOrSignin.xml* w katalogu roboczym pakietu Start Pack i Zapisz go przy użyciu nowej nazwy. Na przykład *SignUpOrSigninSAML.xml*. Jest to plik zasad jednostki uzależnionej.
 
-1. Otwórz plik *SignUpOrSigninSAML. XML* w preferowanym edytorze.
+1. Otwórz plik *SignUpOrSigninSAML.xml* w preferowanym edytorze.
 
 1. Zmień wartości `PolicyId` i `PublicPolicyUri` zasad na _B2C_1A_signup_signin_saml_ , `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` jak pokazano poniżej.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -178,7 +178,7 @@ Teraz, gdy Dzierżawca może wystawiać potwierdzenia SAML, należy utworzyć za
 
 1. Dodaj następujący fragment kodu XML tuż przed `<RelyingParty>` elementem. Ten plik XML zastępuje krok aranżacji nr 7 podróży użytkownika _SignUpOrSignIn_ . Jeśli rozpoczęto od innego folderu w pakiecie startowym lub dostosowałeś drogę użytkownika przez dodanie lub usunięcie kroków aranżacji, upewnij się, że liczba (w `order` elemencie) jest wyrównana do wartości określonej w podróży użytkownika dla kroku wystawcy token (na przykład w innych folderach pakietu startowego jest to krok numer 4 dla `LocalAccounts` , 6 `SocialAccounts` i 9 dla `SocialAndLocalAccountsWithMfa` ).
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -190,7 +190,7 @@ Teraz, gdy Dzierżawca może wystawiać potwierdzenia SAML, należy utworzyć za
 
 1. Zastąp cały `<TechnicalProfile>` element w `<RelyingParty>` elemencie następującym kodem XML profilu technicznego.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -210,7 +210,7 @@ Teraz, gdy Dzierżawca może wystawiać potwierdzenia SAML, należy utworzyć za
 
 Końcowy plik zasad jednostki uzależnionej powinien wyglądać następująco:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -265,12 +265,12 @@ Twoje zasady niestandardowe i dzierżawa Azure AD B2C są teraz gotowe. Następn
 
 ## <a name="4-setup-application-in-the-azure-ad-b2c-directory"></a>4. Skonfiguruj aplikację w katalogu Azure AD B2C
 
-### <a name="41-register-your-application-in-azure-active-directory"></a>4,1 Zarejestruj swoją aplikację w Azure Active Directory
+### <a name="41-register-your-application-in-azure-ad-b2c"></a>4,1 Zarejestruj swoją aplikację w Azure AD B2C
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *SAMLApp1*.
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://localhost` . Tę wartość należy zmodyfikować później w manifeście rejestracji aplikacji.
@@ -297,7 +297,7 @@ Jeśli istnieją właściwości określone *zarówno* w adresie URL metadanych S
 
 W tym samouczku, który używa aplikacji testowej SAML, należy użyć następującej wartości dla `samlMetadataUrl` :
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -309,7 +309,7 @@ Jeśli zdecydujesz się skonfigurować adres URL odpowiedzi i adres URL wylogowy
 
 W tym samouczku, w którym używasz aplikacji testowej SAML, należy ustawić `url` Właściwość `replyUrlsWithType` na wartość pokazaną w poniższym FRAGMENCIE kodu JSON.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -324,7 +324,7 @@ Ta właściwość opcjonalna reprezentuje `Logout` adres URL ( `SingleLogoutServ
 
 W tym samouczku, który używa aplikacji testowej SAML, pozostaw `logoutUrl` ustawiony na `https://samltestapp2.azurewebsites.net/logout` :
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

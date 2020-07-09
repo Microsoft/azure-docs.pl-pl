@@ -9,10 +9,9 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74113822"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu interfejs API wyszukiwania jednostek Bing
@@ -33,9 +32,9 @@ Mimo że w tym przykładzie używa się funkcji platformy Azure do hostowania in
 
 ### <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-1. W programie Visual Studio wybierz pozycję **Nowy** > **projekt** z menu plik.
+1. W programie Visual Studio wybierz pozycję **Nowy**  >  **projekt** z menu plik.
 
-1. W oknie dialogowym Nowy projekt wybierz pozycję **zainstalowane**, rozwiń węzeł **Visual C#** > **Cloud**, wybierz **Azure Functions**, wpisz nazwę projektu i wybierz **przycisk OK**. Nazwa aplikacji funkcji musi być prawidłowa jako przestrzeń nazw języka C#, dlatego nie należy używać podkreśleń, łączników ani żadnych innych znaków innych niż alfanumeryczne.
+1. W oknie dialogowym Nowy projekt wybierz pozycję **zainstalowane**, rozwiń węzeł **Visual C#**  >  **Cloud**, wybierz **Azure Functions**, wpisz nazwę projektu i wybierz **przycisk OK**. Nazwa aplikacji funkcji musi być prawidłowa jako przestrzeń nazw języka C#, dlatego nie należy używać podkreśleń, łączników ani żadnych innych znaków innych niż alfanumeryczne.
 
 1. Wybierz **Azure Functions v2 (.NET Core)**. Można to również zrobić z wersją 1, ale kod zapisany poniżej jest oparty na szablonie v2.
 
@@ -311,11 +310,11 @@ namespace SampleSkills
 }
 ```
 
-Upewnij się, `key` że na podstawie klucza, który ma być używany podczas rejestrowania się w celu korzystania z interfejsu API wyszukiwania jednostek Bing, wprowadzono własną wartość *klucza* .
+Upewnij się, że na *key* `key` podstawie klucza, który ma być używany podczas rejestrowania się w celu korzystania z interfejsu API wyszukiwania jednostek Bing, wprowadzono własną wartość klucza.
 
 Ten przykład zawiera wszystkie niezbędne kody w pojedynczym pliku dla wygody. Możesz znaleźć nieco bardziej strukturalną wersję tej samej umiejętności w [repozytorium umiejętności oszczędzania](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
-Oczywiście można zmienić nazwę pliku z `Function1.cs` na. `BingEntitySearch.cs`
+Oczywiście można zmienić nazwę pliku z `Function1.cs` na `BingEntitySearch.cs` .
 
 ## <a name="test-the-function-from-visual-studio"></a>Testowanie funkcji z programu Visual Studio
 
@@ -375,7 +374,7 @@ Powinna zostać wyświetlona odpowiedź podobna do poniższego przykładu:
 
 Gdy zachowanie funkcji jest zadowalające, można je opublikować.
 
-1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**. Wybierz pozycję **Utwórz nową** > **publikację**.
+1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**. Wybierz pozycję **Utwórz nową**  >  **publikację**.
 
 1. Jeśli program Visual Studio nie został jeszcze połączony z kontem platformy Azure, wybierz pozycję **Dodaj konto....**
 
@@ -383,7 +382,7 @@ Gdy zachowanie funkcji jest zadowalające, można je opublikować.
 
 1. Po zakończeniu wdrażania Zwróć uwagę na adres URL witryny. Jest to adres aplikacji funkcji na platformie Azure. 
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, a następnie wyszukaj opublikowaną `EntitySearch` funkcję. W sekcji **Zarządzanie** powinny zostać wyświetlone klucze hosta. Wybierz ikonę **kopiowania** dla *domyślnego* klucza hosta.  
+1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, a `EntitySearch` następnie wyszukaj opublikowaną funkcję. W sekcji **Zarządzanie** powinny zostać wyświetlone klucze hosta. Wybierz ikonę **kopiowania** dla *domyślnego* klucza hosta.  
 
 ## <a name="test-the-function-in-azure"></a>Testowanie funkcji na platformie Azure
 

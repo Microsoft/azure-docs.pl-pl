@@ -5,17 +5,17 @@ description: Dowiedz się, jak wyjaśnić, dlaczego model wykonuje przewidywania
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/30/2020
+ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601687"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretowanie modeli w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,9 +44,7 @@ Klasy z możliwością interpretacji są udostępniane za pomocą wielu pakietó
 
 * `azureml.contrib.interpret`, wersja zapoznawcza i eksperymentalne funkcje, które można wypróbować.
 
-* `azureml.train.automl.automlexplainer`Pakiet służący do interpretacji automatycznych modeli uczenia maszynowego.
-
-Używaj `pip install azureml-interpret` i `pip install azureml-interpret-contrib` do ogólnego użytku, a `pip install azureml-interpret-contrib` dla AutoML użyć do uzyskania pakietów do interpretacji.
+Używaj `pip install azureml-interpret` i `pip install azureml-interpret-contrib` do ogólnego użytku, a `pip install azureml-contrib-interpret` dla AutoML użyć do uzyskania pakietów do interpretacji.
 
 
 > [!IMPORTANT]
@@ -84,7 +82,7 @@ Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynow
 
 
 
-Oprócz opisanych powyżej technik interpretacji obsługujemy inne objaśnienie oparte na KSZTAŁTach, zwane `TabularExplainer`. W zależności od modelu program `TabularExplainer` używa jednego z obsługiwanych objaśnień kształtu:
+Oprócz opisanych powyżej technik interpretacji obsługujemy inne objaśnienie oparte na KSZTAŁTach, zwane `TabularExplainer` . W zależności od modelu program `TabularExplainer` używa jednego z obsługiwanych objaśnień kształtu:
 
 * TreeExplainer dla wszystkich modeli opartych na drzewie
 * DeepExplainer dla modeli DNN
@@ -103,17 +101,17 @@ Na poniższym diagramie przedstawiono bieżącą strukturę obsługiwanych obja�
 
 ## <a name="supported-machine-learning-models"></a>Obsługiwane modele uczenia maszynowego
 
-`azureml.interpret` Pakiet zestawu SDK obsługuje modele przeszkolone przy użyciu następujących formatów zestawu danych:
+`azureml.interpret`Pakiet zestawu SDK obsługuje modele przeszkolone przy użyciu następujących formatów zestawu danych:
 - `numpy.array`
 - `pandas.DataFrame`
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-Funkcje wyjaśniające akceptują zarówno modele, jak i potoki jako dane wejściowe. Jeśli jest dostarczany model, model musi implementować funkcję `predict` przewidywania lub `predict_proba` , która jest zgodna z Konwencją Scikit. Jeśli model nie obsługuje tego, możesz otoczyć model funkcją, która generuje taki sam wynik jak `predict` lub `predict_proba` w Scikit, i Użyj tej funkcji otoki z wybranym objaśnieniem. Jeśli podano potok, funkcja wyjaśnienie zakłada, że skrypt uruchomionego potoku zwraca prognozę. Dzięki tej metodzie zawijania `azureml.interpret` można obsługiwać modele przeszkolone przez PyTorch, TensorFlow i Kerase środowiska uczenia głębokiego, a także klasyczne modele uczenia maszynowego.
+Funkcje wyjaśniające akceptują zarówno modele, jak i potoki jako dane wejściowe. Jeśli jest dostarczany model, model musi implementować funkcję przewidywania `predict` lub `predict_proba` , która jest zgodna z Konwencją Scikit. Jeśli model nie obsługuje tego, możesz otoczyć model funkcją, która generuje taki sam wynik jak `predict` lub `predict_proba` w Scikit, i Użyj tej funkcji otoki z wybranym objaśnieniem. Jeśli podano potok, funkcja wyjaśnienie zakłada, że skrypt uruchomionego potoku zwraca prognozę. Dzięki tej metodzie zawijania `azureml.interpret` można obsługiwać modele przeszkolone przez PyTorch, TensorFlow i Kerase środowiska uczenia głębokiego, a także klasyczne modele uczenia maszynowego.
 
 ## <a name="local-and-remote-compute-target"></a>Lokalne i zdalne miejsce docelowe obliczeń
 
-`azureml.interpret` Pakiet jest przeznaczony do pracy z lokalnymi i zdalnymi obiektami docelowymi obliczeniowymi. W przypadku uruchomienia lokalnego funkcje zestawu SDK nie będą kontaktować się z żadnymi usługami platformy Azure. 
+`azureml.interpret`Pakiet jest przeznaczony do pracy z lokalnymi i zdalnymi obiektami docelowymi obliczeniowymi. W przypadku uruchomienia lokalnego funkcje zestawu SDK nie będą kontaktować się z żadnymi usługami platformy Azure. 
 
 Wyjaśnienie można uruchomić zdalnie na Azure Machine Learning COMPUTE i zalogować informacje o wyjaśnieniu do usługi historii Azure Machine Learning uruchomienia. Po zarejestrowaniu tych informacji raporty i wizualizacje z wyjaśnienia są łatwo dostępne w programie Azure Machine Learning Studio na potrzeby analizy użytkowników.
 

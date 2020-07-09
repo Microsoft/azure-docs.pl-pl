@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/25/2020
+ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536237"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85964638"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Model cen dla Azure Logic Apps
 
@@ -49,7 +49,7 @@ Dowiedz się więcej o tym, jak rozliczenia działają na poziomach [wyzwalaczy]
 
 * **Deweloper** ISE: Ta jednostka SKU nie ma możliwości skalowania w górę, bez umowy dotyczącej poziomu usług i braku opublikowanych limitów. Tej jednostki SKU można używać tylko na potrzeby eksperymentowania, programowania i testowania, a nie produkcji ani testowania wydajności.
 
-W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE, naliczana jest [stała cena miesięczna](https://azure.microsoft.com/pricing/details/logic-apps) za następujące możliwości:
+W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE, opłaty są naliczane za użycie [w ramach następujących](https://azure.microsoft.com/pricing/details/logic-apps) możliwości:
 
 * [Wbudowane](../connectors/apis-list.md#built-in) wyzwalacze i akcje
 
@@ -57,7 +57,7 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE
 
 * Łączniki [standardowe](../connectors/apis-list.md#managed-connectors) i łączniki [Enterprise](../connectors/apis-list.md#enterprise-connectors) , które pozwalają na dołączenie do wielu połączeń w przedsiębiorstwie
 
-   Łączniki standardowe i Enterprise, które wyświetlają etykietę **ISE** , działają w tym samym ISE, jak aplikacje logiki. Łączniki, które nie wyświetlają etykiety ISE, są uruchamiane w publicznej "globalnej" Logic Apps usłudze z wieloma dzierżawcami. Stałe ceny miesięczne dotyczą również łączników, które działają w usłudze z wieloma dzierżawcami, gdy są używane z aplikacjami logiki, które działają w ISE.
+   Łączniki standardowe i Enterprise, które wyświetlają etykietę **ISE** , działają w tym samym ISE, jak aplikacje logiki. Łączniki, które nie wyświetlają etykiety ISE, są uruchamiane w publicznej "globalnej" Logic Apps usłudze z wieloma dzierżawcami. Stałe ceny dotyczą również łączników, które działają w usłudze z wieloma dzierżawcami, gdy są używane z aplikacjami logiki, które są uruchamiane w ISE.
 
 * Użycie [konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) bez dodatkowych kosztów na podstawie [jednostki SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
@@ -116,13 +116,13 @@ Wyłączone Aplikacje logiki nie są rozliczone, ponieważ nie mogą tworzyć no
 
 [Stały model cen](https://azure.microsoft.com/pricing/details/logic-apps) ma zastosowanie do [kont integracji](logic-apps-enterprise-integration-create-integration-account.md) , w których można eksplorować, opracowywać i testować funkcje [B2B i EDI](logic-apps-enterprise-integration-b2b.md) i [przetwarzania XML](logic-apps-enterprise-integration-xml.md) w Azure Logic Apps bez dodatkowych kosztów. Każda subskrypcja platformy Azure może mieć do [określonego limitu kont integracji](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Każde konto integracji może przechowywać do określonego [limitu artefaktów, takich](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)jak partnerzy handlowi, umowy, mapy, schematy, zestawy, certyfikaty, konfiguracje wsadowe i tak dalej.
 
-Azure Logic Apps oferuje bezpłatne, podstawowe i standardowe konta integracji. Warstwy Basic i standard są obsługiwane przez Logic Apps umowy dotyczącej poziomu usług (SLA), natomiast warstwa Bezpłatna nie jest obsługiwana przez umowę SLA i ma limity dotyczące przepływności i użycia. Z wyjątkiem kont integracji w warstwie Bezpłatna możesz mieć więcej niż jedno konto integracji w każdym regionie świadczenia usługi Azure. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
+Azure Logic Apps oferuje bezpłatne, podstawowe i standardowe konta integracji. Warstwy Basic i standard są obsługiwane przez Logic Apps umowę dotyczącą poziomu usług (SLA), natomiast warstwa Bezpłatna nie jest obsługiwana w ramach umowy SLA i ma limity dotyczące dostępności, przepływności i użycia regionu. Z wyjątkiem kont integracji w warstwie Bezpłatna możesz mieć więcej niż jedno konto integracji w każdym regionie świadczenia usługi Azure. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 Jeśli masz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)— [Premium lub Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), Twoje ISE może mieć 5 łącznych kont integracji. Aby dowiedzieć się, jak działa stały model cen dla ISE, zobacz sekcję poprzedni [model cen stałych](#fixed-pricing) w tym temacie. Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps).
 
 Aby wybrać jedną z kont integracji bezpłatnej, podstawowej lub standardowej, zapoznaj się z następującymi opisami przypadków użycia:
 
-* **Bezpłatnie**: w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych
+* **Bezpłatnie**: w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](https://docs.microsoft.com/azure/china/overview-operations) .
 
 * **Podstawowa**: w przypadku, gdy ma być obsługiwana obsługa komunikatów lub działać jako mały partner biznesowy, który ma relację partnera handlowego z większą jednostką biznesową
 

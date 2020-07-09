@@ -1,7 +1,7 @@
 ---
 title: Wyszukiwanie w usłudze Azure SQL Data
 titleSuffix: Azure Cognitive Search
-description: Importuj dane z Azure SQL Database przy użyciu indeksatorów w celu wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze. W tym artykule opisano połączenia, konfigurację indeksatora i pozyskiwanie danych.
+description: Importuj dane z usługi Azure SQL Database lub wystąpienia zarządzanego SQL przy użyciu indeksatorów w celu wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze. W tym artykule opisano połączenia, konfigurację indeksatora i pozyskiwanie danych.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 862b3056445bddb358e6485ce5fec4de4d53eace
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113304"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039283"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością i indeksowanie Azure SQL Database za pomocą indeksatora Wyszukiwanie poznawcze platformy Azure
+# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością usługi Azure SQL i indeksowanie jej przy użyciu usługi Azure Wyszukiwanie poznawcze Indexer
 
-Aby można było wykonywać zapytania dotyczące [indeksu wyszukiwanie poznawcze platformy Azure](search-what-is-an-index.md), musisz wypełnić je danymi. Jeśli dane znajdują się w bazie danych Azure SQL, usługa **azure wyszukiwanie poznawcze indeksator dla Azure SQL Database** (lub **Azure SQL indeksator** for Short) może zautomatyzować proces indeksowania, co oznacza, że nie trzeba pisać i mniej więcej, aby zachować infrastrukturę.
+Aby można było wykonywać zapytania dotyczące [indeksu wyszukiwanie poznawcze platformy Azure](search-what-is-an-index.md), musisz wypełnić je danymi. Jeśli dane są przechowywane w Azure SQL Database lub wystąpieniu zarządzanym SQL, **Usługa azure wyszukiwanie poznawcze indeksator dla Azure SQL Database** (lub **usługa Azure SQL indeksator** for Short) może zautomatyzować proces indeksowania, co oznacza, że mniej kodu do pisania i mniejszego poziomu infrastruktury należy zadbać o to.
 
-Ten artykuł dotyczy Mechanics z użyciem [indeksatorów](search-indexer-overview.md), ale również zawiera opis funkcji dostępnych tylko w bazach danych Azure SQL (na przykład zintegrowane śledzenie zmian). 
+Ten artykuł dotyczy Mechanics z użyciem [indeksatorów](search-indexer-overview.md), ale również zawiera opis funkcji dostępnych tylko w przypadku wystąpienia zarządzanego Azure SQL Database lub SQL (na przykład zintegrowane śledzenie zmian). 
 
-Oprócz baz danych SQL Azure usługa Azure Wyszukiwanie poznawcze udostępnia Indeksatory [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)i [Azure Table Storage](search-howto-indexing-azure-tables.md). Aby poprosić o pomoc techniczną dla innych źródeł danych, Prześlij swoją opinię na [forum opinii na temat usługi Azure wyszukiwanie poznawcze](https://feedback.azure.com/forums/263029-azure-search/).
+Oprócz Azure SQL Database i wystąpienia zarządzanego SQL usługa Azure Wyszukiwanie poznawcze udostępnia Indeksatory [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)i [Azure Table Storage](search-howto-indexing-azure-tables.md). Aby poprosić o pomoc techniczną dla innych źródeł danych, Prześlij swoją opinię na [forum opinii na temat usługi Azure wyszukiwanie poznawcze](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indeksatory i źródła danych
 
@@ -62,7 +62,7 @@ W zależności od kilku czynników związanych z danymi korzystanie z usługi Az
 1. Utwórz źródło danych:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
+    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,8 +80,8 @@ W zależności od kilku czynników związanych z danymi korzystanie z usługi Az
 
 3. Utwórz indeksator, nadając mu nazwę i odwołujący się do źródła danych i indeksu docelowego:
 
-    ```
-    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
+   ```
+    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -90,12 +90,14 @@ W zależności od kilku czynników związanych z danymi korzystanie z usługi Az
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 Indeksator utworzony w ten sposób nie ma harmonogramu. Jest on automatycznie uruchamiany po utworzeniu. Można uruchomić je ponownie w dowolnym momencie przy użyciu żądania **uruchomienia indeksatora** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
+```
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
+```
 
 Można dostosować kilka aspektów zachowania indeksatora, takich jak rozmiar wsadu i liczbę dokumentów, które można pominąć przed zakończeniem wykonywania indeksatora. Aby uzyskać więcej informacji, zobacz [Create INDEKSATOR API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -103,11 +105,14 @@ Może być konieczne zezwolenie usługom platformy Azure na łączenie się z ba
 
 Aby monitorować stan indeksatora i historię wykonywania (liczba elementów indeksowanych, niepowodzeń itp.), użyj żądania **stanu indeksatora** :
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
+```
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
+```
 
 Odpowiedź powinna wyglądać podobnie do poniższego:
 
+```
     {
         "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
@@ -138,14 +143,16 @@ Odpowiedź powinna wyglądać podobnie do poniższego:
             ... earlier history items
         ]
     }
+```
 
 Historia wykonywania zawiera maksymalnie 50 ostatnio zakończonych wykonań, które są sortowane w odwrotnej kolejności chronologicznej (w związku z czym najnowsze wykonanie jest najpierw w odpowiedzi).
-Dodatkowe informacje na temat odpowiedzi można znaleźć w temacie [pobieranie stanu indeksatora](https://go.microsoft.com/fwlink/p/?LinkId=528198)
+Dodatkowe informacje na temat odpowiedzi można znaleźć w temacie [pobieranie stanu indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Uruchamianie indeksatorów według harmonogramu
 Można również rozmieocić indeksator tak, aby był uruchamiany okresowo zgodnie z harmonogramem. W tym celu należy dodać właściwość **Schedule** podczas tworzenia lub aktualizowania indeksatora. Poniższy przykład przedstawia żądanie PUT, aby zaktualizować indeksator:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
+```
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
 
@@ -154,8 +161,9 @@ Można również rozmieocić indeksator tak, aby był uruchamiany okresowo zgodn
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
-Parametr **interwału** jest wymagany. Interwał odnosi się do czasu między rozpoczęciem dwóch kolejnych wykonań indeksatora. Najmniejszy dozwolony interwał wynosi 5 minut; Najdłuższa wartość to jeden dzień. Musi być sformatowana jako wartość XSD "dayTimeDuration" (ograniczony podzbiór wartości [Duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Wzorzec dla tego elementu to: `P(nD)(T(nH)(nM))`. Przykłady: `PT15M` co 15 minut, `PT2H` przez co 2 godziny.
+Parametr **interwału** jest wymagany. Interwał odnosi się do czasu między rozpoczęciem dwóch kolejnych wykonań indeksatora. Najmniejszy dozwolony interwał wynosi 5 minut; Najdłuższa wartość to jeden dzień. Musi być sformatowana jako wartość XSD "dayTimeDuration" (ograniczony podzbiór wartości [Duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Wzorzec dla tego elementu to: `P(nD)(T(nH)(nM))` . Przykłady: `PT15M` co 15 minut, `PT2H` przez co 2 godziny.
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
@@ -172,15 +180,16 @@ Jeśli Twoja baza danych SQL obsługuje [śledzenie zmian](https://docs.microsof
 
 + Wymagania dotyczące wersji bazy danych:
   * SQL Server 2012 z dodatkiem SP3 lub nowszym, jeśli używasz SQL Server na maszynach wirtualnych platformy Azure.
-  * Azure SQL Database V12, jeśli używasz Azure SQL Database.
+  * Azure SQL Database lub wystąpienie zarządzane SQL.
 + Tylko tabele (bez widoków). 
 + W bazie danych [Włącz śledzenie zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) dla tabeli. 
 + Brak złożonego klucza podstawowego (klucz podstawowy zawierający więcej niż jedną kolumnę) w tabeli.  
 
-#### <a name="usage"></a>Sposób użycia
+#### <a name="usage"></a>Użycie
 
 Aby użyć tych zasad, Utwórz lub zaktualizuj źródło danych podobne do tego:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -190,6 +199,7 @@ Aby użyć tych zasad, Utwórz lub zaktualizuj źródło danych podobne do tego:
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+```
 
 W przypadku korzystania z zasad zintegrowanego śledzenia zmian w programie SQL Server nie określaj zasad wykrywania oddzielnego usuwania danych — ta zasada ma wbudowaną obsługę identyfikowania usuniętych wierszy. Jednak w przypadku usunięć do wykrycia "AUTOMAGIC" klucz dokumentu w indeksie wyszukiwania musi być taki sam jak klucz podstawowy w tabeli SQL. 
 
@@ -212,10 +222,11 @@ Ta zasada wykrywania zmian korzysta z kolumny "High-Mark" przechwytującej wersj
 > [!IMPORTANT] 
 > Zdecydowanie zalecamy użycie typu danych [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) dla kolumny znacznika limitu górnego. W przypadku użycia dowolnego innego typu danych śledzenie zmian nie gwarantuje przechwycenia wszystkich zmian w obecności transakcji wykonywanych współbieżnie przy użyciu zapytania indeksatora. W przypadku korzystania z **rowversion** w konfiguracji z replikami tylko do odczytu należy wskazać indeksator w replice podstawowej. Tylko replika podstawowa może być używana do scenariuszy synchronizacji danych.
 
-#### <a name="usage"></a>Sposób użycia
+#### <a name="usage"></a>Użycie
 
 Aby użyć zasad oznakowania górnego, Utwórz lub zaktualizuj źródło danych w następujący sposób:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -226,27 +237,59 @@ Aby użyć zasad oznakowania górnego, Utwórz lub zaktualizuj źródło danych 
            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
+```
 
 > [!WARNING]
 > Jeśli tabela źródłowa nie ma indeksu w kolumnie znacznik górny, zapytania używane przez indeksator programu SQL mogą przekroczyć limit czasu. W szczególności `ORDER BY [High Water Mark Column]` klauzula wymaga, aby indeks działał efektywnie, gdy tabela zawiera wiele wierszy.
 >
 >
 
-Jeśli wystąpią błędy limitu czasu, można użyć ustawienia `queryTimeout` konfiguracji indeksatora, aby ustawić limit czasu zapytania na wartość wyższą niż domyślny limit 5 minut. Na przykład aby ustawić limit czasu na 10 minut, należy utworzyć lub zaktualizować indeksator przy użyciu następującej konfiguracji:
+<a name="convertHighWaterMarkToRowVersion"></a>
 
+##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
+
+Jeśli używasz typu danych [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) dla kolumny ze znakiem wysokiej wody, rozważ użycie `convertHighWaterMarkToRowVersion` Ustawienia konfiguracji indeksatora. `convertHighWaterMarkToRowVersion`wykonuje dwie czynności:
+
+* Użyj typu danych rowversion dla kolumny znacznika wysokiej rozdzielczości w zapytaniu SQL indeksatora. Użycie poprawnego typu danych zwiększa wydajność zapytań indeksatora.
+* Odejmij 1 od wartości rowversion przed uruchomieniem zapytania indeksatora. Widoki z 1 do wielu sprzężeń mogą mieć wiersze ze zduplikowanymi wartościami rowversion. Odjęcie 1 gwarantuje, że zapytanie indeksatora nie trafi tych wierszy.
+
+Aby włączyć tę funkcję, Utwórz lub zaktualizuj indeksator przy użyciu następującej konfiguracji:
+
+```
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+```
+
+<a name="queryTimeout"></a>
+
+##### <a name="querytimeout"></a>queryTimeout
+
+Jeśli wystąpią błędy limitu czasu, można użyć `queryTimeout` Ustawienia konfiguracji indeksatora, aby ustawić limit czasu zapytania na wartość wyższą niż domyślny limit 5 minut. Na przykład aby ustawić limit czasu na 10 minut, należy utworzyć lub zaktualizować indeksator przy użyciu następującej konfiguracji:
+
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
-Można również wyłączyć `ORDER BY [High Water Mark Column]` klauzulę. Nie jest to jednak zalecane, ponieważ w przypadku przerwania wykonywania indeksatora przez błąd indeksator musi ponownie przetworzyć wszystkie wiersze, jeśli program indeksator przetworzył już prawie wszystkie wiersze o czas, który został przerwany. Aby wyłączyć `ORDER BY` klauzulę, użyj `disableOrderByHighWaterMarkColumn` ustawienia w definicji indeksatora:  
+<a name="disableOrderByHighWaterMarkColumn"></a>
 
+##### <a name="disableorderbyhighwatermarkcolumn"></a>disableOrderByHighWaterMarkColumn
+
+Można również wyłączyć `ORDER BY [High Water Mark Column]` klauzulę. Nie jest to jednak zalecane, ponieważ w przypadku przerwania wykonywania indeksatora przez błąd indeksator musi ponownie przetworzyć wszystkie wiersze, jeśli program indeksator przetworzył już prawie wszystkie wiersze o czas, który został przerwany. Aby wyłączyć `ORDER BY` klauzulę, użyj `disableOrderByHighWaterMarkColumn` Ustawienia w definicji indeksatora:  
+
+```
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
     }
+```
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Zasady wykrywania usuwania nietrwałej kolumny usuwania
 Po usunięciu wierszy z tabeli źródłowej prawdopodobnie chcesz również usunąć te wiersze z indeksu wyszukiwania. W przypadku korzystania ze zintegrowanych zasad śledzenia zmian SQL jest to konieczne. Jednak zasady śledzenia zmian o wysokiej rozdzielczości nie ułatwiają usuwania wierszy. Postępowanie
@@ -255,6 +298,7 @@ Jeśli wiersze są fizycznie usuwane z tabeli, usługa Azure Wyszukiwanie poznaw
 
 Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania nietrwałego w następujący sposób podczas tworzenia lub aktualizowania źródła danych:
 
+```
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -263,8 +307,9 @@ Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania
            "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
+```
 
-**SoftDeleteMarkerValue** musi być ciągiem — Użyj ciągu reprezentującego wartość rzeczywistą. Na przykład jeśli masz kolumnę liczb całkowitych, w której usunięte wiersze są oznaczone wartością 1, użyj `"1"`. Jeśli masz kolumnę BITOWą, w której usunięte wiersze są oznaczone wartością logiczną true, użyj literału `True` ciągu lub `true`, jeśli wielkość liter nie ma znaczenia.
+**SoftDeleteMarkerValue** musi być ciągiem — Użyj ciągu reprezentującego wartość rzeczywistą. Na przykład jeśli masz kolumnę liczb całkowitych, w której usunięte wiersze są oznaczone wartością 1, użyj `"1"` . Jeśli masz kolumnę BITOWą, w której usunięte wiersze są oznaczone wartością logiczną true, użyj literału ciągu `True` lub `true` , jeśli wielkość liter nie ma znaczenia.
 
 <a name="TypeMapping"></a>
 
@@ -293,11 +338,13 @@ Program SQL indeksator uwidacznia kilka ustawień konfiguracji:
 
 Te ustawienia są używane w `parameters.configuration` obiekcie w definicji indeksatora. Na przykład aby ustawić limit czasu zapytania na 10 minut, Utwórz lub zaktualizuj indeksator przy użyciu następującej konfiguracji:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 ## <a name="faq"></a>Często zadawane pytania
 
@@ -327,13 +374,13 @@ To zależy. Do pełnego indeksowania tabeli lub widoku można użyć repliki pom
 
 W przypadku indeksowania przyrostowego usługa Azure Wyszukiwanie poznawcze obsługuje dwie zasady wykrywania zmian: zintegrowane śledzenie zmian w programie SQL i wysoki znacznik wodny.
 
-W przypadku replik tylko do odczytu usługa SQL Database nie obsługuje zintegrowanego śledzenia zmian. W związku z tym należy używać zasad oznaczania wysokiej wody. 
+W przypadku replik tylko do odczytu SQL Database nie obsługuje zintegrowanego śledzenia zmian. W związku z tym należy używać zasad oznaczania wysokiej wody. 
 
-Naszym standardowym zaleceniem jest użycie typu danych rowversion dla kolumny znacznika wysokiej wody. Jednak użycie rowversion opiera się na `MIN_ACTIVE_ROWVERSION` funkcji SQL Database, która nie jest obsługiwana w przypadku replik tylko do odczytu. W związku z tym należy wskazać indeksator do repliki podstawowej, jeśli używasz rowversion.
+Naszym standardowym zaleceniem jest użycie typu danych rowversion dla kolumny znacznika wysokiej wody. Jednak użycie rowversion zależy od `MIN_ACTIVE_ROWVERSION` funkcji, która nie jest obsługiwana w przypadku replik tylko do odczytu. W związku z tym należy wskazać indeksator do repliki podstawowej, jeśli używasz rowversion.
 
 Jeśli spróbujesz użyć rowversion w replice tylko do odczytu, zostanie wyświetlony następujący błąd: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"Używanie kolumny rowversion na potrzeby śledzenia zmian nie jest obsługiwane w przypadku replik dostępności pomocniczych (tylko do odczytu). Zaktualizuj źródło danych i określ połączenie z podstawową repliką dostępności. Właściwość "PreUpdate" bieżącej bazy danych ma wartość "READ_ONLY".
 
 **P: Czy można użyć alternatywnej kolumny nierowversionej do śledzenia zmian znaku wodnego?**
 

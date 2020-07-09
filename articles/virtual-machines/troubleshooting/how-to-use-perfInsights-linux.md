@@ -14,10 +14,9 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79266990"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
@@ -69,7 +68,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - Informacje o sterowniku
 
 - Sprzęt
-  - Urządzenia PCI [`*`]
+  - Urządzenia PCI [ `*` ]
 
 - Procesy i pamięć
   - Lista procesów (nazwa zadania, użyta pamięć, otwarte pliki)
@@ -103,7 +102,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/Azure/[folder rozszerzenia]/\*dziennik\*
+  - /var/log/Azure/[folder rozszerzenia]/ \* Dziennik\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
@@ -112,7 +111,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
 - [Metadane wystąpienia maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 >[!Note]
->[`*`] Informacje o magistrali PCI nie zostały jeszcze zebrane w ramach dystrybucji Debian i SLES
+>[ `*` ] Informacje o magistrali PCI nie zostały jeszcze zebrane w ramach dystrybucji Debian i SLES
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Uruchamianie że program perfinsights systemu Linux na maszynie wirtualnej
 
@@ -127,16 +126,16 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
 
     | Dystrybucja               | Wersja                                         |
     |----------------------------|-------------------------------------------------|
-    | Serwer Oracle Linux        | 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-Database-EE 13,8 — obraz portalu Marketplace)|
-    | CentOS                     | 6,5 [`*`], 7,6                                    |
-    | RHEL                       | 7,2, 7,5, 8,0 [`*`]                               |
+    | Serwer Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 — obraz portalu Marketplace)|
+    | CentOS                     | 6,5 [ `*` ], 7,6                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
-    | Debian                     | 8, 9, 10 [`*`]                                    |
-    | SLES                       | 12 SP4 [`*`]                                      |
+    | Debian                     | 8, 9, 10 [ `*` ]                                    |
+    | SLES                       | 12 SP4 [ `*` ]                                      |
     |                            |                                                   |
 
 >[!Note]
->[`*`] Zapoznaj się z sekcją [znane problemy](#known-issues)
+>[ `*` ] Zapoznaj się z sekcją [znane problemy](#known-issues)
 
 ### <a name="known-issues"></a>Znane problemy
 
@@ -173,7 +172,7 @@ Aby uruchomić narzędzie że program perfinsights, wykonaj następujące kroki:
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. Przejdź do folderu, który zawiera `perfinsights.py` plik, a następnie uruchom `perfinsights.py` polecenie, aby wyświetlić dostępne parametry wiersza polecenia.
+2. Przejdź do folderu, który zawiera `perfinsights.py` plik, a następnie uruchom polecenie, `perfinsights.py` Aby wyświetlić dostępne parametry wiersza polecenia.
 
     ```bash
     cd <the path of PerfInsights folder>
@@ -205,11 +204,11 @@ Aby uruchomić narzędzie że program perfinsights, wykonaj następujące kroki:
     >
     >Jeśli masz aktywny bilet pomocy technicznej z firmą Microsoft i uruchomiono że program perfinsights na żądanie inżyniera pomocy technicznej, z którym pracujesz, upewnij się, że numer biletu pomocy technicznej jest używany przy użyciu opcji **-s lub--support-Request** .
 
-Po zakończeniu przebiegu nowy plik tar pojawia się w tym samym folderze co że program perfinsights, chyba że zostanie określony folder wyjściowy. Nazwa pliku to **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. tar. gz.** Możesz wysłać ten plik do agenta pomocy technicznej na potrzeby analizy lub otworzyć raport w pliku, aby przejrzeć wyniki i zalecenia.
+Po zakończeniu przebiegu nowy plik tar pojawia się w tym samym folderze co że program perfinsights, chyba że zostanie określony folder wyjściowy. Nazwa pliku to **PerformanceDiagnostics \_ rrrr-mm-dd \_ hh-mm-SS-FFF. tar. gz.** Możesz wysłać ten plik do agenta pomocy technicznej na potrzeby analizy lub otworzyć raport w pliku, aby przejrzeć wyniki i zalecenia.
 
 ## <a name="review-the-diagnostics-report"></a>Przejrzyj raport diagnostyczny
 
-W pliku **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. tar. gz** można znaleźć raport HTML, który zawiera szczegółowe informacje o wynikach że program perfinsights. Aby przejrzeć raport, rozwiń plik **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. tar. gz** , a następnie otwórz plik **że program perfinsights raportu. html** .
+W pliku **PerformanceDiagnostics \_ rrrr-mm-dd \_ hh-mm-SS-FFF. tar. gz** można znaleźć raport HTML, który zawiera szczegółowe informacje o wynikach że program perfinsights. Aby przejrzeć raport, rozwiń plik **PerformanceDiagnostics \_ rrrr-mm-dd \_ hh-mm-SS-FFF. tar. gz** , a następnie otwórz plik **że program perfinsights Report.html** .
 
 ### <a name="overview-tab"></a>Karta przegląd
 
@@ -254,4 +253,4 @@ Poniższy zrzut ekranu przedstawia komunikat podobny do następującego:
 
 Postępuj zgodnie z instrukcjami wyświetlanymi w komunikacie, aby uzyskać dostęp do obszaru roboczego transferu plików. Aby zwiększyć bezpieczeństwo, należy zmienić hasło przy pierwszym użyciu.
 
-Po zalogowaniu zostanie wyświetlone okno dialogowe z przekazaniem pliku **PerformanceDiagnostics\_rrrr-mm-dd\_HH-mm-SS-FFF. tar. gz** , który został zebrany przez że program perfinsights.
+Po zalogowaniu zostanie wyświetlone okno dialogowe z przekazaniem pliku **PerformanceDiagnostics \_ rrrr-mm-dd \_ hh-mm-SS-FFF. tar. gz** , który został zebrany przez że program perfinsights.

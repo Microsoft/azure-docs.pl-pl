@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 831f09ecf7550a847c483fbe1678f1e4c3cecb61
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80891496"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052296"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
@@ -46,7 +46,7 @@ Aby wykonać przykładowe skrypty, musisz mieć funkcjonalną konfigurację [Azu
 
 ## <a name="configuration-file"></a>Plik konfiguracji
 
-Obok plików `arrconfig.json` należy `.ps1` wypełnić następujące pola:
+Obok plików należy `.ps1` `arrconfig.json` wypełnić następujące pola:
 
 ```json
 {
@@ -74,36 +74,39 @@ Obok plików `arrconfig.json` należy `.ps1` wypełnić następujące pola:
 ```
 
 > [!CAUTION]
-> Upewnij się, że w ścieżce LocalAssetDirectoryPath są poprawnie wysunięte ukośniki odwrotne: "\\\\" i użyj ukośników "/" we wszystkich innych ścieżkach, takich jak inputFolderPath i inputAssetPath.
+> Upewnij się, że w ścieżce LocalAssetDirectoryPath są poprawnie wysunięte ukośniki odwrotne: " \\ \\ " i użyj ukośników "/" we wszystkich innych ścieżkach, takich jak InputFolderPath i inputAssetPath.
+
+> [!CAUTION]
+> Opcjonalne wartości muszą zostać wypełnione lub trzeba całkowicie usunąć klucz i wartość. Na przykład, jeśli nie używasz `"outputAssetFileName"` parametru, musisz usunąć cały wiersz wewnątrz `arrconfig.json` .
 
 ### <a name="accountsettings"></a>accountSettings
 
-W `arrAccountId` przypadku `arrAccountKey`i, zobacz [Tworzenie konta renderowania zdalnego dla platformy Azure](../how-tos/create-an-account.md).
+W przypadku `arrAccountId` i `arrAccountKey` , zobacz [Tworzenie konta renderowania zdalnego dla platformy Azure](../how-tos/create-an-account.md).
 Aby `region` zapoznać się z [listą dostępnych regionów](../reference/regions.md).
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić **RenderingSession. ps1**.
+Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić **RenderingSession.ps1**.
 
 - **vmSize:** Wybiera rozmiar maszyny wirtualnej. Wybierz pozycję *standardowa* lub *Premium*. Zamknij sesje renderowania, gdy nie są już potrzebne.
 - **maxLeaseTime:** Czas trwania dzierżawy maszyny wirtualnej. Zostanie on zamknięty po wygaśnięciu dzierżawy. Czas dzierżawy można przedłużyć później (patrz poniżej).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
 
-Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić program **Conversion. ps1**.
+Ta struktura musi zostać wypełniona, jeśli chcesz uruchomić **Conversion.ps1**.
 
 Aby uzyskać szczegółowe informacje, zobacz [Przygotowywanie konta usługi Azure Storage](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
-## <a name="script-renderingsessionps1"></a>Skrypt: RenderingSession. ps1
+## <a name="script-renderingsessionps1"></a>Skrypt: RenderingSession.ps1
 
 Ten skrypt służy do tworzenia, wykonywania zapytań i przerywania renderowania sesji.
 
 > [!IMPORTANT]
-> Upewnij się, że wypełniono sekcje *accountSettings* i *renderingSessionSettings* w pliku arrconfig. JSON.
+> Upewnij się, że wypełniono sekcje *accountSettings* i *renderingSessionSettings* w arrconfig.js.
 
 ### <a name="create-a-rendering-session"></a>Tworzenie sesji renderowania
 
-Normalne użycie z w pełni wypełnionym arrconfig. JSON:
+Normalne użycie z całkowicie wypełnionym arrconfig.jsw:
 
 ```PowerShell
 .\RenderingSession.ps1
@@ -164,12 +167,12 @@ Obecnie obsługujemy tylko Zmienianie maxLeaseTime sesji.
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## <a name="script-conversionps1"></a>Skrypt: Conversion. ps1
+## <a name="script-conversionps1"></a>Skrypt: Conversion.ps1
 
 Ten skrypt służy do konwertowania modeli wejściowych na format środowiska uruchomieniowego dla renderowania zdalnego platformy Azure.
 
 > [!IMPORTANT]
-> Upewnij się, że wypełniono sekcje *accountSettings* i *assetConversionSettings* w pliku arrconfig. JSON.
+> Upewnij się, że wypełniono sekcje *accountSettings* i *assetConversionSettings* w arrconfig.js.
 
 Skrypt pokazuje dwie opcje używania kont magazynu z usługą:
 
@@ -178,7 +181,7 @@ Skrypt pokazuje dwie opcje używania kont magazynu z usługą:
 
 ### <a name="linked-storage-account"></a>Połączone konto magazynu
 
-Po pełnym wypełnieniu arrconfig. JSON i powiązaniu konta magazynu możesz użyć następującego polecenia. Łączenie konta magazynu zostało opisane w temacie [Tworzenie konta](../how-tos/create-an-account.md#link-storage-accounts).
+Po pełnym wypełnieniu arrconfig.jsna koncie magazynu i powiązaniu z nim można użyć poniższego polecenia. Łączenie konta magazynu zostało opisane w temacie [Tworzenie konta](../how-tos/create-an-account.md#link-storage-accounts).
 
 Użycie połączonego konta magazynu jest preferowanym sposobem korzystania z usługi konwersji, ponieważ nie ma potrzeby generowania sygnatur dostępu współdzielonego.
 
@@ -186,7 +189,7 @@ Użycie połączonego konta magazynu jest preferowanym sposobem korzystania z us
 .\Conversion.ps1
 ```
 
-1. Przekaż wszystkie pliki znajdujące się `assetConversionSettings.modelLocation` w kontenerze wejściowego obiektu BLOB pod danym`inputFolderPath`
+1. Przekaż wszystkie pliki znajdujące się w `assetConversionSettings.modelLocation` kontenerze wejściowego obiektu BLOB pod danym`inputFolderPath`
 1. Wywołaj [interfejs API REST konwersji modelu](../how-tos/conversion/conversion-rest-api.md) , aby uruchomić [konwersję modelu](../how-tos/conversion/model-conversion.md)
 1. Sondowanie stanu konwersji do momentu pomyślnego przeprowadzenia konwersji lub niepowodzenia
 1. Szczegóły danych wyjściowych przekonwertowanej lokalizacji pliku (konto magazynu, kontener danych wyjściowych, ścieżka pliku w kontenerze)

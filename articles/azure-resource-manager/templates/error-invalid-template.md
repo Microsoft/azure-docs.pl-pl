@@ -3,12 +3,12 @@ title: Nieprawidłowe błędy szablonu
 description: Opisuje sposób rozwiązywania nieprawidłowych błędów szablonów podczas wdrażania szablonów Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832525"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118889"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Usuwanie błędów związanych z nieprawidłowym szablonem
 
@@ -29,7 +29,7 @@ Komunikat o błędzie zależy od typu błędu.
 
 Ten błąd może wynikać z kilku różnych typów błędów. Zwykle obejmują one składnię lub błąd strukturalny w szablonie.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## <a name="solution-1---syntax-error"></a>Rozwiązanie 1 — błąd składniowy
 
@@ -48,9 +48,9 @@ Ten błąd jest łatwy do przeprowadzenia, ponieważ wyrażenia szablonu mogą b
 
 Jeśli nie podano pasującej składni, szablon tworzy wartość różną od zamierzonej.
 
-Po otrzymaniu tego typu błędu należy uważnie przejrzeć składnię wyrażenia. Rozważ użycie edytora JSON, takiego jak [Visual Studio](create-visual-studio-deployment-project.md) lub [Visual Studio Code](use-vs-code-to-create-template.md), który może ostrzec o błędach składni.
+Po otrzymaniu tego typu błędu należy uważnie przejrzeć składnię wyrażenia. Rozważ użycie edytora JSON, takiego jak [Visual Studio](create-visual-studio-deployment-project.md) lub [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), który może ostrzec o błędach składni.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Rozwiązanie 2 — nieprawidłowe długości segmentów
 
@@ -111,7 +111,7 @@ Uzyskanie segmentów bezpośrednio może być trudne w przypadku Menedżer zasob
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## <a name="solution-3---parameter-is-not-valid"></a>Rozwiązanie 3 — parametr jest nieprawidłowy
 
@@ -126,13 +126,13 @@ part of the allowed values
 
 Podwójne sprawdzanie dozwolonych wartości w szablonie i udostępnianie ich podczas wdrażania. Aby uzyskać więcej informacji na temat dozwolonych wartości parametrów, zobacz [sekcję parametry w szablonach Azure Resource Manager](template-syntax.md#parameters).
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Rozwiązanie 4 — zbyt wiele docelowych grup zasobów
 
 Ten błąd może pojawić się we wcześniejszych wdrożeniach, ponieważ ograniczono do pięciu docelowych grup zasobów w jednym wdrożeniu. W maju 2020 limit został zwiększony do 800 grup zasobów. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## <a name="solution-5---circular-dependency-detected"></a>Rozwiązanie 5 — Wykryto zależność cykliczną
 

@@ -1,24 +1,13 @@
 ---
 title: Azure Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 description: Omówienie kontroli dostępu Service Bus przy użyciu sygnatur dostępu współdzielonego — Omówienie, szczegółowe informacje na temat autoryzacji SAS i Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: aschhab
-ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340962"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 
@@ -29,7 +18,7 @@ Funkcja SAS chroni dostęp do Service Bus na podstawie reguł autoryzacji. Są o
 > [!NOTE]
 > Azure Service Bus obsługuje autoryzowanie dostępu do przestrzeni nazw Service Bus i jej jednostek przy użyciu Azure Active Directory (Azure AD). Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2,0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w odniesieniu do sygnatur dostępu współdzielonego (SAS). W przypadku usługi Azure AD nie ma potrzeby przechowywania tokenów w kodzie i ryzyka potencjalnych luk w zabezpieczeniach.
 >
-> Jeśli to możliwe, firma Microsoft zaleca korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. Aby uzyskać więcej informacji zobacz następujące artykuły:
+> Jeśli to możliwe, firma Microsoft zaleca korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 > - [Uwierzytelnianie i Autoryzowanie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek](authenticate-application.md).
 > - [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus](service-bus-managed-service-identity.md)
 
@@ -45,7 +34,7 @@ Token [sygnatury dostępu współdzielonego](/dotnet/api/microsoft.servicebus.sh
 
 Każda przestrzeń nazw Service Bus i każda jednostka Service Bus ma zasady autoryzacji dostępu współdzielonego, które składają się z reguł. Zasady na poziomie przestrzeni nazw mają zastosowanie do wszystkich jednostek w przestrzeni nazw, niezależnie od ich konfiguracji poszczególnych zasad.
 
-Dla każdej reguły zasad autoryzacji użytkownik wybiera trzy informacje: **imię i nazwisko**, **zakres**i **prawa**. **Nazwa** to po prostu; Unikatowa nazwa w tym zakresie. Zakres jest w łatwy sposób wystarczający: jest to identyfikator URI zasobu, którego dotyczy. W przypadku przestrzeni nazw Service Bus zakres jest w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `https://<yournamespace>.servicebus.windows.net/`.
+Dla każdej reguły zasad autoryzacji użytkownik wybiera trzy informacje: **imię i nazwisko**, **zakres**i **prawa**. **Nazwa** to po prostu; Unikatowa nazwa w tym zakresie. Zakres jest w łatwy sposób wystarczający: jest to identyfikator URI zasobu, którego dotyczy. W przypadku przestrzeni nazw Service Bus zakres jest w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `https://<yournamespace>.servicebus.windows.net/` .
 
 Prawa przyznane przez regułę zasad mogą być kombinacją:
 
@@ -82,7 +71,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`**-Identyfikator URI zasobu, do którego uzyskuje się dostęp.
 * **`sig`** Podpisane.
 
-Jest to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu (zakres zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentacji tokenu wygasa natychmiast, oddzielony znakami LF.**scope** `signature-string`
+`signature-string`Jest to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu (**zakres** zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentacji tokenu wygasa natychmiast, oddzielony znakami LF.
 
 Obliczenia skrótu wyglądają podobnie jak w poniższym pseudo kodzie i zwracają 256-bitową/32-bajtową wartość skrótu.
 
@@ -92,13 +81,13 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 Token zawiera wartości niebędące skrótami, dzięki czemu odbiorca może ponownie obliczyć skrót z tymi samymi parametrami, sprawdzając, czy Wystawca ma prawidłowy klucz podpisywania.
 
-Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. Na przykład `http://<namespace>.servicebus.windows.net/<entityPath>` lub `sb://<namespace>.servicebus.windows.net/<entityPath>`: oznacza to, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`że. 
+Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. Na przykład `http://<namespace>.servicebus.windows.net/<entityPath>` lub `sb://<namespace>.servicebus.windows.net/<entityPath>` `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
 **Identyfikator URI musi być [zakodowany przy użyciu wartości procentowej](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub według jednego z hierarchicznych obiektów nadrzędnych. Na przykład `http://contoso.servicebus.windows.net/contosoTopics/T1` lub `http://contoso.servicebus.windows.net` w poprzednim przykładzie.
 
-Token sygnatury dostępu współdzielonego jest prawidłowy dla wszystkich zasobów `<resourceURI>` poprzedzonych prefiksem używanym w `signature-string`.
+Token sygnatury dostępu współdzielonego jest prawidłowy dla wszystkich zasobów poprzedzonych prefiksem `<resourceURI>` używanym w `signature-string` .
 
 ## <a name="regenerating-keys"></a>Ponowne generowanie kluczy
 
@@ -191,7 +180,7 @@ W poprzedniej sekcji pokazano, jak używać tokenu sygnatury dostępu współdzi
 
 Przed rozpoczęciem wysyłania danych do Service Bus, Wydawca musi wysłać token sygnatury dostępu współdzielonego w komunikacie AMQP do dobrze zdefiniowanego węzła AMQP o nazwie **$CBS** (można go zobaczyć jako "Specjalna" Kolejka używana przez usługę, aby uzyskać i zweryfikować wszystkie tokeny sygnatury dostępu współdzielonego). Wydawca musi określić pole **ReplyTo** wewnątrz komunikatu AMQP; jest to węzeł, w którym usługa odpowiada na wydawcę, z wynikiem walidacji tokenu (prosty wzorzec żądania/odpowiedzi między wydawcą a usługą). Ten węzeł odpowiedzi jest tworzony "na bieżąco" mówiąc o "dynamicznym tworzeniu węzła zdalnego" zgodnie z opisem w specyfikacji AMQP 1,0. Po sprawdzeniu, czy token sygnatury dostępu współdzielonego jest prawidłowy, Wydawca może przejść do przodu i rozpocząć wysyłanie danych do usługi.
 
-Poniższe kroki pokazują, jak wysłać token sygnatury dostępu współdzielonego z protokołem AMQP przy użyciu biblioteki [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Jest to przydatne, jeśli nie można użyć oficjalnego zestawu Service Bus SDK (na przykład w przypadku środowiska WinRT, .NET Compact Framework, .NET Micro Framework i mono\#), które rozwijają się w języku C. Oczywiście ta biblioteka ułatwia zrozumienie sposobu, w jaki zabezpieczenia oparte na oświadczeniach działają na poziomie AMQP, ponieważ zapoznaj się z tym, jak działa na poziomie protokołu HTTP (za pomocą żądania HTTP POST i tokenu sygnatury dostępu współdzielonego wysłanego w nagłówku "Autoryzacja"). Jeśli nie potrzebujesz takiej szczegółowej wiedzy na temat usługi AMQP, możesz użyć oficjalnego zestawu SDK Service Bus z aplikacjami .NET Framework, dzięki czemu będzie to możliwe.
+Poniższe kroki pokazują, jak wysłać token sygnatury dostępu współdzielonego z protokołem AMQP przy użyciu biblioteki [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Jest to przydatne, jeśli nie można użyć oficjalnego zestawu Service Bus SDK (na przykład w przypadku środowiska WinRT, .NET Compact Framework, .NET Micro Framework i mono), które rozwijają się w języku C \# . Oczywiście ta biblioteka ułatwia zrozumienie sposobu, w jaki zabezpieczenia oparte na oświadczeniach działają na poziomie AMQP, ponieważ zapoznaj się z tym, jak działa na poziomie protokołu HTTP (za pomocą żądania HTTP POST i tokenu sygnatury dostępu współdzielonego wysłanego w nagłówku "Autoryzacja"). Jeśli nie potrzebujesz takiej szczegółowej wiedzy na temat usługi AMQP, możesz użyć oficjalnego zestawu SDK Service Bus z aplikacjami .NET Framework, dzięki czemu będzie to możliwe.
 
 ### <a name="c35"></a>C&#35;
 
@@ -244,7 +233,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Metoda odbiera *połączenie* (AMQP wystąpienie klasy połączenia zgodnie z [biblioteką AMQP .NET Lite](https://github.com/Azure/amqpnetlite)), które reprezentuje połączenie TCP z usługą i parametr sasToken, który jest wysyłany przez token sygnatury dostępu współdzielonego. *sasToken* `PutCbsToken()`
+`PutCbsToken()`Metoda odbiera *połączenie* (AMQP wystąpienie klasy połączenia zgodnie z [biblioteką AMQP .NET Lite](https://github.com/Azure/amqpnetlite)), które reprezentuje połączenie TCP z usługą i parametr *sasToken* , który jest wysyłany przez token sygnatury dostępu współdzielonego.
 
 > [!NOTE]
 > Należy pamiętać, że połączenie jest tworzone z **mechanizmem uwierzytelniania SASL ustawionym na wartość anonimowe** (a nie domyślnie zwykły z nazwą użytkownika i hasłem używanym, gdy nie trzeba wysyłać tokenu SAS).
@@ -253,7 +242,7 @@ Metoda odbiera *połączenie* (AMQP wystąpienie klasy połączenia zgodnie z [b
 
 Następnie wydawca tworzy dwa linki AMQP do wysyłania tokenu sygnatury dostępu współdzielonego i otrzymuje odpowiedź (wynik sprawdzania poprawności tokenu) z usługi.
 
-Komunikat AMQP zawiera zestaw właściwości i więcej informacji niż zwykły komunikat. Token sygnatury dostępu współdzielonego jest treścią komunikatu (przy użyciu jego konstruktora). Właściwość **"ReplyTo"** jest ustawiana na nazwę węzła na potrzeby otrzymywania wyniku walidacji linku odbiorcy (można zmienić jej nazwę, jeśli chcesz, i zostanie ona utworzona dynamicznie przez usługę). Ostatnie trzy właściwości Application/Custom są używane przez usługę w celu wskazania rodzaju operacji, która ma zostać wykonana. Zgodnie z opisem w specyfikacji wersji roboczej CBS, muszą to być **nazwa operacji** ("Put-token"), **Typ tokenu** (w tym przypadku `servicebus.windows.net:sastoken`) oraz **"nazwa" odbiorców** , do których stosuje się token (cała jednostka).
+Komunikat AMQP zawiera zestaw właściwości i więcej informacji niż zwykły komunikat. Token sygnatury dostępu współdzielonego jest treścią komunikatu (przy użyciu jego konstruktora). Właściwość **"ReplyTo"** jest ustawiana na nazwę węzła na potrzeby otrzymywania wyniku walidacji linku odbiorcy (można zmienić jej nazwę, jeśli chcesz, i zostanie ona utworzona dynamicznie przez usługę). Ostatnie trzy właściwości Application/Custom są używane przez usługę w celu wskazania rodzaju operacji, która ma zostać wykonana. Zgodnie z opisem w specyfikacji wersji roboczej CBS, muszą to być **nazwa operacji** ("Put-token"), **Typ tokenu** (w tym przypadku `servicebus.windows.net:sastoken` ) oraz **"nazwa" odbiorców** , do których stosuje się token (cała jednostka).
 
 Po wysłaniu tokenu sygnatury dostępu współdzielonego na linku nadawcy Wydawca musi odczytać odpowiedź na linku odbiornika. Odpowiedź to prosty komunikat AMQP z właściwością aplikacji o nazwie **"status-Code"** , która może zawierać takie same wartości jak kod stanu HTTP.
 
@@ -263,7 +252,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 
 | Operacja | Wymagane jest żądanie | Zakres roszczeń |
 | --- | --- | --- |
-| **Obszaru** | | |
+| **Przestrzeń nazw** | | |
 | Konfigurowanie reguły autoryzacji w przestrzeni nazw |Zarządzanie |Dowolny adres przestrzeni nazw |
 | **Rejestr usługi** | | |
 | Wyliczanie zasad prywatnych |Zarządzanie |Dowolny adres przestrzeni nazw |

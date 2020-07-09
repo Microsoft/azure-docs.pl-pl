@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75972794"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087745"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Tworzenie klastrów Apache HBase w usłudze HDInsight na platformie Azure Virtual Network
 
@@ -51,7 +51,7 @@ W tej sekcji utworzysz oparty na systemie Linux Klaster Apache HBase z zależnym
 
 1. W oknie dialogowym **wdrożenie niestandardowe** wybierz pozycję **Edytuj szablon**.
 
-1. W wierszu 165 Zmień wartość `Standard_A3` na. `Standard_A4_V2` Następnie wybierz pozycję **Zapisz**.
+1. W wierszu 165 Zmień wartość `Standard_A3` na `Standard_A4_V2` . Następnie wybierz pozycję **Zapisz**.
 
 1. Ukończ pozostałe szablony z następującymi informacjami:
 
@@ -82,7 +82,7 @@ Utwórz maszynę wirtualną "infrastruktura jako usługa" (IaaS) w tej samej sie
 * **Podsieć**: subnet1
 
 > [!IMPORTANT]  
-> Zamień `CLUSTERNAME` na nazwę użytą podczas tworzenia klastra usługi HDInsight w poprzednich krokach.
+> Zamień na `CLUSTERNAME` nazwę użytą podczas tworzenia klastra usługi HDInsight w poprzednich krokach.
 
 Korzystając z tych wartości, maszyna wirtualna jest umieszczana w tej samej sieci wirtualnej i podsieci co klaster usługi HDInsight. Ta konfiguracja pozwala im bezpośrednio komunikować się ze sobą. Istnieje możliwość utworzenia klastra usługi HDInsight z pustym węzłem krawędzi. Węzeł brzegowy może służyć do zarządzania klastrem.  Aby uzyskać więcej informacji, zobacz [używanie pustych węzłów brzegowych w usłudze HDInsight](../hdinsight-apps-use-edge-node.md).
 
@@ -132,12 +132,14 @@ Częścią nazwy domeny rozpoczynającą się nazwą klastra jest sufiks DNS. Na
 
 Aby sprawdzić, czy maszyna wirtualna może komunikować się z klastrem HBase, użyj polecenia `ping headnode0.<dns suffix>` z maszyny wirtualnej. Na przykład `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
-Aby użyć tych informacji w aplikacji Java, można wykonać kroki opisane w temacie Korzystanie z platformy [Apache Maven do kompilowania aplikacji Java, które korzystają z platformy Apache HBase z usługą HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) w celu utworzenia. Aby aplikacja łączyła się ze zdalnym serwerem HBase, należy zmodyfikować plik **HBase-site. XML** w tym przykładzie, aby użyć nazwy FQDN dla dozorcy. Przykład:
+Aby użyć tych informacji w aplikacji Java, można wykonać kroki opisane w temacie Korzystanie z platformy [Apache Maven do kompilowania aplikacji Java, które korzystają z platformy Apache HBase z usługą HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) w celu utworzenia. Aby aplikacja łączyła się ze zdalnym serwerem HBase, należy zmodyfikować plik **hbase-site.xml** w tym przykładzie, aby użyć nazwy FQDN dla dozorcy. Przykład:
 
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
-    </property>
+```xml
+<property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
+</property>
+```
 
 > [!NOTE]  
 > Aby uzyskać więcej informacji na temat rozpoznawania nazw w sieciach wirtualnych platformy Azure, w tym sposobu korzystania z własnego serwera DNS, zobacz [rozpoznawanie nazw (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).

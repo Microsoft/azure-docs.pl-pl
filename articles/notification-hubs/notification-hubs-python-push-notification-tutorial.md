@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: e94448debe3e846e37dcffa81a6a6a28f0f7d757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76313831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84561198"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Jak używać Notification Hubs w języku Python
 
@@ -103,7 +103,7 @@ class NotificationHub:
 ### <a name="create-security-token"></a>Utwórz token zabezpieczający
 
 Szczegóły tworzenia tokenów zabezpieczających są dostępne [tutaj](https://msdn.microsoft.com/library/dn495627.aspx).
-Dodaj następujące metody do klasy `NotificationHub` , aby utworzyć token oparty na identyfikatorze URI bieżącego żądania, a poświadczenia wyodrębnione z parametrów połączenia.
+Dodaj następujące metody do `NotificationHub` klasy, aby utworzyć token oparty na identyfikatorze URI bieżącego żądania, a poświadczenia wyodrębnione z parametrów połączenia.
 
 ```python
 @staticmethod

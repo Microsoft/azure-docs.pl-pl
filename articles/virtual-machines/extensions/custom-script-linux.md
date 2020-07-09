@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594733"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Używanie rozszerzenia niestandardowego skryptu platformy Azure w wersji 2 z maszynami wirtualnymi z systemem Linux
@@ -112,12 +112,12 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | data |
+| apiVersion | 2019-03-01 | date |
 | publisher | Microsoft. COMPUTE. Extensions | ciąg |
-| type | CustomScript | ciąg |
+| typ | CustomScript | ciąg |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (np.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | tablica |
-| Sekcji commandtoexecute (np.) | środowisko Python \<MyPythonScript.py my-param1> | ciąg |
+| Sekcji commandtoexecute (np.) | MyPythonScript.py Python\<my-param1> | ciąg |
 | skrypt | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | ciąg |
 | skipDos2Unix (np.) | fałsz | wartość logiczna |
 | Sygnatura czasowa (np.) | 123456789 | 32-bitowa liczba całkowita |
@@ -152,10 +152,10 @@ Ustawienia publiczne są wysyłane w postaci zwykłego tekstu do maszyny wirtual
 
 Wartość domyślna to false, co oznacza, że **jest** wykonywana konwersja dos2unix.
 
-Poprzednia wersja CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, automatycznie konwertuje pliki DOS do plików systemu UNIX przez `\r\n` przetłumaczenie `\n`na. To tłumaczenie nadal istnieje i jest domyślnie włączone. Ta konwersja jest stosowana do wszystkich plików pobranych z fileUris lub ustawienia skryptu w oparciu o dowolne z poniższych kryteriów.
+Poprzednia wersja CustomScript, Microsoft. OSTCExtensions. CustomScriptForLinux, automatycznie konwertuje pliki DOS do plików systemu UNIX przez przetłumaczenie `\r\n` na `\n` . To tłumaczenie nadal istnieje i jest domyślnie włączone. Ta konwersja jest stosowana do wszystkich plików pobranych z fileUris lub ustawienia skryptu w oparciu o dowolne z poniższych kryteriów.
 
-* Jeśli rozszerzenie jest jednym `.sh`z, `.txt`, `.py`lub `.pl` zostanie przekonwertowane. Ustawienie skryptu będzie zawsze zgodne z tymi kryteriami, ponieważ zakłada się, że skrypt jest wykonywany przy użyciu/bin/sh i jest zapisywany jako script.sh na maszynie wirtualnej.
-* Jeśli plik zaczyna się od `#!`.
+* Jeśli rozszerzenie jest jednym z `.sh` , `.txt` , `.py` lub `.pl` zostanie przekonwertowane. Ustawienie skryptu będzie zawsze zgodne z tymi kryteriami, ponieważ zakłada się, że skrypt jest wykonywany przy użyciu/bin/sh i jest zapisywany jako script.sh na maszynie wirtualnej.
+* Jeśli plik zaczyna się od `#!` .
 
 Konwersję dos2unix można pominąć, ustawiając wartość skipDos2Unix na true.
 
@@ -379,7 +379,7 @@ az vm extension set \
 ```
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Po uruchomieniu rozszerzenia skryptu niestandardowego skrypt jest tworzony lub pobierany do katalogu podobnego do poniższego przykładu. Dane wyjściowe polecenia są również zapisywane w tym katalogu w `stdout` plikach `stderr` i.
+Po uruchomieniu rozszerzenia skryptu niestandardowego skrypt jest tworzony lub pobierany do katalogu podobnego do poniższego przykładu. Dane wyjściowe polecenia są również zapisywane w tym katalogu w `stdout` `stderr` plikach i.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
@@ -448,7 +448,7 @@ W tym miejscu możesz zobaczyć:
 * Rozszerzenie pobiera plik i wynik.
 * Polecenie jest uruchamiane i wynik.
 
-Możesz również pobrać stan wykonywania rozszerzenia niestandardowego skryptu, w tym rzeczywiste argumenty przekazane jako `commandToExecute` przy użyciu interfejsu wiersza polecenia platformy Azure:
+Możesz również pobrać stan wykonywania rozszerzenia niestandardowego skryptu, w tym rzeczywiste argumenty przekazane jako przy `commandToExecute` użyciu interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM

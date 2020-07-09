@@ -6,12 +6,12 @@ ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598400"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217297"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Szybki Start: Tworzenie magazynu Recovery Services przy użyciu szablonu Menedżer zasobów
 
@@ -27,7 +27,7 @@ Brak.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -35,7 +35,7 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
-- [Magazyny Microsoft. RecoveryServices](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): tworzy magazyn.
+- [Magazyny Microsoft. RecoveryServices](/azure/templates/microsoft.recoveryservices/vaults): tworzy magazyn.
 - [Microsoft. RecoveryServices/magazyny/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): konfiguruje ustawienia nadmiarowości kopii zapasowej magazynu.
 
 Szablon zawiera opcjonalne parametry konfiguracji kopii zapasowej magazynu. Ustawienia nadmiarowości magazynu to magazyn lokalnie nadmiarowy (LRS) lub magazyn Geograficznie nadmiarowy (GRS). Aby uzyskać więcej informacji, zobacz [Ustawianie nadmiarowości magazynu](../backup/backup-create-rs-vault.md#set-storage-redundancy).
@@ -60,7 +60,7 @@ Aby wdrożyć szablon, wymagana jest **subskrypcja**, **Grupa zasobów**i **Nazw
    - **Nazwa magazynu**: Podaj nazwę magazynu.
    - **Zmień typ magazynu**: wartość domyślna to **false**. Wybierz **wartość true** tylko wtedy, gdy musisz zmienić typ magazynu dla magazynu.
    - **Typ magazynu**magazynu: wartość domyślna to **GloballyRedundant**. Jeśli typ magazynu został ustawiony na **wartość true**, wybierz pozycję **LocallyRedundant**.
-   - **Lokalizacja**: funkcja `[resourceGroup().location]` domyślnie jest lokalizacją grupy zasobów. Aby zmienić lokalizację, wprowadź wartość taką jak **zachodnie**.
+   - **Lokalizacja**: funkcja `[resourceGroup().location]` Domyślnie jest lokalizacją grupy zasobów. Aby zmienić lokalizację, wprowadź wartość taką jak **zachodnie**.
    - Zaznacz pole wyboru **Akceptuję warunki i postanowienia podane powyżej**.
 
 1. Aby rozpocząć wdrażanie magazynu, wybierz przycisk **Kup** . Po pomyślnym wdrożeniu zostanie wyświetlone powiadomienie.
@@ -83,7 +83,7 @@ az backup vault backup-properties show --name $vaultName --resource-group $resou
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resouceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -112,7 +112,7 @@ Następujące dane wyjściowe to fragment informacji o magazynie:
 "type": "Microsoft.RecoveryServices/vaults/backupstorageconfig"
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```Output
 Name              : myVault
@@ -141,7 +141,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resouceGroupName = Read-Host -Prompt "Enter the resource group name"

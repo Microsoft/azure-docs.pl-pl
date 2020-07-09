@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73159681"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Zasady sieciowe platformy Azure Kubernetes — przegląd
@@ -89,7 +89,7 @@ Poniższy Przykładowa konfiguracja JSON tworzy nową sieć wirtualną i podsie�
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Tworzenie własnego klastra Kubernetes na platformie Azure
 Implementacja może służyć do zapewnienia zasad sieciowych dla jednostek w klastrach Kubernetes, które wdrażasz samodzielnie, bez polegania na narzędziach takich jak aparat ACS. W takim przypadku należy najpierw zainstalować wtyczkę CNI i włączyć ją na każdej maszynie wirtualnej w klastrze. Aby uzyskać szczegółowe instrukcje, zobacz [Wdrażanie wtyczki dla samodzielnie wdrażanego klastra Kubernetes](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
-Po wdrożeniu klastra uruchom następujące `kubectl` polecenie, aby pobrać i zastosować zasady sieci platformy Azure *elementu daemonset* do klastra.
+Po wdrożeniu klastra uruchom następujące polecenie, `kubectl` Aby pobrać i zastosować zasady sieci platformy Azure *elementu daemonset* do klastra.
 
   ```
   kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml

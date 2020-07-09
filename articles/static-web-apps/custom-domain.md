@@ -7,14 +7,13 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 0f8e1be92d77dc928389dffb61da52f2db4c804d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142065"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85960303"
 ---
-# <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Skonfiguruj domenę niestandardową w usłudze Azure static Web Apps Preview
+# <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurowanie domeny niestandardowej w usłudze Azure Static Web Apps (wersja zapoznawcza)
 
 Domyślnie usługa Azure static Web Apps zapewnia automatycznie wygenerowaną nazwę domeny. W tym artykule pokazano, jak zmapować niestandardową nazwę domeny do aplikacji statycznej Web Apps platformy Azure.
 
@@ -29,11 +28,11 @@ Podczas konfigurowania nazw domen "A" rekordy są używane do mapowania domen g�
 
 Istnieje kilka różnych typów konfiguracji DNS dostępnych dla aplikacji.
 
-| Jeśli chcesz                            | Następnie                                                |
-| ----------------------------------------- | --------------------------------------------------- |
-| Pomocy`www.example.com`                 | [Mapowanie rekordu CNAME](#map-a-cname-record)           |
-| Pomocy`example.com`                     | [Konfigurowanie domeny głównej](#configure-a-root-domain) |
-| Wskaż Wszystkie poddomeny do`www.example.com` | [Mapuj symbol wieloznaczny](#map-a-wildcard-domain)                   |
+| Jeśli chcesz                                 | Następnie                                                |
+| -----------------------------------------------| --------------------------------------------------- |
+| Obsługa `www.example.com` lub`blog.example.net`| [Mapowanie rekordu CNAME](#map-a-cname-record)           |
+| Pomocy`example.com`                          | [Konfigurowanie domeny głównej](#configure-a-root-domain) |
+| Wskaż Wszystkie poddomeny do`www.example.com`      | [Mapuj symbol wieloznaczny](#map-a-wildcard-domain)            |
 
 ## <a name="map-a-cname-record"></a>Mapowanie rekordu CNAME
 

@@ -3,12 +3,11 @@ title: Konfigurowanie Azure Monitor do integracji kontenerów Prometheus | Micro
 description: W tym artykule opisano sposób konfigurowania Azure Monitor dla agenta kontenerów w celu odpadków metryk od Prometheus z klastrem Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: fcf1a2e5d2cf11cd9d612506e1ec56a392309121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f7a43f00ce160829cc8e6ed3b6272ab14aaace66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186496"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85800464"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurowanie wycinków metryk Prometheus za pomocą Azure Monitor dla kontenerów
 
@@ -44,20 +43,20 @@ Aktywne odróżnienie metryk z Prometheus jest wykonywane z jednej z dwóch pers
 
 W przypadku określenia adresu URL Azure Monitor dla kontenerów odnosi się tylko do punktu końcowego. Gdy jest określona usługa Kubernetes, nazwa usługi jest rozpoznawana z serwerem DNS klastra w celu uzyskania adresu IP, a następnie rozwiązanej usługi.
 
-|Zakres | Key | Typ danych | Wartość | Opis |
+|Zakres | Klucz | Typ danych | Wartość | Opis |
 |------|-----|-----------|-------|-------------|
 | Cały klaster | | | | Określ jedną z następujących trzech metod, aby wypróbować punkty końcowe dla metryk. |
 | | `urls` | String | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym Azure Monitor dla parametru Containers i można go użyć zamiast adresu IP węzła. Musi zawierać wielkie litery). |
-| | `kubernetes_services` | String | Tablica rozdzielona przecinkami | Tablica usług Kubernetes Services do odporności metryk z metryk polecenia-State-Metrics. Na przykład`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true lub false | Po ustawieniu na `true` wartość w ustawieniach całego klastra, Azure monitor dla agenta kontenerów będą odporne na Kubernetesy w całym klastrze dla następujących adnotacji Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true lub false | Włącza odpadków pod. `monitor_kubernetes_pods`musi być ustawiony na `true`. |
-| | `prometheus.io/scheme` | String | http lub https | Wartość domyślna to złomowanie za pośrednictwem protokołu HTTP. W `https`razie potrzeby ustaw wartość. | 
-| | `prometheus.io/path` | String | Tablica rozdzielona przecinkami | Ścieżka zasobu HTTP, z której mają zostać pobrane metryki. Jeśli ścieżka metryk nie `/metrics`jest zdefiniowana, zdefiniuj ją z tą adnotacją. |
+| | `kubernetes_services` | String | Tablica rozdzielona przecinkami | Tablica usług Kubernetes Services do odporności metryk z metryk polecenia-State-Metrics. Na przykład `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolean | true lub false | Po ustawieniu na wartość `true` w ustawieniach całego klastra, Azure monitor dla agenta kontenerów będą odporne na Kubernetesy w całym klastrze dla następujących adnotacji Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | true lub false | Włącza odpadków pod. `monitor_kubernetes_pods`musi być ustawiony na `true` . |
+| | `prometheus.io/scheme` | String | http lub https | Wartość domyślna to złomowanie za pośrednictwem protokołu HTTP. W razie potrzeby ustaw wartość `https` . | 
+| | `prometheus.io/path` | String | Tablica rozdzielona przecinkami | Ścieżka zasobu HTTP, z której mają zostać pobrane metryki. Jeśli ścieżka metryk nie jest `/metrics` zdefiniowana, zdefiniuj ją z tą adnotacją. |
 | | `prometheus.io/port` | String | 9102 | Określ port, z którego mają zostać wycinki. Jeśli port nie jest ustawiony, wartość domyślna to 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Tablica rozdzielona przecinkami | Lista dozwolonych przestrzeni nazw do wypadków metryk z Kubernetesowych.<br> Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | Cały węzeł | `urls` | String | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym Azure Monitor dla parametru Containers i można go użyć zamiast adresu IP węzła. Musi zawierać wielkie litery). |
 | Cały węzeł lub cały klaster | `interval` | String | 60 s | Interwał kolekcji jest wartością domyślną 1 minuty (60 sekund). Kolekcję można modyfikować w przypadku wartości *[prometheus_data_collection_settings. Node]* i/lub *[prometheus_data_collection_settings. cluster]* do jednostek czasu, takich jak s, m, h. |
-| Cały węzeł lub cały klaster | `fieldpass`<br> `fielddrop`| String | Tablica rozdzielona przecinkami | Można określić, które metryki mają być zbierane lub nie z punktu końcowego przez ustawienie listy Zezwalaj`fieldpass`() i nie`fielddrop`Zezwalaj (). Należy najpierw ustawić listę dozwolonych. |
+| Cały węzeł lub cały klaster | `fieldpass`<br> `fielddrop`| String | Tablica rozdzielona przecinkami | Można określić, które metryki mają być zbierane lub nie z punktu końcowego przez ustawienie listy Zezwalaj ( `fieldpass` ) i nie zezwalaj ( `fielddrop` ). Należy najpierw ustawić listę dozwolonych. |
 
 ConfigMaps jest globalną listą, a do agenta może być zastosowany tylko jeden ConfigMap. Nie można ConfigMaps kolekcji.
 
@@ -69,7 +68,7 @@ Wykonaj następujące kroki, aby skonfigurować plik konfiguracji ConfigMap dla 
 * Azure Stack lub lokalnie
 * Azure Red Hat OpenShift w wersji 4. x i Red Hat OpenShift w wersji 4. x
 
-1. [Pobierz](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) plik Template ConfigMap YAML i Zapisz go jako Container-AZM-MS-agentconfig. YAML.
+1. [Pobierz](https://aka.ms/container-azm-ms-agentconfig) plik Template ConfigMap YAML i Zapisz go jako Container-AZM-MS-agentconfig. YAML.
 
    >[!NOTE]
    >Ten krok nie jest wymagany podczas pracy z usługą Azure Red Hat OpenShift, ponieważ szablon ConfigMap już istnieje w klastrze.
@@ -77,10 +76,10 @@ Wykonaj następujące kroki, aby skonfigurować plik konfiguracji ConfigMap dla 
 2. Edytuj plik YAML ConfigMap przy użyciu dostosowań do metryk Prometheusy.
 
     >[!NOTE]
-    >Jeśli edytujesz plik ConfigMap YAML dla usługi Azure Red Hat OpenShift, najpierw uruchom polecenie `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` , aby otworzyć plik w edytorze tekstu.
+    >Jeśli edytujesz plik ConfigMap YAML dla usługi Azure Red Hat OpenShift, najpierw uruchom polecenie, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` Aby otworzyć plik w edytorze tekstu.
 
     >[!NOTE]
-    >Należy dodać następującą `openshift.io/reconcile-protect: "true"` adnotację w metadanych *kontenera-AZM-MS-agentconfig* ConfigMap, aby zapobiec uzgodnieniu. 
+    >Należy dodać następującą adnotację `openshift.io/reconcile-protect: "true"` w metadanych *kontenera-AZM-MS-agentconfig* ConfigMap, aby zapobiec uzgodnieniu. 
     >```
     >metadata:
     >   annotations:
@@ -147,13 +146,13 @@ Wykonaj następujące kroki, aby skonfigurować plik konfiguracji ConfigMap dla 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla `monitor_kubernetes_pod` obciążeń `true` produkcyjnych, ustaw wartość na w ConfigMap i `monitor_kubernetes_pods_namespaces` Dodaj filtr przestrzeni nazw określający przestrzenie nazw, z których mają być oddzielone. Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla obciążeń produkcyjnych, ustaw wartość na `monitor_kubernetes_pod` `true` w ConfigMap i Dodaj filtr przestrzeni nazw `monitor_kubernetes_pods_namespaces` określający przestrzenie nazw, z których mają być oddzielone. Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
-3. Uruchom następujące polecenie polecenia kubectl: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Uruchom następujące polecenie polecenia kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
     
     Przykład: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created`.
+Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="configure-and-deploy-configmaps---azure-red-hat-openshift-v3"></a>Konfigurowanie i wdrażanie ConfigMaps — Azure Red Hat OpenShift v3
 
@@ -194,10 +193,10 @@ container-azm-ms-agentconfig   4         56m
 
 Wykonaj następujące kroki, aby skonfigurować plik konfiguracyjny ConfigMap dla klastra Red Hat OpenShift v3. x platformy Azure.
 
-1. Edytuj plik YAML ConfigMap przy użyciu dostosowań do metryk Prometheusy. Szablon ConfigMap już istnieje w klastrze Red Hat OpenShift v3. Uruchom polecenie `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` , aby otworzyć plik w edytorze tekstu.
+1. Edytuj plik YAML ConfigMap przy użyciu dostosowań do metryk Prometheusy. Szablon ConfigMap już istnieje w klastrze Red Hat OpenShift v3. Uruchom polecenie, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` Aby otworzyć plik w edytorze tekstu.
 
     >[!NOTE]
-    >Należy dodać następującą `openshift.io/reconcile-protect: "true"` adnotację w metadanych *kontenera-AZM-MS-agentconfig* ConfigMap, aby zapobiec uzgodnieniu. 
+    >Należy dodać następującą adnotację `openshift.io/reconcile-protect: "true"` w metadanych *kontenera-AZM-MS-agentconfig* ConfigMap, aby zapobiec uzgodnieniu. 
     >```
     >metadata:
     >   annotations:
@@ -264,13 +263,13 @@ Wykonaj następujące kroki, aby skonfigurować plik konfiguracyjny ConfigMap dl
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla `monitor_kubernetes_pod` obciążeń `true` produkcyjnych, ustaw wartość na w ConfigMap i `monitor_kubernetes_pods_namespaces` Dodaj filtr przestrzeni nazw określający przestrzenie nazw, z których mają być oddzielone. Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla obciążeń produkcyjnych, ustaw wartość na `monitor_kubernetes_pod` `true` w ConfigMap i Dodaj filtr przestrzeni nazw `monitor_kubernetes_pods_namespaces` określający przestrzenie nazw, z których mają być oddzielone. Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 2. Zapisz zmiany w edytorze.
 
-Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created`.
+Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created` .
 
-Zaktualizowane ConfigMap można wyświetlić, uruchamiając polecenie, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
+Zaktualizowane ConfigMap można wyświetlić, uruchamiając polecenie, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging` . 
 
 ## <a name="applying-updated-configmap"></a>Stosowanie zaktualizowanych ConfigMap
 
@@ -282,15 +281,15 @@ W przypadku następujących środowisk Kubernetes:
 - Azure Stack lub lokalnie
 - Azure Red Hat OpenShift i Red Hat OpenShift w wersji 4. x
 
-Uruchom polecenie `kubectl apply -f <configmap_yaml_file.yaml`. 
+Uruchom polecenie `kubectl apply -f <configmap_yaml_file.yaml` . 
 
-W przypadku klastra usługi Azure Red Hat OpenShift v3. x Uruchom polecenie, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` aby otworzyć plik w domyślnym edytorze, aby go zmodyfikować, a następnie Zapisz.
+W przypadku klastra usługi Azure Red Hat OpenShift v3. x Uruchom polecenie, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` Aby otworzyć plik w domyślnym edytorze, aby go zmodyfikować, a następnie Zapisz.
 
-Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" updated`.
+Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" updated` .
 
 ## <a name="verify-configuration"></a>Weryfikuj konfigurację
 
-Aby sprawdzić, czy konfiguracja została pomyślnie zastosowana do klastra, użyj następującego polecenia, aby przejrzeć dzienniki z agenta pod: `kubectl logs omsagent-fdf58 -n=kube-system`. 
+Aby sprawdzić, czy konfiguracja została pomyślnie zastosowana do klastra, użyj następującego polecenia, aby przejrzeć dzienniki z agenta pod: `kubectl logs omsagent-fdf58 -n=kube-system` . 
 
 >[!NOTE]
 >To polecenie nie dotyczy klastra usługi Azure Red Hat OpenShift v3. x.
@@ -320,9 +319,9 @@ Błędy związane z zastosowaniem zmian konfiguracji są również dostępne do 
 
 - W przypadku usługi Azure Red Hat OpenShift v3. x i v4. x Sprawdź dzienniki omsagent, przeszukując tabelę **ContainerLog** , aby sprawdzić, czy jest włączone zbieranie dzienników na platformie Azure.
 
-Błędy uniemożliwiają programowi omsagent analizowanie pliku, powodując ponowne uruchomienie i użycie konfiguracji domyślnej. Po naprawieniu błędów w ConfigMap w klastrach innych niż Azure Red Hat OpenShift v3. x Zapisz plik YAML i Zastosuj zaktualizowany ConfigMaps, uruchamiając polecenie: `kubectl apply -f <configmap_yaml_file.yaml`. 
+Błędy uniemożliwiają programowi omsagent analizowanie pliku, powodując ponowne uruchomienie i użycie konfiguracji domyślnej. Po naprawieniu błędów w ConfigMap w klastrach innych niż Azure Red Hat OpenShift v3. x Zapisz plik YAML i Zastosuj zaktualizowany ConfigMaps, uruchamiając polecenie: `kubectl apply -f <configmap_yaml_file.yaml` . 
 
-W przypadku usługi Azure Red Hat OpenShift v3. x Edytuj i Zapisz zaktualizowany ConfigMaps, uruchamiając polecenie: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
+W przypadku usługi Azure Red Hat OpenShift v3. x Edytuj i Zapisz zaktualizowany ConfigMaps, uruchamiając polecenie: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` .
 
 ## <a name="query-prometheus-metrics-data"></a>Zapytanie danych metryk Prometheus
 
@@ -337,13 +336,14 @@ Azure Monitor dla kontenerów obsługuje wyświetlanie metryk przechowywanych w 
 Aby określić objętość pozyskiwania każdego rozmiaru metryki w GB dziennie, aby zrozumieć, czy jest ono wysokie, podano następujące zapytanie.
 
 ```
-InsightsMetrics 
-| where Namespace == "prometheus"
+InsightsMetrics
+| where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
 | render barchart
 ```
+
 Wyniki będą wyglądać podobnie do następujących:
 
 ![Wyniki zapytania dziennika woluminu pozyskiwania danych](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
@@ -351,7 +351,7 @@ Wyniki będą wyglądać podobnie do następujących:
 Aby oszacować każdy rozmiar metryk w GB w miesiącu, aby zrozumieć, czy ilość danych odebranych w obszarze roboczym jest wysoka, podano następujące zapytanie.
 
 ```
-InsightsMetrics 
+InsightsMetrics
 | where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name

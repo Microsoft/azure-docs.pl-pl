@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: f008627317588467d731ccc03aec7738f58e46e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80159204"
 ---
 # <a name="generate-sas-token"></a>Generuj token SAS
@@ -46,7 +46,7 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
 
 ## <a name="c"></a>C\#
 
-Poniższy fragment kodu przedstawia sposób generowania tokenu sygnatury dostępu współdzielonego\#przy użyciu języka C:
+Poniższy fragment kodu przedstawia sposób generowania tokenu sygnatury dostępu współdzielonego przy użyciu języka C \# :
 
 ```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
@@ -74,7 +74,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 
 ## <a name="use-the-sas-token"></a>Używanie tokenu sygnatury dostępu współdzielonego
 
-Po wygenerowaniu tokenu sygnatury dostępu współdzielonego można użyć go do utworzenia żądania HTTP POST. Przykład:
+Po wygenerowaniu tokenu sygnatury dostępu współdzielonego można użyć go do utworzenia żądania HTTP POST. Na przykład:
 
 ```text
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview

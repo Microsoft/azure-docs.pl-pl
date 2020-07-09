@@ -1,28 +1,28 @@
 ---
 title: Reguły zapory adresów IP
-description: Skonfiguruj reguły zapory adresów IP na poziomie serwera dla bazy danych SQL lub zapory usługi Azure Synapse Analytics. Zarządzanie dostępem i konfigurowanie reguł zapory adresów IP na poziomie bazy danych dla jednej lub puli baz danych.
+description: Skonfiguruj reguły zapory adresów IP na poziomie serwera dla bazy danych w Azure SQL Database lub zapory usługi Azure Synapse Analytics. Zarządzanie dostępem i konfigurowanie reguł zapory adresów IP na poziomie bazy danych dla SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/18/2019
-ms.openlocfilehash: 4ebb430945a00007f3b7260da87369bf6fd61ae2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/17/2020
+ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043429"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085110"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-W przypadku tworzenia nowego serwera w programie Azure SQL Database lub Azure *Synapse o nazwie*MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (jest dostępny pod adresem *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i platformy Azure Synapse (dawniej Azure SQL Data Warehouse).
+Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie*MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy *wystąpienia zarządzanego usługi Azure SQL*. Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md).
@@ -37,7 +37,7 @@ Próby połączenia z Internetu i platformy Azure muszą przejść przez zaporę
 
 ### <a name="server-level-ip-firewall-rules"></a>Reguły zapory bazujące na adresach IP na poziomie serwera
 
-Te reguły umożliwiają klientom dostęp do całego serwera, czyli wszystkich baz danych zarządzanych przez serwer. Reguły są przechowywane w bazie danych *Master* . Dla serwera można mieć maksymalnie 128 reguł zapory adresów IP na poziomie serwera. Jeśli jest włączone ustawienie **Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure** , jest to jedyna reguła zapory dla serwera.
+Te reguły umożliwiają klientom uzyskiwanie dostępu do całego serwera, czyli wszystkich baz danych zarządzanych przez serwer. Reguły są przechowywane w bazie danych *Master* . Dla serwera można określić maksymalnie 128 reguł zapory bazującej na adresach IP na poziomie serwera. Jeśli jest włączone ustawienie **Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure** , jest to jedyna reguła zapory dla serwera.
   
 Reguły zapory adresów IP na poziomie serwera można skonfigurować przy użyciu instrukcji Azure Portal, PowerShell lub Transact-SQL.
 
@@ -54,7 +54,7 @@ Reguły zapory adresów IP na poziomie bazy danych umożliwiają klientom dostę
 
 ### <a name="recommendations-for-how-to-set-firewall-rules"></a>Zalecenia dotyczące sposobu ustawiania reguł zapory
 
-Zalecamy używanie reguł zapory adresów IP na poziomie bazy danych zawsze wtedy, gdy jest to możliwe. To rozwiązanie zwiększa bezpieczeństwo i sprawia, że baza danych jest bardziej przenośna. Użyj reguł zapory adresów IP na poziomie serwera dla administratorów. Należy ich również używać, gdy istnieje wiele baz danych, które mają te same wymagania dotyczące dostępu, i nie chcesz konfigurować każdej bazy danych indywidualnie.
+Zalecamy używanie reguł zapory adresów IP na poziomie bazy danych zawsze wtedy, gdy jest to możliwe. Taka praktyka zwiększa bezpieczeństwo i sprawia, że baza danych jest bardziej przenośna. Użyj reguł zapory adresów IP na poziomie serwera dla administratorów. Należy ich również używać, gdy istnieje wiele baz danych, które mają te same wymagania dotyczące dostępu, i nie chcesz konfigurować każdej bazy danych indywidualnie.
 
 > [!NOTE]
 > Aby uzyskać informacje o przenośnych bazach danych w kontekście ciągłości działalności biznesowej, zobacz [Wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](active-geo-replication-security-configure.md).
@@ -103,6 +103,14 @@ Aby umożliwić aplikacjom hostowanym na platformie Azure Łączenie się z prog
 > [!IMPORTANT]
 > Ta opcja umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika ograniczają dostęp tylko do autoryzowanych użytkowników.
 
+## <a name="permissions"></a>Uprawnienia
+
+Aby móc tworzyć reguły zapory bazującej na adresach IP dla serwera Azure SQL i zarządzać nimi, musisz spełniać jedno z następujących wymagań:
+
+- w roli [współautor SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+- w roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
+- Właściciel zasobu, który zawiera SQL Server platformy Azure
+
 ## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory adresów IP i zarządzanie nimi
 
 Pierwsze ustawienie zapory na poziomie serwera można utworzyć przy użyciu [Azure Portal](https://portal.azure.com/) lub programowo przy użyciu [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule)lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)platformy Azure. Za pomocą tych metod lub Transact-SQL można tworzyć dodatkowe reguły zapory adresów IP na poziomie serwera i zarządzać nimi.
@@ -110,7 +118,7 @@ Pierwsze ustawienie zapory na poziomie serwera można utworzyć przy użyciu [Az
 > [!IMPORTANT]
 > Reguły zapory adresów IP na poziomie bazy danych mogą być tworzone i zarządzane tylko przy użyciu języka Transact-SQL.
 
-Aby zwiększyć wydajność, reguły zapory adresów IP na poziomie serwera są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+Aby poprawić wydajność, reguły zapory bazującej na adresach IP na poziomie serwera są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
 > [!TIP]
 > [Inspekcja bazy danych](../../azure-sql/database/auditing-overview.md) umożliwia inspekcję zmian zapory na poziomie serwera i na poziomie bazy danych.
@@ -149,8 +157,8 @@ Zostanie otwarta strona przegląd dla Twojego serwera. Pokazuje w pełni kwalifi
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |Serwer |Wyświetla bieżące reguły zapory adresów IP na poziomie serwera |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |Serwer |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie serwera |
 | [sp_delete_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database) |Serwer |Usuwa reguły zapory adresów IP na poziomie serwera |
-| [sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database) |Baza danych |Wyświetla bieżące reguły zapory adresów IP na poziomie bazy danych |
-| [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) |Baza danych |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie bazy danych |
+| [sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database) |baza danych |Wyświetla bieżące reguły zapory adresów IP na poziomie bazy danych |
+| [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) |baza danych |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie bazy danych |
 | [sp_delete_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database) |Bazy danych |Usuwa reguły zapory adresów IP na poziomie bazy danych |
 
 Poniższy przykład przegląda istniejące reguły, włącza zakres adresów IP na serwerze *contoso*i usuwa regułę zapory IP:

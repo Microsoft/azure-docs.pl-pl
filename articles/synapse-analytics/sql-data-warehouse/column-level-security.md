@@ -6,18 +6,18 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/19/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85208097"
 ---
 # <a name="column-level-security"></a>Zabezpieczenia na poziomie kolumny
 
@@ -72,7 +72,7 @@ Zezwalaj `TestUser` na dostęp do wszystkich kolumn z wyjątkiem kolumny SSN, kt
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-Zapytania wykonane jako `TestUser` zakończą się niepowodzeniem, jeśli zawierają kolumnę SSN:
+Zapytania wykonane jako zakończą `TestUser` się niepowodzeniem, jeśli zawierają kolumnę SSN:
 
 ```sql
 SELECT * FROM Membership;

@@ -15,10 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 928162282ca973811315728a07b4fbe40100324e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84017583"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Rozszerzanie lokalnych, zawsze dostępnych grup dostępności na platformę Azure
@@ -57,7 +56,7 @@ W tej sekcji pokazano, jak za pomocą **Kreatora dodawania repliki systemu Azure
    
    | Ustawienie | Opis |
    | --- | --- |
-   | **Image (Obraz)** |Wybierz żądaną kombinację systemów operacyjnych i SQL Server |
+   | **Obraz** |Wybierz żądaną kombinację systemów operacyjnych i SQL Server |
    | **Rozmiar maszyny wirtualnej** |Wybierz rozmiar maszyny wirtualnej, który najlepiej odpowiada potrzebom biznesowym |
    | **Nazwa maszyny wirtualnej** |Określ unikatową nazwę nowej maszyny wirtualnej. Nazwa musi zawierać od 3 do 15 znaków, może zawierać tylko litery, cyfry i łączniki, a także musi zaczynać się literą i kończyć literą lub cyfrą. |
    | **Nazwa użytkownika maszyny wirtualnej** |Określ nazwę użytkownika, która stanie się kontem administratora na maszynie wirtualnej |
@@ -65,7 +64,7 @@ W tej sekcji pokazano, jak za pomocą **Kreatora dodawania repliki systemu Azure
    | **Potwierdź hasło** |Potwierdź hasło nowego konta |
    | **Virtual Network** |Określ sieć wirtualną platformy Azure, która ma być używana przez nową MASZYNę wirtualną. Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz [Virtual Network Omówienie](../../../virtual-network/virtual-networks-overview.md). |
    | **Podsieć Virtual Network** |Określ podsieć sieci wirtualnej, której ma używać Nowa maszyna wirtualna |
-   | **Domain** |Potwierdź, że wstępnie wypełniona wartość dla domeny jest poprawna |
+   | **Domeny** |Potwierdź, że wstępnie wypełniona wartość dla domeny jest poprawna |
    | **Nazwa użytkownika domeny** |Określ konto należące do lokalnej grupy administratorów w lokalnych węzłach klastra |
    | **Hasło** |Określ hasło dla nazwy użytkownika domeny |
 8. Kliknij przycisk **OK** , aby sprawdzić poprawność ustawień wdrożenia.

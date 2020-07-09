@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować sondę, aby upewnić się, że kon
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76935676"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurowanie sond gotowości
@@ -73,11 +72,11 @@ node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 
 ### <a name="readiness-command"></a>Gotowość — polecenie
 
-Ten plik YAML definiuje, `readinessProbe` który obsługuje polecenie `exec` gotowości, które działa jako sprawdzenie gotowości. To przykładowe polecenie gotowości sprawdza, czy istnieje `ready` plik w `/tmp` katalogu.
+Ten plik YAML definiuje, `readinessProbe` który obsługuje `exec` polecenie gotowości, które działa jako sprawdzenie gotowości. To przykładowe polecenie gotowości sprawdza, czy istnieje `ready` plik w `/tmp` katalogu.
 
-Gdy `ready` plik nie istnieje, polecenie gotowości kończy działanie z wartością różną od zera. kontener kontynuuje działanie, ale nie można uzyskać do niego dostępu. Gdy polecenie zakończy się pomyślnie z kodem zakończenia 0, kontener jest gotowy do uzyskania dostępu. 
+Gdy `ready` plik nie istnieje, polecenie gotowości kończy działanie o wartości innej niż zero. kontener kontynuuje działanie, ale nie można uzyskać do niego dostępu. Gdy polecenie zakończy się pomyślnie z kodem zakończenia 0, kontener jest gotowy do uzyskania dostępu. 
 
-`periodSeconds` Właściwość określa, że polecenie gotowości powinno być wykonywane co 5 sekund. Sonda gotowości jest uruchamiana przez okres istnienia grupy kontenerów.
+`periodSeconds`Właściwość określa, że polecenie gotowości powinno być wykonywane co 5 sekund. Sonda gotowości jest uruchamiana przez okres istnienia grupy kontenerów.
 
 ## <a name="example-deployment"></a>Przykładowe wdrożenie
 
@@ -89,7 +88,7 @@ az container create --resource-group myResourceGroup --file readiness-probe.yaml
 
 ## <a name="view-readiness-checks"></a>Wyświetl kontrole gotowości
 
-W tym przykładzie w ciągu pierwszych 240 sekund polecenie gotowości kończy się niepowodzeniem podczas sprawdzania istnienia `ready` pliku. Kod stanu zwrócił sygnały, że kontener nie jest gotowy.
+W tym przykładzie w ciągu pierwszych 240 sekund polecenie gotowości kończy się niepowodzeniem podczas sprawdzania `ready` istnienia pliku. Kod stanu zwrócił sygnały, że kontener nie jest gotowy.
 
 Te zdarzenia można wyświetlić w Azure Portal lub interfejs wiersza polecenia platformy Azure. Na przykład w portalu są wyświetlane zdarzenia typu `Unhealthy` wywoływane z niepowodzeniem polecenia gotowości. 
 

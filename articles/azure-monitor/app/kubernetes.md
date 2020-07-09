@@ -6,17 +6,16 @@ author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
 ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797889"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Zero monitorowanie aplikacji Instrumentacji dla aplikacji hostowanych Kubernetes z Istio — PRZESTARZAŁe
 
 > [!IMPORTANT]
 > Ta funkcja jest obecnie przestarzała i nie będzie już obsługiwana po 1 sierpnia 2020.
-> Obecnie monitorowanie bezkodowe można włączyć tylko dla [środowiska Java za pomocą autonomicznego agenta](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). W przypadku innych języków Użyj zestawów SDK do monitorowania aplikacji w AKS: [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node. js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)i [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+> Obecnie monitorowanie bezkodowe można włączyć tylko dla [środowiska Java za pomocą autonomicznego agenta](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). W przypadku innych języków Użyj zestawów SDK do monitorowania aplikacji w AKS: [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)i [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
 
 Azure Monitor teraz korzysta z usługi Service siatk Tech w klastrze Kubernetes, aby umożliwić monitorowanie aplikacji w usłudze Box dla dowolnej hostowanej aplikacji Kubernetes. Za pomocą domyślnych funkcji usługi Application Insight, takich jak [Mapa aplikacji](../../azure-monitor/app/app-map.md) , aby modelować zależności, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) do monitorowania w czasie rzeczywistym, zaawansowanych wizualizacji z [domyślnym pulpitem nawigacyjnym](../../azure-monitor/app/overview-dashboard.md), [Eksploratorem metryk](../../azure-monitor/platform/metrics-getting-started.md)i [skoroszytami](../../azure-monitor/platform/workbooks-overview.md). Ta funkcja ułatwi użytkownikom dostęp do wąskich gardeł wydajności i hotspotów niepowodzeń we wszystkich obciążeniach Kubernetes w ramach wybranej przestrzeni nazw Kubernetes. Wielką literą dla istniejących inwestycji w siatkę usług przy użyciu technologii, takich jak Istio, Azure Monitor umożliwia monitorowanie aplikacji z autoinstrumentacją bez żadnych modyfikacji w kodzie aplikacji.
 

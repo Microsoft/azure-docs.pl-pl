@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc869a8ab905275c8082c4fd375f8f6d6d48d97e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205462"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Omówienie lokalnego pliku konfiguracji (Agent C#)
 
@@ -30,9 +30,9 @@ Agent zabezpieczeń odczytuje plik konfiguracji, gdy zostanie uruchomiony agent.
 
 Agent zabezpieczeń języka C# używa wielu plików konfiguracji:
 
-- **Ogólne. config** — konfiguracje powiązane z agentem.
-- **Authentication. config** — konfiguracja związana z uwierzytelnianiem (w tym szczegóły uwierzytelniania).
-- **SecurityIotInterface. config** — konfiguracje związane z IoT.
+- **General.config** — konfiguracje powiązane z agentem.
+- Konfiguracja związana z uwierzytelnianiem **Authentication.config** (w tym szczegóły uwierzytelniania).
+- **SecurityIotInterface.config** — konfiguracje związane z IoT.
 
 Pliki konfiguracji zawierają konfigurację domyślną. Konfiguracja uwierzytelniania jest wypełniana podczas instalacji agenta, a zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 
@@ -40,17 +40,17 @@ Pliki konfiguracji zawierają konfigurację domyślną. Konfiguracja uwierzyteln
 
 Dla systemu Linux:
 
-- Pliki konfiguracji systemu operacyjnego znajdują się `/var/ASCIoTAgent`w temacie.
+- Pliki konfiguracji systemu operacyjnego znajdują się w temacie `/var/ASCIoTAgent` .
 
 W przypadku systemu Windows:
 
 - Pliki konfiguracji systemu operacyjnego znajdują się w katalogu agenta zabezpieczeń.
 
-### <a name="generalconfig-configurations"></a>Konfiguracja ogólna. config
+### <a name="generalconfig-configurations"></a>Konfiguracje General.config
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
-| Identyfikator agenta | Identyfikator GUID | Unikatowy identyfikator agenta |
+| Identyfikator agenta | GUID | Unikatowy identyfikator agenta |
 | readRemoteConfigurationTimeout | przedział_czasu | Okres pobierania konfiguracji zdalnej z IoT Hub. Jeśli Agent nie może pobrać konfiguracji w określonym czasie, zostanie przekroczony limit czasu operacji.|
 | schedulerInterval | przedział_czasu | Wewnętrzny interwał harmonogramu. |
 | producerInterval | przedział_czasu | Interwał procesu roboczego producenta zdarzeń. |
@@ -62,9 +62,9 @@ W przypadku systemu Windows:
 | logFilePath | Ścieżka do pliku | Jeśli fileLogLevel > wyłączone, dzienniki są zapisywane w tym pliku. |
 | defaultEventPriority | "High", "Low", "off" | Domyślny priorytet zdarzenia. |
 
-### <a name="generalconfig-example"></a>Plik General. config — przykład
+### <a name="generalconfig-example"></a>Przykład General.config
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <General>
   <add key="agentId" value="da00006c-dae9-4273-9abc-bcb7b7b4a987" />
@@ -81,7 +81,7 @@ W przypadku systemu Windows:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>Authentication. config
+### <a name="authenticationconfig"></a>Authentication.config
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
@@ -89,16 +89,16 @@ W przypadku systemu Windows:
 | deviceId | ciąg | Identyfikator urządzenia (zgodnie z zarejestrowaniem w usłudze Azure IoT Hub). || schedulerInterval | Ciąg TimeSpan | Wewnętrzny interwał harmonogramu. |
 | gatewayHostname | ciąg | Nazwa hosta usługi Azure IoT Hub. Zwykle <my-Hub>. azure-devices.net |
 | Parametr | ścieżka ciągu do pliku | Ścieżka do pliku, który zawiera klucz tajny uwierzytelniania.|
-| type | "SymmetricKey", "SelfSignedCertificate" | Klucz tajny użytkownika do uwierzytelniania. Wybierz opcję *SymmetricKey* , jeśli klucz tajny użytkownika jest kluczem symetrycznym, wybierz opcję *certyfikat z* podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym. |
+| typ | "SymmetricKey", "SelfSignedCertificate" | Klucz tajny użytkownika do uwierzytelniania. Wybierz opcję *SymmetricKey* , jeśli klucz tajny użytkownika jest kluczem symetrycznym, wybierz opcję *certyfikat z* podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym. |
 | identity | "DPS", "moduł", "urządzenie" | Tożsamość uwierzytelniania — DPS Jeśli uwierzytelnianie odbywa się za pośrednictwem usługi DPS, moduł, jeśli uwierzytelnianie jest wykonywane przy użyciu poświadczeń modułu, lub urządzenie, jeśli uwierzytelnianie jest nawiązywane przy użyciu poświadczeń urządzenia.
 | certificateLocationKind |  "Plik_lokalny", "magazyn" | Plik_lokalny Jeśli certyfikat jest przechowywany w pliku, należy go zapisać, jeśli certyfikat znajduje się w magazynie certyfikatów. |
 | idScope | ciąg | Zakres identyfikatorów DPS |
 | Identyfikator rejestracji | ciąg  | Usługa DPS Identyfikator rejestracji urządzenia. |
 |
 
-### <a name="authenticationconfig-example"></a>Przykład Authentication. config
+### <a name="authenticationconfig-example"></a>Przykład Authentication.config
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
   <add key="moduleName" value="azureiotsecurity"/>
@@ -113,16 +113,16 @@ W przypadku systemu Windows:
 </Authentication>
 ```
 
-### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "MQTT" | Typ transportu IoT Hub. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>Przykład SecurityIotInterface. config
+### <a name="securityiotinterfaceconfig-example"></a>Przykład SecurityIotInterface.config
 
-```XML
+```xml
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
   <add key="transportType" value="Amqp"/>

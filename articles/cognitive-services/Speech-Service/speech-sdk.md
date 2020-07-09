@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc0a7fc9797948e834b8b3cb802bb92fce0eb59
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399853"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610765"
 ---
 # <a name="about-the-speech-sdk"></a>Informacje o zestawie SDK usługi Mowa
 
@@ -37,7 +37,7 @@ Zamiana [tekstu na mowę](text-to-speech.md) (znana także jako *synteza mowy*) 
 
 ### <a name="voice-assistants"></a>Asystenci głosowi
 
-Asystentzy głosu korzystający z zestawu Speech SDK umożliwiają deweloperom tworzenie naturalnych, przypominających konwersacje interfejsów dla swoich aplikacji i środowisk. Usługa asystenta głosowego zapewnia szybką i niezawodną interakcję między urządzeniem i asystentem. Implementacja używa kanału mowy linii Direct line bot Framework lub zintegrowanej usługi poleceń niestandardowych (wersja zapoznawcza) w celu ukończenia zadania. Ponadto asystentów głosowych można tworzyć za pomocą [niestandardowego portalu głosowego](https://aka.ms/customvoice) , aby utworzyć unikatowe środowisko pracy.
+[Asystentzy głosu](voice-assistants.md) korzystający z zestawu Speech SDK umożliwiają deweloperom tworzenie naturalnych, przypominających konwersacje interfejsów dla swoich aplikacji i środowisk. Usługa asystenta głosowego zapewnia szybką i niezawodną interakcję między urządzeniem i asystentem. Implementacja używa kanału mowy linii Direct line bot Framework lub zintegrowanej usługi poleceń niestandardowych (wersja zapoznawcza) w celu ukończenia zadania. Ponadto Asystenci głosu mogą używać niestandardowych głosów utworzonych w [niestandardowym portalu głosu](https://aka.ms/customvoice) , aby dodać unikatowe środowisko danych wyjściowych.
 
 #### <a name="keyword-spotting"></a>Wykrywania trendów słowa kluczowego
 
@@ -65,7 +65,7 @@ Zestaw mowy SDK może być używany do scenariuszy centrum połączeń jego prze
 
 ### <a name="codec-compressed-audio-input"></a>Koder-dekoder skompresowanego sygnału audio
 
-Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów <span class="docon docon-navigate-external x-hidden-focus"> </span>danych wejściowych kompresji dźwiękowej </a>.
+Kilka języków programowania zestawu mowy SDK obsługuje kodery audio w postaci skompresowanego strumienia danych. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Korzystanie z formatów <span class="docon docon-navigate-external x-hidden-focus"></span> danych wejściowych kompresji dźwiękowej </a>.
 
 ## <a name="rest-api"></a>Interfejs API REST
 

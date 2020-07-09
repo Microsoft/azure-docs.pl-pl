@@ -1,16 +1,15 @@
 ---
 title: Jak wyświetlić zagregowaną kondycję jednostek usługi Azure Service Fabric
 description: Opisuje sposób wykonywania zapytań, wyświetlania i szacowania zagregowanych kondycji jednostek Service Fabric platformy Azure za pomocą zapytań dotyczących kondycji i ogólnych zapytań.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 4688664fea29cc07f5895e33ebfff541d61070d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392747"
 ---
 # <a name="view-service-fabric-health-reports"></a>Wyświetlanie raportów o kondycji Service Fabric
 Usługa Azure Service Fabric wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostkami kondycji, na których składniki systemowe i alarmy mogą raportować lokalne warunki, które są monitorowane. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane dotyczące kondycji, aby określić, czy jednostki są w dobrej kondycji.
@@ -23,7 +22,7 @@ Service Fabric zapewnia wiele sposobów uzyskania zagregowanej kondycji jednoste
 * Zapytania dotyczące kondycji (za poorednictwem programu PowerShell, interfejsu API lub REST)
 * Ogólne zapytania, które zwracają listę jednostek, które mają kondycję jako jedną z właściwości (za pomocą programu PowerShell, interfejsu API lub REST)
 
-Aby zademonstrować te opcje, użyjmy lokalnego klastra z pięcioma węzłami i [sieci szkieletowej:/WORDCOUNT](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). Aplikacja **sieci szkieletowej:/WORDCOUNT** zawiera dwie domyślne usługi, stanowe usługi typu `WordCountServiceType`i bezstanową usługę typu `WordCountWebServiceType`. Zmieniono żądanie, `ApplicationManifest.xml` aby wymagało siedmiu replik docelowych dla usługi stanowej i jednej partycji. Ze względu na to, że w klastrze znajduje się tylko pięć węzłów, składniki systemowe zgłaszają ostrzeżenie na partycji usługi, ponieważ jest niższa od liczby docelowej.
+Aby zademonstrować te opcje, użyjmy lokalnego klastra z pięcioma węzłami i [sieci szkieletowej:/WORDCOUNT](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). Aplikacja **sieci szkieletowej:/WORDCOUNT** zawiera dwie domyślne usługi, stanowe usługi typu `WordCountServiceType` i bezstanową usługę typu `WordCountWebServiceType` . Zmieniono żądanie, `ApplicationManifest.xml` Aby wymagało siedmiu replik docelowych dla usługi stanowej i jednej partycji. Ze względu na to, że w klastrze znajduje się tylko pięć węzłów, składniki systemowe zgłaszają ostrzeżenie na partycji usługi, ponieważ jest niższa od liczby docelowej.
 
 ```xml
 <Service Name="WordCountService">
@@ -37,7 +36,7 @@ Aby zademonstrować te opcje, użyjmy lokalnego klastra z pięcioma węzłami i 
 Service Fabric Explorer udostępnia widok wizualizacji klastra. Na poniższej ilustracji widać, że:
 
 * **Sieć szkieletowa aplikacji:/WORDCOUNT** jest czerwona (w przypadku błędu), ponieważ zawiera zdarzenie błędu zgłoszone przez **telealarmy** dla **dostępności**właściwości.
-* Jedna z jej usług, **Sieć szkieletowa:/WORDCOUNT/usługi wordcountservice uległa** jest żółta (w ostrzeżeniu). Usługa jest skonfigurowana z siedmiu replik, a klaster ma pięć węzłów, więc nie można umieścić dwóch replik. Chociaż nie jest to tutaj widoczne, partycja usługi jest żółta ze względu na Raport `System.FM` systemowy `Partition is below target replica or instance count`informujący o tym, że. Żółta partycja wyzwala żółtą usługę.
+* Jedna z jej usług, **Sieć szkieletowa:/WORDCOUNT/usługi wordcountservice uległa** jest żółta (w ostrzeżeniu). Usługa jest skonfigurowana z siedmiu replik, a klaster ma pięć węzłów, więc nie można umieścić dwóch replik. Chociaż nie jest to tutaj widoczne, partycja usługi jest żółta ze względu na Raport systemowy `System.FM` informujący o tym, że `Partition is below target replica or instance count` . Żółta partycja wyzwala żółtą usługę.
 * Ten klaster jest czerwony ze względu na czerwoną aplikację.
 
 Ocena używa domyślnych zasad z manifestu klastra i manifestu aplikacji. Są to ścisłe zasady i nie dopuszczają żadnego błędu.
@@ -235,7 +234,7 @@ Zwraca kondycję jednostki węzła i zawiera zdarzenia kondycji zgłoszone w wę
 * Obowiązkowe Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do obliczania kondycji zagregowanej jednostki, niezależnie od filtru.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycję węzłów za pomocą interfejsu API, `FabricClient` Utwórz i Wywołaj metodę [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) na swoim serwerze kondycji.
+Aby uzyskać kondycję węzłów za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj metodę [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) na swoim serwerze kondycji.
 
 Poniższy kod pobiera kondycję węzła dla określonej nazwy węzła:
 
@@ -451,7 +450,7 @@ Zwraca kondycję jednostki usługi. Zawiera Stany kondycji partycji. Dane wejśc
 * Obowiązkowe Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji wyświetlają wartość OK, ostrzeżenie i licznik błędów dla wszystkich partycji i replik usługi.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycję usługi za pomocą interfejsu API, `FabricClient` Utwórz i Wywołaj metodę [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) na swoim serwerze kondycji.
+Aby uzyskać kondycję usługi za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj metodę [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) na swoim serwerze kondycji.
 
 Poniższy przykład pobiera kondycję usługi z określoną nazwą usługi (URI):
 
@@ -523,7 +522,7 @@ Zwraca kondycję jednostki partycji. Zawiera ona Stany kondycji repliki. Dane we
 * Obowiązkowe Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji pokazują, ile replik jest prawidłowych, ostrzeżeń i Stanów błędów.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycję partycji za pomocą interfejsu API, `FabricClient` Utwórz i Wywołaj metodę [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) na swoim serwerze kondycji. Aby określić parametry opcjonalne, Utwórz [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Aby uzyskać kondycję partycji za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj metodę [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) na swoim serwerze kondycji. Aby określić parametry opcjonalne, Utwórz [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
@@ -1044,7 +1043,7 @@ Zapytania zawierające wartość **HealthState** dla jednostek są następujące
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Niektóre zapytania zwracają stronicowane wyniki. Zwrot tych zapytań jest listą pochodną [\<PagedList T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki nie pasują do wiadomości, zwracana jest tylko strona i ContinuationToken, która śledzi, gdzie Wyliczenie zostało zatrzymane. Kontynuuj wywoływanie tego samego zapytania i przekaż token kontynuacji z poprzedniego zapytania, aby uzyskać następne wyniki.
+> Niektóre zapytania zwracają stronicowane wyniki. Zwrot tych zapytań jest listą pochodzącą od [PagedList \<T> ](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki nie pasują do wiadomości, zwracana jest tylko strona i ContinuationToken, która śledzi, gdzie Wyliczenie zostało zatrzymane. Kontynuuj wywoływanie tego samego zapytania i przekaż token kontynuacji z poprzedniego zapytania, aby uzyskać następne wyniki.
 
 ### <a name="examples"></a>Przykłady
 Poniższy kod pobiera aplikacje w złej kondycji w klastrze:

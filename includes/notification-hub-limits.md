@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: spelluru
 ms.openlocfilehash: 6efcd46b174d34670a01bb7d5c440559bf0f116a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183621"
 ---
-| Warstwa              | Bezpłatna         | Podstawowy    | Standardowa   |
+| Warstwa              | Bezpłatna         | Podstawowa    | Standardowa (Standard)   |
 | ------------------ | ------------ | ---------- | ---------- |
 | Uwzględnione wypchnięcia    | 1 mln    | 10 mln | 10 mln |
 | Aktywne urządzenia     | 500          | 200,000    | 10 mln |

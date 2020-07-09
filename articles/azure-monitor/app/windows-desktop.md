@@ -2,22 +2,21 @@
 title: Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 description: Analizowanie użycia i wydajności klasycznej aplikacji systemu Windows za pomocą usługi Application Insights.
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/11/2020
+ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537393"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718788"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorowanie użycia i wydajności klasycznych aplikacji systemu Windows
 
 Wszystkie aplikacje hostowane lokalnie, na platformie Azure i w innych chmurach mogą korzystać z możliwości usługi Application Insights. Jedynym ograniczeniem jest konieczność [zezwolenia na komunikację](../../azure-monitor/app/ip-addresses.md) z usługą Application Insights. Do monitorowania aplikacji platformy uniwersalnej systemu Windows zalecamy używanie pakietu [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Aby wysłać dane telemetryczne do usługi Application Insights z klasycznej aplikacji systemu Windows
-1. W witrynie [Azure Portal](https://portal.azure.com)[utwórz zasób usługi Application Insights](../../azure-monitor/app/create-new-resource.md ). Jako typ aplikacji wybierz ASP.NET.
-2. Wykonaj kopię klucza instrumentacji. Klucz można znaleźć na liście rozwijanej Podstawy dla nowego zasobu, który właśnie został utworzony. 
-3. W programie Visual Studio edytuj pakiety NuGet projektu aplikacji, a następnie dodaj interfejs Microsoft.ApplicationInsights.WindowsServer. (Lub wybierz interfejs Microsoft.ApplicationInsights, jeśli potrzebny jest tylko podstawowy interfejs API bez standardowych modułów gromadzenia telemetrii).
+1. W witrynie [Azure Portal](https://portal.azure.com)[utwórz zasób usługi Application Insights](../../azure-monitor/app/create-new-resource.md ). 
+2. Wykonaj kopię klucza instrumentacji.
+3. W programie Visual Studio edytuj pakiety NuGet projektu aplikacji, a następnie dodaj interfejs Microsoft.ApplicationInsights.WindowsServer. (Lub wybierz Microsoft. ApplicationInsights, jeśli chcesz tylko podstawowy interfejs API, bez standardowych modułów zbierania danych telemetrycznych).
 4. Ustaw klucz instrumentacji w kodzie:
    
     `TelemetryConfiguration.Active.InstrumentationKey = "` *Twój klucz* `";`
@@ -31,6 +30,7 @@ Wszystkie aplikacje hostowane lokalnie, na platformie Azure i w innych chmurach 
 6. Uruchom aplikację i Wyświetl dane telemetryczne w zasobie utworzonym w Azure Portal.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Przykładowy kod
+
 ```csharp
 using Microsoft.ApplicationInsights;
 
@@ -70,7 +70,11 @@ using Microsoft.ApplicationInsights;
 
 ## <a name="override-storage-of-computer-name"></a>Zastąp magazyn nazwy komputera
 
-Domyślnie ten zestaw SDK będzie zbierać i przechowywać nazwę komputera, który emituje dane telemetryczne. Aby przesłonić kolekcję, należy użyć inicjatora telemetrii:
+Domyślnie ten zestaw SDK będzie zbierać i przechowywać nazwę komputera, który emituje dane telemetryczne.
+
+Nazwa komputera jest używana przez Application Insights [starszej warstwie cenowej przedsiębiorstwa (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) na potrzeby rozliczeń wewnętrznych. Domyślnie jeśli używasz inicjatora telemetrii do przesłonięcia `telemetry.Context.Cloud.RoleInstance` , zostanie wysłana oddzielna właściwość, `ai.internal.nodeName` która będzie zawierać wartość Nazwa komputera. Ta wartość nie będzie przechowywana w ramach telemetrii Application Insights, ale jest używana wewnętrznie podczas pozyskiwania, aby zapewnić zgodność z poprzednimi wersjami ze starszym modelem rozliczania opartym na węzłach.
+
+Jeśli korzystasz z [starszej warstwy cenowej przedsiębiorstwa (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) i po prostu zachodzi potrzeba zastąpienia magazynu nazwy komputera, użyj inicjatora telemetrii:
 
 **Napisz niestandardowe TelemetryInitializer jako poniżej.**
 
@@ -84,15 +88,17 @@ namespace CustomInitializer.Telemetry
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleInstance))
             {
-                //set custom role name here, you can pass an empty string if needed.
+                // Set custom role name here. Providing an empty string will result
+                // in the computer name still be sent via this property.
                   telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
+
 Utwórz wystąpienie inicjatora w `Program.cs` `Main()` metodzie poniżej ustawienia klucza Instrumentacji:
 
 ```csharp
@@ -103,12 +109,73 @@ Utwórz wystąpienie inicjatora w `Program.cs` `Main()` metodzie poniżej ustawi
         {
             TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
             TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+            //...
         }
 ```
+
+## <a name="override-transmission-of-computer-name"></a>Zastąp transmisję nazwy komputera
+
+Jeśli nie jesteś w [starszej warstwie cenowej przedsiębiorstwa (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) i chcesz całkowicie uniemożliwić wysyłanie danych telemetrycznych zawierających nazwę komputera, musisz użyć procesora telemetrii.
+
+### <a name="telemetry-processor"></a>Procesor telemetrii
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+
+namespace WindowsFormsApp2
+{
+    public class CustomTelemetryProcessor : ITelemetryProcessor
+    {
+        private readonly ITelemetryProcessor _next;
+
+        public CustomTelemetryProcessor(ITelemetryProcessor next)
+        {
+            _next = next;
+        }
+
+        public void Process(ITelemetry item)
+        {
+            if (item != null)
+            {
+                item.Context.Cloud.RoleInstance = string.Empty;
+            }
+
+            _next.Process(item);
+        }
+    }
+}
+```
+
+Utwórz wystąpienie procesora telemetrii w `Program.cs` `Main()` metodzie poniżej ustawienia klucza Instrumentacji:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace WindowsFormsApp2
+{
+    static class Program
+    {
+        static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.Use((next) => new CustomTelemetryProcessor(next));
+            builder.Build();
+            //...
+        }
+    }
+}
+
+```
+
+> [!NOTE]
+> Można też używać technicznie procesora telemetrii, jak opisano powyżej, nawet jeśli korzystasz z [warstwy cenowej starszej wersji Enterprise (na węzeł)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), spowoduje to powstanie potencjalnego rozliczania z powodu niemożności poprawnego rozróżnienia węzłów dla cen na węzeł.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pulpitu nawigacyjnego](../../azure-monitor/app/overview-dashboard.md)
 * [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md)
-* [Eksplorowanie metryk](../../azure-monitor/platform/metrics-charts.md)
+* [Eksploruj metryki](../../azure-monitor/platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
 

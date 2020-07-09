@@ -1,38 +1,44 @@
 ---
 title: Dodawanie analizatorów języka do pól ciągów
 titleSuffix: Azure Cognitive Search
-description: Wielojęzykowa analiza tekstu leksykalnego dla zapytań innych niż angielskie i indeksów w usłudze Azure Wyszukiwanie poznawcze.
+description: Wielojęzykowa analiza leksykalna dla zapytań innych niż angielskie i indeksów w usłudze Azure Wyszukiwanie poznawcze.
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85130555"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie analizatorów języka do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
-*Analizator języka* jest określonym typem [analizatora tekstu](search-analyzers.md) , który wykonuje analizę leksykalną przy użyciu reguł lingwistycznych języka docelowego. Każde pole z możliwością wyszukiwania ma właściwość **analizatora** . Jeśli indeks zawiera przetłumaczone ciągi, takie jak oddzielne pola w języku angielskim i chińskim, można określić analizatory języka dla każdego pola, aby uzyskać dostęp do zaawansowanych funkcji językowych tych analizatorów.  
+*Analizator języka* jest określonym typem [analizatora tekstu](search-analyzers.md) , który wykonuje analizę leksykalną przy użyciu reguł lingwistycznych języka docelowego. Każde pole z możliwością wyszukiwania ma właściwość **analizatora** . Jeśli zawartość składa się z przetłumaczonych ciągów, takich jak oddzielne pola w języku angielskim i chińskim, można określić analizatory języka dla każdego pola, aby uzyskać dostęp do zaawansowanych funkcji językowych tych analizatorów.
 
-Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory 35 objęte przez Lucene i analizatory 50 objęte umową Microsoft Natural language processing, która została zastosowana w pakiecie Office i Bing.
+## <a name="when-to-use-a-language-analyzer"></a>Kiedy używać analizatora języka
 
-## <a name="comparing-analyzers"></a>Porównywanie analizatorów
+Należy wziąć pod uwagę Analizator języka, gdy świadomość wyrazu lub struktury zdań dodaje wartość do analizy tekstu. Typowym przykładem jest skojarzenie nietypowych formularzy zleceń ("Przesuń" i "dobieranie") lub w liczbie mnogiej ("myszy" i "mysz"). Bez świadomości językowej te ciągi są analizowane wyłącznie w zależności od cech fizycznych, co nie może przechwycić połączenia. Ze względu na to, że duże fragmenty tekstu mogą mieć tę zawartość, pola zawierające opisy, przeglądy lub podsumowania są dobrym kandydatami dla analizatora języka.
+
+Należy również wziąć pod uwagę analizatory języka, gdy zawartość składa się z ciągów języka innego niż zachodni. Chociaż [domyślnym analizatorem](search-analyzers.md#default-analyzer) jest język niezależny od, pojęcie używania spacji i znaków specjalnych (łączniki i ukośniki) do oddzielania ciągów jest bardziej odpowiednie dla języków zachodnich niż Zachodnie. 
+
+Na przykład w języku chińskim, japońskim, koreańskim (CJK) i innych językach azjatyckich spacja nie musi być ogranicznikiem słowa. Rozważmy następujący ciąg japoński. Ponieważ nie zawiera spacji, Analizator języka niezależny od prawdopodobnie przeanalizuje cały ciąg jako jeden token, w rzeczywistości ciąg jest w rzeczywistości frazą.
+
+```
+これは私たちの銀河系の中ではもっとも重く明るいクラスの球状星団です。
+(This is the heaviest and brightest group of spherical stars in our galaxy.)
+```
+
+Dla powyższego przykładu pomyślne zapytanie musi zawierać pełny token lub częściowo token przy użyciu symbolu wieloznacznego sufiksu, co powoduje nienaturalne i ograniczanie wyszukiwania.
+
+Lepszym rozwiązaniem jest wyszukiwanie pojedynczych słów: 明るい (jasno), 私たちの (nasz), 銀河系 (Galaxy). Korzystanie z jednego z analizatorów japońskich dostępnych w Wyszukiwanie poznawcze jest bardziej podobne do odblokowania tego zachowania, ponieważ te analizatory są lepiej wyposażone podczas dzielenia fragmentu tekstu na znaczące słowa w języku docelowym.
+
+## <a name="comparing-lucene-and-microsoft-analyzers"></a>Porównywanie Lucene i analizatory firmy Microsoft
+
+Usługa Azure Wyszukiwanie poznawcze obsługuje analizatory języka 35 obsługiwane przez Lucene i analizatory języka 50, których kopia zapasowa została zastosowana przez zastrzeżoną technologię przetwarzania języka naturalnego firmy Microsoft w pakiecie Office i Bing.
 
 Niektórzy deweloperzy mogą preferować bardziej znane, proste i łatwe w użyciu rozwiązanie typu open source. Analizatory języka Lucene są szybsze, ale analizatory firmy Microsoft mają zaawansowane możliwości, takie jak Lematyzacja, rozliczanie wyrazów (w językach takich jak niemiecki, duński, holenderski, szwedzki, norweski, estoński, Kończenie, węgierski, słowacki) i rozpoznawanie jednostek (adresy URL, wiadomości e-mail, daty i cyfry). Jeśli to możliwe, należy uruchomić porównania obu analizatorów firmy Microsoft i Lucene, aby zdecydować, która z nich jest lepsza. 
 
@@ -74,26 +80,26 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 |Chiński (tradycyjny)|zh-Hant. Microsoft|zh-Hant. Lucene|  
 |Chorwacki|HR. Microsoft||  
 |Czeski|cs. Microsoft|cs. Lucene|  
-|duński|da. Microsoft|da. Lucene|  
+|Duński|da. Microsoft|da. Lucene|  
 |Niderlandzki|NL. Microsoft|NL. Lucene|  
 |Angielski|pl. Microsoft|pl. Lucene|  
 |Estoński|et. Microsoft||  
-|fiński|Fi. Microsoft|Fi. Lucene|  
+|Fiński|Fi. Microsoft|Fi. Lucene|  
 |Francuski|fr. Microsoft|fr. Lucene|  
 |Galicyjski||GL. Lucene|  
-|niemiecki|de. Microsoft|de. Lucene|  
-|grecki|El. Microsoft|El. Lucene|  
+|Niemiecki|de. Microsoft|de. Lucene|  
+|Grecki|El. Microsoft|El. Lucene|  
 |Gudżarati|gu. Microsoft||  
 |Hebrajski|Firma Microsoft||  
 |Hindi|Witaj. Microsoft|Witaj. Lucene|  
-|węgierski|HU. Microsoft|HU. Lucene|  
+|Węgierski|HU. Microsoft|HU. Lucene|  
 |Islandzki|jest. Microsoft||  
 |Indonezyjski (Bahasa)|Identyfikator. Microsoft|Identyfikator. Lucene|  
 |Irlandzki||ga. Lucene|  
 |Włoski|IT. Microsoft|IT. Lucene|  
-|japoński|ja. Microsoft|ja. Lucene|  
+|Japoński|ja. Microsoft|ja. Lucene|  
 |Kannada|kN. Microsoft||  
-|koreański|ko. Microsoft|ko. Lucene|  
+|Koreański|ko. Microsoft|ko. Lucene|  
 |Łotewski|LV. Microsoft|LV. Lucene|  
 |Litewski|lt. Microsoft||  
 |Malayalam|ml. Microsoft||  
@@ -102,7 +108,7 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 |Norweski|NB. Microsoft|nie. Lucene|  
 |Perski||FA. Lucene|  
 |Polski|pl. Microsoft|pl. Lucene|  
-|portugalski (Brazylia)|pt-br. Microsoft|pt-br. Lucene|  
+|Portugalski (Brazylia)|pt-br. Microsoft|pt-br. Lucene|  
 |Portugalski (Portugalia)|pt-pt. Microsoft|pt-pt. Lucene|  
 |Pendżabski|PA. Microsoft||  
 |Rumuński|ro. Microsoft|ro. Lucene|  
@@ -112,10 +118,10 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 |Słowacki|SK. Microsoft||  
 |Słoweński|SL. Microsoft||  
 |Hiszpański|es. Microsoft|es. Lucene|  
-|szwedzki|OHR. Microsoft|OHR. Lucene|  
+|Szwedzki|OHR. Microsoft|OHR. Lucene|  
 |Tamilski|Ta. Microsoft||  
 |Telugu|te. Microsoft||  
-|Tajski|th. Microsoft|th. Lucene|  
+|Tajlandzki|th. Microsoft|th. Lucene|  
 |Turecki|TR. Microsoft|TR. Lucene|  
 |Ukraiński|Wielka Brytania. Microsoft||  
 |Urdu|Twoje. Microsoft||  

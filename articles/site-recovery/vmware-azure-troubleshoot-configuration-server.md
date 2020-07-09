@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86113075"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Rozwiązywanie problemów z serwerem konfiguracji
 
@@ -43,15 +43,17 @@ Maszyna źródłowa rejestruje się na serwerze konfiguracji podczas instalacji 
     4. Po rozwiązaniu problemów z siecią ponów próbę rejestracji, postępując zgodnie ze wskazówkami w temacie [Rejestrowanie maszyny źródłowej na serwerze konfiguracji](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
 6. Jeśli **żądanie post ciągu: (7) — nie można nawiązać połączenia z serwerem** , w tym samym pliku dziennika poszukaj **żądania ciągu: (60) — certyfikatu równorzędnego nie można uwierzytelnić przy użyciu określonych certyfikatów urzędu certyfikacji**. Ten błąd może wystąpić, ponieważ certyfikat serwera konfiguracji wygasł lub maszyna źródłowa nie obsługuje protokołów TLS 1,0 i nowszych. Może również wystąpić, Jeśli zapora blokuje komunikację TLS między maszyną źródłową a serwerem konfiguracji. Jeśli ciąg zostanie znaleziony: 
-    1. Aby rozwiązać ten problem, Połącz się z adresem IP serwera konfiguracji przy użyciu przeglądarki sieci Web na maszynie źródłowej. Użyj identyfikatora URI https:\/ \/ adres\>IP serwera konfiguracji<:443/. Upewnij się, że maszyna źródłowa może nawiązać połączenie z serwerem konfiguracji za pomocą portu 443.
+    1. Aby rozwiązać ten problem, Połącz się z adresem IP serwera konfiguracji przy użyciu przeglądarki sieci Web na maszynie źródłowej. Użyj identyfikatora URI https: \/ \/ adres IP serwera konfiguracji<\> : 443/. Upewnij się, że maszyna źródłowa może nawiązać połączenie z serwerem konfiguracji za pomocą portu 443.
     2. Sprawdź, czy wszystkie reguły zapory na maszynie źródłowej muszą być dodane lub usunięte, aby maszyna źródłowa mogła komunikować się z serwerem konfiguracji. Ze względu na rozmaite oprogramowanie zapory, które może być używane, nie można wyświetlić wszystkich wymaganych konfiguracji zapory. Skontaktuj się z administratorami sieci, aby odblokować problemy z połączeniem.
     3. Upewnij się, że foldery wymienione w [Site Recovery wykluczenia folderów z programów antywirusowych](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) są wykluczone z oprogramowania antywirusowego.  
     4. Po rozwiązaniu problemów ponów próbę rejestracji, postępując zgodnie z instrukcjami w temacie [Rejestrowanie maszyny źródłowej na serwerze konfiguracji](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. W systemie Linux jeśli wartość platformy w <INSTALLATION_DIR\>/etc/drscout.conf jest uszkodzona, rejestracja kończy się niepowodzeniem. Aby zidentyfikować ten problem, Otwórz plik/var/log/ua_install. log. Wyszukaj ciąg **przerwania konfiguracji, ponieważ VM_PLATFORM wartość jest równa null lub nie jest VMware/Azure**. Platforma powinna być ustawiona na platformę **VMware** lub **platformę Azure**. Jeśli plik drscout. conf jest uszkodzony, zalecamy [odinstalowanie agenta mobilności](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) , a następnie ponowne zainstalowanie agenta mobilności. Jeśli Dezinstalacja nie powiedzie się, wykonaj następujące czynności: a. Otwórz plik Installation_Directory/Uninstall.sh i Dodaj komentarz do wywołania funkcji **StopServices** .
+7. W systemie Linux jeśli wartość platformy w <INSTALLATION_DIR \> /etc/drscout.conf jest uszkodzona, rejestracja kończy się niepowodzeniem. Aby zidentyfikować ten problem, Otwórz plik/var/log/ua_install. log. Wyszukaj ciąg **przerwania konfiguracji, ponieważ VM_PLATFORM wartość jest równa null lub nie jest VMware/Azure**. Platforma powinna być ustawiona na platformę **VMware** lub **platformę Azure**. Jeśli plik drscout. conf jest uszkodzony, zalecamy [odinstalowanie agenta mobilności](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) , a następnie ponowne zainstalowanie agenta mobilności. Jeśli Dezinstalacja nie powiedzie się, wykonaj następujące czynności: a. Otwórz plik Installation_Directory/Uninstall.sh i Dodaj komentarz do wywołania funkcji **StopServices** .
     b. Otwórz plik Installation_Directory/VX/bin/Uninstall.sh i Dodaj komentarz do wywołania funkcji **stop_services** .
     c. Otwórz plik Installation_Directory/FX/Uninstall.sh i Dodaj komentarz do całej sekcji, która próbuje zatrzymać usługę FX.
     d. [Odinstaluj](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) agenta mobilności. Po pomyślnym odinstalowaniu systemu ponownie uruchom system, a następnie spróbuj ponownie zainstalować agenta mobilności.
+
+8. Upewnij się, że uwierzytelnianie wieloskładnikowe nie jest włączone dla konta użytkownika. Azure Site Recovery nie obsługuje uwierzytelniania wieloskładnikowego dla konta użytkownika. Zarejestruj serwer konfiguracji bez konta użytkownika z włączonym uwierzytelnianiem wieloskładnikowym.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Niepowodzenie instalacji: nie można załadować kont
 
@@ -65,7 +67,7 @@ Aby rozwiązać problemy z odnajdywaniem programu vCenter, Dodaj serwer vCenter 
 - Otwórz program Internet Explorer w zawartości użytkownika systemu, uruchamiając następujący wiersz polecenia PsExec-s-i "użycie ścieżki%ProgramFiles%\Internet Explorer\iexplore.exe"
 - Dodaj ustawienia serwera proxy w programie IE i uruchom ponownie usługę tmanssvc.
 - Aby skonfigurować ustawienia serwera proxy DRA, uruchom polecenie CD C:\Program Files\Microsoft Azure Site Recovery Provider
-- Następnie wykonaj DRCONFIGURATOR. EXE/Configure/AddBypassUrls [Dodaj adres IP/nazwę FQDN vCenter Server podano podczas **konfigurowania wdrożenia vCenter Server/VSphere ESXi** serwera [konfiguracji](vmware-azure-deploy-configuration-server.md#configure-settings)]
+- Następnie wykonaj DRCONFIGURATOR.EXE/Configure/AddBypassUrls [Dodaj adres IP/nazwę FQDN vCenter Server podanych podczas **konfigurowania vCenter Server/VSphere ESXi serwera** [konfiguracji](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Zmień adres IP serwera konfiguracji
 
@@ -97,7 +99,7 @@ Uruchom następujące polecenie na maszynie źródłowej:
 
 Ustawienie | Szczegóły
 --- | ---
-Sposób użycia | UnifiedAgentConfigurator. exe/CSEndPoint <adres\> IP serwera konfiguracji/PassphraseFilePath <hasło ścieżka pliku\>
+Użycie | UnifiedAgentConfigurator.exe/CSEndPoint <adres IP serwera konfiguracji \> /PassphraseFilePath <hasło pliku\>
 Dzienniki konfiguracji agenta | Znajduje się w obszarze%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obowiązkowy parametr. Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 /PassphraseFilePath |  Obowiązkowy. Lokalizacja hasła. Użyj dowolnej prawidłowej ścieżki UNC lub pliku lokalnego.
@@ -112,7 +114,7 @@ Uruchom następujące polecenie na maszynie źródłowej:
 
 Ustawienie | Szczegóły
 --- | ---
-Sposób użycia | /usr/local/ASR/Vx/bin CD<br /><br /> UnifiedAgentConfigurator.sh-i <adres\> IP serwera konfiguracji — P <ścieżka pliku hasła\>
+Użycie | /usr/local/ASR/Vx/bin CD<br /><br /> UnifiedAgentConfigurator.sh-i <adres IP serwera konfiguracji \> — P <ścieżka pliku hasła\>
 -i | Obowiązkowy parametr. Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 -P |  Obowiązkowy. Pełna ścieżka pliku, w którym zapisano hasło. Użyj dowolnego prawidłowego folderu.
 
@@ -160,18 +162,20 @@ Uaktualnienie serwera konfiguracji kończy się niepowodzeniem, gdy pewne usług
 
 Aby zidentyfikować ten problem, przejdź do C:\ProgramData\ASRSetupLogs\ CX_TP_InstallLogFile na serwerze konfiguracji. Jeśli znajdziesz następujące błędy, wykonaj poniższe kroki, aby rozwiązać ten problem: 
 
-    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-    2018-06-28 14:28:12.944   Stopping svagents service.
-    2018-06-28 14:31:32.949   Unable to stop svagents service.
-    2018-06-28 14:31:32.949   Stopping svagents service.
-    2018-06-28 14:34:52.960   Unable to stop svagents service.
-    2018-06-28 14:34:52.960   Stopping svagents service.
-    2018-06-28 14:38:12.971   Unable to stop svagents service.
-    2018-06-28 14:38:12.971   Rolling back the install changes.
-    2018-06-28 14:38:12.971   Upgrade has failed.
+```output
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
+```
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Ręcznie Zatrzymaj następujące usługi:
 
@@ -191,7 +195,7 @@ Masz niewystarczające uprawnienia do tworzenia aplikacji w usłudze Azure Activ
 Aby rozwiązać ten problem, zaloguj się do Azure Portal i wykonaj jedną z następujących czynności:
 
 - Zażądaj roli Deweloper aplikacji w usłudze AAD. Aby uzyskać więcej informacji na temat roli Deweloper aplikacji, zobacz [uprawnienia roli administrator w Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Sprawdź, czy **użytkownik może utworzyć** flagę aplikacji *w usłudze* AAD. Aby uzyskać więcej informacji, zobacz [jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Sprawdź, czy **użytkownik może utworzyć** flagę aplikacji *w usłudze* AAD. Aby uzyskać więcej informacji, zobacz [jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Serwer przetwarzania/główny element docelowy nie może komunikować się z serwerem konfiguracji 
 
@@ -203,18 +207,20 @@ Zwykle jest to spowodowane błędem z portem 443. Wykonaj następujące kroki, a
 
 Aby sprawdzić, czy główny agent docelowy może utworzyć sesję TCP dla adresu IP serwera konfiguracji, należy poszukać śledzenia podobnego do poniższego w głównych dziennikach agenta docelowego:
 
-Protokół \<TCP ZAstąp adres IP adresem IP cs tutaj \<>:52739 Zastąp adres IP adresem IP cs tutaj>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here> : 52739 \<Replace IP with CS IP here> : 443 SYN_SENT 
 
 TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT//Zastąp adres IP adresem IP CS tutaj
 
 W przypadku znalezienia śladów podobnych do następujących w dziennikach MT, Agent MT zgłasza błędy na porcie 443:
 
-    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
-    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```output
+#~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+#~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```
  
 Ten błąd może wystąpić, gdy inne aplikacje korzystają również z portu 443 lub z powodu blokowania ustawienia zapory.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 - Sprawdź, czy port 443 nie jest blokowany przez zaporę.
 - Jeśli port jest nieosiągalny z powodu innej aplikacji używającej tego portu, Zatrzymaj i Odinstaluj aplikację.
@@ -226,7 +232,7 @@ Aby rozwiązać ten problem:
 
 Ten błąd może wystąpić, gdy w bazie danych istnieje wiele wpisów identyfikatora UUID wystąpienia serwera konfiguracji (CS). Problem często występuje podczas klonowania maszyny wirtualnej serwera konfiguracji.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 1. Usuń nieodświeżoną/starą maszynę wirtualną CS z serwera vCenter. Aby uzyskać więcej informacji, zobacz [usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md).
 2. Zaloguj się do maszyny wirtualnej serwera konfiguracji i nawiąż połączenie z bazą danych MySQL svsdb1. 
@@ -249,7 +255,7 @@ Po wprowadzeniu prawidłowej nazwy użytkownika i hasła na serwerze konfiguracj
 
 Ten problem może wystąpić, gdy czas systemowy jest nieprawidłowy.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Ustaw prawidłowy czas na komputerze i ponów próbę logowania. 
  

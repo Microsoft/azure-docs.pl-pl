@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857884"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104881"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen2
 
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związanych z pracą z usługą Azure Data Lake Storage Gen2. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania Data Lake Storage Gen2. Przed Data Lake Storage Gen2, praca z naprawdę dużą ilością danych w usługach, takich jak usługa Azure HDInsight, została złożona. Fragmentu dane na wielu kontach magazynu obiektów blob, dzięki czemu można osiągnąć magazyn petabajtów i optymalną wydajność w tej skali. Data Lake Storage Gen2 obsługuje pojedyncze rozmiary plików, tak jakby 5TB i większość stałych limitów wydajności został usunięty. Jednak nadal istnieją pewne zagadnienia, które opisano w tym artykule, aby uzyskać najlepszą wydajność dzięki Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Azure Data Lake Storage Gen2 oferuje funkcje kontroli dostępu w systemie POSIX dla użytkowników, grup Azure Active Directory (Azure AD) i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i katalogi. Kontroli dostępu można także użyć do tworzenia uprawnień domyślnych, które mogą być automatycznie stosowane do nowych plików lub katalogów. Więcej szczegółów na temat list ACL Data Lake Storage Gen2 są dostępne w [programie w programie Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
@@ -39,7 +39,7 @@ Nazwy główne usług Azure Active Directory są zwykle używane przez usługi, 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Włączanie zapory Data Lake Storage Gen2 z dostępem do usługi platformy Azure
 
-Data Lake Storage Gen2 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane do ograniczenia wektora ataków zewnętrznych. Zaporę można włączyć na koncie magazynu w Azure Portal za pomocą **zapory** > **Włącz zaporę (włączona)** > **Zezwalaj na dostęp do opcji usług platformy Azure** .
+Data Lake Storage Gen2 obsługuje opcję włączania zapory i ograniczania dostępu tylko do usług platformy Azure, co jest zalecane do ograniczenia wektora ataków zewnętrznych. Zaporę można włączyć na koncie magazynu w Azure Portal za pomocą **zapory**  >  **Włącz zaporę (włączona)**  >  **Zezwalaj na dostęp do opcji usług platformy Azure** .
 
 Aby uzyskać dostęp do konta magazynu z Azure Databricks, wdróż Azure Databricks w sieci wirtualnej, a następnie Dodaj tę sieć wirtualną do zapory. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
@@ -77,11 +77,11 @@ Podczas wypełniania danych do programu Data Lake należy wstępnie zaplanować 
 
 W przypadku obciążeń IoT może istnieć duża ilość danych przechowywanych w magazynie danych obejmujących wiele produktów, urządzeń, organizacji i klientów. Ważne jest wstępne zaplanowanie układu katalogu dla organizacji, zabezpieczeń i wydajnego przetwarzania danych dla odbiorców w dół. Ogólny szablon, który ma zostać rozważenia, może być następujący:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter (s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 Na przykład dane telemetryczne dla aparatu samolotowego w Wielkiej Brytanii mogą wyglądać następująco:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*Zjednoczone Królestwo/płaszczyzny/BA1293/Engine1/2017/08/11/12/*
 
 Istnieje istotny powód, aby umieścić datę na końcu struktury katalogów. Jeśli chcesz zablokować określone regiony lub zagadnienia dotyczące użytkowników/grup, możesz łatwo to zrobić przy użyciu uprawnień POSIX. W przeciwnym razie, jeśli istnieje potrzeba ograniczenia pewnej grupy zabezpieczeń do wyświetlania tylko danych z Wielkiej Brytanii lub niektórych płaszczyzn, w przypadku dużej ilości katalogów w każdej godzinie należy wymagać oddzielnego uprawnienia. Ponadto, jeśli ze strukturą daty na początku zwiększy się liczbę katalogów jako czas, w którym zakończył się.
 
@@ -91,13 +91,13 @@ Na wysokim poziomie często stosowane podejście do przetwarzania wsadowego pole
 
 Czasami przetwarzanie plików nie powiedzie się z powodu uszkodzenia danych lub nieoczekiwanych formatów. W takich przypadkach struktura katalogów może korzystać z folderu **/Bad** , aby przenieść pliki do dalszej inspekcji. Zadanie usługi Batch może także obsłużyć raportowanie lub powiadomienie o tych *nieprawidłowych* plikach w ramach interwencji ręcznej. Weź pod uwagę następującą strukturę szablonów:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter (s)}/in/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter (s)}/out/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter (s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 Na przykład firma marketingowa otrzymuje codzienne wyodrębnianie danych aktualizacji klientów od klientów w Ameryka Północna. Może wyglądać podobnie do poniższego fragmentu kodu przed i po jego przetworzeniu:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*//Wyodrębnianie/ACMEPaperCo/w/2017/08/14/updates_08142017.csv*\
+*//Wyodrębnianie/ACMEPaperCo/out/2017/08/14/processed_updates_08142017.csv*
 
 W przypadku częstego przetwarzania danych wsadowych bezpośrednio do baz danych, takich jak Hive lub tradycyjne bazy danych SQL, nie istnieje potrzeba **/in** lub **/out** folderu, ponieważ dane wyjściowe znajdują się już w oddzielnym folderze tabeli programu Hive lub zewnętrznej bazy danych. Na przykład codzienne wyodrębnienia od klientów będzie miało miejsce w odpowiednich folderach, a aranżacja według takich elementów, jak Azure Data Factory, Apache Oozie lub Apache Flow, wywoła codzienne zadanie Hive lub Spark w celu przetworzenia i zapisania danych w tabeli programu Hive.

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74895775"
 ---
 # <a name="azure-media-services-telemetry"></a>Dane telemetryczne Azure Media Services  
@@ -77,7 +76,7 @@ Dane telemetryczne są przechowywane w postaci agregacji w jednej tabeli, "Telem
 Właściwość|Wartość|Przykłady/uwagi
 ---|---|---
 PartitionKey|{Account ID} _ {identyfikator jednostki}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Identyfikator konta jest uwzględniany w kluczu partycji, aby uprościć przepływy pracy, w których wiele kont Media Services zapisuje się na tym samym koncie magazynu.
-RowKey|{s do północy} _ {wartość losowa}|01688_00199<br/><br/>Klucz wiersza rozpoczyna się od liczby sekund do północy, aby zezwolić na pierwsze n kwerend w stylu w ramach partycji. Więcej informacji znajduje się w [tym](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artykule. 
+RowKey|{s do północy} _ {wartość losowa}|01688_00199<br/><br/>Klucz wiersza rozpoczyna się od liczby sekund do północy, aby zezwolić na pierwsze n kwerend w stylu w ramach partycji. Aby uzyskać więcej informacji, zobacz [ten](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artykuł. 
 Znacznik czasu|Data/godzina|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
 Typ|Typ jednostki dostarczającej dane telemetryczne|Kanał/StreamingEndpoint/Archiwum<br/><br/>Typ zdarzenia to tylko wartość ciągu.
 Nazwa|Nazwa zdarzenia telemetrii|ChannelHeartbeat/StreamingEndpointRequestLog
@@ -119,7 +118,7 @@ Właściwość|Wartość|Przykłady/uwagi
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Znacznik czasu|Znacznik czasu|Autosygnatura czasowa z tabeli platformy Azure 2016 – 09-09T22:43:42.241 Z
-Typ|Typ|Channel
+Typ|Typ|Kanał
 Nazwa|Nazwa|ChannelHeartbeat
 ObservedTime|ObservedTime|2016 – 09-09T22:42:36.924 Z
 ServiceID|Identyfikator usługi|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -132,10 +131,10 @@ OverlapCount|Nakładanie się na pozyskiwanie|0
 DiscontinuityCount|Nieciągłość śledzenia|0
 LastTimestamp|Ostatni przezyskany znacznik czasu danych|1800488800
 NonincreasingCount|Liczba fragmentów odrzuconych ze względu na nierosnącą sygnaturę czasową|2
-UnalignedKeyFrames|Czy zostały odebrane fragmenty (na różnych poziomach jakości), w których ramki kluczowe nie są wyrównane |True
-UnalignedPresentationTime|Czy zostały odebrane fragmenty (różne poziomy jakości/ścieżki), w których czas prezentacji nie jest wyrównany|True
-UnexpectedBitrate|True, Jeśli obliczona/Rzeczywista szybkość transmisji bitów dla ścieżki audio/wideo > 40 000 BPS i IncomingBitrate = = 0 lub IncomingBitrate i actualBitrate różni się o 50% |True
-Dobra kondycja|Prawda, jeśli <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> wszystkie 0|True<br/><br/>Dobra kondycja to funkcja złożona, która zwraca wartość false, jeśli są spełnione następujące warunki:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames = = true<br/>-UnalignedPresentationTime = = true<br/>-UnexpectedBitrate = = true
+UnalignedKeyFrames|Czy zostały odebrane fragmenty (na różnych poziomach jakości), w których ramki kluczowe nie są wyrównane |Prawda
+UnalignedPresentationTime|Czy zostały odebrane fragmenty (różne poziomy jakości/ścieżki), w których czas prezentacji nie jest wyrównany|Prawda
+UnexpectedBitrate|True, Jeśli obliczona/Rzeczywista szybkość transmisji bitów dla ścieżki audio/wideo > 40 000 BPS i IncomingBitrate = = 0 lub IncomingBitrate i actualBitrate różni się o 50% |Prawda
+Dobra kondycja|Prawda, jeśli <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> wszystkie 0|Prawda<br/><br/>Dobra kondycja to funkcja złożona, która zwraca wartość false, jeśli są spełnione następujące warunki:<br/><br/>-OverlapCount > 0<br/>-DiscontinuityCount > 0<br/>-NonincreasingCount > 0<br/>-UnalignedKeyFrames = = true<br/>-UnalignedPresentationTime = = true<br/>-UnexpectedBitrate = = true
 
 **Archiwum na żywo**
 
@@ -220,6 +219,6 @@ System telemetrii nie zapewnia zarządzania przechowywaniem danych ani usuwania 
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

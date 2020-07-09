@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72387666"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308136"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. Android przy użyciu Notification Hubs
 
@@ -248,7 +248,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Dodaj następujący kod w `MyFirebaseMessagingService.cs` celu przetworzenia odbieranych komunikatów. 
+18. Dodaj następujący kod wewnątrz `MyFirebaseMessagingService` klasy, aby przetworzyć odbierane komunikaty. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -292,7 +292,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
         }
     ```
 
-19. Dodaj następujące metody do klasy MyFirebaseMessagingService, aby odebrać token rejestracji FCM i wysłać go do wystąpienia Notification Hubs (centrum). 
+19. Dodaj następujące metody do klasy MyFirebaseMessagingService (bezpośrednio poniżej kodu dodanego w poprzednim kroku), aby otrzymać token rejestracji FCM i wysłać go do wystąpienia Notification Hubs (centrum). 
 
     ```csharp
         public override void OnNewToken(string token)

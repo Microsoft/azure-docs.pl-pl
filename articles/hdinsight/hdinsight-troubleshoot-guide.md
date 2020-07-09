@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: 4460c24bb742bff72af47954363b1051f5d9b43d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3578cda1b51dbb70b0bdfebf92b98c3fa7aa2842
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75895285"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085960"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Rozwiązywanie problemów przy użyciu usługi Azure HDInsight
 
@@ -32,7 +32,7 @@ ms.locfileid: "75895285"
 | Usługa HDInsight w systemie Linux i optymalizacja | - [Informacje dotyczące korzystania z usługi HDInsight w systemie Linux](hdinsight-hadoop-linux-information.md)<br>- [Rozwiązywanie problemów dotyczących pamięci i wydajności Apache Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Wydajność zapytań Apache Hive](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Dzienniki i zrzuty | - [Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w systemie Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Włącz Zrzuty sterty dla usług Apache Hadoop w systemie Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analizowanie dzienników usługi HDInsight](hdinsight-debug-jobs.md)|
 | Errors | - [Zrozumienie i rozwiązywanie błędów WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive ustawień, aby naprawić błąd OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
-| Narzędzia | - [Optymalizowanie Apache Hive zapytań](hdinsight-hadoop-optimize-hive-query.md)<br>- [Narzędzie HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Narzędzie do przezaćmienia HDInsight](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Narzędzie HDInsight programu vscode](hdinsight-for-vscode.md)<br>- [Narzędzie HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+| narzędzia | - [Optymalizowanie Apache Hive zapytań](hdinsight-hadoop-optimize-hive-query.md)<br>- [Narzędzie HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Narzędzie do przezaćmienia HDInsight](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Narzędzie HDInsight programu vscode](hdinsight-for-vscode.md)<br>- [Narzędzie HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -40,6 +40,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

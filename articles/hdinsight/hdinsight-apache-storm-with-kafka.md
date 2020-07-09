@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73494353"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963533"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Samouczek: korzystanie z systemu Apache Storm z platformą Apache Kafka w usłudze HDInsight
 
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie tematu platformy Kafka
 > * Uruchamianie topologii
 > * Zatrzymywanie topologii
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -115,7 +115,7 @@ Następujący kod XML to deklaracja zależności w pliku `pom.xml` projektu narz
 
 ## <a name="understanding-the-code"></a>Omówienie kodu
 
-Kod używany w tym dokumencie jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+Kod używany w tym dokumencie jest dostępny pod adresem [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka) .
 
 Ten samouczek obejmuje dwie topologie:
 
@@ -144,7 +144,7 @@ Następujące parametry są ustawiane w czasie wykonywania dla tych topologii:
 
 * `${hdfs.write.dir}`: katalog, w którym są zapisywane dane.
 
-Aby uzyskać więcej informacji na temat topologii [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)strumienia, zobacz.
+Aby uzyskać więcej informacji na temat topologii strumienia, zobacz [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html) .
 
 ### <a name="kafka-writer"></a>Moduł zapisujący platformy Kafka
 
@@ -391,7 +391,7 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Szablon Azure Resource Manager znajduje się w lokalizacji **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Umożliwia on utworzenie następujących zasobów:
+    Szablon Azure Resource Manager znajduje się w lokalizacji **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** . Umożliwia on utworzenie następujących zasobów:
 
     * Grupa zasobów platformy Azure
     * Azure Virtual Network
@@ -429,7 +429,7 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
 
 ## <a name="build-the-topology"></a>Tworzenie topologii
 
-1. W środowisku programistycznym Pobierz projekt z [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), Otwórz wiersz polecenia i zmień katalogi na lokalizację, w której pobrano projekt.
+1. W środowisku programistycznym Pobierz projekt z [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka) , Otwórz wiersz polecenia i zmień katalogi na lokalizację, w której pobrano projekt.
 
 2. W katalogu **hdinsight-storm-java-kafka** wykonaj następujące polecenie, aby skompilować projekt i utworzyć pakiet na potrzeby wdrażania:
 
@@ -500,7 +500,9 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
 
     Zwrócona wartość będzie podobna do następującego tekstu:
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```output
+    zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```
 
     > [!IMPORTANT]  
     > Choć występują więcej niż dwa węzły usługi Zookeeper, nie trzeba podawać klientom pełnej listy wszystkich hostów. Wystarczy jeden lub dwa.
@@ -509,9 +511,11 @@ Aby utworzyć usługę Azure Virtual Network, a następnie utworzyć w niej klas
 
 3. Otwórz do edycji plik `dev.properties` w folderze głównym projektu. Dodaj informacje o hostach brokera i usługi Zookeeper klastra __Kafka__ w odpowiednich wierszach w pliku. Następujący przykład jest skonfigurowany przy użyciu przykładowych wartości z poprzednich kroków:
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        kafka.topic: stormtopic
+    ```bash
+    kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    kafka.topic: stormtopic
+    ```
 
     > [!IMPORTANT]  
     > Wpis `hdfs.url` jest skonfigurowany dla klastra, który korzysta z konta usługi Azure Storage. Aby zastosować tę topologię z klastrem Storm używającym usługi Data Lake Storage, zmień tę wartość z `wasb` na `adl`.
@@ -590,11 +594,13 @@ Platforma Kafka przechowuje dane w _temacie_. Musisz utworzyć temat przed uruch
 
     Dane wyjściowe będą podobne do następującego tekstu:
 
-        Found 173 items
-        -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
-        -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
-        -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
-        ...
+    ```output
+    Found 173 items
+      -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
+      -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
+      -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
+      ...
+    ```
 
 3. Wyświetl zawartość pliku za pomocą następującego polecenia. Zastąp ciąg `filename.txt` nazwą pliku:
 
@@ -604,13 +610,19 @@ Platforma Kafka przechowuje dane w _temacie_. Musisz utworzyć temat przed uruch
 
     Następujący tekst to przykładowa zawartość pliku:
 
-        four score and seven years ago
-        snow white and the seven dwarfs
-        i am at two with nature
-        snow white and the seven dwarfs
-        i am at two with nature
-        four score and seven years ago
-        an apple a day keeps the doctor away
+    > cztery wyniki i siedem lat temu
+    >
+    > biały śnieg i siedem Dwarfs
+    >
+    > Jestem z natury
+    >
+    > biały śnieg i siedem Dwarfs
+    >
+    > Jestem z natury
+    >
+    > cztery wyniki i siedem lat temu
+    >
+    > Firma Apple Day utrzymuje lekarza
 
 ## <a name="stop-the-topologies"></a>Zatrzymywanie topologii
 
@@ -621,7 +633,7 @@ Z poziomu sesji SSH z klastrem Storm zatrzymaj topologie systemu Storm za pomoc�
   storm kill kafka-reader
   ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego klastra usługi HDInsight i wszystkich innych zasobów skojarzonych z tą grupą zasobów.
 

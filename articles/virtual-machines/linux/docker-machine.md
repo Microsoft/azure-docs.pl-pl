@@ -8,14 +8,13 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78968815"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Jak utworzyć hosty na platformie Azure przy użyciu maszyny platformy Docker
-W tym artykule szczegółowo przedstawiono sposób użycia [maszyny platformy Docker](https://docs.docker.com/machine/) do tworzenia hostów na platformie Azure. `docker-machine` Polecenie tworzy maszynę wirtualną z systemem Linux na platformie Azure, a następnie instaluje platformę Docker. Następnie można zarządzać hostami platformy Docker na platformie Azure przy użyciu tych samych lokalnych narzędzi i przepływów pracy. Aby używać maszyny Docker w systemie Windows 10, należy użyć systemu Linux bash.
+W tym artykule szczegółowo przedstawiono sposób użycia [maszyny platformy Docker](https://docs.docker.com/machine/) do tworzenia hostów na platformie Azure. `docker-machine`Polecenie tworzy maszynę wirtualną z systemem Linux na platformie Azure, a następnie instaluje platformę Docker. Następnie można zarządzać hostami platformy Docker na platformie Azure przy użyciu tych samych lokalnych narzędzi i przepływów pracy. Aby używać maszyny Docker w systemie Windows 10, należy użyć systemu Linux bash.
 
 ## <a name="create-vms-with-docker-machine"></a>Tworzenie maszyn wirtualnych przy użyciu maszyny platformy Docker
 Najpierw Uzyskaj identyfikator subskrypcji platformy Azure za pomocą [AZ Account show](/cli/azure/account) w następujący sposób:
@@ -24,7 +23,7 @@ Najpierw Uzyskaj identyfikator subskrypcji platformy Azure za pomocą [AZ Accoun
 sub=$(az account show --query "id" -o tsv)
 ```
 
-Możesz tworzyć maszyny wirtualne platformy Docker na platformie `docker-machine create` Azure za pomocą programu, określając *platformę Azure* jako sterownik. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą platformy Docker Azure](https://docs.docker.com/machine/drivers/azure/)
+Możesz tworzyć maszyny wirtualne platformy Docker na platformie Azure za pomocą programu `docker-machine create` , określając *platformę Azure* jako sterownik. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą platformy Docker Azure](https://docs.docker.com/machine/drivers/azure/)
 
 Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM*na podstawie planu "standardowa D2 v2", tworzy konto użytkownika o nazwie *azureuser*, a następnie otwiera port *80* na maszynie wirtualnej hosta. Postępuj zgodnie z monitami, aby zalogować się do konta platformy Azure i przyznać uprawnienia maszynom platformy Docker do tworzenia zasobów i zarządzania nimi.
 
@@ -88,7 +87,7 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Aby zdefiniować ustawienia połączenia, można uruchomić sugerowane polecenie konfiguracyjne (`eval $(docker-machine env myvm)`) lub ręcznie ustawić zmienne środowiskowe. 
+Aby zdefiniować ustawienia połączenia, można uruchomić sugerowane polecenie konfiguracyjne ( `eval $(docker-machine env myvm)` ) lub ręcznie ustawić zmienne środowiskowe. 
 
 ## <a name="run-a-container"></a>Uruchamianie kontenera
 Aby wyświetlić kontener w działaniu, program umożliwia uruchomienie podstawowego serwera webNGINX. Utwórz kontener z `docker run` i Uwidocznij port 80 dla ruchu w sieci Web w następujący sposób:
@@ -110,7 +109,7 @@ Status: Downloaded newer image for nginx:latest
 675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
 ```
 
-Wyświetl uruchomione kontenery `docker ps`za pomocą. Następujące przykładowe dane wyjściowe przedstawiają kontener NGINX z systemem z udostępnionym portem 80:
+Wyświetl uruchomione kontenery za pomocą `docker ps` . Następujące przykładowe dane wyjściowe przedstawiają kontener NGINX z systemem z udostępnionym portem 80:
 
 ```bash
 CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES

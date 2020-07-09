@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób konfigurowania i uzyskiwania dostęp
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: fe099dcb49d176d27466c08749a5873904d1ae2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d381bd26405feeb5e4d4457197f290649907d3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74766841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103164"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Użyj Azure Portal, aby skonfigurować alerty dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -38,7 +38,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 3. Wybierz pozycję **Dodaj alert dotyczący metryki** (+ ikona).
 
-4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wprowadź wymagane informacje:
+4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wypełnij wymagane informacje:
 
    ![Formularz dodawania alertu metryki](./media/howto-alert-on-metric/4-add-rule-form.png)
 

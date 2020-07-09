@@ -11,12 +11,11 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190147"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84295426"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Typy aplikacji, które mogą być używane w Active Directory B2C
 
@@ -42,7 +41,7 @@ Te kroki mogą się nieco różnić w zależności od typu kompilowanej aplikacj
 
 ## <a name="web-applications"></a>Aplikacje internetowe
 
-W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node. js), które są hostowane na serwerze i dostępne za pomocą przeglądarki, Azure AD B2C obsługuje [OpenID Connect Connect](protocols-overview.md) dla wszystkich środowisk użytkownika. W Azure AD B2C implementacji OpenID Connect Connect aplikacja sieci Web inicjuje środowisko użytkownika przez wystawienie żądań uwierzytelniania do usługi Azure AD. Wynikiem żądania jest token `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika. Zawiera także informacje o użytkowniku w formie oświadczeń:
+W przypadku aplikacji sieci Web (w tym .NET, PHP, Java, Ruby, Python i Node.js), które są hostowane na serwerze i dostępne za pomocą przeglądarki, Azure AD B2C obsługuje [OpenID Connect Connect](protocols-overview.md) dla wszystkich środowisk użytkownika. W Azure AD B2C implementacji OpenID Connect Connect aplikacja sieci Web inicjuje środowisko użytkownika przez wystawienie żądań uwierzytelniania do usługi Azure AD. Wynikiem żądania jest token `id_token`. Ten token zabezpieczający reprezentuje tożsamość użytkownika. Zawiera także informacje o użytkowniku w formie oświadczeń:
 
 ```json
 // Partial raw id_token
@@ -65,8 +64,8 @@ W aplikacji sieci Web każde wykonanie [zasad](user-flow-overview.md) wykonuje n
 2. Aplikacja sieci Web przekierowuje użytkownika do Azure AD B2C wskazującą, że zasady zostały wykonane.
 3. Użytkownik ukończy zasady.
 4. Azure AD B2C zwraca `id_token` do przeglądarki.
-5. `id_token` Jest on ogłaszany w identyfikatorze URI przekierowania.
-6. `id_token` Została sprawdzona weryfikacja i ustawiono plik cookie sesji.
+5. `id_token`Jest on ogłaszany w identyfikatorze URI przekierowania.
+6. `id_token`Została sprawdzona weryfikacja i ustawiono plik cookie sesji.
 7. Do użytkownika zostanie zwrócona bezpieczna strona.
 
 Sprawdzenie tokenu `id_token` przy użyciu publicznego klucza podpisywania otrzymanego z usługi Azure AD jest wystarczające do zweryfikowania tożsamości użytkownika. Ten proces ustawia również plik cookie sesji, który może służyć do identyfikowania użytkownika na kolejnych żądaniach strony.
@@ -93,11 +92,11 @@ Internetowy interfejs API może odbierać tokeny z wielu typów klientów, takic
 
 1. Aplikacja sieci Web wykonuje zasady, a użytkownik kończy pracę użytkownika.
 2. Azure AD B2C zwraca (OpenID Connect Connect) `id_token` i kod autoryzacji do przeglądarki.
-3. Przeglądarka publikuje kod `id_token` autoryzacji i w identyfikatorze URI przekierowania.
+3. Przeglądarka publikuje `id_token` kod autoryzacji i w identyfikatorze URI przekierowania.
 4. Serwer sieci Web sprawdza poprawność `id_token` i ustawia plik cookie sesji.
-5. Serwer sieci Web prosi Azure AD B2C `access_token` o podanie kodu autoryzacji, identyfikatora klienta aplikacji i poświadczeń klienta.
-6. `access_token` I `refresh_token` są zwracane do serwera sieci Web.
-7. Interfejs API sieci Web jest wywoływany `access_token` przy użyciu w nagłówku autoryzacji.
+5. Serwer sieci Web prosi Azure AD B2C o `access_token` podanie kodu autoryzacji, identyfikatora klienta aplikacji i poświadczeń klienta.
+6. `access_token`I `refresh_token` są zwracane do serwera sieci Web.
+7. Interfejs API sieci Web jest wywoływany przy użyciu `access_token` w nagłówku autoryzacji.
 8. Internetowy interfejs API sprawdza poprawność tokenu.
 9. Zabezpieczone dane są zwracane do aplikacji sieci Web.
 
@@ -109,7 +108,7 @@ Aby dowiedzieć się, jak zabezpieczyć interfejs API sieci Web przy użyciu us�
 
 Aplikacje, które są zainstalowane na urządzeniach, takich jak aplikacje mobilne i klasyczne, często muszą uzyskiwać dostęp do usług zaplecza lub interfejsów API sieci Web w imieniu użytkowników. Możesz dodać dostosowane środowiska zarządzania tożsamościami do natywnych aplikacji i bezpiecznie wywoływać usługi zaplecza, używając Azure AD B2C i [przepływu kodu autoryzacji OAuth 2,0](authorization-code-flow.md).
 
-W tym przepływie aplikacja wykonuje [zasady](user-flow-overview.md) i odbiera `authorization_code` z usługi Azure AD po zakończeniu zasad przez użytkownika. `authorization_code` Reprezentuje uprawnienie aplikacji do wywoływania usług zaplecza w imieniu użytkownika, który jest aktualnie zalogowany. Aplikacja może następnie wymienić `authorization_code` w tle dla `access_token` i. `refresh_token`  Aplikacja może używać usługi `access_token` do uwierzytelniania w interfejsie API sieci Web zaplecza w żądaniach HTTP. Może również użyć tokenu `refresh_token` do pobrania nowego tokenu `access_token`, gdy wygaśnie stary.
+W tym przepływie aplikacja wykonuje [zasady](user-flow-overview.md) i odbiera `authorization_code` z usługi Azure AD po zakończeniu zasad przez użytkownika. `authorization_code`Reprezentuje uprawnienie aplikacji do wywoływania usług zaplecza w imieniu użytkownika, który jest aktualnie zalogowany. Aplikacja może następnie wymienić `authorization_code` w tle dla `access_token` i `refresh_token` .  Aplikacja może używać usługi `access_token` do uwierzytelniania w interfejsie API sieci Web zaplecza w żądaniach HTTP. Może również użyć tokenu `refresh_token` do pobrania nowego tokenu `access_token`, gdy wygaśnie stary.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
@@ -119,9 +118,11 @@ W tym przepływie aplikacja wykonuje [zasady](user-flow-overview.md) i odbiera `
 
 Aplikacje zawierające długotrwałe procesy lub działające bez obecności użytkownika potrzebują również metody uzyskiwania dostępu do zabezpieczonych zasobów, takich jak interfejsy API sieci Web. Te aplikacje mogą uwierzytelniać i uzyskiwać tokeny przy użyciu tożsamości aplikacji (a nie delegowanej tożsamości użytkownika) oraz za pomocą przepływu poświadczeń klienta OAuth 2,0. Przepływ poświadczeń klienta nie jest taki sam, jak w przypadku usługi w imieniu i w imieniu, nie powinien być używany do uwierzytelniania między serwerami.
 
-Mimo że przepływ poświadczeń klienta nie jest obecnie obsługiwany przez Azure AD B2C, można skonfigurować przepływ poświadczeń klienta przy użyciu usługi Azure AD. Dzierżawa Azure AD B2C udostępnia pewne funkcje z dzierżawami przedsiębiorstwa usługi Azure AD.  Przepływ poświadczeń klienta jest obsługiwany przy użyciu funkcji usługi Azure AD dzierżawy Azure AD B2C.
+Mimo że przesyłanie poświadczeń klienta OAuth 2,0 nie jest obecnie obsługiwane bezpośrednio przez usługę uwierzytelniania Azure AD B2C, można skonfigurować przepływ poświadczeń klienta przy użyciu usługi Azure AD i punktu końcowego Microsoft Identity platform/token dla aplikacji w dzierżawie Azure AD B2C. Dzierżawa Azure AD B2C udostępnia pewne funkcje z dzierżawami przedsiębiorstwa usługi Azure AD.
 
 Aby skonfigurować przepływ poświadczeń klienta, zobacz [Azure Active Directory v 2.0 i przepływ poświadczeń klienta OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Pomyślne uwierzytelnienie powoduje otrzymanie tokenu sformatowanego w taki sposób, aby mógł być używany przez usługę Azure AD zgodnie z opisem w temacie [odwołanie do tokenu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+
+Instrukcje dotyczące rejestrowania aplikacji zarządzania programu znajdują się w temacie [zarządzanie Azure AD B2C przy użyciu Microsoft Graph](microsoft-graph-get-started.md).
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Łańcuchy interfejsu API sieci Web (przepływ „w imieniu”)
 

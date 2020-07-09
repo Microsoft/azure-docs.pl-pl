@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969210"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Uruchamianie skryptu bash na maszynie wirtualnej z systemem Linux na platformie Azure przy użyciu funkcji Cloud-init
@@ -21,7 +20,7 @@ Przy użyciu funkcji Cloud-init nie trzeba konwertować istniejących skryptów 
 
 Jeśli do uruchamiania skryptów użyto rozszerzenia Azure Custom Script skrypt w systemie Linux, można je migrować do korzystania z funkcji Cloud-init. Rozszerzenia platformy Azure mają jednak zintegrowane raportowanie do alertów dotyczących błędów skryptów, więc wdrożenie obrazu w chmurze nie powiedzie się, jeśli wystąpi błąd skryptu.
 
-Aby wyświetlić tę funkcję w działaniu, Utwórz prosty skrypt bash na potrzeby testowania. Podobnie jak w przypadku pliku `#cloud-config` Cloud-init, ten skrypt musi być lokalnym miejscem, w którym będą uruchamiane polecenia AzureCLI w celu aprowizacji maszyny wirtualnej.  Na potrzeby tego przykładu Utwórz plik w Cloud Shell nie na komputerze lokalnym. Możesz użyć dowolnego edytora. Wprowadź `sensible-editor simple_bash.sh`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć edytora **nano** . Upewnij się, że cały plik Cloud-init został poprawnie skopiowany, szczególnie w pierwszym wierszu.  
+Aby wyświetlić tę funkcję w działaniu, Utwórz prosty skrypt bash na potrzeby testowania. Podobnie jak w przypadku pliku Cloud-init `#cloud-config` , ten skrypt musi być lokalnym miejscem, w którym będą uruchamiane polecenia AzureCLI w celu aprowizacji maszyny wirtualnej.  Na potrzeby tego przykładu Utwórz plik w Cloud Shell nie na komputerze lokalnym. Możesz użyć dowolnego edytora. Wprowadź `sensible-editor simple_bash.sh`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć edytora **nano** . Upewnij się, że cały plik Cloud-init został poprawnie skopiowany, szczególnie w pierwszym wierszu.  
 
 ```bash
 #!/bin/sh
@@ -34,7 +33,7 @@ Przed wdrożeniem tego obrazu należy utworzyć grupę zasobów za pomocą polec
 az group create --name myResourceGroup --location eastus
 ```
 
-Teraz Utwórz maszynę wirtualną za pomocą [AZ VM Create](/cli/azure/vm) i określ plik `--custom-data simple_bash.sh` skryptu bash w następujący sposób:
+Teraz Utwórz maszynę wirtualną za pomocą [AZ VM Create](/cli/azure/vm) i określ plik skryptu bash w `--custom-data simple_bash.sh` następujący sposób:
 
 ```azurecli-interactive 
 az vm create \
@@ -51,7 +50,7 @@ SSH do publicznego adresu IP maszyny wirtualnej wyświetlanej w danych wyjściow
 ssh <publicIpAddress>
 ```
 
-Przejdź do katalogu **/tmp** i upewnij się, że plik mój Script. txt istnieje i zawiera odpowiedni tekst w nim.  Jeśli tak nie jest, możesz sprawdzić **/var/log/Cloud-init.log** , aby uzyskać więcej szczegółów.  Wyszukaj następujący wpis:
+Przejdź do katalogu **/tmp** i sprawdź, czy plik myScript.txt istnieje i czy znajduje się w nim odpowiedni tekst.  Jeśli tak nie jest, możesz sprawdzić **/var/log/Cloud-init.log** , aby uzyskać więcej szczegółów.  Wyszukaj następujący wpis:
 
 ```bash
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']

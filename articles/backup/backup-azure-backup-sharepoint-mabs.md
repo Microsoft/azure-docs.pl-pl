@@ -3,12 +3,11 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure z
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywrócić dane programu SharePoint. Ten artykuł zawiera informacje dotyczące konfigurowania farmy programu SharePoint w taki sposób, aby wymagane dane mogły być przechowywane na platformie Azure. Chronione dane programu SharePoint można przywrócić z dysku lub z platformy Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657271"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84234787"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure za pomocą usługi serwera usługi MAB
 
@@ -52,9 +51,9 @@ Dodatkowe wymagania wstępne i ograniczenia:
 
 ## <a name="configure-backup"></a>Konfigurowanie kopii zapasowych
 
-Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę programu SharePoint za pomocą ConfigureSharePoint. exe, a następnie utwórz grupę ochrony w serwera usługi MAB.
+Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę programu SharePoint przy użyciu ConfigureSharePoint.exe a następnie utwórz grupę ochrony w serwera usługi MAB.
 
-1. **Uruchom narzędzie ConfigureSharePoint.exe** — służy ono do konfigurowania usługi składnika zapisywania usługi VSS dla programu SharePoint \(WSS\) i udostępnia agentowi ochrony poświadczenia dla farmy programu SharePoint. Po wdrożeniu agenta ochrony plik ConfigureSharePoint. exe można znaleźć w `<MABS Installation Path\>\bin` folderze na serwerze frontonu \- sieci Web.  Jeśli masz wiele serwerów WFE, musisz zainstalować je tylko na jednym z nich. Postępuj w następujący sposób:
+1. **Uruchom narzędzie ConfigureSharePoint.exe** — służy ono do konfigurowania usługi składnika zapisywania usługi VSS dla programu SharePoint \(WSS\) i udostępnia agentowi ochrony poświadczenia dla farmy programu SharePoint. Po wdrożeniu agenta ochrony plik ConfigureSharePoint.exe można znaleźć w `<MABS Installation Path\>\bin` folderze na serwerze frontonu \- sieci Web.  Jeśli masz wiele serwerów WFE, musisz zainstalować je tylko na jednym z nich. Postępuj w następujący sposób:
 
     * Na serwerze WFE, w wierszu polecenia przejdź do `\<MABS installation location\>\\bin\\` i uruchom `ConfigureSharePoint \[\-EnableSharePointProtection\] \[\-EnableSPSearchProtection\] \[\-ResolveAllSQLAliases\] \[\-SetTempPath <path>\]` , gdzie:
 
@@ -68,18 +67,17 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
     * Wprowadź poświadczenia administratora farmy. To konto musi należeć do lokalnej grupy administratorów na serwerze WFE. Jeśli administrator farmy nie jest administratorem lokalnym, przyznaj następujące uprawnienia na serwerze WFE:
 
-        * Przyznaj grupie administratorów programu WSS uprawnienia \_ \_ pełna kontrola do folderu serwera usługi MAB \( % program files% \\ Data Protection Manager \\ DPM \) .
-            -A
+        * Przyznaj grupie **WSS_Admin_WPG** pełną kontrolę do folderu serwera usługi MAB ( `%Program Files%\Data Protection Manager\DPM\` ).
 
-        * Przyznaj grupie zasobów administracyjnych programu WSS \_ \_ dostęp do odczytu do klucza rejestru serwera usługi MAB \( HKEY \_ Local \_ Machine \\ Software \\ Microsoft \\ Microsoft Data Protection Manager \) .
+        * Przyznaj grupie **WSS_Admin_WPG** dostęp do odczytu do klucza rejestru serwera usługi MAB ( `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager` ).
 
-        Po uruchomieniu programu ConfigureSharePoint. exe należy uruchomić go ponownie w przypadku zmiany poświadczeń administratora farmy SharePoint.
+        Po uruchomieniu ConfigureSharePoint.exe należy uruchomić go ponownie w przypadku zmiany poświadczeń administratora farmy programu SharePoint.
 
 1. Aby utworzyć grupę ochrony, kliknij pozycję **Protection**  >  **Akcje**ochrony  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** w konsoli programu serwera usługi MAB.
 
 1. W obszarze **Wybierz typ grupy ochrony** wybierz pozycję **Serwery**.
 
-1. W obszarze **Wybierz członków grupy**rozwiń serwer, który zawiera rolę WFE. Jeśli istnieje więcej niż jeden serwer WFE, wybierz ten, na którym został zainstalowany program ConfigureSharePoint. exe.
+1. W obszarze **Wybierz członków grupy**rozwiń serwer, który zawiera rolę WFE. Jeśli istnieje więcej niż jeden serwer WFE, wybierz ten, na którym zainstalowano ConfigureSharePoint.exe.
 
     Po rozszerzeniu programu SharePoint Server serwera usługi MAB zapytania usługi VSS, aby zobaczyć, jakie dane mogą być chronione przez serwera usługi MAB.  Jeśli baza danych programu SharePoint jest zdalna, serwera usługi MAB łączy się z nią. Jeśli źródła danych programu SharePoint nie są wyświetlane, sprawdź, czy składnik zapisywania usługi VSS jest uruchomiony na serwerze programu SharePoint i wszystkich SQL Server zdalnych, a następnie upewnij się, że agent serwera usługi MAB jest zainstalowany na serwerze programu SharePoint i SQL Server zdalnym. Ponadto upewnij się, że bazy danych programu SharePoint nie są chronione w innym miejscu jako SQL Server bazy danych.
 

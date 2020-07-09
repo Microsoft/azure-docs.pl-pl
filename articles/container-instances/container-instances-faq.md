@@ -3,13 +3,12 @@ title: Często zadawane pytania
 description: Odpowiedzi na często zadawane pytania dotyczące usługi Azure Container Instances
 author: dkkapur
 ms.topic: article
-ms.date: 04/10/2020
-ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115231"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806605"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
 
@@ -27,25 +26,28 @@ Rozmiar obrazu kontenera ma wpływ na czas wdrażania, dlatego na ogół chcesz 
 
 Ponieważ jednym z głównych wyznaczników czasu wdrożenia jest rozmiar obrazu, poszukaj sposobów zmniejszenia rozmiaru. Usuń niepotrzebne warstwy lub Zmniejsz rozmiar warstw obrazu (poprzez wybranie jaśniejszego obrazu podstawowego systemu operacyjnego). Na przykład jeśli używasz kontenerów systemu Linux, rozważ użycie Alpine jako obrazu podstawowego, a nie całego serwera Ubuntu. Podobnie w przypadku kontenerów systemu Windows, jeśli jest to możliwe, należy użyć podstawowego obrazu serwera nano Server. 
 
-Należy również sprawdzić listę wstępnie zbuforowanych obrazów w usłudze Azure Container images, która jest dostępna za pośrednictwem interfejsu API [buforowania list obrazów](/rest/api/container-instances/listcachedimages) . Może być możliwe przełączenie warstwy obrazu dla jednego z wstępnie zbuforowanych obrazów. 
+Należy również sprawdzić listę wstępnie zbuforowanych obrazów w usłudze Azure Container images, która jest dostępna za pośrednictwem interfejsu API [buforowania list obrazów](/rest/api/container-instances/location/listcachedimages) . Może być możliwe przełączenie warstwy obrazu dla jednego z wstępnie zbuforowanych obrazów. 
 
 Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) dotyczące skracania czasu uruchamiania kontenera.
 
 ### <a name="what-windows-base-os-images-are-supported"></a>Jakie podstawowe obrazy systemu operacyjnego Windows są obsługiwane?
 
+> [!NOTE]
+> Ze względu na problemy z poprzednią zgodnością po aktualizacji systemu Windows w wersji 2020, następujące wersje obrazu zawierają minimalny numer wersji, którego zalecamy użyć w obrazie podstawowym. Nie ma to wpływu na bieżące wdrożenia korzystające ze starszych wersji obrazu, ale nowe wdrożenia powinny być zgodne z poniższymi obrazami podstawowymi. 
+
 #### <a name="windows-server-2016-base-images"></a>Podstawowe obrazy systemu Windows Server 2016
 
-* [Serwer nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`,`sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,`10.0.14393.x`
+* [Serwer nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` lub nowszy
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` , `10.0.14393.3506` lub nowszy
 
 > [!NOTE]
 > Obrazy systemu Windows oparte na półrocze w wersji 1709 lub 1803 nie są obsługiwane.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 i obrazy podstawowe klienta (wersja zapoznawcza)
 
-* [Serwer nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver) `1809`: `10.0.17763.914` lub starszy
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.914` lub starszy
-* [System Windows](https://hub.docker.com/_/microsoft-windows) `1809`: `10.0.17763.914` lub starszy
+* [Serwer nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809` `10.0.17763.1040` lub nowszy
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019` , `1809` `10.0.17763.1040` lub nowszy
+* [System Windows](https://hub.docker.com/_/microsoft-windows): `1809` `10.0.17763.1040` lub nowszy
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Jakiej warstwy obrazu platformy .NET lub platformy .NET Core należy używać w moim kontenerze? 
 

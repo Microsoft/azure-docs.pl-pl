@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832869"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -36,11 +36,8 @@ Aby zarejestrować usługi, należy utworzyć metodę konfigurowania i dodawania
 Aby zarejestrować metodę, Dodaj `FunctionsStartup` atrybut zestawu, który określa nazwę typu używaną podczas uruchamiania.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -52,7 +49,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -61,6 +58,8 @@ namespace MyNamespace
     }
 }
 ```
+
+W tym przykładzie zastosowano pakiet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) wymagany do zarejestrowania podczas `HttpClient` uruchamiania.
 
 ### <a name="caveats"></a>Zastrzeżenia
 
@@ -72,48 +71,47 @@ Seria kroków rejestracji jest uruchamiana przed i po przetworzeniu klasy starto
 
 ## <a name="use-injected-dependencies"></a>Użyj wstrzykiwanych zależności
 
-Iniekcja konstruktora służy do udostępniania zależności w funkcji. Użycie iniekcji konstruktora wymaga, aby nie używać klas statycznych.
+Iniekcja konstruktora służy do udostępniania zależności w funkcji. Użycie iniekcji konstruktora wymaga, aby nie używać klas statycznych dla wstrzykiwanych usług lub dla klas funkcji.
 
-Poniższy przykład demonstruje, jak `IMyService` i `HttpClient` zależności są wstrzykiwane do funkcji wyzwalanej przez protokół http. W tym przykładzie zastosowano pakiet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) wymagany do zarejestrowania podczas `HttpClient` uruchamiania.
+Poniższy przykład demonstruje, jak `IMyService` i `HttpClient` zależności są wstrzykiwane do funkcji wyzwalanej przez protokół http.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+W tym przykładzie zastosowano pakiet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) wymagany do zarejestrowania podczas `HttpClient` uruchamiania.
 
 ## <a name="service-lifetimes"></a>Okresy istnienia usługi
 
@@ -121,13 +119,15 @@ Aplikacje Azure Functions zapewniają te same okresy istnienia usługi jak [inie
 
 - **Przejściowe**: usługi przejściowe są tworzone na podstawie każdego żądania usługi.
 - W **zakresie**: okres istnienia usługi w zakresie jest zgodny z okresem istnienia funkcji. Usługi w zakresie są tworzone raz na wykonanie. Późniejsze żądania dla tej usługi podczas wykonywania ponownie użyją istniejącego wystąpienia usługi.
-- **Pojedyncze**: okres istnienia usługi pojedynczej jest zgodny z okresem istnienia hosta i jest ponownie używany w ramach wykonywania funkcji w tym wystąpieniu. Pojedyncze usługi okresu istnienia są zalecane dla połączeń i klientów, na przykład `SqlConnection` lub dla `HttpClient` wystąpień.
+- **Pojedyncze**: okres istnienia usługi pojedynczej jest zgodny z okresem istnienia hosta i jest ponownie używany w ramach wykonywania funkcji w tym wystąpieniu. Pojedyncze usługi okresu istnienia są zalecane dla połączeń i klientów, na przykład `DocumentClient` lub dla `HttpClient` wystąpień.
 
 Wyświetl lub Pobierz [przykład różnych okresów istnienia usługi](https://aka.ms/functions/di-sample) w serwisie GitHub.
 
 ## <a name="logging-services"></a>Usługi rejestrowania
 
-Jeśli potrzebujesz własnego dostawcy rejestrowania, Zarejestruj niestandardowy typ jako `ILoggerProvider` wystąpienie. Application Insights jest automatycznie dodawane przez Azure Functions.
+Jeśli potrzebujesz własnego dostawcy rejestrowania, Zarejestruj niestandardowy typ jako wystąpienie [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory) , które jest dostępne za pomocą pakietu NuGet [Microsoft. Extensions. Logging. Abstracts](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
+
+Application Insights jest automatycznie dodawane przez Azure Functions.
 
 > [!WARNING]
 > - Nie należy dodawać `AddApplicationInsightsTelemetry()` do kolekcji usług, ponieważ rejestruje ona usługi, które powodują konflikt z usługami udostępnianymi przez środowisko.
@@ -135,7 +135,9 @@ Jeśli potrzebujesz własnego dostawcy rejestrowania, Zarejestruj niestandardowy
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger <T> i ILoggerFactory
 
-Host przejdzie do `ILogger<T>` `ILoggerFactory` konstruktorów i usług.  Jednak domyślnie nowe filtry rejestrowania zostaną odfiltrowane z dzienników funkcji.  Należy zmodyfikować `host.json` plik, aby zadecydować o dodatkowych filtrach i kategoriach.  Poniższy przykład ilustruje Dodawanie `ILogger<HttpTrigger>` dzienników z dziennikami, które zostaną uwidocznione przez hosta.
+Host `ILogger<T>` `ILoggerFactory` wprowadza i usługi do konstruktorów.  Jednak domyślnie nowe filtry rejestrowania są filtrowane z dzienników funkcji.  Należy zmodyfikować plik, aby włączyć go `host.json` do dodatkowych filtrów i kategorii.
+
+Poniższy przykład pokazuje, jak dodać `ILogger<HttpTrigger>` pliki z dziennikami, które są dostępne dla hosta.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +162,7 @@ namespace MyNamespace
 }
 ```
 
-I `host.json` plik, który dodaje filtr dziennika.
+Poniższy przykładowy `host.json` plik dodaje filtr dziennika.
 
 ```json
 {
@@ -251,7 +253,7 @@ public class HttpTrigger
 Zapoznaj się z [wzorcem opcji w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) , aby uzyskać więcej informacji dotyczących pracy z opcjami.
 
 > [!WARNING]
-> Należy unikać próby odczytu wartości z plików, takich jak *Local. Settings. JSON* lub *appSettings. { środowisko}. JSON* w planie zużycia. Wartości odczytane z tych plików związanych z połączeniami wyzwalaczy nie są dostępne, ponieważ aplikacja jest skalowana, ponieważ infrastruktura hostingu nie ma dostępu do informacji o konfiguracji.
+> Unikaj próby odczytu wartości z plików, takich jak *local.settings.json* lub *appSettings. { środowisko}. JSON* w planie zużycia. Wartości odczytane z tych plików związanych z połączeniami wyzwalaczy są niedostępne, ponieważ infrastruktura hostingu nie ma dostępu do informacji o konfiguracji, ponieważ kontroler skalowania tworzy nowe wystąpienia aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

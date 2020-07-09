@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/11/2018
 ms.author: allensu
-ms.openlocfilehash: a0df9cecc4ccd09db3f6b07fa6fd4c5283753aa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1521d08ef9d431bbe8b3fd3a578297d440ed56b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260211"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84887211"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Sterowanie zachowaniem Azure CDN buforowania za pomocą ciągów zapytań — warstwa standardowa
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "81260211"
 > 
 
 ## <a name="overview"></a>Omówienie
-Za pomocą usługi Azure Content Delivery Network (CDN) można kontrolować sposób, w jaki pliki są buforowane dla żądania sieci Web, które zawiera ciąg zapytania. W żądaniu sieci Web za pomocą ciągu zapytania ciąg zapytania jest częścią żądania, która występuje po znaku zapytania (?). Ciąg zapytania może zawierać co najmniej jedną parę klucz-wartość, w której nazwa pola i jego wartość są oddzielone znakiem równości (=). Każda para klucz-wartość jest oddzielona znakiem handlowego "i" (&). Na przykład http:\//www.contoso.com/content.mov?field1=value1&Pole2 = wartość2. Jeśli w ciągu zapytania żądania występuje więcej niż jedna para klucz-wartość, ich kolejność nie ma znaczenia. 
+Za pomocą usługi Azure Content Delivery Network (CDN) można kontrolować sposób, w jaki pliki są buforowane dla żądania sieci Web, które zawiera ciąg zapytania. W żądaniu sieci Web za pomocą ciągu zapytania ciąg zapytania jest częścią żądania, która występuje po znaku zapytania (?). Ciąg zapytania może zawierać co najmniej jedną parę klucz-wartość, w której nazwa pola i jego wartość są oddzielone znakiem równości (=). Każda para klucz-wartość jest oddzielona znakiem handlowego "i" (&). Na przykład http: \/ /www.contoso.com/content.mov?field1=value1&Pole2 = wartość2. Jeśli w ciągu zapytania żądania występuje więcej niż jedna para klucz-wartość, ich kolejność nie ma znaczenia. 
 
 > [!IMPORTANT]
 > Produkty Azure CDN Standard i Premium zapewniają te same funkcje buforowania ciągu zapytania, ale interfejs użytkownika różni się. W tym artykule opisano interfejs dla **Azure CDN standard firmy Microsoft**, **Azure CDN Standard from Akamai** i **Azure CDN Standard from Verizon**. W przypadku buforowania ciągu zapytania z użyciem **Azure CDN Premium z Verizon**, zobacz [Azure CDN sterowania buforowaniem z ciągami zapytań — warstwa Premium](cdn-query-string-premium.md).

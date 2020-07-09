@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
 ms.openlocfilehash: ab846eeb09c4f3d2db71abf58ef5d55dc74962a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82112052"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Jak zaktualizować agenta systemu Linux dla platformy Azure na maszynie wirtualnej
@@ -352,7 +352,7 @@ sudo systemctl restart walinuxagent.service
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 i Oracle Linux 7
 
-W przypadku Oracle Linux upewnij się, że `Addons` repozytorium jest włączone. Wybierz, aby edytować plik `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) lub `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), a następnie zmień wiersz `enabled=0` na `enabled=1` **[ol6_addons]** lub **[ol7_addons]** w tym pliku.
+W przypadku Oracle Linux upewnij się, że `Addons` repozytorium jest włączone. Wybierz, aby edytować plik `/etc/yum.repos.d/public-yum-ol6.repo` (Oracle Linux 6) lub `/etc/yum.repos.d/public-yum-ol7.repo` (Oracle Linux), a następnie zmień wiersz `enabled=0` na `enabled=1` **[ol6_addons]** lub **[ol7_addons]** w tym pliku.
 
 Następnie, aby zainstalować najnowszą wersję agenta systemu Azure Linux, wpisz:
 
@@ -390,7 +390,7 @@ Następnie wpisz:
 sudo yum update WALinuxAgent
 ```
 
-Zwykle jest to potrzebne, ale jeśli z https://github.com jakiegoś powodu należy koniecznie zainstalować ją bezpośrednio, wykonaj następujące czynności.
+Zwykle jest to potrzebne, ale jeśli z jakiegoś powodu należy koniecznie zainstalować ją https://github.com bezpośrednio, wykonaj następujące czynności.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Aktualizacja agenta systemu Linux, gdy żaden pakiet agenta nie istnieje na potrzeby dystrybucji
@@ -398,7 +398,7 @@ Zwykle jest to potrzebne, ale jeśli z https://github.com jakiegoś powodu nale�
 Zainstaluj Wget (istnieje kilka dystrybucje, które nie instalują go domyślnie, takich jak Red Hat, CentOS i Oracle Linux wersje 6,4 i 6,5), wpisując `sudo yum install wget` w wierszu polecenia.
 
 ### <a name="1-download-the-latest-version"></a>1. Pobierz najnowszą wersję
-Otwórz wersję [agenta systemu Linux platformy Azure w usłudze GitHub](https://github.com/Azure/WALinuxAgent/releases) na stronie sieci Web i sprawdź numer najnowszej wersji. (Możesz zlokalizować bieżącą wersję, wpisując `waagent --version`.)
+Otwórz wersję [agenta systemu Linux platformy Azure w usłudze GitHub](https://github.com/Azure/WALinuxAgent/releases) na stronie sieci Web i sprawdź numer najnowszej wersji. (Możesz zlokalizować bieżącą wersję, wpisując `waagent --version` .)
 
 #### <a name="for-version-22x-or-later-type"></a>W przypadku wersji 2.2. x lub nowszej wpisz:
 ```bash

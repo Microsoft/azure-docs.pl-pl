@@ -5,14 +5,14 @@ author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 003ee13220e9e8aae252e1a976d579beac870052
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015016"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087523"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrowanie obciążeń platformy Azure HDInsight 3,6 do usługi HDInsight 4,0
 
@@ -34,7 +34,7 @@ Jedną z zalet programu Hive jest możliwość eksportowania metadanych do zewn�
 Tabele KWASów HDInsight 3,6 i HDInsight 4,0 są w inny sposób zrozumiałe dla różnic KWASowych. Jedyną akcją wymaganą przed migracją jest uruchomienie "Wielkiej" kompaktowania dla każdej tabeli KWASowej w klastrze 3,6. Szczegółowe informacje na temat kompaktowania można znaleźć w [podręczniku języka Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) .
 
 ### <a name="2-copy-sql-database"></a>2. Kopiowanie bazy danych SQL
-Utwórz nową kopię zewnętrznego magazynu metadanych. Jeśli używasz zewnętrznego magazynu metadanych, jeden z bezpiecznych i łatwych sposobów tworzenia kopii magazynu metadanych polega na [przywróceniu bazy danych](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) z inną nazwą przy użyciu funkcji przywracania SQL Database.  Zobacz [Używanie zewnętrznych magazynów metadanych w usłudze Azure HDInsight](../hdinsight-use-external-metadata-stores.md) , aby dowiedzieć się więcej na temat dołączania zewnętrznego magazynu Metadata do klastra usługi HDInsight.
+Utwórz nową kopię zewnętrznego magazynu metadanych. Jeśli używasz zewnętrznego magazynu metadanych, jeden z bezpiecznych i łatwych sposobów tworzenia kopii magazynu metadanych polega na [przywróceniu bazy danych](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) z inną nazwą przy użyciu `RESTORE` funkcji.  Zobacz [Używanie zewnętrznych magazynów metadanych w usłudze Azure HDInsight](../hdinsight-use-external-metadata-stores.md) , aby dowiedzieć się więcej na temat dołączania zewnętrznego magazynu Metadata do klastra usługi HDInsight.
 
 ### <a name="3-upgrade-metastore-schema"></a>3. Uaktualnij schemat magazynu metadanych
 Po zakończeniu **kopiowania** magazynu metadanych Uruchom skrypt uaktualnienia schematu w [akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md) w istniejącym klastrze usługi HDInsight 3,6, aby uaktualnić nowy magazyn metadanych do schematu Hive 3. (Ten krok nie wymaga połączenia nowego magazynu metadanych z klastrem). Umożliwia to dołączenie bazy danych jako magazynu metadanych usługi HDInsight 4,0.

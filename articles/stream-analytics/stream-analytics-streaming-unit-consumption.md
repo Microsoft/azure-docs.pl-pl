@@ -8,11 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267354"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704186"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Opis i dostosowywanie jednostek przesyłania strumieniowego
 
@@ -86,7 +85,7 @@ Na przykład w poniższym zapytaniu liczba skojarzona z `clusterid` jest kardyna
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Aby uniknąć problemów spowodowanych przez dużą Kardynalność w poprzedniej kwerendzie, można wysyłać zdarzenia do centrum zdarzeń partycjonowane według `clusterid`i skalować zapytanie, umożliwiając systemowi przetworzenie każdej partycji wejściowej osobno przy użyciu **partycji** , jak pokazano w poniższym przykładzie:
+Aby uniknąć problemów spowodowanych przez dużą Kardynalność w poprzedniej kwerendzie, można wysyłać zdarzenia do centrum zdarzeń partycjonowane według `clusterid` i skalować zapytanie, umożliwiając systemowi przetworzenie każdej partycji wejściowej osobno przy użyciu **partycji** , jak pokazano w poniższym przykładzie:
 
    ```sql
    SELECT count(*) 

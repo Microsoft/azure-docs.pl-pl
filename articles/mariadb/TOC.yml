@@ -57,7 +57,7 @@
           href: concepts-pricing-tiers.md
         - name: Opłacanie wydajności rezerwowej z góry
           href: concept-reserved-pricing.md
-        - name: Limity
+        - name: Ograniczenia
           href: concepts-limits.md
     - name: Bezpieczeństwo i dostęp do danych
       items:
@@ -98,6 +98,8 @@
           href: concepts-query-performance-insight.md
         - name: Zalecenia dotyczące wydajności
           href: concepts-performance-recommendations.md
+        - name: Parametry serwera
+          href: concepts-server-parameters.md
     - name: Opracowywanie zawartości
       items:
         - name: Zgodność sterowników i narzędzi
@@ -110,6 +112,10 @@
           href: concepts-data-in-replication.md
         - name: Repliki do odczytu
           href: concepts-read-replicas.md
+    - name: Przenoszenie między regionami
+      items:
+        - name: Azure Portal
+          href: howto-move-regions-portal.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie serwerem
@@ -142,6 +148,10 @@
           href: howto-connection-string.md
         - name: Konfigurowanie protokołu SSL
           href: howto-configure-ssl.md
+        - name: Konfigurowanie protokołu TLS
+          href: howto-tls-configurations.md
+        - name: Łączenie z użyciem przekierowania
+          href: howto-redirection.md
     - name: Konfigurowanie parametrów serwera
       items:
         - name: Azure Portal

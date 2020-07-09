@@ -4,10 +4,9 @@ description: W tym artykule dowiesz się, jak używać Azure Backup Server do oc
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83747452"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalowanie składnika Azure Backup Server w usłudze Azure Stack
@@ -171,7 +170,7 @@ Po pobraniu wszystkich plików na maszynę wirtualną Azure Stack przejdź do lo
 
 ![Centrum pobierania 1](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
 
-1. Aby rozpocząć instalację, z listy pobranych plików kliknij plik **MicrosoftAzureBackupserverInstaller. exe**.
+1. Aby rozpocząć instalację, z listy pobranych plików kliknij przycisk **MicrosoftAzureBackupserverInstaller.exe**.
 
     > [!WARNING]
     > Do wyodrębnienia plików instalacyjnych wymagane jest co najmniej 4 GB wolnego miejsca.
@@ -193,7 +192,7 @@ Po pobraniu wszystkich plików na maszynę wirtualną Azure Stack przejdź do lo
 
    ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
 
-6. Po zakończeniu procesu wyodrębniania kliknij przycisk **Zakończ**. Domyślnie jest wybrana wartość **Wykonaj plik Setup. exe** . Po kliknięciu przycisku **Zakończ**program Setup. exe zainstaluje Microsoft Azure Backup Server w określonej lokalizacji.
+6. Po zakończeniu procesu wyodrębniania kliknij przycisk **Zakończ**. Domyślnie jest zaznaczone polecenie **wykonaj setup.exe** . Po kliknięciu przycisku **Zakończ**program Setup.exe zainstaluje Microsoft Azure Backup Server w określonej lokalizacji.
 
    ![Kreator instalacji Microsoft Azure Backup](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 

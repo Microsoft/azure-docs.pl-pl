@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254805"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84883983"
 ---
 # <a name="azure-diagnostic-logs"></a>Dzienniki diagnostyczne platformy Azure
 
@@ -87,7 +87,7 @@ Aby użyć konta magazynu do przechowywania dzienników, wykonaj następujące c
 
 5. Po zakończeniu wprowadzania ustawień dzienników diagnostycznych wybierz pozycję **Zapisz**.
 
-### <a name="logging-with-azure-monitor"></a>Rejestrowanie przy użyciu Azure Monitor
+### <a name="logging-with-azure-monitor"></a>Rejestrowanie z użyciem usługi Azure Monitor
 
 Aby użyć Azure Monitor do przechowywania dzienników, wykonaj następujące kroki:
 
@@ -176,8 +176,8 @@ Aby uzyskać dostęp do podstawowych danych analitycznych z konta usługi Azure 
 2.  Lokalizowanie konta magazynu
 3.  Rozwiń węzeł **kontenery obiektów BLOB** w ramach tego konta magazynu.
 4.  Wybierz kontener o nazwie *Insights-Logs-coreanalytics*.
-5.  Wyniki są wyświetlane w okienku po prawej stronie, rozpoczynając od pierwszego poziomu, jako *ResourceID =*. Kontynuuj Wybieranie każdego poziomu, aż znajdziesz plik *PT1H. JSON*. Aby uzyskać wyjaśnienie ścieżki, zobacz [Format ścieżki obiektu BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.  Każdy plik BLOB *PT1H. JSON* reprezentuje dzienniki analizy przez godzinę dla określonego punktu końcowego usługi CDN lub jego domeny niestandardowej.
+5.  Wyniki są wyświetlane w okienku po prawej stronie, rozpoczynając od pierwszego poziomu, jako *ResourceID =*. Kontynuuj Wybieranie każdego poziomu, dopóki nie znajdziesz pliku *PT1H.js*. Aby uzyskać wyjaśnienie ścieżki, zobacz [Format ścieżki obiektu BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
+6.  Każdy obiekt BLOB *PT1H.jsw* pliku reprezentuje dzienniki analizy przez jedną godzinę dla określonego punktu końcowego usługi CDN lub jego domeny niestandardowej.
 7.  Schemat zawartości tego pliku JSON został opisany w sekcji schemat podstawowych dzienników analitycznych.
 
 
@@ -195,10 +195,10 @@ Dzienniki analizy podstawowej są generowane co godzinę, a dane są zbierane i 
 |Nazwa grupy zasobów |Nazwa grupy zasobów, do której należą zasoby sieci CDN.|
 |Profile Name (Nazwa profilu) |Nazwa profilu CDN|
 |Nazwa punktu końcowego |Nazwa punktu końcowego usługi CDN|
-|Year|  Czwarta reprezentacja roku, na przykład 2017|
-|Month| Dwucyfrowa reprezentacja numeru miesiąca. 01 = styczeń... 12 = grudzień|
-|Day|   Dwucyfrowa reprezentacja dnia miesiąca|
-|PT1H. JSON| Rzeczywisty plik JSON, w którym są przechowywane dane analizy|
+|Rok|  Czwarta reprezentacja roku, na przykład 2017|
+|Miesiąc| Dwucyfrowa reprezentacja numeru miesiąca. 01 = styczeń... 12 = grudzień|
+|Dzień|   Dwucyfrowa reprezentacja dnia miesiąca|
+|PT1H.jsna| Rzeczywisty plik JSON, w którym są przechowywane dane analizy|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Eksportowanie podstawowych danych analitycznych do pliku CSV
 
@@ -238,7 +238,7 @@ Wykonaj następujące kroki, aby dodać rozwiązanie do monitorowania Azure Moni
 
 2. Na stronie **Nowy** w obszarze **Marketplace**wybierz pozycję **monitorowanie i zarządzanie**.
 
-    ![Portal Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
+    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
 3. Na stronie **monitorowanie i zarządzanie** wybierz pozycję **Zobacz wszystko**.
 
@@ -323,7 +323,7 @@ Firma Microsoft obecnie oferuje tylko podstawowe dzienniki analityczne, które z
 W poniższej tabeli przedstawiono listę metryk dostępnych w podstawowych dziennikach analizy dla **Azure CDN standard firmy Microsoft**, **Azure CDN Standard from Akamai**oraz **Azure CDN Standard/Premium z Verizon**. Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie różnice są minimalne. W tabeli są również wyświetlane, czy dana metryka jest dostępna od dostawcy. Metryki są dostępne tylko dla tych punktów końcowych usługi CDN, które mają ruch na nich.
 
 
-|Metryka                     | Opis | Microsoft | Verizon | Akamai |
+|Metric                     | Opis | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Łączna liczba trafień żądań w tym okresie. | Tak | Tak |Tak |
 | RequestCountHttpStatus2xx | Liczba wszystkich żądań, które spowodowały 2xx kod HTTP (na przykład 200, 202). | Tak | Tak |Tak |
@@ -331,16 +331,16 @@ W poniższej tabeli przedstawiono listę metryk dostępnych w podstawowych dzien
 | RequestCountHttpStatus4xx | Liczba wszystkich żądań, które spowodowały 4xx kod HTTP (na przykład 400, 404). | Tak | Tak |Tak |
 | RequestCountHttpStatus5xx | Liczba wszystkich żądań, które spowodowały 5xx kod HTTP (na przykład 500, 504). | Tak | Tak |Tak |
 | RequestCountHttpStatusOthers | Liczba pozostałych kodów HTTP (poza 2xx-5xx). | Tak | Tak |Tak |
-| RequestCountHttpStatus200 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 200. | Tak | Nie  |Tak |
-| RequestCountHttpStatus206 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 206. | Tak | Nie  |Tak |
-| RequestCountHttpStatus302 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 302. | Tak | Nie  |Tak |
-| RequestCountHttpStatus304 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 304. | Tak | Nie  |Tak |
-| RequestCountHttpStatus404 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 404. | Tak | Nie  |Tak |
+| RequestCountHttpStatus200 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 200. | Yes | Nie  |Yes |
+| RequestCountHttpStatus206 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 206. | Yes | Nie  |Yes |
+| RequestCountHttpStatus302 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 302. | Yes | Nie  |Yes |
+| RequestCountHttpStatus304 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 304. | Yes | Nie  |Yes |
+| RequestCountHttpStatus404 | Liczba wszystkich żądań, które spowodowały odpowiedź na kod HTTP 404. | Yes | Nie  |Yes |
 | RequestCountCacheHit | Liczba wszystkich żądań, które spowodowały trafienie pamięci podręcznej. Zasób został obsłużony bezpośrednio z punktu POP do klienta. | Tak | Tak | Nie  |
 | RequestCountCacheMiss | Liczba wszystkich żądań, które spowodowały odrzucenie pamięci podręcznej. Chybienia w pamięci podręcznej oznacza, że zasób nie został odnaleziony w punkcie POP najbliżej klienta i dlatego został pobrany z lokalizacji źródłowej. | Tak | Tak | Nie |
 | RequestCountCacheNoCache | Liczba wszystkich żądań do elementu zawartości, które nie są buforowane z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
 | RequestCountCacheUncacheable | Liczba wszystkich żądań do zasobów, które nie są przechowywane w pamięci podręcznej przez kontrolę i nagłówki elementów zawartości, co wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
-| RequestCountCacheOthers | Liczba wszystkich żądań ze stanem pamięci podręcznej, które nie zostały omówione powyżej. | Nie | Tak | Nie  |
+| RequestCountCacheOthers | Liczba wszystkich żądań ze stanem pamięci podręcznej, które nie zostały omówione powyżej. | Nie | Yes | Nie  |
 | EgressTotal | Wychodzący transfer danych w GB | Tak |Tak |Tak |
 | EgressHttpStatus2xx | Wychodzący transfer danych * dla odpowiedzi z kodami stanu HTTP 2xx w GB. | Tak | Tak | Nie  |
 | EgressHttpStatus3xx | Wychodzący transfer danych dla odpowiedzi z kodami stanu HTTP 3xx w GB. | Tak | Tak | Nie  |
@@ -351,7 +351,7 @@ W poniższej tabeli przedstawiono listę metryk dostępnych w podstawowych dzien
 | EgressCacheMiss. | Wychodzący transfer danych dla odpowiedzi, które nie zostały odnalezione na najbliższym serwerze POP i pobierany z serwera pochodzenia. | Tak | Tak | Nie |
 | EgressCacheNoCache | Wychodzący transfer danych dla zasobów, które nie są buforowane ze względu na konfigurację użytkownika na krawędzi. | Tak | Tak | Nie |
 | EgressCacheUncacheable | Wychodzący transfer danych dla zasobów, które nie są przechowywane w pamięci podręcznej przez kontrolę i/lub nagłówki elementu zawartości. Wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
-| EgressCacheOthers | Wychodzące transfery danych dla innych scenariuszy pamięci podręcznej. | Nie | Tak | Nie |
+| EgressCacheOthers | Wychodzące transfery danych dla innych scenariuszy pamięci podręcznej. | Nie | Yes | Nie |
 
 * Wychodzący transfer danych odnosi się do ruchu dostarczonego z serwerów POP usługi CDN do klienta.
 
@@ -441,11 +441,11 @@ Przykładowe właściwości:
 
 ```
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Dzienniki diagnostyczne platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Analiza podstawowa za pośrednictwem Azure CDN Portal uzupełniający](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Dzienniki usługi Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Dzienniki Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Interfejs API REST usługi Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure — Linux Virtual Machines | Microsoft Docs
+title: Konfigurowanie odbiornika grupy dostępności na potrzeby SQL Server na maszynach wirtualnych RHEL na maszynach wirtualnych z systemem Linux na platformie Azure | Microsoft Docs
 description: Dowiedz się więcej na temat konfigurowania odbiornika grupy dostępności w SQL Server na maszynach wirtualnych RHEL na platformie Azure
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,20 +8,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: edd9b83de0feff3b9ef12c67cdca19501eaa63a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053921"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343768"
 ---
-# <a name="tutorial-configure-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure
+# <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > Przedstawiony samouczek jest w **publicznej wersji zapoznawczej**. 
 >
-> W tym samouczku używamy SQL Server 2017 z RHEL 7,6, ale można użyć SQL Server 2019 w RHEL 7 lub RHEL 8, aby skonfigurować HA. Polecenia służące do konfigurowania zasobów grupy dostępności zostały zmienione w RHEL 8. Aby zapoznać się z artykułem, [Utwórz zasób grupy dostępności](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) i zasoby RHEL 8, aby uzyskać więcej informacji na temat prawidłowych poleceń.
+> W tym samouczku używamy SQL Server 2017 z RHEL 7,6, ale można użyć SQL Server 2019 w RHEL 7 lub RHEL 8, aby skonfigurować wysoką dostępność. Polecenia służące do konfigurowania zasobów grupy dostępności zostały zmienione w RHEL 8 i chcesz zapoznać się z artykułem [Tworzenie zasobu grupy dostępności](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) i zasobów RHEL 8, aby uzyskać więcej informacji na temat prawidłowych poleceń.
 
 Ten samouczek zawiera instrukcje dotyczące tworzenia odbiornika grup dostępności dla serwerów SQL na maszynach wirtualnych RHEL na platformie Azure. Poznasz następujące czynności:
 
@@ -37,7 +37,7 @@ Ten samouczek zawiera instrukcje dotyczące tworzenia odbiornika grup dostępno�
 
 ## <a name="prerequisite"></a>Wymaganie wstępne
 
-Ukończony [ **Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure**](rhel-high-availability-stonith-tutorial.md)
+Ukończony [Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Utwórz moduł równoważenia obciążenia w Azure Portal
 
@@ -59,7 +59,7 @@ Poniższe instrukcje przeprowadzi Cię przez kroki od 1 do 4 z tematu [Tworzenie
    | --- | --- |
    | **Nazwa** |Nazwa tekstowa reprezentująca moduł równoważenia obciążenia. Na przykład **sqlLB**. |
    | **Typ** |**Wewnętrz** |
-   | **Sieć wirtualna** |Utworzona sieć wirtualna powinna mieć nazwę **VM1VNET**. |
+   | **Sieć wirtualna** |Domyślna Sieć wirtualna, która została utworzona, powinna mieć nazwę **VM1VNET**. |
    | **Podsieci** |Wybierz podsieć, w której znajdują się wystąpienia SQL Server. Wartość domyślna to **VM1Subnet**.|
    | **Przypisanie adresu IP** |**Ruchom** |
    | **Prywatny adres IP** |Użyj `virtualip` adresu IP, który został utworzony w klastrze. |
@@ -117,7 +117,7 @@ Platforma Azure tworzy sondę, a następnie używa jej do testowania, które wys
 
 ### <a name="set-the-load-balancing-rules"></a>Ustawianie reguł równoważenia obciążenia
 
-Reguły równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki moduł równoważenia obciążenia kieruje ruch do wystąpień SQL Server. W przypadku tego modułu równoważenia obciążenia można włączyć bezpośredni zwrot serwera, ponieważ w danym momencie tylko jeden z trzech wystąpień SQL Server jest właścicielem zasobu odbiornika grupy dostępności.
+Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki moduł równoważenia obciążenia kieruje ruch do wystąpień SQL Server. W przypadku tego modułu równoważenia obciążenia można włączyć bezpośredni zwrot serwera, ponieważ w danym momencie tylko jeden z trzech wystąpień SQL Server jest właścicielem zasobu odbiornika grupy dostępności.
 
 1. W bloku **Ustawienia** usługi równoważenia obciążenia kliknij pozycję **reguły równoważenia obciążenia**. 
 
@@ -220,7 +220,7 @@ W tym momencie Grupa zasobów ma moduł równoważenia obciążenia, który łą
 
 ## <a name="test-the-listener-and-a-failover"></a>Testowanie odbiornika i trybu failover
 
-### <a name="test-logging-into-sql-server-using-the-availability-group-listener"></a>Testowanie logowania do SQL Server przy użyciu odbiornika grupy dostępności
+### <a name="test-logging-in-to-sql-server-using-the-availability-group-listener"></a>Testowanie logowania do SQL Server przy użyciu odbiornika grupy dostępności
 
 1. Użyj polecenia SQLCMD, aby zalogować się do węzła podstawowego SQL Server przy użyciu nazwy odbiornika grupy dostępności:
 
@@ -238,11 +238,11 @@ W tym momencie Grupa zasobów ma moduł równoważenia obciążenia, który łą
 
     Dane wyjściowe powinny wyświetlać bieżący węzeł podstawowy. Należy to zrobić `VM1` , jeśli nigdy nie przetestowano trybu failover.
 
-    Zakończ sesję SQL, wpisując `exit` polecenie.
+    Zakończ sesję SQL Server, wpisując `exit` polecenie.
 
 ### <a name="test-a-failover"></a>Testowanie trybu failover
 
-1. Uruchom następujące polecenie, aby ręcznie przełączyć replikę podstawową do trybu failover z `<VM2>` lub inną repliką. Zamień `<VM2>` na wartość nazwy serwera.
+1. Uruchom następujące polecenie, aby ręcznie przełączyć replikę podstawową na `<VM2>` lub inną replikę. Zamień `<VM2>` na wartość nazwy serwera.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -280,7 +280,7 @@ W tym momencie Grupa zasobów ma moduł równoważenia obciążenia, który łą
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Sprawdź serwer, z którym nawiązano połączenie. Uruchom następujące polecenie w SQLCMD:
 
@@ -295,4 +295,4 @@ W tym momencie Grupa zasobów ma moduł równoważenia obciążenia, który łą
 Aby uzyskać więcej informacji na temat modułów równoważenia obciążenia na platformie Azure, zobacz:
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie modułu równoważenia obciążenia dla grupy dostępności na maszynach wirtualnych usługi Azure SQL Server](../windows/availability-group-load-balancer-portal-configure.md)
+> [Konfigurowanie równoważenia obciążenia dla grupy dostępności na SQL Server na maszynach wirtualnych platformy Azure](../windows/availability-group-load-balancer-portal-configure.md)

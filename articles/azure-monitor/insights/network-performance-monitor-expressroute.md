@@ -7,10 +7,9 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77660754"
 ---
 # <a name="expressroute-monitor"></a>Monitor ExpressRoute
@@ -23,7 +22,7 @@ Korzystając z możliwości usługi Azure ExpressRoute monitor w [Network Perfor
 
 ![Monitor ExpressRoute](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>Konfiguracja 
+## <a name="configuration"></a>Konfigurowanie 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ### <a name="configure-network-security-group-rules"></a>Skonfiguruj reguły sieciowej grupy zabezpieczeń 
@@ -32,7 +31,7 @@ W przypadku serwerów na platformie Azure, które są używane do monitorowania 
 Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [Network Security Groups](../../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
-> Przed kontynuowaniem tego kroku należy zainstalować agenta lokalnego serwera i agenta serwera Azure, a następnie uruchomić skrypt programu PowerShell skrypt enablerules. ps1. 
+> Przed kontynuowaniem tego kroku Zainstaluj agenta lokalnego serwera i agenta serwera Azure, a następnie uruchom skrypt EnableRules.ps1 PowerShell. 
 
  
 ### <a name="discover-expressroute-peering-connections"></a>Odnajdywanie połączeń komunikacji równorzędnej ExpressRoute 

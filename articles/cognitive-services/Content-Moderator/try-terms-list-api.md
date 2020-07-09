@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75382127"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85800044"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Umiarkowane z niestandardowymi listami terminów w konsoli interfejsu API
 
@@ -77,19 +77,21 @@ Po wprowadzeniu zmian w liście terminów należy odświeżyć jej indeks, aby z
 
 5. Użyj symboli zastępczych par klucz-wartość, aby przypisać do listy więcej metadanych opisowych.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
-             "Category": "Competitors",
-             "Type": "Exclude"
-          }
-       }
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
+            "Category": "Competitors",
+            "Type": "Exclude"
+        }
+    }
+    ```
 
    Dodaj metadane listy jako pary klucz-wartość, a nie rzeczywiste warunki.
  
-6. Wybierz pozycję **Wyślij**. Twoja lista zostanie utworzona. Zwróć uwagę na wartość **identyfikatora** skojarzoną z nową listą. Ten identyfikator jest potrzebny dla innych funkcji zarządzania listą okresów.
+6. Wybierz pozycję **Send** (Wyślij). Twoja lista zostanie utworzona. Zwróć uwagę na wartość **identyfikatora** skojarzoną z nową listą. Ten identyfikator jest potrzebny dla innych funkcji zarządzania listą okresów.
 
    ![Listy terminów — pole wyboru Utwórz zawartość odpowiedzi konsoli pokazuje Identyfikator listy](images/try-terms-list-create-2.png)
  
@@ -111,7 +113,7 @@ Po wprowadzeniu zmian w liście terminów należy odświeżyć jej indeks, aby z
 
     Termin — zostanie otwarta konsola interfejsu API **pobierania wszystkich warunków** .
 
-11. W polu **listId** wprowadź identyfikator listy, a następnie wprowadź swój klucz subskrypcji. Wybierz pozycję **Wyślij**.
+11. W polu **listId** wprowadź identyfikator listy, a następnie wprowadź swój klucz subskrypcji. Wybierz pozycję **Send** (Wyślij).
 
 12. W polu **zawartość odpowiedzi** Sprawdź wprowadzone warunki.
 

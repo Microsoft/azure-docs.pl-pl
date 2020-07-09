@@ -4,10 +4,9 @@ description: Dowiedz się, jak zainstalować wolumin emptyDir, aby udostępnić 
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77117736"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Zainstaluj wolumin emptyDir w Azure Container Instances
@@ -35,7 +34,7 @@ Maksymalny rozmiar woluminu *emptyDir* systemu Linux to 50 GB.
 
 Aby zainstalować wolumin emptyDir w wystąpieniu kontenera, można wdrożyć przy użyciu [szablonu Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), [pliku YAML](container-instances-reference-yaml.md)lub innych metod programistycznych do wdrażania grupy kontenerów.
 
-Najpierw Wypełnij `volumes` tablicę w sekcji Grupa `properties` kontenerów pliku. Następnie dla każdego kontenera w grupie kontenerów, w której chcesz zainstalować wolumin *emptyDir* , Wypełnij `volumeMounts` tablicę w `properties` sekcji definicji kontenera.
+Najpierw Wypełnij `volumes` tablicę w sekcji Grupa kontenerów `properties` pliku. Następnie dla każdego kontenera w grupie kontenerów, w której chcesz zainstalować wolumin *emptyDir* , Wypełnij `volumeMounts` tablicę w `properties` sekcji definicji kontenera.
 
 Na przykład poniższy szablon Menedżer zasobów tworzy grupę kontenerów składającą się z dwóch kontenerów, z których każdy instaluje wolumin *emptyDir* :
 

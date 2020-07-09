@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82580928"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Reguły zapory w Azure Database for PostgreSQL-Citus
@@ -32,7 +32,7 @@ Zapora grupy serwerów ze skalą (Citus) kontroluje, kto może połączyć się 
 
 Gdy Zapora blokuje połączenia, może spowodować błędy aplikacji. Na przykład za pomocą sterownika PostgreSQL JDBC wywołuje błąd podobny do tego:
 
-> Java. util. współbieżne. ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy:\_brak PG HBA. conf wpis dla hosta "123.45.67.890", User "Citus", baza danych "Citus", SSL
+> java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy: brak PG \_ HBA. conf wpis dla hosta "123.45.67.890", użytkownika "Citus", bazy danych "Citus", SSL
 
 Aby dowiedzieć się, jak są zdefiniowane reguły, zobacz [Tworzenie reguł zapory i zarządzanie nimi](howto-hyperscale-manage-firewall-using-portal.md) .
 
@@ -44,7 +44,7 @@ Gdy dostęp do usługi Microsoft Azure Database for PostgreSQL-Citus) nie zachow
 * **Użytkownik nie ma autoryzacji lub użyto nieprawidłowego hasła:** Jeśli użytkownik nie ma uprawnień na serwerze lub użyte hasło jest nieprawidłowe, nastąpiło odmowa połączenia z serwerem. Utworzenie ustawienia zapory zapewnia klientom możliwość próby nawiązania połączenia z serwerem; Każdy klient musi nadal podawać niezbędne poświadczenia zabezpieczeń.
 
 Na przykład przy użyciu klienta JDBC może pojawić się następujący błąd.
-> Java. util. współbieżne. ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy: uwierzytelnianie hasła dla użytkownika "yourUserName" nie powiodło się
+> java.util.concurrent.ExecutionException: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: KRYTYCZNy: uwierzytelnianie hasła dla użytkownika "yourUserName" nie powiodło się
 
 * **Dynamiczny adres IP:** jeśli używane jest połączenie internetowe za pomocą dynamicznego adresowania IP i występują problemy z przejściem przez zaporę, można wypróbować jedno z poniższych rozwiązań:
 

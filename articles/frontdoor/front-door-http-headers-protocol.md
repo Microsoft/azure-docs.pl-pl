@@ -12,10 +12,9 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471680"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Obsługa protokołu dla nagłówków HTTP w ramach zewnętrznych drzwi platformy Azure
@@ -33,7 +32,7 @@ Drzwi przede wszystkim przyjmują większość nagłówków z żądania przychod
 
 Drzwi z przodu obejmują nagłówki z przychodzącego żądania, chyba że zostały usunięte ze względu na ograniczenia. Drzwi z przodu również dodaje następujące nagłówki:
 
-| Nagłówek  | Przykład i opis |
+| Header  | Przykład i opis |
 | ------------- | ------------- |
 | Korzystając |  Za pośrednictwem: 1,1 Azure </br> Przód drzwi dodaje wersję HTTP klienta, a następnie *platformę Azure* jako wartość dla nagłówka Via. Ten nagłówek wskazuje wersję HTTP klienta i że przedniego drzwi były pośrednim odbiorcą dla żądania między klientem a zapleczem.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Reprezentuje adres IP klienta skojarzony z przetwarzanym żądaniem. Na przykład żądanie pochodzące z serwera proxy może dodać nagłówek X-Forward-for, aby wskazać adres IP oryginalnego obiektu wywołującego. |
@@ -49,7 +48,7 @@ Drzwi z przodu obejmują nagłówki z przychodzącego żądania, chyba że zosta
 
 Wszystkie nagłówki wysyłane do przednich drzwi z zaplecza są również przekazywane do klienta. Poniżej przedstawiono nagłówki wysyłane z czołowych drzwi do klientów.
 
-| Nagłówek  | Przykład |
+| Header  | Przykład |
 | ------------- | ------------- |
 | X-Azure-ref |  *X-Azure-ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> To jest unikatowy ciąg odwołania, który identyfikuje żądanie obsługiwane przez tylne drzwi. Jest to ważne w przypadku rozwiązywania problemów, ponieważ służy do wyszukiwania dzienników dostępu.|
 

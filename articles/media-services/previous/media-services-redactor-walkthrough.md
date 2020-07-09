@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
 ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69997673"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redagowanie twarzy przy użyciu przewodnika Azure Media Analytics
@@ -67,11 +67,11 @@ Dane wyjściowe będą zawierać plik JSON adnotacji z danymi lokalizacji kroju,
 
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. Obowiązkowe Przekaż plik "Dance_idlist. txt" zawierający listę identyfikatorów, które chcesz wypróbować. 
+2. Obowiązkowe Przekaż plik "Dance_idlist.txt" zawierający listę identyfikatorów, które chcesz wypróbować. 
 
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
-3. Obowiązkowe Wprowadź wszelkie zmiany w pliku Annotations. JSON, takie jak zwiększenie granic pola ograniczenia. 
+3. Obowiązkowe Wprowadź wszelkie edycje annotations.jsw pliku, takie jak zwiększenie granic pola ograniczenia. 
 4. Kliknij prawym przyciskiem myszy element zawartości wyjściowej z pierwszego przebiegu, wybierz redactor, a następnie uruchom polecenie z trybem **redagowania** . 
 
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
@@ -95,11 +95,11 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Pobierz narzędzia FFmpeg z tego [miejsca](https://ffmpeg.org/download.html). Ten projekt został pierwotnie opracowany przy użyciu wersji be1d324 (2016-10-04) z konsolidacją statyczną. 
-3.  Skopiuj narzędzia FFmpeg. exe i ffprobe. exe do tego samego folderu wyjściowego jako AzureMediaRedactor. exe. 
+3.  Skopiuj ffmpeg.exe i ffprobe.exe do tego samego folderu wyjściowego co AzureMediaRedactor.exe. 
 
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. Uruchom AzureMediaRedactor. exe. 
+4. Uruchom AzureMediaRedactor.exe. 
 
 ### <a name="use-the-tool"></a>Korzystanie z narzędzia
 
@@ -113,10 +113,10 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
     
     ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Dolne pole tekstowe zostanie zaktualizowane o identyfikatorach. Utwórz plik o nazwie "idlist. txt" z tymi identyfikatorami jako listę rozdzielaną znakami nowego wiersza. 
+5.  Dolne pole tekstowe zostanie zaktualizowane o identyfikatorach. Utwórz plik o nazwie "idlist.txt" z tymi identyfikatorami jako listę rozdzielaną znakami nowego wiersza. 
 
     >[!NOTE]
-    > Idlist. txt należy zapisać w formacie ANSI. Aby zapisać w ANSI, możesz użyć notatnika.
+    > idlist.txt należy zapisać w formacie ANSI. Aby zapisać w ANSI, możesz użyć notatnika.
     
 6.  Przekaż ten plik do wyjściowego elementu zawartości z kroku 1. Przekaż oryginalne wideo do tego zasobu, a także Ustaw jako podstawowy element zawartości. 
 7.  Uruchom zadanie redakcyjne dla tego elementu zawartości z trybem "Zredaguj", aby uzyskać finalne wideo redagowane. 
@@ -125,10 +125,10 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Powiązane linki
+## <a name="related-links"></a>Linki pokrewne
 [Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

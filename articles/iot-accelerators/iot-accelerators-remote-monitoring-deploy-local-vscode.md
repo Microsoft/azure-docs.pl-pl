@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73890955"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Wdróż lokalnie Akcelerator rozwiązania do monitorowania zdalnego Visual Studio Code
@@ -37,7 +36,7 @@ Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainst
 * [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Rozszerzenie C# VS Code](https://code.visualstudio.com/docs/languages/csharp)
-* [Node. js V8](https://nodejs.org/) — to oprogramowanie jest wymaganiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj środowiska Node. js v10
+* [Node.js V8](https://nodejs.org/) — to oprogramowanie jest warunkiem wstępnym dla komputerów, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj Node.js v10
 
 > [!NOTE]
 > Visual Studio Code jest dostępny dla systemów Windows, Mac i Ubuntu.
@@ -64,7 +63,7 @@ Poniższe kroki pokazują, jak uruchomić mikrousługi zdalnego monitorowania w 
 1. Uruchom program Visual Studio Code.
 1. W VS Code Otwórz folder **Azure-IoT-komputery-Remote-Monitoring-dotnet** .
 1. Utwórz nowy folder o nazwie **. programu vscode** w folderze **Azure-IoT-komputery-Remote-Monitoring-dotnet** .
-1. Skopiuj pliki **Launch. JSON** i **Tasks. JSON** z services\scripts\local\launch\idesettings\vscode do folderu **. programu vscode** , który właśnie został utworzony.
+1. Skopiuj pliki **launch.jswłączone** i **tasks.js** z services\scripts\local\launch\idesettings\vscode do folderu **. programu vscode** , który właśnie został utworzony.
 1. Otwórz **panel Debugowanie** w vs Code i uruchom polecenie **Uruchom wszystkie mikrousługi** . Ta konfiguracja uruchamia mikrousługę symulacji urządzenia w Docker i uruchamia inne mikrousługi w debugerze.
 
 Wyjście z uruchamiania **Uruchom wszystkie microsoervices** w konsoli debugowania wygląda następująco:
@@ -80,7 +79,7 @@ npm install
 npm start
 ```
 
-Po zakończeniu, przeglądarka wyświetla stronę **\/http:/localhost: 3000/pulpit nawigacyjny**. Błędy na tej stronie są oczekiwane. Aby wyświetlić aplikację bez błędów, wykonaj następujące czynności.
+Po zakończeniu, przeglądarka wyświetla stronę **http: \/ /localhost: 3000/pulpit nawigacyjny**. Błędy na tej stronie są oczekiwane. Aby wyświetlić aplikację bez błędów, wykonaj następujące czynności.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurowanie i uruchamianie NGINX
 
@@ -93,7 +92,7 @@ Aby uzyskać więcej informacji na temat uruchamiania programu **Nginx**, zobacz
 
 ### <a name="connect-to-the-dashboard"></a>Nawiązywanie połączenia z pulpitem nawigacyjnym
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego,\/przejdź do protokołu http:/localhost: 9000 w przeglądarce.
+Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego, przejdź do protokołu http: \/ /localhost: 9000 w przeglądarce.
 
 ## <a name="clean-up"></a>Czyszczenie
 

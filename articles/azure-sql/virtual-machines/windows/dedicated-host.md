@@ -1,10 +1,9 @@
 ---
-title: SQL Server maszynę wirtualną na dedykowanym hoście platformy Azure
-description: Więcej informacji na temat uruchamiania SQL Server maszyny wirtualnej na dedykowanym hoście platformy Azure.
+title: Uruchamianie SQL Server VM na dedykowanym hoście platformy Azure
+description: Dowiedz się, jak uruchomić maszynę wirtualną SQL Server na dedykowanym hoście platformy Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,17 +13,16 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a16ec7a3fa1f41d8c9339f84be6a0ffc3842d099
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046026"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669107"
 ---
-# <a name="sql-server-vm-on-an-azure-dedicated-host"></a>SQL Server maszynę wirtualną na dedykowanym hoście platformy Azure 
+# <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Uruchamianie SQL Server VM na dedykowanym hoście platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule przedstawiono szczegółowe informacje dotyczące używania maszyny wirtualnej SQL Server z [dedykowanym hostem platformy Azure](/azure/virtual-machines/windows/dedicated-hosts). Dodatkowe informacje na temat dedykowanego hosta platformy Azure można znaleźć w wpisie w blogu [wprowadzającym dedykowany Host platformy Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+W tym artykule szczegółowo opisano, jak używać maszyny wirtualnej SQL Server z [dedykowanym hostem platformy Azure](/azure/virtual-machines/windows/dedicated-hosts). Dodatkowe informacje na temat dedykowanego hosta platformy Azure można znaleźć w wpisie w blogu [wprowadzającym dedykowany Host platformy Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Omówienie
 [Dedykowany Host platformy Azure](/azure/virtual-machines/windows/dedicated-hosts) to usługa, która zapewnia serwerom fizycznym możliwość hostowania co najmniej jednej maszyny wirtualnej — dedykowanej dla jednej subskrypcji platformy Azure. Dedykowane hosty to te same serwery fizyczne, które są używane w centrach danych firmy Microsoft, dostępne jako zasoby. Można udostępnić dedykowane hosty w obrębie regionu, strefy dostępności i domeny błędów. Następnie można umieścić maszyny wirtualne bezpośrednio na hostach, w których konfiguracja najlepiej odpowiada Twoim potrzebom.
@@ -36,22 +34,22 @@ W tym artykule przedstawiono szczegółowe informacje dotyczące używania maszy
 
 ## <a name="licensing"></a>Licencjonowanie
 
-Podczas dodawania maszyny wirtualnej SQL Server do dedykowanego hosta platformy Azure można wybrać jedną z dwóch różnych opcji licencjonowania. 
+Możesz wybrać jedną z dwóch różnych opcji licencjonowania, gdy umieścisz SQL Server maszynę wirtualną na dedykowanym hoście platformy Azure. 
 
   - **Licencjonowanie maszyn wirtualnych SQL**: jest to istniejąca opcja licencjonowania, w przypadku której płacisz osobno za każdą licencję na SQL Server maszynę wirtualną. 
   - **Dedykowane Licencjonowanie hosta**: nowy model licencjonowania dostępny dla dedykowanego hosta platformy Azure, w którym SQL Server licencje są powiązane i płatne na poziomie hosta. 
 
 
 Opcje na poziomie hosta dotyczące korzystania z istniejących licencji SQL Server: 
-  - Korzyść użycia hybrydowego platformy Azure SQL Server Enterprise Edition
+  - Korzyść użycia hybrydowego platformy Azure SQL Server Enterprise Edition (AHB)
     - Dostępne dla klientów z pakietem SA lub subskrypcją.
     - Licencjonowanie wszystkich dostępnych rdzeni fizycznych i korzystanie z nieograniczonej wirtualizacji (maksymalnie procesorów wirtualnych vCPU obsługiwane przez hosta).
-        - Aby uzyskać więcej informacji na temat stosowania Korzyść użycia hybrydowego platformy Azure do dedykowanego hosta platformy Azure, zapoznaj się z [korzyść użycia hybrydowego platformy Azure często zadawanych pytań](https://azure.microsoft.com/pricing/hybrid-benefit/faq/). 
+        - Aby uzyskać więcej informacji na temat stosowania AHB do dedykowanego hosta platformy Azure, zobacz [korzyść użycia hybrydowego platformy Azure często zadawane pytania](https://azure.microsoft.com/pricing/hybrid-benefit/faq/). 
   - Licencje SQL Server nabyte przed 1 października
       - Wersja SQL Server Enterprise ma opcje licencji na poziomie hosta i przez maszynę wirtualną. 
       - Wersja SQL Server Standard ma tylko opcję licencji na maszynę wirtualną. 
           - Aby uzyskać szczegółowe informacje, zobacz [warunki produktu firmy Microsoft](https://www.microsoft.com/licensing/product-licensing/products). 
-  - Jeśli nie wybrano SQL Server dedykowanej opcji na poziomie hosta, wówczas SQL Server AHB można wybrać na poziomie poszczególnych maszyn wirtualnych, podobnie jak w przypadku maszyn wirtualnych z wieloma dzierżawcami.
+  - Jeśli nie wybrano SQL Server dedykowanej opcji na poziomie hosta, możesz wybrać pozycję SQL Server AHB na poziomie poszczególnych maszyn wirtualnych, tak jak w przypadku maszyn wirtualnych z wieloma dzierżawcami.
 
 
 
@@ -62,7 +60,7 @@ Proces dodawania istniejącej maszyny wirtualnej SQL Server do dedykowanego host
 
 ## <a name="virtualization"></a>Wirtualizacja 
 
-Jedną z zalet dedykowanego hosta jest nieograniczona wirtualizacja. Na przykład możesz mieć licencje na 64 rdzeni wirtualnych, ale można skonfigurować hosta tak, aby miał 128 rdzeni wirtualnych, więc otrzymujesz podwójny rdzeni wirtualnych, ale płacisz tylko za połowę licencji na SQL Server. 
+Jedną z zalet dedykowanego hosta jest nieograniczona wirtualizacja. Na przykład możesz mieć licencje na 64 rdzeni wirtualnych, ale można skonfigurować hosta tak, aby miał 128 rdzeni wirtualnych, więc otrzymujesz podwójny rdzeni wirtualnych, ale płacisz tylko połowę tego, co SQL Server licencji. 
 
 Ponieważ jest to Twój host, kwalifikujesz się do ustawienia wirtualizacji o współczynniku 1:2. 
 

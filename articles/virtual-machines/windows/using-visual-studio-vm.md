@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ecec05da3904782199e68cfdca917a8c451edec6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85105994"
 ---
 # <a name="visual-studio-images-on-azure"></a>Obrazy programu Visual Studio na platformie Azure
 Korzystanie z programu Visual Studio we wstępnie skonfigurowanej maszynie wirtualnej platformy Azure jest szybkim i łatwym sposobem na przechodzenie od niczego do środowiska deweloperskiego. Obrazy systemu z różnymi konfiguracjami programu Visual Studio są dostępne w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -31,7 +31,7 @@ Obrazy dla najnowszych wersji głównych, Visual Studio 2019, Visual Studio 2017
 | Wersja wydania                                                                                                                                                | Wersje              | Wersja produktu   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: Najnowsze (wersja 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, społeczność | 16.5.4 wersja    |
-| Visual Studio 2019: RTW                         | Przedsiębiorstwa | 16.0.13 wersja    |
+| Visual Studio 2019: RTW                         | Enterprise | 16.0.13 wersja    |
 | Visual Studio 2017: Najnowsze (wersja 15,9)           | Enterprise, społeczność | 15.9.22 wersja   |
 | Visual Studio 2017: RTW                             | Enterprise, społeczność | 15.0.28 wersja  |
 | Visual Studio 2015: Najnowsze (Aktualizacja Update 3)               | Enterprise, społeczność | 14.0.25431.01 wersja |
@@ -104,7 +104,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie obrazu zarządzanego uogólni
 > [!NOTE]
 > Nadal są naliczane pewne koszty magazynowania obrazów, ale koszt przyrostowy może być nieistotny w porównaniu z kosztami kosztów, aby odbudować maszynę wirtualną od początku dla każdego członka zespołu, który go potrzebuje. Na przykład kosztem jest kilka dolarów, aby utworzyć i zapisać obraz 127 GB na miesiąc, który jest wielokrotnego użytku przez cały zespół. Jednak te koszty są nieznaczące w porównaniu z godzinami każdego pracownika inwestującego w celu utworzenia i zweryfikowania prawidłowo skonfigurowanego pola dev do użytku osobistego.
 
-Ponadto zadania programistyczne lub technologie mogą wymagać większej skali, takich jak różne konfiguracje deweloperskie i konfiguracje wielu maszyn. Za pomocą Azure DevTest Labs można utworzyć _przepisy_ , które automatyzują Konstruowanie "złota obrazu". Za pomocą DevTest Labs można także zarządzać zasadami dla uruchomionych maszyn wirtualnych Twojego zespołu. [Używanie Azure DevTest Labs dla deweloperów](/azure/devtest-lab/devtest-lab-developer-lab) jest najlepszym źródłem do uzyskania dodatkowych informacji na temat DevTest Labs.
+Ponadto zadania programistyczne lub technologie mogą wymagać większej skali, takich jak różne konfiguracje deweloperskie i konfiguracje wielu maszyn. Za pomocą Azure DevTest Labs można utworzyć _przepisy_ , które automatyzują Konstruowanie "złota obrazu". Za pomocą DevTest Labs można także zarządzać zasadami dla uruchomionych maszyn wirtualnych Twojego zespołu. [Używanie Azure DevTest Labs dla deweloperów](../../devtest-labs/devtest-lab-developer-lab.md) jest najlepszym źródłem do uzyskania dodatkowych informacji na temat DevTest Labs.
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy znasz wstępnie skonfigurowane obrazy programu Visual Studio, następnym krokiem jest utworzenie nowej maszyny wirtualnej:

@@ -13,17 +13,17 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80382957"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, opartych na najlepszych rozwiązaniach branżowych, jak pokazano w [plikach przesyłania strumieniowego](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) — Szybki Start. Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 
@@ -42,9 +42,9 @@ Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services.
 
 W poniższym przykładzie zdefiniowano treść żądania nowej transformacji. Definiujemy zestaw danych wyjściowych, które mają być generowane, gdy zostanie użyte to przekształcenie.
 
-W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóch warstw H264Video dla kodowania wideo. W warstwach wideo przypiszemy etykiety, aby można było ich używać w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały także miniatury. W poniższym przykładzie określimy obrazy w formacie PNG, Wygenerowano na 50% rozdzielczości wejściowego filmu wideo oraz trzy sygnatury czasowe — {25%, 50%, 75} długości wejściowego wideo. Na koniec określimy format plików wyjściowych — jeden do wideo i audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy używać makr, które generują unikatowe nazwy na warstwę. Możemy użyć makra `{Label}` lub `{Bitrate}` , jak pokazano w przykładzie.
+W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóch warstw H264Video dla kodowania wideo. W warstwach wideo przypiszemy etykiety, aby można było ich używać w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały także miniatury. W poniższym przykładzie określimy obrazy w formacie PNG, Wygenerowano na 50% rozdzielczości wejściowego filmu wideo oraz trzy sygnatury czasowe — {25%, 50%, 75} długości wejściowego wideo. Na koniec określimy format plików wyjściowych — jeden do wideo i audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy używać makr, które generują unikatowe nazwy na warstwę. Możemy użyć `{Label}` makra lub, jak `{Bitrate}` pokazano w przykładzie.
 
-Zamierzamy zapisać tę transformację w pliku. W tym przykładzie nazwamy plik `customPreset.json`.
+Zamierzamy zapisać tę transformację w pliku. W tym przykładzie nazwamy plik `customPreset.json` .
 
 ```json
 {
@@ -126,7 +126,7 @@ Zamierzamy zapisać tę transformację w pliku. W tym przykładzie nazwamy plik 
 
 ## <a name="create-a-new-transform"></a>Utwórz nowe przekształcenie  
 
-W tym przykładzie utworzysz **transformację** opartą na niestandardowym ustawieniu wstępnym zdefiniowanym wcześniej. Podczas tworzenia przekształcenia należy najpierw sprawdzić, czy już istnieje. Jeśli transformacja istnieje, użyj jej ponownie. Następujące `show` polecenie zwraca transformację `customTransformName` , jeśli istnieje:
+W tym przykładzie utworzysz **transformację** opartą na niestandardowym ustawieniu wstępnym zdefiniowanym wcześniej. Podczas tworzenia przekształcenia należy najpierw sprawdzić, czy już istnieje. Jeśli transformacja istnieje, użyj jej ponownie. Następujące `show` polecenie zwraca `customTransformName` transformację, jeśli istnieje:
 
 ```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName

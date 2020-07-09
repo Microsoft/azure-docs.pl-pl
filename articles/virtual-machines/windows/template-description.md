@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82100536"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie Azure Resource Manager
@@ -274,7 +274,7 @@ Aby ustawić tę właściwość, musi istnieć interfejs sieciowy. W związku z 
 
 Podczas definiowania zasobu maszyny wirtualnej są używane różne elementy profilu. Niektóre są wymagane, a niektóre są opcjonalne. Na przykład elementy — obiekt hardwareprofile, osProfile, obszarze storageprofile i networkProfile są wymagane, ale diagnosticsProfile jest opcjonalne. Te profile definiują ustawienia, takie jak:
    
-- [size](sizes.md)
+- [zmienia](sizes.md)
 - [Nazwa](/azure/architecture/best-practices/resource-naming) i poświadczenia
 - Ustawienia dysku i [systemu operacyjnego](cli-ps-findimage.md)
 - [Interfejs sieciowy](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
@@ -404,7 +404,7 @@ Chociaż [rozszerzenia](extensions-features.md) są osobnym zasobem, są ściśl
 
 Ten zasób rozszerzenia używa zmiennej storagename i zmiennych diagnostycznych w celu podania wartości. Jeśli chcesz zmienić dane zbierane przez to rozszerzenie, możesz dodać więcej liczników wydajności do zmiennej wadperfcounters. Dane diagnostyczne można również umieścić na innym koncie magazynu niż w przypadku przechowywania dysków maszyn wirtualnych.
 
-Istnieje wiele rozszerzeń, które można zainstalować na maszynie wirtualnej, ale najprawdopodobniej jest to [rozszerzenie niestandardowego skryptu](extensions-customscript.md). W tym przykładzie skrypt programu PowerShell o nazwie Start. ps1 jest uruchamiany na każdej maszynie wirtualnej podczas pierwszego uruchomienia:
+Istnieje wiele rozszerzeń, które można zainstalować na maszynie wirtualnej, ale najprawdopodobniej jest to [rozszerzenie niestandardowego skryptu](extensions-customscript.md). W tym przykładzie skrypt programu PowerShell o nazwie start.ps1 jest uruchamiany na każdej maszynie wirtualnej podczas pierwszego uruchomienia:
 
 ```json
 {
@@ -431,7 +431,7 @@ Istnieje wiele rozszerzeń, które można zainstalować na maszynie wirtualnej, 
 }
 ```
 
-Skrypt Start. ps1 może wykonać wiele zadań konfiguracyjnych. Na przykład dyski danych dodawane do maszyn wirtualnych w tym przykładzie nie są inicjowane; Możesz użyć niestandardowego skryptu do ich zainicjowania. Jeśli masz wiele zadań uruchamiania do wykonania, możesz użyć pliku Start. ps1 do wywołania innych skryptów programu PowerShell w usłudze Azure Storage. W przykładzie użyto programu PowerShell, ale można użyć dowolnej metody skryptowej dostępnej w używanym systemie operacyjnym.
+Skrypt start.ps1 może wykonywać wiele zadań konfiguracyjnych. Na przykład dyski danych dodawane do maszyn wirtualnych w tym przykładzie nie są inicjowane; Możesz użyć niestandardowego skryptu do ich zainicjowania. Jeśli masz wiele zadań uruchamiania do wykonania, możesz użyć pliku start.ps1 do wywołania innych skryptów programu PowerShell w usłudze Azure Storage. W przykładzie użyto programu PowerShell, ale można użyć dowolnej metody skryptowej dostępnej w używanym systemie operacyjnym.
 
 Stan zainstalowanych rozszerzeń można zobaczyć w ustawieniach rozszerzenia w portalu:
 

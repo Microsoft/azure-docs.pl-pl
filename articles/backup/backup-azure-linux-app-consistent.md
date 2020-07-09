@@ -5,10 +5,9 @@ ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74173005"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa spójna na poziomie aplikacji maszyn wirtualnych platformy Azure z systemem Linux
@@ -25,13 +24,13 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
 1. Zaloguj się jako użytkownik główny do maszyny wirtualnej z systemem Linux, dla której chcesz utworzyć kopię zapasową.
 
-2. Z usługi [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)Pobierz plik **VMSnapshotScriptPluginConfig. JSON** i skopiuj go do folderu **/etc/Azure** dla wszystkich maszyn wirtualnych, dla których chcesz utworzyć kopię zapasową. Jeśli folder **/etc/Azure** nie istnieje, utwórz go.
+2. W witrynie [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)Pobierz **VMSnapshotScriptPluginConfig.jsna** i skopiuj go do folderu **/etc/Azure** dla wszystkich maszyn wirtualnych, dla których chcesz utworzyć kopię zapasową. Jeśli folder **/etc/Azure** nie istnieje, utwórz go.
 
-3. Skopiuj skrypt poprzedzający i skrypt dla aplikacji na wszystkich maszynach wirtualnych, dla których planujesz utworzyć kopię zapasową. Skrypty można skopiować do dowolnej lokalizacji na maszynie wirtualnej. Pamiętaj, aby zaktualizować pełną ścieżkę plików skryptów w pliku **VMSnapshotScriptPluginConfig. JSON** .
+3. Skopiuj skrypt poprzedzający i skrypt dla aplikacji na wszystkich maszynach wirtualnych, dla których planujesz utworzyć kopię zapasową. Skrypty można skopiować do dowolnej lokalizacji na maszynie wirtualnej. Pamiętaj, aby zaktualizować pełną ścieżkę plików skryptów w **VMSnapshotScriptPluginConfig.js** pliku.
 
 4. Upewnij się, że następujące uprawnienia dotyczą tych plików:
 
-   - **VMSnapshotScriptPluginConfig. JSON**: uprawnienie "600". Na przykład tylko użytkownik "root" powinien mieć uprawnienia "read" i "Write" do tego pliku, a użytkownik nie powinien mieć uprawnień "Execute".
+   - **VMSnapshotScriptPluginConfig.js**: uprawnienie "600". Na przykład tylko użytkownik "root" powinien mieć uprawnienia "read" i "Write" do tego pliku, a użytkownik nie powinien mieć uprawnień "Execute".
 
    - **Plik skryptu wstępnego**: uprawnienie "700".  Na przykład tylko użytkownik "root" powinien mieć uprawnienia "read", "Write" i "Execute" dla tego pliku.
 
@@ -42,7 +41,7 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
    > Jeśli wymagania nie są spełnione, skrypt nie zostanie uruchomiony, co spowoduje awarię systemu plików i niespójną kopię zapasową.
    >
 
-5. Skonfiguruj plik **VMSnapshotScriptPluginConfig. JSON** zgodnie z opisem w tym miejscu:
+5. Skonfiguruj **VMSnapshotScriptPluginConfig.jsw** sposób opisany tutaj:
     - **wtyczkaname**: pozostaw to pole jako is lub skrypty mogą nie funkcjonować zgodnie z oczekiwaniami.
 
     - **preScriptLocation**: Podaj pełną ścieżkę skryptu wstępnego na maszynie wirtualnej, dla której ma zostać utworzona kopia zapasowa.
@@ -71,18 +70,18 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
 Pamiętaj o dodaniu odpowiedniego rejestrowania podczas pisania skryptu wstępnego i po skrypcie oraz Przejrzyj dzienniki skryptów, aby rozwiązać wszelkie problemy ze skryptami. Jeśli nadal występują problemy z uruchamianiem skryptów, zapoznaj się z poniższą tabelą, aby uzyskać więcej informacji.
 
-| Error | Komunikat o błędzie | Zalecana akcja |
+| Błąd | Komunikat o błędzie | Zalecana akcja |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Skrypt przed wystąpieniem zwrócił błąd, dlatego kopia zapasowa może nie być spójna z aplikacją.| Zapoznaj się z dziennikami błędów dla skryptu, aby rozwiązać ten problem.|  
 |Po ScriptExecutionFailed |Skrypt po stronie zwrócił błąd, który może mieć wpływ na stan aplikacji. |Zapoznaj się z dziennikami błędów dla skryptu, aby rozwiązać problem, i sprawdź stan aplikacji. |
-| Pre-ScriptNotFound |Nie znaleziono skryptu wstępnego w lokalizacji określonej w pliku konfiguracji **VMSnapshotScriptPluginConfig. JSON** . |Upewnij się, że skrypt jest obecny w ścieżce określonej w pliku konfiguracji, aby zapewnić kopię zapasową spójną na poziomie aplikacji.|
-| Po ScriptNotFound |Nie znaleziono skryptu wykonywanego w lokalizacji określonej w pliku konfiguracji **VMSnapshotScriptPluginConfig. JSON** . |Upewnij się, że skrypt jest obecny w ścieżce określonej w pliku konfiguracji, aby zapewnić kopię zapasową spójną na poziomie aplikacji.|
+| Pre-ScriptNotFound |Nie znaleziono skryptu wstępnego w lokalizacji określonej w **VMSnapshotScriptPluginConfig.js** pliku konfiguracyjnym. |Upewnij się, że skrypt jest obecny w ścieżce określonej w pliku konfiguracji, aby zapewnić kopię zapasową spójną na poziomie aplikacji.|
+| Po ScriptNotFound |Nie znaleziono skryptu wykonywanego w lokalizacji określonej w **VMSnapshotScriptPluginConfig.js** pliku konfiguracyjnym. |Upewnij się, że skrypt jest obecny w ścieżce określonej w pliku konfiguracji, aby zapewnić kopię zapasową spójną na poziomie aplikacji.|
 | IncorrectPluginhostFile |Plik **hosta wtyczki** , który jest dostarczany z rozszerzeniem VmSnapshotLinux, jest uszkodzony, więc nie można uruchomić skryptu wstępnego i skryptu, a kopia zapasowa nie będzie spójna z aplikacją.| Odinstaluj rozszerzenie **VmSnapshotLinux** i zostanie ono automatycznie zainstalowane ponownie przy użyciu następnej kopii zapasowej w celu rozwiązania problemu. |
-| IncorrectJSONConfigFile | Plik **VMSnapshotScriptPluginConfig. JSON** jest niepoprawny, dlatego nie można uruchomić skryptu wstępnego i skryptu, a kopia zapasowa nie będzie spójna z aplikacją. | Pobierz kopię z usługi [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) i skonfiguruj ją ponownie. |
+| IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig.jsw** pliku jest niepoprawny, więc nie można uruchomić skryptu wstępnego i skryptu, a kopia zapasowa nie będzie spójna z aplikacją. | Pobierz kopię z usługi [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) i skonfiguruj ją ponownie. |
 | InsufficientPermissionforPre — skrypt | W przypadku uruchamiania skryptów użytkownik "root" powinien być właścicielem pliku, a plik powinien mieć uprawnienia "700" (oznacza to, że tylko "właściciel" powinien mieć uprawnienia "Odczyt", "zapis" i "wykonywanie"). | Upewnij się, że użytkownik "root" jest użytkownikiem "Owner" pliku skryptu i że tylko "Owner" ma uprawnienia "read", "Write" i "Execute". |
 | InsufficientPermissionforPost — skrypt | W przypadku uruchamiania skryptów użytkownik główny powinien być właścicielem pliku, a plik powinien mieć uprawnienia "700" (oznacza to, że tylko "właściciel" powinien mieć uprawnienia "Odczyt", "zapis" i "Execute"). | Upewnij się, że użytkownik "root" jest użytkownikiem "Owner" pliku skryptu i że tylko "Owner" ma uprawnienia "read", "Write" i "Execute". |
-| Przed-ScriptTimeout | Upłynął limit czasu wykonywania skryptu wstępnego tworzenia kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w pliku **VMSnapshotScriptPluginConfig. JSON** , który znajduje się w **/etc/Azure**. |
-| Post-ScriptTimeout | Przekroczono limit czasu wykonywania skryptu po wykonaniu kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w pliku **VMSnapshotScriptPluginConfig. JSON** , który znajduje się w **/etc/Azure**. |
+| Przed-ScriptTimeout | Upłynął limit czasu wykonywania skryptu wstępnego tworzenia kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w **VMSnapshotScriptPluginConfig.js** pliku, który znajduje się w **/etc/Azure**. |
+| Post-ScriptTimeout | Przekroczono limit czasu wykonywania skryptu po wykonaniu kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w **VMSnapshotScriptPluginConfig.js** pliku, który znajduje się w **/etc/Azure**. |
 
 ## <a name="next-steps"></a>Następne kroki
 

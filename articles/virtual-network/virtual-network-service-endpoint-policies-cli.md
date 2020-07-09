@@ -11,18 +11,17 @@ Customer intent: I want only specific Azure Storage account to be allowed access
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271183"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708216"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Zarządzanie eksfiltracjiami danych na kontach usługi Azure Storage za pomocą zasad punktu końcowego usług sieci wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -37,7 +36,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 * Potwierdź dostęp do dozwolonego konta magazynu z podsieci.
 * Upewnij się, że dostęp do konta magazynu niedozwolonego z podsieci zostanie odrzucony.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -114,7 +113,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"` Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
+Każda sieciowa Grupa zabezpieczeń zawiera kilka [domyślnych reguł zabezpieczeń](security-overview.md#default-security-rules). Reguła, która następuje, zastępuje domyślną regułę zabezpieczeń, która zezwala na dostęp wychodzący do wszystkich publicznych adresów IP. `destination-address-prefix "Internet"`Opcja powoduje odmowę dostępu wychodzącego do wszystkich publicznych adresów IP. Poprzednia reguła zastępuje tę regułę z powodu wyższego priorytetu, co umożliwia dostęp do publicznych adresów IP usługi Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -263,7 +262,7 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-Zapisz identyfikator URI zasobu dla dozwolonego konta magazynu w zmiennej. Przed wykonaniem poniższego polecenia Zastąp * \<Identyfikator subskrypcji>* wartością rzeczywistą identyfikatora subskrypcji.
+Zapisz identyfikator URI zasobu dla dozwolonego konta magazynu w zmiennej. Przed wykonaniem poniższego polecenia Zastąp *\<your-subscription-id>* wartością rzeczywistą identyfikatora subskrypcji.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
@@ -313,7 +312,7 @@ W ciągu kilku minut zostanie utworzona maszyna wirtualna. Po utworzeniu należy
 
 ### <a name="confirm-access-to-storage-account"></a>Potwierdzanie dostępu do konta magazynu
 
-Użyj protokołu SSH do maszyny wirtualnej *myVmPrivate* . Zastąp * \<publicIpAddress>* publicznym adresem IP maszyny wirtualnej *myVmPrivate* .
+Użyj protokołu SSH do maszyny wirtualnej *myVmPrivate* . Zastąp *\<publicIpAddress>* wartość publicznym adresem IP maszyny wirtualnej *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
@@ -325,7 +324,7 @@ Utwórz folder dla punktu instalacji:
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Zainstaluj udział plików platformy Azure w utworzonym katalogu. Przed wykonaniem poniższego polecenia Zastąp * \<klucz Storage-Key>* wartością *AccountKey* z **$saConnectionString 1**.
+Zainstaluj udział plików platformy Azure w utworzonym katalogu. Przed wykonaniem poniższego polecenia Zastąp *\<storage-account-key>* wartość *AccountKey* z **$saConnectionString 1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -343,7 +342,7 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 Podjęto próbę zainstalowania udziału plików platformy Azure z konta magazynu *notallowedstorageacc* w utworzonym katalogu. W tym artykule przyjęto założenie, że wdrożono najnowszą wersję programu Ubuntu. Jeśli używasz wcześniejszych wersji programu Ubuntu, zobacz [Instalowanie w systemie Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , aby uzyskać dodatkowe instrukcje dotyczące instalowania udziałów plików. 
 
-Przed wykonaniem poniższego polecenia Zastąp * \<>klucz magazynu* i wartość *AccountKey* z **$saConnectionString 2**.
+Przed wykonaniem poniższego polecenia Zastąp *\<storage-account-key>* wartość *AccountKey* z **$saConnectionString 2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -353,7 +352,7 @@ Odmowa dostępu i pojawienie się `mount error(13): Permission denied` błędu, 
 
 Wyjdź z sesji SSH na maszynę wirtualną *myVmPublic* .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, użyj [AZ Group Delete](/cli/azure) , aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby.
 

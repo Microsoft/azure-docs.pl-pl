@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738255"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389296"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ ms.locfileid: "83738255"
 1. W polu **Nazwa**wprowadź `TokenSigningKeyContainer` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Utwórz klucz szyfrowania
 
@@ -53,7 +53,7 @@ ms.locfileid: "83738255"
 1. W polu **Nazwa**wprowadź `TokenEncryptionKeyContainer` . Prefiks `B2C_1A` _ może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebook
 
@@ -64,7 +64,7 @@ Dodaj [wpis tajny](identity-provider-facebook.md) aplikacji usługi Facebook jak
 1. W obszarze **Nazwa**wprowadź `FacebookSecret` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **kluczu tajnym**wprowadź *klucz tajny* aplikacji w serwisie Facebook z Developers.Facebook.com. Ta wartość jest kluczem tajnym, a nie IDENTYFIKATORem aplikacji.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji platformy obsługi tożsamości
 
@@ -74,22 +74,9 @@ Musisz zarejestrować te dwie aplikacje w dzierżawie Azure AD B2C tylko raz.
 
 ### <a name="register-the-identityexperienceframework-application"></a>Rejestrowanie aplikacji IdentityExperienceFramework
 
-Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć środowiska **rejestracje aplikacji (starszej)** lub naszego nowego systemu ujednoliconego **rejestracje aplikacji (wersja zapoznawcza)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregintro).
+Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć **rejestracje aplikacji** środowiska.
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W menu przegląd **Azure Active Directory** w obszarze **zarządzaj**wybierz pozycję **rejestracje aplikacji (starsza wersja)**.
-1. Wybierz pozycję **Rejestrowanie nowej aplikacji**.
-1. W obszarze **Nazwa**wprowadź `IdentityExperienceFramework` .
-1. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web/interfejs API**.
-1. W obszarze **adres URL logowania**wpisz `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` , gdzie `your-tenant-name` to Azure AD B2C nazwa domeny dzierżawy. Wszystkie adresy URL powinny teraz używać [b2clogin.com](b2clogin.md).
-1. Wybierz przycisk **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
-
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. W obszarze **Nazwa**wprowadź `IdentityExperienceFramework` .
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` `your-tenant-name` nazwę domeny dzierżawy Azure AD B2C.
@@ -111,21 +98,7 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Rejestrowanie aplikacji ProxyIdentityExperienceFramework
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
-
-1. W **rejestracje aplikacji (starsza wersja)** wybierz pozycję **rejestracja nowej aplikacji**.
-1. W obszarze **Nazwa**wprowadź `ProxyIdentityExperienceFramework` .
-1. W obszarze **Typ aplikacji**wybierz opcję **natywny**.
-1. Dla **identyfikatora URI przekierowania**wprowadź `myapp://auth` .
-1. Wybierz przycisk **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
-1. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **wymagane uprawnienia**, a następnie wybierz pozycję **Dodaj**.
-1. Wybierz **pozycję Wybierz interfejs API**, Wyszukaj i wybierz pozycję **IdentityExperienceFramework**, a następnie kliknij pozycję **Wybierz**.
-1. Zaznacz pole wyboru obok pozycji **dostęp do IdentityExperienceFramework**, kliknij pozycję **Wybierz**, a następnie kliknij pozycję **gotowe**.
-1. Wybierz pozycję **Udziel uprawnień**, a następnie potwierdź, wybierając pozycję **tak**.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
-
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. W obszarze **Nazwa**wprowadź `ProxyIdentityExperienceFramework` .
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
 1. W obszarze **Identyfikator URI przekierowania**Użyj listy rozwijanej, aby wybrać opcję **Klient publiczny/natywny (Mobile & Desktop)**.
@@ -137,7 +110,6 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 Następnie określ, że aplikacja powinna być traktowana jako klient publiczny:
 
 1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-1. Wybierz opcję **Wypróbuj nowe środowisko** (jeśli zostało wyświetlone).
 1. W obszarze **Ustawienia zaawansowane**Włącz **Traktuj aplikację jako klienta publicznego** (wybierz opcję **tak**). Upewnij się, że **wartość "allowPublicClient": true** jest ustawiona w manifeście aplikacji. 
 1. Wybierz pozycję **Zapisz**.
 
@@ -151,7 +123,7 @@ Teraz Udziel uprawnień do zakresu interfejsu API, który został uwidoczniony w
 1. Wybierz pozycję **Udziel zgody administratora (nazwa dzierżawy)**.
 1. Wybierz obecnie zalogowane konto administratora lub Zaloguj się przy użyciu konta w dzierżawie Azure AD B2C, do którego przypisano co najmniej rolę *administratora aplikacji w chmurze* .
 1. Wybierz pozycję **Zaakceptuj**.
-1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." pojawia się w obszarze **stan** dla obu zakresów. Propagowanie uprawnień może potrwać kilka minut.
+1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." jest wyświetlany w obszarze **stan** dla zakresów-offline_access, openid connect i user_impersonation. Propagowanie uprawnień może potrwać kilka minut.
 
 * * *
 
@@ -166,9 +138,9 @@ Zasady niestandardowe są zestawem plików XML przekazywanym do dzierżawy Azure
 
 Każdy początkowy pakiet zawiera:
 
-- **Plik podstawowy** — do podstawy wymagane są kilka modyfikacji. Przykład: *TrustFrameworkBase. XML*
-- **Plik rozszerzenia** — ten plik jest miejscem, w którym wprowadzane są większość zmian konfiguracji. Przykład: *TrustFrameworkExtensions. XML*
-- **Pliki jednostek uzależnionych** — pliki specyficzne dla zadania wywoływane przez aplikację. Przykłady: *SignUpOrSignin. XML*, *ProfileEdit. XML*, *PasswordReset. XML*
+- **Plik podstawowy** — do podstawy wymagane są kilka modyfikacji. Przykład: *TrustFrameworkBase.xml*
+- **Plik rozszerzenia** — ten plik jest miejscem, w którym wprowadzane są większość zmian konfiguracji. Przykład: *TrustFrameworkExtensions.xml*
+- **Pliki jednostek uzależnionych** — pliki specyficzne dla zadania wywoływane przez aplikację. Przykłady: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
 W tym artykule opisano edytowanie niestandardowych plików zasad XML w pakiecie **SocialAndLocalAccounts** Starter. Jeśli potrzebujesz edytora XML, wypróbuj [Visual Studio Code](https://code.visualstudio.com/download), lekki Edytor Międzyplatformowy.
 
@@ -188,7 +160,7 @@ Pobierz pakiety początkowe dla zasad niestandardowych z usługi GitHub, a nast�
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Dodawanie identyfikatorów aplikacji do zasad niestandardowych
 
-Dodaj identyfikatory aplikacji do pliku rozszerzeń *TrustFrameworkExtensions. XML*.
+Dodaj identyfikatory aplikacji do pliku rozszerzeń *TrustFrameworkExtensions.xml*.
 
 1. Otwórz `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** i Znajdź element `<TechnicalProfile Id="login-NonInteractive">` .
 1. Zastąp oba wystąpienia z `IdentityExperienceFrameworkAppId` identyfikatorem aplikacji utworzonej wcześniej aplikacji IdentityExperienceFramework.
@@ -200,11 +172,11 @@ Dodaj identyfikatory aplikacji do pliku rozszerzeń *TrustFrameworkExtensions. X
 1. Wybierz element menu **Struktura środowiska tożsamości** w dzierżawie B2C w Azure Portal.
 1. Wybierz pozycję **Przekaż zasady niestandardowe**.
 1. W tej kolejności należy przekazać pliki zasad:
-    1. *TrustFrameworkBase. XML*
-    1. *TrustFrameworkExtensions. XML*
-    1. *SignUpOrSignin. XML*
-    1. *ProfileEdit. XML*
-    1. *PasswordReset. XML*
+    1. *TrustFrameworkBase.xml*
+    1. *TrustFrameworkExtensions.xml*
+    1. *SignUpOrSignin.xml*
+    1. *ProfileEdit.xml*
+    1. *PasswordReset.xml*
 
 Podczas przekazywania plików platforma Azure dodaje prefiks `B2C_1A_` do każdego z nich.
 
@@ -234,7 +206,7 @@ Jak wspomniano w [wymaganiach wstępnych](#prerequisites), serwis Facebook *nie*
        <Item Key="client_id">00000000000000</Item>
    ```
 
-1. Przekaż plik *TrustFrameworkExtensions. XML* do dzierżawy.
+1. Przekaż plik *TrustFrameworkExtensions.xml* do dzierżawy.
 1. W obszarze **zasady niestandardowe**wybierz pozycję **B2C_1A_signup_signin**.
 1. Wybierz pozycję **Uruchom teraz** i wybierz pozycję Facebook, aby zalogować się za pomocą usługi Facebook i przetestować zasady niestandardowe.
 

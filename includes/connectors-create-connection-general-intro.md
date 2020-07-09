@@ -3,12 +3,18 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
-ms.openlocfilehash: 0e2d63db1afd4bb169e5aeb1c202674808f081ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/06/2020
+ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786893"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84449107"
 ---
-W przypadku użycia wyzwalacza lub akcji, która uzyskuje dostęp do usługi po raz pierwszy, Projektant Logic Apps będzie monitowany o utworzenie *połączenia* z tą usługą. Następnie można udostępnić wymagane informacje o połączeniu bezpośrednio z poziomu aplikacji logiki w projektancie.
+Po dodaniu wyzwalacza lub akcji, która nawiązuje połączenie z usługą lub systemem po raz pierwszy, projektant aplikacji logiki będzie monitował o utworzenie *połączenia* , podając niezbędne informacje, które różnią się w zależności od połączenia, na przykład:
+
+* Nazwa do użycia dla nowego połączenia
+* Nazwa serwera lub systemu
+* Poświadczenia użytkownika lub konta
+* Typ uwierzytelniania do użycia
+* Subskrypcja i nazwa platformy Azure dla bramy danych, która została wcześniej utworzona podczas łączenia z lokalnymi źródłami danych

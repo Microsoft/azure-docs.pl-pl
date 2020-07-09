@@ -7,17 +7,18 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e80ecac68c3352c7f067fcbfcedb9a07aed729a8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71672833"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120861"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Wprowadzenie do języka U-SQL w Azure Data Lake Analytics
-Skrypt U-SQL to język, który łączy deklaratywne SQL z niestandardowym kodem C#, aby umożliwić przetwarzanie danych w dowolnej skali. Dzięki skalowalnej i rozproszonej funkcji zapytania U-SQL można efektywnie analizować dane w magazynach relacyjnych, takich jak Azure SQL Database. Za pomocą języka U-SQL można przetwarzać dane bez struktury, stosując schemat przy odczytywaniu i wstawianiu niestandardowych logiki i UDF. Ponadto skrypt U-SQL zawiera rozszerzalność, która zapewnia precyzyjną kontrolę nad wykonywaniem w odpowiedniej skali. 
+
+Skrypt U-SQL to język, który łączy deklaratywne SQL z niestandardowym kodem C#, aby umożliwić przetwarzanie danych w dowolnej skali. Dzięki skalowalnej i rozproszonej funkcji zapytania U-SQL można efektywnie analizować dane w magazynach relacyjnych, takich jak Azure SQL Database. Za pomocą języka U-SQL można przetwarzać dane bez struktury, stosując schemat przy odczytywaniu i wstawianiu niestandardowych logiki i UDF. Ponadto skrypt U-SQL zawiera rozszerzalność, która zapewnia precyzyjną kontrolę nad wykonywaniem w odpowiedniej skali.
 
 ## <a name="learning-resources"></a>Zasoby szkoleniowe
 
@@ -33,7 +34,7 @@ Przed przejściem do przykładów U-SQL w tym dokumencie Przeczytaj i kompletny 
 
 Poniższy skrypt U-SQL jest prosty i umożliwia nam Eksplorowanie wielu aspektów języka U-SQL.
 
-```
+```usql
 @searchlog =
     EXTRACT UserId          int,
             Start           DateTime,
@@ -45,17 +46,18 @@ Poniższy skrypt U-SQL jest prosty i umożliwia nam Eksplorowanie wielu aspektó
     FROM "/Samples/Data/SearchLog.tsv"
     USING Extractors.Tsv();
 
-OUTPUT @searchlog   
+OUTPUT @searchlog
     TO "/output/SearchLog-first-u-sql.csv"
     USING Outputters.Csv();
 ```
 
-Ten skrypt nie zawiera żadnych kroków transformacji. Odczytuje z pliku źródłowego o nazwie `SearchLog.tsv`, schematizes go i zapisuje zestaw wierszy z powrotem do pliku o nazwie SearchLog-First-u-SQL. csv.
+Ten skrypt nie zawiera żadnych kroków transformacji. Odczytuje z pliku źródłowego o nazwie `SearchLog.tsv` , schematizes go i zapisuje zestaw wierszy z powrotem do pliku o nazwie SearchLog-first-u-sql.csv.
 
 Zwróć uwagę na znak zapytania obok typu danych w `Duration` polu. Oznacza to, że `Duration` pole może mieć wartość null.
 
 ### <a name="key-concepts"></a>Kluczowe pojęcia
-* **Zmienne zestawu wierszy**: każde wyrażenie zapytania, które generuje zestaw wierszy, można przypisać do zmiennej. Język U-SQL jest zgodny ze wzorcem nazewnictwa zmiennych`@searchlog`T-SQL (na przykład) w skrypcie.
+
+* **Zmienne zestawu wierszy**: każde wyrażenie zapytania, które generuje zestaw wierszy, można przypisać do zmiennej. Język U-SQL jest zgodny ze wzorcem nazewnictwa zmiennych T-SQL ( `@searchlog` na przykład) w skrypcie.
 * Słowo kluczowe **Extract** odczytuje dane z pliku i definiuje schemat podczas odczytu. `Extractors.Tsv`jest wbudowanym ekstraktorem U-SQL dla plików wartości rozdzielanych znakami tabulacji. Można opracowywać niestandardowe wyodrębniania.
 * Dane **wyjściowe** są zapisywane z zestawu wierszy do pliku. `Outputters.Csv()`jest wbudowanym wypełnieniem U-SQL w celu utworzenia pliku z wartościami rozdzielanymi przecinkami. Możesz opracowywać niestandardowe wyprowadzenia.
 
@@ -63,167 +65,169 @@ Zwróć uwagę na znak zapytania obok typu danych w `Duration` polu. Oznacza to,
 
 Instrukcje EXTRACT i OUTPUT używają ścieżek plików. Ścieżki plików mogą być bezwzględne lub względne:
 
-Ta bezwzględna ścieżka do pliku odnosi się do pliku w `mystore`Data Lake Store o nazwie:
+Ta bezwzględna ścieżka do pliku odnosi się do pliku w Data Lake Store o nazwie `mystore` :
 
-    adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
+```usql
+adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
+```
 
-Następująca ścieżka pliku rozpoczyna się od `"/"`. Odnosi się do pliku w domyślnym koncie Data Lake Store:
+Następująca ścieżka pliku rozpoczyna się od `"/"` . Odnosi się do pliku w domyślnym koncie Data Lake Store:
 
-    /output/SearchLog-first-u-sql.csv
+```usql
+/output/SearchLog-first-u-sql.csv
+```
 
 ## <a name="use-scalar-variables"></a>Użyj zmiennych skalarnych
 
 Możesz również używać zmiennych skalarnych, aby ułatwić konserwację skryptów. Poprzedni skrypt U-SQL może być również zapisany jako:
 
-    DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
-    DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
-
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM @in
-        USING Extractors.Tsv();
-
-    OUTPUT @searchlog   
-        TO @out
-        USING Outputters.Csv();
+```usql
+DECLARE @in  string = "/Samples/Data/SearchLog.tsv";
+DECLARE @out string = "/output/SearchLog-scalar-variables.csv";
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM @in
+    USING Extractors.Tsv();
+OUTPUT @searchlog
+    TO @out
+    USING Outputters.Csv();
+```
 
 ## <a name="transform-rowsets"></a>Przekształć zestawy wierszy
 
 Użyj **opcji wybierz** do przekształcenia zestawów wierszy:
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
-
-    @rs1 =
-        SELECT Start, Region, Duration
-        FROM @searchlog
-    WHERE Region == "en-gb";
-
-    OUTPUT @rs1   
-        TO "/output/SearchLog-transform-rowsets.csv"
-        USING Outputters.Csv();
+```usql
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
+@rs1 =
+    SELECT Start, Region, Duration
+    FROM @searchlog
+WHERE Region == "en-gb";
+OUTPUT @rs1
+    TO "/output/SearchLog-transform-rowsets.csv"
+    USING Outputters.Csv();
+```
 
 Klauzula WHERE używa [wyrażenia logicznego języka C#](/dotnet/csharp/language-reference/operators/index). Możesz użyć języka wyrażeń języka C# do wykonywania własnych wyrażeń i funkcji. Można nawet wykonywać bardziej skomplikowane filtrowanie, łącząc je ze sobą koniunkcji logiczne (ANDs) i rozłączeń (ORs).
 
 Poniższy skrypt używa metody DateTime. Parse () i połączenia.
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
-
-    @rs1 =
-        SELECT Start, Region, Duration
-        FROM @searchlog
-    WHERE Region == "en-gb";
-
-    @rs1 =
-        SELECT Start, Region, Duration
-        FROM @rs1
-        WHERE Start >= DateTime.Parse("2012/02/16") AND Start <= DateTime.Parse("2012/02/17");
-
-    OUTPUT @rs1   
-        TO "/output/SearchLog-transform-datetime.csv"
-        USING Outputters.Csv();
+```usql
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
+@rs1 =
+    SELECT Start, Region, Duration
+    FROM @searchlog
+WHERE Region == "en-gb";
+@rs1 =
+    SELECT Start, Region, Duration
+    FROM @rs1
+    WHERE Start >= DateTime.Parse("2012/02/16") AND Start <= DateTime.Parse("2012/02/17");
+OUTPUT @rs1
+    TO "/output/SearchLog-transform-datetime.csv"
+    USING Outputters.Csv();
+```
 
  >[!NOTE]
  >Drugie zapytanie działa w wyniku pierwszego zestawu wierszy, który tworzy złożone z dwóch filtrów. Możesz również ponownie użyć nazwy zmiennej, a nazwy są w określonym zakresie.
 
 ## <a name="aggregate-rowsets"></a>Agregacja zestawów wierszy
+
 Język U-SQL zapewnia znane, UPORZĄDKOWANe według, grupowanie według i agregacje.
 
 Poniższe zapytanie znajduje łączny czas trwania na region, a następnie wyświetla pięć pierwszych czasów trwania w kolejności.
 
 Zestawy wierszy U-SQL nie zachowują kolejności dla następnego zapytania. W tym celu należy dodać polecenie ORDER BY do WYJŚCIOWEj instrukcji:
 
-    DECLARE @outpref string = "/output/Searchlog-aggregation";
-    DECLARE @out1    string = @outpref+"_agg.csv";
-    DECLARE @out2    string = @outpref+"_top5agg.csv";
-
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
-
-    @rs1 =
-        SELECT
-            Region,
-            SUM(Duration) AS TotalDuration
-        FROM @searchlog
-    GROUP BY Region;
-
-    @res =
-        SELECT *
-        FROM @rs1
-        ORDER BY TotalDuration DESC
-        FETCH 5 ROWS;
-
-    OUTPUT @rs1
-        TO @out1
-        ORDER BY TotalDuration DESC
-        USING Outputters.Csv();
-
-    OUTPUT @res
-        TO @out2
-        ORDER BY TotalDuration DESC
-        USING Outputters.Csv();
+```usql
+DECLARE @outpref string = "/output/Searchlog-aggregation";
+DECLARE @out1    string = @outpref+"_agg.csv";
+DECLARE @out2    string = @outpref+"_top5agg.csv";
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
+@rs1 =
+    SELECT
+        Region,
+        SUM(Duration) AS TotalDuration
+    FROM @searchlog
+GROUP BY Region;
+@res =
+    SELECT *
+    FROM @rs1
+    ORDER BY TotalDuration DESC
+    FETCH 5 ROWS;
+OUTPUT @rs1
+    TO @out1
+    ORDER BY TotalDuration DESC
+    USING Outputters.Csv();
+OUTPUT @res
+    TO @out2
+    ORDER BY TotalDuration DESC
+    USING Outputters.Csv();
+```
 
 Klauzula ORDER BY języka U-SQL wymaga użycia klauzuli FETCH w wyrażeniu SELECT.
 
 Klauzula HAVING U-SQL może służyć do ograniczania danych wyjściowych do grup, które spełniają warunek HAVING:
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM "/Samples/Data/SearchLog.tsv"
-        USING Extractors.Tsv();
-
-    @res =
-        SELECT
-            Region,
-            SUM(Duration) AS TotalDuration
-        FROM @searchlog
-        GROUP BY Region
-        HAVING SUM(Duration) > 200;
-
-    OUTPUT @res
-        TO "/output/Searchlog-having.csv"
-        ORDER BY TotalDuration DESC
-        USING Outputters.Csv();
+```usql
+@searchlog =
+    EXTRACT UserId          int,
+            Start           DateTime,
+            Region          string,
+            Query           string,
+            Duration        int?,
+            Urls            string,
+            ClickedUrls     string
+    FROM "/Samples/Data/SearchLog.tsv"
+    USING Extractors.Tsv();
+@res =
+    SELECT
+        Region,
+        SUM(Duration) AS TotalDuration
+    FROM @searchlog
+    GROUP BY Region
+    HAVING SUM(Duration) > 200;
+OUTPUT @res
+    TO "/output/Searchlog-having.csv"
+    ORDER BY TotalDuration DESC
+    USING Outputters.Csv();
+```
 
 Aby uzyskać zaawansowane scenariusze agregacji, zobacz dokumentację referencyjną języka U-SQL dla [funkcji agregujących, analitycznych i referencyjnych](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Następne kroki
+
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Tworzenie skryptów U-SQL przy użyciu narzędzi Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

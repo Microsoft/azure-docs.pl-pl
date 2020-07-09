@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845750"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848718"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
 
@@ -228,9 +228,9 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
 2. W Menedżer serwera wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Routing i dostęp zdalny**.
 
-3. W oknie **Routing i dostęp zdalny** kliknij prawym przyciskiem myszy ** \< nazwę serwera> (local)**, a następnie wybierz polecenie **Właściwości**.
+3. W oknie **Routing i dostęp zdalny** kliknij prawym przyciskiem myszy ** \<server name> (lokalne)**, a następnie wybierz polecenie **Właściwości**.
 
-4. W oknie ** \< Właściwości nazwy serwera> (local)** wybierz kartę **zabezpieczenia** .
+4. W oknie ** \<server name> właściwości (lokalne)** wybierz kartę **zabezpieczenia** .
 
 5. Na karcie **zabezpieczenia** w obszarze **dostawca uwierzytelniania**wybierz pozycję **uwierzytelnianie usługi RADIUS**, a następnie wybierz pozycję **Konfiguruj**.
 
@@ -320,19 +320,15 @@ Utwórz nową wartość ciągu o nazwie _REQUIRE_USER_MATCH w HKLM\SOFTWARE\Micr
 
 Jeśli wartość jest równa *true* lub jest pusta, wszystkie żądania uwierzytelnienia podlegają wyzwaniem usługi MFA. Jeśli wartość jest równa *false*, wyzwania usługi MFA są wystawiane tylko dla użytkowników zarejestrowanych w usłudze Azure Multi-Factor Authentication. Używaj ustawienia *false* tylko w testach lub w środowiskach produkcyjnych w trakcie okresu dołączania.
 
-### <a name="obtain-the-azure-active-directory-guid-id"></a>Uzyskaj identyfikator GUID Azure Active Directory
+### <a name="obtain-the-azure-active-directory-tenant-id"></a>Uzyskaj identyfikator dzierżawy Azure Active Directory
 
-W ramach konfiguracji rozszerzenia serwera NPS należy podać poświadczenia administratora i identyfikator dzierżawy usługi Azure AD. Uzyskaj identyfikator, wykonując następujące czynności:
+W ramach konfiguracji rozszerzenia serwera NPS należy podać poświadczenia administratora i identyfikator dzierżawy usługi Azure AD. Aby uzyskać identyfikator dzierżawy, wykonaj następujące czynności:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny dzierżawy platformy Azure.
+1. W menu Azure Portal wybierz pozycję **Azure Active Directory**lub Wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
+1. Na stronie **Przegląd** są wyświetlane *Informacje o dzierżawie* . Wybierz ikonę **kopiowania** obok *identyfikatora dzierżawy*, jak pokazano na poniższym przykładzie zrzutu ekranu:
 
-2. W menu Azure Portal wybierz pozycję **Azure Active Directory**lub Wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
-
-3. Wybierz pozycję **Właściwości**.
-
-4. Aby skopiować identyfikator usługi Azure AD, wybierz przycisk **Kopiuj** .
-
-    ![Identyfikator katalogu usługi Azure AD w Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Pobieranie identyfikatora dzierżawy z Azure Portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalowanie rozszerzenia serwera NPS
 
@@ -340,9 +336,9 @@ Rozszerzenie serwera NPS musi być zainstalowane na serwerze, na którym jest za
 
 1. Pobierz rozszerzenie serwera NPS z [Centrum pobierania firmy Microsoft](https://aka.ms/npsmfa).
 
-2. Skopiuj plik wykonywalny Instalatora (*NpsExtnForAzureMfaInstaller. exe*) na serwer NPS.
+2. Skopiuj plik wykonywalny Instalatora (*NpsExtnForAzureMfaInstaller.exe*) na serwer NPS.
 
-3. Na serwerze NPS kliknij dwukrotnie **plik NpsExtnForAzureMfaInstaller. exe** i, jeśli zostanie wyświetlony monit, wybierz pozycję **Uruchom**.
+3. Na serwerze NPS kliknij dwukrotnie pozycję **NpsExtnForAzureMfaInstaller.exe** i, jeśli zostanie wyświetlony monit, wybierz pozycję **Uruchom**.
 
 4. W oknie **Konfiguracja rozszerzenia serwera NPS dla usługi Azure MFA** Przejrzyj postanowienia licencyjne dotyczące oprogramowania, zaznacz pole wyboru **Akceptuję warunki i postanowienia licencyjne** , a następnie wybierz pozycję **Zainstaluj**.
 
@@ -372,9 +368,9 @@ Aby użyć skryptu, podaj rozszerzenie przy użyciu poświadczeń administracyjn
 
 2. W wierszu polecenia programu PowerShell wpisz **CD "C:\Program Files\Microsoft\AzureMfa\Config"**, a następnie wybierz klawisz ENTER.
 
-3. W następnym wierszu polecenia wprowadź **.\AzureMfaNpsExtnConfigSetup.ps1**, a następnie wybierz ENTER. Skrypt sprawdza, czy jest zainstalowany moduł programu Azure AD PowerShell. Jeśli nie jest zainstalowany, skrypt instaluje moduł.
+3. W następnym wierszu polecenia wprowadź **.\AzureMfaNpsExtnConfigSetup.ps1**, a następnie wybierz klawisz ENTER. Skrypt sprawdza, czy jest zainstalowany moduł programu Azure AD PowerShell. Jeśli nie jest zainstalowany, skrypt instaluje moduł.
 
-    ![Uruchamianie skryptu konfiguracji AzureMfsNpsExtnConfigSetup. ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
+    ![Uruchamianie skryptu konfiguracji AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
     Jeśli wystąpi błąd zabezpieczeń ze względu na protokół TLS, Włącz protokół TLS 1,2 przy użyciu `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` polecenia z poziomu monitu programu PowerShell.
     
@@ -386,7 +382,7 @@ Aby użyć skryptu, podaj rozszerzenie przy użyciu poświadczeń administracyjn
 
 5. W wierszu polecenia Wklej skopiowany wcześniej identyfikator dzierżawy, a następnie wybierz klawisz ENTER.
 
-    ![Wprowadź identyfikator katalogu usługi Azure AD skopiowany przed](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Wprowadź identyfikator dzierżawy usługi Azure AD skopiowany przed](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     Skrypt tworzy certyfikat z podpisem własnym i wykonuje inne zmiany w konfiguracji. Dane wyjściowe są podobne do następujących:
 
@@ -412,7 +408,9 @@ Po pomyślnym uwierzytelnieniu przy użyciu metody pomocniczej masz udzielony do
 
 Aby wyświetlić pomyślne zdarzenia logowania w dziennikach Podgląd zdarzeń systemu Windows, zapytaj dziennik zabezpieczeń systemu Windows na serwerze NPS, wprowadzając następujące polecenie programu PowerShell:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Podgląd zdarzeń zabezpieczeń programu PowerShell](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -422,7 +420,9 @@ Możesz również wyświetlić dziennik zabezpieczeń lub widok niestandardowy u
 
 Na serwerze, na którym zainstalowano rozszerzenie serwera NPS dla usługi Azure Multi-Factor Authentication, można znaleźć Podgląd zdarzeń Dzienniki aplikacji, które są specyficzne dla rozszerzenia w *Logs\Microsoft\AzureMfa aplikacji i usług*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Przykładowe Podgląd zdarzeń okienko rejestrowania autoryzacji](./media/howto-mfa-nps-extension-vpn/image46.png)
 

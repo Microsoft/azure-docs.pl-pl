@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/10/2020
-ms.openlocfilehash: 543bc29adc85bd767de9479607d067fadf7b0078
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2736d0cfe514252e36ba6d7e0d71efe09da15aae
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75934697"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076304"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Korzystanie z MapReduce z usługą Apache Hadoop w usłudze HDInsight przy użyciu protokołu SSH
 
@@ -42,7 +42,7 @@ Klaster Apache Hadoop w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache H
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    To polecenie uruchamia `wordcount` klasę, która jest zawarta w `hadoop-mapreduce-examples.jar` pliku. Używa `/example/data/gutenberg/davinci.txt` dokumentu jako danych wejściowych, a dane wyjściowe są przechowywane w `/example/data/WordCountOutput`.
+    To polecenie uruchamia `wordcount` klasę, która jest zawarta w `hadoop-mapreduce-examples.jar` pliku. Używa `/example/data/gutenberg/davinci.txt` dokumentu jako danych wejściowych, a dane wyjściowe są przechowywane w `/example/data/WordCountOutput` .
 
     > [!NOTE]
     > Aby uzyskać więcej informacji na temat tego zadania MapReduce i przykładowych danych, zobacz [Korzystanie z MapReduce w Apache Hadoop w usłudze HDInsight](hdinsight-use-mapreduce.md).
@@ -62,7 +62,7 @@ Klaster Apache Hadoop w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache H
     hdfs dfs -ls /example/data/WordCountOutput
     ```
 
-    To polecenie wyświetla dwa pliki `_SUCCESS` i. `part-r-00000` `part-r-00000` Plik zawiera dane wyjściowe dla tego zadania.
+    To polecenie wyświetla dwa pliki `_SUCCESS` i `part-r-00000` . `part-r-00000`Plik zawiera dane wyjściowe dla tego zadania.
 
     > [!NOTE]  
     > Niektóre zadania MapReduce mogą dzielić wyniki w wielu plikach **części-r-#** # # #. Jeśli tak, użyj sufiksu # # # # #, aby wskazać kolejność plików.
@@ -73,7 +73,7 @@ Klaster Apache Hadoop w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache H
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    To polecenie wyświetla listę wyrazów, które znajdują się w pliku **wasbs://example/Data/Gutenberg/DaVinci.txt** oraz liczbę przypadków wystąpienia każdego wyrazu. Następujący tekst to przykład danych zawartych w pliku:
+    To polecenie wyświetla listę wyrazów, które znajdują się w pliku **wasbs://example/data/gutenberg/davinci.txt** i liczbę razy wystąpienia każdego wyrazu. Następujący tekst to przykład danych zawartych w pliku:
 
     ```output
     wreathed        3

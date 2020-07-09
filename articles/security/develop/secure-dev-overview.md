@@ -14,10 +14,9 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68934863"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Bezpieczne programowanie najlepszych rozwiązań na platformie Azure
@@ -43,13 +42,13 @@ Fazy SDL to:
 
   - Szkolenia
   - Wymagania
-  - Projektowanie
+  - Projekt
   - Implementacja
   - Weryfikacja
-  - Release
+  - Wydanie
   - Odpowiedź
 
-![Cykl projektowania zabezpieczeń](./media/secure-dev-overview/01-sdl-phase.png)
+![Security Development Lifecycle](./media/secure-dev-overview/01-sdl-phase.png)
 
 W tych artykułach są grupowane fazy SDL w celu projektowania, opracowywania i wdrażania.
 
@@ -59,7 +58,7 @@ Organizacja może mieć formalny program zabezpieczeń aplikacji, który ułatwi
 
 Zdajemy sobie sprawę, że wielu czytelników może nie mieć zespołu ds. zabezpieczeń lub zgodności. Te artykuły mogą pomóc w zalogowaniu się do pytań zabezpieczających i decyzji, które należy wziąć pod uwagę w każdej fazie SDL.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Skorzystaj z następujących zasobów, aby dowiedzieć się więcej na temat tworzenia bezpiecznych aplikacji i zabezpieczania aplikacji na platformie Azure:
 

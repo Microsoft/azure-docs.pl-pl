@@ -13,10 +13,9 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80880754"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Instrukcje: Logowanie jednokrotne między aplikacjami ADAL i MSAL w systemach macOS i iOS
@@ -37,11 +36,11 @@ Biblioteka ADAL 2.7. x może odczytać format pamięci podręcznej MSAL. Nie mus
 
 ### <a name="account-identifier-differences"></a>Różnice identyfikatorów kont
 
-MSAL i ADAL używają różnych identyfikatorów kont. Biblioteka ADAL używa nazwy UPN jako podstawowego identyfikatora konta. MSAL korzysta z niedrukowalnego identyfikatora konta, który jest oparty na IDENTYFIKATORze obiektu i IDENTYFIKATORze dzierżawy dla kont usługi AAD, a `sub` następnie w przypadku innych typów kont.
+MSAL i ADAL używają różnych identyfikatorów kont. Biblioteka ADAL używa nazwy UPN jako podstawowego identyfikatora konta. MSAL korzysta z niedrukowalnego identyfikatora konta, który jest oparty na IDENTYFIKATORze obiektu i IDENTYFIKATORze dzierżawy dla kont usługi AAD, a następnie w `sub` przypadku innych typów kont.
 
 Gdy otrzymasz `MSALAccount` obiekt w wyniku MSAL, zawiera on identyfikator konta we `identifier` właściwości. Aplikacja powinna używać tego identyfikatora dla kolejnych żądań dyskretnych.
 
-Oprócz `identifier`, obiekt zawiera `MSALAccount` identyfikator, który został wywołany `username`. Który jest tłumaczony na `userId` w bibliotece ADAL. `username`nie jest uznawany za unikatowy identyfikator i może się zmienić w dowolnym czasie, więc należy go używać tylko w scenariuszach zgodności z poprzednimi wersjami z biblioteką ADAL. MSAL obsługuje zapytania pamięci podręcznej przy użyciu albo `username` lub `identifier`, `identifier` gdzie jest zalecane wykonywanie zapytań.
+Oprócz `identifier` , `MSALAccount` obiekt zawiera identyfikator, który został wywołany `username` . Który jest tłumaczony na `userId` w bibliotece ADAL. `username`nie jest uznawany za unikatowy identyfikator i może się zmienić w dowolnym czasie, więc należy go używać tylko w scenariuszach zgodności z poprzednimi wersjami z biblioteką ADAL. MSAL obsługuje zapytania pamięci podręcznej przy użyciu albo `username` lub `identifier` , gdzie `identifier` jest zalecane wykonywanie zapytań.
 
 Poniższa tabela zawiera podsumowanie różnic identyfikatorów kont między bibliotekami ADAL i MSAL:
 
@@ -49,7 +48,7 @@ Poniższa tabela zawiera podsumowanie różnic identyfikatorów kont między bib
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | Identyfikator, który ma być odtwarzany            | `username`                                                   | `userId`        | `userId`                       |
 | unikatowy identyfikator, który nie jest odtwarzany | `identifier`                                                 | `homeAccountId` | Nie dotyczy                            |
-| Brak znanego identyfikatora konta               | Wykonywanie zapytania dotyczącego `allAccounts:` wszystkich kont za poorednictwem interfejsu API w`MSALPublicClientApplication` | Nie dotyczy             | Nie dotyczy                            |
+| Brak znanego identyfikatora konta               | Wykonywanie zapytania dotyczącego wszystkich kont za poorednictwem `allAccounts:` interfejsu API w`MSALPublicClientApplication` | Nie dotyczy             | Nie dotyczy                            |
 
 Jest to `MSALAccount` interfejs udostępniający te identyfikatory:
 
@@ -84,7 +83,7 @@ Jest to `MSALAccount` interfejs udostępniający te identyfikatory:
 
 ### <a name="sso-from-msal-to-adal"></a>Logowanie jednokrotne z usługi MSAL do biblioteki ADAL
 
-Jeśli masz aplikację MSAL i aplikację ADAL, a użytkownik po raz pierwszy zaloguje się do aplikacji opartej na usłudze MSAL, możesz pobrać Logowanie jednokrotne w aplikacji ADAL przez `username` zapisanie `MSALAccount` z obiektu i przekazanie go do aplikacji opartej na `userId`bibliotece ADAL jako. Biblioteki ADAL mogą następnie znaleźć informacje o koncie dyskretnie przy `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` użyciu interfejsu API.
+Jeśli masz aplikację MSAL i aplikację ADAL, a użytkownik po raz pierwszy zaloguje się do aplikacji opartej na usłudze MSAL, możesz pobrać Logowanie jednokrotne w aplikacji ADAL przez zapisanie `username` z `MSALAccount` obiektu i przekazanie go do aplikacji opartej na bibliotece ADAL jako `userId` . Biblioteki ADAL mogą następnie znaleźć informacje o koncie dyskretnie przy użyciu `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` interfejsu API.
 
 ### <a name="sso-from-adal-to-msal"></a>Logowanie jednokrotne z biblioteki ADAL do MSAL
 
@@ -92,7 +91,7 @@ Jeśli masz aplikację MSAL i aplikację ADAL, a użytkownik najpierw zaloguje s
 
 #### <a name="adals-homeaccountid"></a>HomeAccountId biblioteki ADAL
 
-Biblioteka ADAL 2.7. x zwraca `homeAccountId` wartość w `ADUserInformation` obiekcie w wyniku za pośrednictwem tej właściwości:
+Biblioteka ADAL 2.7. x zwraca wartość `homeAccountId` w `ADUserInformation` obiekcie w wyniku za pośrednictwem tej właściwości:
 
 ```objc
 /*! Unique AAD account identifier across tenants based on user's home OID/home tenantId. */
@@ -103,9 +102,9 @@ Biblioteka ADAL 2.7. x zwraca `homeAccountId` wartość w `ADUserInformation` ob
 
 #### <a name="adals-userid"></a>Biblioteka ADAL`userId`
 
-Jeśli `homeAccountId` funkcja jest niedostępna lub masz tylko możliwy do odtworzenia identyfikator, można użyć biblioteki ADAL `userId` do przeszukania konta w MSAL.
+Jeśli `homeAccountId` Funkcja jest niedostępna lub masz tylko możliwy do odtworzenia identyfikator, można użyć biblioteki ADAL `userId` do przeszukania konta w MSAL.
 
-W programie MSAL najpierw wyszukać konto w `username` usłudze `identifier`lub. Zawsze używaj `identifier` do wykonywania zapytań, jeśli masz, i używaj `username` tylko jako Fallback. Jeśli konto zostanie znalezione, użyj konta w `acquireTokenSilent` wywołaniach.
+W programie MSAL najpierw wyszukać konto w usłudze `username` lub `identifier` . Zawsze używaj `identifier` do wykonywania zapytań, jeśli masz, i używaj tylko `username` jako Fallback. Jeśli konto zostanie znalezione, użyj konta w `acquireTokenSilent` wywołaniach.
 
 Cel-C:
 
@@ -190,7 +189,7 @@ W tej sekcji opisano różnice między elementami MSAL i ADAL 2. x-2.6.6.
 
 Starsze wersje ADAL nie obsługują natywnie formatu pamięci podręcznej MSAL. Aby jednak zapewnić bezproblemową migrację z biblioteki ADAL do MSAL, MSAL może odczytać starszy format pamięci podręcznej ADAL bez monitowania o podanie poświadczeń użytkownika.
 
-Ponieważ `homeAccountId` usługa jest niedostępna w starszych wersjach ADAL, należy wyszukać konta przy `username`użyciu:
+Ponieważ usługa `homeAccountId` jest niedostępna w starszych wersjach ADAL, należy wyszukać konta przy użyciu `username` :
 
 ```objc
 /*!

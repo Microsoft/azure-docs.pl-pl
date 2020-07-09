@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Dowiedz się więcej na temat Azure Media Services transkrypcji na żywo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,83 +12,178 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: juliako
-ms.openlocfilehash: b364b6e70e3b5723c483bc3435f0c3a152c03aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2019
+ms.author: inhenkel
+ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79499875"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84765016"
 ---
 # <a name="live-transcription-preview"></a>Transkrypcja dynamiczna (wersja zapoznawcza)
 
 Usługa Azure Media Service oferuje wideo, audio i tekst w różnych protokołach. Gdy publikujesz strumień na żywo przy użyciu formatu MPEG-KRESKowego lub HLS/CMAF, a następnie wideo i audio, Nasza usługa dostarcza tekst uzyskanego w IMSC 1.1 zgodne TTML. Dostarczenie jest spakowane w fragmenty MPEG-4 część 30 (ISO/IEC 14496-30). W przypadku używania dostarczania za pośrednictwem HLS/TS, tekst jest dostarczany jako podzielony VTT.
 
-W tym artykule opisano sposób włączania transkrypcji na żywo podczas przesyłania strumieniowego zdarzenia na żywo z Azure Media Services v3. Przed kontynuowaniem upewnij się, że znasz już korzystanie z interfejsów API REST usługi Media Services v3 (zobacz [ten samouczek](stream-files-tutorial-with-rest.md) , aby uzyskać szczegółowe informacje). Należy również zapoznać się z koncepcją [przesyłania strumieniowego na żywo](live-streaming-overview.md) . Zaleca się ukończenie [przesyłania strumieniowego na żywo za pomocą](stream-live-tutorial-with-api.md) samouczka Media Services.
+Dodatkowe opłaty są naliczane po włączeniu transkrypcji na żywo. Zapoznaj się z informacjami o cenach w sekcji wideo na żywo na [stronie cennika Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
-> [!NOTE]
-> Obecnie transkrypcja na żywo jest dostępna tylko jako funkcja w wersji zapoznawczej w regionie zachodnie stany USA 2. Obsługuje transkrypcję wyrazów mówionych w języku angielskim do tekstu. Dokumentacja interfejsu API dla tej funkcji znajduje się poniżej — ponieważ w wersji zapoznawczej. szczegóły nie są dostępne w przypadku dokumentów REST.
+W tym artykule opisano sposób włączania transkrypcji na żywo podczas przesyłania strumieniowego zdarzenia na żywo przy użyciu Azure Media Services. Przed kontynuowaniem upewnij się, że znasz już korzystanie z interfejsów API REST usługi Media Services v3 (zobacz [ten samouczek](stream-files-tutorial-with-rest.md) , aby uzyskać szczegółowe informacje). Należy również zapoznać się z koncepcją [przesyłania strumieniowego na żywo](live-streaming-overview.md) . Zaleca się ukończenie [przesyłania strumieniowego na żywo za pomocą](stream-live-tutorial-with-api.md) samouczka Media Services.
 
-## <a name="creating-the-live-event"></a>Tworzenie wydarzenia na żywo
+## <a name="live-transcription-preview-regions-and-languages"></a>Regiony i języki podglądu transkrypcji na żywo
 
-Aby utworzyć wydarzenie na żywo, Wyślij operację PUT do wersji 2019-05-01-Preview, na przykład:
+Transkrypcja na żywo jest dostępna w następujących regionach:
+
+- Azja Południowo-Wschodnia
+- Europa Zachodnia
+- Europa Północna
+- Wschodnie stany USA
+- Środkowe stany USA
+- Południowo-środkowe stany USA
+- Zachodnie stany USA 2
+- Brazylia Południowa
+
+Jest to lista dostępnych języków, które mogą być uzyskanego, przy użyciu kodu języka w interfejsie API.
+
+| Język | Kod języka |
+| -------- | ------------- |
+| Kataloński  | ca-ES |
+| Duński (Dania) | da-DK |
+| Niemiecki (Niemcy) | de-DE |
+| Angielski (Australia) | en-AU |
+| Angielski (Kanada) | EN-CA |
+| Angielski (Zjednoczone Królestwo) | en-GB |
+| Angielski (Indie) | dodatek EN-IN |
+| Angielski (Nowa Zelandia) | EN-NZ |
+| Angielski (Stany Zjednoczone) | pl-PL |
+| hiszpański (Hiszpania) | es-ES |
+| Hiszpański (Meksyk) | es — MX |
+| Fiński (Finlandia) | fi-FI |
+| francuski (Kanada) | fr — CA |
+| Francuski (Francja) | fr-FR |
+| Włoski (Włochy) | it-IT |
+| Niderlandzki (Holandia) | nl-NL |
+| Portugalski (Brazylia) | pt-BR |
+| Portugalski (Portugalia) | pt-PT |
+| Szwedzki (Szwecja) | sv-SE |
+
+## <a name="create-the-live-event-with-live-transcription"></a>Utwórz wydarzenie na żywo z transkrypcją dynamiczną
+
+Aby utworzyć wydarzenie na żywo z włączonym transkrypcją, Wyślij operację PUT z wersją interfejsu API 2019-05-01-Preview, na przykład:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-Operacja ma następującą treść (w której jest tworzone zdarzenie typu pass-through na żywo z protokołem RTMP jako protokół pozyskiwania). Zwróć uwagę na dodanie właściwości transkrypcji. Jedyną dozwoloną wartością dla języka jest EN-US.
+Operacja ma następującą treść (w której jest tworzone zdarzenie typu pass-through na żywo z protokołem RTMP jako protokół pozyskiwania). Zwróć uwagę na dodanie właściwości transkrypcji.
 
 ```
-{ 
-  "properties": { 
+{
+  "properties": {
+    "description": "Demonstrate how to enable live transcriptions",
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
+```
+
+## <a name="start-or-stop-transcription-after-the-live-event-has-started"></a>Rozpocznij lub Zatrzymaj transkrypcję po rozpoczęciu zdarzenia na żywo
+
+Można uruchomić i zatrzymać transkrypcję na żywo, gdy wydarzenie na żywo jest w stanie uruchomienia. Aby uzyskać więcej informacji na temat uruchamiania i zatrzymywania wydarzeń na żywo, przeczytaj sekcję długotrwałe operacje w temacie [Programowanie przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md#long-running-operations).
+
+Aby włączyć transkrypcje na żywo lub zaktualizować język transkrypcji, należy poprawić zdarzenie na żywo, aby zawierało Właściwość "transkrypcje". Aby wyłączyć transkrypcje na żywo, Usuń właściwość "transkrypcji" z obiektu zdarzenia na żywo.  
+
+> [!NOTE]
+> Włączenie lub wyłączenie transkrypcji **więcej niż raz** w ramach zdarzenia na żywo nie jest obsługiwanym scenariuszem.
+
+Jest to przykładowe wywołanie umożliwiające włączenie transkrypcji na żywo.
+
+WYSŁANA```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+
+```
+{
+  "properties": {
     "description": "Demonstrate how to enable live transcriptions", 
-    "input": { 
-      "streamingProtocol": "RTMP", 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "preview": { 
-      "accessControl": { 
-        "ip": { 
-          "allow": [ 
-            { 
-              "name": "Allow All", 
-              "address": "0.0.0.0", 
-              "subnetPrefixLength": 0 
-            } 
-          ] 
-        } 
-      } 
-    }, 
-    "encoding": { 
-      "encodingType": "None" 
-    }, 
-    "transcriptions": [ 
-      { 
-        "language": "en-US" 
-      } 
-    ], 
-    "vanityUrl": false, 
-    "streamOptions": [ 
-      "Default" 
-    ] 
-  }, 
-  "location": "West US 2" 
-} 
+    "input": {
+      "streamingProtocol": "RTMP",
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "preview": {
+      "accessControl": {
+        "ip": {
+          "allow": [
+            {
+              "name": "Allow All",
+              "address": "0.0.0.0",
+              "subnetPrefixLength": 0
+            }
+          ]
+        }
+      }
+    },
+    "encoding": {
+      "encodingType": "None"
+    },
+    "transcriptions": [
+      {
+        "language": "en-US"
+      }
+    ],
+    "vanityUrl": false,
+    "streamOptions": [
+      "Default"
+    ]
+  },
+  "location": "West US 2"
+}
 ```
-
-Sprawdź stan zdarzenia na żywo do momentu, gdy przejdzie ono w stan "uruchomiona", co oznacza, że możesz teraz wysyłać źródło danych RTMP. Teraz można wykonać te same czynności jak w tym samouczku, takie jak sprawdzanie kanału informacyjnego w wersji zapoznawczej i tworzenie danych wyjściowych na żywo.
 
 ## <a name="transcription-delivery-and-playback"></a>Dostarczanie i odtwarzanie transkrypcji
 
@@ -101,10 +196,8 @@ Zapoznaj się z artykułem [Omówienie pakietów dynamicznych](dynamic-packaging
 
 W przypadku wersji zapoznawczej poniżej przedstawiono znane problemy związane z transkrypcją na żywo:
 
-* Ta funkcja jest dostępna tylko w regionie zachodnie stany USA 2.
-* Aplikacje muszą używać interfejsów API w wersji zapoznawczej, opisanych [Media Services w specyfikacji openapi v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* Jedynym obsługiwanym językiem jest angielski (EN-US).
-* W przypadku ochrony zawartości obsługiwane jest tylko szyfrowanie kopert AES.
+- Aplikacje muszą używać interfejsów API w wersji zapoznawczej, opisanych [Media Services w specyfikacji openapi v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
+- Ochrona za pomocą funkcji Digital Rights Management (DRM) nie ma zastosowania do ścieżki tekstowej. możliwe jest tylko szyfrowanie kopert AES.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74023086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84743766"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról zasobów platformy Azure w Privileged Identity Management
 
@@ -38,9 +38,9 @@ Wybierz Alert, aby wyświetlić raport zawierający listę użytkowników lub r�
 
 | Alerty | Ważność | Wyzwalacz | Zalecenie |
 | --- | --- | --- | --- |
-| **Zbyt wielu właścicieli przypisanych do zasobu** |Medium |Zbyt wielu użytkowników ma rolę właściciela. |Zapoznaj się z użytkownikami na liście i przypisz je do mniej uprzywilejowanych ról. |
-| **Zbyt wiele stałych właścicieli przypisanych do zasobu** |Medium |Zbyt wielu użytkowników jest trwale przypisanych do roli. |Przejrzyj użytkowników na liście i przypisz go ponownie, aby wymagać aktywacji do użycia przez rolę. |
-| **Utworzono zduplikowaną rolę** |Medium |Wiele ról ma takie same kryteria. |Użyj tylko jednej z tych ról. |
+| **Zbyt wielu właścicieli przypisanych do zasobu** |Średniaa |Zbyt wielu użytkowników ma rolę właściciela. |Zapoznaj się z użytkownikami na liście i przypisz je do mniej uprzywilejowanych ról. |
+| **Zbyt wiele stałych właścicieli przypisanych do zasobu** |Średniaa |Zbyt wielu użytkowników jest trwale przypisanych do roli. |Przejrzyj użytkowników na liście i przypisz go ponownie, aby wymagać aktywacji do użycia przez rolę. |
+| **Utworzono zduplikowaną rolę** |Średniaa |Wiele ról ma takie same kryteria. |Użyj tylko jednej z tych ról. |
 
 ### <a name="severity"></a>Ważność
 

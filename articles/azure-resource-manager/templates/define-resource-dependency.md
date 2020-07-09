@@ -3,16 +3,16 @@ title: Ustaw kolejność wdrażania dla zasobów
 description: Opisuje sposób ustawiania jednego zasobu jako zależnego od innego zasobu podczas wdrażania, aby zapewnić, że zasoby są wdrażane w odpowiedniej kolejności.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535472"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255215"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiowanie kolejności wdrażania zasobów w szablonach ARM
 
-Podczas wdrażania zasobu może być konieczne upewnienie się, że inne zasoby istnieją przed jego wdrożeniem. Na przykład musisz mieć serwer SQL przed wdrożeniem bazy danych SQL. Ta relacja jest definiowana przez oznaczenie jednego zasobu jako zależnego od innego zasobu. Należy zdefiniować zależność z elementem **dependsOn** lub za pomocą funkcji **Reference** .
+Podczas wdrażania zasobu może być konieczne upewnienie się, że inne zasoby istnieją przed jego wdrożeniem. Na przykład do wdrożenia bazy danych jest potrzebny logiczny serwer SQL. Ta relacja jest definiowana przez oznaczenie jednego zasobu jako zależnego od innego zasobu. Należy zdefiniować zależność z elementem **dependsOn** lub za pomocą funkcji **Reference** .
 
 Usługa Resource Manager ocenia zależności pomiędzy zasobami i wdraża je w kolejności opartej na zależności. Gdy zasoby nie zależą od siebie nawzajem, usługa Resource Manager wdraża je równolegle. Wystarczy zdefiniować zależności dla zasobów wdrożonych w tym samym szablonie.
 
@@ -59,7 +59,7 @@ Właściwość Resources pozwala określić zasoby podrzędne, które są powią
 
 Każdy zasób nadrzędny akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. Akceptowane typy zasobów są określone w [schemacie szablonu](https://github.com/Azure/azure-resource-manager-schemas) zasobu nadrzędnego. Nazwa typu zasobu podrzędnego obejmuje nazwę nadrzędnego typu zasobu, takiego jak **Microsoft. Web/Sites/config** i **Microsoft. Web/Sites/Extensions** , są zasobami podrzędnymi **firmy Microsoft. Web/Sites**.
 
-Poniższy przykład przedstawia SQL Server i SQL Database. Należy zauważyć, że dla bazy danych SQL i programu SQL Server jest zdefiniowana jawna zależność, nawet jeśli baza danych jest elementem podrzędnym serwera.
+Poniższy przykład przedstawia logiczny serwer SQL i bazę danych. Należy zauważyć, że dla bazy danych i serwera jest zdefiniowana jawna zależność, nawet jeśli baza danych jest elementem podrzędnym serwera.
 
 ```json
 "resources": [

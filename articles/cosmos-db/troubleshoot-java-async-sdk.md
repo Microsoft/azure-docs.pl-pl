@@ -10,16 +10,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83651888"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Rozwiązywanie problemów w przypadku korzystania z Azure Cosmos DB asynchronicznego zestawu Java SDK V2 z kontami interfejsu API SQL
 
 > [!div class="op_single_selector"]
-> * [Zestaw Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Java SDK 4](troubleshoot-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
@@ -193,7 +192,7 @@ Powyższy wyjątek sugeruje, że masz zależność od starszej wersji biblioteki
 
 Obejście tych problemów polega na zidentyfikowaniu, która inna zależność jest RxJava-1.2.2 i wykluczać zależność przechodnią w RxJava-1.2.2 i Zezwalanie na CosmosDB zestawu SDK.
 
-Aby określić, która biblioteka znajduje się w RxJava-1.2.2, uruchom następujące polecenie obok pliku Project pliku pom. XML:
+Aby określić, która biblioteka znajduje się w RxJava-1.2.2, uruchom następujące polecenie obok pliku pom.xml projektu:
 ```bash
 mvn dependency:tree
 ```

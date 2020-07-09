@@ -3,25 +3,24 @@ title: Wystąpił problem podczas tworzenia aplikacji serwera proxy aplikacji | 
 description: Jak rozwiązywać problemy podczas tworzenia aplikacji serwera proxy aplikacji w portalu administracyjnym usługi Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104b98cba0948ec5d0896877e54eab1e7cd4049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2593f80db4c271d6ae4773f324cc9777e5400550
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65825817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764965"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problem z tworzeniem aplikacji serwera proxy aplikacji 
 

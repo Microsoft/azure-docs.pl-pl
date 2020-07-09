@@ -5,14 +5,14 @@ ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/13/2019
+ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239595"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783150"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Znajdowanie i diagnozowanie problemów z wydajnością za pomocą usługi Azure Application Insights
 
@@ -36,7 +36,7 @@ W celu ukończenia tego samouczka:
 - [Włącz profiler usługi Application Insights](../../azure-monitor/app/profiler.md#installation) dla swojej aplikacji.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="identify-slow-server-operations"></a>Identyfikowanie wolnych operacji serwera
 Usługa Application Insights zbiera informacje o wydajności różnych operacji w aplikacji. Identyfikując operacje o najdłuższym czasie trwania, możesz zdiagnozować potencjalne problemy albo najlepiej ukierunkować trwające prace programistyczne w celu podniesienia ogólnej wydajności aplikacji.
@@ -61,7 +61,7 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
     ![Szczegóły operacji na końcu](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  Narzędzie **Profiler** pomaga zagłębić się w diagnostykę na poziomie kodu, wyświetlając rzeczywisty kod uruchamiany dla operacji i czas wymagany przez każdy z kroków. Niektóre operacje mogą nie mieć śladu, ponieważ profiler jest uruchamiany okresowo.  Z upływem czasu coraz więcej operacji powinno mieć ślady.  Aby uruchomić profiler dla operacji, kliknij pozycję **Ślady narzędzia Profiler**.
+6.  [**Profiler**](../../azure-monitor/app/profiler-overview.md) pomaga lepiej korzystać z diagnostyki na poziomie kodu, pokazując rzeczywisty kod, który został uruchomiony dla operacji, oraz czas wymagany dla każdego kroku. Niektóre operacje mogą nie mieć śladu, ponieważ profiler jest uruchamiany okresowo.  Z upływem czasu coraz więcej operacji powinno mieć ślady.  Aby uruchomić profiler dla operacji, kliknij pozycję **Ślady narzędzia Profiler**.
 5.  Ślad pokazuje indywidualne zdarzenia dla każdej operacji, więc można zdiagnozować główną przyczynę obecnego czasu trwania całej operacji.  Kliknij jeden z przykładów u góry, które mają najdłuższy czas trwania.
 6.  Kliknij pozycję **ścieżka gorąca** , aby wyróżnić konkretną ścieżkę zdarzeń, które najbardziej przyczyniają się do łącznego czasu trwania operacji.  W tym przykładzie widać, że najwolniejsze wywołanie pochodzi z metody *FabrikamFiberAzureStorage.GetStorageTableData*. Częścią zabierającą najwięcej czasu jest metoda *CloudTable.CreateIfNotExist*. Jeśli ten wiersz kodu jest wywoływany po każdym wywołaniu funkcji, niepotrzebnie używane będą wywołanie sieciowe i zasób procesora CPU. Najlepszym sposobem poprawienia kodu jest umieszczenie tego wiersza w jakiejś metodzie startowej, która jest wykonywana tylko raz.
 
@@ -76,7 +76,7 @@ Usługa Application Insights zbiera informacje o wydajności różnych operacji 
 ## <a name="use-logs-data-for-server"></a>Użyj danych dzienników dla serwera
  Dzienniki udostępniają bogaty język zapytań, który pozwala analizować wszystkie dane zbierane przez Application Insights. Możesz jej używać do wykonywania głębokiej analizy danych żądań i wydajności.
 
-1. Wróć do panelu Szczegóły operacji, a następnie ![kliknij pozycję Dzienniki](media/tutorial-performance/app-viewinlogs-icon.png)**Widok ikon w dziennikach (analiza)**
+1. Wróć do panelu Szczegóły operacji, a następnie kliknij pozycję ![ dzienniki](media/tutorial-performance/app-viewinlogs-icon.png)**Widok ikon w dziennikach (analiza)**
 
 2. Dzienniki są otwierane za pomocą zapytania dla każdego z widoków w panelu.  Zapytania te można uruchomić w proponowanej formie lub dostosować do własnych wymagań.  Pierwsze zapytanie pokazuje czas trwania operacji w miarę upływu czasu.
 
@@ -97,7 +97,7 @@ Oprócz identyfikowania procesów serwera do zoptymalizowania, usługa Applicati
 ## <a name="use-logs-data-for-client"></a>Użyj danych dzienników dla klienta
 Podobnie jak w przypadku danych zbieranych pod kątem wydajności serwera, Application Insights wszystkie dane klienta są dostępne do głębokiej analizy przy użyciu dzienników.
 
-1. Wróć do podsumowania przeglądarki i kliknij ![kolejno](media/tutorial-performance/app-viewinlogs-icon.png) pozycje dzienniki **Widok ikon w dziennikach (analiza)**
+1. Wróć do podsumowania przeglądarki i kliknij kolejno pozycje ![ dzienniki ](media/tutorial-performance/app-viewinlogs-icon.png) **Widok ikon w dziennikach (analiza)**
 
 2. Dzienniki są otwierane za pomocą zapytania dla każdego z widoków w panelu. Pierwsze zapytanie pokazuje czas trwania dla różnych wyświetleń stron w miarę upływu czasu.
 

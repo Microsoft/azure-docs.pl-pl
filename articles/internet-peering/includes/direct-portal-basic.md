@@ -1,7 +1,7 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 titleSuffix: Azure
-description: Plik dyrektywy include
+description: dołączanie pliku
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: e2804c8f9b1af89ac0ea86ec14136df66d900060
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83846174"
 ---
 1. Wybierz pozycję **Utwórz zasób**  >  **Zobacz wszystko**.

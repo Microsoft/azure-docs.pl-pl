@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81007816"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generuj plik żądania podpisania certyfikatu
@@ -46,7 +46,7 @@ Następnie zarejestruj aplikację za pomocą firmy Apple, Włącz powiadomienia 
 
 Aby wysyłać powiadomienia wypychane do aplikacji systemu iOS, zarejestruj swoją aplikację za pomocą firmy Apple, a także Zarejestruj się w celu otrzymywania powiadomień wypychanych.  
 
-1. Jeśli aplikacja nie została jeszcze zarejestrowana, przejdź do [portalu aprowizacji systemu iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) w centrum deweloperów firmy Apple. Zaloguj się do portalu przy użyciu identyfikatora Apple ID, a następnie wybierz pozycję **identyfikatory**. Następnie wybierz **+** pozycję, aby zarejestrować nową aplikację.
+1. Jeśli aplikacja nie została jeszcze zarejestrowana, przejdź do [portalu aprowizacji systemu iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) w centrum deweloperów firmy Apple. Zaloguj się do portalu przy użyciu identyfikatora Apple ID, a następnie wybierz pozycję **identyfikatory**. Następnie wybierz pozycję **+** , aby zarejestrować nową aplikację.
 
     ![Strona identyfikatorów aplikacji w portalu aprowizowania dla systemu iOS](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -167,7 +167,7 @@ Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotycz
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Tworzenie profilu inicjowania obsługi dla aplikacji
 
-1. Wróć do [portalu aprowizacji systemu iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456), wybierz pozycję **certyfikaty, identyfikatory & profile**, wybierz pozycję **Profile** z menu po lewej stronie, a następnie **+** wybierz pozycję Utwórz nowy profil. Zostanie wyświetlony ekran **Zarejestruj nowy profil aprowizacji** .
+1. Wróć do [portalu aprowizacji systemu iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456), wybierz pozycję **certyfikaty, identyfikatory & profile**, wybierz pozycję **Profile** z menu po lewej stronie, a następnie wybierz pozycję **+** Utwórz nowy profil. Zostanie wyświetlony ekran **Zarejestruj nowy profil aprowizacji** .
 
 1. Wybierz pozycję **Programowanie aplikacji dla systemu iOS** w obszarze **programowanie** jako typ profilu aprowizacji, a następnie wybierz pozycję **Kontynuuj**.
 
@@ -183,10 +183,10 @@ Po zakończeniu tych kroków należy skorzystać z poniższych informacji dotycz
     2. W sekcji **oprogramowanie** wybierz pozycję **programowanie firmy Apple**. Następnie wybierz pozycję **Kontynuuj**.
     3. Na ekranie **Tworzenie nowego certyfikatu** wybierz pozycję **Wybierz plik**.
     4. Przejdź do utworzonego wcześniej certyfikatu **żądania podpisania certyfikatu** , zaznacz go, a następnie wybierz pozycję **Otwórz**.
-    5. Wybierz przycisk **Kontynuuj**.
+    5. Wybierz pozycję **Continue** (Kontynuuj).
     6. Pobierz certyfikat programistyczny i Zapamiętaj lokalizację, w której został zapisany.
 
-1. Wróć do strony **certyfikaty, identyfikatory & profile** , wybierz pozycję **Profile** z menu po lewej stronie, a następnie **+** wybierz pozycję Utwórz nowy profil. Zostanie wyświetlony ekran **Zarejestruj nowy profil aprowizacji** .
+1. Wróć do strony **certyfikaty, identyfikatory & profile** , wybierz pozycję **Profile** z menu po lewej stronie, a następnie wybierz pozycję **+** Utwórz nowy profil. Zostanie wyświetlony ekran **Zarejestruj nowy profil aprowizacji** .
 
 1. W oknie **Wybieranie certyfikatów** wybierz właśnie utworzony certyfikat programistyczny. Następnie wybierz pozycję **Kontynuuj**.
 

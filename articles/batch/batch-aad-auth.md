@@ -4,12 +4,11 @@ description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudz
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 186de47b61c25485cec602cbc9bb208a795a7785
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757592"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85958212"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -20,7 +19,7 @@ W przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą Azure Bat
 - Przy użyciu **uwierzytelniania zintegrowanego** do uwierzytelniania użytkownika, który działa z aplikacją. Aplikacja używająca uwierzytelniania zintegrowanego zbiera poświadczenia użytkownika i używa tych poświadczeń do uwierzytelniania dostępu do zasobów usługi Batch.
 - Za pomocą **nazwy głównej usługi** do uwierzytelniania aplikacji nienadzorowanej. Nazwa główna usługi definiuje zasady i uprawnienia dla aplikacji w celu reprezentowania aplikacji podczas uzyskiwania dostępu do zasobów w czasie wykonywania.
 
-Aby dowiedzieć się więcej o usłudze Azure AD, zapoznaj się z [dokumentacją Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Aby dowiedzieć się więcej o usłudze Azure AD, zapoznaj się z [dokumentacją Azure Active Directory](../active-directory/index.yml).
 
 ## <a name="endpoints-for-authentication"></a>Punkty końcowe uwierzytelniania
 
@@ -140,20 +139,20 @@ Rola niestandardowa przyznaje użytkownikowi szczegółowe uprawnienia do przesy
 
 Możesz użyć roli niestandardowej, aby przyznać uprawnienia użytkownikowi, grupie lub jednostce usługi usługi Azure AD dla następujących operacji RBAC:
 
-- Microsoft. Batch/batchAccounts/pule/zapis
-- Microsoft. Batch/batchAccounts/pule/usuwanie
-- Microsoft. Batch/batchAccounts/pule/odczyt
-- Microsoft. Batch/batchAccounts/jobSchedules/Write
-- Microsoft. Batch/batchAccounts/jobSchedules/Delete
-- Microsoft. Batch/batchAccounts/jobSchedules/odczyt
-- Microsoft. Batch/batchAccounts/Jobs/Write
-- Microsoft. Batch/batchAccounts/Jobs/Delete
-- Microsoft. Batch/batchAccounts/Jobs/Read
-- Microsoft. Batch/batchAccounts/Certificates/Write
-- Microsoft. Batch/batchAccounts/Certificates/Delete
-- Microsoft. Batch/batchAccounts/Certificates/Read
-- Microsoft. Batch/batchAccounts/Read (dla każdej operacji odczytu)
-- Microsoft. Batch/batchAccounts/listKeys/Action (dla każdej operacji)
+- Microsoft.Batch/batchAccounts/pule/zapis
+- Microsoft.Batch/batchAccounts/pule/usuwanie
+- Microsoft.Batch/batchAccounts/pule/odczyt
+- Microsoft.Batch/batchAccounts/jobSchedules/zapis
+- Microsoft.Batch/batchAccounts/jobSchedules/Delete
+- Microsoft.Batch/batchAccounts/jobSchedules/odczyt
+- Microsoft.Batch/batchAccounts/Jobs/Write
+- Microsoft.Batch/batchAccounts/Jobs/Delete
+- Microsoft.Batch/batchAccounts/Jobs/Read
+- Microsoft.Batch/batchAccounts/Certificates/Write
+- Microsoft.Batch/batchAccounts/Certificates/Delete
+- Microsoft.Batch/batchAccounts/Certificates/Read
+- Microsoft.Batch/batchAccounts/odczyt (dla każdej operacji odczytu)
+- Microsoft.Batch/batchAccounts/listKeys/Action (dla dowolnej operacji)
 
 Role niestandardowe są przeznaczone dla użytkowników uwierzytelnionych przez usługę Azure AD, a nie poświadczenia konta usługi Batch (klucz współużytkowany). Zwróć uwagę, że poświadczenia konta w usłudze Batch dają pełne uprawnienia do konta w usłudze Batch. Należy również pamiętać, że zadania używające autopuli wymagają uprawnień na poziomie puli.
 
@@ -419,7 +418,7 @@ Użyj poświadczeń jednostki usługi, aby otworzyć obiekt **BatchServiceClient
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o usłudze Azure AD, zapoznaj się z [dokumentacją Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Szczegółowe przykłady pokazujące, jak używać biblioteki ADAL, są dostępne w bibliotece [przykładów kodu platformy Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) .
+- Aby dowiedzieć się więcej o usłudze Azure AD, zapoznaj się z [dokumentacją Azure Active Directory](../active-directory/index.yml). Szczegółowe przykłady pokazujące, jak używać biblioteki ADAL, są dostępne w bibliotece [przykładów kodu platformy Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) .
 
 - Aby dowiedzieć się więcej na temat nazw głównych usług, zobacz temat [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Aby utworzyć nazwę główną usługi przy użyciu Azure Portal, zobacz temat [Używanie portalu do tworzenia Active Directory aplikacji i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md). Możesz również utworzyć jednostkę usługi przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670563"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963244"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Zbieranie liczników wydajności dla aplikacji systemu Linux w Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -28,16 +28,16 @@ Dostawca MySQL OMI wymaga wstępnie skonfigurowanego użytkownika programu MySQL
 
 Podczas instalacji agenta Log Analytics dla systemu Linux dostawca MySQL OMI skanuje pliki konfiguracji MySQL my. cnf (domyślne lokalizacje) dla powiązania i adresu oraz częściowo ustawi plik uwierzytelniania MySQL OMI.
 
-Plik uwierzytelniania MySQL jest przechowywany w lokalizacji `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+Plik uwierzytelniania MySQL jest przechowywany w lokalizacji `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth` .
 
 
 ### <a name="authentication-file-format"></a>Format pliku uwierzytelniania
 Poniżej znajduje się format pliku uwierzytelniania MySQL OMI
 
-    [Port]=[Bind-Address], [username], [Base64 encoded Password]
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    (Port)=(Bind-Address), (username), (Base64 encoded Password)
-    AutoUpdate=[true|false]
+> [Port] = [bind-address], [username], [hasło zakodowane w formacie base64]  
+> (Port) = (adres powiązania), (username), (hasło kodowane algorytmem Base64)  
+> (Port) = (adres powiązania), (username), (hasło kodowane algorytmem Base64)  
+> Autoaktualizacja = [true | false]  
 
 Wpisy w pliku uwierzytelniania są opisane w poniższej tabeli.
 
@@ -63,7 +63,7 @@ W poniższej tabeli przedstawiono przykładowe ustawienia wystąpienia
 ### <a name="mysql-omi-authentication-file-program"></a>Program plików uwierzytelniania MySQL OMI
 Dołączona do instalacji dostawcy MySQL OMI to program plików uwierzytelniania MySQL OMI, którego można użyć do edytowania pliku uwierzytelniania OMI MySQL. Program plików uwierzytelniania można znaleźć w następującej lokalizacji.
 
-    /opt/microsoft/mysql-cimprov/bin/mycimprovauth
+`/opt/microsoft/mysql-cimprov/bin/mycimprovauth`
 
 > [!NOTE]
 > Plik poświadczeń musi być możliwy do odczytania przez konto omsagent. Uruchamianie polecenia mycimprovauth jako omsgent jest zalecane.
@@ -81,15 +81,18 @@ Poniższa tabela zawiera szczegółowe informacje na temat składni programu myc
 
 Następujące przykładowe polecenia definiują domyślne konto użytkownika dla serwera MySQL na hoście lokalnym.  Pole hasła powinno być wprowadzane w postaci zwykłego tekstu — hasło w pliku OMI uwierzytelniania MySQL zostanie zakodowane zgodnie z podstawową 64
 
-    sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
-    sudo /opt/omi/bin/service_control restart
+```console
+sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
+sudo /opt/omi/bin/service_control restart
+```
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>Uprawnienia bazy danych wymagane dla liczników wydajności programu MySQL
 Użytkownik programu MySQL wymaga dostępu do następujących zapytań w celu zebrania danych wydajności serwera MySQL. 
 
-    SHOW GLOBAL STATUS;
-    SHOW GLOBAL VARIABLES:
-
+```sql
+SHOW GLOBAL STATUS;
+SHOW GLOBAL VARIABLES:
+```
 
 Użytkownik MySQL wymaga również WYBRANia dostępu do następujących tabel domyślnych.
 
@@ -98,9 +101,10 @@ Użytkownik MySQL wymaga również WYBRANia dostępu do następujących tabel do
 
 Te uprawnienia można udzielić, uruchamiając następujące polecenia.
 
-    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
-
+```sql
+GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
+```
 
 > [!NOTE]
 > Aby udzielić uprawnień użytkownikowi monitorowania bazy danych MySQL, użytkownik mający uprawnienia do przydzielenia musi mieć uprawnienie "udzielenie opcji" oraz przyznane uprawnienie.
@@ -132,12 +136,14 @@ Po skonfigurowaniu agenta Log Analytics dla systemu Linux w celu wysyłania dany
 
 ## <a name="apache-http-server"></a>Serwer Apache HTTP 
 Jeśli na komputerze zostanie wykryty serwer Apache HTTP, podczas instalowania pakietu omsagent zostanie automatycznie zainstalowany dostawca monitorowania wydajności dla serwera Apache HTTP. Ten dostawca jest zależny od modułu Apache, który musi zostać załadowany do serwera Apache HTTP w celu uzyskania dostępu do danych wydajności. Moduł można załadować przy użyciu następującego polecenia:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
 Aby zwolnić moduł monitorowania Apache, uruchom następujące polecenie:
-```
+
+```console
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 

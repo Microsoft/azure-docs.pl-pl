@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335516"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderowanie niestandardowych danych na mapie rastrowej
@@ -192,7 +192,7 @@ Możesz zmodyfikować wygląd wielokąta, używając modyfikatorów stylu z [par
 > Procedura opisana w tej sekcji wymaga konta Azure Maps w warstwie cenowej S1.
 
 
-Możesz zmodyfikować wygląd pinów przez dodanie modyfikatorów stylów. Na przykład aby zwiększyć lub zmniejszyć pinezki i ich etykiety, użyj modyfikatora `sc` "Style skalowania". Ten modyfikator przyjmuje wartość większą od zera. Wartość 1 jest skalą standardową. Wartości większe niż 1 spowodują, że numery PIN będą większe, a wartości mniejsze od 1 staną się mniejsze. Aby uzyskać więcej informacji na temat modyfikatorów stylu, zobacz [Parametry ścieżki usługi obrazu statycznego](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Możesz zmodyfikować wygląd pinów przez dodanie modyfikatorów stylów. Na przykład aby zwiększyć lub zmniejszyć pinezki i ich etykiety, użyj `sc` modyfikatora "Style skalowania". Ten modyfikator przyjmuje wartość większą od zera. Wartość 1 jest skalą standardową. Wartości większe niż 1 spowodują, że numery PIN będą większe, a wartości mniejsze od 1 staną się mniejsze. Aby uzyskać więcej informacji na temat modyfikatorów stylu, zobacz [Parametry ścieżki usługi obrazu statycznego](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Wykonaj następujące kroki, aby renderować okrąg i pinezki z etykietami niestandardowymi:
@@ -207,7 +207,7 @@ Wykonaj następujące kroki, aby renderować okrąg i pinezki z etykietami niest
 
     ![Renderuj okrąg z niestandardowymi pinezkami](./media/how-to-render-custom-data/circle-custom-pins.png)
 
-2. Aby zmienić kolor pinezki z ostatniego kroku, Zmień modyfikator stylu "co". Sprawdź `pins=default|la15+50|al0.66|lc003C62|co002D62|`, czy bieżący kolor zostałby określony jako #002D62 w CSS. Załóżmy, że chcesz zmienić go na #41d42a. Zapisz nową wartość koloru Po specyfikatorze "co", tak jak to: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Utwórz nowe żądanie GET:
+2. Aby zmienić kolor pinezki z ostatniego kroku, Zmień modyfikator stylu "co". Sprawdź `pins=default|la15+50|al0.66|lc003C62|co002D62|` , czy bieżący kolor zostałby określony jako #002D62 w CSS. Załóżmy, że chcesz zmienić go na #41d42a. Zapisz nową wartość koloru Po specyfikatorze "co", tak jak to: `pins=default|la15+50|al0.66|lc003C62|co41D42A|` . Utwórz nowe żądanie GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}

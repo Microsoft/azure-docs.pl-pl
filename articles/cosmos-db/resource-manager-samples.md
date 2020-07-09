@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: mjbrown
 ms.openlocfilehash: a98aee61c3a330344b5b7fa0a5f7f53a65e5ecdb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83586154"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Szablony usługi Azure Resource Manager dla usługi Azure Cosmos DB

@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
 ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82995818"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie
@@ -31,9 +30,9 @@ Relacja między wydarzeniem działającym na żywo a jego wyjściem dynamicznym 
 
 W tej sekcji omówiono sposób użycia DVR podczas zdarzenia do kontrolowania, jakie fragmenty strumienia są dostępne dla przewijania do tyłu.
 
-Wartość `archiveWindowLength` określa, jak daleko wstecz w czasie przeglądarka może przechodzić z bieżącej pozycji na żywo. `archiveWindowLength` Wartość określa również, jak długo mogą się zwiększać manifesty klienta.
+`archiveWindowLength`Wartość określa, jak daleko wstecz w czasie przeglądarka może przechodzić z bieżącej pozycji na żywo. `archiveWindowLength`Wartość określa również, jak długo mogą się zwiększać manifesty klienta.
 
-Załóżmy, że przesyłasz strumieniowo grę piłkarskią i zawiera `ArchiveWindowLength` ona tylko 30 minut. Przeglądarka, która zacznie oglądać wydarzenie 45 minut po rozpoczęciu gry, może odwrócić do maksymalnie 15 minut. Dane wyjściowe na żywo dla gry będą kontynuowane do momentu zatrzymania zdarzenia na żywo. Zawartość spoza archiveWindowLength jest ciągle odrzucana z magazynu i nie jest odzyskiwalna. W tym przykładzie film wideo między początkiem zdarzenia a 15-minutowy znacznik zostałby przeczyszczony z DVR i z kontenera w usłudze BLOB Storage dla elementu zawartości. Archiwum nie jest możliwe do odzyskania i zostaje usunięte z kontenera w usłudze Azure Blob Storage.
+Załóżmy, że przesyłasz strumieniowo grę piłkarskią i zawiera ona `ArchiveWindowLength` tylko 30 minut. Przeglądarka, która zacznie oglądać wydarzenie 45 minut po rozpoczęciu gry, może odwrócić do maksymalnie 15 minut. Dane wyjściowe na żywo dla gry będą kontynuowane do momentu zatrzymania zdarzenia na żywo. Zawartość spoza archiveWindowLength jest ciągle odrzucana z magazynu i nie jest odzyskiwalna. W tym przykładzie film wideo między początkiem zdarzenia a 15-minutowy znacznik zostałby przeczyszczony z DVR i z kontenera w usłudze BLOB Storage dla elementu zawartości. Archiwum nie jest możliwe do odzyskania i zostaje usunięte z kontenera w usłudze Azure Blob Storage.
 
 Wydarzenie na żywo obsługuje maksymalnie trzy współbieżnie uruchomione wyniki na żywo (można utworzyć maksymalnie 3 nagrania/archiwa z jednego strumienia na żywo w tym samym czasie). Ta obsługa umożliwia publikowanie i archiwizowanie różnych części zdarzenia zgodnie z wymaganiami. Załóżmy, że trzeba emitować 24x7 na żywo i utworzyć "nagrania" różnych programów w ciągu dnia, aby zaoferować klientom jako zawartość na żądanie w celu przeprowadzenia wyświetlania. W tym scenariuszu najpierw utworzysz podstawowe wyjście na żywo z krótkim oknem archiwum o wartości 1 godzinę lub mniej — jest to podstawowy strumień na żywo, w którym Oglądasz Twoje przeglądarki. Utworzysz lokalizator przesyłania strumieniowego dla tych danych wyjściowych na żywo i opublikujesz go w aplikacji lub witrynie sieci Web jako kanał informacyjny "Live". Gdy uruchomione jest wydarzenie na żywo, można programowo utworzyć dwa współbieżne dane wyjściowe na żywo na początku programu (lub 5 minut na wczesnym etapie, aby udostępnić kilka dojść do późniejszego przycięcia). Te drugie dane wyjściowe można usunąć 5 minut po zakończeniu programu. W tym drugim elemencie zawartości można utworzyć nowy lokalizator przesyłania strumieniowego w celu opublikowania tego programu jako zasobu na żądanie w katalogu aplikacji. Proces ten można powtórzyć wielokrotnie dla innych granic programu lub podświetlenia, które mają być udostępniane jako wideo na żądanie, a wszystko to, gdy kanał informacyjny "Live" z pierwszego wyjścia na żywo kontynuuje emitowanie strumieniowego źródła danych.
 

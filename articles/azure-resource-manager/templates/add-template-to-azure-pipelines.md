@@ -4,10 +4,10 @@ description: Opisuje sposób konfigurowania ciągłej integracji w Azure Pipelin
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82084655"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów ARM z Azure Pipelines
@@ -16,7 +16,7 @@ Program Visual Studio udostępnia projekt grupy zasobów platformy Azure na potr
 
 Istnieją dwa sposoby wdrażania szablonów przy użyciu Azure Pipelines:
 
-* **Dodaj zadanie, które uruchamia skrypt Azure PowerShell**. Ta opcja ma zalety zapewnienia spójności w całym cyklu życia, ponieważ jest używany ten sam skrypt, który jest zawarty w projekcie programu Visual Studio (Deploy-AzureResourceGroup. ps1). Etapy skryptu są artefaktami z projektu do konta magazynu, do którego Menedżer zasobów może uzyskać dostęp. Artefakty to elementy w projekcie, takie jak połączone szablony, skrypty i pliki binarne aplikacji. Następnie skrypt wdraża szablon.
+* **Dodaj zadanie, które uruchamia skrypt Azure PowerShell**. Ta opcja ma zalety zapewnienia spójności w całym cyklu życia, ponieważ jest używany ten sam skrypt, który jest zawarty w projekcie programu Visual Studio (Deploy-AzureResourceGroup.ps1). Etapy skryptu są artefaktami z projektu do konta magazynu, do którego Menedżer zasobów może uzyskać dostęp. Artefakty to elementy w projekcie, takie jak połączone szablony, skrypty i pliki binarne aplikacji. Następnie skrypt wdraża szablon.
 
 * **Dodawanie zadań do kopiowania i wdrażania zadań**. Ta opcja oferuje wygodną alternatywę dla skryptu projektu. W potoku konfiguruje się dwa zadania. Jednym etapem zadania artefakty, a inne zadanie wdraża szablon.
 
@@ -72,21 +72,21 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-Po ustawieniu zadania na `AzurePowerShell@3`, potok używa poleceń z modułu AzureRM do uwierzytelniania połączenia. Domyślnie skrypt programu PowerShell w projekcie programu Visual Studio używa modułu AzureRM. Jeśli skrypt został zaktualizowany tak, aby korzystał z [modułu AZ module](/powershell/azure/new-azureps-module-az), Ustaw zadanie na `AzurePowerShell@4`.
+Po ustawieniu zadania na `AzurePowerShell@3` , potok używa poleceń z modułu AzureRM do uwierzytelniania połączenia. Domyślnie skrypt programu PowerShell w projekcie programu Visual Studio używa modułu AzureRM. Jeśli skrypt został zaktualizowany tak, aby korzystał z [modułu AZ module](/powershell/azure/new-azureps-module-az), Ustaw zadanie na `AzurePowerShell@4` .
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-W `azureSubscription`polu podaj nazwę utworzonego połączenia z usługą.
+W polu `azureSubscription` Podaj nazwę utworzonego połączenia z usługą.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-W `scriptPath`przypadku, podaj ścieżkę względną z pliku potoku do skryptu. Możesz wyszukać w repozytorium, aby zobaczyć ścieżkę.
+W przypadku `scriptPath` , podaj ścieżkę względną z pliku potoku do skryptu. Możesz wyszukać w repozytorium, aby zobaczyć ścieżkę.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -154,13 +154,13 @@ W poniższym YAML przedstawiono [zadanie kopiowania plików platformy Azure](/az
     sasTokenTimeOutInMinutes: '240'
 ```
 
-Istnieje kilka części tego zadania, które można poprawić w danym środowisku. `SourcePath` Wskazuje lokalizację artefaktów względem pliku potoku. W tym przykładzie pliki znajdują się w folderze o nazwie `AzureResourceGroup1` , która jest nazwą projektu.
+Istnieje kilka części tego zadania, które można poprawić w danym środowisku. `SourcePath`Wskazuje lokalizację artefaktów względem pliku potoku. W tym przykładzie pliki znajdują się w folderze o nazwie, `AzureResourceGroup1` która jest nazwą projektu.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-W `azureSubscription`polu podaj nazwę utworzonego połączenia z usługą.
+W polu `azureSubscription` Podaj nazwę utworzonego połączenia z usługą.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -194,7 +194,7 @@ W poniższym YAML przedstawiono [zadanie wdrażania szablonu Azure Resource Mana
 
 Istnieje kilka części tego zadania, które można poprawić w danym środowisku.
 
-- `deploymentScope`: Wybierz zakres wdrożenia z opcji: `Management Group` `Subscription` i. `Resource Group` Użyj **grupy zasobów** w tym instruktażu. Aby dowiedzieć się więcej o zakresach, zobacz sekcję [Deployment Scopes](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Wybierz zakres wdrożenia z opcji: `Management Group` `Subscription` i `Resource Group` . Użyj **grupy zasobów** w tym instruktażu. Aby dowiedzieć się więcej o zakresach, zobacz sekcję [Deployment Scopes](deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: Podaj nazwę utworzonego połączenia z usługą.
 
@@ -204,14 +204,14 @@ Istnieje kilka części tego zadania, które można poprawić w danym środowisk
 
 - `subscriptionName`: Podaj identyfikator subskrypcji docelowej. Ta właściwość dotyczy tylko zakresu wdrożenia grupy zasobów i zakresu wdrożenia subskrypcji.
 
-- `resourceGroupName`i `location`: Podaj nazwę i lokalizację grupy zasobów, w której chcesz wdrożyć. Zadanie tworzy grupę zasobów, jeśli nie istnieje.
+- `resourceGroupName`i `location` : Podaj nazwę i lokalizację grupy zasobów, w której chcesz wdrożyć. Zadanie tworzy grupę zasobów, jeśli nie istnieje.
 
     ```yaml
     resourceGroupName: '<resource-group-name>'
     location: '<location>'
     ```
 
-Zadanie wdrażania łączy się z szablonem o `WebSite.json` nazwie i plikiem parametrów o nazwie website. Parameters. JSON. Użyj nazw szablonu i plików parametrów.
+Zadanie wdrażania łączy się z szablonem o nazwie `WebSite.json` i plikiem parametrów o nazwie WebSite.parameters.json. Użyj nazw szablonu i plików parametrów.
 
 Teraz, gdy zrozumiesz, jak tworzyć zadania, przejdźmy do kroków, aby edytować potok.
 

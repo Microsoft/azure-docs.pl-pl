@@ -3,25 +3,25 @@ title: Zainstaluj rozszerzenie przeglądarki panelu dostępu do aplikacji — Az
 description: Rozwiązywanie typowych błędów napotkanych podczas instalowania rozszerzenia przeglądarki panelu dostępu.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/04/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2046c24220079a604792d07f3ebc3f6ef11e9c8a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275852"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84761089"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Zainstaluj rozszerzenie przeglądarki panelu dostępu
 
@@ -67,7 +67,7 @@ Możesz również pobrać rozszerzenie dla przeglądarki Chrome i Microsoft Edge
 - [Rozszerzenie Firefox](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Używanie rozszerzenia moje aplikacje bezpieczne logowanie
-* Jeśli używasz adresu URL moje aplikacje inne niż `https://myapps.microsoft.com`, skonfiguruj domyślny adres URL, wykonując następujące czynności:
+* Jeśli używasz adresu URL moje aplikacje inne niż `https://myapps.microsoft.com` , skonfiguruj domyślny adres URL, wykonując następujące czynności:
    1. Gdy *nie* zalogowano się do rozszerzenia, kliknij prawym przyciskiem myszy ikonę rozszerzenia.
    2. W menu wybierz **adres URL moje aplikacje**.
    3. Wybierz domyślny adres URL.

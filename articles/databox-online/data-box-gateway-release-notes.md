@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82561053"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Informacje o wersji ogólnych dostępności Azure Data Box Edge/Azure Data Box Gateway
@@ -40,11 +40,11 @@ Wersja GA odnosi się do wersji oprogramowania:
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących Data Box Gateway z uruchomioną wersją programu.
 
-| Nie. | Funkcja | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
-| **1.** |Typy plików | Następujące typy plików nie są obsługiwane: pliki znaków, pliki blokowe, gniazda, potoki, linki symboliczne.  |Skopiowanie tych plików spowoduje utworzenie plików o zerowej długości dla udziału NFS. Te pliki pozostają w stanie błędu i są również raportowane w *pliku Error. XML*. <br> Symboliczne linki do katalogów powodują, że nigdy nie są oznaczone jako offline. W związku z tym może nie być widoczne szare przekroczenie katalogów wskazujących, że katalogi są w trybie offline, a cała skojarzona zawartość została całkowicie przekazana na platformę Azure. |
+| **1.** |Typy plików | Następujące typy plików nie są obsługiwane: pliki znaków, pliki blokowe, gniazda, potoki, linki symboliczne.  |Skopiowanie tych plików spowoduje utworzenie plików o zerowej długości dla udziału NFS. Te pliki pozostają w stanie błędu i są również zgłaszane w *error.xml*. <br> Symboliczne linki do katalogów powodują, że nigdy nie są oznaczone jako offline. W związku z tym może nie być widoczne szare przekroczenie katalogów wskazujących, że katalogi są w trybie offline, a cała skojarzona zawartość została całkowicie przekazana na platformę Azure. |
 | **2.** |Usunięcie | Z powodu błędu w tej wersji, jeśli udział NFS zostanie usunięty, udział nie może zostać usunięty. Stan udziału *zostanie wyświetlony.*  |Dzieje się tak tylko wtedy, gdy udział korzysta z nieobsługiwanej nazwy pliku. |
-| **3.** |Copy | Kopiowanie danych kończy się niepowodzeniem z powodu błędu: Żądana operacja nie może zostać zakończona ze względu na ograniczenie systemu plików.  |Alternatywny strumień danych (ADS) skojarzony z rozmiarem pliku większym niż 128 KB nie jest obsługiwany.   |
+| **3.** |Kopiuj | Kopiowanie danych kończy się niepowodzeniem z powodu błędu: Żądana operacja nie może zostać zakończona ze względu na ograniczenie systemu plików.  |Alternatywny strumień danych (ADS) skojarzony z rozmiarem pliku większym niż 128 KB nie jest obsługiwany.   |
 
 
 ## <a name="next-steps"></a>Następne kroki

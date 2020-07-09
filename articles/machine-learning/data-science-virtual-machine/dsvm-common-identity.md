@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 44f1f7ae3b290e1dbf01877f3881e1d95a238446
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70208149"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85959147"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Skonfiguruj wspólną tożsamość na Data Science Virtual Machine
 
@@ -41,9 +41,9 @@ Usługa Azure AD DS ułatwia zarządzanie tożsamościami przez udostępnienie w
     
    1. W obszarze **Użytkownicy i grupy**wybierz pozycję **Wszyscy użytkownicy**, a następnie wybierz pozycję **nowy użytkownik**.
    
-           The **User** pane opens:
+        Zostanie otwarte okienko **użytkownika** :
       
-      ![Okienko "użytkownik"](./media/add-user.png)
+        ![Okienko "użytkownik"](./media/add-user.png)
     
    1. Wprowadź dane użytkownika, na przykład **Nazwisko** i **Nazwę użytkownika**. Częścią nazwy domeny musi być początkowa domyślna nazwa domeny "[nazwa domeny]. onmicrosoft. com" lub zweryfikowana, Niefederacyjna [nazwa domeny niestandardowej](../../active-directory/add-custom-domain.md) , taka jak "contoso.com".
     
@@ -70,7 +70,7 @@ Usługa Azure AD DS ułatwia zarządzanie tożsamościami przez udostępnienie w
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
 1. Załóżmy na przykład, że zainstalowano udział Azure Files w/Data/Workspace. Teraz utwórz katalogi dla każdego z użytkowników w udziale:/Data/Workspace/user1,/Data/Workspace/User2 i tak dalej. Utwórz `notebooks` katalog w obszarze roboczym każdego użytkownika. 
-1. Utwórz linki symboliczne `notebooks` dla `$HOME/userx/notebooks/remote`programu w programie.   
+1. Utwórz linki symboliczne dla `notebooks` programu w programie `$HOME/userx/notebooks/remote` .   
 
 Teraz użytkownicy znajdują się w wystąpieniu Active Directory hostowanym na platformie Azure. Przy użyciu poświadczeń Active Directory użytkownicy mogą logować się do dowolnego DSVM (SSH lub JupyterHub) dołączonego do usługi Azure AD DS. Ponieważ obszar roboczy użytkownika znajduje się w udziale Azure Files, użytkownicy mają dostęp do swoich notesów i innych pracy z dowolnego DSVM, gdy korzystają z JupyterHub.
 

@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80282311"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Uczenie maszynowe i narzędzia do nauki o danych w usłudze Azure Data Learning Virtual Machines
@@ -32,7 +32,7 @@ Zobacz pełne informacje dotyczące [zestawu SDK Azure Machine Learning dla jęz
 | Obsługiwane wersje     | Windows (środowisko Conda: Azure), Linux (Conda Environment: py36)    |
 | Typowe zastosowania      | Ogólna platforma uczenia maszynowego      |
 | Jak jest on skonfigurowany lub instalowany?      |  Zainstalowana z obsługą procesora GPU   |
-| Jak używać lub uruchamiać      | Jako zestaw SDK języka Python i w interfejsie wiersza polecenia platformy Azure. Aktywuj środowisko `AzureML` Conda w wersji systemu Windows *lub* `py36` w systemie Linux.      |
+| Jak używać lub uruchamiać      | Jako zestaw SDK języka Python i w interfejsie wiersza polecenia platformy Azure. Aktywuj środowisko Conda `AzureML` w wersji systemu Windows *lub* `py36` w systemie Linux.      |
 | Link do przykładów      | Przykładowe notesy Jupyter są dołączone do `AzureML` katalogu w notesach.  |
 | Narzędzia pokrewne      | Visual Studio Code, Jupyter   |
 
@@ -43,8 +43,8 @@ Zobacz pełne informacje dotyczące [zestawu SDK Azure Machine Learning dla jęz
 | co to jest?   | Platforma AI Open Source, która obsługuje funkcję uczenia maszynowego w pamięci, rozproszonej, szybkiej i skalowalnej.  |
 | Obsługiwane wersje      | Linux   |
 | Typowe zastosowania      | Rozdystrybuowane ogólnego przeznaczenia, skalowalne Uczenie maszynowe   |
-| Jak jest on skonfigurowany lub instalowany?      | Pakiet `/dsvm/tools/h2o`.      |
-| Jak używać lub uruchamiać      | Połącz się z maszyną wirtualną za pomocą X2Go. Uruchom nowy terminal i uruchom `java -jar /dsvm/tools/h2o/current/h2o.jar`polecenie. Następnie uruchom przeglądarkę sieci Web i Połącz się `http://localhost:54321`z usługą.      |
+| Jak jest on skonfigurowany lub instalowany?      | Pakiet `/dsvm/tools/h2o` .      |
+| Jak używać lub uruchamiać      | Połącz się z maszyną wirtualną za pomocą X2Go. Uruchom nowy terminal i uruchom polecenie `java -jar /dsvm/tools/h2o/current/h2o.jar` . Następnie uruchom przeglądarkę sieci Web i Połącz się z usługą `http://localhost:54321` .      |
 | Link do przykładów      | Przykłady są dostępne na maszynie wirtualnej w Jupyter w `h2o` katalogu.      |
 | Narzędzia pokrewne      | Apache Spark, MXNet, XGBoost, wody musujące, głębokie wody    |
 
@@ -57,7 +57,7 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | co to jest?   | Szybkie, rozproszone i wysoce wydajne środowisko do zwiększania gradientu (GBDT, GBRT, GBM lub SKŁADNIe) w oparciu o algorytmy drzewa decyzyjnego. Jest on używany do klasyfikowania, klasyfikowania i wielu innych zadań uczenia maszynowego.    |
 | Obsługiwane wersje      | Windows, Linux    |
 | Typowe zastosowania      | Środowisko zwiększania gradientu ogólnego przeznaczenia      |
-| Jak jest on skonfigurowany lub instalowany?      | W systemie Windows LightGBM jest instalowany jako pakiet języka Python. W systemie Linux plik wykonywalny wiersza polecenia znajduje się `/opt/LightGBM/lightgbm`w, pakiet języka R jest zainstalowany, a pakiety w języku Python są zainstalowane.     |
+| Jak jest on skonfigurowany lub instalowany?      | W systemie Windows LightGBM jest instalowany jako pakiet języka Python. W systemie Linux plik wykonywalny wiersza polecenia znajduje się w `/opt/LightGBM/lightgbm` , pakiet języka R jest zainstalowany, a pakiety w języku Python są zainstalowane.     |
 | Link do przykładów      | [Przewodnik LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Narzędzia pokrewne      | MXNet, XgBoost  |
 
@@ -67,7 +67,7 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | co to jest?   |   Graficzny interfejs użytkownika służący do wyszukiwania danych przy użyciu języka R.   |
 | Obsługiwane wersje     | Windows, Linux     |
 | Typowe zastosowania      | Ogólne narzędzie wyszukiwania danych interfejsu użytkownika dla języka R    |
-| Jak używać lub uruchamiać      | Jako narzędzie interfejsu użytkownika. W systemie Windows Uruchom wiersz polecenia, uruchom polecenie R, a następnie w języku R, `rattle()`Uruchom polecenie. W systemie Linux Połącz się z usługą X2Go, uruchom terminal, uruchom polecenie R, a następnie w obszarze `rattle()`r Uruchom polecenie. |
+| Jak używać lub uruchamiać      | Jako narzędzie interfejsu użytkownika. W systemie Windows Uruchom wiersz polecenia, uruchom polecenie R, a następnie w języku R, uruchom polecenie `rattle()` . W systemie Linux Połącz się z usługą X2Go, uruchom terminal, uruchom polecenie R, a następnie w obszarze R Uruchom polecenie `rattle()` . |
 | Link do przykładów      | [Rattle](https://togaware.com/onepager/) |
 | Narzędzia pokrewne      |LightGBM, Weka, XGBoost   |
 
@@ -78,7 +78,7 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | Obsługiwane wersje     | Windows, Linux     |
 | Typowe zastosowania      | Ogólna Biblioteka uczenia maszynowego      |
 | Jak jest on skonfigurowany lub instalowany?      |  Windows: instalator MSI<br/>Linux: apt — Pobierz |
-| Jak używać lub uruchamiać      | Jako narzędzie wiersza polecenia na ścieżce (`C:\Program Files\VowpalWabbit\vw.exe` w systemie Windows, `/usr/bin/vw` na komputerze z systemem Linux)    |
+| Jak używać lub uruchamiać      | Jako narzędzie wiersza polecenia na ścieżce ( `C:\Program Files\VowpalWabbit\vw.exe` w systemie Windows, `/usr/bin/vw` na komputerze z systemem Linux)    |
 | Link do przykładów      | [Przykłady VowPal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | Narzędzia pokrewne      |LightGBM, MXNet, XGBoost   |
 
@@ -89,7 +89,7 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | co to jest?   |  Kolekcja algorytmów uczenia maszynowego na potrzeby zadań wyszukiwania danych. Algorytmy mogą być stosowane bezpośrednio do zestawu danych lub wywoływane z własnego kodu Java. Weka zawiera narzędzia do wstępnego przetwarzania danych, klasyfikacji, regresji, klastrowania, reguł kojarzenia i wizualizacji. |
 | Obsługiwane wersje     | Windows, Linux     |
 | Typowe zastosowania      | Ogólne narzędzie uczenia maszynowego     |
-| Jak używać lub uruchamiać      | W systemie Windows wyszukaj pozycję Weka w menu **Start** . W systemie Linux Zaloguj się przy użyciu x2go, a następnie przejdź do **aplikacji** > **Development** > **Weka**. |
+| Jak używać lub uruchamiać      | W systemie Windows wyszukaj pozycję Weka w menu **Start** . W systemie Linux Zaloguj się przy użyciu x2go, a następnie przejdź do **aplikacji**  >  **Development**  >  **Weka**. |
 | Link do przykładów      | [Przykłady Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Narzędzia pokrewne      |LightGBM, Rattle, XGBoost   |
 
@@ -100,8 +100,8 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | Obsługiwane wersje     | Windows, Linux     |
 | Typowe zastosowania      | Ogólna Biblioteka uczenia maszynowego      |
 | Jak jest on skonfigurowany lub instalowany?      |  Zainstalowana z obsługą procesora GPU   |
-| Jak używać lub uruchamiać      | Jako biblioteka Python (2,7 i 3,5), pakiet języka R i narzędzie wiersza polecenia on-Path (`C:\dsvm\tools\xgboost\bin\xgboost.exe` dla systemów Windows i `/dsvm/tools/xgboost/xgboost` Linux)    |
-| Linki do przykładów      | Przykłady znajdują się na maszynie wirtualnej, `/dsvm/tools/xgboost/demo` w systemie Linux i `C:\dsvm\tools\xgboost\demo` w systemie Windows.   |
+| Jak używać lub uruchamiać      | Jako biblioteka Python (2,7 i 3,5), pakiet języka R i narzędzie wiersza polecenia on-Path ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` dla systemów Windows i `/dsvm/tools/xgboost/xgboost` Linux)    |
+| Linki do przykładów      | Przykłady znajdują się na maszynie wirtualnej, w `/dsvm/tools/xgboost/demo` systemie Linux i `C:\dsvm\tools\xgboost\demo` w systemie Windows.   |
 | Narzędzia pokrewne      | LightGBM, MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
@@ -109,7 +109,7 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | ------------- | ------------- |
 | co to jest?   | Aparat zapytań SQL "open source" dla danych Big Data    |
 | Obsługiwane wersje DSVM      | Windows 2019, Linux  |
-| Jak została skonfigurowana i zainstalowana na DSVM?      |  `/dsvm/tools/drill*` Zainstalowane tylko w trybie osadzonym   |
+| Jak została skonfigurowana i zainstalowana na DSVM?      |  Zainstalowane `/dsvm/tools/drill*` tylko w trybie osadzonym   |
 | Typowe zastosowania      |  W przypadku eksploracji danych w miejscu bez konieczności wyodrębniania, przekształcania, ładowania (ETL). Badaj różne źródła danych i ich formaty, w tym pliki CSV, JSON, tabele relacyjne i Hadoop.     |
 | Jak używać i uruchamiać      | Skrót na pulpicie  <br/> [Wprowadzenie do przechodzenia do szczegółów za 10 minut](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Narzędzia pokrewne na DSVM      |   Rattle, Weka, SQL Server Management Studio      |

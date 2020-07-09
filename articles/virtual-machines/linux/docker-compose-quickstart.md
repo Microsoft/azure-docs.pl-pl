@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
 ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78970303"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Wprowadzenie do platformy Docker i redagowanie w celu zdefiniowania i uruchomienia aplikacji wielokontenera na platformie Azure
@@ -27,7 +26,7 @@ Najpierw utwórz grupę zasobów dla środowiska Docker za pomocą [AZ Group Cre
 az group create --name myDockerGroup --location eastus
 ```
 
-Utwórz plik o nazwie *Cloud-init. txt* i wklej następującą konfigurację. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. 
+Utwórz plik o nazwie *cloud-init.txt* i wklej następującą konfigurację. Wprowadź `sensible-editor cloud-init.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. 
 
 ```yaml
 #include https://get.docker.com
@@ -69,9 +68,9 @@ sudo apt install docker-compose
 
 
 ## <a name="create-a-docker-composeyml-configuration-file"></a>Utwórz plik konfiguracji Docker-Compose. yml
-Utwórz plik `docker-compose.yml` konfiguracji w celu zdefiniowania kontenerów platformy Docker do uruchomienia na maszynie wirtualnej. Plik określa obraz do uruchomienia dla każdego kontenera, niezbędne zmienne środowiskowe i zależności, porty i linki między kontenerami. Aby uzyskać szczegółowe informacje na temat składni pliku YML, zobacz [redagowanie pliku dokumentacja](https://docs.docker.com/compose/compose-file/).
+Utwórz `docker-compose.yml` plik konfiguracji w celu zdefiniowania kontenerów platformy Docker do uruchomienia na maszynie wirtualnej. Plik określa obraz do uruchomienia dla każdego kontenera, niezbędne zmienne środowiskowe i zależności, porty i linki między kontenerami. Aby uzyskać szczegółowe informacje na temat składni pliku YML, zobacz [redagowanie pliku dokumentacja](https://docs.docker.com/compose/compose-file/).
 
-Utwórz plik *Docker-Compose. yml* . Użyj swojego ulubionego edytora tekstu, aby dodać dane do pliku. Poniższy przykład tworzy plik z monitem `sensible-editor` o wybranie edytora, którego chcesz użyć.
+Utwórz plik *Docker-Compose. yml* . Użyj swojego ulubionego edytora tekstu, aby dodać dane do pliku. Poniższy przykład tworzy plik z monitem o `sensible-editor` wybranie edytora, którego chcesz użyć.
 
 ```bash
 sensible-editor docker-compose.yml
@@ -94,7 +93,7 @@ db:
 ```
 
 ## <a name="start-the-containers-with-compose"></a>Uruchamianie kontenerów za pomocą redagowania
-W tym samym katalogu, w którym znajduje się plik *Docker-Compose. yml* , uruchom następujące polecenie (w zależności od używanego środowiska, może być konieczne `docker-compose` uruchomienie `sudo`polecenia using):
+W tym samym katalogu, w którym znajduje się plik *Docker-Compose. yml* , uruchom następujące polecenie (w zależności od używanego środowiska, może być konieczne uruchomienie `docker-compose` polecenia using `sudo` ):
 
 ```bash
 sudo docker-compose up -d
@@ -109,7 +108,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-Aby sprawdzić, czy kontenery są aktualne, `sudo docker-compose ps`wpisz polecenie. Powinny zostać wyświetlone informacje podobne do następujących:
+Aby sprawdzić, czy kontenery są aktualne, wpisz polecenie `sudo docker-compose ps` . Powinny zostać wyświetlone informacje podobne do następujących:
 
 ```
         Name                       Command               State         Ports

@@ -5,17 +5,17 @@ description: Dowiedz się, jak stosować różnice w zakresie ochrony prywatnoś
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 05/17/2020
-ms.openlocfilehash: 47497f23da94e529826b8dddb05b869727fb528e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664949"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84981850"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning"></a>Użyj różnicowej ochrony prywatności w Azure Machine Learning
 
@@ -24,6 +24,9 @@ ms.locfileid: "83664949"
 Dowiedz się, jak stosować różnice w zakresie ochrony prywatności dla Azure Machine Learning modeli przy użyciu pakietów języka Python WhiteNoise.
 
 Różnicowa Ochrona prywatności jest standardową definicją prywatności. Systemy, które są zgodne z tą definicją prywatności, zapewniają mocne gwarancje dotyczące szerokiego zakresu ataków związanych z odtwarzaniem i ponownym identyfikacją danych, w tym ataków przez źródłami ataków, którzy posiadają informacje pomocnicze. Dowiedz się więcej o tym, jak [działa różnicowa prywatność](./concept-differential-privacy.md).
+
+> [!NOTE]
+> Należy pamiętać, że zmieniamy nazwy zestawu narzędzi i wprowadzamy nową nazwę w nadchodzących tygodniach. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

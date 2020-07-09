@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78196930"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurowanie zasad technologii Apache Hive w usłudze HDInsight przy użyciu pakietu Enterprise Security
@@ -27,7 +26,7 @@ Dowiedz się, jak skonfigurować zasady Apache Ranger dla Apache Hive. Korzystaj
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Łączenie z interfejsem użytkownika administratora platformy Apache Ranger
 **Aby połączyć się z interfejsem użytkownika administratora platformy Ranger**
 
-1. W przeglądarce przejdź do interfejsu użytkownika administratora Ranger w `https://CLUSTERNAME.azurehdinsight.net/Ranger/` miejscu, gdzie ClusterName jest nazwą klastra.
+1. W przeglądarce przejdź do interfejsu użytkownika administratora Ranger w miejscu, `https://CLUSTERNAME.azurehdinsight.net/Ranger/` gdzie ClusterName jest nazwą klastra.
 
    > [!NOTE]  
    > Ranger używa innych poświadczeń niż Klaster Apache Hadoop. Aby uniemożliwić przeglądarkom korzystanie z zbuforowanych poświadczeń usługi Hadoop, Użyj nowego okna przeglądarki InPrivate do nawiązania połączenia z interfejsem użytkownika administratora Ranger.
@@ -103,7 +102,7 @@ W ostatniej sekcji zostały skonfigurowane dwie zasady.  Użytkownik hiveuser1 m
 
 1. Otwórz nowy lub istniejący skoroszyt w programie Excel.
 
-1. Na karcie **dane** przejdź do **pobierania danych** > **z innych źródeł** > **z ODBC** , aby uruchomić z okna **ODBC** .
+1. Na karcie **dane** przejdź do **pobierania danych**  >  **z innych źródeł**  >  **z ODBC** , aby uruchomić z okna **ODBC** .
 
     ![Kreator otwierania połączenia danych](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 

@@ -3,16 +3,16 @@ title: Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Windows do uży
 description: Jak skonfigurować sieć VPN typu punkt-lokacja (P2S) w systemie Windows do użytku z usługą Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: da49d1c94584393bfef066d61c1caf360b249c3b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81273481"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515316"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Windows do użytku z usługą Azure Files
 Za pomocą połączenia sieci VPN typu punkt-lokacja (P2S) można instalować udziały plików platformy Azure za pośrednictwem protokołu SMB spoza platformy Azure bez konieczności otwierania portu 445. Połączenie sieci VPN typu punkt-lokacja to połączenie sieci VPN między platformą Azure i pojedynczym klientem. Aby można było użyć połączenia sieci VPN P2S z Azure Files, należy skonfigurować połączenie sieci VPN P2S dla każdego klienta, który chce nawiązać połączenie. Jeśli masz wielu klientów, którzy muszą nawiązać połączenie z udziałami plików platformy Azure z sieci lokalnej, możesz użyć połączenia sieci VPN typu lokacja-lokacja (S2S) zamiast połączenia punkt-lokacja dla każdego klienta. Aby dowiedzieć się więcej, zobacz [Konfigurowanie sieci VPN typu lokacja-lokacja do użycia z usługą Azure Files](storage-files-configure-s2s-vpn.md).
@@ -33,7 +33,7 @@ Aby uzyskać dostęp do udziału plików platformy Azure i innych zasobów platf
 
 Następujący program PowerShell utworzy sieć wirtualną platformy Azure z trzema podsieciami: jedną dla punktu końcowego usługi konta magazynu, jedną dla prywatnego punktu końcowego konta magazynu, która jest wymagana w celu uzyskania dostępu do lokalnego konta magazynu bez tworzenia routingu niestandardowego dla publicznego adresu IP konta magazynu, które może ulec zmianie, oraz jednego dla bramy sieci wirtualnej, która udostępnia usługę sieci VPN. 
 
-Pamiętaj, aby `<region>`zamienić `<resource-group>`, `<desired-vnet-name>` i z odpowiednimi wartościami dla danego środowiska.
+Pamiętaj, aby zamienić `<region>` , `<resource-group>` i `<desired-vnet-name>` z odpowiednimi wartościami dla danego środowiska.
 
 ```PowerShell
 $region = "<region>"
@@ -128,7 +128,7 @@ foreach($line in $rawRootCertificate) {
 ## <a name="deploy-virtual-network-gateway"></a>Wdróż bramę sieci wirtualnej
 Brama sieci wirtualnej platformy Azure to usługa, z którą będą się łączyć lokalne maszyny z systemem Windows. Wdrożenie tej usługi wymaga dwóch podstawowych składników: publiczny adres IP, który będzie identyfikować bramę klientom w dowolnym miejscu na świecie i certyfikat główny utworzony wcześniej, który będzie używany do uwierzytelniania klientów.
 
-Pamiętaj, aby `<desired-vpn-name-here>` zamienić na nazwę, którą chcesz dla tych zasobów.
+Pamiętaj, aby zamienić na `<desired-vpn-name-here>` nazwę, którą chcesz dla tych zasobów.
 
 > [!Note]  
 > Wdrożenie bramy sieci wirtualnej platformy Azure może potrwać do 45 minut. Podczas wdrażania tego zasobu ten skrypt programu PowerShell zostanie zablokowany, aby wdrożenie zostało ukończone. Jest to oczekiwane zachowanie.
@@ -214,7 +214,7 @@ Export-PfxCertificate `
 ## <a name="configure-the-vpn-client"></a>Konfigurowanie klienta VPN
 Brama sieci wirtualnej platformy Azure utworzy pakiet do pobrania z plikami konfiguracyjnymi wymaganymi do zainicjowania połączenia sieci VPN na lokalnym komputerze z systemem Windows. Skonfigurujemy połączenie sieci VPN przy użyciu funkcji [Always On VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) w systemie Windows 10/Windows Server 2016 +. Ten pakiet zawiera również pakiety wykonywalne, które spowodują skonfigurowanie starszego klienta sieci VPN systemu Windows w razie potrzeby. W tym przewodniku używa się zawsze w sieci VPN, a nie starszej wersji klienta sieci VPN systemu Windows, ponieważ klient sieci VPN zawsze włączony umożliwia użytkownikom końcowym łączenie się z siecią VPN platformy Azure lub rozłączanie się z nią bez posiadania uprawnień administratora. 
 
-Poniższy skrypt zainstaluje certyfikat klienta wymagany do uwierzytelnienia w bramie sieci wirtualnej, pobierze i zainstaluje pakiet sieci VPN. Pamiętaj, aby `<computer1>` zamienić i `<computer2>` na żądane komputery. Ten skrypt można uruchomić na tyle maszyn, ile potrzebujesz, dodając do `$sessions` tablicy więcej sesji programu PowerShell. Twoje konto użytkowania musi być kontem administratora na każdej z tych maszyn. Jeśli jedna z tych maszyn jest maszyną lokalną, z której korzystasz ze skryptu, należy uruchomić skrypt z poziomu sesji programu PowerShell z podwyższonym poziomem uprawnień. 
+Poniższy skrypt zainstaluje certyfikat klienta wymagany do uwierzytelnienia w bramie sieci wirtualnej, pobierze i zainstaluje pakiet sieci VPN. Pamiętaj, aby zamienić `<computer1>` i na `<computer2>` żądane komputery. Ten skrypt można uruchomić na tyle maszyn, ile potrzebujesz, dodając do tablicy więcej sesji programu PowerShell `$sessions` . Twoje konto użytkowania musi być kontem administratora na każdej z tych maszyn. Jeśli jedna z tych maszyn jest maszyną lokalną, z której korzystasz ze skryptu, należy uruchomić skrypt z poziomu sesji programu PowerShell z podwyższonym poziomem uprawnień. 
 
 ```PowerShell
 $sessions = [System.Management.Automation.Runspaces.PSSession[]]@()

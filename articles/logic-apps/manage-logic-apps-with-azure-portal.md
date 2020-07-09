@@ -10,10 +10,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598168"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Zarządzanie aplikacjami logiki w Azure Portal
@@ -34,7 +34,7 @@ Aby znaleźć i otworzyć aplikację logiki, wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta platformy Azure.
 
-1. Na pasku wyszukiwania platformy Azure wprowadź `logic apps`wartość i wybierz pozycję **Logic Apps**.
+1. Na pasku wyszukiwania platformy Azure wprowadź wartość `logic apps` i wybierz pozycję **Logic Apps**.
 
    ![Znajdź i wybierz pozycję "Logic Apps"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
@@ -59,7 +59,7 @@ Aby znaleźć i otworzyć aplikację logiki, wykonaj następujące kroki:
    * **Grupa zasobów**
    * **Lokalizacja**
    * **Typ** 
-   * **Nazwa subskrypcji**
+   * **Subscription Name**
    * **Identyfikator subskrypcji**
    * **Punkt końcowy dostępu**
    * **Wychodzące adresy IP środowiska uruchomieniowego**
@@ -176,7 +176,7 @@ Usunięcie aplikacji logiki wpływa na wystąpienia przepływu pracy w następuj
 
    ![Usuwanie wielu aplikacji logiki](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
-1. Gdy pojawi się okno potwierdzenia, wprowadź `yes`i wybierz pozycję **Usuń**.
+1. Gdy pojawi się okno potwierdzenia, wprowadź `yes` i wybierz pozycję **Usuń**.
 
    ![Potwierdzenie usunięcia aplikacji logiki](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 

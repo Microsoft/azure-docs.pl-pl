@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: a71d8e251de1d1aedea1d1a329a27bfa236ddfff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374852"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Omówienie usługi Azure HDInsight 4,0
 
@@ -91,6 +91,7 @@ Nie ma żadnej obsługiwanej ścieżki uaktualnienia z poprzednich wersji usług
 
 * Usługa HDInsight 4,0 nie obsługuje MapReduce dla Apache Hive. Zamiast tego należy użyć środowiska Apache Tez. Dowiedz się więcej o środowisku [Apache Tez](https://tez.apache.org/).
 * Usługa HDInsight 4,0 nie obsługuje Apache Storm.
+* Usługa HDInsight 4,0 nie obsługuje typu klastra usługi ML.
 * Widok Hive nie jest już dostępny w usłudze HDInsight 4,0.
 * Interpreter powłoki w programie Apache Zeppelin nie jest obsługiwany w przypadku klastrów Spark i Interactive zapytania zapytań.
 * Nie można *wyłączyć* funkcji LLAP w klastrze Spark LLAP. Można tylko wyłączyć funkcję LLAP.

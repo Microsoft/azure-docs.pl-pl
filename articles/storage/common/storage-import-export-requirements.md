@@ -4,16 +4,16 @@ description: Zapoznaj się z wymaganiami dotyczącymi oprogramowania i sprzętu 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512420"
 ---
 # <a name="azure-importexport-system-requirements"></a>Wymagania systemowe usługi Azure Import/Export
 
@@ -27,7 +27,7 @@ Aby przygotować dyski twarde przy użyciu narzędzia WAImportExport, obsługiwa
 |Platforma |Wersja |
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
-|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
+|Windows Server     |Windows Server 2008 z dodatkiem R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Inne wymagane oprogramowanie dla klienta systemu Windows
 
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie kont 
 Każde zadanie może służyć do transferowania danych do lub z tylko jednego konta magazynu. Innymi słowy, pojedyncze zadanie importu/eksportu nie może obejmować wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-account-create.md).
 
 > [!IMPORTANT]
-> Usługa eksport platformy Azure nie obsługuje kont magazynu, w których włączono funkcję  [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md). 
+> Usługa eksport platformy Azure nie obsługuje kont magazynu, w których włączono funkcję [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)   . 
 
 ## <a name="supported-storage-types"></a>Obsługiwane typy magazynu
 
@@ -59,7 +59,7 @@ Poniższa lista typów magazynu jest obsługiwana przez usługę Azure Import/Ex
 
 |Zadanie  |Usługa magazynu |Obsługiwane  |Nieobsługiwane  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
+|Importuj     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
 |Eksportowanie     |   Azure Blob Storage       | Obsługiwane są blokowe obiekty blob, stronicowe obiekty blob i dołączane obiekty blob         | Nieobsługiwane Azure Files
 
 
@@ -78,11 +78,13 @@ Następująca lista dysków umożliwia korzystanie z usługi Import/Export.
 |HDD     |  2,5 "<br>3,5 "       |SATA II, SATA III         |
 
 Następujące typy dysków nie są obsługiwane:
+
 - USBs.
 - Zewnętrzny dysk twardy z wbudowaną adapterem USB.
 - Dyski, które znajdują się w obudowie zewnętrznego dysku twardego.
 
 Pojedyncze zadanie importu/eksportu może mieć następujące wartości:
+
 - Maksymalnie 10 dysków twardych/dysków SSD.
 - Mieszany dysk twardy/SSD dowolnego rozmiaru.
 
@@ -90,9 +92,6 @@ Duża liczba dysków można rozłożyć na wiele zadań, a liczba zadań, które
 
 Podczas przygotowywania dysków twardych i kopiowania danych przy użyciu narzędzia WAImportExport można użyć zewnętrznych adapterów USB. Większość z przedziałów USB 3,0 lub nowszych powinna być w pełni zastosowana.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie narzędzia WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
-* [Przykład interfejsu API REST usługi Azure Import Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

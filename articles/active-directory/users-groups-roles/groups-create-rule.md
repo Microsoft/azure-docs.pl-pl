@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 4855db7678a8cdea9bdad19ac0a8ec33503ff983
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582916"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728420"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Utwórz lub Zaktualizuj grupę dynamiczną w Azure Active Directory
 
@@ -67,7 +67,7 @@ Jeśli wprowadzona reguła jest nieprawidłowa, wyjaśnienie, dlaczego nie możn
 ## <a name="to-update-an-existing-rule"></a>Aby zaktualizować istniejącą regułę
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta należącego do roli Administrator globalny, administrator grupy, administrator usługi Intune lub administrator użytkowników w organizacji Azure AD.
-1. Wybierz kolejno pozycje **grupy** > **wszystkie grupy**.
+1. Wybierz kolejno pozycje **grupy**  >  **wszystkie grupy**.
 1. Wybierz grupę, aby otworzyć jej profil.
 1. Na stronie profil grupy wybierz pozycję **dynamiczne reguły członkostwa**. Konstruktor reguł obsługuje maksymalnie pięć wyrażeń. Aby dodać więcej niż pięć wyrażeń, należy użyć pola tekstowego.
 
@@ -98,7 +98,7 @@ Na potrzeby stanu **przetwarzania członkostwa** można wyświetlić następują
 
 W przypadku **ostatniej zaktualizowanego stanu członkostwa** można wyświetlić następujące komunikaty o stanie:
 
-- &lt;**Data i godzina**&gt;: godzina ostatniej aktualizacji członkostwa.
+- &lt;**Data i godzina** &gt; : godzina ostatniej aktualizacji członkostwa.
 - **W toku**: aktualizacje są obecnie w toku.
 - **Nieznane**: nie można pobrać czasu ostatniego aktualizowania. Grupa może być nowa.
 

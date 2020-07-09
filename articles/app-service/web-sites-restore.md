@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74689246"
 ---
 # <a name="restore-an-app-in-azure"></a>Przywracanie aplikacji na platformie Azure
@@ -82,7 +81,7 @@ Zarządzanie tworzeniem kopii zapasowych za pomocą skryptów można zautomatyzo
 Aby zapoznać się z przykładami, zobacz:
 
 - [Przykłady interfejsu wiersza polecenia platformy Azure](samples-cli.md)
-- [Przykłady Azure PowerShell](samples-powershell.md)
+- [Przykłady programu Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

@@ -4,10 +4,9 @@ description: Monitoruj system i niestandardowe liczniki wydajności .NET w Appli
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83701469"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w Application Insights
@@ -41,9 +40,9 @@ Jeśli żądany licznik wydajności nie znajduje się na liście metryk, można 
     `Get-Counter -ListSet *`
 
     (Zobacz [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) ).
-2. Otwórz plik ApplicationInsights. config.
+2. Otwórz ApplicationInsights.config.
 
-   * Jeśli podczas opracowywania dodaliśmy Application Insights do aplikacji, edytuj plik ApplicationInsights. config w projekcie, a następnie wdróż go ponownie na serwerach.
+   * Jeśli podczas projektowania dodano Application Insights do aplikacji, Edytuj ApplicationInsights.config w projekcie, a następnie wdróż go ponownie na serwerach.
 3. Edytuj dyrektywę modułu zbierającego wydajność:
 
     ```XML

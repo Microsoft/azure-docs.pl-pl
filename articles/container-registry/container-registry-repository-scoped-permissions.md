@@ -1,14 +1,13 @@
 ---
 title: Uprawnienia do repozytoriów w Azure Container Registry
-description: Utwórz token z uprawnieniami ograniczonymi do określonych repozytoriów w rejestrze w celu ściągania lub wypychania obrazów lub wykonywania innych akcji
+description: Utwórz token z uprawnieniami objętymi zakresem określonych repozytoriów w rejestrze Premium w celu ściągania lub wypychania obrazów lub wykonywania innych akcji
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8534c62db862f5c929d0145948fc4049c036d412
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
-ms.translationtype: MT
+ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142217"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84509410"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
 
@@ -20,7 +19,7 @@ Scenariusze tworzenia tokenu obejmują:
 * Udostępnianie zewnętrznej organizacji z uprawnieniami do określonego repozytorium 
 * Ogranicz dostęp do repozytorium do różnych grup użytkowników w organizacji. Na przykład zapewniają dostęp do zapisu i odczytu do deweloperów, którzy tworzą obrazy przeznaczone do określonych repozytoriów, oraz dostęp do odczytu do zespołów, które wdrażają te repozytoria.
 
-Ta funkcja jest dostępna w rejestrach kontenerów w **warstwie Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
+Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a niektóre [ograniczenia mają zastosowanie](#preview-limitations). Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.

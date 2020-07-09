@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76964230"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322031"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Rozwiązywanie typowych problemów z udziałem danych platformy Azure 
 
@@ -62,9 +62,9 @@ Udostępnianie oparte na języku SQL wymaga dodatkowych uprawnień. Szczegóły 
 
 ## <a name="troubleshooting-sql-based-sharing"></a>Rozwiązywanie problemów z udostępnianiem opartym na języku SQL
 
-"Użytkownik x nie istnieje w bazie danych SQL"
+"Użytkownik x nie istnieje w SQL Database"
 
-Jeśli ten błąd wystąpi podczas dodawania zestawu danych z źródła opartego na języku SQL, może to być spowodowane faktem, że nie utworzono użytkownika dla tożsamości zarządzanej udziału danych platformy Azure na SQL Server.  Aby rozwiązać ten problem, uruchom następujący skrypt:
+Jeśli ten błąd wystąpi podczas dodawania zestawu danych z źródła opartego na języku SQL, może to być spowodowane faktem, że nie utworzono użytkownika dla tożsamości zarządzanej udziału danych platformy Azure w SQL Database.  Aby rozwiązać ten problem, uruchom następujący skrypt:
 
 ```sql
     create user "<share_acct_name>" from external provider; 

@@ -11,19 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d94f7219c5a29de9a707aa9ae4ed25ac4b2bf03e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042981"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254314"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wdróż i Eksploruj wielodostępną aplikację SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym samouczku opisano wdrażanie i eksplorowanie biletów Wingtip, SaaS bazę danych dla dzierżawców (Wingtip). Aplikacja używa wzorca bazy danych na dzierżawcę do przechowywania danych wielu dzierżawców. Aplikacja została zaprojektowana w celu pokazania funkcji Azure SQL Database, które upraszczają sposób włączania scenariuszy SaaS.
 
-Pięć minut po wybraniu opcji **Wdróż na platformie Azure**masz wielodostępną aplikację SaaS. Aplikacja zawiera bazę danych SQL działającą w chmurze. Aplikacja jest wdrażana z trzema przykładowymi dzierżawcami, z których każda ma własną bazę danych. Wszystkie bazy danych są wdrażane w elastycznej puli SQL. Aplikacja została wdrożona w ramach subskrypcji platformy Azure. Masz pełny dostęp do eksplorowania i pracy z poszczególnymi składnikami aplikacji. Kod źródłowy aplikacji C# i skrypty zarządzania są dostępne w [repozytorium GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+Pięć minut po wybraniu opcji **Wdróż na platformie Azure**masz wielodostępną aplikację SaaS. Aplikacja zawiera bazę danych, która działa w Azure SQL Database. Aplikacja jest wdrażana z trzema przykładowymi dzierżawcami, z których każda ma własną bazę danych. Wszystkie bazy danych są wdrażane w elastycznej puli SQL. Aplikacja została wdrożona w ramach subskrypcji platformy Azure. Masz pełny dostęp do eksplorowania i pracy z poszczególnymi składnikami aplikacji. Kod źródłowy aplikacji C# i skrypty zarządzania są dostępne w [repozytorium GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -87,7 +88,7 @@ Podczas wdrażania aplikacji należy pobrać kod źródłowy i skrypty zarządza
 1. Przejdź do [repozytorium GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 1. Wybierz przycisk **Clone or download** (Sklonuj lub pobierz).
 1. Wybierz pozycję **Pobierz kod pocztowy**, a następnie Zapisz plik.
-1. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-DbPerTenant-Master. zip** , a następnie wybierz polecenie **Właściwości**.
+1. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-DbPerTenant-master.zip** , a następnie wybierz polecenie **Właściwości**.
 1. Na karcie **Ogólne** wybierz pozycję **Odblokuj**  >  **Zastosuj**.
 1. Wybierz **przycisk OK**, a następnie Wyodrębnij pliki
 
@@ -107,7 +108,7 @@ Te wartości są przywoływane niemal każdy skrypt.
 
 W tej aplikacji zaprezentowane są zdarzenia hosta. Typy miejsc obejmują korytarze wspólne, trefle jazzowe i trefle sportowe. W przypadku biletów Wingtip miejsc są rejestrowane jako dzierżawy. Dzierżawy umożliwiają łatwe wyświetlanie listy wydarzeń i sprzedawanie biletów klientom. Każdy z miejsc otrzymuje spersonalizowaną witrynę sieci Web, aby wyświetlić listę swoich wydarzeń i sprzedawać bilety.
 
-Wewnętrznie w aplikacji każda dzierżawa pobiera bazę danych SQL wdrożoną w elastycznej puli SQL.
+Wewnętrznie w aplikacji każda dzierżawa pobiera bazę danych wdrożoną w puli elastycznej.
 
 Centralna strona **centrum zdarzeń** zawiera listę linków do dzierżawców we wdrożeniu.
 
@@ -153,7 +154,7 @@ Teraz, gdy aplikacja jest wdrożona, przyjrzyjmy ją.
 
 *LoadGenerator* skrypt programu PowerShell uruchamia obciążenie, które jest uruchamiane dla wszystkich baz danych dzierżawy. Rzeczywiste obciążenie wielu aplikacji SaaS jest sporadyczne i nieprzewidywalne. W celu symulowania tego typu obciążenia Generator generuje obciążenie z losowymi skokami lub seriami aktywności dla każdej dzierżawy. Seria odbywa się w losowo określonych interwałach. Aby wzorzec obciążenia mógł nawiązać, potrwać kilka minut. Pozwól, aby generator działał przez co najmniej trzy minuty przed monitorowaniem obciążenia.
 
-1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły szkoleniowe \\ Utilities \\ *demo-LoadGenerator. ps1* .
+1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ narzędzi \\ *Demo-LoadGenerator.ps1* Script.
 2. Naciśnij klawisz F5, aby uruchomić skrypt i uruchomić generator obciążenia. Pozostaw domyślne wartości parametrów teraz.
 3. Zaloguj się do konta platformy Azure i wybierz subskrypcję, której chcesz użyć w razie potrzeby.
 
@@ -167,17 +168,17 @@ Jeśli chcesz kontrolować i monitorować zadania w tle, użyj następujących p
 - `Receive-Job`
 - `Stop-Job`
 
-### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator. ps1 — akcje
+### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator.ps1 akcje
 
-*Demo-LoadGenerator. ps1* naśladuje aktywne obciążenie transakcji klientów. Poniższe kroki opisują sekwencję akcji, które *demo-LoadGenerator. ps1* inicjuje:
+*Demo-LoadGenerator.ps1* naśladuje aktywne obciążenie transakcji klientów. Poniższe kroki opisują sekwencję akcji, które *Demo-LoadGenerator.ps1* inicjować:
 
-1. *Demo-LoadGenerator. ps1* uruchamia *LoadGenerator. ps1* na pierwszym planie.
+1. *Demo-LoadGenerator.ps1* rozpocznie się *LoadGenerator.ps1* na pierwszym planie.
 
     - Oba pliki. ps1 są przechowywane w obszarze folderów narzędzia do nauki modułów \\ \\ .
 
-2. *LoadGenerator. ps1* pętle przez wszystkie bazy danych dzierżawy w wykazie.
+2. *LoadGenerator.ps1* pętle we wszystkich bazach danych dzierżawy w wykazie.
 
-3. *LoadGenerator. ps1* uruchamia zadanie programu PowerShell w tle dla każdej bazy danych dzierżawcy:
+3. *LoadGenerator.ps1* uruchamia zadanie programu PowerShell w tle dla każdej bazy danych dzierżawcy:
 
     - Domyślnie zadania w tle są uruchamiane przez 120 minut.
     - Każde zadanie powoduje obciążenie oparte na PROCESORAch w jednej bazie danych dzierżawy przez wykonanie *sp_CpuLoadGenerator*. Intensywność i czas trwania obciążenia różnią się w zależności od `$DemoScenario` .
@@ -199,7 +200,7 @@ Przed przejściem do następnej sekcji Pozostaw Generator obciążenia uruchomio
 Początkowe wdrożenie tworzy trzy przykładowe dzierżawy. Teraz utworzysz kolejną dzierżawcę, aby zobaczyć wpływ wdrożenia aplikacji. W aplikacji Wingtip przepływ pracy do aprowizacji nowych dzierżawców znajduje się w [samouczku dotyczącym udostępniania i katalogowania](saas-dbpertenant-provision-and-catalog.md). W tej fazie utworzysz nową dzierżawę, która zajmie mniej niż minutę.
 
 1. Otwórz nowy ISE programu PowerShell.
-2. Otwórz... \\ Learning Modules\Provision i Catalog \\ *demo-ProvisionAndCatalog. ps1*.
+2. Otwórz... \\ Uczenie Modules\Provision i katalogu \\ *Demo-ProvisionAndCatalog.ps1*.
 3. Aby uruchomić skrypt, naciśnij klawisz F5. Pozostaw wartości domyślne teraz.
 
    > [!NOTE]
@@ -239,7 +240,7 @@ Po rozpoczęciu pracy z kolekcją dzierżawców Przyjrzyjmy się pewnym zasobom,
 
 ## <a name="monitor-the-pool"></a>Monitorowanie puli
 
-Po uruchomieniu *LoadGenerator. ps1* przez kilka minut należy uzyskać wystarczającą ilość danych, aby rozpocząć przeglądanie niektórych możliwości monitorowania. Te funkcje są wbudowane w pule i bazy danych.
+Po uruchomieniu *LoadGenerator.ps1* przez kilka minut należy udostępnić wystarczającą ilość danych, aby rozpocząć przeglądanie niektórych możliwości monitorowania. Te funkcje są wbudowane w pule i bazy danych.
 
 Przejdź do serwera **tenants1-DPT- &lt; User &gt; **i wybierz pozycję **Pool1** , aby wyświetlić wykorzystanie zasobów dla puli. Na poniższych wykresach Generator obciążenia został uruchomiony przez godzinę.
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75754569"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557447"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Jak utworzyć zestawu umiejętności w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze 
 
@@ -55,7 +55,7 @@ Na diagramie krok *łamania dokumentu* odbywa się automatycznie. Zasadniczo us�
 Zestawu umiejętności jest definiowana jako tablica umiejętności. Każda umiejętność definiuje źródło danych wejściowych i nazwę wygenerowanego wyjścia. Za pomocą [interfejsu API REST Create zestawu umiejętności](https://docs.microsoft.com/rest/api/searchservice/create-skillset)można zdefiniować zestawu umiejętności, który odpowiada poprzedniemu diagramowi: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -163,13 +163,13 @@ Przyjrzyjmy się pierwszej umiejętności, która stanowi wbudowaną [umiejętno
     }
 ```
 
-* Każda wbudowana umiejętność ma `odata.type`właściwości `input`, i `output` . Właściwości specyficzne dla umiejętności zawierają dodatkowe informacje dotyczące tej umiejętności. W przypadku rozpoznawania jednostek `categories` jest jedną jednostką z ustalonego zestawu typów jednostek, które może rozpoznać przedmieszczony model.
+* Każda wbudowana umiejętność ma `odata.type` `input` właściwości, i `output` . Właściwości specyficzne dla umiejętności zawierają dodatkowe informacje dotyczące tej umiejętności. W przypadku rozpoznawania jednostek `categories` jest jedną jednostką z ustalonego zestawu typów jednostek, które może rozpoznać przedmieszczony model.
 
-* Każda umiejętność powinna mieć ```"context"```. Kontekst reprezentuje poziom, na którym operacje mają miejsce. W powyższej umiejętności kontekst jest całym dokumentem, co oznacza, że umiejętność rozpoznawania jednostki jest wywoływana raz dla dokumentu. Dane wyjściowe są również tworzone na tym poziomie. Dokładniej, ```"organizations"``` są generowane jako element członkowski ```"/document"```. W obszarze umiejętności podrzędne można odwołać się do nowo utworzonych informacji jako ```"/document/organizations"```.  Jeśli ```"context"``` pole nie jest jawnie ustawione, domyślnym kontekstem jest dokument.
+* Każda umiejętność powinna mieć ```"context"``` . Kontekst reprezentuje poziom, na którym operacje mają miejsce. W powyższej umiejętności kontekst jest całym dokumentem, co oznacza, że umiejętność rozpoznawania jednostki jest wywoływana raz dla dokumentu. Dane wyjściowe są również tworzone na tym poziomie. Dokładniej, ```"organizations"``` są generowane jako element członkowski ```"/document"``` . W obszarze umiejętności podrzędne można odwołać się do nowo utworzonych informacji jako ```"/document/organizations"``` .  Jeśli ```"context"``` pole nie jest jawnie ustawione, domyślnym kontekstem jest dokument.
 
-* Umiejętność ma jedno wejście o nazwie "text" ze źródłowym zestawem wejściowym ```"/document/content"```na. Umiejętność (rozpoznawanie jednostek) działa w polu *zawartość* każdego dokumentu, który jest standardowym polem utworzonym przez indeksator usługi Azure Blob. 
+* Umiejętność ma jedno wejście o nazwie "text" ze źródłowym zestawem wejściowym na ```"/document/content"``` . Umiejętność (rozpoznawanie jednostek) działa w polu *zawartość* każdego dokumentu, który jest standardowym polem utworzonym przez indeksator usługi Azure Blob. 
 
-* Umiejętność ma jedno wyjście ```"organizations"```. Dane wyjściowe istnieją tylko podczas przetwarzania. Aby połączyć dane wyjściowe z danymi wejściowymi w celu uzyskania kwalifikacji podrzędnych, należy ```"/document/organizations"```odwołać się do danych wyjściowych jako.
+* Umiejętność ma jedno wyjście ```"organizations"``` . Dane wyjściowe istnieją tylko podczas przetwarzania. Aby połączyć dane wyjściowe z danymi wejściowymi w celu uzyskania kwalifikacji podrzędnych, należy odwołać się do danych wyjściowych jako ```"/document/organizations"``` .
 
 * W przypadku określonego dokumentu wartość ```"/document/organizations"``` jest tablicą organizacji wyodrębnionych z tekstu. Przykład:
 
@@ -179,7 +179,7 @@ Przyjrzyjmy się pierwszej umiejętności, która stanowi wbudowaną [umiejętno
 
 Niektóre sytuacje odwołują się do każdego elementu tablicy osobno. Załóżmy na przykład, że chcesz przekazać każdy element ```"/document/organizations"``` oddzielnie do innej umiejętności (na przykład niestandardowego programu do wyszukiwania jednostek Bing). Można odwołać się do każdego elementu tablicy, dodając gwiazdkę do ścieżki:```"/document/organizations/*"``` 
 
-Druga umiejętność wyodrębniania tonacji jest zgodna z tym samym wzorcem, co pierwszy wzbogacający. Przyjmuje ```"/document/content"``` jako dane wejściowe i zwraca ocenę tonacji dla każdego wystąpienia zawartości. Ponieważ nie ustawiono jawnie ```"context"``` pola, dane wyjściowe (mySentiment) są teraz elementem podrzędnym. ```"/document"```
+Druga umiejętność wyodrębniania tonacji jest zgodna z tym samym wzorcem, co pierwszy wzbogacający. Przyjmuje ```"/document/content"``` jako dane wejściowe i zwraca ocenę tonacji dla każdego wystąpienia zawartości. Ponieważ nie ustawiono ```"context"``` jawnie pola, dane wyjściowe (mySentiment) są teraz elementem podrzędnym ```"/document"``` .
 
 ```json
     {
@@ -229,13 +229,13 @@ Odwołaj strukturę niestandardowego elementu wzbogacania wyszukiwania jednostek
 
 Ta definicja to [niestandardowa umiejętność](cognitive-search-custom-skill-web-api.md) wywołująca internetowy interfejs API w ramach procesu wzbogacania. W przypadku każdej organizacji identyfikowanej przez funkcję rozpoznawania jednostek ta umiejętność wywołuje internetowy interfejs API, aby znaleźć opis tej organizacji. Aranżacja, kiedy należy wywołać interfejs API sieci Web i jak przepływać otrzymane informacje, jest obsługiwana wewnętrznie przez aparat wzbogacania. Jednak Inicjalizacja niezbędna do wywołania tego niestandardowego interfejsu API musi być podana w formacie JSON (na przykład identyfikator URI, httpHeaders i oczekiwane dane wejściowe). Aby uzyskać wskazówki dotyczące tworzenia niestandardowego interfejsu API sieci Web dla potoku wzbogacania, zobacz [How to define a Custom Interface](cognitive-search-custom-skill-interface.md).
 
-Zwróć uwagę, że pole "context" jest ustawione ```"/document/organizations/*"``` na wartość przy użyciu gwiazdki, co oznacza, że krok wzbogacania jest wywoływany *dla każdej* organizacji ```"/document/organizations"```. 
+Zwróć uwagę, że pole "context" jest ustawione na wartość ```"/document/organizations/*"``` przy użyciu gwiazdki, co oznacza, że krok wzbogacania jest wywoływany *dla każdej* organizacji ```"/document/organizations"``` . 
 
 Dane wyjściowe — w tym przypadku opis firmy jest generowany dla każdej identyfikowanej organizacji. W przypadku odwoływania się do opisu w kroku podrzędnym (na przykład w przypadku wyodrębniania kluczowych fraz) należy użyć ścieżki ```"/document/organizations/*/description"``` do tego celu. 
 
 ## <a name="add-structure"></a>Dodaj strukturę
 
-Zestawu umiejętności generuje strukturalne informacje z danych bez struktury. Rozważmy następujący przykład:
+Zestawu umiejętności generuje strukturalne informacje z danych bez struktury. Rozpatrzmy następujący przykład:
 
 *"W czwartym kwartale firma Microsoft zarejestrował $1 100 000 000 w przychodach z serwisu LinkedIn, firma sieci społecznościowej ją zakupiła w ubiegłym roku. Pozyskiwanie umożliwia firmie Microsoft łączenie możliwości serwisu LinkedIn z funkcjami CRM i Office. Akcjonariusze są przyjemnością z postępem do tej pory ".*
 
@@ -247,7 +247,7 @@ Do tej pory Ta struktura była tylko wewnętrzna, tylko pamięć i używana tylk
 
 ## <a name="add-a-knowledge-store"></a>Dodawanie sklepu merytorycznego
 
-[Sklep merytoryczny](knowledge-store-concept-intro.md) jest funkcją w wersji zapoznawczej na platformie Azure wyszukiwanie poznawcze do zapisywania wzbogaconego dokumentu. Magazyn wiedzy tworzony przez użytkownika w ramach konta usługi Azure Storage jest repozytorium, w którym są używane wzbogacone dane. 
+[Magazyn wiedzy](knowledge-store-concept-intro.md) to funkcja platformy Azure wyszukiwanie poznawcze do zapisywania wzbogaconego dokumentu. Magazyn wiedzy tworzony przez użytkownika w ramach konta usługi Azure Storage jest repozytorium, w którym są używane wzbogacone dane. 
 
 Definicja sklepu merytorycznego jest dodawana do zestawu umiejętności. Przewodnik po całym procesie można znaleźć [w temacie Tworzenie sklepu z bazami danych w usłudze REST](knowledge-store-create-rest.md).
 

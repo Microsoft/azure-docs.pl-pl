@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086156"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84754689"
 ---
 Azure Data Factory to wielodostępna usługa, która ma następujące domyślne limity, aby upewnić się, że subskrypcje klientów są chronione przed innymi obciążeniami. Aby podnieść limity do wartości maksymalnej dla subskrypcji, skontaktuj się z pomocą techniczną.
 
@@ -32,7 +32,7 @@ Azure Data Factory to wielodostępna usługa, która ma następujące domyślne 
 | Maksymalna liczba działań na potok, które obejmują działania wewnętrzne dla kontenerów | 40 | 40 |
 | Maksymalna liczba połączonych środowisk Integration Runtime, które można utworzyć dla pojedynczego środowiska Integration Runtime (własne środowisko uruchomieniowe) | 100 | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maksymalna liczba parametrów na potok | 50 | 50 |
-| Elementy ForEach | 100 000 | 100 000 |
+| Elementy ForEach | 100 000 | 100 000 |
 | Równoległość ForEach | 20 | 50 |
 | Maksymalna liczba przebiegów w kolejce na potok | 100 | 100 |
 | Liczba znaków na wyrażenie | 8192 | 8192 |
@@ -46,7 +46,7 @@ Azure Data Factory to wielodostępna usługa, która ma następujące domyślne 
 | Zapytania monitorowane na minutę | 1000 | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Liczba operacji jednostki CRUD na minutę | 50 | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maksymalny czas trwania sesji debugowania przepływu danych | 8 godzin | 8 godzin |
-| Współbieżna liczba przepływów danych na fabrykę | 50 | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Współbieżna liczba przepływów danych na środowisko Integration Runtime | 50 | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Współbieżna liczba sesji debugowania przepływu danych na użytkownika na fabrykę | 3 | 3 |
 | Limit czasu wygaśnięcia Azure IR przepływu danych | 4 godziny | [Skontaktuj się z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 

@@ -7,13 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/03/2020
+ms.openlocfilehash: 402fae5622219b14cfdab921ebe1a78ad5dd111e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74112558"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84462842"
 ---
 # <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Ustawianie ról RBAC na potrzeby dostępu administracyjnego do usługi Azure Wyszukiwanie poznawcze
 
@@ -34,6 +33,21 @@ W przypadku usługi Azure Wyszukiwanie poznawcze role są skojarzone z poziomem 
 | Czytelnik |Wyświetl podstawowe informacje dotyczące usługi i metryki. Członkowie tej roli nie mogą wyświetlać informacji dotyczących indeksu, indeksatora, źródła danych ani klucza.  |
 
 Role nie przyznają praw dostępu do punktu końcowego usługi. Operacje usługi wyszukiwania, takie jak zarządzanie indeksami, populacja indeksu i zapytania dotyczące danych wyszukiwania, są kontrolowane przez klucze API-Keys, a nie role. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami interfejsu API](search-security-api-keys.md).
+
+## <a name="permissions-table"></a>Tabela uprawnień
+
+Poniższa tabela zawiera podsumowanie operacji dozwolonych w usłudze Azure Wyszukiwanie poznawcze i odblokowanie dostępu do określonej operacji.
+
+| Operacja | Uprawnienia |
+|-----------|-------------------------|
+| Tworzenie usługi | Posiadacz subskrypcji platformy Azure |
+| Skalowanie usługi | Klucz administracyjny, właściciel RBAC lub współautor zasobu  |
+| Usuwanie usługi | Klucz administracyjny, właściciel RBAC lub współautor zasobu |
+| Tworzenie, modyfikowanie i usuwanie obiektów w usłudze: <br>Indeksy i części składników (w tym definicje analizatora, profile oceniania, opcje CORS), indeksatory, źródła danych, synonimy, sugestie | Klucz administracyjny, właściciel RBAC lub współautor zasobu |
+| Tworzenie zapytań względem indeksu | Administrator lub klucz zapytania (RBAC nie dotyczy) |
+| Wykonywanie zapytań dotyczących informacji o systemie, takich jak zwracanie statystyk, liczników i list obiektów | Klucz administratora, RBAC dla zasobu (właściciel, współautor, czytelnik) |
+| Zarządzaj kluczami administratora | Klucz administracyjny, właściciel RBAC lub współautor zasobu |
+| Zarządzanie kluczami zapytań |  Klucz administracyjny, właściciel RBAC lub współautor zasobu  |
 
 ## <a name="see-also"></a>Zobacz także
 

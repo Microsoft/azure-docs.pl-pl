@@ -1,18 +1,18 @@
 ---
 title: Podręcznik publikowania dla aplikacji platformy Azure oferty szablonów rozwiązań — Azure Marketplace
 description: W tym artykule opisano wymagania dotyczące publikowania szablonów rozwiązań w witrynie Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: msjogarrig
+ms.author: jogarrig
 ms.date: 04/22/2020
-ms.author: dsindona
-ms.openlocfilehash: f62b3478c5c711423913b5918886b43b79ac691d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 9933e2fd170f8d2fd2f3b483670f184d0cd5eeb5
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858331"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103062"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Przewodnik publikowania dla oferty szablonów rozwiązań dla aplikacji platformy Azure
 
@@ -30,9 +30,9 @@ Wywołanie akcji, którą klient widzi dla tego typu oferty, jest *teraz*dostęp
 | **Wymagania** | **Szczegóły**  |
 | ---------------  | -----------  |
 |Rozliczenia i pomiary    |  Oferty szablonów rozwiązań nie są ofertami transakcji, ale mogą służyć do wdrażania płatnych ofert maszyn wirtualnych, które są rozliczane za pomocą komercyjnej witryny Microsoft Marketplace. Zasoby, które wdraża szablon ARM rozwiązania, są konfigurowane w subskrypcji platformy Azure klienta. Maszyny wirtualne z płatnością zgodnie z rzeczywistym użyciem są transakcyjne dla klienta przez firmę Microsoft i rozliczane za pośrednictwem subskrypcji platformy Azure klienta.<br/> W przypadku rozliczeń związanych z licencją własną (BYOL), chociaż koszty infrastruktury firmy Microsoft, które są naliczane w ramach subskrypcji klienta, są naliczane bezpośrednio przez klienta.   |
-|Wirtualny dysk twardy (VHD) zgodny z platformą Azure  |   Maszyny wirtualne muszą być wbudowane w system Windows lub Linux. Aby uzyskać więcej informacji, zobacz: <ul> <li>[Utwórz ofertę aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) (dla dysków VHD systemu Windows).</li><li>[Dystrybucje systemu Linux zatwierdzone na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (dla dysków VHD z systemem Linux).</li></ul> |
+|Wirtualny dysk twardy (VHD) zgodny z platformą Azure  |   Maszyny wirtualne muszą być wbudowane w system Windows lub Linux. Aby uzyskać więcej informacji, zobacz: <ul> <li>[Utwórz ofertę aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) (dla dysków VHD systemu Windows).</li><li>[Dystrybucje systemu Linux zatwierdzone na platformie Azure](../virtual-machines/linux/endorsed-distros.md) (dla dysków VHD z systemem Linux).</li></ul> |
 | Udział w zakresie użycia przez klienta | Włączenie przypisywania użycia klienta jest wymagane we wszystkich szablonach rozwiązań opublikowanych w witrynie Azure Marketplace. Aby uzyskać więcej informacji o przypisywaniu użycia klienta i sposobach ich włączania, zobacz temat przypisanie [użycia klienta przez partnera platformy Azure](./azure-partner-customer-usage-attribution.md).  |
-| Korzystanie z dysków zarządzanych | Usługa [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) jest opcją domyślną dla utrwalonych dysków maszyn wirtualnych infrastruktury jako usługi (IaaS) na platformie Azure. W szablonach rozwiązań należy używać dysków zarządzanych. <ul><li>Aby zaktualizować szablony rozwiązań, postępuj zgodnie ze wskazówkami w temacie [używanie dysków zarządzanych w Azure Resource Manager szablonach](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments)i Użyj dostarczonych [przykładów](https://github.com/Azure/azure-quickstart-templates).<br><br> </li><li>Aby opublikować dysk VHD jako obraz w portalu Azure Marketplace, zaimportuj podstawowy dysk VHD z dysków zarządzanych do konta magazynu przy użyciu jednej z następujących metod:<ul><li>[Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul></ul> |
+| Korzystanie z dysków zarządzanych | Usługa [Managed disks](../virtual-machines/windows/managed-disks-overview.md) jest opcją domyślną dla utrwalonych dysków maszyn wirtualnych infrastruktury jako usługi (IaaS) na platformie Azure. W szablonach rozwiązań należy używać dysków zarządzanych. <ul><li>Aby zaktualizować szablony rozwiązań, postępuj zgodnie ze wskazówkami w temacie [używanie dysków zarządzanych w Azure Resource Manager szablonach](../virtual-machines/windows/using-managed-disks-template-deployments.md)i Użyj dostarczonych [przykładów](https://github.com/Azure/azure-quickstart-templates).<br><br> </li><li>Aby opublikować dysk VHD jako obraz w portalu Azure Marketplace, zaimportuj podstawowy dysk VHD z dysków zarządzanych do konta magazynu przy użyciu jednej z następujących metod:<ul><li>[Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md) </li> <li> [Interfejs wiersza polecenia platformy Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md) </li> </ul></ul> |
 
 ## <a name="next-steps"></a>Następne kroki
 

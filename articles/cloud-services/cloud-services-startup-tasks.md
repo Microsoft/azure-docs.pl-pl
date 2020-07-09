@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75360314"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze
@@ -27,7 +26,7 @@ Zadania uruchamiania to akcje, które są wykonywane przed rozpoczęciem ról i 
 
 Zmienne środowiskowe przekazują informacje do zadania uruchamiania, a Magazyn lokalny może służyć do przekazywania informacji z zadania uruchamiania. Na przykład zmienna środowiskowa może określać ścieżkę do programu, który chcesz zainstalować, a pliki mogą być zapisywane w magazynie lokalnym, które mogą być później odczytywane przez role.
 
-Zadanie uruchamiania może rejestrować informacje i błędy do katalogu określonego przez zmienną środowiskową **temp** . Podczas zadania uruchamiania, zmienna środowiskowa **temp** jest rozpoznawana jako *C:\\Resources\\temp\\[Guid]. [ rolename\\] RoleTemp* Directory podczas uruchamiania w chmurze.
+Zadanie uruchamiania może rejestrować informacje i błędy do katalogu określonego przez zmienną środowiskową **temp** . Podczas zadania uruchamiania, zmienna środowiskowa **temp** jest rozpoznawana jako *C: \\ resources \\ temp \\ [Guid]. [ rolename] \\ RoleTemp* Directory podczas uruchamiania w chmurze.
 
 Zadania uruchamiania mogą być również wykonywane kilka razy między ponownymi uruchomieniami. Na przykład zadanie uruchamiania będzie uruchamiane przy każdym odtworzeniu roli, ale odtwarzanie roli nie zawsze obejmuje ponowne uruchomienie. Zadania uruchamiania należy zapisywać w taki sposób, aby umożliwiały ich uruchamianie kilka razy bez problemów.
 
@@ -68,7 +67,7 @@ W tym przykładzie zmienna środowiskowa **MyVersionNumber**, jest tworzona dla 
 </Startup>
 ```
 
-W poniższym przykładzie plik wsadowy **Startup. cmd** zapisuje wiersz "Bieżąca wersja pliku 1.0.0.0" do StartupLog. txt w katalogu określonym przez zmienną środowiskową temp. `EXIT /B 0` Wiersz gwarantuje, że zadanie uruchamiania zostanie zakończone przy użyciu **zmiennej ERRORLEVEL** równej zero.
+W poniższym przykładzie plik wsadowy **Startup. cmd** zapisuje wiersz "aktualna wersja pliku 1.0.0.0" do StartupLog.txtnego w katalogu określonym przez zmienną środowiskową temp. `EXIT /B 0`Wiersz gwarantuje, że zadanie uruchamiania zostanie zakończone przy użyciu **zmiennej ERRORLEVEL** równej zero.
 
 ```cmd
 ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
@@ -76,7 +75,7 @@ EXIT /B 0
 ```
 
 > [!NOTE]
-> W programie Visual Studio Właściwość **Kopiuj do katalogu wyjściowego** dla pliku wsadowego uruchamiania powinna być ustawiona na wartość **Kopiuj zawsze** upewnij się, że plik wsadowy uruchamiania jest prawidłowo wdrożony w projekcie na platformie Azure **(\\głównego aplikacji bin** for Web Roles i **głównego aplikacji** for Worker role).
+> W programie Visual Studio Właściwość **Kopiuj do katalogu wyjściowego** dla pliku wsadowego uruchamiania powinna być ustawiona na wartość **Kopiuj zawsze** upewnij się, że plik wsadowy uruchamiania jest prawidłowo wdrożony w projekcie na platformie Azure (**głównego aplikacji \\ bin** for Web Roles i **głównego aplikacji** for Worker role).
 > 
 > 
 
@@ -87,7 +86,7 @@ Poniżej opisano atrybuty elementu **Task** w pliku [ServiceDefinition. csdef] :
 
 * Polecenie z opcjonalnymi parametrami wiersza polecenia, które rozpoczyna zadanie uruchamiania.
 * Często jest to nazwa pliku wsadowego. cmd lub. bat.
-* Zadanie jest względem folderu bin głównego aplikacji\\dla wdrożenia. Zmienne środowiskowe nie są rozszerzane podczas określania ścieżki i pliku zadania. Jeśli jest wymagane rozwinięcie środowiska, można utworzyć mały skrypt. cmd, który wywołuje zadanie uruchamiania.
+* Zadanie jest względem \\ folderu bin głównego aplikacji dla wdrożenia. Zmienne środowiskowe nie są rozszerzane podczas określania ścieżki i pliku zadania. Jeśli jest wymagane rozwinięcie środowiska, można utworzyć mały skrypt. cmd, który wywołuje zadanie uruchamiania.
 * Może to być Aplikacja konsolowa lub plik wsadowy, który uruchamia [skrypt programu PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
 
 **kontekście wykonywania** — określa poziom uprawnień dla zadania uruchamiania. Poziom uprawnień może być ograniczony lub podwyższony:
@@ -112,8 +111,8 @@ Poniżej opisano atrybuty elementu **Task** w pliku [ServiceDefinition. csdef] :
   > 
   > 
   
-    Aby upewnić się, że plik wsadowy kończy się liczbą **ERRORLEVEL** równą zero `EXIT /B 0` , wykonaj polecenie na końcu procesu pliku wsadowego.
-* **tle**  
+    Aby upewnić się, że plik wsadowy kończy się liczbą **ERRORLEVEL** równą zero, wykonaj polecenie `EXIT /B 0` na końcu procesu pliku wsadowego.
+* **background**  
   Zadania są wykonywane asynchronicznie, równolegle z uruchomieniem roli.
 * **pierwszego planu**  
   Zadania są wykonywane asynchronicznie, równolegle z uruchomieniem roli. Kluczowa różnica między **pierwszym** i zadaniem w **tle** polega na tym, że zadanie na **pierwszym planie** uniemożliwia odtworzenie lub zamknięcie roli do momentu zakończenia zadania. Zadania w **tle** nie mają tego ograniczenia.

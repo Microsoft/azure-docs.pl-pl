@@ -5,15 +5,15 @@ description: Ten artykuł zawiera wskazówki dotyczące sposobu konfigurowania a
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74075159"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808109"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurowanie App Service przy użyciu Application Gateway
 
@@ -59,13 +59,13 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 3. Wybierz protokół jako HTTP lub HTTPS zgodnie z przypadkiem użycia. 
 
    > [!NOTE]
-   > W przypadku wybrania protokołu HTTPS nie ma potrzeby przekazywania żadnych certyfikatów uwierzytelniania lub zaufanego certyfikatu głównego, aby dozwolonych zaplecza usługi App Service, ponieważ usługa App Service jest zaufaną usługą platformy Azure.
+   > W przypadku wybrania protokołu HTTPS nie trzeba przekazywać certyfikatu uwierzytelniania ani zaufanego certyfikatu głównego, aby zezwolić na zaplecze usługi App Service, ponieważ usługa App Service jest zaufaną usługą platformy Azure.
 
-4. Zaznacz pole wyboru dla **App Service** . Należy zauważyć, że `Create a probe with pick host name from backend address` przełączniki `Pick host name from backend address` i zostaną automatycznie włączone.`Pick host name from backend address` spowoduje zastąpienie nagłówka hosta w żądaniu nazwą hosta zaplecza, gdy żądanie zostanie przekazane z Application Gateway do zaplecza.  
+4. Zaznacz pole wyboru dla **App Service** . Należy zauważyć, że przełączniki `Create a probe with pick host name from backend address` i `Pick host name from backend address` zostaną automatycznie włączone.`Pick host name from backend address` spowoduje zastąpienie nagłówka hosta w żądaniu nazwą hosta zaplecza, gdy żądanie zostanie przekazane z Application Gateway do zaplecza.  
 
-   `Create a probe with pick host name from backend address`spowoduje automatyczne utworzenie sondy kondycji i skojarzenie jej z tym ustawieniem protokołu HTTP. Nie trzeba tworzyć żadnej innej sondy kondycji dla tego ustawienia protokołu HTTP. Możesz sprawdzić, czy nowa sonda o nazwie <HTTP Setting name> <Unique GUID> została dodana na liście sond kondycji i czy ma już przełącznik `Pick host name from backend http settings enabled`.
+   `Create a probe with pick host name from backend address`spowoduje automatyczne utworzenie sondy kondycji i skojarzenie jej z tym ustawieniem protokołu HTTP. Nie trzeba tworzyć żadnej innej sondy kondycji dla tego ustawienia protokołu HTTP. Możesz sprawdzić, czy nowa sonda o nazwie <HTTP Setting name> <Unique GUID> została dodana na liście sond kondycji i czy ma już przełącznik `Pick host name from backend http settings enabled` .
 
-   Jeśli masz już co najmniej jedno ustawienie HTTP, które jest używane dla usługi App Service, a jeśli te ustawienia protokołu HTTP używają tego samego protokołu, który jest używany w trakcie tworzenia, a następnie zamiast `Create a probe with pick host name from backend address` przełącznika, otrzymasz listę rozwijaną, aby wybrać jedną z sond niestandardowych. Wynika to z faktu, że istnieje już ustawienie protokołu HTTP z usługą App Service, dlatego również istnieje sonda kondycji, która ma `Pick host name from backend http settings enabled` przełącznik. Wybierz niestandardową sondę z listy rozwijanej.
+   Jeśli masz już co najmniej jedno ustawienie HTTP, które jest używane dla usługi App Service, a jeśli te ustawienia protokołu HTTP używają tego samego protokołu, który jest używany w trakcie tworzenia, a następnie zamiast przełącznika, otrzymasz `Create a probe with pick host name from backend address` listę rozwijaną, aby wybrać jedną z sond niestandardowych. Wynika to z faktu, że istnieje już ustawienie protokołu HTTP z usługą App Service, dlatego również istnieje sonda kondycji, która ma przełącznik `Pick host name from backend http settings enabled` . Wybierz niestandardową sondę z listy rozwijanej.
 
 5. Kliknij przycisk **OK** , aby utworzyć ustawienie http.
 

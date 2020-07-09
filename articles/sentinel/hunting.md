@@ -1,6 +1,6 @@
 ---
 title: Możliwości polowania na platformie Azure — wskaźnikowa | Microsoft Docs
-description: W tym artykule opisano sposób korzystania z możliwości łowiectwa wskaźnikowego platformy Azure.
+description: Zapoznaj się z wbudowanymi zapytaniami dotyczącymi polowań na platformie Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cceeb1fc9715dfd7b1ac714c424421c51d292757
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85552291"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>W przypadku zagrożeń związanych z platformą Azure — wskaźnikiem
 
@@ -76,7 +76,7 @@ Zapoznaj się z [repozytorium zapytań polowania](https://github.com/Azure/Orion
 
 ## <a name="sample-query"></a>Przykładowe zapytanie
 
-Typowa kwerenda rozpoczyna się od nazwy tabeli, po której następuje seria operatorów rozdzielonych \|przez.
+Typowa kwerenda rozpoczyna się od nazwy tabeli, po której następuje seria operatorów rozdzielonych przez \| .
 
 W powyższym przykładzie Zacznij od nazwy tabeli SecurityEvent i Dodaj elementy potokowe zgodnie z wymaganiami.
 
@@ -84,7 +84,7 @@ W powyższym przykładzie Zacznij od nazwy tabeli SecurityEvent i Dodaj elementy
 
 2. Dodaj filtr w zapytaniu, aby wyświetlić tylko zdarzenie o IDENTYFIKATORze 4688.
 
-3. Dodaj filtr do zapytania w wierszu polecenia, aby zawierał tylko wystąpienia programu CScript. exe.
+3. Dodaj filtr do zapytania w wierszu polecenia, aby zawierał tylko wystąpienia cscript.exe.
 
 4. Projektuj tylko te kolumny, które interesują Cię, i Ogranicz wyniki do 1000, a następnie kliknij przycisk **Uruchom zapytanie**.
 5. Kliknij zielony trójkąt i uruchom zapytanie. Możesz przetestować zapytanie i uruchomić je w celu wyszukania nietypowego zachowania.

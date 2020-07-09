@@ -1,19 +1,13 @@
 ---
 title: Autoryzuj dostęp za pomocą sygnatury dostępu współdzielonego w usłudze Azure Event Hubs
 description: Ten artykuł zawiera informacje dotyczące autoryzowania dostępu do zasobów platformy Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: bdb1896f8a40c6de21ae76b536bfccec316341cd
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992798"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85323126"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autoryzowanie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego
 Sygnatura dostępu współdzielonego (SAS) zapewnia możliwość udzielenia ograniczonego dostępu do zasobów w przestrzeni nazw Event Hubs. Funkcja SAS chroni dostęp do Event Hubs zasobów na podstawie reguł autoryzacji. Te reguły są konfigurowane w przestrzeni nazw lub jednostce (centrum zdarzeń lub tematu). Ten artykuł zawiera omówienie modelu SAS i przegląd najlepszych rozwiązań dotyczących sygnatury dostępu współdzielonego.
@@ -33,7 +27,7 @@ Sygnatura dostępu współdzielonego to mechanizm autoryzacji oparty na odszkodo
 
 ## <a name="shared-access-authorization-policies"></a>Zasady autoryzacji dostępu współdzielonego
 Każda przestrzeń nazw Event Hubs i każda jednostka Event Hubs (wystąpienie centrum zdarzeń lub temat Kafka) ma zasady autoryzacji dostępu współdzielonego, które składają się z reguł. Zasady na poziomie przestrzeni nazw mają zastosowanie do wszystkich jednostek w przestrzeni nazw, niezależnie od ich konfiguracji poszczególnych zasad.
-Dla każdej reguły zasad autoryzacji użytkownik wybiera trzy informacje: imię i nazwisko, zakres i prawa. Nazwa jest unikatową nazwą w tym zakresie. Zakres jest identyfikatorem URI danego zasobu. W przypadku przestrzeni nazw Event Hubs zakres jest w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `https://<yournamespace>.servicebus.windows.net/`.
+Dla każdej reguły zasad autoryzacji użytkownik wybiera trzy informacje: imię i nazwisko, zakres i prawa. Nazwa jest unikatową nazwą w tym zakresie. Zakres jest identyfikatorem URI danego zasobu. W przypadku przestrzeni nazw Event Hubs zakres jest w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `https://<yournamespace>.servicebus.windows.net/` .
 
 Prawa dostarczone przez regułę zasad mogą być kombinacją:
 - **Wyślij** — daje prawo do wysyłania komunikatów do jednostki

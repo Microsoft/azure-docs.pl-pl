@@ -3,12 +3,12 @@ title: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 description: Azure Lighthouse i aplikacje zarządzane przez platformę Azure...
 ms.date: 05/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d9923d31e78675927b4ca235607b2a61b24ccc41
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783632"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121609"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 
@@ -47,4 +47,4 @@ Klienci mogą również być zainteresowani zarządzanymi aplikacjami od wielu d
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [aplikacjach zarządzanych przez platformę Azure](../../azure-resource-manager/managed-applications/overview.md).
-- Dowiedz się [, jak dołączyć subskrypcję do zarządzania zasobami delegowanymi przez platformę Azure](../how-to/onboard-customer.md).
+- Dowiedz się [, jak dołączyć subskrypcję do usługi Azure Lighthouse](../how-to/onboard-customer.md).

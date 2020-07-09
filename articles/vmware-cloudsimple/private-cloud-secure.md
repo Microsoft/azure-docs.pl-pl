@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4541874a9e8fc4111e5c65d02f07535c4d14f9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565982"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829877"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Jak zabezpieczyć środowisko chmury prywatnej
 
@@ -29,16 +29,16 @@ Tworzenie usługi CloudSimple wymaga roli **właściciela** lub **współautora*
 
 Tylko użytkownicy posiadający uprawnienia **właściciela** lub **współautora** w grupie zasobów będą widzieć usługę CloudSimple i uruchamiać Portal CloudSimple.
 
-Aby uzyskać więcej informacji na temat RBAC, zobacz [co to jest kontrola dostępu oparta na rolach (RBAC) dla zasobów platformy Azure](../role-based-access-control/overview.md).
+Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>RBAC dla chmury prywatnej — vCenter
 
-Podczas tworzenia chmury `CloudOwner@cloudsimple.local` prywatnej jest tworzony domyślny użytkownik w DOMENIE vCenter SSO.  Użytkownik CloudOwner ma uprawnienia do zarządzania programem vCenter. Do programu vCenter SSO są dodawane dodatkowe źródła tożsamości w celu udzielenia dostępu innym użytkownikom.  Wstępnie zdefiniowane role i grupy są konfigurowane w programie vCenter, który może służyć do dodawania kolejnych użytkowników.
+`CloudOwner@cloudsimple.local`Podczas tworzenia chmury prywatnej jest tworzony domyślny użytkownik w domenie VCENTER SSO.  Użytkownik CloudOwner ma uprawnienia do zarządzania programem vCenter. Do programu vCenter SSO są dodawane dodatkowe źródła tożsamości w celu udzielenia dostępu innym użytkownikom.  Wstępnie zdefiniowane role i grupy są konfigurowane w programie vCenter, który może służyć do dodawania kolejnych użytkowników.
 
 ### <a name="add-new-users-to-vcenter"></a>Dodawanie nowych użytkowników do programu vCenter
 
-1. [Eskalować uprawnienia](escalate-private-cloud-privileges.md) do **CloudOwner\@Cloudsimple. Local** User w chmurze prywatnej.
-2. Zaloguj się do programu vCenter przy użyciu **CloudOwner\@cloudsimple. Local**
+1. [Eskalować uprawnienia](escalate-private-cloud-privileges.md) do **CloudOwner \@ cloudsimple. Local** User w chmurze prywatnej.
+2. Zaloguj się do programu vCenter przy użyciu **CloudOwner \@ cloudsimple. Local**
 3. [Dodaj użytkowników korzystających z logowania](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)jednokrotnego w programie vCenter.
 4. Dodawanie użytkowników do [grup programu vCenter Logowanie jednokrotne](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
@@ -51,8 +51,8 @@ Możesz dodać dodatkowych dostawców tożsamości dla domeny vCenter SSO w chmu
 * [Użyj Active Directory jako dostawcy tożsamości](set-vcenter-identity.md) w usłudze vCenter w chmurze prywatnej.
 * [Korzystanie z usługi Azure AD jako dostawcy tożsamości](azure-ad.md) w usłudze vCenter w chmurze prywatnej
 
-1. [Eskalować uprawnienia](escalate-private-cloud-privileges.md) do **CloudOwner\@Cloudsimple. Local** User w chmurze prywatnej.
-2. Zaloguj się do programu vCenter przy użyciu **CloudOwner\@cloudsimple. Local**
+1. [Eskalować uprawnienia](escalate-private-cloud-privileges.md) do **CloudOwner \@ cloudsimple. Local** User w chmurze prywatnej.
+2. Zaloguj się do programu vCenter przy użyciu **CloudOwner \@ cloudsimple. Local**
 3. Dodaj użytkowników z dostawcy tożsamości do [grup usługi vCenter Logowanie jednokrotne](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 ## <a name="secure-network-on-your-private-cloud-environment"></a>Zabezpieczanie sieci w środowisku chmury prywatnej

@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 10/29/2019
+ms.topic: how-to
+ms.date: 06/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4cb96e1299010636e0bce3cb99fbba9862822564
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1858e06567a0ab0907e6d2cb60358ff4ac00f9a2
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022269"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086351"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Konfigurowanie klastrów usługi HDInsight za pomocą niestandardowej bazy danych Ambari
 
 Apache Ambari upraszcza zarządzanie i monitorowanie klastra Apache Hadoop. Ambari zapewnia łatwy w użyciu interfejs użytkownika sieci Web i interfejs API REST. Usługa Ambari jest dołączana do klastrów usługi HDInsight i służy do monitorowania klastra i wprowadzania zmian w konfiguracji.
 
-W przypadku normalnego tworzenia klastra zgodnie z opisem w innych artykułach, takich jak [Konfigurowanie klastrów w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari jest wdrażany w usłudze [S0 Azure SQL Database](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) , która jest zarządzana przez usługę HDInsight i nie jest dostępna dla użytkowników.
+W przypadku normalnego tworzenia klastra zgodnie z opisem w innych artykułach, takich jak [Konfigurowanie klastrów w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari jest wdrażany w [S0 Azure SQL Database](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) , który jest zarządzany przez usługi HDInsight i nie jest dostępny dla użytkowników.
 
 Funkcja Custom Ambari DB pozwala wdrożyć nowy klaster i skonfigurować Ambari w zewnętrznej zarządzanej bazie danych. Wdrożenie jest wykonywane z szablonem Azure Resource Manager. Ta funkcja ma następujące zalety:
 
@@ -38,6 +38,7 @@ Możesz wdrożyć niestandardową bazę danych Ambari z wszystkimi typami i wers
 
 Niestandardowa baza danych Ambari ma następujące inne wymagania:
 
+- Nazwa bazy danych nie może zawierać łączników ani spacji
 - Musisz mieć istniejący serwer usługi Azure SQL DB i bazę danych.
 - Baza danych dostarczana dla Instalatora Ambari musi być pusta. W domyślnym schemacie dbo nie powinno być żadnych tabel.
 - Użytkownik użyty do nawiązania połączenia z bazą danych powinien mieć uprawnienia SELECT, CREATE TABLE i INSERT w bazie danych.

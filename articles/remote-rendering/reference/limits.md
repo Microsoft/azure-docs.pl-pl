@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759051"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808543"
 ---
 # <a name="limitations"></a>Ograniczenia
 
@@ -26,9 +26,10 @@ Niektóre funkcje mają rozmiar, liczbę lub inne ograniczenia.
 * Łączna liczba dozwolonych obiektów pojedynczego typu (Entity, CutPlaneComponent itp.): 16 777 215.
 * Łączna liczba aktywnych płaszczyzn wycinania: 8.
 
-## <a name="materials"></a>Materiały
+## <a name="geometry"></a>Geometrii
 
 * Łączna liczba dozwolonych materiałów w elemencie zawartości: 65 535.
+* Maksymalny wymiar pojedynczej tekstury: 16 384 x 16 384. Większe tekstury źródłowe będą skalowane w dół w procesie konwersji.
 
 ## <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
 
@@ -39,12 +40,14 @@ Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od roz
 |Standardowa| 20 000 000 |
 |tytułu| bez limitu |
 
+Aby uzyskać szczegółowe informacje na temat tego ograniczenia, zobacz rozdział [rozmiaru maszyny wirtualnej](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Ograniczenia dotyczące platformy
 
 **Windows 10 Desktop**
 
 * PLATFORMY UWP/x86 jest jedyną obsługiwaną platformą platformy UWP. PLATFORMY UWP/x64 nie jest obsługiwane.
+* Win32/x64 jest jedyną obsługiwaną platformą Win32. Win32/x86 nie jest obsługiwany.
 
 **Urządzenie HoloLens 2**
 

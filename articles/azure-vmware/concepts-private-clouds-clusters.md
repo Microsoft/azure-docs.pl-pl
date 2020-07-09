@@ -3,12 +3,12 @@ title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych funkcji centrów danych zdefiniowanych przez oprogramowanie VMware platformy Azure i klastrów vSphere w rozwiązaniu VMware na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f51b76b654a43d690aa5c97fa9df99fad1f47d7a
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740384"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84906993"
 ---
 # <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Azure VMware Solution (wersja zapoznawcza) — Podgląd chmury prywatnej i pojęcia dotyczące klastrów
 
@@ -61,10 +61,10 @@ Ogólne zasady i procesy uaktualniania oprogramowania platformy do automatycznej
 
 Zarządzanie konserwacją i cyklem życia hosta odbywa się bez wpływu na pojemność ani wydajność klastrów chmury prywatnej. Przykłady automatycznej konserwacji hosta obejmują uaktualnienia oprogramowania układowego i naprawy sprzętu lub wymiany.
 
-Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takich jak Menedżer NSX-T i NSX-T. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu północ-południe. Jako administrator chmury prywatnej do automatycznej synchronizacji użytkownik jest odpowiedzialny za NSXą konfigurację SDN, taką jak segmenty sieci, reguły rozproszonej zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
+Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu północ-południe. Jako administrator chmury prywatnej do automatycznej synchronizacji użytkownik jest odpowiedzialny za NSXą konfigurację SDN, taką jak segmenty sieci, reguły rozproszonej zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
 
 > [!IMPORTANT]
-> Administrator automatycznej synchronizacji nie może modyfikować konfiguracji krawędzi NSX-T ani bramy warstwy 0. Może to spowodować utratę usługi.
+> Administrator automatycznej synchronizacji nie może modyfikować konfiguracji bramy NSX-T ani warstwy "0". Może to spowodować utratę usługi.
 
 ## <a name="backup-and-restoration"></a>Tworzenie kopii zapasowej i przywracanie
 

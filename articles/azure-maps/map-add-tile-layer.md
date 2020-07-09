@@ -10,10 +10,9 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76988604"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Dodawanie warstwy kafelków do mapy
@@ -24,19 +23,19 @@ Warstwa kafelków jest ładowana na kafelkach z serwera. Te obrazy mogą być ws
 
 * X, Y, notacja powiększenia-X to kolumna, Y jest pozycją w wierszu kafelka w siatce kafelków, a w notacji Powiększ wartość na podstawie poziomu powiększenia.
 * Notacja Quadkey — łączy x, y i Powiększ informacje w jedną wartość ciągu. Ta wartość ciągu jest unikatowym identyfikatorem dla pojedynczego kafelka.
-* Pole ograniczenia — Określ obraz w formacie współrzędnych pola ograniczenia: `{west},{south},{east},{north}`. Ten format jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
+* Pole ograniczenia — Określ obraz w formacie współrzędnych pola ograniczenia: `{west},{south},{east},{north}` . Ten format jest często używany przez [usługi mapowania sieci Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) to doskonały sposób wizualizacji dużych zestawów danych na mapie. Nie tylko można wygenerować warstwy kafelków z obrazu, dane wektorowe mogą być również renderowane jako warstwa kafelków. Przez renderowanie danych wektorowych jako warstwy kafelków, formant mapy musi ładować kafelki, które są mniejsze w rozmiarze pliku niż dane wektorowe, które reprezentują. Ta technika jest często używana do renderowania milionów wierszy danych na mapie.
 
 Adres URL kafelka przesłany do warstwy kafelków musi być adresem URL http lub HTTPS do zasobu TileJSON lub szablonem adresu URL kafelka, który używa następujących parametrów: 
 
-* `{x}`-X pozycja kafelka. Również wymagają `{y}` i `{z}`.
-* `{y}`-Y pozycja kafelka. Również wymagają `{x}` i `{z}`.
-* `{z}`— Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}`.
+* `{x}`-X pozycja kafelka. Również wymagają `{y}` i `{z}` .
+* `{y}`-Y pozycja kafelka. Również wymagają `{x}` i `{z}` .
+* `{z}`— Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}` .
 * `{quadkey}`-Kafelek quadkey identyfikator oparty na konwencji nazewnictwa systemu kafelków mapy Bing.
 * `{bbox-epsg-3857}`-Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
-* `{subdomain}`-Symbol zastępczy dla wartości poddomeny, jeśli `subdomain` zostanie określony, zostanie dodany.
+* `{subdomain}`-Symbol zastępczy dla wartości poddomeny, jeśli zostanie określony, `subdomain` zostanie dodany.
 
 ## <a name="add-a-tile-layer"></a>Dodawanie warstwy kafelków
 
@@ -56,7 +55,7 @@ Poniżej znajduje się kompletny przykładowy kod wykonywany z powyższymi funkc
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Warstwa kafelków używająca X, Y i Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>warstwę kafelków pióra przy użyciu X, Y i Z z</a> Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Warstwa kafelków używająca X, Y i Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>warstwę kafelków pióra przy użyciu X, Y i Z z</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-tile-layer"></a>Dostosowywanie warstwy kafelków
@@ -65,7 +64,7 @@ Klasa kafelków ma wiele opcji stylów. Oto narzędzie do wypróbowania.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opcje warstwy kafelków' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Opcje warstwy kafelków</a> pióra według Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opcje warstwy kafelków' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Opcje warstwy kafelków</a> pióra według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Następne kroki

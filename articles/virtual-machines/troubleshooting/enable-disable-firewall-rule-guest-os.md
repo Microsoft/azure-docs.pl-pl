@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80422896"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Włączanie lub wyłączanie reguły zapory w systemie operacyjnym gościa maszyny wirtualnej platformy Azure
@@ -97,7 +97,7 @@ Jeśli maszyna wirtualna jest w trybie online i jest dostępna na innej maszynie
 
 Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp z innej maszyny wirtualnej w tej samej sieci wirtualnej, możesz użyć [rejestru zdalnego](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) na drugiej maszynie wirtualnej.
 
-1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit. exe), a następnie wybierz pozycję **plik** > **Połącz z rejestrem sieciowym**.
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit.exe), a następnie wybierz kolejno pozycje **plik**  >  **Połącz z rejestrem sieciowym**.
 
 2.  Otwórz gałąź \System *maszyny docelowej*, a następnie określ następujące wartości:
 
@@ -107,7 +107,7 @@ Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp 
     
         Następnie zmień wartość **Active = false** na **Active = true** w ciągu:
 
-        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
     
     * Aby wyłączyć regułę, Otwórz następującą wartość rejestru:
     
@@ -115,7 +115,7 @@ Jeśli maszyna wirtualna jest w trybie online i można uzyskać do niej dostęp 
 
         Następnie zmień wartość **Active = true** na **Active = false**:
         
-        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
 
 3.  Uruchom ponownie maszynę wirtualną, aby zastosować zmiany.
 
@@ -133,9 +133,9 @@ Przed wykonaniem tych kroków należy wykonać migawkę dysku systemowego, któr
 
 4.  Przed wprowadzeniem jakichkolwiek zmian Utwórz kopię folderu \Windows\System32\Config w przypadku, gdy konieczne jest wycofanie zmian.
 
-5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit. exe).
+5.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru (regedit.exe).
 
-6.  Zaznacz klucz **HKEY_LOCAL_MACHINE** , a następnie wybierz pozycję **plik** > **Załaduj gałąź** z menu.
+6.  Zaznacz klucz **HKEY_LOCAL_MACHINE** , a następnie wybierz pozycję **plik**  >  **Załaduj gałąź** z menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
@@ -154,7 +154,7 @@ Przed wykonaniem tych kroków należy wykonać migawkę dysku systemowego, któr
         
         Następnie zmień wartość **Active = false** na **Active = true**.
         
-        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = TRUE | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
 
     3.  Aby wyłączyć regułę, Otwórz następujący klucz rejestru:
 
@@ -162,9 +162,9 @@ Przed wykonaniem tych kroków należy wykonać migawkę dysku systemowego, któr
 
         Następnie zmień wartość **Active = true na wartość** **Active = false**.
         
-        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | App =%SystemRoot%\system32\svchost.exe | SVC = TermService | Nazwa =\@FirewallAPI. dll,-28775 | DESC =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
+        **2.22 v | Akcja = Zezwalaj | Aktywny = FAŁSZ | Dir = in | Protokół = 6 | Profil = domena | Profil = prywatny | Profil = publiczny | LPort = 3389 | Aplikacja =% główny_katalog_systemowy% \system32\svchost.exe| SVC = TermService | Nazwa = \@FirewallAPI.dll,-28775 | DESC = \@FirewallAPI.dll,-28756 | EmbedCtxt = \@FirewallAPI.dll,-28752 |**
 
-9.  Podświetl pozycję **BROKENSYSTEM**, a następnie wybierz pozycję **plik** > **Zwolnij gałąź** z menu.
+9.  Podświetl pozycję **BROKENSYSTEM**, a następnie wybierz pozycję **plik**  >  **Zwolnij gałąź** z menu.
 
 10. [Odłącz dysk systemowy i Utwórz ponownie maszynę wirtualną](troubleshoot-recovery-disks-portal-windows.md).
 

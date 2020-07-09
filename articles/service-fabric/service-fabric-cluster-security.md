@@ -4,12 +4,12 @@ description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usł
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461586"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080681"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
@@ -33,13 +33,18 @@ Klastry działające na platformie Azure i autonomicznych klastrach działający
 
 Service Fabric używa certyfikatów serwera X. 509, które są określane jako część konfiguracji typu węzła podczas tworzenia klastra. Na końcu tego artykułu zobaczysz krótkie omówienie tego, czym są te certyfikaty i jak można je uzyskać lub utworzyć.
 
-Konfigurowanie zabezpieczeń certyfikatów podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Azure Resource Manager lub przy użyciu autonomicznego szablonu JSON. Domyślne zachowanie Service Fabric zestawu SDK polega na wdrożeniu i instalowaniu certyfikatu z najpóźniejszym terminem wygaśnięcia certyfikatu. zachowanie klasyczne może definiować certyfikaty podstawowe i pomocnicze, aby umożliwić Ręczne inicjowanie przerzucania i nie jest zalecane do użycia w ramach nowych funkcji. Certyfikaty podstawowe, które będą używane, mają najpóźniejsze daty wygaśnięcia, powinny być inne od klienta administratora i certyfikatów klienta tylko do odczytu ustawionych dla [zabezpieczeń klient-węzeł](#client-to-node-security).
+Konfigurowanie zabezpieczeń certyfikatów podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Azure Resource Manager lub przy użyciu autonomicznego szablonu JSON. Domyślnym zachowaniem zestawu SDK Service Fabric jest wdrożenie i zainstalowanie certyfikatu z najpóźniejszym terminem wygaśnięcia. zachowanie klasyczne może definiować certyfikaty podstawowe i pomocnicze, aby umożliwić Ręczne inicjowanie przerzucania i nie jest zalecane do użycia w ramach nowych funkcji. Certyfikaty podstawowe, które będą używane, mają najpóźniejsze daty wygaśnięcia, powinny być inne od klienta administratora i certyfikatów klienta tylko do odczytu ustawionych dla [zabezpieczeń klient-węzeł](#client-to-node-security).
 
 Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla platformy Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla autonomicznego klastra systemu Windows Server, zobacz temat [Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="node-to-node-windows-security"></a>Zabezpieczenia między węzłami systemu Windows
+
+> [!NOTE]
+> Uwierzytelnianie systemu Windows jest oparte na protokole Kerberos. Uwierzytelnianie NTLM nie jest obsługiwane jako typ uwierzytelniania.
+>
+> Za każdym razem, gdy to możliwe, Użyj uwierzytelniania certyfikatu X. 509 dla klastrów Service Fabric.
 
 Aby dowiedzieć się, jak skonfigurować zabezpieczenia systemu Windows dla autonomicznego klastra systemu Windows Server, zobacz temat [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md).
 
@@ -49,7 +54,7 @@ Zabezpieczenia klienta w węźle uwierzytelniają klientów i pomagają w zabezp
 
 ![Diagram komunikacji między klientem a węzłem][Client-to-Node]
 
-Klastry działające na platformie Azure i autonomicznych klastrach działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+Klastry działające na platformie Azure i w klastrach autonomicznych działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx), ale zalecane jest użycie uwierzytelniania certyfikatu X. 509, jeśli to możliwe.
 
 ### <a name="client-to-node-certificate-security"></a>Zabezpieczenia certyfikatów między klientami a węzłami
 
@@ -95,7 +100,7 @@ Certyfikaty cyfrowe X. 509 są zwykle używane do uwierzytelniania klientów i s
 Niektóre ważne zagadnienia, które należy wziąć pod uwagę:
 
 * Aby utworzyć certyfikaty dla klastrów z uruchomionymi obciążeniami produkcyjnymi, należy użyć prawidłowo skonfigurowanej usługi certyfikatów systemu Windows Server lub jednej z zatwierdzonych [urzędów certyfikacji (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
-* Nigdy nie należy używać żadnych certyfikatów tymczasowych ani testowych, które tworzysz przy użyciu narzędzi takich jak MakeCert. exe w środowisku produkcyjnym.
+* Nigdy nie należy używać żadnych certyfikatów tymczasowych ani testowych, które tworzysz przy użyciu narzędzi takich jak MakeCert.exe w środowisku produkcyjnym.
 * Możesz użyć certyfikatu z podpisem własnym, ale tylko w klastrze testowym. Nie należy używać certyfikatu z podpisem własnym w środowisku produkcyjnym.
 * Podczas generowania odcisku palca certyfikatu Pamiętaj o wygenerowaniu odcisku palca SHA1. Algorytm SHA1 jest używany podczas konfigurowania odcisków palca certyfikatu klienta i klastra.
 
@@ -113,7 +118,7 @@ Certyfikat musi spełniać następujące wymagania:
 
 Niektóre inne zagadnienia, które należy wziąć pod uwagę:
 
-* Pole **podmiotu** może zawierać wiele wartości. Każda wartość jest poprzedzona inicjalizacją, aby wskazać typ wartości. Zazwyczaj inicjowanie jest **CN** (dla *nazwy pospolitej*); na przykład **CN = www\.contoso.com**.
+* Pole **podmiotu** może zawierać wiele wartości. Każda wartość jest poprzedzona inicjalizacją, aby wskazać typ wartości. Zazwyczaj inicjowanie jest **CN** (dla *nazwy pospolitej*); na przykład **CN = www \. contoso.com**.
 * Pole **podmiotu** może być puste.
 * Jeśli pole wyboru opcjonalnej **alternatywnej nazwy podmiotu** jest wypełnione, musi mieć zarówno nazwę pospolitą certyfikatu, jak i jeden wpis na sieć San. Są one wprowadzane jako wartości **nazw DNS** . Aby dowiedzieć się, jak generować certyfikaty, które mają sieci SAN, zobacz [jak dodać alternatywną nazwę podmiotu do certyfikatu bezpiecznego protokołu LDAP](https://support.microsoft.com/kb/931351).
 * Wartość pola **zamierzone cele** w certyfikacie powinna zawierać odpowiednią wartość, na przykład **uwierzytelnianie serwera** lub **uwierzytelnianie klienta**.

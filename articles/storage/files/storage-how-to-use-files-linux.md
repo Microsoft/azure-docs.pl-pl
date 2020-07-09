@@ -3,19 +3,19 @@ title: Używanie Azure Files z systemem Linux | Microsoft Docs
 description: Dowiedz się, jak zainstalować udział plików platformy Azure za pośrednictwem protokołu SMB w systemie Linux.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc9876caf0c002650ab30b7eaed7dc44e2f135e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509850"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
-[Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w. `/etc/fstab`
+[Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
 
 Zalecanym sposobem instalowania udziału plików platformy Azure w systemie Linux jest użycie protokołu SMB 3,0. Domyślnie Azure Files wymaga szyfrowania podczas przesyłania, które jest obsługiwane tylko przez protokół SMB 3,0. Azure Files obsługuje również protokół SMB 2,1, który nie obsługuje szyfrowania podczas przesyłania, ale nie może instalować udziałów plików platformy Azure z użyciem protokołu SMB 2,1 z innego regionu platformy Azure lub lokalnego ze względów bezpieczeństwa. O ile aplikacja nie wymaga protokołu SMB 2,1, z jakiegoś powodu większość popularnych, ostatnio wydanych dystrybucji systemu Linux obsługuje protokół SMB 3,0:  
 
@@ -28,7 +28,7 @@ Zalecanym sposobem instalowania udziału plików platformy Azure w systemie Linu
 | openSUSE | 13.2 + | 42.3 + |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3 + |
 
-Jeśli używasz dystrybucji systemu Linux, która nie jest wymieniona w powyższej tabeli, możesz sprawdzić, czy w systemie Linux jest obsługiwana obsługa protokołu SMB 3,0 z szyfrowaniem. Protokół SMB 3,0 z szyfrowaniem został dodany do jądra systemu Linux w wersji 4,11. `uname` Polecenie zwróci wersję jądra systemu Linux w użyciu:
+Jeśli używasz dystrybucji systemu Linux, która nie jest wymieniona w powyższej tabeli, możesz sprawdzić, czy w systemie Linux jest obsługiwana obsługa protokołu SMB 3,0 z szyfrowaniem. Protokół SMB 3,0 z szyfrowaniem został dodany do jądra systemu Linux w wersji 4,11. `uname`Polecenie zwróci wersję jądra systemu Linux w użyciu:
 
 ```bash
 uname -r
@@ -40,26 +40,26 @@ uname -r
 * <a id="install-cifs-utils"></a>**Upewnij się, że pakiet CIFS-narzędzia jest zainstalowany.**  
     Pakiet CIFS-narzędzia można zainstalować przy użyciu Menedżera pakietów na wybranej dystrybucji systemu Linux. 
 
-    W przypadku `apt` dystrybucji **opartych** na **Ubuntu** i Debian należy użyć Menedżera pakietów:
+    W przypadku dystrybucji **opartych** na **Ubuntu** i Debian należy użyć `apt` Menedżera pakietów:
 
     ```bash
     sudo apt update
     sudo apt install cifs-utils
     ```
 
-    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj Menedżera `dnf` pakietów:
+    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj `dnf` Menedżera pakietów:
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS**Użyj Menedżera `yum` pakietów:
+    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS**Użyj `yum` Menedżera pakietów:
 
     ```bash
     sudo yum install cifs-utils 
     ```
 
-    W systemie **openSUSE**Użyj Menedżera `zypper` pakietów:
+    W systemie **openSUSE**Użyj `zypper` Menedżera pakietów:
 
     ```bash
     sudo zypper install cifs-utils
@@ -99,7 +99,7 @@ Aby używać udziału plików platformy Azure z dystrybucją systemu Linux, nale
 W razie potrzeby można zainstalować ten sam udział plików platformy Azure w wielu punktach instalacji.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Zainstaluj udział plików platformy Azure na żądanie z`mount`
-1. **Utwórz folder dla punktu instalacji**: Zastąp `<your-resource-group>`, `<your-storage-account>`, i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji**: Zastąp `<your-resource-group>` , `<your-storage-account>` , i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -111,7 +111,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
     sudo mkdir -p $mntPath
     ```
 
-1. **Użyj polecenia mount, aby zainstalować udział plików platformy Azure**. W poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, czyli odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu systemu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć opcji instalacji `uid` i `gid` ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. W razie potrzeby można `dir_mode` również `file_mode` użyć i skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia. 
+1. **Użyj polecenia mount, aby zainstalować udział plików platformy Azure**. W poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, czyli odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu systemu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć `uid` `gid` opcji instalacji i ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. `dir_mode`W razie potrzeby można również użyć i `file_mode` skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia. 
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -134,7 +134,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
 Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `sudo umount $mntPath` programu do odinstalowania udziału.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Utwórz trwały punkt instalacji dla udziału plików platformy Azure`/etc/fstab`
-1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>`, `<your-storage-account>`i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
+1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -173,7 +173,7 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Użyj poniższego polecenia, aby dołączyć następujący wiersz do `/etc/fstab` **programu: w poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, które oznaczają odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć opcji instalacji `uid` i `gid` ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. W razie potrzeby można `dir_mode` również `file_mode` użyć i skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia.
+1. **Użyj poniższego polecenia, aby dołączyć następujący wiersz do `/etc/fstab` **programu: w poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, które oznaczają odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć `uid` `gid` opcji instalacji i ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. `dir_mode`W razie potrzeby można również użyć i `file_mode` skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -200,20 +200,20 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
 
     Pakiet AutoFS można zainstalować przy użyciu Menedżera pakietów na wybranej dystrybucji systemu Linux. 
 
-    W przypadku `apt` dystrybucji **opartych** na **Ubuntu** i Debian należy użyć Menedżera pakietów:
+    W przypadku dystrybucji **opartych** na **Ubuntu** i Debian należy użyć `apt` Menedżera pakietów:
     ```bash
     sudo apt update
     sudo apt install autofs
     ```
-    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj Menedżera `dnf` pakietów:
+    W **Fedora**, **Red Hat Enterprise Linux 8 +** i **CentOS 8 +**, użyj `dnf` Menedżera pakietów:
     ```bash
     sudo dnf install autofs
     ```
-    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS**Użyj Menedżera `yum` pakietów:
+    W starszych wersjach **Red Hat Enterprise Linux** i **CentOS**Użyj `yum` Menedżera pakietów:
     ```bash
     sudo yum install autofs 
     ```
-    W systemie **openSUSE**Użyj Menedżera `zypper` pakietów:
+    W systemie **openSUSE**Użyj `zypper` Menedżera pakietów:
     ```bash
     sudo zypper install autofs
     ```
@@ -244,7 +244,7 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
 ## <a name="securing-linux"></a>Zabezpieczanie systemu Linux
 Aby można było zainstalować udział plików platformy Azure w systemie Linux, należy uzyskać dostęp do portu 445. Wiele organizacji blokuje port 445 z powodu zagrożeń bezpieczeństwa związanych z protokołem SMB 1. Protokół SMB 1, znany również jako CIFS (Common Internet File System), jest starszym protokołem systemu plików zawartym w wielu dystrybucjach Linux. Protokół SMB 1 jest nieaktualny, nieefektywny i, co najważniejsze, niezabezpieczony. Dobrym pomysłem jest to, że Azure Files nie obsługuje protokołu SMB 1 i począwszy od jądra systemu Linux w wersji 4,18, system Linux umożliwia wyłączenie protokołu SMB 1. Zawsze [zdecydowanie zalecamy](https://aka.ms/stopusingsmb1) wyłączenie protokołu SMB 1 na klientach z systemem Linux przed użyciem udziałów plików SMB w środowisku produkcyjnym.
 
-Począwszy od jądra systemu Linux 4,18, moduł jądra protokołu SMB wywoływany `cifs` ze względu na starsze przyczyny ujawnia nowy parametr modułu (często określany jako *parametr* przez różne dokumenty zewnętrzne) o `disable_legacy_dialects`nazwie. Chociaż wprowadzono je w jądrze systemu Linux 4,18, niektórzy dostawcy przenoszą tę zmianę do starszych jądra, które są przez nie obsługiwane. Dla wygody Poniższa tabela zawiera szczegółowe informacje o dostępności tego parametru modułu w przypadku wspólnych dystrybucji systemu Linux.
+Począwszy od jądra systemu Linux 4,18, moduł jądra protokołu SMB wywoływany ze `cifs` względu na starsze przyczyny ujawnia nowy parametr modułu (często określany jako *parametr* przez różne dokumenty zewnętrzne) o nazwie `disable_legacy_dialects` . Chociaż wprowadzono je w jądrze systemu Linux 4,18, niektórzy dostawcy przenoszą tę zmianę do starszych jądra, które są przez nie obsługiwane. Dla wygody Poniższa tabela zawiera szczegółowe informacje o dostępności tego parametru modułu w przypadku wspólnych dystrybucji systemu Linux.
 
 | Dystrybucja | Może wyłączyć protokół SMB 1 |
 |--------------|-------------------|
@@ -265,7 +265,7 @@ Począwszy od jądra systemu Linux 4,18, moduł jądra protokołu SMB wywoływan
 | SUSE Linux Enterprise 15 | Nie |
 | SUSE Linux Enterprise 15,1 | Nie |
 
-Możesz sprawdzić, czy dystrybucja systemu Linux obsługuje parametr `disable_legacy_dialects` modułu za pomocą następującego polecenia.
+Możesz sprawdzić, czy dystrybucja systemu Linux obsługuje `disable_legacy_dialects` parametr modułu za pomocą następującego polecenia.
 
 ```bash
 sudo modinfo -p cifs | grep disable_legacy_dialects
@@ -301,7 +301,7 @@ Możesz ręcznie załadować moduł z opcją SMB 1 zwolnioną przy użyciu `modp
 sudo modprobe cifs disable_legacy_dialects=Y
 ```
 
-Na koniec można sprawdzić, czy moduł SMB został załadowany za pomocą parametru, przeglądając parametry załadowane w `/sys/module/cifs/parameters`:
+Na koniec można sprawdzić, czy moduł SMB został załadowany za pomocą parametru, przeglądając parametry załadowane w `/sys/module/cifs/parameters` :
 
 ```bash
 cat /sys/module/cifs/parameters/disable_legacy_dialects
@@ -324,5 +324,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
 
 * [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
-* [Najczęściej zadawane pytania](../storage-files-faq.md)
+* [Często zadawane pytania](../storage-files-faq.md)
 * [Rozwiązywanie problemów](storage-troubleshoot-linux-file-connection-problems.md)

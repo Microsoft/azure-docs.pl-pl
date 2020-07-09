@@ -8,12 +8,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370461"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790521"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Używanie routingu komunikatów IoT Hub do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych
 
@@ -35,7 +34,15 @@ Centrum IoT Hub ma domyślny wbudowany punkt końcowy (**komunikaty/zdarzenia**)
 
 Każdy komunikat jest kierowany do wszystkich punktów końcowych, których zapytania routingu są zgodne. Innymi słowy, komunikat można skierować do wielu punktów końcowych.
 
-IoT Hub obecnie obsługuje następujące usługi jako niestandardowe punkty końcowe:
+
+Jeśli niestandardowy punkt końcowy zawiera konfiguracje zapory, należy rozważyć użycie wyjątku Microsoft zaufanej pierwszej strony, aby zapewnić IoT Hub dostępu do określonego punktu końcowego — [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) i [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Jest on dostępny w wybranych regionach dla centrów IoT z [tożsamością usługi zarządzanej](./virtual-network-support.md).
+
+IoT Hub obecnie obsługuje następujące punkty końcowe:
+
+ - Wbudowany punkt końcowy
+ - Azure Storage
+ - Service Bus kolejki i Service Bus tematy
+ - Event Hubs
 
 ### <a name="built-in-endpoint"></a>Wbudowany punkt końcowy
 
@@ -75,9 +82,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-> [!NOTE]
-> Jeśli Twoje konto magazynu ma konfiguracje zapory, które ograniczają łączność IoT Hub, rozważ użycie [wyjątku Microsoft Trusted First](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (dostępnego w wybranych regionach dla centrów IoT z tożsamością usługi zarządzanej).
-
 Aby utworzyć konto magazynu zgodne z usługą Azure Data Lake Gen2, Utwórz nowe konto magazynu w wersji 2 i wybierz pozycję *włączone* w polu *hierarchiczna przestrzeń nazw* na karcie **Zaawansowane** , jak pokazano na poniższej ilustracji:
 
 ![Wybierz pozycję Azure Data Lake Gen2 Storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -87,17 +91,9 @@ Aby utworzyć konto magazynu zgodne z usługą Azure Data Lake Gen2, Utwórz now
 
 Kolejki Service Bus i tematy używane jako punkty końcowe IoT Hub nie mogą mieć włączonej **sesji** lub **wykrywania duplikatów** . Jeśli jedna z tych opcji jest włączona, punkt końcowy jest wyświetlany jako **nieosiągalny** w Azure Portal.
 
-> [!NOTE]
-> Jeśli zasób usługi Service Bus zawiera konfiguracje zapory, które ograniczają łączność IoT Hub, należy rozważyć użycie [wyjątku Microsoft zaufanej pierwszej strony](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (dostępne w wybranych regionach dla centrów IoT z tożsamością usługi zarządzanej).
-
-
 ### <a name="event-hubs"></a>Event Hubs
 
 Oprócz wbudowanego punktu końcowego zgodnego z Event Hubs można również kierować dane do niestandardowych punktów końcowych typu Event Hubs. 
-
-> [!NOTE]
-> Jeśli zasób centrum zdarzeń zawiera konfiguracje zapory, które ograniczają łączność IoT Hub, należy rozważyć użycie [wyjątku zaufania pierwszej osoby firmy Microsoft](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (dostępne w wybranych regionach dla centrów IoT z tożsamością usługi zarządzanej).
-
 
 ## <a name="reading-data-that-has-been-routed"></a>Odczytywanie danych, które zostały rozesłane
 
@@ -146,11 +142,9 @@ W większości przypadków średni wzrost opóźnienia jest mniejszy niż 500 ms
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorowanie i rozwiązywanie problemów
 
-IoT Hub oferuje kilka metryk związanych z routingiem i punktami końcowymi, aby zapewnić przegląd kondycji wysyłanych centrów i komunikatów. Możesz połączyć informacje z wielu metryk, aby zidentyfikować główną przyczynę problemów. Na przykład użyj routingu metryk **: porzucone komunikaty** telemetryczne lub **D2C. telemetrię** . ruch wychodzący. upuszczone, aby określić liczbę komunikatów, które zostały porzucone, gdy nie pasują do zapytania na żadnej trasie, a trasa rezerwowa została wyłączona. [Metryki IoT Hub](iot-hub-metrics.md) wyświetlają wszystkie metryki, które są domyślnie włączone dla IoT Hub.
+IoT Hub oferuje kilka metryk związanych z routingiem i punktami końcowymi, aby zapewnić przegląd kondycji wysyłanych centrów i komunikatów. [Metryki IoT Hub](iot-hub-metrics.md) wyświetlają wszystkie metryki, które są domyślnie włączone dla IoT Hub. Korzystając z dzienników diagnostycznych **trasy** w Azure monitor [ustawień diagnostycznych](../iot-hub/iot-hub-monitor-resource-health.md), można śledzić błędy występujące podczas obliczania zapytania routingu i kondycji punktu końcowego jako postrzegane przez IoT Hub. Aby uzyskać [stan kondycji](iot-hub-devguide-endpoints.md#custom-endpoints) punktów końcowych, można użyć interfejsu API REST [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) . 
 
-Aby uzyskać [stan kondycji](iot-hub-devguide-endpoints.md#custom-endpoints) punktów końcowych, można użyć interfejsu API REST [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) . Zalecamy używanie [metryk IoT Hub](iot-hub-metrics.md) związanych z opóźnieniem komunikatów routingu w celu identyfikowania i debugowania błędów, gdy kondycja punktu końcowego jest martwa lub zła. Na przykład dla typu punktu końcowego Event Hubs można monitorować **D2C. endpoints. Opóźnij. eventHubs**. Stan punktu końcowego w złej kondycji zostanie zaktualizowany w dobrej kondycji, gdy IoT Hub ustanowił ostatecznie spójny stan kondycji.
-
-Korzystając z dzienników diagnostycznych **trasy** w Azure monitor [ustawień diagnostycznych](../iot-hub/iot-hub-monitor-resource-health.md), można śledzić błędy występujące podczas obliczania zapytania routingu i kondycji punktu końcowego jako postrzegane przez IoT Hub, na przykład wtedy, gdy punkt końcowy jest martwy. Te dzienniki diagnostyczne mogą być wysyłane do dzienników Azure Monitor, Event Hubs lub Azure Storage na potrzeby przetwarzania niestandardowego.
+Skorzystaj z [przewodnika rozwiązywania problemów, aby](troubleshoot-message-routing.md) uzyskać szczegółowe informacje i obsłużyć proces rozwiązywania problemów z routingiem.
 
 ## <a name="next-steps"></a>Następne kroki
 

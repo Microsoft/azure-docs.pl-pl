@@ -48,12 +48,18 @@
           href: tutorial-assess-physical.md
         - name: Migrowanie serwerów fizycznych
           href: tutorial-migrate-physical-virtual-machines.md
+    - name: Ocenianie i migrowanie maszyn wirtualnych usługi AWS
+      items:
+        - name: 'Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure'
+          href: tutorial-migrate-aws-virtual-machines.md
     - name: Ocena zaimportowanych serwerów pod kątem migracji
       items:
         - name: Ocena zaimportowanych serwerów pod kątem migracji
           href: tutorial-assess-import.md
 - name: Pojęcia
   items:
+    - name: Tworzenie planu migracji za pomocą usługi Azure Migrate
+      href: concepts-migration-planning.md
     - name: Tabele obsługi
       items:
         - name: Ogólna pomoc techniczna
@@ -80,8 +86,10 @@
       href: hyper-v-migration-architecture.md
     - name: Architektura migracji z użyciem agentów programu VMware
       href: agent-based-migration-architecture.md
-    - name: Omówienie ocen
+    - name: Przegląd ocen maszyn wirtualnych platformy Azure
       href: concepts-assessment-calculation.md
+    - name: Omówienie ocen w usłudze AVS
+      href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Najlepsze rozwiązania dotyczące ocen
       href: best-practices-assessment.md
     - name: Omówienie analizy zależności
@@ -118,16 +126,20 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Analizowanie zależności maszyny (bez agentów)
       href: how-to-create-group-machine-dependencies-agentless.md
-    - name: Tworzenie oceny
+    - name: Tworzenie oceny maszyny wirtualnej platformy Azure
       href: how-to-create-assessment.md
+    - name: Tworzenie oceny w usłudze AVS
+      href: how-to-create-azure-vmware-solution-assessment.md
     - name: Ocena bazy danych programu SQL Server
-      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
+      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
     - name: Dostosowywanie oceny
       href: how-to-modify-assessment.md
     - name: Dodawanie narzędzi migracji
       href: how-to-migrate.md
     - name: Migrowanie maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure zaszyfrowanych przy użyciu szyfrowania usługi Storage i klucza zarządzanego przez klienta
       href: how-to-migrate-vmware-vms-with-cmk-disks.md
+    - name: Przygotowywanie serwerów z systemem Windows 2003 do migracji
+      href: prepare-windows-server-2003-migration.md
     - name: Przygotowanie maszyn do migracji
       href: prepare-for-migration.md
     - name: Usuwanie projektu usługi Azure Migrate
@@ -159,9 +171,9 @@
 - name: Zasoby
   items:
     - name: Migracja w podręczniku Cloud Adoption Framework
-      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
+      href: /azure/cloud-adoption-framework/migrate/
     - name: Interfejs API REST
-      href: 'https://docs.microsoft.com/rest/api/migrate/'
+      href: /rest/api/migrate/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.migrate/allversions
     - name: Cennik
@@ -169,7 +181,7 @@
     - name: UserVoice
       href: 'https://aka.ms/AzureMigrateUservoice'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-migrate.html'
+      href: /answers/topics/azure-migrate.html
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
     - name: Azure Migrate

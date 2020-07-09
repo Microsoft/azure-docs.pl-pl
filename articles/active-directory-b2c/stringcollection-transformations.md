@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729716"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203252"
 ---
 # <a name="stringcollection-claims-transformations"></a>Przekształcenia oświadczeń w programie StringCollection
 
@@ -38,7 +38,7 @@ Ta transformacja oświadczeń służy do dodawania ciągu do nowego lub istniej�
 
 Następujące przekształcenie oświadczeń dodaje **adres E-mail** ClaimType do **otherMails** oświadczenia.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
@@ -53,10 +53,10 @@ Następujące przekształcenie oświadczeń dodaje **adres E-mail** ClaimType do
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **Kolekcja**: ["someone@outlook.com"]
-  - **element**: "admin@contoso.com"
+  - **Kolekcja**: [" someone@outlook.com "]
+  - **element**: " admin@contoso.com "
 - Oświadczenia wyjściowe:
-  - **Kolekcja**: ["someone@outlook.com", "admin@contoso.com"]
+  - **Kolekcja**: [" someone@outlook.com ", " admin@contoso.com "]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -68,9 +68,9 @@ Dodaje parametr ciągu do nowych unikatowych wartości typu StringCollection.
 | InputParameter | element | ciąg | Wartość, która ma zostać dodana do żądania danych wyjściowych. |
 | Oświadczenie outputclaim |  — kolekcja | stringCollection | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń, z wartością określoną w parametrze wejściowym. |
 
-Użyj tej transformacji oświadczeń, aby dodać wartość ciągu do nowej lub istniejącej wartości StringCollection. Poniższy przykład dodaje stały adres e-mail (admin@contoso.com) do żądania **otherMails** .
+Użyj tej transformacji oświadczeń, aby dodać wartość ciągu do nowej lub istniejącej wartości StringCollection. Poniższy przykład dodaje stały adres e-mail ( admin@contoso.com ) do żądania **otherMails** .
 
-```XML
+```xml
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -87,11 +87,11 @@ Użyj tej transformacji oświadczeń, aby dodać wartość ciągu do nowej lub i
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **Kolekcja**: ["someone@outlook.com"]
+  - **Kolekcja**: [" someone@outlook.com "]
 - Parametry wejściowe
-  - **element**: "admin@contoso.com"
+  - **element**: " admin@contoso.com "
 - Oświadczenia wyjściowe:
-  - **Kolekcja**: ["someone@outlook.com", "admin@contoso.com"]
+  - **Kolekcja**: [" someone@outlook.com ", " admin@contoso.com "]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -104,7 +104,7 @@ Pobiera pierwszy element z dostarczonej kolekcji ciągów.
 
 Poniższy przykład odczytuje **otherMails** i zwraca pierwszy element do roszczeń **e-mail** .
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -118,9 +118,9 @@ Poniższy przykład odczytuje **otherMails** i zwraca pierwszy element do roszcz
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **Kolekcja**: ["someone@outlook.com", "someone@contoso.com"]
+  - **Kolekcja**: [" someone@outlook.com ", " someone@contoso.com "]
 - Oświadczenia wyjściowe:
-  - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: " someone@outlook.com "
 
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
@@ -134,9 +134,9 @@ Sprawdza, czy typ żądania StringCollection zawiera element
 |InputParameter|ignoreCase|ciąg|Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów.|
 | Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. Wskaźnik wartości logicznej, jeśli kolekcja zawiera taki ciąg |
 
-Poniższy przykład sprawdza, czy `roles` typ żądania StringCollection zawiera wartość **administratora**.
+Poniższy przykład sprawdza, czy `roles` Typ żądania StringCollection zawiera wartość **administratora**.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -170,9 +170,9 @@ Sprawdza, czy typ żądania StringCollection zawiera wartość "Claim".
 |InputParameter|ignoreCase|ciąg|Określa, czy to porównanie ma ignorować wielkość liter podczas porównywania ciągów.|
 | Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. Wskaźnik wartości logicznej, jeśli kolekcja zawiera taki ciąg |
 
-Poniższy przykład sprawdza, czy `roles` typ żądania StringCollection zawiera wartość `role` typu "typ".
+Poniższy przykład sprawdza, czy `roles` Typ żądania StringCollection zawiera wartość `role` typu "typ".
 
-```XML
+```xml
 <ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />

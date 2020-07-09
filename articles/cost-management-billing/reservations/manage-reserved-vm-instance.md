@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 2dadcac3c776feed5ee521284f6b244a050e83e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237942"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434185"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -20,6 +20,7 @@ Po zakupieniu rezerwacji platformy Azure może być konieczne zastosowanie rezer
 
 Jeśli zakupiono zarezerwowane wystąpienia maszyn wirtualnych na platformie Azure, możesz zmienić ustawienie optymalizacji dla rezerwacji. Rabat związany z rezerwacją może być stosowany do maszyn wirtualnych w tej samej serii lub można zarezerwować pojemność centrum danych dla określonego rozmiaru maszyny wirtualnej. Należy również spróbować zoptymalizować rezerwacje, aby były w pełni używane.
 
+*Uprawnienia potrzebne do zarządzania rezerwacją są oddzielne od uprawnień do subskrypcji.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ Zakres ma zastosowanie tylko do pojedynczych subskrypcji płatności zgodnie z r
 
 Zarządzanie rezerwacją możesz delegować, dodając osoby do ról w rezerwacji lub zamówieniu rezerwacji. Domyślnie osoba, która składa zamówienie rezerwacji, i administrator konta mają rolę właściciela rezerwacji i zamówienia rezerwacji.
 
-Możesz zarządzać dostępem do rezerwacji zamówień i rezerwacji niezależnie od subskrypcji, które otrzymują rabat związany z rezerwacją. Przyznanie komuś uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją nie daje tej osobie uprawnień do zarządzania subskrypcją. Podobnie przyznanie komuś uprawnień do zarządzania subskrypcją nie daje tej osobie uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją.
+Możesz zarządzać dostępem do rezerwacji zamówień i rezerwacji *niezależnie od subskrypcji*, które otrzymują rabat związany z rezerwacją. Przyznanie komuś uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją nie daje tej osobie uprawnień do zarządzania subskrypcją. Podobnie przyznanie komuś uprawnień do zarządzania subskrypcją nie daje tej osobie uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją.
 
 Aby dokonać wymiany lub zwrotu, użytkownik musi mieć dostęp do zamówienia rezerwacji. W przypadku przyznawania uprawnień innej osobie najlepiej jest przyznać uprawnienia do zamówienia rezerwacji, a nie do rezerwacji.
-
 
 Aby delegować zarządzanie dostępem do rezerwacji:
 
@@ -168,7 +168,7 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 
 Kup plan usługi:
 - [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../azure-sql/database/reserved-capacity-overview.md)
 - [Opłacanie zasobów usługi Azure Cosmos DB z góry za pomocą zarezerwowanej pojemności usługi Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Kup plan oprogramowania:

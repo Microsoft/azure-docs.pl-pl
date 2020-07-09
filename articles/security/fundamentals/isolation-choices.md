@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84021878"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Izolacja w chmurze publicznej platformy Azure
@@ -273,7 +272,7 @@ Logiczne serwery i bazy danych SQL są pojęciami specyficznymi dla SQL Database
 
 Serwery w SQL Database nie są wystąpieniami fizycznymi ani MASZYNami wirtualnymi, a nie są kolekcjami baz danych, współużytkowania i zasad zabezpieczeń, które są przechowywane w taki sam sposób zwane "logicznymi bazami danych".
 
-![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
+![Baza danych SQL](./media/isolation-choices/azure-isolation-fig11.png)
 
 Logiczne główne bazy danych to:
 

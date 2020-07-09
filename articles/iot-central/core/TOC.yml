@@ -10,6 +10,10 @@
       href: overview-iot-central-developer.md
     - name: Najnowsze aktualizacje
       items:
+        - name: Aktualizacje zadań i metryk — maj 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
+        - name: Aktualizacje pulpitu nawigacyjnego — maj 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/'
         - name: Nowe funkcje — kwiecień 2020 r.
           href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
         - name: Aktualizacje — kwiecień 2020 r.
@@ -57,6 +61,8 @@
       href: concepts-architecture.md
     - name: Co to są szablony aplikacji?
       href: concepts-app-templates.md
+    - name: Co to są szablony urządzeń?
+      href: concepts-device-templates.md
     - name: Łączność urządzeń
       href: concepts-get-connected.md
     - name: Łączenie urządzeń usługi IoT Edge
@@ -87,8 +93,6 @@
           href: howto-manage-devices.md
         - name: Konfigurowanie reguł
           href: howto-configure-rules.md
-        - name: Używanie przepływów pracy do integracji z innymi usługami
-          href: howto-configure-rules-advanced.md
         - name: Analizowanie danych urządzenia
           href: howto-create-analytics.md
         - name: Dodawanie kafelków do pulpitu nawigacyjnego
@@ -103,12 +107,16 @@
           href: howto-export-data.md
         - name: Tworzenie elementów webhook w regułach
           href: howto-create-webhooks.md
+        - name: Używanie przepływów pracy do integracji z innymi usługami
+          href: howto-configure-rules-advanced.md
         - name: Łączenie grup akcji usługi Azure Monitor w regułach
           href: howto-use-action-groups.md
         - name: Tworzenie reguł niestandardowych
           href: howto-create-custom-rules.md
         - name: Tworzenie niestandardowych analiz przy użyciu usługi Databricks
           href: howto-create-custom-analytics.md
+        - name: Wizualizacja danych w usłudze Power BI
+          href: howto-connect-powerbi.md
     - name: Administracja
       items:
         - name: Zarządzanie aplikacją
@@ -123,6 +131,10 @@
               href: howto-customize-ui.md
             - name: Eksportowanie aplikacji
               href: howto-use-app-templates.md
+            - name: Monitorowanie kondycji aplikacji
+              href: howto-monitor-application-health.md
+            - name: Informacje o aplikacji
+              href: howto-get-app-info.md
         - name: Zarządzanie z innych miejsc
           items:
             - name: Zarządzanie z poziomu witryny Azure Portal
@@ -141,6 +153,10 @@
               href: howto-manage-preferences.md
             - name: Przełączanie czatu na żywo
               href: howto-show-hide-chat.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
@@ -176,9 +192,9 @@
     - name: Zestawy SDK usługi Azure IoT
       items:
         - name: Zestawy SDK usługi IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: Zestawy SDK urządzeń IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Dokumentacja interfejsu API usługi IoT Central
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: Żądania danych klienta

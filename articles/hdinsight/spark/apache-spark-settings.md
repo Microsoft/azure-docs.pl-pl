@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188161"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurowanie ustawień platformy Apache Spark
@@ -36,9 +36,9 @@ Podczas tworzenia nowego klastra istnieje wiele wersji platformy Spark do wyboru
 
 Apache Spark ma trzy lokalizacje konfiguracji systemu:
 
-* Właściwości platformy Spark kontrolują większość parametrów aplikacji i można je ustawiać przy `SparkConf` użyciu obiektu lub za pośrednictwem właściwości systemu Java.
+* Właściwości platformy Spark kontrolują większość parametrów aplikacji i można je ustawiać przy użyciu `SparkConf` obiektu lub za pośrednictwem właściwości systemu Java.
 * Zmienne środowiskowe mogą służyć do ustawiania ustawień dla komputera, takich jak adres IP, za pomocą `conf/spark-env.sh` skryptu w każdym węźle.
-* Rejestrowanie można skonfigurować przy użyciu `log4j.properties`.
+* Rejestrowanie można skonfigurować przy użyciu `log4j.properties` .
 
 W przypadku wybrania określonej wersji platformy Spark klaster zawiera domyślne ustawienia konfiguracji.  Domyślne wartości konfiguracji platformy Spark można zmienić przy użyciu niestandardowego pliku konfiguracji platformy Spark.  Przykład przedstawiono poniżej.
 
@@ -60,7 +60,7 @@ Przed rozpoczęciem optymalizacji wydajności w klastrze Sprawdź bieżące usta
 
 Zostanie wyświetlony interfejs użytkownika sieci Web Apache Ambari z pulpitem nawigacyjnym metryk użycia zasobów klastra kluczy.  Na pulpicie nawigacyjnym Ambari przedstawiono konfigurację Apache Spark i inne zainstalowane usługi. Pulpit nawigacyjny zawiera kartę **historia konfiguracji** , w której można wyświetlić informacje o zainstalowanych usługach, w tym Spark.
 
-Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji**, a następnie wybierz pozycję **Spark2**.  Wybierz kartę **konfiguracje** , a następnie wybierz link `Spark` (lub `Spark2`, w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
+Aby wyświetlić wartości konfiguracyjne dla Apache Spark, wybierz pozycję **historia konfiguracji**, a następnie wybierz pozycję **Spark2**.  Wybierz kartę **konfiguracje** , a następnie wybierz `Spark` link (lub `Spark2` , w zależności od wersji) na liście usług.  Zostanie wyświetlona lista wartości konfiguracyjnych dla klastra:
 
 ![Konfiguracje platformy Spark](./media/apache-spark-settings/spark-configurations.png)
 
@@ -85,7 +85,7 @@ Na poniższym diagramie przedstawiono obiekty Key Spark: program sterownika i sk
 
 Zadania platformy Spark korzystają z zasobów procesów roboczych, szczególnie pamięci, dlatego należy dostosować wartości konfiguracji platformy Spark dla modułów wykonujących procesy robocze.
 
-Trzy kluczowe parametry, które są często dostosowywane do dostrajania konfiguracji platformy Spark w celu `spark.executor.instances`poprawy `spark.executor.cores`wymagań aplikacji `spark.executor.memory`, to, i. Program wykonujący to proces uruchomiony dla aplikacji platformy Spark. Program wykonujący działa w węźle procesu roboczego i jest odpowiedzialny za zadania aplikacji. Liczba węzłów procesu roboczego i rozmiar węzła procesu roboczego określa liczbę modułów wykonujących i rozmiary wykonawców. Te wartości są przechowywane w `spark-defaults.conf` węzłach głównych klastra.  Można edytować te wartości w uruchomionym klastrze, wybierając pozycję **niestandardowe Spark-Defaults** w interfejsie użytkownika sieci Web Ambari.  Po wprowadzeniu zmian zostanie wyświetlony monit z interfejsem użytkownika w celu **ponownego uruchomienia** wszystkich objętych usług.
+Trzy kluczowe parametry, które są często dostosowywane do dostrajania konfiguracji platformy Spark w celu poprawy wymagań aplikacji, to, `spark.executor.instances` `spark.executor.cores` i `spark.executor.memory` . Program wykonujący to proces uruchomiony dla aplikacji platformy Spark. Program wykonujący działa w węźle procesu roboczego i jest odpowiedzialny za zadania aplikacji. Liczba węzłów procesu roboczego i rozmiar węzła procesu roboczego określa liczbę modułów wykonujących i rozmiary wykonawców. Te wartości są przechowywane w `spark-defaults.conf` węzłach głównych klastra.  Można edytować te wartości w uruchomionym klastrze, wybierając pozycję **niestandardowe Spark-Defaults** w interfejsie użytkownika sieci Web Ambari.  Po wprowadzeniu zmian zostanie wyświetlony monit z interfejsem użytkownika w celu **ponownego uruchomienia** wszystkich objętych usług.
 
 > [!NOTE]  
 > Te trzy parametry konfiguracji można skonfigurować na poziomie klastra (dla wszystkich aplikacji uruchamianych w klastrze), a także dla każdej pojedynczej aplikacji.
@@ -112,7 +112,7 @@ Na poniższej liście przedstawiono parametry pamięci programu wykonującego te
 
 |Parametr |Opis|
 |---|---|
-|Spark. Wykonawca pamięci|Określa łączną ilość pamięci dostępną dla wykonawcy.|
+|spark.executor. Memory|Określa łączną ilość pamięci dostępną dla wykonawcy.|
 |Spark. Storage. memoryFraction|(domyślnie ~ 60%) Określa ilość pamięci dostępną do przechowywania utrwalonych odporne.|
 |Spark. losowo. memoryFraction|(domyślnie ~ 20%) definiuje ilość pamięci zarezerwowanej do losowego użycia.|
 |Spark. Storage. unrollFraction i Spark. Storage. safetyFraction|(łącznie ~ 30% całkowitej ilości pamięci) — te wartości są używane wewnętrznie przez platformę Spark i nie powinny być zmieniane.|
@@ -136,7 +136,7 @@ Klastry Spark w usłudze HDInsight zawierają domyślnie wiele składników. Ka�
 W przypadku aplikacji uruchamianych w notesie Jupyter Użyj `%%configure` polecenia, aby wprowadzić zmiany konfiguracji z poziomu notesu. Te zmiany konfiguracji zostaną zastosowane do zadań platformy Spark uruchomionych z wystąpienia notesu. Wprowadź takie zmiany na początku aplikacji, zanim zaczniesz korzystać z pierwszej komórki kodu. Zmieniona konfiguracja zostanie zastosowana do sesji usługi Livy, gdy zostanie utworzona.
 
 > [!NOTE]  
-> Aby zmienić konfigurację na późniejszym etapie w aplikacji, użyj parametru `-f` (Force). Jednak cały postęp w aplikacji zostanie utracony.
+> Aby zmienić konfigurację na późniejszym etapie w aplikacji, użyj `-f` parametru (Force). Jednak cały postęp w aplikacji zostanie utracony.
 
 Poniższy kod przedstawia sposób zmiany konfiguracji aplikacji uruchomionej w notesie Jupyter.
 

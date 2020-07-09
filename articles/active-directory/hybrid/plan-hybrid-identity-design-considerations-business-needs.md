@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "65950900"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Określ wymagania dotyczące tożsamości dla rozwiązania do tworzenia tożsamości hybrydowej
@@ -29,7 +29,7 @@ Pierwszym krokiem projektowania rozwiązania tożsamości hybrydowej jest okreś
 
 Należy zapoznać się z kluczowymi aspektami biznesowymi, aby zrozumieć, co jest wymagane teraz, i co firma planuje w przyszłości. Jeśli nie masz wglądu w długoterminową strategię projektowania tożsamości hybrydowej, prawdopodobnie Twoje rozwiązanie nie będzie skalowalne w miarę wzrostu i zmiany potrzeb firmy. Na poniższym diagramie przedstawiono przykład architektury tożsamości hybrydowej oraz obciążeń, które są odblokowywane dla użytkowników. Jest to tylko przykład wszystkich nowych możliwości, które mogą zostać odblokowane i dostarczone z pełną strategią tożsamości hybrydowej. 
 
-Niektóre składniki stanowiące część hybrydowej architektury tożsamości hybrydowej architektury ![tożsamości](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Niektóre składniki stanowiące część hybrydowej ![ architektury tożsamości hybrydowej architektury tożsamości](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Określanie potrzeb firmy
 Każda firma będzie miała inne wymagania, nawet jeśli te firmy są częścią tej samej branży, rzeczywiste wymagania biznesowe mogą się różnić. Nadal można korzystać z najlepszych rozwiązań z branży, ale ostatecznie są to potrzeby biznesowe firmy, które spowodują zdefiniowanie wymagań dotyczących projektu tożsamości hybrydowej. 

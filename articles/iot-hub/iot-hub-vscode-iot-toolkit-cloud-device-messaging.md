@@ -9,10 +9,9 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81682497"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Użyj narzędzi Azure IoT Tools, aby Visual Studio Code wysyłać i odbierać komunikaty między urządzeniem i IoT Hub
@@ -64,7 +63,7 @@ Aby monitorować komunikaty wysyłane z urządzenia do usługi IoT Hub, wykonaj 
 
 1. Kliknij prawym przyciskiem myszy urządzenie i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
 
-2. Monitorowane komunikaty będą wyświetlane w widoku **wyjście** > **IoT Hub platformy Azure** .
+2. Monitorowane komunikaty będą wyświetlane w widoku **wyjście**  >  **IoT Hub platformy Azure** .
 
 3. Aby zatrzymać monitorowanie, kliknij prawym przyciskiem myszy widok **danych wyjściowych** i wybierz polecenie **Zatrzymaj monitorowanie wbudowanego punktu końcowego zdarzenia**.
 
@@ -76,7 +75,7 @@ Aby wysłać komunikat z usługi IoT Hub do urządzenia, wykonaj następujące k
 
 2. Wprowadź komunikat w polu wejściowym.
 
-3. Wyniki będą wyświetlane w widoku **wyjście** > **IoT Hub platformy Azure** .
+3. Wyniki będą wyświetlane w widoku **wyjście**  >  **IoT Hub platformy Azure** .
 
 ## <a name="next-steps"></a>Następne kroki
 

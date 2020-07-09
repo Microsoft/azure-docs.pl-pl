@@ -54,6 +54,9 @@
         - name: Nadzór nad tożsamościami
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
+        - name: Aprowizacja aplikacji
+          tocHref: /azure/active-directory/app-provisioning/
+          topicHref: /azure/active-directory/app-provisioning/
         - name: Zarządzanie aplikacjami
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
@@ -438,9 +441,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
-    - name: Rodzina produktów Data Box
-      tocHref: /azure/databox-family/
-      topicHref: /azure/databox-family/
+    - name: Magazyn
+      tocHref: /azure/storage/
+      topicHref: /azure/storage/
       items:
         - name: Data Box — transfer danych w trybie offline
           tocHref: /azure/databox/
@@ -463,9 +466,9 @@
     - name: Dedykowany moduł HSM
       tocHref: /azure/dedicated-hsm/
       topicHref: /azure/dedicated-hsm/
-    - name: Laboratorium Devtest Labs
-      tocHref: /azure/devtest-lab/
-      topicHref: /azure/devtest-lab/
+    - name: DevTest Labs
+      tocHref: /azure/devtest-labs/
+      topicHref: /azure/devtest-labs/
     - name: FXT Edge Filer
       tocHref: /azure/fxt-edge-filer/
       topicHref: /azure/fxt-edge-filer/
@@ -595,6 +598,9 @@
         - name: Azure Media Player
           tocHref: /azure/media-services/azure-media-player/
           topicHref: /azure/media-services/azure-media-player/
+        - name: Platforma Live Video Analytics w usłudze IoT Edge
+          tocHref: /azure/media-services/live-video-analytics-edge/
+          topicHref: /azure/media-services/live-video-analytics-edge/
     - name: Usługi obsługi komunikatów
       tocHref: /azure/messaging-services/
       topicHref: /azure/messaging-services/
@@ -767,9 +773,26 @@
     - name: Synapse Analytics
       tocHref: /azure/synapse-analytics/
       topicHref: /azure/synapse-analytics/
-    - name: Baza danych SQL
-      tocHref: /azure/sql-database/
-      topicHref: /azure/sql-database/
+    - name: Azure SQL
+      tocHref: /azure/azure-sql/
+      topicHref: /azure/azure-sql/
+      items:
+        - name: Baza danych SQL
+          tocHref: /azure/azure-sql/database
+          topicHref: /azure/azure-sql/database
+        - name: Wystąpienie zarządzane SQL
+          tocHref: /azure/azure-sql/managed-instance
+          topicHref: /azure/azure-sql/managed-instance
+        - name: Program SQL Server na maszynie wirtualnej platformy Azure
+          tocHref: /azure/azure-sql/virtual-machines
+          topicHref: /azure/azure-sql/virtual-machines
+          items:
+            - name: Windows
+              tocHref: /azure/azure-sql/virtual-machines/windows
+              topicHref: /azure/azure-sql/virtual-machines/windows
+            - name: Linux
+              tocHref: /azure/azure-sql/virtual-machines/linux
+              topicHref: /azure/azure-sql/virtual-machines/linux
     - name: Usługa Azure SQL Edge
       tocHref: /azure/azure-sql-edge/
       topicHref: /azure/azure-sql-edge/

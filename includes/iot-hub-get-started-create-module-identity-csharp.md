@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68883836"
 ---
 ## <a name="create-a-module-identity"></a>Tworzenie tożsamości modułu
@@ -29,7 +29,7 @@ Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyf
 
     ![Podaj nazwę i strukturę rozwiązania programu Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. W programie Visual Studio Otwórz pozycję **Narzędzia** > **Menedżer** > pakietów NuGet**Zarządzanie pakietami NuGet dla rozwiązania**. Wybierz kartę **Przeglądaj**.
+1. W programie Visual Studio Otwórz pozycję **Narzędzia**  >  **Menedżer pakietów NuGet**  >  **Zarządzanie pakietami NuGet dla rozwiązania**. Wybierz kartę **Przeglądaj**.
 
 1. Wyszukaj ciąg **Microsoft. Azure. Devices**. Zaznacz go, a następnie wybierz pozycję **Zainstaluj**.
 
@@ -102,9 +102,9 @@ Uruchomienie tej aplikacji konsolowej powoduje wygenerowanie unikatowego identyf
     }
     ```
 
-    `AddDeviceAsync` Metoda tworzy tożsamość urządzenia o identyfikatorze **myFirstDevice**. Jeśli ten identyfikator urządzenia już istnieje w rejestrze tożsamości, kod po prostu pobiera istniejące informacje o urządzeniu. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego urządzenia do łączenia się z centrum.
+    `AddDeviceAsync`Metoda tworzy tożsamość urządzenia o identyfikatorze **myFirstDevice**. Jeśli ten identyfikator urządzenia już istnieje w rejestrze tożsamości, kod po prostu pobiera istniejące informacje o urządzeniu. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego urządzenia do łączenia się z centrum.
 
-    `AddModuleAsync` Metoda tworzy tożsamość modułu o identyfikatorze **myFirstModule** w obszarze Device **myFirstDevice**. Jeśli ten identyfikator modułu już istnieje w rejestrze tożsamości, kod po prostu pobiera informacje o istniejących modułach. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego modułu do łączenia się z centrum.
+    `AddModuleAsync`Metoda tworzy tożsamość modułu o identyfikatorze **myFirstModule** w obszarze Device **myFirstDevice**. Jeśli ten identyfikator modułu już istnieje w rejestrze tożsamości, kod po prostu pobiera informacje o istniejących modułach. Aplikacja następnie wyświetla klucz podstawowy dla tej tożsamości. Ten klucz jest używany w aplikacji symulowanego modułu do łączenia się z centrum.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 

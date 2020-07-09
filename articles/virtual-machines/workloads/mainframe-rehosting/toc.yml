@@ -2,35 +2,37 @@
   items:
     - name: Omówienie
       items:
-        - name: Wprowadzenie
+        - name: Rozpoczęcie pracy
           href: overview.md
         - name: Obciążenia
           href: partner-workloads.md
     - name: Pojęcia
       items:
-        - name: Compute
+        - name: Wystąpienia obliczeniowe
           href: concepts/mainframe-compute-azure.md
-        - name: Storage
+        - name: Magazyn
           href: concepts/mainframe-storage-azure.md
     - name: Micro Focus
       items:
-        - name: Wprowadzenie
+        - name: Rozpoczęcie pracy
           href: microfocus/get-started.md
         - name: Instalowanie serwera Enterprise Server
           href: microfocus/set-up-micro-focus-azure.md
+        - name: Wdrażanie serwera Enterprise Server w usłudze AKS
+          href: microfocus/deploy-micro-focus-enterprise-server.md
         - name: Uruchamianie demonstracji CICS BankDemo
           href: microfocus/demo.md
         - name: Serwer Enterprise Server w kontenerach
           href: microfocus/run-enterprise-server-container.md
     - name: TmaxSoft OpenFrame
       items:
-        - name: Wprowadzenie
+        - name: Rozpoczęcie pracy
           href: tmaxsoft/get-started.md
         - name: Instalowanie oprogramowania OpenFrame
           href: tmaxsoft/install-openframe-azure.md
     - name: IBM
       items:
-        - name: Wprowadzenie
+        - name: Rozpoczęcie pracy
           href: ibm/get-started.md
         - name: Instalowanie środowiska IBM zD&T
           href: ibm/install-ibm-z-environment.md

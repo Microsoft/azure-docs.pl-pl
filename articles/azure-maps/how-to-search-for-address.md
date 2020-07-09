@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335428"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
@@ -39,7 +39,7 @@ W tym przykładzie używamy [interfejsu API usługi Azure Maps Get Address Searc
 
 Jeśli masz zestaw adresów do geokodowania, możesz użyć [interfejsu API usługi Batch dla adresu wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) , aby wysłać partię zapytań w jednym wywołaniu interfejsu API.
 
-1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **Wyszukaj**.
+1. W programie Poster kliknij pozycję **nowe żądanie**  |  **Pobierz żądanie** i nadaj jej nazwę **Wyszukaj**.
 
 2. Na karcie Konstruktor wybierz metodę **Get** http, wprowadź adres URL żądania dla punktu końcowego interfejsu API i wybierz protokół autoryzacji (jeśli istnieje).
 
@@ -55,10 +55,10 @@ Jeśli masz zestaw adresów do geokodowania, możesz użyć [interfejsu API usł
 
 ![Wyszukiwanie adresów](./media/how-to-search-for-address/address_search_params.png) 
 
-| Key | Wartość | 
+| Klucz | Wartość | 
 |------------------|-------------------------| 
 | api-version | 1.0 | 
-| klucz subskrypcji | \<Twój klucz Azure Maps\> | 
+| klucz subskrypcji | \<your Azure Maps key\> | 
 | query | 400 szerokie St, Seattle, WA 98109 | 
 
 4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi. 
@@ -73,7 +73,7 @@ W takim przypadku należy określić kompletne zapytanie dotyczące adresu i otr
 
 6. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**: 
 
-| Key | Wartość | 
+| Klucz | Wartość | 
 |-----|------------| 
 | typeahead | true | 
 
@@ -83,7 +83,7 @@ Flaga **typeahead** INSTRUUJE interfejs API wyszukiwania adresów, aby traktowa�
 
 Azure Maps[ interfejs API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) jest zalecaną usługą, która będzie używana, gdy nie wiesz, jak dane wejściowe użytkownika są przeznaczone dla zapytania wyszukiwania. Interfejs API łączy punkt POI i geokodowania w postaci kanonicznej "jednowierszowego wyszukiwania". Interfejs API może na przykład obsłużyć dane wejściowe dowolnej kombinacji adresów lub tokenów punkt POI. Może być również ważona z pozycją kontekstową (/Lon.. para), w pełni ograniczone przez współrzędne i promień, lub wykonywane bardziej ogólnie bez żadnego punktu zakotwiczenia geograficznego.
 
-Większość zapytań wyszukiwania domyślnie pozwala `maxFuzzyLevel=1` uzyskać wydajność i zmniejszyć nietypowe wyniki. Ta wartość domyślna może zostać przesłonięta w razie konieczności na żądanie, przekazując `maxFuzzyLevel=2` parametr `3`zapytania lub.
+Większość zapytań wyszukiwania domyślnie pozwala `maxFuzzyLevel=1` uzyskać wydajność i zmniejszyć nietypowe wyniki. Ta wartość domyślna może zostać przesłonięta w razie konieczności na żądanie, przekazując parametr zapytania `maxFuzzyLevel=2` lub `3` .
 
 ### <a name="search-for-an-address-using-fuzzy-search"></a>Wyszukaj adres przy użyciu wyszukiwania rozmytego
 
@@ -105,10 +105,10 @@ Większość zapytań wyszukiwania domyślnie pozwala `maxFuzzyLevel=1` uzyskać
 
     ![Wyszukiwanie rozmyte](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | klucz subskrypcji | \<Twój klucz Azure Maps\> |
+    | klucz subskrypcji | \<your Azure Maps key\> |
     | query | Pizza |
 
 4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi.
@@ -119,7 +119,7 @@ Większość zapytań wyszukiwania domyślnie pozwala `maxFuzzyLevel=1` uzyskać
 
 5. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     |------------------|-------------------------|
     | countrySet | USA |
   
@@ -131,7 +131,7 @@ Większość zapytań wyszukiwania domyślnie pozwala `maxFuzzyLevel=1` uzyskać
 
     ![Wyszukiwanie rozmyte](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Key | Wartość |
+    | Klucz | Wartość |
     |-----|------------|
     | usługę | 47,620525 |
     | Długość | -122,349274 |
@@ -143,7 +143,7 @@ Azure Maps [uzyskać zwrotny interfejs API]( https://docs.microsoft.com/rest/api
 Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, możesz użyć [interfejsu API odwrotnej sekwencji adresów wyszukiwania](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) , aby wysłać partię zapytań w jednym wywołaniu interfejsu API.
 
 
-1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **Reverse Address Search**.
+1. W programie Poster kliknij pozycję **nowe żądanie**  |  **Pobierz żądanie** i nadaj jej nazwę **Reverse Address Search**.
 
 2. Na karcie Konstruktor wybierz metodę **Get** http i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
   
@@ -159,10 +159,10 @@ Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, moż
   
     ![Parametry wyszukiwania wstecznego adresu](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Key | Wartość |
+    | Klucz | Wartość |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | klucz subskrypcji | \<Twój klucz Azure Maps\> |
+    | klucz subskrypcji | \<your Azure Maps key\> |
     | query | 47.591180,-122,332700 |
   
 4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi.
@@ -171,15 +171,15 @@ Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, moż
   
 5. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     |-----|------------|
-    | numer | true |
+    | liczba | true |
 
     Jeśli parametr [Number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) jest wysyłany wraz z żądaniem, odpowiedź może zawierać stronę ulicy (lewą lub prawą), a także pozycję przesunięcia dla tego numeru.
   
 6. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -187,7 +187,7 @@ Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, moż
 
 7. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -195,7 +195,7 @@ Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, moż
 
 8. Dodaj następującą parę klucz/wartość do sekcji **params** i kliknij pozycję **Wyślij**:
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     |-----|------------|
     | roadUse | true |
 
@@ -203,7 +203,7 @@ Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, moż
   
 ## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Wyszukiwanie krzyżowe przy użyciu wyszukiwania odwrotnego adresu
 
-1. W programie Poster kliknij pozycję **nowe żądanie** | **Pobierz żądanie** i nadaj jej nazwę **odwrotne wyszukiwanie**.
+1. W programie Poster kliknij pozycję **nowe żądanie**  |  **Pobierz żądanie** i nadaj jej nazwę **odwrotne wyszukiwanie**.
 
 2. Na karcie Konstruktor wybierz metodę **Get** http i wprowadź adres URL żądania dla punktu końcowego interfejsu API.
   
@@ -217,10 +217,10 @@ Jeśli masz zestaw lokalizacji współrzędnych w celu odwrócenia geokodu, moż
   
 3. Kliknij pozycję **params**i wprowadź następujące pary klucz/wartość, które mają być używane jako parametry zapytania lub ścieżki w adresie URL żądania:
   
-    | Key | Wartość |
+    | Klucz | Wartość |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | klucz subskrypcji | \<Twój klucz Azure Maps\> |
+    | klucz subskrypcji | \<your Azure Maps key\> |
     | query | 47.591180,-122,332700 |
   
 4. Kliknij pozycję **Wyślij** i sprawdź treść odpowiedzi.

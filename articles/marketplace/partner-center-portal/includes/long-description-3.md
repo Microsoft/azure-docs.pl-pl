@@ -1,18 +1,18 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: " — plik"
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
+author: anbene
+ms.author: mingshen
 ms.date: 05/19/2020
-ms.openlocfilehash: 6713d93400bc391f4de7e07cc024ff9df2849a39
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 91c27143b4b122b1913429879d227125e1b2169c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700961"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109674"
 ---
 Użyj tagów HTML, aby sformatować swój opis, aby był bardziej interesujący. Większość tagów wymaga zarówno składnika otwierającego, jak i zamykającego, jak pokazano w tej tabeli.
 

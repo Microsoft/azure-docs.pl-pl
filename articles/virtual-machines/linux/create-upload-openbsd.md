@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: guybo
 ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066745"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Tworzenie i przekazywanie obrazu dysku OpenBSD na platformę Azure
@@ -47,7 +47,7 @@ Na maszynie wirtualnej, na której zainstalowano system operacyjny OpenBSD 6,1, 
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Domyślnie `root` użytkownik jest wyłączony na maszynach wirtualnych na platformie Azure. Użytkownicy mogą uruchamiać polecenia z podwyższonym poziomem uprawnień przy `doas` użyciu polecenia na maszynie wirtualnej OpenBSD. DOAs jest domyślnie włączona. Aby uzyskać więcej informacji, zobacz [DOAs. conf](https://man.openbsd.org/doas.conf.5). 
+4. Domyślnie `root` użytkownik jest wyłączony na maszynach wirtualnych na platformie Azure. Użytkownicy mogą uruchamiać polecenia z podwyższonym poziomem uprawnień przy użyciu `doas` polecenia na maszynie wirtualnej OpenBSD. DOAs jest domyślnie włączona. Aby uzyskać więcej informacji, zobacz [DOAs. conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Zainstaluj i skonfiguruj wymagania wstępne dla agenta platformy Azure w następujący sposób:
 

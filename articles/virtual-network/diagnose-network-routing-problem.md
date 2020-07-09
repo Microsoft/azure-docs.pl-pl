@@ -10,17 +10,16 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75350602"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84705053"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnozowanie problemu z routingiem maszyny wirtualnej
 
@@ -38,7 +37,7 @@ W poniższej procedurze przyjęto założenie, że masz istniejącą maszynę wi
 2. W górnej części Azure Portal wprowadź nazwę maszyny wirtualnej, która jest w stanie uruchomionym, w polu wyszukiwania. Gdy nazwa maszyny wirtualnej zostanie wyświetlona w wynikach wyszukiwania, wybierz ją.
 3. W obszarze **Ustawienia** po lewej stronie wybierz pozycję **Sieć**, a następnie przejdź do zasobu interfejs sieciowy, wybierając jego nazwę.
      ![Wyświetl interfejsy sieciowe](./media/diagnose-network-routing-problem/view-nics.png)
-4. Po lewej stronie wybierz pozycję **efektywne trasy**. Na poniższej ilustracji przedstawiono efektywne trasy dla interfejsu sieciowego o nazwie **myVMNic1** . ![](./media/diagnose-network-routing-problem/view-effective-routes.png)
+4. Po lewej stronie wybierz pozycję **efektywne trasy**. Na poniższej ilustracji przedstawiono efektywne trasy dla interfejsu sieciowego o nazwie **myVMNic1** ![ .](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     Jeśli do maszyny wirtualnej jest dołączonych wiele interfejsów sieciowych, można wyświetlić efektywne trasy dla dowolnego interfejsu sieciowego, zaznaczając go. Ponieważ każdy interfejs sieciowy może znajdować się w innej podsieci, każdy interfejs sieciowy może mieć różne efektywne trasy.
 
@@ -52,7 +51,7 @@ Chociaż efektywne trasy były przeglądane za pośrednictwem maszyny wirtualnej
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. W przypadku uruchomienia programu PowerShell z komputera potrzebny jest moduł Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom `Get-Module -ListAvailable Az` polecenie na komputerze, aby znaleźć zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić `Connect-AzAccount` polecenie, aby zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
+Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. W przypadku uruchomienia programu PowerShell z komputera potrzebny jest moduł Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom `Get-Module -ListAvailable Az` polecenie na komputerze, aby znaleźć zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie, `Connect-AzAccount` Aby zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
 
 Uzyskaj efektywne trasy dla interfejsu sieciowego za pomocą [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). Poniższy przykład pobiera obowiązujące trasy dla interfejsu sieciowego o nazwie *myVMNic1*, który znajduje się w grupie zasobów o nazwie Moja *zasobów*:
 
@@ -116,7 +115,7 @@ Rozwiązywanie problemów z routingiem zwykle składa się z:
 
 Jeśli nadal występują problemy z komunikacją, zapoznaj się z [zagadnieniami](#considerations) i dodatkową diagnostyką.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 Podczas rozwiązywania problemów z komunikacją należy wziąć pod uwagę następujące kwestie:
 

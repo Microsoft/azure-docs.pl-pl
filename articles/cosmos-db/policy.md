@@ -6,12 +6,11 @@ ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747372"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431985"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
 
@@ -79,21 +78,24 @@ Te polecenia wyprowadzają listę nazw aliasów właściwości dla właściwośc
 
 Można użyć dowolnej z tych nazw aliasów właściwości w [regułach definicji zasad niestandardowych](../governance/policy/tutorials/create-custom-policy-definition.md#policy-rule).
 
-Poniżej przedstawiono przykładową definicję zasad, która sprawdza, czy Azure Cosmos DB przepływność administracyjna bazy danych SQL jest większa niż maksymalny dozwolony limit wynoszący 400 RU/s. Niestandardowa definicja zasad obejmuje dwie reguły: jeden do sprawdzenia określonego typu aliasu właściwości, a drugi dla konkretnej właściwości typu. Obie reguły używają nazw aliasów.
+Poniżej przedstawiono przykładową definicję zasad, która sprawdza, czy konto Azure Cosmos DB jest skonfigurowane dla wielu lokalizacji zapisu. Definicja zasad niestandardowych obejmuje dwie reguły: jeden do sprawdzenia określonego typu aliasu właściwości, a drugi dla konkretnej właściwości typu, w tym przypadku pola, które przechowuje ustawienia wielu lokalizacji zapisu. Obie reguły używają nazw aliasów.
 
 ```json
 "policyRule": {
   "if": {
     "allOf": [
       {
-      "field": "type",
-      "equals": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings"
+        "field": "type",
+        "equals": "Microsoft.DocumentDB/databaseAccounts"
       },
       {
-      "field": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/throughputSettings/default.resource.throughput",
-      "greater": 400
+        "field": "Microsoft.DocumentDB/databaseAccounts/enableMultipleWriteLocations",
+        "notEquals": true
       }
     ]
+  },
+  "then": {
+    "effect": "Audit"
   }
 }
 ```
@@ -106,21 +108,26 @@ Po utworzeniu przypisań zasad Azure Policy szacuje zasoby w zakresie przypisani
 
 Możesz przejrzeć wyniki zgodności i szczegóły korygowania w [Azure Portal](../governance/policy/how-to/get-compliance-data.md#portal) lub za pośrednictwem [interfejsu wiersza polecenia platformy Azure](../governance/policy/how-to/get-compliance-data.md#command-line) lub [dzienników Azure monitor](../governance/policy/how-to/get-compliance-data.md#azure-monitor-logs).
 
-Poniższy zrzut ekranu przedstawia dwa przykładowe przypisania zasad. Jedno przypisanie jest oparte na wbudowanej definicji zasad, która sprawdza, czy zasoby Azure Cosmos DB są wdrażane tylko dla dozwolonych regionów świadczenia usługi Azure. Inne przypisanie jest oparte na definicji zasad niestandardowych. To przypisanie sprawdza, czy zainicjowana przepływność dla Azure Cosmos DB zasobów nie przekracza określonego maksymalnego limitu.
+Poniższy zrzut ekranu przedstawia dwa przykładowe przypisania zasad.
 
-Po wdrożeniu przypisań zasad pulpit nawigacyjny zgodności pokazuje wyniki oceny. Należy pamiętać, że po wdrożeniu przypisania zasad może to potrwać do 30 minut.
+Jedno przypisanie jest oparte na wbudowanej definicji zasad, która sprawdza, czy zasoby Azure Cosmos DB są wdrażane tylko dla dozwolonych regionów świadczenia usługi Azure. Zgodność zasobów przedstawia wyniki oceny zasad (zgodne lub niezgodne) dla zasobów należących do zakresu.
 
-Zrzut ekranu przedstawia następujące wyniki oceny zgodności:
+Inne przypisanie jest oparte na definicji zasad niestandardowych. To przypisanie sprawdza, czy konta Cosmos DB są skonfigurowane dla wielu lokalizacji zapisu.
 
-- Zero z jednego z kont Azure Cosmos DB w określonym zakresie są zgodne z przypisaniem zasad, aby sprawdzić, czy zasoby zostały wdrożone w dozwolonych regionach.
-- Jeden z dwóch Azure Cosmos DB bazy danych lub zasobów kolekcji w określonym zakresie jest zgodny z przypisaniem zasad, aby sprawdzić, czy zainicjowana przepływność przekracza określony limit maksymalny.
+Po wdrożeniu przypisań zasad pulpit nawigacyjny zgodności pokazuje wyniki oceny. Należy pamiętać, że po wdrożeniu przypisania zasad może to potrwać do 30 minut. Ponadto [skanowanie w celu oceny zasad można uruchomić na żądanie](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) natychmiast po utworzeniu przypisań zasad.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Wyszukaj Azure Cosmos DB wbudowane definicje zasad":::
+Zrzut ekranu przedstawia następujące wyniki oceny zgodności dla kont Azure Cosmos DB w zakresie:
 
-Aby skorygować niezgodne zasoby, zobacz artykuł [skorygowany Azure Policy](../governance/policy/how-to/remediate-resources.md) .
+- Zero z dwóch kont jest zgodne z zasadami, które wymagają skonfigurowania filtrowania Virtual Network (VNet).
+- Zero z dwóch kont jest zgodnych z zasadami, które wymagają skonfigurowania konta dla wielu lokalizacji zapisu
+- Dwa konta są zgodne z zasadami, które zostały wdrożone w dozwolonych regionach platformy Azure.
+
+:::image type="content" source="./media/policy/compliance.png" alt-text="Wyniki zgodności dla przypisań Azure Policy na liście":::
+
+Aby skorygować niezgodne zasoby, zobacz [jak skorygować zasoby przy użyciu Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapoznaj się z przykładowymi definicjami zasad niestandardowych dla Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)
+- [Przejrzyj przykładowe definicje zasad niestandardowych dla Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), w tym dla wielu lokalizacji zapisu i zasad filtrowania sieci wirtualnej pokazanych powyżej.
 - [Utwórz przypisanie zasad w Azure Portal](../governance/policy/assign-policy-portal.md)
 - [Przejrzyj Azure Policy wbudowane definicje zasad dla Azure Cosmos DB](./policy-samples.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
+ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80055472"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85798259"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics
 
@@ -37,6 +37,7 @@ Aby wykonać większość kroków z tego samouczka, możesz użyć [tego środow
 Możesz również użyć własnego środowiska, jeśli używasz Azure Monitor do zbierania danych dziennika na co najmniej jednym zasobie platformy Azure. Aby otworzyć obszar roboczy Log Analytics, w obszarze Azure Monitor nawigacji po lewej stronie wybierz pozycję **dzienniki**. 
 
 ## <a name="understand-the-schema"></a>Informacje o schemacie
+ 
 *Schemat* to zbiór tabel pogrupowanych pod kątem kategorii logicznych. Schemat demonstracyjny zawiera kilka kategorii z rozwiązań do monitorowania. Na przykład kategoria **LogManagement** zawiera zdarzenia systemu Windows i dziennika systemowego, dane wydajności i pulsy agentów.
 
 Tabele schematów są wyświetlane na karcie **tabele** w obszarze roboczym log Analytics. Tabele zawierają kolumny, z których każdy ma typ danych wyświetlany przez ikonę obok nazwy kolumny. Na przykład tabela **zdarzeń** zawiera kolumny tekstowe, takie jak **komputer** i kolumny liczbowe, takie jak **EventCategory**.
@@ -50,6 +51,7 @@ Log Analytics otwiera z nowym pustym zapytaniem w **Edytorze zapytań**.
 ![Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>Napisz zapytanie
+
 Zapytania dziennika Azure Monitor korzystają z wersji języka zapytań Kusto. Zapytania mogą rozpoczynać się od nazwy tabeli lub polecenia [wyszukiwania](/azure/kusto/query/searchoperator) . 
 
 Następujące zapytanie pobiera wszystkie rekordy z tabeli **zdarzeń** :
@@ -86,10 +88,10 @@ Aby użyć kontrolki **zakres czasu** , zaznacz ją na górnym pasku, a następn
 - Jeśli zapytanie jawnie ustawi filtr dla elementu **TimeGenerated**, kontrolka selektora czas pokazuje **ustawioną wartość w kwerendzie**i jest wyłączona, aby zapobiec konfliktowi.
 
 ### <a name="run-a-query"></a>Uruchamianie zapytania
-Aby uruchomić zapytanie, umieść kursor w miejscu wewnątrz zapytania, a następnie wybierz pozycję **Uruchom** na górnym pasku lub naciśnij klawisz **SHIFT**+**Enter**. Zapytanie jest uruchamiane do momentu znalezienia pustego wiersza.
+Aby uruchomić zapytanie, umieść kursor w miejscu wewnątrz zapytania, a następnie wybierz pozycję **Uruchom** na górnym pasku lub naciśnij klawisz **SHIFT** + **Enter**. Zapytanie jest uruchamiane do momentu znalezienia pustego wiersza.
 
 ## <a name="filter-results"></a>Filtrowanie wyników
-Log Analytics ogranicza wyniki do maksymalnie 10 000 rekordów. Zapytanie ogólne, takie `Event` jak zwraca zbyt wiele wyników, aby być przydatne. Wyniki zapytania można filtrować w sposób ograniczający elementy tabeli w zapytaniu lub przez jawne dodanie filtru do wyników. Filtrowanie przez elementy tabeli zwraca nowy zestaw wyników, podczas gdy jawny filtr ma zastosowanie do istniejącego zestawu wyników.
+Log Analytics ogranicza wyniki do maksymalnie 10 000 rekordów. Zapytanie ogólne, takie jak `Event` zwraca zbyt wiele wyników, aby być przydatne. Wyniki zapytania można filtrować w sposób ograniczający elementy tabeli w zapytaniu lub przez jawne dodanie filtru do wyników. Filtrowanie przez elementy tabeli zwraca nowy zestaw wyników, podczas gdy jawny filtr ma zastosowanie do istniejącego zestawu wyników.
 
 ### <a name="filter-by-restricting-table-elements"></a>Filtruj, ograniczając elementy tabeli
 Aby filtrować `Event` wyniki zapytania do zdarzeń **błędów** przez ograniczenie elementów tabeli w zapytaniu:
@@ -110,7 +112,7 @@ Aby filtrować `Event` wyniki zapytania do zdarzeń **błędów** przez ogranicz
 1. Wybierz pozycję **Uruchom** , aby uruchomić nowe zapytanie.
 
 ### <a name="filter-by-explicitly-filtering-results"></a>Filtruj według jawnego filtrowania wyników
-Aby filtrować wyniki `Event` zapytania do zdarzeń **błędów** przez filtrowanie wyników zapytania:
+Aby filtrować `Event` wyniki zapytania do zdarzeń **błędów** przez filtrowanie wyników zapytania:
 
 1. W wynikach zapytania wybierz ikonę **filtru** obok nagłówka kolumny **EventLevelName**. 
    
@@ -118,7 +120,7 @@ Aby filtrować wyniki `Event` zapytania do zdarzeń **błędów** przez filtrowa
    
 1. Wybierz pozycję **Filtr**.
    
-   ![Filtr](media/get-started-portal/filter.png)
+   ![Filtruj](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Sortuj, Grupuj i zaznaczaj kolumny
 Aby posortować wyniki zapytania według określonej kolumny, takiej jak **TimeGenerated [UTC]**, wybierz nagłówek kolumny. Ponownie wybierz nagłówek, aby przełączać się między rosnącą a malejącą kolejnością.
@@ -156,6 +158,7 @@ Można zmienić właściwości widoku, takie jak osie x i y, lub grupować i dzi
 Możesz również ustawić preferowany widok w samej kwerendzie przy użyciu operatora [renderowania](/azure/kusto/query/renderoperator) .
 
 ## <a name="pin-results-to-a-dashboard"></a>Przypnij wyniki do pulpitu nawigacyjnego
+
 Aby przypiąć tabelę wyników lub wykres z Log Analytics do udostępnionego pulpitu nawigacyjnego platformy Azure, wybierz pozycję **Przypnij do pulpitu nawigacyjnego** na górnym pasku. 
 
 ![Przypnij do pulpitu nawigacyjnego](media/get-started-portal/pin-dashboard.png)
@@ -171,9 +174,11 @@ Tabela lub wykres przypięcia do udostępnionego pulpitu nawigacyjnego ma nastę
 - Wykresy z wieloma dyskretnymi kategoriami automatycznie grupują mniej wypełnione kategorie w **jeden zasobnik.**
 
 ## <a name="save-load-or-export-queries"></a>Zapisz, Załaduj lub Eksportuj zapytania
+
 Po utworzeniu zapytania można zapisać lub udostępnić zapytanie lub wyniki z innymi osobami. 
 
 ### <a name="save-queries"></a>Zapisywanie zapytań
+
 Aby zapisać zapytanie:
 
 1. Wybierz pozycję **Zapisz** na górnym pasku.

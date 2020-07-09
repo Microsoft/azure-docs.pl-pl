@@ -5,19 +5,19 @@ documentationcenter: ''
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cab29fbe9e33cc12336fa1b81ed4aa37f91a7f5f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387307"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Dodawanie użytkowników-Gości współpracy B2B bez linku do zaproszenia lub wiadomości e-mail
 
@@ -25,13 +25,13 @@ Możesz teraz zaprosić użytkowników-Gości przez wysłanie bezpośredniego li
 
 Przed udostępnieniem tej nowej metody można zaprosić użytkowników-Gości bez konieczności wysyłania wiadomości e-mail z zaproszeniem przez dodanie osoby żądającej (z organizacji lub z organizacji partnerskiej) do roli katalogu **zapraszania gościa** , a następnie dodanie użytkowników-Gości do katalogu, grup lub aplikacji za pośrednictwem interfejsu użytkownika lub programu PowerShell. (Jeśli używasz programu PowerShell, możesz całkowicie pominąć wiadomość e-mail z zaproszeniem). Przykład:
 
-1. Użytkownik w organizacji hosta (na przykład WoodGrove) zaprasza jednego użytkownika z organizacji partnera (na przykład Sam@litware.com) jako gość.
+1. Użytkownik w organizacji hosta (na przykład WoodGrove) zaprasza jednego użytkownika z organizacji partnera (na przykład Sam@litware.com ) jako gość.
 2. Administrator w organizacji hosta [konfiguruje zasady](delegate-invitations.md) zezwalające usłudze sam na identyfikację i dodawanie innych użytkowników z organizacji partnera (litware). (Sam należy dodać do roli **zapraszania gościa** ).
 3. Teraz można dodać innych użytkowników z litware do katalogu WoodGrove, grup lub aplikacji bez konieczności realizowania zaproszeń. Jeśli sam ma odpowiednie uprawnienia wyliczenia w litware, odbywa się to automatycznie.
  
 Ta oryginalna metoda nadal działa. Istnieje jednak mała różnica w zachowaniu. Jeśli używasz programu PowerShell, możesz zauważyć, że zaproszone konto gościa ma teraz stan **PendingAcceptance** zamiast natychmiastowego wyświetlania **zaakceptowanego**. Mimo że stan jest oczekujący, użytkownik-Gość nadal może się zalogować i uzyskać dostęp do aplikacji bez kliknięcia linku do zaproszenia e-mail. Stan Oczekujący oznacza, że użytkownik nie został jeszcze przeszedł przez [proces wyrażania zgody](redemption-experience.md#consent-experience-for-the-guest), gdy akceptuje warunki prywatności organizacji zapraszanej. Użytkownik-Gość widzi ten ekran zgody, gdy loguje się po raz pierwszy. 
 
-W przypadku zaproszenia użytkownika do katalogu użytkownik-Gość musi uzyskać dostęp do adresu URL Azure Portal specyficznego dla dzierżawy zasobu bezpośrednio (na https://portal.azure.com/przykład *resourcetenant*. onmicrosoft.com) w celu wyświetlenia i zaakceptowania postanowień dotyczących prywatności.
+W przypadku zaproszenia użytkownika do katalogu użytkownik-Gość musi uzyskać dostęp do adresu URL Azure Portal specyficznego dla dzierżawy zasobu bezpośrednio (na przykład https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) w celu wyświetlenia i zaakceptowania postanowień dotyczących prywatności.
 
 ## <a name="next-steps"></a>Następne kroki
 

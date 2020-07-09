@@ -9,12 +9,11 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529896"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026886"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -47,7 +46,7 @@ Aparat rozpoznawania formularzy używa [interfejsu API układu](#layout-api) , a
 
 ## <a name="prebuilt-receipt-model"></a>Wstępnie utworzony model przyjęcia
 
-Aparat rozpoznawania formularzy zawiera również model służący do odczytywania w języku angielskim przyjęć&mdash;sprzedaży z Stany Zjednoczone typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej ([przykładowe przyjęcie](./media/contoso-receipt-small.png)). Ten model wyodrębnia najważniejsze informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków i sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony do rozpoznawania i zwracania całego tekstu w paragonie.
+Aparat rozpoznawania formularzy zawiera również model służący do odczytywania w języku angielskim przyjęć sprzedaży z Stany Zjednoczone &mdash; typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej ([przykładowe przyjęcie](./media/contoso-receipt-small.png)). Ten model wyodrębnia najważniejsze informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków i sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony do rozpoznawania i zwracania całego tekstu w paragonie.
 
 ## <a name="layout-api"></a>Interfejs API układu
 
@@ -57,18 +56,20 @@ Aparat rozpoznawania formularzy może również wyodrębnić strukturę tekstu i
 
 Skorzystaj z przewodnika Szybki Start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Należy pamiętać, że liczba bezpłatnych stron jest ograniczona do 500 miesięcznie.
 
-* Niestandardowa — uczenie modelu do formularzy
-  * Uczenie bez etykiet
-    * [Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST z zwinięciem](quickstarts/curl-train-extract.md)
-    * [Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST w języku Python](quickstarts/python-train-extract.md)
-  * Uczenie z etykietami
-    * [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego](quickstarts/label-tool.md)
-    * [Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python](quickstarts/python-labeled-data.md)
-* Wstępnie utworzone potwierdzenia — Wyodrębnij dane z przyjęć sprzedaży w USA
-  * [Szybki Start: wyodrębnianie danych przyjęcia przy użyciu zwinięcia](quickstarts/curl-receipts.md)
-  * [Szybki Start: wyodrębnianie danych przyjęcia przy użyciu języka Python](quickstarts/python-receipts.md)
-* Układ — Wyodrębnij strukturę tekstu i tabeli z formularzy
-  * [Szybki Start: wyodrębnianie danych układu przy użyciu języka Python](quickstarts/python-layout.md)
+* [Biblioteka kliencka — szybki start](./quickstarts/client-library.md) (wszystkie języki, wiele scenariuszy)
+* Przewodnik Szybki Start dotyczący interfejsu użytkownika sieci Web
+  * [Szkolenie z etykietami — przykładowe narzędzie do etykietowania](quickstarts/label-tool.md)
+* Przewodniki Szybki Start
+  * Uczenie modeli niestandardowych i wyodrębnianie danych formularza
+    * [Uczenie bez etykiet — zwinięcie](quickstarts/curl-train-extract.md)
+    * [Uczenie bez etykiet — Python](quickstarts/python-train-extract.md)
+    * [Uczenie z etykietami — Python](quickstarts/python-labeled-data.md)
+  * Wyodrębnij dane z przyjęć sprzedaży w USA
+    * [Wyodrębnij dane przyjęcia — zwinięcie](quickstarts/curl-receipts.md)
+    * [Wyodrębnij dane przyjęcia — Python](quickstarts/python-receipts.md)
+  * Wyodrębnij strukturę tekstu i tabeli z formularzy
+    * [Wyodrębnij dane układu — Python](quickstarts/python-layout.md)
+
 
 ### <a name="review-the-rest-apis"></a>Przeglądanie interfejsów API REST
 
@@ -81,7 +82,7 @@ Poniższe interfejsy API służą do uczenia modeli i wyodrębnienia danych stru
 | **Analizuj potwierdzenie** |Analizuj pojedynczy dokument paragonu w celu wyodrębnienia informacji o kluczu i innego tekstu paragonu.|
 | **Analizowanie układu** |Analizuj układ formularza, aby wyodrębnić strukturę tekstu i tabeli.|
 
-Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
+Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.
 
 ## <a name="input-requirements"></a>Wymagania wejściowe
 ### <a name="custom-model"></a>Model niestandardowy
@@ -100,8 +101,8 @@ Wymagania dotyczące danych wejściowych dla modelu paragonu są nieco inne.
 
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 
-Ta usługa jest oferowana jako [wersja zapoznawcza](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) usługi platformy Azure w ramach [warunków świadczenia usługi online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usługi rozpoznawania formularzy powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Zobacz [stronę usług Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) w Centrum zaufania firmy Microsoft, aby dowiedzieć się więcej.
+Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usługi rozpoznawania formularzy powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Zobacz [stronę usług Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) w Centrum zaufania firmy Microsoft, aby dowiedzieć się więcej.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start](quickstarts/curl-train-extract.md) , aby rozpocząć pracę z [interfejsami API aparatu rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Ukończ [Przewodnik Szybki Start](quickstarts/curl-train-extract.md) , aby rozpocząć pracę z [interfejsami API aparatu rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).

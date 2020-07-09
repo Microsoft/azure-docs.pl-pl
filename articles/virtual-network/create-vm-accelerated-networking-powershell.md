@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871455"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84975796"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
 
@@ -41,7 +41,7 @@ Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego masz
 
 Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której ta funkcja jest włączona. Aby uzyskać najlepsze wyniki, Włącz tę funkcję na co najmniej dwóch maszynach wirtualnych podłączonych do tej samej sieci wirtualnej platformy Azure. Podczas komunikowania się między sieciami wirtualnymi lub łączenia lokalnego ta funkcja ma minimalny wpływ na ogólne opóźnienia.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 - **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS)**: usunięcie przełącznika wirtualnego ze ścieżki danych powoduje usunięcie pakietów czasu poświęcanych przez hosta w celu przetworzenia zasad. Zwiększa również liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
 
@@ -66,6 +66,10 @@ Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o
 W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z co najmniej czterema procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
 
 Aby uzyskać więcej informacji na temat wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Obrazy niestandardowe
+
+Jeśli używasz obrazu niestandardowego, a obraz obsługuje przyspieszone sieci, upewnij się, że masz wymagane sterowniki obsługujące karty sieciowe Mellanox ConnectX-3 i ConnectX-4 LX na platformie Azure.
 
 ### <a name="regions"></a>Regiony
 
@@ -98,7 +102,7 @@ W oknie Informacje o interfejsie sieciowym obok skróconej etykiety **sieciowej*
 
 ## <a name="vm-creation-using-powershell"></a>Tworzenie maszyny wirtualnej przy użyciu programu PowerShell
 
-Przed kontynuowaniem Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 1.0.0 lub nowszej. Aby znaleźć aktualnie zainstalowaną wersję, `Get-Module -ListAvailable Az`Uruchom polecenie. Jeśli musisz zainstalować lub uaktualnić, zainstaluj najnowszą wersję AZ module z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az). W sesji programu PowerShell Zaloguj się do konta platformy Azure przy użyciu polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Przed kontynuowaniem Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 1.0.0 lub nowszej. Aby znaleźć aktualnie zainstalowaną wersję, uruchom polecenie `Get-Module -ListAvailable Az` . Jeśli musisz zainstalować lub uaktualnić, zainstaluj najnowszą wersję AZ module z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az). W sesji programu PowerShell Zaloguj się do konta platformy Azure przy użyciu polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów*, *myNic*i *myVM*.
 
@@ -244,7 +248,7 @@ Po utworzeniu maszyny wirtualnej na platformie Azure Nawiąż połączenie z mas
 
 3. Na stronie Przegląd maszyny wirtualnej, jeśli **stan** maszyny wirtualnej jest wyświetlany jako **Tworzenie**, zaczekaj na zakończenie tworzenia maszyny wirtualnej przez platformę Azure. **Stan** zostanie zmieniony na **uruchomiony** po zakończeniu tworzenia maszyny wirtualnej.
 
-4. Na pasku narzędzi przegląd maszyny wirtualnej wybierz pozycję **Połącz** > **RDP** > **Pobierz plik RDP**.
+4. Na pasku narzędzi przegląd maszyny wirtualnej wybierz pozycję **Połącz**  >  **RDP**  >  **Pobierz plik RDP**.
 
 5. Otwórz plik RDP, a następnie zaloguj się do maszyny wirtualnej przy użyciu poświadczeń wprowadzonych w sekcji [Tworzenie maszyny wirtualnej i dołączanie interfejsu sieciowego](#create-a-vm-and-attach-the-network-interface) . Jeśli nigdy nie nawiązano połączenia z maszyną wirtualną z systemem Windows na platformie Azure, zobacz [nawiązywanie połączenia z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
@@ -327,7 +331,7 @@ Zestaw skalowania maszyn wirtualnych jest nieco inny, ale znajduje się w tym sa
 3. Ustaw stosowane aktualizacje automatycznie, aby zmiany zostały natychmiast pobrane:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

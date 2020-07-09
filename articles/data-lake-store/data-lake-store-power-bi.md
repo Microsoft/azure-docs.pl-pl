@@ -3,15 +3,15 @@ title: Analizowanie danych w Azure Data Lake Storage Gen1-Power BI
 description: Użyj Power BI do analizowania danych przechowywanych w Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a692c5b23eaf23b33eef9bd2baf1e62b4bcca74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85504937"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizowanie danych w Azure Data Lake Storage Gen1 przy użyciu Power BI
 W tym artykule dowiesz się, jak za pomocą Power BI Desktop analizować i wizualizować dane przechowywane w Azure Data Lake Storage Gen1.
@@ -20,7 +20,7 @@ W tym artykule dowiesz się, jak za pomocą Power BI Desktop analizować i wizua
 Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dysponować następującymi elementami:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Konto Data Lake Storage Gen1**. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md). W tym artykule przyjęto założenie, że utworzono już konto Data Lake Storage Gen1 o nazwie **myadlsg1**i przekazano do niego przykładowy plik danych (**Drivers. txt**). Ten przykładowy plik jest dostępny do pobrania z [Azure Data Lake repozytorium git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Konto Data Lake Storage Gen1**. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md). W tym artykule przyjęto założenie, że utworzono już konto Data Lake Storage Gen1 o nazwie **myadlsg1**i przekazano do niego przykładowy plik danych (**Drivers.txt**). Ten przykładowy plik jest dostępny do pobrania z [Azure Data Lake repozytorium git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 * **Power BI Desktop**. Możesz pobrać ten program z [Centrum pobierania Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Tworzenie raportu w programie Power BI Desktop
@@ -56,7 +56,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 10. W edytorze zapytań w kolumnie **zawartość** kliknij pozycję dane **binarne**.
     
     ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query1.png "Edytuj zapytania")
-11. Zostanie wyświetlona ikona pliku, która reprezentuje przekazany plik **Drivers. txt** . Kliknij plik prawym przyciskiem myszy, a następnie kliknij pozycję **CSV**.    
+11. Zostanie wyświetlona ikona pliku reprezentująca plik **Drivers.txt** , który został przekazany. Kliknij plik prawym przyciskiem myszy, a następnie kliknij pozycję **CSV**.    
     
     ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query2.png "Edytuj zapytania")
 12. Powinny pojawić się dane wyjściowe, jak pokazano poniżej. Twoje dane są teraz dostępne w formacie, którego można użyć do tworzenia wizualizacji.
@@ -90,6 +90,6 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 ## <a name="publish-report-to-power-bi-service"></a>Publikuj raport w usługa Power BI
 Po utworzeniu wizualizacji w Power BI Desktop możesz udostępnić ją innym osobom, publikując ją w usługa Power BI. Aby uzyskać instrukcje, jak to zrobić, zobacz temat [Publikowanie z Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Analizowanie danych w Data Lake Storage Gen1 przy użyciu Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

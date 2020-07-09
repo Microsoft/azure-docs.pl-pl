@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251247"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956717"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Dostosowywanie ustawień wstępnych Media Encoder Standard  
 
@@ -36,11 +36,11 @@ W tym artykule pokazano, jak dostosować ustawienie wstępne, pobierając [wielo
 
 ### <a name="original-preset"></a>Oryginalne ustawienie wstępne
 
-Zapisz kod JSON zdefiniowany w artykule [wielokrotna H264 o wielu szybkościach transmisji bitów](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) w niektórych plikach z rozszerzeniem. JSON. Na przykład **CustomPreset_JSON. JSON**.
+Zapisz kod JSON zdefiniowany w artykule [wielokrotna H264 o wielu szybkościach transmisji bitów](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) w niektórych plikach z rozszerzeniem. JSON. Na przykład **CustomPreset_JSON.js**.
 
 ### <a name="customized-preset"></a>Dostosowane ustawienia wstępne
 
-Otwórz plik **CustomPreset_JSON. JSON** i Usuń pierwsze trzy warstwy z **H264Layers** , aby plik wyglądał następująco.
+Otwórz **CustomPreset_JSON.js** pliku i Usuń pierwsze trzy warstwy z **H264Layers** , aby plik wyglądał następująco.
 
 ```json 
     {  
@@ -120,9 +120,11 @@ Poniższy przykład kodu używa Media Services .NET SDK do wykonywania następuj
 - Utwórz zadanie kodowania.
 - Pobierz odwołanie do kodera Media Encoder Standard.
 - Załaduj niestandardowe ustawienie wstępne JSON, które zostało utworzone w poprzedniej sekcji. 
-  
-        // Load the JSON from the local file.
-        string configuration = File.ReadAllText(fileName);  
+
+    ```csharp
+    // Load the JSON from the local file.
+    string configuration = File.ReadAllText(fileName);  
+    ```
 
 - Dodaj zadanie kodowania do zadania. 
 - Określ zasób wejściowy do zakodowania.
@@ -272,5 +274,5 @@ namespace CustomizeMESPresests
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

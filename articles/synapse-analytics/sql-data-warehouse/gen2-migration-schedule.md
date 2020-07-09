@@ -9,14 +9,15 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: synapse-analytics
 ms.topic: article
+ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f2af826473bfd13f8100796a540d41cbedbb037
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631566"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207723"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Uaktualnij pulę SQL do Gen2
 
@@ -31,9 +32,9 @@ Poniższa tabela podsumowuje według regionu, gdy dolna warstwa obliczeniowa Gen
 
 \*wskazuje, że określony harmonogram dla regionu jest obecnie niedostępny.
 
-| **Region** | **Dolna Gen2 dostępna** | **Rozpoczęcie uaktualniania automatycznego** |
+| **Okolicy** | **Dolna Gen2 dostępna** | **Rozpoczęcie uaktualniania automatycznego** |
 |:--- |:--- |:--- |
-| Kanada Wschodnia |1 czerwca 2020 |1 lipca 2020 |
+| Kanada Wschodnia |1 czerwca 2020 r. |1 lipca 2020 |
 | Chiny Wschodnie |\* |\* |
 | Chiny Północne |\* |\* |
 | Niemcy Środkowe |\* |\* |

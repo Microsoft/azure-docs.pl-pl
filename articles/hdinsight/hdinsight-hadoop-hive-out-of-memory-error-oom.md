@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: 371c00fd63f7a89f4d50ce130e89f10e2a7a38bd
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 71f9bc75bc2b84708af54ba89918cd874099a2d4
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891086"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961901"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Naprawianie błędu braku pamięci Apache Hive w usłudze Azure HDInsight
 
@@ -50,11 +50,14 @@ Niektóre wszystkie szczegóły tego zapytania:
 
 Zapytanie Hive zajęło 26 minut na zakończenie działania klastra usługi HDInsight z 24 węzłami. Klient zauważył następujące komunikaty ostrzegawcze:
 
+```output
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
+```
 
 Za pomocą aparatu wykonywania Apache Tez. To samo zapytanie zostało uruchomione przez 15 minut, a następnie wywołało następujący błąd:
 
+```output
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
         at
@@ -78,6 +81,7 @@ Za pomocą aparatu wykonywania Apache Tez. To samo zapytanie zostało uruchomion
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
+```
 
 Ten błąd pozostaje w przypadku używania większej maszyny wirtualnej (na przykład D12).
 
@@ -87,7 +91,7 @@ Nasza pomoc techniczna i zespoły inżynieryjne znalazły jeden z problemów spo
 
 "When. Auto. Convert. Join. noconditionaltask = true Sprawdzamy noconditionaltask. size, a jeśli sumy tabel w sprzężeniu mapy są mniejsze niż noconditionaltask. rozmiar planu wygeneruje sprzężenie mapy, problem z tym, że obliczenie nie uwzględnia obciążenia wprowadzonego przez inną implementację HashTable jako wyniki, jeśli suma rozmiarów danych wejściowych jest mniejsza niż rozmiar noconditionaltask przez zapytania o małym marginesie, zostanie osiągnięty OOM".
 
-Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku Hive-site. xml został ustawiony na **wartość true**:
+Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku hive-site.xml został ustawiony na **wartość true**:
 
 ```xml
 <property>
@@ -112,8 +116,10 @@ Zgodnie z wpisem w blogu poniższe dwa ustawienia pamięci definiują pamięć k
 
 Ponieważ maszyna D12 ma 28 GB pamięci, zalecamy użycie rozmiaru kontenera 10 GB (10240 MB) i przypisanie 80% do środowiska Java.
 
-    SET hive.tez.container.size=10240
-    SET hive.tez.java.opts=-Xmx8192m
+```console
+SET hive.tez.container.size=10240
+SET hive.tez.java.opts=-Xmx8192m
+```
 
 W przypadku nowych ustawień zapytanie zostało wykonane pomyślnie w ciągu 10 minut.
 

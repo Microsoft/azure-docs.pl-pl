@@ -2,19 +2,19 @@
 title: Konfigurowanie modułów IoT Edge w usłudze Azure SQL Edge
 description: W drugiej części tego samouczka dotyczącego usługi Azure SQL Edge na potrzeby przewidywania zanieczyszczeń żelaza można skonfigurować IoT Edge modułów i połączeń.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: bbbbe09aac30165a2f9b7bbe54f58e0c09a6cf09
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599685"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235036"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurowanie modułów IoT Edge i połączeń
 
@@ -25,7 +25,7 @@ W drugiej części tego samouczka z trzema częściami w celu przewidywania zani
 
 ## <a name="create-azure-stream-analytics-module"></a>Utwórz moduł Azure Stream Analytics
 
-Utwórz moduł Azure Stream Analytics, który będzie używany w tym samouczku. Aby dowiedzieć się więcej o korzystaniu z zadań przesyłania strumieniowego za pomocą programu SQL Edge, zobacz [Używanie zadań przesyłania strumieniowego w SQL Database Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+Utwórz moduł Azure Stream Analytics, który będzie używany w tym samouczku. Aby dowiedzieć się więcej o korzystaniu z zadań przesyłania strumieniowego w programie SQL Edge, zobacz [Używanie zadań przesyłania strumieniowego w programie SQL Edge](stream-analytics.md).
 
 Po utworzeniu zadania Azure Stream Analytics przy użyciu środowiska hostingu ustawionego jako brzegowe Skonfiguruj dane wejściowe i wyjściowe samouczka.
 
@@ -34,7 +34,7 @@ Po utworzeniu zadania Azure Stream Analytics przy użyciu środowiska hostingu u
    Pole|Wartość
    -----|-----
    Format serializacji zdarzeń|JSON
-   Encoding|UTF-8
+   Kodowanie|UTF-8
    Typ kompresji zdarzenia|Brak
 
 2. Aby utworzyć **dane wyjściowe**, kliknij pozycję **+ dodaj** i wybierz SQL Database. Wypełnij sekcję Szczegóły, korzystając z poniższych informacji.
@@ -44,7 +44,7 @@ Po utworzeniu zadania Azure Stream Analytics przy użyciu środowiska hostingu u
 
    Pole|Wartość
    -----|-----
-   baza danych|IronOreSilicaPrediction
+   Baza danych|IronOreSilicaPrediction
    Nazwa serwera|TCP:., 1433
    Nazwa użytkownika|sa
    Hasło|Określ silne hasło
@@ -91,7 +91,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
 
    *serwer logowania containerregistry* / *Nazwa repozytorium*:*nazwa tagu*
 
-   Na przykład:
+   Przykład:
 
    ```
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
@@ -101,7 +101,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Wdrażanie modułu usługi Azure SQL Edge
 
-1. Wdróż moduł usługi Azure SQL Edge, wykonując czynności opisane w temacie [Deploy Azure SQL Database Edge Preview](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge).
+1. Wdróż moduł usługi Azure SQL Edge, wykonując czynności opisane w temacie [wdrażanie usługi Azure SQL Edge (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
 
 2. Na stronie **Określanie trasy** dla **Ustawienia moduły** Określ trasy dla modułu, aby IoT Edge komunikację z centrum w następujący sposób. 
 
@@ -110,7 +110,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/<your_input_stream_name>")
    ```
 
-   Na przykład:
+   Przykład:
 
    ```
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/Input1")

@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81391825"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefakt definicji roli niestandardowej w Azure Managed Applications
@@ -20,11 +20,11 @@ Ten artykuł zawiera omówienie artefaktu definicji roli niestandardowej i jego 
 
 ## <a name="custom-role-definition-artifact"></a>Artefakt definicji roli niestandardowej
 
-Należy nazwać artefaktu definicji roli niestandardowej customRoleDefinition. JSON. Umieść go na tym samym poziomie, co createUiDefinition. JSON i mainTemplate. JSON w pakiecie. zip, który tworzy definicję aplikacji zarządzanej. Aby dowiedzieć się, jak utworzyć pakiet ZIP i opublikować definicję aplikacji zarządzanej, zobacz [Publikowanie definicji aplikacji zarządzanej.](publish-service-catalog-app.md)
+Należy nazwać customRoleDefinition.jsartefaktu definicji roli niestandardowej. Umieść go na tym samym poziomie, co createUiDefinition.json i mainTemplate.jsw pakiecie. zip, który tworzy definicję aplikacji zarządzanej. Aby dowiedzieć się, jak utworzyć pakiet ZIP i opublikować definicję aplikacji zarządzanej, zobacz [Publikowanie definicji aplikacji zarządzanej.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Schemat definicji roli niestandardowej
 
-Plik customRoleDefinition. JSON ma właściwość najwyższego poziomu `roles` , która jest tablicą ról. Role te są uprawnieniami, które muszą działać aplikacja zarządzana. Obecnie dozwolone są tylko wbudowane role, ale można określić wiele ról. Do roli może odwoływać się identyfikator definicji roli lub nazwa roli.
+customRoleDefinition.jsw pliku ma właściwość najwyższego poziomu `roles` , która jest tablicą ról. Role te są uprawnieniami, które muszą działać aplikacja zarządzana. Obecnie dozwolone są tylko wbudowane role, ale można określić wiele ról. Do roli może odwoływać się identyfikator definicji roli lub nazwa roli.
 
 Przykładowy kod JSON dla definicji roli niestandardowej:
 
@@ -49,7 +49,7 @@ Przykładowy kod JSON dla definicji roli niestandardowej:
 
 ## <a name="roles"></a>Role
 
-Rola składa się z `$.properties.roleName` lub: `id`
+Rola składa się z `$.properties.roleName` lub `id` :
 
 ```json
 {
@@ -61,9 +61,9 @@ Rola składa się z `$.properties.roleName` lub: `id`
 ```
 
 > [!NOTE]
-> Możesz użyć `id` albo `roleName` pola. Wymagany jest tylko jeden. Te pola są używane do wyszukiwania definicji roli, która powinna zostać zastosowana. W przypadku podania obu tych `id` wartości pole zostanie użyte.
+> Możesz użyć albo `id` `roleName` pola. Wymagany jest tylko jeden. Te pola są używane do wyszukiwania definicji roli, która powinna zostać zastosowana. W przypadku podania obu tych wartości `id` pole zostanie użyte.
 
 |Właściwość|Wymagane?|Opis|
 |---------|---------|---------|
-|id|Tak|Identyfikator wbudowanej roli. Możesz użyć pełnego identyfikatora lub tylko identyfikatora GUID.|
+|identyfikator|Tak|Identyfikator wbudowanej roli. Możesz użyć pełnego identyfikatora lub tylko identyfikatora GUID.|
 |Role|Tak|Nazwa wbudowanej roli.|

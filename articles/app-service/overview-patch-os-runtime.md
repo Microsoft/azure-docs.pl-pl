@@ -5,10 +5,9 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
 ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78273635"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Stosowanie poprawek systemu operacyjnego i środowiska uruchomieniowego w Azure App Service
@@ -51,11 +50,11 @@ Aktualizacje i przestarzałe środowiska uruchomieniowego są ogłoszone w tym m
 
 ### <a name="new-patch-updates"></a>Nowe aktualizacje poprawek
 
-Aktualizacje poprawek do wersji .NET, PHP, Java SDK lub Tomcat/Jetty są automatycznie stosowane przez zastąpienie istniejącej instalacji nową wersją. Aktualizacje poprawek środowiska Node. js są instalowane równolegle z istniejącymi wersjami (podobnie jak wersje główne i pomocnicze w następnej sekcji). Nowe wersje poprawek w języku Python można instalować ręcznie za pomocą [rozszerzeń lokacji](https://azure.microsoft.com/blog/azure-web-sites-extensions/)obok wbudowanych instalacji języka Python.
+Aktualizacje poprawek do wersji .NET, PHP, Java SDK lub Tomcat/Jetty są automatycznie stosowane przez zastąpienie istniejącej instalacji nową wersją. Aktualizacje poprawek Node.js są instalowane równolegle z istniejącymi wersjami (podobnie jak wersje główne i pomocnicze w następnej sekcji). Nowe wersje poprawek w języku Python można instalować ręcznie za pomocą [rozszerzeń lokacji](https://azure.microsoft.com/blog/azure-web-sites-extensions/)obok wbudowanych instalacji języka Python.
 
 ### <a name="new-major-and-minor-versions"></a>Nowe wersje główne i pomocnicze
 
-Po dodaniu nowej wersji głównej lub pomocniczej jest ona instalowana równolegle z istniejącymi wersjami. Możesz ręcznie uaktualnić aplikację do nowej wersji. W przypadku skonfigurowania wersji środowiska uruchomieniowego w pliku konfiguracji (na `web.config` przykład `package.json`i) należy przeprowadzić uaktualnienie przy użyciu tej samej metody. Jeśli użyto ustawienia App Service w celu skonfigurowania wersji środowiska uruchomieniowego, można ją zmienić w [Azure Portal](https://portal.azure.com) lub przez uruchomienie polecenia [interfejsu CLI platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w [Cloud Shell](../cloud-shell/overview.md), jak pokazano w następujących przykładach:
+Po dodaniu nowej wersji głównej lub pomocniczej jest ona instalowana równolegle z istniejącymi wersjami. Możesz ręcznie uaktualnić aplikację do nowej wersji. W przypadku skonfigurowania wersji środowiska uruchomieniowego w pliku konfiguracji (na przykład `web.config` i `package.json` ) należy przeprowadzić uaktualnienie przy użyciu tej samej metody. Jeśli użyto ustawienia App Service w celu skonfigurowania wersji środowiska uruchomieniowego, można ją zmienić w [Azure Portal](https://portal.azure.com) lub przez uruchomienie polecenia [interfejsu CLI platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w [Cloud Shell](../cloud-shell/overview.md), jak pokazano w następujących przykładach:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -78,19 +77,19 @@ W poniższej tabeli przedstawiono, jak wersje systemu Windows i środowisko uruc
 | Informacje | Gdzie można go znaleźć | 
 |-|-|
 | Wersja systemu Windows | Zobacz `https://<appname>.scm.azurewebsites.net/Env.cshtml` (w obszarze informacje o systemie) |
-| Wersja platformy .NET | `https://<appname>.scm.azurewebsites.net/DebugConsole`W wierszu polecenia Uruchom następujące polecenie: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
-| Wersja platformy .NET Core | `https://<appname>.scm.azurewebsites.net/DebugConsole`W wierszu polecenia Uruchom następujące polecenie: <br> `dotnet --version` |
-| Wersja języka PHP | `https://<appname>.scm.azurewebsites.net/DebugConsole`W wierszu polecenia Uruchom następujące polecenie: <br> `php --version` |
-| Domyślna wersja środowiska Node. js | W [Cloud Shell](../cloud-shell/overview.md)Uruchom następujące polecenie: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Wersja języka Python | `https://<appname>.scm.azurewebsites.net/DebugConsole`W wierszu polecenia Uruchom następujące polecenie: <br> `python --version` |  
-| Wersja środowiska Java | `https://<appname>.scm.azurewebsites.net/DebugConsole`W wierszu polecenia Uruchom następujące polecenie: <br> `java -version` |  
+| Wersja platformy .NET | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| Wersja platformy .NET Core | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br> `dotnet --version` |
+| Wersja języka PHP | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br> `php --version` |
+| Domyślna wersja Node.js | W [Cloud Shell](../cloud-shell/overview.md)Uruchom następujące polecenie: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
+| Wersja języka Python | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br> `python --version` |  
+| Wersja środowiska Java | W `https://<appname>.scm.azurewebsites.net/DebugConsole` wierszu polecenia Uruchom następujące polecenie: <br> `java -version` |  
 
 > [!NOTE]  
-> Dostęp do lokalizacji `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`w rejestrze, gdzie są przechowywane informacje o [poprawkach "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) , jest zablokowany.
+> Dostęp do lokalizacji w rejestrze `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages` , gdzie są przechowywane informacje o [poprawkach "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) , jest zablokowany.
 >
 >
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Centrum zaufania: zabezpieczenia](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 ASP.NET Core bit na Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

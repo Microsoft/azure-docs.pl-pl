@@ -14,10 +14,9 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76990508"
 ---
 # <a name="manage-multiple-tenants"></a>Zarządzanie wieloma dzierżawami
@@ -34,7 +33,7 @@ W przypadku korzystania z tej architektury konto Video Indexer jest tworzone dla
 
 ![Konto Video Indexer na dzierżawcę](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 * Klienci nie współdzielą kont magazynu (o ile nie zostały ręcznie skonfigurowane przez klienta).
 * Klienci nie współdzielą zasobów obliczeniowych (jednostek zarezerwowanych) i nie wpływają na czasy przetwarzania zadań.
@@ -57,7 +56,7 @@ W przypadku tej opcji modele dostosowania (osoba, język i marki) mogą być udo
 
 Podczas [przekazywania filmów wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)można określić inny atrybut partycji dla dzierżawy. Pozwoli to na izolację w [interfejsie API wyszukiwania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Określenie atrybutu Partition w interfejsie API wyszukiwania spowoduje uzyskanie tylko wyników określonej partycji. 
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 * Możliwość udostępniania zawartości i modeli dostosowywania między dzierżawcami.
 * Jeden dzierżawca ma wpływ na wydajność innych dzierżawców.
@@ -72,7 +71,7 @@ W przypadku korzystania z tej architektury każda dzierżawa będzie miała wła
 
 ![Subskrypcja platformy Azure na dzierżawcę](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 * Jest to jedyna opcja, która umożliwia rozdzielenie rozliczeń.
 * Ta integracja ma więcej kosztów związanych z zarządzaniem niż Video Indexer konta na dzierżawcę. Jeśli rozliczenia nie są wymagane, zaleca się użycie jednej z innych opcji opisanych w tym artykule.

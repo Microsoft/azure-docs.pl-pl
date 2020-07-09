@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80128757"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd
@@ -136,7 +136,7 @@ Ta sekcja zawiera listę stanów różnych atrybutów dla użytkownika aktualnie
 - **WorkplaceJoined:** -ustaw wartość "tak", jeśli zarejestrowane konta usługi Azure AD zostały dodane do urządzenia w bieżącym kontekście ntuser.
 - **WamDefaultSet:** -ustaw na wartość "yes", jeśli dla zalogowanego użytkownika zostanie utworzone domyślne konto webaccount. W tym polu może być wyświetlany komunikat o błędzie, jeśli dsreg/status jest uruchamiany z wiersza polecenia z podwyższonym poziomem uprawnień. 
 - **WamDefaultAuthority:** -jako "organizacje" dla usługi Azure AD.
-- **WamDefaultId:** -Always "https://login.microsoft.com" dla usługi Azure AD.
+- **WamDefaultId:** -Always " https://login.microsoft.com " dla usługi Azure AD.
 - **WamDefaultGUID:** — identyfikator GUID dostawcy wam (Azure AD/konto Microsoft) dla domyślnego konta Web. 
 
 ### <a name="sample-user-state-output"></a>Dane wyjściowe przykładowego stanu użytkownika

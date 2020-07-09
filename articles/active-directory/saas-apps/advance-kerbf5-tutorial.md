@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0fc56fe040528df5b4bd5e9217bd614c4a640c15
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74074755"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85608055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -116,9 +116,9 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -281,20 +281,20 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Poniżej znajduje się pełna lista domyślnych atrybutów SAML. Dana wartośćname jest reprezentowana przy użyciu następującego ciągu.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-| | |
+| Sesja | Atrybut |
 | -- | -- |
 | eb46b6b6. Session. SAML. Last. assertionID | `<TENANT ID>` |
 | eb46b6b6. Session. SAML. Last. assertionIssueInstant  | `<ID>` |
 | eb46b6b6. Session. SAML. Last. assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.Microsoft.com/identity/claims/DisplayName | user0 |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.Microsoft.com/identity/claims/IdentityProvider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.Microsoft.com/identity/claims/objectidentifier | `<TENANT ID>` |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.Microsoft.com/identity/claims/tenantid | `<TENANT ID>` |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/EmailAddress | `user0@superdemo.live` |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenName | user0 |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/Name | `user0@superdemo.live` |
-| eb46b6b6. Session. SAML. Last. ATTR. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.Microsoft.com/Claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.Microsoft.com/identity/claims/DisplayName | user0 |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.Microsoft.com/identity/claims/IdentityProvider | `https://sts.windows.net/<TENANT ID>/` |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.Microsoft.com/identity/claims/objectidentifier | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.Microsoft.com/identity/claims/tenantid | `<TENANT ID>` |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.xmlSOAP.org/ws/2005/05/identity/claims/EmailAddress | `user0@superdemo.live` |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.xmlSOAP.org/ws/2005/05/identity/claims/givenName | user0 |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.xmlSOAP.org/ws/2005/05/identity/claims/Name | `user0@superdemo.live` |
+| eb46b6b6. Session. SAML. Last. ATTR. Name. http: \/ /schemas.xmlSOAP.org/ws/2005/05/identity/claims/surname | 0 |
 | eb46b6b6. Session. SAML. Last. odbiorca | `https://kerbapp.superdemo.live` |
 | eb46b6b6. Session. SAML. Last. authNContextClassRef | urn: języka Oasis: names: TC: SAML: 2.0: AC: klasy: hasło |
 | eb46b6b6. Session. SAML. Last. authNInstant | `<ID>` |
@@ -332,7 +332,7 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Azure AD](https://aad.portal.azure.com/)
 

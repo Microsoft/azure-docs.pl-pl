@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871220"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848485"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -65,13 +65,21 @@ Te biblioteki są instalowane automatycznie z rozszerzeniem.
 
 Moduł Microsoft Azure Active Directory dla Windows PowerShell jest zainstalowany, jeśli jeszcze nie istnieje, za pomocą skryptu konfiguracji uruchamianego w ramach procesu instalacji. Nie ma potrzeby instalowania tego modułu przed czasem, jeśli nie został jeszcze zainstalowany.
 
+Należy ręcznie zainstalować następującą bibliotekę:
+
+- [Pakiet redystrybucyjny języka Visual C++ dla programu Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Każdy użytkownik korzystający z rozszerzenia serwera NPS musi być synchronizowany do Azure Active Directory przy użyciu Azure AD Connect i musi być zarejestrowany dla usługi MFA.
 
-Po zainstalowaniu rozszerzenia wymagany jest identyfikator katalogu i poświadczenia administratora dla dzierżawy usługi Azure AD. Identyfikator katalogu można znaleźć w [Azure Portal](https://portal.azure.com). Zaloguj się jako administrator. Wyszukaj i wybierz **Azure Active Directory**a następnie wybierz pozycję **Właściwości**. Skopiuj identyfikator GUID w polu **Identyfikator katalogu** i Zapisz go. Ten identyfikator GUID jest używany jako identyfikator dzierżawy podczas instalowania rozszerzenia serwera NPS.
+Po zainstalowaniu rozszerzenia wymagany jest *Identyfikator dzierżawy* i poświadczenia administratora dla dzierżawy usługi Azure AD. Aby uzyskać identyfikator dzierżawy, wykonaj następujące czynności:
 
-![Znajdź identyfikator katalogu w obszarze Azure Active Directory właściwości](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny dzierżawy platformy Azure.
+1. Wyszukaj i wybierz **Azure Active Directory**.
+1. Na stronie **Przegląd** są wyświetlane *Informacje o dzierżawie* . Wybierz ikonę **kopiowania** obok *identyfikatora dzierżawy*, jak pokazano na poniższym przykładzie zrzutu ekranu:
+
+   ![Pobieranie identyfikatora dzierżawy z Azure Portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -161,7 +169,7 @@ Wykonaj następujące kroki, aby rozpocząć Uruchamianie konta testowego:
 
 1. [Pobierz rozszerzenie serwera NPS](https://aka.ms/npsmfa) z centrum pobierania Microsoft.
 2. Skopiuj plik binarny do serwera zasad sieciowych, który chcesz skonfigurować.
-3. Uruchom *plik Setup. exe* i postępuj zgodnie z instrukcjami instalacji. Jeśli wystąpią błędy, należy dokładnie sprawdzić, czy dwie biblioteki z sekcji wymagania wstępne zostały zainstalowane pomyślnie.
+3. Uruchom *setup.exe* i postępuj zgodnie z instrukcjami instalacji. Jeśli wystąpią błędy, należy dokładnie sprawdzić, czy dwie biblioteki z sekcji wymagania wstępne zostały zainstalowane pomyślnie.
 
 #### <a name="upgrade-the-nps-extension"></a>Uaktualnianie rozszerzenia serwera NPS
 
@@ -186,14 +194,23 @@ Jeśli nie chcesz używać własnych certyfikatów (zamiast certyfikatów z podp
 1. Uruchom program Windows PowerShell jako administrator.
 2. Zmień katalogi.
 
-   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+   ```powershell
+   cd "C:\Program Files\Microsoft\AzureMfa\Config"
+   ```
 
 3. Uruchom skrypt programu PowerShell utworzony przez Instalatora.
 
-   `.\AzureMfaNpsExtnConfigSetup.ps1`
+   > [!IMPORTANT]
+   > W przypadku klientów korzystających z Azure Government lub z platformy Azure w Chinach firmy 21Vianet najpierw Edytuj `Connect-MsolService` polecenia cmdlet w skrypcie *AzureMfaNpsExtnConfigSetup.ps1* , aby uwzględnić parametry *AzureEnvironment* dla wymaganej chmury. Na przykład określ polecenie *-AzureEnvironment USGovernment* lub *-AzureEnvironment AzureChinaCloud*.
+   >
+   > Aby uzyskać więcej informacji, zobacz temat informacje o [parametrach Connect-MsolService](/powershell/module/msonline/connect-msolservice#parameters).
+
+   ```powershell
+   .\AzureMfaNpsExtnConfigSetup.ps1
+   ```
 
 4. Zaloguj się do usługi Azure AD jako administrator.
-5. Program PowerShell zapyta o identyfikator dzierżawy. Użyj identyfikatora GUID, który został skopiowany z Azure Portal w sekcji wymagania wstępne.
+5. Program PowerShell zapyta o identyfikator dzierżawy. Użyj identyfikatora *GUID,* który został skopiowany z Azure Portal w sekcji wymagania wstępne.
 6. Po zakończeniu skryptu program PowerShell wyświetla komunikat o powodzeniu.  
 
 Powtórz te kroki na wszystkich dodatkowych serwerach NPS, które chcesz skonfigurować do równoważenia obciążenia.
@@ -201,22 +218,30 @@ Powtórz te kroki na wszystkich dodatkowych serwerach NPS, które chcesz skonfig
 Jeśli poprzedni certyfikat komputera wygasł i został wygenerowany nowy certyfikat, należy usunąć wszystkie wygasłe certyfikaty. Wygaśnięcie certyfikatów może spowodować problemy z uruchamianiem rozszerzenia serwera NPS.
 
 > [!NOTE]
-> Jeśli używasz własnych certyfikatów zamiast generować certyfikaty przy użyciu skryptu programu PowerShell, upewnij się, że są one wyrównane do konwencji nazewnictwa NPS. Nazwa podmiotu musi być **CN = \< TenantID \> , OU = Microsoft NPS Extension**. 
+> Jeśli używasz własnych certyfikatów zamiast generować certyfikaty przy użyciu skryptu programu PowerShell, upewnij się, że są one wyrównane do konwencji nazewnictwa NPS. Nazwa podmiotu musi mieć wartość **CN = \<TenantID\> , OU = Microsoft NPS Extension**.
 
-### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government dodatkowych kroków
+### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Microsoft Azure Government lub Azure Chiny — dodatkowe kroki
 
-W przypadku klientów korzystających z Azure Government chmury na każdym serwerze NPS wymagane są następujące dodatkowe czynności konfiguracyjne.
+W przypadku klientów, którzy korzystają z chmurowych usług 21Vianet Azure Government lub Azure Chiny, na każdym serwerze NPS wymagane są następujące dodatkowe czynności konfiguracyjne.
 
 > [!IMPORTANT]
-> Te ustawienia rejestru należy skonfigurować tylko wtedy, gdy jesteś klientem Azure Government.
+> Te ustawienia rejestru należy skonfigurować tylko w przypadku Azure Government lub platformy Azure w Chinach.
 
-1. Jeśli jesteś klientem Azure Government, Otwórz **Edytor rejestru** na serwerze NPS.
-1. Przejdź do adresu `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Ustaw następujące wartości klucza:
+1. Jeśli jesteś klientem korzystającym Azure Government z usługi Microsoft Azure (Chiny), Otwórz **Edytor rejestru** na serwerze NPS.
+1. Przejdź do adresu `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
+1. W przypadku klientów Azure Government ustaw następujące wartości klucza:
 
     | Klucz rejestru       | Wartość |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. W przypadku klientów korzystających z platformy Azure w Chinach, ustaw następujące wartości klucza:
+
+    | Klucz rejestru       | Wartość |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Powtórz dwa poprzednie kroki, aby ustawić wartości klucza rejestru dla każdego serwera NPS.
 1. Uruchom ponownie usługę NPS dla każdego serwera NPS.
@@ -265,15 +290,15 @@ Możesz utworzyć ten klucz i ustawić dla niego wartość FALSE, gdy użytkowni
 
 Następujący skrypt jest dostępny do wykonywania podstawowych kroków kontroli kondycji podczas rozwiązywania problemów z rozszerzeniem serwera NPS.
 
-[MFA_NPS_Troubleshooter. ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Jak mogę sprawdzić, czy certyfikat klienta został zainstalowany zgodnie z oczekiwaniami?
 
-Wyszukaj certyfikat z podpisem własnym utworzony przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane **usłudze sieciowej**użytkownika. Certyfikat ma nazwę podmiotu **CN \< tenantid \> , OU = Microsoft NPS Extension**
+Wyszukaj certyfikat z podpisem własnym utworzony przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane **usłudze sieciowej**użytkownika. Certyfikat ma nazwę podmiotu **CN \<tenantid\> , OU = Microsoft NPS Extension**
 
-Certyfikaty z podpisem własnym wygenerowane przez skrypt *AzureMfaNpsExtnConfigSetup. ps1* mają również okres istnienia ważności wynoszący dwa lata. Podczas sprawdzania, czy certyfikat jest zainstalowany, należy również sprawdzić, czy certyfikat nie wygasł.
+Certyfikaty z podpisem własnym wygenerowane przez skrypt *AzureMfaNpsExtnConfigSetup.ps1* również mają okres istnienia ważności wynoszący dwa lata. Podczas sprawdzania, czy certyfikat jest zainstalowany, należy również sprawdzić, czy certyfikat nie wygasł.
 
 ---
 
@@ -281,7 +306,7 @@ Certyfikaty z podpisem własnym wygenerowane przez skrypt *AzureMfaNpsExtnConfig
 
 Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenia:
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
@@ -291,7 +316,7 @@ Te polecenia służą do drukowania wszystkich certyfikatów kojarzenia dzierża
 
 Następujące polecenie spowoduje utworzenie pliku o nazwie "npscertificate" na dysku "C:" w formacie. cer.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer

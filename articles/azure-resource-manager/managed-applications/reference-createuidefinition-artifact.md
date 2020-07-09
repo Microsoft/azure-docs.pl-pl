@@ -1,24 +1,23 @@
 ---
 title: Artefakt CreateUiDefinition
-description: Pokazuje, jak utworzyć artefakt createUiDefinition dla aplikacji zarządzanej platformy Azure. Plik ma nazwę createUiDefinition. JSON.
+description: Pokazuje, jak utworzyć artefakt createUiDefinition dla aplikacji zarządzanej platformy Azure. Plik ma nazwę createUiDefinition.jsna.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 9be1cb02c419314a33b9487bf183ef3659b2b549
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651490"
 ---
 # <a name="reference-user-interface-elements-artifact"></a>Odwołanie: artefakt elementów interfejsu użytkownika
 
-Ten artykuł jest odwołaniem do artefaktu *createUiDefinition. JSON* w Azure Managed Applications. Aby uzyskać więcej informacji na temat tworzenia elementów interfejsu użytkownika, zobacz [Tworzenie elementów interfejsu użytkownika](create-uidefinition-elements.md).
+Ten artykuł jest odwołaniem do *createUiDefinition.jsna* artefaktie w Azure Managed Applications. Aby uzyskać więcej informacji na temat tworzenia elementów interfejsu użytkownika, zobacz [Tworzenie elementów interfejsu użytkownika](create-uidefinition-elements.md).
 
 ## <a name="user-interface-elements"></a>Elementy interfejsu użytkownika
 
-Poniższy kod JSON przedstawia przykład pliku *createUiDefinition. JSON* dla Azure Managed Applications:
+Poniższy kod JSON przedstawia przykład *createUiDefinition.jsw* pliku dla Azure Managed Applications:
 
 ```json
 {

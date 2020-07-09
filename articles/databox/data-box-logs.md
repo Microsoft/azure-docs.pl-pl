@@ -9,10 +9,9 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81676408"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy
@@ -26,7 +25,7 @@ W poniższej tabeli przedstawiono podsumowanie kroków zlecenia urządzenie Data
 | Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu w kolejności za pośrednictwem RBAC](#set-up-access-control-on-the-order)                                                    |
 | Przetworzone zamówienie            | [Śledź kolejność](#track-the-order) <ul><li> Azure Portal </li><li> Witryna sieci Web firmy kurierskiej </li><li>Powiadomienia e-mail</ul> |
 | Konfigurowanie urządzenia              | Poświadczenia urządzenia dostęp do zalogowanych [dzienników aktywności](#query-activity-logs-during-setup)                                              |
-| Kopiowanie danych na urządzenie        | [Wyświetl pliki *Error. XML* ](#view-error-log-during-data-copy) do kopiowania danych                                                             |
+| Kopiowanie danych na urządzenie        | [Wyświetl *error.xml* pliki](#view-error-log-during-data-copy) do skopiowania danych                                                             |
 | Przygotowanie do wysłania            | [Inspekcja plików BOM](#inspect-bom-during-prepare-to-ship) lub plików manifestu na urządzeniu                                      |
 | Przekazywanie danych na platformę Azure       | [Przeglądanie dzienników kopiowania](#review-copy-log-during-upload-to-azure) pod kątem błędów podczas przekazywania danych w centrum dane platformy Azure                         |
 | Dane wymazywane z urządzenia   | [Wyświetlanie łańcucha dzienników opieki](#get-chain-of-custody-logs-after-data-erasure) , w tym dzienników inspekcji i historii kolejności                |
@@ -64,7 +63,7 @@ Zamówienie można śledzić za pomocą Azure Portal oraz za pomocą witryny sie
 
 - Twoje urządzenie Data Box docierają do Twoich miejsc w stanie zablokowanym. Możesz użyć poświadczeń urządzenia dostępnych w Azure Portal zamówienia.  
 
-    Po skonfigurowaniu urządzenie Data Box może być konieczna informacja o tym, kto ma dostęp do poświadczeń urządzenia. Aby ustalić, kto uzyskał dostęp do bloku **poświadczenia urządzenia** , można wykonać zapytanie dotyczące dzienników aktywności.  Wszystkie akcje dotyczące uzyskiwania dostępu do **szczegółów urządzenia > bloku poświadczenia** są rejestrowane w dziennikach aktywności `ListCredentials` jako akcja.
+    Po skonfigurowaniu urządzenie Data Box może być konieczna informacja o tym, kto ma dostęp do poświadczeń urządzenia. Aby ustalić, kto uzyskał dostęp do bloku **poświadczenia urządzenia** , można wykonać zapytanie dotyczące dzienników aktywności.  Wszystkie akcje dotyczące uzyskiwania dostępu do **szczegółów urządzenia > bloku poświadczenia** są rejestrowane w dziennikach aktywności jako `ListCredentials` Akcja.
 
     ![Wykonywanie zapytań dotyczących dzienników aktywności](media/data-box-logs/query-activity-log-1.png)
 
@@ -74,14 +73,14 @@ Zamówienie można śledzić za pomocą Azure Portal oraz za pomocą witryny sie
 
 Podczas kopiowania danych do urządzenie Data Box lub Data Box Heavy, generowany jest plik błędu w przypadku problemów z kopiowanymi danymi.
 
-### <a name="errorxml-file"></a>Error. xml — plik
+### <a name="errorxml-file"></a>Plik Error.xml
 
 Upewnij się, że zadania kopiowania zakończyły się bez błędów. Jeśli wystąpią błędy podczas procesu kopiowania, Pobierz dzienniki ze strony **Połącz i Kopiuj** .
 
 - Jeśli skopiowano plik, który nie jest 512 bajtów wyrównany do folderu dysku zarządzanego na urządzenie Data Box, plik nie zostanie przekazany jako obiekt BLOB strony do konta magazynu tymczasowego. W dziennikach zostanie wyświetlony komunikat o błędzie. Usuń plik i skopiuj plik o 512 bajtów wyrównanych.
 - W przypadku skopiowania dysku VHDX lub dynamicznego dysku VHD lub różnicowego dysku VHD (te pliki nie są obsługiwane) w dziennikach zostanie wyświetlony komunikat o błędzie.
 
-Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do dysków zarządzanych.
+Oto przykład *error.xml* różnych błędów podczas kopiowania na dyski zarządzane.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +89,7 @@ Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do dysk�
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do stronicowych obiektów BLOB.
+Oto przykład *error.xml* różnych błędów podczas kopiowania do stronicowych obiektów BLOB.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +100,7 @@ Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do stron
 ```
 
 
-Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do blokowych obiektów BLOB.
+Oto przykład *error.xml* różnych błędów podczas kopiowania do blokowych obiektów BLOB.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +128,7 @@ Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do bloko
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Oto przykład *błędu. XML* dla różnych błędów podczas kopiowania do Azure Files.
+Oto przykład *error.xml* różnych błędów podczas kopiowania do Azure Files.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -203,7 +202,7 @@ Dla każdego przetwarzanego zamówienia usługa urządzenie Data Box tworzy dzie
 
 Obliczenia cyklicznej kontroli nadmiarowości (CRC) są wykonywane podczas przekazywania do platformy Azure. CRCs z kopii danych i po przekazaniu danych. Niezgodność CRC wskazuje, że nie powiodło się przekazanie odpowiednich plików.
 
-Domyślnie dzienniki są zapisywane do kontenera o nazwie `copylog`. Dzienniki są przechowywane z następującą konwencją nazewnictwa:
+Domyślnie dzienniki są zapisywane do kontenera o nazwie `copylog` . Dzienniki są przechowywane z następującą konwencją nazewnictwa:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -270,7 +269,7 @@ Nowe unikatowe nazwy kontenerów są w formacie `DataBox-GUID` , a dane dla kont
 
 Poniżej znajduje się przykład dziennika kopiowania, w którym zmieniono nazwy obiektów blob lub plików, które nie są zgodne z konwencjami nazewnictwa platformy Azure, podczas przekazywania danych na platformę Azure. Nowe obiekty blob lub nazwy plików są konwertowane na SHA256 Digest ścieżki względnej do kontenera i są przekazywane do ścieżki na podstawie typu docelowego. Miejscem docelowym może być blokowe obiekty blob, stronicowe obiekty blob lub Azure Files.
 
-`copylog` Określa stary i nowy obiekt BLOB lub nazwę pliku oraz ścieżkę na platformie Azure.
+`copylog`Określa stary i nowy obiekt BLOB lub nazwę pliku oraz ścieżkę na platformie Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">

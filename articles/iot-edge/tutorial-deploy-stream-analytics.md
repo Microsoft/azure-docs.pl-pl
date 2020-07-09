@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76906294"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220282"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Samouczek: wdrażanie Azure Stream Analytics jako modułu IoT Edge
 
@@ -60,7 +60,7 @@ W tej sekcji utworzysz zadanie Azure Stream Analytics, które wykona następują
 
 W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na urządzeniu usługi IoT Edge musi być ono przechowywane w sposób umożliwiający wywoływanie go z urządzenia. Możesz użyć istniejącego konta usługi Azure Storage lub utworzyć nowe konto.
 
-1. W Azure Portal przejdź do pozycji **Tworzenie zasobu magazynu zasobów** > **Storage** > **.**
+1. W Azure Portal przejdź do pozycji **Tworzenie zasobu magazynu zasobów**  >  **Storage**  >  **Storage account**.
 
 1. Podaj następujące wartości, aby utworzyć konto magazynu:
 
@@ -77,7 +77,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
 
 ### <a name="create-a-new-job"></a>Tworzenie nowego zadania
 
-1. W Azure Portal przejdź do pozycji **Tworzenie zasobu** > **Internet rzeczy** > **Stream Analytics zadanie**.
+1. W Azure Portal przejdź do pozycji **Tworzenie zasobu**  >  **Internet rzeczy**  >  **Stream Analytics zadanie**.
 
 1. Podaj następujące wartości, aby utworzyć zadanie:
 
@@ -89,7 +89,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Lokalizacja | Wybierz bliską lokalizację. |
    | Środowisko hostingu | Wybierz pozycję **Edge**. |
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-job"></a>Konfigurowanie zadania
 
@@ -169,7 +169,7 @@ W tym samouczku wdrażane są dwa moduły. Pierwszy to **SimulatedTemperatureSen
    1. Kliknij pozycję **Dodaj** i wybierz pozycję **Moduł usługi IoT Edge**.
    1. W polu Nazwa wpisz **SimulatedTemperatureSensor**.
    1. W polu Identyfikator URI obrazu wpisz **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**.
-   1. Pozostaw inne ustawienia bez zmian, a następnie wybierz pozycję **Zapisz**.
+   1. Pozostaw inne ustawienia bez zmian i wybierz pozycję **Dodaj**.
 
 1. Dodaj zadanie usługi Azure Stream Analytics dla usługi IoT Edge, wykonując następujące kroki:
 
@@ -187,11 +187,11 @@ W tym samouczku wdrażane są dwa moduły. Pierwszy to **SimulatedTemperatureSen
 
    Domyślnie moduł Stream Analytics ma taką samą nazwę jak zadanie, na podstawie którego bazuje. Możesz zmienić nazwę modułu na tej stronie, jeśli chcesz, ale nie jest to konieczne.
 
-1. Wybierz pozycję **Anuluj** lub **Zapisz**.
+1. Wybierz pozycję **Aktualizuj** lub **Anuluj**.
 
 1. Zanotuj nazwę modułu Stream Analytics, ponieważ będzie on potrzebny w następnym kroku, a następnie wybierz kolejno pozycje **Dalej: trasy** , aby kontynuować.
 
-1. Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Zastąp wartości `route` domyślne `upstream` i nazwy oraz z parami pokazanymi w poniższej tabeli, przy użyciu następujących par nazwa/wartość, zastępując wystąpienia elementu _{modulename}_ nazwą modułu Azure Stream Analytics.
+1. Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Zastąp `route` wartości domyślne i `upstream` nazwy oraz z parami pokazanymi w poniższej tabeli, przy użyciu następujących par nazwa/wartość, zastępując wystąpienia elementu _{ModuleName}_ nazwą modułu Azure Stream Analytics.
 
     | Nazwa | Wartość |
     | --- | --- |

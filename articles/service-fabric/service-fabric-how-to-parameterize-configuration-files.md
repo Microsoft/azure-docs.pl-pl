@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75644634"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Jak Sparametryzuj pliki konfiguracji w Service Fabric
@@ -20,7 +19,7 @@ W tym artykule opisano sposób Sparametryzuj pliku konfiguracji w Service Fabric
 
 W tym przykładzie zastąpisz wartość konfiguracji przy użyciu parametrów we wdrożeniu aplikacji.
 
-1. Otwórz plik *\packageroot\config\settings.XML usługi> w projekcie usługi. \<*
+1. Otwórz plik * \<MyService>\PackageRoot\Config\Settings.xml* w projekcie usługi.
 1. Ustaw nazwę i wartość parametru konfiguracji, na przykład rozmiar pamięci podręcznej równej 25, dodając następujący kod XML:
 
    ```xml
@@ -30,15 +29,15 @@ W tym przykładzie zastąpisz wartość konfiguracji przy użyciu parametrów we
    ```
 
 1. Zapisz i zamknij plik.
-1. Otwórz plik *\applicationpackageroot\applicationmanifest.XML aplikacji>. \<*
-1. W pliku ApplicationManifest. XML Zadeklaruj parametr i wartość domyślną w `Parameters` elemencie.  Zaleca się, aby nazwa parametru zawierała nazwę usługi (na przykład "Moja usługa").
+1. Otwórz plik * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* .
+1. W pliku ApplicationManifest.xml Zadeklaruj parametr i wartość domyślną w `Parameters` elemencie.  Zaleca się, aby nazwa parametru zawierała nazwę usługi (na przykład "Moja usługa").
 
    ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. W `ServiceManifestImport` sekcji pliku ApplicationManifest. XML Dodaj element `ConfigOverrides` i `ConfigOverride` , odwołując się do pakietu konfiguracyjnego, sekcji i parametru.
+1. W `ServiceManifestImport` sekcji pliku ApplicationManifest.xml Dodaj `ConfigOverrides` `ConfigOverride` element i, odwołując się do pakietu konfiguracyjnego, sekcji i parametru.
 
    ```xml
     <ConfigOverrides>

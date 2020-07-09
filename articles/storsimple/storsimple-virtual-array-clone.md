@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: af6e979c-55e3-477c-b53e-a76a697f80c9
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60580943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513636"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klonowanie z kopii zapasowej macierzy wirtualnej StorSimple
 
@@ -42,7 +42,7 @@ W tym artykule opisano krok po kroku, jak sklonować zestaw kopii zapasowych udz
    
    b.    Na wyświetlonej liście filtrowanych kopii zapasowych wybierz kopię zapasową do sklonowania.
    
-   d.    Kliknij przycisk **OK**.
+   c.    Kliknij przycisk **OK**.
    
    ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. W bloku **klonowania** kliknij pozycję **ustawienia docelowe** , a następnie wykonaj następujące czynności:
@@ -51,7 +51,7 @@ W tym artykule opisano krok po kroku, jak sklonować zestaw kopii zapasowych udz
    
    b.    Opcjonalnie podaj opis sklonowanego udziału.
    
-   d.    Nie można zmienić typu udziału, do którego przywracasz. Udział warstwowy jest sklonowany jako warstwowy i przypięty lokalnie jako przypięty lokalnie.
+   c.    Nie można zmienić typu udziału, do którego przywracasz. Udział warstwowy jest sklonowany jako warstwowy i przypięty lokalnie jako przypięty lokalnie.
    
    d.    Pojemność jest ustawiana jako równa rozmiarowi udziału, z którego są klonowane.
    
@@ -82,7 +82,7 @@ Aby sklonować z kopii zapasowej, w Azure Portal należy wykonać kroki podobne 
    
    b.    Na wyświetlonej liście filtrowanych kopii zapasowych wybierz kopię zapasową do sklonowania.
    
-   d.    Kliknij przycisk **OK**.
+   c.    Kliknij przycisk **OK**.
    
    ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. W bloku **klonowania** kliknij pozycję **Ustawienia woluminu docelowego** , a następnie wykonaj następujące czynności:
@@ -91,12 +91,12 @@ Aby sklonować z kopii zapasowej, w Azure Portal należy wykonać kroki podobne 
    
    b. Podaj nazwę woluminu **sklonowanego woluminu**. Nazwa woluminu musi zawierać od 3 do 127 znaków.
    
-   d. Typ woluminu jest automatycznie ustawiany na oryginalny wolumin. Wolumin warstwowy jest sklonowany jako warstwowy i wolumin przypięty lokalnie jako przypięty lokalnie.
+   c. Typ woluminu jest automatycznie ustawiany na oryginalny wolumin. Wolumin warstwowy jest sklonowany jako warstwowy i wolumin przypięty lokalnie jako przypięty lokalnie.
    
    d. W przypadku **podłączonych hostów**kliknij przycisk **Wybierz**.
    
    ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume4.png)
-4. W bloku **połączone hosty** wybierz jedną z istniejących ACR lub Dodaj nową ACR. Aby dodać nowy ACR, należy podać nazwę ACR i IQN hosta. Kliknij przycisk **Wybierz**.
+4. W bloku **połączone hosty** wybierz jedną z istniejących ACR lub Dodaj nową ACR. Aby dodać nowy ACR, należy podać nazwę ACR i IQN hosta. Kliknij pozycję **Wybierz**.
    
    ![Klonowanie kopii zapasowej](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Kliknij przycisk **Klonuj** , aby uruchomić zadanie klonowania.
@@ -124,7 +124,7 @@ Każdy udział ma folder *kopie zapasowe* , który zawiera najnowsze kopie zapas
    
    Pięć ostatnich kopii zapasowych jest wyświetlanych w ten sposób i można go użyć do przeprowadzenia odzyskiwania na poziomie elementu. Pięć najnowszych kopii zapasowych obejmuje zarówno domyślne zaplanowane, jak i ręczne kopie zapasowe.
    
-   * **Zaplanowane kopie zapasowe** nazwane &lt;jako&gt;nazwa urządzenia DAILYSCHEDULE-RRRRMMDD-HHMMSS-UTC.
+   * **Zaplanowane kopie zapasowe** nazwane jako &lt; Nazwa urządzenia &gt; DAILYSCHEDULE-RRRRMMDD-HHMMSS-UTC.
    * **Ręczne kopie zapasowe** o nazwie ad-hoc-RRRRMMDD-HHMMSS-UTC.
      
      ![](./media/storsimple-virtual-array-clone/image14.png)

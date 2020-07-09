@@ -13,10 +13,9 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991505"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Przenoszenie danych z lokalnej bazy danych Cassandra przy użyciu Azure Data Factory
@@ -63,9 +62,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla Cassandra połączonej usługi.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **OnPremisesCassandra** |Tak |
+| typ |Właściwość Type musi mieć wartość: **OnPremisesCassandra** |Tak |
 | host |Co najmniej jeden adres IP lub nazwa hosta serwerów Cassandra.<br/><br/>Określ rozdzieloną przecinkami listę adresów IP lub nazw hostów, które mają być połączone jednocześnie ze wszystkimi serwerami. |Tak |
 | port |Port TCP, którego serwer Cassandra używa do nasłuchiwania połączeń klientów. |Nie, wartość domyślna: 9042 |
 | authenticationType |Podstawowa lub anonimowa |Tak |
@@ -82,7 +81,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja typeProperties zestawu danych typu **CassandraTable** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | przestrzeń kluczy |Nazwa przestrzeni kluczy lub schematu w bazie danych Cassandra. |Tak (jeśli nie zdefiniowano **kwerendy** dla **CassandraSource** ). |
 | tableName |Nazwa tabeli w bazie danych Cassandra. |Tak (jeśli nie zdefiniowano **kwerendy** dla **CassandraSource** ). |
@@ -94,7 +93,7 @@ Natomiast właściwości dostępne w sekcji typeProperties działania różnią 
 
 Jeśli źródło jest typu **CassandraSource**, w sekcji typeProperties są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | query |Użyj zapytania niestandardowego do odczytywania danych. |Zapytanie SQL-92 zapytania lub CQL. Zobacz [CQL Reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>W przypadku korzystania z zapytania SQL określ **nazwę przestrzeni kluczy. nazwa tabeli** do reprezentowania tabeli, którą chcesz zbadać. |Nie (Jeśli określono element TableName i przestrzeń kluczy w zestawie danych). |
 | consistencyLevel |Poziom spójności określa, ile replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określoną liczbę replik dla danych, aby spełnić żądanie odczytu. |JEDEN, DWA, TRZY, KWORUM, WSZYSTKIE, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie spójności danych](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) . |Nie. Wartość domyślna to 1. |
@@ -261,20 +260,20 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) , aby u
 ### <a name="type-mapping-for-cassandra"></a>Mapowanie typu dla Cassandra
 | Typ Cassandra | Typ oparty na platformie .NET |
 | --- | --- |
-| ASCII |Ciąg |
+| ASCII |String |
 | BIGINT |Int64 |
 | TWORZENIA |Byte [] |
-| TYPU |Wartość logiczna |
+| TYPU |Boolean |
 | DOKŁADNOŚCI |Wartość dziesiętna |
 | DOUBLE |Double |
-| FLOAT |Single |
-| INET |Ciąg |
+| FLOAT |Pojedyncze |
+| INET |String |
 | INT |Int32 |
-| TEKST |Ciąg |
+| TEKST |String |
 | ZNACZNIK czasu |DateTime |
 | TIMEUUID |Guid (identyfikator GUID) |
 | INTERFEJSU |Guid (identyfikator GUID) |
-| VARCHAR |Ciąg |
+| VARCHAR |String |
 | VARINT |Wartość dziesiętna |
 
 > [!NOTE]
@@ -299,7 +298,7 @@ Tabele wirtualne odwołują się do danych w rzeczywistej tabeli, umożliwiając
 ### <a name="example"></a>Przykład
 Na przykład następująca "przykładowy" jest tabelą bazy danych Cassandra, która zawiera kolumnę klucza podstawowego Integer o nazwie "pk_int", kolumna tekstowa o nazwie Value, kolumnie listy, kolumnie mapy i kolumnie zestawu (o nazwie "StringSet").
 
-| pk_int | Wartość | List | Mapa | StringSet |
+| pk_int | Wartość | Lista | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"przykładowa wartość 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"przykładowa wartość 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

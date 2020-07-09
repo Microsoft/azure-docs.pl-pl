@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594801"
 ---
 # <a name="scaling-hpc-applications"></a>Skalowanie aplikacji HPC
@@ -33,11 +33,11 @@ Kompilator AMD optymalizujący kompilator C/C++ (AOCC) oferuje wysoki poziom zaa
 
 ### <a name="clang"></a>Clang
 
-Clang to język C, C++ i zamierzenie obsługujący przetwarzanie wstępne, analizowanie, optymalizacja, generowanie kodu, zestaw i łączenie. Clang obsługuje flagę, `-march=znver1` aby umożliwić optymalne generowanie kodu i dostrajanie dla architektury x86 opartych na architekturze AMD Zen.
+Clang to język C, C++ i zamierzenie obsługujący przetwarzanie wstępne, analizowanie, optymalizacja, generowanie kodu, zestaw i łączenie. Clang obsługuje `-march=znver1` flagę, aby umożliwić optymalne generowanie kodu i dostrajanie dla architektury x86 opartych na architekturze AMD Zen.
 
 ### <a name="flang"></a>FLANG
 
-Kompilator FLANG jest ostatnim dodatkiem do pakietu AOCC (dodano 2018 kwietnia) i jest obecnie w wersji wstępnej dla deweloperów do pobrania i przetestowania. W oparciu o Pascal 2008, AMD rozszerza wersję usługi GitHub FLANG (https://github.com/flang-compiler/flang). Kompilator FLANG obsługuje wszystkie opcje kompilatora Clang i dodatkową liczbę opcji kompilatora specyficznych dla FLANG.
+Kompilator FLANG jest ostatnim dodatkiem do pakietu AOCC (dodano 2018 kwietnia) i jest obecnie w wersji wstępnej dla deweloperów do pobrania i przetestowania. W oparciu o Pascal 2008, AMD rozszerza wersję usługi GitHub FLANG ( https://github.com/flang-compiler/flang) . Kompilator FLANG obsługuje wszystkie opcje kompilatora Clang i dodatkową liczbę opcji kompilatora specyficznych dla FLANG.
 
 ### <a name="dragonegg"></a>DragonEgg
 

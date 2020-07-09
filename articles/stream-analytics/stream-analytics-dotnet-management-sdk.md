@@ -5,15 +5,15 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 52800f52e72e4aabcc8f6ebc733443615607f3a3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835499"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043448"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Zestaw SDK zarządzania .NET: Konfigurowanie i uruchamianie zadań analitycznych za pomocą interfejsu API Azure Stream Analytics dla platformy .NET
 Informacje na temat konfigurowania i uruchamiania zadań analitycznych przy użyciu interfejsu API Stream Analytics dla platformy .NET przy użyciu zestawu .NET SDK zarządzania. Skonfiguruj projekt, twórz źródła danych wejściowych i wyjściowych, przekształcenia oraz zadania uruchamiania i zatrzymywania. W przypadku zadań analitycznych można przesyłać strumieniowo dane z magazynu obiektów blob lub z centrum zdarzeń.
@@ -59,7 +59,7 @@ Aby utworzyć zadanie analizy, użyj interfejsu API Stream Analytics dla platfor
    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
    ```
 
-3. Dodaj następującą sekcję **AppSettings** do pliku App. config:
+3. Dodaj następującą sekcję **AppSettings** do pliku App.config:
    
    ```powershell
    <appSettings>
@@ -212,7 +212,7 @@ Metoda **TestConnection** testuje, czy zadanie Stream Analytics może nawiązać
 ## <a name="create-a-stream-analytics-output-target"></a>Tworzenie elementu docelowego danych wyjściowych Stream Analytics
 Tworzenie elementu docelowego danych wyjściowych jest podobne do tworzenia źródła danych wejściowych Stream Analytics. Podobnie jak źródła wejściowe, cele wyjściowe są powiązane z konkretnym zadaniem. Aby użyć tego samego elementu docelowego danych wyjściowych dla różnych zadań, należy wywołać metodę ponownie i określić inną nazwę zadania.
 
-Poniższy kod tworzy docelowy wynik (baza danych Azure SQL Database). Można dostosować typ danych docelowego wyjścia i/lub typ serializacji.
+Poniższy kod tworzy miejsce docelowe danych wyjściowych (Azure SQL Database). Można dostosować typ danych docelowego wyjścia i/lub typ serializacji.
 
    ```csharp
    // Create an output

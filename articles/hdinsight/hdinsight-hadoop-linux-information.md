@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 252467a22ba37352cee4c3e7bffcf1ff910c86ba
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835448"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85961816"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -40,13 +40,17 @@ W pełni kwalifikowana nazwa domeny (FQDN) do użycia podczas nawiązywania poł
 
 Wewnętrznie każdy węzeł w klastrze ma nazwę, która jest przypisana podczas konfiguracji klastra. Aby znaleźć nazwy klastrów, zobacz stronę **hosty** w interfejsie użytkownika sieci Web Ambari. Aby zwrócić listę hostów z interfejsu API REST Ambari, można również użyć następujących elementów:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```
 
 Zastąp ciąg `CLUSTERNAME` nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta administratora. To polecenie zwraca dokument JSON zawierający listę hostów w klastrze. [JQ](https://stedolan.github.io/jq/) służy do wyodrębniania `host_name` wartości elementu dla każdego hosta.
 
 Jeśli konieczne jest znalezienie nazwy węzła dla określonej usługi, można zbadać Ambari dla tego składnika. Na przykład aby znaleźć hosty dla węzła nazwa systemu plików HDFS, użyj następującego polecenia:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```
 
 To polecenie zwraca dokument JSON opisujący usługę, a następnie [JQ](https://stedolan.github.io/jq/) pobiera tylko `host_name` wartość dla hostów.
 
@@ -107,7 +111,9 @@ Aby uzyskać więcej informacji, zobacz [Omówienie obiektów BLOB](https://docs
 
 W przypadku korzystania z usługi Azure Storage lub Data Lake Storage nie trzeba wykonywać żadnych specjalnych działań w usłudze HDInsight, aby uzyskiwać dostęp do danych. Na przykład następujące polecenie wyświetla listę plików w folderze, niezależnie od tego, `/example/data` czy są one przechowywane w usłudze Azure Storage, czy Data Lake Storage:
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 W usłudze HDInsight zasoby magazynu danych (Azure Blob Storage i Azure Data Lake Storage) są rozłączone od zasobów obliczeniowych. Można utworzyć klastry usługi HDInsight w celu wykonywania obliczeń w miarę potrzeb, a następnie usunąć klaster po zakończeniu pracy. W ten sposób pliki danych są bezpiecznie przechowywane w magazynie w chmurze, o ile jest to konieczne.
 

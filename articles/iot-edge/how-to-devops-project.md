@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82130993"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Utwórz potok ciągłej integracji/ciągłego wdrażania dla IoT Edge z Azure DevOps Projects
@@ -28,11 +28,11 @@ Usługa DevOps Projects tworzy potok ciągłej integracji/ciągłego wdrażania 
 
 1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**, a następnie wyszukaj pozycję **DevOps Projects**.  
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-new-application-pipeline"></a>Tworzenie nowego potoku aplikacji
 
-1. Moduły Azure IoT Edge można napisać w [językach C#](tutorial-csharp-module.md), [Node. js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) i [Java](tutorial-java-module.md). Wybierz preferowany język, aby rozpocząć nową aplikację: **.NET**, **Node. js**, **Python**, **C**lub **Java**. Wybierz przycisk **Dalej**, aby kontynuować.
+1. Moduły Azure IoT Edge można napisać w [językach C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) i [Java](tutorial-java-module.md). Wybierz preferowany język, aby rozpocząć nową aplikację: **.NET**, **Node.js**, **Python**, **C**lub **Java**. Wybierz przycisk **Dalej**, aby kontynuować.
 
    ![Wybierz język, aby utworzyć nową aplikację](./media/how-to-devops-project/select-language.png)
 
@@ -76,9 +76,9 @@ DevOps Projects utworzyć repozytorium git dla projektu w Azure Repos. W tej sek
 
 2. Poniższe kroki umożliwiają wprowadzenie zmian w kodzie przy użyciu przeglądarki sieci Web. Jeśli chcesz sklonować repozytorium lokalnie, wybierz pozycję **Klonuj** w prawym górnym rogu okna. Użyj podanego adresu URL, aby sklonować repozytorium Git w Visual Studio Code lub preferowanym narzędziu programistycznym.
 
-3. Repozytorium zawiera już kod dla modułu o nazwie **FilterModule** na podstawie języka aplikacji wybranego w procesie tworzenia. Otwórz plik **modułów/FilterModule/module. JSON** .
+3. Repozytorium zawiera już kod dla modułu o nazwie **FilterModule** na podstawie języka aplikacji wybranego w procesie tworzenia. Otwórz plik **modules/FilterModule/module.jsw** pliku.
 
-   ![Otwórz plik module. JSON w Azure Repos](./media/how-to-devops-project/open-module-json.png)
+   ![Otwórz module.jsw pliku w Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
 4. Zwróć uwagę, że ten plik używa [zmiennych kompilacji usługi Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) w parametrze **Version** . Ta konfiguracja zapewnia, że nowa wersja modułu zostanie utworzona za każdym razem, gdy zostanie uruchomiona nowa kompilacja.
 
@@ -90,7 +90,7 @@ W poprzednich sekcjach Azure DevOps Projects automatycznie konfigurować pełny 
 
    ![Wyświetlanie potoków kompilacji w Azure Pipelines](./media/how-to-devops-project/view-build-pipelines.png)
 
-2. Wybierz pozycję **Edit** (Edytuj).
+2. Wybierz pozycję **Edytuj**.
 
     ![Edytuj potok kompilacji](media/how-to-devops-project/click-edit-button.png)
 
@@ -124,7 +124,7 @@ W poprzednich sekcjach Azure DevOps Projects automatycznie konfigurować pełny 
 
 14. Wybierz nazwę wydania, aby wyświetlić więcej informacji na jego temat.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy usługa Azure App Service i inne utworzone powiązane zasoby nie będą już potrzebne, możesz je usunąć. Użyj funkcji **Usuń** na pulpicie nawigacyjnym usługi DevOps Projects.
 

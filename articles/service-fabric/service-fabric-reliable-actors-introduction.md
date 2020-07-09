@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645569"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Wprowadzenie do Service Fabric Reliable Actors
@@ -92,7 +91,7 @@ myActor.DoWorkAsync().get();
 
 Należy zauważyć, że dwie części informacji użytych do utworzenia obiektu serwera proxy aktora są IDENTYFIKATORem aktora i nazwą aplikacji. Identyfikator aktora jednoznacznie identyfikuje aktora, podczas gdy nazwa aplikacji identyfikuje [Service Fabric aplikację](service-fabric-reliable-actors-platform.md#application-model) , w której jest wdrażany aktor.
 
-Klasa `ActorProxy`(C#)/ `ActorProxyBase`(Java) po stronie klienta wykonuje niezbędne rozwiązanie do lokalizowania aktora według identyfikatora i otwierania kanału komunikacyjnego z nim. Ponawia również próbę zlokalizowania aktora w przypadku awarii komunikacji i trybu failover. W związku z tym dostarczanie komunikatów ma następujące cechy:
+`ActorProxy`Klasa (C#)/ `ActorProxyBase` (Java) po stronie klienta wykonuje niezbędne rozwiązanie do lokalizowania aktora według identyfikatora i otwierania kanału komunikacyjnego z nim. Ponawia również próbę zlokalizowania aktora w przypadku awarii komunikacji i trybu failover. W związku z tym dostarczanie komunikatów ma następujące cechy:
 
 * Dostarczanie komunikatów jest najlepszym rozwiązaniem.
 * Aktory mogą odbierać duplikaty komunikatów z tego samego klienta.
@@ -126,7 +125,7 @@ Niektóre ważne kwestie, które należy wziąć pod uwagę:
 * Podczas gdy *Metoda1* jest wykonywane w imieniu *ActorId2* w odpowiedzi na żądanie klienta *xyz789*, dociera inne żądanie klienta (*abc123*), które również wymaga, aby *Metoda1* zostało wykonane przez *ActorId2*. Jednak drugie wykonanie *Metoda1* nie rozpocznie się, dopóki nie zakończy się poprzednie wykonanie. Podobnie przypomnienie zarejestrowane przez *ActorId2* jest wyzwalane, podczas gdy *Metoda1* jest wykonywane w odpowiedzi na żądanie klienta *xyz789*. Wywołanie zwrotne przypomnienia jest wykonywane tylko po zakończeniu obu wykonań *Metoda1* . Wszystko to jest spowodowane wymuszaniem współbieżności opartej na przewróceniu dla *ActorId2*.
 * Analogicznie współbieżność oparta na włączeniu jest również wymuszana dla *ActorId1*, jak pokazano w wyniku wykonania *Metoda1*, *Method2*i wywołania zwrotnego czasomierza w imieniu *ActorId1* , w sposób szeregowy.
 * Wykonywanie *Metoda1* w imieniu *ActorId1* pokrywa się z jego wykonywaniem w imieniu *ActorId2*. Dzieje się tak, ponieważ współbieżność oparta na włączeniu jest wymuszana tylko w obrębie aktora, a nie między aktorami.
-* W przypadku niektórych metod/wykonań wywołania zwrotnego `Task`(C#)/ `CompletableFuture`(Java) zwracanych przez metodę/wywołanie zwrotne po powrocie metody. W niektórych innych, operacja asynchroniczna została już zakończona przez czas, przez który zwraca metodę/wywołanie zwrotne. W obu przypadkach blokada dla aktora jest wydawana tylko po powrocie metody/wywołania zwrotnego i zakończenia operacji asynchronicznej.
+* W przypadku niektórych metod/wykonań wywołania zwrotnego `Task` (C#)/ `CompletableFuture` (Java) zwracanych przez metodę/wywołanie zwrotne po powrocie metody. W niektórych innych, operacja asynchroniczna została już zakończona przez czas, przez który zwraca metodę/wywołanie zwrotne. W obu przypadkach blokada dla aktora jest wydawana tylko po powrocie metody/wywołania zwrotnego i zakończenia operacji asynchronicznej.
 
 ### <a name="reentrancy"></a>Ponowne wejścia
 Środowisko uruchomieniowe aktorów domyślnie zezwala na współużytkowania wątkowości. Oznacza to, że jeśli *obiekt aktora wywołuje metodę* w *aktorze B*, która z kolei wywołuje inną metodę w *aktorze a*, ta metoda może być uruchomiona. Jest to spowodowane tym, że jest to część tego samego kontekstu logicznego łańcucha wywołań. Wszystkie wywołania czasomierza i przypomnienia zaczynają się od nowego kontekstu wywołania logicznego. Aby uzyskać więcej informacji, zobacz [Reliable Actors współużytkowania wątkowości](service-fabric-reliable-actors-reentrancy.md) .

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 07/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9550684ad154f28a02ee347fd0a79c1ec286beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382198"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024081"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection — Omówienie zabezpieczeń
 
@@ -56,7 +56,7 @@ Na kafelku "niechronione ryzykowne logowania" jest wyświetlana liczba udanych i
 
 ### <a name="legacy-authentication"></a>Starsza wersja uwierzytelniania
 
-Kafelek "starsze uwierzytelnianie" pokazuje liczbę starszych uwierzytelnień w organizacji w ostatnim tygodniu. Starsze protokoły uwierzytelniania nie obsługują nowoczesnych metod zabezpieczeń, takich jak MFA. Aby uniemożliwić starsze uwierzytelnianie, można zastosować zasady dostępu warunkowego. Kliknięcie kafelka "Starsza wersja" spowoduje przekierowanie do "" bezpiecznej oceny tożsamości ".
+Kafelek "starsze uwierzytelnianie" pokazuje liczbę starszych uwierzytelnień z ryzykiem obecnym w organizacji. Starsze protokoły uwierzytelniania nie obsługują nowoczesnych metod zabezpieczeń, takich jak MFA. Aby uniemożliwić starsze uwierzytelnianie, można zastosować zasady dostępu warunkowego. Kliknięcie kafelka "Starsza wersja" spowoduje przekierowanie do "" bezpiecznej oceny tożsamości ".
 
 ### <a name="identity-secure-score"></a>Ocena bezpiecznego tożsamości
 

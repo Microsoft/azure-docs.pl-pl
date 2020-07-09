@@ -10,10 +10,9 @@ ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 68b5aa21f861009dd78f48428fa0ffdc5b5ae3a3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124874"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zarządzanie zestawem skalowania maszyn wirtualnych za pomocą Azure PowerShell

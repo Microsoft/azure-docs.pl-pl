@@ -1,51 +1,52 @@
 ---
-title: Azure Arc — Omówienie Kubernetes
+title: Omówienie Kubernetes z funkcją Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
-description: ''
+description: Ten artykuł zawiera omówienie Kubernetes z funkcją Azure Arc.
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 3b3b184ff7b18e05dfeb1052c0d6b4aa406a8787
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: references_regions
+ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666258"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309938"
 ---
-# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Co to jest usługa Azure Arc w Kubernetes (wersja zapoznawcza)
+# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Co to jest usługa Azure Arc — wersja zapoznawcza Kubernetes?
 
-Możesz dołączać i konfigurować klastry Kubernetes wewnątrz lub na zewnątrz platformy Azure przy użyciu usługi Azure Arc Kubernetes (wersja zapoznawcza). Po dołączeniu klastra Kubernetes do usługi Azure Arc zostanie on wyświetlony w witrynie Azure Portal, mieć identyfikator Azure Resource Manager i zarządzaną tożsamość. Klastry są dołączone do standardowych subskrypcji platformy Azure, na żywo w grupie zasobów i mogą otrzymywać Tagi podobne do innych zasobów platformy Azure. 
+Możesz dołączać i konfigurować klastry Kubernetes wewnątrz lub na zewnątrz platformy Azure przy użyciu usługi Azure Arc w wersji zapoznawczej. Po dołączeniu klastra Kubernetes do usługi Azure Arc zostanie on wyświetlony w Azure Portal. Będzie on miał identyfikator Azure Resource Manager i zarządzaną tożsamość. Klastry są dołączone do standardowych subskrypcji platformy Azure, znajdują się w grupie zasobów i mogą odbierać Tagi tak samo jak każdy inny zasób platformy Azure. 
 
+Aby połączyć klaster Kubernetes z platformą Azure, administrator klastra musi wdrożyć agentów. Ci agenci działają w przestrzeni nazw Kubernetes o nazwie `azure-arc` i są wdrożeniami Standard Kubernetes. Agenci są odpowiedzialni za łączność z platformą Azure, zbieranie dzienników i metryk usługi Azure ARC oraz monitorowanie żądań konfiguracji. 
 
-Połączenie klastra Kubernetes z platformą Azure wymaga od administratora klastra wdrożenia agentów. Ci agenci działają w przestrzeni nazw Kubernetes o nazwie `azure-arc` i są wdrożeniami Standard Kubernetes. Agenci są odpowiedzialni za łączność z platformą Azure, zbieranie dzienników i metryk usługi Azure ARC oraz monitorowanie żądań konfiguracji.  
+Usługa Azure Arc Kubernetes obsługuje standardową branżę protokołu SSL w celu zabezpieczania danych podczas przesyłania. Ponadto dane są przechowywane w postaci zaszyfrowanej w bazie danych Azure Cosmos DB, aby zapewnić poufność danych.
  
  > [!NOTE]
-> Usługa Azure ARC z włączonym Kubernetes jest dostępna w wersji zapoznawczej i nie jest zalecana w przypadku obciążeń produkcyjnych. 
+> Kubernetes z funkcją Azure Arc jest w wersji zapoznawczej. Nie jest to zalecane w przypadku obciążeń produkcyjnych. 
 
 
-## <a name="supported-scenarios"></a>Scenariusze obsługiwane 
+## <a name="supported-scenarios"></a>Obsługiwane scenariusze 
 
-Usługa Azure ARC z włączonym Kubernetes obsługuje następujące scenariusze: 
+Usługa Azure Arc w Kubernetes obsługuje następujące scenariusze: 
 
-* Łączenie Kubernetes działających poza platformą Azure na potrzeby spisu, grupowania i tagowania 
+* Połącz Kubernetes uruchomione poza platformą Azure w celu spisu, grupowania i tagowania.
 
-* Wdrażanie aplikacji i stosowanie konfiguracji przy użyciu funkcji zarządzania konfiguracją opartą na GitOps 
+* Wdrażaj aplikacje i stosuj konfigurację przy użyciu funkcji zarządzania konfiguracją opartą na GitOps. 
 
-* Używanie Azure Monitor do kontenerów do wyświetlania i monitorowania klastrów 
+* Użyj Azure Monitor dla kontenerów do wyświetlania i monitorowania klastrów. 
 
-* Stosowanie zasad przy użyciu Azure Policy dla Kubernetes 
+* Stosowanie zasad przy użyciu Azure Policy dla Kubernetes. 
 
  
-## <a name="supported-regions"></a> Obsługiwane regiony 
+## <a name="supported-regions"></a>Obsługiwane regiony 
 
-Usługa Azure ARC z włączonym Kubernetes jest obecnie obsługiwana w następujących regionach: 
+Usługa Azure Kubernetes z włączoną obsługą Arc jest obecnie obsługiwana w następujących regionach: 
 
 * Wschodnie stany USA 
 * Europa Zachodnia 
-
 
 ## <a name="next-steps"></a>Następne kroki
 

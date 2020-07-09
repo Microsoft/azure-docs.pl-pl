@@ -6,12 +6,11 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945466"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84484346"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Uwierzytelnianie chmury Azure wiosennej za pomocą Key Vault w akcjach GitHub
 Magazyn kluczy jest bezpiecznym miejscem do przechowywania kluczy. Użytkownicy przedsiębiorstwa muszą przechowywać poświadczenia dla środowisk CI/CD w zakresie, który kontroluje. Klucz pobierania poświadczeń w magazynie kluczy powinien być ograniczony do zakresu zasobów.  Ma dostęp tylko do zakresu magazynu kluczy, a nie całego zakresu platformy Azure. Jest to klucz, który może jedynie otworzyć silne pole nie jest kluczem głównym, który może otwierać wszystkie drzwi w budynku. Jest to sposób, aby uzyskać klucz z innym kluczem, który jest przydatny w przepływie pracy CICD. 
@@ -42,13 +41,13 @@ Następnie Zapisz wyniki do wpisów **tajnych** usługi GitHub zgodnie z opisem 
 ## <a name="add-access-policies-for-the-credential"></a>Dodawanie zasad dostępu dla poświadczeń
 Utworzone powyżej poświadczenia mogą uzyskać tylko ogólne informacje dotyczące Key Vault, a nie zawartości przechowywanej przez nią.  Aby uzyskać wpisy tajne przechowywane w Key Vault, należy ustawić zasady dostępu dla poświadczenia.
 
-Przejdź do pulpitu nawigacyjnego **Key Vault** w Azure Portal, kliknij **menu kontrola dostępu** , a następnie otwórz kartę **przypisania ról** . Wybierz **aplikacje** dla **typu** i `This resource` dla **zakresu**.  Powinno zostać wyświetlone poświadczenie utworzone w poprzednim kroku:
+Przejdź do pulpitu nawigacyjnego **Key Vault** w Azure Portal, kliknij menu **Kontrola dostępu** , a następnie otwórz kartę **przypisania ról** . Wybierz **aplikacje** dla **typu** i `This resource` dla **zakresu**.  Powinno zostać wyświetlone poświadczenie utworzone w poprzednim kroku:
 
  ![Ustawianie zasad dostępu](./media/github-actions/key-vault1.png)
 
-Skopiuj nazwę poświadczenia, na przykład `azure-cli-2020-01-19-04-39-02`. Otwórz menu **zasady dostępu** , a następnie kliknij pozycję **+ Dodaj zasady dostępu** .  Wybierz `Secret Management` pozycję dla **szablonu**, a następnie wybierz pozycję **podmiot zabezpieczeń**. Wklej nazwę poświadczenia w polu wejściowym**SELECT** **Principal**/:
+Skopiuj nazwę poświadczenia, na przykład `azure-cli-2020-01-19-04-39-02` . Otwórz menu **zasady dostępu** , a następnie kliknij pozycję **+ Dodaj zasady dostępu** .  Wybierz pozycję `Secret Management` dla **szablonu**, a następnie wybierz pozycję **podmiot zabezpieczeń**. Wklej nazwę poświadczenia w **Principal** / polu wejściowym**SELECT** Principal:
 
- ![Wybierz](./media/github-actions/key-vault2.png)
+ ![Wybierz pozycję](./media/github-actions/key-vault2.png)
 
  Kliknij przycisk **Dodaj** w oknie dialogowym **Dodawanie zasad dostępu** , a następnie kliknij przycisk **Zapisz**.
 
@@ -73,7 +72,7 @@ Wyniki:
     "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-Skopiuj cały ciąg JSON.  Wróć do pulpitu nawigacyjnego **Key Vault** . Otwórz menu wpisy **tajne** , a następnie kliknij przycisk **Generuj/Importuj** . Wprowadź nazwę wpisu tajnego, na `AZURE-CRENDENTIALS-FOR-SPRING`przykład. Wklej ciąg poświadczeń JSON do pola wprowadzania **wartości** . Możesz zauważyć, że pole wprowadzania wartości jest jednowierszowym polem tekstowym, a nie w wielowierszowym obszarze tekstu.  Możesz wkleić pełny ciąg JSON.
+Skopiuj cały ciąg JSON.  Wróć do pulpitu nawigacyjnego **Key Vault** . Otwórz menu wpisy **tajne** , a następnie kliknij przycisk **Generuj/Importuj** . Wprowadź nazwę wpisu tajnego, na przykład `AZURE-CREDENTIALS-FOR-SPRING` . Wklej ciąg poświadczeń JSON do pola wprowadzania **wartości** . Możesz zauważyć, że pole wprowadzania wartości jest jednowierszowym polem tekstowym, a nie w wielowierszowym obszarze tekstu.  Możesz wkleić pełny ciąg JSON.
 
  ![Pełne poświadczenie zakresu](./media/github-actions/key-vault3.png)
 
@@ -92,7 +91,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}           # Strong box key you generated in the first step
     - uses: Azure/get-keyvault-secrets@v1.0
       with:
-        keyvault: "zlhe-test"
+        keyvault: "<Your Key Vault Name>"
         secrets: "AZURE-CREDENTIALS-FOR-SPRING"           # Master key to open all doors in the building
       id: keyvaultaction
     - uses: azure/login@v1

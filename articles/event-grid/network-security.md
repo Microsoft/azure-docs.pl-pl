@@ -1,35 +1,33 @@
 ---
 title: Zabezpieczenia sieciowe Azure Event Grid zasobów
 description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
-services: event-grid
 author: VidyaKukke
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857044"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119246"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
 
-- Tagi usług dla ruchu wychodzącego (wersja zapoznawcza)
+- Tagi usług dla ruchu wychodzącego
 - Reguły zapory IP dla ruchu przychodzącego (wersja zapoznawcza)
-- Prywatne punkty końcowe dla ruchu przychodzącego (wersja zapoznawcza)
+- Prywatne punkty końcowe dla ruchu przychodzącego
 
 
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Uwaga:* Ten tag obejmuje Azure Event Grid punkty końcowe w regionach Południowo-środkowe stany USA, Wschodnie stany USA 2, zachodnie stany USA 2 i stany USA. | Obie | Nie | Nie |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Azure Event Grid. | Obie | Nie | Nie |
 
 
 ## <a name="ip-firewall"></a>Zapora IP 
@@ -37,6 +35,7 @@ Azure Event Grid obsługuje kontrolę dostępu opartą na protokole IP do publik
 
 Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IP lub zakresów adresów IP w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony).
 
+Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania zapory IP dla tematów i domen, zobacz [Konfigurowanie zapory IP](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy jest specjalnym interfejsem sieciowym dla usługi platformy Azure w sieci wirtualnej. Gdy tworzysz prywatny punkt końcowy dla tematu lub domeny, zapewnia on bezpieczną łączność między klientami w sieci wirtualnej i zasobem Event Grid. Do prywatnego punktu końcowego jest przypisany adres IP z zakresu adresów IP sieci wirtualnej. Połączenie między prywatnym punktem końcowym a usługą Event Grid używa bezpiecznego linku prywatnego.
@@ -54,14 +53,14 @@ W przypadku tworzenia prywatnego punktu końcowego tematu lub domeny w sieci wir
 Wydawcy w sieci wirtualnej korzystającej z prywatnego punktu końcowego powinni używać tych samych parametrów połączenia dla tematu lub domeny, co w przypadku klientów nawiązujących połączenie z publicznym punktem końcowym. Funkcja rozpoznawania nazw DNS automatycznie kieruje połączenia z sieci wirtualnej do tematu lub domeny za pośrednictwem prywatnego linku. Event Grid domyślnie tworzy [prywatną strefę DNS](../dns/private-dns-overview.md) dołączoną do sieci wirtualnej z niezbędną aktualizacją prywatnych punktów końcowych. Jeśli jednak używasz własnego serwera DNS, może być konieczne wprowadzenie dodatkowych zmian w konfiguracji DNS.
 
 ### <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
-Podczas tworzenia prywatnego punktu końcowego rekord CNAME DNS dla zasobu zostanie zaktualizowany do aliasu w poddomenie z prefiksem `privatelink`. Domyślnie zostanie utworzona prywatna strefa DNS odpowiadająca poddomenie linku prywatnego. 
+Podczas tworzenia prywatnego punktu końcowego rekord CNAME DNS dla zasobu zostanie zaktualizowany do aliasu w poddomenie z prefiksem `privatelink` . Domyślnie zostanie utworzona prywatna strefa DNS odpowiadająca poddomenie linku prywatnego. 
 
 W przypadku rozwiązywania tematu lub adresu URL punktu końcowego domeny spoza sieci wirtualnej z prywatnym punktem końcowym jest on rozpoznawany jako publiczny punkt końcowy usługi. Rekordy zasobów DNS dla "tematu", po rozwiązaniu spoza sieci **wirtualnej** obsługującej prywatny punkt końcowy, będą:
 
 | Nazwa                                          | Typ      | Wartość                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profil usługi Azure Traffic Manager\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 Możesz odmówić dostępu do klienta lub kontrolować go poza siecią wirtualną za pośrednictwem publicznego punktu końcowego za pomocą [zapory IP](#ip-firewall). 
 
@@ -76,7 +75,7 @@ Takie podejście umożliwia dostęp do tematu lub domeny przy użyciu tych samyc
 
 Jeśli używasz niestandardowego serwera DNS w sieci, klienci mogą rozpoznać nazwę FQDN tematu lub domeny punktu końcowego jako adres IP prywatnego punktu końcowego. Skonfiguruj serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej lub skonfiguruj rekordy A dla `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` za pomocą prywatnego adresu IP punktu końcowego.
 
-Zalecaną nazwą strefy DNS jest `privatelink.eventgrid.azure.net`.
+Zalecaną nazwą strefy DNS jest `privatelink.eventgrid.azure.net` .
 
 ### <a name="private-endpoints-and-publishing"></a>Prywatne punkty końcowe i publikowanie
 
@@ -100,3 +99,5 @@ Funkcja **Zapora IP** jest dostępna w warstwach Podstawowa i Premium Event Grid
 Można skonfigurować zaporę IP dla zasobu Event Grid, aby ograniczyć dostęp za pośrednictwem publicznej sieci Internet tylko z poziomu wybranych adresów IP lub zakresów adresów IP. Aby uzyskać instrukcje krok po kroku, zobacz [Konfigurowanie zapory IP](configure-firewall.md).
 
 Można skonfigurować prywatne punkty końcowe, aby ograniczyć dostęp tylko z wybranych sieci wirtualnych. Aby uzyskać instrukcje krok po kroku, zobacz [Konfigurowanie prywatnych punktów końcowych](configure-private-endpoints.md).
+
+Aby rozwiązać problemy z łącznością sieciową, zobacz [Rozwiązywanie problemów z łącznością sieciową](troubleshoot-network-connectivity.md)

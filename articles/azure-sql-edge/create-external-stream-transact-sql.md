@@ -2,19 +2,18 @@
 title: TWORZENIE strumienia zewnętrznego (Transact-SQL) — Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej na temat instrukcji CREATE EXTERNAL STREAM w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: d4ad446d43c90eee1c48ee2ba94585242805fa7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: 9e1f672a62ee7687fec9cea96ca03240c893ba95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597933"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84233332"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
 

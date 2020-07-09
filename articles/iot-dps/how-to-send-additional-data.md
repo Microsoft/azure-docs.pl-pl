@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80246691"
 ---
 # <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Jak przenieść ładunek między urządzeniami i usługą DPS
@@ -54,7 +54,7 @@ Jeśli element webhook niestandardowych zasad alokacji chce zwrócić pewne dane
    ```
 
 ## <a name="sdk-support"></a>Obsługa zestawu SDK
-Ta funkcja jest dostępna w zestawach [SDK klienta](https://docs.microsoft.com/azure/iot-dps/)języka C, C#, Java i Node. js.  
+Ta funkcja jest dostępna w językach C, C#, JAVA i Node.js [Client SDK](https://docs.microsoft.com/azure/iot-dps/).  
 
 ## <a name="next-steps"></a>Następne kroki
 * Opracowywanie zawartości przy użyciu [zestawu Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) dla platformy Azure IoT Hub i platformy Azure IoT Hub Device Provisioning Service

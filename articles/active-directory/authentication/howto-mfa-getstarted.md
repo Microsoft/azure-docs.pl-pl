@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83757608"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure Multi-Factor Authentication
@@ -92,7 +91,7 @@ Zalecamy, aby organizacje używały dostępu warunkowego do definiowania sieci p
 ### <a name="configuring-a-named-location"></a>Konfigurowanie lokalizacji nazwanej
 
 1. Otwórz **Azure Active Directory** w Azure Portal
-2. wybierz pozycję **Zabezpieczenia**.
+2. Wybierz **zabezpieczenia**
 3. W obszarze **Zarządzanie**wybierz pozycję **nazwane lokalizacje** .
 4. Wybierz **nową lokalizację**
 5. W polu **Nazwa** Podaj opisową nazwę
@@ -247,7 +246,7 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
     * Kliknij pozycję **Wybierz**.
 1. Pomiń sekcję **sesji** .
 1. Ustaw przełącznik **Włącz zasady** na wartość **włączone**.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planowanie integracji z systemami lokalnymi
 

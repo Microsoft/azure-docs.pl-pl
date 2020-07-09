@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81415207"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Kopiowanie danych z HubSpot za pomocą Azure Data Factory (wersja zapoznawcza)
@@ -48,9 +48,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi HubSpot są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **HubSpot** | Tak |
+| typ | Właściwość Type musi mieć wartość: **HubSpot** | Tak |
 | clientId | Identyfikator klienta skojarzony z aplikacją HubSpot. Dowiedz się, jak utworzyć aplikację w usłudze HubSpot w [tym miejscu](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Tak |
 | clientSecret | Wpis tajny klienta skojarzony z aplikacją HubSpot. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | accessToken | Token dostępu uzyskany podczas początkowego uwierzytelniania integracji z uwierzytelnianiem OAuth. Dowiedz się, jak uzyskać token dostępu z IDENTYFIKATORem klienta i wpisem tajnym w [tym miejscu](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
@@ -91,12 +91,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z HubSpot, ustaw właściwość Type zestawu danych na **HubspotObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **HubspotObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **HubspotObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -121,9 +121,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z HubSpot, ustaw typ źródła w działaniu Copy na **HubspotSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HubspotSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **HubspotSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Companies where Company_Id = xxx"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

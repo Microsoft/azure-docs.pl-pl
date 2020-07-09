@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: 36844c3c2fcfdbf016b3e2d148345e9ce31ea2b4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60456179"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356155"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem przekazywanym usługi Azure Active Directory
 
@@ -52,13 +51,40 @@ Jeśli użytkownik nie może zalogować się przy użyciu uwierzytelniania przek
 |AADSTS80005|Sprawdzanie poprawności napotkało nieprzewidywalny wyjątek WebException|Błąd przejściowy. Ponów żądanie. Jeśli to się nie powiedzie, skontaktuj się z pomocą techniczną firmy Microsoft.
 |AADSTS80007|Wystąpił błąd podczas komunikowania się z Active Directory|Sprawdź dzienniki agenta, aby uzyskać więcej informacji i sprawdź, czy Active Directory działa zgodnie z oczekiwaniami.
 
+### <a name="users-get-invalid-usernamepassword-error"></a>Użytkownicy otrzymują błąd nieprawidłowej nazwy użytkownika/hasła 
+
+Może się tak zdarzyć, gdy lokalny element UserPrincipalName (UPN) użytkownika jest różny od nazwy UPN użytkownika w chmurze.
+
+Aby upewnić się, że jest to problem, najpierw Przetestuj, że Agent uwierzytelniania przekazywanego działa prawidłowo:
+
+
+1. Utwórz konto testowe.  
+2. Zaimportuj moduł programu PowerShell na maszynie agenta:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Uruchom polecenie Invoke PowerShell: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. Gdy zostanie wyświetlony monit o wprowadzenie poświadczeń, wprowadź tę samą nazwę użytkownika i hasło, które są używane do logowania się do programu ( https://login.microsoftonline.com) .
+
+Jeśli zostanie wyświetlony ten sam błąd nazwy użytkownika/hasła, oznacza to, że Agent uwierzytelniania przekazywanego działa prawidłowo, a problem może polegać na tym, że lokalna nazwa UPN nie jest w trakcie routingu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie alternatywnego identyfikatora logowania]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+
+
+
+
+
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Przyczyny niepowodzenia logowania w centrum administracyjnym Azure Active Directory (wymaga licencji Premium)
 
 Jeśli dzierżawa ma skojarzoną licencję Azure AD — wersja Premium, możesz również sprawdzić [raport aktywności logowania](../reports-monitoring/concept-sign-ins.md) w [centrum administracyjnym Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Azure Active Directory centrum administracyjnego — raport logowania](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Przejdź do **Azure Active Directory** -> **logowania** w [centrum administracyjnym Azure Active Directory](https://aad.portal.azure.com/) i kliknij działanie logowania określonego użytkownika. Poszukaj pola **Kod błędu logowania** . Zamapuj wartość tego pola na przyczynę niepowodzenia i rozdzielczość, korzystając z następującej tabeli:
+Przejdź do **Azure Active Directory**  ->  **logowania** w [centrum administracyjnym Azure Active Directory](https://aad.portal.azure.com/) i kliknij działanie logowania określonego użytkownika. Poszukaj pola **Kod błędu logowania** . Zamapuj wartość tego pola na przyczynę niepowodzenia i rozdzielczość, korzystając z następującej tabeli:
 
 |Kod błędu logowania|Przyczyna niepowodzenia logowania|Rozwiązanie
 | --- | --- | ---
@@ -123,7 +149,7 @@ W zależności od typu występującego problemu należy wyszukać w różnych mi
 
 ### <a name="azure-ad-connect-logs"></a>Dzienniki Azure AD Connect
 
-Aby uzyskać błędy związane z instalacją, zapoznaj się z dziennikami Azure AD Connect w **\*%ProgramData%\AADConnect\trace-. log**.
+Aby uzyskać błędy związane z instalacją, zapoznaj się z dziennikami Azure AD Connect w **%ProgramData%\AADConnect\trace- \* . log**.
 
 ### <a name="authentication-agent-event-logs"></a>Dzienniki zdarzeń agenta uwierzytelniania
 
@@ -133,7 +159,7 @@ Aby uzyskać szczegółową analizę, Włącz dziennik "Session" (kliknij prawym
 
 ### <a name="detailed-trace-logs"></a>Szczegółowe dzienniki śledzenia
 
-Aby rozwiązać problemy związane z logowaniem użytkownika, poszukaj dzienników śledzenia w programie **%ProgramData%\MICROSOFT\AZURE AD Connect\\Authentication Agent\Trace**. Te dzienniki zawierają przyczyny niepowodzenia logowania określonego użytkownika przy użyciu funkcji uwierzytelniania przekazywanego. Te błędy są również mapowane na przyczyny niepowodzenia logowania widoczne w poprzedniej tabeli przyczyn niepowodzeń logowania. Poniżej znajduje się przykładowy wpis dziennika:
+Aby rozwiązać problemy związane z logowaniem użytkownika, poszukaj dzienników śledzenia w programie **%ProgramData%\MICROSOFT\AZURE AD Connect \\ Authentication Agent\Trace**. Te dzienniki zawierają przyczyny niepowodzenia logowania określonego użytkownika przy użyciu funkcji uwierzytelniania przekazywanego. Te błędy są również mapowane na przyczyny niepowodzenia logowania widoczne w poprzedniej tabeli przyczyn niepowodzeń logowania. Poniżej znajduje się przykładowy wpis dziennika:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 8f84d611ecdf3fc0f86273498753e550315cd878
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119158"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Elastyczne skalowanie Azure Cosmos DB interfejs API Cassandra konta
 
@@ -19,7 +19,7 @@ Istnieje wiele opcji umożliwiających Eksplorowanie elastycznego charakteru int
 
 Dla interfejs API Cassandra można pobrać opłaty jednostkowe żądania dla poszczególnych zapytań przy użyciu [zestawów SDK dla platformy .NET i języka Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Jest to pomocne w ustaleniu ilości jednostek RU/s, które należy udostępnić w usłudze.
 
-![Operacje bazy danych zużywają jednostki żądań](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Operacje bazy danych zużywają jednostki żądań" border="false":::
 
 ## <a name="handling-rate-limiting-429-errors"></a>Ograniczanie szybkości obsługi (błędy 429)
 

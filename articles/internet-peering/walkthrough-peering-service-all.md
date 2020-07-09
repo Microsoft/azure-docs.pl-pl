@@ -5,15 +5,14 @@ description: Przewodnik partnera usługi Peering Service
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d626d98613bd5d988b599d0980c885d7f73bb958
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 75ec1a4ededfea4f9b40461d69b6e16d947e6919
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720252"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712483"
 ---
 # <a name="peering-service-partner-walkthrough"></a>Przewodnik partnera usługi Peering Service
 

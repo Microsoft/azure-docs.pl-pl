@@ -1,15 +1,14 @@
 ---
 title: Rozwiązywanie problemów z powolnej kopii zapasowej plików i folderów
 description: Zawiera wskazówki dotyczące rozwiązywania problemów ułatwiające zdiagnozowanie przyczyny problemów z wydajnością Azure Backup
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135050"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Rozwiązywanie problemów związanych z powolnym tworzeniem kopii zapasowych plików i folderów w usłudze Azure Backup
 
@@ -50,13 +49,13 @@ Poniżej przedstawiono niektóre liczniki wydajności i zakresy, które mogą by
 
 | Licznik | Stan |
 | --- | --- |
-| Dysk logiczny (dysk fizyczny) — czas bezczynności (%) |* 100% bezczynności do 50% bezczynności = w dobrej kondycji</br>* 49% bezczynności do 20% bezczynności = ostrzeżenie lub monitor</br>* 19% bezczynności do 0% bezczynności = krytyczne lub poza specyfikacją |
-| Dysk logiczny (dysk fizyczny) — średni czas odczytu lub zapisu dysku w s |* 0,001 MS do 0,015 MS = dobra kondycja</br>* 0,015 MS do 0,025 MS = ostrzeżenie lub monitor</br>* 0,026 MS lub dłużej = krytyczne lub poza specyfikacją |
+| Dysk logiczny (dysk fizyczny) — czas bezczynności (%) |<li> 100% czasu bezczynności do 50% bezczynności = w dobrej kondycji</br><li> 49% bezczynności do 20% bezczynności = ostrzeżenie lub monitor</br><li> 19% bezczynności do 0% bezczynności = krytyczne lub poza specyfikacją |
+| Dysk logiczny (dysk fizyczny) — średni czas odczytu lub zapisu dysku w s |<li> 0,001 MS do 0,015 MS = dobra kondycja</br><li> 0,015 MS do 0,025 MS = ostrzeżenie lub monitor</br><li> 0,026 MS lub dłużej = krytyczne lub poza specyfikacją |
 | Dysk logiczny (dysk fizyczny) — bieżąca długość kolejki dysku (dla wszystkich wystąpień) |80 żądań przez ponad 6 minut |
-| Pamięć — Bajty puli niestronicowanej |* Mniej niż 60% używanej puli = dobra kondycja<br>* 61% do 80% używanej puli = ostrzeżenie lub monitor</br>* Większe niż 80% zużywane przez pulę = krytyczne lub poza specyfikacją |
-| Pamięć — bajty w puli stronicowanej |* Mniej niż 60% używanej puli = dobra kondycja</br>* 61% do 80% używanej puli = ostrzeżenie lub monitor</br>* Większe niż 80% zużywane przez pulę = krytyczne lub poza specyfikacją |
-| Pamięć — dostępne megabajty |* 50% wolnej pamięci jest dostępne lub więcej = dobra kondycja</br>* 25% dostępnej wolnej pamięci = monitor</br>* 10% dostępnej wolnej pamięci = ostrzeżenie</br>* Mniej niż 100 MB lub 5% dostępnej wolnej pamięci = krytyczne lub poza specyfikacją |
-| Procesor — \% czas procesora (wszystkie wystąpienia) |* Mniejsze niż 60% zużyte = w dobrej kondycji</br>* od 61% do 90% zużyte = monitor lub przestroga</br>* 91% do 100% zużyte = krytyczny |
+| Pamięć — Bajty puli niestronicowanej |<li> Mniej niż 60% używanej puli = dobra kondycja<br><li> 61% do 80% używanej puli = ostrzeżenie lub monitor</br><li> Więcej niż 80% zużywanej puli = krytyczne lub poza specyfikacją |
+| Pamięć — bajty w puli stronicowanej |<li> Mniej niż 60% używanej puli = dobra kondycja</br><li> 61% do 80% używanej puli = ostrzeżenie lub monitor</br><li> Więcej niż 80% zużywanej puli = krytyczne lub poza specyfikacją |
+| Pamięć — dostępne megabajty |<li> 50% dostępnej wolnej pamięci lub więcej = dobra kondycja</br><li> 25% dostępnej wolnej pamięci = monitor</br><li>10% dostępnej wolnej pamięci = ostrzeżenie</br><li> Mniej niż 100 MB lub 5% dostępnej wolnej pamięci = krytyczne lub poza specyfikacją |
+| Procesor — \% czas procesora (wszystkie wystąpienia) |<li> Mniej niż 60% zużyte = w dobrej kondycji</br><li> 61% do 90% zużyte = monitor lub przestroga</br><li> 91% do 100% zużyte = krytyczny |
 
 > [!NOTE]
 > Jeśli określisz, że infrastruktura jest przyczynaa, zalecamy regularne defragmentowanie dysków w celu zapewnienia lepszej wydajności.
@@ -96,7 +95,7 @@ Następujące wskaźniki mogą pomóc zrozumieć wąskie gardło i odpowiednio w
 * **Interfejs użytkownika pokazuje postęp transferu danych**. Dane nadal są transferowane. Przepustowość sieci lub rozmiar danych może powodować opóźnienia.
 * **Interfejs użytkownika nie pokazuje postępu transferu danych**. Otwórz dzienniki zlokalizowane w folderze C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, a następnie sprawdź wpis FileProvider:: EndData w dziennikach. Ten wpis oznacza, że proces transferu danych zakończył pracę i jest wykonywane działanie katalogu. Nie Anuluj zadań tworzenia kopii zapasowej. Zamiast tego poczekaj chwilę na zakończenie operacji katalogu. Jeśli problem będzie się powtarzać, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Jeśli próbujesz utworzyć kopię zapasową dużych dysków, zaleca się użycie [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box)] w przypadku pierwszej kopii zapasowej (replikacja początkowa).  Jeśli nie można użyć urządzenie Data Box, wszystkie przejściowe problemy z siecią występujące w danym środowisku podczas długotrwałego przesyłania danych przez sieć mogą powodować błędy kopii zapasowych.  Aby zapewnić ochronę przed awariami, można dodać kilka folderów do początkowej kopii zapasowej i stale dodawać więcej folderów do momentu pomyślnego utworzenia kopii zapasowej wszystkich folderów na platformie Azure.  Kolejne przyrostowe kopie zapasowe będą stosunkowo szybsze.
+Jeśli próbujesz utworzyć kopię zapasową dużych dysków, zaleca się użycie [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) do pierwszej kopii zapasowej (replikacja początkowa).  Jeśli nie można użyć urządzenie Data Box, wszystkie przejściowe problemy z siecią występujące w danym środowisku podczas długotrwałego przesyłania danych przez sieć mogą powodować błędy kopii zapasowych.  Aby zapewnić ochronę przed awariami, można dodać kilka folderów do początkowej kopii zapasowej i stale dodawać więcej folderów do momentu pomyślnego utworzenia kopii zapasowej wszystkich folderów na platformie Azure.  Kolejne przyrostowe kopie zapasowe będą stosunkowo szybsze.
 
 ## <a name="next-steps"></a>Następne kroki
 

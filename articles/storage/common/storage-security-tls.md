@@ -11,10 +11,9 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75371806"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Włączanie bezpiecznego protokołu TLS dla klienta usługi Azure Storage
@@ -27,9 +26,9 @@ Aby zapewnić bezpieczne i zgodne połączenie z usługą Azure Storage, należy
 
 ## <a name="enable-tls-12-in-net-client"></a>Włączanie protokołu TLS 1.2 w kliencie platformy .NET
 
-Aby klient negocjował protokół TLS 1,2, system operacyjny i wersja .NET Framework muszą obsługiwać protokół TLS 1,2. Zobacz więcej szczegółów na temat [obsługi protokołu TLS 1,2](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).
+Aby klient negocjował protokół TLS 1.2, system operacyjny i platforma .NET Framework muszą obsługiwać protokół TLS 1.2. Zobacz więcej szczegółów na temat [obsługi protokołu TLS 1,2](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).
 
-Poniższy przykład pokazuje, jak włączyć protokół TLS 1,2 w kliencie platformy .NET.
+Poniższy przykład przedstawia, jak włączyć protokół TLS 1.2 w kliencie platformy .NET.
 
 ```csharp
 

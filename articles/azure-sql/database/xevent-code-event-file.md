@@ -10,13 +10,12 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-ms.date: 03/12/2019
-ms.openlocfilehash: f409a4c27e2b69993406f95301d21f05b547aed6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.date: 06/06/2020
+ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485465"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +30,6 @@ Ten temat przedstawia dwufazowy przykład kodu:
 
 - Program PowerShell umożliwia utworzenie kontenera usługi Azure Storage w chmurze.
 - Język Transact-SQL:
-  
   - Aby przypisać kontener usługi Azure Storage do docelowego pliku zdarzeń.
   - Aby utworzyć i uruchomić sesję zdarzeń i tak dalej.
 
@@ -47,8 +45,8 @@ Ten temat przedstawia dwufazowy przykład kodu:
   
   - Opcjonalnie możesz [utworzyć demonstracyjną bazę danych **AdventureWorksLT** ](single-database-create-quickstart.md) w ciągu kilku minut.
 
-- SQL Server Management Studio (SSMS. exe), najlepiej jej najnowszej wersji aktualizacji miesięcznej.
-  Najnowszą wersję programu SSMS. exe można pobrać z:
+- SQL Server Management Studio (ssms.exe), najlepiej jej Najnowsza wersja aktualizacji miesięcznych.
+  Najnowszą ssms.exe można pobrać z:
   
   - Temat [SQL Server Management Studio pobierania](https://msdn.microsoft.com/library/mt238290.aspx).
   - [Bezpośredni link do pobierania.](https://go.microsoft.com/fwlink/?linkid=616025)
@@ -63,7 +61,7 @@ Ten program PowerShell to faza 1 przykładu kodu dwuetapowego.
 
 Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwym wcześniejszym uruchomieniu i jest rerunnable.
 
-1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad. exe, i Zapisz skrypt jako plik z rozszerzeniem **ps1**.
+1. Wklej skrypt programu PowerShell do prostego edytora tekstu, takiego jak Notepad.exe, i Zapisz skrypt jako plik z rozszerzeniem **. ps1**.
 2. Uruchom program PowerShell ISE jako administrator.
 3. W wierszu polecenia wpisz<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>a następnie naciśnij klawisz ENTER.
 4. W programie PowerShell ISE Otwórz plik **. ps1** . Uruchom skrypt.
@@ -71,7 +69,7 @@ Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwy
 
    - Jeśli ponownie uruchomisz skrypt bez zakłócania sesji, masz wygodną opcję komentowania polecenia **Add-AzureAccount** .
 
-![Program PowerShell ISE z zainstalowanym modułem platformy Azure gotowy do uruchomienia skryptu.][30_powershell_ise]
+![Program PowerShell ISE z zainstalowanym modułem platformy Azure gotowy do uruchomienia skryptu.](./media/xevent-code-event-file/event-file-powershell-ise-b30.png)
 
 ### <a name="powershell-code"></a>Kod programu PowerShell
 
@@ -233,6 +231,15 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 Zwróć uwagę na kilka nazwanych wartości, które skrypt programu PowerShell drukuje po zakończeniu. Należy edytować te wartości w skrypcie Transact-SQL, który następuje po fazie 2.
 
+<!--
+TODO:   Consider whether the preceding PowerShell code example deserves to be updated to the latest package (AzureRM.SQL?).
+2020/June/06   Adding the !NOTE below about "ADLS Gen2 storage accounts".
+Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
+-->
+
+> [!NOTE]
+> W poprzednim przykładzie kodu programu PowerShell zdarzenia rozszerzone SQL nie są zgodne z kontami magazynu ADLS Gen2.
+
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Faza 2: kod języka Transact-SQL, który używa kontenera usługi Azure Storage
 
 - W fazie 1 tego przykładu kodu uruchomiono skrypt programu PowerShell w celu utworzenia kontenera usługi Azure Storage.
@@ -242,7 +249,7 @@ Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwy
 
 Skrypt programu PowerShell drukuje kilka nazwanych wartości po zakończeniu. Aby użyć tych wartości, należy edytować skrypt Transact-SQL. Znajdź **go w skrypcie** Transact-SQL, aby zlokalizować punkty edycji.
 
-1. Otwórz SQL Server Management Studio (SSMS. exe).
+1. Otwórz SQL Server Management Studio (ssms.exe).
 2. Nawiąż połączenie z bazą danych w Azure SQL Database.
 3. Kliknij, aby otworzyć nowe okienko zapytania.
 4. Wklej następujący skrypt Transact-SQL w okienku zapytania.
@@ -514,6 +521,3 @@ Aby uzyskać więcej informacji na temat kont i kontenerów w usłudze Azure Sto
 - [Lekcja 1. Tworzenie zasad dostępu przechowywanego i sygnatury dostępu współdzielonego w kontenerze platformy Azure](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lekcja 2. Tworzenie poświadczeń SQL Server przy użyciu sygnatury dostępu współdzielonego](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Zdarzenia rozszerzone dla Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
-
-<!-- Image references. -->
-[30_powershell_ise]: ./media/xevent-code-event-file/event-file-powershell-ise-b30.png

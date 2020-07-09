@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257929"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130189"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych serwerów fizycznych
 
@@ -98,14 +98,14 @@ Na każdym serwerze, który ma zostać zreplikowany, musi być zainstalowana us�
 Wybierz elementy, które mają być replikowane, i Replikuj je do.
 
 1. Kliknij pozycję **Magazyny usługi Recovery Services** > magazyn.
-2. W menu zasób kliknij **Site Recovery** > **Przygotuj** > **cel ochrony**infrastruktury.
-3. W obszarze **cel ochrony**wybierz pozycję **platforma Azure** > **nie została Zwirtualizowana/inna**.
+2. W menu zasób kliknij **Site Recovery**  >  **Przygotuj**  >  **cel ochrony**infrastruktury.
+3. W obszarze **cel ochrony**wybierz pozycję **platforma Azure**  >  **nie została Zwirtualizowana/inna**.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurowanie środowiska źródłowego
 
 Skonfiguruj serwer konfiguracji, zarejestruj go w magazynie i odnajdź maszyny wirtualne.
 
-1. Kliknij pozycję **Site Recovery** > **Przygotuj** > **Źródło**infrastruktury.
+1. Kliknij pozycję **Site Recovery**  >  **Przygotuj**  >  **Źródło**infrastruktury.
 2. Jeśli nie masz serwera konfiguracji, kliknij przycisk **+ serwer konfiguracji**.
 3. W obszarze **Dodawanie serwera**Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
 4. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
@@ -119,7 +119,7 @@ Skonfiguruj serwer konfiguracji, zarejestruj go w magazynie i odnajdź maszyny w
 Wykonaj następujące czynności przed rozpoczęciem: 
 
 #### <a name="verify-time-accuracy"></a>Sprawdź dokładność czasu
-Na komputerze serwera konfiguracji upewnij się, że zegar systemowy jest zsynchronizowany z [serwerem czasu](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Powinien być zgodny. Jeśli jest to 15 minut przed lub za, instalacja może zakończyć się niepowodzeniem.
+Na komputerze serwera konfiguracji upewnij się, że zegar systemowy jest zsynchronizowany z [serwerem czasu](/windows-server/networking/windows-time-service/windows-time-service-top). Powinien być zgodny. Jeśli jest to 15 minut przed lub za, instalacja może zakończyć się niepowodzeniem.
 
 #### <a name="verify-connectivity"></a>Sprawdź łączność
 Upewnij się, że komputer może uzyskać dostęp do tych adresów URL w oparciu o środowisko: 
@@ -136,13 +136,13 @@ Uruchom ujednoliconą konfigurację jako administrator lokalny, aby zainstalowa�
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Po zakończeniu rejestracji serwer konfiguracji zostanie wyświetlony na stronie **Ustawienia** > **serwery** w magazynie.
+Po zakończeniu rejestracji serwer konfiguracji zostanie wyświetlony na stronie **Ustawienia**  >  **serwery** w magazynie.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurowanie środowiska docelowego
 
 Wybierz i zweryfikuj zasoby docelowe.
 
-1. Kliknij pozycję **Przygotuj** > **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
+1. Kliknij pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i wybierz subskrypcję platformy Azure, której chcesz użyć.
 2. Określ docelowy model wdrażania.
 3. Usługa Site Recovery sprawdza, czy masz co najmniej jedno zgodne konto magazynu Azure i co najmniej jedną sieć platformy Azure.
 
@@ -151,7 +151,7 @@ Wybierz i zweryfikuj zasoby docelowe.
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
 
-1. Aby utworzyć nowe zasady replikacji, kliknij kolejno pozycje **Site Recovery infrastruktura** > **zasady** > replikacji **+ zasady replikacji**.
+1. Aby utworzyć nowe zasady replikacji, kliknij kolejno pozycje **Site Recovery infrastruktura**  >  **zasady replikacji**  >  **+ zasady replikacji**.
 2. W obszarze **Tworzenie zasad replikacji** określ nazwę zasad.
 3. W obszarze **Wartość progowa celu punktu odzyskiwania** określ limit celu punktu odzyskiwania. Ta wartość określa, jak często są tworzone punkty odzyskiwania danych. Przekroczenie tego limitu przez replikację ciągłą spowoduje wygenerowanie alertu.
 4. W obszarze **Przechowywanie punktu odzyskiwania** określ (w godzinach), jak długie jest okno przechowywania dla każdego punktu odzyskiwania. Replikowane maszyny wirtualne można odzyskać do dowolnego punktu w tym oknie. Przechowywanie do 24 godzin jest obsługiwane dla maszyn replikowanych do magazynu w warstwie Premium, zaś do 72 godzin dla magazynu w warstwie Standardowa.
@@ -169,7 +169,7 @@ Włącz replikację dla każdego serwera.
 - Site Recovery zainstaluje usługę mobilności po włączeniu replikacji.
 - Po włączeniu replikacji dla serwera może upłynąć 15 minut lub dłużej, aby zmiany zaczęły obowiązywać i pojawiają się w portalu.
 
-1. Kliknij pozycję **Replikuj** > **Źródło**aplikacji.
+1. Kliknij pozycję **Replikuj**  >  **Źródło**aplikacji.
 2. W obszarze **Źródło** wybierz serwer konfiguracji.
 3. W obszarze **Typ maszyny**wybierz pozycję **maszyny fizyczne**.
 4. Wybierz serwer przetwarzania (serwer konfiguracji). Następnie kliknij przycisk **OK**.
@@ -178,12 +178,12 @@ Włącz replikację dla każdego serwera.
 7. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne platformy Azure, gdy zostaną uruchomione po przejściu do trybu failover.
 8. Wybierz pozycję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz pozycję **Konfiguruj później** , aby wybrać sieć platformy Azure na maszynę. 
 9. W obszarze **maszyny fizyczne**i kliknij pozycję **+ maszyna fizyczna**. Określ nazwę i adres IP. Wybierz system operacyjny maszyny, którą chcesz replikować. Odnajdywanie i wykrycie serwerów może potrwać kilka minut. 
-10. W obszarze **Właściwości** > **Konfigurowanie właściwości**wybierz konto, które będzie używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
-11. W obszarze **Ustawienia** > replikacji**Skonfiguruj ustawienia replikacji**Sprawdź, czy wybrano odpowiednie zasady replikacji. 
-12. Kliknij pozycję **Włącz replikację**. Postęp zadania **Włącz ochronę** można śledzić w obszarze **Ustawienia** > **zadania** > **Site Recovery zadania**. Po uruchomieniu zadania **finalizowania ochrony** maszyna jest gotowa do pracy w trybie failover.
+10. W obszarze **Właściwości**  >  **Konfigurowanie właściwości**wybierz konto, które będzie używane przez serwer przetwarzania w celu automatycznego zainstalowania usługi mobilności na maszynie.
+11. W obszarze **Ustawienia replikacji**  >  **Skonfiguruj ustawienia replikacji**Sprawdź, czy wybrano odpowiednie zasady replikacji. 
+12. Kliknij pozycję **Włącz replikację**. Postęp zadania **Włącz ochronę** można śledzić w obszarze **Ustawienia**  >  **zadania**  >  **Site Recovery zadania**. Po uruchomieniu zadania **finalizowania ochrony** maszyna jest gotowa do pracy w trybie failover.
 
 
-Aby monitorować dodawane serwery, można sprawdzić czas ostatniego wykrycia dla nich w obszarze **serwery** > konfiguracji**ostatni kontakt na stronie**. Aby dodać maszyny bez oczekiwania na zaplanowaną godzinę odnajdywania, wyróżnij serwer konfiguracji (nie klikaj go), a następnie kliknij przycisk **Odśwież**.
+Aby monitorować dodawane serwery, można sprawdzić czas ostatniego wykrycia dla nich w obszarze **serwery konfiguracji**  >  **ostatni kontakt na stronie**. Aby dodać maszyny bez oczekiwania na zaplanowaną godzinę odnajdywania, wyróżnij serwer konfiguracji (nie klikaj go), a następnie kliknij przycisk **Odśwież**.
 
 ## <a name="next-steps"></a>Następne kroki
 

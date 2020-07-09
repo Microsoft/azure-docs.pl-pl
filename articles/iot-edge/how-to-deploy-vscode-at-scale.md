@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82134366"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Visual Studio Code
@@ -28,7 +28,7 @@ W tym artykule opisano konfigurowanie Visual Studio Code i rozszerzenia IoT. Nas
 
 * [Centrum IoT](../iot-hub/iot-hub-create-through-portal.md) w ramach subskrypcji platformy Azure.
 * [Urządzenie IoT Edge](how-to-register-device.md#register-with-visual-studio-code) z zainstalowanym IoT Edge środowiska uruchomieniowego.
-* [Visual Studio Code](https://code.visualstudio.com/).
+* [Program Visual Studio Code](https://code.visualstudio.com/)
 * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) dla programu Visual Studio Code.
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Zaloguj się, aby uzyskać dostęp do centrum IoT Hub
@@ -145,9 +145,9 @@ Znaczniki można konfigurować w postaci sznurka urządzenia. Poniżej znajduje 
 }
 ```
 
-To urządzenie otrzyma wdrożenie, jeśli warunek docelowy wdrożenia zawiera wyrażenie odpowiadające jednemu z wartości tagu, takich jak `tag.location.building = '20'`.
+To urządzenie otrzyma wdrożenie, jeśli warunek docelowy wdrożenia zawiera wyrażenie odpowiadające jednemu z wartości tagu, takich jak `tag.location.building = '20'` .
 
-Jeśli chcesz wskazać konkretne urządzenie, niezależnie od jego tagów lub innych wartości, wystarczy określić warunek `deviceId` dla warunku docelowego.
+Jeśli chcesz wskazać konkretne urządzenie, niezależnie od jego tagów lub innych wartości, wystarczy określić `deviceId` warunek dla warunku docelowego.
 
 Oto kilka innych przykładów:
 
@@ -164,7 +164,7 @@ Aby uzyskać szczegółowe informacje, zobacz [warunek docelowy](module-deployme
 
 Można edytować sznurki urządzenia w Visual Studio Code, aby skonfigurować Tagi. Z menu **Widok** wybierz pozycję **paleta poleceń** i uruchom polecenie **IoT Edge: Edit Device bliźniaczy** . Wybierz urządzenie IoT Edge i pojawi się sznury urządzenia.
 
-W tym przykładzie nie zdefiniowano żadnych znaczników. Zastąp bieżącą pustą `"tags": {}` sekcję własną definicją tagów.
+W tym przykładzie nie zdefiniowano żadnych znaczników. Zastąp bieżącą pustą sekcję `"tags": {}` własną definicją tagów.
 
 ```json
 {
@@ -222,8 +222,8 @@ Po skonfigurowaniu manifestu wdrażania i skonfigurowaniu tagów w ramach sznurk
 
   | Parametr | Opis |
   | --- | --- |
-  | Identyfikator wdrożenia | Nazwa wdrożenia, które zostanie utworzone w usłudze IoT Hub. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych `& ^ [ ] { } \ | " < > /`znaków:. |
-  | Warunek docelowy | Wprowadź warunek docelowy, aby określić, które urządzenia będą ukierunkowane na to wdrożenie.Warunek jest oparty na tagach bliźniaczych urządzeń lub w raportowanych właściwościach urządzenia i powinien być zgodny z formatem wyrażenia.Na przykład `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
+  | Identyfikator wdrożenia | Nazwa wdrożenia, które zostanie utworzone w usłudze IoT Hub. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` . |
+  | Warunek docelowy | Wprowadź warunek docelowy, aby określić, które urządzenia będą ukierunkowane na to wdrożenie.Warunek jest oparty na tagach bliźniaczych urządzeń lub w raportowanych właściwościach urządzenia i powinien być zgodny z formatem wyrażenia.Na przykład `tags.environment='test' and properties.reported.devicemodel='4000x'` . |
   | Priorytet |  Dodatnia liczba całkowita. Jeśli co najmniej dwa wdrożenia są przeznaczone dla tego samego urządzenia, zostanie zastosowane wdrożenie o najwyższej wartości liczbowej dla priorytetu. |
 
   Po określeniu priorytetu Terminal powinien wyświetlać dane wyjściowe podobne do następujących:

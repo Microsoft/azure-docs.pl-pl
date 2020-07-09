@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335372"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Wyświetlanie danych o ruchu na mapie przy użyciu Azure Maps Android SDK
@@ -25,7 +25,7 @@ Aby można było wyświetlić ruch na mapie, należy [utworzyć konto platformy 
 
 ## <a name="incidents-traffic-data"></a>Zdarzenia danych ruchu 
 
-Należy zaimportować następujące biblioteki do wywołania `setTraffic` i: `incidents`
+Należy zaimportować następujące biblioteki do wywołania `setTraffic` i `incidents` :
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
@@ -44,14 +44,14 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## <a name="flow-traffic-data"></a>Dane ruchu przepływu
 
-Najpierw należy zaimportować następujące biblioteki w celu wywołania `setTraffic` i: `flow`
+Najpierw należy zaimportować następujące biblioteki w celu wywołania `setTraffic` i `flow` :
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Użyj poniższego fragmentu kodu, aby ustawić dane przepływu ruchu. Podobnie jak w przypadku kodu w poprzedniej sekcji, przekazujemy wartość zwracaną `flow` metody do `setTraffic` metody. Istnieją cztery wartości, które mogą być przenoszone `flow`do, a każda wartość będzie `flow` wyzwalać odpowiednią wartość. Zwracana wartość `flow` zostanie następnie przeniesiona jako argument do `setTraffic`. Zapoznaj się z poniższą tabelą dla tych czterech wartości:
+Użyj poniższego fragmentu kodu, aby ustawić dane przepływu ruchu. Podobnie jak w przypadku kodu w poprzedniej sekcji, przekazujemy wartość zwracaną `flow` metody do `setTraffic` metody. Istnieją cztery wartości, które mogą być przenoszone do `flow` , a każda wartość będzie wyzwalać `flow` odpowiednią wartość. Zwracana wartość `flow` zostanie następnie przeniesiona jako argument do `setTraffic` . Zapoznaj się z poniższą tabelą dla tych czterech wartości:
 
 | | |
 | :-- | :-- |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Aby uzyskać zdarzenia dotyczące konkretnej funkcji, można użyć poniższego kodu. Po kliknięciu funkcji logika kodu sprawdza zdarzenia i kompiluje komunikat o zdarzeniu. W dolnej części ekranu zostanie wyświetlony komunikat z informacjami.
 
-1. Najpierw należy edytować **> zasobów > activity_main. XML**, tak aby wyglądał wyglądać podobnie do przedstawionego poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` `mapcontrol_centerLng` `mapcontrol_zoom` odpowiednie wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
+1. Najpierw należy edytować **> > układu zasobów activity_main.xml**, tak aby wyglądał wyglądać jak poniżej. Licencjobiorca może zastąpić `mapcontrol_centerLat` odpowiednie `mapcontrol_centerLng` `mapcontrol_zoom` wartości. Odwołaj, poziom powiększenia jest wartością z zakresu od 0 do 22. Na poziomie powiększenia 0 cały świat mieści się na jednym kafelku.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ Aby uzyskać zdarzenia dotyczące konkretnej funkcji, można użyć poniższego 
    }
    ```
 
-3. Po dodaniu powyższego kodu do aplikacji będzie można kliknąć funkcję i zobaczyć szczegóły zdarzeń dotyczących ruchu sieciowego. W zależności od szerokości geograficznej, długości geograficznej oraz wartości poziomu powiększenia, które były używane w pliku **activity_main. XML** , wyniki wyglądają podobnie jak na poniższym obrazie:
+3. Po dodaniu powyższego kodu do aplikacji będzie można kliknąć funkcję i zobaczyć szczegóły zdarzeń dotyczących ruchu sieciowego. W zależności od szerokości geograficznej, długości geograficznej oraz wartości poziomu powiększenia, które były używane w pliku **activity_main.xml** , wyniki wyglądają podobnie jak na poniższym obrazie:
 
    <center>
 

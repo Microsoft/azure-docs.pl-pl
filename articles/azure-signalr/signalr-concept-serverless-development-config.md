@@ -6,12 +6,11 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dbacb6a5bbdead52750935c476f453423647fc0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77523174"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84457137"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Programowanie i konfigurowanie w usłudze Azure Functions za pomocą usługi Azure SignalR Service
 
@@ -32,17 +31,25 @@ W Azure Portal odszukaj stronę *Ustawienia* zasobu usługi sygnalizującego. Us
 Aplikacja bezserwerowa działająca w czasie rzeczywistym utworzona przy użyciu usług Azure Functions i Azure SignalR Service zwykle wymaga dwóch funkcji Azure Functions:
 
 * Funkcja „negotiate” (negocjacja) wywoływana przez klienta w celu uzyskania prawidłowego tokenu dostępu do usługi SignalR i adresu URL punktu końcowego usługi
-* Co najmniej jedna funkcja, która wysyła komunikaty lub zarządza członkostwem w grupie
+* Co najmniej jedna funkcja, która obsługuje komunikaty z usługi sygnalizującej i wysyła komunikaty lub Zarządzaj członkostwem w grupie
 
 ### <a name="negotiate-function"></a>Funkcja Negotiate
 
 Aplikacja kliencka wymaga ważnego tokenu dostępu, aby połączyć się z usługą Azure Signal. Token dostępu może być anonimowy lub uwierzytelniony dla danego identyfikatora użytkownika. Aplikacje usługi sygnalizacji bezserwerowej wymagają punktu końcowego HTTP o nazwie "Negotiate", aby uzyskać token i inne informacje o połączeniu, takie jak adres URL punktu końcowego usługi sygnalizującego.
 
-Użyj wyzwalanej przez protokół HTTP funkcji platformy Azure i powiązania danych wejściowych *SignalRConnectionInfo* w celu wygenerowania obiektu informacji o połączeniu. Funkcja musi mieć trasę HTTP, która się skończy `/negotiate`.
+Użyj wyzwalanej przez protokół HTTP funkcji platformy Azure i powiązania danych wejściowych *SignalRConnectionInfo* w celu wygenerowania obiektu informacji o połączeniu. Funkcja musi mieć trasę HTTP, która się skończy `/negotiate` .
+
+[Model oparty na klasie](#class-based-model) w języku C# nie wymaga powiązania danych wejściowych *SignalRConnectionInfo* i może znacznie ułatwić Dodawanie niestandardowych oświadczeń. Zobacz [środowisko negocjacji w modelu opartym na klasie](#negotiate-experience-in-class-based-model)
 
 Aby uzyskać więcej informacji na temat tworzenia funkcji Negotiate, zobacz odwołanie do [powiązania danych wejściowych *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Aby dowiedzieć się więcej o sposobie tworzenia uwierzytelnionego tokenu, zapoznaj się z tematem [Korzystanie z uwierzytelniania App Service](#using-app-service-authentication).
+
+### <a name="handle-messages-sent-from-signalr-service"></a>Obsługa komunikatów wysyłanych z usługi sygnalizującego
+
+Użyj powiązania *wyzwalacza sygnalizującego* , aby obsłużyć komunikaty wysyłane z usługi sygnalizującej. Można wyzwalać, gdy klienci wysyłają lub odłączają wiadomości.
+
+Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach *wyzwalacza sygnału*](../azure-functions/functions-bindings-signalr-service-trigger.md)
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Wysyłanie komunikatów i zarządzanie członkostwem w grupie
 
@@ -56,6 +63,111 @@ Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach wyjściowych
 
 Sygnalizujący ma koncepcję "centrów". Każde połączenie z klientem i każdy komunikat wysyłany z Azure Functions jest objęty zakresem określonego centrum. Koncentratorów można używać jako sposobu rozdzielania połączeń i komunikatów w logiczne przestrzenie nazw.
 
+## <a name="class-based-model"></a>Model oparty na klasie
+
+Model oparty na klasie jest dedykowany dla języka C#. Model oparty na klasie może mieć spójne środowisko programistyczne po stronie serwera. Ma ona następujące funkcje.
+
+* Mniejsza konfiguracja: Nazwa klasy jest używana jako `HubName` , nazwa metody jest używana jako `Event` i `Category` zostanie podjęta automatycznie zgodnie z nazwą metody.
+* Powiązanie parametru autoparameter: nie `ParameterNames` `[SignalRParameter]` jest wymagany ani atrybut. Parametry są autopowiązane z argumentami metody funkcji platformy Azure w kolejności.
+* Wygodne środowisko wyjściowe i negocjowanie.
+
+Następujące kody przedstawiają te funkcje:
+
+```cs
+public class SignalRTestHub : ServerlessHub
+{
+    [FunctionName("negotiate")]
+    public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
+    {
+        return Negotiate(req.Headers["x-ms-signalr-user-id"], GetClaims(req.Headers["Authorization"]));
+    }
+
+    [FunctionName(nameof(OnConnected))]
+    public async Task OnConnected([SignalRTrigger]InvocationContext invocationContext, ILogger logger)
+    {
+        await Clients.All.SendAsync(NewConnectionTarget, new NewConnection(invocationContext.ConnectionId));
+        logger.LogInformation($"{invocationContext.ConnectionId} has connected");
+    }
+
+    [FunctionName(nameof(Broadcast))]
+    public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+    {
+        await Clients.All.SendAsync(NewMessageTarget, new NewMessage(invocationContext, message));
+        logger.LogInformation($"{invocationContext.ConnectionId} broadcast {message}");
+    }
+
+    [FunctionName(nameof(OnDisconnected))]
+    public void OnDisconnected([SignalRTrigger]InvocationContext invocationContext)
+    {
+    }
+}
+```
+
+Wszystkie funkcje, które chcą wykorzystać model oparty na klasie, muszą być metodą klasy, która dziedziczy z **ServerlessHub**. Nazwa klasy `SignalRTestHub` w przykładzie jest nazwą centrum.
+
+### <a name="define-hub-method"></a>Zdefiniuj metodę Hub
+
+Wszystkie metody centrum **muszą** mieć `[SignalRTrigger]` atrybut i **muszą** korzystać z konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie**parametru.
+
+Domyślnie, `category=messages` z wyjątkiem nazwy metody jest jedną z następujących nazw:
+
+* **OnConnected**: traktowane jako`category=connections, event=connected`
+* **Ondisconnected**: traktowany jako`category=connections, event=disconnected`
+
+### <a name="parameter-binding-experience"></a>Środowisko powiązania parametrów
+
+W modelu opartym na klasie `[SignalRParameter]` jest zbędna, ponieważ wszystkie argumenty są `[SignalRParameter]` Domyślnie oznaczone jako domyślne, z tym wyjątkiem, że jest to jedna z następujących sytuacji:
+
+* Argument jest uzupełniony atrybutem powiązania.
+* Typ argumentu to `ILogger` lub`CancellationToken`
+* Argument jest uzupełniony atrybutem`[SignalRIgnore]`
+
+### <a name="negotiate-experience-in-class-based-model"></a>Środowisko negocjowane w modelu opartym na klasie
+
+Zamiast używać powiązania wejściowego sygnalizującego `[SignalR]` , negocjowanie w modelu opartym na klasie może być bardziej elastyczne. Klasa bazowa `ServerlessHub` ma metodę
+
+```cs
+SignalRConnectionInfo Negotiate(string userId = null, IList<Claim> claims = null, TimeSpan? lifeTime = null)
+```
+
+Te funkcje użytkownika dostosowują `userId` lub `claims` podczas wykonywania funkcji.
+
+## <a name="use-signalrfilterattribute"></a>Użycie rozszerzenia `SignalRFilterAttribute`
+
+Użytkownik może dziedziczyć i zaimplementować klasę abstrakcyjną `SignalRFilterAttribute` . Jeśli wyjątki są zgłaszane w programie `FilterAsync` , `403 Forbidden` zostaną wysłane z powrotem do klientów.
+
+Poniższy przykład demonstruje sposób implementacji filtru klienta, który zezwala tylko `admin` na wywołanie `broadcast` .
+
+```cs
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+internal class FunctionAuthorizeAttribute: SignalRFilterAttribute
+{
+    private const string AdminKey = "admin";
+
+    public override Task FilterAsync(InvocationContext invocationContext, CancellationToken cancellationToken)
+    {
+        if (invocationContext.Claims.TryGetValue(AdminKey, out var value) &&
+            bool.TryParse(value, out var isAdmin) &&
+            isAdmin)
+        {
+            return Task.CompletedTask;
+        }
+
+        throw new Exception($"{invocationContext.ConnectionId} doesn't have admin role");
+    }
+}
+```
+
+Użycie atrybutu w celu autoryzowania funkcji.
+
+```cs
+[FunctionAuthorize]
+[FunctionName(nameof(Broadcast))]
+public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+{
+}
+```
+
 ## <a name="client-development"></a>Opracowywanie klienta
 
 Aplikacje klienckie sygnalizujące mogą korzystać z zestawu SDK klienta sygnalizującego w jednym z kilku języków, aby łatwo łączyć się z usługą Azure sygnalizującą i odbierać komunikaty z nich.
@@ -67,7 +179,7 @@ Aby nawiązać połączenie z usługą sygnalizującego, klient musi zakończyć
 1. Prześlij żądanie do punktu końcowego *negocjowania* protokołu HTTP omówionego powyżej, aby uzyskać prawidłowe informacje o połączeniu
 1. Połącz z usługą sygnalizującą przy użyciu adresu URL punktu końcowego usługi i tokenu dostępu uzyskanego z punktu końcowego *negocjowania*
 
-Zestawy SDK klienta sygnalizujące już zawierają logikę wymaganą do wykonania uzgadniania negocjacji. Przekaż adres URL punktu końcowego negocjowania, pomniejszony o `negotiate` segment, do zestawu `HubConnectionBuilder`SDK. Oto przykład kodu JavaScript:
+Zestawy SDK klienta sygnalizujące już zawierają logikę wymaganą do wykonania uzgadniania negocjacji. Przekaż adres URL punktu końcowego negocjowania, pomniejszony o `negotiate` segment, do zestawu SDK `HubConnectionBuilder` . Oto przykład kodu JavaScript:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -102,10 +214,10 @@ Klient JavaScript/TypeScript wysyła żądania HTTP do funkcji Negotiate, aby za
 
 #### <a name="localhost"></a>Lokalnym
 
-Podczas uruchamiania aplikacji funkcji na komputerze lokalnym można dodać sekcję do pliku `Host` *Local. Settings. JSON* w celu włączenia mechanizmu CORS. W `Host` sekcji Dodaj dwie właściwości:
+Podczas uruchamiania aplikacji funkcji na komputerze lokalnym można dodać `Host` sekcję do *local.settings.js* , aby włączyć funkcję CORS. W `Host` sekcji Dodaj dwie właściwości:
 
 * `CORS`— Wprowadź podstawowy adres URL, który jest źródłem aplikacji klienckiej.
-* `CORSCredentials`-Ustaw, `true` aby zezwalać na żądania "withCredentials"
+* `CORSCredentials`-Ustaw, aby `true` zezwalać na żądania "withCredentials"
 
 Przykład:
 
@@ -167,9 +279,9 @@ Azure Functions ma wbudowane uwierzytelnianie obsługujące popularnych dostawc�
 
 W Azure Portal na karcie *funkcje platformy* aplikacji funkcji Otwórz okno Ustawienia *uwierzytelniania/autoryzacji* . Postępuj zgodnie z dokumentacją [App Service Authentication](../app-service/overview-authentication-authorization.md) , aby skonfigurować uwierzytelnianie przy użyciu wybranego przez siebie dostawcy tożsamości.
 
-Po skonfigurowaniu uwierzytelnione żądania HTTP będą zawierać `x-ms-client-principal-name` odpowiednio `x-ms-client-principal-id` nagłówki i nazwy użytkowników oraz identyfikatory użytkownika tożsamości uwierzytelnionej.
+Po skonfigurowaniu uwierzytelnione żądania HTTP będą zawierać `x-ms-client-principal-name` `x-ms-client-principal-id` odpowiednio nagłówki i nazwy użytkowników oraz identyfikatory użytkownika tożsamości uwierzytelnionej.
 
-Za pomocą tych nagłówków w konfiguracji powiązania *SignalRConnectionInfo* można tworzyć połączenia uwierzytelnione. Poniżej znajduje się przykładowa funkcja negocjuje C#, `x-ms-client-principal-id` która używa nagłówka.
+Za pomocą tych nagłówków w konfiguracji powiązania *SignalRConnectionInfo* można tworzyć połączenia uwierzytelnione. Poniżej znajduje się przykładowa funkcja negocjuje C#, która używa `x-ms-client-principal-id` nagłówka.
 
 ```csharp
 [FunctionName("negotiate")]
@@ -184,7 +296,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-Następnie można wysyłać komunikaty do tego użytkownika przez ustawienie `UserId` właściwości komunikatu sygnalizującego.
+Następnie można wysyłać komunikaty do tego użytkownika przez ustawienie `UserId` Właściwości komunikatu sygnalizującego.
 
 ```csharp
 [FunctionName("SendMessage")]

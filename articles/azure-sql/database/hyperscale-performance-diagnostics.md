@@ -10,12 +10,11 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: c9b69b751067ba36daad614b84367aee882d17b1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051948"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324400"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostyka rozwiązywania problemów z wydajnością w ramach skalowania SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +40,7 @@ Repliki obliczeń nie buforują pełnej kopii bazy danych lokalnie. Dane lokalne
 
 Jeśli odczyt jest wystawiony w replice obliczeniowej, jeśli dane nie istnieją w puli buforów lub lokalnej pamięci podręcznej RBPEX, zostanie wygenerowane wywołanie funkcji GetPage (pageId, LSN), a strona jest pobierana z odpowiedniego serwera stronicowania. Odczyty z serwerów stronicowania to odczyty zdalne i są w tym samym wolniejsze niż odczyt z RBPEX lokalnego. W przypadku rozwiązywania problemów z wydajnością w ramach operacji we/wy musimy mieć możliwość poinformowania o liczbie systemu IOs wykonywanych przez stosunkowo wolniejsze odczyty zdalnego serwera stron.
 
-Kilka zdarzeń widoków DMV i rozszerzonych zawiera kolumny i pola, które określają liczbę odczytów zdalnych z serwera stronicowego, które można porównać z łączną liczbą operacji odczytu. Magazyn zapytań przechwytuje również odczyty zdalne w ramach statystyk czasu wykonywania zapytania.
+Niektóre dynamiczne widoki zarządzane (widoków DMV) i zdarzenia rozszerzone mają kolumny i pola, które określają liczbę zdalnych odczytów z serwera stronicowego, które można porównać z łączną liczbą operacji odczytu. Magazyn zapytań przechwytuje również odczyty zdalne w ramach statystyk czasu wykonywania zapytania.
 
 - Kolumny do operacji odczytywania serwera stron raportów są dostępne w widoków DMV wykonywania i w widokach wykazu, takich jak:
 
@@ -79,10 +78,10 @@ Stosunek liczby odczytów wykonanych na RBPEX do zagregowanych odczytów wykonan
 
 ### <a name="data-reads"></a>Odczyty danych
 
-- Gdy odczyty są wydawane przez aparat bazy danych SQL w replice obliczeniowej, mogą one być obsługiwane przez lokalną pamięć podręczną RBPEX lub przez zdalne serwery stron lub przez kombinację dwóch, jeśli odczytywane są wiele stron.
+- Gdy odczyty są wystawiane przez aparat bazy danych SQL Server w replice obliczeniowej, mogą one być obsługiwane przez lokalną pamięć podręczną RBPEX lub przez zdalne serwery stron lub przez kombinację dwóch w przypadku odczytywania wielu stron.
 - Gdy replika obliczeniowa odczytuje niektóre strony z określonego pliku, na przykład file_id 1, jeśli dane znajdują się wyłącznie w lokalnej pamięci podręcznej RBPEX, wszystkie operacje we/wy dla tego odczytu są uwzględniane w odniesieniu do file_id 0 (RBPEX). Jeśli niektóre części danych znajdują się w lokalnej pamięci podręcznej RBPEX, a niektóre części znajdują się na zdalnym serwerze stron, w ramach operacji we/wy jest uwzględniana wartość file_id 0 dla części obsługiwanej przez RBPEX, a część obsługiwana przez zdalny serwer strony ma na celu file_id 1.
 - Gdy replika obliczeń żąda strony o określonym [numerze LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) z serwera stronicowania, jeśli serwer stronicowania nie został przechwycony do żądanego numeru LSN, odczyt w replice obliczeniowej zaczeka, aż serwer stronicowania przejdzie przed zwróceniem strony do repliki obliczeniowej. W przypadku dowolnego odczytu z serwera stronicowania w replice obliczeniowej zobaczysz typ oczekiwania PAGEIOLATCH_ *, jeśli czeka na tę operację we/wy. W ramach skalowania ten czas oczekiwania obejmuje zarówno czas na przechwycenie żądanej strony na serwerze stronicowania, jak i czas wymagany do przetransferowania strony z serwera stronicowania do repliki obliczeniowej.
-- Duże odczyty, takie jak Odczyt z wyprzedzeniem, często są wykonywane przy użyciu [odczytu "punktowego zbierania"](/sql/relational-databases/reading-pages/). Pozwala to na odczyt maksymalnie 4 MB stron w danym momencie, traktowany jako pojedynczy odczyt w aparacie bazy danych SQL. Jednak gdy odczytywane dane są w RBPEX, te odczyty są rozliczane jako wiele pojedynczych odczytów 8 KB, ponieważ pula buforów i RBPEX zawsze korzystają ze stron 8 KB. W związku z tym liczba odczytów systemu IOs, które są widoczne dla RBPEX, może być większa niż rzeczywista liczba urządzeń z systemem IOs wykonywanych przez aparat.
+- Duże odczyty, takie jak Odczyt z wyprzedzeniem, często są wykonywane przy użyciu [odczytu "punktowego zbierania"](/sql/relational-databases/reading-pages/). Pozwala to na odczyt maksymalnie 4 MB stron w danym momencie, uznawany za pojedynczy odczyt w aparacie bazy danych SQL Server. Jednak gdy odczytywane dane są w RBPEX, te odczyty są rozliczane jako wiele pojedynczych odczytów 8 KB, ponieważ pula buforów i RBPEX zawsze korzystają ze stron 8 KB. W związku z tym liczba odczytów systemu IOs, które są widoczne dla RBPEX, może być większa niż rzeczywista liczba urządzeń z systemem IOs wykonywanych przez aparat.
 
 ### <a name="data-writes"></a>Zapisy danych
 
@@ -97,9 +96,9 @@ Stosunek liczby odczytów wykonanych na RBPEX do zagregowanych odczytów wykonan
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>Operacje we/wy danych w statystyce wykorzystania zasobów
 
-W przypadku bazy danych bez skalowania połączone operacje odczytu i zapisu dla plików danych w odniesieniu do limitu liczby operacji we/wy danych [zarządzania zasobami](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) są raportowane w tabeli [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widoki w `avg_data_io_percent` kolumnie. Ta sama wartość jest raportowana w portalu jako _wartość procentowa danych we/wy_.
+W przypadku bazy danych bez skalowania połączone operacje odczytu i zapisu dla plików danych w odniesieniu do limitu liczby operacji we/wy danych [zarządzania zasobami](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) są raportowane w tabeli [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) widoki w `avg_data_io_percent` kolumnie. Ta sama wartość jest raportowana w Azure Portal jako _procent operacji we/wy danych_.
 
-W bazie danych w ramach wieloskali ta kolumna zawiera raporty dotyczące użycia operacji we/wy na sekundę w odniesieniu do limitu magazynu lokalnego tylko w przypadku repliki obliczeniowej, a w przypadku RBPEX i `tempdb` . Wartość 100% w tej kolumnie wskazuje, że zarządzanie zasobami ogranicza liczbę operacji wejścia/wyjścia magazynu lokalnego. Jeśli jest to skorelowane z problemem z wydajnością, Dostosuj obciążenie w celu wygenerowania mniejszej wartości we/wy lub Zwiększ cel usługi bazy danych, aby zwiększyć maksymalny [Limit](resource-limits-vcore-single-databases.md)liczby _IOPS danych_ na potrzeby zarządzania zasobami. W przypadku nadzoru zasobów RBPEX odczytuje i zapisuje system liczy pojedyncze 8 KB systemu IOs, a nie do większych systemu IOs, które mogą być wystawiane przez aparat bazy danych SQL.
+W bazie danych w ramach wieloskali ta kolumna zawiera raporty dotyczące użycia operacji we/wy na sekundę w odniesieniu do limitu magazynu lokalnego tylko w przypadku repliki obliczeniowej, a w przypadku RBPEX i `tempdb` . Wartość 100% w tej kolumnie wskazuje, że zarządzanie zasobami ogranicza liczbę operacji wejścia/wyjścia magazynu lokalnego. Jeśli jest to skorelowane z problemem z wydajnością, Dostosuj obciążenie w celu wygenerowania mniejszej wartości we/wy lub Zwiększ cel usługi bazy danych, aby zwiększyć maksymalny [Limit](resource-limits-vcore-single-databases.md)liczby _IOPS danych_ na potrzeby zarządzania zasobami. W przypadku nadzoru zasobów RBPEX odczytuje i zapisuje system liczy pojedyncze 8 KB systemu IOs, a nie do większych systemu IOs, które mogą być wystawiane przez aparat bazy danych SQL Server.
 
 Operacje we/wy danych względem zdalnych serwerów stron nie są zgłaszane w widokach wykorzystania zasobów lub w portalu, ale są raportowane w pliku [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) , jak wspomniano wcześniej.
 

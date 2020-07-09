@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
 ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74083602"
 ---
 # <a name="about-expressroute-direct"></a>Informacje o usłudze ExpressRoute Direct
@@ -39,7 +38,7 @@ Przed użyciem usługi ExpressRoute Direct należy najpierw zarejestrować swoj�
 | --- | --- |
 | Wykorzystuje dostawców usług w celu umożliwienia szybkiego dołączania i łączności do istniejącej infrastruktury | Wymaga infrastruktury 100 GB/s/10 GB/s i pełnego zarządzania wszystkimi warstwami
 | Integruje się z setkami dostawców, w tym Ethernet i MPLS | Bezpośrednia/dedykowana pojemność dla branż objętych regulacją i ogromne pozyskiwanie danych |
-| Usługi SKU obwodów z 50 MB/s do 10 GB/s | Klient może wybrać kombinację następujących jednostek SKU obwodu na 100 GB/s ExpressRoute bezpośrednio: <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 GB/s</li><li>100 Gb/s</li></ul> Klient może wybrać kombinację następujących jednostek SKU obwodu na 10 GB/s ExpressRoute bezpośrednio:<ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
+| Usługi SKU obwodów z 50 MB/s do 10 GB/s | Klient może wybrać kombinację następujących jednostek SKU obwodu na 100 GB/s ExpressRoute bezpośrednio: <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 Gb/s</li><li>100 Gb/s</li></ul> Klient może wybrać kombinację następujących jednostek SKU obwodu na 10 GB/s ExpressRoute bezpośrednio:<ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
 | Optymalizacja pod kątem pojedynczej dzierżawy | Optymalizacja pod kątem pojedynczej dzierżawy z wieloma jednostkami biznesowymi i wieloma środowiskami roboczymi
 
 ## <a name="expressroute-direct-circuits"></a>Obwody bezpośrednie ExpressRoute
@@ -57,7 +56,7 @@ Usługa ExpressRoute Direct obsługuje ogromne scenariusze pozyskiwania danych w
 | **100 GB/s ExpressRoute Direct** | **10 GB/s ExpressRoute Direct** | 
 | --- | --- |
 | **Zasubskrybowana przepustowość**: 200 GB/s | **Zasubskrybowana przepustowość**: 20 GB/s |
-| <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 GB/s</li><li>100 Gb/s</li></ul> | <ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
+| <ul><li>5 Gb/s</li><li>10 Gb/s</li><li>40 Gb/s</li><li>100 Gb/s</li></ul> | <ul><li>1 Gb/s</li><li>2 Gb/s</li><li>5 Gb/s</li><li>10 Gb/s</li></ul>
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 

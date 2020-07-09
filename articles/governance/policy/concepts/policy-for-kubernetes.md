@@ -1,14 +1,14 @@
 ---
 title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828631"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85373628"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Azure Policy for Kubernetes obsługuje następujące środowiska klastra:
 - [Aparat AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Azure Policy dla Kubernetes jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć zaktualizowanego efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+> Azure Policy dla Kubernetes jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej ze skutkami **EnforceOPAConstraint** i **EnforceRegoPolicy** oraz pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Omówienie
 
@@ -35,6 +35,9 @@ Aby włączyć i użyć Azure Policy z klastrem Kubernetes, wykonaj następując
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Platforma Kubernetes z włączoną usługą Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Aparat AKS](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > Aby zapoznać się z typowymi problemami z instalacją, zobacz [Rozwiązywanie problemów — dodatek Azure Policy](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Opis języka Azure Policy Kubernetes](#policy-language)
 
@@ -49,9 +52,6 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.62 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Zarejestruj dostawców zasobów i funkcje w wersji zapoznawczej.
-
-   > [!CAUTION]
-   > Po zarejestrowaniu funkcji w ramach subskrypcji nie można wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej można użyć wartości domyślnych dla wszystkich klastrów AKS utworzonych w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Korzystaj z oddzielnej subskrypcji, aby testować funkcje w wersji zapoznawczej i zbierać opinie.
 
    - Azure Portal:
 
@@ -367,7 +367,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Język zasad
 
-Azure Policy struktura języka dla zarządzania Kubernetes jest zgodna z istniejącymi definicjami zasad. Efekt _EnforceOPAConstraint_ służy do zarządzania klastrami Kubernetes i zawiera szczegółowe właściwości specyficzne dla pracy z [platformą ograniczeń nieprzez](https://github.com/open-policy-agent/frameworks/tree/master/constraint) i strażnikiem v3. Aby uzyskać szczegółowe informacje i przykłady, zobacz efekt [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+Azure Policy struktura języka dla zarządzania Kubernetes jest zgodna z istniejącymi definicjami zasad. W [trybie dostawcy zasobów](./definition-structure.md#resource-provider-modes) `Microsoft.Kubernetes.Data` , [Inspekcja](./effects.md#audit) efektów i [Odmów](./effects.md#deny) są używane do zarządzania klastrami Kubernetes. _Inspekcja_ i _Odmów_ muszą podawać właściwości **szczegółów** charakterystyczne dla pracy z [nieprzez ograniczeń środowiska](https://github.com/open-policy-agent/frameworks/tree/master/constraint) i strażnik v3.
 
 W ramach właściwości _szczegóły. constraintTemplate_ i _szczegóły. ograniczenia_ w definicji zasad Azure Policy przekazuje identyfikatory URI tych [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) do dodatku. Rego to język, w którym NIEPRZEZ i strażnik obsługuje walidację żądania do klastra Kubernetes. Dzięki obsłudze istniejącej normy Kubernetes Management Azure Policy umożliwia ponowne użycie istniejących reguł i sparowanie ich z Azure Policy na potrzeby ujednoliconego środowiska raportowania zgodności z chmurą. Aby uzyskać więcej informacji, zobacz [co to jest rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 

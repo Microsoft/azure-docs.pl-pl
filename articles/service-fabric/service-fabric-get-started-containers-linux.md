@@ -3,12 +3,12 @@ title: Tworzenie aplikacji kontenera Service Fabric platformy Azure w systemie L
 description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłudze Azure Service Fabric. Zbuduj obraz Docker za pomocą własnej aplikacji, wypchnij obraz do rejestru kontenerów, skompiluj i wdróż aplikację kontenera usługi Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75457960"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84560646"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 Parametr *name* umożliwia nadanie nazwy działającemu kontenerowi (zamiast identyfikatora kontenera).
 
-Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując adres IP zwrócony na porcie 4000, na przykład "http:\//localhost: 4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
+Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując adres IP zwrócony na porcie 4000, na przykład "http: \/ /localhost: 4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 ![Hello World!][hello-world]
 
@@ -249,16 +249,16 @@ Połącz się z lokalnym klastrem usługi Service Fabric.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Użyj skryptu instalacji podanego w szablonach https://github.com/Azure-Samples/service-fabric-containers/ w programie, aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
+Użyj skryptu instalacji podanego w szablonach w programie https://github.com/Azure-Samples/service-fabric-containers/ , aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
 
 
 ```bash
 ./install.sh
 ```
 
-Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protokołu HTTP\/:/localhost: 19080/Explorer (Zastąp localhost jako prywatny adres IP maszyny wirtualnej, jeśli używany jest program Vagrant on Mac OS X). Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
+Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protokołu http: \/ /localhost: 19080/Explorer (Zastąp localhost jako prywatny adres IP maszyny wirtualnej, jeśli używany jest program Vagrant on Mac OS X). Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
 
-Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując adres IP zwrócony na porcie 4000, na przykład "http:\//localhost: 4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
+Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując adres IP zwrócony na porcie 4000, na przykład "http: \/ /localhost: 4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 ![Hello World!][hello-world]
 

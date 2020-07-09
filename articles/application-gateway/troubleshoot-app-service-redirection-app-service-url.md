@@ -5,15 +5,15 @@ description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemó
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 961ed17bcef19b445c2546a557725bb6bd8653cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293537"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84806493"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Rozwiązywanie problemów z App Service w programie Application Gateway
 
@@ -77,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-W poprzednim przykładzie Zwróć uwagę, że nagłówek odpowiedzi ma kod stanu 301 dla przekierowania. Nagłówek lokalizacji zawiera nazwę hosta usługi App Service zamiast oryginalnej nazwy `www.contoso.com`hosta.
+W poprzednim przykładzie Zwróć uwagę, że nagłówek odpowiedzi ma kod stanu 301 dla przekierowania. Nagłówek lokalizacji zawiera nazwę hosta usługi App Service zamiast oryginalnej nazwy hosta `www.contoso.com` .
 
 ## <a name="solution-rewrite-the-location-header"></a>Rozwiązanie: Zapisz ponownie nagłówek lokalizacji
 
@@ -98,9 +98,9 @@ Musisz być członkiem domeny niestandardowej i wykonać następujący proces:
 
     ![Niestandardowa lista domen usługi App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Usługa App Service jest gotowa do zaakceptowania nazwy `www.contoso.com`hosta. Zmień wpis CNAME w systemie DNS, aby wskazywał z powrotem na nazwę FQDN bramy aplikacji, na przykład `appgw.eastus.cloudapp.azure.com`.
+- Usługa App Service jest gotowa do zaakceptowania nazwy hosta `www.contoso.com` . Zmień wpis CNAME w systemie DNS, aby wskazywał z powrotem na nazwę FQDN bramy aplikacji, na przykład `appgw.eastus.cloudapp.azure.com` .
 
-- Upewnij się, że Twoja `www.contoso.com` domena jest rozpoznawana jako nazwa FQDN bramy aplikacji podczas wykonywania zapytania DNS.
+- Upewnij się, że Twoja domena `www.contoso.com` jest rozpoznawana jako nazwa FQDN bramy aplikacji podczas wykonywania zapytania DNS.
 
 - Ustaw niestandardową sondę, aby wyłączyć **Wybieranie nazwy hosta z ustawień protokołu HTTP zaplecza**. W Azure Portal wyczyść pole wyboru w obszarze Ustawienia sondy. W programie PowerShell nie należy używać przełącznika **-PickHostNameFromBackendHttpSettings** w poleceniu **Set-AzApplicationGatewayProbeConfig** . W polu Nazwa hosta sondy wprowadź nazwę FQDN usługi App Service, example.azurewebsites.net. Żądania sondowania wysyłane z bramy aplikacji przenoszą tę nazwę FQDN w nagłówku hosta.
 
@@ -111,7 +111,7 @@ Musisz być członkiem domeny niestandardowej i wykonać następujący proces:
 
 - Skojarz niestandardową sondę z powrotem z ustawieniami protokołu HTTP zaplecza i sprawdź, czy zaplecze jest w dobrej kondycji.
 
-- Brama aplikacji powinna teraz przesłać dalej tę samą nazwę hosta, `www.contoso.com`do usługi App Service. Przekierowanie odbywa się na tej samej nazwie hosta. Sprawdź następujące przykładowe nagłówki żądania i odpowiedzi.
+- Brama aplikacji powinna teraz przesłać dalej tę samą nazwę hosta, `www.contoso.com` do usługi App Service. Przekierowanie odbywa się na tej samej nazwie hosta. Sprawdź następujące przykładowe nagłówki żądania i odpowiedzi.
 
 Aby zaimplementować poprzednie kroki przy użyciu programu PowerShell dla istniejącej instalacji, użyj poniższego skryptu programu PowerShell. Zwróć uwagę, jak nie używamy przełączników **-PickHostname** w konfiguracji ustawień sondowania i http.
 

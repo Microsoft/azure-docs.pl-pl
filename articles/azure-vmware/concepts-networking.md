@@ -3,18 +3,17 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware (Automatyczna synchronizacja)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
-ms.translationtype: MT
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84629209"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware (wersja zapoznawcza) — Omówienie rozwiązań sieciowych i międzyłącznościowych
 
 Łączność sieciową między chmurami prywatnymi (Automatyczna synchronizacja) i środowiskami lokalnymi lub sieciami wirtualnymi na platformie Azure umożliwia dostęp do chmury prywatnej oraz korzystanie z niej. W tym artykule opisano kilka najważniejszych koncepcji dotyczących sieci i międzyłączności, które stanowią podstawę międzyłączności.
 
-Przydatną perspektywą dotyczącą międzyłączności jest uwzględnienie dwóch typów implementacji chmury prywatnej. Implementacje z podstawowymi rozwiązaniami opartymi na platformie Azure oraz z kompleksowymi wdrożeniami z pełną łącznością z chmurą prywatną.
+Przydatną perspektywą dotyczącą międzyłączności jest rozważenie dwóch typów implementacji chmury prywatnej na potrzeby automatycznej synchronizacji: implementacji z podstawowymi połączeniami i niestandardowymi rozwiązaniami opartymi na platformie Azure z pełnymi połączeniami lokalnymi z chmurą prywatną.
 
 W przypadku użycia w przypadku chmur prywatnych w ramach automatycznej synchronizacji należą:
 - nowe obciążenia maszyn wirtualnych VMware w chmurze
@@ -25,7 +24,7 @@ W przypadku użycia w przypadku chmur prywatnych w ramach automatycznej synchron
 
  Wszystkie przypadki użycia usługi automatycznej synchronizacji są włączone z łącznością lokalną z chmurą prywatną. Model podstawowej łączności wzajemnej jest najlepiej dostosowany do oceny lub implementacji automatycznej synchronizacji, które nie wymagają dostępu ze środowisk lokalnych.
 
-W poniższych sekcjach opisano dwa typy synchronizacji prywatnej z chmurą prywatną.  Największą podstawową międzyłącznością jest "łączność sieci wirtualnej platformy Azure" i umożliwia zarządzanie chmurą prywatną oraz korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Wzajemne połączenia opisane w temacie "łączność lokalna" rozszerzają łączność sieci wirtualnej w celu uwzględnienia połączenia między środowiskami lokalnymi i automatyczna synchronizacja chmur prywatnych.
+W poniższych sekcjach opisano dwa typy synchronizacji prywatnej z chmurą prywatną.  Najbardziej podstawową międzyłącznością jest "łączność sieci wirtualnej platformy Azure"; Umożliwia ona zarządzanie chmurą prywatną i korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Wzajemne połączenia opisane w temacie "łączność lokalna" rozszerzają łączność sieci wirtualnej w celu uwzględnienia połączenia między środowiskami lokalnymi i automatyczna synchronizacja chmur prywatnych.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Łączność z siecią wirtualną platformy Azure
 
@@ -62,7 +61,7 @@ Po połączeniu z Global Reach dwa obwody usługi ExpressRoute będą kierować 
 
 Aby zapewnić pełną łączność, w Azure Portal można żądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach. Za pomocą klucza i identyfikatora można ustalić Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. [Samouczek dotyczący tworzenia chmury prywatnej](tutorial-create-private-cloud.md) zapewnia procedury umożliwiające żądanie i użycie klucza i identyfikatora.
 
-Wymagania dotyczące routingu w ramach rozwiązania wymagają zaplanowania przestrzeni adresów sieci chmury prywatnej, aby uniknąć nakładania się innych sieci wirtualnych i sieci lokalnych. Automatyczna synchronizacja chmur prywatnych wymaga co najmniej bloku `/22` adresów sieciowych CIDR dla podsieci, jak pokazano poniżej. Ta sieć uzupełnia sieci lokalne. Aby można było połączyć się ze środowiskami lokalnymi i sieciami wirtualnymi, musi to być nienakładający się blok adresów sieciowych.
+Wymagania dotyczące routingu w ramach rozwiązania wymagają zaplanowania przestrzeni adresów sieci chmury prywatnej, aby uniknąć nakładania się innych sieci wirtualnych i sieci lokalnych. Automatyczna synchronizacja chmur prywatnych wymaga co najmniej `/22` bloku adresów sieciowych CIDR dla podsieci, jak pokazano poniżej. Ta sieć uzupełnia sieci lokalne. Aby można było połączyć się ze środowiskami lokalnymi i sieciami wirtualnymi, musi to być nienakładający się blok adresów sieciowych.
 
 Przykładowy `/22` blok adresów sieciowych CIDR:`10.10.0.0/22`
 

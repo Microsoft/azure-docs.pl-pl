@@ -3,12 +3,12 @@ title: Zainstaluj agenta Microsoft Azure Recovery Services (MARS)
 description: Dowiedz się, jak zainstalować agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422934"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855231"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalowanie agenta Azure Backup MARS
 
@@ -66,11 +66,12 @@ Aby zmodyfikować typ replikacji magazynu:
 Jeśli maszyna ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze lub serwerze proxy zezwalają na następujące adresy URL i adresy IP:
 
 * Adresy URL
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * Adresy IP
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -82,6 +83,7 @@ Można utworzyć kopię zapasową danych za pośrednictwem usługi Azure Express
 Aby korzystać z publicznej komunikacji równorzędnej, należy najpierw zapewnić dostęp do następujących domen i adresów:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -133,7 +135,7 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 
 ## <a name="install-and-register-the-agent"></a>Instalowanie i rejestrowanie agenta
 
-1. Uruchom plik *plik marsagentinstaller. exe* na maszynach, dla których chcesz utworzyć kopię zapasową.
+1. Uruchom plik *MARSagentinstaller.exe* na maszynach, dla których chcesz utworzyć kopię zapasową.
 1. W Kreatorze instalacji agenta MARS wybierz pozycję **ustawienia instalacji**. W tym miejscu wybierz miejsce instalacji agenta i wybierz lokalizację pamięci podręcznej. Następnie wybierz pozycję **Dalej**.
    * Azure Backup używa pamięci podręcznej do przechowywania migawek danych przed wysłaniem ich do platformy Azure.
    * W lokalizacji pamięci podręcznej powinna występować ilość wolnego miejsca równa co najmniej 5% rozmiaru danych, których kopia zapasowa ma zostać wykonana.
@@ -149,7 +151,7 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 
 1. Na potrzeby **instalacji**Przejrzyj wymagania wstępne i wybierz pozycję **Zainstaluj**.
 1. Po zainstalowaniu agenta wybierz pozycję przechodzenie **do rejestracji**.
-1. W oknie **Rejestrowanie** > **magazynu**kreatora, Wyszukaj i wybierz pobrany plik poświadczeń. Następnie wybierz pozycję **Dalej**.
+1. W oknie **Rejestrowanie**  >  **magazynu**kreatora, Wyszukaj i wybierz pobrany plik poświadczeń. Następnie wybierz pozycję **Dalej**.
 
     ![Dodawanie poświadczeń magazynu za pomocą Kreatora rejestrowania serwera](./media/backup-configure-vault/register1.png)
 

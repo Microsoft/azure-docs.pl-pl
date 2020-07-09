@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
 ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82864253"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
@@ -180,7 +179,7 @@ W dziennikach Azure Monitor kolumna **TimeGenerated** służy jako sposób indek
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Unikaj niepotrzebnego użycia operatorów wyszukiwania i złożenia
 
-Innym czynnikiem, który zwiększa dane procesu, jest użycie dużej liczby tabel. Zwykle zdarza się to `search *` , `union *` gdy polecenia i są używane. Te polecenia wymuszają, aby system obliczał i skanował dane ze wszystkich tabel w obszarze roboczym. W niektórych przypadkach w obszarze roboczym mogą znajdować się setki tabel. Spróbuj uniknąć możliwie największej ilości miejsca przy użyciu funkcji wyszukiwania * lub dowolnego wyszukiwania bez określania zakresu dla konkretnej tabeli.
+Innym czynnikiem, który zwiększa dane procesu, jest użycie dużej liczby tabel. Zwykle zdarza się to `search *` , gdy `union *` polecenia i są używane. Te polecenia wymuszają, aby system obliczał i skanował dane ze wszystkich tabel w obszarze roboczym. W niektórych przypadkach w obszarze roboczym mogą znajdować się setki tabel. Spróbuj uniknąć możliwie największej ilości miejsca przy użyciu funkcji wyszukiwania * lub dowolnego wyszukiwania bez określania zakresu dla konkretnej tabeli.
 
 Na przykład następujące zapytania dają dokładnie ten sam wynik, ale ostatni z nich jest najbardziej wydajny:
 
@@ -204,7 +203,7 @@ Perf
 
 ### <a name="add-early-filters-to-the-query"></a>Dodawanie wczesnych filtrów do zapytania
 
-Inną metodą zredukowania ilości danych jest w [przypadku](/azure/kusto/query/whereoperator) wczesnych warunków w zapytaniu. Platforma Azure Eksplorator danych obejmuje pamięć podręczną, która pozwala na określenie, które partycje zawierają dane istotne dla określonego warunku WHERE. Na przykład, jeśli zapytanie zawiera `where EventID == 4624` , będzie ono dystrybuowane tylko do węzłów, które obsługują partycje ze zgodnymi zdarzeniami.
+Inną metodą zredukowania ilości danych jest w [przypadku](/azure/kusto/query/whereoperator) wczesnych warunków w zapytaniu. Platforma Azure Eksplorator danych obejmuje pamięć podręczną, która pozwala na określenie, które partycje zawierają dane istotne dla określonego warunku WHERE. Na przykład, jeśli zapytanie zawiera, `where EventID == 4624` będzie ono dystrybuowane tylko do węzłów, które obsługują partycje ze zgodnymi zdarzeniami.
 
 Poniższe przykładowe zapytania dają dokładnie ten sam wynik, ale druga jest bardziej wydajna:
 

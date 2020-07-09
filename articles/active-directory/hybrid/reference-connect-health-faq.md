@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80331076"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health często zadawane pytania
@@ -37,9 +37,9 @@ W poniższej tabeli wymieniono role i obsługiwane wersje systemu operacyjnego.
 
 |Rola| System operacyjny/wersja|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 z dodatkiem R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 z dodatkiem R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Wersja 1.0.9125 lub nowsza|
-|Usługi domenowe Active Directory (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Usługi domenowe Active Directory (AD DS)| <ul> <li> Windows Server 2008 z dodatkiem R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 z dodatkiem R2 </li> <li> Windows Server 2016  </li> </ul>|
 
 Należy pamiętać, że funkcje udostępniane przez usługę mogą się różnić w zależności od roli i systemu operacyjnego. Innymi słowy, wszystkie funkcje mogą nie być dostępne dla wszystkich wersji systemu operacyjnego. Szczegółowe informacje można znaleźć w opisach funkcji.
 
@@ -107,7 +107,7 @@ Przeczytaj więcej [na temat konfigurowania serwera proxy HTTP dla agentów kond
 
 Jeśli musisz skonfigurować serwer proxy podczas rejestracji agenta, być może musisz wcześniej zmodyfikować ustawienia serwera proxy programu Internet Explorer.
 
-1. Otwórz program Internet Explorer > **Ustawienia** > **Opcje** > internetowe**połączenia** > **sieci LAN**.
+1. Otwórz program Internet Explorer > **Ustawienia**  >  **Opcje internetowe**  >  **połączenia**  >  **sieci LAN**.
 2. Wybierz opcję **Użyj serwera proxy dla sieci LAN**.
 3. Wybierz opcję **Zaawansowane** , jeśli masz różne porty serwera proxy dla protokołów HTTP i https/Secure.
 
@@ -139,7 +139,7 @@ Rejestracja agenta kondycji może zakończyć się niepowodzeniem ze względu na
 
 **P: otrzymuję alerty informujące o tym, że "Usługa kondycji dane są nieaktualne". Jak mogę rozwiązać ten problem?**
 
-Azure AD Connect Health generuje alert, jeśli nie otrzyma wszystkich punktów danych z serwera w ciągu ostatnich dwóch godzin. [Dowiedz się więcej](how-to-connect-health-data-freshness.md).
+Azure AD Connect Health generuje alert, jeśli nie otrzyma wszystkich punktów danych z serwera w ciągu ostatnich dwóch godzin. [Przeczytaj więcej](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Pytania dotyczące operacji
 **P: Czy muszę włączyć inspekcję na serwerach proxy aplikacji sieci Web?**
@@ -192,13 +192,13 @@ CheckForMS17-010
 
 **P: Dlaczego nie są generowane żadne inspekcje usług ADFS?**
 
-Użyj polecenia cmdlet <i>Get-ADFSProperties-AuditLevel</i> programu PowerShell, aby upewnić się, że dzienniki inspekcji nie są w stanie wyłączenia. Przeczytaj więcej na temat [dzienników inspekcji usług ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Zwróć uwagę, jeśli są przekazywane zaawansowane ustawienia inspekcji do serwera usług AD FS, wszelkie zmiany w programie Auditpol. exe zostaną zastąpione (zdarzenie, jeśli wygenerowana aplikacja nie jest skonfigurowana). W takim przypadku należy ustawić zasady zabezpieczeń lokalnych, aby rejestrować błędy wygenerowane przez aplikację i powodzenie.
+Użyj polecenia cmdlet <i>Get-ADFSProperties-AuditLevel</i> programu PowerShell, aby upewnić się, że dzienniki inspekcji nie są w stanie wyłączenia. Przeczytaj więcej na temat [dzienników inspekcji usług ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Zwróć uwagę, jeśli istnieją zaawansowane ustawienia inspekcji wypychane do serwera usług AD FS, wszelkie zmiany z auditpol.exe zostaną zastąpione (zdarzenie, jeśli wygenerowana aplikacja nie jest skonfigurowana). W takim przypadku należy ustawić zasady zabezpieczeń lokalnych, aby rejestrować błędy wygenerowane przez aplikację i powodzenie.
 
 **P: Kiedy certyfikat agenta będzie automatycznie odnawiany przed wygaśnięciem?**
 Certyfikacja agenta zostanie automatycznie odnowiona na **sześć miesięcy** przed datą wygaśnięcia. Jeśli nie, upewnij się, że połączenie sieciowe agenta jest stabilne. Należy ponownie uruchomić usługi agenta lub zaktualizować do najnowszej wersji, aby rozwiązać problem.
 
 
-## <a name="related-links"></a>Powiązane linki
+## <a name="related-links"></a>Linki pokrewne
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalacja agenta Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operacje Azure AD Connect Health](how-to-connect-health-operations.md)

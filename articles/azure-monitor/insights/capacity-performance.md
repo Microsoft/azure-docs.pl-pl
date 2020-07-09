@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
 ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77666947"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Zaplanuj pojemność maszyny wirtualnej funkcji Hyper-V za pomocą rozwiązania Capacity and Performance (przestarzałe)
@@ -51,7 +50,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 - Agenty systemu Windows lub Operations Manager muszą być zainstalowane na komputerach z systemem Windows Server 2012 lub nowszym, a nie maszyn wirtualnych.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj następujące kroki, aby dodać rozwiązanie Capacity and Performance do obszaru roboczego.
 
@@ -88,7 +87,7 @@ Kliknij kafelek Capacity and Performance, aby otworzyć pulpit nawigacyjny Capac
 - **Pracując**
     - **Użycie procesora CPU hosta** Przedstawia graficzny trend użycia procesora CPU przez komputery hosta i listę hostów w oparciu o wybrany okres. Zatrzymaj wskaźnik myszy na wykresie liniowym, aby wyświetlić szczegóły określonego punktu w czasie. Kliknij wykres, aby wyświetlić więcej szczegółów w przeszukiwaniu dzienników. Kliknij dowolną nazwę hosta, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegóły licznika procesora dla hostowanych maszyn wirtualnych.
     - **Użycie pamięci hosta** Przedstawia graficzny trend wykorzystania pamięci przez komputery hosta i listę hostów w oparciu o wybrany okres. Zatrzymaj wskaźnik myszy na wykresie liniowym, aby wyświetlić szczegóły określonego punktu w czasie. Kliknij wykres, aby wyświetlić więcej szczegółów w przeszukiwaniu dzienników. Kliknij dowolną nazwę hosta, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegóły licznika pamięci dla hostowanych maszyn wirtualnych.
-- **Maszyny wirtualne**
+- **Virtual Machines**
     - **Użycie procesora CPU maszyny wirtualnej** Przedstawia graficzny trend użycia procesora CPU przez maszyny wirtualne i listę maszyn wirtualnych w oparciu o wybrany okres. Zatrzymaj wskaźnik myszy na wykresie liniowym, aby wyświetlić szczegóły określonego punktu w czasie dla 3 pierwszych maszyn wirtualnych. Kliknij wykres, aby wyświetlić więcej szczegółów w przeszukiwaniu dzienników. Kliknij dowolną nazwę maszyny wirtualnej, aby otworzyć wyszukiwanie w dzienniku i wyświetlić zagregowane szczegóły licznika procesora dla maszyny wirtualnej.
     - **Wykorzystanie pamięci maszyny wirtualnej** Przedstawia graficzny trend wykorzystania pamięci maszyn wirtualnych i listy maszyn wirtualnych w oparciu o wybrany okres. Zatrzymaj wskaźnik myszy na wykresie liniowym, aby wyświetlić szczegóły określonego punktu w czasie dla 3 pierwszych maszyn wirtualnych. Kliknij wykres, aby wyświetlić więcej szczegółów w przeszukiwaniu dzienników. Kliknij dowolną nazwę maszyny wirtualnej, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegółowe informacje o liczniku pamięci dla maszyny wirtualnej.
     - **Całkowita liczba operacji we/wy dysku maszyny wirtualnej** Przedstawia graficzny trend łącznej liczby operacji we/wy na sekundę dla maszyn wirtualnych i listy maszyn wirtualnych z każdą liczbą operacji we/wy na sekundę w oparciu o wybrany okres. Zatrzymaj wskaźnik myszy na wykresie liniowym, aby wyświetlić szczegóły określonego punktu w czasie dla 3 pierwszych maszyn wirtualnych. Kliknij wykres, aby wyświetlić więcej szczegółów w przeszukiwaniu dzienników. Kliknij dowolną nazwę maszyny wirtualnej, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegółowe informacje o zagregowanym liczniku liczby operacji we/wy dysku dla maszyny wirtualnej.

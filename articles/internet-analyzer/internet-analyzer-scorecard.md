@@ -4,15 +4,15 @@ description: Często zadawane pytania dotyczące usługi Azure Internet Analyzer
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: a05c704f62d93bdc110d8a5943dd266ca22eb5f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73512888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744038"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretowanie karty wyników
 

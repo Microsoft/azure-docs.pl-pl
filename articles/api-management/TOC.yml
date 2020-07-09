@@ -38,9 +38,11 @@
 - name: Samples
   items:
     - name: Zasady
-      href: policy-samples.md
+      href: ./policies/index.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Elementy wbudowane usługi Azure Policy
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Terminologia

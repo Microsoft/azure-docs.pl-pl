@@ -8,15 +8,14 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: a58ea58ebf6fdc7d8521d204ac42fcbadeca39a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 93418369724286e8b8c967754b2fb37135094008
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189304"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027594"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -53,7 +52,7 @@ Każdy parametr może być dyskretny lub ciągły i ma rozkład wartości opisan
 Dyskretne podparametry są określone jako `choice` wartości dyskretne. `choice`może to być:
 
 * co najmniej jedna wartość oddzielona przecinkami
-* `range` obiekt
+* `range`obiekt
 * dowolny dowolny `list` obiekt
 
 
@@ -91,7 +90,7 @@ Przykład definicji przestrzeni parametrów:
     }
 ```
 
-Ten kod definiuje miejsce wyszukiwania z dwoma parametrami — `learning_rate` i `keep_probability`. `learning_rate`ma rozkład normalny z wartością średnia 10 i odchylenie standardowe równe 3. `keep_probability`ma jednolitą dystrybucję o wartości minimalnej 0,05 i maksymalnej wartości 0,1.
+Ten kod definiuje miejsce wyszukiwania z dwoma parametrami — `learning_rate` i `keep_probability` . `learning_rate`ma rozkład normalny z wartością średnia 10 i odchylenie standardowe równe 3. `keep_probability`ma jednolitą dystrybucję o wartości minimalnej 0,05 i maksymalnej wartości 0,1.
 
 ### <a name="sampling-the-hyperparameter-space"></a>Próbkowanie obszaru hiperprzestrzeni
 
@@ -109,6 +108,7 @@ W przypadku próbkowania losowego wartości parametrów są losowo wybierane ze 
 
 ```Python
 from azureml.train.hyperdrive import RandomParameterSampling
+from azureml.train.hyperdrive import normal, uniform, choice
 param_sampling = RandomParameterSampling( {
         "learning_rate": normal(10, 3),
         "keep_probability": uniform(0.05, 0.1),
@@ -119,10 +119,11 @@ param_sampling = RandomParameterSampling( {
 
 #### <a name="grid-sampling"></a>Próbkowanie siatki
 
-[Próbkowanie siatki](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) wykonuje proste przeszukiwanie siatki dla wszystkich dopuszczalnych wartości w zdefiniowanym obszarze wyszukiwania. Może być używana tylko z parametrami podanymi przy użyciu `choice`. Na przykład następujące miejsce zawiera łącznie sześć próbek:
+[Próbkowanie siatki](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?view=azure-ml-py) wykonuje proste przeszukiwanie siatki dla wszystkich dopuszczalnych wartości w zdefiniowanym obszarze wyszukiwania. Może być używana tylko z parametrami podanymi przy użyciu `choice` . Na przykład następujące miejsce zawiera łącznie sześć próbek:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
+from azureml.train.hyperdrive import choice
 param_sampling = GridParameterSampling( {
         "num_hidden_layers": choice(1, 2, 3),
         "batch_size": choice(16, 32)
@@ -136,10 +137,11 @@ param_sampling = GridParameterSampling( {
 
 W przypadku korzystania z próbkowania bayesowskie liczba współbieżnych uruchomień ma wpływ na efektywność procesu dostrajania. Zwykle mniejsza liczba współbieżnych uruchomień może prowadzić do lepszego próbkowania zbieżności, ponieważ mniejszy stopień równoległości zwiększa liczbę przebiegów, które korzystają z wcześniej ukończonych przebiegów.
 
-Próbkowanie bayesowskie obsługuje `choice`, `uniform`i `quniform` rozpowszechniać tylko w obszarze wyszukiwania.
+Próbkowanie bayesowskie obsługuje `choice` , `uniform` i `quniform` rozpowszechniać tylko w obszarze wyszukiwania.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
+from azureml.train.hyperdrive import uniform, choice
 param_sampling = BayesianParameterSampling( {
         "learning_rate": uniform(0.05, 0.1),
         "batch_size": choice(16, 32, 64, 128)
@@ -148,7 +150,7 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Próbkowanie bayesowskie nie obsługuje żadnych zasad wczesnego zakończenia (zobacz [Określanie zasad wczesnego zakończenia](#specify-early-termination-policy)). W przypadku korzystania z próbkowania parametru `early_termination_policy = None`bayesowskie, ustawiania lub pozostawiania `early_termination_policy` parametru.
+> Próbkowanie bayesowskie nie obsługuje żadnych zasad wczesnego zakończenia (zobacz [Określanie zasad wczesnego zakończenia](#specify-early-termination-policy)). W przypadku korzystania z próbkowania parametru bayesowskie, ustawiania `early_termination_policy = None` lub pozostawiania `early_termination_policy` parametru.
 
 <a name='specify-primary-metric-to-optimize'/>
 
@@ -157,7 +159,7 @@ param_sampling = BayesianParameterSampling( {
 Określ [metrykę podstawową](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) , która ma zostać zoptymalizowana przez dostrajanie parametrów. Poszczególne przebiegi szkoleniowe są oceniane dla metryki podstawowej. Niewłaściwie wykonywane przebiegi (gdy Metryka podstawowa nie spełnia kryteriów ustawionych przez zasady wczesnego zakończenia) zostanie zakończona. Oprócz nazwy metryki głównej należy również określić cel optymalizacji — czy można zmaksymalizować lub zminimalizować podstawową metrykę.
 
 * `primary_metric_name`: Nazwa metryki głównej do optymalizacji. Nazwa metryki głównej musi dokładnie pasować do nazwy metryki rejestrowanej przez skrypt szkoleniowy. Zobacz [metryki dziennika dla dostrajania parametrów](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: Może to być `PrimaryMetricGoal.MAXIMIZE` albo `PrimaryMetricGoal.MINIMIZE` i i określać, czy Metryka podstawowa będzie zmaksymalizowana, czy zminimalizowana podczas oceniania przebiegów. 
+* `primary_metric_goal`: Może to być albo `PrimaryMetricGoal.MAXIMIZE` `PrimaryMetricGoal.MINIMIZE` i i określać, czy Metryka podstawowa będzie zmaksymalizowana, czy zminimalizowana podczas oceniania przebiegów. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -190,7 +192,7 @@ Bezbłędnie wykonuj uruchomienia automatycznie z zasadami wczesnego zakończeni
 
 Korzystając z zasad wczesnego zakończenia, można skonfigurować następujące parametry, które kontrolują, kiedy zasady są stosowane:
 
-* `evaluation_interval`: częstotliwość stosowania zasad. Za każdym razem, gdy skrypt szkoleniowy rejestruje podstawową metrykę jako jeden interwał. `evaluation_interval` W ten sposób 1 zastosuje zasady za każdym razem, gdy skrypt szkoleniowy zgłosi podstawową metrykę. `evaluation_interval` 2 zastosuje zasady za każdym razem, gdy skrypt szkoleniowy zgłosi podstawową metrykę. Jeśli nie zostanie określona `evaluation_interval` , jest domyślnie ustawiona na 1.
+* `evaluation_interval`: częstotliwość stosowania zasad. Za każdym razem, gdy skrypt szkoleniowy rejestruje podstawową metrykę jako jeden interwał. W ten sposób `evaluation_interval` 1 zastosuje zasady za każdym razem, gdy skrypt szkoleniowy zgłosi podstawową metrykę. `evaluation_interval`2 zastosuje zasady za każdym razem, gdy skrypt szkoleniowy zgłosi podstawową metrykę. Jeśli nie zostanie określona, `evaluation_interval` jest domyślnie ustawiona na 1.
 * `delay_evaluation`: opóźnia pierwszą ocenę zasad przez określoną liczbę interwałów. Jest to opcjonalny parametr, który umożliwia uruchamianie wszystkich konfiguracji w początkowej minimalnej liczbie interwałów, unikając przedwczesnego zakończenia przebiegów szkoleniowych. Jeśli ta wartość jest określona, zasady stosują się do każdej wielokrotności evaluation_interval, która jest większa lub równa delay_evaluation.
 
 Azure Machine Learning obsługuje następujące zasady wczesnego zakończenia.
@@ -199,9 +201,9 @@ Azure Machine Learning obsługuje następujące zasady wczesnego zakończenia.
 
 [Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#definition) to zasady zakończenia na podstawie wartości współczynnika zapasu/zapasu czasu i interwału ewaluacji. Zasady wczesnie kończą wszystkie uruchomienia, w których podstawowa Metryka nie mieści się w określonym współczynniku zapasu/zapasu czasu, w odniesieniu do najlepszego przebiegu szkoleniowego. Przyjmuje następujące parametry konfiguracji:
 
-* `slack_factor`lub `slack_amount`: zapasowy, który jest dozwolony w odniesieniu do najlepszego przebiegu szkoleniowego. `slack_factor`Określa dopuszczalny zapas czasu jako współczynnik. `slack_amount`Określa dozwolony czas zapasowy jako ilość bezwzględną, a nie współczynnik.
+* `slack_factor`lub `slack_amount` : zapasowy, który jest dozwolony w odniesieniu do najlepszego przebiegu szkoleniowego. `slack_factor`Określa dopuszczalny zapas czasu jako współczynnik. `slack_amount`Określa dozwolony czas zapasowy jako ilość bezwzględną, a nie współczynnik.
 
-    Rozważmy na przykład, że zasady Bandit są stosowane w interwale 10. Przyjęto założenie, że najlepiej działający przebieg w interwale 10 zgłosił podstawową metrykę 0,8 z celem, aby zmaksymalizować podstawową metrykę. Jeśli zasady zostały określone z `slack_factor` 0,2, każdy przebieg szkolenia, którego Najlepsza Metryka w interwale 10 jest mniejsza niż 0,66 (0,8/(1 +`slack_factor`)) zostanie zakończony. Jeśli zamiast tego, zasady zostały określone z `slack_amount` 0,2, wszelkie przebiegi szkoleniowe, których Najlepsza Metryka w interwale 10 jest mniejsza niż 0,6 (0,8 `slack_amount`-) zostanie zakończony.
+    Rozważmy na przykład, że zasady Bandit są stosowane w interwale 10. Przyjęto założenie, że najlepiej działający przebieg w interwale 10 zgłosił podstawową metrykę 0,8 z celem, aby zmaksymalizować podstawową metrykę. Jeśli zasady zostały określone z `slack_factor` 0,2, każdy przebieg szkolenia, którego Najlepsza Metryka w interwale 10 jest mniejsza niż 0,66 (0,8/(1 + `slack_factor` )) zostanie zakończony. Jeśli zamiast tego, zasady zostały określone z `slack_amount` 0,2, wszelkie przebiegi szkoleniowe, których Najlepsza Metryka w interwale 10 jest mniejsza niż 0,6 (0,8- `slack_amount` ) zostanie zakończony.
 * `evaluation_interval`: częstotliwość stosowania zasad (parametr opcjonalny).
 * `delay_evaluation`: opóźnia pierwsze oszacowanie zasad dla określonej liczby interwałów (parametr opcjonalny).
 
@@ -272,7 +274,7 @@ Kontroluj budżet zasobów dla eksperymentu strojenia parametrów, określając 
 
 Ponadto Określ maksymalną liczbę przebiegów szkoleniowych uruchamianych współbieżnie podczas wyszukiwania dostrajania parametrów.
 
-* `max_concurrent_runs`: Maksymalna liczba przebiegów uruchomionych współbieżnie w danym momencie. Jeśli żaden nie zostanie określony `max_total_runs` , wszystkie będą uruchamiane równolegle. Jeśli ta wartość jest określona, musi być liczbą z przedziału od 1 do 100.
+* `max_concurrent_runs`: Maksymalna liczba przebiegów uruchomionych współbieżnie w danym momencie. Jeśli żaden nie zostanie określony, wszystkie `max_total_runs` będą uruchamiane równolegle. Jeśli ta wartość jest określona, musi być liczbą z przedziału od 1 do 100.
 
 >[!NOTE] 
 >Liczba współbieżnych uruchomień jest zależna od zasobów dostępnych w określonym elemencie docelowym obliczeń. Z tego względu należy upewnić się, że obiekt docelowy obliczeń ma dostępne zasoby dla żądanego współbieżności.
@@ -288,7 +290,7 @@ Ten kod umożliwia skonfigurowanie eksperymentu strojenia parametrów w celu uż
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
 
-[Skonfiguruj eksperyment strojenia parametrów](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) przy użyciu zdefiniowanego miejsca wyszukiwania z parametrami, zasad wczesnego zakończenia, metryki podstawowej i alokacji zasobów w powyższych sekcjach. Ponadto podaj, `estimator` że zostanie wywołana przy użyciu parametrów z próbkami. W `estimator` tym artykule opisano uruchamianie skryptu szkoleniowego, zasobów na zadanie (pojedynczego lub wieloprocesorowy) i celu obliczeń do użycia. Ponieważ współbieżność eksperymentu strojenia parametrów jest zależna od dostępnych zasobów, upewnij się, że obiekt docelowy obliczeń określony w `estimator` obszarze ma wystarczające zasoby dla żądanego współbieżności. (Aby uzyskać więcej informacji na temat szacowania, zobacz [jak uczenie modeli](how-to-train-ml-models.md)).
+[Skonfiguruj eksperyment strojenia parametrów](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py) przy użyciu zdefiniowanego miejsca wyszukiwania z parametrami, zasad wczesnego zakończenia, metryki podstawowej i alokacji zasobów w powyższych sekcjach. Ponadto podaj, `estimator` że zostanie wywołana przy użyciu parametrów z próbkami. W tym `estimator` artykule opisano uruchamianie skryptu szkoleniowego, zasobów na zadanie (pojedynczego lub wieloprocesorowy) i celu obliczeń do użycia. Ponieważ współbieżność eksperymentu strojenia parametrów jest zależna od dostępnych zasobów, upewnij się, że obiekt docelowy obliczeń określony w obszarze `estimator` ma wystarczające zasoby dla żądanego współbieżności. (Aby uzyskać więcej informacji na temat szacowania, zobacz [jak uczenie modeli](how-to-train-ml-models.md)).
 
 Konfigurowanie eksperymentu strojenia parametrów:
 
@@ -339,7 +341,7 @@ resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
 child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
 ```
 
-Możesz skonfigurować eksperyment strojenia parametrów, aby rozpocząć pracę z poprzedniego eksperymentu lub wznowić indywidualne uruchomienie szkolenia przy użyciu parametrów `resume_from` opcjonalnych `resume_child_runs` i konfiguracji:
+Możesz skonfigurować eksperyment strojenia parametrów, aby rozpocząć pracę z poprzedniego eksperymentu lub wznowić indywidualne uruchomienie szkolenia przy użyciu parametrów opcjonalnych `resume_from` i `resume_child_runs` konfiguracji:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig

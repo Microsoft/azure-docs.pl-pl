@@ -4,10 +4,9 @@ description: Dowiedz się, jak monitorować i diagnozować usługi Service Fabri
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991334"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorowanie i diagnozowanie usług w ramach instalacji lokalnego komputera z systemem Linux
@@ -24,9 +23,9 @@ Monitorowanie, wykrywanie, diagnozowanie i rozwiązywanie problemów, dzięki cz
 
 ## <a name="debugging-service-fabric-java-applications"></a>Debugowanie Service Fabric aplikacji Java
 
-W przypadku aplikacji Java dostępnych jest [wiele platform rejestrowania](https://en.wikipedia.org/wiki/Java_logging_framework) . Ponieważ `java.util.logging` jest domyślną opcją środowiska JRE, jest również używana do [przykładów kodu w usłudze GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). W poniższej dyskusji wyjaśniono, `java.util.logging` jak skonfigurować strukturę.
+W przypadku aplikacji Java dostępnych jest [wiele platform rejestrowania](https://en.wikipedia.org/wiki/Java_logging_framework) . Ponieważ `java.util.logging` jest domyślną opcją środowiska JRE, jest również używana do [przykładów kodu w usłudze GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). W poniższej dyskusji wyjaśniono, jak skonfigurować `java.util.logging` strukturę.
 
-Za pomocą języka Java. util. rejestrowanie można przekierować Dzienniki aplikacji do pamięci, strumieni danych wyjściowych, plików konsoli lub gniazd. Dla każdej z tych opcji istnieją już domyślne programy obsługi w strukturze. Można utworzyć `app.properties` plik, aby skonfigurować procedurę obsługi plików dla aplikacji w celu przekierowania wszystkich dzienników do pliku lokalnego.
+Za pomocą języka Java. util. rejestrowanie można przekierować Dzienniki aplikacji do pamięci, strumieni danych wyjściowych, plików konsoli lub gniazd. Dla każdej z tych opcji istnieją już domyślne programy obsługi w strukturze. Można utworzyć plik, `app.properties` Aby skonfigurować procedurę obsługi plików dla aplikacji w celu przekierowania wszystkich dzienników do pliku lokalnego.
 
 Poniższy fragment kodu zawiera przykładową konfigurację:
 
@@ -40,14 +39,14 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-Folder wskazany przez `app.properties` plik musi istnieć. Po utworzeniu `app.properties` pliku należy również zmodyfikować skrypt `entrypoint.sh` punktu wejścia w `<applicationfolder>/<servicePkg>/Code/` folderze, aby ustawić właściwość `java.util.logging.config.file` na `app.properties` plik. Wpis powinien wyglądać podobnie do następującego fragmentu kodu:
+Folder wskazany przez `app.properties` plik musi istnieć. Po `app.properties` utworzeniu pliku należy również zmodyfikować skrypt punktu wejścia `entrypoint.sh` w `<applicationfolder>/<servicePkg>/Code/` folderze, aby ustawić właściwość `java.util.logging.config.file` na `app.properties` plik. Wpis powinien wyglądać podobnie do następującego fragmentu kodu:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
 
 
-Ta konfiguracja powoduje, że dzienniki są zbierane w sposób rotacyjny `/tmp/servicefabric/logs/`na. Plik dziennika w tym przypadku ma nazwę mysfapp% u .% g. log, gdzie:
+Ta konfiguracja powoduje, że dzienniki są zbierane w sposób rotacyjny na `/tmp/servicefabric/logs/` . Plik dziennika w tym przypadku ma nazwę mysfapp% u .% g. log, gdzie:
 * **% u** jest unikatowym numerem do rozwiązywania konfliktów między jednoczesnymi procesami Java.
 * **% g** jest numerem generacji umożliwiającym rozróżnienie między obracanymi dziennikami.
 
@@ -61,7 +60,7 @@ Aby uzyskać więcej informacji, zobacz [przykłady kodu w](https://github.com/A
 
 W systemie Linux dostępne są wiele platform do śledzenia aplikacji CoreCLR. Aby uzyskać więcej informacji, zobacz [rozszerzenia .NET do rejestrowania](https://github.com/dotnet/extensions/tree/master/src/Logging).  Ze względu na to, że element EventSource jest znany deweloperom języka C#, "w tym artykule zawarto śledzenie w przykładach CoreCLR w systemie Linux.
 
-Pierwszym krokiem jest dołączenie system. Diagnostics. Tracing, aby można było napisać dzienniki do pamięci, strumieni wyjściowych lub plików konsoli.  W przypadku rejestrowania przy użyciu elementu EventSource Dodaj następujący projekt do pliku Project. JSON:
+Pierwszym krokiem jest dołączenie system. Diagnostics. Tracing, aby można było napisać dzienniki do pamięci, strumieni wyjściowych lub plików konsoli.  W przypadku rejestrowania przy użyciu elementu EventSource Dodaj następujący projekt do project.jsna:
 
 ```json
     "System.Diagnostics.StackTrace": "4.0.1"
@@ -120,7 +119,7 @@ internal class ServiceEventListener : EventListener
 ```
 
 
-W poprzednim fragmencie kodu są wyprowadzane dzienniki do pliku `/tmp/MyServiceLog.txt`w programie. Ta nazwa pliku musi być odpowiednio aktualizowana. W przypadku, gdy chcesz przekierować dzienniki do konsoli programu, użyj następującego fragmentu kodu w dostosowanej klasie odbiornika:
+W poprzednim fragmencie kodu są wyprowadzane dzienniki do pliku w programie `/tmp/MyServiceLog.txt` . Ta nazwa pliku musi być odpowiednio aktualizowana. W przypadku, gdy chcesz przekierować dzienniki do konsoli programu, użyj następującego fragmentu kodu w dostosowanej klasie odbiornika:
 
 ```csharp
 public static TextWriter Out = Console.Out;

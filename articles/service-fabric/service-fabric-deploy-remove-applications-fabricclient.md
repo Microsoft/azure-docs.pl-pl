@@ -4,16 +4,15 @@ description: Użyj interfejsów API FabricClient, aby wdrażać i usuwać aplika
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75376974"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Wdrażanie i usuwanie aplikacji przy użyciu FabricClient
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
-> * [Narzędzia](service-fabric-deploy-remove-applications.md)
+> * [Program PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [Interfejsy API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
@@ -44,7 +43,7 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Przekaż pakiet aplikacji
-Załóżmy, że tworzysz aplikację i pakujesz ją *w programie* Visual Studio. Domyślnie nazwa typu aplikacji wymieniona w ApplicationManifest. XML to "webapplicationtype".  Pakiet aplikacji, który zawiera wymagany manifest aplikacji, manifesty usług i kod/pakiety danych, znajduje się w lokalizacji *\&C:\Users lt; username&gt;\Documents\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
+Załóżmy, że tworzysz aplikację i pakujesz ją *w programie* Visual Studio. Domyślnie nazwa typu aplikacji wymieniona w ApplicationManifest.xml to "noapplicationtype".  Pakiet aplikacji, który zawiera wymagany manifest aplikacji, manifesty usług i kod/pakiety danych, znajduje się w lokalizacji *C:\Users \& lt; username &gt; \Documents\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
 
 Przekazywanie pakietu aplikacji umieszcza go w lokalizacji dostępnej dla wewnętrznych składników Service Fabric. Service Fabric sprawdza pakiet aplikacji podczas rejestracji pakietu aplikacji. Jeśli jednak chcesz zweryfikować pakiet aplikacji lokalnie (czyli przed przekazaniem), użyj polecenia cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
 
@@ -131,7 +130,7 @@ Jeśli komputer kliencki znajduje się w innym regionie niż klaster, rozważ u�
 Problem: przekazywanie pakietu zakończyło się pomyślnie, ale [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API limit czasu. Spróbował
 - [Kompresuj pakiet](service-fabric-package-apps.md#compress-a-package) przed skopiowaniem do magazynu obrazów.
 Kompresja zmniejsza rozmiar i liczbę plików, co z kolei zmniejsza ilość ruchu i pracy, które Service Fabric muszą zostać wykonane. Operacje przekazywania mogą być wolniejsze (zwłaszcza w przypadku dołączenia czasu kompresji), ale rejestrowanie i Wyrejestrowywanie typu aplikacji jest szybsze.
-- Określ większy limit czasu dla [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) interfejsu API ProvisionApplicationAsync `timeout` z parametrem.
+- Określ większy limit czasu dla interfejsu API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) z `timeout` parametrem.
 
 ### <a name="deploy-application-package-with-many-files"></a>Wdróż pakiet aplikacji z wieloma plikami
 Problem: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) limit czasu dla pakietu aplikacji z wieloma plikami (kolejność tysięcy).

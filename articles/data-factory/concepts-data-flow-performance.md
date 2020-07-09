@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 05/21/2020
-ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.date: 07/06/2020
+ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798110"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86114384"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -35,13 +35,15 @@ Podczas projektowania mapowania przepływów danych można testować poszczegól
 
 ![Monitorowanie przepływu danych](media/data-flow/mon003.png "Monitor przepływu danych 3")
 
- W przypadku uruchomienia debugowania potoku około jednej minuty czasu konfiguracji klastra jest wymagana w przypadku klastra ciepłego. W przypadku inicjowania domyślnego Azure Integration Runtime czas pracy może potrwać około 5 minut.
+ W przypadku uruchomienia debugowania potoku około jednej minuty czasu konfiguracji klastra jest wymagana w przypadku klastra ciepłego. W przypadku inicjowania domyślnego Azure Integration Runtime czas pracy może trwać około 4 minut.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Zwiększanie rozmiaru obliczeń w Azure Integration Runtime
 
 Integration Runtime o większej liczbie rdzeni zwiększa liczbę węzłów w środowiskach obliczeniowych platformy Spark i zapewnia większą moc obliczeniową do odczytywania, zapisywania i przekształcania danych. Przepływy danych ADF wykorzystują platformę Spark dla aparatu obliczeniowego. Środowisko Spark działa bardzo dobrze w przypadku zasobów zoptymalizowanych pod kątem pamięci.
-* Wypróbuj klaster **zoptymalizowany pod kątem obliczeń** , jeśli szybkość przetwarzania ma być wyższa niż stawka wejściowa.
-* Wypróbuj klaster **zoptymalizowany pod kątem pamięci** , jeśli chcesz buforować więcej danych w pamięci. Zoptymalizowane pod kątem pamięci ma wyższy poziom cen na rdzeń niż zoptymalizowany od obliczeń, ale prawdopodobnie spowoduje to szybsze przyspieszenie transformacji. Jeśli podczas wykonywania przepływów danych wystąpią błędy związane z pamięcią, przełącz się do konfiguracji Azure IR zoptymalizowanej pod kątem pamięci.
+
+Zalecamy używanie **pamięci zoptymalizowanej pod** kątem większości obciążeń produkcyjnych. Będzie można przechowywać więcej danych w pamięci i zminimalizować błędy braku pamięci. Zoptymalizowane pod kątem pamięci ma wyższy poziom cen na rdzeń niż zoptymalizowany od obliczeń, ale prawdopodobnie spowoduje to szybsze przyspieszenie transformacji i więcej pomyślnych potoków. Jeśli podczas wykonywania przepływów danych wystąpią błędy związane z pamięcią, przełącz się do konfiguracji Azure IR zoptymalizowanej pod kątem pamięci.
+
+**Optymalizacja pod kątem obliczeń** może wystarczyć w przypadku debugowania i podglądu danych ograniczonej liczby wierszy danych. Optymalizacja pod kątem obliczeń prawdopodobnie nie będzie działać również w przypadku obciążeń produkcyjnych.
 
 ![Nowy IR](media/data-flow/ir-new.png "Nowy IR")
 
@@ -53,7 +55,7 @@ Domyślnie włączenie debugowania będzie używać domyślnego środowiska Azur
 
 ### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Zmniejsz czas uruchamiania obliczeń klastra przy użyciu czasu wygaśnięcia
 
-W Azure IR w obszarze właściwości przepływu danych istnieje właściwość, która umożliwi rozłożenia puli zasobów obliczeniowych klastra dla fabryki. Za pomocą tej puli można sekwencyjnie przesyłać działania przepływu danych do wykonania. Po ustanowieniu puli każde kolejne zadanie zajmie 1-2 minut, aby klaster Spark na żądanie wykonywał zadanie. Początkowa konfiguracja puli zasobów zajmie około 6 minut. Określ ilość czasu, przez jaki chcesz zachować pulę zasobów w ustawieniu czasu wygaśnięcia (TTL).
+W Azure IR w obszarze właściwości przepływu danych istnieje właściwość, która umożliwi rozłożenia puli zasobów obliczeniowych klastra dla fabryki. Za pomocą tej puli można sekwencyjnie przesyłać działania przepływu danych do wykonania. Po ustanowieniu puli każde kolejne zadanie zajmie 1-2 minut, aby klaster Spark na żądanie wykonywał zadanie. Początkowa konfiguracja puli zasobów zajmie około 4 minut. Określ ilość czasu, przez jaki chcesz zachować pulę zasobów w ustawieniu czasu wygaśnięcia (TTL).
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optymalizacja pod kątem Azure SQL Database i Azure SQL Data Warehouse Synapse
 
@@ -110,7 +112,7 @@ Aby uniknąć wstawiania wierszy w wierszu do magazynu danych, zaznacz pole wybo
 
 ## <a name="optimizing-for-files"></a>Optymalizacja dla plików
 
-W każdym przekształceniu można ustawić schemat partycjonowania, który ma być używany przez fabrykę danych na karcie Optymalizacja. Dobrym sposobem jest pierwsze przetestowanie sink opartych na plikach, zachowując domyślne partycjonowanie i optymalizacje.
+W każdym przekształceniu można ustawić schemat partycjonowania, który ma być używany przez fabrykę danych na karcie Optymalizacja. Dobrym sposobem jest pierwsze przetestowanie sink opartych na plikach, zachowując domyślne partycjonowanie i optymalizacje. Pozostawienie partycjonowania na "bieżące partycjonowanie" w ujścia dla miejsca docelowego pliku umożliwi platformie Spark ustawienie odpowiedniego domyślnego partycjonowania dla obciążeń. Domyślne partycjonowanie używa 128 MB na partycję.
 
 * W przypadku mniejszych plików można znaleźć mniejszą liczbę partycji, które czasami mogą pracować lepiej i szybciej niż w przypadku, gdy platforma Spark ma dzielić małe pliki.
 * Jeśli nie masz wystarczającej ilości informacji na temat danych źródłowych, wybierz partycjonowanie działania *okrężne* i ustaw liczbę partycji.
@@ -143,7 +145,7 @@ Używając symboli wieloznacznych, potok będzie zawierać tylko jedno działani
 
 Potok dla każdego w trybie równoległym spowoduje duplikowanie wielu klastrów przez odwirowanie klastrów zadań dla każdego wykonanego działania przepływu danych. Może to spowodować ograniczenie usługi platformy Azure o dużą liczbę współbieżnych wykonań. Jednak użycie przepływu danych Execute wewnątrz dla każdego z sekwencyjnym zestawem w potoku spowoduje uniknięcie ograniczenia przepustowości i wyczerpania zasobów. Spowoduje to wymuszenie Data Factory wykonywania każdego z plików względem przepływu danych sekwencyjnie.
 
-Zaleca się, aby w przypadku użycia dla każdego z przepływem danych w sekwencji używać ustawienia czasu wygaśnięcia w Azure Integration Runtime. Wynika to z faktu, że każdy plik będzie miał pełny 5-minutowy czas uruchomienia klastra w iteratoru.
+Zaleca się, aby w przypadku użycia dla każdego z przepływem danych w sekwencji używać ustawienia czasu wygaśnięcia w Azure Integration Runtime. Wynika to z faktu, że każdy plik będzie ponosić pełny czas uruchamiania klastra o wartości 4 minuty w iteratoru.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optymalizacja pod kątem CosmosDB
 
@@ -153,13 +155,13 @@ Ustawianie przepływności i właściwości partii w ujściach CosmosDB zacznie 
 * Przepływność: w tym miejscu ustaw wyższą wartość ustawienia przepływności, aby zezwolić na szybsze pisanie dokumentów w programie CosmosDB. Pamiętaj o wyższych kosztach RU na podstawie ustawień o wysokiej przepływności.
 *   Zapisz budżet przepływności: Użyj wartości, która jest mniejsza niż łączna liczba jednostek ru na minutę. Jeśli istnieje przepływ danych o dużej liczbie partycji platformy Spark, ustawienie przepływności budżetu pozwoli na zwiększenie równowagi między tymi partycjami.
 
-## <a name="join-performance"></a>Przyłączanie wydajności
+## <a name="join-and-lookup-performance"></a>Wydajność przyłączania i wyszukiwania
 
 Zarządzanie wydajnością sprzężeń w przepływie danych jest bardzo powszechną operacją wykonywaną w całym cyklu życia przekształceń danych. W podajniku ADF przepływy danych nie wymagają sortowania danych przed sprzężeniem, ponieważ te operacje są wykonywane jako sprzężenia skrótu w platformie Spark. Można jednak skorzystać z ulepszonej wydajności z optymalizacją sprzężenia "broadcast", która dotyczy transformacji, EXISTS i przeszukiwania.
 
 Spowoduje to uniknięcie losowego odtwarzania przez wypchnięcie zawartości obu stron relacji sprzężenia do węzła Spark. Jest to dobre rozwiązanie w przypadku mniejszych tabel, które są używane do wyszukiwania odwołań. Większe tabele, które mogą nie pasować do pamięci węzła, nie są dobrymi kandydatami do optymalizacji emisji.
 
-Zalecaną konfiguracją przepływów danych z wieloma operacjami łączenia jest zachowanie ustawienia optymalizacji "automatycznej" dla "emisji" i użycie zoptymalizowanej pod kątem pamięci Azure Integration Runtime konfiguracji. Jeśli występują błędy związane z pamięcią lub emisja przekroczenia limitu czasu podczas wykonywania przepływu danych, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych. Opcjonalnie można nakazać przepływ danych do przekazywania tylko lewej lub prawej strony sprzężenia lub obu tych elementów.
+Zalecaną konfiguracją przepływów danych z wieloma operacjami łączenia jest zachowanie ustawienia optymalizacji "automatycznej" dla "emisji" i użycie ***zoptymalizowanej pod kątem pamięci*** Azure Integration Runtime konfiguracji. Jeśli występują błędy związane z pamięcią lub emisja przekroczenia limitu czasu podczas wykonywania przepływu danych, można wyłączyć optymalizację emisji. Spowoduje to jednak wolniejsze wykonywanie przepływów danych. Opcjonalnie można nakazać przepływ danych do przekazywania tylko lewej lub prawej strony sprzężenia lub obu tych elementów.
 
 ![Ustawienia emisji](media/data-flow/newbroad.png "Ustawienia emisji")
 

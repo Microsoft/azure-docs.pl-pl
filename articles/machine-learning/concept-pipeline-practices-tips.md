@@ -10,10 +10,9 @@ ms.author: laobri
 author: lobrien
 ms.date: 05/01/2020
 ms.openlocfilehash: 2ea353469ed111eebb591aa6ba86c652683cc2f0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82858180"
 ---
 # <a name="iterating-and-evolving-machine-learning-pipelines"></a>Iterowanie i rozwijanie potoków uczenia maszynowego
@@ -30,7 +29,7 @@ Istnieje kilka opcji rozpoczynania pracy, jeśli są nowe dla potoków:
 
 ## <a name="how-do-you-modularize-pipeline-code"></a>Jak modularyzacji kod potoku? 
 
-Moduły i `ModuleStep` Klasa dają doskonałą okazję do MODULARYZACJI kodu ml. Należy jednak pamiętać, że przechodzenie między etapami potoku jest znacznie droższe niż wywołanie funkcji. Pytanie, które należy zadać, nie jest tak wiele "czy te funkcje i dane koncepcyjnie różnią się od tych w innych sekcjach?" ale "czy te funkcje i dane mają być rozdzielone osobno?" lub "czy to obliczenie jest kosztowne i czy można ponownie użyć jego danych wyjściowych?" Aby uzyskać więcej informacji, zobacz thisn'tebook [How to Create module, ModuleVersion i use one in the Pipeline with ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
+Moduły i `ModuleStep` Klasa dają doskonałą okazję do modularyzacji kodu ml. Należy jednak pamiętać, że przechodzenie między etapami potoku jest znacznie droższe niż wywołanie funkcji. Pytanie, które należy zadać, nie jest tak wiele "czy te funkcje i dane koncepcyjnie różnią się od tych w innych sekcjach?" ale "czy te funkcje i dane mają być rozdzielone osobno?" lub "czy to obliczenie jest kosztowne i czy można ponownie użyć jego danych wyjściowych?" Aby uzyskać więcej informacji, zobacz thisn'tebook [How to Create module, ModuleVersion i use one in the Pipeline with ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
 
 Jak wspomniano wcześniej, oddzielenie przygotowywania danych od szkoleń jest często jedną okazją. Czasami przygotowanie danych jest skomplikowane i czasochłonne, aby można było przerwać proces w osobnych krokach potoku. Inne możliwości obejmują testowanie po szkoleniu i analizę. 
 

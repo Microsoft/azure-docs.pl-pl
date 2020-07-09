@@ -5,16 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: d7a6f87b704a2e366e0a4e1fc647e83ed88c486c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4ee0e5bd0d9d1fa941af245ecc6182ba1608eef0
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050856"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86104966"
 ---
-# <a name="customize-azure-database-for-mariadb-server-parameters-using-powershell"></a>Dostosowywanie parametrów serwera Azure Database for MariaDB przy użyciu programu PowerShell
+# <a name="configure-server-parameters-in-azure-database-for-mariadb-using-powershell"></a>Konfigurowanie parametrów serwera w Azure Database for MariaDB przy użyciu programu PowerShell
 
 Można wyświetlić, wyświetlić i zaktualizować parametry konfiguracji dla serwera Azure Database for MariaDB przy użyciu programu PowerShell. Podzestaw konfiguracji aparatu jest uwidoczniony na poziomie serwera i można go modyfikować.
 

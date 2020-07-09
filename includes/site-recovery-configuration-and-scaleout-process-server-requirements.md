@@ -1,20 +1,20 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 06/23/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 1aaec104e9130eeef723c6505e04e3317271566b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234263"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85292104"
 ---
 **Wymagania dotyczące konfiguracji i serwera przetwarzania**
 
@@ -34,7 +34,7 @@ Wolne miejsce na dysku (dysk przechowywania) | 600 GB
 
 **Składnik** | **Wymaganie** 
 --- | ---
-System operacyjny | Windows Server 2012 R2 <br> Windows Server 2016
+System operacyjny | Windows Server 2012 z dodatkiem R2 <br> Windows Server 2016
 Ustawienia regionalne systemu operacyjnego | Angielski (EN-*)
 Role systemu Windows Server | Nie należy włączać tych ról: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Zasady grupy | Nie włączaj tych zasad grupy: <br> -Zapobiegaj dostępowi do wiersza polecenia. <br> — Uniemożliwia dostęp do narzędzi do edytowania rejestru. <br> — Logika zaufania dla plików załączników. <br> — Włącz wykonywanie skryptu. <br> [Dowiedz się więcej](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
@@ -52,15 +52,13 @@ Typ karty sieciowej | VMXNET3 (Jeśli serwer konfiguracji jest maszyną wirtualn
  |
 **Dostęp do Internetu** (serwer musi mieć dostęp do następujących adresów URL, bezpośrednio lub za pośrednictwem serwera proxy):|
 \*.backup.windowsazure.com | Używany do transferu i koordynacji replikowanych danych
-\*.store.core.windows.net | Używany do transferu i koordynacji replikowanych danych
-\*.blob.core.windows.net | Służy do uzyskiwania dostępu do konta magazynu przechowującego zreplikowane dane
+\*.blob.core.windows.net | Służy do uzyskiwania dostępu do konta magazynu przechowującego zreplikowane dane. Możesz podać konkretny adres URL konta magazynu pamięci podręcznej.
 \*.hypervrecoverymanager.windowsazure.com | Używany do operacji zarządzania replikacją i koordynacji
-https:\//management.azure.com | Używany do operacji zarządzania replikacją i koordynacji 
-*.services.visualstudio.com | Używane na potrzeby telemetrii (opcjonalnie)
+https:\//login.microsoftonline.com | Używany do operacji zarządzania replikacją i koordynacji 
 time.nist.gov | Służy do sprawdzania synchronizacji czasu między systemem i czasem globalnym
 time.windows.com | Służy do sprawdzania synchronizacji czasu między systemem i czasem globalnym
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.Live.com </li><li> https:\//Graph.Windows.NET </li><li> https:\//login.windows.net </li><li> https:\//www.Live.com </li><li> https:\//www.Microsoft.com </li></ul> | Instalator OVF potrzebuje dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez Azure Active Directory.
-https:\//dev.MySQL.com/get/downloads/MySQLInstaller/MySQL-Installer-Community-5.7.20.0.msi  | Aby ukończyć pobieranie bazy danych MySQL. </br> W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również listy dozwolonych, w razie potrzeby.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.Live.com </li><li> https: \/ /Graph.Windows.NET </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (opcjonalnie) </li><li> https: \/ /www.Live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | Instalator OVF potrzebuje dostępu do tych dodatkowych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez Azure Active Directory.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Aby ukończyć pobieranie bazy danych MySQL. </br> W kilku regionach pobieranie może zostać przekierowane na adres URL sieci CDN. Upewnij się, że adres URL usługi CDN jest również listy dozwolonych, w razie potrzeby.
 |
 
 ## <a name="required-software"></a>Wymagane oprogramowanie
@@ -76,7 +74,7 @@ MYSQL | Należy zainstalować MySQL. Można zainstalować go ręcznie lub Site R
 Poniższa tabela zawiera podsumowanie wymagań dotyczących pojemności dla serwera konfiguracji. W przypadku replikowania wielu maszyn wirtualnych VMware zapoznaj się z [zagadnieniami dotyczącymi planowania pojemności](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) i uruchom [Narzędzie planista wdrażania usługi Azure Site Recovery](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
-**TESTY** | **Rozmiar** | **Dysk pamięci podręcznej** | **Szybkość zmian danych** | **Zreplikowane maszyny**
+**Procesor CPU** | **Memory (Pamięć)** | **Dysk pamięci podręcznej** | **Szybkość zmian danych** | **Zreplikowane maszyny**
 --- | --- | --- | --- | ---
 8 procesorów wirtualnych vCPU<br/><br/> 2 gniazda * 4 rdzenie \@ 2,5 GHz | 16 GB | 300 GB | 500 GB lub mniej | Maszyny < 100
 12 procesorów wirtualnych vCPU<br/><br/> 2 SOCKS * 6 rdzeni \@ 2,5 GHz | 18 GB | 600 GB | 500 GB — 1 TB | 100 do 150 maszyn

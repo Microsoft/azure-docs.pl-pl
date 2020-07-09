@@ -5,11 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710188"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Dokumentacja konfiguracji usługi Azure łańcucha bloków Workbench
 
@@ -33,21 +32,21 @@ Każdy zdefiniowany przepływ pracy określa następujące elementy:
 
 Aplikacja łańcucha bloków zawiera metadane konfiguracji, przepływy pracy i role użytkowników, którzy mogą działać lub wchodzić w skład aplikacji.
 
-| Pole | Opis | Wymagany |
+| Pole | Opis | Wymagane |
 |-------|-------------|:--------:|
 | ApplicationName | Unikatowa nazwa aplikacji. Odpowiedni kontrakt inteligentny musi używać tej samej **ApplicationName** dla odpowiedniej klasy kontraktu.  | Tak |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana aplikacji. | Tak |
 | Opis | Opis aplikacji. | Nie |
 | ApplicationRoles | Kolekcja [ApplicationRoles](#application-roles). Role użytkowników, którzy mogą działać lub uczestniczyć w aplikacji.  | Tak |
-| Przepływy pracy | Kolekcja [przepływów pracy](#workflows). Każdy przepływ pracy działa jako maszyna stanu do sterowania przepływem logiki biznesowej. | Tak |
+| Przepływy | Kolekcja [przepływów pracy](#workflows). Każdy przepływ pracy działa jako maszyna stanu do sterowania przepływem logiki biznesowej. | Tak |
 
 Aby zapoznać się z przykładem, zobacz [przykład pliku konfiguracji](#configuration-file-example).
 
-## <a name="workflows"></a>Przepływy pracy
+## <a name="workflows"></a>Przepływy
 
 Logika biznesowa aplikacji może być modelowana jako maszyna stanu, w której podejmowana jest akcja powodująca przechodzenie przepływu logiki biznesowej z jednego stanu do drugiego. Przepływ pracy to zbiór takich stanów i akcji. Każdy przepływ pracy składa się z co najmniej jednej inteligentnej umowy, która reprezentuje logikę biznesową w plikach kodu. Kontrakt wykonywalny jest wystąpieniem przepływu pracy.
 
-| Pole | Opis | Wymagany | Długość maksymalna |
+| Pole | Opis | Wymagane | Długość maksymalna |
 |-------|-------------|:--------:|-----------:|
 | Nazwa | Unikatowa nazwa przepływu pracy. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla odpowiedniej klasy kontraktu. | Tak | 50 |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana przepływu pracy. | Tak | 255 |
@@ -168,7 +167,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Definiuje parametry wejściowe dla wystąpienia przepływu pracy.
 
-| Pole | Opis | Wymagany |
+| Pole | Opis | Wymagane |
 |-------|-------------|:--------:|
 | Parametry | Kolekcja [identyfikatorów](#identifiers) wymaganych do zainicjowania kontraktu inteligentnego. | Tak |
 
@@ -201,7 +200,7 @@ Definiuje parametry wejściowe dla wystąpienia przepływu pracy.
 
 Definiuje funkcje, które mogą być wykonywane w przepływie pracy.
 
-| Pole | Opis | Wymagany | Długość maksymalna |
+| Pole | Opis | Wymagane | Długość maksymalna |
 |-------|-------------|:--------:|-----------:|
 | Nazwa | Unikatowa nazwa funkcji. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla odpowiedniej funkcji. | Tak | 50 |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana funkcji. | Tak | 255 |
@@ -249,13 +248,13 @@ Definiuje funkcje, które mogą być wykonywane w przepływie pracy.
 
 Kolekcja unikatowych stanów w ramach przepływu pracy. Każdy stan przechwytuje krok w przepływie sterowania logiki biznesowej. 
 
-| Pole | Opis | Wymagany | Długość maksymalna |
+| Pole | Opis | Wymagane | Długość maksymalna |
 |-------|-------------|:--------:|-----------:|
 | Nazwa | Unikatowa nazwa stanu. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla danego stanu. | Tak | 50 |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana stanu. | Tak | 255 |
 | Opis | Opis stanu. | Nie | 255 |
 | PercentComplete | Wartość całkowita wyświetlana w interfejsie użytkownika łańcucha bloków Workbench do wyświetlania postępu w przepływie sterowania logiki biznesowej. | Tak | |
-| Styl | Wskazówka wizualna wskazująca, czy stan reprezentuje stan powodzenie lub niepowodzenie. Istnieją dwie prawidłowe wartości: `Success` lub. `Failure` | Tak | |
+| Styl | Wskazówka wizualna wskazująca, czy stan reprezentuje stan powodzenie lub niepowodzenie. Istnieją dwie prawidłowe wartości: `Success` lub `Failure` . | Tak | |
 | Przejścia | Kolekcja dostępnych [przejść](#transitions) od bieżącego stanu do następnego zestawu Stanów. | Nie | |
 
 ### <a name="states-example"></a>Stany — przykład
@@ -318,7 +317,7 @@ Kolekcja unikatowych stanów w ramach przepływu pracy. Każdy stan przechwytuje
 
 Dostępne akcje do następnego stanu. Co najmniej jedna rola użytkownika może wykonać akcję w każdym stanie, w którym akcja może spowodować przejście stanu do innego stanu w przepływie pracy. 
 
-| Pole | Opis | Wymagany |
+| Pole | Opis | Wymagane |
 |-------|-------------|:--------:|
 | AllowedRoles | Lista ról aplikacji, które mogą inicjować przejście. Wszyscy użytkownicy określonej roli mogą być w stanie wykonać tę akcję. | Nie |
 | AllowedInstanceRoles | Lista ról użytkownika uczestniczących lub określonych w kontrakcie inteligentnym, które mogą inicjować przejście. Role wystąpienia są zdefiniowane we **właściwościach** w przepływach pracy. AllowedInstanceRoles reprezentuje użytkownika biorącego udział w wystąpieniu kontraktu inteligentnego. AllowedInstanceRoles dają możliwość ograniczenia podejmowania akcji do roli użytkownika w wystąpieniu kontraktu.  Na przykład możesz chcieć zezwolić tylko na zakończenie przez użytkownika, który utworzył kontrakt (obiektem InstanceOwner), a nie wszystkich użytkowników w typie roli (właściciela), jeśli określono rolę w AllowedRoles. | Nie |
@@ -363,7 +362,7 @@ Dostępne akcje do następnego stanu. Co najmniej jedna rola użytkownika może 
 
 Role aplikacji definiują zestaw ról, które mogą być przypisane do użytkowników, którzy chcą działać lub uczestniczyć w aplikacji. Role aplikacji mogą służyć do ograniczania akcji i udziału w aplikacji łańcucha bloków oraz odpowiednich przepływów pracy. 
 
-| Pole | Opis | Wymagany | Długość maksymalna |
+| Pole | Opis | Wymagane | Długość maksymalna |
 |-------|-------------|:--------:|-----------:|
 | Nazwa | Unikatowa nazwa roli aplikacji. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla odpowiedniej roli. Nazwy typów podstawowych są zastrzeżone. Nie można nazwać roli aplikacji o takiej samej nazwie jak [Typ](#type)| Tak | 50 |
 | Opis | Opis roli aplikacji. | Nie | 255 |
@@ -386,7 +385,7 @@ Role aplikacji definiują zestaw ról, które mogą być przypisane do użytkown
 
 Identyfikatory reprezentują kolekcję informacji używanych do opisywania właściwości przepływu pracy, konstruktora i parametrów funkcji. 
 
-| Pole | Opis | Wymagany | Długość maksymalna |
+| Pole | Opis | Wymagane | Długość maksymalna |
 |-------|-------------|:--------:|-----------:|
 | Nazwa | Unikatowa nazwa właściwości lub parametru. Odpowiedni kontrakt inteligentny musi używać tej samej **nazwy** dla odpowiedniej właściwości lub parametru. | Tak | 50 |
 | Nazwa wyświetlana | Przyjazna nazwa wyświetlana właściwości lub parametru. | Tak | 255 |

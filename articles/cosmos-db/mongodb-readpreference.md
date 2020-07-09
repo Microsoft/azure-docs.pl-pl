@@ -6,21 +6,21 @@ ms.author: sivethe
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
-ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afdbd1c44170344be6edee8b8b2ee38c9853f81c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263079"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Jak globalnie dystrybuować odczyty przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
 
 W tym artykule pokazano, jak globalnie dystrybuować operacje odczytu z ustawieniami [preferencji odczytu MongoDB](https://docs.mongodb.com/manual/core/read-preference/) przy użyciu interfejsu API Azure Cosmos DB dla MongoDB.
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 Zapoznaj się z tym artykułem [szybkiego startu](tutorial-global-distribution-mongodb.md) , aby uzyskać instrukcje dotyczące korzystania z Azure Portal, aby skonfigurować konto Cosmos z dystrybucją globalną, a następnie nawiązać z nim połączenie.
@@ -51,7 +51,7 @@ cd mean
 npm install
 node index.js
 ```
-Aplikacja próbuje nawiązać połączenie ze źródłem MongoDB i nie powiedzie się, ponieważ parametry połączenia są nieprawidłowe. Postępuj zgodnie z instrukcjami w pliku Readme, aby zaktualizować parametry `url`połączenia. Zaktualizuj również region `readFromRegion` do odczytu na koncie Cosmos. Następujące instrukcje pochodzą z przykładu NodeJS:
+Aplikacja próbuje nawiązać połączenie ze źródłem MongoDB i nie powiedzie się, ponieważ parametry połączenia są nieprawidłowe. Postępuj zgodnie z instrukcjami w pliku Readme, aby zaktualizować parametry połączenia `url` . Zaktualizuj również `readFromRegion` region do odczytu na koncie Cosmos. Następujące instrukcje pochodzą z przykładu NodeJS:
 
 ```
 * Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
@@ -144,7 +144,7 @@ Oprócz trybu preferencji odczyt protokół MongoDB umożliwia używanie tagów 
       }
 ```
 
-W związku z tym MongoClient może `region` użyć znacznika wraz z nazwą regionu, aby skierować operacje odczytu do określonych regionów. W przypadku kont Cosmos nazwy regionów można znaleźć w Azure Portal po lewej stronie obszarze **ustawienia — >dane repliki globalnie**. To ustawienie jest przydatne w celu uzyskania **izolacji odczytu** w przypadku, gdy aplikacja kliencka ma kierować operacje odczytu tylko do określonego regionu. To ustawienie jest idealne dla scenariuszy typu non-produkcja/Analytics, które są uruchamiane w tle i nie są krytycznymi usługami produkcyjnymi.
+W związku z tym MongoClient może użyć `region` znacznika wraz z nazwą regionu, aby skierować operacje odczytu do określonych regionów. W przypadku kont Cosmos nazwy regionów można znaleźć w Azure Portal po lewej stronie obszarze **ustawienia — >dane repliki globalnie**. To ustawienie jest przydatne w celu uzyskania **izolacji odczytu** w przypadku, gdy aplikacja kliencka ma kierować operacje odczytu tylko do określonego regionu. To ustawienie jest idealne dla scenariuszy typu non-produkcja/Analytics, które są uruchamiane w tle i nie są krytycznymi usługami produkcyjnymi.
 
 Poniższy fragment kodu z przykładowej aplikacji pokazuje, jak skonfigurować preferencję odczytu przy użyciu tagów w NodeJS:
 
@@ -161,7 +161,7 @@ Zapoznaj się z odpowiednimi przykładowymi repozytoriami aplikacji dla innych p
 
 W tym artykule wyjaśniono, jak globalnie dystrybuować operacje odczytu przy użyciu preferencji odczytu z interfejsem API Azure Cosmos DB dla MongoDB.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby utworzone w tym artykule w Azure Portal, wykonując następujące czynności:
 

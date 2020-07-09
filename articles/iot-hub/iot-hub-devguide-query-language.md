@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80632926"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Język zapytań usługi IoT Hub dla urządzeń i bliźniaczych reprezentacji modułów, zadań i routingu komunikatów
@@ -112,7 +111,7 @@ SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-Często konieczne jest zidentyfikowanie wszystkich bliźniaczych reprezentacji urządzeń, które zawierają określoną właściwość. W tym celu IoT Hub `is_defined()` obsługuje funkcję. Na przykład aby pobrać bliźniaczych reprezentacji urządzenia, które definiują `connectivity` właściwość, należy użyć następującego zapytania:
+Często konieczne jest zidentyfikowanie wszystkich bliźniaczych reprezentacji urządzeń, które zawierają określoną właściwość. W tym celu IoT Hub obsługuje funkcję `is_defined()` . Na przykład aby pobrać bliźniaczych reprezentacji urządzenia, które definiują `connectivity` Właściwość, należy użyć następującego zapytania:
 
 ```SQL
 SELECT * FROM devices
@@ -201,9 +200,9 @@ Obiekt **zapytania** jest skonkretyzowany przy użyciu rozmiaru strony (do 100).
 
 Obiekt zapytania uwidacznia wiele **kolejnych** wartości, w zależności od opcji deserializacji wymaganej przez zapytanie. Na przykład, sznurki lub obiekty zadania lub zwykły kod JSON podczas korzystania z projekcji.
 
-### <a name="nodejs-example"></a>Przykład środowiska Node. js
+### <a name="nodejs-example"></a>Przykład Node.js
 
-Funkcja zapytania jest udostępniana przez [zestaw SDK usługi Azure IoT dla środowiska Node. js](iot-hub-devguide-sdks.md) w obiekcie **rejestru** .
+Funkcja zapytania jest udostępniana przez [zestaw SDK usługi Azure IoT dla Node.js](iot-hub-devguide-sdks.md) w obiekcie **rejestru** .
 
 Oto przykład prostego zapytania:
 
@@ -273,7 +272,7 @@ Obecnie porównania są obsługiwane tylko w typach pierwotnych (bez obiektów),
 Obecnie ta kolekcja jest Queryable jako **Devices.Jobs** w języku zapytań IoT Hub.
 
 > [!IMPORTANT]
-> Obecnie Właściwość Jobs nie jest nigdy zwracana podczas wykonywania zapytania dotyczącego urządzenia bliźniaczych reprezentacji. Oznacza to, że zapytania zawierające element "z urządzeń". Do właściwości Jobs (zadania) można korzystać tylko bezpośrednio z `FROM devices.jobs`zapytaniami przy użyciu polecenia.
+> Obecnie Właściwość Jobs nie jest nigdy zwracana podczas wykonywania zapytania dotyczącego urządzenia bliźniaczych reprezentacji. Oznacza to, że zapytania zawierające element "z urządzeń". Do właściwości Jobs (zadania) można korzystać tylko bezpośrednio z zapytaniami przy użyciu polecenia `FROM devices.jobs` .
 >
 >
 
@@ -309,7 +308,7 @@ SELECT * FROM devices.jobs
 
 Obecnie zapytania w usłudze **Devices.Jobs** nie obsługują:
 
-* Projekcje, w związku `SELECT *` z tym tylko jest możliwe.
+* Projekcje, w związku z tym tylko `SELECT *` jest możliwe.
 * Warunki odwołujące się do sznurka urządzenia oprócz właściwości zadania (zobacz poprzednią sekcję).
 * Wykonywanie agregacji, takich jak Count, AVG, Group by.
 
@@ -392,7 +391,7 @@ GROUP BY <group_by_element>
 Obecnie klauzula GROUP BY jest obsługiwana tylko podczas wysyłania zapytań do bliźniaczych reprezentacjiu urządzenia.
 
 > [!IMPORTANT]
-> Termin `group` jest obecnie traktowany jako specjalne słowo kluczowe w zapytaniach. W przypadku użycia `group` jako nazwy właściwości należy rozważyć zablokowanie jej przy użyciu podwójnych nawiasów, aby uniknąć błędów, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`np..
+> Termin `group` jest obecnie traktowany jako specjalne słowo kluczowe w zapytaniach. W przypadku użycia `group` jako nazwy właściwości należy rozważyć zablokowanie jej przy użyciu podwójnych nawiasów, aby uniknąć błędów, np. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'` .
 >
 
 ## <a name="expressions-and-conditions"></a>Wyrażenia i warunki
@@ -441,7 +440,7 @@ Aby zrozumieć, co oznacza każdy symbol w składni wyrażeń, zapoznaj się z p
 | function_name| Każda funkcja wymieniona w sekcji [Functions](#functions) . |
 | decimal_literal |Wartość zmiennoprzecinkowa wyrażona w notacji dziesiętnej. |
 | hexadecimal_literal |Liczba wyrażona przez ciąg "0x", po którym następuje ciąg cyfr szesnastkowych. |
-| string_literal |Literały ciągu są ciągami Unicode reprezentowanymi przez sekwencję zero lub więcej znaków Unicode lub sekwencji unikowych. Literały ciągu są ujęte w apostrofy lub podwójne cudzysłowy. Dozwolone ucieczki: `\'`, `\"`, `\\`, `\uXXXX` dla znaków Unicode, zdefiniowane przez 4 cyfry szesnastkowe. |
+| string_literal |Literały ciągu są ciągami Unicode reprezentowanymi przez sekwencję zero lub więcej znaków Unicode lub sekwencji unikowych. Literały ciągu są ujęte w apostrofy lub podwójne cudzysłowy. Dozwolone ucieczki: `\'` , `\"` , `\\` , `\uXXXX` dla znaków Unicode, zdefiniowane przez 4 cyfry szesnastkowe. |
 
 ### <a name="operators"></a>Operatory
 
@@ -450,7 +449,7 @@ Obsługiwane są następujące operatory:
 | Family | Operatory |
 | --- | --- |
 | Arytmetyczny |+, -, *, /, % |
-| Logiczny |AND, OR, NOT |
+| Wartości logiczne |AND, OR, NOT |
 | Porównanie |=,! =, <, >, <=, >=,  <> |
 
 ### <a name="functions"></a>Funkcje
@@ -459,7 +458,7 @@ Podczas wykonywania zapytania dotyczącego bliźniaczych reprezentacji i zadań 
 
 | Funkcja | Opis |
 | -------- | ----------- |
-| IS_DEFINED (Właściwość) | Zwraca wartość Boolean wskazującą, czy do właściwości przypisano wartości (w `null`tym). |
+| IS_DEFINED (Właściwość) | Zwraca wartość Boolean wskazującą, czy do właściwości przypisano wartości (w tym `null` ). |
 
 W warunkach trasy obsługiwane są następujące funkcje matematyczne:
 
@@ -478,14 +477,14 @@ W warunkach trasy obsługiwane są następujące funkcje sprawdzania typu i rzut
 
 | Funkcja | Opis |
 | -------- | ----------- |
-| AS_NUMBER | Konwertuje ciąg wejściowy na liczbę. `noop`Jeśli dane wejściowe są liczbami; `Undefined` Jeśli ciąg nie reprezentuje liczby.|
+| AS_NUMBER | Konwertuje ciąg wejściowy na liczbę. `noop`Jeśli dane wejściowe są liczbami; `Undefined`Jeśli ciąg nie reprezentuje liczby.|
 | IS_ARRAY | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest tablicą. |
 | IS_BOOL | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest wartością logiczną. |
-| IS_DEFINED | Zwraca wartość logiczną wskazującą, do właściwości przypisano wartość. Jest to obsługiwane tylko wtedy, gdy wartość jest typem pierwotnym. Typy pierwotne obejmują ciąg, wartość logiczną, numeryczną lub `null`. DateTime, typy obiektów i tablice nie są obsługiwane. |
+| IS_DEFINED | Zwraca wartość logiczną wskazującą, do właściwości przypisano wartość. Jest to obsługiwane tylko wtedy, gdy wartość jest typem pierwotnym. Typy pierwotne obejmują ciąg, wartość logiczną, numeryczną lub `null` . DateTime, typy obiektów i tablice nie są obsługiwane. |
 | IS_NULL | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia ma wartość null. |
 | IS_NUMBER | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest liczbą. |
 | IS_OBJECT | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest obiektem JSON. |
-| IS_PRIMITIVE | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest typem pierwotnym (String, Boolean, numeric lub `null`). |
+| IS_PRIMITIVE | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest typem pierwotnym (String, Boolean, numeric lub `null` ). |
 | IS_STRING | Zwraca wartość logiczną wskazującą, czy typ określonego wyrażenia jest ciągiem. |
 
 W warunkach trasy obsługiwane są następujące funkcje ciągów:

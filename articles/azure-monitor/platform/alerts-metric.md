@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
 ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79369390"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów metryk oraz zarządzanie nimi w usłudze Azure Monitor
@@ -43,7 +42,7 @@ Poniższa procedura opisuje sposób tworzenia reguły alertu dotyczącego metryk
 8. Jeśli Metryka ma wymiary, zostanie wyświetlona tabela wymiarów. Wybierz co najmniej jedną wartość na wymiar.
     - Wyświetlone wartości wymiarów są oparte na danych metryk z ostatnich trzech dni.
     - Jeśli wartość wymiaru, którego szukasz, nie jest wyświetlana, kliknij przycisk "+", aby dodać wartość niestandardową.
-    - Możesz również **wybrać \* ** dla dowolnego z wymiarów. **Wybierz \* ** spowoduje dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
+    - Możesz również **wybrać \* ** dla dowolnego z wymiarów. **Wybierz \* pozycję** umożliwia dynamiczne skalowanie zaznaczenia do wszystkich bieżących i przyszłych wartości wymiaru.
 
     Reguła alertu metryki będzie szacować warunek dla wszystkich wybranych kombinacji wartości. [Dowiedz się więcej o tym, jak działa alert dotyczący metryk wielowymiarowych](alerts-metric-overview.md).
 
@@ -94,7 +93,7 @@ Poprzednie sekcje opisują sposób tworzenia i wyświetlania reguł alertów dot
 
 1. Przejdź do Azure Portal, kliknij pozycję **Cloud Shell**.
 
-2. W wierszu polecenia można użyć poleceń z ``--help`` opcją, aby dowiedzieć się więcej o poleceniu i sposobach ich użycia. Na przykład następujące polecenie pokazuje listę poleceń dostępnych do tworzenia i wyświetlania alertów metryk oraz zarządzania nimi
+2. W wierszu polecenia można użyć poleceń z opcją, ``--help`` Aby dowiedzieć się więcej o poleceniu i sposobach ich użycia. Na przykład następujące polecenie pokazuje listę poleceń dostępnych do tworzenia i wyświetlania alertów metryk oraz zarządzania nimi
 
     ```azurecli
     az monitor metrics alert --help

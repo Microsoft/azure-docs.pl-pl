@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: 18831832f82cdbc8cec69e368f006f7acd4836c1
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82205263"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045862"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Rozwiązywanie problemów z programem Apache Oozie w usłudze Azure HDInsight
 
@@ -32,11 +32,13 @@ Poniżej znajdują się konkretne błędy, które można napotkać i sposoby ich
 
 Stan zadania zostanie zmieniony na **zawieszone**. Szczegóły zadania zawierają `RunHiveScript` stan **START_MANUAL**. Po wybraniu akcji zostanie wyświetlony następujący komunikat o błędzie:
 
-    JA009: Cannot initialize Cluster. Please check your configuration for map
+```output
+JA009: Cannot initialize Cluster. Please check your configuration for map
+```
 
 ### <a name="cause"></a>Przyczyna
 
-Adresy magazynu obiektów blob platformy Azure używane w pliku **Job. XML** nie zawierają kontenera magazynu ani nazwy konta magazynu. Wymagany format adresu magazynu obiektów BLOB `wasbs://containername@storageaccountname.blob.core.windows.net`.
+Adresy magazynu obiektów blob platformy Azure używane w pliku **job.xml** nie zawierają kontenera magazynu ani nazwy konta magazynu. Wymagany format adresu magazynu obiektów BLOB `wasbs://containername@storageaccountname.blob.core.windows.net` .
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -44,13 +46,15 @@ Zmień adresy magazynu obiektów BLOB używane przez zadanie.
 
 ---
 
-## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie nie może personifikować &lt;użytkownika&gt;
+## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie nie może personifikować &lt; użytkownika&gt;
 
 ### <a name="issue"></a>Problem
 
 Stan zadania zostanie zmieniony na **zawieszone**. Szczegóły zadania zawierają `RunHiveScript` stan **START_MANUAL**. W przypadku wybrania akcji zostanie wyświetlony następujący komunikat o błędzie:
 
-    JA002: User: oozie is not allowed to impersonate <USER>
+```output
+JA002: User: oozie is not allowed to impersonate <USER>
+```
 
 ### <a name="cause"></a>Przyczyna
 
@@ -58,9 +62,11 @@ Bieżące ustawienia uprawnień nie zezwalają Oozie na personifikowanie określ
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Oozie może personifikować użytkowników w **`users`** grupie. Użyj, `groups USERNAME` aby wyświetlić grupy, do których należy konto użytkownika. Jeśli użytkownik nie jest członkiem **`users`** grupy, użyj następującego polecenia, aby dodać użytkownika do grupy:
+Oozie może personifikować użytkowników w **`users`** grupie. Użyj, `groups USERNAME` Aby wyświetlić grupy, do których należy konto użytkownika. Jeśli użytkownik nie jest członkiem **`users`** grupy, użyj następującego polecenia, aby dodać użytkownika do grupy:
 
-    sudo adduser USERNAME users
+```bash
+sudo adduser USERNAME users
+```
 
 > [!NOTE]  
 > Usługa HDInsight może potrwać kilka minut, ponieważ użytkownik dodaliśmy do grupy.
@@ -73,7 +79,9 @@ Oozie może personifikować użytkowników w **`users`** grupie. Użyj, `groups 
 
 Stan zadania zmieni się na **zabity**. Szczegóły zadania przedstawiają `RunSqoopExport` stan jako **błąd**. W przypadku wybrania akcji zostanie wyświetlony następujący komunikat o błędzie:
 
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```output
+Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```
 
 ### <a name="cause"></a>Przyczyna
 
@@ -81,7 +89,7 @@ Sqoop nie może załadować sterownika bazy danych wymaganego w celu uzyskania d
 
 ### <a name="resolution"></a>Rozwiązanie
 
-W przypadku korzystania z Sqoop z zadania Oozie należy dołączyć sterownik bazy danych z innymi zasobami, takimi jak Workflow. XML, zadanie używa. Ponadto należy odwołać się do archiwum zawierającego sterownik bazy danych z `<sqoop>...</sqoop>` sekcji pliku Workflow. XML.
+W przypadku korzystania z Sqoop z zadania Oozie należy uwzględnić sterownik bazy danych z innymi zasobami, takimi jak workflow.xml, zadanie używa. Odwołuje się również do archiwum zawierającego sterownik bazy danych z `<sqoop>...</sqoop>` sekcji workflow.xml.
 
 Na przykład dla przykładowego zadania [korzystającego z przepływów pracy usługi Hadoop Oozie](hdinsight-use-oozie-linux-mac.md)należy wykonać następujące czynności:
 
@@ -91,7 +99,7 @@ Na przykład dla przykładowego zadania [korzystającego z przepływów pracy us
     hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
     ```
 
-2. Zmodyfikuj, `workflow.xml` aby dodać następujący kod XML w nowym wierszu powyżej `</sqoop>`:
+2. Zmodyfikuj, `workflow.xml` Aby dodać następujący kod XML w nowym wierszu powyżej `</sqoop>` :
 
     ```xml
     <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
@@ -103,6 +111,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

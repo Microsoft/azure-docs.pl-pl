@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
 ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80350054"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie SUSE Linux Enterprise Server for SAP — Przewodnik dotyczący wiele identyfikatorów SID
@@ -112,18 +112,18 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
   * Adres IP dla NW2:10.3.1.16
   * Adres IP dla NW3:10.3.1.13
 * Porty sondy
-  * Port 620<strong>&lt;nr&gt;</strong>, dlatego dla portów sondy NW1, NW2 i NW3 620**00**, 620**10** i 620**20**
+  * Port 620<strong> &lt; Nr &gt; </strong>, dlatego dla portów sondy NW1, NW2 i NW3 620**00**, 620**10** i 620**20**
 * Reguły równoważenia obciążenia — 
 * Utwórz jeden dla każdego wystąpienia, czyli NW1/ASCS, NW2/ASCS i NW3/ASCS.
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
   * W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 36<strong>&lt;nr&gt; </strong> TCP
-    * 39<strong>&lt;nr&gt; </strong> TCP
-    * 81<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; Nr &gt; </strong> TCP
+    * 36<strong> &lt; Nr &gt; </strong> TCP
+    * 39<strong> &lt; Nr &gt; </strong> TCP
+    * 81<strong> &lt; Nr &gt; </strong> TCP
+    * 5<strong> &lt; Nr &gt; </strong>13 TCP
+    * 5<strong> &lt; Nr &gt; </strong>14 TCP
+    * 5<strong> &lt; Nr &gt; </strong>16 TCP
 
 ### <a name="ers"></a>Wykres WYWOŁUJĄCYCH
 
@@ -132,15 +132,15 @@ Na poniższej liście przedstawiono konfigurację modułu równoważenia obcią�
   * Adres IP dla NW2 10.3.1.17
   * Adres IP dla NW3 10.3.1.19
 * Port sondy
-  * Port 621<strong>&lt;nr&gt;</strong>, w związku z tym dla portów sondy NW1, NW2 i N # 621**02**, 621**12** i 621**22**
+  * Port 621<strong> &lt; Nr &gt; </strong>, w związku z tym dla portów sondy NW1, NW2 i N # 621**02**, 621**12** i 621**22**
 * Reguły równoważenia obciążenia — Utwórz jedną dla każdego wystąpienia, czyli NW1/wykres WYWOŁUJĄCYCH, NW2/wykres WYWOŁUJĄCYCH i NW3/wykres WYWOŁUJĄCYCH.
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
   * W przypadku korzystania z Load Balancer podstawowych Utwórz reguły równoważenia obciążenia dla następujących portów
-    * 32<strong>&lt;nr&gt; </strong> TCP
-    * 33<strong>&lt;nr&gt; </strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
+    * 32<strong> &lt; Nr &gt; </strong> TCP
+    * 33<strong> &lt; Nr &gt; </strong> TCP
+    * 5<strong> &lt; Nr &gt; </strong>13 TCP
+    * 5<strong> &lt; Nr &gt; </strong>14 TCP
+    * 5<strong> &lt; Nr &gt; </strong>16 TCP
 
 * Konfiguracja zaplecza
   * Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra programu (A) SCS/wykres WYWOŁUJĄCYCH
@@ -191,7 +191,7 @@ W tej dokumentacji przyjęto założenie, że:
 
 1. Dodaj konfigurację nowo wdrożonego systemu (czyli **NW2**, **NW3**) do istniejącego Azure Load Balancer, postępując zgodnie z instrukcjami [Wdróż Azure Load Balancer ręcznie za pośrednictwem Azure Portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#deploy-azure-load-balancer-manually-via-azure-portal). Dostosuj adresy IP, porty sondowania kondycji, reguły równoważenia obciążenia dla konfiguracji.  
 
-2. **[A]** Skonfiguruj rozpoznawanie nazw dla dodatkowych systemów SAP. Możesz użyć serwera DNS lub zmodyfikować `/etc/hosts` wszystkie węzły. Ten przykład pokazuje, `/etc/hosts` jak używać pliku.  Dostosuj adresy IP i nazwy hostów do środowiska. 
+2. **[A]** Skonfiguruj rozpoznawanie nazw dla dodatkowych systemów SAP. Możesz użyć serwera DNS lub zmodyfikować `/etc/hosts` wszystkie węzły. Ten przykład pokazuje, jak używać `/etc/hosts` pliku.  Dostosuj adresy IP i nazwy hostów do środowiska. 
 
     ```
     sudo vi /etc/hosts
@@ -239,7 +239,7 @@ W tej dokumentacji przyjęto założenie, że:
    * W przypadku korzystania z serwera plików NFS postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse#prepare-for-sap-netweaver-installation) .
    * Jeśli używasz Azure NetApp Files, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files#prepare-for-sap-netweaver-installation) 
 
-   Aby zainstalować nowo dodane udziały `autofs` , należy ponownie uruchomić usługę.  
+   `autofs`Aby zainstalować nowo dodane udziały, należy ponownie uruchomić usługę.  
 
 ### <a name="install-ascs--ers"></a>Zainstaluj ASCS/wykres WYWOŁUJĄCYCH
 
@@ -330,7 +330,7 @@ W tej dokumentacji przyjęto założenie, że:
 
    Podczas tworzenia zasobów można je przypisać do innych węzłów klastra. Gdy grupujesz je, zostaną zmigrowane do jednego z węzłów klastra. Upewnij się, że stan klastra to OK i że wszystkie zasoby są uruchomione.  
 
-   Następnie upewnij się, że zasoby nowo utworzonej grupy wykres WYWOŁUJĄCYCH są uruchomione w węźle klastra, w przeciwieństwie do węzła klastra, w którym zainstalowano wystąpienie ASCS dla tego samego systemu SAP.  Na przykład jeśli zainstalowano NW2 ASCS `slesmsscl1`, upewnij się, że grupa NW2 wykres wywołujących jest uruchomiona. `slesmsscl2`  Można migrować grupę NW2 wykres WYWOŁUJĄCYCH do `slesmsscl2` programu, uruchamiając następujące polecenie: 
+   Następnie upewnij się, że zasoby nowo utworzonej grupy wykres WYWOŁUJĄCYCH są uruchomione w węźle klastra, w przeciwieństwie do węzła klastra, w którym zainstalowano wystąpienie ASCS dla tego samego systemu SAP.  Na przykład jeśli zainstalowano NW2 ASCS `slesmsscl1` , upewnij się, że grupa NW2 wykres wywołujących jest uruchomiona `slesmsscl2` .  Można migrować grupę NW2 wykres WYWOŁUJĄCYCH do programu `slesmsscl2` , uruchamiając następujące polecenie: 
 
     ```
       crm resource migrate g-NW2_ERS slesmsscl2 force
@@ -578,7 +578,7 @@ Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele 
 
 1. Test HAGetFailoverConfig i HACheckFailoverConfig
 
-   Uruchom następujące polecenia jako <sapsid>adm w węźle, w którym jest aktualnie uruchomione wystąpienie ASCS. Jeśli polecenie nie powiedzie się z powodu niewystarczającej ilości pamięci, może to być spowodowane przez myślniki w nazwie hosta. Jest to znany problem, który zostanie rozwiązany przez SUSE w pakiecie SAP-SUSE-Cluster-Connector.
+   Uruchom następujące polecenia jako <sapsid> adm w węźle, w którym jest aktualnie uruchomione wystąpienie ASCS. Jeśli polecenie nie powiedzie się z powodu niewystarczającej ilości pamięci, może to być spowodowane przez myślniki w nazwie hosta. Jest to znany problem, który zostanie rozwiązany przez SUSE w pakiecie SAP-SUSE-Cluster-Connector.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig
@@ -857,7 +857,7 @@ Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele 
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Uruchom następujące polecenie jako element główny w węźle, w którym jest uruchomione co najmniej jedno wystąpienie ASCS. W tym przykładzie wykonamy polecenie w lokalizacji, `slesmsscl2`w której działają wystąpienia ASCS dla NW1 i NW3.  
+   Uruchom następujące polecenie jako element główny w węźle, w którym jest uruchomione co najmniej jedno wystąpienie ASCS. W tym przykładzie wykonamy polecenie w `slesmsscl2` lokalizacji, w której działają wystąpienia ASCS dla NW1 i NW3.  
 
    ```
     slesmsscl2:~ # echo b > /proc/sysrq-trigger

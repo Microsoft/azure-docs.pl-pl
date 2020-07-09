@@ -4,10 +4,9 @@ description: Skonfiguruj Azure Load Balancer, aby otworzyć porty dla klastra Se
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77025388"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Otwieranie portów dla klastra usługi Service Fabric
@@ -21,7 +20,7 @@ Po wdrożeniu klastra Service Fabric na platformie Azure moduł równoważenia o
 
 ## <a name="configure-service-fabric"></a>Konfigurowanie usługi Service Fabric
 
-Plik konfiguracji **servicemanifest. XML** aplikacji Service Fabric definiuje punkty końcowe używane przez aplikację. Po zaktualizowaniu pliku konfiguracji w celu zdefiniowania punktu końcowego należy zaktualizować moduł równoważenia obciążenia, aby udostępnić ten (lub inny) port. Aby uzyskać więcej informacji na temat tworzenia punktu końcowego usługi Service Fabric, zobacz [konfigurowanie punktu końcowego](service-fabric-service-manifest-resources.md).
+Plik konfiguracji **ServiceManifest.xml** aplikacji Service Fabric definiuje punkty końcowe używane przez aplikację. Po zaktualizowaniu pliku konfiguracji w celu zdefiniowania punktu końcowego należy zaktualizować moduł równoważenia obciążenia, aby udostępnić ten (lub inny) port. Aby uzyskać więcej informacji na temat tworzenia punktu końcowego usługi Service Fabric, zobacz [konfigurowanie punktu końcowego](service-fabric-service-manifest-resources.md).
 
 ## <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 
@@ -93,7 +92,7 @@ $lb.LoadBalancingRules.Add($lbrule)
 $lb | Set-AzLoadBalancer
 ```
 
-W przypadku `New-AzLoadBalancerRuleConfig` `-FrontendPort` polecenia reprezentuje port modułu równoważenia obciążenia, który jest udostępniany dla połączeń zewnętrznych, i `-BackendPort` reprezentuje port, do którego nasłuchuje aplikacja usługi Service Fabric.
+`New-AzLoadBalancerRuleConfig`W przypadku polecenia `-FrontendPort` reprezentuje port modułu równoważenia obciążenia, który jest udostępniany dla połączeń zewnętrznych, i `-BackendPort` reprezentuje port, do którego nasłuchuje aplikacja usługi Service Fabric.
 
 >[!NOTE]
 >Aby uzyskać więcej informacji na temat tworzenia modułu równoważenia obciążenia za pomocą programu PowerShell, zobacz [Tworzenie modułu równoważenia obciążenia za pomocą programu PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).

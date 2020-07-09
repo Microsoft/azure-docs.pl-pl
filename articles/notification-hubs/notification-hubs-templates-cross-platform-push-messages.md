@@ -17,10 +17,9 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76263748"
 ---
 # <a name="templates"></a>Szablony
@@ -58,7 +57,7 @@ Możesz tworzyć podobne ładunki dla platform usługi MPNS (Windows Phone) i FC
 
 Ten wymóg wymusza zaplecze aplikacji, aby generować różne ładunki dla każdej platformy i efektywnie sprawiać, że baza danych jest odpowiedzialna za część warstwy prezentacji aplikacji. Niektóre zagadnienia obejmują lokalizacje i układy graficzne (szczególnie w przypadku aplikacji ze sklepu Windows, które obejmują powiadomienia dla różnych typów kafelków).
 
-Funkcja szablon Notification Hubs umożliwia aplikacji klienckiej tworzenie rejestracji specjalnych o nazwie Rejestracja szablonów, która obejmuje oprócz zestawu tagów, szablonu. Funkcja szablon Notification Hubs umożliwia aplikacji klienckiej kojarzenie urządzeń z szablonami niezależnie od tego, czy pracujesz z instalacjami (preferowanymi) czy rejestracjami. Ze względu na powyższe przykłady ładunku jedynymi informacjami niezależnymi od platformy jest rzeczywisty komunikat alertu (Hello!). Szablon to zestaw instrukcji dla centrum powiadomień, w którym można sformatować komunikat niezależny od platformy dla rejestracji tej konkretnej aplikacji klienckiej. W poprzednim przykładzie komunikat niezależny od platformy jest pojedynczą właściwością: `message = Hello!`.
+Funkcja szablon Notification Hubs umożliwia aplikacji klienckiej tworzenie rejestracji specjalnych o nazwie Rejestracja szablonów, która obejmuje oprócz zestawu tagów, szablonu. Funkcja szablon Notification Hubs umożliwia aplikacji klienckiej kojarzenie urządzeń z szablonami niezależnie od tego, czy pracujesz z instalacjami (preferowanymi) czy rejestracjami. Ze względu na powyższe przykłady ładunku jedynymi informacjami niezależnymi od platformy jest rzeczywisty komunikat alertu (Hello!). Szablon to zestaw instrukcji dla centrum powiadomień, w którym można sformatować komunikat niezależny od platformy dla rejestracji tej konkretnej aplikacji klienckiej. W poprzednim przykładzie komunikat niezależny od platformy jest pojedynczą właściwością: `message = Hello!` .
 
 Na poniższej ilustracji przedstawiono proces:
 
@@ -139,13 +138,13 @@ W poniższej tabeli przedstawiono język dozwolony w szablonach:
 | $ (prop, n)       | Jak powyżej, ale tekst jest jawnie przycięty do n znaków, na przykład $ (title, 20) przycina zawartość Właściwości title do 20 znaków. |
 | . (prop, n)       | Jak powyżej, ale tekst jest sufiksem z trzema kropkami, gdy jest obcinany. Łączny rozmiar ciągu przycinanego i sufiksu nie przekracza n znaków. . (tytuł, 20) z właściwością wejściową "jest to wiersz tytułu" w wyniku **tego jest to tytuł...** |
 | % (PROP)          | Podobne do $ (Name), z tą różnicą, że dane wyjściowe są kodowane przy użyciu identyfikatora URI. |
-| # (PROP)          | Używane w szablonach JSON (na przykład w przypadku szablonów dla systemów iOS i Android).<br><br>Ta funkcja działa dokładnie tak samo jak wartość $ (PROP), z wyjątkiem sytuacji, gdy są używane w szablonach JSON (na przykład szablony firmy Apple). W tym przypadku, jeśli ta funkcja nie jest ujęta w nawiasy "{", "}" (na przykład "myJsonProperty": "# (nazwa)") i jest wynikiem liczby w formacie JavaScript, na przykład RegExp: (0&#124; (&#91;1-9&#93;&#91;0-9&#93; *)) (\.&#91;0-9&#93;+)? ((e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, a następnie wyjściowy kod JSON jest liczbą.<br><br>Na przykład "znaczek: ' # (nazwa) ' zmieni się na" znaczek ": 40 (a nie" 40 "). |
+| # (PROP)          | Używane w szablonach JSON (na przykład w przypadku szablonów dla systemów iOS i Android).<br><br>Ta funkcja działa dokładnie tak samo jak wartość $ (PROP), z wyjątkiem sytuacji, gdy są używane w szablonach JSON (na przykład szablony firmy Apple). W tym przypadku, jeśli ta funkcja nie jest ujęta w nawiasy "{", "}" (na przykład "myJsonProperty": "# (nazwa)"), a jej wartość jest równa liczbie w formacie JavaScript, na przykład RegExp: (0&#124; (&#91;1-9&#93;&#91;0-9&#93; *)) ( \.&#91;0-9&#93;+)? ( (e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, a następnie wyjściowy kod JSON jest liczbą.<br><br>Na przykład "znaczek: ' # (nazwa) ' zmieni się na" znaczek ": 40 (a nie" 40 "). |
 | "text" lub "text" | Literał. Literały zawierają dowolny tekst w pojedynczym lub podwójnym cudzysłowie. |
 | Wyr1 + expr2    | Operator łączenia łączący dwa wyrażenia w jeden ciąg. |
 
 Wyrażenia mogą być dowolnym z powyższych formularzy.
 
-W przypadku korzystania z łączenia, całe wyrażenie musi być ujęte w `{}`nawias. Na przykład `{$(prop) + ‘ - ’ + $(prop2)}`.
+W przypadku korzystania z łączenia, całe wyrażenie musi być ujęte w nawias `{}` . Na przykład `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Na przykład następujący szablon nie jest prawidłowym szablonem XML:
 

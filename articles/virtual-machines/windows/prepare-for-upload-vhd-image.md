@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: bf96cea2f64c52714ed6c63b0e973d0d26999856
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610221"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Przygotowywanie dysku VHD lub VHDX systemu Windows do przekazania na platformę Azure
 
-Przed przekazaniem maszyny wirtualnej z systemem Windows z lokalizacji lokalnej do platformy Azure należy przygotować wirtualny dysk twardy (VHD lub VHDX). Platforma Azure obsługuje maszyny wirtualne generacji 1 i 2, które są w formacie pliku VHD i mają dysk o stałym rozmiarze. Maksymalny dozwolony rozmiar wirtualnego dysku twardego to 2 TB.
+Przed przekazaniem maszyny wirtualnej z systemem Windows z lokalizacji lokalnej do platformy Azure należy przygotować wirtualny dysk twardy (VHD lub VHDX). Platforma Azure obsługuje maszyny wirtualne generacji 1 i 2, które są w formacie pliku VHD i mają dysk o stałym rozmiarze. Maksymalny dozwolony rozmiar wirtualnego dysku twardego systemu operacyjnego na maszynie wirtualnej generacji 1 to 2 TB.
 
-Na maszynie wirtualnej generacji 1 można skonwertować system plików VHDX na dysk VHD. Możesz również skonwertować dynamicznie powiększający dysk na dysk o stałym rozmiarze. Ale nie można zmienić generacji maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej generacji 1 lub 2 w funkcji Hyper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) i [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md).
+Plik VHDX można skonwertować na dysk VHD, konwertując dynamicznie powiększający dysk na dysk o stałym rozmiarze, ale nie można zmienić generacji maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej generacji 1 lub 2 w funkcji Hyper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) i [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md).
 
 Aby uzyskać informacje o zasadach pomocy technicznej dla maszyn wirtualnych platformy Azure, zobacz [Microsoft Server Software Support for Azure](https://support.microsoft.com/help/2721672/)Virtual Machines.
 
@@ -28,6 +28,73 @@ Aby uzyskać informacje o zasadach pomocy technicznej dla maszyn wirtualnych pla
 >
 > - 64-bitowa wersja systemu Windows Server 2008 R2 i nowszych systemów operacyjnych Windows Server. Aby uzyskać informacje o uruchamianiu 32-bitowego systemu operacyjnego na platformie Azure, zobacz [obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure](https://support.microsoft.com/help/4021388/).
 > - Jeśli do migracji obciążenia, takiego jak Azure Site Recovery lub Azure Migrate, zostanie użyte dowolne narzędzie do odzyskiwania po awarii, ten proces jest nadal wymagany w systemie operacyjnym gościa w celu przygotowania obrazu przed rozpoczęciem migracji.
+
+## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze
+
+Użyj jednej z metod opisanych w tej sekcji, aby przekonwertować dysk wirtualny i zmienić jego rozmiar na wymagany format dla platformy Azure:
+
+1. Przed uruchomieniem konwersji lub zmiany rozmiaru dysku wirtualnego wykonaj kopię zapasową maszyny wirtualnej.
+
+1. Upewnij się, że wirtualny dysk twardy systemu Windows działa poprawnie na serwerze lokalnym. Przed podjęciem próby konwersji lub przekazania na platformę Azure Usuń wszystkie błędy w samej maszynie wirtualnej.
+
+1. Przekonwertuj dysk wirtualny na typ fixed.
+
+1. Zmień rozmiar dysku wirtualnego, aby spełniał wymagania platformy Azure:
+
+   1. Dyski na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MiB. Jeśli wirtualny dysk twardy jest częścią 1 MiB, należy zmienić rozmiar dysku na wielokrotność 1 MiB. Dyski, które są częścią bazy MiB, powodują błędy podczas tworzenia obrazów na podstawie przekazanego wirtualnego dysku twardego. Aby sprawdzić, czy można użyć programu PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) comdlet do wyświetlania "size", który musi być wielokrotnością 1 MIB na platformie Azure, i "rozmiar pliku", która będzie równa "size" i 512 bajtów dla stopki wirtualnego dysku twardego.
+   
+   1. Maksymalny dozwolony rozmiar wirtualnego dysku twardego systemu operacyjnego z maszyną wirtualną generacji 1 to 2 048 GiB (2 TiB), 
+   1. Maksymalny rozmiar dysku danych to 32 767 GiB (32 TiB).
+
+> [!NOTE]
+> - W przypadku przygotowywania dysku systemu operacyjnego Windows po konwersji na dysk stały i zmiany rozmiaru w razie potrzeby należy utworzyć maszynę wirtualną używającą dysku. Uruchom i zaloguj się do maszyny wirtualnej i przejdź do sekcji w tym artykule, aby zakończyć przygotowywanie jej do przekazania.  
+> - Jeśli przygotowywany jest dysk z danymi, można go zatrzymać z tą sekcją i kontynuować przekazywanie dysku.
+
+### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Konwertowanie dysku za pomocą Menedżera funkcji Hyper-V
+
+1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja**  >  **Edytuj dysk**.
+1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
+1. Na stronie **Wybierz akcję** wybierz pozycję **Konwertuj**  >  **dalej**.
+1. Aby przekonwertować z formatu VHDX, wybierz pozycję **VHD**  >  **dalej**.
+1. Aby skonwertować dynamicznie powiększający dysk, wybierz pozycję **stały rozmiar**  >  **dalej**.
+1. Znajdź i wybierz ścieżkę, w której ma zostać zapisany nowy plik VHD.
+1. Wybierz pozycję **Zakończ**.
+
+### <a name="use-powershell-to-convert-the-disk"></a>Konwertowanie dysku przy użyciu programu PowerShell
+
+Dysk wirtualny można skonwertować przy użyciu polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) w programie PowerShell. Jeśli potrzebujesz informacji na temat instalowania tego polecenia cmdlet, kliknij [tutaj](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+Poniższy przykład konwertuje dysk z dysku VHDX na dysk VHD. Konwertuje także dysk z dynamicznie powiększanego dysku na dysk o stałym rozmiarze.
+
+```powershell
+Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
+```
+
+W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, który chcesz skonwertować. Zastąp wartość **DestinationPath** nową ścieżką i nazwą konwertowanego dysku.
+
+### <a name="convert-from-vmware-vmdk-disk-format"></a>Konwertuj z formatu dysku VMware VMDK
+
+Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https://en.wikipedia.org/wiki/VMDK), użyj [konwertera maszyny wirtualnej firmy Microsoft](https://www.microsoft.com/download/details.aspx?id=42497) , aby przekonwertować go na format VHD. Aby uzyskać więcej informacji, zobacz [jak skonwertować dysk VHD programu VMware VMDK na funkcję Hyper-V](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
+
+### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Zmienianie rozmiaru dysku za pomocą Menedżera funkcji Hyper-V
+
+1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja**  >  **Edytuj dysk**.
+1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
+1. Na stronie **Wybierz akcję** wybierz pozycję **Rozwiń**  >  **dalej**.
+1. Na stronie **lokalizowanie wirtualnego dysku twardego** wprowadź nowy rozmiar w GIB > **dalej**.
+1. Wybierz pozycję **Zakończ**.
+
+### <a name="use-powershell-to-resize-the-disk"></a>Zmienianie rozmiaru dysku przy użyciu programu PowerShell
+
+Można zmienić rozmiar dysku wirtualnego za pomocą polecenia cmdlet [Zmień rozmiar pliku VHD](/powershell/module/hyper-v/resize-vhd) w programie PowerShell. Jeśli potrzebujesz informacji na temat instalowania tego polecenia cmdlet, kliknij [tutaj](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+Poniższy przykład zmienia rozmiar dysku z 100,5 MiB na 101 MiB, aby spełnić wymagania dotyczące wyrównania na platformie Azure.
+
+```powershell
+Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
+```
+
+W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, którego rozmiar chcesz zmienić. Zastąp wartość **SizeBytes** nowym rozmiarem w bajtach dla dysku.
 
 ## <a name="system-file-checker"></a> narzędzie sprawdzania plików systemowych
 
@@ -55,49 +122,6 @@ Windows Resource Protection did not find any integrity violations.
 
 Po zakończeniu skanowania programu SFC Zainstaluj aktualizacje systemu Windows i uruchom ponownie komputer.
 
-## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze
-
-Użyj jednej z metod opisanych w tej sekcji, aby skonwertować dysk wirtualny do wymaganego formatu dla platformy Azure:
-
-1. Przed uruchomieniem procesu konwersji dysku wirtualnego wykonaj kopię zapasową maszyny wirtualnej.
-
-1. Upewnij się, że wirtualny dysk twardy systemu Windows działa poprawnie na serwerze lokalnym. Przed podjęciem próby konwersji lub przekazania na platformę Azure Usuń wszystkie błędy w samej maszynie wirtualnej.
-
-1. Rozmiar dysku VHD:
-
-   1. Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwertowania z dysku surowego na dysk VHD należy upewnić się, że rozmiar dysku surowego jest wielokrotnością 1 MB przed konwersją.
-      Ułamki megabajtów powodują błędy podczas tworzenia obrazów na podstawie przekazanego wirtualnego dysku twardego.
-
-   1. Maksymalny dozwolony rozmiar wirtualnego dysku twardego systemu operacyjnego to 2 TB.
-
-Po konwersji dysku utwórz maszynę wirtualną, która używa tego dysku. Uruchom i zaloguj się na maszynie wirtualnej, aby zakończyć przygotowywanie jej do przekazania.
-
-### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Konwertowanie dysku za pomocą Menedżera funkcji Hyper-V
-
-1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja** > **Edytuj dysk**.
-1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
-1. Na stronie **Wybierz akcję** wybierz pozycję **Konwertuj** > **dalej**.
-1. Aby przekonwertować z formatu VHDX, wybierz pozycję **VHD** > **dalej**.
-1. Aby skonwertować dynamicznie powiększający dysk, wybierz pozycję **stały rozmiar** > **dalej**.
-1. Znajdź i wybierz ścieżkę, w której ma zostać zapisany nowy plik VHD.
-1. Wybierz pozycję **Zakończ**.
-
-### <a name="use-powershell-to-convert-the-disk"></a>Konwertowanie dysku przy użyciu programu PowerShell
-
-Dysk wirtualny można skonwertować przy użyciu polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) w programie PowerShell.
-
-Poniższy przykład konwertuje dysk z dysku VHDX na dysk VHD. Konwertuje także dysk z dynamicznie powiększanego dysku na dysk o stałym rozmiarze.
-
-```powershell
-Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
-```
-
-W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, który chcesz skonwertować. Zastąp wartość **DestinationPath** nową ścieżką i nazwą konwertowanego dysku.
-
-### <a name="convert-from-vmware-vmdk-disk-format"></a>Konwertuj z formatu dysku VMware VMDK
-
-Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https://en.wikipedia.org/wiki/VMDK), użyj [konwertera maszyny wirtualnej firmy Microsoft](https://www.microsoft.com/download/details.aspx?id=42497) , aby przekonwertować go na format VHD. Aby uzyskać więcej informacji, zobacz [jak skonwertować dysk VHD programu VMware VMDK na funkcję Hyper-V](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
-
 ## <a name="set-windows-configurations-for-azure"></a>Ustawianie konfiguracji systemu Windows na platformie Azure
 
 > [!NOTE]
@@ -105,8 +129,8 @@ Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https:
 
 1. Usuń wszystkie statyczne trasy trwałe w tabeli routingu:
 
-   - Aby wyświetlić tabelę routingu, uruchom `route.exe print`polecenie.
-   - Zapoznaj się z sekcją **trasy trwałości** . Jeśli istnieje trasa trwała, użyj `route.exe delete` polecenia, aby je usunąć.
+   - Aby wyświetlić tabelę routingu, uruchom polecenie `route.exe print` .
+   - Zapoznaj się z sekcją **trasy trwałości** . Jeśli istnieje trasa trwała, użyj polecenia, `route.exe delete` aby je usunąć.
 
 1. Usuń serwer proxy WinHTTP:
 
@@ -128,7 +152,7 @@ Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https:
    diskpart.exe
    ```
 
-   Ustaw [`Onlineall`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/gg252636(v=ws.11))następujące zasady sieci San:
+   Ustaw następujące zasady sieci SAN [`Onlineall`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/gg252636(v=ws.11)) :
 
    ```DiskPart
    DISKPART> san policy=onlineall
@@ -174,7 +198,7 @@ Get-Service -Name Netlogon, Netman, TermService |
 Upewnij się, że następujące ustawienia są poprawnie skonfigurowane dla dostępu zdalnego:
 
 > [!NOTE]
-> Jeśli podczas uruchamiania `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>`zostanie wyświetlony komunikat o błędzie, możesz go bezpiecznie zignorować. Oznacza to, że domena nie ustawia tej konfiguracji za pośrednictwem obiektu zasady grupy.
+> Jeśli podczas uruchamiania zostanie wyświetlony komunikat o błędzie `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>` , możesz go bezpiecznie zignorować. Oznacza to, że domena nie ustawia tej konfiguracji za pośrednictwem obiektu zasady grupy.
 
 1. Remote Desktop Protocol (RDP) jest włączony:
 
@@ -347,7 +371,7 @@ Upewnij się, że maszyna wirtualna jest w dobrej kondycji, bezpieczna i RDP:
 
    Jeśli repozytorium jest uszkodzone, zobacz [WMI: uszkodzenie repozytorium](https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484).
 
-1. Upewnij się, że żadna inna aplikacja nie korzysta z portu 3389. Ten port jest używany dla usługi RDP na platformie Azure. Aby sprawdzić, które porty są używane na maszynie wirtualnej, `netstat.exe -anob`Uruchom polecenie:
+1. Upewnij się, że żadna inna aplikacja nie korzysta z portu 3389. Ten port jest używany dla usługi RDP na platformie Azure. Aby sprawdzić, które porty są używane na maszynie wirtualnej, uruchom polecenie `netstat.exe -anob` :
 
    ```powershell
    netstat.exe -anob
@@ -397,37 +421,37 @@ W idealnym przypadku należy zachować aktualizację komputera na *poziomie popr
 
 <br />
 
-|        Składnik        |     plików binarnych     | Windows 7 z dodatkiem SP1, Windows Server 2008 R2 z dodatkiem SP1 |       Windows 8, Windows Server 2012        | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 |      V1703 systemu Windows 10      | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+|        Składnik        |     Binarne     | Windows 7 z dodatkiem SP1, Windows Server 2008 R2 z dodatkiem SP1 |       Windows 8, Windows Server 2012        | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 |      V1703 systemu Windows 10      | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 | ----------------------- | -------------- | ----------------------------------------- | ------------------------------------------- | ----------------------------------- | ------------------------------------------- | -------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Magazyn                 | dysk. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061          | -                                           | -                          | -                                           | -                                           |
-|                         | Storport. sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.332             | -                                           | -                                           |
-|                         | NTFS. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
-|                         | Iologmsg. dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                   | -                                           | -                          | -                                           | -                                           |
-|                         | Classpnp. sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17061 / 6.2.9200.21180 - KB2995387 | 6.3.9600.18334 - KB3172614          | 10.0.14393.953 - KB4022715                  | -                          | -                                           | -                                           |
-|                         | Volsnap. sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17047 / 6.2.9200.21165 - KB2975331 | 6.3.9600.18265 - KB3145384          | -                                           | 10.0.15063.0               | -                                           | -                                           |
-|                         | partmgr. sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.16681 - KB2877114                  | 6.3.9600.17401 — KB3000850          | 10.0.14393.953 - KB4022715                  | 10.0.15063.0               | -                                           | -                                           |
-|                         | Volmgr. sys     |                                           |                                             |                                     |                                             | 10.0.15063.0               | -                                           | -                                           |
-|                         | Volmgrx. sys    | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | 10.0.15063.0               | -                                           | -                                           |
-|                         | Msiscsi. sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.21006 - KB2955163                  | 6.3.9600.18624 - KB4022726          | 10.0.14393.1066 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
-|                         | MSDSM. sys      | 6.1.7601.23403 - KB3125574                | 6.2.9200.21474 - KB3046101                  | 6.3.9600.18592 - KB4022726          | -                                           | -                          | -                                           | -                                           |
-|                         | MPIO. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.21190 - KB3046101                  | 6.3.9600.18616 - KB4022726          | 10.0.14393.1198 - KB4022715                 | -                          | -                                           | -                                           |
-|                         | vmstorfl. sys   | 6.3.9600.18907 - KB4072650                | 6.3.9600.18080 - KB3063109                  | 6.3.9600.18907 - KB4072650          | 10.0.14393.2007 - KB4345418                 | 10.0.15063.850 - KB4345419 | 10.0.16299.371 - KB4345420                  | -                                           |
-|                         | Fveapi. dll     | 6.1.7601.23311 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.18294 - KB3172614          | 10.0.14393.576 - KB4022715                  | -                          | -                                           | -                                           |
-|                         | Fveapibase. dll | 6.1.7601.23403 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.17415 - KB3172614          | 10.0.14393.206 - KB4022715                  | -                          | -                                           | -                                           |
-| Sieć                 | netvsc. sys     | -                                         | -                                           | -                                   | 10.0.14393.1198 - KB4022715                 | 10.0.15063.250 - KB4020001 | -                                           | -                                           |
-|                         | Mrxsmb10. sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.22108 - KB4022724                  | 6.3.9600.18603 - KB4022726          | 10.0.14393.479 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
-|                         | Mrxsmb20. sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.21548 - KB4022724                  | 6.3.9600.18586 - KB4022726          | 10.0.14393.953 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
-|                         | Mrxsmb. sys     | 6.1.7601.23816 - KB4022722                | 6.2.9200.22074 - KB4022724                  | 6.3.9600.18586 - KB4022726          | 10.0.14393.953 - KB4022715                  | 10.0.15063.0               | -                                           | -                                           |
-|                         | tcpip. sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
-|                         | http. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726          | 10.0.14393.251 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
-|                         | w pliku. sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.138             | -                                           | -                                           |
-| Podstawowe                    | ntoskrnl. exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
-| Usługi pulpitu zdalnego | rdpcorets. dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
-|                         | termsrv. dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 — KB3000850          | 10.0.14393.0 — KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
-|                         | TermDD. sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
-|                         | Win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726          | 10.0.14393.594 - KB4022715                  | -                          | -                                           | -                                           |
-|                         | Rdpdd. dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
-|                         | Rdpwd. sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
+| Magazyn                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061          | -                                           | -                          | -                                           | -                                           |
+|                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.332             | -                                           | -                                           |
+|                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
+|                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                   | -                                           | -                          | -                                           | -                                           |
+|                         | Classpnp.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17061 / 6.2.9200.21180 - KB2995387 | 6.3.9600.18334 - KB3172614          | 10.0.14393.953 - KB4022715                  | -                          | -                                           | -                                           |
+|                         | Volsnap.sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17047 / 6.2.9200.21165 - KB2975331 | 6.3.9600.18265 - KB3145384          | -                                           | 10.0.15063.0               | -                                           | -                                           |
+|                         | partmgr.sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.16681 - KB2877114                  | 6.3.9600.17401 — KB3000850          | 10.0.14393.953 - KB4022715                  | 10.0.15063.0               | -                                           | -                                           |
+|                         | volmgr.sys     |                                           |                                             |                                     |                                             | 10.0.15063.0               | -                                           | -                                           |
+|                         | Volmgrx.sys    | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | 10.0.15063.0               | -                                           | -                                           |
+|                         | Msiscsi.sys    | 6.1.7601.23403 - KB3125574                | 6.2.9200.21006 - KB2955163                  | 6.3.9600.18624 - KB4022726          | 10.0.14393.1066 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
+|                         | Msdsm.sys      | 6.1.7601.23403 - KB3125574                | 6.2.9200.21474 - KB3046101                  | 6.3.9600.18592 - KB4022726          | -                                           | -                          | -                                           | -                                           |
+|                         | Mpio.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.21190 - KB3046101                  | 6.3.9600.18616 - KB4022726          | 10.0.14393.1198 - KB4022715                 | -                          | -                                           | -                                           |
+|                         | vmstorfl.sys   | 6.3.9600.18907 - KB4072650                | 6.3.9600.18080 - KB3063109                  | 6.3.9600.18907 - KB4072650          | 10.0.14393.2007 - KB4345418                 | 10.0.15063.850 - KB4345419 | 10.0.16299.371 - KB4345420                  | -                                           |
+|                         | Fveapi.dll     | 6.1.7601.23311 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.18294 - KB3172614          | 10.0.14393.576 - KB4022715                  | -                          | -                                           | -                                           |
+|                         | Fveapibase.dll | 6.1.7601.23403 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.17415 - KB3172614          | 10.0.14393.206 - KB4022715                  | -                          | -                                           | -                                           |
+| Sieć                 | netvsc.sys     | -                                         | -                                           | -                                   | 10.0.14393.1198 - KB4022715                 | 10.0.15063.250 - KB4020001 | -                                           | -                                           |
+|                         | mrxsmb10.sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.22108 - KB4022724                  | 6.3.9600.18603 - KB4022726          | 10.0.14393.479 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
+|                         | mrxsmb20.sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.21548 - KB4022724                  | 6.3.9600.18586 - KB4022726          | 10.0.14393.953 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
+|                         | mrxsmb.sys     | 6.1.7601.23816 - KB4022722                | 6.2.9200.22074 - KB4022724                  | 6.3.9600.18586 - KB4022726          | 10.0.14393.953 - KB4022715                  | 10.0.15063.0               | -                                           | -                                           |
+|                         | tcpip.sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
+|                         | http.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726          | 10.0.14393.251 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
+|                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.138             | -                                           | -                                           |
+| Core                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726          | 10.0.14393.1358 - KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
+| Usługi pulpitu zdalnego | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726          | 10.0.14393.1198 - KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
+|                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 — KB3000850          | 10.0.14393.0 — KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
+|                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
+|                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726          | 10.0.14393.594 - KB4022715                  | -                          | -                                           | -                                           |
+|                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
+|                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 | Zabezpieczenia                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                           | KB4012606                                   | KB4012606                  | -                                           | -                                           |
 |                         |                |                                           | KB4012216                                   |                                     | KB4013198                                   | KB4013198                  | -                                           | -                                           |
 |                         |                | KB4012215                                 | KB4012214                                   | KB4012216                           | KB4013429                                   | KB4013429                  | -                                           | -                                           |
@@ -440,7 +464,7 @@ W idealnym przypadku należy zachować aktualizację komputera na *poziomie popr
 
 ### <a name="determine-when-to-use-sysprep"></a>Ustalanie, kiedy należy używać narzędzia Sysprep
 
-Narzędzie przygotowywania systemu`sysprep.exe`() to proces, który można uruchomić w celu zresetowania instalacji systemu Windows.
+Narzędzie przygotowywania systemu ( `sysprep.exe` ) to proces, który można uruchomić w celu zresetowania instalacji systemu Windows.
 Program Sysprep udostępnia "środowisko pracy", usuwając wszystkie dane osobowe i instalując kilka składników.
 
 Zwykle uruchamia `sysprep.exe` się, aby utworzyć szablon, na podstawie którego można wdrożyć kilka innych maszyn wirtualnych z określoną konfiguracją. Szablon jest nazywany *uogólnionym obrazem*.
@@ -454,6 +478,9 @@ Aby utworzyć uogólniony obraz, należy uruchomić program Sysprep. Aby uzyska�
 
 Nie każda rola lub aplikacja zainstalowana na komputerze z systemem Windows obsługuje uogólnione obrazy. Przed użyciem tej procedury upewnij się, że program Sysprep obsługuje rolę komputera. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
+W szczególności program Sysprep wymaga całkowicie odszyfrowania dysków przed wykonaniem. Jeśli na maszynie wirtualnej włączono szyfrowanie, wyłącz je przed uruchomieniem narzędzia Sysprep.
+
+
 ### <a name="generalize-a-vhd"></a>Uogólnianie wirtualnego dysku twardego
 
 >[!NOTE]
@@ -461,7 +488,7 @@ Nie każda rola lub aplikacja zainstalowana na komputerze z systemem Windows obs
 
 1. Zaloguj się do maszyny wirtualnej z systemem Windows.
 1. Uruchom sesję programu PowerShell jako administrator.
-1. Zmień katalog na `%windir%\system32\sysprep`. Następnie należy uruchomić polecenie `sysprep.exe`.
+1. Zmień katalog na `%windir%\system32\sysprep` . Następnie należy uruchomić polecenie `sysprep.exe`.
 1. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że pole wyboru **generalize** jest zaznaczone.
 
     ![Narzędzie przygotowywania systemu](media/prepare-for-upload-vhd-image/syspre.png)
@@ -472,7 +499,7 @@ Nie każda rola lub aplikacja zainstalowana na komputerze z systemem Windows obs
 Teraz dysk VHD jest gotowy do przekazania. Aby uzyskać więcej informacji na temat sposobu tworzenia maszyny wirtualnej na podstawie uogólnionego dysku, zobacz [przekazywanie uogólnionego wirtualnego dysku twardego i używanie go do tworzenia nowej maszyny wirtualnej na platformie Azure](sa-upload-generalized.md).
 
 >[!NOTE]
-> Niestandardowy plik *Unattend. XML* nie jest obsługiwany. Chociaż obsługujemy Właściwość **additionalUnattendContent** , która zapewnia tylko ograniczoną obsługę dodawania opcji [instalacji Microsoft-Windows-Shell-Setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) do pliku *Unattend. XML* , który jest wykorzystywany przez agenta aprowizacji platformy Azure. Aby dodać FirstLogonCommands i LogonCommands, można użyć, na przykład [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) . Aby uzyskać więcej informacji, zobacz [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Niestandardowy plik *unattend.xml* nie jest obsługiwany. Chociaż obsługujemy Właściwość **additionalUnattendContent** , która zapewnia tylko ograniczoną obsługę dodawania opcji [instalacji Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) do pliku *unattend.xml* , którego używa Agent aprowizacji platformy Azure. Aby dodać FirstLogonCommands i LogonCommands, można użyć, na przykład [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) . Aby uzyskać więcej informacji, zobacz [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="complete-the-recommended-configurations"></a>Wykonaj zalecane konfiguracje
 

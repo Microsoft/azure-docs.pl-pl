@@ -1,8 +1,8 @@
 ---
 title: Migrowanie SQL Server użytkowników i grup systemu Windows do wystąpienia zarządzanego SQL przy użyciu języka T-SQL
-description: Dowiedz się więcej na temat migrowania SQL Server lokalnych użytkowników i grup systemu Windows do wystąpienia zarządzanego usługi Azure SQL
+description: Informacje na temat migracji użytkowników i grup systemu Windows w wystąpieniu SQL Server do wystąpienia zarządzanego usługi Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.topic: tutorial
@@ -10,14 +10,14 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: aba5013bbba95efcb5f27af5aa61f91d880601aa
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053555"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708683"
 ---
-# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie SQL Server lokalnych użytkowników i grup systemu Windows do wystąpienia zarządzanego usługi Azure SQL przy użyciu składni języka T-SQL
+# <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie użytkowników i grup systemu Windows w wystąpieniu SQL Server do wystąpienia zarządzanego usługi Azure SQL przy użyciu składni języka T-SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!NOTE]
@@ -25,7 +25,7 @@ ms.locfileid: "84053555"
 
 Ten artykuł przeprowadzi Cię przez proces migrowania lokalnych użytkowników i grup systemu Windows w SQL Server do wystąpienia zarządzanego usługi Azure SQL przy użyciu składni języka T-SQL.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -53,7 +53,7 @@ Aby ukończyć ten samouczek, obowiązują następujące wymagania wstępne:
 
 ## <a name="t-sql-ddl-syntax"></a>Składnia DDL języka T-SQL
 
-Poniżej przedstawiono składnię DDL języka T-SQL służącą do obsługi SQL Server lokalnej migracji użytkowników i grup systemu Windows do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania usługi Azure AD.
+Poniżej przedstawiono składnię DDL języka T-SQL służącą do obsługi migracji użytkowników i grup systemu Windows z wystąpienia SQL Server do wystąpienia zarządzanego SQL z uwierzytelnianiem za pomocą usługi Azure AD.
 
 ```sql
 -- For individual Windows users with logins
@@ -77,7 +77,7 @@ Ponownie mapuje użytkownika na nazwę logowania usługi Azure AD
 _groupName_</br>
 Określa nazwę grupy identyfikowanej w bazie danych.
 
-## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Część 1: Tworzenie nazw logowania dla SQL Server lokalnych użytkowników i grup
+## <a name="part-1-create-logins-in-sql-server-for-windows-users-and-groups"></a>Część 1. Tworzenie nazw logowania w SQL Server dla użytkowników i grup systemu Windows
 
 > [!IMPORTANT]
 > Następująca składnia tworzy użytkownika i logowanie do grupy w SQL Server. Przed wykonaniem poniższej składni należy upewnić się, że użytkownik i Grupa znajdują się wewnątrz Active Directory (AD). </br> </br>
@@ -314,7 +314,7 @@ Wykonaj polecenie ALTER USER, aby zakończyć proces migracji w wystąpieniu zar
 
 Przetestuj uwierzytelnianie w wystąpieniu zarządzanym SQL, używając wcześniej zamapowanego użytkownika na identyfikator logowania usługi Azure AD za pomocą polecenia ALTER USER Syntax.
 
-1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji MI jako`aadsqlmi\testUser1`
+1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji wystąpienia zarządzanego usługi Azure SQL jako`aadsqlmi\testUser1`
 1. Korzystając z SQL Server Management Studio (SSMS), zaloguj się do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania **zintegrowanego Active Directory** , łącząc się z bazą danych `migration` .
     1. Możesz również zalogować się przy użyciu testUser1@aadsqlmi.net poświadczeń z opcją SSMS **Active Directory — uniwersalna z obsługą usługi MFA**. Jednak w tym przypadku nie można używać mechanizmu logowania jednokrotnego i należy wpisać hasło. Nie trzeba używać federacyjnej maszyny wirtualnej do logowania się do wystąpienia zarządzanego SQL.
 1. W ramach **wyboru**elementu członkowskiego roli można wybrać jedną z tabeli. `test`
@@ -325,8 +325,8 @@ Przetestuj uwierzytelnianie w wystąpieniu zarządzanym SQL, używając wcześni
 
 Testowanie uwierzytelniania w wystąpieniu zarządzanym SQL przy użyciu elementu członkowskiego grupy systemu Windows `migration` . Użytkownik `aadsqlmi\testGroupUser` powinien zostać dodany do grupy `migration` przed migracją.
 
-1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji MI jako`aadsqlmi\testGroupUser`
-1. Korzystanie z programu SSMS z **Active Directory zintegrowanego** uwierzytelniania, nawiązywanie połączenia z serwerem mi i bazą danych`migration`
+1. Zaloguj się do federacyjnej maszyny wirtualnej przy użyciu subskrypcji wystąpienia zarządzanego usługi Azure SQL jako`aadsqlmi\testGroupUser`
+1. Za pomocą programu SSMS z Active Directory uwierzytelnianiem **zintegrowanym** Nawiąż połączenie z serwerem wystąpienia zarządzanego Azure SQL i bazą danych`migration`
     1. Możesz również zalogować się przy użyciu testGroupUser@aadsqlmi.net poświadczeń z opcją SSMS **Active Directory — uniwersalna z obsługą usługi MFA**. Jednak w tym przypadku nie można używać mechanizmu logowania jednokrotnego i należy wpisać hasło. Do zalogowania się do wystąpienia zarządzanego SQL nie trzeba używać federacyjnej maszyny wirtualnej.
 1. W ramach `db_owner` roli można utworzyć nową tabelę.
 

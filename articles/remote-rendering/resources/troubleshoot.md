@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018824"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563271"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -105,7 +105,7 @@ Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są o
 
 **Model przekracza limity wybranej maszyny wirtualnej, w tym maksymalną liczbę wielokątów:**
 
-Zapoznaj się z określonymi [ograniczeniami rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
+Zobacz określone [limity rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
 
 **Model nie znajduje się w frustumu aparatu:**
 
@@ -146,6 +146,16 @@ Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania
 
 ![Debuger ramki aparatu Unity](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzór szachownicy jest renderowany po załadowaniu modelu
+
+Jeśli renderowany obraz wygląda następująco: ![ szachownica ](../reference/media/checkerboard.png) , a moduł renderowania trafi na [limity dla standardowego rozmiaru maszyny wirtualnej](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru **maszyny wirtualnej w warstwie Premium** lub zmniejszyć liczbę widocznych wielokątów.
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w aparacie Unity jest odwrócony do góry
+
+Upewnij się, że postępuj zgodnie z [samouczkiem aparatu Unity: dokładnie Przeglądaj modele zdalne](../tutorials/unity/view-remote-models/view-remote-models.md) . Obraz z góry nogami wskazuje, że środowisko Unity jest wymagane do utworzenia celu renderowania poza ekranem. To zachowanie nie jest obecnie obsługiwane i tworzy ogromny wpływ na wydajność w przypadku urządzeń HoloLens 2.
+
+Przyczyną tego problemu może być MSAA, HDR lub włączenie procesu post. Upewnij się, że profil niskiej jakości został wybrany i ustawiony jako domyślny w aparacie Unity. Aby to zrobić, przejdź do pozycji *Edytuj ustawienia projektu >... >*.
+
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Kod Unity korzystający z interfejsu API renderowania zdalnego nie kompiluje
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Użyj debugowania podczas kompilowania dla edytora Unity
@@ -162,6 +172,10 @@ Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Un
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Kompilacje Arm64 dla projektów Unity nie powiodły się, ponieważ brakuje AudioPluginMsHRTF.dll
+
+Obiekt `AudioPluginMsHRTF.dll` for Arm64 został dodany do pakietu *Windows Mixed Reality* *(com. Unity. XR. windowsmr. Metro)* w wersji 3.0.1. Upewnij się, że masz zainstalowaną wersję 3.0.1 lub nowszą za pośrednictwem Menedżera pakietów aparatu Unity. Na pasku menu aparatu Unity przejdź do *okna > Menedżer pakietów* i Wyszukaj pakiet *rzeczywistości mieszanej systemu Windows* .
+
 ## <a name="unstable-holograms"></a>Niestabilne hologramy
 
 W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięciami, mogą wystąpić problemy związane z *reprojektem późnego etapu* (LSR). Zapoznaj się z sekcją dotyczącą [przemieszczenia na późnym etapie](../overview/features/late-stage-reprojection.md) w celu uzyskania wskazówek dotyczących sposobu podejścia do takiej sytuacji.
@@ -171,6 +185,56 @@ Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakł
 Inna wartość, która ma być wyszukiwana `ARRServiceStats.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Jeśli zobaczysz wyższe wartości, oznacza to, że masz połączenie z centrum danych zbyt daleko.
 
 Aby zapoznać się z listą potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Walka Z
+
+Chociaż ARR oferuje [funkcje ograniczania środków zaradczych](../overview/features/z-fighting-mitigation.md), w przypadku, gdy usługa walki może nadal się pojawić na scenie. Ten przewodnik ma na celu rozwiązywanie problemów związanych z pozostałymi problemami.
+
+### <a name="recommended-steps"></a>Zalecane czynności
+
+Użyj poniższego przepływu pracy, aby ograniczyć walkę z:
+
+1. Przetestuj scenę z domyślnymi ustawieniami ARR (z ograniczeniami do walki z)
+
+1. Wyłącz środki zaradcze dla walki za pośrednictwem [interfejsu API](../overview/features/z-fighting-mitigation.md) 
+
+1. Zmień kamerę blisko zakresu
+
+1. Rozwiązywanie problemów z sceną za pośrednictwem następnej sekcji
+
+### <a name="investigating-remaining-z-fighting"></a>Badanie pozostałej części z-walka
+
+Jeśli powyższe kroki zostały wyczerpane, a pozostała walka z nią nie zostanie zaakceptowana, należy zbadać podstawową przyczynę z walki z. Jak zostało to określone na [stronie funkcji ograniczenia dotyczącej walki z walką z](../overview/features/z-fighting-mitigation.md), istnieją dwa główne przyczyny dotyczące z-walk: utrata dokładności głębokości na dalekiej końcu zakresu głębokości oraz powierzchnie przecinające się podczas współcinania. Utrata dokładności głębokości jest matematyczną możliwością i można ją ograniczyć tylko w kroku 3. Współrzędne powierzchniowe wskazują na wadliwe źródło zasobów i są lepiej naprawione w danych źródłowych.
+
+ARR zawiera funkcję służącą do określenia, czy powierzchnie mogą z-walka: [podświetlanie szachownicy](../overview/features/z-fighting-mitigation.md). Możesz również określić wizualnie, co powoduje przeprowadzenie walki z. Poniższa pierwsza animacja przedstawia przykład utraty dokładności na odległość, a drugi pokazuje przykład niemal widocznych powierzchni:
+
+![Głębokość — precyzja — walka z](./media/depth-precision-z-fighting.gif)  ![Współrzędna-z-walka](./media/coplanar-z-fighting.gif)
+
+Porównaj te przykłady z walką z, aby określić przyczynę lub opcjonalnie wykonać ten przepływ pracy krok po kroku:
+
+1. Umieść kamerę powyżej powierzchni do przeszukiwania, aby wyglądała bezpośrednio na powierzchni.
+1. Wolno przesunąć kamerę do tyłu, poza powierzchnie.
+1. Jeśli walka z i jest widoczna przez cały czas, powierzchnie są doskonale współrzędnymi. 
+1. Jeśli walka z jest widoczna w większości czasu, powierzchnie są niemal współrzędnymi.
+1. Jeśli walka z jest widoczna tylko od razu, powód nie ma dokładności głębokości.
+
+Współrzędne powierzchniowe mogą mieć różne przyczyny:
+
+* Obiekt został zduplikowany przez eksportowanie aplikacji ze względu na błąd lub różne podejścia do przepływu pracy.
+
+    Sprawdź te problemy, korzystając z obsługi odpowiednich aplikacji i aplikacji.
+
+* Powierzchnie są duplikowane i przerzucane, aby pojawiły się podwójnie w modułach renderowania, które używają przedniej lub usuwania z tyłu.
+
+    Importowanie przy użyciu [konwersji modelu](../how-tos/conversion/model-conversion.md) określa główną część modelu. Domyślna wartość jest przyjmowana domyślnie. Powierzchnia będzie renderowana jako cienka ściana z fizycznie prawidłowym oświetleniem z obu stron. Pojedyncze wartości mogą być implikowane przez flagi w źródłowym elemencie zawartości lub jawnie wymuszone podczas [konwersji modelu](../how-tos/conversion/model-conversion.md). Dodatkowo, ale opcjonalnie, [tryb](../overview/features/single-sided-rendering.md) jednostronny można ustawić na "normalny".
+
+* Obiekty przecinają się w zasobach źródłowych.
+
+     Obiekty przekształcone w taki sposób, że niektóre z nich nakładają się również na tworzenie z-walka. Ten problem można także utworzyć, przenosząc części drzewa sceny w zaimportowanej scenie.
+
+* Powierzchnie są celowo całkowicie do dotknięcia, takich jak wyróżnianie licencji lub tekst na ściany.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

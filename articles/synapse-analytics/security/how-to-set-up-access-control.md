@@ -5,16 +5,16 @@ services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015832"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85193417"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -86,7 +86,7 @@ W Azure Portal Utwórz obszar roboczy Synapse:
 
 Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchamiać potoki i wykonywać zadania systemowe.
 
-- Otwórz Azure Portal
+- Otwórz witrynę Azure Portal
 - Znajdź STG1
 - Przejdź do CNT1
 - Upewnij się, że plik MSI (tożsamość usługi zarządzanej) dla WS1 jest przypisany do roli **współautor danych obiektów blob magazynu** w witrynie CNT1
@@ -95,7 +95,7 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchami
 
 ## <a name="step-5-configure-admin-access-for-sql-pools"></a>Krok 5. Konfigurowanie dostępu administratora dla pul SQL
 
-- Otwórz Azure Portal
+- Otwórz witrynę Azure Portal
 - Przejdź do WS1
 - W obszarze **Ustawienia**kliknij pozycję **SQL Active Directory administrator**
 - Kliknij pozycję **Ustaw administratora** i wybierz pozycję WS1 \_ sqladmins

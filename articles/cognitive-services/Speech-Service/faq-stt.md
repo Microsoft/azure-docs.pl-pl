@@ -10,12 +10,11 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168460"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921019"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -71,7 +70,7 @@ Odp **.: nie**można pobrać i wykonać lokalnie modeli.
 
 **P: Czy moje żądania są zarejestrowane?**
 
-Odp **.: masz**możliwość wyboru podczas tworzenia wdrożenia w celu wyłączenia śledzenia. W tym momencie żadne audio ani transkrypcje nie będą rejestrowane. W przeciwnym razie żądania są zwykle rejestrowane na platformie Azure w bezpiecznym magazynie.
+Odp **.: domyślnie**żądania nie są rejestrowane (ani audio ani transkrypcja). W razie potrzeby można wybrać opcję *Rejestruj zawartość z tej opcji punktu końcowego* podczas [tworzenia niestandardowego punktu końcowego](how-to-custom-speech-deploy-model.md) w celu włączenia śledzenia. Następnie żądania będą rejestrowane na platformie Azure w bezpiecznym magazynie.
 
 **P: Czy moje żądania są ograniczone?**
 
@@ -100,7 +99,7 @@ Aby zwiększyć współbieżność ***modelu niestandardowego***, potrzebne są 
   - Zaloguj się (w razie potrzeby),
   - Wybierz projekt i wdrożenie,
   - Wybierz punkt końcowy, dla którego chcesz zwiększyć współbieżność,
-  - Skopiuj `Endpoint ID`.
+  - Skopiuj `Endpoint ID` .
 
 Aby zwiększyć współbieżność ***modelu podstawowego***, potrzebne są następujące informacje:
 
@@ -117,7 +116,14 @@ lub
   - Wybierz `Cognitive Services` w polu wyszukiwania
   - z wyświetlanych usług wybierz usługę mowy, dla której chcesz zwiększyć współbieżność,
   - Wyświetl `Properties` dla tej usługi,
-  - Skopiuj komplet `Resource ID`.
+  - Skopiuj komplet `Resource ID` .
+  
+**P: czy zwiększenie mojego limitu współbieżności zwiększa mój koszt?**
+
+Odp **.: nie**, koszt jest oparty na użyciu. Zwiększenie współbieżności nie prowadzi do wyższych kosztów. Aby uzyskać szczegółowe informacje o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) . 
+  
+>[!NOTE]
+>[Kontenery](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) nie wymagają zwiększenia ograniczeń współbieżności, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.
 
 ## <a name="importing-data"></a>Importowanie danych
 

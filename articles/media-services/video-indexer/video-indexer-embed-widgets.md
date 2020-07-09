@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594852"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
 W tym artykule przedstawiono sposób osadzania Video Indexer widżetów w aplikacjach. Video Indexer obsługuje osadzanie trzech typów elementów widget w aplikacjach: *szczegółowe informacje*, *odtwarzacze*i *Edytor*.
 
-Począwszy od wersji 2, podstawowy adres URL widżetu zawiera region określonego konta. Na przykład konto w regionie zachodnie stany USA generuje: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
+Począwszy od wersji 2, podstawowy adres URL widżetu zawiera region określonego konta. Na przykład konto w regionie zachodnie stany USA generuje: `https://www.videoindexer.ai/embed/insights/.../?location=westus2` .
 
 ## <a name="widget-types"></a>Typy widżetów
 
@@ -36,7 +36,7 @@ Widżet Cognitive Insights (Szczegółowe informacje) zawiera wszystkie szczegó
 |`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>oraz`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Kod w języku krótkim | Kontroluje język interfejsu użytkownika. Wartość domyślna to `en`. <br/>Przykład: `locale=de`.|
 |`tab` | Domyślna wybrana karta | Steruje kartą usługi **Insights** , która jest renderowana domyślnie. <br/>Przykład: `tab=timeline` renderuje szczegółowych informacji przy użyciu karty **oś czasu** .|
-|`location` ||`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
+|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
 
 ### <a name="player-widget"></a>Widżet Player
 
@@ -50,7 +50,7 @@ Możesz użyć widżetu odtwarzacza do przesyłania strumieniowego wideo przy u�
 |`type`| | Aktywuje karnację odtwarzacza audio (część wideo jest usuwana).<br/> Przykład: `type=audio`. |
 |`autoplay` | Wartość logiczna | Wskazuje, czy odtwarzacz powinien rozpocząć odtwarzanie wideo po załadowaniu. Wartość domyślna to `true`.<br/> Przykład: `autoplay=false`. |
 |`language`/`locale` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`.|
-|`location` ||`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
+|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
 
 ### <a name="editor-widget"></a>Widżet edytora
 
@@ -61,7 +61,7 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 |`accessToken`<sup>*</sup> | String | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
 |`language` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`. |
 |`locale` | Kod w języku krótkim | Steruje językiem usługi Insights. Wartość domyślna to `en`.<br/>Przykład: `language=de`. |
-|`location` ||`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` paramete.| 
+|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` paramete.| 
 
 <sup>*</sup>Właściciel powinien zapewnić `accessToken` ostrożność.
 
@@ -69,7 +69,7 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjach.
 
-`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` paramete. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` paramete. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
@@ -79,7 +79,7 @@ W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjac
 1. Zaloguj się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) .
 1. Wybierz wideo, z którym chcesz korzystać, i naciśnij klawisz **Play**.
 1. Wybierz odpowiedni typ widżetu (**poznawcze informacje**, **odtwarzacz**lub **Edytor**).
-1. Kliknij ** &lt; / przycisk &gt; Osadź**.
+1. Kliknij przycisk ** &lt; / &gt; Osadź**.
 5. Skopiuj kod osadzania (jest wyświetlany w obszarze **Kopiuj osadzony kod** w oknie dialogowym **udział & Osadź** ).
 6. Dodaj kod do aplikacji.
 
@@ -94,7 +94,7 @@ Aby uzyskać zawartość widżetu analizy poznawczej, należy użyć jednej z na
 - Interfejs API usługi [Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
 - [Token uzyskiwania dostępu do wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Dodaj go jako parametr zapytania do adresu URL. Określ ten adres URL jako `src` wartość elementu iframe, jak pokazano wcześniej.
 
-Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym elemencie widget, należy przekazać token dostępu, który obejmuje uprawnienia do edycji. Użyj [widżetu Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) lub [Uzyskaj token dostępu wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) przy `&allowEdit=true`użyciu.
+Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym elemencie widget, należy przekazać token dostępu, który obejmuje uprawnienia do edycji. Użyj [widżetu Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) lub [Uzyskaj token dostępu wideo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) przy użyciu `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interakcje z widżetami
 
@@ -106,7 +106,7 @@ Widżet wglądu w szczegółowe dane może korzystać z filmu wideo w aplikacji.
 
 Aby uzyskać Video Indexer widżety do komunikowania się z innymi składnikami, usługa Video Indexer:
 
-- Używa metody `postMessage`komunikacji między źródłami HTML5.
+- Używa metody komunikacji między źródłami HTML5 `postMessage` .
 - weryfikuje komunikaty w źródle videoIndexer.ai.
 
 Jeśli zaimplementowasz własny kod odtwarzacza i zintegrujesz go z widżetami poznawcze spostrzeżenia, odpowiadasz za potwierdzenie pochodzenia wiadomości, która pochodzi z VideoIndexer.ai.
@@ -193,7 +193,7 @@ Jeśli używasz odtwarzacza wideo innego niż Azure Media Player, musisz ręczni
         </video>    
 
 2. Osadź widżet Cognitive Insights.
-3. Zaimplementuj komunikację dla odtwarzacza z nasłuchiwaniem w oczekiwaniu na zdarzenie „message”. Przykład:
+3. Zaimplementuj komunikację dla odtwarzacza z nasłuchiwaniem w oczekiwaniu na zdarzenie „message”. Na przykład:
 
         <script>
     
@@ -234,15 +234,15 @@ Jeśli osadzisz Video Indexer Insights przy użyciu własnych [Azure Media Playe
 
 ### <a name="cognitive-insights-widget"></a>Widżet Cognitive Insights
 
-Możesz wybrać typy szczegółowych informacji. W tym celu należy określić jako wartość następujący parametr adresu URL, który jest dodawany do kodu osadzania, który otrzymujesz (z interfejsu API lub z aplikacji sieci Web): `&widgets=<list of wanted widgets>`.
+Możesz wybrać typy szczegółowych informacji. W tym celu należy określić jako wartość następujący parametr adresu URL, który jest dodawany do kodu osadzania, który otrzymujesz (z interfejsu API lub z aplikacji sieci Web): `&widgets=<list of wanted widgets>` .
 
-Możliwe wartości to: `people`, `animatedCharacters` , `keywords` `labels` `sentiments`,,, `emotions`, `topics` `keyframes` `transcript`,,, `ocr`, `speakers`, `scenes`, i. `namedEntities`
+Możliwe wartości to:,,,,,,,,, `people` `animatedCharacters` `keywords` `labels` `sentiments` `emotions` `topics` `keyframes` `transcript` `ocr` , `speakers` , `scenes` , i `namedEntities` .
 
 Na przykład jeśli chcesz osadzić widżet zawierający tylko osoby i szczegółowe informacje o słowach kluczowych, adres URL osadzania elementu iframe będzie wyglądać następująco:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-Tytuł okna elementu IFRAME można również dostosować, podając `&title=<YourTitle>` adres URL elementu iframe. (Dostosowuje wartość HTML `<title>` ).
+Tytuł okna elementu IFRAME można również dostosować, podając `&title=<YourTitle>` adres URL elementu iframe. (Dostosowuje `<title>` wartość html).
    
 Na przykład jeśli chcesz nadać polu elementu IFRAME tytuł "MyInsights", adres URL będzie wyglądać następująco:
 
@@ -254,7 +254,7 @@ Ta opcja ma zastosowanie tylko w przypadkach, gdy trzeba otworzyć szczegółowe
 
 W przypadku osadzania widżetu Player usługi Video Indexer można wybrać rozmiar odtwarzacza, określając rozmiar elementu iframe.
 
-Przykład:
+Na przykład:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

@@ -7,12 +7,11 @@ ms.topic: troubleshooting
 ms.date: 03/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 028ddccdb989d35710e387081b08a3b973d75bdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80367553"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85252444"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
@@ -62,7 +61,7 @@ Domyślnie połączenia dla NodeJS nie są aktywne. Poniżej znajdują się popu
 Utrzymywanie HTTP-Alive
 
 * [agentkeepalive](https://www.npmjs.com/package/agentkeepalive)
-* [Dokumentacja środowiska Node. js v 13.9.0](https://nodejs.org/api/http.html)
+* [Dokumentacja dotyczącaNode.js v 13.9.0](https://nodejs.org/api/http.html)
 
 #### <a name="java"></a>Java
 
@@ -111,12 +110,12 @@ W przypadku innych środowisk zapoznaj się z tematem dostawca lub dokumenty spe
 
 ### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a>Aby zresetować limit czasu bezczynności dla ruchu wychodzącego, użyj utrzymywania aktywności
 
-* W celu zaimplementowania nieaktywności dla aplikacji node. js Sprawdź, [czy aplikacja mojego węzła sprawia nadmierne wywołania wychodzące](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls).
+* W celu zaimplementowania nieaktywności dla Node.js aplikacji Sprawdź, [czy aplikacja w węźle ma nadmierne wywołania wychodzące](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls).
 
 ### <a name="additional-guidance-specific-to-app-service"></a>Dodatkowe wskazówki dotyczące App Service:
 
 * [Test obciążenia](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) powinien symulować rzeczywiste dane świata w stałej szybkości żywienia. Testowanie aplikacji i funkcji w ramach rzeczywistego środowiska światowego może identyfikować i rozwiązywać problemy z wyczerpaniem portów podkluczy adresów w czasie.
-* Upewnij się, że usługi zaplecza mogą szybko zwracać odpowiedzi. Rozwiązywanie problemów z wydajnością w usłudze Azure SQL Database można znaleźć w tematach [Rozwiązywanie problemów z wydajnością Azure SQL Database z Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
+* Upewnij się, że usługi zaplecza mogą szybko zwracać odpowiedzi. Rozwiązywanie problemów z wydajnością Azure SQL Database można znaleźć w tematach [Rozwiązywanie problemów z wydajnością Azure SQL Database z Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Skaluj w poziomie plan App Service do większej liczby wystąpień. Aby uzyskać więcej informacji na temat skalowania, zobacz [skalowanie aplikacji w Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Każde wystąpienie procesu roboczego w planie usługi App Service ma przydzieloną liczbę portów przydziałów adresów sieciowych. W przypadku rozłożenia użycia w większej liczbie wystąpień można uzyskać dostęp do portów dla danego wystąpienia, poniżej zalecanego limitu 100 połączeń wychodzących, na unikatowy zdalny punkt końcowy.
 * Rozważ przeniesienie do [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), w którym ma zostać przydzielony pojedynczy wychodzący adres IP, a limity dla połączeń i portów podłączania adresów sieciowych są znacznie wyższe.
 
@@ -160,7 +159,7 @@ Połączenia TCP i porty podłączania adresów sieciowych nie są bezpośrednio
 
 ### <a name="webjobs-and-database-connections"></a>Zadania WebJob i połączenia bazy danych
  
-Jeśli porty podłączane są wyczerpane, gdzie Zadania WebJob nie mogą nawiązać połączenia z bazą danych SQL Azure, nie ma żadnej metryki, aby pokazać, ile połączeń jest otwartych przez poszczególne procesy aplikacji sieci Web. Aby znaleźć problematyczne zadanie WebJob, Przenieś kilka zadań WebJobs do innego planu App Service, aby sprawdzić, czy sytuacja się poprawi, czy problem pozostanie w jednym z planów. Powtarzaj proces do momentu znalezienia problematycznego Zadania WebJob.
+Jeśli porty wiązania adresów sieciowych są wyczerpane, a zadania WebJobs nie mogą nawiązać połączenia z SQL Database, nie ma metryki, aby pokazać, ile połączeń jest otwartych przez poszczególne procesy aplikacji sieci Web. Aby znaleźć problematyczne zadanie WebJob, Przenieś kilka zadań WebJobs do innego planu App Service, aby sprawdzić, czy sytuacja się poprawi, czy problem pozostanie w jednym z planów. Powtarzaj proces do momentu znalezienia problematycznego Zadania WebJob.
 
 ### <a name="using-snat-ports-sooner"></a>Korzystanie z portów adresów sieciowych wcześniej
 

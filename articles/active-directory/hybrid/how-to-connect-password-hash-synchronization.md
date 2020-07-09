@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41b11ab65f5710d338ce0041579e1eb4678ec42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331369"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358566"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementowanie synchronizacji skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 Ten artykuł zawiera informacje potrzebne do synchronizacji haseł użytkowników z wystąpienia lokalnego Active Directory do wystąpienia Azure Active Directory opartego na chmurze (Azure AD).
@@ -63,7 +63,7 @@ W poniższej sekcji opisano szczegółowo, jak działa synchronizacja skrótów 
 > [!NOTE]
 > Oryginalny skrót MD4 nie jest przesyłany do usługi Azure AD. Zamiast tego jest przesyłany Skrót SHA256 oryginalnego skrótu MD4. W związku z tym, jeśli zostanie uzyskany skrót przechowywany w usłudze Azure AD, nie można go używać w przypadku ataku typu "nastąpi lokalne".
 
-### <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+### <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Podczas synchronizowania haseł wersja zwykłego tekstu hasła nie jest udostępniona funkcji synchronizacji skrótów haseł w usłudze Azure AD ani żadnej z skojarzonych usług.
 
@@ -89,14 +89,13 @@ Jeśli użytkownik należy do zakresu synchronizacji skrótów haseł, domyślni
 
 Możesz nadal logować się do usług w chmurze, używając zsynchronizowanego hasła, które wygasło w środowisku lokalnym. Hasło w chmurze zostanie zaktualizowane przy następnym zmianie hasła w środowisku lokalnym.
 
-##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>Publiczna wersja zapoznawcza funkcji *EnforceCloudPasswordPolicyForPasswordSyncedUsers*
+##### <a name="enforcecloudpasswordpolicyforpasswordsyncedusers"></a>EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 W przypadku synchronizacji użytkowników, którzy współpracują z usługami zintegrowanymi z usługą Azure AD i muszą być zgodni z zasadami wygasania haseł, można wymusić ich zgodność z zasadami wygasania haseł usługi Azure AD, włączając funkcję *EnforceCloudPasswordPolicyForPasswordSyncedUsers* .
 
 Gdy *EnforceCloudPasswordPolicyForPasswordSyncedUsers* jest wyłączone (jest to ustawienie domyślne), Azure AD Connect ustawia atrybut PasswordPolicies synchronizowanych użytkowników na "DisablePasswordExpiration". Jest to wykonywane za każdym razem, gdy hasło użytkownika jest synchronizowane i powoduje, że usługa Azure AD zignoruje zasady wygaśnięcia hasła w chmurze dla tego użytkownika. Wartość atrybutu można sprawdzić przy użyciu modułu Azure AD PowerShell za pomocą następującego polecenia:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 Aby włączyć funkcję EnforceCloudPasswordPolicyForPasswordSyncedUsers, uruchom następujące polecenie przy użyciu modułu MSOnline PowerShell, jak pokazano poniżej. Należy wpisać wartość tak dla parametru Enable, jak pokazano poniżej:
 
@@ -123,10 +122,9 @@ Zastrzeżenie: Jeśli istnieją zsynchronizowane konta, które muszą mieć niew
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Ta funkcja jest teraz dostępna w publicznej wersji zapoznawczej.
 > Polecenie Set-MsolPasswordPolicy programu PowerShell nie będzie działało w domenach federacyjnych. 
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Publiczna wersja zapoznawcza synchronizacji haseł tymczasowych i "Wymuś zmianę hasła przy następnym logowaniu"
+#### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Synchronizowanie haseł tymczasowych i "Wymuś zmianę hasła przy następnym logowaniu"
 
 Typowo, aby wymusić zmianę hasła przez użytkownika podczas pierwszego logowania, szczególnie po wystąpieniu resetowania hasła administratora.  Jest on często znany jako ustawienie "tymczasowego" hasła i jest wykonywane przez sprawdzenie flagi "użytkownik musi zmienić hasło przy następnym logowaniu" w obiekcie użytkownika w Active Directory (AD).
   
@@ -141,9 +139,6 @@ Aby obsłużyć tymczasowe hasła w usłudze Azure AD dla synchronizowanych uży
 
 > [!CAUTION]
 > Tej funkcji należy używać tylko wtedy, gdy w dzierżawie są włączone SSPR i zapisywanie zwrotne haseł.  Jest tak dlatego, że jeśli użytkownik zmieni hasło za pośrednictwem SSPR, zostanie zsynchronizowany z Active Directory.
-
-> [!NOTE]
-> Ta funkcja jest teraz dostępna w publicznej wersji zapoznawczej.
 
 #### <a name="account-expiration"></a>Wygaśnięcie konta
 
@@ -216,7 +211,7 @@ Jeśli serwer został zablokowany zgodnie z normą FIPS (Federal Information Pro
 **Aby włączyć MD5 dla synchronizacji skrótów haseł, wykonaj następujące czynności:**
 
 1. Przejdź do%programfiles%\Azure usługi AD Sync\Bin.
-2. Otwórz plik MIIServer. exe. config.
+2. Otwórz miiserver.exe.config.
 3. Przejdź do węzła Konfiguracja/środowisko uruchomieniowe na końcu pliku.
 4. Dodaj następujący węzeł:`<enforceFIPSPolicy enabled="false"/>`
 5. Zapisz zmiany.

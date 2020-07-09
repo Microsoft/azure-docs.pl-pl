@@ -1,25 +1,19 @@
 ---
-title: Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure — poprzednie generacji | Microsoft Docs
-description: Zawiera listę poprzednich generacji rozmiarów dostępnych dla maszyn wirtualnych z systemem Linux na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Rozmiary maszyn wirtualnych platformy Azure — poprzednie generacje | Microsoft Docs
+description: Zawiera listę poprzednich generacji rozmiarów dostępnych dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
+services: virtual-machines
+ms.subservice: sizes
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: jonbeck
-ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081544"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85119226"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -134,7 +128,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (HDD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0&nbsp;<sup>1</sup> | 1 | 0,768 | 20 | 1 | 1 x 500 | 2/100 |
+| Standard_A0 &nbsp; <sup>1</sup> | 1 | 0,768 | 20 | 1 | 1 x 500 | 2/100 |
 | Standardowa_A1 | 1 | 1,75 | 70  | 2  | 2 x 500  | 2/500  |
 | Standardowa_A2 | 2 | 3,5  | 135 | 4  | 4 x 500  | 2/500  |
 | Standardowa_A3 | 4 | 7    | 285 | 8  | 8 x 500  | 2/1000 |
@@ -161,8 +155,8 @@ Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie k
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (HDD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysków danych: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|
 |---|---|---|---|---|---|---|
-| Standard_A8&nbsp;<sup>1</sup> | 8  | 56  | 382 | 32 | 32 x 500 | 2 |
-| Standard_A9&nbsp;<sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
+| Standard_A8 &nbsp; <sup>1</sup> | 8  | 56  | 382 | 32 | 32 x 500 | 2 |
+| Standard_A9 &nbsp; <sup>1</sup> | 16 | 112 | 382 | 64 | 64x500 | 4 |
 | Standardowa_A10 | 8  | 56  | 382 | 32 | 32 x 500 | 2 |
 | Standardowa_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
@@ -175,7 +169,7 @@ Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie k
 
 ### <a name="d-series"></a>Seria D  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -196,7 +190,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 ### <a name="d-series---memory-optimized"></a>Seria D — zoptymalizowana pod kątem pamięci  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -232,12 +226,12 @@ Seria DC używa najnowszej generacji procesora Intel XEON E-2176G z technologią
 
 > [!IMPORTANT]
 >
-> Maszyny wirtualne z serii DC to [maszyny wirtualne 2](./linux/generation-2.md#creating-a-generation-2-vm) . generacji `Gen2` i obsługują tylko obrazy.
+> Maszyny wirtualne z serii DC to [maszyny wirtualne 2. generacji](./linux/generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
 
 
 ### <a name="ds-series"></a>Seria DS  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dsv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -258,7 +252,7 @@ Buforowanie Premium Storage: obsługiwane
 
 ### <a name="ds-series---memory-optimized"></a>Zoptymalizowane pod kątem pamięci z serii DS  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dsv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -280,6 +274,8 @@ Buforowanie Premium Storage: obsługiwane
 
 ### <a name="ls-series"></a>Seria Ls
 
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria Lsv2](lsv2-series.md)
+
 Maszyny wirtualne serii Ls oferują do 32 procesorów wirtualnych vCPU — procesor [Intel® Xeon® z rodziny E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Wydajność procesora CPU dla serii Ls jest taka sama jak w przypadku maszyn wirtualnych serii G/GS. Na procesor wirtualny vCPU przypada pamięć o pojemności 8 GiB.
 
 Seria ls nie obsługuje tworzenia lokalnej pamięci podręcznej w celu zwiększenia liczby operacji we/wy osiągalnej przez trwałe dyski danych. Wysoka przepływność i liczba operacji we/wy na dysku lokalnym sprawia, że maszyny wirtualne z serii LS są idealne dla magazynów NoSQL, takich jak Apache Cassandra i MongoDB, które replikuje dane między wieloma maszynami wirtualnymi w celu osiągnięcia trwałości w przypadku awarii pojedynczej maszyny wirtualnej.
@@ -295,13 +291,15 @@ Buforowanie Premium Storage: nieobsługiwane
 | Standardowa_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
 | Standardowa_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8000  |
 | Standardowa_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
-| Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
+| Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
 Maksymalna przepływność dysku możliwa w przypadku maszyn wirtualnych z serii LS może być ograniczona przez liczbę, rozmiar i rozłożenie dowolnych dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz Projektowanie pod kątem wysokiej wydajności dla [systemu Windows](windows/premium-storage-performance.md) lub [Linux](linux/premium-storage-performance.md).
 
 <sup>1</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 
 ### <a name="gs-series"></a>Seria GS
+
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Easv4](eav4-easv4-series.md), [Esv4](ev4-esv4-series.md), [Edsv4](edv4-edsv4-series.md) i serii [M](m-series.md)
 
 ACU: 180 – 240 <sup>1</sup>
 
@@ -314,8 +312,8 @@ Buforowanie Premium Storage: obsługiwane
 | Standardowa_GS1 | 2 | 28  | 56  | 8  | 10000/100 (264)  | 5000/ 125  | 2/2000 |
 | Standardowa_GS2 | 4 | 56  | 112 | 16 | 20000/200 (528)  | 10000/ 250 | 2/4000 |
 | Standardowa_GS3 | 8 | 112 | 224 | 32 | 40000/400 (1056) | 20000/ 500 | 4/8000 |
-| Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
-| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
+| Standard_GS4 &nbsp; <sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
+| Standard_GS5 &nbsp; <sup>2, &nbsp; 3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
 <sup>1</sup> maksymalna przepływność dysku (IOPS lub MB/s) możliwa dla maszyny wirtualnej serii GS może być ograniczona przez liczbę, rozmiar i rozkładanie dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz Projektowanie pod kątem wysokiej wydajności dla [systemu Windows](windows/premium-storage-performance.md) lub [Linux](linux/premium-storage-performance.md).
 
@@ -326,6 +324,8 @@ dostępne są <sup>3</sup> ograniczone rozmiary rdzeni.
 <br>
 
 ### <a name="g-series"></a>Seria G
+
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Eav4](eav4-easv4-series.md), [Ev4](ev4-esv4-series.md) i [Edv4](edv4-edsv4-series.md) oraz seria [M](m-series.md)
 
 ACU: 180–240
 
@@ -339,7 +339,7 @@ Buforowanie Premium Storage: nieobsługiwane
 | Standardowa_G2  | 4  | 56  | 768  | 12000/187/93  | 16/16x500 | 2/4000  |
 | Standardowa_G3  | 8  | 112 | 1536 | 24000/375/187 | 32/32x500 | 4/8000  |
 | Standardowa_G4  | 16 | 224 | 3072 | 48000/750/375 | 64/64x500 | 8/16000 |
-| Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
+| Standard_G5 &nbsp; <sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
 <sup>1</sup> wystąpienie jest izolowane do sprzętu dedykowanego pojedynczemu klientowi.
 <br>

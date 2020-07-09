@@ -5,22 +5,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 02b64d77a4fb1af25e1022de3ac8e4775f916d9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261775"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082084"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurowanie szyfrowania i uwierzytelniania TLS dla Apache Kafka w usłudze Azure HDInsight
 
 W tym artykule opisano sposób konfigurowania szyfrowania Transport Layer Security (TLS), znanego wcześniej jako szyfrowanie SSL (SSL) między klientami Apache Kafka i Apache Kafkami brokerami. Pokazano w nim także, jak skonfigurować uwierzytelnianie klientów (czasami określana jako dwukierunkowa Metoda TLS).
 
 > [!Important]
-> Istnieją dwa klientów, których można używać do obsługi aplikacji Kafka: klient Java i klient konsoli. Tylko klient `ProducerConsumer.java` Java może korzystać z protokołu TLS zarówno do tworzenia, jak i zużywania. Klient `console-producer.sh` producenta konsoli nie współpracuje z protokołem TLS.
+> Istnieją dwa klientów, których można używać do obsługi aplikacji Kafka: klient Java i klient konsoli. Tylko klient Java `ProducerConsumer.java` może korzystać z protokołu TLS zarówno do tworzenia, jak i zużywania. Klient producenta konsoli nie `console-producer.sh` współpracuje z protokołem TLS.
 
 > [!Note]
 > Producent konsoli usługi HDInsight Kafka z wersją 1,1 nie obsługuje protokołu SSL.
@@ -133,7 +133,7 @@ Aby ukończyć modyfikację konfiguracji, wykonaj następujące czynności:
 
     ![Edytowanie właściwości konfiguracji protokołu SSL Kafka w Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. W obszarze **Custom Kafka-Broker** ustaw właściwość **SSL. Client. auth** na `required`. Ten krok jest wymagany tylko w przypadku konfigurowania uwierzytelniania i szyfrowania.
+1. W obszarze **Custom Kafka-Broker** ustaw właściwość **SSL. Client. auth** na `required` . Ten krok jest wymagany tylko w przypadku konfigurowania uwierzytelniania i szyfrowania.
 
     ![Edytowanie właściwości konfiguracji protokołu SSL Kafka w Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
@@ -228,7 +228,7 @@ Poniższe cztery kroki podsumowują zadania niezbędne do ukończenia instalacji
 1. Zaloguj się do komputera klienckiego (węzeł główny w stanie wstrzymania).
 1. Utwórz magazyn kluczy języka Java i uzyskaj podpisany certyfikat dla brokera. Następnie skopiuj certyfikat na maszynę wirtualną, na której działa urząd certyfikacji.
 1. Przejdź do komputera urzędu certyfikacji (aktywny węzeł główny), aby podpisać certyfikat klienta.
-1. Przejdź do komputera klienckiego (węzeł główny w stanie wstrzymania) i `~/ssl` przejdź do folderu. Skopiuj podpisany certyfikat na komputer kliencki.
+1. Przejdź do komputera klienckiego (węzeł główny w stanie wstrzymania) i przejdź do `~/ssl` folderu. Skopiuj podpisany certyfikat na komputer kliencki.
 
 Poniżej przedstawiono szczegóły każdego kroku.
 

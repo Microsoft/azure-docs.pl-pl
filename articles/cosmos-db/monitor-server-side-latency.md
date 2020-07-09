@@ -2,16 +2,16 @@
 title: Jak monitorować opóźnienia po stronie serwera dla operacji w Azure Cosmos DB
 description: Dowiedz się, jak monitorować opóźnienia serwera w przypadku operacji w ramach konta Azure Cosmos DB lub kontenera. Właściciele konta Azure Cosmos DB mogą zrozumieć problemy opóźnienia po stronie serwera z kontami usługi Azure Cosmos.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 0f1e6d07afb3b7b4d26081bc9e34ac257b280d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5be2365fb5850c3f45b320d66c114fb791b22c3e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113920"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262705"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Jak monitorować opóźnienia po stronie serwera dla operacji w kontenerze Azure Cosmos DB lub koncie
 
@@ -31,15 +31,15 @@ Możesz wyszukać dziennik diagnostyczny, aby zobaczyć rozmiar zwracanych danyc
 
 1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki**.
 
-   ![Okienko metryki w Azure Monitor](./media/monitor-server-side-latency/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
 1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
    
-   ![Wybierz konto Azure Cosmos DB, aby wyświetlić metryki](./media/monitor-server-side-latency/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Wybierz konto Azure Cosmos DB, aby wyświetlić metryki":::
 
 1. Następnie wybierz metrykę **opóźnienia po stronie serwera** z listy dostępnych metryk. Aby uzyskać szczegółowe informacje na temat wszystkich dostępnych metryk na tej liście, zobacz artykuł [metryki według kategorii](monitor-cosmos-db-reference.md) . W tym przykładzie wybieramy **opóźnienie po stronie serwera** i **średnią** jako wartość agregacji. Oprócz tych szczegółów można także wybrać **zakres czasu** i **stopień szczegółowości** metryk. Co więcej, można wyświetlić metryki z ostatnich 30 dni.  Po zastosowaniu filtru na podstawie filtru zostanie wyświetlony wykres. W wybranym okresie można zobaczyć opóźnienia po stronie serwera na minutę.  
 
-   ![Wybierz metrykę opóźnienia po stronie serwera z Azure Portal](./media/monitor-server-side-latency/server-side-latency-metric.png)
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Wybierz metrykę opóźnienia po stronie serwera z Azure Portal":::
 
 ## <a name="filters-for-server-side-latency"></a>Filtry dla opóźnień po stronie serwera
 
@@ -49,7 +49,7 @@ Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą w
 
 Metryki **opóźnienia po stronie serwera** dla każdej operacji są wyświetlane jak pokazano na poniższej ilustracji:
 
-![Filtry dla metryk opóźnienia po stronie serwera](./media/monitor-server-side-latency/server-side-latency-filters.png)
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Filtry dla metryk opóźnienia po stronie serwera":::
 
 Metryki można także grupować przy użyciu opcji **Zastosuj dzielenie** .  
 

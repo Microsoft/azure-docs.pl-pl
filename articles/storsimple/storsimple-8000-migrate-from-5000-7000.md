@@ -8,17 +8,16 @@ manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: c05b62b254320bd56a6f0591f1edbe32d5362e56
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60631694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514722"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrowanie danych z serii StorSimple 5000-7000 do urządzenia z serii 8000
 
@@ -123,7 +122,7 @@ Wykonaj następujące kroki, aby zainstalować narzędzie do migracji StorSimple
 
 1. Skopiuj folder _StorSimple8000SeriesMigrationTool_ na komputer z systemem Windows. Upewnij się, że dysk, na którym jest skopiowane oprogramowanie, ma wystarczającą ilość miejsca.
 
-    Otwórz plik konfiguracji narzędzia _StorSimple8000SeriesMigrationTool. exe. config_ w folderze. Oto fragment pliku.
+    Otwórz plik konfiguracji narzędzia _StorSimple8000SeriesMigrationTool.exe.config_ w folderze. Oto fragment pliku.
     
     ```xml
         <add key="UserName" value="username@xyz.com" />
@@ -145,7 +144,7 @@ Wykonaj następujące kroki, aby zainstalować narzędzie do migracji StorSimple
     ![Sprawdź identyfikator dzierżawy dla Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
 3.  Zapisz zmiany wprowadzone w pliku konfiguracji.
-4.  Uruchom _StorSimple8000SeriesMigrationTool. exe_ , aby uruchomić narzędzie. Po wyświetleniu monitu o podanie poświadczeń podaj poświadczenia skojarzone z subskrypcją w Azure Portal. 
+4.  Uruchom _StorSimple8000SeriesMigrationTool.exe_ , aby uruchomić narzędzie. Po wyświetleniu monitu o podanie poświadczeń podaj poświadczenia skojarzone z subskrypcją w Azure Portal. 
 5.  Zostanie wyświetlony interfejs użytkownika narzędzia migracji StorSimple.
   
 

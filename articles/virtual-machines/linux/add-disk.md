@@ -4,16 +4,15 @@ description: Dowiedz się, jak dodać dysk danych trwałych do maszyny wirtualne
 author: roygara
 manager: twooley
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250415"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658335"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Dodawanie dysku do maszyny wirtualnej z systemem Linux
 W tym artykule opisano sposób dołączania dysku trwałego do maszyny wirtualnej, dzięki czemu można zachować dane, nawet jeśli maszyna wirtualna jest ponownie inicjowana z powodu konserwacji lub zmiany rozmiarów.
@@ -69,13 +68,13 @@ Dane wyjściowe są podobne do poniższego przykładu:
 > [!NOTE]
 > Zalecane jest korzystanie z najnowszych wersji programu fdisk lub częściowo dostępnych dla Twojego dystrybucji.
 
-W tym miejscu *SDC* jest dyskiem, który chcemy. Podziel dysk na partycje `parted`, jeśli rozmiar dysku wynosi 2 Tebibajtów (TIB) lub większy, a następnie użyj partycji GPT, jeśli jest w obszarze 2TiB, a następnie możesz użyć partycji MBR lub GPT. Jeśli używasz partycjonowania MBR, możesz użyć polecenia `fdisk`. Ustaw go jako dysk podstawowy na partycji 1 i zaakceptuj inne ustawienia domyślne. Poniższy przykład uruchamia `fdisk` proces w */dev/SDC*:
+W tym miejscu *SDC* jest dyskiem, który chcemy. Podziel dysk na partycje `parted` , jeśli rozmiar dysku wynosi 2 tebibajtów (TIB) lub większy, a następnie użyj partycji GPT, jeśli jest w obszarze 2TiB, a następnie możesz użyć partycji MBR lub GPT. Jeśli używasz partycjonowania MBR, możesz użyć polecenia `fdisk` . Ustaw go jako dysk podstawowy na partycji 1 i zaakceptuj inne ustawienia domyślne. Poniższy przykład uruchamia `fdisk` proces w */dev/SDC*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Nową partycję możesz dodać za pomocą polecenia `n`. W tym przykładzie wybieramy `p` również partycję podstawową i zaakceptujemy resztę wartości domyślnych. Dane wyjściowe będą mieć postać podobną do następującej:
+Nową partycję możesz dodać za pomocą polecenia `n`. W tym przykładzie wybieramy również `p` partycję podstawową i zaakceptujemy resztę wartości domyślnych. Dane wyjściowe będą mieć postać podobną do następującej:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -97,7 +96,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Wydrukuj tabelę partycji przez wpisanie `p` , a następnie użyj `w` polecenia, aby zapisać tabelę na dysku i zakończyć. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
+Wydrukuj tabelę partycji przez wpisanie `p` , a następnie użyj polecenia, `w` Aby zapisać tabelę na dysku i zakończyć. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
 
 ```bash
 Command (m for help): p
@@ -154,7 +153,7 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Teraz Utwórz katalog służący do instalowania systemu plików przy użyciu `mkdir`programu. W poniższym przykładzie jest tworzony katalog o godzinie */datadrive*:
+Teraz Utwórz katalog służący do instalowania systemu plików przy użyciu programu `mkdir` . W poniższym przykładzie jest tworzony katalog o godzinie */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -207,12 +206,12 @@ Niektóre jądra systemu Linux obsługują operacje przycinania/mapowania do odr
 
 Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z systemem Linux. W zwykły sposób zapoznaj się z dystrybucją, aby uzyskać zalecane podejście:
 
-* Użyj opcji `discard` instalacji w */etc/fstab*, na przykład:
+* Użyj `discard` opcji instalacji w */etc/fstab*, na przykład:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* W niektórych przypadkach opcja może `discard` mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
+* W niektórych przypadkach `discard` opcja może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
 
     **Ubuntu**
 

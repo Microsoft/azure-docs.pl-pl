@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: erhopf
-ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77469021"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391217"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Samouczek: Tworzenie modelu dzierżawy (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Model dzierżawy (Custom Speech z danymi pakietu Office 365) to usługa w przypa
 > [!IMPORTANT]
 > Jeśli Twoja organizacja rejestruje się za pomocą usługi modelu dzierżawy, usługa mowy może uzyskać dostęp do modelu języka w organizacji. Model jest generowany na podstawie wiadomości e-mail i dokumentów grup publicznych pakietu Office 365, które mogą być widoczne dla wszystkich użytkowników w organizacji. Administrator usługi Office 365 w organizacji może włączyć lub wyłączyć korzystanie z modelu języka w całej organizacji z poziomu portalu administracyjnego pakietu Office 365.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Rejestrowanie w modelu dzierżawy za pomocą Centrum administracyjnego Microsoft 365
@@ -289,9 +289,9 @@ namespace PrincetonSROnly.FrontEnd.Samples
 
 Następnie należy ponownie skompilować i uruchomić projekt z wiersza polecenia. Przed uruchomieniem polecenia zaktualizuj kilka parametrów, wykonując następujące czynności:
 
-1. Zamień `<Username>` i `<Password>` na wartości dla prawidłowego użytkownika dzierżawy.
-1. Zamień `<Subscription-Key>` na klucz subskrypcji dla zasobu mowy. Ta wartość jest dostępna w sekcji **Przegląd** dla zasobu mowy w [Azure Portal](https://aka.ms/azureportal).
-1. Zamień `<Endpoint-Uri>` na następujący punkt końcowy. Upewnij się, że zastąpisz `{your region}` do regionu, w którym został utworzony zasób mowy. Te regiony są obsługiwane: `westus`, `westus2`i `eastus`. Informacje o regionie są dostępne w sekcji **Przegląd** Twojego zasobu mowy w [Azure Portal](https://aka.ms/azureportal).
+1. Zamień `<Username>` i na `<Password>` wartości dla prawidłowego użytkownika dzierżawy.
+1. Zamień na `<Subscription-Key>` klucz subskrypcji dla zasobu mowy. Ta wartość jest dostępna w sekcji **Przegląd** dla zasobu mowy w [Azure Portal](https://aka.ms/azureportal).
+1. Zamień `<Endpoint-Uri>` na następujący punkt końcowy. Upewnij się, że zastąpisz do regionu, w `{your region}` którym został utworzony zasób mowy. Te regiony są obsługiwane: `westus` , `westus2` i `eastus` . Informacje o regionie są dostępne w sekcji **Przegląd** Twojego zasobu mowy w [Azure Portal](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```

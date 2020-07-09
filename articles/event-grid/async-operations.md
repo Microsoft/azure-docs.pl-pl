@@ -1,20 +1,16 @@
 ---
-title: Stan operacji asynchronicznych
-description: Opisuje sposób śledzenia operacji asynchronicznych na platformie Azure. Pokazuje wartości używane do uzyskania stanu długotrwałej operacji.
-services: event-grid
-author: spelluru
-ms.service: event-grid
+title: Stan Event Grid operacji asynchronicznych
+description: Opisuje sposób śledzenia Event Grid operacji asynchronicznych na platformie Azure. Pokazuje wartości używane do uzyskania stanu długotrwałej operacji.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.author: spelluru
-ms.openlocfilehash: fb3479271733ee218da8a842956f3a8996e07f61
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 07/07/2020
+ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82892019"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86103334"
 ---
-# <a name="track-asynchronous-azure-operations"></a>Śledź asynchroniczne operacje na platformie Azure
+# <a name="track-event-grid-asynchronous-azure-operations"></a>Śledź Event Grid asynchroniczne operacje na platformie Azure
 Niektóre operacje REST platformy Azure są uruchamiane asynchronicznie, ponieważ nie można szybko ukończyć operacji. W tym artykule opisano sposób śledzenia stanu operacji asynchronicznych za pomocą wartości zwracanych w odpowiedzi.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Kody stanu operacji asynchronicznych
@@ -69,7 +65,7 @@ Treść odpowiedzi z tej operacji zawiera informacje o operacji. W poniższym pr
 }
 ```
 
-Zwracana `status` jest tylko dla wszystkich odpowiedzi. Obiekt Error jest zwracany, gdy stan jest zakończony niepowodzeniem lub anulowane. Wszystkie inne wartości są opcjonalne; w związku z tym odpowiedź, którą otrzymasz, może wyglądać inaczej niż w przypadku przykładu.
+`status`Zwracana jest tylko dla wszystkich odpowiedzi. Obiekt Error jest zwracany, gdy stan jest zakończony niepowodzeniem lub anulowane. Wszystkie inne wartości są opcjonalne; w związku z tym odpowiedź, którą otrzymasz, może wyglądać inaczej niż w przypadku przykładu.
 
 ## <a name="provisioningstate-values"></a>provisioningState wartości
 

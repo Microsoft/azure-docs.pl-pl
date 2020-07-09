@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2020
+ms.date: 06/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 3557bab44e1a4af5fdcbda5f8643018952e4e54e
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770928"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099542"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Jakie są zarządzane tożsamości dla zasobów platformy Azure?
 
@@ -43,7 +43,7 @@ Poniższe terminy są używane w zestawie dokumentacji dotyczącej tożsamości 
 - **Identyfikator podmiotu zabezpieczeń** — identyfikator obiektu nazwy głównej usługi dla tożsamości zarządzanej, która jest używana w celu udzielenia dostępu opartego na rolach do zasobu platformy Azure.
 - **Azure instance Metadata Service (IMDS)** — punkt końcowy REST dostępny dla wszystkich maszyn wirtualnych IaaS utworzonych za pośrednictwem Azure Resource Manager. Punkt końcowy jest dostępny pod dobrze znanym, nierutowalnym adresem IP (169.254.169.254), do którego dostęp można uzyskać tylko z poziomu maszyny wirtualnej.
 
-## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Jak działają tożsamości zarządzane dla zasobów platformy Azure?
+## <a name="managed-identity-types"></a>Zarządzane typy tożsamości
 
 Istnieją dwa typy tożsamości zarządzanych:
 
@@ -54,6 +54,9 @@ Wewnętrznie tożsamości zarządzane są nazwami podmiotu usługi typu specjaln
 Ponadto po utworzeniu tożsamości przypisanej do użytkownika lub przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie dla tej tożsamości. 
 
 Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi. 
+
+## <a name="credential-rotation"></a>Obrót poświadczeń
+Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
 
 Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współpracują z maszynami wirtualnymi platformy Azure:
 
@@ -105,9 +108,6 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 6. W usłudze Azure AD jest wykonywane wywołanie żądające tokenu dostępu (jak określono w kroku 5) przy użyciu certyfikatu i identyfikatora klienta skonfigurowanego w kroku 3. Usługa Azure AD zwraca token dostępu powiązany z internetowym tokenem JSON (JWT, JSON Web Token).
 7. Kod wysyła token dostępu w wywołaniu do usługi, która obsługuje uwierzytelnianie w usłudze Azure AD.
 
-## <a name="credential-rotation"></a>Obrót poświadczeń
-Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
-
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Jak można używać tożsamości zarządzanych dla zasobów platformy Azure?
 
 Aby dowiedzieć się, jak uzyskiwać dostęp do różnych zasobów platformy Azure za pomocą tożsamości zarządzanej, wypróbuj te samouczki.
@@ -136,7 +136,7 @@ Dowiedz się, jak używać tożsamości zarządzanej z maszyną wirtualną z sys
 Dowiedz się, jak używać tożsamości zarządzanej z innymi usługami platformy Azure:
 
 * [Azure App Service](/azure/app-service/overview-managed-identity)
-* [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Usługa Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Usługa Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
 * [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md)

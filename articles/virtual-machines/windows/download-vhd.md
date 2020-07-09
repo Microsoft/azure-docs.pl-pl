@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
 ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82085369"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Pobieranie wirtualnego dysku twardego systemu Windows z platformy Azure
@@ -29,7 +29,7 @@ Aby użyć wirtualnego dysku twardego jako obrazu do tworzenia innych maszyn wir
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. [Nawiąż połączenie z maszyną wirtualną](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3. Na maszynie wirtualnej Otwórz okno wiersza polecenia jako administrator.
-4. Zmień katalog na *%windir%\System32\Sysprep* i uruchom plik Sysprep. exe.
+4. Zmień katalog na *%windir%\System32\Sysprep* i uruchom sysprep.exe.
 5. W oknie dialogowym Narzędzie przygotowywania systemu wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że opcja **generalize** jest zaznaczona.
 6. W opcje zamykania wybierz pozycję **Zamknij**, a następnie kliknij przycisk **OK**. 
 

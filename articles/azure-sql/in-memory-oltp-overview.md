@@ -2,8 +2,8 @@
 title: Technologie w pamięci
 description: Technologie w pamięci znacznie zwiększają wydajność obciążeń transakcyjnych i analitycznych w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: development
+ms.service: sql-db-mi
+ms.subservice: ''
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: c9b25912e1386520d61412a8ba05f6b02224fbe6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046894"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85985194"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optymalizowanie wydajności przy użyciu technologii znajdujących się w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ Ze względu na wydajniejsze przetwarzanie zapytań i transakcji, technologie w p
 
 Poniżej przedstawiono dwa przykłady sposobu, w jaki w przypadku przetwarzania w pamięci można znacznie poprawić wydajność:
 
-- Korzystając z przetwarzania OLTP w pamięci, [rozwiązania biznesowe kworum mogły zwiększyć obciążenie przy jednoczesnym zwiększeniu DTU o 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Korzystając z przetwarzania OLTP w pamięci, [rozwiązania biznesowe kworum mogły zwiększyć obciążenie przy jednoczesnym zwiększeniu DTU o 70%](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
 - Poniższy film wideo ilustruje znaczne zwiększenie zużycia zasobów przy użyciu przykładowego obciążenia: [wideo OLTP w pamięci](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Aby uzyskać więcej informacji, zobacz wpis w blogu: przetwarzanie [OLTP w pamięci](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Rozmiar danych i limit pamięci dla przetwarzania OLTP w pamięci
 
-Przetwarzanie OLTP w pamięci obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w usłudze SQL Database, mamy koncepcję przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci*.
+Przetwarzanie OLTP w pamięci obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w SQL Database, mamy koncepcji przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci*.
 
 Każda obsługiwana warstwa cenowa pojedynczej bazy danych i każda warstwa cenowa puli elastycznej zawiera pewną ilość magazynu OLTP w pamięci.
 
@@ -149,7 +149,7 @@ Jednak obniżenie warstwy może mieć negatywny wpływ na bazę danych. Ten wpł
 
 Przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic, Usuń wszystkie tabele zoptymalizowane pod kątem pamięci i typy tabel, a także wszystkie natywnie skompilowane moduły T-SQL.
 
-*Skalowanie zasobów w warstwie krytyczne dla działania firmy*: dane w tabelach zoptymalizowanych pod kątem pamięci muszą mieścić się w magazynie OLTP w pamięci, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. W przypadku próby skalowania w dół warstwy lub przeniesienia bazy danych do puli, która nie ma wystarczającej ilości dostępnego magazynu OLTP w pamięci, operacja kończy się niepowodzeniem.
+*Skalowanie zasobów w warstwie krytyczne dla działania firmy*: dane w tabelach zoptymalizowanych pod kątem pamięci muszą pasować do magazynu OLTP w pamięci, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. W przypadku próby skalowania w dół warstwy lub przeniesienia bazy danych do puli, która nie ma wystarczającej ilości dostępnego magazynu OLTP w pamięci, operacja kończy się niepowodzeniem.
 
 ## <a name="in-memory-columnstore"></a>Magazyn kolumn w pamięci
 
@@ -174,7 +174,7 @@ W przypadku korzystania z klastrowanych indeksów magazynu kolumn, kompresja kol
 
 Na przykład jeśli masz bazę danych o maksymalnym rozmiarze wynoszącym 1 terabajt (TB), a następnie przeniesiesz 10 razy kompresję przy użyciu indeksów magazynu kolumn, możesz dopasować łącznie 10 TB danych użytkownika do bazy danych.
 
-W przypadku korzystania z nieklastrowanych indeksów magazynu kolumn tabela podstawowa jest nadal przechowywana w tradycyjnym formacie magazynu wierszy. W związku z tym oszczędności magazynu nie są tak duże jak w przypadku klastrowanych indeksów magazynu kolumn. Jednak w przypadku wymiany wielu tradycyjnych indeksów nieklastrowanych z pojedynczym indeksem magazynu kolumn nadal można uzyskać ogólne oszczędności w odniesieniu do tabeli.
+W przypadku korzystania z nieklastrowanych indeksów magazynu kolumn tabela podstawowa jest nadal przechowywana w tradycyjnym formacie magazynu wierszy. W związku z tym oszczędności magazynu nie są tak znaczące jak w przypadku klastrowanych indeksów magazynu kolumn. Jednak w przypadku wymiany wielu tradycyjnych indeksów nieklastrowanych z pojedynczym indeksem magazynu kolumn nadal można uzyskać ogólne oszczędności w odniesieniu do tabeli.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Zmiana warstw usługi baz danych zawierających indeksy magazynu kolumn
 
@@ -183,7 +183,7 @@ W przypadku korzystania z nieklastrowanych indeksów magazynu kolumn tabela pods
 Jeśli masz **klastrowany** indeks magazynu kolumn, cała tabela staną się niedostępna po obniżeniu poziomu. Dlatego zalecamy porzucenie wszystkich *klastrowanych* indeksów magazynu kolumn przed obniżeniem poziomu bazy danych na nieobsługiwaną warstwę lub poziom.
 
 > [!Note]
-> Wystąpienie zarządzane obsługuje indeksy magazynu kolumn we wszystkich warstwach.
+> Wystąpienie zarządzane SQL obsługuje indeksy magazynu kolumn we wszystkich warstwach.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -192,7 +192,7 @@ Jeśli masz **klastrowany** indeks magazynu kolumn, cała tabela staną się nie
 - [Szybki Start 1: technologie OLTP w pamięci do szybszej wydajności T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Używanie OLTP w pamięci w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 - [Monitorowanie magazynu OLTP w pamięci](in-memory-oltp-monitor-space.md) na potrzeby przetwarzania OLTP w pamięci
-- [Wypróbuj funkcje w pamięci](in-memory-sample.md)
+- [Próbowanie funkcji w pamięci](in-memory-sample.md)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

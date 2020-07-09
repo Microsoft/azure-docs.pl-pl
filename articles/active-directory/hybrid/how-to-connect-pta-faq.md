@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/09/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406876"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85358297"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory uwierzytelnianie przekazywane: często zadawane pytania
 
@@ -44,7 +44,7 @@ Nie. Uwierzytelnianie przekazywane jest dostępne tylko w świecie wystąpienia 
 Tak. Wszystkie możliwości dostępu warunkowego, w tym Azure Multi-Factor Authentication, działają z uwierzytelnianiem przekazującym.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Czy uwierzytelnianie przekazywane obsługuje "alternatywny identyfikator" jako nazwę użytkownika, a nie "userPrincipalName"?
-Zaloguj się przy użyciu wartości innej niż UPN, takiej jak alternatywny adres e-mail, jest obecnie testowany w prywatnej wersji zapoznawczej dla uwierzytelniania przekazywanego (PTA) i synchronizacji skrótów haseł (PHS).
+Tak, logowanie przy użyciu wartości innej niż nazwa UPN, takiej jak alternatywny adres e-mail, jest obsługiwane zarówno w przypadku uwierzytelniania przekazywanego (PTA), jak i synchronizacji skrótów haseł (PHS). Aby uzyskać więcej informacji na temat [alternatywnego identyfikatora logowania](../authentication/howto-authentication-use-email-signin.md).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Czy synchronizacja skrótów haseł działa jako rezerwowa do uwierzytelniania przekazywanego?
 
@@ -87,7 +87,7 @@ Tak. Jeśli w środowisku lokalnym włączono funkcję autowykrywania serwera pr
 Jeśli w danym środowisku nie masz usługi WPAD, możesz dodać informacje o serwerze proxy (jak pokazano poniżej), aby zezwolić agentowi uwierzytelniania przekazującego na komunikację z usługą Azure AD:
 - Skonfiguruj informacje o serwerze proxy w programie Internet Explorer przed zainstalowaniem agenta uwierzytelniania przekazywanego na serwerze. Pozwoli to na ukończenie instalacji agenta uwierzytelniania, ale nadal będzie on wyświetlany jako **nieaktywny** w portalu administracyjnym.
 - Na serwerze przejdź do lokalizacji "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
-- Edytuj plik konfiguracyjny "AzureADConnectAuthenticationAgentService" i Dodaj następujące wiersze (Zastąp ciąg "\:http//contosoproxy.com:8080" rzeczywistym adresem serwera proxy):
+- Edytuj plik konfiguracyjny "AzureADConnectAuthenticationAgentService" i Dodaj następujące wiersze (Zastąp ciąg "http \: //contosoproxy.com:8080" rzeczywistym adresem serwera proxy):
 
 ```
    <system.net>

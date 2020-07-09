@@ -3,25 +3,33 @@ title: Korzystanie z usługi Azure AD w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać usługi Azure AD w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
+author: mlearned
 ms.topic: article
-ms.date: 05/11/2020
-ms.openlocfilehash: 67f5f707ad2971551e3c9623dd5c07ad880afcf2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/25/2020
+ms.author: mlearned
+ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211147"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105952"
 ---
-# <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrowanie usługi Azure AD w usłudze Azure Kubernetes Service (wersja zapoznawcza)
+# <a name="aks-managed-azure-active-directory-integration-preview"></a>Integracja Azure Active Directory zarządzanej przez AKS (wersja zapoznawcza)
 
-> [!Note]
-> Do istniejących klastrów AKS z integracją usługi AAD (Azure Active Directory) nie mają wpływ nowe środowisko AAD zarządzane przez AKS.
+> [!NOTE]
+> Nowe środowisko usługi Azure AD zarządzane przez usługę AKS nie ma wpływ na istniejące klastry AKS (Azure Kubernetes Service) z integracją z usługą Azure Active Directory (Azure AD).
 
-Integracja usługi Azure AD z usługą AAD zarządzaną przez AKS jest przeznaczona do uproszczenia środowiska integracji z usługą Azure AD, w której użytkownicy musieli wcześniej utworzyć aplikację kliencką, aplikację serwera i wymaganą dzierżawą usługi Azure AD w celu udzielenia uprawnień do odczytu katalogu. W nowej wersji dostawca zasobów AKS zarządza aplikacjami klienta i serwera.
+Integracja z usługą Azure AD zarządzaną przez usługę AKS jest przeznaczona do uproszczenia środowiska integracji z usługą Azure AD, w przypadku których użytkownicy wcześniej musieli utworzyć aplikację kliencką, aplikację serwera i wymaganą dzierżawą usługi Azure AD w celu udzielenia uprawnień do odczytu katalogu. W nowej wersji dostawca zasobów AKS zarządza aplikacjami klienta i serwera.
+
+## <a name="azure-ad-authentication-overview"></a>Omówienie uwierzytelniania usługi Azure AD
+
+Administratorzy klastra mogą konfigurować kontrolę dostępu opartą na rolach (RBAC) Kubernetes na podstawie tożsamości użytkownika lub członkostwa w grupie katalogów. Uwierzytelnianie usługi Azure AD jest udostępniane Klastrom AKS z OpenID Connect Connect. OpenID Connect Connect to warstwa tożsamości utworzona na podstawie protokołu OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][open-id-connect].
+
+Więcej informacji o przepływie integracji usługi AAD znajduje się w [dokumentacji dotyczącej pojęć dotyczących integracji Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Obecnie nie jest możliwe uaktualnienie istniejącego klastra zintegrowanego AKS usługi AAD do nowego środowiska usługi AAD zarządzanego przez program AKS.
+* Obecnie nie można uaktualnić istniejącego klastra zintegrowanego z usługą AKS Azure AD do nowego środowiska zarządzania usługą Azure AD AKS.
 
 > [!IMPORTANT]
 > Funkcje w wersji zapoznawczej AKS są dostępne w ramach samoobsługowego i samodzielnego wyboru. Wersje zapoznawcze są udostępniane w postaci "AS-IS" i "jako dostępne" i są wykluczone z umów dotyczących poziomu usług i ograniczonej rękojmi. Wersje zapoznawcze AKS są częściowo objęte obsługą klienta w oparciu o optymalny sposób. W związku z tym te funkcje nie są przeznaczone do użytku produkcyjnego. Aby uzyskać więcej informacji, zobacz następujące artykuły pomocy technicznej:
@@ -30,6 +38,8 @@ Integracja usługi Azure AD z usługą AAD zarządzaną przez AKS jest przeznacz
 > - [Pomoc techniczna platformy Azure — często zadawane pytania](faq.md)
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+* Znajdź swój identyfikator dzierżawy konta platformy Azure, przechodząc do Azure Portal i wybierając pozycję Azure Active Directory > właściwości > identyfikator katalogu
 
 > [!Important]
 > Musisz użyć polecenia kubectl z minimalną wersją 1,18
@@ -52,7 +62,7 @@ az extension update --name aks-preview
 az extension list
 ```
 
-Aby zainstalować polecenia kubectl, należy wykonać następujące czynności:
+Aby zainstalować polecenia kubectl, użyj następujących poleceń:
 
 ```azurecli
 sudo az aks install-cli
@@ -60,9 +70,6 @@ kubectl version --client
 ```
 
 Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.
-
-> [!CAUTION]
-> Po zarejestrowaniu funkcji w ramach subskrypcji nie można obecnie wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej mogą być stosowane wartości domyślne dla wszystkich klastrów AKS utworzonych później w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Zamiast tego należy użyć oddzielnej subskrypcji do testowania funkcji w wersji zapoznawczej i zebrania opinii.
 
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
@@ -82,36 +89,39 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Tworzenie klastra AKS z włączoną usługą Azure AD
 
-Teraz można utworzyć klaster AKS przy użyciu następujących poleceń interfejsu wiersza polecenia.
+Utwórz klaster AKS przy użyciu następujących poleceń interfejsu wiersza polecenia.
 
-Najpierw utwórz grupę zasobów platformy Azure:
+Utwórz grupę zasobów platformy Azure:
 
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location centralus
 ```
 
-Następnie utwórz klaster AKS:
+Możesz użyć istniejącej grupy usługi Azure AD lub utworzyć nową. Potrzebujesz identyfikatora obiektu dla grupy usługi Azure AD.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
+# List existing groups in the directory
+az ad group list
 ```
-Powyższe polecenie tworzy AKS klaster z trzema węzłami, ale użytkownik, który utworzył klaster, domyślnie nie jest członkiem grupy, która ma dostęp do tego klastra. Ten użytkownik musi utworzyć grupę usługi Azure AD, dodać siebie jako członka grupy, a następnie zaktualizować klaster, jak pokazano poniżej. Postępuj zgodnie z instrukcjami [tutaj](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
-Po utworzeniu grupy i dodaniu jej do siebie (i innych) jako członka można zaktualizować klaster za pomocą grupy usługi Azure AD za pomocą następującego polecenia
+Aby utworzyć nową grupę usługi Azure AD dla administratorów klastra, użyj następującego polecenia:
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
+# Create an Azure AD group
+az ad group create --display-name MyDisplay --mail-nickname MyDisplay
 ```
-Alternatywnie, jeśli najpierw utworzysz grupę i dodasz członków, możesz włączyć grupę usługi Azure AD w czasie tworzenia przy użyciu następującego polecenia:
+
+Utwórz klaster AKS i Włącz dostęp administracyjny do grupy usługi Azure AD
 
 ```azurecli-interactive
+# Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-Pomyślne utworzenie klastra usługi AAD zarządzanego przez AKS ma następującą sekcję w treści odpowiedzi
+Pomyślne utworzenie klastra usługi Azure AD zarządzanego przez usługę AKS ma następującą sekcję w treści odpowiedzi
 ```
-"Azure ADProfile": {
+"AADProfile": {
     "adminGroupObjectIds": null,
     "clientAppId": null,
     "managed": true,
@@ -124,12 +134,17 @@ Pomyślne utworzenie klastra usługi AAD zarządzanego przez AKS ma następując
 Klaster jest tworzony w ciągu kilku minut.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Dostęp do klastra z obsługą usługi Azure AD
-Aby uzyskać poświadczenia administratora w celu uzyskania dostępu do klastra:
 
+Aby wykonać poniższe kroki, potrzebna jest wbudowana rola [użytkownika klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) .
+
+Uzyskaj poświadczenia użytkownika w celu uzyskania dostępu do klastra:
+ 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
+ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-Teraz użyj polecenia polecenia kubectl Get nodes, aby wyświetlić węzły w klastrze:
+Postępuj zgodnie z instrukcjami, aby się zalogować.
+
+Aby wyświetlić węzły w klastrze, użyj polecenia polecenia kubectl Get nodes:
 
 ```azurecli-interactive
 kubectl get nodes
@@ -139,22 +154,49 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
+Skonfiguruj [Access Control oparte na rolach (RBAC)](https://docs.microsoft.com/azure/aks/azure-ad-rbac) , aby skonfigurować dodatkowe grupy zabezpieczeń dla klastrów.
 
-Aby uzyskać poświadczenia użytkownika w celu uzyskania dostępu do klastra:
- 
+## <a name="troubleshooting-access-issues-with-azure-ad"></a>Rozwiązywanie problemów z dostępem za pomocą usługi Azure AD
+
+> [!Important]
+> Opisane poniżej kroki służą do pomijania normalnego uwierzytelniania grupy usługi Azure AD. Używaj ich tylko w sytuacji awaryjnej.
+
+Jeśli użytkownik jest trwale zablokowany przez brak dostępu do prawidłowej grupy usługi Azure AD z dostępem do klastra, można nadal uzyskać poświadczenia administratora, aby uzyskać bezpośredni dostęp do klastra.
+
+Aby wykonać te czynności, musisz mieć dostęp do wbudowanej roli [administratora klastra usługi Azure Kubernetes](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) .
+
 ```azurecli-interactive
- az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
-Postępuj zgodnie z instrukcjami, aby się zalogować.
 
-Otrzymujesz: **użytkownik musi być zalogowany na serwerze (bez autoryzacji)**
+## <a name="non-interactive-sign-in-with-kubelogin"></a>Logowanie nieinterakcyjne za pomocą kubelogin
 
-Powyższy użytkownik pobiera błąd, ponieważ użytkownik nie jest częścią grupy, która ma dostęp do klastra.
+Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć, [`kubelogin`](https://github.com/Azure/kubelogin) Aby uzyskać dostęp do klastra przy użyciu logowania jednokrotnego podmiotu zabezpieczeń usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [Access Control opartych na rolach w usłudze Azure AD][azure-ad-rbac].
+* Dowiedz się więcej o [integracji z usługą Azure RBAC na potrzeby autoryzacji Kubernetes][azure-rbac-integration]
+* Poznaj [integrację usługi Azure AD z usługą KUBERNETES RBAC][azure-ad-rbac].
 * Użyj [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do funkcji uwierzytelniania platformy Azure, które nie są dostępne w polecenia kubectl.
+* Dowiedz się więcej o [pojęciach dotyczących tożsamości AKS i Kubernetes][aks-concepts-identity].
+* Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] do tworzenia klastrów z obsługą usługi Azure AD, które są zarządzane przez AKS.
+
+<!-- LINKS - external -->
+[kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[aks-arm-template]: https://docs.microsoft.com/azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[azure-rbac-integration]: manage-azure-rbac.md
+[aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-group-create]: /cli/azure/group#az-group-create
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
+[operator-best-practices-identity]: operator-best-practices-identity.md
+[azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md
+

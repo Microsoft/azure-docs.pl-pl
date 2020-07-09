@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 50e2666aa533a5111055a095c612b58bfe6f9db4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546697"
 ---
 # <a name="security-recommendations-for-app-service"></a>Zalecenia dotyczące zabezpieczeń App Service
@@ -43,7 +43,7 @@ Ten artykuł zawiera zalecenia dotyczące zabezpieczeń Azure App Service. Wdro�
 | Użyj FTPS | App Service obsługuje zarówno protokół FTP, jak i FTPS do wdrażania plików. Jeśli to możliwe, użyj FTPS zamiast FTP. Jeśli jeden lub oba te protokoły nie są używane, należy [je wyłączyć](deploy-ftp.md#enforce-ftps). |
 | Zabezpieczanie danych aplikacji | Nie przechowuj wpisów tajnych aplikacji, takich jak poświadczenia bazy danych, tokeny interfejsu API lub klucze prywatne w plikach kodu lub konfiguracji. Powszechnie akceptowanym podejściem jest uzyskanie dostępu do nich jako [zmiennych środowiskowych](https://wikipedia.org/wiki/Environment_variable) przy użyciu standardowego wzorca w wybranym języku. W Azure App Service można definiować zmienne środowiskowe za poorednictwem [ustawień aplikacji](web-sites-configure.md) i [parametrów połączenia](web-sites-configure.md). Ustawienia aplikacji i parametry połączenia są przechowywane na platformie Azure. Ustawienia aplikacji są odszyfrowywane dopiero przed wprowadzeniem ich do pamięci procesu aplikacji podczas uruchamiania aplikacji. Klucze szyfrowania są regularnie obracane. Alternatywnie możesz zintegrować swoją aplikację Azure App Service z [Azure Key Vault](/azure/key-vault/) do zarządzania zaawansowanymi kluczami tajnymi. Dzięki [dostępowi do Key Vault za pomocą tożsamości zarządzanej](../key-vault/tutorial-web-application-keyvault.md)aplikacja App Service może bezpiecznie uzyskać dostęp do potrzebnych wpisów tajnych. |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 | Zalecenie | Komentarze |
 |-|-|

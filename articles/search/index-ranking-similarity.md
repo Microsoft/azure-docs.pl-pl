@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5597528d395c2c8facd4a1b916b1378b659a646
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231615"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565289"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algorytm klasyfikacji w usłudze Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT]
 > Od 15 lipca 2020, nowo utworzone usługi wyszukiwania będą korzystać z funkcji klasyfikacji BM25 automatycznie, która została sprawdzona w większości przypadków, aby zapewnić klasyfikacje wyszukiwania, które są lepiej dopasowane do oczekiwań użytkowników niż bieżąca Klasyfikacja domyślna. Poza wyższą klasyfikacją BM25 włącza również opcje konfiguracji dla wyników dostrajania na podstawie takich czynników, jak rozmiar dokumentu.  
 >
-> W przypadku tej zmiany najprawdopodobniej zobaczysz nieznaczne zmiany w kolejności wyników wyszukiwania. Dla osób, które chcą przetestować wpływ tej zmiany, algorytm BM25 jest dostępny w interfejsie API-Version 2019-05-06-Preview.  
+> W przypadku tej zmiany najprawdopodobniej zobaczysz nieznaczne zmiany w kolejności wyników wyszukiwania. Dla osób, które chcą przetestować wpływ tej zmiany, algorytm BM25 jest dostępny w interfejsie API-Version 2019-05-06-Preview i w 2020-06-30.  
 
 W tym artykule opisano, jak można użyć nowego BM25ego algorytmu klasyfikacji w istniejących usługach wyszukiwania dla nowych indeksów utworzonych i zapytań przy użyciu interfejsu API podglądu.
 
@@ -30,7 +30,7 @@ Chociaż koncepcyjnie przypomina starszy klasyczny algorytm podobieństwa, BM25 
 
 ## <a name="how-to-test-bm25-today"></a>Jak przetestować BM25 dzisiaj
 
-Podczas tworzenia nowego indeksu można ustawić właściwość **podobieństwo** , aby określić algorytm. Musisz użyć `api-version=2019-05-06-Preview`, jak pokazano poniżej.
+Podczas tworzenia nowego indeksu można ustawić właściwość **podobieństwo** , aby określić algorytm. Możesz użyć `api-version=2019-05-06-Preview` , jak pokazano poniżej, lub `api-version=2020-06-30` .
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview

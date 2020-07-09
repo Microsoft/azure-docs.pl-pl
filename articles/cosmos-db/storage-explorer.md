@@ -3,16 +3,16 @@ title: Zarządzanie zasobami Azure Cosmos DB przy użyciu Eksplorator usługi Az
 description: Dowiedz się, jak nawiązać połączenie z usługą Azure Cosmos DB i zarządzać swoimi zasobami przy użyciu Eksplorator usługi Azure Storage.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 2cf1ab2b9ec7e1094a0afa34973db3441c22ee5b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a43e49ab29780e718139b677b780443e5e31e2ab
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982772"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262246"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Praca z danymi za pomocą Eksploratora usługi Azure Storage
 
@@ -31,23 +31,23 @@ Zainstaluj najnowszą wersję Eksploratora usługi Azure Storage. Program [Ekspl
 
 1. Po zainstalowaniu **Eksploratora usługi Azure Storage** kliknij ikonę **wtyczki** widoczną po lewej stronie, jak pokazano na poniższym obrazie:
 
-   ![Ikona wtyczki](./media/storage-explorer/plug-in-icon.png)
+   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Ikona wtyczki":::
 
 2. Wybierz pozycję **Dodaj konto platformy Azure**, a następnie kliknij pozycję **Zaloguj się**.
 
-   ![Łączenie się z subskrypcją platformy Azure](./media/storage-explorer/connect-to-azure-subscription.png)
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Łączenie się z subskrypcją platformy Azure":::
 
 2. W oknie dialogowym **Logowanie do platformy Azure** wybierz pozycję **Zaloguj**, a następnie wprowadź poświadczenia platformy Azure.
 
-    ![Zaloguj się](./media/storage-explorer/sign-in.png)
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Zaloguj się":::
 
 3. Wybierz subskrypcję z listy, a następnie kliknij przycisk **Zastosuj**.
 
-    ![Zastosuj](./media/storage-explorer/apply-subscription.png)
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Stosowa":::
 
     Zawartość okienka Eksploratora zostanie zaktualizowana i pojawią się konta w wybranej subskrypcji.
 
-    ![Lista kont](./media/storage-explorer/account-list.png)
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Lista kont":::
 
     Pomyślnie nawiązano połączenie z **kontem usługi Cosmos DB** w ramach subskrypcji platformy Azure.
 
@@ -57,11 +57,11 @@ Alternatywna metoda połączenia się z usługą Azure Cosmos DB polega na użyc
 
 1. Znajdź pozycję **Lokalne i dołączone** w drzewie po lewej stronie, kliknij prawym przyciskiem myszy pozycję **Konta usługi Cosmos DB**, a następnie wybierz pozycję **Połącz z usługą Cosmos DB...**
 
-    ![Nawiązywanie połączenia z usługą Cosmos DB za pomocą parametrów połączenia](./media/storage-explorer/connect-to-db-by-connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Nawiązywanie połączenia z usługą Cosmos DB za pomocą parametrów połączenia":::
 
 2. Aktualnie obsługiwana jest baza danych SQL i interfejs API tabel. Wybierz interfejs API, wklej **parametry połączenia**, wprowadź wartość **Etykieta konta**, kliknij przycisk **Dalej**, aby sprawdzić podsumowanie, a następnie kliknij pozycję **Połącz**, aby nawiązać połączenie z kontem usługi Azure Cosmos DB. Aby uzyskać informacje na temat pobierania podstawowych parametrów połączenia, zobacz [pobieranie parametrów połączenia](manage-with-powershell.md#list-keys).
 
-    ![Parametry połączenia](./media/storage-explorer/connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Parametry połączenia":::
 
 ## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Nawiązywanie połączenia z usługą Azure Cosmos DB za pomocą emulatora lokalnego
 
@@ -71,11 +71,11 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Azure Cosmos
 
 2. Znajdź pozycję **Lokalne i dołączone** w drzewie po lewej stronie, kliknij prawym przyciskiem myszy pozycję **Konta usługi Cosmos DB**, a następnie wybierz pozycję **Połącz z emulatorem usługi Cosmos DB...**
 
-    ![Nawiązywanie połączenia z usługą Cosmos DB za pomocą emulatora](./media/storage-explorer/emulator-entry.png)
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Nawiązywanie połączenia z usługą Cosmos DB za pomocą emulatora":::
 
 3. Aktualnie obsługiwany jest tylko interfejs API SQL. Wklej **parametry połączenia**, wprowadź wartość **Etykieta konta**, kliknij przycisk **Dalej**, aby sprawdzić podsumowanie, a następnie kliknij pozycję **Połącz**, aby nawiązać połączenie z kontem usługi Azure Cosmos DB. Aby uzyskać informacje na temat pobierania podstawowych parametrów połączenia, zobacz [pobieranie parametrów połączenia](manage-with-powershell.md#list-keys).
 
-    ![Nawiązywanie połączenia z usługą Cosmos DB za pomocą okna dialogowego emulatora](./media/storage-explorer/emulator-dialog.png)
+    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Nawiązywanie połączenia z usługą Cosmos DB za pomocą okna dialogowego emulatora":::
 
 
 ## <a name="azure-cosmos-db-resource-management"></a>Zarządzanie zasobami usługi Azure Cosmos DB
@@ -95,52 +95,52 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 
 * Po kliknięciu prawym przyciskiem myszy konta lub bazy danych usługi Azure Cosmos DB można wybrać polecenie **Otwórz w portalu**, aby zarządzać zasobem w przeglądarce w witrynie Azure Portal.
 
-     ![Otwórz w portalu](./media/storage-explorer/open-in-portal.png)
+     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Otwórz w portalu":::
 
 * Do paska **Szybki dostęp** można także dodać konto, bazę danych lub kolekcję usługi Azure Cosmos DB.
 * Opcja **Wyszukaj od tego miejsca** umożliwia wyszukiwanie słów kluczowych w obrębie wybranej ścieżki.
 
-    ![Wyszukaj od tego miejsca](./media/storage-explorer/search-from-here.png)
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Wyszukaj od tego miejsca":::
 
 ### <a name="database-and-collection-management"></a>Zarządzanie bazą danych i kolekcją
 #### <a name="create-a-database"></a>Tworzenie bazy danych
 -   Kliknij prawym przyciskiem myszy konto usługi Azure Cosmos DB, wybierz polecenie **Utwórz bazę danych**, wprowadź nazwę bazy danych, a następnie naciśnij klawisz **Enter**, aby zakończyć procedurę.
 
-    ![Tworzenie bazy danych](./media/storage-explorer/create-database.png)
+    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Tworzenie bazy danych":::
 
 #### <a name="delete-a-database"></a>Usuwanie bazy danych
 - Kliknij prawym przyciskiem myszy bazę danych, kliknij polecenie **Usuń bazę danych** i kliknij przycisk **Tak** w oknie podręcznym. Węzeł bazy danych zostanie usunięty, a konto usługi Azure Cosmos DB zostanie odświeżone automatycznie.
 
-    ![Usuwanie bazy danych 1](./media/storage-explorer/delete-database1.png)
+    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Usuwanie bazy danych 1":::
 
-    ![Usuwanie bazy danych 2](./media/storage-explorer/delete-database2.png)
+    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Usuwanie bazy danych 2":::
 
 #### <a name="create-a-collection"></a>Tworzenie kolekcji
 1. Kliknij prawym przyciskiem myszy bazę danych, wybierz polecenie **Utwórz kolekcję**, a następnie podaj następujące informacje, takie jak **identyfikator kolekcji**, **pojemność magazynu**itp. Kliknij przycisk **OK** , aby zakończyć.
 
-    ![Tworzenie kolekcji 1](./media/storage-explorer/create-collection.png)
+    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Tworzenie kolekcji 1":::
 
-    ![Tworzenie kolekcji 2](./media/storage-explorer/create-collection2.png)
+    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Tworzenie kolekcji 2":::
 
 2. Wybierz wartość **Bez ograniczeń**, aby możliwe było określenie klucza partycji, a następnie kliknij przycisk **OK**, aby zakończyć.
 
     Jeśli podczas tworzenia kolekcji jest używany klucz partycji, to po jej utworzeniu nie można zmienić wartości klucza partycji.
 
-    ![Klucz partycji](./media/storage-explorer/partitionkey.png)
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Klucz partycji":::
 
 #### <a name="delete-a-collection"></a>Usuwanie kolekcji
 - Kliknij prawym przyciskiem myszy kolekcję, kliknij polecenie **Usuń kolekcję**, a następnie kliknij przycisk **Tak** w oknie podręcznym.
 
     Węzeł kolekcji zostanie usunięty, a baza danych zostanie odświeżona automatycznie.
 
-    ![Usuwanie kolekcji](./media/storage-explorer/delete-collection.png)
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Usuwanie kolekcji":::
 
 ### <a name="document-management"></a>Zarządzanie dokumentami
 
 #### <a name="create-and-modify-documents"></a>Tworzenie i modyfikowanie dokumentów
 - Aby utworzyć nowy dokument, otwórz węzeł **Dokumenty** w lewym oknie, kliknij pozycję **Nowy dokument**, zmodyfikuj zawartość dokumentu w prawym okienku, a następnie kliknij przycisk **Zapisz**. Możesz również zaktualizować istniejący dokument, a następnie kliknąć przycisk **Zapisz**. Aby odrzucić zmiany, kliknij przycisk **Odrzuć**.
 
-    ![Dokument](./media/storage-explorer/document.png)
+    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Dokumentu":::
 
 #### <a name="delete-a-document"></a>Usuwanie dokumentu
 - Aby usunąć wybrany dokument, kliknij przycisk **Usuń**.
@@ -148,7 +148,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 #### <a name="query-for-documents"></a>Wykonywanie zapytań dotyczących dokumentów
 - Aby zmodyfikować filtr dokumentu, wprowadź [zapytanie SQL](how-to-sql-query.md), a następnie kliknij przycisk **Zastosuj**.
 
-    ![Filtr dokumentu](./media/storage-explorer/document-filter.png)
+    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Filtr dokumentu":::
 
 
 
@@ -158,7 +158,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 1. Aby utworzyć nowy wierzchołek, otwórz program **Graph** w oknie po lewej stronie, kliknij pozycję **Nowy wierzchołek**, dokonaj edycji zawartości, a następnie kliknij przycisk **OK**.
 2. Aby zmodyfikować istniejący wierzchołek, kliknij ikonę pióra w okienku po prawej stronie.
 
-    ![Graph](./media/storage-explorer/vertex.png)
+    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Graph":::
 
 #### <a name="delete-a-graph"></a>Usuwanie wykresu
 - Aby usunąć wierzchołek, kliknij ikonę kosza obok nazwy wierzchołka.
@@ -166,7 +166,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 #### <a name="filter-for-graph"></a>Filtrowanie wykresów
 - Edytuj filtr wykresu, wprowadzając [zapytanie w języku gremlin](gremlin-support.md), a następnie klikając pozycję **Zastosuj filtr**.
 
-    ![Filtr wykresu](./media/storage-explorer/graph-filter.png)
+    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Filtr wykresu":::
 
 ### <a name="table-management"></a>Zarządzanie regułami
 
@@ -174,29 +174,29 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 1. Aby utworzyć nową tabelę, otwórz obszar **Jednostki** w oknie po lewej stronie, kliknij pozycję **Dodaj**, edytuj zawartość w oknie dialogowym **Dodawanie jednostki**, dodaj właściwość, klikając przycisk **Dodaj Właściwość**, a następnie kliknij pozycję **Wstaw**.
 2. Aby zmodyfikować tabelę, kliknij pozycję **Edytuj**, zmodyfikuj zawartość, a następnie kliknij pozycję **Aktualizuj**.
 
-    ![Tabela](./media/storage-explorer/table.png)
+    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Tabela":::
 
 #### <a name="import-and-export-table"></a>Importowanie i eksportowanie tabeli
 1. Aby zaimportować tabelę, kliknij przycisk **Importuj**, a następnie wybierz istniejącą tabelę.
 2. Aby wyeksportować tabelę, kliknij przycisk **Eksportuj**, a następnie wybierz miejsce docelowe.
 
-    ![Importowanie i eksportowanie tabeli](./media/storage-explorer/table-import-export.png)
+    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importowanie i eksportowanie tabeli":::
 
 #### <a name="delete-entities"></a>Usuwanie jednostek
 - Zaznacz jednostki, a następnie kliknij przycisk **Usuń**.
 
-    ![Usuwanie tabeli](./media/storage-explorer/table-delete.png)
+    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Usuwanie tabeli":::
 
 #### <a name="query-table"></a>Wykonywanie zapytań dotyczących tabeli
 - Kliknij przycisk **Zapytanie**, wprowadź warunki zapytania, a następnie kliknij przycisk **Wykonaj zapytanie**. Zamknij okienko Zapytanie, klikając **Zamknij zapytanie**.
 
-    ![Zapytanie dotyczące tabeli](./media/storage-explorer/table-query.png)
+    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Zapytanie dotyczące tabeli":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Zarządzanie procedurami składowanymi, wyzwalaczami i funkcjami definiowanymi przez użytkownika (UDF)
 * Aby utworzyć procedurę składowaną, w drzewie po lewej stronie kliknij prawym przyciskiem myszy pozycję **Procedura składowana**, wybierz polecenie **Utwórz procedurę składowaną**, wprowadź nazwę po lewej stronie, wpisz skrypty procedury składowanej w prawym okienku, a następnie kliknij przycisk **Utwórz**.
 * Możesz również edytować istniejące procedury składowane. W tym celu kliknij dwukrotnie procedurę, wprowadź zmiany, a następnie kliknij pozycję **Aktualizuj**, aby zapisać zmiany, lub pozycję **Odrzuć**, aby je anulować.
 
-    ![Procedura składowana](./media/storage-explorer/stored-procedure.png)
+    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Procedura składowana":::
 * Operacje dotyczące **wyzwalaczy** i **funkcji definiowanych przez użytkownika** są podobne do **procedur składowanych**.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -228,7 +228,7 @@ Gdy Eksplorator usługi Storage napotka jeden z tych „certyfikatów z podpisem
 3. Wykonaj polecenie `s_client -showcerts -connect microsoft.com:443`
 4. Wyszukaj certyfikaty z podpisem własnym. Jeśli nie wiesz, które z nich są z podpisem własnym, wówczas poszukaj pozycji, gdzie podmiot („s:”) i wystawca („i:”) są identyczni.
 5.  Po znalezieniu jakichkolwiek certyfikatów z podpisem własnym skopiuj i wklej wszystko, poczynając od **---BEGIN CERTIFICATE---** do **---END CERTIFICATE---**, do nowego pliku cer dla każdego z nich.
-6.  Otwórz Eksplorator usługi Storage a następnie przejdź do pozycji **Edytuj** > **Certyfikaty** > SSL**Importuj certyfikaty**. Za pomocą selektora plików znajdź, wybierz i otwórz utworzony plik cer.
+6.  Otwórz Eksplorator usługi Storage a następnie przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty**. Za pomocą selektora plików znajdź, wybierz i otwórz utworzony plik cer.
 
 Jeśli nie możesz odnaleźć żadnych certyfikatów z podpisem własnym za pomocą powyższych kroków, możesz wysłać opinię, aby uzyskać dalszą pomoc.
 
@@ -246,7 +246,7 @@ Jeśli nie możesz pobrać subskrypcji po pomyślnym zalogowaniu:
   - .extaccounts
 - Podczas logowania obejrzyj wszystkie komunikaty o błędach na konsoli narzędzi dla deweloperów (f12)
 
-![console](./media/storage-explorer/console.png)
+:::image type="content" source="./media/storage-explorer/console.png" alt-text="konsoli":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Nie można wyświetlić strony uwierzytelniania
 
@@ -279,19 +279,19 @@ Podczas konfigurowania serwera proxy HTTP/HTTPS w środowisku ASE nie możesz wy
 
 Nie ma odpowiedzi po kliknięciu węzła „Programowanie” w węźle „Lokalne i dołączone” drzewa po lewej stronie.  Zachowanie jest oczekiwane. Emulator lokalny usługi Azure Cosmos DB będzie obsługiwany w następnej wersji.
 
-![Węzeł projektowania](./media/storage-explorer/development.png)
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Węzeł projektowania":::
 
 ### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Błąd dołączania konta usługi Azure Cosmos DB w węźle „Lokalne i dołączone”
 
 Jeśli poniższy błąd zostanie wyświetlony po dołączeniu konta usługi Azure Cosmos DB w węźle „Lokalne i dołączone”, sprawdź, czy używasz właściwych parametrów połączenia.
 
-![Błąd dołączania usługi Azure Cosmos DB w węźle Lokalne i dołączone](./media/storage-explorer/attached-error.png)
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Błąd dołączania usługi Azure Cosmos DB w węźle Lokalne i dołączone":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Błąd rozwijania węzła usługi Azure Cosmos DB
 
 Podczas próby rozwinięcia węzłów drzewa z lewej strony możesz zobaczyć poniższy błąd.
 
-![Błąd rozwijania](./media/storage-explorer/expand-error.png)
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Błąd rozwijania":::
 
 Spróbuj wykonać poniższe sugestie:
 
@@ -300,7 +300,7 @@ Spróbuj wykonać poniższe sugestie:
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
 
-Jeśli żadna z rozwiązań nie działa, Wyślij wiadomość e-mail do Azure Cosmos DB zespołu narzędzi deweloperskich ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) ze szczegółowymi informacjami o problemie, aby rozwiązać problemy.
+Jeśli żadna z rozwiązań nie działa, Wyślij wiadomość e-mail do Azure Cosmos DB zespołu narzędzi deweloperskich ( [cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com) ) ze szczegółowymi informacjami o problemie, aby rozwiązać problemy.
 
 ## <a name="next-steps"></a>Następne kroki
 

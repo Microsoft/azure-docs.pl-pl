@@ -12,10 +12,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: b7079262dc7db4f4a00a9dc79193da1574c7153a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81605851"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalowanie płatnych lub licencjonowanych składników niestandardowych w środowisku Azure-SSIS Integration Runtime
@@ -41,9 +40,9 @@ Na poniższym diagramie przedstawiono typowe powiązania instalacji, aktywacji i
 ![Instalacja licencjonowanych składników](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Instrukcje
-1. Niezależni dostawcy oprogramowania mogą oferować licencjonowane składniki w różnych jednostkach SKU i warstwach (na przykład pojedynczy węzeł, maksymalnie 5 węzłów, do 10 węzłów itd.). Dostawca oprogramowania dostarcza odpowiedni klucz produktu, gdy klienci kupują produkt. Dostawca niezależnego dostawcy oprogramowania może również udostępnić kontener obiektów BLOB usługi Azure Storage, który zawiera skrypt instalacji niezależnego dostawcy oprogramowania i skojarzone pliki. Klienci mogą kopiować te pliki do własnego kontenera magazynu i modyfikować je przy użyciu własnego klucza produktu (na przykład przez uruchomienie `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Następnie klienci mogą inicjować lub zmieniać konfigurację Azure-SSIS IR przy użyciu identyfikatora URI sygnatury dostępu współdzielonego kontenera jako parametru. Aby uzyskać więcej informacji, zobacz [Niestandardowa konfiguracja środowiska Azure SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. Niezależni dostawcy oprogramowania mogą oferować licencjonowane składniki w różnych jednostkach SKU i warstwach (na przykład pojedynczy węzeł, maksymalnie 5 węzłów, do 10 węzłów itd.). Dostawca oprogramowania dostarcza odpowiedni klucz produktu, gdy klienci kupują produkt. Dostawca niezależnego dostawcy oprogramowania może również udostępnić kontener obiektów BLOB usługi Azure Storage, który zawiera skrypt instalacji niezależnego dostawcy oprogramowania i skojarzone pliki. Klienci mogą kopiować te pliki do własnego kontenera magazynu i modyfikować je przy użyciu własnego klucza produktu (na przykład przez uruchomienie `IsvSetup.exe -pid xxxx-xxxx-xxxx` ). Następnie klienci mogą inicjować lub zmieniać konfigurację Azure-SSIS IR przy użyciu identyfikatora URI sygnatury dostępu współdzielonego kontenera jako parametru. Aby uzyskać więcej informacji, zobacz [Niestandardowa konfiguracja środowiska Azure SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-2. Po zainicjowaniu lub ponownym skonfigurowaniu Azure-SSIS IR Instalator niezależnego dostawcy oprogramowania uruchamia zapytanie o zmienne środowiskowe systemu Windows `SSIS_CLUSTERID` i. `SSIS_CLUSTERNODECOUNT` Następnie Azure-SSIS IR przesyła swój identyfikator klastra i klucz produktu licencjonowanego produktu do serwera aktywacji niezależnego dostawcy oprogramowania w celu wygenerowania klucza aktywacji.
+2. Po zainicjowaniu lub ponownym skonfigurowaniu Azure-SSIS IR Instalator niezależnego dostawcy oprogramowania uruchamia zapytanie o zmienne środowiskowe systemu Windows `SSIS_CLUSTERID` i `SSIS_CLUSTERNODECOUNT` . Następnie Azure-SSIS IR przesyła swój identyfikator klastra i klucz produktu licencjonowanego produktu do serwera aktywacji niezależnego dostawcy oprogramowania w celu wygenerowania klucza aktywacji.
 
 3. Po otrzymaniu klucza aktywacji program instalacyjny ISV może przechowywać klucz lokalnie w każdym węźle (na przykład w rejestrze).
 

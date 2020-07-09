@@ -10,10 +10,9 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 4c71a108d1967027465d127db50737119af3e2c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81733366"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Planowanie i emitowanie zadań (.NET)
@@ -167,7 +166,7 @@ W tej sekcji utworzysz aplikację konsolową .NET, która reaguje na metodę bez
 
 W tej sekcji utworzysz aplikację konsolową .NET (przy użyciu języka C#), która używa zadań do wywołania metody **LockDoor** Direct i wysyłania wymaganych aktualizacji właściwości na wiele urządzeń.
 
-1. W programie Visual Studio wybierz pozycję **plik** > **Nowy** > **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
+1. W programie Visual Studio wybierz pozycję **plik**  >  **Nowy**  >  **projekt**. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
 
 1. W obszarze **Konfigurowanie nowego projektu**Nadaj projektowi nazwę *ScheduleJob*. W obszarze **rozwiązanie**wybierz opcję **Dodaj do rozwiązania**, a następnie wybierz pozycję **Utwórz**.
 
@@ -295,9 +294,9 @@ Teraz można przystąpić do uruchomienia aplikacji.
 
 1. W Eksplorator rozwiązań Visual Studio, kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz polecenie **Ustaw projekty startowe**.
 
-1. Wybierz kolejno pozycje **wspólne właściwości** > **projekt startowy**, a następnie wybierz **wiele projektów startowych**.
+1. Wybierz kolejno pozycje **wspólne właściwości**  >  **projekt startowy**, a następnie wybierz **wiele projektów startowych**.
 
-1. Upewnij się `SimulateDeviceMethods` , że znajduje się w górnej części listy, `ScheduleJob`a następnie. Ustaw obie akcje do **uruchomienia** i wybierz **przycisk OK**.
+1. Upewnij `SimulateDeviceMethods` się, że znajduje się w górnej części listy, a następnie `ScheduleJob` . Ustaw obie akcje do **uruchomienia** i wybierz **przycisk OK**.
 
 1. Uruchom projekty, klikając przycisk **Start** lub przejdź do menu **Debuguj** , a następnie kliknij **Rozpocznij debugowanie**.
 

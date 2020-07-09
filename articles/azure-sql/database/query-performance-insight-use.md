@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: afb8e18cbad6a47a99d3ccf05bdb9957f1f9778e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048154"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042887"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Szczegółowe informacje o wydajności zapytań Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Szczegółowe informacje o wydajności zapytań oferuje inteligentne analizy zap
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Szczegółowe informacje o wydajności zapytań wymaga, aby [Magazyn zapytań](https://msdn.microsoft.com/library/dn817826.aspx) był aktywny w Twojej bazie danych. Jest ona domyślnie automatycznie włączona dla wszystkich baz danych w usłudze Azure SQL Database. Jeśli magazyn zapytań nie jest uruchomiony, Azure Portal wyświetli monit o jego włączenie.
+Szczegółowe informacje o wydajności zapytań wymaga, aby [Magazyn zapytań](https://msdn.microsoft.com/library/dn817826.aspx) był aktywny w Twojej bazie danych. Jest on automatycznie domyślnie włączony dla wszystkich baz danych w Azure SQL Database. Jeśli magazyn zapytań nie jest uruchomiony, Azure Portal wyświetli monit o jego włączenie.
 
 > [!NOTE]
 > Jeśli w portalu zostanie wyświetlony komunikat "magazyn zapytań jest niepoprawnie skonfigurowany w tej bazie danych", zobacz [Optymalizacja konfiguracji magazynu zapytań](#optimize-the-query-store-configuration).

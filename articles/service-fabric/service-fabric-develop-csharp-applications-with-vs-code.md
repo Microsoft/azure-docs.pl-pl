@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614527"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Opracowywanie aplikacji Service Fabric C# przy użyciu Visual Studio Code
@@ -22,7 +21,7 @@ W tym artykule opisano sposób kompilowania, wdrażania i debugowania aplikacji 
 
 W tym artykule przyjęto założenie, że zainstalowano już VS Code, Service Fabric Reliable Services rozszerzenia dla VS Code oraz wszystkie zależności wymagane dla środowiska deweloperskiego. Aby dowiedzieć się więcej, zobacz [wprowadzenie](./service-fabric-get-started-vs-code.md#prerequisites).
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 W tym artykule jest stosowana aplikacja CounterService w [repozytorium usługi Service Fabric .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started). 
 
 Aby sklonować repozytorium do komputera deweloperskiego, uruchom następujące polecenie w oknie terminalu (okno polecenia w systemie Windows):
@@ -61,31 +60,31 @@ Po skompilowaniu aplikacji można wdrożyć ją w klastrze lokalnym.
 
    ![Polecenie wdrażania aplikacji w VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Po zakończeniu wdrażania Uruchom przeglądarkę i Otwórz Service Fabric Explorer: http:\//localhost: 19080/Explorer. Powinna zostać wyświetlona aplikacja. Może to potrwać pewien czas. 
+4. Po zakończeniu wdrażania Uruchom przeglądarkę i Otwórz Service Fabric Explorer: http: \/ /localhost: 19080/Explorer. Powinna zostać wyświetlona aplikacja. Może to potrwać pewien czas. 
 
    ![Aplikacja usługi Counter w Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Po sprawdzeniu, czy aplikacja jest uruchomiona, uruchom przeglądarkę i Otwórz Tę stronę: http:\//localhost: 31002. Jest to fronton sieci Web aplikacji. Odśwież stronę, aby zobaczyć bieżącą wartość licznika w miarę jego przyrostu.
+4. Po sprawdzeniu, czy aplikacja jest uruchomiona, uruchom przeglądarkę i Otwórz Tę stronę: http: \/ /localhost: 31002. Jest to fronton sieci Web aplikacji. Odśwież stronę, aby zobaczyć bieżącą wartość licznika w miarę jego przyrostu.
 
    ![Aplikacja usługi Counter w przeglądarce](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
 ## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publikowanie aplikacji w klastrze usługi Azure Service Fabric
 Wraz z wdrażaniem aplikacji w klastrze lokalnym można również opublikować ją w klastrze zdalnego Service Fabric platformy Azure. 
 
-1. Upewnij się, że aplikacja została skompilowana przy użyciu powyższych instrukcji. Zaktualizuj wygenerowany plik `Cloud.json` konfiguracji, podając szczegóły zdalnego klastra, w którym chcesz publikować.
+1. Upewnij się, że aplikacja została skompilowana przy użyciu powyższych instrukcji. Zaktualizuj wygenerowany plik konfiguracji `Cloud.json` , podając szczegóły zdalnego klastra, w którym chcesz publikować.
 
 2. W **palecie poleceń**wybierz **polecenie Service Fabric: Publish Application**. Dane wyjściowe procesu instalacji są wysyłane do terminalu zintegrowanego.
 
    ![Polecenie publikowania aplikacji w VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
-3. Po zakończeniu wdrażania Uruchom przeglądarkę i Otwórz Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Powinna zostać wyświetlona aplikacja. Może to potrwać pewien czas. 
+3. Po zakończeniu wdrażania Uruchom przeglądarkę i Otwórz Service Fabric Explorer: `https:<clusterurl>:19080/Explorer` . Powinna zostać wyświetlona aplikacja. Może to potrwać pewien czas. 
 
 ## <a name="debug-the-application"></a>Debugowanie aplikacji
 Podczas debugowania aplikacji w VS Code, aplikacja musi działać w klastrze lokalnym. Punkty przerwania można następnie dodać do kodu.
 
 Aby ustawić punkt przerwania i debugowanie, wykonaj następujące czynności:
 1. W Eksploratorze Otwórz plik */src/CounterServiceApplication/CounterService/CounterService.cs* i ustaw punkt przerwania w wierszu 62 wewnątrz `RunAsync` metody.
-3. Kliknij ikonę debugowania na **pasku działania** , aby otworzyć widok debugera w vs Code. Kliknij ikonę koła zębatego w górnej części widoku debuger i wybierz pozycję **.NET Core** z menu środowisko listy rozwijanej. Zostanie otwarty plik Launch. JSON. Możesz zamknąć ten plik. Po wybraniu opcji konfiguracji w menu Debugowanie konfiguracji obok przycisku Uruchom (zielona strzałka) powinna zostać wyświetlona opcja konfiguracja.
+3. Kliknij ikonę debugowania na **pasku działania** , aby otworzyć widok debugera w vs Code. Kliknij ikonę koła zębatego w górnej części widoku debuger i wybierz pozycję **.NET Core** z menu środowisko listy rozwijanej. Zostanie otwarty launch.jspliku. Możesz zamknąć ten plik. Po wybraniu opcji konfiguracji w menu Debugowanie konfiguracji obok przycisku Uruchom (zielona strzałka) powinna zostać wyświetlona opcja konfiguracja.
 
    ![Ikona debugowania w obszarze roboczym VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-icon-workspace.png)
 
@@ -93,7 +92,7 @@ Aby ustawić punkt przerwania i debugowanie, wykonaj następujące czynności:
 
    ![Ikona debugowania w obszarze roboczym VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Otwórz Service Fabric Explorer w przeglądarce: http:\//localhost: 19080/Explorer. Kliknij pozycję **aplikacje** i przejdź do szczegółów, aby określić węzeł podstawowy, na którym działa CounterService. Na obrazie poniżej węzła podstawowego dla CounterService jest węzeł 0.
+3. Otwórz Service Fabric Explorer w przeglądarce: http: \/ /localhost: 19080/Explorer. Kliknij pozycję **aplikacje** i przejdź do szczegółów, aby określić węzeł podstawowy, na którym działa CounterService. Na obrazie poniżej węzła podstawowego dla CounterService jest węzeł 0.
 
    ![Węzeł podstawowy dla CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

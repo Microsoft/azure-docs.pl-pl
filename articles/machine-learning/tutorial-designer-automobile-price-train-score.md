@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119035"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517639"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Można ustawić **domyślny obiekt docelowy obliczeń** dla całego potoku, co s
     Jeśli masz już dostępny element docelowy obliczeń, możesz wybrać go do uruchomienia tego potoku.
 
     > [!NOTE]
-    > Projektant może uruchamiać eksperymenty szkoleniowe dotyczące Azure Machine Learning obliczeń i Azure Machine Learning obiektów docelowych wystąpienia obliczeniowego. Inne elementy docelowe obliczeń nie będą wyświetlane.
+    > Projektant może uruchamiać eksperymenty szkoleniowe tylko na Azure Machine Learning obliczeniowych i Azure Machine Learning wystąpieniach obliczeniowych, ale nie będą wyświetlane inne obiekty docelowe obliczeń.
 
 1. Wprowadź nazwę zasobu obliczeniowego.
 
@@ -107,8 +107,8 @@ Możesz wizualizować dane, aby zrozumieć zestaw danych, który będzie używan
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dziennik**.
 
 1. Wybierz ikonę grafu, aby wizualizować dane.
-
-    ![Wizualizacja danych](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Tekst alternatywny.":::
 
 1. Wybierz różne kolumny w oknie dane, aby wyświetlić informacje o każdej z nich.
 
@@ -173,15 +173,15 @@ Zestaw danych nadal ma brakujące wartości po usunięciu kolumny **znormalizowa
 
 1. W wyświetlonym oknie **kolumny do oczyszczenia** rozwiń menu rozwijane obok pozycji **Dołącz**. Zaznacz, **wszystkie kolumny**
 
-1. Wybierz pozycję **Zapisz**
+1. Wybierz pozycję **Zapisz**.
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję **Usuń cały wiersz** w obszarze **Tryb czyszczenia**.
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pole **komentarz** i wprowadź *Usuń brakujące wiersze wartości*. 
 
     Potok powinien teraz wyglądać następująco:
-    
-    ![Zaznacz kolumnę](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Zaznacz kolumnę":::
 
 ## <a name="train-a-machine-learning-model"></a>Uczenie modelu uczenia maszynowego
 
@@ -229,7 +229,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     > [!IMPORTANT]
     > Upewnij się, że lewe porty wyjściowe **danych dzielą** łączą się z **modelem uczenia**. Lewy port zawiera zestaw szkoleniowy. Prawidłowy port zawiera zestaw testów.
 
-    ![Zrzut ekranu przedstawiający poprawną konfigurację modułu uczenie modelu. Moduł regresja liniowa łączy się z lewym portem modułu uczenia modelowego, a moduł Split Data łączy się z odpowiednim portem modelu uczenia](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację modułu uczenie modelu. Moduł regresja liniowa łączy się z lewym portem modułu uczenia modelowego, a moduł podziału danych łączy się z odpowiednim portem modelu uczenia.":::
 
 1. Wybierz moduł **Train Model** (Trenowanie modelu).
 
@@ -244,7 +244,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
 
     Potok powinien wyglądać następująco:
 
-    ![Zrzut ekranu przedstawiający poprawną konfigurację potoku po dodaniu modułu uczenie modelu.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku po dodaniu modułu uczenie modelu.":::
 
 ### <a name="add-the-score-model-module"></a>Dodawanie modułu modelu oceny
 
@@ -264,7 +264,7 @@ Użyj modułu **oceny modelu** , aby oszacować, jak dobrze Model przedstawia te
 
     Końcowy potok powinien wyglądać następująco:
 
-    ![Zrzut ekranu przedstawiający poprawną konfigurację potoku.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku.":::
 
 ## <a name="submit-the-pipeline"></a>Prześlij potok
 
@@ -295,7 +295,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
-    ![Zrzut ekranu przedstawiający wizualizację danych wyjściowych z wyróżnioną kolumną etykieta z wynikami](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Zrzut ekranu przedstawiający wizualizację danych wyjściowych z wyróżnioną kolumną etykieta z wynikami":::
 
 ### <a name="evaluate-models"></a>Oceń modele
 
@@ -315,7 +315,7 @@ Następujące statystyki są wyświetlane dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować w części 2 samouczka [Wdrażanie modeli](tutorial-designer-automobile-price-deploy.md).
 

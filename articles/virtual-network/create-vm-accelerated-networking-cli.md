@@ -10,18 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 54c4a673e654a0244183a84ffa841d553ae6db51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106257"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688624"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą przyspieszonej sieci przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -35,7 +34,7 @@ Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego masz
 
 Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której jest włączona. Aby uzyskać najlepsze wyniki, najlepszym rozwiązaniem jest włączenie tej funkcji na co najmniej dwóch maszynach wirtualnych podłączonych do tej samej sieci wirtualnej platformy Azure. Podczas komunikacji między usługą sieci wirtualnych lub połączeniem lokalnym ta funkcja ma minimalny wpływ na ogólne opóźnienia.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 * **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS):** Usunięcie przełącznika wirtualnego ze ścieżki datapath usuwa pakiety czasu spędzane przez hosta w celu przetworzenia zasad i zwiększa liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
 * **Ograniczone wahania:** Przetwarzanie przełącznika wirtualnego zależy od ilości zasad, które należy zastosować, oraz obciążenia procesora, które przetwarza. Odciążanie wymuszania zasad sprzętowo eliminuje te zmienności, dostarczając pakiety bezpośrednio do maszyny wirtualnej, usuwając hosta do komunikacji z maszyną wirtualną oraz wszystkie przerwy w oprogramowaniu i przełączenia kontekstu.
 * **Zmniejszone użycie procesora CPU:** Obejście przełącznika wirtualnego na hoście prowadzi do mniejszego użycia procesora CPU do przetwarzania ruchu sieciowego.
@@ -158,7 +157,7 @@ az network nic create \
 ```
 
 ### <a name="create-a-vm-and-attach-the-nic"></a>Tworzenie maszyny wirtualnej i dołączanie karty sieciowej
-Podczas tworzenia maszyny wirtualnej należy określić kartę sieciową utworzoną za pomocą `--nics`programu. Wybierz rozmiar i dystrybucję na liście w [przyspieszonej sieci systemu Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+Podczas tworzenia maszyny wirtualnej należy określić kartę sieciową utworzoną za pomocą programu `--nics` . Wybierz rozmiar i dystrybucję na liście w [przyspieszonej sieci systemu Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM* z obrazem UbuntuLTS i rozmiar obsługujący przyspieszone sieci (*Standard_DS4_v2*):
 
@@ -206,7 +205,7 @@ Z poziomu powłoki bash wprowadź `uname -r` i sprawdź, czy wersja jądra ma je
 * **CentOS**: 7.4.20171206
 
 
-Upewnij się, że urządzenie Mellanox VF jest widoczne dla maszyny wirtualnej `lspci` za pomocą polecenia. Zwrócone dane wyjściowe są podobne do następujących:
+Upewnij się, że urządzenie Mellanox VF jest widoczne dla maszyny wirtualnej za pomocą `lspci` polecenia. Zwrócone dane wyjściowe są podobne do następujących:
 
 ```output
 0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)

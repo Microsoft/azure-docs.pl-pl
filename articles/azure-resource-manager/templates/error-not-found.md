@@ -1,29 +1,28 @@
 ---
 title: Błędy nieznalezienia zasobu
-description: Opisuje sposób rozwiązywania błędów, gdy nie można znaleźć zasobu podczas wdrażania przy użyciu szablonu Azure Resource Manager.
+description: Opisuje sposób rozwiązywania błędów, gdy nie można znaleźć zasobu. Ten błąd może wystąpić podczas wdrażania szablonu Azure Resource Manager lub podczas wykonywania akcji związanych z zarządzaniem.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
-ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667951"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Nie znaleziono błędów dla zasobów platformy Azure
+# <a name="resolve-resource-not-found-errors"></a>Rozpoznaj błędy nieznalezionego zasobu
 
-W tym artykule opisano błędy, które mogą pojawić się, gdy nie można znaleźć zasobu podczas wdrażania.
+W tym artykule opisano błąd, który pojawia się, gdy nie można znaleźć zasobu podczas operacji. Zazwyczaj ten błąd jest wyświetlany podczas wdrażania zasobów. Ten błąd jest również wyświetlany podczas wykonywania zadań zarządzania i Azure Resource Manager nie może znaleźć wymaganego zasobu. Na przykład, jeśli spróbujesz dodać tagi do zasobu, który nie istnieje, zostanie wyświetlony ten błąd.
 
 ## <a name="symptom"></a>Objaw
 
-Jeśli szablon zawiera nazwę zasobu, którego nie można rozpoznać, zostanie wyświetlony komunikat o błędzie podobny do:
+Istnieją dwa kody błędów wskazujące, że nie można znaleźć zasobu. Błąd **NOTFOUND** zwraca wynik podobny do:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Jeśli używasz funkcji [Reference](template-functions-resource.md#reference) lub [listKeys](template-functions-resource.md#listkeys) z zasobem, którego nie można rozpoznać, zostanie wyświetlony następujący błąd:
+Błąd **ResourceNotFound** zwraca wynik podobny do:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +32,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Przyczyna
 
-Menedżer zasobów musi pobrać właściwości dla zasobu, ale nie może zidentyfikować zasobu w subskrypcji.
+Menedżer zasobów musi pobrać właściwości zasobu, ale nie może znaleźć zasobu w Twoich subskrypcjach.
 
-## <a name="solution-1---set-dependencies"></a>Rozwiązanie 1 — Ustawianie zależności
+## <a name="solution-1---check-resource-properties"></a>Rozwiązanie 1 — Sprawdzanie właściwości zasobów
 
-Jeśli próbujesz wdrożyć brakujący zasób w szablonie, sprawdź, czy musisz dodać zależność. Menedżer zasobów optymalizuje wdrożenie przez tworzenie zasobów równolegle, gdy jest to możliwe. Jeśli jeden zasób musi zostać wdrożony po innym zasobie, należy użyć elementu **dependsOn** w szablonie. Na przykład podczas wdrażania aplikacji sieci Web plan App Service musi istnieć. Jeśli nie określono, że aplikacja sieci Web zależy od planu App Service, Menedżer zasobów tworzy jednocześnie oba zasoby. Zostanie wyświetlony komunikat o błędzie informujący o tym, że nie można odnaleźć zasobu planu App Service, ponieważ nie istnieje on jeszcze podczas próby ustawienia właściwości aplikacji sieci Web. Ten błąd można uniknąć, ustawiając zależność w aplikacji sieci Web.
+Po otrzymaniu tego błędu podczas wykonywania zadania zarządzania Sprawdź wartości podane dla zasobu. Oto trzy wartości do sprawdzenia:
+
+* Nazwa zasobu
+* Nazwa grupy zasobów
+* Subskrypcja
+
+Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, sprawdź, czy jest uruchomione polecenie w subskrypcji zawierającej zasób. Subskrypcję można zmienić za pomocą opcji [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) lub [AZ Account Set](/cli/azure/account#az-account-set). Wiele poleceń udostępnia również parametr subskrypcji, który pozwala określić inną subskrypcję niż bieżący kontekst.
+
+Jeśli masz problemy z weryfikacją właściwości, zaloguj się do [portalu](https://portal.azure.com). Znajdź zasób, którego próbujesz użyć, i Sprawdź nazwę zasobu, grupę zasobów i subskrypcję.
+
+## <a name="solution-2---set-dependencies"></a>Rozwiązanie 2 — Ustawianie zależności
+
+Jeśli ten błąd wystąpi podczas wdrażania szablonu, może być konieczne dodanie zależności. Menedżer zasobów optymalizuje wdrożenie przez tworzenie zasobów równolegle, gdy jest to możliwe. Jeśli jeden zasób musi zostać wdrożony po innym zasobie, należy użyć elementu **dependsOn** w szablonie. Na przykład podczas wdrażania aplikacji sieci Web plan App Service musi istnieć. Jeśli nie określono, że aplikacja sieci Web zależy od planu App Service, Menedżer zasobów tworzy jednocześnie oba zasoby. Zostanie wyświetlony komunikat o błędzie informujący o tym, że nie można odnaleźć zasobu planu App Service, ponieważ nie istnieje on jeszcze podczas próby ustawienia właściwości aplikacji sieci Web. Ten błąd można uniknąć, ustawiając zależność w aplikacji sieci Web.
 
 ```json
 {
@@ -70,9 +81,13 @@ Gdy widzisz problemy z zależnościami, musisz uzyskać wgląd w kolejność wdr
 
    ![wdrożenie sekwencyjne](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Rozwiązanie 2 — Pobieranie zasobu z innej grupy zasobów
+## <a name="solution-3---get-external-resource"></a>Rozwiązanie 3 — Pobieranie zasobu zewnętrznego
 
-Gdy zasób istnieje w innej grupie zasobów niż ta, w której jest wdrażana, użyj [funkcji ResourceID](template-functions-resource.md#resourceid) , aby uzyskać w pełni kwalifikowaną nazwę zasobu.
+Podczas wdrażania szablonu i konieczności pobrania zasobu, który istnieje w innej subskrypcji lub grupie zasobów, należy użyć [funkcji ResourceID](template-functions-resource.md#resourceid). Ta funkcja zwraca do pobrania w pełni kwalifikowanej nazwy zasobu.
+
+Parametry subskrypcji i grupy zasobów w funkcji resourceId są opcjonalne. Jeśli ich nie podano, domyślnie są to bieżąca subskrypcja i Grupa zasobów. Podczas pracy z zasobem w innej grupie zasobów lub subskrypcji upewnij się, że podane zostały te wartości.
+
+Poniższy przykład pobiera identyfikator zasobu dla zasobu, który istnieje w innej grupie zasobów.
 
 ```json
 "properties": {
@@ -81,22 +96,39 @@ Gdy zasób istnieje w innej grupie zasobów niż ta, w której jest wdrażana, u
 }
 ```
 
-## <a name="solution-3---check-reference-function"></a>Rozwiązanie 3 — sprawdzanie funkcji referencyjnej
-
-Wyszukaj wyrażenie zawierające funkcję [Reference](template-functions-resource.md#reference) . Wartości, które można określić, różnią się w zależności od tego, czy zasób znajduje się w tym samym szablonie, grupie zasobów i subskrypcji. Sprawdź dokładnie, czy podajesz wymagane wartości parametrów dla danego scenariusza. Jeśli zasób znajduje się w innej grupie zasobów, podaj pełny identyfikator zasobu. Na przykład, aby odwołać się do konta magazynu w innej grupie zasobów, należy użyć:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
-```
-
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Rozwiązanie 4 — uzyskiwanie zarządzanej tożsamości z zasobu
 
 W przypadku wdrażania zasobu, który niejawnie tworzy [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md), przed pobraniem wartości w zarządzanej tożsamości należy poczekać, aż ten zasób zostanie wdrożony. Jeśli nazwa tożsamości zarządzanej zostanie przekazana do funkcji [referencyjnej](template-functions-resource.md#reference) , Menedżer zasobów próbuje rozpoznać odwołanie przed wdrożeniem zasobu i tożsamości. Zamiast tego należy przekazać nazwę zasobu, do którego jest stosowana tożsamość. Takie podejście gwarantuje, że zasób i zarządzana tożsamość zostaną wdrożone przed Menedżer zasobów rozpozna funkcję Reference.
 
-W funkcji Reference Użyj `Full` , aby uzyskać wszystkie właściwości, w tym zarządzaną tożsamość.
+W funkcji Reference Użyj, `Full` Aby uzyskać wszystkie właściwości, w tym zarządzaną tożsamość.
 
-Na przykład aby uzyskać identyfikator dzierżawy dla tożsamości zarządzanej, która została zastosowana do zestawu skalowania maszyn wirtualnych, użyj:
+Wzorzec to:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> Nie używaj wzorca:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Szablon zakończy się niepowodzeniem.
+
+Aby na przykład uzyskać identyfikator podmiotu zabezpieczeń dla tożsamości zarządzanej, która jest zastosowana do maszyny wirtualnej, należy użyć:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Lub, aby uzyskać identyfikator dzierżawy dla tożsamości zarządzanej, która została zastosowana do zestawu skalowania maszyn wirtualnych, użyj:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Rozwiązanie 5 — sprawdzanie funkcji
+
+Podczas wdrażania szablonu należy poszukać wyrażeń, które używają funkcji [Reference](template-functions-resource.md#reference) lub [listKeys](template-functions-resource.md#listkeys) . Wartości, które można określić, różnią się w zależności od tego, czy zasób znajduje się w tym samym szablonie, grupie zasobów i subskrypcji. Sprawdź, czy podajesz wymagane wartości parametrów dla danego scenariusza. Jeśli zasób znajduje się w innej grupie zasobów, podaj pełny identyfikator zasobu. Na przykład, aby odwołać się do konta magazynu w innej grupie zasobów, należy użyć:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

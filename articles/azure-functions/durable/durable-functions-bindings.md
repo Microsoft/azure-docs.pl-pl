@@ -5,11 +5,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278222"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698065"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla Durable Functions (Azure Functions)
 
@@ -21,7 +20,7 @@ Wyzwalacz aranżacji umożliwia tworzenie [trwałych funkcji programu Orchestrat
 
 W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz aranżacji jest konfigurowany przy użyciu atrybutu platformy .NET [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .
 
-W przypadku pisania funkcji programu Orchestrator w językach skryptów (na przykład skryptów JavaScript lub C#) wyzwalacz aranżacji jest definiowany przez następujący obiekt JSON w `bindings` tablicy pliku *Function. JSON* :
+W przypadku pisania funkcji programu Orchestrator w językach skryptów (na przykład skryptów JavaScript lub C#) wyzwalacz aranżacji jest definiowany przez następujący obiekt JSON w `bindings` tablicy *function.jsw* pliku:
 
 ```json
 {
@@ -49,14 +48,14 @@ Poniżej znajdują się pewne uwagi dotyczące wyzwalacza aranżacji:
 > Funkcje programu Orchestrator nigdy nie powinny używać żadnych powiązań wejściowych ani wyjściowych innych niż powiązanie wyzwalacza aranżacji. Takie działanie może spowodować problemy z rozszerzeniem zadania trwałego, ponieważ te powiązania mogą nie przestrzegać reguł jednowątkowych i operacji we/wy. Jeśli chcesz użyć innych powiązań, Dodaj je do funkcji działania wywołanej z funkcji programu Orchestrator.
 
 > [!WARNING]
-> Funkcje programu Orchestrator w języku JavaScript nigdy `async`nie powinny być deklarowane.
+> Funkcje programu Orchestrator w języku JavaScript nigdy nie powinny być deklarowane `async` .
 
 ### <a name="trigger-usage-net"></a>Użycie wyzwalacza (.NET)
 
 Powiązanie wyzwalacza aranżacji obsługuje dane wejściowe i wyjściowe. Oto kilka rzeczy, które należy wiedzieć na temat obsługi danych wejściowych i wyjściowych:
 
-* **wejścia** — funkcje aranżacji platformy .NET obsługują `DurableOrchestrationContext` tylko jako typ parametru. Deserializacja danych wejściowych bezpośrednio w sygnaturze funkcji nie jest obsługiwana. Aby można było pobrać `GetInput<T>` dane wejściowe funkcji programu `getInput` Orchestrator, kod musi używać metody (.NET) lub (JavaScript). Te dane wejściowe muszą być typami możliwymi do serializacji JSON.
-* Generowanie **danych wyjściowych —** wyzwalacze aranżacji obsługują wartości wyjściowe oraz dane wejściowe. Wartość zwracana funkcji służy do przypisywania wartości wyjściowej i musi być możliwa do serializacji JSON. Jeśli funkcja .NET zwraca `Task` lub `void`, `null` wartość zostanie zapisana jako dane wyjściowe.
+* **wejścia** — funkcje aranżacji platformy .NET obsługują tylko `DurableOrchestrationContext` jako typ parametru. Deserializacja danych wejściowych bezpośrednio w sygnaturze funkcji nie jest obsługiwana. `GetInput<T>` `getInput` Aby można było pobrać dane wejściowe funkcji programu Orchestrator, kod musi używać metody (.NET) lub (JavaScript). Te dane wejściowe muszą być typami możliwymi do serializacji JSON.
+* Generowanie **danych wyjściowych —** wyzwalacze aranżacji obsługują wartości wyjściowe oraz dane wejściowe. Wartość zwracana funkcji służy do przypisywania wartości wyjściowej i musi być możliwa do serializacji JSON. Jeśli funkcja .NET zwraca `Task` lub `void` , `null` wartość zostanie zapisana jako dane wyjściowe.
 
 ### <a name="trigger-sample"></a>Przykład wyzwalacza
 
@@ -73,7 +72,7 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 }
 ```
 > [!NOTE]
-> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 #### <a name="javascript-functions-20-only"></a>JavaScript (tylko funkcje 2,0)
 
@@ -87,10 +86,10 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> `context` Obiekt w języku JavaScript nie reprezentuje DurableOrchestrationContext, ale [kontekst funkcji jako całości](../functions-reference-node.md#context-object). Dostęp do metod aranżacji można uzyskać za `context` pomocą `df` właściwości obiektu.
+> `context`Obiekt w języku JavaScript nie reprezentuje DurableOrchestrationContext, ale [kontekst funkcji jako całości](../functions-reference-node.md#context-object). Dostęp do metod aranżacji można uzyskać za pomocą `context` `df` właściwości obiektu.
 
 > [!NOTE]
-> Koordynator JavaScript powinien używać `return`. `durable-functions` Biblioteka zajmuje się `context.done` wywołaniem metody.
+> Koordynator JavaScript powinien używać `return` . `durable-functions`Biblioteka zajmuje się wywołaniem `context.done` metody.
 
 Większość funkcji działania wywoływanych przez program Orchestrator ma w tym miejscu następujący przykład "Hello world", który pokazuje, jak wywołać funkcję działania:
 
@@ -108,7 +107,7 @@ public static async Task<string> Run(
 ```
 
 > [!NOTE]
-> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 #### <a name="javascript-functions-20-only"></a>JavaScript (tylko funkcje 2,0)
 
@@ -126,9 +125,9 @@ module.exports = df.orchestrator(function*(context) {
 
 Wyzwalacz działania umożliwia tworzenie funkcji, które są wywoływane przez funkcje programu Orchestrator, znane jako [funkcje działania](durable-functions-types-features-overview.md#activity-functions).
 
-Jeśli używasz programu Visual Studio, wyzwalacz aktywności jest konfigurowany przy użyciu atrybutu `ActivityTriggerAttribute` .NET.
+Jeśli używasz programu Visual Studio, wyzwalacz aktywności jest konfigurowany przy użyciu `ActivityTriggerAttribute` atrybutu .NET.
 
-Jeśli używasz VS Code lub Azure Portal do programowania, wyzwalacz aktywności jest definiowany przez następujący obiekt JSON w `bindings` tablicy *Function. JSON*:
+Jeśli używasz VS Code lub Azure Portal do programowania, wyzwalacz aktywności jest definiowany przez następujący obiekt JSON w `bindings` tablicy *function.jsw*:
 
 ```json
 {
@@ -159,8 +158,8 @@ Poniżej przedstawiono niektóre uwagi dotyczące wyzwalacza działania:
 
 Powiązanie wyzwalacza działania obsługuje dane wejściowe i wyjściowe, podobnie jak wyzwalacz aranżacji. Oto kilka rzeczy, które należy wiedzieć na temat obsługi danych wejściowych i wyjściowych:
 
-* **wejścia** — funkcje działania .NET natywnie wykorzystują `DurableActivityContext` jako typ parametru. Alternatywnie można zadeklarować funkcję działania z dowolnym typem parametru, który jest możliwy do serializacji notacji JSON. Gdy używasz `DurableActivityContext`, możesz wywołać `GetInput<T>` , aby pobrać i zdeserializować dane wejściowe funkcji działania.
-* funkcje **danych wyjściowych** obsługują wartości wyjściowe oraz dane wejściowe. Wartość zwracana funkcji służy do przypisywania wartości wyjściowej i musi być możliwa do serializacji JSON. Jeśli funkcja .NET zwraca `Task` lub `void`, `null` wartość zostanie zapisana jako dane wyjściowe.
+* **wejścia** — funkcje działania .NET natywnie wykorzystują `DurableActivityContext` jako typ parametru. Alternatywnie można zadeklarować funkcję działania z dowolnym typem parametru, który jest możliwy do serializacji notacji JSON. Gdy używasz `DurableActivityContext` , możesz wywołać, `GetInput<T>` Aby pobrać i zdeserializować dane wejściowe funkcji działania.
+* funkcje **danych wyjściowych** obsługują wartości wyjściowe oraz dane wejściowe. Wartość zwracana funkcji służy do przypisywania wartości wyjściowej i musi być możliwa do serializacji JSON. Jeśli funkcja .NET zwraca `Task` lub `void` , `null` wartość zostanie zapisana jako dane wyjściowe.
 * **metadane** — funkcje działania .NET można powiązać z `string instanceId` parametrem w celu uzyskania identyfikatora wystąpienia aranżacji nadrzędnej.
 
 ### <a name="trigger-sample"></a>Przykład wyzwalacza
@@ -179,9 +178,9 @@ public static string SayHello([ActivityTrigger] IDurableActivityContext helloCon
 ```
 
 > [!NOTE]
-> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableActivityContext` zamiast. `IDurableActivityContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableActivityContext` zamiast `IDurableActivityContext` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-Domyślny typ parametru dla powiązania .NET `ActivityTriggerAttribute` to. `IDurableActivityContext` Jednak wyzwalacze aktywności .NET obsługują również powiązanie bezpośrednio z typami serializowanych JSON (w tym typami pierwotnymi), dzięki czemu ta sama funkcja może być uproszczona w następujący sposób:
+Domyślny typ parametru dla `ActivityTriggerAttribute` powiązania .NET to `IDurableActivityContext` . Jednak wyzwalacze aktywności .NET obsługują również powiązanie bezpośrednio z typami serializowanych JSON (w tym typami pierwotnymi), dzięki czemu ta sama funkcja może być uproszczona w następujący sposób:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -247,9 +246,9 @@ Powiązanie klienta aranżacji pozwala pisać funkcje, które współdziałają 
 * Wysyłaj do nich zdarzenia, gdy są one uruchomione.
 * Przeczyść historię wystąpień.
 
-Jeśli używasz programu Visual Studio, możesz powiązać się z klientem aranżacji przy użyciu atrybutu `OrchestrationClientAttribute` .net dla Durable Functions 1,0. Począwszy od Durable Functions 2,0, można powiązać z klientem aranżacji przy użyciu atrybutu `DurableClientAttribute` platformy .NET.
+Jeśli używasz programu Visual Studio, możesz powiązać się z klientem aranżacji przy użyciu `OrchestrationClientAttribute` atrybutu .NET dla Durable Functions 1,0. Począwszy od Durable Functions 2,0, można powiązać z klientem aranżacji przy użyciu `DurableClientAttribute` atrybutu platformy .NET.
 
-Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) do programowania, wyzwalacz aranżacji jest DEFINIOWANY przez następujący obiekt JSON w `bindings` tablicy *Function. JSON*:
+Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) do programowania, wyzwalacz aranżacji jest DEFINIOWANY przez następujący obiekt JSON w `bindings` tablicy *function.jsw*:
 
 ```json
 {
@@ -261,7 +260,7 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 }
 ```
 
-* `taskHub`— Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, zostanie użyta `host.json` wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez docelowe funkcje programu Orchestrator.
+* `taskHub`— Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, `host.json` zostanie użyta wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez docelowe funkcje programu Orchestrator.
 * `connectionName`— Nazwa ustawienia aplikacji, które zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowane przez te parametry połączenia musi być takie samo, jak używane przez docelowe funkcje programu Orchestrator. Jeśli nie zostanie określony, używane są domyślne parametry połączenia konta magazynu dla aplikacji funkcji.
 
 > [!NOTE]
@@ -269,7 +268,7 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 
 ### <a name="client-usage"></a>Użycie klienta
 
-W programie .NET Functions zwykle wiąże `IDurableOrchestrationClient`się z, który zapewnia pełny dostęp do wszystkich interfejsów API klienta aranżacji obsługiwanych przez Durable Functions. W starszych wersjach Durable Functions 2. x, zamiast tego należy powiązać z `DurableOrchestrationClient` klasą. W języku JavaScript te same interfejsy API są uwidaczniane przez obiekt zwrócony `getClient`z. Interfejsy API w obiekcie klienta obejmują:
+W programie .NET Functions zwykle wiąże się z `IDurableOrchestrationClient` , który zapewnia pełny dostęp do wszystkich interfejsów API klienta aranżacji obsługiwanych przez Durable Functions. W starszych wersjach Durable Functions 2. x, zamiast tego należy powiązać z `DurableOrchestrationClient` klasą. W języku JavaScript te same interfejsy API są uwidaczniane przez obiekt zwrócony z `getClient` . Interfejsy API w obiekcie klienta obejmują:
 
 * `StartNewAsync`
 * `GetStatusAsync`
@@ -279,7 +278,7 @@ W programie .NET Functions zwykle wiąże `IDurableOrchestrationClient`się z, k
 * `CreateCheckStatusResponse`
 * `CreateHttpManagementPayload`
 
-Alternatywnie funkcje programu .NET mogą tworzyć powiązania `IAsyncCollector<T>` z `T` miejscem `StartOrchestrationArgs` , `JObject`gdzie jest lub.
+Alternatywnie funkcje programu .NET mogą tworzyć powiązania z `IAsyncCollector<T>` miejscem, gdzie `T` jest `StartOrchestrationArgs` lub `JObject` .
 
 Więcej informacji na temat tych operacji można znaleźć w `IDurableOrchestrationClient` dokumentacji interfejsu API.
 
@@ -299,11 +298,11 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Poprzedni kod w języku C# jest przeznaczony dla Durable Functions 2. x. W przypadku `OrchestrationClient` Durable Functions 1. x należy użyć atrybutu zamiast `DurableClient` atrybutu i należy użyć typu `DurableOrchestrationClient` parametru zamiast. `IDurableOrchestrationClient` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni kod w języku C# jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `OrchestrationClient` atrybutu zamiast `DurableClient` atrybutu i należy użyć `DurableOrchestrationClient` typu parametru zamiast `IDurableOrchestrationClient` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 ### <a name="client-sample-not-visual-studio"></a>Przykład klienta (nie Visual Studio)
 
-Jeśli nie używasz programu Visual Studio do tworzenia aplikacji, możesz utworzyć następujący plik *Function. JSON* . Ten przykład przedstawia sposób konfigurowania funkcji wyzwalanej przez kolejkę, która używa powiązania klienta trwałej aranżacji:
+Jeśli nie używasz programu Visual Studio do tworzenia aplikacji, możesz utworzyć następujące *function.jsw* pliku. Ten przykład przedstawia sposób konfigurowania funkcji wyzwalanej przez kolejkę, która używa powiązania klienta trwałej aranżacji:
 
 ```json
 {
@@ -344,7 +343,7 @@ public static Task Run(string input, IDurableOrchestrationClient starter)
 ```
 
 > [!NOTE]
-> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć typu `DurableOrchestrationClient` parametru zamiast. `IDurableOrchestrationClient` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
+> Poprzedni kod jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationClient` typu parametru zamiast `IDurableOrchestrationClient` . Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 #### <a name="javascript-sample"></a>Przykładowy kod JavaScript
 
@@ -365,7 +364,7 @@ Więcej informacji o wystąpieniach początkowych można znaleźć w temacie [Za
 
 Wyzwalacze jednostek umożliwiają tworzenie [funkcji jednostek](durable-functions-entities.md). Ten wyzwalacz obsługuje przetwarzanie zdarzeń dla określonego wystąpienia jednostki.
 
-W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz jednostki jest konfigurowany przy użyciu atrybutu `EntityTriggerAttribute` .NET.
+W przypadku korzystania z narzędzi Visual Studio Tools for Azure Functions wyzwalacz jednostki jest konfigurowany przy użyciu `EntityTriggerAttribute` atrybutu .NET.
 
 > [!NOTE]
 > Wyzwalacze jednostki są dostępne, zaczynając od Durable Functions 2. x.
@@ -385,27 +384,27 @@ Wszystkie zmiany stanu wprowadzone w jednostce podczas jej wykonywania zostaną 
 
 ### <a name="trigger-usage-net"></a>Użycie wyzwalacza (.NET)
 
-Każda funkcja jednostki ma typ parametru `IDurableEntityContext`, który ma następujące elementy członkowskie:
+Każda funkcja jednostki ma typ parametru `IDurableEntityContext` , który ma następujące elementy członkowskie:
 
 * **EntityName**: nazwa aktualnie wykonywanej jednostki.
 * **EntityKey**: klucz aktualnie wykonywanej jednostki.
 * **EntityId**: Identyfikator aktualnie wykonywanej jednostki.
 * **OperationName**: nazwa bieżącej operacji.
 * **HasState**: wskazuje, czy jednostka istnieje, czy ma jakiś stan. 
-* **GetState\<TState> ()**: Pobiera bieżący stan jednostki. Jeśli jeszcze nie istnieje, zostanie utworzony i zainicjowany do `default<TState>`. `TState` Parametr musi być typem pierwotnym lub obiektem serializacji JSON. 
-* **GetState\<TState> (initfunction)**: Pobiera bieżący stan jednostki. Jeśli jeszcze nie istnieje, jest tworzony przez wywołanie dostarczonego `initfunction` parametru. `TState` Parametr musi być typem pierwotnym lub obiektem serializacji JSON. 
-* **Setstate (arg)**: tworzy lub aktualizuje stan jednostki. `arg` Parametr musi być obiektem, który można serializować lub elementem pierwotnym JSON.
+* **GetState \<TState> ()**: Pobiera bieżący stan jednostki. Jeśli jeszcze nie istnieje, zostanie utworzony i zainicjowany do `default<TState>` . `TState`Parametr musi być typem pierwotnym lub obiektem serializacji JSON. 
+* **GetState \<TState> (initfunction)**: Pobiera bieżący stan jednostki. Jeśli jeszcze nie istnieje, jest tworzony przez wywołanie dostarczonego `initfunction` parametru. `TState`Parametr musi być typem pierwotnym lub obiektem serializacji JSON. 
+* **Setstate (arg)**: tworzy lub aktualizuje stan jednostki. `arg`Parametr musi być obiektem, który można serializować lub elementem pierwotnym JSON.
 * **DeleteState ()**: usuwa stan jednostki. 
-* **Getinput\<TInput> ()**: Pobiera dane wejściowe dla bieżącej operacji. Parametr `TInput` Type musi być typem pierwotnym lub, który można serializować.
-* **Return (arg)**: zwraca wartość aranżacji, która wywołała operację. `arg` Parametr musi być obiektem pierwotnym lub serializowanym w formacie JSON.
-* **SignalEntity (EntityId, scheduledTimeUtc, Operation, input)**: wysyła komunikat jednokierunkowy do jednostki. `operation` Parametr musi być ciągiem o wartości innej niż null, opcjonalnie `scheduledTimeUtc` musi być czasem UTC, przy którym ma zostać wywołana operacja, a `input` parametr musi być obiektem PIERWOTNYM lub serializowanym przez kod JSON.
-* **CreateNewOrchestration (orchestratorFunctionName, input)**: uruchamia nową aranżację. `input` Parametr musi być obiektem pierwotnym lub serializowanym w formacie JSON.
+* **Getinput \<TInput> ()**: Pobiera dane wejściowe dla bieżącej operacji. `TInput`Parametr type musi być typem pierwotnym lub, który można serializować.
+* **Return (arg)**: zwraca wartość aranżacji, która wywołała operację. `arg`Parametr musi być obiektem pierwotnym lub serializowanym w formacie JSON.
+* **SignalEntity (EntityId, scheduledTimeUtc, Operation, input)**: wysyła komunikat jednokierunkowy do jednostki. `operation`Parametr musi być ciągiem o wartości innej niż null, opcjonalnie `scheduledTimeUtc` musi być czasem UTC, przy którym ma zostać wywołana operacja, a `input` parametr musi być obiektem pierwotnym lub SERIALIZOWANYM przez kod JSON.
+* **CreateNewOrchestration (orchestratorFunctionName, input)**: uruchamia nową aranżację. `input`Parametr musi być obiektem pierwotnym lub serializowanym w formacie JSON.
 
-Do `IDurableEntityContext` obiektu przesłanego do funkcji Entity można uzyskać dostęp za pomocą `Entity.Current` właściwości Async-Local. Takie podejście jest wygodne w przypadku korzystania z modelu programowania opartego na klasie.
+Do `IDurableEntityContext` obiektu przesłanego do funkcji Entity można uzyskać dostęp za pomocą `Entity.Current` Właściwości Async-Local. Takie podejście jest wygodne w przypadku korzystania z modelu programowania opartego na klasie.
 
 ### <a name="trigger-sample-c-function-based-syntax"></a>Przykład wyzwalacza (składnia oparta na funkcji C#)
 
-Poniższy kod jest przykładem prostej jednostki *licznika* wdrożonej jako funkcja trwała. Ta funkcja definiuje trzy operacje, `add`, `reset`, i `get`, z których każda działa na stanie liczby całkowitej.
+Poniższy kod jest przykładem prostej jednostki *licznika* wdrożonej jako funkcja trwała. Ta funkcja definiuje trzy operacje, `add` , `reset` , i `get` , z których każda działa na stanie liczby całkowitej.
 
 ```csharp
 [FunctionName("Counter")]
@@ -451,20 +450,20 @@ public class Counter
 }
 ```
 
-Stan tej jednostki jest obiektem typu `Counter`, który zawiera pole przechowujące bieżącą wartość licznika. Aby zachować ten obiekt w magazynie, jest on serializowany i deserializowany przez bibliotekę [JSON.NET](https://www.newtonsoft.com/json) . 
+Stan tej jednostki jest obiektem typu `Counter` , który zawiera pole przechowujące bieżącą wartość licznika. Aby zachować ten obiekt w magazynie, jest on serializowany i deserializowany przez bibliotekę [JSON.NET](https://www.newtonsoft.com/json) . 
 
 Aby uzyskać więcej informacji na temat składni opartej na klasie i korzystania z niej, zobacz [Definiowanie klas jednostek](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 > [!NOTE]
-> Metoda punktu wejścia funkcji z `[FunctionName]` atrybutem *musi* być zadeklarowana `static` w przypadku używania klas jednostek. Niestatyczne metody punktu wejścia mogą spowodować inicjalizację wielu obiektów oraz inne niezdefiniowane zachowania.
+> Metoda punktu wejścia funkcji z `[FunctionName]` atrybutem *musi* być zadeklarowana w `static` przypadku używania klas jednostek. Niestatyczne metody punktu wejścia mogą spowodować inicjalizację wielu obiektów oraz inne niezdefiniowane zachowania.
 
 Klasy jednostek mają specjalne mechanizmy współpracy z powiązaniami i iniekcją zależności platformy .NET. Aby uzyskać więcej informacji, zobacz [konstruowanie jednostki](durable-functions-dotnet-entities.md#entity-construction).
 
 ### <a name="trigger-sample-javascript"></a>Przykład wyzwalacza (JavaScript)
 
-Poniższy kod jest przykładem prostej jednostki *licznika* zaimplementowane jako funkcja trwała zapisywana w języku JavaScript. Ta funkcja definiuje trzy operacje, `add`, `reset`, i `get`, z których każda działa na stanie liczby całkowitej.
+Poniższy kod jest przykładem prostej jednostki *licznika* zaimplementowane jako funkcja trwała zapisywana w języku JavaScript. Ta funkcja definiuje trzy operacje, `add` , `reset` , i `get` , z których każda działa na stanie liczby całkowitej.
 
-**Function. JSON**
+**function.jsna**
 ```json
 {
   "bindings": [
@@ -478,7 +477,7 @@ Poniższy kod jest przykładem prostej jednostki *licznika* zaimplementowane jak
 }
 ```
 
-**index. js**
+**index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -506,12 +505,12 @@ module.exports = df.entity(function(context) {
 
 Powiązanie klienta jednostki umożliwia asynchroniczne wyzwalanie [funkcji jednostek](#entity-trigger). Te funkcje są czasami określane jako [funkcje klienta](durable-functions-types-features-overview.md#client-functions).
 
-Jeśli używasz programu Visual Studio, możesz powiązać z klientem jednostki przy użyciu atrybutu `DurableClientAttribute` .NET.
+Jeśli używasz programu Visual Studio, możesz powiązać z klientem jednostki przy użyciu `DurableClientAttribute` atrybutu .NET.
 
 > [!NOTE]
-> `[DurableClientAttribute]` Może również służyć do powiązania z [klientem aranżacji](#orchestration-client).
+> `[DurableClientAttribute]`Może również służyć do powiązania z [klientem aranżacji](#orchestration-client).
 
-Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) do programowania, wyzwalacz jednostki jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicy *Function. JSON*:
+Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) do programowania, wyzwalacz jednostki jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicy *function.jsw*:
 
 ```json
 {
@@ -523,7 +522,7 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 }
 ```
 
-* `taskHub`— Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, zostanie użyta `host.json` wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez funkcje jednostki docelowej.
+* `taskHub`— Używane w scenariuszach, w których wiele aplikacji funkcji współużytkuje to samo konto magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, `host.json` zostanie użyta wartość domyślna od. Ta wartość musi być zgodna z wartością używaną przez funkcje jednostki docelowej.
 * `connectionName`— Nazwa ustawienia aplikacji, które zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowane przez te parametry połączenia musi być takie samo, jak używane przez funkcje jednostki docelowej. Jeśli nie zostanie określony, używane są domyślne parametry połączenia konta magazynu dla aplikacji funkcji.
 
 > [!NOTE]
@@ -531,9 +530,9 @@ Jeśli używasz języków skryptów (na przykład plików *. CSX* lub *. js* ) d
 
 ### <a name="entity-client-usage"></a>Użycie klienta jednostki
 
-W programie .NET Functions zwykle wiąże `IDurableEntityClient`się z, który zapewnia pełny dostęp do wszystkich interfejsów API klienta obsługiwanych przez trwałe jednostki. Można również powiązać z `IDurableOrchestrationClient` interfejsem, który zapewnia dostęp do interfejsów API klienta zarówno dla jednostek, jak i aranżacji. Interfejsy API w obiekcie klienta obejmują:
+W programie .NET Functions zwykle wiąże się z `IDurableEntityClient` , który zapewnia pełny dostęp do wszystkich interfejsów API klienta obsługiwanych przez trwałe jednostki. Można również powiązać z `IDurableOrchestrationClient` interfejsem, który zapewnia dostęp do interfejsów API klienta zarówno dla jednostek, jak i aranżacji. Interfejsy API w obiekcie klienta obejmują:
 
-* **ReadEntityStateAsync\<T>**: odczytuje stan jednostki. Zwraca odpowiedź wskazującą, czy jednostka docelowa istnieje, a jeśli tak, to jaki jest jej stan.
+* **ReadEntityStateAsync \<T> **: odczytuje stan jednostki. Zwraca odpowiedź wskazującą, czy jednostka docelowa istnieje, a jeśli tak, to jaki jest jej stan.
 * **SignalEntityAsync**: wysyła komunikat jednokierunkowy do jednostki i czeka na jego przekolejkowanie.
 * **ListEntitiesAsync**: wykonuje zapytania dotyczące stanu wielu jednostek. Jednostki mogą być zapytania według *nazwy* i *czasu ostatniej operacji*.
 
@@ -561,7 +560,7 @@ public static Task Run(
 
 ### <a name="example-client-signals-entity-via-interface---c"></a>Przykład: klient sygnalizuje jednostkę za pośrednictwem interfejsu-C #
 
-Tam, gdzie to możliwe, zalecamy [dostęp do jednostek za poorednictwem interfejsów](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) , ponieważ zapewnia ona większą kontrolę typów. Załóżmy na przykład, że `Counter` jednostka wymieniona wcześniej implementuje `ICounter` interfejs, zdefiniowane w następujący sposób:
+Tam, gdzie to możliwe, zalecamy [dostęp do jednostek za poorednictwem interfejsów](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) , ponieważ zapewnia ona większą kontrolę typów. Załóżmy na przykład, że `Counter` Jednostka wymieniona wcześniej implementuje `ICounter` interfejs, zdefiniowane w następujący sposób:
 
 ```csharp
 public interface ICounter
@@ -591,18 +590,18 @@ public static async Task AddValueClient(
 }
 ```
 
-`proxy` Parametr jest dynamicznie generowanym wystąpieniem `ICounter`, które wewnętrznie tłumaczy wywołanie na `Add` równoważne (bez typu) wywołania do `SignalEntityAsync`.
+`proxy`Parametr jest dynamicznie generowanym wystąpieniem `ICounter` , które wewnętrznie tłumaczy wywołanie na `Add` równoważne (bez typu) wywołania do `SignalEntityAsync` .
 
 > [!NOTE]
-> `SignalEntityAsync` Interfejsy API reprezentują operacje jednokierunkowe. Jeśli interfejsy jednostki zwracają `Task<T>`, wartość `T` parametru zawsze będzie równa null lub. `default`
+> `SignalEntityAsync`Interfejsy API reprezentują operacje jednokierunkowe. Jeśli interfejsy jednostki zwracają `Task<T>` , wartość `T` parametru zawsze będzie równa null lub `default` .
 
-W szczególności nie ma sensu sygnalizowanie `Get` operacji, ponieważ nie jest zwracana żadna wartość. Zamiast tego klienci mogą uzyskać dostęp `ReadStateAsync` do stanu licznika bezpośrednio lub uruchomić funkcję programu Orchestrator, która wywołuje `Get` operację.
+W szczególności nie ma sensu sygnalizowanie `Get` operacji, ponieważ nie jest zwracana żadna wartość. Zamiast tego klienci mogą `ReadStateAsync` uzyskać dostęp do stanu licznika bezpośrednio lub uruchomić funkcję programu Orchestrator, która wywołuje `Get` operację.
 
 ### <a name="example-client-signals-entity---javascript"></a>Przykład: klient sygnalizuje jednostkę — JavaScript
 
 Oto przykład funkcji wyzwalanej przez kolejkę, która sygnalizuje jednostkę "Counter" w języku JavaScript.
 
-**Function. JSON**
+**function.jsna**
 ```json
 {
     "bindings": [
@@ -622,7 +621,7 @@ Oto przykład funkcji wyzwalanej przez kolejkę, która sygnalizuje jednostkę "
   }
 ```
 
-**index. js**
+**index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -637,7 +636,7 @@ module.exports = async function (context) {
 > Trwałe jednostki są dostępne w języku JavaScript, począwszy **1.3.0** od wersji 1.3.0 `durable-functions` pakietu npm.
 
 <a name="host-json"></a>
-## <a name="hostjson-settings"></a>Ustawienia pliku host. JSON
+## <a name="hostjson-settings"></a>host.jsustawień
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 

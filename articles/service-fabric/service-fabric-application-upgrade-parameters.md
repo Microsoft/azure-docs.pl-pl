@@ -4,10 +4,9 @@ description: Opisuje parametry związane z uaktualnianiem aplikacji Service Fabr
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75377977"
 ---
 # <a name="application-upgrade-parameters"></a>Parametry uaktualniania aplikacji
@@ -45,7 +44,7 @@ UnmonitoredManual | PS | Wskazuje, że tryb uaktualniania jest niemonitorowany. 
 
 ### <a name="optional-parameters"></a>Parametry opcjonalne
 
-Parametry oceny kondycji są opcjonalne. Jeśli nie zostaną określone kryteria oceny kondycji, gdy rozpocznie się uaktualnianie, Service Fabric korzysta z zasad dotyczących kondycji aplikacji określonych w ApplicationManifest. xml wystąpienia aplikacji.
+Parametry oceny kondycji są opcjonalne. Jeśli nie zostaną określone kryteria oceny kondycji, gdy zostanie uruchomione uaktualnienie, Service Fabric korzysta z zasad dotyczących kondycji aplikacji określonych w ApplicationManifest.xml wystąpienia aplikacji.
 
 > [!div class="mx-tdBreakAll"]
 > | Parametr | Dotyczy: | Opis |
@@ -80,7 +79,7 @@ Service Fabric uaktualnień aplikacji przy użyciu interfejsu wiersza polecenia 
 
 | Parametr | Opis |
 | --- | --- |
-| Identyfikator aplikacji  |Identyfikator aplikacji, która jest uaktualniana. <br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane znakami\~"". Na przykład, jeśli nazwa aplikacji to "Fabric:/MojaApl/APP1", tożsamość aplikacji powinna mieć wartość "MojaApl\~APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach.|
+| Identyfikator aplikacji  |Identyfikator aplikacji, która jest uaktualniana. <br> Jest to zazwyczaj pełna nazwa aplikacji bez schematu identyfikatora URI "Sieć szkieletowa:". Począwszy od wersji 6,0, hierarchiczne nazwy są rozdzielane \~ znakami "". Na przykład, jeśli nazwa aplikacji to "Fabric:/MojaApl/APP1", tożsamość aplikacji powinna mieć wartość "MojaApl \~ APP1" w wersji 6.0 + i "MojaApl/APP1" w poprzednich wersjach.|
 Aplikacja — wersja |Wersja typu aplikacji, która jest przeznaczona do uaktualnienia.|
 parameters  |Zakodowana w formacie JSON lista przesłonięć parametrów aplikacji do zastosowania podczas uaktualniania aplikacji.|
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82233180"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Wdrażanie do Azure Functions za pomocą DevOps Starter
@@ -34,9 +34,9 @@ W tym samouczku wykonasz następujące czynności:
 >* Badanie potoku ciągłej integracji
 >* Badanie potoku ciągłego wdrażania
 >* Zatwierdzanie zmian w usłudze Git i automatyczne wdrażanie ich na platformie Azure
->* Oczyszczanie zasobów
+>* Czyszczenie zasobów
 
-Obecnie obsługiwane środowiska uruchomieniowe funkcji to **.NET** i **Node. js**. Używamy. Środowisko uruchomieniowe sieci dla tego samouczka do wdrożenia w Azure Functions. 
+Obecnie obsługiwane środowiska uruchomieniowe dla funkcji to **.NET** i **Node.js**. Używamy. Środowisko uruchomieniowe sieci dla tego samouczka do wdrożenia w Azure Functions. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -96,7 +96,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
     ![Kompilacja](_img/azure-devops-project-functions/build.png)
 
-1. Wybierz pozycję **Edit** (Edytuj). W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
+1. Wybierz pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 
 1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie repozytorium uruchamia nową kompilację. Opcjonalnie możesz zdecydować się dołączyć gałęzie do procesu ciągłej integracji lub wykluczyć je z niego.
 
@@ -149,7 +149,7 @@ Teraz możesz przystąpić do współpracy z zespołem w aplikacji przy użyciu 
 
      Po chwili zostanie uruchomiona kompilacja w usłudze Azure DevOps, a następnie zostanie wykonane wydanie w celu wdrożenia zmian. Monitoruj stan kompilacji na pulpicie nawigacyjnym DevOps Starter lub w przeglądarce za pomocą swojej organizacji usługi Azure DevOps.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz usunąć powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 
@@ -164,5 +164,5 @@ Opcjonalnie możesz zmodyfikować potoki kompilacji i wydania, aby zaspokoić po
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Git i automatyczne wdrażanie ich na platformie Azure
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 

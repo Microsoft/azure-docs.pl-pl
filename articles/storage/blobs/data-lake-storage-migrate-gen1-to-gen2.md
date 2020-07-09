@@ -2,18 +2,17 @@
 title: Migrowanie Azure Data Lake Storage z Gen1 do Gen2
 description: Przeprowadź migrację Azure Data Lake Storage z Gen1 do Gen2.
 author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 55ef2ee7d39d68804fe44c9d7a6eb0ee199e6109
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019864"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84466021"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrowanie Azure Data Lake Storage z Gen1 do Gen2
 
@@ -87,13 +86,13 @@ Migrowanie danych, obciążeń i aplikacji przy użyciu preferowanego wzorca. Za
 
 Po upewnieniu się, że Twoje aplikacje i obciążenia są stabilne w Gen2, możesz zacząć korzystać z Gen2, aby zaspokoić scenariusze biznesowe. Wyłącz wszystkie pozostałe potoki, które działają w Gen1 i likwidowanie konta Gen1. 
 
-<a id="gen1-gen2-feature-comparison" />
+<a id="gen1-gen2-feature-comparison"></a>
 
 ## <a name="gen1-vs-gen2-capabilities"></a>Możliwości Gen1 vs Gen2
 
 W tej tabeli porównano możliwości Gen1 z Gen2.
 
-|Warstwowy |Gen1   |Gen2 |
+|Obszar |Gen1   |Gen2 |
 |---|---|---|
 |Organizacja danych|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa plików i folderów|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa kontenera, plików i folderów |
 |Nadmiarowość geograficzna| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
@@ -105,7 +104,7 @@ W tej tabeli porównano możliwości Gen1 z Gen2.
 |Dzienniki zasobów|Dzienniki klasyczne<br>[Azure Monitor zintegrowany](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Dzienniki klasyczne](../common/storage-analytics-logging.md) — ogólnie dostępne<br>Integracja ze monitorem platformy Azure — do opracowania na osi czasu|
 |Ekosystem|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 i nowsze)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 i nowsze)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-<a id="migration-patterns" />
+<a id="migration-patterns"></a>
 
 ## <a name="gen1-to-gen2-patterns"></a>Gen1 Gen2 wzorców
 

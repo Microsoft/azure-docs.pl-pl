@@ -9,11 +9,10 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280185"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84695831"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH support for Azure App Service on Linux (Obsługa protokołu SSH dla usługi Azure App Service w systemie Linux)
 
@@ -41,7 +40,7 @@ Korzystając z tunelowania TCP, można utworzyć połączenie sieciowe między m
 
 Aby rozpocząć, należy zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Aby zobaczyć, jak to działa, bez instalowania interfejsu wiersza polecenia platformy Azure, Otwórz [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Otwórz połączenie zdalne z aplikacją za pomocą polecenia [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . Określ _ \<Identyfikator subskrypcji>_ \_ \<, _ \<nazwę grupy>_ i>_ aplikacji dla aplikacji.
+Otwórz połączenie zdalne z aplikacją za pomocą polecenia [AZ webapp Remote-Connection Create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) . Określ _\<subscription-id>_ _\<group-name>_ i \_ \<app-name> _ dla aplikacji.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -64,7 +63,7 @@ Otwórz sesję SSH z wybranym przez siebie kontenerem przy użyciu portu lokalne
 ssh root@127.0.0.1 -p <port>
 ```
 
-Po wyświetleniu monitu `yes` wpisz, aby kontynuować nawiązywanie połączenia. Zostanie wyświetlony monit o podanie hasła. Użyj `Docker!`, która była wcześniej wyświetlana.
+Po wyświetleniu monitu wpisz, `yes` Aby kontynuować nawiązywanie połączenia. Zostanie wyświetlony monit o podanie hasła. Użyj `Docker!` , która była wcześniej wyświetlana.
 
 ```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
@@ -87,7 +86,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 Masz teraz połączenie z łącznikiem.  
 
-Spróbuj uruchomić [najważniejsze](https://ss64.com/bash/top.html) polecenie. Proces aplikacji powinien być widoczny na liście procesów. W poniższym przykładzie danych wyjściowych jest to plik z `PID 263`.
+Spróbuj uruchomić [najważniejsze](https://ss64.com/bash/top.html) polecenie. Proces aplikacji powinien być widoczny na liście procesów. W poniższym przykładzie danych wyjściowych jest to plik z `PID 263` .
 
 ```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
@@ -117,7 +116,7 @@ Pytania i wątpliwości można zamieszczać na [forum platformy Azure](https://d
 
 Aby uzyskać więcej informacji na temat Web App for Containers, zobacz:
 
-* [Wprowadzenie do zdalnego debugowania aplikacji node. js na Azure App Service z VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
+* [Wprowadzenie do zdalnego debugowania aplikacji Node.js na Azure App Service z VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0)
 * [How to use a custom Docker image for Web App for Containers](quickstart-docker-go.md) (Używanie niestandardowego obrazu platformy Docker dla usługi Web App for Containers)
 * [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md) (Korzystanie z platformy .NET Core w usłudze Azure App Service w systemie Linux)
 * [Using Ruby in Azure App Service on Linux](quickstart-ruby.md) (Używanie języka Ruby w usłudze Azure App Service w systemie Linux)

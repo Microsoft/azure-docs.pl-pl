@@ -1,20 +1,18 @@
 ---
 title: Pulpit nawigacyjny zamówień Centrum partnerskiego w komercyjnej analizie Marketplace
 description: Dowiedz się, jak uzyskać dostęp do raportów analitycznych zamówień oferowanych w portalu Marketplace w formacie graficznym i do pobrania.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747806"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118362"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny zamówień w komercyjnej analizie Marketplace
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Zamówienia w analizie komercyjnej platformy handlowej
 
 Ten artykuł zawiera informacje na temat **pulpitu nawigacyjnego zamówienia** w centrum partnerskim. Ten pulpit nawigacyjny wyświetla informacje o zamówieniach w formacie graficznym i do pobrania.
 

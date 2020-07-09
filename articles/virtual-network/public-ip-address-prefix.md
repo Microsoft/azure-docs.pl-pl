@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: allensu
 ms.openlocfilehash: 0f71f845ef3209146ead79cafae2f3aa5c8c6d7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82144519"
 ---
 # <a name="public-ip-address-prefix"></a>Prefiks publicznego adresu IP
@@ -35,7 +35,7 @@ Prefiks publicznego adresu IP można utworzyć w regionie i subskrypcji platform
 
 W przypadku tworzenia zasobów publicznego adresu IP platforma Azure przypisuje dostępny publiczny adres IP z dowolnego zakresu używanego w regionie. Gdy platforma Azure przypisze adres, wiadomo, jaki jest adres, ale do momentu przypisywania adresu przez platformę Azure nie jest znany adres, który można przypisać. Może to być problematyczne, jeśli na przykład ty lub partnerzy biznesowi skonfiguruje reguły zapory zezwalające na określone adresy IP. Za każdym razem, gdy przypiszesz nowy publiczny adres IP do zasobu, do reguły zapory należy dodać adres. Po przypisaniu adresów do zasobów z prefiksu publicznego adresu IP reguły zapory nie muszą być aktualizowane przy każdym przypisaniu jednego z tych adresów, ponieważ cały zakres można dodać do reguły.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 - Można tworzyć zasoby publicznych adresów IP z znanego zakresu.
 - Ty lub partnerzy biznesowi mogą tworzyć reguły zapory z zakresami zawierającymi publicznie przypisane adresy IP, a także adresy, które nie zostały jeszcze przypisane. Eliminuje to konieczność zmiany reguł zapory w miarę przypisywania adresów IP do nowych zasobów.
@@ -49,7 +49,7 @@ Można skojarzyć następujące zasoby ze statycznym publicznym adresem IP z pre
 
 |Zasób|Scenariusz|Kroki|
 |---|---|---|
-|Maszyny wirtualne| Skojarzenie publicznych adresów IP z prefiksu do maszyn wirtualnych na platformie Azure zmniejsza obciążenie związane z zarządzaniem, gdy chodzi o listy dozwolonych adresów IP w zaporze. Można po prostu dozwolonych cały prefiks z pojedynczą regułą zapory. W miarę skalowania maszyn wirtualnych na platformie Azure można kojarzyć adresy IP z tego samego prefiksu oszczędności, czasu i kosztów zarządzania.| Aby skojarzyć adresy IP z prefiksem do maszyny wirtualnej: 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) 3. [Skojarz adres IP z interfejsem sieciowym maszyny wirtualnej.](virtual-network-network-interface-addresses.md#add-ip-addresses) Można także [skojarzyć adresy IP z zestawem skalowania maszyn wirtualnych](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+|Virtual Machines| Skojarzenie publicznych adresów IP z prefiksu do maszyn wirtualnych na platformie Azure zmniejsza obciążenie związane z zarządzaniem, gdy chodzi o listy dozwolonych adresów IP w zaporze. Można po prostu dozwolonych cały prefiks z pojedynczą regułą zapory. W miarę skalowania maszyn wirtualnych na platformie Azure można kojarzyć adresy IP z tego samego prefiksu oszczędności, czasu i kosztów zarządzania.| Aby skojarzyć adresy IP z prefiksem do maszyny wirtualnej: 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) 3. [Skojarz adres IP z interfejsem sieciowym maszyny wirtualnej.](virtual-network-network-interface-addresses.md#add-ip-addresses) Można także [skojarzyć adresy IP z zestawem skalowania maszyn wirtualnych](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Usługi równoważenia obciążenia w warstwie Standardowa | Skojarzenie publicznych adresów IP od prefiksu do konfiguracji adresu IP frontonu lub reguły wychodzącej Load Balancer zapewnia uproszczenie publicznej przestrzeni adresów IP platformy Azure. Możesz uprościć ten scenariusz, przechodząc do pielęgnacji połączeń wychodzących, które pochodzą z zakresu ciągłego adresów IP zdefiniowanych przez prefiks publicznego adresu IP. | Aby skojarzyć adresy IP od prefiksu do modułu równoważenia obciążenia: 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) 3. Podczas tworzenia Load Balancer wybierz lub zaktualizuj adres IP utworzony w kroku 2 powyżej jako adres IP frontonu Load Balancer. |
 | Azure Firewall | Możesz użyć publicznego adresu IP z prefiksu dla wychodzącego elementu Republic. Oznacza to, że cały wychodzący ruch sieciowy w sieci wirtualnej jest tłumaczony na publiczny adres IP [zapory platformy Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Ponieważ ten adres IP pochodzi ze wstępnie wskazanego prefiksu, bardzo łatwo jest wiedzieć, jak często publiczny adres IP na platformie Azure będzie wyglądać następująco. | 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) 3. Podczas [wdrażania zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)należy wybrać adres IP, który został wcześniej przydzielony z prefiksu.|
 | Application Gateway v2 | Możesz użyć publicznego adresu IP z prefiksu do automatycznego skalowania i strefowo nadmiarowej bramy aplikacji w wersji 2. Ponieważ ten adres IP pochodzi ze wstępnie wskazanego prefiksu, bardzo łatwo jest wiedzieć, jak często publiczny adres IP na platformie Azure będzie wyglądać następująco. | 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) 3. Podczas [wdrażania Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)upewnij się, że wybrano adres IP, który został wcześniej przydzielony z prefiksu.|

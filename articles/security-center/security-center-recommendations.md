@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245306"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791388"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
@@ -53,7 +52,7 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
     Możesz filtrować zalecenia. Aby filtrować zalecenia, wybierz pozycję **Filtruj** w bloku **zalecenia** . Zostanie otwarty blok **filtru** i zostanie wybrana wartość ważność i stan, które mają być wyświetlane.
 
    * **Zalecenia**: zalecenie.
-   * **Bezpieczny wpływ na ocenę**: wynik wygenerowany przez Security Center przy użyciu zaleceń dotyczących zabezpieczeń oraz stosowanie zaawansowanych algorytmów w celu określenia, jak kluczowe jest każde zalecenie. Aby uzyskać więcej informacji, zobacz temat [bezpieczne Obliczanie wyniku](security-center-secure-score.md#secure-score-calculation).
+   * **Bezpieczny wpływ na ocenę**: wynik wygenerowany przez Security Center przy użyciu zaleceń dotyczących zabezpieczeń oraz stosowanie zaawansowanych algorytmów w celu określenia, jak kluczowe jest każde zalecenie. Aby uzyskać więcej informacji, zobacz temat [bezpieczne Obliczanie wyniku](secure-score-security-controls.md#how-your-secure-score-is-calculated).
    * **Zasób**: zawiera listę zasobów, do których stosuje się to zalecenie.
    * **Paski stanu**: opisuje ważność danego zalecenia:
        * **Wysoka (czerwony)**: istnieje luka w zabezpieczeniach, która ma zrozumiały zasób (na przykład aplikację, maszynę wirtualną lub sieciową grupę zabezpieczeń) i wymaga uwagi.

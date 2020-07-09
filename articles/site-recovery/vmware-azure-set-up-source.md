@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257058"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135388"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurowanie środowiska źródłowego na potrzeby replikacji oprogramowania VMware do platformy Azure
 
@@ -31,13 +31,13 @@ W artykule założono, że masz już:
 
 1. W obszarze **Magazyny usługi Recovery Services** wybierz nazwę magazynu. W tym scenariuszu jest używany magazyn **ContosoVMVault**.
 2. W obszarze **Wprowadzenie** wybierz pozycję Site Recovery. Następnie wybierz pozycję **Przygotowywanie infrastruktury**.
-3. W obszarze **cel** > ochrony, gdzie znajdują się**maszyny**, wybierz pozycję **lokalna**.
+3. W obszarze **cel ochrony**, gdzie znajdują się  >  **maszyny**, wybierz pozycję **lokalna**.
 4. W obszarze **Gdzie chcesz zreplikować maszyny** wybierz pozycję **Na platformę Azure**.
 5. W obszarze **Czy maszyny są zwirtualizowane** wybierz pozycję **Tak, z funkcją VMware vSphere Hypervisor**. Następnie wybierz pozycję **OK**.
 
 ## <a name="set-up-the-configuration-server"></a>Konfigurowanie serwera konfiguracji
 
-Serwer konfiguracji można skonfigurować jako lokalną maszynę wirtualną VMware za pomocą szablonu Open Virtualization Application (komórki jajowe). [Dowiedz się więcej](concepts-vmware-to-azure-architecture.md) o składnikach, które zostaną zainstalowane na maszynie wirtualnej programu VMware.
+Serwer konfiguracji można skonfigurować jako lokalną maszynę wirtualną VMware za pomocą szablonu Open Virtualization Application (komórki jajowe). [Dowiedz się więcej](./vmware-azure-architecture.md) o składnikach, które zostaną zainstalowane na maszynie wirtualnej programu VMware.
 
 1. Dowiedz się więcej o [wymaganiach wstępnych](vmware-azure-deploy-configuration-server.md#prerequisites) dotyczących wdrażania serwera konfiguracji.
 2. [Sprawdź numery pojemności](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) dla wdrożenia.

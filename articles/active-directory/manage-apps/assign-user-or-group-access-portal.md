@@ -2,24 +2,23 @@
 title: Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w usłudze Azure AD
 description: Jak wybrać aplikację dla przedsiębiorstw, aby przypisać do niej użytkownika lub grupę w Azure Active Directory
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772424"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763741"
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w Azure Active Directory
+# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory
 
 W tym artykule opisano sposób przypisywania użytkowników lub grup do aplikacji dla przedsiębiorstw w usłudze Azure Active Directory (Azure AD), z poziomu Azure Portal lub przy użyciu programu PowerShell. Po przypisaniu użytkownika do aplikacji, aplikacja pojawia się w [panelu dostępu moje aplikacje](https://myapps.microsoft.com/) użytkownika w celu ułatwienia dostępu. Jeśli aplikacja uwidacznia role, można także przypisać konkretną rolę do użytkownika.
 

@@ -3,16 +3,15 @@ title: Konfigurowanie LVM na maszynie wirtualnej z systemem Linux
 description: Dowiedz się, jak skonfigurować LVM w systemie Linux na platformie Azure.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: guybo
 ms.subservice: disks
-ms.openlocfilehash: 7f560a1e6266b5f2452bf9442d2d4c983de1236e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a3498939ddf57e2520a140ff693a30de913fae0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658300"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurowanie LVM na maszynie wirtualnej z systemem Linux na platformie Azure
 W tym dokumencie omówiono sposób konfigurowania Menedżera woluminów logicznych (LVM) na maszynie wirtualnej platformy Azure. LVM mogą być używane na dysku systemu operacyjnego lub na dyskach z danymi na maszynach wirtualnych platformy Azure, jednak domyślnie większość obrazów w chmurze nie ma skonfigurowanych LVM na dysku systemu operacyjnego. Poniższe kroki zakoncentrują się na konfigurowaniu LVM dla dysków z danymi.
@@ -58,7 +57,7 @@ Jeden z nich będzie zazwyczaj miał być uruchamiany z co najmniej dwoma pustym
     ```
 
 ## <a name="configure-lvm"></a>Konfigurowanie maszyny wirtualnej z systemem Linux
-W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski danych, do których odnosimy się do `/dev/sdc` `/dev/sdd` i `/dev/sde`. Ścieżki te mogą być niezgodne z nazwami ścieżek dysków w maszynie wirtualnej. Aby wyświetlić dostępne dyski`sudo fdisk -l`, można uruchomić "" lub podobne polecenie.
+W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski danych, do których odnosimy się do `/dev/sdc` `/dev/sdd` i `/dev/sde` . Ścieżki te mogą być niezgodne z nazwami ścieżek dysków w maszynie wirtualnej. `sudo fdisk -l`Aby wyświetlić dostępne dyski, można uruchomić "" lub podobne polecenie.
 
 1. Przygotuj woluminy fizyczne:
 
@@ -69,7 +68,7 @@ W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski dan
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Utwórz grupę woluminów. W tym przykładzie wywołujemy grupę `data-vg01`woluminów:
+2. Utwórz grupę woluminów. W tym przykładzie wywołujemy grupę woluminów `data-vg01` :
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
@@ -116,7 +115,7 @@ W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski dan
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Następnie Zapisz i Zamknij `/etc/fstab`.
+    Następnie Zapisz i Zamknij `/etc/fstab` .
 
 4. Sprawdź, czy `/etc/fstab` wpis jest poprawny:
 
@@ -126,7 +125,7 @@ W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski dan
 
     Jeśli to polecenie spowoduje komunikat o błędzie, Sprawdź składnię w `/etc/fstab` pliku.
    
-    Następnie uruchom polecenie `mount` , aby upewnić się, że system plików jest zainstalowany:
+    Następnie uruchom `mount` polecenie, aby upewnić się, że system plików jest zainstalowany:
 
     ```bash    
     mount
@@ -136,7 +135,7 @@ W tym przewodniku przyjęto założenie, że zostały dołączone trzy dyski dan
 
 5. Obowiązkowe Failsafe parametry rozruchu w`/etc/fstab`
    
-    Wiele dystrybucji zawiera `nobootwait` parametry `nofail` instalacji, które mogą zostać dodane do `/etc/fstab` pliku. Te parametry zezwalają na błędy podczas instalowania określonego systemu plików i umożliwiają dalsze rozruch systemu Linux, nawet jeśli nie można poprawnie zainstalować systemu plików RAID. Aby uzyskać więcej informacji na temat tych parametrów, zapoznaj się z dokumentacją dystrybucji.
+    Wiele dystrybucji zawiera `nobootwait` `nofail` parametry instalacji, które mogą zostać dodane do `/etc/fstab` pliku. Te parametry zezwalają na błędy podczas instalowania określonego systemu plików i umożliwiają dalsze rozruch systemu Linux, nawet jeśli nie można poprawnie zainstalować systemu plików RAID. Aby uzyskać więcej informacji na temat tych parametrów, zapoznaj się z dokumentacją dystrybucji.
    
     Przykład (Ubuntu):
 
@@ -149,13 +148,13 @@ Niektóre jądra systemu Linux obsługują operacje przycinania/mapowania do odr
 
 Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z systemem Linux. W zwykły sposób zapoznaj się z dystrybucją, aby uzyskać zalecane podejście:
 
-- Użyj opcji `discard` instalacji w programie `/etc/fstab`, na przykład:
+- Użyj `discard` opcji instalacji w programie `/etc/fstab` , na przykład:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- W niektórych przypadkach opcja `discard` może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
+- W niektórych przypadkach `discard` opcja może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
 
     **Ubuntu**
 

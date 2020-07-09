@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80652636"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Włącz ochronę hasłem Azure Active Directory lokalnych
@@ -32,7 +31,7 @@ W tym artykule pokazano, jak włączyć ochronę hasłem w usłudze Azure AD dla
 
 ## <a name="enable-on-premises-password-protection"></a>Włącz ochronę hasłem lokalnym
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do **Azure Active Directory** > **Security** > **metod** > uwierzytelniania zabezpieczeń**Ochrona hasłem**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do **Azure Active Directory**  >  **Security**  >  **metod uwierzytelniania**zabezpieczeń  >  **Ochrona hasłem**.
 1. Ustaw opcję **Włącz ochronę hasłem w systemie Windows Server Active Directory** na *wartość tak*.
 
     Jeśli to ustawienie ma wartość *nie*, wszystkie wdrożone Agenty usługi Azure AD Password Protection są w trybie quiescent, w którym wszystkie hasła są akceptowane jako-is. Nie są wykonywane żadne działania weryfikacyjne, a zdarzenia inspekcji nie są generowane.

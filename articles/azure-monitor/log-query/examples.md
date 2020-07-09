@@ -7,10 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480287"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Przykłady zapytań w dzienniku Azure Monitor
@@ -72,7 +71,7 @@ Heartbeat
 ### <a name="match-protected-status-records-with-heartbeat-records"></a>Dopasuj rekordy stanu chronionego przy użyciu rekordów pulsu
 
 Ten przykład wyszukuje powiązane rekordy stanu ochrony i rekordy pulsu, dopasowane zarówno na komputerze, jak i w czasie.
-Zwróć uwagę, że pole Time jest zaokrąglane do najbliższej minuty. Użyto obliczeń bin w czasie wykonywania, aby to `round_time=bin(TimeGenerated, 1m)`zrobić:.
+Zwróć uwagę, że pole Time jest zaokrąglane do najbliższej minuty. Użyto obliczeń bin w czasie wykonywania, aby to zrobić: `round_time=bin(TimeGenerated, 1m)` .
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -229,7 +228,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Liczba zdarzeń zabezpieczeń według identyfikatora działania
 
 
-Ten przykład opiera się na stałej strukturze kolumny **aktywności** \<: nazwa\>-\<\>identyfikatora.
+Ten przykład opiera się na stałej strukturze kolumny **aktywności** : \<ID\> - \<Name\> .
 Analizuje ona wartość **działania** w dwie nowe kolumny i zlicza wystąpienia każdego **activityIDu**.
 
 ```Kusto
@@ -270,7 +269,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Nazwa i identyfikator działania analizy
-Dwa poniższe przykłady polegają na stałej strukturze kolumny **aktywności** \<: nazwa\>-\<\>identyfikatora. W pierwszym przykładzie używa operatora **Parse** do przypisywania wartości do dwóch nowych kolumn: **ActivityId** i **activityDesc**.
+Dwa poniższe przykłady polegają na stałej strukturze kolumny **aktywności** : \<ID\> - \<Name\> . W pierwszym przykładzie używa operatora **Parse** do przypisywania wartości do dwóch nowych kolumn: **ActivityId** i **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -373,9 +372,9 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
-Typ `Usage` danych może służyć do śledzenia ilości danych pozyskiwanych według rozwiązania lub typu danych. Istnieją inne techniki analizowania pozyskiwanych woluminów danych według [komputera](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) lub [subskrypcji platformy Azure, grupy zasobów lub zasobu](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+`Usage`Typ danych może służyć do śledzenia ilości danych pozyskiwanych według rozwiązania lub typu danych. Istnieją inne techniki analizowania pozyskiwanych woluminów danych według [komputera](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) lub [subskrypcji platformy Azure, grupy zasobów lub zasobu](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Ilość danych wg rozwiązania
 
@@ -389,7 +388,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Należy zauważyć, że `where IsBillable = true` klauzula filtruje typy danych z niektórych rozwiązań, dla których nie jest naliczana opłata za pozyskiwanie.  Ponadto klauzula WITH `TimeGenerated` ma na celu upewnienie się, że obsługa zapytań w Azure Portal będzie wyglądać poza domyślnymi 24 godzinami. W przypadku użycia typu danych użycia i `StartTime` `EndTime` reprezentowania przedziałów czasu, dla których są wyświetlane wyniki. 
+Należy zauważyć, że klauzula `where IsBillable = true` filtruje typy danych z niektórych rozwiązań, dla których nie jest naliczana opłata za pozyskiwanie.  Ponadto klauzula WITH `TimeGenerated` ma na celu upewnienie się, że obsługa zapytań w Azure Portal będzie wyglądać poza domyślnymi 24 godzinami. W przypadku użycia typu danych użycia i reprezentowania przedziałów `StartTime` `EndTime` czasu, dla których są wyświetlane wyniki. 
 
 #### <a name="data-volume-by-type"></a>Ilość danych według typu
 

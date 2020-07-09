@@ -2,7 +2,7 @@
 title: Monitorowanie i dostrajanie wydajności
 description: Przegląd możliwości monitorowania i dostrajania wydajności oraz metodologii w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
@@ -11,23 +11,23 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: ab738e829b9c3e5a5c71ea8baeff67772723b64e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048868"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982172"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorowanie i dostrajanie wydajności w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Aby monitorować wydajność bazy danych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL, Zacznij od monitorowania zasobów procesora i operacji we/wy używanych przez obciążenie względem poziomu wydajności bazy danych wybranej w ramach wybierania określonej warstwy usług i poziomu wydajności. W tym celu Azure SQL Database i wystąpienie zarządzane SQL Azure emituje metryki zasobów, które można wyświetlać w Azure Portal lub przy użyciu jednej z tych narzędzi do zarządzania SQL: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) lub [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+Aby monitorować wydajność bazy danych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL, Zacznij od monitorowania zasobów procesora i operacji we/wy używanych przez obciążenie względem poziomu wydajności bazy danych wybranej w ramach wybierania określonej warstwy usług i poziomu wydajności. Aby to osiągnąć, Azure SQL Database i wyemituj metryki zasobów wystąpienia zarządzanego Azure SQL, które mogą być wyświetlane w Azure Portal lub przy użyciu jednego z następujących narzędzi do zarządzania SQL Server: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) lub [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 Azure SQL Database udostępnia wiele klasyfikatorów baz danych, które zapewniają inteligentne zalecenia dotyczące dostrajania wydajności i dostrajania automatycznego, aby zwiększyć wydajność. Ponadto w Szczegółowe informacje o wydajności zapytań przedstawiono szczegółowe informacje o zapytaniach odpowiedzialnych za większość użycia procesora CPU i we/wy dla baz danych z pojedynczym i w puli.
 
 Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewniają zaawansowane możliwości monitorowania i dostrajania obsługiwane przez sztuczną inteligencję, aby pomóc w rozwiązywaniu problemów i maksymalizacji wydajności baz danych i rozwiązań. Można skonfigurować [eksport przesyłania strumieniowego](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) tych [Intelligent Insights](intelligent-insights-overview.md) i innych dzienników zasobów bazy danych oraz metryki do jednego z kilku miejsc docelowych na potrzeby użycia i analizy, zwłaszcza przy użyciu [analizy SQL](../../azure-monitor/insights/azure-sql.md)). Azure SQL Analytics to zaawansowane rozwiązanie do monitorowania chmurowego do monitorowania wydajności wszystkich baz danych na dużą skalę i w wielu subskrypcjach w jednym widoku. Aby uzyskać listę dzienników i metryk, które można eksportować, zobacz dane [telemetryczne diagnostyki na potrzeby eksportu](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-Na koniec program SQL ma własne możliwości monitorowania i diagnostyki, [SQL Server magazyn zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) i [dynamiczne widoki zarządzania (widoków DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Aby monitorować wiele problemów z wydajnością, zobacz [monitorowanie za pomocą widoków DMV](monitoring-with-dmvs.md) .
+Na koniec SQL Server ma własne możliwości monitorowania i diagnostyki, które SQL Database i wykorzystanie wystąpienia zarządzanego przez SQL, takie jak [Magazyn zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) i [dynamiczne widoki zarządzania (widoków DMV)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Aby monitorować wiele problemów z wydajnością, zobacz [monitorowanie za pomocą widoków DMV](monitoring-with-dmvs.md) .
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Możliwości monitorowania i dostrajania w Azure Portal
 
@@ -67,7 +67,7 @@ Intelligent Insights to unikatowa funkcja analizy wbudowanej platformy Azure, kt
 
 Ustawienia diagnostyczne można skonfigurować do przesyłania strumieniowego kategorii metryk i dzienników zasobów dla pojedynczych baz danych, baz danych w puli, pul elastycznych, wystąpień zarządzanych i baz danych wystąpień do jednego z następujących zasobów platformy Azure.
 
-### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics obszar roboczy w usłudze Azure monitor
+### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics obszar roboczy w Azure Monitor
 
 Metryki i dzienniki zasobów można przesyłać do [obszaru roboczego log Analytics w Azure monitor](../../azure-monitor/platform/resource-logs-collect-workspace.md). Przesyłane strumieniowo dane mogą być używane przez usługę [SQL Analytics](../../azure-monitor/insights/azure-sql.md), która jest rozwiązaniem do monitorowania tylko w chmurze, które zapewnia inteligentne monitorowanie baz danych, które obejmują raporty wydajności, alerty i zalecenia zaradcze. Dane przesyłane strumieniowo do obszaru roboczego Log Analytics mogą być analizowane przy użyciu innych zebranych danych monitorowania, a także umożliwiają korzystanie z innych funkcji Azure Monitor, takich jak alerty i wizualizacje.
 
@@ -75,7 +75,7 @@ Metryki i dzienniki zasobów można przesyłać do [obszaru roboczego log Analyt
 
 Metryki i dzienniki zasobów można przesyłać strumieniowo do [usługi Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md). Przesyłaj strumieniowo dane telemetryczne diagnostyki do centrów zdarzeń, aby zapewnić następujące funkcje:
 
-- **Przesyłanie strumieniowe dzienników do systemów rejestrowania i telemetrii innej firmy**
+- **Przesyłanie strumieniowe dzienników do systemów rejestrowania i telemetrii innych firm**
 
   Przesyłaj strumieniowo wszystkie metryki i dzienniki zasobów do jednego centrum zdarzeń w celu przełączenia danych dziennika do narzędzia SIEM lub log Analytics innej firmy.
 - **Utwórz niestandardową platformę telemetrii i rejestrowania**
@@ -89,9 +89,9 @@ Metryki i dzienniki zasobów można przesyłać strumieniowo do [usługi Azure E
 
 Przesyłaj strumieniowo metryki i dzienniki zasobów do [usługi Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md). Usługa Azure Storage umożliwia archiwizowanie ogromnych ilości danych telemetrycznych diagnostyki w przypadku części kosztów poprzednich dwóch opcji przesyłania strumieniowego.
 
-## <a name="use-extended-events-in-the-sql-database-engine"></a>Używanie zdarzeń rozszerzonych w aparacie bazy danych SQL
+## <a name="use-extended-events"></a>Korzystanie z zdarzeń rozszerzonych 
 
-Ponadto możesz użyć [rozszerzonych zdarzeń](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) w programie SQL, aby uzyskać dodatkowe zaawansowane monitorowanie i rozwiązywanie problemów. Architektura zdarzeń rozszerzonych umożliwia użytkownikom zbieranie jak najmniejszej ilości danych, co jest niezbędne do rozwiązywania problemów lub identyfikowania problemów z wydajnością. Aby uzyskać informacje na temat używania zdarzeń rozszerzonych w Azure SQL Database, zobacz [zdarzenia rozszerzone w Azure SQL Database](xevent-db-diff-from-svr.md).
+Ponadto można użyć [zdarzeń rozszerzonych](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) w SQL Server na potrzeby zaawansowanego monitorowania i rozwiązywania problemów. Architektura zdarzeń rozszerzonych umożliwia użytkownikom zbieranie jak najmniejszej ilości danych, co jest niezbędne do rozwiązywania problemów lub identyfikowania problemów z wydajnością. Aby uzyskać informacje na temat używania zdarzeń rozszerzonych w Azure SQL Database, zobacz [zdarzenia rozszerzone w Azure SQL Database](xevent-db-diff-from-svr.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

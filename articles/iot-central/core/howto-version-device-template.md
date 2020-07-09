@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82583654"
 ---
 # <a name="create-a-new-device-template-version"></a>Utwórz nową wersję szablonu urządzenia
@@ -30,7 +30,7 @@ Należy opublikować wszystkie zmiany szablonów urządzeń, niezależnie od teg
 
 ## <a name="versioning-rules"></a>Reguły obsługi wersji
 
-Ta sekcja zawiera podsumowanie reguł dotyczących wersji, które są stosowane do szablonów urządzeń. Zarówno DCMs, jak i interfejsy mają numery wersji. Poniższy fragment kodu przedstawia DCM dla urządzenia czujnika środowiska. DCM ma dwa interfejsy: **DeviceInformation** i **EnvironmentalSensor**. Numery wersji na końcu`@id` pól są widoczne. Aby wyświetlić te informacje w interfejsie użytkownika IoT Central, wybierz pozycję **Wyświetl tożsamość** w edytorze szablonów urządzeń.
+Ta sekcja zawiera podsumowanie reguł dotyczących wersji, które są stosowane do szablonów urządzeń. Zarówno DCMs, jak i interfejsy mają numery wersji. Poniższy fragment kodu przedstawia DCM dla urządzenia czujnika środowiska. DCM ma dwa interfejsy: **DeviceInformation** i **EnvironmentalSensor**. Numery wersji na końcu pól są widoczne `@id` . Aby wyświetlić te informacje w interfejsie użytkownika IoT Central, wybierz pozycję **Wyświetl tożsamość** w edytorze szablonów urządzeń.
 
 ```json
 {
@@ -92,7 +92,7 @@ Niektóre elementy możliwości urządzenia można edytować bez konieczności k
 1. Wybierz szablon urządzenia, który chcesz dostosować.
 1. Wybierz kartę **Dostosowywanie** .
 1. Wszystkie możliwości zdefiniowane w modelu możliwości urządzenia są wymienione tutaj. Można edytować, zapisywać i korzystać ze wszystkich tych pól bez konieczności podania wersji szablonu urządzenia. Jeśli istnieją pola, które chcesz edytować, są przeznaczone tylko do odczytu, aby je zmienić, musisz mieć wersję szablonu urządzenia. Wybierz pole, które chcesz edytować, a następnie wprowadź nowe wartości.
-1. Kliknij przycisk **Zapisz**. Teraz te wartości zastępują wszystkie elementy, które zostały początkowo zapisane w szablonie urządzenia i są używane w całej aplikacji.
+1. Kliknij pozycję **Zapisz**. Teraz te wartości zastępują wszystkie elementy, które zostały początkowo zapisane w szablonie urządzenia i są używane w całej aplikacji.
 
 ## <a name="version-a-device-template"></a>Wersja szablonu urządzenia
 
@@ -105,7 +105,7 @@ Aby uzyskać wersję szablonu urządzenia:
 1. Przejdź do strony **Szablony urządzeń** .
 1. Wybierz szablon urządzenia, do którego próbujesz uzyskać wersję.
 1. Kliknij przycisk **wersji** w górnej części strony i nadaj szablonowi nową nazwę. IoT Central sugeruje nową nazwę, którą można edytować.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Teraz Twój szablon urządzenia jest w trybie wersji roboczej. Twoje interfejsy są nadal zablokowane. Wersje interfejsów, które chcesz zmodyfikować.
 
 ## <a name="version-an-interface"></a>Wersja interfejsu
@@ -118,7 +118,7 @@ Aby uzyskać wersję interfejsu:
 1. Wybierz szablon urządzenia w trybie wersji roboczej.
 1. Wybierz interfejs, który znajduje się w trybie opublikowanym, który chcesz wersji i edytować.
 1. Kliknij przycisk **wersji** w górnej części strony interfejsu.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Interfejs jest teraz w trybie wersji roboczej. Możesz dodawać lub edytować możliwości w interfejsie bez przerywania istniejących dostosowań i widoków.
 
 ## <a name="migrate-a-device-across-versions"></a>Migrowanie urządzenia w różnych wersjach

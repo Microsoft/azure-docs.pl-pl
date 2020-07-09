@@ -4,15 +4,15 @@ description: Ten artykuł ułatwia łączenie obwodów usługi ExpressRoute w ce
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.openlocfilehash: a39cf4e09a70ca2b1225d699c84abf0e7f1d2eab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df02213f1cba7c25cc77c06f1addcc04a2a4d27a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84738400"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Konfigurowanie Global Reach ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -144,7 +144,7 @@ Aby wyłączyć łączność, uruchom następujące polecenie w stosunku do obwo
 az network express-route peering connection delete -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName>
 ```
 
-Użyj polecenia ```show``` , aby sprawdzić stan.
+Użyj ```show``` polecenia, aby sprawdzić stan.
 
 Po zakończeniu tej operacji nie będziesz już mieć łączności między sieciami lokalnymi za pośrednictwem obwody usługi ExpressRoute.
 

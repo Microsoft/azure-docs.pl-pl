@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e175a81efc1ab0950c1fda314efb206ff97a2b7f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738765"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85385386"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiowanie przekształceń oświadczeń numeru telefonu w Azure AD B2C
 
@@ -37,7 +37,7 @@ Konwertuje `phoneNumber` Typ danych na `string` Typ danych.
 
 W tym przykładzie, cellPhoneNumber, z typem wartości `phoneNumber` jest konwertowana na cellPhone, z typem wartości `string` .
 
-```XML
+```xml
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
@@ -72,7 +72,7 @@ Transformacja oświadczeń **ConvertStringToPhoneNumberClaim** jest zawsze wykon
 
 Możesz użyć tej transformacji oświadczeń, aby upewnić się, że podane oświadczenie ciągu jest prawidłowym numerem telefonu. Jeśli nie, zostanie zgłoszony komunikat o błędzie. Poniższy przykład sprawdza, czy element ClaimType **phoneString** jest prawidłowym numerem telefonu, a następnie zwraca numer telefonu w standardowym formacie Azure AD B2C. W przeciwnym razie zostanie zgłoszony komunikat o błędzie.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
@@ -86,7 +86,7 @@ Możesz użyć tej transformacji oświadczeń, aby upewnić się, że podane oś
 
 Profil techniczny z własnym potwierdzeniem, który wywołuje profil techniczny weryfikacji, który zawiera tę transformację oświadczeń, może zdefiniować komunikat o błędzie.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
@@ -132,7 +132,7 @@ Możesz użyć tej transformacji oświadczeń, aby podzielić pełny numer telef
 
 Poniższy przykład próbuje podzielić numer telefonu na numer Narodowy i kod kraju/regionu. Jeśli numer telefonu jest prawidłowy, numer telefonu zostanie przesłonięty przez numer Narodowy. Jeśli numer telefonu jest nieprawidłowy, wyjątek nie zostanie wygenerowany, a numer telefonu nadal ma oryginalną wartość.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="phoneNumber" />
@@ -150,7 +150,7 @@ Poniższy przykład próbuje podzielić numer telefonu na numer Narodowy i kod k
 
 Profil techniczny z własnym potwierdzeniem, który wywołuje profil techniczny weryfikacji, który zawiera tę transformację oświadczeń, może zdefiniować komunikat o błędzie.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
   <Metadata>
     <Item Key="UserMessageIfPhoneNumberParseFailure">Custom error message if the phone number is not valid.</Item>

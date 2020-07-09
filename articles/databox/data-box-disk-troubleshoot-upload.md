@@ -6,15 +6,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7225b04908753bb7c07ac89510859bac9db5b89c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565019"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Omówienie dzienników służących do rozwiązywania problemów z przekazywaniem danych w Azure Data Box Disk
 
@@ -46,7 +46,7 @@ W każdym przypadku wyświetlane są dzienniki błędów i pełne dzienniki. Wyb
 
 ## <a name="sample-upload-logs"></a>Przykładowe dzienniki przekazywania
 
-Poniżej pokazano przykład `_verbose.xml` . W takim przypadku zamówienie zostało zakończone pomyślnie, bez błędów.
+`_verbose.xml`Poniżej pokazano przykład. W takim przypadku zamówienie zostało zakończone pomyślnie, bez błędów.
 
 ```xml
 
@@ -91,7 +91,7 @@ Poniżej pokazano przykład `_verbose.xml` . W takim przypadku zamówienie zosta
 </DriveLog>
 ```
 
-W tej samej kolejności przykład poniżej `_error.xml` jest przedstawiony poniżej.
+W tej samej kolejności przykład `_error.xml` poniżej jest przedstawiony poniżej.
 
 ```xml
 
@@ -110,13 +110,13 @@ W tej samej kolejności przykład poniżej `_error.xml` jest przedstawiony poni�
 </DriveLog>
 ```
 
-Poniżej przedstawiono przykład, `_error.xml` w którym zamówienie zostało zakończone z błędami. 
+Poniżej przedstawiono przykład, w `_error.xml` którym zamówienie zostało zakończone z błędami. 
 
 Plik błędu w tym przypadku zawiera `Summary` sekcję i inną sekcję, która zawiera wszystkie błędy na poziomie pliku. 
 
-`Summary` Zawiera `ValidationErrors` i `CopyErrors`. W takim przypadku przekazano 8 plików lub folderów na platformę Azure i nie wystąpiły błędy sprawdzania poprawności. Po skopiowaniu danych na konto usługi Azure Storage pomyślnie przekazano 5 plików lub folderów. Pozostałe 3 pliki lub foldery zostały zmienione zgodnie z konwencjami nazewnictwa kontenerów platformy Azure, a następnie pomyślnie przekazane do platformy Azure.
+`Summary`Zawiera `ValidationErrors` i `CopyErrors` . W takim przypadku przekazano 8 plików lub folderów na platformę Azure i nie wystąpiły błędy sprawdzania poprawności. Po skopiowaniu danych na konto usługi Azure Storage pomyślnie przekazano 5 plików lub folderów. Pozostałe 3 pliki lub foldery zostały zmienione zgodnie z konwencjami nazewnictwa kontenerów platformy Azure, a następnie pomyślnie przekazane do platformy Azure.
 
-Na poziomie pliku znajdują się `BlobStatus` informacje o akcjach podjętych w celu przekazania obiektów BLOB. W takim przypadku zmieniono nazwy trzech kontenerów, ponieważ foldery, do których skopiowano dane, nie są zgodne z konwencjami nazewnictwa platformy Azure dla kontenerów. W przypadku obiektów BLOB przekazanych w tych kontenerach Nowa nazwa kontenera, ścieżka obiektu BLOB na platformie Azure, oryginalna nieprawidłowa ścieżka do pliku i rozmiar obiektu BLOB są uwzględniane.
+Na poziomie pliku znajdują się `BlobStatus` Informacje o akcjach podjętych w celu przekazania obiektów BLOB. W takim przypadku zmieniono nazwy trzech kontenerów, ponieważ foldery, do których skopiowano dane, nie są zgodne z konwencjami nazewnictwa platformy Azure dla kontenerów. W przypadku obiektów BLOB przekazanych w tych kontenerach Nowa nazwa kontenera, ścieżka obiektu BLOB na platformie Azure, oryginalna nieprawidłowa ścieżka do pliku i rozmiar obiektu BLOB są uwzględniane.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -168,12 +168,12 @@ Błędy generowane podczas przekazywania danych na platformę Azure zostały pod
 |`ManagedDiskCreationTerminalFailure` | Nie można przekazać jako dysków zarządzanych. Pliki są dostępne na koncie magazynu przemieszczania jako stronicowe obiekty blob. Można ręcznie konwertować stronicowe obiekty blob na dyski zarządzane.  |
 |`DiskConversionNotStartedTierInfoMissing` | Ponieważ plik VHD został skopiowany poza foldery warstw pretworzonych, nie został utworzony dysk zarządzany. Plik zostanie przekazany jako obiekt BLOB strony do konta magazynu tymczasowego określonego podczas tworzenia kolejności. Można przekonwertować ją ręcznie na dysk zarządzany.|
 |`InvalidWorkitem` | Nie można przekazać danych, ponieważ nie są zgodne z konwencjami nazewnictwa i ograniczeniami platformy Azure.|
-|`InvalidPageBlobUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze `databoxdisk-invalid-pb-`z prefiksem.|
-|`InvalidAzureFileUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze `databoxdisk-invalid-af`z prefiksem-.|
-|`InvalidManagedDiskUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze `databoxdisk-invalid-md`z prefiksem-.|
-|`InvalidManagedDiskUploadAsPageBlob` |Przekazane jako stronicowe obiekty blob w kontenerze `databoxdisk-invalid-md-`z prefiksem. |
-|`MovedToOverflowShare` |Przekazano pliki do nowego udziału, ponieważ rozmiar oryginalnego udziału przekracza maksymalny limit rozmiaru platformy Azure. Nazwa nowego udziału plików ma sufiks `-2`.   |
-|`MovedToDefaultAzureShare` |Przekazano pliki, które nie zostały częścią żadnego folderu do udziału domyślnego. Nazwa udziału zaczyna się od `databox-`. |
+|`InvalidPageBlobUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze z prefiksem `databoxdisk-invalid-pb-` .|
+|`InvalidAzureFileUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze z prefiksem `databoxdisk-invalid-af` -.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Przekazane jako blokowe obiekty blob w kontenerze z prefiksem `databoxdisk-invalid-md` -.|
+|`InvalidManagedDiskUploadAsPageBlob` |Przekazane jako stronicowe obiekty blob w kontenerze z prefiksem `databoxdisk-invalid-md-` . |
+|`MovedToOverflowShare` |Przekazano pliki do nowego udziału, ponieważ rozmiar oryginalnego udziału przekracza maksymalny limit rozmiaru platformy Azure. Nazwa nowego udziału plików ma sufiks `-2` .   |
+|`MovedToDefaultAzureShare` |Przekazano pliki, które nie zostały częścią żadnego folderu do udziału domyślnego. Nazwa udziału zaczyna się od `databox-` . |
 |`ContainerRenamed` |Kontener dla tych plików nie jest zgodny z konwencjami nazewnictwa platformy Azure i ma nazwę. Nowa nazwa rozpoczyna się od `databox-` i jest sufiksem skrótu SHA1 oryginalnej nazwy |
 |`ShareRenamed` |Udział tych plików nie jest zgodny z konwencjami nazewnictwa platformy Azure i ma nazwę. Nowa nazwa rozpoczyna się od `databox-` i jest sufiksem skrótu SHA1 oryginalnej nazwy. |
 |`BlobRenamed` |Te pliki nie są zgodne z konwencjami nazewnictwa platformy Azure i zmieniono ich nazwy. Sprawdź `BlobPath` pole pod kątem nowej nazwy. |

@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81431880"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Projektowanie tabel przy użyciu języka SQL Synapse
@@ -27,27 +27,27 @@ W poniższej tabeli wymieniono tematy istotne dla puli SQL i programu SQL na ż�
 
 | Temat                                                        | Pula SQL | SQL na żądanie |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Określanie kategorii tabeli](#determine-table-category)        | Tak                | Nie                      |
+| [Określanie kategorii tabeli](#determine-table-category)        | Yes                | Nie                      |
 | [Nazwy schematów](#schema-names)                                | Tak                | Tak                     |
-| [Nazwy tabel](#table-names)                                  | Tak                | Nie                      |
-| [Trwałość tabeli](#table-persistence)                      | Tak                | Nie                      |
-| [Zwykła tabela](#regular-table)                              | Tak                | Nie                      |
+| [Nazwy tabel](#table-names)                                  | Yes                | Nie                      |
+| [Trwałość tabeli](#table-persistence)                      | Yes                | Nie                      |
+| [Zwykła tabela](#regular-table)                              | Yes                | Nie                      |
 | [Tabela tymczasowa](#temporary-table)                          | Tak                | Tak                     |
 | [Tabela zewnętrzna](#external-table)                            | Tak                | Tak                     |
 | [Typy danych](#data-types)                                    | Tak                | Tak                     |
-| [Rozproszone tabele](#distributed-tables)                    | Tak                | Nie                      |
-| [Tabele dystrybuowane przy użyciu skrótu](#hash-distributed-tables)          | Tak                | Nie                      |
-| [Zreplikowane tabele](#replicated-tables)                      | Tak                | Nie                      |
-| [Tabele działające w trybie okrężnym](#round-robin-tables)                    | Tak                | Nie                      |
-| [Typowe metody dystrybucji dla tabel](#common-distribution-methods-for-tables) | Tak                | Nie                      |
+| [Rozproszone tabele](#distributed-tables)                    | Yes                | Nie                      |
+| [Tabele dystrybuowane przy użyciu skrótu](#hash-distributed-tables)          | Yes                | Nie                      |
+| [Zreplikowane tabele](#replicated-tables)                      | Yes                | Nie                      |
+| [Tabele działające w trybie okrężnym](#round-robin-tables)                    | Yes                | Nie                      |
+| [Typowe metody dystrybucji dla tabel](#common-distribution-methods-for-tables) | Yes                | Nie                      |
 | [Partycje](#partitions)                                    | Tak                | Tak                     |
-| [Indeksy magazynu kolumn](#columnstore-indexes)                  | Tak                | Nie                      |
+| [Indeksy magazynu kolumn](#columnstore-indexes)                  | Yes                | Nie                      |
 | [Statystyki](#statistics)                                    | Tak                | Tak                     |
-| [Klucz podstawowy i unikatowy klucz](#primary-key-and-unique-key)    | Tak                | Nie                      |
-| [Polecenia służące do tworzenia tabel](#commands-for-creating-tables) | Tak                | Nie                      |
-| [Wyrównywanie danych źródłowych z magazynem danych](#aligning-source-data-with-the-data-warehouse) | Tak                | Nie                      |
-| [Nieobsługiwane funkcje tabeli](#unsupported-table-features)    | Tak                | Nie                      |
-| [Zapytania o rozmiar tabeli](#table-size-queries)                    | Tak                | Nie                      |
+| [Klucz podstawowy i unikatowy klucz](#primary-key-and-unique-key)    | Yes                | Nie                      |
+| [Polecenia służące do tworzenia tabel](#commands-for-creating-tables) | Yes                | Nie                      |
+| [Wyrównywanie danych źródłowych z magazynem danych](#aligning-source-data-with-the-data-warehouse) | Yes                | Nie                      |
+| [Nieobsługiwane funkcje tabeli](#unsupported-table-features)    | Yes                | Nie                      |
+| [Zapytania o rozmiar tabeli](#table-size-queries)                    | Yes                | Nie                      |
 
 ## <a name="determine-table-category"></a>Określanie kategorii tabeli
 

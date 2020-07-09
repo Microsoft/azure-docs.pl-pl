@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109319"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Określ strategię wdrażania cyklu życia tożsamości hybrydowej
@@ -36,7 +36,7 @@ Kontrola dostępu jest krytyczną funkcją scentralizowanego, Jednopunktowego sy
 
 Konta w zaawansowanych przedsiębiorstwach IT obejmują setki parametrów, które definiują urzędy, a te szczegóły mogą być kontrolowane przez system aprowizacji. Nowych użytkowników można zidentyfikować przy użyciu danych dostarczanych ze źródła autorytatywnego. Funkcja zatwierdzania żądań dostępu inicjuje procesy zatwierdzające (lub odrzucające) Inicjowanie obsługi zasobów.
 
-| Faza zarządzania cyklem życia | Lokalnie | Chmurowa | Połączenie hybrydowe |
+| Faza zarządzania cyklem życia | Lokalnie | Chmura | Połączenie hybrydowe |
 | --- | --- | --- | --- |
 | Zarządzanie kontami i Inicjowanie obsługi administracyjnej |Korzystając z roli serwera usług domenowych Active Directory® (AD DS), można utworzyć skalowalną, bezpieczną i łatwą w obsłudze infrastrukturę do zarządzania użytkownikami i zasobami oraz zapewnić wsparcie aplikacji obsługujących katalogi, takich jak Microsoft® Exchange Server. <br><br> [Grupy można zainicjować przy użyciu programu Identity Manager, AD DS](https://technet.microsoft.com/library/ff686261.aspx) <br>[Użytkowników można udostępnić w AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Administratorzy mogą używać kontroli dostępu do zarządzania dostępem użytkowników do udostępnionych zasobów ze względów bezpieczeństwa. W Active Directory kontrola dostępu jest administrowana na poziomie obiektu przez ustawienie różnych poziomów dostępu lub uprawnień do obiektów, takich jak Pełna kontrola, zapis, Odczyt lub brak dostępu. Kontrola dostępu w Active Directory definiuje, jak różni użytkownicy mogą używać obiektów Active Directory. Domyślnie uprawnienia do obiektów w Active Directory są ustawiane jako najbezpieczniejsze ustawienie. |Musisz utworzyć konto dla każdego użytkownika, który będzie miał dostęp do usługi w chmurze firmy Microsoft. Możesz również zmienić konta użytkowników lub usunąć je, gdy nie są już potrzebne. Domyślnie użytkownicy nie mają uprawnień administratora, ale można je opcjonalnie przypisać. <br><br> W ramach Azure Active Directory jedną z najważniejszych funkcji jest możliwość zarządzania dostępem do zasobów. Te zasoby mogą być częścią katalogu, jak w przypadku uprawnień do zarządzania obiektami za pośrednictwem ról w katalogu, lub znajdować się poza katalogiem, jak w przypadku aplikacji SaaS, usług platformy Azure, witryn programu SharePoint lub zasobów lokalnych. <br><br> W centrum rozwiązania do zarządzania dostępem w Azure Active Directory jest Grupa zabezpieczeń. Właściciel zasobu (lub administrator katalogu) może przypisać grupę, aby udzielić określonych uprawnień dostępu do jego zasobów. Członkowie grupy będą mieć dostęp, a właściciel zasobu może delegować prawo do zarządzania listą członków grupy dla kogoś innego — takiego jak Menedżer działu lub administrator pomocy technicznej<br> <br> Sekcja zarządzanie grupami w usłudze Azure AD zawiera więcej informacji na temat zarządzania dostępem za pomocą grup. |Poszerzanie tożsamości Active Directory w chmurze za pomocą synchronizacji i Federacji |
 
@@ -86,7 +86,7 @@ Zintegrowanie katalogów lokalnych z usługą Azure AD zwiększa produktywność
 
 Poniższy rysunek zawiera przykład widoku wysokiego poziomu procesu synchronizacji tożsamości.
 
-![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Synchronizuj](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Proces Synchronizacja tożsamości
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188260"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388276"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą usługi OpenID Connect Connect przy użyciu Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "78188260"
 
 ## <a name="configure-the-identity-provider"></a>Konfigurowanie dostawcy tożsamości
 
-Każdy dostawca tożsamości OpenID Connect Connect zawiera opis dokumentu metadanych, który zawiera większość informacji wymaganych do przeprowadzenia logowania. Obejmuje to takie informacje, jak adresy URL, które mają być używane, oraz lokalizację publicznych kluczy podpisywania usługi. Dokument metadanych OpenID Connect Connect zawsze znajduje się w punkcie końcowym, który się `.well-known\openid-configuration`skończy. Dla dostawcy tożsamości OpenID Connect Connect, który chcesz dodać, wprowadź adres URL metadanych.
+Każdy dostawca tożsamości OpenID Connect Connect zawiera opis dokumentu metadanych, który zawiera większość informacji wymaganych do przeprowadzenia logowania. Obejmuje to takie informacje, jak adresy URL, które mają być używane, oraz lokalizację publicznych kluczy podpisywania usługi. Dokument metadanych OpenID Connect Connect zawsze znajduje się w punkcie końcowym, który się skończy `.well-known/openid-configuration` . Dla dostawcy tożsamości OpenID Connect Connect, który chcesz dodać, wprowadź adres URL metadanych.
 
 ## <a name="client-id-and-secret"></a>Identyfikator klienta i klucz tajny
 
@@ -42,7 +42,7 @@ Aby umożliwić użytkownikom logowanie się, dostawca tożsamości wymaga od de
 
 ## <a name="scope"></a>Zakres
 
-Zakres definiuje informacje i uprawnienia, które chcesz zebrać od niestandardowego dostawcy tożsamości. Żądania połączenia OpenID Connect muszą zawierać wartość `openid` zakresu w celu uzyskania tokenu identyfikatora od dostawcy tożsamości. Bez tokenu identyfikatora użytkownicy nie mogą zalogować się do Azure AD B2C przy użyciu niestandardowego dostawcy tożsamości. Inne zakresy można dołączać rozdzielone spacjami. Zapoznaj się z dokumentacją niestandardowego dostawcy tożsamości, aby zobaczyć, jakie inne zakresy mogą być dostępne.
+Zakres definiuje informacje i uprawnienia, które chcesz zebrać od niestandardowego dostawcy tożsamości. Żądania połączenia OpenID Connect muszą zawierać `openid` wartość zakresu w celu uzyskania tokenu identyfikatora od dostawcy tożsamości. Bez tokenu identyfikatora użytkownicy nie mogą zalogować się do Azure AD B2C przy użyciu niestandardowego dostawcy tożsamości. Inne zakresy można dołączać rozdzielone spacjami. Zapoznaj się z dokumentacją niestandardowego dostawcy tożsamości, aby zobaczyć, jakie inne zakresy mogą być dostępne.
 
 ## <a name="response-type"></a>Typ odpowiedzi
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281953"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130280"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Skonfiguruj publiczne adresy IP po przejściu w tryb failover
 
@@ -48,7 +48,7 @@ Więcej informacji na temat scenariuszy trybu failover można znaleźć w Traffi
 2. [Przejście do trybu failover platformy Azure do platformy Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) za pomocą Traffic Manager 
 
 Konfiguracja jest następująca:
-- Utwórz [profil Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
+- Utwórz [profil Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Korzystając z metody routingu **priorytetowego** , Utwórz dwa punkty końcowe — **podstawowe** dla źródła i **trybu failover** dla platformy Azure. **Podstawowym** przypisano priorytet 1, a **tryb failover** ma przypisany priorytet 2.
 - **Podstawowym** punktem końcowym może być [platforma Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) lub [zewnętrzna](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) w zależności od tego, czy środowisko źródłowe znajduje się na platformie Azure, czy poza nią.
 - Punkt końcowy **trybu failover** jest tworzony jako punkt końcowy **platformy Azure** . Użyj **statycznego publicznego adresu IP** , ponieważ będzie to zewnętrzny punkt końcowy dla Traffic Manager w zdarzeniu awarii.

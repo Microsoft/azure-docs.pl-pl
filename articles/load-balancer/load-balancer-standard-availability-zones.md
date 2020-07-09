@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 6deb5714a43d61f5ceb793757d49bd099f09f2b7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: e6f788689b4e817aae6dc84f66703f4f88b8d44a
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977660"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027566"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Usługa Load Balancer w warstwie Standardowa i strefy dostępności
 
@@ -50,7 +49,9 @@ Pojedynczy adres IP frontonu będzie przeżyje awarię strefy. Adres IP frontonu
 
 Adres IP frontonu jest obsługiwany jednocześnie przez wiele niezależnych wdrożeń infrastruktury w wielu strefach dostępności. Wszelkie ponowne próby lub ponowna próba ponownego ustanowienia zakończą się pomyślnie w innych strefach, których nie dotyczy awaria strefy. 
 
-:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Strefa nadmiarowa" border="true":::
+<p align="center">
+  <img src="./media/az-zonal/zone-redundant-lb-1.svg" width="512" title="Virtual Network translator adresów sieciowych">
+</p>
 
 *Ilustracja: moduł równoważenia obciążenia strefowo nadmiarowy*
 
@@ -60,7 +61,12 @@ Można zdecydować, aby fronton miał zagwarantowaną pojedynczą strefę, zwan�
 
 Ponadto jest obsługiwane korzystanie z stref frontonów bezpośrednio dla punktów końcowych ze zrównoważonym obciążeniem w ramach każdej strefy. Ta konfiguracja pozwala udostępnić punkty końcowe ze zrównoważonym obciążeniem strefy, aby osobno monitorować każdą strefę. W przypadku publicznych punktów końcowych można zintegrować je z produktem równoważenia obciążenia DNS, takim jak [Traffic Manager](../traffic-manager/traffic-manager-overview.md) , i użyć pojedynczej nazwy DNS.
 
-:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Strefa nadmiarowa" border="true":::
+
+<p align="center">
+  <img src="./media/az-zonal/zonal-lb-1.svg" width="512" title="Virtual Network translator adresów sieciowych">
+</p>
+
+*Rysunek: strefowo nadmiarowy moduł równoważenia obciążenia*
 
 Jeśli chcesz mieszać te koncepcje (strefowo nadmiarowe i zona dla tego samego zaplecza), przejrzyj [wiele frontonów dla Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -98,7 +104,7 @@ Inne strefy, które mogą nawiązać połączenie z tą maszyną wirtualną, mog
 
 Usługa równoważenia obciążenia jest elastyczna w kontekście stref dostępności. Dla każdej reguły można wybrać opcję Wyrównaj do stref lub być nadmiarowe strefy. Zwiększona dostępność może być naliczana w cenie zwiększonej złożoności. Zaprojektuj dostępność w celu uzyskania optymalnej wydajności.
 
-### <a name="automatic-zone-redundancy"></a>Automatyczna nadmiarowość stref
+### <a name="zone-redundancy"></a>Strefa — nadmiarowość
 
 Load Balancer ułatwia używanie pojedynczego adresu IP jako frontonu Strefowo nadmiarowego. Strefowo nadmiarowy adres IP może obsłużyć zasób strefy w dowolnej strefie.  Adres IP może przetrwać co najmniej jedną awarię strefy, o ile jedna strefa pozostaje w dobrej kondycji w regionie.  Zamiast tego strefa frontonu jest redukcją usługi do pojedynczej strefy i udostępnia losy z odpowiednią strefą.
 

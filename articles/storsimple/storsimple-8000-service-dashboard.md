@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 14c37227a7e8598ee6f8f3adc62acd69dd274475
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80396507"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514952"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Korzystanie z bloku podsumowania usługi dla urządzenia z serii StorSimple 8000
 

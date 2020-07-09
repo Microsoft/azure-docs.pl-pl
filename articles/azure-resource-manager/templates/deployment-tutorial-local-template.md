@@ -4,12 +4,12 @@ description: Dowiedz się, jak wdrożyć szablon Azure Resource Manager z komput
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714070"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86118906"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Samouczek: Wdrażanie szablonu Azure Resource Manager lokalnego
 
@@ -33,7 +33,7 @@ Po zainstalowaniu Azure PowerShell lub interfejsu wiersza polecenia platformy Az
 
 ### <a name="editor-optional"></a>Edytor (opcjonalnie)
 
-Szablony są plikami JSON. Aby przeglądać/edytować szablony, potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [tworzenie Azure Resource Manager szablonów przy użyciu Visual Studio Code](use-vs-code-to-create-template.md).
+Szablony są plikami JSON. Aby przeglądać/edytować szablony, potrzebny jest dobry Edytor JSON. Zalecamy Visual Studio Code z rozszerzeniem narzędzi Menedżer zasobów Tools. Jeśli zachodzi potrzeba zainstalowania tych narzędzi, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów z Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="review-template"></a>Przejrzyj szablon
 
@@ -44,7 +44,7 @@ Szablon wdraża konto magazynu, plan usługi App Service i aplikację internetow
 > [!IMPORTANT]
 > Nazwy kont magazynu muszą mieć długość od 3 do 24 znaków i używać tylko cyfr i małych liter. Nazwa musi być unikatowa. W szablonie nazwa konta magazynu jest nazwą projektu z dołączonym elementem "Store", a nazwa projektu musi zawierać od 3 do 11 znaków. Nazwa projektu musi być zgodna z wymaganiami dotyczącymi nazwy konta magazynu i ma mniej niż 11 znaków.
 
-Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na przykład azuredeploy. JSON. Ten szablon zostanie wdrożony w dalszej części tego samouczka.
+Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na przykład azuredeploy.json. Ten szablon zostanie wdrożony w dalszej części tego samouczka.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 

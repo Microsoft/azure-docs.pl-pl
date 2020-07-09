@@ -3,20 +3,18 @@ title: Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 description: Dowiedz się, jak włączyć rejestrowanie zasobów dla profilu Traffic Manager i uzyskać dostęp do plików dziennika, które są tworzone w wyniku.
 services: traffic-manager
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711684"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 
@@ -28,7 +26,7 @@ Dzienniki zasobów usługi Azure Traffic Manager mogą zapewnić wgląd w zachow
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Po uruchomieniu programu PowerShell z komputera potrzebny jest moduł Azure PowerShell, 1.0.0 lub nowszy. Można uruchomić `Get-Module -ListAvailable Az` , aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić `Login-AzAccount` polecenie, aby zalogować się do platformy Azure.
+Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Po uruchomieniu programu PowerShell z komputera potrzebny jest moduł Azure PowerShell, 1.0.0 lub nowszy. Można uruchomić, `Get-Module -ListAvailable Az` Aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie, `Login-AzAccount` Aby zalogować się do platformy Azure.
 
 1. **Pobierz profil Traffic Manager:**
 
@@ -58,7 +56,7 @@ Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.az
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do konta usługi Azure Storage w portalu.
 2. Na stronie **Przegląd** konta usługi Azure Storage w obszarze **usługi** wybierz pozycję **obiekty blob**.
-3. W przypadku **kontenerów**wybierz pozycję **Insights-Logs-probehealthstatusevents**i przejdź do pliku PT1H. JSON, a następnie kliknij pozycję **Pobierz** , aby pobrać i zapisać kopię tego pliku dziennika.
+3. W przypadku **kontenerów**wybierz pozycję **Insights-Logs-probehealthstatusevents**i przejdź do PT1H.jsw pliku i kliknij pozycję **Pobierz** , aby pobrać i zapisać kopię tego pliku dziennika.
 
     ![Uzyskiwanie dostępu do plików dziennika profilu Traffic Manager z magazynu obiektów BLOB](./media/traffic-manager-logs/traffic-manager-logs.png)
 
@@ -71,7 +69,7 @@ W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu pro
 
 |||||
 |----|----|---|---|
-|**Nazwa pola**|**Typ pola**|**Definicja**|**Przyklad**|
+|**Nazwa pola**|**Typ pola**|**Definicja**|**Przykład**|
 |Nazwapunktukoncowego|String|Nazwa punktu końcowego Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
 |Stan|String|Stan kondycji punktu końcowego Traffic Manager, który był sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
 |||||

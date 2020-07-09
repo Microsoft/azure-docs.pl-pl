@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832014"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482874"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -98,12 +98,18 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
   **Plik został utworzony bezpośrednio w udziale plików platformy Azure przy użyciu protokołu SMB lub w portalu. Jak długo trwa synchronizacja pliku z serwerami w grupie synchronizacji?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
-* <a id="afs-conflict-resolution"></a>**Jeśli ten sam plik zostanie zmieniony na dwóch serwerach w tym samym czasie, co się dzieje?**  
-    Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane na dwóch serwerach w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik zawiera maszynę "Źródło" i numer konfliktu dołączony do nazwy. Jest on zgodny z tą taksonomią: 
-   
-    \<FileNameWithoutExtension \> - \< MachineName \> \[ -# \] . \< EXT\>  
 
-    Na przykład pierwszy konflikt CompanyReport. docx stanie się CompanyReport-CentralServer. docx, jeśli CentralServer jest miejsce, w którym wystąpił starszy zapis. Drugi konflikt zostałby nazwany CompanyReport-CentralServer-1. docx. Azure File Sync obsługuje pliki konfliktów 100 na plik. Po osiągnięciu maksymalnej liczby plików konfliktów plik nie zostanie zsynchronizowany, dopóki liczba plików konfliktów nie będzie mniejsza niż 100.
+* <a id="afs-sync-time"></a>
+  **Jak długo trwa Azure File Sync przekazywania 1TiB danych?**
+  
+    Wydajność będzie się różnić w zależności od ustawień środowiska, konfiguracji i tego, czy jest to synchronizacja początkowa czy ciągła synchronizacja. Aby uzyskać więcej informacji, zobacz [Azure File Sync metryki wydajności](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
+
+* <a id="afs-conflict-resolution"></a>**Jeśli ten sam plik zostanie zmieniony na dwóch serwerach w tym samym czasie, co się dzieje?**  
+    Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane w dwóch punktach końcowych w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik (określony przez LastWriteTime) ma nazwę punktu końcowego i numer konfliktu dołączony do nazwy pliku. W przypadku punktów końcowych serwera nazwa punktu końcowego jest nazwą serwera. W przypadku punktów końcowych w chmurze nazwa punktu końcowego to **chmura**. Nazwa jest zgodna z tą taksonomią: 
+   
+    \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
+
+    Na przykład pierwszy konflikt CompanyReport.docx byłby CompanyReport-CentralServer.docx, jeśli CentralServer jest miejsce, w którym wystąpił starszy zapis. Drugi konflikt zostałby nazwany CompanyReport-CentralServer-1.docx. Azure File Sync obsługuje pliki konfliktów 100 na plik. Po osiągnięciu maksymalnej liczby plików konfliktów plik nie zostanie zsynchronizowany, dopóki liczba plików konfliktów nie będzie mniejsza niż 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Czy Azure File Sync jest magazyn Geograficznie nadmiarowy?**  
@@ -127,6 +133,10 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="afs-effective-vfs"></a>
   **Jak jest interpretowane *wolne miejsce na woluminie* , gdy mam wiele punktów końcowych serwera na woluminie?**  
   Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  
+* <a id="afs-tiered-files-tiering-disabled"></a>
+  **Mam wyłączone warstwy chmury, dlaczego istnieją pliki warstwowe w lokalizacji punktu końcowego serwera?**  
+  Zobacz temat Obsługa [warstw w chmurze](storage-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Które pliki lub foldery są automatycznie wykluczane przez Azure File Sync?**  
@@ -145,16 +155,16 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **Czy mogę przenieść usługę synchronizacji magazynu i/lub konto magazynu do innej grupy zasobów lub subskrypcji?**  
-   Tak, usługa synchronizacji magazynu i/lub konto magazynu można przenieść do innej grupy zasobów lub subskrypcji w ramach istniejącej dzierżawy usługi Azure AD. Jeśli konto magazynu jest przenoszone, musisz udzielić hybrydowej usłudze File Sync dostępu do konta magazynu (Sprawdź, [czy Azure File Sync ma dostęp do konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+  **Czy mogę przenieść usługę synchronizacji magazynu i/lub konto magazynu do innej grupy zasobów, subskrypcji lub dzierżawy usługi Azure AD?**  
+   Tak, usługa synchronizacji magazynu i/lub konto magazynu można przenieść do innej grupy zasobów, subskrypcji lub dzierżawy usługi Azure AD. Po przeniesieniu usługi synchronizacji magazynu lub konta magazynu musisz nadać aplikacji Microsoft. StorageSync dostęp do konta magazynu (Sprawdź, [czy Azure File Sync ma dostęp do konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
-    > Azure File Sync nie obsługuje przeniesienia subskrypcji do innej dzierżawy usługi Azure AD.
+    > Podczas tworzenia punktu końcowego w chmurze usługa synchronizacji magazynu i konto magazynu muszą znajdować się w tej samej dzierżawie usługi Azure AD. Po utworzeniu punktu końcowego w chmurze można przenieść usługę synchronizacji magazynu i konto magazynu do różnych dzierżawców usługi Azure AD.
     
 * <a id="afs-ntfs-acls"></a>
   **Czy Azure File Sync zachować listy ACL na poziomie katalogu/pliku systemu plików NTFS wraz z danymi przechowywanymi w Azure Files?**
 
-    Począwszy od 24 lutego 2020, nowe i istniejące listy kontroli dostępu w warstwach przez usługę Azure File Sync zostaną utrwalone w formacie systemu plików NTFS, a modyfikacje ACL wprowadzone bezpośrednio do udziału plików platformy Azure zostaną zsynchronizowane ze wszystkimi serwerami w grupie synchronizacji. Wszystkie zmiany list ACL wprowadzonych do Azure Files zostaną zsynchronizowane za pośrednictwem usługi Azure File Sync. Podczas kopiowania danych do Azure Files upewnij się, że używasz protokołu SMB, aby uzyskać dostęp do udziału i zachować listy ACL. Istniejące narzędzia oparte na interfejsie REST, takie jak AzCopy lub Eksplorator usługi Storage nie utrwalają list ACL.
+    Począwszy od 24 lutego 2020, nowe i istniejące listy kontroli dostępu w warstwach przez usługę Azure File Sync zostaną utrwalone w formacie systemu plików NTFS, a modyfikacje ACL wprowadzone bezpośrednio do udziału plików platformy Azure zostaną zsynchronizowane ze wszystkimi serwerami w grupie synchronizacji. Wszystkie zmiany list ACL wprowadzonych do Azure Files zostaną zsynchronizowane za pośrednictwem usługi Azure File Sync. Podczas kopiowania danych do Azure Files upewnij się, że używasz narzędzia do kopiowania, które obsługuje "wierność", aby skopiować atrybuty, sygnatury czasowe i listy kontroli dostępu do udziału plików platformy Azure — za pośrednictwem protokołu SMB lub REST. W przypadku korzystania z narzędzi do kopiowania platformy Azure, takich jak AzCopy, ważne jest, aby użyć najnowszej wersji. Zapoznaj się z [tabelą narzędzia kopiowania plików](storage-files-migration-overview.md#file-copy-tools) , aby zapoznać się z omówieniem narzędzi do kopiowania na platformie Azure w celu zagwarantowania, że można skopiować wszystkie ważne metadane pliku.
 
     Jeśli włączono Azure Backup w udziałach plików zarządzanych przez funkcję synchronizacji plików, listy ACL plików można nadal przywracać w ramach przepływu pracy przywracania kopii zapasowych. Działa to zarówno w przypadku całego udziału, jak i poszczególnych plików lub katalogów.
 
@@ -164,7 +174,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="ad-support"></a>
 **Czy uwierzytelnianie oparte na tożsamościach i kontrola dostępu są obsługiwane przez Azure Files?**  
     
-    Tak, Azure Files obsługuje uwierzytelnianie oparte na tożsamościach i kontrola dostępu. Aby skorzystać z kontroli dostępu opartej na tożsamościach, można wybrać jeden z dwóch sposobów: lokalna Active Directory Domain Services (wersja zapoznawcza) lub Azure Active Directory Domain Services (Azure AD DS). Active Directory Domain Services lokalnego (AD DS) obsługuje uwierzytelnianie przy AD DS użyciu maszyn przyłączonych do domeny, lokalnie lub na platformie Azure, aby uzyskiwać dostęp do udziałów plików platformy Azure za pośrednictwem protokołu SMB. Usługa Azure AD DS Authentication za pośrednictwem protokołu SMB dla Azure Files umożliwia maszynom wirtualnym z systemem Windows przyłączonych do domeny usługi Azure AD DS dostęp do udziałów, katalogów i plików przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [omówienie Azure Files obsługi uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB](storage-files-active-directory-overview.md). 
+    Tak, Azure Files obsługuje uwierzytelnianie oparte na tożsamościach i kontrola dostępu. Aby skorzystać z kontroli dostępu opartej na tożsamościach, można wybrać jeden z dwóch sposobów: lokalna Active Directory Domain Services lub Azure Active Directory Domain Services (Azure AD DS). Active Directory Domain Services lokalnego (AD DS) obsługuje uwierzytelnianie przy AD DS użyciu maszyn przyłączonych do domeny, lokalnie lub na platformie Azure, aby uzyskiwać dostęp do udziałów plików platformy Azure za pośrednictwem protokołu SMB. Usługa Azure AD DS Authentication za pośrednictwem protokołu SMB dla Azure Files umożliwia maszynom wirtualnym z systemem Windows przyłączonych do domeny usługi Azure AD DS dostęp do udziałów, katalogów i plików przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [omówienie Azure Files obsługi uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB](storage-files-active-directory-overview.md). 
 
     Azure Files oferuje dwa dodatkowe sposoby zarządzania kontrolą dostępu:
 
@@ -173,41 +183,6 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     - Azure File Sync zachowuje i replikuje wszystkie poufne listy kontroli dostępu lub listy DACL (niezależnie od tego, czy Active Directory lub lokalne) wszystkie punkty końcowe serwera, do których jest synchronizowana. 
     
     Aby uzyskać kompleksową reprezentację wszystkich protokołów obsługiwanych przez usługi Azure Storage, można przyjrzeć się do [autoryzacji dostępu do usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) . 
-
-* <a id="ad-support-devices"></a>
-**Czy uwierzytelnianie Azure Files Azure Active Directory Domain Services (Azure AD DS) obsługuje dostęp do protokołu SMB przy użyciu poświadczeń usługi Azure AD z urządzeń przyłączonych do lub zarejestrowanych w usłudze Azure AD?**
-
-    Nie, ten scenariusz nie jest obsługiwany.
-
-* <a id="ad-support-rest-apis"></a>
-**Czy istnieją interfejsy API REST obsługujące pobieranie/Ustawianie/kopiowanie katalogów/plików list ACL systemu plików NTFS?**
-
-    Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego).
-
-* <a id="ad-vm-subscription"></a>
-**Czy mogę uzyskać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD z maszyny wirtualnej w ramach innej subskrypcji?**
-
-    Jeśli subskrypcja, w ramach której wdrożono udział plików, jest skojarzona z tą samą dzierżawą usługi Azure AD co wdrożenie AD DS platformy Azure, do której przyłączono maszynę wirtualną, możesz uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu tych samych poświadczeń usługi Azure AD. Ograniczenie jest nakładane nie na subskrypcję, ale w skojarzonej dzierżawie usługi Azure AD.
-    
-* <a id="ad-support-subscription"></a>
-**Czy można włączyć usługę Azure AD DS lub lokalne uwierzytelnianie AD DS dla udziałów plików platformy Azure przy użyciu dzierżawy usługi Azure AD, która różni się od podstawowej dzierżawy udziału plików platformy Azure?**
-
-    Nie, Azure Files obsługuje tylko usługę Azure AD DS lub lokalną integrację AD DS z dzierżawą usługi Azure AD, która znajduje się w tej samej subskrypcji co udział plików. Tylko jedna subskrypcja może być skojarzona z dzierżawą usługi Azure AD. To ograniczenie dotyczy zarówno AD DS platformy Azure, jak i lokalnych metod uwierzytelniania AD DS. W przypadku korzystania z lokalnego AD DS na potrzeby uwierzytelniania [poświadczenia AD DS muszą zostać zsynchronizowane z usługą Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) , z którą skojarzone jest konto magazynu.
-
-* <a id="ad-linux-vms"></a>
-**Czy usługa Azure AD DS lub lokalne uwierzytelnianie AD DS dla udziałów plików platformy Azure obsługuje maszyny wirtualne z systemem Linux?**
-
-    Nie, uwierzytelnianie z maszyn wirtualnych systemu Linux nie jest obsługiwane.
-
-* <a id="ad-aad-smb-afs"></a>
-**Czy udziały plików zarządzane przez Azure File Sync obsługują uwierzytelnianie na platformie Azure AD DS czy lokalne AD DS (wersja zapoznawcza)?**
-
-    Tak. AD DS platformy Azure lub lokalnego uwierzytelniania AD DS można włączyć w udziale plików zarządzanym przez Azure File Sync. Zmiany w katalogu/plikach list ACL systemu plików NTFS na lokalnych serwerach plików będą należeć do Azure Files i na odwrót.
-
-* <a id="ad-aad-smb-files"></a>
-**Jak sprawdzić, czy na moim koncie magazynu włączono uwierzytelnianie AD DS i pobrać informacje o domenie?**
-
-    Aby uzyskać instrukcje, zobacz [tutaj](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
     
 * <a id="encryption-at-rest"></a>
 **Jak upewnić się, że mój udział plików platformy Azure jest szyfrowany w spoczynku?**  
@@ -234,7 +209,37 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
    Azure Files uruchamiana na podstawie tej samej architektury magazynu, która jest używana w innych usługach magazynu w usłudze Azure Storage. Azure Files stosuje te same zasady zgodności danych, które są używane w innych usługach Azure Storage. Aby uzyskać więcej informacji na temat zgodności danych usługi Azure Storage, możesz zapoznać się z [ofertą zgodności z usługą Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), a następnie przejść do [Centrum zaufania firmy Microsoft](https://microsoft.com/trustcenter/default.aspx).
    
-### <a name="ad-authentication"></a>Uwierzytelnianie usługi AD
+### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & uwierzytelniania AD DS platformy Azure
+* <a id="ad-support-devices"></a>
+**Czy uwierzytelnianie Azure Files Azure Active Directory Domain Services (Azure AD DS) obsługuje dostęp do protokołu SMB przy użyciu poświadczeń usługi Azure AD z urządzeń przyłączonych do lub zarejestrowanych w usłudze Azure AD?**
+
+    Nie, ten scenariusz nie jest obsługiwany.
+
+* <a id="ad-vm-subscription"></a>
+**Czy mogę uzyskać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD z maszyny wirtualnej w ramach innej subskrypcji?**
+
+    Jeśli subskrypcja, w ramach której wdrożono udział plików, jest skojarzona z tą samą dzierżawą usługi Azure AD co wdrożenie AD DS platformy Azure, do której przyłączono maszynę wirtualną, możesz uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu tych samych poświadczeń usługi Azure AD. Ograniczenie jest nakładane nie na subskrypcję, ale w skojarzonej dzierżawie usługi Azure AD.
+    
+* <a id="ad-support-subscription"></a>
+**Czy można włączyć usługę Azure AD DS lub lokalne uwierzytelnianie AD DS dla udziałów plików platformy Azure przy użyciu dzierżawy usługi Azure AD, która różni się od podstawowej dzierżawy udziału plików platformy Azure?**
+
+    Nie, Azure Files obsługuje tylko usługę Azure AD DS lub lokalną integrację AD DS z dzierżawą usługi Azure AD, która znajduje się w tej samej subskrypcji co udział plików. Tylko jedna subskrypcja może być skojarzona z dzierżawą usługi Azure AD. To ograniczenie dotyczy zarówno AD DS platformy Azure, jak i lokalnych metod uwierzytelniania AD DS. W przypadku korzystania z lokalnego AD DS na potrzeby uwierzytelniania [poświadczenia AD DS muszą zostać zsynchronizowane z usługą Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) , z którą skojarzone jest konto magazynu.
+
+* <a id="ad-linux-vms"></a>
+**Czy usługa Azure AD DS lub lokalne uwierzytelnianie AD DS dla udziałów plików platformy Azure obsługuje maszyny wirtualne z systemem Linux?**
+
+    Nie, uwierzytelnianie z maszyn wirtualnych systemu Linux nie jest obsługiwane.
+
+* <a id="ad-aad-smb-afs"></a>
+**Czy udziały plików zarządzane przez Azure File Sync obsługują usługę Azure AD DS czy uwierzytelnianie lokalne AD DS?**
+
+    Tak. AD DS platformy Azure lub lokalnego uwierzytelniania AD DS można włączyć w udziale plików zarządzanym przez Azure File Sync. Zmiany w katalogu/plikach list ACL systemu plików NTFS na lokalnych serwerach plików będą należeć do Azure Files i na odwrót.
+
+* <a id="ad-aad-smb-files"></a>
+**Jak sprawdzić, czy na moim koncie magazynu włączono uwierzytelnianie AD DS i pobrać informacje o domenie?**
+
+    Aby uzyskać instrukcje, zobacz [tutaj](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+
 * <a id=""></a>
 **Czy Azure Files uwierzytelnianie usługi Azure AD obsługuje maszyny wirtualne z systemem Linux?**
 
@@ -246,12 +251,12 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     Azure Files lokalnego uwierzytelniania AD DS integruje się tylko z lasem usługi domeny, w której zarejestrowano konto magazynu. Aby można było obsługiwać uwierzytelnianie z innego lasu, środowisko musi mieć prawidłowo skonfigurowane zaufanie lasu. Sposób Azure Files rejestrowania w AD DS niemal taki sam jak zwykły serwer plików, w którym tworzy tożsamość (konto logowania komputera lub usługi) w AD DS na potrzeby uwierzytelniania. Jedyną różnicą jest to, że zarejestrowana nazwa SPN konta magazynu jest zakończona ciągiem "file.core.windows.net", który jest niezgodny z sufiksem domeny. Skontaktuj się z administratorem domeny, aby sprawdzić, czy dowolna aktualizacja zasad routingu DNS jest wymagana w celu umożliwienia uwierzytelniania wielu lasów ze względu na inny sufiks domeny.
 
 * <a id=""></a>
-**Jakie regiony są dostępne do Azure Files AD DS Authentication (wersja zapoznawcza)?**
+**Jakie regiony są dostępne do Azure Files AD DS uwierzytelniania?**
 
     Szczegółowe informacje znajdują się w [AD DS regionalnej dostępności](storage-files-identity-auth-active-directory-enable.md#regional-availability) .
     
 * <a id="ad-aad-smb-afs"></a>
-**Czy można korzystać z uwierzytelniania Azure Files Active Directory (AD) (wersja zapoznawcza) w udziałach plików zarządzanych przez Azure File Sync?**
+**Czy można korzystać z uwierzytelniania Azure Files Active Directory (AD) w udziałach plików zarządzanych przez Azure File Sync?**
 
     Tak, możesz włączyć uwierzytelnianie usługi AD w udziale plików zarządzanym przez usługę Azure File Sync. Zmiany w katalogu/plikach list ACL systemu plików NTFS na lokalnych serwerach plików będą należeć do Azure Files i na odwrót.
 
@@ -264,6 +269,12 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Czy istnieje różnica w tworzeniu konta komputera lub konta logowania do usługi w celu reprezentowania konta magazynu w usłudze AD?**
 
     Utworzenie [konta komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (domyślnego) lub [konta logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) nie ma żadnego wpływu na sposób działania uwierzytelniania Azure Files. Możesz wybrać własny wybór sposobu reprezentowania konta magazynu jako tożsamości w środowisku usługi AD. Domyślnym ustawieniem DomainAccountType w poleceniu cmdlet Join-AzStorageAccountForAuth jest konto komputera. Jednak okres ważności hasła skonfigurowany w środowisku usługi AD może być różny dla konta logowania komputera lub usługi i należy wziąć pod uwagę w przypadku [aktualizacji hasła tożsamości konta magazynu w usłudze AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
+ 
+* <a id="ad-support-rest-apis"></a>
+**Czy istnieją interfejsy API REST obsługujące pobieranie/Ustawianie/kopiowanie katalogów/list ACL systemu Windows?**
+
+    Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego). Obsługujemy również utrwalanie list ACL systemu Windows w narzędziach opartych na platformie REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+
 
 ## <a name="on-premises-access"></a>Dostęp lokalny
 
@@ -414,7 +425,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

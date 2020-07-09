@@ -8,10 +8,9 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77137496"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Ujednolicenie wielu zasobów Application Insights Azure Monitor 
@@ -24,12 +23,12 @@ W tym przykładzie pokazano, jak można monitorować wiele zasobów Application 
 
 Utwórz funkcję używającą operatora UNION z listą aplikacji, a następnie Zapisz zapytanie w obszarze roboczym jako funkcję z aliasem *applicationsScoping*. 
 
-W dowolnym momencie możesz modyfikować wymienione aplikacje w portalu, przechodząc do Eksploratora zapytań w obszarze roboczym i wybierając funkcję do edycji, a następnie zapisując lub używając polecenia cmdlet `SavedSearch` programu PowerShell. 
+W dowolnym momencie możesz modyfikować wymienione aplikacje w portalu, przechodząc do Eksploratora zapytań w obszarze roboczym i wybierając funkcję do edycji, a następnie zapisując lub używając `SavedSearch` polecenia cmdlet programu PowerShell. 
 
 >[!NOTE]
 >Ta metoda nie może być używana z alertami dziennika, ponieważ sprawdzanie dostępu do zasobów reguły alertów, w tym obszarów roboczych i aplikacji, odbywa się w czasie tworzenia alertu. Dodawanie nowych zasobów do funkcji po utworzeniu alertu nie jest obsługiwane. Jeśli wolisz używać funkcji dla określania zakresu zasobów w alertach dziennika, musisz zmodyfikować regułę alertu w portalu lub z szablonem Menedżer zasobów, aby zaktualizować zasoby w zakresie. Alternatywnie możesz dołączyć listę zasobów do zapytania alertu dziennika.
 
-`withsource= SourceApp` Polecenie dodaje kolumnę do wyników, które wyznaczają aplikację, która wysłała dziennik. Operator Parse jest opcjonalny w tym przykładzie i służy do wyodrębniania nazwy aplikacji z właściwości SourceApp. 
+`withsource= SourceApp`Polecenie dodaje kolumnę do wyników, które wyznaczają aplikację, która wysłała dziennik. Operator Parse jest opcjonalny w tym przykładzie i służy do wyodrębniania nazwy aplikacji z właściwości SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -72,7 +71,7 @@ W poniższej tabeli przedstawiono różnice schematu między Log Analytics i App
 | AvailabilityDuration | czas trwania |
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
-| AvailabilityTestId | id |
+| AvailabilityTestId | identyfikator |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | sygnatura czasowa |
 | Przeglądarka | client_browser |
@@ -88,7 +87,7 @@ W poniższej tabeli przedstawiono różnice schematu między Log Analytics i App
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| Typ | type |
+| Typ | typ |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | System operacyjny | client_OS | 
@@ -98,7 +97,7 @@ W poniższej tabeli przedstawiono różnice schematu między Log Analytics i App
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | czas trwania | 
-| RequestID | id | 
+| RequestID | identyfikator | 
 | Żądanie | name | 
 | RequestSuccess | powodzenie | 
 | ResponseCode | resultCode | 
@@ -106,7 +105,7 @@ W poniższej tabeli przedstawiono różnice schematu między Log Analytics i App
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| Telemetriatype | type |
+| Telemetriatype | typ |
 | Adres URL | url |
 | UserAccountId | user_AccountId |
 

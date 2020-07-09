@@ -7,16 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74069628"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609169"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
  W celu zapewnienia optymalnego poziomu dostępności dla składników analitycznych Usługa HDInsight została opracowana przy użyciu unikatowej architektury zapewniającej wysoką dostępność (HA) krytycznych usług. Niektóre składniki tej architektury zostały opracowane przez firmę Microsoft w celu zapewnienia automatycznego przejścia w tryb failover. Inne składniki to standardowe składniki Apache wdrożone w celu obsługi określonych usług. W tym artykule wyjaśniono architekturę modelu usług HA w usłudze HDInsight, jak Usługa HDInsight obsługuje tryb failover dla usług HA oraz najlepsze rozwiązania w zakresie odzyskiwania z innych przerw w działaniu usługi.
+ 
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
+
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktura wysokiej dostępności
 
@@ -50,7 +56,7 @@ Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższ
 
 | Usługa | Węzły klastra | Typy klastrów | Przeznaczenie |
 |---|---|---|---|
-| Serwer Apache Ambari| Aktywne węzła głównego | Wszystkie | Monitoruje klaster i zarządza nim.|
+| Serwer Apache Ambari| Aktywne węzła głównego | Wszystko | Monitoruje klaster i zarządza nim.|
 | Serwer Oś czasu aplikacji dla PRZĘDZy Apache | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje informacje debugowania dotyczące zadań PRZĘDZy uruchomionych w klastrze.|
 | Serwer historii zadań dla usługi Hadoop MapReduce | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje dane debugowania dla zadań MapReduce.|
 | Apache Livy | Aktywne węzła głównego | platforma Spark | Umożliwia łatwą interakcję z klastrem Spark za pośrednictwem interfejsu REST |

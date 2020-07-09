@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80985069"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorowanie wydajności w aplikacjach internetowych
@@ -21,7 +20,7 @@ Application Insights może monitorować zarówno aplikacje i usługi sieci Web w
 Po stronie klienta Application Insights może przyjmować dane telemetryczne ze stron sieci Web i różne urządzenia, w tym aplikacje dla systemów iOS, Android i Windows.
 
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Konfigurowanie monitorowania wydajności
-Jeśli Application Insights nie zostały jeszcze dodane do projektu (oznacza to, że jeśli nie ma pliku ApplicationInsights. config), wybierz jedną z następujących metod, aby rozpocząć pracę:
+Jeśli Application Insights nie zostały jeszcze dodane do projektu (oznacza to, że jeśli nie ma ApplicationInsights.config), wybierz jedną z następujących metod, aby rozpocząć:
 
 * [Aplikacje internetowe platformy ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Dodaj Monitorowanie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)

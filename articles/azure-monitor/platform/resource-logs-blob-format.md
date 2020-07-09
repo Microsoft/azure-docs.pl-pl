@@ -8,10 +8,9 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79096782"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Przygotuj się do zmiany formatu Azure Monitor dzienników platformy zarchiwizowanych na koncie magazynu
@@ -25,7 +24,7 @@ ms.locfileid: "79096782"
 Azure Monitor oferuje możliwość wysyłania dzienników zasobów i dzienników aktywności do konta usługi Azure Storage, Event Hubs przestrzeni nazw lub obszaru roboczego Log Analytics w Azure Monitor. Aby rozwiązać problem z wydajnością systemu, **1 listopada 2018 o godzinie 12:00 północy** , format przesyłania danych dziennika do magazynu obiektów BLOB został zmieniony. Jeśli masz narzędzia odczytujące dane z magazynu obiektów blob, musisz zaktualizować swoje narzędzia, aby zrozumieć nowy format danych.
 
 * W czwartek, 1 listopada 2018 o 12:00 północy czasu UTC, format obiektu BLOB został zmieniony na [linie JSON](http://jsonlines.org/). Oznacza to, że każdy rekord zostanie rozdzielony znakiem nowego wiersza, bez tablicy rekordów zewnętrznych i bez przecinków między rekordami JSON.
-* Format obiektu BLOB został zmieniony dla wszystkich ustawień diagnostycznych we wszystkich subskrypcjach jednocześnie. Pierwszy plik PT1H. JSON emitowany przez 1 listopada był używany w tym nowym formacie. Nazwy obiektów blob i kontenerów pozostają takie same.
+* Format obiektu BLOB został zmieniony dla wszystkich ustawień diagnostycznych we wszystkich subskrypcjach jednocześnie. Pierwszy PT1H.jsw pliku emitowanym przez 1 listopada był używany w tym nowym formacie. Nazwy obiektów blob i kontenerów pozostają takie same.
 * Ustawienie ustawienia diagnostycznego między wcześniejszą i 1 listopada, które będzie w dalszym ciągu emitować dane w bieżącym formacie do 1 listopada.
 * Ta zmiana nastąpiła jednocześnie we wszystkich regionach chmury publicznej. Ta zmiana nie będzie jeszcze wykonywana w Microsoft Azure obsługiwane przez firmę 21Vianet, platformę Azure (Niemcy) ani chmurę Azure Government.
 * Ta zmiana ma wpływ na następujące typy danych:
@@ -55,7 +54,7 @@ Jeśli masz zasoby wysyłające dane do konta magazynu przy użyciu tych ustawie
 
 ### <a name="details-of-the-format-change"></a>Szczegóły zmiany formatu
 
-Bieżący format pliku PT1H. JSON w usłudze Azure Blob Storage używa tablicy rekordów JSON. Oto przykład pliku dziennika magazynu kluczy:
+Bieżący format PT1H.jsw pliku w usłudze Azure Blob Storage używa tablicy rekordów JSON. Oto przykład pliku dziennika magazynu kluczy:
 
 ```json
 {
@@ -116,7 +115,7 @@ Bieżący format pliku PT1H. JSON w usłudze Azure Blob Storage używa tablicy r
 }
 ```
 
-Nowy format używa [wierszy JSON](http://jsonlines.org/), gdzie każde zdarzenie jest wierszem, a znak nowego wiersza wskazuje nowe zdarzenie. Oto, co powyższy przykład będzie wyglądać w pliku PT1H. JSON po zmianie:
+Nowy format używa [wierszy JSON](http://jsonlines.org/), gdzie każde zdarzenie jest wierszem, a znak nowego wiersza wskazuje nowe zdarzenie. Oto, co powyższy przykład będzie wyglądać w PT1H.jspliku po zmianie:
 
 ```json
 {"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}

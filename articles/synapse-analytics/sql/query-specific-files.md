@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744219"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478420"
 ---
 # <a name="using-file-metadata-in-queries"></a>Korzystanie z metadanych plików w zapytaniach
 
@@ -22,7 +22,7 @@ Usługa zapytań na żądanie SQL może rozdzielić wiele plików i folderów zg
 
 Czasami może być konieczne sprawdzenie, który plik lub źródło folderu jest skorelowane z określonym wierszem w zestawie wyników.
 
-Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](develop-storage-files-overview.md#filename-function) i [ścieżka funkcji](develop-storage-files-overview.md#filepath-function). Poniżej znajdziesz krótkie opisy dotyczące przykładów.
+Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](query-data-storage.md#filename-function) i [ścieżka funkcji](query-data-storage.md#filepath-function). Poniżej znajdziesz krótkie opisy dotyczące przykładów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

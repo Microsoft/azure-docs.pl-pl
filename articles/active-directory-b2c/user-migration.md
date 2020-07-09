@@ -1,35 +1,35 @@
 ---
 title: Podejście do migracji użytkowników
 titleSuffix: Azure AD B2C
-description: Przeprowadź migrację kont użytkowników z innego dostawcy tożsamości do Azure AD B2C przy użyciu metod importowania zbiorczego lub bezproblemowej migracji.
+description: Przeprowadź migrację kont użytkowników z innego dostawcy tożsamości do Azure AD B2C przy użyciu metod wstępnej migracji lub bezproblemowej migracji.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332330"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85383975"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrowanie użytkowników do Azure AD B2C
 
-Migrowanie z innego dostawcy tożsamości do Azure Active Directory B2C (Azure AD B2C) może również wymagać migrowania istniejących kont użytkowników. W tym miejscu omówiono dwie metody migracji, *Importowanie zbiorcze* i *bezproblemowe Migrowanie*. W obu przypadkach konieczne jest napisanie aplikacji lub skryptu, który używa [interfejsu API Microsoft Graph](manage-user-accounts-graph-api.md) do tworzenia kont użytkowników w Azure AD B2C.
+Migrowanie z innego dostawcy tożsamości do Azure Active Directory B2C (Azure AD B2C) może również wymagać migrowania istniejących kont użytkowników. W tym miejscu omówiono dwie metody migracji — *wstępna migracja* i *bezproblemowe Migrowanie*. W obu przypadkach konieczne jest napisanie aplikacji lub skryptu, który używa [interfejsu API Microsoft Graph](manage-user-accounts-graph-api.md) do tworzenia kont użytkowników w Azure AD B2C.
 
-## <a name="bulk-import"></a>Import zbiorczy
+## <a name="pre-migration"></a>Wstępna migracja
 
-W przepływie importu zbiorczego aplikacja do migracji wykonuje następujące kroki dla każdego konta użytkownika:
+W przepływie przed migracją aplikacja do migracji wykonuje następujące kroki dla każdego konta użytkownika:
 
 1. Odczytaj konto użytkownika ze starego dostawcy tożsamości, w tym jego bieżące poświadczenia (nazwa użytkownika i hasło).
 1. Utwórz odpowiednie konto w katalogu Azure AD B2C z bieżącymi poświadczeniami.
 
-Użyj przepływu importu zbiorczego w jednej z następujących dwóch sytuacji:
+Użyj przepływu przed migracją w jednej z następujących dwóch sytuacji:
 
 - Masz dostęp do poświadczeń w postaci zwykłego tekstu użytkownika (nazwy użytkownika i hasła).
 - Poświadczenia są szyfrowane, ale można je odszyfrować.
@@ -43,25 +43,25 @@ Użyj bezproblemowego przepływu migracji, jeśli hasła zwykłego tekstu w star
 - Hasło jest przechowywane w jednokierunkowym formacie szyfrowanym, na przykład za pomocą funkcji skrótu.
 - Hasło jest przechowywane przez starszego dostawcę tożsamości w taki sposób, aby nie można było uzyskać do niego dostępu. Na przykład gdy dostawca tożsamości sprawdza poprawność poświadczeń, wywołując usługę sieci Web.
 
-Bezproblemowy przepływ migracji nadal wymaga migracji zbiorczej kont użytkowników, ale używa [zasad niestandardowych](custom-policy-get-started.md) do wysyłania zapytań do [interfejsu API REST](custom-policy-rest-api-intro.md) (tworzonego przez użytkownika) w celu ustawienia hasła każdego użytkownika podczas pierwszego logowania.
+Bezproblemowy przepływ migracji nadal wymaga wstępnej migracji kont użytkowników, ale używa [zasad niestandardowych](custom-policy-get-started.md) do wysyłania zapytań do [interfejsu API REST](custom-policy-rest-api-intro.md) (tworzonego przez użytkownika) w celu ustawienia hasła każdego użytkownika podczas pierwszego logowania.
 
-Bezproblemowy przepływ migracji ma dwie fazy: *zbiorcze Importowanie* i *Ustawianie poświadczeń*.
+Bezproblemowy przepływ migracji ma dwie fazy: *wstępne Migrowanie* i *Ustawianie poświadczeń*.
 
-### <a name="phase-1-bulk-import"></a>Faza 1: import zbiorczy
+### <a name="phase-1-pre-migration"></a>Faza 1: premigracja
 
 1. Aplikacja do migracji odczytuje konta użytkowników ze starego dostawcy tożsamości.
 1. Aplikacja migracji tworzy odpowiednie konta użytkowników w katalogu Azure AD B2C, ale nie *Ustawia haseł*.
 
 ### <a name="phase-2-set-credentials"></a>Faza 2: Ustawianie poświadczeń
 
-Po zakończeniu migracji zbiorczej kont zasady niestandardowe i interfejs API REST po zalogowaniu się użytkownika wykonują następujące czynności:
+Po zakończeniu wstępnej migracji kont zasady niestandardowe i interfejs API REST wykonują następujące czynności po zalogowaniu się użytkownika:
 
 1. Odczytaj Azure AD B2C konto użytkownika odpowiadające wprowadzonemu adresowi e-mail.
 1. Sprawdź, czy konto jest oflagowane do migracji przez obliczenie atrybutu logicznego rozszerzenia.
-    - Jeśli atrybut rozszerzenia zostanie zwrócony `True`, należy wywołać interfejs API REST, aby sprawdzić poprawność hasła do starszego dostawcy tożsamości.
+    - Jeśli atrybut rozszerzenia zostanie zwrócony `True` , należy wywołać interfejs API REST, aby sprawdzić poprawność hasła do starszego dostawcy tożsamości.
       - Jeśli interfejs API REST określi, że hasło jest niepoprawne, zwróć do użytkownika przyjazny błąd.
-      - Jeśli interfejs API REST określi, że hasło jest poprawne, należy zapisać hasło do konta Azure AD B2C i zmienić atrybut rozszerzenia logicznego na `False`.
-    - Jeśli zwraca `False`atrybut rozszerzenia logicznego, Kontynuuj proces logowania jako normalny.
+      - Jeśli interfejs API REST określi, że hasło jest poprawne, należy zapisać hasło do konta Azure AD B2C i zmienić atrybut rozszerzenia logicznego na `False` .
+    - Jeśli zwraca atrybut rozszerzenia logicznego `False` , Kontynuuj proces logowania jako normalny.
 
 Aby zapoznać się z przykładem niestandardowych zasad i interfejsu API REST, zobacz [bezproblemową próbę migracji użytkowników](https://aka.ms/b2c-account-seamless-migration) w witrynie GitHub.
 

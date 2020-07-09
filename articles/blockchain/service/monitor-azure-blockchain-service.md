@@ -2,14 +2,13 @@
 title: Monitorowanie usługi Azure łańcucha bloków (ABS)
 description: Monitorowanie usługi Azure łańcucha bloków za pomocą Azure Monitor
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76293253"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85214047"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitoruj usługę Azure łańcucha bloków za pomocą Azure Monitor  
 
@@ -89,8 +88,8 @@ W poniższej tabeli wymieniono właściwości dzienników serwera proxy usługi 
 | NodeLocation  | Region świadczenia usługi Azure, w którym jest wdrażany element członkowski łańcucha bloków.  |
 | BlockchainNodeName  | Nazwa węzła elementu członkowskiego usługi Azure łańcucha bloków, w którym jest wykonywana operacja.   |
 | EthMethod  | Metoda, która jest wywoływana przez podstawowy protokół łańcucha bloków w kworum, może być eth_sendTransactions, eth_getBlockByNumber itd.  |
-| Agent  | Agent użytkownika działający w imieniu użytkownika, taki jak przeglądarka sieci Web Mozilla, Edge itd. Przykłady wartości to: "Mozilla/5.0 (linux x64) Node. js/8.16.0 V8/6.2.414.77"  |
-| Code   | Kody błędów HTTP. Zazwyczaj 4XX i 5XX są warunkami błędów.  |
+| Agent  | Agent użytkownika działający w imieniu użytkownika, taki jak przeglądarka sieci Web Mozilla, Edge itd. Przykłady wartości to: "Mozilla/5.0 (linux x64) node.js/8.16.0 V8/6.2.414.77"  |
+| Kod   | Kody błędów HTTP. Zazwyczaj 4XX i 5XX są warunkami błędów.  |
 | NodeHost  | Nazwa DNS węzła.   |
 | RequestMethodName | Wywoływana metoda HTTP, możliwe wartości w tym miejscu są UMIESZCZAne w celu utworzenia elementu członkowskiego, pobieranie do pobrania szczegółów istniejącego elementu członkowskiego, usuwanie elementu członkowskiego usuwania, poprawka do aktualizacji elementu członkowskiego.   |
 | BlockchainMemberName  | Nazwa członka usługi łańcucha bloków platformy Azure podana przez użytkownika.  |
@@ -115,7 +114,7 @@ W poniższej tabeli wymieniono właściwości dzienników aplikacji Azure łańc
 | NodeLocation  | Region świadczenia usługi Azure, w którym jest wdrażany element członkowski łańcucha bloków.  |
 | BlockchainNodeName  | Nazwa węzła elementu członkowskiego usługi Azure łańcucha bloków, w którym jest wykonywana operacja.   |
 | BlockchainMessage    | To pole będzie zawierać dziennik aplikacji łańcucha bloków, który jest dzienników zwykłych danych. W przypadku usługi ABS-kworum będą istnieć dzienniki kworum. Zawiera informacje o rodzaju wpisu dziennika, który ma charakter informacyjny, błąd, ostrzeżenie i ciąg, który zawiera więcej informacji na temat wykonywanej akcji.   |
-| TenantID    | Dzierżawa specyficzna dla regionu usługi Azure łańcucha bloków. Format tego pola to https://westlake-rp-prod. <region>. cloudapp.Azure.com, gdzie region określa region świadczenia usługi Azure wdrożonego elementu członkowskiego.       |
+| TenantID    | Dzierżawa specyficzna dla regionu usługi Azure łańcucha bloków. Format tego pola to https://westlake-rp-prod . <region> . cloudapp.azure.com WHERE region określa region świadczenia usługi Azure wdrożonego elementu członkowskiego.       |
 | SourceSystem   | System wypełnia dzienniki, w tym przypadku jest to **platforma Azure**.    |
 
 
@@ -158,12 +157,12 @@ W poniższej tabeli przedstawiono metryki wydajności, które są zbierane dla k
 
 | Nazwa metryki | Jednostka  |  Typ agregacji| Opis   |
 |---|---|---|---|
-| Procent użycia procesora CPU   | Procentowe  |  Maks. | Procent użycia procesora CPU.     |
+| Procent użycia procesora CPU   | Procent  |  Maks. | Procent użycia procesora CPU.     |
 | Bajty odczytu we/wy   | Kilobajtach   | Suma  |  Suma bajtów odczytu we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.      |
 |Bajty zapisu we/wy     | Kilobajtach   | Suma  | Suma operacji we/wy zapisuje bajty we wszystkich węzłach zasobu elementu członkowskiego łańcucha bloków.     |
 |Limit pamięci       |  Gigabajtach   | Średnia    | Maksymalna ilość pamięci dostępnej dla procesu łańcucha bloków na węzeł. |
 |Użycie pamięci     | Gigabajtach  |  Średnia | Ilość używanej pamięci średnia dla wszystkich węzłów.  |
-| Procent użycia pamięci     | Procentowe   | Średnia  |  Wartość procentowa używanej pamięci (średnia) we wszystkich węzłach.       |
+| Procent użycia pamięci     | Procent   | Średnia  |  Wartość procentowa używanej pamięci (średnia) we wszystkich węzłach.       |
 |Użycie magazynu      | Gigabajtach   | Średnia  | Średnia GB miejsca do magazynowania używana we wszystkich węzłach.       |
 
 

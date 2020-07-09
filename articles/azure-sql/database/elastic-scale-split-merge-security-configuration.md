@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e1fdf219d09148d47759652e97797b569e265fa4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041910"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85829438"
 ---
 # <a name="split-merge-security-configuration"></a>Konfiguracja zabezpieczeń Split-Merge
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,8 +38,8 @@ Jeśli te opcje nie są dostępne, można generować certyfikaty z podpisem **w�
 
 ## <a name="tools-to-generate-certificates"></a>Narzędzia do generowania certyfikatów
 
-* [MakeCert. exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [Pvk2pfx. exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Aby uruchomić narzędzia
 
@@ -47,7 +47,10 @@ Jeśli te opcje nie są dostępne, można generować certyfikaty z podpisem **w�
   
     Jeśli jest zainstalowany, przejdź do:
   
-        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```console
+    %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```
+
 * Pobierz pakiet WDK z [Windows 8.1: Pobierz zestawy i narzędzia](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-tlsssl-certificate"></a>Aby skonfigurować certyfikat TLS/SSL
@@ -193,12 +196,14 @@ Ten temat jest przeznaczony wyłącznie do celów informacyjnych. Wykonaj czynno
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 Wykonana
 
-    makecert ^
-      -n "CN=myservice.cloudapp.net" ^
-      -e MM/DD/YYYY ^
-      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha256 -len 2048 ^
-      -sv MySSL.pvk MySSL.cer
+```console
+makecert ^
+  -n "CN=myservice.cloudapp.net" ^
+  -e MM/DD/YYYY ^
+  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+  -a sha256 -len 2048 ^
+  -sv MySSL.pvk MySSL.cer
+```
 
 Aby dostosować:
 
@@ -208,7 +213,9 @@ Aby dostosować:
 ## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>Utwórz plik PFX dla certyfikatu TLS/SSL z podpisem własnym
 Wykonana
 
-        pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```console
+pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
 
 Wprowadź hasło, a następnie wyeksportuj certyfikat z następującymi opcjami:
 
@@ -230,7 +237,9 @@ Przekaż certyfikat z istniejącym lub wygenerowanym. Plik PFX z parą kluczy TL
 ## <a name="update-tlsssl-certificate-in-service-configuration-file"></a>Aktualizowanie certyfikatu TLS/SSL w pliku konfiguracji usługi
 Zaktualizuj wartość odcisku palca następującego ustawienia w pliku konfiguracji usługi z odciskiem palca certyfikatu przekazanego do usługi w chmurze:
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```console
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="import-tlsssl-certification-authority"></a>Importowanie urzędu certyfikacji TLS/SSL
 Wykonaj następujące kroki na wszystkich kontach/komputerach, które będą komunikować się z usługą:
@@ -258,13 +267,15 @@ Następnie skopiuj ten sam odcisk palca co certyfikat TLS/SSL w ustawieniu certy
 ## <a name="create-a-self-signed-certification-authority"></a>Tworzenie urzędu certyfikacji z podpisem własnym
 Wykonaj następujące kroki, aby utworzyć certyfikat z podpisem własnym, który będzie pełnił rolę urzędu certyfikacji:
 
-    makecert ^
-    -n "CN=MyCA" ^
-    -e MM/DD/YYYY ^
-     -r -cy authority -h 1 ^
-     -a sha256 -len 2048 ^
-      -sr localmachine -ss my ^
-      MyCA.cer
+```console
+makecert ^
+-n "CN=MyCA" ^
+-e MM/DD/YYYY ^
+ -r -cy authority -h 1 ^
+ -a sha256 -len 2048 ^
+  -sr localmachine -ss my ^
+  MyCA.cer
+```
 
 Aby go dostosować
 
@@ -311,13 +322,15 @@ Każda osoba uprawniona do uzyskiwania dostępu do usługi powinna mieć certyfi
 
 Poniższe kroki należy wykonać na tym samym komputerze, na którym został wygenerowany i zapisany certyfikat urzędu certyfikacji z podpisem własnym:
 
-    makecert ^
-      -n "CN=My ID" ^
-      -e MM/DD/YYYY ^
-      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha256 -len 2048 ^
-      -in "MyCA" -ir localmachine -is my ^
-      -sv MyID.pvk MyID.cer
+```console
+makecert ^
+  -n "CN=My ID" ^
+  -e MM/DD/YYYY ^
+  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+  -a sha256 -len 2048 ^
+  -in "MyCA" -ir localmachine -is my ^
+  -sv MyID.pvk MyID.cer
+```
 
 Dostosowanie
 
@@ -330,11 +343,15 @@ To polecenie wyświetli monit o podanie hasła, które ma zostać utworzone, a n
 ## <a name="create-pfx-files-for-client-certificates"></a>Tworzenie plików PFX dla certyfikatów klienta
 Dla każdego wygenerowanego certyfikatu klienta wykonaj następujące polecenie:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Dostosowanie
 
-    MyID.pvk and MyID.cer with the filename for the client certificate
+```console
+MyID.pvk and MyID.cer with the filename for the client certificate
+```
 
 Wprowadź hasło, a następnie wyeksportuj certyfikat z następującymi opcjami:
 
@@ -352,7 +369,7 @@ Każdy użytkownik, dla którego certyfikat klienta został wystawiony, powinien
 ## <a name="copy-client-certificate-thumbprints"></a>Kopiuj odciski palca certyfikatu klienta
 Każdy użytkownik, dla którego certyfikat klienta został wystawiony, musi wykonać następujące kroki w celu uzyskania odcisku palca certyfikatu, który zostanie dodany do pliku konfiguracji usługi:
 
-* Uruchom certmgr. exe
+* Uruchom certmgr.exe
 * Wybierz kartę osobistą
 * Kliknij dwukrotnie certyfikat klienta, który ma być używany do uwierzytelniania
 * W otwartym oknie dialogowym certyfikatu wybierz kartę Szczegóły
@@ -379,11 +396,15 @@ Ustawienie domyślne nie sprawdza urzędu certyfikacji dla stanu odwołania cert
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>Utwórz plik PFX dla certyfikatów szyfrowania z podpisem własnym
 W przypadku certyfikatu szyfrowania wykonaj następujące polecenie:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```console
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Dostosowanie
 
-    MyID.pvk and MyID.cer with the filename for the encryption certificate
+```console
+MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
 
 Wprowadź hasło, a następnie wyeksportuj certyfikat z następującymi opcjami:
 
@@ -418,7 +439,7 @@ Zaktualizuj wartość odcisku palca następujących ustawień w pliku konfigurac
 ## <a name="find-certificate"></a>Znajdź certyfikat
 Wykonaj następujące kroki:
 
-1. Uruchom program MMC. exe.
+1. Uruchom mmc.exe.
 2. Plik-> Dodaj/Usuń przystawkę...
 3. wybierz opcję **Certyfikaty**.
 4. Kliknij pozycję **Dodaj**.

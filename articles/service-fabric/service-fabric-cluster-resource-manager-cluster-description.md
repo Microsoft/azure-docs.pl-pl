@@ -5,12 +5,11 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258774"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259477"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
 Funkcja Menedżer zasobów klastra platformy Azure Service Fabric oferuje kilka mechanizmów opisywania klastra:
@@ -83,9 +82,9 @@ Na poniższym diagramie przedstawiono trzy domeny uaktualnienia rozłożone na t
 
 Istnieją pewne wady i zalety posiadania dużej liczby domen uaktualnienia. Więcej domen uaktualnienia oznacza, że każdy krok uaktualnienia jest bardziej szczegółowy i ma wpływ na mniejszą liczbę węzłów lub usług. Mniejsza liczba usług musi być jednocześnie przenoszona do systemu. Pozwala to zwiększyć niezawodność, ponieważ w ramach uaktualnienia występuje problem z mniejszą częścią usługi. Więcej domen uaktualnienia oznacza również, że potrzebujesz mniej dostępnego buforu w innych węzłach, aby obsługiwać wpływ uaktualnienia. 
 
-Na przykład jeśli masz pięć domen uaktualnienia, węzły w każdej z nich obsługują około 20 procent ruchu. Jeśli konieczne jest podjęcie tej domeny uaktualnienia do uaktualnienia, to obciążenie zwykle musi znajdować się w dowolnym miejscu. Ponieważ istnieją cztery pozostałe domeny uaktualnienia, każdy z nich musi mieć miejsce na około 5% całkowitego ruchu sieciowego. Więcej domen uaktualnienia oznacza, że potrzebujesz mniej buforów w węzłach klastra. 
+Na przykład jeśli masz pięć domen uaktualnienia, węzły w każdej z nich obsługują około 20 procent ruchu. Jeśli konieczne jest podjęcie tej domeny uaktualnienia do uaktualnienia, to obciążenie zwykle musi znajdować się w dowolnym miejscu. Ponieważ istnieją cztery pozostałe domeny uaktualnienia, każdy z nich musi mieć miejsce na około 25% całkowitego ruchu sieciowego. Więcej domen uaktualnienia oznacza, że potrzebujesz mniej buforów w węzłach klastra.
 
-Należy rozważyć, czy w zamian była 10 domen uaktualnienia. W takim przypadku Każda domena uaktualnienia będzie obsługiwała tylko 10% całkowitego ruchu sieciowego. Po wykonaniu kroków uaktualniania w klastrze Każda domena musiałaby mieć miejsce tylko w przypadku 1,1% całkowitego ruchu sieciowego. Więcej domen uaktualnienia zwykle umożliwia uruchamianie węzłów przy wyższym wykorzystaniu, ponieważ wymaga mniej zarezerwowanej pojemności. Ta sama wartość dotyczy domen błędów.  
+Należy rozważyć, czy w zamian była 10 domen uaktualnienia. W takim przypadku Każda domena uaktualnienia będzie obsługiwała tylko 10% całkowitego ruchu sieciowego. Po wykonaniu kroków uaktualniania w klastrze Każda domena musiałaby mieć miejsce tylko na około 11% całkowitego ruchu sieciowego. Więcej domen uaktualnienia zwykle umożliwia uruchamianie węzłów przy wyższym wykorzystaniu, ponieważ wymaga mniej zarezerwowanej pojemności. Ta sama wartość dotyczy domen błędów.  
 
 Minusem z wieloma domenami uaktualnienia polega na tym, że uaktualnienia mogą trwać dłużej. Service Fabric czeka na krótki czas po zakończeniu uaktualniania domeny i przeprowadza sprawdzenia przed rozpoczęciem uaktualniania kolejnego. Te opóźnienia umożliwiają wykrywanie problemów wprowadzonych podczas uaktualniania przed kontynuowaniem uaktualniania. Kompromis jest akceptowalny, ponieważ zapobiega nieprawidłowym zmianom wpływającym na zbyt znaczną część usługi w danym momencie.
 
@@ -247,7 +246,7 @@ W poprzednim układzie, jeśli wartość **wartość targetreplicasetsize** jest
 ## <a name="configuring-fault-and-upgrade-domains"></a>Konfigurowanie błędów i domen uaktualnienia
 W przypadku wdrożeń Service Fabric hostowanych na platformie Azure domeny błędów i domeny uaktualnień są definiowane automatycznie. Service Fabric pobiera i używa informacji o środowisku z platformy Azure.
 
-Jeśli tworzysz własny klaster (lub chcesz uruchomić konkretną topologię w programowaniu), możesz samodzielnie udostępnić domenę błędów i informacje o domenie uaktualnienia. W tym przykładzie definiujemy lokalny klaster programistyczny z dziewięcioma węzłami, który obejmuje trzy centra danych (z trzema stojakami). Ten klaster ma również trzy domeny uaktualnienia rozłożone na te trzy centra danych. Oto przykład konfiguracji w ClusterManifest. XML:
+Jeśli tworzysz własny klaster (lub chcesz uruchomić konkretną topologię w programowaniu), możesz samodzielnie udostępnić domenę błędów i informacje o domenie uaktualnienia. W tym przykładzie definiujemy lokalny klaster programistyczny z dziewięcioma węzłami, który obejmuje trzy centra danych (z trzema stojakami). Ten klaster ma również trzy domeny uaktualnienia rozłożone na te trzy centra danych. Oto przykład konfiguracji w ClusterManifest.xml:
 
 ```xml
   <Infrastructure>
@@ -268,7 +267,7 @@ Jeśli tworzysz własny klaster (lub chcesz uruchomić konkretną topologię w p
   </Infrastructure>
 ```
 
-Ten przykład używa ClusterConfig. JSON dla wdrożeń autonomicznych:
+Ten przykład używa ClusterConfig.jsna potrzeby wdrożeń autonomicznych:
 
 ```json
 "nodes": [
@@ -363,7 +362,7 @@ Aby zapewnić obsługę tych rodzajów konfiguracji, Service Fabric zawiera Tagi
 ### <a name="built-in-node-properties"></a>Właściwości wbudowanego węzła
 Service Fabric definiuje niektóre domyślne właściwości węzła, które mogą być używane automatycznie, aby nie trzeba było ich definiować. Domyślne właściwości zdefiniowane w każdym węźle to **NodeType** i **nodename**. 
 
-Na przykład można napisać ograniczenie położenia jako `"(NodeType == NodeType03)"`. **NodeType** jest często używaną właściwością. Jest to przydatne, ponieważ odpowiada 1:1 z typem maszyny. Każdy typ maszyny odpowiada typowi obciążenia w tradycyjnej aplikacji n-warstwowej.
+Na przykład można napisać ograniczenie położenia jako `"(NodeType == NodeType03)"` . **NodeType** jest często używaną właściwością. Jest to przydatne, ponieważ odpowiada 1:1 z typem maszyny. Każdy typ maszyny odpowiada typowi obciążenia w tradycyjnej aplikacji n-warstwowej.
 
 <center>
 
@@ -401,7 +400,7 @@ Poniżej przedstawiono kilka przykładów podstawowych instrukcji ograniczeń:
 
 Tylko węzły, w których ogólna instrukcja ograniczenia położenia ma wartość "true", mogą mieć w niej umieszczony usługi. Węzły, które nie mają zdefiniowanej właściwości, nie pasują do żadnego ograniczenia umieszczania, które zawiera właściwość.
 
-Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla typu węzła w ClusterManifest. XML:
+Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla typu węzła w ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType01">
@@ -413,10 +412,10 @@ Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla t
     </NodeType>
 ```
 
-W poniższym przykładzie przedstawiono właściwości węzła zdefiniowane za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych na platformie Azure. 
+W poniższym przykładzie przedstawiono właściwości węzła zdefiniowane przez ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych przez platformę Azure. 
 
 > [!NOTE]
-> W szablonie Azure Resource Manager typ węzła jest zwykle sparametryzowane. `"[parameters('vmNodeType1Name')]"` Zamiast NodeType01.
+> W szablonie Azure Resource Manager typ węzła jest zwykle sparametryzowane. `"[parameters('vmNodeType1Name')]"`Zamiast NodeType01.
 >
 
 ```json
@@ -447,7 +446,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Jeśli wszystkie węzły NodeType01 są prawidłowe, można również wybrać ten typ węzła z ograniczeniem `"(NodeType == NodeType01)"`.
+Jeśli wszystkie węzły NodeType01 są prawidłowe, można również wybrać ten typ węzła z ograniczeniem `"(NodeType == NodeType01)"` .
 
 Ograniczenia dotyczące umieszczania usługi mogą być aktualizowane dynamicznie w czasie wykonywania. Jeśli zachodzi taka potrzeba, można przenieść usługę w klastrze, dodać i usunąć wymagania i tak dalej. Service Fabric zapewnia, że usługa zostanie udostępniona i jest dostępna nawet po wprowadzeniu tych zmian.
 
@@ -505,7 +504,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-Możesz zobaczyć pojemności zdefiniowane w manifeście klastra. Oto przykład dla ClusterManifest. XML:
+Możesz zobaczyć pojemności zdefiniowane w manifeście klastra. Oto przykład dla ClusterManifest.xml:
 
 ```xml
     <NodeType Name="NodeType03">
@@ -515,7 +514,7 @@ Możesz zobaczyć pojemności zdefiniowane w manifeście klastra. Oto przykład 
     </NodeType>
 ```
 
-Oto przykład pojemności zdefiniowanych za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych na platformie Azure: 
+Oto przykład pojemności zdefiniowanych za pośrednictwem ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych przez platformę Azure: 
 
 ```json
 "nodeTypes": [
@@ -548,7 +547,7 @@ Buforowana pojemność jest kolejną funkcją Menedżer zasobów klastrów. Umo�
 
 Buforowana pojemność jest określana globalnie na metrykę dla wszystkich węzłów. Wartość, którą wybierasz dla zarezerwowanej pojemności, to funkcja liczby domen błędów i uaktualniania znajdujących się w klastrze. Więcej domen błędów i uaktualnień oznacza, że można wybrać mniejszą liczbę dla buforowanej pojemności. Jeśli masz więcej domen, możesz oczekiwać, że mniejsza ilość klastra będzie niedostępna podczas uaktualniania i niepowodzeń. Określanie pojemności buforowanej ma sens tylko wtedy, gdy określono również pojemność węzła dla metryki.
 
-Oto przykład sposobu określania pojemności buforowanej w ClusterManifest. XML:
+Oto przykład sposobu określania buforowanej pojemności w ClusterManifest.xml:
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -557,7 +556,7 @@ Oto przykład sposobu określania pojemności buforowanej w ClusterManifest. XML
         </Section>
 ```
 
-Oto przykład sposobu określania pojemności pamięci podręcznej za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub pliku Template. JSON dla klastrów hostowanych na platformie Azure:
+Poniżej przedstawiono przykład sposobu określania buforowanej pojemności za pośrednictwem ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsna potrzeby klastrów hostowanych przez platformę Azure:
 
 ```json
 "fabricSettings": [

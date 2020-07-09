@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e724e6336163a092c9b4385324b1aa037295bb6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75494987"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081761"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Poprawianie wydajności Apache Spark obciążeń przy użyciu pamięci podręcznej we/wy usługi Azure HDInsight
 
@@ -28,13 +28,13 @@ Większość dysków SSD zapewnia więcej niż 1 GByte na sekundę przepustowoś
 
 Użycie pamięci podręcznej we/wy zapewnia wzrost wydajności zadań odczytywania danych z usługi Azure Blob Storage.
 
-Nie musisz wprowadzać żadnych zmian w zadaniach platformy Spark, aby zobaczyć wzrost wydajności podczas korzystania z pamięci podręcznej we/wy. Gdy pamięć podręczna we/wy jest wyłączona, ten kod platformy Spark odczytuje dane zdalnie `spark.read.load('wasbs:///myfolder/data.parquet').count()`z usługi Azure Blob Storage:. Gdy pamięć podręczna we/wy jest aktywowana, ten sam wiersz kodu powoduje zbuforowane odczyty z pamięci podręcznej we/wy. Na następujących odczytach dane są odczytywane lokalnie z dysku SSD. Węzły procesu roboczego w klastrze usługi HDInsight są wyposażone w lokalne, dedykowane dyski SSD. Pamięć podręczna we/wy usługi HDInsight używa tych lokalnych dysków SSD do buforowania, co zapewnia najniższy poziom opóźnienia i maksymalizuje przepustowość.
+Nie musisz wprowadzać żadnych zmian w zadaniach platformy Spark, aby zobaczyć wzrost wydajności podczas korzystania z pamięci podręcznej we/wy. Gdy pamięć podręczna we/wy jest wyłączona, ten kod platformy Spark odczytuje dane zdalnie z usługi Azure Blob Storage: `spark.read.load('wasbs:///myfolder/data.parquet').count()` . Gdy pamięć podręczna we/wy jest aktywowana, ten sam wiersz kodu powoduje zbuforowane odczyty z pamięci podręcznej we/wy. Na następujących odczytach dane są odczytywane lokalnie z dysku SSD. Węzły procesu roboczego w klastrze usługi HDInsight są wyposażone w lokalne, dedykowane dyski SSD. Pamięć podręczna we/wy usługi HDInsight używa tych lokalnych dysków SSD do buforowania, co zapewnia najniższy poziom opóźnienia i maksymalizuje przepustowość.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
 Pamięć podręczna we/wy usługi HDInsight Azure jest domyślnie zdezaktywowana w wersji zapoznawczej. Pamięć podręczna we/wy jest dostępna w klastrach usługi Azure HDInsight 3.6 i Spark, w których działa Apache Spark 2,3.  Aby aktywować pamięć podręczną we/wy w usłudze HDInsight 4,0, wykonaj następujące czynności:
 
-1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net`lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
+1. W przeglądarce sieci Web przejdź do `https://CLUSTERNAME.azurehdinsight.net` lokalizacji, gdzie `CLUSTERNAME` jest nazwą klastra.
 
 1. Wybierz usługę **pamięci podręcznej we/wy** po lewej stronie.
 
@@ -67,7 +67,7 @@ Po włączeniu pamięci podręcznej we/wy może wystąpić błąd miejsca na dys
 
 1. Wybierz pozycję **Zapisz** w prawym górnym rogu.
 
-1. Wybierz pozycję **Uruchom ponownie** > **ponownie wszystkie uwzględnione**.
+1. Wybierz pozycję **Uruchom ponownie**  >  **ponownie wszystkie uwzględnione**.
 
     ![Wszystkie uwzględnione ponowne uruchomienia Apache Ambari](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Uruchom ponownie wszystkie uwzględnione")
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Opisuje, jak przygotowywanie projektu z Azure Dev Spaces działa
 keywords: azds. YAML, Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
 ms.openlocfilehash: 24a54fffdc8e94493d2a4a9aeb1c5f02dcd192b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80241636"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Jak przygotowywanie projektu dla Azure Dev Spaces działa
@@ -20,30 +20,30 @@ W tym artykule opisano, co się dzieje w przygotowaniu projektu do uruchamiania 
 
 ## <a name="prepare-your-code"></a>Przygotowywanie kodu
 
-Aby można było uruchomić aplikację w przestrzeni deweloperskiej, musi ona być zamieszczona w kontenerze i należy określić sposób jej wdrożenia w Kubernetes. Aby konteneryzowanie aplikację, potrzebujesz pliku dockerfile. Aby zdefiniować sposób wdrażania aplikacji w usłudze Kubernetes, potrzebny jest [Wykres Helm](https://docs.helm.sh/). Aby pomóc w tworzeniu wykresu pliku dockerfile i Helm dla aplikacji, narzędzia po stronie klienta udostępniają następujące `prep` polecenie:
+Aby można było uruchomić aplikację w przestrzeni deweloperskiej, musi ona być zamieszczona w kontenerze i należy określić sposób jej wdrożenia w Kubernetes. Aby konteneryzowanie aplikację, potrzebujesz pliku dockerfile. Aby zdefiniować sposób wdrażania aplikacji w usłudze Kubernetes, potrzebny jest [Wykres Helm](https://docs.helm.sh/). Aby pomóc w tworzeniu wykresu pliku dockerfile i Helm dla aplikacji, narzędzia po stronie klienta udostępniają `prep` następujące polecenie:
 
 ```cmd
 azds prep --enable-ingress
 ```
 
-`prep` Polecenie będzie przeglądać pliki w projekcie i próbować utworzyć wykres pliku dockerfile i Helm do uruchamiania aplikacji w Kubernetes. Obecnie `prep` polecenie generuje wykres pliku dockerfile i Helm z następującymi językami:
+`prep`Polecenie będzie przeglądać pliki w projekcie i próbować utworzyć wykres pliku dockerfile i Helm do uruchamiania aplikacji w Kubernetes. Obecnie `prep` polecenie generuje wykres pliku dockerfile i Helm z następującymi językami:
 
 * Java
 * Node.js
 * .NET Core
 
-*Należy* uruchomić `prep` polecenie z katalogu, który zawiera kod źródłowy. Uruchomienie `prep` polecenia z poprawnego katalogu pozwala narzędziom po stronie klienta zidentyfikować język i utworzyć odpowiednie pliku dockerfile do konteneryzowanie aplikacji. Możesz również uruchomić `prep` polecenie z katalogu, który zawiera plik *pliku pom. XML* dla projektów języka Java.
+*Należy* uruchomić `prep` polecenie z katalogu, który zawiera kod źródłowy. Uruchomienie `prep` polecenia z poprawnego katalogu pozwala narzędziom po stronie klienta zidentyfikować język i utworzyć odpowiednie pliku dockerfile do konteneryzowanie aplikacji. Możesz również uruchomić `prep` polecenie z katalogu, który zawiera plik *pom.xml* dla projektów języka Java.
 
 Jeśli uruchomisz `prep` polecenie z katalogu, który nie zawiera kodu źródłowego, narzędzia po stronie klienta nie będą generować pliku dockerfile. Zostanie również wyświetlony komunikat o błędzie mówiący: nie można *wygenerować pliku dockerfile z powodu nieobsługiwanego języka*. Ten błąd występuje również, gdy narzędzia po stronie klienta nie rozpoznają typu projektu.
 
 Po uruchomieniu `prep` polecenia można określić `--enable-ingress` flagę. Ta flaga nakazuje kontrolerowi utworzenie punktu końcowego dostępnego z Internetu dla tej usługi. Jeśli ta flaga nie zostanie określona, usługa będzie dostępna tylko z poziomu klastra lub przy użyciu tunelu localhost utworzonego przez narzędzia po stronie klienta. To zachowanie można włączyć lub wyłączyć po uruchomieniu `prep` polecenia przez zaktualizowanie wygenerowanego wykresu Helm.
 
-`prep` Polecenie nie zastąpi żadnych istniejących wykresów wieloetapowe dockerfile lub Helm w projekcie. Jeśli istniejący wykres pliku dockerfile lub Helm używa tej samej konwencji nazewnictwa jak pliki wygenerowane przez `prep` polecenie, `prep` polecenie spowoduje pominięcie generowania tych plików. W przeciwnym razie `prep` polecenie spowoduje wygenerowanie własnego wykresu pliku dockerfile lub Helm wzdłuż istniejących plików.
+`prep`Polecenie nie zastąpi żadnych istniejących wykresów wieloetapowe dockerfile lub Helm w projekcie. Jeśli istniejący wykres pliku dockerfile lub Helm używa tej samej konwencji nazewnictwa jak pliki wygenerowane przez `prep` polecenie, `prep` polecenie spowoduje pominięcie generowania tych plików. W przeciwnym razie `prep` polecenie spowoduje wygenerowanie własnego wykresu pliku dockerfile lub Helm wzdłuż istniejących plików.
 
 > [!IMPORTANT]
 > Azure Dev Spaces używa wykresu pliku dockerfile i Helm dla projektu do kompilowania i uruchamiania kodu, ale można modyfikować te pliki, jeśli chcesz zmienić sposób kompilowania i uruchamiania projektu.
 
-`prep` Polecenie spowoduje również wygenerowanie `azds.yaml` pliku w katalogu głównym projektu. Azure Dev Spaces używa tego pliku do kompilowania, instalowania, konfigurowania i uruchamiania aplikacji. Ten plik konfiguracyjny zawiera lokalizację wykresu pliku dockerfile i Helm, a także dodatkową konfigurację na podstawie tych artefaktów.
+`prep`Polecenie spowoduje również wygenerowanie `azds.yaml` pliku w katalogu głównym projektu. Azure Dev Spaces używa tego pliku do kompilowania, instalowania, konfigurowania i uruchamiania aplikacji. Ten plik konfiguracyjny zawiera lokalizację wykresu pliku dockerfile i Helm, a także dodatkową konfigurację na podstawie tych artefaktów.
 
 Oto przykład pliku azds. YAML utworzonego za pomocą [przykładowej aplikacji platformy .NET Core](https://github.com/Azure/dev-spaces/tree/master/samples/dotnetcore/getting-started/webfrontend):
 
@@ -92,7 +92,7 @@ configurations:
         - [dotnet, build, --no-restore, -c, "${BUILD_CONFIGURATION:-Debug}"]
 ```
 
-`azds.yaml` Plik wygenerowany przez `prep` polecenie jest przeznaczony do pracy w prostym scenariuszu projektowania pojedynczego projektu. Jeśli konkretny projekt ma zwiększoną złożoność, może być konieczne zaktualizowanie tego pliku po uruchomieniu `prep` polecenia. Na przykład projekt może wymagać pewnych zmian w procesie kompilacji lub uruchamiania w zależności od potrzeb związanych z programowaniem lub debugowaniem. W projekcie może być również wiele aplikacji, które wymagają wielu procesów kompilacji lub innej zawartości kompilacji.
+`azds.yaml`Plik wygenerowany przez `prep` polecenie jest przeznaczony do pracy w prostym scenariuszu projektowania pojedynczego projektu. Jeśli konkretny projekt ma zwiększoną złożoność, może być konieczne zaktualizowanie tego pliku po uruchomieniu `prep` polecenia. Na przykład projekt może wymagać pewnych zmian w procesie kompilacji lub uruchamiania w zależności od potrzeb związanych z programowaniem lub debugowaniem. W projekcie może być również wiele aplikacji, które wymagają wielu procesów kompilacji lub innej zawartości kompilacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -102,7 +102,7 @@ Aby rozpocząć korzystanie z Azure Dev Spaces w celu przygotowania projektu dla
 
 * [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i języka Java][quickstart-java]
 * [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i platformy .NET][quickstart-netcore]
-* [Szybkie iteracje i debugowanie za pomocą Visual Studio Code i środowiska Node. js][quickstart-node]
+* [Szybkie iteracje i debugowanie przy użyciu Visual Studio Code i Node.js][quickstart-node]
 * [Szybkie iteracje i debugowanie za pomocą programów Visual Studio i .NET Core][quickstart-vs]
 * [Korzystanie z interfejsu wiersza polecenia do tworzenia aplikacji na Kubernetes][quickstart-cli]
 

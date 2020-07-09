@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 07aa9ade25d1d986833b6da2f3907d07b752b662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 0d2d5a9a6d897e3dde039f6124a1b6c1b356a29a
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655441"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040099"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Konfigurowanie ograniczonego delegowania protokołu Kerberos (KCD) w Azure Active Directory Domain Services
 
-Podczas uruchamiania aplikacji może być konieczne, aby te aplikacje miały dostęp do zasobów w kontekście innego użytkownika. Active Directory Domain Services (AD DS) obsługuje mechanizm o nazwie *delegowanie protokołu Kerberos* , który umożliwia użycie tego przypadku. *Ograniczone* delegowanie protokołu Kerberos (KCD) następnie kompiluje ten mechanizm w celu zdefiniowania określonych zasobów, do których można uzyskać dostęp w kontekście użytkownika. Domeny zarządzane Azure Active Directory Domain Services (Azure AD DS) są bardziej bezpiecznie zablokowane niż tradycyjne środowiska AD DS lokalnego, dlatego należy użyć bezpieczniejszego KCD *opartego na zasobach* .
+Podczas uruchamiania aplikacji może być konieczne, aby te aplikacje miały dostęp do zasobów w kontekście innego użytkownika. Active Directory Domain Services (AD DS) obsługuje mechanizm o nazwie *delegowanie protokołu Kerberos* , który umożliwia użycie tego przypadku. *Ograniczone* delegowanie protokołu Kerberos (KCD) następnie kompiluje ten mechanizm w celu zdefiniowania określonych zasobów, do których można uzyskać dostęp w kontekście użytkownika.
+
+Domeny zarządzane Azure Active Directory Domain Services (Azure AD DS) są bardziej bezpiecznie zablokowane niż tradycyjne środowiska AD DS lokalnego, dlatego należy użyć bezpieczniejszego KCD *opartego na zasobach* .
 
 W tym artykule opisano sposób konfigurowania ograniczonego delegowania protokołu Kerberos opartego na zasobach w domenie zarządzanej AD DS platformy Azure.
 
@@ -33,7 +34,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie konieczności [Utwórz i skonfiguruj wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie konieczności [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][create-azure-ad-ds-instance].
 * Maszyna wirtualna zarządzania systemem Windows Server, która jest dołączona do domeny zarządzanej AD DS platformy Azure.
     * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć maszynę wirtualną z systemem Windows Server i przyłączyć ją do domeny zarządzanej][create-join-windows-vm] , a następnie [zainstalować narzędzia do zarządzania AD DS][tutorial-create-management-vm].
 * Konto użytkownika, które jest członkiem grupy *administratorów DC usługi Azure AD* w dzierżawie usługi Azure AD.
@@ -42,11 +43,11 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
 
 Delegowanie protokołu Kerberos pozwala jednemu kontu personifikować inne konto, aby uzyskać dostęp do zasobów. Na przykład aplikacja sieci Web, która uzyskuje dostęp do składnika sieci Web zaplecza, może personifikować się jako inne konto użytkownika podczas tworzenia połączenia zaplecza. Delegowanie protokołu Kerberos jest niezabezpieczone, ponieważ nie ogranicza to zasobów, do których konto personifikuje może uzyskać dostęp.
 
-Ograniczone delegowanie protokołu Kerberos (KCD) ogranicza usługi lub zasoby, które mogą łączyć się z określonym serwerem lub aplikacją podczas personifikowania innej tożsamości. Tradycyjna KCD wymaga uprawnień administratora domeny do skonfigurowania konta domeny dla usługi i ogranicza konto do działania w jednej domenie.
+*Ograniczone* delegowanie protokołu Kerberos (KCD) ogranicza usługi lub zasoby, które mogą łączyć się z określonym serwerem lub aplikacją podczas personifikowania innej tożsamości. Tradycyjna KCD wymaga uprawnień administratora domeny do skonfigurowania konta domeny dla usługi i ogranicza konto do działania w jednej domenie.
 
 Tradycyjna KCD również zawiera kilka problemów. Na przykład we wcześniejszych systemach operacyjnych administrator usługi nie miał użytecznych metod, aby wiedzieć, które usługi frontonu są delegowane do usługi zasobów, do których należą. Dowolna usługa frontonu, która może delegować do usługi zasobów, jest potencjalnym punktem ataku. W przypadku naruszenia bezpieczeństwa serwera, na którym jest hostowana usługa frontonu skonfigurowana do delegowania usług zasobów, można także złamać zabezpieczenia usług zasobów.
 
-W domenie zarządzanej AD DS platformy Azure nie masz uprawnień administratora domeny. W związku z tym tradycyjne KCD oparte na koncie nie można skonfigurować na platformie Azure AD DS domenie zarządzanej. Zamiast tego można korzystać z KCD opartego na zasobach, co jest również bezpieczniejsze.
+W domenie zarządzanej nie masz uprawnień administratora domeny. W związku z tym tradycyjne KCD oparte na koncie nie można skonfigurować w domenie zarządzanej. Zamiast tego można korzystać z KCD opartego na zasobach, co jest również bezpieczniejsze.
 
 ### <a name="resource-based-kcd"></a>KCD oparte na zasobach
 
@@ -56,15 +57,21 @@ KCD oparte na zasobach są konfigurowane przy użyciu programu PowerShell. Używ
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Konfigurowanie KCD opartego na zasobach dla konta komputera
 
-W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która jest uruchamiana na komputerze o nazwie *contoso-WEBAPP.aaddscontoso.com*. Aplikacja sieci Web musi uzyskać dostęp do internetowego interfejsu API, który jest uruchamiany na komputerze o nazwie *contoso-API.aaddscontoso.com* w kontekście użytkowników domeny. Wykonaj następujące kroki, aby skonfigurować ten scenariusz:
+W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która jest uruchamiana na komputerze o nazwie *contoso-WEBAPP.aaddscontoso.com*.
 
-1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną użytkownikom w domenie zarządzanej AD DS platformy Azure.
-1. [Przyłączanie do domeny maszyn wirtualnych][create-join-windows-vm], zarówno tych, na których działa aplikacja sieci Web, jak i tych, na których jest uruchomiony internetowy interfejs API, do domeny zarządzanej platformy Azure AD DS. Utwórz te konta komputerów w niestandardowej jednostce organizacyjnej w poprzednim kroku.
+Aplikacja sieci Web musi uzyskać dostęp do internetowego interfejsu API, który jest uruchamiany na komputerze o nazwie *contoso-API.aaddscontoso.com* w kontekście użytkowników domeny.
+
+Wykonaj następujące kroki, aby skonfigurować ten scenariusz:
+
+1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną dla użytkowników w domenie zarządzanej.
+1. [Przyłączanie do domeny maszyn wirtualnych][create-join-windows-vm], zarówno tych, na których jest uruchomiona aplikacja sieci Web, jak i tych, na których jest uruchomiony internetowy interfejs API, do domeny zarządzanej. Utwórz te konta komputerów w niestandardowej jednostce organizacyjnej w poprzednim kroku.
 
     > [!NOTE]
     > Konta komputerów dla aplikacji sieci Web i internetowego interfejsu API muszą znajdować się w niestandardowej jednostce organizacyjnej, w której masz uprawnienia do konfigurowania KCD opartego na zasobach. Nie można skonfigurować KCD opartego na zasobach dla konta komputera w wbudowanym kontenerze *komputery DC w usłudze AAD* .
 
-1. Na koniec Skonfiguruj KCD oparte na zasobach przy użyciu polecenia cmdlet [Set-ADComputer][Set-ADComputer] programu PowerShell. Z poziomu maszyny wirtualnej zarządzania przyłączonym do domeny i zalogowanego jako konto użytkownika, które jest członkiem grupy *administratorzy kontrolera domeny usługi Azure AD* , uruchom następujące polecenia cmdlet. Podaj własne nazwy komputerów w razie konieczności:
+1. Na koniec Skonfiguruj KCD oparte na zasobach przy użyciu polecenia cmdlet [Set-ADComputer][Set-ADComputer] programu PowerShell.
+
+    Z poziomu maszyny wirtualnej zarządzania przyłączonym do domeny i zalogowanego jako konto użytkownika, które jest członkiem grupy *administratorzy kontrolera domeny usługi Azure AD* , uruchom następujące polecenia cmdlet. Podaj własne nazwy komputerów w razie konieczności:
     
     ```powershell
     $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aaddscontoso.com
@@ -75,14 +82,16 @@ W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która jest urucham
 
 W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która działa jako konto usługi o nazwie *appsvc*. Aplikacja sieci Web musi uzyskać dostęp do internetowego interfejsu API, który jest uruchomiony jako konto usługi o nazwie *backendsvc* w kontekście użytkowników domeny. Wykonaj następujące kroki, aby skonfigurować ten scenariusz:
 
-1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną użytkownikom w domenie zarządzanej AD DS platformy Azure.
-1. [Przyłączanie do domeny maszyn wirtualnych][create-join-windows-vm] z URUCHOMIONYm interfejsem API/zasób sieci Web zaplecza w domenie zarządzanej platformy Azure AD DS. Utwórz konto komputera w ramach niestandardowej jednostki organizacyjnej.
-1. Utwórz konto usługi (na przykład "appsvc") używane do uruchamiania aplikacji sieci Web w ramach niestandardowej jednostki organizacyjnej.
+1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną dla użytkowników w domenie zarządzanej.
+1. [Przyłącz do domeny zarządzanej maszyny wirtualne][create-join-windows-vm] , na których działa interfejs API/zasób sieci Web zaplecza. Utwórz konto komputera w ramach niestandardowej jednostki organizacyjnej.
+1. Utwórz konto usługi (na przykład *appsvc*) używane do uruchamiania aplikacji sieci Web w ramach niestandardowej jednostki organizacyjnej.
 
     > [!NOTE]
     > Ponownie konto komputera dla maszyny wirtualnej interfejsu API sieci Web oraz konto usługi dla aplikacji sieci Web musi znajdować się w niestandardowej jednostce organizacyjnej, w której masz uprawnienia do konfigurowania KCD opartego na zasobach. Nie można skonfigurować KCD opartych na zasobach na kontach wbudowanych w kontenerze usługi *AAD DC* lub *użytkownicy usługi AAD* . Oznacza to również, że nie można użyć kont użytkowników synchronizowanych z usługą Azure AD w celu skonfigurowania KCD opartego na zasobach. Należy utworzyć i używać kont usług utworzonych w ramach usługi Azure AD DS.
 
-1. Na koniec Skonfiguruj KCD oparte na zasobach przy użyciu polecenia cmdlet [Set-ADUser][Set-ADUser] programu PowerShell. Z poziomu maszyny wirtualnej zarządzania przyłączonym do domeny i zalogowanego jako konto użytkownika, które jest członkiem grupy *administratorzy kontrolera domeny usługi Azure AD* , uruchom następujące polecenia cmdlet. Podaj własne nazwy usług zgodnie z potrzebami:
+1. Na koniec Skonfiguruj KCD oparte na zasobach przy użyciu polecenia cmdlet [Set-ADUser][Set-ADUser] programu PowerShell.
+
+    Z poziomu maszyny wirtualnej zarządzania przyłączonym do domeny i zalogowanego jako konto użytkownika, które jest członkiem grupy *administratorzy kontrolera domeny usługi Azure AD* , uruchom następujące polecenia cmdlet. Podaj własne nazwy usług zgodnie z potrzebami:
 
     ```powershell
     $ImpersonatingAccount = Get-ADUser -Identity appsvc

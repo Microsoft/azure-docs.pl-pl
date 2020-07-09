@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: 5529989384df75b592afa8f5e4960eb9817fb2d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5be992ef8375f98b3c5978d8b71dc92ce9f91123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472520"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081506"
 ---
 # <a name="manage-ssh-access-for-domain-accounts-in-azure-hdinsight"></a>Zarządzanie dostępem SSH dla kont domeny w usłudze Azure HDInsight
 
@@ -20,7 +20,7 @@ W bezpiecznych klastrach domyślnie wszyscy użytkownicy domeny w [usłudze Azur
 
 ## <a name="manage-access"></a>Zarządzanie dostępem
 
-Aby zmodyfikować dostęp SSH do określonych użytkowników lub grup, należy `/etc/ssh/sshd_config` zaktualizować wszystkie węzły.
+Aby zmodyfikować dostęp SSH do określonych użytkowników lub grup, należy zaktualizować `/etc/ssh/sshd_config` wszystkie węzły.
 
 1. Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
 
@@ -28,13 +28,13 @@ Aby zmodyfikować dostęp SSH do określonych użytkowników lub grup, należy `
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Otwórz plik `ssh_confi`g.
+1. Otwórz `ssh_confi` plik g.
 
     ```bash
     sudo nano /etc/ssh/sshd_config
     ```
 
-1. Zmodyfikuj plik `sshd_config` zgodnie z potrzebami. W przypadku ograniczenia użytkowników do określonych grup konta lokalne nie mogą SSH do tego węzła. Poniżej przedstawiono tylko przykład składni:
+1. Zmodyfikuj `sshd_config` plik zgodnie z potrzebami. W przypadku ograniczenia użytkowników do określonych grup konta lokalne nie mogą SSH do tego węzła. Poniżej przedstawiono tylko przykład składni:
 
     ```bash
     AllowUsers useralias1 useralias2
@@ -54,11 +54,11 @@ Aby zmodyfikować dostęp SSH do określonych użytkowników lub grup, należy `
 
 ## <a name="ssh-authentication-log"></a>Dziennik uwierzytelniania SSH
 
-Dziennik uwierzytelniania SSH jest zapisywana `/var/log/auth.log`w. Jeśli widzisz błędy logowania za pośrednictwem protokołu SSH dla kont lokalnych lub domenowych, musisz przejść przez dziennik, aby debugować błędy. Często problem może być związany z określonymi kontami użytkowników i zazwyczaj dobrym rozwiązaniem jest wypróbowanie innych kont użytkowników lub protokołów SSH przy użyciu domyślnego użytkownika SSH (konta lokalnego), a następnie próba narzędzie kinit.
+Dziennik uwierzytelniania SSH jest zapisywana w `/var/log/auth.log` . Jeśli widzisz błędy logowania za pośrednictwem protokołu SSH dla kont lokalnych lub domenowych, musisz przejść przez dziennik, aby debugować błędy. Często problem może być związany z określonymi kontami użytkowników i zazwyczaj dobrym rozwiązaniem jest wypróbowanie innych kont użytkowników lub protokołów SSH przy użyciu domyślnego użytkownika SSH (konta lokalnego), a następnie próba narzędzie kinit.
 
 ## <a name="ssh-debug-log"></a>Dziennik debugowania SSH
 
-Aby włączyć pełne rejestrowanie, należy ponownie uruchomić `sshd` polecenie przy użyciu `-d` opcji. Podobnie `/usr/sbin/sshd -d` jak `sshd` w przypadku portu niestandardowego (na przykład 2222), aby nie trzeba było zatrzymać głównego demona SSH. Można również użyć `-v` opcji z klientem SSH, aby uzyskać więcej dzienników (widok po stronie klienta dla błędów).
+Aby włączyć pełne rejestrowanie, należy ponownie uruchomić polecenie `sshd` przy użyciu `-d` opcji. Podobnie jak `/usr/sbin/sshd -d` `sshd` w przypadku portu niestandardowego (na przykład 2222), aby nie trzeba było zatrzymać głównego demona SSH. Można również użyć `-v` opcji z klientem SSH, aby uzyskać więcej dzienników (widok po stronie klienta dla błędów).
 
 ## <a name="next-steps"></a>Następne kroki
 

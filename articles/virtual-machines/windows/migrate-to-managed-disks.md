@@ -3,23 +3,22 @@ title: Migrowanie maszyn wirtualnych platformy Azure do Managed Disks
 description: Przeprowadź migrację maszyn wirtualnych platformy Azure utworzonych przy użyciu dysków niezarządzanych na kontach magazynu, aby użyć Managed Disks.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e8f2753ac9062803a2d6252eca1829cb0b168f02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d64ebb053ef01e375edd52ad0bf2c1f424f1b837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921355"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660822"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do Managed Disks na platformie Azure
 
 Usługa Azure Managed Disks upraszcza zarządzanie magazynem, eliminując konieczność osobnego zarządzania kontami magazynu.  Możesz również migrować istniejące maszyny wirtualne platformy Azure, aby Managed Disks korzyści z lepszej niezawodności maszyn wirtualnych w zestawie dostępności. Gwarantuje to, że dyski różnych maszyn wirtualnych w zestawie dostępności są wystarczająco odizolowane od siebie, aby uniknąć pojedynczego punktu awarii. Automatycznie umieszcza dyski różnych maszyn wirtualnych w zestawie dostępności w różnych jednostkach skalowania magazynu (sygnatury), które ograniczają wpływ awarii jednostek skalowania pojedynczego magazynu spowodowanych awariami sprzętu i oprogramowania.
 Na podstawie Twoich potrzeb można wybierać spośród czterech typów opcji magazynu. Aby dowiedzieć się więcej o dostępnych typach dysków, zapoznaj się z artykułem [Wybieranie typu dysku](disks-types.md)
 
-## <a name="migration-scenarios"></a> Scenariusze migracji
+## <a name="migration-scenarios"></a>Scenariusze migracji
 
 Można migrować do Managed Disks w następujących scenariuszach:
 

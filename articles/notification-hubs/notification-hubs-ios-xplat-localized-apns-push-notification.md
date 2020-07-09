@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "72385656"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Samouczek: wysyłanie zlokalizowanych powiadomień wypychanych do systemu iOS przy użyciu usługi Azure Notification Hubs
@@ -82,7 +82,7 @@ Aby uzyskać więcej informacji na temat szablonów, zobacz artykuł [Szablony](
 
 W tej sekcji zmodyfikujesz aplikację z informacjami o aplikacji, która została utworzona w temacie [używanie Notification Hubs do wysyłania najświeższych] wiadomości w celu wysyłania zlokalizowanych najważniejszych wiadomości przy użyciu szablonów.
 
-`MainStoryboard_iPhone.storyboard`W programie Dodaj przesegmentowanie kontrolki w trzech językach: angielskim, francuskim i mandarynek.
+W programie `MainStoryboard_iPhone.storyboard` Dodaj Przesegmentowanie kontrolki w trzech językach: angielskim, francuskim i mandarynek.
 
 ![Tworzenie scenorysu interfejsu użytkownika systemu iOS][13]
 
@@ -92,7 +92,7 @@ Następnie upewnij się, że dodano element IBOutlet w plik viewcontroller. h, j
 
 ## <a name="build-the-ios-app"></a>Tworzenie aplikacji dla systemu iOS
 
-1. `Notification.h`W programie Dodaj `retrieveLocale` metodę i zmodyfikuj metody Store i Subskrybuj, jak pokazano w poniższym kodzie:
+1. W programie `Notification.h` Dodaj `retrieveLocale` metodę i zmodyfikuj metody Store i Subskrybuj, jak pokazano w poniższym kodzie:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -103,7 +103,7 @@ Następnie upewnij się, że dodano element IBOutlet w plik viewcontroller. h, j
 
     - (int) retrieveLocale;
     ```
-    `Notification.m`W programie zmodyfikuj `storeCategoriesAndSubscribe` metodę, dodając `locale` parametr i zapisując go w ustawieniach domyślnych użytkownika:
+    W programie `Notification.m` zmodyfikuj `storeCategoriesAndSubscribe` metodę, dodając `locale` parametr i zapisując go w ustawieniach domyślnych użytkownika:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -141,7 +141,7 @@ Następnie upewnij się, że dodano element IBOutlet w plik viewcontroller. h, j
     }
     ```
 
-    Używasz metody `registerTemplateWithDeviceToken`, a nie `registerNativeWithDeviceToken`. Podczas rejestrowania dla szablonu należy podać szablon JSON, a także nazwę szablonu (ponieważ aplikacja może chcieć zarejestrować różne szablony). Pamiętaj o zarejestrowaniu kategorii jako tagów, aby upewnić się, że chcesz otrzymywać powiadomienia o tych wiadomościach.
+    Używasz metody `registerTemplateWithDeviceToken` , a nie `registerNativeWithDeviceToken` . Podczas rejestrowania dla szablonu należy podać szablon JSON, a także nazwę szablonu (ponieważ aplikacja może chcieć zarejestrować różne szablony). Pamiętaj o zarejestrowaniu kategorii jako tagów, aby upewnić się, że chcesz otrzymywać powiadomienia o tych wiadomościach.
 
     Dodaj metodę pobierania ustawień regionalnych z ustawień domyślnych użytkownika:
 
@@ -155,13 +155,13 @@ Następnie upewnij się, że dodano element IBOutlet w plik viewcontroller. h, j
     }
     ```
 
-2. Teraz, po zmodyfikowaniu `Notifications` klasy, należy upewnić się, że `ViewController` program korzysta z nowego. `UISegmentControl` Dodaj następujący wiersz w `viewDidLoad` metodzie, aby upewnić się, że wyświetlane są aktualnie wybrane ustawienia regionalne:
+2. Teraz, po zmodyfikowaniu `Notifications` klasy, należy upewnić się, że program `ViewController` korzysta z nowego `UISegmentControl` . Dodaj następujący wiersz w `viewDidLoad` metodzie, aby upewnić się, że wyświetlane są aktualnie wybrane ustawienia regionalne:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    Następnie w `subscribe` metodzie Zmień wywołanie `storeCategoriesAndSubscribe` na następujący kod:
+    Następnie w `subscribe` metodzie Zmień wywołanie na `storeCategoriesAndSubscribe` następujący kod:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {

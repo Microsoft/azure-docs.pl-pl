@@ -4,10 +4,9 @@ description: Zapytania analityczne mogą być wyświetlane w Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664001"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI kanału informacyjnego z Application Insights
@@ -36,7 +35,7 @@ Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 3. W menu **Eksportuj** wybierz **Power BI (M)**. Zapisz plik tekstowy.
    
     ![Zrzut ekranu analizy z wyróżnionym menu Eksportuj](./media/export-power-bi/analytics-export-power-bi.png)
-4. W Power BI Desktop wybierz pozycję **Pobierz dane** > **puste zapytanie**. Następnie w edytorze zapytań w obszarze **Widok**wybierz pozycję **Edytor zaawansowany**.
+4. W Power BI Desktop wybierz pozycję **Pobierz dane**  >  **puste zapytanie**. Następnie w edytorze zapytań w obszarze **Widok**wybierz pozycję **Edytor zaawansowany**.
 
     Wklej wyeksportowany skrypt języka M do Edytor zaawansowany.
 
@@ -61,7 +60,7 @@ Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Zrzut ekranu przedstawiający przycisk Power BI](./media/export-power-bi/button.png)
 
-3. W Power BI Desktop wybierz pozycję **Pobierz dane** > **puste zapytanie**. Następnie w edytorze zapytań w obszarze **Widok**wybierz pozycję **Edytor zaawansowany**.
+3. W Power BI Desktop wybierz pozycję **Pobierz dane**  >  **puste zapytanie**. Następnie w edytorze zapytań w obszarze **Widok**wybierz pozycję **Edytor zaawansowany**.
 
    ![Zrzut ekranu przedstawiający Power BI Desktop, z wyróżnionym pustym przyciskiem zapytania](./media/export-power-bi/blankquery.png)
 
@@ -98,8 +97,8 @@ Jeśli zmniejszenie zestawu danych pochodzącego z zapytania analitycznego nie s
 
 1. Utwórz [klucz interfejsu API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Zaktualizuj Power BI M skrypt wyeksportowany z analizy, zastępując adres URL Azure Resource Manager za pomocą interfejsu API Application Insights.
-   * Zamień **https:\//Management.Azure.com/Subscriptions/...**
-   * z, **https:\//API.ApplicationInsights.IO/beta/Apps/...**
+   * Zamień **https: \/ /Management.Azure.com/Subscriptions/...**
+   * z, **https: \/ /API.ApplicationInsights.IO/beta/Apps/...**
 3. Na koniec zaktualizuj poświadczenia do warstwy Podstawowa i Użyj klucza interfejsu API.
 
 **Istniejący skrypt**
@@ -119,7 +118,7 @@ Ta metoda umożliwia utworzenie kompletnego pulpitu nawigacyjnego telemetrii. Po
 
 ### <a name="get-the-adapter"></a>Pobierz kartę
 1. Zaloguj się do usługi [Power BI](https://app.powerbi.com/).
-2. Otwórz zrzut ekranu **pobieranie danych** ![z ikony GetData w lewym dolnym rogu](./media/export-power-bi/001.png), **usługi**.
+2. Otwórz zrzut ekranu **pobieranie danych** ![ z ikony GetData w lewym dolnym rogu ](./media/export-power-bi/001.png) , **usługi**.
 
     ![Zrzuty ekranu przedstawiające pobieranie ze źródła danych Application Insights](./media/export-power-bi/002.png)
 

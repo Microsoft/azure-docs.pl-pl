@@ -9,12 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7c2c14a937b4ef55d0e5f71e7b20214428ecd68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158201"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660133"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzając IoT Central platformy Azure z analizą niestandardową przy użyciu Azure Databricks
 
@@ -31,7 +30,7 @@ W tym przewodniku krok po kroku dowiesz się, jak:
 
 Aby wykonać kroki opisane w tym przewodniku, musisz mieć aktywną subskrypcję platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ### <a name="iot-central-application"></a>Aplikacja IoT Central
 
@@ -39,7 +38,7 @@ Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Applicatio
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Plan cenowy | Standardowa |
+| Plan cenowy | Standardowa (Standard) |
 | Szablon aplikacji | Analiza warunków w sklepie — monitorowanie |
 | Nazwa aplikacji | Zaakceptuj wartość domyślną lub wybierz własną nazwę |
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
@@ -78,7 +77,7 @@ Użyj [Azure Portal, aby utworzyć usługę Azure Databricks](https://portal.azu
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | IoTCentralAnalysis |
 | Lokalizacja | Wschodnie stany USA |
-| Warstwa cenowa | Standardowa |
+| Warstwa cenowa | Standardowa (Standard) |
 
 Po utworzeniu wymaganych zasobów Grupa zasobów **IoTCentralAnalysis** wygląda podobnie do poniższego zrzutu ekranu:
 
@@ -133,7 +132,7 @@ Skorzystaj z informacji w poniższej tabeli, aby utworzyć klaster:
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa klastra | centralanalysis |
-| Tryb klastra | Standardowa |
+| Tryb klastra | Standardowa (Standard) |
 | Wersja Databricks Runtime | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
 | Wersja języka Python | 3 |
 | Włącz Skalowanie automatyczne | Nie |
@@ -231,4 +230,4 @@ W tym przewodniku krok po kroku przedstawiono następujące informacje:
 * Przesyłaj dane telemetryczne z aplikacji IoT Central przy użyciu *ciągłego eksportu danych*.
 * Utwórz środowisko Azure Databricks, aby analizować i wykreślić dane telemetryczne.
 
-Teraz, gdy wiesz już, jak utworzyć analizę niestandardową, sugerowanym następnym krokiem jest zapoznanie się z tematem [zarządzania aplikacją](howto-administer.md).
+Teraz, gdy wiesz już, jak utworzyć analizę niestandardową, sugerowanym następnym krokiem jest zapoznanie się z tematem [wizualizacji i analizowania danych IoT Central platformy Azure na pulpicie nawigacyjnym Power BI](howto-connect-powerbi.md).

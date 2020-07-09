@@ -4,15 +4,15 @@ description: Ten dokument zawiera omówienie wymagań wstępnych dotyczących mi
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 06/04/2020
 ms.author: lbosq
-ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647279"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263062"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kroki poprzedzające migrację dla migracji danych z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -42,12 +42,12 @@ Poniżej przedstawiono konkretne charakterystyki dotyczące interfejsu API Azure
 
 [Azure Database Migration Service interfejsu API Azure Cosmos DB dla MongoDB](../dms/tutorial-mongodb-cosmos-db.md) zapewnia mechanizm, który upraszcza migrację danych, zapewniając w pełni zarządzaną platformę hostingu, opcje monitorowania migracji i automatyczną obsługę ograniczania. Pełna lista opcji jest następująca:
 
-|**Typ migracji**|**Narzędzie**|**Zagadnienia do rozważenia**|
+|**Typ migracji**|**Rozwiązanie**|**Zagadnienia do rozważenia**|
 |---------|---------|---------|
 |W trybie offline|[Narzędzie do migracji danych](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Nieodpowiedni dla dużych zestawów danych.|
 |W trybie offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Korzysta z Azure Cosmos DB biblioteki wykonawców zbiorczych <br/>&bull;Odpowiednie dla dużych zestawów danych <br/>&bull;Brak punktów kontrolnych oznacza, że każdy problem w trakcie migracji będzie wymagał ponownego uruchomienia całego procesu migracji<br/>&bull;Brak kolejki utraconych wiadomości oznacza, że kilka błędnych plików może zatrzymać cały proces migracji <br/>&bull;Potrzebuje niestandardowego kodu, aby zwiększyć przepływność odczytu dla niektórych źródeł danych|
 |W trybie offline|[Istniejące narzędzia Mongo (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Łatwa konfiguracja i integracja <br/>&bull;Wymaga obsługi niestandardowej dla ograniczania przepustowości|
-|Online|[Usługa Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull;W pełni zarządzana usługa migracji.<br/>&bull;Udostępnia rozwiązania hostingu i monitorowania dla zadania migracji. <br/>&bull;Odpowiednie dla dużych zestawów danych i należy zachować ostrożność replikowania zmian na żywo <br/>&bull;Działa tylko z innymi źródłami MongoDB|
+|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull;W pełni zarządzana usługa migracji.<br/>&bull;Udostępnia rozwiązania hostingu i monitorowania dla zadania migracji. <br/>&bull;Odpowiednie dla dużych zestawów danych i należy zachować ostrożność replikowania zmian na żywo <br/>&bull;Działa tylko z innymi źródłami MongoDB|
 
 
 ## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a>Oszacowanie potrzeby przepływności dla obciążeń
@@ -79,7 +79,10 @@ Partycjonowanie, znane także jako fragmentowania, to kluczowy punkt rozważania
 W podobny sposób funkcja partycjonowania automatycznie dodaje pojemność i ponownie równoważy dane. Aby uzyskać szczegółowe informacje i zalecenia dotyczące wybierania odpowiedniego klucza partycji dla danych, zobacz [artykuł Wybieranie klucza partycji](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indeksowanie danych
-Domyślnie Azure Cosmos DB zapewnia automatyczne indeksowanie wszystkich wstawionych danych. Możliwości indeksowania zapewniane przez Azure Cosmos DB obejmują dodawanie indeksów złożonych, unikatowych indeksów i indeksów czasu wygaśnięcia (TTL). Interfejs zarządzania indeksami jest mapowany na `createIndex()` polecenie. Dowiedz się więcej na temat [indeksowania w interfejsie API Azure Cosmos DB MongoDB](mongodb-indexing.md).
+
+Interfejs API Azure Cosmos DB dla serwera MongoDB w wersji 3,6 automatycznie indeksuje `_id` tylko pole. Nie można porzucić tego pola. Automatycznie Wymusza unikatowość `_id` pola na klucz fragmentu. Aby zindeksować dodatkowe pola, należy zastosować polecenia MongoDB index-Management. Ta domyślna zasada indeksowania różni się od Azure Cosmos DB interfejsu API SQL, który domyślnie indeksuje wszystkie pola.
+
+Możliwości indeksowania zapewniane przez Azure Cosmos DB obejmują dodawanie indeksów złożonych, unikatowych indeksów i indeksów czasu wygaśnięcia (TTL). Interfejs zarządzania indeksami jest mapowany na `createIndex()` polecenie. Dowiedz się więcej na temat [indeksowania w Azure Cosmos DB API for MongoDB](mongodb-indexing.md).
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) automatycznie migruje kolekcje MongoDB z unikatowymi indeksami. Jednak przed migracją należy utworzyć unikatowe indeksy. Azure Cosmos DB nie obsługuje tworzenia unikatowych indeksów, gdy w kolekcjach znajdują się już dane. Aby uzyskać więcej informacji, zobacz [unikalne klucze w Azure Cosmos DB](unique-keys.md).
 

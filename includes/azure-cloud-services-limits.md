@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: cost-management-billing
+ms.service: cloud-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 3295c7e677e4c9bf7bff27614fe5fa4fa3200570
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 390460cf6a22c164ee41a9b6679c7b7f2979d8ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838963"
 ---
 | Zasób | Limit |
 | --- | --- |

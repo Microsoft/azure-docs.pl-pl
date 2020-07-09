@@ -2,17 +2,19 @@
 title: Wdrożenie warunkowe z szablonami
 description: Opisuje sposób warunkowego wdrażania zasobu w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 001a1a7d6d15fe29b0f3184b75892f4ec75cef27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.date: 06/01/2020
+ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017498"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84259324"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Wdrożenie warunkowe w szablonach ARM
 
 Czasami trzeba opcjonalnie wdrożyć zasób w szablonie Azure Resource Manager (ARM). Użyj `condition` elementu, aby określić, czy zasób został wdrożony. Wartość dla tego elementu jest rozpoznawana jako true lub false. Gdy wartość jest równa true, zasób jest tworzony. Gdy wartość jest równa false, zasób nie zostanie utworzony. Wartość może zostać zastosowana tylko do całego zasobu.
+
+> [!NOTE]
+> Wdrożenie warunkowe nie jest kaskadowo do [zasobów podrzędnych](child-resource-name-type.md). Aby warunkowo wdrożyć zasób i jego zasoby podrzędne, należy zastosować ten sam warunek dla każdego typu zasobu.
 
 ## <a name="new-or-existing-resource"></a>Nowy lub istniejący zasób
 
@@ -81,7 +83,7 @@ Użyj funkcji [if](template-functions-logical.md#if) , aby upewnić się, że fu
 
 Zasób jest ustawiany [jako zależny od](define-resource-dependency.md) zasobu warunkowego dokładnie tak samo jak w przypadku każdego innego zasobu. Gdy zasób warunkowy nie zostanie wdrożony, Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
 
-## <a name="condition-with-complete-mode"></a>Warunek z trybem ukończenia
+## <a name="complete-mode"></a>Tryb kompletny
 
 Jeśli szablon zostanie wdrożony z [trybem kompletnym](deployment-modes.md) , a zasób nie zostanie wdrożony, ponieważ warunek zwróci wartość false, wynik zależy od używanej wersji interfejsu API REST do wdrożenia szablonu. W przypadku używania wersji wcześniejszej niż 2019-05-10 zasób nie zostanie **usunięty**. W przypadku 2019-05-10 lub nowszych zasób **jest usuwany**. Najnowsze wersje Azure PowerShell i interfejsu wiersza polecenia platformy Azure usuwają zasób, gdy warunek ma wartość false.
 

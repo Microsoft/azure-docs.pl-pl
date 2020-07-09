@@ -1,6 +1,6 @@
 ---
-title: Przyrostowe kopiowanie danych przy użyciu Change Tracking
-description: W tym samouczku utworzysz potok usługi Azure Data Factory służący do przyrostowego kopiowania danych różnicowych z wielu tabel w lokalnej bazie danych SQL Server do bazy danych Azure SQL Database.
+title: Przyrostowe kopiowanie danych przy użyciu Change Tracking przy użyciu programu PowerShell
+description: W tym samouczku utworzysz potok Azure Data Factory, który stopniowo kopiuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 7937c2c623fdca4e59dc0aac059bd1b8fd735a21
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 41841fd51433a18389aa9f5beee063fb30696755
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119164"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251203"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Przyrostowe ładowanie danych z Azure SQL Database do platformy Azure Blob Storage przy użyciu informacji o śledzeniu zmian przy użyciu programu PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę usługi Azure Data Factory z potokiem służącym do ładowania danych przyrostowych na podstawie informacji o **śledzeniu zmian** w źródłowej bazie danych Azure SQL Database do magazynu Azure Blob Storage.  
+W tym samouczku utworzysz fabrykę danych Azure przy użyciu potoku ładującego dane różnicowe na podstawie informacji o **śledzeniu zmian** w źródłowej bazie danych w Azure SQL Database do magazynu obiektów blob platformy Azure.  
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -44,16 +44,16 @@ W rozwiązaniu integracji danych przyrostowe ładowanie danych po początkowych 
 Poniżej przedstawiono kroki kompleksowego przepływu pracy służące do przyrostowego ładowania danych przy użyciu technologii Change Tracking.
 
 > [!NOTE]
-> Technologia Change Tracking jest obsługiwana zarówno przez bazę danych Azure SQL Database, jak i serwer SQL Server. W tym samouczku baza danych Azure SQL Database jest używana jako magazyn danych źródłowych. Możesz również użyć lokalnego serwera SQL Server.
+> Technologia Change Tracking jest obsługiwana zarówno przez bazę danych Azure SQL Database, jak i serwer SQL Server. W tym samouczku baza danych Azure SQL Database jest używana jako magazyn danych źródłowych. Można również użyć wystąpienia SQL Server.
 
 1. **Początkowe ładowanie danych historycznych** (uruchamiane raz):
-    1. Włącz technologię Change Tracking w źródłowej bazie danych Azure SQL Database.
-    2. Pobierz wartość początkową parametru SYS_CHANGE_VERSION w bazie danych Azure SQL Database jako linię bazową na potrzeby przechwytywania zmienionych danych.
-    3. Załaduj pełne dane z bazy danych Azure SQL Database do magazynu Azure Blob Storage.
+    1. Włącz Change Tracking technologię w źródłowej bazie danych w Azure SQL Database.
+    2. Pobierz początkową wartość SYS_CHANGE_VERSION w bazie danych jako linię bazową do przechwytywania zmienionych danych.
+    3. Załaduj pełne dane ze źródłowej bazy danych do usługi Azure Blob Storage.
 2. **Przyrostowe ładowanie danych różnicowych zgodnie z harmonogramem** (uruchamiane okresowo po początkowym załadowaniu danych):
     1. Pobierz starą i nową wartość parametru SYS_CHANGE_VERSION.
-    3. Załaduj dane różnicowe, łącząc klucze podstawowe zmienionych wierszy (między dwiema wartościami parametru SYS_CHANGE_VERSION) z tabeli **sys.change_tracking_tables** z danymi w **tabeli źródłowej**, a następnie przenieś dane różnicowe do lokalizacji docelowej.
-    4. Zaktualizuj wartość parametru SYS_CHANGE_VERSION na potrzeby następnego ładowania danych różnicowych.
+    2. Załaduj dane różnicowe, łącząc klucze podstawowe zmienionych wierszy (między dwiema wartościami parametru SYS_CHANGE_VERSION) z tabeli **sys.change_tracking_tables** z danymi w **tabeli źródłowej**, a następnie przenieś dane różnicowe do lokalizacji docelowej.
+    3. Zaktualizuj wartość parametru SYS_CHANGE_VERSION na potrzeby następnego ładowania danych różnicowych.
 
 ## <a name="high-level-solution"></a>Rozwiązanie ogólne
 W tym samouczku utworzysz dwa potoki, za pomocą których zostaną wykonane następujące dwie operacje:  
@@ -74,13 +74,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Azure PowerShell. Zainstaluj najnowsze moduły Azure PowerShell, postępując zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z artykułem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) .
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych **źródłowych**. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **adftutorial**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych Azure SQL Database
+### <a name="create-a-data-source-table-in-your-database"></a>Tworzenie tabeli źródła danych w bazie danych
+
 1. Uruchom **SQL Server Management Studio**i Połącz się z SQL Database.
 2. W **Eksploratorze serwera** kliknij prawym przyciskiem używaną **bazę danych**, a następnie wybierz pozycję **Nowe zapytanie**.
-3. Uruchom poniższe polecenie SQL dla bazy danych Azure SQL Database, aby utworzyć tabelę o nazwie `data_source_table` jako magazyn danych źródłowych.  
+3. Uruchom następujące polecenie SQL względem bazy danych, aby utworzyć tabelę o nazwie `data_source_table` jako magazyn źródła danych.  
 
     ```sql
     create table data_source_table
@@ -104,7 +105,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 4. Włącz mechanizm **Change Tracking** w bazie danych i tabeli źródłowej (data_source_table), uruchamiając następujące zapytanie SQL:
 
     > [!NOTE]
-    > - Zastąp &lt;nazwę bazy danych&gt; nazwą bazy danych Azure SQL Database zawierającą tabelę data_source_table.
+    > - Zastąp &lt; nazwę bazy danych &gt; nazwą swojej bazy danych, która ma data_source_table.
     > - W bieżącym przykładzie zmienione dane są przechowywane przez dwa dni. W przypadku ładowania zmienionych danych nie rzadziej niż co trzy dni niektóre zmienione dane nie zostaną uwzględnione.  Jednym rozwiązaniem jest zmiana wartości parametru CHANGE_RETENTION na większą. Alternatywnie należy zapewnić, że okres ładowania zmienionych danych będzie wynosił maksymalnie dwa dni. Aby uzyskać więcej informacji, zobacz [Włącz śledzenie zmian dla bazy danych zmian](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
     ```sql
@@ -134,7 +135,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
     > [!NOTE]
     > Jeśli dane nie ulegną zmianie po włączeniu śledzenia zmian dla bazy danych SQL Database, wartość wersji śledzenia zmian to 0.
-6. Uruchom następujące zapytanie, aby utworzyć procedurę składowaną w bazie danych Azure SQL Database. Potok wywołuje tę procedurę składowaną w celu zaktualizowania wersji śledzenia zmian w tabeli utworzonej w poprzednim kroku.
+6. Uruchom następujące zapytanie, aby utworzyć procedurę przechowywaną w bazie danych. Potok wywołuje tę procedurę składowaną w celu zaktualizowania wersji śledzenia zmian w tabeli utworzonej w poprzednim kroku.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -197,7 +198,7 @@ Pamiętaj o następujących kwestiach:
 
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz usługi połączone ze swoim kontem usługi Azure Storage i bazą danych Azure SQL Database.
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz usługi połączone z kontem usługi Azure Storage i bazą danych w Azure SQL Database.
 
 ### <a name="create-azure-storage-linked-service"></a>Utwórz połączoną usługę Azure Storage.
 W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych.
@@ -232,9 +233,9 @@ W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych.
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Utwórz połączoną usługę Azure SQL Database.
-W tym kroku opisano sposób łączenia bazy danych Azure SQL Database z fabryką danych.
+W tym kroku połączysz bazę danych z fabryką danych.
 
-1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService. JSON** w folderze **C:\ADFTutorials\IncCopyChangeTrackingTutorial** o następującej zawartości: Zastąp ** &lt; &gt; &lt; nazwę bazy danych serwera &gt; , &lt; Identyfikator użytkownika &gt; i &lt; hasło &gt; ** nazwą serwera, nazwę bazy danych, identyfikator użytkownika i hasło przed zapisaniem pliku.
+1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService.js** w folderze **C:\ADFTutorials\IncCopyChangeTrackingTutorial** o następującej zawartości: Zastąp wartość ** &lt; &gt; &lt; Nazwa bazy danych serwera &gt; , &lt; Identyfikator użytkownika &gt; i &lt; hasło &gt; ** nazwą serwera, nazwę bazy danych, identyfikator użytkownika i hasło przed zapisaniem pliku.
 
     ```json
     {
@@ -464,7 +465,7 @@ Zostanie wyświetlony plik o nazwie `incremental-<GUID>.txt` w folderze `incchgt
 
 ![Plik wyjściowy z pełnego kopiowania](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
-Ten plik powinien zawierać dane z bazy danych Azure SQL Database:
+Plik powinien zawierać dane z bazy danych programu:
 
 ```
 1,aaaa,21
@@ -476,7 +477,7 @@ Ten plik powinien zawierać dane z bazy danych Azure SQL Database:
 
 ## <a name="add-more-data-to-the-source-table"></a>Dodawanie większej ilości danych do tabeli źródłowej
 
-Uruchom następujące zapytanie względem bazy danych Azure SQL Database, aby dodać wiersz, a następnie go zaktualizować.
+Uruchom następujące zapytanie względem bazy danych, aby dodać wiersz i zaktualizować wiersz.
 
 ```sql
 INSERT INTO data_source_table
@@ -642,7 +643,7 @@ W folderze `incchgtracking` kontenera `adftutorial` widoczny będzie drugi plik.
 
 ![Plik wyjściowy z kopii przyrostowej](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-Ten plik powinien zawierać tylko dane przyrostowe z bazy danych Azure SQL Database. Rekord z wartością `U` znajduje się w zaktualizowanym wierszu w bazie danych, a rekord z wartością `I` to jeden dodany wiersz.
+Plik powinien zawierać tylko dane różnicowe z bazy danych. Rekord z wartością `U` znajduje się w zaktualizowanym wierszu w bazie danych, a rekord z wartością `I` to jeden dodany wiersz.
 
 ```
 1,update,10,2,U

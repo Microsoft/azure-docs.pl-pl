@@ -2,18 +2,18 @@
 title: Przewodnik publikowania dla ofert maszyn wirtualnych w portalu Azure Marketplace
 description: W tym artykule opisano wymagania dotyczące publikowania maszyny wirtualnej i bezpłatnej wersji próbnej oprogramowania do wdrożenia z portalu Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/15/2020
-ms.author: dsindona
-ms.openlocfilehash: a01c8658ff4929d07cd185dcea45393cfe3b2a17
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116730"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Przewodnik publikowania dla ofert maszyn wirtualnych
 
@@ -54,7 +54,7 @@ Typ oferty *maszyny wirtualnej* służy do wdrażania urządzenia wirtualnego w 
 | Wymaganie | Szczegóły |  
 |:--- |:--- | 
 | Rozliczenia i pomiary | Maszyna wirtualna musi obsługiwać miesięczne rozliczenie BYOL lub płatność zgodnie z rzeczywistym użyciem. |  
-| Wirtualny dysk twardy (VHD) zgodny z platformą Azure | Maszyny wirtualne muszą być wbudowane w system Windows lub Linux. Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego, zobacz: <ul> <li>[Dystrybucje systemu Linux zatwierdzone na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) (dla dysków VHD z systemem Linux).</li> <li>[Utwórz dysk VHD zgodny z platformą Azure](./partner-center-portal/azure-vm-create-offer.md) (dla dysków VHD systemu Windows).</li> </ul> |  
+| Wirtualny dysk twardy (VHD) zgodny z platformą Azure | Maszyny wirtualne muszą być wbudowane w system Windows lub Linux. Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego, zobacz: <ul> <li>[Dystrybucje systemu Linux zatwierdzone na platformie Azure](../virtual-machines/linux/endorsed-distros.md) (dla dysków VHD z systemem Linux).</li> <li>[Utwórz dysk VHD zgodny z platformą Azure](./partner-center-portal/azure-vm-create-offer.md) (dla dysków VHD systemu Windows).</li> </ul> |  
 
 >[!Note]
 >Niedostępność kanału partnera dostawcy rozwiązań w chmurze (CSP) jest teraz dostępna. Aby uzyskać więcej informacji na temat marketingu oferty za poorednictwem kanałów partnerów CSP firmy Microsoft, zobacz [dostawcy rozwiązań w chmurze](./cloud-solution-providers.md).

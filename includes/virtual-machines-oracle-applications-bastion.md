@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68361546"
 ---
 ### <a name="bastion-tier"></a>Warstwa bastionu
@@ -23,4 +23,4 @@ Oto przykład przekazywania agentów:
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP`
 ```
 
-To polecenie nawiązuje połączenie z bastionu, a następnie `ssh` natychmiast ponownie działa, aby uzyskać terminal w wystąpieniu docelowym. Jeśli klaster jest skonfigurowany inaczej, może być konieczne określenie użytkownika innego niż root w wystąpieniu docelowym. `-A` Argument przekazuje połączenie z agentem, aby Twój klucz prywatny na komputerze lokalnym był używany automatycznie. Należy zauważyć, że przekazywanie agentów jest łańcuchem, więc `ssh` drugie polecenie zawiera `-A` również, tak aby wszystkie kolejne połączenia SSH inicjowane z wystąpienia docelowego również używały lokalnego klucza prywatnego.
+To polecenie nawiązuje połączenie z bastionu, a następnie natychmiast `ssh` ponownie działa, aby uzyskać terminal w wystąpieniu docelowym. Jeśli klaster jest skonfigurowany inaczej, może być konieczne określenie użytkownika innego niż root w wystąpieniu docelowym. `-A`Argument przekazuje połączenie z agentem, aby Twój klucz prywatny na komputerze lokalnym był używany automatycznie. Należy zauważyć, że przekazywanie agentów jest łańcuchem, więc drugie `ssh` polecenie zawiera również, `-A` tak aby wszystkie kolejne połączenia SSH inicjowane z wystąpienia docelowego również używały lokalnego klucza prywatnego.

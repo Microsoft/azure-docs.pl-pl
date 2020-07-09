@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870698"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297945"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
-W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowe statyczne Web Apps platformy Azure ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
+W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Ostatnim wynikiem jest nowa statyczna aplikacja internetowa platformy Azure ze skojarzonymi akcjami GitHub, która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -109,7 +109,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. W obszarze _Grupa zasobów_wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_wprowadź **Hugo-static-App** , a następnie wybierz **przycisk OK**.
 
-1. Następnie podaj globalnie unikatową nazwę aplikacji w polu **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` . Ta wartość jest używana jako prefiks adresu URL dla aplikacji statycznej w formacie `https://<APP_NAME>....` .
+1. Następnie wpisz nazwę aplikacji w polu **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` .
 
 1. W _obszarze region_wybierz dostępny region blisko siebie.
 
@@ -133,9 +133,9 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
 
-1. Ustaw _lokalizację aplikacji_ na **publiczną**.
+1. Ustaw _lokalizację aplikacji_ na **/** .
 
-1. Pozostaw pustą _lokalizację artefaktu aplikacji_ .
+1. Ustaw _lokalizację artefaktu aplikacji_ na **publiczną**.
 
    Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
@@ -144,38 +144,6 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 1. Kliknij przycisk **Recenzja + Utwórz** , aby sprawdzić, czy szczegóły są poprawne.
 
 1. Kliknij przycisk **Utwórz** , aby rozpocząć tworzenie Web Apps statycznej platformy Azure i zainicjować akcję GitHub na potrzeby wdrożenia.
-
-1. Po zakończeniu wdrażania przejdź do terminalu i Pobierz zatwierdzenie z akcją GitHub do maszyny.
-
-   ```bash
-   git pull
-   ```
-
-1. Otwórz aplikację Hugo w edytorze tekstów i Otwórz plik _. GitHub/przepływy pracy/Azure-Pages-<WORKFLOW_NAME>. yml_ .
-
-1. Zamień wiersz `- uses: actions/checkout@v2` (wiersz 18) na następujący, aby skompilować aplikację Hugo.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.8
-     with:
-       hugo-version: "latest"
-
-   - name: Build
-     run: hugo
-   ```
-
-1. Zatwierdź zaktualizowany przepływ pracy i wypchnij do usługi GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Poczekaj na zakończenie akcji usługi GitHub.
 

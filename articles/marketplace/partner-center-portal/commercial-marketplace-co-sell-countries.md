@@ -1,18 +1,18 @@
 ---
 title: Kody krajów i regionów współsprzedawcy | Portal Azure Marketplace
 description: Korzystając z tych dwuliterowych kodów kraju/regionu podczas udostępniania informacji kontaktowych na stronie współpracownika oferty.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80277060"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86105136"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Kody krajów i regionów współpracujących
 
@@ -166,7 +166,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Martynika                          | MQ        |
 | Mauretania                          | MR        |
 | Mauritius                           | MU        |
-| Majotta                             | YT        |
+| Wyspa Majotta                             | YT        |
 | Meksyk                              | MX        |
 | Mikronezja                          | FM        |
 | Mołdawia                             | MD        |
@@ -250,7 +250,7 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Togo                                | TG        |
 | Tokelau                             | TK        |
 | Tonga                               | DO        |
-| Trynidad i Tobago                 | TT        |
+| Trinidad i Tobago                 | TT        |
 | Tunezja                             | TN        |
 | Turcja                              | TR        |
 | Turkmenistan                        | TM        |
@@ -259,10 +259,10 @@ Jeśli kontakt obejmuje więcej niż jeden kraj/region, wprowadź każdy z dwóc
 | Uganda                              | UG        |
 | Ukraina                             | UA        |
 | Zjednoczone Emiraty Arabskie                | AE        |
-| Wielka Brytania                      | GB        |
+| Zjednoczone Królestwo                      | GB        |
 | Stany Zjednoczone                       | USA        |
 | Urugwaj                             | UY        |
-| Odległe wyspy Stanów Zjednoczonych               | UM        |
+| Stany Zjednoczone — Dalekie Wyspy Mniejsze               | UM        |
 | Wyspy Dziewicze Stanów Zjednoczonych                 | VI        |
 | Uzbekistan                          | UZ        |
 | Vanuatu                             | VU        |

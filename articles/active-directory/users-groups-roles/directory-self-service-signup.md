@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fedb9375ec7ac7e7c7ac7a3ebf91166f70b6a05b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b23d3d287238d2813f7381941dc279851bc3afdd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583004"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84728830"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Co to jest samoobsługowe rejestrowanie się w Azure Active Directory?
 
@@ -52,12 +52,12 @@ Administrator może skonfigurować te funkcje przy użyciu następującego polec
 AllowEmailVerifiedUsers i AllowAdHocSubscriptions to ustawienia dotyczące całego katalogu, które mogą być stosowane do katalogu zarządzanego lub niezarządzanego. Oto przykład, w którym:
 
 * Katalog można administrować za pomocą zweryfikowanej domeny, takiej jak contoso.com
-* Aby zaprosić użytkownika, który jeszcze nie istnieje (userdoesnotexist@contoso.com) w katalogu głównym contoso.com, używasz współpracy B2B z innego katalogu.
+* Aby zaprosić użytkownika, który jeszcze nie istnieje ( userdoesnotexist@contoso.com ) w katalogu głównym contoso.com, używasz współpracy B2B z innego katalogu.
 * Katalog macierzysty ma AllowEmailVerifiedUsers włączony
 
 Jeśli powyższe warunki są spełnione, wówczas użytkownik będący członkiem jest tworzony w katalogu macierzystym, a w katalogu zapraszania jest tworzony użytkownik Gość B2B.
 
-Usługa Flow i logowanie w wersji próbnej usługi PowerApps nie są kontrolowane przez ustawienie **AllowAdHocSubscriptions** . Aby uzyskać więcej informacji zobacz następujące artykuły:
+Usługa Flow i logowanie w wersji próbnej usługi PowerApps nie są kontrolowane przez ustawienie **AllowAdHocSubscriptions** . Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Jak uniemożliwić istniejącym użytkownikom rozpoczynanie korzystania z usługi Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
 * [Usługa Flow w organizacji — pytania i odpowiedzi](https://docs.microsoft.com/flow/organization-q-and-a)

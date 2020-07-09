@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81311045"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Zbadaj podejrzane urządzenie IoT
@@ -41,7 +40,7 @@ Aby zlokalizować obszar roboczy Log Analytics magazynu danych:
 1. Otwórz Centrum IoT Hub,
 1. W obszarze **zabezpieczenia**kliknij pozycję **Przegląd**, a następnie wybierz pozycję **Ustawienia**.
 1. Zmień szczegóły konfiguracji obszaru roboczego Log Analytics.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 Wykonaj następujące czynności konfiguracyjne, aby uzyskać dostęp do danych przechowywanych w obszarze roboczym Log Analytics:
 

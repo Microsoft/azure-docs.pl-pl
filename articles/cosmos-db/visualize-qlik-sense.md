@@ -4,15 +4,15 @@ description: W tym artykule opisano kroki wymagane do nawiązania połączenia A
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67985542"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263351"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Połącz Qlik sens, aby Azure Cosmos DB i wizualizować dane
 
@@ -54,7 +54,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz goto
 
 1. Otwórz Qlik sens i wybierz pozycję **Utwórz nową aplikację**. Podaj nazwę aplikacji i wybierz pozycję **Utwórz**.
 
-   ![Utwórz nową aplikację Qlik wykrywania](./media/visualize-qlik-sense/create-new-qlik-sense-app.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Utwórz nową aplikację Qlik wykrywania":::
 
 2. Po pomyślnym utworzeniu nowej aplikacji wybierz pozycję **Otwórz aplikację** , a następnie wybierz pozycję **Dodaj dane z plików i innych źródeł**. 
 
@@ -62,15 +62,15 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz goto
 
 4. Przejdź do **nazwy DSN użytkownika** i wybierz utworzone wcześniej połączenie ODBC. Podaj nazwę połączenia i wybierz pozycję **Utwórz**. 
 
-   ![Tworzenie nowego połączenia](./media/visualize-qlik-sense/create-new-connection.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Tworzenie nowego połączenia":::
 
 5. Po utworzeniu połączenia możesz wybrać bazę danych, kolekcję, w której znajdują się dane gry wideo, a następnie wyświetlić jej podgląd.
 
-   ![Wybieranie bazy danych i kolekcji](./media/visualize-qlik-sense/choose-database-and-collection.png) 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Wybieranie bazy danych i kolekcji"::: 
 
 6. Następnie wybierz pozycję **Dodaj dane** , aby załadować dane do Qlik sens. Po załadowaniu danych do Qlikego można generować szczegółowe informacje i przeprowadzać analizę danych. Możesz użyć szczegółowych informacji lub utworzyć własną aplikację Eksplorowanie sprzedaży gier wideo. Na poniższej ilustracji przedstawiono 
 
-   ![Wizualizowanie danych](./media/visualize-qlik-sense/visualize-data.png)
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Wizualizowanie danych":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Ograniczenia dotyczące nawiązywania połączenia z ODBC 
 

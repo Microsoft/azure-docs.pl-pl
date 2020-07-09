@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 08/15/2019
+ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98aebb4733c2aa2a6d0b0217f1f437bcea1992e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09b1fa31ff8f93ea86a80092b43d071df6cd74e9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270175"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211786"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX i Azure Machine Learning: Tworzenie i przyspieszenie modeli ML
 
@@ -24,23 +24,27 @@ Dowiedz się, jak za pomocą programu [Open neuronowych Network Exchange](https:
 
 Optymalizacja modeli uczenia maszynowego na potrzeby wnioskowania (lub oceniania modelu) jest trudna, ponieważ należy dostroić model i bibliotekę wnioskowania w celu zapewnienia większości możliwości sprzętowych. Problem jest niezwykle trudno, jeśli chcesz uzyskać optymalną wydajność na różnych typach platform (chmura/Edge, procesor CPU/GPU itp.), ponieważ każdy z nich ma różne możliwości i cechy. Złożoność zwiększa się, jeśli masz modele z różnych platform, które muszą działać na różnych platformach. Jest to bardzo czasochłonne, aby zoptymalizować wszystkie różne kombinacje platform i sprzętu. Konieczne jest rozwiązanie do uczenia się jednokrotnie w preferowanej strukturze i działające w dowolnym miejscu w chmurze lub na krawędzi. Jest to miejsce, w którym znajduje się ONNX.
 
-Firma Microsoft i społeczność partnerów utworzyli ONNX jako otwarty standard do reprezentowania modeli uczenia maszynowego. Modele z [wielu platform](https://onnx.ai/supported-tools) , w tym TensorFlow, PyTorch, SciKit-nauka, Keras, łańcucher, MXNET i MATLAB, można wyeksportować lub przekonwertować do formatu standardowego ONNX. Gdy modele są w formacie ONNX, można je uruchamiać na różnych platformach i urządzeniach.
+Firma Microsoft i społeczność partnerów utworzyli ONNX jako otwarty standard do reprezentowania modeli uczenia maszynowego. Modele z [wielu platform](https://onnx.ai/supported-tools) , w tym TensorFlow, PyTorch, SciKit-nauka, Keras, łańcucher, MXNET, MATLAB i SparkML, można wyeksportować lub przekonwertować do formatu standardowego ONNX. Gdy modele są w formacie ONNX, można je uruchamiać na różnych platformach i urządzeniach.
 
-[Środowisko uruchomieniowe ONNX](https://github.com/Microsoft/onnxruntime) to aparat wnioskowania o wysokiej wydajności służący do wdrażania modeli ONNX w środowisku produkcyjnym. Jest zoptymalizowany pod kątem chmury i brzegowej oraz działa w systemach Linux, Windows i Mac. Zapisywana w języku C++, zawiera również interfejsy API języka C, Python i C#. Środowisko uruchomieniowe ONNX zapewnia obsługę wszystkich specyfikacji ONNX-ML i integruje się z akceleratorami na różnych urządzeniach, takich jak TensorRT na procesorach GPU NVidia.
+[Środowisko uruchomieniowe ONNX](https://onnxruntime.ai) to aparat wnioskowania o wysokiej wydajności służący do wdrażania modeli ONNX w środowisku produkcyjnym. Jest zoptymalizowany pod kątem chmury i brzegowej oraz działa w systemach Linux, Windows i Mac. Pisanie w języku C++ zawiera również interfejsy API języka C, Python, C#, Java i JavaScript (Node.js) do użycia w różnych środowiskach. Środowisko uruchomieniowe ONNX obsługuje zarówno DNN, jak i tradycyjne modele ML oraz integruje się z akceleratorami na różnych urządzeniach, takich jak TensorRT w procesorach GPU NVidia, OpenVINO na procesorach Intel, DirectML w systemie Windows i innych. Za pomocą środowiska uruchomieniowego ONNX można korzystać z zalet optymalizacji, testowania i ciągłego ulepszania klasy produkcyjnej.
 
-Środowisko uruchomieniowe ONNX jest używane w wysokiej skali usług firmy Microsoft, takich jak Bing, Office i Cognitive Services. Zyski wydajności są zależne od wielu czynników, ale te usługi firmy Microsoft miały __średni wzrost wydajności procesora CPU__. Środowisko uruchomieniowe ONNX jest również używane jako część systemu Windows ML na setkach milionów urządzeń. Środowiska uruchomieniowego można użyć z Azure Machine Learning. Za pomocą środowiska uruchomieniowego ONNX można korzystać z zalet optymalizacji, testowania i ciągłego ulepszania klasy produkcyjnej.
+Środowisko uruchomieniowe ONNX jest używane w usługach firmy Microsoft o dużej skali, takich jak Bing, Office i Azure Cognitive Services. Zyski wydajności są zależne od wielu czynników, ale te usługi firmy Microsoft miały średni wzrost __wydajności procesora CPU__. Oprócz usług Azure Machine Learning środowisko uruchomieniowe ONNX działa również w innych produktach, które obsługują Machine Learning obciążeń, w tym:
++ System Windows: środowisko uruchomieniowe jest wbudowane w system Windows w ramach [systemu windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) i działa na setkach milionów urządzeń. 
++ Rodzina produktów SQL Azure: uruchamianie natywnej oceny danych w [usłudze Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) i [wystąpieniu zarządzanym Azure SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
++ ML.NET: [Uruchom modele ONNX w ml.NET](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
+
 
 [![Diagram przepływu ONNX przedstawiający szkolenia, konwertery i wdrażanie](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Pobierz modele ONNX
 
 Modele ONNX można uzyskać na kilka sposobów:
-+ Uczenie nowego modelu ONNX w Azure Machine Learning (Zobacz przykłady w dolnej części tego artykułu)
++ Uczenie nowego modelu ONNX w Azure Machine Learning (Zobacz przykłady w dolnej części tego artykułu) lub przy użyciu [funkcji automatycznych Machine Learning](concept-automated-ml.md#automl--onnx)
 + Konwertuj istniejący model z innego formatu na ONNX (zobacz [samouczki](https://github.com/onnx/tutorials)) 
-+ Pobierz wstępnie szkolony model ONNX z [modelu ONNX zoo](https://github.com/onnx/models) (Zobacz przykłady w dolnej części tego artykułu)
++ Pobierz wstępnie szkolony model ONNX z [modelu ONNX zoo](https://github.com/onnx/models)
 + Generuj dostosowany model ONNX z [usługi Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
 
-Wiele modeli, w tym Klasyfikacja obrazu, wykrywanie obiektów i przetwarzanie tekstu, można reprezentować jako modele ONNX. Jednak niektóre modele mogą nie być możliwe do pomyślnego przekonwertowania. W przypadku uruchomienia w tej sytuacji należy rozwiązać problem w witrynie GitHub odpowiedniego konwertera, który został użyty. Możesz kontynuować korzystanie z istniejącego modelu formatu do momentu rozwiązania problemu.
+Wiele modeli, w tym Klasyfikacja obrazu, wykrywanie obiektów i przetwarzanie tekstu, można reprezentować jako modele ONNX. W przypadku wystąpienia problemu z modelem, którego nie można pomyślnie przekonwertować, należy rozwiązać problem w usłudze GitHub odpowiedniego konwertera, który został użyty. Możesz kontynuować korzystanie z istniejącego modelu formatu do momentu rozwiązania problemu.
 
 ## <a name="deploy-onnx-models-in-azure"></a>Wdrażanie modeli ONNX na platformie Azure
 
@@ -79,18 +83,20 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 Aby uzyskać pełną dokumentację interfejsu API języka Python, zobacz [dokumenty referencyjne środowiska uruchomieniowego ONNX](https://aka.ms/onnxruntime-python).    
 
 ## <a name="examples"></a>Przykłady
-
-Zapoznaj się z artykułem [How to-use-Azure/Deployment/Onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) na przykład notesów, które tworzą i wdrażają modele Onnx.
+Zapoznaj się z artykułem [How to-use-Azure/Deployment/Onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) na przykład notesów Python, które tworzą i wdrażają modele Onnx.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
+Przykłady użycia w innych językach można znaleźć w witrynie [GitHub środowiska uruchomieniowego ONNX](https://github.com/microsoft/onnxruntime/tree/master/samples).
+
 ## <a name="more-info"></a>Więcej informacji
 
-Dowiedz się więcej na temat ONNX lub współtworzenia projektu:
+Dowiedz się więcej na temat **ONNX** lub współtworzenia projektu:
 + [Witryna sieci Web projektu ONNX](https://onnx.ai)
 + [Kod ONNX w serwisie GitHub](https://github.com/onnx/onnx)
 
-Dowiedz się więcej na temat środowiska uruchomieniowego ONNX lub współtworzenia projektu:
+Dowiedz się więcej na temat **środowiska uruchomieniowego ONNX** lub współtworzenia projektu:
++ [Witryna sieci Web projektu środowiska uruchomieniowego ONNX](https://onnxruntime.ai)
 + [Repozytorium GitHub środowiska uruchomieniowego ONNX](https://github.com/Microsoft/onnxruntime)
 
 

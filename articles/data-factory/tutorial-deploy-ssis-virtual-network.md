@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
 ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84118141"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Skonfiguruj środowisko Integration Runtime (IR) platformy SQL Server Integration Services Azure, aby dołączyć do sieci wirtualnej
@@ -94,11 +93,11 @@ Użyj Azure Portal, aby skonfigurować sieć wirtualną przed podjęciem próby 
 
    1. Wybierz subskrypcję.
 
-   1. Po lewej stronie wybierz pozycję **dostawcy zasobów**i upewnij się, że **Microsoft. Batch** jest zarejestrowanym dostawcą.
+   1. Po lewej stronie wybierz pozycję **dostawcy zasobów**i upewnij się, że **Microsoft.Batch** jest zarejestrowanym dostawcą.
 
    ![Potwierdzenie stanu zarejestrowanego](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
-   Jeśli na liście nie widzisz elementu **Microsoft. Batch** , aby go zarejestrować, [utwórz puste konto Azure Batch](../batch/batch-account-create-portal.md) w ramach subskrypcji. Można go później usunąć.
+   Jeśli na liście nie widzisz **Microsoft.Batch** , aby zarejestrować ją, [utwórz puste konto Azure Batch](../batch/batch-account-create-portal.md) w subskrypcji. Można go później usunąć.
 
 ## <a name="join-the-azure-ssis-ir-to-a-virtual-network"></a>Dołącz Azure-SSIS IR do sieci wirtualnej
 

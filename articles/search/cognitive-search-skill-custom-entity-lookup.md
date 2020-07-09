@@ -7,13 +7,12 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/17/2020
+ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085743"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84987479"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność wyszukiwania jednostek niestandardowych (wersja zapoznawcza)
 
@@ -38,17 +37,17 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| entitiesDefinitionUri    | Ścieżka do pliku JSON lub CSV zawierającego cały tekst docelowy do dopasowania. Ta definicja jednostki jest odczytywana na początku przebiegu indeksatora; wszystkie aktualizacje tego pliku nie zostaną zrealizowane do momentu kolejnego uruchomienia. Ta konfiguracja musi być dostępna za pośrednictwem protokołu HTTPS. Zobacz Format [definicji jednostki niestandardowej](#custom-entity-definition-format) "poniżej dla oczekiwanego schematu CSV lub JSON.|
-|inlineEntitiesDefinition | Definicje jednostek śródwierszowego elementu JSON. Ten parametr zastępuje parametr entitiesDefinitionUri, jeśli jest obecny. Nie więcej niż 10 KB konfiguracji może być dostarczonych wewnętrznie. Poniżej przedstawiono [definicję jednostki niestandardowej](#custom-entity-definition-format) dla oczekiwanego schematu JSON. |
-|defaultLanguageCode |    Obowiązkowe Kod języka tekstu wejściowego służącego do tokenize i odróżnić tekstu wejściowego. Obsługiwane są następujące języki: `da, de, en, es, fi, fr, it, ko, pt`. Wartość domyślna to angielski (`en`). Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.  |
+| `entitiesDefinitionUri`    | Ścieżka do pliku JSON lub CSV zawierającego cały tekst docelowy do dopasowania. Ta definicja jednostki jest odczytywana na początku przebiegu indeksatora; wszystkie aktualizacje tego pliku nie zostaną zrealizowane do momentu kolejnego uruchomienia. Ta konfiguracja musi być dostępna za pośrednictwem protokołu HTTPS. Zobacz Format [definicji jednostki niestandardowej](#custom-entity-definition-format) "poniżej dla oczekiwanego schematu CSV lub JSON.|
+|`inlineEntitiesDefinition` | Definicje jednostek śródwierszowego elementu JSON. Ten parametr zastępuje parametr entitiesDefinitionUri, jeśli jest obecny. Nie więcej niż 10 KB konfiguracji może być dostarczonych wewnętrznie. Poniżej przedstawiono [definicję jednostki niestandardowej](#custom-entity-definition-format) dla oczekiwanego schematu JSON. |
+|`defaultLanguageCode` |    Obowiązkowe Kod języka tekstu wejściowego służącego do tokenize i odróżnić tekstu wejściowego. Obsługiwane są następujące języki: `da, de, en, es, fi, fr, it, ko, pt` . Wartość domyślna to angielski ( `en` ). Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.  |
 
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa wejściowa      | Opis                   |
 |---------------|-------------------------------|
-| tekst          | Tekst do analizy.          |
-| languageCode    | Opcjonalny. Wartość domyślna to `"en"`.  |
+| `text`          | Tekst do analizy.          |
+| `languageCode`    | Opcjonalny. Wartość domyślna to `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
@@ -56,7 +55,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
-| obiekty | Tablica obiektów, która zawiera informacje o znalezionych dopasowaniach i powiązanych metadanych. Każda identyfikowana jednostka może zawierać następujące pola:  <ul> <li> *Nazwa*: zidentyfikowana jednostka najwyższego poziomu. Jednostka reprezentuje formę "znormalizowana". </li> <li> *Identyfikator*: unikatowy identyfikator jednostki zdefiniowanej przez użytkownika w "niestandardowym formacie definicji jednostki".</li> <li> *Opis*: Opis jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki". </li> <li> *Typ:* Typ jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki".</li> <li> *Podtyp:* Podtyp jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki".</li>  <li> *dopasowuje*: Kolekcja opisująca wszystkie dopasowania dla tej jednostki na źródłowym tekście. Każde dopasowanie będzie miało następujące elementy członkowskie: </li> <ul> <li> *tekst*: pierwotny tekst jest zgodny z dokumentem źródłowym. </li> <li> *przesunięcie*: lokalizacja, w której znaleziono dopasowanie w tekście. </li> <li> *Długość*: długość dopasowanego tekstu. </li> <li> *matchDistance*: liczba znaków, które różnią się od nazwy lub aliasu oryginalnej jednostki.  </li> </ul> </ul>
+| `entities` | Tablica obiektów, która zawiera informacje o znalezionych dopasowaniach i powiązanych metadanych. Każda identyfikowana jednostka może zawierać następujące pola:  <ul> <li> *Nazwa*: zidentyfikowana jednostka najwyższego poziomu. Jednostka reprezentuje formę "znormalizowana". </li> <li> *Identyfikator*: unikatowy identyfikator jednostki zdefiniowanej przez użytkownika w "niestandardowym formacie definicji jednostki".</li> <li> *Opis*: Opis jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki". </li> <li> *Typ:* Typ jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki".</li> <li> *Podtyp:* Podtyp jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki".</li>  <li> *dopasowuje*: Kolekcja opisująca wszystkie dopasowania dla tej jednostki na źródłowym tekście. Każde dopasowanie będzie miało następujące elementy członkowskie: </li> <ul> <li> *tekst*: pierwotny tekst jest zgodny z dokumentem źródłowym. </li> <li> *przesunięcie*: lokalizacja, w której znaleziono dopasowanie w tekście. </li> <li> *Długość*: długość dopasowanego tekstu. </li> <li> *matchDistance*: liczba znaków, które różnią się od nazwy lub aliasu oryginalnej jednostki.  </li> </ul> </ul>
   |
 
 ## <a name="custom-entity-definition-format"></a>Niestandardowy format definicji jednostki
@@ -145,22 +144,22 @@ Poniższe tabele zawierają więcej szczegółów na temat różnych parametrów
 
 |  Nazwa pola  |        Opis  |
 |--------------|----------------------|
-| name | Deskryptor jednostki najwyższego poziomu. Dopasowania w danych wyjściowych o umiejętnościach zostaną pogrupowane według tej nazwy i powinny reprezentować "znormalizowaną" formę znalezionego tekstu.  |
-| description  | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
-| type | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
-| Podtyp | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
-| id | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
-| caseSensitive | Obowiązkowe Wartością domyślną jest false. Wartość logiczna określająca, czy porównania z nazwą jednostki powinny być poufne dla wielkości liter. Przykładowe dopasowania bez uwzględniania wielkości liter "Microsoft" mogą być następujące: Microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | Obowiązkowe Wartość domyślna to 0. Maksymalna wartość 5. Oznacza akceptowalną liczbę rozbieżnych znaków, które w dalszym ciągu stanowią dopasowanie do nazwy jednostki. Zostanie zwrócona najmniejsza możliwa rozmycia dla danego dopasowania.  Na przykład jeśli dla opcji Edytuj odległość wybrano wartość 3, w systemie Windows 10 nadal będzie pasować "Windows", "Windows10" i "Windows 7". <br/> Gdy ustawienie czułości przypadku ma wartość FAŁSZ, różnice wielkości liter nie są wliczane do tolerancji rozmycia, ale w przeciwnym razie. |
-| defaultCaseSensitive | Obowiązkowe Zmienia domyślną wartość wielkości liter dla tej jednostki. Służy do zmiany wartości domyślnej wszystkich aliasów caseSensitive wartości. |
-| defaultFuzzyEditDistance | Obowiązkowe Zmienia domyślną wartość w postaci rozmytej edycji dla tej jednostki. Może służyć do zmiany wartości domyślnej wszystkich aliasów fuzzyEditDistance wartości. |
-| aliasy | Obowiązkowe Tablica obiektów złożonych, która może służyć do określania alternatywnych pisowni lub synonimów nazwy jednostki głównej. |
+| `name` | Deskryptor jednostki najwyższego poziomu. Dopasowania w danych wyjściowych o umiejętnościach zostaną pogrupowane według tej nazwy i powinny reprezentować "znormalizowaną" formę znalezionego tekstu.  |
+| `description`  | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| `type` | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| `subtype` | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| `id` | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| `caseSensitive` | Obowiązkowe Wartością domyślną jest false. Wartość logiczna określająca, czy porównania z nazwą jednostki powinny być poufne dla wielkości liter. Przykładowe dopasowania bez uwzględniania wielkości liter "Microsoft" mogą być następujące: Microsoft, microSoft, MICROSOFT |
+| `fuzzyEditDistance` | Obowiązkowe Wartość domyślna to 0. Maksymalna wartość 5. Oznacza akceptowalną liczbę rozbieżnych znaków, które w dalszym ciągu stanowią dopasowanie do nazwy jednostki. Zostanie zwrócona najmniejsza możliwa rozmycia dla danego dopasowania.  Na przykład jeśli dla opcji Edytuj odległość wybrano wartość 3, w systemie Windows 10 nadal będzie pasować "Windows", "Windows10" i "Windows 7". <br/> Gdy ustawienie czułości przypadku ma wartość FAŁSZ, różnice wielkości liter nie są wliczane do tolerancji rozmycia, ale w przeciwnym razie. |
+| `defaultCaseSensitive` | Obowiązkowe Zmienia domyślną wartość wielkości liter dla tej jednostki. Służy do zmiany wartości domyślnej wszystkich aliasów caseSensitive wartości. |
+| `defaultFuzzyEditDistance` | Obowiązkowe Zmienia domyślną wartość w postaci rozmytej edycji dla tej jednostki. Może służyć do zmiany wartości domyślnej wszystkich aliasów fuzzyEditDistance wartości. |
+| `aliases` | Obowiązkowe Tablica obiektów złożonych, która może służyć do określania alternatywnych pisowni lub synonimów nazwy jednostki głównej. |
 
 | Właściwości aliasu | Opis |
 |------------------|-------------|
-| tekst  | Alternatywna pisownia lub reprezentacja nazwy jednostki docelowej.  |
-| caseSensitive | Obowiązkowe Działa tak samo jak parametr "caseSensitive" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
-| fuzzyEditDistance | Obowiązkowe Działa tak samo jak parametr "fuzzyEditDistance" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
+| `text`  | Alternatywna pisownia lub reprezentacja nazwy jednostki docelowej.  |
+| `caseSensitive` | Obowiązkowe Działa tak samo jak parametr "caseSensitive" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
+| `fuzzyEditDistance` | Obowiązkowe Działa tak samo jak parametr "fuzzyEditDistance" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
 
 
 ### <a name="inline-format"></a>Format wbudowany
@@ -188,7 +187,7 @@ Poniżej przedstawiono przykładową definicję umiejętności korzystającą z 
       }, 
       { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -208,7 +207,7 @@ Poniżej przedstawiono przykładową definicję umiejętności korzystającą z 
     ]
   }
 ```
-Alternatywnie, jeśli zdecydujesz się dostarczyć wskaźnik do pliku definicji jednostek, poniżej przedstawiono przykładową definicję umiejętności przy użyciu formatu entitiesDefinitionUri:
+Alternatywnie, jeśli zdecydujesz się dostarczyć wskaźnik do pliku definicji jednostek, poniżej przedstawiono przykładową definicję umiejętności przy użyciu `entitiesDefinitionUri` formatu:
 
 ```json
   {
@@ -240,7 +239,7 @@ Alternatywnie, jeśli zdecydujesz się dostarczyć wskaźnik do pliku definicji 
         "recordId": "1",
         "data":
            {
-             "text": "The company microsoft was founded by Bill Gates. Microsoft's gaming console is called Xbox",
+             "text": "The company, Microsoft, was founded by Bill Gates. Microsoft's gaming console is called Xbox",
              "languageCode": "en"
            }
       }

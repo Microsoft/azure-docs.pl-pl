@@ -6,18 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dace7fb291cef24ad8b48a0791b2fadca22fa71b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623341"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85556061"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofywanie poziomów wydajności S1, S2 i S3
 
 > [!IMPORTANT] 
 > Poziomy wydajności S1, S2 i S3 omówione w tym artykule są wycofywane i nie są już dostępne dla nowych kont Azure Cosmos DB.
->
 
 Ten artykuł zawiera omówienie poziomów wydajności S1, S2 i S3 oraz omawia, w jaki sposób kolekcje korzystające z tych poziomów wydajności można migrować do kolekcji z jedną partycją. Po przeczytaniu tego artykułu będzie można odpowiedzieć na następujące pytania:
 
@@ -43,7 +42,7 @@ Poziomy wydajności S1, S2 i S3 nie oferują elastyczności oferowanej przez sta
 
 Poniższa tabela zawiera porównanie opcji przepływności i magazynu dostępnych w kolekcjach z jedną partycją, kolekcjami partycjonowanymi i poziomami wydajności w warstwie S1, S2 i S3. Oto przykład dla regionu Wschodnie stany USA 2:
 
-|   |Partycjonowana kolekcja|Kolekcja pojedynczej partycji|S1|S2|S3|
+| Nazwa przydziału  |Partycjonowana kolekcja|Kolekcja pojedynczej partycji|S1|S2|S3|
 |---|---|---|---|---|---|
 |Maksymalna przepływność|Nieograniczona liczba|10 000 jednostek RU/s|250 RU/s|1 K RU/s|2,5 K RU/s|
 |Minimalna przepływność|2,5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2,5 K RU/s|
@@ -76,7 +75,7 @@ W każdym z tych przypadków po przeprowadzeniu migracji kolekcji będzie można
 
 Przy założeniu, że masz 10 zbiorów S1, 1 GB miejsca w magazynie dla każdego, w regionie Wschodnie stany USA, i przeniesiesz te 10 zebranych kolekcji S1 do 10 kolekcji z jedną partycją na 400 RU/s (poziom minimalny). Rachunek będzie wyglądać następująco w przypadku przechowywania 10 pojedynczych kolekcji partycji przez cały miesiąc:
 
-![Jak ceny S1 dla 10 kolekcji są porównywane z 10 kolekcjami przy użyciu cen dla kolekcji z jedną partycją](./media/performance-levels/s1-vs-standard-pricing.png)
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="Jak ceny S1 dla 10 kolekcji są porównywane z 10 kolekcjami przy użyciu cen dla kolekcji z jedną partycją" border="false":::
 
 <a name="more-storage-needed"></a>
 

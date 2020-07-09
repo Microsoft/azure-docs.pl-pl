@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 252b3b3ecf2de24410d046473ee2cfd2215254a9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198226"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736445"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Samouczek: tworzenie zestawu skalowania maszyn wirtualnych i zarządzanie nim przy użyciu interfejsu wiersza polecenia platformy Azure
 Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. W całym cyklu życia zestawu skalowania maszyn wirtualnych konieczne może być uruchomienie jednego lub większej liczby zadań zarządzania. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -167,6 +167,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 
 Aby wdrożyć zestaw skalowania z konkretnym obrazem, użyj wartości z kolumny *Urn*. Podczas określania obrazu numer wersji można zastąpić wartością *latest*, co spowoduje wybranie najnowszej wersji dystrybucji. W tym przykładzie argument `--image` służy do określenia najnowszej wersji obrazu z systemem CentOS 7.3.
 
+> [!IMPORTANT]
+> Zalecamy użycie *najnowszej* wersji obrazu. Określ wartość "Najnowsza", aby użyć najnowszej wersji obrazu dostępnej w czasie wdrażania. Uwaga nawet jeśli używasz "Najnowsza", obraz maszyny wirtualnej nie zostanie automatycznie zaktualizowany po wdrożeniu, nawet jeśli zostanie udostępniona nowa wersja.
+
 Nie trzeba wdrażać następującego zestawu skalowania, ponieważ utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania oraz wystąpień maszyn wirtualnych trwa kilka minut:
 
 ```azurecli-interactive
@@ -287,7 +290,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Usunięcie grupy zasobów powoduje również usunięcie wszystkich znajdujących się w niej zasobów, takich jak wystąpienia maszyn wirtualnych, sieć wirtualna i dyski. Parametr `--no-wait` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji. Parametr `--yes` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu.
 
 ```azurecli-interactive

@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: 92671206a4171ca838423f55b526191ef30e5c35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6bea9c9b7807ffb32b6071c968d3186965477009
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254731"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513040"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Korzystanie z internetowego interfejsu użytkownika do administrowania wirtualną macierzą StorSimple
 ![przepływ procesu instalacji](./media/storsimple-ova-web-ui-admin/manage4.png)
@@ -40,7 +39,7 @@ Klucz szyfrowania danych usługi jest generowany po zarejestrowaniu pierwszego u
 Jeśli klucz szyfrowania danych usługi został zagubiony i trzeba go pobrać, wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web urządzenia zarejestrowanego w usłudze.
 
 #### <a name="to-get-the-service-data-encryption-key"></a>Aby uzyskać klucz szyfrowania danych usługi
-1. Nawiąż połączenie z lokalnym interfejsem użytkownika sieci Web. Przejdź do pozycji **Konfiguracja** > **chmury ustawienia**.
+1. Nawiąż połączenie z lokalnym interfejsem użytkownika sieci Web. Przejdź do pozycji **Konfiguracja**  >  **chmury ustawienia**.
 2. W dolnej części strony kliknij pozycję **Pobierz klucz szyfrowania danych usługi**. Zostanie wyświetlony klucz. Skopiuj i Zapisz ten klucz.
    
     ![Pobierz klucz szyfrowania danych usługi 1](./media/storsimple-ova-web-ui-admin/image27.png)
@@ -49,7 +48,7 @@ Jeśli klucz szyfrowania danych usługi został zagubiony i trzeba go pobrać, w
 W niektórych przypadkach podczas konfigurowania urządzenia za pomocą lokalnego interfejsu użytkownika sieci Web może wystąpić błąd. Aby zdiagnozować i rozwiązać te błędy, można uruchomić testy diagnostyczne.
 
 #### <a name="to-run-the-diagnostic-tests"></a>Aby uruchomić testy diagnostyczne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do **rozwiązywania problemów z** > **testami diagnostycznymi**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do **rozwiązywania problemów z**  >  **testami diagnostycznymi**.
    
     ![Uruchom diagnostykę 1](./media/storsimple-ova-web-ui-admin/image29.png)
 2. W dolnej części strony kliknij pozycję **Uruchom testy diagnostyczne**. Spowoduje to zainicjowanie testów w celu zdiagnozowania ewentualnych problemów z ustawieniami sieci, urządzeń, serwera proxy sieci Web, czasu lub chmury. Zostanie wyświetlone powiadomienie, że na urządzeniu są uruchomione testy.
@@ -61,7 +60,7 @@ W niektórych przypadkach podczas konfigurowania urządzenia za pomocą lokalneg
 Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mogą pomóc pomoc techniczna firmy Microsoft rozwiązywaniu problemów z urządzeniami. W tej wersji można generować pakiet dzienników za pośrednictwem lokalnego interfejsu użytkownika sieci Web.
 
 #### <a name="to-generate-the-log-package"></a>Aby wygenerować pakiet dzienników
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do obszaru **Rozwiązywanie problemów** > z**dziennikami systemowymi**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do obszaru **Rozwiązywanie problemów**z  >  **dziennikami systemowymi**.
    
     ![Generuj pakiet dziennika 1](./media/storsimple-ova-web-ui-admin/image31.png)
 2. W dolnej części strony kliknij pozycję **Utwórz pakiet dzienników**. Zostanie utworzony pakiet dzienników systemu. Zajmie to kilka minut.
@@ -80,7 +79,7 @@ Pakiet dziennika składa się ze wszystkich odpowiednich dzienników, które mog
 Możesz zamknąć lub ponownie uruchomić urządzenie wirtualne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Spowoduje to zminimalizowanie wszelkich możliwości uszkodzenia danych. 
 
 #### <a name="to-shut-down-your-virtual-device"></a>Aby zamknąć urządzenie wirtualne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji**Ustawienia** **trybu konserwacji** > .
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  **Power settings**.
 2. W dolnej części strony kliknij przycisk **Zamknij**.
    
     ![Zamykanie urządzenia 1](./media/storsimple-ova-web-ui-admin/image36.png)
@@ -95,7 +94,7 @@ Możesz zamknąć lub ponownie uruchomić urządzenie wirtualne przy użyciu lok
     Urządzenie zostanie teraz zamknięte. Jeśli chcesz uruchomić urządzenie, musisz wykonać te czynności za pomocą Menedżera funkcji Hyper-V.
 
 #### <a name="to-restart-your-virtual-device"></a>Aby ponownie uruchomić urządzenie wirtualne
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji**Ustawienia** **trybu konserwacji** > .
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji ustawienia **trybu konserwacji**  >  **Power settings**.
 2. W dolnej części strony kliknij pozycję **Uruchom ponownie**.
    
     ![ponowne uruchomienie urządzenia](./media/storsimple-ova-web-ui-admin/image36.png)

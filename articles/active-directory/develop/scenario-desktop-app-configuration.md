@@ -10,13 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: d07add7950da531330fe9f64629299cef9fad1ac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734590"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84558847"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -39,7 +38,7 @@ Z punktu widzenia kodu aplikacje klasyczne są publicznymi aplikacjami klienckim
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Musisz skompilować i manipulować MSAL.NET `IPublicClientApplication`.
+Musisz skompilować i manipulować MSAL.NET `IPublicClientApplication` .
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -103,16 +102,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Dowiedz się więcej
+### <a name="learn-more"></a>Więcej tutaj
 
 Aby dowiedzieć się więcej o konfigurowaniu aplikacji klasycznej MSAL.NET:
 
-- Aby uzyskać listę wszystkich modyfikatorów dostępnych na stronie `PublicClientApplicationBuilder`, zobacz dokumentację referencyjną [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Aby uzyskać opis wszystkich opcji uwidocznionych w programie `PublicClientApplicationOptions`, zobacz [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) w dokumentacji referencyjnej.
+- Aby uzyskać listę wszystkich modyfikatorów dostępnych na stronie `PublicClientApplicationBuilder` , zobacz dokumentację referencyjną [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Aby uzyskać opis wszystkich opcji uwidocznionych w programie `PublicClientApplicationOptions` , zobacz [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) w dokumentacji referencyjnej.
 
 ### <a name="complete-example-with-configuration-options"></a>Ukończ przykład z opcjami konfiguracji
 
-Załóżmy, że Aplikacja konsolowa platformy .NET Core ma `appsettings.json` następujący plik konfiguracyjny:
+Załóżmy, że Aplikacja konsolowa platformy .NET Core ma następujący `appsettings.json` plik konfiguracyjny:
 
 ```json
 {

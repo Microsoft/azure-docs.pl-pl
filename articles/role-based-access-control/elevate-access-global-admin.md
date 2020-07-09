@@ -2,25 +2,18 @@
 title: Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
 description: Opisuje sposób podniesienia uprawnień dostępu administratora globalnego do zarządzania wszystkimi subskrypcjami i grupami zarządzania w Azure Active Directory przy użyciu Azure Portal lub interfejsu API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: bagovind
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 06/09/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: MT
+ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733667"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84792000"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
 
@@ -41,7 +34,7 @@ Jeśli jesteś administratorem globalnym, może się zdarzyć, że chcesz wykona
 
 Usługa Azure AD i zasoby platformy Azure są zabezpieczone niezależnie od siebie. Oznacza to, że przypisania ról usługi Azure AD nie zapewniają dostępu do zasobów platformy Azure, a przypisania ról platformy Azure nie udzielają dostępu do usługi Azure AD. Jeśli jednak jesteś [administratorem globalnym](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) w usłudze Azure AD, możesz przypisać sobie dostęp do wszystkich subskrypcji platformy Azure i grup zarządzania w Twoim katalogu. Użyj tej funkcji, jeśli nie masz dostępu do zasobów subskrypcji platformy Azure, takich jak maszyny wirtualne lub konta magazynu, i chcesz użyć uprawnienia administratora globalnego, aby uzyskać dostęp do tych zasobów.
 
-Podniesienie poziomu dostępu spowoduje przypisanie roli [administratora dostępu użytkownika](built-in-roles.md#user-access-administrator) na platformie Azure w zakresie głównym (`/`).Pozwala to na wyświetlenie wszystkich zasobów i przypisanie dostępu w ramach dowolnej subskrypcji lub grupy zarządzania w katalogu. Przypisania ról administratora dostępu użytkowników można usuwać za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
+Podniesienie poziomu dostępu spowoduje przypisanie roli [administratora dostępu użytkownika](built-in-roles.md#user-access-administrator) na platformie Azure w zakresie głównym ( `/` ).Pozwala to na wyświetlenie wszystkich zasobów i przypisanie dostępu w ramach dowolnej subskrypcji lub grupy zarządzania w katalogu. Przypisania ról administratora dostępu użytkowników można usuwać za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
 
 Ten podwyższony poziom dostępu należy usunąć po wprowadzeniu zmian, które należy wprowadzić w zakresie głównym.
 
@@ -54,6 +47,8 @@ Ten podwyższony poziom dostępu należy usunąć po wprowadzeniu zmian, które 
 Wykonaj następujące kroki, aby podwyższyć poziom dostępu administratora globalnego przy użyciu Azure Portal.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) lub [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) jako Administrator globalny.
+
+    Jeśli używasz Azure AD Privileged Identity Management, [Aktywuj przypisanie roli administratora globalnego](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
 1. Otwórz **Azure Active Directory**.
 
@@ -70,7 +65,7 @@ Wykonaj następujące kroki, aby podwyższyć poziom dostępu administratora glo
    Po ustawieniu przełącznika na wartość **nie**rola administratora dostępu użytkowników w usłudze Azure RBAC zostanie usunięta z konta użytkownika. Nie można już przypisywać ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Można wyświetlać i zarządzać tylko subskrypcjami platformy Azure i grupami zarządzania, do których udzielono dostępu.
 
     > [!NOTE]
-    > Jeśli używasz [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), dezaktywowanie przypisania roli **nie powoduje zmiany tego przełącznika na nie**. Aby zachować najmniejszy dostęp uprzywilejowany, zalecamy ustawienie tego przełącznika na wartość **nie** przed dezaktywacją przypisania roli.
+    > Jeśli używasz [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), dezaktywowanie przypisywania roli nie powoduje zmiany opcji **zarządzania dostępem dla zasobów platformy Azure** na wartość **nie**. Aby zachować najmniejszy dostęp uprzywilejowany, zalecamy ustawienie tego przełącznika na wartość **nie** przed dezaktywacją przypisania roli.
     
 1. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
@@ -82,13 +77,15 @@ Wykonaj następujące kroki, aby podwyższyć poziom dostępu administratora glo
 
    ![Przypisania ról subskrypcji z zakresem głównym — zrzut ekranu](./media/elevate-access-global-admin/iam-root.png)
 
-1. Wprowadź zmiany, które należy wykonać w przypadku dostępu z podwyższonym poziomem uprawnień.
+1. Wprowadź zmiany, które należy wprowadzić w celu uzyskania dostępu z podwyższonym poziomem uprawnień.
 
-    Informacje o przypisywaniu ról można znaleźć w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md). Jeśli używasz Azure AD Privileged Identity Management (PIM), zobacz [odnajdywanie zasobów platformy Azure do zarządzania w usłudze PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) lub [Przypisywanie ról zasobów platformy Azure w programie PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Informacje o przypisywaniu ról można znaleźć w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md). Jeśli używasz Privileged Identity Management, zobacz [odnajdywanie zasobów platformy Azure w celu zarządzania](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) lub [przypisywania ról zasobów platformy Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. Wykonaj kroki opisane w poniższej sekcji, aby usunąć podwyższony poziom dostępu.
 
 ### <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień
 
-Aby usunąć przypisanie roli administratora dostępu użytkownika w zakresie katalogu głównego (`/`), wykonaj następujące czynności.
+Aby usunąć przypisanie roli administratora dostępu użytkownika w zakresie katalogu głównego ( `/` ), wykonaj następujące czynności.
 
 1. Zaloguj się jako ten sam użytkownik, który został użyty do podniesienia poziomu dostępu.
 
@@ -100,13 +97,20 @@ Aby usunąć przypisanie roli administratora dostępu użytkownika w zakresie ka
 
     ![Usuwanie przypisań ról z zakresem głównym](./media/elevate-access-global-admin/iam-root-remove.png)
 
+1. Wyloguj się jako Administrator globalny.
+
+    W przypadku korzystania z Privileged Identity Management Dezaktywuj przypisanie roli administratora globalnego.
+
+    > [!NOTE]
+    > Jeśli używasz [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), dezaktywowanie przypisywania roli nie powoduje zmiany opcji **zarządzania dostępem dla zasobów platformy Azure** na wartość **nie**. Aby zachować najmniejszy dostęp uprzywilejowany, zalecamy ustawienie tego przełącznika na wartość **nie** przed dezaktywacją przypisania roli.
+
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Wyświetl listę przypisań ról w zakresie głównym (/)
 
-Aby wyświetlić listę przypisania roli administratora dostępu użytkownika dla użytkownika w zakresie katalogu głównego (`/`), użyj polecenia [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) .
+Aby wyświetlić listę przypisania roli administratora dostępu użytkownika dla użytkownika w zakresie katalogu głównego ( `/` ), użyj polecenia [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) .
 
 ```azurepowershell
 Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
@@ -127,7 +131,7 @@ CanDelegate        : False
 
 ### <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień
 
-Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lub innego użytkownika w zakresie głównym (`/`), wykonaj następujące kroki.
+Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lub innego użytkownika w zakresie głównym ( `/` ), wykonaj następujące kroki.
 
 1. Zaloguj się jako użytkownik, który może usunąć dostęp z podwyższonym poziomem uprawnień. Może to być ten sam użytkownik, który został użyty do podniesienia uprawnień dostępu lub innego administratora globalnego z podwyższonym poziomem uprawnień w zakresie głównym.
 
@@ -142,7 +146,7 @@ Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lu
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Wyświetl listę przypisań ról w zakresie głównym (/)
 
-Aby wyświetlić listę przypisania roli administratora dostępu użytkownika dla użytkownika w zakresie głównym (`/`), użyj polecenia [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list) .
+Aby wyświetlić listę przypisania roli administratora dostępu użytkownika dla użytkownika w zakresie głównym ( `/` ), użyj polecenia [AZ role przypisanie list](/cli/azure/role/assignment#az-role-assignment-list) .
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -168,7 +172,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ### <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień
 
-Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lub innego użytkownika w zakresie głównym (`/`), wykonaj następujące kroki.
+Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lub innego użytkownika w zakresie głównym ( `/` ), wykonaj następujące kroki.
 
 1. Zaloguj się jako użytkownik, który może usunąć dostęp z podwyższonym poziomem uprawnień. Może to być ten sam użytkownik, który został użyty do podniesienia uprawnień dostępu lub innego administratora globalnego z podwyższonym poziomem uprawnień w zakresie głównym.
 
@@ -184,34 +188,21 @@ Aby usunąć przypisanie roli administratora dostępu użytkownika dla siebie lu
 
 Wykonaj następujące podstawowe kroki, aby podwyższyć poziom dostępu administratora globalnego przy użyciu interfejsu API REST.
 
-1. Przy użyciu REST, `elevateAccess`Call, która przyznaje użytkownikowi rolę administratora dostępu użytkownika w zakresie głównym`/`().
+1. Przy użyciu REST, Call `elevateAccess` , która przyznaje użytkownikowi rolę administratora dostępu użytkownika w zakresie głównym ( `/` ).
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Utwórz [przypisanie roli](/rest/api/authorization/roleassignments) , aby przypisać dowolną rolę w dowolnym zakresie. W poniższym przykładzie przedstawiono właściwości przypisywania roli {zduplikowanych} w zakresie głównym (`/`):
+1. Wprowadź zmiany, które należy wprowadzić w celu uzyskania dostępu z podwyższonym poziomem uprawnień.
 
-   ```json
-   { 
-     "properties": {
-       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-       "principalId": "{objectID}",
-       "scope": "/"
-     },
-     "id": "providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111",
-     "type": "Microsoft.Authorization/roleAssignments",
-     "name": "11111111-1111-1111-1111-111111111111"
-   }
-   ```
+    Informacje o przypisywaniu ról można znaleźć w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md).
 
-1. Administrator dostępu użytkowników może również usuwać przypisania ról w zakresie głównym (`/`).
-
-1. Usuń uprawnienia administratora dostępu użytkowników do momentu, gdy nie będą ponownie używane.
+1. Wykonaj kroki opisane w dalszej części sekcji, aby usunąć podwyższony poziom dostępu.
 
 ### <a name="list-role-assignments-at-root-scope-"></a>Wyświetl listę przypisań ról w zakresie głównym (/)
 
-Można wyświetlić listę wszystkich przypisań ról dla użytkownika w zakresie głównym (`/`).
+Można wyświetlić listę wszystkich przypisań ról dla użytkownika w zakresie głównym ( `/` ).
 
 - Wywołanie [Get roleAssignments](/rest/api/authorization/roleassignments/listforscope) gdzie `{objectIdOfUser}` jest identyfikatorem obiektu użytkownika, którego przypisania ról chcesz pobrać.
 
@@ -221,7 +212,7 @@ Można wyświetlić listę wszystkich przypisań ról dla użytkownika w zakresi
 
 ### <a name="list-deny-assignments-at-root-scope-"></a>Wyświetl listę przypisań Odmów w zakresie głównym (/)
 
-Można wyświetlić listę wszystkich przypisań Odmów dla użytkownika w zakresie głównym (`/`).
+Można wyświetlić listę wszystkich przypisań Odmów dla użytkownika w zakresie głównym ( `/` ).
 
 - Wywołanie GET denyAssignments gdzie `{objectIdOfUser}` jest identyfikatorem obiektu użytkownika, którego przypisania odmowy chcesz pobrać.
 
@@ -231,7 +222,7 @@ Można wyświetlić listę wszystkich przypisań Odmów dla użytkownika w zakre
 
 ### <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień
 
-Po wywołaniu `elevateAccess`Utwórz przypisanie roli dla siebie, więc aby odwołać te uprawnienia, musisz usunąć przypisanie roli administratora dostępu użytkownika do siebie w zakresie głównym (`/`).
+Po wywołaniu `elevateAccess` Utwórz przypisanie roli dla siebie, więc aby odwołać te uprawnienia, musisz usunąć przypisanie roli administratora dostępu użytkownika do siebie w zakresie głównym ( `/` ).
 
 1. Wywołaj metodę [Get roleDefinitions](/rest/api/authorization/roledefinitions/get) , gdzie `roleName` jest to administrator dostępu użytkowników, aby określić identyfikator nazwy roli administratora dostępu użytkownika.
 
@@ -274,9 +265,9 @@ Po wywołaniu `elevateAccess`Utwórz przypisanie roli dla siebie, więc aby odwo
     }
     ```
 
-    Zapisz identyfikator z `name` parametru, w tym przypadku `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
+    Zapisz identyfikator z `name` parametru, w tym przypadku `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9` .
 
-1. Należy również wyświetlić listę przypisania roli administratora katalogu w zakresie katalogu. Wyświetl listę wszystkich przydziałów w katalogu `principalId` dla administratora katalogu, który wykonał wywołanie podniesienia uprawnień dostępu. Spowoduje to wyświetlenie listy wszystkich przypisań w katalogu dla identyfikatora objectid.
+1. Należy również wyświetlić listę przypisania roli administratora katalogu w zakresie katalogu. Wyświetl listę wszystkich przydziałów w katalogu dla `principalId` administratora katalogu, który wykonał wywołanie podniesienia uprawnień dostępu. Spowoduje to wyświetlenie listy wszystkich przypisań w katalogu dla identyfikatora objectid.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
@@ -285,7 +276,7 @@ Po wywołaniu `elevateAccess`Utwórz przypisanie roli dla siebie, więc aby odwo
     >[!NOTE] 
     >Administrator katalogu nie powinien mieć wielu przypisań, jeśli poprzednia kwerenda zwróci zbyt wiele przypisań, można również wykonać zapytania dotyczące wszystkich przypisań tylko na poziomie zakresu katalogu, a następnie filtrować wyniki:`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
             
-1. Poprzednie wywołania zwracają listę przypisań ról. Znajdź przypisanie roli, w którym zakres jest `"/"` i `roleDefinitionId` kończą się identyfikatorem nazwy roli znalezionej w kroku 1 i `principalId` dopasowuje objectid administratora katalogu. 
+1. Poprzednie wywołania zwracają listę przypisań ról. Znajdź przypisanie roli, w którym zakres jest `"/"` i `roleDefinitionId` KOŃCZĄ się identyfikatorem nazwy roli znalezionej w kroku 1 i `principalId` dopasowuje objectid administratora katalogu. 
     
     Przykładowe przypisanie roli:
     
@@ -313,7 +304,7 @@ Po wywołaniu `elevateAccess`Utwórz przypisanie roli dla siebie, więc aby odwo
     
     Ponownie Zapisz identyfikator z `name` parametru, w tym przypadku 11111111-1111-1111-1111-111111111111.
 
-1. Na koniec użyj identyfikatora przypisania roli, aby usunąć przypisanie dodane przez `elevateAccess`:
+1. Na koniec użyj identyfikatora przypisania roli, aby usunąć przypisanie dodane przez `elevateAccess` :
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2015-07-01

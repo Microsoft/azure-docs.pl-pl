@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186020"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045505"
 ---
 # <a name="plan-virtual-networks"></a>Planowanie sieci wirtualnych
 
@@ -35,7 +35,7 @@ Wszystkie zasoby platformy Azure są tworzone w regionie i w ramach subskrypcji 
 - Czy masz dane dotyczące miejsca zamieszkania, suwerenności, zgodności lub odporności? W takim przypadku wybranie regionu, który jest wyrównany do wymagań ma krytyczne znaczenie. Aby uzyskać więcej informacji, zobacz [Azure lokalizacje geograficzne](https://azure.microsoft.com/global-infrastructure/geographies/).
 - Czy potrzebujesz odporności między Strefy dostępności platformy Azureami w ramach tego samego regionu świadczenia usługi Azure w ramach wdrażanych zasobów? Zasoby, takie jak maszyny wirtualne (VM), można wdrażać w różnych strefach dostępności w ramach tej samej sieci wirtualnej. Nie wszystkie regiony platformy Azure obsługują jednak strefy dostępności. Aby dowiedzieć się więcej o strefach dostępności i regionach, które je obsługują, zobacz [strefy dostępności](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Subscriptions
+## <a name="subscriptions"></a>Subskrypcje
 
 W ramach każdej subskrypcji można wdrożyć dowolną liczbę sieci wirtualnych, która jest wymagana do [limitu](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Niektóre organizacje mają różne subskrypcje dla różnych działów, na przykład. Aby uzyskać więcej informacji i zagadnień dotyczących subskrypcji, zobacz temat [Zarządzanie subskrypcjami](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
@@ -61,7 +61,7 @@ Sieć wirtualna może zostać ujęta w jedną lub więcej podsieci do [limitów]
 - Każda podsieć musi mieć unikatowy zakres adresów określony w formacie CIDR w przestrzeni adresowej sieci wirtualnej. Zakres adresów nie może pokrywać się z innymi podsieciami w sieci wirtualnej.
 - Jeśli planujesz wdrożenie niektórych zasobów usługi platformy Azure w sieci wirtualnej, mogą oni potrzebować lub utworzyć własną podsieć, więc musi być wystarczająca ilość wolnego miejsca do wykonania. Aby ustalić, czy usługa platformy Azure tworzy własną podsieć, zobacz informacje dotyczące poszczególnych [usług platformy Azure, które można wdrożyć w sieci wirtualnej](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Jeśli na przykład Sieć wirtualna jest podłączona do sieci lokalnej przy użyciu VPN Gateway platformy Azure, Sieć wirtualna musi mieć dedykowaną podsieć dla bramy. Dowiedz się więcej o [podsieciach bramy](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Platforma Azure domyślnie kieruje ruchem sieciowym między wszystkimi podsieciami w sieci wirtualnej. Można zastąpić domyślny Routing platformy Azure, aby zapobiec routingowi platformy Azure między podsieciami lub kierować ruchem między podsieciami za pomocą wirtualnego urządzenia sieciowego. Jeśli potrzebujesz tego ruchu między zasobami w tym samym przepływie sieci wirtualnej za pomocą wirtualnego urządzenia sieciowego (urządzenie WUS), wdróż zasoby w różnych podsieciach. Dowiedz się więcej o [zabezpieczeniach](#security).
-- Możesz ograniczyć dostęp do zasobów platformy Azure, takich jak konto usługi Azure Storage lub usługa Azure SQL Database, do określonych podsieci za pomocą punktu końcowego usługi sieci wirtualnej. Ponadto możesz odmówić dostępu do zasobów z Internetu. Można utworzyć wiele podsieci i włączyć punkt końcowy usługi dla niektórych podsieci, ale nie do innych. Dowiedz się więcej o [punktach końcowych usługi](virtual-network-service-endpoints-overview.md)i zasobach platformy Azure, na których można je włączyć.
+- Możesz ograniczyć dostęp do zasobów platformy Azure, takich jak konto usługi Azure Storage lub Azure SQL Database, do określonych podsieci za pomocą punktu końcowego usługi sieci wirtualnej. Ponadto możesz odmówić dostępu do zasobów z Internetu. Można utworzyć wiele podsieci i włączyć punkt końcowy usługi dla niektórych podsieci, ale nie do innych. Dowiedz się więcej o [punktach końcowych usługi](virtual-network-service-endpoints-overview.md)i zasobach platformy Azure, na których można je włączyć.
 - Można skojarzyć zero lub jedną sieciową grupę zabezpieczeń z każdą podsiecią w sieci wirtualnej. Do każdej podsieci można skojarzyć tę samą lub inną sieciową grupę zabezpieczeń. Każda sieciowa Grupa zabezpieczeń zawiera reguły, które zezwalają na ruch do i ze źródeł i miejsc docelowych lub odmawiają go. Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](#traffic-filtering).
 
 ## <a name="security"></a>Zabezpieczenia

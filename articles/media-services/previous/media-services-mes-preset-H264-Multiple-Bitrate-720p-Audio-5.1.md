@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: ac21558b1480f43b398f44949e18416284c3f606
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "61129515"
 ---
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>Wielokrotna szybkość transmisji bitów H264 720p Audio 5.1
-`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można użyć podczas tworzenia zadań kodowania. Możesz użyć, `preset name` aby określić format, w którym chcesz kodować plik multimedialny. Można też tworzyć własne ustawienia predefiniowane JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie można przekazać niestandardowe ustawienie wstępne do kodera. Aby uzyskać listę wszystkich wstępnie zdefiniowanych nazw obsługiwanych przez ten `Media Encoder Standard` koder, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można użyć podczas tworzenia zadań kodowania. Możesz użyć, `preset name` Aby określić format, w którym chcesz kodować plik multimedialny. Można też tworzyć własne ustawienia predefiniowane JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie można przekazać niestandardowe ustawienie wstępne do kodera. Aby uzyskać listę wszystkich wstępnie zdefiniowanych nazw obsługiwanych przez ten `Media Encoder Standard` koder, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym temacie przedstawiono `H264 Multiple Bitrate 720p Audio 5.1` ustawienia wstępne w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Multiple Bitrate 720p Audio 5.1` Ustawienia wstępne w formacie XML i JSON.  
   
  To ustawienie wstępne tworzy zestaw 6 grupę GOPych plików MP4, z zakresu od 3400 KB/s do 400 KB/s i AAC 5,1 audio. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp., zapoznaj się z kodem XML lub JSON zdefiniowanym poniżej. Aby poznać wyjaśnienie co oznaczają każdy element, i prawidłowe wartości dla każdego elementu, zobacz [schemat Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Podczas modyfikowania wartości `Width` i `Height` w warstwach upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920 x 1080, 1280x720, 1080x576, 640 x 360. Nie należy używać kombinacji proporcji, takich jak: 1280x720, 720x480, 640 x 360.  
+>  Podczas modyfikowania `Width` wartości i `Height` w warstwach upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920 x 1080, 1280x720, 1080x576, 640 x 360. Nie należy używać kombinacji proporcji, takich jak: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

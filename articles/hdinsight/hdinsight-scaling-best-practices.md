@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592064"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086011"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
@@ -120,13 +120,13 @@ Aby uniknąć niepowodzenia wykonywanych zadań podczas operacji skalowania w d�
 Aby wyświetlić listę oczekujących i uruchomionych zadań, można użyć **interfejsu użytkownika Menedżer zasobów**przędzy, wykonując następujące czynności:
 
 1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster.  Klaster zostanie otwarty na nowej stronie portalu.
-2. W widoku głównym przejdź do strony **pulpity nawigacyjne** > klastra**Ambari Home**. Wprowadź poświadczenia klastra.
+2. W widoku głównym przejdź do strony **pulpity nawigacyjne klastra**  >  **Ambari Home**. Wprowadź poświadczenia klastra.
 3. Z poziomu interfejsu użytkownika Ambari wybierz pozycję **przędza** na liście usług w menu po lewej stronie.  
 4. Na stronie PRZĘDZa wybierz pozycję **szybkie linki** i umieść kursor nad aktywnym węzłem głównym, a następnie wybierz pozycję **Menedżer zasobów interfejsie użytkownika**.
 
     ![Szybkie linki Menedżer zasobów Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Możesz bezpośrednio uzyskać dostęp do interfejsu użytkownika Menedżer zasobów `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`przy użyciu programu.
+Możesz bezpośrednio uzyskać dostęp do interfejsu użytkownika Menedżer zasobów przy użyciu programu `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 Zostanie wyświetlona lista zadań wraz z bieżącym stanem. Na zrzucie ekranu jest aktualnie uruchomione jedno zadanie:
 
@@ -162,7 +162,7 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Można przejrzeć nazwy dzienników węzłów z `/var/log/hadoop/hdfs/` folderu, w czasie, gdy klaster został przeskalowany, aby zobaczyć, kiedy przeszedł tryb awaryjny. Pliki dziennika mają nazwę `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
+Można przejrzeć nazwy dzienników węzłów z `/var/log/hadoop/hdfs/` folderu, w czasie, gdy klaster został przeskalowany, aby zobaczyć, kiedy przeszedł tryb awaryjny. Pliki dziennika mają nazwę `Hadoop-hdfs-namenode-<active-headnode-name>.*` .
 
 Głównym powodem jest to, że gałąź czasowa jest zależna od plików tymczasowych w systemie plików HDFS podczas wykonywania zapytań. Gdy system plików HDFS przechodzi w tryb awaryjny, gałąź nie może uruchamiać zapytań, ponieważ nie może zapisywać w systemie plików HDFS. Pliki tymczasowe w systemie plików HDFS znajdują się na dysku lokalnym zainstalowanym na maszynach wirtualnych poszczególnych węzłów procesu roboczego. Pliki są replikowane między innymi węzłami procesu roboczego w trzech replikach, co najmniej.
 
@@ -171,7 +171,7 @@ Głównym powodem jest to, że gałąź czasowa jest zależna od plików tymczas
 Istnieje kilka sposobów, aby uniemożliwić pozostawienie usługi HDInsight w trybie awaryjnym:
 
 * Zatrzymaj wszystkie zadania Hive przed skalowaniem w dół usługi HDInsight. Alternatywnie Zaplanuj proces skalowania w dół, aby uniknąć konfliktu z uruchomionymi zadaniami programu Hive.
-* Ręcznie Wyczyść pliki katalogów magazynu `tmp` Hive w systemie plików HDFS przed skalowaniem w dół.
+* Ręcznie Wyczyść pliki katalogów magazynu Hive `tmp` w systemie plików HDFS przed skalowaniem w dół.
 * Maksymalnie Skaluj w dół usługi HDInsight do trzech węzłów procesów roboczych. Należy unikać przechodzenia do jednego węzła procesu roboczego.
 * Uruchom polecenie, aby wyjść z trybu awaryjnego, w razie potrzeby.
 
@@ -187,7 +187,7 @@ Zatrzymywanie zadań programu Hive przed skalowaniem umożliwia zminimalizowanie
 
 Jeśli gałąź została pozostawiona za pliki tymczasowe, można ręcznie oczyścić te pliki przed skalowaniem w dół, aby uniknąć trybu awaryjnego.
 
-1. Sprawdź, która lokalizacja jest używana dla plików tymczasowych programu Hive, przeglądając Właściwość `hive.exec.scratchdir` konfiguracji. Ten parametr jest ustawiany w `/etc/hive/conf/hive-site.xml`:
+1. Sprawdź, która lokalizacja jest używana dla plików tymczasowych programu Hive, przeglądając `hive.exec.scratchdir` właściwość konfiguracji. Ten parametr jest ustawiany w `/etc/hive/conf/hive-site.xml` :
 
     ```xml
     <property>
@@ -198,7 +198,7 @@ Jeśli gałąź została pozostawiona za pliki tymczasowe, można ręcznie oczy�
 
 1. Zatrzymaj usługi Hive i upewnij się, że wszystkie zapytania i zadania zostały ukończone.
 
-1. Wystaw zawartość katalogu tymczasowego znalezionego powyżej, aby zobaczyć `hdfs://mycluster/tmp/hive/` , czy zawiera on pliki:
+1. Wystaw zawartość katalogu tymczasowego znalezionego powyżej, `hdfs://mycluster/tmp/hive/` Aby zobaczyć, czy zawiera on pliki:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive

@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak osadzić klienta w języku JavaScr
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d4b27b85ac7bc61e14a79f29e4e26ec4973ced1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74896388"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744055"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Osadź klienta analizatora internetowego
 
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak osadzić klienta JavaScript w aplikacji. Instalacja
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Analizator Internetu wymaga dostępu do platformy Azure i innych usług firmy Microsoft w celu poprawnego działania. Przed osadzeniem klienta Zezwól `fpc.msedge.net` na dostęp do sieci i wszelkich wstępnie skonfigurowanych adresów URL punktów końcowych (widocznych za pomocą [interfejsu wiersza polecenia](internet-analyzer-cli.md)).
+Analizator Internetu wymaga dostępu do platformy Azure i innych usług firmy Microsoft w celu poprawnego działania. Przed osadzeniem klienta Zezwól na dostęp do sieci `fpc.msedge.net` i wszelkich wstępnie skonfigurowanych adresów URL punktów końcowych (widocznych za pomocą [interfejsu wiersza polecenia](internet-analyzer-cli.md)).
 
 ## <a name="find-the-client-script-url"></a>Znajdowanie adresu URL skryptu klienta
 
@@ -32,7 +32,7 @@ Adres URL skryptu można znaleźć za pomocą Azure Portal lub interfejsu wiersz
 
 Sposób 1. W Azure Portal Użyj [tego linku](https://aka.ms/InternetAnalyzerPreviewPortal) , aby otworzyć stronę portalu w wersji zapoznawczej dla usługi Azure Internet Analyzer. Przejdź do swojego profilu analizatora Internetu, aby wyświetlić adres URL skryptu, przechodząc do **ustawień konfiguracja >**.
 
-Sposób 2. Sprawdź `scriptFileUri` właściwość przy użyciu interfejsu wiersza polecenia platformy Azure.
+Sposób 2. Sprawdź właściwość przy użyciu interfejsu wiersza polecenia platformy Azure `scriptFileUri` .
 ```azurecli-interactive
     az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"

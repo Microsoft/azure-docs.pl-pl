@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82786618"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planowanie sieci wirtualnej dla usługi Azure HDInsight
@@ -136,7 +136,7 @@ Aby włączyć rozpoznawanie nazw między siecią wirtualną i zasobami w połą
 
 2. Skonfiguruj sieć wirtualną tak, aby korzystała z niestandardowego serwera DNS.
 
-3. Znajdź sufiks DNS przypisany przez platformę Azure dla sieci wirtualnej. Ta wartość jest podobna do `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Informacje dotyczące znajdowania sufiksu DNS znajdują się w sekcji [przykład: Custom DNS](hdinsight-create-virtual-network.md#example-dns) .
+3. Znajdź sufiks DNS przypisany przez platformę Azure dla sieci wirtualnej. Ta wartość jest podobna do `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` . Informacje dotyczące znajdowania sufiksu DNS znajdują się w sekcji [przykład: Custom DNS](hdinsight-create-virtual-network.md#example-dns) .
 
 4. Skonfiguruj przekazywanie między serwerami DNS. Konfiguracja zależy od typu sieci zdalnej.
 
@@ -168,7 +168,7 @@ Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw dla maszyn wirtualny
 
 ## <a name="directly-connect-to-apache-hadoop-services"></a>Połącz się bezpośrednio z usługami Apache Hadoop Services
 
-Możesz połączyć się z klastrem pod `https://CLUSTERNAME.azurehdinsight.net`adresem. Ten adres używa publicznego adresu IP, który może nie być osiągalny, jeśli używasz sieciowych grup zabezpieczeń, aby ograniczyć ruch przychodzący z Internetu. Ponadto podczas wdrażania klastra w sieci wirtualnej możesz uzyskać do niego dostęp przy użyciu prywatnego punktu końcowego `https://CLUSTERNAME-int.azurehdinsight.net`. Ten punkt końcowy jest rozpoznawany jako prywatny adres IP w sieci wirtualnej na potrzeby dostępu do klastra.
+Możesz połączyć się z klastrem pod adresem `https://CLUSTERNAME.azurehdinsight.net` . Ten adres używa publicznego adresu IP, który może nie być osiągalny, jeśli używasz sieciowych grup zabezpieczeń, aby ograniczyć ruch przychodzący z Internetu. Ponadto podczas wdrażania klastra w sieci wirtualnej możesz uzyskać do niego dostęp przy użyciu prywatnego punktu końcowego `https://CLUSTERNAME-int.azurehdinsight.net` . Ten punkt końcowy jest rozpoznawany jako prywatny adres IP w sieci wirtualnej na potrzeby dostępu do klastra.
 
 Aby nawiązać połączenie z usługą Apache Ambari i innymi stronami sieci Web za pomocą sieci wirtualnej, wykonaj następujące czynności:
 
@@ -194,7 +194,7 @@ Aby nawiązać połączenie z usługą Apache Ambari i innymi stronami sieci Web
     az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Na liście zwracanych węzłów Znajdź nazwę FQDN węzłów głównych i Użyj nazw FQDN, aby nawiązać połączenie z usługą Ambari i innymi usługami sieci Web. Na przykład, użyj `http://<headnode-fqdn>:8080` , aby uzyskać dostęp do Ambari.
+    Na liście zwracanych węzłów Znajdź nazwę FQDN węzłów głównych i Użyj nazw FQDN, aby nawiązać połączenie z usługą Ambari i innymi usługami sieci Web. Na przykład, użyj, `http://<headnode-fqdn>:8080` Aby uzyskać dostęp do Ambari.
 
     > [!IMPORTANT]  
     > Niektóre usługi hostowane w węzłach głównych są aktywne tylko na jednym węźle naraz. Jeśli spróbujesz uzyskać dostęp do usługi w jednym węźle głównym i zwróci błąd 404, przełącz się do drugiego węzła głównego.

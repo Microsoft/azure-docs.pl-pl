@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68297783"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86120283"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Dostrajanie wydajności protokołu TCP/IP dla maszyn wirtualnych platformy Azure
 
@@ -136,7 +136,7 @@ W tej tabeli przedstawiono prostą odległość między dwiema lokalizacjami. W 
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Aby uzyskać szybkość propagacji, można użyć 200. Jest to odległość w metrach, która to lekki ruch w 1 milisekundie.
+Aby uzyskać szybkość propagacji, można użyć 200. Jest to odległość (w kilometrach), która świeci się w 1 milisekundach.
 
 Na przykład przyjrzyjmy się nowemu Jorku do sieci San Francisco. Odległość liniowa to 4 148 km. Dołączenie tej wartości do równania zapewnia następujące korzyści:
 
@@ -201,29 +201,29 @@ Współczynnik skali wynoszący 14 skutkuje rozmiarem okna TCP wynoszącym 14 (d
 
 #### <a name="support-for-tcp-window-scaling"></a>Obsługa skalowania okna TCP
 
-System Windows może ustawić różne czynniki skalowania dla różnych typów połączeń. (Klasy połączeń obejmują centrum danych, Internet i tak dalej). Aby wyświetlić typ `Get-NetTCPConnection` połączenia skalowania okna, należy użyć polecenia programu PowerShell:
+System Windows może ustawić różne czynniki skalowania dla różnych typów połączeń. (Klasy połączeń obejmują centrum danych, Internet i tak dalej). `Get-NetTCPConnection`Aby wyświetlić typ połączenia skalowania okna, należy użyć polecenia programu PowerShell:
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-Możesz użyć polecenia programu `Get-NetTCPSetting` PowerShell, aby wyświetlić wartości każdej klasy:
+Możesz użyć `Get-NetTCPSetting` polecenia programu PowerShell, aby wyświetlić wartości każdej klasy:
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-Możesz ustawić początkowy rozmiar okna TCP i współczynnik skalowania TCP w systemie Windows za pomocą polecenia `Set-NetTCPSetting` programu PowerShell. Aby uzyskać więcej informacji, zobacz [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Możesz ustawić początkowy rozmiar okna TCP i współczynnik skalowania TCP w systemie Windows za pomocą `Set-NetTCPSetting` polecenia programu PowerShell. Aby uzyskać więcej informacji, zobacz [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-Są to obowiązujące ustawienia protokołu TCP dla `AutoTuningLevel`:
+Są to obowiązujące ustawienia protokołu TCP dla `AutoTuningLevel` :
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Współczynnik skalowania**|**Mnożnik skalowania**|**Formuła do<br/>obliczenia maksymalnego rozmiaru okna**|
+|**AutoTuningLevel**|**Współczynnik skalowania**|**Mnożnik skalowania**|**Formuła do <br/> obliczenia maksymalnego rozmiaru okna**|
 |Disabled (Wyłączony)|Brak|Brak|Rozmiar okna|
 |Z ograniczeniami|4|2 ^ 4|Rozmiar okna * (2 ^ 4)|
 |Wysoce ograniczone|2|2 ^ 2|Rozmiar okna * (2 ^ 2)|
@@ -359,7 +359,7 @@ NTttcp to narzędzie do testowania wydajności TCP maszyny wirtualnej z systemem
 
 Za pomocą narzędzia o nazwie iPerf można testować wydajność różnych typów maszyn wirtualnych, przyspieszonej sieci i tak dalej. iPerf jest również dostępna w systemach Linux i Windows. iPerf może używać protokołu TCP lub UDP do testowania ogólnej przepływności sieci. testy przepływności TCP iPerf mają wpływ na czynniki omówione w tym artykule (takie jak opóźnienia i czas RTT). Dzięki temu protokół UDP może dać lepsze wyniki, jeśli chcesz przetestować maksymalną przepływność.
 
-Więcej informacji można znaleźć w tych artykułach:
+Więcej informacji można znaleźć w następujących artykułach:
 
 - [Rozwiązywanie problemów z wydajnością sieci ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 

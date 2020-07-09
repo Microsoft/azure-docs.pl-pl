@@ -10,10 +10,9 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: a5cef16694fa2cfae036152d22cfa4473956fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588182"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Łączenie danych z zapory aplikacji sieci Web firmy Microsoft
@@ -34,7 +33,7 @@ Po wdrożeniu i pobieraniu danych przez zaporę aplikacji sieci Web firmy Micros
     
 1. W portalu wskaźnikowym platformy Azure wybierz pozycję **Łączniki danych**.
 1. Na stronie łączniki danych wybierz kafelek **WAF** .
-1. Przejdź do [zasobu](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) Application Gateway i wybierz pozycję WAF.
+1. Przejdź do [zasobu Application Gateway](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)   i wybierz pozycję WAF.
     1. Wybierz pozycję **Ustawienia diagnostyczne**.
     1. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne** w tabeli.
     1. Na stronie **Ustawienia diagnostyczne** wpisz **nazwę** i wybierz pozycję **Wyślij do log Analytics**.

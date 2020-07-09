@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79367588"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dane lokalizacji geograficznej i GEOJSON w Azure Cosmos DB
@@ -38,7 +37,7 @@ Azure Cosmos DB obsługuje następujące typy danych przestrzennych:
 
 - Moment
 - LineString
-- Tworząc
+- Wielokąt
 - MultiPolygon
 
 ### <a name="points"></a>Punkty
@@ -156,9 +155,9 @@ Ze względu na to, że kształt ziemi jest nieregularny, współrzędne danych g
 Najbardziej popularnym KSR w korzystaniu z dzisiaj jest świat Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Urządzenia GPS i wiele usług mapowania, w tym mapy Google i interfejsy API mapy Bing używają WGS-84. Azure Cosmos DB obsługuje indeksowanie i wykonywanie zapytań dotyczących danych geoprzestrzennych geograficznych tylko przy użyciu WGS-84 KSR.
 
 ## <a name="creating-documents-with-spatial-data"></a>Tworzenie dokumentów z danymi przestrzennymi
-Podczas tworzenia dokumentów zawierających wartości GEOJSON są one automatycznie indeksowane przy użyciu indeksu przestrzennego zgodnie z zasadami indeksowania kontenera. Jeśli pracujesz z zestawem SDK Azure Cosmos DB w języku, który jest typem dynamicznym, takim jak Python lub Node. js, musisz utworzyć prawidłowy plik GEOJSON.
+Podczas tworzenia dokumentów zawierających wartości GEOJSON są one automatycznie indeksowane przy użyciu indeksu przestrzennego zgodnie z zasadami indeksowania kontenera. Jeśli pracujesz z zestawem SDK Azure Cosmos DB w języku, który jest typem dynamicznym, takim jak Python lub Node.js, musisz utworzyć prawidłowy plik GEOJSON.
 
-**Tworzenie dokumentu z danymi geograficznymi w języku Node. js**
+**Utwórz dokument z danymi geograficznymi w Node.js**
 
 ```javascript
 var userProfileDocument = {
@@ -174,7 +173,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Jeśli pracujesz z interfejsami API SQL, możesz `Point`użyć klas, `LineString`, `Polygon`, i `MultiPolygon` w `Microsoft.Azure.Cosmos.Spatial` przestrzeni nazw do osadzania informacji o lokalizacji w obiektach aplikacji. Te klasy pomagają uprościć serializacji i deserializacji danych przestrzennych w GeoJSON.
+Jeśli pracujesz z interfejsami API SQL, możesz użyć `Point` klas,, `LineString` `Polygon` , i `MultiPolygon` w `Microsoft.Azure.Cosmos.Spatial` przestrzeni nazw do osadzania informacji o lokalizacji w obiektach aplikacji. Te klasy pomagają uprościć serializacji i deserializacji danych przestrzennych w GeoJSON.
 
 **Tworzenie dokumentu z danymi geograficznymi w programie .NET**
 

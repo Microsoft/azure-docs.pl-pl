@@ -4,15 +4,15 @@ description: Ten artykuł zawiera omówienie Application Gateway kompleksowej ob
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648139"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962105"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway
 
@@ -68,7 +68,7 @@ W przypadku jednostki SKU Application Gateway i WAF V1 zasady protokołu TLS dot
 
 W przypadku jednostki SKU Application Gateway i WAF v2 zasady protokołu TLS dotyczą tylko ruchu frontonu, a wszystkie szyfry są oferowane na serwerze wewnętrznej bazy danych, który ma kontrolę w celu wybrania określonych szyfrów i wersji protokołu TLS podczas uzgadniania.
 
-Application Gateway komunikują się tylko z tymi serwerami zaplecza, które mają listy dozwolonych swój certyfikat z Application Gateway lub których certyfikaty są podpisane przez dobrze znane urzędy urzędów certyfikacji, a nazwa POSPOLITa certyfikatu jest zgodna z nazwą hosta w ustawieniach zaplecza protokołu HTTP. Należą do nich zaufane usługi platformy Azure, takie jak Azure App Service/Web Apps i API Management platformy Azure.
+Application Gateway komunikują się tylko z tymi serwerami zaplecza, które mają zezwolenie na wymieniony certyfikat Application Gateway lub którego certyfikaty są podpisane przez dobrze znane urzędy urzędów certyfikacji, a nazwa POSPOLITa certyfikatu jest zgodna z nazwą hosta w ustawieniach zaplecza protokołu HTTP. Należą do nich zaufane usługi platformy Azure, takie jak Azure App Service/Web Apps i API Management platformy Azure.
 
 Jeśli certyfikaty elementów członkowskich w puli zaplecza nie są podpisane przez dobrze znane urzędy certyfikacji, każde wystąpienie w puli zaplecza z włączonym kompleksowym protokołem TLS musi być skonfigurowane przy użyciu certyfikatu w celu umożliwienia bezpiecznej komunikacji. Dodanie certyfikatu zapewnia, że Brama aplikacji komunikuje się tylko ze znanymi wystąpieniami zaplecza. Pozwala to na zapewnienie kompleksowej komunikacji.
 
@@ -80,9 +80,9 @@ Jeśli certyfikaty elementów członkowskich w puli zaplecza nie są podpisane p
 
 W tym przykładzie żądania przy użyciu protokołu TLS 1.2 są kierowane do serwerów zaplecza w Pool1 przy użyciu kompleksowej usługi TLS.
 
-## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>Kompleksowe szyfrowanie TLS i listy dozwolonych certyfikatów
+## <a name="end-to-end-tls-and-allow-listing-of-certificates"></a>Zakończenie do końca protokołu TLS i Zezwalanie na listę certyfikatów
 
-Application Gateway komunikuje się tylko z znanymi wystąpieniami zaplecza, które mają listy dozwolonych swój certyfikat z bramą aplikacji. Istnieją pewne różnice w procesie kompleksowej konfiguracji protokołu TLS w odniesieniu do używanej wersji programu Application Gateway. W poniższej sekcji opisano je pojedynczo.
+Application Gateway komunikuje się tylko z znanymi wystąpieniami zaplecza, które mają zezwolenie na wyświetlanie certyfikatu w usłudze Application Gateway. Istnieją pewne różnice w procesie kompleksowej konfiguracji protokołu TLS w odniesieniu do używanej wersji programu Application Gateway. W poniższej sekcji opisano je pojedynczo.
 
 ## <a name="end-to-end-tls-with-the-v1-sku"></a>Kompleksowa wartość TLS z jednostką SKU v1
 
@@ -90,7 +90,7 @@ Aby włączyć kompleksową transakcję TLS z serwerami zaplecza i aby Applicati
 
 W przypadku sond kondycji protokołu HTTPS Application Gateway jednostka SKU w wersji 1 używa dokładnego dopasowania certyfikatu uwierzytelniania (klucza publicznego certyfikatu serwera wewnętrznej bazy danych, a nie certyfikatu głównego) do przekazania do ustawień HTTP.
 
-W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych. Pozostałe punkty końcowe są uznawane za niezdrowe przez sondy kondycji. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty muszą być listy dozwolonych z bramą aplikacji, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
+Dozwolone są tylko połączenia z znanymi i dozwolonymi punktami końcowymi. Pozostałe punkty końcowe są uznawane za niezdrowe przez sondy kondycji. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty muszą być dozwolone na liście przy użyciu bramy aplikacji, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
 
 > [!NOTE]
 > Konfiguracja uwierzytelniania i zaufanego certyfikatu głównego nie są wymagane dla zaufanych usług platformy Azure, takich jak Azure App Service. Są one traktowane jako zaufane domyślnie.
@@ -111,7 +111,7 @@ Certyfikaty uwierzytelniania zostały wycofane i zastąpione przez zaufane certy
 
 - Oprócz zgodności z certyfikatem głównym Application Gateway v2 sprawdza także, czy ustawienie hosta określone w ustawieniu protokołu HTTP zaplecza pasuje do nazwy pospolitej (CN) przedstawionej przez certyfikat TLS/SSL serwera wewnętrznej bazy danych. Podczas próby nawiązania połączenia TLS z zapleczem Application Gateway v2 ustawia rozszerzenie Oznaczanie nazwy serwera (SNI) na host określony w ustawieniu protokołu HTTP zaplecza.
 
-- Jeśli wybrano opcję **Wybierz nazwę hosta z adresu zaplecza** zamiast pola host w ustawieniu http zaplecza, nagłówek SNI jest zawsze ustawiany jako nazwa FQDN puli zaplecza, a CN w certyfikacie serwera wewnętrznej bazy danych TLS/SSL musi być zgodna z jego nazwą FQDN. Elementy członkowskie puli zaplecza z adresami IP nie są obsługiwane w tym scenariuszu.
+- Jeśli **wybierzesz opcję Nazwa hosta z elementu docelowego zaplecza** zamiast pola host w ustawieniu http zaplecza, nagłówek SNI jest zawsze ustawiany jako nazwa FQDN puli zaplecza, a CN w certyfikacie serwera wewnętrznej bazy danych TLS/SSL musi być zgodna z jego nazwą FQDN. Elementy członkowskie puli zaplecza z adresami IP nie są obsługiwane w tym scenariuszu.
 
 - Certyfikat główny to zakodowany w formacie base64 certyfikat główny z certyfikatów serwera wewnętrznej bazy danych.
 
@@ -138,10 +138,10 @@ Scenariusz | wersjach | v2 |
 Scenariusz | wersjach | v2 |
 | --- | --- | --- |
 | Nagłówek SNI (server_name) podczas uzgadniania protokołu TLS jako nazwy FQDN | Ustaw jako nazwę FQDN z puli zaplecza. Zgodnie z [RFC 6066](https://tools.ietf.org/html/rfc6066), literały adresów IPv4 i IPv6 nie są dozwolone w nazwie hosta SNI. <br> **Uwaga:** Nazwa FQDN w puli zaplecza powinna być rozpoznawana przez system DNS jako adres IP serwera wewnętrznej bazy danych (Public lub private) | Nagłówek SNI (server_name) jest ustawiany jako nazwa hosta z sondy niestandardowej dołączonej do ustawień protokołu HTTP (jeśli są skonfigurowane), w przeciwnym razie od nazwy hosta wymienionej w ustawieniach protokołu HTTP, w przeciwnym razie z nazwy FQDN wymienionej w puli zaplecza. Kolejność pierwszeństwa to niestandardowa sonda > ustawienia protokołu HTTP > puli zaplecza. <br> **Uwaga:** Jeśli nazwy hostów skonfigurowane w ustawieniach protokołu HTTP i sondy niestandardowej są inne, a następnie zgodnie z pierwszeństwem, SNI zostanie ustawiona jako nazwa hosta z sondy niestandardowej.
-| Jeśli adres puli zaplecza jest adresem IP (v1) lub w przypadku skonfigurowania nazwy hosta sondy niestandardowej jako adresu IP (v2) | SNI (server_name) nie zostanie ustawiona. <br> **Uwaga:** W takim przypadku serwer wewnętrznej bazy danych powinien być w stanie zwrócić certyfikat domyślny/rezerwowy i powinien zostać listy dozwolonych w ustawieniach protokołu HTTP w obszarze certyfikat uwierzytelniania. Jeśli na serwerze wewnętrznej bazy danych nie ma skonfigurowanego domyślnego/rezerwowego certyfikatu, a SNI jest oczekiwany, serwer może zresetować połączenie i prowadzić do błędów sondowania | Zgodnie z powyższym pierwszeństwem, jeśli ma adres IP jako nazwę hosta, SNI nie zostanie ustawiona zgodnie z [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Uwaga:** SNI również nie zostanie ustawiona w sondach v2, jeśli nie jest skonfigurowana żadna niestandardowa sonda i nie zostanie ustawiona nazwa hosta dla ustawień HTTP lub puli zaplecza |
+| Jeśli adres puli zaplecza jest adresem IP (v1) lub w przypadku skonfigurowania nazwy hosta sondy niestandardowej jako adresu IP (v2) | SNI (server_name) nie zostanie ustawiona. <br> **Uwaga:** W takim przypadku serwer wewnętrznej bazy danych powinien mieć możliwość zwrócenia certyfikatu domyślnego/rezerwowego i powinno to być dozwolone na liście ustawień protokołu HTTP w obszarze certyfikat uwierzytelniania. Jeśli na serwerze wewnętrznej bazy danych nie ma skonfigurowanego domyślnego/rezerwowego certyfikatu, a SNI jest oczekiwany, serwer może zresetować połączenie i prowadzić do błędów sondowania | Zgodnie z powyższym pierwszeństwem, jeśli ma adres IP jako nazwę hosta, SNI nie zostanie ustawiona zgodnie z [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Uwaga:** SNI również nie zostanie ustawiona w sondach v2, jeśli nie jest skonfigurowana żadna niestandardowa sonda i nie zostanie ustawiona nazwa hosta dla ustawień HTTP lub puli zaplecza |
 
 > [!NOTE] 
-> Jeśli niestandardowa Sonda nie jest skonfigurowana, Application Gateway wysyła domyślną sondę w tym formacie — \< Protokół \> ://127.0.0.1: \< port \> /. Na przykład dla domyślnej sondy HTTPS zostanie ona wysłana jako https://127.0.0.1:443/ . Należy pamiętać, że adres 127.0.0.1 podany w tym miejscu jest używany tylko jako nagłówek hosta HTTP i zgodnie z opisem w dokumencie RFC 6066, nie będzie używany jako nagłówek SNI. Aby uzyskać więcej informacji o błędach sondy kondycji, zobacz [Przewodnik dotyczący rozwiązywania problemów z kondycją zaplecza](application-gateway-backend-health-troubleshooting.md)
+> Jeśli niestandardowa Sonda nie jest skonfigurowana, Application Gateway wysyła domyślną sondę w tym formacie — \<protocol\> ://127.0.0.1: \<port\> /. Na przykład dla domyślnej sondy HTTPS zostanie ona wysłana jako https://127.0.0.1:443/ . Należy pamiętać, że adres 127.0.0.1 podany w tym miejscu jest używany tylko jako nagłówek hosta HTTP i zgodnie z opisem w dokumencie RFC 6066, nie będzie używany jako nagłówek SNI. Aby uzyskać więcej informacji o błędach sondy kondycji, zobacz [Przewodnik dotyczący rozwiązywania problemów z kondycją zaplecza](application-gateway-backend-health-troubleshooting.md)
 
 #### <a name="for-live-traffic"></a>Dla ruchu na żywo
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612796"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85801142"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uaktualnij do warstwy Standardowa w celu uzyskania zwiększonych zabezpieczeń
 
@@ -44,7 +44,7 @@ Aby uzyskać warstwę standardową:
 2. Wybierz subskrypcję, którą chcesz uaktualnić do wersji Standard.
 3. Wybierz **warstwę cenową**.
 4. Wybierz pozycję **standardowa** , aby przeprowadzić uaktualnienie.
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 [![Cennik Security Center](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
@@ -63,7 +63,9 @@ Security Center oferuje zwiększone zabezpieczenia i ochronę przed zagrożeniam
 - **Alerty zabezpieczeń** — Użyj zaawansowanej analizy i Microsoft Intelligent Security Graph, aby uzyskać krawędzie przed rozwijającym się atakami cybernetycznymi. Korzystaj z wbudowanej analizy behawioralnej i uczenia maszynowego, aby identyfikować ataki i wypróbować programy wykorzystujące zero dni. Monitoruj sieci, maszyny i usługi w chmurze pod kątem ataków przychodzących i działań po naruszeniu. Usprawnij badanie przy użyciu interaktywnych narzędzi i kontekstowej analizy zagrożeń.
 - **Skanowanie w poszukiwaniu maszyn wirtualnych** — łatwo Wdrażaj skaner na wszystkich maszynach wirtualnych, które zapewniają najbardziej zaawansowane rozwiązanie do zarządzania lukami w zabezpieczeniach. Wyświetlaj, badaj i Koryguj wyniki bezpośrednio w Security Center. 
 - **Kontrola dostępu i aplikacji** — blokowanie złośliwego oprogramowania i innych niechcianych aplikacji przez zastosowanie listy dozwolonychowych zaleceń dotyczących uczenia maszynowego dostosowanych do określonych obciążeń. Ogranicz obszar ataków sieci z dostępem just-in-Time do portów zarządzania na maszynach wirtualnych platformy Azure. Radykalnie zmniejsza to narażenie na rozżycie i inne ataki sieciowe.
-- **Funkcje zabezpieczeń kontenerów** — Skorzystaj z funkcji zarządzania lukami w zabezpieczeniach i ochrony przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Po włączeniu zasobu rejestrów kontenerów może upłynąć do 12hrs do momentu włączenia wszystkich funkcji.
+- **Funkcje zabezpieczeń kontenerów** — Skorzystaj z funkcji zarządzania lukami w zabezpieczeniach i ochrony przed zagrożeniami w czasie rzeczywistym w środowiskach kontenerów. Po włączeniu zasobu rejestrów kontenerów może upłynąć do 12hrs do momentu włączenia wszystkich funkcji. Opłaty są oparte na liczbie unikatowych obrazów kontenerów, które zostały wypchnięte do dołączonego rejestru. Po jednokrotnym przeskanowaniu obrazu nie zostanie on rozliczony ponownie, chyba że zostanie on zmodyfikowany i wypychany jeszcze raz. 
+
+
 
 
 ## <a name="next-steps"></a>Następne kroki

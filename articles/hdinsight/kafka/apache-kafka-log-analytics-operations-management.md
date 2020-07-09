@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 593d6861ee5913fffb25bfdea4829e1b1ce6ddc6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471184"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087405"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analizowanie dzienników na potrzeby platformy Apache Kafka w usłudze HDInsight)
 
@@ -23,7 +23,7 @@ Dowiedz się, jak za pomocą dzienników Azure Monitor analizować dzienniki wyg
 
 ## <a name="logs-location"></a>Lokalizacja dzienników
 
-Dzienniki Apache Kafka w klastrze znajdują się pod `/var/log/kafka`adresem. Dzienniki Kafka nie są zapisywane ani utrwalane w ramach cyklu życia klastra, niezależnie od tego, czy są używane dyski zarządzane. W poniższej tabeli przedstawiono dostępne dzienniki.
+Dzienniki Apache Kafka w klastrze znajdują się pod adresem `/var/log/kafka` . Dzienniki Kafka nie są zapisywane ani utrwalane w ramach cyklu życia klastra, niezależnie od tego, czy są używane dyski zarządzane. W poniższej tabeli przedstawiono dostępne dzienniki.
 
 |Log |Opis |
 |---|---|
@@ -76,7 +76,7 @@ Kroki umożliwiające włączenie dzienników Azure Monitor dla usługi HDInsigh
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Przychodzące bajty na sekundę: ( `wn0-kafka` Zamień na nazwę hosta węzła procesu roboczego).
+* Przychodzące bajty na sekundę: (Zamień `wn0-kafka` na nazwę hosta węzła procesu roboczego).
 
     ```kusto
     metrics_kafka_CL 
@@ -84,7 +84,7 @@ Kroki umożliwiające włączenie dzienników Azure Monitor dla usługi HDInsigh
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Wychodzące bajty na sekundę `your_kafka_cluster_name` : (Zamień na nazwę klastra).
+* Wychodzące bajty na sekundę: (Zamień `your_kafka_cluster_name` na nazwę klastra).
 
     ```kusto
     metrics_kafka_CL 
@@ -92,13 +92,13 @@ Kroki umożliwiające włączenie dzienników Azure Monitor dla usługi HDInsigh
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-    Możesz również wprowadzić `*` , aby przeszukać wszystkie typy zarejestrowane. Obecnie następujące dzienniki są dostępne dla zapytań:
+    Możesz również wprowadzić, `*` Aby przeszukać wszystkie typy zarejestrowane. Obecnie następujące dzienniki są dostępne dla zapytań:
 
     | Typ dziennika | Opis |
     | ---- | ---- |
-    | Dziennik\_kafkaserver\_CL | Kafka brokera serwera. log |
-    | Dziennik\_kafkacontroller\_CL | Kafka brokera. log |
-    | \_metryki\_Kafka CL | Metryki Kafka JMX |
+    | Dziennik \_ kafkaserver \_ CL | Kafka brokera serwera. log |
+    | Dziennik \_ kafkacontroller \_ CL | Kafka brokera. log |
+    | metryki \_ Kafka \_ CL | Metryki Kafka JMX |
 
     ![Użycie procesora CPU analizy dzienników Apache Kafka](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 

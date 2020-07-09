@@ -6,14 +6,13 @@ manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 0f67caad03c4ebd1cf8f3721f377d8362219016a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76837735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85080863"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Umiejętność wyodrębniania dokumentów
 
@@ -25,9 +24,10 @@ Umiejętność **wyodrębniania dokumentu** wyodrębnia zawartość z pliku w ra
 > [!NOTE]
 > Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu krakingania dokumentu w indeksie. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
 >
-> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika](https://azure.microsoft.com/pricing/details/search/).
+
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. umiejętności. util. DocumentExtractionSkill
+Microsoft.Skills.Util.DocumentExtractionSkill
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -35,13 +35,13 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Dane wejściowe            | Dozwolone wartości | Opis |
 |-----------------|----------------|-------------|
-| `parsingMode`   | `default` <br/> `text` <br/> `json`  | Ustaw na `default` na potrzeby wyodrębniania dokumentów z plików, które nie są czystym tekstem ani JSON. Ustaw, `text` aby zwiększyć wydajność na zwykłych plikach tekstowych. Ustaw, `json` aby wyodrębnić zawartość strukturalną z plików JSON. Jeśli `parsingMode` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na `default`wartość. |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ustaw, `contentAndMetadata` aby wyodrębnić wszystkie metadane i zawartość tekstową z każdego pliku. Ustaw, `allMetadata` aby wyodrębnić tylko [metadane specyficzne dla typu zawartości](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (na przykład metadane unikatowe dla plików PNG). Jeśli `dataToExtract` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na `contentAndMetadata`wartość. |
+| `parsingMode`   | `default` <br/> `text` <br/> `json`  | Ustaw na `default` na potrzeby wyodrębniania dokumentów z plików, które nie są czystym tekstem ani JSON. Ustaw, aby `text` zwiększyć wydajność na zwykłych plikach tekstowych. Ustaw, aby `json` wyodrębnić zawartość strukturalną z plików JSON. Jeśli `parsingMode` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `default` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ustaw, aby `contentAndMetadata` wyodrębnić wszystkie metadane i zawartość tekstową z każdego pliku. Ustaw, aby `allMetadata` wyodrębnić tylko [metadane specyficzne dla typu zawartości](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (na przykład metadane unikatowe dla plików PNG). Jeśli `dataToExtract` wartość nie jest jawnie zdefiniowana, zostanie ustawiona na wartość `contentAndMetadata` . |
 | `configuration` | Sprawdź poniżej. | Słownik parametrów opcjonalnych, który dostosowuje sposób wykonywania wyodrębniania dokumentu. Zapoznaj się z poniższą tabelą opisów obsługiwanych właściwości konfiguracji. |
 
 | Parametr konfiguracji   | Dozwolone wartości | Opis |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | `none` Ustaw na ignorowanie osadzonych obrazów lub plików obrazów w zestawie danych. Domyślnie włączone. <br/>Aby `generateNormalizedImages` przeprowadzić [analizę obrazów przy użyciu umiejętności poznawczych](cognitive-search-concept-image-scenarios.md), ustaw opcję na wartość tak, aby umiejętność utworzyła tablicę znormalizowanych obrazów jako część pęknięcia dokumentu. Ta akcja wymaga, `parsingMode` aby ustawiono wartość `default` i `dataToExtract` został ustawiony na `contentAndMetadata`. Znormalizowany obraz odnosi się do dodatkowego przetwarzania, w wyniku którego dane wyjściowe są jednorodne, skalowane i obracane, aby podwyższyć poziom renderowania, gdy dołączysz obrazy do wyników wyszukiwania wizualnego (na przykład zdjęcia o tym samym rozmiarze w kontrolce wykresu, jak widać w [demonstracji JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Te informacje są generowane dla każdego obrazu przy użyciu tej opcji.  <br/>Jeśli ustawisz `generateNormalizedImagePerPage`opcję, plik PDF będzie traktowany inaczej, w przeciwieństwie do wyodrębniania obrazów osadzonych, każda strona będzie renderowana jako obraz i znormalizowana.  Typy plików inne niż PDF będą traktowane tak samo, jak w `generateNormalizedImages` przypadku ustawienia.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ustaw na `none` Ignorowanie osadzonych obrazów lub plików obrazów w zestawie danych. Domyślnie włączone. <br/>Aby przeprowadzić [analizę obrazów przy użyciu umiejętności poznawczych](cognitive-search-concept-image-scenarios.md), ustaw opcję na wartość `generateNormalizedImages` tak, aby umiejętność utworzyła tablicę znormalizowanych obrazów jako część pęknięcia dokumentu. Ta akcja wymaga, aby ustawiono wartość `parsingMode` `default` i `dataToExtract` został ustawiony na `contentAndMetadata` . Znormalizowany obraz odnosi się do dodatkowego przetwarzania, w wyniku którego dane wyjściowe są jednorodne, skalowane i obracane, aby podwyższyć poziom renderowania, gdy dołączysz obrazy do wyników wyszukiwania wizualnego (na przykład zdjęcia o tym samym rozmiarze w kontrolce wykresu, jak widać w [demonstracji JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Te informacje są generowane dla każdego obrazu przy użyciu tej opcji.  <br/>Jeśli ustawisz `generateNormalizedImagePerPage` opcję, plik PDF będzie traktowany inaczej, w przeciwieństwie do wyodrębniania obrazów osadzonych, każda strona będzie renderowana jako obraz i znormalizowana.  Typy plików inne niż PDF będą traktowane tak samo, jak w przypadku `generateNormalizedImages` Ustawienia.
 | `normalizedImageMaxWidth` | Dowolna liczba całkowita z zakresu od 50-10000 | Maksymalna szerokość (w pikselach) dla wygenerowanych znormalizowanych obrazów. Wartość domyślna to 2000. | 
 | `normalizedImageMaxHeight` | Dowolna liczba całkowita z zakresu od 50-10000 | Maksymalna wysokość (w pikselach) dla wygenerowanych znormalizowanych obrazów. Wartość domyślna to 2000. |
 
@@ -51,7 +51,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa wejściowa     | Opis |
 |--------------------|-------------|
-| file_data | Plik, z którego ma zostać wyodrębniona zawartość. |
+| `file_data` | Plik, z którego ma zostać wyodrębniona zawartość. |
 
 Dane wejściowe "file_data" muszą być obiektami zdefiniowanymi w następujący sposób:
 
@@ -66,16 +66,16 @@ Ten obiekt odwołania do pliku może być wygenerowany jeden z trzech sposobów:
 
  - Ustawianie `allowSkillsetToReadFileData` parametru w definicji indeksatora na wartość "true".  Spowoduje to utworzenie ścieżki `/document/file_data` , która jest obiektem reprezentującym oryginalne dane pliku pobrane ze źródła danych obiektu BLOB. Ten parametr ma zastosowanie tylko do danych w magazynie obiektów BLOB.
 
- - Ustawienie `imageAction` parametru w definicji indeksatora na wartość inną niż `none`.  Powoduje to utworzenie tablicy obrazów, które są zgodne z wymaganą Konwencją dla danych wejściowych do tej umiejętności, jeśli `/document/normalized_images/*`są one przenoszone indywidualnie (tj.).
+ - Ustawienie `imageAction` parametru w definicji indeksatora na wartość inną niż `none` .  Powoduje to utworzenie tablicy obrazów, które są zgodne z wymaganą Konwencją dla danych wejściowych do tej umiejętności, jeśli są one przenoszone indywidualnie (tj. `/document/normalized_images/*` ).
 
- - Posiadanie niestandardowej kwalifikacji zwraca obiekt JSON zdefiniowany dokładnie tak jak powyżej.  `$type` Parametr musi być ustawiony na wartość dokładnie `file` , a `data` parametr musi być podstawowym 64 zakodowanym bajtem danych tablicy zawartości pliku.
+ - Posiadanie niestandardowej kwalifikacji zwraca obiekt JSON zdefiniowany dokładnie tak jak powyżej.  `$type`Parametr musi być ustawiony na wartość dokładnie `file` , a `data` parametr musi być podstawowym 64 zakodowanym bajtem danych tablicy zawartości pliku.
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
 | Nazwa wyjściowa    | Opis |
 |--------------|-------------|
-| content | Zawartość tekstowa dokumentu. |
-| normalized_images | Gdy `imageAction` zostanie ustawiona wartość inne `none`, nowe pole *normalized_images* będzie zawierać tablicę obrazów. Zapoznaj [się z dokumentacją dotyczącą wyodrębniania obrazów](cognitive-search-concept-image-scenarios.md) , aby uzyskać szczegółowe informacje na temat formatu danych wyjściowych każdego obrazu. |
+| `content` | Zawartość tekstowa dokumentu. |
+| `normalized_images`   | Gdy `imageAction` zostanie ustawiona wartość inne `none` , nowe pole *normalized_images* będzie zawierać tablicę obrazów. Zapoznaj [się z dokumentacją dotyczącą wyodrębniania obrazów](cognitive-search-concept-image-scenarios.md) , aby uzyskać szczegółowe informacje na temat formatu danych wyjściowych każdego obrazu. |
 
 ##  <a name="sample-definition"></a>Definicja Przykładowa
 

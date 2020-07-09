@@ -5,13 +5,12 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/03/2018
-ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/29/2020
+ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84424469"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Rozwiązanie Wire Data 2.0 (wersja zapoznawcza) w Azure Monitor
 
@@ -19,12 +18,15 @@ ms.locfileid: "77670648"
 
 Dane przewodowe to skonsolidowane dane dotyczące sieci i wydajności zebrane z komputerów połączonych z systemem Windows i Linux z agentem Log Analytics, w tym te monitorowane przez Operations Manager w danym środowisku. Dane sieciowe są łączone z innymi danymi Twojego dziennika, aby ułatwić korelowanie danych.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 Oprócz agenta Log Analytics rozwiązanie do transmisji danych używa agentów zależności firmy Microsoft instalowanych na komputerach w infrastrukturze IT. Agenci Dependency Agent monitorują dane sieciowe wysyłane do i z Twoich komputerów dla poziomów sieci 2 i 3 w [modelu OSI](https://en.wikipedia.org/wiki/OSI_model), włącznie z różnymi używanymi protokołami i portami. Dane są następnie wysyłane do Azure Monitor przy użyciu agentów.  
 
 >[!NOTE]
->Jeśli wdrożono już Service Map lub rozważa Service Map lub [Azure monitor dla maszyn wirtualnych](../../azure-monitor/insights/vminsights-overview.md), dostępne są nowe dane metryk połączenia, które zbierają i przechowują w Azure monitor, które udostępniają porównywalne informacje do danych telekomunikacyjnych.
+>Rozwiązanie do przesyłania danych o komunikacji sieciowej zostało zastąpione [Service map rozwiązaniem](service-map.md).  Zarówno Agent Log Analytics, jak i Agent zależności, służą do zbierania danych połączenia sieciowego do Azure Monitor. 
+> 
+>Istniejący klienci korzystający z rozwiązania do przesyłania danych w sieci mogą nadal z niego korzystać. Opublikujemy wskazówki dotyczące osi czasu migracji na potrzeby przenoszenia do Service Map.
+>
+>Nowi klienci powinni zainstalować [rozwiązanie Service map](service-map.md) lub [Azure monitor dla maszyn wirtualnych](vminsights-overview.md).  Zestaw danych Service Map jest porównywalny z danymi telekomunikacyjnymi.  Azure Monitor dla maszyn wirtualnych zawiera zestaw danych Service Map z dodatkowymi danymi i funkcjami wydajności na potrzeby analizy. 
+
 
 Domyślnie Azure Monitor rejestruje dane dotyczące procesora CPU, pamięci, dysku i wydajności sieci z liczników wbudowanych w systemy Windows i Linux, a także inne liczniki wydajności, które można określić. Gromadzenie danych sieciowych i innych odbywa się w czasie rzeczywistym dla każdego agenta, łącznie z podsieciami i protokołami poziomu aplikacji używanymi przez komputer.  Rozwiązanie Dane o komunikacji sieciowej bierze pod uwagę dane sieciowe na poziomie aplikacji, a nie niżej, w warstwie transportu TCP. Rozwiązanie nie bierze pod uwagę pojedynczych komunikatów potwierdzeń i synchronizacji. Po zakończeniu uzgadniania połączenie jest uznawane za aktywne i oznaczane jako Połączono. To połączenie pozostaje aktywne, dopóki obie strony zgadzają się, że gniazdo jest otwarte i dane można przekazywać tam i z powrotem. Po obu stronach połączenie zostanie oznaczone jako odłączone.  W związku z tym zliczana jest tylko przepustowość pomyślnie zakończonych pakietów. Pakiety wysłane ponownie lub zakończone niepowodzeniem nie są raportowane.
 
@@ -89,7 +91,7 @@ W poniższych sekcjach wymieniono obsługiwane systemy operacyjne dla agenta zal
 - Windows Server 2019
 - System Windows Server 2016 1803
 - Windows Server 2016
-- Windows Server 2012 R2
+- Windows Server 2012 z dodatkiem R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
@@ -160,7 +162,7 @@ W poniższych sekcjach przedstawiono obsługiwane systemy operacyjne dla agenta 
 
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj poniższe kroki, aby skonfigurować rozwiązanie Dane o komunikacji sieciowej dla Twoich obszarów roboczych.
 
@@ -175,7 +177,7 @@ Wykonaj poniższe kroki, aby skonfigurować rozwiązanie Dane o komunikacji siec
 
 Aby zainstalować lub odinstalować agenta, wymagane są uprawnienia administratora.
 
-Agent zależności jest instalowany na komputerach z systemem Windows za pomocą programu InstallDependencyAgent-Windows. exe. Uruchomienie tego pliku wykonywalnego bez żadnych opcji powoduje uruchomienie kreatora, którego polecenia należy wykonywać w celu przeprowadzenia interaktywnej instalacji.
+Agent zależności jest instalowany na komputerach z systemem Windows za pomocą InstallDependencyAgent-Windows.exe. Uruchomienie tego pliku wykonywalnego bez żadnych opcji powoduje uruchomienie kreatora, którego polecenia należy wykonywać w celu przeprowadzenia interaktywnej instalacji.
 
 Wykonaj następujące kroki, aby zainstalować agenta zależności na każdym komputerze z systemem Windows:
 
@@ -223,7 +225,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Pliki agenta zależności są umieszczane w następujących katalogach:
 
-| **Pliki** | **Lokalizacja** |
+| **Files** | **Lokalizacja** |
 | --- | --- |
 | Pliki jądra | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/opt/microsoft/dependency-agent/log |
@@ -318,7 +320,7 @@ Skorzystaj z poniższych sekcji, aby usunąć agenta zależności.
 
 Administrator może odinstalować agenta zależności dla systemu Windows za pomocą panelu sterowania.
 
-Administrator może również uruchomić element%Programfiles%\Microsoft Dependency Agent\Uninstall.exe w celu odinstalowania agenta zależności.
+Administrator może również uruchomić Agent\Uninstall.exe zależności w celu odinstalowania agenta zależności.
 
 #### <a name="uninstall-the-dependency-agent-on-linux"></a>Odinstalowywanie agenta zależności w systemie Linux
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954604"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86129892"
 ---
 # <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Zarządzanie interfejsami sieciowymi maszyn wirtualnych na potrzeby lokalnego odzyskiwania po awarii na platformie Azure
 
@@ -26,7 +26,7 @@ Domyślnie Azure Site Recovery tworzy jako wiele interfejsów sieciowych na masz
 
 ## <a name="select-the-target-network"></a>Wybierz sieć docelową
 
-W przypadku maszyn wirtualnych VMware i fizycznych oraz dla funkcji Hyper-V (bez System Center Virtual Machine Manager) można określić docelową sieć wirtualną dla poszczególnych maszyn wirtualnych. W przypadku maszyn wirtualnych funkcji Hyper-V zarządzanych przy użyciu Virtual Machine Manager należy użyć [mapowania sieci](site-recovery-network-mapping.md) do mapowania sieci maszyn wirtualnych na źródłowym serwerze Virtual Machine Manager i docelowych sieci platformy Azure.
+W przypadku maszyn wirtualnych VMware i fizycznych oraz dla funkcji Hyper-V (bez System Center Virtual Machine Manager) można określić docelową sieć wirtualną dla poszczególnych maszyn wirtualnych. W przypadku maszyn wirtualnych funkcji Hyper-V zarządzanych przy użyciu Virtual Machine Manager należy użyć [mapowania sieci](./hyper-v-vmm-network-mapping.md) do mapowania sieci maszyn wirtualnych na źródłowym serwerze Virtual Machine Manager i docelowych sieci platformy Azure.
 
 1. W obszarze **zreplikowane elementy** w magazynie Recovery Services wybierz dowolny replikowany element, aby uzyskać dostęp do ustawień dla tego zreplikowanego elementu.
 

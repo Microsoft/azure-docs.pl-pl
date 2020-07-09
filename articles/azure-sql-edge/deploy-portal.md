@@ -2,19 +2,18 @@
 title: Wdrażanie usługi Azure SQL Edge (wersja zapoznawcza) przy użyciu Azure Portal
 description: Dowiedz się, jak wdrożyć usługę Azure SQL Edge (wersja zapoznawcza) przy użyciu Azure Portal
 keywords: Wdróż program SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 0ddfc445ee8bd67b39de4ddd013a25f20fd75315
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681224"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84233240"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Wdrażanie usługi Azure SQL Edge (wersja zapoznawcza) 
 

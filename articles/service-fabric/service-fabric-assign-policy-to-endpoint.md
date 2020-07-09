@@ -4,14 +4,13 @@ description: Dowiedz się, jak przypisywać zasady dostępu zabezpieczeń do pun
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.openlocfilehash: c7d30e85848f045b5724bb8bdc6e5c810102c044
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614659"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Przypisywanie zasad dostępu zabezpieczeń dla punktów końcowych HTTP i HTTPS
-W przypadku zastosowania zasad Uruchom jako i manifestu usługi deklaruje zasoby punktu końcowego protokołu HTTP, należy określić **SecurityAccessPolicy**.  **SecurityAccessPolicy** gwarantuje, że porty przyłączone do tych punktów końcowych są poprawnie ograniczone do konta użytkownika, na którym działa usługa. W przeciwnym razie **http. sys** nie ma dostępu do usługi i pojawiają się błędy z wywołaniami klienta. Poniższy przykład dotyczy konta Customer1 w punkcie końcowym o nazwie **EndpointName**, który daje pełne prawa dostępu.
+W przypadku zastosowania zasad Uruchom jako i manifestu usługi deklaruje zasoby punktu końcowego protokołu HTTP, należy określić **SecurityAccessPolicy**.  **SecurityAccessPolicy** gwarantuje, że porty przyłączone do tych punktów końcowych są poprawnie ograniczone do konta użytkownika, na którym działa usługa. W przeciwnym razie **http.sys** nie ma dostępu do usługi i wystąpią błędy wywołań z klienta. Poniższy przykład dotyczy konta Customer1 w punkcie końcowym o nazwie **EndpointName**, który daje pełne prawa dostępu.
 
 ```xml
 <Policies>

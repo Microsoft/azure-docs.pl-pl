@@ -6,10 +6,9 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 46b38686b39836f3d4bfb80686d514f932a79bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75650463"
 ---
 # <a name="custom-resource-proxy-reference"></a>Odwołanie do niestandardowego serwera proxy zasobów
@@ -42,10 +41,10 @@ Przykładowy dostawca zasobów niestandardowych:
 
 ## <a name="building-proxy-resource-endpoint"></a>Tworzenie punktu końcowego zasobu serwera proxy
 
-**Punkt końcowy** , który implementuje **punkt końcowy** zasobu "proxy", musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT`, `GET`i, `DELETE` aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby.
+**Punkt końcowy** , który implementuje **punkt końcowy** zasobu "proxy", musi obsługiwać żądanie i odpowiedź dla nowego interfejsu API na platformie Azure. W takim przypadku obiekt **ResourceType** wygeneruje nowy interfejs API zasobów platformy Azure dla `PUT` , `GET` i, `DELETE` Aby wykonać CRUD na jednym zasobie, a także `GET` pobrać wszystkie istniejące zasoby.
 
 > [!NOTE]
-> Pola `id`, `name`i `type` nie są wymagane, ale są niezbędne do integracji zasobu niestandardowego z istniejącym ekosystemem platformy Azure.
+> `id`Pola, `name` i `type` nie są wymagane, ale są niezbędne do integracji zasobu niestandardowego z istniejącym ekosystemem platformy Azure.
 
 Przykładowy zasób:
 
@@ -68,8 +67,8 @@ Odwołanie do parametru:
 Właściwość | Przykład | Opis
 ---|---|---
 name | '{myCustomResourceName}' | Nazwa niestandardowego zasobu.
-type | "Microsoft. CustomProviders/resourceProviders/{resourceTypeName}" | Przestrzeń nazw typu zasobu.
-id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>dostawcy/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | Identyfikator zasobu.
+typ | "Microsoft. CustomProviders/resourceProviders/{resourceTypeName}" | Przestrzeń nazw typu zasobu.
+identyfikator | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>dostawcy/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{myCustomResourceName}' | Identyfikator zasobu.
 
 ### <a name="create-a-custom-resource"></a>Tworzenie zasobu niestandardowego
 
@@ -110,7 +109,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
 **Punkt końcowy** Reakcji
 
@@ -171,7 +170,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
 **Punkt końcowy** Reakcji
 
@@ -208,7 +207,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 
 **Punkt końcowy** Reakcji
 
@@ -269,7 +268,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 Podobnie odpowiedź z **punktu końcowego** jest następnie przekazywana ponownie do klienta. Odpowiedź z punktu końcowego powinna zwrócić:
 
 - Prawidłowy dokument obiektu JSON. Wszystkie tablice i ciągi powinny być zagnieżdżone w obiekcie najwyższego poziomu.
-- `Content-Type` Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
+- `Content-Type`Nagłówek powinien być ustawiony na wartość "Application/JSON; charset = utf-8 ".
 - Listę zasobów należy umieścić pod właściwości najwyższego poziomu `value` .
 
 **Punkt końcowy** Reakcji

@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 6e0581912a619bec11be6d322e2987a4498c5170
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743635"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84339369"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Zwróć lub Zastąp urządzenie Azure Stack Edge
 
@@ -22,6 +21,7 @@ W tym artykule opisano sposób czyszczenia danych, a następnie zwrócenia urzą
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
+>
 > * Czyszczenie danych z dysków z danymi na urządzeniu
 > * Otwórz bilet pomocy technicznej, aby zwrócić urządzenie
 > * Pakowanie urządzenia i planowanie odbioru

@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84974521"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów Eksplorator usługi Azure Storage
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
-Eksplorator usługi Microsoft Azure Storage jest aplikacją autonomiczną, która ułatwia współpracę z danymi usługi Azure Storage w systemach Windows, macOS i Linux. Aplikacja może łączyć się z kontami magazynu hostowanymi na platformie Azure, chmurach narodowych i Azure Stack.
+Eksplorator usługi Microsoft Azure Storage jest autonomiczną aplikacją, która ułatwia obsługę danych w usłudze Azure Storage w systemach Windows, macOS i Linux. Aplikacja może łączyć się z kontami magazynu hostowanymi na platformie Azure, w chmurach krajowych i usłudze Azure Stack.
 
 Ten przewodnik zawiera podsumowanie rozwiązań dotyczących problemów, które są często spotykane w Eksplorator usługi Storage.
 
@@ -48,7 +48,7 @@ Musisz mieć przypisaną co najmniej jedną rolę, która przyznaje dostęp do o
 
 Usługa Azure Storage ma dwie warstwy dostępu: _Zarządzanie_ i _dane_. Do subskrypcji i kont magazynu uzyskuje się dostęp za pomocą warstwy zarządzania. Do kontenerów, obiektów blob i innych zasobów danych uzyskuje się dostęp za pomocą warstwy danych. Jeśli na przykład chcesz uzyskać listę kont magazynu z platformy Azure, Wyślij żądanie do punktu końcowego zarządzania. Jeśli potrzebujesz listy kontenerów obiektów BLOB na koncie, Wyślij żądanie do odpowiedniego punktu końcowego usługi.
 
-Role RBAC mogą zawierać uprawnienia do zarządzania lub dostępu do warstwy danych. Rola czytelnik, na przykład, umożliwia dostęp tylko do odczytu do zasobów warstwy zarządzania.
+Role RBAC mogą udzielić uprawnień do zarządzania lub dostępu do warstwy danych. Rola czytelnik, na przykład, umożliwia dostęp tylko do odczytu do zasobów warstwy zarządzania.
 
 Dokładnie mówiąc, rola czytelnika nie zapewnia żadnych uprawnień do warstwy danych i nie jest konieczna do uzyskania dostępu do warstwy danych.
 
@@ -58,7 +58,14 @@ Jeśli nie masz roli przyznającej uprawnienia do warstwy zarządzania, Eksplora
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Co zrobić, jeśli nie mogę uzyskać wymaganych uprawnień do warstwy zarządzania z mojego administratora?
 
-Obecnie nie mamy rozwiązania dotyczącego kontroli RBAC dla tego problemu. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możesz dołączyć do tych zasobów przy użyciu poświadczeń platformy Azure.
+
+1. Otwórz okno dialogowe Połącz.
+2. Wybierz pozycję "Dodaj zasób za pośrednictwem Azure Active Directory (Azure AD). Kliknij przycisk Dalej.
+3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Kliknij przycisk Dalej.
+4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Połącz.
+
+W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego RBAC. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-built-in-rbac-roles"></a>Zalecane wbudowane role RBAC
 
@@ -75,13 +82,13 @@ Istnieje kilka wbudowanych ról RBAC, które mogą zapewnić uprawnienia, które
 
 Błędy certyfikatów zwykle występują w jednej z następujących sytuacji:
 
-- Aplikacja jest połączona za pośrednictwem _przezroczystego serwera proxy_, co oznacza, że serwer (na przykład serwer firmy) przechwytuje ruch https, odszyfrowuje go, a następnie szyfruje przy użyciu certyfikatu z podpisem własnym.
+- Aplikacja jest połączona za pomocą _przezroczystego serwera proxy_. Oznacza to, że serwer (na przykład serwer firmy) przechwytuje ruch HTTPS, odszyfrowuje go, a następnie szyfruje przy użyciu certyfikatu z podpisem własnym.
 - Korzystasz z aplikacji, która wprowadza certyfikat TLS/SSL z podpisem własnym do odbieranych komunikatów HTTPS. Przykładami aplikacji, które wprowadzają certyfikaty, są oprogramowanie antywirusowe i program inspekcji ruchu sieciowego.
 
 Gdy Eksplorator usługi Storage widzi certyfikat z podpisem własnym lub niezaufany, nie wie, czy odebrany komunikat HTTPS został zmieniony. Jeśli masz kopię certyfikatu z podpisem własnym, możesz poinstruować Eksplorator usługi Storage, aby go ufa, wykonując następujące czynności:
 
 1. Uzyskaj kopię certyfikatu X. 509 z kodowaniem Base-64 (CER).
-2. Przejdź do pozycji **Edytuj** > **Certyfikaty** > SSL**Importuj certyfikaty**, a następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć plik. cer.
+2. Przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty**, a następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć plik. cer.
 
 Ten problem może również wystąpić, jeśli istnieje wiele certyfikatów (głównych i pośrednich). Aby naprawić ten błąd, należy dodać oba certyfikaty.
 
@@ -91,12 +98,12 @@ Jeśli nie masz pewności, skąd pochodzi certyfikat, wykonaj następujące krok
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): wszystkie wersje oświetlenia powinny być wystarczające.
     * Komputery Mac i Linux: powinny być dołączone do systemu operacyjnego.
 2. Uruchom OpenSSL.
-    * Windows: Otwórz katalog instalacji, wybierz pozycję **/bin/**, a następnie kliknij dwukrotnie **plik OpenSSL. exe**.
-    * Komputery Mac i Linux: `openssl` uruchamianie z poziomu terminalu.
+    * Windows: Otwórz katalog instalacji, wybierz pozycję **/bin/**, a następnie kliknij dwukrotnie przycisk **openssl.exe**.
+    * Komputery Mac i Linux: uruchamianie `openssl` z poziomu terminalu.
 3. Uruchom polecenie `s_client -showcerts -connect microsoft.com:443`.
 4. Wyszukaj certyfikaty z podpisem własnym. Jeśli nie masz pewności, które certyfikaty są z podpisem własnym, pamiętaj o tym, gdzie temat `("s:")` i wystawca `("i:")` są takie same.
 5. Po znalezieniu certyfikatów z podpisem własnym dla każdej z nich skopiuj i Wklej wszystko z (i włącznie z `-----BEGIN CERTIFICATE-----` ) `-----END CERTIFICATE-----` do nowego pliku. cer.
-6. Otwórz Eksplorator usługi Storage i przejdź do pozycji **Edytuj** > **Certyfikaty** > SSL**Importuj certyfikaty**. Następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć utworzone pliki CER.
+6. Otwórz Eksplorator usługi Storage i przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty**. Następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć utworzone pliki CER.
 
 Jeśli nie możesz znaleźć żadnych certyfikatów z podpisem własnym, wykonaj następujące kroki, aby skontaktować się z nami za pomocą narzędzia do przesyłania opinii. Możesz również otworzyć Eksplorator usługi Storage z wiersza polecenia przy użyciu `--ignore-certificate-errors` flagi. Po otwarciu z tą flagą Eksplorator usługi Storage ignoruje błędy certyfikatów.
 
@@ -106,10 +113,10 @@ Jeśli nie możesz znaleźć żadnych certyfikatów z podpisem własnym, wykonaj
 
 Puste okna dialogowe logowania najczęściej występują, gdy Active Directory Federation Services (AD FS) poprosi Eksplorator usługi Storage o przeprowadzenie przekierowania, który jest nieobsługiwany przez elektron. Aby obejść ten problem, możesz spróbować użyć przepływu kodu urządzenia do logowania. Aby to zrobić, wykonaj następujące kroki:
 
-1. Na pasku narzędzi po lewej stronie, Otwórz pozycję **Ustawienia**. W panelu Ustawienia przejdź do pozycji**Logowanie**do **aplikacji** > . Włącz **Logowanie za pomocą przepływu kodu urządzenia**.
+1. Na pasku narzędzi po lewej stronie, Otwórz pozycję **Ustawienia**. W panelu Ustawienia przejdź do pozycji Logowanie do **aplikacji**  >  **Sign in**. Włącz **Logowanie za pomocą przepływu kodu urządzenia**.
 2. Otwórz okno dialogowe **łączenie** (za pomocą ikony wtyczki na pasku pionowym po lewej stronie lub wybierając pozycję **Dodaj konto** w panelu konta).
 3. Wybierz środowisko, do którego chcesz się zalogować.
-4. Wybierz pozycję **Zaloguj**.
+4. Wybierz polecenie **Zaloguj się**.
 5. Postępuj zgodnie z instrukcjami wyświetlanymi na następnym panelu.
 
 Jeśli nie możesz zalogować się do konta, którego chcesz użyć, ponieważ domyślna przeglądarka została już zarejestrowana na innym koncie, wykonaj jedną z następujących czynności:
@@ -122,7 +129,7 @@ Jeśli nie możesz zalogować się do konta, którego chcesz użyć, ponieważ d
 Jeśli jesteś w pętli ponownego uwierzytelniania lub zmieniono nazwę UPN jednego z kont, wykonaj następujące czynności:
 
 1. Usuń wszystkie konta, a następnie zamknij Eksplorator usługi Storage.
-2. Usuń. IdentityService z komputera. W systemie Windows folder znajduje się w `C:\users\<username>\AppData\Local`folderze. W przypadku systemów Mac i Linux można znaleźć folder w katalogu głównym katalogu użytkownika.
+2. Usuń. IdentityService z komputera. W systemie Windows folder znajduje się w folderze `C:\users\<username>\AppData\Local` . W przypadku systemów Mac i Linux można znaleźć folder w katalogu głównym katalogu użytkownika.
 3. W przypadku korzystania z systemu Mac lub Linux należy również usunąć wpis Microsoft. developer. IdentityService z magazynu kluczy używanego przez system operacyjny. Na komputerze Mac magazyn kluczy jest aplikacją GNOME z *łańcucha* . W systemie Linux aplikacja jest zazwyczaj nazywana _dzwonkiem_, ale nazwa może się różnić w zależności od dystrybucji.
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
@@ -231,7 +238,7 @@ Jeśli widzisz klucze konta, w usłudze GitHub prosimy o problem, aby pomóc w r
 
 Jeśli podczas próby dodania połączenia niestandardowego zostanie wyświetlony komunikat o błędzie, dane połączenia przechowywane w lokalnym Menedżerze poświadczeń mogą być uszkodzone. Aby obejść ten problem, spróbuj usunąć uszkodzone połączenia lokalne, a następnie dodaj je ponownie:
 
-1. Rozpocznij Eksplorator usługi Storage. W menu Przejdź do pozycji **Pomoc** > i**Przełącz narzędzia deweloperskie**.
+1. Rozpocznij Eksplorator usługi Storage. W menu Przejdź do pozycji **Pomoc**i  >  **Przełącz narzędzia deweloperskie**.
 2. W otwartym oknie na karcie **aplikacja** przejdź do obszaru **Magazyn lokalny** (po lewej stronie) > **File://**.
 3. W zależności od typu połączenia, z którym występuje problem, poszukaj jego klucza, a następnie skopiuj jego wartość do edytora tekstu. Wartość jest tablicą niestandardowych nazw połączeń, takich jak następujące:
     * Konta magazynu
@@ -245,7 +252,7 @@ Jeśli podczas próby dodania połączenia niestandardowego zostanie wyświetlon
         * `StorageExplorer_CustomConnections_Queues_v1`
     * Tabele
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. Po zapisaniu bieżących nazw połączeń ustaw wartość w Narzędzia deweloperskie na `[]`.
+4. Po zapisaniu bieżących nazw połączeń ustaw wartość w Narzędzia deweloperskie na `[]` .
 
 Aby zachować połączenia, które nie są uszkodzone, można użyć poniższych kroków w celu zlokalizowania uszkodzonych połączeń. Jeśli nie chcesz utracić wszystkich istniejących połączeń, możesz pominąć te kroki i postępować zgodnie z instrukcjami dotyczącymi konkretnej platformy, aby wyczyścić dane połączenia.
 
@@ -259,13 +266,13 @@ Po przejściu przez wszystkie połączenia w przypadku wszystkich nazw połącze
 
 1. W menu **Start** Wyszukaj pozycję **Menedżer poświadczeń** i otwórz ją.
 2. Przejdź do **poświadczeń systemu Windows**.
-3. W obszarze **poświadczenia ogólne**Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. W obszarze **poświadczenia ogólne**Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Usuń te wpisy i Dodaj je jeszcze raz.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Otwórz centrum uwagi (Command + SPACEBAR) i Wyszukaj **dostęp do łańcucha kluczy**.
-2. Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Usuń te wpisy i Dodaj je jeszcze raz.
 
 # <a name="linux"></a>[Linux](#tab/Linux)
@@ -273,7 +280,7 @@ Po przejściu przez wszystkie połączenia w przypadku wszystkich nazw połącze
 Lokalne zarządzanie poświadczeniami różni się w zależności od dystrybucji systemu Linux. Jeśli dystrybucja systemu Linux nie udostępnia wbudowanego interfejsu GUI do lokalnego zarządzania poświadczeniami, możesz zainstalować narzędzie innych firm, aby zarządzać poświadczeniami lokalnymi. Na przykład można użyć [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), narzędzia interfejsu GUI open source do zarządzania poświadczeniami lokalnymi systemu Linux.
 
 1. Otwórz swoje lokalne narzędzie do zarządzania poświadczeniami i Znajdź zapisane poświadczenia.
-2. Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Usuń te wpisy i Dodaj je jeszcze raz.
 ---
 
@@ -290,12 +297,14 @@ Jeśli łączysz się z usługą za pomocą adresu URL sygnatury dostępu wspó�
 Jeśli przypadkowo dołączono przy użyciu nieprawidłowego adresu URL sygnatury dostępu współdzielonego i teraz nie można odłączyć, wykonaj następujące kroki:
 
 1. Gdy korzystasz z programu Eksplorator usługi Storage, naciśnij klawisz F12, aby otworzyć okno Narzędzia deweloperskie.
-2. Na karcie **aplikacja** wybierz pozycję **Magazyn** > lokalny**File://** w drzewie po lewej stronie.
-3. Znajdź klucz skojarzony z typem usługi problematycznego identyfikatora URI sygnatury dostępu współdzielonego. Na przykład jeśli zły identyfikator URI sygnatury dostępu współdzielonego dotyczy kontenera obiektów blob, poszukaj `StorageExplorer_AddStorageServiceSAS_v1_blob`klucza o nazwie.
+2. Na karcie **aplikacja** wybierz pozycję **Magazyn lokalny**  >  **File://** w drzewie po lewej stronie.
+3. Znajdź klucz skojarzony z typem usługi problematycznego identyfikatora URI sygnatury dostępu współdzielonego. Na przykład jeśli zły identyfikator URI sygnatury dostępu współdzielonego dotyczy kontenera obiektów blob, poszukaj klucza o nazwie `StorageExplorer_AddStorageServiceSAS_v1_blob` .
 4. Wartość klucza powinna być tablicą JSON. Znajdź obiekt skojarzony z nieprawidłowym identyfikatorem URI, a następnie usuń go.
 5. Naciśnij klawisze CTRL + R, aby ponownie załadować Eksplorator usługi Storage.
 
 ## <a name="linux-dependencies"></a>Zależności systemu Linux
+
+### <a name="snap"></a>Przystawki
 
 Eksplorator usługi Storage 1.10.0 i nowsze są dostępne jako Przyciągaj z magazynu Snap. Przystawka Eksplorator usługi Storage automatycznie instaluje wszystkie zależności i jest aktualizowana, gdy dostępna jest nowa wersja przyciągania. Zalecaną metodą instalacji jest zainstalowanie przystawki Eksplorator usługi Storage.
 
@@ -305,64 +314,83 @@ Eksplorator usługi Storage wymaga użycia Menedżera haseł, który może być 
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### <a name="targz-file"></a>Plik. tar. gz
+
 Możesz również pobrać aplikację jako plik tar. gz, ale musisz ręcznie zainstalować zależności.
 
-> [!IMPORTANT]
-> Eksplorator usługi Storage, jak to podano w pobraniu elementu. tar. gz, jest obsługiwana tylko dla dystrybucji Ubuntu. Inne dystrybucje nie zostały zweryfikowane i mogą wymagać alternatywnych lub dodatkowych pakietów.
+Eksplorator usługi Storage, zgodnie z opisem w pobraniu plików. tar. gz, jest obsługiwana tylko dla następujących wersji programu Ubuntu. Eksplorator usługi Storage mogą korzystać z innych dystrybucji systemu Linux, ale nie są oficjalnie obsługiwane.
 
-Te pakiety stanowią najczęstsze wymagania dotyczące Eksplorator usługi Storage w systemie Linux:
+- Ubuntu 20,04 x64
+- Ubuntu 18,04 x64
+- Ubuntu 16,04 x64
 
-* [Środowisko uruchomieniowe programu .NET Core 2,2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` lub `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Eksplorator usługi Storage wymaga zainstalowania programu .NET Core w systemie. Zalecamy platformę .NET Core 2,1, ale Eksplorator usługi Storage również będzie działała z 2,2.
 
 > [!NOTE]
-> Eksplorator usługi Storage wersja 1.7.0 i wcześniejsze wymagają programu .NET Core 2,0. Jeśli masz zainstalowaną nowszą wersję programu .NET Core, musisz [zastosować poprawkę Eksplorator usługi Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Jeśli korzystasz z programu Eksplorator usługi Storage 1.8.0 lub nowszego, powinno być możliwe użycie do .NET Core 2,2. W tej chwili nie zweryfikowano wersji ponad 2,2.
+> Eksplorator usługi Storage wersja 1.7.0 i wcześniejsze wymagają programu .NET Core 2,0. Jeśli masz zainstalowaną nowszą wersję programu .NET Core, musisz [zastosować poprawkę Eksplorator usługi Storage](#patching-storage-explorer-for-newer-versions-of-net-core). Jeśli korzystasz z programu Eksplorator usługi Storage 1.8.0 lub nowszego, musisz mieć co najmniej platformę .NET Core 2,1.
 
-# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
-1. Pobierz Eksplorator usługi Storage.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Uruchom następujące polecenie:
+1. Pobierz plik Eksplorator usługi Storage. tar. gz.
+2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Pobierz Eksplorator usługi Storage.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Uruchom następujące polecenie:
+1. Pobierz plik Eksplorator usługi Storage. tar. gz.
+2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
-1. Pobierz Eksplorator usługi Storage.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Uruchom następujące polecenie:
+1. Pobierz plik Eksplorator usługi Storage. tar. gz.
+2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
-
-1. Pobierz Eksplorator usługi Storage.
-2. Zainstaluj [środowisko uruchomieniowe programu .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Uruchom następujące polecenie:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Wiele bibliotek wymaganych przez Eksplorator usługi Storage są wstępnie zainstalowane z kanonicznymi instalacjami standardowymi Ubuntu. W środowiskach niestandardowych może brakować niektórych z tych bibliotek. Jeśli masz problemy z uruchamianiem Eksplorator usługi Storage, zalecamy upewnienie się, że następujące pakiety są zainstalowane w systemie:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg — narzędzia
 
 ### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Stosowanie poprawek Eksplorator usługi Storage w przypadku nowszych wersji platformy .NET Core
 
 W przypadku Eksplorator usługi Storage 1.7.0 lub starszych może być konieczne zainstalowanie wersji programu .NET Core używanej przez Eksplorator usługi Storage:
 
 1. Pobierz wersję 1.5.43 z StreamJsonRpc [z narzędzia NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Poszukaj linku "Pobierz pakiet" po prawej stronie strony.
-2. Po pobraniu pakietu zmień jego rozszerzenie z `.nupkg` na. `.zip`
+2. Po pobraniu pakietu zmień jego rozszerzenie z `.nupkg` na `.zip` .
 3. Rozpakuj pakiet.
 4. Otwórz folder `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Skopiuj `StreamJsonRpc.dll` do następujących lokalizacji w folderze Eksplorator usługi Storage:

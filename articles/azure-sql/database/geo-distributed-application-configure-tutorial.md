@@ -11,12 +11,11 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 415f76fc7c8b52a79bc864e61e1f85759e3f5d1f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043380"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84324729"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Samouczek: implementowanie rozproszonej geograficznie bazy danych (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,8 +41,8 @@ Aby ukończyć ten samouczek, upewnij się, że zainstalowano następujące elem
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Pojedyncza baza danych w Azure SQL Database. Aby utworzyć jedno użycie,
-  - [Portal](single-database-create-quickstart.md)
-  - [Interfejs wiersza polecenia](az-cli-script-samples-content-guide.md)
+  - [Witryna Azure Portal](single-database-create-quickstart.md)
+  - [Interfejs wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md)
   - [Program PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -92,7 +91,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Uruchom `az login` , aby zalogować się do platformy Azure.
@@ -140,7 +139,7 @@ Ustawienia replikacji geograficznej można także zmienić w Azure Portal, wybie
    cd SqlDbSample
    ```
 
-1. Za pomocą ulubionego edytora Otwórz plik *pliku pom. XML* w folderze projektu.
+1. Korzystając z ulubionego edytora, Otwórz plik *pom.xml* w folderze projektu.
 
 1. Dodaj sterownik JDBC firmy Microsoft dla zależności SQL Server, dodając następującą `dependency` sekcję. Zależność należy wkleić w większej `dependencies` sekcji.
 
@@ -344,7 +343,7 @@ Aby przetestować tryb failover:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Podczas testu można sprawdzić rolę serwera odzyskiwania po awarii za pomocą następującego polecenia:
 
@@ -370,7 +369,7 @@ Aby przetestować tryb failover:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku skonfigurowano Azure SQL Database i aplikację do pracy w trybie failover w regionie zdalnym i przetestowano plan trybu failover. W tym samouczku omówiono:
+W tym samouczku skonfigurowano bazę danych w Azure SQL Database i aplikację do przejścia w tryb failover do zdalnego regionu i przetestowano plan trybu failover. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 >
@@ -378,7 +377,7 @@ W tym samouczku skonfigurowano Azure SQL Database i aplikację do pracy w trybie
 > - Uruchamianie aplikacji języka Java w celu wykonywania zapytań do bazy danych w SQL Database
 > - Testowanie pracy w trybie failover
 
-Przejdź do następnego samouczka dotyczącego dodawania wystąpienia zarządzanego Azure SQL do grupy trybu failover:
+Przejdź do następnego samouczka, jak dodać wystąpienie wystąpienia zarządzanego Azure SQL do grupy trybu failover:
 
 > [!div class="nextstepaction"]
-> [Dodawanie wystąpienia zarządzanego usługi Azure SQL do grupy trybu failover](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Dodaj wystąpienie wystąpienia zarządzanego usługi Azure SQL do grupy trybu failover](../managed-instance/failover-group-add-instance-tutorial.md)

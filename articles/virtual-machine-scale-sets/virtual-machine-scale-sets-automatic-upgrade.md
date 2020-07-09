@@ -6,15 +6,15 @@ ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 04/14/2020
+ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: c06ad5ab2688bd62fdf898950a8f64cd655a9fcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85601347"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -46,11 +46,11 @@ Proces uaktualniania przebiega w następujący sposób:
 Aktualizacja systemu operacyjnego zestawu skalowania programu Orchestrator sprawdza dostępność ogólnego zestawu skalowania przed uaktualnieniem każdej partii. Podczas uaktualniania partii mogą istnieć inne współbieżne planowane lub nieplanowane działania konserwacyjne, które mogą mieć wpływ na kondycję wystąpień zestawów skalowania. W takich przypadkach, jeśli więcej niż 20% wystąpień zestawu skalowania stanie się zła, wówczas uaktualnienie zestawu skalowania zostanie zatrzymane na końcu bieżącej partii.
 
 ## <a name="supported-os-images"></a>Obsługiwane obrazy systemu operacyjnego
-Obecnie obsługiwane są tylko niektóre obrazy platformy systemu operacyjnego. Obsługa obrazów niestandardowych jest dostępna [w wersji zapoznawczej w](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) przypadku obrazów niestandardowych za pomocą [galerii obrazów udostępnionych](shared-image-galleries.md).
+Obecnie obsługiwane są tylko niektóre obrazy platformy systemu operacyjnego. Obrazy niestandardowe [są obsługiwane](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) , jeśli zestaw skalowania używa obrazów niestandardowych za pośrednictwem [galerii obrazów udostępnionych](shared-image-galleries.md).
 
 Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest dodawanych okresowo):
 
-| Wydawca               | Oferta systemu operacyjnego      |  SKU               |
+| Publisher               | Oferta systemu operacyjnego      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18,04 – LTS          |
@@ -77,90 +77,25 @@ Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest d
 ### <a name="service-fabric-requirements"></a>Wymagania Service Fabric
 
 W przypadku korzystania z Service Fabric upewnij się, że zostały spełnione następujące warunki:
--   [Poziom trwałości](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Service Fabric to Silver lub Gold, a nie brązowy.
+-   [Poziom trwałości](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Service Fabric to Silver lub Gold, a nie brązowy.
 -   Rozszerzenie Service Fabric w definicji modelu zestawu skalowania musi mieć wartość TypeHandlerVersion 1,1 lub nowszą.
 -   Poziom trwałości powinien być taki sam w przypadku klastra Service Fabric i rozszerzenia Service Fabric w definicji modelu zestawu skalowania.
+- Dodatkowa sonda kondycji lub użycie rozszerzenia kondycji aplikacji nie jest wymagane.
 
 Upewnij się, że ustawienia trwałości nie są niezgodne w przypadku klastra Service Fabric i rozszerzenia Service Fabric, ponieważ niezgodność spowoduje błędy uaktualniania. Poziomy trwałości można modyfikować zgodnie z wytycznymi opisanymi na [tej stronie](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 
-## <a name="automatic-os-image-upgrade-for-custom-images-preview"></a>Automatyczne uaktualnianie obrazu systemu operacyjnego dla obrazów niestandardowych (wersja zapoznawcza)
+## <a name="automatic-os-image-upgrade-for-custom-images"></a>Automatyczne uaktualnianie obrazu systemu operacyjnego dla obrazów niestandardowych
 
-> [!IMPORTANT]
-> Automatyczne uaktualnianie obrazu systemu operacyjnego dla obrazów niestandardowych jest obecnie dostępne w publicznej wersji zapoznawczej. Aby korzystać z funkcji publicznej wersji zapoznawczej opisanej poniżej, wymagana jest procedura zgody.
-> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Automatyczne uaktualnianie obrazu systemu operacyjnego jest dostępne w wersji zapoznawczej dla obrazów niestandardowych wdrożonych za poorednictwem [udostępnionej galerii obrazów](shared-image-galleries.md). Inne obrazy niestandardowe nie są obsługiwane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego.
-
-Włączenie funkcji wersji zapoznawczej wymaga jednorazowej zgody na funkcję *AutomaticOSUpgradeWithGalleryImage* na subskrypcję, jak opisano poniżej.
-
-### <a name="rest-api"></a>Interfejs API REST
-W poniższym przykładzie opisano sposób włączania wersji zapoznawczej subskrypcji:
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
-```
-
-Rejestracja funkcji może potrwać do 15 minut. Aby sprawdzić stan rejestracji:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
-```
-
-Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
-```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-Aby włączyć podgląd subskrypcji, użyj polecenia cmdlet [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-Rejestracja funkcji może potrwać do 15 minut. Aby sprawdzić stan rejestracji:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
-```
-
-Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
-Użyj [AZ Feature Register](/cli/azure/feature#az-feature-register) , aby włączyć podgląd dla Twojej subskrypcji.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-Rejestracja funkcji może potrwać do 15 minut. Aby sprawdzić stan rejestracji:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
-```
-
-Po zarejestrowaniu tej funkcji dla subskrypcji Zakończ proces wyboru, propagowanie zmiany do dostawcy zasobów obliczeniowych.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+Automatyczne uaktualnianie obrazu systemu operacyjnego jest obsługiwane w przypadku obrazów niestandardowych wdrożonych za poorednictwem [galerii obrazów udostępnionych](shared-image-galleries.md). Inne obrazy niestandardowe nie są obsługiwane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego.
 
 ### <a name="additional-requirements-for-custom-images"></a>Dodatkowe wymagania dotyczące obrazów niestandardowych
-- Opisany powyżej proces zgody należy wykonać tylko raz na subskrypcję. Po zakończeniu tego procesu można włączyć automatyczne uaktualnienia systemu operacyjnego dla dowolnego zestawu skalowania w ramach danej subskrypcji.
-- Galeria obrazów udostępnionych może znajdować się w dowolnej subskrypcji i nie musi być osobno wykorzystana. Tylko subskrypcja zestawu skalowania wymaga zgody na funkcję.
-- Proces konfiguracji automatycznego uaktualniania obrazu systemu operacyjnego jest taki sam dla wszystkich zestawów skalowania, jak opisano w [sekcji Konfiguracja](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) na tej stronie.
+- Proces instalacji i konfiguracji automatycznego uaktualniania obrazu systemu operacyjnego jest taki sam dla wszystkich zestawów skalowania, jak opisano w [sekcji Konfiguracja](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) tej strony.
 - Wystąpienia zestawów skalowania skonfigurowane na potrzeby automatycznych uaktualnień obrazu systemu operacyjnego zostaną uaktualnione do najnowszej wersji obrazu udostępnionej galerii obrazów po opublikowaniu nowej wersji obrazu i [replikacji](shared-image-galleries.md#replication) do regionu tego zestawu skalowania. Jeśli nowy obraz nie jest replikowany do regionu, w którym wdrożono skalowanie, wystąpienia zestawu skalowania nie zostaną uaktualnione do najnowszej wersji. Funkcja replikacji obrazów regionalnych pozwala kontrolować wprowadzanie nowego obrazu dla zestawów skalowania.
 - Nie można wykluczyć nowej wersji obrazu z najnowszej wersji dla tego obrazu galerii. Wersje obrazów wykluczone z najnowszej wersji obrazu galerii nie są przełączane do zestawu skalowania za pośrednictwem automatycznego uaktualniania obrazu systemu operacyjnego.
 
 > [!NOTE]
->Zestaw skalowania może potrwać do 3 godzin, gdy zestaw skalowania zostanie wyzwolony po skonfigurowaniu automatycznych uaktualnień systemu operacyjnego. Jest to jednorazowe opóźnienie na zestaw skalowania. Kolejne wdrożenia obrazu są wyzwalane w zestawie skalowania w ciągu 30 minut.
+>Zestaw skalowania może potrwać do 3 godzin, aby wyzwolić wdrożenie pierwszego obrazu po skonfigurowaniu zestawu skalowania na potrzeby automatycznych uaktualnień systemu operacyjnego. Jest to jednorazowe opóźnienie na zestaw skalowania. Kolejne wdrożenia obrazu są wyzwalane na zestawie skalowania w ciągu 30-60 minut.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurowanie automatycznego uaktualniania obrazu systemu operacyjnego
@@ -193,11 +128,14 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
-Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby skonfigurować automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania. Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
+Służy `[az vmss update](/cli/azure/vmss#az-vmss-update)` do konfigurowania automatycznych uaktualnień obrazu systemu operacyjnego dla zestawu skalowania. Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
+
+> [!NOTE]
+>Po skonfigurowaniu automatycznych uaktualnień obrazu systemu operacyjnego dla zestawu skalowania należy również przenieść maszyny wirtualne zestawu skalowania do najnowszego modelu zestawu skalowania, jeśli zestaw skalowania korzysta z [zasad uaktualniania](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)"ręczne".
 
 ## <a name="using-application-health-probes"></a>Korzystanie z sond kondycji aplikacji
 

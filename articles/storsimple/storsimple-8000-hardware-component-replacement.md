@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60321831"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564290"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Zastępowanie składnika sprzętowego na urządzeniu z serii StorSimple 8000
 
@@ -28,10 +28,10 @@ ms.locfileid: "60321831"
 Samouczki wymiany składników sprzętowych opisują składniki sprzętowe urządzenia z serii Microsoft Azure StorSimple 8000 i kroki niezbędne do ich usunięcia i zastępowania. W tym artykule opisano ikony bezpieczeństwa, dostępne są wskaźniki do szczegółowych samouczków i wymieniono składniki, które są wymienne.
 
 > [!IMPORTANT]
-> Przed podjęciem próby usunięcia lub zastąpienia dowolnego składnika StorSimple upewnij się, że zawarto przegląd [Konwencji ikon bezpieczeństwa](#safety-icon-conventions) i innych [środków bezpieczeństwa](storsimple-safety.md).
-
+> Przed podjęciem próby usunięcia lub zastąpienia dowolnego składnika StorSimple upewnij się, że zawarto przegląd [Konwencji ikon bezpieczeństwa](#safety-icon-conventions) i innych [środków bezpieczeństwa](storsimple-8000-safety.md).
 
 ### <a name="safety-icon-conventions"></a>Konwencje ikon bezpieczeństwa
+
 W poniższej tabeli opisano ikony bezpieczeństwa używane w tych samouczkach. Należy zwrócić szczególną uwagę na te ikony bezpieczeństwa podczas wykonywania kroków związanych z usuwaniem i zastępowaniem składników urządzeń.
 
 | Ikona | Tekst | Dodatkowe informacje |
@@ -47,20 +47,22 @@ W poniższej tabeli opisano ikony bezpieczeństwa używane w tych samouczkach. N
 | ![Ikona zagrożenia Porada](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Niebezpieczeństwo Porada** | |
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
-Zapoznaj się z informacjami o bezpieczeństwie dotyczącymi Twojego urządzenia i ikon bezpieczeństwa używanych w tym samouczku. Aby uzyskać pełne informacje, przejdź do [bezpiecznej instalacji i obsłudze urządzenia StorSimple](storsimple-safety.md) . Przed zainstalowaniem urządzenia StorSimple należy zapoznać się z jego [bezpieczeństwem](storsimple-safety.md#handling-precautions) .
+
+Zapoznaj się z informacjami o bezpieczeństwie dotyczącymi Twojego urządzenia i ikon bezpieczeństwa używanych w tym samouczku. Aby uzyskać pełne informacje, przejdź do [bezpiecznej instalacji i obsłudze urządzenia StorSimple](storsimple-8000-safety.md) . Przed zainstalowaniem urządzenia StorSimple należy zapoznać się z jego [bezpieczeństwem](storsimple-8000-safety.md#handling-precautions) .
 
 Przed podjęciem próby zamiany składnika należy wziąć pod uwagę następujące informacje.
 
-![](./media/storsimple-hardware-component-replacement/Warning.png) ![](./media/storsimple-hardware-component-replacement/Electric.png) **Ikona ostrzeżenia ikona** wstrząsu instalacji elektrycznej.
+![Ikona ostrzeżenia ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-hardware-component-replacement/Electric.png) **WARNING!** .
 
 * Poprawna, przy użyciu zrzutów elektrostatyczne lub do niestatycznego mat podczas obsługi modułów i składników urządzenia StorSimple.
 * Nie dotykaj żadnego obwodu. Użyj dostarczonych dojść i prowadnic podczas obsługi składników, które mogą mieć narażony obwód.
 
-![Ikona ostrzeżenia ostrzeżenie **:** ](./media/storsimple-hardware-component-replacement/Warning.png) ![](./media/storsimple-hardware-component-replacement/NoticeIcon.png)
+![Ikona ostrzeżenia ostrzeżenie ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **:**
 
 Gdy zastąpisz moduł, **nigdy nie opuszczaj pustej kieszeni w tylnej części obudowy**. Przed usunięciem części problemu Uzyskaj Moduł zastępczy lub pusty.
 
 ## <a name="hardware-component-replacement-procedures"></a>Procedury zastępcze składników sprzętowych
+
 Urządzenie z serii StorSimple 8000 składa się z kilku modułów wtyczek w obudowach podstawowych i/lub EBOD. 8100 ma jedną obudowę podstawową, a 8600 to urządzenie dwuobudówowe z obudową podstawową i obudową EBOD.
 
 Główne składniki sprzętowe w urządzeniu są podsumowane w poniższych tabelach. Kliknij link w kolumnie **Procedura zastępcza** , aby przejść do skojarzonego samouczka.
@@ -121,6 +123,7 @@ Zarówno obudowa podstawowa, jak i obudowa EBOD mają moduły nośne dysków. Ob
 | 4 |Kontroler EBOD 1 |
 
 ## <a name="field-replaceable-units"></a>Jednostki przemieszczenia pól
+
 Następujące pola (FRUs) są dostępne dla urządzenia StorSimple:
 
 * Obudowa (łącznie z panelem zintegrowanych operacji)
@@ -135,5 +138,5 @@ Następujące pola (FRUs) są dostępne dla urządzenia StorSimple:
 [Skontaktuj się pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md) , aby zamówić dowolne z tych jednostek zamiennych.
 
 ## <a name="next-steps"></a>Następne kroki
-Przed podjęciem próby zamiany składnika sprzętowego StorSimple Przejrzyj wszystkie [Informacje o zabezpieczeniach](storsimple-safety.md) .
 
+Przed podjęciem próby zamiany składnika sprzętowego StorSimple Przejrzyj wszystkie [Informacje o zabezpieczeniach](storsimple-8000-safety.md) .

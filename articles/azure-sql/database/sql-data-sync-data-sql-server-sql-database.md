@@ -4,22 +4,21 @@ description: W tym omówieniu wprowadzono SQL Data Sync platformy Azure, która 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync, sqldbrb=1
+ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: f4bec780fcf40b4fbee7ccf6c59463a5efb1adc0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 80bc254aafa9c221fcaf724331928b7f30360eac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048777"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610850"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync to usługa oparta na Azure SQL Database, która pozwala synchronizować dane, które są wybierane dwukierunkowo dla wielu baz danych, zarówno lokalnie, jak i w chmurze. 
 
@@ -34,8 +33,8 @@ Synchronizacja danych opiera się na koncepcji grupy synchronizacji. Grupa synch
 Synchronizacja danych używa topologii gwiazdy do synchronizowania danych. Jedną z baz danych w grupie synchronizacji należy zdefiniować jako bazę danych centrum. Pozostałe bazy danych są członkami baz danych. Synchronizacja odbywa się tylko między węzłem i indywidualnymi elementami członkowskimi.
 
 - **Baza danych centrum** musi być Azure SQL Database.
-- **Bazy danych elementów członkowskich** mogą być Azure SQL Database, lokalne SQL Server baz danych lub wystąpienia SQL Server na maszynach wirtualnych platformy Azure.
-- **Baza danych synchronizacji** zawiera metadane i Dziennik synchronizacji danych. Baza danych synchronizacji musi być Azure SQL Database umieszczona w tym samym regionie, w którym znajduje się baza danych centrów. Baza danych synchronizacji jest tworzona przez klienta i jest własnością klienta.
+- **Bazy danych elementów członkowskich** mogą być albo bazami danych w Azure SQL Database, albo w wystąpieniach SQL Server.
+- **Baza danych metadanych synchronizacji** zawiera metadane i Dziennik synchronizacji danych. Baza danych metadanych synchronizacji musi być Azure SQL Database umieszczona w tym samym regionie, w którym znajduje się baza danych centrów. Baza danych metadanych synchronizacji jest tworzona przez klienta i jest własnością klienta. Możesz mieć tylko jedną bazę danych metadanych synchronizacji na region i subskrypcję. Nie można usunąć bazy danych metadanych synchronizacji ani zmienić jej nazwy, gdy istnieją grupy synchronizacji lub agenci synchronizacji. Firma Microsoft zaleca, aby utworzyć nową, pustą bazę danych, która będzie używana jako baza danych metadanych synchronizacji. Synchronizacja danych tworzy tabele w tej bazie danych i uruchamia częste obciążenie.
 
 > [!NOTE]
 > W przypadku korzystania z lokalnej bazy danych jako bazy danych będącej członkiem należy [zainstalować i skonfigurować lokalnego agenta synchronizacji](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -64,7 +63,7 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | Odzyskiwanie po awarii | [Geograficznie nadmiarowe platformy Azure](automated-backups-overview.md) |
 | Skala odczytu | [Używanie replik tylko do odczytu do równoważenia obciążenia obciążeń zapytań tylko do odczytu (wersja zapoznawcza)](read-scale-out.md) |
 | ETL (OLTP do OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) lub [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migracja z SQL Server lokalnych do Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migracja z SQL Server do Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 
@@ -156,7 +155,7 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Ograniczenia dotyczące wymiarów usługi i bazy danych
 
-| **Wymiary**                                                  | **Limit**              | **Poprawkę**              |
+| **Wymiary**                                                  | **Limit**              | **Obejście**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maksymalna liczba grup synchronizacji, do których może należeć baza danych.       | 5                      |                             |
 | Maksymalna liczba punktów końcowych w pojedynczej grupie synchronizacji              | 30                     |                             |
@@ -169,6 +168,18 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 
 > [!NOTE]
 > W jednej grupie synchronizacji może istnieć maksymalnie 30 punktów końcowych, jeśli istnieje tylko jedna grupa synchronizacji. Jeśli istnieje więcej niż jedna grupa synchronizacji, Łączna liczba punktów końcowych we wszystkich grupach synchronizacji nie może przekroczyć 30. Jeśli baza danych należy do wielu grup synchronizacji, jest traktowana jako wiele punktów końcowych, a nie jeden.
+
+### <a name="network-requirements"></a>Wymagania dotyczące sieci
+
+Po ustanowieniu grupy synchronizacji usługa synchronizacji danych musi nawiązać połączenie z bazą danych centrum. Podczas ustanawiania grupy synchronizacji w ustawieniach programu Azure SQL Server musi znajdować się następująca konfiguracja `Firewalls and virtual networks` :
+
+ * *Odmowa dostępu do sieci publicznej* musi być ustawiona na *off*.
+ * *Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera* musi być ustawiona wartość *Yes (tak*) lub należy utworzyć reguły adresów IP dla [adresów IP używanych przez usługę synchronizacji danych](network-access-controls-overview.md#data-sync).
+
+Po utworzeniu i udostępnieniu grupy synchronizacji można wyłączyć te ustawienia. Agent synchronizacji będzie łączył się bezpośrednio z centralną bazą danych i można użyć [reguł IP zapory](firewall-configure.md) serwera lub [prywatnych punktów końcowych](private-endpoint-overview.md) , aby umożliwić agentowi dostęp do serwera centrum.
+
+> [!NOTE]
+> W przypadku zmiany ustawień schematu grupy synchronizacji należy zezwolić usłudze synchronizacji danych na dostęp do serwera ponownie, aby można było ponownie zainicjować obsługę administracyjną bazy danych.
 
 ## <a name="faq-about-sql-data-sync"></a>Często zadawane pytania dotyczące SQL Data Sync
 
@@ -184,20 +195,20 @@ SQL Data Sync jest dostępna we wszystkich regionach.
 
 Tak. Aby hostować bazę danych centrów, musisz mieć konto SQL Database.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Czy można używać synchronizacji danych do synchronizowania tylko SQL Server lokalnych baz danych
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-databases-only"></a>Czy synchronizacja danych może być używana do synchronizacji tylko między bazami danych SQL Server
 
-Nie bezpośrednio. Istnieje możliwość synchronizacji między SQL Server lokalnymi bazami danych, jednak przez utworzenie centralnej bazy danych na platformie Azure, a następnie dodanie lokalnych baz danych do grupy synchronizacji.
+Nie bezpośrednio. Istnieje jednak możliwość synchronizacji między bazami danych SQL Server, ale przez utworzenie centralnej bazy danych na platformie Azure, a następnie dodanie lokalnych baz danych do grupy synchronizacji.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych SQL, które należą do różnych subskrypcji
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych w SQL Database, które należą do różnych subskrypcji
 
-Tak. Można synchronizować między bazami danych SQL, które należą do grup zasobów należących do różnych subskrypcji.
+Tak. Można synchronizować między bazami danych należącymi do grup zasobów należących do różnych subskrypcji.
 
 - Jeśli subskrypcje należą do tej samej dzierżawy i masz uprawnienia do wszystkich subskrypcji, możesz skonfigurować grupę synchronizacji w Azure Portal.
 - W przeciwnym razie musisz użyć programu PowerShell, aby dodać elementy członkowskie synchronizacji należące do różnych subskrypcji.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych SQL, które należą do różnych chmur (takich jak chmura publiczna platformy Azure i usługa Azure Chiny 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych w SQL Database, które należą do różnych chmur (takich jak chmura publiczna platformy Azure i usługa Azure Chiny 21Vianet)
 
-Tak. Można zsynchronizować między bazami danych SQL należącymi do różnych chmur, aby dodać elementy członkowskie synchronizacji należące do różnych subskrypcji.
+Tak. Można synchronizować między bazami danych, które należą do różnych chmur. Musisz użyć programu PowerShell, aby dodać elementy członkowskie synchronizacji należące do różnych subskrypcji.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Czy można używać synchronizacji danych do wypełniania danych z mojej produkcyjnej bazy danych do pustej bazy danych, a następnie synchronizować ją
 
@@ -205,9 +216,9 @@ Tak. Utwórz schemat ręcznie w nowej bazie danych, wykonując skrypt z orygina�
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Czy należy używać SQL Data Sync do tworzenia kopii zapasowych i przywracania baz danych
 
-Nie zaleca się używania SQL Data Sync, aby utworzyć kopię zapasową danych. Nie można utworzyć kopii zapasowej i przywrócić do określonego punktu w czasie, ponieważ synchronizacje SQL Data Sync nie są obsługiwane. Ponadto SQL Data Sync nie wykonuje kopii zapasowych innych obiektów SQL, takich jak procedury składowane, i nie wykonuje operacji przywracania szybko.
+Nie zaleca się używania SQL Data Sync, aby utworzyć kopię zapasową danych. Nie można utworzyć kopii zapasowej i przywrócić do określonego punktu w czasie, ponieważ synchronizacje SQL Data Sync nie są obsługiwane. Ponadto SQL Data Sync nie tworzy kopii zapasowej innych obiektów SQL, takich jak procedury składowane, i nie wykonuje operacji przywracania szybko.
 
-Aby poznać jedną z zalecanych technik tworzenia kopii zapasowych, zobacz [Kopiowanie bazy danych Azure SQL Database](database-copy.md).
+Aby zapoznać się z jedną zalecaną techniką tworzenia kopii zapasowych, zobacz [Kopiowanie bazy danych w Azure SQL Database](database-copy.md).
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Czy zaszyfrowane tabele i kolumny synchronizacji synchronizacji danych
 
@@ -224,6 +235,10 @@ Tak. SQL Data Sync obsługuje sortowanie w następujących scenariuszach:
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Czy Federacja jest obsługiwana w SQL Data Sync
 
 Główna baza danych Federacji może być używana w usłudze SQL Data Sync bez ograniczeń. Nie można dodać punktu końcowego bazy danych federacyjnych do bieżącej wersji SQL Data Sync.
+
+### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Czy można używać funkcji synchronizacji danych do synchronizowania danych wyeksportowanych z systemu Dynamics 365 przy użyciu narzędzia do przenoszenia własnych baz danych (BYOD)?
+
+Funkcja Dynamics 365 umożliwia administratorom eksportowanie jednostek danych z aplikacji do własnych Microsoft Azure bazy danych SQL. Synchronizacja danych może służyć do synchronizowania tych danych z innymi bazami danych, jeśli dane są eksportowane przy użyciu **wypychania przyrostowego** (pełna wypychanie nie jest obsługiwana), a **wyzwalacze włączania w docelowej bazie danych** są ustawione na **wartość tak**.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -247,3 +262,4 @@ Aby uzyskać więcej informacji na temat Azure SQL Database, zobacz następując
 
 - [Omówienie usługi SQL Database](sql-database-paas-overview.md)
 - [Database Lifecycle Management (Zarządzanie cyklem życia bazy danych)](https://msdn.microsoft.com/library/jj907294.aspx)
+ 

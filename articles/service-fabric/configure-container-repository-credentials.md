@@ -5,15 +5,14 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76934993"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Skonfiguruj poświadczenia repozytorium dla aplikacji, aby pobierać obrazy kontenerów
 
-Skonfiguruj uwierzytelnianie rejestru kontenerów, `RepositoryCredentials` dodając `ContainerHostPolicies` do sekcji manifestu aplikacji. Dodaj konto i hasło do rejestru kontenerów (*myregistry.azurecr.IO* w poniższym przykładzie), co umożliwia usłudze pobranie obrazu kontenera z repozytorium.
+Skonfiguruj uwierzytelnianie rejestru kontenerów, dodając `RepositoryCredentials` do `ContainerHostPolicies` sekcji manifestu aplikacji. Dodaj konto i hasło do rejestru kontenerów (*myregistry.azurecr.IO* w poniższym przykładzie), co umożliwia usłudze pobranie obrazu kontenera z repozytorium.
 
 ```xml
 <ServiceManifestImport>
@@ -35,7 +34,7 @@ Aby uzyskać więcej informacji na temat certyfikatów i semantyki szyfrowania, 
 
 Service Fabric umożliwia skonfigurowanie poświadczeń dla całego klastra, które mogą być używane jako domyślne poświadczenia repozytorium przez aplikacje.
 
-Tę funkcję `UseDefaultRepositoryCredentials` można włączyć lub wyłączyć przez dodanie atrybutu do `ContainerHostPolicies` pliku ApplicationManifest. XML z wartością `true` lub. `false`
+Tę funkcję można włączyć lub wyłączyć przez dodanie `UseDefaultRepositoryCredentials` atrybutu do `ContainerHostPolicies` elementu w ApplicationManifest.xml z `true` `false` wartością lub.
 
 ```xml
 <ServiceManifestImport>
@@ -49,14 +48,14 @@ Tę funkcję `UseDefaultRepositoryCredentials` można włączyć lub wyłączyć
 </ServiceManifestImport>
 ```
 
-Service Fabric następnie używa domyślnych poświadczeń repozytorium, które można określić w ClusterManifest w `Hosting` sekcji.  Jeśli `UseDefaultRepositoryCredentials` jest `true`, Service Fabric odczytuje następujące wartości z ClusterManifest:
+Service Fabric następnie używa domyślnych poświadczeń repozytorium, które można określić w ClusterManifest w `Hosting` sekcji.  Jeśli `UseDefaultRepositoryCredentials` jest `true` , Service Fabric odczytuje następujące wartości z ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (ciąg)
 * DefaultContainerRepositoryPassword (ciąg)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (ciąg)
 
-Oto przykład, co można dodać do `Hosting` sekcji w pliku ClusterManifestTemplate. JSON. `Hosting` Sekcję można dodać podczas tworzenia klastra lub później w ramach uaktualnienia konfiguracji. Aby uzyskać więcej informacji, zobacz [Zmienianie ustawień klastra platformy azure Service Fabric](service-fabric-cluster-fabric-settings.md) i zarządzanie wpisami [tajnymi aplikacji platformy Azure Service Fabric](service-fabric-application-secret-management.md)
+Poniżej znajduje się przykład, co można dodać do `Hosting` sekcji w ClusterManifestTemplate.jspliku. `Hosting`Sekcję można dodać podczas tworzenia klastra lub później w ramach uaktualnienia konfiguracji. Aby uzyskać więcej informacji, zobacz [Zmienianie ustawień klastra platformy azure Service Fabric](service-fabric-cluster-fabric-settings.md) i zarządzanie wpisami [tajnymi aplikacji platformy Azure Service Fabric](service-fabric-application-secret-management.md)
 
 ```json
 "fabricSettings": [
@@ -101,7 +100,7 @@ Service Fabric obsługuje używanie tokenów jako poświadczeń do pobierania ob
 
     ![Dodawanie podmiotu maszyny wirtualnej do ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3. Następnie zmodyfikuj manifest aplikacji. W `ContainerHostPolicies` sekcji Dodaj atrybut `‘UseTokenAuthenticationCredentials=”true”`.
+3. Następnie zmodyfikuj manifest aplikacji. W `ContainerHostPolicies` sekcji Dodaj atrybut `‘UseTokenAuthenticationCredentials=”true”` .
 
     ```xml
       <ServiceManifestImport>
@@ -116,7 +115,7 @@ Service Fabric obsługuje używanie tokenów jako poświadczeń do pobierania ob
     ```
 
     > [!NOTE]
-    > Flaga `UseDefaultRepositoryCredentials` ma ustawioną wartość true `UseTokenAuthenticationCredentials` , gdy ma wartość true, spowoduje wystąpienie błędu podczas wdrażania.
+    > Flaga ma `UseDefaultRepositoryCredentials` ustawioną wartość true, gdy `UseTokenAuthenticationCredentials` ma wartość true, spowoduje wystąpienie błędu podczas wdrażania.
 
 ## <a name="next-steps"></a>Następne kroki
 

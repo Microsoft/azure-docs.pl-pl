@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79280302"
 ---
 # <a name="api-management-caching-policies"></a>Zasady buforowania usługi API Management
@@ -76,7 +75,7 @@ Użyj `cache-lookup` zasad w celu przeprowadzenia wyszukiwania w pamięci podrę
 ```
 
 #### <a name="example-using-policy-expressions"></a>Przykład użycia wyrażeń zasad
-Ten przykład pokazuje, jak API Management skonfigurować czas trwania buforowania odpowiedzi, który jest zgodny z buforowaniem odpowiedzi usługi wewnętrznej bazy danych określonej przez `Cache-Control` dyrektywę usługi w tej usłudze. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 25:25.
+Ten przykład pokazuje, jak API Management skonfigurować czas trwania buforowania odpowiedzi, który jest zgodny z buforowaniem odpowiedzi usługi wewnętrznej bazy danych określonej przez dyrektywę usługi w tej usłudze `Cache-Control` . Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 25:25.
 
 ```xml
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->
@@ -100,7 +99,7 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |pamięć podręczna — wyszukiwanie|Element główny.|Tak|
 |Zróżnicuj według nagłówka|Rozpocznij buforowanie odpowiedzi na wartość określonego nagłówka, na przykład Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, from, host, if-Match.|Nie|
@@ -108,23 +107,23 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                           | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny           |
+| Nazwa                           | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| Zezwalaj na buforowanie z odpowiedziami prywatnymi | Gdy ustawiona na `true`, umożliwia buforowanie żądań zawierających nagłówek autoryzacji.                                                                                                                                                                                                                                                                        | Nie       | fałsz             |
+| Zezwalaj na buforowanie z odpowiedziami prywatnymi | Gdy ustawiona na `true` , umożliwia buforowanie żądań zawierających nagłówek autoryzacji.                                                                                                                                                                                                                                                                        | Nie       | fałsz             |
 | Typ buforowania               | Wybierz między następującymi wartościami atrybutu:<br />- `internal`Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external`Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external`użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | buforowanie podrzędne-Type        | Ten atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -None — buforowanie podrzędne nie jest dozwolone.<br />— prywatne buforowanie w trybie podrzędnym jest dozwolone.<br />-publiczne i udostępnione buforowanie podrzędne jest dozwolone.                                                                                                          | Nie       | brak              |
-| musi ponownie sprawdzić poprawność                | Gdy buforowanie podrzędne jest włączone, `must-revalidate` ten atrybut włącza lub wyłącza dyrektywę kontroli pamięci podręcznej w odpowiedziach bramy.                                                                                                                                                                                                                      | Nie       | true              |
-| Zróżnicuj według deweloperów              | `true` Ustaw na buforowanie odpowiedzi na [klucz subskrypcji](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Tak      |         Fałsz          |
-| różne grupy deweloperów       | Ustaw na `true` wartość w celu buforowania odpowiedzi dla każdej [grupy użytkowników](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Tak      |       Fałsz            |
+| musi ponownie sprawdzić poprawność                | Gdy buforowanie podrzędne jest włączone, ten atrybut włącza lub wyłącza `must-revalidate` dyrektywę kontroli pamięci podręcznej w odpowiedziach bramy.                                                                                                                                                                                                                      | Nie       | true              |
+| Zróżnicuj według deweloperów              | Ustaw na `true` buforowanie odpowiedzi na [klucz subskrypcji](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Tak      |         Fałsz          |
+| różne grupy deweloperów       | Ustaw na wartość `true` w celu buforowania odpowiedzi dla każdej [grupy użytkowników](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Tak      |       Fałsz            |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące
 - **Zakresy zasad:** wszystkie zakresy
 
 ## <a name="store-to-cache"></a><a name="StoreToCache"></a>Przechowywanie w pamięci podręcznej
-`cache-store` Zasady buforują odpowiedzi zgodnie z określonymi ustawieniami pamięci podręcznej. Te zasady mogą być stosowane w przypadkach, w których zawartość odpowiedzi pozostaje statyczna w danym okresie czasu. Buforowanie odpowiedzi zmniejsza wymagania dotyczące przepustowości i przetwarzania narzucone na serwerze sieci Web zaplecza i obniża opóźnienia postrzegane przez klientów interfejsu API.
+`cache-store`Zasady buforują odpowiedzi zgodnie z określonymi ustawieniami pamięci podręcznej. Te zasady mogą być stosowane w przypadkach, w których zawartość odpowiedzi pozostaje statyczna w danym okresie czasu. Buforowanie odpowiedzi zmniejsza wymagania dotyczące przepustowości i przetwarzania narzucone na serwerze sieci Web zaplecza i obniża opóźnienia postrzegane przez klientów interfejsu API.
 
 > [!NOTE]
 > Te zasady muszą mieć odpowiednie zasady [Get z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) .
@@ -155,7 +154,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 ```
 
 #### <a name="example-using-policy-expressions"></a>Przykład użycia wyrażeń zasad
-Ten przykład pokazuje, jak API Management skonfigurować czas trwania buforowania odpowiedzi, który jest zgodny z buforowaniem odpowiedzi usługi wewnętrznej bazy danych określonej przez `Cache-Control` dyrektywę usługi w tej usłudze. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 25:25.
+Ten przykład pokazuje, jak API Management skonfigurować czas trwania buforowania odpowiedzi, który jest zgodny z buforowaniem odpowiedzi usługi wewnętrznej bazy danych określonej przez dyrektywę usługi w tej usłudze `Cache-Control` . Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 25:25.
 
 ```xml
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->
@@ -179,17 +178,17 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |Magazyn pamięci podręcznej|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | czas trwania         | Czas wygaśnięcia wpisów w pamięci podręcznej (w sekundach).                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** wychodzące
@@ -222,27 +221,27 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |pamięć podręczna — wyszukiwanie-wartość|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal`Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external`Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external`użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | wartość domyślna    | Wartość, która zostanie przypisana do zmiennej, jeśli wyszukiwanie klucza pamięci podręcznej spowodowało brak. Jeśli ten atrybut nie jest określony, `null` jest przypisany.                                                                                                                                                                                                           | Nie       | `null`            |
 | key              | Wartość klucza pamięci podręcznej do użycia w wyszukiwaniu.                                                                                                                                                                                                                                                                                                                       | Tak      | Nie dotyczy               |
-| Nazwa zmiennej    | Nazwa [zmiennej kontekstowej](api-management-policy-expressions.md#ContextVariables) , do której zostanie przypisana wartość, jeśli wyszukiwanie zakończyło się pomyślnie. Jeśli wyszukiwanie spowoduje odrzucenie, zmienna zostanie przypisana do wartości `default-value` atrybutu lub `null`, jeśli `default-value` atrybut zostanie pominięty.                                       | Tak      | Nie dotyczy               |
+| Nazwa zmiennej    | Nazwa [zmiennej kontekstowej](api-management-policy-expressions.md#ContextVariables) , do której zostanie przypisana wartość, jeśli wyszukiwanie zakończyło się pomyślnie. Jeśli wyszukiwanie spowoduje odrzucenie, zmienna zostanie przypisana do wartości `default-value` atrybutu lub `null` , jeśli `default-value` atrybut zostanie pominięty.                                       | Tak      | Nie dotyczy               |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 - **Zakresy zasad:** wszystkie zakresy
 
 ## <a name="store-value-in-cache"></a><a name="StoreToCacheByKey"></a>Wartość magazynu w pamięci podręcznej
-`cache-store-value` Magazyn pamięci podręcznej przez klucz. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad.
+`cache-store-value`Magazyn pamięci podręcznej przez klucz. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad.
 
 > [!NOTE]
 > Te zasady muszą mieć odpowiednie [wartości Get z zasad pamięci podręcznej](#GetFromCacheByKey) .
@@ -265,26 +264,26 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |pamięć podręczna-magazyn-wartość|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal`Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external`Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external`użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | czas trwania         | Wartość zostanie zbuforowana dla podanej wartości czasu trwania określonej w sekundach.                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy               |
 | key              | Klucz pamięci podręcznej, w której będzie przechowywana wartość.                                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
-| value            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Tak      | Nie dotyczy               |
-### <a name="usage"></a>Sposób użycia
+| wartość            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Tak      | Nie dotyczy               |
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 - **Zakresy zasad:** wszystkie zakresy
 
 ### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a>Usuń wartość z pamięci podręcznej
-`cache-remove-value` Usuwa buforowany element identyfikowany przez jego klucz. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad.
+`cache-remove-value`Usuwa buforowany element identyfikowany przez jego klucz. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad.
 
 #### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -304,18 +303,18 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 #### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |pamięć podręczna — usuwanie wartości|Element główny.|Tak|
 
 #### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal`Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external`Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external`użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | key              | Klucz poprzednio buforowanej wartości, który ma zostać usunięty z pamięci podręcznej.                                                                                                                                                                                                                                                                                        | Tak      | Nie dotyczy               |
 
-#### <a name="usage"></a>Sposób użycia
+#### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) zasad.
 
 - **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu

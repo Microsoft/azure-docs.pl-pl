@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81460430"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux na podstawie dysku niestandardowego przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -39,7 +39,7 @@ Aby wykonać następujące kroki, potrzebne są:
 
 - Maszyna wirtualna z systemem Linux, która została przygotowana do użycia na platformie Azure. Sekcja [przygotowanie maszyny wirtualnej](#prepare-the-vm) w tym artykule zawiera informacje dotyczące sposobu znalezienia dystrybucji informacji dotyczących instalacji agenta systemu Linux (waagent), który jest wymagany do nawiązania połączenia z maszyną wirtualną przy użyciu protokołu SSH.
 - Plik VHD z istniejącej [dystrybucji systemu Linux zaświadczonej przez platformę Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (lub Wyświetl [informacje dotyczące dystrybucji niepotwierdzonych](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) na dysku wirtualnym w formacie VHD. Istnieje wiele narzędzi do utworzenia maszyny wirtualnej i wirtualnego dysku twardego:
-  - Zainstaluj i skonfiguruj [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) lub [KVM](https://www.linux-kvm.org/page/RunningKVM), pamiętając o użyciu dysku VHD jako formatu obrazu. W razie konieczności można [przekonwertować obraz](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) za pomocą `qemu-img convert`.
+  - Zainstaluj i skonfiguruj [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) lub [KVM](https://www.linux-kvm.org/page/RunningKVM), pamiętając o użyciu dysku VHD jako formatu obrazu. W razie konieczności można [przekonwertować obraz](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) za pomocą `qemu-img convert` .
   - Można również użyć funkcji Hyper-V [w systemie Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) lub [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Aby wykonać następujące kroki, potrzebne są:
 
 - Upewnij się, że masz zainstalowaną najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogujesz się do konta platformy Azure przy użyciu [AZ login](/cli/azure/reference-index#az-login).
 
-W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami, takimi jak `myResourceGroup`, `mystorageaccount`, i `mydisks`.
+W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami, takimi jak `myResourceGroup` , `mystorageaccount` , i `mydisks` .
 
 <a id="prepimage"> </a>
 

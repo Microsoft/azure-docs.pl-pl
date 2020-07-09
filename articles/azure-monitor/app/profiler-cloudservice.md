@@ -7,10 +7,9 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671668"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilowanie na żywo Cloud Services platformy Azure z Application Insights
@@ -18,7 +17,7 @@ ms.locfileid: "77671668"
 Application Insights Profiler można również wdrożyć w następujących usługach:
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplikacje Service Fabric platformy Azure](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines platformy Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler jest instalowany z rozszerzeniem Diagnostyka Azure. Wystarczy skonfigurować Diagnostyka Azure, aby zainstalować Profiler i wysyłać profile do zasobu Application Insights.
 
@@ -43,7 +42,7 @@ Application Insights Profiler jest instalowany z rozszerzeniem Diagnostyka Azure
 
       Jeśli nie możesz znaleźć pliku, zobacz [Konfigurowanie diagnostyki dla platformy Azure Cloud Services i Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
-    b. Dodaj następującą `SinksConfig` sekcję jako element podrzędny `WadCfg`:  
+    b. Dodaj następującą `SinksConfig` sekcję jako element podrzędny `WadCfg` :  
 
       ```xml
       <WadCfg>
@@ -63,7 +62,7 @@ Application Insights Profiler jest instalowany z rozszerzeniem Diagnostyka Azure
     > * Klucz, który jest używany przez ujścia ApplicationInsights. 
     > * Klucz, który jest używany przez ujścia ApplicationInsightsProfiler. 
     >
-    > Rzeczywistą wartość klucza Instrumentacji używaną przez `ApplicationInsights` ujścia można znaleźć w elemencie *ServiceConfiguration.\* cscfg* — pliki. 
+    > Rzeczywistą wartość klucza Instrumentacji używaną przez ujścia można znaleźć `ApplicationInsights` w elemencie *ServiceConfiguration. \* cscfg* — pliki. 
     > Po wydaniu zestawu SDK dla programu Visual Studio 15,5 Azure, tylko klucze instrumentacji, które są używane przez aplikację i ujścia ApplicationInsightsProfiler, muszą być zgodne ze sobą.
 
 1. Wdróż usługę przy użyciu nowej konfiguracji diagnostyki, a Application Insights Profiler jest skonfigurowana do uruchamiania w usłudze.

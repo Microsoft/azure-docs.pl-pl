@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261023"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85356954"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: przemieszczanie serwera i odzyskiwania po awarii
 Gdy serwer jest w trybie przejściowym, można wprowadzić zmiany w konfiguracji i wyświetlić podgląd zmian przed rozpoczęciem aktywności serwera. Umożliwia również uruchomienie pełnego importu i pełnej synchronizacji w celu sprawdzenia, czy wszystkie zmiany są oczekiwane przed wprowadzeniem zmian w środowisku produkcyjnym.
@@ -60,7 +60,7 @@ Aby zastosować tę metodę, wykonaj następujące kroki:
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Wyloguj się/Zaloguj się i z menu Start wybierz pozycję **usługa synchronizacji**.
 
-#### <a name="configuration"></a>Konfiguracja
+#### <a name="configuration"></a>Konfigurowanie
 Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porównać konfigurację z serwerem przemieszczania, użyj [Azure AD Connect documention Configuration](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importowanie i synchronizacja
@@ -74,18 +74,18 @@ Teraz przygotowano zmiany w usłudze Azure AD i lokalnej usłudze AD (Jeśli kor
 #### <a name="verify"></a>Weryfikuj
 1. Uruchom wiersz polecenia cmd i przejdź do`%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Uruchom: `csexport "Name of Connector" %temp%\export.xml /f:x` nazwę łącznika można znaleźć w usłudze synchronizacji. Ma nazwę podobną do "contoso.com — AAD" dla usługi Azure AD.
-3. Uruchom: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` masz plik w katalogu% Temp% o nazwie Export. csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
+3. Uruchom: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` masz plik w katalogu% Temp% o nazwie export.csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
 4. Wprowadź niezbędne zmiany w danych lub konfiguracji, a następnie ponownie wykonaj te kroki (Zaimportuj i zsynchronizuj), dopóki nie zostaną oczekiwane zmiany, które mają zostać wyeksportowane.
 
-**Informacje o pliku eksportu. csv** Większość plików nie wymaga wyjaśnień. Niektóre skróty do zrozumienia zawartości:
+**Informacje o pliku export.csv** Większość plików nie wymaga wyjaśnień. Niektóre skróty do zrozumienia zawartości:
 * OMODT — typ modyfikacji obiektu. Wskazuje, czy operacja na poziomie obiektu jest dodawana, aktualizowana lub usuwana.
 * AMODT — typ modyfikacji atrybutu. Wskazuje, czy operacja na poziomie atrybutu jest dodawana, aktualizowana lub usuwana.
 
-**Pobierz typowe identyfikatory** Plik Export. CSV zawiera wszystkie zmiany, które mają zostać wyeksportowane. Każdy wiersz odpowiada zmianie obiektu w miejscu łącznika, a obiekt jest identyfikowany przez atrybut nazwy wyróżniającej. Atrybut nazwy wyróżniającej jest unikatowym identyfikatorem przypisanym do obiektu w obszarze łącznika. Jeśli masz wiele wierszy/zmian w pliku eksportu. CSV do przeanalizowania, może być trudne, aby ustalić, które obiekty są zmieniane na podstawie samego atrybutu nazwy wyróżniającej. Aby uprościć proces analizowania zmian, Użyj skryptu programu PowerShell csanalyzer. ps1. Skrypt pobiera typowe identyfikatory (na przykład displayName, userPrincipalName) obiektów. Aby użyć skryptu:
-1. Skopiuj skrypt programu PowerShell z sekcji [CSAnalyzer](#appendix-csanalyzer) do pliku o nazwie `csanalyzer.ps1`.
+**Pobierz typowe identyfikatory** Plik export.csv zawiera wszystkie zmiany, które mają zostać wyeksportowane. Każdy wiersz odpowiada zmianie obiektu w miejscu łącznika, a obiekt jest identyfikowany przez atrybut nazwy wyróżniającej. Atrybut nazwy wyróżniającej jest unikatowym identyfikatorem przypisanym do obiektu w obszarze łącznika. Jeśli masz wiele wierszy/zmian w export.csv do przeanalizowania, może być trudne, aby ustalić, które obiekty są zmieniane na podstawie samego atrybutu nazwy wyróżniającej. Aby uprościć proces analizowania zmian, Użyj skryptu programu csanalyzer.ps1 PowerShell. Skrypt pobiera typowe identyfikatory (na przykład displayName, userPrincipalName) obiektów. Aby użyć skryptu:
+1. Skopiuj skrypt programu PowerShell z sekcji [CSAnalyzer](#appendix-csanalyzer) do pliku o nazwie `csanalyzer.ps1` .
 2. Otwórz okno programu PowerShell i przejdź do folderu, w którym został utworzony skrypt programu PowerShell.
 3. Uruchom polecenie `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-4. Masz teraz plik o nazwie **processedusers1. csv** , który można sprawdzić w programie Microsoft Excel. Należy zauważyć, że plik udostępnia mapowanie z atrybutu DN do wspólnych identyfikatorów (na przykład displayName i userPrincipalName). Obecnie nie obejmuje to faktycznych zmian atrybutów, które mają zostać wyeksportowane.
+4. Masz teraz plik o nazwie **processedusers1.csv** , który można sprawdzić w programie Microsoft Excel. Należy zauważyć, że plik udostępnia mapowanie z atrybutu DN do wspólnych identyfikatorów (na przykład displayName i userPrincipalName). Obecnie nie obejmuje to faktycznych zmian atrybutów, które mają zostać wyeksportowane.
 
 #### <a name="switch-active-server"></a>Przełącz aktywny serwer
 1. Na aktualnie aktywnym serwerze Wyłącz serwer (DirSync/FIM/Azure AD Sync), aby nie eksportować go do usługi Azure AD lub ustawić go w trybie przejściowym (Azure AD Connect).

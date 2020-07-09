@@ -6,10 +6,9 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81261078"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alerty metryk z progami dynamicznymi w Azure Monitor
@@ -18,7 +17,7 @@ Alert dotyczący metryki z funkcją dynamicznego wykrywania progów korzysta z z
 
 Po utworzeniu reguły alertu będzie ona uruchamiana tylko wtedy, gdy monitorowana Metryka nie zadziała zgodnie z oczekiwaniami, na podstawie jego dostosowanych progów.
 
-Chętnie poznamy Twoją opinię <azurealertsfeedback@microsoft.com>.
+Chętnie poznamy Twoją opinię <azurealertsfeedback@microsoft.com> .
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Dlaczego i kiedy jest zalecany typ warunku dynamicznego?
 

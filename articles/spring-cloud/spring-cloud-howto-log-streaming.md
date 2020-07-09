@@ -7,10 +7,9 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78192204"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Przesyłanie strumieniowe dzienników aplikacji Azure Spring Cloud w czasie rzeczywistym
@@ -22,7 +21,7 @@ Chmura sprężynowa Azure umożliwia przesyłanie strumieniowe dzienników w int
 * Wystąpienie **chmurowej platformy Azure** z uruchomioną aplikacją, na przykład [aplikacja Wiosenna w chmurze](./spring-cloud-quickstart-launch-app-cli.md).
 
 > [!NOTE]
->  Rozszerzenie interfejsu wiersza polecenia ASC zostało zaktualizowane z wersji 0.2.0 do 0.2.1. Ta zmiana ma wpływ na składnię polecenia przesyłania strumieniowego dzienników `az spring-cloud app log tail`:, która została zastąpiona `az spring-cloud app logs`przez:. Polecenie: `az spring-cloud app log tail` będzie przestarzałe w przyszłej wersji. Jeśli używasz wersji 0.2.0, możesz przeprowadzić uaktualnienie do 0.2.1. Najpierw usuń starą wersję za pomocą polecenia: `az extension remove -n spring-cloud`.  Następnie zainstaluj 0.2.1 przez polecenie: `az extension add -n spring-cloud`.
+>  Rozszerzenie interfejsu wiersza polecenia ASC zostało zaktualizowane z wersji 0.2.0 do 0.2.1. Ta zmiana ma wpływ na składnię polecenia przesyłania strumieniowego dzienników: `az spring-cloud app log tail` , która została zastąpiona przez: `az spring-cloud app logs` . Polecenie: `az spring-cloud app log tail` będzie przestarzałe w przyszłej wersji. Jeśli używasz wersji 0.2.0, możesz przeprowadzić uaktualnienie do 0.2.1. Najpierw usuń starą wersję za pomocą polecenia: `az extension remove -n spring-cloud` .  Następnie zainstaluj 0.2.1 przez polecenie: `az extension add -n spring-cloud` .
 
 ## <a name="use-cli-to-tail-logs"></a>Używanie interfejsu wiersza polecenia do dzienników końcowych
 
@@ -50,7 +49,7 @@ Spowoduje to zwrócenie dzienników:
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>Dziennik końcowy aplikacji z wieloma wystąpieniami
-Jeśli istnieje wiele wystąpień dla aplikacji o nazwie `auth-service`, można wyświetlić dziennik wystąpienia przy użyciu `-i/--instance` opcji. 
+Jeśli istnieje wiele wystąpień dla aplikacji o nazwie `auth-service` , można wyświetlić dziennik wystąpienia przy użyciu `-i/--instance` opcji. 
 
 Najpierw można pobrać nazwy wystąpienia aplikacji za pomocą następującego polecenia.
 

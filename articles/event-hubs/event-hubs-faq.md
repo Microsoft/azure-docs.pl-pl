@@ -1,21 +1,14 @@
 ---
 title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/02/2019
-ms.author: shvija
-ms.openlocfilehash: 0ff1f19a30be8c4ca40a980459901fd9224a6626
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.date: 06/23/2020
+ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996622"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320587"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -97,9 +90,9 @@ Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilk
 2. Zanotuj nazwę w sekcji **Nieautorytatywna odpowiedź** , która znajduje się w jednym z następujących formatów: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 
@@ -127,15 +120,15 @@ Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtu
 Event Hubs udostępnia punkt końcowy Kafka, który może być używany przez istniejące aplikacje Apache Kafka na podstawie. Konieczna jest zmiana konfiguracji, która jest wymagana do korzystania z programu PaaS Kafka. Stanowi alternatywę dla uruchamiania własnego klastra Kafka. Event Hubs obsługuje Apache Kafka 1,0 i nowszych wersji klienta i współpracuje z istniejącymi aplikacjami Kafka, narzędziami i strukturami. Aby uzyskać więcej informacji, zobacz [Event Hubs dla repozytorium Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Jakie zmiany konfiguracji należy wykonać, aby moja istniejąca aplikacja mogła komunikować się z Event Hubs?
-Aby połączyć się z centrum zdarzeń, należy zaktualizować konfiguracje klienta Kafka. Jest to realizowane przez utworzenie przestrzeni nazw Event Hubs i uzyskanie [parametrów połączenia](event-hubs-get-connection-string.md). Zmień wartość Bootstrap. Servers, aby wskazywała Event Hubs FQDN i port do 9093. Zaktualizuj plik SASL. jaas. config, aby skierować klienta Kafka do punktu końcowego Event Hubs (czyli uzyskanych parametrów połączenia) z prawidłowym uwierzytelnianiem, jak pokazano poniżej:
+Aby połączyć się z centrum zdarzeń, należy zaktualizować konfiguracje klienta Kafka. Jest to realizowane przez utworzenie przestrzeni nazw Event Hubs i uzyskanie [parametrów połączenia](event-hubs-get-connection-string.md). Zmień wartość Bootstrap. Servers, aby wskazywała Event Hubs FQDN i port do 9093. Zaktualizuj sasl.jaas.config, aby skierować klienta Kafka do punktu końcowego Event Hubs (czyli uzyskanych parametrów połączenia) z prawidłowym uwierzytelnianiem, jak pokazano poniżej:
 
-Bootstrap. servers = {Twoje. EVENTHUBS. FQDN}: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła SASL. jaas. config = org. Apache. Kafka. Common. Security. sys. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "{Twoje. EVENTHUBS. Połączenia. CIĄG} ";
+Bootstrap. servers = {Twoje. EVENTHUBS. FQDN}: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła sasl.jaas.config= org. Apache. Kafka. Common. Security. Plains. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "{Twoje. EVENTHUBS. Połączenia. CIĄG} ";
 
 Przykład:
 
-Bootstrap. servers = dummynamespace. ServiceBus. Windows. NET: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła SASL. jaas. config = org. Apache. Kafka. Common. Security. Plains. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "Endpoint = SB://dummynamespace.ServiceBus.Windows.NET/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
+Bootstrap. servers = dummynamespace. ServiceBus. Windows. NET: 9093 Request. Timeout. ms = 60 000 Security. Protocol = SASL_SSL SASL. mechanizm = zwykła sasl.jaas.config= org. Apache. Kafka. Common. Security. sys. PlainLoginModule wymagana nazwa użytkownika = "$ConnectionString" Password = "Endpoint = SB://dummynamespace.ServiceBus.Windows.NET/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
 
-Uwaga: Jeśli SASL. jaas. config nie jest obsługiwaną konfiguracją w Twojej strukturze, Znajdź konfiguracje, które są używane do ustawiania nazwy użytkownika i hasła SASL, i Użyj zamiast nich. Ustaw nazwę użytkownika na $ConnectionString i hasło do parametrów połączenia Event Hubs.
+Uwaga: Jeśli sasl.jaas.config nie jest obsługiwaną konfiguracją w Twojej strukturze, Znajdź konfiguracje, które są używane do ustawiania nazwy użytkownika i hasła SASL, i Użyj zamiast nich. Ustaw nazwę użytkownika na $ConnectionString i hasło do parametrów połączenia Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Jaki jest rozmiar komunikatu/zdarzenia dla Event Hubs?
 Maksymalny rozmiar komunikatu dozwolony dla Event Hubs wynosi 1 MB.

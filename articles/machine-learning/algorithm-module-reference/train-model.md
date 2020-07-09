@@ -9,12 +9,11 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455863"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84447564"
 ---
 # <a name="train-model-module"></a>Moduł uczenia modelu
 
@@ -64,7 +63,7 @@ W Azure Machine Learning tworzenie i Używanie modelu uczenia maszynowego jest z
   
 5.  Prześlij potok. W przypadku dużej ilości danych może to chwilę potrwać.
 
-## <a name="results"></a><a name="bkmk_results"></a>Uzyskane
+## <a name="results"></a>Wyniki
 
 Po przeszkoleniu modelu:
 

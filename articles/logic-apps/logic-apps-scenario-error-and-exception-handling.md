@@ -8,13 +8,12 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76902706"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenariusz: obsługa wyjątków i rejestrowanie błędów dla aplikacji logiki
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenariusz: Obsługa wyjątków i rejestrowanie błędów na potrzeby aplikacji logiki
 
 W tym scenariuszu opisano sposób, w jaki można rozłożyć aplikację logiki w celu zapewnienia lepszej obsługi wyjątków. Użycie przypadku użycia w czasie rzeczywistym w celu udzielenia odpowiedzi na pytanie: "czy Azure Logic Apps obsługiwać wyjątek i obsługę błędów?".
 

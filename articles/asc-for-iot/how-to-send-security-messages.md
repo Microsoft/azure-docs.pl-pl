@@ -16,10 +16,9 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 4877493982671b1b5db686715ef854f25c2966ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310995"
 ---
 # <a name="send-security-messages-sdk"></a>Wyślij zestaw SDK komunikatów zabezpieczeń
@@ -32,7 +31,7 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 > * Wysyłanie komunikatów zabezpieczeń przy użyciu zestawu Azure IoT C SDK
 > * Wysyłanie komunikatów zabezpieczeń przy użyciu zestawu Azure IoT C# SDK
 > * Wysyłanie komunikatów zabezpieczeń przy użyciu zestawu Azure IoT Python SDK
-> * Wysyłanie komunikatów zabezpieczeń przy użyciu zestawu SDK środowiska Node. js platformy Azure IoT
+> * Wysyłanie komunikatów zabezpieczeń przy użyciu zestawu SDK usługi Azure IoT Node.js
 > * Wysyłanie komunikatów zabezpieczeń przy użyciu zestawu Azure IoT Java SDK
 
 ## <a name="azure-security-center-for-iot-capabilities"></a>Azure Security Center funkcji IoT
@@ -47,7 +46,7 @@ Azure Security Center dla IoT definiuje komunikat zabezpieczeń przy użyciu nas
 - Jeśli komunikat jest zgodny ze [schematem komunikatu zabezpieczeń](https://aka.ms/iot-security-schemas)
 - Jeśli wiadomość została ustawiona jako komunikat zabezpieczeń przed wysłaniem
 
-Każdy komunikat zabezpieczeń zawiera metadane nadawcy, takie jak `AgentId`, `AgentVersion` `MessageSchemaVersion` i listę zdarzeń zabezpieczeń.
+Każdy komunikat zabezpieczeń zawiera metadane nadawcy, takie jak `AgentId` , `AgentVersion` `MessageSchemaVersion` i listę zdarzeń zabezpieczeń.
 Schemat definiuje prawidłowe i wymagane właściwości komunikatu zabezpieczeń, w tym typy zdarzeń.
 
 > [!NOTE]
@@ -92,7 +91,7 @@ Po ustawieniu jako komunikat zabezpieczeń i wysłaniu ten komunikat zostanie pr
 
 ## <a name="send-security-messages"></a>Wysyłanie komunikatów zabezpieczeń
 
-Wysyłanie komunikatów zabezpieczeń *bez* korzystania z Azure Security Center dla agenta IoT przy użyciu [zestawu SDK urządzeń Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [zestawu SDK dla usługi](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)Azure IoT C# oraz zestawu SDK [środowiska](https://github.com/Azure/azure-iot-sdk-java) [Node. js](https://github.com/Azure/azure-iot-sdk-node)platformy Azure IoT, [zestawu SDK usługi](https://github.com/Azure/azure-iot-sdk-python)Azure IoT
+Wysyłać komunikaty zabezpieczeń *bez* korzystania z Azure Security Center dla agenta IoT przy użyciu [zestawu SDK urządzeń Azure IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [zestawu SDK urządzenia usługi](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)Azure IoT, zestawu SDK [usługi Azure IoT Node.js](https://github.com/Azure/azure-iot-sdk-node), zestawu [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python)lub [usługi Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
 Aby wysłać dane urządzenia z urządzeń do przetwarzania przez Azure Security Center IoT, użyj jednego z następujących interfejsów API, aby oznaczyć komunikaty do poprawnego routingu do Azure Security Center potoku przetwarzania IoT.
 
@@ -100,7 +99,7 @@ Wszystkie dane, które są wysyłane, nawet jeśli są oznaczone prawidłowym na
 
 ### <a name="send-security-message-api"></a>Wyślij interfejs API komunikatów zabezpieczeń
 
-Interfejs API **wysyłania komunikatów zabezpieczeń** jest obecnie dostępny w językach C i C#, Python, Node. js i Java.
+Interfejs API **wysyłania komunikatów zabezpieczeń** jest obecnie dostępny w językach C i C#, Python, Node.js i Java.
 
 #### <a name="c-api"></a>INTERFEJS API JĘZYKA C
 
@@ -160,7 +159,7 @@ private static async Task SendSecurityMessageAsync(string messageContent)
 }
 ```
 
-#### <a name="nodejs-api"></a>Interfejs API środowiska Node. js
+#### <a name="nodejs-api"></a>Interfejs API Node.js
 
 ```typescript
 var Protocol = require('azure-iot-device-mqtt').Mqtt

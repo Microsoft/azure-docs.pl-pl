@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99a2de4cd8a19d3f05b9dc37f3bcd08cd84b2e68
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78898833"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052755"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie Load Balancer równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
 Równoważenie obciążenia zapewnia większą dostępność i możliwości skalowania dzięki rozdzielaniu żądań przychodzących między wiele maszyn wirtualnych. Za pomocą witryny Azure Portal można utworzyć moduł równoważenia obciążenia na potrzeby równoważenia obciążenia maszyn wirtualnych. W tym przewodniku szybki start przedstawiono sposób równoważenia obciążenia maszyn wirtualnych przy użyciu publicznej Load Balancer.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -36,7 +36,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W tej sekcji utworzysz Load Balancer, która pomaga zrównoważyć obciążenie maszyn wirtualnych. Można utworzyć publiczną Load Balancer lub Load Balancer wewnętrzny. Podczas tworzenia publicznej Load Balancer należy również utworzyć nowy publiczny adres IP, który jest konfigurowany jako fronton (domyślnie przyznana jako *LoadBalancerFrontend* Load Balancer).
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
 2. Na karcie **Podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przeglądanie + tworzenie**:
 
     | Ustawienie                 | Wartość                                              |
@@ -81,7 +81,7 @@ Aby umożliwić Load Balancer monitorowania stanu aplikacji, należy użyć sond
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa | Wprowadź *myHealthProbe*. |
-    | Protocol (Protokół) | Wybierz pozycję **http**. |
+    | Protokół | Wybierz pozycję **http**. |
     | Port | Wprowadź *80*.|
     | Interval | Wprowadź *15* dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
     | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
@@ -98,7 +98,7 @@ Reguła modułu równoważenia obciążenia służy do definiowania sposobu dyst
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa | Wprowadź *myHTTPRule*. |
-    | Protocol (Protokół) | wybierz pozycję **TCP**. |
+    | Protokół | wybierz pozycję **TCP**. |
     | Port | Wprowadź *80*.|
     | Port zaplecza | Wprowadź *80*. |
     | Pula zaplecza | Wybierz pozycję *myBackendPool*.|
@@ -116,26 +116,26 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupSLB |
-| **\<Nazwa sieci wirtualnej>** | myVNet          |
-| **\<Nazwa regionu>**          | Europa Zachodnia      |
-| **\<Adresy IPv4>miejsca**   | 10.1.0.0 \ 16          |
-| **\<>nazwy podsieci**          | myBackendSubnet        |
-| **\<>zakresu adresów podsieci** | 10.1.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa Zachodnia      |
+| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 Jednostki SKU publicznego adresu IP i jednostki SKU Load Balancer muszą być zgodne. Aby uzyskać usługa Load Balancer w warstwie Standardowa, użyj maszyn wirtualnych ze standardowymi adresami IP w puli zaplecza. W tej sekcji utworzysz trzy maszyny wirtualne (*myVM1*, *myVM2* i *myVM3*) ze standardowym publicznym adresem IP w trzech różnych strefach (*Strefa 1*, *strefa 2*i *Strefa 3*), które później zostaną dodane do puli zaplecza Load Balancer utworzonego wcześniej. W przypadku wybrania warstwy Podstawowa Użyj maszyn wirtualnych z podstawowymi adresami IP.
 
-1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **systemu Windows Server 2019 Datacenter**. 
+1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **systemu Windows Server 2019 Datacenter**. 
    
 1. W obszarze **Tworzenie maszyny wirtualnej** wpisz lub wybierz następujące wartości na karcie **Podstawowe**:
-   - **Subscription** > **Grupa zasobów**subskrypcji: wybierz pozycję **myResourceGroupSLB**.
-   - **Szczegóły** > wystąpienia**Nazwa maszyny wirtualnej**: wpisz *myVM1*.
-   - **Instance Details** > **Region** szczegółów wystąpienia > wybierz pozycję **Europa Zachodnia**.
-   - **Instance Details** > **Opcje dostępności** szczegółów wystąpienia > wybierz **strefy dostępności**. 
-   - **Instance Details** > **Strefa dostępności** szczegółów wystąpienia > wybierz **1**.
+   - **Subskrypcja**  >  **Grupa zasobów**: wybierz pozycję **myResourceGroupSLB**.
+   - **Szczegóły wystąpienia**  >  **Nazwa maszyny wirtualnej**: wpisz *myVM1*.
+   - **Szczegóły wystąpienia**  >  **Region** > wybierz pozycję **Europa Zachodnia**.
+   - **Szczegóły wystąpienia**  >  **Opcje dostępności** > wybierz **strefy dostępności**. 
+   - **Szczegóły wystąpienia**  >  **Strefa dostępności** > wybierz **1**.
    - **Konto administratora**> wprowadź **nazwę użytkownika**, **hasło** i **Potwierdź** informacje o haśle.
    - Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
   
@@ -162,7 +162,7 @@ Jednostki SKU publicznego adresu IP i jednostki SKU Load Balancer muszą być zg
     | Strefa dostępności | 2 |3|
     |Publiczny adres IP| **Standard** Magazyn|**Standard** Magazyn|
     | Strefa publicznej dostępności adresu IP| **Strefa nadmiarowa** |**Strefa nadmiarowa**|
-    | Sieciowa grupa zabezpieczeń | Wybierz istniejącą *grupę myNetworkSecurity*| Wybierz istniejącą *grupę myNetworkSecurity*|
+    | Sieciowa grupa zabezpieczeń | Wybierz istniejący *myNetworkSecurityGroup*| Wybierz istniejący *myNetworkSecurityGroup*|
 
  ### <a name="create-nsg-rule"></a>Tworzenie reguły sieciowej grupy zabezpieczeń
 
@@ -191,7 +191,7 @@ W tej sekcji utworzysz regułę sieciowej grupy zabezpieczeń, która zezwala na
 1. Wybierz pozycję **wszystkie usługi** w menu po lewej stronie, wybierz pozycję **wszystkie zasoby**, a następnie na liście zasobów wybierz pozycję **myVM1** , która znajduje się w grupie zasobów *myResourceGroupSLB* .
 2. Na stronie **Przegląd** wybierz pozycję **Połącz** dla protokołu RDP z maszyną wirtualną.
 5. Zaloguj się do maszyny wirtualnej przy użyciu poświadczeń podanych podczas jej tworzenia. Spowoduje to uruchomienie sesji pulpitu zdalnego z maszyną wirtualną — *myVM1*.
-6. Na pulpicie serwera przejdź do> **narzędzi administracyjnych systemu Windows****programu Windows PowerShell**.
+6. Na pulpicie serwera przejdź do **narzędzi administracyjnych systemu Windows** > **programu Windows PowerShell**.
 7. W oknie programu PowerShell uruchom poniższe polecenia, aby zainstalować serwer usług IIS, usunąć domyślny plik iisstart.htm i dodać nowy plik iisstart.htm, który wyświetla nazwę maszyny wirtualnej:
 
    ```azurepowershell-interactive
@@ -217,7 +217,7 @@ W tej sekcji utworzysz regułę sieciowej grupy zabezpieczeń, która zezwala na
 
 Aby wyświetlić Load Balancer Dystrybuuj ruch między wszystkimi trzema maszynami wirtualnymi, można dostosować domyślną stronę każdego z serwerów sieci Web usług IIS na maszynie wirtualnej, a następnie wymusić odświeżenie przeglądarki sieci Web na komputerze klienckim.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, Load Balancer i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu wybierz grupę zasobów (*myResourceGroupSLB*), która zawiera Load Balancer, a następnie wybierz pozycję **Usuń**.
 

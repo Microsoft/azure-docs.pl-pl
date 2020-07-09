@@ -3,24 +3,23 @@ title: Konfigurowanie autoprzyspieszania logowania przy użyciu funkcji odnajdow
 description: Informacje o konfigurowaniu zasad odnajdywania obszaru macierzystego na potrzeby uwierzytelniania Azure Active Directory dla użytkowników federacyjnych, w tym funkcji autodostrajania i wskazówek dotyczących domen.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763588"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurowanie zachowania Azure Active Directory logowania dla aplikacji przy użyciu zasad odnajdywania obszaru głównego
 
@@ -81,8 +80,8 @@ Aby uzyskać więcej informacji na temat autoprzyspieszania przy użyciu wskazó
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Zasady odnajdywania obszaru macierzystego dla autoprzyspieszania
 Niektóre aplikacje nie umożliwiają konfigurowania żądania uwierzytelniania, które emitują. W takich przypadkach nie jest możliwe użycie wskazówek domeny w celu sterowania autoprzyspieszaniem. Funkcję autoprzyspieszania można skonfigurować za pomocą zasad, aby osiągnąć takie samo zachowanie.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Włącz bezpośrednie uwierzytelnianie dla starszych aplikacji
-Najlepszym rozwiązaniem jest użycie bibliotek usługi AAD i interakcyjnego logowania do uwierzytelniania użytkowników. Biblioteki są obsługiwane przez federacyjne przepływy użytkowników.  Czasami starsze aplikacje nie są zapisywane w celu zrozumienia Federacji. Nie wykonują odnajdywania obszaru macierzystego i nie współpracują z prawidłowym federacyjnym punktem końcowym w celu uwierzytelnienia użytkownika. Jeśli zdecydujesz się na to, możesz użyć zasad HRDymi, aby włączyć określone starsze aplikacje, które przesyłają poświadczenia nazwy użytkownika/hasła w celu uwierzytelnienia bezpośrednio z Azure Active Directory. Należy włączyć synchronizację skrótów haseł. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Włącz bezpośrednią ROPC uwierzytelniania użytkowników federacyjnych dla starszych aplikacji
+Najlepszym rozwiązaniem jest użycie bibliotek usługi AAD i interakcyjnego logowania do uwierzytelniania użytkowników. Biblioteki są obsługiwane przez federacyjne przepływy użytkowników.  Czasami starsze aplikacje, szczególnie te, które korzystają z ROPC, przesyłają nazwy użytkownika i hasła bezpośrednio do usługi Azure AD i nie są zapisywane w celu zrozumienia Federacji. Nie wykonują odnajdywania obszaru macierzystego i nie współpracują z prawidłowym federacyjnym punktem końcowym w celu uwierzytelnienia użytkownika. Jeśli zdecydujesz się na to, możesz użyć zasad HRDymi, aby włączyć określone starsze aplikacje, które przesyłają poświadczenia nazwy użytkownika/hasła przy użyciu ROPC Grant do uwierzytelniania bezpośrednio z Azure Active Directory. Należy włączyć synchronizację skrótów haseł. 
 
 > [!IMPORTANT]
 > Włącz uwierzytelnianie bezpośrednie tylko wtedy, gdy jest włączona synchronizacja skrótów haseł i wiadomo, że jest to możliwe, aby uwierzytelnić tę aplikację bez żadnych zasad wdrożonych przez lokalne dostawcy tożsamości. W przypadku wyłączenia synchronizacji skrótów haseł lub wyłączenia synchronizacji katalogów przy użyciu programu AD Connect z dowolnego powodu należy usunąć te zasady, aby uniemożliwić bezpośrednie uwierzytelnianie przy użyciu przestarzałego skrótu hasła.
@@ -110,7 +109,7 @@ Poniżej znajduje się przykładowa definicja zasad HRD:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```

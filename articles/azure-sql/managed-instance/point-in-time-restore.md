@@ -1,9 +1,9 @@
 ---
 title: Przywracanie do punktu w czasie (kopie)
 titleSuffix: Azure SQL Managed Instance
-description: Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL do wcześniejszego punktu w czasie.
+description: Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL Server do wcześniejszego punktu w czasie.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,14 +12,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 238d9ec814b19499e73533d067202641193aa574
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708676"
 ---
-# <a name="restore-an-azure-sql-managed-instance-database-to-a-previous-point-in-time"></a>Przywracanie bazy danych wystąpienia zarządzanego Azure SQL do wcześniejszego punktu w czasie
+# <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL do wcześniejszego punktu w czasie
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Użyj funkcji przywracania do określonego momentu (kopie), aby utworzyć bazę danych jako kopię innej bazy danych od pewnego czasu w przeszłości. W tym artykule opisano, jak wykonać przywracanie do punktu w czasie dla bazy danych w wystąpieniu zarządzanym usługi Azure SQL.
@@ -34,20 +33,20 @@ Przywracanie do punktu w czasie umożliwia przywrócenie bazy danych:
 
 ## <a name="limitations"></a>Ograniczenia
 
-Przywracanie do punktu w czasie w wystąpieniu zarządzanym SQL ma następujące ograniczenia:
+Przywracanie do punktu w czasie do wystąpienia zarządzanego SQL ma następujące ograniczenia:
 
-- Gdy przywracasz z jednego wystąpienia zarządzanego SQL do innego, oba wystąpienia muszą znajdować się w tej samej subskrypcji i regionie. Przywracanie między regionami i subskrypcjami nie jest obecnie obsługiwane.
+- Gdy przywracasz z jednego wystąpienia wystąpienia zarządzanego SQL na inny, oba wystąpienia muszą znajdować się w tej samej subskrypcji i regionie. Przywracanie między regionami i subskrypcjami nie jest obecnie obsługiwane.
 - Przywracanie do punktu w czasie całego wystąpienia zarządzanego SQL nie jest możliwe. W tym artykule wyjaśniono, co jest możliwe: Przywracanie do punktu w czasie dla bazy danych hostowanej w wystąpieniu zarządzanym SQL.
 
 > [!WARNING]
 > Zapoznaj się z rozmiarem magazynu zarządzanego wystąpienia SQL. W zależności od rozmiaru danych do przywrócenia można wypróbować magazyn z wystąpieniami. Jeśli nie ma wystarczającej ilości miejsca na przywrócone dane, użyj innego podejścia.
 
-W poniższej tabeli przedstawiono scenariusze przywracania do punktu w czasie dla wystąpień zarządzanych SQL:
+W poniższej tabeli przedstawiono scenariusze przywracania do punktu w czasie dla wystąpienia zarządzanego SQL:
 
-|           |Przywróć istniejącą bazę danych do tego samego wystąpienia zarządzanego SQL| Przywracanie istniejącej bazy danych do innego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do tego samego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do innego wystąpienia zarządzanego SQL|
+|           |Przywróć istniejącą bazę danych do tego samego wystąpienia wystąpienia zarządzanego SQL| Przywracanie istniejącej bazy danych do innego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do tego samego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do innego wystąpienia zarządzanego SQL|
 |:----------|:----------|:----------|:----------|:----------|
 |**Azure Portal**| Yes|Nie |Yes|Nie|
-|**Interfejs wiersza polecenia platformy Azure**|Tak |Yes |Nie|Nie|
+|**Interfejs wiersza polecenia platformy Azure**|Tak |Tak |Nie|Nie|
 |**Program PowerShell**| Tak|Tak |Tak|Tak|
 
 ## <a name="restore-an-existing-database"></a>Przywracanie istniejącej bazy danych

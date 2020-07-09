@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 385d9126d578250064659153f6f0f54eec696790
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "60870676"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple Virtual Array Update 0,5 — informacje o wersji
@@ -47,7 +47,7 @@ Aktualizacja 0,5 jest przede wszystkim błędem kompilacją poprawki. Główne u
 
 Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
-| Nie. | Funkcja | Problem |
+| Nie. | Cecha | Problem |
 | --- | --- | --- |
 | 1 |Odporność kopii zapasowych| We wcześniejszych wersjach kopie zapasowe zostały ponowione tylko dla niektórych wyjątków. Ta wersja zawiera poprawkę, aby kopie zapasowe były bardziej odporne przez ponowną próbę wszystkich wyjątków kopii zapasowych.|
 | 2 |Monitorowanie| Monitorowanie użycia magazynu dla serii urządzeń wirtualnych StorSimple będzie przestarzałe od 30 czerwca 2017. Ta akcja ma wpływ na wykresy monitorowania w usłudze StorSimple Menedżer urządzeń działającej na macierzach wirtualnych StorSimple (model 1200). W tej wersji znajdują się aktualizacje zezwalające użytkownikowi na kontynuowanie korzystania z monitorowania użycia magazynu w macierzach wirtualnych poza 30 czerwca 2017.|
@@ -58,7 +58,7 @@ Poniższa tabela zawiera podsumowanie problemów rozwiązanych w tej wersji.
 
 Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy wirtualnej StorSimple i obejmuje wydanie wydań z poprzednich wersji.
 
-| Nie. | Funkcja | Problem | Obejście/Komentarze |
+| Nie. | Cecha | Problem | Obejście/Komentarze |
 | --- | --- | --- | --- |
 | **1.** |Aktualizacje |Nie można zaktualizować urządzeń wirtualnych utworzonych w wersji zapoznawczej do obsługiwanej wersji ogólnej dostępności. |Te urządzenia wirtualne muszą zostać przełączone w tryb failover w celu udostępnienia ogólnej wersji dostępności przy użyciu przepływu pracy odzyskiwania po awarii (DR). |
 | **2.** |Dysk danych z zainicjowaną obsługą |Po zainicjowaniu obsługi dysku z danymi określonego rozmiaru i utworzeniu odpowiedniego urządzenia wirtualnego StorSimple nie należy rozwijać ani zmniejszać dysku z danymi. Próba wykonania spowoduje utratę wszystkich danych w warstwach lokalnych urządzenia. | |
@@ -80,7 +80,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących macierzy w
 ## <a name="next-step"></a>Następny krok
 [Zainstaluj aktualizację 0,5](storsimple-virtual-array-install-update-05.md) na wirtualnej macierzy StorSimple.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 Szukasz starszej wersji uwagi? Przejdź do strony:
 
 * [StorSimple Virtual Array Update 0,4 — Informacje o wersji](storsimple-virtual-array-update-04-release-notes.md)

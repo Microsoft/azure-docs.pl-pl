@@ -5,15 +5,16 @@ description: Szczegóły dotyczące narzędzi uwzględnionych w Ubuntu Data Scie
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161285"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85955543"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Reference: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -52,7 +53,7 @@ Niektóre przykładowe notesy są dostępne w JupyterHub.
 
 H2O to szybka, rozproszona platforma do uczenia maszynowego i analizy predykcyjnej. Pakiet języka Python jest instalowany w środowiskach głównych i py35 Anaconda. Pakiet języka R jest również instalowany. 
 
-Aby otworzyć H2O z wiersza polecenia, uruchom `java -jar /dsvm/tools/h2o/current/h2o.jar`polecenie. Istnieją różne [Opcje wiersza polecenia](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) , które można skonfigurować. `http://localhost:54321` Aby rozpocząć pracę, możesz uzyskać dostęp do interfejsu użytkownika sieci Web przepływu. Przykładowe notesy są również dostępne w JupyterHub.
+Aby otworzyć H2O z wiersza polecenia, uruchom polecenie `java -jar /dsvm/tools/h2o/current/h2o.jar` . Istnieją różne [Opcje wiersza polecenia](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) , które można skonfigurować. Aby rozpocząć pracę, możesz uzyskać dostęp do interfejsu użytkownika sieci Web przepływu `http://localhost:54321` . Przykładowe notesy są również dostępne w JupyterHub.
 
 ### <a name="keras"></a>Keras
 
@@ -66,7 +67,7 @@ MXNet to platforma uczenia głębokiego, zaprojektowana pod kątem wydajności i
 
 System uczenia procesora GPU o głębokiej technologii NVIDIA, znany jako cyfry, to system upraszczający typowe zadania uczenia głębokiego. Te zadania obejmują zarządzanie danymi, projektowanie i uczenie sieci neuronowych w systemach GPU oraz monitorowanie wydajności w czasie rzeczywistym dzięki zaawansowanej wizualizacji.
 
-CYFRY są dostępne jako usługa o nazwie *cyfry*. Uruchom usługę i przejdź do `http://localhost:5000` , aby rozpocząć pracę.
+CYFRY są dostępne jako usługa o nazwie *cyfry*. Uruchom usługę i przejdź do, aby rozpocząć `http://localhost:5000` pracę.
 
 CYFRY są również instalowane jako moduł języka Python w środowisku głównym Conda.
 
@@ -133,16 +134,16 @@ conda install <package> -n py35
 
 Jeśli korzystasz z interfejsu graficznego lub chcesz skonfigurować przekazywanie X11, możesz wprowadzić **platformy PyCharm itd** , aby otworzyć środowisko IDE platformy PyCharm itd Python. Można użyć domyślnych edytorów tekstu. Ponadto można użyć Spyder, środowiska IDE języka Python, które jest powiązane z dystrybucją języka Python Anaconda. Spyder potrzebuje graficznego pulpitu lub X11ego przesyłania dalej. Pulpit graficzny ma skrót do Spyder.
 
-## <a name="jupyter-notebook"></a>Notes Jupyter
+## <a name="jupyter-notebook"></a>Jupyter Notes
 
 Dystrybucja Anaconda zawiera również Notes Jupyter, czyli środowisko do udostępniania kodu i analizy. Notes Jupyter jest dostępny za pomocą JupyterHub. Zaloguj się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux.
 
-Serwer notesu Jupyter został wstępnie skonfigurowany przy użyciu jądra Python 2, Python 3 i języka R. Użyj ikony **Jupyter Notebook** pulpitu, aby otworzyć przeglądarkę i uzyskać dostęp do serwera notesu. Jeśli korzystasz z maszyny wirtualnej za pośrednictwem protokołu SSH lub klienta X2Go, możesz również uzyskać dostęp do serwera notesu Jupyter w `https://localhost:8000/`systemie.
+Serwer notesu Jupyter został wstępnie skonfigurowany przy użyciu jądra Python 2, Python 3 i języka R. Użyj ikony **Jupyter Notebook** pulpitu, aby otworzyć przeglądarkę i uzyskać dostęp do serwera notesu. Jeśli korzystasz z maszyny wirtualnej za pośrednictwem protokołu SSH lub klienta X2Go, możesz również uzyskać dostęp do serwera notesu Jupyter w systemie `https://localhost:8000/` .
 
 > [!NOTE]
 > Kontynuuj, jeśli otrzymasz ostrzeżenia dotyczące certyfikatów.
 
-Można uzyskać dostęp do serwera notesu Jupyter z dowolnego hosta. Wprowadź **nazwę\<DNS lub adres\>IP https://maszyny wirtualnej: 8000/**.
+Można uzyskać dostęp do serwera notesu Jupyter z dowolnego hosta. Wprowadź **https:// \<VM DNS name or IP address\> : 8000/**.
 
 > [!NOTE]
 > Port 8000 jest domyślnie otwarty w zaporze po zainicjowaniu obsługi maszyny wirtualnej. 
@@ -173,7 +174,7 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-Usługi związane z usługą Hadoop można zatrzymać, gdy nie są potrzebne, uruchamiając ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```program.
+Usługi związane z usługą Hadoop można zatrzymać, gdy nie są potrzebne, uruchamiając program ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` .
 
 Katalog/dsvm/samples/MRS zawiera przykład demonstrujący sposób tworzenia i testowania Microsoft Machine Learning Server w zdalnym kontekście Spark (autonomiczne wystąpienie platformy Spark w DSVM).
 
@@ -254,7 +255,7 @@ Aby uzyskać informacje na temat sposobu wdrażania modeli w języku R i Python 
 
 ## <a name="machine-learning-tools"></a>Narzędzia uczenia maszynowego
 
-Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Należą do nich:
+Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Są to moduły:
 
 * **Vowpal Wabbit**: Krótki algorytm uczenia w trybie online.
 * **xgboost**: narzędzie, które zapewnia zoptymalizowane, podwyższające algorytmy drzewa.
@@ -262,8 +263,10 @@ Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zos
 * **Python**: Anaconda Python jest powiązany z algorytmami uczenia maszynowego z bibliotekami, takimi jak Scikit — uczenie się. Inne biblioteki można zainstalować za pomocą `pip install` polecenia.
 * **LightGBM**: szybka i rozproszona platforma do tworzenia gradientów o wysokiej wydajności oparta na algorytmach drzewa decyzyjnego.
 * **R**: Zaawansowana biblioteka funkcji uczenia maszynowego jest dostępna dla języka R. wstępnie zainstalowane biblioteki to LM, GLM, randomForest i rpart. Aby zainstalować inne biblioteki, należy uruchomić następujące polecenie:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Poniżej znajdują się dodatkowe informacje na temat pierwszych trzech narzędzi uczenia maszynowego na liście.
 

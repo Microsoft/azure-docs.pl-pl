@@ -12,10 +12,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
 ms.openlocfilehash: eecf7ba1471e35e2d9ab26394c7295f324c4ca20
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84116388"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku APD
@@ -81,9 +80,9 @@ W zależności od [typów magazynu](#four-storage-types-for-ssis-packages) źró
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
-- [Asystent migracji bazy danych](https://docs.microsoft.com/sql/dma/dma-overview)
+- [Narzędzie Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview)
 - [Podnieś i Przenieś obciążenia SSIS do chmury](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
-- [Migrowanie pakietów usług SSIS do wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
+- [Migrowanie pakietów SSIS do wystąpienia zarządzanego Azure SQL](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 - [Wdróż ponownie pakiety do Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)
 
 ## <a name="next-steps"></a>Następne kroki

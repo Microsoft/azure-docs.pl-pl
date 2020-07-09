@@ -1,5 +1,5 @@
 ---
-title: Azure Portal pól rejestracji dla aplikacji opracowywanych niestandardowo
+title: Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
 description: Wskazówki dotyczące rejestrowania niestandardowej aplikacji przy użyciu usługi Azure AD
 services: active-directory
 author: rwike77
@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883172"
 ---
-# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Azure Portal pól rejestracji dla aplikacji opracowywanych niestandardowo
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
 
 Ten artykuł zawiera krótki opis wszystkich dostępnych pól w formularzu rejestracji aplikacji w [Azure Portal](https://portal.azure.com).
 
@@ -47,7 +46,7 @@ Po wypełnieniu powyższych pól aplikacja zostanie zarejestrowana w Azure Porta
 | Pole           | Opis        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Identyfikator aplikacji  | Po zarejestrowaniu aplikacji usługa Azure AD przypisuje aplikację identyfikator aplikacji. IDENTYFIKATORA aplikacji można użyć do unikatowego identyfikowania aplikacji w żądaniach uwierzytelniania do usługi Azure AD, a także do uzyskiwania dostępu do zasobów, takich jak interfejs API programu Graph.                                                          |
-| Identyfikator URI identyfikatora aplikacji      | Powinien to być unikatowy identyfikator URI, zazwyczaj w postaci **nazwy&lt;\_&gt;/&lt;\_&gt;aplikacji https://dzierżawy.** Ta wartość jest używana podczas przepływu przydzielania autoryzacji jako unikatowy identyfikator, aby określić zasób, dla którego ma zostać wystawiony token. Jego stan zmieni się również na "AUD" w wystawionym tokenie dostępu. |
+| Identyfikator URI identyfikatora aplikacji      | Powinien to być unikatowy identyfikator URI, zazwyczaj w postaci ** &lt; \_ &gt; / &lt; \_ nazwy &gt; aplikacji https://dzierżawy.** Ta wartość jest używana podczas przepływu przydzielania autoryzacji jako unikatowy identyfikator, aby określić zasób, dla którego ma zostać wystawiony token. Jego stan zmieni się również na "AUD" w wystawionym tokenie dostępu. |
 
 ### <a name="branding"></a>Znakowanie
 
@@ -56,7 +55,7 @@ Po wypełnieniu powyższych pól aplikacja zostanie zarejestrowana w Azure Porta
 | Przekaż nowe logo | Możesz użyć tego do przekazania logo dla aplikacji. Logo musi być w formacie BMP, jpg lub PNG, a rozmiar pliku musi być mniejszy niż 100 KB. Wymiary obrazu powinny być 215x215 pikseli, a centralne wymiary obrazu 94x94 pikseli.|
 | Adres URL strony głównej   | Jest to adres URL logowania określony podczas rejestracji aplikacji.|
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 | Pole           | Opis        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

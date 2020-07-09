@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615398"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86026699"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Tworzenie dzierżawy i puli hosta
 
@@ -22,23 +22,41 @@ ms.locfileid: "82615398"
 
 W tym artykule opisano problemy podczas wstępnej instalacji dzierżawy usług pulpitu wirtualnego systemu Windows i infrastruktury puli powiązanych hostów sesji.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Uzyskiwanie obrazu wielosesyjnego dla systemu Windows 10 Enterprise
 
-Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie** > **Microsoft Windows 10** > i [Windows 10 Enterprise dla pulpitów wirtualnych w wersji 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie**  >  **Microsoft Windows 10** > i [Windows 10 Enterprise dla pulpitów wirtualnych w wersji 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Zrzut ekranu przedstawiający wybór systemu Windows 10 Enterprise dla pulpitów wirtualnych, wersja 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający wybór systemu Windows 10 Enterprise dla pulpitów wirtualnych, wersja 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Tworzenie dzierżawy pulpitu wirtualnego systemu Windows
 
 W tej sekcji omówiono potencjalne problemy podczas tworzenia dzierżawy pulpitu wirtualnego systemu Windows.
 
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Błąd: AADSTS650052 aplikacja musi mieć dostęp do usługi.
+
+Przykład nieprzetworzonego błędu:
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**Przyczyna:** Nie udzielono zgody na pulpit wirtualny systemu Windows w wystąpieniu usługi Azure Active Directory.
+
+**Poprawka:** [postępuj zgodnie z tym przewodnikiem](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) , aby udzielić zgody.
+
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
 
-![Zrzut ekranu okna programu PowerShell, w którym użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania.](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu okna programu PowerShell, w którym użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania.](../media/UserNotAuthorizedNewTenant.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -59,7 +77,8 @@ Przykład nieprzetworzonego błędu:
 
 **Poprawka:** Postępuj zgodnie z instrukcjami w temacie [Przypisywanie roli aplikacji TenantCreator do użytkownika w dzierżawie Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Po wykonaniu instrukcji uzyskasz użytkownikowi przypisaną rolę TenantCreator.
 
-![Zrzut ekranu przedstawiający przypisaną rolę TenantCreator.](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający przypisaną rolę TenantCreator.](../media/TenantCreatorRoleAssigned.png)
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Tworzenie maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows
 
@@ -71,7 +90,8 @@ Pulpit wirtualny systemu Windows — Inicjowanie obsługi administracyjnej szabl
 
 ### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Błąd: w przypadku korzystania z linku z usługi GitHub zostanie wyświetlony komunikat "Tworzenie bezpłatnego konta"
 
-![Zrzut ekranu, aby utworzyć bezpłatne konto.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu, aby utworzyć bezpłatne konto.](../media/be615904ace9832754f0669de28abd94.png)
 
 **Przyczyna 1:** W ramach konta użytego do zalogowania się na platformie Azure nie ma aktywnych subskrypcji lub użyte konto nie ma uprawnień do wyświetlania subskrypcji.
 
@@ -94,7 +114,8 @@ Pulpit wirtualny systemu Windows — Inicjowanie obsługi administracyjnej szabl
 
 ### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Błąd: Wystąpił błąd "wdrożenie szablonu jest nieprawidłowe"
 
-![Zrzut ekranu przedstawiający "Wdrażanie szablonu... nieprawidłowy "błąd"](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający "Wdrażanie szablonu... nieprawidłowy "błąd"](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Przed podjęciem określonego działania należy sprawdzić dziennik aktywności, aby zobaczyć szczegółowy błąd sprawdzania poprawności wdrożenia zakończonego niepowodzeniem.
 
@@ -103,10 +124,14 @@ Aby wyświetlić błąd w dzienniku aktywności:
 1. Wyjdź z bieżącej oferty wdrażania w portalu Azure Marketplace.
 2. Na górnym pasku wyszukiwania Wyszukaj i wybierz pozycję **Dziennik aktywności**.
 3. Znajdź działanie o nazwie **Weryfikuj wdrożenie** o stanie **Niepowodzenie** i wybierz działanie.
-   ![Zrzut ekranu przedstawiający działanie pojedynczego * * Weryfikuj wdrożenie * * aktywności z * * niepowodzeniem * * status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu przedstawiający działanie pojedynczego * * Weryfikuj wdrożenie * * aktywności z * * niepowodzeniem * * status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Wybierz pozycję JSON, a następnie przewiń w dół do dolnej części ekranu, dopóki nie zobaczysz pola "statusMessage".
-   ![Zrzut ekranu działania zakończonego niepowodzeniem z czerwonym prostokątem wokół właściwości statusMessage tekstu JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+   
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu działania zakończonego niepowodzeniem z czerwonym prostokątem wokół właściwości statusMessage tekstu JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 Jeśli szablon operacji przekracza limit przydziału, możesz wykonać jedną z następujących czynności, aby rozwiązać ten problem:
 
@@ -122,9 +147,10 @@ Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązywać problemy z niepo
 3. Po zidentyfikowaniu tego błędu Użyj komunikatu o błędzie i zasobów w [rozwiązywaniu typowych błędów wdrażania platformy Azure z Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) , aby rozwiązać problem.
 4. Usuń wszystkie zasoby utworzone w poprzednim wdrożeniu i ponów próbę wdrożenia szablonu.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się..\<.. nazwa hosta>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się.... \<hostname> /JoinDomain
 
-![Zrzut ekranu wdrożenia nie powiódł się.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -165,7 +191,8 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Błąd: VMExtensionProvisioningError
 
-![Zrzut ekranu wdrożenia nie powiódł się z powodu niepowodzenia inicjowania obsługi administracyjnej.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się z powodu niepowodzenia inicjowania obsługi administracyjnej.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Przyczyna 1:** Błąd przejściowy ze środowiskiem pulpitu wirtualnego systemu Windows.
 
@@ -175,7 +202,8 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Błąd: określona nazwa użytkownika administratora jest niedozwolona
 
-![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -194,7 +222,8 @@ Przykład nieprzetworzonego błędu:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Błąd: maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia
 
-![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -220,7 +249,8 @@ Przykład nieprzetworzonego błędu:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Błąd: DeploymentFailed — Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami
 
-![Zrzut ekranu wdrożenia nie powiodło się, ponieważ Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami.](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiodło się, ponieważ Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami.](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -349,7 +379,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Błąd: użytkownik wymaga platformy Azure Multi-Factor Authentication (MFA)
 
-![Zrzut ekranu wdrożenia nie powiódł się z powodu braku Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się z powodu braku Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -374,6 +405,12 @@ Jeśli uruchamiasz szablon Azure Resource Manager GitHub, podaj wartości nastę
 - Hasło administratora dzierżawy: hasło wygenerowane dla jednostki usługi
 - IsServicePrincipal: **true**
 - AadTenantId: Identyfikator dzierżawy usługi Azure AD, która została utworzona przez użytkownika
+
+### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Błąd: podsieć vmSubnet jest niedostępna podczas konfigurowania sieci wirtualnych
+
+**Przyczyna:** W szablonie WVD Marketplace interfejs użytkownika wyświetla tylko podsieci, które mają co najmniej tyle adresów IP jako łączną liczbę maszyn wirtualnych określonych w szablonie. Rzeczywista liczba dostępnych adresów IP w podsieci musi być równa liczbie wdrożonych nowych maszyn wirtualnych, ale nie może ona być obliczana przez bieżący interfejs użytkownika.
+
+**Poprawka:** Można określić podsieć z co najmniej tylu adresami IP dostępnymi jako liczba maszyn wirtualnych, które są dodawane przy użyciu interfejsu użytkownika portalu Marketplace, można to zrobić przez określenie nazwy podsieci w parametrze "**existingSubnetName**" podczas [ponownego wdrażania istniejącego wdrożenia](expand-existing-host-pool-2019.md#redeploy-from-azure) lub [wdrożenia przy użyciu podstawowego szablonu ARM z usługi GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## <a name="next-steps"></a>Następne kroki
 

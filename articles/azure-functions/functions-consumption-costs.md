@@ -4,10 +4,9 @@ description: Dowiedz się, jak lepiej oszacować koszty, które mogą zostać na
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76963992"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Szacowanie kosztów planu zużycia
@@ -30,7 +29,7 @@ Durable Functions można również uruchomić w planie zużycia. Aby dowiedzieć
 
 *Koszt* wykonania pojedynczego wykonania funkcji jest mierzony w *GB-sekund*. Koszt wykonywania jest obliczany przez połączenie jego użycia pamięci z jego czasem wykonywania. Funkcja, która działa dłużej o dłuższy koszt, tak jak funkcja, która zużywa więcej pamięci. 
 
-Rozważ przypadek, w którym ilość pamięci używanej przez funkcję pozostaje stała. W takim przypadku Obliczanie kosztów jest prostą liczebnością. Załóżmy na przykład, że funkcja zużywa 0,5 GB przez 3 sekundy. Następnie koszt wykonania wynosi `0.5GB * 3s = 1.5 GB-seconds`. 
+Rozważ przypadek, w którym ilość pamięci używanej przez funkcję pozostaje stała. W takim przypadku Obliczanie kosztów jest prostą liczebnością. Załóżmy na przykład, że funkcja zużywa 0,5 GB przez 3 sekundy. Następnie koszt wykonania wynosi `0.5GB * 3s = 1.5 GB-seconds` . 
 
 Ponieważ użycie pamięci zmienia się w czasie, obliczenia jest zasadniczo całkowitą ilością użycia pamięci w czasie.  System wykonuje to obliczenie przez próbkowanie użycia pamięci przez proces (wraz z procesami podrzędnymi) w regularnych odstępach czasu. Jak wspomniano na [stronie cennika], użycie pamięci jest zaokrąglane do najbliższego zasobnika 128 MB. Gdy proces korzysta z 160 MB, naliczana jest opłata za 256 MB. Obliczenia uwzględniają współbieżność konta, czyli wiele współbieżnych wykonań funkcji w tym samym procesie.
 
@@ -57,7 +56,7 @@ Następujące zachowania funkcji mogą mieć wpływ na czas wykonywania:
 
 + **Wyzwalacze i powiązania**: czas potrzebny do odczytu danych wejściowych z i zapisu danych wyjściowych do [powiązań funkcji](functions-triggers-bindings.md) jest liczony jako czas wykonywania. Na przykład, gdy funkcja używa powiązania danych wyjściowych do zapisywania komunikatu w kolejce usługi Azure Storage, czas wykonywania obejmuje czas potrzebny do zapisania komunikatu w kolejce, który jest uwzględniany w obliczaniu kosztu funkcji. 
 
-+ **Wykonywanie asynchroniczne**: czas oczekiwania funkcji na wyniki żądania asynchronicznego (`await` w języku C#) jest liczony jako czas wykonywania. Obliczenia GB i s są oparte na godzinie rozpoczęcia i zakończenia funkcji oraz użycia pamięci w tym okresie. Co dzieje się w tym czasie w odniesieniu do działania procesora CPU nie jest uwzględniane w obliczeniach. Przy użyciu [Durable Functions](durable/durable-functions-overview.md)można obniżyć koszty podczas operacji asynchronicznych. Za czas spędzony w funkcjach programu Orchestrator nie są naliczane opłaty.
++ **Wykonywanie asynchroniczne**: czas oczekiwania funkcji na wyniki żądania asynchronicznego ( `await` w języku C#) jest liczony jako czas wykonywania. Obliczenia GB i s są oparte na godzinie rozpoczęcia i zakończenia funkcji oraz użycia pamięci w tym okresie. Co dzieje się w tym czasie w odniesieniu do działania procesora CPU nie jest uwzględniane w obliczeniach. Przy użyciu [Durable Functions](durable/durable-functions-overview.md)można obniżyć koszty podczas operacji asynchronicznych. Za czas spędzony w funkcjach programu Orchestrator nie są naliczane opłaty.
 
 ## <a name="view-execution-data"></a>Wyświetl dane wykonania
 
@@ -69,9 +68,9 @@ Aby lepiej zrozumieć wpływ kosztów funkcji, możesz użyć Azure Monitor, aby
 
 Użyj [Eksploratora metryk Azure monitor](../azure-monitor/platform/metrics-getting-started.md) , aby wyświetlić dane dotyczące kosztów dla aplikacji funkcji planu zużycia w formacie graficznym. 
 
-1. W górnej części [Azure Portal] w **usługach wyszukiwania, zasobach i witrynie docs** `monitor` Wyszukaj i wybierz pozycję **monitor** w obszarze **usługi**.
+1. W górnej części [Azure Portal] w **usługach wyszukiwania, zasobach i witrynie docs** Wyszukaj `monitor` i wybierz pozycję **monitor** w obszarze **usługi**.
 
-1. Po lewej stronie wybierz pozycję **metryki** > **Wybierz zasób**, a następnie użyj ustawień poniżej obrazu, aby wybrać aplikację funkcji.
+1. Po lewej stronie wybierz pozycję **metryki**  >  **Wybierz zasób**, a następnie użyj ustawień poniżej obrazu, aby wybrać aplikację funkcji.
 
     ![Wybierz zasób aplikacji funkcji](media/functions-consumption-costing/select-a-resource.png)
 
@@ -97,7 +96,7 @@ Wykres otrzymany zawiera sumy dla obu metryk wykonywania w wybranym zakresie cza
 
 Ponieważ liczba jednostek wykonywania jest znacznie większa niż Liczba wykonań, wykres pokazuje tylko jednostki wykonywania.
 
-Ten wykres przedstawia łączną liczbę 1 110 000 000 `Function Execution Units` zużytych w ciągu dwóch godzin, MIERZONĄ w megabajtach (MB). Aby przekonwertować na GB sekund, Podziel na 1024000. W tym przykładzie aplikacja funkcji wykorzystana `1110000000 / 1024000 = 1083.98` GB-sekund. Możesz posłużyć się tą wartością i pomnożyć przez bieżącą cenę czasu wykonywania na[stronie]cennika [funkcji Functions], która zapewnia koszt tych dwóch godzin, przy założeniu, że już użyto bezpłatnych zasiłków czasu wykonywania. 
+Ten wykres przedstawia łączną liczbę 1 110 000 000 `Function Execution Units` zużytych w ciągu dwóch godzin, mierzoną w megabajtach (MB). Aby przekonwertować na GB sekund, Podziel na 1024000. W tym przykładzie aplikacja funkcji wykorzystana `1110000000 / 1024000 = 1083.98` GB-sekund. Możesz posłużyć się tą wartością i pomnożyć przez bieżącą cenę czasu wykonywania na[stronie]cennika [funkcji Functions], która zapewnia koszt tych dwóch godzin, przy założeniu, że już użyto bezpłatnych zasiłków czasu wykonywania. 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -188,7 +187,7 @@ To polecenie zwraca ładunek JSON, który wygląda podobnie do następującego p
   ]
 }
 ```
-Ta konkretna odpowiedź pokazuje, `2019-09-11T21:46` że `2019-09-11T23:18`w przypadku aplikacji wykorzystano 1110000000 MB-milisekund (1083,98 GB-s).
+Ta konkretna odpowiedź pokazuje, że w przypadku `2019-09-11T21:46` `2019-09-11T23:18` aplikacji wykorzystano 1110000000 MB-milisekund (1083,98 GB-s).
 
 ## <a name="determine-memory-usage"></a>Określanie użycia pamięci
 
@@ -206,14 +205,14 @@ performanceCounters
 
 Wyniki wyglądają podobnie jak w poniższym przykładzie:
 
-| Sygnatura czasowa \[UTC\]          | name          | value       |
+| Sygnatura czasowa \[ UTC\]          | name          | wartość       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 am | Bajty prywatne | 209 932 288 |
-| 9/12/2019, 1:06:14\.994 am | Bajty prywatne | 212 189 184 |
-| 9/12/2019, 1:06:30\.010 am | Bajty prywatne | 231 714 816 |
-| 9/12/2019, 1:07:15\.040 am | Bajty prywatne | 210 591 744 |
-| 9/12/2019, 1:12:16\.285 am | Bajty prywatne | 216 285 184 |
-| 9/12/2019, 1:12:31\.376 am | Bajty prywatne | 235 806 720 |
+| 9/12/2019, 1:05:14 \. 947 am | Bajty prywatne | 209 932 288 |
+| 9/12/2019, 1:06:14 \. 994 am | Bajty prywatne | 212 189 184 |
+| 9/12/2019, 1:06:30 \. 010 am | Bajty prywatne | 231 714 816 |
+| 9/12/2019, 1:07:15 \. 040 am | Bajty prywatne | 210 591 744 |
+| 9/12/2019, 1:12:16 \. 285 am | Bajty prywatne | 216 285 184 |
+| 9/12/2019, 1:12:31 \. 376 am | Bajty prywatne | 235 806 720 |
 
 ## <a name="function-level-metrics"></a>Metryki na poziomie funkcji
 
@@ -228,9 +227,9 @@ customMetrics
 
 | name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 \. 087                     |
+| QueueTrigger MaxDurationMs | 90 \. 249                     |
+| QueueTrigger MinDurationMs | 8 \. 522                      |
 
 ## <a name="next-steps"></a>Następne kroki
 

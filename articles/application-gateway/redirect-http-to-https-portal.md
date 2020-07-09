@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć bramę aplikacji z przekierowanym ruche
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312096"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84804353"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure Portal
 
@@ -27,11 +27,11 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Dodaj odbiornik i regułę przekierowania
 > * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej, aby można było utworzyć certyfikat i zainstalować usługi IIS. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Aby uruchomić polecenia z tego samouczka, należy również uruchomić `Login-AzAccount` polecenie, aby utworzyć połączenie z platformą Azure.
+Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej, aby można było utworzyć certyfikat i zainstalować usługi IIS. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Aby uruchomić polecenia z tego samouczka, należy również uruchomić polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Tworzenie certyfikatu z podpisem własnym
 
@@ -146,7 +146,7 @@ W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, aby zapewnić
 12. W obszarze **Sieć**upewnij się, że opcja **Opcje równoważenia obciążenia** jest ustawiona na **Application Gateway**.
 13. Upewnij się, że **Brama aplikacji** jest ustawiona na **myAppGateway**.
 14. Upewnij się, że **podsieć** jest ustawiona na **myBackendSubnet**.
-15. Wybierz przycisk **Utwórz**.
+15. Wybierz pozycję **Utwórz**.
 
 ### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Kojarzenie zestawu skalowania z odpowiednią pulą zaplecza
 

@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652205"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>Microsoft. Common. TagsByResource — element interfejsu użytkownika
@@ -49,7 +48,7 @@ Kontrolka służąca do kojarzenia [tagów](../management/tag-resources.md) z za
 
 ## <a name="remarks"></a>Uwagi
 
-- Należy określić co najmniej jeden element `resources` w tablicy.
+- Należy określić co najmniej jeden element w `resources` tablicy.
 - Każdy element w `resources` musi być w pełni kwalifikowanym typem zasobu. Te elementy pojawiają się na liście rozwijanej **zasobów** i są taggable przez użytkownika.
 - Dane wyjściowe kontrolki są formatowane w celu łatwego przypisywania wartości tagów w szablonie Azure Resource Manager. Aby uzyskać dane wyjściowe kontrolki w szablonie, należy dołączyć parametr w szablonie, jak pokazano w następującym przykładzie:
 

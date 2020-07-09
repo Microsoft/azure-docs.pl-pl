@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609863"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Jak określić numer portu usługi przy użyciu parametrów w Service Fabric
@@ -23,10 +22,10 @@ W tym przykładzie ustawisz numer portu dla asp.net podstawowego interfejsu API 
 1. Otwórz program Visual Studio i Utwórz nową aplikację Service Fabric.
 1. Wybierz szablon ASP.NET Core bezstanowej.
 1. Wybierz pozycję internetowy interfejs API.
-1. Otwórz plik servicemanifest. XML.
+1. Otwórz plik ServiceManifest.xml.
 1. Zanotuj nazwę punktu końcowego określonego dla usługi. Wartość domyślna to `ServiceEndpoint`.
-1. Otwórz plik ApplicationManifest. XML
-1. W `ServiceManifestImport` elemencie Dodaj nowy `RessourceOverrides` element z odwołaniem do punktu końcowego w pliku servicemanifest. XML.
+1. Otwórz plik ApplicationManifest.xml
+1. W `ServiceManifestImport` elemencie Dodaj nowy `RessourceOverrides` element z odwołaniem do punktu końcowego w pliku ServiceManifest.xml.
 
     ```xml
       <ServiceManifestImport>
@@ -54,7 +53,7 @@ W tym przykładzie ustawisz numer portu dla asp.net podstawowego interfejsu API 
       </ServiceManifestImport>
     ```
 
-1. W pliku ApplicationManifest. XML, a następnie należy określić parametr w `Parameters` elemencie
+1. Nadal w pliku ApplicationManifest.xml, należy określić parametr w `Parameters` elemencie
 
     ```xml
       <Parameters>
@@ -79,7 +78,7 @@ W tym przykładzie ustawisz numer portu dla asp.net podstawowego interfejsu API 
       </Parameters>
     ```
 
-Podczas publikowania aplikacji z programu Visual Studio przy użyciu profilu publikacji Cloud. XML usługa jest skonfigurowana do korzystania z portu 80. Jeśli aplikacja zostanie wdrożona bez określenia parametru MyWebAPI_PortNumber, usługa korzysta z portu 8080.
+Podczas publikowania aplikacji z programu Visual Studio przy użyciu Cloud.xml profilu publikowania usługa jest skonfigurowana do korzystania z portu 80. Jeśli aplikacja zostanie wdrożona bez określenia parametru MyWebAPI_PortNumber, usługa korzysta z portu 8080.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat podstawowych pojęć omówionych w tym artykule, zobacz [artykuł Zarządzanie aplikacjami dla wielu środowisk](service-fabric-manage-multiple-environment-app-configuration.md).

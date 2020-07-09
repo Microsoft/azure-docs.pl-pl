@@ -10,10 +10,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76314542"
 ---
 # <a name="apply-sql-transformation"></a>Stosowanie przekształcenia SQL
@@ -33,7 +32,7 @@ Za pomocą modułu przekształcenie języka SQL można:
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Jak skonfigurować zastosowanie transformacji SQL  
 
-Moduł może przyjmować do trzech zestawów danych jako dane wejściowe. W przypadku odwoływania się do zestawów danych połączonych z każdym portem wejściowym należy użyć `t1`nazw `t2`, i `t3`. Numer tabeli wskazuje indeks portu wejściowego.  
+Moduł może przyjmować do trzech zestawów danych jako dane wejściowe. W przypadku odwoływania się do zestawów danych połączonych z każdym portem wejściowym należy użyć nazw `t1` , `t2` i `t3` . Numer tabeli wskazuje indeks portu wejściowego.  
   
 Pozostała wartość parametru to zapytanie SQL, które używa składni programu SQLite. Wpisując wiele wierszy w polu tekstowym **skrypt SQL** , użyj średnika, aby zakończyć każdą instrukcję. W przeciwnym razie podziały wierszy są konwertowane na spacje.  
 
@@ -45,7 +44,7 @@ Ta sekcja zawiera szczegóły implementacji, porady i odpowiedzi na często zada
 
 -   Dane wejściowe są zawsze wymagane na porcie 1.  
   
--   W przypadku identyfikatorów kolumn, które zawierają spację lub inne znaki specjalne, zawsze ujmij Identyfikator kolumny w nawiasy kwadratowe lub podwójne cudzysłowy w przypadku odwoływania się `SELECT` do `WHERE` kolumny w klauzulach or.  
+-   W przypadku identyfikatorów kolumn, które zawierają spację lub inne znaki specjalne, zawsze ujmij Identyfikator kolumny w nawiasy kwadratowe lub podwójne cudzysłowy w przypadku odwoływania się do kolumny w `SELECT` `WHERE` klauzulach or.  
   
 ### <a name="unsupported-statements"></a>Nieobsługiwane instrukcje  
 
@@ -53,11 +52,11 @@ Chociaż oprogramowanie SQLite obsługuje wiele standardów ANSI SQL, nie obejmu
   
 - Program SQLite używa tekstu dynamicznego w przypadku wartości zamiast przypisywania typu do kolumny jako w większości systemów relacyjnej bazy danych. Jest on słabo wpisany i umożliwia niejawną konwersję typu.  
   
-- `LEFT OUTER JOIN`jest zaimplementowany, ale nie `RIGHT OUTER JOIN` lub `FULL OUTER JOIN`.  
+- `LEFT OUTER JOIN`jest zaimplementowany, ale nie `RIGHT OUTER JOIN` lub `FULL OUTER JOIN` .  
 
-- Instrukcji `RENAME TABLE` i `ADD COLUMN` można użyć z `ALTER TABLE` poleceniem, ale inne klauzule nie są obsługiwane, w `DROP COLUMN`tym `ALTER COLUMN`, i `ADD CONSTRAINT`.  
+- `RENAME TABLE`Instrukcji i można użyć `ADD COLUMN` z `ALTER TABLE` poleceniem, ale inne klauzule nie są obsługiwane, w tym `DROP COLUMN` , `ALTER COLUMN` i `ADD CONSTRAINT` .  
   
-- Możesz utworzyć widok w ramach oprogramowania SQLite, ale te widoki są tylko do odczytu. Nie można wykonać instrukcji `DELETE`, `INSERT`, lub `UPDATE` w widoku. Można jednak utworzyć wyzwalacz uruchamiany przy próbie `DELETE`, `INSERT`, lub `UPDATE` w widoku i wykonać inne operacje w treści wyzwalacza.  
+- Możesz utworzyć widok w ramach oprogramowania SQLite, ale te widoki są tylko do odczytu. Nie można wykonać `DELETE` instrukcji, `INSERT` , lub `UPDATE` w widoku. Można jednak utworzyć wyzwalacz uruchamiany przy próbie `DELETE` , `INSERT` , lub `UPDATE` w widoku i wykonać inne operacje w treści wyzwalacza.  
   
 
 Oprócz listy nieobsługiwanych funkcji dostępnych w oficjalnej witrynie programu SQLite, następująca witryna wiki zawiera listę innych nieobsługiwanych funkcji: [SQLite — nieobsługiwane SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  

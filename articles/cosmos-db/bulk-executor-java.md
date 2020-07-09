@@ -5,26 +5,26 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/28/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985647"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85260597"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Wykonywanie operacji zbiorczych w usłudze Azure Cosmos DB przy użyciu biblioteki funkcji wykonawczej Java operacji zbiorczych
 
 Ten samouczek zawiera instrukcje dotyczące korzystania z biblioteki języka Java modułu wykonawczego Azure Cosmos DB do importowania i aktualizowania Azure Cosmos DB dokumentów. Aby dowiedzieć się więcej o bibliotece narzędzia do wykonywania zbiorczego i jak można wykorzystać ogromną przepływność i magazyn, zobacz artykuł [Omówienie biblioteki wykonawców zbiorczych](bulk-executor-overview.md) . W tym samouczku utworzysz aplikację Java, która generuje losowe dokumenty i są one zbiorczo importowane do kontenera usługi Azure Cosmos. Po zaimportowaniu zbiorczo należy zaktualizować niektóre właściwości dokumentu. 
 
-Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana tylko przez Azure Cosmos DB z INTERFEJSem API SQL i kontami interfejsu API Gremlin. W tym artykule opisano sposób użycia zbiorczej procedury tworzenia biblioteki Java z kontami interfejsu API SQL. Aby dowiedzieć się więcej o używaniu zbiorczej biblioteki .NET Library z interfejsem API Gremlin, zobacz [wykonywanie operacji zbiorczych w interfejsie API usługi Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
+Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana tylko przez Azure Cosmos DB z INTERFEJSem API SQL i kontami interfejsu API Gremlin. W tym artykule opisano sposób użycia zbiorczej procedury tworzenia biblioteki Java z kontami interfejsu API SQL. Aby dowiedzieć się więcej o używaniu zbiorczej biblioteki .NET Library z interfejsem API Gremlin, zobacz [wykonywanie operacji zbiorczych w interfejsie API usługi Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md). Opisana biblioteka wykonawczy Bulk jest dostępna tylko dla [Azure Cosmos DB Java Sync SDK V2](sql-api-sdk-java.md) i jest obecnie zalecanym rozwiązaniem dla obsługi zbiorczej Java. Nie jest ona obecnie dostępna dla 3. x, 4. x lub innych wersji zestawu SDK.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) .  
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).  
 
 * Możesz bezpłatnie [wypróbować Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można też użyć [emulatora Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) z `https://localhost:8081` punktem końcowym. Klucz podstawowy został podany w sekcji [Uwierzytelnianie żądań](local-emulator.md#authenticating-requests).  
 
@@ -105,7 +105,7 @@ Sklonowane repozytorium zawiera dwa przykłady "BulkImport" i "bulkupdate" wzgl�
 
    Metoda nieportal akceptuje następujące parametry:
  
-   |**Konstruktora**  |**Opis**  |
+   |**Parametr**  |**Opis**  |
    |---------|---------|
    |isUpsert    |   Flaga umożliwiająca upsert dokumentów. Jeśli dokument o podanym IDENTYFIKATORze już istnieje, zostanie zaktualizowany.  |
    |disableAutomaticIdGeneration     |   Flaga wyłączenia automatycznej generacji identyfikatora. Domyślnie jest ustawiona wartość true.   |
@@ -113,13 +113,13 @@ Sklonowane repozytorium zawiera dwa przykłady "BulkImport" i "bulkupdate" wzgl�
 
    **Definicja obiektu odpowiedzi importu zbiorczego** Wynik wywołania interfejsu API importowania zbiorczego zawiera następujące metody Get:
 
-   |**Konstruktora**  |**Opis**  |
+   |**Parametr**  |**Opis**  |
    |---------|---------|
    |int getNumberOfDocumentsImported ()  |   Całkowita liczba dokumentów, które zostały pomyślnie zaimportowane z dokumentów dostarczonych do wywołania interfejsu API importu zbiorczego.      |
    |Podwójna getTotalRequestUnitsConsumed ()   |  Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API importu zbiorczego.       |
    |Czas trwania getTotalTimeTaken ()   |    Łączny czas trwania wywołania interfejsu API importu zbiorczego w celu ukończenia wykonywania.     |
-   |Wyjątek\<listy> GetErrors () |  Pobiera listę błędów, jeśli niektóre dokumenty z partii dostarczone do wywołania interfejsu API importu zbiorczego nie powiodło się.       |
-   |Lista\<obiektów> getBadInputDocuments ()  |    Lista dokumentów z nieprawidłowym formatem, które nie zostały pomyślnie zaimportowane do wywołania interfejsu API importu zbiorczego. Użytkownik powinien naprawić zwrócone dokumenty i ponowić próbę importu. Dokumenty z błędami sformatowanymi zawierają dokumenty, których identyfikator nie jest ciągiem (wartość null lub dowolny inny typ danych jest uznawany za nieprawidłowy).     |
+   |Lista \<Exception> GetErrors () |  Pobiera listę błędów, jeśli niektóre dokumenty z partii dostarczone do wywołania interfejsu API importu zbiorczego nie powiodło się.       |
+   |Lista \<Object> getBadInputDocuments ()  |    Lista dokumentów z nieprawidłowym formatem, które nie zostały pomyślnie zaimportowane do wywołania interfejsu API importu zbiorczego. Użytkownik powinien naprawić zwrócone dokumenty i ponowić próbę importu. Dokumenty z błędami sformatowanymi zawierają dokumenty, których identyfikator nie jest ciągiem (wartość null lub dowolny inny typ danych jest uznawany za nieprawidłowy).     |
 
 5. Po przygotowaniu aplikacji do importowania zbiorczego Utwórz narzędzie wiersza polecenia ze źródła przy użyciu polecenia "MVN Clean Package". To polecenie generuje plik JAR w folderze docelowym:  
 
@@ -133,7 +133,7 @@ Sklonowane repozytorium zawiera dwa przykłady "BulkImport" i "bulkupdate" wzgl�
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
-   Importer zbiorczy tworzy nową bazę danych i kolekcję z nazwą bazy danych, nazwą kolekcji i wartościami przepływności określonymi w pliku App. config. 
+   Importer zbiorczy tworzy nową bazę danych i kolekcję z nazwą bazy danych, nazwą kolekcji i wartościami przepływności określonymi w pliku App.config. 
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Zbiorcze aktualizowanie danych w Azure Cosmos DB
 
@@ -171,18 +171,18 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
 
    Metoda updateAll akceptuje następujące parametry:
 
-   |**Konstruktora** |**Opis** |
+   |**Parametr** |**Opis** |
    |---------|---------|
    |maxConcurrencyPerPartitionRange   |  Maksymalny stopień współbieżności na zakres kluczy partycji. Wartość domyślna to 20.  |
  
    **Definicja obiektu odpowiedzi importu zbiorczego** Wynik wywołania interfejsu API importowania zbiorczego zawiera następujące metody Get:
 
-   |**Konstruktora** |**Opis**  |
+   |**Parametr** |**Opis**  |
    |---------|---------|
    |int getNumberOfDocumentsUpdated ()  |   Całkowita liczba dokumentów, które zostały pomyślnie zaktualizowane z dokumentów dostarczonych do wywołania interfejsu API aktualizacji zbiorczej.      |
    |Podwójna getTotalRequestUnitsConsumed () |  Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API aktualizacji zbiorczej.       |
    |Czas trwania getTotalTimeTaken ()  |   Łączny czas trwania wywołania interfejsu API aktualizacji zbiorczej w celu ukończenia wykonywania.      |
-   |Wyjątek\<listy> GetErrors ()   |       Pobiera listę błędów, jeśli niektóre dokumenty z partii dostarczone do wywołania interfejsu API aktualizacji zbiorczej nie zostały wstawione.      |
+   |Lista \<Exception> GetErrors ()   |       Pobiera listę błędów, jeśli niektóre dokumenty z partii dostarczone do wywołania interfejsu API aktualizacji zbiorczej nie zostały wstawione.      |
 
 3. Po przygotowaniu zbiorczej aktualizacji aplikacji Utwórz narzędzie wiersza polecenia ze źródła przy użyciu polecenia "MVN Clean Package". To polecenie generuje plik JAR w folderze docelowym:  
 

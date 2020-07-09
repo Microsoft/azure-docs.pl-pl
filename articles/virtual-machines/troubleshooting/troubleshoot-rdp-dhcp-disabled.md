@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 278d976f044deb8a7387763306cf07f8b6b55d90
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75749896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087796"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Nie można nawiązać połączenia RDP z platformą Azure Virtual Machines, ponieważ usługa klienta DHCP jest wyłączona
 
@@ -40,7 +40,9 @@ Nie można nawiązać połączenia RDP z maszyną wirtualną na platformie Azure
 
 W przypadku maszyn wirtualnych Menedżer zasobów można użyć funkcji konsoli dostępu szeregowego do wykonywania zapytań dotyczących dzienników zdarzeń 7022 przy użyciu następującego polecenia:
 
-    wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+```console
+wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+```
 
 W przypadku klasycznych maszyn wirtualnych trzeba będzie korzystać z trybu OFFLINE i zebrać dzienniki ręcznie.
 
@@ -63,19 +65,26 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial do włączenia prot
 ). Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej, zobacz [Resetowanie interfejsu sieciowego](reset-network-interface.md).
 2. Sprawdź, czy usługa DHCP jest wyłączona w interfejsie sieciowym:
 
-        sc query DHCP
+    ```console
+    sc query DHCP
+    ```
+
 3. Jeśli usługa DHCP jest zatrzymana, spróbuj uruchomić usługę
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
 
 4. Wykonaj ponownie zapytanie dotyczące usługi, aby upewnić się, że usługa została uruchomiona pomyślnie.
 
-        sc query DHCP
+    ```console
+    sc query DHCP
+    ```
 
     Spróbuj nawiązać połączenie z maszyną wirtualną i sprawdź, czy problem został rozwiązany.
 5. Jeśli usługa nie zostanie uruchomiona, użyj następującego odpowiedniego rozwiązania na podstawie otrzymanego komunikatu o błędzie:
 
-    | Error  |  Rozwiązanie |
+    | Błąd  |  Rozwiązanie |
     |---|---|
     | 5 — ODMOWA DOSTĘPU  | Sprawdź, [czy usługa klienta DHCP została zatrzymana z powodu błędu odmowy dostępu](#dhcp-client-service-is-stopped-because-of-an-access-denied-error).  |
     |1053 — ERROR_SERVICE_REQUEST_TIMEOUT   | Zobacz [awarię lub zawieszenie usługi klienta DHCP](#dhcp-client-service-crashes-or-hangs).  |
@@ -157,23 +166,38 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial do włączenia prot
 
 1. Ponieważ ten problem występuje, jeśli konto uruchamiania tej usługi zostało zmienione, Przywróć konto do stanu domyślnego:
 
-        sc config DHCP obj= 'NT Authority\Localservice'
+    ```console
+    sc config DHCP obj= 'NT Authority\Localservice'
+    ```
+
 2. Uruchom usługę:
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
+
 3. Spróbuj połączyć się z maszyną wirtualną za pomocą Pulpit zdalny.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>Awaria lub zawieszenie usługi klienta DHCP
 
 1. Jeśli stan usługi jest zablokowany w stanie **uruchamiania** lub **zatrzymywania** , spróbuj zatrzymać usługę:
 
-        sc stop DHCP
+    ```console
+    sc stop DHCP
+    ```
+
 2. Wyodrębnij usługę do własnego kontenera "svchost":
 
-        sc config DHCP type= own
+    ```console
+    sc config DHCP type= own
+    ```
+
 3. Uruchom usługę:
 
-        sc start DHCP
+    ```console
+    sc start DHCP
+    ```
+
 4. Jeśli nadal nie można uruchomić usługi, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Naprawianie maszyny wirtualnej w trybie offline

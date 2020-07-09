@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67109274"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Określanie wymagań dotyczących odpowiedzi na zdarzenia dla rozwiązania do tworzenia tożsamości hybrydowej
@@ -52,7 +52,7 @@ System zarządzania tożsamościami powinien pomóc administratorom IT w identyf
 * Czy firma musi prowadzić inspekcję dostępu użytkownika i akcji?
 * Czy firma musi wiedzieć, kiedy użytkownik resetuje swoje hasło?
 
-## <a name="policy-enforcement"></a>Wymuszanie zasad
+## <a name="policy-enforcement"></a>Egzekwowanie zasad
 W przypadku nieuszkodzenia kontroli i zmniejszania ryzyka ważne jest, aby szybko ograniczyć rzeczywiste i potencjalne skutki ataku. Ta akcja, która zostanie podjęta w tym momencie, będzie mogła wprowadzić różnicę między małoletnim a głównym. Dokładna odpowiedź będzie zależeć od organizacji i rodzaju ataku. Jeśli wstępna ocena stwierdziła, że konto zostało naruszone, należy wymusić zasady, aby zablokować to konto. Jest to tylko jeden przykład, w którym zostanie wykorzystany system zarządzania tożsamościami. Skorzystaj z poniższych pytań, aby zaprojektować rozwiązanie do tworzenia tożsamości hybrydowych, biorąc pod uwagę, w jaki sposób zasady zostaną wymuszone w celu reagowania na bieżące zdarzenie:
 
 * Czy w firmie istnieją zasady umożliwiające zablokowanie użytkownikom dostępu do sieci w razie potrzeby?

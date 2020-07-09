@@ -9,14 +9,13 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 130764ad5504ded398a9fdf9fa27d6cb936fbacc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 31b8200b63780388fb53db588c418951c500ac19
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099788"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84232900"
 ---
-# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Jak utworzyć niezarządzany obraz maszyny wirtualnej na podstawie maszyny wirtualnej platformy Azure
+# <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Jak utworzyć obraz niezarządzany maszyny wirtualnej przy użyciu maszyny wirtualnej platformy Azure
 
 W tym artykule omówiono korzystanie z kont magazynu. Zalecamy używanie dysków zarządzanych i zarządzanych obrazów zamiast konta magazynu. Aby uzyskać więcej informacji, zobacz [przechwytywanie zarządzanego obrazu z uogólnionej maszyny wirtualnej na platformie Azure](capture-image-resource.md).
 
@@ -34,7 +33,7 @@ Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez 
 > 
 > 
 
-Możesz również uogólnić maszynę wirtualną z systemem `sudo waagent -deprovision+user` Linux przy użyciu programu, a następnie PRZEchwycić maszynę wirtualną za pomocą środowiska PowerShell. Aby uzyskać informacje o używaniu interfejsu wiersza polecenia do przechwytywania maszyny wirtualnej, zobacz [jak uogólniać i przechwytywać maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../linux/capture-image.md).
+Możesz również uogólnić maszynę wirtualną z systemem Linux przy użyciu `sudo waagent -deprovision+user` programu, a następnie przechwycić maszynę wirtualną za pomocą środowiska PowerShell. Aby uzyskać informacje o używaniu interfejsu wiersza polecenia do przechwytywania maszyny wirtualnej, zobacz [jak uogólniać i przechwytywać maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../linux/capture-image.md).
 
 
 1. Zaloguj się do maszyny wirtualnej z systemem Windows.
@@ -97,7 +96,7 @@ Możesz również uogólnić maszynę wirtualną z systemem `sudo waagent -depro
 
 ## <a name="create-the-image"></a>Tworzenie obrazu
 
-Utwórz niezarządzany obraz maszyny wirtualnej w docelowym kontenerze magazynu za pomocą tego polecenia. Obraz jest tworzony na tym samym koncie magazynu co oryginalna maszyna wirtualna. `-Path` Parametr zapisuje kopię szablonu JSON dla ŹRÓDŁOWEJ maszyny wirtualnej na komputerze lokalnym. `-DestinationContainerName` Parametr jest nazwą kontenera, w którym chcesz przechowywać obrazy. Jeśli kontener nie istnieje, zostanie on utworzony.
+Utwórz niezarządzany obraz maszyny wirtualnej w docelowym kontenerze magazynu za pomocą tego polecenia. Obraz jest tworzony na tym samym koncie magazynu co oryginalna maszyna wirtualna. `-Path`Parametr zapisuje kopię szablonu JSON dla źródłowej maszyny wirtualnej na komputerze lokalnym. `-DestinationContainerName`Parametr jest nazwą kontenera, w którym chcesz przechowywać obrazy. Jeśli kontener nie istnieje, zostanie on utworzony.
    
 ```powershell
 Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
@@ -105,7 +104,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-Możesz uzyskać adres URL obrazu z szablonu pliku JSON. Aby uzyskać pełną ścieżkę obrazu, przejdź do sekcji **resources** > **obszarze storageprofile** > **osDisk** > **Image** > **URI** . Adres URL obrazu wygląda następująco: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+Możesz uzyskać adres URL obrazu z szablonu pliku JSON. Aby uzyskać pełną ścieżkę obrazu, przejdź do sekcji **resources**  >  **obszarze storageprofile**  >  **osDisk**  >  **Image**  >  **URI** . Adres URL obrazu wygląda następująco: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` .
    
 Możesz również zweryfikować identyfikator URI w portalu. Obraz jest kopiowany do kontenera o nazwie **system** na koncie magazynu. 
 
@@ -115,7 +114,7 @@ Teraz można utworzyć co najmniej jedną maszynę wirtualną z obrazu niezarzą
 
 ### <a name="set-the-uri-of-the-vhd"></a>Ustawianie identyfikatora URI wirtualnego dysku twardego
 
-Identyfikator URI używanego wirtualnego dysku twardego ma format: https://**mojekontomagazynu****. blob.Core.Windows.NET/er**/**MyVhdName**. VHD. W tym przykładzie wirtualny dysk twardy o nazwie **myVHD** znajduje się na koncie magazynu **mojekontomagazynu** w **kontenerze**.
+Identyfikator URI używanego wirtualnego dysku twardego ma format: https://**mojekontomagazynu****. blob.Core.Windows.NET/er** / **MyVhdName**. VHD. W tym przykładzie wirtualny dysk twardy o nazwie **myVHD** znajduje się na koncie magazynu **mojekontomagazynu** w **kontenerze**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -142,7 +141,7 @@ Utworzyć sieć wirtualną i podsieć [sieci wirtualnej](../../virtual-network/v
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Tworzenie publicznego adresu IP i interfejsu sieciowego
-Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejsu sieciowego.
+Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/public-ip-addresses.md) i interfejsu sieciowego.
 
 1. Utwórz publiczny adres IP. Ten przykład tworzy publiczny adres IP o nazwie **myPip**. 
    
@@ -243,7 +242,7 @@ Poniższy program PowerShell uzupełnia konfiguracje maszyn wirtualnych i używa
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Po zakończeniu powinna zostać wyświetlona nowo utworzona maszyna wirtualna w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie** > **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell:
+Po zakończeniu powinna zostać wyświetlona nowo utworzona maszyna wirtualna w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie**  >  **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell:
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

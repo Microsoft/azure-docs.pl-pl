@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451646"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric przykłady manifestów aplikacji i usług
@@ -17,7 +16,7 @@ Ta sekcja zawiera przykłady manifestów aplikacji i usług. Te przykłady nie s
 
 Poniżej znajduje się indeks widocznych funkcji i przykładowe manifesty, których są częścią.
 
-|Funkcja|Manifest|
+|Cecha|Manifest|
 |---|---|
 |[Nadzór nad zasobami](service-fabric-resource-governance.md)|[Manifest aplikacji Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [manifest aplikacji kontenera](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Uruchamianie usługi jako konta administratora lokalnego](service-fabric-application-runas-security.md)|[Reliable Services manifest aplikacji](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

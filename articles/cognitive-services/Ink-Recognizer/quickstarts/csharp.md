@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: c24d055f1904453d2f512a278f00e23c6fea1d9b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f61566c3d5efa7f973141253353fde7e4893bc6e
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371377"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85986078"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania atramentu i języka C #
 
@@ -33,7 +33,7 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 - Dowolna wersja programu [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Aby zainstalować plik Newtonsoft. JSON jako pakiet NuGet w programie Visual Studio:
+    - Aby zainstalować Newtonsoft.Jsna jako pakiet NuGet w programie Visual Studio:
         1. Kliknij prawym przyciskiem myszy **Menedżera rozwiązań**
         2. Kliknij pozycję **Zarządzaj pakietami NuGet...**
         3. Wyszukaj `Newtonsoft.Json` i zainstaluj pakiet
@@ -57,17 +57,17 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 ## <a name="create-a-function-to-send-requests"></a>Utwórz funkcję do wysyłania żądań
 
-1. Utwórz nową funkcję asynchroniczną o `Request` nazwie, która przyjmuje utworzone powyżej zmienne.
+1. Utwórz nową funkcję asynchroniczną o nazwie `Request` , która przyjmuje utworzone powyżej zmienne.
 
-2. Ustaw informacje o protokole i nagłówku zabezpieczeń klienta przy `HttpClient` użyciu obiektu. Pamiętaj, aby dodać klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka. Następnie Utwórz `StringContent` obiekt dla żądania.
+2. Ustaw informacje o protokole i nagłówku zabezpieczeń klienta przy użyciu `HttpClient` obiektu. Pamiętaj, aby dodać klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka. Następnie Utwórz `StringContent` obiekt dla żądania.
  
-3. Wyślij żądanie przy użyciu `PutAsync()`. Jeśli żądanie zakończy się pomyślnie, zwróć odpowiedź.  
+3. Wyślij żądanie przy użyciu `PutAsync()` . Jeśli żądanie zakończy się pomyślnie, zwróć odpowiedź.  
     
     [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## <a name="send-an-ink-recognition-request"></a>Wyślij żądanie rozpoznawania pisma odręcznego
 
-1. Utwórz nową funkcję o nazwie `recognizeInk()`. Utwórz żądanie i wyślij je, wywołując `Request()` funkcję z punktem końcowym, kluczem subskrypcji, adresem URL dla interfejsu API i danymi pociągnięcia cyfrowego atramentu.
+1. Utwórz nową funkcję o nazwie `recognizeInk()` . Utwórz żądanie i wyślij je, wywołując `Request()` funkcję z punktem końcowym, kluczem subskrypcji, adresem URL dla interfejsu API i danymi pociągnięcia cyfrowego atramentu.
 
 2. Deserializacji obiektu JSON i Zapisz go w konsoli. 
     
@@ -75,7 +75,7 @@ Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [G
 
 ## <a name="load-your-digital-ink-data"></a>Ładowanie danych cyfrowego atramentu
 
-Utwórz funkcję o nazwie `LoadJson()` , aby załadować plik JSON danych pisma odręcznego. Użyj `StreamReader` i `JsonTextReader` , aby utworzyć `JObject` i zwrócić.
+Utwórz funkcję o nazwie, `LoadJson()` Aby załadować plik JSON danych pisma odręcznego. Użyj `StreamReader` i, `JsonTextReader` Aby utworzyć `JObject` i zwrócić.
 
 [!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
@@ -83,7 +83,7 @@ Utwórz funkcję o nazwie `LoadJson()` , aby załadować plik JSON danych pisma 
 
 1. W głównej metodzie aplikacji Załaduj dane JSON przy użyciu funkcji utworzonej powyżej. 
 
-2. Wywołaj `recognizeInk()` utworzoną powyżej funkcję. Użyj `System.Console.ReadKey()` , aby zachować otwarte okno konsoli po uruchomieniu aplikacji.
+2. Wywołaj `recognizeInk()` utworzoną powyżej funkcję. Użyj, `System.Console.ReadKey()` Aby zachować otwarte okno konsoli po uruchomieniu aplikacji.
     
     [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 

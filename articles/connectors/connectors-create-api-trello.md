@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: d1426bbe2064067b26f53a8f8e5d4aa842ede8c0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83829702"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Monitoruj Trello i zarządzaj nimi za pomocą Azure Logic Apps

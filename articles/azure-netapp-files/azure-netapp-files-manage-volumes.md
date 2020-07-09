@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 64d83cc88f66eefad8980bead7fe37ad1782873f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60254741"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85483554"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>Zarządzanie woluminami przy użyciu Azure NetApp Files
 Wolumin można zarządzać przez przeglądanie, aktualizowanie lub usuwanie woluminu. 

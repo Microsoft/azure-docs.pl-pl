@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983333"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135864"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
 
@@ -34,7 +34,7 @@ Składniki związane z odzyskiwaniem po awarii dla maszyn wirtualnych platformy 
 **Konto magazynu pamięci podręcznej** | Potrzebujesz konta magazynu pamięci podręcznej w sieci źródłowej. Podczas replikacji zmiany maszyny wirtualnej są przechowywane w pamięci podręcznej przed wysłaniem do magazynu docelowego.  Konta magazynu pamięci podręcznej muszą być standardowe.<br/><br/> Użycie pamięci podręcznej zapewnia minimalny wpływ na aplikacje produkcyjne, które są uruchomione na maszynie wirtualnej.<br/><br/> [Dowiedz się więcej](azure-to-azure-support-matrix.md#cache-storage) o wymaganiach dotyczących magazynu pamięci podręcznej. 
 **Zasoby docelowe** | Zasoby docelowe są używane podczas replikacji i w przypadku przejścia w tryb failover. Site Recovery można skonfigurować zasób docelowy domyślnie lub można je utworzyć lub dostosować.<br/><br/> W regionie docelowym Sprawdź, czy można tworzyć maszyny wirtualne i czy subskrypcja ma wystarczającą ilość zasobów, aby obsługiwać rozmiary maszyn wirtualnych, które będą potrzebne w regionie docelowym. 
 
-![Replikacja źródłowa i docelowa](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Replikacja źródłowa i docelowa](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Zasoby docelowe
 
@@ -62,7 +62,7 @@ Zasobami docelowymi można zarządzać w następujący sposób:
 
 Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
 
-**Ustawienie zasad** | **Szczegóły** | **Wartooć**
+**Ustawienie zasad** | **Szczegóły** | **Domyślne**
 --- | --- | ---
 **Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
 **Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny
@@ -116,7 +116,7 @@ Po włączeniu replikacji dla maszyny wirtualnej platformy Azure następuje:
 4. Site Recovery przetwarza dane w pamięci podręcznej i wysyła je do docelowego konta magazynu lub do dysków zarządzanych repliki.
 5. Po przetworzeniu danych punkty odzyskiwania spójne z awarią są generowane co pięć minut. Punkty odzyskiwania spójne z aplikacjami są generowane zgodnie z ustawieniem określonym w zasadach replikacji.
 
-![Włączanie procesu replikacji, krok 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Włączanie procesu replikacji, krok 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Proces replikacji**
 
@@ -146,9 +146,9 @@ Należy pamiętać, że szczegółowe informacje o wymaganiach dotyczących łą
 
 **Reguła** |  **Szczegóły** | **Tag usługi**
 --- | --- | --- 
-Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają kontom magazynu w regionie źródłowym | Chowan. \<nazwa regionu>
+Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają kontom magazynu w regionie źródłowym | Chowan.\<region-name>
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają Azure Active Directory (Azure AD)  | Usługi azureactivedirectory
-Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy odpowiadające centrum zdarzeń w regionie docelowym. | EventsHub. \<nazwa regionu>
+Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy odpowiadające centrum zdarzeń w regionie docelowym. | EventsHub.\<region-name>
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają Azure Site Recovery  | AzureSiteRecovery
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają Azure Key Vault (jest to wymagane tylko w przypadku włączania replikacji maszyn wirtualnych z obsługą ADE przy użyciu portalu) | AzureKeyVault
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają kontrolerowi Azure Automation (jest to wymagane tylko w celu włączenia autouaktualnienia agenta mobilności dla zreplikowanego elementu za pośrednictwem portalu) | GuestAndHybridManagement
@@ -157,9 +157,9 @@ Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpow
 
 **Reguła** |  **Szczegóły** | **Tag usługi**
 --- | --- | --- 
-Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają kontom magazynu w regionie docelowym | Chowan. \<nazwa regionu>
+Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają kontom magazynu w regionie docelowym | Chowan.\<region-name>
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odnoszą się do usługi Azure AD  | Usługi azureactivedirectory
-Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy odpowiadające centrum zdarzeń w regionie źródłowym. | EventsHub. \<nazwa regionu>
+Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy odpowiadające centrum zdarzeń w regionie źródłowym. | EventsHub.\<region-name>
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają Azure Site Recovery  | AzureSiteRecovery
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają Azure Key Vault (jest to wymagane tylko w przypadku włączania replikacji maszyn wirtualnych z obsługą ADE przy użyciu portalu) | AzureKeyVault
 Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpowiadają kontrolerowi Azure Automation (jest to wymagane tylko w celu włączenia autouaktualnienia agenta mobilności dla zreplikowanego elementu za pośrednictwem portalu) | GuestAndHybridManagement
@@ -167,11 +167,11 @@ Zezwalaj na ruch wychodzący HTTPS: port 443 | Zezwalaj na zakresy, które odpow
 
 #### <a name="control-access-with-nsg-rules"></a>Kontrola dostępu przy użyciu reguł sieciowej grupy zabezpieczeń
 
-W przypadku kontrolowania łączności maszyn wirtualnych przez filtrowanie ruchu sieciowego do i z sieci lub podsieci platformy Azure przy użyciu [reguł sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview)należy zwrócić uwagę na następujące wymagania:
+W przypadku kontrolowania łączności maszyn wirtualnych przez filtrowanie ruchu sieciowego do i z sieci lub podsieci platformy Azure przy użyciu [reguł sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md)należy zwrócić uwagę na następujące wymagania:
 
 - Reguły sieciowej grupy zabezpieczeń dla źródłowego regionu platformy Azure powinny zezwalać na dostęp wychodzący dla ruchu związanego z replikacją.
 - Zalecamy utworzenie reguł w środowisku testowym przed wprowadzeniem ich do środowiska produkcyjnego.
-- Używaj [tagów usługi](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) zamiast zezwalać na poszczególne adresy IP.
+- Używaj [tagów usługi](../virtual-network/security-overview.md#service-tags) zamiast zezwalać na poszczególne adresy IP.
     - Tagi usług reprezentują grupę prefiksów adresów IP zebranych razem, aby zminimalizować złożoność podczas tworzenia reguł zabezpieczeń.
     - Firma Microsoft automatycznie aktualizuje Tagi usług w czasie. 
  
@@ -191,7 +191,7 @@ Jeśli włączono spójność między wieloma maszynami wirtualnymi, maszyny z g
 
 Po zainicjowaniu trybu failover maszyny wirtualne są tworzone w docelowej grupie zasobów, docelowej sieci wirtualnej, podsieci docelowej i w docelowym zestawie dostępności. Podczas pracy w trybie failover można użyć dowolnego punktu odzyskiwania.
 
-![Proces trybu failover](./media/concepts-azure-to-azure-architecture/failover.png)
+![Proces trybu failover](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

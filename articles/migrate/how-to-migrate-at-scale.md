@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74196362"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109845"
 ---
 # <a name="scale-migration-of-vms"></a>Skalowanie migracji maszyn wirtualnych 
 
 Ten artykuł pomaga zrozumieć, jak używać skryptów do migrowania dużej liczby maszyn wirtualnych. Do skalowania migracji służy [Azure Site Recovery](../site-recovery/site-recovery-overview.md). 
 
-Skrypty Site Recovery są dostępne do pobrania w [Azure PowerShell repozytorium przykładów](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) w witrynie GitHub. Skrypty te mogą służyć do migrowania maszyn wirtualnych VMware, AWS, GCP i serwerów fizycznych do dysków zarządzanych na platformie Azure. Można również użyć tych skryptów do migrowania maszyn wirtualnych funkcji Hyper-V w przypadku migrowania maszyn wirtualnych jako serwerów fizycznych. Skrypty wykorzystujące Azure Site Recovery PowerShell są udokumentowane w [tym miejscu](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Skrypty Site Recovery są dostępne do pobrania w [Azure PowerShell repozytorium przykładów](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) w witrynie GitHub. Skrypty te mogą służyć do migrowania maszyn wirtualnych VMware, AWS, GCP i serwerów fizycznych do dysków zarządzanych na platformie Azure. Można również użyć tych skryptów do migrowania maszyn wirtualnych funkcji Hyper-V w przypadku migrowania maszyn wirtualnych jako serwerów fizycznych. Skrypty wykorzystujące Azure Site Recovery PowerShell są udokumentowane w [tym miejscu](../site-recovery/vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 - Obsługa określania statycznego adresu IP tylko dla podstawowej karty sieciowej docelowej maszyny wirtualnej
@@ -54,19 +54,19 @@ Gdy wolumin CSV jest gotowy, możesz wykonać następujące kroki, aby przeprowa
 
 **Czynności #** | **Nazwa skryptu** | **Opis**
 --- | --- | ---
-1 | asr_startmigration. ps1 | Włącz replikację dla wszystkich maszyn wirtualnych wymienionych w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
-2 | asr_replicationstatus. ps1 | Sprawdź stan replikacji, skrypt tworzy wolumin CSV ze stanem dla każdej maszyny wirtualnej
-3 | asr_updateproperties. ps1 | Po replikacji/zabezpieczeniu maszyn wirtualnych Użyj tego skryptu, aby zaktualizować właściwości docelowe maszyny wirtualnej (właściwości obliczeniowe i sieciowe).
-4 | asr_propertiescheck. ps1 | Sprawdź, czy właściwości zostały odpowiednio zaktualizowane
-5 | asr_testmigration. ps1 |  Rozpocznij Test pracy w trybie failover maszyn wirtualnych znajdujących się w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
-6 | asr_cleanuptestmigration. ps1 | Po ręcznym zweryfikowaniu maszyn wirtualnych, które przeprowadzono test zakończony niepowodzeniem, można użyć tego skryptu do oczyszczenia maszyn wirtualnych z testem pracy w trybie failover
-7 | asr_migration. ps1 | Wykonaj niezaplanowaną pracę w trybie failover dla maszyn wirtualnych wymienionych w woluminie CSV skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej. Skrypt nie wyłącza lokalnych maszyn wirtualnych przed wyzwoleniem trybu failover w celu zapewnienia spójności aplikacji zaleca się ręczne wyłączenie maszyn wirtualnych przed wykonaniem skryptu.
-8 | asr_completemigration. ps1 | Wykonywanie operacji zatwierdzania na maszynach wirtualnych i usuwanie Azure Site Recovery jednostek
-9 | asr_postmigration. ps1 | Jeśli planujesz przypisywać sieciowe grupy zabezpieczeń do kart sieciowych po przejściu w tryb failover, możesz to zrobić za pomocą tego skryptu. Przypisuje sieciowej grupy zabezpieczeń do dowolnej karty sieciowej na docelowej maszynie wirtualnej.
+1 | asr_startmigration.ps1 | Włącz replikację dla wszystkich maszyn wirtualnych wymienionych w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
+2 | asr_replicationstatus.ps1 | Sprawdź stan replikacji, skrypt tworzy wolumin CSV ze stanem dla każdej maszyny wirtualnej
+3 | asr_updateproperties.ps1 | Po replikacji/zabezpieczeniu maszyn wirtualnych Użyj tego skryptu, aby zaktualizować właściwości docelowe maszyny wirtualnej (właściwości obliczeniowe i sieciowe).
+4 | asr_propertiescheck.ps1 | Sprawdź, czy właściwości zostały odpowiednio zaktualizowane
+5 | asr_testmigration.ps1 |  Rozpocznij Test pracy w trybie failover maszyn wirtualnych znajdujących się w woluminie CSV, skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej
+6 | asr_cleanuptestmigration.ps1 | Po ręcznym zweryfikowaniu maszyn wirtualnych, które przeprowadzono test zakończony niepowodzeniem, można użyć tego skryptu do oczyszczenia maszyn wirtualnych z testem pracy w trybie failover
+7 | asr_migration.ps1 | Wykonaj niezaplanowaną pracę w trybie failover dla maszyn wirtualnych wymienionych w woluminie CSV skrypt tworzy dane wyjściowe woluminu CSV z informacjami o zadaniu dla każdej maszyny wirtualnej. Skrypt nie wyłącza lokalnych maszyn wirtualnych przed wyzwoleniem trybu failover w celu zapewnienia spójności aplikacji zaleca się ręczne wyłączenie maszyn wirtualnych przed wykonaniem skryptu.
+8 | asr_completemigration.ps1 | Wykonywanie operacji zatwierdzania na maszynach wirtualnych i usuwanie Azure Site Recovery jednostek
+9 | asr_postmigration.ps1 | Jeśli planujesz przypisywać sieciowe grupy zabezpieczeń do kart sieciowych po przejściu w tryb failover, możesz to zrobić za pomocą tego skryptu. Przypisuje sieciowej grupy zabezpieczeń do dowolnej karty sieciowej na docelowej maszynie wirtualnej.
 
 ## <a name="how-to-migrate-to-managed-disks"></a>Jak przeprowadzić migrację do dysków zarządzanych?
 Skrypt domyślnie migruje maszyny wirtualne do dysków zarządzanych na platformie Azure. Jeśli podane konto magazynu jest kontem magazynu w warstwie Premium, dyski zarządzane w warstwie Premium są tworzone po migracji. Konto magazynu pamięci podręcznej nadal może być kontem standardowym. Jeśli docelowe konto magazynu jest kontem magazynu w warstwie Standardowa, dyski standardowe są tworzone po migracji. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Dowiedz się więcej](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) na temat migrowania serwerów na platformę Azure przy użyciu Azure Site Recovery
+[Dowiedz się więcej](../site-recovery/migrate-tutorial-on-premises-azure.md) na temat migrowania serwerów na platformę Azure przy użyciu Azure Site Recovery

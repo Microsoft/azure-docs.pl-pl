@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982127"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85114745"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globalna dystrybucja danych przy użyciu usługi Azure Cosmos DB — przegląd
 
@@ -23,7 +23,7 @@ Bazy danych można skonfigurować tak, aby były one dystrybuowane globalnie i d
 
 Za pomocą Azure Cosmos DB możesz w dowolnym momencie dodać lub usunąć regiony skojarzone z Twoim kontem. Aby można było dodać lub usunąć region, aplikacja nie musi być wstrzymana ani ponownie wdrożona. Jest ono ciągle dostępne przez cały czas ze względu na funkcje wielomultihostingune zapewniane przez usługę.
 
-![Topologia wdrożenia o wysokiej dostępności](./media/distribute-data-globally/deployment-topology.png)
+:::image type="content" source="./media/distribute-data-globally/deployment-topology.png" alt-text="Topologia wdrożenia o wysokiej dostępności" border="false":::
 
 ## <a name="key-benefits-of-global-distribution"></a>Najważniejsze zalety dystrybucji globalnej
 

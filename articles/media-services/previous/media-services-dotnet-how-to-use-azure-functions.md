@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84712500"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Opracowywanie Azure Functions z Media Services
 
@@ -54,7 +53,7 @@ Funkcja zdefiniowana w tym artykule zakłada, że w ustawieniach aplikacji znajd
 
 **AMSClientSecret**: wpis tajny klienta aplikacji usługi Azure AD.
 
-**StorageConnection**: połączenie magazynu konta skojarzonego z kontem Media Services. Ta wartość jest używana w pliku **Function. JSON** i pliku **Run. CSX** (opisanych poniżej).
+**StorageConnection**: połączenie magazynu konta skojarzonego z kontem Media Services. Ta wartość jest używana w **function.js** plik i plik **Run. CSX** (opisane poniżej).
 
 ## <a name="create-a-function"></a>Tworzenie funkcji
 
@@ -70,22 +69,22 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 
     ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Kliknij przycisk **Utwórz**. 
+4. Kliknij pozycję **Utwórz**. 
 
-## <a name="files"></a>Pliki
+## <a name="files"></a>Files
 
-Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Korzystając z Azure Portal, można utworzyć funkcję Function **. JSON** i **Run. CSX** . Musisz dodać lub przekazać plik **Project. JSON** . Pozostała część tej sekcji zawiera krótkie wyjaśnienie poszczególnych plików i pokazuje ich definicje.
+Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Gdy używasz Azure Portal do tworzenia funkcji, **function.json** i **Run. CSX** są tworzone dla Ciebie. Musisz dodać lub przekazać **project.js** pliku. Pozostała część tej sekcji zawiera krótkie wyjaśnienie poszczególnych plików i pokazuje ich definicje.
 
 ![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
-Plik Function. JSON definiuje powiązania funkcji i inne ustawienia konfiguracji. Środowisko uruchomieniowe używa tego pliku do określenia zdarzeń do monitorowania oraz przekazywania danych do i zwracania danych z wykonywania funkcji. Aby uzyskać więcej informacji, zobacz [powiązania protokołu HTTP i elementu webhook usługi Azure Functions](../../azure-functions/functions-reference.md#function-code).
+function.jsw pliku definiuje powiązania funkcji i inne ustawienia konfiguracji. Środowisko uruchomieniowe używa tego pliku do określenia zdarzeń do monitorowania oraz przekazywania danych do i zwracania danych z wykonywania funkcji. Aby uzyskać więcej informacji, zobacz [powiązania protokołu HTTP i elementu webhook usługi Azure Functions](../../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
 >Ustaw właściwość **Disabled** na **wartość true** , aby zapobiec wykonywaniu funkcji. 
 
-Zastąp zawartość istniejącego pliku Function. JSON następującym kodem:
+Zastąp zawartość istniejącego function.jsw pliku następującym kodem:
 
 ```json
 {
@@ -104,9 +103,9 @@ Zastąp zawartość istniejącego pliku Function. JSON następującym kodem:
 
 ### <a name="projectjson"></a>project.json
 
-Plik Project. JSON zawiera zależności. Oto przykład pliku **Project. JSON** , który zawiera wymagane pakiety Azure Media Services .NET z narzędzia NuGet. Należy zauważyć, że numery wersji są zmieniane na najnowsze aktualizacje pakietów, dlatego należy potwierdzić najnowsze wersje. 
+project.jsw pliku zawiera zależności. Poniżej znajduje się przykład **project.js** pliku zawierającego wymagane pakiety Azure Media Services .NET z narzędzia NuGet. Należy zauważyć, że numery wersji są zmieniane na najnowsze aktualizacje pakietów, dlatego należy potwierdzić najnowsze wersje. 
 
-Dodaj następującą definicję do pliku Project. JSON. 
+Dodaj następującą definicję, aby project.js. 
 
 ```json
 {
@@ -348,6 +347,6 @@ Aby uzyskać więcej informacji i dowiedzieć się więcej na temat przykładów
 
 Zobacz też temat [Używanie elementów webhook platformy Azure do monitorowania powiadomień o zadaniach Media Services przy użyciu platformy .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

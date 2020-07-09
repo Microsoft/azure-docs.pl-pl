@@ -1,18 +1,14 @@
 ---
 title: Dostarczanie bezpiecznego elementu webhook za pomocą usługi Azure AD w Azure Event Grid
 description: Opisuje sposób dostarczania zdarzeń do punktów końcowych HTTPS chronionych przez Azure Active Directory przy użyciu Azure Event Grid
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.author: babanisa
-ms.openlocfilehash: 86d647ebfcf6e4c1ea8d05f58dd1f559d6e30cfc
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.date: 07/07/2020
+ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900469"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119127"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikuj zdarzenia w celu Azure Active Directory chronionych punktów końcowych
 
@@ -29,7 +25,7 @@ Zacznij od utworzenia aplikacji usługi Azure AD dla chronionego punktu końcowe
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Włącz Event Grid, aby korzystać z aplikacji usługi Azure AD
 
-Użyj poniższego skryptu programu PowerShell, aby utworzyć regułę roli i usługi w aplikacji usługi Azure AD. Wymagany jest identyfikator dzierżawy i identyfikator obiektu z aplikacji usługi Azure AD:
+Użyj poniższego skryptu programu PowerShell, aby utworzyć rolę i nazwę główną usługi w aplikacji usługi Azure AD. Wymagany jest identyfikator dzierżawy i identyfikator obiektu z aplikacji usługi Azure AD:
 
    > [!NOTE]
    > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) .

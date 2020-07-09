@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67876099"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Przegląd rozwiązania StorSimple Data Manager
@@ -72,7 +72,7 @@ Zalecenia:
     
 Firma Microsoft dąży do zapewnienia, że usługi platformy Azure są zawsze dostępne we wszystkich regionach. Nieplanowana awaria usługi może jednak wystąpić przez krótkie okresy w określonym regionie. W takich przypadkach można wyświetlić Data Manager i definicję zadania w regionie, w którym nie ma to wpływ na awarię, i uruchomić zadanie transformacji. W takim scenariuszu może wystąpić kilka dodatkowych opóźnień, ale może to być strategią odzyskiwania w rzadkich przypadkach regionalnych awarii.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 StorSimple Data Manager wymaga klucza szyfrowania danych usługi do przekształcenia z formatu StorSimple na format natywny. Klucz szyfrowania danych usługi jest generowany, gdy pierwsze urządzenie jest rejestrowane w usłudze StorSimple. Aby uzyskać więcej informacji na temat tego klucza, przejdź do [StorSimple zabezpieczenia](storsimple-8000-security.md).
 

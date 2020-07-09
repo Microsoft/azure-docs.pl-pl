@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879126"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322288"
 ---
-# <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
-Drzwi frontonu platformy Azure umożliwiają zdefiniowanie i monitorowanie globalnego routingu dla ruchu w sieci Web oraz zarządzanie nim przez optymalizację w celu uzyskania najlepszej wydajności i natychmiastowego globalnego trybu failover w celu zapewnienia wysokiej dostępności. Za pomocą przednich drzwi można przekształcić globalne (wieloregionowe) aplikacje klienckie i korporacyjne na niezawodne, wysoce wydajne, nowoczesne aplikacje, interfejsy API i zawartość, które docierają do użytkowników globalnych na platformie Azure.
+# <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
+Drzwi frontonu platformy Azure umożliwiają zdefiniowanie i monitorowanie globalnego routingu dla ruchu w sieci Web oraz zarządzanie nim przez optymalizację pod kątem najlepszej wydajności i szybkiej globalnej pracy awaryjnej w celu zapewnienia wysokiej dostępności. Za pomocą przednich drzwi można przekształcić globalne (wieloregionowe) aplikacje klienckie i korporacyjne na niezawodne, wysoce wydajne, nowoczesne aplikacje, interfejsy API i zawartość, które docierają do użytkowników globalnych na platformie Azure.
 
 Usługa Front Door działa w warstwie 7 lub warstwie protokołu HTTP/HTTPS i używa protokołu emisji dowolnej z podzielonym protokołem TCP i globalną siecią firmy Microsoft w celu poprawienia łączności globalnej. Dlatego przez wybór metody routingu w konfiguracji można zagwarantować, że usługa Front Door będzie kierować żądania klienta do najszybszego i najbardziej dostępnego zaplecza aplikacji. Zaplecze aplikacji to dowolna internetowa usługa hostowana wewnątrz platformy Azure lub poza nią. Usługa Front Door udostępnia szereg [metod routingu ruchu](front-door-routing-methods.md) oraz [opcji monitorowania kondycji zaplecza](front-door-health-probes.md), które zaspokoją potrzeby różnych aplikacji i modeli automatycznej pracy w trybie failover. Podobnie jak usługa [Traffic Manager](../traffic-manager/traffic-manager-overview.md), usługa Front Door jest odporna na awarie, w tym awarię całego regionu platformy Azure.
 
@@ -36,7 +36,7 @@ Używając podzielonego protokołu emisji dowolnej opartego na protokole TCP, us
 
 ## <a name="increase-application-availability-with-smart-health-probes"></a>Zwiększanie dostępności aplikacji za pomocą inteligentnych sond kondycji
 
-Usługa Front Door zapewnia aplikacjom o krytycznym znaczeniu wysoką dostępność, używając inteligentnych sond kondycji, monitorowania zaplecza pod kątem opóźnienia i dostępności oraz zapewniając możliwość natychmiastowego przejścia w tryb failover w przypadku awarii zaplecza. Dlatego można uruchamiać operacje planowanej konserwacji aplikacji bez przestojów. W czasie konserwacji usługa Front Door kieruje ruch do alternatywnych zapleczy.
+Drzwi z przodu zapewniają wysoką dostępność dla aplikacji o znaczeniu krytycznym przy użyciu inteligentnych sond kondycji, monitorując zaplecze zarówno w przypadku opóźnień, jak i dostępności, zapewniając szybką automatyczne przełączanie do trybu failover w przypadku awarii zaplecza. Dlatego można uruchamiać operacje planowanej konserwacji aplikacji bez przestojów. W czasie konserwacji usługa Front Door kieruje ruch do alternatywnych zapleczy.
 
 ## <a name="url-based-routing"></a>Routing oparty na adresach URL
 Routing oparty na ścieżkach URL umożliwia kierowanie ruchu do pul zaplecza na podstawie ścieżek URL żądania. Jeden ze scenariuszy polega na kierowaniu żądań dla różnych typów zawartości do różnych pól zaplecza.

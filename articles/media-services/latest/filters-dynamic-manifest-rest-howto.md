@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75780338"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Tworzenie filtrów za pomocą interfejsu API REST Media Services
@@ -83,7 +82,7 @@ Poniżej znajduje się przykład **treści żądania** , który definiuje warunk
 
 ## <a name="create-account-filters"></a>Tworzenie filtrów konta
 
-W pobranej kolekcji Twojego wpisu wybierz pozycję **filtry**->kont**Utwórz lub zaktualizuj filtr konta**.
+W pobranej kolekcji Twojego wpisu wybierz pozycję **filtry kont** -> **Utwórz lub zaktualizuj filtr konta**.
 
 Metoda **Put** żądania HTTP jest podobna do:
 
@@ -93,7 +92,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Wybierz kartę **treść** i wklej [wcześniej zdefiniowany](#define-a-filter)kod JSON.
 
-Wybierz pozycję **Wyślij**. 
+Wybierz pozycję **Send** (Wyślij). 
 
 Filtr został utworzony.
 
@@ -101,7 +100,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie lub aktualizowanie](https://d
 
 ## <a name="create-asset-filters"></a>Tworzenie filtrów zasobów  
 
-W pobranej kolekcji "Media Services v3" Wybierz pozycję **zasoby**->**Utwórz lub zaktualizuj filtr zasobów**.
+W pobranej kolekcji "Media Services v3" Wybierz pozycję **zasoby** -> **Utwórz lub zaktualizuj filtr zasobów**.
 
 Metoda **Put** żądania HTTP jest podobna do:
 
@@ -111,7 +110,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Wybierz kartę **treść** i wklej [wcześniej zdefiniowany](#define-a-filter)kod JSON.
 
-Wybierz pozycję **Wyślij**. 
+Wybierz pozycję **Send** (Wyślij). 
 
 Filtr zasobów został utworzony.
 
@@ -129,7 +128,7 @@ Po zdefiniowaniu filtrów klienci mogą używać ich w adresie URL przesyłania 
 
 W poniższej tabeli przedstawiono kilka przykładów adresów URL z filtrami:
 
-|Protocol (Protokół)|Przykład|
+|Protokół|Przykład|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

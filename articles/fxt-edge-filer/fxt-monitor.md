@@ -3,15 +3,15 @@ title: Monitorowanie urządzenia Azure FXT Edge Filer
 description: Jak monitorować stan sprzętu dla hybrydowej pamięci podręcznej magazynu usługi Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7027fe9988c0c559db72c3c388c7a579d533c57e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72254873"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85509442"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitorowanie stanu sprzętu usługi Azure FXT Edge
 

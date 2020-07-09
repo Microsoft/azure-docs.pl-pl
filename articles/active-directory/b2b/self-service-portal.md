@@ -4,19 +4,19 @@ description: Współpraca B2B usługi Azure Active Directory wspiera relacje mi�
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfa67f529408efcc2a703a4f80b15143c774f0b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff18d3d9cae6e887abbd9fb1845de62386062b2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77195797"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386711"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Samoobsługowe rejestrowanie w ramach współpracy B2B w usłudze Azure AD
 

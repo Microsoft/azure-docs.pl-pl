@@ -8,11 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
 ms.openlocfilehash: 85aeafb2c4461b50d399e40d9abff2ac04b677c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707654"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problemy z serwerami regionów w usłudze Azure HDInsight
 
@@ -28,7 +27,7 @@ Po uruchomieniu `hbase hbck` polecenia zostanie wyświetlony komunikat o błędz
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-W interfejsie użytkownika Apache HBase Master można zobaczyć liczbę regionów, które są niezrównoważone na wszystkich serwerach regionów. Następnie można uruchomić `hbase hbck` polecenie, aby zobaczyć otwory w łańcuchu regionów.
+W interfejsie użytkownika Apache HBase Master można zobaczyć liczbę regionów, które są niezrównoważone na wszystkich serwerach regionów. Następnie można uruchomić polecenie, `hbase hbck` Aby zobaczyć otwory w łańcuchu regionów.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -42,9 +41,9 @@ Napraw przydziały. Wykonaj poniższe kroki, aby przywrócić stan Normalny niep
 
 1. Uruchom `hbase zkcli` polecenie, aby nawiązać połączenie z powłoką dozorcy.
 
-1. Uruchom `rmr /hbase/regions-in-transition` polecenie `rmr /hbase-unsecure/regions-in-transition` lub.
+1. Uruchom `rmr /hbase/regions-in-transition` `rmr /hbase-unsecure/regions-in-transition` polecenie lub.
 
-1. Zamknij powłokę dozorcy za `exit` pomocą polecenia.
+1. Zamknij powłokę dozorcy za pomocą `exit` polecenia.
 
 1. Otwórz interfejs użytkownika Apache Ambari, a następnie uruchom ponownie usługę Active HBase Master.
 
@@ -62,7 +61,7 @@ Nie można uruchomić serwerów regionów.
 
 Dzielenie wielu katalogów WAL.
 
-1. Pobierz listę bieżących WALs: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`.
+1. Pobierz listę bieżących WALs: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` .
 
 1. Sprawdź `wals.out` plik. W przypadku zbyt wielu katalogów dzielenia (począwszy od znaku *-dzielenia) serwer regionu prawdopodobnie kończy się niepowodzeniem z powodu tych katalogów.
 
@@ -72,11 +71,11 @@ Dzielenie wielu katalogów WAL.
 
 1. Wykonaj `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` , aby uzyskać świeżą listę WALs.
 
-1. Przenieś katalogi *-dzielenie do folderu tymczasowego, `splitWAL`a następnie usuń katalogi *-dzielenie.
+1. Przenieś katalogi *-dzielenie do folderu tymczasowego, a następnie `splitWAL` Usuń katalogi *-dzielenie.
 
 1. Wykonaj `hbase zkcli` polecenie, aby nawiązać połączenie z powłoką dozorcy.
 
-1. Wykonaj `rmr /hbase-unsecure/splitWAL`.
+1. Wykonaj `rmr /hbase-unsecure/splitWAL` .
 
 1. Uruchom ponownie usługę HBase.
 
@@ -86,6 +85,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

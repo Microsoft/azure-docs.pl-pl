@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80477798"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Jak utworzyć App Service Environment v1 
@@ -36,7 +36,7 @@ Ważne jest, aby mieć świadomość, że nie można zmienić. Te aspekty nie mo
 Podczas wybierania sieci wirtualnej i określania podsieci upewnij się, że jest wystarczająco duża, aby pomieścić przyszłe przyrosty. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Tworzenie App Service Environment v1
-Aby utworzyć App Service Environment V1, możesz przeszukać witrynę Azure Marketplace pod kątem ***App Service Environment V1***lub przejść przez polecenie **Utwórz zasób** -> **Sieć Web + aplikacje mobilne** -> **App Service Environment**. Aby utworzyć środowiska asev1:
+Aby utworzyć App Service Environment V1, możesz przeszukać witrynę Azure Marketplace pod kątem ***App Service Environment V1***lub przejść przez polecenie **Utwórz zasób**  ->  **Sieć Web + aplikacje mobilne**  ->  **App Service Environment**. Aby utworzyć środowiska asev1:
 
 1. Podaj nazwę środowiska ASE. Nazwa określona dla środowiska ASE zostanie użyta dla aplikacji utworzonych w środowisku ASE. Jeśli nazwa środowiska ASE to appsvcenvdemo, nazwą domeny podrzędnej byłaby: *appsvcenvdemo.p.azurewebsites.NET*. Jeśli w ten sposób utworzysz aplikację o nazwie *MojaAplikacja*, będzie ona adresować w *mytestapp.appsvcenvdemo.p.azurewebsites.NET*. Nie można użyć odstępu w nazwie środowiska ASE. Jeśli w nazwie używane są wielkie litery, nazwa domeny będzie sumą małych liter tej nazwy. Jeśli używasz ILB, Nazwa środowiska ASE nie zostanie użyta w poddomenie, ale zamiast tego zostanie jawnie określona podczas tworzenia środowiska ASE.
    

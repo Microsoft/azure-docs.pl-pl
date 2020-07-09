@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak kopiować i wklejać do i z maszyn
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744242"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiowanie i wklejanie do maszyny wirtualnej: Azure bastionu
 

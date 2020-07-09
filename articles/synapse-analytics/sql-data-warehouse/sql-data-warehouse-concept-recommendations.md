@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
-ms.date: 04/30/2020
+ms.subservice: sql-dw
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653031"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85482857"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse zalecenia dotyczące języka SQL
 
@@ -70,3 +70,7 @@ W przypadku dużego zestawu roboczego można obsłużyć procent trafień w pami
 ## <a name="tempdb-contention"></a>Rywalizacja o bazę danych tempdb
 
 Wydajność zapytań może wzniżyć, gdy istnieje duża rywalizacja o bazę danych tempdb.  Rywalizacja o bazę danych tempdb może odbywać się za pośrednictwem tabel tymczasowych zdefiniowanych przez użytkownika lub w przypadku dużej ilości ruchu. W tym scenariuszu można skalować więcej alokacji tempdb i [konfigurować klasy zasobów i zarządzanie obciążeniami](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) w celu zapewnienia większej ilości pamięci dla zapytań. 
+
+## <a name="data-loading-misconfiguration"></a>Niekonfiguracja ładowania danych
+
+Należy zawsze ładować dane z konta magazynu w tym samym regionie, w którym znajduje się pula SQL, aby zminimalizować opóźnienia. Użyj [instrukcji Copy do pozyskiwania danych o wysokiej przepływności](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) i Podziel pliki przemieszczane na koncie magazynu, aby zmaksymalizować przepływność. Jeśli nie można użyć instrukcji COPY, można użyć interfejsu API SqlBulkCopy lub BCP o dużej wielkości partii, aby zapewnić lepszą przepływność. Aby uzyskać dodatkowe wskazówki dotyczące ładowania danych, zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

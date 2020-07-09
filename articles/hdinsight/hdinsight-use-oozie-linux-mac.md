@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 27cc1052a2f35382b2d6a93482b7af219a9a187a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015169"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085943"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
 
@@ -35,7 +35,7 @@ Można również użyć Oozie do planowania zadań specyficznych dla systemu, ta
 
 * **Klient SSH**. Zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Azure SQL Database**.  Zobacz [Tworzenie bazy danych Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest**.
+* **Azure SQL Database**.  Zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest**.
 
 * Schemat identyfikatora URI magazynu podstawowego klastrów. `wasb://`w przypadku usługi Azure Storage `abfs://` dla Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` . Zobacz również [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -47,9 +47,11 @@ Przepływ pracy używany w tym dokumencie zawiera dwie akcje. Akcje to definicje
 
 1. Akcja Hive uruchamia skrypt HiveQL, aby wyodrębnić rekordy z `hivesampletable` dołączonego do usługi HDInsight. Każdy wiersz danych zawiera opis odwiedzania z określonego urządzenia przenośnego. Format rekordu wygląda podobnie do następującego tekstu:
 
-        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```output
+    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+    ```
 
     Skrypt Hive używany w tym dokumencie zlicza łączną liczbę wizyt dla każdej z platform, takich jak Android lub iPhone, i przechowuje liczby w nowej tabeli programu Hive.
 
@@ -126,7 +128,7 @@ Wykonaj następujące kroki, aby utworzyć skrypt programu Hive Query Language (
 
    * `${hiveDataFolder}`: Zawiera lokalizację do przechowywania plików danych dla tabeli.
 
-     Plik definicji przepływu pracy. XML w tym artykule przekazuje te wartości do tego skryptu HiveQL w czasie wykonywania.
+     Plik definicji przepływu pracy, workflow.xml w tym artykule, przekazuje te wartości do tego skryptu HiveQL w czasie wykonywania.
 
 1. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.  
 
@@ -240,11 +242,13 @@ Definicje przepływu pracy Oozie są zapisywane w języku definicji procesów us
 
     Otrzymujesz dane wyjściowe podobne do następującego tekstu:
 
-        locale is "en_US.UTF-8"
-        locale charset is "UTF-8"
-        using default charset "UTF-8"
-        Default database being set to oozietest
-        1>
+    ```output
+    locale is "en_US.UTF-8"
+    locale charset is "UTF-8"
+    using default charset "UTF-8"
+    Default database being set to oozietest
+    1>
+    ```
 
 3. W wierszu `1>` wprowadź następujące wiersze:
 
@@ -268,14 +272,16 @@ Definicje przepływu pracy Oozie są zapisywane w języku definicji procesów us
 
     Zobaczysz dane wyjściowe podobne do następującego tekstu:
 
-        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo             mobiledata      BASE TABLE
+    ```output
+    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+    oozietest       dbo             mobiledata      BASE TABLE
+    ```
 
 4. Zamknij narzędzie TSQL, wpisując `exit` w `1>` wierszu polecenia.
 
 ## <a name="create-the-job-definition"></a>Tworzenie definicji zadania
 
-W definicji zadania opisano, gdzie znaleźć plik Workflow. XML. Opisano w nim również, gdzie można znaleźć inne pliki używane przez przepływ pracy, na przykład `useooziewf.hql` . Ponadto definiuje wartości właściwości używanych w przepływie pracy i skojarzonych plikach.
+W definicji zadania opisano, gdzie znaleźć workflow.xml. Opisano w nim również, gdzie można znaleźć inne pliki używane przez przepływ pracy, na przykład `useooziewf.hql` . Ponadto definiuje wartości właściwości używanych w przepływie pracy i skojarzonych plikach.
 
 1. Aby uzyskać pełny adres magazynu domyślnego, użyj następującego polecenia. Ten adres jest używany w pliku konfiguracji utworzonym w następnym kroku.
 
@@ -366,7 +372,7 @@ W definicji zadania opisano, gdzie znaleźć plik Workflow. XML. Opisano w nim r
     </configuration>
     ```
 
-    Większość informacji w tym pliku służy do wypełniania wartości używanych w plikach Workflow. XML lub ooziewf. HQL, takich jak `${nameNode}` .  Jeśli ścieżka jest `wasbs` ścieżką, należy użyć pełnej ścieżki. Nie skracaj go do samego siebie `wasbs:///` . `oozie.wf.application.path`Wpis definiuje, gdzie znaleźć plik Workflow. XML. Ten plik zawiera przepływ pracy, który został uruchomiony przez to zadanie.
+    Większość informacji w tym pliku służy do wypełniania wartości używanych w plikach workflow.xml lub ooziewf. HQL, takich jak `${nameNode}` .  Jeśli ścieżka jest `wasbs` ścieżką, należy użyć pełnej ścieżki. Nie skracaj go do samego siebie `wasbs:///` . `oozie.wf.application.path`Wpis określa miejsce, w którym znajduje się plik workflow.xml. Ten plik zawiera przepływ pracy, który został uruchomiony przez to zadanie.
 
 3. Aby utworzyć konfigurację definicji zadania Oozie, użyj następującego polecenia:
 
@@ -424,20 +430,22 @@ Poniższe kroki służą do przesyłania przepływów pracy Oozie do klastra i z
 
     Spowoduje to zwrócenie informacji takich jak następujący tekst:
 
-        Job ID : 0000005-150622124850154-oozie-oozi-W
-        ------------------------------------------------------------------------------------------------------------------------------------
-        Workflow Name : useooziewf
-        App Path      : wasb:///tutorials/useoozie
-        Status        : PREP
-        Run           : 0
-        User          : USERNAME
-        Group         : -
-        Created       : 2015-06-22 15:06 GMT
-        Started       : -
-        Last Modified : 2015-06-22 15:06 GMT
-        Ended         : -
-        CoordAction ID: -
-        ------------------------------------------------------------------------------------------------------------------------------------
+    ```output
+    Job ID : 0000005-150622124850154-oozie-oozi-W
+    ------------------------------------------------------------------------------------------------------------------------------------
+    Workflow Name : useooziewf
+    App Path      : wasb:///tutorials/useoozie
+    Status        : PREP
+    Run           : 0
+    User          : USERNAME
+    Group         : -
+    Created       : 2015-06-22 15:06 GMT
+    Started       : -
+    Last Modified : 2015-06-22 15:06 GMT
+    Ended         : -
+    CoordAction ID: -
+    ------------------------------------------------------------------------------------------------------------------------------------
+    ```
 
     To zadanie ma stan `PREP` . Ten stan wskazuje, że zadanie zostało utworzone, ale nie zostało uruchomione.
 
@@ -464,14 +472,16 @@ Poniższe kroki służą do przesyłania przepływów pracy Oozie do klastra i z
 
     Zwracane informacje są podobne do następujących:
 
-        deviceplatform  count
-        Android 31591
-        iPhone OS       22731
-        proprietary development 3
-        RIM OS  3464
-        Unknown 213
-        Windows Phone   1791
-        (6 rows affected)
+    ```output
+    deviceplatform  count
+    Android 31591
+    iPhone OS       22731
+    proprietary development 3
+    RIM OS  3464
+    Unknown 213
+    Windows Phone   1791
+    (6 rows affected)
+    ```
 
 Aby uzyskać więcej informacji na temat polecenia Oozie, zobacz [Narzędzie wiersza polecenia Apache Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
@@ -495,7 +505,7 @@ Interfejs użytkownika sieci Web Oozie zapewnia internetowy widok stanu zadań O
 
    * Stan zadania
    * Definicja zadania
-   * Konfigurowanie
+   * Konfiguracja
    * Wykres akcji w zadaniu
    * Dzienniki dla zadania
 
@@ -539,7 +549,7 @@ Aby uzyskać dostęp do interfejsu użytkownika sieci Web Oozie, wykonaj następ
 
 Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakończenia i wystąpienia zadań. Aby zdefiniować harmonogram dla przepływu pracy, wykonaj następujące czynności:
 
-1. Użyj następującego polecenia, aby utworzyć plik o nazwie **Coordinator. XML**:
+1. Użyj następującego polecenia, aby utworzyć plik o nazwie **coordinator.xml**:
 
     ```bash
     nano coordinator.xml
@@ -564,7 +574,7 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
     > * `${coordStart}`: Godzina rozpoczęcia zadania.
     > * `${coordEnd}`: Godzina zakończenia zadania.
     > * `${coordTimezone}`: Zadania koordynatora są w stałej strefie czasowej bez czasu letniego, zazwyczaj reprezentowane przy użyciu czasu UTC. Ta strefa czasowa jest określana jako strefa czasowa *przetwarzania Oozie.*
-    > * `${wfPath}`: Ścieżka do przepływu pracy. XML.
+    > * `${wfPath}`: Ścieżka do workflow.xml.
 
 2. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.
 
@@ -593,7 +603,7 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
         </property>
         ```
 
-       Zastąp `wasbs://mycontainer@mystorageaccount.blob.core.windows` tekst wartością użytą w pozostałych wpisach w pliku Job. XML.
+       Zastąp `wasbs://mycontainer@mystorageaccount.blob.core.windows` tekst wartością użytą w pozostałych wpisach w pliku job.xml.
 
    * Aby zdefiniować początkową, końcową i częstotliwość dla koordynatora, Dodaj następujący kod XML:
 

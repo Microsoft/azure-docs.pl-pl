@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79247295"
 ---
-# <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitoruj, odbieraj i wysyłaj zdarzenia za pomocą usługi Azure Event Hubs i Azure Logic Apps
+# <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorowanie, odbieranie i wysyłanie zdarzeń za pomocą usług Azure Event Hubs i Azure Logic Apps
 
-W tym artykule pokazano, jak można monitorować zdarzenia wysyłane do [usługi azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) i zarządzać nimi z poziomu aplikacji logiki za pomocą łącznika usługi Azure Event Hubs. Dzięki temu możesz tworzyć aplikacje logiki, które automatyzują zadania i przepływy pracy służące do sprawdzania, wysyłania i otrzymywania zdarzeń z centrum zdarzeń. Informacje techniczne dotyczące konkretnego łącznika można znaleźć w</a> [dokumentacji łącznika usługi Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/).
+W tym artykule pokazano, jak można monitorować zdarzenia wysyłane do [usługi azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) i zarządzać nimi z poziomu aplikacji logiki za pomocą łącznika usługi Azure Event Hubs. Dzięki temu możesz tworzyć aplikacje logiki, które automatyzują zadania i przepływy pracy służące do sprawdzania, wysyłania i otrzymywania zdarzeń z centrum zdarzeń. Informacje techniczne dotyczące konkretnego łącznika można znaleźć w [dokumentacji łącznika usługi Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/) </a> .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,13 +49,13 @@ Aby mieć pewność, że aplikacja logiki może uzyskać dostęp do centrum zdar
       ![Kopiuj parametry połączenia Event Hubs przestrzeni nazw](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Event Hubs, czy z określonym centrum zdarzeń, upewnij się, że parametry połączenia nie `EntityPath`  mają parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia dotyczy określonego centrum zdarzeń "Entity" i nie jest poprawnym ciągiem używanym z aplikacją logiki.
+      > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Event Hubs, czy z określonym centrum zdarzeń, upewnij się, że parametry połączenia nie mają `EntityPath`   parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia dotyczy określonego centrum zdarzeń "Entity" i nie jest poprawnym ciągiem używanym z aplikacją logiki.
 
 1. Teraz Kontynuuj [Dodawanie wyzwalacza Event Hubs](#add-trigger) lub [Dodaj akcję Event Hubs](#add-action).
 
 <a name="add-trigger"></a>
 
-## <a name="add-event-hubs-trigger"></a>Dodaj wyzwalacz Event Hubs
+## <a name="add-event-hubs-trigger"></a>Dodawanie wyzwalacza usługi Azure Event Hubs
 
 W Azure Logic Apps każda aplikacja logiki musi rozpoczynać się od [wyzwalacza](../logic-apps/logic-apps-overview.md#logic-app-concepts), który jest uruchamiany w przypadku wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Za każdym razem, gdy wyzwala wyzwalacz, aparat Logic Apps tworzy wystąpienie aplikacji logiki i uruchamia przepływ pracy aplikacji.
 
@@ -74,7 +73,7 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 
    ![Właściwości wyzwalacza](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa centrum zdarzeń** | Tak | Nazwa centrum zdarzeń, które ma być monitorowane. |
    | **Typ zawartości** | Nie | Typ zawartości zdarzenia. Wartość domyślna to `application/octet-stream`. |
@@ -86,13 +85,13 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 
    **Dodatkowe właściwości**
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Schemat zawartości** | Nie | Schemat zawartości JSON dla zdarzeń odczytywanych z centrum zdarzeń. Na przykład, jeśli określisz schemat zawartości, możesz wyzwolić aplikację logiki tylko dla tych zdarzeń, które pasują do schematu. |
    | **Minimalny klucz partycji** | Nie | Wprowadź minimalny identyfikator [partycji](../event-hubs/event-hubs-features.md#partitions) , który ma zostać odczytany. Domyślnie wszystkie partycje są odczytywane. |
    | **Maksymalny klucz partycji** | Nie | Wprowadź maksymalny identyfikator [partycji](../event-hubs/event-hubs-features.md#partitions) , który ma zostać odczytany. Domyślnie wszystkie partycje są odczytywane. |
    | **Strefa czasowa** | Nie | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje przesunięcia czasu UTC. Wybierz strefę czasową, która ma zostać zastosowana. <p>Aby uzyskać więcej informacji, zobacz [Tworzenie i uruchamianie cyklicznych zadań i przepływów pracy za pomocą Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
-   | **Godzina rozpoczęcia** | Nie | Podaj godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej<p>— lub —<p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej<p>Aby uzyskać więcej informacji, zobacz [Tworzenie i uruchamianie cyklicznych zadań i przepływów pracy za pomocą Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Godzina rozpoczęcia** | Nie | Podaj godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej<p>-lub-<p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej<p>Aby uzyskać więcej informacji, zobacz [Tworzenie i uruchamianie cyklicznych zadań i przepływów pracy za pomocą Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
@@ -108,7 +107,7 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki, gdy do 
 
 <a name="add-action"></a>
 
-## <a name="add-event-hubs-action"></a>Dodaj akcję Event Hubs
+## <a name="add-event-hubs-action"></a>Dodawanie akcji usługi Event Hubs
 
 W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concepts) to krok w przepływie pracy, który następuje po wyzwalaczu lub innej akcji. W tym przykładzie aplikacja logiki rozpoczyna się od wyzwalacza Event Hubs, który sprawdza, czy są nowe zdarzenia w centrum zdarzeń.
 
@@ -117,7 +116,7 @@ W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concep
 1. W obszarze wyzwalacza lub akcji wybierz pozycję **nowy krok**.
 
    Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. 
-   Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź "Centra zdarzeń" jako filtr.
 Z listy Akcje wybierz pozycję Ta akcja: **Wyślij Zdarzenie — Event Hubs**
@@ -130,7 +129,7 @@ Z listy Akcje wybierz pozycję Ta akcja: **Wyślij Zdarzenie — Event Hubs**
 
    ![Wybierz nazwę centrum zdarzeń i podaj zawartość zdarzenia](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa centrum zdarzeń** | Tak | Centrum zdarzeń, w którym chcesz wysłać zdarzenie |
    | **Zawartość** | Nie | Zawartość dla zdarzenia, które chcesz wysłać. |

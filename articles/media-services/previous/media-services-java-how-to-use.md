@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3adbb9471cc501861b65efd0321b3b4f72b07aea
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64869019"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057861"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services  
 
@@ -42,7 +42,7 @@ Aby rozpocząć korzystanie z zestawu SDK usług Media Services dla języka Java
 
 Jeśli na przykład Twoim narzędziem kompilacji jest narzędzie `gradle`, dodaj następującą zależność do pliku `build.gradle`:
 
-    compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
+`compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'`
 
 >[!IMPORTANT]
 >Począwszy od pakietu `azure-media` w wersji `0.9.8`, do zestawu SDK dodano obsługę uwierzytelniania za pomocą usługi Azure Active Directory (AAD) i usunięto obsługę uwierzytelniania za pomocą usługi Azure Access Control Service (ACS). Zalecamy jak najszybszą migrację do modelu uwierzytelniania za pomocą usługi Azure AD. Aby uzyskać szczegółowe informacje dotyczące migracji, przeczytaj artykuł [Uzyskiwanie dostępu do interfejsu API usług Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
@@ -307,7 +307,7 @@ Kod korzysta również z lokalnie przechowywanego pliku wideo. Należy edytować
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

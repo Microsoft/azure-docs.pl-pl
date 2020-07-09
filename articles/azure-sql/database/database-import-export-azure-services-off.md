@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
 ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045305"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importowanie lub eksportowanie Azure SQL Database bez zezwalania usługom platformy Azure na dostęp do serwera
@@ -71,7 +70,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie z maszyną wirtualną za 
 
 [Pobierz i zainstaluj najnowszą wersję elementu sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
 
-Aby uzyskać dodatkowe informacje, zobacz [sqlpackage. exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+Aby uzyskać dodatkowe informacje, zobacz [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
 
 ## <a name="create-a-firewall-rule-to-allow-the-vm-access-to-the-database"></a>Tworzenie reguły zapory w celu zezwolenia na dostęp maszyny wirtualnej do bazy danych
 
@@ -101,7 +100,7 @@ Aby wyeksportować Azure SQL Database przy użyciu narzędzia wiersza polecenia 
 
 Zalecamy używanie narzędzia sqlpackage do skalowania i wydajności w większości środowisk produkcyjnych. Aby poczytać o migracji za pomocą plików BACPAC na blogu SQL Server Customer Advisory Team, zobacz [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migrowanie z programu SQL Server do usługi Azure SQL Database za pomocą plików BACPAC).
 
-W tym przykładzie przedstawiono sposób eksportowania bazy danych przy użyciu narzędzia sqlpackage. exe z Active Directory uniwersalnego uwierzytelniania. Zamień na wartości, które są specyficzne dla danego środowiska.
+Ten przykład przedstawia sposób eksportowania bazy danych przy użyciu SqlPackage.exe z Active Directory uniwersalnego uwierzytelniania. Zamień na wartości, które są specyficzne dla danego środowiska.
 
 ```cmd
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"

@@ -7,19 +7,19 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: sample
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ae283529abb3b71ee50fc710dd1ebe0d17a12be0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 822390200b7a94f2bbf8aac56d26812f36b5f12a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154835"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85387613"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Przykłady kodu Azure Active Directory (punkt końcowy v 1.0)
 
@@ -54,7 +54,7 @@ W poniższych przykładach pokazano, jak aplikacje sieci Web użytkowników podp
  Platforma | Tylko oznaki użytkowników | Microsoft Graph wywołań | Wywołuje inny internetowy interfejs API ASP.NET lub ASP.NET Core 2,0
  -------- | ------------------- | --------------------- | -------------------------
 ![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2,0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-WebAPI-wielodostępne-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(Graf usługi AAD) | [dotnet-webapp-WebAPI-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4,5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-WebAPI-OAuth2-tożsamość użytkownika](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-wielodzierżawca-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (Graf usługi AAD) |
+![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-WebAPI-OAuth2-tożsamość użytkownika](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-wielodzierżawca-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (Graf usługi AAD) |
 ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo-python.png) | | [Python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
 ![Ten obraz przedstawia dziennik Java](media/sample-v2-code/logo-java.png)  | | [Java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![Ten obraz pokazuje logo języka PHP](media/sample-v2-code/logo-php.png) | | [php-graphapi-Web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
@@ -65,7 +65,7 @@ W poniższych przykładach pokazano, jak zaimplementować funkcję kontroli dost
 
 Platforma | Przykład |
  -------- | ------------------- |
-![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4,5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Aplikacja sieci Web platformy .NET 4,5 MVC korzystająca z **ról** usługi Azure AD na potrzeby autoryzacji
+![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Aplikacja sieci Web platformy .NET 4,5 MVC korzystająca z **ról** usługi Azure AD na potrzeby autoryzacji
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Publiczne aplikacje dla komputerów stacjonarnych i mobilnych wywołujące Microsoft Graph lub internetowy interfejs API
 
@@ -100,13 +100,13 @@ Aplikacja sieci Web ASP.NET  | ![Ten obraz pokazuje logo platformy .NET](media/s
 
 ### <a name="web-api-protected-by-azure-active-directory"></a>Internetowy interfejs API chroniony przez Azure Active Directory
 
-Poniższy przykład pokazuje, jak chronić interfejs API sieci Web w języku Node. js za pomocą usługi Azure AD.
+Poniższy przykład pokazuje, jak chronić interfejs API sieci Web node.js za pomocą usługi Azure AD.
 
 W poprzednich sekcjach tego artykułu można również znaleźć inne przykłady ilustrujące aplikację kliencką **wywołującą** **interfejs API sieci Web**ASP.NET lub ASP.NET Core. Te przykłady nie zostały opisane ponownie w tej sekcji, ale znajdują się one w ostatniej kolumnie tabel powyżej lub poniżej
 
 | Platforma | Przykład |
 |--------|-------------------|
-| ![Ten obraz pokazuje logo środowiska Node. js](media/sample-v2-code/logo-nodejs.png)  | [Node-WebApi](https://github.com/Azure-Samples/active-directory-node-webapi) |
+| ![Ten obraz zawiera logo Node.js](media/sample-v2-code/logo-nodejs.png)  | [Node-WebApi](https://github.com/Azure-Samples/active-directory-node-webapi) |
 
 ### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Interfejs API sieci Web wywołujący Microsoft Graph lub inny internetowy interfejs API
 
@@ -114,7 +114,7 @@ W poniższych przykładach przedstawiono internetowy interfejs API, który wywo�
 
 | Platforma |  Microsoft Graph wywołań | Wywołuje inny internetowy interfejs API ASP.NET lub ASP.NET Core 2,0 |
 | -------- |  --------------------- | ------------------------- |
-| ![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4,5 | [dotnet-WebAPI-OnBehalfOf](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-WebAPI-OnBehalfOf-CA](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-WebAPI-OnBehalfOf](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-WebAPI-OnBehalfOf-CA](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
+| ![Ten obraz pokazuje logo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-WebAPI-OnBehalfOf](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-WebAPI-OnBehalfOf-CA](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-WebAPI-OnBehalfOf](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-WebAPI-OnBehalfOf-CA](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
 
 ## <a name="other-microsoft-graph-samples"></a>Inne przykłady Microsoft Graph
 

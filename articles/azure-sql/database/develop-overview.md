@@ -10,21 +10,22 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: c2556cb1dcf59cdb8ae5014b7dd95fa2c431dc93
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050422"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254042"
 ---
-# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Przegląd opracowywania aplikacji — SQL Database & wystąpienie zarządzane SQL 
+# <a name="application-development-overview---sql-database--sql-managed-instance"></a>Przegląd opracowywania aplikacji — SQL Database & wystąpienie zarządzane SQL
+
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 W tym artykule omówiono podstawowe zagadnienia, które należy znać deweloper podczas pisania kodu w celu nawiązania połączenia z bazą danych na platformie Azure. Ten artykuł ma zastosowanie do Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 
 ## <a name="language-and-platform"></a>Język i platforma
 
-Możesz użyć różnych [języków programowania i platform](connect-query-content-reference-guide.md) do nawiązywania połączeń i Azure SQL Database zapytań. Możesz znaleźć [przykładowe aplikacje](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) , których można użyć do nawiązania połączenia z bazą danych Azure SQL.
+Możesz użyć różnych [języków programowania i platform](connect-query-content-reference-guide.md) do nawiązywania połączeń i Azure SQL Database zapytań. Możesz znaleźć [przykładowe aplikacje](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) , których można użyć do nawiązania połączenia z bazą danych.
 
 Możesz korzystać z narzędzi typu "open source", takich jak [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Ponadto usługa Azure SQL Database współpracuje z narzędziami firmy Microsoft, takimi jak [Visual Studio](https://www.visualstudio.com/downloads/) i [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Możesz również użyć interfejsów API Azure Portal, PowerShell i REST, aby zwiększyć produktywność.
 
@@ -44,7 +45,7 @@ Unikaj długotrwałych transakcji, ponieważ Jakakolwiek awaria infrastruktury l
 
 ## <a name="resiliency"></a>Odporność
 
-Azure SQL Database to usługa w chmurze, w której można oczekiwać błędów przejściowych występujących w podstawowej infrastrukturze lub komunikacji między jednostkami w chmurze. Choć Azure SQL Database jest odporny na awarie infrastruktury przechodniej, te błędy mogą mieć wpływ na łączność. Gdy wystąpi błąd przejściowy podczas nawiązywania połączenia z SQL Database, kod powinien [ponowić próbę wywołania](troubleshoot-common-connectivity-issues.md). Zalecamy, aby logika ponawiania używała logiki wycofywania, dzięki czemu nie spowoduje to przeciążenia bazy danych SQL z wieloma klientami jednocześnie. Logika ponawiania zależy od [komunikatów o błędach dla SQL Database programów klienckich](troubleshoot-common-errors-issues.md).
+Azure SQL Database to usługa w chmurze, w której można oczekiwać błędów przejściowych występujących w podstawowej infrastrukturze lub komunikacji między jednostkami w chmurze. Choć Azure SQL Database jest odporny na awarie infrastruktury przechodniej, te błędy mogą mieć wpływ na łączność. Gdy wystąpi błąd przejściowy podczas nawiązywania połączenia z SQL Database, kod powinien [ponowić próbę wywołania](troubleshoot-common-connectivity-issues.md). Zalecamy, aby logika ponawiania używała logiki wycofywania, więc nie spowoduje to przeciążenia usługi wieloma klientami jednocześnie. Logika ponawiania zależy od [komunikatów o błędach dla SQL Database programów klienckich](troubleshoot-common-errors-issues.md).
 
 Aby uzyskać więcej informacji o sposobach przygotowania do planowanych zdarzeń konserwacji na Azure SQL Database, zobacz [Planowanie zdarzeń konserwacji platformy Azure w programie Azure SQL Database](planned-maintenance.md).
 
@@ -53,7 +54,7 @@ Aby uzyskać więcej informacji o sposobach przygotowania do planowanych zdarze�
 - Upewnij się, że zapora na komputerze hostującym program kliencki zezwala na wychodzącą komunikację TCP na porcie 1433.  Więcej informacji: [Konfigurowanie zapory Azure SQL Database](firewall-configure.md).
 - Jeśli program kliencki nawiązuje połączenie z SQL Database, gdy klient działa na maszynie wirtualnej platformy Azure (VM), należy otworzyć niektóre zakresy portów na maszynie wirtualnej. Więcej informacji: [porty przekraczające 1433 dla ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Połączenia klientów z Azure SQL Database czasami pomijają serwer proxy i współpracują bezpośrednio z bazą danych. Porty inne niż 1433 nabierają znaczenia. Aby uzyskać więcej informacji, [Azure SQL Database architekturze](connectivity-architecture.md) i [portów łączności ponad 1433 dla ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md).
-- Aby uzyskać konfigurację sieci dla wystąpienia zarządzanego SQL, zobacz [Konfiguracja sieci dla wystąpień zarządzanych SQL](../managed-instance/how-to-content-reference-guide.md#network-configuration).
+- Aby uzyskać konfigurację sieci dla wystąpienia wystąpienia zarządzanego SQL, zobacz [Konfiguracja sieci dla wystąpienia zarządzanego SQL](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 
 ## <a name="next-steps"></a>Następne kroki
 

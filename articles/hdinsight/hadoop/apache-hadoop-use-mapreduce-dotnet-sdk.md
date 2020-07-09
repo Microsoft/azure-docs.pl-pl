@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/15/2020
-ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c165663e19037bd2ebac410adb6b6d05fcc162e6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76157055"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86076355"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Uruchamianie zadania MapReduce przy użyciu zestawu SDK dla platformy .NET usługi HDInsight
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Dowiedz się, jak przesyłać zadania MapReduce przy użyciu zestawu .NET SDK usługi HDInsight. Klastry usługi HDInsight są dostarczane z plikiem jar z niektórymi przykładami MapReduce. Plik JAR ma wartość `/example/jars/hadoop-mapreduce-examples.jar`.  Jednym z przykładów jest **WORDCOUNT**. Tworzysz aplikację konsolową w języku C# w celu przesłania zadania WORDCOUNT.  Zadanie odczytuje `/example/data/gutenberg/davinci.txt` plik i wyprowadza wyniki do `/example/data/davinciwordcount`.  Jeśli chcesz ponownie uruchomić aplikację, musisz wyczyścić folder wyjściowy.
+Dowiedz się, jak przesyłać zadania MapReduce przy użyciu zestawu .NET SDK usługi HDInsight. Klastry usługi HDInsight są dostarczane z plikiem jar z niektórymi przykładami MapReduce. Plik JAR ma wartość `/example/jars/hadoop-mapreduce-examples.jar` .  Jednym z przykładów jest **WORDCOUNT**. Tworzysz aplikację konsolową w języku C# w celu przesłania zadania WORDCOUNT.  Zadanie odczytuje `/example/data/gutenberg/davinci.txt` plik i wyprowadza wyniki do `/example/data/davinciwordcount` .  Jeśli chcesz ponownie uruchomić aplikację, musisz wyczyścić folder wyjściowy.
 
 > [!NOTE]  
 > Kroki opisane w tym artykule należy wykonać z poziomu klienta systemu Windows. Aby uzyskać informacje na temat używania klienta z systemem Linux, OS X lub UNIX do pracy z usługą Hive, użyj selektora kart wyświetlanego w górnej części artykułu.
@@ -36,13 +36,13 @@ Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie pla
 
 1. Uruchom program Visual Studio i Utwórz aplikację konsolową w języku C#.
 
-1. Przejdź do **menu Narzędzia** > Menedżer**pakietów** > NuGet**konsola Menedżera pakietów** i wprowadź następujące polecenie:
+1. Przejdź do **menu Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** i wprowadź następujące polecenie:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Skopiuj poniższy kod do **program.cs**. Następnie Edytuj kod, ustawiając wartości `existingClusterName`dla:, `existingClusterPassword`, `defaultStorageAccountName` `defaultStorageAccountKey`, i. `defaultStorageContainerName`
+1. Skopiuj poniższy kod do **program.cs**. Następnie Edytuj kod, ustawiając wartości dla: `existingClusterName` ,,, `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` i `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;
@@ -163,9 +163,9 @@ Zestaw SDK platformy .NET dla usługi HDInsight zawiera biblioteki klienckie pla
 
 1. Naciśnij klawisz **F5** , aby uruchomić aplikację.
 
-Aby ponownie uruchomić zadanie, należy zmienić nazwę folderu wyjściowego zadania w próbce `/example/data/davinciwordcount`.
+Aby ponownie uruchomić zadanie, należy zmienić nazwę folderu wyjściowego zadania w próbce `/example/data/davinciwordcount` .
 
-Po pomyślnym zakończeniu zadania aplikacja drukuje zawartość pliku `part-r-00000`wyjściowego.
+Po pomyślnym zakończeniu zadania aplikacja drukuje zawartość pliku wyjściowego `part-r-00000` .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67183901"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Określanie definicji struktury dla prostokątnych zestawów danych
@@ -16,10 +16,10 @@ Sekcja struktury w formacie JSON zestawów danych jest **opcjonalną** sekcją d
 
 Każda kolumna zawiera następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa kolumny. |Tak |
-| type |Typ danych kolumny. Zobacz sekcję konwersje typów poniżej, aby uzyskać więcej informacji na temat sytuacji, w których należy określić informacje o typie |Nie |
+| typ |Typ danych kolumny. Zobacz sekcję konwersje typów poniżej, aby uzyskać więcej informacji na temat sytuacji, w których należy określić informacje o typie |Nie |
 | kultura |Kultura oparta na platformie .NET, która ma być używana, jeśli określono typ i jest typem DateTime lub DateTimeOffset. Wartość domyślna to "pl-US". |Nie |
 | format |Ciąg formatu, który ma być używany, gdy typ jest określony, a jest typem DateTime lub DateTimeOffset. |Nie |
 
@@ -49,7 +49,7 @@ Usługa Data Factory obsługuje następujące wartości typu opartego na technol
 * Int16
 * Int32 
 * Int64
-* Single
+* Pojedyncze
 * Double
 * Wartość dziesiętna
 * Byte []

@@ -8,23 +8,22 @@ author: asudbring
 keywords: IPv6, moduł równoważenia obciążenia platformy Azure, podwójny stos, publiczny adres IP, natywny protokół IPv6, urządzenia przenośne, IoT
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: eb9703a1944a650f41d76c05d79764f8bdf8cd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045452"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803736"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Wdrażanie rozwiązania równoważenia obciążenia dostępnego z Internetu za pomocą protokołu IPv6 przy użyciu szablonu
 
 > [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
+> * [Program PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](load-balancer-ipv6-internet-cli.md)
 > * [Szablon](load-balancer-ipv6-internet-template.md)
 
@@ -115,8 +114,8 @@ Przykładowy szablon używany w tym artykule zawiera następujące zmienne i par
 | --- | --- |
 | adminUsername |Określ nazwę konta administratora używanego do logowania się do maszyn wirtualnych za pomocą programu. |
 | adminPassword |Określ hasło dla konta administratora używanego do logowania się do maszyn wirtualnych za pomocą programu. |
-| dnsNameforIPv4LbIP |Określ nazwę hosta DNS, która ma zostać przypisana jako Nazwa publiczna modułu równoważenia obciążenia. Ta nazwa jest rozpoznawana jako publiczny adres IPv4 modułu równoważenia obciążenia. Nazwa musi być małą literą i być zgodna z wyrażeniem regularnym: ^ [a-z] [a-{1,61}Z0-9-] [a-Z0-9] $. |
-| dnsNameforIPv6LbIP |Określ nazwę hosta DNS, która ma zostać przypisana jako Nazwa publiczna modułu równoważenia obciążenia. Ta nazwa jest rozpoznawana jako publiczny adres IPv6 modułu równoważenia obciążenia. Nazwa musi być małą literą i być zgodna z wyrażeniem regularnym: ^ [a-z] [a-{1,61}Z0-9-] [a-Z0-9] $. Może to być taka sama nazwa, jak adres IPv4. Gdy klient wysyła zapytanie DNS dla tej nazwy, platforma Azure zwróci rekordy A i AAAA, gdy nazwa jest udostępniona. |
+| dnsNameforIPv4LbIP |Określ nazwę hosta DNS, która ma zostać przypisana jako Nazwa publiczna modułu równoważenia obciążenia. Ta nazwa jest rozpoznawana jako publiczny adres IPv4 modułu równoważenia obciążenia. Nazwa musi być małą literą i być zgodna z wyrażeniem regularnym: ^ [a-z] [a-Z0-9-] {1,61} [a-Z0-9] $. |
+| dnsNameforIPv6LbIP |Określ nazwę hosta DNS, która ma zostać przypisana jako Nazwa publiczna modułu równoważenia obciążenia. Ta nazwa jest rozpoznawana jako publiczny adres IPv6 modułu równoważenia obciążenia. Nazwa musi być małą literą i być zgodna z wyrażeniem regularnym: ^ [a-z] [a-Z0-9-] {1,61} [a-Z0-9] $. Może to być taka sama nazwa, jak adres IPv4. Gdy klient wysyła zapytanie DNS dla tej nazwy, platforma Azure zwróci rekordy A i AAAA, gdy nazwa jest udostępniona. |
 | vmNamePrefix |Określ prefiks nazwy maszyny wirtualnej. Szablon dołącza liczbę (0, 1, itd.) do nazwy podczas tworzenia maszyn wirtualnych. |
 | nicNamePrefix |Określ prefiks nazwy interfejsu sieciowego. Po utworzeniu interfejsów sieciowych szablon dołącza do nazwy liczbę (0, 1, itp.). |
 | storageAccountName |Wprowadź nazwę istniejącego konta magazynu lub określ nazwę nowej nazwy, która ma zostać utworzona przez szablon. |

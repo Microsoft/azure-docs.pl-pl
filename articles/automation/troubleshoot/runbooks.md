@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 5de4b6f16f52d7cab7088ab39aa70267110eed88
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744310"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84606891"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -50,7 +49,7 @@ Po otrzymaniu błędów podczas wykonywania elementu Runbook w Azure Automation 
 
 1. Wykonaj ten krok, jeśli zadanie elementu Runbook lub środowisko w hybrydowym procesie roboczym elementu Runbook nie odpowiada.
 
-    Jeśli używasz elementów Runbook w hybrydowym procesie roboczym elementu Runbook zamiast w Azure Automation, może być konieczne [rozwiązanie tego samego procesu](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+    Jeśli używasz elementów Runbook w hybrydowym procesie roboczym elementu Runbook zamiast w Azure Automation, może być konieczne [rozwiązanie tego samego procesu](hybrid-runbook-worker.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Scenariusz: element Runbook kończy się niepowodzeniem z powodu braku uprawnień lub niedostępności 403
 
@@ -64,7 +63,7 @@ Konta Uruchom jako mogą nie mieć tych samych uprawnień wobec zasobów platfor
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że konto Uruchom jako ma [uprawnienia dostępu do wszystkich zasobów](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) używanych w skrypcie.
+Upewnij się, że konto Uruchom jako ma [uprawnienia dostępu do wszystkich zasobów](../../role-based-access-control/role-assignments-portal.md) używanych w skrypcie.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>Scenariusz: nie można zalogować się do konta platformy Azure
 
@@ -99,7 +98,7 @@ Aby określić, co się stało, wykonaj następujące czynności:
    Connect-AzAccount –Credential $Cred
    ```
 
-1. Jeśli uwierzytelnienie nie powiedzie się lokalnie, poświadczenia usługi Azure Active Directory (Azure AD) nie zostały prawidłowo skonfigurowane. Aby poprawnie skonfigurować konto usługi Azure AD, zapoznaj się z wpisem w blogu [uwierzytelnianie na platformie Azure przy użyciu Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. Jeśli uwierzytelnienie nie powiedzie się lokalnie, poświadczenia usługi Azure Active Directory (Azure AD) nie zostały prawidłowo skonfigurowane. Aby poprawnie skonfigurować konto usługi Azure AD, zapoznaj się z artykułem [uwierzytelnianie na platformie Azure przy użyciu Azure Active Directory](../automation-use-azure-ad.md).
 
 1. Jeśli błąd pojawia się jako przejściowy, spróbuj dodać logikę ponowień do procedury uwierzytelniania, aby zapewnić bardziej niezawodne uwierzytelnianie.
 
@@ -137,7 +136,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd może wystąpić, gdy nie używasz konta Uruchom jako lub konto Uruchom jako wygasło. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami Azure Automation Uruchom jako](https://docs.microsoft.com/azure/automation/manage-runas-account).
+Ten błąd może wystąpić, gdy nie używasz konta Uruchom jako lub konto Uruchom jako wygasło. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami Azure Automation Uruchom jako](../manage-runas-account.md).
 
 Ten błąd ma dwie przyczyny główne:
 
@@ -191,7 +190,7 @@ Podczas pracy z poleceniem, lub zostanie wyświetlony następujący `Select-Azur
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
 Ten błąd może wystąpić, jeśli:
 
@@ -274,7 +273,7 @@ Jeśli masz uwierzytelnianie wieloskładnikowe na koncie platformy Azure, nie mo
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby użyć certyfikatu z poleceniami cmdlet klasycznego modelu wdrażania platformy Azure, zobacz [Tworzenie i Dodawanie certyfikatu w celu zarządzania usługami platformy Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Aby użyć nazwy głównej usługi z poleceniami cmdlet Azure Resource Manager, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) i [uwierzytelnianie jednostki usługi przy użyciu Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Aby używać klasycznego konta Uruchom jako z poleceniami cmdlet klasycznego modelu wdrażania platformy Azure, zobacz [Tworzenie klasycznego konta Uruchom jako w celu zarządzania usługami platformy Azure](../automation-create-standalone-account.md#create-a-classic-run-as-account). Aby użyć nazwy głównej usługi z poleceniami cmdlet Azure Resource Manager, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) i [uwierzytelnianie jednostki usługi przy użyciu Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Scenariusz: element Runbook kończy się niepowodzeniem z komunikatem o błędzie "zadanie zostało anulowane"
 
@@ -383,7 +382,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd może wystąpić, jeśli element Runbook nie wykona odpowiednich czynności przed wywołaniem, `Add-AzAccount` Aby dodać konto usługi Automation. Przykładem jednego z niezbędnych czynności jest zalogowanie się przy użyciu konta Uruchom jako. Aby uzyskać prawidłowe operacje do użycia w elemencie Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+Ten błąd może wystąpić, jeśli element Runbook nie wykona odpowiednich czynności przed wywołaniem, `Add-AzAccount` Aby dodać konto usługi Automation. Przykładem jednego z niezbędnych czynności jest zalogowanie się przy użyciu konta Uruchom jako. Aby uzyskać prawidłowe operacje do użycia w elemencie Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>Scenariusz: odwołanie do obiektu nie jest ustawione na wystąpienie obiektu
 
@@ -419,7 +418,7 @@ $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+   $jobResults = $job | Get-AzAutomationJob
 }
 
 $jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
@@ -625,7 +624,7 @@ Gdy element Runbook lub aplikacja próbuje działać w piaskownicy platformy Azu
 
 ### <a name="cause"></a>Przyczyna
 
-Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwiają dostęp do wszystkich pozaprocesowych serwerów COM. Na przykład aplikacja w trybie piaskownicy lub element Runbook nie mogą wywoływać do Instrumentacja zarządzania Windows (WMI) ani do usługi Instalator Windows (MSIServer. exe). 
+Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwiają dostęp do wszystkich pozaprocesowych serwerów COM. Na przykład aplikacja w trybie piaskownicy lub element Runbook nie mogą odwoływać się do Instrumentacja zarządzania Windows (WMI) ani do usługi Instalator Windows (msiserver.exe). 
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -652,16 +651,16 @@ Możliwe przyczyny tego problemu:
 
 #### <a name="not-using-a-run-as-account"></a>Nieużywanie konta Uruchom jako
 
-Postępuj zgodnie z [krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) w celu zapewnienia dostępu do Key Vault za pomocą konta Uruchom jako.
+Postępuj zgodnie z [krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) w celu zapewnienia dostępu do Key Vault za pomocą konta Uruchom jako.
 
 #### <a name="insufficient-permissions"></a>Niewystarczające uprawnienia
 
-[Dodaj uprawnienia do Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) , aby upewnić się, że konto Uruchom jako ma wystarczające uprawnienia dostępu do Key Vault.
+[Dodaj uprawnienia do Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) , aby upewnić się, że konto Uruchom jako ma wystarczające uprawnienia dostępu do Key Vault.
 
 ## <a name="recommended-documents"></a>Zalecane dokumenty
 
 * [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
-* [Uruchamianie elementu Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Uruchamianie elementu Runbook w Azure Automation](../automation-starting-a-runbook.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

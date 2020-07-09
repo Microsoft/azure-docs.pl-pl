@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 007d613a1f170a0ee278a838c92ade2fce9c6dec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529198"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201280"
 ---
 # <a name="boolean-claims-transformations"></a>Przekształcenia logiczne oświadczeń
 
@@ -34,9 +34,9 @@ Wykonuje operację i dwie inputClaims logiczne i ustawia oświadczenie outputcla
 | Oświadczenie inputclaim | inputClaim2  | wartość logiczna | Drugie wyrażenie Claim, które ma zostać obliczone. |
 |Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Oświadczenia są tworzone po wywołaniu tej transformacji oświadczeń (true lub false). |
 
-Następująca transformacja oświadczeń pokazuje, jak i dwa elementy Claims Boolean: `isEmailNotExist`, i `isSocialAccount`. Oświadczenie `presentEmailSelfAsserted` wyjściowe ma ustawioną wartość `true` , jeśli wartością obu oświadczeń wejściowych są `true`. W kroku aranżacji możesz użyć warunku wstępnego, aby wstępnie zapewnieł stronę, tylko jeśli adres e-mail konta społecznościowego jest pusty.
+Następująca transformacja oświadczeń pokazuje, jak i dwa elementy Claims Boolean: `isEmailNotExist` , i `isSocialAccount` . Oświadczenie wyjściowe `presentEmailSelfAsserted` ma ustawioną `true` wartość, jeśli wartością obu oświadczeń wejściowych są `true` . W kroku aranżacji możesz użyć warunku wstępnego, aby wstępnie zapewnieł stronę, tylko jeśli adres e-mail konta społecznościowego jest pusty.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -48,7 +48,7 @@ Następująca transformacja oświadczeń pokazuje, jak i dwa elementy Claims Boo
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Przykład
+### <a name="example-of-andclaims"></a>Przykład wnoszonych
 
 - Oświadczenia wejściowe:
     - **inputClaim1**: true
@@ -72,7 +72,7 @@ Przekształcenie oświadczeń **AssertBooleanClaimIsEqualToValue** jest zawsze w
 
 Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logicznego elementu ClaimType z `true` wartością. Jeśli wartość `accountEnabled` oświadczenia jest równa false, zostanie zgłoszony komunikat o błędzie.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -84,8 +84,9 @@ Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logi
 ```
 
 
-Profil `login-NonInteractive` techniczny weryfikacji wywołuje transformację `AssertAccountEnabledIsTrue` oświadczeń.
-```XML
+`login-NonInteractive`Profil techniczny weryfikacji wywołuje `AssertAccountEnabledIsTrue` transformację oświadczeń.
+
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -96,7 +97,7 @@ Profil `login-NonInteractive` techniczny weryfikacji wywołuje transformację `A
 
 Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowania weryfikacji — nieinteraktywny** .
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -107,7 +108,7 @@ Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowa
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Przykład
+### <a name="example-of-assertbooleanclaimisequaltovalue"></a>Przykład AssertBooleanClaimIsEqualToValue
 
 - Oświadczenia wejściowe:
     - **oświadczenie inputclaim**: FAŁSZ
@@ -116,7 +117,7 @@ Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowa
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Sprawdza, czy wartość logiczna żądania jest równa `true` lub `false`i zwraca wynik kompresji.
+Sprawdza, czy wartość logiczna żądania jest równa `true` lub `false` i zwraca wynik kompresji.
 
 | Element | TransformationClaimType  | Typ danych  | Uwagi |
 | ---- | ------------------------ | ---------- | ----- |
@@ -124,10 +125,9 @@ Sprawdza, czy wartość logiczna żądania jest równa `true` lub `false`i zwrac
 | InputParameter |valueToCompareTo | wartość logiczna | Wartość do porównania (true lub false). |
 | Oświadczenie outputclaim | compareResult | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
+Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logicznego elementu ClaimType z `true` wartością. Jeśli wartość `IsAgeOver21Years` oświadczenia jest równa `true` , transformacja oświadczeń zwraca `true` , w przeciwnym razie `false` .
 
-Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logicznego elementu ClaimType z `true` wartością. Jeśli wartość `IsAgeOver21Years` oświadczenia jest równa `true`, transformacja oświadczeń zwraca `true`, w przeciwnym razie. `false`
-
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -141,7 +141,7 @@ Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logi
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Przykład
+### <a name="example-of-comparebooleanclaimtovalue"></a>Przykład CompareBooleanClaimToValue
 
 - Oświadczenia wejściowe:
     - **oświadczenie inputclaim**: FAŁSZ
@@ -149,8 +149,6 @@ Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logi
     - **valueToCompareTo**: true
 - Oświadczenia wyjściowe:
     - **compareResult**: FAŁSZ
-
-
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -163,7 +161,7 @@ Wykonuje operację not dla oświadczenie inputclaim logicznego i ustawia oświad
 
 Ta transformacja jest używana do wykonywania logicznego negacji dla żądania.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -174,7 +172,7 @@ Ta transformacja jest używana do wykonywania logicznego negacji dla żądania.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Przykład
+### <a name="example-of-notclaims"></a>Przykład NotClaims
 
 - Oświadczenia wejściowe:
     - **oświadczenie inputclaim**: FAŁSZ
@@ -191,9 +189,9 @@ Oblicza wartość lub z dwóch inputClaims logicznych i ustawia oświadczenie ou
 | Oświadczenie inputclaim | inputClaim2 | wartość logiczna | Drugie wyrażenie Claim, które ma zostać obliczone. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Oświadczenia są tworzone po wywołaniu tego ClaimsTransformation (true lub false). |
 
-Następująca transformacja oświadczeń pokazuje, `Or` jak dwa elementy Claims Boolean. W kroku aranżacji można użyć warunku wstępnego, aby wstępnie zatwierdzić stronę, jeśli wartość jednego z oświadczeń jest `true`równa.
+Następująca transformacja oświadczeń pokazuje, jak `Or` dwa elementy Claims Boolean. W kroku aranżacji można użyć warunku wstępnego, aby wstępnie zatwierdzić stronę, jeśli wartość jednego z oświadczeń jest równa `true` .
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
@@ -205,7 +203,7 @@ Następująca transformacja oświadczeń pokazuje, `Or` jak dwa elementy Claims 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Przykład
+### <a name="example-of-orclaims"></a>Przykład OrClaims
 
 - Oświadczenia wejściowe:
     - **inputClaim1**: true

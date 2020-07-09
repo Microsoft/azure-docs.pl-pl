@@ -12,17 +12,17 @@ ms.topic: troubleshooting
 ms.date: 02/04/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d9efa1ebf1a3e3b146c4f45b0e84047562141cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82192718"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnozowanie i rozwiązywanie problemów w środowisku Time Series Insights
 
 W tym artykule opisano problemy, które mogą wystąpić w środowisku Azure Time Series Insightsu. Artykuł zawiera potencjalne przyczyny i rozwiązania do rozwiązania.
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 ### <a name="learn-about-common-time-series-insights-challenges-and-mitigationsbr"></a>Poznaj typowe wyzwania Time Series Insights i środki zaradcze</br>
 

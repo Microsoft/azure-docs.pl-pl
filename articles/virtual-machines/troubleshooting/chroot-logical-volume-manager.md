@@ -15,10 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74684128"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux w przypadku braku dostępu do konsoli szeregowej platformy Azure, a układ dysku używa LVM (Menedżer woluminów logicznych)
@@ -143,7 +142,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Polecenia mogą służyć do instalowania, usuwania i aktualizacji oprogramowania. Rozwiązywanie problemów z maszynami wirtualnymi w celu naprawienia błędów.
 
 
-Wykonaj polecenie lsblk, a/Rescue jest teraz/,/Rescue/Boot to/boot ![chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Wykonaj polecenie lsblk, a/Rescue jest teraz/,/Rescue/Boot to/boot ![ chrooted](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Wykonaj poprawki
 
@@ -171,13 +170,13 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 Polecenie **grep** wyświetla listę jądra, które są świadome **grub. cfg** .
 ![Jądra](./media/chroot-logical-volume-manager/kernels.png)
 
-**grub2-editenv wyświetla listę** , które jądro zostanie załadowane przy ![następnym rozruchu jądra domyślnego](./media/chroot-logical-volume-manager/kernel-default.png)
+**grub2-editenv wyświetla listę** , które jądro zostanie załadowane przy następnym rozruchu ![ jądra domyślnego](./media/chroot-logical-volume-manager/kernel-default.png)
 
-**grub2-set-default** służy do zmiany do innego zestawu grub2 ![jądra](./media/chroot-logical-volume-manager/grub2-set-default.png)
+**grub2-set-default** służy do zmiany do innego ![ zestawu grub2 jądra](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
-**grub2-editenv** wyświetla listę, które jądro zostanie załadowane przy ![następnym rozruchowym nowym jądrem](./media/chroot-logical-volume-manager/kernel-new.png)
+**grub2-editenv** wyświetla listę, które jądro zostanie załadowane przy następnym rozruchowym ![ nowym jądrem](./media/chroot-logical-volume-manager/kernel-new.png)
 
-**grub2-mkconfig** ponownie kompiluje grub. cfg przy użyciu wersji wymaganych ![grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+**grub2-mkconfig** ponownie kompiluje grub. cfg przy użyciu wersji wymaganych ![ grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -190,7 +189,7 @@ Uruchom polecenie **LVS** , aby sprawdzić, które **LVS** są dostępne do zain
 
 Wyjdź z środowiska **chroot** Zainstaluj wymagane **LV**
 
-![Zaawansowane](./media/chroot-logical-volume-manager/advanced.png)
+![Zaawansowany](./media/chroot-logical-volume-manager/advanced.png)
 
 Teraz ponownie Uzyskuj dostęp do środowiska **chroot** , uruchamiając
 
@@ -198,14 +197,14 @@ Teraz ponownie Uzyskuj dostęp do środowiska **chroot** , uruchamiając
 
 Wszystkie LVs powinny być widoczne jako zainstalowane partycje
 
-![Zaawansowane](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Zaawansowany](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Wykonywanie zapytania dotyczącego zainstalowanego **jądra**
 
-![Zaawansowane](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Zaawansowany](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-W razie konieczności Usuń lub Uaktualnij **jądro**
-![zaawansowane](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
+W razie konieczności Usuń lub Uaktualnij **jądro** 
+ ![ Zaawansowane](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>Przykład 3 — Włączanie konsoli szeregowej
@@ -252,15 +251,15 @@ umount /rescue
 
 Odłącz dysk od ratowniczej maszyny wirtualnej i przeprowadź wymianę dysków.
 
-Wybierz maszynę wirtualną z **dysków** portalu i wybierz pozycję **Odłącz**
-![Odłączanie dysku](./media/chroot-logical-volume-manager/detach-disk.png) 
+Wybierz maszynę wirtualną z **dysków** portalu i wybierz pozycję **Odłącz** 
+ ![ Odłączanie dysku](./media/chroot-logical-volume-manager/detach-disk.png) 
 
-Zapisz zmiany ![, a następnie Zapisz](./media/chroot-logical-volume-manager/save-detach.png) 
+Zapisz zmiany, a następnie ![ Zapisz](./media/chroot-logical-volume-manager/save-detach.png) 
 
 Dysk będzie teraz dostępny, umożliwiając jego zamianę na oryginalny dysk systemu operacyjnego maszyny wirtualnej, której to dotyczy.
 
-Przejdź do Azure Portal do maszyny wirtualnej, która kończy się niepowodzeniem, a następnie wybierz pozycję **dyski** -> Zamień dysk wymiany
-![**dysku systemu operacyjnego**](./media/chroot-logical-volume-manager/swap-disk.png) 
+Przejdź do Azure Portal do maszyny wirtualnej, która kończy się niepowodzeniem, a następnie wybierz pozycję **dyski**  ->  **Zamień dysk wymiany dysku systemu operacyjnego** 
+ ![](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Wypełnij pola ten dysk **jest odłączony od razu** w poprzednim kroku. Nazwa maszyny wirtualnej, której dotyczy ta maszyna wirtualna, jest również wymagana, a następnie wybierz przycisk **OK** .
 

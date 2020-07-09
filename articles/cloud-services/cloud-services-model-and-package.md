@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79247490"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Co to jest model usługi w chmurze i jak go spakować?
@@ -221,15 +220,15 @@ Konfigurację usługi w chmurze można zaktualizować, gdy jest ona uruchomiona 
 
 Aby wdrożyć aplikację jako usługę w chmurze na platformie Azure, musisz najpierw spakować aplikację w odpowiednim formacie. Aby utworzyć plik pakietu jako alternatywę dla programu Visual Studio, można użyć narzędzia wiersza polecenia **CSPack** (zainstalowanego z [zestawem Azure SDK](https://azure.microsoft.com/downloads/)).
 
-**CSPack** używa zawartości pliku definicji usługi i pliku konfiguracji usługi do definiowania zawartości pakietu. **CSPack** generuje plik pakietu aplikacji (. cspkg), który można przekazać do platformy Azure za pomocą [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Domyślnie pakiet nosi nazwę `[ServiceDefinitionFileName].cspkg`, ale można określić inną nazwę przy użyciu `/out` opcji **CSPack**.
+**CSPack** używa zawartości pliku definicji usługi i pliku konfiguracji usługi do definiowania zawartości pakietu. **CSPack** generuje plik pakietu aplikacji (. cspkg), który można przekazać do platformy Azure za pomocą [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Domyślnie pakiet nosi nazwę `[ServiceDefinitionFileName].cspkg` , ale można określić inną nazwę przy użyciu `/out` opcji **CSPack**.
 
 **CSPack** znajduje się w lokalizacji  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> CSPack. exe (w systemie Windows) jest dostępny przez uruchomienie skrótu **wiersza polecenia Microsoft Azure** , który jest instalowany z zestawem SDK.  
+> CSPack.exe (w systemie Windows) jest dostępny przez uruchomienie skrótu **wiersza polecenia Microsoft Azure** , który jest instalowany z zestawem SDK.  
 > 
-> Uruchom program CSPack. exe, aby wyświetlić dokumentację dotyczącą wszystkich możliwych przełączników i poleceń.
+> Uruchom program CSPack.exe, aby wyświetlić dokumentację dotyczącą wszystkich możliwych przełączników i poleceń.
 > 
 > 
 
@@ -266,7 +265,7 @@ Gdzie zmienne są zdefiniowane w następujący sposób:
 | --- | --- |
 | \[DirectoryName\] |Podkatalog w katalogu głównym projektu, który zawiera plik. csdef projektu platformy Azure. |
 | \[ServiceDefinition\] |Nazwa pliku definicji usługi. Domyślnie ten plik nosi nazwę ServiceDefinition. csdef. |
-| \[OutputFileName\] |Nazwa wygenerowanego pliku pakietu. Zazwyczaj jest to nazwa aplikacji. Jeśli nazwa pliku nie zostanie określona, pakiet aplikacji zostanie utworzony jako \[ApplicationName\]. cspkg. |
+| \[OutputFileName\] |Nazwa wygenerowanego pliku pakietu. Zazwyczaj jest to nazwa aplikacji. Jeśli nazwa pliku nie zostanie określona, pakiet aplikacji zostanie utworzony jako \[ ApplicationName \] . cspkg. |
 | \[RoleName\] |Nazwa roli zdefiniowanej w pliku definicji usługi. |
 | \[RoleBinariesDirectory] |Lokalizacja plików binarnych dla roli. |
 | \[VirtualPath\] |Katalogi fizyczne dla każdej ścieżki wirtualnej zdefiniowanej w sekcji Lokacje definicji usługi. |

@@ -4,16 +4,16 @@ description: W tym artykule omówiono środowisko wdrażania aplikacji Service F
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195871"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Samouczek uaktualniania aplikacji Service Fabric przy użyciu programu Visual Studio
 > [!div class="op_single_selector"]
-> * [Narzędzia](service-fabric-application-upgrade-tutorial-powershell.md)
-> * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+> * [Program PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Program Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
@@ -26,18 +26,18 @@ Najpierw pobierz aplikację [obiekty wizualne](https://github.com/Azure-Samples/
 
 ![Menu kontekstowe dla aplikacji Service Fabric][image1]
 
-Wybranie pozycji **Publikuj** powoduje wyświetlenie okna podręcznego i można ustawić **profil docelowy** na **PublishProfiles\Local.XML**. Okno powinno wyglądać podobnie do poniższego przed kliknięciem przycisku **Publikuj**.
+Wybranie pozycji **Opublikuj** powoduje wyświetlenie okna podręcznego i ustawienie **profilu docelowego** do **PublishProfiles\Local.xml**. Okno powinno wyglądać podobnie do poniższego przed kliknięciem przycisku **Publikuj**.
 
 ![Publikowanie aplikacji Service Fabric][image2]
 
-Teraz możesz kliknąć przycisk **Publikuj** w oknie dialogowym. [Aby wyświetlić klaster i aplikację](service-fabric-visualizing-your-cluster.md), można użyć Service Fabric Explorer. Aplikacja obiektów wizualnych ma usługę sieci Web, do której można przejść, wpisując `http://localhost:8081/visualobjects/` ją na pasku adresu przeglądarki.  Powinny być widoczne 10 obiektów wizualizacji przenoszonych wokół ekranu.
+Teraz możesz kliknąć przycisk **Publikuj** w oknie dialogowym. [Aby wyświetlić klaster i aplikację](service-fabric-visualizing-your-cluster.md), można użyć Service Fabric Explorer. Aplikacja obiektów wizualnych ma usługę sieci Web, do której można przejść, wpisując ją na `http://localhost:8081/visualobjects/` pasku adresu przeglądarki.  Powinny być widoczne 10 obiektów wizualizacji przenoszonych wokół ekranu.
 
-**Uwaga:** W przypadku wdrażania `Cloud.xml` do profilowania (Azure Service Fabric) aplikacja powinna być następnie dostępna przy użyciu **protokołu http://{servicefabricname}. { Region}. cloudapp. Azure. com: 8081/visualobjects/**. Upewnij się, że `8081/TCP` skonfigurowano w Load Balancer (Znajdź Load Balancer w tej samej grupie zasobów co wystąpienie Service Fabric).
+**Uwaga:** W przypadku wdrażania do `Cloud.xml` profilowania (Azure Service Fabric) aplikacja powinna być następnie dostępna przy użyciu **protokołu http://{servicefabricname}. { Region}. cloudapp. Azure. com: 8081/visualobjects/**. Upewnij się, że `8081/TCP` skonfigurowano w Load Balancer (znajdź Load Balancer w tej samej grupie zasobów co wystąpienie Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2. Aktualizacja przykładu obiektów wizualnych
 Można zauważyć, że w wersji, która została wdrożona w kroku 1, obiekty wizualne nie są obracane. Uaktualnimy tę aplikację do jednego miejsca, w którym obiekty wizualne również są obracane.
 
-Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik **VisualObjectActor.cs** . W tym pliku przejdź do metody `MoveObject`, Skomentuj i Usuń `visualObject.Move(false)`komentarz. `visualObject.Move(true)` Ta zmiana kodu powoduje obrócenie obiektów po uaktualnieniu usługi.  **Teraz można skompilować (nie ponownie skompilować) rozwiązanie**, które kompiluje zmodyfikowane projekty. W przypadku wybrania opcji *Kompiluj ponownie wszystkie*należy zaktualizować wersje dla wszystkich projektów.
+Wybierz projekt VisualObjects. ActorService w ramach rozwiązania VisualObjects i Otwórz plik **VisualObjectActor.cs** . W tym pliku przejdź do metody `MoveObject` , Skomentuj `visualObject.Move(false)` i Usuń komentarz `visualObject.Move(true)` . Ta zmiana kodu powoduje obrócenie obiektów po uaktualnieniu usługi.  **Teraz można skompilować (nie ponownie skompilować) rozwiązanie**, które kompiluje zmodyfikowane projekty. W przypadku wybrania opcji *Kompiluj ponownie wszystkie*należy zaktualizować wersje dla wszystkich projektów.
 
 Potrzebujemy również wersji naszej aplikacji. Aby zmienić wersję po kliknięciu prawym przyciskiem myszy projektu **VisualObjects** , można użyć opcji **Edytuj wersje manifestu** programu Visual Studio. Wybranie tej opcji powoduje wyświetlenie okna dialogowego z wersjami w następujący sposób:
 

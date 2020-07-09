@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85508099"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 1,0 w macierzy wirtualnej StorSimple
 
@@ -30,6 +30,7 @@ W tym artykule opisano kroki wymagane do zainstalowania aktualizacji 1,0 w macie
 Aby zapewnić aktualność macierzy wirtualnej StorSimple, należy zastosować aktualizacje lub poprawki oprogramowania. Przed zastosowaniem aktualizacji zaleca się, aby najpierw przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych. Gdy woluminy lub udziały są w trybie offline, należy również ręcznie wykonać kopię zapasową urządzenia.
 
 > [!IMPORTANT]
+>
 > - Aktualizacja 1,0 jest zgodna z wersją oprogramowania **10.0.10296.0** na urządzeniu. Aby uzyskać informacje na temat Nowości w tej aktualizacji, przejdź do informacji o [wersji aktualizacji 1,0](storsimple-virtual-array-update-1-release-notes.md).
 >
 > - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. W przypadku, gdy Macierz wirtualna StorSimple jest urządzeniem z jednym węzłem, wszystkie trwające operacji we/wy są zakłócane, a urządzenie nie będzie miało przestoju.
@@ -66,7 +67,7 @@ Jeśli w macierzy wirtualnej działa aktualizacja 0,6, wykonaj następujące kro
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Aby pobrać aktualizację lub poprawkę
 
-1. Uruchom program Internet Explorer i przejdź [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
+1. Uruchom program Internet Explorer i przejdź do [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Jeśli używasz wykazu Microsoft Update po raz pierwszy na tym komputerze, kliknij przycisk **Zainstaluj** po wyświetleniu monitu, aby zainstalować dodatek katalogu Microsoft Update.
 
@@ -85,8 +86,8 @@ Jeśli w macierzy wirtualnej działa aktualizacja 0,6, wykonaj następujące kro
     ![Pliki w pakiecie](./media/storsimple-virtual-array-install-update-1/update01folder.png)
 
     Zobaczysz dwa pliki:
-    -  Microsoft Update autonomiczny plik `WindowsTH-KB3011067-x64`pakietu. Ten plik jest używany do aktualizacji oprogramowania urządzenia.
-    - Plik zawierający aktualizacje zbiorcze dla sierpnia `windows8.1-kb4034681-x64`. Aby uzyskać więcej informacji na temat tego, co jest zawarte w tym pakiecie zbiorczym, przejdź do [comiesięcznego zestawienia zabezpieczeń w sierpniu](https://support.microsoft.com/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810).
+    -  Microsoft Update autonomiczny plik pakietu `WindowsTH-KB3011067-x64` . Ten plik jest używany do aktualizacji oprogramowania urządzenia.
+    - Plik zawierający aktualizacje zbiorcze dla sierpnia `windows8.1-kb4034681-x64` . Aby uzyskać więcej informacji na temat tego, co jest zawarte w tym pakiecie zbiorczym, przejdź do [comiesięcznego zestawienia zabezpieczeń w sierpniu](https://support.microsoft.com/help/4034681/windows-8-1-windows-server-2012-r2-update-kb40346810).
 
 ### <a name="install-the-update-or-the-hotfix"></a>Zainstaluj aktualizację lub poprawkę
 
@@ -99,7 +100,7 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Aby zainstalować aktualizację lub poprawkę
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. **Kontynuuj tę aktualizację tylko wtedy, gdy korzystasz z aktualizacji 0,6 (10.0.10293.0). Jeśli używasz wcześniejszej wersji, najpierw [Zainstaluj aktualizację 0,6](storsimple-virtual-array-install-update-06.md) na urządzeniu, a następnie Zastosuj aktualizację Update 1.**
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. **Kontynuuj tę aktualizację tylko wtedy, gdy korzystasz z aktualizacji 0,6 (10.0.10293.0). Jeśli używasz wcześniejszej wersji, najpierw [Zainstaluj aktualizację 0,6](storsimple-virtual-array-install-update-06.md) na urządzeniu, a następnie Zastosuj aktualizację Update 1.**
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
@@ -115,14 +116,14 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
-5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10296** dla aktualizacji 1,0.
+5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10296** dla aktualizacji 1,0.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10296** oraz Azure Portal raporty **10.0.10296.0** dla tej samej wersji.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
-6. Powtórz kroki 2-4, aby zainstalować poprawkę zabezpieczeń systemu Windows przy `windows8.1-kb4012213-x64`użyciu pliku. Macierz wirtualna jest uruchamiana ponownie po instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
+6. Powtórz kroki 2-4, aby zainstalować poprawkę zabezpieczeń systemu Windows przy użyciu pliku `windows8.1-kb4012213-x64` . Macierz wirtualna jest uruchamiana ponownie po instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
 
 > [!NOTE]
 > Jeśli aktualizacja Update 1 została zastosowana bezpośrednio do urządzenia z wersją wcześniejszą niż aktualizacja 0,6, nie ma żadnych aktualizacji. Aby uzyskać kolejne kroki, skontaktuj się z pomoc techniczna firmy Microsoft.

@@ -25,6 +25,8 @@
           href: quickstart-send-telemetry-android.md
         - name: iOS
           href: quickstart-send-telemetry-ios.md
+        - name: Xamarin.Forms
+          href: quickstart-send-telemetry-xamarinforms.md
     - name: Kontrolowanie urządzenia
       items:
         - name: Node.js
@@ -324,6 +326,8 @@
           href: iot-hub-distributed-tracing.md
         - name: Konfigurowanie filtrowania adresów IP
           href: iot-hub-ip-filtering.md
+        - name: Zarządzanie dostępem do sieci publicznej
+          href: iot-hub-public-network-access.md
         - name: Automatyczne zarządzanie urządzeniami na dużą skalę
           items:
             - name: Korzystanie z witryny Azure Portal
@@ -379,6 +383,8 @@
       items:
         - name: Rozłączanie urządzeń
           href: iot-hub-troubleshoot-connectivity.md
+        - name: Rozwiązywanie problemów z kierowaniem komunikatów
+          href: troubleshoot-message-routing.md
         - name: Rozwiązywanie problemów
           items:
             - name: 400027 ConnectionForcefullyClosedOnNewConnection
@@ -414,13 +420,15 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/iot
+      href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
-      href: '/powershell/module/az.iothub#iot'
+      href: /powershell/module/az.iothub#iot
     - name: .NET (urządzenie)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (usługa)
       href: /dotnet/api/microsoft.azure.devices
+    - name: .NET (zarządzanie)
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/iot/management'
     - name: Java (urządzenie)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (usługa)
@@ -429,6 +437,14 @@
       href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
     - name: Node.js (usługa)
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
+    - name: Node.js (zarządzanie)
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/iothub/management'
+    - name: Python (urządzenie)
+      href: 'https://docs.microsoft.com/python/api/azure-iot-device'
+    - name: Python (usługa)
+      href: 'https://docs.microsoft.com/python/api/azure-iot-hub'
+    - name: Python (zarządzanie)
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-iothub'
     - name: C (zestaw SDK urządzenia)
       href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
     - name: REST (urządzenie)
@@ -474,12 +490,12 @@
     - name: Zestawy SDK usługi Azure IoT
       items:
         - name: Zestawy SDK usługi IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: Zestawy SDK urządzeń IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Przykłady usługi Azure IoT
       items:
-        - name: 'C# (.NET)'
+        - name: C# (.NET)
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
         - name: Node.js
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
@@ -503,16 +519,12 @@
       href: 'https://github.com/Azure/azure-iot-explorer'
     - name: Narzędzie iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-iot-hub.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=iot-hub'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: Techniczne analizy przypadków
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Filmy wideo

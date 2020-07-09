@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82780440"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Tworzenie klastra kończy się niepowodzeniem z InvalidNetworkConfigurationErrorCode w usłudze Azure HDInsight
 
 W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
-Jeśli widzisz kod `InvalidNetworkConfigurationErrorCode` błędu z opisem "Virtual Network konfiguracja nie jest zgodna z wymaganiem usługi HDInsight", zwykle wskazuje to problem z [konfiguracją sieci wirtualnej](../hdinsight-plan-virtual-network-deployment.md) dla klastra. W oparciu o resztę opisu błędu, postępuj zgodnie z poniższymi sekcjami, aby rozwiązać problem.
+Jeśli widzisz kod błędu `InvalidNetworkConfigurationErrorCode` z opisem "Virtual Network konfiguracja nie jest zgodna z wymaganiem usługi HDInsight", zwykle wskazuje to problem z [konfiguracją sieci wirtualnej](../hdinsight-plan-virtual-network-deployment.md) dla klastra. W oparciu o resztę opisu błędu, postępuj zgodnie z poniższymi sekcjami, aby rozwiązać problem.
 
 ## <a name="hostname-resolution-failed"></a>"Rozpoznawanie nazwy hosta nie powiodło się"
 
@@ -32,11 +32,11 @@ Ten błąd wskazuje na problem z niestandardową konfiguracją DNS. Serwery DNS 
 
 ### <a name="resolution"></a>Rozwiązanie
 
-1. Użyj protokołu SSH do maszyny wirtualnej, która jest częścią klastra, i uruchom `hostname -f`polecenie. Spowoduje to zwrócenie `<host_fqdn>` w pełni kwalifikowanej nazwy domeny hosta (nazywanej w poniższych instrukcjach).
+1. Użyj protokołu SSH do maszyny wirtualnej, która jest częścią klastra, i uruchom polecenie `hostname -f` . Spowoduje to zwrócenie w pełni kwalifikowanej nazwy domeny hosta (nazywanej `<host_fqdn>` w poniższych instrukcjach).
 
-1. Następnie uruchom polecenie `nslookup <host_fqdn>` (na przykład `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Jeśli to polecenie rozwiąże nazwę z adresem IP, oznacza to, że serwer DNS działa prawidłowo. W takim przypadku Zgłoś sprawę pomocy technicznej z usługą HDInsight i zbadamy swój problem. W przypadku pomocy technicznej należy uwzględnić wykonane kroki rozwiązywania problemów. Pomoże nam to przyspieszyć rozwiązywanie problemów.
+1. Następnie uruchom polecenie `nslookup <host_fqdn>` (na przykład `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net` ). Jeśli to polecenie rozwiąże nazwę z adresem IP, oznacza to, że serwer DNS działa prawidłowo. W takim przypadku Zgłoś sprawę pomocy technicznej z usługą HDInsight i zbadamy swój problem. W przypadku pomocy technicznej należy uwzględnić wykonane kroki rozwiązywania problemów. Pomoże nam to przyspieszyć rozwiązywanie problemów.
 
-1. Jeśli powyższe polecenie nie zwraca adresu IP, uruchom `nslookup <host_fqdn> 168.63.129.16` polecenie (na przykład `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Jeśli to polecenie jest w stanie rozpoznać adres IP, oznacza to, że serwer DNS nie przekazuje zapytania do usługi DNS systemu Azure lub nie jest to maszyna wirtualna będąca częścią tej samej sieci wirtualnej co klaster.
+1. Jeśli powyższe polecenie nie zwraca adresu IP, uruchom polecenie `nslookup <host_fqdn> 168.63.129.16` (na przykład `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16` ). Jeśli to polecenie jest w stanie rozpoznać adres IP, oznacza to, że serwer DNS nie przekazuje zapytania do usługi DNS systemu Azure lub nie jest to maszyna wirtualna będąca częścią tej samej sieci wirtualnej co klaster.
 
 1. Jeśli nie masz maszyny wirtualnej platformy Azure, która może działać jako niestandardowy serwer DNS w sieci wirtualnej klastra, musisz najpierw ją dodać. Utwórz MASZYNę wirtualną w sieci wirtualnej, która zostanie skonfigurowana jako usługa przesyłania dalej DNS.
 
@@ -95,7 +95,7 @@ Sprawdź, czy 168.63.129.16 znajduje się w niestandardowym łańcuchu DNS. Serw
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Wykonaj następujące polecenie:
+1. Uruchom następujące polecenie:
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*
@@ -143,6 +143,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) za pomocą — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się za pomocą [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

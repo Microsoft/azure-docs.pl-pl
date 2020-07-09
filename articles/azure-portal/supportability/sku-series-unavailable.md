@@ -4,15 +4,15 @@ description: Niektóre serie jednostek SKU są niedostępne dla wybranej subskry
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763826"
 ---
 # <a name="region-or-sku-unavailable"></a>Region lub jednostka SKU jest niedostępna
 
@@ -82,6 +82,6 @@ Jeśli nie możesz znaleźć odpowiedniego regionu lub jednostki SKU, Utwórz [�
 
 Zawsze jesteśmy w trakcie korzystania z opinii i sugestii. Wyślij nam swoje [sugestie](https://feedback.azure.com/forums/266794-support-feedback). Ponadto możesz zaangażować się z nami w serwisie [Twitter](https://twitter.com/azuresupport) lub stronie pytań i odpowiedzi na [pytania firmy Microsoft&](https://docs.microsoft.com/answers/products/azure).
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 [Pomoc techniczna platformy Azure — często zadawane pytania](https://azure.microsoft.com/support/faq)

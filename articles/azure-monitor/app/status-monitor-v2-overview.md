@@ -6,10 +6,9 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81770965"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wdróż agenta Azure Monitor Application Insights dla serwerów lokalnych
@@ -22,11 +21,11 @@ Zastępuje [Monitor stanu](https://docs.microsoft.com/azure/azure-monitor/app/mo
 Dane telemetryczne są wysyłane do Azure Portal, w którym można [monitorować](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) aplikację.
 
 > [!NOTE]
-> Moduł obsługuje obecnie tylko instrumentację programu .NET Web Apps hostowaną z usługami IIS. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Java i Node. js.
+> Moduł obsługuje obecnie tylko instrumentację programu .NET Web Apps hostowaną z usługami IIS. Użyj zestawu SDK do Instrumentacji aplikacji ASP.NET Core, Java i Node.js.
 
 ## <a name="powershell-gallery"></a>Galeria programu PowerShell
 
-Agent Application Insights znajduje się tutaj: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Agent Application Insights znajduje się tutaj: https://www.powershellgallery.com/packages/Az.ApplicationMonitor .
 
 ![Galeria programu PowerShell](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -50,7 +49,7 @@ Agent Application Insights znajduje się tutaj: https://www.powershellgallery.co
 - [Znane problemy](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 - Czy Agent Application Insights obsługuje instalacje serwera proxy?
 

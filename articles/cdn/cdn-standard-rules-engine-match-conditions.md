@@ -8,10 +8,9 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81259934"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Dopasuj warunki w aparacie reguł standardowych dla Azure CDN
@@ -62,7 +61,7 @@ String | [Standardowa lista operatorów](#standard-operator-list) | String, int 
 
 #### <a name="key-information"></a>Informacje o kluczu
 
-- W przypadku określenia nazwy pliku cookie nie można używać symboli\*wieloznacznych (w tym gwiazdek). musisz użyć dokładnej nazwy pliku cookie.
+- W przypadku określenia nazwy pliku cookie nie można używać symboli wieloznacznych (w tym gwiazdek \* ). należy użyć dokładnej nazwy pliku cookie.
 - Dla każdego wystąpienia tego warunku dopasowywania można określić tylko jedną nazwę pliku cookie.
 - Porównania nazw plików cookie nie uwzględniają wielkości liter.
 - Aby określić wiele wartości plików cookie, należy użyć pojedynczej spacji między wartościami plików cookie. 
@@ -170,7 +169,7 @@ Operator | Adres URL żądania | Przekształcanie wielkości liter
 
 #### <a name="key-information"></a>Informacje o kluczu
 
-- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: *https://www.\<yourdomain\>.com*.
+- Jeśli używasz tego warunku reguły, pamiętaj o uwzględnieniu informacji o protokole. Na przykład: * https://www . \<yourdomain\> . Model com*.
 
 ### <a name="url-file-extension"></a>Rozszerzenie pliku adresu URL
 

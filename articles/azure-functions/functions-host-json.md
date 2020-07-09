@@ -1,35 +1,35 @@
 ---
-title: Dokumentacja pliku host. JSON dla Azure Functions 2. x
-description: Dokumentacja referencyjna dotycząca pliku Azure Functions hosta. JSON z użyciem środowiska uruchomieniowego v2.
+title: host.jsw odwołaniu dla Azure Functions 2. x
+description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690898"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298501"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host. JSON dla Azure Functions 2. x i nowszych 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsw odwołaniu dla Azure Functions 2. x i nowszych 
 
 > [!div class="op_single_selector" title1="Wybierz wersję środowiska uruchomieniowego Azure Functions, którego używasz: "]
 > * [Wersja 1](functions-host-json-v1.md)
 > * [Wersja 2 +](functions-host-json.md)
 
-Plik metadanych *hosta. JSON* zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje aplikacji funkcji. W tym artykule wymieniono dostępne ustawienia zaczynające się od wersji 2. x środowiska uruchomieniowego Azure Functions.  
+*host.jsw* pliku metadanych zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje aplikacji funkcji. W tym artykule wymieniono dostępne ustawienia zaczynające się od wersji 2. x środowiska uruchomieniowego Azure Functions.  
 
 > [!NOTE]
-> Ten artykuł jest przeznaczony dla Azure Functions 2. x i nowszych.  Aby uzyskać odwołanie do pliku host. JSON w funkcjach 1. x, zobacz informacje dotyczące pliku [host. JSON dla Azure Functions 1. x](functions-host-json-v1.md).
+> Ten artykuł jest przeznaczony dla Azure Functions 2. x i nowszych.  Aby uzyskać informacje na temat host.jsw funkcjach 1. x, zobacz [host.json Reference for Azure Functions 1. x](functions-host-json-v1.md).
 
-Inne opcje konfiguracji aplikacji funkcji są zarządzane w [ustawieniach aplikacji](functions-app-settings.md) (dla wdrożonych aplikacji) lub pliku [Local. JSON](functions-run-local.md#local-settings-file) (na potrzeby lokalnego tworzenia).
+Inne opcje konfiguracji aplikacji funkcji są zarządzane w [ustawieniach aplikacji](functions-app-settings.md) (dla wdrożonych aplikacji) lub [local.settings.jsw](functions-run-local.md#local-settings-file) pliku (na potrzeby lokalnego tworzenia).
 
-Konfiguracje w pliku host. JSON powiązane z powiązaniami są stosowane równie do poszczególnych funkcji w aplikacji funkcji. 
+Konfiguracje w host.jsdotyczące powiązań są stosowane równie do poszczególnych funkcji w aplikacji funkcji. 
 
 Możesz również [przesłonić lub zastosować ustawienia dla środowiska](#override-hostjson-values) przy użyciu ustawień aplikacji.
 
-## <a name="sample-hostjson-file"></a>Przykładowy plik host. JSON
+## <a name="sample-hostjson-file"></a>Przykład host.jsw pliku
 
-Następujący przykładowy plik *host. JSON* dla wersji 2. x + ma wszystkie możliwe opcje (z wyjątkiem tych, które są przeznaczone tylko do użytku wewnętrznego).
+W poniższym przykładzie *host.jsw* pliku dla wersji 2. x + dostępne są wszystkie możliwe opcje (z wyjątkiem tych, które są przeznaczone tylko do użytku wewnętrznego).
 
 ```json
 {
@@ -140,24 +140,24 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging).
 
 Opcje kontrolki dla Application Insights, w tym [Opcje próbkowania](./functions-monitoring.md#configure-sampling).
 
-Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład pliku host. JSON](#sample-hostjson-file).
+Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw pliku](#sample-hostjson-file).
 
 > [!NOTE]
-> Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, `excludedTypes: "Request"` Dodaj do `samplingSettings` wartości.
+> Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, Dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
-| Właściwość | Domyślny | Opis |
+| Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
-| samplingSettings | n/d | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | nie dotyczy | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Włącza zbieranie metryk na żywo. |
 | enableDependencyTracking | true | Włącza śledzenie zależności. |
 | enablePerformanceCountersCollection | true | Włącza Zbieranie liczników wydajności kudu. |
 | liveMetricsInitializationDelay | 00:00:15 | Tylko do użytku wewnętrznego. |
-| httpAutoCollectionOptions | n/d | Zobacz [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | n/d | Zobacz [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | nie dotyczy | Zobacz [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | nie dotyczy | Zobacz [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
 | maxTelemetryItemsPerSecond | 20 | Docelowa liczba elementów telemetrii zarejestrowanych na sekundę na każdym hoście serwera. Jeśli aplikacja działa na wielu hostach, Zmniejsz tę wartość, aby pozostała w ogólnym docelowym wskaźniku ruchu. | 
@@ -168,22 +168,22 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład pliku host
 | minSamplingPercentage | 0.1 | W miarę jak procent próbkowania różni się, ta właściwość określa minimalny dozwolony procent próbkowania. |
 | maxSamplingPercentage | 0.1 | W miarę jak procent próbkowania różni się, ta właściwość określa maksymalny dozwolony procent próbkowania. |
 | movingAverageRatio | 1.0 | Przy obliczaniu średniej przenoszonej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej od 1. Mniejsze wartości sprawiają, że algorytm jest mniej aktywny w nagłych zmianach. |
-| excludedTypes | wartość null | Rozdzielana średnikami lista typów, które nie mają być próbkowane. Rozpoznawane typy to `Dependency`: `Event`, `Exception`, `PageView` `Request`,, i `Trace`. Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone, są próbkowane. |
-| includedTypes | wartość null | Rozdzielana średnikami lista typów, które mają być próbkowane; pusta lista implikuje wszystkie typy. Typ wymieniony w `excludedTypes` liście typów przesłonięcia w tym miejscu. Rozpoznawane typy to `Dependency`: `Event`, `Exception`, `PageView` `Request`,, i `Trace`. Wystąpienia określonych typów są próbkowane; typy, które nie są określone lub implikowane są przesyłane bez próbkowania. |
+| excludedTypes | wartość null | Rozdzielana średnikami lista typów, które nie mają być próbkowane. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone, są próbkowane. |
+| includedTypes | wartość null | Rozdzielana średnikami lista typów, które mają być próbkowane; pusta lista implikuje wszystkie typy. Typ wymieniony w liście `excludedTypes` typów przesłonięcia w tym miejscu. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wystąpienia określonych typów są próbkowane; typy, które nie są określone lub implikowane są przesyłane bez próbkowania. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Włącza lub wyłącza rozszerzone informacje żądania HTTP dla wyzwalaczy HTTP: nagłówki korelacji żądań przychodzących, obsługa kluczy wielu instrumentacji, metoda HTTP, ścieżka i odpowiedź. |
 | enableW3CDistributedTracing | true | Włącza lub wyłącza obsługę protokołu śledzenia rozproszonego W3C (i włącza starszą wersję schematu korelacji). Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. Jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false, ta flaga ma zastosowanie tylko do żądań wychodzących, a nie do żądań przychodzących. |
-| enableResponseHeaderInjection | true | Włącza lub wyłącza iniekcję nagłówków korelacji wieloskładnikowej do odpowiedzi. Włączenie iniekcji umożliwia Application Insights konstruowanie mapy aplikacji w przypadku użycia kilku kluczy Instrumentacji. Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. To ustawienie nie ma zastosowania `enableHttpTriggerExtendedInfoCollection` , jeśli ma wartość false. |
+| enableResponseHeaderInjection | true | Włącza lub wyłącza iniekcję nagłówków korelacji wieloskładnikowej do odpowiedzi. Włączenie iniekcji umożliwia Application Insights konstruowanie mapy aplikacji w przypadku użycia kilku kluczy Instrumentacji. Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. To ustawienie nie ma zastosowania, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false. |
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
 Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na wyjątkach w aplikacjach .NET](/azure/azure-monitor/app/snapshot-debugger) i [Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
 | captureSnapshotMemoryWeight | 0,5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -195,8 +195,8 @@ Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na
 | isExceptionSnappointsEnabled | fałsz | Włącza lub wyłącza filtrowanie wyjątków. |
 | isLowPrioritySnapshotUploader | true | Określa, czy proces SnapshotUploader ma być uruchamiany przy normalnym priorytecie. |
 | maximumCollectionPlanSize | 50 | Maksymalna liczba problemów, które możemy śledzić w dowolnym momencie w zakresie od 1 do 9999. |
-| maximumSnapshotsRequired | 3 | Maksymalna liczba migawek zebranych w przypadku pojedynczego problemu w zakresie od 1 do 999. Problem może być uważany za poszczególne instrukcje throw w aplikacji. Gdy liczba migawek zbieranych dla danego problemu osiągnie tę wartość, nie będzie zbieranych kolejnych migawek dla tego problemu, dopóki liczniki problemów nie zostaną zresetowane `problemCounterResetInterval`(zobacz) `thresholdForSnapshotting` i limit zostanie osiągnięty ponownie. |
-| problemCounterResetInterval | 24:00:00 | Jak często resetować liczniki problemu w zakresie od 1 minuty do siedmiu dni. Po osiągnięciu tego interwału wszystkie liczby problemów są resetowane do zera. Istniejące problemy, które osiągnęły już próg dla tworzenia migawek, ale nie wygenerowały jeszcze liczby migawek w `maximumSnapshotsRequired`programie, pozostają aktywne. |
+| maximumSnapshotsRequired | 3 | Maksymalna liczba migawek zebranych w przypadku pojedynczego problemu w zakresie od 1 do 999. Problem może być uważany za poszczególne instrukcje throw w aplikacji. Gdy liczba migawek zbieranych dla danego problemu osiągnie tę wartość, nie będzie zbieranych kolejnych migawek dla tego problemu, dopóki liczniki problemów nie zostaną zresetowane (zobacz `problemCounterResetInterval` ) i `thresholdForSnapshotting` limit zostanie osiągnięty ponownie. |
+| problemCounterResetInterval | 24:00:00 | Jak często resetować liczniki problemu w zakresie od 1 minuty do siedmiu dni. Po osiągnięciu tego interwału wszystkie liczby problemów są resetowane do zera. Istniejące problemy, które osiągnęły już próg dla tworzenia migawek, ale nie wygenerowały jeszcze liczby migawek w programie `maximumSnapshotsRequired` , pozostają aktywne. |
 | provideAnonymousTelemetry | true | Określa, czy wysyłać anonimowe użycie i dane telemetryczne błędu do firmy Microsoft. Te dane telemetryczne mogą być używane w przypadku kontaktowania się z firmą Microsoft w celu ułatwienia rozwiązywania problemów z Snapshot Debugger. Służy również do monitorowania wzorców użycia. |
 | reconnectInterval | 00:15:00 | Jak często ponownie nawiązujemy połączenie z punktem końcowym Snapshot Debugger. Dozwolony zakres to jedna minuta na jeden dzień. |
 | shadowCopyFolder | wartość null | Określa folder, który ma być używany do kopiowania plików binarnych w tle. Jeśli nie zostanie ustawiona, foldery określone przez następujące zmienne środowiskowe są podejmowane w kolejności: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
@@ -242,11 +242,16 @@ Lista funkcji uruchomionych przez hosta zadań. Pusta tablica oznacza uruchamian
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Wskazuje czas trwania dla wszystkich funkcji. Jest on zgodny z formatem ciągu TimeSpan. W planie zużycia bezserwerowego prawidłowy zakres to od 1 sekundy do 10 minut, a wartość domyślna to 5 minut.  
+Wskazuje czas trwania dla wszystkich funkcji. Jest on zgodny z formatem ciągu TimeSpan. 
 
-W planie Premium prawidłowy zakres to od 1 sekundy do 60 minut, a wartość domyślna to 30 minut.
+| Typ planu | Wartość domyślna (min.) | Maksimum (min.) |
+| -- | -- | -- |
+| Zużycie | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (niepowiązane)<sup>2</sup> |
+| Dedykowane (App Service) | 30 | -1 (niepowiązane)<sup>2</sup> |
 
-W przypadku planu dedykowanego (App Service) nie ma żadnego całkowitego limitu, a wartość domyślna to 30 minut. Wartość `-1` wskazuje nieograniczone wykonanie, ale jest zalecane stałe ograniczenie górne.
+<sup>1</sup> wykonanie planu Premium jest gwarantowane tylko przez 60 minut, ale technicznie niepowiązane.   
+<sup>2</sup> wartość `-1` wskazuje niepowiązane wykonywanie, ale jest zalecane zapewnienie stałego górnego ograniczenia.
 
 ```json
 {
@@ -270,11 +275,11 @@ Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/a
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
-|healthCheckWindow|2 minuty|Przedział czasu, który jest używany w połączeniu `healthCheckThreshold` z ustawieniem.| 
+|healthCheckWindow|2 minuty|Przedział czasu, który jest używany w połączeniu z `healthCheckThreshold` ustawieniem.| 
 |healthCheckThreshold|6|Maksymalna liczba przypadków, w których Sprawdzenie kondycji może zakończyć się niepowodzeniem przed zainicjowaniem odtwarzania hosta.| 
 |counterThreshold|0,80|Próg, w którym licznik wydajności będzie traktowany jako w złej kondycji.| 
 
@@ -302,12 +307,12 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje `never`to `always`, `debugOnly`,. |
-|logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) w dokumentacji ASP.NET Core. |
-|console|n/d| Ustawienie rejestrowania [konsoli](#console) . |
-|applicationInsights|n/d| Ustawienie [applicationInsights](#applicationinsights) . |
+|fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
+|logLevel|nie dotyczy|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) w dokumentacji ASP.NET Core. |
+|console|nie dotyczy| Ustawienie rejestrowania [konsoli](#console) . |
+|applicationInsights|nie dotyczy| Ustawienie [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>console
 
@@ -325,13 +330,13 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging). Kontroluje R
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |isEnabled|fałsz|Włącza lub wyłącza rejestrowanie konsoli.| 
 
 ## <a name="manageddependency"></a>managedDependency
 
-Zależność zarządzana to funkcja, która jest obecnie obsługiwana tylko w przypadku funkcji opartych na programie PowerShell. Umożliwia automatyczne zarządzanie zależnościami przez usługę. Gdy `enabled` właściwość jest ustawiona na `true`, `requirements.psd1` plik jest przetwarzany. Zależności są aktualizowane, gdy zostaną wydane jakiekolwiek wersje pomocnicze. Aby uzyskać więcej informacji, zobacz [zależność zarządzana](functions-reference-powershell.md#dependency-management) w artykule dotyczącym programu PowerShell.
+Zależność zarządzana to funkcja, która jest obecnie obsługiwana tylko w przypadku funkcji opartych na programie PowerShell. Umożliwia automatyczne zarządzanie zależnościami przez usługę. Gdy `enabled` Właściwość jest ustawiona na `true` , `requirements.psd1` plik jest przetwarzany. Zależności są aktualizowane, gdy zostaną wydane jakiekolwiek wersje pomocnicze. Aby uzyskać więcej informacji, zobacz [zależność zarządzana](functions-reference-powershell.md#dependency-management) w artykule dotyczącym programu PowerShell.
 
 ```json
 {
@@ -369,17 +374,17 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Przedział czasu używany do odzyskiwania blokady odbiornika, jeśli nie można uzyskać blokady odbiornika podczas uruchamiania.| 
 |lockAcquisitionTimeout|00:01:00|Maksymalny czas, przez jaki środowisko uruchomieniowe podejmie próbę uzyskania blokady.| 
-|lockAcquisitionPollingInterval|n/d|Interwał między kolejnymi próbami przejęcia blokady.| 
+|lockAcquisitionPollingInterval|nie dotyczy|Interwał między kolejnymi próbami przejęcia blokady.| 
 
-## <a name="version"></a>Wersja
+## <a name="version"></a>version
 
-Ta wartość wskazuje wersję schematu pliku host. JSON. Ciąg `"version": "2.0"` wersji jest wymagany dla aplikacji funkcji, która jest przeznaczona dla środowiska uruchomieniowego v2 lub nowszej wersji. Brak zmian schematu pliku host. JSON między wersjami 2 i v3.
+Ta wartość wskazuje wersję schematu host.jsna. Ciąg wersji `"version": "2.0"` jest wymagany dla aplikacji funkcji, która jest przeznaczona dla środowiska uruchomieniowego v2 lub nowszej wersji. Nie ma host.jszmian schematu między wersjami 2 i v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
@@ -391,11 +396,11 @@ Zestaw [udostępnionych katalogów kodu](functions-reference-csharp.md#watched-d
 }
 ```
 
-## <a name="override-hostjson-values"></a>Zastąp wartości host. JSON
+## <a name="override-hostjson-values"></a>Zastąp host.jswartości
 
-Mogą istnieć wystąpienia, w których można skonfigurować lub zmodyfikować określone ustawienia w pliku host. JSON dla określonego środowiska, bez zmiany pliku host. JSON.  Można przesłonić określone wartości pliku host. JSON jako ustawienia aplikacji. Gdy środowisko uruchomieniowe odnajdzie ustawienie aplikacji w formacie `AzureFunctionsJobHost__path__to__setting`, zastępuje równoważne ustawienie host. JSON znajdujące się `path.to.setting` w pliku JSON. Gdy jest wyrażona jako ustawienie aplikacji, kropka`.`() używana do wskazania hierarchii JSON jest zastępowana podwójnym podkreśleniem (`__`). 
+Mogą wystąpić sytuacje, w których chcesz skonfigurować lub zmodyfikować określone ustawienia w host.jspliku dla określonego środowiska, bez zmiany host.jssamego pliku.  Można przesłonić określone host.jsna wartościach, aby utworzyć odpowiednik wartości jako ustawienia aplikacji. Gdy środowisko uruchomieniowe odnajdzie ustawienie aplikacji w formacie `AzureFunctionsJobHost__path__to__setting` , zastępuje odpowiednik host.jsw ustawieniach znajdujących się w pliku `path.to.setting` JSON. Gdy jest wyrażona jako ustawienie aplikacji, kropka ( `.` ) używana do wskazania HIERARCHII JSON jest zastępowana podwójnym podkreśleniem ( `__` ). 
 
-Załóżmy na przykład, że chcesz wyłączyć próbkowanie w usłudze Application Insight w przypadku uruchamiania lokalnego. W przypadku zmiany lokalnego pliku host. JSON w celu wyłączenia Application Insights ta zmiana może zostać przekazana do aplikacji produkcyjnej podczas wdrażania. W tym celu bezpieczniejszym sposobem jest utworzenie ustawienia aplikacji jako `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` `local.settings.json` pliku. Można go zobaczyć w następującym `local.settings.json` pliku, który nie jest opublikowany:
+Załóżmy na przykład, że chcesz wyłączyć próbkowanie w usłudze Application Insight w przypadku uruchamiania lokalnego. Jeśli zmieniono host.jslokalnego pliku, aby wyłączyć Application Insights, ta zmiana może zostać przekazana do aplikacji produkcyjnej podczas wdrażania. W tym celu bezpieczniejszym sposobem jest utworzenie ustawienia aplikacji jako `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` `local.settings.json` pliku. Można go zobaczyć w następującym `local.settings.json` pliku, który nie jest opublikowany:
 
 ```json
 {
@@ -411,7 +416,7 @@ Załóżmy na przykład, że chcesz wyłączyć próbkowanie w usłudze Applicat
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Informacje o aktualizowaniu pliku host. JSON](functions-reference.md#fileupdate)
+> [Dowiedz się, jak aktualizować host.jsw pliku](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
 > [Zobacz ustawienia globalne w zmiennych środowiskowych](functions-app-settings.md)

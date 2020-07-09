@@ -2,8 +2,8 @@
 title: Publikowanie aplikacji w oddzielnych sieciach za pośrednictwem grup łączników — Azure AD
 description: Opisuje sposób tworzenia grup łączników w usłudze Azure serwer proxy aplikacji usługi Azure AD i zarządzania nimi.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,15 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: be3e99ca57957e1975313fed8609533f4a65b102
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275562"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84764727"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publikowanie aplikacji w oddzielnych sieciach i lokalizacjach za pomocą grup łączników
 
@@ -41,7 +40,7 @@ Aby zgrupować łączniki, należy upewnić się, że [zainstalowano wiele łąc
 Wykonaj te kroki, aby utworzyć dowolną liczbę grup łączników.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Wybierz pozycję **Azure Active Directory** > **aplikacje** > przedsiębiorstwa**serwer proxy aplikacji**.
+1. Wybierz pozycję **Azure Active Directory**  >  **aplikacje przedsiębiorstwa**  >  **serwer proxy aplikacji**.
 1. Wybierz pozycję **Nowa grupa łączników**. Zostanie wyświetlony blok Nowa grupa łączników.
 
    ![Wyświetla ekran, aby wybrać nową grupę łączników](./media/application-proxy-connector-groups/new-group.png)
@@ -53,7 +52,7 @@ Wykonaj te kroki, aby utworzyć dowolną liczbę grup łączników.
 
 Wykonaj te kroki dla każdej aplikacji, która została opublikowana z serwerem proxy aplikacji. Możesz przypisać aplikację do grupy łączników podczas pierwszej publikacji lub użyć tych kroków, aby zmienić przypisanie w dowolnym momencie.
 
-1. Na pulpicie nawigacyjnym Zarządzanie katalogiem wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > aplikację, którą chcesz przypisać do grupy łączników > **serwerze proxy aplikacji**.
+1. Na pulpicie nawigacyjnym Zarządzanie katalogiem wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje** > aplikację, którą chcesz przypisać do grupy łączników > **serwerze proxy aplikacji**.
 1. Użyj menu rozwijanego **Grupa łączników** , aby wybrać grupę, która ma być używana przez aplikację.
 1. Wybierz pozycję **Zapisz** , aby zastosować zmianę.
 

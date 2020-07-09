@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067719"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608029"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Szybki Start: Tworzenie Azure Database for MySQL przy użyciu prostego polecenia platformy Azure — polecenie AZ MySQL up (wersja zapoznawcza)
 
@@ -64,9 +64,9 @@ sku-name | GP_Gen5_2 | Nazwa jednostki SKU. Zgodnie z konwencją {warstwa cenowa
 backup-retention | 7 | Jak długo należy przechowywać kopię zapasową. Jednostka to dni.
 geo-redundant-backup | Disabled (Wyłączony) | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe.
 location | westus2 | Lokalizacja platformy Azure dla serwera.
-ssl-enforcement | Disabled (Wyłączony) | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie.
+ssl-enforcement | Enabled (Włączony) | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).
-Wersja | 5.7 | Wersja główna MySQL.
+version | 5.7 | Wersja główna MySQL.
 admin-user | Wygenerowano system | Nazwa użytkownika w przypadku logowania administratora.
 admin-password | Wygenerowano system | Hasło użytkownika administratora.
 
@@ -77,7 +77,7 @@ Po utworzeniu serwera dostępne są następujące ustawienia:
 
 - Utworzono regułę zapory "devbox". Interfejs wiersza polecenia platformy Azure próbuje wykryć adres IP komputera, `az mysql up` z którego jest uruchamiane polecenie i dozwolonych ten adres IP.
 - "Zezwalaj na dostęp do usług platformy Azure" jest ustawiony na wartość włączone. To ustawienie umożliwia skonfigurowanie zapory serwera do akceptowania połączeń ze wszystkich zasobów platformy Azure, w tym zasobów spoza subskrypcji.
-- `wait_timeout` Parametr jest ustawiony na 8 godzin
+- `wait_timeout`Parametr jest ustawiony na 8 godzin
 - Utworzono pustą bazę danych o nazwie "SampleDB"
 - Utworzono nowego użytkownika o nazwie "root" z uprawnieniami do "SampleDB"
 
@@ -86,7 +86,7 @@ Po utworzeniu serwera dostępne są następujące ustawienia:
 
 ## <a name="get-the-connection-information"></a>Pobieranie informacji o połączeniu
 
-Po zakończeniu `az mysql up` działania polecenia zostanie wykazana lista parametrów połączenia dla popularnych języków programowania. Te parametry połączenia są wstępnie skonfigurowane z określonymi atrybutami nowo utworzonego serwera Azure Database for MySQL.
+Po zakończeniu działania `az mysql up` polecenia zostanie wykazana lista parametrów połączenia dla popularnych języków programowania. Te parametry połączenia są wstępnie skonfigurowane z określonymi atrybutami nowo utworzonego serwera Azure Database for MySQL.
 
 Aby ponownie wyświetlić te parametry połączenia, można użyć polecenia [AZ mysql show-Connection-String](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) .
 

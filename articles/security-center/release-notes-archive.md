@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860906"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970692"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -29,9 +29,37 @@ Ta strona zawiera informacje na temat:
 - Poprawki błędów
 - Funkcje uznane za przestarzałe
 
+
+## <a name="january-2020"></a>Styczeń 2020 r.
+
+### <a name="enhanced-secure-score-preview"></a>Ulepszony bezpieczny wynik (wersja zapoznawcza)
+
+Rozszerzona wersja funkcji bezpiecznego oceny Azure Security Center jest teraz dostępna w wersji zapoznawczej. W tej wersji wiele zaleceń jest pogrupowanych w kontrolki zabezpieczeń, które lepiej odzwierciedlają zagrożone powierzchnie ataków (na przykład ograniczanie dostępu do portów zarządzania).
+
+Zapoznaj się z informacjami o bezpiecznych zmianach oceny w fazie wersji zapoznawczej i ustal inne korygowanie, które pomogą Ci zapewnić dalsze bezpieczeństwo środowiska.
+
+Dowiedz się więcej o [ulepszonym zabezpieczeniu (wersja zapoznawcza)](secure-score-security-controls.md).
+
+
+
 ## <a name="november-2019"></a>Listopad 2019 r.
 
-### <a name="threat-protection-for-azure-key-vault-in-public-preview-in-north-america-regions"></a>Ochrona przed zagrożeniami dla Azure Key Vault w publicznej wersji zapoznawczej w Ameryka Północna regionach
+Aktualizacje w listopadzie obejmują:
+ - [Ochrona przed zagrożeniami dla Azure Key Vault w regionach Ameryka Północna (wersja zapoznawcza)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [Ochrona przed zagrożeniami w usłudze Azure Storage obejmuje osłanianie reputacji złośliwego oprogramowania](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Automatyzacja przepływu pracy z Logic Apps (wersja zapoznawcza)](#workflow-automation-with-logic-apps-preview)
+ - [Szybka poprawka dla zasobów zbiorczych jest ogólnie dostępna](#quick-fix-for-bulk-resources-generally-available)
+ - [Skanuj obrazy kontenerów dla luk w zabezpieczeniach (wersja zapoznawcza)](#scan-container-images-for-vulnerabilities-preview)
+ - [Dodatkowe standardy zgodności z przepisami (wersja zapoznawcza)](#additional-regulatory-compliance-standards-preview)
+ - [Ochrona przed zagrożeniami dla usługi Azure Kubernetes Service (wersja zapoznawcza)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Ocena luk w zabezpieczeniach maszyn wirtualnych (wersja zapoznawcza)](#virtual-machine-vulnerability-assessment-preview)
+ - [Zaawansowane zabezpieczenia danych dla serwerów SQL w systemie Azure Virtual Machines (wersja zapoznawcza)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Obsługa zasad niestandardowych (wersja zapoznawcza)](#support-for-custom-policies-preview)
+ - [Rozszerzanie zakresu Azure Security Center przy użyciu platformy dla społeczności i partnerów](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Zaawansowane integracje z eksportem zaleceń i alertów (wersja zapoznawcza)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Dołączanie serwerów premium do Security Center z centrum administracyjnego systemu Windows (wersja zapoznawcza)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Ochrona przed zagrożeniami dla Azure Key Vault w regionach Ameryka Północna (wersja zapoznawcza)
 
 Azure Key Vault to podstawowa usługa służąca do ochrony danych i poprawiania wydajności aplikacji w chmurze, oferując możliwość centralnego zarządzania kluczami, wpisami tajnymi, kluczami kryptograficznymi i zasadami w chmurze. Ponieważ Azure Key Vault przechowuje wrażliwe i krytyczne dane biznesowe, wymaga maksymalnego poziomu zabezpieczeń dla magazynów kluczy i przechowywanych w nich danych.
 
@@ -144,7 +172,12 @@ Centrum administracyjne systemu Windows to portal zarządzania dla serwerów z s
 Dzięki temu nowemu doświadczeniu użytkownicy będą mogli dołączyć serwer WAC do Azure Security Center i włączyć wyświetlanie alertów zabezpieczeń i zaleceń bezpośrednio w środowisku centrum administracyjnego systemu Windows.
 
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
+
+Aktualizacje we wrześniu obejmują:
+
+ - [Zarządzanie regułami przy użyciu ulepszeń kontroli aplikacji](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Kontrola zalecenia dotyczącego zabezpieczeń kontenera przy użyciu Azure Policy](#control-container-security-recommendation-using-azure-policy)
 
 ### <a name="managing-rules-with-adaptive-application-controls-improvements"></a>Zarządzanie regułami przy użyciu ulepszeń kontroli aplikacji
 
@@ -160,7 +193,13 @@ Azure Security Center zalecenia dotyczące rozwiązywania luk w zabezpieczeniach
 Aby wyświetlić włączone zasady zabezpieczeń, w Security Center otworzyć stronę zasady zabezpieczeń.
 
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
+
+Aktualizacje w sierpniu obejmują:
+
+ - [Dostęp do maszyny wirtualnej just-in-Time (JIT) dla zapory platformy Azure](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Korygowanie z jednym kliknięciem w celu zwiększenia stan zabezpieczeń (wersja zapoznawcza)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Zarządzanie wieloma dzierżawami](#cross-tenant-management)
 
 ### <a name="just-in-time-jit-vm-access-for-azure-firewall"></a>Dostęp do maszyny wirtualnej just-in-Time (JIT) dla zapory platformy Azure 
 
@@ -193,7 +232,7 @@ Security Center teraz obsługuje scenariusze zarządzania między dzierżawcami 
 [Dowiedz się więcej na temat środowisk zarządzania między dzierżawcami](security-center-cross-tenant-management.md).
 
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="updates-to-network-recommendations"></a>Aktualizacje zaleceń dotyczących sieci
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
 ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80127976"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Dostosowywanie modelu języka za pomocą interfejsu API Video Indexer
@@ -105,7 +105,7 @@ Odpowiedź zawiera metadane dotyczące nowo przeszkolonego modelu języka wraz z
 }
 ```
 
-Zwrócony `id` jest unikatowy identyfikator służący do rozróżniania modeli języka, podczas `languageModelId` gdy jest używany do [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) i ponownego [indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) interfejsów API wideo (nazywanych także `linguisticModelId` w Video Indexer interfejsów API przekazywania/ponownego indeksowania).
+Zwrócony `id` jest unikatowy identyfikator służący do rozróżniania modeli języka, podczas gdy `languageModelId` jest używany do [przekazywania wideo do indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) i ponownego [indeksowania](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) interfejsów API wideo (nazywanych także `linguisticModelId` w Video Indexer interfejsów API przekazywania/ponownego indeksowania).
 
 ## <a name="delete-a-language-model"></a>Usuwanie modelu języka
 
@@ -157,7 +157,7 @@ Odpowiedź zawiera metadane dotyczące nowo przeszkolonego modelu języka wraz z
 }
 ```
 
-`id` Użyj plików zwracanych w odpowiedzi na potrzeby pobrania zawartości pliku.
+Użyj `id` plików zwracanych w odpowiedzi na potrzeby pobrania zawartości pliku.
 
 ## <a name="update-a-file-from-a-language-model"></a>Aktualizowanie pliku z modelu języka
 
@@ -177,7 +177,7 @@ Odpowiedź zawiera metadane pliku, który został zaktualizowany zgodnie z forma
 }
 ```
 
-`id` Użyj pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
+Użyj `id` pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
 
 ## <a name="get-a-specific-language-model"></a>Uzyskiwanie określonego modelu języka
 
@@ -213,7 +213,7 @@ Odpowiedź zawiera metadane w określonym modelu języka wraz z metadanymi w ka�
 }
 ```
 
-`id` Użyj pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
+Użyj `id` pliku zwróconego w odpowiedzi, aby pobrać zawartość pliku.
 
 ## <a name="get-all-the-language-models"></a>Pobierz wszystkie modele języka
 

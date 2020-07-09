@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: f00acf3580130d85d6eaeaee4d52eb748d20aa7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656625"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85116030"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
@@ -44,7 +44,7 @@ Obciążenia analityczne zwykle obejmują agregacje i sekwencyjne skanowanie wyb
 
 Na przykład jeśli tabele operacyjne mają następujący format:
 
-![Przykładowa tabela operacyjna](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Przykładowa tabela operacyjna" border="false":::
 
 Magazyn wierszy zachowuje powyższe dane w serializowanym formacie, na jeden wiersz na dysku. Ten format umożliwia szybsze operacje odczytu, zapisu i działania, takie jak "Zwróć informacje o Product1". Jednak w miarę wzrostu zestawu danych i, jeśli chcesz uruchomić złożone zapytania analityczne dotyczące danych, może to być kosztowne. Jeśli na przykład chcesz uzyskać "trendy sprzedaży dla produktu w kategorii o nazwie" sprzęt "w różnych jednostkach i miesiącach", musisz uruchomić złożone zapytanie. Duże skany w tym zestawie danych mogą być kosztowne w sensie zainicjowanej przepływności i mogą również wpływać na wydajność obciążeń transakcyjnych, które umożliwiają działanie aplikacji i usług w czasie rzeczywistym.
 
@@ -52,7 +52,7 @@ Magazyn analityczny, który jest magazynem kolumn, jest lepiej dostosowany do ta
 
 Na poniższej ilustracji przedstawiono magazyn wierszy transakcyjnych i analitycznego magazynu kolumn w Azure Cosmos DB:
 
-![Magazyn wierszy transakcyjnych i magazyn kolumn analitycznych w Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Magazyn wierszy transakcyjnych i magazyn kolumn analitycznych w Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Oddzielona wydajność obciążeń analitycznych
 
@@ -142,7 +142,7 @@ Aby uzyskać szacunkowy koszt wysokiego poziomu, aby umożliwić magazyn anality
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Czas trwania analizy (TTL)
 
-Analityczny czas TTL wskazuje, jak długo dane mają być przechowywane w magazynie analitycznym dla kontenera. 
+Analityczny czas wygaśnięcia wskazuje, jak długo dane mają być przechowywane w magazynie analitycznym dla kontenera. 
 
 Operacje wstawiania, aktualizacji, usuwania do danych operacyjnych są automatycznie synchronizowane z magazynu transakcyjnego do magazynu analitycznego, niezależnie od transakcyjnej konfiguracji czasu wygaśnięcia (TTL). Przechowywanie danych operacyjnych w magazynie analitycznym może być kontrolowane przez analityczną wartość czasu wygaśnięcia na poziomie kontenera, jak określono poniżej:
 
@@ -168,8 +168,8 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md)
 
-* [Rozpocznij pracę z linkiem usługi Azure Synapse dla Azure Cosmos DB](configure-synapse-link.md)
+* [Rozpoczynanie pracy z usługą Azure Synapse Link dla usługi Azure Cosmos DB](configure-synapse-link.md)
 
-* [Często zadawane pytania dotyczące linku Synapse dla Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Często zadawane pytania dotyczące usługi Synapse Link dla usługi Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
-* [Link usługi Azure Synapse dla przypadków użycia Azure Cosmos DB](synapse-link-use-cases.md)
+* [Przypadki użycia usługi Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link-use-cases.md)

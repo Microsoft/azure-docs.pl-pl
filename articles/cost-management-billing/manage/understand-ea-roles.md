@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 79d0a648645743751eed3b50edb628a20023546e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660351"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045148"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Zarządzanie rolami w usłudze Azure Enterprise
 
@@ -27,6 +27,10 @@ Aby ułatwić zarządzanie użyciem i wydatkami w organizacji, klienci platformy
 <sup>1</sup> Kontakt dla rozliczeń dotyczących umowy EA będzie objęty tą rolą.
 
 <sup>2</sup> Kontaktu dla rozliczeń nie można dodać ani zmienić w witrynie Azure EA Portal i zostanie on dodany do rejestracji umowy EA na podstawie użytkownika, który został skonfigurowany jako kontakt dla rozliczeń na poziomie umowy. Aby zmienić kontakt dla rozliczeń, należy przesłać żądanie do regionalnego centrum operacyjnego (ROC) za pośrednictwem partnera/doradcy ds. oprogramowania.
+
+Pierwszy administrator rejestracji skonfigurowany podczas aprowizacji rejestracji określa typ uwierzytelnienia konta kontaktu dla rozliczeń. Gdy kontakt dla rozliczeń zostanie dodany do portalu EA Portal jako administrator tylko do odczytu, zostanie mu nadane uwierzytelnianie konta Microsoft. 
+
+Na przykład jeśli typ uwierzytelniania początkowego jest ustawiony na wartość Mieszane, umowa EA zostanie dodana jako konto Microsoft, a kontakt dla rozliczeń będzie miał uprawnienia administratora EA tylko do odczytu. Jeśli administrator EA nie zatwierdzi autoryzacji konta Microsoft dla istniejącego kontaktu dla rozliczeń, może usunąć danego użytkownika i poprosić klienta o dodanie użytkownika jako administratora tylko do odczytu z kontem służbowym ustawionym tylko na poziomie rejestracji w portalu EA.
 
 Te role są specyficzne dla procesu zarządzania umowami Enterprise Agreement platformy Azure. Są one dodatkiem do wbudowanych ról platformy Azure, które umożliwiają kontrolowanie dostępu do zasobów. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -80,7 +84,7 @@ Aby uzyskać więcej informacji o dodawaniu administratora działu, zobacz [Twor
 
 |Zadania| Administratora przedsiębiorstwa|Administrator przedsiębiorstwa (tylko odczyt)|Administrator działu|Administrator działu (tylko odczyt) |Właściciel konta| Partner|
 |---|---|---|---|---|---|---|
-|Wyświetlanie salda środków, w tym zobowiązania pieniężnego|✔|✔|✘|✘|✘|✔|
+|Wyświetlanie salda środków, w tym przedpłaty za platformę Azure|✔|✔|✘|✘|✘|✔|
 |Wyświetlanie limitów przydziału wydatków dla działu|✔|✔|✘|✘|✘|✔|
 |Ustawianie limitów przydziału wydatków dla działu|✔|✘|✘|✘|✘|✘|
 |Wyświetlanie arkusza cen umów EA organizacji|✔|✔|✘|✘|✘|✔|

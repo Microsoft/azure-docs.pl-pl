@@ -5,17 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77595386"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Pobieranie dzienników agenta kubelet z węzłów klastra usługi Azure Kubernetes Service
 
 W ramach działania klastra AKS może być konieczne przejrzenie dzienników w celu rozwiązania problemu. Wbudowana w Azure Portal jest możliwość wyświetlania dzienników dla [głównych składników][aks-master-logs] lub [kontenerów AKS w klastrze AKS][azure-container-logs]. Czasami może być konieczne uzyskanie dzienników *kubelet* z węzła AKS w celu rozwiązywania problemów.
 
-W tym artykule pokazano, jak można użyć `journalctl` programu do wyświetlania dzienników *KUBELET* w węźle AKS.
+W tym artykule pokazano, jak można użyć `journalctl` programu do wyświetlania dzienników *kubelet* w węźle AKS.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

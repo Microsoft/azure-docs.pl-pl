@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80546189"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Właściwości agenta IoT Edge i modułu IoT Edge Hub bliźniaczych reprezentacji
@@ -31,7 +31,7 @@ Sznurki modułu obejmuje:
 
 Sznurek modułu dla agenta IoT Edge jest wywoływany `$edgeAgent` i koordynuje komunikację między agentem IoT Edge działającym na urządzeniu i IoT Hub. Żądane właściwości są ustawiane podczas stosowania manifestu wdrożenia na określonym urządzeniu w ramach wdrożenia pojedynczego lub w skali.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
 | schemaVersion | Musi mieć wartość "1,0" | Tak |
 | Typ środowiska uruchomieniowego. | Musi być "Docker" | Tak |
@@ -52,7 +52,7 @@ Sznurek modułu dla agenta IoT Edge jest wywoływany `$edgeAgent` i koordynuje k
 | systemModules.edgeHub.configuration.id | Identyfikator wdrożenia, który został wdrożony w tym module. | IoT Hub ustawia tę właściwość, gdy manifest zostanie zastosowany przy użyciu wdrożenia. Nie jest częścią manifestu wdrożenia. |
 | Moduły. {moduleId}. wersja | Zdefiniowany przez użytkownika ciąg reprezentujący wersję tego modułu. | Tak |
 | Moduły. {moduleId}. typ | Musi być "Docker" | Tak |
-| Moduły. {moduleId}. status | {"uruchomiono \| " "zostało zatrzymane"} | Tak |
+| Moduły. {moduleId}. status | {"działa" \| "zatrzymane"} | Tak |
 | Moduły. {moduleId}. restartPolicy | {"nigdy" \| "on-Failure" \| "w złej kondycji" \| "always"} | Tak |
 | Moduły. {moduleId}. imagePullPolicy | {"on-Create" \| "nigdy"} | Nie |
 | Moduły. {moduleId}. env | Lista zmiennych środowiskowych do przekazania do modułu. Formatuje`"<name>": {"value": "<value>"}` | Nie |
@@ -78,22 +78,22 @@ Poniższa tabela nie zawiera informacji skopiowanych z odpowiednich właściwoś
 | Właściwość | Opis |
 | -------- | ----------- |
 | lastDesiredVersion | Ta liczba całkowita odnosi się do ostatniej wersji żądanych właściwości przetworzonych przez agenta IoT Edge. |
-| lastDesiredStatus. Code | Ten kod stanu odnosi się do ostatnich wymaganych właściwości widzianych przez agenta IoT Edge. Dozwolone wartości: `200` sukces, `400` nieprawidłowa konfiguracja, `412` nieprawidłowa wersja schematu, `417` żądane właściwości są puste, `500` niepowodzenie |
+| lastDesiredStatus. Code | Ten kod stanu odnosi się do ostatnich wymaganych właściwości widzianych przez agenta IoT Edge. Dozwolone wartości: `200` sukces, `400` nieprawidłowa konfiguracja, `412` nieprawidłowa wersja schematu, `417` żądane właściwości są puste, `500` Niepowodzenie |
 | lastDesiredStatus. Description | Opis tekstowy stanu |
-| deviceHealth | `healthy`Jeśli stan środowiska uruchomieniowego wszystkich modułów to `running` lub `stopped`, `unhealthy` w przeciwnym razie |
-| configurationHealth. {deploymentId}. Health | `healthy`Jeśli stan środowiska uruchomieniowego wszystkich modułów ustawionych przez wdrożenie {deploymentId} to `running` albo `stopped`, `unhealthy` w przeciwnym razie |
+| deviceHealth | `healthy`Jeśli stan środowiska uruchomieniowego wszystkich modułów to `running` lub `stopped` , `unhealthy` w przeciwnym razie |
+| configurationHealth. {deploymentId}. Health | `healthy`Jeśli stan środowiska uruchomieniowego wszystkich modułów ustawionych przez wdrożenie {deploymentId} to albo `running` `stopped` , `unhealthy` w przeciwnym razie |
 | środowisko uruchomieniowe. platform. OS | Raportowanie systemu operacyjnego działającego na urządzeniu |
 | środowisko uruchomieniowe. platform. Architecture | Raportowanie architektury procesora CPU na urządzeniu |
-| systemModules.edgeAgent.runtimeStatus | Zgłoszony stan IoT Edge agenta: {"uruchomiona" \| "w złej kondycji"} |
+| systemModules.edgeAgent.runtimeStatus | Zgłoszony stan IoT Edge agenta: {"uruchomiona" "w \| złej kondycji"} |
 | systemModules.edgeAgent.statusDescription | Opis tekstowy stanu zgłoszonego przez agenta IoT Edge. |
-| systemModules.edgeHub.runtimeStatus | Stan Centrum IoT Edge: {"uruchomiono" \| "zatrzymano \| " "nie \| powiodło się \| " "wycofywania" "w złej kondycji"} |
+| systemModules.edgeHub.runtimeStatus | Stan Centrum IoT Edge: {"uruchomiono" \| "Zatrzymano" " \| nie powiodło się" " \| wycofywania" \| "w złej kondycji"} |
 | systemModules.edgeHub.statusDescription | Opis tekstowy stanu Centrum IoT Edge w przypadku złej kondycji. |
 | systemModules. edgeHub. exitCode | Kod zakończenia raportowany przez kontener Centrum IoT Edge w przypadku zakończenia kontenera |
 | systemModules.edgeHub.startTimeUtc | Godzina ostatniego uruchomienia Centrum IoT Edge |
 | systemModules.edgeHub.lastExitTimeUtc | Godzina, o której ostatnio zakończył się IoT Edge centrum |
 | systemModules.edgeHub.lastRestartTimeUtc | Czas ostatniego ponownego uruchomienia Centrum IoT Edge |
 | systemModules.edgeHub.restartCount | Liczba ponownych uruchomień tego modułu w ramach zasad ponownego uruchamiania. |
-| Moduły. {moduleId}. runtimeStatus | Stan modułu \| : {"uruchomiona" "zatrzymała się \| " "nie \| powiodła się \| " "wycofywania" "w złej kondycji"} |
+| Moduły. {moduleId}. runtimeStatus | Stan modułu: {"uruchomiona" \| "zatrzymała \| się" "nie powiodła się" " \| wycofywania" \| "w złej kondycji"} |
 | Moduły. {moduleId}. statusDescription | Opis tekstowy stanu modułu w złej kondycji. |
 | Moduły. {moduleId}. exitCode | Kod zakończenia raportowany przez kontener modułów w przypadku opuszczenia kontenera |
 | Moduły. {moduleId}. startTimeUtc | Czas ostatniego uruchomienia modułu |
@@ -108,7 +108,7 @@ Sznurek modułu dla Centrum IoT Edge jest wywoływany `$edgeHub` i koordynuje ko
 | Właściwość | Opis | Wymagane w manifeście wdrożenia |
 | -------- | ----------- | -------- |
 | schemaVersion | Musi mieć wartość "1,0" | Tak |
-| rozsyłan. RouteName | Ciąg reprezentujący trasę Centrum IoT Edge. Aby uzyskać więcej informacji, zobacz [deklarowanie tras](module-composition.md#declare-routes). | Element `routes` może być obecny, ale pusty. |
+| rozsyłan. RouteName | Ciąg reprezentujący trasę Centrum IoT Edge. Aby uzyskać więcej informacji, zobacz [deklarowanie tras](module-composition.md#declare-routes). | `routes`Element może być obecny, ale pusty. |
 | storeAndForwardConfiguration.timeToLiveSecs | Czas (w sekundach), przez jaki usługa IoT Edge Hub zachowuje komunikaty, jeśli są odłączone od punktów końcowych routingu, niezależnie od tego, czy IoT Hub czy moduł lokalny Wartość może być dowolną dodatnią liczbą całkowitą. | Tak |
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub raportowane właściwości
@@ -116,9 +116,9 @@ Sznurek modułu dla Centrum IoT Edge jest wywoływany `$edgeHub` i koordynuje ko
 | Właściwość | Opis |
 | -------- | ----------- |
 | lastDesiredVersion | Ta liczba całkowita odnosi się do ostatniej wersji żądanych właściwości przetworzonych przez Centrum IoT Edge. |
-| lastDesiredStatus. Code | Kod stanu odnoszący się do ostatnich żądanych właściwości widzianych przez Centrum IoT Edge. Dozwolone wartości: `200` sukces, `400` nieprawidłowa konfiguracja, `500` niepowodzenie |
+| lastDesiredStatus. Code | Kod stanu odnoszący się do ostatnich żądanych właściwości widzianych przez Centrum IoT Edge. Dozwolone wartości: `200` sukces, `400` nieprawidłowa konfiguracja, `500` Niepowodzenie |
 | lastDesiredStatus. Description | Opis tekstowy stanu. |
-| klientem. {Device lub moduleId}. status | Stan łączności tego urządzenia lub modułu. Możliwe wartości {"Connected \| " "disconnected"}. Tylko tożsamości modułów mogą być w stanie odłączonym. Urządzenia podrzędne łączące się z Centrum IoT Edge są wyświetlane tylko po nawiązaniu połączenia. |
+| klientem. {Device lub moduleId}. status | Stan łączności tego urządzenia lub modułu. Możliwe wartości {"Connected" \| "disconnected"}. Tylko tożsamości modułów mogą być w stanie odłączonym. Urządzenia podrzędne łączące się z Centrum IoT Edge są wyświetlane tylko po nawiązaniu połączenia. |
 | klientem. {Device lub moduleId}. lastConnectTime | Czas ostatniego połączenia urządzenia lub modułu. |
 | klientem. {Device lub moduleId}. lastDisconnectTime | Czas ostatniego odłączenia urządzenia lub modułu. |
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80336110"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Konfigurowanie reguły ograniczeń adresów IP za pomocą zapory aplikacji sieci Web dla drzwi frontonu platformy Azure
@@ -31,13 +31,13 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 ### <a name="create-a-waf-policy"></a>Tworzenie zasad WAF
 
 1. Na Azure Portal wybierz pozycję **Utwórz zasób**, wpisz **Zapora aplikacji sieci Web** w polu wyszukiwania, a następnie wybierz opcję **Zapora aplikacji sieci Web (WAF)**.
-2. Wybierz przycisk **Utwórz**.
+2. Wybierz pozycję **Utwórz**.
 3. Na stronie **Tworzenie zasad WAF** Użyj następujących wartości, aby ukończyć kartę **podstawowe** :
    
    |Ustawienie  |Wartość  |
    |---------|---------|
    |Zasady dla     |Globalne WAF (tylne drzwi)|
-   |Subskrypcja     |Wybierz swoją subskrypcję|
+   |Subskrypcja     |Wybieranie subskrypcji|
    |Grupa zasobów     |Wybierz grupę zasobów, w której znajduje się przód.|
    |Nazwa zasady     |Wpisz nazwę zasad|
    |Stan zasad     |Enabled (Włączony)|
@@ -87,8 +87,8 @@ Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opi
 Przed rozpoczęciem konfigurowania zasad ograniczeń adresów IP Skonfiguruj środowisko interfejsu wiersza polecenia i Utwórz profil dla drzwi platformy Azure.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Konfigurowanie środowiska interfejsu wiersza polecenia platformy Azure
-1. Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** w następujących poleceń interfejsu wiersza polecenia, a następnie zaloguj się do konta platformy Azure w sesji Cloud Shell, która zostanie otwarta. Po rozpoczęciu sesji wprowadź `az extension add --name front-door` , aby dodać rozszerzenie frontu drzwi platformy Azure.
- 2. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy Azure przy użyciu `az login`.
+1. Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** w następujących poleceń interfejsu wiersza polecenia, a następnie zaloguj się do konta platformy Azure w sesji Cloud Shell, która zostanie otwarta. Po rozpoczęciu sesji wprowadź, `az extension add --name front-door` Aby dodać rozszerzenie frontu drzwi platformy Azure.
+ 2. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy Azure przy użyciu `az login` .
 
 #### <a name="create-an-azure-front-door-profile"></a>Tworzenie profilu platformy Azure z przodu
 Utwórz profil z przodu platformy Azure, postępując zgodnie z instrukcjami opisanymi w [przewodniku szybki start: Tworzenie zewnętrznych drzwi dla globalnej aplikacji sieci Web o wysokiej](../../frontdoor/quickstart-create-front-door.md)dostępności.
@@ -212,7 +212,7 @@ $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ### <a name="configure-a-waf-policy"></a>Konfigurowanie zasad WAFymi
-Znajdź nazwę grupy zasobów, która zawiera profil "drzwi frontonu Azure" przy użyciu `Get-AzResourceGroup`programu. Następnie skonfiguruj zasady WAF z regułą adresów IP przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Znajdź nazwę grupy zasobów, która zawiera profil "drzwi frontonu Azure" przy użyciu programu `Get-AzResourceGroup` . Następnie skonfiguruj zasady WAF z regułą adresów IP przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `

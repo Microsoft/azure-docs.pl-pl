@@ -1,18 +1,17 @@
 ---
-title: Dav4 i Dasv4 — seria Virtual Machines platformy Azure
+title: Serie Dav4 i Dasv4
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Dav4 i Dasv4.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c7a2fea94e0dc1ff868eff26399877cab66e6f66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5d8478d97ba2615836f3e121d9dd56d94fcd73fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115355"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678396"
 ---
 # <a name="dav4-and-dasv4-series"></a>Serie Dav4 i Dasv4
 

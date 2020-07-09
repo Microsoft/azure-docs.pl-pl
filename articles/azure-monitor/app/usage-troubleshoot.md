@@ -7,10 +7,9 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77670920"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Rozwiązywanie problemów z narzędziami analizy zachowania użytkownika w Application Insights
@@ -32,7 +31,7 @@ Narzędzia analizy zachowania użytkownika nie obsługują obecnie zliczania uż
 ## <a name="naming-events"></a>Nazywanie zdarzeń
 **Moja aplikacja ma tysiące różnych widoków stron i niestandardowych nazw zdarzeń. Trudno jest rozróżnić między nimi, a narzędzia do analizy zachowań użytkowników często przestają odpowiadać. Jak można rozwiązać te problemy związane z nazewnictwem?**
 
-Widok strony i niestandardowe nazwy zdarzeń są używane w całym narzędziu do analizy zachowań użytkownika. Zdarzenia nazewnictwa są niezbędne do uzyskania wartości z tych narzędzi. Celem jest równowaga między za pomocą zbyt kilku nazw ogólnych ("kliknięty przycisk") i mających zbyt wiele nazw ("przycisk edycji kliknięty na http:\//www.contoso.com/index").
+Widok strony i niestandardowe nazwy zdarzeń są używane w całym narzędziu do analizy zachowań użytkownika. Zdarzenia nazewnictwa są niezbędne do uzyskania wartości z tych narzędzi. Celem jest równowaga między za pomocą zbyt kilku nazw ogólnych ("kliknięty przycisk") i mających zbyt wiele nazw ("przycisk edycji kliknięty na http: \/ /www.contoso.com/index").
 
 Aby wprowadzić zmiany w widoku strony i niestandardowych nazwach zdarzeń wysyłanych przez aplikację, należy zmienić kod źródłowy i ponownie wdrożyć aplikację. **Wszystkie dane telemetryczne w Application Insights są przechowywane przez 90 dni i nie można ich usunąć**, dlatego zmiany wprowadzane do nazw zdarzeń pozostaną 90 dni do pełnego manifestu. W ciągu 90 dni od wprowadzenia zmian nazw nazwy starych i nowych zdarzeń będą wyświetlane w telemetrii, dlatego należy odpowiednio dostosować zapytania i komunikować się w zespołach.
 
@@ -40,14 +39,14 @@ Jeśli aplikacja wysyła zbyt wiele nazw widoku strony, sprawdź, czy te nazwy w
 
 * Jeśli nazwy widoku strony są ręcznie określone w kodzie przy użyciu [ `trackPageView` interfejsu API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), Zmień nazwę na mniej specyficzną. Unikaj częstych pomyłek, takich jak umieszczenie adresu URL w nazwie widoku strony. Zamiast tego należy użyć parametru URL `trackPageView` interfejsu API. Przenieś inne szczegóły z nazwy widoku strony do właściwości niestandardowych.
 
-* Jeśli Application Insights zestaw SDK języka JavaScript automatycznie wysyła nazwy widoku strony, można zmienić tytuły stron lub przełączyć się na ręczne wysyłanie nazw wyświetlanych stron. Zestaw SDK domyślnie wysyła [tytuł](https://developer.mozilla.org/docs/Web/HTML/Element/title) każdej strony jako nazwę widoku strony. Możesz zmienić tytuły, aby były bardziej ogólne, ale będzie to wiedzieć o optymalizacji i innych wpływach tej zmiany. Ręczne Określanie nazw wyświetlanych na stronie `trackPageView` przy użyciu interfejsu API zastępuje automatycznie zbierane nazwy, aby można było wysyłać więcej ogólnych nazw w telemetrii bez zmiany tytułów stron.   
+* Jeśli Application Insights zestaw SDK języka JavaScript automatycznie wysyła nazwy widoku strony, można zmienić tytuły stron lub przełączyć się na ręczne wysyłanie nazw wyświetlanych stron. Zestaw SDK domyślnie wysyła [tytuł](https://developer.mozilla.org/docs/Web/HTML/Element/title) każdej strony jako nazwę widoku strony. Możesz zmienić tytuły, aby były bardziej ogólne, ale będzie to wiedzieć o optymalizacji i innych wpływach tej zmiany. Ręczne Określanie nazw wyświetlanych na stronie przy użyciu `trackPageView` interfejsu API zastępuje automatycznie zbierane nazwy, aby można było wysyłać więcej ogólnych nazw w telemetrii bez zmiany tytułów stron.   
 
-Jeśli aplikacja wysyła zbyt wiele nazw zdarzeń niestandardowych, należy zmienić nazwę w kodzie na mniej specyficzną. Ponownie, Unikaj umieszczania adresów URL i innych informacji na stronie lub dynamicznych bezpośrednio w niestandardowych nazwach zdarzeń. Zamiast tego należy przenieść te szczegóły do właściwości niestandardowych zdarzenia niestandardowego z `trackEvent` interfejsem API. Na przykład zamiast `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`nie sugerujemy `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
+Jeśli aplikacja wysyła zbyt wiele nazw zdarzeń niestandardowych, należy zmienić nazwę w kodzie na mniej specyficzną. Ponownie, Unikaj umieszczania adresów URL i innych informacji na stronie lub dynamicznych bezpośrednio w niestandardowych nazwach zdarzeń. Zamiast tego należy przenieść te szczegóły do właściwości niestandardowych zdarzenia niestandardowego z `trackEvent` interfejsem API. Na przykład zamiast nie `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")` sugerujemy `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })` .
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Narzędzia analizy zachowań użytkownika — omówienie](usage-overview.md)
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

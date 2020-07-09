@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75442521"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitoruj interfejsy API przy użyciu usługi Azure API Management, Event Hubs i Moesif
@@ -46,7 +45,7 @@ Event Hubs ma możliwość przesyłania strumieniowego zdarzeń do wielu grup od
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>Zasady wysyłania komunikatów aplikacji/http
 Centrum zdarzeń akceptuje dane zdarzeń jako proste ciągi. Zawartość tego ciągu jest do Ciebie. Aby móc spakować żądanie HTTP i wysyłać je do Event Hubs, musimy sformatować ciąg za pomocą informacji o żądaniu lub odpowiedzi. W takiej sytuacji, jeśli istnieje istniejący format, którego można użyć ponownie, może nie trzeba pisać kodu analizy. Początkowo uważam za użycie [Har](http://www.softwareishard.com/blog/har-12-spec/) do wysyłania żądań i odpowiedzi HTTP. Jednak ten format jest zoptymalizowany pod kątem przechowywania sekwencji żądań HTTP w formacie opartym na notacji JSON. Zawiera ona wiele obowiązkowych elementów, które Dodaliśmy niepotrzebną złożoność do scenariusza przekazywania wiadomości HTTP przez sieć.
 
-Alternatywną opcją było użycie typu `application/http` nośnika zgodnie z opisem w specyfikacji HTTP [RFC 7230](https://tools.ietf.org/html/rfc7230). Ten typ nośnika korzysta z tego samego formatu, który jest używany do rzeczywistego wysyłania komunikatów HTTP przez sieć, ale cały komunikat można umieścić w treści innego żądania HTTP. W naszym przypadku po prostu będziemy używać treści jako wiadomości wysyłanej do Event Hubs. Prawdopodobnie istnieje parser, który istnieje w bibliotekach [klienckich Microsoft ASP.NET Web API 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) , które mogą przeanalizować ten format i przekonwertować go na `HttpRequestMessage` natywne i `HttpResponseMessage` obiekty.
+Alternatywną opcją było użycie `application/http` typu nośnika zgodnie z opisem w specyfikacji http [RFC 7230](https://tools.ietf.org/html/rfc7230). Ten typ nośnika korzysta z tego samego formatu, który jest używany do rzeczywistego wysyłania komunikatów HTTP przez sieć, ale cały komunikat można umieścić w treści innego żądania HTTP. W naszym przypadku po prostu będziemy używać treści jako wiadomości wysyłanej do Event Hubs. Prawdopodobnie istnieje parser, który istnieje w bibliotekach [klienckich Microsoft ASP.NET Web API 2,2](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) , które mogą przeanalizować ten format i przekonwertować go na natywne `HttpRequestMessage` i `HttpResponseMessage` obiekty.
 
 Aby można było utworzyć ten komunikat, musimy skorzystać z [wyrażeń zasad](/azure/api-management/api-management-policy-expressions) opartych na języku C# w usłudze Azure API Management. Poniżej przedstawiono zasady, które wysyłają komunikat żądania HTTP do usługi Azure Event Hubs.
 
@@ -83,7 +82,7 @@ Istnieje kilka konkretnych informacji o tym wyrażeniu zasad. Zasady log-to-even
 Aby zapewnić, że komunikaty są dostarczane do odbiorców w kolejności i wykorzystują możliwości dystrybucji obciążenia partycji, wybieram wysyłanie komunikatów żądań HTTP do jednej partycji i komunikatów odpowiedzi HTTP na drugą partycję. Zapewnia to równomierne rozłożenie obciążenia i gwarantuje, że wszystkie żądania będą używane w odpowiedniej kolejności, a wszystkie odpowiedzi są używane w odpowiedniej kolejności. Możliwe jest użycie odpowiedzi przed odpowiednim żądaniem, ale nie jest to problem, ponieważ mamy inny mechanizm skorelowania żądań odpowiedzi i wiemy, że żądania zawsze są dostępne przed odpowiedziami.
 
 ### <a name="http-payloads"></a>Ładunki HTTP
-Po skompilowaniu `requestLine`programu sprawdzimy, czy treść żądania powinna zostać obcięta. Treść żądania została obcięta tylko do 1024. Można to zwiększyć, jednak poszczególne komunikaty centrum zdarzeń są ograniczone do 256 KB, dlatego niektóre treści komunikatów HTTP nie mieszczą się w pojedynczym komunikacie. Podczas rejestrowania i analizy znacząca ilość informacji może pochodzić tylko z wiersza żądania HTTP i nagłówków. Ponadto wiele żądań interfejsów API zwraca tylko małe treści i dlatego utrata wartości informacji przez obcinanie dużych treści jest stosunkowo minimalne w porównaniu z zmniejszeniem kosztów transferu, przetwarzania i magazynowania, aby zachować całą zawartość treści. Jedną z końcowych informacji o przetwarzaniu treści jest to, że `true` musimy `As<string>()` przekazać do metody, ponieważ odczytamy zawartość treści, ale był również chciał, aby interfejs API zaplecza mógł odczytać treść. Przekazując do tej metody wartość true, powoduje, że treść jest buforowana, aby można było odczytać ją po raz drugi. Jest to ważne, aby mieć świadomość, że masz interfejs API, który przekazują duże pliki lub korzysta z długiego sondowania. W takich przypadkach najlepszym rozwiązaniem jest unikanie odczytywania treści w ogóle.
+Po skompilowaniu programu `requestLine` sprawdzimy, czy treść żądania powinna zostać obcięta. Treść żądania została obcięta tylko do 1024. Można to zwiększyć, jednak poszczególne komunikaty centrum zdarzeń są ograniczone do 256 KB, dlatego niektóre treści komunikatów HTTP nie mieszczą się w pojedynczym komunikacie. Podczas rejestrowania i analizy znacząca ilość informacji może pochodzić tylko z wiersza żądania HTTP i nagłówków. Ponadto wiele żądań interfejsów API zwraca tylko małe treści i dlatego utrata wartości informacji przez obcinanie dużych treści jest stosunkowo minimalne w porównaniu z zmniejszeniem kosztów transferu, przetwarzania i magazynowania, aby zachować całą zawartość treści. Jedną z końcowych informacji o przetwarzaniu treści jest to, że musimy przekazać `true` do `As<string>()` metody, ponieważ odczytamy zawartość treści, ale był również chciał, aby interfejs API zaplecza mógł odczytać treść. Przekazując do tej metody wartość true, powoduje, że treść jest buforowana, aby można było odczytać ją po raz drugi. Jest to ważne, aby mieć świadomość, że masz interfejs API, który przekazują duże pliki lub korzysta z długiego sondowania. W takich przypadkach najlepszym rozwiązaniem jest unikanie odczytywania treści w ogóle.
 
 ### <a name="http-headers"></a>Nagłówki HTTP
 Nagłówki HTTP można przenieść do formatu wiadomości w formacie prostego pary klucz/wartość. Wybrano opcję rozłożenia niektórych pól poufnych zabezpieczeń, aby uniknąć niepotrzebnych przecieków informacji o poświadczeniach. Jest mało prawdopodobne, że klucze interfejsu API i inne poświadczenia będą używane do celów analizy. Jeśli chcemy przeanalizować użytkownika i konkretny produkt, z którego korzystasz, możemy pobrać ten `context` obiekt z obiektu i dodać go do wiadomości.
@@ -157,16 +156,16 @@ Zasady wysyłania komunikatu HTTP odpowiedzi wyglądają podobnie do żądania, 
 </policies>
 ```
 
-Zasady `set-variable` te tworzą wartość dostępną zarówno dla `log-to-eventhub` zasad w `<inbound>` sekcji, jak i w `<outbound>` sekcji.
+`set-variable`Zasady te tworzą wartość dostępną zarówno dla `log-to-eventhub` zasad w `<inbound>` sekcji, jak i w `<outbound>` sekcji.
 
 ## <a name="receiving-events-from-event-hubs"></a>Otrzymywanie zdarzeń z Event Hubs
-Zdarzenia z centrum zdarzeń platformy Azure są odbierane przy użyciu [protokołu AMQP](https://www.amqp.org/). Zespół Service Bus firmy Microsoft udostępnił biblioteki klienckie, aby ułatwić wykorzystywanie zdarzeń. Obsługiwane są dwa różne podejścia. jeden z nich jest *bezpośrednim odbiorcą* , a drugi używa `EventProcessorHost` klasy. Przykłady tych dwóch metod można znaleźć w [przewodniku programowania Event Hubs](../event-hubs/event-hubs-programming-guide.md). Krótka wersja różnic polega na tym, `Direct Consumer` że `EventProcessorHost` masz kompletną kontrolę i wykonuje kilka czynności związanych z działaniem, ale wprowadza pewne założenia dotyczące sposobu przetwarzania tych zdarzeń.
+Zdarzenia z centrum zdarzeń platformy Azure są odbierane przy użyciu [protokołu AMQP](https://www.amqp.org/). Zespół Service Bus firmy Microsoft udostępnił biblioteki klienckie, aby ułatwić wykorzystywanie zdarzeń. Obsługiwane są dwa różne podejścia. jeden z nich jest *bezpośrednim odbiorcą* , a drugi używa `EventProcessorHost` klasy. Przykłady tych dwóch metod można znaleźć w [przewodniku programowania Event Hubs](../event-hubs/event-hubs-programming-guide.md). Krótka wersja różnic polega na tym, `Direct Consumer` że masz kompletną kontrolę i `EventProcessorHost` wykonuje kilka czynności związanych z działaniem, ale wprowadza pewne założenia dotyczące sposobu przetwarzania tych zdarzeń.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 W tym przykładzie używamy `EventProcessorHost` dla prostoty, ale może to nie być najlepszym wyborem w tym konkretnym scenariuszu. `EventProcessorHost`Czy trudno jest upewnić się, że nie trzeba martwić się o problemy wątkowe w ramach określonej klasy procesora zdarzeń. Jednak w naszym scenariuszu wystarczy przekonwertować komunikat do innego formatu i przekazać go do innej usługi przy użyciu metody asynchronicznej. Nie ma potrzeby aktualizowania stanu udostępnionego i w związku z tym nie ma ryzyka związanego z wątkiem. W większości scenariuszy `EventProcessorHost` jest prawdopodobnie najlepszym wyborem i jest to prostsze dla opcji.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
-Koncepcja Centralna podczas korzystania `EventProcessorHost` z programu polega na utworzeniu implementacji `IEventProcessor` interfejsu, który zawiera metodę. `ProcessEventAsync` Istota tej metody jest pokazana tutaj:
+Koncepcja Centralna podczas korzystania z programu `EventProcessorHost` polega na utworzeniu implementacji `IEventProcessor` interfejsu, który zawiera metodę `ProcessEventAsync` . Istota tej metody jest pokazana tutaj:
 
 ```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -193,7 +192,7 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 Lista obiektów EventData jest przenoszona do metody i wykonujemy iterację na tej liście. Bajty każdej metody są analizowane w obiekcie HttpMessage i ten obiekt jest przesyłany do wystąpienia elementu IHttpMessageProcessor.
 
 ### <a name="httpmessage"></a>HttpMessage
-`HttpMessage` Wystąpienie zawiera trzy fragmenty danych:
+`HttpMessage`Wystąpienie zawiera trzy fragmenty danych:
 
 ```csharp
 public class HttpMessage
@@ -208,15 +207,15 @@ public class HttpMessage
 }
 ```
 
-`HttpMessage` Wystąpienie zawiera `MessageId` identyfikator GUID, który umożliwia połączenie żądania HTTP z odpowiadającą odpowiedzią http i wartość logiczną określającą, czy obiekt zawiera wystąpienie elementu HttpRequestMessage i HttpResponseMessage. Korzystając z wbudowanych klas HTTP z `System.Net.Http`, mam możliwość skorzystania z kodu `application/http` analizowania zawartego w. `System.Net.Http.Formatting`  
+`HttpMessage`Wystąpienie zawiera `MessageId` Identyfikator GUID, który umożliwia połączenie żądania HTTP z odpowiadającą odpowiedzią http i wartość logiczną określającą, czy obiekt zawiera wystąpienie elementu HttpRequestMessage i HttpResponseMessage. Korzystając z wbudowanych klas HTTP z `System.Net.Http` , mam możliwość skorzystania z `application/http` kodu analizowania zawartego w `System.Net.Http.Formatting` .  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-Następnie `HttpMessage` wystąpienie jest przekazywane do implementacji `IHttpMessageProcessor`, która jest interfejsem utworzonym w celu oddzielenia odbioru i interpretacji zdarzenia z usługi Azure Event Hub oraz rzeczywistego przetwarzania go.
+`HttpMessage`Następnie wystąpienie jest przekazywane do implementacji `IHttpMessageProcessor` , która jest interfejsem utworzonym w celu oddzielenia odbioru i interpretacji zdarzenia z usługi Azure Event Hub oraz rzeczywistego przetwarzania go.
 
 ## <a name="forwarding-the-http-message"></a>Przekazywanie wiadomości HTTP
 Dla tego przykładu zdecyduję się na wypchnięcie żądania HTTP do [analizy interfejsu API Moesif](https://www.moesif.com). Moesif to usługa oparta na chmurze, która jest wyspecjalizowana w analizie i debugowaniu HTTP. Są one dostępne w warstwie Bezpłatna, dzięki czemu można łatwo ją wypróbować i umożliwić nam wyświetlanie żądań HTTP w przepływie w czasie rzeczywistym za pośrednictwem usługi API Management.
 
-`IHttpMessageProcessor` Implementacja wygląda następująco.
+Implementacja wygląda następująco. `IHttpMessageProcessor`
 
 ```csharp
 public class MoesifHttpMessageProcessor : IHttpMessageProcessor
@@ -294,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-`MoesifHttpMessageProcessor` Wykorzystuje [bibliotekę interfejsu API języka C# dla Moesif](https://www.moesif.com/docs/api?csharp#events) , która ułatwia wypychanie danych zdarzeń http do ich usługi. Aby można było wysyłać dane HTTP do interfejsu API modułu zbierającego Moesif, potrzebujesz konta i identyfikatora aplikacji. Możesz uzyskać identyfikator aplikacji Moesif, tworząc konto w [witrynie sieci Web Moesif](https://www.moesif.com) , a następnie przejdź do odpowiedniej -> _konfiguracji aplikacji_ _menu w górnej części_.
+Wykorzystuje `MoesifHttpMessageProcessor` [bibliotekę interfejsu API języka C# dla Moesif](https://www.moesif.com/docs/api?csharp#events) , która ułatwia wypychanie danych zdarzeń http do ich usługi. Aby można było wysyłać dane HTTP do interfejsu API modułu zbierającego Moesif, potrzebujesz konta i identyfikatora aplikacji. Możesz uzyskać identyfikator aplikacji Moesif, tworząc konto w [witrynie sieci Web Moesif](https://www.moesif.com) , a następnie przejdź do odpowiedniej _Top Right Menu_  ->  _konfiguracji aplikacji_menu w górnej części.
 
 ## <a name="complete-sample"></a>Ukończ przykład
 [Kod źródłowy](https://github.com/dgilling/ApimEventProcessor) i testy dla przykładu znajdują się w serwisie GitHub. Potrzebujesz [usługi API Management](get-started-create-service-instance.md), [połączonego centrum zdarzeń](api-management-howto-log-event-hubs.md)i [konta magazynu](../storage/common/storage-create-storage-account.md) , aby samodzielnie uruchomić przykład.   

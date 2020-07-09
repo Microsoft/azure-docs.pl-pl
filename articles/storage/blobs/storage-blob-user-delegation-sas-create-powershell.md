@@ -8,14 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 5250a27e6c5fcf012207f1edb95ad46c0aabfe63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536177"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84803537"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB przy użyciu programu PowerShell
 
@@ -32,7 +31,7 @@ W celu utworzenia sygnatury dostępu współdzielonego użytkownika w programie 
 1. Odinstaluj wszystkie poprzednie instalacje Azure PowerShell:
 
     - Usuń wszystkie poprzednie instalacje Azure PowerShell z systemu Windows za pomocą ustawienia **aplikacje & funkcje** w obszarze **Ustawienia**.
-    - Usuń wszystkie moduły **platformy Azure** z programu `%Program Files%\WindowsPowerShell\Modules`.
+    - Usuń wszystkie moduły **platformy Azure** z programu `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Upewnij się, że masz zainstalowaną najnowszą wersję programu PowerShellGet. Otwórz okno programu Windows PowerShell i uruchom następujące polecenie, aby zainstalować najnowszą wersję:
 
@@ -98,7 +97,7 @@ Podczas tworzenia sygnatury dostępu współdzielonego użytkownika z Azure Powe
 
 Ze względu na to, że maksymalny interwał ważności klucza delegowania użytkownika wynosi 7 dni od daty rozpoczęcia, należy określić czas wygaśnięcia dla sygnatury dostępu współdzielonego w ciągu 7 dni od czasu rozpoczęcia. Sygnatura dostępu współdzielonego jest nieprawidłowa po wygaśnięciu klucza delegowania użytkownika, więc sygnatura dostępu współdzielonego o godzinie przekraczającej 7 dni będzie nadal ważna tylko przez 7 dni.
 
-Aby utworzyć sygnaturę dostępu współdzielonego dla kontenera lub obiektu BLOB z Azure PowerShell, należy najpierw utworzyć nowy obiekt kontekstu usługi Azure Storage `-UseConnectedAccount` , określając parametr. `-UseConnectedAccount` Parametr określa, że polecenie tworzy obiekt kontekstu w ramach konta usługi Azure AD, za pomocą którego zalogowano się.
+Aby utworzyć sygnaturę dostępu współdzielonego dla kontenera lub obiektu BLOB z Azure PowerShell, należy najpierw utworzyć nowy obiekt kontekstu usługi Azure Storage, określając `-UseConnectedAccount` parametr. `-UseConnectedAccount`Parametr określa, że polecenie tworzy obiekt kontekstu w ramach konta usługi Azure AD, za pomocą którego zalogowano się.
 
 Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 

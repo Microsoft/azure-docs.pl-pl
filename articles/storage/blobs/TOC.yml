@@ -105,6 +105,8 @@
           href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: JavaScript
           href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Inne języki
+          href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: storage-samples-blobs-powershell.md
         - name: Interfejs wiersza polecenia platformy Azure
@@ -190,6 +192,18 @@
               href: storage-blob-reserved-capacity.md
             - name: Planowanie kosztów i zarządzanie nimi
               href: ../common/storage-plan-manage-costs.md
+            - name: Cele dotyczące skalowalności i wydajności
+              items:
+                - name: Blob Storage
+                  href: scalability-targets.md
+                - name: Konta usługi Storage w warstwie Standardowa
+                  href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Konta magazynu blokowych obiektów blob w warstwie Premium
+                  href: scalability-targets-premium-block-blobs.md
+                - name: Konta magazynu stronicowych obiektów blob w warstwie Premium
+                  href: scalability-targets-premium-page-blobs.md
+                - name: Dostawca zasobów magazynu
+                  href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Współbieżność
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Znajdowanie, wyszukiwanie i analizowanie danych obiektów blob'
@@ -457,8 +471,6 @@
               items:
                 - name: Używanie programu Spring Boot Starter
                   href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
-            - name: Xamarin
-              href: storage-xamarin-blob-storage.md
         - name: Przechodzenie między regionami
           href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitorowanie (klasyczne)
@@ -473,60 +485,8 @@
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Dokumentacja
       items:
-        - name: Cele dotyczące skalowalności i wydajności
-          items:
-            - name: Blob Storage
-              href: scalability-targets.md
-            - name: Konta usługi Storage w warstwie Standardowa
-              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Konta magazynu blokowych obiektów blob w warstwie Premium
-              href: scalability-targets-premium-block-blobs.md
-            - name: Konta magazynu stronicowych obiektów blob w warstwie Premium
-              href: scalability-targets-premium-page-blobs.md
-            - name: Dostawca zasobów magazynu
-              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure PowerShell
-          href: /powershell/module/az.storage
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: /cli/azure/storage
-        - name: .NET
-          items:
-            - name: Obiekty blob (wersja 12.x)
-              href: /dotnet/api/azure.storage.blobs
-            - name: Przenoszenie danych
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Dostawca zasobów magazynu
-              href: /dotnet/api/overview/azure/storage/management
-        - name: Java
-          items:
-            - name: Obiekty blob (wersja 12.x)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
-            - name: Obiekty blob (wersja 8.x)
-              href: /java/api/com.microsoft.azure.storage.blob
-            - name: Dostawca zasobów magazynu
-              href: /java/api/overview/azure/storage/management
-        - name: JavaScript (wersja 12.x)
-          href: /javascript/api/@azure/storage-blob/
-        - name: Python (wersja 12.x)
-          href: /python/api/azure-storage-blob/
-        - name: REST
-          items:
-            - name: 'Obiekty blob, kolejki, tabele i pliki'
-              href: /rest/api/storageservices
-            - name: Dostawca zasobów magazynu
-              href: /rest/api/storagerp
-            - name: Import/Export
-              href: /rest/api/storageimportexport
-        - name: C++
-          href: 'https://azure.github.io/azure-storage-cpp'
-        - name: Ruby
-          href: 'https://azure.github.io/azure-storage-ruby'
-        - name: PHP
-          href: 'https://azure.github.io/azure-storage-php/'
-        - name: iOS
-          href: 'https://azure.github.io/azure-storage-ios/'
-        - name: Android
-          href: 'https://azure.github.io/azure-storage-android'
+        - name: Dokumentacja usługi Azure Blob Storage
+          href: ../blobs/reference.md
         - name: AzCopy (wersja 10)
           items:
             - name: azcopy
@@ -854,7 +814,7 @@
             - name: Ułatwienia dostępu Eksploratora usługi Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Pytania i odpowiedzi Microsoft — strona pytania
-          href: 'https://docs.microsoft.com/answers/products/topics/azure-blob-storage.html'
+          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
         - name: Usługa Azure Storage w witrynie Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Cennik

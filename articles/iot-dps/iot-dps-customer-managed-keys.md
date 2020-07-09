@@ -8,20 +8,21 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
-ms.openlocfilehash: b065135715868094b7e248aebfca35f3b55a4c48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9b5a549d550f117e080fc64193fbe29658f401d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77675145"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85298229"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>Szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez klienta dla usługi Device Provisioning
 
 ## <a name="overview"></a>Omówienie
 
-Usługa Device Provisioning Service (DPS) obsługuje szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez klienta (CMK), znanych również jako funkcje przydzielania własnego klucza (BYOK). Usługa DPS udostępnia szyfrowanie danych przechowywanych i przesyłanych w czasie. Domyślnie usługa DPS szyfruje dane za pomocą kluczy zarządzanych przez firmę Microsoft. Dzięki obsłudze CMK klienci mają teraz możliwość szyfrowania danych przechowywanych przy użyciu klucza szyfrowania klucza zarządzanego przez klientów przy użyciu [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Usługa Device Provisioning Service (DPS) obsługuje szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez klienta (CMK), znanych również jako funkcje przydzielania własnego klucza (BYOK). Usługa DPS zapewnia szyfrowanie danych przechowywanych i przesyłanych w trakcie ich pisania w naszych centrach, a następnie odszyfrowuje je w miarę uzyskiwania do nich dostępu. Domyślnie usługa DPS szyfruje dane przy użyciu kluczy zarządzanych przez firmę Microsoft. Przy użyciu programu CMK można uzyskać dodatkową warstwę szyfrowania na domyślnym szyfrowaniu platformy, wybierając opcję szyfrowania danych przechowywanych przy użyciu klucza szyfrowania kluczy zarządzanego przez [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Dzięki temu można elastycznie tworzyć, obracać, wyłączać i odwoływać klucze. Jeśli CMK jest skonfigurowany dla usługi DPS, oznacza to, że podwójne szyfrowanie jest włączone z dwiema warstwami ochrony aktywnie chroniących Twoje dane. 
 
-Ta funkcja wymaga utworzenia nowego centrum dystrybucji w jednym z następujących regionów: Wschodnie stany USA, zachodnie stany USA 2 lub Południowo-środkowe stany USA. Aby wypróbować tę możliwość, skontaktuj się z nami za pomocą [pomocy technicznej firmy Microsoft](https://azure.microsoft.com/support/create-ticket/). Skontaktuj się z pomocą techniczną firmy Microsoft, aby udostępnić nazwę firmy i Identyfikator subskrypcji.
+Ta funkcja wymaga utworzenia nowego punktu dystrybucji. Aby wypróbować tę możliwość, skontaktuj się z nami za pomocą [pomocy technicznej firmy Microsoft](https://azure.microsoft.com/support/create-ticket/). Skontaktuj się z pomocą techniczną firmy Microsoft, aby udostępnić nazwę firmy i Identyfikator subskrypcji.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

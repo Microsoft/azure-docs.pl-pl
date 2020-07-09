@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250519"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86042122"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux
 
@@ -85,7 +85,7 @@ Poniższe metody mogą służyć do uruchamiania rozszerzenia dla istniejącej m
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Rozszerzenia maszyny wirtualnej platformy Azure można uruchamiać dla istniejącej maszyny wirtualnej za pomocą polecenia [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . W poniższym przykładzie zostanie uruchomione niestandardowe rozszerzenie skryptu dla maszyny wirtualnej o nazwie *myVM* w grupie zasobów o nazwie Moja *resourceName*. Zastąp przykładową nazwę grupy zasobów, nazwę maszyny wirtualnej i skrypt do uruchomienia (\/https:/RAW.githubusercontent.com/Me/Project/Hello.sh) przy użyciu własnych informacji. 
+Rozszerzenia maszyny wirtualnej platformy Azure można uruchamiać dla istniejącej maszyny wirtualnej za pomocą polecenia [AZ VM Extension Set](/cli/azure/vm/extension#az-vm-extension-set) . W poniższym przykładzie zostanie uruchomione niestandardowe rozszerzenie skryptu dla maszyny wirtualnej o nazwie *myVM* w grupie zasobów o nazwie Moja *resourceName*. Zastąp przykładową nazwę grupy zasobów, nazwę maszyny wirtualnej i skrypt do uruchomienia (https: \/ /RAW.githubusercontent.com/Me/Project/Hello.sh) przy użyciu własnych informacji. 
 
 ```azurecli
 az vm extension set `
@@ -115,7 +115,7 @@ Na poniższej ilustracji przedstawiono instalację rozszerzenia niestandardowego
 
 ### <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 
-Rozszerzenia maszyny wirtualnej można dodać do szablonu Azure Resource Manager i wykonać przy użyciu wdrożenia szablonu. Podczas wdrażania rozszerzenia przy użyciu szablonu można utworzyć w pełni skonfigurowane wdrożenia platformy Azure. Na przykład poniższy kod JSON jest pobierany z szablonu Menedżer zasobów, który wdraża zestaw maszyn wirtualnych o zrównoważonym obciążeniu i bazę danych SQL Azure, a następnie instaluje aplikację .NET Core na każdej maszynie wirtualnej. Rozszerzenie maszyny wirtualnej zajmuje się instalacją oprogramowania.
+Rozszerzenia maszyny wirtualnej można dodać do szablonu Azure Resource Manager i wykonać przy użyciu wdrożenia szablonu. Podczas wdrażania rozszerzenia przy użyciu szablonu można utworzyć w pełni skonfigurowane wdrożenia platformy Azure. Na przykład poniższy kod JSON jest pobierany z szablonu Menedżer zasobów, który wdraża zestaw maszyn wirtualnych o zrównoważonym obciążeniu i Azure SQL Database, a następnie instaluje aplikację .NET Core na każdej maszynie wirtualnej. Rozszerzenie maszyny wirtualnej zajmuje się instalacją oprogramowania.
 
 Aby uzyskać więcej informacji, zobacz pełny [szablon Menedżer zasobów](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -336,7 +336,7 @@ Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn
 
 1. Aby sprawdzić dziennik agenta systemu Linux, zapoznaj się z działaniem w przypadku aprowizacji rozszerzenia w */var/log/waagent.log*
 
-2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w */var/log/Azure/\<ExtensionName>*
+2. Zapoznaj się z rzeczywistymi dziennikami rozszerzeń, aby uzyskać więcej szczegółów w */var/log/Azure/ \<extensionName> *
 
 3. Sprawdź sekcje dotyczące rozwiązywania problemów z dokumentacją, aby zapoznać się z kodami błędów, znanymi problemami itp.
 

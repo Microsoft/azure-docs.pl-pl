@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie potencjalnymi klientami z portalu komercyjnego firmy Microsoft
 description: Dowiedz się więcej na temat generowania i otrzymywania potencjalnych klientów z Microsoft AppSource i ofert w portalu Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800928"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86133453"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty komercyjnej witryny Marketplace
 
@@ -87,10 +87,12 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 
 ## <a name="best-practices-for-lead-management"></a>Najlepsze rozwiązania dotyczące zarządzania potencjalnymi klientami
 
+Poniżej przedstawiono kilka zaleceń dotyczących prowadzenia potencjalnych klientów w ramach cyklu sprzedaży:
+
 - **Proces**: Zdefiniuj czysty proces sprzedaży z punktami kontrolnymi, analizą i jasno własnością zespołu.
 - **Kwalifikacja**: Zdefiniuj wymagania wstępne, które wskazują, czy potencjalny klient został w pełni kwalifikowany. Upewnij się, że przedstawiciele ds. sprzedaży i marketingu kwalifikują się dokładnie do wzięcia pod uwagę przed przeprowadzeniem przez cały proces sprzedaży
-- **Monitowanie**: nie zapomnij się monitować. Oczekiwano, że typowa transakcja wymaga od 5 do 12 wywołań kolejnych.
-- **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków.
+- **Zaobserwuj**: nie zapomnij wykonać czynności w ciągu 24 godzin. Potencjalny klient zostanie wyświetlony w wybranym programie CRM natychmiast po wdrożeniu przez klienta dysku testowego; Wyślij je pocztą e-mail w czasie, gdy są one nadal dostępne. Żądaj zaplanowania rozmowy telefonicznej, aby lepiej zrozumieć, czy produkt jest dobrym rozwiązaniem dla swojego problemu. Należy oczekiwać, że typowa transakcja wymaga wielu kolejnych wywołań.
+- **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków. Zaewidencjonuj, ale nie Bombard. Zalecamy, aby wysłać wiadomość e-mail co najmniej kilka razy przed ich zamknięciem. Nie dodawaj po pierwszej próbie. Pamiętaj, że Ci klienci bezpośrednio zaangażowani w produkt i spędzają czas w bezpłatnej wersji próbnej. są to wspaniałe potencjalni klienci.
 
 ## <a name="common-questions-about-lead-management"></a>Często zadawane pytania dotyczące zarządzania potencjalnymi klientami
 
@@ -107,18 +109,21 @@ Odpowiedź zależy od typu publikowanej oferty. Oprogramowanie jako usługa (Saa
 Wyszukaj `"MSFT_TEST"` w miejscu docelowym potencjalnego klienta. Oto przykładowy test, który prowadzi od firmy Microsoft:
 
 ```
-company = MSFT_TEST_636573304831318844
-country = US
-description = MSFT_TEST_636573304831318844
-email = MSFT_TEST_636573304831318844@test.com
-encoding = UTF-8
-encoding = UTF-8
-first_name = MSFT_TEST_636573304831318844
-last_name = MSFT_TEST_636573304831318844
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name>
-oid = 00Do0000000ZHog
-phone = 1234567890
-title = MSFT_TEST_636573304831318844
+{
+    "UserDetails": {
+      "FirstName": "MSFT_TEST_636573304831318844",
+      "LastName": "MSFT_TEST_636573304831318844",
+      "Email": "MSFT_TEST_636573304831318844@test.com",
+      "Phone": "1234567890",
+      "Country": "US",
+      "Company": "MSFT_TEST_636573304831318844",
+      "Title": "MSFT_TEST_636573304831318844"
+    },
+    "LeadSource": "AzureMarketplace",
+    "ActionCode": "INS",
+    "OfferTitle": "Contoso Test"
+    "Description": "MSFT_TEST_636573304831318844"
+}
 ```
 
 ### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>Mam ofertę na żywo, ale dlaczego nie widzę żadnych potencjalnych klientów?

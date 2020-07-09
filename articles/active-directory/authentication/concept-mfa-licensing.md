@@ -5,43 +5,42 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165b84ee6b124d3f6a04c8db177ef17e32784ff9
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
-ms.translationtype: MT
+ms.openlocfilehash: a9440e69a668b7f92977c3ed53b30f45bea8de2b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757419"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789790"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funkcje i licencje dla usługi Azure Multi-Factor Authentication
 
-Aby chronić konta użytkowników w organizacji, należy użyć uwierzytelniania wieloskładnikowego. Ta funkcja jest szczególnie ważna w przypadku kont, które mają uprzywilejowany dostęp do zasobów. Podstawowe funkcje usługi uwierzytelniania wieloskładnikowego są dostępne dla administratorów pakietu Office 365 i usługi Azure Active Directory (Azure AD) bez dodatkowych kosztów. Jeśli chcesz uaktualnić funkcje dla administratorów lub rozszerzyć uwierzytelnianie wieloskładnikowe na pozostałych użytkowników, możesz kupić Multi-Factor Authentication platformy Azure na kilka sposobów.
+Aby chronić konta użytkowników w organizacji, należy użyć uwierzytelniania wieloskładnikowego. Ta funkcja jest szczególnie ważna w przypadku kont, które mają uprzywilejowany dostęp do zasobów. Podstawowe funkcje usługi uwierzytelniania wieloskładnikowego są dostępne dla administratorów Microsoft 365 i Azure Active Directory (Azure AD) bez dodatkowych kosztów. Jeśli chcesz uaktualnić funkcje dla administratorów lub rozszerzyć uwierzytelnianie wieloskładnikowe na pozostałych użytkowników, możesz kupić Multi-Factor Authentication platformy Azure na kilka sposobów.
 
 > [!IMPORTANT]
 > W tym artykule szczegółowo opisano różne sposoby licencjonowania i używania usługi Azure Multi-Factor Authentication. Aby uzyskać szczegółowe informacje na temat cen i rozliczeń, zobacz [stronę z cennikiem usługi Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Dostępne wersje usługi Azure Multi-Factor Authentication
 
-Usługi Azure Multi-Factor Authentication mogą być używane i licencjonowane na kilka różnych sposobów, w zależności od potrzeb organizacji. Licencjobiorca może już być uprawniony do korzystania z usługi Azure Multi-Factor Authentication w zależności od obecnie posiadanej licencji usługi Azure AD, Office 365, EMS lub Microsoft 365. W poniższej tabeli przedstawiono różne sposoby uzyskiwania informacji o platformie Azure Multi-Factor Authentication i niektóre funkcje i przypadki użycia dla każdej z nich.
+Usługi Azure Multi-Factor Authentication mogą być używane i licencjonowane na kilka różnych sposobów, w zależności od potrzeb organizacji. Licencjobiorca może już być uprawniony do korzystania z usługi Azure Multi-Factor Authentication w zależności od obecnie posiadanej licencji usługi Azure AD, pakietu EMS lub Microsoft 365. W poniższej tabeli przedstawiono różne sposoby uzyskiwania informacji o platformie Azure Multi-Factor Authentication i niektóre funkcje i przypadki użycia dla każdej z nich.
 
 | Jeśli jesteś użytkownikiem | Możliwości i przypadki użycia |
 | --- | --- |
-| Pakiet EMS lub Microsoft 365 E3 i E5 | Pakiet EMS E3 lub Microsoft 365 E3 (obejmujący pakiety EMS i Office 365) zawiera Azure AD — wersja Premium P1. Pakiet EMS E5 lub Microsoft 365 E5 zawiera Azure AD — wersja Premium P2. Możesz użyć tych samych funkcji dostępu warunkowego zanotowanych w poniższych sekcjach, aby zapewnić użytkownikom uwierzytelnianie wieloskładnikowe. |
+| Microsoft 365 Business Premium, EMS lub Microsoft 365 E3 i E5 | Pakiet EMS E3, Microsoft 365 E3 i Microsoft 365 Business Premium obejmują Azure AD — wersja Premium P1. Pakiet EMS E5 lub Microsoft 365 E5 zawiera Azure AD — wersja Premium P2. Możesz użyć tych samych funkcji dostępu warunkowego zanotowanych w poniższych sekcjach, aby zapewnić użytkownikom uwierzytelnianie wieloskładnikowe. |
 | Usługa Azure AD — warstwa Premium P1 | Za pomocą [dostępu warunkowego usługi Azure AD](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) możesz monitować użytkowników o uwierzytelnianie wieloskładnikowe w określonych scenariuszach lub zdarzeniach zgodnie z wymaganiami biznesowymi. |
 | Usługa Azure AD — warstwa Premium P2 | Zapewnia najmocniejszą pozycję zabezpieczeń i ulepszone środowisko użytkownika. Dodaje [dostęp warunkowy oparty na ryzyku](../conditional-access/howto-conditional-access-policy-risk.md) do funkcji Azure AD — wersja Premium P1, które dostosowują się do wzorców użytkownika i minimalizują komunikaty uwierzytelniania wieloskładnikowego. |
-| Pakiet Office 365 Business Premium, E3 lub E5 | Usługę Azure Multi-Factor Authentication można [włączyć dla poszczególnych użytkowników](howto-mfa-userstates.md)lub włączyć lub wyłączyć dla wszystkich użytkowników w przypadku wszystkich zdarzeń logowania przy użyciu domyślnych ustawień zabezpieczeń. Zarządzaniem Multi-Factor Authentication platformy Azure odbywa się za pomocą portalu pakietu Office 365. Aby ulepszyć środowisko użytkownika, należy przeprowadzić uaktualnienie do Azure AD — wersja Premium P1 lub P2 i korzystać z dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie zasobów pakietu Office 365 przy użyciu usługi uwierzytelniania wieloskładnikowego](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
+| Wszystkie plany Microsoft 365 | Usługę Azure Multi-Factor Authentication można [włączyć dla poszczególnych użytkowników](howto-mfa-userstates.md)lub włączyć lub wyłączyć dla wszystkich użytkowników w przypadku wszystkich zdarzeń logowania przy użyciu domyślnych ustawień zabezpieczeń. Zarządzaniem Multi-Factor Authentication platformy Azure odbywa się za pomocą portalu pakietu Office 365. Aby ulepszyć środowisko użytkownika, należy przeprowadzić uaktualnienie do Azure AD — wersja Premium P1 lub P2 i korzystać z dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie zasobów pakietu Office 365 przy użyciu usługi uwierzytelniania wieloskładnikowego](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). |
 | Usługa Azure AD — warstwa Bezpłatna | Możesz użyć [domyślnych ustawień zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) , aby włączyć uwierzytelnianie wieloskładnikowe dla wszystkich użytkowników, za każdym razem, gdy jest wykonywane żądanie uwierzytelniania. Nie masz szczegółowej kontroli nad włączonymi użytkownikami lub scenariuszami, ale udostępniamy ten dodatkowy krok zabezpieczeń.<br /> Nawet jeśli wartości domyślne zabezpieczeń nie są używane do włączania uwierzytelniania wieloskładnikowego dla wszystkich użytkowników, można skonfigurować rolę *administratora globalnego usługi Azure AD* do korzystania z uwierzytelniania wieloskładnikowego. Ta funkcja warstwy Bezpłatna gwarantuje, że konta administratorów krytyczne są chronione za pomocą usługi uwierzytelniania wieloskładnikowego. |
 
 ## <a name="feature-comparison-of-versions"></a>Porównanie funkcji w wersjach
 
 Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersjach systemu Azure Multi-Factor Authentication. Zaplanuj potrzeby zabezpieczania uwierzytelniania użytkowników, a następnie ustal, które podejście spełnia te wymagania. Na przykład, chociaż Azure AD — wersja Bezpłatna zapewnia domyślne ustawienia zabezpieczeń, które udostępniają usługę Azure Multi-Factor Authentication, do monitu uwierzytelniania można używać tylko aplikacji do zarządzania urządzeniami przenośnymi, a nie połączeń telefonicznych ani wiadomości SMS. Takie podejście może być ograniczeniem, jeśli nie można zagwarantować, że aplikacja do uwierzytelniania mobilnego jest zainstalowana na urządzeniu osobistym użytkownika.
 
-| Cecha | Azure AD — wersja Bezpłatna — domyślne ustawienia zabezpieczeń | Azure AD — wersja Bezpłatna — Administratorzy globalni usługi Azure AD | Pakiet Office 365 Business Premium, E3 lub E5 | Azure AD — wersja Premium P1 lub P2 |
+| Cecha | Azure AD — wersja Bezpłatna — domyślne ustawienia zabezpieczeń | Azure AD — wersja Bezpłatna — Administratorzy globalni usługi Azure AD | Aplikacje pakietu Office 365 | Azure AD — wersja Premium P1 lub P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Ochrona kont administratorów dzierżawy usługi Azure AD za pomocą uwierzytelniania wieloskładnikowego | ● | ● (Tylko konta*administratora globalnego usługi Azure AD* ) | ● | ● |
 | Aplikacja mobilna jako drugi składnik | ● | ● | ● | ● |
@@ -56,19 +55,13 @@ Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersja
 | Pamiętanie uwierzytelniania MFA w przypadku zaufanych urządzeń | | ● | ● | ● |
 | Uwierzytelnianie wieloskładnikowe dla aplikacji lokalnych | | | | ● |
 
-> [!IMPORTANT]
-> Od marca 2019 opcje połączeń telefonicznych nie są już dostępne dla użytkowników usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła na platformie Azure w dzierżawach Azure AD — wersja Bezpłatna/w wersji próbnej. Ta zmiana nie ma wpływu na wiadomości SMS. Połączenia telefoniczne są nadal dostępne dla użytkowników w Azure AD — wersja Premiumych dzierżawcach P1 lub P2 lub korzystających z pakietu Office 365 Business Premium, E3 lub E5.
-
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Kupowanie i Włączanie usługi Azure Multi-Factor Authentication
 
-Aby korzystać z usługi Azure Multi-Factor Authentication, zarejestruj się lub Kup kwalifikującą się warstwę usługi Azure AD. Usługa Azure AD jest dostępna w czterech wersjach: bezpłatna, Office 365 Apps Edition (dla pakietu Office 365 Business Premium E3 lub E5 Customers), Premium P1 i Premium P2.
+Aby korzystać z usługi Azure Multi-Factor Authentication, zarejestruj się lub Kup kwalifikującą się warstwę usługi Azure AD. Usługa Azure AD jest dostępna w czterech wersjach — bezpłatnych, aplikacjach pakietu Office 365, Premium P1 i Premium P2.
 
 Wersja bezpłatna jest oferowana w ramach subskrypcji platformy Azure. Zapoznaj się z [sekcją poniżej](#azure-ad-free-tier) , aby uzyskać informacje na temat korzystania z domyślnych ustawień zabezpieczeń lub ochrony kont przy użyciu roli *administratora globalnego usługi Azure AD* .
 
-Wersje Azure AD — wersja Premium są dostępne za pomocą przedstawiciela firmy Microsoft, [programu licencjonowania zbiorowego Open](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx)i [programu dostawców rozwiązań w chmurze](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Subskrybenci platformy Azure i pakietu Office 365 mogą również kupować Azure Active Directory — wersja Premium P1 i P2 w trybie online. [Zaloguj](https://portal.office.com/Commerce/Catalog.aspx) się, aby dokonać zakupu.
-
-> [!IMPORTANT]
-> Licencjonowanie oparte na zużyciu nie jest już dostępne dla nowych klientów obowiązujące od 1 września 2018. Istniejący klienci korzystający z modelu opartego na zużyciu mogą nadal korzystać z każdego włączonego użytkownika lub za uwierzytelnienie.
+Wersje Azure AD — wersja Premium są dostępne za pomocą przedstawiciela firmy Microsoft, [programu licencjonowania zbiorowego Open](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx)i [programu dostawców rozwiązań w chmurze](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Subskrybenci platformy Azure i Microsoft 365 mogą również kupować Azure Active Directory — wersja Premium P1 i P2 w trybie online. [Zaloguj](https://portal.office.com/Commerce/Catalog.aspx) się, aby dokonać zakupu.
 
 Po zakupie wymaganej warstwy usługi Azure AD [Zaplanuj i wdróż Multi-Factor Authentication platformy Azure](howto-mfa-getstarted.md).
 
@@ -87,5 +80,5 @@ Jeśli nie chcesz włączać usługi Azure Multi-Factor Authentication dla wszys
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji o kosztach, zobacz [Cennik usługi Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
-* [Co to jest dostęp warunkowy](../conditional-access/overview.md)
+* [Co to jest dostęp warunkowy?](../conditional-access/overview.md)
 

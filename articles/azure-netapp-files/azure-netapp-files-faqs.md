@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be18a9d54049562eebc27720988b085c3e14f2da
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185646"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85956513"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -64,7 +64,7 @@ Wszystkie woluminy Azure NetApp Files są szyfrowane przy użyciu standardu FIPS
 
 Zarządzanie kluczami dla Azure NetApp Files jest obsługiwane przez usługę. Dla każdego woluminu jest generowany unikatowy klucz szyfrowania danych XTS-AES-256. Hierarchia kluczy szyfrowania służy do szyfrowania i ochrony wszystkich kluczy woluminów. Te klucze szyfrowania nigdy nie są wyświetlane ani raportowane w nieszyfrowanym formacie. Klucze szyfrowania są usuwane natychmiast po usunięciu woluminu.
 
-Obsługa kluczy zarządzanych przez użytkownika (wprowadzanie własnych kluczy) przy użyciu dedykowanego modułu HSM platformy Azure jest dostępna na kontrolowanej zasadzie w regionach Południowo-środkowe stany USA, USA West2 i Wschodnie stany USA.  Możesz zażądać dostępu pod **anffeedback@microsoft.com**adresem. Gdy pojemność jest dostępna, żądania zostaną zatwierdzone.
+Obsługa kluczy zarządzanych przez użytkownika (wprowadzanie własnych kluczy) przy użyciu dedykowanego modułu HSM platformy Azure jest dostępna na kontrolowanej zasadzie w regionach Południowo-środkowe stany USA, USA West2 i Wschodnie stany USA.  Możesz zażądać dostępu pod adresem **anffeedback@microsoft.com** . Gdy pojemność jest dostępna, żądania zostaną zatwierdzone.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Czy można skonfigurować zasady eksportowania systemu plików NFS, aby kontrolować dostęp do celu instalacji usługi Azure NetApp Files Service?
 
@@ -103,11 +103,11 @@ Zmiana poziomu usługi woluminu nie jest obecnie obsługiwana.
 
 Azure NetApp Files udostępnia metryki wydajności woluminu. Można również użyć Azure Monitor do monitorowania metryk użycia dla Azure NetApp Files.  Aby uzyskać listę metryk wydajności dla Azure NetApp Files, zobacz [metryki dla Azure NetApp Files](azure-netapp-files-metrics.md) .
 
-## <a name="nfs-faqs"></a>Często zadawane pytania dotyczące NFS
+## <a name="nfs-faqs"></a>Często zadawane pytania dotyczące systemu NFS
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Chcę, aby wolumin został zainstalowany automatycznie podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej platformy Azure.  Jak mogę skonfigurować mój Host dla trwałych woluminów NFS?
 
-Aby wolumin systemu plików NFS został automatycznie zainstalowany podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej, Dodaj wpis `/etc/fstab` do pliku na hoście. 
+Aby wolumin systemu plików NFS został automatycznie zainstalowany podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej, Dodaj wpis do `/etc/fstab` pliku na hoście. 
 
 Aby uzyskać szczegółowe informacje [, zobacz Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) .  
 
@@ -123,7 +123,11 @@ Azure NetApp Files obsługuje NFSv3 i NFSv 4.1. Wolumin można [utworzyć](azure
 
 Główny zgniatanie nie jest obecnie obsługiwany.
 
-## <a name="smb-faqs"></a>Funkcja SMB — często zadawane pytania
+## <a name="smb-faqs"></a>Protokół SMB — często zadawane pytania
+
+### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Które wersje protokołu SMB są obsługiwane przez Azure NetApp Files?
+
+Azure NetApp Files obsługuje SMB 2,1 i SMB 3,1 (w tym obsługa protokołu SMB 3,0).    
 
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Czy Active Directory jest wymagane połączenie z dostępem do protokołu SMB? 
 
@@ -173,23 +177,26 @@ Nie. Azure NetApp Files nie jest obsługiwana przez Eksplorator usługi Azure St
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Jak mogę określić, czy katalog zbliża się do rozmiaru limitu?
 
-Możesz użyć `stat` polecenia z klienta, aby sprawdzić, czy katalog zbliża się do maksymalnego limitu rozmiaru (320 MB).
+Możesz użyć `stat` polecenia z klienta, aby sprawdzić, czy katalog zbliża się do limitu maksymalnego rozmiaru metadanych katalogu (320 MB).
 
 W przypadku katalogu 320 MB liczba bloków wynosi 655360, przy czym każdy rozmiar bloku jest 512 bajtów.  (To jest 320x1024x1024/512).  
 
 Przykłady:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## <a name="data-migration-and-protection-faqs"></a>Często zadawane pytania dotyczące migracji i ochrony danych
 
@@ -234,5 +241,5 @@ Nie. Usługa Azure Import/Export nie obsługuje obecnie Azure NetApp Files.
 - [Microsoft Azure ExpressRoute często zadawane pytania](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network często zadawane pytania](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Jak utworzyć żądanie pomocy technicznej dla platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox)
 - [Często zadawane pytania dotyczące wydajności protokołu SMB dla Azure NetApp Files](azure-netapp-files-smb-performance.md)

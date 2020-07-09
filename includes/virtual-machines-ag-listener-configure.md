@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75468489"
 ---
 Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuchuje SQL Server grupy dostępności. Aby utworzyć odbiornik grupy dostępności, wykonaj następujące czynności:
@@ -28,7 +28,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     a. Rozwiń węzeł Nazwa klastra, a następnie kliknij pozycję **role**.
 
-    b. W okienku **role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz pozycję **Dodaj zasób** > **Klient punkt dostępu**.
+    b. W okienku **role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz pozycję **Dodaj zasób**  >  **Klient punkt dostępu**.
 
    ![Punkt dostępu klienta](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
@@ -116,7 +116,7 @@ W razie potrzeby powtórz powyższe kroki, aby ustawić parametry klastra dla ad
 
 1. Kliknij prawym przyciskiem myszy pozycję **adres IP**, a następnie wybierz polecenie **Właściwości**.
 
-1. Skopiuj **nazwę** adresu IP. Może to być `Cluster IP Address`. 
+1. Skopiuj **nazwę** adresu IP. Może to być `Cluster IP Address` . 
 
 1. <a name="setwsfcparam"></a>Ustaw parametry klastra w programie PowerShell.
   

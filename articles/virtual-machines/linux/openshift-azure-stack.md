@@ -10,10 +10,9 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 51abfd1cbb438d0987554040867625f7fb71630b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758234"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Wdrażanie platformy kontenera OpenShift lub OKD w Azure Stack
@@ -28,7 +27,7 @@ Można użyć jednej z kilku metod wdrażania OpenShift kontenera platform lub O
 - Można również użyć istniejącego [szablonu Menedżer zasobów](https://github.com/Microsoft/openshift-container-platform/) , który upraszcza wdrażanie klastra platformy kontenerów OpenShift.
 - Można również użyć istniejącego [szablonu Menedżer zasobów](https://github.com/Microsoft/openshift-origin) , który upraszcza Wdrożenie klastra OKD.
 
-Jeśli używasz szablonu Menedżer zasobów, wybierz odpowiednią gałąź (azurestack-Release-3. x). Szablony platformy Azure nie będą działały, ponieważ wersje interfejsu API różnią się między platformą Azure i Azure Stack. Odwołanie do obrazu RHEL jest obecnie trwale kodowane jako zmienna w pliku azuredeploy. JSON i należy je zmienić w celu dopasowania do obrazu.
+Jeśli używasz szablonu Menedżer zasobów, wybierz odpowiednią gałąź (azurestack-Release-3. x). Szablony platformy Azure nie będą działały, ponieważ wersje interfejsu API różnią się między platformą Azure i Azure Stack. Odwołanie do obrazu RHEL jest obecnie zakodowane jako zmienna w azuredeploy.jspliku i należy je zmienić w celu dopasowania do obrazu.
 
 ```json
 "imageReference": {
@@ -40,7 +39,7 @@ Jeśli używasz szablonu Menedżer zasobów, wybierz odpowiednią gałąź (azur
 ```
 
 W przypadku wszystkich opcji wymagana jest subskrypcja Red Hat. Podczas wdrażania wystąpienie Red Hat Enterprise Linux jest zarejestrowane w ramach subskrypcji Red Hat i dołączone do identyfikatora puli zawierającego uprawnienia dla platformy kontenera OpenShift.
-Upewnij się, że masz prawidłową nazwę użytkownika, hasło i Identyfikator puli usługi Red Hat Subscription Manager (RHSM). Alternatywnie możesz użyć klucza aktywacji, identyfikatora organizacji i identyfikatora puli.  Możesz sprawdzić te informacje, logując się do https://access.redhat.com.
+Upewnij się, że masz prawidłową nazwę użytkownika, hasło i Identyfikator puli usługi Red Hat Subscription Manager (RHSM). Alternatywnie możesz użyć klucza aktywacji, identyfikatora organizacji i identyfikatora puli.  Możesz sprawdzić te informacje, logując się do https://access.redhat.com .
 
 ## <a name="azure-stack-prerequisites"></a>Wymagania wstępne Azure Stack
 
@@ -56,10 +55,10 @@ Aby wdrożyć program przy użyciu szablonu Menedżer zasobów, należy użyć p
 
 Niektóre typowe opcje dostosowania obejmują, ale nie są ograniczone do:
 
-- Rozmiar maszyny wirtualnej bastionu (zmienna w pliku azuredeploy. JSON)
-- Konwencje nazewnictwa (zmienne w azuredeploy. JSON)
+- Rozmiar maszyny wirtualnej bastionu (zmienna w azuredeploy.jsna)
+- Konwencje nazewnictwa (zmienne w azuredeploy.json)
 - OpenShift specyficzne dla klastra, zmodyfikowane za pomocą pliku hosts (deployOpenShift.sh)
-- Odwołanie do obrazu RHEL (zmienna w azuredeploy. JSON)
+- Odwołanie do obrazu RHEL (zmienna w azuredeploy.jsna)
 
 Aby zapoznać się z instrukcjami wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure, postępuj zgodnie z odpowiednią sekcją w sekcji [OpenShift Container platform](./openshift-container-platform-3x.md) lub [OKD](./openshift-okd.md) .
 

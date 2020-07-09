@@ -1,19 +1,13 @@
 ---
 title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do Azure Service Bus jednostek
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek (kolejek, tematów itp.).
-services: service-bus-messaging
-ms.service: event-hubs
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: aschhab
-ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259294"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341505"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Uwierzytelnianie i Autoryzowanie aplikacji przy użyciu Azure Active Directory dostępu do Azure Service Bus jednostek
 Azure Service Bus obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Service Bus jednostek (kolejek, tematów, subskrypcji lub filtrów). Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem, grupą lub jednostką usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -21,7 +15,7 @@ Azure Service Bus obsługuje używanie Azure Active Directory (Azure AD) do auto
 ## <a name="overview"></a>Omówienie
 Gdy podmiot zabezpieczeń (użytkownik, Grupa lub aplikacja) próbuje uzyskać dostęp do jednostki Service Bus, żądanie musi być autoryzowane. W przypadku usługi Azure AD dostęp do zasobu jest procesem dwuetapowym. 
 
- 1. Najpierw jest uwierzytelniana tożsamość podmiotu zabezpieczeń i zwracany jest token OAuth 2,0. Nazwa zasobu do żądania tokenu to `https://servicebus.azure.net`.
+ 1. Najpierw jest uwierzytelniana tożsamość podmiotu zabezpieczeń i zwracany jest token OAuth 2,0. Nazwa zasobu do żądania tokenu to `https://servicebus.azure.net` .
  1. Następnie token jest przesyłany w ramach żądania do usługi Service Bus, aby autoryzować dostęp do określonego zasobu.
 
 Krok uwierzytelniania wymaga, aby żądanie aplikacji zawierało token dostępu OAuth 2,0 w czasie wykonywania. Jeśli aplikacja jest uruchomiona w ramach jednostki platformy Azure, takiej jak maszyna wirtualna platformy Azure, zestaw skalowania maszyn wirtualnych lub aplikacja funkcji platformy Azure, może używać tożsamości zarządzanej do uzyskiwania dostępu do zasobów. Aby dowiedzieć się, jak uwierzytelniać żądania wysyłane przez zarządzaną tożsamość do usługi Service Bus, zobacz [uwierzytelnianie dostępu do zasobów Azure Service Bus za pomocą Azure Active Directory i zarządzanych tożsamości dla zasobów platformy Azure](service-bus-managed-service-identity.md). 
@@ -43,7 +37,7 @@ W przypadku Azure Service Bus Zarządzanie przestrzeniami nazw i wszystkimi powi
 - [Azure Service Bus nadawcy danych](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Ta rola daje dostęp do Service Bus przestrzeni nazw i jej jednostek.
 - [Azure Service Bus odbiorca danych](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Ta rola umożliwia uzyskanie dostępu do Service Bus przestrzeni nazw i jej jednostek. 
 
-## <a name="resource-scope"></a>Zakres zasobów 
+## <a name="resource-scope"></a>Zakres zasobu 
 Przed przypisaniem roli RBAC do podmiotu zabezpieczeń należy określić zakres dostępu, który powinien mieć podmiot zabezpieczeń. Najlepsze rozwiązania określają, że zawsze najlepiej jest przyznać tylko najwęższy możliwy zakres.
 
 Na poniższej liście opisano poziomy, w których można określić zakres dostępu do zasobów Service Bus, rozpoczynając od najwęższego zakresu:
@@ -142,12 +136,12 @@ Użyj opcji **logowania klucza tajnego klienta** , a nie opcji **logowania użyt
 
 ### <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-Przed uruchomieniem przykładu, należy edytować plik **App. config** i, w zależności od danego scenariusza, ustawić następujące wartości:
+Przed uruchomieniem przykładu, edytuj plik **app.config** i, w zależności od danego scenariusza, ustaw następujące wartości:
 
 - `tenantId`: Ustaw wartość **TenantId** .
 - `clientId`: Ustaw wartość dla wartości identyfikator **aplikacji** .
 - `clientSecret`: Jeśli chcesz zalogować się przy użyciu klucza tajnego klienta, utwórz go w usłudze Azure AD. Ponadto Użyj aplikacji sieci Web lub interfejsu API zamiast aplikacji natywnej. Ponadto Dodaj aplikację w obszarze **Access Control (IAM)** w wcześniej utworzonej przestrzeni nazw.
-- `serviceBusNamespaceFQDN`: Ustaw pełną nazwę DNS nowo utworzonej Service Bus przestrzeni nazw; na przykład `example.servicebus.windows.net`.
+- `serviceBusNamespaceFQDN`: Ustaw pełną nazwę DNS nowo utworzonej Service Bus przestrzeni nazw; na przykład `example.servicebus.windows.net` .
 - `queueName`: Ustaw na nazwę utworzonej kolejki.
 - Identyfikator URI przekierowania określony w aplikacji w poprzednich krokach.
 

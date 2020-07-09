@@ -1,6 +1,6 @@
 ---
 title: Połącz dane z F5 ASM z platformą Azure — wskaźnikiem | Microsoft Docs
-description: Dowiedz się, jak połączyć dane z F5 ASM z platformą Azure — wskaźnikiem.
+description: Dowiedz się, jak za pomocą łącznika danych programu F5 ASM ściągać Dzienniki systemu. Wyświetlaj dane z F5 ASM w skoroszytach, twórz Alerty i ulepszaj badanie.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
-ms.openlocfilehash: bee8ec9b6532042659d54d590a29d49e7ce07c92
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 63e20467750e9a4b0c85de33180d4fa51831e59b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715838"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555413"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Połącz F5 ASM z platformą Azure wskaźnikiem
 

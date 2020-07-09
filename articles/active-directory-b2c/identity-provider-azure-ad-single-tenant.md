@@ -7,17 +7,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5b21fcd2d3ec5560b01352b112e9ed1bb2404766
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce5f373576f13a4b1bdb88b5ffb7869a2d7865cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678066"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85388361"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurowanie logowania dla konkretnej organizacji Azure Active Directory w programie Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Aby użyć Azure Active Directory (Azure AD) jako [dostawcy tożsamości](author
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
 1. Wprowadź **nazwę**. Na przykład wprowadź nazwę *contoso Azure AD*.
-1. W polu **adres URL metadanych**wprowadź następujący adres URL `{tenant}` zastępujący nazwą domeny dzierżawy usługi Azure AD:
+1. W polu **adres URL metadanych**wprowadź następujący adres URL zastępujący `{tenant}` nazwą domeny dzierżawy usługi Azure AD:
 
     ```
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
@@ -41,9 +41,9 @@ Aby użyć Azure Active Directory (Azure AD) jako [dostawcy tożsamości](author
 
 1. W polu **Identyfikator klienta**wprowadź wcześniej zarejestrowany identyfikator aplikacji.
 1. W polu **klucz tajny klienta**wprowadź wcześniej zarejestrowany klucz tajny klienta.
-1. Dla **zakresu**, wprowadź `openid profile`.
+1. Dla **zakresu**, wprowadź `openid profile` .
 1. Pozostaw wartości domyślne dla **typu odpowiedzi**i **trybu odpowiedzi**.
-1. Obowiązkowe Dla wskazówki dotyczącej **domeny**wprowadź `contoso.com`wartość. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpośredniego logowania przy użyciu Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Obowiązkowe Dla wskazówki dotyczącej **domeny**wprowadź wartość `contoso.com` . Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpośredniego logowania przy użyciu Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. W obszarze **Mapowanie oświadczeń dostawcy tożsamości**wybierz następujące oświadczenia:
 
     * **Identyfikator użytkownika**: *OID*

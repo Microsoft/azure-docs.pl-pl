@@ -9,10 +9,9 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74168365"
 ---
 # <a name="add-an-email-action"></a>Dodaj akcję poczty e-mail
@@ -132,7 +131,7 @@ Poniższe kroki ułatwiają logowanie się i Konfigurowanie akcji poczty e-mail:
 
 1. Kliknij przycisk **Autoryzuj**. Zostanie wyświetlony monit o zalogowanie się. Konto używane do logowania powinno być adresem e-mail używanym przez aplikację do wysyłania powiadomień e-mail:
 
-1. Kliknij przycisk **Zapisz**. Wróć do akceleratora rozwiązania i Odśwież stronę.
+1. Kliknij pozycję **Zapisz**. Wróć do akceleratora rozwiązania i Odśwież stronę.
 
 1. Po pomyślnym skonfigurowaniu powiadomienia e-mail zostanie wyświetlony następujący komunikat:
 
@@ -160,9 +159,9 @@ Poniższe kroki pokazują, jak edytować szablon wiadomości e-mail w formacie H
 
     Na przykład w kodzie Java:`this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
 
-1. Parametry w szablonie mają postać `${...}`. Aby usunąć parametr, Usuń wymagany wiersz. Aby dodać parametr, Dodaj wiersz z wartością do wstawienia.
+1. Parametry w szablonie mają postać `${...}` . Aby usunąć parametr, Usuń wymagany wiersz. Aby dodać parametr, Dodaj wiersz z wartością do wstawienia.
 
-1. Aby dodać obrazy lub niestandardowy tekst, zaktualizuj plik EmailTemplate. HTML bezpośrednio.
+1. Aby dodać obrazy lub niestandardowy tekst, zaktualizuj bezpośrednio plik EmailTemplate.HTML.
 
 ## <a name="throttling"></a>Ograniczanie przepływności
 

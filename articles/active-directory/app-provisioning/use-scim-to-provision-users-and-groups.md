@@ -2,21 +2,21 @@
 title: Opracowywanie punktu końcowego Standard scim na potrzeby aprowizacji użytkowników w aplikacjach z usługi Azure AD
 description: System do zarządzania tożsamościami między domenami (standard scim) zapewnia standaryzację automatycznej aprowizacji użytkowników. Dowiedz się, jak opracowywać punkt końcowy Standard scim, zintegrować interfejs API Standard scim z usługą Azure Active Directory i rozpocząć automatyzację użytkowników i grup aprowizacji w aplikacjach w chmurze.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 926c3315035534f393eba72cd1d3910bf6135347
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994463"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85117322"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -55,7 +55,7 @@ Każda aplikacja wymaga innych atrybutów do utworzenia użytkownika lub grupy. 
 |loginName|userName|userPrincipalName|
 |firstName|Nazwa. imię|givenName|
 |lastName|Nazwa. lastName|lastName|
-|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Poczta|
+|workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Mail|
 |manager|manager|manager|
 |tag|urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtension: tag|extensionAttribute1|
 |status|aktywne|isSoftDeleted (obliczona wartość nie jest przechowywana na użytkowniku)|
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |Nazwa. imię |
-| Stanowiska |title |
+| Stanowiska |tytuł |
 | mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -745,11 +745,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisionong aktualnie działa pod następującymi zakresami adresów IP. 
-
-13.86.239.205; 52.188.178.195; 13.86.61.156; 40.67.254.206; 51.105.237.71; 20.44.38.166; 40.81.88.68; 52.184.94.250; 20.43.180.59; 20.193.16.105; 20.40.167.232; 13.86.3.57; 52.188.72.113; 13.88.140.233; 52.142.121.156; 51.124.0.213; 40.81.92.36; 20.44.39.175; 20.189.114.130; 20.44.193.163; 20.193.23.17; 20.40.173.237; 13.86.138.128; 52.142.29.23; 13.86.2.238; 40.127.246.167; 51.136.72.4; 20.44.39.244; 40.81.92.186; 20.189.114.131; 20.44.193.210; 20.193.2.21; 20.40.174.46; 13.86.219.18; 40.71.13.10; 20.44.16.38; 13.89.174.16; 13.69.66.182; 13.69.229.118; 104.211.147.176; 40.78.195.176; 13.67.9.240; 13.75.38.48; 13.70.73.48; 13.77.52.176;
-
-
+Usługa Azure AD Provisioning może obecnie opperate pod dowolnym zakresem adresów IP platformy Azure. Trwa konsolidacja zestawu zakresów adresów IP, na których działa usługa. Ten dokument zostanie zaktualizowany po skonsolidowaniu listy zakresów adresów IP. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 
@@ -1198,7 +1194,8 @@ Specyfikacja Standard scim nie definiuje schematu specyficznego dla Standard sci
 |Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji w galerii. Obsługa aplikacji innych niż Galeria jest w toku.|
 |Przyznanie poświadczeń klienta OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania. Zarówno kod autoryzacji przydzielenia, jak i poświadczenia klienta umożliwiają tworzenie tego samego typu tokenu dostępu, więc przechodzenie między tymi metodami jest niewidoczne dla interfejsu API.  Inicjowanie obsługi może być całkowicie zautomatyzowane i nowe tokeny mogą być wymagane w trybie dyskretnym bez interakcji z użytkownikiem. ||Nieobsługiwane w przypadku aplikacji Galeria i innych niż Galeria. Pomoc techniczna znajduje się w naszej zaległości.|
 
-[!NOTE] Nie zaleca się pozostawienia pustego pola tokenu w interfejsie użytkownika niestandardowej aplikacji konfiguracji aprowizacji usługi Azure AD. Wygenerowany token jest przeznaczony głównie do celów testowych.
+> [!NOTE]
+> Nie zaleca się pozostawienia pustego pola tokenu w interfejsie użytkownika niestandardowej aplikacji konfiguracji aprowizacji usługi Azure AD. Wygenerowany token jest przeznaczony głównie do celów testowych.
 
 **Przepływ przyznania kodu autoryzacji OAuth:** Usługa aprowizacji obsługuje [przyznawanie kodu autoryzacji](https://tools.ietf.org/html/rfc6749#page-24). Po przesłaniu żądania opublikowania aplikacji w galerii nasz zespół będzie mógł zebrać następujące informacje:
 *  Adres URL autoryzacji: adres URL klienta, aby uzyskać autoryzację od właściciela zasobu za pośrednictwem przekierowania agenta użytkownika. Użytkownik zostanie przekierowany do tego adresu URL, aby autoryzować dostęp. Należy pamiętać, że ten adres URL nie jest obecnie konfigurowalny dla dzierżawy.

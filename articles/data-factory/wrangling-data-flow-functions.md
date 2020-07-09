@@ -7,18 +7,20 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85921554"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funkcje transformacji w przepływie danych przetwarzanie
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Przepływ danych przetwarzanie w Azure Data Factory umożliwia wykonywanie bezobsługowego przetwarzania danych Agile i przetwarzanie w skali chmury. Przepływ danych przetwarzanie integruje się z usługą [Power Query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) i udostępnia funkcje Power Query M dla przetwarzanie danych za pośrednictwem wykonywania platformy Spark. 
+
+> [!NOTE]
+> Przepływ danych przetwarzanie jest obecnie dostępnych w publicznej wersji zapoznawczej
 
 Obecnie nie wszystkie Power Query funkcje M są obsługiwane dla przetwarzanie danych, mimo że są dostępne podczas tworzenia. Podczas kompilowania przepływów danych przetwarzanie zostanie wyświetlony monit z następującym komunikatem o błędzie, jeśli funkcja nie jest obsługiwana:
 
@@ -39,7 +41,7 @@ Użyj funkcji M [. SelectRows](https://docs.microsoft.com/powerquery-m/table-sel
 
 * Równość i nierówność
 * Porównania liczbowe, tekstowe i daty (ale nie daty i godziny)
-* Informacje liczbowe, takie jak [Number.](https://docs.microsoft.com/powerquery-m/number-iseven)/[isparzyste](https://docs.microsoft.com/powerquery-m/number-iseven)
+* Informacje liczbowe, takie jak [Number.](https://docs.microsoft.com/powerquery-m/number-iseven) / [Odd](https://docs.microsoft.com/powerquery-m/number-iseven) isparzyste
 * Zawieranie tekstu przy użyciu [Text. Contains](https://docs.microsoft.com/powerquery-m/text-contains), [Text. StartsWith](https://docs.microsoft.com/powerquery-m/text-startswith)lub [Text. EndsWith](https://docs.microsoft.com/powerquery-m/text-endswith)
 * Zakresy dat, w tym wszystkie funkcje "IsIn' [Dates](https://docs.microsoft.com/powerquery-m/date-functions)" 
 * Kombinacje tych elementów za pomocą i, lub, lub nie warunki
@@ -55,7 +57,7 @@ Następujące funkcje M dodają lub przekształcają kolumny: [Table. addColumn]
 * Większość standardowych, naukowych i trygonometrycznych funkcji liczbowych (wszystkie funkcje w ramach [operacji](https://docs.microsoft.com/powerquery-m/number-functions#operations), [zaokrąglania](https://docs.microsoft.com/powerquery-m/number-functions#rounding)i [trygonometryczne](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) , *z wyjątkiem* Number. silnia, Number. permutacje i Number).
 * Zastąpienie (preplacement[. ReplaceText](https://docs.microsoft.com/powerquery-m/replacer-replacetext), [replace. ReplaceValue](https://docs.microsoft.com/powerquery-m/replacer-replacevalue), [Text. Replace](https://docs.microsoft.com/powerquery-m/text-replace), [Text. Remove](https://docs.microsoft.com/powerquery-m/text-remove))
 * Wyodrębnianie tekstu pozycyjnego ([Text. PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [Text. length](https://docs.microsoft.com/powerquery-m/text-length), [Text. Start](https://docs.microsoft.com/powerquery-m/text-start), [Text. end](https://docs.microsoft.com/powerquery-m/text-end), [Text. Middle](https://docs.microsoft.com/powerquery-m/text-middle), [Text. ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [Text. RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
-* Podstawowe formatowanie tekstu ([Text. Lower](https://docs.microsoft.com/powerquery-m/text-lower), [Text. Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text. Trim](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[,](https://docs.microsoft.com/powerquery-m/text-trimend) [Text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[End](https://docs.microsoft.com/powerquery-m/text-padend), [Text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
+* Podstawowe formatowanie tekstu ([Text. Lower](https://docs.microsoft.com/powerquery-m/text-lower), [Text. Upper](https://docs.microsoft.com/powerquery-m/text-upper), [Text. Trim](https://docs.microsoft.com/powerquery-m/text-trim) / [Start](https://docs.microsoft.com/powerquery-m/text-trimstart) / [End](https://docs.microsoft.com/powerquery-m/text-trimend), [Text. PadStart](https://docs.microsoft.com/powerquery-m/text-padstart) / [End](https://docs.microsoft.com/powerquery-m/text-padend), [Text. Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))
 * Funkcje daty i godziny ([Date. Day](https://docs.microsoft.com/powerquery-m/date-day), [Date. month](https://docs.microsoft.com/powerquery-m/date-month), [Date. Year](https://docs.microsoft.com/powerquery-m/date-year) [Time. Hour](https://docs.microsoft.com/powerquery-m/time-hour), [Time. minute](https://docs.microsoft.com/powerquery-m/time-minute), [Time. Second](https://docs.microsoft.com/powerquery-m/time-second), [Date. DayOfWeek](https://docs.microsoft.com/powerquery-m/date-dayofweek), [Date. dzieńroku](https://docs.microsoft.com/powerquery-m/date-dayofyear), [Date. DaysInMonth](https://docs.microsoft.com/powerquery-m/date-daysinmonth))
 * Wyrażenie if (ale gałęzie muszą mieć zgodne typy)
 * Filtry wierszy jako kolumna logiczna

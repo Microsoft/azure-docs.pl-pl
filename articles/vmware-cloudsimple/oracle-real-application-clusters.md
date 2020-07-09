@@ -9,10 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793044"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Zoptymalizuj chmurę prywatną CloudSimple na potrzeby instalacji programu Oracle RAC
@@ -174,8 +173,8 @@ Zasady sieci vSAN definiują błędy, aby tolerować i rozkładać dysku dla dan
 3. Z menu po lewej stronie wybierz pozycję **zasady magazynu maszyny wirtualnej** , a następnie wybierz pozycję **Utwórz zasady magazynu maszyny wirtualnej**.
 4. Wprowadź zrozumiałą nazwę zasad i kliknij przycisk **dalej**.
 5. W sekcji **Struktura zasad** wybierz opcję **Włącz reguły dla magazynu sieci vSAN** , a następnie kliknij przycisk **dalej**.
-6. W sekcji **vSAN** > **dostępność** sieci vSAN wybierz pozycję **Brak** dla opcji Tolerancja awarii lokacji. Aby nie można było tolerować niepowodzeń, wybierz opcję **dublowania RAID** dla żądanych FTT.
-    ![ustawienia](media/oracle-rac-storage-wizard-vsan.png)sieci vSAN.
+6. W sekcji **vSAN**  >  **dostępność** sieci vSAN wybierz pozycję **Brak** dla opcji Tolerancja awarii lokacji. Aby nie można było tolerować niepowodzeń, wybierz opcję **dublowania RAID** dla żądanych FTT.
+    ![Ustawienia sieci vSAN ](media/oracle-rac-storage-wizard-vsan.png) .
 7. W sekcji **Zaawansowane** wybierz liczbę pasków dysków dla każdego obiektu. W przypadku rezerwacji przestrzeni obiektów zaznacz opcję **szeroka obsługa administracyjna**. Wybierz pozycję **Wyłącz sumę kontrolną obiektu**. Kliknij przycisk **dalej**.
 8. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby wyświetlić listę zgodnych magazynów danych sieci vSAN, przejrzyj ustawienia i Zakończ konfigurację.
 
@@ -247,11 +246,11 @@ Reguły koligacji z MASZYNami wirtualnymi zapewniają, że maszyna wirtualna jes
 2. Zaloguj się do klienta vSphere w chmurze prywatnej.
 3. W kliencie vSphere wybierz klaster, w którym są wdrożone maszyny wirtualne Oracle, a następnie kliknij przycisk **Konfiguruj**.
 4. W obszarze Konfiguracja wybierz pozycję **VM/grupy hostów**.
-5. Kliknij **+** pozycję.
+5. Kliknij pozycję **+** .
 6. Dodaj grupę maszyn wirtualnych. Wybierz **grupę maszyn wirtualnych** jako typ. Wprowadź nazwę grupy. Wybierz Maszyny wirtualne, a następnie kliknij przycisk **OK** , aby utworzyć grupę.
 6. Dodaj grupę hostów. Wybierz **grupę hostów** jako typ. Wprowadź nazwę grupy. Wybierz hosty, na których będą uruchamiane maszyny wirtualne, a następnie kliknij przycisk **OK** , aby utworzyć grupę.
 7. Aby utworzyć regułę, kliknij pozycję **maszyny wirtualne/reguły hosta**.
-8. Kliknij **+** pozycję.
+8. Kliknij pozycję **+** .
 9. Wprowadź nazwę reguły i zaznacz pole wyboru **Włącz**.
 10. W polu Typ reguły wybierz pozycję **Virtual Machines do hosta**.
 11. Wybierz grupę maszyn wirtualnych, która zawiera maszyny wirtualne Oracle.

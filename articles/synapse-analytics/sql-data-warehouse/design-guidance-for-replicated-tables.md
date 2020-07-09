@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 6f3418d73496ae25782b57a43e3357dc0bc7131a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660041"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201705"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania na potrzeby używania zreplikowanych tabel w puli SQL Synapse
 
@@ -126,7 +126,7 @@ Ponownie utworzono `DimDate` i `DimSalesTerritory` jako zreplikowane tabele i po
 
 Pula SQL implementuje zreplikowaną tabelę przez utrzymywanie głównej wersji tabeli. Kopiuje wersję główną do pierwszej bazy danych dystrybucji w każdym węźle obliczeniowym. W przypadku zmiany należy najpierw zaktualizować wersję główną, a następnie tabele w każdym węźle obliczeniowym są ponownie skompilowane. Odbudowa zreplikowanej tabeli obejmuje skopiowanie tabeli do każdego węzła obliczeniowego, a następnie utworzenie indeksów.  Na przykład zreplikowana tabela na DW2000c ma 5 kopii danych.  Kopia główna i pełna kopia na każdym węźle obliczeniowym.  Wszystkie dane są przechowywane w bazach danych dystrybucji. Pula SQL używa tego modelu do obsługi szybszych instrukcji modyfikacji danych i elastycznych operacji skalowania.
 
-Ponowne kompilacje są wymagane po:
+Ponowne kompilacje asynchroniczne są wyzwalane przez pierwsze zapytanie względem zreplikowanej tabeli po:
 
 - Dane są ładowane lub modyfikowane
 - Wystąpienie SQL Synapse jest skalowane do innego poziomu

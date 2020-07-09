@@ -2,23 +2,23 @@
 title: Planowanie Azure Active Directory wdrożenia przy użyciu logowania jednokrotnego
 description: Przewodnik ułatwiający planowanie, wdrażanie i zarządzanie logowaniem jednokrotnym w organizacji.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374445"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -194,8 +194,6 @@ Aby zaplanować i wdrożyć rozwiązanie w organizacji, należy użyć następuj
    Jeśli nie możesz znaleźć aplikacji, zapoznaj się z [dokumentacją aplikacji niestandardowych](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Zapoznaj się z tematem jak dodać aplikację, która nie znajduje się w galerii usługi Azure AD.
 
    Opcjonalnie można użyć oświadczeń wystawionych w tokenie SAML dla aplikacji przedsiębiorstwa przy użyciu [dokumentacji wskazówek firmy Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Upewnij się, że mapowania są zgodne z oczekiwaniami, które chcesz otrzymywać w odpowiedzi SAML dla aplikacji. Jeśli wystąpią problemy podczas konfiguracji, należy skorzystać z naszych wskazówek dotyczących [debugowania integracji z logowaniem JEDNOkrotnym](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
-
-Niestandardowe dołączanie do aplikacji jest funkcją licencji na Azure AD — wersja Premium P1 lub P2.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Zapewnianie użytkownikom końcowym komunikacji z logowaniem jednokrotnym
 

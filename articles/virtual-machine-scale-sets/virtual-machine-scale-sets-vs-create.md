@@ -10,10 +10,9 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83124367"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Jak utworzyć zestaw skalowania maszyn wirtualnych za pomocą programu Visual Studio
@@ -78,7 +77,7 @@ Wdróż szablon Azure Resource Manager, aby utworzyć zasób zestawu skalowania 
 
     ![Edytuj parametry wdrożenia](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
 
-1. W obszarze **wdrażanie do grupy zasobów**wybierz pozycję **Wdróż**. Akcja uruchamia skrypt **Deploy-AzureResourceGroup. ps1** . W oknie **danych wyjściowych** zostanie wyświetlony postęp wdrażania.
+1. W obszarze **wdrażanie do grupy zasobów**wybierz pozycję **Wdróż**. Akcja uruchamia skrypt **Deploy-AzureResourceGroup.ps1** . W oknie **danych wyjściowych** zostanie wyświetlony postęp wdrażania.
 
    ![Dane wyjściowe pokazują wyniki](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 

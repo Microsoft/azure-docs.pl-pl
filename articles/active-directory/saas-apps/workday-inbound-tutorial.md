@@ -16,10 +16,9 @@ ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84013590"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
@@ -397,7 +396,7 @@ W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Az
      |------------|----------------------|------------------------|
      | https://####.workday.com/ccx/service/tenantName | 21.1 v | Nie |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | 21.1 v | Nie |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Yes |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Tak |
 
       > [!NOTE]
      > Jeśli w adresie URL nie określono informacji o wersji, aplikacja używa usług sieci Web WWS (Workday) 21.1 i nie są wymagane żadne zmiany do domyślnych wyrażeń interfejsu API XPATH dostarczonych z aplikacją. Aby użyć określonej wersji interfejsu API WWS, określ numer wersji w adresie URL <br>
@@ -508,10 +507,10 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 | **Przedsiębiorstwo**         | company   |     |  Utwórz i zaktualizuj |
 | **SupervisoryOrganization**  | działu,  |     |  Utwórz i zaktualizuj |
 | **ManagerReference**   | manager  |     |  Utwórz i zaktualizuj |
-| **BusinessTitle**   |  title     |     |  Utwórz i zaktualizuj | 
+| **BusinessTitle**   |  tytuł     |     |  Utwórz i zaktualizuj | 
 | **AddressLineData**    |  streetAddress  |     |   Utwórz i zaktualizuj |
 | **Gmina**   |   l   |     | Utwórz i zaktualizuj |
-| **CountryReferenceTwoLetter**      |   współzarządzania |     |   Utwórz i zaktualizuj |
+| **CountryReferenceTwoLetter**      |   co |     |   Utwórz i zaktualizuj |
 | **CountryReferenceTwoLetter**    |  c  |     |         Utwórz i zaktualizuj |
 | **CountryRegionReference** |  st     |     | Utwórz i zaktualizuj |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Utwórz i zaktualizuj |
@@ -533,7 +532,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie produktu Workday. 
 
@@ -668,7 +667,7 @@ Podczas konfigurowania Agent aprowizacji jest monitowany o poświadczenia admini
 #### <a name="how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication"></a>Jak mogę skonfigurować agenta aprowizacji do używania serwera proxy do wychodzącej komunikacji HTTP?
 
 Agent aprowizacji obsługuje korzystanie z serwera proxy wychodzącego. Można ją skonfigurować, edytując plik konfiguracji agenta **C:\Program Files\Microsoft Azure AD Connect aprowizacji Agent\AADConnectProvisioningAgent.exe.config**. Dodaj do niego następujące wiersze w kierunku końca pliku tuż przed tagiem zamykającym `</configuration>` .
-Zastąp zmienne [Proxy-Server] i [proxy-port] wartościami nazw i portów serwera proxy.
+Zastąp zmienne [proxy-server] i [proxy-port] odpowiednio nazwą i numerem portu serwera proxy.
 
 ```xml
     <system.net>

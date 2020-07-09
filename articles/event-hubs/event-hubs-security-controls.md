@@ -1,18 +1,14 @@
 ---
 title: Kontrolki zabezpieczeń dla usługi Azure Event Hubs
 description: Ten artykuł zawiera listę kontrolną kontroli zabezpieczeń służącą do oceny Event Hubs platformy Azure (sieci, tożsamości, ochrony danych itp.).
-services: event-hubs
-ms.service: event-hubs
-author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-ms.openlocfilehash: 0769e88eb72b5b347dd9ebf4b1634501ca54098e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76309510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85315387"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Kontrolki zabezpieczeń dla usługi Azure Event Hubs
 
@@ -41,7 +37,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi| Dokumentacja |
 |---|---|--|--|
-| Uwierzytelnianie| Tak | | Autoryzuj [dostęp do usługi Azure Event Hubs](authorize-access-event-hubs.md), [Autoryzuj dostęp do zasobów Event Hubs za pomocą Azure Active Directory](authorize-access-azure-active-directory.md), [autoryzując dostęp do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego](authorize-access-shared-access-signature.md) |
+| Authentication| Tak | | Autoryzuj [dostęp do usługi Azure Event Hubs](authorize-access-event-hubs.md), [Autoryzuj dostęp do zasobów Event Hubs za pomocą Azure Active Directory](authorize-access-azure-active-directory.md), [autoryzując dostęp do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego](authorize-access-shared-access-signature.md) |
 | Autoryzacja|  Tak | | [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authenticate-managed-identity.md), [uwierzytelniania aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs](authenticate-application.md), [uwierzytelniania dostępu do Event Hubs zasobów przy użyciu sygnatur dostępu współdzielonego (SAS)](authenticate-shared-access-signature.md) |
 
 ## <a name="data-protection"></a>Ochrona danych

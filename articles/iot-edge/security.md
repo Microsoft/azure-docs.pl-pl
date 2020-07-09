@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76760117"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Standardy zabezpieczeń Azure IoT Edge
@@ -34,7 +33,7 @@ Ten artykuł zawiera omówienie struktury zabezpieczeń IoT Edge. Aby uzyskać w
 
 Standardy mają na celu łatwość kontroli i łatwość wdrażania, z których są hallmarks zabezpieczenia. Rozwiązanie zabezpieczeń powinno należeć do kontroli pod względem oceny w celu utworzenia zaufania i nie powinno być nieprzewidziane dla wdrożenia. Projektowanie struktury do zabezpieczania Azure IoT Edge opiera się na przetestowaniu czasu i sprawdzonych przez branżowe protokoły zabezpieczeń, aby poznać ich znajomość i użycie.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Podczas wdrażania rozwiązania IoT należy wiedzieć, że tylko zaufane aktory, urządzenia i moduły mają dostęp do Twojego rozwiązania. Uwierzytelnianie oparte na certyfikatach jest podstawowym mechanizmem uwierzytelniania dla platformy Azure IoT Edge. Ten mechanizm pochodzi od zestawu standardów dotyczących infrastruktury kluczy publicznych (PKiX) przez Internet Engineering Task Force (IETF).
 

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "71122728"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z rolami usługi w chmurze, których nie można uruchomić
@@ -42,13 +42,13 @@ Po przejściu do witryny internetowej wdrożonej w roli sieci Web, a w przegląd
 ![Błąd serwera w aplikacji "/".](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>Diagnozuj problemy, wyłączając błędy niestandardowe
-Więcej informacji o błędach można wyświetlić, konfigurując plik Web. config dla roli sieci Web w celu ustawienia niestandardowego trybu błędu na off i ponowne wdrożenie usługi.
+Więcej informacji o błędach można wyświetlić przez skonfigurowanie web.config dla roli sieci Web w celu ustawienia niestandardowego trybu błędu na off i ponowne wdrożenie usługi.
 
 Aby wyświetlić bardziej szczegółowe błędy bez używania Pulpit zdalny:
 
 1. Otwórz rozwiązanie w Microsoft Visual Studio.
-2. W **Eksplorator rozwiązań**Znajdź plik Web. config i otwórz go.
-3. W pliku Web. config Znajdź sekcję system. Web i Dodaj następujący wiersz:
+2. W **Eksplorator rozwiązań**znajdź plik web.config i otwórz go.
+3. W pliku web.config zlokalizuj sekcję system. Web i Dodaj następujący wiersz:
 
     ```xml
     <customErrors mode="Off" />
@@ -77,12 +77,12 @@ Przechodzenie do witryny sieci Web spowoduje teraz zwrócenie bardziej jawnych k
 * Opis: Wystąpił nieobsługiwany wyjątek podczas wykonywania bieżącego żądania sieci Web. Przejrzyj ślad stosu, aby uzyskać więcej informacji o błędzie i o tym, skąd pochodzi w kodzie.
 * Szczegóły wyjątku: System. IO. FIleNotFoundException: nie można załadować pliku lub zestawu "Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35" lub jednej z jego zależności. W systemie nie można odnaleźć określonego pliku.
 
-Przykład:
+Na przykład:
 
 ![Jawny błąd serwera w aplikacji "/"](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
 ## <a name="diagnose-issues-by-using-the-compute-emulator"></a>Diagnozowanie problemów przy użyciu emulatora obliczeń
-Za pomocą emulatora obliczeń Microsoft Azure można diagnozować i rozwiązywać problemy dotyczące brakujących zależności i błędów pliku Web. config.
+Za pomocą emulatora obliczeń Microsoft Azure można diagnozować i rozwiązywać problemy dotyczące brakujących zależności i błędów web.config.
 
 Aby uzyskać najlepsze wyniki przy użyciu tej metody diagnostyki, należy użyć komputera lub maszyny wirtualnej, która ma czystą instalację systemu Windows. Aby najlepiej symulować środowisko platformy Azure, należy użyć systemu Windows Server 2008 R2 x64.
 
@@ -90,8 +90,8 @@ Aby uzyskać najlepsze wyniki przy użyciu tej metody diagnostyki, należy uży�
 2. Na komputerze deweloperskim Skompiluj projekt usługi w chmurze.
 3. W Eksploratorze Windows przejdź do folderu bin\Debug w projekcie usługi w chmurze.
 4. Skopiuj folder. CSX i plik. cscfg na komputer, który jest używany do debugowania problemów.
-5. Na czystym komputerze otwórz okno wiersza polecenia zestawu Azure SDK i wpisz `csrun.exe /devstore:start`.
-6. W wierszu polecenia wpisz `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`polecenie.
+5. Na czystym komputerze otwórz okno wiersza polecenia zestawu Azure SDK i wpisz `csrun.exe /devstore:start` .
+6. W wierszu polecenia wpisz polecenie `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser` .
 7. Po uruchomieniu roli zostaną wyświetlone szczegółowe informacje o błędzie w programie Internet Explorer. Możesz również użyć standardowych narzędzi do rozwiązywania problemów systemu Windows, aby dodatkowo zdiagnozować problem.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnozowanie problemów przy użyciu IntelliTrace
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby wdrożyć usługę z włączonym IntelliTrace:
 1. Upewnij się, że zainstalowano zestaw Azure SDK 1,3 lub nowszy.
 2. Wdróż rozwiązanie przy użyciu programu Visual Studio. Podczas wdrażania zaznacz pole wyboru **Włącz role IntelliTrace for .NET 4** .
 3. Po uruchomieniu wystąpienia Otwórz **Eksplorator serwera**.
-4. Rozwiń węzeł **Cloud Services\\platformy Azure** i Znajdź wdrożenie.
+4. Rozwiń węzeł ** \\ Cloud Services platformy Azure** i Znajdź wdrożenie.
 5. Rozwiń wdrożenie, dopóki nie zobaczysz wystąpień roli. Kliknij prawym przyciskiem myszy jedno z wystąpień.
 6. Wybierz pozycję **Wyświetl dzienniki IntelliTrace**. Zostanie otwarte **podsumowanie IntelliTrace** .
 7. Znajdź sekcję wyjątki podsumowania. Jeśli istnieją wyjątki, sekcja będzie zawierać etykiety **danych wyjątków**.

@@ -5,27 +5,27 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b45af924b75392374265ca41bd4dc1627edd4e01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89e3aa1fec2157d77ac5c180bc4dd193f10398cd
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078956"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight
 
 > [!Note]
 > Wdróż nowe klastry usługi HDInsight przy użyciu [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) , aby zwiększyć wydajność i nowe funkcje.
 
-Aby analizować dane w klastrze usługi HDInsight, możesz przechowywać dane w [`Azure Storage`](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)lub [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Wszystkie opcje magazynu umożliwiają bezpieczne usuwanie klastrów usługi HDInsight, które są używane do obliczeń bez utraty danych użytkownika.
+Aby analizować dane w klastrze usługi HDInsight, możesz przechowywać dane w [`Azure Storage`](../storage/common/storage-introduction.md) , [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)lub [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Wszystkie opcje magazynu umożliwiają bezpieczne usuwanie klastrów usługi HDInsight, które są używane do obliczeń bez utraty danych użytkownika.
 
 W tym artykule dowiesz się, jak Data Lake Storage Gen1 współpracuje z klastrami usługi HDInsight. Aby dowiedzieć się, jak usługa Microsoft Azure Storage współdziała z klastrami usługi HDInsight, zobacz [Use Azure Storage with Azure HDInsight clusters (Używanie usługi Microsoft Azure Storage z klastrami usługi Azure HDInsight)](hdinsight-hadoop-use-blob-storage.md). Aby uzyskać więcej informacji na temat tworzenia klastra usługi HDInsight, zobacz [Tworzenie klastrów Apache Hadoop w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!NOTE]  
-> Dostęp do Data Lake Storage Gen1 jest zawsze uzyskiwany za pośrednictwem bezpiecznego kanału, `adls` dlatego nie istnieje nazwa schematu systemu plików. Zawsze używaj nazwy `adl`.
+> Dostęp do Data Lake Storage Gen1 jest zawsze uzyskiwany za pośrednictwem bezpiecznego kanału, dlatego nie istnieje `adls` Nazwa schematu systemu plików. Zawsze używaj nazwy `adl`.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,9 +45,9 @@ Obecnie tylko niektóre typy/wersje klastrów usługi HDInsight obsługują uży
 | HDInsight w wersji 4,0 | Nie | Nie |ADLS Gen1 nie jest obsługiwana w usłudze HDInsight 4,0 |
 | HDInsight w wersji 3.6 | Tak | Tak | Z wyjątkiem HBase|
 | HDInsight w wersji 3.5 | Tak | Tak | Z wyjątkiem HBase|
-| HDInsight w wersji 3.4 | Nie | Tak | |
+| HDInsight w wersji 3.4 | Nie | Yes | |
 | HDInsight w wersji 3.3 | Nie | Nie | |
-| HDInsight w wersji 3.2 | Nie | Tak | |
+| HDInsight w wersji 3.2 | Nie | Yes | |
 | Storm | | |Za pomocą Data Lake Storage Gen1 można pisać dane z topologii burzowej. Data Lake Storage można również użyć do danych referencyjnych, które mogą być następnie odczytywane przez topologię burzy.|
 
 > [!WARNING]  
@@ -57,12 +57,12 @@ Używanie Data Lake Storage Gen1 jako dodatkowego konta magazynu nie ma wpływu 
 
 ## <a name="use-data-lake-storage-gen1-as-default-storage"></a>Użyj Data Lake Storage Gen1 jako magazynu domyślnego
 
-Po wdrożeniu usługi HDInsight z Data Lake Storage Gen1 jako magazynem domyślnym pliki związane z klastrem są przechowywane `adl://mydatalakestore/<cluster_root_path>/`w lokalizacji `<cluster_root_path>` , gdzie jest nazwą folderu utworzonego w Data Lake Storage. Określając ścieżkę główną dla każdego klastra, możesz użyć tego samego konta Data Lake Storage dla więcej niż jednego klastra. Dlatego jest możliwa następująca konfiguracja:
+Po wdrożeniu usługi HDInsight z Data Lake Storage Gen1 jako magazynem domyślnym pliki związane z klastrem są przechowywane w `adl://mydatalakestore/<cluster_root_path>/` lokalizacji, gdzie `<cluster_root_path>` jest nazwą folderu utworzonego w Data Lake Storage. Określając ścieżkę główną dla każdego klastra, możesz użyć tego samego konta Data Lake Storage dla więcej niż jednego klastra. Dlatego jest możliwa następująca konfiguracja:
 
 * Klaster1 może używać ścieżki `adl://mydatalakestore/cluster1storage`
 * Klaster2 może używać ścieżki `adl://mydatalakestore/cluster2storage`
 
-Zwróć uwagę, że oba klastry używają tego samego konta Data Lake Storage Gen1 **mydatalakestore**. Każdy klaster ma dostęp do własnego głównego systemu plików w Data Lake Storage. W środowisku wdrażania Azure Portal zostanie wyświetlony komunikat z prośbą o użycie nazwy folderu, takiej jak **/Clusters/\<ClusterName>** dla ścieżki katalogu głównego.
+Zwróć uwagę, że oba klastry używają tego samego konta Data Lake Storage Gen1 **mydatalakestore**. Każdy klaster ma dostęp do własnego głównego systemu plików w Data Lake Storage. W środowisku wdrażania Azure Portal zostanie wyświetlony komunikat z prośbą o użycie nazwy folderu, takiej jak **/Clusters/ \<clustername> ** , jako ścieżki głównej.
 
 Aby użyć Data Lake Storage Gen1 jako magazynu domyślnego, należy przyznać jednostce usługi dostęp do następujących ścieżek:
 
@@ -76,7 +76,7 @@ Aby uzyskać więcej informacji na temat tworzenia nazwy głównej usługi i udz
 
 Jeśli certyfikat dla jednostki usługi jest przechowywany w Azure Key Vault, należy przekonwertować certyfikat do poprawnego formatu. Poniższe fragmenty kodu pokazują, jak wykonać konwersję.
 
-Najpierw Pobierz certyfikat z Key Vault i Wyodrębnij `SecretValueText`.
+Najpierw Pobierz certyfikat z Key Vault i Wyodrębnij `SecretValueText` .
 
 ```powershell
 $certPassword = Read-Host "Enter Certificate Password"
@@ -92,7 +92,7 @@ $certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X
 $identityCertificate = [System.Convert]::ToBase64String($certBytes)
 ```
 
-Następnie można użyć programu, `$identityCertificate` aby wdrożyć nowy klaster jak w poniższym fragmencie kodu:
+Następnie można użyć programu, `$identityCertificate` Aby wdrożyć nowy klaster jak w poniższym fragmencie kodu:
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -110,13 +110,13 @@ New-AzResourceGroupDeployment `
 
 Dla klastra można również użyć Data Lake Storage Gen1 jako dodatkowego magazynu. W takich przypadkach domyślnym magazynem klastra może być Azure Storage Blob lub Data Lake Storage. Podczas uruchamiania zadań usługi HDInsight względem danych przechowywanych w Data Lake Storage jako dodatkowy magazyn należy użyć w pełni kwalifikowanej ścieżki. Przykład:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 W adresie URL nie ma teraz **cluster_root_path** . Dzieje się tak, ponieważ w tym przypadku Data Lake Storage nie jest domyślnym magazynem. Dlatego wszystko, co należy zrobić, zapewnia ścieżkę do plików.
 
 Aby użyć Data Lake Storage Gen1 jako dodatkowego magazynu, należy przyznać jednostce usługi dostęp do ścieżek, w których są przechowywane pliki.  Przykład:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 Aby uzyskać więcej informacji na temat tworzenia nazwy głównej usługi i udzielania dostępu, zobacz Konfigurowanie dostępu Data Lake Storage.
 
@@ -214,7 +214,7 @@ LOCATION '/example/data/';
 
 ## <a name="identify-storage-path-from-ambari"></a>Zidentyfikuj ścieżkę magazynu z Ambari
 
-Aby zidentyfikować pełną ścieżkę do skonfigurowanego domyślnego magazynu, przejdź do**konfiguracji** systemu plików **HDFS** > i wprowadź `fs.defaultFS` w polu Filtruj dane wejściowe.
+Aby zidentyfikować pełną ścieżkę do skonfigurowanego domyślnego magazynu, przejdź do konfiguracji systemu plików **HDFS**  >  **Configs** i wprowadź `fs.defaultFS` w polu Filtruj dane wejściowe.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Tworzenie klastrów usługi HDInsight z dostępem do Data Lake Storage Gen1
 
@@ -227,7 +227,7 @@ Skorzystaj z poniższych linków, aby uzyskać szczegółowe instrukcje dotyczą
 
 ## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Odświeżanie certyfikatu usługi HDInsight na potrzeby dostępu usługi Data Lake Storage Gen1
 
-Poniższy przykładowy kod programu PowerShell odczytuje certyfikat z pliku lokalnego lub Azure Key Vault i aktualizuje klaster usługi HDInsight przy użyciu nowego certyfikatu w celu uzyskania dostępu do Azure Data Lake Storage Gen1. Podaj własną nazwę klastra usługi HDInsight, nazwę grupy zasobów, Identyfikator subskrypcji, `app ID`ścieżkę lokalną do certyfikatu. Wpisz hasło po wyświetleniu monitu.
+Poniższy przykładowy kod programu PowerShell odczytuje certyfikat z pliku lokalnego lub Azure Key Vault i aktualizuje klaster usługi HDInsight przy użyciu nowego certyfikatu w celu uzyskania dostępu do Azure Data Lake Storage Gen1. Podaj własną nazwę klastra usługi HDInsight, nazwę grupy zasobów, Identyfikator subskrypcji, `app ID` ścieżkę lokalną do certyfikatu. Wpisz hasło po wyświetleniu monitu.
 
 ```powershell-interactive
 $clusterName = '<clustername>'

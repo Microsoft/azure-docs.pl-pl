@@ -3,14 +3,14 @@ title: Konfigurowanie sieci korzystającą wtyczki kubenet w usłudze Azure Kube
 description: Dowiedz się, jak skonfigurować sieć korzystającą wtyczki kubenet (podstawowa) w usłudze Azure Kubernetes Service (AKS) w celu wdrożenia klastra AKS w istniejącej sieci wirtualnej i podsieci.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120916"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86055498"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub no
 
 W wielu środowiskach zdefiniowano sieci wirtualne i podsieci z przydzielonymi zakresami adresów IP. Te zasoby sieci wirtualnej są używane do obsługi wielu usług i aplikacji. Aby zapewnić łączność sieciową, klastry AKS mogą korzystać z *korzystającą wtyczki kubenet* (Basic Network) lub Azure CNI (*Advanced Network*).
 
-W przypadku *korzystającą wtyczki kubenet*tylko węzły otrzymują adres IP w podsieci sieci wirtualnej. Nie mogą komunikować się ze sobą bezpośrednio. Zamiast tego, zdefiniowane przez użytkownika Routing (UDR) i przekazywanie adresów IP są używane do łączności między różnymi węzłami. Można również wdrożyć moduły równoważenia obciążenia za usługą, która odbiera przypisany adres IP i równoważy obciążenie dla aplikacji. Na poniższym diagramie przedstawiono sposób, w jaki węzły AKS odbierają adres IP w podsieci sieci wirtualnej, ale nie są to:
+W przypadku *korzystającą wtyczki kubenet*tylko węzły otrzymują adres IP w podsieci sieci wirtualnej. Nie mogą komunikować się ze sobą bezpośrednio. Zamiast tego, zdefiniowane przez użytkownika Routing (UDR) i przekazywanie adresów IP są używane do łączności między różnymi węzłami. Domyślnie konfiguracja przesyłania dalej UDR i IP jest tworzona i utrzymywana przez usługę AKS, ale należy wybrać opcję [przeprowadzenia własnej tabeli tras na potrzeby zarządzania trasami niestandardowymi][byo-subnet-route-table]. Można również wdrożyć moduły równoważenia obciążenia za usługą, która odbiera przypisany adres IP i równoważy obciążenie dla aplikacji. Na poniższym diagramie przedstawiono sposób, w jaki węzły AKS odbierają adres IP w podsieci sieci wirtualnej, ale nie są to:
 
 ![Model sieci korzystającą wtyczki kubenet z klastrem AKS](media/use-kubenet/kubenet-overview.png)
 
@@ -84,7 +84,7 @@ Użyj *usługi Azure CNI* , gdy:
 
 - Dostępna jest przestrzeń adresów IP.
 - Większość komunikacji pod względem źródła jest zasobami spoza klastra.
-- Nie chcesz zarządzać UDR.
+- Nie chcesz zarządzać trasami zdefiniowanymi przez użytkownika pod kątem łączności pod.
 - Potrzebujesz AKS zaawansowanych funkcji, takich jak węzły wirtualne lub zasady sieci platformy Azure.  Użyj [zasad sieciowych Calico][calico-network-policies].
 
 Aby uzyskać więcej informacji ułatwiających decydowanie o modelu sieci, który ma być używany, zobacz [porównanie modeli sieci i ich zakresu obsługi][network-comparisons].
@@ -139,15 +139,15 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Teraz Przypisz jednostkę usługi do uprawnień *współautora* klastra AKS w sieci wirtualnej za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] . Podaj własny * \< identyfikator appid>* jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć jednostkę usługi:
+Teraz Przypisz jednostkę usługi do uprawnień *współautora sieci* klastra AKS w sieci wirtualnej za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] . Podaj własne *\<appId>* , jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć jednostkę usługi:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Tworzenie klastra AKS w sieci wirtualnej
 
-Utworzono sieć wirtualną i podsieć, a następnie utworzono i przypisano uprawnienia do jednostki usługi w celu używania tych zasobów sieciowych. Teraz Utwórz klaster AKS w sieci wirtualnej i podsieci przy użyciu polecenia [AZ AKS Create][az-aks-create] . Zdefiniuj własną nazwę aplikacji głównej usługi * \<>* i * \< hasło>*, jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć nazwę główną usługi.
+Utworzono sieć wirtualną i podsieć, a następnie utworzono i przypisano uprawnienia do jednostki usługi w celu używania tych zasobów sieciowych. Teraz Utwórz klaster AKS w sieci wirtualnej i podsieci przy użyciu polecenia [AZ AKS Create][az-aks-create] . Zdefiniuj własną nazwę główną usługi *\<appId>* i *\<password>* , jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć nazwę główną usługi.
 
 Następujące zakresy adresów IP są również zdefiniowane jako część procesu tworzenia klastra:
 
@@ -195,7 +195,43 @@ az aks create \
     --client-secret <password>
 ```
 
-Podczas tworzenia klastra AKS są tworzone sieciowe grupy zabezpieczeń i trasy. Te zasoby sieciowe są zarządzane przez płaszczyznę kontroli AKS. Sieciowa Grupa zabezpieczeń jest automatycznie skojarzona z wirtualnymi kartami sieciowymi w węzłach. Tabela tras jest automatycznie skojarzona z podsiecią sieci wirtualnej. Reguły sieciowej grupy zabezpieczeń i tabele tras są automatycznie aktualizowane podczas tworzenia i uwidaczniania usług.
+Podczas tworzenia klastra AKS są tworzone automatycznie sieciowe grupy zabezpieczeń i trasy. Te zasoby sieciowe są zarządzane przez płaszczyznę kontroli AKS. Sieciowa Grupa zabezpieczeń jest automatycznie skojarzona z wirtualnymi kartami sieciowymi w węzłach. Tabela tras jest automatycznie skojarzona z podsiecią sieci wirtualnej. Reguły sieciowej grupy zabezpieczeń i tabele tras są automatycznie aktualizowane podczas tworzenia i uwidaczniania usług.
+
+## <a name="bring-your-own-subnet-and-route-table-with-kubenet"></a>Przenoszenie własnej podsieci i tabeli tras za pomocą korzystającą wtyczki kubenet
+
+W przypadku korzystającą wtyczki kubenet tabela tras musi istnieć w podsieciach klastra. AKS obsługuje nadawanie własnej istniejącej podsieci i tabeli tras.
+
+Jeśli podsieć niestandardowa nie zawiera tabeli tras, AKS tworzy ją dla Ciebie i dodaje do niej reguły w całym cyklu życia klastra. Jeśli podsieć niestandardowa zawiera tabelę tras podczas tworzenia klastra, AKS przyjmuje istniejącą tabelę tras podczas operacji klastra i odpowiednio dodaje/aktualizuje reguły dla operacji dostawcy chmury.
+
+> [!WARNING]
+> Reguły niestandardowe można dodać do niestandardowej tabeli tras i zaktualizować. Jednak reguły są dodawane przez dostawcę chmury Kubernetes, który nie może zostać zaktualizowany ani usunięty. Reguły, takie jak 0.0.0.0/0, muszą zawsze istnieć w danej tabeli tras i mapowane na obiekt docelowy bramy internetowej, np. urządzenie WUS lub inną bramę ruchu wychodzącego. Należy zachować ostrożność podczas aktualizowania reguł, które są modyfikowane tylko dla reguł niestandardowych.
+
+Dowiedz się więcej o konfigurowaniu [niestandardowej tabeli tras][custom-route-table].
+
+Sieć korzystającą wtyczki kubenet wymaga zorganizowanych reguł tabeli tras, aby pomyślnie kierować żądania. Ze względu na ten projekt tabele tras muszą być starannie utrzymywane dla każdego klastra, który opiera się na nim. Wiele klastrów nie może współdzielić tabeli tras, ponieważ ścieżki CIDR z różnych klastrów mogą się nakładać, co powoduje nieoczekiwane i przerwane Routing. Podczas konfigurowania wielu klastrów w tej samej sieci wirtualnej lub przydzielenia sieci wirtualnej do każdego klastra upewnij się, że są uwzględniane następujące ograniczenia.
+
+Ograniczenia:
+
+* Przed utworzeniem klastra należy przypisać uprawnienia. Upewnij się, że używasz jednostki usługi z uprawnieniami do zapisu w niestandardowej podsieci i niestandardowej tabeli tras.
+* Zarządzane tożsamości nie są obecnie obsługiwane w przypadku niestandardowych tabel tras w programie korzystającą wtyczki kubenet.
+* Aby można było utworzyć klaster AKS, niestandardowa tabela tras musi być skojarzona z podsiecią.
+* Nie można zaktualizować skojarzonego zasobu tabeli tras po utworzeniu klastra. Nie można zaktualizować zasobu tabeli tras, reguły niestandardowe można modyfikować w tabeli tras.
+* Każdy klaster AKS musi korzystać z jednej unikatowej tabeli tras dla wszystkich podsieci skojarzonych z klastrem. Nie można ponownie użyć tabeli tras z wieloma klastrami ze względu na potencjał nakładający się w CIDR i sprzeczne reguły routingu.
+
+Po utworzeniu niestandardowej tabeli tras i skojarzeniu jej z podsiecią w sieci wirtualnej można utworzyć nowy klaster AKS, który korzysta z tabeli tras.
+Należy użyć identyfikatora podsieci dla miejsca, w którym planujesz wdrożyć klaster AKS. Ta podsieć musi być również skojarzona z niestandardową tabelą tras.
+
+```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -217,9 +253,11 @@ W przypadku klastra AKS wdrożonego w istniejącej podsieci sieci wirtualnej mo�
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table.md

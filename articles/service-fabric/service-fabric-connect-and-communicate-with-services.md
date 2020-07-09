@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75458229"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Łączenie się z usługami w Service Fabric i komunikowanie się z nimi
@@ -18,7 +17,7 @@ W Service Fabric usługa działa w dowolnym miejscu w klastrze Service Fabric, z
 Aplikacja Service Fabric zwykle składa się z wielu różnych usług, w przypadku których każda usługa wykonuje wyspecjalizowane zadanie. Te usługi mogą komunikować się ze sobą, aby utworzyć kompletną funkcję, na przykład renderowanie różnych części aplikacji sieci Web. Istnieją również aplikacje klienckie, które łączą się z usługami i komunikują się z nimi. W tym dokumencie omówiono sposób konfigurowania komunikacji z usługami i między nimi w programie Service Fabric.
 
 ## <a name="bring-your-own-protocol"></a>Korzystanie z własnego protokołu
-Service Fabric pomaga zarządzać cyklem życia usług, ale nie podejmuje decyzji o działaniach usług. Obejmuje to komunikację. Gdy usługa zostanie otwarta przez Service Fabric, jest to Twoja usługa, która umożliwia skonfigurowanie punktu końcowego dla żądań przychodzących przy użyciu dowolnego protokołu lub stosu komunikacji. Usługa nasłuchuje na normalnym adresie **IP: adresu portu** przy użyciu dowolnego schematu adresowania, takiego jak identyfikator URI. Wiele wystąpień usług lub replik może współużytkować proces hosta, w takim przypadku należy użyć różnych portów lub mechanizmu udostępniania portów, takiego jak Sterownik jądra http. sys w systemie Windows. W obu przypadkach każde wystąpienie usługi lub replika w procesie hosta musi mieć unikatową adres.
+Service Fabric pomaga zarządzać cyklem życia usług, ale nie podejmuje decyzji o działaniach usług. Obejmuje to komunikację. Gdy usługa zostanie otwarta przez Service Fabric, jest to Twoja usługa, która umożliwia skonfigurowanie punktu końcowego dla żądań przychodzących przy użyciu dowolnego protokołu lub stosu komunikacji. Usługa nasłuchuje na normalnym adresie **IP: adresu portu** przy użyciu dowolnego schematu adresowania, takiego jak identyfikator URI. Wiele wystąpień usług lub replik może współużytkować proces hosta, w takim przypadku należy użyć różnych portów lub mechanizmu udostępniania portów, takiego jak http.sys sterownika jądra w systemie Windows. W obu przypadkach każde wystąpienie usługi lub replika w procesie hosta musi mieć unikatową adres.
 
 ![punkty końcowe usługi][1]
 
@@ -27,7 +26,7 @@ W systemie rozproszonym usługi mogą przechodzić między kolejnymi maszynami. 
 
 ![Dystrybucja usług][7]
 
-Service Fabric zapewnia usługę odnajdywania i rozpoznawania o nazwie Usługa nazewnictwa. Usługa nazewnictwa utrzymuje tabelę, która mapuje nazwane wystąpienia usługi na adresy punktów końcowych, na których nasłuchują. Wszystkie nazwane wystąpienia usługi w Service Fabric mają unikatowe nazwy reprezentowane jako identyfikatory URI, na przykład `"fabric:/MyApplication/MyService"`. Nazwa usługi nie zmienia się w okresie istnienia usługi, ale tylko adresy punktów końcowych, które mogą ulec zmianie podczas przenoszenia usług. Jest to analogiczne do witryn sieci Web, które mają stałe adresy URL, ale mogą zmieniać adres IP. Podobnie jak w przypadku systemu DNS w sieci Web, który rozpoznaje adresy IP witryny sieci Web, Service Fabric ma rejestrator, który mapuje nazwy usług na adres punktu końcowego.
+Service Fabric zapewnia usługę odnajdywania i rozpoznawania o nazwie Usługa nazewnictwa. Usługa nazewnictwa utrzymuje tabelę, która mapuje nazwane wystąpienia usługi na adresy punktów końcowych, na których nasłuchują. Wszystkie nazwane wystąpienia usługi w Service Fabric mają unikatowe nazwy reprezentowane jako identyfikatory URI, na przykład `"fabric:/MyApplication/MyService"` . Nazwa usługi nie zmienia się w okresie istnienia usługi, ale tylko adresy punktów końcowych, które mogą ulec zmianie podczas przenoszenia usług. Jest to analogiczne do witryn sieci Web, które mają stałe adresy URL, ale mogą zmieniać adres IP. Podobnie jak w przypadku systemu DNS w sieci Web, który rozpoznaje adresy IP witryny sieci Web, Service Fabric ma rejestrator, który mapuje nazwy usług na adres punktu końcowego.
 
 ![punkty końcowe usługi][2]
 
@@ -67,7 +66,7 @@ Klaster Service Fabric na platformie Azure jest umieszczony za Azure Load Balanc
 
 Na przykład w celu akceptowania ruchu zewnętrznego na porcie **80**należy skonfigurować następujące elementy:
 
-1. Napisz usługę, która nasłuchuje na porcie 80. Skonfiguruj port 80 w pliku servicemanifest. XML usługi i Otwórz odbiornik w usłudze, na przykład samodzielny serwer sieci Web.
+1. Napisz usługę, która nasłuchuje na porcie 80. Skonfiguruj port 80 w ServiceManifest.xml usługi i Otwórz odbiornik w usłudze, na przykład samodzielny serwer sieci Web.
 
     ```xml
     <Resources>
@@ -163,7 +162,7 @@ Należy pamiętać, że Azure Load Balancer i sondy wiedzą tylko o *węzłach*,
 Struktura Reliable Services jest dostarczana z kilkoma wstępnie skompilowanymi opcjami komunikacji. Decyzja o tym, który z nich będzie działał najlepiej, zależy od wyboru modelu programowania, struktury komunikacji i języka programowania, w którym są zapisywane usługi.
 
 * **Brak określonego protokołu:**  Jeśli nie masz określonego wyboru struktury komunikacyjnej, ale chcesz szybko uzyskać coś i uruchamiania, to idealna opcja dla Ciebie jest [usługą komunikacji zdalnej](service-fabric-reliable-services-communication-remoting.md), która pozwala na używanie jednoznacznie określonych wywołań procedur zdalnych dla Reliable Services i Reliable Actors. Jest to najprostszy i najszybszy sposób rozpoczęcia komunikacji z usługą. Zdalna usługa obsługuje rozpoznawanie adresów usług, połączeń, ponowień i obsługi błędów. Jest ona dostępna dla aplikacji C# i Java.
-* **Http**: w przypadku komunikacji z językiem niezależny od protokół http zapewnia standardową branżę z narzędziami i serwerami http dostępnymi w wielu różnych językach, które są obsługiwane przez Service Fabric. Usługi mogą korzystać z dowolnego dostępnego stosu HTTP, w tym [interfejsu API sieci Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) dla aplikacji języka C#. Klienci zapisanie w języku C# mogą `ICommunicationClient` korzystać `ServicePartitionClient` z klas i, natomiast w przypadku języka `CommunicationClient` Java `FabricServicePartitionClient` należy używać klas i [w celu rozpoznawania usług, połączeń HTTP i pętli ponawiania](service-fabric-reliable-services-communication.md).
+* **Http**: w przypadku komunikacji z językiem niezależny od protokół http zapewnia standardową branżę z narzędziami i serwerami http dostępnymi w wielu różnych językach, które są obsługiwane przez Service Fabric. Usługi mogą korzystać z dowolnego dostępnego stosu HTTP, w tym [interfejsu API sieci Web ASP.NET](service-fabric-reliable-services-communication-webapi.md) dla aplikacji języka C#. Klienci zapisanie w języku C# mogą korzystać z `ICommunicationClient` `ServicePartitionClient` klas i, natomiast w przypadku języka Java należy używać `CommunicationClient` `FabricServicePartitionClient` klas i [w celu rozpoznawania usług, połączeń HTTP i pętli ponawiania](service-fabric-reliable-services-communication.md).
 * **WCF**: Jeśli masz istniejący kod, który używa programu WCF jako struktury komunikacji, możesz użyć programu `WcfCommunicationListener` dla strony serwera i `WcfCommunicationClient` i `ServicePartitionClient` dla klienta. Jest to jednak dostępne tylko dla aplikacji w języku C# w klastrach opartych na systemie Windows. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący [implementacji stosu komunikacyjnego opartego na technologii WCF](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Korzystanie z niestandardowych protokołów i innych platform komunikacji

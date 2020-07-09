@@ -5,15 +5,14 @@ services: databox
 author: priestlg
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 2933eb216b7faed7b28fb53d79fec2f50bc4458d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
-ms.translationtype: MT
+ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749417"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608591"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box w Azure Portal
 
@@ -29,7 +28,7 @@ Samoobsługowa wysyłka jest dostępna jako opcja w przypadku [zamówienia Azure
 * Singapur
 * Korea Południowa
 
-## <a name="use-self-managed-shipping"></a>Korzystanie z samozarządzanej wysyłki
+## <a name="use-self-managed-shipping"></a>Korzystanie z samodzielnej wysyłki
 
 Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję samodzielna wysyłka.
 
@@ -41,7 +40,7 @@ Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję samodziel
 3. Po podaniu adresu wysyłkowego musisz sprawdzić jego poprawność i zakończyć zamówienie.
    ![Wysyłka samoobsługowa](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Po przywróceniu urządzenia możesz zaplanować odbiór.
+4. Gdy urządzenie zostanie przygotowane i otrzymasz na niego powiadomienie e-mail, możesz zaplanować odbiór.
 
    W kolejności Azure Data Box przejdź do pozycji **Przegląd** , a następnie wybierz pozycję **Zaplanuj pobranie**.
 
@@ -57,7 +56,7 @@ Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję samodziel
 
    ![Wyświetlanie kodu autoryzacji](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Zanotuj ten **kod autoryzacji**. Zgodnie z wymaganiami dotyczącymi zabezpieczeń, podczas planowania pobierania i wyrzucania, konieczne jest zaprezentowanie nazwiska osoby, która mogłaby dotrzeć do pobrania i wycofać.
+   Zanotuj ten **kod autoryzacji**. Zgodnie z wymaganiami dotyczącymi zabezpieczeń, podczas planowania pobrania należy przedstawić nazwę osoby, która dotarła do pobrania.
 
    Należy również podać szczegółowe informacje o tym, kto zostanie przejściu do centrum danych w celu pobrania. Użytkownik lub punkt kontaktu musi posiadać zweryfikowany identyfikator fotograficzny dla instytucji rządowych, który zostanie sprawdzony w centrum danych.
 

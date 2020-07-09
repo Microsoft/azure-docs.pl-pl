@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75665891"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Znajdź wyniki w Wyszukiwanie Bing przy użyciu Azure Logic Apps
@@ -77,7 +76,7 @@ W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concep
 
 1. W Azure Portal lub Visual Studio Otwórz aplikację logiki w Projektancie aplikacji logiki. Ten przykład używa Azure Portal.
 
-2. W obszarze wyzwalacza lub akcji wybierz pozycję **nowy krok** > **Dodaj akcję**.
+2. W obszarze wyzwalacza lub akcji wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
 
    W tym przykładzie używa tego wyzwalacza:
 
@@ -86,7 +85,7 @@ W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concep
    ![Dodawanie akcji](./media/connectors-create-api-bing-search/add-action.png)
 
    Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. 
-   Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 3. W polu wyszukiwania wprowadź ciąg "wyszukiwanie Bing" jako filtr.
 Z listy Akcje wybierz żądaną akcję.
@@ -159,7 +158,7 @@ Z listy Akcje wybierz żądaną akcję.
 
    ![Tworzenie połączenia](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+2. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

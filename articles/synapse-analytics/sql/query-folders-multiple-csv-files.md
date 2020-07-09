@@ -1,22 +1,22 @@
 ---
-title: Wysyłanie zapytań do folderów i wielu plików CSV za pomocą SQL na żądanie (wersja zapoznawcza)
+title: Wysyłanie zapytań do folderów i wielu plików przy użyciu usługi SQL na żądanie (wersja zapoznawcza)
 description: SQL na żądanie (wersja zapoznawcza) obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: bb5c01bac512504fc6bee52be7cf619f29bdf959
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117182"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85207635"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Foldery zapytań i wiele plików CSV  
+# <a name="query-folders-and-multiple-files"></a>Wykonywanie zapytań względem folderów i wielu plików  
 
 W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
 
@@ -27,10 +27,6 @@ SQL na żądanie obsługuje odczytywanie wielu plików/folderów przy użyciu sy
 Pierwszym krokiem jest **utworzenie bazy danych** , w której będą wykonywane zapytania. Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny spowoduje utworzenie źródeł danych, poświadczeń z zakresem bazy danych i zewnętrznych formatów plików, które są używane w tych przykładach.
 
 Użyjesz folderu *CSV/taksówki* do wykonania przykładowych zapytań. Zawiera NYCe taksówki — w przypadku podróży z listopada są rejestrowane dane z lipca 2016 do 2018 czerwca. Pliki w *formacie CSV/taksówki* są nazwane po roku i miesiącu przy użyciu następującego wzorca: yellow_tripdata_ <year> - <month> . csv
-        
-Każdy plik ma następującą strukturę:
-        
-    [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
 
 ## <a name="read-all-files-in-folder"></a>Odczytaj wszystkie pliki w folderze
     

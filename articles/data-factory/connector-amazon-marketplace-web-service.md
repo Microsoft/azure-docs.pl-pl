@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 4620ef5b6a72afbe86b0ace33328a769eab31e5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418273"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Marketplace sieci Web przy użyciu Azure Data Factory
@@ -45,11 +45,11 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane w przypadku połączonej usługi sieci Web Amazon Marketplace:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **AmazonMWS** | Tak |
+| typ | Właściwość Type musi mieć wartość: **AmazonMWS** | Tak |
 | endpoint | Punkt końcowy serwera Amazon MWS, czyli mws.amazonservices.com)  | Tak |
-| marketplaceID | Identyfikator witryny Amazon Marketplace, z której mają zostać pobrane dane. Aby pobrać dane z wielu identyfikatorów portalu Marketplace, rozdziel je przecinkami (`,`). (to jest, A2EUQ1WTGCTBG2)  | Tak |
+| marketplaceID | Identyfikator witryny Amazon Marketplace, z której mają zostać pobrane dane. Aby pobrać dane z wielu identyfikatorów portalu Marketplace, rozdziel je przecinkami ( `,` ). (to jest, A2EUQ1WTGCTBG2)  | Tak |
 | sellerID | Identyfikator sprzedawcy usługi Amazon.  | Tak |
 | mwsAuthToken | Token uwierzytelniania Amazon MWS. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | accessKeyId | Identyfikator klucza dostępu służący do uzyskiwania dostępu do danych.  | Tak |
@@ -58,7 +58,7 @@ Następujące właściwości są obsługiwane w przypadku połączonej usługi s
 | useHostVerification | Określa, czy nazwa hosta ma być wymagana w certyfikacie serwera, aby odpowiadała nazwie hosta serwera podczas łączenia się za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 | usePeerVerification | Określa, czy należy zweryfikować tożsamość serwera podczas łączenia za pośrednictwem protokołu TLS. Wartością domyślną jest true.  | Nie |
 
-**Przyklad**
+**Przykład:**
 
 ```json
 {
@@ -89,9 +89,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Amazon Marketplace sieci Web, ustaw właściwość Type zestawu danych na **AmazonMWSObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonMWSObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonMWSObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -120,12 +120,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Amazon Marketplace sieci Web, ustaw typ źródła w działaniu Copy na **AmazonMWSSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AmazonMWSSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **AmazonMWSSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
-**Przyklad**
+**Przykład:**
 
 ```json
 "activities":[

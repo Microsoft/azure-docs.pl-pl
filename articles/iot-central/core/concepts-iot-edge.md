@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81759102"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń Azure IoT Edge z aplikacją IoT Central platformy Azure
@@ -38,7 +37,7 @@ Urządzenia podrzędne mogą również łączyć się z urządzeniem bramy IoT E
 
 ![Diagram połączenia modułu niestandardowego](./media/concepts-iot-edge/gateway-module.png)
 
-Na poniższym diagramie przedstawiono połączenie z urządzeniem bramy IoT Edge za pomocą obu typów modułów (niestandardowych i `$edgeHub`).  
+Na poniższym diagramie przedstawiono połączenie z urządzeniem bramy IoT Edge za pomocą obu typów modułów (niestandardowych i `$edgeHub` ).  
 
 ![Diagram łączenia za pośrednictwem obu modułów połączeń](./media/concepts-iot-edge/gateway-module-transparent.png)
 

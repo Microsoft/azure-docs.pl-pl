@@ -4,19 +4,18 @@ description: Dowiedz się, jak Funkcja systemowa SQL w Azure Cosmos DB zwraca wa
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a08fe47122d7e9ddd1c9038bb5f15ebbb0be30fa
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
-ms.translationtype: MT
+ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848978"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322707"
 ---
 # <a name="contains-azure-cosmos-db"></a>ZAWIERA (Azure Cosmos DB)
 
- Zwraca wartość logiczną wskazującą, czy pierwsze wyrażenie ciągu zawiera drugie.  
+Zwraca wartość logiczną wskazującą, czy pierwsze wyrażenie ciągu zawiera drugie.  
   
 ## <a name="syntax"></a>Składnia
   
@@ -75,6 +74,8 @@ Rozważmy na przykład dwie właściwości: Miasto i kraj. Kardynalność miejsc
 ```
 
 Pierwsze zapytanie będzie prawdopodobnie używać więcej jednostek ru niż drugie zapytanie, ponieważ Kardynalność miejscowości jest wyższa niż kraj.
+
+Jeśli rozmiar właściwości w programie zawiera wartość większą niż 1 KB dla niektórych dokumentów, aparat zapytań będzie musiał załadować te dokumenty. W takim przypadku aparat zapytań nie będzie w stanie w pełni oszacować zawiera indeks. Opłata za usługę RU dla zawiera będzie wysoka, jeśli masz dużą liczbę dokumentów o rozmiarach o rozmiarze większym niż 1 KB.
 
 ## <a name="next-steps"></a>Następne kroki
 

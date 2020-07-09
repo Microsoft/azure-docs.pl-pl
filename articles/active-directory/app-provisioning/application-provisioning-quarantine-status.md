@@ -2,21 +2,21 @@
 title: Stan aprowizacji aplikacji dla kwarantanny | Microsoft Docs
 description: Po skonfigurowaniu aplikacji do automatycznego inicjowania obsługi administracyjnej, Dowiedz się, co to jest stan aprowizacji środków kwarantanny i jak go wyczyścić.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/28/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e5c0b00873cd97b255eff7e001f8b54cf0397462
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593934"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86024574"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Inicjowanie obsługi aplikacji w stanie kwarantanny
 
@@ -28,11 +28,11 @@ Podczas kwarantanny Częstotliwość cykli przyrostowych jest stopniowo zmniejsz
 
 Istnieją trzy sposoby, aby sprawdzić, czy aplikacja znajduje się w kwarantannie:
   
-- W Azure Portal przejdź do **Azure Active Directory** > **aplikacje** > &lt;korporacyjne*Nazwa*&gt; > aplikacji**Inicjowanie obsługi administracyjnej** i przejrzyj pasek postępu dla komunikatu kwarantanny.   
+- W Azure Portal przejdź do **Azure Active Directory**  >  **aplikacje korporacyjne**  >  &lt; *Nazwa aplikacji* &gt;  >  **Inicjowanie obsługi administracyjnej** i przejrzyj pasek postępu dla komunikatu kwarantanny.   
 
   ![Pasek stanu aprowizacji przedstawiający stan kwarantanny](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
-- W Azure Portal przejdź do **Azure Active Directory** > **dzienników inspekcji** > filtrem **działania: Kwarantanna** i przejrzyj historię kwarantanny. Gdy widok na pasku postępu, jak opisano powyżej, wskazuje, czy inicjowanie obsługi jest obecnie w kwarantannie, dzienniki inspekcji umożliwiają wyświetlenie historii kwarantanny dla aplikacji. 
+- W Azure Portal przejdź do **Azure Active Directory**  >  **dzienników inspekcji** > filtrem **działania: Kwarantanna** i przejrzyj historię kwarantanny. Gdy widok na pasku postępu, jak opisano powyżej, wskazuje, czy inicjowanie obsługi jest obecnie w kwarantannie, dzienniki inspekcji umożliwiają wyświetlenie historii kwarantanny dla aplikacji. 
 
 - Użyj żądania Microsoft Graph [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) , aby programowo pobrać stan zadania aprowizacji:
 
@@ -66,7 +66,7 @@ Najpierw należy rozwiązać problem, który spowodował umieszczenie aplikacji 
 
 - Sprawdź ustawienia aprowizacji aplikacji, aby upewnić się, że [wprowadzono prawidłowe poświadczenia administratora](../app-provisioning/configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Usługa Azure AD musi być w stanie ustanowić relację zaufania z aplikacją docelową. Upewnij się, że wprowadzono prawidłowe poświadczenia, a Twoje konto ma wymagane uprawnienia.
 
-- Przejrzyj [dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md) , aby dokładniej zbadać, jakie błędy powodują Kwarantanna i rozwiązać problem. Uzyskaj dostęp do dzienników aprowizacji w Azure Portal, przechodząc do **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji** &gt; w przedsiębiorstwie **(wersja zapoznawcza)** w sekcji **działanie** .
+- Przejrzyj [dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md) , aby dokładniej zbadać, jakie błędy powodują Kwarantanna i rozwiązać problem. Uzyskaj dostęp do dzienników aprowizacji w Azure Portal, przechodząc do **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji w przedsiębiorstwie** &gt; **(wersja zapoznawcza)** w sekcji **działanie** .
 
 Po rozwiązaniu problemu należy ponownie uruchomić zadanie aprowizacji. Pewne zmiany ustawień aprowizacji aplikacji, takie jak mapowania atrybutów lub filtry zakresu, będą automatycznie ponownie uruchamiać Inicjowanie obsługi. Pasek postępu na stronie **aprowizacji** aplikacji wskazuje czas ostatniego uruchomienia aprowizacji. Jeśli konieczne jest ręczne ponowne uruchomienie zadania aprowizacji, należy użyć jednej z następujących metod:  
 
@@ -75,3 +75,6 @@ Po rozwiązaniu problemu należy ponownie uruchomić zadanie aprowizacji. Pewne 
 - Użyj Microsoft Graph, aby [ponownie uruchomić zadanie aprowizacji](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Będziesz mieć pełną kontrolę nad tym, co zostało ponownie uruchomione. Możesz wybrać opcję wyczyszczenia usługi Escrow (aby ponownie uruchomić licznik Escrow, który naliczy na status kwarantanny), wyczyścić opcję kwarantanny (w celu usunięcia aplikacji z kwarantanny) lub wyczyścić znaki wodne. Użyj następującego żądania:
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+       
+Zastąp ciąg "{ID}" wartością identyfikatora aplikacji i Zastąp ciąg "{jobId}" [identyfikatorem zadania synchronizacji](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+

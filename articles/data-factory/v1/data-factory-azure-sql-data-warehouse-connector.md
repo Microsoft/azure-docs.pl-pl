@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81419327"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiowanie danych do i z Azure SQL Data Warehouse przy użyciu Azure Data Factory
@@ -68,9 +68,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla Azure SQL Data Warehouse połączonej usługi.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **AzureSqlDW** |Tak |
+| typ |Właściwość Type musi mieć wartość: **AzureSqlDW** |Tak |
 | Parametry połączenia |Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure SQL Data Warehouse dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Tak |
 
 > [!IMPORTANT]
@@ -81,7 +81,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja typeProperties jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja **typeProperties** zestawu danych typu **AzureSqlDWTable** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | tableName |Nazwa tabeli lub widoku w bazie danych Azure SQL Data Warehouse, do której odwołuje się połączona usługa. |Tak |
 
@@ -96,7 +96,7 @@ Natomiast właściwości dostępne w sekcji typeProperties działania różnią 
 ### <a name="sqldwsource"></a>SqlDWSource
 Jeśli źródło jest typu **SqlDWSource**, w sekcji **typeProperties** są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: select * from MyTable. |Nie |
 | sqlReaderStoredProcedureName |Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. |Nazwa procedury składowanej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. |Nie |
@@ -142,7 +142,7 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** obsługuje następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Określ zapytanie dla działania kopiowania, które ma zostać wykonane, aby dane określonego wycinka zostały oczyszczone. Aby uzyskać szczegółowe informacje, zobacz [sekcję powtarzalność](#repeatability-during-copy). |Instrukcja zapytania. |Nie |
 | allowPolyBase |Wskazuje, czy należy używać elementu Base (jeśli ma zastosowanie) zamiast mechanizmu BULKINSERT. <br/><br/> **Użycie metody bazowej jest zalecanym sposobem ładowania danych do SQL Data Warehouse.** Aby uzyskać informacje o ograniczeniach i szczegółach, zobacz temat [Korzystanie z bazy Azure SQL Data Warehouse danych](#use-polybase-to-load-data-into-azure-sql-data-warehouse) . |Prawda <br/>False (domyślnie) |Nie |
@@ -169,7 +169,7 @@ Korzystanie z **[bazy danych Base](https://docs.microsoft.com/sql/relational-dat
 * Jeśli dane źródłowe są w **obiekcie blob platformy Azure lub Azure Data Lake Store**, a format jest zgodny z bazą danych, można bezpośrednio skopiować do Azure SQL Data Warehouse przy użyciu bazy danych Base. Aby uzyskać szczegółowe informacje, zobacz **[bezpośrednia kopia przy użyciu bazy Base](#direct-copy-using-polybase)** .
 * Jeśli źródłowy magazyn danych i format nie są pierwotnie obsługiwane przez bazę kodu, można użyć zamiast tego funkcji **[kopiowania etapowego](#staged-copy-using-polybase)** . Zapewnia również lepszą przepływność przez automatyczne Konwertowanie danych do formatu zgodnego z podstawą i przechowywanie danych w usłudze Azure Blob Storage. Następnie ładuje dane do SQL Data Warehouse.
 
-Ustaw `allowPolyBase` właściwość na **wartość true** , jak pokazano w poniższym przykładzie, aby Azure Data Factory do kopiowania danych do Azure SQL Data Warehouse. Po ustawieniu allowPolyBase na true, można określić właściwości specyficzne dla bazy za pomocą grupy `polyBaseSettings` właściwości. Zobacz sekcję [SqlDWSink](#sqldwsink) , aby uzyskać szczegółowe informacje na temat właściwości, których można użyć z polyBaseSettings.
+Ustaw `allowPolyBase` Właściwość na **wartość true** , jak pokazano w poniższym przykładzie, aby Azure Data Factory do kopiowania danych do Azure SQL Data Warehouse. Po ustawieniu allowPolyBase na true, można określić właściwości specyficzne dla bazy za pomocą `polyBaseSettings` grupy właściwości. Zobacz sekcję [SqlDWSink](#sqldwsink) , aby uzyskać szczegółowe informacje na temat właściwości, których można użyć z polyBaseSettings.
 
 ```JSON
 "sink": {
@@ -194,12 +194,12 @@ SQL Data Warehouse bazę danych bezpośrednio obsługują obiekty blob platformy
 Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i automatycznie powraca do mechanizmu BULKINSERT na potrzeby przenoszenia danych.
 
 1. **Źródłowa połączona usługa** jest typu: **AzureStorage** lub **AzureDataLakeStore z uwierzytelnianiem głównym usługi**.
-2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStore**, a typ formatu w obszarze `type` właściwości to **OrcFormat**, **ParquetFormat**lub **TextFormat** z następującymi konfiguracjami:
+2. **Wejściowy zestaw danych** jest typu: **AzureBlob** lub **AzureDataLakeStore**, a typ formatu w obszarze `type` Właściwości to **OrcFormat**, **ParquetFormat**lub **TextFormat** z następującymi konfiguracjami:
 
    1. `rowDelimiter`musi być **\n**.
    2. `nullValue`jest ustawiony na **pusty ciąg** ("") lub `treatEmptyAsNull` jest ustawiony na **wartość true**.
    3. `encodingName`jest ustawiony na **UTF-8**, która jest wartością **domyślną** .
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`i `skipLineCount` nie są określone.
+   4. `escapeChar`, `quoteChar` , `firstRowAsHeader` i `skipLineCount` nie są określone.
    5. `compression`nie może to być **kompresja**, **gzip**ani **Wklęśnięcie**.
 
       ```JSON
@@ -219,9 +219,9 @@ Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i au
       },
       ```
 
-3. Brak `skipHeaderLineCount` ustawienia w obszarze **BlobSource** lub **AzureDataLakeStore** dla działania kopiowania w potoku.
-4. Brak `sliceIdentifierColumnName` ustawienia w obszarze **SqlDWSink** dla działania kopiowania w potoku. (Podstawowe gwarancje, że wszystkie dane są aktualizowane lub nic nie jest aktualizowane w jednym przebiegu. Aby osiągnąć **powtarzalność**, można użyć `sqlWriterCleanupScript`.
-5. Nie `columnMapping` jest używany w działaniu związanym z kopiowaniem.
+3. Brak ustawienia w `skipHeaderLineCount` obszarze **BlobSource** lub **AzureDataLakeStore** dla działania kopiowania w potoku.
+4. Brak ustawienia w `sliceIdentifierColumnName` obszarze **SqlDWSink** dla działania kopiowania w potoku. (Podstawowe gwarancje, że wszystkie dane są aktualizowane lub nic nie jest aktualizowane w jednym przebiegu. Aby osiągnąć **powtarzalność**, można użyć `sqlWriterCleanupScript` .
+5. Nie jest `columnMapping` używany w działaniu związanym z kopiowaniem.
 
 ### <a name="staged-copy-using-polybase"></a>Przemieszczona kopia przy użyciu bazy
 Jeśli dane źródłowe nie spełniają kryteriów wprowadzonych w poprzedniej sekcji, można włączyć kopiowanie danych za pośrednictwem tymczasowego przemieszczania Blob Storage platformy Azure (nie można Premium Storage). W takim przypadku Azure Data Factory automatycznie wykonuje przekształcenia danych w celu spełnienia wymagań dotyczących formatu danych podstawowych, a następnie do ładowania danych do SQL Data Warehouse i przy ostatnim oczyszczeniu danych tymczasowych z magazynu obiektów BLOB. Zobacz [przygotowane kopie](data-factory-copy-activity-performance.md#staged-copy) , aby uzyskać szczegółowe informacje na temat kopiowania danych za pośrednictwem tymczasowego obiektu blob platformy Azure.
@@ -230,7 +230,7 @@ Jeśli dane źródłowe nie spełniają kryteriów wprowadzonych w poprzedniej s
 > W przypadku kopiowania danych z lokalnego magazynu danych do Azure SQL Data Warehouse przy użyciu bazy i przemieszczania, jeśli Zarządzanie danymi wersja bramy jest niższa od 2,4, środowisko JRE (Java Runtime Environment) jest wymagane na maszynie bramy, która jest używana do przekształcania danych źródłowych w prawidłowy format. Zasugeruj, aby uaktualnić bramę do najnowszej wersji, aby uniknąć takiej zależności.
 >
 
-Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) , która odwołuje się do konta usługi Azure Storage, które ma pośredni magazyn obiektów BLOB `enableStaging` , `stagingSettings` a następnie określ właściwości i dla działania kopiowania, jak pokazano w poniższym kodzie:
+Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) , która odwołuje się do konta usługi Azure Storage, które ma pośredni magazyn obiektów blob, a następnie określ `enableStaging` `stagingSettings` właściwości i dla działania kopiowania, jak pokazano w poniższym kodzie:
 
 ```json
 "activities":[
@@ -307,17 +307,17 @@ Data Factory tworzy tabelę w magazynie docelowym z tą samą nazwą tabeli w ź
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Wartość dziesiętna | Wartość dziesiętna |
-| Liczbowe | Wartość dziesiętna |
-| Liczba zmiennoprzecinkowa | Liczba zmiennoprzecinkowa |
+| Numeryczne | Wartość dziesiętna |
+| Float | Float |
 | Pieniądze | Pieniądze |
 | Rzeczywiste | Rzeczywiste |
 | SmallMoney | SmallMoney |
-| plików binarnych | plików binarnych |
+| Binarne | Binarne |
 | Liczby | Varbinary (do 8000) |
-| Date | Date |
+| Data | Data |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Time | Time |
+| Godzina | Godzina |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Tekst | Varchar (do 8000) |
@@ -354,15 +354,15 @@ Mapowanie jest takie samo jak [Mapowanie typu danych SQL Server ADO.NET](https:/
 | DateTimeOffset |DateTimeOffset |
 | Wartość dziesiętna |Wartość dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
-| Liczba zmiennoprzecinkowa |Double |
-| image |Byte [] |
+| Float |Double |
+| image (obraz) |Byte [] |
 | int |Int32 |
 | pieniędzy |Wartość dziesiętna |
 | nchar |String, Char [] |
 | ntext |String, Char [] |
 | numeryczne |Wartość dziesiętna |
 | nvarchar |String, Char [] |
-| liczba rzeczywista |Single |
+| liczba rzeczywista |Pojedyncze |
 | rowversion |Byte [] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

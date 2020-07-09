@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: de5c478ac6641fe5b1e342c063d134f70084b2ef
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635442"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85201450"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Żądanie tokenu dostępu w Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ W tym artykule pokazano, jak zażądać tokenu dostępu dla aplikacji sieci Web 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Utwórz przepływ użytkownika](tutorial-create-user-flows.md) , aby umożliwić użytkownikom rejestrowanie się w aplikacji i logowanie się do niej.
-- Jeśli jeszcze tego nie zrobiono, [Dodaj aplikację internetowego interfejsu API do dzierżawy Azure Active Directory B2C](add-web-application.md).
+- Jeśli jeszcze tego nie zrobiono, [Dodaj aplikację internetowego interfejsu API do dzierżawy Azure Active Directory B2C](add-web-api-application.md).
 
 ## <a name="scopes"></a>Zakresy
 
@@ -67,7 +67,7 @@ W poniższym przykładzie zastąpisz następujące wartości:
 - `<application-ID>`— Identyfikator aplikacji sieci Web, która została zarejestrowana w celu obsługi przepływu użytkownika.
 - `<redirect-uri>`— **Identyfikator URI przekierowania** wprowadzony podczas rejestrowania aplikacji klienckiej.
 
-```HTTP
+```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
@@ -84,7 +84,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 Po pomyślnym otrzymaniu kodu autoryzacji można użyć go do żądania tokenu dostępu:
 
-```HTTP
+```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Powinien zostać wyświetlony komunikat podobny do następującego:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Powinien zostać wyświetlony komunikat podobny do następującego:
 
 W przypadku użycia https://jwt.ms do badania zwróconego tokenu dostępu powinien zostać wyświetlony komunikat podobny do następującego:
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

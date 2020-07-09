@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82628950"
 ---
 # <a name="templates"></a>Szablony
@@ -32,7 +32,7 @@ Możesz rozpocząć tworzenie potoku Data Factory na podstawie szablonu na dwa s
 
     ![Otwórz galerię szablonów na stronie Przegląd](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Na karcie autor w Eksplorator zasobów wybierz **+** pozycję, a następnie **potok z szablonu** , aby otworzyć galerię szablonów.
+1.  Na karcie autor w Eksplorator zasobów wybierz pozycję **+** , a następnie **potok z szablonu** , aby otworzyć galerię szablonów.
 
     ![Otwórz galerię szablonów na karcie autor](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -56,7 +56,7 @@ Data Factory używa szablonów Azure Resource Manager do zapisywania szablonów 
 
     -   [Kopiowanie przyrostowe z bazy danych](solution-template-delta-copy-with-control-table.md)
 
-    -   Kopiuj z \<lokalizacji\> źródłowej do \<docelowej\>
+    -   Kopiuj z \<source\> do\<destination\>
 
         -   [Z usługi Amazon S3 do Azure Data Lake Store generacji 2](solution-template-migration-s3-azure.md)
 

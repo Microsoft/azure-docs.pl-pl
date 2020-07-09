@@ -12,13 +12,12 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83770963"
 ---
-# <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w Azure Active Directory?
+# <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
 W ramach funkcji logowania dla kont w usłudze Azure Active Directory (Azure AD) istnieją różne sposoby, aby użytkownik mógł się uwierzytelnić. Nazwa użytkownika i hasło są najczęstszym sposobem, w jaki użytkownik mógłby historycznie podawać poświadczenia. Nowoczesne funkcje uwierzytelniania i zabezpieczeń w usłudze Azure AD umożliwiają uzupełnianie lub zamienienie podstawowego hasła przy użyciu dodatkowych metod uwierzytelniania.
 

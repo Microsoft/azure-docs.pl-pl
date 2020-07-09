@@ -1,19 +1,14 @@
 ---
 title: 'Samouczek: wysyłanie danych Event Hubs do magazynu danych — Event Grid'
 description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event Hubs do migrowania danych do SQL Data Warehouse. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
-services: event-grid
-author: spelluru
-manager: timlt
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 11/05/2019
-ms.author: spelluru
-ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/07/2020
+ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718181"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117563"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
 Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. W tym [przykładzie integracji usług Event Hubs i Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazano, jak bezproblemowo przeprowadzić migrację przechwyconych danych usługi Event Hubs z magazynu obiektów blob do usługi SQL Data Warehouse przy użyciu usług Event Hubs i Event Grid.
@@ -44,8 +39,8 @@ W tym artykule wykonasz następujące kroki:
 
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-* [Program Visual studio 2019](https://www.visualstudio.com/vs/) z obciążeniami dla: Programowanie aplikacji klasycznych platformy .NET, programowanie platformy Azure, programowanie ASP.NET i sieci Web, programowanie w języku Node. js i programowanie w języku Python.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* [Program Visual studio 2019](https://www.visualstudio.com/vs/) z obciążeniami dla: Programowanie aplikacji klasycznych platformy .NET, programowanie na platformie Azure, programowanie ASP.NET i sieci Web, programowanie Node.js i programowanie w języku Python.
 * Pobierz na komputer [przykładowy projekt EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
 ## <a name="deploy-the-infrastructure"></a>Wdrażanie infrastruktury
@@ -79,12 +74,11 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 ### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 1. Utwórz grupę zasobów platformy Azure, uruchamiając następujące polecenie interfejsu wiersza polecenia: 
-    1. Skopiuj poniższe polecenie i wklej je w oknie usługi Cloud Shell.
+    1. Skopiuj poniższe polecenie i wklej je w oknie usługi Cloud Shell. W razie potrzeby zmień nazwę i lokalizację grupy zasobów.
 
         ```azurecli
-        az group create -l eastus -n <Name for the resource group>
+        az group create -l eastus -n rgDataMigration
         ```
-    1. Określ nazwę **grupy zasobów**.
     2. Naciśnij klawisz **Enter**. 
 
         Oto przykład:
@@ -107,7 +101,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 
         ```azurecli
         az group deployment create \
-            --resource-group rgDataMigrationSample \
+            --resource-group rgDataMigration \
             --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json \
             --parameters eventHubNamespaceName=<event-hub-namespace> eventHubName=hubdatamigration sqlServerName=<sql-server-name> sqlServerUserName=<user-name> sqlServerPassword=<password> sqlServerDatabaseName=<database-name> storageName=<unique-storage-name> functionAppName=<app-name>
         ```
@@ -132,7 +126,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
     1. Skopiuj poniższe polecenie i wklej je w oknie usługi Cloud Shell.
 
         ```powershell
-        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location eastus
         ```
     2. Określ nazwę **grupy zasobów**.
     3. Naciśnij klawisz ENTER. 
@@ -170,11 +164,11 @@ Zamknij usługę Cloud Shell, wybierając przycisk **Cloud Shell** w portalu (lu
 ### <a name="create-a-table-in-sql-data-warehouse"></a>Tworzenie tabeli w usłudze SQL Data Warehouse
 Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Do uruchomienia skryptu możesz użyć programu Visual Studio lub Edytora zapytań w portalu. W poniższych krokach pokazano, jak użyć Edytora zapytań: 
 
-1. Na liście zasobów w grupie zasobów wybierz magazyn danych SQL. 
+1. Na liście zasobów w grupie zasobów wybierz swoją **pulę SQL Synapse (magazyn danych)**. 
 2. Na stronie magazynu danych SQL wybierz pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie. 
 
     ![Strona magazynu danych SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Wprowadź nazwę **użytkownika** i **hasło** dla serwera SQL, a następnie wybierz pozycję **OK**. 
+2. Wprowadź nazwę **użytkownika** i **hasło** dla serwera SQL, a następnie wybierz pozycję **OK**. Może być konieczne dodanie adresu IP klienta do zapory, aby pomyślnie zalogować się do programu SQL Server. 
 
     ![Uwierzytelnianie serwera SQL](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. W oknie zapytania skopiuj i uruchom następujący skrypt SQL: 
@@ -193,6 +187,17 @@ Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWareho
     ![Uruchamianie zapytania SQL](media/event-grid-event-hubs-integration/run-sql-query.png)
 5. Nie zamykaj tej karty lub okna, aby na końcu tego samouczka można było sprawdzić, czy dane zostały utworzone. 
 
+### <a name="update-the-function-runtime-version"></a>Aktualizowanie wersji środowiska uruchomieniowego funkcji
+
+1. W witrynie Azure Portal wybierz pozycję **Grupy zasobów** w menu po lewej stronie.
+2. Wybierz grupę zasobów, w której istnieje aplikacja funkcji. 
+3. Wybierz aplikację funkcji typu **App Service** na liście zasobów w grupie zasobów.
+4. Wybierz pozycję **Konfiguracja** w obszarze **Ustawienia** w menu po lewej stronie. 
+5. Przejdź do karty **Ustawienia środowiska uruchomieniowego funkcji** w okienku po prawej stronie. 
+5. Zaktualizuj **wersję środowiska uruchomieniowego** do **~ 3**. 
+
+    ![Aktualizacja wersji środowiska uruchomieniowego funkcji](media/event-grid-event-hubs-integration/function-runtime-version.png)
+    
 
 ## <a name="publish-the-azure-functions-app"></a>Publikowanie aplikacji usługi Azure Functions
 
@@ -204,13 +209,20 @@ Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWareho
 4. Jeśli zostanie wyświetlony poniższy ekran, wybierz pozycję **Uruchom**. 
 
    ![Przycisk uruchamiania publikowania](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. Na stronie **Wybierz miejsce docelowe publikacji** wybierz opcję **Wybierz istniejące**, a następnie wybierz pozycję **Utwórz profil**. 
+5. W oknie dialogowym **Publikowanie** wybierz pozycję **Azure** for **Target**, a następnie wybierz pozycję **dalej**. 
 
-   ![Wybieranie miejsca docelowego publikacji](media/event-grid-event-hubs-integration/publish-select-existing.png)
-6. Na stronie usługi App Service wybierz swoją **subskrypcję platformy Azure**, wybierz **aplikację funkcji** w grupie zasobów, a następnie wybierz pozycję **OK**. 
+   ![Przycisk uruchamiania publikowania](media/event-grid-event-hubs-integration/publish-select-azure.png)
+6. Wybierz pozycję **Azure aplikacja funkcji (Windows)**, a **następnie**wybierz pozycję Dalej. 
 
-   ![Strona usługi App Service](media/event-grid-event-hubs-integration/publish-app-service.png) 
-1. Gdy program Visual Studio skonfiguruje profil, wybierz pozycję **Opublikuj**.
+   ![Wybierz pozycję Azure aplikacja funkcji — system Windows](media/event-grid-event-hubs-integration/select-azure-function-windows.png)
+7. Na karcie **wystąpienie funkcji** wybierz subskrypcję platformy Azure, rozwiń grupę zasobów i wybierz aplikację, a następnie wybierz pozycję **Zakończ**. Musisz zalogować się do konta platformy Azure, jeśli jeszcze tego nie zrobiono. 
+
+   ![Wybierz aplikację funkcji](media/event-grid-event-hubs-integration/publish-select-function-app.png)
+8. W sekcji **zależności usługi** wybierz pozycję **Konfiguruj**.
+9. Na stronie **Konfigurowanie zależności** wybierz utworzone wcześniej konto magazynu, a następnie wybierz przycisk **dalej**. 
+10. Zachowaj ustawienia dla nazwy i wartości parametrów połączenia, a następnie wybierz przycisk **dalej**.
+11. Wyczyść opcję **Magazyn wpisów tajnych** , a następnie wybierz pozycję **Zakończ**.  
+8. Gdy program Visual Studio skonfiguruje profil, wybierz pozycję **Opublikuj**.
 
    ![Wybieranie pozycji Opublikuj](media/event-grid-event-hubs-integration/select-publish.png)
 
@@ -224,21 +236,24 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia.
 4. Wybierz grupę zasobów na liście.
 
     ![Wybieranie grupy zasobów](media/event-grid-event-hubs-integration/select-resource-group.png)
-4. Wybierz z listy plan usługi App Service. 
+4. Wybierz plan App Service (nie App Service) na liście zasobów w grupie zasobów. 
 5. Na stronie Plan usługi App Service wybierz pozycję **Aplikacje** w menu po lewej stronie, a następnie wybierz aplikację funkcji. 
 
     ![Wybieranie aplikacji funkcji](media/event-grid-event-hubs-integration/select-function-app-app-service-plan.png)
 6. Rozwiń aplikację funkcji, rozwiń funkcje, a następnie wybierz swoją funkcję. 
+7. Na pasku narzędzi wybierz pozycję **Dodaj subskrypcję siatki zdarzeń**. 
 
     ![Wybieranie funkcji platformy Azure](media/event-grid-event-hubs-integration/select-function-add-button.png)
-7. Na pasku narzędzi wybierz pozycję **Dodaj subskrypcję siatki zdarzeń**. 
 8. Na stronie **Tworzenie subskrypcji usługi Event Grid** wykonaj następujące czynności: 
-    1. W sekcji **SZCZEGÓŁY TEMATU** wykonaj następujące czynności:
-        1. Wybierz swoją subskrypcję platformy Azure.
+    1. Na stronie **SZCZEGÓŁY SUBSKRYPCJI ZDARZEŃ** wprowadź nazwę subskrypcji (na przykład: captureEventSub) i wybierz pozycję **Utwórz**. 
+    2. W sekcji **SZCZEGÓŁY TEMATU** wykonaj następujące czynności:
+        1. Wybierz **Event Hubs przestrzenie nazw** dla **typów tematów**. 
+        2. Wybierz swoją subskrypcję platformy Azure.
         2. Wybierz grupę zasobów platformy Azure.
-        3. Wybierz przestrzeń nazw usługi Event Hubs.
-    2. Na stronie **SZCZEGÓŁY SUBSKRYPCJI ZDARZEŃ** wprowadź nazwę subskrypcji (na przykład: captureEventSub) i wybierz pozycję **Utwórz**. 
-
+        3. Wybierz przestrzeń nazw Event Hubs.
+    3. W sekcji **typy zdarzeń** upewnij się, że **utworzony plik przechwytywania** został wybrany do **filtrowania typów zdarzeń**. 
+    4. W sekcji **Szczegóły punktu końcowego** upewnij się, że **Typ punktu końcowego** jest ustawiony na **funkcję Azure Function** , a **punkt końcowy** jest ustawiony na funkcję platformy Azure. 
+    
         ![Tworzenie subskrypcji usługi Event Grid](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Uruchamianie aplikacji w celu wygenerowania danych
@@ -260,7 +275,7 @@ Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy 
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Skompiluj rozwiązanie. Uruchom aplikację **WindTurbineGenerator. exe** . 
+6. Skompiluj rozwiązanie. Uruchom aplikację **WindTurbineGenerator.exe** . 
 7. Po kilku minutach wyślij zapytanie do tabeli w magazynie danych dla migrowanych danych.
 
     ![Wyniki zapytania](media/event-grid-event-hubs-integration/query-results.png)

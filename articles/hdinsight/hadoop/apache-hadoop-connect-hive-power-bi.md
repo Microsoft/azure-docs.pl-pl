@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: f1bce0a95b672bb23767fce3d5d092221ccd8321
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 973b8a49c4a849f5a50fb3ab72321746a5ca06a7
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858335"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86083478"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Wizualizowanie danych programu Apache Hive przy użyciu usługi Microsoft Power BI za pomocą interfejsu ODBC w usłudze Azure HDInsight
 
@@ -46,7 +46,7 @@ Tabela programu Hive **hivesampletable** zawiera wszystkie klastry usługi HDIns
 
 1. Uruchom program Power BI Desktop.
 
-1. W górnym menu Przejdź do **strony głównej** > **Pobierz dane** > **więcej...**.
+1. W górnym menu Przejdź do **strony głównej**  >  **Pobierz dane**  >  **więcej...**.
 
     ![Usługa HDInsight Excel Power BI otworzyć dane](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 

@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70d48ba9519c627addf58939866633cdcc43049e
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297258"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85919830"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Tworzenie roli internetowej i procesu roboczego PHP
 
@@ -40,22 +40,28 @@ Pierwszym krokiem tworzenia roli sieci Web lub procesu roboczego w języku PHP j
 
 Aby utworzyć nowy projekt usługi platformy Azure, uruchom Azure PowerShell jako administrator i wykonaj następujące polecenie:
 
-    PS C:\>New-AzureServiceProject myProject
+```powershell
+PS C:\>New-AzureServiceProject myProject
+```
 
-To polecenie spowoduje utworzenie nowego katalogu (`myProject`), do którego można dodać role sieci Web i procesu roboczego.
+To polecenie spowoduje utworzenie nowego katalogu ( `myProject` ), do którego można dodać role sieci Web i procesu roboczego.
 
 ## <a name="add-php-web-or-worker-roles"></a>Dodaj role sieci Web lub procesów roboczych języka PHP
 
 Aby dodać rolę sieci Web w języku PHP do projektu, uruchom następujące polecenie w katalogu głównym projektu:
 
-    PS C:\myProject> Add-AzurePHPWebRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWebRole roleName
+```
 
 Dla roli proces roboczy Użyj tego polecenia:
 
-    PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```
 
 > [!NOTE]
-> `roleName` Parametr jest opcjonalny. W przypadku pominięcia zostanie wygenerowana automatycznie nazwa roli. Pierwsza utworzona rola sieci Web to `WebRole1`, drugi `WebRole2`, i tak dalej. Zostanie utworzona pierwsza rola procesu roboczego `WorkerRole1`, a druga `WorkerRole2`to i tak dalej.
+> `roleName`Parametr jest opcjonalny. W przypadku pominięcia zostanie wygenerowana automatycznie nazwa roli. Pierwsza utworzona rola sieci Web to `WebRole1` , drugi, `WebRole2` i tak dalej. Zostanie utworzona pierwsza rola procesu roboczego `WorkerRole1` , a druga to `WorkerRole2` i tak dalej.
 >
 >
 
@@ -68,11 +74,14 @@ W niektórych przypadkach zamiast wybierać wbudowane środowisko uruchomieniowe
 Aby skonfigurować rolę sieci Web do używania środowiska uruchomieniowego PHP, które jest podane, wykonaj następujące kroki:
 
 1. Utwórz projekt usługi platformy Azure i dodaj rolę sieci Web w języku PHP, jak opisano wcześniej w tym temacie.
-2. Utwórz `php` folder w `bin` folderze, który znajduje się w katalogu głównym roli sieci Web, a następnie Dodaj do `php` folderu środowisko uruchomieniowe php (wszystkie dane binarne, pliki konfiguracji, podfoldery itp.).
-3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP korzysta ze [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę sieci Web w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [Instalatora sqlncli. msi x64] do `bin` folderu w katalogu głównym roli sieci Web. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
+2. Utwórz `php` folder w folderze, `bin` który znajduje się w katalogu głównym roli sieci Web, a następnie Dodaj do folderu środowisko uruchomieniowe php (wszystkie dane binarne, pliki konfiguracji, podfoldery itp.) `php` .
+3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP korzysta ze [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę sieci Web w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [instalatorasqlncli.msi x64] do `bin` folderu w katalogu głównym roli sieci Web. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Zdefiniuj zadanie uruchamiania, które konfiguruje [Internet Information Services (IIS)][iis.net] do używania środowiska uruchomieniowego php do obsługi `.php` żądań stron. Aby to zrobić, Otwórz `setup_web.cmd` plik (w `bin` pliku katalogu głównego roli sieci Web) w edytorze tekstów i Zastąp jego zawartość następującym skryptem:
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
+4. Zdefiniuj zadanie uruchamiania, które konfiguruje [Internet Information Services (IIS)][iis.net] do używania środowiska uruchomieniowego php do obsługi żądań `.php` stron. Aby to zrobić, Otwórz `setup_web.cmd` plik (w `bin` pliku katalogu głównego roli sieci Web) w edytorze tekstów i Zastąp jego zawartość następującym skryptem:
 
     ```cmd
     @ECHO ON
@@ -95,7 +104,7 @@ Aby skonfigurować rolę sieci Web do używania środowiska uruchomieniowego PHP
 6. Opublikuj aplikację zgodnie z opisem w sekcji [publikowanie aplikacji](#publish-your-application) poniżej.
 
 > [!NOTE]
-> `download.ps1` Skrypt (w `bin` folderze katalogu głównego roli sieci Web) można usunąć po wykonaniu czynności opisanych powyżej przy użyciu własnego środowiska uruchomieniowego php.
+> `download.ps1`Skrypt (w `bin` folderze katalogu głównego roli sieci Web) można usunąć po wykonaniu czynności opisanych powyżej przy użyciu własnego środowiska uruchomieniowego php.
 >
 >
 
@@ -104,10 +113,13 @@ Aby skonfigurować rolę sieci Web do używania środowiska uruchomieniowego PHP
 Aby skonfigurować rolę procesu roboczego do korzystania z środowiska uruchomieniowego PHP, które zapewniasz, wykonaj następujące kroki:
 
 1. Utwórz projekt usługi platformy Azure i dodaj rolę procesu roboczego PHP, jak opisano wcześniej w tym temacie.
-2. Utwórz `php` folder w katalogu głównym roli proces roboczy, a następnie Dodaj do tego `php` folderu środowisko uruchomieniowe php (wszystkie dane binarne, pliki konfiguracji, podfoldery itp.).
-3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP używa [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę procesu roboczego w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [Instalatora sqlncli. msi x64] do katalogu głównego roli procesu roboczego. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
+2. Utwórz `php` folder w katalogu głównym roli proces roboczy, a następnie Dodaj do tego folderu środowisko uruchomieniowe php (wszystkie dane binarne, pliki konfiguracji, podfoldery itp.) `php` .
+3. OBOWIĄZKOWE Jeśli środowisko uruchomieniowe PHP używa [sterowników firmy Microsoft dla języka PHP dla SQL Server][sqlsrv drivers], należy skonfigurować rolę procesu roboczego w celu zainstalowania [SQL Server Native Client 2012][sql native client] po zainicjowaniu obsługi administracyjnej. W tym celu należy dodać [instalatorasqlncli.msi x64] do katalogu głównego roli procesu roboczego. Skrypt uruchamiania opisany w następnym kroku uruchomi Instalatora w trybie dyskretnym, gdy rola zostanie zainicjowana. Jeśli środowisko uruchomieniowe PHP nie korzysta ze sterowników firmy Microsoft dla języka PHP dla SQL Server, można usunąć następujący wiersz ze skryptu pokazanego w następnym kroku:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
 4. Zdefiniuj zadanie uruchamiania, które dodaje `php.exe` plik wykonywalny do zmiennej środowiskowej PATH procesu roboczego, gdy rola jest inicjowana. W tym celu Otwórz `setup_worker.cmd` plik (w katalogu głównym roli proces roboczy) w edytorze tekstów i Zastąp jego zawartość następującym skryptem:
 
     ```cmd
@@ -147,20 +159,26 @@ Należy pamiętać, że program PHP jest zainstalowany lokalnie, aby można był
 
 Aby uruchomić projekt w emulatorach, wykonaj następujące polecenie w katalogu głównym projektu:
 
-    PS C:\MyProject> Start-AzureEmulator
+```powershell
+PS C:\MyProject> Start-AzureEmulator
+```
 
 Zostaną wyświetlone dane wyjściowe podobne do tych: 
 
-    Creating local package...
-    Starting Emulator...
-    Role is running at http://127.0.0.1:81
-    Started
+```output
+Creating local package...
+Starting Emulator...
+Role is running at http://127.0.0.1:81
+Started
+```
 
-Twoja aplikacja jest uruchamiana w emulatorze, otwierając przeglądarkę internetową i przechodząc do adresu lokalnego wyświetlanego w danych wyjściowych`http://127.0.0.1:81` (w przykładowych danych wyjściowych powyżej).
+Twoja aplikacja jest uruchamiana w emulatorze, otwierając przeglądarkę internetową i przechodząc do adresu lokalnego wyświetlanego w danych wyjściowych ( `http://127.0.0.1:81` w przykładowych danych wyjściowych powyżej).
 
 Aby zatrzymać emulatory, wykonaj następujące polecenie:
 
-    PS C:\MyProject> Stop-AzureEmulator
+```powershell
+PS C:\MyProject> Stop-AzureEmulator
+```
 
 ## <a name="publish-your-application"></a>Publikowanie aplikacji
 
@@ -176,4 +194,4 @@ Aby uzyskać więcej informacji, zobacz [Centrum deweloperów języka PHP](https
 [iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
-[Instalator pakietu sqlncli. msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648
+[Instalatorsqlncli.msi x64]: https://go.microsoft.com/fwlink/?LinkID=239648

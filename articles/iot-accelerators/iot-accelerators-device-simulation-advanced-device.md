@@ -13,17 +13,16 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81683828"
 ---
 # <a name="create-an-advanced-device-model"></a>Utwórz zaawansowany model urządzenia
 
 Ten przewodnik zawiera opis plików JSON i JavaScript, które definiują niestandardowy model urządzeń. Artykuł zawiera kilka przykładowych plików definicji modelu urządzeń i pokazuje, jak przekazać je do wystąpienia symulacji urządzenia. Można tworzyć zaawansowane modele urządzeń w celu symulowania bardziej realistycznych zachowań urządzeń dla testowania.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,9 +46,9 @@ Model urządzenia można zdefiniować przy użyciu pliku definicji urządzenia J
 
 Typowy model urządzenia:
 
-* Jeden plik JSON dla każdego modelu urządzenia (na przykład Wind. JSON).
-* Jeden plik skryptu zachowań JavaScript dla każdego modelu urządzenia (na przykład Elevator-State. js)
-* Jeden plik skryptu metody JavaScript dla każdej metody urządzenia (na przykład Elevator-go-Down. js)
+* Jeden plik JSON dla każdego modelu urządzenia (na przykład elevator.json).
+* Jeden plik skryptu zachowań JavaScript dla każdego modelu urządzenia (na przykład elevator-state.js)
+* Jeden plik skryptu metody JavaScript dla każdej metody urządzenia (na przykład elevator-go-down.js)
 
 > [!NOTE]
 > Nie wszystkie modele urządzeń definiują metody. W związku z tym model urządzenia może być lub nie mieć skryptów metod. Jednak wszystkie modele urządzeń muszą mieć skrypt zachowania.
@@ -166,7 +165,7 @@ Pola wymienione w schemacie mogą być następujące:
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
 * Boolean
-* Liczba całkowita
+* Integer
 * Double
 * DateTime
 
@@ -187,7 +186,7 @@ Symulowane urządzenia mogą również reagować na wywołania metod, w tym przy
 
 W tym przewodniku opisano sposób tworzenia modelu urządzenia dla drona. Drona będzie losowo przepływać wokół początkowego zestawu współrzędnych zmiany lokalizacji i wysokości.
 
-Skopiuj poniższy kod JSON do edytora tekstu i Zapisz go jako **drona. JSON**.
+Skopiuj poniższy kod JSON do edytora tekstu i Zapisz go jako **drone.js**.
 
 ### <a name="device-definition-json-example"></a>Przykład JSON definicji urządzenia
 
@@ -277,7 +276,7 @@ function main(context, state) {
 
 ## <a name="create-a-behavior-script-file"></a>Utwórz plik skryptu zachowania
 
-Skopiuj poniższy kod JavaScript do edytora tekstów i Zapisz go jako **Drone-State. js**.
+Skopiuj poniższy kod JavaScript do edytora tekstów i Zapisz go jako **drone-state.js**.
 
 ### <a name="device-model-javascript-simulation-example"></a>Przykład symulacji kodu JavaScript w modelu urządzenia
 
@@ -406,7 +405,7 @@ Skrypty metod są podobne do skryptów zachowań. Określają one zachowanie urz
 
 Skrypt odwoływania drona ustawia współrzędne drona na stały punkt, aby symulować drona zwracające stronę główną.
 
-Skopiuj poniższy kod JavaScript do edytora tekstów i Zapisz go jako **droneRecall-Method. js**.
+Skopiuj poniższy kod JavaScript do edytora tekstów i Zapisz go jako **droneRecall-method.js**.
 
 ### <a name="device-model-javascript-simulation-example"></a>Przykład symulacji kodu JavaScript w modelu urządzenia
 

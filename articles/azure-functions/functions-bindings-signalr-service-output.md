@@ -6,10 +6,9 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77530252"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi sygnalizującego dla Azure Functions
@@ -27,7 +26,7 @@ Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zoba
 
 Poniższy przykład pokazuje funkcję, która wysyła komunikat przy użyciu powiązania danych wyjściowych do wszystkich połączonych klientów. *Obiekt docelowy* jest nazwą metody, która ma być wywoływana na każdym kliencie. Właściwość *arguments* jest tablicą zero lub więcej obiektów do przesłania do metody klienta.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -46,9 +45,9 @@ public static Task SendMessage(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -81,9 +80,9 @@ public static Task Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -108,9 +107,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -157,7 +156,7 @@ public SignalRMessage sendMessage(
 
 Komunikat można wysłać tylko do połączeń, które zostały uwierzytelnione do użytkownika przez ustawienie *identyfikatora użytkownika* w komunikacie sygnalizującym.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -178,7 +177,7 @@ public static Task SendMessage(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -213,7 +212,7 @@ public static Task Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -240,9 +239,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -292,7 +291,7 @@ public SignalRMessage sendMessage(
 
 Komunikat można wysłać tylko do połączeń, które zostały dodane do grupy przez ustawienie *nazwy grupy* w komunikacie sygnalizującym.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -313,7 +312,7 @@ public static Task SendMessage(
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -348,7 +347,7 @@ public static Task Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -375,9 +374,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Tutaj podano dane powiązań w pliku *Function. JSON* :
+Poniżej przedstawiono powiązania danych w *function.js* pliku:
 
-Przykład Function. JSON:
+Przykład function.js:
 
 ```json
 {
@@ -425,9 +424,9 @@ public SignalRMessage sendMessage(
 
 ## <a name="group-management"></a>Zarządzanie grupami
 
-Usługa sygnalizująca pozwala dodawać użytkowników do grup. Komunikaty można następnie wysyłać do grupy. Możesz użyć powiązania `SignalR` danych wyjściowych do zarządzania członkostwem w grupie użytkownika.
+Usługa sygnalizująca pozwala dodawać użytkowników do grup. Komunikaty można następnie wysyłać do grupy. Możesz użyć `SignalR` powiązania danych wyjściowych do zarządzania członkostwem w grupie użytkownika.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="add-user-to-a-group"></a>Dodawanie użytkownika do grupy
 
@@ -476,7 +475,7 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> Aby można było `ClaimsPrincipal` poprawnie uzyskać powiązane powiązania, należy skonfigurować ustawienia uwierzytelniania w Azure Functions.
+> Aby można było poprawnie uzyskać `ClaimsPrincipal` powiązane powiązania, należy skonfigurować ustawienia uwierzytelniania w Azure Functions.
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
@@ -484,7 +483,7 @@ public static Task RemoveFromGroup(
 
 Poniższy przykład dodaje użytkownika do grupy.
 
-Przykład *Function. JSON*
+Przykład *function.jsna*
 
 ```json
 {
@@ -522,7 +521,7 @@ public static Task Run(
 
 Poniższy przykład usuwa użytkownika z grupy.
 
-Przykład *Function. JSON*
+Przykład *function.jsna*
 
 ```json
 {
@@ -557,7 +556,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Aby można było `ClaimsPrincipal` poprawnie uzyskać powiązane powiązania, należy skonfigurować ustawienia uwierzytelniania w Azure Functions.
+> Aby można było poprawnie uzyskać `ClaimsPrincipal` powiązane powiązania, należy skonfigurować ustawienia uwierzytelniania w Azure Functions.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -565,7 +564,7 @@ public static Task Run(
 
 Poniższy przykład dodaje użytkownika do grupy.
 
-Przykład *Function. JSON*
+Przykład *function.jsna*
 
 ```json
 {
@@ -577,7 +576,7 @@ Przykład *Function. JSON*
 }
 ```
 
-*index. js*
+*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -593,7 +592,7 @@ module.exports = async function (context, req) {
 
 Poniższy przykład usuwa użytkownika z grupy.
 
-Przykład *Function. JSON*
+Przykład *function.jsna*
 
 ```json
 {
@@ -605,7 +604,7 @@ Przykład *Function. JSON*
 }
 ```
 
-*index. js*
+*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -623,7 +622,7 @@ module.exports = async function (context, req) {
 
 Poniższy przykład dodaje użytkownika do grupy.
 
-Przykład *Function. JSON*
+Przykład *function.jsna*
 
 ```json
 {
@@ -650,7 +649,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 Poniższy przykład usuwa użytkownika z grupy.
 
-Przykład *Function. JSON*
+Przykład *function.jsna*
 
 ```json
 {
@@ -721,30 +720,30 @@ public SignalRGroupAction removeFromGroup(
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `SignalRConnectionInfo` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `SignalRConnectionInfo` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**| n/d | Musi być ustawiony na `signalRConnectionInfo`.|
-|**wskazywa**| n/d | Musi być ustawiony na `in`.|
-|**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
+|**Wprowadź**| nie dotyczy | Musi być ustawiony na `signalRConnectionInfo` .|
+|**wskazywa**| nie dotyczy | Musi być ustawiony na `in` .|
+|**Nazwij**| nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
-|**Nazwa**|**UserId**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
+|**Nazwa**|**Nazwa**| Opcjonalnie: wartość żądania identyfikatora użytkownika do ustawienia w tokenie klucza dostępu. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 
 ### <a name="signalr"></a>SignalR
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `SignalR` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `SignalR` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź**| n/d | Musi być ustawiony na `signalR`.|
-|**wskazywa**| n/d | Musi być ustawiony na `out`.|
-|**Nazwij**| n/d | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
+|**Wprowadź**| nie dotyczy | Musi być ustawiony na `signalR` .|
+|**wskazywa**| nie dotyczy | Musi być ustawiony na `out` .|
+|**Nazwij**| nie dotyczy | Nazwa zmiennej używana w kodzie funkcji dla obiektu informacji o połączeniu. |
 |**hubName**|**HubName**| Ta wartość musi być ustawiona na nazwę centrum sygnałów, dla którego są generowane informacje o połączeniu.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Nazwa ustawienia aplikacji zawierającego parametry połączenia usługi sygnalizującego (wartość domyślna to "AzureSignalRConnectionString"). |
 

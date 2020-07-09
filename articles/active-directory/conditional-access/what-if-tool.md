@@ -4,19 +4,18 @@ description: Dowiedz się, jak zrozumieć wpływ zasad dostępu warunkowego w da
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 02/25/2020
+ms.topic: conceptual
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620680"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85253141"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
 
@@ -40,7 +39,7 @@ W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ust
      
 Następnym krokiem jest zainicjowanie przebiegu symulacji, który służy do obliczania ustawień. Tylko zasady, które są włączone, są częścią przebiegu ewaluacyjnego.
 
-Po zakończeniu oceny narzędzie generuje raport dotyczący odpowiednich zasad.
+Po zakończeniu oceny narzędzie generuje raport dotyczący odpowiednich zasad. Aby zebrać więcej informacji na temat zasad dostępu warunkowego, [skoroszyt usługi Dostęp warunkowy i Raport z raportowania](howto-conditional-access-insights-reporting.md) mogą dostarczyć dodatkowe szczegóły dotyczące zasad w trybie tylko do raportowania i tych zasad, które są obecnie włączone.
 
 ## <a name="running-the-tool"></a>Uruchamianie narzędzia
 
@@ -104,6 +103,5 @@ Na liście zasad, które nie mają zastosowania do użytkownika, możesz równie
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli chcesz dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zobacz [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](app-based-mfa.md).
-- Aby skonfigurować zasady dostępu warunkowego dla środowiska, zobacz [najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](best-practices.md). 
-- Jeśli chcesz przeprowadzić migrację klasycznych zasad, zobacz [Migrowanie zasad klasycznych w Azure Portal](policy-migration.md)  
+- Więcej informacji na temat aplikacji zasady dostępu warunkowego można znaleźć za pomocą trybu tylko raportowanie zasad przy użyciu usługi [dostęp warunkowy i raportowania](howto-conditional-access-insights-reporting.md).
+- Jeśli wszystko jest gotowe do skonfigurowania zasad dostępu warunkowego dla danego środowiska, zobacz [zasady dostępu warunkowego](concept-conditional-access-policy-common.md). 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d190d3f133c4b12b58dade878dc66755c25e1ed8
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75974401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078378"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — Security i DevOps Best Practices
 
@@ -45,13 +45,13 @@ Wykonaj następujące kroki, aby wdrożyć przyłączony do domeny klaster usłu
     |Parametr |Opis |
     |---|---|
     |Nazwa domeny|Nazwa domeny skojarzona z usługą Azure AD DS.|
-    |Nazwa użytkownika domeny|Konto usługi w domenie zarządzanej przez kontroler domeny platformy Azure AD DS, która została utworzona w poprzedniej sekcji, na przykład `hdiadmin@contoso.onmicrosoft.com`:. Ten użytkownik domeny będzie administratorem tego klastra usługi HDInsight.|
+    |Nazwa użytkownika domeny|Konto usługi w domenie zarządzanej przez kontroler domeny platformy Azure AD DS, która została utworzona w poprzedniej sekcji, na przykład: `hdiadmin@contoso.onmicrosoft.com` . Ten użytkownik domeny będzie administratorem tego klastra usługi HDInsight.|
     |Hasło domeny|Hasło konta usługi.|
-    |Jednostka organizacyjna|Nazwa wyróżniająca jednostki organizacyjnej, która ma być używana z klastrem usługi HDInsight, na przykład `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`:. Jeśli ta jednostka organizacyjna nie istnieje, klaster usługi HDInsight podejmie próbę utworzenia jednostki organizacyjnej przy użyciu uprawnień konta usługi.|
-    |ADRES URL ADRESÓW LDAP|na przykład `ldaps://contoso.onmicrosoft.com:636`.|
-    |Dostęp do grupy użytkowników|Grupy zabezpieczeń, których użytkownicy mają synchronizować z klastrem, na przykład: `HiveUsers`. Jeśli chcesz określić wiele grup użytkowników, rozdziel je średnikami ";". Grupy muszą istnieć w katalogu przed utworzeniem klastra ESP.|
+    |Jednostka organizacyjna|Nazwa wyróżniająca jednostki organizacyjnej, która ma być używana z klastrem usługi HDInsight, na przykład: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com` . Jeśli ta jednostka organizacyjna nie istnieje, klaster usługi HDInsight podejmie próbę utworzenia jednostki organizacyjnej przy użyciu uprawnień konta usługi.|
+    |ADRES URL ADRESÓW LDAP|na przykład `ldaps://contoso.onmicrosoft.com:636` .|
+    |Dostęp do grupy użytkowników|Grupy zabezpieczeń, których użytkownicy mają synchronizować z klastrem, na przykład: `HiveUsers` . Jeśli chcesz określić wiele grup użytkowników, rozdziel je średnikami ";". Grupy muszą istnieć w katalogu przed utworzeniem klastra ESP.|
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Wprowadzenie do Apache Hadoop zabezpieczeń z przyłączonymi do domeny klastrami usługi HDInsight](../domain-joined/hdinsight-security-overview.md)
 - [Planowanie klastrów Apache Hadoop przyłączonych do domeny platformy Azure w usłudze HDInsight](../domain-joined/apache-domain-joined-architecture.md)
@@ -81,19 +81,19 @@ Kompleksowe zabezpieczenia przedsiębiorstwa można osiągnąć przy użyciu nas
     - Przezroczyste szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta.
     - W przypadku szyfrowania tranzytowego przy użyciu szyfrowania po stronie klienta, protokołu HTTPS i protokołu TLS.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Omówienie usługi Azure Virtual Networks](../../virtual-network/virtual-networks-overview.md)
 - [Omówienie grup zabezpieczeń sieci platformy Azure](../../virtual-network/security-overview.md)
 - [Wirtualne sieci równorzędne platformy Azure](../../virtual-network/virtual-network-peering-overview.md)
-- [Azure Storage security guide (Przewodnik po zabezpieczeniach usługi Azure Storage)](../../storage/blobs/security-recommendations.md)
+- [Azure Storage security guide](../../storage/blobs/security-recommendations.md) (Przewodnik po zabezpieczeniach usługi Azure Storage)
 - [Usługa Azure szyfrowanie usługi Storage w stanie spoczynku](../../storage/common/storage-service-encryption.md)
 
 ## <a name="use-monitoring--alerting"></a>Korzystanie z alertów & monitorowania
 
 Aby uzyskać więcej informacji, zobacz artykuł:
 
-[Omówienie usługi Azure Monitor](../../azure-monitor/overview.md)
+[Przegląd Azure Monitor](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>Uaktualnianie klastrów
 

@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 03/24/2020
-  ms.openlocfilehash: 3c68051c0df1cb2d15a1ef2bac6ea74fbf671f77
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: dae82c058d5d4e3b2f4c9003c2642456fa71b215
+  ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83591798"
+  ms.lasthandoff: 06/23/2020
+  ms.locfileid: "85211206"
 highlightedContent:
   items:
   - title: Co to są usługi Cognitive Services?
@@ -59,7 +59,7 @@ conceptualContent:
       text: Rozpoznawanie twarzy
     - url: ./form-recognizer/index.yml
       itemType: overview
-      text: Rozpoznawanie formularzy (wersja zapoznawcza)
+      text: Rozpoznawanie formularzy
     - url: ./ink-recognizer/index.yml
       itemType: overview
       text: Rozpoznawanie pisma odręcznego (wersja zapoznawcza)
@@ -90,9 +90,6 @@ conceptualContent:
     - url: ./speech-service/index.yml
       itemType: overview
       text: Usługa rozpoznawania mowy
-    - url: ./speaker-recognition/home.md
-      itemType: overview
-      text: Rozpoznawanie osoby mówiącej (wersja zapoznawcza)
   - title: Decyzja
     summary: Twórz aplikacje wyświetlające rekomendacje pozwalające skuteczniej podejmować lepsze decyzje.
     links:

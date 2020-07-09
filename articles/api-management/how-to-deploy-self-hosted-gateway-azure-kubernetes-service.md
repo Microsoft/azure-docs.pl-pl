@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82205120"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Wdrażanie w usłudze Azure Kubernetes Service
@@ -36,7 +36,7 @@ W tym artykule przedstawiono procedurę wdrażania składnika bramy samoobsługo
 5. Upewnij się, że wybrano **Kubernetes** w obszarze **Skrypty wdrażania**.
 6. Wybierz pozycję **<Gateway-name>. yml** **, aby pobrać** plik.
 7. W razie konieczności dostosuj mapowania portów i nazwę kontenera w pliku YML.
-8. W zależności od danego scenariusza może zajść potrzeba zmiany [typu usługi](https://docs.microsoft.com/azure/aks/concepts-network#services). Wartością domyślną jest `NodePort`.
+8. W zależności od danego scenariusza może zajść potrzeba zmiany [typu usługi](https://docs.microsoft.com/azure/aks/concepts-network#services). Wartość domyślna to `NodePort`.
 9. Wybierz ikonę **kopiowania** znajdującą się po prawej stronie pola tekstowego **Wdróż** , aby zapisać `kubectl` polecenie do Schowka.
 10. Wklej polecenie do okna terminalu (lub polecenia). Należy pamiętać, że polecenie oczekuje, że pobrany plik środowiska będzie obecny w bieżącym katalogu.
 ```console

@@ -14,11 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250623"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698516"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Rozszerzenie DSC dla systemu Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -85,14 +84,14 @@ Poniżej przedstawiono wszystkie obsługiwane parametry konfiguracji chronionej:
 ## <a name="scenarios"></a>Scenariusze
 
 ### <a name="register-an-azure-automation-account"></a>Rejestrowanie konta Azure Automation
-Protected. JSON
+protected.jsna
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
   "RegistrationKey": "<azure-automation-account-key>"
 }
 ```
-Public. JSON
+public.jsna
 ```json
 {
   "ExtensionAction" : "Register",
@@ -121,7 +120,7 @@ $publicConfig = '{
 
 ### <a name="apply-an-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Zastosuj plik konfiguracji MOF (na koncie usługi Azure Storage) do maszyny wirtualnej
 
-Protected. JSON
+protected.jsna
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -129,7 +128,7 @@ Protected. JSON
 }
 ```
 
-Public. JSON
+public.jsna
 ```json
 {
   "FileUri": "<mof-file-uri>",
@@ -153,7 +152,7 @@ $publicConfig = '{
 
 ### <a name="apply-an-mof-configuration-file-in-public-storage-to-the-vm"></a>Zastosuj plik konfiguracji MOF (w magazynie publicznym) do maszyny wirtualnej
 
-Public. JSON
+public.jsna
 ```json
 {
   "FileUri": "<mof-file-uri>"
@@ -169,7 +168,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Zastosuj plik konfiguracji meta MOF (na koncie usługi Azure Storage) do maszyny wirtualnej
 
-Protected. JSON
+protected.jsna
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -177,7 +176,7 @@ Protected. JSON
 }
 ```
 
-Public. JSON
+public.jsna
 ```json
 {
   "ExtensionAction": "Pull",
@@ -199,7 +198,7 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Zastosuj plik konfiguracji meta MOF (w magazynie publicznym) do maszyny wirtualnej
-Public. JSON
+public.jsna
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
@@ -215,14 +214,14 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-a-zip-file-in-an-azure-storage-account-to-the-vm"></a>Instalowanie niestandardowego modułu zasobów (pliku zip na koncie usługi Azure Storage) do maszyny wirtualnej
-Protected. JSON
+protected.jsna
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
-Public. JSON
+public.jsna
 ```json
 {
   "ExtensionAction": "Install",
@@ -244,7 +243,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-a-zip-file-in-public-storage-to-the-vm"></a>Instalowanie niestandardowego modułu zasobów (pliku zip w magazynie publicznym) do maszyny wirtualnej
-Public. JSON
+public.jsna
 ```json
 {
   "ExtensionAction": "Install",
@@ -260,7 +259,7 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>Usuwanie niestandardowego modułu zasobów z maszyny wirtualnej
-Public. JSON
+public.jsna
 ```json
 {
   "ResourceName": "<resource-name>",
@@ -287,9 +286,9 @@ Aby uzyskać więcej informacji na temat szablonu Azure Resource Manager, zobacz
 ## <a name="azure-cli-deployment"></a>Wdrożenie interfejsu wiersza polecenia platformy Azure
 
 ### <a name="use-azure-cliazure-cli"></a>Korzystanie z [interfejsu wiersza polecenia platformy Azure] [Azure-CLI]
-Przed wdrożeniem rozszerzenia DSCForLinux należy skonfigurować `public.json` i `protected.json` zgodnie z różnymi scenariuszami w sekcji 3.
+Przed wdrożeniem rozszerzenia DSCForLinux należy skonfigurować `public.json` i zgodnie z `protected.json` różnymi scenariuszami w sekcji 3.
 
-#### <a name="classic"></a>Wdrożenie klasyczne
+#### <a name="classic"></a>Klasyczny
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -327,7 +326,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 ### <a name="use-azure-powershellazure-powershell"></a>Użycie [Azure PowerShell] [Azure-PowerShell]
 
-#### <a name="classic"></a>Wdrożenie klasyczne
+#### <a name="classic"></a>Klasyczny
 
 Możesz zalogować się do konta platformy Azure w trybie zarządzania usługami platformy Azure, uruchamiając następujące operacje:
 

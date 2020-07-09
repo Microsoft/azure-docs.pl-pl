@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
+ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74870143"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85848949"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Wykonywanie zapytań o dane przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 
@@ -63,12 +63,15 @@ Zapytania w tym artykule korzystają z następującego przykładowego dokumentu.
 Bazując na powyższym przykładowym dokumencie dotyczącym rodziny, następujące zapytanie zwraca dokumenty, dla których pole id ma wartość `WakefieldFamily`.
 
 **Zapytanie**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Wyniki**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -106,19 +109,23 @@ Bazując na powyższym przykładowym dokumencie dotyczącym rodziny, następują
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
 ## <a name="example-query-2"></a><a id="examplequery2"></a>Przykładowe zapytanie 2 
 
 Następne zapytanie zwraca wszystkie dzieci w rodzinie. 
 
 **Zapytanie**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Wyniki**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -138,28 +145,37 @@ Następne zapytanie zwraca wszystkie dzieci w rodzinie.
         "grade": 8
       }
     ]
-    }
-
+}
+```
 
 ## <a name="example-query-3"></a><a id="examplequery3"></a> Przykładowe zapytanie 3 
 
 Następne zapytanie zwraca wszystkie zarejestrowane rodziny. 
 
 **Zapytanie**
-    
-    db.families.find( { "isRegistered" : true })
-**Wyniki** Nie zostanie zwrócony żaden dokument. 
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
+**Wyniki**
+
+Żaden dokument nie zostanie zwrócony. 
 
 ## <a name="example-query-4"></a><a id="examplequery4"></a> Przykładowe zapytanie 4
 
 Następne zapytanie zwraca wszystkie niezarejestrowane rodziny. 
 
 **Zapytanie**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Wyniki**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -193,18 +209,22 @@ Następne zapytanie zwraca wszystkie niezarejestrowane rodziny.
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-5"></a><a id="examplequery5"></a> Przykładowe zapytanie 5
 
 Następne zapytanie zwraca wszystkie rodziny, które nie zostały zarejestrowane i dla których stan to NY. 
 
 **Zapytanie**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Wyniki**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -238,19 +258,22 @@ Następne zapytanie zwraca wszystkie rodziny, które nie zostały zarejestrowane
     "creationDate": 1431620462,
     "isRegistered": false
 }
-
+```
 
 ## <a name="example-query-6"></a><a id="examplequery6"></a> Przykładowe zapytanie 6
 
 Następne zapytanie zwraca wszystkie rodziny, w których dzieci chodzą do 8 klasy.
 
 **Zapytanie**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Wyniki**
 
-     {
+```json
+{
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
     "id": "WakefieldFamily",
     "parents": [{
@@ -284,14 +307,17 @@ Następne zapytanie zwraca wszystkie rodziny, w których dzieci chodzą do 8 kla
     "creationDate": 1431620462,
     "isRegistered": false
 }
+```
 
 ## <a name="example-query-7"></a><a id="examplequery7"></a> Przykładowe zapytanie 7
 
 Następne zapytanie zwraca wszystkie rodziny, w których rozmiar tablicy z dziećmi to 3.
 
 **Zapytanie**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Wyniki**
 

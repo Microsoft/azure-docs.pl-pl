@@ -2,14 +2,13 @@
 title: Pojęcia — obsługa sieci w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się więcej na temat sieci w usłudze Azure Kubernetes Service (AKS), w tym korzystającą wtyczki kubenet i Azure CNI Networking, kontrolerów przychodzących, modułów równoważenia obciążenia i statycznych adresów IP.
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146052"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789501"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące sieci dla aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -129,6 +128,8 @@ Podczas tworzenia usługi typu modułu równoważenia obciążenia tworzony jest
 
 W programie AKS można utworzyć zasób transferu danych przychodzących przy użyciu elementu like NGINX lub użyć funkcji routingu aplikacji HTTP AKS. Po włączeniu routingu aplikacji protokołu HTTP dla klastra AKS platforma Azure tworzy kontroler transferu danych przychodzących i *zewnętrzny kontroler DNS* . Ponieważ nowe zasoby związane z ruchem przychodzącym są tworzone w Kubernetes, wymagane są rekordy A DNS w strefie DNS. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji http Routing][aks-http-routing].
 
+Dodatek Application Gateway transferu danych przychodzących (AGIC) umożliwia klientom AKS korzystanie z usługi równoważenia obciążenia na poziomie macierzystym Application Gateway w systemie Azure w celu udostępnienia oprogramowania chmury do Internetu. AGIC monitoruje klaster Kubernetes, na którym jest on hostowany, i ciągle aktualizuje Application Gateway, dzięki czemu wybrane usługi są dostępne w Internecie. Aby dowiedzieć się więcej na temat dodatku AGIC dla AKS, zobacz [co to jest Application Gateway kontroler][agic-overview] transferu danych przychodzących?
+
 Inną wspólną funkcją transferu danych przychodzących jest protokół SSL/TLS. W przypadku dużych aplikacji sieci Web, do których uzyskuje się dostęp za pośrednictwem protokołu HTTPS, zakończenie protokołu TLS może być obsługiwane przez zasób transferu danych przychodzących, a nie w samej aplikacji. Aby zapewnić automatyczną generację i konfigurację certyfikacji TLS, można skonfigurować zasób transferu danych przychodzących tak, aby korzystał z dostawców, takich jak szyfrowanie. Aby uzyskać więcej informacji na temat konfigurowania kontrolera NGINX ingresing z szyfrowaniem, zobacz artykuł dotyczący [protokołów przychodzących i TLS][aks-ingress-tls].
 
 Możesz również skonfigurować kontroler transferu danych przychodzących, aby zachować źródłowy adres IP klienta w przypadku żądań do kontenerów w klastrze AKS. Gdy żądanie klienta jest kierowane do kontenera w klastrze AKS za pośrednictwem kontrolera transferu danych przychodzących, oryginalny źródłowy adres IP tego żądania nie będzie dostępny dla kontenera docelowego. Po włączeniu *zachowywania źródłowego adresu IP klienta*jest dostępny źródłowy adres IP klienta w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z funkcji zachowywania źródłowych adresów IP klienta na kontrolerze transferu danych przychodzących nie można używać przekazywania protokołu TLS. Przechowywanie źródłowych adresów IP klienta i przekazywanie protokołu TLS mogą być używane z innymi usługami, takimi jak typ *modułu równoważenia obciążenia* .
@@ -180,6 +181,7 @@ Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Ku
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[agic-overview]: ../application-gateway/ingress-controller-overview.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md

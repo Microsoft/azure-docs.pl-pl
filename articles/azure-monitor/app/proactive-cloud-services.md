@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669747"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerty dotyczące problemów z usługą Azure Cloud Services przy użyciu integracji diagnostyki platformy Azure z platformą Azure Application Insights
@@ -111,7 +110,7 @@ Po zdefiniowaniu grupy akcji potwierdź zmiany i kliknij przycisk **Utwórz regu
 
 Dowiedz się więcej na temat automatycznego wykrywania:
 
-[Anomalie](../../azure-monitor/app/proactive-failure-diagnostics.md)
-niepowodzeń[przecieków pamięci](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalie błędów](../../azure-monitor/app/proactive-failure-diagnostics.md) 
+ [Przecieki pamięci](../../azure-monitor/app/proactive-potential-memory-leak.md) 
+ [Anomalie wydajności](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

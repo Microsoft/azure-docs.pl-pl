@@ -11,12 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194460"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Tworzenie jednostek Azure Data Factory przy użyciu szablonów
 > [!NOTE]
@@ -25,7 +24,7 @@ ms.locfileid: "81460736"
 ## <a name="overview"></a>Omówienie
 Korzystając z Azure Data Factory na potrzeby integracji danych, można odróżnić się od siebie w różnych środowiskach lub wielokrotnie wdrażać te same zadania w ramach tego samego rozwiązania. Szablony ułatwiają wdrażanie tych scenariuszy i zarządzanie nimi w prosty sposób. Szablony w Azure Data Factory doskonale nadają się do scenariuszy, które wymagają ponownego wykorzystania i powtórzenia.
 
-Rozważ sytuację, w której organizacja ma 10 zakładów produkcyjnych na całym świecie. Dzienniki z poszczególnych zakładów są przechowywane w oddzielnej lokalnej bazie danych SQL Server. Firma chce utworzyć pojedynczy magazyn danych w chmurze na potrzeby analiz ad hoc. Chce również mieć taką samą logikę, ale różne konfiguracje dla środowisk programistycznych, testowych i produkcyjnych.
+Rozważ sytuację, w której organizacja ma 10 zakładów produkcyjnych na całym świecie. Dzienniki z poszczególnych zakładów są przechowywane w oddzielnej bazie danych SQL Server. Firma chce utworzyć pojedynczy magazyn danych w chmurze na potrzeby analiz ad hoc. Chce również mieć taką samą logikę, ale różne konfiguracje dla środowisk programistycznych, testowych i produkcyjnych.
 
 W takim przypadku należy powtórzyć zadanie w tym samym środowisku, ale z różnymi wartościami w ramach 10 fabryk danych dla każdego zakładu produkcyjnego. W efekcie występuje **powtarzanie** . Tworzenia szablonów umożliwia abstrakcję tego przepływu ogólnego (to jest potoki mające te same działania w każdej fabryce danych), ale używa osobnego pliku parametrów dla każdego zakładu produkcyjnego.
 
@@ -48,7 +47,7 @@ Zapoznaj się z następującymi szablonami szybkiego startu platformy Azure w wi
 * [Tworzenie fabryki danych w celu kopiowania danych z usług Salesforce do obiektów blob platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
 * [Utwórz fabrykę danych, która tworzy łańcuch działań: kopiuje dane z serwera FTP do obiektów blob platformy Azure, wywołuje skrypt Hive w klastrze usługi HDInsight na żądanie w celu przekształcenia danych i kopiuje wyniki do Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
 
-Możesz bezpłatnie udostępniać szablony Azure Data Factory na [platformie Azure — szybki start](https://azure.microsoft.com/documentation/templates/). Zapoznaj się z [przewodnikiem po](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) opracowywaniu szablonów, które mogą być udostępniane za pośrednictwem tego repozytorium.
+Możesz korzystać z szablonów Azure Data Factory na [platformie Azure — szybki start](https://azure.microsoft.com/documentation/templates/). Zapoznaj się z [przewodnikiem po](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) opracowywaniu szablonów, które mogą być udostępniane za pośrednictwem tego repozytorium.
 
 Poniższe sekcje zawierają szczegółowe informacje dotyczące definiowania Data Factory zasobów w szablonie Menedżer zasobów.
 

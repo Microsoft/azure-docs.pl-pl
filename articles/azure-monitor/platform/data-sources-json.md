@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 407257dbe9fbfa560153d5044263fc4c947cb05c
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86111936"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Zbieranie niestandardowych źródeł danych JSON przy użyciu agenta Log Analytics dla systemu Linux w systemie Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -26,11 +26,11 @@ Niestandardowe źródła danych JSON można zbierać do [Azure monitor](data-pla
 
 ### <a name="configure-input-plugin"></a>Konfigurowanie wtyczki wejściowej
 
-Aby zebrać dane JSON w Azure Monitor, należy `oms.api.` dodać do początku taga Fluent w wtyczki wejściowej.
+Aby zebrać dane JSON w Azure Monitor, należy dodać `oms.api.` do początku taga Fluent w wtyczki wejściowej.
 
-Na przykład poniżej znajduje się oddzielny plik `exec-json.conf` konfiguracji `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`w programie.  Powoduje to użycie pozostałej `exec` wtyczki do uruchomienia polecenia zwinięcie co 30 sekund.  Dane wyjściowe tego polecenia są zbierane przez wtyczkę wyjściową JSON.
+Na przykład poniżej znajduje się oddzielny plik konfiguracji `exec-json.conf` w programie `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` .  Powoduje to użycie pozostałej wtyczki `exec` do uruchomienia polecenia zwinięcie co 30 sekund.  Dane wyjściowe tego polecenia są zbierane przez wtyczkę wyjściową JSON.
 
-```
+```xml
 <source>
   type exec
   command 'curl localhost/json.output'
@@ -52,14 +52,15 @@ Na przykład poniżej znajduje się oddzielny plik `exec-json.conf` konfiguracji
   retry_wait 30s
 </match>
 ```
-Dodany `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` plik konfiguracji musi mieć zmienioną własność przy użyciu następującego polecenia.
+
+Dodany plik konfiguracji musi `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` mieć zmienioną własność przy użyciu następującego polecenia.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
 ### <a name="configure-output-plugin"></a>Skonfiguruj wtyczkę wyjściową 
 Dodaj następującą konfigurację wtyczki wyjściowej do konfiguracji głównej w programie `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` lub jako oddzielny plik konfiguracji umieszczony w`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
-```
+```xml
 <match oms.api.**>
   type out_oms_api
   log_level info
@@ -77,18 +78,22 @@ Dodaj następującą konfigurację wtyczki wyjściowej do konfiguracji głównej
 ### <a name="restart-log-analytics-agent-for-linux"></a>Uruchom ponownie agenta Log Analytics dla systemu Linux
 Uruchom ponownie usługę Log Analytics Agent dla systemu Linux przy użyciu następującego polecenia.
 
-    sudo /opt/microsoft/omsagent/bin/service_control restart 
+```console
+sudo /opt/microsoft/omsagent/bin/service_control restart 
+```
 
 ## <a name="output"></a>Dane wyjściowe
-Dane będą zbierane w Azure Monitor z typem rekordu `<FLUENTD_TAG>_CL`.
+Dane będą zbierane w Azure Monitor z typem rekordu `<FLUENTD_TAG>_CL` .
 
-Na przykład tag `tag oms.api.tomcat` niestandardowy w Azure monitor z typem rekordu `tomcat_CL`.  Można pobrać wszystkie rekordy tego typu z następującym zapytaniem dziennika.
+Na przykład tag niestandardowy `tag oms.api.tomcat` w Azure monitor z typem rekordu `tomcat_CL` .  Można pobrać wszystkie rekordy tego typu z następującym zapytaniem dziennika.
 
-    Type=tomcat_CL
-
-Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON są zwracane z zapytania dziennika jako `tag_s : "[{ "a":"1", "b":"2" }]`.
-
+```console
+Type=tomcat_CL
 ```
+
+Zagnieżdżone źródła danych JSON są obsługiwane, ale są indeksowane na podstawie pola nadrzędnego. Na przykład następujące dane JSON są zwracane z zapytania dziennika jako `tag_s : "[{ "a":"1", "b":"2" }]` .
+
+```json
 {
     "tag": [{
         "a":"1",

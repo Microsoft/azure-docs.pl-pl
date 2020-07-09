@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85124055"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure
 W tym artykule opisano najlepsze rozwiązania dotyczące zabezpieczeń i szyfrowania danych.
@@ -121,7 +121,7 @@ Chcesz kontrolować i zabezpieczać wiadomości e-mail, dokumenty i dane poufne,
 
 Klasyfikacja jest identyfikowana przez cały czas, bez względu na to, gdzie są przechowywane dane lub do kogo są udostępniane. Etykiety zawierają oznaczenia wizualne, takie jak nagłówek, stopka lub znak wodny. Metadane dodawane do plików i nagłówków wiadomości e-mail mają postać zwykłego tekstu. Czysty tekst gwarantuje, że inne usługi, takie jak rozwiązania, które uniemożliwiają utratę danych, mogą identyfikować klasyfikację i podejmować odpowiednie działania.
 
-Technologia ochrony używa platformy Azure Rights Management (Azure RMS). Technologia ta jest zintegrowana z innymi usługami i aplikacjami chmurowymi firmy Microsoft, takimi jak Office 365 czy Azure Active Directory. Ta technologia ochrony używa zasad szyfrowania, tożsamości i autoryzacji. Ochrona zastosowana w Azure RMS pozostaje w dokumentach i wiadomościach e-mail niezależnie od lokalizacji — wewnątrz lub na zewnątrz organizacji, sieci, serwerów plików i aplikacji.
+Technologia ochrony używa platformy Azure Rights Management (Azure RMS). Ta technologia jest zintegrowana z innymi usługami i aplikacjami w chmurze firmy Microsoft, takimi jak Microsoft 365 i Azure Active Directory. Ta technologia ochrony używa zasad szyfrowania, tożsamości i autoryzacji. Ochrona zastosowana w Azure RMS pozostaje w dokumentach i wiadomościach e-mail niezależnie od lokalizacji — wewnątrz lub na zewnątrz organizacji, sieci, serwerów plików i aplikacji.
 
 To rozwiązanie do ochrony informacji pozwala zachować kontrolę nad danymi nawet wtedy, gdy są one udostępniane innym osobom. Możesz również użyć Azure RMS z własnymi aplikacjami biznesowymi i rozwiązaniami do ochrony informacji od dostawców oprogramowania, niezależnie od tego, czy te aplikacje i rozwiązania są lokalne, czy w chmurze.
 

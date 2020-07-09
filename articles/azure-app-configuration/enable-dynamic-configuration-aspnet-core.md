@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e9df6d2e7a8219d16e7b60f7c3b8d826a87e6110
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ac09aae724cf7481245ba9e898b52945b394cae
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80348853"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856519"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 
-ASP.NET Core ma podłączany System konfiguracyjny, który może odczytywać dane konfiguracji z różnych źródeł. Może dynamicznie obsługiwać zmiany bez powodowania ponownego uruchomienia aplikacji. ASP.NET Core obsługuje powiązanie ustawień konfiguracji z silnie wpisanąmi klasami platformy .NET. Wprowadza je do kodu przy użyciu różnych `IOptions<T>` wzorców. Jeden z tych wzorców, w `IOptionsSnapshot<T>`odmierzeniu, automatycznie ładuje konfigurację aplikacji, gdy zmieniają się dane bazowe. Wzorzec `IOptionsSnapshot<T>` możesz wprowadzać do kontrolerów w aplikacji, aby uzyskiwać dostęp do najnowszej konfiguracji przechowywanej w usłudze Azure App Configuration.
+ASP.NET Core ma podłączany System konfiguracyjny, który może odczytywać dane konfiguracji z różnych źródeł. Może dynamicznie obsługiwać zmiany bez powodowania ponownego uruchomienia aplikacji. ASP.NET Core obsługuje powiązanie ustawień konfiguracji z silnie wpisanąmi klasami platformy .NET. Wprowadza je do kodu przy użyciu różnych `IOptions<T>` wzorców. Jeden z tych wzorców, w `IOptionsSnapshot<T>` odmierzeniu, automatycznie ładuje konfigurację aplikacji, gdy zmieniają się dane bazowe. Wzorzec `IOptionsSnapshot<T>` możesz wprowadzać do kontrolerów w aplikacji, aby uzyskiwać dostęp do najnowszej konfiguracji przechowywanej w usłudze Azure App Configuration.
 
 Możesz również skonfigurować konfigurację aplikacji ASP.NET Coreą bibliotekę klienta, aby odświeżyć zestaw ustawień konfiguracji dynamicznie przy użyciu oprogramowania pośredniczącego. Ustawienia konfiguracji są aktualizowane z magazynem konfiguracji za każdym razem, gdy aplikacja sieci Web otrzymuje żądania.
 
@@ -60,13 +60,13 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
-1. Dodaj odwołanie do pakietu `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet, uruchamiając następujące polecenie:
+1. Dodaj odwołanie do `Microsoft.Azure.AppConfiguration.AspNetCore` pakietu NuGet, uruchamiając następujące polecenie:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Otwórz *program.cs*i zaktualizuj `CreateWebHostBuilder` metodę, aby dodać `config.AddAzureAppConfiguration()` metodę.
+1. Otwórz *program.cs*i zaktualizuj metodę, `CreateWebHostBuilder` Aby dodać `config.AddAzureAppConfiguration()` metodę.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -113,9 +113,9 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     ```
     ---
 
-    Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do aktualizowania danych konfiguracji z magazynem konfiguracji aplikacji w przypadku wyzwolenia operacji odświeżania. `refreshAll` Parametr do `Register` metody wskazuje, że wszystkie wartości konfiguracyjne powinny być odświeżane w przypadku zmiany klucza wskaźnikowego.
+    Ta `ConfigureRefresh` Metoda służy do określania ustawień służących do aktualizowania danych konfiguracji z magazynem konfiguracji aplikacji w przypadku wyzwolenia operacji odświeżania. `refreshAll`Parametr do `Register` metody wskazuje, że wszystkie wartości konfiguracyjne powinny być odświeżane w przypadku zmiany klucza wskaźnikowego.
 
-    Ponadto `SetCacheExpiration` metoda zastępuje domyślny czas wygaśnięcia pamięci podręcznej wynoszący 30 sekund, określając w zamian czas 5 minut. Zmniejsza to liczbę żądań wysyłanych do konfiguracji aplikacji.
+    Ponadto `SetCacheExpiration` Metoda zastępuje domyślny czas wygaśnięcia pamięci podręcznej wynoszący 30 sekund, określając w zamian czas 5 minut. Zmniejsza to liczbę żądań wysyłanych do konfiguracji aplikacji.
 
     > [!NOTE]
     > W celach testowych można obniżyć czas wygaśnięcia pamięci podręcznej.
@@ -137,7 +137,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     }
     ```
 
-3. Otwórz *Startup.cs*i Użyj `IServiceCollection.Configure<T>` `ConfigureServices` metody, aby powiązać dane konfiguracji z `Settings` klasą.
+3. Otwórz *Startup.cs*i Użyj `IServiceCollection.Configure<T>` metody, `ConfigureServices` Aby powiązać dane konfiguracji z `Settings` klasą.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -227,7 +227,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     using Microsoft.Extensions.Options;
     ```
 
-2. Zaktualizuj klasę `HomeController` , aby otrzymywać `Settings` dane przy użyciu iniekcji zależności, i użyj jej wartości.
+2. Zaktualizuj `HomeController` klasę, aby otrzymywać dane `Settings` przy użyciu iniekcji zależności, i użyj jej wartości.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -310,11 +310,16 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
 1. Aby skompilować aplikację przy użyciu interfejs wiersza polecenia platformy .NET Core, uruchom następujące polecenie w powłoce poleceń:
 
+```console
         dotnet build
+```
 
 1. Po pomyślnym zakończeniu kompilacji Uruchom następujące polecenie, aby uruchomić aplikację sieci Web lokalnie:
 
+```console
         dotnet run
+```
+
 1. Otwórz okno przeglądarki i przejdź do adresu URL pokazanego w `dotnet run` danych wyjściowych.
 
     ![Uruchamianie aplikacji szybkiego startu lokalnie](./media/quickstarts/aspnet-core-app-launch-local-before.png)
@@ -334,7 +339,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
     ![Uruchamianie zaktualizowanej aplikacji szybkiego startu lokalnie](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82188539"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Wprowadzenie do procedury obsługi rozszerzenia Azure Desired State Configuration
@@ -59,7 +59,7 @@ Gdy rozszerzenie jest wywoływane po raz pierwszy, instaluje wersję programu WM
 - Jeśli zostanie określona właściwość **wmfVersion** , jest zainstalowana ta wersja programu WMF, chyba że ta wersja jest niezgodna z systemem operacyjnym maszyny wirtualnej.
 - Jeśli właściwość **wmfVersion** nie zostanie określona, zostanie zainstalowana najnowsza odpowiednia wersja programu WMF.
 
-Instalowanie pakietu WMF wymaga ponownego uruchomienia. Po ponownym uruchomieniu rozszerzenie pobiera plik zip, który jest określony we właściwości **modulesUrl** , jeśli został podany. Jeśli ta lokalizacja znajduje się w usłudze Azure Blob Storage, możesz określić token SAS we właściwości **sasToken** , aby uzyskać dostęp do pliku. Po pobraniu i rozpakowaniu pliku zip funkcja konfiguracji zdefiniowana w **configurationFunction** uruchamia się w celu wygenerowania plik mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Rozszerzenie zostanie uruchomione `Start-DscConfiguration -Force` przy użyciu wygenerowanego pliku MOF. Rozszerzenie przechwytuje dane wyjściowe i zapisuje je w kanale stanu platformy Azure.
+Instalowanie pakietu WMF wymaga ponownego uruchomienia. Po ponownym uruchomieniu rozszerzenie pobiera plik zip, który jest określony we właściwości **modulesUrl** , jeśli został podany. Jeśli ta lokalizacja znajduje się w usłudze Azure Blob Storage, możesz określić token SAS we właściwości **sasToken** , aby uzyskać dostęp do pliku. Po pobraniu i rozpakowaniu pliku zip funkcja konfiguracji zdefiniowana w **configurationFunction** uruchamia się w celu wygenerowania plik mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Rozszerzenie zostanie uruchomione przy `Start-DscConfiguration -Force` użyciu wygenerowanego pliku MOF. Rozszerzenie przechwytuje dane wyjściowe i zapisuje je w kanale stanu platformy Azure.
 
 ### <a name="default-configuration-script"></a>Domyślny skrypt konfiguracji
 
@@ -115,7 +115,7 @@ Ważne informacje dotyczące Menedżer zasobów poleceń cmdlet rozszerzenia DSC
 
 Rozszerzenie DSC platformy Azure może używać dokumentów konfiguracji DSC do bezpośredniego konfigurowania maszyn wirtualnych platformy Azure podczas wdrażania. Ten krok nie rejestruje węzła do automatyzacji. Węzeł *nie* jest zarządzany centralnie.
 
-Poniższy przykład pokazuje prosty przykład konfiguracji. Zapisz konfigurację lokalnie jako iisInstall. ps1.
+Poniższy przykład pokazuje prosty przykład konfiguracji. Zapisz konfigurację lokalnie jako iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Poniższe polecenia umieszczają skrypt iisInstall. ps1 na określonej maszynie wirtualnej. Polecenia również wykonują konfigurację, a następnie raportują stan ponownie.
+Poniższe polecenia umieszczają skrypt iisInstall.ps1 na określonej maszynie wirtualnej. Polecenia również wykonują konfigurację, a następnie raportują stan ponownie.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -184,7 +184,7 @@ Portal zbiera następujące dane wejściowe:
 
 - **Moduły lub skrypty konfiguracyjne**: to pole jest obowiązkowe (formularz nie został zaktualizowany dla [domyślnego skryptu konfiguracji](#default-configuration-script)). Moduły konfiguracji i skrypty wymagają pliku. ps1, który ma skrypt konfiguracji lub plik zip z skryptem konfiguracyjnym. ps1 w katalogu głównym. Jeśli używasz pliku. zip, wszystkie zasoby zależne muszą być dołączone do folderów modułów w pliku zip. Plik zip można utworzyć za pomocą polecenia cmdlet **Publish-AzureVMDscConfiguration-OutputArchivePath** , które jest zawarte w zestawie SDK Azure PowerShell. Plik zip jest przekazywany do magazynu obiektów BLOB użytkownika i zabezpieczony za pomocą tokenu SAS.
 
-- **Kwalifikowana nazwa modułu konfiguracji**: w pliku ps1 można uwzględnić wiele funkcji konfiguracyjnych. Wprowadź nazwę skryptu Configuration. ps1, \\ a następnie nazwę funkcji konfiguracji. Na przykład jeśli skrypt. ps1 ma nazwę Configuration. ps1, a konfiguracja to **IisInstall**, wprowadź polecenie **Configuration. ps1\IisInstall**.
+- **Kwalifikowana nazwa modułu konfiguracji**: w pliku ps1 można uwzględnić wiele funkcji konfiguracyjnych. Wprowadź nazwę skryptu Configuration. ps1, \\ a następnie nazwę funkcji konfiguracji. Na przykład jeśli skrypt. ps1 ma nazwę configuration.ps1 a konfiguracja to **IisInstall**, wprowadź **configuration.ps1 \iisinstall**.
 
 - **Argumenty konfiguracji**: Jeśli funkcja konfiguracji przyjmuje argumenty, wprowadź je w tym miejscu w formacie **argumentName1 = wartość1, argumentName2 = wartość2**. Ten format jest innym formatem, w którym argumenty konfiguracji są akceptowane w poleceniach cmdlet programu PowerShell lub szablonach Menedżer zasobów.
 

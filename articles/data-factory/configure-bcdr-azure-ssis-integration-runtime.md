@@ -12,12 +12,11 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: 479e57a6001e143e233457967d55ea0e2fb6d3de
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021062"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84195709"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Konfigurowanie środowiska Azure-SSIS Integration Runtime z SQL Database replikacją geograficzną i trybem failover
 
@@ -29,11 +28,11 @@ Aby uzyskać więcej informacji na temat replikacji geograficznej i trybu failov
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="azure-ssis-ir-failover-with-a-sql-database-managed-instance"></a>Azure-SSIS IR trybu failover z wystąpieniem zarządzanym SQL Database
+## <a name="azure-ssis-ir-failover-with-a-sql-managed-instance"></a>Azure-SSIS IR trybu failover z wystąpieniem zarządzanym SQL
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Azure SQL Database wystąpienie zarządzane używa *klucza głównego bazy danych (DMK)* w celu zapewnienia bezpieczeństwa danych, poświadczeń i informacji o połączeniu przechowywanych w bazie danych. Aby włączyć automatyczne odszyfrowywanie DMK, kopia klucza jest szyfrowana za pomocą *klucza głównego serwera (klucza)*. 
+Wystąpienie zarządzane Azure SQL używa *klucza głównego bazy danych (DMK)* , aby pomóc w zabezpieczeniu danych, poświadczeń i informacji o połączeniu, które są przechowywane w bazie danych. Aby włączyć automatyczne odszyfrowywanie DMK, kopia klucza jest szyfrowana za pomocą *klucza głównego serwera (klucza)*. 
 
 KLUCZA nie jest replikowana w grupie trybu failover. Należy dodać hasło zarówno z wystąpienia podstawowego, jak i pomocniczego do odszyfrowania DMK po przejściu w tryb failover.
 
@@ -43,7 +42,7 @@ KLUCZA nie jest replikowana w grupie trybu failover. Należy dodać hasło zaró
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Utwórz grupę trybu failover dla Azure SQL Database wystąpienia zarządzanego.
+2. Utwórz grupę trybu failover w wystąpieniu zarządzanym SQL.
 
 3. Uruchom **sp_control_dbmasterkey_password** w wystąpieniu pomocniczym przy użyciu nowego hasła szyfrowania.
 
@@ -97,9 +96,9 @@ W przypadku przejścia w tryb failover wykonaj następujące czynności:
 
 3. Restart the Azure-SSIS IR.
 
-### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Database managed instance
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
 #### Solution
 

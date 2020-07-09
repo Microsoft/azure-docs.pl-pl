@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85477196"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Instrukcje: żądania oświadczeń niestandardowych przy użyciu MSAL dla systemów iOS i macOS
 
@@ -33,7 +33,7 @@ Istnieje wiele scenariuszy, w których jest to wymaganie. Przykład:
 > [!NOTE]
 > MSAL pomija pamięć podręczną tokenów dostępu za każdym razem, gdy żądanie oświadczeń jest określone. Należy podać `claimsRequest` parametr tylko wtedy, gdy potrzebne są dodatkowe oświadczenia (w przeciwieństwie do tego samego `claimsRequest` parametru w każdym wywołaniu interfejsu API MSAL).
 
-`claimsRequest`można określić w `MSALSilentTokenParameters` i `MSALInteractiveTokenParameters`:
+`claimsRequest`można określić w `MSALSilentTokenParameters` i `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!

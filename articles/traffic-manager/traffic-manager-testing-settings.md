@@ -5,17 +5,16 @@ services: traffic-manager
 author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: 94ab5e550f0053fa19b9b93f1d67690211543325
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b2ac056ef9140b4187eeb1850e56ba09b9755abb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938382"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84704033"
 ---
 # <a name="verify-traffic-manager-settings"></a>Weryfikowanie ustawień usługi Traffic Manager
 

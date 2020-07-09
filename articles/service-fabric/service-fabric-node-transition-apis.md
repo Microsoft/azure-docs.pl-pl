@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75609795"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Zastępowanie węzła początkowego i Zatrzymaj interfejsy API węzła przy użyciu interfejsu API przejścia węzła
@@ -31,7 +30,7 @@ Ponadto czas, przez jaki węzeł jest zatrzymany, ma wartość "nieskończone" d
 
 Te problemy zostały opisane powyżej w nowym zestawie interfejsów API.  Nowy interfejs API przejścia węzła (zarządzany: [StartNodeTransitionAsync ()][snt]) może służyć do przechodzenia do stanu *zatrzymanego* węzła Service Fabric lub przechodzenia z stanu *zatrzymanego* do normalnego.  Należy pamiętać, że "Start" w nazwie interfejsu API nie odwołuje się do uruchamiania węzła.  Odnosi się do rozpoczęcia operacji asynchronicznej wykonywanej przez system w celu przejścia węzła do stanu *zatrzymania* lub uruchomienia.
 
-**Wykorzystywani**
+**Użycie**
 
 Jeśli interfejs API przejścia węzła nie zgłasza wyjątku po wywołaniu, system zaakceptował operację asynchroniczną i wykona ją.  Pomyślne wywołanie nie oznacza, że operacja została jeszcze zakończona.  Aby uzyskać informacje o bieżącym stanie operacji, Wywołaj interfejs API postępu przejścia węzła (zarządzany: [GetNodeTransitionProgressAsync ()][gntp]) z identyfikatorem GUID używanym podczas wywoływania interfejsu API przejścia węzła dla tej operacji.  Interfejs API postępu przejścia węzła zwraca obiekt NodeTransitionProgress.  Właściwość stanu tego obiektu określa bieżący stan operacji.  Jeśli stan to "uruchomiona", wykonywana jest operacja.  Jeśli zostanie ukończona, operacja zakończyła się bez błędu.  Jeśli jest to błąd, wystąpił problem podczas wykonywania operacji.  Właściwość wyjątku właściwości wyniku wskazuje, co to jest problem.  Zobacz https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate , aby uzyskać więcej informacji na temat właściwości State oraz poniższej sekcji "Przykładowe użycie" dla przykładów kodu.
 

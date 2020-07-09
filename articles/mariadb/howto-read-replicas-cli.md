@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób konfigurowania replik odczytu i zarz
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/21/2020
-ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 6/10/2020
+ms.openlocfilehash: aff8eb27b1488f06edbc3ebd8c91b0a777837f91
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025054"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121116"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia platformy Azure i API REST
 
@@ -30,13 +30,16 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 
 ### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
 
+> [!IMPORTANT]
+> Gdy tworzysz replikę dla wzorca, który nie ma istniejących replik, wzorzec zostanie najpierw uruchomiony ponownie w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
+
 Serwer repliki odczytu można utworzyć przy użyciu następującego polecenia:
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-`az mariadb server replica create` Polecenie wymaga następujących parametrów:
+`az mariadb server replica create`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
@@ -44,7 +47,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | name | mydemoreplicaserver | Nazwa nowego serwera repliki, który został utworzony. |
 | source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera głównego, z którego ma być wykonywana replikacja. |
 
-Aby utworzyć replikę odczytu między regionami, `--location` Użyj parametru. 
+Aby utworzyć replikę odczytu między regionami, użyj `--location` parametru. 
 
 Poniższy przykład interfejsu wiersza polecenia tworzy replikę w regionie zachodnie stany USA.
 
@@ -66,7 +69,7 @@ Aby wyświetlić wszystkie repliki dla danego serwera głównego, uruchom nastę
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
 ```
 
-`az mariadb server replica list` Polecenie wymaga następujących parametrów:
+`az mariadb server replica list`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
@@ -84,7 +87,7 @@ Replikację na serwer repliki odczytu można zatrzymać przy użyciu następują
 az mariadb server replica stop --name mydemoreplicaserver --resource-group myresourcegroup
 ```
 
-`az mariadb server replica stop` Polecenie wymaga następujących parametrów:
+`az mariadb server replica stop`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |

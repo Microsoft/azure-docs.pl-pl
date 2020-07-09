@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76710333"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Informacje o firmie dotyczące etapów cyklu życia zespołu ds. analizy danych
@@ -74,7 +73,7 @@ Zidentyfikuj źródła danych zawierające znane przykłady odpowiedzi na Twoje 
 
 Na przykład może się okazać, że istniejące systemy muszą zbierać i rejestrować dodatkowe dane w celu rozwiązania problemu i osiągnięcia celów projektu. W takiej sytuacji warto szukać zewnętrznych źródeł danych lub zaktualizować systemy w celu zbierania nowych danych.
 
-## <a name="artifacts"></a>Artefakty
+## <a name="artifacts"></a>Artifacts
 Oto elementy dostarczane na tym etapie:
 
    * [Dokument czarteru](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): w definicji struktury projektu przetwarzania TDSP jest dostępny standardowy szablon. Dokument czarteru jest dokumentem żywymi. Uaktualniasz szablon w projekcie podczas wykonywania nowych odkrycia i jako zmiany wymagań firmy. Klucz ma na celu iterację w tym dokumencie i dodanie większej liczby szczegółów w trakcie procesu odnajdywania. Utrzymuj klientowi i innym uczestnikom zaangażowanym w wprowadzanie zmian i jasno poinformuj ich o przyczynach zmian.  

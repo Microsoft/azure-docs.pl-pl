@@ -4,16 +4,15 @@ description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows p
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79eaefb5cd8181bd471618761255bf38f464d735
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.openlocfilehash: 024a1ab1a7fef58bd5fd8f9e7e0fc743a4ecee71
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614917"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213163"
 ---
 # <a name="connect-with-the-macos-client"></a>Nawiązywanie połączenia z klientem systemu macOS
 
@@ -36,7 +35,7 @@ Aby subskrybować źródło danych:
 
 1. Wybierz pozycję **Dodaj obszar roboczy** na stronie głównej, aby nawiązać połączenie z usługą i pobrać zasoby.
 2. Wprowadź adres URL źródła danych. Może to być adres URL lub adres e-mail:
-   - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest <https://rdweb.wvd.microsoft.com>to adres URL.
+   - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest to adres URL <https://rdweb.wvd.microsoft.com> .
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
 3. Wybierz pozycję **Dodaj**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.

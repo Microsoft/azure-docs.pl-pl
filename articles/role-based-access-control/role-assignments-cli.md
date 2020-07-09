@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 95ec9a25f97154d8e2d0e2e5b5f9cd29cf7a9c31
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735780"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84983329"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ Aby dodać lub usunąć przypisania ról, musisz mieć:
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
 
-Aby dodać lub usunąć przypisania ról, może być konieczne określenie unikatowego identyfikatora obiektu. Identyfikator ma format: `11111111-1111-1111-1111-111111111111`. Identyfikator można uzyskać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
+Aby dodać lub usunąć przypisania ról, może być konieczne określenie unikatowego identyfikatora obiektu. Identyfikator ma format: `11111111-1111-1111-1111-111111111111` . Identyfikator można uzyskać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="user"></a>Użytkownik
 
@@ -69,10 +69,10 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli
 Aby dodać przypisanie roli dla użytkownika w zakresie grupy zasobów, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --resource-group {resourceGroup}
 ```
 
-Poniższy przykład przypisuje rolę *współautor maszyny wirtualnej* do *patlong\@contoso.com* użytkownika w zakresie grupy zasobów *Pharma-Sales* :
+Poniższy przykład przypisuje rolę *współautor maszyny wirtualnej* do *patlong \@ contoso.com* użytkownika w zakresie grupy zasobów *Pharma-Sales* :
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales
@@ -94,10 +94,10 @@ Nawet w przypadku zmiany nazwy roli identyfikator roli nie zmienia się. Jeśli 
 Aby dodać przypisanie roli przy użyciu unikatowego identyfikatora roli zamiast nazwy roli, użyj polecenia [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
+az role assignment create --role {roleId} --assignee {assignee} --resource-group {resourceGroup}
 ```
 
-Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do użytkownika *patlong\@contoso.com* w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć funkcji [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) lub zobaczyć [wbudowane role platformy Azure](built-in-roles.md).
+Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do użytkownika *patlong \@ contoso.com* w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć funkcji [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) lub zobaczyć [wbudowane role platformy Azure](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -108,7 +108,7 @@ az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee
 Aby dodać przypisanie roli dla grupy, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create). Aby uzyskać informacje na temat pobierania identyfikatora obiektu grupy, zobacz [pobieranie identyfikatorów obiektów](#get-object-ids).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
 ```
 
 Poniższy przykład przypisuje rolę *czytnika* do grupy *zespołu Ann Mack* o identyfikatorze 22222222-2222-2222-2222-222222222222 w zakresie subskrypcji.
@@ -132,7 +132,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Aby dodać przypisanie roli dla aplikacji, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create). Aby uzyskać informacje na temat pobierania identyfikatora obiektu aplikacji, zobacz [pobieranie identyfikatorów obiektów](#get-object-ids).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --resource-group {resourceGroup}
 ```
 
 Poniższy przykład przypisuje rolę *współautor maszyny wirtualnej* do aplikacji z identyfikatorem obiektu 44444444-4444-4444-4444-444444444444 w zakresie grupy zasobów *Pharma-Sales* .
@@ -146,10 +146,10 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 Aby dodać przypisanie roli dla użytkownika w zakresie subskrypcji, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create). Aby uzyskać identyfikator subskrypcji, możesz go znaleźć w bloku **subskrypcje** w Azure Portal lub użyć [AZ Account List](/cli/azure/account#az-account-list).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --subscription <subscription_name_or_id>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --subscription {subscriptionNameOrId}
 ```
 
-Poniższy przykład przypisuje rolę *czytnika* do użytkownika *annm\@example.com* w zakresie subskrypcji.
+Poniższy przykład przypisuje rolę *czytnika* do użytkownika *annm \@ example.com* w zakresie subskrypcji.
 
 ```azurecli
 az role assignment create --role "Reader" --assignee annm@example.com --subscription 00000000-0000-0000-0000-000000000000
@@ -160,10 +160,10 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 Aby dodać przypisanie roli dla użytkownika w zakresie grupy zarządzania, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create). Aby uzyskać identyfikator grupy zarządzania, można go znaleźć w bloku **grupy zarządzania** w Azure Portal lub użyć [AZ Account Management-Group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
+az role assignment create --role {roleNameOrId} --assignee {assignee} --scope /providers/Microsoft.Management/managementGroups/{groupId}
 ```
 
-Poniższy przykład przypisuje rolę *czytnika rozliczeń* do *użytkownika\@Alain example.com* w zakresie grupy zarządzania.
+Poniższy przykład przypisuje rolę *czytnika rozliczeń* do użytkownika *Alain \@ example.com* w zakresie grupy zarządzania.
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
@@ -173,10 +173,10 @@ az role assignment create --role "Billing Reader" --assignee alain@example.com -
 
 Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem. Na przykład, jeśli używasz skryptu do utworzenia nowej tożsamości zarządzanej, a następnie spróbujesz przypisać rolę do tej jednostki usługi, przypisanie roli może zakończyć się niepowodzeniem. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Nazwa główna usługi jest tworzona w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który jeszcze nie replikuje jednostki usługi. Aby rozwiązać ten scenariusz, należy określić typ podmiotu podczas tworzenia przypisania roli.
 
-Aby dodać przypisanie roli, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create), określ wartość dla `--assignee-object-id`, a następnie ustaw `--assignee-principal-type` jako. `ServicePrincipal`
+Aby dodać przypisanie roli, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create), określ wartość dla `--assignee-object-id` , a następnie ustaw `--assignee-principal-type` jako `ServicePrincipal` .
 
 ```azurecli
-az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --assignee-principal-type <assignee_principal_type> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+az role assignment create --role {roleNameOrId} --assignee-object-id {assigneeObjectId} --assignee-principal-type {assigneePrincipalType} --resource-group {resourceGroup} --scope /subscriptions/{subscriptionId}
 ```
 
 Poniższy przykład przypisuje rolę *współautor maszyny wirtualnej* do tożsamości zarządzanej przez *test MSI* w zakresie grupy zasobów *Pharma-Sales* :
@@ -190,10 +190,10 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie roli za pomocą polecenia [AZ role przypisanie Delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
-az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
+az role assignment delete --assignee {assignee} --role {roleNameOrId} --resource-group {resourceGroup}
 ```
 
-Poniższy przykład usuwa przypisanie roli *współautor maszyny wirtualnej* z użytkownika *patlong\@contoso.com* w grupie zasobów *Pharma-Sales* :
+Poniższy przykład usuwa przypisanie roli *współautor maszyny wirtualnej* z użytkownika *patlong \@ contoso.com* w grupie zasobów *Pharma-Sales* :
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
@@ -205,7 +205,7 @@ Poniższy przykład usuwa rolę *czytnika* z grupy *zespołu Ann Mack* o identyf
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-Poniższy przykład usuwa rolę *czytnika rozliczeń* z użytkownika *Alain\@example.com* w zakresie grupy zarządzania. Aby uzyskać identyfikator grupy zarządzania, można użyć [AZ Account Management-Group list](/cli/azure/account/management-group#az-account-management-group-list).
+Poniższy przykład usuwa rolę *czytnika rozliczeń* z użytkownika *Alain \@ example.com* w zakresie grupy zarządzania. Aby uzyskać identyfikator grupy zarządzania, można użyć [AZ Account Management-Group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment delete --assignee alain@example.com --role "Billing Reader" --scope /providers/Microsoft.Management/managementGroups/marketing-group

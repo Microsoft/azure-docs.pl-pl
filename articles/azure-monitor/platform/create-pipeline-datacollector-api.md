@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
 ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055108"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Tworzenie potoku danych za pomocą interfejsu API modułu zbierającego dane
@@ -61,7 +61,7 @@ Logic Apps dzisiaj nie ma wbudowanych funkcji umożliwiających łatwe przekszta
 W tym przykładzie analizujemy plik CSV, ale każdy inny typ pliku może być przetworzony w podobny sposób. Wystarczy zmodyfikować deserializacji części funkcji platformy Azure w celu odzwierciedlenia odpowiedniej logiki dla określonego typu danych.
 
 1.  Tworzenie nowej funkcji platformy Azure przy użyciu środowiska uruchomieniowego w wersji 1 i opartej na wykorzystaniu po wyświetleniu monitu.  Wybierz szablon **wyzwalacza http** przeznaczony dla języka C# jako punkt początkowy, który konfiguruje powiązania zgodnie z potrzebami. 
-2.  Na karcie **Wyświetlanie plików** w okienku po prawej stronie Utwórz nowy plik o nazwie **Project. JSON** i wklej następujący kod z pakietów NuGet, z których korzystamy:
+2.  Na karcie **Wyświetlanie plików** w okienku po prawej stronie Utwórz nowy plik o nazwie **project.jsna** i wklej następujący kod z pakietów NuGet, z których korzystamy:
 
     ![Przykładowy projekt Azure Functions](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     

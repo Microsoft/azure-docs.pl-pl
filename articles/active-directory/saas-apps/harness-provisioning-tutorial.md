@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057842"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu dla automatycznej aprowizacji użytkowników
@@ -53,7 +52,7 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 ## <a name="set-up-harness-for-provisioning"></a>Konfigurowanie programu dla aprowizacji
 
-1. Zaloguj się do [konsoli administracyjnej](https://app.harness.io/#/login)programu, a następnie przejdź do pozycji **ciągłe** > **Zarządzanie dostępem**do zabezpieczeń.
+1. Zaloguj się do [konsoli administracyjnej](https://app.harness.io/#/login)programu, a następnie przejdź do pozycji **ciągłe**  >  **Zarządzanie dostępem**do zabezpieczeń.
 
     ![Konsola administracyjna programu](media/harness-provisioning-tutorial/admin.png)
 
@@ -86,7 +85,7 @@ Przed skonfigurowaniem programu do automatycznej aprowizacji użytkowników przy
 
     ![Przycisk "Azure Active Directory"](common/select-azuread.png)
 
-1. Wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Łącze "wszystkie aplikacje"](common/enterprise-applications.png)
 
@@ -110,7 +109,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Aby skonfigurować automatyczną obsługę administracyjną dla programu obsługi w usłudze Azure AD, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -130,7 +129,7 @@ Aby skonfigurować automatyczną obsługę administracyjną dla programu obsług
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. W polu **adres URL dzierżawy** wprowadź **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** wartość.  
+   a. W polu **adres URL dzierżawy** wprowadź wartość **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
    b. W polu **token Secret** wprowadź wartość tokenu uwierzytelniania Standard scim, która została zapisana w kroku 6 sekcji "Konfigurowanie usługi dla aprowizacji".  
    c. Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z serwerem programu. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi klienta ma uprawnienia *administratora* , a następnie spróbuj ponownie.
 

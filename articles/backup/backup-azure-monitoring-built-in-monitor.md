@@ -4,16 +4,15 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294938"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84485104"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
-Azure Backup oferuje wiele rozwiązań do tworzenia kopii zapasowych opartych na wymaganiach dotyczących kopii zapasowych i topologii infrastruktury (lokalnie i na platformie Azure). Każdy użytkownik lub administrator kopii zapasowej powinien zobaczyć, co dzieje się we wszystkich rozwiązaniach, i powinien zostać powiadomiony w ważnych scenariuszach. W tym artykule opisano możliwości monitorowania i powiadamiania udostępniane przez usługę Azure Backup.
+Azure Backup oferuje wiele rozwiązań do tworzenia kopii zapasowych opartych na wymaganiach dotyczących kopii zapasowych i topologii infrastruktury (lokalnie i na platformie Azure). Każdy użytkownik kopii zapasowej lub administrator powinien zobaczyć, co się dzieje we wszystkich rozwiązaniach, i może zostać powiadomiony w ważnych scenariuszach. W tym artykule opisano możliwości monitorowania i powiadamiania udostępniane przez usługę Azure Backup.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Zadania tworzenia kopii zapasowej w magazynie Recovery Services
 
@@ -27,13 +26,13 @@ Poniżej przedstawiono zadania z następujących rozwiązań Azure Backup:
 
 - Kopia zapasowa maszyny wirtualnej platformy Azure
 - Kopia zapasowa plików platformy Azure
-- Tworzenie kopii zapasowych na platformie Azure, takich jak SQL i SAP HANA
+- Tworzenie kopii zapasowych platformy Azure, takich jak SQL i SAP HANA
 - Agent usługi Azure Backup (MAB)
 
 NIE są wyświetlane zadania z programu System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (serwera usługi MAB).
 
 > [!NOTE]
-> Obciążenia platformy Azure, takie jak SQL i SAP HANA Backup na maszynach wirtualnych platformy Azure, mają ogromną liczbę zadań tworzenia kopii zapasowych. Na przykład kopie zapasowe dzienników można uruchamiać co 15 minut. W związku z tym w przypadku takich obciążeń bazy danych wyświetlane są tylko operacje wyzwalane przez użytkownika. Zaplanowane operacje tworzenia kopii zapasowej nie są wyświetlane.
+> Obciążenia platformy Azure, takie jak SQL i SAP HANA Backup na maszynach wirtualnych platformy Azure, mają ogromną liczbę zadań tworzenia kopii zapasowych. Na przykład kopie zapasowe dzienników można uruchamiać co 15 minut. W przypadku takich obciążeń bazy danych wyświetlane są tylko operacje wyzwalane przez użytkownika. Zaplanowane operacje tworzenia kopii zapasowej nie są wyświetlane.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alerty kopii zapasowych w magazynie Recovery Services
 
@@ -59,7 +58,7 @@ Poniższe scenariusze są definiowane przez usługę jako scenariusze z alertami
 
 ### <a name="consolidated-alerts"></a>Skonsolidowane alerty
 
-W przypadku rozwiązań do tworzenia kopii zapasowych platformy Azure, takich jak SQL i SAP HANA, kopie zapasowe dzienników można generować bardzo często (do co 15 minut zgodnie z zasadami). Istnieje również możliwość, że błędy kopii zapasowej dziennika są również bardzo częste (do co 15 minut). W tym scenariuszu użytkownik końcowy zostanie przesunięty w przypadku zgłoszenia alertu dla każdego wystąpienia błędu. W związku z tym alert jest wysyłany dla pierwszego wystąpienia i jeśli kolejne błędy są spowodowane tą samą główną przyczyną, kolejne alerty nie są generowane. Pierwszy alert jest aktualizowany z liczbą błędów. Jeśli jednak alert zostanie zdezaktywowany przez użytkownika, następne wystąpienie wywoła kolejny alert i będzie traktowane jako pierwszy alert dla tego wystąpienia. Poniżej przedstawiono sposób, w jaki Azure Backup wykonuje konsolidację alertów dla kopii zapasowych SQL i SAP HANA.
+W przypadku rozwiązań do tworzenia kopii zapasowych platformy Azure, takich jak SQL i SAP HANA, kopie zapasowe dzienników można generować bardzo często (do co 15 minut zgodnie z zasadami). Istnieje również możliwość, że błędy kopii zapasowej dziennika są również bardzo częste (do co 15 minut). W tym scenariuszu użytkownik końcowy zostanie przesunięty w przypadku zgłoszenia alertu dla każdego wystąpienia błędu. W związku z tym alert jest wysyłany dla pierwszego wystąpienia i jeśli późniejsze błędy są spowodowane tą samą główną przyczyną, kolejne alerty nie są generowane. Pierwszy alert jest aktualizowany z liczbą błędów. Jeśli jednak alert zostanie zdezaktywowany przez użytkownika, następne wystąpienie wywoła kolejny alert i będzie traktowane jako pierwszy alert dla tego wystąpienia. Poniżej przedstawiono sposób, w jaki Azure Backup wykonuje konsolidację alertów dla kopii zapasowych SQL i SAP HANA.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Wyjątki w przypadku niezgłoszenia alertu
 
@@ -77,8 +76,8 @@ Powyższe wyjątki zostały zaprojektowane z myślą o tym, że wynik tych opera
 W oparciu o ważność alertu alerty można definiować w trzech typach:
 
 - **Krytyczny**: w zasadzie wszystkie błędy tworzenia kopii zapasowej lub odzyskiwania (zaplanowane lub wywołane przez użytkownika) spowodują wygenerowanie alertu i będą wyświetlane jako alert krytyczny, a także operacje niszczące, takie jak usuwanie kopii zapasowej.
-- **Ostrzeżenie**: Jeśli operacja tworzenia kopii zapasowej zakończy się pomyślnie, ale z kilkoma ostrzeżeniami, są one wyświetlane jako alerty ostrzegawcze.
-- **Informacyjny**: w dniu dzisiejszym usługa Azure Backup nie generuje alertu informacyjnego.
+- **Ostrzeżenie**: Jeśli operacja tworzenia kopii zapasowej zakończy się pomyślnie, ale z kilkoma ostrzeżeniami, są one wyświetlane jako alerty ostrzegawcze. Alerty ostrzegawcze są obecnie dostępne tylko dla kopii zapasowych agenta Azure Backup.
+- **Informacyjny**: obecnie nie jest generowany alert informacyjny przez usługę Azure Backup.
 
 ## <a name="notification-for-backup-alerts"></a>Powiadomienia o alertach dotyczących kopii zapasowych
 

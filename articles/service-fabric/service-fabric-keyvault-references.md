@@ -4,10 +4,9 @@ description: W tym artykule wyjaśniono, jak używać obsługi KeyVaultReference
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76545487"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Obsługa KeyVaultReference dla aplikacji Service Fabric (wersja zapoznawcza)
@@ -24,7 +23,7 @@ Typowym wyzwaniem podczas kompilowania aplikacji w chmurze jest sposób bezpiecz
 
     Magazyn centralnych wpisów tajnych (CSS) jest Service Fabric zaszyfrowanych lokalnych kluczy tajnych. CSS to lokalna pamięć podręczna magazynu lokalnego wpisu tajnego, która przechowuje dane poufne, takie jak hasło, tokeny i klucze, szyfrowane w pamięci. KeyVaultReference, po pobraniu znajdują się w pamięci podręcznej w CSS.
 
-    Dodaj poniżej do konfiguracji klastra, `fabricSettings` aby włączyć wszystkie funkcje wymagane do obsługi KeyVaultReference.
+    Dodaj poniżej do konfiguracji klastra, `fabricSettings` Aby włączyć wszystkie funkcje wymagane do obsługi KeyVaultReference.
 
     ```json
     "fabricSettings": 
@@ -88,7 +87,7 @@ Aby zmiany zaczęły obowiązywać, należy również zmienić zasady uaktualnia
 ## <a name="keyvault-secret-as-application-parameter"></a>Wpis tajny magazynu kluczy jako parametr aplikacji
 Załóżmy, że aplikacja musi odczytać hasło bazy danych zaplecza przechowywane w magazynie kluczy, Service Fabric pomoc techniczną KeyVaultReference. Poniżej przykład odczytuje `DBPassword` wpis tajny z magazynu kluczy przy użyciu Service Fabric KeyVaultReference.
 
-- Dodaj sekcję do pliku Settings. XML
+- Dodaj sekcję do settings.xml
 
     Zdefiniuj `DBPassword` parametr z typem `KeyVaultReference` i wartością`<KeyVaultURL>`
 
@@ -97,7 +96,7 @@ Załóżmy, że aplikacja musi odczytać hasło bazy danych zaplecza przechowywa
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Odwołuje się do nowej sekcji w ApplicationManifest. XML w`<ConfigPackagePolicies>`
+- Odwołuje się do nowej sekcji w ApplicationManifest.xml w`<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>
@@ -126,7 +125,7 @@ Załóżmy, że aplikacja musi odczytać hasło bazy danych zaplecza przechowywa
     }
     ```
     > [!NOTE] 
-    > W scenariuszu kontenera można użyć MountPoint, aby określić, `secrets` gdzie zostanie zainstalowana.
+    > W scenariuszu kontenera można użyć MountPoint, aby określić, gdzie `secrets` zostanie zainstalowana.
 
 ## <a name="keyvault-secret-as-environment-variable"></a>Wpis tajny magazynu kluczy jako zmienna środowiskowa
 

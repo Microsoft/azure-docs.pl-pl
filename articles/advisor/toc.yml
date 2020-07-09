@@ -4,13 +4,22 @@
   items:
     - name: Co to jest usługa Azure Advisor?
       href: advisor-overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Konfigurowanie alertów dla nowych rekomendacji
+      items:
+        - name: Azure Portal
+          href: advisor-alerts-portal.md
+        - name: Szablon ARM
+          displayName: Resource Manager
+          href: advisor-alerts-arm.md
 - name: Samouczki
   items:
     - name: Wprowadzenie do usługi Advisor
       href: advisor-get-started.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Zwiększanie dostępności aplikacji platformy Azure
+    - name: Zwiększanie niezawodności aplikacji platformy Azure
       href: advisor-high-availability-recommendations.md
     - name: Lepsze zabezpieczanie zasobów
       href: advisor-security-recommendations.md
@@ -25,7 +34,7 @@
     - name: Uprawnienia i zablokowane akcje
       href: permissions.md
     - name: Konfigurowanie alertów dla rekomendacji
-      href: advisor-alerts.md
+      href: advisor-alerts-portal.md
     - name: Korygowanie zbiorcze dla zaleceń
       href: advisor-quick-fix.md
     - name: Dane usługi Advisor w usłudze Azure Resource Graph
@@ -40,7 +49,7 @@
       href: 'https://docs.microsoft.com/azure/app-service/app-service-best-practices'
     - name: Interfejs API REST
       href: 'https://docs.microsoft.com/rest/api/advisor/'
-    - name: Interfejs wiersza polecenia
+    - name: Interfejs wiersza polecenia platformy Azure
       href: 'https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest'
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0'

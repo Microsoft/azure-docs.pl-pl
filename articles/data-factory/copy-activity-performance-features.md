@@ -1,6 +1,6 @@
 ---
 title: Funkcje optymalizacji wydajności działania kopiowania
-description: Zapoznaj się z kluczowymi funkcjami, które ułatwiają optymalizację wydajności działania kopiowania w programie Azure Data Factory.
+description: Poznaj najważniejsze funkcje, które ułatwiają optymalizację wydajności działania kopiowania w programie Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -11,13 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/09/2020
-ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/15/2020
+ms.openlocfilehash: dfd439affe488805b4645211477c6d32bbbe7489
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770938"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funkcje optymalizacji wydajności działania kopiowania
 
@@ -29,18 +28,18 @@ W tym artykule opisano funkcje optymalizacji wydajności działania kopiowania, 
 
 Jednostka integracji danych to miara, która reprezentuje moc (kombinację procesora CPU, pamięci i alokacji zasobów sieciowych) pojedynczej jednostki w Azure Data Factory. Jednostka integracji danych ma zastosowanie tylko do [środowiska Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime), ale nie do [własnego środowiska Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Dozwolony DIUs do upoważnienia do uruchomienia działania kopiowania jest z **przedziału od 2 do 256**. Jeśli nie zostanie określony, lub wybierzesz opcję "automatycznie" w interfejsie użytkownika, Data Factory dynamicznie zastosować optymalne ustawienie DIU na podstawie pary Source-sink i wzorca danych. W poniższej tabeli wymieniono obsługiwane zakresy DIU i domyślne zachowanie w różnych scenariuszach kopiowania:
+Dozwolony DIUs do upoważnienia do uruchomienia działania kopiowania jest z **przedziału od 2 do 256**. Jeśli nie zostanie określony, lub wybierzesz opcję "automatycznie" w interfejsie użytkownika, Data Factory dynamicznie stosuje optymalne ustawienie DIU na podstawie pary Source-sink i wzorca danych. W poniższej tabeli wymieniono obsługiwane zakresy DIU i domyślne zachowanie w różnych scenariuszach kopiowania:
 
 | Kopiuj scenariusz | Obsługiwany zakres DIU | Domyślna DIUs określona przez usługę |
 |:--- |:--- |---- |
 | Między magazynami plików |- **Kopiuj z lub do pojedynczego pliku**: 2-4 <br>- **Kopiuj z i do wielu plików**: 2-256, w zależności od liczby i rozmiaru plików <br><br>Na przykład, jeśli skopiujesz dane z folderu zawierającego 4 duże pliki i wybierzesz zachowanie hierarchii, maksymalna obowiązująca DIU wynosi 16; w przypadku wybrania opcji scalenia pliku maksymalna obowiązująca DIU to 4. |Od 4 do 32 w zależności od liczby i rozmiaru plików |
 | Ze sklepu plików do magazynu innego niż plik |- **Kopiuj z pojedynczego pliku**: 2-4 <br/>- **Kopiuj z wielu plików**: 2-256 w zależności od liczby i rozmiaru plików <br/><br/>Na przykład w przypadku kopiowania danych z folderu zawierającego 4 duże pliki maksymalna obowiązująca DIU to 16. |- **Kopiuj do Azure SQL Database lub Azure Cosmos DB**: od 4 do 16 w zależności od warstwy ujścia (DTU/jednostek ru) i wzorca pliku źródłowego<br>- **Kopiuj do usługi Azure Synapse Analytics** przy użyciu instrukcji Base lub Copy: 2<br>— Inny scenariusz: 4 |
-| Z magazynu innego niż plik do magazynu plików |- **Kopiuj z magazynów danych z włączoną obsługą partycji (w tym programu** [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)): 2-256 podczas zapisywania do folderu i 2-4 podczas zapisywania do jednego pojedynczego pliku. Uwaga na partycję danych źródłowych można użyć maksymalnie 4 DIUs.<br>- **Inne scenariusze**: 2-4 |- **Kopiuj z REST lub http**: 1<br/>- **Kopiowanie z usługi Amazon RedShift** przy użyciu usługi Unload: 2<br>- **Inny scenariusz**: 4 |
-| Między magazynami nienależącymi do plików |- **Kopiuj z magazynów danych z włączoną obsługą partycji (w tym programu** [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)): 2-256 podczas zapisywania do folderu i 2-4 podczas zapisywania do jednego pojedynczego pliku. Uwaga na partycję danych źródłowych można użyć maksymalnie 4 DIUs.<br/>- **Inne scenariusze**: 2-4 |- **Kopiuj z REST lub http**: 1<br>- **Inny scenariusz**: 4 |
+| Z magazynu innego niż plik do magazynu plików |- **Kopiuj z magazynów danych z włączoną obsługą partycji (w tym programu** [Oracle](connector-oracle.md#oracle-as-source) / [Netezza](connector-netezza.md#netezza-as-source) / [Teradata](connector-teradata.md#teradata-as-source)): 2-256 podczas zapisywania do folderu i 2-4 podczas zapisywania do jednego pojedynczego pliku. Uwaga na partycję danych źródłowych można użyć maksymalnie 4 DIUs.<br>- **Inne scenariusze**: 2-4 |- **Kopiuj z REST lub http**: 1<br/>- **Kopiowanie z usługi Amazon RedShift** przy użyciu usługi Unload: 2<br>- **Inny scenariusz**: 4 |
+| Między magazynami nienależącymi do plików |- **Kopiuj z magazynów danych z włączoną obsługą partycji (w tym programu** [Oracle](connector-oracle.md#oracle-as-source) / [Netezza](connector-netezza.md#netezza-as-source) / [Teradata](connector-teradata.md#teradata-as-source)): 2-256 podczas zapisywania do folderu i 2-4 podczas zapisywania do jednego pojedynczego pliku. Uwaga na partycję danych źródłowych można użyć maksymalnie 4 DIUs.<br/>- **Inne scenariusze**: 2-4 |- **Kopiuj z REST lub http**: 1<br>- **Inny scenariusz**: 4 |
 
 Można zobaczyć DIUs używany dla każdego przebiegu kopiowania w widoku monitorowania działania kopiowania lub w danych wyjściowych działania. Aby uzyskać więcej informacji, zobacz [monitorowanie aktywności kopiowania](copy-activity-monitoring.md). Aby zastąpić to ustawienie domyślne, określ wartość `dataIntegrationUnits` właściwości w następujący sposób. *Rzeczywista liczba DIUs* , których operacja kopiowania używa w czasie wykonywania, jest równa lub mniejsza niż skonfigurowana wartość, w zależności od wzorca danych.
 
-Zostanie naliczona opłata za **użycie jednostki czasu \* \* trwania kopiowania DIUs (cena jednostkowa)/DIU godzin**. Zobacz bieżące ceny [tutaj](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Waluta lokalna i oddzielne opłaty mogą dotyczyć poszczególnych typów subskrypcji.
+Zostanie naliczona opłata za **użycie \* jednostki czasu trwania kopiowania DIUs \* (cena jednostkowa)/DIU godzin**. Zobacz bieżące ceny [tutaj](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Waluta lokalna i oddzielne opłaty mogą dotyczyć poszczególnych typów subskrypcji.
 
 **Przykład:**
 
@@ -69,7 +68,7 @@ Zostanie naliczona opłata za **użycie jednostki czasu \* \* trwania kopiowania
 Jeśli chcesz osiągnąć wyższą przepływność, możesz skalować w górę lub w poziomie do własnego środowiska IR:
 
 - Jeśli użycie procesora CPU i dostępnej pamięci w węźle podczerwieni nie jest w pełni wykorzystane, ale wykonanie współbieżnych zadań zbliża się do limitu, należy skalować w górę, zwiększając liczbę współbieżnych zadań, które mogą być uruchamiane w węźle.  Aby uzyskać instrukcje, zobacz [tutaj](create-self-hosted-integration-runtime.md#scale-up) .
-- Jeśli z drugiej strony procesor CPU jest wysoki w węźle samodzielnego środowiska IR lub dostępna pamięć jest niska, można dodać nowy węzeł, aby ułatwić skalowanie obciążenia w wielu węzłach.  Aby uzyskać instrukcje, zobacz [tutaj](create-self-hosted-integration-runtime.md#high-availability-and-scalability) .
+- Jeśli z drugiej strony, procesor CPU jest wysoki w nieobsługiwanym przez siebie węźle IR lub dostępna pamięć jest niska, można dodać nowy węzeł, aby ułatwić skalowanie obciążenia w wielu węzłach.  Aby uzyskać instrukcje, zobacz [tutaj](create-self-hosted-integration-runtime.md#high-availability-and-scalability) .
 
 Należy pamiętać, że w następujących scenariuszach wykonywanie pojedynczego działania kopiowania może korzystać z wielu samodzielnych węzłów podczerwieni:
 
@@ -78,11 +77,11 @@ Należy pamiętać, że w następujących scenariuszach wykonywanie pojedynczego
 
 ## <a name="parallel-copy"></a>Kopiowanie równoległe
 
-Można ustawić kopiowanie równoległe (`parallelCopies` Właściwość) dla działania kopiowania, aby wskazać równoległość, która ma być używana przez działanie kopiowania. Tę właściwość można traktować jako maksymalną liczbę wątków w działaniu kopiowania odczytywanych ze źródła lub zapisywać do magazynów danych ujścia równolegle.
+Można ustawić kopiowanie równoległe ( `parallelCopies` Właściwość) dla działania kopiowania, aby wskazać równoległość, która ma być używana przez działanie kopiowania. Tę właściwość można traktować jako maksymalną liczbę wątków w działaniu kopiowania odczytywanych ze źródła lub zapisywać do magazynów danych ujścia równolegle.
 
 Równoległa kopia jest prostopadła do [jednostek integracji danych](#data-integration-units) lub [samodzielnych węzłów podczerwieni](#self-hosted-integration-runtime-scalability). Jest on liczony dla wszystkich DIUs lub samodzielnych węzłów IR.
 
-Dla każdego przebiegu działania kopiowania domyślnie Azure Data Factory dynamicznie stosować optymalne ustawienia kopiowania równoległego na podstawie pary i wzorca danych źródła. 
+Dla każdego przebiegu działania kopiowania domyślnie Azure Data Factory dynamicznie stosuje optymalne ustawienie kopiowania równoległego na podstawie pary i wzorca danych źródła. 
 
 > [!TIP]
 > Domyślne zachowanie funkcji kopiowania równoległego zwykle zapewnia najlepszą przepływność, która jest automatycznie określana przez funkcję ADF na podstawie pary Source-ujścia, wzorca danych i liczby DIUs lub obsługiwanego przez siebie procesora CPU/pamięci/węzłów środowiska IR. Zapoznaj się z tematem [Rozwiązywanie problemów z wydajnością operacji kopiowania](copy-activity-performance-troubleshooting.md) przy dostrojeniu kopii równoległej.
@@ -126,9 +125,9 @@ Po określeniu wartości `parallelCopies` właściwości należy zwiększyć obc
 
 W przypadku kopiowania danych ze źródłowego magazynu danych do magazynu danych ujścia można użyć usługi BLOB Storage jako tymczasowego magazynu przemieszczania. Przygotowanie jest szczególnie przydatne w następujących przypadkach:
 
-- **Chcesz pozyskać dane z różnych magazynów danych do SQL Data Warehouse za pośrednictwem bazy.** SQL Data Warehouse korzysta z bazy danych wbudowanych jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości dane do SQL Data Warehouse. Dane źródłowe muszą znajdować się w magazynie obiektów blob lub Azure Data Lake Store i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob lub Azure Data Lake Store można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Azure Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa metody Base, aby załadować dane do SQL Data Warehouse wydajnie. Aby uzyskać więcej informacji, zobacz [Korzystanie z bazy danych w celu ładowania do Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Chcesz pozyskać dane z różnych magazynów danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pośrednictwem bazy.** Usługa Azure Synapse Analytics korzysta z bazy jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości danych do usługi Azure Synapse Analytics. Dane źródłowe muszą znajdować się w magazynie obiektów blob lub Azure Data Lake Store i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob lub Azure Data Lake Store można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Azure Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa metody bazowej do wydajnego ładowania danych do usługi Azure Synapse Analytics. Aby uzyskać więcej informacji, zobacz [Korzystanie z bazy danych w celu ładowania do Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 - **Czasami trwa przeprowadzenie hybrydowego przenoszenia danych (czyli kopiowania z lokalnego magazynu danych do magazynu danych w chmurze) przez wolne połączenie sieciowe.** Aby zwiększyć wydajność, można użyć kopii przygotowanej do skompresowania danych w środowisku lokalnym, co pozwala na przenoszenie danych do tymczasowego magazynu danych w chmurze. Następnie można zdekompresować dane w magazynie przemieszczania przed załadowaniem do docelowego magazynu danych.
-- **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT.** Na przykład podczas kopiowania danych z lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia Azure SQL Data Warehouse, należy aktywować wychodzącą komunikację TCP na porcie 1433 dla zapory systemu Windows i zapory firmowej. W tym scenariuszu kopia przygotowana może korzystać z własnego środowiska Integration Runtime, aby najpierw skopiować dane do wystąpienia tymczasowego magazynu obiektów BLOB za pośrednictwem protokołu HTTP lub HTTPS na porcie 443. Następnie może załadować dane do SQL Database lub SQL Data Warehouse z przemieszczania magazynu obiektów BLOB. W tym przepływie nie trzeba włączać portu 1433.
+- **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT.** Na przykład podczas kopiowania danych z lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics należy aktywować wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej. W tym scenariuszu kopia przygotowana może korzystać z własnego środowiska Integration Runtime, aby najpierw skopiować dane do wystąpienia tymczasowego magazynu obiektów BLOB za pośrednictwem protokołu HTTP lub HTTPS na porcie 443. Następnie może załadować dane do SQL Database lub analizy Synapse Azure z usługi BLOB Storage. W tym przepływie nie trzeba włączać portu 1433.
 
 ### <a name="how-staged-copy-works"></a>Jak działa kopia przygotowana
 
@@ -138,16 +137,16 @@ Gdy uaktywniasz funkcję przemieszczania, najpierw dane są kopiowane ze źród�
 
 W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczania można określić, czy dane mają być kompresowane przed przeniesieniem danych ze źródłowego magazynu danych do tymczasowego lub przejściowego magazynu danych, a następnie zdekompresować przed przeniesieniem danych z tymczasowego lub przejściowego magazynu danych do magazynu danych ujścia.
 
-Obecnie nie można kopiować danych między dwoma magazynami danych, które są połączone za pośrednictwem różnych urzędów certyfikacji samodzielnych, ani z kopią etapową lub bez niej. W tym scenariuszu można skonfigurować dwa jawne działanie kopiowania w łańcuchu w celu skopiowania danych ze źródła do przemieszczania z miejsca przejściowego do ujścia.
+Obecnie nie można kopiować danych między dwoma magazynami danych, które są połączone za pośrednictwem różnych urzędów certyfikacji samodzielnych, ani z kopią etapową lub bez niej. W tym scenariuszu można skonfigurować dwa jawne działania kopiowania w łańcuchu w celu skopiowania danych ze źródła do przemieszczania z miejsca przejściowego do ujścia.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
-Skonfiguruj ustawienie **enableStaging** w działaniu kopiowania, aby określić, czy dane mają zostać przygotowane w magazynie obiektów BLOB przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na `TRUE`, określ dodatkowe właściwości wymienione w poniższej tabeli. Należy również utworzyć usługę Azure Storage lub usługi połączonej sygnatury dostępu współdzielonego na potrzeby przemieszczania, jeśli nie istnieje.
+Skonfiguruj ustawienie **enableStaging** w działaniu kopiowania, aby określić, czy dane mają zostać przygotowane w magazynie obiektów BLOB przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na `TRUE` , określ dodatkowe właściwości wymienione w poniższej tabeli. Należy również utworzyć usługę Azure Storage lub usługi połączonej sygnatury dostępu współdzielonego na potrzeby przemieszczania, jeśli nie istnieje.
 
-| Właściwość | Opis | Wartość domyślna | Wymagany |
+| Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | enableStaging |Określ, czy chcesz kopiować dane za pośrednictwem tymczasowego magazynu przemieszczania. |Fałsz |Nie |
-| linkedServiceName |Określ nazwę połączonej usługi [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do SQL Data Warehouse za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
+| linkedServiceName |Określ nazwę połączonej usługi [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do usługi Azure Synapse Analytics za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
 | ścieżka |Określ ścieżkę magazynu obiektów blob, która ma zawierać dane przemieszczane. Jeśli nie podano ścieżki, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko wtedy, gdy używasz magazynu z sygnaturą dostępu współdzielonego lub potrzebujesz danych tymczasowych, aby znajdować się w określonej lokalizacji. |Nie dotyczy |Nie |
 | Ustawieniem EnableCompression |Określa, czy dane mają być kompresowane przed skopiowaniem do lokalizacji docelowej. To ustawienie zmniejsza ilość przesyłanych danych. |Fałsz |Nie |
 

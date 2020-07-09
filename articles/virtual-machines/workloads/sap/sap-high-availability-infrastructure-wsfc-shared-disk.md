@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82594818"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP HA przy użyciu klastra trybu failover systemu Windows i dysku udostępnionego dla oprogramowania SAP ASCS/SCS
@@ -194,9 +194,9 @@ _**Rysunek 1.** Ustaw Azure Resource Manager parametry wysokiej dostępności SA
   Szablony tworzą:
 
   * **Maszyny wirtualne**:
-    * Maszyny wirtualne serwera aplikacji SAP: \<SAPSystemSID\>-di-\<Number\>
-    * Maszyny wirtualne klastra ASCS/SCS: \<SAPSystemSID\>-ASCS-\<Number\>
-    * Klaster DBMS: \<SAPSystemSID\>-DB-\<Number\>
+    * Maszyny wirtualne serwera aplikacji SAP: \<SAPSystemSID\> -di-\<Number\>
+    * Maszyny wirtualne klastra ASCS/SCS: \<SAPSystemSID\> -ASCS-\<Number\>
+    * Klaster DBMS: \<SAPSystemSID\> -DB-\<Number\>
 
   * **Karty sieciowe dla wszystkich maszyn wirtualnych ze skojarzonymi adresami IP**:
     * \<SAPSystemSID\>-nic-di-\<Number\>
@@ -206,16 +206,16 @@ _**Rysunek 1.** Ustaw Azure Resource Manager parametry wysokiej dostępności SA
   * **Konta usługi Azure Storage (tylko dyski niezarządzane)**:
 
   * **Grupy dostępności** dla:
-    * Maszyny wirtualne serwera aplikacji SAP: \<SAPSystemSID\>-avset-di
-    * Maszyny wirtualne w klastrze SAP ASCS/SCS \<:\>SAPSystemSID-avset-ASCS
-    * Maszyny wirtualne klastra DBMS: \<SAPSystemSID\>-avset-DB
+    * Maszyny wirtualne serwera aplikacji SAP: \<SAPSystemSID\> -avset-di
+    * Maszyny wirtualne w klastrze SAP ASCS/SCS: \<SAPSystemSID\> -avset-ASCS
+    * Maszyny wirtualne klastra DBMS: \<SAPSystemSID\> -avset-DB
 
   * **Wewnętrzny moduł równoważenia obciążenia platformy Azure**:
-    * Ze wszystkimi portami wystąpienia ASCS/SCS i adresem \<IP SAPSystemSID\>-lb-ASCS
-    * Ze wszystkimi portami dla SQL Server systemie DBMS i adresem \<IP\>SAPSystemSID-lb-DB
+    * Ze wszystkimi portami dla wystąpienia ASCS/SCS i adres IP \<SAPSystemSID\> -lb-ASCS
+    * Ze wszystkimi portami dla SQL Server DBMS i adres IP \<SAPSystemSID\> -lb-DB
 
-  * **Sieciowa Grupa zabezpieczeń**: \<SAPSystemSID\>-sieciowej grupy zabezpieczeń-ASCS-0  
-    * Z otwartym portem zewnętrznym Remote Desktop Protocol (RDP) \<z\>maszyną wirtualną SAPSystemSID-ASCS-0
+  * **Sieciowa Grupa zabezpieczeń**: \<SAPSystemSID\> -sieciowej grupy zabezpieczeń-ASCS-0  
+    * Z otwartym portem zewnętrznym Remote Desktop Protocol (RDP) z \<SAPSystemSID\> maszyną wirtualną-ASCS-0
 
 > [!NOTE]
 > Wszystkie adresy IP kart sieciowych i wewnętrznych modułów równoważenia obciążenia platformy Azure są domyślnie dynamiczne. Zmień je na statyczne adresy IP. Opisujemy, jak to zrobić w dalszej części artykułu.
@@ -305,7 +305,7 @@ Aby skonfigurować szablon wieloidentyfikatorowy ASCS/SCS, w szablonie [ASCS/SCS
 - **Nowa lub istniejąca podsieć**: Ustaw, czy chcesz utworzyć nową sieć wirtualną i podsieć, czy też użyć istniejącej podsieci. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
 - **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator zazwyczaj wygląda następująco:
 
-  Identyfikator\<\>subskrypcji/subscriptions//ResourceGroups/\<nazwa\>grupy zasobów/Providers/Microsoft.Network/virtualNetworks/\<nazwa sieci wirtualnej\>/Subnets/\<nazwa podsieci\>
+  /subscriptions/ \<subscription id\> /ResourceGroups/ \<resource group name\> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name\> /Subnets/\<subnet name\>
 
 Szablon wdraża jedno Azure Load Balancer wystąpienie, które obsługuje wiele systemów SAP:
 
@@ -410,7 +410,7 @@ Można ręcznie utworzyć pozostałe dwie nazwy hostów wirtualnych, PR1-ASCS-SA
 ## <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ustaw statyczne adresy IP dla maszyn wirtualnych SAP
 Po wdrożeniu maszyn wirtualnych do użycia w klastrze należy ustawić statyczne adresy IP dla wszystkich maszyn wirtualnych. Zrób to w konfiguracji Virtual Network platformy Azure, a nie w systemie operacyjnym gościa.
 
-1. W Azure Portal wybierz pozycję **Grupa** > zasobów**Ustawienia** > **karta** > sieciowa**adres IP**.
+1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia**karta sieciowa**  >  **Settings**  >  **adres IP**.
 2. W okienku **adresy IP** w obszarze **przypisanie**wybierz pozycję **statyczny**. W polu **adres IP** wprowadź adres IP, którego chcesz użyć.
 
    > [!NOTE]
@@ -479,15 +479,15 @@ Aby utworzyć wymagane punkty końcowe wewnętrznego równoważenia obciążenia
 
 | Nazwa reguły równoważenia obciążenia/usługi | Domyślne numery portów | Konkretne porty dla (wystąpienie ASCS z numerem wystąpienia 00) (wykres WYWOŁUJĄCYCH z 10) |
 | --- | --- | --- |
-| Serwer/ *lbrule3200* |32\<numerwystąpienia\> |3200 |
-| Serwer komunikatów ABAP/ *lbrule3600* |36\<numerwystąpienia\> |3600 |
-| Wewnętrzny komunikat ABAP/ *lbrule3900* |39\<numerwystąpienia\> |3900 |
-| Serwer komunikatów HTTP/ *Lbrule8100* |81\<numerwystąpienia\> |8100 |
-| Usługa SAP — uruchamianie usługi ASCS HTTP/ *Lbrule50013* |5\<numerwystąpienia\>13 |50013 |
-| Usługa SAP Start ASCS HTTPS/ *Lbrule50014* |5\<numerwystąpienia\>14 |50014 |
-| Replikacja/ *Lbrule50016* w kolejce |5\<numerwystąpienia\>16 |50016 |
-| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51013* |5\<numerwystąpienia\>13 |51013 |
-| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51014* |5\<numerwystąpienia\>14 |51014 |
+| Serwer/ *lbrule3200* |32\<InstanceNumber\> |3200 |
+| Serwer komunikatów ABAP/ *lbrule3600* |36\<InstanceNumber\> |3600 |
+| Wewnętrzny komunikat ABAP/ *lbrule3900* |39\<InstanceNumber\> |3900 |
+| Serwer komunikatów HTTP/ *Lbrule8100* |81\<InstanceNumber\> |8100 |
+| Usługa SAP — uruchamianie usługi ASCS HTTP/ *Lbrule50013* |5 \<InstanceNumber\> 13 |50013 |
+| Usługa SAP Start ASCS HTTPS/ *Lbrule50014* |5 \<InstanceNumber\> 14 |50014 |
+| Replikacja/ *Lbrule50016* w kolejce |5 \<InstanceNumber\> 16 |50016 |
+| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51013* |5 \<InstanceNumber\> 13 |51013 |
+| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51014* |5 \<InstanceNumber\> 14 |51014 |
 | Windows Remote Management (WinRM) *Lbrule5985* | |5985 |
 | *Lbrule445* udziału plików | |445 |
 
@@ -497,15 +497,15 @@ Następnie utwórz te punkty końcowe równoważenia obciążenia dla portów SA
 
 | Nazwa reguły równoważenia obciążenia/usługi | Domyślne numery portów | Konkretne porty dla (wystąpienie SCS z numerem wystąpienia 01) (wykres WYWOŁUJĄCYCH z 11) |
 | --- | --- | --- |
-| Serwer/ *lbrule3201* |32\<numerwystąpienia\> |3201 |
-| Serwer bramy/ *lbrule3301* |33\<numerwystąpienia\> |3301 |
-| Serwer wiadomości Java/ *lbrule3900* |39\<numerwystąpienia\> |3901 |
-| Serwer komunikatów HTTP/ *Lbrule8101* |81\<numerwystąpienia\> |8101 |
-| Usługa SAP — uruchamianie usługi SCS HTTP/ *Lbrule50113* |5\<numerwystąpienia\>13 |50113 |
-| Usługa SAP Start SCS HTTPS/ *Lbrule50114* |5\<numerwystąpienia\>14 |50114 |
-| Replikacja/ *Lbrule50116* w kolejce |5\<numerwystąpienia\>16 |50116 |
-| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51113* |5\<numerwystąpienia\>13 |51113 |
-| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51114* |5\<numerwystąpienia\>14 |51114 |
+| Serwer/ *lbrule3201* |32\<InstanceNumber\> |3201 |
+| Serwer bramy/ *lbrule3301* |33\<InstanceNumber\> |3301 |
+| Serwer wiadomości Java/ *lbrule3900* |39\<InstanceNumber\> |3901 |
+| Serwer komunikatów HTTP/ *Lbrule8101* |81\<InstanceNumber\> |8101 |
+| Usługa SAP — uruchamianie usługi SCS HTTP/ *Lbrule50113* |5 \<InstanceNumber\> 13 |50113 |
+| Usługa SAP Start SCS HTTPS/ *Lbrule50114* |5 \<InstanceNumber\> 14 |50114 |
+| Replikacja/ *Lbrule50116* w kolejce |5 \<InstanceNumber\> 16 |50116 |
+| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51113* |5 \<InstanceNumber\> 13 |51113 |
+| Usługa SAP Start wykres WYWOŁUJĄCYCH HTTP *Lbrule51114* |5 \<InstanceNumber\> 14 |51114 |
 | *Lbrule5985* WinRM | |5985 |
 | *Lbrule445* udziału plików | |445 |
 
@@ -521,7 +521,7 @@ Ustaw adres IP modułu równoważenia obciążenia PR1-lb-DBMS na adres IP nazwy
 
 Jeśli chcesz użyć różnych numerów dla wystąpień SAP ASCS lub SCS, należy zmienić nazwy i wartości ich portów z wartości domyślnych.
 
-1. W Azure Portal wybierz > kolejno ** \<pozycje\>SID-lb-ASCS****reguły równoważenia obciążenia**.
+1. W Azure Portal wybierz pozycję ** \<SID\> -lb ASCS**  >  **reguły równoważenia obciążenia**usługi równoważenia obciążenia.
 2. Dla wszystkich reguł równoważenia obciążenia należących do wystąpienia SAP ASCS lub SCS Zmień następujące wartości:
 
    * Nazwa
@@ -724,7 +724,7 @@ Konfigurowanie monitora udziału plików klastra obejmuje następujące zadania:
 
    _**Rysunek 26:** Wybierz monitor udziału plików_
 
-4. Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\domcontr-0\FSW). Aby wyświetlić listę zmian, które można wprowadzić, wybierz pozycję **dalej**.
+4. Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\ domcontr-0\FSW). Aby wyświetlić listę zmian, które można wprowadzić, wybierz pozycję **dalej**.
 
    ![Ilustracja 27. Definiowanie lokalizacji udziału plików dla udziału monitora][sap-ha-guide-figure-3026]
 
@@ -769,7 +769,7 @@ Istnieją dwa sposoby dodawania .NET Framework 3,5:
 
   _**Rysunek 30:** Pasek postępu instalacji podczas instalowania .NET Framework 3,5 przy użyciu Kreatora dodawania ról i funkcji_
 
-- Użyj narzędzia wiersza polecenia Dism. exe. W przypadku tego typu instalacji należy uzyskać dostęp do katalogu SxS na nośniku instalacyjnym systemu Windows. W wierszu polecenia z podwyższonym poziomem uprawnień wprowadź następujące polecenie:
+- Użyj narzędzia wiersza polecenia dism.exe. W przypadku tego typu instalacji należy uzyskać dostęp do katalogu SxS na nośniku instalacyjnym systemu Windows. W wierszu polecenia z podwyższonym poziomem uprawnień wprowadź następujące polecenie:
 
   ```
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess

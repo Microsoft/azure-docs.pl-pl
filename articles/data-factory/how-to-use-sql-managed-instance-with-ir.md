@@ -1,6 +1,6 @@
 ---
-title: Używanie Azure SQL Database wystąpienia zarządzanego z platformą Azure SQL Server Integration Services (SSIS) w Azure Data Factory
-description: Dowiedz się, jak używać Azure SQL Database wystąpienia zarządzanego z usługą SQL Server Integration Services (SSIS) w Azure Data Factory.
+title: Korzystanie z wystąpienia zarządzanego Azure SQL na platformie Azure — SQL Server Integration Services (SSIS) w systemie Azure Data Factory
+description: Dowiedz się, jak używać wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,46 +11,46 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: cd07bf86852d608a6d872f4c6b973b0a81b2a1c3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015288"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082288"
 ---
-# <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Użyj Azure SQL Database wystąpienia zarządzanego z SQL Server Integration Services (SSIS) w Azure Data Factory
+# <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Korzystanie z wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration Services (SSIS) do chmury platformy Azure. Wdrażaj i uruchamiaj projekty SSIS oraz pakiety na Azure SQL Database lub SQL Database zarządzanej instancji przy użyciu znanych narzędzi, takich jak SQL Server Management Studio (SSMS). W tym artykule przedstawiono następujące obszary dotyczące korzystania z Azure SQL Database wystąpienia zarządzanego z usługą Azure-SSIS Integration Runtime (IR):
+Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration Services (SSIS) do chmury platformy Azure. Wdrażaj i uruchamiaj projekty SSIS oraz pakiety na Azure SQL Database lub wystąpieniu zarządzanym SQL oraz zarządzaj nimi przy użyciu znanych narzędzi, takich jak SQL Server Management Studio (SSMS). W tym artykule przedstawiono następujące obszary dotyczące używania wystąpienia zarządzanego Azure SQL z usługą Azure-SSIS Integration Runtime (IR):
 
-- [Inicjowanie obsługi Azure-SSIS IR przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez wystąpienie zarządzane Azure SQL Database](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
+- [Inicjowanie obsługi Azure-SSIS IR przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez wystąpienie zarządzane Azure SQL](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Wykonywanie pakietów usług SSIS za pomocą zadania agenta wystąpienia zarządzanego usługi Azure SQL](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Czyszczenie dzienników SSISDB za pomocą zadania agenta wystąpienia zarządzanego Azure SQL](#clean-up-ssisdb-logs)
-- [Azure-SSIS IR trybu failover z wystąpieniem Azure SQL Database zarządzanym](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku APD z Azure SQL Database wystąpieniem zarządzanym jako miejsce docelowe obciążeń bazy danych](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
+- [Azure-SSIS IR trybu failover z wystąpieniem zarządzanym usługi Azure SQL](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku ADF z wystąpieniem zarządzanym usługi Azure SQL jako miejscem docelowym obciążenia bazy danych](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Udostępnianie Azure-SSIS IR z usługą SSISDB hostowaną przez wystąpienie zarządzane Azure SQL
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Włącz Azure Active Directory (Azure AD) na wystąpieniu zarządzanym Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), wybierając Azure Active Directory uwierzytelnianie.
+1. [Włącz usługę Azure Active Directory (Azure AD) w wystąpieniu zarządzanym Azure SQL](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), wybierając pozycję Azure Active Directory Authentication (uwierzytelnianie).
 
 1. Wybierz sposób połączenia wystąpienia zarządzanego SQL, za pośrednictwem prywatnego punktu końcowego lub za pośrednictwem publicznego punktu końcowego:
 
     - Za pośrednictwem prywatnego punktu końcowego (preferowany)
 
         1. Wybierz sieć wirtualną, dla której chcesz dołączyć Azure-SSIS IR:
-            - W tej samej sieci wirtualnej co wystąpienie zarządzane SQL z **inną podsiecią**.
-            - W innej sieci wirtualnej niż wystąpienie zarządzane SQL za pośrednictwem komunikacji równorzędnej sieci wirtualnych (ograniczone do tego samego regionu ze względu na globalne ograniczenia wirtualnych sieci równorzędnej) lub połączenie z sieci wirtualnej z siecią wirtualną.
+            - W tej samej sieci wirtualnej co wystąpienie zarządzane z **inną podsiecią**.
+            - Wewnątrz innej sieci wirtualnej niż wystąpienia zarządzanej za pośrednictwem komunikacji równorzędnej sieci wirtualnej (ograniczonej do tego samego regionu ze względu na globalne ograniczenia wirtualnych sieci równorzędnych) lub połączenia z sieci wirtualnej z siecią wirtualną.
 
-            Aby uzyskać więcej informacji na temat łączności wystąpienia zarządzanego SQL, zobacz [łączenie aplikacji z Azure SQL Database wystąpieniem zarządzanym](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Aby uzyskać więcej informacji na temat łączności wystąpienia zarządzanego SQL, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Konfigurowanie sieci wirtualnej](#configure-virtual-network).
 
     - Za pośrednictwem publicznego punktu końcowego
 
-        Azure SQL Database wystąpienia zarządzane mogą zapewniać łączność za pośrednictwem [publicznych punktów końcowych](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Wymagania dotyczące ruchu przychodzącego i wychodzącego muszą być spełnione, aby umożliwić ruch między wystąpieniem zarządzanym SQL i Azure-SSIS IR:
+        Wystąpienia zarządzane usługi Azure SQL mogą zapewniać łączność za pośrednictwem [publicznych punktów końcowych](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Wymagania dotyczące ruchu przychodzącego i wychodzącego muszą być spełnione, aby umożliwić ruch między wystąpieniem zarządzanym SQL i Azure-SSIS IR:
 
         - gdy nie Azure-SSIS IR w sieci wirtualnej (preferowany)
 
@@ -116,7 +116,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Zezwalaj na ruch wychodzący do wystąpienia zarządzanego SQL. Jeśli dla zasad połączenia ustawiono wartość **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do uzyskiwania dostępu do usług platformy Azure, takich jak Azure Storage i Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z tematem [Korzystanie z usługi Azure ExpressRoute lub trasy zdefiniowanej przez użytkownika (UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
-        | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+        | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
         |||||||
 
         1. **Wymagania przychodzące Azure-SSIS IR**, aby zezwolić na ruch wymagany przez Azure-SSIS IR.
@@ -147,7 +147,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
 
     ![wykaz — publiczny — punkt końcowy](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Aby uzyskać więcej informacji o sposobie włączania uwierzytelniania usługi Azure AD, zobacz [Włączanie usługi Azure AD na Azure SQL Database wystąpienia zarządzanego](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
+    Aby uzyskać więcej informacji o sposobie włączania uwierzytelniania usługi Azure AD, zobacz [Włączanie usługi Azure AD w wystąpieniu zarządzanym usługi Azure SQL](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Dołącz Azure-SSIS IR do sieci wirtualnej, jeśli ma zastosowanie.
 

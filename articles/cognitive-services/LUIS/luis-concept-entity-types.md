@@ -2,13 +2,13 @@
 title: Typy jednostek — LUIS
 description: Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682173"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676492"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
 
@@ -41,7 +41,9 @@ Podczas [gdy](luis-concept-intent.md) wymagane są wymagania, jednostki są opcj
 
 Podczas opracowywania aplikacji i tworzenia nowego zapotrzebowania na dane można później dodać odpowiednie jednostki do modelu LUIS.
 
-## <a name="entity-compared-to-intent"></a>Jednostka porównana z intencją
+<a name="entity-compared-to-intent"></a>
+
+## <a name="entity-represents-data-extraction"></a>Jednostka reprezentuje wyodrębnianie danych
 
 Jednostka reprezentuje koncepcję danych _w wypowiedź_. Celem jest sklasyfikowanie _całego wypowiedź_.
 
@@ -53,6 +55,10 @@ Weź pod uwagę następujące cztery wyrażenia długości:
 |Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie ma wymaganej funkcji do wyodrębnienia `something` w tym kontekście i nie podano odbiorcy.|
 |Wyślij Roberta|sendSomething|`Bob`, `present`|Model wyodrębnia `Bob` przez dodanie wymaganej funkcji wstępnie skompilowanej jednostki `personName` . Jednostka uczenia maszynowego została użyta do wyodrębnienia `present` .|
 |Wyślij Roberta do pudełka czekolady|sendSomething|`Bob`, `box of chocolates`|Dwie ważne fragmenty danych `Bob` i, które zostały `box of chocolates` wyodrębnione przez jednostki uczenia maszynowego.|
+
+## <a name="label-entities-in-all-intents"></a>Oznacz jednostki we wszystkich intencjach
+
+Jednostki wyodrębniają dane niezależnie od zamierzonego zamiaru. Upewnij się, że _wszystkie_ przykładowe wyrażenia długości we wszystkich intencjach zostały oznaczone. `None`Brak etykiety jednostki w zamierzeniu powoduje pomyłkę, nawet jeśli w przypadku innych intencji wyrażenia długości się znacznie więcej szkoleń.
 
 ## <a name="design-entities-for-decomposition"></a>Projektowanie jednostek do dekompozycji
 

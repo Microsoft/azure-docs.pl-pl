@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: db488e4a9ec9aa0f4f12c8de45f123dba1a93cdf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82112715"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85554132"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core
 W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET Core może się zalogować na kontach osobistych (hotmail.com, outlook.com, inne) i służbowych z dowolnego wystąpienia Azure Active Directory (Azure AD). (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
@@ -43,9 +43,9 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
 >    - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `AspNetCore-Quickstart`.
->    - W obszarze **URI przekierowania**Dodaj `https://localhost:44321/`i wybierz pozycję **zarejestruj**.
+>    - W obszarze **URI przekierowania**Dodaj `https://localhost:44321/` i wybierz pozycję **zarejestruj**.
 > 1. Wybierz menu **Uwierzytelnianie**, a następnie dodaj następujące informacje:
->    - W obszarze **identyfikatory URI przekierowania**Dodaj `https://localhost:44321/signin-oidc`i wybierz pozycję **Zapisz**.
+>    - W obszarze **identyfikatory URI przekierowania**Dodaj `https://localhost:44321/signin-oidc` i wybierz pozycję **Zapisz**.
 >    - W sekcji **Ustawienia zaawansowane** ustaw pole **Adres URL wylogowywania** na wartość `https://localhost:44321/signout-oidc`.
 >    - W obszarze **Niejawne przyznanie** zaznacz pole wyboru **Tokeny Identyfikatorów**.
 >    - Wybierz pozycję **Zapisz**.
@@ -143,9 +143,9 @@ public void ConfigureServices(IServiceCollection services)
 
 Metoda `AddAuthentication` konfiguruje usługę do dodawania uwierzytelniania opartego na plikach cookie, który jest używany w scenariuszach przeglądarki i do ustawiania wyzwania na OpenID Connect Connect.
 
-W wierszu zawierającym `.AddAzureAd` dodano uwierzytelnianie platformy tożsamości firmy Microsoft do aplikacji. Następnie jest on konfigurowany do logowania za pomocą punktu końcowego platformy tożsamości firmy Microsoft.
+W wierszu zawierającym `.AddAzureAd` Dodano uwierzytelnianie platformy tożsamości firmy Microsoft do aplikacji. Następnie jest on konfigurowany do logowania za pomocą punktu końcowego platformy tożsamości firmy Microsoft.
 
-> |Lokalizacja  |  |
+> |Lokalizacja | Opis |
 > |---------|---------|
 > | ClientId  | Identyfikator aplikacji (klient) z aplikacji zarejestrowanej w witrynie Azure Portal. |
 > | Urząd | Punkt końcowy usługi STS na potrzeby uwierzytelnienia użytkownika. Zazwyczaj jest to adres <https://login.microsoftonline.com/{tenant}/v2.0> dla chmury publicznej, gdzie parametr {tenant} jest nazwą dzierżawy, identyfikatorem dzierżawy lub ma wartość *common* na potrzeby odwołania do wspólnego punktu końcowego (używany dla aplikacji z wieloma dzierżawami) |
@@ -153,10 +153,10 @@ W wierszu zawierającym `.AddAzureAd` dodano uwierzytelnianie platformy tożsamo
 
 
 > [!NOTE]
-> Ustawienie `ValidateIssuer = false` to uproszczenie dla tego przewodnika Szybki Start. W rzeczywistych aplikacjach należy sprawdzić poprawność wystawcy.
+> Ustawienie to `ValidateIssuer = false` uproszczenie dla tego przewodnika Szybki Start. W rzeczywistych aplikacjach należy sprawdzić poprawność wystawcy.
 > Zapoznaj się z przykładami, aby dowiedzieć się, jak to zrobić.
 >
-> Należy również zwrócić `Configure` uwagę na metodę, która zawiera dwie `app.UserCookiePolicy()` ważne metody: i`app.UseAuthentication()`
+> Należy również zwrócić uwagę na `Configure` metodę, która zawiera dwie ważne metody: `app.UseCookiePolicy()` i`app.UseAuthentication()`
 
 ```csharp
 // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

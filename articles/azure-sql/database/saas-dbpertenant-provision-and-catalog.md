@@ -12,10 +12,9 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "84042813"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Dowiedz się, jak zainicjować obsługę nowych dzierżawców i zarejestrować je w wykazie
@@ -78,7 +77,7 @@ Wingtip bilety SaaS skrypty i kod źródłowy aplikacji są dostępne w repozyto
 
 Aby zrozumieć, w jaki sposób aplikacja biletów Wingtip implementuje nową obsługę dzierżawy, Dodaj punkt przerwania i postępuj zgodnie z przepływem pracy podczas aprowizacji dzierżawy.
 
-1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ProvisionAndCatalog \\ _demo-ProvisionAndCatalog. ps1_ i ustawiają następujące parametry:
+1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły edukacyjne \\ ProvisionAndCatalog \\ _Demo-ProvisionAndCatalog.ps1_ i ustawiają następujące parametry:
 
    * **$TenantName** = nazwa nowego miejsca (na przykład *Bushwillow Blues*).
    * **$VenueType** = jeden ze wstępnie zdefiniowanych typów miejsc: _Blues, ClassicalMusic, odpowiedzialna, Jazz, judo, wyścigi mechaniczne, Multipurpose, Opera, ROCKMUSIC, piłka nożna_.
@@ -116,7 +115,7 @@ Nie musisz jawnie obserwować tego przepływu pracy. Wyjaśniono, jak debugować
 
     Nazwa bazy danych jest tworzona na podstawie nazwy dzierżawy, aby było jasne, który fragment należy do której dzierżawy. Można również użyć innych konwencji nazewnictwa baz danych. Szablon Menedżer zasobów tworzy bazę danych dzierżawy przez skopiowanie bazy danych szablonów (_baseTenantDB_) na serwerze wykazu. Alternatywnie można utworzyć bazę danych i zainicjować ją przez zaimportowanie BACPAC. Lub można wykonać skrypt inicjujący ze dobrze znanej lokalizacji.
 
-    Szablon Menedżer zasobów znajduje się w folderze. ..\Learning Modules\Common\: *tenantdatabasecopytemplate. JSON*
+    Szablon Menedżer zasobów znajduje się w folderze. ..\Learning Modules\Common\: *tenantdatabasecopytemplate.json*
 
 * **Baza danych dzierżawy jest już zainicjowana.** Dodawane są nazwy miejsca (dzierżawy) i typu miejsca. Możesz również wykonać inne inicjalizacje tutaj.
 
@@ -136,7 +135,7 @@ Po zakończeniu aprowizacji, wykonanie powraca do oryginalnego skryptu *demonstr
 
 W tym ćwiczeniu zainicjujemy partię 17 dzierżawców. Zalecamy udostępnienie tej partii dzierżawców przed rozpoczęciem innych biletów Wingtip SaaSych samouczków bazy danych dla dzierżawców. Istnieje więcej niż kilka baz danych, z którymi można współpracować.
 
-1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ProvisionAndCatalog \\ *demo-ProvisionAndCatalog. ps1*. Zmień parametr *$DemoScenario* na 3:
+1. W ISE programu PowerShell Otwórz pozycję... \\ Moduły uczenia \\ ProvisionAndCatalog \\ *Demo-ProvisionAndCatalog.ps1*. Zmień parametr *$DemoScenario* na 3:
 
    * **$DemoScenario**  =  **3**, *Zainicjuj obsługę partii dzierżawców*.
 2. Aby uruchomić skrypt, naciśnij klawisz F5.

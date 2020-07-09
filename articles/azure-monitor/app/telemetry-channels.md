@@ -5,21 +5,20 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275700"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84691955"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Kanały telemetrii w Application Insights
 
-Kanały telemetrii są integralną częścią [zestawów sdk Application Insights platformy Azure](../../azure-monitor/app/app-insights-overview.md). Zarządzają buforowaniem i przesyłaniem danych telemetrycznych do usługi Application Insights. Wersje .NET i .NET Core zestawów SDK mają dwa wbudowane kanały telemetrii: `InMemoryChannel` i. `ServerTelemetryChannel` W tym artykule opisano szczegółowo poszczególne kanały, w tym sposób dostosowywania zachowań kanału.
+Kanały telemetrii są integralną częścią [zestawów sdk Application Insights platformy Azure](../../azure-monitor/app/app-insights-overview.md). Zarządzają buforowaniem i przesyłaniem danych telemetrycznych do usługi Application Insights. Wersje .NET i .NET Core zestawów SDK mają dwa wbudowane kanały telemetrii: `InMemoryChannel` i `ServerTelemetryChannel` . W tym artykule opisano szczegółowo poszczególne kanały, w tym sposób dostosowywania zachowań kanału.
 
 ## <a name="what-are-telemetry-channels"></a>Co to są kanały telemetrii?
 
-Kanały telemetrii są odpowiedzialne za buforowanie elementów telemetrycznych i wysyłanie ich do usługi Application Insights, gdzie są one przechowywane na potrzeby wykonywania zapytań i analizy. Kanał telemetrii jest klasą, która [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) implementuje interfejs.
+Kanały telemetrii są odpowiedzialne za buforowanie elementów telemetrycznych i wysyłanie ich do usługi Application Insights, gdzie są one przechowywane na potrzeby wykonywania zapytań i analizy. Kanał telemetrii jest klasą, która implementuje [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interfejs.
 
-`Send(ITelemetry item)` Metoda kanału telemetrii jest wywoływana po wywołaniu wszystkich inicjatorów telemetrii i procesorów telemetrycznych. W związku z tym wszystkie elementy usunięte przez procesor telemetrii nie docierają do kanału. `Send()`Zazwyczaj elementy do zaplecza nie są wysyłane natychmiastowo. Zwykle buforuje je w pamięci i wysyła je w partiach w celu wydajnej transmisji.
+`Send(ITelemetry item)`Metoda kanału telemetrii jest wywoływana po wywołaniu wszystkich inicjatorów telemetrii i procesorów telemetrycznych. W związku z tym wszystkie elementy usunięte przez procesor telemetrii nie docierają do kanału. `Send()`Zazwyczaj elementy do zaplecza nie są wysyłane natychmiastowo. Zwykle buforuje je w pamięci i wysyła je w partiach w celu wydajnej transmisji.
 
 [Live Metrics Stream](live-stream.md) ma także niestandardowy kanał, który umożliwia przesyłanie strumieniowe danych telemetrycznych na żywo. Ten kanał jest niezależny od zwykłego kanału telemetrii i nie ma do niego zastosowania.
 
@@ -31,19 +30,19 @@ Zestawy SDK Application Insights .NET i .NET Core są dostarczane z dwoma wbudow
 
     Ten kanał jest częścią większego pakietu NuGet Microsoft. ApplicationInsights i jest domyślnym kanałem, którego używa zestaw SDK, gdy nic innego nie jest skonfigurowane.
 
-* `ServerTelemetryChannel`: Bardziej zaawansowany kanał, który ma zasady ponawiania prób i możliwość przechowywania danych na dysku lokalnym. Ten kanał ponawia próbę wysłania danych telemetrycznych w przypadku wystąpienia błędów przejściowych. Ten kanał używa również lokalnego magazynu dyskowego do przechowywania elementów na dysku w czasie awarii sieci lub dużej ilości danych telemetrycznych. Ze względu na te mechanizmy ponawiania prób i magazyn na dysku lokalnym ten kanał jest uznawany za bardziej niezawodny i jest zalecany we wszystkich scenariuszach produkcyjnych. Ten kanał jest wartością domyślną dla aplikacji [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) i [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) skonfigurowanych zgodnie z oficjalną dokumentacją. Ten kanał jest zoptymalizowany pod kątem scenariuszy serwera z długotrwałymi procesami. [`Flush()`](#which-channel-should-i-use) Metoda zaimplementowana przez ten kanał nie jest synchroniczna.
+* `ServerTelemetryChannel`: Bardziej zaawansowany kanał, który ma zasady ponawiania prób i możliwość przechowywania danych na dysku lokalnym. Ten kanał ponawia próbę wysłania danych telemetrycznych w przypadku wystąpienia błędów przejściowych. Ten kanał używa również lokalnego magazynu dyskowego do przechowywania elementów na dysku w czasie awarii sieci lub dużej ilości danych telemetrycznych. Ze względu na te mechanizmy ponawiania prób i magazyn na dysku lokalnym ten kanał jest uznawany za bardziej niezawodny i jest zalecany we wszystkich scenariuszach produkcyjnych. Ten kanał jest wartością domyślną dla aplikacji [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) i [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) skonfigurowanych zgodnie z oficjalną dokumentacją. Ten kanał jest zoptymalizowany pod kątem scenariuszy serwera z długotrwałymi procesami. [`Flush()`](#which-channel-should-i-use)Metoda zaimplementowana przez ten kanał nie jest synchroniczna.
 
     Ten kanał jest dostarczany jako pakiet NuGet Microsoft. ApplicationInsights. WindowsServer. TelemetryChannel i zostaje automatycznie pobrany w przypadku korzystania z pakietu NuGet Microsoft. ApplicationInsights. Web lub Microsoft. ApplicationInsights. AspNetCore.
 
 ## <a name="configure-a-telemetry-channel"></a>Konfigurowanie kanału telemetrii
 
-Kanał telemetrii można skonfigurować przez ustawienie aktywnej konfiguracji telemetrii. W przypadku aplikacji ASP.NET konfiguracja wymaga ustawienia wystąpienia kanału telemetrii `TelemetryConfiguration.Active`na lub przez modyfikację `ApplicationInsights.config`. W przypadku aplikacji ASP.NET Core konfiguracja obejmuje dodanie kanału do kontenera iniekcji zależności.
+Kanał telemetrii można skonfigurować przez ustawienie aktywnej konfiguracji telemetrii. W przypadku aplikacji ASP.NET konfiguracja wymaga ustawienia wystąpienia kanału telemetrii na `TelemetryConfiguration.Active` lub przez modyfikację `ApplicationInsights.config` . W przypadku aplikacji ASP.NET Core konfiguracja obejmuje dodanie kanału do kontenera iniekcji zależności.
 
-W poniższych sekcjach przedstawiono przykłady konfigurowania `StorageFolder` ustawienia dla kanału w różnych typach aplikacji. `StorageFolder`jest tylko jednym z konfigurowalnych ustawień. Aby zapoznać się z pełną listą ustawień konfiguracji, zobacz [sekcję Ustawienia](telemetry-channels.md#configurable-settings-in-channels) w dalszej części tego artykułu.
+W poniższych sekcjach przedstawiono przykłady konfigurowania `StorageFolder` Ustawienia dla kanału w różnych typach aplikacji. `StorageFolder`jest tylko jednym z konfigurowalnych ustawień. Aby zapoznać się z pełną listą ustawień konfiguracji, zobacz [sekcję Ustawienia](telemetry-channels.md#configurable-settings-in-channels) w dalszej części tego artykułu.
 
-### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Konfiguracja przy użyciu ApplicationInsights. config dla aplikacji ASP.NET
+### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Konfiguracja przy użyciu ApplicationInsights.config aplikacji ASP.NET
 
-W poniższej sekcji w [pliku ApplicationInsights. config](configuration-with-applicationinsights-config.md) przedstawiono `ServerTelemetryChannel` kanał skonfigurowany z `StorageFolder` ustawioną lokalizacją niestandardową:
+W poniższej sekcji w [ApplicationInsights.config](configuration-with-applicationinsights-config.md) przedstawiono `ServerTelemetryChannel` kanał skonfigurowany z `StorageFolder` ustawioną lokalizacją niestandardową:
 
 ```xml
     <TelemetrySinks>
@@ -110,7 +109,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 `ServerTelemetryChannel`przechowuje elementy w buforze w pamięci. Elementy są serializowane, kompresowane i przechowywane w `Transmission` wystąpieniu co 30 sekund lub w przypadku buforowania elementów 500. Pojedyncze `Transmission` wystąpienie zawiera maksymalnie 500 elementów i reprezentuje partię danych telemetrycznych wysyłanych przez pojedyncze wywołanie HTTPS do usługi Application Insights.
 
-Domyślnie maksymalnie 10 `Transmission` wystąpień może być wysyłanych równolegle. Jeśli dane telemetryczne docierają przy szybszych szybkościach lub w przypadku powolnej sieci lub Application Insights `Transmission` zaplecza, wystąpienia są przechowywane w pamięci. Domyślna pojemność tego buforu w pamięci `Transmission` wynosi 5 MB. Po przekroczeniu pojemności w pamięci `Transmission` wystąpienia są przechowywane na dysku lokalnym do limitu 50 MB. `Transmission`wystąpienia są przechowywane na dysku lokalnym, również w przypadku problemów z siecią. Awaria aplikacji dotyczy tylko tych elementów, które są przechowywane na dysku lokalnym. Są one wysyłane za każdym razem, gdy aplikacja zostanie uruchomiona ponownie.
+Domyślnie maksymalnie 10 `Transmission` wystąpień może być wysyłanych równolegle. Jeśli dane telemetryczne docierają przy szybszych szybkościach lub w przypadku powolnej sieci lub Application Insights zaplecza, `Transmission` wystąpienia są przechowywane w pamięci. Domyślna pojemność tego buforu w pamięci `Transmission` wynosi 5 MB. Po przekroczeniu pojemności w pamięci `Transmission` wystąpienia są przechowywane na dysku lokalnym do limitu 50 MB. `Transmission`wystąpienia są przechowywane na dysku lokalnym, również w przypadku problemów z siecią. Awaria aplikacji dotyczy tylko tych elementów, które są przechowywane na dysku lokalnym. Są one wysyłane za każdym razem, gdy aplikacja zostanie uruchomiona ponownie.
 
 ## <a name="configurable-settings-in-channels"></a>Ustawienia konfigurowalne w kanałach
 
@@ -120,7 +119,7 @@ Aby uzyskać pełną listę konfigurowalnych ustawień dla każdego kanału, zob
 
 * [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
-Poniżej przedstawiono najczęściej używane ustawienia programu `ServerTelemetryChannel`:
+Poniżej przedstawiono najczęściej używane ustawienia programu `ServerTelemetryChannel` :
 
 1. `MaxTransmissionBufferCapacity`: Maksymalna ilość pamięci (w bajtach) używanej przez kanał do buforowania przesyłania w pamięci. Po osiągnięciu tej pojemności nowe elementy są przechowywane bezpośrednio na dysku lokalnym. Wartość domyślna to 5 MB. Ustawienie wyższej wartości powoduje mniejsze użycie dysku, ale należy pamiętać, że w przypadku awarii aplikacji elementy w pamięci zostaną utracone.
 
@@ -130,15 +129,15 @@ Poniżej przedstawiono najczęściej używane ustawienia programu `ServerTelemet
 
 ## <a name="which-channel-should-i-use"></a>Którego kanału należy użyć?
 
-`ServerTelemetryChannel`jest zalecany w przypadku większości scenariuszy produkcyjnych obejmujących długotrwałe aplikacje. `Flush()` Metoda zaimplementowana `ServerTelemetryChannel` przez nie jest synchroniczna i nie gwarantuje wysyłania wszystkich oczekujących elementów z pamięci lub dysku. Jeśli ten kanał jest używany w scenariuszach, w których aplikacja zostanie ZAMKNIĘTA, zalecamy wprowadzenie pewnej opóźnienia po wywołaniu `Flush()`. Dokładna ilość opóźnienia, która może być wymagana, nie jest przewidywalna. Jest to zależne od czynników, takich jak liczba `Transmission` elementów lub wystąpień w pamięci, liczba przechowywanych na dysku, liczba danych przesyłanych do zaplecza, a także to, czy kanał jest w trakcie wykładniczych scenariuszy wycofywania.
+`ServerTelemetryChannel`jest zalecany w przypadku większości scenariuszy produkcyjnych obejmujących długotrwałe aplikacje. `Flush()`Metoda zaimplementowana przez `ServerTelemetryChannel` nie jest synchroniczna i nie gwarantuje wysyłania wszystkich oczekujących elementów z pamięci lub dysku. Jeśli ten kanał jest używany w scenariuszach, w których aplikacja zostanie ZAMKNIĘTA, zalecamy wprowadzenie pewnej opóźnienia po wywołaniu `Flush()` . Dokładna ilość opóźnienia, która może być wymagana, nie jest przewidywalna. Jest to zależne od czynników, takich jak liczba elementów lub `Transmission` wystąpień w pamięci, liczba przechowywanych na dysku, liczba danych przesyłanych do zaplecza, a także to, czy kanał jest w trakcie wykładniczych scenariuszy wycofywania.
 
-Jeśli musisz wykonać synchroniczne opróżnianie, zalecamy korzystanie `InMemoryChannel`z programu.
+Jeśli musisz wykonać synchroniczne opróżnianie, zalecamy korzystanie z programu `InMemoryChannel` .
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Czy Application Insights kanał gwarantuje dostarczenie telemetrii? Jeśli nie, jakie są scenariusze, w których można utracić dane telemetryczne?
 
-Krótka odpowiedź polega na tym, że żaden z wbudowanych kanałów nie oferuje gwarancji typu transakcji dostarczania danych telemetrycznych do zaplecza. `ServerTelemetryChannel`jest bardziej zaawansowana `InMemoryChannel` w porównaniu do niezawodnego dostarczania, ale zapewnia także najlepszą próbę wysłania telemetrii. Dane telemetryczne mogą być nadal tracone w kilku sytuacjach, łącznie z następującymi typowymi scenariuszami:
+Krótka odpowiedź polega na tym, że żaden z wbudowanych kanałów nie oferuje gwarancji typu transakcji dostarczania danych telemetrycznych do zaplecza. `ServerTelemetryChannel`jest bardziej zaawansowana w porównaniu `InMemoryChannel` do niezawodnego dostarczania, ale zapewnia także najlepszą próbę wysłania telemetrii. Dane telemetryczne mogą być nadal tracone w kilku sytuacjach, łącznie z następującymi typowymi scenariuszami:
 
 1. Elementy w pamięci są tracone po awarii aplikacji.
 

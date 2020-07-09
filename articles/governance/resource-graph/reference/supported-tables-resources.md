@@ -1,14 +1,15 @@
 ---
-title: Obsługiwane Menedżer zasobów typy zasobów
-description: Podaj listę typów zasobów Menedżer zasobów obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 05/21/2020
+title: Obsługiwane Azure Resource Manager typy zasobów
+description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
+ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: generated
+ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770588"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970573"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -87,11 +88,11 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. baremetal/consoleconnections
 - Microsoft. baremetal/crayservers
 - Microsoft. baremetal/monitoringservers
-- Microsoft. Batch/batchaccounts
-- Microsoft. batchai Job/klastry
-- Microsoft. batchai Job/fileservers
-- Microsoft. batchai Job/zadania
-- Microsoft. batchai Job/obszary robocze
+- microsoft.batch/batchaccounts
+- microsoft.batChai/klastrów
+- microsoft.batChai/fileservers
+- microsoft.batChai/zadania
+- microsoft.batChai/obszary robocze
 - Microsoft. BingMaps/mapapis
 - Microsoft. biztalkservices/BizTalk
 - Microsoft. łańcucha bloków/blockchainmembers
@@ -196,7 +197,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. wspólny/Labs/virtualmachines
 - Microsoft. wspólny/harmonogramy
 - Microsoft. digitaltwins/digitaltwinsinstances
-- Microsoft. DocumentDB/databaseaccounts
+- microsoft.documentdb/databaseaccounts
 - Microsoft. domainregistration/domeny
 - Microsoft. enterpriseknowledgegraph/usługi
 - Microsoft. eventgrid/domeny
@@ -484,13 +485,6 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Security/regulatorycompliancestandards
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- Microsoft. Security/securitystatuses
-- Microsoft. Security/securitystatuses/containerhosts
-- Microsoft. Security/securitystatuses/onpremisemachines
-- Microsoft. Security/securitystatuses/serwery
-- Microsoft. Security/securitystatuses/podsieci
-- Microsoft. Security/securitystatuses/virtualmachines
-- Microsoft. Security/securitystatusessummaries
 
 ## <a name="next-steps"></a>Następne kroki
 

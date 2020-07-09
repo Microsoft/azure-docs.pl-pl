@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "73100154"
 ---
 # <a name="common-issues"></a>Typowe problemy
@@ -42,7 +42,7 @@ sudo docker logs eventgridmodule
 
 * W przypadku komunikacji między modułami upewnij się, że nastąpi wywołanie na porcie **4438** , a nazwa modułu pasuje do wdrożonego elementu. 
 
-  Na przykład, jeśli moduł Event Grid został wdrożony o nazwie **eventgridmodule** , adres URL powinien być **https://eventgridmodule:4438**adresem. Upewnij się, że wielkość liter i numer portu są poprawne.
+  Na przykład, jeśli moduł Event Grid został wdrożony o nazwie **eventgridmodule** , adres URL powinien być adresem **https://eventgridmodule:4438** . Upewnij się, że wielkość liter i numer portu są poprawne.
     
 * Jeśli jest to moduł inny niż IoT, upewnij się, że port Event Grid jest mapowany na maszynę hosta podczas wdrażania na przykład.
 
@@ -64,7 +64,7 @@ sudo docker logs eventgridmodule
 
 * W przypadku komunikacji między modułami upewnij się, że nastąpi wywołanie na porcie **5888** , a nazwa modułu pasuje do wdrożonego elementu. 
 
-  Na przykład, jeśli moduł Event Grid został wdrożony o nazwie **eventgridmodule** , adres URL powinien być **http://eventgridmodule:5888**adresem. Upewnij się, że wielkość liter i numer portu są poprawne.
+  Na przykład, jeśli moduł Event Grid został wdrożony o nazwie **eventgridmodule** , adres URL powinien być adresem **http://eventgridmodule:5888** . Upewnij się, że wielkość liter i numer portu są poprawne.
     
 * Jeśli jest to moduł inny niż IoT, upewnij się, że port Event Grid jest mapowany na maszynę hosta podczas wdrażania na przykład.
 
@@ -84,7 +84,7 @@ sudo docker logs eventgridmodule
 
 Domyślnie moduł Event Grid jest skonfigurowany do uwierzytelniania klientów przy użyciu certyfikatu wystawionego przez demona zabezpieczeń IoT Edge. Upewnij się, że klient przedstawia certyfikat, który jest katalogiem głównym tego łańcucha.
 
-Klasa **IoTSecurity** w [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) programie pokazuje, jak pobrać certyfikaty z demona zabezpieczeń IoT Edge i użyć go do skonfigurowania wywołań wychodzących.
+Klasa **IoTSecurity** w programie [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge) pokazuje, jak pobrać certyfikaty z demona zabezpieczeń IoT Edge i użyć go do skonfigurowania wywołań wychodzących.
 
 Jeśli jest to Środowisko nieprodukcyjne, można wyłączyć uwierzytelnianie klienta. Aby uzyskać szczegółowe informacje o tym, jak to zrobić [, zobacz Zabezpieczenia i uwierzytelnianie](security-authentication.md) .
 
@@ -108,4 +108,4 @@ Typowymi przyczynami tego są:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zgłoś wszelkie problemy, sugestie dotyczące używania Event Grid w IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues).
+Zgłoś wszelkie problemy, sugestie dotyczące używania Event Grid w IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .

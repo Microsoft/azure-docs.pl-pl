@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie Always Encrypted przy użyciu Azure Key Vault
-description: W tym samouczku przedstawiono sposób zabezpieczania poufnych danych w Azure SQL Database z szyfrowaniem danych przy użyciu kreatora Always Encrypted w SQL Server Management Studio.
+description: W tym samouczku przedstawiono sposób zabezpieczania poufnych danych w bazie danych w Azure SQL Database z szyfrowaniem danych przy użyciu kreatora Always Encrypted w SQL Server Management Studio.
 keywords: Szyfrowanie danych, klucz szyfrowania, szyfrowanie w chmurze
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,18 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 8f828d11d5351565c112b7e4b9dccaaef4607056
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047699"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078021"
 ---
-# <a name="configure-always-encrypted-using-azure-key-vault"></a>Konfigurowanie Always Encrypted przy użyciu Azure Key Vault 
+# <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurowanie Always Encrypted przy użyciu Azure Key Vault 
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym artykule opisano sposób zabezpieczania poufnych danych dla bazy danych w Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL z szyfrowaniem danych przy użyciu [kreatora Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-wizard) w [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Zawiera również instrukcje, które pokazują, jak przechowywać każdy klucz szyfrowania w Azure Key Vault.
+W tym artykule opisano sposób zabezpieczania poufnych danych w bazie danych w Azure SQL Database z szyfrowaniem danych przy użyciu [kreatora Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-wizard) w [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Zawiera również instrukcje, które pokazują, jak przechowywać każdy klucz szyfrowania w Azure Key Vault.
 
 Always Encrypted to technologia szyfrowania danych, która pomaga chronić poufne dane przechowywane na serwerze podczas przenoszenia między klientem i serwerem, a jednocześnie dane są używane. Always Encrypted zapewnia, że poufne dane nigdy nie pojawiają się jako zwykły tekst w systemie bazy danych. Po skonfigurowaniu szyfrowania danych tylko aplikacje klienckie lub serwery aplikacji, które mają dostęp do kluczy, mogą uzyskiwać dostęp do danych w postaci zwykłego tekstu. Aby uzyskać szczegółowe informacje, zobacz [Always Encrypted (aparat bazy danych)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -48,7 +49,7 @@ Wykonaj kroki opisane w tym artykule i Dowiedz się, jak skonfigurować Always E
 
 ## <a name="enable-client-application-access"></a>Włącz dostęp do aplikacji klienta
 
-Musisz umożliwić aplikacji klienckiej dostęp do SQL Database lub wystąpienia zarządzanego SQL przez skonfigurowanie aplikacji Azure Active Directory (AAD) i skopiowanie *identyfikatora aplikacji* i *klucza* , które będą potrzebne do uwierzytelniania aplikacji.
+Musisz umożliwić aplikacji klienckiej dostęp do bazy danych w SQL Database przez skonfigurowanie aplikacji Azure Active Directory (Azure AD) i skopiowanie *identyfikatora aplikacji* i *klucza* , które będą potrzebne do uwierzytelniania aplikacji.
 
 Aby uzyskać *Identyfikator aplikacji* i *klucz*, wykonaj kroki opisane w temacie [Tworzenie Azure Active Directory aplikacji i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -88,7 +89,7 @@ Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceG
 $subscriptionName = '<subscriptionName>'
 $userPrincipalName = '<username@domain.com>'
 $applicationId = '<applicationId from AAD application>'
-$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your SQL Database below
+$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your database in Azure SQL Database below
 $location = '<datacenterLocation>'
 $vaultName = '<vaultName>'
 
@@ -103,12 +104,11 @@ az keyvault set-policy --name $vaultName --key-permissions create, get, list, si
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
-* * *
-
+---
 
 ## <a name="connect-with-ssms"></a>Nawiązywanie połączenia z programem SSMS
 
-Otwórz SQL Server Managed Studio (SSMS) i Połącz się z serwerem lub z bazą danych.
+Otwórz program SQL Server Management Studio (SSMS) i Połącz się z serwerem lub z bazą danych.
 
 1. Otwórz program SSMS. (Przejdź do **połączenia**  >  **Aparat bazy danych** , aby otworzyć okno **łączenie z serwerem** , jeśli nie jest otwarty.
 
@@ -592,8 +592,9 @@ Następnie Dodaj *ustawienie szyfrowanie kolumn = włączone* parametr podczas p
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     Teraz można zobaczyć dane w postaci zwykłego tekstu w zaszyfrowanych kolumnach.
-     ![Nowa aplikacja konsolowa](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   Teraz można zobaczyć dane w postaci zwykłego tekstu w zaszyfrowanych kolumnach.
+   
+   ![Nowa aplikacja konsolowa](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

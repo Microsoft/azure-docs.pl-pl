@@ -10,12 +10,11 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8a9382af630d80480e5bec50d629451ebe49bf73
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105730"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734473"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Bezpieczny dostęp zdalny do maszyn wirtualnych w Azure Active Directory Domain Services
 
@@ -41,7 +40,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie konieczności [Utwórz i skonfiguruj wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie konieczności [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][create-azure-ad-ds-instance].
 * Podsieć *obciążeń* utworzona w sieci wirtualnej Azure Active Directory Domain Services.
     * W razie potrzeby [Skonfiguruj sieci wirtualne dla Azure Active Directory Domain Services domeny zarządzanej][configure-azureadds-vnet].
 * Konto użytkownika, które jest członkiem grupy *administratorów DC usługi Azure AD* w dzierżawie usługi Azure AD.
@@ -55,16 +54,16 @@ Sugerowane wdrożenie usług pulpitu zdalnego obejmuje dwie następujące maszyn
 * *RDGVM01* — uruchamia serwer brokera połączeń usług pulpitu zdalnego, serwer usług pulpitu zdalnego dostęp w sieci Web i serwer bramy usług pulpitu zdalnego.
 * *RDSHVM01* — uruchamia serwer hosta sesji usług pulpitu zdalnego.
 
-Upewnij się, że maszyny wirtualne są wdrażane w podsieci *obciążeń* sieci wirtualnej platformy Azure AD DS, a następnie Dołącz maszyny wirtualne do domeny zarządzanej AD DS platformy Azure. Aby uzyskać więcej informacji, zobacz jak [utworzyć i dołączyć maszynę wirtualną z systemem Windows Server do domeny zarządzanej AD DS platformy Azure][tutorial-create-join-vm].
+Upewnij się, że maszyny wirtualne są wdrażane w podsieci *obciążeń* sieci wirtualnej platformy Azure AD DS, a następnie Dołącz maszyny wirtualne do domeny zarządzanej. Aby uzyskać więcej informacji, zobacz jak [utworzyć i dołączyć maszynę wirtualną z systemem Windows Server do domeny zarządzanej][tutorial-create-join-vm].
 
-Wdrożenie środowiska pulpitu zdalnego zawiera kilka kroków. Istniejący Przewodnik wdrażania usług pulpitu zdalnego może być używany bez żadnych konkretnych zmian do użycia w domenie zarządzanej AD DS platformy Azure:
+Wdrożenie środowiska pulpitu zdalnego zawiera kilka kroków. Istniejący Przewodnik wdrażania usług pulpitu zdalnego może być używany bez żadnych konkretnych zmian do użycia w domenie zarządzanej:
 
 1. Zaloguj się do maszyn wirtualnych utworzonych dla środowiska usług pulpitu zdalnego przy użyciu konta należącego do grupy *administratorzy kontrolera domeny usługi Azure AD* , np. *contosoadmin*.
 1. Aby utworzyć i skonfigurować RDS, użyj istniejącego [przewodnika wdrażania środowiska pulpit zdalny][deploy-remote-desktop]. Dystrybuuj składniki serwera usług pulpitu zdalnego na maszynach wirtualnych platformy Azure zgodnie z potrzebami.
     * Specyficzne dla platformy Azure AD DS — podczas konfigurowania licencjonowania usług pulpitu zdalnego Ustaw dla niego tryb **na urządzenie** , a nie **na użytkownika** zgodnie z opisem w przewodniku wdrażania.
 1. Jeśli chcesz zapewnić dostęp przy użyciu przeglądarki sieci Web, [skonfiguruj pulpit zdalny klienta sieci Web dla użytkowników][rd-web-client].
 
-Po wdrożeniu usług pulpitu zdalnego w domenie zarządzanej AD DS platformy Azure można zarządzać tą usługą i korzystać z niej w taki sam sposób, jak w przypadku lokalnej domeny AD DS.
+W przypadku wdrożenia usług pulpitu zdalnego w domenie zarządzanej można zarządzać tą usługą i korzystać z niej w taki sam sposób, jak w przypadku lokalnej domeny AD DS.
 
 ## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Wdrażanie i Konfigurowanie serwera zasad sieciowych i rozszerzenia serwera NPS usługi Azure MFA
 
@@ -76,7 +75,7 @@ Użytkownicy muszą być [zarejestrowani do korzystania z usługi azure Multi-Fa
 
 Aby zintegrować platformę Azure Multi-Factor Authentication w środowisku Pulpit zdalny AD DS platformy Azure, Utwórz serwer NPS i zainstaluj rozszerzenie:
 
-1. Utwórz dodatkową maszynę wirtualną z systemem Windows Server 2016 lub 2019, taką jak *NPSVM01*, która jest połączona z podsiecią *obciążeń* w sieci wirtualnej platformy Azure AD DS. Dołącz maszynę wirtualną do domeny zarządzanej AD DS platformy Azure.
+1. Utwórz dodatkową maszynę wirtualną z systemem Windows Server 2016 lub 2019, taką jak *NPSVM01*, która jest połączona z podsiecią *obciążeń* w sieci wirtualnej platformy Azure AD DS. Dołącz maszynę wirtualną do domeny zarządzanej.
 1. Zaloguj się na serwerze zasad sieciowych NPS jako konto, które jest częścią grupy *administratorów DC usługi Azure AD* , np. *contosoadmin*.
 1. W obszarze **Menedżer serwera**wybierz pozycję **Dodaj role i funkcje**, a następnie Zainstaluj rolę *usług zasad sieciowych i dostępu sieciowego* .
 1. Aby [zainstalować i skonfigurować rozszerzenie zasad sieciowych usługi Azure MFA][nps-extension], Skorzystaj z istniejącego artykułu z poradnikiem.
@@ -87,9 +86,9 @@ Po zainstalowaniu serwera NPS i rozszerzenia serwera zasad sieciowych platformy 
 
 Aby zintegrować rozszerzenie zasad sieciowych platformy Azure Multi-Factor Authentication, użyj istniejącego artykułu z artykułem do [integracji infrastruktury pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD][azure-mfa-nps-integration].
 
-Do integracji z domeną zarządzaną platformy Azure AD DS są konieczne następujące dodatkowe opcje konfiguracji:
+Do integracji z domeną zarządzaną są konieczne następujące dodatkowe opcje konfiguracji:
 
-1. Nie [Rejestruj serwera NPS w Active Directory][register-nps-ad]. Ten krok zakończy się niepowodzeniem w domenie zarządzanej AD DS platformy Azure.
+1. Nie [Rejestruj serwera NPS w Active Directory][register-nps-ad]. Ten krok zakończy się niepowodzeniem w domenie zarządzanej.
 1. W [kroku 4 Aby skonfigurować zasady sieciowe][create-nps-policy], zaznacz również pole wyboru **Ignoruj właściwości telefonowania konta użytkownika**.
 1. Jeśli używasz systemu Windows Server 2019 dla serwera NPS i rozszerzenia serwera NPS Multi-Factor Authentication Azure, uruchom następujące polecenie, aby zaktualizować bezpieczny kanał, aby umożliwić serwerowi NPS poprawne komunikowanie się:
 

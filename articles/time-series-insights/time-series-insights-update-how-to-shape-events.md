@@ -10,12 +10,11 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fd2c58b07f3be5d5fa6d99d0c8c64906b81e7de4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650927"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86036988"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Shape Events z podglądem Azure Time Series Insights
 
@@ -33,7 +32,7 @@ Ogólne najlepsze rozwiązania obejmują:
 W celu uzyskania najlepszej wydajności zapytań przestrzegaj następujących zasad:
 
 * Nie wysyłaj niepotrzebnych właściwości. Time Series Insights w wersji zapoznawczej według użycia. Najlepiej przechowywać i przetwarzać tylko dane, które będą używane do wykonywania zapytań.
-* Użyj pól wystąpienia dla danych statycznych. To rozwiązanie pomaga uniknąć wysyłania danych statycznych przez sieć. Pola wystąpienia, składnik modelu szeregów czasowych, działają jak dane referencyjne w usłudze Time Series Insights, która jest ogólnie dostępna. Aby dowiedzieć się więcej o polach wystąpienia, Odczytaj [model szeregów czasowych](./time-series-insights-update-tsm.md).
+* Użyj pól wystąpienia dla danych statycznych. To rozwiązanie pomaga uniknąć wysyłania danych statycznych przez sieć. Pola wystąpienia, składnik modelu szeregów czasowych, działają jak dane referencyjne w usłudze Time Series Insights, która jest ogólnie dostępna. Aby dowiedzieć się więcej o polach wystąpienia, Odczytaj [model szeregów czasowych](./concepts-model-overview.md).
 * Udostępnianie właściwości wymiaru między dwoma lub więcej zdarzeniami. Ta metoda zapewnia wydajniejsze wysyłanie danych przez sieć.
 * Nie używaj głębokiego zagnieżdżania tablic. Wersja zapoznawcza Time Series Insights obsługuje do dwóch poziomów zagnieżdżonych tablic, które zawierają obiekty. Time Series Insights w wersji zapoznawczej spłaszcza tablice w komunikatach do wielu zdarzeń z parami wartości właściwości.
 * Jeśli istnieje tylko kilka miar dla wszystkich lub większości zdarzeń, lepiej jest wysłać te miary jako oddzielne właściwości w obrębie tego samego obiektu. Ich wysyłanie osobno zmniejsza liczbę zdarzeń i może poprawić wydajność zapytań, ponieważ wymaga przetworzenia mniejszych zdarzeń.
@@ -50,11 +49,11 @@ W trakcie pozyskiwania ładunki zawierające obiekty zagnieżdżone zostaną sp�
    },
    ```
 
-   Staną się `data_flow` : w przypadku spłaszczenia.
+   Staną się: w `data_flow` przypadku spłaszczenia.
 
 > [!IMPORTANT]
-> * Azure Time Series Insights w wersji zapoznawczej używa`_`podkreśleń () do rozkreślenia kolumn.
-> * Zwróć uwagę na różnicę od ogólnej dostępności, która używa`.`kropek ().
+> * Azure Time Series Insights w wersji zapoznawczej używa podkreśleń ( `_` ) do rozkreślenia kolumn.
+> * Zwróć uwagę na różnicę od ogólnej dostępności, która używa kropek ( `.` ).
 
 Poniżej przedstawiono bardziej złożone scenariusze.
 
@@ -95,7 +94,7 @@ Istnieje pojedynczy komunikat IoT Hub platformy Azure, w którym tablica zewnęt
 
 **Wnioski**
 
-* Przykładowy kod JSON ma zewnętrzną tablicę, która używa danych [wystąpienia szeregów czasowych](./time-series-insights-update-tsm.md#time-series-model-instances) , aby zwiększyć wydajność wiadomości. Mimo że wystąpienia szeregów czasowych metadanych urządzenia nie mogą ulec zmianie, często zapewnia przydatne właściwości analizy danych.
+* Przykładowy kod JSON ma zewnętrzną tablicę, która używa danych [wystąpienia szeregów czasowych](./concepts-model-overview.md#time-series-model-instances) , aby zwiększyć wydajność wiadomości. Mimo że wystąpienia szeregów czasowych metadanych urządzenia nie mogą ulec zmianie, często zapewnia przydatne właściwości analizy danych.
 
 * KOD JSON łączy dwa lub więcej komunikatów (po jednym z poszczególnych urządzeń) w jeden ładunek, oszczędzając przepustowość w miarę upływu czasu.
 
@@ -106,7 +105,7 @@ Istnieje pojedynczy komunikat IoT Hub platformy Azure, w którym tablica zewnęt
 
 #### <a name="time-series-instance"></a>Wystąpienie szeregów czasowych 
 
-Zapoznaj się z tym sposobem, jak używać [wystąpienia szeregów czasowych](./time-series-insights-update-tsm.md#time-series-model-instances) , aby bardziej optymalnie KSZTAŁTOWAĆ kod JSON. 
+Zapoznaj się z tym sposobem, jak używać [wystąpienia szeregów czasowych](./concepts-model-overview.md#time-series-model-instances) , aby bardziej optymalnie KSZTAŁTOWAĆ kod JSON. 
 
 > [!NOTE]
 > Poniższe [identyfikatory szeregów czasowych](./time-series-insights-update-how-to-id.md) to *deviceIds*.
@@ -180,7 +179,7 @@ Weź pod uwagę następujące dane JSON:
 }
 ```
 
-W powyższym przykładzie `data["flow"]` Właściwość spłaszczona zaprezentuje kolizję nazw `data_flow` właściwością.
+W powyższym przykładzie właściwość spłaszczona `data["flow"]` zaprezentuje kolizję nazw `data_flow` właściwością.
 
 W takim przypadku *Najnowsza* wartość właściwości spowoduje zastąpienie wcześniejszej wartości. 
 

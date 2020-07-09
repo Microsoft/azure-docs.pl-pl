@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671974"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria metryki: Application Insights model danych
@@ -59,7 +58,7 @@ Odchylenie standardowe zagregowanej metryki. Nie należy ustawiać dla miary.
 
 ## <a name="custom-properties"></a>Właściwości niestandardowe
 
-Metryka z ustawioną `CustomPerfCounter` właściwością `true` niestandardową wskazującą, że Metryka reprezentuje licznik wydajności systemu Windows. Te metryki zostały umieszczone w tabeli liczniki wydajności. Nie w customMetrics. Nazwa tej metryki jest również analizowana w celu wyodrębnienia nazwy kategorii, licznika i wystąpienia.
+Metryka z ustawioną właściwością niestandardową `CustomPerfCounter` `true` wskazującą, że Metryka reprezentuje licznik wydajności systemu Windows. Te metryki zostały umieszczone w tabeli liczniki wydajności. Nie w customMetrics. Nazwa tej metryki jest również analizowana w celu wyodrębnienia nazwy kategorii, licznika i wystąpienia.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 

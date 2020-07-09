@@ -10,10 +10,9 @@ ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
 ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83727101"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Wersja zapoznawcza: Tworzenie i używanie grup umieszczania zbliżeniowe przy użyciu programu PowerShell

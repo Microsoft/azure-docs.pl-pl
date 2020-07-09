@@ -2,21 +2,20 @@
 title: Znane problemy z zgodnością protokołu Standard scim 2,0 — Azure AD
 description: Jak rozwiązać typowe problemy ze zgodnością protokołu podczas dodawania aplikacji spoza galerii, która obsługuje standard scim 2,0 do usługi Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/03/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 00551eb6c9d5d6fab9dc1d698a7a25bb6872901b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782266"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Znane problemy i rozwiązania z standard scim 2,0 zgodności protokołów aprowizacji użytkowników usługi Azure AD
 
@@ -53,7 +52,7 @@ Tak. Jeśli to wystąpienie aplikacji jest już używane do logowania jednokrotn
 > [!NOTE]
 > Jeśli aplikacja jest nadal w trakcie tworzenia i nie została jeszcze wdrożona w przypadku logowania jednokrotnego lub aprowizacji użytkowników, najłatwiej jest usunąć wpis aplikacji w sekcji **Azure Active Directory > Enterprise aplikacji** Azure Portal i po prostu dodać nowy wpis dla aplikacji przy użyciu opcji **tworzenia aplikacji > spoza galerii** . Jest to alternatywa dla uruchamiania poniższej procedury.
  
-1. Zaloguj się do Azure Portal pod https://portal.azure.comadresem.
+1. Zaloguj się do Azure Portal pod adresem https://portal.azure.com .
 2. W sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw** Azure Portal Znajdź i wybierz istniejącą aplikację Standard scim.
 3. W sekcji **Właściwości** istniejącej aplikacji Standard scim Skopiuj **Identyfikator obiektu**.
 4. W nowym oknie przeglądarki sieci Web przejdź do https://developer.microsoft.com/graph/graph-explorer i zaloguj się jako administrator dla dzierżawy usługi Azure AD, w której aplikacja została dodana.
@@ -93,7 +92,7 @@ Tak. Jeśli to wystąpienie aplikacji jest już używane do logowania jednokrotn
 
 Tak. Jeśli aplikacja została zakodowana w starym zachowaniu, która istniała przed poprawkami, i musi wdrożyć nowe wystąpienie, wykonaj poniższą procedurę. W tej procedurze opisano, jak używać interfejsu API Microsoft Graph i Eksploratora interfejsu API Microsoft Graph do tworzenia zadania inicjowania obsługi Standard scim, które wykazuje stare zachowanie.
  
-1. Zaloguj się do Azure Portal pod https://portal.azure.comadresem.
+1. Zaloguj się do Azure Portal pod adresem https://portal.azure.com .
 2. w sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > Tworzenie aplikacji** dla Azure Portal, Utwórz nową aplikację w wersji **innej niż Galeria** .
 3. W sekcji **Właściwości** nowej aplikacji NIESTANDARDOWEJ Skopiuj **Identyfikator obiektu**.
 4. W nowym oknie przeglądarki sieci Web przejdź do https://developer.microsoft.com/graph/graph-explorer i zaloguj się jako administrator dla dzierżawy usługi Azure AD, w której aplikacja została dodana.

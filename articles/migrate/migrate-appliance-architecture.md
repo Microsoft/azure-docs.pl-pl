@@ -2,13 +2,12 @@
 title: Architektura urządzenia usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: d55d123bb056b46b5e78dd8ac836eeaf9b42fe70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/09/2020
+ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389022"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84770904"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
 
@@ -51,8 +50,8 @@ Podczas konfigurowania urządzenia należy zarejestrować urządzenie w Azure Mi
 **Akcja** | **Szczegóły** | **Uprawnienia**
 --- | --- | ---
 **Zarejestruj dostawców źródeł** | Dostawcy zasobów są zarejestrowani w ramach subskrypcji wybranej podczas konfigurowania urządzenia: Microsoft. OffAzure, Microsoft. zmigrować i Microsoft. kluczy.<br/><br/> Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. | Do zarejestrowania dostawców zasobów należy mieć rolę współautor lub właściciela w ramach subskrypcji.
-**Tworzenie aplikacji usługi Azure AD — komunikacja** | Azure Migrate tworzy aplikację Azure Active Directory (Azure AD) do komunikacji (uwierzytelnianie i autoryzacja) między agentami działającymi na urządzeniu i ich usługami działającymi na platformie Azure.<br/><br/> Ta aplikacja nie ma uprawnień do wykonywania wywołań Azure Resource Manager lub dostępu RBAC do każdego zasobu. | [Te uprawnienia](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) będą potrzebne do Azure Migrate tworzenia aplikacji.
-**Tworzenie aplikacji usługi Azure AD — Magazyn kluczy** | Ta aplikacja jest tworzona tylko w przypadku migrowania maszyn wirtualnych VMware na platformę Azure bez wykorzystania agentów.<br/><br/> Służy on wyłącznie do uzyskiwania dostępu do magazynu kluczy utworzonego w ramach subskrypcji użytkownika w celu migracji bez wykorzystania agentów.<br/><br/> Ma dostęp RBAC do magazynu kluczy platformy Azure (utworzonego w dzierżawie klienta), po zainicjowaniu odnajdowania z urządzenia. | [Te uprawnienia](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) będą potrzebne do Azure Migrate tworzenia aplikacji.
+**Tworzenie aplikacji usługi Azure AD — komunikacja** | Azure Migrate tworzy aplikację Azure Active Directory (Azure AD) do komunikacji (uwierzytelnianie i autoryzacja) między agentami działającymi na urządzeniu i ich usługami działającymi na platformie Azure.<br/><br/> Ta aplikacja nie ma uprawnień do wykonywania wywołań Azure Resource Manager lub dostępu RBAC do każdego zasobu. | [Te uprawnienia](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) będą potrzebne do Azure Migrate tworzenia aplikacji.
+**Tworzenie aplikacji usługi Azure AD — Magazyn kluczy** | Ta aplikacja jest tworzona tylko w przypadku migrowania maszyn wirtualnych VMware na platformę Azure bez wykorzystania agentów.<br/><br/> Służy on wyłącznie do uzyskiwania dostępu do magazynu kluczy utworzonego w ramach subskrypcji użytkownika w celu migracji bez wykorzystania agentów.<br/><br/> Ma dostęp RBAC do magazynu kluczy platformy Azure (utworzonego w dzierżawie klienta), po zainicjowaniu odnajdowania z urządzenia. | [Te uprawnienia](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) będą potrzebne do Azure Migrate tworzenia aplikacji.
 
 
 

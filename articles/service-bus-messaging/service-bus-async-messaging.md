@@ -1,25 +1,13 @@
 ---
 title: Service Bus asynchroniczne komunikaty | Microsoft Docs
 description: Dowiedz się, w jaki sposób Azure Service Bus obsługuje asynchronism za pośrednictwem mechanizmu magazynu i przesyłania dalej z kolejkami, tematami i subskrypcjami.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: b628dd72efe0280e688b602f873a3f01d15ef587
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76761036"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85337788"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Wzorce asynchronicznej obsługi komunikatów i wysoka dostępność
 

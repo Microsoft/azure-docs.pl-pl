@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 05/04/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: f0d45c9dd8dc33226ca75fe34467a8695c8aae4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 77abfcf300decb3a19da4268d7feb7de1f41f3b5
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778825"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743919"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Łączenie identyfikatora partnera z kontami platformy Azure
 
@@ -160,4 +160,17 @@ Tak. Identyfikator partnera można połączyć z usługą Azure Stack.
 **Jak mogę połączyć swój identyfikator partnera, jeśli moja firma używa rozwiązania [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) w celu uzyskania dostępu do zasobów klienta?**
 
 Jeśli dołączasz klientów do zarządzania zasobami delegowanymi na platformie Azure przez [opublikowanie oferty usług zarządzanych w witrynie Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), Twój identyfikator MPN zostanie automatycznie skojarzony. Jeśli [dołączasz klientów przez wdrożenie szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), musisz skojarzyć swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączonych subskrypcji. Musisz pamiętać, że należy to zrobić w dzierżawie dostawcy usług. Dla uproszczenia zalecamy utworzenie konta jednostki usługi w dzierżawie, które będzie skojarzone z identyfikatorem MPN, i przyznanie mu dostępu czytelnika do każdego dołączonego klienta. W tym przykładzie jest używana rola czytelnika kontroli opartej na rolach i jest to jedna z ról, które nie kwalifikują się do środków uzyskanych przez partnerów. Aby uzyskać więcej informacji na temat ról, zobacz [Role i uprawnienia dotyczące środków uzyskanych przez partnerów](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+
+
+**Jak mogę wyjaśnić link administratora partnera mojemu klientowi?**
+
+Link administratora partnera pozwala firmie Microsoft identyfikować i rozpoznawać partnerów, którzy pomagają klientom osiągnąć cele biznesowe i zrealizować wartość w chmurze. Klienci muszą najpierw zapewnić dostęp partnera do ich zasobów platformy Azure. Po udzieleniu dostępu identyfikator Microsoft Partner Network partnera (identyfikator MPN) zostaje skojarzony. To skojarzenie pomaga firmie Microsoft zrozumieć ekosystem dostawców usług IT oraz udoskonalać narzędzia i programy niezbędne do najlepszego wsparcia naszych wspólnych klientów.
+
+**Jakie dane są zbierane przez link administratora partnera?**
+
+Skojarzenie linku administratora partnera z istniejącymi poświadczeniami nie udostępnia żadnych nowych danych klienta firmie Microsoft. Po prostu udostępnia dane telemetryczne firmie Microsoft, gdy partner aktywnie uczestniczy w środowisku platformy Azure klienta. Firma Microsoft może przypisywać wpływ i przychody użyte przez platformę Azure ze środowiska klienta do organizacji partnera na podstawie uprawnień konta (rola RBAC) i zakresu (grupa zarządzania, subskrypcja, grupa zasobów, zasób) udostępnionego partnerowi przez klienta. 
+
+**Czy ma to wpływ na bezpieczeństwo środowiska platformy Azure klienta?**
+
+Skojarzenie linku administratora partnera dodaje tylko identyfikator MPN partnera do już ustanowionych poświadczeń i nie zmienia żadnych uprawnień (roli RBAC) ani nie udostępnia dodatkowych danych usługi platformy Azure partnerowi lub firmie Microsoft. 
 

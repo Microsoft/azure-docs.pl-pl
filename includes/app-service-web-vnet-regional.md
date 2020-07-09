@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604883"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488798"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -33,7 +33,7 @@ Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chce
 
    ![Podaj ustawienie aplikacji][4]
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 1. Wybierz pozycję **Zapisz**.
 
 Jeśli cały ruch wychodzący jest kierowany do sieci wirtualnej, podlega sieciowych grup zabezpieczeń i UDR, które są stosowane do podsieci integracji. W przypadku kierowania całego ruchu wychodzącego do sieci wirtualnej adresy wychodzące nadal są adresami wychodzącymi wymienionymi we właściwościach aplikacji, chyba że zostaną podane trasy do wysyłania ruchu w innym miejscu.
@@ -56,11 +56,7 @@ Jeden adres jest używany dla każdego wystąpienia planu. W przypadku skalowani
 
 Jeśli chcesz, aby aplikacje w innym planie miały dostęp do sieci wirtualnej, która jest już połączona przez aplikacje w innym planie, wybierz inną podsieć niż używana przez istniejącą integrację z siecią wirtualną.
 
-Ta funkcja jest dostępna w wersji zapoznawczej dla systemu Linux. Formularz systemu Linux funkcji obsługuje tylko wykonywanie wywołań do adresów RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-
-### <a name="web-or-function-app-for-containers"></a>Sieć Web lub aplikacja funkcji dla kontenerów
-
-Jeśli aplikacja jest hostowana w systemie Linux przy użyciu wbudowanych obrazów, integracja z regionalną siecią wirtualną działa bez dodatkowych zmian. W przypadku korzystania z sieci Web lub aplikacja funkcji kontenerów należy zmodyfikować obraz platformy Docker, aby używał integracji z siecią wirtualną. W obrazie platformy Docker Użyj zmiennej środowiskowej portu jako portu nasłuchu głównego serwera sieci Web, zamiast używać numeru portu stałe. Zmienna środowiskowa portu jest automatycznie ustawiana przez platformę w czasie uruchamiania kontenera. W przypadku korzystania z protokołu SSH demon SSH musi być skonfigurowany do nasłuchiwania numeru portu określonego przez zmienną środowiskową SSH_PORT w przypadku korzystania z integracji regionalnej sieci wirtualnej. W systemie Linux nie są obsługiwane zintegrowane z bramą sieci wirtualnej.
+Ta funkcja jest w pełni obsługiwana zarówno w przypadku aplikacji sieci Web systemu Windows, jak i Linux. Wszystkie zachowania działają tak samo w aplikacjach systemu Windows i Linux.
 
 ### <a name="service-endpoints"></a>Punkty końcowe usługi
 

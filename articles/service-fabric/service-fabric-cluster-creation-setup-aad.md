@@ -4,10 +4,9 @@ description: Dowiedz się, jak skonfigurować Azure Active Directory (Azure AD) 
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78193388"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurowanie Azure Active Directory na potrzeby uwierzytelniania klientów
@@ -49,7 +48,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9
 > [!NOTE]
 > W przypadku chmur krajowych (na przykład Azure Government, Azure — Chiny, Azure — Niemcy) należy także określić parametr `-Location`.
 
-Możesz znaleźć *TenantId* przez wykonanie polecenia `Get-AzureSubscription`programu PowerShell. Wykonanie tego polecenia wyświetla TenantId dla każdej subskrypcji.
+Możesz znaleźć *TenantId* przez wykonanie polecenia programu PowerShell `Get-AzureSubscription` . Wykonanie tego polecenia wyświetla TenantId dla każdej subskrypcji.
 
 Wartość *ClusterName* służy jako prefiks aplikacji usługi Azure AD tworzonych przez skrypt. Nie musi ona dokładnie pasować do rzeczywistej nazwy klastra. Ma na celu tylko ułatwienie mapowania artefaktów usługi Azure AD do klastra usługi Service Fabric, w którym są używane.
 
@@ -59,8 +58,8 @@ https://&lt;domena_klastra&gt;:19080/Explorer
 
 Zostanie wyświetlony monit logowania na konto z uprawnieniami administratora dzierżawy usługi Azure AD. Po zalogowaniu skrypt utworzy aplikacje internetową i natywną mające reprezentować klaster usługi Service Fabric. Jeśli popatrzysz na aplikacje dzierżawy w witrynie [Azure Portal][azure-portal], powinny być widoczne dwie nowe pozycje:
 
-   * *Klaster klastra*\_
-   * *ClusterName*\_Client
+   * *ClusterName* \_ Hosta
+   * *ClusterName* \_ Klient
 
 Skrypt drukuje kod JSON wymagany przez szablon Azure Resource Manager podczas [tworzenia klastra z obsługą usługi AAD](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), dlatego dobrym pomysłem jest pozostawienie otwartego okna programu PowerShell.
 
@@ -96,7 +95,7 @@ To rozwiązanie jest takie samo jak powyżej.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer zwraca błąd podczas logowania: "AADSTS50011"
 #### <a name="problem"></a>Problem
-Podczas próby zalogowania się do usługi Azure AD w Service Fabric Explorer strona zwraca błąd: "AADSTS50011 &lt;: adres URL&gt; adresu odpowiedzi nie jest zgodny z adresami odpowiedzi skonfigurowanymi dla aplikacji: &lt;GUID&gt;".
+Podczas próby zalogowania się do usługi Azure AD w Service Fabric Explorer strona zwraca błąd: "AADSTS50011: adres URL adresu odpowiedzi nie jest &lt; &gt; zgodny z adresami odpowiedzi skonfigurowanymi dla aplikacji: &lt; GUID &gt; ".
 
 ![Adres odpowiedzi SFX jest niezgodny][sfx-reply-address-not-match]
 
@@ -110,13 +109,13 @@ Na stronie Rejestracja aplikacji usługi Azure AD dla klastra wybierz pozycję *
 
 ### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>Nawiązywanie połączenia z klastrem przy użyciu uwierzytelniania usługi Azure AD za pomocą programu PowerShell powoduje błąd podczas logowania: "AADSTS50011"
 #### <a name="problem"></a>Problem
-Podczas próby nawiązania połączenia z klastrem Service Fabric przy użyciu usługi Azure AD za pośrednictwem programu PowerShell Strona logowania zwróci błąd: "AADSTS50011: adres URL odpowiedzi określony w żądaniu nie jest zgodny z adresami URL odpowiedzi skonfigurowanymi dla aplikacji &lt;:&gt;GUID".
+Podczas próby nawiązania połączenia z klastrem Service Fabric przy użyciu usługi Azure AD za pośrednictwem programu PowerShell Strona logowania zwróci błąd: "AADSTS50011: adres URL odpowiedzi określony w żądaniu nie jest zgodny z adresami URL odpowiedzi skonfigurowanymi dla aplikacji: &lt; GUID &gt; ".
 
 #### <a name="reason"></a>Przyczyna
 Podobnie jak w przypadku powyższego problemu, program PowerShell próbuje uwierzytelnić się w usłudze Azure AD, która zawiera adres URL przekierowania, który nie znajduje się na liście **adresów URL odpowiedzi** aplikacji usługi Azure AD.  
 
 #### <a name="solution"></a>Rozwiązanie
-Użyj tego samego procesu jak w przypadku poprzedniego problemu, ale adres URL musi być ustawiony na `urn:ietf:wg:oauth:2.0:oob`wartość, specjalne przekierowanie do uwierzytelniania w wierszu polecenia.
+Użyj tego samego procesu jak w przypadku poprzedniego problemu, ale adres URL musi być ustawiony na wartość `urn:ietf:wg:oauth:2.0:oob` , specjalne przekierowanie do uwierzytelniania w wierszu polecenia.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Łączenie klastra przy użyciu uwierzytelniania usługi Azure AD za pomocą programu PowerShell
 Aby połączyć klaster Service Fabric, użyj następującego przykładu polecenia programu PowerShell:

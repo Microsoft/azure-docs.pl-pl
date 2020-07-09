@@ -13,10 +13,9 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653301"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Co to jest protokół IPv6 dla usługi Azure Virtual Network?
@@ -31,7 +30,7 @@ Na poniższym diagramie przedstawiono proste wdrożenie podwójnego stosu (IPv4/
 
 ![Diagram wdrażania sieci IPv6](./media/ipv6-support-overview/ipv6-sample-diagram.png)
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 Zalety protokołu IPv6 dla sieci wirtualnej platformy Azure:
 
@@ -83,7 +82,7 @@ Bieżąca wersja protokołu IPv6 dla usługi Azure Virtual Network ma następuj�
 - W przypadku dodawania protokołu IPv6 do istniejących wdrożeń IPv4 nie można dodać zakresów IPv6 do sieci wirtualnej z istniejącymi łączami nawigacji zasobów.  
 - Serwer DNS do przesyłania dalej jest obsługiwany przez usługę Azure Public DNS już dziś, ale odwrotny serwer DNS nie jest jeszcze obsługiwany.   
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Opłaty za zasoby i przepustowość platformy IPv6 są naliczone według stawki IPv4. Nie są naliczane żadne dodatkowe ani inne opłaty za protokół IPv6. Możesz znaleźć szczegółowe informacje o cenach [publicznych adresów IP](https://azure.microsoft.com/pricing/details/ip-addresses/), [przepustowości sieci](https://azure.microsoft.com/pricing/details/bandwidth/)lub [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 

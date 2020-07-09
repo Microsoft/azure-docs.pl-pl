@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80066863"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption dla systemu Windows (Microsoft. Azure. Security. AzureDiskEncryption)
@@ -40,7 +40,7 @@ Istnieją dwie wersje schematu rozszerzeń dla Azure Disk Encryption (ADE):
 - v 2.2 — nowszy zalecany schemat, który nie korzysta z właściwości Azure Active Directory (AAD).
 - v 1.1 — starszy schemat, który wymaga właściwości Azure Active Directory (AAD). 
 
-Aby wybrać schemat docelowy, należy ustawić `typeHandlerVersion` Właściwość równą wersji schematu, którego chcesz użyć.
+Aby wybrać schemat docelowy, `typeHandlerVersion` należy ustawić właściwość równą wersji schematu, którego chcesz użyć.
 
 ### <a name="schema-v22-no-aad-recommended"></a>Schemat v 2.2: Brak usługi AAD (zalecane)
 
@@ -76,7 +76,7 @@ Schemat v 2.2 jest zalecany dla wszystkich nowych maszyn wirtualnych i nie wymag
 
 Schemat 1,1 wymaga `aadClientID` , a `aadClientSecret` lub `AADClientCertificate` i nie jest zalecany dla nowych maszyn wirtualnych.
 
-Przy `aadClientSecret`użyciu:
+Przy użyciu `aadClientSecret` :
 
 ```json
 {
@@ -106,7 +106,7 @@ Przy `aadClientSecret`użyciu:
 }
 ```
 
-Przy `AADClientCertificate`użyciu:
+Przy użyciu `AADClientCertificate` :
 
 ```json
 {
@@ -143,7 +143,7 @@ Przy `AADClientCertificate`użyciu:
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft. Azure. Security | ciąg |
-| type | AzureDiskEncryption | ciąg |
+| typ | AzureDiskEncryption | ciąg |
 | typeHandlerVersion | 2,2, 1,1 | ciąg |
 | (schemat 1,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (schemat 1,1) AADClientSecret | hasło | ciąg |

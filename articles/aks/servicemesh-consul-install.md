@@ -6,12 +6,11 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ef77037526beba1be2e4e8a834dbd09c8a73310c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273736"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84197230"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalowanie i używanie Consul w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,9 +19,9 @@ ms.locfileid: "78273736"
 W tym artykule opisano sposób instalowania programu Consul. Składniki Consul są instalowane w klastrze Kubernetes na AKS.
 
 > [!NOTE]
-> Te instrukcje odwołują się `1.6.0`do wersji Consul i używają co najmniej `2.14.2`Helm wersji.
+> Te instrukcje odwołują `1.6.0` się do wersji Consul i używają co najmniej Helm wersji `2.14.2` .
 >
-> Wersje Consul `1.6.x` można uruchamiać z wersjami `1.13+`Kubernetes. Dodatkowe wersje Consul można znaleźć w [wersjach usługi GitHub-Consul][consul-github-releases] i informacje o każdej z nich w informacjach o [wersji Consul][consul-release-notes].
+> Wersje Consul `1.6.x` można uruchamiać z wersjami Kubernetes `1.13+` . Dodatkowe wersje Consul można znaleźć w [wersjach usługi GitHub-Consul][consul-github-releases] i informacje o każdej z nich w informacjach o [wersji Consul][consul-release-notes].
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -33,7 +32,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster `1.13` AKS (Kubernetes lub nowszy z WŁĄCZONĄ funkcją RBAC) i `kubectl` nawiązano połączenie z klastrem. Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [Przewodnik Szybki Start AKS][aks-quickstart]. Upewnij się, że klaster zawiera co najmniej 3 węzły w puli węzłów systemu Linux.
+W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster AKS (Kubernetes `1.13` lub nowszy z włączoną funkcją RBAC) i nawiązano `kubectl` połączenie z klastrem. Jeśli potrzebujesz pomocy z dowolnym z tych elementów, zobacz [Przewodnik Szybki Start AKS][aks-quickstart]. Upewnij się, że klaster zawiera co najmniej 3 węzły w puli węzłów systemu Linux.
 
 Musisz [Helm][helm] , aby wykonać te instrukcje i zainstalować Consul. Zalecane jest, aby Najnowsza stabilna wersja była zainstalowana i skonfigurowana w klastrze. Jeśli potrzebujesz pomocy dotyczącej instalowania Helm, zobacz [wskazówki dotyczące instalacji programu AKS Helm][helm-install]. Wszystkie Consulowe zasobniki muszą być również zaplanowane do uruchomienia w węzłach systemu Linux.
 
@@ -41,7 +40,7 @@ Ten artykuł oddziela wskazówki dotyczące instalacji Consul do kilku dyskretny
 
 ### <a name="install-the-consul-components-on-aks"></a>Zainstaluj składniki Consul na AKS
 
-Zaczniemy od pobrania wersji `v0.10.0` wykresu Consul Helm. Ta wersja wykresu zawiera wersję `1.6.0`Consul.
+Zaczniemy od pobrania wersji `v0.10.0` wykresu Consul Helm. Ta wersja wykresu zawiera wersję Consul `1.6.0` .
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -94,13 +93,13 @@ Użyj Helm i pobranego `consul-helm` wykresu, aby zainstalować składniki Consu
 
 ::: zone-end
 
-Wykres `Consul` Helm służy do wdrażania wielu obiektów. Można wyświetlić listę z danych wyjściowych podanego `helm install` polecenia. Wdrożenie składników Consul może potrwać około 3 minut, w zależności od środowiska klastra.
+`Consul`Wykres Helm służy do wdrażania wielu obiektów. Można wyświetlić listę z danych wyjściowych podanego `helm install` polecenia. Wdrożenie składników Consul może potrwać około 3 minut, w zależności od środowiska klastra.
 
 W tym momencie wdrożono Consul w klastrze AKS. Aby upewnić się, że mamy pomyślne wdrożenie Consul, przejdź do następnej sekcji, aby sprawdzić poprawność instalacji Consul.
 
 ## <a name="validate-the-consul-installation"></a>Weryfikowanie instalacji Consul
 
-Upewnij się, że zasoby zostały pomyślnie utworzone. Użyj poleceń [polecenia kubectl Get SVC][kubectl-get] i [polecenia kubectl Get pod][kubectl-get] , aby wykonać zapytanie `consul` dotyczące przestrzeni nazw, gdzie składniki Consul zostały zainstalowane przez `helm install` polecenie:
+Upewnij się, że zasoby zostały pomyślnie utworzone. Użyj poleceń [polecenia kubectl Get SVC][kubectl-get] i [polecenia kubectl Get pod][kubectl-get] , aby wykonać zapytanie dotyczące `consul` przestrzeni nazw, gdzie składniki Consul zostały zainstalowane przez `helm install` polecenie:
 
 ```console
 kubectl get svc --namespace consul --output wide
@@ -128,7 +127,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Wszystkie z tych zasobników powinny zawierać stan `Running`. Jeśli Twoje zasobniki nie mają tych stanów, Zaczekaj chwilę lub dwa, aż do ich wykonania. Jeśli którykolwiek z raportów zawiera raport o problemie, użyj polecenia [polecenia kubectl opisz pod][kubectl-describe] , aby przejrzeć ich dane wyjściowe i stan.
+Wszystkie z tych zasobników powinny zawierać stan `Running` . Jeśli Twoje zasobniki nie mają tych stanów, Zaczekaj chwilę lub dwa, aż do ich wykonania. Jeśli którykolwiek z raportów zawiera raport o problemie, użyj polecenia [polecenia kubectl opisz pod][kubectl-describe] , aby przejrzeć ich dane wyjściowe i stan.
 
 ## <a name="accessing-the-consul-ui"></a>Uzyskiwanie dostępu do interfejsu użytkownika Consul
 
@@ -149,7 +148,7 @@ Teraz możesz otworzyć przeglądarkę i wskazać ją `http://localhost:8080/ui`
 
 ### <a name="remove-consul-components-and-namespace"></a>Usuń składniki Consul i przestrzeń nazw
 
-Aby usunąć Consul z klastra AKS, użyj następujących poleceń. `helm delete` Polecenia spowodują usunięcie `consul` wykresu, a `kubectl delete namespace` polecenie spowoduje usunięcie `consul` przestrzeni nazw.
+Aby usunąć Consul z klastra AKS, użyj następujących poleceń. `helm delete`Polecenia spowodują usunięcie `consul` wykresu, a `kubectl delete namespace` polecenie spowoduje usunięcie `consul` przestrzeni nazw.
 
 ```console
 helm delete --purge consul
@@ -166,6 +165,8 @@ Aby poznać więcej opcji instalacji i konfiguracji dla usługi Consul, zobacz n
 Możesz również postępować zgodnie z dodatkowymi scenariuszami przy użyciu:
 
 - [Przykładowa aplikacja Consul][consul-app-example]
+- [Architektura referencyjna Consul Kubernetes][consul-reference]
+- [Bramy siatki Consul][consul-mesh-gateways]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com
@@ -177,9 +178,11 @@ Możesz również postępować zgodnie z dodatkowymi scenariuszami przy użyciu:
 [consul-github-releases]: https://github.com/hashicorp/consul/releases
 [consul-release-notes]: https://github.com/hashicorp/consul/blob/master/CHANGELOG.md
 [consul-install-download]: https://www.consul.io/downloads.html
-[consul-install-k8]: https://www.consul.io/docs/platform/k8s/run.html
+[consul-install-k8]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-deployment-guide
 [consul-install-helm-options]: https://www.consul.io/docs/platform/k8s/helm.html#configuration-values-
-[consul-app-example]: https://github.com/hashicorp/demo-consul-101/tree/master/k8s
+[consul-mesh-gateways]: https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
+[consul-reference]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-reference
+[consul-app-example]: https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
 [install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

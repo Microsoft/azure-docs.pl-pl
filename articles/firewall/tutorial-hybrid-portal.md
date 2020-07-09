@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239683"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750699"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal
 
@@ -29,7 +29,7 @@ W tym samouczku zostaną utworzone trzy sieci wirtualne:
 
 ![Zapora w sieci hybrydowej](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Deklarowanie zmiennych
@@ -54,7 +54,7 @@ Sieć hybrydowa używa modelu architektury Hub i szprych do kierowania ruchu mi�
    Ponadto trasy do sieci wirtualnych podłączonych do bramy lub sieci lokalnych będą automatycznie propagowane do tabel routingu dla równorzędnych sieci wirtualnych przy użyciu tranzytu bramy. Aby uzyskać więcej informacji, zobacz [Konfigurowanie tranzytu bramy sieci VPN dla komunikacji równorzędnej sieci wirtualnych](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Ustaw **useremotegateways o wartości** podczas komunikacji równorzędnej między sieciami wirtualnymi i koncentratorem. Jeśli ustawiono opcję **useremotegateways o wartości** i **AllowGatewayTransit** na zdalnej komunikacji równorzędnej, Sieć wirtualna szprych używa bram zdalnej sieci wirtualnej do tranzytu.
-- Aby skierować ruch podsieci szprych przez zaporę centrum, potrzebna jest trasa zdefiniowana przez użytkownika (UDR), która wskazuje zaporę z wyłączoną opcją **propagacji trasy bramy sieci wirtualnej** . Opcja wyłączania **propagacji trasy bramy sieci wirtualnej** uniemożliwia dystrybucję tras do podsieci szprych. Zapobiega to wyznaniom tras spowodowanych konfliktami z UDR.
+- Aby skierować ruch podsieci szprych przez zaporę koncentratora, można użyć trasy zdefiniowanej przez użytkownika (UDR), która wskazuje zaporę z wyłączoną opcją **propagacji trasy bramy sieci wirtualnej** . Opcja wyłączania **propagacji trasy bramy sieci wirtualnej** uniemożliwia dystrybucję tras do podsieci szprych. Zapobiega to wyznaniom tras spowodowanych konfliktami z UDR. Jeśli chcesz zachować **propagację trasy bramy sieci wirtualnej** , upewnij się, że określone trasy są zdefiniowane dla zapory, aby przesłonić te, które są publikowane z lokalizacji lokalnej za pośrednictwem protokołu BGP.
 - Skonfiguruj UDR w podsieci bramy centrum, która wskazuje adres IP zapory w następnym przeskoku do sieci szprych. W podsieci usługi Azure Firewall nie jest wymagana trasa zdefiniowana przez użytkownika, ponieważ uzyskuje ona informacje o trasach na podstawie protokołu BGP.
 
 Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, aby zobaczyć, jak te trasy zostały utworzone.
@@ -67,14 +67,14 @@ Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, ab
 >[!NOTE]
 >Ruch między wirtualnymi sieciami równorzędnymi połączonymi bezpośrednio jest kierowany bezpośrednio nawet wtedy, gdy trasa zdefiniowana przez użytkownika wskazuje usługę Azure Firewall jako bramę domyślną. Aby w tym scenariuszu wysyłać ruch między podsieciami do zapory, trasa zdefiniowana przez użytkownika musi jawnie zawierać prefiks podsieci docelowej w obu podsieciach.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Tworzenie sieci wirtualnej koncentratora zapory
 
 Najpierw utwórz grupę zasobów zawierającą zasoby do celów tego samouczka:
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. Na stronie głównej Azure Portal wybierz pozycję **grupy** > zasobów**Dodaj**.
+2. Na stronie głównej Azure Portal wybierz pozycję **grupy zasobów**  >  **Dodaj**.
 3. W obszarze **Nazwa grupy zasobów**wpisz polecenie **PD-hybrydowy-test**.
 4. W polu **Subskrypcja** wybierz subskrypcję.
 5. W **obszarze region**wybierz pozycję **Wschodnie stany USA**. Wszystkie zasoby, które tworzysz później, muszą znajdować się w tej samej lokalizacji.
@@ -131,18 +131,6 @@ Teraz Utwórz drugą podsieć dla bramy.
 4. W obszarze **zakres adresów (blok CIDR)** wpisz **192.168.2.0/24**.
 5. Wybierz przycisk **OK**.
 
-### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-
-Jest to publiczny adres IP używany przez bramę lokalną.
-
-1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W polu tekstowym Wyszukaj wpisz **publiczny adres IP** , a następnie naciśnij klawisz **Enter**.
-3. Wybierz pozycję **publiczny adres IP** , a następnie wybierz pozycję **Utwórz**.
-4. W polu Nazwa wpisz **VNET-lokalnego-GW-PIP**.
-5. W polu Grupa zasobów wpisz polecenie **PD-hybrydowy-test**.
-6. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-7. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurowanie i wdrażanie zapory
 
 Teraz Wdróż zaporę w sieci wirtualnej centrum zapory.
@@ -153,12 +141,12 @@ Teraz Wdróż zaporę w sieci wirtualnej centrum zapory.
 
    |Ustawienie  |Wartość  |
    |---------|---------|
-   |Subskrypcja     |\<Twoja subskrypcja\>|
+   |Subskrypcja     |\<your subscription\>|
    |Grupa zasobów     |**PD-test hybrydowy** |
    |Nazwa     |**AzFW01**|
    |Lokalizacja     |Wybierz tę samą lokalizację, której użyto poprzednio|
    |Wybieranie sieci wirtualnej     |**Use Existing** (Użyj istniejącej):<br> **Sieć wirtualna — koncentrator**|
-   |Publiczny adres IP     |Utwórz nowy: <br>**Nazwa** - **PD-PIP**. |
+   |Publiczny adres IP     |Utwórz nowy: <br>**Nazwa**  -  **PD-PIP**. |
 
 5. Wybierz pozycję **Przegląd + utwórz**.
 6. Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć zaporę.
@@ -402,7 +390,7 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 2. W obszarze **popularne**wybierz pozycję **Windows Server 2016 Datacenter**.
 3. Wprowadź poniższe wartości dla maszyny wirtualnej:
     - **Grupa zasobów** — wybierz pozycję istniejące, a następnie wybierz pozycję **PD-hybrydowy-test**.
-    - **Nazwa maszyny wirtualnej** - *VM-lokalnego*.
+    - **Nazwa**  -  maszyny wirtualnej *Maszyna wirtualna — lokalnego*.
     - **Region — w** tym samym regionie, który jest używany wcześniej.
     - **Nazwa użytkownika**: *azureuser*.
     - **Hasło**: *Azure123456!*.
@@ -422,9 +410,9 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Otwórz przeglądarkę internetową na maszynie wirtualnej **VM-Onprem**, a następnie przejdź do lokalizacji http://\<VM-spoke-01 private IP\>.
+3. Otwórz przeglądarkę internetową w obszarze **VM-lokalnego**, a następnie przejdź do http:// \<VM-spoke-01 private IP\> .
 
-   Powinna zostać wyświetlona strona sieci Web **VM-szprych-01** : ![Strona sieci Web VM-szprych-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
+   Powinna zostać wyświetlona strona sieci Web **VM-szprych-01** : ![ Strona sieci Web VM-szprych-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 
 4. Z maszyny wirtualnej **VM-lokalnego** Otwórz pulpit zdalny do **maszyny wirtualnej-szprych-01** z prywatnym adresem IP.
 
@@ -446,7 +434,7 @@ Następnie zmień ustawienie akcji kolekcji reguł sieci zapory na **Odmów**, a
 
 Zamknij wszystkie zdalne pulpity, zanim zaczniesz testować zmienione zasady. Teraz ponownie uruchom testy. Tym razem wszystkie powinny zakończyć się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie będą już potrzebne, możesz usunąć grupę zasobów **FW-Hybrid-Test**, aby usunąć wszystkie zasoby związane z zaporą.
 

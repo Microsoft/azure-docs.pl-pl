@@ -8,10 +8,9 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79272203"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą YARN usługi Apache Hadoop za pomocą usługi Azure HDInsight
@@ -20,7 +19,7 @@ Poznaj najważniejsze problemy i ich rozwiązania podczas pracy z Apache Hadoop 
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Jak mogę utworzyć nową kolejkę PRZĘDZy w klastrze?
 
-### <a name="resolution-steps"></a>Kroki rozwiązywania problemów
+### <a name="resolution-steps"></a>Kroki rozwiązania
 
 Wykonaj następujące kroki w programie Ambari, aby utworzyć nową kolejkę PRZĘDZy, a następnie Zrównoważ alokację pojemności między wszystkimi kolejkami.
 
@@ -64,7 +63,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Jak mogę pobrać dzienników PRZĘDZy z klastra?
 
-### <a name="resolution-steps"></a>Kroki rozwiązywania problemów
+### <a name="resolution-steps"></a>Kroki rozwiązania
 
 1. Połącz się z klastrem usługi HDInsight przy użyciu klienta Secure Shell (SSH). Aby uzyskać więcej informacji, zobacz [dodatkowy odczyt](#additional-reading-2).
 
@@ -95,7 +94,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    To polecenie tworzy plik dziennika o nazwie amlogs. txt.
+    To polecenie tworzy plik dziennika o nazwie amlogs.txt.
 
 1. Aby pobrać dzienniki kontenerów PRZĘDZy tylko dla najnowszego wzorca aplikacji, użyj następującego polecenia:
 
@@ -103,7 +102,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    To polecenie tworzy plik dziennika o nazwie latestamlogs. txt.
+    To polecenie tworzy plik dziennika o nazwie latestamlogs.txt.
 
 1. Aby pobrać dzienniki kontenerów PRZĘDZy dla pierwszych dwóch wzorców aplikacji, użyj następującego polecenia:
 
@@ -111,7 +110,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
     yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    To polecenie tworzy plik dziennika o nazwie first2amlogs. txt.
+    To polecenie tworzy plik dziennika o nazwie first2amlogs.txt.
 
 1. Aby pobrać wszystkie dzienniki kontenerów PRZĘDZy, użyj następującego polecenia:
 
@@ -119,7 +118,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    To polecenie tworzy plik dziennika o nazwie log. txt.
+    To polecenie tworzy plik dziennika o nazwie logs.txt.
 
 1. Aby pobrać dziennik kontenera PRZĘDZy dla określonego kontenera, użyj następującego polecenia:
 
@@ -127,7 +126,7 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
     yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-    To polecenie tworzy plik dziennika o nazwie containerlogs. txt.
+    To polecenie tworzy plik dziennika o nazwie containerlogs.txt.
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Dodatkowy odczyt
 
@@ -140,6 +139,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 - Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+- Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 - Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

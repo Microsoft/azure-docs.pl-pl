@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85830013"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Jak skalować usługę Azure Cache for Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej. Po utworzeniu pamięci podręcznej można skalować rozmiar i warstwę cenową pamięci podręcznej w przypadku zmiany wymagań aplikacji. W tym artykule przedstawiono sposób skalowania pamięci podręcznej przy użyciu Azure Portal i narzędzi, takich jak Azure PowerShell i interfejs wiersza polecenia platformy Azure.
@@ -64,20 +64,23 @@ Oprócz skalowania wystąpień pamięci podręcznej w Azure Portal można skalow
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Możesz skalować pamięć podręczną platformy Azure dla wystąpień Redis za pomocą programu PowerShell, używając polecenia cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) `Size`, gdy właściwości, `Sku`lub `ShardCount` są modyfikowane. Poniższy przykład przedstawia sposób skalowania pamięci podręcznej `myCache` o nazwie do pamięci podręcznej 2,5 GB. 
+Możesz skalować pamięć podręczną platformy Azure dla wystąpień Redis za pomocą programu PowerShell, używając polecenia cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) `Size` , gdy `Sku` właściwości, lub `ShardCount` są modyfikowane. Poniższy przykład przedstawia sposób skalowania pamięci podręcznej o nazwie `myCache` do pamięci podręcznej 2,5 GB. 
 
-    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```powershell
+   Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```
 
 Aby uzyskać więcej informacji na temat skalowania za pomocą programu PowerShell, zobacz [skalowanie pamięci podręcznej platformy Azure dla Redis przy użyciu programu PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a>Skalowanie przy użyciu interfejsu wiersza polecenia platformy Azure
-Aby skalować usługę Azure cache for Redis Instances przy użyciu interfejsu wiersza `azure rediscache set` polecenia platformy Azure, wywołaj polecenie i przekaż wymagane zmiany konfiguracji, które obejmują nowy rozmiar, jednostkę SKU lub rozmiar klastra, w zależności od wymaganej operacji skalowania.
+Aby skalować usługę Azure cache for Redis Instances przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj `azure rediscache set` polecenie i przekaż wymagane zmiany konfiguracji, które obejmują nowy rozmiar, jednostkę SKU lub rozmiar klastra, w zależności od wymaganej operacji skalowania.
 
 Aby uzyskać więcej informacji na temat skalowania przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Zmiana ustawień istniejącej pamięci podręcznej platformy Azure dla usługi Redis](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Skalowanie za pomocą MAML
-Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy użyciu [bibliotek zarządzania Microsoft Azure (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), `IRedisOperations.CreateOrUpdate` Wywołaj metodę i przekaż nowy rozmiar dla `RedisProperties.SKU.Capacity`.
+Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy użyciu [bibliotek zarządzania Microsoft Azure (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), wywołaj `IRedisOperations.CreateOrUpdate` metodę i przekaż nowy rozmiar dla `RedisProperties.SKU.Capacity` .
 
+```csharp
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
@@ -95,6 +98,7 @@ Aby skalować pamięć podręczną platformy Azure dla wystąpień Redis przy u�
         var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
+```
 
 Aby uzyskać więcej informacji, zobacz przykład [zarządzania usługą Azure cache for Redis przy użyciu MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) .
 
@@ -134,13 +138,13 @@ Nie, nazwa i klucze pamięci podręcznej nie są zmieniane podczas operacji skal
 * Gdy **standardowa** pamięć podręczna jest skalowana do większego rozmiaru lub warstwy, a pamięć podręczna w **warstwie Premium** jest skalowana do większego rozmiaru, wszystkie dane są zwykle zachowywane. W przypadku skalowania pamięci podręcznej **standardowej** lub **Premium** w dół do mniejszego rozmiaru dane mogą zostać utracone w zależności od ilości danych znajdujących się w pamięci podręcznej związanej z nowym rozmiarem podczas skalowania. Jeśli dane zostaną utracone podczas skalowania w dół, klucze są wykluczane przy użyciu zasad wykluczania [AllKeys-LRU](https://redis.io/topics/lru-cache) . 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>Czy ustawienie niestandardowych baz danych jest dotknięte problemem podczas skalowania?
-Jeśli skonfigurowano wartość niestandardową dla `databases` ustawienia podczas tworzenia pamięci podręcznej, należy pamiętać, że niektóre warstwy cenowe mają różne [limity baz danych](cache-configure.md#databases). Poniżej przedstawiono niektóre zagadnienia dotyczące skalowania w tym scenariuszu:
+Jeśli skonfigurowano wartość niestandardową dla `databases` Ustawienia podczas tworzenia pamięci podręcznej, należy pamiętać, że niektóre warstwy cenowe mają różne [limity baz danych](cache-configure.md#databases). Poniżej przedstawiono niektóre zagadnienia dotyczące skalowania w tym scenariuszu:
 
 * Podczas skalowania do warstwy cenowej z niższym `databases` limitem niż bieżąca warstwa:
-  * Jeśli używasz domyślnej liczby `databases`, która jest 16 dla wszystkich warstw cenowych, żadne dane nie zostaną utracone.
+  * Jeśli używasz domyślnej liczby `databases` , która jest 16 dla wszystkich warstw cenowych, żadne dane nie zostaną utracone.
   * Jeśli używasz niestandardowej liczby `databases` , która znajduje się w granicach warstwy, do której jest skalowane, to `databases` ustawienie jest zachowywane i żadne dane nie zostaną utracone.
   * Jeśli używasz niestandardowej liczby, `databases` która przekracza limity nowej warstwy, `databases` ustawienie jest obniżane do limitów nowej warstwy, a wszystkie dane z usuniętych baz danych zostaną utracone.
-* W przypadku skalowania do warstwy cenowej o tym samym `databases` lub wyższym limicie niż bieżąca warstwa `databases` ustawienie jest zachowywane i żadne dane nie zostaną utracone.
+* W przypadku skalowania do warstwy cenowej o tym samym lub wyższym `databases` limicie niż bieżąca warstwa `databases` ustawienie jest zachowywane i żadne dane nie zostaną utracone.
 
 W przypadku, gdy w przypadku wersji Standard i Premium są dostępne 99,9% umowy SLA, nie ma umowy SLA na utratę danych.
 

@@ -13,12 +13,11 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800288"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84266767"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -128,7 +127,7 @@ Dynamiczne testowanie zabezpieczeń aplikacji (DAST) to proces testowania aplika
 
 DAST różni się od statycznego testowania zabezpieczeń aplikacji (SAST). Narzędzia SAST analizują kod źródłowy lub skompilowane wersje kodu, gdy kod nie jest wykonywany, aby znaleźć wady zabezpieczeń.
 
-Realizuj DAST, najlepiej z pomocą specjalisty ds. zabezpieczeń ( [testera penetracji](../fundamentals/pen-testing.md) lub oceniania luk w zabezpieczeniach). Jeśli specjalista ds. zabezpieczeń nie jest dostępny, możesz samodzielnie wykonać DAST z użyciem skanera internetowego serwera proxy i niektórych szkoleń. Przede wszystkim Podłącz skaner DAST, aby upewnić się, że w kodzie nie wprowadzono oczywistych problemów z zabezpieczeniami. Zobacz witrynę [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) , aby uzyskać listę skanerów luk w zabezpieczeniach aplikacji sieci Web.
+Realizuj DAST, najlepiej z pomocą specjalisty ds. zabezpieczeń ( [testera penetracji](../fundamentals/pen-testing.md) lub oceniania luk w zabezpieczeniach). Jeśli specjalista ds. zabezpieczeń nie jest dostępny, możesz samodzielnie wykonać DAST z użyciem skanera internetowego serwera proxy i niektórych szkoleń. Przede wszystkim Podłącz skaner DAST, aby upewnić się, że w kodzie nie wprowadzono oczywistych problemów z zabezpieczeniami. Zobacz witrynę [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) , aby uzyskać listę skanerów luk w zabezpieczeniach aplikacji sieci Web.
 
 ### <a name="perform-fuzz-testing"></a>Wykonaj testy rozmyte
 

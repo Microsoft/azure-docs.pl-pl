@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
 ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82232142"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: usuwanie klastra usługi Azure Red Hat OpenShift 4
@@ -29,7 +29,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, uruchom `az login` polecenie, aby zalogować się do platformy Azure.
+Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, uruchom polecenie, `az login` Aby zalogować się do platformy Azure.
 
 ```bash
 az login
@@ -52,7 +52,7 @@ Korzystając z tych wartości, Usuń klaster:
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-Następnie zostanie wyświetlony monit o potwierdzenie, czy chcesz usunąć klaster. Po potwierdzeniu `y`z programem usunięcie klastra zajmie kilka minut. Po zakończeniu wykonywania polecenia cała grupa zasobów i wszystkie znajdujące się w niej zasoby — w tym klaster — zostaną usunięte.
+Następnie zostanie wyświetlony monit o potwierdzenie, czy chcesz usunąć klaster. Po potwierdzeniu z programem `y` usunięcie klastra zajmie kilka minut. Po zakończeniu wykonywania polecenia cała grupa zasobów i wszystkie znajdujące się w niej zasoby — w tym klaster — zostaną usunięte.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
 ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81393730"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schematy Azure Event Grid dla zdarzeń Media Services
@@ -50,7 +50,7 @@ Zadanie może zawierać wiele danych wyjściowych zadania (jeśli przekształcen
 
 Każde **zadanie** ma być na wyższym poziomie niż **JobOutput**, dzięki czemu zdarzenia wyjściowe zadania są wywoływane w ramach odpowiedniego zadania. 
 
-Komunikaty o błędach `JobFinished`w `JobCanceled`programie `JobError` ,, wyprowadza zagregowane wyniki dla każdego wyjścia zadania — po zakończeniu wszystkich z nich. W związku z tym zdarzenia wyjściowe zadania są wyzwalane po zakończeniu każdego zadania. Na przykład, jeśli masz dane wyjściowe kodowania, a następnie dane wyjściowe analizy wideo, otrzymasz dwa zdarzenia wyzwalane jako zdarzenia wyjściowe zadania przed wystąpieniem ostatecznego zdarzenia JobFinished z zagregowanymi danymi.
+Komunikaty o błędach w programie, `JobFinished` `JobCanceled` , `JobError` wyprowadza zagregowane wyniki dla każdego wyjścia zadania — po zakończeniu wszystkich z nich. W związku z tym zdarzenia wyjściowe zadania są wyzwalane po zakończeniu każdego zadania. Na przykład, jeśli masz dane wyjściowe kodowania, a następnie dane wyjściowe analizy wideo, otrzymasz dwa zdarzenia wyzwalane jako zdarzenia wyjściowe zadania przed wystąpieniem ostatecznego zdarzenia JobFinished z zagregowanymi danymi.
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
@@ -661,8 +661,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Temat | ciąg | Ścieżka zasobu dla Media Services kanału w ramach konta Media Services. Łączenie tematu i tematu zapewnia identyfikator zasobu dla zadania. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Media Services dane zdarzenia. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Media Services dane zdarzenia. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 

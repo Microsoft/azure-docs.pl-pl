@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób tworzenia nowych kont użytkowników
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80384351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119603"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Tworzenie użytkowników w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -58,7 +58,7 @@ Przy użyciu konta administratora serwera można utworzyć dodatkowych użytkown
 
 2. Aby nawiązać połączenie z serwerem bazy danych, użyj konta administratora i hasła. Skorzystaj z preferowanego narzędzia klienckiego, takiego jak pgAdmin lub PSQL.
 
-3. Edytuj i uruchom następujący kod SQL. Zastąp wartość `<db_user>` symbolu zastępczego zamierzoną nową nazwą użytkownika i wartość `<newdb>` symbolu zastępczego własną nazwą bazy danych. Zastąp hasło symbolem zastępczym własnym silnym hasłem.
+3. Edytuj i uruchom następujący kod SQL. Zastąp wartość symbolu zastępczego `<db_user>` zamierzoną nową nazwą użytkownika i wartość symbolu zastępczego `<newdb>` własną nazwą bazy danych. Zastąp hasło symbolem zastępczym własnym silnym hasłem.
 
    Ta składnia kodu SQL tworzy nową bazę danych o nazwie TestDB, na przykład. Następnie tworzy nowego użytkownika w usłudze PostgreSQL i przyznaje uprawnienia do łączenia się z nową bazą danych dla tego użytkownika.
 

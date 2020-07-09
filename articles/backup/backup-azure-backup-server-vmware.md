@@ -2,13 +2,13 @@
 title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/24/2020
+ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537410"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86081064"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
@@ -26,6 +26,9 @@ W tym artykule wyjaśniono, jak:
 
 - Sprawdź, czy korzystasz z wersji programu vCenter/ESXi, która jest obsługiwana na potrzeby tworzenia kopii zapasowych. Zapoznaj się z macierzą pomocy technicznej [tutaj](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Upewnij się, że skonfigurowano Azure Backup Server. Jeśli jeszcze tego nie zrobiono, [zrób to](backup-azure-microsoft-azure-backup.md) przed rozpoczęciem. Należy uruchomić Azure Backup Server z najnowszymi aktualizacjami.
+- Upewnij się, że następujące porty sieciowe są otwarte:
+  - TCP 443 między serwera usługi MAB i vCenter
+  - TCP 443 i TCP 902 między serwera usługi MAB i hostem ESXi
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Utwórz bezpieczne połączenie z vCenter Server
 
@@ -58,7 +61,7 @@ Skonfiguruj bezpieczny kanał w następujący sposób:
 
 4. Zapisz plik na maszynie Azure Backup Server z rozszerzeniem. zip.
 
-5. Kliknij prawym przyciskiem myszy pozycję **Pobierz. zip** > **Wyodrębnij wszystko**. Plik. zip wyodrębnia jego zawartość do folderu **certs** , który zawiera następujące elementy:
+5. Kliknij prawym przyciskiem myszy pozycję **download.zip**  >  **Wyodrębnij wszystko**. Plik. zip wyodrębnia jego zawartość do folderu **certs** , który zawiera następujące elementy:
    - Plik certyfikatu głównego z rozszerzeniem rozpoczynającym się od numerowanej sekwencji takiej jak. 0 i. 1.
    - Plik listy CRL ma rozszerzenie zaczynające się od sekwencji like. r0 lub. R1. Plik listy CRL jest skojarzony z certyfikatem.
 
@@ -115,11 +118,11 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
     ![Administracja](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. W obszarze**role** **administracyjne** > kliknij ikonę Dodaj rolę (symbol +).
+3. W **Administration**obszarze  >  **role**administracyjne kliknij ikonę Dodaj rolę (symbol +).
 
     ![Dodaj rolę](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. W polu **Utwórz** > **nazwę roli**roli wprowadź *BackupAdminRole*. Nazwa roli może być dowolnie taka, ale powinna być rozpoznawalna dla celu roli.
+4. W polu **Utwórz**  >  **nazwę roli**roli wprowadź *BackupAdminRole*. Nazwa roli może być dowolnie taka, ale powinna być rozpoznawalna dla celu roli.
 
 5. Wybierz uprawnienia, które zostały podsumowane w poniższej tabeli, a następnie kliknij przycisk **OK**.  Nowa rola zostanie wyświetlona na liście w panelu **role** .
    - Kliknij ikonę obok etykiety nadrzędnej, aby rozwinąć element nadrzędny i wyświetlić uprawnienia podrzędne.
@@ -130,72 +133,75 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
 ### <a name="role-permissions"></a>Uprawnienia roli
 
-| Uprawnienia dla konta użytkownika vCenter 6,7                     | Uprawnienia dla konta użytkownika vCenter 6,5                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Klaster magazynu danych. Konfigurowanie klastra datatstore            | Klaster magazynu danych. Konfigurowanie klastra datatstore            |
-| Magazyn danych. AllocateSpace                                      | Magazyn danych. AllocateSpace                                      |
-| Magazyn danych. Przeglądaj magazyn danych                                   | Magazyn danych. Przeglądaj magazyn danych                                   |
-| Magazyn danych. operacje na plikach niskiego poziomu                          | Magazyn danych. operacje na plikach niskiego poziomu                          |
-| Global. Disable, metody                                       | Global. Disable, metody                                       |
-| Global. Enable — metody                                        | Global. Enable — metody                                        |
-| Globalne. licencje                                              | Globalne. licencje                                              |
-| Zdarzenie globalne. log                                             | Zdarzenie globalne. log                                             |
-| Global. Zarządzaj atrybutami niestandardowymi                              | Global. Zarządzaj atrybutami niestandardowymi                              |
-| Global. Set — atrybut niestandardowy                                  | Global. Set — atrybut niestandardowy                                  |
-| Operacje hosta. local. Utwórz maszynę wirtualną                | Operacje hosta. local. Utwórz maszynę wirtualną                |
-| Sieć. Przypisywanie sieci                                       | Sieć. Przypisywanie sieci                                       |
-| Zasoby. Przypisz maszynę wirtualną do puli zasobów           | Zasoby. Przypisz maszynę wirtualną do puli zasobów           |
-| vApp. Dodaj maszynę wirtualną                                     | vApp. Dodaj maszynę wirtualną                                     |
-| vApp. Przypisz pulę zasobów                                    | vApp. Przypisz pulę zasobów                                    |
-| vApp. Unregister                                              | vApp. Unregister                                              |
-| VirtualMachine. Configuration. Dodaj lub Usuń urządzenie          | VirtualMachine. Configuration. Dodaj lub Usuń urządzenie          |
-| Maszyna wirtualna. Konfiguracja. pozyskiwanie dzierżawy dysku            | Maszyna wirtualna. Konfiguracja. dzierżawa dysku                     |
-| Maszyna wirtualna. Konfiguracja. Dodaj nowy dysk                   | Maszyna wirtualna. Konfiguracja. Dodaj nowy dysk                   |
-| Maszyna wirtualna. Konfiguracja. zaawansowana        | Maszyna wirtualna. Konfiguracja. Advanced                       |
-| Maszyna wirtualna. Konfiguracja. Przełączanie śledzenia zmian dysku   | Maszyna wirtualna. Konfiguracja. śledzenie zmian dysku          |
-| Maszyna wirtualna. Konfiguracja. Konfigurowanie urządzenia USB hosta     | Maszyna wirtualna. Konfiguracja. host USB Device               |
-| Maszyna wirtualna. Konfiguracja. zwiększanie dysku wirtualnego           | Maszyna wirtualna. Konfiguracja. zwiększanie dysku wirtualnego           |
-| Maszyna wirtualna. Configuration. Query — pliki nienależące           | Maszyna wirtualna. Configuration. Query — pliki nienależące           |
-| Maszyna wirtualna. Konfiguracja. zmiana rozmieszczenia swapfile     | Maszyna wirtualna. Swapfile            |
-| Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa | Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa |
-| Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa | Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa |
-| Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa    | Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa    |
-| Maszyna wirtualna. Udziału. Połączenie z urządzeniem             | Maszyna wirtualna. Udziału. Połączenie z urządzeniem             |
+W poniższej tabeli przedstawiono uprawnienia, które należy przypisać do tworzonego konta użytkownika:
+
+| Uprawnienia dla konta użytkownika vCenter 6,5                          | Uprawnienia dla konta użytkownika vCenter 6,7                            |
+|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| Magazyn danych cluster.Configuruj klaster magazynu danych                           | Magazyn danych cluster.Configuruj klaster magazynu danych                           |
+| Magazyn danych. AllocateSpace                                                    | Magazyn danych. AllocateSpace                                                    |
+| Magazyn danych. Przeglądaj magazyn danych                                                 | Magazyn danych. Przeglądaj magazyn danych                                                 |
+| Magazyn danych. operacje na plikach niskiego poziomu                                        | Magazyn danych. operacje na plikach niskiego poziomu                                        |
+| Global. Disable, metody                                                     | Global. Disable, metody                                                     |
+| Global. Enable — metody                                                      | Global. Enable — metody                                                      |
+| Globalne. licencje                                                            | Globalne. licencje                                                            |
+| Zdarzenie globalne. log                                                           | Zdarzenie globalne. log                                                           |
+| Global. Zarządzaj atrybutami niestandardowymi                                            | Global. Zarządzaj atrybutami niestandardowymi                                            |
+| Global. Set — atrybut niestandardowy                                                | Global. Set — atrybut niestandardowy                                                |
+| Operacje hosta. local. Utwórz maszynę wirtualną                               | Operacje hosta. local. Utwórz maszynę wirtualną                               |
+| Sieć. Przypisywanie sieci                                                     | Sieć. Przypisywanie sieci                                                     |
+| Zasoby. Przypisz maszynę wirtualną do puli zasobów                          | Zasoby. Przypisz maszynę wirtualną do puli zasobów                          |
+| vApp. Dodaj maszynę wirtualną                                                   | vApp. Dodaj maszynę wirtualną                                                   |
+| vApp. Przypisz pulę zasobów                                                  | vApp. Przypisz pulę zasobów                                                  |
+| vApp. Unregister                                                            | vApp. Unregister                                                            |
+| VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie                         | VirtualMachine.Configwersja. Dodaj lub Usuń urządzenie                         |
+| Wersja Virtual machine.Config. Dzierżawa dysku                                   | Wersja Virtual machine.Config. Pozyskiwanie dzierżawy dysku                           |
+| Wersja Virtual machine.Config. Dodaj nowy dysk                                 | Wersja Virtual machine.Config. Dodaj nowy dysk                                 |
+| Wersja Virtual machine.Config. Doświadczonych                                     | Wersja Virtual machine.Config. Konfiguracja zaawansowana                       |
+| Wersja Virtual machine.Config. Śledzenie zmian dysku                         | Wersja Virtual machine.Config. Przełącz śledzenie zmian dysku                  |
+| Wersja Virtual machine.Config. Urządzenie hosta USB                              | Wirtualne urządzenie USB hosta uruj machine.Configuration.Config                    |
+| Wersja Virtual machine.Config. Zwiększ dysk wirtualny                          | Wersja Virtual machine.Config. Zwiększ dysk wirtualny                          |
+| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika                          | Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika                          |
+| Wersja Virtual machine.Config. Swapfile                           | Wersja Virtual machine.Config. Zmień umieszczanie swapfile                    |
+| Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa         | Maszyna wirtualna. Operacje gościa. wykonywanie programu operacji gościa         |
+| Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa             | Maszyna wirtualna. Operacje gościa. modyfikacje operacji gościa             |
+| Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa                   | Maszyna wirtualna. Operacje gościa. zapytania dotyczące operacji gościa                   |
+| Maszyna wirtualna. Udziału. Połączenie z urządzeniem                            | Maszyna wirtualna. Udziału. Połączenie z urządzeniem                            |
 | Maszyna wirtualna. Udziału. Zarządzanie systemem operacyjnym gościa za pomocą interfejsu API VIX | Maszyna wirtualna. Udziału. Zarządzanie systemem operacyjnym gościa za pomocą interfejsu API VIX |
-| Maszyna wirtualna. Udziału. Zasilanie wyłączone                      | Maszyna wirtualna. Udziału. Zasilanie wyłączone                      |
-| Maszyna wirtualna. Spis. Utwórz nowy                        | Maszyna wirtualna. Spis. Utwórz nowy                        |
-| Maszyna wirtualna. Spis. Remove                            | Maszyna wirtualna. Spis. Remove                            |
-| Maszyna wirtualna. Spis. Rejestr                          | Maszyna wirtualna. Spis. Rejestr                          |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku             | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku             |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików             | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików             |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu   | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu   |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej |
-| Maszyna wirtualna. Zarządzanie migawkami.  Tworzenie migawki       | Maszyna wirtualna. Zarządzanie migawkami.  Tworzenie migawki       |
-| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę        | Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę        |
-| Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę     | Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę     |
+| Maszyna wirtualna. Udziału. Zasilanie wyłączone                                    | Maszyna wirtualna. Udziału. Zasilanie wyłączone                                    |
+| Maszyna wirtualna. Spis. Utwórz nowy                                      | Maszyna wirtualna. Spis. Utwórz nowy                                      |
+| Maszyna wirtualna. Spis. Remove                                          | Maszyna wirtualna. Spis. Remove                                          |
+| Maszyna wirtualna. Spis. Rejestr                                        | Maszyna wirtualna. Spis. Rejestr                                        |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku                            | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku                            |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików                            | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do plików                            |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu                  | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku tylko do odczytu                  |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej               | Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na pobieranie maszyny wirtualnej               |
+| Maszyna wirtualna. Zarządzanie migawkami. Tworzenie migawki                      | Maszyna wirtualna. Zarządzanie migawkami. Tworzenie migawki                      |
+| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę                       | Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę                       |
+| Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę                    | Maszyna wirtualna. Zarządzanie migawkami. Przywróć migawkę                    |
 
-<br>
+> [!NOTE]
+> W poniższej tabeli wymieniono uprawnienia dla kont użytkowników vCenter 6,0 i vCenter 5,5.
 
-| **Uprawnienia dla konta użytkownika vCenter 6,0**                | **Uprawnienia dla konta użytkownika vCenter 5,5** |
-| ---------------------------------------------------------- | ------------------------------------------- |
-| Magazyn danych. AllocateSpace                                    | Network. Assign                              |
-| Global. Zarządzaj atrybutami niestandardowymi                           | Magazyn danych. AllocateSpace                     |
-| Global. Set — atrybut niestandardowy                               | VirtualMachine. config. śledzenia zmian        |
-| Operacje hosta. local. Utwórz maszynę wirtualną              | VirtualMachine. State. RemoveSnapshot         |
-| NFS.  Przypisywanie sieci                                   | VirtualMachine. State. issnapshot         |
-| Zasoby.  Przypisz maszynę wirtualną do puli zasobów         | VirtualMachine. Provisioning. DiskRandomRead  |
-| Maszyna wirtualna. Konfiguracja. Dodaj nowy dysk                | VirtualMachine. współdziała. wyłączenie            |
-| Maszyna wirtualna. Konfiguracja. Advanced                    | VirtualMachine. Inventory. Create             |
-| Maszyna wirtualna. Konfiguracja. śledzenie zmian dysku        | VirtualMachine. config. AddNewDisk            |
-| Maszyna wirtualna. Konfiguracja. host USB Device             | VirtualMachine. config. HostUSBDevice         |
-| Maszyna wirtualna. Configuration. Query — pliki nienależące         | VirtualMachine. config. AdvancedConfig        |
-| Maszyna wirtualna. Swapfile          | VirtualMachine. config. SwapPlacement         |
-| Maszyna wirtualna. Interakcja. Zasilanie wyłączone                     | Global. ManageCustomFields                   |
-| Maszyna wirtualna. Towar. Tworzenie nowego elementu                     |                                             |
-| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku            |                                             |
-| Maszyna wirtualna. Aprowizacji. Zezwalaj na dostęp do dysku tylko do odczytu |                                             |
-| Maszyna wirtualna. Zarządzanie migawkami. Utwórz migawkę       |                                             |
-| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę       |                                             |
+| Uprawnienia dla konta użytkownika vCenter 6,0 | Uprawnienia dla konta użytkownika vCenter 5,5 |
+| --- | --- |
+| Magazyn danych. AllocateSpace | Network. Assign |
+| Global. Zarządzaj atrybutami niestandardowymi | Magazyn danych. AllocateSpace |
+| Global. Set — atrybut niestandardowy | VirtualMachine.Config. Śledzenia zmian |
+| Operacje hosta. local. Utwórz maszynę wirtualną | VirtualMachine. State. RemoveSnapshot |
+| NFS. Przypisywanie sieci | VirtualMachine. State. issnapshot |
+| Zasoby. Przypisz maszynę wirtualną do puli zasobów | VirtualMachine. Provisioning. DiskRandomRead |
+| Wersja Virtual machine.Config. Dodaj nowy dysk | VirtualMachine. współdziała. wyłączenie |
+| Wersja Virtual machine.Config. Doświadczonych | VirtualMachine. Inventory. Create |
+| Wersja Virtual machine.Config. Śledzenie zmian dysku | VirtualMachine.Config. AddNewDisk |
+| Wersja Virtual machine.Config. Urządzenie hosta USB | VirtualMachine.Config. HostUSBDevice |
+| Wersja Virtual machine.Config. Wykonywanie zapytań dotyczących plików nienależących do użytkownika | VirtualMachine.Config. AdvancedConfig |
+| Wersja Virtual machine.Config. Swapfile | VirtualMachine.Config. SwapPlacement |
+| Maszyna wirtualna. Interakcja. Zasilanie wyłączone | Global. ManageCustomFields |
+| Maszyna wirtualna. Towar. Tworzenie nowego elementu |   |
+| Maszyna wirtualna. Inicjowanie obsługi administracyjnej. Zezwalaj na dostęp do dysku |   |
+| Maszyna wirtualna. Aprowizacji. Zezwalaj na dostęp do dysku tylko do odczytu |   |
+| Maszyna wirtualna. Zarządzanie migawkami. Utwórz migawkę |   |
+| Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę |   |
 
 ## <a name="create-a-vmware-account"></a>Utwórz konto VMware
 
@@ -221,11 +227,11 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
     ![Wybierz użytkownika lub grupę](./media/backup-azure-backup-server-vmware/vmware-add-new-global-perm.png)
 
-6. W obszarze **Wybierz użytkowników/grupy**wybierz pozycję **BackupAdmin** > **Dodaj**. W obszarze **Użytkownicy**, w przypadku konta użytkownika jest używany format *domena \ nazwa_użytkownika* . Jeśli chcesz użyć innej domeny, wybierz ją z listy **domen** . Kliknij przycisk **OK** , aby dodać wybranych użytkowników do okna dialogowego **Dodawanie uprawnienia** .
+6. W obszarze **Wybierz użytkowników/grupy**wybierz pozycję **BackupAdmin**  >  **Dodaj**. W obszarze **Użytkownicy**, w przypadku konta użytkownika jest używany format *domena \ nazwa_użytkownika* . Jeśli chcesz użyć innej domeny, wybierz ją z listy **domen** . Kliknij przycisk **OK** , aby dodać wybranych użytkowników do okna dialogowego **Dodawanie uprawnienia** .
 
     ![Dodawanie użytkownika BackupAdmin](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
-7. Z listy rozwijanej z **przypisaną rolą**wybierz pozycję **BackupAdminRole** > **OK**.
+7. Z listy rozwijanej z **przypisaną rolą**wybierz pozycję **BackupAdminRole**  >  **OK**.
 
     ![Przypisywanie użytkownika do roli](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
@@ -237,7 +243,7 @@ Na karcie **Zarządzanie** w panelu **uprawnienia globalne** na liście zostanie
 
     ![Ikona Azure Backup Server](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
-2. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie** >  **serwery** > produkcyjne**Zarządzanie programem VMware**.
+2. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie**  >   **serwery produkcyjne**  >  **Zarządzanie programem VMware**.
 
     ![Konsola Azure Backup Server](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
@@ -257,11 +263,11 @@ Na karcie **Zarządzanie** w panelu **uprawnienia globalne** na liście zostanie
 
 Dodaj vCenter Server do Azure Backup Server.
 
-1. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie** > **serwerami** > produkcyjnymi**Dodaj**.
+1. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie**  >  **serwerami produkcyjnymi**  >  **Dodaj**.
 
     ![Kreator otwierania dodawania serwera produkcyjnego](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2.  > W **Kreatorze dodawania do serwera produkcyjnego****Wybierz opcję Typ serwera produkcyjnego** , wybierz pozycję **serwery VMware**, a następnie kliknij przycisk **dalej**.
+2. W **Kreatorze dodawania do serwera produkcyjnego**  >  **Wybierz opcję Typ serwera produkcyjnego** , wybierz pozycję **serwery VMware**, a następnie kliknij przycisk **dalej**.
 
     ![Kreator dodawania do serwera produkcyjnego](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -367,6 +373,21 @@ Dodaj maszyny wirtualne VMware na potrzeby tworzenia kopii zapasowych. Grupy och
 
     ![Członek grupy ochrony i podsumowanie ustawień](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
+## <a name="vmware-parallel-backups"></a>Równoległe kopie zapasowe VMware
+
+>[!NOTE]
+> Ta funkcja ma zastosowanie do serwera usługi MAB v3 UR1.
+
+We wcześniejszych wersjach programu serwera usługi MAB równoległe kopie zapasowe były wykonywane tylko w grupach ochrony. W przypadku serwera usługi MAB v3 UR1 wszystkie kopie zapasowe maszyn wirtualnych VMWare w ramach jednej grupy ochrony są równoległe, co prowadzi do szybszego tworzenia kopii zapasowych maszyn wirtualnych. Wszystkie zadania replikacji różnicowej programu VMWare są uruchamiane równolegle. Domyślnie liczba zadań do uruchomienia równoległego jest ustawiona na 8.
+
+Liczbę zadań można zmodyfikować przy użyciu klucza rejestru, jak pokazano poniżej (nieobecny domyślnie, należy go dodać):
+
+**Ścieżka klucza**:`Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Typ klucza**: wartość DWORD (32-bitowa).
+
+> [!NOTE]
+> Liczbę zadań można zmodyfikować na wyższą wartość. W przypadku ustawienia numeru zadania na 1 zadania replikacji są uruchamiane sekwencyjnie. Aby zwiększyć liczbę do wyższej wartości, należy wziąć pod uwagę wydajność programu VMWare. Należy wziąć pod uwagę liczbę używanych zasobów i dodatkowe użycie wymagane przez program VMWare vSphere Server oraz określić liczbę zadań replikacji różnicowej, które mają być uruchamiane równolegle. Ponadto ta zmiana będzie miała wpływ tylko na nowo utworzone grupy ochrony. W przypadku istniejących grup ochrony należy tymczasowo dodać kolejną maszynę wirtualną do grupy ochrony. Należy odpowiednio zaktualizować konfigurację grupy ochrony. Po zakończeniu procedury można usunąć tę maszynę wirtualną z grupy ochrony.
+
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6,7
 
 Aby utworzyć kopię zapasową vSphere 6,7, wykonaj następujące czynności:
@@ -396,6 +417,126 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
 "SystemDefaultTlsVersions"=dword:00000001
 "SchUseStrongCrypto"=dword:00000001
+```
+
+## <a name="exclude-disk-from-vmware-vm-backup"></a>Wyklucz dysk z kopii zapasowej maszyny wirtualnej VMware
+
+> [!NOTE]
+> Ta funkcja ma zastosowanie do serwera usługi MAB v3 UR1.
+
+Za pomocą serwera usługi MAB v3 UR1 można wykluczyć określony dysk z kopii zapasowej maszyny wirtualnej VMware. **ExcludeDisk.ps1** skryptu konfiguracyjnego znajduje się w `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+
+Aby skonfigurować wykluczenie dysku, wykonaj następujące czynności:
+
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Zidentyfikuj szczegóły maszyny wirtualnej VMWare i dysku do wykluczenia
+
+  1. W konsoli programu VMware przejdź do ustawień maszyny wirtualnej, dla których chcesz wykluczyć dysk.
+  2. Wybierz dysk, który ma zostać wykluczony, i Zanotuj ścieżkę dla tego dysku.
+
+        Na przykład aby wykluczyć dysk twardy 2 z TestVM4, ścieżka do dysku twardego 2 to **[datastore1] TestVM4/TestVM4 \_ 1. vmdk**.
+
+        ![Dysk twardy, który ma zostać wykluczony](./media/backup-azure-backup-server-vmware/test-vm.png)
+
+### <a name="configure-mabs-server"></a>Konfigurowanie serwera serwera usługi MAB
+
+Przejdź do serwera serwera usługi MAB, na którym maszyna wirtualna VMware została skonfigurowana pod kątem ochrony, aby skonfigurować wykluczanie dysku.
+
+  1. Zapoznaj się ze szczegółami hosta VMware, który jest chroniony na serwerze serwera usługi MAB.
+
+        ```powershell
+        $psInfo = get-DPMProductionServer
+        $psInfo
+        ```
+
+        ```output
+        ServerName   ClusterName     Domain            ServerProtectionState
+        ----------   -----------     ------            ---------------------
+        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+        ```
+
+  2. Wybierz hosta VMware i Wyświetl listę ochrony maszyn wirtualnych dla hosta VMware.
+
+        ```powershell
+        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+        $vmDsInfo
+        ```
+
+        ```output
+        Computer     Name     ObjectType
+        --------     ----     ----------
+        Vcentervm1  TestVM2      VMware
+        Vcentervm1  TestVM1      VMware
+        Vcentervm1  TestVM4      VMware
+        ```
+
+  3. Wybierz maszynę wirtualną, dla której chcesz wykluczyć dysk.
+
+        ```powershell
+        $vmDsInfo[2]
+        ```
+
+        ```output
+        Computer     Name      ObjectType
+        --------     ----      ----------
+        Vcentervm1   TestVM4   VMware
+        ```
+
+  4. Aby wykluczyć dysk, przejdź do `Bin` folderu i uruchom skrypt *ExcludeDisk.ps1* z następującymi parametrami:
+
+        > [!NOTE]
+        > Przed uruchomieniem tego polecenia Zatrzymaj usługę DPMRA na serwerze serwera usługi MAB. W przeciwnym razie skrypt zwraca sukces, ale nie aktualizuje listy wykluczeń. Przed zatrzymaniem usługi upewnij się, że żadne zadania nie są w toku.
+
+     **Aby dodać/usunąć dysk z wykluczenia, uruchom następujące polecenie:**
+
+      ```powershell
+      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+      ```
+
+     **Przykład**:
+
+     Aby dodać wykluczenie dysku dla TestVM4, uruchom następujące polecenie:
+
+       ```powershell
+      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+       ```
+
+      ```output
+       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+      ```
+
+  5. Sprawdź, czy dysk został dodany do wykluczenia.
+
+     **Aby wyświetlić istniejące wykluczenie dla określonych maszyn wirtualnych, uruchom następujące polecenie:**
+
+        ```powershell
+        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+        ```
+
+     **Przykład**
+
+        ```powershell
+        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        ```
+
+        ```output
+        <VirtualMachine>
+        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+        </VirtualMachine>
+        ```
+
+     Po skonfigurowaniu ochrony dla tej maszyny wykluczonej dysk nie będzie wyświetlany podczas ochrony.
+
+        > [!NOTE]
+        > Jeśli wykonujesz te kroki dla już chronionej maszyny wirtualnej, musisz ręcznie uruchomić sprawdzanie spójności po dodaniu dysku do wykluczenia.
+
+### <a name="remove-the-disk-from-exclusion"></a>Usuń dysk z wykluczenia
+
+Aby usunąć dysk z wykluczenia, uruchom następujące polecenie:
+
+```powershell
+C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## <a name="next-steps"></a>Następne kroki

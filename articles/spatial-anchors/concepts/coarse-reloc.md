@@ -9,10 +9,9 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76844398"
 ---
 # <a name="coarse-relocalization"></a>Zgrubna ponowna lokalizacja
@@ -37,7 +36,7 @@ Ogólnie rzecz biorąc aplikacja będzie musiała uzyskać uprawnienia specyficz
 
 Zacznijmy od utworzenia dostawcy odcisku palca czujnika i przeprowadzenia dla niego informacji o tej sesji:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -132,7 +131,7 @@ Następnie należy zdecydować, które czujniki mają być używane w przypadku 
 
 Przy założeniu, że aplikacja ma już uprawnienia dostępu do pozycji GPS urządzenia, można skonfigurować kotwice przestrzenne platformy Azure, aby z niej korzystać:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
@@ -188,7 +187,7 @@ Ogólnie rzecz biorąc, zarówno system operacyjny, jak i kotwice przestrzenne p
 
 Jeśli zamierzasz używać dostawcy odcisków palca czujnika poza sesją zakotwiczenia, przed zażądaniem oszacowania czujnika upewnij się, że został on uruchomiony. Na przykład poniższy kod zajmie się aktualizacją położenia urządzenia na mapie w czasie rzeczywistym:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -318,7 +317,7 @@ sensorProvider.Stop();
 
 Przy założeniu, że aplikacja ma już uprawnienia dostępu do stanu sieci Wi-Fi urządzenia, można skonfigurować kotwice przestrzenne platformy Azure do korzystania z niej:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
@@ -376,7 +375,7 @@ Kotwice przestrzenne platformy Azure podejmują próbę skompilowania odfiltrowa
 
 Przy założeniu, że aplikacja ma już uprawnienia dostępu do stanu Bluetooth urządzenia, można skonfigurować kotwice przestrzenne platformy Azure do korzystania z niej:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
@@ -425,7 +424,7 @@ Sygnały nawigacyjne są zazwyczaj uniwersalnymi urządzeniami, gdzie wszystko �
 * Wdrażaj je — zwykle w zwykłych wzorcach, takich jak siatka.
 * Przekaż listę unikatowych identyfikatorów UUID sygnałów do dostawcy odcisków palca czujnika:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -499,7 +498,7 @@ Po utworzeniu kotwic ze skojarzonymi danymi czujnika można rozpocząć pobieran
 
 Aby zapytania używały danych z czujnika, Zacznij od utworzenia kryterium "blisko urządzenia":
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -592,13 +591,13 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-`DistanceInMeters` Parametr określa, jak daleko analizujemy Graf zakotwiczony do pobierania zawartości. Przyjęto założenie, że na przykład wypełniono miejsce z kotwicami o stałej gęstości wynoszącej 2 każdy licznik. Dodatkowo aparat na urządzeniu obsłużył jedną kotwicę, a usługa została pomyślnie umieszczona w usłudze. Najprawdopodobniej interesuje Cię pobieranie wszystkich kotwic, które zostały umieszczone w pobliżu, a nie z pojedynczej kotwicy, która jest aktualnie zaobserwowania. Przy założeniu, że kotwice zostały połączone w grafie, usługa może pobrać wszystkie kotwice w pobliżu, postępując zgodnie z krawędziami na wykresie. Ilość wykonywanego przechodzenia wykresu jest kontrolowana przez `DistanceInMeters`program; otrzymasz wszystkie kotwice połączone z tym, że są one bliżej siebie `DistanceInMeters`.
+`DistanceInMeters`Parametr określa, jak daleko analizujemy Graf zakotwiczony do pobierania zawartości. Przyjęto założenie, że na przykład wypełniono miejsce z kotwicami o stałej gęstości wynoszącej 2 każdy licznik. Dodatkowo aparat na urządzeniu obsłużył jedną kotwicę, a usługa została pomyślnie umieszczona w usłudze. Najprawdopodobniej interesuje Cię pobieranie wszystkich kotwic, które zostały umieszczone w pobliżu, a nie z pojedynczej kotwicy, która jest aktualnie zaobserwowania. Przy założeniu, że kotwice zostały połączone w grafie, usługa może pobrać wszystkie kotwice w pobliżu, postępując zgodnie z krawędziami na wykresie. Liczba wykonanych operacji przechodzenia wykresu jest kontrolowana przez `DistanceInMeters` program; otrzymasz wszystkie kotwice połączone z tym, które znajdują się na tym samym miejscu niż `DistanceInMeters` .
 
 Należy pamiętać, że duże wartości dla `MaxResultCount` mogą negatywnie wpłynąć na wydajność. Ustaw ją na wartość rozsądną dla aplikacji.
 
 Na koniec należy poinformować sesję, aby używała wyszukiwania opartego na czujnikach:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -673,7 +672,7 @@ Użyj bardzo dużej lokalizacji w aplikacji.
 > [Unity](../how-tos/set-up-coarse-reloc-unity.md)
 
 > [!div class="nextstepaction"]
-> [Obiektowy C](../how-tos/set-up-coarse-reloc-objc.md)
+> [Objective-C](../how-tos/set-up-coarse-reloc-objc.md)
 
 > [!div class="nextstepaction"]
 > [Swift](../how-tos/set-up-coarse-reloc-swift.md)

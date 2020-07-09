@@ -165,7 +165,7 @@
               href: service-fabric-concepts-partitioning.md
             - name: Ponowne konfigurowanie usług stanowych
               href: service-fabric-concepts-reconfiguration.md
-            - name: 'Cykl życia interfejsu Reliable Services — C#'
+            - name: Cykl życia interfejsu Reliable Services — C#
               href: service-fabric-reliable-services-lifecycle.md
             - name: Cykl życia interfejsu Reliable Services — Java
               href: service-fabric-reliable-services-lifecycle-java.md
@@ -222,6 +222,8 @@
               href: service-fabric-manifest-example-container-app.md
         - name: Model hostingu
           href: service-fabric-hosting-model.md
+        - name: 'Cykl życia aktywacji i dezaktywacji hostingu: tematy zaawansowane'
+          href: service-fabric-hosting-lifecycle.md
         - name: Zabezpieczenia aplikacji
           href: service-fabric-application-and-service-security.md
         - name: Stan usługi
@@ -276,6 +278,8 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Tworzenie kopii zapasowej partycji na żądanie
               href: service-fabric-backup-restore-service-ondemand-backup.md
+            - name: Wyświetlanie i edytowanie kopii zapasowej kolekcji niezawodności w trybie offline
+              href: backup-explorer.md
         - name: Pakiety CodePackage inicjatora
           href: initializer-codepackages.md
         - name: RunToCompletion
@@ -404,13 +408,13 @@
           href: service-fabric-get-started-containers.md
         - name: Aplikacja kontenera dla systemu Linux
           href: service-fabric-get-started-containers-linux.md
-        - name: 'Aplikacja interfejsu Reliable Services w języku C# dla systemu Windows'
+        - name: Aplikacja interfejsu Reliable Services w języku C# dla systemu Windows
           href: service-fabric-reliable-services-quick-start.md
         - name: Aplikacja interfejsu Reliable Services w języku Java dla systemu Linux
           href: service-fabric-reliable-services-quick-start-java.md
-        - name: 'Aplikacja interfejsu Reliable Services w języku C# dla systemu Linux'
+        - name: Aplikacja interfejsu Reliable Services w języku C# dla systemu Linux
           href: service-fabric-create-your-first-linux-application-with-csharp.md
-        - name: 'Aplikacja interfejsu Reliable Actors w języku C# dla systemu Windows'
+        - name: Aplikacja interfejsu Reliable Actors w języku C# dla systemu Windows
           href: service-fabric-reliable-actors-get-started.md
         - name: Aplikacja interfejsu Reliable Actors w języku Java dla systemu Linux
           href: service-fabric-create-your-first-linux-application-with-java.md
@@ -448,13 +452,13 @@
               items:
                 - name: Komunikacja przy użyciu usług Reliable Services
                   href: service-fabric-reliable-services-communication.md
-                - name: 'Zdalna komunikacja usług — C#'
+                - name: Zdalna komunikacja usług — C#
                   href: service-fabric-reliable-services-communication-remoting.md
                 - name: Zdalna komunikacja usług — Java
                   href: service-fabric-reliable-services-communication-remoting-java.md
                 - name: WCF
                   href: service-fabric-reliable-services-communication-wcf.md
-                - name: 'Zabezpieczanie komunikacji — C#'
+                - name: Zabezpieczanie komunikacji — C#
                   href: service-fabric-reliable-services-secure-communication.md
                 - name: Zabezpieczanie komunikacji — Java
                   href: service-fabric-reliable-services-secure-communication-java.md
@@ -561,7 +565,7 @@
           items:
             - name: Wprowadzenie do programu VS Code
               href: service-fabric-get-started-vs-code.md
-            - name: 'Opracowywanie aplikacji usługi Service Fabric w języku C# za pomocą programu VS Code'
+            - name: Opracowywanie aplikacji usługi Service Fabric w języku C# za pomocą programu VS Code
               href: service-fabric-develop-csharp-applications-with-vs-code.md
             - name: Opracowywanie aplikacji usługi Service Fabric w języku Java za pomocą programu VS Code
               href: service-fabric-develop-java-applications-with-vs-code.md

@@ -6,16 +6,16 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: d42d905bf35c015213e76bc50c4bc339a5c4a062
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6a364cbd29c3273466bee15b9a54e097497a8e5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886113"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85479117"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem MVC (usługa połączona Azure Active Directory Visual Studio)?
 
@@ -29,7 +29,7 @@ Aby uzyskać informacje na temat pracy z połączoną usługą, zobacz [wprowadz
 
 ## <a name="added-references"></a>Dodano odwołania
 
-Ma wpływ na plik projektu (*. NET References `packages.config` ) i (odwołania NuGet).
+Ma wpływ na plik projektu (*. NET References) i `packages.config` (odwołania NuGet).
 
 | Typ | Dokumentacja |
 | --- | --- |
@@ -70,9 +70,9 @@ Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie 
 
 - Ustaw właściwość `IISExpressSSLPort` na wartość DISTINCT.
 - Ustaw właściwość `WebProject_DirectoryAccessLevelKey` na 0 lub 1, jeśli wybrano opcję **Odczytaj dane katalogu** .
-- Ustaw właściwość `IISUrl` na gdzie `https://localhost:<port>/` `<port>` pasuje do `IISExpressSSLPort` wartości.
+- Ustaw właściwość `IISUrl` na `https://localhost:<port>/` gdzie pasuje do `<port>` `IISExpressSSLPort` wartości.
 
-## <a name="webconfig-or-appconfig-changes"></a>zmiany pliku Web. config lub App. config
+## <a name="webconfig-or-appconfig-changes"></a>Zmiany web.config lub app.config
 
 - Dodano następujące wpisy konfiguracji:
 
@@ -86,17 +86,17 @@ Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie 
     </appSettings>
     ```
 
-- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `System.IdentityModel.Tokens.Jwt` i. `Microsoft.IdentityModel.Protocol.Extensions`
+- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `System.IdentityModel.Tokens.Jwt` i `Microsoft.IdentityModel.Protocol.Extensions` .
 
 Dodatkowe zmiany w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
-- Dodano następujący wpis konfiguracji poniżej `<appSettings>`:
+- Dodano następujący wpis konfiguracji poniżej `<appSettings>` :
 
     ```xml
     <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
     ```
 
-- Dodano następujące elementy w `<configuration>`: wartości dla programu Project-MDF-File i ID-Catalog będą się różnić:
+- Dodano następujące elementy w obszarze `<configuration>` ; wartości dla pliku Project-MDF-File i Project-Catalog-ID będą się różnić:
 
     ```xml
     <configSections>
@@ -120,29 +120,29 @@ Dodatkowe zmiany w przypadku wybrania opcji **Odczytaj dane katalogu** :
     </entityFramework>
     ```
 
-- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, i. `Microsoft.Data.OData`
+- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `Microsoft.Data.Services.Client` , `Microsoft.Data.Edm` , i `Microsoft.Data.OData` .
 
 ## <a name="code-changes-and-additions"></a>Zmiany i dodatki kodu
 
 - Dodano `[Authorize]` atrybut do `Controllers/HomeController.cs` i wszystkich innych istniejących kontrolerów.
 
-- Dodano klasę `App_Start/Startup.Auth.cs`uruchamiania uwierzytelniania, zawierającą logikę uruchamiania uwierzytelniania usługi Azure AD. W przypadku wybrania opcji **Czytaj dane katalogu** ten plik zawiera również kod umożliwiający otrzymanie kodu OAuth i wymienianie go z tokenem dostępu.
+- Dodano klasę uruchamiania uwierzytelniania, `App_Start/Startup.Auth.cs` zawierającą logikę uruchamiania uwierzytelniania usługi Azure AD. W przypadku wybrania opcji **Czytaj dane katalogu** ten plik zawiera również kod umożliwiający otrzymanie kodu OAuth i wymienianie go z tokenem dostępu.
 
-- Dodano klasę `Controllers/AccountController.cs`kontrolera, zawierającą `SignIn` i `SignOut` metody.
+- Dodano klasę kontrolera, `Controllers/AccountController.cs` zawierającą `SignIn` i `SignOut` metody.
 
-- Dodano widok `Views/Shared/_LoginPartial.cshtml`częściowy, zawierający link akcji dla `SignIn` i. `SignOut`
+- Dodano widok częściowy, `Views/Shared/_LoginPartial.cshtml` zawierający link akcji dla `SignIn` i `SignOut` .
 
-- Dodano widok częściowy, `Views/Account/SignoutCallback.cshtml`zawierający kod HTML dla interfejsu użytkownika wylogowania.
+- Dodano widok częściowy, `Views/Account/SignoutCallback.cshtml` zawierający kod HTML dla interfejsu użytkownika wylogowania.
 
-- Zaktualizowano `Startup.Configuration` metodę w celu uwzględnienia wywołania `ConfigureAuth(app)` , jeśli Klasa już istnieje; w przeciwnym razie `Startup` Dodano klasę, która zawiera wywołania metody.
+- Zaktualizowano `Startup.Configuration` metodę w celu uwzględnienia wywołania, `ConfigureAuth(app)` Jeśli Klasa już istnieje; w przeciwnym razie dodaliśmy `Startup` klasę, która zawiera wywołania metody.
 
-- Dodano `Connected Services/AzureAD/ConnectedService.json` (visual Studio 2017) lub `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015) zawierający informacje używane przez program Visual Studio do śledzenia dodawania połączonej usługi.
+- Dodano `Connected Services/AzureAD/ConnectedService.json` (Visual studio 2017) lub `Service References/Azure AD/ConnectedService.json` (visual Studio 2015) zawierający informacje używane przez program Visual Studio do śledzenia dodawania połączonej usługi.
 
-- Jeśli wybrano opcję **Odczytaj dane katalogu** , dodano `Models/ADALTokenCache.cs` i `Models/ApplicationDbContext.cs` do obsługi buforowania tokenów. Dodano również dodatkowy kontroler i widok, aby zilustrować dostęp do informacji o profilu użytkownika przy użyciu interfejsów API `Controllers/UserProfileController.cs`usługi `Views/UserProfile/Index.cshtml`Azure Graph:, i`Views/UserProfile/Relogin.cshtml`
+- Jeśli wybrano opcję **Odczytaj dane katalogu** , dodano `Models/ADALTokenCache.cs` i `Models/ApplicationDbContext.cs` do obsługi buforowania tokenów. Dodano również dodatkowy kontroler i widok, aby zilustrować dostęp do informacji o profilu użytkownika przy użyciu interfejsów API usługi Azure Graph: `Controllers/UserProfileController.cs` , `Views/UserProfile/Index.cshtml` i`Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Kopia zapasowa plików (Visual Studio 2015)
 
-Podczas dodawania połączonej usługi program Visual Studio 2015 tworzy kopie zapasowe zmienionych i usuniętych plików. Wszystkie odnośne pliki są zapisywane w folderze `Backup/AzureAD`. Program Visual Studio 2017 i nowsze nie tworzy kopii zapasowych.
+Podczas dodawania połączonej usługi program Visual Studio 2015 tworzy kopie zapasowe zmienionych i usuniętych plików. Wszystkie odnośne pliki są zapisywane w folderze `Backup/AzureAD` . Program Visual Studio 2017 i nowsze nie tworzy kopii zapasowych.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

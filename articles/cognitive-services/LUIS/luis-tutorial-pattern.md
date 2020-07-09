@@ -2,19 +2,18 @@
 title: 'Samouczek: wzorce — LUIS'
 description: Użyj wzorców, aby zwiększyć zamiar i prognozowanie jednostek, jednocześnie dostarczając mniejszą liczbę przykładów wyrażenia długości w tym samouczku. Wzorzec jest dostępny jako przykład wypowiedź szablonu, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
 ms.topic: tutorial
-ms.date: 05/07/2020
-ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.date: 07/06/2020
+ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592920"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86039504"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonów wzorców w celu usprawnienia prognoz
 
 W tym samouczku Użyj wzorców, aby zwiększyć cel i prognozowanie jednostek, co pozwala na dostarczenie mniejszej przykładowej wyrażenia długości. Wzorzec to szablon wypowiedź przypisany do zamiaru, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie wzorca
@@ -37,14 +36,12 @@ Wzorzec jest stosowany jako kombinacja dopasowania tekstu i uczenia maszynowego.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importowanie przykładowej aplikacji i klonowanie do nowej wersji
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 
-1.  Pobierz i Zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Pobierz i Zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
-1. Zaimportuj plik JSON do nowej aplikacji w [portalu Luis](https://www.luis.ai). Na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie wybierz pozycję **Importuj jako plik JSON**. Wybierz plik pobrany w poprzednim kroku.
-
-1. W sekcji **Zarządzanie** na karcie **wersje** wybierz aktywną wersję, a następnie wybierz pozycję **Klonuj**. Nadaj nazwę sklonowanej wersji `patterns` . Klonowanie to dobry sposób na testowanie różnych funkcji usługi LUIS bez wpływu na oryginalną wersję aplikacji. Ponieważ nazwa wersji jest używana jako część trasy adresu URL, nie może ona zawierać żadnych znaków, które są nieprawidłowe w adresie URL.
+1. Zaimportuj plik JSON do nowej aplikacji w [portalu Luis](https://www.luis.ai). Na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie wybierz pozycję **Importuj jako plik JSON**. Wybierz plik, który został pobrany w poprzednim kroku, nadaj nazwę aplikacji `Patterns tutorial` .
 
 ## <a name="create-new-intents-and-their-utterances"></a>Tworzenie nowych intencji i ich wypowiedzi
 
@@ -67,8 +64,6 @@ Te dwa intencje odszukają Menedżera lub bezpośrednich raportów kierownika na
     |`Who is John W. Smith's manager?`|
     |`Who does Jill Jones directly report to?`|
     |`Who is Jill Jones supervisor?`|
-
-    Nie martw się, jeśli jednostka keyPhrase jest oznaczona etykietą w wypowiedziach intencji zamiast jednostki pracownika. Oba elementy są poprawnie przewidywane w okienku testu i w punkcie końcowym.
 
 1. Wybierz pozycję **Intents** (Intencje) na lewym pasku nawigacyjnym.
 
@@ -109,50 +104,50 @@ Te dwa intencje odszukają Menedżera lub bezpośrednich raportów kierownika na
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.313054234
+                    "score": 0.326605469
                 },
                 "OrgChart-Reports": {
-                    "score": 0.2462688
+                    "score": 0.127583548
                 },
                 "EmployeeFeedback": {
-                    "score": 0.0488328524
-                },
-                "GetJobInformation": {
-                    "score": 0.0156933
+                    "score": 0.0299124215
                 },
                 "MoveEmployee": {
-                    "score": 0.011265873
+                    "score": 0.01159851
                 },
-                "Utilities.StartOver": {
-                    "score": 0.003065792
-                },
-                "Utilities.Stop": {
-                    "score": 0.00300148362
-                },
-                "Utilities.Cancel": {
-                    "score": 0.00271081156
-                },
-                "None": {
-                    "score": 0.00212835032
+                "GetJobInformation": {
+                    "score": 0.0104600191
                 },
                 "ApplyForJob": {
-                    "score": 0.0020669254
+                    "score": 0.007508645
                 },
-                "Utilities.Confirm": {
-                    "score": 0.00200891262
+                "Utilities.StartOver": {
+                    "score": 0.00359402061
+                },
+                "Utilities.Stop": {
+                    "score": 0.00336530479
                 },
                 "FindForm": {
-                    "score": 0.00194145238
+                    "score": 0.002653719
+                },
+                "Utilities.Cancel": {
+                    "score": 0.00263288687
+                },
+                "None": {
+                    "score": 0.00238638581
                 },
                 "Utilities.Help": {
-                    "score": 0.00182301877
+                    "score": 0.00226386427
+                },
+                "Utilities.Confirm": {
+                    "score": 0.00211663754
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -171,9 +166,9 @@ Te dwa intencje odszukają Menedżera lub bezpośrednich raportów kierownika na
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -190,32 +185,28 @@ Te dwa intencje odszukają Menedżera lub bezpośrednich raportów kierownika na
     }
     ```
 
-Wyniki dwóch głównych intencji są bliskie, ale najwyższy cel nie jest znacząco wysoki (ponad 60%) i nie jest wystarczająco dużo więcej niż Ocena następnego celu.
+Oczekiwano poprawnego górnego celu, `OrgChart-Manager` ale wynik nie jest większy niż 70% i jest zbyt mały powyżej następnego najwyższego zamiaru. Aby poprawny wynik intencji był znacznie wyższy procentowo i bardziej oddalony od następnego najwyższego wyniku, należy użyć wzorców.
 
-Ponieważ szkolenia LUIS nie są dokładnie takie same (istnieją różnice między nimi), te dwa najważniejsze wyniki mogą odwrócić w następnym cyklu szkoleniowym. Wynikiem jest to, że może zostać zwrócona nieprawidłowa intencja.
-
-Aby poprawny wynik intencji był znacznie wyższy procentowo i bardziej oddalony od następnego najwyższego wyniku, należy użyć wzorców.
-
-Pozostaw drugie okno przeglądarki otwarte. Będzie potrzebne w dalszej części samouczka.
+Pozostaw drugie okno przeglądarki otwarte. Będzie on używany ponownie później w samouczku.
 
 ## <a name="template-utterances"></a>Wypowiedzi szablonu
-Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Na przykład:
+Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Przykład:
 
 |Wypowiedzi|
 |--|
 |`Who does Jill Jones report to?`|
 |`Who reports to Jill Jones?`|
 
-Te wypowiedzi są za bardzo zbliżone, aby określić kontekstową unikatowość każdej bez podawania wielu przykładowych wypowiedzi. Dodając wzorzec do intencji, usługa LUIS uczy się typowych wzorców wypowiedzi dla intencji bez podawania wielu przykładowych wypowiedzi.
+Te wyrażenia długości są zbyt blisko, aby określić unikatowość kontekstową każdego z nich bez podawania _wielu_ wypowiedź przykładów. Dzięki dodaniu wzorca dla zamiaru LUIS uczy typowe wzorce wypowiedź dla zamiaru bez konieczności dostarczania wielu przykładów wypowiedź.
 
 Przykładowe wypowiedzi szablonu dla tej intencji obejmują:
 
 |Przykładowe wypowiedzi szablonu|Znaczenie składni|
 |--|--|
-|`Who does {Employee} report to[?]`|wymienne`{Employee}`<br>Ignoruj`[?]`|
-|`Who reports to {Employee}[?]`|wymienne`{Employee}`<br>Ignoruj`[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|wymienne`{EmployeeListEntity}`<br>Ignoruj`[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|wymienne`{EmployeeListEntity}`<br>Ignoruj`[?]`|
 
-Składnia `{Employee}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia, `[?]` , znaki wyrazów lub [interpunkcja](luis-reference-application-settings.md#punctuation-normalization) , która jest opcjonalna. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
+Składnia `{EmployeeListEntity}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia, `[?]` , znaki wyrazów lub [interpunkcja](luis-reference-application-settings.md#punctuation-normalization) , która jest opcjonalna. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
 
 Chociaż składnia wygląda podobnie do wyrażenia regularnego, nie jest wyrażeniem regularnym. Obsługiwana jest tylko składnia w nawiasie klamrowym, `{}`, i nawiasie kwadratowym, `[]`. Mogą być one zagnieżdżone na najwyżej dwóch poziomach.
 
@@ -233,25 +224,25 @@ Aby wzorzec pasował do elementu wypowiedź, _najpierw_ jednostki w wypowiedź m
 
     |Wypowiedzi szablonu|
     |:--|
-    |`Who is {Employee} the subordinate of[?]`|
-    |`Who does {Employee} report to[?]`|
-    |`Who is {Employee}['s] manager[?]`|
-    |`Who does {Employee} directly report to[?]`|
-    |`Who is {Employee}['s] supervisor[?]`|
-    |`Who is the boss of {Employee}[?]`|
+    |`Who is {EmployeeListEntity} the subordinate of[?]`|
+    |`Who does {EmployeeListEntity} report to[?]`|
+    |`Who is {EmployeeListEntity}['s] manager[?]`|
+    |`Who does {EmployeeListEntity} directly report to[?]`|
+    |`Who is {EmployeeListEntity}['s] supervisor[?]`|
+    |`Who is the boss of {EmployeeListEntity}[?]`|
 
-    Te szablony wyrażenia długości obejmują jednostkę **Employee** z notacją nawiasu klamrowego.
+    Te wyrażenia długości szablonu zawierają jednostkę **EmployeeListEntity** z notacją nawiasu klamrowego.
 
 1. Na stronie wzorce wybierz opcję **schemat organizacyjny — raporty** , a następnie wprowadź następujący wyrażenia długości szablonu:
 
     |Wypowiedzi szablonu|
     |:--|
-    |`Who are {Employee}['s] subordinates[?]`|
-    |`Who reports to {Employee}[?]`|
-    |`Who does {Employee} manage[?]`|
-    |`Who are {Employee} direct reports[?]`|
-    |`Who does {Employee} supervise[?]`|
-    |`Who does {Employee} boss[?]`|
+    |`Who are {EmployeeListEntity}['s] subordinates[?]`|
+    |`Who reports to {EmployeeListEntity}[?]`|
+    |`Who does {EmployeeListEntity} manage[?]`|
+    |`Who are {EmployeeListEntity} direct reports[?]`|
+    |`Who does {EmployeeListEntity} supervise[?]`|
+    |`Who does {EmployeeListEntity} boss[?]`|
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Punkt końcowy zapytania, gdy są używane wzorce
 
@@ -261,7 +252,7 @@ Teraz, gdy wzorce są dodawane do aplikacji, uczenie, publikowanie i wysyłanie 
 
 1. Po zakończeniu publikowania Przełącz karty przeglądarki z powrotem na kartę adres URL punktu końcowego.
 
-1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ :`Who is the boss of Jill Jones?`
+1. Przejdź na koniec adresu URL na pasku adresu i sprawdź, czy zapytanie jest nadal przesyłane do `Who is the boss of Jill Jones?` nowego przewidywania.
 
     ```json
     {
@@ -270,50 +261,50 @@ Teraz, gdy wzorce są dodawane do aplikacji, uczenie, publikowanie i wysyłanie 
             "topIntent": "OrgChart-Manager",
             "intents": {
                 "OrgChart-Manager": {
-                    "score": 0.999997854
+                    "score": 0.999999046
                 },
                 "OrgChart-Reports": {
-                    "score": 6.13748343E-05
+                    "score": 3.237443E-05
                 },
                 "EmployeeFeedback": {
-                    "score": 8.052567E-06
+                    "score": 4.364242E-06
                 },
                 "GetJobInformation": {
-                    "score": 1.18197136E-06
+                    "score": 1.616159E-06
                 },
                 "MoveEmployee": {
-                    "score": 7.65549657E-07
-                },
-                "None": {
-                    "score": 3.975E-09
-                },
-                "Utilities.StartOver": {
-                    "score": 1.53E-09
-                },
-                "Utilities.Confirm": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Help": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Stop": {
-                    "score": 1.38181822E-09
-                },
-                "Utilities.Cancel": {
-                    "score": 1.25833333E-09
-                },
-                "FindForm": {
-                    "score": 1.15384613E-09
+                    "score": 7.575752E-07
                 },
                 "ApplyForJob": {
-                    "score": 5.26923061E-10
+                    "score": 5.234157E-07
+                },
+                "None": {
+                    "score": 3.3E-09
+                },
+                "Utilities.StartOver": {
+                    "score": 1.26E-09
+                },
+                "FindForm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Cancel": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Confirm": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Help": {
+                    "score": 1.13636367E-09
+                },
+                "Utilities.Stop": {
+                    "score": 1.13636367E-09
                 }
             },
             "entities": {
                 "keyPhrase": [
                     "boss of Jill Jones"
                 ],
-                "Employee": [
+                "EmployeeListEntity": [
                     [
                         "Employee-45612"
                     ]
@@ -332,9 +323,9 @@ Teraz, gdy wzorce są dodawane do aplikacji, uczenie, publikowanie i wysyłanie 
                             ]
                         }
                     ],
-                    "Employee": [
+                    "EmployeeListEntity": [
                         {
-                            "type": "Employee",
+                            "type": "EmployeeListEntity",
                             "text": "Jill Jones",
                             "startIndex": 19,
                             "length": 10,
@@ -351,7 +342,7 @@ Teraz, gdy wzorce są dodawane do aplikacji, uczenie, publikowanie i wysyłanie 
     }
     ```
 
-Prognoza intencji jest teraz znacznie bardziej nieświadoma, a następna wartość oceny najwyższego celu jest znacznie niższa. Te dwa intencje nie będą przerzucać flop podczas uczenia się.
+Prognoza intencji jest teraz znacznie bardziej nieświadoma, a następna najwyższa ocena jest bardzo niska. Te dwa intencje nie będą przerzucać flop podczas uczenia się.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Praca z tekstem opcjonalnym i wstępnie skompilowanymi jednostkami
 
@@ -372,8 +363,8 @@ Przykładowy wyrażenia długości szablonu, który zezwala na te informacje opc
 
 |Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |:--|:--|
-|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who is {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 
 Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że ten opcjonalny tekst jest łatwy do dodania do wypowiedzi szablonu i może być zagnieżdżony najwyżej do drugiego poziomu, `[[]]`, a także może zawierać tekst lub jednostki.
@@ -383,9 +374,10 @@ Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że
 
 **Pytanie: dlaczego wstępnie skompilowany numer nie jest częścią wypowiedzi szablonu, jeśli March 3 (3 marca) jest przewidziany zarówno jako liczba `3`, jak i data `March 3`?** Wypowiedź szablonu kontekstowo używa daty — albo dosłownie jak w wypowiedzi `March 3`, albo abstrakcyjnie jak w wypowiedzi `in a month`. Data może zawierać liczbę, ale liczba nie musi być zawsze postrzegana jako data. Należy zawsze używać jednostki najlepiej reprezentującej typ, który ma być zwracany w wynikach przewidywania JSON.
 
-**Pytanie: co z niepoprawnie zapisanymi wypowiedziami, takimi jak `Who will {Employee}['s] manager be on March 3?`.** Gramatycznie różne czasy czasowników, takie jak tu, gdzie `will` i `be` są rozdzielone, muszą być nową wypowiedzią szablonu. Istniejąca wypowiedź szablonu nie będzie z tym zgodna. Mimo że intencja wypowiedzi nie została zmieniona, zmieniło się umieszczenie słowa w wypowiedzi. Ta zmiana ma wpływ na przewidywanie w usłudze LUIS. Aby połączyć te wyrażenia długości [, można grupować i lub](#use-the-or-operator-and-groups) wystawić zlecenia.
+**Pytanie: co z niepoprawnie zapisanymi wypowiedziami, takimi jak `Who will {EmployeeListEntity}['s] manager be on March 3?`.** Gramatycznie różne czasy czasowników, takie jak tu, gdzie `will` i `be` są rozdzielone, muszą być nową wypowiedzią szablonu. Istniejąca wypowiedź szablonu nie będzie z tym zgodna. Mimo że intencja wypowiedzi nie została zmieniona, zmieniło się umieszczenie słowa w wypowiedzi. Ta zmiana ma wpływ na przewidywanie w usłudze LUIS. Aby połączyć te wyrażenia długości [, można grupować i lub](#use-the-or-operator-and-groups) wystawić zlecenia.
 
-**Pamiętaj: najpierw znajdowane są jednostki, a następnie dopasowywany jest wzorzec.**
+> [!CAUTION]
+> **Pamiętaj: najpierw znajdowane są jednostki, a następnie dopasowywany jest wzorzec.**
 
 ### <a name="add-new-pattern-template-utterances"></a>Dodawanie nowych wypowiedzi szablonu wzorca
 
@@ -393,9 +385,9 @@ Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że
 
     |Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
     |--|--|
-    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who was {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 2. Wybierz pozycję **szkolenie** na pasku nawigacyjnym, aby szkolić aplikację.
 
@@ -403,7 +395,7 @@ Korzystanie z opcjonalnych składni z nawiasami kwadratowymi, `[]`, sprawia, że
 
 4. Wprowadź kilka testowych wypowiedzi, aby sprawdzić, czy wzorzec jest dopasowany i czy wynik intencji jest znacząco wysoki.
 
-    Po wprowadzeniu pierwszej wypowiedzi wybierz polecenie **Inspect** (Sprawdź) w obszarze wyniku, dzięki czemu można zobaczyć wszystkie wyniki przewidywania. Każdy wypowiedź powinien mieć zamiarowy **schemat organizacyjny** i powinien wyodrębnić wartości dla jednostek pracownika i datetimeV2.
+    Po wprowadzeniu pierwszej wypowiedzi wybierz polecenie **Inspect** (Sprawdź) w obszarze wyniku, dzięki czemu można zobaczyć wszystkie wyniki przewidywania. Każdy wypowiedź powinien mieć zamiarowy **schemat organizacyjny** i powinien wyodrębnić wartości dla `EmployeeListEntity` jednostek i `datetimeV2` .
 
     |Wypowiedź|
     |--|
@@ -425,18 +417,21 @@ Takie użycie wzorców:
 
 Kilka z poprzedniego wyrażenia długości szablonu jest bardzo blisko. Użyj **grupy** `()` i **lub** `|` składni, aby zmniejszyć wyrażenia długości szablonu.
 
-Poniższe 2 wzorce mogą łączyć się w jeden wzorzec przy użyciu grupy `()` i lub `|` składni.
+Poniższe dwa wzorce mogą łączyć się w jeden wzorzec przy użyciu grupy `()` i lub `|` składni.
 
 |Intencja|Przykładowe wypowiedzi z opcjonalnym tekstem i wstępnie skompilowanymi jednostkami|
 |--|--|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]`|
 
 Nowy szablon wypowiedź będzie:
 
-`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+`who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`.
 
 Powoduje to użycie **grupy** wokół wymaganego `in` `on` przedziału i opcjonalne i z **lub** z potokiem między nimi.
+
+> [!NOTE]
+> Przy użyciu symbolu _lub_ `|` (potoku), pamiętaj, aby oddzielić Symbol potoku przed i po nim w przykładowym szablonie.
 
 1. Na stronie **wzorce** wybierz filtr **schemat organizacyjny — Menedżer** . Zawęź listę, wyszukując frazę `manager` .
 
@@ -444,7 +439,7 @@ Powoduje to użycie **grupy** wokół wymaganego `in` `on` przedziału i opcjona
 
 1. Zmień wypowiedź szablonu na: 
 
-    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
+    `who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]`
 
 2. Wybierz pozycję **szkolenie** na pasku nawigacyjnym, aby szkolić aplikację.
 
@@ -493,7 +488,7 @@ Jednostka Pattern.any wyodrębnia jednostki o różnej długości. Działa tylko
 
 1. Wybierz pozycję **Entities** (Jednostki) na lewym pasku nawigacyjnym.
 
-1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName` i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName` i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz pozycję **Utwórz**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Dodawanie wzorca, który używa jednostki Pattern.any
 

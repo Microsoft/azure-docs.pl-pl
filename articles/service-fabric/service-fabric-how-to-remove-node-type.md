@@ -6,12 +6,12 @@ manager: sridmad
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: chrpap
-ms.openlocfilehash: 330b455a61c45ccdb59e5aef8162fd1b04859a00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9562c09fe99372a9b1106d3ae891f65663cf307
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969403"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610108"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Jak usunąć Service Fabric typ węzła
 W tym artykule opisano sposób skalowania klastra Service Fabric platformy Azure przez usunięcie istniejącego typu węzła z klastra. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować klaster w poziomie, usuwając typ węzła (zestaw skalowania maszyn wirtualnych) i wszystkie jego węzły.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
@@ -20,7 +20,7 @@ W tym artykule opisano sposób skalowania klastra Service Fabric platformy Azure
 > Korzystanie z tego podejścia do usuwania typu węzła z klastra produkcyjnego nie jest zalecane. Jest to niebezpieczne polecenie, ponieważ usuwa zasób zestawu skalowania maszyn wirtualnych za typem węzła. 
 
 ## <a name="durability-characteristics"></a>Charakterystyki trwałości
-W przypadku korzystania z polecenia Remove-AzServiceFabricNodeType zabezpieczenia są ustalane jako priorytetowe. Typ węzła musi być [poziomem trwałości](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)Silver lub Gold, ponieważ:
+W przypadku korzystania z polecenia Remove-AzServiceFabricNodeType zabezpieczenia są ustalane jako priorytetowe. Typ węzła musi być [poziomem trwałości](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster)Silver lub Gold, ponieważ:
 - Pakiet Bronze nie zapewnia żadnych gwarancji dotyczących zapisywania informacji o stanie.
 - Pułapki srebrne i złota są dowolnymi zmianami w zestawie skalowania.
 - Gold oferuje również kontrolę nad aktualizacjami platformy Azure w zestawie skalowania.
@@ -122,7 +122,7 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
     - Znajdź szablon Azure Resource Manager używany do wdrożenia.
     - Znajdź sekcję powiązaną z typem węzła w sekcji Service Fabric.
     - Usuń sekcję odpowiadającą typowi węzła.
-    - Tylko w przypadku klastrów Silver i wyższych trwałości należy zaktualizować zasób klastra w szablonie i skonfigurować zasady kondycji w celu ignorowania kondycji aplikacji sieci szkieletowej `applicationDeltaHealthPolicies` :/systemu `properties` przez dodanie w obszarze zasób klastra, jak podano poniżej. Poniższe zasady powinny ignorować istniejące błędy, ale nie pozwalają na nowe błędy kondycji. 
+    - Tylko w przypadku klastrów Silver i wyższych trwałości należy zaktualizować zasób klastra w szablonie i skonfigurować zasady kondycji w celu ignorowania kondycji aplikacji sieci szkieletowej:/systemu przez dodanie `applicationDeltaHealthPolicies` w obszarze zasób klastra `properties` , jak podano poniżej. Poniższe zasady powinny ignorować istniejące błędy, ale nie pozwalają na nowe błędy kondycji. 
  
  
      ```json
@@ -175,6 +175,6 @@ W przypadku usuwania typu węzła, który jest brązowy, wszystkie węzły w typ
     - Poczekaj na zakończenie wdrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej o [charakterystyce trwałości](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)klastra.
+- Dowiedz się więcej o [charakterystyce trwałości](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster)klastra.
 - Dowiedz się więcej na temat [typów węzłów i Virtual Machine Scale Sets](service-fabric-cluster-nodetypes.md).
 - Dowiedz się więcej na temat [skalowania klastra Service Fabric](service-fabric-cluster-scaling.md).

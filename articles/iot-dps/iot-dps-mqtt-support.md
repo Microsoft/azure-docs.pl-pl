@@ -11,10 +11,9 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680689"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Komunikacja z usługą DPS przy użyciu protokołu MQTT
@@ -44,11 +43,11 @@ Jeśli urządzenie nie może użyć zestawów SDK urządzeń, nadal może nawią
 
 * Dla pola **ClientId** Użyj **Identyfikator rejestracji**.
 
-* W polu **username (nazwa użytkownika** ) `{idScope}/registrations/{registration_id}/api-version=2019-03-31`Użyj `{idScope}` , gdzie jest [idScopeą](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) usługi DPS.
+* W polu **username (nazwa użytkownika** ) Użyj `{idScope}/registrations/{registration_id}/api-version=2019-03-31` , gdzie `{idScope}` jest [idScopeą](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope) usługi DPS.
 
 * W polu **hasło** Użyj tokenu SAS. Format tokenu sygnatury dostępu współdzielonego jest taki sam jak dla protokołów HTTPS i AMQP:
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`Wartość resourceURI powinna być w formacie `{idScope}/registrations/{registration_id}`. Nazwa zasad powinna być `registration`.
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`Wartość resourceURI powinna być w formacie `{idScope}/registrations/{registration_id}` . Nazwa zasad powinna być `registration` .
 
   > [!NOTE]
   > Jeśli używasz uwierzytelniania certyfikatu X. 509, hasła tokenu sygnatury dostępu współdzielonego nie są wymagane.
@@ -68,17 +67,17 @@ Aby bezpośrednio korzystać z protokołu MQTT, klient *musi* połączyć się p
 
 ## <a name="registering-a-device"></a>Rejestrowanie urządzenia
 
-Aby zarejestrować urządzenie za pośrednictwem usługi DPS, urządzenie powinno subskrybować `$dps/registrations/res/#` korzystanie z programu jako **filtru tematu**. Wielopoziomowy symbol `#` wielowymiarowy w filtrze tematu służy tylko do zezwalania urządzeniu na odbieranie dodatkowych właściwości w nazwie tematu. Usługa DPS nie zezwala na użycie symboli wieloznacznych `#` ani `?` do filtrowania tematów podrzędnych. Ponieważ usługa DPS nie jest brokerem wysyłania komunikatów ogólnego przeznaczenia, obsługuje tylko udokumentowane nazwy tematów i filtry tematów.
+Aby zarejestrować urządzenie za pośrednictwem usługi DPS, urządzenie powinno subskrybować korzystanie z programu `$dps/registrations/res/#` jako **filtru tematu**. Wielopoziomowy symbol wielowymiarowy `#` w filtrze tematu służy tylko do zezwalania urządzeniu na odbieranie dodatkowych właściwości w nazwie tematu. Usługa DPS nie zezwala na użycie `#` `?` symboli wieloznacznych ani do filtrowania tematów podrzędnych. Ponieważ usługa DPS nie jest brokerem wysyłania komunikatów ogólnego przeznaczenia, obsługuje tylko udokumentowane nazwy tematów i filtry tematów.
 
 Urządzenie powinno opublikować komunikat rejestrowania w usłudze DPS przy użyciu `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` jako **nazwy tematu**. Ładunek powinien zawierać obiekt [rejestracji urządzenia](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) w formacie JSON.
-W przypadku pomyślnego scenariusza urządzenie otrzyma odpowiedź na nazwę tematu, `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` gdzie x jest wartością retry-After w sekundach. Ładunek odpowiedzi będzie zawierać obiekt [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) w formacie JSON.
+W przypadku pomyślnego scenariusza urządzenie otrzyma odpowiedź na `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` nazwę tematu, gdzie x jest wartością retry-After w sekundach. Ładunek odpowiedzi będzie zawierać obiekt [RegistrationOperationStatus](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) w formacie JSON.
 
 ## <a name="polling-for-registration-operation-status"></a>Sondowanie stanu operacji rejestracji
 
-Urządzenie musi okresowo sondować usługę, aby otrzymać wynik operacji rejestracji urządzenia. Przy założeniu, że urządzenie już subskrybuje `$dps/registrations/res/#` temat zgodnie z powyższym opisem, może opublikować komunikat Get operationstatus w nazwie `$dps/registrations/GET/iotdps-get-operationstatus/?$rid={request_id}&operationId={operationId}` tematu. Identyfikator operacji w tym komunikacie powinien być wartością odebraną w komunikacie odpowiedzi RegistrationOperationStatus w poprzednim kroku. W przypadku powodzenia usługa odpowie w `$dps/registrations/res/200/?$rid={request_id}` temacie. Ładunek odpowiedzi będzie zawierać obiekt RegistrationOperationStatus. Urządzenie powinno utrzymywać sondowanie usługi, jeśli kod odpowiedzi jest 202 po opóźnieniu równym ponowieniu okresu. Operacja rejestracji urządzenia zakończyła się pomyślnie, jeśli usługa zwróci kod stanu 200.
+Urządzenie musi okresowo sondować usługę, aby otrzymać wynik operacji rejestracji urządzenia. Przy założeniu, że urządzenie już subskrybuje `$dps/registrations/res/#` temat zgodnie z powyższym opisem, może opublikować komunikat Get operationstatus w `$dps/registrations/GET/iotdps-get-operationstatus/?$rid={request_id}&operationId={operationId}` nazwie tematu. Identyfikator operacji w tym komunikacie powinien być wartością odebraną w komunikacie odpowiedzi RegistrationOperationStatus w poprzednim kroku. W przypadku powodzenia usługa odpowie w `$dps/registrations/res/200/?$rid={request_id}` temacie. Ładunek odpowiedzi będzie zawierać obiekt RegistrationOperationStatus. Urządzenie powinno utrzymywać sondowanie usługi, jeśli kod odpowiedzi jest 202 po opóźnieniu równym ponowieniu okresu. Operacja rejestracji urządzenia zakończyła się pomyślnie, jeśli usługa zwróci kod stanu 200.
 
 ## <a name="connecting-over-websocket"></a>Łączenie przy użyciu protokołu WebSocket
-Podczas nawiązywania połączenia za pośrednictwem protokołu WebSocket Określ `mqtt`podprotokół jako. Postępuj zgodnie ze [specyfikacją RFC 6455](https://tools.ietf.org/html/rfc6455).
+Podczas nawiązywania połączenia za pośrednictwem protokołu WebSocket Określ podprotokół jako `mqtt` . Postępuj zgodnie ze [specyfikacją RFC 6455](https://tools.ietf.org/html/rfc6455).
 
 ## <a name="next-steps"></a>Następne kroki
 

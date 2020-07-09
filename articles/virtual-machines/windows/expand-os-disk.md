@@ -9,12 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: e69b041a2e4c8a0715adb6ab126a3aede42f7dde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869687"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85338254"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Sposób rozszerzania dysku systemu operacyjnego maszyny wirtualnej
 
@@ -160,7 +159,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>Zmienianie rozmiarów dysków z danymi
 
-Ten artykuł koncentruje się głównie na rozszerzaniu dysku systemu operacyjnego maszyny wirtualnej, ale można również użyć tego skryptu do rozwinięcia dysków danych dołączonych do maszyny wirtualnej. Aby na przykład rozszerzyć pierwszy dysk danych dołączony do maszyny wirtualnej, zamień obiekt `OSDisk` elementu `StorageProfile` na tablicę `DataDisks` i przy użyciu indeksu liczbowego uzyskaj odwołanie do pierwszego dołączonego dysku danych, jak pokazano poniżej:
+Ten artykuł koncentruje się głównie na rozszerzaniu dysku systemu operacyjnego maszyny wirtualnej, ale można również użyć tego skryptu do rozwinięcia dysków danych dołączonych do maszyny wirtualnej. W przypadku powiększania dysku z danymi **nie** trzeba cofać przydziału maszyny wirtualnej. Aby na przykład rozszerzyć pierwszy dysk danych dołączony do maszyny wirtualnej, zamień obiekt `OSDisk` elementu `StorageProfile` na tablicę `DataDisks` i przy użyciu indeksu liczbowego uzyskaj odwołanie do pierwszego dołączonego dysku danych, jak pokazano poniżej:
 
 **Dysk zarządzany**
 
@@ -201,11 +200,11 @@ Po rozwinięciu dysku dla maszyny wirtualnej należy przejść do systemu operac
 
 2.  Otwórz wiersz polecenia i wpisz **diskpart**.
 
-2.  W wierszu polecenia **narzędzia DiskPart** wpisz `list volume`polecenie. Zanotuj wolumin, który chcesz zwiększyć.
+2.  W wierszu polecenia **narzędzia DiskPart** wpisz polecenie `list volume` . Zanotuj wolumin, który chcesz zwiększyć.
 
-3.  W wierszu polecenia **narzędzia DiskPart** wpisz `select volume <volumenumber>`polecenie. Spowoduje to wybranie *volumenumber* woluminu, który ma zostać rozbudowany do ciągłego, pustego miejsca na tym samym dysku.
+3.  W wierszu polecenia **narzędzia DiskPart** wpisz polecenie `select volume <volumenumber>` . Spowoduje to wybranie *volumenumber* woluminu, który ma zostać rozbudowany do ciągłego, pustego miejsca na tym samym dysku.
 
-4.  W wierszu polecenia **narzędzia DiskPart** wpisz `extend [size=<size>]`polecenie. Spowoduje to rozszerzenie wybranego woluminu o *rozmiar* w megabajtach (MB).
+4.  W wierszu polecenia **narzędzia DiskPart** wpisz polecenie `extend [size=<size>]` . Spowoduje to rozszerzenie wybranego woluminu o *rozmiar* w megabajtach (MB).
 
 
 ## <a name="next-steps"></a>Następne kroki

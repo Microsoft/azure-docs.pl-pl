@@ -8,10 +8,9 @@ ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6f41adbb726313ef095084d079dc7852736e0c06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74870534"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funkcje systemowe (Azure Cosmos DB)
@@ -33,7 +32,7 @@ Jeśli obecnie używasz funkcji zdefiniowanej przez użytkownika (UDF), dla któ
 
 ## <a name="built-in-versus-ansi-sql-functions"></a>Wbudowana funkcja SQL w porównaniu z ANSI
 
-Główna różnica między funkcjami Cosmos DB i funkcjami SQL ANSI polega na tym, że funkcje Cosmos DB są zaprojektowane tak, aby działały ze schematami i danymi mieszanymi w schemacie. Na przykład jeśli brakuje właściwości lub ma wartość nieliczbową, taką jak `unknown`, element jest pomijany, a nie zwraca błędu.
+Główna różnica między funkcjami Cosmos DB i funkcjami SQL ANSI polega na tym, że funkcje Cosmos DB są zaprojektowane tak, aby działały ze schematami i danymi mieszanymi w schemacie. Na przykład jeśli brakuje właściwości lub ma wartość nieliczbową, taką jak `unknown` , element jest pomijany, a nie zwraca błędu.
 
 ## <a name="next-steps"></a>Następne kroki
 

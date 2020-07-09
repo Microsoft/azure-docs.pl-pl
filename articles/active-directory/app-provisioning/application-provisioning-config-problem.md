@@ -2,21 +2,20 @@
 title: Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD
 description: Jak rozwiązywać typowe problemy związane z konfigurowaniem aprowizacji użytkowników w aplikacji już wymienionej w galerii aplikacji usługi Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: e6fb5fbecc9b2917f4fde2d1ccb76d6962a0af18
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
-ms.translationtype: MT
+ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84782130"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD
 
@@ -28,9 +27,9 @@ Należy zawsze zacząć od znalezienia samouczka dotyczącego konfiguracji w cel
 
 Po skonfigurowaniu usługi większość szczegółowych informacji o działaniu usługi może być narysowana z dwóch miejsc:
 
--   **Dzienniki aprowizacji (wersja zapoznawcza)** — [dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) rejestrują wszystkie operacje wykonywane przez usługę aprowizacji, w tym kwerendy usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie aprowizacji. Zbadaj aplikację docelową pod kątem istnienia tych użytkowników, porównując obiekty użytkownika między systemem. Następnie Dodaj, zaktualizuj lub Wyłącz konto użytkownika w systemie docelowym na podstawie porównania. Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji** &gt; w przedsiębiorstwie **(wersja zapoznawcza)** w sekcji **działanie** .
+-   **Dzienniki aprowizacji (wersja zapoznawcza)** — [dzienniki aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) rejestrują wszystkie operacje wykonywane przez usługę aprowizacji, w tym kwerendy usługi Azure AD dla przypisanych użytkowników, którzy znajdują się w zakresie aprowizacji. Zbadaj aplikację docelową pod kątem istnienia tych użytkowników, porównując obiekty użytkownika między systemem. Następnie Dodaj, zaktualizuj lub Wyłącz konto użytkownika w systemie docelowym na podstawie porównania. Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji w przedsiębiorstwie** &gt; **(wersja zapoznawcza)** w sekcji **działanie** .
 
--   **Bieżący stan —** Podsumowanie ostatniego przebiegu aprowizacji dla danej aplikacji można znaleźć w sekcji ** &gt; Azure Active Directory &gt; \[aplikacje\] &gt;dla przedsiębiorstw** , w dolnej części ekranu w obszarze Ustawienia usługi programu. Bieżąca sekcja stanu pokazuje, czy cykl aprowizacji rozpoczął Inicjowanie obsługi kont użytkowników. Postęp cyklu można obejrzeć, sprawdzić, ilu użytkowników i grup została zainicjowana, i zobaczyć, ile ról zostało utworzonych. Jeśli występują błędy, szczegółowe informacje można znaleźć w temacie [dzienniki aprowizacji (... /Reports-monitoring/Concept-Provisioning-logs.MD? Context = Azure/Active-Directory/Manage-Apps/Context/Manage-Apps-Context).
+-   **Bieżący stan —** Podsumowanie ostatniego przebiegu aprowizacji dla danej aplikacji można znaleźć w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt; ** , w dolnej części ekranu w obszarze Ustawienia usługi programu. Bieżąca sekcja stanu pokazuje, czy cykl aprowizacji rozpoczął Inicjowanie obsługi kont użytkowników. Postęp cyklu można obejrzeć, sprawdzić, ilu użytkowników i grup została zainicjowana, i zobaczyć, ile ról zostało utworzonych. Jeśli występują błędy, szczegółowe informacje można znaleźć w temacie [dzienniki aprowizacji (... /Reports-monitoring/Concept-Provisioning-logs.MD? Context = Azure/Active-Directory/Manage-Apps/Context/Manage-Apps-Context).
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Ogólne obszary problemów z obsługą administracyjną, które należy wziąć pod uwagę
 
@@ -42,7 +41,7 @@ Poniżej znajduje się lista ogólnych obszarów problemów, do których można 
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Nie można uruchomić usługi aprowizacji
 
-W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji ** &gt; Azure Active Directory aplikacje &gt; \[\] &gt;dla przedsiębiorstw** w Azure Portal. Na tej stronie nie są jednak wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach. Prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji** opisane powyżej, aby określić operacje wykonywane przez usługę, a także błędy.
+W przypadku ustawienia **stanu aprowizacji** na **włączony** w sekcji **Azure Active Directory &gt; aplikacje dla przedsiębiorstw &gt; \[ \] &gt; ** w Azure Portal. Na tej stronie nie są jednak wyświetlane żadne inne szczegóły stanu po kolejnych ponownych ładowaniach. Prawdopodobnie usługa jest uruchomiona, ale nie ukończyła jeszcze cyklu początkowego. Sprawdź **dzienniki aprowizacji** opisane powyżej, aby określić operacje wykonywane przez usługę, a także błędy.
 
 >[!NOTE]
 >Cykl początkowy może zająć od 20 minut do kilku godzin, w zależności od rozmiaru katalogu usługi Azure AD i liczby użytkowników w zakresie aprowizacji. Kolejne synchronizacje po początkowym cyklu są szybsze, ponieważ usługa aprowizacji przechowuje znaki wodne, które reprezentują stan obu systemów po cyklu początkowym, co poprawia wydajność kolejnych synchronizacji.

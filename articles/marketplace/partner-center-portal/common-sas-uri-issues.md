@@ -1,18 +1,18 @@
 ---
 title: Typowe problemy dotyczące identyfikatorów URI sygnatury dostępu współdzielonego i poprawki — Azure Marketplace
 description: Napotkano typowe problemy i sugerowane rozwiązania podczas pracy z sygnaturami dostępu współdzielonego.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: anbene
+ms.author: mingshen
 ms.date: 04/09/2020
-ms.openlocfilehash: 56db3562efdc0406e745fd38b73df0a473d0ecd5
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 95ce37d92adc3d09c5a09944b094df7971831198
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724602"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86110729"
 ---
 # <a name="common-sas-uri-issues-and-fixes"></a>Typowe problemy dotyczące identyfikatorów URI sygnatury dostępu współdzielonego i poprawki
 

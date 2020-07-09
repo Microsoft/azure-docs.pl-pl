@@ -1,20 +1,14 @@
 ---
 title: Korzystanie z platformy Apache Flink dla Apache Kafka — Event Hubs Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące sposobu łączenia oprogramowania Apache Flink z centrum zdarzeń platformy Azure
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: 2e5a2924cdc00c1cc057d71c40645085df4bae6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632809"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320142"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Korzystanie z platformy Apache Flink z usługą Azure Event Hubs dla platformy Apache Kafka
 W tym samouczku pokazano, jak połączyć Apache Flink z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Usługa Azure Event Hubs obsługuje [Apache Kafka w wersji 1,0.](https://kafka.apache.org/10/documentation.html).
@@ -64,9 +58,9 @@ Korzystając z podanego przykładu producenta Flink, Wysyłaj komunikaty do usł
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Podaj Event Hubs punkt końcowy Kafka
 
-#### <a name="producerconfig"></a>plik Producer. config
+#### <a name="producerconfig"></a>producer.config
 
-Zaktualizuj wartości `bootstrap.servers` i `sasl.jaas.config` w programie `producer/src/main/resources/producer.config` , aby skierować producenta do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
+Zaktualizuj `bootstrap.servers` wartości i `sasl.jaas.config` w programie, `producer/src/main/resources/producer.config` Aby skierować producenta do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
 
 ```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -95,9 +89,9 @@ Korzystając z podanego przykładu konsumenta, odbieraj komunikaty z centrum zda
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Podaj Event Hubs punkt końcowy Kafka
 
-#### <a name="consumerconfig"></a>plik Consumer. config
+#### <a name="consumerconfig"></a>consumer.config
 
-Zaktualizuj wartości `bootstrap.servers` i `sasl.jaas.config` w programie `consumer/src/main/resources/consumer.config` , aby skierować odbiorcę do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
+Zaktualizuj `bootstrap.servers` wartości i `sasl.jaas.config` w programie, `consumer/src/main/resources/consumer.config` Aby skierować odbiorcę do punktu końcowego Event Hubs Kafka z prawidłowym uwierzytelnianiem.
 
 ```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -118,7 +112,7 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-Jeśli centrum zdarzeń ma zdarzenia (na przykład jeśli producent jest również uruchomiony), konsument zacznie teraz odbierać zdarzenia z tematu `test`.
+Jeśli centrum zdarzeń ma zdarzenia (na przykład jeśli producent jest również uruchomiony), konsument zacznie teraz odbierać zdarzenia z tematu `test` .
 
 Zapoznaj się z [przewodnikiem po łączniku Kafka](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) w programie Flink, aby uzyskać bardziej szczegółowe informacje na temat łączenia Flink z Kafka.
 
@@ -129,5 +123,5 @@ Aby dowiedzieć się więcej na temat Event Hubs Kafka, zobacz następujące art
 - [Łączenie platformy Apache Spark z centrum zdarzeń](event-hubs-kafka-spark-tutorial.md)
 - [Integrowanie Kafka z centrum zdarzeń](event-hubs-kafka-connect-tutorial.md)
 - [Eksplorowanie przykładów w witrynie GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Łączenie usługi Akka Streams z centrum zdarzeń](event-hubs-kafka-akka-streams-tutorial.md)
+- [Łączenie strumieni Akka z centrum zdarzeń](event-hubs-kafka-akka-streams-tutorial.md)
 - [Przewodnik dla deweloperów Apache Kafka dla platformy Azure Event Hubs](apache-kafka-developer-guide.md)

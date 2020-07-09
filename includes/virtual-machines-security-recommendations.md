@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: df577ab2b5e9658fd55324c8fd6fd008621b4d46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545903"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85838923"
 ---
 Ten artykuł zawiera zalecenia dotyczące zabezpieczeń dla usługi Azure Virtual Machines. Postępuj zgodnie z tymi zaleceniami, aby pomóc w spełnieniu obowiązków związanych z zabezpieczeniami opisanymi w naszym modelu dla współdzielonej odpowiedzialności. Zalecenia ułatwią również poprawę ogólnego bezpieczeństwa rozwiązań aplikacji sieci Web. Aby uzyskać więcej informacji na temat tego, co firma Microsoft może spełnić obowiązki dostawcy usług, zobacz [udostępnianie obowiązków w chmurze obliczeniowej](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -38,7 +38,7 @@ Aby uzyskać ogólne informacje na temat Azure Security Center, zobacz [co to je
 | Szyfruj dyski systemu operacyjnego. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) ułatwia szyfrowanie dysków maszyn wirtualnych z systemami Windows i Linux IaaS. Bez wymaganych kluczy zawartość szyfrowanych dysków nie jest czytelna. Szyfrowanie dysków chroni przechowywane dane przed nieautoryzowanym dostępem, które w przeciwnym razie byłyby możliwe w przypadku skopiowania dysku.| [Tak](../articles/security-center/security-center-apply-disk-encryption.md) |
 | Szyfruj dyski danych. | [Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md) ułatwia szyfrowanie dysków maszyn wirtualnych z systemami Windows i Linux IaaS. Bez wymaganych kluczy zawartość szyfrowanych dysków nie jest czytelna. Szyfrowanie dysków chroni przechowywane dane przed nieautoryzowanym dostępem, które w przeciwnym razie byłyby możliwe w przypadku skopiowania dysku.| -  |
 | Ogranicz zainstalowane oprogramowanie. | Ogranicz zainstalowane oprogramowanie do tego, co jest wymagane, aby pomyślnie zastosować rozwiązanie. Te wskazówki ułatwiają zmniejszenie podatności na ataki. | - |
-| Używaj oprogramowania antywirusowego lub chroniącego przed złośliwym kodem. | Na platformie Azure można korzystać z oprogramowania chroniącego przed złośliwym kodem od dostawców zabezpieczeń, takich jak Microsoft, Symantec, Trend Micro i Kaspersky pomogą. To oprogramowanie pomaga chronić maszyny wirtualne przed złośliwymi plikami, programami reklamujące i innymi zagrożeniami. Program Microsoft chroniący przed złośliwym kodem można wdrożyć na podstawie obciążeń aplikacji. Użyj podstawowej bezpiecznej lub zaawansowanej konfiguracji niestandardowej. Aby uzyskać więcej informacji, zobacz artykuł [Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud Services i Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
+| Używaj oprogramowania antywirusowego lub chroniącego przed złośliwym kodem. | Na platformie Azure można korzystać z oprogramowania chroniącego przed złośliwym kodem od dostawców zabezpieczeń, takich jak Microsoft, Symantec, Trend Micro i Kaspersky pomogą. To oprogramowanie pomaga chronić maszyny wirtualne przed złośliwymi plikami, programami reklamujące i innymi zagrożeniami. Program Microsoft chroniący przed złośliwym kodem można wdrożyć na podstawie obciążeń aplikacji. Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest dostępne tylko dla maszyn z systemem Windows. Użyj podstawowej bezpiecznej lub zaawansowanej konfiguracji niestandardowej. Aby uzyskać więcej informacji, zobacz artykuł [Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud Services i Virtual Machines](../articles/security/azure-security-antimalware.md). | - |
 | Bezpieczne przechowywanie kluczy i wpisów tajnych. | Uprość zarządzanie wpisami tajnymi i kluczami, dostarczając swoim właścicielom aplikacji bezpieczną, centralnie zarządzaną opcję. To zarządzanie zmniejsza ryzyko przypadkowego naruszenia lub wycieku. Azure Key Vault mogą bezpiecznie przechowywać klucze w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń), które są certyfikowane do poziomu 2 trybu FIPS 140-2. Jeśli musisz użyć poziomu 3 trybu FIPs 140,2 do przechowywania kluczy i wpisów tajnych, możesz użyć [dedykowanego modułu HSM platformy Azure](../articles/dedicated-hsm/overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem 

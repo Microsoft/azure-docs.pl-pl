@@ -5,10 +5,9 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74324506"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integracja z usługą Azure łańcucha bloków Workbench Messaging
@@ -471,7 +470,7 @@ Zawiera informacje o kontrakcie. Komunikat zawiera sekcję z właściwościami k
 |--------------------|-------------|
 | workflowPropertyId | Unikatowy identyfikator właściwości przepływu pracy w usłudze Azure łańcucha bloków Workbench |
 | name | Nazwa właściwości przepływu pracy |
-| value | Wartość właściwości przepływu pracy |
+| wartość | Wartość właściwości przepływu pracy |
 
 Przykład *ContractMessage* z łańcucha bloków Workbench:
 
@@ -573,8 +572,8 @@ Zawiera informacje, gdy wywoływana jest funkcja kontraktu, taka jak nazwa funkc
 
 | Nazwa | Opis |
 |------|-------------|
-| type | Typ obiektu wywołującego, na przykład użytkownika lub kontraktu |
-| id | Unikatowy identyfikator obiektu wywołującego w usłudze Azure łańcucha bloków Workbench |
+| typ | Typ obiektu wywołującego, na przykład użytkownika lub kontraktu |
+| identyfikator | Unikatowy identyfikator obiektu wywołującego w usłudze Azure łańcucha bloków Workbench |
 | ledgerIdentifier | Unikatowy identyfikator obiektu wywołującego w księdze |
 
 #### <a name="parameter-information"></a>Informacje o parametrach
@@ -582,7 +581,7 @@ Zawiera informacje, gdy wywoływana jest funkcja kontraktu, taka jak nazwa funkc
 | Nazwa | Opis |
 |------|-------------|
 | name | Nazwa parametru |
-| value | Wartość parametru |
+| wartość | Wartość parametru |
 
 #### <a name="event-message-transaction-information"></a>Informacje o transakcji komunikatu o zdarzeniu
 
@@ -654,7 +653,7 @@ Zawiera informacje o przekazywaniu aplikacji do Workbench, takie jak nazwa i wer
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator pliku kodu kontraktu w usłudze Azure łańcucha bloków Workbench |
+| identyfikator | Unikatowy identyfikator pliku kodu kontraktu w usłudze Azure łańcucha bloków Workbench |
 | ledgerId | Unikatowy identyfikator księgi w usłudze Azure łańcucha bloków Workbench |
 | location | Adres URL, pod którym znajduje się plik kodu kontraktu |
 
@@ -662,14 +661,14 @@ Zawiera informacje o przekazywaniu aplikacji do Workbench, takie jak nazwa i wer
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator roli aplikacji w usłudze Azure łańcucha bloków Workbench |
+| identyfikator | Unikatowy identyfikator roli aplikacji w usłudze Azure łańcucha bloków Workbench |
 | name | Nazwa roli aplikacji |
 
 #### <a name="application-workflow-information"></a>Informacje o przepływie pracy aplikacji
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator przepływu pracy aplikacji wewnątrz usługi Azure łańcucha bloków Workbench |
+| identyfikator | Unikatowy identyfikator przepływu pracy aplikacji wewnątrz usługi Azure łańcucha bloków Workbench |
 | name | Nazwa przepływu pracy aplikacji |
 | displayName | Nazwa wyświetlana przepływu pracy aplikacji |
 |  — funkcje | Kolekcja [funkcji dla przepływu pracy aplikacji](#workflow-function-information)|
@@ -680,7 +679,7 @@ Zawiera informacje o przekazywaniu aplikacji do Workbench, takie jak nazwa i wer
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator funkcji przepływu pracy aplikacji wewnątrz usługi Azure łańcucha bloków Workbench |
+| identyfikator | Unikatowy identyfikator funkcji przepływu pracy aplikacji wewnątrz usługi Azure łańcucha bloków Workbench |
 | name | Nazwa funkcji |
 | parameters | Parametry dla funkcji |
 
@@ -690,15 +689,15 @@ Zawiera informacje o przekazywaniu aplikacji do Workbench, takie jak nazwa i wer
 |------|-------------|
 | name | Nazwa stanu |
 | displayName | Nazwa wyświetlana stanu |
-|  — styl | Styl stanu (powodzenie lub niepowodzenie) |
+| styl | Styl stanu (powodzenie lub niepowodzenie) |
 
 ##### <a name="workflow-property-information"></a>Informacje o właściwościach przepływu pracy
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator właściwości przepływu pracy aplikacji wewnątrz usługi Azure łańcucha bloków Workbench |
+| identyfikator | Unikatowy identyfikator właściwości przepływu pracy aplikacji wewnątrz usługi Azure łańcucha bloków Workbench |
 | name | Nazwa właściwości |
-| type | Typ właściwości |
+| typ | Typ właściwości |
 
 Przykład *EventMessage ApplicationIngestion* z łańcucha bloków Workbench:
 
@@ -847,23 +846,23 @@ Zawiera informacje o tym, kiedy użytkownik ma przypisaną rolę w Workbench, na
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator roli aplikacji w usłudze Azure łańcucha bloków Workbench |
+| identyfikator | Unikatowy identyfikator roli aplikacji w usłudze Azure łańcucha bloków Workbench |
 | name | Nazwa roli aplikacji |
 
 #### <a name="roleassignment-assigner"></a>RoleAssignment, przypisujący
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator użytkownika w usłudze Azure łańcucha bloków Workbench |
-| type | Typ przypisania |
+| identyfikator | Unikatowy identyfikator użytkownika w usłudze Azure łańcucha bloków Workbench |
+| typ | Typ przypisania |
 | chainIdentifier | Unikatowy identyfikator użytkownika w księdze |
 
 #### <a name="roleassignment-assignee"></a>RoleAssignment
 
 | Nazwa | Opis |
 |------|-------------|
-| id | Unikatowy identyfikator użytkownika w usłudze Azure łańcucha bloków Workbench |
-| type | Typ osoby przydzielonej |
+| identyfikator | Unikatowy identyfikator użytkownika w usłudze Azure łańcucha bloków Workbench |
+| typ | Typ osoby przydzielonej |
 | chainIdentifier | Unikatowy identyfikator użytkownika w księdze |
 
 Przykład *EventMessage RoleAssignment* z łańcucha bloków Workbench:

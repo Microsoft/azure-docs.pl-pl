@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: f4e2395659659781da49159247991d0711491ff2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7da1a3501d74cc7f46d35597df5a985c3e571388
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76846033"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106065"
 ---
 > [!NOTE]
-> Ta usługa obsługuje [Zarządzanie zasobami delegowanymi przez platformę Azure](../articles/lighthouse/concepts/azure-delegated-resource-management.md), dzięki czemu dostawcy usług mogą logować się do własnej dzierżawy w celu zarządzania subskrypcjami i grupami zasobów delegowanymi przez klientów. Aby uzyskać więcej informacji, zobacz [Azure Lighthouse](../articles/lighthouse/overview.md).
+> Ta usługa obsługuje usługę [Azure Lighthouse](../articles/lighthouse/overview.md), dzięki której dostawcy usług mogą logować się do własnej dzierżawy w celu zarządzania subskrypcjami i grupami zasobów delegowanymi przez klientów.

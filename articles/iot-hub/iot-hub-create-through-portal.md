@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284735"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708114"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Tworzenie Centrum IoT Hub przy użyciu Azure Portal
 
@@ -20,7 +20,7 @@ ms.locfileid: "79284735"
 
 W tym artykule opisano sposób tworzenia centrów IoT i zarządzania nimi przy użyciu [Azure Portal](https://portal.azure.com).
 
-Aby skorzystać z kroków opisanych w tym samouczku, potrzebna jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Aby skorzystać z kroków opisanych w tym samouczku, potrzebna jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -112,7 +112,7 @@ Poniżej przedstawiono dwa sposoby znajdowania określonego Centrum IoT Hub w ra
 
 1. Jeśli znasz grupę zasobów, do której należy Centrum IoT, kliknij pozycję **grupy zasobów**, a następnie wybierz z listy grupę zasobów. Na ekranie Grupa zasobów są wyświetlane wszystkie zasoby z tej grupy, w tym centra IoT Hub. Kliknij centrum, którego szukasz.
 
-2. Kliknij pozycję **Wszystkie zasoby**. W okienku **wszystkie zasoby** znajduje się lista rozwijana, która ma wartość domyślną `All types`. Kliknij listę rozwijaną, a następnie `Select all`Usuń zaznaczenie. Znajdź `IoT Hub` i sprawdź. Kliknij pole listy rozwijanej, aby je zamknąć, a wpisy zostaną przefiltrowane, pokazując tylko centra IoT.
+2. Kliknij pozycję **Wszystkie zasoby**. W okienku **wszystkie zasoby** znajduje się lista rozwijana, która ma wartość domyślną `All types` . Kliknij listę rozwijaną, a następnie usuń zaznaczenie `Select all` . Znajdź `IoT Hub` i sprawdź. Kliknij pole listy rozwijanej, aby je zamknąć, a wpisy zostaną przefiltrowane, pokazując tylko centra IoT.
 
 ## <a name="delete-the-iot-hub"></a>Usuwanie Centrum IoT Hub
 

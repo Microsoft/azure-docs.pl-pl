@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826608"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Instrukcje: Włączanie resetowania hasła na ekranie logowania systemu Windows
@@ -128,8 +127,8 @@ Po zresetowaniu hasła przez użytkownika z ekranu logowania na urządzeniu z sy
 
 #### <a name="silent-installation"></a>Instalacja w trybie dyskretnym
 
-- W przypadku instalacji dyskretnej Użyj polecenia "msiexec/i SsprWindowsLogon. PROD. msi/qn"
-- W przypadku dezinstalacji dyskretnej Użyj polecenia "msiexec/x SsprWindowsLogon. PROD. msi/qn"
+- W przypadku instalacji dyskretnej Użyj polecenia "msiexec/i SsprWindowsLogon.PROD.msi/qn"
+- W przypadku dezinstalacji dyskretnej Użyj polecenia "msiexec/x SsprWindowsLogon.PROD.msi/qn"
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Rozwiązywanie problemów z resetowaniem haseł dla systemu Windows 7, 8 i 8,1
 

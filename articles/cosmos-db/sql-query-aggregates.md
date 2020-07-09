@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79464465"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funkcje agregujące w Azure Cosmos DB
@@ -45,7 +44,7 @@ Wyniki są następujące:
     [ 2 ]
 ```
 
-Można również łączyć agregacje z filtrami. Na przykład następujące zapytanie zwraca liczbę elementów ze stanem adresu `WA`.
+Można również łączyć agregacje z filtrami. Na przykład następujące zapytanie zwraca liczbę elementów ze stanem adresu `WA` .
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -61,7 +60,7 @@ Wyniki są następujące:
 
 ## <a name="types-of-aggregate-functions"></a>Typy funkcji agregujących
 
-Interfejs API SQL obsługuje następujące funkcje agregujące. `SUM`i `AVG` operować na wartościach liczbowych `MIN`, i `MAX` `COUNT`, i pracować na liczbach, ciągach, wartościach logicznych i wartościach null.
+Interfejs API SQL obsługuje następujące funkcje agregujące. `SUM`i `AVG` operować na wartościach liczbowych, i, `COUNT` `MIN` i `MAX` pracować na liczbach, ciągach, wartościach logicznych i wartościach null.
 
 | Funkcja | Opis |
 |-------|-------------|
@@ -78,7 +77,7 @@ Można również agregować wyniki iteracji tablicy.
 
 ## <a name="remarks"></a>Uwagi
 
-Te zagregowane funkcje systemowe będą korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy). `COUNT`Jeśli oczekujesz, `SUM` `MIN` `MAX`,,, lub `AVG` na właściwość, należy [dołączyć odpowiednią ścieżkę do zasad indeksowania](index-policy.md#includeexclude-strategy).
+Te zagregowane funkcje systemowe będą korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy). Jeśli oczekujesz,,, `COUNT` , `SUM` `MIN` `MAX` lub `AVG` na właściwość, należy [dołączyć odpowiednią ścieżkę do zasad indeksowania](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Następne kroki
 

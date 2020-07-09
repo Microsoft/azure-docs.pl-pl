@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych pakietu Office 365 z usługą Azure wskaźnikowego | Microsoft Docs
-description: Dowiedz się, jak połączyć dane pakietu Office 365 z platformą Azure — wskaźnikiem.
+title: Łączenie dzienników pakietu Office 365 z usługą Azure wskaźnikowego | Microsoft Docs
+description: Dowiedz się, jak korzystać z łącznika dziennika pakietu Office 365 w celu uzyskania informacji na temat bieżących działań użytkowników i administratorów w programach Exchange i SharePoint, w tym w usłudze OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -9,49 +9,54 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 05/21/2020
 ms.author: yelevin
-ms.openlocfilehash: c3e63063b3ea4e7fba3997ddd645aa59fe857488
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758575"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85559339"
 ---
-# <a name="connect-data-from-office-365-logs"></a>Łączenie danych z dzienników pakietu Office 365
+# <a name="connect-office-365-logs-to-azure-sentinel"></a>Łączenie dzienników pakietu Office 365 z usługą Azure wskaźnikowego
 
-
-
-Dzienniki inspekcji z [pakietu Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia. Dzienniki inspekcji z pakietu Office 365 można przesyłać strumieniowo do obszaru roboczego wskaźnikowego platformy Azure w ramach tej samej dzierżawy. Łącznik dziennika aktywności pakietu Office 365 zapewnia wgląd w bieżące działania użytkownika. Zostaną wyświetlone informacje o różnych akcjach użytkownika, administratora, systemu i zasad oraz zdarzeniach z pakietu Office 365. Łącząc dzienniki pakietu Office 365 z platformą Azure, możesz użyć tych danych do wyświetlania pulpitów nawigacyjnych, tworzenia niestandardowych alertów i ulepszania procesu badania.
-
-> [!IMPORTANT]
-> Jeśli masz licencję E3, zanim będzie można uzyskać dostęp do danych za pomocą interfejsu API działania zarządzania pakietu Office 365, musisz włączyć ujednolicone rejestrowanie inspekcji dla organizacji pakietu Office 365. W tym celu należy włączyć dziennik inspekcji pakietu Office 365. Aby uzyskać instrukcje, zobacz [Włączanie lub wyłączanie wyszukiwania w dzienniku inspekcji pakietu Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API działania zarządzania pakietu Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+Łącznik dziennika [pakietu Office 365](https://docs.microsoft.com/office/) wprowadza do informacji o wskaźniku platformy Azure na bieżąco o działaniach związanych z użytkownikami i administratorami w **programach Exchange** i **SharePoint** (w tym **OneDrive**). Te informacje obejmują szczegółowe informacje o akcjach, takie jak pobieranie plików, wysłane żądania dostępu, zmiany w zdarzeniach grupy i operacje skrzynek pocztowych, a także szczegółowe informacje o użytkowniku, który wykonał akcje. Połączenie dzienników pakietu Office 365 z platformą Azure wskaźnikowego pozwala na wyświetlanie i analizowanie tych danych w skoroszytach, wykonywanie zapytań dotyczących tworzenia niestandardowych alertów i wprowadzanie ich w celu usprawnienia procesu badania, dzięki czemu możesz uzyskać dokładniejsze informacje o zabezpieczeniach pakietu Office 365.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+- Musisz mieć uprawnienia do odczytu i zapisu w obszarze roboczym wskaźnikowego platformy Azure.
+
 - Musisz być administratorem globalnym lub administratorem zabezpieczeń w swojej dzierżawie.
-- Dzierżawca musi mieć włączoną funkcję ujednoliconej inspekcji. Dzierżawcy z pakietem Office 365 E3 lub E5 mają ujednoliconą inspekcję włączoną domyślnie. <br>Jeśli dzierżawa nie ma żadnej z tych licencji, należy włączyć ujednoliconą inspekcję w dzierżawie przy użyciu jednej z następujących metod:
-    - [Za pomocą polecenia cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) i włączania parametru "UnifiedAuditLogIngestionEnabled").
-    - [Za pomocą interfejsu użytkownika Centrum zgodności & zabezpieczeń](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
-   
+
+- Wdrożenie pakietu Office 365 musi znajdować się w tej samej dzierżawie, w której znajduje się obszar roboczy wskaźnik platformy Azure.
+
+> [!IMPORTANT]
+> - Aby łącznik mógł uzyskać dostęp do danych za pomocą interfejsu API działania zarządzania pakietem Office 365, należy włączyć **ujednolicone rejestrowanie inspekcji** na potrzeby wdrożenia pakietu Office 365. W zależności od typu posiadanej licencji pakietu Office 365/Microsoft 365 może być ona domyślnie niewłączona. Zapoznaj się z [Centrum zabezpieczeń i zgodności pakietu Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) , aby sprawdzić stan ujednoliconego rejestrowania inspekcji zgodnie z typem licencji.
+> - Można również ręcznie włączać, wyłączać i sprawdzać bieżący stan rejestrowania ujednoliconej inspekcji pakietu Office 365. Aby uzyskać instrukcje, zobacz [Włączanie lub wyłączanie wyszukiwania w dzienniku inspekcji pakietu Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off).
+> - Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API działania zarządzania pakietu Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
+
+
    > [!NOTE]
-   > Obecnie Łącznik danych usługi O365 automatycznie przechwytuje programy Exchange i SharePoint działania, jak wspomniano na stronie łącznika w sekcji typy danych. Zalecamy sprawdzenie [tego artykułu na wypadek, gdyby zespoły wymagały inspekcji danych i ochrony zespołów przy użyciu badania wskaźnikowego](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761). 
+   > Jak wspomniano powyżej, a jak widać na stronie łącznika w obszarze **typy danych**, łącznik pakietu 365 Office dla usługi Azure wskaźnikiem w ramach programu Microsoft Jednak istnieją pewne rozwiązania zewnętrzne, jeśli interesują Cię [dane z zespołów](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761) lub [innych danych pakietu Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) do platformy Azure. 
 
-## <a name="connect-to-office-365"></a>Łączenie z usługą Office 365
+## <a name="enable-the-office-365-log-connector"></a>Włącz łącznik dziennika pakietu Office 365
 
-1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Office 365** .
+1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **Łączniki danych**.
 
-2. Jeśli jeszcze tego nie zrobiono, możesz to zrobić, przechodząc do bloku **Łączniki danych** i wybierając pozycję Łącznik **pakietu Office 365** . W tym miejscu możesz kliknąć **stronę Otwórz łącznik** i w obszarze Konfiguracja z etykietą **Konfiguracja** zaznacz wszystkie dzienniki aktywności pakietu Office 365, które chcesz połączyć z usługą Azure — wskaźnikiem. 
+1. Na liście **Łączniki danych** kliknij pozycję **Office 365**, a następnie przycisk **Otwórz stronę łącznika** w prawym dolnym rogu.
+
+1. W sekcji **Konfiguracja**oznaczona etykietą zaznacz pola wyboru dzienników aktywności pakietu Office 365, które chcesz połączyć z platformą Azure, a następnie kliknij przycisk **Zastosuj zmiany**. 
+
    > [!NOTE]
-   > Jeśli masz już połączenie z wieloma dzierżawcami w wcześniej obsługiwanej wersji łącznika pakietu Office 365 na platformie Azure — wskaźnikiem, będziesz mieć możliwość wyświetlania i modyfikowania dzienników zbieranych z poszczególnych dzierżawców. Nie będzie można dodać kolejnych dzierżawców, ale można usunąć wcześniej dodanych dzierżawców.
-3. Aby użyć odpowiedniego schematu w Log Analytics dla dzienników pakietu Office 365, Wyszukaj pozycję **Office**.
+   > Jeśli wcześniej połączono wiele dzierżawców z platformą Azure, przy użyciu starszej wersji łącznika pakietu Office 365, która obsługuje ten program, będziesz mieć możliwość wyświetlania i modyfikowania dzienników zbieranych od poszczególnych dzierżawców. Nie będzie można dodać kolejnych dzierżawców, ale można usunąć wcześniej dodanych dzierżawców.
 
+1. Aby zbadać dane dziennika pakietu Office 365 w Log Analytics, wpisz `OfficeActivity` pierwszy wiersz okna zapytania.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób nawiązywania połączenia między pakietem Office 365 a wskaźnikiem kontrolnym platformy Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
-- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
-- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
+- Dowiedz się [, jak uzyskać wgląd w dane i potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij wykrywanie zagrożeń przy użyciu funkcji wskaźnikowej platformy Azure, korzystając z [wbudowanych](tutorial-detect-threats-built-in.md) lub [niestandardowych](tutorial-detect-threats-custom.md) reguł.
 

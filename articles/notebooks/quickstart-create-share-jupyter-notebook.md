@@ -3,14 +3,16 @@ title: Tworzenie i udostępnianie notesu Jupyter w wersji zapoznawczej Azure Not
 description: Szybko Twórz i uruchamiaj Notes Jupyter w wersji zapoznawczej programu Azure Notebooks, a następnie Udostępnij go innym osobom.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.custom: tracking-python
+ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77064448"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85832104"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Szybki Start: Tworzenie i udostępnianie notesu w podglądzie Azure Notebooks
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 W tym przewodniku szybki start utworzysz i uruchomisz Notes Jupyter na Azure Notebooks, a następnie udostępnisz go innym osobom. Jupyter umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, trwałych danych, grafiki i wizualizacji na jednej kanwie możliwej do przedziału. Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji.
 
@@ -19,15 +21,13 @@ Brak.
 
 ## <a name="create-a-new-project-and-notebook"></a>Tworzenie nowego projektu i notesu
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
-
-1. Przejdź do [witryny Azure Notebooks (https://notebooks.azure.com) ](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
+1. Przejdź do [witryny Azure Notebooks ( https://notebooks.azure.com) ](https://notebooks.azure.com) i zaloguj się. Aby uzyskać szczegółowe informacje, zobacz [Szybki Start — logowanie do Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. Na stronie Twój profil publiczny wybierz pozycję **Moje projekty** w górnej części strony:
 
     ![Link Moje projekty w górnej części okna przeglądarki](media/quickstarts/my-projects-link.png)
 
-1. Na stronie **Moje projekty** wybierz pozycję **+ Nowy projekt** (skrót klawiaturowy: n). Przycisk może się pojawić tylko **+** wtedy, gdy okno przeglądarki jest wąskie:
+1. Na stronie **Moje projekty** wybierz pozycję **+ Nowy projekt** (skrót klawiaturowy: n). Przycisk może się pojawić tylko wtedy, **+** gdy okno przeglądarki jest wąskie:
 
     ![Polecenie nowego projektu na stronie Moje projekty](media/quickstarts/new-project-command.png)
 
@@ -40,7 +40,7 @@ Brak.
 
      ![Okno podręczne nowego projektu z wypełnionymi szczegółami](media/quickstarts/new-project-popup.png)
 
-1. Po kilku chwilach Azure Notebooks przechodzi do nowego projektu. Dodaj Notes do projektu, wybierając listę rozwijaną **+ Nowy** (która może być wyświetlana tylko **+** jako), a następnie wybierając opcję **Notes**:
+1. Po kilku chwilach Azure Notebooks przechodzi do nowego projektu. Dodaj Notes do projektu, wybierając listę rozwijaną **+ Nowy** (która może być wyświetlana tylko jako **+** ), a następnie wybierając opcję **Notes**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
@@ -92,7 +92,7 @@ Brak.
 
     ![Ikona zapisywania na pasku narzędzi notesu Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Wybierz polecenie menu**Zamknij i** Zatrzymaj, aby zatrzymać serwer i zamknąć okno przeglądarki. **File** > 
+1. Wybierz **File**  >  polecenie menu**Zamknij i** Zatrzymaj, aby zatrzymać serwer i zamknąć okno przeglądarki.
 
 ## <a name="share-the-notebook"></a>Udostępnianie notesu
 

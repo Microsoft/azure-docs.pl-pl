@@ -4,10 +4,9 @@ description: Użyj skryptu programu PowerShell, aby zainstalować w trybie dyskr
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74172240"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Uruchom instalację nienadzorowaną Azure Backup Server
@@ -18,9 +17,9 @@ Te kroki nie mają zastosowania, Jeśli instalujesz Azure Backup Server v1.
 
 ## <a name="install-backup-server"></a>Zainstaluj serwer kopii zapasowej
 
-1. Na serwerze, który jest hostem Azure Backup Server v2 lub nowszym, Utwórz plik tekstowy. (Plik można utworzyć w Notatniku lub w innym edytorze tekstu). Zapisz plik jako MABSSetup. ini.
+1. Na serwerze, który jest hostem Azure Backup Server v2 lub nowszym, Utwórz plik tekstowy. (Plik można utworzyć w Notatniku lub w innym edytorze tekstu). Zapisz plik jako MABSSetup.ini.
 
-2. Wklej następujący kod w pliku MABSSetup. ini. Zastąp tekst w nawiasach (\< \>) wartościami z Twojego środowiska. Następujący tekst jest przykładem:
+2. Wklej następujący kod w pliku MABSSetup.ini. Zastąp tekst w nawiasach ( \< \> ) wartościami z Twojego środowiska. Następujący tekst jest przykładem:
 
    ```text
    [OPTIONS]

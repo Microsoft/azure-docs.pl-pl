@@ -2,21 +2,20 @@
 title: Informacje o sposobie działania aprowizacji usługi Azure AD | Microsoft Docs
 description: Informacje o działaniu aprowizacji usługi Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
-ms.translationtype: MT
+ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712234"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781654"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -172,7 +171,7 @@ Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są reje
 
 Usługa Azure AD Provisioning przechowuje systemy źródłowe i docelowe w synchronizacji przy użyciu kont anulowania aprowizacji, gdy użytkownicy nie mają już dostępu. 
 
-Usługa Azure AD Provisioning spowoduje nietrwałe usunięcie użytkownika w aplikacji w przypadku usunięcia nietrwałej aplikacji (żądanie aktualizacji z aktywnym = false) i wystąpienia dowolnego z następujących zdarzeń:
+Usługa Azure AD Provisioning spowoduje nietrwałe usunięcie użytkownika w aplikacji, gdy aplikacja obsługuje usunięcia nietrwałe (żądanie aktualizacji z aktywnym = false) i wystąpią dowolne z następujących zdarzeń:
 
 * Konto użytkownika zostało usunięte w usłudze Azure AD
 *   Użytkownik nie jest przypisany do aplikacji

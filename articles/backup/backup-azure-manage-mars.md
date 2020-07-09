@@ -4,12 +4,11 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025105"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057827"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -125,7 +124,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 
     ![Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń (osobistego numeru identyfikacyjnego), który należy wygenerować ręcznie. Aby to zrobić, najpierw Zaloguj się do Azure Portal.
-5. Przejdź do obszaru **Recovery Services** > **Settings** > **Właściwości**ustawień magazynu.
+5. Przejdź do obszaru **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
 6. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Skopiuj ten kod PIN. Numer PIN jest prawidłowy tylko przez pięć minut.
 7. W konsoli zarządzania Wklej kod PIN, a następnie wybierz przycisk **OK**.
 
@@ -156,7 +155,7 @@ Jeśli ochrona zostanie zatrzymana podczas zachowywania danych i podjęta zostan
 
 Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia kopii zapasowej lub przywracania lokalnego lub maszyny lokalnej przy użyciu agenta MARS na platformie lub z platformy Azure. Jeśli utracisz lub nie pamiętasz hasła, możesz ponownie wygenerować hasło (pod warunkiem, że maszyna jest nadal zarejestrowana w magazynie Recovery Services i jest konfigurowana kopia zapasowa), wykonując następujące czynności:
 
-- W konsoli agenta Mars przejdź do **okienka** > akcje**Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
+- W konsoli agenta Mars przejdź do **okienka Akcje**  >  **Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
 - Zaznacz pole wyboru **Zmień hasło** .<br>
 - Wprowadź nowe hasło lub kliknij pozycję **Generuj hasło**.
 - Kliknij przycisk **Przeglądaj** , aby zapisać nowe hasło.
@@ -167,6 +166,27 @@ Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia k
 
     ![Generuj hasło.](./media/backup-azure-manage-mars/passphrase2.png)
 - Upewnij się, że hasło jest bezpiecznie zapisane w lokalizacji alternatywnej (innej niż maszyna źródłowa), najlepiej w Azure Key Vault. Śledź wszystkie hasła, jeśli masz kopię zapasową wielu maszyn z agentami MARS.
+
+## <a name="managing-backup-data-for-unavailable-machines"></a>Zarządzanie danymi kopii zapasowej dla niedostępnych maszyn
+
+W tej sekcji omówiono scenariusz, w którym maszyna źródłowa chroniona za pomocą usług MARS nie jest już dostępna, ponieważ została usunięta, uszkodzona, zainfekowana przez oprogramowanie chroniące przed złośliwym oprogramowaniem lub zlikwidowane.
+
+W przypadku tych maszyn usługa Azure Backup zapewnia, że ostatni punkt odzyskiwania nie wygaśnie (oznacza to, że nie jest oczyszczany) zgodnie z regułami przechowywania określonymi w zasadach tworzenia kopii zapasowych. W związku z tym można bezpiecznie przywrócić maszynę.  Należy wziąć pod uwagę następujące scenariusze, które można wykonać na danych kopii zapasowej:
+
+### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scenariusz 1: maszyna źródłowa jest niedostępna i nie jest już konieczne zachowywanie danych kopii zapasowej
+
+- Kopię zapasową danych można usunąć z Azure Portal, wykonując kroki opisane w [tym artykule](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+### <a name="scenario-2-the-source-machine-is-unavailable-and-you-need-to-retain-backup-data"></a>Scenariusz 2: maszyna źródłowa jest niedostępna i należy zachować dane kopii zapasowej
+
+Zarządzanie zasadami tworzenia kopii zapasowych w usłudze MARS odbywa się za pomocą konsoli MARS, a nie za pomocą portalu. Jeśli musisz zwiększyć ustawienia przechowywania dla istniejących punktów odzyskiwania przed ich wygaśnięciem, należy przywrócić maszynę, zainstalować konsolę MARS i rozłożyć zasady.
+
+- Aby przywrócić maszynę, wykonaj następujące czynności:
+  - [Przywracanie maszyny wirtualnej na alternatywną maszynę docelową](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  - Utwórz ponownie maszynę docelową o tej samej nazwie hosta co maszyna źródłowa
+  - Zainstaluj agenta i zarejestruj się ponownie w tym samym magazynie i przy użyciu tego samego hasła
+  - Uruchom klienta MARS, aby zwiększyć czas przechowywania zgodnie z wymaganiami
+- Nowo przywrócona maszyna chroniona przy użyciu usług MARS będzie nadal tworzyć kopie zapasowe.  
 
 ## <a name="next-steps"></a>Następne kroki
 

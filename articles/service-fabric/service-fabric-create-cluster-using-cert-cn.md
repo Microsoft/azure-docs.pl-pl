@@ -4,10 +4,9 @@ description: Dowiedz się, jak utworzyć klaster Service Fabric przy użyciu naz
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614557"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Wdróż klaster Service Fabric, który używa nazwy pospolitej certyfikatu zamiast odcisku palca
@@ -65,10 +64,10 @@ Write-Host "Common Name              :"  $CommName
 ```
 
 ## <a name="download-and-update-a-sample-template"></a>Pobieranie i aktualizowanie przykładowego szablonu
-W tym artykule jest stosowany przykładowy szablon i szablon szablonu [bezpiecznego klastra z 5 węzłami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) . Pobierz pliki *azuredeploy. JSON* i *azuredeploy. Parameters. JSON* na komputer.
+W tym artykule jest stosowany przykładowy szablon i szablon szablonu [bezpiecznego klastra z 5 węzłami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) . Pobierz *azuredeploy.js* i *azuredeploy.parameters.jsna* plikach na komputerze.
 
 ### <a name="update-parameters-file"></a>Aktualizuj plik parametrów
-Najpierw Otwórz plik *azuredeploy. Parameters. JSON* w edytorze tekstów i Dodaj następującą wartość parametru:
+Najpierw Otwórz *azuredeploy.parameters.jsw* pliku w edytorze tekstów i Dodaj następującą wartość parametru:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -95,7 +94,7 @@ Następnie ustaw wartości parametrów *certificateCommonName*, *sourceVaultValu
 ```
 
 ### <a name="update-the-template-file"></a>Aktualizowanie pliku szablonu
-Następnie otwórz plik *azuredeploy. JSON* w edytorze tekstów i wprowadź trzy aktualizacje, aby obsługiwać wspólną nazwę certyfikatu.
+Następnie otwórz *azuredeploy.jsw* pliku w edytorze tekstów i wprowadź trzy aktualizacje, aby obsługiwać wspólną nazwę certyfikatu.
 
 1. W sekcji **Parametry** Dodaj parametr *certificateCommonName* :
     ```json
@@ -120,14 +119,14 @@ Następnie otwórz plik *azuredeploy. JSON* w edytorze tekstów i wprowadź trzy
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  We **virtualMachineProfile**->**settings****właściwościach**->**extensions****extensionProfile**->rozszerzeń virtualMachineProfile extensionProfiles**Certificates**, Add->-> 
+3. W zasobie **Microsoft. COMPUTE/virtualMachineScaleSets** zaktualizuj rozszerzenie maszyny wirtualnej tak, aby używało nazwy pospolitej w ustawieniach certyfikatu zamiast odcisku palca.  We **virtualMachineProfile** -> właściwościach rozszerzeń virtualMachineProfile**extensionProfiles** -> **extensions** -> **properties** -> **settings** -> **Certificates**, Add 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
        ],
     ```
 
-    i Usuń `"thumbprint": "[parameters('certificateThumbprint')]",`.
+    i Usuń `"thumbprint": "[parameters('certificateThumbprint')]",` .
 
     ```json
     "virtualMachineProfile": {

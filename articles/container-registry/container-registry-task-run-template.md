@@ -4,10 +4,9 @@ description: Zakolejkowanie uruchomienia zadania ACR w celu skompilowania obrazu
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927772"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Uruchamianie zadań ACR przy użyciu szablonów Menedżer zasobów
@@ -16,7 +15,7 @@ ms.locfileid: "82927772"
 
 W tym artykule przedstawiono przykłady szablonów Azure Resource Manager do kolejki przebiegu szybkiego zadania, podobnie jak w przypadku, można utworzyć ręcznie przy użyciu polecenia [AZ ACR Build][az-acr-build] .
 
-Szablon Menedżer zasobów do zakolejkowania uruchomienia zadania jest użyteczny w scenariuszach automatyzacji i rozszerza funkcje programu `az acr build`. Przykład:
+Szablon Menedżer zasobów do zakolejkowania uruchomienia zadania jest użyteczny w scenariuszach automatyzacji i rozszerza funkcje programu `az acr build` . Przykład:
 
 * Użyj szablonu, aby utworzyć rejestr kontenerów i natychmiast kolejkować uruchomione zadanie w celu kompilowania i wypychania obrazu kontenera
 * Tworzenie lub Włączanie dodatkowych zasobów, których można użyć w szybkim przebiegu zadania, takich jak zarządzana tożsamość zasobów platformy Azure
@@ -28,8 +27,8 @@ Szablon Menedżer zasobów do zakolejkowania uruchomienia zadania jest użyteczn
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Konto usługi GitHub** — Utwórz konto, https://github.com Jeśli jeszcze go nie masz. 
-* **Przykładowe repozytorium rozwidlenia** — aby zobaczyć przykłady zadań, użyj interfejsu użytkownika usługi GitHub, aby utworzyć rozwidlenie następującego przykładowego repozytorium do konta https://github.com/Azure-Samples/acr-build-helloworld-nodeusługi GitHub:. To repozytorium zawiera przykładowy wieloetapowe dockerfile i kod źródłowy do tworzenia obrazów małych kontenerów.
+* **Konto usługi GitHub** — Utwórz konto https://github.com , jeśli jeszcze go nie masz. 
+* **Przykładowe repozytorium rozwidlenia** — aby zobaczyć przykłady zadań, użyj interfejsu użytkownika usługi GitHub, aby utworzyć rozwidlenie następującego przykładowego repozytorium do konta usługi GitHub: https://github.com/Azure-Samples/acr-build-helloworld-node . To repozytorium zawiera przykładowy wieloetapowe dockerfile i kod źródłowy do tworzenia obrazów małych kontenerów.
 
 ## <a name="example-create-registry-and-queue-task-run"></a>Przykład: tworzenie rejestru i uruchomienie zadania w kolejce
 
@@ -44,7 +43,7 @@ Na potrzeby tego przykładu podaj wartości dla następujących parametrów szab
 |registryname     |Unikatowa nazwa utworzonego rejestru         |
 |repozytorium     |Repozytorium docelowe dla zadania kompilacji        |
 |taskRunName     |Nazwa uruchomienia zadania, która określa tag obrazu |
-|sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład https://github.com/Azure-Samples/acr-build-helloworld-node. Pliku dockerfile w katalogu głównym repozytorium tworzy obraz kontenera dla małej aplikacji sieci Web w języku Node. js. W razie potrzeby użyj rozwidlenia repozytorium jako kontekstu kompilacji.         |
+|sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład https://github.com/Azure-Samples/acr-build-helloworld-node . Pliku dockerfile w katalogu głównym repozytorium tworzy obraz kontenera dla małej Node.js aplikacji sieci Web. W razie potrzeby użyj rozwidlenia repozytorium jako kontekstu kompilacji.         |
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -112,7 +111,7 @@ Dane wyjściowe przedstawiają dziennik uruchomienia zadania.
 Możesz również wyświetlić dziennik przebiegu zadania w Azure Portal. 
 
 1. Przejdź do rejestru kontenerów
-2. W obszarze **usługi**wybierz pozycję **zadania** > **uruchomienia**.
+2. W obszarze **usługi**wybierz pozycję **zadania**  >  **uruchomienia**.
 3. Wybierz identyfikator przebiegu, w tym przypadku *CA1*. 
 
 W portalu jest wyświetlany dziennik uruchamiania zadań.
@@ -125,7 +124,7 @@ Ten scenariusz jest podobny do [uwierzytelniania między rejestrami w ACR zadani
 
 ### <a name="prepare-base-registry"></a>Przygotuj rejestr podstawowy
 
-W celach demonstracyjnych Utwórz oddzielny rejestr kontenerów jako rejestr podstawowy i wypchnij podstawowy obraz środowiska Node. js pobrany z usługi Docker Hub.
+W celach demonstracyjnych Utwórz oddzielny rejestr kontenerów jako rejestr podstawowy i wypchnij Node.js obraz podstawowy pobrany z usługi Docker Hub.
 
 1. Utwórz drugi rejestr kontenerów, na przykład *mybaseregistry*, do przechowywania obrazów podstawowych.
 1. Pobierz `node:9-alpine` obraz z usługi Docker Hub, oznacz go jako rejestr podstawowy i wypchnij do rejestru podstawowego:
@@ -139,7 +138,7 @@ W celach demonstracyjnych Utwórz oddzielny rejestr kontenerów jako rejestr pod
 
 ### <a name="create-new-dockerfile"></a>Utwórz nowy pliku dockerfile
 
-Utwórz element pliku dockerfile, który pobiera podstawowy obraz z rejestru podstawowego. Wykonaj następujące kroki w lokalnym rozwidleniu repozytorium GitHub, na przykład `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
+Utwórz element pliku dockerfile, który pobiera podstawowy obraz z rejestru podstawowego. Wykonaj następujące kroki w lokalnym rozwidleniu repozytorium GitHub, na przykład `https://github.com/myGitHubID/acr-build-helloworld-node.git` .
 
 1. W interfejsie użytkownika usługi GitHub wybierz pozycję **Utwórz nowy plik**.
 1. Nazwij plik *pliku dockerfile-test* i wklej poniższą zawartość. Zastąp nazwę rejestru *mybaseregistry*.
@@ -187,7 +186,7 @@ Na potrzeby tego przykładu podaj wartości dla następujących parametrów szab
 |userAssignedIdentity |Identyfikator zasobu tożsamości przypisanej przez użytkownika w zadaniu|
 |customRegistryIdentity | Identyfikator klienta dla tożsamości przypisanej przez użytkownika w zadaniu, używany do uwierzytelniania za pomocą rejestru niestandardowego |
 |customRegistry |Nazwa serwera logowania rejestru niestandardowego, do którego można uzyskać dostęp w zadaniu, na przykład *mybaseregistry.azurecr.IO*|
-|sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład * https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node.* |
+|sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład * https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-Node.* |
 |dockerFilePath | Ścieżka do pliku dockerfile w kontekście zdalnym, użyta do utworzenia obrazu. |
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu

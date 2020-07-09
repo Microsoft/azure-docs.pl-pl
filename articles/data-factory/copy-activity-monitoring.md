@@ -9,14 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417848"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85249707"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
 
@@ -48,7 +47,7 @@ W niektórych scenariuszach, gdy uruchomisz działanie kopiowania w Data Factory
 
 ## <a name="monitor-programmatically"></a>Monitoruj programowo
 
-Szczegóły wykonania działania kopiowania i charakterystyki wydajności są również zwracane w sekcji > **danych wyjściowych** działania **Uruchom działanie kopiowania**, która jest używana do renderowania widoku monitorowania interfejsu użytkownika. Poniżej znajduje się kompletna lista właściwości, które mogą zostać zwrócone. Zobaczysz tylko właściwości, które mają zastosowanie do Twojego scenariusza kopiowania. Aby uzyskać informacje o tym, jak ogólnie monitorować uruchomienia działań, zobacz programowe [monitorowanie fabryki danych Azure](monitor-programmatically.md).
+Szczegóły wykonania działania kopiowania i charakterystyki wydajności są również zwracane w sekcji **Copy Activity run result**  >  **danych wyjściowych** działania Uruchom działanie kopiowania, która jest używana do renderowania widoku monitorowania interfejsu użytkownika. Poniżej znajduje się kompletna lista właściwości, które mogą zostać zwrócone. Zobaczysz tylko właściwości, które mają zastosowanie do Twojego scenariusza kopiowania. Aby uzyskać informacje o tym, jak ogólnie monitorować uruchomienia działań, zobacz programowe [monitorowanie fabryki danych Azure](monitor-programmatically.md).
 
 | Nazwa właściwości  | Opis | Jednostka w danych wyjściowych |
 |:--- |:--- |:--- |
@@ -58,8 +57,8 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | filesWritten | Liczba plików, które zostały zapełnione/przekazane do ujścia opartego na plikach. | Wartość Int64 (brak jednostki) |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
 | sinkPeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
-| rowsRead | Liczba wierszy odczytanych ze źródła (nie dotyczy kopiowania binarnego). | Wartość Int64 (brak jednostki) |
-| rowsCopied | Liczba wierszy skopiowanych do ujścia (nie dotyczy kopiowania binarnego). | Wartość Int64 (brak jednostki) |
+| rowsRead | Liczba wierszy odczytanych ze źródła. Ta Metryka nie ma zastosowania w przypadku kopiowania plików jako-jest bez analizy, na przykład gdy źródła i ujścia danych są typu binarnego, lub innego typu formatu z identycznymi ustawieniami. | Wartość Int64 (brak jednostki) |
+| rowsCopied | Liczba wierszy skopiowanych do ujścia. Ta Metryka nie ma zastosowania w przypadku kopiowania plików jako-jest bez analizy, na przykład gdy źródła i ujścia danych są typu binarnego, lub innego typu formatu z identycznymi ustawieniami.  | Wartość Int64 (brak jednostki) |
 | rowsSkipped | Liczba niezgodnych wierszy, które zostały pominięte. Aby można było pominąć niezgodne wiersze, można ustawić `enableSkipIncompatibleRow` wartość true. | Wartość Int64 (brak jednostki) |
 | copyDuration | Czas trwania kopiowania. | Wartość Int32 (w sekundach) |
 | danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
@@ -68,7 +67,7 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | sqlDwPolyBase | Określa, czy baza danych jest używana, gdy dane są kopiowane do SQL Data Warehouse. | Boolean |
 | redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Boolean |
 | hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Boolean |
-| effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)`. | Tekst (ciąg) |
+| effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)` . | Tekst (ciąg) |
 | usedDataIntegrationUnits | Efektywna jednostka integracji danych podczas kopiowania. | Wartość Int32 |
 | usedParallelCopies | Efektywna parallelCopies podczas kopiowania. | Wartość Int32 |
 | redirectRowPath | Ścieżka do dziennika pominiętych niezgodnych wierszy w magazynie obiektów BLOB skonfigurowanym we `redirectIncompatibleRowSettings` właściwości. Zobacz [odporność na uszkodzenia](copy-activity-overview.md#fault-tolerance). | Tekst (ciąg) |

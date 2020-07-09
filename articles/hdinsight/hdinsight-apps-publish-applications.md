@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cee60a71f6f19e09194dc689f95999bb11faad3
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "64685325"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086470"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
 Aplikację Azure HDInsight można zainstalować w klastrze usługi HDInsight opartym na systemie Linux. W tym artykule dowiesz się, jak opublikować aplikację usługi HDInsight w portalu Azure Marketplace. Aby uzyskać ogólne informacje o publikowaniu w portalu Azure Marketplace, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -31,7 +31,7 @@ Aby przesłać aplikację niestandardową w portalu Marketplace, najpierw [Utwó
 Należy również zarejestrować konto dewelopera. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty w portalu Azure Marketplace](../marketplace/marketplace-publishers-guide.md) i [Tworzenie konta dewelopera Microsoft](../marketplace/marketplace-publishers-guide.md).
 
 ## <a name="define-the-application"></a>Definiowanie aplikacji
-Dwa kroki są związane z publikowaniem aplikacji w portalu Marketplace. Najpierw Zdefiniuj plik *plik createuidef. JSON* . Plik plik createuidef. JSON wskazuje, które klastry są zgodne z aplikacją. Następnie opublikuj szablon na podstawie Azure Portal. Oto przykładowy plik plik createuidef. JSON:
+Dwa kroki są związane z publikowaniem aplikacji w portalu Marketplace. Najpierw Zdefiniuj *createUiDef.js* pliku. createUiDef.jsw pliku wskazuje, które klastry są zgodne z aplikacją. Następnie opublikuj szablon na podstawie Azure Portal. Oto przykład createUiDef.jsw pliku:
 
 ```json
 {
@@ -76,8 +76,8 @@ Skrypt instalacji musi mieć następującą charakterystykę:
 ## <a name="package-the-application"></a>Pakowanie aplikacji
 Utwórz plik zip, który zawiera wszystkie pliki wymagane do zainstalowania aplikacji usługi HDInsight. Aby opublikować aplikację, należy użyć pliku zip. Plik zip zawiera następujące pliki:
 
-* createUiDefinition. JSON
-* mainTemplate. JSON (Aby uzyskać przykład, zobacz [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md)).
+* createUiDefinition.jsna
+* mainTemplate.jsna (Aby uzyskać przykład, zobacz [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md)).
 * Wszystkie wymagane skrypty
 
 > [!NOTE]  
@@ -91,8 +91,8 @@ Aby opublikować aplikację usługi HDInsight:
 3. Wprowadź tytuł, a następnie wybierz pozycję **Utwórz nowy szablon rozwiązania**.
 4. Jeśli Twoja organizacja nie została jeszcze zarejestrowana, wybierz pozycję **Utwórz konto Centrum deweloperów i Dołącz do programu Azure**.  Aby uzyskać więcej informacji, zobacz [Tworzenie konta dewelopera Microsoft](../marketplace/marketplace-publishers-guide.md).
 5. Wybierz pozycję **Zdefiniuj pewne topologie, aby rozpocząć pracę**. Szablon rozwiązania jest "nadrzędny" dla wszystkich jego topologii. Można zdefiniować wiele topologii w jednej ofercie lub szablonie rozwiązania. Gdy oferta jest wypychana do przemieszczania, jest wypychana do wszystkich jej topologii. 
-6. Wprowadź nazwę topologii, a następnie wybierz **+** pozycję.
-7. Wprowadź nową wersję, a następnie wybierz pozycję **+**.
+6. Wprowadź nazwę topologii, a następnie wybierz pozycję **+** .
+7. Wprowadź nową wersję, a następnie wybierz pozycję **+** .
 8. Przekaż plik zip, który został utworzony podczas pakowania aplikacji.  
 9. Wybierz pozycję **Żądaj certyfikacji**. Zespół certyfikacji firmy Microsoft przegląda pliki i poświadcza topologię.
 

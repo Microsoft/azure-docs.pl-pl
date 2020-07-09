@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: hdinsightactive, tracking-python
 ms.date: 03/04/2020
-ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62034ec84f454e4d726348a1c71b492f8aa598b6
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272125"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86087439"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Nawiązywanie połączenia z platformą Apache Kafka w usłudze HDInsight przy użyciu sieci wirtualnej platformy Azure
 
@@ -242,7 +242,7 @@ Wykonaj kroki opisane w tej sekcji, aby utworzyć następującą konfigurację:
 
 Domyślnie Apache dozorcy zwraca nazwę domeny brokerów Kafka do klientów. Ta konfiguracja nie działa z klientem oprogramowania sieci VPN, ponieważ nie może używać rozpoznawania nazw dla jednostek w sieci wirtualnej. W przypadku tej konfiguracji wykonaj następujące kroki, aby skonfigurować Kafka do anonsowania adresów IP zamiast nazw domen:
 
-1. Korzystając z przeglądarki internetowej, przejdź do adresu `https://CLUSTERNAME.azurehdinsight.net`. Zamień `CLUSTERNAME` na nazwę Kafka w klastrze usługi HDInsight.
+1. Korzystając z przeglądarki internetowej, przejdź do adresu `https://CLUSTERNAME.azurehdinsight.net`. Zamień na `CLUSTERNAME` nazwę Kafka w klastrze usługi HDInsight.
 
     Po wyświetleniu monitu użyj nazwy użytkownika i hasła protokołu HTTPS dla klastra. Zostanie wyświetlony interfejs użytkownika sieci Web Ambari dla klastra.
 
@@ -270,7 +270,7 @@ Domyślnie Apache dozorcy zwraca nazwę domeny brokerów Kafka do klientów. Ta 
 
 6. Aby skonfigurować interfejs, który Kafka nasłuchuje, wprowadź `listeners` w polu __filtru__ w prawym górnym rogu.
 
-7. Aby skonfigurować Kafka do nasłuchiwania na wszystkich interfejsach sieciowych, Zmień wartość w polu __detektory__ na `PLAINTEXT://0.0.0.0:9092`.
+7. Aby skonfigurować Kafka do nasłuchiwania na wszystkich interfejsach sieciowych, Zmień wartość w polu __detektory__ na `PLAINTEXT://0.0.0.0:9092` .
 
 8. Aby zapisać zmiany konfiguracji, użyj przycisku __Zapisz__ . Wprowadź wiadomość tekstową opisującą zmiany. Po zapisaniu zmian wybierz __przycisk OK__ .
 
@@ -316,7 +316,7 @@ Aby sprawdzić poprawność łączności z usługą Kafka, wykonaj następujące
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Ten skrypt zakłada, `$resourceGroupName` że jest nazwą grupy zasobów platformy Azure, która zawiera sieć wirtualną.
+    Ten skrypt zakłada, że `$resourceGroupName` jest nazwą grupy zasobów platformy Azure, która zawiera sieć wirtualną.
 
     Zapisz zwrócone informacje do użycia w następnych krokach.
 
@@ -341,10 +341,10 @@ Aby sprawdzić poprawność łączności z usługą Kafka, wykonaj następujące
 
    * Jeśli używasz __klienta sieci VPN oprogramowania__, Zastąp `kafka_broker` wpisy adresem IP węzłów procesu roboczego.
 
-   * Jeśli __włączono rozpoznawanie nazw za pomocą niestandardowego serwera DNS__, Zastąp `kafka_broker` wpisy nazwą FQDN węzłów procesu roboczego.
+   * Jeśli __włączono rozpoznawanie nazw za pomocą niestandardowego serwera DNS__, Zastąp wpisy nazwą `kafka_broker` FQDN węzłów procesu roboczego.
 
      > [!NOTE]
-     > Ten kod wysyła ciąg `test message` do tematu. `testtopic` Domyślną konfiguracją Kafka w usłudze HDInsight jest utworzenie tematu, jeśli nie istnieje.
+     > Ten kod wysyła ciąg `test message` do tematu `testtopic` . Domyślną konfiguracją Kafka w usłudze HDInsight jest utworzenie tematu, jeśli nie istnieje.
 
 4. Aby pobrać komunikaty z Kafka, użyj następującego kodu w języku Python:
 
@@ -364,7 +364,7 @@ Aby sprawdzić poprawność łączności z usługą Kafka, wykonaj następujące
 
     * Jeśli używasz __klienta sieci VPN oprogramowania__, Zastąp `kafka_broker` wpisy adresem IP węzłów procesu roboczego.
 
-    * Jeśli __włączono rozpoznawanie nazw za pomocą niestandardowego serwera DNS__, Zastąp `kafka_broker` wpisy nazwą FQDN węzłów procesu roboczego.
+    * Jeśli __włączono rozpoznawanie nazw za pomocą niestandardowego serwera DNS__, Zastąp wpisy nazwą `kafka_broker` FQDN węzłów procesu roboczego.
 
 ## <a name="next-steps"></a>Następne kroki
 

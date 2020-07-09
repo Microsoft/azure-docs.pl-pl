@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ebf948fdb1df76cb7bcb03ee5d85f581d856524f
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020867"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85918734"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -30,7 +30,7 @@ Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implemen
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
 
-Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Istnieje usługa tokenów, która łączy się z Azure Active Directory, aby uzyskać tokeny zabezpieczające do użycia podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych. 
+Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Istnieje usługa tokenów, która łączy się z Azure Active Directory, aby uzyskać tokeny zabezpieczające do użycia podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych.
 
 Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w interfejsie API łącznika, o ile uwierzytelnianie AAD jest skonfigurowane na koncie magazynu i na serwerze magazynu danych. W przeciwnym razie można określić uwierzytelnianie SQL. Więcej szczegółów znajduje się w sekcji [użycie](#usage) .
 
@@ -40,19 +40,27 @@ Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w inte
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Mieć rolę **db_exporter** w puli bazy danych/SQL, do której chcesz przenieść dane do/z.
+- Musi być członkiem roli **db_exporter** w puli bazy danych/SQL, do której chcesz przenieść dane do/z.
+- Musi być członkiem roli współautor danych obiektów blob magazynu na domyślnym koncie magazynu.
 
-Aby utworzyć użytkowników, nawiąż połączenie z bazą danych i postępuj zgodnie z następującymi przykładami:
+Aby utworzyć użytkowników, nawiąż połączenie z bazą danych puli SQL i postępuj zgodnie z następującymi przykładami:
 
 ```sql
+--SQL User
 CREATE USER Mary FROM LOGIN Mary;
+
+--Azure Active Directory User
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Aby przypisać rolę:
 
 ```sql
+--SQL User
 EXEC sp_addrolemember 'db_exporter', 'Mary';
+
+--Azure Active Directory User
+EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 ```
 
 ## <a name="usage"></a>Użycie
@@ -72,7 +80,7 @@ Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowis
 #### <a name="read-api"></a>Odczytaj interfejs API
 
 ```scala
-val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
+val df = spark.read.sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
 Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), jak i zewnętrzne tabele w puli SQL.
@@ -80,17 +88,51 @@ Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), j
 #### <a name="write-api"></a>Interfejs API zapisu
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-gdzie Tabletype może być stałymi. wewnętrzne lub stałe. EXTERNAL
+Interfejs API zapisu tworzy tabelę w puli SQL, a następnie wywołuje bazę do ładowania danych.  Tabela nie może istnieć w puli SQL lub zostanie zwrócona wartość błędu z informacją o tym, że istnieje już obiekt o nazwie.
+
+Wartości tabletype
+
+- Stałe. tabela zarządzana wewnętrznie w puli SQL
+- Stałe. zewnętrzna — tabela zewnętrzna w puli SQL
+
+Tabela zarządzana puli SQL
 
 ```scala
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
-df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
+df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 ```
 
-Uwierzytelnianie do magazynu i SQL Server są wykonywane
+Tabela zewnętrzna puli SQL
+
+Aby można było zapisywać w tabeli zewnętrznej puli SQL, zewnętrzne źródło danych i zewnętrzny FORMAT pliku muszą istnieć w puli SQL.  Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie zewnętrznych źródeł danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [zewnętrznych formatów plików](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w puli SQL.  Poniżej znajdują się przykłady tworzenia zewnętrznego źródła danych i zewnętrznych formatów plików w puli SQL.
+
+```sql
+--For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+CREATE EXTERNAL DATA SOURCE <DataSourceName>
+WITH
+  ( LOCATION = 'abfss://...' ,
+    TYPE = HADOOP
+  ) ;
+
+CREATE EXTERNAL FILE FORMAT <FileFormatName>
+WITH (  
+    FORMAT_TYPE = PARQUET,  
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  
+);
+```
+
+Obiekt poświadczeń zewnętrznych nie jest wymagany w przypadku używania Azure Active Directory uwierzytelniania przekazywanego do konta magazynu.  Upewnij się, że jesteś członkiem roli "Współautor danych obiektów blob magazynu" na koncie magazynu.
+
+```scala
+
+df.write.
+    option(Constants.DATA_SOURCE, <DataSourceName>).
+    option(Constants.FILE_FORMAT, <FileFormatName>).
+    sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.EXTERNAL)
+
+```
 
 ### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>W przypadku transferu danych do lub z puli SQL lub bazy danych poza obszarem roboczym
 
@@ -114,8 +156,8 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-sql-auth-instead-of-aad"></a>Używanie uwierzytelniania SQL zamiast usługi AAD
@@ -127,8 +169,8 @@ Obecnie łącznik nie obsługuje uwierzytelniania opartego na tokenach w puli SQ
 ```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>")
 ```
 
@@ -136,10 +178,10 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 ```scala
 df.write.
-option(Constants.SERVER, "[samplews].[database.windows.net]").
-option(Constants.USER, [SQLServer Login UserName]).
-option(Constants.PASSWORD, [SQLServer Login Password]).
-sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
+option(Constants.SERVER, "samplews.database.windows.net").
+option(Constants.USER, <SQLServer Login UserName>).
+option(Constants.PASSWORD, <SQLServer Login Password>).
+sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
 ### <a name="using-the-pyspark-connector"></a>Korzystanie z łącznika PySpark
@@ -166,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Podobnie w scenariuszu odczytu Odczytaj dane przy użyciu Scala i Zapisz je w tabeli tymczasowej, a następnie użyj platformy Spark SQL w PySpark, aby zbadać tabelę tymczasową w ramce Dataframe.
 
-## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Zezwalanie innym użytkownikom na korzystanie z łącznika DW w obszarze roboczym
+## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Zezwalanie innym użytkownikom na korzystanie z usługi Azure Synapse Apache Spark do Synapse łącznika SQL w obszarze roboczym
 
 Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADLS Gen2 połączonym z obszarem roboczym, aby zmienić brakujące uprawnienia dla innych. Upewnij się, że użytkownik ma dostęp do obszaru roboczego i uprawnień do uruchamiania notesów.
 
@@ -178,7 +220,7 @@ Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADL
 
 - Określ następujące listy ACL w strukturze folderów:
 
-| Folder | / | synapse | obszary robocze  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+| Folder | / | synapse | obszary robocze  | \<workspacename> | sparkpools | \<sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
 | Uprawnienia dostępu | --X | --X | --X | --X | --X | --X | -WX |
 | Uprawnienia domyślne | ---| ---| ---| ---| ---| ---| ---|

@@ -1,22 +1,22 @@
 ---
 title: Opis usługi Azure IoT Hub module bliźniaczych reprezentacji | Microsoft Docs
 description: Przewodnik dla deweloperów — Używanie modułu bliźniaczych reprezentacji do synchronizowania danych stanu i konfiguracji między IoT Hub i urządzeniami
-author: chrissie926
+author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
-ms.author: menchi
-ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/29/2020
+ms.author: asrastog
+ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303600"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85610153"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Zrozumienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub
 
-W tym artykule przyjęto założenie, że zapoznaj [się z artykułem omówienie i użycie bliźniaczych reprezentacji urządzeń w IoT Hub](iot-hub-devguide-device-twins.md) . W IoT Hub w obszarze każdej tożsamości urządzenia można utworzyć maksymalnie 20 tożsamości modułów. Każda tożsamość modułu niejawnie generuje sznurek modułu. Podobnie jak w przypadku urządzeń bliźniaczych reprezentacji, moduł bliźniaczych reprezentacji to dokumenty JSON, które przechowują informacje o stanie modułu, w tym metadane, konfiguracje i warunki. Usługa Azure IoT Hub obsługuje sznurki modułu dla każdego modułu, z którym nawiążesz połączenie IoT Hub. 
+W tym artykule przyjęto założenie, że zapoznaj [się z artykułem omówienie i użycie bliźniaczych reprezentacji urządzeń w IoT Hub](iot-hub-devguide-device-twins.md) . W IoT Hub w obszarze każdej tożsamości urządzenia można utworzyć do 50 tożsamości modułów. Każda tożsamość modułu niejawnie generuje sznurek modułu. Podobnie jak w przypadku urządzeń bliźniaczych reprezentacji, moduł bliźniaczych reprezentacji to dokumenty JSON, które przechowują informacje o stanie modułu, w tym metadane, konfiguracje i warunki. Usługa Azure IoT Hub obsługuje sznurki modułu dla każdego modułu, z którym nawiążesz połączenie IoT Hub. 
 
 Po stronie urządzenia zestawy SDK urządzeń IoT Hub umożliwiają tworzenie modułów, w których każdy z nich otwiera niezależne połączenie z IoT Hub. Ta funkcja umożliwia korzystanie z oddzielnych obszarów nazw dla różnych składników na urządzeniu. Na przykład masz maszynę do sprzedaży z trzema różnymi czujnikami. Każdy czujnik jest kontrolowany przez różne działy w firmie. Moduł można utworzyć dla każdego czujnika. W ten sposób każdy dział może jedynie wysyłać zadania lub bezpośrednie metody do czujnika, który kontroluje, unikając konfliktów i błędów użytkowników.
 
@@ -102,11 +102,11 @@ W poniższym przykładzie przedstawiono dokument JSON:
 }
 ```
 
-W obiekcie głównym są właściwościami tożsamości modułu i obiektami kontenera dla `tags` i obu `reported` `desired` właściwości. `properties` Kontener zawiera elementy tylko do`$metadata`odczytu (, `$etag`i `$version`) opisane w [metadanych dwuosiowych modułu](iot-hub-devguide-module-twins.md#module-twin-metadata) i optymistycznych krokach [współbieżności](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
+W obiekcie głównym są właściwościami tożsamości modułu i obiektami kontenera dla `tags` i obu `reported` `desired` właściwości. `properties`Kontener zawiera elementy tylko do odczytu ( `$metadata` , `$etag` i `$version` ) opisane w [metadanych dwuosiowych modułu](iot-hub-devguide-module-twins.md#module-twin-metadata) i [optymistycznych krokach współbieżności](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
 
 ### <a name="reported-property-example"></a>Przykład raportowanej właściwości
 
-W poprzednim przykładzie sznurek modułu zawiera `batteryLevel` właściwość, która jest raportowana przez aplikację modułu. Ta właściwość umożliwia wykonywanie zapytań i operowanie na modułach na podstawie ostatniego zgłoszonego poziomu baterii. Inne przykłady obejmują możliwości modułu raportowania aplikacji modułu lub opcje łączności.
+W poprzednim przykładzie sznurek modułu zawiera `batteryLevel` Właściwość, która jest raportowana przez aplikację modułu. Ta właściwość umożliwia wykonywanie zapytań i operowanie na modułach na podstawie ostatniego zgłoszonego poziomu baterii. Inne przykłady obejmują możliwości modułu raportowania aplikacji modułu lub opcje łączności.
 
 > [!NOTE]
 > Raportowane właściwości upraszczają scenariusze, w których zaplecze rozwiązania jest zainteresowane ostatnią znaną wartością właściwości. Użyj [komunikatów z urządzenia do chmury](iot-hub-devguide-messages-d2c.md) , jeśli zaplecze rozwiązania musi przetworzyć dane telemetryczne modułu w postaci sekwencji zdarzeń z sygnaturami czasowymi, takich jak szeregi czasowe.
@@ -128,7 +128,7 @@ W poprzednim przykładzie `telemetryConfig` pożądane i zgłoszone właściwoś
     ...
     ```
 
-2. Aplikacja modułu zostanie powiadomiona o zmianie natychmiast po powiązaniu połączenia lub przy pierwszym ponownym połączeniu. Aplikacja modułu zgłasza zaktualizowaną konfigurację (lub warunek błędu za pomocą `status` właściwości). Oto część raportowanych właściwości:
+2. Aplikacja modułu zostanie powiadomiona o zmianie natychmiast po powiązaniu połączenia lub przy pierwszym ponownym połączeniu. Aplikacja modułu zgłasza zaktualizowaną konfigurację (lub warunek błędu za pomocą `status` Właściwości). Oto część raportowanych właściwości:
 
     ```json
     "reported": {
@@ -152,7 +152,7 @@ Zaplecze rozwiązania działa na sznurze module przy użyciu następujących ope
 
 * **Pobierz sznurki modułu według identyfikatora**. Ta operacja zwraca dokument z sznurem modułu, w tym Tagi i odpowiednie i zgłoszone właściwości systemu.
 
-* **Częściowo Aktualizuj sznurek modułu**. Ta operacja umożliwia zaplecze rozwiązania częściowo zaktualizować Tagi lub żądane właściwości w postaci sznurka modułu. Aktualizacja częściowa jest wyrażona jako dokument JSON, który dodaje lub aktualizuje każdą właściwość. Właściwości ustawione na `null` są usuwane. Poniższy przykład tworzy nową pożądaną właściwość o `{"newProperty": "newValue"}`wartości, zastępuje istniejącą wartość `existingProperty` z `"otherNewValue"`i usuwa. `otherOldProperty` Nie wprowadzono żadnych innych zmian do istniejących żądanych właściwości lub tagów:
+* **Częściowo Aktualizuj sznurek modułu**. Ta operacja umożliwia zaplecze rozwiązania częściowo zaktualizować Tagi lub żądane właściwości w postaci sznurka modułu. Aktualizacja częściowa jest wyrażona jako dokument JSON, który dodaje lub aktualizuje każdą właściwość. Właściwości ustawione na `null` są usuwane. Poniższy przykład tworzy nową pożądaną właściwość o wartości `{"newProperty": "newValue"}` , zastępuje istniejącą wartość `existingProperty` z `"otherNewValue"` i usuwa `otherOldProperty` . Nie wprowadzono żadnych innych zmian do istniejących żądanych właściwości lub tagów:
 
     ```json
     {
@@ -168,9 +168,9 @@ Zaplecze rozwiązania działa na sznurze module przy użyciu następujących ope
     }
     ```
 
-* **Zastąp żądane właściwości**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących żądanych właściwości i zastąpienie nowego dokumentu JSON `properties/desired`.
+* **Zastąp żądane właściwości**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących żądanych właściwości i zastąpienie nowego dokumentu JSON `properties/desired` .
 
-* **Zamień Tagi**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących tagów i zastąpienie nowego dokumentu JSON `tags`.
+* **Zamień Tagi**. Ta operacja umożliwia zapleczu rozwiązania całkowicie zastępowanie wszystkich istniejących tagów i zastąpienie nowego dokumentu JSON `tags` .
 
 * **Otrzymywanie powiadomień bliźniaczych**. Ta operacja umożliwia zaplecze rozwiązania powiadamianie o modyfikacji dwuosiowej. W tym celu Twoje rozwiązanie IoT musi utworzyć trasę i ustawić źródło danych równe *twinChangeEvents*. Domyślnie żadne powiadomienia o przędze nie są wysyłane, czyli nie ma takich tras. Jeśli współczynnik zmiany jest zbyt wysoki lub z innych przyczyn, takich jak błędy wewnętrzne, IoT Hub może wysłać tylko jedno powiadomienie zawierające wszystkie zmiany. W związku z tym, jeśli aplikacja wymaga niezawodnej inspekcji i rejestrowania wszystkich stanów pośrednich, należy użyć komunikatów z urządzenia do chmury. Wiadomość z powiadomieniem o przędzy obejmuje właściwości i treść.
 
@@ -193,7 +193,7 @@ Zaplecze rozwiązania działa na sznurze module przy użyciu następujących ope
 
   - Treść
         
-    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Na przykład:
+    Ta sekcja zawiera wszystkie zmiany w formacie JSON. Używa tego samego formatu co poprawka, z różnicą, że może zawierać wszystkie sekcje sznurów: Tagi, właściwości. raportowane, właściwości. wymagane i że zawiera elementy "$metadata". Na przykład
 
     ```json
     {
@@ -236,39 +236,49 @@ Wszystkie poprzednie operacje wymagają uprawnienia **ModuleConnect** , zgodnie 
 
 Tagi, żądane właściwości i raportowane właściwości są obiektami JSON z następującymi ograniczeniami:
 
-* **Klucze**: wszystkie klucze w obiektach JSON są zależne od wielkości liter 64 bajtów UTF-8 Unicode. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i `.`C1), oraz `$`SP i.
+* **Klucze**: wszystkie klucze w obiektach JSON są zakodowane w formacie UTF-8, z uwzględnieniem wielkości liter i do 1 KB. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i C1), oraz `.` , `$` i Sp.
 
 * **Wartości**: wszystkie wartości w obiektach JSON mogą mieć następujące typy JSON: Boolean, Number, String, Object. Tablice są niedozwolone.
 
     * Liczby całkowite mogą mieć minimalną wartość-4503599627370496 i maksymalną wartość 4503599627370495.
 
-    * Wartości ciągów są kodowane w formacie UTF-8 i mogą mieć maksymalną długość 512 bajtów.
+    * Wartości ciągów są kodowane w formacie UTF-8 i mogą mieć maksymalną długość 4 KB.
 
-* **Głębokość**: wszystkie obiekty JSON w tagach, żądanych i raportowanych właściwościach mogą mieć maksymalną głębokość wynoszącą 5. Na przykład następujący obiekt jest prawidłowy:
+* **Głębokość**: Maksymalna głębokość obiektów JSON w tagach, wymaganych właściwościach i raportowanych właściwościach wynosi 10. Na przykład następujący obiekt jest prawidłowy:
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
 
 ## <a name="module-twin-size"></a>Rozmiar sznurka modułu
 
-IoT Hub wymusza limit rozmiaru 8 KB dla wartości `tags`, a rozmiar 32 KB jest ograniczony do wartości `properties/desired` i. `properties/reported` Te sumy są wyłącznie poza elementami tylko do odczytu, `$etag`takimi `$version`jak, `$metadata/$lastUpdated`i.
+IoT Hub wymusza limit rozmiaru 8 KB dla wartości `tags` , a rozmiar 32 KB jest ograniczony do wartości `properties/desired` i `properties/reported` . Te sumy są wyłącznie poza elementami tylko do odczytu, takimi jak `$etag` , `$version` i `$metadata/$lastUpdated` .
 
 Rozmiar bliźniaczy jest obliczany w następujący sposób:
 
@@ -286,7 +296,7 @@ IoT Hub odrzuca z powodu błędu wszystkie operacje, które spowodują zwiększe
 
 ## <a name="module-twin-metadata"></a>Metadane sznurka modułu
 
-IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w pożądanej przędze modułu i raportowane właściwości. Sygnatury czasowe są zakodowane w formacie `YYYY-MM-DDTHH:MM:SS.mmmZ`UTC i kodowane w [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) .
+IoT Hub utrzymuje sygnaturę czasową ostatniej aktualizacji dla każdego obiektu JSON w pożądanej przędze modułu i raportowane właściwości. Sygnatury czasowe są zakodowane w formacie UTC i kodowane w [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ` .
 Przykład:
 
 ```json
@@ -341,7 +351,7 @@ Te informacje są przechowywane na każdym poziomie (nie tylko przed opuszczenie
 Tagi, odpowiednie i raportowane właściwości All obsługują optymistyczną współbieżność.
 Tagi mają element ETag, jak na [RFC7232](https://tools.ietf.org/html/rfc7232), który reprezentuje reprezentację JSON znacznika. Aby zapewnić spójność, można użyć elementów ETag w operacjach aktualizacji warunkowej z zaplecza rozwiązania.
 
-Pożądana sznurek modułu i zgłoszone właściwości nie mają elementów ETag, `$version` ale mają gwarantowaną wartość, która ma być przyrostowa. Podobnie jak w przypadku elementu ETag, wersja może być używana przez stronę aktualizacji w celu wymuszenia spójności aktualizacji. Na przykład aplikacja modułu dla raportowanej właściwości lub zaplecza rozwiązania dla żądanej właściwości.
+Pożądana sznurek modułu i zgłoszone właściwości nie mają elementów ETag, ale mają `$version` gwarantowaną wartość, która ma być przyrostowa. Podobnie jak w przypadku elementu ETag, wersja może być używana przez stronę aktualizacji w celu wymuszenia spójności aktualizacji. Na przykład aplikacja modułu dla raportowanej właściwości lub zaplecza rozwiązania dla żądanej właściwości.
 
 Wersje są również przydatne, gdy Agent obserwowania (na przykład aplikacja modułu obserwowanie żądanych właściwości) musi uzgodnić Races między wynikiem operacji pobierania a powiadomieniem o aktualizacji. Sekcja [przepływu ponownego połączenia urządzenia](iot-hub-devguide-device-twins.md#device-reconnection-flow) zawiera więcej informacji. 
 

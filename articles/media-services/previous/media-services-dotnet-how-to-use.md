@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: ebdc0aaf1242a79770fafb7bee015115084f1068
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "64724119"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077959"
 ---
 # <a name="media-services-development-with-net"></a>Programowanie Media Services przy użyciu platformy .NET 
 
@@ -57,39 +57,39 @@ Alternatywnie możesz uzyskać najnowsze Media Services .NET SDK z usługi GitHu
    
     4. Projekt zostanie zmodyfikowany i odwołuje się do Media Services rozszerzeń zestawu .NET SDK, Media Services .NET SDK i innych zależnych zestawów.
 4. Aby podwyższyć poziom czystego środowiska programistycznego, należy rozważyć włączenie przywracania pakietów NuGet. Aby uzyskać więcej informacji, zobacz [przywracanie pakietów NuGet "](https://docs.nuget.org/consume/package-restore).
-5. Dodaj odwołanie do zestawu **System. Configuration** . Ten zestaw zawiera system. Configuration. Klasa **ConfigurationManager** służąca do uzyskiwania dostępu do plików konfiguracyjnych (na przykład App. config).
+5. Dodaj odwołanie do **System.Configzestawu wersja** . Ten zestaw zawiera System.Configwersja. Klasa **ConfigurationManager** , która jest używana do uzyskiwania dostępu do plików konfiguracji (na przykład App.config).
    
     1. Aby dodać odwołania za pomocą okna dialogowego Zarządzanie odwołaniami, kliknij prawym przyciskiem myszy nazwę projektu w Eksplorator rozwiązań. Następnie kliknij przycisk **Dodaj**, a następnie kliknij pozycję **odwołanie...**.
    
     2. Zostanie wyświetlone okno dialogowe Zarządzanie odwołaniami.
-    3. W obszarze zestawy .NET Framework Znajdź i wybierz zestaw system. Configuration i naciśnij przycisk **OK**.
-6. Otwórz plik App. config i Dodaj do pliku sekcję **AppSettings** . Ustaw wartości, które są konieczne do nawiązania połączenia z interfejsem API Media Services. Aby uzyskać więcej informacji, zobacz [dostęp do interfejsu API Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+    3. W obszarze zestawy .NET Framework Znajdź i wybierz System.Configzestaw wersja i naciśnij przycisk **OK**.
+6. Otwórz plik App.config i Dodaj do pliku sekcję **AppSettings** . Ustaw wartości, które są konieczne do nawiązania połączenia z interfejsem API Media Services. Aby uzyskać więcej informacji, zobacz [dostęp do interfejsu API Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
     Ustaw wartości, które są konieczne do nawiązania połączenia przy użyciu metody uwierzytelniania **nazwy głównej usługi** .
 
-        ```csharp
-                <configuration>
-                ...
-                    <appSettings>
-                        <add key="AMSAADTenantDomain" value="tenant"/>
-                        <add key="AMSRESTAPIEndpoint" value="endpoint"/>
-                        <add key="AMSClientId" value="id"/>
-                        <add key="AMSClientSecret" value="secret"/>
-                    </appSettings>
-                </configuration>
-        ```
+    ```xml
+    <configuration>
+    ...
+        <appSettings>
+            <add key="AMSAADTenantDomain" value="tenant"/>
+            <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+            <add key="AMSClientId" value="id"/>
+            <add key="AMSClientSecret" value="secret"/>
+        </appSettings>
+    </configuration>
+    ```
 
-7. Dodaj do projektu odwołanie do **System. Configuration** .
+7. Dodaj **System.Configodwołanie wersja** do projektu.
 8. Zastąp istniejące instrukcje **using** na początku pliku program.cs następującym kodem:
 
     ```csharp      
-            using System;
-            using System.Configuration;
-            using System.IO;
-            using Microsoft.WindowsAzure.MediaServices.Client;
-            using System.Threading;
-            using System.Collections.Generic;
-            using System.Linq;
+    using System;
+    using System.Configuration;
+    using System.IO;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System.Threading;
+    using System.Collections.Generic;
+    using System.Linq;
     ```
 
     Teraz możesz rozpocząć tworzenie aplikacji Media Services.    
@@ -99,38 +99,38 @@ Alternatywnie możesz uzyskać najnowsze Media Services .NET SDK z usługi GitHu
 Oto mały przykład, który nawiązuje połączenie z interfejsem API usługi AMS i wyświetla listę wszystkich dostępnych procesorów multimediów.
 
 ```csharp
-        class Program
+class Program
+{
+    // Read values from the App.config file.
+
+    private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+    private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+    private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+    private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
+        
+    private static CloudMediaContext _context = null;
+    static void Main(string[] args)
+    {
+        AzureAdTokenCredentials tokenCredentials = 
+            new AzureAdTokenCredentials(_AADTenantDomain,
+                new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                AzureEnvironments.AzureCloudEnvironment);
+
+        var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+        _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        
+        // List all available Media Processors
+        foreach (var mp in _context.MediaProcessors)
         {
-            // Read values from the App.config file.
-
-            private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
-            private static readonly string _AMSClientId =
-                ConfigurationManager.AppSettings["AMSClientId"];
-            private static readonly string _AMSClientSecret =
-                ConfigurationManager.AppSettings["AMSClientSecret"];
+            Console.WriteLine(mp.Name);
+        }
         
-            private static CloudMediaContext _context = null;
-            static void Main(string[] args)
-            {
-                AzureAdTokenCredentials tokenCredentials = 
-                    new AzureAdTokenCredentials(_AADTenantDomain,
-                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                        AzureEnvironments.AzureCloudEnvironment);
-
-                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-        
-                // List all available Media Processors
-                foreach (var mp in _context.MediaProcessors)
-                {
-                    Console.WriteLine(mp.Name);
-                }
-        
-            }
+    }
  ```
 
 ## <a name="next-steps"></a>Następne kroki
@@ -141,6 +141,6 @@ Teraz [możesz nawiązać połączenie z interfejsem API usługi AMS](media-serv
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

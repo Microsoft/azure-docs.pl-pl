@@ -3,18 +3,17 @@ title: Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Azure
 description: Korzystaj z funkcji, takich jak analiza magazynu, rejestrowanie po stronie klienta i inne narzędzia innych firm, aby identyfikować, diagnozować i rozwiązywać problemy związane z usługą Azure Storage.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
-ms.translationtype: MT
+ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684659"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513376"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -76,7 +75,7 @@ Aby uzyskać szczegółowe informacje na temat kompleksowego rozwiązywania prob
   * [Dodatek 4: używanie programu Excel do wyświetlania metryk i danych dzienników]
   * [Dodatek 5: monitorowanie za pomocą Application Insights platformy Azure DevOps]
 
-## <a name="introduction"></a><a name="introduction"></a>Początk
+## <a name="introduction"></a><a name="introduction"></a>Wprowadzenie
 W tym przewodniku pokazano, jak za pomocą funkcji, takich jak analityka magazynu platformy Azure, rejestrowanie po stronie klienta w bibliotece klienta usługi Azure Storage oraz inne narzędzia innych firm do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage.
 
 ![][1]
@@ -535,7 +534,7 @@ Wpisy dziennika:
 | e2d06d78-... |StringToSign = główna................ x-MS-Client-Request-ID: e2d06d78-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: Container. |
 | e2d06d78-... |Oczekiwanie na odpowiedź. |
 | de8b1c3c-... |Uruchamianie żądania synchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt` . |
-| de8b1c3c-... |StringToSign = PUT... 64. qCmF + TQLPhq/YYK50mP9ZQ = =......... x-MS-BLOB-Type: BlockBlob. x-MS-Client-Request-ID: de8b1c3c-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated. txt. |
+| de8b1c3c-... |StringToSign = PUT... 64. qCmF + TQLPhq/YYK50mP9ZQ = =......... x-MS-BLOB-Type: BlockBlob. x-MS-Client-Request-ID: de8b1c3c-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Przygotowywanie do zapisu danych żądania. |
 | e2d06d78-... |Zgłoszono wyjątek podczas oczekiwania na odpowiedź: serwer zdalny zwrócił błąd: nie znaleziono (404). |
 | e2d06d78-... |Odebrano odpowiedź. Kod stanu = 404, identyfikator żądania = 353ae3bc-..., Content-MD5 =, ETag =. |

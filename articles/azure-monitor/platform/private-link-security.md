@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 14ecd1a35f8aae8365b7c7dc458712acdb894e62
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170719"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85602588"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -74,11 +74,17 @@ Na przykład jeśli wewnętrzne sieci wirtualne VNet1 i VNet2 powinny łączyć 
 
 Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
 
-1. Przejdź do pozycji **Utwórz zasób** w Azure Portal i Wyszukaj **Azure monitor prywatny zakres linków**. 
-2. Kliknij przycisk **Utwórz**. 
-3. Wybierz subskrypcję i grupę zasobów. 
-4. Nadaj nazwę AMPLS. Najlepiej użyć nazwy, która jest jednoznaczne i granicą zabezpieczeń, której zakres będzie używany, aby ktoś nie pomógł przypadkowo przerwać granic zabezpieczeń sieci. Na przykład "AppServerProdTelem". 
+1. Przejdź do pozycji **Utwórz zasób** w Azure Portal i Wyszukaj **Azure monitor prywatny zakres linków**.
+
+   ![Znajdź Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-find-1c.png)
+
+2. Kliknij przycisk **Utwórz**.
+3. Wybierz subskrypcję i grupę zasobów.
+4. Nadaj nazwę AMPLS. Najlepiej użyć nazwy, która jest jednoznaczne i granicą zabezpieczeń, której zakres będzie używany, aby ktoś nie pomógł przypadkowo przerwać granic zabezpieczeń sieci. Na przykład "AppServerProdTelem".
 5. Kliknij przycisk **Przegląd + Utwórz**. 
+
+   ![Utwórz Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-create-1d.png)
+
 6. Pozwól na przekazanie walidacji, a następnie kliknij przycisk **Utwórz**.
 
 ## <a name="connect-azure-monitor-resources"></a>Łączenie Azure Monitor zasobów
@@ -117,13 +123,13 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
 
    a.    Wybierz **sieć wirtualną** i **podsieć** , którą chcesz połączyć z zasobami Azure monitor. 
  
-   b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS**i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. 
+   b.    Wybierz opcję **tak** dla **integracji z prywatną strefą DNS**i zezwól na automatyczne tworzenie nowej strefy prywatna strefa DNS. Rzeczywiste strefy DNS mogą się różnić od tego, co pokazano na poniższym zrzucie ekranu. 
  
    c.    Kliknij pozycję **Przegląd + utwórz**.
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij przycisk **Utwórz**. 
+   e.    Kliknij pozycję **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -162,9 +168,8 @@ Ograniczanie dostępu w ten sposób dotyczy tylko danych w zasobie Application I
 
 > [!NOTE]
 > Aby w pełni zabezpieczyć Application Insights oparte na obszarze roboczym, musisz zablokować zarówno dostęp do zasobu Application Insights, jak i bazowego obszaru roboczego Log Analytics.
-
-> [!NOTE]
-> Diagnostyka na poziomie kodu (Profiler/debuger) obecnie nie obsługuje prywatnego linku.
+>
+> Diagnostyka na poziomie kodu (Profiler/debuger) wymaga podania własnego konta magazynu do obsługi linku prywatnego. Tutaj znajduje się [Dokumentacja](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) umożliwiająca wykonanie tej czynności.
 
 ## <a name="use-apis-and-command-line"></a>Korzystanie z interfejsów API i wiersza polecenia
 
@@ -220,7 +225,14 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 
 | Środowisko chmury | Zasób agenta | Porty | Kierunek |
 |:--|:--|:--|:--|
-|Azure — publiczna     | scadvisor.blob.core.windows.net         | 443 | Wychodzący
+|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Wychodzący
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
 |Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
 
+### <a name="browser-dns-settings"></a>Ustawienia usługi DNS przeglądarki
+
+W przypadku łączenia się z zasobami Azure Monitor za pośrednictwem prywatnego linku ruch do tych zasobów musi przechodzić przez prywatny punkt końcowy skonfigurowany w sieci. Aby włączyć prywatny punkt końcowy, zaktualizuj ustawienia DNS zgodnie z opisem w temacie [Connect to Private Endpoint](#connect-to-a-private-endpoint). Niektóre przeglądarki używają własnych ustawień DNS zamiast ustawionych przez użytkownika. Przeglądarka może próbować nawiązać połączenie z Azure Monitor publicznymi punktami końcowymi i całkowicie ominąć prywatny link. Sprawdź, czy ustawienia przeglądarki nie przesłaniają ani nie buforują starych ustawień DNS. 
+
+## <a name="next-steps"></a>Następne kroki
+
+- Informacje o [magazynie prywatnym](private-storage.md)

@@ -5,15 +5,14 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60616511"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86121439"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
 
@@ -46,7 +45,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
 
    * Dla __Archiwum na konto magazynu__Określ liczbę dni, przez które mają zostać zachowane dane.
 
-   * Kliknij przycisk __Zapisz__.
+   * Kliknij pozycję __Zapisz__.
 
         > [!NOTE]
         > Przed kliknięciem przycisku __Zapisz__ należy wybrać opcję __Archiwizuj na koncie magazynu__, __przesłać strumieniowo do centrum zdarzeń__ lub __wysłać do log Analytics__ .
@@ -60,32 +59,34 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
 
 2. W kontenerach dzienniki są przechowywane w następującej strukturze plików:
 
-        resourceId=/
-          SUBSCRIPTIONS/
-            <<SUBSCRIPTION_ID>>/
-              RESOURCEGROUPS/
-                <<RESOURCE_GRP_NAME>>/
-                  PROVIDERS/
-                    MICROSOFT.DATALAKEANALYTICS/
-                      ACCOUNTS/
-                        <DATA_LAKE_ANALYTICS_NAME>>/
-                          y=####/
-                            m=##/
-                              d=##/
-                                h=##/
-                                  m=00/
-                                    PT1H.json
+   ```text
+   resourceId=/
+     SUBSCRIPTIONS/
+       <<SUBSCRIPTION_ID>>/
+         RESOURCEGROUPS/
+           <<RESOURCE_GRP_NAME>>/
+             PROVIDERS/
+               MICROSOFT.DATALAKEANALYTICS/
+                 ACCOUNTS/
+                   <DATA_LAKE_ANALYTICS_NAME>>/
+                     y=####/
+                       m=##/
+                         d=##/
+                           h=##/
+                             m=00/
+                               PT1H.json
+   ```
 
    > [!NOTE]
-   > `##` Wpisy w ścieżce zawierają rok, miesiąc, dzień i godzinę, w których został utworzony dziennik. Data Lake Analytics tworzy jeden plik co godzinę, więc `m=` zawsze zawiera wartość `00`.
+   > `##`Wpisy w ścieżce zawierają rok, miesiąc, dzień i godzinę, w których został utworzony dziennik. Data Lake Analytics tworzy jeden plik co godzinę, więc `m=` zawsze zawiera wartość `00` .
 
     Na przykład Pełna ścieżka do dziennika inspekcji może być następująca:
 
-        https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
+    `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
 
     Podobnie pełna ścieżka do dziennika żądania może być:
 
-        https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
+    `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="log-structure"></a>Struktura dziennika
 
@@ -95,45 +96,47 @@ Dzienniki inspekcji i żądań mają strukturalny format JSON.
 
 Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika.
 
+```json
+{
+"records":
+  [
+    . . . .
+    ,
     {
-    "records":
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
-             "category": "Requests",
-             "operationName": "GetAggregatedJobHistory",
-             "resultType": "200",
-             "callerIpAddress": "::ffff:1.1.1.1",
-             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-             "properties": {
-                 "HttpMethod":"POST",
-                 "Path":"/JobAggregatedHistory",
-                 "RequestContentLength":122,
-                 "ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8",
-                 "StartTime":"2016-07-07T21:02:52.472Z",
-                 "EndTime":"2016-07-07T21:02:53.456Z"
-                 }
-        }
-        ,
-        . . . .
-      ]
+         "time": "2016-07-07T21:02:53.456Z",
+         "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
+         "category": "Requests",
+         "operationName": "GetAggregatedJobHistory",
+         "resultType": "200",
+         "callerIpAddress": "::ffff:1.1.1.1",
+         "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+         "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+         "properties": {
+             "HttpMethod":"POST",
+             "Path":"/JobAggregatedHistory",
+             "RequestContentLength":122,
+             "ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8",
+             "StartTime":"2016-07-07T21:02:52.472Z",
+             "EndTime":"2016-07-07T21:02:53.456Z"
+             }
     }
+    ,
+    . . . .
+  ]
+}
+```
 
 #### <a name="request-log-schema"></a>Schemat dziennika żądania
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |Ciąg |Identyfikator zasobu, w którym wykonano operację |
-| category |Ciąg |Kategoria dziennika. Na przykład **żądania**. |
-| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład GetAggregatedJobHistory. |
-| resultType |Ciąg |Stan operacji, na przykład 200. |
-| callerIpAddress |Ciąg |Adres IP klienta wysyłającego żądanie |
-| correlationId |Ciąg |Identyfikator dziennika. Ta wartość może służyć do grupowania zestawu powiązanych wpisów dziennika. |
+| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |String |Identyfikator zasobu, w którym wykonano operację |
+| category |String |Kategoria dziennika. Na przykład **żądania**. |
+| operationName |String |Nazwa rejestrowanej operacji. Na przykład GetAggregatedJobHistory. |
+| resultType |String |Stan operacji, na przykład 200. |
+| callerIpAddress |String |Adres IP klienta wysyłającego żądanie |
+| correlationId |String |Identyfikator dziennika. Ta wartość może służyć do grupowania zestawu powiązanych wpisów dziennika. |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Aby uzyskać szczegółowe informacje, zobacz następną sekcję (schemat właściwości dziennika żądań) |
 
@@ -141,51 +144,49 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| HttpMethod |Ciąg |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
-| Ścieżka |Ciąg |Ścieżka, na której wykonano operację |
+| HttpMethod |String |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
+| Ścieżka |String |Ścieżka, na której wykonano operację |
 | RequestContentLength |int |Długość zawartości żądania HTTP |
-| Identyfikatorem żądania klienta |Ciąg |Identyfikator, który jednoznacznie identyfikuje to żądanie |
-| StartTime |Ciąg |Godzina, o której serwer odebrał żądanie |
-| EndTime |Ciąg |Godzina, o której serwer wysłał odpowiedź |
+| Identyfikatorem żądania klienta |String |Identyfikator, który jednoznacznie identyfikuje to żądanie |
+| StartTime |String |Godzina, o której serwer odebrał żądanie |
+| EndTime |String |Godzina, o której serwer wysłał odpowiedź |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 
 Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika.
 
+```json
+{
+"records":
+  [
     {
-    "records":
-      [        
-        . . . .
-        ,
-        {
-             "time": "2016-07-28T19:15:16.245Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
-             "category": "Audit",
-             "operationName": "JobSubmitted",
-             "identity": "user@somewhere.com",
-             "properties": {
-                 "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
-                 "JobName": "New Job",
-                 "JobRuntimeName": "default",
-                 "SubmitTime": "7/28/2016 7:14:57 PM"
-                 }
-        }
-        ,
-        . . . .
-      ]
+         "time": "2016-07-28T19:15:16.245Z",
+         "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
+         "category": "Audit",
+         "operationName": "JobSubmitted",
+         "identity": "user@somewhere.com",
+         "properties": {
+             "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
+             "JobName": "New Job",
+             "JobRuntimeName": "default",
+             "SubmitTime": "7/28/2016 7:14:57 PM"
+             }
     }
+  ]
+}
+```
 
 #### <a name="audit-log-schema"></a>Schemat dziennika inspekcji
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |Ciąg |Identyfikator zasobu, w którym wykonano operację |
-| category |Ciąg |Kategoria dziennika. Na przykład **Inspekcja**. |
-| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład JobSubmitted. |
-| resultType |Ciąg |Podstan zadania (OperationName). |
-| resultSignature |Ciąg |Dodatkowe szczegóły dotyczące stanu zadania (OperationName). |
-| identity |Ciąg |Użytkownik, który zażądał operacji. Na przykład susan@contoso.com. |
+| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |String |Identyfikator zasobu, w którym wykonano operację |
+| category |String |Kategoria dziennika. Na przykład **Inspekcja**. |
+| operationName |String |Nazwa rejestrowanej operacji. Na przykład JobSubmitted. |
+| resultType |String |Podstan zadania (OperationName). |
+| resultSignature |String |Dodatkowe szczegóły dotyczące stanu zadania (OperationName). |
+| identity |String |Użytkownik, który zażądał operacji. Na przykład susan@contoso.com. |
 | properties |JSON |Aby uzyskać szczegółowe informacje, zobacz następną sekcję (schemat właściwości dziennika inspekcji) |
 
 > [!NOTE]
@@ -197,20 +198,21 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| JobId |Ciąg |Identyfikator przypisany do zadania |
-| JobName |Ciąg |Nazwa podana dla zadania |
-| JobRunTime |Ciąg |Środowisko uruchomieniowe używane do przetwarzania zadania |
-| SubmitTime |Ciąg |Czas (UTC) przesłania zadania |
-| StartTime |Ciąg |Czas uruchomienia zadania po jego przejściu (w formacie UTC) |
-| EndTime |Ciąg |Godzina zakończenia zadania |
-| Równoległości |Ciąg |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
+| JobId |String |Identyfikator przypisany do zadania |
+| JobName |String |Nazwa podana dla zadania |
+| JobRunTime |String |Środowisko uruchomieniowe używane do przetwarzania zadania |
+| SubmitTime |String |Czas (UTC) przesłania zadania |
+| StartTime |String |Czas uruchomienia zadania po jego przejściu (w formacie UTC) |
+| EndTime |String |Godzina zakończenia zadania |
+| Równoległości |String |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **Endtime**i **Parallel** zapewniają informacje dotyczące operacji. Te wpisy zawierają wartość tylko wtedy, gdy ta operacja została rozpoczęta lub ukończona. Na przykład **SubmitTime** zawiera tylko wartość po **operacji** , która ma wartość **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Przetwarzanie danych dziennika
 
-Azure Data Lake Analytics zawiera przykład sposobu przetwarzania i analizowania danych dziennika. Przykład można znaleźć pod adresem [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics zawiera przykład sposobu przetwarzania i analizowania danych dziennika. Przykład można znaleźć pod adresem [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) .
 
 ## <a name="next-steps"></a>Następne kroki
-* [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md)
+
+[Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md)

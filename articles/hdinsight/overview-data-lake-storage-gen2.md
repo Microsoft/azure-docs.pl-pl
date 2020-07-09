@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82195132"
 ---
 # <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Przegląd Azure Data Lake Storage Gen2 w usłudze HDInsight
@@ -71,7 +71,7 @@ abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduc
 ```
 
 > [!NOTE]
-> Nazwa pliku jest `hadoop-examples.jar` w klastrach usługi HDInsight w wersji 2,1 i 1,6. Podczas pracy z plikami spoza usługi HDInsight okaże się, że większość narzędzi nie rozpoznaje formatu ABFS, ale zamiast tego oczekuje podstawowego formatu ścieżki, takiego jak `example/jars/hadoop-mapreduce-examples.jar`.
+> Nazwa pliku jest `hadoop-examples.jar` w klastrach usługi HDInsight w wersji 2,1 i 1,6. Podczas pracy z plikami spoza usługi HDInsight okaże się, że większość narzędzi nie rozpoznaje formatu ABFS, ale zamiast tego oczekuje podstawowego formatu ścieżki, takiego jak `example/jars/hadoop-mapreduce-examples.jar` .
 
 Aby uzyskać więcej informacji, zobacz [Korzystanie z identyfikatora URI Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 

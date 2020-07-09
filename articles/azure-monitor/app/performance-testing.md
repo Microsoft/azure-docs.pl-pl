@@ -5,10 +5,9 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77669866"
 ---
 # <a name="performance-testing"></a>Testowanie wydajności
@@ -22,7 +21,7 @@ Application Insights umożliwia generowanie testów obciążenia dla witryn siec
 
 Aby można było utworzyć test wydajności, należy najpierw utworzyć zasób Application Insights. Jeśli zasób został już utworzony, przejdź do następnej sekcji.
 
-W Azure Portal wybierz pozycję **Utwórz zasób** > **Narzędzia deweloperskie** > **Application Insights** i utwórz zasób Application Insights.
+W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperskie**  >  **Application Insights** i utwórz zasób Application Insights.
 
 ## <a name="configure-performance-testing"></a>Konfigurowanie testowania wydajności
 

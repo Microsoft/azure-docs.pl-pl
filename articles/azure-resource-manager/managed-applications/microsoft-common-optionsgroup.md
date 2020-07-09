@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75652348"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft. Common. options — element interfejsu użytkownika
@@ -55,7 +54,7 @@ Kontrolka wyboru z wierszem dostępnych opcji.
 ## <a name="remarks"></a>Uwagi
 
 - Etykieta `constraints.allowedValues` jest wyświetlany tekst dla elementu, a jego wartość jest wartością wyjściową elementu, gdy jest zaznaczone.
-- Jeśli jest określony, wartość domyślna musi być etykietą obecną w `constraints.allowedValues`. Jeśli nie zostanie określony, domyślnie zaznaczony jest `constraints.allowedValues` pierwszy element w. Wartość domyślna to **null**.
+- Jeśli jest określony, wartość domyślna musi być etykietą obecną w `constraints.allowedValues` . Jeśli nie zostanie określony, `constraints.allowedValues` Domyślnie zaznaczony jest pierwszy element w. Wartość domyślna to **null**.
 - `constraints.allowedValues`musi zawierać co najmniej jeden element.
 
 ## <a name="next-steps"></a>Następne kroki

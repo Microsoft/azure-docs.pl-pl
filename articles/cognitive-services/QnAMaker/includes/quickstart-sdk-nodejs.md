@@ -1,45 +1,39 @@
 ---
-title: 'Szybki Start: QnA Makera Biblioteka kliencka dla środowiska Node. js'
-description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką kliencką QnA Maker dla środowiska Node. js.
+title: 'Szybki Start: QnA Maker bibliotekę kliencką dla Node.js'
+description: W tym przewodniku szybki start pokazano, jak rozpocząć pracę z biblioteką kliencką QnA Maker Node.js.
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.openlocfilehash: 48038c8e7e8250190d79aba7901567e18881e912
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 06/18/2020
+ms.openlocfilehash: 7b3c5e69e820951896cb00b82295dc07ba698c94
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204035"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114553"
 ---
-Użyj QnA Maker biblioteki klienta dla środowiska Node. js, aby:
+QnA Maker Node.js do:
 
 * Tworzenie bazy wiedzy
 * Aktualizowanie bazy wiedzy
 * Publikowanie bazy wiedzy
-* Pobierz klucz punktu końcowego publikowania
+* Pobierz klucz punktu końcowego środowiska przewidywania
 * Zaczekaj na długo uruchomione zadanie
+* Pobierz baza wiedzy
+* Uzyskiwanie odpowiedzi
 * Usuń bazę wiedzy
 
-[Dokumentacja](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | referencyjna[biblioteki kodu](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [źródłowego (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | środowiska[Node. js](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
+[Dokumentacja](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker)  |  [PrzykładyNode.js](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Bieżąca wersja środowiska [Node. js](https://nodejs.org).
-* Gdy masz subskrypcję platformy Azure, Utwórz [zasób QNA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w Azure Portal, aby uzyskać klucz tworzenia i punkt końcowy. Po wdrożeniu programu wybierz pozycję **Przejdź do zasobu**.
-    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API usługi QnA Maker. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    * Możesz użyć warstwy cenowej bezpłatna (`F0`) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* Bieżąca wersja [Node.js](https://nodejs.org).
+* Gdy masz subskrypcję platformy Azure, Utwórz [zasób QNA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) w Azure Portal, aby uzyskać klucz i zasób tworzenia. Po wdrożeniu programu wybierz pozycję **Przejdź do zasobu**.
+    * Musisz mieć nazwę klucza i zasobu z tworzonego zasobu, aby połączyć aplikację z interfejs API usługi QnA Maker. Będziesz wklejać swój klucz i nazwę zasobu do poniższego kodu w dalszej części przewodnika Szybki Start.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
 ## <a name="setting-up"></a>Konfigurowanie
-
-### <a name="create-a-qna-maker-azure-resource"></a>Tworzenie zasobu QnA Maker platformy Azure
-
-Usługa Azure Cognitive Services jest reprezentowana przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla QnA Maker przy użyciu [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na komputerze lokalnym.
-
-Po pozyskaniu klucza i punktu końcowego z zasobu Pobierz wartości z Azure Portal dla nowego zasobu na stronie Szybki Start.
-
-[Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)o `QNAMAKER_AUTHORING_KEY` nazwach i `QNAMAKER_ENDPOINT`. Można skopiować plik [ENV. przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/.env.sample) do `.env` i używać zmiennych środowiskowych w tym pliku.
 
 ### <a name="create-a-new-nodejs-application"></a>Tworzenie nowej aplikacji Node.js
 
@@ -57,71 +51,91 @@ npm init -y
 
 ### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
-Zainstaluj wymagane i opcjonalne pakiety NPM:
+Zainstaluj następujące pakiety NPM:
 
 ```console
-npm install @azure/cognitiveservices-qnamaker @azure/ms-rest-js dotenv
+npm install @azure/cognitiveservices-qnamaker
+npm install @azure/cognitiveservices-qnamaker-runtime
+npm install @azure/ms-rest-js
 ```
 
-`package.json` Plik aplikacji jest aktualizowany z zależnościami. `dotenv` Jest to opcjonalne i służy do ustawiania zmiennych środowiskowych w pliku tekstowym. Nie sprawdzaj `.env` do kontroli źródła.
+`package.json`Plik aplikacji jest aktualizowany z zależnościami.
+
+Utwórz plik o nazwie index.js i zaimportuj następujące biblioteki:
+
+[!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Dependencies)]
+
+Utwórz zmienną dla nazwy zasobu i klucza platformy Azure. Adresy URL tworzenia i przewidywania używają nazwy zasobu jako poddomeny.
+
+> [!IMPORTANT]
+> Przejdź do Azure Portal i Znajdź klucz i punkt końcowy dla zasobu QnA Maker utworzonego w sekcji wymagania wstępne. Zostaną one umieszczone na stronie **klucz zasobu i punkt końcowy** w obszarze **Zarządzanie zasobami**.
+> Do utworzenia bazy danych jest potrzebny cały klucz. Potrzebna jest tylko nazwa zasobu z punktu końcowego. Format to `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` .
+> Pamiętaj, aby usunąć klucz z kodu, gdy skończysz, i nigdy nie Publikuj go publicznie. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Na przykład [usługa Azure Key](https://docs.microsoft.com/azure/key-vault/key-vault-overview) Storage udostępnia bezpieczny Magazyn kluczy.
+
+[!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
+
+## <a name="object-models"></a>Modele obiektów
+
+QnA Maker używa dwóch różnych modeli obiektów:
+* **[QnAMakerClient](#qnamakerclient-object-model)** jest obiektem, który umożliwia tworzenie, publikowanie i pobieranie bazy wiedzy oraz zarządzanie nią.
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** to obiekt służący do wykonywania zapytań względem bazy wiedzy z interfejsem API GenerateAnswer i wysyłania nowych sugerowanych pytań za pomocą interfejsu API uczenia (w ramach [aktywnego uczenia](../concepts/active-learning-suggestions.md)).
 
 
-## <a name="object-model"></a>Model obiektów
+### <a name="qnamakerclient-object-model"></a>Model obiektów QnAMakerClient
 
-Klient QnA Maker jest obiektem [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) , który jest uwierzytelniany na platformie Azure przy użyciu elementu serviceclientcredentials, który zawiera klucz.
+QnA Maker tworzenia klienta jest obiektem [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) , który jest uwierzytelniany na platformie Azure przy użyciu poświadczeń, które zawierają klucz.
 
-Po utworzeniu klienta Użyj właściwości [bazy wiedzy](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) , aby utworzyć i opublikować bazę wiedzy oraz zarządzać nią.
+Po utworzeniu klienta należy użyć [bazy](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) wiedzy do tworzenia i publikowania bazy wiedzy oraz zarządzania nią.
 
-Zarządzaj bazą wiedzy, wysyłając obiekt JSON. W przypadku operacji natychmiastowych Metoda zwykle zwraca obiekt JSON wskazujący stan. W przypadku długotrwałych operacji odpowiedź jest IDENTYFIKATORem operacji. Wywoływanie [klienta. Operations. Details](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--servicecallback-operation--) — Metoda z identyfikatorem operacji w celu określenia [stanu żądania](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operationstatetype?view=azure-node-latest).
+Zarządzaj bazą wiedzy, wysyłając obiekt JSON. W przypadku operacji natychmiastowych Metoda zwykle zwraca obiekt JSON wskazujący stan. W przypadku długotrwałych operacji odpowiedź jest IDENTYFIKATORem operacji. Wywołaj metodę [Client. Operations. Details](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--msrest-requestoptionsbase-) z identyfikatorem operacji, aby określić [stan żądania](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest).
+
+### <a name="qnamakerruntimeclient-object-model"></a>Model obiektów QnAMakerRuntimeClient
+
+QnA Maker predykcyjny jest obiektem QnAMakerRuntimeClient, który jest uwierzytelniany na platformie Azure przy użyciu elementu Microsoft. Rest. serviceclientcredentials, który zawiera klucz środowiska uruchomieniowego przewidywania, zwrócony z wywołania klienta tworzenia i [klienta. EndpointKeys. GetKeys](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys?view=azure-node-latest#getkeys-msrest-requestoptionsbase-) po opublikowaniu bazy wiedzy.
 
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta QnA Maker dla środowiska Node. js:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta QnA Maker dla platformy .NET:
 
+* [Uwierzytelnianie klienta tworzenia](#authenticate-the-client-for-authoring-the-knowledge-base)
 * [Tworzenie bazy wiedzy](#create-a-knowledge-base)
 * [Aktualizowanie bazy wiedzy](#update-a-knowledge-base)
+* [Pobieranie bazy wiedzy](#download-a-knowledge-base)
 * [Publikowanie bazy wiedzy](#publish-a-knowledge-base)
 * [Usuwanie bazy wiedzy](#delete-a-knowledge-base)
-* [Pobierz opublikowany punkt końcowy](#get-published-endpoint)
+* [Pobierz klucz środowiska uruchomieniowego zapytania](#get-query-runtime-key)
 * [Pobierz stan operacji](#get-status-of-an-operation)
-
-## <a name="add-the-dependencies"></a>Dodawanie zależności
-
-Utwórz plik o nazwie `index.js`. Dodaj bibliotekę QnA Maker i zależności do pliku.
-
-[!code-javascript[Require statements](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=dependencies)]
-
-Utwórz zmienne dla punktu końcowego i klucza usługi Azure Resource. Jeśli zmienna środowiskowa została utworzona po uruchomieniu aplikacji, należy zamknąć i ponownie otworzyć Edytor, środowisko IDE lub powłokę, na których jest uruchomiona, aby uzyskać dostęp do zmiennej.
-
-|Zmienna środowiskowa|Zmienna Node. js|Przykład|
-|--|--|--|
-|`QNAMAKER_AUTHORING_KEY`|`authoring_key`|Klucz jest ciągiem znaków 32 i jest dostępny w Azure Portal na QnA Maker zasobu na stronie szybkiego startu. Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.|
-|`QNAMAKER_ENDPOINT`|`endpoint`| Twój punkt końcowy tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`zawiera **nazwę zasobu**. Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.|
-||||
-
-[!code-javascript[Azure resource variables](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=resourceSettings)]
-
-## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
-
-Następnie Utwórz obiekt ApiKeyCredentials przy użyciu klucza i użyj go w punkcie końcowym, aby utworzyć obiekt [QnAMakerClient](https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#qnamakerclient-serviceclientcredentials--string--msrest-serviceclientoptions-) . Użyj obiektu klienta, aby uzyskać obiekt [klienta bazy wiedzy](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest) .
+* [Uwierzytelnianie klienta środowiska uruchomieniowego zapytań](#authenticate-the-runtime-for-generating-an-answer)
+* [Generowanie odpowiedzi z bazy wiedzy](#generate-an-answer-from-the-knowledge-base)
 
 
-[!code-javascript[Authorization to resource key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=authorization)]
+
+## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Uwierzytelnianie klienta w celu tworzenia bazy wiedzy
+
+Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utwórz obiekt serviceclientcredentials z kluczem i użyj go w punkcie końcowym, aby utworzyć obiekt [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) .
+
+[!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationAuthor)]
 
 ## <a name="create-a-knowledge-base"></a>Tworzenie bazy wiedzy
 
 Baza wiedzy zapisuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) z trzech źródeł:
 
 * W przypadku **zawartości redakcyjnej**Użyj obiektu [QnADTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest) .
-* Dla **plików**Użyj obiektu [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) .
-* W przypadku **adresów URL**Użyj listy ciągów.
+    * Aby użyć metadanych i monitów uzupełniających, użyj kontekstu redakcyjnego, ponieważ te dane są dodawane na indywidualnym poziomie pary QnA.
+* Dla **plików**Użyj obiektu [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) . FileDTO zawiera nazwę pliku, a także publiczny adres URL w celu uzyskania dostępu do pliku.
+* W przypadku **adresów URL**Użyj listy ciągów do reprezentowania publicznie dostępnych adresów URL.
+
+Krok tworzenia obejmuje również właściwości bazy wiedzy:
+* `defaultAnswerUsedForExtraction`-co jest zwracane, gdy nie zostanie znaleziona żadna odpowiedź
+* `enableHierarchicalExtraction`-Automatycznie twórz relacje wiersza między wyodrębnionymi parami QnA
+* `language`— podczas tworzenia pierwszej bazy wiedzy zasobu Ustaw język, który ma być używany w indeksie Azure Search.
 
 Wywołaj metodę [Create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) z informacjami bazy wiedzy. Informacje bazy wiedzy są zasadniczo obiektem JSON.
 
 Gdy metoda Create zwraca wartość, Przekaż zwrócony identyfikator operacji do metody [wait_for_operation](#get-status-of-an-operation) , aby sondować stan. Metoda wait_for_operation zwraca po zakończeniu operacji. Przeanalizuj `resourceLocation` wartość nagłówka zwróconej operacji, aby uzyskać nowy identyfikator bazy wiedzy.
 
-[!code-javascript[Create a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=createKnowledgeBase&highlight=15,30)]
+[!code-javascript[Create a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=CreateKBMethod&highlight=39,46)]
 
 Upewnij się, że Dołącz [`wait_for_operation`](#get-status-of-an-operation) funkcję, do której odwołuje się powyższy kod, w celu pomyślnego utworzenia bazy wiedzy.
 
@@ -129,30 +143,55 @@ Upewnij się, że Dołącz [`wait_for_operation`](#get-status-of-an-operation) f
 
 Bazę wiedzy można zaktualizować, przekazując informacje o IDENTYFIKATORze bazy wiedzy i [UpdateKbOperationDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest) zawierającym obiekty [Add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [Update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update)i [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) DTO do metody [Update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-) . DTO są również zasadniczo obiektami JSON. Użyj metody [wait_for_operation](#get-status-of-an-operation) , aby określić, czy aktualizacja zakończyła się pomyślnie.
 
-[!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=updateKnowledgeBase&highlight=28)]
+[!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=UpdateKBMethod&highlight=74,81)]
 
 Upewnij się, że Dołącz [`wait_for_operation`](#get-status-of-an-operation) funkcję, do której odwołuje się powyższy kod, aby pomyślnie zaktualizować bazę wiedzy.
+
+## <a name="download-a-knowledge-base"></a>Pobieranie bazy wiedzy
+
+Użyj metody [pobierania](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#download-string--models-environmenttype--msrest-requestoptionsbase-) , aby pobrać bazę danych jako listę [QnADocumentsDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto?view=azure-node-latest). _Nie_ jest to równoznaczne z eksportem QNA Maker portalu ze strony **ustawień** , ponieważ wynik tej metody nie jest plikiem TSV.
+
+[!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DownloadKB&highlight=2)]
+
 
 ## <a name="publish-a-knowledge-base"></a>Publikowanie bazy wiedzy
 
 Opublikuj bazę wiedzy przy użyciu metody [Publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) . Obejmuje to bieżący zapisany i szkolony model, do którego odwołuje się identyfikator bazy wiedzy, i publikuje go w punkcie końcowym. Sprawdź kod odpowiedzi HTTP, aby sprawdzić, czy publikowanie zakończyło się pomyślnie.
 
-[!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
+[!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=PublishKB&highlight=3)]
 
 
-## <a name="get-published-endpoint"></a>Pobierz opublikowany punkt końcowy
+## <a name="get-query-runtime-key"></a>Pobierz klucz środowiska uruchomieniowego zapytania
 
-Po opublikowaniu bazy wiedzy uzyskaj dostęp do opublikowanej bazy wiedzy za pośrednictwem interfejsu API generateAnswer środowiska uruchomieniowego przewidywania zapytań. W tym celu należy dysponować kluczem punktu końcowego środowiska uruchomieniowego. Jest to inne niż klucz tworzenia.
+Po opublikowaniu bazy wiedzy potrzebny jest klucz środowiska uruchomieniowego zapytania, aby wykonać zapytanie dotyczące środowiska uruchomieniowego. Nie jest to ten sam klucz, który służy do tworzenia oryginalnego obiektu klienta.
 
-[!code-javascript[Get endpoint keys](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=getEndpointKeys&highlight=3)]
+Aby uzyskać klasę [EndpointKeysDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeysdto?view=azure-node-latest) , należy użyć metody [EndpointKeys. GetKeys](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys?view=azure-node-latest) .
 
-Dwa klucze punktu końcowego są zwracane z wywołania. W celu uzyskania dostępu do punktu końcowego środowiska uruchomieniowego jest wymagany tylko jeden.
+Użyj jednej z właściwości klucza zwracanego w obiekcie, aby wykonać zapytanie dotyczące bazy wiedzy.
+
+[!code-javascript[Get query runtime key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GetQueryEndpointKey&highlight=4)]
+
+## <a name="authenticate-the-runtime-for-generating-an-answer"></a>Uwierzytelnianie środowiska uruchomieniowego w celu wygenerowania odpowiedzi
+
+Utwórz QnAMakerRuntimeClient, aby wysłać zapytanie do bazy wiedzy w celu wygenerowania odpowiedzi lub pouczenia się z aktywnego uczenia.
+
+[!code-javascript[Authenticate the runtime](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationQuery)]
+
+Skorzystaj z QnAMakerRuntimeClient, aby uzyskać odpowiedzi ze wiedzy lub wysłać nowe sugerowane pytania do bazy wiedzy w celu uzyskania [aktywnego uczenia](../concepts/active-learning-suggestions.md).
+
+## <a name="generate-an-answer-from-the-knowledge-base"></a>Generowanie odpowiedzi z bazy wiedzy
+
+Wygeneruj odpowiedź z opublikowanej bazy wiedzy przy użyciu metody RuntimeClient. Runtime. generateAnswer. Ta metoda akceptuje identyfikator bazy wiedzy i QueryDTO. Uzyskuj dostęp do dodatkowych właściwości QueryDTO, takich jak Top i Context, które mają być używane w rozmowie bot.
+
+[!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GenerateAnswer&highlight=3)]
+
+Jest to prosty przykład zapytania dotyczące bazy wiedzy. Aby zrozumieć zaawansowane scenariusze zapytań, zapoznaj się z [innymi przykładami zapytań](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
 
 ## <a name="delete-a-knowledge-base"></a>Usuwanie bazy wiedzy
 
 Usuń bazę wiedzy przy użyciu metody [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) z parametrem identyfikatora bazy wiedzy.
 
-[!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=deleteKnowledgeBase&highlight=3)]
+[!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DeleteKB&highlight=3)]
 
 ## <a name="get-status-of-an-operation"></a>Pobierz stan operacji
 
@@ -160,47 +199,14 @@ Niektóre metody, takie jak tworzenie i aktualizowanie, mogą trwać wystarczaj�
 
 Wywołanie _delayTimer_ w poniższym bloku kodu służy do symulowania logiki ponawiania. Zamień ten program na własną logikę ponawiania.
 
-[!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=monitorOperation&highlight=8,13)]
+[!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=MonitorOperation&highlight=8)]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Uruchom aplikację za pomocą `node index.js` polecenia z katalogu aplikacji.
 
-Wszystkie fragmenty kodu w tym artykule są [dostępne](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js) i można je uruchamiać jako pojedynczy plik.
-
 ```console
 node index.js
 ```
 
-Program drukuje stan konsoli:
-
-```console
-qnamaker_quickstart@1.0.0 start C:\samples\cognitive-services-quickstart-code\javascript\QnAMaker\sdk> node index.js
-
-Operation state - Running
-Operation state - Running
-Operation state - Running
-Operation state - Running
-Operation state - Running
-Operation state - Succeeded
-Create operation 200, KB ID 99df758d-f23f-4931-ab83-e738fe978e69
-Operation state - Running
-Operation state - Running
-Operation state - Running
-Operation state - Succeeded
-Update operation state 200 - HTTP status 200
-Publish request succeeded - HTTP status 204
-GetEndpointKeys request succeeded - HTTP status 200 - primary key 8482830b-681e-400e-b8a3-4016278aba64
-QnA Maker FAQ stored in English language with 1 sources, last updated 2020-01-12T16:54:40Z
-New KB name stored in English language with 1 sources, last updated 2020-01-12T17:32:16Z
-New KB name stored in English language with 1 sources, last updated 2020-01-13T00:27:46Z
-Delete operation state succeeded - HTTP status 204
-done
-```
-
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-
-Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interfejs wiersza polecenia platformy Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js).

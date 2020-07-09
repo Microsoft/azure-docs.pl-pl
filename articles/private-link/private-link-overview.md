@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21289874792987e35fa1cc5731a63e3f55fedc35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c1246c2d3a58ad29503c0767b5c4af303d1f0c54
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835771"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85957490"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -40,35 +40,36 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 ## <a name="availability"></a>Dostępność 
  Poniższa tabela zawiera listę prywatnych usług linków oraz regionów, w których są one dostępne. 
 
-|Obsługiwane usługi  |Dostępne regiony | Stan  |
-|:-------------------|:-----------------|:--------|
-|Usługi linków prywatnych za standardową Azure Load Balancer | Wszystkie regiony publiczne  | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Storage        |  Wszystkie regiony publiczne       | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
-| Usługa Azure Data Lake Storage 2. generacji        |  Wszystkie regiony publiczne      | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
-|  Azure SQL Database         | Wszystkie regiony publiczne      |   Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Analiza usługi Azure Synapse (SQL Data Warehouse)| Wszystkie regiony publiczne |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|Azure Cosmos DB|  Wszystkie regiony publiczne |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL — pojedynczy serwer         | Wszystkie regiony publiczne      |   Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  Azure Database for MySQL         | Wszystkie regiony publiczne      |   Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Azure Database for MariaDB         | Wszystkie regiony publiczne      |   Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  W usłudze Azure Key Vault         | Wszystkie regiony publiczne      |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|Usługa Azure Kubernetes Service — interfejs API Kubernetes | Wszystkie regiony publiczne      |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|Azure Search | Wszystkie regiony publiczne |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
-|Azure Container Registry | Wszystkie regiony publiczne      |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
-|Azure App Configuration | Wszystkie regiony publiczne      |   Wersja zapoznawcza   |
-|Azure Backup | Wszystkie regiony publiczne     |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/private-endpoints)   |
-|Centrum zdarzeń Azure | Wszystkie regiony publiczne      |    Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
-|Azure Service Bus | Wszystkie regiony publiczne      |  Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
-|Azure Relay | Wszystkie regiony publiczne      |   Wersja zapoznawcza <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
-|Azure Event Grid| Wszystkie regiony publiczne       |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA      |   Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA      |   Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| IoT Hub | Wszystkie regiony publiczne    |   Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
-| Azure SignalR | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA      |   Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://aka.ms/asrs/privatelink)   |
-| Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
+|Obsługiwane usługi  |Dostępne regiony | Dodatkowe zagadnienia | Stan  |
+|:-------------------|:-----------------|:----------------|:--------|
+|Usługi linków prywatnych za standardową Azure Load Balancer | Wszystkie regiony publiczne  | Obsługiwane na usługa Load Balancer w warstwie Standardowa | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Azure Storage       |  Wszystkie regiony publiczne       |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
+| Azure Data Lake Storage Gen2        |  Wszystkie regiony publiczne      |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
+|  Azure SQL Database         | Wszystkie regiony publiczne      |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|Analiza usługi Azure Synapse (SQL Data Warehouse)| Wszystkie regiony publiczne |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Cosmos DB|  Wszystkie regiony publiczne | |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  Azure Database for PostgreSQL — pojedynczy serwer         | Wszystkie regiony publiczne      |  | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for MySQL         | Wszystkie regiony publiczne      |  | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | Wszystkie regiony publiczne      |  | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  W usłudze Azure Key Vault         | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|Usługa Azure Kubernetes Service — interfejs API Kubernetes | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/aks/private-clusters)   |
+|Azure Search | Wszystkie regiony publiczne |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
+|Azure Container Registry | Wszystkie regiony publiczne      | Obsługiwane w przypadku warstwy Premium usługi Container Registry [kliknij dla warstw](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
+|Azure App Configuration | Wszystkie regiony publiczne      |  | Wersja zapoznawcza   |
+|Azure Backup | Wszystkie regiony publiczne     |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/private-endpoints)   |
+|Centrum zdarzeń Azure | Wszystkie regiony publiczne      |   | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Service Bus | Wszystkie regiony publiczne  | Obsługiwane w warstwie Premium Azure Service Bus. [Kliknij dla warstw](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Azure Relay | Wszystkie regiony publiczne      |  | Wersja zapoznawcza <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
+|Azure Event Grid| Wszystkie regiony publiczne       |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/event-grid/network-security) |
+|Azure Web Apps | Wszystkie regiony publiczne      |  | Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Machine Learning | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA      |  | Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+| Azure Automation  | Wszystkie regiony publiczne |  | Wersja zapoznawcza | |
+| Azure IoT Hub | Wszystkie regiony publiczne    |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Azure SignalR | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA      |  | Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://aka.ms/asrs/privatelink)   |
+| Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
 
 
-Aby zapoznać się z najbardziej aktualnymi powiadomieniami, zapoznaj się ze [stroną usługi Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network).
+Aby zapoznać się z najbardziej aktualnymi powiadomieniami, sprawdź [stronę aktualizacje linku prywatnego platformy Azure](https://azure.microsoft.com/updates/?product=private-link).
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
@@ -86,7 +87,7 @@ Na Azure Monitor można uzyskać dostęp do następujących informacji:
     - Dane przetwarzane przez usługę linku prywatnego (WE/wychodzącym)
     - Dostępność portów NAT  
  
-## <a name="pricing"></a>Cennik   
+## <a name="pricing"></a>Ceny   
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
  
 ## <a name="faqs"></a>Często zadawane pytania  

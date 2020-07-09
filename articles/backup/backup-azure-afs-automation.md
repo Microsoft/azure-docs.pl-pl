@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu p
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową udziału plików Azure Files przy użyciu usługi Azure Backup i programu PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 53187152802908e94ee4a8a231d3b7874cf42422
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199353"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85971032"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu programu PowerShell
 
@@ -60,7 +60,7 @@ Skonfiguruj program PowerShell w następujący sposób:
 5. Na wyświetlonej stronie sieci Web zostanie wyświetlony monit o wprowadzenie poświadczeń konta.
 
     Alternatywnie możesz uwzględnić poświadczenia konta jako parametr w poleceniu cmdlet **Connect-AzAccount** za pomocą polecenia **-Credential**.
-   
+
     Jeśli jesteś partnerem programu CSP działającym w imieniu dzierżawy, określ klienta jako dzierżawę. Użyj identyfikatora dzierżawy lub głównej nazwy domeny dzierżawy. Przykładem jest **Connect-AzAccount-dzierżawca "fabrikam.com"**.
 
 6. Skojarz subskrypcję, która ma być używana z kontem, ponieważ konto może mieć kilka subskrypcji:
@@ -95,20 +95,11 @@ Wykonaj następujące kroki, aby utworzyć magazyn Recovery Services:
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Użyj polecenia cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
+1. Użyj polecenia cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Określ typ nadmiarowości, która ma być używana w magazynie magazynu. Można użyć magazynu [lokalnie nadmiarowego](../storage/common/storage-redundancy-lrs.md) lub [magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy-grs.md).
-   
-   W poniższym przykładzie ustawiono opcję **-BackupStorageRedundancy** dla polecenia cmdlet [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) dla **testvault** dla ustawienia **geonadmiarowości**:
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Wyświetlanie magazynów w ramach subskrypcji
 
@@ -246,20 +237,22 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+Aby uzyskać więcej informacji na temat pobierania listy udziałów plików dla konta magazynu, zobacz [ten artykuł](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+
 ## <a name="important-notice-backup-item-identification"></a>Ważna Uwaga: Identyfikacja elementu kopii zapasowej
 
 W tej części przedstawiono ważne zmiany w kopiach zapasowych udziałów plików platformy Azure w celu zapewnienia ogólnej dostępności.
 
-Podczas włączania tworzenia kopii zapasowej dla udziałów plików platformy Azure użytkownik uzyskuje klientowi nazwę udziału plików jako nazwę jednostki, a tworzony jest element kopii zapasowej. Nazwa elementu kopii zapasowej jest unikatowym identyfikatorem, który tworzy usługa Azure Backup. Zazwyczaj identyfikator jest przyjazny dla użytkownika. Jednak aby obsłużyć scenariusz usuwania nietrwałego, w którym można usunąć udział plików, a inny udział plików może być utworzony o tej samej nazwie, unikatowa tożsamość udziału plików platformy Azure jest teraz IDENTYFIKATORem. 
+Podczas włączania tworzenia kopii zapasowej dla udziałów plików platformy Azure użytkownik uzyskuje klientowi nazwę udziału plików jako nazwę jednostki, a tworzony jest element kopii zapasowej. Nazwa elementu kopii zapasowej jest unikatowym identyfikatorem, który tworzy usługa Azure Backup. Zazwyczaj identyfikator jest przyjazny dla użytkownika. Jednak aby obsłużyć scenariusz usuwania nietrwałego, w którym można usunąć udział plików, a inny udział plików może być utworzony o tej samej nazwie, unikatowa tożsamość udziału plików platformy Azure jest teraz IDENTYFIKATORem.
 
-Aby znać unikatowy identyfikator każdego elementu, uruchom polecenie **Get-AzRecoveryServicesBackupItem** z odpowiednimi filtrami dla **backupManagementType** i **obciążeniatype** , aby uzyskać wszystkie odpowiednie elementy. Następnie zaobserwuj pole Nazwa w zwracanym obiekcie/odpowiedzi programu PowerShell. 
+Aby znać unikatowy identyfikator każdego elementu, uruchom polecenie **Get-AzRecoveryServicesBackupItem** z odpowiednimi filtrami dla **backupManagementType** i **obciążeniatype** , aby uzyskać wszystkie odpowiednie elementy. Następnie zaobserwuj pole Nazwa w zwracanym obiekcie/odpowiedzi programu PowerShell.
 
 Zalecamy, aby wyświetlić listę elementów, a następnie pobrać ich unikatową nazwę z pola Nazwa w odpowiedzi. Użyj tej wartości, aby odfiltrować elementy o parametrze *name* . W przeciwnym razie użyj parametru *FriendlyName* , aby pobrać element z jego identyfikatorem.
 
 > [!IMPORTANT]
-> Upewnij się, że program PowerShell został uaktualniony do minimalnej wersji (AZ. RecoveryServices 2.6.0) na potrzeby tworzenia kopii zapasowych udziałów plików platformy Azure. W tej wersji filtr *FriendlyName* jest dostępny dla polecenia **Get-AzRecoveryServicesBackupItem** . 
+> Upewnij się, że program PowerShell został uaktualniony do minimalnej wersji (AZ. RecoveryServices 2.6.0) na potrzeby tworzenia kopii zapasowych udziałów plików platformy Azure. W tej wersji filtr *FriendlyName* jest dostępny dla polecenia **Get-AzRecoveryServicesBackupItem** .
 >
-> Przekaż nazwę udziału plików platformy Azure do parametru *FriendlyName* . Jeśli przekażesz nazwę udziału plików do parametru *name* , ta wersja zgłasza ostrzeżenie w celu przekazania nazwy do parametru *FriendlyName* . 
+> Przekaż nazwę udziału plików platformy Azure do parametru *FriendlyName* . Jeśli przekażesz nazwę udziału plików do parametru *name* , ta wersja zgłasza ostrzeżenie w celu przekazania nazwy do parametru *FriendlyName* .
 >
 > Zainstalowanie minimalnej wersji może spowodować niepowodzenie istniejących skryptów. Zainstaluj minimalną wersję programu PowerShell przy użyciu następującego polecenia:
 >
@@ -295,5 +288,5 @@ Migawki udziałów plików platformy Azure są używane podczas wykonywania kopi
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat [tworzenia kopii zapasowych Azure Files w Azure Portal](backup-afs.md).
-- Zaplanuj tworzenie kopii zapasowych Azure Automation za pomocą [przykładowego skryptu w witrynie GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) .
+* Dowiedz się więcej na temat [tworzenia kopii zapasowych Azure Files w Azure Portal](backup-afs.md).
+* Zaplanuj tworzenie kopii zapasowych Azure Automation za pomocą [przykładowego skryptu w witrynie GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) .

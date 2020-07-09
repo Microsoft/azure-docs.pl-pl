@@ -1,26 +1,16 @@
 ---
 title: Korzystanie z Azure Service Bus tematów i subskrypcji w języku Java
 description: W tym przewodniku szybki start napiszesz kod w języku Java służący do wysyłania komunikatów do Azure Service Bus tematu, a następnie odbierania komunikatów z subskrypcji do tego tematu.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e025adfd3d8a29bc07cf14803f572dcba1097fd6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fb8e5196077e60c20d9354459cafe85302ad0e45
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791072"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341430"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Szybki Start: korzystanie z Service Bus tematów i subskrypcji w języku Java
 
@@ -70,7 +60,7 @@ Zaktualizuj metodę **Main** , aby utworzyć obiekt **TopicClient** i wywołać 
 
 > [!NOTE] 
 > - Zastąp ciąg `<NameOfServiceBusNamespace>` nazwą swojej przestrzeni nazw usługi Service Bus. 
-> - Zamień `<AccessKey>` na klucz dostępu do przestrzeni nazw.
+> - Zamień na `<AccessKey>` klucz dostępu do przestrzeni nazw.
 
 ```java
 public class MyServiceBusTopicClient {

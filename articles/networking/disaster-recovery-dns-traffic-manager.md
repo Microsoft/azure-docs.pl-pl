@@ -16,10 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74483535"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Odzyskiwanie po awarii przy użyciu usług Azure DNS i Traffic Manager
@@ -72,7 +71,7 @@ Azure DNS ręczne rozwiązanie trybu failover do odzyskiwania po awarii używa s
 
 Założenia dotyczące rozwiązania są następujące:
 - Podstawowy i pomocniczy punkt końcowy mają statyczne adresy IP, które często nie zmieniają się. Załóżmy, że dla lokacji głównej jest 100.168.124.44 IP, a adres IP dla lokacji dodatkowej to 100.168.124.43.
-- Strefa Azure DNS istnieje zarówno dla lokacji głównej, jak i dodatkowej. Załóżmy, że dla lokacji głównej jest prod.contoso.com punkt końcowy, a dla lokacji kopii zapasowej jest dr.contoso.com. Istnieje również rekord DNS dla aplikacji głównej znanej jako contoso.com\.www.   
+- Strefa Azure DNS istnieje zarówno dla lokacji głównej, jak i dodatkowej. Załóżmy, że dla lokacji głównej jest prod.contoso.com punkt końcowy, a dla lokacji kopii zapasowej jest dr.contoso.com. Istnieje również rekord DNS dla aplikacji głównej znanej jako \. contoso.com www.   
 - Wartość czasu wygaśnięcia jest równa lub niższa od umowy SLA RTO ustawionej w organizacji. Na przykład, jeśli przedsiębiorstwo ustawi RTO odpowiedzi na awarię aplikacji na 60 minut, wartość TTL powinna być mniejsza niż 60 minut, najlepiej niższą. 
   Azure DNS ręcznego przełączania do trybu failover można skonfigurować w następujący sposób:
 - Tworzenie strefy DNS
@@ -80,7 +79,7 @@ Założenia dotyczące rozwiązania są następujące:
 - Aktualizowanie rekordu CNAME
 
 ### <a name="step-1-create-a-dns"></a>Krok 1. Tworzenie systemu DNS
-Utwórz strefę DNS (na przykład www\.contoso.com), jak pokazano poniżej:
+Utwórz strefę DNS (na przykład www \. contoso.com), jak pokazano poniżej:
 
 ![Tworzenie strefy DNS na platformie Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +87,13 @@ Utwórz strefę DNS (na przykład www\.contoso.com), jak pokazano poniżej:
 
 ### <a name="step-2-create-dns-zone-records"></a>Krok 2. tworzenie rekordów strefy DNS
 
-W tej strefie Utwórz trzy rekordy (na przykład-www\.contoso.com, prod.contoso.com i Dr.consoto.com), jak pokazano poniżej.
+W tej strefie Utwórz trzy rekordy (na przykład-www \. contoso.com, prod.contoso.com i Dr.consoto.com), jak pokazano poniżej.
 
 ![Tworzenie rekordów strefy DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Rysunek — tworzenie rekordów strefy DNS na platformie Azure*
 
-W tym scenariuszu witryna sieci Web\.contoso.com ma wartość TTL 30 minut, która jest również niższa od podanej RTO, i wskazuje na witrynę produkcyjną prod.contoso.com. Ta konfiguracja jest w trakcie normalnych operacji wykonywanych w firmie. Wartość parametru TTL prod.contoso.com i dr.contoso.com została ustawiona na 300 sekund lub 5 minut. Możesz użyć usługi monitorowania platformy Azure, takiej jak Azure Monitor lub Azure App Insights, a także rozwiązań do monitorowania partnerów, takich jak dynaTrace, można nawet korzystać z rozwiązań domowych, które mogą monitorować lub wykrywać awarie poziomu infrastruktury aplikacji lub sieci wirtualnej.
+W tym scenariuszu witryna sieci Web \. contoso.com ma wartość TTL 30 minut, która jest również niższa od podanej RTO, i wskazuje na witrynę produkcyjną prod.contoso.com. Ta konfiguracja jest w trakcie normalnych operacji wykonywanych w firmie. Wartość parametru TTL prod.contoso.com i dr.contoso.com została ustawiona na 300 sekund lub 5 minut. Możesz użyć usługi monitorowania platformy Azure, takiej jak Azure Monitor lub Azure App Insights, a także rozwiązań do monitorowania partnerów, takich jak dynaTrace, można nawet korzystać z rozwiązań domowych, które mogą monitorować lub wykrywać awarie poziomu infrastruktury aplikacji lub sieci wirtualnej.
 
 ### <a name="step-3-update-the-cname-record"></a>Krok 3. aktualizowanie rekordu CNAME
 
@@ -104,7 +103,7 @@ Po wykryciu błędu Zmień wartość rekordu na dr.contoso.com, jak pokazano pon
 
 *Ilustracja — aktualizowanie rekordu CNAME na platformie Azure*
 
-W ciągu 30 minut, podczas którego większość resolverów odświeży plik strefy w pamięci podręcznej, wszystkie\.zapytania do sieci Web contoso.com zostaną przekierowane do Dr.contoso.com.
+W ciągu 30 minut, podczas którego większość resolverów odświeży plik strefy w pamięci podręcznej, wszystkie zapytania do sieci Web \. contoso.com zostaną przekierowane do Dr.contoso.com.
 Możesz również uruchomić następujące polecenie interfejsu wiersza polecenia platformy Azure, aby zmienić wartość CNAME:
  ```azurecli
    az network dns record-set cname set-record \

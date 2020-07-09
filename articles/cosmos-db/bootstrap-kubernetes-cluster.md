@@ -3,15 +3,15 @@ title: Jak korzystać z usługi Azure Kubernetes z usługą Azure Cosmos DB
 description: Dowiedz się, jak załadować klaster Kubernetes na platformie Azure, który używa Azure Cosmos DB (wersja zapoznawcza)
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70093726"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262637"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Jak używać usługi Azure Kubernetes z Azure Cosmos DB (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ Aby dowiedzieć się więcej o interfejsie API etcd w Azure Cosmos DB, zapoznaj 
 
    Aparat usługi Azure Kubernetes (**AKS-Engine**) generuje szablony Azure Resource Manager dla klastrów Kubernetes na platformie Azure. Wejście do AKS-Engine jest plikiem definicji klastra opisującym żądany klaster, w tym Orchestrator, Features i Agents. Struktura plików wejściowych jest podobna do publicznego interfejsu API usługi Azure Kubernetes.
 
-1. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Zarejestruj się, aby korzystać z wersji zapoznawczej w: https://aka.ms/cosmosetcdapi-signup. Po przesłaniu formularza subskrypcja będzie listy dozwolonych do korzystania z interfejsu API usługi Azure Cosmos etcd. 
+1. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Zarejestruj się, aby korzystać z wersji zapoznawczej w: https://aka.ms/cosmosetcdapi-signup . Po przesłaniu formularza subskrypcja będzie listy dozwolonych do korzystania z interfejsu API usługi Azure Cosmos etcd. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Wdróż klaster przy użyciu Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Aby dowiedzieć się więcej o interfejsie API etcd w Azure Cosmos DB, zapoznaj 
    cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
-1. Otwórz wybrany edytor tekstu i zdefiniuj szablon Menedżer zasobów, który wdraża klaster Azure Kubernetes za pomocą interfejsu API Azure Cosmos DB etcd. Skopiuj poniższą definicję JSON do edytora tekstów i Zapisz plik jako `apiModel.json`:
+1. Otwórz wybrany edytor tekstu i zdefiniuj szablon Menedżer zasobów, który wdraża klaster Azure Kubernetes za pomocą interfejsu API Azure Cosmos DB etcd. Skopiuj poniższą definicję JSON do edytora tekstów i Zapisz plik jako `apiModel.json` :
 
    ```json
 
@@ -140,7 +140,7 @@ Aby dowiedzieć się więcej o interfejsie API etcd w Azure Cosmos DB, zapoznaj 
    Aparat Azure Kubernetes korzysta z definicji klastra, która przedstawia żądany kształt, rozmiar i konfigurację usługi Azure Kubernetes. Istnieje kilka funkcji, które można włączyć za pomocą definicji klastra. W tym przykładzie zostaną użyte następujące parametry:
 
    * **Identyfikator subskrypcji:** Identyfikator subskrypcji platformy Azure z włączonym Azure Cosmos DB interfejsem API etcd.
-   * **Identyfikator klienta:** Identyfikator appId jednostki usługi. `appId` Został zwrócony jako dane wyjściowe w kroku 4.
+   * **Identyfikator klienta:** Identyfikator appId jednostki usługi. `appId`Został zwrócony jako dane wyjściowe w kroku 4.
    * **Wpis tajny klienta:** Hasło jednostki usługi lub losowo generowane hasło. Ta wartość została zwrócona jako dane wyjściowe w parametrze "Password" w kroku 4. 
    * **dnsPrefix:** Unikatowa nazwa systemu DNS w regionie. Ta wartość będzie częścią nazwy hosta (przykładowe wartości to-myprod1, Staging).
    * **Lokalizacja:**  Lokalizacja, w której ma zostać wdrożony klaster. obecnie obsługiwane jest tylko "centralne".

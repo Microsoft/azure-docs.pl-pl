@@ -5,15 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560188"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84608251"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -105,8 +104,8 @@ Przed rozpoczęciem upewnij się, że urządzenie zostało wykonane **przygotowa
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Stronicowe obiekty blob         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blokowe obiekty blob         |REST         |
-    |mydbmdrg1_MDisk-BOM. txt    |Dysk zarządzany         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM. txt     |Dysk zarządzany         |SMB/NFS         |
+    |mydbmdrg1_MDisk-BOM.txt    |Dysk zarządzany         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Dysk zarządzany         |SMB/NFS         |
 
 Ta lista umożliwia weryfikację plików przekazanych do konta usługi Azure Storage po powrocie urządzenia Data Box do centrum danych platformy Azure. Poniżej przedstawiono przykładowy plik manifestu.
 

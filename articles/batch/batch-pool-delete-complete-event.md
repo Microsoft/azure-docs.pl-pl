@@ -3,12 +3,12 @@ title: Zdarzenie ukończenia usuwania puli Azure Batch
 description: Odwołanie do zdarzenia ukończenia usuwania puli usługi Batch. To zdarzenie jest emitowane po zakończeniu operacji usuwania puli.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 6e009b55869b7ba8c81190837086557743d53219
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724058"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962462"
 ---
 # <a name="pool-delete-complete-event"></a>Zdarzenie zakończenia usuwania puli
 
@@ -31,4 +31,4 @@ ms.locfileid: "83724058"
 |`endTime`|DateTime|Godzina, o której ukończono Usuwanie puli.|
 
 ## <a name="remarks"></a>Uwagi
-Aby uzyskać więcej informacji o stanach i kodach błędów dla operacji zmiany rozmiaru puli, zobacz [Usuwanie puli z konta](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Aby uzyskać więcej informacji o stanach i kodach błędów dla operacji zmiany rozmiaru puli, zobacz [Usuwanie puli z konta](/rest/api/batchservice/delete-a-pool-from-an-account).

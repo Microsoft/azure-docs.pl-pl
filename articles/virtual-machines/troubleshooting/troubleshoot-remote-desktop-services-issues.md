@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919468"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86084332"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Usługi pulpitu zdalnego nie jest uruchamiane na maszynie wirtualnej platformy Azure
 
@@ -47,7 +47,9 @@ Podczas próby nawiązania połączenia z maszyną wirtualną występują nastę
 
     Aby wyszukać te błędy, można również użyć funkcji konsoli dostępu szeregowego: 
 
-        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
+    ```console
+   wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
+    ```
 
 ## <a name="cause"></a>Przyczyna
  
@@ -63,7 +65,7 @@ Aby rozwiązać ten problem, użyj konsoli szeregowej. Lub w przeciwnym razie [n
 
 ### <a name="use-serial-console"></a>Korzystanie z konsoli szeregowej
 
-1. Uzyskaj dostęp do [konsoli szeregowej](serial-console-windows.md) , wybierając pozycję **Obsługa & Rozwiązywanie problemów** > **konsola szeregowa**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
+1. Uzyskaj dostęp do [konsoli szeregowej](serial-console-windows.md) , wybierając pozycję **Obsługa & Rozwiązywanie problemów**  >  **konsola szeregowa**. Jeśli funkcja jest włączona na maszynie wirtualnej, można połączyć maszynę wirtualną pomyślnie.
 
 2. Utwórz nowy kanał dla wystąpienia CMD. Wprowadź **polecenie cmd** w celu uruchomienia kanału i pobrania nazwy kanału.
 
@@ -94,7 +96,7 @@ Aby rozwiązać ten problem, użyj konsoli szeregowej. Lub w przeciwnym razie [n
    ```
 8. Jeśli uruchomienie usługi nie powiedzie się, postępuj zgodnie z rozwiązaniem na podstawie otrzymanego błędu:
 
-    |  Error |  Sugestia |
+    |  Błąd |  Sugestia |
     |---|---|
     |5 — ODMOWA DOSTĘPU |Zobacz, [że Usługa TermService została zatrzymana z powodu błędu odmowy dostępu](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 — ERROR_SERVICE_REQUEST_TIMEOUT  |Zobacz [Usługa TermService jest wyłączona](#termservice-service-is-disabled).  |  
@@ -179,22 +181,37 @@ Aby rozwiązać ten problem, użyj konsoli szeregowej. Lub w przeciwnym razie [n
 
 1. Ten problem występuje, jeśli konto uruchamiania tej usługi zostało zmienione. Zmieniono ją z powrotem na domyślną: 
 
-        sc config TermService obj= 'NT Authority\NetworkService'
+    ```console
+    sc config TermService obj= 'NT Authority\NetworkService'
+    ```
+
 2. Uruchom usługę:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 3. Spróbuj połączyć się z maszyną wirtualną za pomocą Pulpit zdalny.
 
 #### <a name="termservice-service-crashes-or-hangs"></a>Awaria lub zawieszenie usługi TermService
 1. Jeśli stan usługi jest zablokowany w trakcie **uruchamiania** lub **zatrzymywania**, spróbuj zatrzymać usługę: 
 
-        sc stop TermService
+    ```console
+    sc stop TermService
+    ```
+
 2. Wyodrębnij usługę do własnego kontenera "svchost":
 
-        sc config TermService type= own
+    ```console
+    sc config TermService type= own
+    ```
+
 3. Uruchom usługę:
 
-        sc start TermService
+    ```console
+    sc start TermService
+    ```
+
 4. Jeśli uruchomienie usługi nadal kończy się niepowodzeniem, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Naprawianie maszyny wirtualnej w trybie offline

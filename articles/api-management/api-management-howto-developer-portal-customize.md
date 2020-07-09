@@ -13,10 +13,9 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79244097"
 ---
 # <a name="access-and-customize-developer-portal"></a>Dostęp i dostosowywanie portalu dla deweloperów
@@ -68,7 +67,7 @@ Aby dodać wiersze do strony, kliknij niebieską ikonę ze znakiem plus. Widżet
 
 Układy definiują sposób wyświetlania stron. Na przykład w zawartości domyślnej istnieją dwa układy — jeden ma zastosowanie do strony głównej, a drugi do wszystkich pozostałych stron.
 
-Układ zostanie zastosowany do strony, dopasowując jej szablon adresu URL do adresu URL strony. Na przykład układ z szablonem adresu URL programu `/wiki/*` zostanie zastosowany do każdej strony z `/wiki/` segmentem w adresie URL `/wiki/getting-started`: `/wiki/styles`, itp.
+Układ zostanie zastosowany do strony, dopasowując jej szablon adresu URL do adresu URL strony. Na przykład układ z szablonem adresu URL programu `/wiki/*` zostanie zastosowany do każdej strony z `/wiki/` segmentem w adresie URL: `/wiki/getting-started` , `/wiki/styles` itp.
 
 Na powyższym obrazie zawartość należące do układu jest oznaczona kolorem niebieskim, podczas gdy strona jest oznaczona kolorem czerwonym. Sekcje menu są odpowiednio oznaczone.
 
@@ -91,7 +90,7 @@ Za każdym razem, gdy wprowadzisz zmiany w portalu, musisz zapisać je ręcznie,
 Przed udostępnieniem portalu Gościom należy spersonalizować automatycznie wygenerowaną zawartość. Zalecane zmiany obejmują układy, style i zawartość strony głównej.
 
 > [!NOTE]
-> Ze względu na kwestie związane z integracją nie można usunąć ani przenieść następujących stron pod innym `/404`adresem `/500`URL `/captcha`: `/change-password`, `/config.json`, `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/signin-sso`,,,,,,, `/signup`,,.
+> Ze względu na kwestie związane z integracją nie można usunąć ani przenieść następujących stron pod innym adresem URL:,,,,,,,,,,, `/404` `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/signin-sso` `/signup` .
 
 ### <a name="home-page"></a>Strona główna
 
@@ -124,7 +123,7 @@ Aby Portal i najnowsze zmiany były dostępne dla odwiedzających, należy je op
 
 ## <a name="visit-the-published-portal"></a>Odwiedź opublikowany Portal
 
-Po opublikowaniu portalu możesz uzyskać do niego dostęp przy użyciu tego samego adresu URL, na przykład `https://contoso-api.developer.azure-api.net`w panelu administracyjnym. Wyświetl je w oddzielnym sesji przeglądarki (incognito/Private Mode) jako gość zewnętrzny.
+Po opublikowaniu portalu możesz uzyskać do niego dostęp przy użyciu tego samego adresu URL, na przykład w panelu administracyjnym `https://contoso-api.developer.azure-api.net` . Wyświetl je w oddzielnym sesji przeglądarki (incognito/Private Mode) jako gość zewnętrzny.
 
 ## <a name="apply-the-cors-policy-on-apis"></a>Stosowanie zasad CORS w interfejsach API
 

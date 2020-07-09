@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji do monitorowania słonecznego za pomocą IoT Central'
+title: 'Samouczek: Tworzenie aplikacji monitorującej panel słoneczny przy użyciu IoT Central'
 description: 'Samouczek: informacje na temat tworzenia aplikacji panelu słonecznego przy użyciu szablonów aplikacji IoT Central platformy Azure.'
 author: op-ravi
 ms.author: omravi
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d5ea3d3420cb598693ccaede7ee10d2f8c4fd839
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77025779"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310006"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji monitorującej panel słoneczny 
 
@@ -110,4 +110,3 @@ Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując
 * Dowiedz się więcej o architekturze aplikacji panelu słonecznym zapoznaj się z [artykułem koncepcji](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Utwórz bezpłatnie szablony aplikacji panelu słonecznego: [aplikacja panelu słonecznych](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)
-

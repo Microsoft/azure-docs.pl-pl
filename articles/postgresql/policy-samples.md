@@ -1,24 +1,24 @@
 ---
 title: Wbudowane definicje zasad dla Azure Database for PostgreSQL
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for PostgreSQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/13/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a9df316ca6b51733a4497fe4a045a2b31010184b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 109c3ca274e46324a8c93ba089abf3db3b5cac68
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653408"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321439"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-postgresql"></a>Azure Policy wbudowane definicje zasad dla Azure Database for PostgreSQL
+# <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Azure Policy wbudowane definicje Azure Database for PostgreSQL
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Database for PostgreSQL. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6fc5b4c901254decdb2d34281a10ababd4d79d45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82127853"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Kontrolki zabezpieczeń dla usługi Azure VPN Gateway
@@ -34,7 +34,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Pomoc techniczna dotycząca monitorowania platformy Azure (log Analytics, App Insights itp.)| Tak | Zobacz alert dotyczący [dziennika](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & Azure monitor[Azure monitor alertu metryki](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+| Pomoc techniczna dotycząca monitorowania platformy Azure (log Analytics, App Insights itp.)| Tak | Zobacz alert dotyczący [dziennika Azure monitor](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)  &  [Azure monitor alertu metryki](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Rejestrowanie i inspekcja płaszczyzny kontroli i zarządzania| Tak | Azure Resource Manager dziennik aktywności. |
 | Rejestrowanie i inspekcja płaszczyzny danych | Tak | [Azure monitor dzienniki aktywności](../azure-resource-manager/management/view-activity-logs.md) na potrzeby rejestrowania i inspekcji łączności sieci VPN. |
 

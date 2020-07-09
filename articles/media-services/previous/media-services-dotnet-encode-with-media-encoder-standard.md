@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "69016589"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Kodowanie elementu zawartości za pomocą Media Encoder Standard przy użyciu platformy .NET  
@@ -46,13 +46,13 @@ Media Encoder Standard jest skonfigurowany przy użyciu jednego z ustawień pred
 ### <a name="input-and-output-metadata"></a>Metadane wejściowe i wyjściowe
 W przypadku kodowania danych wejściowych (lub zasobów) przy użyciu programu MES można uzyskać wyjściowy element zawartości po pomyślnym zakończeniu tego zadania kodowania. Element zawartości wyjściowej zawiera wideo, audio, miniatury, manifest itp. w zależności od używanego ustawienia wstępnego kodowania.
 
-Wyjściowy element zawartości zawiera również plik z metadanymi zawierającymi dane wejściowe. Nazwa pliku XML metadanych ma następujący format: <asset_id>_metadata. XML (na przykład 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata. xml), gdzie <asset_id jest wartością AssetId elementu zawartości. Schemat tego pliku XML metadanych wejściowych jest opisany [tutaj](media-services-input-metadata-schema.md).
+Wyjściowy element zawartości zawiera również plik z metadanymi zawierającymi dane wejściowe. Nazwa pliku XML metadanych ma następujący format: <asset_id # C1_metadata.xml (na przykład 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), gdzie <asset_id,> jest wartością AssetId zawartości wejściowej. Schemat tego pliku XML metadanych wejściowych jest opisany [tutaj](media-services-input-metadata-schema.md).
 
-Wyjściowy element zawartości zawiera również plik z metadanymi dotyczącymi wyjściowego elementu zawartości. Nazwa pliku XML metadanych ma następujący format: <source_file_name>_manifest. XML (na przykład BigBuckBunny_manifest. xml). Schemat tego XML metadanych wyjściowych jest opisany [tutaj](media-services-output-metadata-schema.md).
+Wyjściowy element zawartości zawiera również plik z metadanymi dotyczącymi wyjściowego elementu zawartości. Nazwa pliku XML metadanych ma następujący format: <source_file_name # C1_manifest.xml (na przykład BigBuckBunny_manifest.xml). Schemat tego XML metadanych wyjściowych jest opisany [tutaj](media-services-output-metadata-schema.md).
 
 Jeśli chcesz przejrzeć jeden z tych dwóch plików metadanych, możesz utworzyć lokalizatora SAS i pobrać plik na komputer lokalny. Przykład tworzenia lokalizatora SAS i pobierania pliku przy użyciu rozszerzeń zestawu SDK platformy .NET Media Services.
 
-## <a name="download-sample"></a>Pobieranie próbki
+## <a name="download-sample"></a>Pobieranie przykładu
 Możesz uzyskać i uruchomić przykład, który pokazuje, jak kodować ze statusem MES w [tym miejscu](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="net-sample-code"></a>Przykładowy kod platformy .NET
@@ -206,10 +206,10 @@ namespace MediaEncoderStandardSample
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-[Jak wygenerować miniaturę przy użyciu Media Encoder Standard z użyciem kodowania .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-[Media Services — Omówienie](media-services-encode-asset.md)
+[Jak wygenerować miniaturę przy użyciu Media Encoder Standard z platformą .NET](media-services-dotnet-generate-thumbnail-with-mes.md) 
+ [Omówienie kodowania Media Services](media-services-encode-asset.md)
 

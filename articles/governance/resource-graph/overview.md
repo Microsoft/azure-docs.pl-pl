@@ -1,14 +1,14 @@
 ---
 title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
-ms.date: 03/02/2020
+ms.date: 06/29/2020
 ms.topic: overview
-ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
+ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167268"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85970607"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -29,7 +29,7 @@ W tej dokumentacji każda funkcja zostanie szczegółowo omówiona.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Jak usługa Resource Graph uzupełnia usługę Azure Resource Manager
 
-Azure Resource Manager obecnie obsługuje zapytania dotyczące podstawowych pól zasobów, w tym w odniesieniu do nazwy zasobu, identyfikatora, typu, grupy zasobów, subskrypcji i lokalizacji. Menedżer zasobów również udostępnia funkcje do wywoływania poszczególnych dostawców zasobów w celu uzyskania szczegółowych właściwości jednego zasobu naraz.
+Menedżer zasobów obecnie obsługuje zapytania dotyczące podstawowych pól zasobów, w tym w odniesieniu do nazwy zasobu, identyfikatora, typu, grupy zasobów, subskrypcji i lokalizacji. Menedżer zasobów również udostępnia funkcje do wywoływania poszczególnych dostawców zasobów w celu uzyskania szczegółowych właściwości jednego zasobu naraz.
 
 Za pomocą usługi Azure Resource Graph możesz uzyskać dostęp do tych właściwości, które zwracają dostawców zasobów, bez konieczności wykonywania poszczególnych wywołań do każdego dostawcy zasobów. Aby uzyskać listę obsługiwanych typów zasobów, przejrzyj informacje o [typie tabeli i zasobu](./reference/supported-tables-resources.md). Alternatywny sposób wyświetlania obsługiwanych typów zasobów znajduje się w [przeglądarce schematów programu Graph zasobów platformy Azure](./first-query-portal.md#schema-browser).
 
@@ -52,8 +52,7 @@ Teraz, gdy znasz już usługę Azure Resource Graph, przyjrzyjmy się szczegół
 
 Ważne jest zrozumienie, że język zapytań usługi Azure Resource Graph opiera się na języku zapytań [Kusto Query Language](/azure/data-explorer/data-explorer-overview) używanym przez usługę Azure Data Explorer.
 
-Po pierwsze, aby poznać szczegółowe informacje dotyczące operacji i funkcji, które mogą być używane z usługą Azure Resource Graph, zobacz [język zapytań usługi Resource Graph](./concepts/query-language.md).
-Aby przejrzeć zasoby, zobacz [badanie zasobów](./concepts/explore-resources.md).
+Po pierwsze, aby poznać szczegółowe informacje dotyczące operacji i funkcji, które mogą być używane z usługą Azure Resource Graph, zobacz [język zapytań usługi Resource Graph](./concepts/query-language.md). Aby przejrzeć zasoby, zobacz [badanie zasobów](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Uprawnienia w usłudze Azure Resource Graph
 
@@ -62,8 +61,7 @@ Aby użyć usługi Resource Graph, musisz mieć odpowiednie prawa w [kontroli do
 > [!NOTE]
 > Wykres zasobów używa subskrypcji dostępnych dla podmiotu zabezpieczeń podczas logowania. Aby wyświetlić zasoby nowej subskrypcji dodane podczas aktywnej sesji, podmiot zabezpieczeń musi odświeżyć kontekst. Ta akcja odbywa się automatycznie podczas wylogowywania się i z powrotem.
 
-Interfejs wiersza polecenia platformy Azure i Azure PowerShell używają subskrypcji, do których użytkownik ma dostęp. W przypadku bezpośredniego korzystania z interfejsu API REST Lista subskrypcji jest udostępniana przez użytkownika. Jeśli użytkownik ma dostęp do dowolnych subskrypcji na liście, wyniki zapytania są zwracane dla subskrypcji, do których użytkownik ma dostęp. Takie zachowanie jest takie samo jak podczas wywoływania [grup zasobów — lista](/rest/api/resources/resourcegroups/list) \- Pobiera grupy zasobów, do których masz dostęp, bez wskazywania, że wynik może być częściowy.
-Jeśli na liście subskrypcji nie ma żadnych subskrypcji, do których użytkownik ma odpowiednie prawa, odpowiedź jest _403_ (niedostępna).
+Interfejs wiersza polecenia platformy Azure i Azure PowerShell używają subskrypcji, do których użytkownik ma dostęp. W przypadku bezpośredniego korzystania z interfejsu API REST Lista subskrypcji jest udostępniana przez użytkownika. Jeśli użytkownik ma dostęp do dowolnych subskrypcji na liście, wyniki zapytania są zwracane dla subskrypcji, do których użytkownik ma dostęp. Takie zachowanie jest takie samo jak podczas wywoływania [grup zasobów — lista](/rest/api/resources/resourcegroups/list) \- Pobiera grupy zasobów, do których masz dostęp, bez wskazywania, że wynik może być częściowy. Jeśli na liście subskrypcji nie ma żadnych subskrypcji, do których użytkownik ma odpowiednie prawa, odpowiedź jest _403_ (niedostępna).
 
 ## <a name="throttling"></a>Ograniczanie przepływności
 

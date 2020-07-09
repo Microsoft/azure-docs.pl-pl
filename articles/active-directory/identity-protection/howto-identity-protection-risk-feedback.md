@@ -4,19 +4,18 @@ description: Jak i dlaczego należy przekazać informacje zwrotne na temat wykry
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4be8290f12d64f0c556100c63ec159bd414c6fcb
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
-ms.translationtype: MT
+ms.openlocfilehash: 03b06d46cb35346580070f1739fd43128fa7a7fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382097"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463930"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Instrukcje: wyrażanie opinii o ryzyku w Azure AD Identity Protection
 

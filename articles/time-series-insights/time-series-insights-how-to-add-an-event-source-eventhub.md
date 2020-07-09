@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81407454"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Dodawanie źródła zdarzeń centrum zdarzeń do środowiska Time Series Insights
@@ -50,7 +50,7 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
 1. Na stronie **grupy odbiorców** wprowadź nową unikatową wartość dla **nazwy**.  Użyj tej samej nazwy podczas tworzenia nowego źródła zdarzeń w środowisku Time Series Insights.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-new-event-source"></a>Dodaj nowe źródło zdarzenia
 
@@ -62,7 +62,7 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
    [![W obszarze źródła zdarzeń wybierz przycisk Dodaj.](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Wprowadź wartość dla **nazwy źródła zdarzenia** , która jest unikatowa dla tego środowiska Time Series Insights, na `Contoso-TSI-GA-Event-Hub-ES`przykład.
+1. Wprowadź wartość dla **nazwy źródła zdarzenia** , która jest unikatowa dla tego środowiska Time Series Insights, na przykład `Contoso-TSI-GA-Event-Hub-ES` .
 
 1. W obszarze **Źródło**wybierz pozycję **centrum zdarzeń**.
 
@@ -107,7 +107,7 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
 1. Dodaj dedykowaną nazwę grupy konsumentów Time Series Insights, która została dodana do centrum zdarzeń.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    Po utworzeniu źródła zdarzeń Time Series Insights automatycznie rozpoczyna przesyłanie strumieniowe danych do środowiska.
 

@@ -8,10 +8,10 @@ ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80477691"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
@@ -177,9 +177,9 @@ W przypadku uwzględnienia wymagań dotyczących ruchu przychodzącego i wychodz
 
 ![Reguły zabezpieczeń dla ruchu przychodzącego][4]
 
-Reguła domyślna umożliwia komunikację między adresami IP w sieci wirtualnej w podsieci środowiska ASE. Inna domyślna reguła umożliwia modułowi równoważenia obciążenia, znanym również jako publiczny adres VIP, komunikowanie się ze środowiskiem ASE. Aby wyświetlić reguły domyślne, wybierz opcję **domyślne reguły** obok ikony **Dodaj** . Jeśli przed regułami domyślnymi zostanie umieszczona reguła Odmów wszystkiego innego, zapobiegasz ruchu między wirtualnym adresem IP a środowiskiem ASE. Aby zapobiec ruchowi pochodzącemu z sieci wirtualnej, Dodaj własną regułę, aby zezwolić na przychodzący. Użyj źródła równego AzureLoadBalancer z miejscem docelowym **dowolnego** i zakresu portów **\***. Ponieważ reguła sieciowej grupy zabezpieczeń jest stosowana do podsieci środowiska ASE, nie musisz być konkretna w miejscu docelowym.
+Reguła domyślna umożliwia komunikację między adresami IP w sieci wirtualnej w podsieci środowiska ASE. Inna domyślna reguła umożliwia modułowi równoważenia obciążenia, znanym również jako publiczny adres VIP, komunikowanie się ze środowiskiem ASE. Aby wyświetlić reguły domyślne, wybierz opcję **domyślne reguły** obok ikony **Dodaj** . Jeśli przed regułami domyślnymi zostanie umieszczona reguła Odmów wszystkiego innego, zapobiegasz ruchu między wirtualnym adresem IP a środowiskiem ASE. Aby zapobiec ruchowi pochodzącemu z sieci wirtualnej, Dodaj własną regułę, aby zezwolić na przychodzący. Użyj źródła równego AzureLoadBalancer z miejscem docelowym **dowolnego** i zakresu portów **\*** . Ponieważ reguła sieciowej grupy zabezpieczeń jest stosowana do podsieci środowiska ASE, nie musisz być konkretna w miejscu docelowym.
 
-Jeśli do aplikacji został przypisany adres IP, upewnij się, że porty są otwarte. Aby wyświetlić porty, wybierz pozycję **App Service Environment** > **adresy IP**.  
+Jeśli do aplikacji został przypisany adres IP, upewnij się, że porty są otwarte. Aby wyświetlić porty, wybierz pozycję **App Service Environment**  >  **adresy IP**.  
 
 Wszystkie elementy wyświetlane w następujących regułach wychodzących są zbędne, z wyjątkiem ostatniego elementu. Umożliwiają one dostęp sieciowy do zależności środowiska ASE, które zostały zanotowane we wcześniejszej części tego artykułu. Jeśli zablokujesz dowolne z nich, środowisko ASE przestanie działać. Ostatni element na liście umożliwia firmie ASE komunikowanie się z innymi zasobami w sieci wirtualnej.
 
@@ -194,11 +194,11 @@ Wymuszone tunelowanie polega na ustawieniu tras w sieci wirtualnej, tak aby ruch
 Po utworzeniu środowiska ASE w portalu utworzymy również zestaw tabel tras w podsieci, która jest tworzona przy użyciu środowiska ASE.  Trasy te po prostu wysyłają ruch wychodzący bezpośrednio do Internetu.  
 Aby ręcznie utworzyć te same trasy, wykonaj następujące czynności:
 
-1. Przejdź do witryny Azure Portal. Wybierz pozycję **Sieć** > **tabele tras**.
+1. Przejdź do witryny Azure Portal. Wybierz pozycję **Sieć**  >  **tabele tras**.
 
 2. Utwórz nową tabelę tras w tym samym regionie, w którym znajduje się sieć wirtualna.
 
-3. Z poziomu interfejsu użytkownika tabeli tras wybierz pozycję **trasy** > **Dodaj**.
+3. Z poziomu interfejsu użytkownika tabeli tras wybierz pozycję **trasy**  >  **Dodaj**.
 
 4. Ustaw **Typ następnego przeskoku** na **Internet** i **prefiks adresu** **0.0.0.0/0**. Wybierz pozycję **Zapisz**.
 

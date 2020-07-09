@@ -1,9 +1,9 @@
 ---
-title: Importowanie pliku BACPAC w celu utworzenia bazy danych w usłudze Azure SQL
-description: Utwórz nową Azure SQL Database lub bazę danych wystąpienia zarządzanego Azure SQL z pliku BACPAC.
+title: Zaimportuj plik BACPAC, aby utworzyć bazę danych w Azure SQL Database
+description: Utwórz nową bazę danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL z pliku BACPAC.
 services: sql-database
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-db-mi
+ms.subservice: migrate
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 25e8790ed0fd5a9a9d93458c3c247632defa778a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7bca179f3140a64923af71199fe4a1db48d2065c
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050674"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85982341"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: Importowanie pliku BACPAC do bazy danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Bazę danych SQL Server można zaimportować do wystąpienia zarządzanego Azure SQL Database lub SQL przy użyciu pliku [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) . Dane można zaimportować z `BACPAC` pliku przechowywanego w usłudze Azure Blob Storage (tylko w przypadku magazynu w warstwie Standardowa) lub z magazynu lokalnego w lokalizacji lokalnej. Aby maksymalnie zwiększyć szybkość importowania przez zapewnienie większej ilości szybszych zasobów, przeprowadź skalowanie bazy danych do wyższej warstwy usługi i rozmiaru obliczeniowego na czas trwania procesu importowania. Po pomyślnym zakończeniu importowania możesz przeprowadzić skalowanie w dół.
+Bazę danych SQL Server można zaimportować do wystąpienia zarządzanego Azure SQL Database lub SQL przy użyciu pliku [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) . Dane można zaimportować z pliku BACPAC przechowywanego w usłudze Azure Blob Storage (tylko w przypadku magazynu w warstwie Standardowa) lub z magazynu lokalnego. Aby maksymalnie zwiększyć szybkość importowania przez zapewnienie większej ilości szybszych zasobów, przeprowadź skalowanie bazy danych do wyższej warstwy usługi i rozmiaru obliczeniowego na czas trwania procesu importowania. Po pomyślnym zakończeniu importowania możesz przeprowadzić skalowanie w dół.
 
 > [!NOTE]
 > Poziom zgodności zaimportowanej bazy danych jest oparty na poziomie zgodności źródłowej bazy danych.
@@ -35,12 +35,12 @@ Obejrzyj ten film wideo, aby dowiedzieć się, jak importować z pliku BACPAC w 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
-[Azure Portal](https://portal.azure.com) obsługuje *tylko* tworzenie pojedynczego Azure SQL Database i *tylko* z pliku BACPAC przechowywanego w usłudze Azure Blob Storage.
+[Azure Portal](https://portal.azure.com) obsługuje *tylko* Tworzenie pojedynczej bazy danych w programie Azure SQL Database i *tylko* z pliku BACPAC przechowywanego w usłudze Azure Blob Storage.
 
 Aby przeprowadzić migrację bazy danych do [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) z pliku BACPAC, użyj SQL Server Management Studio lub sqlpackage, używając Azure Portal lub Azure PowerShell nie jest obecnie obsługiwane.
 
 > [!NOTE]
-> Komputery przetwarzające żądania importu/eksportu przesłane za pomocą Azure Portal lub PowerShell muszą przechowywać plik BACPAC oraz pliki tymczasowe generowane przez strukturę aplikacji warstwy danych (DacFX). Wymagane miejsce na dysku zmienia się w różnych bazach danych o takim samym rozmiarze i może wymagać wolnego miejsca na dysku do 3 razy większym niż rozmiar bazy danych. Maszyny, na których jest uruchomione żądanie importu/eksportu, mają tylko miejsce na dysku lokalnym 450GB. W rezultacie niektóre żądania mogą zakończyć się niepowodzeniem z powodu błędu `There is not enough space on the disk` . W takim przypadku obejście ma na celu uruchomienie programu sqlpackage. exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Zachęcamy do używania sqlpackage do importowania/eksportowania baz danych większych niż 150 GB, aby uniknąć tego problemu.
+> Komputery przetwarzające żądania importu/eksportu przesłane za pomocą Azure Portal lub PowerShell muszą przechowywać plik BACPAC oraz pliki tymczasowe generowane przez strukturę aplikacji warstwy danych (DacFX). Wymagane miejsce na dysku zmienia się w różnych bazach danych o takim samym rozmiarze i może wymagać wolnego miejsca na dysku do 3 razy większym niż rozmiar bazy danych. Maszyny, na których jest uruchomione żądanie importu/eksportu, mają tylko miejsce na dysku lokalnym 450GB. W rezultacie niektóre żądania mogą zakończyć się niepowodzeniem z powodu błędu `There is not enough space on the disk` . W takim przypadku obejście ma na celu uruchomienie sqlpackage.exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Zachęcamy do używania sqlpackage do importowania/eksportowania baz danych większych niż 150 GB, aby uniknąć tego problemu.
 
 1. Aby zaimportować plik BACPAC do nowej pojedynczej bazy danych przy użyciu Azure Portal, Otwórz odpowiednią stronę serwera, a następnie na pasku narzędzi wybierz pozycję **Importuj bazę danych**.  
 
@@ -48,7 +48,7 @@ Aby przeprowadzić migrację bazy danych do [wystąpienia zarządzanego usługi 
 
 1. Wybierz konto magazynu i kontener dla pliku BACPAC, a następnie wybierz plik BACPAC, z którego ma zostać zaimportowany.
 
-1. Określ nowy rozmiar bazy danych (zwykle taki sam jak pierwotny) i podaj miejsce docelowe SQL Server poświadczenia. Aby uzyskać listę możliwych wartości dla nowego Azure SQL Database, zobacz [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Określ nowy rozmiar bazy danych (zwykle taki sam jak pierwotny) i podaj miejsce docelowe SQL Server poświadczenia. Aby uzyskać listę możliwych wartości dla nowej bazy danych w Azure SQL Database, zobacz [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
    ![Import2 bazy danych](./media/database-import/sql-server-import-database-settings.png)
 
@@ -87,7 +87,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [Wystąpienie zarządzane SQL](../managed-instance/sql-managed-instance-paas-overview.md) nie obsługuje obecnie migrowania bazy danych do bazy danych wystąpienia z pliku BACPAC przy użyciu Azure PowerShell. Aby zaimportować do wystąpienia zarządzanego SQL, użyj SQL Server Management Studio lub sqlpackage.
 
 > [!NOTE]
-> Komputery przetwarzające żądania importu/eksportu przesłane za pomocą portalu lub programu PowerShell muszą przechowywać plik BACPAC oraz pliki tymczasowe generowane przez strukturę aplikacji warstwy danych (DacFX). Wymagane miejsce na dysku zmienia się znacznie w baz danych z tym samym rozmiarem i może trwać do 3 razy rozmiaru bazy danych. Maszyny, na których jest uruchomione żądanie importu/eksportu, mają tylko miejsce na dysku lokalnym 450GB. W związku z tym niektóre żądania mogą zakończyć się niepowodzeniem z powodu błędu "nie ma wystarczającej ilości miejsca na dysku". W takim przypadku obejście ma na celu uruchomienie programu sqlpackage. exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Podczas importowania/eksportowania baz danych o rozmiarze większym niż 150 GB należy użyć sqlpackage, aby uniknąć tego problemu.
+> Komputery przetwarzające żądania importu/eksportu przesłane za pomocą portalu lub programu PowerShell muszą przechowywać plik BACPAC oraz pliki tymczasowe generowane przez strukturę aplikacji warstwy danych (DacFX). Wymagane miejsce na dysku zmienia się znacznie w baz danych z tym samym rozmiarem i może trwać do 3 razy rozmiaru bazy danych. Maszyny, na których jest uruchomione żądanie importu/eksportu, mają tylko miejsce na dysku lokalnym 450GB. W związku z tym niektóre żądania mogą zakończyć się niepowodzeniem z powodu błędu "nie ma wystarczającej ilości miejsca na dysku". W takim przypadku obejście ma na celu uruchomienie sqlpackage.exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Podczas importowania/eksportowania baz danych o rozmiarze większym niż 150 GB należy użyć sqlpackage, aby uniknąć tego problemu.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -146,7 +146,7 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 ## <a name="limitations"></a>Ograniczenia
 
 - Importowanie do bazy danych w elastycznej puli nie jest obsługiwane. Dane można importować do pojedynczej bazy danych, a następnie przenieść ją do elastycznej puli.
-- Usługa Import Export nie działa, gdy ustawienie Zezwalaj na dostęp do usług platformy Azure jest wyłączone. Można jednak obejść ten problem, ręcznie uruchamiając program sqlpackage. exe z maszyny wirtualnej platformy Azure lub wykonując eksport bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
+- Usługa Import Export nie działa, gdy ustawienie Zezwalaj na dostęp do usług platformy Azure jest wyłączone. Można jednak obejść ten problem, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonując eksport bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
 
 ## <a name="import-using-wizards"></a>Importuj przy użyciu kreatorów
 
@@ -157,7 +157,7 @@ Możesz również użyć tych kreatorów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak nawiązać połączenie z Azure SQL Database i wykonać zapytania, zobacz [Szybki Start: Azure SQL Database: używanie SQL Server Management Studio do nawiązywania połączeń i wykonywania zapytań dotyczących danych](connect-query-ssms.md).
+- Aby dowiedzieć się, jak nawiązać połączenie z bazą danych i zbadać ją w Azure SQL Database, zobacz [Szybki Start: Azure SQL Database: użyj SQL Server Management Studio, aby nawiązać połączenie z danymi i wysyłać do nich zapytania](connect-query-ssms.md).
 - Aby poczytać o migracji za pomocą plików BACPAC na blogu SQL Server Customer Advisory Team, zobacz [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407) (Migrowanie z programu SQL Server do usługi Azure SQL Database za pomocą plików BACPAC).
 - Aby zapoznać się z omówieniem całego procesu migracji bazy danych SQL Server, łącznie z zaleceniami dotyczącymi wydajności, zobacz [SQL Server migracji bazy danych do Azure SQL Database](migrate-to-database-from-sql-server.md).
 - Aby dowiedzieć się, jak bezpiecznie zarządzać i udostępniać klucze magazynu i sygnatury dostępu współdzielonego, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: raynew
 ms.openlocfilehash: 22d8bcee96b4ac52641d4f0841267195f44fe15a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75485210"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Przeniesienie zasobów platformy Azure między regionami

@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76899950"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85553282"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Szyfrowanie zawartości w usłudze Azure Wyszukiwanie poznawcze przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault
 
@@ -26,7 +26,7 @@ Szyfrowanie przy użyciu kluczy zarządzanych przez klienta jest konfigurowane n
 Klucze nie wszystkie muszą znajdować się w tym samym Key Vault. Pojedyncza usługa wyszukiwania może obsługiwać wiele szyfrowanych indeksów lub synonimów mapowanych na własne, zarządzane przez klienta klucze szyfrowania przechowywane w różnych magazynach kluczy.  Można również mieć indeksy i mapy synonimów w tej samej usłudze, które nie są szyfrowane przy użyciu kluczy zarządzanych przez klienta. 
 
 > [!IMPORTANT] 
-> Ta funkcja jest dostępna w [interfejsie API REST w wersji 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) i [.net SDK wersja 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Obecnie nie jest obsługiwane Konfigurowanie kluczy szyfrowania zarządzanych przez klienta w Azure Portal. Usługę wyszukiwania należy utworzyć po styczniu 2019 i nie może być to bezpłatna (współdzielona) usługa.
+> Ta funkcja jest dostępna w [interfejsie API REST](https://docs.microsoft.com/rest/api/searchservice/) i [zestawie SDK platformy .net w wersji 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Obecnie nie jest obsługiwane Konfigurowanie kluczy szyfrowania zarządzanych przez klienta w Azure Portal. Usługę wyszukiwania należy utworzyć po styczniu 2019 i nie może być to bezpłatna (współdzielona) usługa.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +38,7 @@ W tym przykładzie są używane następujące usługi.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) jest używany na potrzeby zadań konfiguracyjnych.
 
-+ Do wywoływania interfejsu API REST można użyć programu [Poster](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) i [zestawu SDK platformy Azure wyszukiwanie poznawcze](https://aka.ms/search-sdk-preview) . W tej chwili nie ma obsługi szyfrowania zarządzanego przez klienta w portalu.
++ Do wywoływania interfejsu API REST można użyć programu [Poster](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) i [zestawu .NET SDK Preview](https://aka.ms/search-sdk-preview) . W tej chwili nie ma obsługi szyfrowania zarządzanego przez klienta w portalu.
 
 >[!Note]
 > Ze względu na charakter szyfrowania z użyciem funkcji klucze zarządzane przez klienta usługa Azure Wyszukiwanie poznawcze nie będzie mogła pobrać danych, jeśli klucz magazynu kluczy platformy Azure zostanie usunięty. Aby zapobiec utracie danych spowodowanym przez przypadkowe Key Vault usuwania kluczy, **należy** włączyć opcję usuwania nietrwałego i przeczyszczania w Key Vault, zanim będzie można jej użyć. Aby uzyskać więcej informacji, zobacz [Azure Key Vault usuwania nietrwałego](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   

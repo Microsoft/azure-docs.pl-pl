@@ -4,10 +4,9 @@ description: Opisuje sposób rozwiązywania problemów z przydziałami zasobów 
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79273789"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolve errors for resource quotas (Rozwiązywanie błędów z limitami przydziałów zasobów)
@@ -44,7 +43,7 @@ Aby uzyskać pełne informacje o limicie przydziału, zobacz [limity subskrypcji
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby znaleźć przydziały maszyny `az vm list-usage` wirtualnej, dla interfejsu wiersza polecenia platformy Azure wykonaj polecenie.
+Aby `az vm list-usage` znaleźć przydziały maszyny wirtualnej, dla interfejsu wiersza polecenia platformy Azure wykonaj polecenie.
 
 ```azurecli
 az vm list-usage --location "South Central US"
@@ -95,7 +94,7 @@ Aby zażądać zwiększenia limitu przydziału, przejdź do portalu i zapoznaj s
 
 1. Wybierz pozycję **Subskrypcje**.
 
-   ![Subscriptions](./media/error-resource-quota/subscriptions.png)
+   ![Subskrypcje](./media/error-resource-quota/subscriptions.png)
 
 2. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
 

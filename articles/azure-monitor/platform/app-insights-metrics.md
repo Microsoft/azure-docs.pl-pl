@@ -8,10 +8,9 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77664919"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights metryki oparte na dzienniku
@@ -49,7 +48,7 @@ Metryka *dostępności* przedstawia wartość procentową przebiegów testów si
 
 |Jednostka miary|Obsługiwane agregacje|Obsługiwane wymiary|
 |---|---|---|---|---|---|
-|Procentowe|Średnia|Lokalizacja przebiegu, nazwa testu|
+|Procent|Średnia|Lokalizacja przebiegu, nazwa testu|
 
 ```Kusto
 availabilityResults 
@@ -180,7 +179,7 @@ Metryki w **błędach** pokazują problemy związane z przetwarzaniem żądań, 
 
 ### <a name="browser-exceptions-exceptionsbrowser"></a>Wyjątki przeglądarki (wyjątki/przeglądarka)
 
-Ta Metryka odzwierciedla liczbę zgłoszonych wyjątków z kodu aplikacji działającego w przeglądarce. W metryce są uwzględniane tylko wyjątki, ```trackException()``` które są śledzone za pomocą wywołania interfejsu API Application Insights.
+Ta Metryka odzwierciedla liczbę zgłoszonych wyjątków z kodu aplikacji działającego w przeglądarce. W metryce są uwzględniane tylko wyjątki, które są śledzone za pomocą ```trackException()``` wywołania interfejsu API Application Insights.
 
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|Uwagi|
 |---|---|---|---|
@@ -312,7 +311,7 @@ Metryka pokazuje, ile całkowitej pojemności procesora jest zużywanych przez p
 
 |Jednostka miary|Obsługiwane agregacje|Obsługiwane wymiary|
 |---|---|---|
-|Procentowe|Średnia, minimum, maksimum|Wystąpienie roli w chmurze
+|Procent|Średnia, minimum, maksimum|Wystąpienie roli w chmurze
 
 ```Kusto
 performanceCounters
@@ -358,7 +357,7 @@ Użycie procesora CPU przez *wszystkie* procesy uruchomione w monitorowanym wyst
 
 |Jednostka miary|Obsługiwane agregacje|Obsługiwane wymiary|
 |---|---|---|
-|Procentowe|Średnia, minimum, maksimum|Wystąpienie roli w chmurze
+|Procent|Średnia, minimum, maksimum|Wystąpienie roli w chmurze
 
 >[!NOTE]
 > Metryka czasu procesora nie jest dostępna dla aplikacji hostowanych w usłudze Azure App Services. Metryka [procesora CPU procesu](#process-cpu-performancecountersprocesscpupercentage) służy do śledzenia użycia procesora CPU przez aplikacje sieci Web hostowane w App Services.

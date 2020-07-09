@@ -1,24 +1,21 @@
 ---
-title: Projekcje w sklepie z bazami wiedzy (wersja zapoznawcza)
+title: Koncepcje projekcji
 titleSuffix: Azure Cognitive Search
-description: Zapisz i umieść wzbogacone dane z potoku indeksowania wzbogacenia AI do magazynu wiedzy, który ma być używany w scenariuszach innych niż wyszukiwanie pełnotekstowe. Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej.
+description: Zapisz i umieść wzbogacone dane z potoku indeksowania wzbogacenia AI do magazynu wiedzy, który ma być używany w scenariuszach innych niż wyszukiwanie pełnotekstowe.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/30/2020
+ms.openlocfilehash: 22db4f95bacd926208ac7edf3306cd136d81b00e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565186"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projekcje w sklepie z bazami danych na platformie Azure Wyszukiwanie poznawcze
-
-> [!IMPORTANT] 
-> Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Projekcje w sklepie z bazami danych na platformie Azure Wyszukiwanie poznawcze
 
 Usługa Azure Wyszukiwanie poznawcze umożliwia wzbogacanie zawartości dzięki wbudowanym umiejętnościom poznawczym i umiejętnościom niestandardowym w ramach indeksowania. Wzbogacania tworzą nowe informacje, w przypadku których nie istniały wcześniej: wyodrębnianie informacji z obrazów, wykrywanie tonacji, fraz kluczowych i jednostek z tekstu, aby utworzyć kilka nazw. Wzbogacania również dodają strukturę do tekstu nierozróżnianego. Wszystkie te procesy powodują, że wyniki wyszukiwania pełnotekstowego są bardziej efektywne. W wielu przypadkach wzbogacone dokumenty są przydatne w scenariuszach innych niż wyszukiwanie, na przykład w przypadku wyszukiwania w bazie wiedzy.
 

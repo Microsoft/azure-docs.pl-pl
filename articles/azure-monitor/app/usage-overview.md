@@ -4,10 +4,9 @@ description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją a
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797792"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
@@ -18,7 +17,7 @@ Które funkcje aplikacji sieci Web lub mobilnej są najbardziej popularne? Czy u
 
 Najlepsze środowisko jest uzyskiwane przez zainstalowanie Application Insights zarówno w kodzie serwera aplikacji, jak i na stronach sieci Web. Składniki klienta i serwera aplikacji wysyłają dane telemetryczne z powrotem do Azure Portal na potrzeby analizy.
 
-1. **Kod serwera:** Zainstaluj odpowiedni moduł dla [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node. js](../../azure-monitor/app/nodejs.md)lub [innej](../../azure-monitor/app/platforms.md) aplikacji.
+1. **Kod serwera:** Zainstaluj odpowiedni moduł dla [ASP.NET](../../azure-monitor/app/asp-net.md), [platformy Azure](../../azure-monitor/app/app-insights-overview.md), [środowiska Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md)lub [innej](../../azure-monitor/app/platforms.md) aplikacji.
 
     * *Nie chcesz instalować kodu serwera? Po prostu [Utwórz zasób usługi Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 

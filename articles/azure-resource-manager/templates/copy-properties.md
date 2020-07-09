@@ -3,12 +3,11 @@ title: Definiowanie wielu wystąpień właściwości
 description: Użyj operacji kopiowania w szablonie Azure Resource Manager, aby wykonać iterację wielokrotnie podczas tworzenia właściwości w zasobie.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583407"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678464"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteracja właściwości w szablonach ARM
 
@@ -51,11 +50,11 @@ We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i 
 
 ## <a name="property-iteration"></a>Iteracja właściwości
 
-Poniższy przykład pokazuje, jak zastosować `copy` do właściwości datadisks na maszynie wirtualnej:
+Poniższy przykład pokazuje, jak zastosować `copy` do właściwości Datadisks na maszynie wirtualnej:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "numberOfDataDisks": {

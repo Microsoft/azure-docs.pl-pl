@@ -188,6 +188,8 @@
       items:
         - name: Włączanie zapisywania zwrotnego urządzeń
           href: how-to-connect-device-writeback.md
+        - name: Włączanie zapisywania zwrotnego grup
+          href: how-to-connect-group-writeback.md
         - name: Opcje urządzenia
           href: how-to-connect-device-options.md
         - name: Dodatkowe funkcje w programie Azure AD Connect

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82187215"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Wdróż lokalnie Akcelerator rozwiązania do monitorowania zdalnego — IntelliJ
@@ -41,9 +41,9 @@ Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainst
 * [Wtyczka IntelliJ SBT](https://plugins.jetbrains.com/plugin/5007-sbt)
 * [Wtyczka modułu wykonawczego IntelliJ SBT](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
 * [Nginx](https://nginx.org/en/download.html)
-* [V8 środowiska Node. js](https://nodejs.org/)
+* [Node.js V8](https://nodejs.org/)
 
-Node. js V8 jest wymaganiem wstępnym dla komputerów z interfejsem wiersza polecenia, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj środowiska Node. js v10.
+Node.js V8 jest wymaganiem wstępnym dla komputerów z interfejsem wiersza polecenia, które są używane przez skrypty do tworzenia zasobów platformy Azure. Nie używaj Node.js v10.
 
 > [!NOTE]
 > IntelliJ IDE jest dostępny dla systemów Windows i Mac.
@@ -98,7 +98,7 @@ Jeśli nie utworzono jeszcze wymaganych zasobów platformy Azure, wykonaj nastę
    Skrypt dodaje również zestaw zmiennych środowiskowych do komputera lokalnego. Każda nazwa zmiennej ma **komputery**z prefiksem. Te zmienne środowiskowe zawierają szczegóły, które umożliwiają zdalne monitorowanie Odczytywanie wartości konfiguracji z zasobu Azure Key Vault.
 
    > [!TIP]
-   > Po zakończeniu działania skryptu zapisuje zmienne środowiskowe do pliku o nazwie ** \<\>\\folder macierzysty.\\\<\>Nazwa rozwiązania komputerów. env**. Można ich używać do przyszłych wdrożeń akceleratora rozwiązań. Należy pamiętać, że wszystkie zmienne środowiskowe ustawione na maszynie lokalnej przesłaniają wartości **w\\pliku\\\\. env skryptów usług** , gdy uruchamiasz **platformę Docker**.
+   > Po zakończeniu działania skryptu zapisuje zmienne środowiskowe do pliku o nazwie ** \<your home folder\> \\ . PCs \\ \<solution name\> . env**. Można ich używać do przyszłych wdrożeń akceleratora rozwiązań. Należy pamiętać, że wszystkie zmienne środowiskowe ustawione na maszynie lokalnej przesłaniają wartości w pliku ** \\ \\ \\ . env skryptów usług** , gdy uruchamiasz **platformę Docker**.
 
 1. Zamknij środowisko wiersza polecenia.
 
@@ -109,7 +109,7 @@ Jeśli zostały już utworzone wymagane zasoby platformy Azure, ustaw odpowiedni
 * **PCS_AAD_APPID**: identyfikator aplikacji Azure Active Directory (Azure AD).
 * **PCS_AAD_APPSECRET**: wpis tajny aplikacji usługi Azure AD.
 
-Wartości konfiguracyjne zostaną odczytane z tego zasobu Key Vault. Te zmienne środowiskowe można zapisać w ** \<\>\\folderze głównym. nazwy\\\<\>rozwiązań komputerów. env** . Należy pamiętać, że zmienne środowiskowe ustawione na wartości Zastąp na komputerze lokalnym w pliku **Local\\. env skryptów\\\\usług** po uruchomieniu **platformy Docker — tworzenie**.
+Wartości konfiguracyjne zostaną odczytane z tego zasobu Key Vault. Te zmienne środowiskowe można zapisać w pliku ** \<your home folder\> \\ PCs \\ \<solution name\> . env** z wdrożenia. Należy pamiętać, że zmienne środowiskowe ustawione na wartości Zastąp na komputerze lokalnym w pliku ** \\ \\ Local \\ . env skryptów usług** po uruchomieniu **platformy Docker — tworzenie**.
 
 Niektóre konfiguracje wymagające mikrousługi są przechowywane w wystąpieniu Key Vault, które zostało utworzone podczas początkowego wdrożenia. Odpowiednie zmienne w magazynie kluczy powinny być modyfikowane w razie konieczności.
 
@@ -159,11 +159,11 @@ Poniższe kroki pokazują, jak uruchomić mikrousługi zdalnego monitorowania w 
 
 #### <a name="create-run-configurations"></a>Utwórz konfiguracje uruchomieniowe
 
-1. Wybierz kolejno opcje **Uruchom** > **Edytuj konfiguracje**.
-1. Wybierz pozycję **Dodaj nowe zadanie konfiguracji** > **SBT**.
+1. Wybierz kolejno opcje **Uruchom**  >  **Edytuj konfiguracje**.
+1. Wybierz pozycję **Dodaj nowe**  >  **zadanie konfiguracji SBT**.
 1. Wprowadź **nazwę**, a następnie wprowadź **zadania** jako **uruchomienia**.
 1. Wybierz **katalog roboczy** na podstawie usługi, którą chcesz uruchomić.
-1. Wybierz pozycję **Zastosuj** > **OK** , aby zapisać wybrane opcje.
+1. Wybierz pozycję **Zastosuj**  >  **OK** , aby zapisać wybrane opcje.
 1. Utwórz konfiguracje uruchomieniowe dla następujących usług sieci Web:
     * Usługa sieci Web (services\config)
     * Usługa sieci Web (services\device-Telemetry)
@@ -176,9 +176,9 @@ Na przykład na poniższej ilustracji przedstawiono sposób dodawania konfigurac
 
 #### <a name="create-a-compound-configuration"></a>Tworzenie konfiguracji złożonej
 
-1. Aby uruchomić wszystkie usługi razem, wybierz pozycję **Dodaj nowy** > **związek**konfiguracji.
+1. Aby uruchomić wszystkie usługi razem, wybierz pozycję **Dodaj nowy**  >  **związek**konfiguracji.
 1. Wprowadź **nazwę**, a następnie wybierz pozycję **Dodaj zadania SBT**.
-1. Wybierz pozycję **Zastosuj** > **OK** , aby zapisać wybrane opcje.
+1. Wybierz pozycję **Zastosuj**  >  **OK** , aby zapisać wybrane opcje.
 
 Na przykład na poniższej ilustracji przedstawiono sposób dodawania wszystkich zadań SBT do jednej konfiguracji:
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Gdy polecenie **Uruchom** zostanie wykonane, przeglądarka wyświetli stronę pod adresem `http://localhost:3000/dashboard`. Błędy na tej stronie są oczekiwane. Aby wyświetlić aplikację bez błędów, wykonaj następujące czynności.
+Gdy polecenie **Uruchom** zostanie wykonane, przeglądarka wyświetli stronę pod adresem `http://localhost:3000/dashboard` . Błędy na tej stronie są oczekiwane. Aby wyświetlić aplikację bez błędów, wykonaj następujące czynności.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurowanie i uruchamianie Nginx
 
@@ -226,7 +226,7 @@ Aby uzyskać więcej informacji na temat uruchamiania programu Nginx, zobacz [Ng
 
 ### <a name="connect-to-the-dashboard"></a>Nawiązywanie połączenia z pulpitem nawigacyjnym
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania `http://localhost:9000` zdalnego, przejdź do obszaru w przeglądarce.
+Aby uzyskać dostęp do pulpitu nawigacyjnego rozwiązania do monitorowania zdalnego, przejdź do `http://localhost:9000` obszaru w przeglądarce.
 
 ## <a name="clean-up"></a>Czyszczenie
 

@@ -3,15 +3,15 @@ title: Skonfiguruj czas wygaśnięcia w usłudze Azure Cosmos DB i Zarządzaj ni
 description: Informacje o konfigurowaniu czasu wygaśnięcia i zarządzaniu nim w kontenerze i elemencie w Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 11f5615d44cef4b6717dc9fe2004a64cf2f800ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbddcb8627c78544d603e1ea3ca33bc410419da1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124129"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263626"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurowanie czasu wygaśnięcia w usłudze Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Wykonaj następujące czynności, aby włączyć czas wygaśnięcia dla kontener
    * Wybierz pozycję **Włączony (brak wartości domyślnej)** lub wybierz pozycję **Włączony** i ustaw wartość TTL.
    * Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
-   ![Konfigurowanie czasu wygaśnięcia w witrynie Azure Portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Konfigurowanie czasu wygaśnięcia w witrynie Azure Portal":::
 
 * Gdy DefaultTimeToLive ma wartość null, czas wygaśnięcia jest wyłączony
 * Gdy DefaultTimeToLive ma wartość-1, ustawienie czasu wygaśnięcia jest włączone (bez domyślnego)
@@ -53,7 +53,7 @@ Aby utworzyć lub włączyć czas wygaśnięcia dla kontenera, zobacz.
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
-.NET SDK V2 (Microsoft. Azure. DocumentDB)
+.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and without any expiration value
@@ -119,7 +119,7 @@ Aby ustawić czas wygaśnięcia dla kontenera, należy podać niezerową liczbę
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
-.NET SDK V2 (Microsoft. Azure. DocumentDB)
+.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and a 90 day expiration
@@ -353,7 +353,7 @@ Możesz zresetować czas wygaśnięcia elementu, wykonując operację zapisu lub
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
-.NET SDK V2 (Microsoft. Azure. DocumentDB)
+.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -427,7 +427,7 @@ Jeśli ustawiono czas wygaśnięcia elementu, ale nie chcesz, aby ten element wy
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
-.NET SDK V2 (Microsoft. Azure. DocumentDB)
+.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -502,7 +502,7 @@ Aby wyłączyć czas wygaśnięcia dla kontenera i zatrzymać proces w tle spraw
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
-.NET SDK V2 (Microsoft. Azure. DocumentDB)
+.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Get the container, update DefaultTimeToLive to null

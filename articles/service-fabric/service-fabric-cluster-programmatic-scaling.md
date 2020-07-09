@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82787145"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowe skalowanie klastra Service Fabricowego 
@@ -24,12 +24,12 @@ Jednym z wyzwań zapisywania usługi do obsługi skalowania jest to, że usługa
 
 Jednostkę usługi można utworzyć przy użyciu następujących kroków:
 
-1. Zaloguj się do interfejsu wiersza polecenia platformy`az login`Azure () jako użytkownik z dostępem do zestawu skalowania maszyn wirtualnych
+1. Zaloguj się do interfejsu wiersza polecenia platformy Azure ( `az login` ) jako użytkownik z dostępem do zestawu skalowania maszyn wirtualnych
 2. Tworzenie jednostki usługi za pomocą`az ad sp create-for-rbac`
     1. Zanotuj identyfikator appId (nazywany "IDENTYFIKATORem klienta" w innym miejscu), nazwę, hasło i dzierżawcę do późniejszego użycia.
     2. Wymagany jest również Identyfikator subskrypcji, który można wyświetlić za pomocą`az account list`
 
-Biblioteka obliczeń Fluent może zalogować się przy użyciu tych poświadczeń w następujący sposób (należy zauważyć, że podstawowe `IAzure` typy Fluent platformy Azure, takie jak znajdują się w pakiecie [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
+Biblioteka obliczeń Fluent może zalogować się przy użyciu tych poświadczeń w następujący sposób (należy zauważyć, że podstawowe typy Fluent platformy Azure, takie jak `IAzure` znajdują się w pakiecie [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -48,7 +48,7 @@ else
 }
 ```
 
-Po zalogowaniu licznik wystąpienia zestawu skalowania może być badany za `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity`pomocą.
+Po zalogowaniu licznik wystąpienia zestawu skalowania może być badany za pomocą `AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId).Capacity` .
 
 ## <a name="scaling-out"></a>Skalowanie w poziomie
 Korzystając z zestawu Azure COMPUTE SDK, wystąpienia można dodać do zestawu skalowania maszyn wirtualnych z zaledwie kilkoma wywołaniami —

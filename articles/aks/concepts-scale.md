@@ -2,16 +2,13 @@
 title: Pojęcia — skalowanie aplikacji w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się więcej na temat skalowania w usłudze Azure Kubernetes Service (AKS), w tym automatycznego skalowania, automatycznego skalowania klastra i łącznika Azure Container Instances.
 services: container-service
-author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: zarhoads
-ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232534"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465341"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje skalowania aplikacji w usłudze Azure Kubernetes Service 
 

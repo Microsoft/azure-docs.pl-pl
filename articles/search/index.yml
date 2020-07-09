@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 02/25/2020
-  ms.openlocfilehash: ab3352dbd6631c0c86656764dac748eac10fa79b
-  ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-  ms.translationtype: HT
+  ms.openlocfilehash: f5acb693e758d3a574b799b2999e6d956aaf883c
+  ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+  ms.translationtype: 
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/07/2020
-  ms.locfileid: "82890083"
+  ms.lasthandoff: 07/05/2020
+  ms.locfileid: "85954506"
 landingContent:
 - title: Informacje o wyszukiwaniu poznawczym
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
       url: search-create-service-portal.md
     - text: Tworzenie indeksu
       url: search-get-started-portal.md
-    - text: Tworzenie aplikacji
+    - text: Tworzenie aplikacji demonstracyjnej
       url: search-create-app-portal.md
     - text: Wyodrębnianie tekstu z obrazów i plików aplikacji
       url: cognitive-search-quickstart-blob.md

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69900043"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85550181"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: informacje o funkcjach
 W Azure AD Connect funkcje są używane do manipulowania wartością atrybutu podczas synchronizacji.  
@@ -52,42 +52,100 @@ Funkcje o typach **mvbin**, **mvstr**i **mvref** mogą działać tylko w przypad
 
 ## <a name="functions-reference"></a>Informacje ogólne o funkcjach
 
-| Lista funkcji |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| **Certyfikat** | | | | |
-| [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
-| [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
-| [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
-| [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[CertVersion](#certversion) |[Iscert](#iscert) | | | |
-| **Konwersja** | | | | |
-| [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
-| [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
-| **Data i godzina** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Znajdź](#now) | |
-| [NumFromDate](#numfromdate) | | | | |
-| **Katalog** | | | | |
-| [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
-| **Sprawozdanie** | | | | |
-| [IsBitSet](#isbitset) |[ISDATE](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
-| [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[Isobecne](#ispresent) | |
-| [IsString](#isstring) | | | | |
-| **Math** | | | | |
-| [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
-| **Wiele wartości** | | | | |
-| [Wyświetlana](#contains) |[Liczba](#count) |[Element](#item) |[ItemOrNull](#itemornull) | |
-| [Dołącz](#join) |[RemoveDuplicates —](#removeduplicates) |[Podziału](#split) | | |
-| **Przepływ programu** | | | | |
-| [Błąd](#error) |[IIF](#iif) |[Wybierz](#select) |[Przełącznika](#switch) | |
-| [Miejscu](#where) |[Się](#with) | | | |
-| **Tekst** | | | | |
-| [IDENT](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Lewym](#left) |[Funkcja](#len) |[Dawaj](#ltrim) |[Mid](#mid) | |
-| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Stępować](#replace) | |
-| [ReplaceChars](#replacechars) |[Kliknij](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
-| [UCase](#ucase) |[Word](#word) | | | |
+* **Certyfikat**
+  * [CertExtensionOids](#certextensionoids)
+  * [CertFormat](#certformat)
+  * [CertFriendlyName](#certfriendlyname)
+  * [CertHashString](#certhashstring)
+  * [CertIssuer](#certissuer)
+  * [CertIssuerDN](#certissuerdn)
+  * [CertIssuerOid](#certissueroid)
+  * [CertKeyAlgorithm](#certkeyalgorithm)
+  * [CertKeyAlgorithmParams](#certkeyalgorithmparams)
+  * [CertNameInfo](#certnameinfo)
+  * [CertNotAfter](#certnotafter)
+  * [CertNotBefore](#certnotbefore)
+  * [CertPublicKeyOid](#certpublickeyoid)
+  * [CertPublicKeyParametersOid](#certpublickeyparametersoid)
+  * [CertSerialNumber](#certserialnumber)
+  * [CertSignatureAlgorithmOid](#certsignaturealgorithmoid)
+  * [CertSubject](#certsubject)
+  * [CertSubjectNameDN](#certsubjectnamedn)
+  * [CertSubjectNameOid](#certsubjectnameoid)
+  * [CertThumbprint](#certthumbprint)
+  * [CertVersion](#certversion)
+  * [Iscert](#iscert)
+* **Kursy**
+  * [CBool](#cbool)
+  * [CDate](#cdate)
+  * [CGuid](#cguid)
+  * [ConvertFromBase64](#convertfrombase64)
+  * [ConvertToBase64](#converttobase64)
+  * [ConvertFromUTF8Hex](#convertfromutf8hex)
+  * [ConvertToUTF8Hex](#converttoutf8hex)
+  * [CNum](#cnum)
+  * [CRef](#cref)
+  * [CStr](#cstr)
+  * [StringFromGuid](#stringfromguid)
+  * [StringFromSid](#stringfromsid)
+* **Data i godzina**
+  * [DateAdd](#dateadd)
+  * [DateFromNum](#datefromnum)
+  * [FormatDateTime](#formatdatetime)
+  * [Znajdź](#now)
+  * [NumFromDate](#numfromdate)
+* **Katalog**
+  * [DNComponent](#dncomponent)
+  * [DNComponentRev](#dncomponentrev)
+  * [EscapeDNComponent](#escapedncomponent)
+* **Sprawozdanie**
+  * [IsBitSet](#isbitset)
+  * [ISDATE](#isdate)
+  * [IsEmpty](#isempty)
+  * [IsGuid](#isguid)
+  * [IsNull](#isnull)
+  * [IsNullOrEmpty](#isnullorempty)
+  * [IsNumeric](#isnumeric)
+  * [Isobecne](#ispresent)
+  * [IsString](#isstring)
+* **Math**
+  * [BitAnd](#bitand)
+  * [BitOr](#bitor)
+  * [RandomNum](#randomnum)
+* **Wiele * wartości**
+  * [Wyświetlana](#contains)
+  * [Liczbą](#count)
+  * [Element](#item)
+  * [ItemOrNull](#itemornull)
+  * [Dołącz](#join)
+  * [RemoveDuplicates —](#removeduplicates)
+  * [Podziału](#split)
+* **Przepływ programu**
+  * [Błąd](#error)
+  * [IIF](#iif)
+  * [Wybierz](#select)
+  * [Przełącznik](#switch)
+  * [Miejscu](#where)
+  * [Się](#with)
+* **Tekst**
+  * [IDENT](#guid)
+  * [InStr](#instr)
+  * [InStrRev](#instrrev)
+  * [LCase](#lcase)
+  * [Lewym](#left)
+  * [Funkcja](#len)
+  * [Dawaj](#ltrim)
+  * [Mid](#mid)
+  * [PadLeft](#padleft)
+  * [PadRight](#padright)
+  * [PCase](#pcase)
+  * [Stępować](#replace)
+  * [ReplaceChars](#replacechars)
+  * [Kliknij](#right)
+  * [RTrim](#rtrim)
+  * [Trim](#trim)
+  * [UCase](#ucase)
+  * [Word](#word)
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -398,7 +456,7 @@ Funkcja ConvertFromBase64 konwertuje określoną zakodowaną wartość Base64 na
 * Źródło: zakodowany ciąg Base64  
 * Kodowanie: Unicode, ASCII, UTF8
 
-**Przyklad**  
+**Przykład**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
@@ -567,7 +625,7 @@ Jeśli DN to "CN = Jan, OU = Atlanta, OU = GA, OU = US, DC = contoso, DC = com"
 Obie zwracają nam.
 
 ---
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 **Opis:**  
 Funkcja Error służy do zwrócenia błędu niestandardowego.
 
@@ -862,7 +920,7 @@ Między funkcjami Join i Split występuje parzystość. Funkcja Join przyjmuje t
 
 **Przykład:**  
 `Join([proxyAddresses],",")`  
-Może zwrócić: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
+Może zwrócić: " SMTP:john.doe@contoso.com , smtp:jd@contoso.com "
 
 ---
 ### <a name="lcase"></a>LCase
@@ -1166,7 +1224,7 @@ Funkcja RTrim usuwa końcowe znaki białe z ciągu.
 Zwraca "test".
 
 ---
-### <a name="select"></a>Wybierz
+### <a name="select"></a>Wybierz pozycję
 **Opis:**  
 Przetwórz wszystkie wartości w atrybucie wielowartościowym (lub danych wyjściowych wyrażenia) w oparciu o określoną funkcję.
 
@@ -1179,7 +1237,7 @@ Przetwórz wszystkie wartości w atrybucie wielowartościowym (lub danych wyjśc
 * wyrażenie: Wyrażenie zwracające kolekcję wartości
 * warunek: Każda funkcja, która może przetwarzać element w atrybucie
 
-**Pokazują**  
+**Przykłady:**  
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Zwróć wszystkie wartości w atrybucie wielowartościowym otherPhone po usunięciu łączników (-).
 

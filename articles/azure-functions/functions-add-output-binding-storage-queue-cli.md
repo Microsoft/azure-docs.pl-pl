@@ -3,13 +3,14 @@ title: Łączenie Azure Functions z usługą Azure Storage przy użyciu narzędz
 description: Dowiedz się, jak połączyć Azure Functions z kolejką usługi Azure Storage, dodając powiązanie danych wyjściowych do projektu wiersza polecenia.
 ms.date: 02/07/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: f9d9573523083b6355f423b7b3db94b795d8657f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8a5f9cd42d13b7cfb4bc6e95809112a3b7045fe4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673329"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560100"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu narzędzi wiersza polecenia
 
@@ -36,7 +37,7 @@ Aby uzyskać więcej informacji na temat szczegółów powiązań, zobacz [Azure
 
 ## <a name="add-code-to-use-the-output-binding"></a>Dodaj kod, aby użyć powiązania danych wyjściowych
 
-Po zdefiniowaniu powiązania kolejki można teraz zaktualizować funkcję w celu otrzymywania parametru `msg` wyjściowego i zapisu komunikatów do kolejki.
+Po zdefiniowaniu powiązania kolejki można teraz zaktualizować funkcję w celu otrzymywania `msg` parametru wyjściowego i zapisu komunikatów do kolejki.
 
 ::: zone pivot="programming-language-python"     
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
@@ -79,7 +80,7 @@ Zwróć uwagę, że *nie* musisz pisać żadnego kodu do uwierzytelniania, pobie
 Po sprawdzeniu, czy funkcja zapisała komunikat do kolejki usługi Azure Storage, można ponownie wdrożyć projekt w celu zaktualizowania punktu końcowego uruchomionego na platformie Azure.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
-W folderze *LocalFunctionsProj* Użyj [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) polecenia, aby ponownie wdrożyć projekt, zastępując`<APP_NAME>` go nazwą aplikacji.
+W folderze *LocalFunctionsProj* Użyj [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) polecenia, aby ponownie wdrożyć projekt, zastępując go `<APP_NAME>` nazwą aplikacji.
 
 ```
 func azure functionapp publish <APP_NAME>
@@ -100,13 +101,13 @@ mvn azure-functions:deploy
 
     # <a name="browser"></a>[Przeglądarka](#tab/browser)
     
-    Skopiuj pełny **adres URL Wywołaj** pokazany w danych wyjściowych polecenia Publikuj na pasku adresu przeglądarki, dołączając parametr `&name=Functions`zapytania. Przeglądarka powinna wyświetlać podobne dane wyjściowe, jak w przypadku lokalnego uruchomienia funkcji.
+    Skopiuj pełny **adres URL Wywołaj** pokazany w danych wyjściowych polecenia Publikuj na pasku adresu przeglądarki, dołączając parametr zapytania `&name=Functions` . Przeglądarka powinna wyświetlać podobne dane wyjściowe, jak w przypadku lokalnego uruchomienia funkcji.
 
     ![Dane wyjściowe funkcji są uruchamiane na platformie Azure w przeglądarce](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
 
     # <a name="curl"></a>[odsłon](#tab/curl)
     
-    Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions`. Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
+    Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
     
     ![Dane wyjściowe funkcji są uruchamiane na platformie Azure przy użyciu zwinięcia](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 

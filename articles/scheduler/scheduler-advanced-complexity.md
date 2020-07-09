@@ -10,10 +10,9 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78898587"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Tworzenie zaawansowanych harmonogramów i cyklów dla zadań w usłudze Azure Scheduler
@@ -64,7 +63,7 @@ Aby utworzyć harmonogram podstawowy przy użyciu [interfejsu API REST usługi A
 
 Ta tabela zawiera ogólne omówienie głównych elementów JSON, których można użyć podczas konfigurowania cykli i harmonogramów zadań. 
 
-| Element | Wymagany | Opis | 
+| Element | Wymagane | Opis | 
 |---------|----------|-------------|
 | **startTime** | Nie | Wartość ciągu DateTime w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) , która określa, kiedy zadanie zaczyna się najpierw w harmonogramie podstawowym. <p>W przypadku złożonych harmonogramów zadanie nie jest uruchamiane wcześniej niż **godzina rozpoczęcia**. | 
 | **wystąpieniu** | Nie | Reguły cyklu dla momentu uruchomienia zadania. Obiekt **cykl** obsługuje te elementy: **częstotliwość**, **Interwał**, **harmonogram**, **Liczba**i **Endtime**. <p>W przypadku użycia elementu **cykl** należy również użyć elementu **częstotliwość** , podczas gdy inne elementy **cyklu** są opcjonalne. |

@@ -18,10 +18,9 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81113376"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
@@ -30,7 +29,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
 
 - **Działanie** 
     - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
-    - **Dzienniki inspekcji dzienników**inspekcji zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzane aplikacje i działania w katalogu.[Audit logs](concept-audit-logs.md)  - 
+    - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
 - **Bezpieczeństwo** 
@@ -94,7 +93,7 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Date
+- Data
 - Stan
 - Akcja
 
@@ -118,7 +117,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 
 Filtr **stanu** umożliwia wybranie:
 
-- Wszystkie
+- Wszystko
 - Powodzenie
 - Niepowodzenie
 - Pominięto
@@ -128,9 +127,9 @@ Filtr **stanu** umożliwia wybranie:
 Filtr **akcji** umożliwia filtrowanie:
 
 - Utwórz 
-- Aktualizowanie
-- Usuwanie
-- Wyłączanie
+- Aktualizacja
+- Usuń
+- Wyłącz
 - Inne
 
 Dodatkowo, do filtrów widoku domyślnego, można również ustawić następujące filtry:

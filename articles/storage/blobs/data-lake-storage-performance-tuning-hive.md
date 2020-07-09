@@ -4,16 +4,16 @@ description: Azure Data Lake Storage Gen2 wskazówki dotyczące dostrajania wyda
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 66042568cede364c16302fbd85751de4113bbe0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 522f9215a0b66c5e6bec5abf41e45489efec19ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327583"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106315"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: Hive, & usługi HDInsight Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Poniżej przedstawiono najważniejsze ustawienia, które należy dostosować w c
 
 * **tez. Grouping. Max-size** — maksymalny rozmiar każdego mapowania
 
-* **Hive. exec. redukować. Bytes. per. zredukować** — rozmiar każdego środka zmniejszającego
+* **hive.exec. zredukować. bajtów. na. zmniejszenie** — rozmiar każdego środka zmniejszającego
 
 **Hive. tez. Container. size** — rozmiar kontenera określa ilość dostępnej pamięci dla każdego zadania.  Jest to główne dane wejściowe służące do kontrolowania współbieżności w usłudze Hive.  
 
@@ -45,11 +45,11 @@ Poniżej przedstawiono najważniejsze ustawienia, które należy dostosować w c
 
 **tez. Group. Max-size** — parametr umożliwia ustawienie maksymalnego rozmiaru każdego mapowania.  Jeśli liczba odwzorowań, które tez wybór są większe niż wartość tego parametru, tez będzie używać wartości ustawionej w tym miejscu.
 
-**Hive. exec. redukować. Bytes. per. zredukować** — ten parametr ustawia rozmiar każdego środka.  Domyślnie każdy z nich zmniejsza wartość 256 MB.  
+**hive.exec. zredukować. bajtów. na. zredukować** — ten parametr ustawia rozmiar poszczególnych elementów zmniejszających.  Domyślnie każdy z nich zmniejsza wartość 256 MB.  
 
 ## <a name="guidance"></a>Wskazówki
 
-**Set Hive. exec. redukować. Bytes. per. zredukować** — wartość domyślna działa prawidłowo, gdy dane są nieskompresowane.  W przypadku skompresowanych danych należy zmniejszyć rozmiar tego ograniczenia.  
+**Ustaw hive.exec. redukować. Bytes. per. zredukować** — wartość domyślna działa prawidłowo, gdy dane są nieskompresowane.  W przypadku skompresowanych danych należy zmniejszyć rozmiar tego ograniczenia.  
 
 **Ustaw gałąź. tez. Container. size** — w każdym węźle pamięć jest określana przez przędzę. nodemanager. Resource. Memory-MB i powinna być prawidłowo ustawiona w klastrze HDI domyślnie.  Aby uzyskać dodatkowe informacje na temat ustawiania odpowiedniej pamięci w ramach PRZĘDZy, zobacz ten [wpis](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
@@ -57,17 +57,18 @@ Obciążenia intensywnie korzystające z operacji we/wy mogą korzystać z więk
 
 Liczba współbieżnych zadań uruchomionych lub równoległych zostanie ograniczona przez łączną ilość pamięci PRZĘDZy.  Liczba kontenerów PRZĘDZy będzie określać liczbę współbieżnych zadań, które można uruchomić.  Aby znaleźć pamięć PRZĘDZy na węzeł, możesz przejść do Ambari.  Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  W tym oknie zostanie wyświetlona pamięć PRZĘDZy.  
 
-        Total YARN memory = nodes * YARN memory per node
-        # of YARN containers = Total YARN memory / Tez container size
+- Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
+- \#kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/rozmiar kontenera tez
+
 Kluczem do poprawienia wydajności przy użyciu Data Lake Storage Gen2 jest zwiększenie współbieżności tak, jak to możliwe.  Tez automatycznie oblicza liczbę zadań, które należy utworzyć, aby nie trzeba było ich ustawiać.   
 
 ## <a name="example-calculation"></a>Przykładowe obliczenie
 
 Załóżmy, że masz klaster D14 z 8 węzłami.  
 
-    Total YARN memory = nodes * YARN memory per node
-    Total YARN memory = 8 nodes * 96GB = 768GB
-    # of YARN containers = 768GB / 3072MB = 256
+- Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
+- Łączna ilość pamięci PRZĘDZy = 8 węzłów * 96GB = 768GB
+- \#kontenerów PRZĘDZy = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Więcej informacji na temat dostrajania programu Hive
 

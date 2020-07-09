@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82598372"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funkcje zdefiniowane przez użytkownika w Azure Stream Analytics
 
-Język zapytań przypominający SQL w Azure Stream Analytics ułatwia implementowanie logiki analizy w czasie rzeczywistym na danych przesyłanych strumieniowo. Stream Analytics zapewnia dodatkową elastyczność za poorednictwem funkcji niestandardowych, które są wywoływane w zapytaniu. Poniższy przykład kodu jest atrybutem UDF o `sampleFunction` nazwie, który akceptuje jeden parametr, każdy rekord danych wejściowych odbiera zadanie, a wynik jest zapisywany w danych `sampleResult`wyjściowych jako.
+Język zapytań przypominający SQL w Azure Stream Analytics ułatwia implementowanie logiki analizy w czasie rzeczywistym na danych przesyłanych strumieniowo. Stream Analytics zapewnia dodatkową elastyczność za poorednictwem funkcji niestandardowych, które są wywoływane w zapytaniu. Poniższy przykład kodu jest atrybutem UDF o nazwie `sampleFunction` , który akceptuje jeden parametr, każdy rekord danych wejściowych odbiera zadanie, a wynik jest zapisywany w danych wyjściowych jako `sampleResult` .
 
 ```sql
 SELECT 
@@ -41,7 +41,7 @@ Tych funkcji można używać do scenariuszy, takich jak ocenianie w czasie rzecz
 
 Funkcje zdefiniowane przez użytkownika są bezstanowe, a zwracana wartość może być tylko wartością skalarną. Nie można wywoływać zewnętrznych punktów końcowych REST z tych funkcji zdefiniowanych przez użytkownika, ponieważ prawdopodobnie wpłynie to na wydajność zadania. 
 
-Azure Stream Analytics nie zachowuje rekordu wszystkich wywołań funkcji i zwracanych wyników. W celu zagwarantowania powtarzalności — na przykład ponowne uruchomienie zadania ze starszej sygnatury czasowej daje te same wyniki ponownie — nie należy używać takich `Date.GetData()` funkcji `Math.random()`jak lub, ponieważ te funkcje nie zwracają tego samego wyniku dla każdego wywołania.  
+Azure Stream Analytics nie zachowuje rekordu wszystkich wywołań funkcji i zwracanych wyników. W celu zagwarantowania powtarzalności — na przykład ponowne uruchomienie zadania ze starszej sygnatury czasowej daje te same wyniki ponownie — nie należy używać takich funkcji jak `Date.GetData()` lub `Math.random()` , ponieważ te funkcje nie zwracają tego samego wyniku dla każdego wywołania.  
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 

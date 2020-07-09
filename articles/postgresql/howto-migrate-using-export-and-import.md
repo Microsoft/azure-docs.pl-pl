@@ -4,14 +4,14 @@ description: Opisuje sposób wyodrębniania bazy danych PostgreSQL do pliku skry
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
-ms.openlocfilehash: f7cf5d245383b8a58f03e2e3610750866a2f4b5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d97f7b976ef1dfcf0493a8bef6ddcdd2cd63960
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74770207"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86116372"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrowanie bazy danych PostgreSQL przy użyciu funkcji eksportowania i importowania
 Za pomocą [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) można wyodrębnić bazę danych PostgreSQL do pliku skryptu i [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) do zaimportowania danych do docelowej bazy danych z tego pliku.

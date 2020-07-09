@@ -6,10 +6,9 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77063785"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Błąd rozwiązywania problemów: "środowisko uruchomieniowe usługi Azure Functions jest nieosiągalny"
@@ -26,7 +25,7 @@ Pozostała część tego artykułu pomaga rozwiązywać następujące przyczyny 
 
 Każda aplikacja funkcji wymaga konta magazynu do działania. Jeśli to konto zostanie usunięte, funkcja nie będzie działać.
 
-Zacznij od przejrzenia nazwy konta magazynu w ustawieniach aplikacji. `AzureWebJobsStorage` Albo `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` zawiera nazwę konta magazynu opakowaną w parametry połączenia. Aby uzyskać więcej informacji, zobacz temat informacje o [ustawieniach aplikacji dla Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Zacznij od przejrzenia nazwy konta magazynu w ustawieniach aplikacji. Albo `AzureWebJobsStorage` `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` zawiera nazwę konta magazynu opakowaną w parametry połączenia. Aby uzyskać więcej informacji, zobacz temat informacje o [ustawieniach aplikacji dla Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
 Wyszukaj swoje konto magazynu w Azure Portal, aby sprawdzić, czy nadal istnieje. Jeśli został usunięty, Utwórz ponownie konto magazynu i Zastąp parametry połączenia magazynu. Kod funkcji zostanie utracony i konieczne będzie jego ponowne wdrożenie.
 
@@ -66,7 +65,7 @@ Aplikacja funkcji musi mieć dostęp do konta magazynu. Typowe problemy z zablok
 
 W przypadku skonfigurowania dziennego przydziału wykonywania aplikacja funkcji jest tymczasowo wyłączona, co spowoduje, że wiele kontrolek portalu stanie się niedostępna. 
 
-Aby sprawdzić limit przydziału w [Azure Portal](https://portal.azure.com), wybierz pozycję **funkcje** > platformy**aplikacja funkcji ustawienia** w aplikacji funkcji. Jeśli osiągnięto **dzienny limit przydziału użycia** , zostanie wyświetlony następujący komunikat:
+Aby sprawdzić limit przydziału w [Azure Portal](https://portal.azure.com), wybierz pozycję **funkcje platformy**  >  **aplikacja funkcji ustawienia** w aplikacji funkcji. Jeśli osiągnięto **dzienny limit przydziału użycia** , zostanie wyświetlony następujący komunikat:
 
   > "Aplikacja funkcji osiągnął dzienny limit przydziału użycia i został zatrzymany do następnego 24-godzinnego okresu czasu".
 

@@ -4,19 +4,19 @@ description: Wyjaśnia kroki, które są wymagane do zaimplementowania urządze�
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672694"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555030"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -32,15 +32,14 @@ W tym artykule założono, że znasz już [wprowadzenie do zarządzania urządze
 
 Aby zaplanować wdrożenie usługi Azure AD join, zapoznaj się z tematem:
 
-|   |   |
-|---|---|
-|![Zaznacz][1]|Przejrzyj scenariusze|
-|![Zaznacz][1]|Przegląd infrastruktury tożsamości|
-|![Zaznacz][1]|Ocenianie zarządzania urządzeniami|
-|![Zaznacz][1]|Zrozumienie zagadnień dotyczących aplikacji i zasobów|
-|![Zaznacz][1]|Zapoznaj się z opcjami aprowizacji|
-|![Zaznacz][1]|Konfigurowanie roamingu stanu przedsiębiorstwa|
-|![Zaznacz][1]|Konfigurowanie dostępu warunkowego|
+> [!div class="checklist"]
+> - Przejrzyj scenariusze
+> - Przegląd infrastruktury tożsamości
+> - Ocenianie zarządzania urządzeniami
+> - Zrozumienie zagadnień dotyczących aplikacji i zasobów
+> - Zapoznaj się z opcjami aprowizacji
+> - Konfigurowanie roamingu stanu przedsiębiorstwa
+> - Konfigurowanie dostępu warunkowego
 
 ## <a name="review-your-scenarios"></a>Przejrzyj scenariusze 
 
@@ -104,7 +103,7 @@ Azure AD Join:
 
 - Dotyczy tylko urządzeń z systemem Windows 10. 
 - Nie ma zastosowania do poprzednich wersji systemu Windows lub innych systemów operacyjnych. W przypadku urządzeń z systemem Windows 7/8.1 należy przeprowadzić uaktualnienie do systemu Windows 10 w celu wdrożenia usługi Azure AD Join.
-- Program nie jest obsługiwany na urządzeniach z modułem TPM w trybie FIPS.
+- Jest obsługiwany w przypadku modułu TPM zgodnego ze standardem FIPS 2,0, ale nie jest obsługiwany w przypadku modułu TPM 1,2. Jeśli na urządzeniach jest używany moduł TPM zgodny ze standardem FIPS 1,2, należy je wyłączyć przed przejściem do usługi Azure AD Join. Firma Microsoft nie udostępnia żadnych narzędzi do wyłączania trybu FIPS dla moduły TPM, ponieważ jest on zależny od producenta modułu TPM. Aby uzyskać pomoc techniczną, skontaktuj się z producentem OEM.
  
 **Zalecenie:** Zawsze używaj najnowszej wersji systemu Windows 10, aby korzystać z zaktualizowanych funkcji.
 
@@ -185,6 +184,8 @@ Urządzenia przyłączone do usługi Azure AD nie obsługują aplikacji lokalnyc
 
 Podłączanie pulpitu zdalnego do urządzeń przyłączonych do usługi Azure AD wymaga, aby maszyna hosta była przyłączona do usługi Azure AD lub dołączona do hybrydowej usługi Azure AD. Pulpit zdalny z przyłączonych lub nienależących do systemu Windows urządzeń nie jest obsługiwany. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z zdalnym komputerem przyłączonym do usługi Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
+Począwszy od systemu Windows 10 2004 Update, użytkownicy mogą ALO używać pulpitu zdalnego z zarejestrowanego urządzenia z systemem Windows 10 w usłudze Azure AD do urządzenia dołączonego do usługi Azure AD. 
+
 ## <a name="understand-your-provisioning-options"></a>Zapoznaj się z opcjami aprowizacji
 
 Usługę Azure AD Join można zainicjować przy użyciu następujących metod:
@@ -195,13 +196,13 @@ Usługę Azure AD Join można zainicjować przy użyciu następujących metod:
  
 Poniżej przedstawiono porównanie tych trzech metod 
  
-|   | Konfiguracja samoobsługowa | Windows Autopilot | Rejestrowanie zbiorcze |
+| Element | Konfiguracja samoobsługowa | Windows Autopilot | Rejestrowanie zbiorcze |
 | --- | --- | --- | --- |
 | Wymagaj interakcji z użytkownikiem w celu skonfigurowania | Tak | Tak | Nie |
 | Wymaganie nakładu pracy IT | Nie | Tak | Tak |
 | Odpowiednie przepływy | Ustawienia & OOBE | Tylko OOBE | Tylko OOBE |
 | Prawa administratora lokalnego do użytkownika podstawowego | Tak, domyślnie | Możliwość konfiguracji | Nie |
-| Wymagaj obsługi OEM urządzenia | Nie | Tak | Nie |
+| Wymagaj obsługi OEM urządzenia | Nie | Yes | Nie |
 | Obsługiwane wersje | 1511 + | 1709 + | 1703 + |
  
 Wybierz podejście do wdrożenia lub podejścia, przeglądając powyższą tabelę i zapoznaj się z poniższymi uwagami dotyczącymi przyjęcia obu rozwiązań:  
@@ -217,7 +218,7 @@ Wybierz podejście do wdrożenia lub podejścia, przeglądając powyższą tabel
 
 ## <a name="configure-your-device-settings"></a>Konfigurowanie ustawień urządzenia
 
-Azure Portal pozwala kontrolować wdrażanie urządzeń przyłączonych do usługi Azure AD w organizacji. Aby skonfigurować ustawienia pokrewne, na **stronie Azure Active Directory**wybierz opcję `Devices > Device settings`.
+Azure Portal pozwala kontrolować wdrażanie urządzeń przyłączonych do usługi Azure AD w organizacji. Aby skonfigurować ustawienia pokrewne, na **stronie Azure Active Directory**wybierz opcję `Devices > Device settings` .
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Użytkownicy mogą dołączać urządzenia do usługi Azure AD
 
@@ -243,7 +244,7 @@ Aby można było skonfigurować ustawienia mobilności, można najpierw dodać d
 
 **Aby dodać dostawcę zarządzania urządzeniami przenośnymi**:
 
-1. Na **stronie Azure Active Directory**w sekcji **Zarządzanie** kliknij pozycję `Mobility (MDM and MAM)`. 
+1. Na **stronie Azure Active Directory**w sekcji **Zarządzanie** kliknij pozycję `Mobility (MDM and MAM)` . 
 1. Kliknij pozycję **Dodaj aplikację**.
 1. Wybierz z listy dostawcę MDM.
 
@@ -295,8 +296,8 @@ Za pomocą tej implementacji można wymagać, aby [zarządzane urządzenia dla d
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dołącz nowe urządzenie z systemem Windows 10 przy użyciu usługi Azure AD podczas pierwszego uruchomienia](azuread-joined-devices-frx.md)
-> [Dołącz do urządzenia służbowego do sieci organizacji](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Dołącz nowe urządzenie z systemem Windows 10 przy użyciu usługi Azure AD podczas pierwszego uruchomienia](azuread-joined-devices-frx.md) 
+>  [Przyłącz urządzenie służbowe do sieci organizacji](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

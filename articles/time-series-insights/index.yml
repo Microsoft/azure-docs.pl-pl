@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 02/12/2020
-  ms.openlocfilehash: 34d7e9ad4f312576eb1e51961feb8364b99a967e
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 1119c4ec7c0b57f1b3707708ecb9227d737e2898
+  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77651325"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86043125"
 landingContent:
 - title: Azure Time Series Insights — informacje
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     - text: Wizualizowanie danych w eksploratorze usługi Time Series Insights (wersja zapoznawcza)
       url: time-series-insights-update-explorer.md
     - text: Model szeregów czasowych
-      url: time-series-insights-update-tsm.md
+      url: concepts-model-overview.md
   - linkListType: video
     links:
     - text: Usługa Time Series Insights dla aplikacji IoT. (13:31)
@@ -57,16 +57,14 @@ landingContent:
       url: time-series-insights-how-to-add-an-event-source-iothub.md
     - text: Planowanie środowiska
       url: time-series-insights-update-plan.md
-    - text: Magazyn danych i ruch przychodzący
-      url: time-series-insights-update-storage-ingress.md
+    - text: Omówienie pozyskiwania danych
+      url: concepts-ingestion-overview.md
   - linkListType: how-to-guide
     links:
     - text: Aprowizowanie i zarządzanie
       url: time-series-insights-update-how-to-manage.md
     - text: Przyznawanie dostępu do danych
       url: time-series-insights-data-access.md
-    - text: Dostosowywanie kodu JSON na potrzeby ruchu przychodzącego i zapytań
-      url: time-series-insights-update-how-to-shape-events.md
 - title: Dokumentacja interfejsu API
   linkLists:
   - linkListType: reference

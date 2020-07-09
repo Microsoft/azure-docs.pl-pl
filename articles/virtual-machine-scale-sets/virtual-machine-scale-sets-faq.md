@@ -6,15 +6,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: faq
-ms.date: 05/24/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85855595"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 
@@ -226,15 +226,15 @@ Klucze publiczne SSH można podawać w postaci zwykłego tekstu podczas tworzeni
 
 Nazwa elementu linuxConfiguration | Wymagany | Typ | Opis
 --- | --- | --- | ---
-SSH | Nie | Collection | Określa konfigurację klucza SSH dla systemu operacyjnego Linux
-ścieżka | Yes | String | Określa ścieżkę pliku systemu Linux, w której należy zlokalizować klucze SSH lub certyfikat
-Dane dotyczące danych | Yes | String | Określa klucz publiczny SSH szyfrowany algorytmem Base64
+SSH | Nie | Kolekcja | Określa konfigurację klucza SSH dla systemu operacyjnego Linux
+ścieżka | Tak | String | Określa ścieżkę pliku systemu Linux, w której należy zlokalizować klucze SSH lub certyfikat
+Dane dotyczące danych | Tak | String | Określa klucz publiczny SSH szyfrowany algorytmem Base64
 
 Aby zapoznać się z przykładem, zobacz [szablon 101-VM-Sshkey GitHub — szybki start](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Gdy uruchamiam `Update-AzVmss` się po dodaniu więcej niż jednego certyfikatu z tego samego magazynu kluczy, zobaczysz następujący komunikat:
 
->Polecenie Update-AzVmss: list Secret zawiera powtórzone wystąpienia/subscriptions/ \< My-Subscription-id>/ResourceGroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, które są niedozwolone.
+>Polecenie Update-AzVmss: wpis tajny listy zawiera powtórzone wystąpienia/subscriptions/ \<my-subscription-id> /resourceGroups/Internal-RG-dev/Providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, które są niedozwolone.
 
 Taka sytuacja może wystąpić, jeśli spróbujesz ponownie dodać ten sam magazyn zamiast korzystać z nowego certyfikatu magazynu dla istniejącego magazynu źródłowego. `Add-AzVmssSecret`Polecenie nie działa prawidłowo w przypadku dodawania dodatkowych wpisów tajnych.
 
@@ -338,7 +338,7 @@ Aby uzyskać więcej informacji, zobacz [Centrum zaufania firmy Microsoft](https
 
 Tak. Możesz zobaczyć przykładowe szablony MSI w szablonach szybkiego startu platformy Azure dla [systemów](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) i Windows.
 
-## <a name="deleting"></a>Usunąć
+## <a name="deleting"></a>Usuwanie
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Czy po usunięciu wystąpień będą przestrzegane blokady ustawione w miejscu dla wystąpień zestawu skalowania maszyn wirtualnych?
 
@@ -523,7 +523,7 @@ Aby wdrożyć zestaw skalowania maszyn wirtualnych w istniejącej sieci wirtualn
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Czy można używać zestawów skalowania z przyspieszoną siecią?
 
-Tak. Aby używać przyspieszonej sieci, należy ustawić enableAcceleratedNetworking na true w ustawieniach networkInterfaceConfigurations zestawu skalowania. Na przykład:
+Tak. Aby używać przyspieszonej sieci, należy ustawić enableAcceleratedNetworking na true w ustawieniach networkInterfaceConfigurations zestawu skalowania. Na przykład
 
 ```json
 "networkProfile": {

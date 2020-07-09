@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6bdc2eca3bdf02814ee851ff266e04bb57f7978c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fa33f2d9e0c4606587ca5ef65a3f4a021319431f
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658828"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85195049"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB
 
@@ -23,6 +23,9 @@ W tym artykule opisano, jak uzyskać dostęp do bazy danych Azure Cosmos DB z us
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed nawiązaniem połączenia z bazą danych Azure Cosmos DB z obszarem roboczym potrzebne są następujące elementy:
+
+> [!IMPORTANT]
+> Link Synapse platformy Azure dla Azure Cosmos DB jest obecnie obsługiwany w przypadku obszarów roboczych, dla których nie włączono zarządzanej sieci wirtualnej. 
 
 * Istniejąca baza danych Azure Cosmos DB lub Utwórz nowe konto po tym [przewodniku szybki start](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
 * Istniejący obszar roboczy Synapse lub Utwórz nowy obszar roboczy po tym [przewodniku szybki start](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 

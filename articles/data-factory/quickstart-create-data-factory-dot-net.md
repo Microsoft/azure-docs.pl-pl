@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f0f18e523368e85d9cea0206e98bb7b1a0e6165
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419378"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504869"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki Start: Tworzenie fabryki danych i potoku przy użyciu zestawu .NET SDK
 
@@ -47,9 +47,9 @@ Pobierz i zainstaluj zestaw [Azure .NET SDK](https://azure.microsoft.com/downloa
 
 W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów*, postępuj zgodnie z instrukcjami, aby wykonać następujące zadania:
 
-1. W obszarze [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)Utwórz aplikację reprezentującą aplikację platformy .NET, którą tworzysz w tym samouczku. W przypadku adresu URL logowania możesz podać fikcyjny adres URL, jak pokazano w artykule (`https://contoso.org/exampleapp`).
-2. W polu [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)Pobierz **Identyfikator aplikacji** i **Identyfikator dzierżawy**, a następnie zanotuj te wartości, które są używane w dalszej części tego samouczka. 
-3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)Pobierz **klucz uwierzytelniania**i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
+1. W obszarze [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)Utwórz aplikację reprezentującą aplikację platformy .NET, którą tworzysz w tym samouczku. W przypadku adresu URL logowania możesz podać fikcyjny adres URL, jak pokazano w artykule (`https://contoso.org/exampleapp`).
+2. W polu [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Pobierz **Identyfikator aplikacji** i **Identyfikator dzierżawy**, a następnie zanotuj te wartości, które są używane w dalszej części tego samouczka. 
+3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in)Pobierz **klucz uwierzytelniania**i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
 4. W polu [Przypisz aplikację do roli](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) **współautor** na poziomie subskrypcji, aby aplikacja mogła tworzyć fabryki danych w subskrypcji.
 
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
@@ -57,13 +57,13 @@ W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi A
 Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
 
 1. Uruchom program **Visual Studio**.
-2. W oknie uruchamiania wybierz pozycję **Utwórz nową** > **aplikację konsolową projektu (.NET Framework)**. Wymagana jest platforma .NET w wersji 4.5.2 lub nowszej.
+2. W oknie uruchamiania wybierz pozycję **Utwórz nową**  >  **aplikację konsolową projektu (.NET Framework)**. Wymagana jest platforma .NET w wersji 4.5.2 lub nowszej.
 3. W polu **Nazwa projektu**wprowadź **ADFv2QuickStart**.
 4. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
 
 ## <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**.
+1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 2. W okienku **konsoli Menedżera pakietów** Uruchom następujące polecenia, aby zainstalować pakiety. Aby uzyskać więcej informacji, zobacz [pakiet NuGet Microsoft. Azure. Management. DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -430,7 +430,7 @@ Press any key to exit...
 
 ## <a name="verify-the-output"></a>Sprawdzanie danych wyjściowych
 
-Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB **adftutorial** . Następnie kopiuje plik **EMP. txt** z folderu input do folderu Output. 
+Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB **adftutorial** . Następnie kopiuje plik **emp.txt** z folderu input do folderu Output. 
 
 1. W Azure Portal na stronie kontenera **adftutorial** , która została zatrzymana w sekcji [Dodaj folder wejściowy i plik dla kontenera obiektów BLOB](#add-an-input-folder-and-file-for-the-blob-container) powyżej, wybierz pozycję **Odśwież** , aby wyświetlić folder danych wyjściowych. 
 2. Na liście folder wybierz pozycję **dane wyjściowe**.

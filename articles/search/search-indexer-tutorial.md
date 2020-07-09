@@ -1,25 +1,24 @@
 ---
 title: Samouczek języka C# — indeksowanie danych usługi Azure SQL
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku w języku C# Nawiąż połączenie z usługą Azure SQL Database, Wyodrębnij dane z możliwością wyszukiwania i załaduj je do indeksu Wyszukiwanie poznawcze platformy Azure.
+description: W tym samouczku C# Połącz się z Azure SQL Database, Wyodrębnij dane z możliwością wyszukiwania i załaduj je do indeksu Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
-ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780763"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045454"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
 
-Skonfiguruj [indeksator](search-indexer-overview.md) , aby wyodrębnić dane z możliwością wyszukiwania z usługi Azure SQL Database, wysyłając je do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. 
+Skonfiguruj [indeksator](search-indexer-overview.md) , aby wyodrębnić dane możliwe do przeszukania z Azure SQL Database, wysyłając je do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. 
 
-Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://aka.ms/search-sdk) do wykonywania następujących zadań:
+Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Utwórz źródło danych łączące się z Azure SQL Database
@@ -27,12 +26,12 @@ Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://aka.ms/se
 > * Uruchamianie indeksatora w celu załadowania danych do indeksu
 > * Wykonywanie zapytań względem indeksu w ramach kroku weryfikacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-+ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
++ [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
@@ -78,7 +77,7 @@ Jeśli masz istniejący zasób Azure SQL Database, możesz dodać do niego tabel
     SELECT * FROM Hotels
     ```
 
-1. Skopiuj parametry połączenia ADO.NET dla bazy danych. W obszarze **Ustawienia** > **Parametry połączenia**Skopiuj parametry połączenia ADO.NET, podobnie jak w poniższym przykładzie.
+1. Skopiuj parametry połączenia ADO.NET dla bazy danych. W obszarze **Ustawienia**  >  **Parametry połączenia**Skopiuj parametry połączenia ADO.NET, podobnie jak w poniższym przykładzie.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -96,7 +95,7 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+1. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
    ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
@@ -104,11 +103,11 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 1. Uruchom program Visual Studio i Otwórz **DotNetHowToIndexers. sln**.
 
-1. W Eksplorator rozwiązań otwórz plik **appSettings. JSON** , aby podać informacje o połączeniu.
+1. W Eksplorator rozwiązań Otwórz **appsettings.jsw** celu udostępnienia informacji o połączeniu.
 
-1. W `searchServiceName`przypadku, jeśli pełny adres URL tohttps://my-demo-service.search.windows.net"", nazwa usługi do udostępnienia to "My-Demonstracja-usługa".
+1. W przypadku `searchServiceName` , jeśli pełny adres URL to " https://my-demo-service.search.windows.net ", nazwa usługi do udostępnienia to "My-Demonstracja-usługa".
 
-1. W `AzureSqlConnectionString`przypadku formatu ciąg jest podobny do tego:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
+1. W przypadku `AzureSqlConnectionString` formatu ciąg jest podobny do tego:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
@@ -144,7 +143,7 @@ Schemat może również obejmować inne elementy, w tym profile oceniania na pot
 
 Program główny zawiera logikę tworzenia klienta, indeksu, źródła danych i indeksatora. Kod sprawdza i usuwa istniejące zasoby o tej samej nazwie, przy założeniu, że ten program może być uruchamiany wiele razy.
 
-Obiekt źródła danych jest skonfigurowany z ustawieniami specyficznymi dla zasobów usługi Azure SQL Database, w tym [częściowym lub przyrostowym indeksem](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) , korzystającym z wbudowanych [funkcji wykrywania zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) usługi Azure SQL. Baza danych hoteli demonstracyjna w usłudze Azure SQL zawiera kolumnę "Usuwanie trwałe" o nazwie **IsDeleted**. Gdy ta kolumna ma wartość true w bazie danych, indeksator usuwa odpowiedni dokument z indeksu Wyszukiwanie poznawcze platformy Azure.
+Obiekt źródła danych jest skonfigurowany przy użyciu ustawień, które są specyficzne dla Azure SQL Database zasobów, w tym [częściowe lub przyrostowe indeksowanie](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) w celu użycia wbudowanych [funkcji wykrywania zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) w usłudze Azure SQL. Baza danych hoteli demonstracyjna w usłudze Azure SQL zawiera kolumnę "Usuwanie trwałe" o nazwie **IsDeleted**. Gdy ta kolumna ma wartość true w bazie danych, indeksator usuwa odpowiedni dokument z indeksu Wyszukiwanie poznawcze platformy Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -242,7 +241,7 @@ Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy, indeksatory i źródła danych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
@@ -253,4 +252,4 @@ Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie 
 Teraz, gdy znasz już podstawy indeksowania SQL Database, przyjrzyjmy się bliżej konfiguracji indeksatora.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie indeksatora usługi Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Konfigurowanie indeksatora SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

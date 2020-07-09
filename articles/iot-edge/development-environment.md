@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76511097"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Przygotuj środowisko deweloperskie i testowe dla IoT Edge
@@ -43,7 +42,7 @@ Jeśli wolisz opracowywać przy użyciu innych edytorów lub interfejsu wiersza 
 
 ### <a name="visual-studio-code-extension"></a>Rozszerzenie programu Visual Studio Code
 
-Rozszerzenie Azure IoT Edge dla Visual Studio Code udostępnia szablony modułów IoT Edge opartych na językach programowania, takich jak C, C#, Java, Node. js i Python oraz usługa Azure Functions w języku C#.
+Rozszerzenie Azure IoT Edge dla Visual Studio Code udostępnia szablony modułów IoT Edge opartych na językach programowania, takich jak C, C#, Java, Node.js i Python, a także usługi Azure Functions w języku C#.
 
 Aby uzyskać więcej informacji i pobrać, zobacz [narzędzia Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
@@ -53,13 +52,13 @@ Oprócz rozszerzeń IoT Edge może być przydatne zainstalowanie dodatkowych roz
 
 Szablony modułów dla niektórych języków i usług mają wymagania wstępne, które są niezbędne do skompilowania folderów projektu na komputerze deweloperskim przy użyciu Visual Studio Code.
 
-| Szablon modułu | Wymagania wstępne |
+| Szablon modułu | Wymaganie wstępne |
 | --------------- | ------------ |
 | Azure Functions | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ustaw zmienną środowiskową JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
-| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Narzędzia Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Generator modułów Node. js](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
+| Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Narzędzia Yeoman](https://www.npmjs.com/package/yo) <li> [Generator modułów Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Rozszerzenie programu Visual Studio 2017/2019
@@ -97,7 +96,7 @@ Aby uzyskać więcej informacji i zainstalować, zobacz [narzędzie deweloperski
 
 ### <a name="iot-edge-dev-container"></a>IoT Edgenie kontenera dev
 
-Azure IoT Edge dev Container to kontener platformy Docker, który ma wszystkie zależności, które są potrzebne do IoT Edge projektowania. Ten kontener ułatwia rozpoczęcie pracy z dowolnym językiem, który ma być opracowywany w programie, w tym C#, Python, Node. js i Java. Wystarczy zainstalować aparat kontenerów, na przykład Docker lub Moby, aby ściągnąć kontener na komputer deweloperski.
+Azure IoT Edge dev Container to kontener platformy Docker, który ma wszystkie zależności, które są potrzebne do IoT Edge projektowania. Ten kontener ułatwia rozpoczęcie pracy z dowolnym językiem, który ma być opracowywany w programie, w tym C#, Python, Node.js i Java. Wystarczy zainstalować aparat kontenerów, na przykład Docker lub Moby, aby ściągnąć kontener na komputer deweloperski.
 
 Aby uzyskać więcej informacji, zobacz [Azure IoT Edge dev Container](https://hub.docker.com/r/microsoft/iotedgedev/).
 

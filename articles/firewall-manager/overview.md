@@ -1,28 +1,26 @@
 ---
-title: Co to jest wersja zapoznawcza usługi Azure firewall Manager?
+title: Co to jest usługa Azure Firewall Manager?
 description: Informacje o funkcjach Menedżera zapory platformy Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
+ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79366278"
+ms.lasthandoff: 06/30/2020
+ms.locfileid: "85563749"
 ---
-# <a name="what-is-azure-firewall-manager-preview"></a>Co to jest wersja zapoznawcza usługi Azure firewall Manager?
+# <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Menedżer zapory Azure w wersji zapoznawczej to usługa zarządzania zabezpieczeniami, która zapewnia centralne zasady zabezpieczeń i Zarządzanie trasami dla obwodów zabezpieczeń opartych na chmurze. 
+Menedżer zapory platformy Azure to usługa zarządzania zabezpieczeniami, która zapewnia centralne zasady zabezpieczeń i Zarządzanie trasami dla obwodów zabezpieczeń opartych na chmurze. 
 
 Menedżer zapory może zapewnić zarządzanie zabezpieczeniami dla dwóch typów architektury sieci:
 
-- **bezpieczny koncentrator wirtualny**
+- **Bezpieczny koncentrator wirtualny**
 
    [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) to zasób zarządzany przez firmę Microsoft, który umożliwia łatwe tworzenie architektur Hub i szprych. Gdy zasady zabezpieczeń i routingu są skojarzone z takim centrum, jest ono nazywane *[bezpiecznym koncentratorem wirtualnym](secured-virtual-hub.md)*. 
 - **Sieć wirtualna centrum**
@@ -31,11 +29,11 @@ Menedżer zapory może zapewnić zarządzanie zabezpieczeniami dla dwóch typów
 
 Aby zapoznać się ze szczegółowym porównaniem bezpiecznych architektur wirtualnych *centrów wirtualnych* i *koncentratorów* , zobacz [co to są opcje architektury usługi Azure firewall Manager?](vhubs-and-vnets.md).
 
-![Zapora — Menedżer](media/overview/firewallmanagerv5.png)
+![Zapora — Menedżer](media/overview/trusted-security-partners.png)
 
-## <a name="azure-firewall-manager-preview-features"></a>Funkcje w wersji zapoznawczej Menedżera zapory platformy Azure
+## <a name="azure-firewall-manager-features"></a>Funkcje Menedżera zapory platformy Azure
 
-Menedżer zapory Azure w wersji zapoznawczej oferuje następujące funkcje:
+Menedżer zapory platformy Azure oferuje następujące funkcje:
 
 ### <a name="central-azure-firewall-deployment-and-configuration"></a>Wdrażanie i konfiguracja centralnej zapory platformy Azure
 
@@ -43,7 +41,7 @@ Można centralnie wdrażać i konfigurować wiele wystąpień zapory platformy A
 
 ### <a name="hierarchical-policies-global-and-local"></a>Zasady hierarchiczne (globalne i lokalne)
 
-Za pomocą narzędzia Menedżer zapory Azure w wersji zapoznawczej można centralnie zarządzać zasadami zapory platformy Azure w wielu zabezpieczonych koncentratorach wirtualnych. Centralne zespoły IT mogą tworzyć globalne zasady zapory w celu wymuszenia zasad zapory dla całej organizacji w zespołach. Lokalne zasady zapory umożliwiają DevOps samoobsługowego modelu w celu zwiększenia elastyczności.
+Za pomocą Menedżera zapory platformy Azure można centralnie zarządzać zasadami zapory platformy Azure w wielu zabezpieczonych koncentratorach wirtualnych. Centralne zespoły IT mogą tworzyć globalne zasady zapory w celu wymuszenia zasad zapory dla całej organizacji w zespołach. Lokalne zasady zapory umożliwiają DevOps samoobsługowego modelu w celu zwiększenia elastyczności.
 
 ### <a name="integrated-with-third-party-security-as-a-service-for-advanced-security"></a>Integracja z zabezpieczeniami jako usługą innych firm w celu zapewnienia bezpieczeństwa zaawansowanego
 
@@ -60,7 +58,7 @@ Ta funkcja jest dostępna tylko w przypadku bezpiecznych wdrożeń koncentratora
 
    Korzystaj z łączności z platformą Azure i globalnej dystrybucji, aby łatwo dodawać filtrowanie oddziałów dla gałęzi do scenariuszy internetowych.
 
-Aby uzyskać więcej informacji na temat zaufanych dostawców zabezpieczeń, zobacz [co to są partnerzy zaufanych zabezpieczeń programu Azure firewall Manager (wersja zapoznawcza)?](trusted-security-partners.md)
+Aby uzyskać więcej informacji o dostawcach partnerów zabezpieczeń, zobacz [co to są dostawcy partnera usługi Azure firewall Security?](trusted-security-partners.md)
 
 ### <a name="centralized-route-management"></a>Scentralizowane zarządzanie trasami
 
@@ -76,20 +74,17 @@ Zasady zapory platformy Azure mogą być używane w różnych regionach. Można 
 
 ## <a name="known-issues"></a>Znane problemy
 
-Wersja zapoznawcza Menedżera zapory platformy Azure obejmuje następujące znane problemy:
+Menedżer zapory platformy Azure ma następujące znane problemy:
 
 |Problem  |Opis  |Środki zaradcze  |
 |---------|---------|---------|
-|Ograniczenia filtrowania innych firm.|Filtrowanie ruchu V2I z dostawcami innych firm nie jest obsługiwane przez usługę Azure firewall B2V i V2V.|Badanie|
 |Dzielenie ruchu nie jest obecnie obsługiwane.|Dzielenie pakietów Office 365 i Public PaaS nie jest obecnie obsługiwane. W związku z tym wybranie dostawcy innej firmy dla usługi V2I lub B2I spowoduje również wysłanie wszystkich usług Azure Public PaaS i Office 365 przez usługę partnera.|Badanie podziału ruchu w centrum.
 |Jeden bezpieczny koncentrator wirtualny na region.|Na region nie można mieć więcej niż jednego zabezpieczonego koncentratora wirtualnego.|Utwórz wiele wirtualnych sieci WAN w regionie.|
 |Zasady podstawowe muszą znajdować się w tym samym regionie co zasady lokalne.|Utwórz wszystkie zasady lokalne w tym samym regionie co zasady podstawowe. Można nadal stosować zasady, które zostały utworzone w jednym regionie w zabezpieczonym centrum z innego regionu.|Badanie|
 |Komunikacja między centrami nie działa z bezpiecznym koncentratorem wirtualnym|Zabezpieczona wirtualna koncentrator do bezpiecznej komunikacji z koncentratorem wirtualnym nie jest jeszcze obsługiwana.|Badanie|
 |Wszystkie zabezpieczone centra wirtualne współużytkujące tę samą wirtualną sieć WAN muszą znajdować się w tej samej grupie zasobów.|To zachowanie jest wyrównane z koncentratorami wirtualnych sieci WAN już dziś.|Utwórz wiele wirtualnych sieci WAN, aby umożliwić tworzenie zabezpieczonych koncentratorów wirtualnych w różnych grupach zasobów.|
-|Grupy adresów IP nie są obsługiwane w zasadach zapory.|Grupy adresów IP znajdują się w publicznej wersji zapoznawczej i są obecnie obsługiwane tylko w przypadku tradycyjnych reguł zapory.|Trwa rozwiązywanie.
-|Subskrypcje dostawcy rozwiązań w chmurze (CSP) nie są obsługiwane.|Obecnie [subskrypcje CSP](https://azure.microsoft.com/offers/ms-azr-0145p/) nie są obsługiwane.|Badanie
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przegląd [wdrożenia usługi Azure firewall Manager w wersji zapoznawczej](deployment-overview.md)
+- Przegląd [wdrożenia Menedżera zapory platformy Azure](deployment-overview.md)
 - Poznaj [bezpieczne centra wirtualne](secured-virtual-hub.md).

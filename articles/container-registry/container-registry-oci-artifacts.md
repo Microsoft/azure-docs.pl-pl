@@ -7,10 +7,9 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371056"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Wypychanie i ściąganie artefaktu OCI przy użyciu usługi Azure Container Registry
@@ -22,9 +21,9 @@ Aby zademonstrować tę możliwość, w tym artykule przedstawiono sposób użyc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Usługa Azure Container Registry** — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
-* **Narzędzie ORAS** — Pobierz i zainstaluj bieżącą wersję ORAS dla danego systemu operacyjnego z [repozytorium GitHub](https://github.com/deislabs/oras/releases). Narzędzie zostanie wydane jako skompresowane plik tar (`.tar.gz` plik). Wyodrębnij i Zainstaluj plik przy użyciu standardowych procedur dla systemu operacyjnego.
+* **Narzędzie ORAS** — Pobierz i zainstaluj bieżącą wersję ORAS dla danego systemu operacyjnego z [repozytorium GitHub](https://github.com/deislabs/oras/releases). Narzędzie zostanie wydane jako skompresowane plik tar ( `.tar.gz` plik). Wyodrębnij i Zainstaluj plik przy użyciu standardowych procedur dla systemu operacyjnego.
 * **Azure Active Directory jednostkę usługi (opcjonalnie)** — aby przeprowadzić uwierzytelnianie bezpośrednio przy użyciu ORAS, Utwórz [nazwę główną usługi](container-registry-auth-service-principal.md) , aby uzyskać dostęp do rejestru. Upewnij się, że jednostka usługi ma przypisaną rolę, taką jak AcrPush, dzięki czemu ma uprawnienia do wypychania i ściągania artefaktów.
-* **Interfejs wiersza polecenia platformy Azure (opcjonalnie)** — aby użyć pojedynczej tożsamości, potrzebna jest lokalna instalacja interfejsu wiersza polecenia platformy Azure. Zalecana jest wersja 2.0.71 lub nowsza. Uruchom `az --version `, aby znaleźć wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+* **Interfejs wiersza polecenia platformy Azure (opcjonalnie)** — aby użyć pojedynczej tożsamości, potrzebna jest lokalna instalacja interfejsu wiersza polecenia platformy Azure. Zalecana jest wersja 2.0.71 lub nowsza. Uruchom, `az --version ` Aby znaleźć wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 * **Docker (opcjonalnie)** — aby użyć pojedynczej tożsamości, należy również zainstalować lokalnie platformę Docker w celu uwierzytelnienia w rejestrze. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [macOS][docker-mac], [Windows][docker-windows] lub [Linux][docker-linux].
 
 
@@ -34,13 +33,13 @@ W tej sekcji przedstawiono dwa sugerowane przepływy pracy do zalogowania do rej
 
 ### <a name="sign-in-with-oras"></a>Zaloguj się przy użyciu ORAS
 
-Korzystając z jednostki [usługi](container-registry-auth-service-principal.md) z prawami wypychania, `oras login` Uruchom polecenie, aby zalogować się do rejestru przy użyciu identyfikatora aplikacji głównej usługi i hasła. Określ w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery), w tym przypadku *myregistry.azurecr.IO*. Identyfikator aplikacji głównej usługi jest przekazaniem w zmiennej `$SP_APP_ID`środowiskowej i hasłem w zmiennej. `$SP_PASSWD`
+Korzystając z jednostki [usługi](container-registry-auth-service-principal.md) z prawami wypychania, uruchom `oras login` polecenie, aby zalogować się do rejestru przy użyciu identyfikatora aplikacji głównej usługi i hasła. Określ w pełni kwalifikowaną nazwę rejestru (wszystkie małe litery), w tym przypadku *myregistry.azurecr.IO*. Identyfikator aplikacji głównej usługi jest przekazaniem w zmiennej środowiskowej `$SP_APP_ID` i hasłem w zmiennej `$SP_PASSWD` .
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Aby odczytać hasło z stdin, użyj `--password-stdin`.
+Aby odczytać hasło z stdin, użyj `--password-stdin` .
 
 ### <a name="sign-in-with-azure-cli"></a>Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -64,7 +63,7 @@ Utwórz plik tekstowy w lokalnym roboczym katalogu roboczym z niektórym przykł
 echo "Here is an artifact!" > artifact.txt
 ```
 
-Użyj polecenia `oras push` , aby wypchnąć ten plik tekstowy do rejestru. Poniższy przykład wypychanie przykładowego pliku tekstowego do `samples/artifact` repozytorium. Rejestr jest identyfikowany za pomocą w pełni kwalifikowanej nazwy rejestru *myregistry.azurecr.IO* (wszystkie małe litery). Artefakt jest otagowany `1.0`. Artefakt ma niezdefiniowany typ, domyślnie identyfikowany przez ciąg *typu nośnika* po nazwie pliku `artifact.txt`. Zobacz [artefakty OCI](https://github.com/opencontainers/artifacts) dla dodatkowych typów. 
+Użyj `oras push` polecenia, aby wypchnąć ten plik tekstowy do rejestru. Poniższy przykład wypychanie przykładowego pliku tekstowego do `samples/artifact` repozytorium. Rejestr jest identyfikowany za pomocą w pełni kwalifikowanej nazwy rejestru *myregistry.azurecr.IO* (wszystkie małe litery). Artefakt jest otagowany `1.0` . Artefakt ma niezdefiniowany typ, domyślnie identyfikowany przez ciąg *typu nośnika* po nazwie pliku `artifact.txt` . Zobacz [artefakty OCI](https://github.com/opencontainers/artifacts) dla dodatkowych typów. 
 
 **Linux**
 

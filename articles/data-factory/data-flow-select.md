@@ -6,13 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/18/2020
-ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/02/2020
+ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686499"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84322094"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Wybierz transformację w mapowaniu przepływu danych
 
@@ -39,7 +38,10 @@ Stałe mapowania mogą służyć do mapowania podkolumny kolumny hierarchicznej 
 
 ## <a name="rule-based-mapping"></a>Mapowanie oparte na regułach
 
-Jeśli chcesz zmapować wiele kolumn jednocześnie lub przekazywać kolumny z przełożeniami, użyj mapowania opartego na regułach, aby zdefiniować mapowania przy użyciu wzorców kolumn. Dopasowanie na podstawie kolumn `name`, `type`, `stream`i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+
+Jeśli chcesz zmapować wiele kolumn jednocześnie lub przekazywać kolumny z przełożeniami, użyj mapowania opartego na regułach, aby zdefiniować mapowania przy użyciu wzorców kolumn. Dopasowanie na podstawie `name` kolumn, `type` , `stream` i `position` . Można mieć dowolną kombinację stałych i mapowań opartych na regułach. Domyślnie wszystkie projekcje zawierające więcej niż 50 kolumn będą domyślnie mapowane na podstawie reguły, które pasują do każdej kolumny i wyprowadzają wydaną nazwę. 
 
 Aby dodać mapowanie oparte na regułach, kliknij przycisk **Dodaj mapowanie** i wybierz **Mapowanie oparte na regułach**.
 
@@ -49,7 +51,7 @@ Każde mapowanie oparte na regułach wymaga dwóch danych wejściowych: warunek,
 
 ![Mapowanie oparte na regułach](media/data-flow/rule-based-mapping.png "Mapowanie oparte na regułach")
 
-Użyj `$$` składni, aby odwołać się do nazwy wejściowej dopasowanej kolumny. Używając powyższego obrazu na przykład, Załóżmy, że użytkownik chce dopasować wszystkie kolumny ciągów, których nazwy są krótsze niż sześć znaków. Jeśli jedna kolumna przychodząca `test`ma nazwę, `$$ + '_short'` wyrażenie zmieni nazwę kolumny `test_short`. Jeśli jest to jedyne mapowanie, które istnieje, wszystkie kolumny, które nie spełniają warunku, zostaną usunięte z danych, które zostały wydane.
+Użyj `$$` składni, aby odwołać się do nazwy wejściowej dopasowanej kolumny. Używając powyższego obrazu na przykład, Załóżmy, że użytkownik chce dopasować wszystkie kolumny ciągów, których nazwy są krótsze niż sześć znaków. Jeśli jedna kolumna przychodząca `test` ma nazwę, wyrażenie zmieni `$$ + '_short'` nazwę kolumny `test_short` . Jeśli jest to jedyne mapowanie, które istnieje, wszystkie kolumny, które nie spełniają warunku, zostaną usunięte z danych, które zostały wydane.
 
 Wzorce pasują do kolumn przeznaczonych i zdefiniowanych. Aby zobaczyć, które zdefiniowane kolumny są mapowane przez regułę, kliknij ikonę okularów obok reguły. Sprawdź dane wyjściowe przy użyciu podglądu danych.
 
@@ -59,9 +61,9 @@ Jeśli klikniesz ikonę z dolnym cudzysłowem, możesz określić warunek mapowa
 
 ![Mapowanie oparte na regułach](media/data-flow/regex-matching.png "Mapowanie oparte na regułach")
 
-Powyższy przykład pasuje do wzorca `(r)` wyrażenia regularnego lub nazwy kolumny zawierającej małe litery r. Podobnie jak w przypadku standardowego mapowania opartego na regułach, wszystkie dopasowane kolumny są modyfikowane przez warunek `$$` po prawej stronie składni.
+Powyższy przykład pasuje do wzorca wyrażenia regularnego `(r)` lub nazwy kolumny zawierającej małe litery r. Podobnie jak w przypadku standardowego mapowania opartego na regułach, wszystkie dopasowane kolumny są modyfikowane przez warunek po prawej stronie `$$` składni.
 
-Jeśli w nazwie kolumny występuje wiele odpowiedników wyrażenia regularnego, można odwołać się do określonych `$n` dopasowań przy użyciu, gdzie "n" odwołuje się do tego, co jest zgodne. Na przykład "$2" odwołuje się do drugiego dopasowania w obrębie nazwy kolumny.
+Jeśli w nazwie kolumny występuje wiele odpowiedników wyrażenia regularnego, można odwołać się do określonych dopasowań przy użyciu, `$n` gdzie "n" odwołuje się do tego, co jest zgodne. Na przykład "$2" odwołuje się do drugiego dopasowania w obrębie nazwy kolumny.
 
 ### <a name="rule-based-hierarchies"></a>Hierarchie oparte na regułach
 
@@ -69,11 +71,11 @@ Jeśli zdefiniowana projekcja ma hierarchię, można użyć mapowania opartego n
 
 ![Mapowanie oparte na regułach](media/data-flow/rule-based-hierarchy.png "Mapowanie oparte na regułach")
 
-Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a`. `a`zawiera dwie podkolumny `b` i `c`. Schemat danych wyjściowych będzie zawierać dwie `b` kolumny `c` , a jako warunek "name as" `$$`.
+Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a` . `a`zawiera dwie podkolumny `b` i `c` . Schemat danych wyjściowych będzie zawierać dwie kolumny `b` , a `c` jako warunek "name as" `$$` .
 
 ### <a name="parameterization"></a>Parametryzacja
 
-Można Sparametryzuj nazwy kolumn przy użyciu mapowania opartego na regułach. Użyj słowa kluczowego ```name``` , aby dopasować nazwy kolumn przychodzących do parametru. Na przykład, jeśli masz parametr ```mycolumn```przepływu danych, możesz utworzyć regułę zgodną z nazwą kolumny, która jest równa. ```mycolumn``` Można zmienić nazwę dopasowanej kolumny na zakodowany ciąg, taki jak "klucz biznesowy" i odwołać się do niego jawnie. W tym przykładzie warunek dopasowania to ```name == $mycolumn``` i warunek nazwy to "klucz biznesowy". 
+Można Sparametryzuj nazwy kolumn przy użyciu mapowania opartego na regułach. Użyj słowa kluczowego, ```name``` Aby dopasować nazwy kolumn przychodzących do parametru. Na przykład, jeśli masz parametr przepływu danych, możesz ```mycolumn``` utworzyć regułę zgodną z nazwą kolumny, która jest równa ```mycolumn``` . Można zmienić nazwę dopasowanej kolumny na zakodowany ciąg, taki jak "klucz biznesowy" i odwołać się do niego jawnie. W tym przykładzie warunek dopasowania to ```name == $mycolumn``` i warunek nazwy to "klucz biznesowy". 
 
 ## <a name="auto-mapping"></a>Mapowanie
 

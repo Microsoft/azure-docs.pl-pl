@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
 ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75541805"
 ---
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com).
@@ -26,7 +26,7 @@ ms.locfileid: "75541805"
     
 1. Przejdź do sekcji Projektant obszaru roboczego, aby wyświetlić listę wersji roboczych potoku. 
     
-    Przekonwertowane usługi sieci Web można znaleźć, przechodząc do **punktów** > końcowych w**czasie rzeczywistym**.
+    Przekonwertowane usługi sieci Web można znaleźć, przechodząc do **punktów**końcowych w  >  **czasie rzeczywistym**.
 
 1. Wybierz wersję roboczą potoku, aby ją otworzyć.
 

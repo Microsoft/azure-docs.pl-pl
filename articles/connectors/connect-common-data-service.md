@@ -8,10 +8,9 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
 ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82997102"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service przy użyciu Azure Logic Apps
@@ -49,11 +48,11 @@ Na potrzeby tego przykładu Dodaj wyzwalacz Common Data Service, który jest uru
 
    ![Wyzwalaj informacje dla środowiska do monitorowania](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
-   | **Środowisko** | Yes | Środowisko do monitorowania, na przykład "produkcja Fabrikam Sales". Aby uzyskać więcej informacji, zobacz [platformę PowerShell — Omówienie](https://docs.microsoft.com/power-platform/admin/environments-overview). |
-   | **Nazwa jednostki** | Yes | Jednostka do monitorowania, na przykład "potencjalni klienci" |
-   | **Zakres** | Yes | Źródło, które utworzyło nowy rekord, na przykład użytkownik w jednostce biznesowej lub dowolny użytkownik w organizacji. W tym przykładzie zastosowano "jednostkę biznesową". |
+   | **Środowisko** | Tak | Środowisko do monitorowania, na przykład "produkcja Fabrikam Sales". Aby uzyskać więcej informacji, zobacz [platformę PowerShell — Omówienie](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Nazwa jednostki** | Tak | Jednostka do monitorowania, na przykład "potencjalni klienci" |
+   | **Zakres** | Tak | Źródło, które utworzyło nowy rekord, na przykład użytkownik w jednostce biznesowej lub dowolny użytkownik w organizacji. W tym przykładzie zastosowano "jednostkę biznesową". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Dodaj akcję Common Data Service
@@ -70,10 +69,10 @@ Teraz Dodaj akcję Common Data Service, która tworzy rekord zadania dla nowego 
 
    ![Informacje o akcji dla środowiska, w którym ma zostać utworzony rekord](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
-   | **Nazwa organizacji** | Yes | Środowisko, w którym chcesz utworzyć rekord, który nie musi być tym samym środowiskiem w wyzwalaczu, ale jest "produkcja Fabrikam Sales" w tym przykładzie |
-   | **Nazwa jednostki** | Yes | Jednostka, w której ma zostać utworzony rekord, na przykład "zadania" |
+   | **Nazwa organizacji** | Tak | Środowisko, w którym chcesz utworzyć rekord, który nie musi być tym samym środowiskiem w wyzwalaczu, ale jest "produkcja Fabrikam Sales" w tym przykładzie |
+   | **Nazwa jednostki** | Tak | Jednostka, w której ma zostać utworzony rekord, na przykład "zadania" |
    | **Temat** | Tak, na podstawie jednostki zaznaczonej w tym przykładzie | Krótki opis celu tego zadania |
    ||||
 
@@ -126,7 +125,7 @@ W przypadku akcji, które zwracają rekordy, takie jak Akcja **listy rekordów**
 
    ![Wprowadź zapytanie filtru ODATA dla rekordów filtrowania](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Aby uzyskać więcej informacji `$filter` na temat opcji zapytania systemowego, zobacz [Common Data Service-Filter Results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Aby uzyskać więcej informacji na temat `$filter` opcji zapytania systemowego, zobacz [Common Data Service-Filter Results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Wyświetlanie listy rekordów na podstawie zamówienia
 
@@ -140,7 +139,7 @@ W przypadku akcji, które zwracają rekordy, takie jak działanie **list Records
 
    ![Wprowadzanie zapytania filtru ODATA w celu uporządkowania rekordów](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Aby uzyskać więcej informacji `$orderby` na temat opcji zapytania systemowego, zobacz [wyniki Common Data Service kolejności](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Aby uzyskać więcej informacji na temat `$orderby` opcji zapytania systemowego, zobacz [wyniki Common Data Service kolejności](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Typy danych pola
 
@@ -153,14 +152,14 @@ W tej tabeli opisano niektóre typy pól i typy danych, których te pola wymagaj
 | Pole tekstowe | Pojedynczy wiersz tekstu | Wymaga pojedynczego wiersza tekstu lub zawartości dynamicznej, która ma typ danych tekstowych, na przykład następujące właściwości: <p><p>- **Zharmonizowan** <br>- **Kategorii** |
 | Pole liczb całkowitych | Liczba całkowita | Wymaga wartości całkowitej lub dynamicznej, która ma typ danych Integer, na przykład następujące właściwości: <p><p>- **Procent ukończenia** <br>- **Trwania** |
 | Pole daty | Data i godzina | Wymaga daty w formacie MM/DD/YYY lub zawartości dynamicznej, która ma typ danych Data, na przykład następujące właściwości: <p><p>- **Data utworzenia** <br>- **Data rozpoczęcia** <br>- **Rzeczywiste rozpoczęcie** <br>- **Rzeczywiste zakończenie** <br>- **Data ukończenia** |
-| Pole, które odwołuje się do innego rekordu jednostki | Klucz podstawowy | Wymaga zarówno identyfikatora rekordu, takiego jak identyfikator GUID, jak i typu wyszukiwania, co oznacza, że wartości z listy zawartości dynamicznej nie będą działały, na przykład następujące właściwości: <p><p>- **Właściciel**: musi być PRAWIDŁOWYm identyfikatorem użytkownika lub identyfikatorem rekordu zespołu. <br>- **Typ właściciela**: musi być typem wyszukiwania, takim jak `systemusers` lub `teams`, odpowiednio. <p><p>- **Dotyczy**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ dotyczący**: musi być typem wyszukiwania, na `accounts` przykład `contacts`, lub, odpowiednio. <p><p>- **Klient**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ klienta**: musi być typem wyszukiwania, takim jak `accounts` lub `contacts`, odpowiednio. |
+| Pole, które odwołuje się do innego rekordu jednostki | Klucz podstawowy | Wymaga zarówno identyfikatora rekordu, takiego jak identyfikator GUID, jak i typu wyszukiwania, co oznacza, że wartości z listy zawartości dynamicznej nie będą działały, na przykład następujące właściwości: <p><p>- **Właściciel**: musi być PRAWIDŁOWYm identyfikatorem użytkownika lub identyfikatorem rekordu zespołu. <br>- **Typ właściciela**: musi być typem wyszukiwania, takim jak `systemusers` lub `teams` , odpowiednio. <p><p>- **Dotyczy**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ dotyczący**: musi być typem wyszukiwania, na `accounts` przykład `contacts` , lub, odpowiednio. <p><p>- **Klient**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ klienta**: musi być typem wyszukiwania, takim jak `accounts` lub `contacts` , odpowiednio. |
 ||||
 
 Ten przykład pokazuje, jak Akcja **Utwórz nowy rekord** powoduje utworzenie nowego rekordu "Tasks" skojarzonego z innymi rekordami jednostki, w tym rekordu użytkownika i rekordu konta. Akcja określa identyfikatory i typy wyszukiwania dla tych rekordów jednostek przy użyciu wartości, które pasują do oczekiwanych typów danych dla odpowiednich właściwości.
 
-* Na podstawie właściwości **Owner** , która określa identyfikator użytkownika i Właściwość **typu właściciela** , która określa typ `systemusers` wyszukiwania, Akcja kojarzy nowy rekord "Tasks" z określonym użytkownikiem.
+* Na podstawie właściwości **Owner** , która określa identyfikator użytkownika i Właściwość **typu właściciela** , która określa `systemusers` Typ wyszukiwania, Akcja kojarzy nowy rekord "Tasks" z określonym użytkownikiem.
 
-* Na podstawie właściwości " **dotyczy** ", która określa identyfikator rekordu i Właściwość **dotyczy typu** , która określa typ `accounts` wyszukiwania, Akcja kojarzy nowy rekord "Tasks" z określonym kontem.
+* Na podstawie właściwości " **dotyczy** ", która określa identyfikator rekordu i Właściwość **dotyczy typu** , która określa `accounts` Typ wyszukiwania, Akcja kojarzy nowy rekord "Tasks" z określonym kontem.
 
 ![Tworzenie rekordu "Tasks" skojarzonego z identyfikatorami i typami wyszukiwania](./media/connect-common-data-service/create-new-record-task-properties.png)
 

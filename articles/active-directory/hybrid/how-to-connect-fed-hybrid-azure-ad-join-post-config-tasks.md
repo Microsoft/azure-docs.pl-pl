@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049663"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85807591"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Zadania pokonfiguracyjne dotyczące dołączania do hybrydowej usługi Azure AD
 
@@ -52,7 +52,7 @@ Jeśli Twoja organizacja uzyskuje dostęp do Internetu za pośrednictwem serwera
 
 ## <a name="4-configure-the-scp-in-any-forests-that-were-not-configured-by-azure-ad-connect"></a>4. Skonfiguruj punkt połączenia usługi w lasach, które nie zostały skonfigurowane przez Azure AD Connect 
 
-Punkt połączenia z usługą (SCP) zawiera informacje o dzierżawie usługi Azure AD, które będą używane przez urządzenia do rejestracji podwójnej.  Uruchom skrypt programu PowerShell, ConfigureSCP. ps1, pobrany z Azure AD Connect.
+Punkt połączenia z usługą (SCP) zawiera informacje o dzierżawie usługi Azure AD, które będą używane przez urządzenia do rejestracji podwójnej.  Uruchom skrypt programu PowerShell, ConfigureSCP.ps1 pobrany z Azure AD Connect.
 
 ## <a name="5-configure-any-federation-service-that-was-not-configured-by-azure-ad-connect"></a>5. Skonfiguruj dowolną usługę federacyjną, która nie została skonfigurowana przez Azure AD Connect
 
@@ -63,7 +63,7 @@ Jeśli organizacja używa usługi federacyjnej do logowania się do usługi Azur
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Włącz bezproblemową rejestrację jednokrotną usługi Azure AD dla urządzeń niższego poziomu systemu Windows
 
-Jeśli Twoja organizacja używa synchronizacji skrótów haseł lub uwierzytelniania przekazywanego w celu zalogowania się do usługi Azure AD, Włącz bezproblemową rejestrację jednokrotną usługi Azure AD przy użyciu tej metody logowania https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso, aby uwierzytelniać urządzenia niskiego poziomu systemu Windows:. 
+Jeśli Twoja organizacja używa synchronizacji skrótów haseł lub uwierzytelniania przekazywanego w celu zalogowania się do usługi Azure AD, Włącz bezproblemową rejestrację jednokrotną usługi Azure AD przy użyciu tej metody logowania, aby uwierzytelniać urządzenia niskiego poziomu systemu Windows: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Ustawianie zasad usługi Azure AD dla urządzeń niższego poziomu systemu Windows
 
@@ -82,19 +82,14 @@ Jeśli używasz [bezproblemowego logowania jednokrotnego](how-to-connect-sso.md)
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Zainstaluj program Microsoft Workplace Join na urządzeniach z systemem Windows niższego poziomu
 
-Ten Instalator tworzy zaplanowane zadanie w systemie urządzenia, który działa w kontekście użytkownika. Zadanie jest wyzwalane, gdy użytkownik loguje się do systemu Windows. Zadanie dyskretnie sprzęga urządzenie z usługą Azure AD przy użyciu poświadczeń użytkownika po uwierzytelnieniu przy użyciu zintegrowanego uwierzytelniania systemu Windows. Centrum pobierania jest o godzinie https://www.microsoft.com/download/details.aspx?id=53554. 
+Ten Instalator tworzy zaplanowane zadanie w systemie urządzenia, który działa w kontekście użytkownika. Zadanie jest wyzwalane, gdy użytkownik loguje się do systemu Windows. Zadanie dyskretnie sprzęga urządzenie z usługą Azure AD przy użyciu poświadczeń użytkownika po uwierzytelnieniu przy użyciu zintegrowanego uwierzytelniania systemu Windows. Centrum pobierania jest o godzinie https://www.microsoft.com/download/details.aspx?id=53554 . 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Skonfiguruj zasady grupy tak, aby zezwalały na rejestrację urządzeń
 
-* Utwórz obiekt zasad grupy w Active Directory — Jeśli nie został jeszcze utworzony.
-* Nadaj mu nazwę (np. sprzężenie hybrydowe usługi Azure AD).
-* Edytuj & przejdź do: Konfiguracja komputera > zasady > Szablony administracyjne > składników systemu Windows > rejestracji urządzeń
-* Włącz: Zarejestruj komputery przyłączone do domeny jako urządzenia
-* Zastosuj i kliknij przycisk OK.
-* Połącz obiekt zasad grupy z wybraną lokalizacją (jednostką organizacyjną, grupą zabezpieczeń lub domeną dla wszystkich urządzeń).
+Aby dowiedzieć się, jak zezwolić na sprzężenie hybrydowe usługi Azure AD dla poszczególnych urządzeń, zobacz [kontrolowane sprawdzanie poprawności hybrydowego przyłączania do usługi Azure AD](../devices/hybrid-azuread-join-control.md).
 
->[!NOTE]
->W przypadku 2012R2 ustawienia zasad są w **konfiguracji komputera > zasad > Szablony administracyjne > składników systemu Windows > Workplace Join > automatyczne dołączanie komputerów klienckich**
+> [!NOTE]
+> Ustawienia zasad dla 2012 R2 znajdują się w **konfiguracji komputera > zasad > Szablony administracyjne > składników systemu Windows > Workplace Join > automatyczne dołączanie komputerów klienckich**.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md)

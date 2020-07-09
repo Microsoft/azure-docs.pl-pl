@@ -9,10 +9,9 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81606530"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Agregowanie transformacji w strumieniu danych mapowania
@@ -45,18 +44,18 @@ Każde wyrażenie agregacji musi zawierać co najmniej jedną funkcję agregują
 
 Przekształcenia agregowane przypominają zapytania select SQL Aggregate. Kolumny, które nie znajdują się w klauzuli Group by ani funkcji agregujących, nie będą przepływać do danych wyjściowych przekształcenia agregowanego. Jeśli chcesz uwzględnić inne kolumny w zagregowanych danych wyjściowych, wykonaj jedną z następujących metod:
 
-* Użyj funkcji agregującej, takiej `last()` jak `first()` lub, aby dołączyć tę dodatkową kolumnę.
+* Użyj funkcji agregującej, takiej jak `last()` lub, `first()` Aby dołączyć tę dodatkową kolumnę.
 * Ponownie Dołącz kolumny do strumienia wyjściowego przy użyciu [wzorca samosprzężenia](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="removing-duplicate-rows"></a>Usuwanie zduplikowanych wierszy
 
-Typowym zastosowaniem transformacji agregowanej jest usunięcie lub zidentyfikowanie zduplikowanych wpisów w danych źródłowych. Ten proces jest nazywany deduplikacją. W oparciu o zestaw kluczy Grupuj według, użyj heurystyki wyboru, aby określić, który zduplikowany wiersz ma być zachowany. Typowe heurystyke to `first()`, `last()`, `max()`, i `min()`. Użyj [wzorców kolumn](concepts-data-flow-column-pattern.md) , aby zastosować regułę do każdej kolumny z wyjątkiem grupowania według kolumn.
+Typowym zastosowaniem transformacji agregowanej jest usunięcie lub zidentyfikowanie zduplikowanych wpisów w danych źródłowych. Ten proces jest nazywany deduplikacją. W oparciu o zestaw kluczy Grupuj według, użyj heurystyki wyboru, aby określić, który zduplikowany wiersz ma być zachowany. Typowe heurystyke to `first()` , `last()` , `max()` , i `min()` . Użyj [wzorców kolumn](concepts-data-flow-column-pattern.md) , aby zastosować regułę do każdej kolumny z wyjątkiem grupowania według kolumn.
 
 ![Deduplikacja](media/data-flow/agg-dedupe.png "Deduplikacja")
 
-W powyższym przykładzie kolumny `ProductID` i `Name` są używane do grupowania. Jeśli dwa wiersze mają te same wartości dla tych dwóch kolumn, są traktowane jako duplikaty. W tej transformacji agregacji wartości pierwszego dopasowanego wiersza zostaną zachowane i wszystkie pozostałe zostaną usunięte. Przy użyciu składni wzorca kolumny wszystkie kolumny, których nazwy `ProductID` nie `Name` są i są mapowane na nazwę istniejącej kolumny i mają wartość pierwszych dopasowanych wierszy. Schemat danych wyjściowych jest taki sam jak schemat wejściowy.
+W powyższym przykładzie kolumny `ProductID` i `Name` są używane do grupowania. Jeśli dwa wiersze mają te same wartości dla tych dwóch kolumn, są traktowane jako duplikaty. W tej transformacji agregacji wartości pierwszego dopasowanego wiersza zostaną zachowane i wszystkie pozostałe zostaną usunięte. Przy użyciu składni wzorca kolumny wszystkie kolumny, których nazwy nie są `ProductID` i `Name` są mapowane na nazwę istniejącej kolumny i mają wartość pierwszych dopasowanych wierszy. Schemat danych wyjściowych jest taki sam jak schemat wejściowy.
 
-W przypadku scenariuszy walidacji danych `count()` funkcja może służyć do zliczenia liczbę duplikatów.
+W przypadku scenariuszy walidacji danych `count()` Funkcja może służyć do zliczenia liczbę duplikatów.
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 
@@ -81,7 +80,7 @@ W przypadku scenariuszy walidacji danych `count()` funkcja może służyć do zl
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład pobiera przychodzące strumienie `MoviesYear` i grupuje wiersze według kolumny `year`. Transformacja tworzy kolumnę `avgrating` agregującą, która oblicza średnią z kolumny `Rating`. Ta transformacja agregacji ma `AvgComedyRatingsByYear`nazwę.
+Poniższy przykład pobiera przychodzące strumienie `MoviesYear` i grupuje wiersze według kolumny `year` . Transformacja tworzy kolumnę agregującą `avgrating` , która oblicza średnią z kolumny `Rating` . Ta transformacja agregacji ma nazwę `AvgComedyRatingsByYear` .
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 
@@ -100,7 +99,7 @@ MoviesYear aggregate(
 
 ![Skrypt zagregowanego przepływu danych](media/data-flow/aggdfs1.png "Skrypt zagregowanego przepływu danych")
 
-```MoviesYear```: Kolumna pochodna definiująca kolumny ```AvgComedyRatingByYear```Year i title: przekształcenie agregowane dla średniej klasyfikacji Comedies ```avgrating```pogrupowane według roku: Nazwa nowej kolumny tworzonej do przechowywania zagregowanej wartości
+```MoviesYear```: Kolumna pochodna definiująca kolumny Year i title ```AvgComedyRatingByYear``` : przekształcenie agregowane dla średniej klasyfikacji Comedies pogrupowane według roku ```avgrating``` : Nazwa nowej kolumny tworzonej do przechowywania zagregowanej wartości
 
 ```
 MoviesYear aggregate(groupBy(year),

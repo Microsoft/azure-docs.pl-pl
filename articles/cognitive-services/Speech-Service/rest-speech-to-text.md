@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659824"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636091"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -114,8 +114,10 @@ var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson)
 var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
 
+Zdecydowanie zaleca się przekazywanie strumieniowe (fragmenty) podczas publikowania danych audio, co może znacząco skrócić czas oczekiwania. Aby włączyć przesyłanie strumieniowe, zobacz [przykładowy kod w różnych językach programowania](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) .
+
 >[!NOTE]
->Funkcja oceny wymowy jest obecnie dostępna tylko w `westus` `eastasia` regionach i. Ta funkcja jest obecnie dostępna tylko w `en-US` języku.
+>Funkcja oceny wymowy jest obecnie dostępna tylko w `westus` `eastasia` regionach i `centralindia` . Ta funkcja jest obecnie dostępna tylko w `en-US` języku.
 
 ## <a name="sample-request"></a>Przykładowe żądanie
 

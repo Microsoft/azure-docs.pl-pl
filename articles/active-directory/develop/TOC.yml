@@ -305,7 +305,7 @@
         - name: iOS i macOS
           items:
             - name: Integracja z usługą Azure AD B2C
-              href: 'config-authority.md#b2c'
+              href: config-authority.md#b2c
             - name: Migrowanie do biblioteki MSAL.iOS/systemu macOS
               href: migrate-objc-adal-msal.md
             - name: Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
@@ -376,6 +376,11 @@
               displayName: 'shared device mode, firstline worker, frontline worker, flw'
             - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
+            - name: Zakresy dla internetowego interfejsu API akceptujące tokeny w wersji 1.0
+              href: msal-v1-app-scopes.md
+            - name: Migrowanie aplikacji z biblioteki ADAL do biblioteki MSAL
+              href: msal-migration.md
+              displayName: migration
     - name: Protokoły uwierzytelniania
       displayName: Auth protocol
       items:
@@ -410,6 +415,8 @@
               href: id-tokens.md
             - name: Tokeny dostępu
               href: access-tokens.md
+            - name: Punkt końcowy informacji o użytkowniku
+              href: userinfo.md
             - name: Poświadczenia certyfikatu
               href: active-directory-certificate-credentials.md
         - name: Protokół SAML 2.0
@@ -469,6 +476,34 @@
           href: /azure/active-directory/app-provisioning/scim-graph-scenarios
         - name: Automatyzowanie konfiguracji przy użyciu programu MS Graph
           href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+    - name: Artykuły pomocy na temat witryny Azure Portal
+      items:
+        - name: Domyślne okresy ważności tokenu dla aplikacji niestandardowej
+          href: registration-config-change-token-lifetime-how-to.md
+        - name: Odnajdowanie punktów końcowych
+          href: registration-config-how-to.md
+        - name: Wybieranie uprawnień dla danego interfejsu API
+          href: perms-for-given-api.md
+        - name: Protokoły uwierzytelniania
+          href: active-directory-authentication-protocols.md
+        - name: Różnice między uprawnieniami delegowanymi a uprawnieniami aplikacji
+          href: delegated-and-app-perms.md
+        - name: Jak działa zgoda dla aplikacji
+          href: consent-framework-links.md
+        - name: Znajdowanie właściwego interfejsu API na potrzeby aplikacji niestandardowej
+          href: api-find-an-api-how-to.md
+        - name: Dokumentacja rejestracji aplikacji
+          href: active-directory-v2-registration-portal.md
+        - name: Pola rejestracji aplikacji niestandardowej w witrynie Azure Portal
+          href: registration-config-specific-application-property-how-to.md
+        - name: Konfigurowanie nowej aplikacji wielodostępnej
+          href: setup-multi-tenant-app.md
+        - name: Dodawanie aplikacji wielodostępnej do galerii aplikacji w usłudze Azure AD
+          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
+        - name: Integracja z usługą Azure Active Directory
+          href: active-directory-how-to-integrate.md
+        - name: Konfigurowanie logowania jednokrotnego dla aplikacji
+          href: registration-config-sso-how-to.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Authentication
@@ -546,6 +581,9 @@
               href: msal-js-pass-custom-state-authentication-request.md
             - name: Zachowanie monitu
               href: msal-js-prompt-behavior.md
+            - name: Migrowanie aplikacji SPA z przepływu niejawnego do kodu uwierzytelniania
+              href: migrate-spa-implicit-to-auth-code.md
+              displayName: 'authorization, single-page app, 2.0'
         - name: Biblioteka MSAL dla systemów iOS i macOS
           items:
             - name: Różnice w bibliotece MSAL dla systemów iOS i macOS

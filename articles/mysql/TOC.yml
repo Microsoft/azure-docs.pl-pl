@@ -87,7 +87,7 @@
           href: concepts-pricing-tiers.md
         - name: Opłacanie wydajności rezerwowej z góry
           href: concept-reserved-pricing.md
-        - name: Limity
+        - name: Ograniczenia
           href: concepts-limits.md
     - name: Bezpieczeństwo i dostęp do danych
       items:
@@ -109,6 +109,8 @@
           href: concepts-data-encryption-mysql.md
         - name: Uwierzytelnianie w usłudze Azure AD
           href: concepts-azure-ad-authentication.md
+        - name: Podwójne szyfrowanie infrastruktury
+          href: concepts-infrastructure-double-encryption.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Ciągłość działalności biznesowej
@@ -132,6 +134,8 @@
           href: concepts-query-performance-insight.md
         - name: Zalecenia dotyczące wydajności
           href: concepts-performance-recommendations.md
+        - name: Parametry serwera
+          href: concepts-server-parameters.md
     - name: Opracowywanie zawartości
       items:
         - name: Zgodność sterowników i narzędzi
@@ -190,6 +194,8 @@
           href: howto-connection-string.md
         - name: Konfigurowanie protokołu SSL
           href: howto-configure-ssl.md
+        - name: Konfigurowanie protokołu TLS
+          href: howto-tls-configurations.md
         - name: Aplikacje internetowe
           href: howto-connect-webapp.md
         - name: Łączenie z użyciem przekierowania
@@ -272,6 +278,10 @@
           href: howto-data-encryption-cli.md
         - name: Walidacja szyfrowania danych
           href: howto-data-encryption-validation.md
+    - name: Podwójne szyfrowanie infrastruktury
+      items:
+        - name: Konfigurowanie podwójnego szyfrowania infrastruktury
+          href: howto-double-encryption.md
     - name: Integracja z usługą Azure AD
       items:
         - name: Konfigurowanie integracji z usługą Azure AD
@@ -290,6 +300,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: Przenoszenie między regionami
+      items:
+        - name: Azure Portal
+          href: howto-move-regions-portal.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

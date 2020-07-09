@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: obsługiwane łączniki dla działania Lookup
 services: data-factory
 author: linda33wj
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d583c25afc5c328ef64a8c931e4209f0d88a14a9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 35997f57b0a66b4f7853ea117519273fd7b6f726
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84124307"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84436037"
 ---
 | Kategoria | Magazyn danych |
 |:--- |:--- |
-| **Azure** |[Magazyn obiektów blob platformy Azure](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (interfejs API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Usługa Azure Data Lake Storage 1. generacji](../articles/data-factory/connector-azure-data-lake-store.md) |
@@ -29,8 +29,8 @@ ms.locfileid: "84124307"
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Wystąpienie zarządzane Azure SQL](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
-| &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
-| **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| &nbsp; |[Azure Table storage](../articles/data-factory/connector-azure-table-storage.md) |
+| **Baza danych** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Przechodzenie do szczegółów](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
@@ -51,7 +51,8 @@ ms.locfileid: "84124307"
 | &nbsp; |[SAP Business Warehouse za pośrednictwem MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
 | &nbsp; |[Tabela SAP](../articles/data-factory/connector-sap-table.md) |
-| &nbsp; |[platforma Spark](../articles/data-factory/connector-spark.md) |
+| &nbsp; |[Snowflake](../articles/data-factory/connector-snowflake.md) |
+| &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |
@@ -62,7 +63,7 @@ ms.locfileid: "84124307"
 | &nbsp; |[System plików](../articles/data-factory/connector-file-system.md) |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |
 | &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |
-| &nbsp; |[SYSTEM PLIKÓW HDFS](../articles/data-factory/connector-hdfs.md) |
+| &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |
 | **Protokół ogólny** |[Ogólne HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[Ogólne OData](../articles/data-factory/connector-odata.md) |
@@ -83,7 +84,7 @@ ms.locfileid: "84124307"
 | &nbsp; |[Oracle Service Cloud (wersja zapoznawcza)](../articles/data-factory/connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal (wersja zapoznawcza)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (wersja zapoznawcza)](../articles/data-factory/connector-quickbooks.md) |
-| &nbsp; |[SalesForce](../articles/data-factory/connector-salesforce.md) |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |
 | &nbsp; |[Salesforce Marketing Cloud](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
@@ -92,7 +93,7 @@ ms.locfileid: "84124307"
 | &nbsp; |[Shopify (wersja zapoznawcza)](../articles/data-factory/connector-shopify.md) |
 | &nbsp; |[Lista usługi SharePoint Online](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (wersja zapoznawcza)](../articles/data-factory/connector-square.md) |
-| &nbsp; |[Tabela internetowa (tabela HTML)](../articles/data-factory/connector-web-table.md) 
+| &nbsp; |[Tabela sieci Web (tabela HTML)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |
 | &nbsp; |[Zoho (wersja zapoznawcza)](../articles/data-factory/connector-zoho.md) |
 

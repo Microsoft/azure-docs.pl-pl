@@ -6,18 +6,24 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: beb47f961c6f24453bd49aa5807c9d801fc199a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132325"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84300777"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor 
+# <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor
 
-W tym artykule omówiono typowe problemy w Azure Monitor alertów.
+W tym artykule omówiono typowe problemy w Azure Monitor alerty i powiadomienia.
 
 Alerty Azure Monitor z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Aby uzyskać więcej informacji na temat alertów, zobacz [Omówienie alertów w Microsoft Azure](alerts-overview.md).
+
+Jeśli masz problem z uruchamianiem alertu lub nie jest on uruchamiany w oczekiwany sposób, zapoznaj się z artykułami poniżej. W Azure Portal można zobaczyć "uruchomienia" alertów.
+
+- [Rozwiązywanie problemów z alertami Azure Monitor w Microsoft Azure](alerts-troubleshoot-metric.md)  
+- [Rozwiązywanie problemów z alertami rejestrowania Azure Monitor w Microsoft Azure](alerts-troubleshoot-metric.md)
+
+Jeśli alert jest uruchamiany zgodnie z Azure Portal, ale nie występują odpowiednie powiadomienia, Skorzystaj z informacji zawartych w dalszej części tego artykułu, aby rozwiązać ten problem.
 
 ## <a name="action-or-notification-on-my-alert-did-not-work-as-expected"></a>Akcja lub powiadomienie dotyczące mojego alertu nie zadziałały zgodnie z oczekiwaniami
 
@@ -25,11 +31,11 @@ Jeśli w Azure Portal widzisz wyzwolony alert, ale masz problem z niektórymi ak
 
 ## <a name="did-not-receive-expected-email"></a>Nie odebrano oczekiwanego adresu e-mail
 
-Jeśli w Azure Portal widzisz wyzwolony alert, ale nie otrzymano wiadomości e-mail skonfigurowanej na jej temat, wykonaj następujące czynności: 
+Jeśli w witrynie Azure Portal widzisz wyzwolony alert, ale skonfigurowana dla niego akcja, taka jak wiadomość e-mail, nie została wywołana, wykonaj następujące czynności:
 
-1. Czy **wiadomość E-mail została pominięta przez [regułę akcji](alerts-action-rules.md)**? 
+1. Czy **wiadomość E-mail została pominięta przez [regułę akcji](alerts-action-rules.md)**?
 
-    Zapoznaj się z tematem wygenerowanego alertu w portalu i sprawdź kartę Historia dla pominiętych [grup akcji](action-groups.md): 
+    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](action-groups.md):
 
     ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -39,123 +45,123 @@ Jeśli w Azure Portal widzisz wyzwolony alert, ale nie otrzymano wiadomości e-m
 
 1. **Czy Twój serwer poczty e-mail i Skrzynka pocztowa akceptują zewnętrzne wiadomości e-mail?**
 
-    Sprawdź, czy wiadomości e-mail z tych trzech adresów nie są blokowane:
+    Sprawdź, czy nie są blokowane wiadomości e-mail z tych trzech adresów:
       - azure-noreply@microsoft.com  
       - azureemail-noreply@microsoft.com
       - alerts-noreply@mail.windowsazure.com
 
-    W przypadku wewnętrznych list wysyłkowych lub list dystrybucyjnych są one używane do blokowania wiadomości e-mail z zewnętrznych adresów e-mail. Musisz dozwolonych powyższe adresy e-mail.  
-    Aby przetestować, Dodaj zwykły służbowy adres e-mail (a nie listę wysyłkową) do grupy akcji i sprawdź, czy do tej wiadomości dotarły alerty. 
+    Zdarza się często, że wiadomości e-mail z zewnętrznych adresów e-mail są blokowane w wewnętrznych listach wysyłkowych lub listach dystrybucyjnych. Musisz zezwolić na pocztę e-mail przy użyciu podanych powyżej adresów.  
+    Aby to przetestować, dodaj do grupy akcji zwykły służbowy adres e-mail (nie listę wysyłkową) i sprawdź, czy do tej skrzynki pocztowej trafiają alerty.
 
-1. **Czy wiadomość e-mail została przetworzona przez reguły skrzynki odbiorczej czy filtr spamu?** 
+1. **Czy wiadomość e-mail została przetworzona przez reguły skrzynki odbiorczej czy filtr spamu?**
 
-    Sprawdź, czy nie istnieją reguły skrzynki odbiorczej, które usuwają te wiadomości e-mail lub przenoszą je do folderu bocznego. Na przykład reguły skrzynki odbiorczej mogą przechwytywać określonych nadawców lub określone słowa w temacie.
+    Sprawdź, czy nie ma reguł skrzynki odbiorczej, które powodują usunięcie tych wiadomości e-mail lub ich przeniesienie do innego folderu. Na przykład reguły skrzynki odbiorczej mogą przechwytywać określonych nadawców lub określone słowa w temacie.
 
-    Sprawdź również:
-    
-      - Ustawienia spamu klienta poczty e-mail (na przykład Outlook, Gmail)
-      - ustawienia limitów nadawcy/ustawień spamu/ustawień kwarantanny serwera poczty e-mail (na przykład Exchange, Office 365, G-Suite)
-      - Ustawienia urządzenia zabezpieczeń poczty e-mail (np. Barracuda, Cisco). 
+    Sprawdź również następujące elementy:
 
-1. **Czy przypadkowo Anulowano subskrypcję grupy akcji?** 
+   - Ustawienia spamu w kliencie poczty e-mail (takim jak Outlook lub Gmail)
+      - limity nadawcy/ustawienia spamu/ustawienia kwarantanny na serwerze poczty e-mail (takim jak Exchange, Office 365, G Suite)
+      - Ustawienia urządzenia zabezpieczeń poczty e-mail (np. Barracuda, Cisco).
 
-    Wiadomości e-mail dotyczące alertów zawierają link umożliwiający anulowanie subskrypcji grupy akcji. Aby sprawdzić, czy nie masz przypadkowo anulowania subskrypcji z tej grupy akcji:
+1. **Czy przypadkowo Anulowano subskrypcję grupy akcji?**
 
-    1. Otwórz grupę akcji w portalu i Sprawdź kolumnę Stan:
+    W wiadomościach e-mail zawierających alerty znajduje się link umożliwiający anulowanie subskrypcji grupy akcji. Aby sprawdzić, czy nastąpiło przypadkowe anulowanie subskrypcji grupy akcji, wykonaj dowolną z następujących czynności:
 
-    ![kolumna stanu grupy akcji](media/alerts-troubleshoot/action-group-status.png)
+    1. Otwórz w portalu grupę akcji i sprawdź kolumnę Stan:
 
-    2. Wyszukaj potwierdzenie anulowania subskrypcji w wiadomości e-mail:
+    ![kolumna stanu w grupie akcji](media/alerts-troubleshoot/action-group-status.png)
 
-    ![Anulowano subskrypcję z grupy akcji alertu](media/alerts-troubleshoot/unsubscribe-action-group.png)
+    2. Sprawdź, czy otrzymano wiadomość e-mail z potwierdzeniem anulowania subskrypcji:
 
-    Aby subskrybować ponownie — Użyj linku w otrzymanej wiadomości e-mail z potwierdzeniem anulowania subskrypcji lub usuń adres e-mail z grupy akcji, a następnie ponownie go Dodaj. 
+    ![anulowanie subskrypcji grupy akcji alertów](media/alerts-troubleshoot/unsubscribe-action-group.png)
+
+    Aby ponownie zasubskrybować grupę akcji, skorzystaj z linku w otrzymanej wiadomości e-mail z potwierdzeniem anulowania subskrypcji lub usuń adres e-mail z grupy akcji, a następnie ponownie go dodaj. 
  
-1. **Czy masz ograniczoną liczbę wiadomości e-mail na jeden adres e-mail?** 
+1. **Czy masz ograniczoną liczbę wiadomości e-mail na jeden adres e-mail?**
 
-    Liczba wiadomości e-mail jest [ograniczona](alerts-rate-limiting.md) do maksymalnie 100 wiadomości e-mail na każdy adres e-mail. W przypadku przekazania tego progu dodatkowe powiadomienia e-mail zostaną usunięte.  Sprawdź, czy został wyświetlony komunikat informujący o tym, że Twój adres e-mail jest tymczasowo ograniczony: 
+    [Liczba wiadomości e-mail jest ograniczona](alerts-rate-limiting.md) do maksymalnie 100 wiadomości na godzinę dla każdego adresu e-mail. Po przekroczeniu tego progu kolejne wiadomości e-mail z powiadomieniami są usuwane.  Sprawdź, czy w skrzynce odbiorczej jest wiadomość e-mail informująca o tym, że na Twój adres e-mail nałożono tymczasowe ograniczenie liczby wiadomości: 
  
-   ![Szybkość wiadomości e-mail ograniczona](media/alerts-troubleshoot/email-paused.png)
+   ![Ograniczenie liczby wiadomości e-mail](media/alerts-troubleshoot/email-paused.png)
 
-   Jeśli chcesz otrzymywać dużo powiadomień bez ograniczania szybkości, rozważ użycie innej akcji, takiej jak element webhook, aplikacja logiki, funkcja platformy Azure lub elementy Runbook usługi Automation, żadna z nich nie jest ograniczona. 
+   Jeśli chcesz otrzymywać dużo powiadomień bez ograniczenia częstotliwości, rozważ użycie innej akcji, takiej jak element webhook, aplikacja logiki, funkcja platformy Azure lub elementy runbook automatyzacji, które nie są ograniczane. 
 
 ## <a name="did-not-receive-expected-sms-voice-call-or-push-notification"></a>Nie odebrano oczekiwanego komunikatu SMS, połączenia głosowego lub powiadomienia wypychanego
 
-Jeśli w portalu widzisz wyzwolony alert, ale nie otrzymano wiadomości SMS, połączenia głosowego ani powiadomienia wypychanego, które zostały przez Ciebie skonfigurowane, wykonaj następujące kroki: 
+Jeśli w portalu widzisz wyzwolony alert, ale skonfigurowana dla niego akcja, taka jak wiadomość SMS, połączenie głosowe lub powiadomienie push, nie została wywołana, wykonaj następujące czynności: 
 
-1. **Czy akcja została pominięta przez [regułę akcji](alerts-action-rules.md)?** 
+1. **Czy akcja została pominięta przez [regułę akcji](alerts-action-rules.md)?**
 
-    Zapoznaj się z tematem wygenerowanego alertu w portalu i sprawdź kartę Historia dla pominiętych [grup akcji](action-groups.md): 
+    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](action-groups.md): 
 
     ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
 
-   W przypadku niezamierzonego zamiaru można zmodyfikować, wyłączyć lub usunąć regułę akcji.
+   Jeśli było to niezamierzone, możesz zmodyfikować, wyłączyć lub usunąć regułę akcji.
  
 1. **SMS/Voice: czy Twój numer telefonu jest poprawny?**
 
-   Sprawdź akcję SMS pod kątem pisowni w kodzie kraju lub numerze telefonu. 
+   Sprawdź akcję wiadomości SMS pod kątem literówek w kodzie kraju lub numerze telefonu.
  
-1. **Wiadomość SMS/głos: czy masz ograniczoną szybkość?** 
+1. **Wiadomość SMS/głos: czy masz ograniczoną szybkość?**
 
-    Połączenia SMS i głosowe mają stawkę ograniczoną do nie więcej niż jedno powiadomienie co pięć minut na numer telefonu. W przypadku przekazania tego progu powiadomienia zostaną usunięte. 
+    Wiadomości SMS i połączenia głosowe mają limity częstotliwości wynoszące nie więcej, niż jedno powiadomienie co pięć minut na numer telefonu. W przypadku przekroczenia tego progu powiadomienia nie są wysyłane.
 
-      - Połączenie głosowe — Sprawdź swoją historię połączeń i zobacz, czy w ciągu ostatnich pięciu minut wystąpiło inne wywołanie z platformy Azure. 
-      - SMS — Sprawdź, czy Historia programu SMS zawiera komunikat informujący o tym, że Twój numer telefonu ma ograniczoną stawkę. 
+      - Połączenie głosowe — sprawdź swoją historię połączeń i zobacz, czy w ciągu ostatnich pięciu minut miało miejsce inne połączenie z platformy Azure.
+      - Wiadomości SMS — sprawdź, czy w skrzynce wiadomości SMS jest wiadomość wskazująca, że Twój numer telefonu ma ograniczoną liczbę wiadomości.
 
-    Jeśli chcesz otrzymywać dużo powiadomień bez ograniczania szybkości, rozważ użycie innej akcji, takiej jak element webhook, aplikacja logiki, funkcja platformy Azure lub elementy Runbook usługi Automation, żadna z nich nie jest ograniczona. 
+    Jeśli chcesz otrzymywać dużo powiadomień bez ograniczenia częstotliwości, rozważ użycie innej akcji, takiej jak element webhook, aplikacja logiki, funkcja platformy Azure lub elementy runbook automatyzacji, które nie są ograniczane. 
  
 1. **SMS: Czy przypadkowo Anulowano subskrypcję grupy akcji?**
 
-    Otwórz historię programu SMS i sprawdź, czy wybrano opcję dostarczania wiadomości SMS z tej konkretnej grupy akcji (przy użyciu opcji Wyłącz odpowiedź action_group_short_name) lub z wszystkich grup akcji (przy użyciu opcji Zatrzymaj odpowiedź). Aby ponownie subskrybować, Wyślij odpowiednie polecenie SMS (Włącz action_group_short_name lub Uruchom) lub Usuń akcję SMS z grupy akcji, a następnie ponownie go Dodaj.  Aby uzyskać więcej informacji, zobacz temat [zachowanie alertu programu SMS w grupach akcji](alerts-sms-behavior.md).
+    Otwórz historię programu SMS i sprawdź, czy wybrano opcję dostarczania wiadomości SMS z tej konkretnej grupy akcji (przy użyciu opcji Wyłącz odpowiedź action_group_short_name) lub z wszystkich grup akcji (przy użyciu opcji Zatrzymaj odpowiedź). Aby subskrybować ponownie, wyślij odpowiednie polecenie SMS (ENABLE krótka_nazwa_grupy_akcji lub START) lub usuń akcję wiadomości SMS z grupy akcji, a następnie dodaj ją ponownie.  Aby uzyskać więcej informacji, zobacz [Zachowanie alertu SMS w grupach akcji](alerts-sms-behavior.md).
 
 1. **Czy chcesz przypadkowo zablokować powiadomienia na telefonie?**
 
-   Większość telefonów komórkowych umożliwia blokowanie wywołań lub wiadomości SMS z określonych numerów telefonów lub krótkich kodów lub blokowanie powiadomień wypychanych z określonych aplikacji (takich jak aplikacja mobilna platformy Azure). Aby sprawdzić, czy powiadomienia na telefonie zostały przypadkowo zablokowane, zapoznaj się z dokumentacją dotyczącą systemu operacyjnego telefonu i modelu lub Testuj przy użyciu innego numeru telefonu i telefonu. 
+   Większość telefonów komórkowych umożliwia blokowanie połączeń lub wiadomości SMS z określonych numerów telefonów lub krótkich kodów oraz blokowanie powiadomień push z określonych aplikacji (takich jak aplikacja mobilna platformy Azure). Aby sprawdzić, czy przypadkowo nie zablokowano powiadomień na telefonie, zapoznaj się z dokumentacją dotyczącą systemu operacyjnego lub modelu Twojego telefonu bądź przeprowadź test przy użyciu innego telefonu i numeru telefonu.
 
 ## <a name="expected-another-type-of-action-to-trigger-but-it-did-not"></a>Oczekiwano innego typu akcji do wyzwolenia, ale nie 
+   
+Jeśli w portalu widzisz wyzwolony alert, ale jego skonfigurowana akcja nie została wywołana, wykonaj następujące czynności:
 
-Jeśli w portalu widzisz wygenerowanego alertu, ale jego skonfigurowana akcja nie została wyzwolona, wykonaj następujące czynności: 
+1. **Czy akcja została pominięta przez regułę akcji?**
 
-1. **Czy akcja została pominięta przez regułę akcji?** 
-
-    Zapoznaj się z tematem wygenerowanego alertu w portalu i sprawdź kartę Historia dla pominiętych [grup akcji](action-groups.md): 
+    Klikając wyzwolony alert w portalu i przeglądając kartę historii, sprawdź, czy istnieją pominięte [grupy akcji](action-groups.md):
 
     ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
  
-    W przypadku niezamierzonego zamiaru można zmodyfikować, wyłączyć lub usunąć regułę akcji. 
+    Jeśli było to niezamierzone, możesz zmodyfikować, wyłączyć lub usunąć regułę akcji.
 
 1. **Czy element webhook nie został wyzwolony?**
 
     1. **Czy źródłowe adresy IP zostały zablokowane?**
     
-       Dozwolonych [adresy IP](action-groups.md#action-specific-information) , z których wywoływana jest element webhook.
+       Dodaj [adresy IP](action-groups.md#action-specific-information) , z których jest wywoływany element webhook, z listy dozwolonych.
 
     1. **Czy punkt końcowy elementu webhook działa prawidłowo?**
 
-       Upewnij się, że skonfigurowany punkt końcowy elementu webhook jest poprawny, a punkt końcowy działa poprawnie. Sprawdź dzienniki elementu webhook lub instrumentację kodu, aby było możliwe badanie (na przykład rejestrowanie przychodzącego ładunku). 
+       Sprawdź, czy skonfigurowany punkt końcowy elementu webhook jest poprawny oraz czy punkt końcowy działa prawidłowo. Sprawdź dzienniki elementu webhook lub instrumentuj kod, aby umożliwić analizę (na przykład rejestrowanie ładunku przychodzącego).
 
     1. **Czy są wywoływane zapasy czasu lub Microsoft Teams?**  
-    Każdy z tych punktów końcowych oczekuje określonego formatu JSON. Postępuj zgodnie z [tymi instrukcjami](action-groups-logic-app.md) , aby zamiast tego skonfigurować akcję aplikacji logiki.
+    Każdy z tych punktów końcowych oczekuje określonego formatu JSON. Postępuj zgodnie z [tymi instrukcjami](action-groups-logic-app.md), aby w zamian skonfigurować akcję aplikacji logiki.
 
     1. **Czy element webhook stał się nieodpowiedzią lub zwrócił błędy?** 
 
-        Nasz limit czasu dla odpowiedzi elementu webhook wynosi 10 sekund. Wywołanie elementu webhook zostanie ponowione do dwóch dodatkowych razy w przypadku zwrócenia następujących kodów stanu HTTP: 408, 429, 503, 504 lub gdy punkt końcowy HTTP nie odpowiada. Pierwsze ponowienie próby odbywa się po 10 sekundach. Drugi i ostatni proces ponawiania prób następuje po 100 sekundach. Jeśli drugie ponowienie zakończy się niepowodzeniem, punkt końcowy nie zostanie ponownie wywołany przez 30 minut dla żadnej grupy akcji.
+        Limit czasu dla odpowiedzi elementu webhook wynosi 10 sekund. Wywołanie elementu webhook zostanie ponowione maksymalnie dwa razy, gdy zostaną zwrócone następujące kody stanu HTTP: 408, 429, 503, 504, lub gdy punkt końcowy HTTP nie odpowiada. Pierwsze ponowienie próby odbywa się po 10 sekundach. Drugie (ostatnie) ponowienie próby odbywa się po 100 sekundach. Jeśli drugie ponowienie zakończy się niepowodzeniem, punkt końcowy nie zostanie ponownie wywołany przez 30 minut dla żadnej grupy akcji.
 
 ## <a name="action-or-notification-happened-more-than-once"></a>Akcja lub powiadomienie zaszło więcej niż raz 
 
-Jeśli otrzymasz powiadomienie o alercie (na przykład w wiadomości e-mail lub wiadomości SMS) więcej niż raz lub akcja alertu (taka jak element webhook lub funkcja platformy Azure) została wyzwolona wiele razy, wykonaj następujące czynności: 
+W przypadku otrzymania powiadomienia o alercie (na przykład za pomocą wiadomości e-mail lub wiadomości SMS) więcej niż raz lub wielokrotnego wyzwolenia akcji alertu (takiej jak element webhook lub funkcja platformy Azure), wykonaj następujące czynności: 
 
 1. **Czy jest to naprawdę ten sam alert?** 
 
-    W niektórych przypadkach w tym samym czasie są uruchamiane wiele podobnych alertów. Z tego samego alertu może się zdarzyć, że jego akcje wywołały wiele razy. Na przykład reguła alertu dziennika aktywności może być skonfigurowana w taki sposób, aby był uruchamiany zarówno po rozpoczęciu zdarzenia, jak i po jego zakończeniu (powodzenie lub niepowodzenie), nie filtrując wartości w polu Stan zdarzenia. 
+    W niektórych przypadkach wiele podobnych alertów jest uruchamianych mniej więcej w tym samym czasie. Może się więc tylko wydawać, że ten sam alert wyzwolił swoje akcje wiele razy. Na przykład reguła alertu dziennika aktywności może być skonfigurowana w taki sposób, aby była uruchamiana zarówno po rozpoczęciu zdarzenia, jak i po jego zakończeniu (pomyślnym lub niepomyślnym) bez filtrowania wartości w polu stanu zdarzenia. 
 
-    Aby sprawdzić, czy te akcje lub powiadomienia pochodzą z różnych alertów, sprawdź szczegóły alertu, takie jak sygnatura czasowa i identyfikator alertu lub jego identyfikator korelacji. Alternatywnie Sprawdź listę wyzwolonych alertów w portalu. W takim przypadku konieczne będzie dostosowanie logiki reguły alertu lub skonfigurowanie źródła alertu. 
+    Aby sprawdzić, czy te akcje lub powiadomienia pochodzą z różnych alertów, sprawdź szczegóły alertu, takie jak sygnatura czasowa i identyfikator alertu lub jego identyfikator korelacji. Możesz też sprawdzić listę wyzwolonych alertów w portalu. W takim przypadku konieczne będzie dostosowanie logiki reguły alertu lub skonfigurowanie źródła alertu. 
 
 1. **Czy akcja powtarza się w wielu grupach akcji?** 
 
-    Po uruchomieniu alertu każda z jego grup akcji jest przetwarzana niezależnie. Tak więc jeśli akcja (na przykład adres e-mail) pojawia się w wielu wyzwolonych grupach akcji, będzie ona wywoływana raz dla każdej grupy akcji. 
+    Po uruchomieniu alertu każda z jego grup akcji jest przetwarzana niezależnie. Jeśli więc akcja (na przykład adres e-mail) pojawia się w wielu wyzwolonych grupach akcji, zostanie wywołana raz dla każdej grupy akcji. 
 
-    Aby sprawdzić, które grupy akcji zostały wyzwolone, sprawdź kartę Historia alertu. Zobaczysz obie grupy akcji zdefiniowane w regule alertu i grupy akcji dodane do alertu według reguł akcji: 
+    Aby sprawdzić, które grupy akcji zostały wyzwolone, sprawdź kartę historii alertu. Są tam widoczne zarówno grupy akcji zdefiniowane w regule alertu, jak i grupy akcji dodane do alertu przez reguły akcji: 
 
     ![Powtórzona akcja w wielu grupach akcji](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
@@ -165,53 +171,53 @@ Jeśli alert został odebrany, ale uważasz, że brakuje niektórych pól lub s�
 
 1. **Czy wybrano poprawny format dla akcji?** 
 
-    Każdy typ akcji (poczta e-mail, element webhook itp.) ma dwa formaty — domyślny, starszy format i [nowszy format wspólnego schematu](alerts-common-schema.md). Podczas tworzenia grupy akcji należy określić żądany format dla każdej akcji — różne akcje w grupach akcji mogą mieć różne formaty. 
+    Każdy typ akcji (poczta e-mail, element webhook itp.) ma dwa formaty — domyślny, starszy format i [nowszy format wspólnego schematu](alerts-common-schema.md). Tworząc grupę akcji, określa się format poszczególnych akcji — dostępnych jest szereg formatów. 
 
     Na przykład dla akcji elementu webhook: 
 
     ![Akcja elementu webhook — opcja schematu](media/alerts-troubleshoot/webhook.png)
 
-    Sprawdź, czy format określony na poziomie akcji jest oczekiwany. Można na przykład opracować kod, który reaguje na alerty (element webhook, funkcja, aplikacja logiki itp.), oczekiwano jednego formatu, ale później w akcji lub innej osobie określono inny format.  
+    Sprawdź, czy na poziomie akcji określono odpowiedni format. Na przykład może się zdarzyć, że w kodzie, który reaguje na alerty (element webhook, funkcja, aplikacja logiki itp.), oczekiwany jest dany format, ale w dalszej części akcji użytkownik określi inny format.  
 
-    Sprawdź również format ładunku (JSON) dla [alertów dziennika aktywności](activity-log-alerts-webhook.md), dla alertów [wyszukiwania w dzienniku](alerts-log-webhook.md) (zarówno Application Insights jak i log Analytics), dla [alertów dotyczących metryk](alerts-metric-near-real-time.md#payload-schema), dla [typowego schematu alertu](alerts-common-schema-definitions.md)oraz dla przestarzałych [alertów metryk klasycznych](alerts-webhooks.md).
+    Sprawdź również format ładunku (JSON) dla [alertów dziennika aktywności](activity-log-alerts-webhook.md), [alertów przeszukiwania dzienników](alerts-log-webhook.md) (zarówno usługi Application Insights, jak i analizy dzienników), [alertów metryk](alerts-metric-near-real-time.md#payload-schema), [wspólnego schematu alertów](alerts-common-schema-definitions.md) oraz przestarzałych [alertów metryk klasycznych](alerts-webhooks.md).
 
  
 1. **Alerty dziennika aktywności: czy informacje są dostępne w dzienniku aktywności?** 
 
-    [Alerty dziennika aktywności](activity-log-alerts.md) są alertami opartymi na zdarzeniach, które są zapisywane w dzienniku aktywności platformy Azure, takich jak zdarzenia dotyczące tworzenia, aktualizowania lub usuwania zasobów platformy Azure, kondycji usług i zdarzeń związanych z kondycją zasobów albo wyniki z Azure Advisor i Azure Policy. Jeśli alert został odebrany na podstawie dziennika aktywności, ale brakuje niektórych pól lub są one nieprawidłowe, najpierw sprawdź zdarzenia w dzienniku aktywności. Jeśli zasób platformy Azure nie zapisuje pól, których szukasz w swoim zdarzeniu dziennika aktywności, te pola nie zostaną uwzględnione w odpowiednim alercie. 
+    [Alerty dziennika aktywności](activity-log-alerts.md) są alertami opartymi na zdarzeniach, które są zapisywane w dzienniku aktywności platformy Azure, takich jak zdarzenia dotyczące tworzenia, aktualizowania lub usuwania zasobów platformy Azure, kondycji usług i zdarzeń związanych z kondycją zasobów albo wyniki z Azure Advisor i Azure Policy. Jeśli odebrano alert na podstawie dziennika aktywności, ale brakuje niektórych pól lub są one nieprawidłowe, najpierw sprawdź zdarzenia w dzienniku aktywności. Jeśli zasób platformy Azure nie zapisał pól, których szukasz w zdarzeniu dziennika aktywności, pola te nie będą dostępne w alercie. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>Reguła akcji nie działa zgodnie z oczekiwaniami 
 
-Jeśli w portalu widzisz wyzwolony alert, ale powiązana reguła działania nie działa zgodnie z oczekiwaniami, wykonaj następujące kroki: 
+Jeśli w portalu widzisz wyzwolony alert, ale powiązana reguła akcji nie zadziałała zgodnie z oczekiwaniami, wykonaj następujące czynności: 
 
 1. **Czy reguła akcji jest włączona?** 
 
-    Sprawdź kolumnę Stan reguły akcji, aby sprawdzić, czy powiązana rola akcji jest włączona. 
+    Sprawdź kolumnę stanu reguły akcji, aby zweryfikować, czy powiązana rola akcji została włączona. 
 
     ![zdjęć](media/alerts-troubleshoot/action-rule-status.png) 
 
-    Jeśli nie jest włączona, można włączyć regułę akcji, wybierając ją i klikając pozycję Włącz. 
+    Jeśli reguła akcji nie jest włączona, możesz ją włączyć, zaznaczając ją i klikając pozycję Włącz. 
 
 1. **Czy jest to alert kondycji usługi?** 
 
-    Reguły akcji nie wpływają na alerty kondycji usługi (Monitor Service = "Service Health"). 
+    Reguły akcji nie mają wpływu na alerty dotyczące kondycji usługi (usługa monitorowania = „Service Health”). 
 
 1. **Czy reguła akcji działała na Twoim alercie?** 
 
-    Sprawdź, czy reguła akcji przetworzyła alert, klikając wygenerowanego alertu w portalu i przyjrzyj się karcie historia.
+    Sprawdź, czy reguła akcji przetworzyła alert, klikając wyzwolony alert w portalu i przeglądając kartę historii.
 
-    Oto przykład reguły akcji pomijania wszystkich grup akcji: 
+    Oto przykład reguły akcji pomijającej wszystkie grupy akcji: 
  
      ![Historia pomijania reguły akcji alertu](media/alerts-troubleshoot/history-action-rule.png)
 
-    Oto przykład reguły akcji dodając kolejną grupę akcji:
+    Oto przykład reguły akcji dodającej kolejną grupę akcji:
 
     ![Powtórzona akcja w wielu grupach akcji](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
 1. **Czy zakres reguł akcji i filtr pasuje do wygenerowanego alertu?** 
 
-    Jeśli uważasz, że reguła akcji powinna być wyzwalana, ale nie powinna być uruchamiana, ale należy uważnie sprawdzić zakres reguł akcji i warunki filtrowania w porównaniu z właściwościami wywoływanego alertu. 
+    Jeśli uważasz, że reguła akcji powinna zostać wyzwolona, ale nie została, lub że nie powinna zostać wyzwolona, a została wyzwolona, uważnie sprawdź zakres reguły akcji i warunki filtrowania w porównaniu z właściwościami wywołanego alertu. 
 
 
 ## <a name="how-to-find-the-alert-id-of-a-fired-alert"></a>Jak znaleźć identyfikator alertu dla wywoływanego alertu

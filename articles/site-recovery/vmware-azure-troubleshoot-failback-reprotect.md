@@ -7,12 +7,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498101"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309955"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Rozwiązywanie problemów z powrotem po awarii do lokacji lokalnej z platformy Azure
 
@@ -69,7 +68,7 @@ Aby rozwiązać ten problem:
 
 ### <a name="error-code-78093"></a>Kod błędu 78093
 
-**Maszyna wirtualna nie jest uruchomiona, jest w stanie zawieszonym lub jest niedostępna.**
+**Maszyna wirtualna nie jest uruchomiona, nie odpowiada lub jest niedostępna.**
 
 Aby rozwiązać ten problem:
 

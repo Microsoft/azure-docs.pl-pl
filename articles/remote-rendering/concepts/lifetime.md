@@ -6,10 +6,9 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80681872"
 ---
 # <a name="object-and-resource-lifetime"></a>Okres istnienia obiektu i zasobu
@@ -20,7 +19,7 @@ Zdalne renderowanie na platformie Azure rozróżnia dwa typy: **obiekty** i **za
 
 *Obiekty* są uważane za elementy, które użytkownik może tworzyć, modyfikować i zniszczyć według własnego uznania. Obiekty mogą być duplikowane swobodnie, a każde wystąpienie może być przypadające w czasie. W związku z tym [jednostki](entities.md) i [składniki](components.md) są obiektami.
 
-Okres istnienia obiektów jest w pełni objęty kontrolą użytkownika. Nie jest on związany z okresem istnienia reprezentacji po stronie klienta, chociaż. Klasy takie `Entity` jak `Component` i mają `Destroy` funkcję, która musi zostać wywołana w celu cofnięcia alokacji obiektu na hoście renderowania zdalnego. `Entity.Destroy()` Ponadto program niszczy jednostkę, jej elementy podrzędne i wszystkie składniki w tej hierarchii.
+Okres istnienia obiektów jest w pełni objęty kontrolą użytkownika. Nie jest on związany z okresem istnienia reprezentacji po stronie klienta, chociaż. Klasy takie jak `Entity` i `Component` mają `Destroy` funkcję, która musi zostać wywołana w celu cofnięcia alokacji obiektu na hoście renderowania zdalnego. Ponadto program `Entity.Destroy()` niszczy jednostkę, jej elementy podrzędne i wszystkie składniki w tej hierarchii.
 
 ## <a name="resource-lifetime"></a>Okres istnienia zasobu
 
@@ -32,7 +31,7 @@ Wiele zasobów jest niezmiennych dla [siatek](meshes.md) wystąpień i [tekstur]
 
 ### <a name="built-in-resources"></a>Zasoby wbudowane
 
-Zdalne renderowanie na platformie Azure zawiera niektóre wbudowane zasoby, które mogą zostać załadowane przez zaczekanie na `builtin://` odpowiedni identyfikator w trakcie `AzureSession.Actions.LoadXYZAsync()`wywołania do. Dostępne zasoby wbudowane są wymienione w dokumentacji dotyczącej poszczególnych funkcji. Na przykład rozdział do [przestrzeni powietrznej](../overview/features/sky.md) zawiera listę wbudowanych tekstur.
+Zdalne renderowanie na platformie Azure zawiera niektóre wbudowane zasoby, które mogą zostać załadowane przez zaczekanie na odpowiedni identyfikator w `builtin://` trakcie wywołania do `AzureSession.Actions.LoadXYZAsync()` . Dostępne zasoby wbudowane są wymienione w dokumentacji dotyczącej poszczególnych funkcji. Na przykład rozdział do [przestrzeni powietrznej](../overview/features/sky.md) zawiera listę wbudowanych tekstur.
 
 ## <a name="general-lifetime"></a>Ogólny okres istnienia
 

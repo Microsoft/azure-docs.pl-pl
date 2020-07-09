@@ -13,12 +13,11 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648540"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515059"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsów API Media Services v3
 
@@ -41,7 +40,7 @@ Zamiast tworzyć jednostkę usługi, należy rozważyć użycie zarządzanych to
 
 Jeśli tworzysz aplikację usługi Azure AD i nazwę główną usługi, aplikacja musi znajdować się w własnej dzierżawie. Po utworzeniu aplikacji nadaj **współautorowi** aplikacji lub roli **właściciela** dostęp do konta Media Services.
 
-Jeśli nie masz pewności, czy masz uprawnienia do tworzenia aplikacji usługi Azure AD, zobacz [wymagane uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Jeśli nie masz pewności, czy masz uprawnienia do tworzenia aplikacji usługi Azure AD, zobacz [wymagane uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 Na poniższej ilustracji liczba reprezentuje przepływ żądań w kolejności chronologicznej:
 
@@ -118,9 +117,9 @@ Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na ży
 > [!NOTE]
 > Zestawy SDK Azure Media Services V3 nie mają gwarancji, że są bezpieczne wątkowo. Podczas tworzenia aplikacji wielowątkowej należy dodać własną logikę synchronizacji wątków, aby chronić klienta lub użyć nowego obiektu AzureMediaServicesClient na wątek. Należy również zachować ostrożność w przypadku problemów z wielowątkowością wprowadzanych przez obiekty opcjonalne dostarczone przez kod klientowi (na przykład wystąpienie HttpClient w programie .NET).
 
-|SDK|Tematy pomocy|
+|SDK|Dokumentacja|
 |---|---|
-|[Zestaw SDK .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Dokumentacja platformy .NET](https://aka.ms/ams-v3-dotnet-ref)|
+|[Zestaw SDK platformy .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Dokumentacja platformy .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)|[Dokumentacja języka Java](https://aka.ms/ams-v3-java-ref)|
 |[Zestaw SDK dla języka Python](https://aka.ms/ams-v3-python-sdk)|[Dokumentacja języka Python](https://aka.ms/ams-v3-python-ref)|
 |[Zestaw SDK dla platformy Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Dokumentacja środowiska Node.js](/javascript/api/overview/azure/mediaservices/management)| 
@@ -154,5 +153,5 @@ Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services 
 
 * [Nawiązywanie połączenia z Media Services przy użyciu języka Java](configure-connect-java-howto.md)
 * [Nawiązywanie połączenia z usługą Media Services przy użyciu platformy .NET](configure-connect-dotnet-howto.md)
-* [Nawiązywanie połączenia z Media Services przy użyciu środowiska Node. js](configure-connect-nodejs-howto.md)
+* [Nawiązywanie połączenia z Media Services przy użyciu Node.js](configure-connect-nodejs-howto.md)
 * [Nawiązywanie połączenia z Media Services przy użyciu języka Python](configure-connect-python-howto.md)

@@ -3,12 +3,11 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118003"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84488702"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -56,7 +55,7 @@ W dowolnym momencie możesz mieć maksymalnie 200 migawek na jeden udział plik�
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Czy można odzyskać dane z usuniętego udziału plików platformy Azure?
 
-Po usunięciu udziału plików platformy Azure zostanie wyświetlona lista kopii zapasowych, które zostaną usunięte i wymagane jest potwierdzenie. Obecnie nie można przywrócić usuniętego udziału plików platformy Azure.
+Jeśli udział plików jest w stanie usunięte nietrwałe, musisz najpierw cofnąć usunięcie udziału plików, aby wykonać operację przywracania. Operacja cofnięcia usunięcia spowoduje udostępnienie udziału plików w stanie aktywnym, w którym można przywrócić wszystkie punkty w czasie. Aby dowiedzieć się, jak anulować usuwanie udziału plików, odwiedź [ten link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) lub zobacz [skrypt cofania usuwania plików](./scripts/backup-powershell-script-undelete-file-share.md). Jeśli udział plików zostanie trwale usunięty, nie będzie można przywrócić zawartości i migawek.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>Czy można przywrócić dane z kopii zapasowych, jeśli zatrzymano ochronę udziału plików platformy Azure?
 

@@ -6,14 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834768"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86040779"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analiza opinii w usłudze Twitter w czasie rzeczywistym za pomocą usługi Azure Stream Analytics
 
@@ -60,7 +59,7 @@ W tej sekcji utworzysz przestrzeń nazw centrum zdarzeń i dodasz centrum zdarze
 
 6. Nazwij nowe centrum zdarzeń *socialtwitter-EH*. Możesz użyć innej nazwy. Jeśli to zrobisz, zanotuj je, ponieważ potrzebujesz tej nazwy później. Nie trzeba ustawiać żadnych innych opcji centrum zdarzeń.
  
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Udzielanie dostępu do centrum zdarzeń
 
@@ -75,7 +74,7 @@ Aby proces mógł wysyłać dane do centrum zdarzeń, centrum zdarzeń musi mie�
 
 3.  Na stronie zasady dostępu wybierz pozycję **+ Dodaj**. Następnie wprowadź *socialtwitter — dostęp* do **nazwy zasad** i zaznacz pole wyboru **Zarządzaj** .
  
-4.  Wybierz przycisk **Utwórz**.
+4.  Wybierz pozycję **Utwórz**.
 
 5.  Po wdrożeniu zasad wybierz zasady z listy zasad dostępu współdzielonego.
 
@@ -127,7 +126,7 @@ Przed uruchomieniem aplikacji wymagane są pewne informacje, takie jak klucze se
 
 1. Upewnij się, że pobrano aplikację [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore) , zgodnie z opisem w sekcji wymagania wstępne.
 
-2. Użyj edytora tekstów, aby otworzyć plik *App. config* . Wprowadź następujące zmiany do `<appSettings>` elementu:
+2. Użyj edytora tekstów, aby otworzyć plik *App.config* . Wprowadź następujące zmiany do `<appSettings>` elementu:
 
    * Ustaw wartość `oauth_consumer_key` klucza klienta usługi Twitter (klucz interfejsu API). 
    * Ustaw `oauth_consumer_secret` na wpis tajny klienta usługi Twitter (klucz tajny interfejsu API).
@@ -148,7 +147,7 @@ Teraz, gdy zdarzenia tweetu są przesyłane strumieniowo w czasie rzeczywistym z
 
     Dobrym pomysłem jest umieszczenie zadania i centrum zdarzeń w tym samym regionie w celu uzyskania najlepszej wydajności, aby nie zapłaciła za transfer danych między regionami.
 
-3. Wybierz przycisk **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
+3. Wybierz pozycję **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
 
 ## <a name="specify-the-job-input"></a>Określ dane wejściowe zadania
 
@@ -159,7 +158,7 @@ Teraz, gdy zdarzenia tweetu są przesyłane strumieniowo w czasie rzeczywistym z
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
    |Alias danych wejściowych| *TwitterStream* | Wprowadź alias dla danych wejściowych. |
-   |Subskrypcja  | \<Twoja subskrypcja\> |  Wybierz subskrypcję platformy Azure, której chcesz użyć. |
+   |Subskrypcja  | \<Your subscription\> |  Wybierz subskrypcję platformy Azure, której chcesz użyć. |
    |Przestrzeń nazw centrum zdarzeń | *ASA-Twitter-eventhub* |
    |Nazwa centrum zdarzeń | *socialtwitter — EH* | Wybierz pozycję *Użyj istniejącej*. Następnie wybierz utworzony centrum zdarzeń.|
    |Typ kompresji zdarzenia| GZip | Typ kompresji danych.|

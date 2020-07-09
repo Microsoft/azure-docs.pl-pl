@@ -11,18 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737762"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85551326"
 ---
 # <a name="self-service-sign-up-preview"></a>Rejestracja samoobsługowa (wersja zapoznawcza)
-|     |
-| --- |
-| Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+
+> [!NOTE]
+> Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 W przypadku udostępniania aplikacji użytkownikom zewnętrznym użytkownik może nie zawsze z góry znać, kto będzie potrzebować dostępu do aplikacji. Zamiast wysyłać zaproszenia bezpośrednio do osób, możesz zezwolić zewnętrznym użytkownikom na rejestrowanie się w określonych aplikacjach, włączając samoobsługowe rejestrowanie się. Możesz utworzyć spersonalizowane środowisko rejestracji, dostosowując przepływ użytkownika samoobsługowego tworzenia konta. Możesz na przykład udostępnić opcje rejestracji w usłudze Azure AD lub dostawcach tożsamości społecznościowych oraz zbierać informacje o użytkowniku podczas procesu rejestracji.
 

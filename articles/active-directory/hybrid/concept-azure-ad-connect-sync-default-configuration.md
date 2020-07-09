@@ -17,10 +17,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548870"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
@@ -70,7 +69,7 @@ Mają zastosowanie następujące reguły atrybutów:
   1. Atrybuty związane z logowaniem (na przykład userPrincipalName) są współtworzone z lasu z włączonym kontem.
   2. Atrybuty, które można znaleźć w tabeli programu Exchange (globalna lista adresów), są tworzone z lasu z skrzynek pocztowych programu Exchange.
   3. Jeśli nie można znaleźć żadnej skrzynki pocztowej, te atrybuty mogą pochodzić z dowolnego lasu.
-  4. Atrybuty powiązane z programem Exchange (atrybuty techniczne, które nie są widoczne w tabeli "DB") `mailNickname ISNOTNULL`, są tworzone w lesie, w którym.
+  4. Atrybuty powiązane z programem Exchange (atrybuty techniczne, które nie są widoczne w tabeli "DB"), są tworzone w lesie, w którym `mailNickname ISNOTNULL` .
   5. Jeśli istnieje wiele lasów, które będą spełniały jedną z tych reguł, kolejność tworzenia (Data/godzina) łączników (lasów) jest używana do określenia, który Las współużytkuje atrybuty. Pierwszy Las połączony będzie pierwszym lasem do synchronizacji. 
 
 ### <a name="contact-out-of-box-rules"></a>Skontaktuj się z regułami dotyczącymi obecności
@@ -106,7 +105,7 @@ Następujące obiekty grupy **nie** są zsynchronizowane z usługą Azure AD:
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Nie Synchronizuj żadnych obiektów ofiary replikacji.
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal reguły out-of-Box
-FSPs są przyłączone do obiektu "any\*" () w obiekcie Metaverse. W rzeczywistości ten sprzężenie występuje tylko w przypadku użytkowników i grup zabezpieczeń. Ta konfiguracja zapewnia, że członkostwa między lasami są rozpoznawane i poprawnie reprezentowane w usłudze Azure AD.
+FSPs są przyłączone do obiektu "any" ( \* ) w obiekcie Metaverse. W rzeczywistości ten sprzężenie występuje tylko w przypadku użytkowników i grup zabezpieczeń. Ta konfiguracja zapewnia, że członkostwa między lasami są rozpoznawane i poprawnie reprezentowane w usłudze Azure AD.
 
 ### <a name="computer-out-of-box-rules"></a>Komputery z nieaktualnymi regułami
 Obiekt komputera musi spełniać następujące wymagania, aby można było synchronizować:
@@ -162,7 +161,7 @@ Sekcja filtr zakresu służy do konfigurowania czasu, w którym ma zostać zasto
 
 ![Karta Określanie zakresu w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
-Filtr zakresu ma grupy i klauzule, które mogą być zagnieżdżane. Aby reguła synchronizacji została zastosowana, należy spełnić wszystkie klauzule wewnątrz grupy. Jeśli zdefiniowano wiele grup, należy spełnić co najmniej jedną grupę, aby można było zastosować regułę. Oznacza to, że logiczne lub jest oceniane między grupami, a wartość logiczna jest obliczana w grupie. Przykład tej konfiguracji można znaleźć w przystawce reguła synchronizacji ruchu wychodzącego **do usługi AAD — Grupa**. Istnieje kilka grup filtru synchronizacji, na przykład jeden dla grup zabezpieczeń (`securityEnabled EQUAL True`) i jeden dla grup dystrybucyjnych (`securityEnabled EQUAL False`).
+Filtr zakresu ma grupy i klauzule, które mogą być zagnieżdżane. Aby reguła synchronizacji została zastosowana, należy spełnić wszystkie klauzule wewnątrz grupy. Jeśli zdefiniowano wiele grup, należy spełnić co najmniej jedną grupę, aby można było zastosować regułę. Oznacza to, że logiczne lub jest oceniane między grupami, a wartość logiczna jest obliczana w grupie. Przykład tej konfiguracji można znaleźć w przystawce reguła synchronizacji ruchu wychodzącego **do usługi AAD — Grupa**. Istnieje kilka grup filtru synchronizacji, na przykład jeden dla grup zabezpieczeń ( `securityEnabled EQUAL True` ) i jeden dla grup dystrybucyjnych ( `securityEnabled EQUAL False` ).
 
 ![Karta Określanie zakresu w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 

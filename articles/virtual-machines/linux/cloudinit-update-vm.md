@@ -7,19 +7,18 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cynthn
 ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969155"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Używanie funkcji Cloud-init do aktualizowania i instalowania pakietów na maszynie wirtualnej z systemem Linux na platformie Azure
 W tym artykule pokazano, jak za pomocą usługi [Cloud-init](https://cloudinit.readthedocs.io) aktualizować pakiety na maszynie wirtualnej z systemem Linux lub w zestawach skalowania maszyn wirtualnych w czasie aprowizacji na platformie Azure. Te skrypty usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure. Aby uzyskać więcej informacji na temat sposobu, w jaki usługa Cloud-init działa natywnie na platformie Azure i obsługiwanych dystrybucje z systemem Linux, zobacz [Omówienie usługi Cloud-init](using-cloud-init.md)
 
 ## <a name="update-a-vm-with-cloud-init"></a>Aktualizowanie maszyny wirtualnej za pomocą funkcji Cloud-init
-Ze względów bezpieczeństwa można skonfigurować maszynę wirtualną w celu zastosowania najnowszych aktualizacji podczas pierwszego rozruchu. Ponieważ usługa Cloud-init działa w różnych dystrybucjeach systemu Linux, nie ma potrzeby `apt` określania `yum` ani dla Menedżera pakietów. Zamiast tego należy zdefiniować `package_upgrade` i pozwolić procesowi inicjowania w chmurze ustalić odpowiedni mechanizm do użycia w dystrybucji. Ten przepływ pracy umożliwia korzystanie z tego samego skryptów Cloud-init w programie dystrybucje.
+Ze względów bezpieczeństwa można skonfigurować maszynę wirtualną w celu zastosowania najnowszych aktualizacji podczas pierwszego rozruchu. Ponieważ usługa Cloud-init działa w różnych dystrybucjeach systemu Linux, nie ma potrzeby określania `apt` ani `yum` dla Menedżera pakietów. Zamiast tego należy zdefiniować `package_upgrade` i pozwolić procesowi inicjowania w chmurze ustalić odpowiedni mechanizm do użycia w dystrybucji. Ten przepływ pracy umożliwia korzystanie z tego samego skryptów Cloud-init w programie dystrybucje.
 
-Aby wyświetlić proces uaktualniania w działaniu, Utwórz plik w bieżącej powłoce o nazwie *cloud_init_upgrade. txt* i wklej następującą konfigurację. Na potrzeby tego przykładu Utwórz plik w Cloud Shell nie na komputerze lokalnym. Możesz użyć dowolnego edytora. Wprowadź `sensible-editor cloud_init_upgrade.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć edytora **nano** . Upewnij się, że cały plik Cloud-init został poprawnie skopiowany, szczególnie w pierwszym wierszu.  
+Aby zobaczyć proces uaktualniania w akcji, Utwórz plik w bieżącej powłoce o nazwie *cloud_init_upgrade.txt* i wklej następującą konfigurację. Na potrzeby tego przykładu Utwórz plik w Cloud Shell nie na komputerze lokalnym. Możesz użyć dowolnego edytora. Wprowadź `sensible-editor cloud_init_upgrade.txt`, aby utworzyć plik i wyświetlić listę dostępnych edytorów. Wybierz #1, aby użyć edytora **nano** . Upewnij się, że cały plik Cloud-init został poprawnie skopiowany, szczególnie w pierwszym wierszu.  
 
 ```yaml
 #cloud-config
@@ -34,7 +33,7 @@ Przed wdrożeniem tego obrazu należy utworzyć grupę zasobów za pomocą polec
 az group create --name myResourceGroup --location eastus
 ```
 
-Teraz Utwórz maszynę wirtualną za pomocą [AZ VM Create](/cli/azure/vm) i określ plik `--custom-data cloud_init_upgrade.txt` Cloud-init w następujący sposób:
+Teraz Utwórz maszynę wirtualną za pomocą [AZ VM Create](/cli/azure/vm) i określ plik Cloud-init w `--custom-data cloud_init_upgrade.txt` następujący sposób:
 
 ```azurecli-interactive 
 az vm create \
@@ -57,7 +56,7 @@ Uruchom narzędzie do zarządzania pakietami i sprawdź, czy są dostępne aktua
 sudo yum update
 ```
 
-Gdy usługa Cloud-init zaznaczono i zainstalowano aktualizacje przy rozruchu, nie powinno być żadnych dodatkowych aktualizacji do zastosowania.  Zobaczysz proces aktualizacji, liczbę zmienionych pakietów oraz instalację programu `httpd` , uruchamiając `yum history` i przeglądając dane wyjściowe podobne do przedstawionego poniżej.
+Gdy usługa Cloud-init zaznaczono i zainstalowano aktualizacje przy rozruchu, nie powinno być żadnych dodatkowych aktualizacji do zastosowania.  Zobaczysz proces aktualizacji, liczbę zmienionych pakietów oraz instalację programu, `httpd` uruchamiając `yum history` i przeglądając dane wyjściowe podobne do przedstawionego poniżej.
 
 ```bash
 Loaded plugins: fastestmirror, langpacks

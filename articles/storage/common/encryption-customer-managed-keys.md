@@ -8,14 +8,13 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2755d5aa5dbaa669fa2fdd8b84596e040b5dd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515414"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage
 
@@ -68,7 +67,7 @@ Aby dowiedzieć się, jak używać kluczy zarządzanych przez klienta z Azure Ke
 
 Aby włączyć klucze zarządzane przez klienta na koncie magazynu, należy użyć Azure Key Vault do przechowywania kluczy. Należy włączyć zarówno właściwości **nietrwałego usuwania** , jak i **nie przeczyszczania** w magazynie kluczy.
 
-Szyfrowanie za pomocą usługi Azure Storage jest obsługiwane tylko przez 2048-bitowe klucze RSA i RSA-HSM. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="rotate-customer-managed-keys"></a>Obróć klucze zarządzane przez klienta
 
@@ -80,12 +79,12 @@ Obracanie klucza nie wyzwala ponownego szyfrowania danych na koncie magazynu. Od
 
 W dowolnym momencie można odwołać dostęp do konta magazynu do klucza zarządzanego przez klienta. Po odwołaniu dostępu do kluczy zarządzanych przez klienta lub po wyłączeniu lub usunięciu klucza klienci nie mogą wywoływać operacji, które odczytują lub zapisują do obiektu BLOB lub jego metadanych. Próby wywołania dowolnej z następujących operacji zakończą się niepowodzeniem z kodem błędu 403 (dostęp zabroniony) dla wszystkich użytkowników:
 
-- [Wyświetl listę obiektów BLOB](/rest/api/storageservices/list-blobs), gdy zostanie `include=metadata` wywołana z parametrem identyfikatora URI żądania
+- [Wyświetl listę obiektów BLOB](/rest/api/storageservices/list-blobs), gdy zostanie wywołana z `include=metadata` parametrem identyfikatora URI żądania
 - [Pobierz obiekt BLOB](/rest/api/storageservices/get-blob)
 - [Pobieranie właściwości obiektu blob](/rest/api/storageservices/get-blob-properties)
 - [Pobierz metadane obiektu BLOB](/rest/api/storageservices/get-blob-metadata)
 - [Ustawianie metadanych obiektu BLOB](/rest/api/storageservices/set-blob-metadata)
-- [Obiekt BLOB Snapshot](/rest/api/storageservices/snapshot-blob), gdy jest `x-ms-meta-name` wywoływany z nagłówkiem żądania
+- [Obiekt BLOB Snapshot](/rest/api/storageservices/snapshot-blob), gdy jest wywoływany z `x-ms-meta-name` nagłówkiem żądania
 - [Kopiowanie obiektu blob](/rest/api/storageservices/copy-blob)
 - [Kopiuj obiekt BLOB z adresu URL](/rest/api/storageservices/copy-blob-from-url)
 - [Ustawianie warstwy obiektu blob](/rest/api/storageservices/set-blob-tier)
@@ -113,4 +112,4 @@ Klucze zarządzane przez klienta są również dostępne do zarządzania szyfrow
 - [Skonfiguruj klucze zarządzane przez klienta przy użyciu Key Vault na potrzeby szyfrowania usługi Azure Storage z poziomu Azure Portal](storage-encryption-keys-portal.md)
 - [Konfigurowanie kluczy zarządzanych przez klienta przy użyciu Key Vault na potrzeby szyfrowania usługi Azure Storage za pomocą programu PowerShell](storage-encryption-keys-powershell.md)
 - [Konfigurowanie kluczy zarządzanych przez klienta przy użyciu Key Vault na potrzeby szyfrowania usługi Azure Storage z poziomu interfejsu wiersza polecenia platformy Azure](storage-encryption-keys-cli.md)
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md)

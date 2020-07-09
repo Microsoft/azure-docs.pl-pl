@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75463344"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Przewodnik konwersji ról sieci Web i procesu roboczego w celu Service Fabric usług bezstanowych
@@ -30,11 +29,11 @@ Koncepcyjnie rola proces roboczy reprezentuje bezstanowe obciążenie, co oznacz
 ## <a name="web-role-to-stateless-service"></a>Rola sieci Web do usługi bezstanowej
 Podobnie jak w przypadku roli proces roboczy, rola sieci Web reprezentuje również obciążenie bezstanowe i dlatego można ją mapować do Service Fabric bezstanowej usługi. Jednak w przeciwieństwie do ról sieci Web Service Fabric nie obsługuje usług IIS. Aby przeprowadzić migrację aplikacji sieci Web z roli sieci Web do usługi bezstanowej, należy najpierw przenieść się do platformy sieci Web, która może być samodzielna, i nie zależy od usług IIS ani system. Web, takich jak ASP.NET Core 1.
 
-| **Aplikacja** | **Obsługiwał** | **Ścieżka migracji** |
+| **Aplikacja** | **Obsługiwane** | **Ścieżka migracji** |
 | --- | --- | --- |
 | Formularze sieci Web ASP.NET |Nie |Konwertuj na ASP.NET Core 1 MVC |
 | ASP.NET MVC |Z migracją |Uaktualnij do ASP.NET Core 1 MVC |
-| Internetowy interfejs API platformy ASP.NET |Z migracją |Użyj samodzielnego serwera lub ASP.NET Core 1 |
+| ASP.NET Web API |Z migracją |Użyj samodzielnego serwera lub ASP.NET Core 1 |
 | ASP.NET Core 1 |Tak |Nie dotyczy |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Interfejs API punktu wejścia i cykl życia
@@ -97,12 +96,12 @@ namespace Stateless1
 
 ```
 
-Oba mają podstawowe przesłonięcia "Run", w którym rozpocznie się przetwarzanie. Service Fabric Services `Run`łączą `Start`, i `Stop` w jeden punkt wejścia, `RunAsync`. Usługa powinna zacząć działać po `RunAsync` uruchomieniu i powinna przestać działać, gdy CancellationToken `RunAsync` metody jest sygnalizowane. 
+Oba mają podstawowe przesłonięcia "Run", w którym rozpocznie się przetwarzanie. Service Fabric Services łączą, `Run` `Start` i `Stop` w jeden punkt wejścia, `RunAsync` . Usługa powinna zacząć działać po `RunAsync` uruchomieniu i powinna przestać działać, gdy `RunAsync` CancellationToken metody jest sygnalizowane. 
 
 Istnieje kilka najważniejszych różnic między cyklem życia a okresem istnienia ról procesów roboczych i usług Service Fabric:
 
 * **Cykl życia:** Największą różnicą jest to, że rola proces roboczy jest maszyną wirtualną i dlatego jej cykl życia jest powiązany z maszyną wirtualną, która obejmuje zdarzenia dotyczące uruchamiania i zatrzymywania maszyny wirtualnej. Usługa Service Fabric ma cykl życia, który jest oddzielony od cyklu życia maszyny wirtualnej, dlatego nie obejmuje zdarzeń dla momentu uruchomienia i zatrzymania maszyny wirtualnej hosta, ponieważ nie są ze sobą powiązane.
-* **Okres istnienia:** Wystąpienie roli procesu roboczego zostanie odtworzone, `Run` Jeśli metoda zostanie zakończona. `RunAsync` Metoda w Service Fabric może jednak działać do zakończenia, a wystąpienie usługi pozostanie niezmienione. 
+* **Okres istnienia:** Wystąpienie roli procesu roboczego zostanie odtworzone, jeśli `Run` Metoda zostanie zakończona. `RunAsync`Metoda w Service Fabric może jednak działać do zakończenia, a wystąpienie usługi pozostanie niezmienione. 
 
 Service Fabric udostępnia opcjonalny punkt wejścia konfiguracji komunikacji dla usług nasłuchujących żądań klientów. Zarówno RunAsync, jak i punkt wejścia komunikacji są opcjonalnymi zastąpieniami w ramach usług Service Fabricch — usługa może zdecydować się na nasłuchiwanie żądań klientów, lub uruchomić tylko pętlę przetwarzania, lub obie, co oznacza, że metoda RunAsync może wyjść bez ponownego uruchamiania wystąpienia usługi, ponieważ nadal mogą nasłuchiwać żądań klientów.
 
@@ -124,11 +123,11 @@ Ustawienia konfiguracji w Cloud Services są ustawione dla roli maszyny wirtualn
 * **Config:** wszystkie pliki konfiguracji i ustawienia dla usługi.
 * **Dane:** statyczne pliki danych skojarzone z usługą.
 
-Każdy z tych pakietów może mieć niezależnie wersja i uaktualnienie. Podobnie jak w przypadku Cloud Services, do pakietu konfiguracyjnego można uzyskać dostęp programowo za pomocą interfejsu API i dostępne są zdarzenia umożliwiające powiadomienie usługi o zmianie pakietu konfiguracji. Plik Settings. XML może służyć do konfigurowania wartości klucza i dostępu programistycznego, podobnie jak sekcja ustawienia aplikacji w pliku App. config. Jednak w przeciwieństwie do Cloud Services pakiet konfiguracji Service Fabric może zawierać dowolne pliki konfiguracji w dowolnym formacie, niezależnie od tego, czy jest to plik XML, JSON, YAML czy niestandardowy format binarny. 
+Każdy z tych pakietów może mieć niezależnie wersja i uaktualnienie. Podobnie jak w przypadku Cloud Services, do pakietu konfiguracyjnego można uzyskać dostęp programowo za pomocą interfejsu API i dostępne są zdarzenia umożliwiające powiadomienie usługi o zmianie pakietu konfiguracji. Plik Settings.xml może służyć do konfiguracji wartości klucza i dostępu programowego podobnej do sekcji Ustawienia aplikacji w pliku App.config. Jednak w przeciwieństwie do Cloud Services pakiet konfiguracji Service Fabric może zawierać dowolne pliki konfiguracji w dowolnym formacie, niezależnie od tego, czy jest to plik XML, JSON, YAML czy niestandardowy format binarny. 
 
 ### <a name="accessing-configuration"></a>Uzyskiwanie dostępu do konfiguracji
 #### <a name="cloud-services"></a>Cloud Services
-Do ustawień konfiguracji z pliku ServiceConfiguration. *. cscfg można uzyskać `RoleEnvironment`dostęp za pośrednictwem programu. Te ustawienia są dostępne globalnie dla wszystkich wystąpień roli w ramach tego samego wdrożenia usługi w chmurze.
+Do ustawień konfiguracji z pliku ServiceConfiguration. *. cscfg można uzyskać dostęp za pośrednictwem programu `RoleEnvironment` . Te ustawienia są dostępne globalnie dla wszystkich wystąpień roli w ramach tego samego wdrożenia usługi w chmurze.
 
 ```csharp
 
@@ -137,9 +136,9 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Każda usługa ma własny pojedynczy pakiet konfiguracji. Nie ma wbudowanego mechanizmu dla globalnych ustawień konfiguracji dostępnych dla wszystkich aplikacji w klastrze. W przypadku korzystania z Service Fabric specjalnych ustawień plik konfiguracyjny XML w ramach pakietu konfiguracyjnego wartości w pliku Settings. XML mogą być zastępowane na poziomie aplikacji, co umożliwia ustawienie konfiguracji na poziomie aplikacji.
+Każda usługa ma własny pojedynczy pakiet konfiguracji. Nie ma wbudowanego mechanizmu dla globalnych ustawień konfiguracji dostępnych dla wszystkich aplikacji w klastrze. W przypadku korzystania z Service Fabric specjalnego Settings.xml pliku konfiguracji w ramach pakietu konfiguracyjnego wartości w Settings.xml mogą być zastępowane na poziomie aplikacji, co umożliwia ustawienie konfiguracji na poziomie aplikacji.
 
-Ustawienia konfiguracji są dostępne w ramach każdego wystąpienia usługi za pomocą usługi `CodePackageActivationContext`.
+Ustawienia konfiguracji są dostępne w ramach każdego wystąpienia usługi za pomocą usługi `CodePackageActivationContext` .
 
 ```csharp
 
@@ -224,7 +223,7 @@ W Cloud Services dla roli w elemencie ServiceDefinition. csdef zostanie skonfigu
 ```
 
 ### <a name="service-fabric"></a>Service Fabric
-W Service Fabric dla usługi w pliku servicemanifest. XML jest konfigurowany punkt wejścia uruchamiania:
+W Service Fabric w ServiceManifest.xml skonfigurowano punkt wejścia uruchamiania dla usługi:
 
 ```xml
 

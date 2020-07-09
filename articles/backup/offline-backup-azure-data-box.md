@@ -4,10 +4,10 @@ description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wype
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82160959"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
@@ -25,7 +25,7 @@ W tym artykule wyjaśniono, jak można użyć Azure Data Box, aby wypełniać du
 
 Proces tworzenia inicjatora danych z agenta MARS przy użyciu Azure Data Box jest obsługiwany przez następujące jednostki SKU systemu Windows.
 
-| **System operacyjny**                                 | **Magazyn**                                                      |
+| **Macintosh**                                 | **SKU**                                                      |
 | -------------------------------------- | ------------------------------------------------------------ |
 | **Stacja robocza**                        |                                                              |
 | Windows 10 (wersja 64-bitowa)                     | Enterprise, Pro, Home                                       |
@@ -51,7 +51,7 @@ Proces tworzenia inicjatora danych z agenta MARS przy użyciu Azure Data Box jes
 | >7,2 TB i <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
 
 * Typowe stawki kompresji różnią się od 10% do 20%. <br>
-* * Jeśli spodziewasz się, że dane początkowej kopii zapasowej jednego serwera MARS mają więcej niż 80 TB, [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)skontaktuj się z.
+* * Jeśli spodziewasz się, że dane początkowej kopii zapasowej jednego serwera MARS mają więcej niż 80 TB, skontaktuj się z [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 >[!IMPORTANT]
 >Początkowe dane kopii zapasowej z pojedynczego serwera muszą być zawarte w pojedynczym wystąpieniu Azure Data Box lub Azure Data Box dysku i nie mogą być współużytkowane przez wiele urządzeń z tymi samymi lub różnymi jednostkami SKU. Jednak urządzenie Azure Data Box może zawierać początkowe kopie zapasowe z wielu serwerów.
@@ -124,7 +124,7 @@ Proces tworzenia kopii zapasowej w trybie offline przy użyciu usług MARS i Azu
 
 1. Upewnij się, że odinstalowano wszystkie poprzednie instalacje agenta MARS.
 1. Pobierz najnowszego agenta MARS z [tej witryny sieci Web](https://aka.ms/azurebackup_agent).
-1. Uruchom program *plik marsagentinstaller. exe*i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
+1. Uruchom *MARSAgentInstaller.exe*i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
 
    > [!NOTE]
    > Magazyn Recovery Services musi znajdować się w tej samej subskrypcji co zadanie Azure Data Box.
@@ -154,7 +154,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
 1. Włącz klienta dla funkcji systemu plików NFS na serwerze z systemem Windows, na którym jest zainstalowany agent MARS. Określ alternatywny źródłowy *wim: D: \Sources\Install.wim: 4*.
 1. Pobierz PSExec z <https://download.sysinternals.com/files/PSTools.zip> serwera na serwer z zainstalowanym agentem Mars.
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie z katalogiem, który zawiera *PSExec. exe* jako bieżący katalog.
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie z katalogiem zawierającym *PSExec.exe* jako bieżący katalog.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz opcję **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz pozycję **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -212,7 +212,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
     >
     >![Katalog główny Azure Data Box dysku](./media/offline-backup-azure-data-box/root-directory.png)
     >
-    >Na przykład `\\mydomain\myserver\disk1\` Jeśli ścieżka dysku to i *disk1* zawiera katalog o nazwie *PageBlob*, WPROWADZONA ścieżka na stronie kreatora agenta Mars to. `\\mydomain\myserver\disk1\`
+    >Na przykład jeśli ścieżka dysku to `\\mydomain\myserver\disk1\` i *disk1* zawiera katalog o nazwie *PageBlob*, wprowadzona ścieżka na stronie kreatora agenta Mars to `\\mydomain\myserver\disk1\` .
     >
     >W przypadku [skonfigurowania urządzenia z Azure Data Box 100 TB](#set-up-azure-data-box-devices)wpisz `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` jako ścieżkę sieciową do urządzenia.
 
@@ -269,7 +269,7 @@ Sprawdź, czy podczas konfigurowania kopii zapasowej w trybie offline w konsoli 
 
 1. Otwórz folder **temp** w ścieżce instalacji. Domyślna ścieżka folderu tymczasowego to *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Wyszukaj plik *CBUICurr* i Otwórz plik.
 
-1. W pliku *CBUICurr* przewiń do ostatniego wiersza i sprawdź, czy problem jest taki sam jak w przypadku tego komunikatu o błędzie: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`.
+1. W pliku *CBUICurr* przewiń do ostatniego wiersza i sprawdź, czy problem jest taki sam jak w przypadku tego komunikatu o błędzie: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed` .
 
 ### <a name="workaround"></a>Obejście
 
@@ -281,10 +281,10 @@ Zaloguj się do programu PowerShell, który jest wyświetlany w interfejsie uży
 
 #### <a name="step-2"></a>Krok 2
 
-Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i żaden inny `AzureOfflineBackup_<Azure User Id>` serwer nie jest zależny od aplikacji, Usuń tę aplikację. Wybierz **Azure Portal** > **Azure Active Directory** > **rejestracje aplikacji**.
+Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i żaden inny serwer nie jest zależny od `AzureOfflineBackup_<Azure User Id>` aplikacji, Usuń tę aplikację. Wybierz **Azure Portal**  >  **Azure Active Directory**  >  **rejestracje aplikacji**.
 
 >[!NOTE]
-> Sprawdź, czy `AzureOfflineBackup_<Azure User Id>` aplikacja nie ma skonfigurowanych innych wypełnień w trybie offline, a także czy żaden inny serwer nie jest zależny od tej aplikacji. Przejdź do pozycji **Ustawienia** > **klucze** w sekcji **klucze publiczne** . Nie należy dodawać żadnych innych kluczy publicznych. Aby uzyskać informacje, zobacz poniższy zrzut ekranu.
+> Sprawdź, czy `AzureOfflineBackup_<Azure User Id>` aplikacja nie ma skonfigurowanych innych wypełnień w trybie offline, a także czy żaden inny serwer nie jest zależny od tej aplikacji. Przejdź do pozycji **Ustawienia**  >  **klucze** w sekcji **klucze publiczne** . Nie należy dodawać żadnych innych kluczy publicznych. Aby uzyskać informacje, zobacz poniższy zrzut ekranu.
 >
 >![Klucze publiczne](./media/offline-backup-azure-data-box/public-keys.png)
 
@@ -292,25 +292,25 @@ Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i
 
 Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w trybie offline, wykonaj następujące czynności.
 
-1. Przejdź do karty **Zarządzanie certyfikatem komputera aplikacja** > **osobista** i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+1. Przejdź do karty **Zarządzanie certyfikatem komputera aplikacja**  >  **osobista** i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 
 2. Wybierz certyfikat, kliknij prawym przyciskiem myszy **wszystkie zadania**i wybierz opcję **Eksportuj** bez klucza prywatnego w formacie CER.
 
-3. Przejdź do aplikacji usługi Azure offline Backup wymienionej w kroku 2. Wybierz pozycję **Ustawienia** > **klucze** > **Przekaż klucz publiczny**. Przekaż certyfikat wyeksportowany w poprzednim kroku.
+3. Przejdź do aplikacji usługi Azure offline Backup wymienionej w kroku 2. Wybierz pozycję **Ustawienia**  >  **klucze**  >  **Przekaż klucz publiczny**. Przekaż certyfikat wyeksportowany w poprzednim kroku.
 
     ![Przekaż klucz publiczny](./media/offline-backup-azure-data-box/upload-public-key.png)
 
 4. Na serwerze otwórz rejestr, wprowadzając polecenie **regedit** w oknie uruchamiania.
 
-5. Przejdź do rejestru *komputer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Kliknij prawym przyciskiem myszy pozycję **CloudBackupProvider**, a następnie Dodaj nową wartość ciągu `AzureADAppCertThumbprint_<Azure User Id>`o nazwie.
+5. Przejdź do rejestru *komputer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Kliknij prawym przyciskiem myszy pozycję **CloudBackupProvider**, a następnie Dodaj nową wartość ciągu o nazwie `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Aby uzyskać identyfikator użytkownika platformy Azure, wykonaj jedną z następujących czynności:
     >
-    >- Z poziomu programu PowerShell połączonego z platformą `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` Azure Uruchom polecenie.
-    > - Przejdź do ścieżki `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` rejestru o nazwie *CurrentUserId*.
+    >- Z poziomu programu PowerShell połączonego z platformą Azure Uruchom `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` polecenie.
+    > - Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` o nazwie *CurrentUserId*.
 
-6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Kliknij przycisk **OK**.
+6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Wybierz przycisk **OK**.
 
 7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
 
@@ -318,4 +318,4 @@ Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w tr
 
 ## <a name="questions"></a>Pytania
 
-Aby dowiedzieć się więcej na temat pytań lub wyjaśnień dotyczących problemów, [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)skontaktuj się z firmą.
+Aby dowiedzieć się więcej na temat pytań lub wyjaśnień dotyczących problemów, skontaktuj się z firmą [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .

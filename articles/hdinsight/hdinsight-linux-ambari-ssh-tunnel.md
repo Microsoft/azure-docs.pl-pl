@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314175"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86075556"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Używanie tunelowania SSH do uzyskiwania dostępu do interfejsu użytkownika, JobHistory, NameNode, Apache Oozie i innych interfejsów użytkownika
 
@@ -56,7 +56,7 @@ Usługi zainstalowane z akcjami skryptu, które uwidaczniają usługę sieci Web
 
 ## <a name="create-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Tworzenie tunelu przy użyciu polecenia SSH
 
-Użyj następującego polecenia, aby utworzyć tunel SSH przy użyciu `ssh` polecenia. Zastąp `sshuser` użytkownikowi SSH dla klastra usługi HDInsight i Zastąp `CLUSTERNAME` ciąg nazwą klastra usługi HDInsight:
+Użyj następującego polecenia, aby utworzyć tunel SSH przy użyciu `ssh` polecenia. Zastąp `sshuser` użytkownikowi SSH dla klastra usługi HDInsight i Zastąp ciąg `CLUSTERNAME` nazwą klastra usługi HDInsight:
 
 ```cmd
 ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -64,16 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 To polecenie tworzy połączenie, które kieruje ruch do lokalnego portu 9876 do klastra za pośrednictwem protokołu SSH. Dostępne są następujące opcje:
 
-    |Opcja |Opis |
-    |---|---|
-    |D 9876|Port lokalny, który kieruje ruch przez tunel.|
-    |C|Kompresuj wszystkie dane, ponieważ ruch internetowy jest w większości tekstu.|
-    |2|Wymuś tylko wypróbowanie protokołu SSH w wersji 2.|
-    |q|Tryb cichy.|
-    |T|Wyłącz alokację pseudo-TTY, ponieważ po prostu przekazujesz port.|
-    |n|Zapobiegaj odczytywaniu STDIN, ponieważ właśnie przekazujesz port.|
-    |Nie|Nie wykonuj polecenia zdalnego, ponieważ po prostu przekazujesz port.|
-    |k|Uruchom w tle.|
+|Opcja |Opis |
+|---|---|
+|D 9876|Port lokalny, który kieruje ruch przez tunel.|
+|C|Kompresuj wszystkie dane, ponieważ ruch internetowy jest w większości tekstu.|
+|2|Wymuś tylko wypróbowanie protokołu SSH w wersji 2.|
+|q|Tryb cichy.|
+|T|Wyłącz alokację pseudo-TTY, ponieważ po prostu przekazujesz port.|
+|n|Zapobiegaj odczytywaniu STDIN, ponieważ właśnie przekazujesz port.|
+|N|Nie wykonuj polecenia zdalnego, ponieważ po prostu przekazujesz port.|
+|k|Uruchom w tle.|
 
 Po zakończeniu wykonywania polecenia ruch wysyłany do portu 9876 na komputerze lokalnym jest kierowany do węzła głównego klastra.
 
@@ -125,16 +125,16 @@ Po zakończeniu wykonywania polecenia ruch wysyłany do portu 9876 na komputerze
    > [!NOTE]  
    > Wybranie opcji **zdalny serwer DNS** rozwiązuje żądania systemu nazw domen (DNS) za pomocą klastra usługi HDInsight. To ustawienie umożliwia rozwiązanie systemu DNS przy użyciu węzła głównego klastra.
 
-2. Sprawdź, czy tunel działa, odwiedzając witrynę taką jak [https://www.whatismyip.com/](https://www.whatismyip.com/). Zwrócony adres IP powinien być używany przez centrum danych Microsoft Azure.
+2. Sprawdź, czy tunel działa, odwiedzając witrynę taką jak [https://www.whatismyip.com/](https://www.whatismyip.com/) . Zwrócony adres IP powinien być używany przez centrum danych Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Weryfikowanie przy użyciu interfejsu użytkownika sieci Web Ambari
 
 Po ustanowieniu klastra wykonaj następujące kroki, aby sprawdzić, czy można uzyskać dostęp do usługi Web interfejsów użytkownika w sieci Web programu Ambari:
 
-1. W przeglądarce przejdź do adresu `http://headnodehost:8080`. `headnodehost` Adres jest wysyłany przez tunel do klastra i rozwiązywany do węzła głównego, na którym działa Ambari. Po wyświetleniu monitu wprowadź nazwę użytkownika administratora (administratora) i hasło do klastra. Użytkownik może zostać poproszony po raz drugi przez interfejs użytkownika sieci Web Ambari. Jeśli tak, wprowadź ponownie te informacje.
+1. W przeglądarce przejdź do adresu `http://headnodehost:8080`. `headnodehost`Adres jest wysyłany przez tunel do klastra i rozwiązywany do węzła głównego, na którym działa Ambari. Po wyświetleniu monitu wprowadź nazwę użytkownika administratora (administratora) i hasło do klastra. Użytkownik może zostać poproszony po raz drugi przez interfejs użytkownika sieci Web Ambari. Jeśli tak, wprowadź ponownie te informacje.
 
    > [!NOTE]  
-   > W przypadku używania `http://headnodehost:8080` adresu do łączenia się z klastrem nawiązuje się połączenie za pośrednictwem tunelu. Komunikacja jest zabezpieczona przy użyciu tunelu SSH zamiast protokołu HTTPS. Aby nawiązać połączenie przez Internet przy użyciu protokołu `https://clustername.azurehdinsight.net`https, `clustername` Użyj polecenia, gdzie jest nazwą klastra.
+   > W przypadku używania `http://headnodehost:8080` adresu do łączenia się z klastrem nawiązuje się połączenie za pośrednictwem tunelu. Komunikacja jest zabezpieczona przy użyciu tunelu SSH zamiast protokołu HTTPS. Aby nawiązać połączenie przez Internet przy użyciu protokołu HTTPS, użyj polecenia `https://clustername.azurehdinsight.net` , gdzie `clustername` jest nazwą klastra.
 
 2. Z poziomu interfejsu użytkownika sieci Web Ambari wybierz opcję HDFS z listy znajdującej się po lewej stronie.
 
@@ -154,7 +154,7 @@ Po ustanowieniu klastra wykonaj następujące kroki, aby sprawdzić, czy można 
     ![Obraz interfejsu użytkownika usługi Hadoop NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
-    > Zwróć uwagę na adres URL tej strony; powinien być podobny do `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`. Ten identyfikator URI używa wewnętrznej w pełni kwalifikowanej nazwy domeny (FQDN) węzła i jest dostępny tylko w przypadku korzystania z tunelu SSH.
+    > Zwróć uwagę na adres URL tej strony; powinien być podobny do `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster` . Ten identyfikator URI używa wewnętrznej w pełni kwalifikowanej nazwy domeny (FQDN) węzła i jest dostępny tylko w przypadku korzystania z tunelu SSH.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 538db1f2a757dd5216839ac9ac37ad0c06c5e9ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84976069"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dla deweloperów aplikacji do zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Ten artykuł dotyczący najlepszych rozwiązań koncentruje się na sposobie uru
 > [!div class="checklist"]
 > * Co to są żądania zasobów i limity
 > * Sposoby tworzenia i wdrażania aplikacji przy użyciu funkcji miejsca do magazynowania i Visual Studio Code
-> * Jak używać `kube-advisor` narzędzia do sprawdzania problemów z wdrożeniami
+> * Jak używać `kube-advisor` Narzędzia do sprawdzania problemów z wdrożeniami
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definiuj żądania zasobów i limity
 
@@ -76,9 +76,7 @@ Aby uzyskać więcej informacji na temat pomiarów zasobów i przydziałów, zob
 
 **Wskazówki dotyczące najlepszych** rozwiązań — zespoły programistyczne powinny wdrażać i debugować dla klastra AKS przy użyciu funkcji Spaces dev. Ten model programistyczny gwarantuje, że potrzeby kontroli dostępu opartej na rolach, sieci lub magazynu są implementowane przed wdrożeniem aplikacji w środowisku produkcyjnym.
 
-Dzięki Azure Dev Spaces można opracowywać, debugować i testować aplikacje bezpośrednio w klastrze AKS. Deweloperzy w zespole współpracują ze sobą, aby kompilować i testować cały cykl życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla funkcji miejsca do użytku deweloperskiego, które udostępnia opcję uruchamiania i debugowania aplikacji w klastrze AKS:
-
-![Debugowanie aplikacji w klastrze AKS z miejscami deweloperskimi](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+Dzięki Azure Dev Spaces można opracowywać, debugować i testować aplikacje bezpośrednio w klastrze AKS. Deweloperzy w zespole współpracują ze sobą, aby kompilować i testować cały cykl życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla funkcji miejsca do użytku deweloperskiego, które udostępnia opcję uruchamiania i debugowania aplikacji w klastrze AKS.
 
 Ten zintegrowany proces tworzenia i testowania z miejscami deweloperskimi zmniejsza potrzebę używania lokalnych środowisk testowych, takich jak [minikube][minikube]. Zamiast tego można tworzyć i testować klaster AKS. Ten klaster może być zabezpieczony i izolowany, jak wspomniano w poprzedniej sekcji dotyczącej używania przestrzeni nazw do logicznego izolowania klastra. Gdy aplikacje są gotowe do wdrożenia w środowisku produkcyjnym, można je bezpiecznie wdrożyć w miarę rozwoju.
 
@@ -94,7 +92,7 @@ Azure Dev Spaces jest przeznaczony do użycia z aplikacjami, które działają w
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Regularnie sprawdzaj problemy z aplikacjami za pomocą usługi polecenia-Advisor
 
-**Wskazówki dotyczące najlepszych** rozwiązań — regularnie uruchamiaj najnowszą wersję `kube-advisor` narzędzia Open Source, aby wykrywać problemy w klastrze. W przypadku zastosowania przydziałów zasobów w istniejącym klastrze AKS `kube-advisor` najpierw uruchom polecenie, aby znaleźć informacje o jednostkach, dla których zdefiniowano żądania zasobów i limity.
+**Wskazówki dotyczące najlepszych** rozwiązań — regularnie uruchamiaj najnowszą wersję `kube-advisor` Narzędzia Open Source, aby wykrywać problemy w klastrze. W przypadku zastosowania przydziałów zasobów w istniejącym klastrze AKS najpierw uruchom polecenie, `kube-advisor` Aby znaleźć informacje o jednostkach, dla których zdefiniowano żądania zasobów i limity.
 
 Narzędzie [polecenia-Advisor][kube-advisor] to SKOJARZONY projekt AKS typu open source, który skanuje klaster Kubernetes i raportuje o znalezionych problemach. Jednym z przydatnych kontroli jest zidentyfikowanie, które nie mają żądań zasobów i limitów.
 
@@ -119,7 +117,7 @@ Aby zaimplementować niektóre z tych najlepszych rozwiązań, zobacz następuj�
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

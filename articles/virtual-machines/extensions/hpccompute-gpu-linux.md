@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 2cfc48f7c152f0f38ca70713dc989029e4e64e8b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773121"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753554"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Rozszerzenie sterownika GPU NVIDIA dla systemu Linux
 
@@ -39,8 +39,8 @@ To rozszerzenie obsługuje następujący dystrybucje systemu operacyjnego, w zal
 | Dystrybucja | Wersja |
 |---|---|
 | Linux: Ubuntu | 16,04 LTS, 18,04 LTS |
-| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6 |
-| Linux: CentOS | 7,3, 7,4, 7,5, 7,6 |
+| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6, 7,7 |
+| Linux: CentOS | 7,3, 7,4, 7,5, 7,6, 7,7 |
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
@@ -62,7 +62,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -74,10 +74,10 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | NvidiaGpuDriverLinux | ciąg |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.3 | int |
 
 ### <a name="settings"></a>Ustawienia
 
@@ -113,7 +113,7 @@ W poniższym przykładzie przyjęto założenie, że rozszerzenie jest zagnieżd
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -131,14 +131,14 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Poniższy przykład odzwierciedla powyższe Azure Resource Manager i przykłady programu PowerShell, a także dodaje ustawienia niestandardowe jako przykład dla instalacji sterowników innych niż domyślne. W konkretnym przypadku aktualizuje jądro systemu operacyjnego i instaluje określony sterownik wersji zestawu narzędzi CUDA.
+Poniższy przykład odzwierciedla powyższe Azure Resource Manager i przykłady programu PowerShell.
 
 ```azurecli
 az vm extension set \
@@ -146,10 +146,21 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 
+```
+
+W poniższym przykładzie dodano również dwa opcjonalne ustawienia niestandardowe jako przykład instalacji sterowników innych niż domyślne. W konkretnym przypadku aktualizuje jądro systemu operacyjnego i instaluje określony sterownik wersji zestawu narzędzi CUDA. Należy pamiętać, że opcja "--Settings" jest opcjonalna i domyślna. Należy pamiętać, że aktualizacja jądra może wydłużyć czasy instalacji rozszerzenia. Wybór konkretnej (starszej) wersji CUDA tolkit może nie zawsze być zgodny z nowszymi jądrami.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -167,7 +178,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
+Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku. Zapoznaj się z tym plikiem, aby śledzić stan (wszystkie długotrwałe) instalacji oraz rozwiązywać problemy związane z błędami.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

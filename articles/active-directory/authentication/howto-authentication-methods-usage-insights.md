@@ -12,10 +12,9 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81680187"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Użycie metod uwierzytelniania & Insights (wersja zapoznawcza)
@@ -38,12 +37,12 @@ Do uzyskania dostępu do informacji o użyciu i szczegółowych informacji nie s
 Aby uzyskać dostęp do informacji o użyciu metody uwierzytelniania i szczegółowych informacji:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory** > użyciu**resetowania** > hasła **& szczegółowe informacje**.
+1. Przejdź do **Azure Active Directory**  >  użyciu**resetowania hasła**  >  **& szczegółowe informacje**.
 1. Z omówienia **rejestracji** lub **użycia** można wybrać opcję otwarcia wstępnie filtrowanych raportów do filtrowania na podstawie Twoich potrzeb.
 
 ![Omówienie użycia & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-Aby uzyskiwać dostęp do & szczegółowych informacji, przejdź do [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). Ten link spowoduje przeprowadzenie przeglądu rejestracji.
+Aby uzyskiwać dostęp do & szczegółowych informacji, przejdź do [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) . Ten link spowoduje przeprowadzenie przeglądu rejestracji.
 
 Kafelki Użytkownicy zarejestrowani, użytkownicy i użytkownicy z możliwością obsługi użytkowników pokazują następujące dane rejestracyjne dla użytkowników:
 

@@ -5,14 +5,14 @@ keywords: Połączenie PostgreSQL, parametry połączenia, problemy z łącznoś
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: c97e8e0d55a99e0b022bdc6e97edc778d7b6588a
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86107601"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Rozwiązywanie problemów z połączeniem do Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -48,8 +48,9 @@ Jeśli aplikacja trwale nie może nawiązać połączenia z Azure Database for P
 
 * Konfiguracja zapory serwera: Upewnij się, że Zapora serwera Azure Database for PostgreSQL jest skonfigurowana tak, aby zezwalać na połączenia z klienta, w tym serwery proxy i bramy.
 * Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Adresy IP i porty serwera, które nie mogą być dozwolone, a także nazwy aplikacji, takie jak PostgreSQL w niektórych zaporach.
-* Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak * \@* sufiksu ServerName w nazwie użytkownika.
+* Błąd użytkownika: być może masz błędne parametry połączenia, takie jak nazwa serwera w parametrach połączenia lub brak sufiksu * \@ servername* w nazwie użytkownika.
 * Jeśli zobaczysz, że _serwer błędów nie jest skonfigurowany do zezwalania na połączenia IPv6_, pamiętaj, że warstwa podstawowa nie obsługuje punktów końcowych usługi sieci wirtualnej. Musisz usunąć punkt końcowy Microsoft. SQL z podsieci, która próbuje nawiązać połączenie z serwerem podstawowym.
+* Jeśli zobaczysz błąd połączenia _sslmode wartość "* * *" nieprawidłowe, gdy obsługa protokołu SSL nie zostanie skompilowana w wyniku_ błędu, oznacza to, że klient PostgreSQL nie obsługuje protokołu SSL. Najprawdopodobniej libpq po stronie klienta nie został skompilowany przy użyciu flagi "--with-OpenSSL". Spróbuj nawiązać połączenie z klientem PostgreSQL z obsługą protokołu SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kroki rozwiązywania problemów z łącznością trwałą
 

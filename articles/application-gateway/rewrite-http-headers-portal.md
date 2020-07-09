@@ -4,22 +4,22 @@ description: Dowiedz się, jak za pomocą Azure Portal skonfigurować Applicatio
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74012856"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807899"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Ponowne zapisywanie nagłówków żądań i odpowiedzi HTTP przy użyciu usługi Azure Application Gateway — Azure Portal
 
 W tym artykule opisano sposób użycia Azure Portal w celu skonfigurowania wystąpienia [jednostki SKU Application Gateway v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) w celu ponownego zapisania nagłówków HTTP w żądaniach i odpowiedziach.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -99,7 +99,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Na liście **operator** wybierz pozycję **równe (=)**.
 
-   - Wprowadź wzorzec wyrażenia regularnego. W tym przykładzie użyjemy wzorca `(https?):\/\/.*azurewebsites\.net(.*)$`.
+   - Wprowadź wzorzec wyrażenia regularnego. W tym przykładzie użyjemy wzorca `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
    - Wybierz przycisk **OK**.
 
@@ -123,7 +123,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
 8. Wybierz pozycję **Utwórz** , aby utworzyć zestaw do ponownego zapisywania:
 
-   ![Wybierz pozycję Utwórz](media/rewrite-http-headers-portal/create.png)
+   ![Wybieranie pozycji Utwórz](media/rewrite-http-headers-portal/create.png)
 
 9. Zostanie otwarty widok ponowne zapisywanie zestawu. Sprawdź, czy utworzony zestaw do ponownego zapisywania znajduje się na liście zestawów do ponownego zapisu:
 

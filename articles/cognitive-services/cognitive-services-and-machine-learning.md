@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c8480557d0f27594fa369e4e2451a5d0fe7ad3cc
+ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584624"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85856722"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -26,7 +26,7 @@ Cognitive Services zapewnia możliwości uczenia maszynowego w celu rozwiązywan
 |--|--|
 |[Decyzja](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Twórz aplikacje wyświetlające rekomendacje pozwalające skuteczniej podejmować lepsze decyzje.|
 |[Język](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Umożliwiaj aplikacjom przetwarzanie języka naturalnego za pomocą wbudowanych skryptów, ocenianie tonacji i uczenie się rozpoznawania potrzeb użytkowników.|
-|[Wyszukaj](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawaj interfejsy API wyszukiwania Bing do aplikacji i wykorzystuj możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
+|[Wyszukiwanie](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Dodawaj interfejsy API wyszukiwania Bing do aplikacji i wykorzystuj możliwości przeczesywania miliardów stron internetowych, obrazów, wideo i wiadomości za pomocą jednego wywołania interfejsu API.|
 |[Mowa](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Konwertuj mowę na tekst i tekst na naturalnie brzmiącą mowę. Tłumacz jeden język na inny oraz włącz weryfikację i rozpoznawanie osoby mówiącej.|
 |[Obraz](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Rozpoznawaj, identyfikuj, podpisuj, indeksuj i moderuj swoje zdjęcia, klipy wideo i zawartość elektronicznego pisma odręcznego.|
 ||||
@@ -73,7 +73,7 @@ Cognitive Services, jako Grupa usług, może wymagać braku, niektórych lub wsz
 
 ### <a name="no-additional-training-data-required"></a>Nie są wymagane żadne dodatkowe dane szkoleniowe
 
-Usługi zapewniające w pełni szkolony model mogą być traktowane jako _czarne pole_. Nie musisz wiedzieć, jak działają lub jakie dane zostały użyte do ich uczenia. Dane można przenieść do w pełni przeszkolonego modelu, aby uzyskać prognozę. 
+Usługi zapewniające w pełni szkolony model mogą być traktowane jako _nieprzezroczyste_. Nie musisz wiedzieć, jak działają lub jakie dane zostały użyte do ich uczenia. Dane można przenieść do w pełni przeszkolonego modelu, aby uzyskać prognozę. 
 
 ### <a name="some-or-all-training-data-required"></a>Wymagane są niektóre lub wszystkie dane szkoleniowe
 
@@ -93,7 +93,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |--|--|--|--|
 |[Narzędzie do wykrywania anomalii](./Anomaly-Detector/overview.md)|x|x|x|
 |Wyszukiwanie Bing |x|||
-|[Przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
+|[przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Niestandardowe przetwarzanie obrazów](./Custom-Vision-Service/home.md)||x||
 |[Rozpoznawanie twarzy](./Face/Overview.md)|x|x||
@@ -107,7 +107,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |[Zamiana tekstu na mowę (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Zamiana mowy na mowę na tekst (monitora STT)](speech-service/speech-to-text.md)|x|x||
 |[Tłumaczenie mowy](speech-service/speech-translation.md)|x|||
-|[Analiza tekstu](./text-analytics/overview.md)|x|||
+|[analiza tekstu](./text-analytics/overview.md)|x|||
 |[Translator](./translator/translator-info-overview.md)|x|||
 |[Translator — translator niestandardowy](./translator/custom-translator/overview.md)||x||
 

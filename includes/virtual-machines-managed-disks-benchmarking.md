@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67673450"
 ---
 *Rozgrzewanie pamięci podręcznej*  
@@ -21,7 +21,7 @@ Dysk z pamięcią podręczną hosta w trybie tylko do odczytu może dać wyższ�
 > [!IMPORTANT]
 > Przed uruchomieniem testu porównawczego należy przeprowadzić rozgrzewanie pamięci podręcznej, za każdym razem, gdy maszyna wirtualna jest ponownie uruchamiana.
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 
 ### <a name="iometer"></a>Iometer
 
@@ -33,7 +33,7 @@ IOMeter używa pliku testowego, który jest przechowywany w woluminie, na który
 
 #### <a name="access-specifications"></a>Specyfikacje dostępu
 
-Specyfikacje, rozmiar we/wy żądania,% odczyt/zapis,% losowy/sekwencyjny, są konfigurowane przy użyciu karty "specyfikacje dostępu" w IOMeter. Utwórz specyfikację dostępu dla każdego scenariusza opisanego poniżej. Utwórz specyfikacje dostępu i "Zapisz" z odpowiednią nazwą, taką jak – RandomWrites\_8K, RandomReads\_8K. Po uruchomieniu scenariusza testowego wybierz odpowiednią specyfikację.
+Specyfikacje, rozmiar we/wy żądania,% odczyt/zapis,% losowy/sekwencyjny, są konfigurowane przy użyciu karty "specyfikacje dostępu" w IOMeter. Utwórz specyfikację dostępu dla każdego scenariusza opisanego poniżej. Utwórz specyfikacje dostępu i "Zapisz" z odpowiednią nazwą, taką jak – RandomWrites \_ 8K, RandomReads \_ 8K. Po uruchomieniu scenariusza testowego wybierz odpowiednią specyfikację.
 
 Poniżej przedstawiono przykładowe specyfikacje dostępu dla scenariusza maksymalnego liczby operacji we/wy zapisu.  
     ![Przykładowe specyfikacje dostępu dla maksymalnej liczby operacji we/wy zapisu](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
@@ -44,8 +44,8 @@ Aby zademonstrować maksymalną liczbę operacji we/wy, użyj mniejszego rozmiar
 
 | Specyfikacja dostępu | Rozmiar żądania | Wybranych | Przeczytaj |
 | --- | --- | --- | --- |
-| RandomWrites\_8K |8 tys. |100 |0 |
-| RandomReads\_8K |8 tys. |100 |100 |
+| RandomWrites \_ 8K |8 tys. |100 |0 |
+| RandomReads \_ 8K |8 tys. |100 |100 |
 
 #### <a name="maximum-throughput-test-specifications"></a>Wymagania dotyczące maksymalnej przepływności
 
@@ -53,8 +53,8 @@ Aby zademonstrować maksymalną przepływność, użyj większego rozmiaru żąd
 
 | Specyfikacja dostępu | Rozmiar żądania | Wybranych | Przeczytaj |
 | --- | --- | --- | --- |
-| RandomWrites\_64 KB |64 K |100 |0 |
-| RandomReads\_64 KB |64 K |100 |100 |
+| RandomWrites \_ 64 KB |64 K |100 |0 |
+| RandomReads \_ 64 KB |64 K |100 |100 |
 
 #### <a name="run-the-iometer-test"></a>Uruchom test IOMeter
 
@@ -64,31 +64,31 @@ Wykonaj poniższe kroki, aby rozgrzać pamięć podręczną
 
    | Nazwa | Rozmiar żądania | Wybranych | Przeczytaj |
    | --- | --- | --- | --- |
-   | RandomWrites\_MB |1 MB |100 |0 |
-   | RandomReads\_MB |1 MB |100 |100 |
+   | RandomWrites \_ MB |1 MB |100 |0 |
+   | RandomReads \_ MB |1 MB |100 |100 |
 1. Uruchom test IOMeter, aby zainicjować dysk pamięci podręcznej z poniższymi parametrami. Użyj trzech wątków roboczych dla woluminu docelowego i głębokości kolejki 128. Ustaw czas trwania testu na 2 godziny na karcie "Konfiguracja testu".
 
    | Scenariusz | Wolumin docelowy | Nazwa | Czas trwania |
    | --- | --- | --- | --- |
-   | Zainicjuj dysk pamięci podręcznej |CacheReads |RandomWrites\_MB |2 godz. |
+   | Zainicjuj dysk pamięci podręcznej |CacheReads |RandomWrites \_ MB |2 godz. |
 1. Uruchom test IOMeter na potrzeby rozgrzewania dysku pamięci podręcznej przy użyciu następujących parametrów. Użyj trzech wątków roboczych dla woluminu docelowego i głębokości kolejki 128. Ustaw czas trwania testu na 2 godziny na karcie "Konfiguracja testu".
 
    | Scenariusz | Wolumin docelowy | Nazwa | Czas trwania |
    | --- | --- | --- | --- |
-   | Rozgrzewanie dysku pamięci podręcznej |CacheReads |RandomReads\_MB |2 godz. |
+   | Rozgrzewanie dysku pamięci podręcznej |CacheReads |RandomReads \_ MB |2 godz. |
 
 Po rozpoczęciu rozgrzewania dysku pamięci podręcznej wykonaj scenariusze testowe wymienione poniżej. Aby uruchomić test IOMeter, należy użyć co najmniej trzech wątków roboczych dla **każdego** woluminu docelowego. Dla każdego wątku roboczego wybierz wolumin docelowy, ustaw głębokość kolejki, a następnie wybierz jedną z zapisanych specyfikacji testu, jak pokazano w poniższej tabeli, aby uruchomić odpowiedni scenariusz testowy. W tabeli przedstawiono również oczekiwane wyniki operacji we/wy na sekundę i przepływność podczas uruchamiania tych testów. We wszystkich scenariuszach jest używany niewielki rozmiar we/wy wynoszący 8 KB i wysoka głębokość kolejki 128.
 
 | Scenariusz testu | Wolumin docelowy | Nazwa | Wynik |
 | --- | --- | --- | --- |
-| Maksymalnie z Odczyt operacji we/wy |CacheReads |RandomWrites\_8K |LICZBA OPERACJI WE/WY 50 000 |
-| Maksymalnie z Zapisz operacje we/wy |NoCacheWrites |RandomReads\_8K |LICZBA OPERACJI WE/WY 64 000 |
-| Maksymalnie z Połączone operacje we/wy |CacheReads |RandomWrites\_8K |LICZBA OPERACJI WE/WY 100 000 |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Maksymalnie z Odczyt MB/s |CacheReads |RandomWrites\_64 KB |524 MB/s |
-| Maksymalnie z Bajty zapisu/s |NoCacheWrites |RandomReads\_64 KB |524 MB/s |
-| Połączone MB/s |CacheReads |RandomWrites\_64 KB |1000 MB/s |
-| NoCacheWrites |RandomReads\_64 KB | &nbsp; | &nbsp; |
+| Maksymalnie z Odczyt operacji we/wy |CacheReads |RandomWrites \_ 8K |LICZBA OPERACJI WE/WY 50 000 |
+| Maksymalnie z Zapisz operacje we/wy |NoCacheWrites |RandomReads \_ 8K |LICZBA OPERACJI WE/WY 64 000 |
+| Maksymalnie z Połączone operacje we/wy |CacheReads |RandomWrites \_ 8K |LICZBA OPERACJI WE/WY 100 000 |
+| NoCacheWrites |RandomReads \_ 8K | &nbsp; | &nbsp; |
+| Maksymalnie z Odczyt MB/s |CacheReads |RandomWrites \_ 64 KB |524 MB/s |
+| Maksymalnie z Bajty zapisu/s |NoCacheWrites |RandomReads \_ 64 KB |524 MB/s |
+| Połączone MB/s |CacheReads |RandomWrites \_ 64 KB |1000 MB/s |
+| NoCacheWrites |RandomReads \_ 64 KB | &nbsp; | &nbsp; |
 
 Poniżej znajdują się zrzuty ekranu wyników testu IOMeter w przypadku połączonych operacji we/wy i przepływności.
 
@@ -116,7 +116,7 @@ Używamy czterech wątków roboczych do prowadzenia operacji zapisu i czterech w
 
 #### <a name="maximum-write-iops"></a>Maksymalna liczba operacji we/wy zapisu
 
-Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną liczbę operacji we/wy zapisu. Nadaj mu nazwę "fiowrite. ini".
+Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną liczbę operacji we/wy zapisu. Nadaj mu nazwę "fiowrite.ini".
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ Podczas przebiegu testu można sprawdzić liczbę operacji we/wy zapisu, które 
 
 #### <a name="maximum-read-iops"></a>Maksymalna liczba operacji we/wy odczytu
 
-Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną liczbę operacji we/wy odczytu. Nadaj mu nazwę "fioread. ini".
+Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną liczbę operacji we/wy odczytu. Nadaj mu nazwę "fioread.ini".
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ Podczas przebiegu testu można zobaczyć liczbę IOPS operacji odczytu, które s
 
 #### <a name="maximum-read-and-write-iops"></a>Maksymalna liczba operacji we/wy odczytu i zapisu
 
-Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną łączną liczbę operacji we/wy odczytu i zapisu. Nadaj mu nazwę "fioreadwrite. ini".
+Utwórz plik zadania z następującymi specyfikacjami, aby uzyskać maksymalną łączną liczbę operacji we/wy odczytu i zapisu. Nadaj mu nazwę "fioreadwrite.ini".
 
 ```ini
 [global]

@@ -4,10 +4,9 @@ description: Jak wyświetlać dzienniki uruchamiania generowane przez zadania AC
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79246970"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Wyświetlanie dzienników uruchamiania zadań i zarządzanie nimi
@@ -65,7 +64,7 @@ Jeśli zadanie jest wyzwalane automatycznie, na przykład przez aktualizację ko
 Aby wyświetlić dzienniki uruchamiania w portalu:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **usługi**wybierz pozycję **zadania** > **uruchomienia**.
+1. W obszarze **usługi**wybierz pozycję **zadania**  >  **uruchomienia**.
 1. Wybierz **Identyfikator uruchomienia** , aby wyświetlić stan uruchomienia i dzienniki uruchomienia. Dziennik zawiera te same informacje, co w przypadku dziennika strumieniowego, jeśli został wygenerowany.
 
 ![Wyświetl Portal logowania uruchamiania zadań](./media/container-registry-tasks-logs/portal-task-run-logs.png)

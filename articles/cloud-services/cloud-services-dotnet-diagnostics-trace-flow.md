@@ -11,17 +11,16 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
 ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75386514"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Śledzenie przepływu aplikacji Cloud Services z Diagnostyka Azure
 Śledzenie służy do monitorowania wykonywania aplikacji w trakcie jej działania. Za pomocą klas [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace), [System. Diagnostics. Debug](/dotnet/api/system.diagnostics.debug)i [System. Diagnostics. TraceSource](/dotnet/api/system.diagnostics.tracesource) można rejestrować informacje o błędach i wykonywaniu aplikacji w dziennikach, plikach tekstowych lub innych urządzeniach w celu późniejszej analizy. Aby uzyskać więcej informacji na temat śledzenia, zobacz [śledzenie i Instrumentacja aplikacji](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
 
 ## <a name="use-trace-statements-and-trace-switches"></a>Używanie instrukcji Trace i przełączników śledzenia
-Zaimplementuj śledzenie w aplikacji Cloud Services, dodając [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) do konfiguracji aplikacji i wykonując wywołania do System. Diagnostics. Trace lub system. Diagnostics. Debug w kodzie aplikacji. Użyj pliku konfiguracji *App. config* dla ról procesów roboczych i *Web. config* dla ról sieci Web. Podczas tworzenia nowej usługi hostowanej przy użyciu szablonu programu Visual Studio Diagnostyka Azure jest automatycznie dodawana do projektu i DiagnosticMonitorTraceListener jest dodawany do odpowiedniego pliku konfiguracji dla ról, które zostały dodane.
+Zaimplementuj śledzenie w aplikacji Cloud Services, dodając [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) do konfiguracji aplikacji i wykonując wywołania do System. Diagnostics. Trace lub system. Diagnostics. Debug w kodzie aplikacji. Użyj *app.config* pliku konfiguracji dla ról procesów roboczych i *web.config* dla ról sieci Web. Podczas tworzenia nowej usługi hostowanej przy użyciu szablonu programu Visual Studio Diagnostyka Azure jest automatycznie dodawana do projektu i DiagnosticMonitorTraceListener jest dodawany do odpowiedniego pliku konfiguracji dla ról, które zostały dodane.
 
 Aby uzyskać informacje dotyczące umieszczania instrukcji śledzenia, zobacz [How to: Dodawanie instrukcji Trace do kodu aplikacji](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
@@ -35,7 +34,7 @@ Przed wykonaniem poniższej procedury należy zainicjować monitor diagnostyki p
 Należy pamiętać, że jeśli używasz szablonów dostarczonych przez program Visual Studio, konfiguracja odbiornika jest automatycznie dodawana.
 
 ### <a name="add-a-trace-listener"></a>Dodawanie odbiornika śledzenia
-1. Otwórz plik Web. config lub App. config dla roli.
+1. Otwórz plik web.config lub app.config dla roli.
 2. Dodaj następujący kod do pliku. Zmień atrybut wersji, aby użyć numeru wersji zestawu, którego dotyczy odwołanie. Wersja zestawu nie zmienia się koniecznie w przypadku każdej wersji zestawu Azure SDK, chyba że są w niej dostępne aktualizacje.
    
     ```
@@ -65,7 +64,7 @@ Aby uzyskać więcej informacji na temat odbiorników, zobacz [detektory śledze
 Po wykonaniu kroków w celu dodania odbiornika można dodać do niego instrukcje śledzenia.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Aby dodać instrukcję trace do kodu
-1. Otwórz plik źródłowy aplikacji. Na przykład plik \<rolename>. cs dla roli procesu roboczego lub roli sieci Web.
+1. Otwórz plik źródłowy aplikacji. Na przykład \<RoleName> plik CS dla roli procesu roboczego lub roli sieci Web.
 2. Dodaj następującą dyrektywę using, jeśli nie została jeszcze dodana:
     ```
         using System.Diagnostics;

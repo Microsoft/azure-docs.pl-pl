@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: networking
 author: anavinahar
 ms.service: networking
@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82095936"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
@@ -72,7 +72,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Reguły na kartę sieciową (między wszystkimi adresami IP na karcie sieciowej) | 300                           |
 | Konfiguracje adresów IP frontonu              | 600                           |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 1 000, pojedynczej sieci wirtualnej |
-| Zasoby zaplecza na <sup>Load Balancer 1<sup> | 150                   |
+| Zasoby zaplecza na Load Balancer <sup> 1<sup> | 150                   |
 | Porty wysokiej dostępności                 | 1 na wewnętrzny fronton       |
 | Reguły ruchu wychodzącego na Load Balancer        | 600                           |
 | [Limit czasu bezczynności protokołu TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuty/30 minut          |

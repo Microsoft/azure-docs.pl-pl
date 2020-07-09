@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264312"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85203150"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -24,7 +24,7 @@ ms.locfileid: "79264312"
 
 Element **TechnicalProfiles** zawiera zestaw profilów technicznych obsługiwanych przez dostawcę usług. Każdy dostawca oświadczeń musi mieć co najmniej jeden profil techniczny, który określa punkty końcowe i protokoły wymagane do komunikowania się z dostawcą oświadczeń. Dostawca oświadczeń może mieć wiele profilów technicznych.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Display name</DisplayName>
   <TechnicalProfiles>
@@ -75,7 +75,7 @@ Element **TechnicalProfiles** zawiera zestaw profilów technicznych obsługiwany
 
 Element **profilu technicznym** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 |---------|---------|---------|
 | Identyfikator | Tak | Unikatowy identyfikator profilu technicznego. Profil techniczny może być przywoływany przy użyciu tego identyfikatora z innych elementów w pliku zasad. Na przykład **OrchestrationSteps** i **ValidationTechnicalProfile**. |
 
@@ -86,10 +86,10 @@ Element **profilu technicznym** zawiera następujący atrybut:
 | Domain | 0:1 | Nazwa domeny profilu technicznego. Na przykład jeśli Twój profil techniczny określa dostawcę tożsamości w serwisie Facebook, nazwa domeny to Facebook.com. |
 | Nazwa wyświetlana | 1:1 | Nazwa profilu technicznego, który może być wyświetlany użytkownikom. |
 | Opis | 0:1 | Opis profilu technicznego, który może być wyświetlany użytkownikom. |
-| Protocol (Protokół) | 0:1 | Protokół używany do komunikacji z drugą stroną. |
+| Protokół | 0:1 | Protokół używany do komunikacji z drugą stroną. |
 | Metadane | 0:1 | Kolekcja par klucz/wartość, które są wykorzystywane przez protokół do komunikacji z punktem końcowym w trakcie transakcji. |
-| InputTokenFormat | 0:1 | Format tokenu wejściowego. Możliwe wartości: `JSON`, `JWT`, `SAML11`lub `SAML2`. `JWT` Wartość reprezentuje token sieci Web JSON zgodnie ze specyfikacją IETF. `SAML11` Wartość reprezentuje token zabezpieczający protokołu SAML 1,1 zgodnie ze specyfikacją języka Oasis.  `SAML2` Wartość reprezentuje token zabezpieczający protokołu SAML 2,0 zgodnie ze specyfikacją języka Oasis. |
-| OutputTokenFormat | 0:1 | Format tokenu wyjściowego. Możliwe wartości: `JSON`, `JWT`, `SAML11`lub `SAML2`. |
+| InputTokenFormat | 0:1 | Format tokenu wejściowego. Możliwe wartości: `JSON` , `JWT` , `SAML11` lub `SAML2` . `JWT`Wartość reprezentuje token sieci Web JSON zgodnie ze specyfikacją IETF. `SAML11`Wartość reprezentuje token zabezpieczający protokołu SAML 1,1 zgodnie ze specyfikacją języka Oasis.  `SAML2`Wartość reprezentuje token zabezpieczający protokołu SAML 2,0 zgodnie ze specyfikacją języka Oasis. |
+| OutputTokenFormat | 0:1 | Format tokenu wyjściowego. Możliwe wartości: `JSON` , `JWT` , `SAML11` lub `SAML2` . |
 | CryptographicKeys | 0:1 | Lista kluczy kryptograficznych, które są używane w profilu technicznym. |
 | InputClaimsTransformations | 0:1 | Lista wcześniej zdefiniowanych odwołań do transformacji oświadczeń, które należy wykonać przed wysłaniem jakichkolwiek oświadczeń do dostawcy oświadczeń lub jednostki uzależnionej. |
 | InputClaims | 0:1 | Lista wcześniej zdefiniowanych odwołań do typów zgłoszeń, które są pobierane jako dane wejściowe w profilu technicznym. |
@@ -99,20 +99,20 @@ Element **profilu technicznym** zawiera następujący atrybut:
 | OutputClaimsTransformations | 0:1 | Lista wcześniej zdefiniowanych odwołań do transformacji oświadczeń, które należy wykonać po odebraniu oświadczeń od dostawcy oświadczeń. |
 | ValidationTechnicalProfiles | 0: n | Lista odwołań do innych profilów technicznych używanych przez profil techniczny do celów weryfikacji. Aby uzyskać więcej informacji, zobacz temat [Sprawdzanie poprawności profilu technicznego](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Kontroluje produkcję nazwy podmiotu w tokenach, w których nazwa podmiotu jest określona oddzielnie od oświadczeń. Na przykład uwierzytelnianie OAuth lub SAML.  |
-| IncludeInSso | 0:1 |  Określa, czy użycie tego profilu technicznego ma mieć zastosowanie do działania logowania jednokrotnego (SSO) dla sesji lub zamiast tego wymagać jawnej interakcji. Ten element jest prawidłowy tylko w profilach SelfAsserted używanych w profilu technicznym weryfikacji. Możliwe wartości: `true` (ustawienie domyślne) lub `false`. |
+| IncludeInSso | 0:1 |  Określa, czy użycie tego profilu technicznego ma mieć zastosowanie do działania logowania jednokrotnego (SSO) dla sesji lub zamiast tego wymagać jawnej interakcji. Ten element jest prawidłowy tylko w profilach SelfAsserted używanych w profilu technicznym weryfikacji. Możliwe wartości: `true` (ustawienie domyślne) lub `false` . |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Identyfikator profilu technicznego, z którego mają zostać dodane wszystkie oświadczenia wejściowe i wyjściowe do tego profilu technicznego. Profil techniczny, do którego istnieje odwołanie, musi być zdefiniowany w tym samym pliku zasad. |
 | IncludeTechnicalProfile |0:1 | Identyfikator profilu technicznego, z którego mają zostać dodane wszystkie dane do tego profilu technicznego. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Inny profil techniczny, który ma być używany na potrzeby zarządzania sesją. |
 |EnabledForUserJourneys| 0:1 |Kontroluje, czy profil techniczny jest wykonywany w podróży użytkownika.  |
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
 Element **Protocol** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Nazwa | Tak | Nazwa prawidłowego protokołu obsługiwanego przez Azure AD B2C, który jest używany jako część profilu technicznego. Możliwe wartości: `OAuth1`, `OAuth2`, `SAML2` `OpenIdConnect` `Proprietary`,, lub `None`. |
-| Program obsługi | Nie | Jeśli nazwa protokołu jest ustawiona na `Proprietary`, określ w pełni kwalifikowaną nazwę zestawu, który jest używany przez Azure AD B2C do określenia procedury obsługi protokołu. |
+| Nazwa | Tak | Nazwa prawidłowego protokołu obsługiwanego przez Azure AD B2C, który jest używany jako część profilu technicznego. Możliwe wartości: `OAuth1` , `OAuth2` ,,, `SAML2` `OpenIdConnect` `Proprietary` lub `None` . |
+| Program obsługi | Nie | Jeśli nazwa protokołu jest ustawiona na `Proprietary` , określ w pełni kwalifikowaną nazwę zestawu, który jest używany przez Azure AD B2C do określenia procedury obsługi protokołu. |
 
 ## <a name="metadata"></a>Metadane
 
@@ -126,9 +126,9 @@ Element **Metadata** zawiera następujące elementy:
 
 Element **Item** elementu **Metadata** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Key | Tak | Klucz metadanych. Zobacz każdy typ profilu technicznego, aby wyświetlić listę elementów metadanych. |
+| Klucz | Tak | Klucz metadanych. Zobacz każdy typ profilu technicznego, aby wyświetlić listę elementów metadanych. |
 
 ## <a name="cryptographickeys"></a>CryptographicKeys
 
@@ -136,13 +136,13 @@ Element **CryptographicKeys** zawiera następujący element:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Key | 1: n | Klucz kryptograficzny używany w tym profilu technicznym. |
+| Klucz | 1: n | Klucz kryptograficzny używany w tym profilu technicznym. |
 
-### <a name="key"></a>Key
+### <a name="key"></a>Klucz
 
 Element **Key** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Nie | Unikatowy identyfikator konkretnej pary kluczy, do której odwołuje się inne elementy w pliku zasad. |
 | Identyfikatorze storagereferenceid | Tak | Identyfikator kontenera klucza magazynu, do którego odwołuje się inne elementy w pliku zasad. |
@@ -159,7 +159,7 @@ Element **InputClaimsTransformations** zawiera następujący element:
 
 Element **InputClaimsTransformation** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator odwołania | Tak | Identyfikator transformacji oświadczeń zdefiniowany już w pliku zasad lub nadrzędnym pliku zasad. |
 
@@ -175,7 +175,7 @@ Element **InputClaims** zawiera następujący element:
 
 Element **oświadczenie inputclaim** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
 | DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje w nim zastrzeżenie wskazywane przez ClaimTypeReferenceId, aby uzyskane wystąpienie może być używane jako oświadczenie inputclaim przez profil techniczny. |
@@ -195,13 +195,13 @@ Funkcja DislayClaims jest obecnie w **wersji zapoznawczej**.
 
 Element **DisplayClaim** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Nie | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
 | DisplayControlReferenceId | Nie | Identyfikator [kontrolki wyświetlania](display-controls.md) zdefiniowany już w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
-| Wymagany | Nie | Wskazuje, czy jest wymagane żądanie wyświetlania. |
+| Wymagane | Nie | Wskazuje, czy jest wymagane żądanie wyświetlania. |
 
-**DisplayClaim** wymaga określenia `ClaimTypeReferenceId` albo `DisplayControlReferenceId`.
+**DisplayClaim** wymaga określenia albo `ClaimTypeReferenceId` `DisplayControlReferenceId` .
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -215,7 +215,7 @@ Element **PersistedClaims** zawiera następujące elementy:
 
 Element **PersistedClaim** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
 | DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje w nim zastrzeżenie wskazywane przez ClaimTypeReferenceId, aby uzyskane wystąpienie może być używane jako oświadczenie inputclaim przez profil techniczny. |
@@ -233,7 +233,7 @@ Element **OutputClaims** zawiera następujący element:
 
 Element **oświadczenie outputclaim** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad. |
 | DefaultValue | Nie | Wartość domyślna, która ma zostać użyta do utworzenia żądania, jeśli nie istnieje w nim zastrzeżenie wskazywane przez ClaimTypeReferenceId, aby uzyskane wystąpienie może być używane jako oświadczenie inputclaim przez profil techniczny. |
@@ -252,7 +252,7 @@ Element **OutputClaimsTransformations** zawiera następujący element:
 
 Element **OutputClaimsTransformation** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator odwołania | Tak | Identyfikator transformacji oświadczeń zdefiniowany już w pliku zasad lub nadrzędnym pliku zasad. |
 
@@ -268,7 +268,7 @@ Element **ValidationTechnicalProfiles** zawiera następujący element:
 
 Element **ValidationTechnicalProfile** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator odwołania | Tak | Identyfikator profilu technicznego jest już zdefiniowany w pliku zasad lub nadrzędnym pliku zasad. |
 
@@ -276,7 +276,7 @@ Element **ValidationTechnicalProfile** zawiera następujący atrybut:
 
 **SubjectNamingInfo** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Claim | Tak | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad. |
 
@@ -284,7 +284,7 @@ Element **ValidationTechnicalProfile** zawiera następujący atrybut:
 
 Element **IncludeTechnicalProfile** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator odwołania | Tak | Identyfikator profilu technicznego zdefiniowany już w pliku zasad lub nadrzędnym pliku zasad. |
 
@@ -292,7 +292,7 @@ Element **IncludeTechnicalProfile** zawiera następujący atrybut:
 
 Element **UseTechnicalProfileForSessionManagement** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator odwołania | Tak | Identyfikator profilu technicznego jest już zdefiniowany w pliku zasad lub nadrzędnym pliku zasad. |
 
@@ -308,9 +308,9 @@ Element **UseTechnicalProfileForSessionManagement** zawiera następujący atrybu
 
 Korzystanie z **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** lub **OnItemAbsenceInStringCollectionClaim**wymaga podania następujących metadanych: **ClaimTypeOnWhichToEnable** określa typ zgłoszenia, który ma być oceniany, **ClaimValueOnWhichToEnable** określa wartość, która ma być porównana.
 
-Następujący profil techniczny jest wykonywany tylko wtedy, gdy kolekcja ciągów **skojarzeni** zawiera wartość `facebook.com`:
+Następujący profil techniczny jest wykonywany tylko wtedy, gdy kolekcja ciągów **skojarzeni** zawiera wartość `facebook.com` :
 
-```XML
+```xml
 <TechnicalProfile Id="UnLink-Facebook-OAUTH">
   <DisplayName>Unlink Facebook</DisplayName>
 ...

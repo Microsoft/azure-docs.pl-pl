@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76720490"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Etap wdrażania cyklu życia zespołowego procesu nauki danych
@@ -52,7 +51,7 @@ Po utworzeniu zestawu modeli, które działają prawidłowo, można operacjonali
 
 Przykłady modelu operacjonalizacji z usługą sieci Web Azure Machine Learning można znaleźć w temacie [Deploy a Azure Machine Learning Web Service](../studio/deploy-a-machine-learning-web-service.md). Najlepszym rozwiązaniem jest tworzenie danych telemetrycznych i monitorowanie ich w modelu produkcyjnym i w wdrażanym potoku danych. To rozwiązanie pomaga w kolejnym raportowaniu stanu systemu i rozwiązywaniu problemów.  
 
-## <a name="artifacts"></a>Artefakty
+## <a name="artifacts"></a>Artifacts
 
 * Pulpit nawigacyjny Stan, który wyświetla kondycję systemu i kluczowe metryki
 * Ostateczny raport modelowania ze szczegółami wdrożenia

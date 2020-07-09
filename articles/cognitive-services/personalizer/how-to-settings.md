@@ -1,14 +1,14 @@
 ---
 title: Konfigurowanie usługi Personalizacja
 description: Konfiguracja usługi zawiera informacje o tym, jak usługa traktuje korzyści, jak często bada usługa, jak często jest on przełączany i jak dużo danych jest przechowywanych.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4c0cbf35a37f6b3eb134992b34b23fd9d7be47ed
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584658"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344343"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Konfigurowanie pętli uczenia personalizacji
 

@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701558"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248859"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Korzystanie z pulpitu nawigacyjnego wyłącznika ze sprężyną Azure
 [Turbina Netflix Cloud w chmurze](https://github.com/Netflix/Turbine) jest szeroko używana do agregowania wielu strumieni metryk [Hystrix](https://github.com/Netflix/Hystrix) , dzięki czemu strumienie mogą być monitorowane w jednym widoku przy użyciu pulpitu nawigacyjnego Hystrix. W tym samouczku pokazano, jak używać ich w chmurze Azure wiosennej.
@@ -59,7 +59,7 @@ Gdy wszystkie aplikacje są uruchomione i wykrywalne, uzyskaj dostęp do `user-s
 Sprawdź przy użyciu publicznych punktów końcowych lub prywatnych punktów końcowych testów.
 
 ### <a name="using-public-endpoints"></a>Używanie publicznych punktów końcowych
-Dostęp do Hystrix-turbiny ze ścieżką `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` z przeglądarki.  Na poniższej ilustracji przedstawiono pulpit nawigacyjny Hystrix uruchomiony w tej aplikacji.
+Dostęp do Hystrix-turbiny ze ścieżką `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` z przeglądarki.  Na poniższej ilustracji przedstawiono pulpit nawigacyjny Hystrix uruchomiony w tej aplikacji.
 
 ![Pulpit nawigacyjny Hystrix](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77594278"
 ---
-W przypadku powłoki opartej na programie PowerShell w systemie `Invoke-WebRequest` Windows należy użyć polecenia, aby pobrać wersję wykresu Consul Helm `Expand-Archive` , a następnie wyodrębnij ją w następujący sposób:
+W przypadku powłoki opartej na programie PowerShell w systemie Windows należy użyć polecenia, `Invoke-WebRequest` Aby pobrać wersję wykresu Consul Helm, a następnie wyodrębnij ją w `Expand-Archive` następujący sposób:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

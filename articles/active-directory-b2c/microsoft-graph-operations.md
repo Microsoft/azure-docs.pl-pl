@@ -12,10 +12,9 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78184252"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operacji dostępnych dla Azure AD B2C
@@ -30,7 +29,7 @@ Każdy link w poniższych sekcjach odwołuje się do odpowiedniej strony w ramac
 - [Tworzenie użytkownika odbiorcy](https://docs.microsoft.com/graph/api/user-post-users)
 - [Pobierz użytkownika](https://docs.microsoft.com/graph/api/user-get)
 - [Aktualizowanie użytkownika](https://docs.microsoft.com/graph/api/user-update)
-- [Usuń użytkownika](https://docs.microsoft.com/graph/api/user-delete)
+- [Usuwanie użytkownika](https://docs.microsoft.com/graph/api/user-delete)
 
 Aby uzyskać więcej informacji na temat zarządzania kontami użytkowników Azure AD B2C przy użyciu interfejsu API Microsoft Graph, zobacz [Azure AD B2C Zarządzanie kontami użytkowników przy użyciu Microsoft Graph](manage-user-accounts-graph-api.md).
 
@@ -92,7 +91,7 @@ Zasób najwyższego poziomu dla kluczy zasad w interfejsie API Microsoft Graph j
 - [Aktualizuj aplikację](https://docs.microsoft.com/graph/api/application-update)
 - [Utwórz obiekt serviceprincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
 - [Utwórz przyznanie oauth2Permission](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [Usuwanie aplikacji](https://docs.microsoft.com/graph/api/application-delete)
+- [Usuń aplikację](https://docs.microsoft.com/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Właściwości rozszerzenia aplikacji
 

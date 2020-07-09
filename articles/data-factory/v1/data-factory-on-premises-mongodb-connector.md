@@ -10,10 +10,9 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79281342"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Przenoszenie danych z MongoDB za pomocą Azure Data Factory
@@ -61,9 +60,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla **OnPremisesMongoDB** połączonej usługi.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **OnPremisesMongoDb** |Tak |
+| typ |Właściwość Type musi mieć wartość: **OnPremisesMongoDb** |Tak |
 | serwer |Adres IP lub nazwa hosta serwera MongoDB. |Tak |
 | port |Port TCP, którego serwer MongoDB używa do nasłuchiwania połączeń klientów. |Opcjonalna, wartość domyślna: 27017 |
 | authenticationType |Podstawowa lub anonimowa. |Tak |
@@ -72,14 +71,14 @@ Poniższa tabela zawiera opis elementów JSON specyficznych dla **OnPremisesMong
 | authSource |Nazwa bazy danych MongoDB, która ma zostać użyta do sprawdzenia poświadczeń w celu uwierzytelnienia. |Opcjonalne (jeśli jest używane uwierzytelnianie podstawowe). Domyślnie: używa konta administratora i bazy danych określonej przy użyciu właściwości databaseName. |
 | Bazy |Nazwa bazy danych MongoDB, do której chcesz uzyskać dostęp. |Tak |
 | gatewayName |Nazwa bramy, która uzyskuje dostęp do magazynu danych. |Tak |
-| encryptedCredential |Poświadczenie zaszyfrowane przez bramę. |Optional |
+| encryptedCredential |Poświadczenie zaszyfrowane przez bramę. |Opcjonalne |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak struktura, dostępność i zasady JSON zestawu danych są podobne dla wszystkich typów zestawu danych (Azure SQL, Azure Blob, Azure Table itp.).
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja typeProperties zestawu danych typu **MongoDbCollection** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Tak |
 
@@ -90,7 +89,7 @@ Właściwości dostępne w sekcji **typeProperties** działania z drugiej strony
 
 Gdy źródło jest typu **MongoDbSource** , w sekcji typeProperties są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL-92. Na przykład: select * from MyTable. |Nie (Jeśli określono **CollectionName** **zestawu danych** ) |
 
@@ -292,14 +291,14 @@ Podczas przesuwania danych do MongoDB następujące mapowania są używane z typ
 
 | Typ MongoDB | Typ programu .NET Framework |
 | --- | --- |
-| plików binarnych |Byte [] |
-| Boolean |Wartość logiczna |
+| Binarne |Byte [] |
+| Boolean (wartość logiczna) |Wartość logiczna |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |String (ciąg) |
+| String (ciąg) |String (ciąg) |
 | INTERFEJSU |Guid (identyfikator GUID) |
 | Obiekt |Reznormalizowany do spłaszczonych kolumn z "_" jako separatorem zagnieżdżonym |
 
@@ -343,9 +342,9 @@ Tabela "ExampleTable_Invoices":
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | element | price | Rabat |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |wyskakujący |456 |0.2 |
-| 1111 |1 |124 |laboratoryjn |1235 |0.2 |
-| 2222 |0 |135 |lodówki |12543 |0.0 |
+| 1111 |0 |123 |wyskakujący |456 |0,2 |
+| 1111 |1 |124 |laboratoryjn |1235 |0,2 |
+| 2222 |0 |135 |lodówki |12543 |0,0 |
 
 Tabela "ExampleTable_Ratings":
 

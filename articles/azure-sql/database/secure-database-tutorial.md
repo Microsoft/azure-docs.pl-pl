@@ -10,14 +10,14 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c1a8c5231e0a6d6674ca55be78a491074a3d3a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053639"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252920"
 ---
-# <a name="tutorial-secure-an-azure-sql-database"></a>Samouczek: Zabezpieczanie Azure SQL Database
+# <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -25,7 +25,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 >
 > - Tworzenie reguł zapory na poziomie serwera i na poziomie bazy danych
-> - Konfigurowanie administratora usługi Azure Active Directory (AD)
+> - Konfigurowanie administratora usługi Azure Active Directory (Azure AD)
 > - Zarządzanie dostępem użytkowników za pomocą funkcji uwierzytelniania SQL, uwierzytelniania usługi Azure AD i bezpiecznych parametrów połączenia
 > - Włączanie funkcji zabezpieczeń, takich jak zaawansowane zabezpieczenia danych, inspekcja, maskowanie danych i szyfrowanie
 
@@ -42,7 +42,7 @@ Azure SQL Database zabezpiecza dane przez umożliwienie:
 Aby dowiedzieć się więcej, zobacz artykuły [Azure SQL Database security overview (Omówienie zabezpieczeń usługi Azure SQL Database)](/azure/sql-database/sql-database-security-index) i [Capabilities (Funkcje)](security-overview.md).
 
 > [!TIP]
-> Poniższy moduł Microsoft Learn umożliwia bezpłatne zapoznanie się ze sposobem [zabezpieczania Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> Poniższy moduł Microsoft Learn umożliwia bezpłatne zapoznanie się z informacjami na temat [zabezpieczania bazy danych w programie Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,13 +50,13 @@ Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elem
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - [Serwer](logical-servers.md) i pojedyncza baza danych
-  - Utwórz je za pomocą [witryny Azure Portal](single-database-create-quickstart.md), [interfejsu wiersza polecenia](az-cli-script-samples-content-guide.md) lub [programu PowerShell](powershell-script-content-guide.md).
+  - Utwórz je za pomocą [Azure Portal](single-database-create-quickstart.md), [interfejsu wiersza polecenia](az-cli-script-samples-content-guide.md)lub [programu PowerShell](powershell-script-content-guide.md)
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Aby wykonać wszystkie kroki tego samouczka, zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+W przypadku wszystkich kroków w samouczku Zaloguj się do [Azure Portal](https://portal.azure.com/)
 
 ## <a name="create-firewall-rules"></a>Tworzenie reguł zapory
 
@@ -73,7 +73,7 @@ Reguły zapory adresów IP na poziomie serwera mają zastosowanie do wszystkich 
 
 Aby skonfigurować regułę zapory na poziomie serwera:
 
-1. W witrynie Azure Portal wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie wybierz bazę danych na stronie **Bazy danych SQL**.
+1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
     ![reguła zapory serwera](./media/secure-database-tutorial/server-name.png)
 
@@ -219,11 +219,11 @@ Aby zapewnić bezpieczne, szyfrowane połączenie między aplikacją kliencką a
 - żądać połączenia szyfrowanego oraz
 - nie ufać certyfikatowi serwera.
 
-Dzięki temu połączenie jest nawiązywane przy użyciu zabezpieczeń Transport Layer Security (TLS) i zmniejsza się ryzyko ataków typu „man-in-the-middle” (człowiek pośrodku). Parametry połączenia są dostępne na poziomie bazy danych i są wstępnie skonfigurowane w celu obsługi sterowników klienta takich jak ADO.NET, JDBC, ODBC czy PHP. Aby uzyskać informacje dotyczące zabezpieczeń TLS i łączności, zobacz [Zagadnienia dotyczące protokołu TLS](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
+Dzięki temu połączenie jest nawiązywane przy użyciu zabezpieczeń Transport Layer Security (TLS) i zmniejsza się ryzyko ataków typu „man-in-the-middle” (człowiek pośrodku). Parametry połączenia są dostępne na poziomie bazy danych i są wstępnie skonfigurowane w celu obsługi sterowników klienta takich jak ADO.NET, JDBC, ODBC czy PHP. Aby uzyskać informacje dotyczące zabezpieczeń TLS i łączności, zobacz [Zagadnienia dotyczące protokołu TLS](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
 Aby skopiować bezpieczne parametry połączenia:
 
-1. W witrynie Azure Portal wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie wybierz bazę danych na stronie **Bazy danych SQL**.
+1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
 1. Na stronie **Omówienie** kliknij pozycję **Pokaż parametry połączenia bazy danych**.
 
@@ -244,7 +244,7 @@ Funkcja zaawansowanych zabezpieczeń danych wykrywa potencjalne zagrożenia w cz
 
 Aby włączyć zaawansowane zabezpieczenia danych:
 
-1. W witrynie Azure Portal wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie wybierz bazę danych na stronie **Bazy danych SQL**.
+1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
 1. Na stronie **Przegląd** wybierz link z **nazwą serwera**. Zostanie otwarta strona serwer.
 
@@ -270,7 +270,7 @@ Funkcja inspekcji śledzi zdarzenia bazy danych i zapisuje zdarzenia w dzienniku
 
 Aby włączyć inspekcję:
 
-1. W witrynie Azure Portal wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie wybierz bazę danych na stronie **Bazy danych SQL**.
+1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
 1. W sekcji **Zabezpieczenia** wybierz pozycję **Inspekcja**.
 
@@ -301,7 +301,7 @@ Aby włączyć inspekcję:
     ![Rekordy inspekcji](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Zobacz temat [SQL database auditing (Inspekcja w usłudze SQL Database)](../../azure-sql/database/auditing-overview.md), aby zapoznać się z instrukcjami dalszego dostosowywania zdarzeń inspekcji za pomocą programu PowerShell lub interfejsu API REST.
+> Aby dowiedzieć się więcej o sposobach dostosowywania zdarzeń inspekcji przy użyciu programu PowerShell lub interfejsu API REST, zobacz [SQL Database inspekcji](../../azure-sql/database/auditing-overview.md) .
 
 ### <a name="dynamic-data-masking"></a>Dynamiczne maskowanie danych
 
@@ -309,7 +309,7 @@ Funkcja maskowania danych automatycznie ukrywa dane poufne w bazie danych.
 
 Aby włączyć maskowanie danych:
 
-1. W witrynie Azure Portal wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie wybierz bazę danych na stronie **Bazy danych SQL**.
+1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
 1. W sekcji **Zabezpieczenia** wybierz pozycję **Dynamiczne maskowanie danych**.
 
@@ -327,7 +327,7 @@ Funkcja szyfrowania automatycznie szyfruje dane magazynowane, nie wymagając wpr
 
 Aby włączyć lub sprawdzić szyfrowanie:
 
-1. W witrynie Azure Portal wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie wybierz bazę danych na stronie **Bazy danych SQL**.
+1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
 1. W sekcji **Zabezpieczenia** wybierz pozycję **Transparent Data Encryption**.
 

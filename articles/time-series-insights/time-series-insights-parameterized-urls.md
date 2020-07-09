@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81416991"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Udostępnianie widoku niestandardowego przy użyciu sparametryzowanego adresu URL
@@ -29,11 +29,11 @@ Eksplorator Time Series Insights obsługuje parametry zapytania URL, aby określ
 
 ## <a name="environment-id"></a>Identyfikator środowiska
 
-Parametr `environmentId=<guid>` określa identyfikator środowiska docelowego. Jest to składnik nazwy FQDN dostępu do danych, który można znaleźć w prawym górnym rogu omówienia środowiska w Azure Portal. To wszystko, co poprzedza `env.timeseries.azure.com`.
+Parametr `environmentId=<guid>` określa identyfikator środowiska docelowego. Jest to składnik nazwy FQDN dostępu do danych, który można znaleźć w prawym górnym rogu omówienia środowiska w Azure Portal. To wszystko, co poprzedza `env.timeseries.azure.com` .
 
 Przykładowy parametr identyfikatora środowiska to `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Time
+## <a name="time"></a>Godzina
 
 Za pomocą sparametryzowanego adresu URL możesz określać bezwzględne lub względne wartości czasu.
 
@@ -49,7 +49,7 @@ Aby podać bezwzględne wartości czasu, użyj parametrów `from=<integer>` i `t
 
 ### <a name="relative-time-values"></a>Względne wartości czasu
 
-W przypadku względnej wartości czasu Użyj `relativeMillis=<value>`, gdzie *wartość* jest w języku JavaScript milisekund od ostatniego znacznika czasu otrzymanego z interfejsu API.
+W przypadku względnej wartości czasu Użyj `relativeMillis=<value>` , gdzie *wartość* jest w języku JavaScript milisekund od ostatniego znacznika czasu otrzymanego z interfejsu API.
 
 Na przykład parametr `&relativeMillis=3600000` spowoduje wyświetlenie danych z ostatnich 60 minut.
 
@@ -66,7 +66,7 @@ Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Time Se
 
 ### <a name="optional-parameters"></a>Parametry opcjonalne
 
-`timeSeriesDefinitions=<collection of term objects>` Parametr określa terminy predykatu, które będą wyświetlane w widoku Time Series Insights:
+`timeSeriesDefinitions=<collection of term objects>`Parametr określa terminy predykatu, które będą wyświetlane w widoku Time Series Insights:
 
 | Parametr | Element adresu URL | Opis |
 | --- | --- | --- |
@@ -80,16 +80,16 @@ Akceptowane wartości odpowiadają menu **szybkiego czasu** Eksploratora Time Se
 > Jeśli `Events` jest wybrana miara **useSum** , liczba jest zaznaczona domyślnie.  
 > Jeśli `Events` nie jest zaznaczone, wartość średnia jest domyślnie zaznaczona. |
 
-* Para `multiChartStack=<true/false>` klucz-wartość umożliwia tworzenie stosów na wykresie.
-* Para `multiChartSameScale=<true/false>` klucz-wartość umożliwia tej samej skali osi Y w warunkach w ramach opcjonalnego parametru.  
-* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` Umożliwia dostosowanie suwaka interwał, aby zapewnić bardziej szczegółowy lub gładszy, bardziej Zagregowany widok wykresu.  
-* `timezoneOffset=<integer>` Parametr umożliwia ustawienie strefy czasowej na potrzeby wyświetlania wykresu jako przesunięcia do czasu UTC.
+* `multiChartStack=<true/false>`Para klucz-wartość umożliwia tworzenie stosów na wykresie.
+* `multiChartSameScale=<true/false>`Para klucz-wartość umożliwia tej samej skali osi Y w warunkach w ramach opcjonalnego parametru.  
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>`Umożliwia dostosowanie suwaka interwał, aby zapewnić bardziej szczegółowy lub gładszy, bardziej Zagregowany widok wykresu.  
+* `timezoneOffset=<integer>`Parametr umożliwia ustawienie strefy czasowej na potrzeby wyświetlania wykresu jako przesunięcia do czasu UTC.
 
 | Pary | Opis |
 | --- | --- |
-| `multiChartStack=false` | `true`jest domyślnie włączona, dlatego należy `false` przejść do stosu. |
-| `multiChartStack=false&multiChartSameScale=true` | Układanie na stosie musi mieć możliwość użycia takiej samej skali osi Y dla warunków.  Jest `false` on domyślnie, więc przekazywanie `true` włącza tę funkcję. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Jednostki = `days`, `hours`, `minutes`, `seconds`, `milliseconds`.  Jednostka zawsze wielką literą. </br> Zdefiniuj liczbę jednostek, przekazując żądaną liczbę całkowitą dla **timeBucketSize**.  |
+| `multiChartStack=false` | `true`jest domyślnie włączona, dlatego `false` należy przejść do stosu. |
+| `multiChartStack=false&multiChartSameScale=true` | Układanie na stosie musi mieć możliwość użycia takiej samej skali osi Y dla warunków.  Jest on `false` Domyślnie, więc przekazywanie `true` włącza tę funkcję. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Jednostki = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  Jednostka zawsze wielką literą. </br> Zdefiniuj liczbę jednostek, przekazując żądaną liczbę całkowitą dla **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | Liczba całkowita jest zawsze w milisekundach. |
 
 > [!NOTE]

@@ -11,12 +11,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 03/19/2020
 ms.author: aahi
-ms.openlocfilehash: 5e3d6ea4d2defa9567d142063bcdcdeef663e1f2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: aef9f086f27a1d184723b712760bff3c1239c097
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289749"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608720"
 ---
 # <a name="quickstart-use-the-bing-video-search-client-library"></a>Szybki Start: korzystanie z biblioteki klienta wyszukiwanie wideo Bing
 

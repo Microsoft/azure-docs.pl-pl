@@ -1,5 +1,5 @@
 ---
-title: Co to jest usługa Azure static Web Apps?
+title: Co to jest usługa Azure Static Web Apps?
 description: Najważniejsze funkcje i funkcje statycznej Web Apps platformy Azure.
 services: static-web-apps
 author: craigshoemaker
@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: d416044599535e8acd363d09099e8667bba59a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599967"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488923"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Co to jest usługa Azure static Web Apps Preview?
 
@@ -30,7 +30,7 @@ W przypadku statycznych Web Apps zasoby statyczne są oddzielone od tradycyjnego
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-- **Bezpłatny hosting internetowy** dla zawartości statycznej, takiej jak HTML, CSS, JavaScript i obrazy.
+- **Hosting internetowy** dla zawartości statycznej, takiej jak HTML, CSS, JavaScript i obrazy.
 - **Zintegrowana obsługa interfejsu API** zapewniana przez Azure Functions.
 - **Integracja z usługą GitHub dla pierwszej firmy** , w której zmiany repozytoriów wyzwalają kompilacje i wdrożenia.
 - **Globalnie dystrybuowana** zawartość statyczna, która umieszcza zawartość bliżej użytkowników.

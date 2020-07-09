@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
 ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80437893"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Kontrolowanie ruchu Azure App Service przy użyciu usługi Azure Traffic Manager
@@ -40,7 +40,7 @@ W przypadku korzystania z usługi Azure Traffic Manager z platformą Azure nale�
 * W przypadku wdrożeń w tym samym regionie, które używają App Service w połączeniu z inną usługą w chmurze platformy Azure, można połączyć oba typy punktów końcowych, aby umożliwić scenariusze hybrydowe.
 * Można określić tylko jeden App Service punkt końcowy dla regionu w profilu. Po wybraniu aplikacji jako punktu końcowego dla jednego regionu pozostałe aplikacje w tym regionie staną się niedostępne do wyboru dla tego profilu.
 * App Service punkty końcowe określone w profilu Traffic Manager platformy Azure pojawiają się w sekcji **nazwy domen** na stronie Konfigurowanie dla aplikacji w profilu, ale nie można do niej konfigurować.
-* Po dodaniu aplikacji do profilu w **adresie URL witryny** na pulpicie nawigacyjnym strony portalu aplikacji zostanie wyświetlony adres URL domeny niestandardowej aplikacji, jeśli został on ustawiony. W przeciwnym razie zostanie wyświetlony adres URL profilu Traffic Manager (na przykład `contoso.trafficmanager.net`). Zarówno bezpośrednia nazwa domeny aplikacji, jak i adres URL Traffic Manager są widoczne na stronie konfigurowania aplikacji w sekcji **nazwy domen** .
+* Po dodaniu aplikacji do profilu w **adresie URL witryny** na pulpicie nawigacyjnym strony portalu aplikacji zostanie wyświetlony adres URL domeny niestandardowej aplikacji, jeśli został on ustawiony. W przeciwnym razie zostanie wyświetlony adres URL profilu Traffic Manager (na przykład `contoso.trafficmanager.net` ). Zarówno bezpośrednia nazwa domeny aplikacji, jak i adres URL Traffic Manager są widoczne na stronie konfigurowania aplikacji w sekcji **nazwy domen** .
 * Niestandardowe nazwy domen działają zgodnie z oczekiwaniami, ale oprócz dodawania ich do aplikacji należy również skonfigurować mapę DNS tak, aby wskazywała adres URL Traffic Manager. Aby uzyskać informacje na temat sposobu konfigurowania domeny niestandardowej dla aplikacji App Service, zobacz [Konfigurowanie niestandardowej nazwy domeny w Azure App Service z integracją Traffic Manager](configure-domain-traffic-manager.md).
 * Do profilu usługi Azure Traffic Manager można dodawać tylko aplikacje znajdujące się w trybie Standard lub Premium.
 * Dodanie aplikacji do profilu Traffic Manager powoduje ponowne uruchomienie aplikacji.

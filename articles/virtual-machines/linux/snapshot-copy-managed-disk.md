@@ -5,16 +5,15 @@ author: roygara
 manager: twooley
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f2d905d041198bd35c4657052bf18d981904dc44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758402"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659954"
 ---
 # <a name="create-a-snapshot"></a>Tworzenie migawki 
 
@@ -65,7 +64,7 @@ az snapshot list \
 5. Wybierz istniejącą grupę zasobów lub wpisz nazwę nowej grupy. 
 7. W polu **dysk źródłowy**wybierz dysk zarządzany do utworzenia migawki.
 8. Wybierz **Typ konta** , który ma być używany do przechowywania migawki. Użyj **HDD w warstwie Standardowa** , chyba że będzie to konieczne w przypadku dysku SSD o wysokiej wydajności.
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 
 
 ## <a name="next-steps"></a>Następne kroki

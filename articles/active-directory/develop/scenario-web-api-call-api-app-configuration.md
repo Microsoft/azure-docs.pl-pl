@@ -13,10 +13,9 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80991011"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: Konfiguracja kodu
@@ -100,7 +99,7 @@ Aby uzyskać więcej informacji na temat tego zaawansowanego scenariusza, zobacz
 
 Należy wykonać wywołanie w imieniu (OBO), wywołując [metodę AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) w `IConfidentialClientApplication` interfejsie.
 
-`UserAssertion` Klasa jest tworzona na podstawie tokenu okaziciela, który jest odbierany przez internetowy interfejs API od własnych klientów. Istnieją [dwa konstruktory](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
+`UserAssertion`Klasa jest tworzona na podstawie tokenu okaziciela, który jest odbierany przez internetowy interfejs API od własnych klientów. Istnieją [dwa konstruktory](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
 * Jeden, który pobiera token okaziciela sieci Web JSON (JWT)
 * Jeden, który ma dowolny rodzaj potwierdzenia użytkownika, inny rodzaj tokenu zabezpieczającego, którego typ jest następnie określony w dodatkowym parametrze o nazwie`assertionType`
 
@@ -145,7 +144,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 
 Przepływ "w imieniu" (OBO) służy do uzyskania tokenu wywołującego podrzędny interfejs API sieci Web. W tym przepływie internetowy interfejs API odbiera token okaziciela z uprawnieniami delegowanymi przez użytkownika z aplikacji klienckiej, a następnie wymienia ten token dla innego tokenu dostępu, aby wywołać podrzędny interfejs API sieci Web.
 
-Poniższy kod używa struktury zabezpieczeń wiosennej `SecurityContextHolder` w interfejsie API sieci Web w celu uzyskania zweryfikowanego tokenu okaziciela. Następnie używa biblioteki języka Java MSAL, aby uzyskać token dla interfejsu API podrzędnego przy `acquireToken` użyciu wywołania `OnBehalfOfParameters`z. MSAL buforuje token tak, aby kolejne wywołania interfejsu API mogły użyć `acquireTokenSilently` do uzyskania zbuforowanego tokenu.
+Poniższy kod używa struktury zabezpieczeń wiosennej `SecurityContextHolder` w interfejsie API sieci Web w celu uzyskania zweryfikowanego tokenu okaziciela. Następnie używa biblioteki języka Java MSAL, aby uzyskać token dla interfejsu API podrzędnego przy użyciu `acquireToken` wywołania z `OnBehalfOfParameters` . MSAL buforuje token tak, aby kolejne wywołania interfejsu API mogły użyć `acquireTokenSilently` do uzyskania zbuforowanego tokenu.
 
 ```Java
 @Component
@@ -214,13 +213,13 @@ class MsalAuthHelper {
 
 Przepływ "w imieniu" (OBO) służy do uzyskania tokenu wywołującego podrzędny interfejs API sieci Web. W tym przepływie internetowy interfejs API odbiera token okaziciela z uprawnieniami delegowanymi przez użytkownika z aplikacji klienckiej, a następnie wymienia ten token dla innego tokenu dostępu, aby wywołać podrzędny interfejs API sieci Web.
 
-Interfejs API sieci Web w języku Python będzie musiał użyć oprogramowania pośredniczącego w celu zweryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) MSAL, wywołując metodę. Aby zapoznać się z przykładem użycia tego interfejsu API, zobacz [kod testu dla elementu Microsoft-Authentication-Library-for-Python w serwisie GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Zapoznaj się również z omówieniem [problemu 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) w tym samym repozytorium dla podejścia, które pomija potrzebę zastosowania aplikacji warstwy środkowej.
+Interfejs API sieci Web w języku Python będzie musiał użyć oprogramowania pośredniczącego w celu zweryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL, wywołując [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metodę. Aby zapoznać się z przykładem użycia tego interfejsu API, zobacz [kod testu dla elementu Microsoft-Authentication-Library-for-Python w serwisie GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.2.0/tests/test_e2e.py#L429-L472). Zapoznaj się również z omówieniem [problemu 53](https://github.com/AzureAD/microsoft-authentication-library-for-python/issues/53) w tym samym repozytorium dla podejścia, które pomija potrzebę zastosowania aplikacji warstwy środkowej.
 
 ---
 
-Można także zobaczyć przykład implementacji przepływu OBO w [Node. js i Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+Można także zobaczyć przykład implementacji przepływu OBO w [Node.js i Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
 Aby uzyskać więcej informacji na temat protokołu OBO, zobacz [Microsoft Identity platform i OAuth 2,0 w imieniu usługi Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 

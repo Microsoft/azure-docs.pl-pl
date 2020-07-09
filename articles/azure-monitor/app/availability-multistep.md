@@ -4,10 +4,9 @@ description: Konfigurowanie wieloetapowych testów sieci Web w celu monitorowani
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83873349"
 ---
 # <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
@@ -47,14 +46,14 @@ Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual S
 
 ### <a name="frequency--location"></a>Częstotliwość & lokalizacji
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 |**Częstotliwość testów**| Ustawia częstotliwość uruchamiania testu z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
 |**Lokalizacje testów**| Są miejsca, w których serwery wysyłają żądania sieci Web do adresu URL. **Minimalna liczba zalecanych lokalizacji testowych to pięć** , aby upewnić się, że problemy w witrynie sieci Web można odróżnić od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 | **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
 | **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
@@ -62,7 +61,7 @@ Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual S
 
 ### <a name="alerts"></a>Alerty
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
 |**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|

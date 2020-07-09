@@ -4,14 +4,13 @@ description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeks
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 06/09/2020
 ms.author: tisande
-ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869943"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636329"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
@@ -30,9 +29,9 @@ Azure Cosmos DB obsługuje dwa tryby indeksowania:
 - **Brak**: indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
 
 > [!NOTE]
-> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem wykonuje aktualizacje dla indeksu na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to spowodować **niespójne lub niekompletne** wyniki zapytania. Jeśli planujesz zapytania do kontenera Cosmos, nie należy wybierać indeksowania z opóźnieniem.
+> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem wykonuje aktualizacje dla indeksu na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to spowodować **niespójne lub niekompletne** wyniki zapytania. Jeśli planujesz zapytania do kontenera Cosmos, nie należy wybierać indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Domyślnie zasady indeksowania są ustawione na `automatic`. Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true`. Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
+Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true` . Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Uwzględnianie i wykluczanie ścieżek właściwości
 
@@ -40,7 +39,7 @@ Niestandardowe zasady indeksowania mogą określać ścieżki właściwości, kt
 
 - ścieżka prowadząca do wartości skalarnej (ciąg lub Number) ma koniec`/?`
 - elementy z tablicy są rozłączone za pośrednictwem `/[]` notacji (zamiast `/0` `/1` itp.)
-- `/*` symbol wieloznaczny może służyć do dopasowania elementów poniżej węzła
+- `/*`symbol wieloznaczny może służyć do dopasowania elementów poniżej węzła
 
 Ponowne wykonanie tego samego przykładu:
 
@@ -58,34 +57,34 @@ Ponowne wykonanie tego samego przykładu:
     }
 ```
 
-- `headquarters`ścieżka `employees` jest`/headquarters/employees/?`
+- `headquarters` `employees` ścieżka jest`/headquarters/employees/?`
 
 - `locations`" `country` ścieżka jest`/locations/[]/country/?`
 
-- ścieżka do wszystkich elementów w `headquarters` obszarze to`/headquarters/*`
+- ścieżka do wszystkich elementów w obszarze `headquarters` to`/headquarters/*`
 
 Na przykład możemy dołączyć `/headquarters/employees/?` ścieżkę. Ta ścieżka zapewni, że indeksuje Właściwość Employees, ale nie indeksuje dodatkowych zagnieżdżonych JSON w ramach tej właściwości.
 
 ## <a name="includeexclude-strategy"></a>Strategia uwzględniania/wykluczania
 
-Każda zasada indeksowania musi zawierać ścieżkę `/*` katalogu głównego jako dołączoną lub wykluczoną ścieżkę.
+Każda zasada indeksowania musi zawierać ścieżkę katalogu głównego `/*` jako dołączoną lub wykluczoną ścieżkę.
 
 - Uwzględnij ścieżkę główną, aby wykluczać ścieżki, które nie muszą być indeksowane. Jest to zalecane podejście, które pozwala Azure Cosmos DB aktywnie indeksować wszelkie nowe właściwości, które mogą zostać dodane do modelu.
 - Wyklucz ścieżkę katalogu głównego do selektywnego dołączania ścieżek, które muszą być indeksowane.
 
-- W przypadku ścieżek ze zwykłymi znakami, które zawierają: znaki alfanumeryczne i _ (podkreślenie), nie trzeba określać ciągu ścieżki wokół podwójnych cudzysłowów (na przykład "/Path/?"). W przypadku ścieżek z innymi znakami specjalnymi należy wypróbować ciąg ścieżki wokół podwójnych cudzysłowów (na przykład\""/Path\"-ABC/?"). Jeśli oczekujesz znaków specjalnych w ścieżce, możesz pominąć wszystkie ścieżki w celu zapewnienia bezpieczeństwa. Funkcjonalnie nie ma żadnej różnicy, jeśli wykorzystasz wszystkie ścieżki, a tylko te, które zawierają znaki specjalne.
+- W przypadku ścieżek ze zwykłymi znakami, które zawierają: znaki alfanumeryczne i _ (podkreślenie), nie trzeba określać ciągu ścieżki wokół podwójnych cudzysłowów (na przykład "/Path/?"). W przypadku ścieżek z innymi znakami specjalnymi należy wypróbować ciąg ścieżki wokół podwójnych cudzysłowów (na przykład "/ \" Path-ABC \" /?"). Jeśli oczekujesz znaków specjalnych w ścieżce, możesz pominąć wszystkie ścieżki w celu zapewnienia bezpieczeństwa. Funkcjonalnie nie ma żadnej różnicy, jeśli wykorzystasz wszystkie ścieżki, a tylko te, które zawierają znaki specjalne.
 
-- Właściwość `_etag` systemowa jest domyślnie wykluczona z indeksowania, chyba że element ETag zostanie dodany do ścieżki dołączonej do indeksowania.
+- Właściwość systemowa `_etag` jest domyślnie wykluczona z indeksowania, chyba że element ETag zostanie dodany do ścieżki dołączonej do indeksowania.
 
-- Jeśli tryb indeksowania jest ustawiony na **spójne**, właściwości `id` systemu i `_ts` są indeksowane automatycznie.
+- Jeśli tryb indeksowania jest ustawiony na **spójne**, właściwości systemu `id` i `_ts` są indeksowane automatycznie.
 
 W przypadku dołączania i wykluczania ścieżek mogą wystąpić następujące atrybuty:
 
-- `kind`może być albo `range` `hash`. Funkcja indeksu zakresu zapewnia wszystkie funkcje indeksu wartości skrótu, dlatego zalecamy użycie indeksu zakresu.
+- `kind`może być albo `range` `hash` . Funkcja indeksu zakresu zapewnia wszystkie funkcje indeksu wartości skrótu, dlatego zalecamy użycie indeksu zakresu.
 
-- `precision`jest liczbą zdefiniowaną na poziomie indeksu dla dołączonych ścieżek. Wartość `-1` wskazuje maksymalną precyzję. Zalecamy zawsze ustawienie tej wartości na `-1`.
+- `precision`jest liczbą zdefiniowaną na poziomie indeksu dla dołączonych ścieżek. Wartość `-1` wskazuje maksymalną precyzję. Zalecamy zawsze ustawienie tej wartości na `-1` .
 
-- `dataType`może być albo `String` `Number`. Wskazuje typy właściwości JSON, które będą indeksowane.
+- `dataType`może być albo `String` `Number` . Wskazuje typy właściwości JSON, które będą indeksowane.
 
 Gdy nie zostanie określony, te właściwości będą miały następujące wartości domyślne:
 
@@ -107,13 +106,13 @@ Przykład:
 
 **Wykluczona ścieżka**:`/food/ingredients/*`
 
-W takim przypadku dołączona ścieżka ma pierwszeństwo przed wykluczoną ścieżką, ponieważ jest bardziej precyzyjna. W oparciu o te ścieżki wszelkie dane ze `food/ingredients` ścieżki lub zagnieżdżone w ramach zostałyby wykluczone z indeksu. Wyjątek mógłby zawierać dane w dołączonej ścieżce: `/food/ingredients/nutrition/*`, które byłyby indeksowane.
+W takim przypadku dołączona ścieżka ma pierwszeństwo przed wykluczoną ścieżką, ponieważ jest bardziej precyzyjna. W oparciu o te ścieżki wszelkie dane ze `food/ingredients` ścieżki lub zagnieżdżone w ramach zostałyby wykluczone z indeksu. Wyjątek mógłby zawierać dane w dołączonej ścieżce: `/food/ingredients/nutrition/*` , które byłyby indeksowane.
 
 Poniżej przedstawiono niektóre reguły pierwszeństwa zawartych i wykluczonych ścieżek w Azure Cosmos DB:
 
-- Dokładniejsze ścieżki są bardziej precyzyjne niż wąskie ścieżki. na przykład: `/a/b/?` jest bardziej precyzyjna `/a/?`niż.
+- Dokładniejsze ścieżki są bardziej precyzyjne niż wąskie ścieżki. na przykład: `/a/b/?` jest bardziej precyzyjna niż `/a/?` .
 
-- `/?` Jest bardziej precyzyjna niż `/*`. Na przykład `/a/?` ma dokładniejszy `/a/*` `/a/?` priorytet.
+- `/?`Jest bardziej precyzyjna niż `/*` . Na przykład `/a/?` ma dokładniejszy `/a/*` `/a/?` priorytet.
 
 - Ścieżka `/*` musi być ścieżką dołączoną lub wykluczoną.
 
@@ -123,7 +122,7 @@ Podczas definiowania ścieżki przestrzennej w zasadach indeksowania należy okr
 
 * Moment
 
-* Tworząc
+* Wielokąt
 
 * MultiPolygon
 
@@ -167,7 +166,7 @@ Rozważmy następujący przykład, w którym zdefiniowano indeks złożony w naz
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC, timestamp ASC``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c ORDER BY c.name ASC, c.age ASC``` | ```No```            |
 
-Zasady indeksowania należy dostosować, aby można było obsłużyć wszystkie `ORDER BY` niezbędne zapytania.
+Zasady indeksowania należy dostosować, aby można było obsłużyć wszystkie niezbędne `ORDER BY` zapytania.
 
 ### <a name="queries-with-filters-on-multiple-properties"></a>Zapytania z filtrami na wielu właściwościach
 
@@ -181,7 +180,7 @@ SELECT * FROM c WHERE c.name = "John" AND c.age = 18
 
 To zapytanie będzie bardziej wydajne, co zajmuje mniej czasu i zużywa mniejszą liczbę jednostek RU, jeśli może wykorzystać indeks złożony w dniu (nazwa ASC, wiek ASC).
 
-Zapytania z filtrami zakresu można także zoptymalizować przy użyciu indeksu złożonego. Jednak zapytanie może mieć tylko jeden filtr zakresu. Filtry zakresu obejmują `>`, `<`, `<=`, `>=`, i `!=`. Filtr zakresu powinien być zdefiniowany jako ostatni w indeksie złożonym.
+Zapytania z filtrami zakresu można także zoptymalizować przy użyciu indeksu złożonego. Jednak zapytanie może mieć tylko jeden filtr zakresu. Filtry zakresu obejmują `>` , `<` , `<=` , `>=` , i `!=` . Filtr zakresu powinien być zdefiniowany jako ostatni w indeksie złożonym.
 
 Rozważ następujące zapytanie z filtrami równości i zakresu:
 
@@ -195,7 +194,7 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych dla z
 
 - Właściwości w filtrze zapytania powinny być zgodne z tymi w indeksie złożonym. Jeśli właściwość znajduje się w indeksie złożonym, ale nie jest uwzględniona w zapytaniu jako filtr, zapytanie nie będzie korzystać z indeksu złożonego.
 - Jeśli zapytanie ma dodatkowe właściwości w filtrze, który nie został zdefiniowany w indeksie złożonym, wówczas do obliczenia zapytania zostanie użyta kombinacja indeksów złożonych i zakresów. Będzie to wymagało mniejszej liczby jednostek RU niż w przypadku używania indeksów zakresów.
-- Jeśli właściwość ma filtr`>`zakresu (, `<`, `<=` `>=`, lub `!=`), wówczas ta właściwość powinna być zdefiniowana jako Ostatnia w indeksie złożonym. Jeśli zapytanie ma więcej niż jeden filtr zakresu, nie będzie używać indeksu złożonego.
+- Jeśli właściwość ma filtr zakresu ( `>` ,,, `<` `<=` `>=` lub `!=` ), wówczas ta właściwość powinna być zdefiniowana jako Ostatnia w indeksie złożonym. Jeśli zapytanie ma więcej niż jeden filtr zakresu, nie będzie używać indeksu złożonego.
 - Podczas tworzenia indeksu złożonego do optymalizowania zapytań z wieloma filtrami `ORDER` indeks złożony nie będzie miał wpływu na wyniki. Ta właściwość jest opcjonalna.
 - Jeśli nie zdefiniujesz indeksu złożonego dla zapytania z filtrami dla wielu właściwości, zapytanie będzie nadal kończyło się pomyślnie. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego.
 
@@ -242,11 +241,11 @@ Zapytanie przy użyciu indeksu złożonego:
 SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
 ```
 
-Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w celu optymalizacji zapytania z klauzulą Filter `ORDER BY` i:
+Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w celu optymalizacji zapytania z `ORDER BY` klauzulą Filter i:
 
 * Jeśli zapytanie filtruje właściwości, należy je najpierw uwzględnić w `ORDER BY` klauzuli.
 * Jeśli nie zdefiniujesz indeksu złożonego w zapytaniu z filtrem dla jednej właściwości i oddzielną `ORDER BY` klauzulą używającą innej właściwości, zapytanie będzie nadal kończyć się powodzeniem. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego, szczególnie jeśli właściwość w `ORDER BY` klauzuli ma wysoką Kardynalność.
-* Wszystkie zagadnienia dotyczące tworzenia indeksów złożonych `ORDER BY` dla zapytań z wieloma właściwościami, a także zapytania z filtrami dla wielu właściwości nadal mają zastosowanie.
+* Wszystkie zagadnienia dotyczące tworzenia indeksów złożonych dla `ORDER BY` zapytań z wieloma właściwościami, a także zapytania z filtrami dla wielu właściwości nadal mają zastosowanie.
 
 
 | **Indeks złożony**                      | **Przykładowe `ORDER BY` zapytanie**                                  | **Obsługiwane przez indeks złożony?** |

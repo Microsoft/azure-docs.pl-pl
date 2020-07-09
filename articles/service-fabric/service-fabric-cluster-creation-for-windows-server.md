@@ -6,10 +6,9 @@ ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83827968"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie klastra autonomicznego działającego w systemie Windows Server
@@ -55,9 +54,9 @@ Klaster utworzony w tym artykule jest niezabezpieczony.  Każda osoba może poł
 ### <a name="step-1-create-the-cluster"></a>Krok 1. Tworzenie klastra
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scenariusz A: Tworzenie niezabezpieczonego lokalnego klastra projektowego
-Service Fabric można wdrożyć w klastrze programistycznym z jednym maszyną przy użyciu pliku *ClusterConfig. Unsecure. DevCluster. JSON* zawartego w [przykładach](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Service Fabric można wdrożyć w klastrze programistycznym z jednym maszyną przy użyciu *ClusterConfig.Unsecure.DevCluster.jsna* pliku uwzględnionym w [przykładach](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
-Rozpakuj pakiet autonomiczny na maszynę, skopiuj przykładowy plik konfiguracji na komputer lokalny, a następnie uruchom skrypt *CreateServiceFabricCluster. ps1* za pośrednictwem sesji programu PowerShell administratora z autonomicznego folderu pakietu.
+Rozpakuj pakiet autonomiczny na maszynę, skopiuj przykładowy plik konfiguracji na komputer lokalny, a następnie uruchom skrypt *CreateServiceFabricCluster.ps1* za pośrednictwem sesji programu PowerShell administratora, z folderu pakietu autonomicznego.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
@@ -97,7 +96,7 @@ Administrator klastra wdrażający i konfigurujący klaster musi mieć uprawnien
     Passed                     : True
     ```
 
-2. Utwórz klaster: Uruchom skrypt *CreateServiceFabricCluster. ps1* , aby wdrożyć klaster Service Fabric na każdym komputerze w konfiguracji. 
+2. Utwórz klaster: Uruchom skrypt *CreateServiceFabricCluster.ps1* , aby wdrożyć klaster Service Fabric na każdym komputerze w konfiguracji. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -115,7 +114,7 @@ Pakiet środowiska uruchomieniowego można pobrać oddzielnie, z innej maszyny p
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
 
-*.\ClusterConfig.JSON* i *.\MicrosoftAzureServiceFabric.cab* są ścieżkami do konfiguracji klastra i pliku Runtime. cab odpowiednio.
+*.\ClusterConfig.json* i *.\MicrosoftAzureServiceFabric.cab* są ścieżkami do konfiguracji klastra i pliku Runtime. cab odpowiednio.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Krok 2. Nawiązywanie połączenia z klastrem
 Połącz się z klastrem, aby sprawdzić, czy klaster działa i jest dostępny. Moduł ServiceFabric programu PowerShell został zainstalowany w środowisku uruchomieniowym.  Można nawiązać połączenie z klastrem z jednego z węzłów klastra lub z komputera zdalnego przy użyciu środowiska uruchomieniowego Service Fabric.  Polecenie cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) umożliwia ustanowienie połączenia z klastrem.

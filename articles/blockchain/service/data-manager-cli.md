@@ -2,14 +2,14 @@
 title: Konfigurowanie Data Manager łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure — usługa Azure łańcucha bloków
 description: Tworzenie Data Manager łańcucha bloków dla usługi Azure łańcucha bloków i zarządzanie nim przy użyciu interfejsu wiersza polecenia platformy Azure
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81254414"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85200464"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurowanie menedżera danych łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ Aby skonfigurować wystąpienie Data Manager łańcucha bloków:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) i zaloguj `az login`się przy użyciu programu.
+* Zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) i zaloguj się przy użyciu programu `az login` .
 * Kończenie [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). W przypadku korzystania z usługi łańcucha bloków Data Manager zaleca się użycie warstwy *Standard* usług Azure łańcucha bloków.
 * Tworzenie [tematu Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Informacje o [obsłudze zdarzeń w Azure Event Grid](../../event-grid/event-handlers.md)
@@ -34,7 +34,7 @@ Aby skonfigurować wystąpienie Data Manager łańcucha bloków:
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.51 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -133,7 +133,7 @@ az resource create \
 
 ### <a name="input-examples"></a>Przykłady danych wejściowych
 
-Przykład konfiguracji JSON tworzenia zasobu wejściowego w regionie *Wschodnie stany USA* , który jest połączony z \<członkiem\>łańcucha bloków.
+Przykład konfiguracji JSON tworzenia zasobu wejściowego w regionie *Wschodnie stany USA* , który jest połączony z \<Blockchain member\> .
 
 ``` json
 {
@@ -151,7 +151,7 @@ Przykład konfiguracji JSON tworzenia zasobu wejściowego w regionie *Wschodnie 
 |---------|-------------|
 | location | Region, w którym ma zostać utworzony zasób wejściowy. |
 | Atrybutów InputType | Typ księgi elementu członkowskiego usługi Azure łańcucha bloków. Obecnie **Ethereum** jest obsługiwana. |
-| resourceId | Węzeł transakcji, do którego jest połączone dane wejściowe. Zastąp \<identyfikator\>subskrypcji \<, grupę\>zasobów i \<element członkowski\> łańcucha bloków wartościami dla zasobu węzła transakcji. Dane wejściowe nawiązują połączenie z domyślnym węzłem transakcji dla elementu członkowskiego usługi Azure łańcucha bloków. |
+| resourceId | Węzeł transakcji, do którego jest połączone dane wejściowe. Zastąp \<Subscription ID\> \<Resource group\> wartości, i \<Blockchain member\> wartościami dla zasobu węzła transakcji. Dane wejściowe nawiązują połączenie z domyślnym węzłem transakcji dla elementu członkowskiego usługi Azure łańcucha bloków. |
 
 Utwórz dane wejściowe o nazwie Moje *dane wejściowe* dla elementu *czujka* przy użyciu ciągu JSON na potrzeby konfiguracji.
 
@@ -205,7 +205,7 @@ az resource create \
 
 ### <a name="output-examples"></a>Przykłady danych wyjściowych
 
-Przykład konfiguracji JSON tworzenia zasobu wyjściowego w regionie *Wschodnie stany USA* , który jest połączony z tematem w usłudze Event Grid \<o nazwie siatka\>zdarzeń.
+Przykład konfiguracji JSON tworzenia zasobu wyjściowego w regionie *Wschodnie stany USA* , który jest połączony z tematem w usłudze Event Grid o nazwie \<event grid topic\> .
 
 ``` json
 {
@@ -223,7 +223,7 @@ Przykład konfiguracji JSON tworzenia zasobu wyjściowego w regionie *Wschodnie 
 |---------|-------------|
 | location | Region, w którym ma zostać utworzony zasób wyjściowy. |
 | outputType | Typ danych wyjściowych. Obecnie **EventGrid** jest obsługiwana. |
-| resourceId | Zasób, do którego jest połączone dane wyjściowe. Zastąp \<identyfikator\>subskrypcji \<, grupę\>zasobów i \<element członkowski\> łańcucha bloków wartościami dla zasobu usługi Event Grid. |
+| resourceId | Zasób, do którego jest połączone dane wyjściowe. Zastąp \<Subscription ID\> \<Resource group\> wartości, i \<Blockchain member\> wartościami dla zasobu usługi Event Grid. |
 
 Utwórz dane wyjściowe o nazwie Moje *dane wyjściowe* dla elementu *czujka* , który nawiązuje połączenie z tematem usługi Event Grid przy użyciu ciągu konfiguracji JSON.
 
@@ -348,7 +348,7 @@ az resource invoke-action \
 | Parametr | Opis |
 |-----------|-------------|
 | action | Uruchom obserwatora przy użyciu **menu Start** . |
-| identyfikatory | Identyfikator zasobu obserwatora. Zastąp \<identyfikator\>subskrypcji \<, grupę\>zasobów i \<nazwę\> obserwatora wartościami dla zasobu obserwatora.|
+| identyfikatory | Identyfikator zasobu obserwatora. Zastąp \<Subscription ID\> \<Resource group\> wartości, i \<Watcher name\> wartościami dla zasobu obserwatora.|
 
 ### <a name="start-instance-example"></a>Przykład uruchomienia wystąpienia
 
@@ -373,7 +373,7 @@ az resource invoke-action \
 | Parametr | Opis |
 |-----------|-------------|
 | action | Użyj **Zatrzymaj** , aby zatrzymać obserwatora. |
-| identyfikatory | Nazwa obserwatora. Zastąp \<identyfikator\>subskrypcji \<, grupę\>zasobów i \<nazwę\> obserwatora wartościami dla zasobu obserwatora. |
+| identyfikatory | Nazwa obserwatora. Zastąp \<Subscription ID\> \<Resource group\> wartości, i \<Watcher name\> wartościami dla zasobu obserwatora. |
 
 ### <a name="stop-watcher-example"></a>Zatrzymywanie przykładu obserwatora
 

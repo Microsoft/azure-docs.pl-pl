@@ -3,15 +3,14 @@ title: Przesyłanie strumieniowe danych z Stream Analytics do Data Lake Storage 
 description: Użyj Azure Stream Analytics do przesyłania strumieniowego danych do Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: MT
+ms.openlocfilehash: 42c7894c33fe0f09748beee20508e7670545c0ed
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690979"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85515160"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Przesyłanie strumieniowe danych z Azure Storage Blob do Azure Data Lake Storage Gen1 przy użyciu Azure Stream Analytics
 W tym artykule dowiesz się, jak używać Azure Data Lake Storage Gen1 jako danych wyjściowych dla zadania Azure Stream Analytics. W tym artykule przedstawiono prosty scenariusz, który odczytuje dane z obiektu BLOB usługi Azure Storage (dane wejściowe) i zapisuje dane do Data Lake Storage Gen1 (dane wyjściowe).
@@ -58,7 +57,7 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
    * Dla **ogranicznika**wybierz pozycję **Tab**.
    * W obszarze **kodowanie**wybierz pozycję **UTF-8**.
 
-     Kliknij przycisk **Utwórz**. Portal doda teraz dane wejściowe i przetestuje połączenie z nim.
+     Kliknij pozycję **Utwórz**. Portal doda teraz dane wejściowe i przetestuje połączenie z nim.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Utwórz Data Lake Storage Gen1 dane wyjściowe dla zadania
@@ -86,7 +85,7 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
    * Dla **ogranicznika**wybierz pozycję **Tab**.
    * W obszarze **kodowanie**wybierz pozycję **UTF-8**.
     
-     Kliknij przycisk **Utwórz**. Portal dodaje teraz dane wyjściowe i testuje połączenie z nim.
+     Kliknij pozycję **Utwórz**. Portal dodaje teraz dane wyjściowe i testuje połączenie z nim.
     
 ## <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
@@ -100,7 +99,7 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
 
     Kliknij przycisk **Uruchom** , aby uruchomić zadanie. Uruchomienie zadania może potrwać kilka minut.
 
-3. Aby wyzwolić zadanie w celu wybrania danych z obiektu BLOB, skopiuj przykładowy plik danych do kontenera obiektów BLOB. Przykładowy plik danych można pobrać z [repozytorium Azure Data Lake git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Na potrzeby tego samouczka skopiujemy plik **vehicle1_09142014. csv**. Aby przekazać dane do kontenera obiektów blob, można użyć różnych klientów, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
+3. Aby wyzwolić zadanie w celu wybrania danych z obiektu BLOB, skopiuj przykładowy plik danych do kontenera obiektów BLOB. Przykładowy plik danych można pobrać z [repozytorium Azure Data Lake git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Na potrzeby tego samouczka skopiujemy plik **vehicle1_09142014.csv**. Aby przekazać dane do kontenera obiektów blob, można użyć różnych klientów, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
 4. Na karcie **Przegląd** w obszarze **monitorowanie**Sprawdź, jak dane zostały przetworzone.
 
@@ -110,7 +109,7 @@ Zacznij od utworzenia Stream Analytics zadania zawierającego źródło danych w
 
     ![Weryfikacja danych wyjściowych](./media/data-lake-store-stream-analytics/run.query.4.png "Weryfikacja danych wyjściowych")
 
-    W okienku Eksplorator danych Zwróć uwagę, że dane wyjściowe są zapisywane w ścieżce do folderu, jak określono w Data Lake Storage Gen1 ustawienia danych wyjściowych (`streamanalytics/job/output/{date}/{time}`).  
+    W okienku Eksplorator danych Zwróć uwagę, że dane wyjściowe są zapisywane w ścieżce do folderu, jak określono w Data Lake Storage Gen1 ustawienia danych wyjściowych ( `streamanalytics/job/output/{date}/{time}` ).  
 
 ## <a name="see-also"></a>Zobacz także
 * [Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

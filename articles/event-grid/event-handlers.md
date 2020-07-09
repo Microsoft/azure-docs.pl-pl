@@ -1,18 +1,14 @@
 ---
 title: Obsługa zdarzeń Azure Event Grid
 description: Opisuje obsługiwane procedury obsługi zdarzeń dla Azure Event Grid. Azure Automation, funkcje, Event Hubs, Połączenia hybrydowe, Logic Apps, Service Bus, Queue Storage, elementy webhook.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: c29526bdee5ad70b3acb23117ee003877f52a55e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 07/07/2020
+ms.openlocfilehash: 76f7fff3e0a3e1c0c554e452987bf944503358b8
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592461"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86117019"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Programy obsługi zdarzeń w Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń. Możesz również użyć dowolnego elementu webhook do obsługi zdarzeń. Elementy webhook nie muszą być hostowane na platformie Azure, aby obsługiwać zdarzenia. Event Grid obsługuje tylko punkty końcowe elementu webhook protokołu HTTPS.
@@ -23,7 +19,7 @@ Oto obsługiwane programy obsługi zdarzeń:
 - Elementy [webhook](handler-webhooks.md). Azure Automation elementy Runbook i Logic Apps są obsługiwane za pośrednictwem elementów webhook. 
 - [Usługa Azure Functions](handler-functions.md)
 - [Centra zdarzeń](handler-event-hubs.md)
-- [Przekazuj połączenia hybrydowe](handler-relay-hybrid-connections.md)
+- [Połączenia hybrydowe w usłudze Relay](handler-relay-hybrid-connections.md)
 - [Service Bus kolejki i tematy](handler-service-bus.md)
 - [Kolejki magazynu](handler-storage-queues.md)
 

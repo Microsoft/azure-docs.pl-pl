@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75411941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082781"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
 
@@ -615,7 +615,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
     </table>
     ```
 
-1. Przewiń w dół pliku **index. cshtml** i Dodaj następujący `tr` element, tak aby był ostatnim wierszem w ostatniej tabeli w pliku:
+1. Przewiń w dół pliku **index. cshtml** i Dodaj następujący element, tak aby `tr` był ostatnim wierszem w ostatniej tabeli w pliku:
 
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -642,9 +642,9 @@ Aby uruchomić aplikację lokalnie:
 
 ## <a name="publish-and-run-in-azure"></a>Publikowanie i uruchamianie na platformie Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Aprowizacja bazy danych SQL platformy Azure dla aplikacji
+### <a name="provision-a-database-for-the-app"></a>Inicjowanie obsługi administracyjnej bazy danych aplikacji
 
-W tej sekcji aprowizujesz nową bazę danych SQL platformy Azure dla aplikacji, która będzie używana podczas jej hostowania na platformie Azure.
+W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacja mogła korzystać z usługi na platformie Azure.
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Utwórz zasób** w prawym lewym rogu.
 
@@ -680,8 +680,8 @@ W tej sekcji aprowizujesz nową bazę danych SQL platformy Azure dla aplikacji, 
 
     | Symbol zastępczy | Sugerowana wartość |
     | --- | --- |
-    | *{your_username}* | Użyj **identyfikator logowania administratora serwera** dla właśnie utworzonego serwera bazy danych. |
-    | *{your_password}* | Użyj hasła dla właśnie utworzonego serwera bazy danych. |
+    | *{your_username}* | Użyj **identyfikatora logowania administratora serwera** dla właśnie utworzonego serwera. |
+    | *{your_password}* | Użyj hasła dla właśnie utworzonego serwera. |
 
     Gdy dodasz nazwę użytkownika i hasło jako ustawienie aplikacji, wartości te nie zostaną umieszczone w kodzie. To podejście pomaga chronić te poświadczenia.
 
@@ -715,7 +715,7 @@ W tym kroku samouczka opublikujesz aktualizacje aplikacji na platformie Azure w 
 
 Klikaj różne akcje i eksperymentuj z pobieraniem danych z różnych źródeł. Zwróć uwagę na różnice czasu, który jest potrzebny do realizacji różnych sposobów pobierania danych z bazy danych i pamięci podręcznej.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć używane zasoby platformy Azure w celu oszczędności kosztów i zasobów. Wszystkie zasoby powinny być zawarte w tej samej grupie zasobów, więc można je usunąć razem w ramach jednej operacji, usuwając grupę zasobów. Instrukcje dla tego tematu korzystały z grupy zasobów o nazwie *TestResources*.
 
@@ -727,7 +727,7 @@ Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć u�
 2. Wpisz nazwę grupy zasobów w polu tekstowym **Filtruj elementy...**.
 3. Kliknij pozycję **...** z prawej strony grupy zasobów i kliknij pozycję **Usuń grupę zasobów**.
 
-    ![Usuwanie](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![Usuń](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

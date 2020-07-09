@@ -11,10 +11,9 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82927041"
 ---
 # <a name="azure-ad-b2c-session"></a>Sesja Azure AD B2C
@@ -37,7 +36,7 @@ Integracja z Azure AD B2C obejmuje trzy typy sesji rejestracji jednokrotnej:
 
 ### <a name="azure-ad-b2c-sso"></a>Azure AD B2C Logowanie jednokrotne 
 
-W przypadku pomyślnego uwierzytelnienia użytkownika przy użyciu konta lokalnego lub społecznościowego Azure AD B2C w przeglądarce użytkownika jest przechowywana sesja oparta na plikach cookie. Plik cookie jest przechowywany w Azure AD B2C nazwy domeny dzierżawcy, takiej jak `https://contoso.b2clogin.com`.
+W przypadku pomyślnego uwierzytelnienia użytkownika przy użyciu konta lokalnego lub społecznościowego Azure AD B2C w przeglądarce użytkownika jest przechowywana sesja oparta na plikach cookie. Plik cookie jest przechowywany w Azure AD B2C nazwy domeny dzierżawcy, takiej jak `https://contoso.b2clogin.com` .
 
 Jeśli użytkownik początkowo zaloguje się przy użyciu konta federacyjnego, a następnie w oknie czasu sesji (czas wygaśnięcia lub TTL) zaloguje się do tej samej aplikacji lub innej aplikacji, Azure AD B2C próbuje uzyskać nowy token dostępu od dostawcy tożsamości federacyjnych. Jeśli sesja federacyjnego dostawcy tożsamości wygasła lub jest nieprawidłowa, dostawca tożsamości federacyjnych poprosi użytkownika o ich poświadczenia. Jeśli sesja jest nadal aktywna (lub jeśli użytkownik zalogował się przy użyciu konta lokalnego zamiast konta federacyjnego), Azure AD B2C autoryzuje użytkownika i eliminuje dalsze monity.
 
@@ -45,7 +44,7 @@ Można skonfigurować zachowanie sesji, w tym czas wygaśnięcia sesji i sposób
 
 ### <a name="federated-identity-provider-sso"></a>Federacyjny dostawca tożsamości — Logowanie jednokrotne
 
-Dostawca tożsamości społecznościowej lub korporacyjnej zarządza własną sesją. Plik cookie jest przechowywany w nazwie domeny dostawcy tożsamości, na przykład `https://login.salesforce.com`. Azure AD B2C nie steruje sesją federacyjnego dostawcy tożsamości. Zamiast tego zachowanie sesji jest określane przez dostawcę tożsamości federacyjnych. 
+Dostawca tożsamości społecznościowej lub korporacyjnej zarządza własną sesją. Plik cookie jest przechowywany w nazwie domeny dostawcy tożsamości, na przykład `https://login.salesforce.com` . Azure AD B2C nie steruje sesją federacyjnego dostawcy tożsamości. Zamiast tego zachowanie sesji jest określane przez dostawcę tożsamości federacyjnych. 
 
 Poniżej przedstawiono przykładowy scenariusz:
 
@@ -57,7 +56,7 @@ Poniżej przedstawiono przykładowy scenariusz:
 
 Aplikacja sieci Web, mobilna lub jednostronicowa może być chroniona przez dostęp OAuth, tokeny identyfikatorów lub tokeny SAML. Gdy użytkownik próbuje uzyskać dostęp do chronionego zasobu w aplikacji, aplikacja sprawdzi, czy po stronie aplikacji znajduje się aktywna sesja. Jeśli nie ma żadnej sesji aplikacji lub sesja wygasła, aplikacja przeniesie użytkownika do Azure AD B2C stronie logowania.
 
-Sesja aplikacji może być sesją plików cookie przechowywaną w obszarze Nazwa domeny aplikacji, na przykład `https://contoso.com`. Aplikacje mobilne mogą przechowywać sesję w inny sposób, ale przy użyciu podobnego podejścia.
+Sesja aplikacji może być sesją plików cookie przechowywaną w obszarze Nazwa domeny aplikacji, na przykład `https://contoso.com` . Aplikacje mobilne mogą przechowywać sesję w inny sposób, ale przy użyciu podobnego podejścia.
 
 ## <a name="azure-ad-b2c-session-configuration"></a>Konfiguracja sesji Azure AD B2C
 

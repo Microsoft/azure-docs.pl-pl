@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 1903c2faab865152d1f3666f3c9dadd745058b56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75612295"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86082016"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii języka C# dla Apache Storm przy użyciu narzędzi Data Lake Tools for Visual Studio
 
@@ -21,7 +21,7 @@ Dowiedz się, jak utworzyć topologię Apache Storm w języku C# przy użyciu na
 
 Dowiesz się również, jak tworzyć topologie hybrydowe używające składników języka C# i języka Java.
 
-Topologie języka C# korzystają z programu .NET 4,5 i używają języka mono do uruchamiania w klastrze usługi HDInsight. Aby uzyskać informacje o potencjalnych niezgodności, zobacz Zgodność z programem [mono](https://www.mono-project.com/docs/about-mono/compatibility/). Aby użyć topologii języka C#, należy zaktualizować pakiet `Microsoft.SCP.Net.SDK` NuGet używany przez projekt do wersji 0.10.0.6 lub nowszej. Wersja pakietu musi być również zgodna z wersją główną systemu Storm zainstalowanego w usłudze HDInsight.
+Topologie języka C# korzystają z programu .NET 4,5 i używają języka mono do uruchamiania w klastrze usługi HDInsight. Aby uzyskać informacje o potencjalnych niezgodności, zobacz Zgodność z programem [mono](https://www.mono-project.com/docs/about-mono/compatibility/). Aby użyć topologii języka C#, należy zaktualizować `Microsoft.SCP.Net.SDK` pakiet NuGet używany przez projekt do wersji 0.10.0.6 lub nowszej. Wersja pakietu musi być również zgodna z wersją główną systemu Storm zainstalowanego w usłudze HDInsight.
 
 | Wersja usługi HDInsight | Wersja Apache Storm | Wersja SCP.NET | Domyślna wersja narzędzia mono |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
@@ -29,7 +29,7 @@ Topologie języka C# korzystają z programu .NET 4,5 i używają języka mono do
 | 3,5 | 1.0.2. x | 1.0.0. x | 4.2.1 |
 | 3,6 | 1.1.0. x | 1.0.0. x | 4.2.8 |
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Klaster Apache Storm w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) i wybierz pozycję **burza** dla **typu klastra**.
 
@@ -47,9 +47,9 @@ Po przesłaniu topologii burzy z programu Visual Studio SCP.NET generuje plik zi
 
 1. Zainstaluj zestaw Java developer Kit (JDK) 7 lub nowszy w środowisku deweloperskim. Możesz pobrać oprogramowanie Oracle JDK z firmy [Oracle](https://openjdk.java.net/). Można również użyć [innych dystrybucji języka Java](/java/azure/jdk/).
 
-2. Ustaw zmienną `JAVA_HOME` środowiskową na katalog zawierający język Java.
+2. Ustaw `JAVA_HOME` zmienną środowiskową na katalog zawierający język Java.
 
-3. Ustaw zmienną `PATH` środowiskową w celu uwzględnienia `%JAVA_HOME%\bin` katalogu.
+3. Ustaw `PATH` zmienną środowiskową w celu uwzględnienia `%JAVA_HOME%\bin` katalogu.
 
 Możesz skompilować i uruchomić następującą aplikację konsolową w języku C#, aby sprawdzić, czy środowisko Java i JDK są prawidłowo zainstalowane:
 
@@ -220,7 +220,7 @@ Teraz Utwórz dwa piorunów burzy w tym przykładzie:
 
 1. Usuń istniejący plik *Bolt.cs* z projektu.
 
-2. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj** > **nowy element**. Z listy wybierz pozycję **piorun**i wprowadź *Splitter.cs* jako nazwę. W nowym pliku kodu Zmień nazwę przestrzeni nazw na `WordCount`. Następnie powtórz ten proces, aby utworzyć drugi piorun o nazwie *Counter.cs*.
+2. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Dodaj**  >  **nowy element**. Z listy wybierz pozycję **piorun**i wprowadź *Splitter.cs* jako nazwę. W nowym pliku kodu Zmień nazwę przestrzeni nazw na `WordCount` . Następnie powtórz ten proces, aby utworzyć drugi piorun o nazwie *Counter.cs*.
 
    * *Splitter.cs*: implementuje obiekt, który dzieli zdania na poszczególne słowa i emituje nowy strumień słów.
 
@@ -229,7 +229,7 @@ Teraz Utwórz dwa piorunów burzy w tym przykładzie:
      > [!NOTE]  
      > Te pioruny odczytują i zapisują strumienie, ale można również używać pioruna do komunikowania się ze źródłami, takimi jak baza danych lub usługa.
 
-3. Otwórz *Splitter.cs*. Domyślnie ma tylko jedną metodę: `Execute`. `Execute` Metoda jest wywoływana, gdy piorun odbiera krotkę do przetwarzania. Tutaj można odczytywać i przetwarzać kolekcje przychodzące oraz emitować kolekcje wychodzące.
+3. Otwórz *Splitter.cs*. Domyślnie ma tylko jedną metodę: `Execute` . `Execute`Metoda jest wywoływana, gdy piorun odbiera krotkę do przetwarzania. Tutaj można odczytywać i przetwarzać kolekcje przychodzące oraz emitować kolekcje wychodzące.
 
 4. Zastąp zawartość `Splitter` klasy następującym kodem:
 
@@ -341,7 +341,7 @@ Elementu Spout emituje zdania, które są dystrybuowane do wystąpień pioruna r
 
 Ponieważ wystąpienie licznika przechowuje wyrazy lokalnie, należy upewnić się, że określone słowa przepływają do tego samego wystąpienia obiektu. Każde wystąpienie śledzi określone słowa. Ponieważ piorun rozdzielacza nie ma stanu, naprawdę nie ma znaczenia, które wystąpienie rozdzielacza otrzymuje zdanie.
 
-Otwórz *program.cs*. Ważna Metoda to `GetTopologyBuilder`, która jest używana do definiowania topologii, która jest przesyłana do burzy. Zastąp zawartość `GetTopologyBuilder` następującym kodem, aby zaimplementować opisaną wcześniej topologię:
+Otwórz *program.cs*. Ważna Metoda to `GetTopologyBuilder` , która jest używana do definiowania topologii, która jest przesyłana do burzy. Zastąp zawartość `GetTopologyBuilder` następującym kodem, aby zaimplementować opisaną wcześniej topologię:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -405,7 +405,7 @@ return topologyBuilder;
 
 Teraz można przystąpić do przesyłania topologii do klastra usługi HDInsight.
 
-1. Przejdź do **widoku** > **Eksplorator serwera**.
+1. Przejdź do **widoku**  >  **Eksplorator serwera**.
 
 1. Kliknij prawym przyciskiem myszy pozycję **Azure**, wybierz pozycję **Połącz z subskrypcją Microsoft Azure...** i Ukończ proces logowania.
 
@@ -418,7 +418,7 @@ Teraz można przystąpić do przesyłania topologii do klastra usługi HDInsight
     ![Okno widoku topologii burzy, klaster usługi HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
 
     > [!NOTE]  
-    > Można również wyświetlić **topologie burzy** w **Eksplorator serwera**. Rozwiń **węzeł Azure** > **HDInsight**, kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz polecenie **Wyświetl topologie burzy**.
+    > Można również wyświetlić **topologie burzy** w **Eksplorator serwera**. Rozwiń węzeł **Azure**  >  **HDInsight**, kliknij prawym przyciskiem myszy burzę w klastrze usługi HDInsight, a następnie wybierz polecenie **Wyświetl topologie burzy**.
 
     Aby wyświetlić informacje o składnikach w topologii, wybierz składnik na diagramie.
 
@@ -435,15 +435,15 @@ Topologie transakcyjne implementują następujące czynności w celu obsługi po
 
 * **Buforowanie metadanych**: elementu Spout musi przechowywać metadane dotyczące emitowanych danych, aby dane mogły być pobierane i emitowane ponownie w przypadku wystąpienia błędu. Ponieważ dane emitowane przez próbę są małe, dane pierwotne dla każdej krotki są przechowywane w słowniku do odtworzenia.
 
-* **ACK**: każdy piorun w topologii może wywołać `this.ctx.Ack(tuple)` , aby potwierdzić, że pomyślnie przetworzył krotkę. Gdy wszystkie pioruny potwierdzili spójność, `Ack` Metoda elementu Spout jest wywoływana. `Ack` Metoda zezwala elementu Spout na usuwanie danych, które zostały zbuforowane w celu odtworzenia.
+* **ACK**: każdy piorun w topologii może wywołać `this.ctx.Ack(tuple)` , aby potwierdzić, że pomyślnie przetworzył krotkę. Gdy wszystkie pioruny potwierdzili spójność, `Ack` Metoda elementu Spout jest wywoływana. `Ack`Metoda zezwala elementu Spout na usuwanie danych, które zostały zbuforowane w celu odtworzenia.
 
-* **Niepowodzenie**: każdy piorun może `this.ctx.Fail(tuple)` wywołać, aby wskazać, że przetwarzanie nie powiodło się dla krotki. Błąd jest propagowany do `Fail` metody elementu Spout, gdzie krotka może zostać powtórzona przy użyciu metadanych w pamięci podręcznej.
+* **Niepowodzenie**: każdy piorun może wywołać `this.ctx.Fail(tuple)` , aby wskazać, że przetwarzanie nie powiodło się dla krotki. Błąd jest propagowany do `Fail` metody elementu Spout, gdzie krotka może zostać powtórzona przy użyciu metadanych w pamięci podręcznej.
 
-* **Identyfikator sekwencji**: w przypadku emitowania spójnej kolekcji można określić unikatowy identyfikator sekwencji. Ta wartość identyfikuje krotkę do przetworzenia`Ack` powtarzania (i `Fail`). Na przykład elementu Spout w projekcie **przykładowym burzy** używa następującego wywołania metody podczas emitowania danych:
+* **Identyfikator sekwencji**: w przypadku emitowania spójnej kolekcji można określić unikatowy identyfikator sekwencji. Ta wartość identyfikuje krotkę do przetworzenia powtarzania ( `Ack` i `Fail` ). Na przykład elementu Spout w projekcie **przykładowym burzy** używa następującego wywołania metody podczas emitowania danych:
 
   `this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);`
 
-  Ten kod emituje krotkę zawierającą zdanie do domyślnego strumienia, z wartością identyfikatora sekwencji zawartą w `lastSeqId`. W tym przykładzie `lastSeqId` jest zwiększana dla każdej emisji krotek.
+  Ten kod emituje krotkę zawierającą zdanie do domyślnego strumienia, z wartością identyfikatora sekwencji zawartą w `lastSeqId` . W tym przykładzie `lastSeqId` jest zwiększana dla każdej emisji krotek.
 
 Jak pokazano w projekcie **przykładu burzy** , niezależnie od tego, czy składnik jest transakcyjny można ustawić w czasie wykonywania na podstawie konfiguracji.
 
@@ -455,11 +455,11 @@ Przykład topologii hybrydowej, tworzenie projektu i wybieranie **hybrydowego pr
 
 * **Elementu Spout Java** i **piorun języka C#**: zdefiniowane w `HybridTopology_javaSpout_csharpBolt` klasie.
 
-  W `HybridTopologyTx_javaSpout_csharpBolt` klasie jest zdefiniowana wersja transakcyjna.
+  W klasie jest zdefiniowana wersja transakcyjna `HybridTopologyTx_javaSpout_csharpBolt` .
 
 * **Elementu Spout** i **środowisko Java**języka C#: zdefiniowane w `HybridTopology_csharpSpout_javaBolt` klasie.
 
-  W `HybridTopologyTx_csharpSpout_javaBolt` klasie jest zdefiniowana wersja transakcyjna.
+  W klasie jest zdefiniowana wersja transakcyjna `HybridTopologyTx_csharpSpout_javaBolt` .
 
   > [!NOTE]  
   > W tej wersji pokazano również, jak używać kodu Clojure z pliku tekstowego jako składnika języka Java.
@@ -517,7 +517,7 @@ public class MyComponent : ISCPBolt
 }
 ```
 
-Jeśli używasz `Get` metody do zwrócenia wystąpienia składnika, musisz upewnić się, że przekazuje zarówno parametr `Context` , jak i `Dictionary<string, Object>` do konstruktora. Poniższy przykład jest metodą podstawową `Get` , która prawidłowo przekazuje te wartości:
+Jeśli używasz `Get` metody do zwrócenia wystąpienia składnika, musisz upewnić się, że przekazuje zarówno `Context` parametr, jak i `Dictionary<string, Object>` do konstruktora. Poniższy przykład jest `Get` metodą podstawową, która prawidłowo przekazuje te wartości:
 
 ```csharp
 public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
@@ -574,7 +574,7 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
    > [!NOTE]
    > Pamiętaj, aby zmienić **Typ danych wyjściowych** z powrotem na **bibliotekę klas** przed wdrożeniem topologii w klastrze.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **nowy element**. Wybierz **klasę**i wprowadź *LocalTest.cs* jako nazwę klasy. Na koniec wybierz pozycję **Dodaj**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj**  >  **nowy element**. Wybierz **klasę**i wprowadź *LocalTest.cs* jako nazwę klasy. Na koniec wybierz pozycję **Dodaj**.
 
 1. Otwórz *LocalTest.cs*i Dodaj następującą `using` instrukcję w górnej części:
 
@@ -684,19 +684,19 @@ Chociaż można łatwo wdrożyć topologię w klastrze, w niektórych przypadkac
     Console.ReadKey();
     ```
 
-1. Zapisz zmiany, a następnie wybierz klawisz **F5** lub wybierz **Debuguj** > **Rozpocznij debugowanie** , aby uruchomić projekt. Powinno zostać wyświetlone okno konsoli i stan rejestrowania w miarę postępów testów. Gdy `Tests finished` zostanie wyświetlone, zaznacz dowolny klawisz, aby zamknąć okno.
+1. Zapisz zmiany, a następnie wybierz klawisz **F5** lub wybierz **Debuguj**  >  **Rozpocznij debugowanie** , aby uruchomić projekt. Powinno zostać wyświetlone okno konsoli i stan rejestrowania w miarę postępów testów. Gdy `Tests finished` zostanie wyświetlone, zaznacz dowolny klawisz, aby zamknąć okno.
 
-1. Aby zlokalizować katalog zawierający projekt, użyj **Eksploratora Windows** . (Na przykład: *C:\\użytkownicy\\\<YOUR_USER_NAME>\\\\repozytoriów\\źródłowych\\WORDCOUNT WORDCOUNT*). Następnie w tym katalogu Otwórz pozycję *bin*, a następnie wybierz pozycję *Debuguj*. Powinny zostać wyświetlone pliki tekstowe, które zostały utworzone po uruchomieniu testów: *zdania. txt*, *Counter. txt*i *rozdzielacz. txt*. Otwórz każdy plik tekstowy i sprawdź dane.
+1. Aby zlokalizować katalog zawierający projekt, użyj **Eksploratora Windows** . (Np.: *C: \\ Użytkownicy \\ \<your_user_name> \\ \\ repozytoriów źródłowych \\ WORDCOUNT \\ WORDCOUNT*). Następnie w tym katalogu Otwórz pozycję *bin*, a następnie wybierz pozycję *Debuguj*. Powinny zostać wyświetlone pliki tekstowe, które zostały utworzone podczas testów: *sentences.txt*, *counter.txt*i *splitter.txt*. Otwórz każdy plik tekstowy i sprawdź dane.
 
    > [!NOTE]  
-   > Dane ciągu są utrwalane jako tablica wartości dziesiętnych w tych plikach. Na przykład `[[97,103,111]]` w pliku **rozdzielacza. txt** reprezentuje wyraz *temu*.
+   > Dane ciągu są utrwalane jako tablica wartości dziesiętnych w tych plikach. Na przykład `[[97,103,111]]` w pliku **splitter.txt** reprezentuje wyraz *temu*.
 
 > [!NOTE]  
 > Upewnij się, że **Typ projektu** jest ustawiany z powrotem do **biblioteki klas** we właściwościach projektu przed wdrożeniem do burzy w klastrze usługi HDInsight.
 
 ### <a name="log-information"></a>Informacje dziennika
 
-Korzystając z programu `Context.Logger`, można łatwo rejestrować informacje ze składników topologii. Na przykład następujące polecenie tworzy wpis dziennika informacyjnego:
+Korzystając z programu, można łatwo rejestrować informacje ze składników topologii `Context.Logger` . Na przykład następujące polecenie tworzy wpis dziennika informacyjnego:
 
 `Context.Logger.Info("Component started");`
 
@@ -725,7 +725,7 @@ W przypadku wystąpienia błędów przesyłania topologii do usługi HDInsight m
 scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 ```
 
-Zastąp *sshuser* przy użyciu konta użytkownika SSH dla klastra. Zastąp wartość *ClusterName* nazwą klastra usługi HDInsight. Aby uzyskać więcej informacji na `scp` temat `ssh` używania usługi i usługi HDInsight, zobacz [Używanie protokołu SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Zastąp *sshuser* przy użyciu konta użytkownika SSH dla klastra. Zastąp wartość *ClusterName* nazwą klastra usługi HDInsight. Aby uzyskać więcej informacji na temat używania usługi `scp` i usługi `ssh` HDInsight, zobacz [Używanie protokołu SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Zgłoszenia mogą się nie powieść z wielu powodów:
 
@@ -734,7 +734,7 @@ Zgłoszenia mogą się nie powieść z wielu powodów:
 * Zależności są niezgodne.
 * Nazwy topologii są zduplikowane.
 
-Jeśli plik dziennika *HDInsight-scpwebapi. out* zawiera `FileNotFoundException`, wyjątek może być spowodowany przez następujące warunki:
+Jeśli plik dziennika *HDInsight-scpwebapi. out* zawiera `FileNotFoundException` , wyjątek może być spowodowany przez następujące warunki:
 
 * JDK nie znajduje się w ścieżce w środowisku deweloperskim. Sprawdź, czy program JDK jest zainstalowany w środowisku deweloperskim i czy `%JAVA_HOME%/bin` znajduje się w ścieżce.
 * Brak zależności Java. Upewnij się, że w ramach przesłania dołączane są wszystkie wymagane pliki jar.

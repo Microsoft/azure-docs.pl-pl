@@ -12,12 +12,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 11/08/2019
-  ms.openlocfilehash: f73794898f00d78c5253c19f985f8ff531ae3c11
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 55ac9d470f85059bd8ebb6949da08f651fb2289b
+  ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74895523"
+  ms.lasthandoff: 07/07/2020
+  ms.locfileid: "86027124"
 landingContent:
 - title: Informacje o usłudze Azure Container Registry
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
       url: container-registry-intro.md
     - text: Rejestry, repozytoria i obrazy
       url: container-registry-concepts.md
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -35,6 +35,8 @@ landingContent:
       url: container-registry-get-started-azure-cli.md
     - text: Tworzenie rejestru kontenerów — portal
       url: container-registry-get-started-portal.md
+    - text: Tworzenie rejestru kontenerów — szablon ARM
+      url: container-registry-get-started-geo-replication-template.md
     - text: Wypychanie i ściąganie obrazu za pomocą platformy Docker
       url: container-registry-get-started-docker-cli.md
   - linkListType: concept
@@ -43,7 +45,7 @@ landingContent:
       url: container-registry-skus.md
   - linkListType: learn
     links:
-    - text: Kompilowanie i przechowywanie obrazów kontenerów za pomocą usługi Azure Container Registry
+    - text: Tworzenie i przechowywanie obrazów kontenerów za pomocą usługi Azure Container Registry
       url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/
   - linkListType: video
     links:
@@ -65,9 +67,9 @@ landingContent:
     links:
     - text: Replikacja geograficzna
       url: container-registry-geo-replication.md
-    - text: Uwierzytelnianie
+    - text: Authentication
       url: container-registry-authentication.md
-    - text: Najlepsze praktyki
+    - text: Najlepsze rozwiązania
       url: container-registry-best-practices.md
     - text: Często zadawane pytania
       url: container-registry-faq.md

@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,40 +19,40 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81258987"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564087"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Składnia zapytań Lucene w usłudze Azure Wyszukiwanie poznawcze
 
-Zapytania dotyczące usługi Azure Wyszukiwanie poznawcze można pisać w oparciu o rozbudowana składnia [analizatora zapytań Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) dla wyspecjalizowanych formularzy zapytań: symbol wieloznaczny, Wyszukiwanie rozmyte, wyszukiwanie w sąsiedztwie, wyrażenia regularne to kilka przykładów. Większość składni analizatora zapytań Lucene jest [zaimplementowana w usłudze azure wyszukiwanie poznawcze](search-lucene-query-architecture.md), z wyjątkiem *wyszukiwań zakresu* , które są zbudowane na platformie Azure `$filter` wyszukiwanie poznawcze za pomocą wyrażeń. 
+Zapytania dotyczące usługi Azure Wyszukiwanie poznawcze można pisać w oparciu o rozbudowana składnia [analizatora zapytań Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) dla wyspecjalizowanych formularzy zapytań: symbol wieloznaczny, Wyszukiwanie rozmyte, wyszukiwanie w sąsiedztwie, wyrażenia regularne to kilka przykładów. Większość składni analizatora zapytań Lucene jest [zaimplementowana w usłudze azure wyszukiwanie poznawcze](search-lucene-query-architecture.md), z wyjątkiem *wyszukiwań zakresu* , które są zbudowane na platformie Azure wyszukiwanie poznawcze za pomocą `$filter` wyrażeń. 
 
 > [!NOTE]
 > Pełna składnia Lucene jest używana dla wyrażeń zapytania, które przechodzą w parametr **wyszukiwania** interfejsu API [dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) , nie należy mylić ze [składnią OData](query-odata-filter-orderby-syntax.md) UŻYTĄ dla parametru [$Filter](search-filters.md) tego interfejsu API. Te różne składni mają własne reguły tworzenia zapytań, ciągów ucieczki i tak dalej.
 
 ## <a name="invoke-full-parsing"></a>Wywołaj pełną analizę
 
-Ustaw parametr `queryType` Search, aby określić, który Analizator ma być używany. Prawidłowe wartości to `simple|full`, z `simple` wartościami domyślnymi i `full` dla Lucene. 
+Ustaw `queryType` parametr Search, aby określić, który Analizator ma być używany. Prawidłowe wartości to `simple|full` , z wartościami `simple` domyślnymi i `full` dla Lucene. 
 
 <a name="bkmk_example"></a> 
 
 ### <a name="example-showing-full-syntax"></a>Przykład przedstawiający pełną składnię
 
-Poniższy przykład odnajduje dokumenty w indeksie przy użyciu składni zapytań Lucene, oczywisty `queryType=full` dla parametru. To zapytanie zwraca Hotele, w których pole Category zawiera termin "budżet" i wszystkie pola z możliwością wyszukiwania zawierające frazę "ostatnio Renovated". Dokumenty zawierające frazę "niedawno Renovated" są bardziej klasyfikowane jako wynik okresu zwiększenia wartości (3).  
+Poniższy przykład odnajduje dokumenty w indeksie przy użyciu składni zapytań Lucene, oczywisty dla `queryType=full` parametru. To zapytanie zwraca Hotele, w których pole Category zawiera termin "budżet" i wszystkie pola z możliwością wyszukiwania zawierające frazę "ostatnio Renovated". Dokumenty zawierające frazę "niedawno Renovated" są bardziej klasyfikowane jako wynik okresu zwiększenia wartości (3).  
 
-`searchMode=all` Parametr jest istotny w tym przykładzie. Zawsze, gdy operatory znajdują się w zapytaniu, `searchMode=all` należy ogólnie ustawić, aby upewnić się, że *wszystkie* kryteria są zgodne.
+`searchMode=all`Parametr jest istotny w tym przykładzie. Zawsze, gdy operatory znajdują się w zapytaniu, należy ogólnie ustawić, `searchMode=all` Aby upewnić się, że *wszystkie* kryteria są zgodne.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Alternatywnie możesz użyć wpisu:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -81,7 +81,7 @@ Powyższym przykładem jest Tylda (~), ale ta sama zasada ma zastosowanie do ka�
 
 ### <a name="escaping-special-characters"></a>Znaki specjalne ucieczki
 
-Aby użyć dowolnego operatora wyszukiwania jako części tekstu wyszukiwania, należy wprowadzić znak ucieczki, wpisując jego prefiks pojedynczym ukośnikiem odwrotnym (`\`). Na przykład dla wyszukiwania wieloznacznego `https://`, gdzie `://` jest częścią ciągu zapytania, należy określić. `search=https\:\/\/*` Podobnie wzorzec numeru telefonu może wyglądać następująco `\+1 \(800\) 642\-7676`.
+Aby użyć dowolnego operatora wyszukiwania jako części tekstu wyszukiwania, należy wprowadzić znak ucieczki, wpisując jego prefiks pojedynczym ukośnikiem odwrotnym ( `\` ). Na przykład dla wyszukiwania wieloznacznego `https://` , gdzie `://` jest częścią ciągu zapytania, należy określić `search=https\:\/\/*` . Podobnie wzorzec numeru telefonu może wyglądać następująco `\+1 \(800\) 642\-7676` .
 
 Znaki specjalne, które wymagają ucieczki, są następujące:  
 `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`  
@@ -91,9 +91,9 @@ Znaki specjalne, które wymagają ucieczki, są następujące:
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Kodowanie znaków niebezpiecznych i zastrzeżonych w adresach URL
 
-Upewnij się, że wszystkie znaki niebezpieczne i zarezerwowane są zakodowane w adresie URL. Na przykład "#" jest niebezpiecznym znakiem, ponieważ jest identyfikatorem fragmentu/kotwicą w adresie URL. Znak musi być zakodowany w `%23` przypadku użycia w adresie URL. "&" i "=" są przykładami znaków zarezerwowanych, ponieważ oddzielają one parametry i określają wartości na platformie Azure Wyszukiwanie poznawcze. Aby uzyskać więcej informacji, zobacz [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) .
+Upewnij się, że wszystkie znaki niebezpieczne i zarezerwowane są zakodowane w adresie URL. Na przykład "#" jest niebezpiecznym znakiem, ponieważ jest identyfikatorem fragmentu/kotwicą w adresie URL. Znak musi być zakodowany `%23` w przypadku użycia w adresie URL. "&" i "=" są przykładami znaków zarezerwowanych, ponieważ oddzielają one parametry i określają wartości na platformie Azure Wyszukiwanie poznawcze. Aby uzyskać więcej informacji, zobacz [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) .
 
-Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]``. Znaki zarezerwowane `; / ? : @ = + &`są.
+Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]`` . Znaki zarezerwowane są `; / ? : @ = + &` .
 
 ###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limity rozmiaru zapytań
 
@@ -101,7 +101,7 @@ Niebezpieczne znaki to ``" ` < > # % { } | \ ^ ~ [ ]``. Znaki zarezerwowane `; /
 
 ### <a name="precedence-operators-grouping"></a>Operatory pierwszeństwa (grupowanie)
 
- Za pomocą nawiasów można tworzyć podzapytania, w tym operatory w instrukcji języka nawiasów. Program przeszuka na `motel+(wifi||luxury)` przykład dokumenty zawierające termin "Motel" i "Wi-Fi" lub "możliwość zaprojektowania" (lub oba te elementy).
+ Za pomocą nawiasów można tworzyć podzapytania, w tym operatory w instrukcji języka nawiasów. Program przeszuka na przykład `motel+(wifi||luxury)` dokumenty zawierające termin "Motel" i "Wi-Fi" lub "możliwość zaprojektowania" (lub oba te elementy).
 
 Grupowanie pól jest podobne, ale zakresy grupowanie do jednego pola. Na przykład `hotelAmenities:(gym+(wifi||pool))` szuka pola "hotelAmenities" dla "treningów" i "Wi-Fi", "treningów" i "Pool".  
 
@@ -109,23 +109,23 @@ Grupowanie pól jest podobne, ale zakresy grupowanie do jednego pola. Na przykł
 
  Zawsze określaj operatory wartości tekstowych (i, lub, nie) we wszystkich wersalikach.  
 
-### <a name="or-operator-or-or-"></a>Operator `OR` or lub`||`
+### <a name="or-operator-or-or-"></a>`OR`Operator OR lub`||`
 
-Operator OR jest pionowym znakiem kreski lub potoku. Na przykład: `wifi || luxury` program przeszuka dokumenty zawierające "Wi-Fi" lub "możliwość zaprojektowania". Ponieważ lub jest domyślnym operatorem połączenia, można go również pozostawić, tak aby `wifi luxury` był odpowiednikiem. `wifi || luxury`
+Operator OR jest pionowym znakiem kreski lub potoku. Na przykład: `wifi || luxury` program przeszuka dokumenty zawierające "Wi-Fi" lub "możliwość zaprojektowania". Ponieważ lub jest domyślnym operatorem połączenia, można go również pozostawić, tak aby `wifi luxury` był odpowiednikiem `wifi || luxury` .
 
-### <a name="and-operator-and--or-"></a>Operator `AND`and `&&` lub`+`
+### <a name="and-operator-and--or-"></a>Operator AND `AND` `&&` lub`+`
 
 Operator i jest znakiem handlowego "i". Na przykład: `wifi && luxury` program przeszuka dokumenty zawierające zarówno "Wi-Fi", jak i "możliwość zaprojektowania". Znak plus (+) jest używany dla wymaganych warunków. Na przykład program `+wifi +luxury` określa, że oba warunki muszą znajdować się gdzieś w polu jednego dokumentu.
 
-### <a name="not-operator-not--or--"></a>Not — `NOT` `!` operator lub`-`
+### <a name="not-operator-not--or--"></a>NOT `NOT` — operator `!` lub`-`
 
-Operator NOT jest znakiem minus. Program `wifi –luxury` przeszuka na przykład dokumenty, które mają `wifi` termin i/lub nie mają. `luxury`
+Operator NOT jest znakiem minus. Program przeszuka na przykład `wifi –luxury` dokumenty, które mają `wifi` termin i/lub nie mają `luxury` .
 
-Parametr **searchmode** w żądaniu zapytania kontroluje, czy termin z operatorem NOT jest ANDed lub logicznie innym warunkiem w zapytaniu (przy założeniu, że nie `+` ma `|` operatora OR w innych warunkach). Prawidłowe wartości to `any` include `all`lub.
+Parametr **searchmode** w żądaniu zapytania kontroluje, czy termin z operatorem NOT jest ANDed lub logicznie innym warunkiem w zapytaniu (przy założeniu, że nie `+` ma `|` operatora OR w innych warunkach). Prawidłowe wartości to include `any` lub `all` .
 
-`searchMode=any`zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury`.
+`searchMode=any`zwiększa odwoływanie zapytań przez dołączenie większej liczby wyników i domyślnie `-` będzie interpretowane jako "lub" nie ". Na przykład program `wifi -luxury` będzie pasował do dokumentów, które zawierają termin `wifi` lub te, które nie zawierają warunków `luxury` .
 
-`searchMode=all`zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku `searchMode=any` z tym należy rozważyć `searchMode=all` użycie zamiast tego, jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
+`searchMode=all`zwiększa precyzję zapytań, dołączając mniejszą liczbę wyników i domyślnie — będzie interpretowana jako "i". Na przykład program `wifi -luxury` będzie pasował do dokumentów zawierających termin `wifi` i nie zawiera terminu "możliwość zaprojektowania". Jest to raczej bardziej intuicyjne zachowanie `-` operatora. W związku z tym należy rozważyć użycie zamiast tego, `searchMode=all` `searchMode=any` Jeśli chcesz zoptymalizować wyszukiwanie pod kątem precyzji zamiast odwołania, *a* użytkownicy często używają `-` operatora w wyszukiwaniach.
 
 Podczas decydowania o ustawieniu **searchmode** należy wziąć pod uwagę wzorce interakcji użytkownika dotyczące zapytań w różnych aplikacjach. Użytkownicy poszukujący informacji mogą dołączać operator do zapytania, w przeciwieństwie do witryn handlu elektronicznego, które mają bardziej wbudowaną strukturę nawigacji.
 
@@ -139,10 +139,10 @@ Można zdefiniować operację wyszukiwania w polu z `fieldName:searchExpression`
 
 Pamiętaj, aby umieścić wiele ciągów w cudzysłowie, jeśli chcesz, aby oba ciągi były oceniane jako pojedyncze jednostki, w tym przypadku wyszukiwanie dwóch odrębnych artystów w `artists` polu.  
 
-Pole określone w `fieldName:searchExpression` elemencie musi być `searchable` polem.  Aby uzyskać szczegółowe informacje na temat sposobu używania atrybutów indeksu w definicjach pól, zobacz [create index](https://docs.microsoft.com/rest/api/searchservice/create-index) .  
+Pole określone w elemencie `fieldName:searchExpression` musi być `searchable` polem.  Aby uzyskać szczegółowe informacje na temat sposobu używania atrybutów indeksu w definicjach pól, zobacz [create index](https://docs.microsoft.com/rest/api/searchservice/create-index) .  
 
 > [!NOTE]
-> W przypadku korzystania z `searchFields` wyrażeń wyszukiwania w polu nie trzeba używać parametru, ponieważ każde wyrażenie wyszukiwania w polu ma jawnie określoną nazwę pola. Jednak nadal można użyć `searchFields` parametru, jeśli chcesz uruchomić kwerendę, w której niektóre części są objęte zakresem określonego pola, a reszta może mieć zastosowanie do kilku pól. Na przykład zapytanie `search=genre:jazz NOT history&searchFields=description` `jazz` byłoby zgodne tylko z `genre` polem, podczas gdy byłoby zgodne `NOT history` z `description` polem. Nazwa pola podana `fieldName:searchExpression` w zawsze ma pierwszeństwo przed `searchFields` parametrem, co oznacza, że w tym przykładzie nie trzeba dołączać `genre` do `searchFields` parametru.
+> W przypadku korzystania z wyrażeń wyszukiwania w polu nie trzeba używać `searchFields` parametru, ponieważ każde wyrażenie wyszukiwania w polu ma jawnie określoną nazwę pola. Jednak nadal można użyć `searchFields` parametru, jeśli chcesz uruchomić kwerendę, w której niektóre części są objęte zakresem określonego pola, a reszta może mieć zastosowanie do kilku pól. Na przykład zapytanie `search=genre:jazz NOT history&searchFields=description` byłoby zgodne tylko z `jazz` `genre` polem, podczas gdy byłoby zgodne `NOT history` z `description` polem. Nazwa pola podana w `fieldName:searchExpression` zawsze ma pierwszeństwo przed `searchFields` parametrem, co oznacza, że w tym przykładzie nie trzeba dołączać do `genre` `searchFields` parametru.
 
 ##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Wyszukiwanie rozmyte
 
@@ -166,21 +166,23 @@ Poniższy przykład pomaga zilustrować różnice. Załóżmy, że istnieje prof
  Aby zwiększyć okres korzystania z karetki, "^", symbol z współczynnikem wzrostu (liczbą) na końcu wyszukiwanego okresu. Możesz również poprawić frazy. Im wyższy współczynnik zwiększania wydajności, tym bardziej istotny termin będzie odnosić się do innych wyszukiwanych terminów. Domyślnie współczynnik zwiększania wynosi 1. Chociaż współczynnik zwiększania wartości musi być dodatni, może być mniejszy niż 1 (na przykład 0,20).  
 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a>Wyszukiwanie wyrażeń regularnych  
- Wyszukiwanie w wyrażeniu regularnym wyszukuje dopasowanie na podstawie zawartości między ukośnikami "/", zgodnie z opisem w [klasie RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Wyszukiwanie w wyrażeniu regularnym wyszukuje dopasowanie na podstawie wzorców, które są prawidłowe w ramach oprogramowania Apache Lucene, zgodnie z opisem w [klasie RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). W Wyszukiwanie poznawcze na platformie Azure wyrażenie regularne jest ujęte między ukośnikami `/` .
 
- Na przykład, aby znaleźć dokumenty zawierające "Motel" lub "Hotel", określ `/[mh]otel/`. Wyszukiwania wyrażeń regularnych są dopasowywane do pojedynczych wyrazów.
+ Na przykład, aby znaleźć dokumenty zawierające "Motel" lub "Hotel", określ `/[mh]otel/` . Wyszukiwania wyrażeń regularnych są dopasowywane do pojedynczych wyrazów.
 
 Niektóre narzędzia i języki nakładają dodatkowe wymagania dotyczące znaków ucieczki. W przypadku formatu JSON ciągi zawierające ukośnik są wyprowadzane z ukośnikiem odwrotnym: "microsoft.com/azure/", `search=/.*microsoft.com\/azure\/.*/` gdzie `search=/.* <string-placeholder>.*/` konfiguruje wyrażenie regularne i `microsoft.com\/azure\/` jest ciągiem z odwróconym ukośnikiem.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Wyszukiwanie symboli wieloznacznych  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Wyszukiwanie symboli wieloznacznych
 
-Można użyć ogólnie rozpoznanej składni dla wielu symboli wieloznacznych (*) lub pojedynczych znaków (?). Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
+Można użyć ogólnie rozpoznanej składni dla wielu `*` symboli wieloznacznych () lub pojedynczych ( `?` ). Na przykład wyrażenie zapytania `search=alpha*` zwraca wartość "alfanumeryczne" lub "alfabetyczne". Zwróć uwagę, że Analizator zapytań Lucene obsługuje używanie tych symboli z pojedynczym terminem, a nie frazą.
 
-Wyszukiwanie prefiksów używa także znaku gwiazdki`*`(). Na przykład wyrażenie zapytania `search=note*` zwraca "Notes" lub "Notepad". Pełna składnia Lucene nie jest wymagana do wyszukiwania prefiksów. Prosta składnia obsługuje ten scenariusz.
+Pełna składnia Lucene obsługuje Dopasowywanie prefiksów, wrostkowe i sufiksów. Jednak jeśli wszystko, co jest potrzebne, jest dopasowanie prefiksów, można użyć prostej składni (dopasowanie prefiksu jest obsługiwane w obu).
 
-Przeszukiwanie sufiksu `*` , `?` gdzie lub poprzedza ciąg, wymaga pełnej składni Lucene i wyrażenia regularnego (nie można użyć znaku * ani? Symbol jako pierwszy znak wyszukiwania). W przypadku wyrazu "alfanumeryczne" wyrażenie zapytania (`search=/.*numeric.*/`) znajdzie dopasowanie.
+Dopasowanie sufiksu, Where `*` lub `?` poprzedzające ciąg (as in `search=/.*numeric./` ) lub wrostkowe, wymaga pełnej składni Lucene, a także ogranicznika ukośnika w wyrażeniach regularnych `/` . Nie można użyć znaku * ani? Symbol jako pierwszy znak okresu lub w okresie, bez `/` . 
 
 > [!NOTE]  
+> Zgodnie z regułą dopasowanie wzorców jest powolne, dlatego warto poznać alternatywne metody, takie jak Edge n-gram tokenizacji, które tworzy tokeny dla sekwencji znaków w danym okresie. Indeks będzie większy, ale zapytania mogą działać szybciej, w zależności od konstrukcji wzorca i długości ciągów, które są indeksowane.
+>
 > Podczas analizowania zapytania zapytania, które są formułowane jako prefiks, sufiks, symbole wieloznaczne lub wyrażenia regularne są przesyłane jako-do drzewa zapytań, pomijając [analizę leksykalną](search-lucene-query-architecture.md#stage-2-lexical-analysis). Dopasowania będą znajdować się tylko wtedy, gdy indeks zawiera ciągi w formacie używanym przez zapytanie. W większości przypadków będzie potrzebny alternatywny Analizator podczas indeksowania, które zachowuje integralność ciągów, tak aby częściowe dopasowanie terminu i wzorca powiodło się. Aby uzyskać więcej informacji, zobacz [częściowe wyszukiwanie warunków na platformie Azure wyszukiwanie poznawcze zapytań](search-query-partial-matching.md).
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a>Ocenianie symboli wieloznacznych i wyrażeń regularnych

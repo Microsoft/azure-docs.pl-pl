@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80335711"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagowanie na zdarzenia Azure Maps przy użyciu Event Grid 
@@ -82,7 +82,7 @@ Aplikacje, które obsługują zdarzenia geofencingu Azure Maps powinny spełnia�
 
 * Skonfiguruj wiele subskrypcji, aby kierować zdarzenia do tego samego programu obsługi zdarzeń. Ważne jest, aby nie założyć, że zdarzenia pochodzą z określonego źródła. Zawsze sprawdzaj temat wiadomości, aby upewnić się, że wiadomość pochodzi od oczekiwanego źródła.
 * Użyj `X-Correlation-id` pola w nagłówku odpowiedzi, aby zrozumieć, czy informacje o obiektach są aktualne. Komunikaty mogą być przychodzące z kolejności lub po opóźnieniu.
-* Gdy żądanie GET lub POST w interfejsie API geoogrodzenia jest wywoływane z parametrem Mode ustawionym `EnterAndExit`na, to zdarzenie Enter lub Exit jest generowane dla każdej geometrii w obszarze geoogrodzenia, dla którego stan zmienił się z poprzedniego wywołania interfejsu API z geoogrodzeniem.
+* Gdy żądanie GET lub POST w interfejsie API geoogrodzenia jest wywoływane z parametrem Mode ustawionym na `EnterAndExit` , to zdarzenie Enter lub Exit jest generowane dla każdej geometrii w obszarze geoogrodzenia, dla którego stan zmienił się z poprzedniego wywołania interfejsu API z geoogrodzeniem.
 
 ## <a name="next-steps"></a>Następne kroki
 

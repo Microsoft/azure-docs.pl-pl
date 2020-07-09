@@ -1,23 +1,13 @@
 ---
 title: Zabezpieczenia sieci dla Azure Service Bus
 description: W tym artykule opisano funkcje zabezpieczeń sieci, takie jak Tagi usług, reguły zapory adresów IP, punkty końcowe usługi i prywatne punkty końcowe.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: aschhab
-ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479282"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341137"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Zabezpieczenia sieci dla Azure Service Bus 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Service Bus: 
@@ -37,6 +27,9 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ServiceBus** | Azure Service Bus ruch korzystający z warstwy usługi Premium. | Wychodzący | Tak | Tak |
 
+
+> [!NOTE]
+> Tagów usługi można używać tylko w przypadku przestrzeni nazw **Premium** . Jeśli używasz **standardowej** przestrzeni nazw, użyj adresu IP, który będzie widoczny podczas uruchamiania następującego polecenia: `nslookup <host name for the namespace>` . Na przykład: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Zapora IP 
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .

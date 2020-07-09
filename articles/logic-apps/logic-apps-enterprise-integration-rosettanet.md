@@ -9,10 +9,9 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74792422"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Komunikaty programu Exchange RosettaNet dla integracji z usługą B2B Enterprise w Azure Logic Apps
@@ -79,7 +78,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    ![Dodaj szczegóły RosettaNet PIP](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa** | Tak | Nazwa PIP |
    | **Kod PIP** | Tak | Kod trzycyfrowy PIP. Aby uzyskać więcej informacji, zobacz [RosettaNet pestek](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
@@ -110,7 +109,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    ![Dodaj szczegóły umowy](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa** | Tak | Nazwa umowy |
    | **Typ umowy** | Tak | Wybierz pozycję **RosettaNet**. |
@@ -118,8 +117,8 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
    | **Tożsamość hosta** | Tak | Identyfikator dla partnera hosta |
    | **Partner gościa** | Tak | Umowa wymaga zarówno hosta, jak i partnera gościa. Partner gościa reprezentuje organizację, która wykonuje działalność z partnerem hosta. |
    | **Tożsamość gościa** | Tak | Identyfikator partnera gościa |
-   | **Ustawienia odbierania** | Różna | Te właściwości mają zastosowanie do wszystkich komunikatów odebranych przez partnera hosta |
-   | **Ustawienia wysyłania** | Różna | Te właściwości mają zastosowanie do wszystkich komunikatów wysyłanych przez partnera hosta |  
+   | **Ustawienia odbierania** | Różnie | Te właściwości mają zastosowanie do wszystkich komunikatów odebranych przez partnera hosta |
+   | **Ustawienia wysyłania** | Różnie | Te właściwości mają zastosowanie do wszystkich komunikatów wysyłanych przez partnera hosta |  
    | **Odwołania do RosettaNet PIP** | Tak | Odwołanie PIP dla umowy. Wszystkie komunikaty RosettaNet wymagają konfiguracji PIP. |
    ||||
 
@@ -129,7 +128,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    1. Aby włączyć podpisywanie lub szyfrowanie dla wiadomości przychodzących, w obszarze **komunikaty**wybierz opcję **komunikat powinien być podpisany** lub **komunikat powinien być szyfrowany** odpowiednio.
 
-      | Właściwość | Wymagany | Opis |
+      | Właściwość | Wymagane | Opis |
       |----------|----------|-------------|
       | **Komunikat powinien być podpisany** | Nie | Podpisz wiadomości przychodzące z wybranym certyfikatem. |
       | **Certyfikat** | Tak, jeśli podpisywanie jest włączone | Certyfikat używany do podpisywania |
@@ -145,7 +144,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    1. Aby włączyć podpisywanie lub szyfrowanie dla wiadomości wychodzących, w obszarze **komunikaty**wybierz opcję **Włącz podpisywanie wiadomości** lub **Włącz szyfrowanie wiadomości** odpowiednio. W każdym z wybranych opcji wybierz odpowiedni algorytm i [certyfikat](./logic-apps-enterprise-integration-certificates.md), które zostały wcześniej dodane do konta integracji, aby użyć do podpisywania lub szyfrowania.
 
-      | Właściwość | Wymagany | Opis |
+      | Właściwość | Wymagane | Opis |
       |----------|----------|-------------|
       | **Włącz podpisywanie komunikatów** | Nie | Podpisz wiadomości wychodzące z wybranym algorytmem podpisywania i certyfikatem. |
       | **Algorytm podpisywania** | Tak, jeśli podpisywanie jest włączone | Algorytm podpisywania, który ma być używany, na podstawie wybranego certyfikatu |
@@ -157,7 +156,7 @@ Aby dodać konfigurację procesu PIP do konta integracji, wykonaj następujące 
 
    1. W obszarze **punkty końcowe**Określ wymagane adresy URL, które mają być używane do wysyłania komunikatów akcji i potwierdzeń.
 
-      | Właściwość | Wymagany | Opis |
+      | Właściwość | Wymagane | Opis |
       |----------|----------|-------------|
       | **Adres URL akcji** |  Tak | Adres URL służący do wysyłania komunikatów akcji. Adres URL jest polem wymaganym dla wiadomości synchronicznych i asynchronicznych. |
       | **Adres URL potwierdzenia** | Tak | Adres URL służący do wysyłania wiadomości potwierdzających. Adres URL jest polem wymaganym dla komunikatów asynchronicznych. |
@@ -199,11 +198,11 @@ Aby przyspieszyć opracowywanie i zalecać wzorce integracji, można używać sz
 
    ![Podaj szczegóły akcji](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Wiadomość** | Tak | Komunikat RosettaNet do zdekodowania  |
    | **Nagłówki** | Tak | Nagłówki HTTP, które dostarczają wartości dla wersji, która jest wersją RNIF, oraz typ odpowiedzi, który wskazuje typ komunikacji między partnerami i może być synchroniczny lub asynchroniczny |
-   | **Rola** | Tak | Rola partnera hosta w PIP |
+   | **Role** | Tak | Rola partnera hosta w PIP |
    ||||
 
    Z poziomu akcji dekodowania RosettaNet, dane wyjściowe oraz inne właściwości, obejmują **sygnał wychodzący**, który można wybrać do kodowania i powrotu do partnera, lub wykonać wszelkie inne działania w tych danych wyjściowych.
@@ -228,7 +227,7 @@ Aby przyspieszyć opracowywanie i zalecać wzorce integracji, można używać sz
 
    ![Podaj szczegóły akcji](media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png)
 
-   | Właściwość | Wymagany | Opis |
+   | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Wiadomość** | Tak | Komunikat RosettaNet do zakodowania  |
    | **Partner hosta** | Tak | Nazwa partnera hosta |
@@ -237,7 +236,7 @@ Aby przyspieszyć opracowywanie i zalecać wzorce integracji, można używać sz
    | **Wersja PIP** | Tak | Wersja PIP |  
    | **Tożsamość wystąpienia PIP** | Tak | Unikatowy identyfikator tego komunikatu PIP |  
    | **Typ wiadomości** | Tak | Typ wiadomości do zakodowania |  
-   | **Rola** | Tak | Rola partnera hosta |
+   | **Role** | Tak | Rola partnera hosta |
    ||||
 
    Zakodowany komunikat jest teraz gotowy do wysłania do partnera.

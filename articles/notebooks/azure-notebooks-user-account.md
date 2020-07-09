@@ -3,22 +3,22 @@ title: Zaloguj się do wersji zapoznawczej Azure Notebooks
 description: Skonfiguruj konto użytkownika dla Azure Notebooks przy użyciu konto Microsoft lub konta służbowego.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646300"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85832189"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Twoje konto użytkownika na potrzeby Azure Notebooks wersji zapoznawczej
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Możesz użyć Azure Notebooks z lub bez logowania się przy użyciu konta użytkownika:
 
 - Bez logowania można tworzyć i uruchamiać notesy, ale nie można zachować notesów ani plików danych w ramach projektów. Użytkownicy, którzy otrzymują link do notesu platformy Azure, na przykład mogą korzystać z notesu bez konieczności logowania się.
 - Po zalogowaniu Azure Notebooks zachowuje wszystkie projekty z Twoim kontem. Zalogowani użytkownicy mają także identyfikator użytkownika, który umożliwia im udostępnianie swoich projektów i notesów innym osobom.
 - Jeśli konto używane dla Azure Notebooks jest również skojarzone z subskrypcją platformy Azure, uzyskasz dodatkowe korzyści, takie jak uruchamianie notesów na bardziej wydajnych serwerach, tworzenie prywatnych notesów i udzielanie uprawnień dla notesów poszczególnym użytkownikom.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Zalogowanie się do Azure Notebooks wymaga konta Microsoft lub konta służbowego. Po wybraniu polecenia **Zaloguj** w prawym górnym rogu strony Notes zostanie wyświetlony monit o podanie konta:
 
@@ -43,7 +43,7 @@ W przypadku kont podrzędnych dostęp do Azure Notebooks jest blokowany domyśln
 
 Aby włączyć dostęp, obiekt nadrzędny musi wykonać następujące czynności:
 
-1. Odwiedź `https://account.live.com/mk` stronę i zaloguj się przy użyciu konta nadrzędnego.
+1. Odwiedź stronę `https://account.live.com/mk` i zaloguj się przy użyciu konta nadrzędnego.
 1. W sekcji dla danego elementu podrzędnego wybierz pozycję **Zarządzaj dostępem tego elementu podrzędnego do aplikacji innych**firm.
 1. Na następnej stronie wybierz pozycję **Włącz dostęp**.
 1. Po następnym użyciu konta podrzędnego do zalogowania się do Azure Notebooks wybierz pozycję **tak** w wyświetlonym monicie o uprawnienia.
@@ -53,7 +53,7 @@ Aby włączyć dostęp, obiekt nadrzędny musi wykonać następujące czynności
 
 ## <a name="work-or-school-accounts"></a>Konta służbowe
 
-Konto służbowe jest tworzone przez administratora organizacji, aby umożliwić członkowi organizacji dostęp do usług w chmurze firmy Microsoft, takich jak Office 365, a także konta do logowania się do systemu Windows na komputerze przyłączonym do domeny. Konto służbowe zwykle używa adresu e-mail organizacji, takiego jak any-user@contoso.com.
+Konto służbowe jest tworzone przez administratora organizacji, aby umożliwić członkowi organizacji dostęp do usług w chmurze firmy Microsoft, takich jak Microsoft 365, a także konta do logowania się do systemu Windows na komputerze przyłączonym do domeny. Konto służbowe zwykle używa adresu e-mail organizacji, takiego jak any-user@contoso.com .
 
 Zalogowanie się do Azure Notebooks przy użyciu konta służbowego może wymagać zgody administratora, ponieważ Azure Notebooks zbiera lub używa (ale nie ujawnia) informacji, takich jak adres e-mail konta i informacje o przeglądarce użytkownika. (Dane przeglądarki służą do optymalizowania funkcji zgodnie z popularnym użyciem).
 

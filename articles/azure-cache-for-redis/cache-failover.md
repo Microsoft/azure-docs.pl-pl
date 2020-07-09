@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
 ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74122187"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Tryb failover i stosowanie poprawek dla usługi Azure cache for Redis
@@ -59,13 +58,13 @@ Ze względu na to, że pełna synchronizacja danych jest wykonywana przed powtó
 
 ## <a name="additional-cache-load"></a>Dodatkowe obciążenie pamięci podręcznej
 
-Zawsze, gdy nastąpi przełączenie w tryb failover, warstwy pamięci podręcznej standardowa i Premium muszą replikować dane z jednego węzła do drugiego. Ta replikacja powoduje wzrost obciążenia zarówno pamięci serwera, jak i procesora CPU. Jeśli wystąpienie pamięci podręcznej jest już silnie załadowane, aplikacje klienckie mogą powodować zwiększone opóźnienia. W skrajnych przypadkach aplikacje klienckie mogą otrzymywać wyjątki przekroczenia limitu czasu. Aby zmniejszyć wpływ tego dodatkowego obciążenia, [Skonfiguruj](cache-configure.md#memory-policies) `maxmemory-reserved` ustawienia pamięci podręcznej.
+Zawsze, gdy nastąpi przełączenie w tryb failover, warstwy pamięci podręcznej standardowa i Premium muszą replikować dane z jednego węzła do drugiego. Ta replikacja powoduje wzrost obciążenia zarówno pamięci serwera, jak i procesora CPU. Jeśli wystąpienie pamięci podręcznej jest już silnie załadowane, aplikacje klienckie mogą powodować zwiększone opóźnienia. W skrajnych przypadkach aplikacje klienckie mogą otrzymywać wyjątki przekroczenia limitu czasu. Aby zmniejszyć wpływ tego dodatkowego obciążenia, [Skonfiguruj](cache-configure.md#memory-policies) ustawienia pamięci podręcznej `maxmemory-reserved` .
 
 ## <a name="how-does-a-failover-affect-my-client-application"></a>Jak działa przejście w tryb failover na moją aplikację kliencką?
 
 Liczba błędów widzianych przez aplikację kliencką zależy od liczby operacji oczekujących na to połączenie w momencie przejścia w tryb failover. Wszystkie połączenia, które są kierowane przez węzeł, który zamknął połączenie, zobaczą błędy. Wiele bibliotek klienckich może generować różne typy błędów w przypadku przerwania połączeń, w tym wyjątków limitu czasu, wyjątków połączeń lub wyjątków gniazda. Liczba i typ wyjątków zależy od tego, gdzie znajduje się w ścieżce kodu żądania, gdy pamięć podręczna zamknie połączenia. Na przykład operacja wysyłająca żądanie, ale nie otrzymała odpowiedzi, gdy nastąpi przejście w tryb failover, może uzyskać wyjątek limitu czasu. Nowe żądania dotyczące zamkniętego obiektu połączenia odbierają wyjątki połączeń do momentu pomyślnego ponownego nawiązania połączenia.
 
-Większość bibliotek klienta próbuje ponownie nawiązać połączenie z pamięcią podręczną, jeśli są skonfigurowane do tego celu. Nieprzewidziane usterki mogą jednak czasami umieścić obiekty biblioteki w stanie nieodwracalnym. Jeśli błędy będą przechowywane dłużej niż w wstępnie skonfigurowanym czasie, należy ponownie utworzyć obiekt połączenia. W Microsoft.NET i innych językach zorientowanych na obiektach, ponowne tworzenie połączenia bez ponownego uruchamiania aplikacji można wykonać za pomocą [wzorca opóźnionego\<\> T](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+Większość bibliotek klienta próbuje ponownie nawiązać połączenie z pamięcią podręczną, jeśli są skonfigurowane do tego celu. Nieprzewidziane usterki mogą jednak czasami umieścić obiekty biblioteki w stanie nieodwracalnym. Jeśli błędy będą przechowywane dłużej niż w wstępnie skonfigurowanym czasie, należy ponownie utworzyć obiekt połączenia. W Microsoft.NET i innych językach zorientowanych na obiektach, ponowne tworzenie połączenia bez ponownego uruchamiania aplikacji można wykonać przy użyciu [ \<T\> wzorca z opóźnieniem](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
 ### <a name="how-do-i-make-my-application-resilient"></a>Jak mogę zrobić, aby moja aplikacja była odporna?
 

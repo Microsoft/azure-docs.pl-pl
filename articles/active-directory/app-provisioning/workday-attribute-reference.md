@@ -2,21 +2,20 @@
 title: Dokumentacja atrybutów rozwiązania Workday
 description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 05/25/2020
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: d1e432ef99a3c83fe06c00b15acbb00c630e1be1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 8c508e65ef2c6d62716454af151feb0a1c80bba0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014404"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84781112"
 ---
 # <a name="workday-attribute-reference"></a>Dokumentacja atrybutów rozwiązania Workday
 
@@ -63,7 +62,7 @@ W poniższej tabeli przechwycono listę atrybutów produktu Workday i odpowiedni
 | 29 | LocationIdentifier                    | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane pozycji \_ /WD: dane \_ \_ podsumowania witryny biznesowej/WD \_ : informacje o lokalizacji \_ /WD: ID \[ @wd:type = " \_ ID lokalizacji" \] /Text\(\)                                                                                                                                                                                                                                            |
 | 30 | ManagerReference                      | WD: Worker/WD: dane procesu roboczego \_ /WD: \_ \_ Data/czas zarządzania danymi/WD: proces roboczy \_ zarządzania nadzorem, \_ \_ pozycja danych w łańcuchu \_ \[ \( \) = 1 \] /WD: \_ dane łańcucha zarządzania — \_ \[ ostatnie \( \) = pozycja \( \) \] /WD: odwołanie do Menedżera \_ /WD: ID \[ @wd:type = "WID" \] /Text\(\)                                                                                                                                                                            |
 | 31 | MiddleName                            | WD: Worker/WD: dane procesu roboczego \_ /WD: dane osobowe \_ /WD: nazwa \_ dane/WD: dane dotyczące nazwy prawniczej \_ \_ /WD: nazwa \_ szczegóły \_ danych/WD: środkowa \_ Nazwa/tekst\(\)                                                                                                                                                                                                                                                                                |
-| 32 | Komórkowy                                | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane osobowe \_ /WD: dane osoby kontaktowej \_ /WD: dane telefonu \_ \[ tłumaczenie \( ciągu \( WD: \_ Typ urządzenia telefonu \_ \_ Reference/@wd:Descriptor \) , "abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz" \) = "Mobile" i tłumaczenie \( ciągu \( WD: \_ dane użycia/WD: typ \_ danych/WD: type \_ Reference/@wd:Descriptor \) , "abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz" \) = "służbowe" \] /@wd:Formatted \_    |
+| 32 | Aplikacje mobilne                                | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane osobowe \_ /WD: dane osoby kontaktowej \_ /WD: dane telefonu \_ \[ tłumaczenie \( ciągu \( WD: \_ Typ urządzenia telefonu \_ \_ Reference/@wd:Descriptor \) , "abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz" \) = "Mobile" i tłumaczenie \( ciągu \( WD: \_ dane użycia/WD: typ \_ danych/WD: type \_ Reference/@wd:Descriptor \) , "abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz" \) = "służbowe" \] /@wd:Formatted \_    |
 | 33 | Gmina                          | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane pozycji \_ /WD: dane \_ \_ podsumowania witryny biznesowej \_ /WD: \_ dane adresowe/WD: Gmina/tekst\(\)                                                                                                                                                                                                                                                                   |
 | 34 | PositionID                            | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane położenia \_ /WD: Position \_ ID/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 35 | PositionTitle                         | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane położenia \_ /WD: położenie \_ tytułu/tekstu\(\)                                                                                                                                                                                                                                                                                                                  |
@@ -158,7 +157,7 @@ Aby skonfigurować dodatkowe wyrażenia XPATH, zapoznaj się z sekcją [Samoucze
 | 29 | LocationIdentifier                    | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane zadania procesu roboczego \_ \_ \[ @wd:Primary_Job = 1]/WD: \_ dane pozycji/WD: \_ \_ dane podsumowania lokacji biznesowej \_ /WD: informacje o lokalizacji \_ /WD: ID \[ @wd:type = " \_ ID lokalizacji" \] /Text\(\)                                                                                                                                                                           |
 | 30 | ManagerReference                      | WD: Worker/WD: dane procesu roboczego \_ /WD: \_ \_ Data/czas zarządzania danymi/WD: proces roboczy \_ zarządzania nadzorem, \_ \_ pozycja danych w łańcuchu \_ \[ \( \) = 1 \] /WD: \_ dane łańcucha zarządzania — \_ \[ ostatnie \( \) = pozycja \( \) \] /WD: odwołanie do Menedżera \_ /WD: ID \[ @wd:type = "WID" \] /Text\(\)                                                                                                                                                      |
 | 31 | MiddleName                            | WD: Worker/WD: dane procesu roboczego \_ /WD: dane osobowe \_ /WD: nazwa \_ dane/WD: dane dotyczące nazwy prawniczej \_ \_ /WD: nazwa \_ szczegóły \_ danych/WD: środkowa \_ Nazwa/tekst\(\)                                                                                                                                                                                                                                                          |
-| 32 | Komórkowy                                | WD: Worker/WD: dane procesu roboczego \_ /WD: \_ dane osobowe/WD: \_ dane kontaktowe/WD: \_ dane telefonu WD: \[ użycie \_ Data/@wd:Public = ' 1 ' i ciąg \( WD: \_ dane użycia/WD: typ \_ danych/WD: typ \_ referencyjny/WD: ID \[ @wd:type = " \_ Typ użycia komunikacji \_ \_ ID" \] \) = "praca" i ciąg \( WD: urządzenie telefoniczne \_ \_ Typ \_ odwołania/WD: ID \[ @wd:type = "telefon \_ \_ Typ urządzenia \_ ID" \] \) = "Mobile"\]/@wd:Workday_Traditional_Formatted_Phone   |
+| 32 | Aplikacje mobilne                                | WD: Worker/WD: dane procesu roboczego \_ /WD: \_ dane osobowe/WD: \_ dane kontaktowe/WD: \_ dane telefonu WD: \[ użycie \_ Data/@wd:Public = ' 1 ' i ciąg \( WD: \_ dane użycia/WD: typ \_ danych/WD: typ \_ referencyjny/WD: ID \[ @wd:type = " \_ Typ użycia komunikacji \_ \_ ID" \] \) = "praca" i ciąg \( WD: urządzenie telefoniczne \_ \_ Typ \_ odwołania/WD: ID \[ @wd:type = "telefon \_ \_ Typ urządzenia \_ ID" \] \) = "Mobile"\]/@wd:Workday_Traditional_Formatted_Phone   |
 | 33 | Gmina                          | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane zadania procesu roboczego \_ \_ \[ @wd:Primary_Job = 1]/WD: \_ dane pozycji/WD: \_ \_ dane podsumowania lokacji biznesowej \_ /WD: \_ dane adresowe/WD: Gmina/tekst\(\)                                                                                                                                                                                                  |
 | 34 | PositionID                            | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane zadania podrzędnego \_ \_ \[ @wd:Primary_Job = 1]/WD: Position \_ Data/WD: Position \_ ID/text\(\)                                                                                                                                                                                                                                                    |
 | 35 | PositionTitle                         | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane zadania procesu roboczego \_ \_ \[ @wd:Primary_Job = 1]/WD: \_ dane położenia/WD: położenie \_ tytułu/tekstu\(\)                                                                                                                                                                                                                                                 |

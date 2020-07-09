@@ -6,14 +6,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84628690"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Application Gateway obsługa zaplecza wielodostępnego, takiego jak usługa App Service
 
@@ -42,7 +41,7 @@ Korzystając z tej funkcji, klienci mogą określić opcje w ustawieniach HTTP i
 
 ### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>Zakończenie protokołu TLS i kompleksowa obsługa protokołu TLS z usługami wielodostępnymi
 
-W przypadku usług wielodostępnych jest obsługiwane zarówno zakończenie protokołu TLS, jak i kompleksowe szyfrowanie TLS. W przypadku zakończenia protokołu TLS w bramie aplikacji certyfikat protokołu TLS jest nadal wymagany do dodania do odbiornika usługi Application Gateway. Jednak w przypadku kompleksowego protokołu TLS zaufane usługi platformy Azure, takie jak Azure App Service Web Apps, nie wymagają listy dozwolonych zaplecza w bramie aplikacji. W związku z tym nie trzeba dodawać żadnych certyfikatów uwierzytelniania. 
+W przypadku usług wielodostępnych jest obsługiwane zarówno zakończenie protokołu TLS, jak i kompleksowe szyfrowanie TLS. W przypadku zakończenia protokołu TLS w bramie aplikacji certyfikat protokołu TLS jest nadal wymagany do dodania do odbiornika usługi Application Gateway. Jednak w przypadku kompleksowego protokołu TLS zaufane usługi platformy Azure, takie jak aplikacje sieci Web usługi Azure App Service, nie wymagają zezwolenia na korzystanie z zaplecza w bramie aplikacji. W związku z tym nie trzeba dodawać żadnych certyfikatów uwierzytelniania. 
 
 ![koniec do końca protokołu TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

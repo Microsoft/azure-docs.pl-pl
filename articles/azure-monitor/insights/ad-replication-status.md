@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80055900"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitoruj Active Directory stan replikacji za pomocą Azure Monitor
@@ -41,10 +41,10 @@ Jeśli nie chcesz połączyć żadnego z kontrolerów domeny bezpośrednio z Azu
 
 1. Sprawdź, czy komputer jest członkiem domeny, która ma być monitorowana przy użyciu rozwiązania AD Replication Status.
 2. [Połącz komputer z systemem Windows, aby Azure monitor](../../azure-monitor/platform/om-agents.md) lub [połączyć go przy użyciu istniejącego środowiska Operations Manager do Azure monitor](../../azure-monitor/platform/om-agents.md), jeśli nie jest jeszcze podłączony.
-3. Na tym komputerze Ustaw następujący klucz rejestru:<br>Klucz: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management grup\<ManagementGroupName> \solutions\adreplication**<br>Wartość: **isTarget**<br>Dane wartości: **prawda**
+3. Na tym komputerze Ustaw następujący klucz rejestru:<br>Klucz: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management grup \<ManagementGroupName> \Solutions\ADReplication**<br>Wartość: **isTarget**<br>Dane wartości: **prawda**
 
    > [!NOTE]
-   > Zmiany te zaczną obowiązywać dopiero po ponownym uruchomieniu usługi Microsoft Monitoring Agent (HealthService. exe).
+   > Zmiany te zaczną obowiązywać dopiero po ponownym uruchomieniu usługi Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Zainstaluj rozwiązanie
    > Postępuj zgodnie z procesem opisanym w artykule [Instalowanie rozwiązania monitorowania](solutions.md#install-a-monitoring-solution) , aby dodać rozwiązanie **Active Directory Replication status** do obszaru roboczego log Analytics. Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
@@ -133,7 +133,7 @@ Odp.: nie, należy dodać tylko jeden kontroler domeny. Jeśli masz wiele kontro
 Odp. Tak. Możesz ustawić wartość klucza rejestru, aby go włączyć. Zobacz [Włącz kontroler nie należący do domeny](#enable-non-domain-controller).
 
 **P: Jaka jest nazwa procesu, który wykonuje zbieranie danych?**
-Odp.: AdvisorAssessment. exe
+ODP.: AdvisorAssessment.exe
 
 **P: jak długo trwa zbieranie danych?**
 Odp.: czas zbierania danych zależy od rozmiaru środowiska Active Directory, ale zazwyczaj trwa mniej niż 15 minut.

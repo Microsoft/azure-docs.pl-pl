@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
-ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.topic: how-to
+ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195941"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85512147"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Korzystanie z emulatora azurite na potrzeby programowania i testowania lokalnego magazynu platformy Azure (wersja zapoznawcza)
 
@@ -70,7 +70,7 @@ Obsługiwane są następujące ustawienia:
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalowanie i uruchamianie azurite za pomocą NPM
 
-Ta metoda instalacji wymaga zainstalowanego programu [Node. js w wersji 8,0 lub nowszej](https://nodejs.org) . Menedżer pakietów węzła (npm) to narzędzie do zarządzania pakietami dołączone do każdej instalacji środowiska Node. js. Po zainstalowaniu środowiska Node. js wykonaj następujące `npm` polecenie, aby zainstalować azurite.
+Ta metoda instalacji wymaga, aby zainstalowano [Node.js w wersji 8,0 lub nowszej](https://nodejs.org) . Menedżer pakietów node (npm) to narzędzie do zarządzania pakietami dołączone do każdej instalacji Node.js. Po zainstalowaniu Node.js wykonaj następujące polecenie, `npm` Aby zainstalować azurite.
 
 ```console
 npm install -g azurite
@@ -355,7 +355,7 @@ Azurite odświeża niestandardowe nazwy kont i klucze ze zmiennej środowiskowej
 
 ### <a name="connection-strings"></a>Parametry połączeń
 
-Najprostszym sposobem nawiązywania połączenia z usługą azurite z poziomu aplikacji jest skonfigurowanie parametrów połączenia w pliku konfiguracji aplikacji, który odwołuje się do skrótu *UseDevelopmentStorage = true*. Oto przykład parametrów połączenia w pliku *App. config* :
+Najprostszym sposobem nawiązywania połączenia z usługą azurite z poziomu aplikacji jest skonfigurowanie parametrów połączenia w pliku konfiguracji aplikacji, który odwołuje się do skrótu *UseDevelopmentStorage = true*. Oto przykład parametrów połączenia w pliku *app.config* :
 
 ```xml
 <appSettings>
@@ -464,7 +464,7 @@ W Eksplorator usługi Storage Połącz się z usługą azurite, wykonując nast�
  1. Wybierz ikonę **Zarządzaj kontami**
  1. Wybierz pozycję **Dodaj konto**
  1. Wybierz opcję **Dołącz do lokalnego emulatora**
- 1. Wybierz pozycję **dalej**
+ 1. Wybierz pozycję **Dalej**
  1. Edytuj pole **nazwy wyświetlanej** pod wybraną nazwą
  1. Ponownie wybierz pozycję **dalej**
  1. Wybierz pozycję **Połącz**
@@ -493,7 +493,7 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 1. Wybierz pozycję **Dalej**.
 1. Wprowadź wartość w polu **Nazwa wyświetlana** .
 1. Wprowadź [Parametry połączenia HTTPS](#https-connection-strings) z poprzedniej sekcji tego dokumentu
-1. Wybierz pozycję **dalej**
+1. Wybierz pozycję **Dalej**
 1. Wybierz pozycję **Połącz**
 
 ## <a name="workspace-structure"></a>Struktura obszaru roboczego

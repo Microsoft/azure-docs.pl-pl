@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257968"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710681"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Wykonaj drążenie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
 
@@ -43,7 +42,7 @@ Uruchamiasz test pracy w trybie failover z poziomu podstawowego do lokacji dodat
 
 Po uruchomieniu testowej pracy w trybie failover zostanie wyświetlony monit o wybranie ustawień sieci dla maszyn z repliką testową, jak zostało to podsumowane w tabeli.
 
-| **Zaznaczyć** | **Szczegóły** | |
+| **Opcja** | **Szczegóły** | |
 | --- | --- | --- |
 | **Brak** | Testowa maszyna wirtualna jest tworzona na hoście, na którym znajduje się replika maszyny wirtualnej. Nie jest on dodawany do chmury i nie jest połączony z żadną siecią.<br/><br/> Komputer można połączyć z siecią maszyny wirtualnej po jej utworzeniu.| |
 | **Użyj istniejącej** | Testowa maszyna wirtualna jest tworzona na hoście, na którym znajduje się replika maszyny wirtualnej. Nie została dodana do chmury.<br/><br/>Utwórz sieć maszyny wirtualnej, która jest odizolowana od sieci produkcyjnej.<br/><br/>Jeśli używasz sieci opartej na sieci VLAN, zalecamy utworzenie oddzielnej sieci logicznej (nieużywanej w środowisku produkcyjnym) w tym celu. Ta sieć logiczna służy do tworzenia sieci maszyn wirtualnych na potrzeby testowania pracy w trybie failover.<br/><br/>Sieć logiczna powinna być skojarzona z co najmniej jedną kartą sieciową wszystkich serwerów funkcji Hyper-V obsługujących maszyny wirtualne.<br/><br/>W przypadku sieci logicznych VLAN lokacje sieciowe dodawane do sieci logicznej powinny być izolowane.<br/><br/>Jeśli używasz sieci logicznej opartej na wirtualizacji sieci systemu Windows, Azure Site Recovery automatycznie tworzy izolowane sieci maszyn wirtualnych. | |
@@ -119,7 +118,7 @@ Przygotuj serwer DNS dla testowej pracy w trybie failover w następujący sposó
 
 W tej procedurze opisano, jak uruchomić test pracy w trybie failover dla planu odzyskiwania. Alternatywnie można uruchomić tryb failover dla pojedynczej maszyny wirtualnej na karcie **Virtual Machines** .
 
-1. Wybierz pozycję **plany** > odzyskiwania*recoveryplan_name*. Kliknij pozycję**test**pracy w **trybie failover.** > 
+1. Wybierz pozycję **plany odzyskiwania**  >  *recoveryplan_name*. Kliknij **pozycję**test pracy w trybie failover  >  **Test Failover**.
 2. W bloku **Testowanie pracy w trybie failover** Określ, jak maszyny wirtualne repliki mają być połączone z sieciami po testowym przejściu w tryb failover.
 3. Śledź postęp pracy w trybie failover na karcie **zadania** .
 4. Po zakończeniu pracy w trybie failover Sprawdź, czy maszyny wirtualne zostały pomyślnie uruchomione.

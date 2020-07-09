@@ -8,11 +8,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239840"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691105"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie lokalnych serwerów funkcji Hyper-V do odzyskiwania po awarii do platformy Azure
 
@@ -84,8 +84,8 @@ W scenariuszu pracy awaryjnej możesz chcieć nawiązać połączenie z replikac
 
 Aby nawiązać połączenie z maszynami wirtualnymi z systemem Windows przy użyciu protokołu RDP po przejściu do trybu failover, Zezwalaj
 
-1. Aby uzyskać dostęp przez Internet, włącz protokół RDP na lokalnej maszynie wirtualnej przed włączeniem trybu failover. Upewnij się, że dla profilu **publicznego** dodano reguły TCP i UDP oraz że protokół RDP jest dozwolony w > **aplikacjach dozwolonych** przez **zaporę systemu Windows**dla wszystkich profilów.
-2. Aby uzyskać dostęp za pośrednictwem połączenia VPN typu lokacja-lokacja, włącz protokół RDP na maszynie lokalnej. Protokół RDP powinien być dozwolony w przypadku -> **aplikacji i funkcji dozwolonych** przez **zaporę systemu Windows**w przypadku sieci **z domeną i siecią prywatną** .
+1. Aby uzyskać dostęp przez Internet, włącz protokół RDP na lokalnej maszynie wirtualnej przed włączeniem trybu failover. Upewnij się, że dla profilu **publicznego** dodano reguły TCP i UDP oraz że protokół RDP jest dozwolony w aplikacjach dozwolonych przez **zaporę systemu Windows**  >  **Allowed Apps** dla wszystkich profilów.
+2. Aby uzyskać dostęp za pośrednictwem połączenia VPN typu lokacja-lokacja, włącz protokół RDP na maszynie lokalnej. Protokół RDP powinien być dozwolony w **Windows Firewall**  ->  przypadku**aplikacji i funkcji dozwolonych** przez zaporę systemu Windows w przypadku sieci **z domeną i siecią prywatną** .
    Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135). Podczas wyzwalania trybu failover na maszynie wirtualnej nie powinno być żadnych oczekujących aktualizacji systemu Windows. Jeśli tak się stanie, nie będzie można zalogować się do maszyny wirtualnej do momentu ukończenia aktualizacji.
 3. Na maszynie wirtualnej platformy Azure z systemem Windows po przejściu do trybu failover sprawdź **diagnostykę rozruchu**, aby wyświetlić zrzut ekranu maszyny wirtualnej. Jeśli nie możesz się połączyć, upewnij się, że maszyna wirtualna jest uruchomiona, i przejrzyj te [porady dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
@@ -94,5 +94,5 @@ Po przejściu w tryb failover możesz uzyskiwać dostęp do maszyn wirtualnych p
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych](tutorial-hyper-v-to-azure.md)
-> funkcji Hyper-v[Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych funkcji Hyper-v w chmurach programu VMM](tutorial-hyper-v-vmm-to-azure.md)
+> [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych](tutorial-hyper-v-to-azure.md) 
+>  funkcji Hyper-V [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM](tutorial-hyper-v-vmm-to-azure.md)

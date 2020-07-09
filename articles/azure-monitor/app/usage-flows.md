@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892448"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85963447"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analizuj wzorce nawigacyjne użytkownika za pomocą Przepływy użytkownika w Application Insights
 
-![Narzędzie Application Insights Przepływy użytkownika](./media/usage-flows/00001-flows.png)
+![Narzędzie Application Insights Przepływy użytkownika](./media/usage-flows/flows.png)
 
 Narzędzie Przepływy użytkownika wizualizuje sposób nawigowania między stronami i funkcjami witryny. Doskonale nadaje się do odpowiedzi na pytania, takie jak:
 
@@ -33,7 +33,7 @@ Narzędzie Przepływy użytkownika zaczyna się od początkowego widoku strony, 
 
 ## <a name="start-by-choosing-an-initial-event"></a>Zacznij od wybrania początkowego zdarzenia
 
-![Wybierz początkowe zdarzenie dla Przepływy użytkownika](./media/usage-flows/00002-flows-initial-event.png)
+![Wybierz początkowe zdarzenie dla Przepływy użytkownika](./media/usage-flows/initial-event.png)
 
 Aby zacząć odpowiadać na pytania za pomocą narzędzia Przepływy użytkownika, wybierz początkowy widok strony, zdarzenie niestandardowe lub wyjątek, który będzie używany jako punkt początkowy wizualizacji:
 
@@ -58,7 +58,7 @@ Jeśli chcesz zobaczyć więcej kroków w wizualizacji, użyj **poprzednich krok
 
 ## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Po odwiedzeniu strony lub funkcji, gdzie się znajdują Użytkownicy i co to zrobić?
 
-![Użyj Przepływy użytkownika, aby zrozumieć, gdzie użytkownicy klikają](./media/usage-flows/00003-flows-one-step.png)
+![Użyj Przepływy użytkownika, aby zrozumieć, gdzie użytkownicy klikają](./media/usage-flows/one-step.png)
 
 Jeśli wydarzenie początkowe jest widokiem strony, pierwsza kolumna ("krok 1") wizualizacji jest szybkim sposobem zrozumienia, co użytkownicy natychmiast po odwiedzeniu strony. Spróbuj otworzyć witrynę w oknie obok wizualizacji Przepływy użytkownika. Porównanie oczekiwań sposobu działania użytkowników ze stroną na listę zdarzeń w kolumnie "krok 1". Często element interfejsu użytkownika na stronie, który wydaje się nieistotny dla Twojego zespołu, może należeć do najczęściej używanego na stronie. Może to być świetny punkt wyjścia do udoskonalania projektu w witrynie.
 

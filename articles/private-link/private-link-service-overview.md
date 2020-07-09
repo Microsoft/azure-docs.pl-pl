@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82202217"
 ---
 # <a name="what-is-azure-private-link-service"></a>Co to jest usługa Azure Private Link Service?
@@ -46,7 +46,7 @@ Jeśli usługa link prywatny nie jest już używana, możesz ją usunąć. Jedna
 
 Usługa link prywatny określa następujące właściwości: 
 
-|Właściwość |Wyjaśnienie  |
+|Właściwość |Objaśnienie  |
 |---------|---------|
 |Stan aprowizacji (provisioningState)  |Właściwość tylko do odczytu, która wyświetla bieżący stan aprowizacji dla usługi linku prywatnego. Odpowiednie Stany aprowizacji: "Usuwanie; Awarii Powiodło się Aktualizowanie ". Gdy stan aprowizacji to "powodzenie", pomyślnie Zainicjowano obsługę linku prywatnego.        |
 |Alias (alias)     | Alias jest globalnie unikatowym ciągiem tylko do odczytu dla usługi. Ułatwia on maskowanie danych klienta usługi i w tym samym czasie tworzy łatwą do udostępnienia nazwę usługi. Podczas tworzenia usługi linku prywatnego platforma Azure generuje alias dla usługi, który można udostępnić klientom. Klienci mogą używać tego aliasu, aby zażądać połączenia z usługą.          |

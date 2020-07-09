@@ -7,13 +7,12 @@ ms.author: mhopkins
 ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135891"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84463454"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiowanie obiektu BLOB za pomocą platformy .NET
 
@@ -109,7 +108,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 ## <a name="abort-a-blob-copy-operation"></a>Przerwij operację kopiowania obiektu BLOB
 
-Przerwanie operacji kopiowania powoduje, że docelowy obiekt BLOB o zerowej długości dla blokowych obiektów blob, Dołącz obiekty blob i stronicowe obiekty blob. Jednak metadane dla docelowego obiektu BLOB będą mieć skopiowane nowe wartości ze źródłowego obiektu BLOB lub ustawione jawnie w wywołaniu [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) lub [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Aby zachować oryginalne metadane przed kopią, wykonaj migawkę docelowego obiektu BLOB przed wywołaniem `StartCopy` lub. `StartCopyAsync`
+Przerwanie operacji kopiowania powoduje, że docelowy obiekt BLOB o zerowej długości dla blokowych obiektów blob, Dołącz obiekty blob i stronicowe obiekty blob. Jednak metadane dla docelowego obiektu BLOB będą mieć skopiowane nowe wartości ze źródłowego obiektu BLOB lub ustawione jawnie w wywołaniu [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) lub [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) . Aby zachować oryginalne metadane przed kopią, wykonaj migawkę docelowego obiektu BLOB przed wywołaniem `StartCopy` lub `StartCopyAsync` .
 
 Gdy przerywasz trwającą operację kopiowania obiektów blob, [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) docelowego obiektu BLOB jest ustawiony na [CopyStatus. przerwany](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 

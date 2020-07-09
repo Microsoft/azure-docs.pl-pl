@@ -11,12 +11,11 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: MT
+ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780746"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84431930"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -129,7 +128,7 @@ Wartość domyślna parametru timeToLiveSecs to 7200 sekund, czyli dwie godziny.
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Nie używaj debugowania wersji obrazów modułów
 
-Podczas przechodzenia z scenariuszy testowych do scenariuszy produkcyjnych należy pamiętać o usunięciu konfiguracji debugowania z manifestów wdrożenia. Sprawdź, czy żaden z obrazów modułu w manifestach wdrożenia ma sufiks ** \.debugowania** . Jeśli dodano opcje tworzenia w celu udostępnienia portów w modułach na potrzeby debugowania, Usuń również te opcje.
+Podczas przechodzenia z scenariuszy testowych do scenariuszy produkcyjnych należy pamiętać o usunięciu konfiguracji debugowania z manifestów wdrożenia. Sprawdź, czy żaden z obrazów modułu w manifestach wdrożenia ma sufiks ** \. debugowania** . Jeśli dodano opcje tworzenia w celu udostępnienia portów w modułach na potrzeby debugowania, Usuń również te opcje.
 
 ## <a name="container-management"></a>Zarządzanie kontenerami
 
@@ -181,7 +180,7 @@ Uzyskaj obrazy z poleceniem "Docker pull", które ma zostać umieszczone w rejes
 | [Agent Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
-Następnie należy zaktualizować odwołania do obrazu w pliku Deployment. Template. JSON dla modułów systemowych edgeAgent i edgeHub. Zastąp `mcr.microsoft.com` ciąg nazwą rejestru i serwerem dla obu modułów.
+Następnie należy zaktualizować odwołania do obrazu w deployment.template.jspliku dla modułów systemowych edgeAgent i edgeHub. Zastąp ciąg `mcr.microsoft.com` nazwą rejestru i serwerem dla obu modułów.
 
 * edgeAgent:
 
@@ -210,15 +209,15 @@ Jeśli konfiguracja sieci wymaga jawnie zezwolenia na połączenia wykonane z ur
 * **IoT Edge Hub** otwiera pojedyncze trwałe połączenie AMQP lub wiele połączeń MQTT do IoT Hub, które prawdopodobnie przekraczają usługi WebSockets.
 * **Demon IoT Edge** powoduje sporadyczne wywołania HTTPS do IoT Hub.
 
-We wszystkich trzech przypadkach nazwa DNS byłaby zgodna ze wzorcem \*. Azure-Devices.NET.
+We wszystkich trzech przypadkach nazwa DNS byłaby zgodna ze wzorcem \* . Azure-Devices.NET.
 
 Dodatkowo **aparat kontenerów** wykonuje wywołania rejestrów kontenerów za pośrednictwem protokołu HTTPS. Aby można było pobrać obrazy kontenerów środowiska uruchomieniowego IoT Edge, nazwa DNS to mcr.microsoft.com. Aparat kontenerów nawiązuje połączenie z innymi rejestrami zgodnie z konfiguracją we wdrożeniu.
 
 Ta lista kontrolna jest punktem początkowym dla reguł zapory:
 
-   | URL (\* = symbol wieloznaczny) | Wychodzące porty TCP | Sposób użycia |
+   | URL ( \* = symbol wieloznaczny) | Wychodzące porty TCP | Użycie |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Rejestr kontenerów firmy Microsoft |
+   | mcr.microsoft.com  | 443 | Container Registry firmy Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Dostęp do punktu dystrybucji (opcjonalnie) |
    | \*. azurecr.io | 443 | Rejestry kontenerów osobistych i innych firm |
    | \*.blob.core.windows.net | 443 | Pobieranie Azure Container Registry różnic obrazu z magazynu obiektów BLOB |
@@ -226,6 +225,10 @@ Ta lista kontrolna jest punktem początkowym dla reguł zapory:
    | \*. docker.io  | 443 | Dostęp do centrum platformy Docker (opcjonalnie) |
 
 Niektóre z tych reguł zapory są dziedziczone z Azure Container Registry. Aby uzyskać więcej informacji, zobacz [Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> Aby zapewnić spójną nazwę FQDN między punktami końcowymi REST i Data, począwszy od **15 czerwca 2020** , punkt końcowy danych Microsoft Container Registry zmieni się z `*.cdn.mscr.io` na`*.data.mcr.microsoft.com`  
+> Aby uzyskać więcej informacji, zobacz [Konfiguracja reguł zapory klienta firmy Microsoft Container Registry](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Jeśli nie chcesz konfigurować zapory w taki sposób, aby zezwalała na dostęp do rejestrów publicznych kontenerów, możesz przechowywać obrazy w rejestrze prywatnych kontenerów, jak opisano w [kontenerach środowiska uruchomieniowego magazynu w rejestrze prywatnym](#store-runtime-containers-in-your-private-registry).
 
@@ -241,7 +244,7 @@ Jeśli urządzenia zostaną wdrożone w sieci, w której jest używany serwer pr
 
 ### <a name="set-up-logs-and-diagnostics"></a>Konfigurowanie dzienników i diagnostyki
 
-W systemie Linux demon IoT Edge używa dzienników jako domyślnego sterownika rejestrowania. Za pomocą narzędzia `journalctl` wiersza polecenia można wykonywać zapytania dotyczące dzienników demona. W systemie Windows demon IoT Edge używa diagnostyki programu PowerShell. Służy `Get-IoTEdgeLog` do wykonywania zapytań dotyczących dzienników z demona. Moduły IoT Edge używają sterownika JSON do rejestrowania, co jest ustawieniem domyślnym.  
+W systemie Linux demon IoT Edge używa dzienników jako domyślnego sterownika rejestrowania. Za pomocą narzędzia wiersza polecenia można `journalctl` wykonywać zapytania dotyczące dzienników demona. W systemie Windows demon IoT Edge używa diagnostyki programu PowerShell. Służy `Get-IoTEdgeLog` do wykonywania zapytań dotyczących dzienników z demona. Moduły IoT Edge używają sterownika JSON do rejestrowania, co jest ustawieniem domyślnym.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog

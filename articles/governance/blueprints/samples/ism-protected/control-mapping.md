@@ -3,18 +3,18 @@ title: Przykład australijskiego planu ochrony instytucji rządowych
 description: Omówienie przykładowego planu ochrony instytucji rządowych w Australii australijskiej. Ten przykładowy plan ułatwia klientom ocenę określonych chronionych kontroli ISM.
 ms.date: 03/10/2020
 ms.topic: sample
-ms.openlocfilehash: e2f64943e9db207feb3f59a905cad994553a6cd6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595031"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517103"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Sterowanie mapowaniem przykładowej strategii CHRONIONEj przez rząd ISM
 
 W tym artykule szczegółowo przedstawiono sposób, w jaki plany platformy Azure australijskiego planu ochrony instytucji rządowych są mapowane na kontrolki chronione ISM. Aby uzyskać więcej informacji na temat kontrolek, zobacz Ochrona za pomocą usługi [ISM](https://www.cyber.gov.au/ism).
 
-Następujące mapowania są do formantów **chronionych przez ISM** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[zapoznawczą\]: Inspekcja australijskiego nadzoru rządowego centrum kontroli ochrony i wdrażanie określonych rozszerzeń maszyn wirtualnych w celu obsługi inspekcji wbudowanych wymagań** zasad.
+Następujące mapowania są do formantów **chronionych przez ISM** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] : Inspekcja australijskiego nadzoru rządowego centrum kontroli ochrony i wdrażanie określonych rozszerzeń maszyn wirtualnych w celu obsługi inspekcji wbudowanych wymagań** zasad.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; Niemniej jednak często nie jest to 1:1 ani kompletna zgodność między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu.
@@ -106,10 +106,10 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 
 - Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 - W klastrach Service Fabric należy używać tylko Azure Active Directory do uwierzytelniania klientów
-- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
-- \[Wersja\]zapoznawcza: Wyświetlanie wyników inspekcji z maszyn wirtualnych systemu Linux, które mają konta bez hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
+- \[Wersja zapoznawcza \] : Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : Wyświetlanie wyników inspekcji z maszyn wirtualnych systemu Linux, które mają konta bez hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 uwierzytelnianie wieloskładnikowe służy do uwierzytelniania użytkowników standardowych
 
@@ -122,8 +122,8 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>hasła 0421 używane do uwierzytelniania jednoskładnikowego są co najmniej 14 znakami ze złożonością, najlepiej w przypadku 4 losowych słów
 
-- \[Wersja\]zapoznawcza: Wyświetlanie wyników inspekcji z konfiguracji maszyn wirtualnych systemu Windows w temacie "Ustawienia zabezpieczeń-Zasady konta"
-- \[Wersja\]zapoznawcza: wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w temacie "Ustawienia zabezpieczeń-zasady kont
+- \[Wersja zapoznawcza \] : Wyświetlanie wyników inspekcji z konfiguracji maszyn wirtualnych systemu Windows w temacie "Ustawienia zabezpieczeń-Zasady konta"
+- \[Wersja zapoznawcza \] : wdrażanie wymagań wstępnych dotyczących inspekcji konfiguracji maszyn wirtualnych z systemem Windows w temacie "Ustawienia zabezpieczeń-zasady kont
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Wskazówki dotyczące zarządzania systemem — Administracja systemu
 
@@ -147,7 +147,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
@@ -159,7 +159,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
@@ -171,7 +171,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
@@ -183,7 +183,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
@@ -195,7 +195,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
@@ -207,7 +207,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować
@@ -228,9 +228,9 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 następujące zdarzenia są rejestrowane w systemach operacyjnych: dostęp do ważnych danych i procesów, awarii aplikacji i wszystkich komunikatów o błędach, próbuje użyć specjalnych uprawnień, zmian kont, zmian w zasadach zabezpieczeń, zmianach konfiguracji systemu, systemu nazw domen (DNS) i żądań protokołu HTTP (Hypertext Transfer Protocol), nieudanych prób dostępu do danych i zasobów systemowych, niepowodzeń usługi i ponownego uruchomienia systemu. , transfer danych do nośników zewnętrznych, zarządzanie użytkownikami lub grupami, używanie specjalnych uprawnień
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
 - Przeprowadzanie inspekcji ustawienia diagnostyki
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 następujące zdarzenia są rejestrowane dla baz danych: dostęp do szczególnie ważnych informacji, dodawanie nowych użytkowników, szczególnie uprzywilejowanych użytkowników, dowolnych zapytań zawierających komentarze, wszelkie zapytania zawierające wiele osadzonych zapytań, wszelkie zapytania lub alerty bazy danych, próby podniesienia uprawnień, próba uzyskania dostępu zakończony powodzeniem lub niepowodzeniem, zmiany struktury bazy danych, zmiany ról użytkownika lub uprawnienia do bazy danych, akcje administratora bazy danych , logowania do bazy danych i wylogowywania, modyfikacje danych, użycie poleceń wykonywalnych
@@ -246,7 +246,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować

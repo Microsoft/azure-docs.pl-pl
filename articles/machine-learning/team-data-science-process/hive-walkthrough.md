@@ -12,10 +12,9 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81677457"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: Użyj klastrów Azure HDInsight Hadoop
@@ -45,16 +44,16 @@ Dane dotyczące podróży z NYC taksówkami dotyczą 20 GB skompresowanych plik�
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Unikatowy klucz do przyłączenia\_do danych podróży\_i opłaty za podróż są złożone z pól: Medallion\_, licencja na hakery i Data i godzina pobrania\_. Aby uzyskać wszystkie szczegóły dotyczące konkretnej podróży, wystarczy dołączyć te trzy klucze.
+Unikatowy klucz do przyłączenia do \_ danych podróży i opłaty za podróż \_ są złożone z pól: Medallion, \_ licencja na hakery i Data i \_ godzina pobrania. Aby uzyskać wszystkie szczegóły dotyczące konkretnej podróży, wystarczy dołączyć te trzy klucze.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Przykłady zadań przewidywania
-Określ rodzaj prognoz, które chcesz utworzyć na podstawie analizy danych, aby ułatwić wyjaśnienie wymaganych zadań procesów. Poniżej przedstawiono trzy przykłady problemów przewidywania, które są używane w tym instruktażu, na podstawie *\_kwoty*pozostałej:
+Określ rodzaj prognoz, które chcesz utworzyć na podstawie analizy danych, aby ułatwić wyjaśnienie wymaganych zadań procesów. Poniżej przedstawiono trzy przykłady problemów przewidywania, które są używane w tym instruktażu, na podstawie * \_ kwoty*pozostałej:
 
-- **Klasyfikacja binarna**: przewidywanie, czy Porada została zapłacona za podróż. Oznacza to, że *Kwota\_TIP* , która jest większa niż $0 jest dodatnim przykładem, podczas gdy *\_* pozostała część $0 jest ujemna.
+- **Klasyfikacja binarna**: przewidywanie, czy Porada została zapłacona za podróż. Oznacza to, że * \_ Kwota TIP* , która jest większa niż $0 jest dodatnim przykładem, podczas gdy pozostała *część $0 \_ * jest ujemna.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Klasyfikacja wieloklasowa**: przewidywanie zakresu kwot TIP płatnych za podróż. Podziel *\_kwotę* na pięć klas:
+- **Klasyfikacja wieloklasowa**: przewidywanie zakresu kwot TIP płatnych za podróż. Podziel * \_ kwotę* na pięć klas:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
@@ -88,11 +87,11 @@ Aby skopiować zestaw danych [podróży z NYC taksówkami](https://www.andresmh.
 
 Tutaj opisano, jak używać AzCopy do przenoszenia plików zawierających dane. Aby pobrać i zainstalować AzCopy, postępuj zgodnie z instrukcjami podanymi na stronie [wprowadzenie do narzędzia wiersza polecenia AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. W oknie wiersza polecenia Uruchom następujące polecenia AzCopy, zastępując * \<path_to_data_folder>* z żądanym miejscem docelowym:
+1. W oknie wiersza polecenia Uruchom następujące polecenia AzCopy, zastępując *\<path_to_data_folder>* je pożądanym miejscem docelowym:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. Po zakończeniu kopiowania w wybranym folderze danych zostanie wyświetlona suma z 24 plików spakowanych. Rozpakuj pobrane pliki do tego samego katalogu na komputerze lokalnym. Zanotuj folder, w którym znajdują się nieskompresowane pliki. Ten folder jest określany jako * \<ścieżka\_\_do unzipped_data\_plików\> * w następującej kolejności.
+1. Po zakończeniu kopiowania w wybranym folderze danych zostanie wyświetlona suma z 24 plików spakowanych. Rozpakuj pobrane pliki do tego samego katalogu na komputerze lokalnym. Zanotuj folder, w którym znajdują się nieskompresowane pliki. Ten folder jest określany *\<path\_to\_unzipped_data\_files\>* w następujący sposób.
 
 ## <a name="upload-the-data-to-the-default-container-of-the-hdinsight-hadoop-cluster"></a><a name="upload"></a>Przekaż dane do domyślnego kontenera klastra usługi HDInsight Hadoop
 > [!NOTE]
@@ -102,10 +101,10 @@ Tutaj opisano, jak używać AzCopy do przenoszenia plików zawierających dane. 
 
 W następujących poleceniach AzCopy Zastąp następujące parametry wartościami, które zostały określone podczas tworzenia klastra usługi Hadoop i rozpakowywanie plików danych.
 
-* *** \<path_to_data_folder>*** Katalog (wraz ze ścieżką) na komputerze, który zawiera niespakowane pliki danych.  
-* ***nazwa konta magazynu>klastra Hadoop \<*** Konto magazynu skojarzone z klastrem usługi HDInsight.
-* ***domyślny kontener>klastra Hadoop \<*** Domyślny kontener używany przez klaster. Nazwa domyślnego kontenera jest zwykle taka sama jak nazwa klastra. Na przykład jeśli klaster ma nazwę "abc123.azurehdinsight.net", domyślnym kontenerem jest abc123.
-* klucz konta magazynu>*** \<*** Klucz dla konta magazynu używanego przez klaster.
+* ***\<path_to_data_folder>*** Katalog (wraz ze ścieżką) na komputerze, który zawiera niespakowane pliki danych.  
+* ***\<storage account name of Hadoop cluster>*** Konto magazynu skojarzone z klastrem usługi HDInsight.
+* ***\<default container of Hadoop cluster>*** Domyślny kontener używany przez klaster. Nazwa domyślnego kontenera jest zwykle taka sama jak nazwa klastra. Na przykład jeśli klaster ma nazwę "abc123.azurehdinsight.net", domyślnym kontenerem jest abc123.
+* ***\<storage account key>*** Klucz dla konta magazynu używanego przez klaster.
 
 W wierszu polecenia lub w oknie programu Windows PowerShell uruchom następujące dwa polecenia AzCopy.
 
@@ -157,7 +156,7 @@ W wierszu polecenia usługi Hive, uruchom następujące polecenie w wierszu pole
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Poniżej znajduje się zawartość pliku **\_C:\temp\sample\_Hive Create\_DB\_i\_Tables. HQL** , który tworzy bazę danych Hive **nyctaxidb**oraz informacje o wykorzystaniu i **obtaryfie** **tabel.**
+Poniżej znajduje się zawartość pliku **C:\temp\sample \_ Hive \_ Create DB i Tables \_ \_ \_ . HQL** , który tworzy bazę danych Hive **nyctaxidb**oraz informacje o wykorzystaniu i **obtaryfie** **tabel.**
 
     create database if not exists nyctaxidb;
 
@@ -215,7 +214,7 @@ Zestaw danych NYC taksówki ma naturalny podział według miesiąca, którego u�
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-**Przykładowa\_gałąź\_ładowania\_danych\_za\_pomocą pliku partitions. HQL** zawiera następujące polecenia **ładowania** :
+**Przykładowa \_ gałąź \_ ładowania \_ danych \_ za pomocą pliku \_ partitions. HQL** zawiera następujące polecenia **ładowania** :
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -382,11 +381,11 @@ Całkowita liczba rekordów w obu tabelach jest również taka sama, co zapewnia
 > 
 > 
 
-W tym przykładzie zidentyfikowano Medallions (liczby taksówki) o długości większej niż 100 podróży w danym przedziale czasu. Zapytanie ma zalety dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem **miesiąca**zmiennej partycji. Wyniki zapytania są zapisywane w pliku lokalnym, **queryoutput. tsv**, w `C:\temp` węźle głównym.
+W tym przykładzie zidentyfikowano Medallions (liczby taksówki) o długości większej niż 100 podróży w danym przedziale czasu. Zapytanie ma zalety dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem **miesiąca**zmiennej partycji. Wyniki zapytania są zapisywane w pliku lokalnym, **queryoutput. tsv**, w węźle głównym `C:\temp` .
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-Poniżej znajduje się zawartość **przykładowej\_\_liczby\_\_rejsów usługi Hive według\_pliku Medallion. HQL** w celu przeprowadzenia inspekcji.
+Poniżej znajduje się zawartość **przykładowej \_ \_ liczby rejsów usługi Hive \_ według pliku \_ \_ Medallion. HQL** w celu przeprowadzenia inspekcji.
 
     SELECT medallion, COUNT(*) as med_count
     FROM nyctaxidb.fare
@@ -397,7 +396,7 @@ Poniżej znajduje się zawartość **przykładowej\_\_liczby\_\_rejsów usługi 
 
 Medallion w zestawie danych o NYCych taksówkach identyfikuje unikatowy plik cab. Można określić, które OOZ są podane w sposób porównawczy przez zapytanie, które z nich przeprowadzono więcej niż określoną liczbę podróży w określonym przedziale czasu. Poniższy przykład identyfikuje OOZ, którzy wykonali ponad setki podróży w ciągu pierwszych trzech miesięcy i zapisuje wyniki zapytania do pliku lokalnego, **C:\temp\queryoutput.tsv**.
 
-Poniżej znajduje się zawartość **przykładowej\_\_liczby\_\_rejsów usługi Hive według\_pliku Medallion. HQL** w celu przeprowadzenia inspekcji.
+Poniżej znajduje się zawartość **przykładowej \_ \_ liczby rejsów usługi Hive \_ według pliku \_ \_ Medallion. HQL** w celu przeprowadzenia inspekcji.
 
     SELECT medallion, COUNT(*) as med_count
     FROM nyctaxidb.fare
@@ -418,7 +417,7 @@ W wierszu polecenia katalogu Hive Uruchom następujące polecenie:
 
 Podczas eksplorowania zestawu danych często chcemy przeanalizować dystrybucje grup wartości. Ta sekcja zawiera przykład sposobu przeprowadzania tej analizy dla plików CAB i sterowników.
 
-**Przykładowa\_liczba\_\_rejsów\_Hive\_według\_licencji medallion. plik HQL** grupuje zestaw danych taryfy dla **Medallion** i **hack_license**i zwraca liczbę każdej kombinacji. Oto zawartość:
+**Przykładowa \_ \_ Liczba rejsów Hive \_ \_ według \_ \_ licencji Medallion. plik HQL** grupuje zestaw danych taryfy dla **Medallion** i **hack_license**i zwraca liczbę każdej kombinacji. Oto zawartość:
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -443,7 +442,7 @@ Wyniki zapytania są zapisywane w pliku lokalnym, **C:\temp\queryoutput.tsv**.
 
 Typowym celem analizy danych poznawczych jest odznaczenie nieprawidłowych lub uszkodzonych rekordów. W przykładzie w tej sekcji określa się, czy pola długości i szerokości geograficznej zawierają wartość daleko poza obszar NYC. Ponieważ istnieje najprawdopodobniej, że takie rekordy mają błędne wartości długości geograficznej, chcemy wyeliminować je z danych, które mają być używane do modelowania.
 
-Poniżej znajduje się zawartość **przykładowego\_pliku\_oceny\_jakości usługi Hive. HQL** do inspekcji.
+Poniżej znajduje się zawartość **przykładowego \_ pliku \_ oceny jakości usługi Hive \_ . HQL** do inspekcji.
 
         SELECT COUNT(*) FROM nyctaxidb.trip
         WHERE month=1
@@ -467,10 +466,10 @@ Argument *-S* zawarty w tym poleceniu pomija wydruk ekranu stanu mapy Hive/Zmnie
 
 W przypadku problemu klasyfikacji binarnej podanej w sekcji [przykłady zadań przewidywania](hive-walkthrough.md#mltasks) warto sprawdzić, czy podano poradę. Ta dystrybucja porad jest binarna:
 
-* podaną wskazówką (Klasa 1\_, kwota porada > $0)  
-* Brak Porada (klasa 0,\_kwota Porada = $0)
+* podaną wskazówką (Klasa 1, kwota Porada \_ > $0)  
+* Brak Porada (klasa 0, \_ Kwota Porada = $0)
 
-Następujące **przykładowe\_\_przerzucane\_częstotliwości. HQL** plik zawiera polecenie do uruchomienia:
+Następujące przykładowe przerzucane ** \_ \_ \_ częstotliwości. HQL** plik zawiera polecenie do uruchomienia:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -491,7 +490,7 @@ W wierszu polecenia katalogu Hive Uruchom polecenie:
 > 
 > 
 
-W przypadku problemu klasyfikacji wieloklasowej, którą opisano w sekcji [przykłady zadań przewidywania](hive-walkthrough.md#mltasks) , ten zestaw danych pozwala również na naturalną klasyfikację do przewidywania liczby podanych wskazówek. Za pomocą pojemników można definiować zakresy etykiet w zapytaniu. Aby uzyskać dystrybucje klas dla różnych zakresów etykiet, użyj **\_\_\_\_pliku HQL** . Poniżej znajdują się jego zawartość.
+W przypadku problemu klasyfikacji wieloklasowej, którą opisano w sekcji [przykłady zadań przewidywania](hive-walkthrough.md#mltasks) , ten zestaw danych pozwala również na naturalną klasyfikację do przewidywania liczby podanych wskazówek. Za pomocą pojemników można definiować zakresy etykiet w zapytaniu. Aby uzyskać dystrybucje klas dla różnych zakresów etykiet, użyj pliku ** \_ \_ \_ \_ HQL** . Poniżej znajdują się jego zawartość.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -548,13 +547,13 @@ W wierszu polecenia katalogu Hive Uruchom polecenie:
     hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-Wyniki zapytania są zapisywane do dziewięciu obiektów blob platformy Azure (**queryoutputdir/\_000000 0** do **queryoutputdir/\_000008 0**) w obszarze domyślnego kontenera klastra Hadoop.
+Wyniki zapytania są zapisywane do dziewięciu obiektów blob platformy Azure (**queryoutputdir/000000 \_ 0** do **queryoutputdir/000008 \_ 0**) w obszarze domyślnego kontenera klastra Hadoop.
 
 Aby wyświetlić rozmiar poszczególnych obiektów blob, uruchom następujące polecenie w wierszu polecenia katalogu Hive:
 
     hdfs dfs -ls wasb:///queryoutputdir
 
-Aby wyświetlić zawartość danego pliku, powiedz **000000\_0**, użyj `copyToLocal` polecenia Hadoop.
+Aby wyświetlić zawartość danego pliku, powiedz **000000 \_ 0**, użyj `copyToLocal` polecenia Hadoop.
 
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
@@ -574,11 +573,11 @@ Główną zaletą, że te dane znajdują się w obiekcie blob platformy Azure, m
 Po fazie analizy danych w trakcie określania wartości badawczych możesz teraz przystąpić do powyższego próbkowania danych do tworzenia modeli w Machine Learning. W tej sekcji pokazano, jak za pomocą zapytania programu Hive wykonać przykładowe dane. Machine Learning następnie uzyskuje dostęp do niego z modułu [Importuj dane][import-data] .
 
 ### <a name="down-sampling-the-data"></a>Podwyższenie poziomu próbkowanie danych
-Ta procedura obejmuje dwie czynności. Najpierw dołączymy tabele **nyctaxidb. Trip** i **nyctaxidb. opłaty** za trzy klucze, które znajdują się we wszystkich rekordach: **Medallion**, **licencja na hakery\_** i Data i **godzina pobrania\_**. Następnie generujemy binarną etykietę klasyfikacji, **przechyloną**i wieloklasową etykietę klasyfikacji, **klasę\_TIP**.
+Ta procedura obejmuje dwie czynności. Najpierw dołączymy tabele **nyctaxidb. Trip** i **nyctaxidb. opłaty** za trzy klucze, które znajdują się we wszystkich rekordach: **Medallion**, ** \_ licencja na hakery**i **Data i \_ godzina pobrania**. Następnie generujemy binarną etykietę klasyfikacji, **przechyloną**i wieloklasową etykietę klasyfikacji, ** \_ klasę TIP**.
 
 Aby można było korzystać z danych z próbką w dół bezpośrednio z modułu [Importuj dane][import-data] w Machine Learning, należy przechowywać wyniki poprzedniego zapytania w wewnętrznej tabeli programu Hive. W poniższym przykładzie utworzymy wewnętrzną tabelę programu Hive i zapełnimy jej zawartość danymi dołączonymi i w dół.
 
-Zapytanie stosuje standardowe funkcje programu Hive bezpośrednio w celu wygenerowania następujących parametrów czasu w **polu\_Data/godzina pobrania** :
+Zapytanie stosuje standardowe funkcje programu Hive bezpośrednio w celu wygenerowania następujących parametrów czasu w **polu \_ Data/godzina pobrania** :
 - godzina dnia
 - tydzień roku
 - dzień tygodnia ("1" oznacza poniedziałek, a "7" oznacza niedzielę)
@@ -587,7 +586,7 @@ Zapytanie generuje również bezpośrednią odległość między lokalizacjami p
 
 Zapytanie w dół przedstawia dane, dzięki czemu wyniki zapytania mogą pasować do Azure Machine Learning Studio. Do Studio importowanych jest tylko 1 procent oryginalnego zestawu danych.
 
-Poniżej przedstawiono zawartość **przykładowego\_\_przygotowania\_do\_pliku AML\_Full. HQL** , który przygotowuje dane do kompilowania modelu w Machine Learning:
+Poniżej przedstawiono zawartość **przykładowego \_ \_ przygotowania do pliku \_ \_ AML \_ Full. HQL** , który przygotowuje dane do kompilowania modelu w Machine Learning:
 
         set R = 3959;
         set pi=radians(180);
@@ -721,7 +720,7 @@ Aby wystawić zapytania Hive w module [importu danych][import-data] Machine Lear
 
 Poniżej przedstawiono niektóre szczegóły dotyczące modułu [importowania danych][import-data] i parametrów do wprowadzenia:
 
-**Identyfikator URI serwera HCatalog**: Jeśli nazwa klastra to **abc123**, użyj: https:\//abc123.azurehdinsight.NET.
+**Identyfikator URI serwera HCatalog**: Jeśli nazwa klastra to **abc123**, użyj: https: \/ /abc123.azurehdinsight.NET.
 
 **Nazwa konta użytkownika usługi Hadoop**: Nazwa użytkownika wybrana dla klastra (nie nazwa użytkownika dostępu zdalnego).
 
@@ -750,7 +749,7 @@ Poniżej znajduje się zrzut ekranu zapytania programu Hive i modułu [Importuj 
 
 ![Zrzut ekranu przedstawiający zapytanie programu Hive dotyczące modułu importu danych](./media/hive-walkthrough/1eTYf52.png)
 
-Ponieważ nasze dane w dalszej części znajdują się w domyślnym kontenerze, powstaje zapytanie Hive z Machine Learning jest proste. Jest to tylko **wybór * z nyctaxidb. nyctaxi\_\_danych z próbką**.
+Ponieważ nasze dane w dalszej części znajdują się w domyślnym kontenerze, powstaje zapytanie Hive z Machine Learning jest proste. Jest to tylko **wybór * z nyctaxidb. nyctaxi \_ \_ danych z próbką**.
 
 Zestaw danych może być teraz używany jako punkt początkowy do kompilowania modeli Machine Learning.
 
@@ -761,7 +760,7 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   **Używany przez Ciebie opis:** Regresja logistyczna dla dwóch klas
 
-  a. W przypadku tego problemu, etykieta docelowa (lub klasy **tipped**) jest wyrzucana. Oryginalny, próbkowany zestaw danych zawiera kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu klasyfikacji. W szczególności, **Klasa\_etykietki**, **Kwota Porada\_** i **\_łączna kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny są usuwane z rozważenia przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu, etykieta docelowa (lub klasy **tipped**) jest wyrzucana. Oryginalny, próbkowany zestaw danych zawiera kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu klasyfikacji. W szczególności, ** \_ Klasa etykietki**, ** \_ Kwota Porada**i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny są usuwane z rozważenia przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono doświadczenia umożliwiające prognozowanie, czy Porada została zapłacona za daną podróż:
 
@@ -781,7 +780,7 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   **Używany przez Ciebie opis:** Wieloklasowa regresja logistyczna
 
-  a. W przypadku tego problemu, nasza etykieta docelowa (lub klasy) to **Klasa etykiet\_**, która może przyjmować jedną z pięciu wartości (0, 1, 2, 3, 4). Podobnie jak w przypadku klasyfikacji binarnej, mamy kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu. W szczególności **przechylona**, **Kwota\_Porada**i **łączna\_kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu, nasza etykieta docelowa (lub klasy) to ** \_ Klasa etykiet**, która może przyjmować jedną z pięciu wartości (0, 1, 2, 3, 4). Podobnie jak w przypadku klasyfikacji binarnej, mamy kilka kolumn, które są docelowymi przeciekami dla tego eksperymentu. W szczególności **przechylona**, ** \_ Kwota Porada**i **łączna \_ Kwota** ujawniają informacje o etykiecie docelowej, która nie jest dostępna podczas testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono eksperyment do przewidywania, w którym pojemniku może spaść Porada. Pojemniki: Klasa 0: TIP = $0, Klasa 1: TIP > $0 i TIP <= $5, Klasa 2: TIP > $5 i TIP <= $10, Klasa 3: TIP > $10 i TIP <= $20 i Klasa 4: TIP > $20.
 
@@ -801,7 +800,7 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   **Używany przez Ciebie opis:** Drzewo podwyższanych decyzji
 
-  a. W przypadku tego problemu etykieta Target (lub Class) to **Kwota Porada\_**. Przecieki docelowe w tym przypadku to: **przechylony**, **Klasa\_TIP**i **łączna\_kwota**. Wszystkie te zmienne ujawniają informacje na temat kwoty TIP, która jest zwykle niedostępna w czasie testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
+  a. W przypadku tego problemu etykieta Target (lub Class) to ** \_ Kwota Porada**. Przecieki docelowe w tym przypadku to: **przechylony**, ** \_ Klasa TIP**i **łączna \_ Kwota**. Wszystkie te zmienne ujawniają informacje na temat kwoty TIP, która jest zwykle niedostępna w czasie testowania. Te kolumny zostaną usunięte przy użyciu modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ).
 
   Na poniższym diagramie przedstawiono eksperyment do przewidywania ilości danej pozostałej Porady:
 
@@ -819,9 +818,9 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 > 
 
 ## <a name="license-information"></a>Informacje o licencji
-Ten przykładowy przewodnik i towarzyszące mu skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Aby uzyskać więcej informacji, zobacz plik **License. txt** w katalogu przykładowego kodu w witrynie GitHub.
+Ten przykładowy przewodnik i towarzyszące mu skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Aby uzyskać więcej informacji, zobacz plik **LICENSE.txt** w katalogu przykładowego kodu w witrynie GitHub.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 • [Strona pobierania Andrés MONROY NYC TRIPS](https://www.andresmh.com/nyctaxitrips/)  
 • [Dane dotyczące podróży z NYCą w folii przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [Badania i statystyka NYCych taksówki oraz Komisji Limousine](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

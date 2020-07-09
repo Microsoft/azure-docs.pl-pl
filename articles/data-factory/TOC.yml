@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Tworzenie fabryki danych — szablon usługi Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Zabezpieczenia — włączanie szyfrowania kluczy zarządzanego przez klienta
+      href: enable-customer-managed-key.md
     - name: Tworzenie przepływu danych
       href: data-flow-create.md
 - name: Samouczki
@@ -39,7 +41,7 @@
               href: tutorial-copy-data-portal.md
             - name: .NET
               href: tutorial-copy-data-dot-net.md
-        - name: Z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage
+        - name: Z bazy danych programu SQL Server do usługi Azure Blob Storage
           items:
             - name: Narzędzie do kopiowania danych
               href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
                   href: tutorial-incremental-copy-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-powershell.md
-            - name: Z wielu lokalnych tabel programu SQL Server
+            - name: Z wielu tabel bazy danych programu SQL Server
               items:
                 - name: Interfejs użytkownika
                   href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -88,6 +90,10 @@
                   href: tutorial-incremental-copy-change-tracking-feature-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: Korzystanie z funkcji przechwytywania zmian danych w wystąpieniu zarządzanym usługi Azure SQL
+              items:
+                - name: Interfejs użytkownika
+                  href: tutorial-incremental-copy-change-data-capture-feature-portal.md
             - name: Nowe pliki według daty ostatniej modyfikacji
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: Nowe pliki według nazwy pliku partycjonowanego w czasie
@@ -156,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integration Runtime
       href: concepts-integration-runtime.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Przepływy danych
       items:
         - name: Przekształcanie danych przy użyciu przepływów danych mapowania
@@ -194,6 +204,8 @@
       items:
         - name: Wizualne tworzenie fabryk danych
           href: author-visually.md
+        - name: Centrum zarządzania
+          href: author-management-hub.md
         - name: Kontrola źródła
           href: source-control.md
         - name: Ciągła integracja i ciągłe dostarczanie
@@ -236,8 +248,8 @@
           href: connector-azure-file-storage.md
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
-        - name: Wystąpienie zarządzane usługi Azure SQL Database
-          href: connector-azure-sql-database-managed-instance.md
+        - name: Wystąpienie zarządzane Azure SQL
+          href: connector-azure-sql-managed-instance.md
         - name: Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
@@ -246,6 +258,8 @@
           href: format-binary.md
         - name: Cassandra
           href: connector-cassandra.md
+        - name: Format Common Data Model
+          href: format-common-data-model.md
         - name: Common Data Service for Apps
           href: connector-dynamics-crm-office-365.md
         - name: Concur
@@ -264,10 +278,14 @@
           href: connector-dynamics-ax.md
         - name: Dynamics CRM
           href: connector-dynamics-crm-office-365.md
+        - name: Format programu Excel
+          href: format-excel.md
         - name: System plików
           href: connector-file-system.md
         - name: FTP
           href: connector-ftp.md
+        - name: GitHub
+          href: connector-github.md
         - name: Google AdWords
           href: connector-google-adwords.md
         - name: Google BigQuery
@@ -370,6 +388,8 @@
           href: connector-sharepoint-online-list.md
         - name: Shopify
           href: connector-shopify.md
+        - name: Snowflake
+          href: connector-snowflake.md
         - name: platforma Spark
           href: connector-spark.md
         - name: SQL Server
@@ -556,19 +576,21 @@
         - name: Tożsamość zarządzana dla usługi Data Factory
           href: data-factory-service-identity.md
         - name: Szyfrowanie klucza zarządzanego przez klienta
-          href: quickstart-enable-customer-managed-key.md
+          href: enable-customer-managed-key.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Monitorowanie wizualne
           href: monitor-visually.md
         - name: Monitorowanie za pomocą usługi Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Monitorowanie SSIS za pomocą usługi Azure Monitor
+          href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
         - name: Monitorowanie za pomocą zestawów SDK
           href: monitor-programmatically.md
         - name: Monitorowanie środowiska Integration Runtime
           href: monitor-integration-runtime.md
         - name: Monitorowanie środowiska Azure-SSIS Integration Runtime
-          href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
+          href: monitor-integration-runtime.md#azure-ssis-integration-runtime
         - name: Ponowne konfigurowanie środowiska Azure SSIS Integration Runtime
           href: manage-azure-ssis-integration-runtime.md
         - name: Kopiowanie lub klonowanie fabryki danych
@@ -605,6 +627,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Włączanie uwierzytelniania usługi Azure AD dla środowiska Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Nawiązywanie połączenia z danymi przy użyciu uwierzytelniania systemu Windows
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Zapisywanie plików i nawiązywanie połączenia z udziałami plików
+          href: ssis-azure-files-file-shares.md
         - name: Aprowizowanie wersji Enterprise Edition dla środowiska Azure SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Wbudowane i wstępnie zainstalowane składniki w środowisku Azure-SSIS IR
@@ -623,6 +649,8 @@
           href: how-to-use-sql-managed-instance-with-ir.md
         - name: Migrowanie zadań SSIS za pomocą programu SSMS
           href: how-to-migrate-ssis-job-ssms.md
+        - name: Zarządzanie pakietami za pomocą magazynu pakietów Azure-SSIS IR
+          href: azure-ssis-integration-runtime-package-store.md
     - name: Tworzenie wyzwalaczy
       items:
         - name: Tworzenie wyzwalacza opartego na zdarzeniach
@@ -633,6 +661,32 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Tworzenie zależności wyzwalacza okna wirowania
           href: tumbling-window-trigger-dependency.md
+    - name: Scenariusze
+      items:
+        - name: Migracja danych dla magazynu typy data lake i EDW
+          items:
+            - name: Dlaczego warto wybrać usługę Azure Data Factory
+              href: data-migration-guidance-overview.md
+            - name: Migrowanie danych z usług AWS S3 na platformę Azure
+              href: data-migration-guidance-s3-azure-storage.md
+            - name: Migrowanie danych z lokalnego klastra Hadoop na platformę Azure
+              href: data-migration-guidance-hdfs-azure-storage.md
+            - name: Migrowanie danych z lokalnego serwera Netezza na platformę Azure
+              href: data-migration-guidance-netezza-azure-sqldw.md
+        - name: Przekształcanie przy użyciu przepływu danych mapowania
+          items:
+            - name: Przetwarzanie plików tekstowych o stałej szerokości
+              href: how-to-fixed-width.md
+            - name: Obsługa wierszy błędów
+              href: how-to-data-flow-error-rows.md
+            - name: Z bazy danych Azure SQL DB do CosmosDB
+              href: how-to-sqldb-to-cosmosdb.md
+        - name: Migracja ze środowiska lokalnego za pomocą usług SSIS
+          items:
+            - name: Migracja za pomocą usług SSIS — omówienie
+              href: scenario-ssis-migration-overview.md
+            - name: Migracja bazy danych za pomocą usług SSIS do wystąpienia zarządzanego Azure SQL
+              href: scenario-ssis-migration-ssisdb-mi.md
     - name: Szablony
       items:
         - name: Omówienie szablonów
@@ -673,32 +727,6 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Wykonywanie pakietów w środowisku Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
-- name: Scenariusze
-  items:
-    - name: Migracja danych dla magazynu typy data lake i EDW
-      items:
-        - name: Dlaczego warto wybrać usługę Azure Data Factory
-          href: data-migration-guidance-overview.md
-        - name: Migrowanie danych z usług AWS S3 na platformę Azure
-          href: data-migration-guidance-s3-azure-storage.md
-        - name: Migrowanie danych z lokalnego klastra Hadoop na platformę Azure
-          href: data-migration-guidance-hdfs-azure-storage.md
-        - name: Migrowanie danych z lokalnego serwera Netezza na platformę Azure
-          href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: Przekształcanie przy użyciu przepływu danych mapowania
-      items:
-        - name: Przetwarzanie plików tekstowych o stałej szerokości
-          href: how-to-fixed-width.md
-        - name: Obsługa wierszy błędów
-          href: how-to-data-flow-error-rows.md
-        - name: Z bazy danych Azure SQL DB do CosmosDB
-          href: how-to-sqldb-to-cosmosdb.md
-    - name: Migracja ze środowiska lokalnego za pomocą usług SSIS
-      items:
-        - name: Migracja za pomocą usług SSIS — omówienie
-          href: scenario-ssis-migration-overview.md
-        - name: Migrowanie bazy danych SSISDB do wystąpienia zarządzanego usługi Azure SQL Database
-          href: scenario-ssis-migration-ssisdb-mi.md
 - name: Dokumentacja
   items:
     - name: Skrypt przepływu danych

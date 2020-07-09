@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426240"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043431"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Przetwarzanie strumieni danych IoT w czasie rzeczywistym za pomocą Azure Stream Analytics
 
@@ -57,8 +57,8 @@ W celu ułatwienia pracy w tym przewodniku z wprowadzeniem udostępniono przykł
 ## <a name="create-an-azure-stream-analytics-query"></a>Tworzenie zapytania usługi Azure Stream Analytics
 Następnym krokiem po utworzeniu zadania jest napisanie zapytania. Można testować zapytania względem przykładowych danych bez łączenia danych wejściowych lub wyjściowych z zadaniem.
 
-Pobierz plik [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
-) z usługi GitHub. Następnie przejdź do zadania Azure Stream Analytics w Azure Portal.
+Pobierz [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
+) z witryny GitHub. Następnie przejdź do zadania Azure Stream Analytics w Azure Portal.
 
 Wybierz pozycję **zapytanie** w obszarze **topologia zadania** z menu po lewej stronie. Następnie wybierz pozycję **Przekaż przykładowe dane wejściowe**. Przekaż `HelloWorldASA-InputStream.json` plik, a następnie wybierz **przycisk OK**.
 

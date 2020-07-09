@@ -4,10 +4,10 @@ description: Artykuł opisujący obsługiwane jednostki SKU maszyny wirtualnej (
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82183623"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Obsługiwane jednostki SKU maszyny wirtualnej dla usługi Azure Policy

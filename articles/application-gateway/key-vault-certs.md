@@ -4,15 +4,15 @@ description: Dowiedz się, jak zintegrować Application Gateway platformy Azure 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: a214dae7c80cbc520fc6aff5a492466a77261167
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743695"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255368"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Zakończenie protokołu TLS z certyfikatami Key Vault
 
@@ -52,7 +52,7 @@ Integracja Application Gateway z Key Vault wymaga procesu konfiguracji z trzema 
    > [!NOTE]
    > W przypadku wdrożenia bramy aplikacji za pomocą szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell lub za pomocą aplikacji platformy Azure wdrożonej z Azure Portal certyfikat SSL jest przechowywany w magazynie kluczy jako plik PFX szyfrowany algorytmem Base64. Przed rozpoczęciem wdrażania należy wykonać kroki opisane w temacie [używanie Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). 
    >
-   > Szczególnie ważne jest, aby ustawić `enabledForTemplateDeployment` wartość `true`. Certyfikat może być bez hasła lub może mieć hasło. W przypadku certyfikatu z hasłem Poniższy przykład pokazuje możliwe konfiguracje dla `sslCertificates` wpisu w `properties` konfiguracji szablonu usługi ARM dla bramy aplikacji. Wartości `appGatewaySSLCertificateData` i `appGatewaySSLCertificatePassword` są wyszukiwane z magazynu kluczy, zgodnie z opisem w sekcji wpisy [tajne informacji o identyfikatorze dynamicznym](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Postępuj zgodnie z poprzednimi odwołaniami, `parameters('secretName')` aby zobaczyć, jak działa wyszukiwanie. Jeśli certyfikat nie jest bez hasła, Pomiń ten `password` wpis.
+   > Szczególnie ważne jest, aby ustawić `enabledForTemplateDeployment` wartość `true` . Certyfikat może być bez hasła lub może mieć hasło. W przypadku certyfikatu z hasłem Poniższy przykład pokazuje możliwe konfiguracje dla `sslCertificates` wpisu w `properties` konfiguracji szablonu usługi ARM dla bramy aplikacji. Wartości `appGatewaySSLCertificateData` i `appGatewaySSLCertificatePassword` są wyszukiwane z magazynu kluczy, zgodnie z opisem w sekcji wpisy [tajne informacji o identyfikatorze dynamicznym](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Postępuj zgodnie z poprzednimi odwołaniami, `parameters('secretName')` Aby zobaczyć, jak działa wyszukiwanie. Jeśli certyfikat nie jest bez hasła, Pomiń ten `password` wpis.
    >   
    > ```
    > "sslCertificates": [

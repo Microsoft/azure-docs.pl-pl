@@ -5,25 +5,21 @@ description: Dowiedz się, jak zbierać dane modelu danych wejściowych Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475428"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84433000"
 ---
 # <a name="collect-data-for-models-in-production"></a>Zbieranie danych dla modeli w środowisku produkcyjnym
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> Zestaw SDK monitorowania Azure Machine Learning zostanie wkrótce wycofany. Zestaw SDK jest nadal odpowiedni dla deweloperów, którzy obecnie używają zestawu SDK do monitorowania dryfowania danych w modelach. Jednak w przypadku nowych klientów zalecamy korzystanie z uproszczonego [monitorowania danych z Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 W tym artykule pokazano, jak zbierać dane modelu wejściowego z Azure Machine Learning. Przedstawiono w nim również sposób wdrażania danych wejściowych w klastrze usługi Azure Kubernetes Service (AKS) i przechowywania danych wyjściowych w usłudze Azure Blob Storage.
 
@@ -56,11 +52,11 @@ Dane wyjściowe są zapisywane w magazynie obiektów BLOB. Ponieważ dane są do
 ```
 
 >[!NOTE]
-> W wersjach zestawu Azure Machine Learning SDK dla języka Python starszej niż wersja 0.1.0 A16 `designation` argument ma nazwę. `identifier` Jeśli kod został opracowany przy użyciu wcześniejszej wersji, należy odpowiednio go zaktualizować.
+> W wersjach zestawu Azure Machine Learning SDK dla języka Python starszej niż wersja 0.1.0 A16 `designation` argument ma nazwę `identifier` . Jeśli kod został opracowany przy użyciu wcześniejszej wersji, należy odpowiednio go zaktualizować.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://aka.ms/AMLFree) .
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 
 - Musi być zainstalowany obszar roboczy uczenia AzureMachine, katalog lokalny zawierający Twoje skrypty oraz zestaw Azure Machine Learning SDK dla języka Python. Aby dowiedzieć się, jak je zainstalować, zobacz [jak skonfigurować środowisko programistyczne](how-to-configure-environment.md).
 
@@ -125,7 +121,7 @@ Jeśli masz już usługę z zależnościami zainstalowanymi w pliku środowiska 
 
 1. Otwórz obszar roboczy.
 
-1. Wybierz pozycję **wdrożenia** > **Wybierz pozycję** > **Edycja**usługi.
+1. Wybierz pozycję **wdrożenia**  >  **Wybierz pozycję**  >  **Edycja**usługi.
 
    ![Edytowanie usługi](././media/how-to-enable-data-collection/EditService.PNG)
 
@@ -143,7 +139,7 @@ Zbieranie danych można zatrzymać w dowolnym momencie. Aby wyłączyć zbierani
 
 1. Otwórz obszar roboczy.
 
-1. Wybierz pozycję **wdrożenia** > **Wybierz pozycję** > **Edycja**usługi.
+1. Wybierz pozycję **wdrożenia**  >  **Wybierz pozycję**  >  **Edycja**usługi.
 
    [![Wybierz opcję edycji](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
@@ -189,7 +185,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
     [![Power BI Konfiguracja obiektu BLOB](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. Dodaj nazwę konta magazynu i wprowadź swój klucz magazynu. Te informacje można znaleźć, wybierając pozycję **Ustawienia** > **klucze dostępu** w obiekcie blob.
+1. Dodaj nazwę konta magazynu i wprowadź swój klucz magazynu. Te informacje można znaleźć, wybierając pozycję **Ustawienia**  >  **klucze dostępu** w obiekcie blob.
 
 1. Wybierz kontener **dane modelu** i wybierz pozycję **Edytuj**.
 
@@ -199,7 +195,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
 1. Wprowadź ścieżkę modelu do filtru. Jeśli chcesz wyszukać tylko pliki z określonego roku lub miesiąca, po prostu rozwiń ścieżkę filtru. Aby na przykład wyszukać dane z marca, Użyj tej ścieżki filtru:
 
-   /modeldata/\<subskrypcji>/\<ResourceGroupName>/\<workspacename>/\<WebServiceName>/\<ModelName>/\<modelversion>/\<oznaczenie>/\<rok>/3
+   /modeldata/ \<subscriptionid> / \<resourcegroupname> / \<workspacename> / \<webservicename> / \<modelname> / \<modelversion> / \<designation> / \<year> /3
 
 1. Filtrowanie danych, które są istotne dla użytkownika na podstawie wartości **nazw** . Jeśli przechowujesz prognozy i dane wejściowe, musisz utworzyć zapytanie dla każdej z nich.
 
@@ -227,7 +223,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
     [![Wybieranie opcji przekazywania danych](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. Wybierz pozycję **Utwórz nową tabelę** i wybierz pozycję **inne źródła** > danych**Azure Blob Storage** > **Utwórz tabelę w notesie**.
+1. Wybierz pozycję **Utwórz nową tabelę** i wybierz pozycję **inne źródła danych**  >  **Azure Blob Storage**  >  **Utwórz tabelę w notesie**.
 
     [![Tworzenie tabeli datakostek](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

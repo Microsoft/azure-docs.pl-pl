@@ -1,19 +1,18 @@
 ---
 title: Uwierzytelnianie i autoryzacja
 description: Dowiedz się więcej na temat różnych sposobów uwierzytelniania aplikacji lub usługi w kotwicach przestrzennych platformy Azure oraz poziomów kontroli, które mają być bramą dostępu do kotwic przestrzennych platformy Azure.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653374"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84456508"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -39,7 +38,6 @@ Tokeny uwierzytelniania usługi Azure AD można uzyskać na dwa sposoby:
 Korzystanie z kluczy konta do uzyskiwania dostępu do konta zakotwiczeń przestrzennych platformy Azure jest najprostszym sposobem na rozpoczęcie pracy. Klucze kont znajdziesz na Azure Portal. Przejdź do swojego konta i wybierz kartę "klucze".
 
 ![Omówienie uwierzytelniania w kotwicach przestrzennych platformy Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Dostępne są dwa klucze, które jednocześnie są prawidłowe w celu uzyskania dostępu do konta kotwice przestrzenne. Zalecane jest regularne aktualizowanie klucza używanego do uzyskiwania dostępu do konta. posiadanie dwóch oddzielnych prawidłowych kluczy pozwala na takie aktualizacje bez przestojów. musisz tylko zaktualizować klucz podstawowy i klucz pomocniczy.
 
@@ -175,13 +173,14 @@ Token dostępu usługi Azure AD jest pobierany przy użyciu [biblioteki MSAL](..
         1.  W Azure Portal przejdź do **Azure Active Directory**i wybierz pozycję **rejestracje aplikacji**
         2.  Wybierz pozycję **rejestracja nowej aplikacji**
         3.  Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Następnie kliknij przycisk **Utwórz**.
-        4.  W tej aplikacji naciśnij pozycję **Ustawienia**, a następnie wybierz kartę **klucze** . Wprowadź nazwę klucza, wybierz czas trwania i naciśnij pozycję **Zapisz**. Pamiętaj, aby zapisać wartość klucza, która jest wyświetlana w tym czasie, ponieważ należy ją uwzględnić w kodzie usługi sieci Web.
+        4.  W tej aplikacji naciśnij pozycję **Ustawienia**, a następnie wybierz kartę **Certyfikaty i wpisy tajne** . Utwórz nowy klucz tajny klienta, wybierz czas trwania i przycisk **Dodaj**. Pamiętaj, aby zapisać wartość wpisu tajnego, ponieważ będzie ona musiała zostać uwzględniona w kodzie usługi sieci Web.
     2.  Przyznaj aplikacji i/lub użytkownikom dostęp do zasobu:
         1.  Przejdź do zasobu zakotwiczenia przestrzennego w Azure Portal
         2.  Przełącz na kartę **Kontrola dostępu (IAM)**
         3.  Trafienie **Dodaj przypisanie roli**
         1.  [Wybierz rolę](#role-based-access-control)
         2.  W polu **Wybierz** wprowadź nazwę utworzonych aplikacji i, do których chcesz przypisać dostęp. Jeśli chcesz, aby użytkownicy Twojej aplikacji mieli różne role względem konta zakotwiczeń przestrzennych, należy zarejestrować wiele aplikacji w usłudze Azure AD i przypisać je do każdej innej roli. Następnie Zaimplementuj logikę autoryzacji, aby korzystać z odpowiedniej roli dla użytkowników.
+        3.  Zwróć uwagę, że w polu **Dodaj przypisanie roli** ma być **ustawiona wartość "** użytkownik, Grupa lub główna usługa" usługi Azure AD.
     3.  Wybierz pozycję **Zapisz**.
 2.  W kodzie (Uwaga: możesz użyć przykładu usługi dostępnego w witrynie GitHub):
     1.  Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry identyfikatora klienta, klucza tajnego i RedirectUri w MSAL

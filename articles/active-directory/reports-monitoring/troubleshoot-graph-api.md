@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,11 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: eec5c5a3d810fdd2d561313e3a355e872fb525c2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85608096"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Rozwiązywanie problemów z błędami w interfejsie API raportowania Azure Active Directory
 
@@ -50,5 +49,5 @@ Wykonaj kroki opisane w sekcji [wymagania wstępne, aby uzyskać dostęp do inte
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Użyj odwołania](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-API inspekcji,[korzystając z dokumentacji dotyczącej interfejsu API raportów działań związanych z logowaniem](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Użyj dokumentacji dotyczącej](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ interfejsu API inspekcji [Korzystanie z interfejsu API raportów działań związanych z logowaniem](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

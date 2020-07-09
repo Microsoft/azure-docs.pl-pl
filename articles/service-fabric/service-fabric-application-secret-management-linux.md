@@ -6,17 +6,16 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78969028"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Linux
 W tym artykule przedstawiono sposób konfigurowania certyfikatu szyfrowania i używania go do szyfrowania wpisów tajnych w klastrach systemu Linux. W przypadku klastrów systemu Windows Zobacz [Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Windows][secret-management-windows-specific-link].
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Uzyskiwanie certyfikatu szyfrowania danych
-Certyfikat szyfrowanie danych jest używany wyłącznie do szyfrowania i odszyfrowywania [parametrów][parameters-link] w ustawieniach usługi. XML i [zmiennych środowiskowych][environment-variables-link] w pliku servicemanifest. XML usługi. Nie jest on używany do uwierzytelniania ani podpisywania tekstu szyfrowania. Certyfikat musi spełniać następujące wymagania:
+Certyfikat szyfrowanie danych jest używany wyłącznie do szyfrowania i odszyfrowywania [parametrów][parameters-link] w Settings.xml i [zmiennych środowiskowych][environment-variables-link] usługi w ServiceManifest.xml usługi. Nie jest on używany do uwierzytelniania ani podpisywania tekstu szyfrowania. Certyfikat musi spełniać następujące wymagania:
 
 * Certyfikat musi zawierać klucz prywatny.
 * Użycie klucza certyfikatu musi obejmować szyfrowanie danych (10) i nie powinno obejmować uwierzytelniania serwera ani uwierzytelniania klientów.
@@ -29,7 +28,7 @@ Certyfikat szyfrowanie danych jest używany wyłącznie do szyfrowania i odszyfr
   ```
 
 ## <a name="install-the-certificate-in-your-cluster"></a>Instalowanie certyfikatu w klastrze
-Certyfikat musi być zainstalowany na każdym węźle w klastrze `/var/lib/sfcerts`. Konto użytkownika, na którym jest uruchomiona usługa (domyślnie sfuser) **powinno mieć dostęp do odczytu** do zainstalowanego certyfikatu (czyli `/var/lib/sfcerts/TestCert.pem` dla bieżącego przykładu).
+Certyfikat musi być zainstalowany na każdym węźle w klastrze `/var/lib/sfcerts` . Konto użytkownika, na którym jest uruchomiona usługa (domyślnie sfuser) **powinno mieć dostęp do odczytu** do zainstalowanego certyfikatu (czyli `/var/lib/sfcerts/TestCert.pem` dla bieżącego przykładu).
 
 ## <a name="encrypt-secrets"></a>Szyfrowanie wpisów tajnych
 Poniższego fragmentu kodu można użyć do szyfrowania klucza tajnego. Ten fragment kodu szyfruje wartość. **nie podpisuje** tekstu szyfru. **Musisz użyć** tego samego certyfikatu szyfrowania, który jest zainstalowany w klastrze w celu utworzenia tekstu szyfrowanego dla wartości tajnych.
@@ -39,7 +38,7 @@ user@linux:$ echo "Hello World!" > plaintext.txt
 user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt | tr -d '\n' > plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
-Wynikowy tekst zakodowany w formacie Base-64 do szyfrowanego. txt zawiera zarówno klucz tajny, jak i informacje o certyfikacie użytym do jego zaszyfrowania. Aby sprawdzić jego prawidłowość, można je odszyfrować za pomocą OpenSSL.
+Wynikowy tekst zakodowany w formacie Base-64 do encrypted.txt zawiera zarówno klucz tajny, jak i informacje o certyfikacie użytym do jego zaszyfrowania. Aby sprawdzić jego prawidłowość, można je odszyfrować za pomocą OpenSSL.
 ```console
 user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der -inkey TestCert.prv
 ```

@@ -1,93 +1,92 @@
 ---
-title: Sieć szkieletowa usługi Azure CLI- sfctl siatki secretvalue
-description: Dowiedz się więcej o sfctl, interfejsie wiersza polecenia sieci szkieletowej usługi Azure. Zawiera listę poleceń do uzyskiwania i usuwania zasobów secretvalue sieci szkieletowej usługi.
+title: Interfejs wiersza polecenia platformy Azure Service Fabric sfctl siatkę secretvalue
+description: Dowiedz się więcej na temat sfctl, interfejsu wiersza polecenia platformy Azure Service Fabric. Zawiera listę poleceń do pobierania i usuwania Service Fabric siatki secretvalue.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76905967"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
-Pobierz i usuń zasoby siatki secretvalue.
+Pobieranie i usuwanie zasobów secretvalue siatki.
 
 ## <a name="commands"></a>Polecenia
 
 |Polecenie|Opis|
 | --- | --- |
 | delete | Usuwa określoną wartość nazwanego zasobu tajnego. |
-| list | Lista nazw wszystkich wartości określonego tajnego zasobu. |
-| pokaż | Wyświetla określoną wartość tajnego zasobu. |
+| list | Wyświetla listę nazw wszystkich wartości określonego zasobu tajnego. |
+| pokaż | Wyświetla określoną wartość zasobu tajnego. |
 
-## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete sfctl mesh secretvalue delete sfctl mesh secretvalue delete sfc
+## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl siatki secretvalue usuwanie
 Usuwa określoną wartość nazwanego zasobu tajnego.
 
-Usuwa tajny zasób wartości identyfikowany przez nazwę. Nazwa zasobu jest zazwyczaj wersją skojarzoną z tą wartością. Usunięcie zakończy się niepowodzeniem, jeśli określona wartość jest w użyciu.
+Usuwa zasób wartości tajnej identyfikowany przez nazwę. Nazwa zasobu jest zazwyczaj wersją skojarzoną z tą wartością. Usuwanie zakończy się niepowodzeniem, jeśli określona wartość jest używana.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
-| --secret-name -n [Wymagane] | Nazwa tajnego zasobu. |
-| --version -v [Wymagane] | Nazwa tajnej wersji. |
+| --Secret-Name-n [wymagane] | Nazwa zasobu tajnego. |
+| --Version-v [wymagane] | Nazwa wersji tajnej. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
 |Argument|Opis|
 | --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
-## <a name="sfctl-mesh-secretvalue-list"></a>lista secretvalue siatki sfctl
-Lista nazw wszystkich wartości określonego tajnego zasobu.
+## <a name="sfctl-mesh-secretvalue-list"></a>Lista secretvalue siatki sfctl
+Wyświetla listę nazw wszystkich wartości określonego zasobu tajnego.
 
-Pobiera informacje o wszystkich tajnych zasobów wartości określonego zasobu tajnego. Informacje obejmują nazwy tajnych zasobów wartości, ale nie rzeczywiste wartości.
+Pobiera informacje o wszystkich zasobach wartości tajnych określonego zasobu tajnego. Informacje te obejmują nazwy zasobów wartości tajnych, ale nie wartości rzeczywiste.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
-| --secret-name -n [Wymagane] | Nazwa tajnego zasobu. |
+| --Secret-Name-n [wymagane] | Nazwa zasobu tajnego. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
 |Argument|Opis|
 | --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
-## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
-Wyświetla określoną wartość tajnego zasobu.
+## <a name="sfctl-mesh-secretvalue-show"></a>sfctl siatki secretvalue Pokaż
+Wyświetla określoną wartość zasobu tajnego.
 
 ### <a name="arguments"></a>Argumenty
 
 |Argument|Opis|
 | --- | --- |
-| --secret-name -n [Wymagane] | Nazwa tajnego zasobu. |
-| --version -v [Wymagane] | Nazwa tajnej wersji. |
-| --show-wartość | Pokaż rzeczywistą wartość wersji tajnej. |
+| --Secret-Name-n [wymagane] | Nazwa zasobu tajnego. |
+| --Version-v [wymagane] | Nazwa wersji tajnej. |
+| --show-Value | Pokaż rzeczywistą wartość wersji tajnej. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
 |Argument|Opis|
 | --- | --- |
-| --debug | Zwiększ szczegółowość rejestrowania, aby wyświetlić wszystkie dzienniki debugowania. |
-| --help -h | Pokaż ten komunikat pomocy i zamknij. |
-| --wyjście -o | Format wyjściowy.  Dozwolone wartości\: json, jsonc, table, tsv.  Domyślny\: json. |
-| --zapytanie | Ciąg zapytania JMESPath. Zobacz\:http //jmespath.org/ aby uzyskać więcej informacji i przykładów. |
-| --pełne | Zwiększ szczegółowość rejestrowania. Użyj --debug dla pełnych dzienników debugowania. |
+| --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
+| --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia sieci szkieletowej usług.
-- Dowiedz się, jak używać interfejsu wiersza polecenia sieci szkieletowej usług przy użyciu [przykładowych skryptów.](/azure/service-fabric/scripts/sfctl-upgrade-application)
+- [Skonfiguruj](service-fabric-cli.md) interfejs wiersza polecenia Service Fabric.
+- Dowiedz się, jak używać interfejsu wiersza polecenia Service Fabric przy użyciu [przykładowych skryptów](/azure/service-fabric/scripts/sfctl-upgrade-application).

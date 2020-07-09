@@ -7,10 +7,9 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80637927"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Wskazówki dotyczące wdrażania aplikacji sieci Web za pomocą szablonów Azure Resource Manager
@@ -45,7 +44,7 @@ Zasoby są wdrażane w następującej kolejności:
 
 **Warstwa 4**
 * Certyfikat App Service — zależy od kontroli źródła lub MSDeploy, jeśli jest obecny. W przeciwnym razie zależy od aplikacji sieci Web.
-* Ustawienia konfiguracji (wartości parametrów połączeń, Web. config, ustawienia aplikacji) — są zależne od kontroli źródła lub MSDeploy, jeśli są obecne. W przeciwnym razie zależy od aplikacji sieci Web.
+* Ustawienia konfiguracji (parametry połączenia, wartości web.config, ustawienia aplikacji) — są zależne od kontroli źródła lub MSDeploy, jeśli są obecne. W przeciwnym razie zależy od aplikacji sieci Web.
 
 **Warstwa 5**
 * Powiązania nazw hostów — są zależne od certyfikatu, jeśli jest obecny. W przeciwnym razie zależy od zasobu wyższego poziomu.
@@ -90,7 +89,7 @@ Jeśli szablon Menedżer zasobów używa MSDeploy, komunikaty o błędach wdroż
 
 1. Przejdź do [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console)lokacji.
 2. Przejdź do folderu pod adresem D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Wyszukaj pliki appManagerStatus. XML i appManagerLog. XML. Pierwszy plik rejestruje stan. Drugi plik rejestruje informacje o błędzie. Jeśli błąd nie jest oczywisty, możesz dołączyć go, gdy zostanie wyświetlony monit o pomoc na [forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+3. Wyszukaj pliki appManagerStatus.xml i appManagerLog.xml. Pierwszy plik rejestruje stan. Drugi plik rejestruje informacje o błędzie. Jeśli błąd nie jest oczywisty, możesz dołączyć go, gdy zostanie wyświetlony monit o pomoc na [forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Wybierz unikatową nazwę aplikacji sieci Web
 
@@ -127,7 +126,7 @@ W Key Vault wybierz pozycję **Certyfikaty** i **Wygeneruj/Importuj** , aby prze
 
 ![Importowanie certyfikatu](media/web-sites-rm-template-guidance/import-certificate.png)
 
-W szablonie Podaj nazwę certyfikatu `keyVaultSecretName`.
+W szablonie Podaj nazwę certyfikatu `keyVaultSecretName` .
 
 Aby zapoznać się z przykładowym szablonem, zobacz [Wdrażanie certyfikatu aplikacji sieci Web z poziomu wpisu tajnego Key Vault i używanie go do tworzenia powiązania SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 

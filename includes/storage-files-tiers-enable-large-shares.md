@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cd7b889560acbe484581f065b641375c222f7ca8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81536498"
 ---
 Domyślnie standardowe udziały plików mogą obejmować maksymalnie 5 TiB, chociaż limit udostępniania można zwiększyć do 100 TiB. W tym celu należy włączyć funkcję *dużego udziału plików* na poziomie konta magazynu. Konta usługi Premium Storage (konta magazynu*FileStorage* ) nie mają flagi dużej funkcji udostępniania plików, ponieważ wszystkie udziały plików w warstwie Premium są już włączone do obsługi pełnej pojemności 100 TIB.
@@ -23,6 +23,6 @@ Aby włączyć duże udziały plików na istniejącym koncie magazynu, przejdź 
 
 ![Zrzut ekranu przedstawiający Przełącznik Rocker o dużym udziale plików w Azure Portal](media/storage-files-tiers-enable-large-shares/enable-lfs-0.png)
 
-Możesz również włączyć udziały plików 100 TiB za pomocą [`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) polecenia cmdlet programu PowerShell [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) i interfejsu CLI platformy Azure. Aby uzyskać szczegółowe instrukcje dotyczące włączania udziałów dużych plików, zobacz [Włączanie i tworzenie dużych udziałów plików](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
+Możesz również włączyć udziały plików 100 TiB za pomocą polecenia [`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) cmdlet programu PowerShell i [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) interfejsu CLI platformy Azure. Aby uzyskać szczegółowe instrukcje dotyczące włączania udziałów dużych plików, zobacz [Włączanie i tworzenie dużych udziałów plików](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
 
 Aby dowiedzieć się więcej na temat tworzenia udziałów plików na nowych kontach magazynu, zobacz [Tworzenie udziału plików platformy Azure](../articles/storage/files/storage-how-to-create-file-share.md).

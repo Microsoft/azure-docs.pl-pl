@@ -3,26 +3,27 @@ title: Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 description: Hostowanie statycznej witryny sieci Web usługi Azure Storage, które zapewnia ekonomiczne i skalowalne rozwiązanie do hostowania nowoczesnych aplikacji sieci Web.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648504"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85833350"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
 Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze magazynu o nazwie *$Web*. Hosting zawartości w usłudze Azure Storage umożliwia korzystanie z architektur bezserwerowych, które obejmują [Azure Functions](/azure/azure-functions/functions-overview) i innych usług platformy jako usługi (PaaS).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > Jeśli lokacja jest zależna od kodu po stronie serwera, należy zamiast tego użyć [Azure App Service](/azure/app-service/overview) .
+Upewnij się, że utworzono standardowe konto magazynu ogólnego przeznaczenia w wersji 2. Statyczne witryny sieci Web nie są dostępne na żadnym innym typie konta magazynu.
 
 ## <a name="setting-up-a-static-website"></a>Konfigurowanie statycznej witryny sieci Web
 
@@ -46,7 +47,7 @@ Aby przekazać zawartość do kontenera **$Web** , można użyć dowolnego z tyc
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Rozszerzenie programu Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Rozszerzenie programu Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Wyświetlanie zawartości
 
@@ -63,11 +64,11 @@ Adres URL witryny zawiera kod regionalny. Na przykład adres URL `https://contos
 
 Chociaż kod ten musi pozostawać w adresie URL, jest używany tylko do użytku wewnętrznego i nie będzie konieczne używanie tego kodu w żaden inny sposób.
 
-Dokument indeksu określony po włączeniu hostingu statycznej witryny sieci Web jest wyświetlany, gdy użytkownicy otworzą lokację i nie określą określonego pliku (na przykład: `https://contosoblobaccount.z22.web.core.windows.net` ).  
+Dokument indeksu określony po włączeniu hostingu statycznej witryny sieci Web jest wyświetlany, gdy użytkownicy otworzą lokację i nie określą określonego pliku (na przykład: `https://contosoblobaccount.z22.web.core.windows.net` ).
 
 ### <a name="secondary-endpoints"></a>Pomocnicze punkty końcowe
 
-W przypadku skonfigurowania [nadmiarowości w regionie pomocniczym](../common/storage-redundancy.md#redundancy-in-a-secondary-region)można także uzyskać dostęp do zawartości witryny sieci Web za pomocą pomocniczego punktu końcowego. Ponieważ dane są replikowane do regionów pomocniczych asynchronicznie, pliki, które są dostępne w pomocniczym punkcie końcowym, nie są zawsze zsynchronizowane z plikami, które są dostępne w podstawowym punkcie końcowym. 
+W przypadku skonfigurowania [nadmiarowości w regionie pomocniczym](../common/storage-redundancy.md#redundancy-in-a-secondary-region)można także uzyskać dostęp do zawartości witryny sieci Web za pomocą pomocniczego punktu końcowego. Ponieważ dane są replikowane do regionów pomocniczych asynchronicznie, pliki, które są dostępne w pomocniczym punkcie końcowym, nie są zawsze zsynchronizowane z plikami, które są dostępne w podstawowym punkcie końcowym.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Wpływ ustawienia publicznego poziomu dostępu kontenera sieci Web
 
@@ -85,11 +86,11 @@ Jednak publiczny dostęp do podstawowego punktu końcowego usługi BLOB Service 
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapowanie domeny niestandardowej na adres URL statycznej witryny internetowej
 
-Możesz udostępnić statyczną witrynę sieci Web za pośrednictwem domeny niestandardowej. 
+Możesz udostępnić statyczną witrynę sieci Web za pośrednictwem domeny niestandardowej.
 
 Łatwiej jest włączyć dostęp do protokołu HTTP dla domeny niestandardowej, ponieważ usługa Azure Storage natywnie obsługuje ją. Aby włączyć protokół HTTPS, musisz użyć Azure CDN, ponieważ usługa Azure Storage nie obsługuje jeszcze natywnie protokołu HTTPS z domenami niestandardowymi. Aby uzyskać wskazówki krok po kroku, zobacz [Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md) .
 
-Jeśli konto magazynu jest skonfigurowane tak, aby [wymagało bezpiecznego transferu](../common/storage-require-secure-transfer.md) za pośrednictwem protokołu HTTPS, użytkownicy muszą używać punktu końcowego HTTPS. 
+Jeśli konto magazynu jest skonfigurowane tak, aby [wymagało bezpiecznego transferu](../common/storage-require-secure-transfer.md) za pośrednictwem protokołu HTTPS, użytkownicy muszą używać punktu końcowego HTTPS.
 
 > [!TIP]
 > Rozważ Hostowanie domeny na platformie Azure. Aby uzyskać więcej informacji, zobacz [Hostowanie domeny w Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
@@ -100,7 +101,7 @@ Nie ma możliwości skonfigurowania nagłówków w ramach funkcji statycznej wit
 
 Jeśli chcesz użyć nagłówków do sterowania buforowaniem, zobacz temat [kontrola Azure CDN buforowania przy użyciu reguł buforowania](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Bezpłatnie możesz włączyć hosting statycznej witryny sieci Web. Opłaty są naliczane tylko za magazyn obiektów BLOB wykorzystywany przez lokację i koszty operacji. Aby uzyskać więcej informacji na temat cen usługi Azure Blob Storage, zapoznaj się z [cennikiem usługi azure BLOB Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

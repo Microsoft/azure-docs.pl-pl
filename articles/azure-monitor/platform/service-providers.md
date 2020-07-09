@@ -6,12 +6,11 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658884"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85340880"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -19,7 +18,7 @@ Log Analytics obszary robocze w Azure Monitor mogą pomóc zarządzanym dostawco
 
 Duże przedsiębiorstwa współużytkują wiele podobieństw z dostawcami usług, szczególnie w przypadku scentralizowanego zespołu IT, który jest odpowiedzialny za zarządzanie nim dla wielu różnych jednostek roboczych. Dla uproszczenia w tym dokumencie jest stosowany *dostawca usług* , ale te same funkcje są również dostępne dla przedsiębiorstw i innych klientów.
 
-W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
+W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
 
 Log Analytics w Azure Monitor może być również używany przez dostawcę usług do zarządzania zasobami klienta za pomocą funkcji zarządzania zasobami delegowanymi platformy Azure w [usłudze Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
 
@@ -64,7 +63,7 @@ Zalety scentralizowanej architektury są następujące:
 Wady centralnej architektury są następujące:
 
 * Ta architektura ma zastosowanie tylko do danych maszyn wirtualnych opartych na agencie, ale nie obejmuje źródeł danych PaaS, SaaS i Azure Fabric.
-* Po scaleniu z jednym obszarem roboczym może być trudno rozdzielić dane między klientami. Jedyną dobrą metodą jest użycie w pełni kwalifikowanej nazwy domeny (FQDN) komputera lub identyfikatora subskrypcji platformy Azure. 
+* Po scaleniu z jednym obszarem roboczym może być trudno rozdzielić dane między klientami. Jedyną dobrą metodą jest użycie w pełni kwalifikowanej nazwy domeny (FQDN) komputera lub identyfikatora subskrypcji platformy Azure.
 * Wszystkie dane ze wszystkich klientów będą przechowywane w tym samym regionie z pojedynczym rachunkiem i tymi samymi ustawieniami przechowywania i konfiguracji.
 * Usługi Azure Fabric i PaaS Services, takie jak Diagnostyka Azure i dzienniki inspekcji platformy Azure, wymagają, aby obszar roboczy znajdował się w tej samej dzierżawie co zasób, dlatego nie może wysyłać dzienników do centralnego obszaru roboczego.
 * Wszyscy agenci maszyn wirtualnych wszyscy klienci będą uwierzytelniani w centralnym obszarze roboczym przy użyciu tego samego identyfikatora i klucza obszaru roboczego. Nie ma metody blokowania dzienników od określonego klienta bez zakłócania pracy przez innych klientów.
@@ -77,13 +76,13 @@ Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 
 1. Centralny obszar roboczy: dostawca usług może utworzyć obszar roboczy w swojej dzierżawie i użyć skryptu, który korzysta z [interfejsu API zapytania](https://dev.loganalytics.io/) z [interfejsem API zbierania danych](../../azure-monitor/platform/data-collector-api.md) , aby przenieść dane z różnych obszarów roboczych do tej centralnej lokalizacji. Inną opcją, inną niż skrypt, jest użycie [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](../../azure-monitor/platform/powerbi.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Automatyzowanie tworzenia i konfigurowania obszarów roboczych przy użyciu [szablonów Menedżer zasobów](template-workspace-configuration.md)
 
-* Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
 
 * Korzystanie z [alertów](../../azure-monitor/platform/alerts-overview.md) w celu integracji z istniejącymi systemami
 

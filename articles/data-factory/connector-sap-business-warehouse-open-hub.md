@@ -11,13 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: ff3b4799f42e85ad3df62ef18469a26120ae3021
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/12/2020
+ms.openlocfilehash: 1413676eb5f3ab6f472648335996c1e607bc8b27
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418086"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84771023"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -53,9 +52,9 @@ SAP BW Otwórz lokalizację docelową (OHD) określa miejsce docelowe, do które
 
 ## <a name="delta-extraction-flow"></a>Przepływ ekstrakcji różnicowej
 
-Moduł ADF SAP BW otwarty łącznik centrum udostępnia dwie opcjonalne właściwości `excludeLastRequest` : `baseRequestId` i, które mogą być używane do obsługi obciążenia różnicowego z otwartego centrum. 
+Moduł ADF SAP BW otwarty łącznik centrum udostępnia dwie opcjonalne właściwości: `excludeLastRequest` i `baseRequestId` , które mogą być używane do obsługi obciążenia różnicowego z otwartego centrum. 
 
-- **excludeLastRequestId**: określa, czy mają zostać wykluczone rekordy ostatniego żądania. Wartość domyślna to true. 
+- **excludeLastRequestId**: określa, czy mają zostać wykluczone rekordy ostatniego żądania. Wartość domyślna to True. 
 - **baseRequestId**: Identyfikator żądania dla ładowania różnicowego. Po jego ustawieniu zostaną pobrane tylko dane z identyfikatorem żądania większym niż wartość tej właściwości. 
 
 Ogólnie, wyodrębnianie z oprogramowania SAP InfoProviders do Azure Data Factory (ADF) składa się z dwóch kroków: 
@@ -105,11 +104,15 @@ W poniższych sekcjach znajdują się szczegółowe informacje o właściwościa
 
 Następujące właściwości są obsługiwane w przypadku usługi SAP Business Warehouse Open Hub połączonej:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **SapOpenHub** | Tak |
+| typ | Właściwość Type musi mieć wartość: **SapOpenHub** | Tak |
 | serwer | Nazwa serwera, na którym znajduje się wystąpienie SAP BW. | Tak |
 | systemNumber | Numer systemu SAP BW.<br/>Dozwolona wartość: dwucyfrowa liczba dziesiętna reprezentowana jako ciąg. | Tak |
+| messageServer | Nazwa hosta serwera komunikatów SAP.<br/>Służy do nawiązywania połączenia z serwerem komunikatów SAP. | Nie |
+| messageServerService | Nazwa usługi lub numer portu serwera komunikatów.<br/>Służy do nawiązywania połączenia z serwerem komunikatów SAP. | Nie |
+| systemId | Identyfikator systemu SAP, w którym znajduje się tabela.<br/>Służy do nawiązywania połączenia z serwerem komunikatów SAP. | Nie |
+| Logowanie | Grupa logowania dla systemu SAP.<br/>Służy do nawiązywania połączenia z serwerem komunikatów SAP. | Nie |
 | clientId | Identyfikator klienta klienta w systemie SAP w.<br/>Dozwolona wartość: 3-cyfrowa liczba dziesiętna reprezentowana jako ciąg. | Tak |
 | language | Język, którego używa System SAP. | Nie (wartość domyślna to **EN**)|
 | userName | Nazwa użytkownika, który ma dostęp do serwera SAP. | Tak |
@@ -147,9 +150,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z i do SAP BW Otwórz Centrum, ustaw właściwość Type zestawu danych na **SapOpenHubTable**. Obsługiwane są następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość **SapOpenHubTable**.  | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **SapOpenHubTable**.  | Tak |
 | openHubDestinationName | Nazwa miejsca docelowego typu Open Hub, z którego mają zostać skopiowane dane. | Tak |
 
 Jeśli ustawienia `excludeLastRequest` i `baseRequestId` w zestawie danych, nadal są obsługiwane w stanie takim, w jakim jest zalecane użycie nowego modelu w źródle aktywności.
@@ -181,16 +184,16 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z SAP BW Otwórz Centrum, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SapOpenHubSource**. | Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SapOpenHubSource**. | Tak |
 | excludeLastRequest | Określa, czy mają zostać wykluczone rekordy ostatniego żądania. | Nie (wartość domyślna to **true**) |
 | baseRequestId | Identyfikator żądania dla ładowania różnicowego. Po jego ustawieniu zostaną pobrane tylko dane z identyfikatorem żądania **większym niż** wartość tej właściwości.  | Nie |
 
 >[!TIP]
 >Jeśli otwarta tabela centrów zawiera tylko dane wygenerowane przez pojedynczy identyfikator żądania, na przykład zawsze należy wykonać pełne ładowanie i zastąpić istniejące dane w tabeli, lub uruchomić DTP tylko raz dla testu, pamiętaj o usunięciu zaznaczenia opcji "excludeLastRequest" w celu skopiowania danych.
 
-Aby przyspieszyć ładowanie danych, można ustawić [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) działanie kopiowania w celu załadowania danych z SAP BW otwartego centrum. Jeśli na przykład ustawisz `parallelCopies` cztery, Data Factory współbieżnie wykonuje cztery wywołania RFC, a każde wywołanie RFC pobierze część danych z SAP BW otwartej tabeli z podziałem na partycje według identyfikatora żądania DTP i identyfikatora pakietu. Ma to zastosowanie, gdy liczba unikatowych identyfikatorów żądań DTP i identyfikator pakietu jest większa niż wartość `parallelCopies`. Podczas kopiowania danych do magazynu danych opartego na plikach, jest również ponownie wykonywane polecenie zapisu do folderu jako wiele plików (Określ nazwę folderu), w którym to przypadku wydajność jest lepsza niż zapis do pojedynczego pliku.
+Aby przyspieszyć ładowanie danych, można ustawić [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) działanie kopiowania w celu załadowania danych z SAP BW otwartego centrum. Jeśli na przykład ustawisz `parallelCopies` cztery, Data Factory współbieżnie wykonuje cztery wywołania RFC, a każde wywołanie RFC pobierze część danych z SAP BW otwartej tabeli z podziałem na partycje według identyfikatora żądania DTP i identyfikatora pakietu. Ma to zastosowanie, gdy liczba unikatowych identyfikatorów żądań DTP i identyfikator pakietu jest większa niż wartość `parallelCopies` . Podczas kopiowania danych do magazynu danych opartego na plikach, jest również ponownie wykonywane polecenie zapisu do folderu jako wiele plików (Określ nazwę folderu), w którym to przypadku wydajność jest lepsza niż zapis do pojedynczego pliku.
 
 **Przykład:**
 

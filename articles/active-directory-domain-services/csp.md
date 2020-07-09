@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: e7276dcfca6ba033942d62f347ac3a799524cac4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cdb75c821f45fe7fcf0f455145beb2b9be2a55
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519085"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84734864"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Azure Active Directory Domain Services wdrażania i zarządzania dla dostawców rozwiązań w chmurze platformy Azure
 
@@ -78,11 +78,11 @@ Ten model wdrażania może być dostosowany do scenariuszy, w których dostawca 
 
 W przypadku administrowania domeną zarządzaną w ramach subskrypcji dostawcy CSP platformy Azure obowiązują następujące ważne zagadnienia:
 
-* **Agenci administracyjni dostawcy usług kryptograficznych mogą udostępniać domenę zarządzaną przy użyciu swoich poświadczeń:** Usługa Azure AD DS obsługuje subskrypcje dostawcy CSP platformy Azure. Użytkownicy należący do grupy agentów administracyjnych partnera CSP mogą inicjować nową domenę zarządzaną platformy Azure AD DS.
+* **Agenci administracyjni dostawcy usług kryptograficznych mogą udostępniać domenę zarządzaną przy użyciu swoich poświadczeń:** Usługa Azure AD DS obsługuje subskrypcje dostawcy CSP platformy Azure. Użytkownicy należący do grupy agentów administracyjnych partnera CSP mogą inicjować nową domenę zarządzaną.
 
 * **Dostawcy usług kryptograficznych mogą tworzyć skrypty tworzenia nowych domen zarządzanych dla swoich klientów przy użyciu programu PowerShell:** Aby uzyskać szczegółowe informacje [, zobacz Jak włączyć usługę Azure AD DS przy użyciu programu PowerShell](powershell-create-instance.md) .
 
-* **Agenci administracyjni dostawcy usług kryptograficznych nie mogą wykonywać bieżących zadań zarządzania w domenie zarządzanej przy użyciu ich poświadczeń:** Użytkownicy administracyjni dostawcy CSP nie mogą wykonywać rutynowych zadań zarządzania w domenie zarządzanej przy użyciu ich poświadczeń. Ci użytkownicy są użytkownikami zewnętrznymi dzierżawy usługi Azure AD klienta, a ich poświadczenia nie są dostępne w ramach dzierżawy usługi Azure AD klienta. Usługa Azure AD DS nie ma dostępu do skrótów haseł protokołu Kerberos i NTLM dla tych użytkowników, dlatego nie można uwierzytelnić użytkowników w domenach zarządzanych AD DS platformy Azure.
+* **Agenci administracyjni dostawcy usług kryptograficznych nie mogą wykonywać bieżących zadań zarządzania w domenie zarządzanej przy użyciu ich poświadczeń:** Użytkownicy administracyjni dostawcy CSP nie mogą wykonywać rutynowych zadań zarządzania w domenie zarządzanej przy użyciu ich poświadczeń. Ci użytkownicy są użytkownikami zewnętrznymi dzierżawy usługi Azure AD klienta, a ich poświadczenia nie są dostępne w ramach dzierżawy usługi Azure AD klienta. Usługa Azure AD DS nie ma dostępu do skrótów haseł protokołu Kerberos i NTLM dla tych użytkowników, dlatego nie można uwierzytelnić użytkowników w domenach zarządzanych.
 
   > [!WARNING]
   > Musisz utworzyć konto użytkownika w katalogu klienta, aby wykonywać bieżące zadania administracyjne w domenie zarządzanej.

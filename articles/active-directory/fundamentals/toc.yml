@@ -11,6 +11,8 @@
       href: whats-new.md
     - name: Co nowego na platformie Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
+    - name: Archiwalne informacje Co nowego w usłudze Azure AD
+      href: whats-new-archive.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -51,6 +53,8 @@
       items:
         - name: 'Wdrożenie 30, 90 i dalej'
           href: active-directory-deployment-checklist-p2.md
+        - name: Plany wdrażania usługi Azure Active Directory
+          href: active-directory-deployment-plans.md
     - name: Magazyn danych
       items:
         - name: Przechowywanie danych tożsamości na potrzeby Europy
@@ -82,6 +86,8 @@
           href: add-custom-domain.md
         - name: Dodawanie oznaczenia marką firmy
           href: customize-branding.md
+        - name: Konfigurowanie opcji „Nie wylogowuj?”
+          href: keep-me-signed-in.md
         - name: Kojarzenie subskrypcji platformy Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Dodawanie własnych informacje o prywatności
@@ -100,6 +106,8 @@
           href: active-directory-groups-settings-azure-portal.md
         - name: Dodawanie lub usuwanie właścicieli grupy
           href: active-directory-accessmanagement-managing-group-owners.md
+        - name: Zarządzanie dostępem do zasobów przy użyciu grup
+          href: active-directory-manage-groups.md
     - name: Użytkownicy
       items:
         - name: Dodawanie lub usuwanie nowego użytkownika
@@ -114,14 +122,10 @@
           href: license-users-groups.md
         - name: Przywrócić usuniętego użytkownika
           href: active-directory-users-restore.md
-- name: Zasoby
+- name: Rozwiązywanie problemów
   expanded: true
   items:
     - name: Uzyskiwanie pomocy technicznej dla usługi Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md
     - name: Często zadawane pytania dotyczące usługi Azure Active Directory
       href: active-directory-faq.md
-    - name: Plany wdrażania usługi Azure Active Directory
-      href: active-directory-deployment-plans.md
-    - name: Archiwalne informacje Co nowego w usłudze Azure AD
-      href: whats-new-archive.md

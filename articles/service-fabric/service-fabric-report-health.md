@@ -1,16 +1,15 @@
 ---
 title: Dodawanie niestandardowych raportów o kondycji Service Fabric
 description: Opisuje sposób wysyłania niestandardowych raportów o kondycji do jednostek usługi Azure Service Fabric Health. Zawiera zalecenia dotyczące projektowania i implementowania raportów dotyczących kondycji jakości.
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451584"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85392645"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Dodawanie niestandardowych raportów o kondycji Service Fabric
 Na platformie Azure Service Fabric wprowadzono [model kondycji](service-fabric-health-introduction.md) umożliwiający Flagowanie klastra w złej kondycji i warunków aplikacji na określonych jednostkach. Model kondycji używa **raportów kondycji** (składniki systemowe i alarmy). Celem jest łatwe i Szybkie diagnozowanie i naprawa. Moduły zapisujące usługi muszą myśleć o kondycji. Każdy warunek, który może mieć wpływ na kondycję, powinien być raportowany w szczególności, jeśli może pomóc w oflagowaniu problemów blisko poziomu głównego. Informacje o kondycji mogą zaoszczędzić czas i wysiłku związane z debugowaniem i badaniem. Użyteczność jest szczególnie oczywista, gdy usługa jest uruchomiona i działa w dużej skali w chmurze (prywatnej lub na platformie Azure).
@@ -41,7 +40,7 @@ Jak wspomniano wcześniej, można wykonywać raportowanie z:
 Po wyczyszczeniu projektu raportowania kondycji można łatwo wysyłać raporty kondycji. Programu [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) można użyć do raportowania kondycji, Jeśli klaster nie jest [zabezpieczony](service-fabric-cluster-security.md) lub jeśli klient sieci szkieletowej ma uprawnienia administratora. Raportowanie można przeprowadzić za pośrednictwem interfejsu API za pomocą [FabricClient. HealthManager. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), za pośrednictwem programu PowerShell lub za pośrednictwem protokołu REST. Pokrętła konfiguracji przedstawia raporty wsadowe w celu zwiększenia wydajności.
 
 > [!NOTE]
-> Kondycja raportu jest synchroniczna i reprezentuje tylko sprawdzenie poprawności działania po stronie klienta. Fakt, że raport jest akceptowany przez klienta kondycji lub obiekty `Partition` lub `CodePackageActivationContext` nie oznacza, że są stosowane w sklepie. Jest on wysyłany asynchronicznie i prawdopodobnie przetwarzany z innymi raportami. Przetwarzanie na serwerze może nadal zakończyć się niepowodzeniem: numer sekwencyjny może być nieodświeżony, jednostka, na której należy zastosować raport, został usunięty itp.
+> Kondycja raportu jest synchroniczna i reprezentuje tylko sprawdzenie poprawności działania po stronie klienta. Fakt, że raport jest akceptowany przez klienta kondycji lub `Partition` obiekty lub `CodePackageActivationContext` nie oznacza, że są stosowane w sklepie. Jest on wysyłany asynchronicznie i prawdopodobnie przetwarzany z innymi raportami. Przetwarzanie na serwerze może nadal zakończyć się niepowodzeniem: numer sekwencyjny może być nieodświeżony, jednostka, na której należy zastosować raport, został usunięty itp.
 > 
 > 
 
@@ -58,7 +57,7 @@ Raporty kondycji są wysyłane do Menedżera kondycji za pomocą klienta kondycj
 > 
 
 Buforowanie na kliencie wymaga unikatowej wartości raportów. Na przykład jeśli konkretny nieprawidłowy raport zgłasza 100 raportów na sekundę na tej samej właściwości tej samej jednostki, raporty są zastępowane ostatnią wersją. W kolejce klienta istnieje co najwyżej jeden raport. W przypadku skonfigurowania przetwarzania wsadowego liczba raportów wysyłanych do Menedżera kondycji jest tylko jeden na interwał wysyłania. Ten raport jest ostatnim dodanym raportem, który odzwierciedla najbardziej aktualny stan jednostki.
-Określ parametry konfiguracji, `FabricClient` gdy jest tworzony przez przekazanie [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) z żądanymi wartościami dla wpisów związanych z kondycją.
+Określ parametry konfiguracji `FabricClient` , gdy jest tworzony przez przekazanie [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) z żądanymi wartościami dla wpisów związanych z kondycją.
 
 Poniższy przykład tworzy klienta sieci szkieletowej i określa, że raporty mają być wysyłane po ich dodaniu. W przypadku przekroczenia limitu czasu i błędów, które mogą być ponawiane, ponowne próby odbywają się co 40 sekund.
 
@@ -72,7 +71,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Zalecamy pozostawienie domyślnych ustawień klienta sieci szkieletowej, które `HealthReportSendInterval` są ustawione na 30 sekund. To ustawienie zapewnia optymalną wydajność z powodu przetwarzania wsadowego. W przypadku raportów o kluczowym znaczeniu, które muszą być wysyłane najszybciej `HealthReportSendOptions` , jak `true` to możliwe, użyj natychmiastowego interfejsu API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) . Natychmiastowe raporty pomijają interwał przetwarzania wsadowego. Używaj tej flagi z opieką; Jeśli to możliwe, chcemy skorzystać z partii klientów kondycji. Natychmiastowe wysyłanie jest również przydatne w przypadku zamykania klienta sieci szkieletowej (na przykład proces ustalił nieprawidłowy stan i musi zostać zamknięty, aby zapobiec efektom ubocznym). Zapewnia to optymalny sposób wysyłania raportów skumulowanych. Po dodaniu jednego raportu do natychmiastowej flagi klient kondycji zlicza wszystkie skumulowane raporty od ostatniego wysłania.
+Zalecamy pozostawienie domyślnych ustawień klienta sieci szkieletowej, które są ustawione `HealthReportSendInterval` na 30 sekund. To ustawienie zapewnia optymalną wydajność z powodu przetwarzania wsadowego. W przypadku raportów o kluczowym znaczeniu, które muszą być wysyłane najszybciej, jak to możliwe, użyj `HealthReportSendOptions` natychmiastowego `true` interfejsu API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) . Natychmiastowe raporty pomijają interwał przetwarzania wsadowego. Używaj tej flagi z opieką; Jeśli to możliwe, chcemy skorzystać z partii klientów kondycji. Natychmiastowe wysyłanie jest również przydatne w przypadku zamykania klienta sieci szkieletowej (na przykład proces ustalił nieprawidłowy stan i musi zostać zamknięty, aby zapobiec efektom ubocznym). Zapewnia to optymalny sposób wysyłania raportów skumulowanych. Po dodaniu jednego raportu do natychmiastowej flagi klient kondycji zlicza wszystkie skumulowane raporty od ostatniego wysłania.
 
 Te same parametry można określić podczas tworzenia połączenia z klastrem za pomocą programu PowerShell. Poniższy przykład uruchamia połączenie z klastrem lokalnym:
 
@@ -102,9 +101,9 @@ GatewayInformation   : {
                        }
 ```
 
-Podobnie jak w przypadku interfejsu API, można wysyłać `-Immediate` raporty przy użyciu przełącznika, który ma być wysyłany `HealthReportSendInterval` natychmiast, niezależnie od wartości.
+Podobnie jak w przypadku interfejsu API, można wysyłać raporty przy użyciu `-Immediate` przełącznika, który ma być wysyłany natychmiast, niezależnie od `HealthReportSendInterval` wartości.
 
-W przypadku protokołu REST raporty są wysyłane do bramy Service Fabric, która ma wewnętrznego klienta sieci szkieletowej. Domyślnie ten klient jest skonfigurowany do wysyłania raportów wsadowych co 30 sekund. Możesz zmienić interwał wsadowy przy użyciu ustawienia `HttpGatewayHealthReportSendInterval` konfiguracji klastra. `HttpGateway` Jak wspomniano, lepszym rozwiązaniem jest wysyłanie raportów z `Immediate` wartością true. 
+W przypadku protokołu REST raporty są wysyłane do bramy Service Fabric, która ma wewnętrznego klienta sieci szkieletowej. Domyślnie ten klient jest skonfigurowany do wysyłania raportów wsadowych co 30 sekund. Możesz zmienić interwał wsadowy przy użyciu ustawienia konfiguracji klastra `HttpGatewayHealthReportSendInterval` `HttpGateway` . Jak wspomniano, lepszym rozwiązaniem jest wysyłanie raportów z `Immediate` wartością true. 
 
 > [!NOTE]
 > Aby upewnić się, że nieautoryzowane usługi nie mogą zgłosić kondycji dla jednostek w klastrze, skonfiguruj serwer tak, aby akceptował żądania tylko od zabezpieczonych klientów. Aby `FabricClient` można było komunikować się z klastrem (na przykład z uwierzytelnianiem Kerberos lub certyfikatem), używany na potrzeby raportowania musi mieć włączoną funkcję zabezpieczenia. Dowiedz się więcej o [zabezpieczeniach klastra](service-fabric-cluster-security.md).
@@ -112,7 +111,7 @@ W przypadku protokołu REST raporty są wysyłane do bramy Service Fabric, któr
 > 
 
 ## <a name="report-from-within-low-privilege-services"></a>Raportowanie z poziomu usług z niskimi uprawnieniami
-Jeśli usługi Service Fabric nie mają dostępu administratora do klastra, można raportować kondycję jednostek z bieżącego kontekstu za pośrednictwem `Partition` lub. `CodePackageActivationContext`
+Jeśli usługi Service Fabric nie mają dostępu administratora do klastra, można raportować kondycję jednostek z bieżącego kontekstu za pośrednictwem `Partition` lub `CodePackageActivationContext` .
 
 * W przypadku usług bezstanowych Użyj [IStatelessServicePartition. ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) , aby zgłosić bieżące wystąpienie usługi.
 * W przypadku usług stanowych Użyj [IStatefulServicePartition. ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) , aby zgłosić bieżącą replikę.
@@ -126,7 +125,7 @@ Jeśli usługi Service Fabric nie mają dostępu administratora do klastra, moż
 > 
 > 
 
-Możesz określić `HealthReportSendOptions` czas wysyłania raportów `Partition` i `CodePackageActivationContext` interfejsów API kondycji. Jeśli masz raporty krytyczne, które muszą być wysyłane najszybciej, jak to możliwe, `HealthReportSendOptions` Użyj z `true`natychmiast. Natychmiastowe raporty pomijają interwał wsadowy wewnętrznego klienta kondycji. Jak wspomniano wcześniej, Użyj tej flagi z opieką; Jeśli to możliwe, chcemy skorzystać z partii klientów kondycji.
+Możesz określić `HealthReportSendOptions` czas wysyłania raportów `Partition` i `CodePackageActivationContext` interfejsów API kondycji. Jeśli masz raporty krytyczne, które muszą być wysyłane najszybciej, jak to możliwe, użyj `HealthReportSendOptions` z natychmiast `true` . Natychmiastowe raporty pomijają interwał wsadowy wewnętrznego klienta kondycji. Jak wspomniano wcześniej, Użyj tej flagi z opieką; Jeśli to możliwe, chcemy skorzystać z partii klientów kondycji.
 
 ## <a name="design-health-reporting"></a>Projektowanie raportowania kondycji
 Pierwszym krokiem w generowaniu raportów wysokiej jakości jest zidentyfikowanie warunków, które mogą mieć wpływ na kondycję usługi. Dowolny warunek, który może pomóc w oflagowaniu problemów z usługą lub klastrem, gdy zostanie on uruchomiony lub jeszcze lepszy, zanim wystąpi problem — może potencjalnie zaoszczędzić miliardy dolarów. Korzyści obejmują mniej czasu, krótsze godziny spędzone na badaniu i naprawianiu problemów oraz lepsze zadowolenie klientów.
@@ -167,13 +166,13 @@ W przypadku raportowania okresowego licznik alarm można zaimplementować przy u
 
 Raportowanie dotyczące przejść wymaga starannej obsługi stanu. Licznik alarm monitoruje pewne warunki i raporty tylko wtedy, gdy zmieniają się warunki. Do tego podejścia jest wymagana mniejsza liczba raportów. Minusem polega na tym, że logika licznika alarm jest złożona. Licznik alarm musi zachować warunki lub raporty, aby można je było sprawdzić, aby określić zmiany stanu. W przypadku przejścia w tryb failover należy zachować ostrożność w przypadku raportów, które zostały dodane, ale nie zostały jeszcze wysłane do magazynu kondycji. Numer sekwencyjny musi być coraz większy. W przeciwnym razie raporty są odrzucane jako przestarzałe. W rzadkich przypadkach, gdy nastąpi utrata danych, synchronizacja może być wymagana między stanem raportu a stanem magazynu kondycji.
 
-Raportowanie dotyczące przejść ma sens dla usług, które są raportowane `Partition` samodzielnie `CodePackageActivationContext`przez lub. Po usunięciu obiektu lokalnego (repliki lub wdrożonego pakietu usługi/wdrożonej aplikacji) wszystkie jego raporty również zostaną usunięte. To automatyczne czyszczenie osłabi potrzebę synchronizacji między programem reporter a magazynem kondycji. Jeśli raport dotyczy partycji nadrzędnej lub aplikacji nadrzędnej, należy zachować ostrożność w przypadku przejścia w tryb failover, aby uniknąć starych raportów w magazynie kondycji. Należy dodać logikę, aby zachować poprawny stan, a następnie wyczyścić raport ze sklepu, gdy nie jest już wymagany.
+Raportowanie dotyczące przejść ma sens dla usług, które są raportowane samodzielnie przez `Partition` lub `CodePackageActivationContext` . Po usunięciu obiektu lokalnego (repliki lub wdrożonego pakietu usługi/wdrożonej aplikacji) wszystkie jego raporty również zostaną usunięte. To automatyczne czyszczenie osłabi potrzebę synchronizacji między programem reporter a magazynem kondycji. Jeśli raport dotyczy partycji nadrzędnej lub aplikacji nadrzędnej, należy zachować ostrożność w przypadku przejścia w tryb failover, aby uniknąć starych raportów w magazynie kondycji. Należy dodać logikę, aby zachować poprawny stan, a następnie wyczyścić raport ze sklepu, gdy nie jest już wymagany.
 
 ## <a name="implement-health-reporting"></a>Implementowanie raportowania kondycji
 Gdy szczegóły jednostki i raportu zostaną wyczyszczone, wysyłanie raportów kondycji można wykonać za pomocą interfejsu API, programu PowerShell lub REST.
 
 ### <a name="api"></a>Interfejs API
-Aby zgłosić za pomocą interfejsu API, należy utworzyć raport kondycji specyficzny dla typu jednostki, w którym mają być zgłaszane. Przekaż raport klientowi kondycji. Alternatywnie możesz utworzyć informacje o kondycji i przekazać je, aby skorygować metody `Partition` raportowania `CodePackageActivationContext` w programie lub do raportów dotyczących bieżących jednostek.
+Aby zgłosić za pomocą interfejsu API, należy utworzyć raport kondycji specyficzny dla typu jednostki, w którym mają być zgłaszane. Przekaż raport klientowi kondycji. Alternatywnie możesz utworzyć informacje o kondycji i przekazać je, aby skorygować metody raportowania w programie `Partition` lub `CodePackageActivationContext` do raportów dotyczących bieżących jednostek.
 
 Poniższy przykład przedstawia raportowanie okresowe z licznika alarmowego w klastrze. Licznik alarm sprawdza, czy można uzyskać dostęp do zasobu zewnętrznego z poziomu węzła. Zasób jest wymagany przez manifest usługi w aplikacji. Jeśli zasób jest niedostępny, inne usługi w aplikacji mogą nadal działać prawidłowo. W związku z tym raport jest wysyłany w ramach wdrożonego pakietu usługi co 30 sekund.
 

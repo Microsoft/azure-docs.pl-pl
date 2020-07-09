@@ -16,6 +16,8 @@
       href: quickstart-migrate-local-jupyter-notebook.md
     - name: Korzystanie ze środowiska niestandardowego
       href: quickstart-create-jupyter-notebook-project-environment.md
+    - name: Eksportowanie projektu
+      href: quickstart-export-jupyter-notebook-project.md
 - name: Samouczki
   items:
     - name: Tworzenie i uruchamianie notesu

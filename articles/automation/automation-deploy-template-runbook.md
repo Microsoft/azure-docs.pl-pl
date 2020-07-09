@@ -7,10 +7,9 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: PowerShell, Runbook, JSON, Automatyzacja Azure
 ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83837080"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Wdrażanie szablonu Azure Resource Manager w elemencie Runbook programu PowerShell
@@ -84,11 +83,11 @@ W edytorze tekstów Skopiuj następujący tekst:
 }
 ```
 
-Zapisz plik lokalnie jako **TemplateTest. JSON**.
+Zapisz plik lokalnie jako **TemplateTest.js**.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Zapisz szablon Menedżer zasobów w usłudze Azure Storage
 
-Teraz używamy programu PowerShell do utworzenia udziału plików usługi Azure Storage i przekazania pliku **TemplateTest. JSON** .
+Teraz używamy programu PowerShell do utworzenia udziału plików usługi Azure Storage i przekazania **TemplateTest.jsdo** pliku.
 Aby uzyskać instrukcje dotyczące sposobu tworzenia udziału plików i przekazywania pliku w Azure Portal, zobacz Rozpoczynanie [pracy z usługą Azure File Storage w systemie Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
 Uruchom program PowerShell na maszynie lokalnej i uruchom następujące polecenia, aby utworzyć udział plików i przekazać szablon Menedżer zasobów do tego udziału plików.
@@ -114,7 +113,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $t
 
 ## <a name="create-the-powershell-runbook-script"></a>Utwórz skrypt elementu Runbook programu PowerShell
 
-Teraz tworzymy skrypt programu PowerShell, który pobiera plik **TemplateTest. JSON** z usługi Azure Storage i wdraża szablon w celu utworzenia nowego konta usługi Azure Storage.
+Teraz tworzymy skrypt programu PowerShell, który pobiera **TemplateTest.jsw** pliku z usługi Azure Storage i wdraża szablon w celu utworzenia nowego konta usługi Azure Storage.
 
 W edytorze tekstów wklej następujący tekst:
 
@@ -161,13 +160,13 @@ $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Zapisz plik lokalnie jako **DeployTemplate. ps1**.
+Zapisz plik lokalnie jako **DeployTemplate.ps1**.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importowanie i publikowanie elementu Runbook na koncie Azure Automation
 
 Teraz używamy programu PowerShell do zaimportowania elementu Runbook do konta Azure Automation, a następnie opublikowania elementu Runbook. Aby uzyskać informacje o sposobach importowania i publikowania elementu Runbook w Azure Portal, zobacz [Zarządzanie elementami Runbook w programie Azure Automation](manage-runbooks.md).
 
-Aby zaimportować **DeployTemplate. ps1** do konta usługi Automation jako element Runbook programu PowerShell, uruchom następujące polecenia programu PowerShell:
+Aby zaimportować **DeployTemplate.ps1** do konta usługi Automation jako element Runbook programu PowerShell, uruchom następujące polecenia programu PowerShell:
 
 ```powershell
 # MyPath is the path where you saved DeployTemplate.ps1

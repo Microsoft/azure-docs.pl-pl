@@ -5,15 +5,15 @@ author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: 36f39503ca32f1ee4b422ae7b1cf9abf48716f07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed929b9dd6d262d63554ef3df59d3e3806dd28dc
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73648443"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86106428"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Zrozumienie różnic między formatami danych U-SQL i Spark
 
@@ -43,14 +43,14 @@ Po wykonaniu tej transformacji dane są kopiowane, jak opisano w rozdziale [prze
 - Semantyka danych podczas kopiowania plików kopia będzie miała miejsce na poziomie bajtów. Dlatego te same dane powinny być wyświetlane na koncie [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) . Należy jednak zauważyć, że platforma Spark może interpretować niektóre znaki inaczej. Na przykład w pliku CSV może być używana inna wartość domyślna dla ogranicznika wiersza.
     Ponadto, jeśli kopiujesz dane wpisane (z tabel), Parquet i Spark mogą mieć różną precyzję i skalę dla niektórych wartości z określonym typem (na przykład zmiennoprzecinkowych) i mogą traktować wartości null inaczej. Na przykład U-SQL ma semantykę języka C# dla wartości null, podczas gdy platforma Spark ma logikę o wartości null.
 
-- Organizacja danych (partycjonowanie) tabele U-SQL zapewniają partycjonowanie na poziomie dwóch poziomów. Poziom zewnętrzny (`PARTITIONED BY`) ma wartość i jest mapowany głównie do schematu partycjonowania Hive/Spark przy użyciu hierarchii folderów. Musisz się upewnić, że wartości null są mapowane do właściwego folderu. Wewnętrzny poziom (`DISTRIBUTED BY`) w programie U-SQL oferuje 4 schematy dystrybucji: działania okrężne, zakres, mieszanie i mieszanie bezpośrednie.
+- Organizacja danych (partycjonowanie) tabele U-SQL zapewniają partycjonowanie na poziomie dwóch poziomów. Poziom zewnętrzny ( `PARTITIONED BY` ) ma wartość i jest mapowany głównie do schematu partycjonowania Hive/Spark przy użyciu hierarchii folderów. Musisz się upewnić, że wartości null są mapowane do właściwego folderu. Wewnętrzny poziom ( `DISTRIBUTED BY` ) w programie U-SQL oferuje 4 schematy dystrybucji: działania okrężne, zakres, mieszanie i mieszanie bezpośrednie.
     Tabele Hive/Spark obsługują tylko partycjonowanie i partycjonowanie skrótów przy użyciu innej funkcji mieszania niż U-SQL. Podczas wyprowadzania danych z tabeli U-SQL prawdopodobnie będziesz mieć możliwość mapowania na partycjonowanie wartości dla platformy Spark i może być konieczne przeprowadzenie dalszej strojenia układu danych w zależności od końcowych zapytań platformy Spark.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zrozumienie koncepcji kodu platformy Spark dla deweloperów U-SQL](understand-spark-code-concepts.md)
 - [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Platforma .NET dla platformy Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Platforma .NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Przekształcanie danych przy użyciu działania Spark w Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Co to jest platforma Apache Spark w usłudze Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

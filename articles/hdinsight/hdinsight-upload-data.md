@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: e73a8a420c7591a45a62ba38123c6b3368e0f738
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190643"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86085875"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight
 
@@ -60,18 +60,18 @@ hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 
 Na przykład: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Ponieważ domyślny system plików dla usługi HDInsight znajduje się w usłudze Azure Storage,/example/Data/Data.txt faktycznie znajduje się w usłudze Azure Storage. Można również odwołać się do pliku jako:
+Ponieważ domyślny system plików dla usługi HDInsight znajduje się w usłudze Azure Storage,/example/Data/data.txt jest w rzeczywistości w usłudze Azure Storage. Można również odwołać się do pliku jako:
 
-    wasbs:///example/data/data.txt
+`wasbs:///example/data/data.txt`
 
 lub
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+`wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
 Aby zapoznać się z listą innych poleceń usługi Hadoop, które pracują z plikami, zobacz[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
-> W przypadku klastrów Apache HBase domyślny rozmiar bloku używany podczas pisania danych to 256 KB. Chociaż jest to dobre rozwiązanie w przypadku używania interfejsów API HBase lub interfejsów API `hadoop` REST `hdfs dfs` , użycie poleceń lub do zapisu danych o rozmiarze większym niż ~ 12 GB powoduje wystąpienie błędu. Aby uzyskać więcej informacji, zobacz [wyjątek magazynu do zapisu w obiekcie blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
+> W przypadku klastrów Apache HBase domyślny rozmiar bloku używany podczas pisania danych to 256 KB. Chociaż jest to dobre rozwiązanie w przypadku używania interfejsów API HBase lub interfejsów API REST, użycie `hadoop` `hdfs dfs` poleceń lub do zapisu danych o rozmiarze większym niż ~ 12 GB powoduje wystąpienie błędu. Aby uzyskać więcej informacji, zobacz [wyjątek magazynu do zapisu w obiekcie blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
 
 ### <a name="graphical-clients"></a>Klienci graficzną
 
@@ -98,7 +98,7 @@ Usługa Azure Data Factory to w pełni zarządzana usługa umożliwiająca tworz
 
 |Typ magazynu|Dokumentacja|
 |----|----|
-|Azure Blob Storage|[Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Azure Blob Storage|[Kopiowanie danych do lub z usługi Azure Blob Storage za pomocą usługi Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
 |Usługa Azure Data Lake Storage 1. generacji|[Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Usługa Azure Data Lake Storage 2. generacji |[Załaduj dane do Azure Data Lake Storage Gen2 z Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 

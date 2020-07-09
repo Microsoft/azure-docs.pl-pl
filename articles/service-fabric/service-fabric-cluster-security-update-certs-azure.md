@@ -4,10 +4,9 @@ description: Opisuje, jak dodać nowe certyfikaty, certyfikat przerzucania i usu
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83658386"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Add or remove certificates for a Service Fabric cluster in Azure (Dodawanie lub usuwanie certyfikatów dla klastra usługi Service Fabric na platformie Azure)
@@ -46,11 +45,11 @@ W tych krokach przyjęto założenie, że wiesz już, jak działa Menedżer zaso
 
 ### <a name="edit-your-resource-manager-template"></a>Edytowanie szablonu Menedżer zasobów
 
-W celu łatwiejszego użycia przykładu 5-VM-1-elementów NodeType-Secure_Step2. JSON zawiera wszystkie zmiany, które będziemy wprowadzać. przykład jest dostępny w [repozytorium git](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
+Na przykład, przykładowe 5-VM-1-NodeTypes-Secure_Step2.JSON zawiera wszystkie zmiany, które będziemy wprowadzać. przykład jest dostępny w [repozytorium git](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Upewnij się, że wykonaj wszystkie kroki**
 
-1. Otwórz szablon Menedżer zasobów użyty do wdrożenia klastra. (Jeśli pobrano próbkę z poprzedniego repozytorium, użyj 5-VM-1-elementów NodeType-Secure_Step1. JSON, aby wdrożyć bezpieczny klaster, a następnie otworzyć ten szablon).
+1. Otwórz szablon Menedżer zasobów użyty do wdrożenia klastra. (Jeśli pobrano próbkę z poprzedniego repozytorium, użyj 5-VM-1-NodeTypes-Secure_Step1.JSna, aby wdrożyć bezpieczny klaster, a następnie otwórz ten szablon).
 
 2. Dodaj **dwa nowe parametry** "secCertificateThumbprint" i "secCertificateUrlValue" typu "String" do sekcji parametrów szablonu. Można skopiować poniższy fragment kodu i dodać go do szablonu. W zależności od źródła szablonu można już zdefiniować te, jeśli tak, przejdź do następnego kroku. 
  
@@ -165,7 +164,7 @@ W celu łatwiejszego użycia przykładu 5-VM-1-elementów NodeType-Secure_Step2.
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Edytuj plik szablonu, aby odzwierciedlić nowe parametry, które zostały dodane powyżej
-Jeśli używasz przykładu z [repozytorium git](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) , aby wykonać następujące czynności, możesz zacząć wprowadzać zmiany w przykładzie 5-VM-1-elementów NodeType-Secure. PARAMETERS_STEP2. JSON 
+Jeśli używasz przykładu z [repozytorium git-](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) from, możesz zacząć wprowadzać zmiany w przykładowym 5-VM-1-NodeTypes-Secure.parameters_Step2.JSna 
 
 Edytuj plik parametrów szablonu Menedżer zasobów, Dodaj dwa nowe parametry dla secCertificateThumbprint i secCertificateUrlValue. 
 

@@ -11,12 +11,11 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aa26b0c6e30413366e06673a0890b21434fc842b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047342"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84345278"
 ---
 # <a name="in-memory-sample"></a>Przykład w pamięci
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -47,9 +46,9 @@ Aby uzyskać więcej uproszczony, ale bardziej atrakcyjny wizualnie pokaz wydajn
 
 ### <a name="installation-steps"></a>Kroki instalacji
 
-1. W [Azure Portal](https://portal.azure.com/)Utwórz bazę danych Premium lub krytyczne dla działania firmy na serwerze. Ustaw **Źródło** na przykładową bazę danych AdventureWorksLT. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie pierwszej bazy danych Azure SQL Database](database/single-database-create-quickstart.md).
+1. W [Azure Portal](https://portal.azure.com/)Utwórz bazę danych Premium lub krytyczne dla działania firmy na serwerze. Ustaw **Źródło** na przykładową bazę danych AdventureWorksLT. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie pierwszej bazy danych w Azure SQL Database](database/single-database-create-quickstart.md).
 
-2. Nawiąż połączenie z bazą danych za pomocą programu SQL Server Management Studio [(SSMS. exe)](https://msdn.microsoft.com/library/mt238290.aspx).
+2. Nawiąż połączenie z bazą danych za pomocą SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Skopiuj [skrypt OLTP języka Transact-SQL w pamięci](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) do Schowka. Skrypt T-SQL tworzy niezbędne obiekty w pamięci w przykładowej bazie danych AdventureWorksLT, która została utworzona w kroku 1.
 
@@ -109,18 +108,18 @@ Jedyną różnicą między poniższymi *procedurami składowanymi* jest użycie 
 - Tabeli SalesLT **.** usp_InsertSalesOrder **_inmem**
 - Tabeli SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
-W tej sekcji dowiesz się, jak za pomocą narzędzia użyteczny **ostress. exe** wykonać dwa procedury składowane na poziomach obciążeniowych. Można porównać czas trwania dwóch przebiegów obciążeniowych.
+W tej sekcji dowiesz się, jak za pomocą narzędzia przydatne **ostress.exe** wykonać dwa procedury składowane na poziomach obciążeniowych. Można porównać czas trwania dwóch przebiegów obciążeniowych.
 
-Po uruchomieniu programu ostress. exe zalecamy przekazanie wartości parametrów przeznaczonych dla obu następujących elementów:
+Po uruchomieniu ostress.exe zalecamy przekazanie wartości parametrów przeznaczonych dla obu następujących elementów:
 
 - Uruchom dużą liczbę jednoczesnych połączeń przy użyciu polecenia-N100.
 - Każda pętla połączeń ma setki razy za pomocą-R500.
 
 Można jednak zacząć od dużo mniejszych wartości takich jak-N10 i-R50, aby upewnić się, że wszystko działa.
 
-### <a name="script-for-ostressexe"></a>Skrypt dla programu ostress. exe
+### <a name="script-for-ostressexe"></a>Skrypt dla ostress.exe
 
-Ta sekcja zawiera skrypt T-SQL, który jest osadzony w naszym wierszu polecenia ostress. exe. Skrypt używa elementów, które zostały utworzone przez skrypt T-SQL, który został zainstalowany wcześniej.
+W tej sekcji jest wyświetlany skrypt T-SQL osadzony w naszym ostress.exe wierszu polecenia. Skrypt używa elementów, które zostały utworzone przez skrypt T-SQL, który został zainstalowany wcześniej.
 
 Poniższy skrypt wstawia przykładowy porządek sprzedaży z pięcioma wierszami wierszy do następujących *tabel*zoptymalizowanych pod kątem pamięci:
 
@@ -150,19 +149,19 @@ begin;
 end
 ```
 
-Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress. exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk*. Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
+Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress.exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk*. Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Zainstaluj narzędzia RML i`ostress`
 
-Najlepiej zaplanować uruchomienie programu ostress. exe na maszynie wirtualnej platformy Azure. Należy utworzyć [maszynę wirtualną platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) w tym samym regionie geograficznym platformy Azure, w którym znajduje się baza danych AdventureWorksLT. Ale zamiast tego można uruchomić ostress. exe na laptopie.
+Najlepiej zaplanować uruchamianie ostress.exe na maszynie wirtualnej platformy Azure. Należy utworzyć [maszynę wirtualną platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) w tym samym regionie geograficznym platformy Azure, w którym znajduje się baza danych AdventureWorksLT. Można jednak uruchomić ostress.exe na laptopie.
 
-Na maszynie wirtualnej lub na dowolnym z wybranych hostów Zainstaluj narzędzia odtwarzania RML. Narzędzia te obejmują ostress. exe.
+Na maszynie wirtualnej lub na dowolnym z wybranych hostów Zainstaluj narzędzia odtwarzania RML. Narzędzia te obejmują ostress.exe.
 
 Aby uzyskać więcej informacji, zobacz:
 
-- Dyskusja ostress. exe w [przykładowej bazie danych dla przetwarzania OLTP w pamięci](https://msdn.microsoft.com/library/mt465764.aspx).
+- Dyskusja ostress.exe w [przykładowej bazie danych dla przetwarzania OLTP w pamięci](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Przykładowa baza danych dla przetwarzania OLTP w pamięci](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Blog dotyczący instalowania programu ostress. exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
+- [Blog służący do instalowania ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 <!--
 dn511655.aspx is for SQL 2014,
@@ -176,7 +175,7 @@ whereas for SQL 2016+
 
 #### <a name="run-the-_inmem-stress-workload-first"></a>Najpierw uruchom obciążenie obciążeniowe *_inmem*
 
-Możesz użyć okna *wiersza polecenia RML cmd* , aby uruchomić nasz wiersz poleceń ostress. exe. Parametry wiersza polecenia bezpośrednio `ostress` do:
+Możesz użyć okna *wiersza polecenia RML cmd* , aby uruchomić nasz ostress.exe wiersz poleceń. Parametry wiersza polecenia bezpośrednio `ostress` do:
 
 - Uruchom połączenia 100 współbieżnie (-N100).
 - Każde połączenie uruchamia skrypt T-SQL 50 razy (-R50).
@@ -185,7 +184,7 @@ Możesz użyć okna *wiersza polecenia RML cmd* , aby uruchomić nasz wiersz pol
 ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password> -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem, @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() * 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()* 10000; INSERT INTO @od SELECT OrderQty, ProductID FROM Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); WHILE (@i < 20) begin; EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1; end"
 ```
 
-Aby uruchomić poprzedni wiersz polecenia ostress. exe:
+Aby uruchomić poprzednią ostress.exe wiersz polecenia:
 
 1. Zresetuj zawartość danych bazy danych, uruchamiając następujące polecenie w programie SSMS, aby usunąć wszystkie dane, które zostały wstawione przez wszystkie poprzednie uruchomienia:
 
@@ -193,7 +192,7 @@ Aby uruchomić poprzedni wiersz polecenia ostress. exe:
     EXECUTE Demo.usp_DemoReset;
     ```
 
-2. Skopiuj tekst poprzedniego wiersza polecenia ostress. exe do Schowka.
+2. Skopiuj tekst poprzedniego ostress.exe wiersza polecenia do Schowka.
 
 3. Zamień `<placeholders>` na parametry-S-u-P-d z prawidłowymi wartościami rzeczywistymi.
 
@@ -215,9 +214,9 @@ Po uruchomieniu *_inmem* wykonaj następujące czynności w celu uruchomienia *_
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edytuj wiersz polecenia ostress. exe, aby zastąpić wszystkie *_inmem* z *_ondisk*.
+2. Edytuj wiersz polecenia ostress.exe, aby zastąpić wszystkie *_inmem* z *_ondisk*.
 
-3. Ponownie uruchom program ostress. exe po raz drugi i Przechwyć wynik trwania.
+3. Ponownie uruchom ostress.exe po raz drugi i Przechwyć wynik trwania.
 
 4. Ponownie Zresetuj bazę danych (w celu uzyskania wystarczającej ilości danych testowych).
 
@@ -363,7 +362,7 @@ W bazie danych z warstwą cenową P2 można oczekiwać około dziewięciu razy w
 
 - [Używanie OLTP w pamięci w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 
-#### <a name="tools"></a>Narzędzia
+#### <a name="tools"></a>narzędzia
 
 - [Azure Portal](https://portal.azure.com/)
 

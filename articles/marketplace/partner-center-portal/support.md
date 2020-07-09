@@ -1,18 +1,18 @@
 ---
 title: Uzyskaj pomoc techniczną dla portalu komercyjnej witryny Marketplace w centrum partnerskim
 description: Dowiedz się więcej o opcjach pomocy technicznej w centrum partnerskim, w tym o sposobach tworzenia plików żądania pomocy technicznej.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/07/2020
-ms.openlocfilehash: fd7582877a74aa998de3a6d0a0f38e56c3c3af91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01c93c046a78db70a237ddf1d4514938fd4e40ac
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733115"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86109097"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Wsparcie dla komercyjnego programu w witrynie Marketplace w centrum partnerskim
 
@@ -40,7 +40,7 @@ Firma Microsoft zapewnia pomoc techniczną dla wielu różnych produktów i usł
 
 5. Wybierz **[forum społeczności partnerów w portalu Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** , aby odpowiedzieć na pytania, korzystając z wiedzy innych wydawców firmy Microsoft. 
 
-6. Wybierz **[dodatkową pomoc](https://partner.microsoft.com/support/v2/?stage=1)** , aby otworzyć **nowy bilet żądania pomocy technicznej** .  
+6. Wybierz **[dodatkową pomoc](https://aka.ms/marketplacepublishersupport)** , aby otworzyć **nowy bilet żądania pomocy technicznej** .  
 
 ## <a name="how-to-open-a-support-ticket"></a>Jak otworzyć bilet pomocy technicznej
 

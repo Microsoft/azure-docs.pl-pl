@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611997"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86086929"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
 
@@ -53,7 +53,7 @@ Wielosesyjna obsługa systemu Windows 10 Enterprise jest obecnie obsługiwana w 
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Gdzie mogę znaleźć obraz wielosesyjny dla systemu Windows 10 Enterprise?
 
-Wiele sesji systemu Windows 10 Enterprise znajduje się w galerii platformy Azure. Aby je znaleźć, przejdź do Azure Portal i Wyszukaj pozycję Windows 10 Enterprise for Virtual Desktops Release. Aby zapoznać się z obrazem zintegrowanym z pakietem Office Pro Plus, przejdź do Azure Portal i Wyszukaj pozycję Microsoft Windows 10 + Office 365 ProPlus.
+Wiele sesji systemu Windows 10 Enterprise znajduje się w galerii platformy Azure. Aby je znaleźć, przejdź do Azure Portal i Wyszukaj pozycję Windows 10 Enterprise for Virtual Desktops Release. Aby zapoznać się z obrazem zintegrowanym z Microsoft 365 aplikacjami dla przedsiębiorstw, przejdź do Azure Portal i Wyszukaj **aplikacje Microsoft Windows 10 i Microsoft 365 dla przedsiębiorstw**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Którego obrazu z obsługą wielu sesji systemu Windows 10 Enterprise należy używać?
 
@@ -61,7 +61,7 @@ Galeria systemu Azure zawiera kilka wersji, w tym wiele sesji systemu Windows 10
  
 ## <a name="which-windows-10-enterprise-multi-session-versions-are-supported"></a>Które wersje wielosesyjne systemu Windows 10 są obsługiwane?
 
-Wiele sesji systemu Windows 10 Enterprise, wersje 1809 i nowsze są obsługiwane i są dostępne w galerii platformy Azure. Te wersje są zgodne z tymi samymi zasadami cyklu życia, jak system Windows 10 Enterprise, co oznacza, że wersja Wiosenna jest obsługiwana przez 18 miesięcy i za 30 miesięcy.
+Wiele sesji systemu Windows 10 Enterprise, wersje 1809 i nowsze są obsługiwane i są dostępne w galerii platformy Azure. Te wersje są zgodne z tymi samymi zasadami cyklu pomocy technicznej co system Windows 10 Enterprise, co oznacza, że wydanie z marca jest obsługiwane przez 18 miesięcy i wydanie z września przez 30 miesięcy.
  
 ## <a name="which-profile-management-solution-should-i-use-for-windows-10-enterprise-multi-session"></a>Którego rozwiązania do zarządzania profilami należy używać w przypadku wielu sesji dla systemu Windows 10 Enterprise?
 
@@ -92,7 +92,7 @@ Możesz wyłączyć aplikację Microsoft Store, aby upewnić się, że użytkown
 Aby wyłączyć aplikację ze sklepu:
 
 1. Utwórz nowy zasady grupy.
-2. Wybierz pozycję **Konfiguracja** > komputera**Szablony administracyjne** > **składniki systemu Windows**.
+2. Wybierz pozycję **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**.
 3. Wybierz pozycję **sklep**.
 4. Wybierz pozycję **aplikacja ze sklepu**.
 5. Wybierz pozycję **wyłączone**, a następnie wybierz przycisk **OK**.

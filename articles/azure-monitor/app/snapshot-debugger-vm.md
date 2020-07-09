@@ -7,10 +7,9 @@ ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77671348"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Włączanie Snapshot Debugger dla aplikacji .NET w usłudze Azure Service Fabric, w chmurze i Virtual Machines
@@ -25,7 +24,7 @@ Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze,
 
 2. Dołącz pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do swojej aplikacji.
 
-3. W razie potrzeby dostosowana konfiguracja Snapshot Debugger dodana do [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Domyślna konfiguracja Snapshot Debugger jest w większości puste i wszystkie ustawienia są opcjonalne. Oto przykład przedstawiający konfigurację równoważną konfiguracji domyślnej:
+3. W razie potrzeby dostosowana konfiguracja Snapshot Debugger dodana do [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Domyślna konfiguracja Snapshot Debugger jest w większości puste i wszystkie ustawienia są opcjonalne. Oto przykład przedstawiający konfigurację równoważną konfiguracji domyślnej:
 
     ```xml
     <TelemetryProcessors>
@@ -71,19 +70,19 @@ Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze,
 
 2. Dołącz pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do swojej aplikacji.
 
-3. Zmodyfikuj `Startup` klasę aplikacji, aby dodać i skonfigurować procesor telemetrii Snapshot collector.
-    1. Jeśli użyto pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w wersji 1.3.5 lub nowszej, Dodaj następujące instrukcje using do `Startup.cs`.
+3. Zmodyfikuj klasę aplikacji, `Startup` Aby dodać i skonfigurować procesor telemetrii Snapshot collector.
+    1. Jeśli użyto pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w wersji 1.3.5 lub nowszej, Dodaj następujące instrukcje using do `Startup.cs` .
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       Dodaj następujące na końcu metody ConfigureServices w `Startup` klasie w. `Startup.cs`
+       Dodaj następujące na końcu metody ConfigureServices w `Startup` klasie w `Startup.cs` .
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. Jeśli użyto pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w wersji 1.3.4 lub starszej, Dodaj następujące instrukcje using do `Startup.cs`.
+    2. Jeśli użyto pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) w wersji 1.3.4 lub starszej, Dodaj następujące instrukcje using do `Startup.cs` .
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;
@@ -112,7 +111,7 @@ Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze,
            }
            ...
         ```
-        Dodaj usługi `SnapshotCollectorConfiguration` i `SnapshotCollectorTelemetryProcessorFactory` do potoku uruchamiania:
+        Dodaj `SnapshotCollectorConfiguration` usługi i `SnapshotCollectorTelemetryProcessorFactory` do potoku uruchamiania:
     
         ```csharp
            // This method gets called by the runtime. Use this method to add services to the container.
@@ -129,7 +128,7 @@ Jeśli aplikacja działa na platformie Azure Service Fabric, usłudze w chmurze,
        }
        ```
 
-4. W razie potrzeby dostosuj konfigurację Snapshot Debugger, dodając sekcję SnapshotCollectorConfiguration do pliku appSettings. JSON. Wszystkie ustawienia w konfiguracji Snapshot Debugger są opcjonalne. Oto przykład przedstawiający konfigurację równoważną konfiguracji domyślnej:
+4. W razie potrzeby dostosuj konfigurację Snapshot Debugger, dodając sekcję SnapshotCollectorConfiguration do appsettings.jsna. Wszystkie ustawienia w konfiguracji Snapshot Debugger są opcjonalne. Oto przykład przedstawiający konfigurację równoważną konfiguracji domyślnej:
 
    ```json
    {

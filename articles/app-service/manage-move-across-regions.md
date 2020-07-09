@@ -4,18 +4,18 @@ description: Dowiedz się, jak przenosić App Service zasoby z jednego regionu d
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77925711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945481"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Przenoszenie aplikacji App Service do innego regionu
 
 W tym artykule opisano sposób przenoszenia zasobów App Service do innego regionu platformy Azure. Możesz przenieść zasoby do innego regionu z kilku powodów. Na przykład w celu skorzystania z nowego regionu platformy Azure, wdrożenia funkcji lub usług dostępnych tylko w określonych regionach, spełnienia wymagań wewnętrznych zasad i zarządzania lub w odpowiedzi na wymagania dotyczące planowania pojemności.
 
-Zasoby App Service są specyficzne dla regionu i nie można ich przenosić między regionami. Należy utworzyć kopię istniejących zasobów App Service w regionie docelowym, przenieść zawartość do nowej aplikacji. Jeśli Twoja aplikacja źródłowa używa domeny niestandardowej, możesz [ją zmigrować do nowej aplikacji w regionie docelowym](manage-custom-dns-migrate-domain.md) po zakończeniu.
+Zasoby App Service są specyficzne dla regionu i nie można ich przenosić między regionami. Należy utworzyć kopię istniejących zasobów App Service w regionie docelowym, a następnie przenieść zawartość do nowej aplikacji. Jeśli Twoja aplikacja źródłowa używa domeny niestandardowej, możesz [ją zmigrować do nowej aplikacji w regionie docelowym](manage-custom-dns-migrate-domain.md) po zakończeniu.
 
 Aby ułatwić kopiowanie aplikacji, można [sklonować poszczególne App Service aplikacji](app-service-web-app-cloning.md) do planu App Service w innym regionie, ale ma on [ograniczenia](app-service-web-app-cloning.md#current-restrictions), w szczególności nie obsługuje aplikacji systemu Linux.
 
@@ -36,7 +36,7 @@ Zidentyfikuj wszystkie zasoby App Service, które są obecnie używane. Przykła
 - [Certyfikaty SSL](configure-ssl-certificate.md)
 - [Integracja z usługą Azure Virtual Network](web-sites-integrate-with-vnet.md)
 - [Połączenia hybrydowe](app-service-hybrid-connections.md).
-- [Zarządzane tożsamości](overview-managed-identity.md)
+- [Tożsamości zarządzane](overview-managed-identity.md)
 - [Ustawienia kopii zapasowej](manage-backup.md)
 
 Niektóre zasoby, takie jak zaimportowane certyfikaty lub połączenia hybrydowe, zawierają integrację z innymi usługami platformy Azure. Aby uzyskać informacje na temat przenoszenia tych zasobów między regionami, zapoznaj się z dokumentacją odpowiednich usług.

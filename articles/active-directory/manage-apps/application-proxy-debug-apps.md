@@ -2,21 +2,21 @@
 title: Debugowanie aplikacji serwera proxy aplikacji — Azure Active Directory | Microsoft Docs
 description: Problemy z debugowaniem przy użyciu aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: e61ea30f01e8ae141d24c9bd91b08edef4dbe74e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74382075"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85555059"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Debugowanie problemów z aplikacjami serwera proxy aplikacji 
 
@@ -31,7 +31,7 @@ Aby uzyskać więcej informacji o serwerze proxy aplikacji, zobacz:
 - [Dostęp zdalny do aplikacji lokalnych przy użyciu serwera proxy aplikacji](application-proxy.md)
 - [Łączniki serwera proxy aplikacji](application-proxy-connectors.md)
 - [Instalowanie i rejestrowanie łącznika](application-proxy-add-on-premises-application.md)
-- [Rozwiązywanie problemów z serwerem proxy aplikacji i komunikatów o błędach](application-proxy-troubleshoot.md)
+- [Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach](application-proxy-troubleshoot.md)
 
 ## <a name="flowchart-for-application-issues"></a>Schemat blokowy dotyczący problemów z aplikacjami
 
@@ -39,7 +39,7 @@ Ten schemat blokowy przeprowadzi Cię przez kroki dotyczące debugowania niektó
 
 ![Schemat blokowy przedstawiający kroki debugowania aplikacji](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Akcja | Opis | 
+| Krok | Akcja | Opis |
 |---------|---------|---------|
 |1 | Otwórz przeglądarkę, uzyskaj dostęp do aplikacji, a następnie wprowadź swoje poświadczenia | Spróbuj użyć poświadczeń, aby zalogować się do aplikacji, i sprawdź, czy nie występują błędy związane z użytkownikiem, takie jak [nie można uzyskać dostępu do tej aplikacji firmowej](application-proxy-sign-in-bad-gateway-timeout-error.md). |
 |2 | Weryfikuj przypisanie użytkownika do aplikacji | Upewnij się, że konto użytkownika ma uprawnienia dostępu do aplikacji z poziomu sieci firmowej, a następnie przetestuj logowanie do aplikacji, wykonując czynności opisane w sekcji [testowanie aplikacji](application-proxy-add-on-premises-application.md#test-the-application). Jeśli problemy związane z logowaniem będą nadal występować, zobacz [jak rozwiązać problemy z logowaniem](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |

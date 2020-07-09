@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
 ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80811175"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrowanie API Management w wewnętrznej sieci wirtualnej z Application Gateway
@@ -87,7 +86,7 @@ W tym przewodniku udostępnimy również **Portal deweloperów** dla zewnętrzny
 > Jeśli używasz usługi Azure AD lub uwierzytelniania innej firmy, Włącz funkcję [koligacji sesji na podstawie plików cookie](../application-gateway/features.md#session-affinity) w Application Gateway.
 
 > [!WARNING]
-> Aby uniemożliwić Application Gateway WAF pobieranie specyfikacji OpenAPI w portalu dla deweloperów, należy wyłączyć regułę `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`zapory.
+> Aby uniemożliwić Application Gateway WAF pobieranie specyfikacji OpenAPI w portalu dla deweloperów, należy wyłączyć regułę zapory `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"` .
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Tworzenie grupy zasobów dla usługi Resource Manager
 
@@ -191,7 +190,7 @@ Gdy powyższe polecenie zakończy się pomyślnie, odwołuje się do [konfigurac
 
 ### <a name="step-1"></a>Krok 1
 
-Zainicjuj następujące zmienne, podając szczegóły certyfikatów z kluczami prywatnymi domen. W tym przykładzie będziemy używać `api.contoso.net` i. `portal.contoso.net`  
+Zainicjuj następujące zmienne, podając szczegóły certyfikatów z kluczami prywatnymi domen. W tym przykładzie będziemy używać `api.contoso.net` i `portal.contoso.net` .  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -220,7 +219,7 @@ Set-AzApiManagement -InputObject $apimService
 ```
 
 > [!NOTE]
-> Aby skonfigurować starszą łączność z `-HostnameType DeveloperPortal` `-HostnameType Portal`portalem deweloperów, należy zastąpić.
+> Aby skonfigurować starszą łączność z portalem deweloperów, należy `-HostnameType DeveloperPortal` zastąpić `-HostnameType Portal` .
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Tworzenie publicznego adresu IP dla konfiguracji frontonu
 
@@ -280,10 +279,10 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Krok 6
 
-Utwórz niestandardowe sondy do punktu końcowego domeny `ContosoApi` serwera proxy usługi API Management. Ścieżka `/status-0123456789abcdef` jest domyślnym punktem końcowym kondycji hostowanym na wszystkich API Management usługach. Ustaw `api.contoso.net` jako niestandardową nazwę hosta sondy do zabezpieczenia za pomocą certyfikatu TLS/SSL.
+Utwórz niestandardowe sondy do `ContosoApi` punktu końcowego domeny serwera proxy usługi API Management. Ścieżka `/status-0123456789abcdef` jest domyślnym punktem końcowym kondycji hostowanym na wszystkich API Management usługach. Ustaw `api.contoso.net` jako niestandardową nazwę hosta sondy do zabezpieczenia za pomocą certyfikatu TLS/SSL.
 
 > [!NOTE]
-> Nazwa hosta `contosoapi.azure-api.net` jest domyślną nazwą hosta serwera proxy skonfigurowaną, gdy `contosoapi` usługa nazwana jest tworzona na publicznej platformie Azure.
+> Nazwa hosta `contosoapi.azure-api.net` jest domyślną nazwą hosta serwera proxy skonfigurowaną, gdy usługa nazwana `contosoapi` jest tworzona na publicznej platformie Azure.
 >
 
 ```powershell

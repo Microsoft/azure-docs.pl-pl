@@ -4,10 +4,9 @@ description: Dowiedz się, jak przechowywać wykresy Helm dla aplikacji Kubernet
 ms.topic: article
 ms.date: 03/20/2020
 ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82857611"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Wypychanie i ściąganie wykresów Helm do usługi Azure Container Registry
@@ -30,7 +29,7 @@ Można użyć Helm 3 lub Helm 2 do hostowania wykresów Helm w Azure Container R
 
 ### <a name="additional-information"></a>Dodatkowe informacje
 
-* W przypadku większości scenariuszy zalecamy używanie przepływu pracy Helm 3 z poleceniami `helm chart` natywnymi do zarządzania wykresami jako artefakty OCI.
+* W przypadku większości scenariuszy zalecamy używanie przepływu pracy Helm 3 z `helm chart` poleceniami natywnymi do zarządzania wykresami jako artefakty OCI.
 * Od Helm 3 polecenia [AZ ACR Helm][az-acr-helm] są obsługiwane w celu zapewnienia zgodności z formatem wykresu i klienta Helm 2. Przyszłe opracowywanie tych poleceń nie jest obecnie planowane. Zapoznaj się z [planem produktu](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
 * Wykresy Helm 2 nie mogą być wyświetlane ani zarządzane przy użyciu Azure Portal.
 
@@ -39,7 +38,7 @@ Można użyć Helm 3 lub Helm 2 do hostowania wykresów Helm w Azure Container R
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 - **Rejestr kontenerów platformy Azure** w ramach subskrypcji platformy Azure. W razie konieczności Utwórz rejestr przy użyciu [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md).
-- **Helm klienta w wersji 3.1.0 lub nowszej** — `helm version` Uruchom, aby znaleźć bieżącą wersję. Aby uzyskać więcej informacji na temat instalowania i uaktualniania Helm, zobacz [Instalowanie Helm][helm-install].
+- **Helm klienta w wersji 3.1.0 lub nowszej** — Uruchom `helm version` , aby znaleźć bieżącą wersję. Aby uzyskać więcej informacji na temat instalowania i uaktualniania Helm, zobacz [Instalowanie Helm][helm-install].
 - **Klaster Kubernetes** , w którym zostanie zainstalowany wykres Helm. W razie konieczności Utwórz [klaster usługi Azure Kubernetes][aks-quickstart]. 
 - **Interfejs wiersza polecenia platformy Azure w wersji 2.0.71 lub nowszej** — Uruchom `az --version` , aby znaleźć wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
@@ -98,7 +97,7 @@ Aby uzyskać więcej informacji na temat tworzenia i uruchamiania tego przykład
 
 ### <a name="save-chart-to-local-registry-cache"></a>Zapisz wykres w lokalnej pamięci podręcznej rejestru
 
-Zmień katalog na `hello-world` podkatalog. Następnie uruchom `helm chart save` polecenie, aby zapisać kopię wykresu lokalnie, a także utworzyć alias z w pełni kwalifikowaną nazwą rejestru (wszystkie małe litery) i repozytorium docelowym i znacznikiem. 
+Zmień katalog na `hello-world` podkatalog. Następnie uruchom polecenie, `helm chart save` Aby zapisać kopię wykresu lokalnie, a także utworzyć alias z w pełni kwalifikowaną nazwą rejestru (wszystkie małe litery) i repozytorium docelowym i znacznikiem. 
 
 W poniższym przykładzie nazwa rejestru to *mycontainerregistry*, repozytorium Target to *Hello-World*, a znacznik wykresu docelowego to *V1*, ale zastępujący wartości dla danego środowiska:
 
@@ -120,7 +119,7 @@ mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0
 
 Uruchom `helm registry login` polecenie w interfejsie wiersza polecenia Helm 3, aby [uwierzytelnić się z rejestrem](container-registry-authentication.md) przy użyciu poświadczeń odpowiednich dla danego scenariusza.
 
-Na przykład Utwórz jednostkę usługi Azure Active Directory [z uprawnieniami ściągania i wypychania](container-registry-auth-service-principal.md#create-a-service-principal) (rolą AcrPush) do rejestru. Następnie podaj poświadczenia nazwy głównej usługi `helm registry login`. Poniższy przykład dostarcza hasła przy użyciu zmiennej środowiskowej:
+Na przykład Utwórz jednostkę usługi Azure Active Directory [z uprawnieniami ściągania i wypychania](container-registry-auth-service-principal.md#create-a-service-principal) (rolą AcrPush) do rejestru. Następnie podaj poświadczenia nazwy głównej usługi `helm registry login` . Poniższy przykład dostarcza hasła przy użyciu zmiennej środowiskowej:
 
 ```console
 echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
@@ -186,7 +185,7 @@ az acr repository show-manifests \
   --repository helm/hello-world --detail
 ```
 
-Wynik, skrócony w tym przykładzie, pokazuje `configMediaType` `application/vnd.cncf.helm.config.v1+json`:
+Wynik, skrócony w tym przykładzie, pokazuje `configMediaType` `application/vnd.cncf.helm.config.v1+json` :
 
 ```output
 [
@@ -205,13 +204,13 @@ Wynik, skrócony w tym przykładzie, pokazuje `configMediaType` `application/vnd
 
 ### <a name="pull-chart-to-local-cache"></a>Ściąganie wykresu do lokalnej pamięci podręcznej
 
-Aby zainstalować wykres Helm do Kubernetes, wykres musi znajdować się w lokalnej pamięci podręcznej. W tym przykładzie najpierw należy uruchomić `helm chart remove` polecenie, aby usunąć istniejący wykres lokalny `mycontainerregistry.azurecr.io/helm/hello-world:v1`o nazwie:
+Aby zainstalować wykres Helm do Kubernetes, wykres musi znajdować się w lokalnej pamięci podręcznej. W tym przykładzie najpierw należy uruchomić polecenie, `helm chart remove` Aby usunąć istniejący wykres lokalny o nazwie `mycontainerregistry.azurecr.io/helm/hello-world:v1` :
 
 ```console
 helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
 ```
 
-Uruchom `helm chart pull` , aby pobrać wykres z usługi Azure Container Registry do lokalnej pamięci podręcznej:
+Uruchom, `helm chart pull` Aby pobrać wykres z usługi Azure Container Registry do lokalnej pamięci podręcznej:
 
 ```console
 helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
@@ -219,7 +218,7 @@ helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:v1
 
 ### <a name="export-helm-chart"></a>Eksportuj wykres Helm
 
-Aby kontynuować, wyeksportuj go do katalogu lokalnego przy użyciu `helm chart export`. Na przykład wyeksportuj wykres, który został pobrany do `install` katalogu:
+Aby kontynuować, wyeksportuj go do katalogu lokalnego przy użyciu `helm chart export` . Na przykład wyeksportuj wykres, który został pobrany do `install` katalogu:
 
 ```console
 helm chart export mycontainerregistry.azurecr.io/helm/hello-world:v1 \
@@ -246,7 +245,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>Zainstaluj wykres Helm
 
-Uruchom `helm install` , aby zainstalować wykres Helm, który został pobrany do lokalnej pamięci podręcznej i wyeksportowany. Określ nazwę wydania, taką jak *myhelmtest*, lub Przekaż `--generate-name` parametr. Przykład:
+Uruchom, `helm install` Aby zainstalować wykres Helm, który został pobrany do lokalnej pamięci podręcznej i wyeksportowany. Określ nazwę wydania, taką jak *myhelmtest*, lub Przekaż `--generate-name` parametr. Przykład:
 
 ```console
 helm install myhelmtest ./hello-world
@@ -263,9 +262,9 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-Aby zweryfikować instalację, uruchom `helm get manifest` polecenie. Polecenie zwraca dane YAML w pliku `configmap.yaml` szablonu.
+Aby zweryfikować instalację, uruchom `helm get manifest` polecenie. Polecenie zwraca dane YAML w `configmap.yaml` pliku szablonu.
 
-Uruchom `helm uninstall` , aby odinstalować wydanie wykresu w klastrze:
+Uruchom, `helm uninstall` Aby odinstalować wydanie wykresu w klastrze:
 
 ```console
 helm uninstall myhelmtest
@@ -301,7 +300,7 @@ Przykłady można znaleźć w poniższych sekcjach.
 
 ### <a name="add-repository-to-helm-client"></a>Dodawanie repozytorium do klienta Helm
 
-Dodaj Azure Container Registry repozytorium wykresu Helm do klienta Helm przy użyciu polecenia [AZ ACR Helm Repository Add][az-acr-helm-repo-add] . To polecenie pobiera token uwierzytelniania dla rejestru kontenerów platformy Azure, który jest używany przez klienta Helm. Token uwierzytelniania jest ważny przez 3 godziny. Podobnie jak `docker login`w przypadku programu, można uruchomić to polecenie w przyszłych SESJACH interfejsu wiersza polecenia w celu uwierzytelnienia klienta Helm za pomocą repozytorium Azure Container Registry Helm Chart:
+Dodaj Azure Container Registry repozytorium wykresu Helm do klienta Helm przy użyciu polecenia [AZ ACR Helm Repository Add][az-acr-helm-repo-add] . To polecenie pobiera token uwierzytelniania dla rejestru kontenerów platformy Azure, który jest używany przez klienta Helm. Token uwierzytelniania jest ważny przez 3 godziny. Podobnie jak w `docker login` przypadku programu, można uruchomić to polecenie w przyszłych sesjach interfejsu wiersza polecenia w celu uwierzytelnienia klienta Helm za pomocą repozytorium Azure Container Registry Helm Chart:
 
 ```azurecli
 az acr helm repo add --name mycontainerregistry
@@ -317,7 +316,7 @@ helm repo update
 helm fetch stable/wordpress
 ```
 
-Wpisz `ls` , aby wyświetlić listę pobranego wykresu i zanotuj wersję WordPress zawartą w nazwie pliku. `helm fetch stable/wordpress` Polecenie nie określiło określonej wersji, więc została pobrana *Najnowsza* wersja. W poniższym przykładzie danych wyjściowych wykres WordPress jest w wersji *8.1.0*:
+Wpisz `ls` , aby wyświetlić listę pobranego wykresu i zanotuj wersję WordPress zawartą w nazwie pliku. `helm fetch stable/wordpress`Polecenie nie określiło określonej wersji, więc została pobrana *Najnowsza* wersja. W poniższym przykładzie danych wyjściowych wykres WordPress jest w wersji *8.1.0*:
 
 ```output
 wordpress-8.1.0.tgz
@@ -422,7 +421,7 @@ Następujące kroki są wykonywane podczas procesu instalacji:
 - Odpowiedni wykres zostanie pobrany z repozytorium Azure Container Registry.
 - Wykres jest wdrażany przy użyciu narzędzia do przydziałania w klastrze Kubernetes.
 
-Po zakończeniu instalacji postępuj zgodnie z instrukcjami w danych wyjściowych polecenia, aby wyświetlić adresy URL i poświadczenia WorPress. Możesz również uruchomić `kubectl get pods` polecenie, aby wyświetlić zasoby Kubernetes wdrożone za pomocą wykresu Helm:
+Po zakończeniu instalacji postępuj zgodnie z instrukcjami w danych wyjściowych polecenia, aby wyświetlić adresy URL i poświadczenia WorPress. Możesz również uruchomić polecenie, `kubectl get pods` Aby wyświetlić zasoby Kubernetes wdrożone za pomocą wykresu Helm:
 
 ```output
 NAME                                    READY   STATUS    RESTARTS   AGE
@@ -441,7 +440,7 @@ az acr helm delete --name mycontainerregistry wordpress --version 8.1.0
 
 Jeśli chcesz usunąć wszystkie wersje nazwanego wykresu, pozostaw `--version` parametr.
 
-Wykres jest nadal zwracany po uruchomieniu `helm search`. Klient Helm nie aktualizuje automatycznie listy dostępnych wykresów w repozytorium. Aby zaktualizować indeks repozytorium klienta Helm, należy ponownie użyć polecenia [AZ ACR Helm repozytorium Add][az-acr-helm-repo-add] :
+Wykres jest nadal zwracany po uruchomieniu `helm search` . Klient Helm nie aktualizuje automatycznie listy dostępnych wykresów w repozytorium. Aby zaktualizować indeks repozytorium klienta Helm, należy ponownie użyć polecenia [AZ ACR Helm repozytorium Add][az-acr-helm-repo-add] :
 
 ```azurecli
 az acr helm repo add --name mycontainerregistry

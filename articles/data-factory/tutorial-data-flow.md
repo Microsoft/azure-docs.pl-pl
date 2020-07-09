@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "81418681"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu mapowania przepływów danych
@@ -36,14 +36,14 @@ W tym samouczku wykonasz następujące czynności:
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * **Konto usługi Azure Storage**. Magazyn ADLS jest używany jako magazyn danych *źródłowych* i *ujścia* . Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
 
-Plik, który jest przekształcany w tym samouczku, to MoviesDB. csv, który można znaleźć [tutaj](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Aby pobrać plik z usługi GitHub, skopiuj zawartość do wybranego edytora tekstu, aby zapisać ją lokalnie jako plik CSV. Aby przekazać plik do konta magazynu, zobacz [przekazywanie obiektów BLOB za pomocą witryny Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Przykłady odwołują się do kontenera o nazwie "przykładowe dane".
+Plik, który jest przekształcany w tym samouczku, jest MoviesDB.csv, który można znaleźć [tutaj](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Aby pobrać plik z usługi GitHub, skopiuj zawartość do wybranego edytora tekstu, aby zapisać ją lokalnie jako plik CSV. Aby przekazać plik do konta magazynu, zobacz [przekazywanie obiektów BLOB za pomocą witryny Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). Przykłady odwołują się do kontenera o nazwie "przykładowe dane".
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 W tym kroku utworzysz fabrykę danych i otworzysz środowisko Data Factory, aby utworzyć potok w fabryce danych.
 
 1. Otwórz przeglądarkę **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika Data Factory jest obsługiwany tylko w przeglądarkach sieci Web Microsoft Edge i Google Chrome.
-2. Z menu po lewej stronie wybierz pozycję **Utwórz** > **Analytics** > **Data Factory**analizy zasobów:
+2. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -62,7 +62,7 @@ W tym kroku utworzysz fabrykę danych i otworzysz środowisko Data Factory, aby 
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -87,7 +87,7 @@ W tym kroku utworzysz potok zawierający działanie przepływu danych.
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Logika transformacji kompilacji na kanwie przepływu danych
 
-Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy przepływu danych. W tym kroku utworzysz przepływ danych, który pobiera moviesDB. csv w magazynie ADLS i agreguje średnią klasyfikację Comedies z 1910 do 2000. Następnie zapiszesz ten plik z powrotem do magazynu ADLS.
+Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy przepływu danych. W tym kroku utworzysz przepływ danych, który przyjmuje moviesDB.csv w magazynie ADLS i agreguje średnią ocenę Comedies od 1910 do 2000. Następnie zapiszesz ten plik z powrotem do magazynu ADLS.
 
 1. Na kanwie przepływu danych Dodaj źródło, klikając je w polu **Dodaj źródło** .
 
@@ -95,10 +95,10 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Nadaj nazwę źródłową **MoviesDB**. Kliknij pozycję **Nowy** , aby utworzyć nowy źródłowy zestaw danych.
 
     ![Kanwa przepływu danych](media/tutorial-data-flow/dataflow3.png)
-1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij przycisk Kontynuuj.
+1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij pozycję Kontynuuj.
 
     ![Dataset](media/tutorial-data-flow/dataset1.png)
-1. Wybierz **DelimitedText**. Kliknij przycisk Kontynuuj.
+1. Wybierz **DelimitedText**. Kliknij pozycję Kontynuuj.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Nazwij zestaw danych **MoviesDB**. Z listy rozwijanej połączona usługa wybierz pozycję **Nowy**.
@@ -107,7 +107,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Na ekranie Tworzenie połączonej usługi Nadaj nazwę ADLS Gen2 połączonej usłudze **ADLSGen2** i Określ metodę uwierzytelniania. Następnie wprowadź poświadczenia połączenia. W tym samouczku używamy klucza konta do nawiązywania połączenia z naszym kontem magazynu. Możesz kliknąć przycisk **Test connection** , aby sprawdzić, czy poświadczenia zostały wprowadzone poprawnie. Po zakończeniu kliknij przycisk Utwórz.
 
     ![Połączona usługa](media/tutorial-data-flow/ls1.png)
-1. Po ponownym uruchomieniu ekranu tworzenia zestawu danych wprowadź miejsce, w którym znajduje się plik w polu **ścieżka pliku** . W tym samouczku plik moviesDB. csv znajduje się w kontenerze przykład — dane. Ponieważ plik ma nagłówki, zaznacz **pierwszy wiersz jako nagłówek**. Wybierz pozycję **połączenie/magazyn** , aby zaimportować schemat nagłówka bezpośrednio z pliku w magazynie. Po zakończeniu kliknij przycisk OK.
+1. Po ponownym uruchomieniu ekranu tworzenia zestawu danych wprowadź miejsce, w którym znajduje się plik w polu **ścieżka pliku** . W tym samouczku plik moviesDB.csv znajduje się w kontenerze przykład — dane. Ponieważ plik ma nagłówki, zaznacz **pierwszy wiersz jako nagłówek**. Wybierz pozycję **połączenie/magazyn** , aby zaimportować schemat nagłówka bezpośrednio z pliku w magazynie. Po zakończeniu kliknij przycisk OK.
 
     ![Zestawy danych](media/tutorial-data-flow/dataset4.png)
 1. Jeśli klaster debugowania został uruchomiony, przejdź do karty **Podgląd danych** transformacji źródłowej i kliknij przycisk **Odśwież** , aby uzyskać migawkę danych. Możesz użyć podglądu danych, aby sprawdzić, czy transformacja została prawidłowo skonfigurowana.
@@ -118,7 +118,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
     ![Kanwa przepływu danych](media/tutorial-data-flow/dataflow5.png)
 1. Nazwij transformację filtru **FilterYears**. Kliknij pole wyrażenia obok pola **Filtr** , aby otworzyć Konstruktora wyrażeń. W tym miejscu określisz warunek filtrowania.
 
-    ![Filtr](media/tutorial-data-flow/filter1.png)
+    ![Filtruj](media/tutorial-data-flow/filter1.png)
 1. Konstruktor wyrażeń przepływu danych umożliwia interaktywną kompilację wyrażeń do użycia w różnych przekształceniach. Wyrażenia mogą zawierać wbudowane funkcje, kolumny ze schematu wejściowego i parametry zdefiniowane przez użytkownika. Aby uzyskać więcej informacji na temat sposobu kompilowania wyrażeń, zobacz [Data Flow Expression Builder](concepts-data-flow-expression-builder.md).
 
     W tym samouczku zawarto filtrowanie filmów z gatunku komedia, które zostały dostarczone między latami 1910 i 2000. Jako rok jest obecnie ciągiem, należy przekonwertować go na liczbę całkowitą przy użyciu ```toInteger()``` funkcji. Użyj opcji "większe niż lub równe" (>=) i mniejszej niż lub równej operatorowi (<=) do porównania z wartościami w postaci literału Year 1910 i 200-. Sumuj te wyrażenia razem z operatorem i (&&). Wyrażenie jest dostępne jako:
@@ -131,13 +131,13 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
     Jeśli klaster debugowania jest aktywny, można sprawdzić logikę, klikając przycisk **Odśwież** , aby wyświetlić dane wyjściowe wyrażenia w porównaniu z używanymi danymi wejściowymi. Istnieje więcej niż jedna odpowiedź, na którą można wykonać tę logikę przy użyciu języka wyrażeń przepływu danych.
 
-    ![Filtr](media/tutorial-data-flow/filter2.png)
+    ![Filtruj](media/tutorial-data-flow/filter2.png)
 
     Kliknij przycisk **Zapisz i Zakończ,** gdy skończysz pracę z wyrażeniem.
 
 1. Pobierz **Podgląd danych** , aby sprawdzić, czy filtr działa poprawnie.
 
-    ![Filtr](media/tutorial-data-flow/filter3.png)
+    ![Filtruj](media/tutorial-data-flow/filter3.png)
 1. Kolejną przekształceniem, który dodasz, jest transformacja **zagregowana** w obszarze **modyfikator schematu**.
 
     ![Agregacja](media/tutorial-data-flow/agg1.png)
@@ -147,7 +147,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Przejdź do karty **agregaty** . W lewym polu tekstowym nadaj kolumnie agregującej **AverageComedyRating**. Kliknij pole wyrażenia z prawej strony, aby wprowadzić wyrażenie agregujące za pośrednictwem konstruktora wyrażeń.
 
     ![Agregacja](media/tutorial-data-flow/agg3.png)
-1. Aby uzyskać średnią **klasyfikację**kolumn, użyj funkcji ```avg()``` agregującej. Ponieważ **Klasyfikacja** jest ciągiem i ```avg()``` przyjmuje numeryczne dane wejściowe, należy przekonwertować wartość na liczbę za pośrednictwem ```toInteger()``` funkcji. To wyrażenie wygląda następująco:
+1. Aby uzyskać średnią **klasyfikację**kolumn, użyj ```avg()``` funkcji agregującej. Ponieważ **Klasyfikacja** jest ciągiem i ```avg()``` przyjmuje numeryczne dane wejściowe, należy przekonwertować wartość na liczbę za pośrednictwem ```toInteger()``` funkcji. To wyrażenie wygląda następująco:
 
     ```avg(toInteger(Rating))```
 
@@ -163,10 +163,10 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Nazwij **ujścia**ujścia. Kliknij pozycję **Nowy** , aby utworzyć zestaw danych ujścia.
 
     ![Ujście](media/tutorial-data-flow/sink2.png)
-1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij przycisk Kontynuuj.
+1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij pozycję Kontynuuj.
 
     ![Dataset](media/tutorial-data-flow/dataset1.png)
-1. Wybierz **DelimitedText**. Kliknij przycisk Kontynuuj.
+1. Wybierz **DelimitedText**. Kliknij pozycję Kontynuuj.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Nazwij swój zestaw danych ujścia **MoviesSink**. W polu połączona usługa wybierz połączoną usługę ADLS Gen2 utworzoną w kroku 6. Wprowadź folder wyjściowy, w którym mają zostać zapisane dane. W tym samouczku zapisujemy do folderu "output" w kontenerze "przykładowe dane". Folder nie musi istnieć wcześniej i może być tworzony dynamicznie. Ustaw **pierwszy wiersz jako nagłówek** jako wartość true, a następnie wybierz pozycję **Brak** dla **schematu importowania**. Kliknij przycisk Zakończ.

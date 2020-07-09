@@ -4,16 +4,16 @@ description: Dowiedz się, jak przekazać dysk VHD do dysku zarządzanego platfo
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c32915617d3149eee42bfdfd03d22f9ce5799ef2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580227"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945634"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Przekazywanie dysku VHD na platformę Azure lub kopiowanie dysku zarządzanego do innego regionu — interfejs wiersza polecenia platformy Azure
 
@@ -38,15 +38,18 @@ Ten rodzaj dysku zarządzanego ma dwa unikatowe Stany:
 - ActiveUpload, co oznacza, że dysk jest gotowy do odebrania przekazywania i Wygenerowano sygnaturę dostępu współdzielonego.
 
 > [!NOTE]
-> W każdym z tych stanów dysk zarządzany jest rozliczany zgodnie ze [standardowymi cenami](https://azure.microsoft.com/pricing/details/managed-disks/)dysków twardych, niezależnie od rzeczywistego typu dysku. Na przykład P10 będzie rozliczany jako S10. Ta wartość będzie prawdziwa do `revoke-access` momentu wywołania na dysku zarządzanym, który jest wymagany w celu dołączenia dysku do maszyny wirtualnej.
+> W każdym z tych stanów dysk zarządzany jest rozliczany zgodnie ze [standardowymi cenami](https://azure.microsoft.com/pricing/details/managed-disks/)dysków twardych, niezależnie od rzeczywistego typu dysku. Na przykład P10 będzie rozliczany jako S10. Ta wartość będzie prawdziwa do momentu `revoke-access` wywołania na dysku zarządzanym, który jest wymagany w celu dołączenia dysku do maszyny wirtualnej.
 
 ## <a name="create-an-empty-managed-disk"></a>Utwórz pusty dysk zarządzany
 
-Aby można było utworzyć pusty dysk twardy w celu przeładowania, potrzebny będzie rozmiar pliku wirtualnego dysku twardego, który ma zostać przekazany w bajtach. Aby to zrobić, możesz użyć `wc -c <yourFileName>.vhd` albo. `ls -al <yourFileName>.vhd` Ta wartość jest używana podczas określania parametru **--upload-size-Bytes** .
+Aby można było utworzyć pusty dysk twardy w celu przeładowania, potrzebny będzie rozmiar pliku wirtualnego dysku twardego, który ma zostać przekazany w bajtach. Aby to zrobić, możesz użyć albo `wc -c <yourFileName>.vhd` `ls -al <yourFileName>.vhd` . Ta wartość jest używana podczas określania parametru **--upload-size-Bytes** .
 
 Tworzenie pustego standardowego dysku twardego do przekazywania przez określenie zarówno parametru **--for-upload** , jak i parametru **--upload-size-Bytes** w poleceniu cmdlet [Create Disk](/cli/azure/disk#az-disk-create) :
 
-`<yourresourcegroupname>`Zamień na wybrane `<yourdiskname>` `<yourregion>` wartości. `--upload-size-bytes` Parametr zawiera przykładową wartość `34359738880`, zastępuje ją odpowiednią wartością.
+Zamień na wybrane `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` wartości. `--upload-size-bytes`Parametr zawiera przykładową wartość `34359738880` , zastępuje ją odpowiednią wartością.
+
+> [!TIP]
+> Jeśli tworzysz dysk systemu operacyjnego, Dodaj funkcję--Hyper-v-Generation <yourGeneration> do programu `az disk create` .
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -56,7 +59,7 @@ Jeśli chcesz przekazać dysk SSD w warstwie Premium lub dysk SSD w warstwie Sta
 
 Teraz, gdy został utworzony pusty dysk zarządzany skonfigurowany dla procesu przekazywania, można przekazać do niego dysk VHD. Aby przekazać dysk VHD do dysku, musisz mieć zapisywalne sygnatury dostępu współdzielonego, aby można było odwołać się do niego jako miejsce docelowe przekazywania.
 
-Aby wygenerować zapisywalne SYGNATURy dostępu do pustego dysku zarządzanego `<yourdiskname>`, `<yourresourcegroupname>`zastąp je, a następnie użyj następującego polecenia:
+Aby wygenerować zapisywalne SYGNATURy dostępu do pustego dysku zarządzanego, Zastąp `<yourdiskname>` je, a `<yourresourcegroupname>` następnie użyj następującego polecenia:
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
@@ -84,7 +87,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 Po zakończeniu przekazywania i nie musisz już pisać więcej danych na dysku, odwołaj sygnaturę dostępu współdzielonego. Odwoływanie sygnatury dostępu współdzielonego spowoduje zmianę stanu dysku zarządzanego i umożliwi dołączenie dysku do maszyny wirtualnej.
 
-Zamień `<yourdiskname>`i `<yourresourcegroupname>`, a następnie użyj następującego polecenia, aby użyć dysku:
+Zamień `<yourdiskname>` i `<yourresourcegroupname>` , a następnie użyj następującego polecenia, aby użyć dysku:
 
 ```azurecli
 az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
@@ -99,7 +102,10 @@ Wykonanie poniższej skryptu spowoduje to, że proces jest podobny do opisanego 
 > [!IMPORTANT]
 > Należy dodać przesunięcie 512, gdy podajesz rozmiar dysku w bajtach dysku zarządzanego na platformie Azure. Wynika to z faktu, że platforma Azure pomija stopkę podczas zwracania rozmiaru dysku. Kopia nie powiedzie się, jeśli to zrobisz. Poniższy skrypt już robi to za Ciebie.
 
-Zastąp `<sourceResourceGroupHere>`wartości `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, i `<yourTargetLocationHere>` (przykładem wartości lokalizacji byłaby uswest2) wartościami, a następnie uruchom poniższy skrypt w celu skopiowania dysku zarządzanego.
+Zastąp `<sourceResourceGroupHere>` wartości,, `<sourceDiskNameHere>` `<targetDiskNameHere>` , `<targetResourceGroupHere>` i `<yourTargetLocationHere>` (przykładem wartości lokalizacji byłaby uswest2) wartościami, a następnie uruchom poniższy skrypt w celu skopiowania dysku zarządzanego.
+
+> [!TIP]
+> Jeśli tworzysz dysk systemu operacyjnego, Dodaj funkcję--Hyper-v-Generation <yourGeneration> do programu `az disk create` .
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

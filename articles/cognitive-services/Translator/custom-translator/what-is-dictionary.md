@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 510c75b6e1a06ab800128534a72c5e1f6e510600
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 826da5c3754ad03ac1fb62288f0b03ee2353d1f3
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997047"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85962266"
 ---
 # <a name="what-is-a-dictionary"></a>Co to jest słownik?
 
-Słownik jest wyrównanym parę dokumentów, które określają listę fraz lub zdań i odpowiadające im tłumaczenia. Użyj słownika w ramach szkolenia, jeśli chcesz, aby program Microsoft Translator zawsze przetłumaczy wszystkie wystąpienia frazy źródłowej lub zdania przy użyciu tłumaczenia podanego w słowniku. Słowniki są czasami nazywane glossariesami lub terminami. Słownik można traktować jako "Kopiuj i Zamień" dla wszystkich wystawianych terminów. Ponadto usługa translatora niestandardowego firmy Microsoft kompiluje i korzysta z własnych słowników ogólnego przeznaczenia, aby zwiększyć jakość tłumaczenia. Niemniej jednak słownik dostarczony przez klienta jest poprzedni i będzie przeszukiwany w pierwszej kolejności w poszukiwaniu słów lub zdań.
+Słownik jest wyrównanym parę dokumentów, które określają listę fraz lub zdań i odpowiadające im tłumaczenia. Użyj słownika w szkole, gdy chcesz, aby translator zawsze przetłumaczy wszystkie wystąpienia frazy źródłowej lub zdania przy użyciu tłumaczenia podanego w słowniku. Słowniki są czasami nazywane glossariesami lub terminami. Słownik można traktować jako "Kopiuj i Zamień" dla wszystkich wystawianych terminów. Ponadto funkcja translatora niestandardowego kompiluje i wykorzystuje własne słowniki ogólnego przeznaczenia, aby zwiększyć jakość tłumaczenia. Niemniej jednak słownik dostarczony przez klienta jest poprzedni i będzie przeszukiwany w pierwszej kolejności w poszukiwaniu słów lub zdań.
 
 Słowniki działają tylko w przypadku projektów w parach języka, które mają w pełni obsługiwany model sieci Microsoft General neuronowych Network. [Zapoznaj się z pełną listą języków](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74091249"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86135350"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Rozwiązywanie problemów z błędami odnajdywania vCenter Server
 
@@ -20,17 +20,19 @@ Ten artykuł pomaga w rozwiązywaniu problemów występujących w wyniku awarii 
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Wartości inne niż liczbowe we właściwości maxSnapShots
 
-W wersjach wcześniejszych niż 9,20 program vCenter rozłącza się, gdy pobiera nieliczbową wartość właściwości właściwości `snapshot.maxSnapShots` na maszynie wirtualnej.
+W wersjach wcześniejszych niż 9,20 program vCenter rozłącza się, gdy pobiera nieliczbową wartość `snapshot.maxSnapShots` właściwości właściwości na maszynie wirtualnej.
 
 Ten problem jest identyfikowany przez błąd o IDENTYFIKATORze 95126.
 
-    ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
-    System.FormatException: Input string was not in a correct format.
-       at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
-       at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
-       at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
-    
-Aby rozwiązać ten problem:
+```output
+ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
+System.FormatException: Input string was not in a correct format.
+    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+    at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+    at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
+```
+
+W celu rozwiązania tego problemu:
 
 - Zidentyfikuj maszynę wirtualną i ustaw wartość na wartość liczbową (ustawienia ustawień maszyny wirtualnej w programie vCenter).
 
@@ -46,11 +48,11 @@ Ogólnie rzecz biorąc, serwer proxy jest używany do komunikacji z sieciami pub
 
 Podczas napotkania tego problemu występują następujące sytuacje:
 
-- Program vCenter Server \<vCenter> jest nieosiągalny z powodu błędu: serwer zdalny zwrócił błąd: (503) serwer niedostępny
-- Program vCenter Server \<vCenter> jest nieosiągalny z powodu błędu: serwer zdalny zwrócił błąd: nie można nawiązać połączenia z serwerem zdalnym.
+- Serwer vCenter \<vCenter> jest nieosiągalny z powodu błędu: serwer zdalny zwrócił błąd: (503) serwer niedostępny
+- Serwer vCenter \<vCenter> jest nieosiągalny z powodu błędu: serwer zdalny zwrócił błąd: nie można nawiązać połączenia z serwerem zdalnym.
 - Nie można nawiązać połączenia z serwerem vCenter/ESXi.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Pobierz [Narzędzie PsExec](https://aka.ms/PsExec). 
 
@@ -73,10 +75,10 @@ W przypadku konfiguracji serwera proxy agenta DRA:
 
 3. W wierszu polecenia Uruchom następujące polecenie.
    
-   **DRCONFIGURATOR. EXE/Configure/AddBypassUrls [adres IP/nazwa FQDN vCenter Server podano w czasie dodawania programu vCenter]**
+   **DRCONFIGURATOR.EXE/Configure/AddBypassUrls [adres IP/nazwa FQDN vCenter Server podanego w momencie dodania programu vCenter]**
 
 4. Uruchom ponownie usługę dostawcy DRA.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 

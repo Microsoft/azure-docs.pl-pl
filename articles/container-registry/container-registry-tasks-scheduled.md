@@ -4,10 +4,9 @@ description: W tym samouczku dowiesz się, jak uruchomić zadanie Azure Containe
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "78402882"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Uruchamianie zadania ACR zgodnie ze zdefiniowanym harmonogramem
@@ -174,17 +173,17 @@ Zadania ACR używają biblioteki [NCronTab](https://github.com/atifaziz/NCrontab
 Strefa czasowa używana z wyrażeniami firmy CRONUS jest uniwersalnym czasem koordynowanym (UTC). Godziny są w formacie 24-godzinnym.
 
 > [!NOTE]
-> Zadania ACR nie obsługują pola `{second}` lub `{year}` w wyrażeniach firmy cronus. Jeśli skopiujesz wyrażenie firmy CRONUS używane w innym systemie, pamiętaj, aby usunąć te pola, jeśli są używane.
+> Zadania ACR nie obsługują `{second}` `{year}` pola lub w wyrażeniach firmy cronus. Jeśli skopiujesz wyrażenie firmy CRONUS używane w innym systemie, pamiętaj, aby usunąć te pola, jeśli są używane.
 
 Każde pole może mieć jeden z następujących typów wartości:
 
 |Typ  |Przykład  |Po wyzwoleniu  |
 |---------|---------|---------|
 |Określona wartość |<nobr>`"5 * * * *"`</nobr>|co godzinę w ciągu 5 minut od godziny|
-|Wszystkie wartości (`*`)|<nobr>`"* 5 * * *"`</nobr>|co minutę godziny od 5:00 czasu UTC (60 razy dziennie)|
-|Zakres (`-` operator)|<nobr>`"0 1-3 * * *"`</nobr>|3 razy dziennie, o godzinie 1:00, 2:00 i 3:00 UTC|
-|Zestaw wartości (`,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 razy na godzinę, co 20 minut, 30 minut i 40 minut po godzinie|
-|Wartość interwału (`/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 razy na godzinę, przy 10 minutach, 20 minutach itd., Ostatnia godzina
+|Wszystkie wartości ( `*` )|<nobr>`"* 5 * * *"`</nobr>|co minutę godziny od 5:00 czasu UTC (60 razy dziennie)|
+|Zakres ( `-` operator)|<nobr>`"0 1-3 * * *"`</nobr>|3 razy dziennie, o godzinie 1:00, 2:00 i 3:00 UTC|
+|Zestaw wartości ( `,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 razy na godzinę, co 20 minut, 30 minut i 40 minut po godzinie|
+|Wartość interwału ( `/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 razy na godzinę, przy 10 minutach, 20 minutach itd., Ostatnia godzina
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -200,7 +199,7 @@ Każde pole może mieć jeden z następujących typów wartości:
 |`"30 9 * * 1-5"`|o godzinie 9:30 UTC każdego dnia tygodnia|
 |`"30 9 * Jan Mon"`|o 9:30 czasu UTC co poniedziałek w styczniu|
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć wszystkie zasoby utworzone w tej serii samouczków, łącznie z rejestrem kontenerów lub rejestrami, wystąpieniem kontenera, magazynem kluczy i jednostką usługi, należy wydać następujące polecenia:
 

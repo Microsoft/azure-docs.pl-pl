@@ -14,10 +14,9 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 11c9c26e7c0f36e1e3dba732e90a6aef95e6ee14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "76694994"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Konfigurowanie programu Poster dla wywołań interfejsu API REST Media Services V2  
@@ -37,13 +36,13 @@ To środowisko i kolekcja są używane w artykułach, które pokazują, jak osi�
 
 ## <a name="configure-the-environment"></a>Konfigurowanie środowiska 
 
-1. Utwórz plik JSON zawierający zmienne środowiskowe używane w samouczkach AMS. Nazwij plik (na przykład **AzureMediaServices. postman_environment. JSON**). Otwórz plik i wklej kod, który definiuje środowisko Poster na podstawie [tej listy kodu](postman-environment.md). 
+1. Utwórz plik JSON zawierający zmienne środowiskowe używane w samouczkach AMS. Nazwij plik (na przykład **AzureMediaServices.postman_environment.json**). Otwórz plik i wklej kod, który definiuje środowisko Poster na podstawie [tej listy kodu](postman-environment.md). 
 2. Otwórz program **Postman**.
 3. Po prawej stronie ekranu wybierz opcję **Zarządzaj środowiskiem**.
 
     ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-create-env.png)
 4. W oknie dialogowym **Zarządzaj środowiskiem** kliknij opcję **Importuj**.
-5. Przeglądaj i wybierz plik **AzureMediaServices. postman_environment. JSON** .
+5. Przeglądaj i wybierz **AzureMediaServices.postman_environment.jsw** pliku.
 6. Środowisko **AzureMedia** jest dodawane.
 7. Zamknij okno dialogowe.
 8. Wybierz środowisko **AzureMedia** .
@@ -52,9 +51,9 @@ To środowisko i kolekcja są używane w artykułach, które pokazują, jak osi�
 
 ## <a name="configure-the-collection"></a>Konfigurowanie kolekcji
 
-1. Utwórz plik JSON zawierający kolekcję programu **Poster** ze wszystkimi operacjami, które są konieczne do przekazania pliku do Media Services. Nazwij plik (na przykład **AzureMediaServicesOperations. postman_collection. JSON**). Otwórz plik i wklej kod, który definiuje kolekcję **Poster** z [tej listy kodu](postman-collection.md).
+1. Utwórz plik JSON zawierający kolekcję programu **Poster** ze wszystkimi operacjami, które są konieczne do przekazania pliku do Media Services. Nazwij plik (na przykład **AzureMediaServicesOperations.postman_collection.json**). Otwórz plik i wklej kod, który definiuje kolekcję **Poster** z [tej listy kodu](postman-collection.md).
 2. Kliknij przycisk **Importuj**, aby zaimportować plik kolekcji.
-3. Wybierz plik **AzureMediaServicesOperations. postman_collection. JSON** .
+3. Wybierz **AzureMediaServicesOperations.postman_collection.jsna** pliku.
 
     ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-import-collection.png)
 

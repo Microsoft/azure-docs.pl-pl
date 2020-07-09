@@ -1,8 +1,9 @@
 ---
-title: Strefy czasowe wystąpienia zarządzanego
+title: Strefy czasowe wystąpienia zarządzanego usługi Azure SQL
 description: Informacje o strefach czasowych specyficznych dla wystąpienia zarządzanego usługi Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -10,12 +11,11 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: ef8572f03ddb3df8dae5f823c2d8d6d12f3e1a31
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 84df755d4a89b83a0842a74a619fad5275396dec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046817"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711361"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Strefy czasowe w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -25,7 +25,7 @@ Uniwersalny czas koordynowany (UTC) to zalecana strefa czasowa dla warstwy danyc
 Funkcje języka T-SQL, takie jak [GETDATE ()](/sql/t-sql/functions/getdate-transact-sql) lub kod CLR, obserwują strefę czasową ustawioną na poziomie wystąpienia. Zadania agenta SQL Server są również zgodne z harmonogramami zgodnie ze strefą czasową wystąpienia.
 
   > [!NOTE]
-  > Azure SQL Database nie obsługuje ustawień strefy czasowej; Zawsze postępuj według czasu UTC. Użyj [w strefie czasowej](/sql/t-sql/queries/at-time-zone-transact-sql) w bazach danych SQL, jeśli musisz interpretować informacje o dacie i godzinie w strefie czasowej innej niż UTC.
+  > Azure SQL Database nie obsługuje ustawień strefy czasowej; Zawsze postępuj według czasu UTC. Użyj [w strefie czasowej](/sql/t-sql/queries/at-time-zone-transact-sql) w SQL Database, jeśli chcesz interpretować informacje o dacie i godzinie w strefie czasowej innej niż UTC.
 
 ## <a name="supported-time-zones"></a>Obsługiwane strefy czasowe
 
@@ -240,7 +240,7 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 | Samoa (czas standardowy) | (UTC + 13:00) Zachodniego |
 | Wyspy liniowe (czas standardowy) | (UTC + 14:00) Wyspa Kiritimati |
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)

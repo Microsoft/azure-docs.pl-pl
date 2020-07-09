@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473561"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85557975"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -32,7 +32,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 -   [Uwierzytelnianie przy użyciu tożsamości zarządzanej](api-management-authentication-policies.md#ManagedIdentity) — uwierzytelnianie za pomocą [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla usługi API Management.
 
 ##  <a name="authenticate-with-basic"></a><a name="Basic"></a>Uwierzytelnianie za pomocą języka Basic
- `authentication-basic` Zasady służą do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego. Te zasady skutecznie ustawiają nagłówek autoryzacji HTTP na wartość odpowiadającą podanym w zasadzie poświadczeniami.
+ Zasady służą `authentication-basic` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego. Te zasady skutecznie ustawiają nagłówek autoryzacji HTTP na wartość odpowiadającą podanym w zasadzie poświadczeniami.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -48,18 +48,18 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |Uwierzytelnianie — podstawowe|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |nazwa użytkownika|Określa nazwę użytkownika poświadczeń podstawowych.|Tak|Nie dotyczy|
 |hasło|Określa hasło poświadczeń podstawowych.|Tak|Nie dotyczy|
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
  Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 -   **Sekcje zasad:** przychodzące
@@ -67,7 +67,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 -   **Zakresy zasad:** wszystkie zakresy
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a>Uwierzytelnianie przy użyciu certyfikatu klienta
- `authentication-certificate` Zasady służą do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](https://go.microsoft.com/fwlink/?LinkID=511599) jako pierwszy i jest identyfikowany przez jego odcisk palca.
+ Zasady służą `authentication-certificate` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](https://go.microsoft.com/fwlink/?LinkID=511599) jako pierwszy i jest identyfikowany przez jego odcisk palca.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -77,29 +77,40 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="examples"></a>Przykłady
 
-Ten przykładowy certyfikat klienta jest identyfikowany za pomocą odcisku palca.
+W tym przykładzie certyfikat klienta jest identyfikowany za pomocą odcisku palca:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
+
+W tym przykładzie certyfikat klienta jest identyfikowany przez nazwę zasobu:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany z wbudowanego magazynu certyfikatów:
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagany|  
+|Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Uwierzytelnianie — certyfikat|Element główny.|Tak|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagany|Domyślny|  
+|Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|odcisk palca|Odcisk palca certyfikatu klienta.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|  
-|Identyfikator certyfikatu|Nazwa zasobu certyfikatu.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|  
+|odcisk palca|Odcisk palca certyfikatu klienta.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|
+|Identyfikator certyfikatu|Nazwa zasobu certyfikatu.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|
+|body|Certyfikat klienta jako tablicę bajtów.|Nie|Nie dotyczy|
+|hasło|Hasło dla certyfikatu klienta.|Używany, jeśli certyfikat określony w programie `body` jest chroniony hasłem.|Nie dotyczy|
   
-### <a name="usage"></a>Sposób użycia  
+### <a name="usage"></a>Użycie  
  Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.  
   
 -   **Sekcje zasad:** przychodzące  
@@ -107,12 +118,14 @@ Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
 -   **Zakresy zasad:** wszystkie zakresy  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Uwierzytelnianie przy użyciu tożsamości zarządzanej  
- `authentication-managed-identity` Zasady służą do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu tożsamości zarządzanej usługi API Management. Te zasady zasadniczo wykorzystują zarządzaną tożsamość do uzyskiwania tokenu dostępu z Azure Active Directory na potrzeby uzyskiwania dostępu do określonego zasobu. Po pomyślnym uzyskaniu tokenu zasady ustawili wartość tokenu w `Authorization` nagłówku przy użyciu `Bearer` schematu.
+ Zasady służą `authentication-managed-identity` do uwierzytelniania w usłudze zaplecza przy użyciu tożsamości zarządzanej. Te zasady zasadniczo wykorzystują zarządzaną tożsamość do uzyskiwania tokenu dostępu z Azure Active Directory na potrzeby uzyskiwania dostępu do określonego zasobu. Po pomyślnym uzyskaniu tokenu zasady ustawili wartość tokenu w `Authorization` nagłówku przy użyciu `Bearer` schematu.
+
+Do żądania tokenu można użyć zarówno tożsamości przypisanej do systemu, jak i dowolnej tożsamości przypisanej do użytkownika. Jeśli `client-id` nie podano tożsamości przypisanej do systemu, przyjmuje się. Jeśli `client-id` dla tej tożsamości przypisanej do użytkownika jest żądany token, na podstawie Azure Active Directory
   
 ### <a name="policy-statement"></a>Instrukcja zasad  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Przykład  
@@ -127,7 +140,7 @@ Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -135,7 +148,21 @@ Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### <a name="use-managed-identity-and-set-header-manually"></a>Ręczne używanie tożsamości zarządzanej i zestawu
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### <a name="use-managed-identity-in-send-request-policy"></a>Używanie tożsamości zarządzanej w zasadach wysyłania żądania
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -147,19 +174,20 @@ Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
 
 ### <a name="elements"></a>Elementy  
   
-|Nazwa|Opis|Wymagany|  
+|Nazwa|Opis|Wymagane|  
 |----------|-----------------|--------------|  
 |Uwierzytelnianie — tożsamość zarządzana |Element główny.|Tak|  
   
 ### <a name="attributes"></a>Atrybuty  
   
-|Nazwa|Opis|Wymagany|Domyślny|  
+|Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|zasób|Ciąg. Identyfikator aplikacji docelowego internetowego interfejsu API (zabezpieczony zasób) w Azure Active Directory.|Tak|Nie dotyczy|  
-|Output-token-Variable-Name|Ciąg. Nazwa zmiennej kontekstowej, która będzie otrzymywać wartość tokenu jako typ `string`obiektu. |Nie|Nie dotyczy|  
-|Ignoruj-błąd|Typu. W przypadku wybrania opcji `true`potok zasad będzie nadal wykonywany nawet wtedy, gdy nie zostanie uzyskany token dostępu.|Nie|fałsz|  
+|zasób|Ciąg. Identyfikator aplikacji docelowego internetowego interfejsu API (zabezpieczony zasób) w Azure Active Directory.|Tak|Nie dotyczy|
+|Identyfikator klienta|Ciąg. Identyfikator aplikacji tożsamości przypisanej przez użytkownika w Azure Active Directory.|Nie|tożsamość przypisana przez system|
+|Output-token-Variable-Name|Ciąg. Nazwa zmiennej kontekstowej, która będzie otrzymywać wartość tokenu jako typ obiektu `string` . |Nie|Nie dotyczy|  
+|Ignoruj-błąd|Typu. W przypadku wybrania opcji `true` potok zasad będzie nadal wykonywany nawet wtedy, gdy nie zostanie uzyskany token dostępu.|Nie|fałsz|  
   
-### <a name="usage"></a>Sposób użycia  
+### <a name="usage"></a>Użycie  
  Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.  
   
 -   **Sekcje zasad:** przychodzące  

@@ -4,12 +4,11 @@ description: Jak przenieść maszyny wirtualne/serwery fizyczne do trybu failove
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: 99a197e8f5ebac8a3b0be1b567ee41b43a2c4476
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471272"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84309972"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Uruchamianie trybu failover w środowisku lokalnym na platformie Azure
 
@@ -32,7 +31,7 @@ Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi platformy Azure pr
 
 **Po przejściu w tryb failover** | **Lokalizacja** | **Akcje**
 --- | --- | ---
-**Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna lokalna przed przejściem w tryb failover | Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem Internetu, Włącz protokół RDP i upewnij się, że reguły TCP i UDP są dodawane do **publicznej**wersji, a dla wszystkich profilów w**aplikacjach** >  **zapory systemu Windows**dozwolony jest protokół RDP.<br/><br/> Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem połączenia lokacja-lokacja, -> Włącz protokół RDP na maszynie i upewnij się, że w **zaporze systemu Windows****dozwolone aplikacje i funkcje**są dozwolone w przypadku **domen i sieci prywatnych** .<br/><br/> <br/><br/> Usuń wszystkie statyczne trasy trwałe i serwer proxy WinHTTP. Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).<br/><br/> Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu Windows na maszynie wirtualnej podczas wyzwalania trybu failover. System Windows Update może zostać uruchomiony po przełączeniu w tryb failover i nie będzie można zalogować się na maszynie wirtualnej do momentu zakończenia aktualizacji.
+**Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna lokalna przed przejściem w tryb failover | Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem Internetu, Włącz protokół RDP i upewnij się, że reguły TCP i UDP są dodawane do **publicznej**wersji, a dla wszystkich profilów w aplikacjach **zapory systemu Windows**  >  **dozwolony**jest protokół RDP.<br/><br/> Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem połączenia lokacja-lokacja, Włącz protokół RDP na maszynie i upewnij się, że w **zaporze systemu Windows**  ->  **dozwolone aplikacje i funkcje**są dozwolone w przypadku **domen i sieci prywatnych** .<br/><br/> <br/><br/> Usuń wszystkie statyczne trasy trwałe i serwer proxy WinHTTP. Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).<br/><br/> Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu Windows na maszynie wirtualnej podczas wyzwalania trybu failover. System Windows Update może zostać uruchomiony po przełączeniu w tryb failover i nie będzie można zalogować się na maszynie wirtualnej do momentu zakończenia aktualizacji.
 **Maszyna wirtualna platformy Azure z systemem Linux** | Maszyna lokalna przed przejściem w tryb failover | Upewnij się, że usługa Secure Shell na maszynie wirtualnej jest uruchamiana automatycznie przy rozruchu systemu.<br/><br/> Sprawdź, czy reguły zapory zezwalają na połączenie SSH.
 
 
@@ -43,15 +42,16 @@ W tej procedurze opisano sposób uruchamiania trybu failover dla [planu odzyskiw
 
 Uruchom tryb failover planu odzyskiwania w następujący sposób:
 
-1. W magazynie Site Recovery wybierz pozycję **plany** > odzyskiwania*recoveryplan_name*.
+1. W magazynie Site Recovery wybierz pozycję **plany odzyskiwania**  >  *recoveryplan_name*.
 2. Kliknij pozycję **tryb failover**.
 
     ![Tryb failover](./media/site-recovery-failover/Failover.png)
 
-3. W polu**kierunek pracy**awaryjnej **trybu** > failover pozostaw wartość domyślną, jeśli wykonujesz replikację do platformy Azure.
+3. W polu kierunek pracy awaryjnej **trybu**failover  >  **Failover direction**pozostaw wartość domyślną, jeśli wykonujesz replikację do platformy Azure.
 4. W obszarze **tryb failover**wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna.
 
     - **Najnowsze**: Użyj najnowszego punktu. To przetwarza wszystkie dane, które zostały wysłane do usługi Site Recovery Service, i tworzy punkt odzyskiwania dla każdej maszyny. Ta opcja zapewnia najniższy cel punktu odzyskiwania, ponieważ maszyna wirtualna utworzona po przejściu w tryb failover ma wszystkie dane, które zostały zreplikowane do Site Recovery podczas wyzwolenia trybu failover.
+    Należy pamiętać, że gdy region źródłowy ulegnie awarii, nie ma więcej możliwości przetwarzania dzienników. W związku z tym należy przełączyć się w tryb failover do ostatniego przetworzonego punktu odzyskiwania. Zobacz następny punkt, aby dowiedzieć się więcej.
    - **Najnowsza przetworzony**: Ta opcja umożliwia przełączenie maszyn wirtualnych w tryb failover do najnowszego punktu odzyskiwania, który został już przetworzony przez Site Recovery. Najnowszy przetworzony punkt odzyskiwania można zobaczyć w **najnowszych punktach odzyskiwania**maszyny wirtualnej. Ta opcja zapewnia niską RTO, ponieważ nie ma czasu poświęcanego na przetwarzanie nieprzetworzonych danych
    - **Najnowsza spójna dla aplikacji**: Użyj tej opcji, aby przełączyć maszyny wirtualne w tryb failover do najnowszego punktu odzyskiwania spójnego z aplikacją, który został przetworzony przez Site Recovery.
    - **Najnowsza przetworzona wiele maszyn wirtualnych**: w przypadku tej opcji maszyny wirtualne będące częścią grupy replikacji przełączenia w tryb failover do najnowszego wspólnego punktu odzyskiwania z WIELOWĄTKOWą maszyną wirtualną. Inne maszyny wirtualne są przełączane w tryb failover do ostatniego przetworzonego punktu odzyskiwania. Ta opcja jest dostępna tylko w przypadku planów odzyskiwania, które mają co najmniej jedną maszynę wirtualną z włączoną spójnością obejmującą wiele maszyn wirtualnych.

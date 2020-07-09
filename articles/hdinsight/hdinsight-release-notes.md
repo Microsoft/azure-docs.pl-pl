@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: d0f12274f3cbc0cd2726097e0507079cb858d59f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/11/2020
+ms.openlocfilehash: a4faab9ac6d5e1c39c1120e09dae792b95892d60
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564415"
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
@@ -23,61 +23,64 @@ Ten artykuł zawiera informacje **o najnowszych aktualizacjach wersji usługi Az
 
 Usługa Azure HDInsight to jedna z najpopularniejszych usług dla klientów korporacyjnych na potrzeby analiz typu open source na platformie Azure.
 
-## <a name="release-date-01092020"></a>Data wydania: 01/09/2020
+## <a name="release-date-06112020"></a>Data wydania: 06/11/2020
 
-Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w ciągu kilku dni.
-
-> [!IMPORTANT]  
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz artykuł dotyczący obsługi [wersji usługi HDInsight](hdinsight-component-versioning.md).
+Ta wersja dotyczy zarówno usługi HDInsight 3,6, jak i 4,0. Wersja usługi HDInsight jest udostępniana wszystkim regionom przez kilka dni. Data wydania wskazuje na datę wydania pierwszego regionu. Jeśli nie widzisz poniżej zmian, poczekaj na zakończenie wydania w Twoim regionie w kilka dni.
 
 ## <a name="new-features"></a>Nowe funkcje
-### <a name="tls-12-enforcement"></a>Wymuszanie protokołu TLS 1.2
-Transport Layer Security (TLS) i SSL (SSL) to protokoły kryptograficzne zapewniające bezpieczeństwo komunikacji w sieci komputerowej. Dowiedz się więcej o protokole [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). Usługa HDInsight używa protokołu TLS 1,2 na publicznych punktach końcowych HTTPs, ale protokół TLS 1,1 jest nadal obsługiwany dla zgodności z poprzednimi wersjami 
-
-W tej wersji klienci mogą zrezygnować z protokołu TLS 1,2 tylko dla wszystkich połączeń za pomocą publicznego punktu końcowego klastra. Aby to umożliwić, wprowadzono nową właściwość **minSupportedTlsVersion** i można ją określić podczas tworzenia klastra. Jeśli właściwość nie jest ustawiona, klaster nadal obsługuje protokoły TLS 1,0, 1,1 i 1,2, które są takie same jak bieżące zachowanie. Klienci mogą ustawić wartość dla tej właściwości na "1,2", co oznacza, że klaster obsługuje tylko protokół TLS 1,2 lub nowszy. Aby uzyskać więcej informacji, zobacz [Transport Layer Security](./transport-layer-security.md).
-
-### <a name="bring-your-own-key-for-disk-encryption"></a>Przenoszenie własnego klucza do szyfrowania dysków
-Wszystkie dyski zarządzane w usłudze HDInsight są chronione za pomocą usługi Azure szyfrowanie usługi Storage (SSE). Dane na tych dyskach są domyślnie szyfrowane przez klucze zarządzane przez firmę Microsoft. Począwszy od tej wersji, można Bring Your Own Key (BYOK) na potrzeby szyfrowania dysków i zarządzać nimi przy użyciu Azure Key Vault. Szyfrowanie BYOK jest konfiguracją jednoetapową podczas tworzenia klastra bez dodatkowych kosztów. Zarejestruj się w usłudze HDInsight jako tożsamość zarządzana z Azure Key Vault i Dodaj klucz szyfrowania podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [szyfrowanie dysków kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
-
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
+Usługa HDInsight używa teraz usługi Azure Virtual Machines w celu udostępnienia klastra. W tej wersji nowe utworzone klastry usługi HDInsight zaczynają korzystać z zestawu skalowania maszyn wirtualnych platformy Azure. Zmiana jest stopniowo wdrażana. Nie należy oczekiwać żadnej zmiany. Zobacz więcej informacji o [zestawach skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+ 
+### <a name="reboot-vms-in-hdinsight-cluster"></a>Ponowne uruchamianie maszyn wirtualnych w klastrze usługi HDInsight
+W tej wersji obsługujemy ponowne uruchamianie maszyn wirtualnych w klastrze usługi HDInsight w celu ponownego uruchomienia węzłów, które nie odpowiadają. Obecnie można wykonać te czynności tylko za pomocą interfejsu API, obsługi programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać więcej informacji na temat interfejsu API, zobacz [ten dokument](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
+ 
 ## <a name="deprecation"></a>Przestarzałe
-Brak zaniecheń dla tej wersji. Aby przygotować się do nadchodzących przestarzałych, zobacz [nadchodzące zmiany](#upcoming-changes).
-
+### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.1 i 2.2 w klastrze platformy Spark w usłudze HDInsight 3.6
+Począwszy od lipca 1 2020, klienci nie mogą tworzyć nowych klastrów Spark z platformami Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+ 
+### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Zakończenie obsługi platformy Spark 2.3 w klastrze platformy Spark w usłudze HDInsight 4.0
+Począwszy od 1 2020 lipca, klienci nie mogą tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Spark 2.4 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+ 
+### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Zakończenie obsługi platformy Kafka 1.1 w klastrze platformy Kafka w usłudze HDInsight 4.0
+Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Kafka 2.1 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+ 
 ## <a name="behavior-changes"></a>Zmiany zachowania
-Brak zmian w zachowaniu dla tej wersji. Aby przygotować się do nadchodzących zmian, zobacz [nadchodzące zmiany](#upcoming-changes).
-
-## <a name="upcoming-changes"></a>Nadchodzące zmiany
-Następujące zmiany zostaną wykonane w przyszłych wydaniach. 
-
-### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Wycofanie platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6 klaster Spark
-Od 1 lipca 2020 klienci nie będą mogli tworzyć nowych klastrów Spark przy użyciu platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do 30 czerwca 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Migrowanie obciążeń Apache Spark 2,1 i 2,2 do 2,3 i 2,4](./spark/migrate-versions.md).
-
-### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Wycofanie platformy Spark 2,3 w klastrze usługi HDInsight 4,0 Spark
-Od 1 lipca 2020 klienci nie będą mogli tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,4 w usłudze HDInsight 4,0 do 30 czerwca 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Migrowanie obciążeń Apache Spark 2,1 i 2,2 do 2,3 i 2,4](./spark/migrate-versions.md).
-
-### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Wycofanie Kafka 1,1 w klastrze usługi HDInsight 4,0 Kafka
-Od lipca 1 2020 klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do Kafka 2,1 w usłudze HDInsight 4,0 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Migrowanie obciążeń Apache Kafka do usługi Azure HDInsight 4,0](./kafka/migrate-versions.md).
-
-### <a name="hbase-20-to-216"></a>HBase 2,0 do 2.1.6
-W nadchodzącym wydaniu usługi HDInsight 4,0 wersja HBase zostanie uaktualniona z wersji 2,0 do 2.1.6
-
-### <a name="spark-240-to-244"></a>Platforma Spark 2.4.0 do 2.4.4
-W nadchodzącym wydaniu usługi HDInsight 4,0 wersja Spark zostanie uaktualniona z wersji 2.4.0 do 2.4.4
-
-### <a name="kafka-210-to-211"></a>Kafka 2.1.0 do 2.1.1
-W nadchodzącym wydaniu usługi HDInsight 4,0 Kafka wersja zostanie uaktualniona z wersji 2.1.0 do 2.1.1
-
+### <a name="esp-spark-cluster-head-node-size-change"></a>Zmiana rozmiaru węzła głównego klastra platformy Spark (ESP) 
+Minimalny dozwolony rozmiar węzła głównego dla klastra ESP Spark został zmieniony na Standard_D13_V2. Maszyny wirtualne z niskimi rdzeniami i pamięcią jako węzeł główny mogą powodować problemy z klastrem ESP ze względu na stosunkowo niską pojemność procesora i pamięci. Począwszy od wersji, użyj jednostek SKU wyższych niż Standard_D13_V2 i Standard_E16_V3 jako węzeł główny dla klastrów ESP Spark.
+ 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Minimalna 4-rdzeniowa maszyna wirtualna jest wymagana dla węzła głównego. 
 Aby węzeł główny zapewniał wysoką dostępność i niezawodność klastrów usługi HDInsight, wymagana jest co najmniej 4 rdzenie maszyny wirtualnej. Począwszy od kwietnia 6 2020, klienci mogą wybrać tylko 4-rdzeniową lub wyższą maszynę wirtualną jako węzeł główny dla nowych klastrów usługi HDInsight. Istniejące klastry będą nadal działać zgodnie z oczekiwaniami. 
+ 
+### <a name="cluster-worker-node-provisioning-change"></a>Zmiana aprowizacji węzła procesu roboczego klastra
+Gdy 80% węzłów procesu roboczego jest gotowych, klaster przechodzi do etapu **operacyjnego** . Na tym etapie klienci mogą wykonywać wszystkie operacje płaszczyzny danych, takie jak uruchamianie skryptów i zadań. Jednak klienci nie mogą wykonywać operacji na płaszczyźnie sterowania, takich jak skalowanie w górę/w dół. Tylko usuwanie jest obsługiwane.
+ 
+Po etapie **działania** klaster czeka na kolejne 60 minut dla pozostałych 20% węzłów procesu roboczego. Po upływie tego czasu 60 minut klaster przechodzi do **uruchomionego** etapu, nawet jeśli wszystkie węzły procesu roboczego nadal są niedostępne. Gdy klaster przechodzi na **uruchomiony** etap, można go użyć jako normalnego. Oba operacje planu kontroli, takie jak skalowanie w górę/w dół, oraz operacje planowania danych, takie jak uruchamianie skryptów i zadań, są akceptowane. Jeśli niektóre z żądanych węzłów procesu roboczego są niedostępne, klaster zostanie oznaczony jako częściowe powodzenie. Opłaty są naliczone za węzły, które zostały pomyślnie wdrożone. 
+ 
+### <a name="create-new-service-principal-through-hdinsight"></a>Utwórz nową nazwę główną usługi za usługą HDInsight
+Wcześniej dzięki utworzeniu klastra klienci mogą utworzyć nową nazwę główną usługi, aby uzyskać dostęp do połączonego konta ADLS Gen 1 w Azure Portal. Od czerwca 15 2020 klienci nie mogą utworzyć nowej jednostki usługi w przepływie pracy tworzenia w usłudze HDInsight, obsługiwana jest tylko Istniejąca jednostka usługi. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-### <a name="esp-spark-cluster-node-size-change"></a>Zmiana rozmiaru węzła klastra Spark w ramach platformy ESP 
-W nadchodzącym wydaniu Minimalny dozwolony rozmiar węzła dla klastra ESP Spark zostanie zmieniony na Standard_D13_V2. Maszyny wirtualne z serii A mogą powodować problemy z klastrem ESP ze względu na stosunkowo niską pojemność procesora i pamięci. Maszyny wirtualne z serii A są przestarzałe do tworzenia nowych klastrów ESP.
-
-### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Przechodzenie do zestawów skalowania maszyn wirtualnych platformy Azure
-Usługa HDInsight teraz używa maszyn wirtualnych platformy Azure do aprowizacji klastra. W nadchodzącym wydaniu Usługa HDInsight będzie używać zestawów skalowania maszyn wirtualnych platformy Azure. Zobacz więcej informacji o zestawach skalowania maszyn wirtualnych platformy Azure.
-
+### <a name="time-out-for-script-actions-with-cluster-creation"></a>Limit czasu dla akcji skryptu z tworzeniem klastra
+Usługa HDInsight obsługuje uruchamianie akcji skryptów przy użyciu tworzenia klastrów. W tej wersji wszystkie akcje skryptu z tworzeniem klastra muszą zakończyć się w ciągu **60 minut**lub przekroczyć limit czasu. Nie ma to wpływu na akcje skryptu przesłane do uruchomionych klastrów. Więcej informacji znajdziesz [tutaj](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-in-the-cluster-creation-process).
+ 
+## <a name="upcoming-changes"></a>Nadchodzące zmiany
+Brak przyszłych zmian, do których należy zwrócić uwagę.
+ 
 ## <a name="bug-fixes"></a>Poprawki błędów
 Usługa HDInsight kontynuuje zwiększanie niezawodności i wydajności klastrów. 
-
+ 
 ## <a name="component-version-change"></a>Zmiana wersji składnika
-Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usługi HDInsight 4,0 AD HDInsight 3,6 można znaleźć tutaj.
+### <a name="hbase-20-to-216"></a>HBase 2,0 do 2.1.6
+Wersja HBase jest uaktualniana z wersji 2,0 do 2.1.6.
+ 
+### <a name="spark-240-to-244"></a>Platforma Spark 2.4.0 do 2.4.4
+Wersja platformy Spark została uaktualniona z wersji 2.4.0 do 2.4.4.
+ 
+### <a name="kafka-210-to-211"></a>Kafka 2.1.0 do 2.1.1
+Wersja Kafka jest uaktualniana z wersji 2.1.0 do 2.1.1.
+ 
+Bieżące wersje składników usługi HDInsight 4,0 AD HDInsight 3,6 można znaleźć w [tym dokumencie](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
+## <a name="known-issues"></a>Znane problemy
+
+### <a name="hive-warehouse-connector-issue"></a>Problem z łącznikiem magazynu Hive
+W tej wersji występuje problem dotyczący łącznika magazynu Hive. Poprawka zostanie uwzględniona w następnej wersji. Nie ma to wpływu na istniejące klastry utworzone przed tą wersją. Należy unikać upuszczania i ponownego tworzenia klastra, jeśli jest to możliwe. Otwórz bilet pomocy technicznej, jeśli potrzebujesz dalszej pomocy na ten temat.

@@ -10,19 +10,19 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
+ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201996"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "85983153"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Samouczek: umożliwienie użytkownikom odblokowania konta lub resetowania haseł przy użyciu Azure Active Directory samoobsługowego resetowania hasła
 
 Azure Active Directory (usługa Azure AD) funkcja samoobsługowego resetowania haseł (SSPR) umożliwia użytkownikom zmianę lub Resetowanie hasła bez konieczności korzystania z administratora ani skontaktuj się z pomocą techniczną. Jeśli konto użytkownika jest zablokowane lub zapomni swoje hasło, może wykonać monit o odblokowanie siebie i zawracanie do pracy. Ta możliwość zmniejsza liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu ani w aplikacji.
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki Start zawiera informacje o tym, jak włączyć funkcję samoobsługowego resetowania hasła. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do https://aka.ms/ssprstrony.
+> Ten przewodnik Szybki Start zawiera informacje o tym, jak włączyć funkcję samoobsługowego resetowania hasła. Jeśli jesteś użytkownikiem końcowym już zarejestrowanym do samoobsługowego resetowania hasła i chcesz wrócić do swojego konta, przejdź do strony https://aka.ms/sspr .
 >
 > Jeśli Twój zespół IT nie włączył możliwości resetowania własnego hasła, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
@@ -47,7 +47,11 @@ Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
 ## <a name="enable-self-service-password-reset"></a>Włączanie samoobsługowego resetowania hasła
 
-Usługa Azure AD umożliwia włączenie opcji SSPR dla opcji *Brak*, *wybrane*lub *Wszyscy* użytkownicy. Ta szczegółowa funkcja umożliwia wybranie podzbioru użytkowników do testowania procesu rejestracji SSPR i przepływu pracy. Jeśli masz doświadczenie z procesem i można przekazać wymagania przez szerszego zestawu użytkowników, możesz wybrać dodatkowe grupy użytkowników do włączenia do usługi SSPR. Możesz również włączyć SSPR dla wszystkich użytkowników w dzierżawie usługi Azure AD.
+Usługa Azure AD umożliwia włączenie opcji SSPR dla opcji *Brak*, *wybrane*lub *Wszyscy* użytkownicy. Ta szczegółowa funkcja umożliwia wybranie podzbioru użytkowników do testowania procesu rejestracji SSPR i przepływu pracy. Jeśli masz doświadczenie z procesem i można przekazać wymagania przez szerszego zestawu użytkowników, możesz wybrać grupę użytkowników do włączenia do SSPR. Możesz również włączyć SSPR dla wszystkich użytkowników w dzierżawie usługi Azure AD.
+
+> [!NOTE]
+>
+> Obecnie można włączyć tylko jedną grupę usługi Azure AD dla SSPR przy użyciu Azure Portal. W ramach szerszego wdrożenia SSPR są obsługiwane zagnieżdżone grupy. Upewnij się, że użytkownicy w wybranych grupach mają przypisane odpowiednie licencje. Obecnie nie ma żadnego procesu weryfikacji tych wymagań licencyjnych.
 
 W tym samouczku skonfigurujesz SSPR dla zestawu użytkowników w grupie testowej. W poniższym przykładzie jest używana grupa *SSPR-test-Group* . W razie konieczności Podaj własną grupę usługi Azure AD:
 
@@ -57,8 +61,6 @@ W tym samouczku skonfigurujesz SSPR dla zestawu użytkowników w grupie testowej
 1. Wyszukaj i wybierz grupę usługi Azure AD, np. *SSPR-test-Group*, a następnie wybierz *pozycję Wybierz*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    W ramach szerszego wdrożenia SSPR są obsługiwane zagnieżdżone grupy. Upewnij się, że użytkownicy w wybranych grupach mają przypisane odpowiednie licencje. Obecnie nie ma żadnego procesu weryfikacji tych wymagań licencyjnych.
 
 1. Aby włączyć SSPR dla wybranych użytkowników, wybierz pozycję **Zapisz**.
 
@@ -77,6 +79,7 @@ Gdy użytkownicy muszą odblokować swoje konto lub zresetować swoje hasło, s�
     * *Poczta e-mail*
     * *Telefon komórkowy*
     * *Telefon biurowy*
+    * *Pytania zabezpieczające*
 
 1. Aby zastosować metody uwierzytelniania, wybierz pozycję **Zapisz**.
 
@@ -114,17 +117,17 @@ Po włączeniu i skonfigurowaniu SSPR Przetestuj proces SSPR przy użyciu użytk
 > [!NOTE]
 > Podczas testowania funkcji samoobsługowego resetowania hasła należy użyć konta niebędącego administratorem. Administratorzy są zawsze włączani do samoobsługowego resetowania hasła i muszą używać dwóch metod uwierzytelniania do resetowania hasła.
 
-1. Aby wyświetlić proces ręcznego rejestrowania, Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito, a następnie przejdź do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Użytkownicy powinni być kierowani do tego portalu rejestracji po następnym zalogowaniu.
+1. Aby wyświetlić proces ręcznego rejestrowania, Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito, a następnie przejdź do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Użytkownicy powinni być kierowani do tego portalu rejestracji po następnym zalogowaniu.
 1. Zaloguj się przy użyciu użytkownika testowego, takiego jak *Użytkownik testowy*, i zarejestruj swoje metody uwierzytelniania.
 1. Po zakończeniu wybierz przycisk oznaczony jako **dobry** i Zamknij okno przeglądarki.
-1. Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito, a następnie przejdź do [https://aka.ms/sspr](https://aka.ms/sspr).
+1. Otwórz nowe okno przeglądarki w trybie InPrivate lub incognito, a następnie przejdź do [https://aka.ms/sspr](https://aka.ms/sspr) .
 1. Wprowadź informacje o koncie użytkowników niebędących administratorami, takie jak *Użytkownik testowy*, znaki z CAPTCHA, a następnie wybierz przycisk **dalej**.
 
     ![Wprowadź informacje o koncie użytkownika w celu zresetowania hasła](media/tutorial-enable-sspr/password-reset-page.png)
 
 1. Wykonaj kroki weryfikacji, aby zresetować hasło. Po zakończeniu powinna zostać odebrana wiadomość e-mail z powiadomieniem, że hasło zostało zresetowane.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poniższym samouczku w tej serii można skonfigurować funkcję zapisywania zwrotnego haseł. Ta funkcja zapisuje zmiany haseł z usługi Azure AD SSPR z powrotem do lokalnego środowiska usługi AD. Jeśli chcesz kontynuować pracę z tą serią samouczków, aby skonfigurować funkcję zapisywania zwrotnego haseł, nie należy wyłączać SSPR teraz.
 

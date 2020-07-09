@@ -3,16 +3,16 @@ title: Migrowanie danych do Azure File Sync z Azure Data Box
 description: Migruj dane zbiorcze w sposób zgodny z Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d0331419de89775062f1309c5d854cd7325c68e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656768"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514385"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure DataBox
 Dane zbiorcze można migrować do Azure File Sync na dwa sposoby:
@@ -49,9 +49,9 @@ Poniżej przedstawiono sposób konfigurowania Azure File Sync w sposób zgodny z
 
 ![Diagram przedstawiający sposób konfigurowania Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Krok | Szczegół |
+| Krok | Szczegóły |
 |---|---------------------------------------------------------------------------------------|
-| ![Krok 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Zamów urządzenie Data Box](../../databox/data-box-deploy-ordered.md). Rodzina urządzenie Data Box oferuje [kilka produktów](https://azure.microsoft.com/services/storage/databox/data) spełniających Twoje potrzeby. Po otrzymaniu urządzenie Data Box postępuj zgodnie z [dokumentacją, aby skopiować dane](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) do tej ścieżki UNC na urządzenie Data Box: * \\ \>\<\>\<<DeviceIPAddres StorageAccountName_AzFile ShareName\>*. Tutaj, *ShareName* jest nazwą udziału przemieszczania. Wyślij urządzenie Data Box z powrotem do platformy Azure. |
+| ![Krok 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Zamów urządzenie Data Box](../../databox/data-box-deploy-ordered.md). Rodzina urządzenie Data Box oferuje [kilka produktów](https://azure.microsoft.com/services/storage/databox/data) spełniających Twoje potrzeby. Po otrzymaniu urządzenie Data Box postępuj zgodnie z [dokumentacją, aby skopiować dane](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) do tej ścieżki UNC na urządzenie Data Box: * \\<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Tutaj, *ShareName* jest nazwą udziału przemieszczania. Wyślij urządzenie Data Box z powrotem do platformy Azure. |
 | ![Krok 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Poczekaj, aż pliki zostaną wyświetlone w udziałach plików platformy Azure, które zostały wybrane jako tymczasowe udziały przejściowe. *Nie należy włączać synchronizacji do tych udziałów.* |
 | ![Krok 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Utwórz nowy pusty udział dla każdego udziału plików, który urządzenie Data Box utworzony przez Ciebie. Ten nowy udział powinien znajdować się na tym samym koncie magazynu co udział urządzenie Data Box. [Jak utworzyć nowy udział plików platformy Azure](storage-how-to-create-file-share.md).</li><li>[Utwórz grupę synchronizacji](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) w usłudze synchronizacji magazynu. Odwołuje się do pustego udziału jako punktu końcowego w chmurze. Powtórz ten krok dla każdego urządzenie Data Box udziału plików. [Skonfiguruj Azure File Sync](storage-sync-files-deployment-guide.md).</li></ul> |
 | ![Krok 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Dodaj swój katalog serwera na żywo jako punkt końcowy serwera](storage-sync-files-deployment-guide.md#create-a-server-endpoint). W procesie należy określić, że pliki zostały przeniesione na platformę Azure, i odwołać się do udziałów przemieszczania. W razie konieczności można włączyć lub wyłączyć obsługę warstw w chmurze. Podczas tworzenia punktu końcowego serwera na serwerze aktywnym należy odwołać się do udziału przemieszczania. W bloku **Dodawanie serwera punktu końcowego** w obszarze **transfer danych offline**wybierz pozycję **włączone**, a następnie wybierz udział przemieszczania, który musi znajdować się na tym samym koncie magazynu co punkt końcowy w chmurze. W tym miejscu lista dostępnych udziałów jest filtrowana według kont magazynu i udziałów, które nie są już synchronizowane. Zrzut ekranu poniżej poniższej tabeli pokazuje, jak odwoływać się do udziału DataBox podczas tworzenia punktu końcowego serwera w Azure Portal. |

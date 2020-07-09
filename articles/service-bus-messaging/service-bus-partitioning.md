@@ -1,20 +1,14 @@
 ---
 title: Tworzenie podzielonych kolejek Azure Service Bus i tematów | Microsoft Docs
 description: Opisuje sposób partycjonowania Service Bus kolejek i tematów przy użyciu wielu brokerów komunikatów.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
-ms.author: aschhab
-ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260945"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339645"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 
@@ -31,15 +25,17 @@ Każda podzielona Kolejka lub temat zawiera wiele partycji. Każda partycja jest
 
 Gdy klient chce otrzymać komunikat z podzielonej kolejki lub z subskrypcji do podzielonego tematu, Service Bus wysyła zapytanie do wszystkich partycji dla komunikatów, a następnie zwraca pierwszy komunikat uzyskany z dowolnego magazynu komunikatów do odbiorcy. Service Bus buforuje inne komunikaty i zwraca je po odebraniu dodatkowych żądań odebrania. Klient otrzymujący nie wie o partycjonowaniu; zachowanie związane z klientem dla kolejki lub tematu podzielonego na partycje (na przykład odczyt, zakończenie, odkładanie, utraconie, pobieranie z wyprzedzeniem) jest identyczne z zachowaniem zwykłej jednostki.
 
+Operacja wglądu w jednostce niepartycjonowanej zawsze zwraca najstarszą wiadomość, ale nie na partycjonowanej jednostce. Zamiast tego zwraca najstarszy komunikat z jednej z partycji, których Broker komunikatów odpowiedział jako pierwszy. Nie ma gwarancji, że zwracany komunikat jest najstarszym z nich we wszystkich partycjach. 
+
 Nie ma dodatkowych kosztów podczas wysyłania komunikatu do lub otrzymywania komunikatu z podzielonej kolejki lub tematu.
 
 ## <a name="enable-partitioning"></a>Włącz partycjonowanie
 
-Aby używać podzielonych kolejek i tematów w Azure Service Bus, należy użyć zestawu Azure SDK w wersji 2,2 lub `api-version=2013-10` nowszej albo określić lub później w żądaniach HTTP.
+Aby używać podzielonych kolejek i tematów w Azure Service Bus, należy użyć zestawu Azure SDK w wersji 2,2 lub nowszej albo określić `api-version=2013-10` lub później w żądaniach HTTP.
 
-### <a name="standard"></a>Standardowa
+### <a name="standard"></a>Standardowa (Standard)
 
-W warstwie Standardowa obsługa komunikatów można tworzyć Service Bus kolejki i tematy w rozmiarze 1, 2, 3, 4 lub 5 GB (wartość domyślna to 1 GB). Po włączeniu partycjonowania Service Bus tworzy 16 kopii (16 partycji) jednostki, każdy z określonych rozmiarów. W związku z tym, jeśli utworzysz kolejkę o rozmiarze 5 GB, a w przypadku 16 partycji zostanie osiągnięty maksymalny rozmiar kolejki \* (5 16) = 80 GB. Możesz zobaczyć maksymalny rozmiar kolejki lub tematu partycjonowanego, przeglądając jego wpis na [Azure Portal][Azure portal], w bloku **Przegląd** dla tej jednostki.
+W warstwie Standardowa obsługa komunikatów można tworzyć Service Bus kolejki i tematy w rozmiarze 1, 2, 3, 4 lub 5 GB (wartość domyślna to 1 GB). Po włączeniu partycjonowania Service Bus tworzy 16 kopii (16 partycji) jednostki, każdy z określonych rozmiarów. W związku z tym, jeśli utworzysz kolejkę o rozmiarze 5 GB, a w przypadku 16 partycji zostanie osiągnięty maksymalny rozmiar kolejki (5 \* 16) = 80 GB. Możesz zobaczyć maksymalny rozmiar kolejki lub tematu partycjonowanego, przeglądając jego wpis na [Azure Portal][Azure portal], w bloku **Przegląd** dla tej jednostki.
 
 ### <a name="premium"></a>Premium
 

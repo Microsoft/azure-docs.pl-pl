@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5a37ebba7dd0622db7e76ecef1c3eda24d72b27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
+ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726404"
+ms.lasthandoff: 07/05/2020
+ms.locfileid: "85965250"
 ---
 # <a name="using-azure-batch-rendering"></a>Używanie renderowania Azure Batch
 
@@ -19,8 +19,8 @@ Istnieje kilka sposobów używania renderowania Azure Batch:
 * Interfejsy API:
   * Napisz kod przy użyciu dowolnego interfejsu API usługi Batch.  Deweloperzy mogą integrować możliwości Azure Batch z istniejącymi aplikacjami lub przepływami pracy, zarówno w chmurze, jak i lokalnie.
 * Narzędzia wiersza polecenia:
-  * W celu użycia wsadowego skryptu można użyć [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/) lub [programu PowerShell](https://docs.microsoft.com/powershell/azure/overview) .
-  * W szczególności [Obsługa szablonu interfejsu wiersza polecenia](https://docs.microsoft.com/azure/batch/batch-cli-templates) w usłudze Batch ułatwia tworzenie pul i przesyłanie zadań.
+  * W celu użycia wsadowego skryptu można użyć [wiersza polecenia platformy Azure](/cli/azure/) lub [programu PowerShell](/powershell/azure/overview) .
+  * W szczególności [Obsługa szablonu interfejsu wiersza polecenia](./batch-cli-templates.md) w usłudze Batch ułatwia tworzenie pul i przesyłanie zadań.
 * Batch Explorer interfejsie użytkownika:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) to międzyplatformowe narzędzie klienta, które umożliwia również zarządzanie i monitorowanie kont wsadowych.
   * Dla każdej aplikacji renderowania są udostępniane różne szablony puli i zadań, których można użyć do łatwego tworzenia pul i przesyłania zadań.  Zestaw szablonów znajduje się w interfejsie użytkownika aplikacji z plikami szablonów dostępnymi z usługi GitHub.
@@ -32,7 +32,7 @@ Najlepszym sposobem na wypróbowanie Azure Batch renderowania i najprostszych sp
 
 ## <a name="using-batch-explorer"></a>Używanie Batch Explorer
 
-Aby zapoznać się z samouczkiem krok po kroku dotyczącym używania Batch Explorer do wykonania renderowania, zobacz [samouczek programu Blend](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
+Aby zapoznać się z samouczkiem krok po kroku dotyczącym używania Batch Explorer do wykonania renderowania, zobacz [samouczek programu Blend](./tutorial-rendering-batchexplorer-blender.md).
 
 ### <a name="download-and-install"></a>Pobierz i zainstaluj
 
@@ -65,5 +65,5 @@ Wtyczki są dostępne dla niektórych aplikacji klienckich.  Wtyczki umożliwiaj
 
 Przykłady renderowania wsadowego Wypróbuj dwa samouczki:
 
-* [Renderowanie przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Renderowanie przy użyciu programu Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Renderowanie przy użyciu interfejsu wiersza polecenia platformy Azure](./tutorial-rendering-cli.md)
+* [Renderowanie przy użyciu programu Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

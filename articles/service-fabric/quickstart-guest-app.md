@@ -4,10 +4,9 @@ description: Użyj klastra usługi Azure Service Fabric do hostowania istniejąc
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614846"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hostowanie aplikacji w technologii Node.js w usłudze Azure Service Fabric
@@ -43,7 +42,7 @@ Nazwij usługę **MyGuestService** i ustaw opcje po prawej stronie na następuj�
 
 | Ustawienie                   | Wartość |
 | ------------------------- | ------ |
-| Folder pakietu kodu       | _&lt;folder z aplikacją Node. js&gt;_ |
+| Folder pakietu kodu       | _&lt;folder z aplikacją Node.js&gt;_ |
 | Zachowanie pakietu kodu     | Skopiuj zawartość folderu do projektu |
 | Program                   | node.exe |
 | Argumenty                 | server.js |
@@ -60,7 +59,7 @@ Projekt aplikacji (**MyGuestApp**) nie zawiera bezpośrednio żadnego kodu. Proj
 * **Profile publikowania**  
 Preferencje narzędzi dla różnych środowisk.
 
-* **Scripts**  
+* **Skrypty**  
 Skrypt programu PowerShell przeznaczony do wdrażania/uaktualniania aplikacji.
 
 * **Definicja aplikacji**  
@@ -85,7 +84,7 @@ Otwórz plik **ServiceManifest.xml** w projekcie. W dolnej części manifestu is
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 Jeśli naciśniesz klawisz **F5** i uruchomisz projekt, zostanie on wdrożony w klastrze lokalnym. Zamiast tego wdrożymy go jednak na platformie Azure.
 
@@ -97,13 +96,13 @@ Wybierz docelowy profil **PublishProfiles\Cloud.xml**.
 
 Jeśli nie zostało to wykonane wcześniej, wybierz konto platformy Azure, na którym ma się odbyć wdrożenie. Jeśli nie masz jeszcze konta, [utwórz je][create-account].
 
-W obszarze **Punkt końcowy połączenia** wybierz klaster usługi Service Fabric do wdrożenia. Jeśli go nie masz, wybierz pozycję ** &lt;Utwórz nowy klaster... &gt; ** otwiera okno przeglądarki sieci Web do Azure Portal. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [tworzenia klastra w portalu](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+W obszarze **Punkt końcowy połączenia** wybierz klaster usługi Service Fabric do wdrożenia. Jeśli go nie masz, wybierz pozycję ** &lt; Utwórz nowy klaster... &gt; ** otwiera okno przeglądarki sieci Web do Azure Portal. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [tworzenia klastra w portalu](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Podczas tworzenia klastra usługi Service Fabric upewnij się, że ustawienie **Niestandardowe punkty końcowe** ma wartość **80**.
 
 ![Konfiguracja typu węzła usługi sieci szkieletowej z niestandardowym punktem końcowym][custom-endpoint]
 
-Tworzenie nowego klastra usługi Service Fabric zajmuje trochę czasu. Po jego utworzeniu Wróć do okna dialogowego publikowanie i wybierz pozycję ** &lt;Odśwież&gt;**. Nowy klaster znajduje się w polu listy rozwijanej; wybierz go.
+Tworzenie nowego klastra usługi Service Fabric zajmuje trochę czasu. Po jego utworzeniu Wróć do okna dialogowego publikowanie i wybierz pozycję ** &lt; Odśwież &gt; **. Nowy klaster znajduje się w polu listy rozwijanej; wybierz go.
 
 Naciśnij przycisk **Publikuj** i poczekaj na zakończenie wdrożenia.
 

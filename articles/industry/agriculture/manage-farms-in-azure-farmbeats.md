@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271722"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85847476"
 ---
 # <a name="manage-farms"></a>Zarządzanie farmami
 
@@ -18,7 +18,7 @@ Farmami można zarządzać w usłudze Azure FarmBeats. Ten artykuł zawiera info
 
 ## <a name="create-farms"></a>Tworzenie Farm
 
-Wykonaj następujące czynności:
+Wykonaj następujące kroki:
 
 1. Zaloguj się do akceleratora farmy. zostanie wyświetlona strona **farmy** .
     Na stronie **farmy** zostanie wyświetlona lista Farm na wypadek, gdyby zostały już utworzone w ramach subskrypcji.
@@ -33,7 +33,7 @@ Wykonaj następujące czynności:
 
 Poniżej przedstawiono dwa sposoby definiowania granic farmy:
 
-1. **Oznacz na mapie**: Użyj narzędzia mapowania mapy, aby narysować i oznaczyć granicę farmy. Aby oznaczyć granice, ![farmy projektu/](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i oznaczyć dokładne granice.
+1. **Oznacz na mapie**: Użyj narzędzia mapowania mapy, aby narysować i oznaczyć granicę farmy. Aby oznaczyć granice, ![ farmy projektu/ ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i oznaczyć dokładne granice.
 
     ![Farmy projektów](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

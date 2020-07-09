@@ -15,10 +15,9 @@ ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
 ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83201131"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — .NET
@@ -56,19 +55,19 @@ Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0` . Kod używa met
 
 ## <a name="create-and-configure-the-app-settings-file"></a>Tworzenie i konfigurowanie pliku ustawień aplikacji
 
-### <a name="create-appsettingsjson"></a>Utwórz plik appSettings. JSON
+### <a name="create-appsettingsjson"></a>Utwórz appsettings.jsna
 
 1. Przejdź do **General**  >  **pliku tekstowego**ogólnego.
-1. Nadaj mu nazwę "appSettings. JSON".
+1. Nadaj mu nazwę "appsettings.json".
 1. Ustaw właściwość "Kopiuj do katalogu wyjściowego" pliku JSON na "Kopiuj, jeśli nowszy" (tak, aby aplikacja mogła uzyskać do niej dostęp po opublikowaniu).
 
-### <a name="set-values-in-appsettingsjson"></a>Ustaw wartości w pliku appSettings. JSON
+### <a name="set-values-in-appsettingsjson"></a>Ustaw wartości w appsettings.jsna
 
-Uruchom `az ams account sp create` polecenie zgodnie z opisem w temacie [interfejsy API dostępu](access-api-cli-how-to.md). Polecenie zwraca kod JSON, który należy skopiować do pliku "appSettings. JSON".
+Uruchom `az ams account sp create` polecenie zgodnie z opisem w temacie [interfejsy API dostępu](access-api-cli-how-to.md). Polecenie zwraca kod JSON, który należy skopiować do "appsettings.json".
  
 ## <a name="add-configuration-file"></a>Dodawanie pliku konfiguracji
 
-Dla wygody Dodaj plik konfiguracji, który jest odpowiedzialny za odczyt wartości z pliku appSettings. JSON.
+Dla wygody Dodaj plik konfiguracji, który jest odpowiedzialny za Odczytywanie wartości z "appsettings.json".
 
 1. Dodaj nową klasę cs do projektu. Nadaj jej nazwę `ConfigWrapper`. 
 1. Wklej następujący kod do tego pliku (w tym przykładzie założono, że masz przestrzeń nazw `ConsoleApp1` ).
@@ -241,7 +240,7 @@ namespace ConsoleApp1
 - [Tworzenie filtrów za pomocą usługi Media Services — .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Zaawansowane przykłady wideo na żądanie usługi Azure Functions v2 z usługą Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Dokumentacja platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Aby uzyskać więcej przykładów kodu, zobacz repozytorium [przykładów zestawu .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

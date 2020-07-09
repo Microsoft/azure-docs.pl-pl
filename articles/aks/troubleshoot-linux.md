@@ -9,17 +9,16 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77925607"
 ---
 # <a name="linux-performance-troubleshooting"></a>Rozwiązywanie problemów z wydajnością systemu Linux
 
 Wyczerpanie zasobów na komputerach z systemem Linux jest typowym problemem i może być manifestem przez wiele różnych symptomów. Ten dokument zawiera ogólne omówienie dostępnych narzędzi, które ułatwiają diagnozowanie problemów.
 
-Wiele z tych narzędzi akceptuje interwał, w którym można generować wycofywane dane wyjściowe. Ten format danych wyjściowych zwykle sprawia, że wzorce wykrywania trendów są znacznie prostsze. W przypadku zaakceptowania przykładowego wywołania zostanie `[interval]`uwzględnione.
+Wiele z tych narzędzi akceptuje interwał, w którym można generować wycofywane dane wyjściowe. Ten format danych wyjściowych zwykle sprawia, że wzorce wykrywania trendów są znacznie prostsze. W przypadku zaakceptowania przykładowego wywołania zostanie uwzględnione `[interval]` .
 
 Wiele z tych narzędzi ma obszerną historię i szeroki zestaw opcji konfiguracji. Ta strona zawiera tylko prosty podzbiór wywołań do wyróżnienia typowych problemów. Kanoniczne źródło informacji jest zawsze dokumentacją referencyjną dla każdego określonego narzędzia. Ta dokumentacja będzie znacznie bardziej dokładna niż podano w tym miejscu.
 
@@ -31,7 +30,7 @@ Przykłady typowych problemów i wskaźników w celu ich zdiagnozowania:
 - Ograniczanie liczby operacji we/wy: Użyj iostat do mierzenia liczby operacji we/wy na urządzenie. Upewnij się, że żaden dysk nie przekracza jego limitu, a suma dla wszystkich dysków jest mniejsza niż limit dla maszyny wirtualnej.
 - Ograniczanie przepustowości: Użyj iostat jako dla operacji IOPS, ale mierząc przepływność odczytu i zapisu. Upewnij się, że przepustowość dla poszczególnych urządzeń i agregowania jest mniejsza niż wartość limitu przepustowości.
 - Wyczerpanie połączenia z ruchem: może to spowodować zalogowanie się jako wysoce aktywne (wychodzące) w programie SAR. 
-- Utrata pakietów: Ta wartość może być mierzona przez serwer proxy za pomocą liczby ponownych transmisji protokołu TCP względem liczby wysłanych/odebranych. `netstat` Obie `sar` te informacje.
+- Utrata pakietów: Ta wartość może być mierzona przez serwer proxy za pomocą liczby ponownych transmisji protokołu TCP względem liczby wysłanych/odebranych. Obie `sar` `netstat` te informacje.
 
 ## <a name="general"></a>Ogólne
 
@@ -84,7 +83,7 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
 - Użycie procesora CPU w tym przypadku przede wszystkim przedstawia czas bezczynności.
 - całkowita, bezpłatna i używana pamięć systemowa.
 
-`top`może pominąć procesy krótkotrwałe; alternatywy `htop` takie `atop` jak i zapewniają podobne interfejsy przy rozwiązywaniu niektórych wad.
+`top`może pominąć procesy krótkotrwałe; alternatywy takie jak `htop` i `atop` zapewniają podobne interfejsy przy rozwiązywaniu niektórych wad.
 
 ## <a name="cpu"></a>Procesor CPU
 
@@ -119,11 +118,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`zapewnia podobne informacje `mpstat` i `top`wylicza liczbę procesów oczekujących na procesor CPU (r Column), statystyk pamięci i procent czasu procesora CPU spędzony w każdym stanie pracy.
+`vmstat`zapewnia podobne informacje `mpstat` i `top` wylicza liczbę procesów oczekujących na procesor CPU (r Column), statystyk pamięci i procent czasu procesora CPU spędzony w każdym stanie pracy.
 
 ## <a name="memory"></a>Memory (Pamięć)
 
-Pamięć to bardzo ważne i Thankfully, które umożliwiają śledzenie. Niektóre narzędzia mogą raportować zarówno procesor, jak `vmstat`i pamięć, na przykład. Jednak narzędzia takie `free` jak nadal mogą być przydatne do szybkiego debugowania.
+Pamięć to bardzo ważne i Thankfully, które umożliwiają śledzenie. Niektóre narzędzia mogą raportować zarówno procesor, jak i pamięć, na przykład `vmstat` . Jednak narzędzia takie jak `free` nadal mogą być przydatne do szybkiego debugowania.
 
 ### <a name="free"></a>free
 
@@ -157,7 +156,7 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`zapewnia szczegółowe informacje o wykorzystaniu dysku. To wywołanie przekazuje `-x` szczegółowe dane statystyczne, `-y` aby pominąć średnią orednią systemu drukowania wyjściowego od rozruchu i `1 1` określić, że chcemy 1 sekundowy interwał, kończąc po jednym bloku danych wyjściowych. 
+`iostat`zapewnia szczegółowe informacje o wykorzystaniu dysku. To wywołanie przekazuje `-x` szczegółowe dane statystyczne, `-y` Aby pominąć średnią orednią systemu drukowania wyjściowego od rozruchu i `1 1` określić, że chcemy 1 sekundowy interwał, kończąc po jednym bloku danych wyjściowych. 
 
 `iostat`uwidacznia wiele przydatnych statystyk:
 
@@ -199,7 +198,7 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`jest zaawansowanym narzędziem do szerokiego zakresu analizy. Chociaż w tym przykładzie wykorzystuje ona możliwości mierzenia statystyk sieci, jest to równie wydajne dla mierzenia zużycia procesora i pamięci. Ten przykład wywołuje `sar` przy `-n` użyciu flagi, aby `DEV` określić słowo kluczowe (urządzenie sieciowe), wyświetlając przepływność sieci według urządzenia.
+`sar`jest zaawansowanym narzędziem do szerokiego zakresu analizy. Chociaż w tym przykładzie wykorzystuje ona możliwości mierzenia statystyk sieci, jest to równie wydajne dla mierzenia zużycia procesora i pamięci. Ten przykład wywołuje `sar` przy użyciu `-n` flagi, aby określić `DEV` słowo kluczowe (urządzenie sieciowe), wyświetlając przepływność sieci według urządzenia.
 
 - Suma `rxKb/s` i `txKb/s` jest całkowitą przepływność dla danego urządzenia. Gdy ta wartość przekroczy limit aprowizacji kart sieciowych platformy Azure, obciążenia na maszynie będą zwiększone do opóźnienia sieci.
 - `%ifutil`mierzy wykorzystanie dla danego urządzenia. Ponieważ ta wartość zbliża się do 100%, obciążenia będą powodować zwiększone opóźnienia sieci.
@@ -221,7 +220,7 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-To wywołanie `sar` używa `TCP,ETCP` słów kluczowych do sprawdzenia połączeń TCP. Trzecia kolumna ostatniego wiersza "retransd" to liczba retransmisji TCP na sekundę. Wysokie wartości dla tego pola wskazują niezawodne połączenie sieciowe. W pierwszym i trzecim wierszu "aktywny" oznacza połączenie pochodzące z urządzenia lokalnego, podczas gdy "zdalny" wskazuje połączenie przychodzące.  Typowym problemem związanym z platformą Azure jest wyczerpanie `sar` portów, które może pomóc wykryć. Wyczerpanie portów protokołu przesyłania adresów sieciowych będzie manifestować jako wysokie wartości "aktywne", ponieważ przyczyną tego problemu jest wysoka liczba wychodzących, inicjowanych lokalnie połączeń TCP.
+To wywołanie `sar` używa `TCP,ETCP` słów kluczowych do sprawdzenia połączeń TCP. Trzecia kolumna ostatniego wiersza "retransd" to liczba retransmisji TCP na sekundę. Wysokie wartości dla tego pola wskazują niezawodne połączenie sieciowe. W pierwszym i trzecim wierszu "aktywny" oznacza połączenie pochodzące z urządzenia lokalnego, podczas gdy "zdalny" wskazuje połączenie przychodzące.  Typowym problemem związanym z platformą Azure jest wyczerpanie portów, które `sar` może pomóc wykryć. Wyczerpanie portów protokołu przesyłania adresów sieciowych będzie manifestować jako wysokie wartości "aktywne", ponieważ przyczyną tego problemu jest wysoka liczba wychodzących, inicjowanych lokalnie połączeń TCP.
 
 Jak `sar` przyjmuje interwał, drukuje dane wyjściowe, a następnie drukuje końcowe wiersze danych wyjściowych zawierające średnie wyniki wywołania.
 

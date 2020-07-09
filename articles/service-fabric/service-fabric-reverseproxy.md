@@ -5,12 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 326075b947ea61384681fb2353c27d3e1450156d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282226"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84735340"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Zwrotny serwer proxy na platformie Azure Service Fabric
 Zwrotny serwer proxy wbudowany w usługę Azure Service Fabric ułatwia mikrousługi działające w klastrze Service Fabric odnajdywania i komunikowania się z innymi usługami, które mają punkty końcowe http.
@@ -78,7 +78,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** Określa sposób, w jaki powinna zostać wybrana replika docelowa lub wystąpienie.
   * Gdy usługa docelowa jest stanowa, TargetReplicaSelector może być jedną z następujących: "PrimaryReplica", "RandomSecondaryReplica" lub "RandomReplica". Jeśli ten parametr nie jest określony, wartością domyślną jest "PrimaryReplica".
   * Gdy usługa docelowa jest bezstanowa, zwrotny serwer proxy wybiera losowo wystąpienie partycji usługi, aby przesłać żądanie do programu.
-* **Limit czasu:**  Określa limit czasu żądania HTTP utworzonego przez zwrotny serwer proxy do usługi w imieniu żądania klienta. Wartość domyślna to 60 sekund. Jest to opcjonalny parametr.
+* **Limit czasu:**  Określa limit czasu żądania HTTP utworzonego przez zwrotny serwer proxy do usługi w imieniu żądania klienta. Wartość domyślna to 120 sekund. Jest to opcjonalny parametr.
 
 ### <a name="example-usage"></a>Przykład użycia
 Na przykład przyjrzyjmy się usłudze *Fabric:/MojaApl/WebService* , która otwiera odbiornik http przy następującym adresie URL:
@@ -115,7 +115,7 @@ Następnie Brama przekaże te żądania do adresu URL usługi:
 ## <a name="special-handling-for-port-sharing-services"></a>Specjalna obsługa usług udostępniania portów
 Service Fabric zwrotny serwer proxy próbuje ponownie rozpoznać adres usługi i ponowić próbę żądania, gdy nie można nawiązać połączenia z usługą. Ogólnie rzecz biorąc, gdy nie można skontaktować się z usługą, wystąpienie usługi lub replika została przeniesiona do innego węzła w ramach normalnego cyklu życia. W takim przypadku zwrotny serwer proxy może otrzymać błąd połączenia sieciowego wskazujący, że punkt końcowy nie jest już otwarty na pierwotnie rozwiązanym adresie.
 
-Jednak repliki lub wystąpienia usług mogą współużytkować proces hosta i mogą również udostępnić port, który jest obsługiwany przez serwer sieci Web oparty na protokole HTTP. sys, w tym:
+Jednak repliki lub wystąpienia usługi mogą współużytkować proces hosta i mogą również udostępniać port w przypadku hostowania przez serwer sieci Web oparty na http.sys, w tym:
 
 * [System .NET. odbiornika HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
 * [ASP.NET Core webListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
@@ -139,13 +139,13 @@ Ten nagłówek odpowiedzi HTTP wskazuje normalną sytuację HTTP 404, w której 
 
 ## <a name="special-handling-for-services-running-in-containers"></a>Specjalna obsługa usług działających w kontenerach
 
-W przypadku usług działających wewnątrz kontenerów można użyć zmiennej środowiskowej, `Fabric_NodeIPOrFQDN` aby utworzyć [adres URL zwrotnego serwera proxy](#uri-format-for-addressing-services-by-using-the-reverse-proxy) , jak w poniższym kodzie:
+W przypadku usług działających wewnątrz kontenerów można użyć zmiennej środowiskowej, `Fabric_NodeIPOrFQDN` Aby utworzyć [adres URL zwrotnego serwera proxy](#uri-format-for-addressing-services-by-using-the-reverse-proxy) , jak w poniższym kodzie:
 
 ```csharp
     var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
     var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
 ```
-Dla klastra lokalnego domyślnie `Fabric_NodeIPOrFQDN` jest ustawiona wartość "localhost". Uruchom klaster lokalny z parametrem `-UseMachineName` , aby upewnić się, że kontenery mogą uzyskać dostęp do zwrotnego serwera proxy uruchomionego w węźle. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska deweloperskiego do debugowania kontenerów](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+Dla klastra lokalnego domyślnie `Fabric_NodeIPOrFQDN` jest ustawiona wartość "localhost". Uruchom klaster lokalny z `-UseMachineName` parametrem, aby upewnić się, że kontenery mogą uzyskać dostęp do zwrotnego serwera proxy uruchomionego w węźle. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska deweloperskiego do debugowania kontenerów](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
 Usługi Service Fabric, które są uruchamiane w ramach kontenerów Docker Compose, wymagają specjalnej *sekcji portów* Docker-Compose. yml http: lub https: Configuration. Aby uzyskać więcej informacji, zobacz [Docker Compose obsługa wdrażania w usłudze Azure Service Fabric](service-fabric-docker-compose.md).
 

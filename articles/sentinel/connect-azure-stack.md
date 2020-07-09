@@ -13,10 +13,9 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "77588522"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Łączenie Azure Stack maszyn wirtualnych z platformą Azure — wskaźnikiem
@@ -55,7 +54,7 @@ Rozwiązywanie problemów z agentami w systemie Linux można znaleźć w temacie
 
 W portalu wskaźnikowym platformy Azure na platformie Azure w obszarze **Virtual Machines**masz przegląd wszystkich maszyn wirtualnych i komputerów wraz z ich stanem. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, można usunąć rozszerzenie z maszyny wirtualnej za pośrednictwem portalu Azure Stack.
 
 Aby usunąć rozszerzenie:

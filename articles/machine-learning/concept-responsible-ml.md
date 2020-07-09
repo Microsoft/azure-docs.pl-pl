@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: 3cef3c2179019f6d84de5596e61abaf8d7d3182c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
-ms.translationtype: MT
+ms.openlocfilehash: 09bb7710df19482e9625c1834d2646f70368fc1d
+ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597660"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85920354"
 ---
 # <a name="responsible-machine-learning-ml"></a>Machine Learning odpowiedzialny (ML)
 
@@ -36,7 +35,7 @@ Ponieważ sztuczna inteligencja i autonomiczne systemy integrują się z siecią
 
 ## <a name="interpret-and-explain-model-behavior"></a>Interpretuj i wyjaśnij zachowanie modelu
 
-Trudne w wyjaśnieniu i czarne systemy mogą być problematyczne, ponieważ utrudniają one zainteresowanym podmiotom, takim jak deweloperzy systemu, systemy nadzoru, użytkownicy i osoby podejmujące decyzje biznesowe, aby zrozumieć, dlaczego systemy podejmują pewne decyzje. Niektóre systemy AI są bardziej wyjaśnione niż inne, a czasami istnieje kompromis między systemem i większą dokładnością, który jest bardziej wyjaśniony.
+Trudne do wyjaśnienia i nieprzezroczyste systemy mogą być problematyczne, ponieważ utrudniają one uczestnikom, takim jak deweloperzy systemu, organy nadzorujące, użytkownicy i osoby podejmujące decyzje biznesowe, aby zrozumieć, dlaczego systemy podejmują pewne decyzje. Niektóre systemy AI są bardziej wyjaśnione niż inne, a czasami istnieje kompromis między systemem i większą dokładnością, który jest bardziej wyjaśniony.
 
 Aby utworzyć interpretowane systemy AI, użyj [InterpretML](https://github.com/interpretml/interpret), pakietu open source utworzonego przez firmę Microsoft. [InterpretML można używać wewnątrz Azure Machine Learning](how-to-machine-learning-interpretability.md) do [interpretacji i wyjaśnienia modeli uczenia maszynowego](how-to-machine-learning-interpretability-aml.md), w tym [zautomatyzowanych modeli uczenia maszynowego](how-to-machine-learning-interpretability-automl.md).
 
@@ -61,11 +60,14 @@ W tradycyjnych scenariuszach dane pierwotne są przechowywane w plikach i bazach
 
 Implementacja różnicowych systemów prywatnych jest trudna. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. Aby dowiedzieć się więcej o zasadach ochrony prywatności i projekcie WhiteNoise, zobacz artykuł [zachowanie prywatności danych przy użyciu różnicowych informacji o ochronie prywatności i WhiteNoise](./concept-differential-privacy.md) .
 
+> [!NOTE]
+> Należy pamiętać, że zmieniamy nazwy zestawu narzędzi i wprowadzamy nową nazwę w nadchodzących tygodniach. 
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Udokumentowanie cyklu życia uczenia maszynowego za pomocą arkuszy danych
 
 Dokumentowanie właściwych informacji w procesie uczenia maszynowego jest kluczem do podejmowania właściwych decyzji na każdym etapie. Arkusze danych to sposób dokumentowania zasobów uczenia maszynowego, które są używane i tworzone w ramach cyklu życia uczenia maszynowego.
 
-Modele są uważane za "czarne pola" i często znajdują się na nich małe informacje. Ponieważ systemy uczenia maszynowego stają się coraz bardziej rozpowszechnione i są używane do podejmowania decyzji, korzystanie z arkuszy danych to krok w kierunku tworzenia bardziej odpowiedzialnych systemów uczenia maszynowego.
+Modele są uważane za "pola nieprzezroczyste" i często są niewielkimi informacjami na ich temat. Ponieważ systemy uczenia maszynowego stają się coraz bardziej rozpowszechnione i są używane do podejmowania decyzji, korzystanie z arkuszy danych to krok w kierunku tworzenia bardziej odpowiedzialnych systemów uczenia maszynowego.
 
 Niektóre informacje o modelu, które można chcieć udokumentować w ramach arkusza danych:
 
@@ -80,4 +82,5 @@ Zapoznaj się z poniższym przykładem, aby dowiedzieć się, jak zaimplementowa
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
+- Użyj szyfrowania homomorphic, aby [wdrożyć zaszyfrowaną usługę sieci Web inferencing](how-to-homomorphic-encryption-seal.md).
 - Dowiedz się więcej o zestawie wskazówek [dotyczących informacji dotyczących](https://www.partnershiponai.org/about-ml/) systemu uczenia maszynowego.

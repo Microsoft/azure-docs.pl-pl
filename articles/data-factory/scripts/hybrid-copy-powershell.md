@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie danych ze środowiska lokalnego na platformę Azure przy użyciu programu PowerShell
-description: Ten skrypt programu PowerShell kopiuje dane z lokalnej bazy danych SQL Server do innego Blob Storage platformy Azure.
+description: Ten skrypt programu PowerShell kopiuje dane z bazy danych SQL Server do innej Blob Storage platformy Azure.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,16 +10,15 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 10555defc4888af66bb88d19190b6543aa8ae0c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75974702"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84194624"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Korzystanie z programu PowerShell do tworzenia potoku usługi Data Factory w celu kopiowania danych ze środowiska lokalnego na platformę Azure
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Tworzenie potoku usługi Data Factory w celu kopiowania danych z SQL Server na platformę Azure przy użyciu programu PowerShell
 
-Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, który kopiuje dane z lokalnej bazy danych SQL Server do Blob Storage platformy Azure.
+Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, który kopiuje dane z bazy danych SQL Server do Blob Storage platformy Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -27,12 +26,12 @@ Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, k
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **SQL Server**. W tym przykładzie jest używana lokalna baza danych SQL Server jako **źródłowy** magazyn danych.
+- **SQL Server**. W tym przykładzie używasz bazy danych SQL Server jako **źródła** magazynu danych.
 - **Konto usługi Azure Storage**. W tym przykładzie używasz magazynu obiektów blob platformy Azure jako **miejsca docelowego/ujścia** danych. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
 - **Własne środowisko Integration Runtime**. Pobierz plik MSI z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717) i uruchom go, aby zainstalować własne środowisko Integration Runtime na komputerze.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Tworzenie przykładowej bazy danych w SQL Server
-1. W lokalnej bazie danych SQL Server Utwórz tabelę o nazwie **EMP** , używając następującego skryptu SQL:
+1. W bazie danych SQL Server Utwórz tabelę o nazwie **EMP** przy użyciu następującego skryptu SQL:
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -57,7 +56,7 @@ Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, k
 > [!IMPORTANT]
 > Ten skrypt tworzy pliki JSON, które definiują Data Factory jednostki (połączone usługi, zestawy danych i potok) na dysku twardym w c:\ system32\drivers\etc.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from on-premises SQL Server -> Azure Blob Storage")]
+[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-onprem-sql-server-to-azure-blob/copy-from-onprem-sql-server-to-azure-blob.ps1 "Copy from SQL Server -> Azure Blob Storage")]
 
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia

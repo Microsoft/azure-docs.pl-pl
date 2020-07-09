@@ -5,16 +5,17 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669951"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753211"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Śledź przychodzące żądania przy użyciu języka Python OpenCensus
 
-Dane żądania przychodzącego są zbierane przy użyciu języka Python OpenCensus i różnych integracji. Śledź przychodzące dane żądania wysyłane do aplikacji sieci Web utworzonych na podstawie popularnych struktur `django`sieci Web `flask` i. `pyramid` Dane są następnie wysyłane do Application Insights w obszarze Azure Monitor jako `requests` dane telemetryczne.
+Dane żądania przychodzącego są zbierane przy użyciu języka Python OpenCensus i różnych integracji. Śledź przychodzące dane żądania wysyłane do aplikacji sieci Web utworzonych na podstawie popularnych struktur sieci Web `django` `flask` i `pyramid` . Dane są następnie wysyłane do Application Insights w obszarze Azure Monitor jako dane `requests` telemetryczne.
 
 Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zestawu SDK języka Python OpenCensus](../../azure-monitor/app/opencensus-python.md).
 
@@ -22,7 +23,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
 
 1. Pobierz i zainstaluj `opencensus-ext-django` program [PyPI](https://pypi.org/project/opencensus-ext-django/) i instrumentację aplikacji za pomocą `django` oprogramowania pośredniczącego. Żądania przychodzące wysyłane do `django` aplikacji będą śledzone.
 
-2. Dołącz `opencensus.ext.django.middleware.OpencensusMiddleware` do `settings.py` pliku pod `MIDDLEWARE`.
+2. Dołącz `opencensus.ext.django.middleware.OpencensusMiddleware` do `settings.py` pliku pod `MIDDLEWARE` .
 
     ```python
     MIDDLEWARE = (
@@ -32,7 +33,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
     )
     ```
 
-3. Upewnij się, że AzureExporter jest prawidłowo skonfigurowany `settings.py` w `OPENCENSUS`ramach użytkownika.
+3. Upewnij się, że AzureExporter jest prawidłowo skonfigurowany w `settings.py` ramach użytkownika `OPENCENSUS` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -41,20 +42,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. Możesz również dodać adresy URL w `settings.py` obszarze `BLACKLIST_PATHS` dla żądań, które nie mają być śledzone.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -86,7 +74,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
     
     ```
 
-2. `flask` Oprogramowanie pośredniczące można skonfigurować bezpośrednio w kodzie. W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj `BLACKLIST_PATHS`je do programu.
+2. Możesz również skonfigurować `flask` aplikację za poorednictwem programu `app.config` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -112,7 +100,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. Możesz skonfigurować `pyramid` animację bezpośrednio w kodzie. W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj `BLACKLIST_PATHS`je do programu.
+2. Możesz skonfigurować `pyramid` animację bezpośrednio w kodzie. W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
 
     ```python
     settings = {
@@ -133,6 +121,6 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
 
 * [Mapa aplikacji](../../azure-monitor/app/app-map.md)
 * [Dostępność](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Wyszukaj](../../azure-monitor/app/diagnostic-search.md)
+* [Wyszukiwanie](../../azure-monitor/app/diagnostic-search.md)
 * [Zapytanie log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
 * [Diagnostyka transakcji](../../azure-monitor/app/transaction-diagnostics.md)

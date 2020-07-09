@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65204246"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85514280"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurowanie serwera proxy sieci Web dla urządzenia StorSimple
 
@@ -86,7 +86,7 @@ Serwer proxy sieci Web jest teraz włączony. Możesz pominąć krok [Włącz se
 Alternatywną metodą konfigurowania ustawień serwera proxy sieci Web jest za pośrednictwem poleceń cmdlet program Windows PowerShell dla usługi StorSimple. Wykonaj następujące kroki, aby skonfigurować serwer proxy sieci Web.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Aby skonfigurować serwer proxy sieci Web za pomocą poleceń cmdlet
-1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło to `Password1`.
+1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło to `Password1` .
 2. W wierszu polecenia wpisz polecenie:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
@@ -108,7 +108,7 @@ Serwer proxy sieci Web jest domyślnie wyłączony. Po skonfigurowaniu ustawień
 Wykonaj następujące kroki w program Windows PowerShell dla usługi StorSimple, aby włączyć serwer proxy sieci Web na urządzeniu:
 
 #### <a name="to-enable-web-proxy"></a>Aby włączyć serwer proxy sieci Web
-1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło to `Password1`.
+1. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się z pełnymi prawami dostępu**. Po wyświetleniu monitu podaj **hasło administratora urządzenia**. Domyślne hasło to `Password1` .
 2. W wierszu polecenia wpisz polecenie:
    
     `Enable-HcsWebProxy`

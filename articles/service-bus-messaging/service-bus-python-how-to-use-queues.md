@@ -1,25 +1,19 @@
 ---
 title: 'Szybki Start: korzystanie z kolejek Azure Service Bus w języku Python'
 description: W tym artykule pokazano, jak za pomocą języka Python tworzyć, wysyłać wiadomości do i odbierać komunikaty z kolejek Azure Service Bus.
-services: service-bus-messaging
+author: spelluru
 documentationcenter: python
-author: axisc
-editor: spelluru
-ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.custom: seo-python-october2019
-ms.openlocfilehash: acb0b0e84804ecf6025e05590133dee9b0d54c48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.custom: seo-python-october2019, tracking-python
+ms.openlocfilehash: f4fa90025e9aaa12c065514e0dd4e5d76e4f8d24
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478642"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337288"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Szybki Start: korzystanie z kolejek Azure Service Bus w języku Python
 
@@ -102,11 +96,11 @@ with queue_client.get_receiver() as queue_receiver:
 
 ### <a name="use-the-peek_lock-parameter"></a>Użyj parametru peek_lock
 
-Opcjonalny `peek_lock` parametr `get_receiver` określa, czy Service Bus usuwa komunikaty z kolejki podczas ich odczytywania. Domyślnym trybem otrzymywania wiadomości jest *PeekLock*lub `peek_lock` ustawiona na **true**, który odczytuje (dokonuje wglądu) i blokuje komunikaty bez usuwania ich z kolejki. Każdy komunikat musi zostać jawnie ukończony, aby usunąć go z kolejki.
+Opcjonalny `peek_lock` parametr określa, `get_receiver` czy Service Bus usuwa komunikaty z kolejki podczas ich odczytywania. Domyślnym trybem otrzymywania wiadomości jest *PeekLock*lub `peek_lock` ustawiona na **true**, który odczytuje (dokonuje wglądu) i blokuje komunikaty bez usuwania ich z kolejki. Każdy komunikat musi zostać jawnie ukończony, aby usunąć go z kolejki.
 
 Aby usunąć wiadomości z kolejki podczas ich odczytywania, można ustawić `peek_lock` parametr `get_receiver` na **wartość false**. Usuwanie komunikatów w ramach operacji odbierania jest najprostszym modelem, ale działa tylko wtedy, gdy aplikacja może tolerować brakujące komunikaty w przypadku wystąpienia błędu. Aby zrozumieć to zachowanie, rozważ scenariusz, w którym odbiorca wysyła żądanie odebrania, a następnie ulega awarii przed jego przetworzeniem. Jeśli wiadomość została usunięta podczas odbierania, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, nie dotarła do niej komunikat otrzymany przed awarią.
 
-Jeśli aplikacja nie może tolerować pominiętych komunikatów, odbieranie jest operacją dwuetapową. PeekLock wyszukuje następny komunikat do użycia, blokuje go, aby uniemożliwić innym konsumentom otrzymywanie go i zwraca do aplikacji. Po przetworzeniu lub przechowywaniu komunikatu aplikacja wykonuje drugi etap procesu odbierania przez wywołanie `complete` metody dla obiektu **Message** .  `complete` Metoda oznacza komunikat jako używany i usuwa go z kolejki.
+Jeśli aplikacja nie może tolerować pominiętych komunikatów, odbieranie jest operacją dwuetapową. PeekLock wyszukuje następny komunikat do użycia, blokuje go, aby uniemożliwić innym konsumentom otrzymywanie go i zwraca do aplikacji. Po przetworzeniu lub przechowywaniu komunikatu aplikacja wykonuje drugi etap procesu odbierania przez wywołanie `complete` metody dla obiektu **Message** .  `complete`Metoda oznacza komunikat jako używany i usuwa go z kolejki.
 
 ## <a name="handle-application-crashes-and-unreadable-messages"></a>Obsługa awarii aplikacji i nieczytelnych wiadomości
 

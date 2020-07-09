@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 6c00556bfbcd2108b3cb5bd2cfdf88a741f85a99
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837478"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413896"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Przykłady programu Azure Monitor PowerShell
 W tym artykule przedstawiono przykładowe polecenia programu PowerShell ułatwiające dostęp do funkcji Azure Monitor.
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-activity-log-for-a-subscription"></a>Pobieranie dziennika aktywności dla subskrypcji
+## <a name="retrieve-activity-log"></a>Pobierz dziennik aktywności
 Użyj polecenia cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) .  Poniżej przedstawiono kilka typowych przykładów. Dziennik aktywności obejmuje ostatnie 90 dni operacji. Użycie dat przed tym terminem spowoduje wyświetlenie komunikatu o błędzie.  
 
 Sprawdź bieżącą datę/godzinę, aby sprawdzić, jakich godzin użyć w poniższych poleceniach:
@@ -148,7 +148,7 @@ Możesz tworzyć właściwości poczty e-mail i elementu webhook `New-AzAlertRul
 
 W poniższej tabeli opisano parametry i wartości używane do tworzenia alertu przy użyciu metryki.
 
-| parametr | value |
+| parametr | wartość |
 | --- | --- |
 | Nazwa |simpletestdiskwrite |
 | Lokalizacja tej reguły alertu |Wschodnie stany USA |
@@ -220,6 +220,10 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 Dodatkowe właściwości elementu webhook są opcjonalne. Możesz odzyskać zawartość alertu dziennika aktywności przy użyciu `Get-AzActivityLogAlert` .
 
 ## <a name="create-and-manage-autoscale-settings"></a>Tworzenie ustawień automatycznego skalowania i zarządzanie nimi
+
+> [!NOTE] 
+> W przypadku Cloud Services (Microsoft. ClassicCompute) Skalowanie automatyczne obsługuje ziarno czasu 5 minut (PT5M). W przypadku innych usług Skalowanie automatyczne obsługuje ziarno czasu o wartości co najmniej 1 minuty (PT1M)
+
 Dla zasobu (aplikacji sieci Web, maszyny wirtualnej, usługi w chmurze lub zestawu skalowania maszyn wirtualnych) można skonfigurować tylko jedno ustawienie skalowania automatycznego.
 Jednak każde ustawienie automatycznego skalowania może mieć wiele profilów. Na przykład jeden dla profilu skalowania opartego na wydajności i drugi dla profilu opartego na harmonogramie. Dla każdego profilu można skonfigurować wiele reguł. Aby uzyskać więcej informacji na temat automatycznego skalowania, zobacz [jak automatycznie skalować aplikację](../../cloud-services/cloud-services-how-to-scale-portal.md).
 

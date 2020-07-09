@@ -15,10 +15,9 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "74970129"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Korzystanie z funkcji pakowania multimediów platformy Azure w celu wykonywania statycznych zadań tworzenia pakietów  
@@ -83,7 +82,7 @@ Aby sprawdzić poprawność plików MP4 przy użyciu Pakowarki Media Services, n
 
 Po zastosowaniu zestawu plików MP4 z adaptacyjną szybkością transmisji bitów można korzystać z funkcji dynamicznego tworzenia pakietów. Dynamiczne pakowanie pozwala dostarczać strumienie w określonym protokole bez dalszej pakowania. Aby uzyskać więcej informacji, zobacz [dynamiczne pakowanie](media-services-dynamic-packaging-overview.md).
 
-Poniższy przykład kodu używa rozszerzeń zestawu .NET SDK Azure Media Services.  Upewnij się, że Zaktualizowano kod w taki sposób, aby wskazywał folder, w którym znajdują się dane wejściowe plików MP4 i ISM. A także miejscu, w którym znajduje się plik MediaPackager_ValidateTask. XML. Ten plik XML jest zdefiniowany w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
+Poniższy przykład kodu używa rozszerzeń zestawu .NET SDK Azure Media Services.  Upewnij się, że Zaktualizowano kod w taki sposób, aby wskazywał folder, w którym znajdują się dane wejściowe plików MP4 i ISM. A także lokalizacji pliku MediaPackager_ValidateTask.xml. Ten plik XML jest zdefiniowany w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -272,9 +271,9 @@ Media Services teraz udostępnia usługę do dostarczania licencji platformy Mic
 
 Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4.
 
-A także lokalizacji plików MediaPackager_MP4ToSmooth. XML i MediaEncryptor_PlayReadyProtection. XML. Plik MediaPackager_MP4ToSmooth. XML jest definiowany we wstępnie zdefiniowanym [zadaniu dla Pakowarki multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973635.aspx) , a plik MediaEncryptor_PlayReadyProtection. XML jest zdefiniowany w obszarze [Ustawienia wstępne zadania dla elementu szyfrującego multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973610.aspx) . 
+A także miejsce, w którym znajdują się pliki MediaPackager_MP4ToSmooth.xml i MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml jest zdefiniowany w obszarze [Ustawienia wstępne zadania dla Pakowarki multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973635.aspx) , a MediaEncryptor_PlayReadyProtection.xml jest zdefiniowany w artykule [Ustawienia wstępne zadania dotyczącego modułu szyfrującego multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973610.aspx) . 
 
-W przykładzie zdefiniowano metodę UpdatePlayReadyConfigurationXMLFile, która służy do dynamicznego aktualizowania pliku MediaEncryptor_PlayReadyProtection. XML. Jeśli masz dostęp do klucza, możesz użyć metody CommonEncryption. GeneratePlayReadyContentKey, aby wygenerować klucz zawartości na podstawie wartości keySeedValue i KeyId.
+W przykładzie zdefiniowano metodę UpdatePlayReadyConfigurationXMLFile, która służy do dynamicznego aktualizowania pliku MediaEncryptor_PlayReadyProtection.xml. Jeśli masz dostęp do klucza, możesz użyć metody CommonEncryption. GeneratePlayReadyContentKey, aby wygenerować klucz zawartości na podstawie wartości keySeedValue i KeyId.
 
 ```csharp
     using System;
@@ -716,12 +715,12 @@ Jeśli chcesz zaszyfrować HLS za pomocą algorytmu AES-128, masz możliwość k
 
 > [!NOTE]
 > Aby przekonwertować zawartość na HLS, należy najpierw skonwertować/zakodować zawartość do Smooth Streaming.
-> Ponadto, aby HLS szyfrowany przy użyciu algorytmu AES, upewnij się, że w pliku MediaPackager_SmoothToHLS. XML ustawiono następujące właściwości: Ustaw właściwość Zaszyfruj na wartość true, ustaw wartość klucza i wartość keyuri, aby wskazywały serwerowi authentication\authorization.
+> Ponadto, aby HLS szyfrowany przy użyciu algorytmu AES, upewnij się, że w pliku MediaPackager_SmoothToHLS.xml ustawiono następujące właściwości: Ustaw właściwość Zaszyfruj na wartość true, ustaw wartość klucza i wartość keyuri, tak aby wskazywały serwer authentication\authorization.
 > Media Services tworzy plik klucza i umieszcza go w kontenerze zasobów. Należy skopiować plik/Asset-containerguid/*. Key na serwer (lub utworzyć własny plik klucza), a następnie usunąć plik *. Key z kontenera zasobów.
 > 
 > 
 
-W przykładzie w tej sekcji kodujemy plik Mezzanine (w tym przypadku MP4) do plików MP4 o wieloszybkości transmisji bitów, a następnie pakiety pliki MP4 do Smooth Streaming. Następnie pakiety Smooth Streaming do HTTP Live Streaming (HLS) zaszyfrowane przy użyciu szyfrowania strumienia Advanced Encryption Standard (AES) 128-bitowego. Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4. A także lokalizacji plików konfiguracji MediaPackager_MP4ToSmooth. XML i MediaPackager_SmoothToHLS. XML. Definicje tych plików można znaleźć w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
+W przykładzie w tej sekcji kodujemy plik Mezzanine (w tym przypadku MP4) do plików MP4 o wieloszybkości transmisji bitów, a następnie pakiety pliki MP4 do Smooth Streaming. Następnie pakiety Smooth Streaming do HTTP Live Streaming (HLS) zaszyfrowane przy użyciu szyfrowania strumienia Advanced Encryption Standard (AES) 128-bitowego. Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4. Oraz miejsce, w którym znajdują się pliki konfiguracji MediaPackager_MP4ToSmooth.xml i MediaPackager_SmoothToHLS.xml. Definicje tych plików można znaleźć w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
 
 ```csharp
     using System;
@@ -1009,7 +1008,7 @@ W przykładzie w tej sekcji kodujemy plik Mezzanine (w tym przypadku MP4) do pli
 
 Media Services teraz udostępnia usługę do dostarczania licencji platformy Microsoft PlayReady. W przykładzie w tym artykule przedstawiono sposób konfigurowania usługi dostarczania licencji programu Media Services PlayReady (patrz metoda **ConfigureLicenseDeliveryService** zdefiniowana w poniższym kodzie). 
 
-Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4. A także lokalizacji plików MediaPackager_MP4ToSmooth. XML, MediaPackager_SmoothToHLS. XML i MediaEncryptor_PlayReadyProtection. XML. MediaPackager_MP4ToSmooth. XML i MediaPackager_SmoothToHLS. XML są zdefiniowane w [ustawieniu wstępnym zadania Pakowarki multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973635.aspx) , a plik MediaEncryptor_PlayReadyProtection. XML jest definiowany we wstępnie zdefiniowanym [zadaniu w artykule dotyczącym usługi Azure Media szyfrujące](https://msdn.microsoft.com/library/azure/hh973610.aspx) .
+Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4. A także lokalizacji plików MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml i MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml i MediaPackager_SmoothToHLS.xml są zdefiniowane w [ustawieniu wstępnym zadania Pakowarki multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973635.aspx) i MediaEncryptor_PlayReadyProtection.xml jest zdefiniowane w artykule [Ustawienia wstępne zadania dla usługi Azure Media szyfrującej](https://msdn.microsoft.com/library/azure/hh973610.aspx) .
 
 ```csharp
     using System;
@@ -1486,6 +1485,6 @@ Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w kt�
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

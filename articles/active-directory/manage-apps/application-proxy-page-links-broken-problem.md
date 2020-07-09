@@ -2,21 +2,22 @@
 title: Linki na stronie nie działają w przypadku aplikacji serwera proxy aplikacji
 description: Jak rozwiązywać problemy z przerwanymi łączami w aplikacjach serwera proxy aplikacji zintegrowanych z usługą Azure AD
 services: active-directory
-author: msmimart
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430243"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84760205"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Linki na stronie nie działają w przypadku aplikacji serwera proxy aplikacji
 
@@ -33,7 +34,7 @@ Istnieją trzy sposoby rozwiązania tego problemu. Poniższe opcje są wymienion
 
 1.  Upewnij się, że wewnętrzny adres URL jest katalogiem głównym zawierającym wszystkie odpowiednie linki dla aplikacji. Dzięki temu wszystkie linki mają być rozpoznawane jako zawartość opublikowana w ramach tej samej aplikacji.
 
-    Jeśli zmienisz wewnętrzny adres URL, ale nie chcesz zmienić strony docelowej dla użytkowników, Zmień adres URL strony głównej na wcześniej opublikowany wewnętrzny adres URL. Można to zrobić, przechodząc do "Azure Active Directory" —&gt; Rejestracja aplikacji —&gt; wybierz&gt; znakowanie aplikacji. W sekcji znakowania zobaczysz pole "adres URL strony głównej", które można dostosować do żądanej strony docelowej. Jeśli nadal korzystasz ze starszej wersji Rejestracje aplikacji, na karcie właściwości zostanie wyświetlony szczegółowy adres URL strony głównej. 
+    Jeśli zmienisz wewnętrzny adres URL, ale nie chcesz zmienić strony docelowej dla użytkowników, Zmień adres URL strony głównej na wcześniej opublikowany wewnętrzny adres URL. Można to zrobić, przechodząc do "Azure Active Directory" — &gt; Rejestracja aplikacji — &gt; Wybierz &gt; znakowanie aplikacji. W sekcji znakowania zobaczysz pole "adres URL strony głównej", które można dostosować do żądanej strony docelowej. Jeśli nadal korzystasz ze starszej wersji Rejestracje aplikacji, na karcie właściwości zostanie wyświetlony szczegółowy adres URL strony głównej. 
     
     > [!IMPORTANT]
     > W celu wprowadzenia powyższych zmian wymagane są uprawnienia do modyfikowania obiektów aplikacji w usłudze Azure AD. Użytkownik musi mieć przypisaną rolę [administratora aplikacji](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) , która przyznaje użytkownikowi uprawnienia modificaion do aplikacji w usłudze Azure AD.

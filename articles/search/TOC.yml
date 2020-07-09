@@ -1,13 +1,13 @@
 - name: Dokumentacja wyszukiwania poznawczego na platformie Azure
   href: index.yml
 - name: Omówienie
+  expanded: true
   items:
     - name: Co to jest wyszukiwanie poznawcze na platformie Azure?
       href: search-what-is-azure-search.md
     - name: Co nowego
       href: whats-new.md
 - name: Przewodniki Szybki start
-  expanded: true
   items:
     - name: Portal
       items:
@@ -15,7 +15,7 @@
           href: search-create-service-portal.md
         - name: Tworzenie indeksu
           href: search-get-started-portal.md
-        - name: Tworzenie aplikacji
+        - name: Tworzenie aplikacji demonstracyjnej
           href: search-create-app-portal.md
         - name: Tworzenie zestawu umiejętności
           href: cognitive-search-quickstart-blob.md
@@ -26,7 +26,7 @@
     - name: Szablon ARM
       displayName: Resource Manager
       href: search-get-started-arm.md
-    - name: 'C#'
+    - name: C#
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
@@ -40,7 +40,7 @@
       href: search-get-started-python.md
 - name: Samouczki
   items:
-    - name: 'Tworzenie aplikacji w języku C#'
+    - name: Tworzenie aplikacji w języku C#
       items:
         - name: 1 — Strona wyszukiwania podstawowego
           href: tutorial-csharp-create-first-app.md
@@ -64,7 +64,7 @@
       href: tutorial-optimize-indexing-push-api.md
     - name: Tworzenie zawartości przy użyciu AI
       items:
-        - name: 'C#'
+        - name: C#
           href: cognitive-search-tutorial-blob-dotnet.md
         - name: REST
           href: cognitive-search-tutorial-blob.md
@@ -76,7 +76,7 @@
       href: search-howto-powerapps.md
 - name: Samples
   items:
-    - name: 'Przykłady w języku C#'
+    - name: Przykłady w języku C#
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp'
     - name: Przykłady w języku Java
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java'
@@ -85,7 +85,7 @@
     - name: Przykłady w języku Python
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: Przykłady dla interfejsu REST
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
+      href: 'https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search'
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
@@ -222,12 +222,10 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: Przykład — rozpoznawanie formularzy na platformie Azure
               href: cognitive-search-custom-skill-form.md
-            - name: Przykład — Containers
-              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
+            - name: Przykład — Azure Machine Learning
+              href: cognitive-search-tutorial-aml-custom-skill.md
         - name: Wskazówki dotyczące projektowania
           href: cognitive-search-concept-troubleshooting.md
-        - name: Linki do dokumentacji
-          href: cognitive-search-resources-documentation.md
         - name: Magazyn wiedzy
           items:
             - name: Tworzenie przy użyciu rozwiązań REST i Postman
@@ -324,24 +322,28 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: Uaktualnianie interfejsu API REST
           href: search-api-migration.md
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
-        - name: Omówienie zabezpieczeń
+        - name: Omówienie
           href: search-security-overview.md
-        - name: Tworzenie prywatnego punktu końcowego
-          href: service-create-private-endpoint.md
-        - name: Konfigurowanie zapory IP
-          href: service-configure-firewall.md
-        - name: Zarządzanie kluczem usługi
-          href: search-security-api-keys.md
-        - name: Oparty na rolach dostęp administratora
-          href: search-security-rbac.md
-        - name: Filtry zabezpieczeń
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrowanie według tożsamości usługi AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Zarządzanie kluczami szyfrowania
-          href: search-security-manage-encryption-keys.md
+        - name: Szyfrowanie danych
+          items:
+            - name: Klucze zarządzane przez klienta
+              href: search-security-manage-encryption-keys.md
+        - name: Zabezpieczenia ruchu przychodzącego
+          items:
+            - name: Klucze dostępu do interfejsu API
+              href: search-security-api-keys.md
+            - name: Konfigurowanie zapory IP
+              href: service-configure-firewall.md
+            - name: Tworzenie prywatnego punktu końcowego
+              href: service-create-private-endpoint.md
+        - name: Dostęp oparty na tożsamościach
+          items:
+            - name: Filtry zabezpieczeń
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrowanie według tożsamości usługi AAD
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Zarządzanie
       items:
         - name: Portal
@@ -350,6 +352,8 @@
           href: search-manage-powershell.md
         - name: Przenoszenie usługi między regionami
           href: search-howto-move-across-regions.md
+        - name: Oparty na rolach dostęp administratora
+          href: search-security-rbac.md
     - name: Monitorowanie
       items:
         - name: Podstawy
@@ -384,10 +388,10 @@
           href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: REST
       items:
-        - name: Wyszukiwanie 2019-05-06
+        - name: Wyszukiwanie 2020-06-30
           href: /rest/api/searchservice
-        - name: Wyszukiwanie 2019-05-06 — wersja zapoznawcza
-          href: /rest/api/searchservice/index-2019-05-06-preview
+        - name: Wyszukiwanie 2020-06-30-Preview
+          href: /rest/api/searchservice/index-preview
         - name: Zarządzanie 2020-03-13
           href: /rest/api/searchmanagement
         - name: Zarządzanie 2019-10-01-Preview
@@ -458,6 +462,8 @@
               href: cognitive-search-skill-text-translation.md
         - name: Umiejętności niestandardowe
           items:
+            - name: Azure Machine Learning (AML)
+              href: cognitive-search-aml-skill.md
             - name: Niestandardowy internetowy interfejs API
               href: cognitive-search-custom-skill-web-api.md
         - name: Przestarzałe umiejętności
@@ -473,6 +479,10 @@
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Forum z opiniami (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
+    - name: Zgodność i certyfikaty
+      href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
+    - name: Linki do dokumentacji (wyszukiwanie wiedzy)
+      href: cognitive-search-resources-documentation.md
     - name: Witryny demonstracyjne
       items:
         - name: Pokaz plików finansowych

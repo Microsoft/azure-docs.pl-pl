@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 73c9e011359d2f86ec9f91d7e1e9b2869e68c794
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: acb818cf2a892a3a71f2f59b0a44041767b846d0
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648646"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044927"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -20,7 +20,7 @@ W tym artykule wyjaśniono, jak klienci z umową EA i partnerzy mogą wyświetla
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Witryna Azure Marketplace dla klientów umowy EA
 
-W przypadku klientów bezpośrednich opłaty związane z witryną Azure Marketplace są widoczne w witrynie Azure Enterprise Portal. Zakupy w witrynie Azure Marketplace i użycie są rozliczane kwartalnie lub miesięcznie poza zobowiązaniem pieniężnym jako zaległości.
+W przypadku klientów bezpośrednich opłaty związane z witryną Azure Marketplace są widoczne w witrynie Azure Enterprise Portal. Zakupy w witrynie Azure Marketplace i użycie są rozliczane kwartalnie lub miesięcznie poza przedpłatą za platformę Azure jako zaległości.
 
 Klienci pośredni mogą znaleźć swoje subskrypcje witryny Azure Marketplace na stronie **Zarządzanie subskrypcjami** w witrynie Azure Enterprise Portal, lecz ceny będą ukryte. Aby uzyskać informacje o opłatach związanych z witryną Azure Marketplace, klienci powinni skontaktować się z dostawcą rozwiązań licencjonowania (LSP, Licensing Solutions Provider).
 
@@ -28,7 +28,7 @@ Nowe cykliczne miesięczne lub roczne zakupy w witrynie Azure Marketplace są ca
 
 Istniejące miesięczne opłaty cykliczne będą w dalszym ciągu odnawiane w pierwszym dniu każdego miesiąca kalendarzowego. Opłaty roczne będą odnawiane w rocznicę daty zakupu.
 
-Niektóre usługi odsprzedawców innych firm dostępne w witrynie Azure Marketplace używają teraz salda zobowiązania pieniężnego w ramach umowy Enterprise Agreement (EA). Wcześniej te usługi były rozliczane poza zobowiązaniem pieniężnym umowy EA i na oddzielnej fakturze. Zobowiązanie pieniężne w ramach umowy EA dla tych usług w witrynie Azure Marketplace upraszcza zarządzanie zakupami i płatnościami klientów. Aby uzyskać pełną listę usług, które obecnie używają zobowiązania pieniężnego, zobacz [aktualizację z 6 marca 2018 r. w witrynie platformy Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+Niektóre usługi odsprzedawców innych firm dostępne w witrynie Azure Marketplace używają teraz salda przedpłaty za platformę Azure w ramach umowy Enterprise Agreement (EA). Wcześniej te usługi były rozliczane poza przedpłatą za platformę Azure umowy EA i na oddzielnej fakturze. Przedpłata za platformę Azure w ramach umowy EA dla tych usług w witrynie Azure Marketplace upraszcza zarządzanie zakupami i płatnościami klientów. Aby uzyskać pełną listę usług, które obecnie używają przedpłaty za platformę Azure, zobacz [aktualizację z 6 marca 2018 r. w witrynie platformy Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 ### <a name="partners"></a>Partnerzy
 
@@ -75,41 +75,41 @@ Jeśli masz umowę Enterprise Agreement, płacisz za usługę Azure RemoteApp na
 
 ## <a name="azure-marketplace-faq"></a>Witryna Azure Marketplace — często zadawane pytania
 
-W tej sekcji wyjaśniono, jak zobowiązanie pieniężne platformy Azure może mieć zastosowanie do niektórych usług odsprzedawców zewnętrznych w witrynie Azure Marketplace.
+W tej sekcji wyjaśniono, jak przedpłata za platformę Azure może mieć zastosowanie do niektórych usług odsprzedawców zewnętrznych w witrynie Azure Marketplace.
 
-### <a name="what-changed-with-azure-marketplace-services-and-ea-monetary-commitment"></a>Co się zmieniło w związku z usługami witryny Azure Marketplace i zobowiązaniem pieniężnym w ramach umowy EA?
+### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>Co się zmieniło w związku z usługami witryny Azure Marketplace i przedpłatą za platformę Azure w ramach umowy EA?
 
-Od 1 marca 2018 niektóre usługi odsprzedawców zewnętrznych wykorzystują zobowiązanie pieniężne w ramach umowy EA. Z wyjątkiem wystąpień zarezerwowanych maszyn wirtualnych platformy Azure (RI, Reserved Instance), wcześniej te usługi były rozliczane poza zobowiązaniem pieniężnym w ramach umowy EA i na oddzielnej fakturze.
+Od 1 marca 2018 niektóre usługi odsprzedawców zewnętrznych wykorzystują przedpłatę za platformę Azure w ramach umowy EA. Z wyjątkiem wystąpień zarezerwowanych maszyn wirtualnych platformy Azure (RI, Reserved Instance), wcześniej te usługi były rozliczane poza przedpłatą za platformę Azure w ramach umowy EA i na oddzielnej fakturze.
 
-Rozszerzyliśmy korzystanie ze zobowiązania pieniężnego pod kątem niektórych często kupowanych usług w witrynie Azure Marketplace publikowanych przez dostawców zewnętrznych. Zobowiązanie pieniężne w ramach umowy EA dla tych usług w witrynie Azure Marketplace upraszcza klientom zarządzanie zakupami i płatnościami.
+Rozszerzyliśmy korzystanie z przedpłaty za platformę Azure pod kątem niektórych często kupowanych usług w witrynie Azure Marketplace publikowanych przez dostawców zewnętrznych. Przedpłata za platformę Azure w ramach umowy EA dla tych usług w witrynie Azure Marketplace upraszcza klientom zarządzanie zakupami i płatnościami.
 
 ### <a name="why-did-we-make-this-change"></a>Dlaczego wprowadziliśmy tę zmianę?
 
-Klienci nieustannie szukają dodatkowych sposobów korzystania z płatności z góry wniesionych w postaci zobowiązania pieniężnego. Klienci często prosili o wprowadzenie tej zmiany i ma ona wpływ na znaczną część klientów witryny Azure Marketplace.
+Klienci nieustannie szukają dodatkowych sposobów korzystania z płatności z góry wniesionych w postaci przedpłaty za platformę Azure. Klienci często prosili o wprowadzenie tej zmiany i ma ona wpływ na znaczną część klientów witryny Azure Marketplace.
 
 ### <a name="how-do-you-benefit"></a>Jak na tym zyskasz?
 
-Ta zmiana zapewnia klientom prostsze rozliczenia i możliwość lepszego wykorzystywania zobowiązania pieniężnego w ramach umowy EA. Dzięki temu, że te usługi są objęte opłacanym z góry zobowiązaniem pieniężnym, to zobowiązanie w ramach umowy EA zyskuje na wartości.
+Ta zmiana zapewnia klientom prostsze rozliczenia i możliwość lepszego wykorzystywania przedpłaty za platformę Azure w ramach umowy EA. Dzięki temu, że te usługi są objęte przedpłatą za platformę Azure, przedpłata za platformę Azure w ramach umowy EA zyskuje na wartości.
 
-### <a name="what-azure-marketplace-services-use-ea-monetary-commitment-and-how-do-i-know"></a>Jakie usługi witryny Azure Marketplace zużywają zobowiązanie pieniężne w ramach umowy EA i jak to ustalić?
+### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Jakie usługi witryny Azure Marketplace zużywają przedpłatę za platformę Azure w ramach umowy EA i jak to ustalić?
 
-Gdy kupujesz usługę, w przypadku której można wykorzystać zobowiązanie pieniężne, w witrynie Azure Marketplace jest prezentowane oświadczenie o zrzeczeniu się odpowiedzialności. Obsługiwane są niektóre usługi publikowane przez firmy Red Hat, SUSE, Autodesk i Oracle. Obecnie za usługi o podobnych nazwach publikowane przez innych dostawców nie można zapłacić, wykorzystując zobowiązanie pieniężne. Pełna lista jest dostępna na końcu sekcji często zadawanych pytań.
+Gdy kupujesz usługę, w przypadku której można wykorzystać przedpłatę za platformę Azure, w witrynie Azure Marketplace jest prezentowane oświadczenie o zrzeczeniu się odpowiedzialności. Obsługiwane są niektóre usługi publikowane przez firmy Red Hat, SUSE, Autodesk i Oracle. Obecnie za usługi o podobnych nazwach publikowane przez innych dostawców nie można zapłacić, wykorzystując przedpłatę za platformę Azure. Pełna lista jest dostępna na końcu sekcji często zadawanych pytań.
 
-### <a name="what-if-my-ea-monetary-commitment-runs-out"></a>Co zrobić, jeśli zobowiązanie pieniężne w ramach umowy EA wyczerpie się?
+### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Co zrobić, jeśli przedpłata za platformę Azure w ramach umowy EA wyczerpie się?
 
-Jeśli wykorzystasz całe swoje zobowiązanie pieniężne i pojawi się u Ciebie nadwyżka, opłaty związane z tymi usługami pojawią się na następnej fakturze nadwyżkowej wraz z pozostałym użyciem usług. Przed zmianą wprowadzoną 1 marca 2018 r. opłaty te były fakturowane z innymi usługami witryny Azure Marketplace.
+Jeśli wykorzystasz całą swoją przedpłatę za platformę Azure i pojawi się u Ciebie nadwyżka, opłaty związane z tymi usługami pojawią się na następnej fakturze nadwyżkowej wraz z pozostałym użyciem usług. Przed zmianą wprowadzoną 1 marca 2018 r. opłaty te były fakturowane z innymi usługami witryny Azure Marketplace.
 
-### <a name="why-dont-all-azure-marketplaces-consume-ea-monetary-commitment"></a>Dlaczego nie wszystkie usługi witryny Azure Marketplace zużywają zobowiązanie pieniężne w ramach umowy EA?
+### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>Dlaczego nie wszystkie usługi witryny Azure Marketplace zużywają przedpłatę za platformę Azure w ramach umowy EA?
 
-Często pracujemy nad zapewnieniem dla klientów najlepszego środowiska związanego z zobowiązaniem pieniężnym w ramach umowy EA. Ta zmiana dotyczy dużej liczby klientów i znaczącej części sum wydawanych w witrynie Azure Marketplace. Inne usługi mogą zostać dodane w przyszłości.
+Często pracujemy nad zapewnieniem dla klientów najlepszego środowiska związanego z przedpłatą za platformę Azure w ramach umowy EA. Ta zmiana dotyczy dużej liczby klientów i znaczącej części sum wydawanych w witrynie Azure Marketplace. Inne usługi mogą zostać dodane w przyszłości.
 
 ### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>Jak wpływa to na rejestracje pośrednie i partnerów?
 
-Nie ma to wpływu na klientów rejestracji pośredniej ani partnerów. Te usługi są objęte tymi samymi możliwościami zastosowania narzutu przez partnera co inne usługi oparte na użyciu. Jedyną zmianą jest to, że opłaty są uwzględniane w innej fakturze, a opłaty są odejmowane od zobowiązania pieniężnego w ramach umowy EA klienta.
+Nie ma to wpływu na klientów rejestracji pośredniej ani partnerów. Te usługi są objęte tymi samymi możliwościami zastosowania narzutu przez partnera co inne usługi oparte na użyciu. Jedyną zmianą jest to, że opłaty są uwzględniane w innej fakturze, a opłaty są odejmowane od przedpłaty za platformę Azure w ramach umowy EA klienta.
 
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-ea-monetary-commitment"></a>Czy istnieje lista usług witryny Azure Marketplace, które zużywają zobowiązanie pieniężne w ramach umowy EA?
+### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>Czy istnieje lista usług witryny Azure Marketplace, które zużywają przedpłatę za platformę Azure w ramach umowy EA?
 
-Określone oferty z witryny Azure Marketplace mogą zużywać środki zobowiązania pieniężnego. Sprawdź [usługi dostawców zewnętrznych zużywające zobowiązanie pieniężne](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment), aby uzyskać pełną listę produktów biorących udział w tym programie.
+Określone oferty z witryny Azure Marketplace mogą zużywać środki przedpłaty za platformę Azure. Sprawdź [usługi dostawców zewnętrznych zużywające przedpłatę za platformę Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment), aby uzyskać pełną listę produktów biorących udział w tym programie.
 
 
 ## <a name="next-steps"></a>Następne kroki

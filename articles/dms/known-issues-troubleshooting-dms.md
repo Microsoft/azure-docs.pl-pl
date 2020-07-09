@@ -11,16 +11,21 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 40c7b1b0ae2065ed00cf21f99ab2046e25970237
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84609441"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Rozwiązywanie typowych problemów i błędów Azure Database Migration Service
 
 W tym artykule opisano niektóre typowe problemy i błędy, które mogą występować Azure Database Migration Service użytkownicy. Artykuł zawiera również informacje dotyczące sposobu rozwiązywania tych problemów i błędów.
+
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
 
 ## <a name="migration-activity-in-queued-state"></a>Działanie migracji w stanie w kolejce
 
@@ -32,7 +37,7 @@ W przypadku tworzenia nowych działań w projekcie Azure Database Migration Serv
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Maksymalna liczba baz danych wybranych do migracji
 
-Wystąpił następujący błąd podczas tworzenia działania dla projektu migracji bazy danych na potrzeby przeniesienia do Azure SQL Database lub wystąpienia zarządzanego Azure SQL Database:
+Następujący błąd występuje podczas tworzenia działania dla projektu migracji bazy danych na potrzeby przeniesienia do Azure SQL Database lub wystąpienia zarządzanego Azure SQL:
 
 * **Błąd**: Wystąpił błąd walidacji ustawień migracji "," errorDetail ":" więcej niż maksymalna liczba obiektów "Databases" dla "Database" została wybrana do migracji ".
 
@@ -58,7 +63,7 @@ Podczas zatrzymywania wystąpienia Azure Database Migration Service pojawia się
 
 | Przyczyna         | Rozwiązanie |
 | ------------- | ------------- |
-| Ten błąd jest wyświetlany, gdy wystąpienie usługi, które ma zostać zatrzymane, obejmuje działania, które są nadal uruchomione lub obecne w projektach migracji. <br><br><br><br><br><br> | Upewnij się, że nie ma żadnych działań uruchomionych w wystąpieniu Azure Database Migration Service, które próbujesz zatrzymać. Przed podjęciem próby zatrzymania usługi można również usunąć działania lub projekty. Poniższe kroki ilustrują, jak usunąć projekty w celu oczyszczenia wystąpienia usługi migracji przez usunięcie wszystkich uruchomionych zadań:<br>1. Install-module-name AzureRM. datamigration <br>2. Nazwa logowania — AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname "\<subname>" <br> 4. Remove-AzureRmDataMigrationProject-Name \<projectName>-ResourceGroupName \<rgName>-ServiceName \<ServiceName>-DeleteRunningTask |
+| Ten błąd jest wyświetlany, gdy wystąpienie usługi, które ma zostać zatrzymane, obejmuje działania, które są nadal uruchomione lub obecne w projektach migracji. <br><br><br><br><br><br> | Upewnij się, że nie ma żadnych działań uruchomionych w wystąpieniu Azure Database Migration Service, które próbujesz zatrzymać. Przed podjęciem próby zatrzymania usługi można również usunąć działania lub projekty. Poniższe kroki ilustrują, jak usunąć projekty w celu oczyszczenia wystąpienia usługi migracji przez usunięcie wszystkich uruchomionych zadań:<br>1. Install-module-name AzureRM. datamigration <br>2. Nazwa logowania — AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname " \<subName> " <br> 4. Remove-AzureRmDataMigrationProject-Name \<projectName> -ResourceGroupName \<rgName> -ServiceName \<serviceName> -DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Wystąpił błąd podczas próby uruchomienia Azure Database Migration Service
 
@@ -72,13 +77,13 @@ Podczas uruchamiania wystąpienia Azure Database Migration Service pojawia się 
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Wystąpił błąd podczas przywracania bazy danych programu SQL Server do wystąpienia zarządzanego usługi Azure SQL DB
 
-Podczas przeprowadzania migracji w trybie online z SQL Server do wystąpienia zarządzanego Azure SQL Database uruchomienie produkcyjne kończy się niepowodzeniem z powodu następującego błędu:
+Podczas przeprowadzania migracji w trybie online z SQL Server do wystąpienia zarządzanego usługi Azure SQL uruchomienie produkcyjne kończy się niepowodzeniem z powodu następującego błędu:
 
 * **Błąd**: operacja przywracania nie powiodła się dla identyfikatora operacji "operationId". Kod "AuthorizationFailed", komunikat "klient" clientId "o identyfikatorze obiektu" objectId ", nie ma autoryzacji do wykonania akcji" Microsoft. SQL/Locations/managedDatabaseRestoreAzureAsyncOperation/Read "w zakresie"/subscriptions/subscriptionId ".".
 
 | Przyczyna         | Rozwiązanie    |
 | ------------- | ------------- |
-| Ten błąd wskazuje, że podmiot zabezpieczeń aplikacji używany do migracji w trybie online z SQL Server do wystąpienia zarządzanego Azure SQL Database nie ma uprawnienia Współtworzenie w ramach subskrypcji. Niektóre wywołania interfejsu API z wystąpieniem zarządzanym w obecnym momencie wymagają tego uprawnienia do subskrypcji dla operacji przywracania. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Użyj polecenia `Get-AzureADServicePrincipal` cmdlet programu PowerShell `-ObjectId` z opcją dostępne w komunikacie o błędzie, aby wyświetlić nazwę wyświetlaną używanego identyfikatora aplikacji.<br><br> Sprawdź poprawność uprawnień do tej aplikacji i upewnij się, że ma ona [rolę współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) na poziomie subskrypcji. <br><br> Zespół inżynierów Azure Database Migration Service pracuje nad ograniczeniem dostępu wymaganego przez bieżącą rolę programu w ramach subskrypcji. Jeśli masz wymóg biznesowy, który nie zezwala na korzystanie z roli programu, skontaktuj się z pomocą techniczną platformy Azure w celu uzyskania dodatkowej pomocy. |
+| Ten błąd wskazuje, że podmiot zabezpieczeń aplikacji używany do migracji w trybie online z SQL Server do wystąpienia zarządzanego SQL nie ma uprawnienia współautora w ramach subskrypcji. Niektóre wywołania interfejsu API z wystąpieniem zarządzanym w obecnym momencie wymagają tego uprawnienia do subskrypcji dla operacji przywracania. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Użyj `Get-AzureADServicePrincipal` polecenia cmdlet programu PowerShell z opcją `-ObjectId` dostępne w komunikacie o błędzie, aby wyświetlić nazwę wyświetlaną używanego identyfikatora aplikacji.<br><br> Sprawdź poprawność uprawnień do tej aplikacji i upewnij się, że ma ona [rolę współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) na poziomie subskrypcji. <br><br> Zespół inżynierów Azure Database Migration Service pracuje nad ograniczeniem dostępu wymaganego przez bieżącą rolę programu w ramach subskrypcji. Jeśli masz wymóg biznesowy, który nie zezwala na korzystanie z roli programu, skontaktuj się z pomocą techniczną platformy Azure w celu uzyskania dodatkowej pomocy. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Wystąpił błąd podczas usuwania karty sieciowej skojarzonej z Azure Database Migration Service
 

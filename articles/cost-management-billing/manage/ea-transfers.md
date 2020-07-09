@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 07/06/2020
 ms.author: banders
-ms.openlocfilehash: 8833092ac0e3819f9f7649d3bdc99d88e9ab9909
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ff10d9ec9b92b85d057e556a21c144b9e8f155cf
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654706"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86043278"
 ---
 # <a name="azure-enterprise-transfers"></a>Transfery umowy Azure Enterprise
 
@@ -49,7 +49,7 @@ Inne zagadnienia, które należy wziąć pod uwagę przed przeniesieniem konta:
 
 Przeniesienie rejestracji rozważa się, gdy:
 
-- Został osiągnięty termin zobowiązania bieżącej rejestracji.
+- Został osiągnięty termin przedpłaty bieżącej rejestracji.
 - Rejestracja ma stan wygasła/rozszerzona i jest negocjowana nowa umowa.
 - Jeśli masz wiele rejestracji i chcesz połączyć wszystkie konta oraz rozliczenia w ramach jednej rejestracji.
 
@@ -60,7 +60,7 @@ Po utworzeniu żądania dotyczącego przeniesienia całej rejestracji w przedsi�
 - Wszystkie usługi, subskrypcje, konta, działy i cała struktura rejestracji, w tym wszyscy administratorzy działu umów EA, zostaną przeniesione do nowej rejestracji docelowej.
 - Stan rejestracji zostanie ustawiono na _Przeniesione_. Przeniesiona rejestracja jest dostępna wyłącznie dla celów raportowania użycia historycznego.
 - Do przeniesionej rejestracji nie można dodawać ról ani subskrypcji. Stan Przeniesione uniemożliwia dodatkowe użycie w odniesieniu do rejestracji.
-- Pozostałe saldo zobowiązania pieniężnego w umowie zostanie utracone, łącznie z przyszłymi okresami.
+- Pozostałe saldo przedpłaty za platformę Azure w umowie zostanie utracone, łącznie z przyszłymi okresami.
 -    Jeśli rejestracja, z której się przenosisz, obejmuje zakupy wystąpień zarezerwowanych, opłata za zakup wystąpień zarezerwowanych pozostaje w rejestracji źródłowej, jednak wszystkie korzyści wynikające z wystąpienia zarezerwowanego zostaną przeniesione do wykorzystania w nowej rejestracji.
 -    Opłata za jednorazowe zakupy w witrynie Marketplace i wszystkie miesięczne opłaty stałe naliczone już w ramach starej rejestracji nie zostaną przeniesione do nowej rejestracji. Opłaty witryny Marketplace naliczone na podstawie użycia zostaną przeniesione.
 
@@ -68,7 +68,7 @@ Po utworzeniu żądania dotyczącego przeniesienia całej rejestracji w przedsi�
 
 Data obowiązywania przeniesienia może być datą początkową rejestracji docelowej lub późniejszą.
 
-Użycie rejestracji źródłowej jest obciążane opłatą w odniesieniu do zobowiązania pieniężnego lub jako nadwyżka. Użycie, które następuje po dacie obowiązywania przeniesienia, jest transferowane do nowej rejestracji i są naliczane odpowiednie opłaty.
+Użycie rejestracji źródłowej jest obciążane opłatą w odniesieniu do przedpłaty za platformę Azure lub jako nadwyżka. Użycie, które następuje po dacie obowiązywania przeniesienia, jest transferowane do nowej rejestracji i są naliczane odpowiednie opłaty.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -84,9 +84,9 @@ Inne zagadnienia, które należy wziąć pod uwagę przed przeniesieniem rejestr
 - Jeśli przeniesienie rezerwacji nie spełnia Twoich wymagań, rozważ przeniesienie konta.
 - Stan rejestracji źródłowej zostanie zaktualizowany na „przeniesiona” i będzie dostępny tylko dla celów raportowania użycia historycznego.
 
-### <a name="monetary-commitment"></a>Zobowiązanie pieniężne
+### <a name="azure-prepayment"></a>Przedpłata za platformę Azure
 
-Zobowiązania pieniężnego nie można przenosić między rejestracjami. Salda zobowiązania pieniężnego są powiązane z umową w ramach rejestracji, w której zostały zamówione. Zobowiązanie pieniężne nie jest przenoszone jako część procesu przenoszenia konta lub rejestracji.
+Przedpłaty za platformę Azure nie można przenosić między rejestracjami. Salda przedpłaty za platformę Azure są powiązane z umową w ramach rejestracji, w której zostały zamówione. Przedpłata za platformę Azure nie jest przenoszona jako część procesu przenoszenia konta lub rejestracji.
 
 ### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Brak usług, których dotyczą przeniesienia kont i rejestracji
 

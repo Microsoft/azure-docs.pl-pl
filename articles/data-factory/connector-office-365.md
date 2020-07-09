@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416870"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85513295"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Skopiuj dane z pakietu Office 365 do platformy Azure przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,10 +39,10 @@ Na razie w ramach jednego działania kopiowania można **kopiować dane z pakiet
 Aby skopiować dane z pakietu Office 365 do platformy Azure, należy wykonać następujące czynności wstępne:
 
 - Administrator dzierżawy pakietu Office 365 musi wykonać czynności związane z dołączaniem, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/graph/data-connect-get-started).
-- Utwórz i skonfiguruj aplikację sieci Web usługi Azure AD w Azure Active Directory.  Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji usługi Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Utwórz i skonfiguruj aplikację sieci Web usługi Azure AD w Azure Active Directory.  Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji usługi Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Należy pamiętać o następujących wartościach, które będą używane do definiowania połączonej usługi dla pakietu Office 365:
-    - Identyfikator dzierżawy. Aby uzyskać instrukcje, zobacz [Pobieranie identyfikatora dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-    - Identyfikator aplikacji i klucz aplikacji.  Aby uzyskać instrukcje, zobacz [Pobieranie identyfikatora aplikacji i klucza uwierzytelniania](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Identyfikator dzierżawy. Aby uzyskać instrukcje, zobacz [Pobieranie identyfikatora dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+    - Identyfikator aplikacji i klucz aplikacji.  Aby uzyskać instrukcje, zobacz [Pobieranie identyfikatora aplikacji i klucza uwierzytelniania](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 - Dodaj tożsamość użytkownika, która będzie wprowadzać żądanie dostępu do danych jako właściciel aplikacji sieci Web usługi Azure AD (z poziomu > aplikacji sieci Web usługi Azure AD > właściciele > Dodaj właściciela). 
     - Tożsamość użytkownika musi znajdować się w organizacji pakietu Office 365, z której są odbierane dane, i nie może być użytkownikiem-gościem.
 
@@ -65,10 +64,10 @@ Jeśli w ramach aplikacji zarządzanej jest tworzony automatyczny ADF i przypisa
 Można utworzyć potok z działaniem kopiowania przy użyciu jednego z następujących narzędzi lub zestawów SDK. Wybierz link, aby przejść do samouczka z instrukcjami krok po kroku, aby utworzyć potok z działaniem kopiowania. 
 
 - [Azure Portal](quickstart-create-data-factory-portal.md)
-- [Zestaw SDK .NET](quickstart-create-data-factory-dot-net.md)
+- [Zestaw SDK platformy .NET](quickstart-create-data-factory-dot-net.md)
 - [Zestaw SDK dla języka Python](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [INTERFEJS API REST](quickstart-create-data-factory-rest-api.md)
+- [Interfejs API REST](quickstart-create-data-factory-rest-api.md)
 - [Szablon Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md). 
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek Data Factory specyficznych dla łącznika pakietu Office 365.
@@ -77,9 +76,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi Office 365 są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość: **Office 365** | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość: **Office 365** | Tak |
 | office365TenantId | Identyfikator dzierżawy platformy Azure, do której należy konto usługi Office 365. | Tak |
 | servicePrincipalTenantId | Określ informacje o dzierżawie, w których znajduje się aplikacja sieci Web usługi Azure AD. | Tak |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
@@ -117,14 +116,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z pakietu Office 365, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **Office365Table** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **Office365Table** | Tak |
 | tableName | Nazwa zestawu danych do wyodrębnienia z pakietu Office 365. Zapoznaj [się](https://docs.microsoft.com/graph/data-connect-datasets#datasets) z listą zestawów danych pakietu Office 365 dostępnych do wyodrębnienia. | Tak |
 
-Jeśli ustawienia `dateFilterColumn`, `startTime`, `endTime`, i `userScopeFilterUri` w zestawie danych, nadal są obsługiwane jako-is, podczas gdy sugerowane jest użycie nowego modelu w źródle aktywności.
+Jeśli ustawienia `dateFilterColumn` , `startTime` , `endTime` , i `userScopeFilterUri` w zestawie danych, nadal są obsługiwane jako-is, podczas gdy sugerowane jest użycie nowego modelu w źródle aktywności.
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -151,14 +150,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z pakietu Office 365, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **Office365Source** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **Office365Source** | Tak |
 | allowedGroups | Predykat wyboru grupy.  Ta właściwość umożliwia wybranie do 10 grup użytkowników, dla których zostaną pobrane dane.  Jeśli nie określono żadnych grup, dane będą zwracane dla całej organizacji. | Nie |
-| userScopeFilterUri | Jeśli `allowedGroups` właściwość nie jest określona, można użyć wyrażenia predykatu, które jest stosowane dla całej dzierżawy do filtrowania konkretnych wierszy do wyodrębnienia z pakietu Office 365. Format predykatu powinien być zgodny z formatem zapytania Microsoft Graph interfejsów API, np `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`.. | Nie |
+| userScopeFilterUri | Jeśli `allowedGroups` Właściwość nie jest określona, można użyć wyrażenia predykatu, które jest stosowane dla całej dzierżawy do filtrowania konkretnych wierszy do wyodrębnienia z pakietu Office 365. Format predykatu powinien być zgodny z formatem zapytania Microsoft Graph interfejsów API, np. `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` . | Nie |
 | dateFilterColumn | Nazwa kolumny filtru DateTime. Ta właściwość umożliwia ograniczenie zakresu czasu, dla którego są wyodrębniane dane pakietu Office 365. | Tak, jeśli zestaw danych ma jedną lub więcej kolumn DateTime. Zapoznaj się [tutaj](https://docs.microsoft.com/graph/data-connect-filtering#filtering) z listą zestawów danych, które wymagają tego filtru DateTime. |
-| startTime | Rozpocznij wartość daty/godziny do odfiltrowania. | Tak, `dateFilterColumn` jeśli jest określony |
-| endTime | Końcowa wartość daty/godziny do odfiltrowania. | Tak, `dateFilterColumn` jeśli jest określony |
+| startTime | Rozpocznij wartość daty/godziny do odfiltrowania. | Tak, jeśli `dateFilterColumn` jest określony |
+| endTime | Końcowa wartość daty/godziny do odfiltrowania. | Tak, jeśli `dateFilterColumn` jest określony |
 | outputColumns | Tablica kolumn do skopiowania do ujścia. | Nie |
 
 **Przykład:**

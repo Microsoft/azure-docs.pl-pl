@@ -8,13 +8,12 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 06dfca4fc59ba6ff32714d7a92b0d4a65e262de5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826013"
 ---
-# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorowanie zasobów programu SharePoint i zarządzanie nimi za pomocą Azure Logic Apps
+# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorowanie zasobów SharePoint i zarządzanie nimi za pomocą usługi Azure Logic Apps
 
 Za pomocą Azure Logic Apps i łącznika programu SharePoint można tworzyć automatyczne zadania i przepływy pracy, które monitorują zasoby i zarządzają nimi, takie jak pliki, foldery, listy, elementy, osoby itd., w usłudze SharePoint Online lub w programie SharePoint Server lokalnie, na przykład:
 
@@ -51,7 +50,7 @@ Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure L
   Ten wyzwalacz jest uruchamiany za każdym razem, gdy w usłudze Salesforce zostanie utworzony nowy rekord, taki jak potencjalny klient. 
   Następnie można użyć tego wyzwalacza z akcją **Utwórz plik** programu SharePoint. Dzięki temu po utworzeniu nowego rekordu aplikacja logiki tworzy plik w programie SharePoint z informacjami o nowym rekordzie.
 
-## <a name="connect-to-sharepoint"></a>Połącz z programem SharePoint
+## <a name="connect-to-sharepoint"></a>Nawiązywanie połączenia z programem SharePoint
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 

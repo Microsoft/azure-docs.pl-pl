@@ -3,12 +3,12 @@ title: Wdrażanie za pomocą usługi Resource Manager i klasyczne
 description: W tym artykule opisano różnice między modelem wdrażania przy użyciu usługi Resource Manager a modelem klasycznym (lub przy użyciu zarządzania usługami).
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: 85691d562f2b58cdced3264de11f3dd29a7ca168
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e44128da9b6e180bd2857f4574c0b384fdffef2
+ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064516"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86057572"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Wdrożenie przy użyciu usługi Azure Resource Manager a wdrożenie klasyczne: omówienie modeli wdrażania i stanu zasobów
 
@@ -78,6 +78,8 @@ Poniższy diagram przedstawia zasoby obliczeniowe, sieciowe i magazynu wdrożone
 
 ![Architektura usługi Resource Manager](./media/deployment-models/arm_arch3.png)
 
+SRP: dostawca zasobów magazynu, CRP: dostawca zasobów obliczeniowych, dostawca dostawcy zasobów sieciowych
+
 Pamiętaj o następujących relacjach między zasobami:
 
 * Wszystkie zasoby istnieją w ramach grupy zasobów.
@@ -99,7 +101,7 @@ Klasyczne rozwiązanie dla hostowania maszyny wirtualnej obejmuje następujące 
 
 W poniższej tabeli opisano zmiany dotyczące interakcji dostawców zasobów obliczeniowych, sieciowych i magazynu:
 
-| Element | Wdrożenie klasyczne | Resource Manager |
+| Element | Klasyczny | Resource Manager |
 | --- | --- | --- |
 | Usługa w chmurze dla maszyn wirtualnych |Usługa w chmurze stanowiła kontener do przechowywania maszyn wirtualnych wymagających dostępności na platformie oraz równoważenia obciążenia. |Usługa w chmurze nie jest już obiektem wymaganym do utworzenia maszyny wirtualnej przy użyciu nowego modelu. |
 | Sieci wirtualne |Sieć wirtualna jest opcjonalna dla maszyny wirtualnej. W przypadku uwzględnienia sieci wirtualnej nie można wdrożyć przy użyciu Menedżer zasobów. |Maszyna wirtualna wymaga sieci wirtualnej, która została wdrożona przy użyciu usługi Resource Manager. |
@@ -123,7 +125,7 @@ Jeśli wszystko jest gotowe do migracji zasobów z klasycznego wdrożenia do Men
 1. [Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
 2. [Obsługiwana przez platformę migracja zasobów rozwiązania IaaS z wdrożenia klasycznego do usługi Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 3. [Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu programu Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu interfejsu wiersza polecenia](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+4. [Migrowanie zasobów rozwiązania IaaS z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager przy użyciu interfejsu wiersza polecenia](../../virtual-machines/linux/migration-classic-resource-manager-cli.md)
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -150,4 +152,3 @@ Kompleksowy zestaw szablonów startowych można znaleźć na stronie [Szablony s
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby wyświetlić polecenia dotyczące wdrażania szablonu, zobacz [Wdrażanie aplikacji za pomocą szablonu usługi Azure Resource Manager](../templates/deploy-powershell.md).
-

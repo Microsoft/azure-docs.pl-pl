@@ -3,12 +3,12 @@ title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 09ca5264280c990db8f57400aef1a876f842a210
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
-ms.translationtype: MT
+ms.custom: references_regions
+ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117682"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85806875"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -22,7 +22,7 @@ Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich re
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Obsługiwane regiony do przypadkowego usunięcia ochrony
 
-Zachodnio-środkowe stany USA
+Zachodnio-środkowe stany USA, Australia Południowo-Wschodnia, Kanada środkowa
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
@@ -31,12 +31,13 @@ Zachodnio-środkowe stany USA
 | Rodzaj konta            | Azure Backup obsługuje udziały plików platformy Azure obecne w ogólnego przeznaczenia w wersji 1, w wersji 2 i w przypadku typów magazynu plików |
 | Wydajność              | Azure Backup obsługuje udziały plików zarówno na kontach standardowych, jak i Premium Storage |
 | Replikacja              | Obsługiwane są udziały plików platformy Azure w ramach kont magazynu z dowolnym typem replikacji |
+| Zapora włączona         | Obsługiwane są udziały plików platformy Azure w ramach kont magazynu z regułami zapory zezwalających na dostęp do konta magazynu przez usługi Microsoft Azure Services|
 
 ## <a name="supported-file-shares"></a>Obsługiwane udziały plików
 
 | Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
-| Standardowa                                           | Obsługiwane |
+| Standardowa (Standard)                                           | Obsługiwane |
 | Duży                                              | Obsługiwane |
 | Premium                                            | Obsługiwane |
 | Udziały plików połączone z usługą Azure File Sync | Obsługiwane |
@@ -45,14 +46,16 @@ Zachodnio-środkowe stany USA
 
 | Ustawienie                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
-| Maksymalna liczba udziałów plików, które mogą być chronione dziennie na magazyn | 200   |
+| Maksymalna liczba udziałów plików, które mogą być chronione na magazyn dziennie| 200   |
 | Maksymalna liczba kont magazynu, które można zarejestrować na magazyn dziennie | 50    |
+| Maksymalna liczba udziałów plików, które mogą być chronione na magazyn | 2000   |
+| Maksymalna liczba kont magazynu, które można zarejestrować na magazyn | 200   |
 
 ## <a name="backup-limits"></a>Limity kopii zapasowych
 
 | Ustawienie                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maksymalna liczba kopii zapasowych na żądanie dziennie | 4     |
+| Maksymalna liczba kopii zapasowych na żądanie dziennie | 10   |
 | Maksymalna liczba zaplanowanych kopii zapasowych dziennie | 1     |
 
 ## <a name="restore-limits"></a>Limity przywracania

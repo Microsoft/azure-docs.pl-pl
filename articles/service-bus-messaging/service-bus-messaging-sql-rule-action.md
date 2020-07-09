@@ -1,25 +1,13 @@
 ---
 title: Odwołanie do składni SQLRuleAction w Azure Service Bus
 description: Ten artykuł zawiera odwołanie do składni SQLRuleAction. Akcje są zapisywane w składni opartej na języku SQL, która jest wykonywana względem komunikatu obsługiwanego przez brokera.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 06/23/2020
+ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759632"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341587"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>SQLRuleAction odwołanie do składni dla Azure Service Bus
 
@@ -65,7 +53,7 @@ W tym artykule przedstawiono szczegółowe informacje na temat gramatyki akcji r
   
 ## <a name="arguments"></a>Argumenty  
   
--   `<scope>`jest opcjonalnym ciągiem wskazującym zakres `<property_name>`. Prawidłowe wartości to `sys` lub `user`. `sys` Wartość wskazuje zakres systemowy, `<property_name>` gdzie jest publiczną nazwą właściwości [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`wskazuje zakres użytkownika, `<property_name>` gdzie jest kluczem słownika [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user`zakres jest zakresem domyślnym, `<scope>` Jeśli nie jest określony.  
+-   `<scope>`jest opcjonalnym ciągiem wskazującym zakres `<property_name>` . Prawidłowe wartości to `sys` lub `user` . `sys`Wartość wskazuje zakres systemowy, gdzie `<property_name>` jest publiczną nazwą właściwości [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`wskazuje zakres użytkownika `<property_name>` , gdzie jest kluczem słownika [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user`zakres jest zakresem domyślnym, jeśli `<scope>` nie jest określony.  
   
 ### <a name="remarks"></a>Uwagi  
 
@@ -98,7 +86,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
  A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.  
   
- `<delimited_identifier>`jest dowolnym ciągiem, który jest ujęty w nawiasy kwadratowe ([]). Prawy nawias kwadratowy jest reprezentowany jako dwa prawy nawias kwadratowy. Poniżej przedstawiono przykłady `<delimited_identifier>`:  
+ `<delimited_identifier>`jest dowolnym ciągiem, który jest ujęty w nawiasy kwadratowe ([]). Prawy nawias kwadratowy jest reprezentowany jako dwa prawy nawias kwadratowy. Poniżej przedstawiono przykłady `<delimited_identifier>` :  
   
 ```  
 [Property With Space]  
@@ -106,7 +94,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ```  
   
- `<quoted_identifier>`to dowolny ciąg, który jest ujęty w znaki podwójnego cudzysłowu. Podwójny cudzysłów w identyfikatorze jest reprezentowany jako dwa podwójne cudzysłowy. Nie zaleca się używania identyfikatorów w cudzysłowie, ponieważ można je łatwo pomylić z stałą typu String. Jeśli to możliwe, należy użyć oddzielonego identyfikatora. Oto przykład `<quoted_identifier>`:  
+ `<quoted_identifier>`to dowolny ciąg, który jest ujęty w znaki podwójnego cudzysłowu. Podwójny cudzysłów w identyfikatorze jest reprezentowany jako dwa podwójne cudzysłowy. Nie zaleca się używania identyfikatorów w cudzysłowie, ponieważ można je łatwo pomylić z stałą typu String. Jeśli to możliwe, należy użyć oddzielonego identyfikatora. Oto przykład `<quoted_identifier>` :  
   
 ```  
 "Contoso & Northwind"  
@@ -138,7 +126,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
  `<escape_char>`musi być wyrażeniem, które jest oceniane jako ciąg o długości 1. Jest używany jako znak ucieczki dla operatora LIKE.  
   
- Na przykład `property LIKE 'ABC\%' ESCAPE '\'` pasuje `ABC%` do ciągu, który rozpoczyna się `ABC`od.  
+ Na przykład `property LIKE 'ABC\%' ESCAPE '\'` pasuje do `ABC%` ciągu, który rozpoczyna się od `ABC` .  
   
 ## <a name="constant"></a> — stała  
   
@@ -160,7 +148,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 -   `<decimal_constant>`jest ciągiem liczb, które nie są ujęte w cudzysłów i zawierają separator dziesiętny. Wartości są przechowywane jako `System.Double` wewnętrznie i zgodne z tym samym zakresem/dokładnością.  
   
-     W przyszłych wersjach ten numer może być przechowywany w innym typie danych do obsługi dokładnej semantyki liczb, dlatego nie należy polegać na tym, że jest `System.Double` to typ danych bazowych. `<decimal_constant>`  
+     W przyszłych wersjach ten numer może być przechowywany w innym typie danych do obsługi dokładnej semantyki liczb, dlatego nie należy polegać na tym, że jest to typ danych bazowych `System.Double` `<decimal_constant>` .  
   
      Poniżej przedstawiono przykłady stałych dziesiętnych:  
   
@@ -185,7 +173,7 @@ Próba uzyskania dostępu do nieistniejącej właściwości systemu jest błęde
   
 ### <a name="remarks"></a>Uwagi
   
-Stałe logiczne są reprezentowane przez słowa kluczowe `TRUE` lub `FALSE`. Wartości są przechowywane jako `System.Boolean`.  
+Stałe logiczne są reprezentowane przez słowa kluczowe `TRUE` lub `FALSE` . Wartości są przechowywane jako `System.Boolean` .  
   
 ## <a name="string_constant"></a>string_constant  
   
@@ -207,11 +195,11 @@ Stałe ciągów są ujęte w znaki pojedynczego cudzysłowu i zawierają wszystk
   
 ### <a name="remarks"></a>Uwagi  
 
-Funkcja zwraca obiekt **System. GUID** wygenerowany przez `System.Guid.NewGuid()` metodę. `newid()`  
+`newid()`Funkcja zwraca obiekt **System. GUID** wygenerowany przez `System.Guid.NewGuid()` metodę.  
   
-`property(name)` Funkcja zwraca wartość właściwości, do której odwołuje się `name`. `name` Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
+`property(name)`Funkcja zwraca wartość właściwości, do której odwołuje się `name` . `name`Wartość może być dowolnym prawidłowym wyrażeniem zwracającym wartość ciągu.  
   
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 - ZESTAW służy do tworzenia nowej właściwości lub aktualizowania wartości istniejącej właściwości.
 - Usuń służy do usuwania właściwości.

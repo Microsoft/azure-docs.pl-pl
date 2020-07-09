@@ -3,16 +3,15 @@ title: Hostowanie stref wyszukiwania wstecznego DNS w Azure DNS
 description: Dowiedz się, jak za pomocą Azure DNS hostować strefy wyszukiwania wstecznego DNS dla zakresów adresów IP
 author: rohinkoul
 ms.service: dns
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 78fc3428274be5e1998abe9189bea996f15e278c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454265"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84709202"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hostowanie stref wyszukiwania wstecznego DNS w Azure DNS
 
@@ -29,7 +28,7 @@ W tym artykule omówiono procedurę tworzenia pierwszej strefy DNS wyszukiwania 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Tworzenie strefy DNS wyszukiwania wstecznego
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W menu **centrum** wybierz pozycję **nowe** > **sieci**, a następnie wybierz pozycję **strefa DNS**.
+1. W menu **centrum** wybierz pozycję **nowe**  >  **sieci**, a następnie wybierz pozycję **strefa DNS**.
 
    ![Wybór "strefy DNS"](./media/dns-reverse-dns-hosting/figure1.png)
 
@@ -37,16 +36,16 @@ W tym artykule omówiono procedurę tworzenia pierwszej strefy DNS wyszukiwania 
 
 ### <a name="ipv4"></a>Protokół IPv4
 
-Nazwa strefy wyszukiwania wstecznego IPv4 jest określana na podstawie zakresu adresów IP, który reprezentuje. Powinien być w następującym formacie: `<IPv4 network prefix in reverse order>.in-addr.arpa`. Przykłady można znaleźć [w temacie Omówienie odwrotnego systemu DNS i pomocy technicznej na platformie Azure](dns-reverse-dns-overview.md#ipv4).
+Nazwa strefy wyszukiwania wstecznego IPv4 jest określana na podstawie zakresu adresów IP, który reprezentuje. Powinien być w następującym formacie: `<IPv4 network prefix in reverse order>.in-addr.arpa` . Przykłady można znaleźć [w temacie Omówienie odwrotnego systemu DNS i pomocy technicznej na platformie Azure](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> Gdy tworzysz strefy wyszukiwania wstecznego DNS bez klas w Azure DNS, musisz użyć łącznika (`-`), a nie ukośnika (`/`) w nazwie strefy.
+> Gdy tworzysz strefy wyszukiwania wstecznego DNS bez klas w Azure DNS, musisz użyć łącznika (), `-` a nie ukośnika ( `/` ) w nazwie strefy.
 >
-> Na przykład dla zakresu adresów IP 192.0.2.128/26 należy użyć `128-26.2.0.192.in-addr.arpa` jako nazwy strefy zamiast. `128/26.2.0.192.in-addr.arpa`
+> Na przykład dla zakresu adresów IP 192.0.2.128/26 należy użyć `128-26.2.0.192.in-addr.arpa` jako nazwy strefy zamiast `128/26.2.0.192.in-addr.arpa` .
 >
-> Chociaż standardy DNS obsługują obie metody, Azure DNS nie obsługuje nazw stref DNS, które zawierają znaki ukośnika (`/`).
+> Chociaż standardy DNS obsługują obie metody, Azure DNS nie obsługuje nazw stref DNS, które zawierają znaki ukośnika ( `/` ).
 
-Poniższy przykład pokazuje, jak utworzyć strefę DNS wstecznej klasy C o `2.0.192.in-addr.arpa` nazwie w Azure DNS za pomocą Azure Portal:
+Poniższy przykład pokazuje, jak utworzyć strefę DNS wstecznej klasy C o nazwie `2.0.192.in-addr.arpa` w Azure DNS za pomocą Azure Portal:
 
  ![Okienko "Tworzenie strefy DNS" z wypełnionymi polami](./media/dns-reverse-dns-hosting/figure2.png)
 
@@ -74,10 +73,10 @@ az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
 
 ### <a name="ipv6"></a>Protokół IPv6
 
-Nazwa strefy wyszukiwania wstecznego IPv6 powinna mieć następującą postać: `<IPv6 network prefix in reverse order>.ip6.arpa`.  Przykłady można znaleźć [w temacie Omówienie odwrotnego systemu DNS i pomocy technicznej na platformie Azure](dns-reverse-dns-overview.md#ipv6).
+Nazwa strefy wyszukiwania wstecznego IPv6 powinna mieć następującą postać: `<IPv6 network prefix in reverse order>.ip6.arpa` .  Przykłady można znaleźć [w temacie Omówienie odwrotnego systemu DNS i pomocy technicznej na platformie Azure](dns-reverse-dns-overview.md#ipv6).
 
 
-Poniższy przykład pokazuje, jak utworzyć strefę wyszukiwania wstecznego DNS IPv6 o `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` nazwie w Azure DNS za pośrednictwem Azure Portal:
+Poniższy przykład pokazuje, jak utworzyć strefę wyszukiwania wstecznego DNS IPv6 o nazwie `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` w Azure DNS za pośrednictwem Azure Portal:
 
  ![Okienko "Tworzenie strefy DNS" z wypełnionymi polami](./media/dns-reverse-dns-hosting/figure3.png)
 
@@ -240,7 +239,7 @@ azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.
 az network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Czy można hostować strefy wyszukiwania wstecznego DNS dla moich bloków IP przypisanych przez usługodawcę internetowego na Azure DNS?
 

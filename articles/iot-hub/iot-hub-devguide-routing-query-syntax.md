@@ -8,11 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271111"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688963"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Składnia zapytania dotyczącego routingu komunikatów usługi IoT Hub
 
@@ -54,9 +53,9 @@ Właściwości systemu pomagają identyfikować zawartość i źródło komunika
 | -------- | ---- | ----------- |
 | contentType | ciąg | Użytkownik określa typ zawartości komunikatu. Aby zezwolić na zapytanie w treści wiadomości, należy ustawić wartość Application/JSON. |
 | contentEncoding | ciąg | Użytkownik określa typ kodowania wiadomości. Dozwolone wartości to UTF-8, UTF-16, UTF-32, jeśli dla właściwości contentType ustawiono wartość Application/JSON. |
-| iothub-Connection-ID urządzenia | ciąg | Ta wartość jest ustawiana przez IoT Hub i identyfikuje identyfikator urządzenia. Aby wykonać zapytanie, `$connectionDeviceId`Użyj. |
-| iothub — enqueuedtime | ciąg | Ta wartość jest ustawiana przez IoT Hub i reprezentuje rzeczywisty czas umieszczenie komunikatu w formacie UTC. Aby wykonać zapytanie, `enqueuedTime`Użyj. |
-| iothub-Interface-Name | ciąg | Ta wartość jest ustawiana przez użytkownika i reprezentuje nazwę interfejsu dwuosiowego, który implementuje komunikat telemetrii. Aby wykonać zapytanie, `$interfaceName`Użyj. Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). |
+| iothub-Connection-ID urządzenia | ciąg | Ta wartość jest ustawiana przez IoT Hub i identyfikuje identyfikator urządzenia. Aby wykonać zapytanie, użyj `$connectionDeviceId` . |
+| iothub — enqueuedtime | ciąg | Ta wartość jest ustawiana przez IoT Hub i reprezentuje rzeczywisty czas umieszczenie komunikatu w formacie UTC. Aby wykonać zapytanie, użyj `enqueuedTime` . |
+| iothub-Interface-Name | ciąg | Ta wartość jest ustawiana przez użytkownika i reprezentuje nazwę interfejsu dwuosiowego, który implementuje komunikat telemetrii. Aby wykonać zapytanie, użyj `$interfaceName` . Ta funkcja jest dostępna w ramach [publicznej wersji zapoznawczej Plug and Play IoT](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Zgodnie z opisem w komunikatach [IoT Hub](iot-hub-devguide-messages-construct.md)w komunikacie są dostępne dodatkowe właściwości systemu. Oprócz **elementów ContentType**, **contentEncoding**i **EnqueuedTime**, można także zbadać **connectionDeviceId** i **connectionModuleId** .
 
@@ -66,7 +65,7 @@ Właściwości aplikacji są ciągami zdefiniowanymi przez użytkownika, które 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$`znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$`, IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Przykład: 
+Zapytanie dotyczące właściwości systemu komunikatów musi być poprzedzone `$` symbolem. Zapytania dotyczące właściwości aplikacji są dostępne wraz z ich nazwą i nie powinny być poprzedzone `$` znakiem. Jeśli nazwa właściwości aplikacji zaczyna się od `$` , IoT Hub wyszuka ją we właściwościach systemu i nie zostanie znaleziona, będzie wyglądać we właściwościach aplikacji. Przykład: 
 
 Aby wykonać zapytanie o Właściwość system contentEncoding 
 
@@ -142,12 +141,12 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik Master. zip. Plik Program.cs rozwiązania Visual Studio *SimulatedDevice*przedstawia sposób kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części Program.cs ma także metodę odczytywania w jednym z zakodowanych plików, dekodowanie go i zapisanie go jako ASCII, aby można było go odczytać. 
+> Pokazuje, jak obsłużyć kodowanie treści w języku JavaScript. Jeśli chcesz zobaczyć przykład w języku C#, Pobierz [przykłady w języku c# dla usługi Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Rozpakuj plik master.zip. Plik Program.cs rozwiązania Visual Studio *SimulatedDevice*przedstawia sposób kodowania i przesyłania komunikatów do IoT Hub. Jest to ten sam przykład używany do testowania routingu wiadomości, zgodnie z opisem w [samouczku dotyczącym routingu wiadomości](tutorial-routing.md). W dolnej części Program.cs ma także metodę odczytywania w jednym z zakodowanych plików, dekodowanie go i zapisanie go jako ASCII, aby można było go odczytać. 
 
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie o treść wiadomości musi być poprzedzone prefiksem `$body`. W wyrażeniu zapytania można użyć odwołania do treści, odwołania do tablicy treści lub wielu odwołań do treści. Wyrażenie zapytania może także łączyć treść z odwołaniem przy użyciu właściwości systemu komunikatów i komunikatów o właściwościach aplikacji. Na przykład następujące są wszystkie prawidłowe wyrażenia zapytania: 
+Zapytanie o treść wiadomości musi być poprzedzone prefiksem `$body` . W wyrażeniu zapytania można użyć odwołania do treści, odwołania do tablicy treści lub wielu odwołań do treści. Wyrażenie zapytania może także łączyć treść z odwołaniem przy użyciu właściwości systemu komunikatów i komunikatów o właściwościach aplikacji. Na przykład następujące są wszystkie prawidłowe wyrażenia zapytania: 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -200,7 +199,7 @@ Routing komunikatów umożliwia wykonywanie zapytań dotyczących tagów i wła�
 
 ### <a name="query-expressions"></a>Wyrażenia zapytań
 
-Zapytanie dotyczące sznurka komunikatu musi być poprzedzone prefiksem `$twin`. Wyrażenie zapytania może również łączyć tag bliźniaczy lub odwołanie do właściwości z odwołaniem do treści, właściwościami systemu komunikatów i odwołaniami do właściwości aplikacji komunikatów. Zalecamy używanie unikatowych nazw w tagach i właściwościach, ponieważ w kwerendzie nie jest rozróżniana wielkość liter. Dotyczy to zarówno bliźniaczych reprezentacji urządzeń, jak i modułu bliźniaczych reprezentacji. Należy również zrezygnować `twin`z `$twin`używania `body`,, `$body`, lub, jako nazwy właściwości. Na przykład następujące są wszystkie prawidłowe wyrażenia zapytania: 
+Zapytanie dotyczące sznurka komunikatu musi być poprzedzone prefiksem `$twin` . Wyrażenie zapytania może również łączyć tag bliźniaczy lub odwołanie do właściwości z odwołaniem do treści, właściwościami systemu komunikatów i odwołaniami do właściwości aplikacji komunikatów. Zalecamy używanie unikatowych nazw w tagach i właściwościach, ponieważ w kwerendzie nie jest rozróżniana wielkość liter. Dotyczy to zarówno bliźniaczych reprezentacji urządzeń, jak i modułu bliźniaczych reprezentacji. Należy również zrezygnować z używania `twin` , `$twin` , `body` , lub `$body` , jako nazwy właściwości. Na przykład następujące są wszystkie prawidłowe wyrażenia zapytania: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

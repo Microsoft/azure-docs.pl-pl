@@ -16,10 +16,9 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728042"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling Tool środki zaradcze
@@ -35,7 +34,7 @@ Odwiedź **[Threat Modeling Tool](threat-modeling-tool.md)** , aby zacząć już
 | Kategoria | Opis |
 | -------- | ----------- |
 | **[Inspekcja i rejestrowanie](threat-modeling-tool-auditing-and-logging.md)** | Jak i kiedy? Inspekcja i rejestrowanie — Zobacz, jak aplikacja rejestruje zdarzenia związane z zabezpieczeniami |
-| **[Uwierzytelnianie](threat-modeling-tool-authentication.md)** | Kim jesteś? Uwierzytelnianie to proces, w którym jednostka udowadnia tożsamość innej jednostki, zwykle za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. |
+| **[Authentication](threat-modeling-tool-authentication.md)** | Kim jesteś? Uwierzytelnianie to proces, w którym jednostka udowadnia tożsamość innej jednostki, zwykle za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. |
 | **[Autoryzacja](threat-modeling-tool-authorization.md)** | Co możesz zrobić? Autoryzacja to sposób, w jaki aplikacja zapewnia kontrolę dostępu dla zasobów i operacji |
 | **[Zabezpieczenia komunikacji](threat-modeling-tool-communication-security.md)** | Na kogo rozmawiasz? Zabezpieczenia komunikacji zapewniają, że cała komunikacja jest tak bezpieczna, jak to możliwe |
 | **[Zarządzanie konfiguracją](threat-modeling-tool-configuration-management.md)** | Kto działa jako aplikacja? Z których baz danych nawiązuje połączenie? Jak ma być administrowane Twoja aplikacja? Jak są zabezpieczane te ustawienia? Zarządzanie konfiguracją to sposób, w jaki aplikacja obsługuje te problemy operacyjne |

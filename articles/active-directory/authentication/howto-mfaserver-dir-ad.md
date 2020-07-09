@@ -13,10 +13,9 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480984"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
@@ -35,7 +34,7 @@ Domyślnie serwer usługi Azure Multi-Factor Authentication (MFA) jest skonfigur
 > [!NOTE]
 > Integracja katalogów nie gwarantuje pracy z katalogami innymi niż Active Directory Domain Services.
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Użyj usługi Active Directory |Wybierz opcję Użyj usługi Active Directory, aby użyć tej usługi do importowania i synchronizacji.  Jest to ustawienie domyślne. <br>Uwaga: aby integracja z usługą Active Directory działała prawidłowo, przyłącz komputer do domeny i zaloguj się przy użyciu konta domeny. |
 | Uwzględnij domeny zaufane |Zaznacz pole wyboru **Uwzględnij domeny zaufane**, jeśli chcesz, aby agent podejmował próbę nawiązania połączenia z domenami ustawionymi jako zaufane dla bieżącej domeny lub innej domeny w lesie albo domenami zaufanymi lasu.  Jeśli nie zachodzi importowanie ani synchronizowanie użytkowników z żadnej z zaufanych domen, usuń zaznaczenie pola wyboru, aby poprawić wydajność.  Pole jest domyślnie zaznaczone. |
@@ -45,7 +44,7 @@ Domyślnie serwer usługi Azure Multi-Factor Authentication (MFA) jest skonfigur
 
 W poniższej tabeli opisano ustawienia konfiguracji LDAP.
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Serwer |Wprowadź nazwę hosta lub adres IP serwera z uruchomionym katalogiem LDAP.  Serwer zapasowy można także określić osobno, oddzielając go średnikiem. <br>Uwaga: Jeśli typ powiązania to SSL (TLS), wymagana jest w pełni kwalifikowana nazwa hosta. |
 | Podstawowa nazwa wyróżniająca |Wprowadź nazwę wyróżniającą obiektu podstawowego katalogu, z którego będą uruchamiane wszystkie zapytania katalogu.  Na przykład: dc=abc,dc=com. |
@@ -76,11 +75,11 @@ Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na l
 
 ![Dostosowywanie atrybutów integracji katalogów na serwerze MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Unikatowy identyfikator |Wprowadź nazwę atrybutu, która pełni rolę unikatowego identyfikatora rekordów kontenera, grupy zabezpieczeń i użytkowników.  W katalogu Active Directory jest to zazwyczaj wartość elementu objectGUID. Inne implementacje katalogu LDAP mogą używać wartości entryUUID lub podobnej.  Wartość domyślna to objectGUID. |
 | Typ unikatowego identyfikatora |Wybierz typ atrybutu unikatowego identyfikatora.  W katalogu Active Directory atrybut objectGUID ma typ GUID. Inne implementacje katalogu LDAP mogą używać typu tablicy bajtowej znaków ASCII lub ciągu.  Wartość domyślna to GUID. <br><br>Poprawne ustawienie tego typu jest istotne, ponieważ elementy synchronizacji są przywoływane przy użyciu ich unikatowych identyfikatorów. Typ unikatowego identyfikatora jest używany do bezpośredniego odnajdywania obiektu w katalogu.  Ustawienie typu ciągu w przypadku, gdy wartość jest przechowywana w katalogu jako tablica bajtowa znaków ASCII, uniemożliwia prawidłową synchronizację. |
-| Nazwa wyróżniająca |Wprowadź nazwę atrybutu, który zawiera nazwę wyróżniającą każdego z rekordów.  W katalogu Active Directory jest to zazwyczaj atrybut distinguishedName. Inne implementacje katalogu LDAP mogą używać atrybutu entryDN lub podobnego.  Wartość domyślna to distinguishedName. <br><br>Jeśli nie istnieje atrybut zawierający tylko nazwę wyróżniającą, można użyć atrybutu ścieżki AD.  Część „LDAP://\<serwer\>/” ścieżki jest automatycznie usuwana, co pozwala uzyskać samą nazwę wyróżniającą obiektu. |
+| Nazwa wyróżniająca |Wprowadź nazwę atrybutu, który zawiera nazwę wyróżniającą każdego z rekordów.  W katalogu Active Directory jest to zazwyczaj atrybut distinguishedName. Inne implementacje katalogu LDAP mogą używać atrybutu entryDN lub podobnego.  Wartość domyślna to distinguishedName. <br><br>Jeśli nie istnieje atrybut zawierający tylko nazwę wyróżniającą, można użyć atrybutu ścieżki AD.  Część "LDAP:// \<server\> /" ścieżki jest automatycznie usuwana, pozostawiając tylko nazwę wyróżniającą obiektu. |
 | Nazwa kontenera |Wprowadź nazwę atrybutu, który zawiera nazwę w rekordzie kontenera.  Wartość tego atrybutu jest wyświetlana w hierarchii kontenera podczas importowania pozycji z katalogu Active Directory lub dodawania elementów do synchronizacji.  Wartość domyślna to name. <br><br>Jeśli różne kontenery używają różnych atrybutów dla swoich nazw, rozdziel poszczególne atrybuty nazw kontenera średnikami.  Pierwszy atrybut nazwy kontenera znaleziony w obiekcie kontenera pełni rolę jego nazwy wyświetlanej. |
 | Nazwa grupy zabezpieczeń |Wprowadź nazwę atrybutu, który zawiera nazwę w rekordzie grupy zabezpieczeń.  Wartość tego atrybutu jest wyświetlana na liście grupy zabezpieczeń podczas importowania pozycji z katalogu Active Directory lub dodawania elementów do synchronizacji.  Wartość domyślna to name. |
 | Nazwa użytkownika |Wprowadź nazwę atrybutu, który zawiera nazwę użytkownika w rekordzie użytkownika.  Wartość tego atrybutu jest używana jako nazwa użytkownika serwera usługi Multi-Factor Authentication.  Drugi atrybut może zostać określony jako atrybut zapasowy względem pierwszego.  Drugi atrybut jest używany tylko wtedy, gdy pierwszy atrybut nie zawiera wartości użytkownika.  Wartości domyślne to userPrincipalName i sAMAccountName. |
@@ -121,7 +120,7 @@ Jeśli katalog LDAP obsługuje narzędzie DirSync i jest skonfigurowany do jego 
 
 Poniższa tabela zawiera dodatkowe informacje na temat każdego ustawienia na karcie Synchronizacja.
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Włącz synchronizację z usługą Active Directory |W przypadku zaznaczenia tej opcji usługa serwera Multi-Factor Authentication okresowo sonduje pod kątem zmian w katalogu Active Directory. <br><br>Uwaga: zanim usługa Multi-Factor Auth Server zacznie przetwarzać zmiany, należy dodać co najmniej jeden element synchronizacji i wybrać opcję Synchronizuj teraz. |
 | Synchronizuj co |Określ interwał czasu oczekiwania usługi Multi-Factor Auth Server między sondowaniem pod kątem zmian oraz przetwarzaniem zmian. <br><br> Uwaga: wskazany interwał to czas, jaki mija przed rozpoczęciem każdego kolejnego cyklu.  Jeśli czas przetwarzania zmian przekracza interwał, nastąpi natychmiastowe rozpoczęcie kolejnego sondowania. |

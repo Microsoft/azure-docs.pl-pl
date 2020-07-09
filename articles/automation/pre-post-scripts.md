@@ -5,12 +5,11 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7fa2dd335e457307dd6d7e4ecdc787015b742b32
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
-ms.translationtype: MT
+ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148280"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85100389"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
@@ -90,6 +89,9 @@ Pełny przykład ze wszystkimi właściwościami można znaleźć w: [Pobieranie
 
 > [!NOTE]
 > `SoftwareUpdateConfigurationRunContext`Obiekt może zawierać zduplikowane wpisy dla maszyn. Może to spowodować, że skrypty i skrypty są uruchamiane wiele razy na tym samym komputerze. Aby obejść to zachowanie, użyj, `Sort-Object -Unique` Aby wybrać tylko unikatowe nazwy maszyn wirtualnych.
+
+> [!NOTE]
+> Obecnie tylko elementy Runbook programu PowerShell są obsługiwane jako skrypty poprzedzające i końcowe. Inne typy elementów Runbook, takie jak Python, graficzne, przepływ pracy programu PowerShell, graficzne przepływy pracy programu PowerShell nie są obecnie obsługiwane jako skrypty poprzedzające/końcowe.
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Używanie skryptu wstępnego lub skryptu po wdrożeniu
 

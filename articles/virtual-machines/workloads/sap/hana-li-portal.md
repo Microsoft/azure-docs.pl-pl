@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c14ff9c4f6d2bc2b1a62d1874d01950d09491c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8512675381f6163e66b6b838e8262dd7d2b12374
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70099813"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86130886"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
 W tym dokumencie opisano sposób, w jaki są prezentowane [duże wystąpienia usługi Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) w [Azure Portal](https://portal.azure.com) i jakie działania mogą być wykonywane za pomocą Azure Portal z jednostkami dużej liczby wystąpień usługi Hana wdrożonych dla Ciebie. Widoczność dużych wystąpień usługi HANA w Azure Portal jest udostępniana przez dostawcę zasobów platformy Azure dla dużych wystąpień HANA, które są obecnie dostępne w publicznej wersji zapoznawczej
@@ -31,7 +31,9 @@ Zwykle Twoja subskrypcja platformy Azure używana na potrzeby wdrożeń dużych 
 ### <a name="register-through-cli-interface"></a>Zarejestruj za poorednictwem interfejsu wiersza polecenia
 Musisz zalogować się do subskrypcji platformy Azure, która jest używana na potrzeby wdrożenia dużego wystąpienia HANA za pośrednictwem interfejsu wiersza polecenia platformy Azure. Możesz (ponownie) zarejestrować dostawcę dużego wystąpienia HANA przy użyciu tego polecenia:
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 Aby uzyskać więcej informacji, zobacz artykuł [dostawcy zasobów platformy Azure i typy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
 

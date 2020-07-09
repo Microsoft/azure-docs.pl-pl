@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "80582699"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (Źródło) 
@@ -68,7 +68,7 @@ Operacja podejmuje próbę wykonania operacji na zasobie, który już nie istnie
 
 ## <a name="409-conflict"></a>409 konflikt
 
-Identyfikator podany dla zasobu w operacji `PUT` lub `POST` został podjęty przez istniejący zasób. Aby rozwiązać ten problem, użyj innego identyfikatora dla zasobu.
+Identyfikator podany dla zasobu w `PUT` operacji lub został `POST` podjęty przez istniejący zasób. Aby rozwiązać ten problem, użyj innego identyfikatora dla zasobu.
 
 |Kod błędu|Wartość szesnastkowa |Opis błędu|
 |---|---|---|

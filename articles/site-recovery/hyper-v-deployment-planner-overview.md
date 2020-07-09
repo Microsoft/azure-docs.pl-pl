@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3db3d619118be74ec1429ace70f580558c0a6c9d
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368727"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134357"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informacje o Planista wdrażania usługi Azure Site Recovery odzyskiwania po awarii funkcji Hyper-V na platformie Azure
 
@@ -115,9 +115,9 @@ Zalecana konfiguracja maszyny wirtualnej: 8 wirtualnych procesorów CPU, 16 GB p
 1.  Wyodrębnij folder ZIP.
 Folder zawiera wiele plików i podfolderów. Plik wykonywalny nosi nazwę ASRDeploymentPlanner.exe i znajduje się w folderze nadrzędnym.
 
-Przykład: skopiuj plik zip na dysk E:\ i wyodrębnij go. E:\ASR Deployment Planner_v2.3. zip
+Przykład: skopiuj plik zip na dysk E:\ i wyodrębnij go. Planner_v2.3.zip wdrażania E:\ASR
 
-E:\ASR Deployment Planner_v2.3 \ ASRDeploymentPlanner. exe
+Planner_v2.3\ASRDeploymentPlanner.exe wdrażania E:\ASR
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Aktualizowanie planisty wdrażania do najnowszej wersji
 
@@ -140,4 +140,4 @@ Informacje na temat poprawek, które są dodawane do poszczególnych aktualizacj
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Uruchom planistę wdrażania](site-recovery-hyper-v-deployment-planner-run.md).
+* [Uruchom planistę wdrażania](./hyper-v-deployment-planner-run.md).

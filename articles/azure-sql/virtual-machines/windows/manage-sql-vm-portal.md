@@ -4,7 +4,6 @@ description: Dowiedz się, jak uzyskać dostęp do zasobu maszyny wirtualnej SQL
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: article
@@ -13,17 +12,16 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6cf6fac84abd1d996c77aae7240c0322c5ec53fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
-ms.translationtype: MT
+ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049071"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669005"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi SQL Server na platformie Azure przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W [Azure Portal](https://portal.azure.com)zasób **maszyny wirtualne SQL** jest niezależną usługą zarządzania. Służy do wyświetlania wszystkich SQL Server maszyn wirtualnych jednocześnie i modyfikowania ustawień przeznaczonych dla SQL Server: 
+W [Azure Portal](https://portal.azure.com) **jest to** niezależna usługa zarządzania. Służy do wyświetlania wszystkich SQL Server maszyn wirtualnych jednocześnie i modyfikowania ustawień przeznaczonych dla SQL Server: 
 
 ![Zasób maszyn wirtualnych SQL](./media/manage-sql-vm-portal/sql-vm-manage.png)
 
@@ -60,7 +58,7 @@ Aby uzyskać dostęp do zasobu **maszyny wirtualne SQL** , wykonaj następujące
 ## <a name="access-the-sql-server-configuration-tab"></a>Dostęp do karty konfiguracja SQL Server
 Karta **konfiguracja SQL Server** była przestarzała. W tej chwili jest jedyną metodą zarządzania [końcami](sql-server-2008-extend-end-of-support.md) SQL Server maszynami wirtualnymi, a SQL Server maszyn wirtualnych, które nie zostały [zarejestrowane w dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
 
-Aby uzyskać dostęp do karty **Konfiguracja** przestarzałej SQL Server, przejdź do zasobu **maszyny wirtualne** . Wykonaj następujące czynności:
+Aby uzyskać dostęp do karty **Konfiguracja** przestarzałej SQL Server, przejdź do zasobu **maszyny wirtualne** . Wykonaj następujące kroki:
 
 1. Otwórz [witrynę Azure Portal](https://portal.azure.com). 
 1. Wybierz pozycję **wszystkie usługi**. 

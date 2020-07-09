@@ -4,15 +4,14 @@ description: Dowiedz się, jak buforować zawartość statycznej witryny interne
 author: normesta
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878825"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84465222"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrowanie statycznej witryny sieci Web z Azure CDN
 
@@ -41,7 +40,7 @@ Możesz włączyć Azure CDN dla statycznej witryny sieci Web bezpośrednio z ko
    Aby znaleźć punkt końcowy statycznej witryny internetowej, przejdź do ustawień **statycznej witryny internetowej** dla konta magazynu.  Skopiuj podstawowy punkt końcowy i wklej go do konfiguracji sieci CDN.
 
    > [!IMPORTANT]
-   > Pamiętaj o usunięciu identyfikatora protokołu (*np.* https) oraz końcowego ukośnika w adresie URL. Na przykład jeśli punkt końcowy statycznej witryny sieci `https://mystorageaccount.z5.web.core.windows.net/`Web to, należy określić `mystorageaccount.z5.web.core.windows.net` wartość w polu **Nazwa hosta źródła** .
+   > Pamiętaj o usunięciu identyfikatora protokołu (*np.* https) oraz końcowego ukośnika w adresie URL. Na przykład jeśli punkt końcowy statycznej witryny sieci Web to `https://mystorageaccount.z5.web.core.windows.net/` , należy określić `mystorageaccount.z5.web.core.windows.net` wartość w polu **Nazwa hosta źródła** .
 
    Na poniższej ilustracji przedstawiono przykładową konfigurację punktu końcowego:
 
@@ -49,11 +48,11 @@ Możesz włączyć Azure CDN dla statycznej witryny sieci Web bezpośrednio z ko
 
 1. Wybierz pozycję **Utwórz**, a następnie poczekaj na udostępnienie sieci CDN. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych. (Jeśli w formularzu występują błędy, obok tego pola pojawia się wykrzyknik).
 
-1. Aby sprawdzić, czy punkt końcowy usługi CDN został prawidłowo skonfigurowany, kliknij punkt końcowy, aby przejść do jego ustawień. W obszarze przegląd usługi CDN dla konta magazynu Znajdź nazwę hosta punktu końcowego i przejdź do punktu końcowego, jak pokazano na poniższej ilustracji. Format punktu końcowego usługi CDN będzie podobny do `https://staticwebsitesamples.azureedge.net`.
+1. Aby sprawdzić, czy punkt końcowy usługi CDN został prawidłowo skonfigurowany, kliknij punkt końcowy, aby przejść do jego ustawień. W obszarze przegląd usługi CDN dla konta magazynu Znajdź nazwę hosta punktu końcowego i przejdź do punktu końcowego, jak pokazano na poniższej ilustracji. Format punktu końcowego usługi CDN będzie podobny do `https://staticwebsitesamples.azureedge.net` .
 
     ![Zrzut ekranu przedstawiający przegląd punktu końcowego usługi CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. Po udostępnieniu punktu końcowego usługi CDN przejściu do punktu końcowego usługi CDN zostanie wyświetlona zawartość pliku index. html, który został wcześniej przekazany do statycznej witryny sieci Web.
+1. Po udostępnieniu punktu końcowego usługi CDN przejściu do punktu końcowego usługi CDN zostanie wyświetlona zawartość pliku index.html, który został wcześniej przekazany do statycznej witryny internetowej.
 
 1. Aby przejrzeć ustawienia źródła dla punktu końcowego usługi CDN, przejdź do lokalizacji **źródłowej** w sekcji **Ustawienia** dla punktu końcowego usługi CDN. Zobaczysz, że w polu **Typ źródła** jest ustawiona wartość *Źródło niestandardowe* i że w polu **Nazwa hosta źródła** jest wyświetlany statyczny punkt końcowy witryny sieci Web.
 

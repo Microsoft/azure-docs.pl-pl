@@ -4,25 +4,40 @@
   items:
     - name: Co to jest usługa Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
-      href: overview.md
+      href: ./overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Uruchamianie pierwszego zapytania — witryna Azure Portal
+    - name: Uruchamianie pierwszego zapytania — portal
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Uruchamianie pierwszego zapytania — interfejs wiersza polecenia platformy Azure
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Uruchamianie pierwszego zapytania — program PowerShell
+      href: ./first-query-azurecli.md
+    - name: Uruchamianie pierwszego zapytania — program Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Uruchamianie pierwszego zapytania — platforma .NET
+      displayName: 'core, auth, dotnet'
+      href: ./first-query-dotnet.md
+    - name: Uruchamianie pierwszego zapytania — język Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
+    - name: Uruchamianie pierwszego zapytania — język JavaScript
+      displayName: 'library, node, arm-resourcegraph'
+      href: ./first-query-javascript.md
     - name: Uruchamianie pierwszego zapytania — język Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
+    - name: Uruchamianie pierwszego zapytania — interfejs REST
+      displayName: 'armclient, postman'
+      href: ./first-query-rest-api.md
+    - name: Tworzenie udostępnionego zapytania — interfejs wiersza polecenia platformy Azure
+      displayName: 'extension, docker, queries'
+      href: ./shared-query-azure-cli.md
     - name: Wdrażanie udostępnionego zapytania — szablon usługi ARM
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Samouczki
   items:
     - name: Tworzenie i udostępnianie zapytania w witrynie Azure Portal
@@ -50,6 +65,10 @@
     - name: Wskazówki dotyczące ograniczonych żądań
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
+          href: ./concepts/azure-security-benchmark-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Uzyskiwanie zmian zasobów
@@ -74,7 +93,7 @@
       href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
     - name: Zestaw Azure SDK dla języka Java (Maven)
       href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
-    - name: Zestaw Azure SDK dla platformy Node
+    - name: Zestaw Azure SDK dla języka JavaScript
       href: /javascript/api/@azure/arm-resourcegraph
     - name: Zestaw Azure SDK dla środowiska Python
       href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph

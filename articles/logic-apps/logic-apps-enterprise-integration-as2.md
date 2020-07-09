@@ -9,18 +9,18 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
 ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "82115503"
 ---
-# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Komunikaty programu Exchange AS2 dla integracji z usługą B2B Enterprise w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów AS2 w przypadku integracji B2B dla przedsiębiorstw w usłudze Logic Apps za pomocą Pakietu integracyjnego dla przedsiębiorstw
 
 > [!IMPORTANT]
 > Oryginalny łącznik AS2 jest przestarzały, więc upewnij się, że zamiast niego używasz łącznika **AS2 (v2)** . Ta wersja zapewnia te same możliwości co wersja oryginalna, jest natywna dla środowiska uruchomieniowego Logic Apps i zapewnia znaczną poprawę wydajności w zakresie przepływności i rozmiaru wiadomości. Dodatkowo łącznik macierzysty v2 nie wymaga utworzenia połączenia z kontem integracji. Zamiast tego, zgodnie z opisem w sekcji wymagania wstępne, należy się upewnić, że konto integracji zostało połączone z aplikacją logiki, w której zamierzasz korzystać z łącznika.
 
-Aby móc korzystać z komunikatów AS2 w Azure Logic Apps, można użyć łącznika AS2, który udostępnia wyzwalacze i akcje zarządzania komunikacją AS2. Aby na przykład nawiązać bezpieczeństwo i niezawodność podczas przesyłania komunikatów, możesz użyć następujących akcji:
+Aby pracować z komunikatami specyfikacji AS2 w usłudze Azure Logic Apps, można użyć łącznika AS2, który udostępnia wyzwalacze i akcje zarządzania komunikacją AS2. Aby na przykład nawiązać bezpieczeństwo i niezawodność podczas przesyłania komunikatów, możesz użyć następujących akcji:
 
 * [ **AS2 zakodować** akcję](#encode) w celu zapewnienia szyfrowania, podpisywania cyfrowego i potwierdzeń poprzez powiadomienia o dyspozycjach komunikatów (powiadomienia MDN), które ułatwiają odrzucanie. Na przykład ta akcja stosuje nagłówki AS2/HTTP i wykonuje te zadania po skonfigurowaniu:
 
@@ -88,7 +88,7 @@ W tym artykule pokazano, jak dodać akcje kodowania i dekodowania AS2 do istniej
    | **AS2 do** | Identyfikator odbiorcy wiadomości określony przez umowę AS2 |
    |||
 
-   Przykład:
+   Na przykład:
 
    ![Właściwości kodowania komunikatów](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
